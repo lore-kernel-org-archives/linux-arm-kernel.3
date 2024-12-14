@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2E7E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 09:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB964E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 10:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cml146Fs5k+G4PjNChFTpGbRGu78pseB/DaGmrlqOVo=; b=g0Xy1acui41xlM7CgWcYdEstmp
-	vgnMXuyEVzaojgW/SYt6onRG2fAS5iI83CJg487BkzU43VfyKRUTLwU4NSlY+cKQ4B1r1ow1Odaki
-	fwG6MBSNU9LlgrSWMPtarz4OV3xYGfm4Rbp4Mlwp7Jeq7+E8QiutSxvvKlMy0uWgL+EiNztf8KhuF
-	16Xbz6GxvrH6GeWOTEXp1I8dwo3NWarxI0Ftx9E/s8f/Al7PT0MC4+67fpbwGryv4NvIO4ono2nOS
-	pR247tt0SKRRLw5CADozlFFCrzYOIyu29G4mEdER9fzruGfi4vSI7vquOoca4I+KPWKbHilazgHD8
-	5G9fCvUw==;
+	bh=8NDdZ7criVQVdKqHwJ2Kal6Xww02rI16R8MBCBHunDE=; b=4jrjpgUFgbPSYLRCbHPcyNXWwZ
+	/CVQlGEIEheZ8Y+6mbkX13W3yPMQD2jv98w9hLZHGMwG4UCSNDjIG9rSnPkZXJiWQx+wMqjCG1S4l
+	wo+zefJr2kzP7KJyuDqOg8MxSLZ4QymKw3t0RN1q1yo0UzcJzo1I8XCNXtdgysQGnl9a9BR795u01
+	ZOWrS4TSi7Tw3lbao4/Vt3JvvniYY1jLK4qMui6pCv8BuAdOsUpJeftJzAIrmfCt1FNl0M6Pyvaws
+	H9bDV8s4vKfoZBoAB1rU7AsqWYial1KGEH9VZkIbzX/D9xDkV8CoBz5DRweofy7UylX52V2qLofyL
+	aJUyRFLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMOcP-000000067lI-3ny4;
-	Sat, 14 Dec 2024 09:39:25 +0000
-Received: from mail-io1-f41.google.com ([209.85.166.41])
+	id 1tMPaK-00000006BhQ-16Xg;
+	Sat, 14 Dec 2024 10:41:20 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMObJ-000000067fG-0reM
+	id 1tMPZF-00000006BcO-1T2p
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 09:38:18 +0000
-Received: by mail-io1-f41.google.com with SMTP id ca18e2360f4ac-844cd85f5ebso209283239f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 01:38:16 -0800 (PST)
+	Sat, 14 Dec 2024 10:40:14 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38625aa01b3so256121f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 02:40:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734172811; x=1734777611; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8NDdZ7criVQVdKqHwJ2Kal6Xww02rI16R8MBCBHunDE=;
+        b=gUVVZzWX3HYdJIgxODJcBpdPcwqjaofa787AcnjZmV1SnRlHrHBTnsbL/SjuFT8X5X
+         Vi0F490v/FHgHBBqIzIfMOWs+i2peilw3sC3Bc9NrLm0mLmA0O2GTR1knwgEjl20UB06
+         PUv2zh/gaEn1+kBX++sPl2f1AZD+CWkOdGEXaE+mZAouTC4YyFJU5HTRGoKztD3Un5+c
+         1hLciC+UQsG+6h+q7unSuv7AoxmNMZKC3VIU0nS+SSoslm4J7RGdvCUKz+C4mGZ5D3KZ
+         RetjGKpqedKBFRDWKKh8BFvANqKqFdESCaN2jB2lN/ZvxPiJeiqx+VixRAuG42to4ALR
+         x+LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734169096; x=1734773896;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1734172811; x=1734777611;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Cml146Fs5k+G4PjNChFTpGbRGu78pseB/DaGmrlqOVo=;
-        b=LxW7y002RQqyF68FWo0ox6c8s1gTBu9rB4C4k239JQWhguyLXNAj5b/BMm5hvlXDh8
-         9ZpPI7hRsUjzt8MTv4ejTJ7xQk/05G9+fFuo8AXvvkHPy+/RGcZiaoz6Pf0EAxNOQqcp
-         iim11uE0MGqdt7nOZ8GaeSWhHnBHSwqHKOfySliRiQ17F5dEk7jesqOcLScSm+JXXUO0
-         /p6n4QHnH/o3QCYQoD+oIUXUhmjFDolzDmnk16A0DFeWFJeU6b1trpGz85fwiZijZYrI
-         d9GsjDllgD9GFFrv2hmSaLxAodC6bhnBYcpHIBragFgdBZ/qdUf7IO0uVPf2YgP+JBKf
-         Q0CA==
-X-Forwarded-Encrypted: i=1; AJvYcCUwoIOzm5qfMraaShLTPpL8mDpPImRvZial5OTbJBSyOKISF2UQkDDsk2rrapARC6uQPmClrfTy/3xeaJaOB6jE@lists.infradead.org
-X-Gm-Message-State: AOJu0YypJFjmv5nnCxYng+wcKB42mQdRR+Khe9kQbbAYj0OMgt/0/WJJ
-	CsZlIzLxAUhbc6tR4L08WM9yr6CZdu3CFgjQPBsqm0UVCdNRAghgAPYrWcxa
-X-Gm-Gg: ASbGncsSpHv2/MkitInKGjj+aHwyiDJHhTqi3OlIWUiJxfEUwJe4xqiEwQtJ1zCWWzJ
-	au99mWKNsca98yW91AvM509FsN7bJeaeGIfHsQXW2+i+jCpXKq3eOfz+6W1kzhdisME6uIaoZRN
-	g5bG0ZM4ntqrpxwaJigyLsm6ImJaztV16a6F5xUEpxjFK4b6b1DvZ94F0XpT+bztzVmuidoZoPW
-	5k/d9eW+XDvfvgKcHBElr3WPJ5uClpVOeSiCETrOIJibsWnSpC/amIe5XJK8fUVrJVWkwHtu+oE
-	Gja55/MwAAGj/g==
-X-Google-Smtp-Source: AGHT+IFcAAYJl95u7oS07NobKDKUdhcvxVAwcr/FqjyIZn3whj8bQuO5erFE97uhbWdD8D/XpcUgvA==
-X-Received: by 2002:a05:6602:15d1:b0:843:f220:fa3d with SMTP id ca18e2360f4ac-844e8a97e52mr674464239f.7.1734169095817;
-        Sat, 14 Dec 2024 01:38:15 -0800 (PST)
-Received: from mail-io1-f50.google.com (mail-io1-f50.google.com. [209.85.166.50])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-844f62583f6sm28356539f.14.2024.12.14.01.38.15
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 14 Dec 2024 01:38:15 -0800 (PST)
-Received: by mail-io1-f50.google.com with SMTP id ca18e2360f4ac-844cd85f5ebso209282439f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 01:38:15 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUIxibpSbtvnI+lraXlV2EwDkDu6GvYL0iYSXSv+8nnAIsirM1IoPa5R/oSlHJ3ZN9zDOilwKN9KJjNOPOoRiQI@lists.infradead.org
-X-Received: by 2002:a05:6e02:1541:b0:3a7:776e:93fb with SMTP id
- e9e14a558f8ab-3afee2cfd8cmr67761055ab.8.1734169095423; Sat, 14 Dec 2024
- 01:38:15 -0800 (PST)
+        bh=8NDdZ7criVQVdKqHwJ2Kal6Xww02rI16R8MBCBHunDE=;
+        b=jAcSJG7eQayXRJyRRcGFcyIdTO7mSp31zNIdfcN5Vdgde8ZUcURnCnln57Z97v7pi9
+         +y/akshxgLpjlrOMuuk5+O7bZfQWAUEmySHz4O7XQTQbGxNfL1cV/l9SSoLbflU+kcpt
+         QZrWc6w/kckTlezkvwoKLnQTgHvl/JjGGw7gPxW3F4AzALbRcl2Uhm+Pdp9k42g7MA0A
+         AgqnNld6NiZBhfJzjIijhHsT2uR2N2ru6PyZyWNOb5DlyNbfbz/yM7havVSb602yW4hN
+         siL/+mHJEL+NFDd7QwxQELfhE8vzZSbllO1WA7tM6Ypt/vXVjWVfoLLqoEGT7GrZyz36
+         hbbg==
+X-Forwarded-Encrypted: i=1; AJvYcCVZPG4PIdvV+z8VByk1Upd5XuyCXe5mACdqBmv7G3D2X8GzOi+qReR1DFfRtu5Mv8DTNTH2UIWKSyBrU7JKfEWz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwktYujJAh6BaQVINAHOMcEM6xn/5kIXPTyUQh0fHgp5MIBjgxp
+	RWl84AiRT4VzY7jY3JUEZgxYxYQbCWFM3g96OLslT6xHvFBGKk8R5P0yMYw1DR0=
+X-Gm-Gg: ASbGncurULwg07eXzPJPl5DxILslgStIJmPIpDavpRcvbWTqUN4BKlOGXXK2gMCqiuR
+	MjEMTI7O1siVfsIOglvtTT1CeGbli60PMPkolztQxQbV5kPTli92dmU49pIH+1rhcHKiuvfJopN
+	4mvuVaJea4paGW8ahr8JFqcgrp/ScpK5ApocUuyjTNvCEIFin6kNCHGyOSeypWPx60KtFbOFJ3h
+	xmcLo11Tgo/vJjAmKSVmhON/C3NmJlrC/ay2NCWiFYcB4Pj+ZFFI5y9I+0efy1mJLyrqfkY
+X-Google-Smtp-Source: AGHT+IGr1iG8RISOHOiTTg35lGNZDL66gDIhEtHLO3gjjE3O+P7pn6cBHt0y4vmKD6qwOfGi/YuUXg==
+X-Received: by 2002:a05:600c:5493:b0:435:192:63eb with SMTP id 5b1f17b1804b1-4362aa3a034mr19610635e9.3.1734172811452;
+        Sat, 14 Dec 2024 02:40:11 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.223.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362557c357sm75366345e9.10.2024.12.14.02.40.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Dec 2024 02:40:09 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20241209-exynos990-cmu-v4-0-57f07080f9e4@mentallysanemainliners.org>
+References: <20241209-exynos990-cmu-v4-0-57f07080f9e4@mentallysanemainliners.org>
+Subject: Re: [PATCH v4 0/3] clk: samsung: Introduce Exynos990 clock support
+Message-Id: <173417280888.20557.1392916695437038027.b4-ty@linaro.org>
+Date: Sat, 14 Dec 2024 11:40:08 +0100
 MIME-Version: 1.0
-References: <20241214091937.203842-1-lsahn@ooseel.net>
-In-Reply-To: <20241214091937.203842-1-lsahn@ooseel.net>
-From: Leesoo Ahn <lsahn@ooseel.net>
-Date: Sat, 14 Dec 2024 18:38:04 +0900
-X-Gmail-Original-Message-ID: <CANTT7qi=wZvOQP4PFEi7300MbNjsJ2q=WXceHch1BUrtL-WFDQ@mail.gmail.com>
-Message-ID: <CANTT7qi=wZvOQP4PFEi7300MbNjsJ2q=WXceHch1BUrtL-WFDQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: mm: fault: replace the behavior of fault_info[18]
-To: lsahn@ooseel.net
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
-	Suren Baghdasaryan <surenb@google.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, 
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_013817_243229_60644733 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20241214_024013_442100_D4B6BD99 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +104,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I just figured out that do_sea(..) isn't the right function to deal
-with VMSAv9-128.
-Please ignore this patch.
 
-BR
-Leesoo
+On Mon, 09 Dec 2024 15:45:20 +0100, Igor Belwon wrote:
+> This patchset adds support for the Clock Management Unit found in the
+> Exynos990 SoC. This CMU allows for clocking peripherals such as USB, UFS,
+> MCT, et cetera.
+> 
+> Currently there are two blocks implemented, CMU_TOP which
+> generates clocks for other blocks, and CMU_HSI0, which generates clocks
+> for USB. More blocks will be added (hopefully soon), like HSI1 for UFS.
+> 
+> [...]
 
-2024=EB=85=84 12=EC=9B=94 14=EC=9D=BC (=ED=86=A0) =EC=98=A4=ED=9B=84 6:20, =
-Leesoo Ahn <lsahn@ooseel.net>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> Replace the behavior of 18th element of fault_info with the 'fn' member t=
-o
-> do_sea(..) and 'name' to 'level -2 (translation table walk)' based on
-> the information[1] of the latest reference manual[2].
->
-> The information has described in the chapter, D24.2.40 of [2] and
-> DFSC[5:0] bit (stands for Data Fault Status Code).
->
-> [1]: Synchronous External abort on translation table walk, level -2
-> [2]: Arm Architecture Reference Manual, for A-profile architecture
->
-> Signed-off-by: Leesoo Ahn <lsahn@ooseel.net>
-> ---
->  arch/arm64/mm/fault.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index ef63651099a9..b1c08289a5cc 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -863,7 +863,7 @@ static const struct fault_info fault_info[] =3D {
->         { do_page_fault,        SIGSEGV, SEGV_ACCERR,   "level 3 permissi=
-on fault"      },
->         { do_sea,               SIGBUS,  BUS_OBJERR,    "synchronous exte=
-rnal abort"    },
->         { do_tag_check_fault,   SIGSEGV, SEGV_MTESERR,  "synchronous tag =
-check fault"   },
-> -       { do_bad,               SIGKILL, SI_KERNEL,     "unknown 18"     =
-               },
-> +       { do_sea,               SIGKILL, SI_KERNEL,     "level -2 (transl=
-ation table walk)"     },
->         { do_sea,               SIGKILL, SI_KERNEL,     "level -1 (transl=
-ation table walk)"     },
->         { do_sea,               SIGKILL, SI_KERNEL,     "level 0 (transla=
-tion table walk)"      },
->         { do_sea,               SIGKILL, SI_KERNEL,     "level 1 (transla=
-tion table walk)"      },
-> --
-> 2.46.1
->
+Applied, thanks!
+
+[1/3] dt-bindings: clock: Add Exynos990 SoC CMU bindings
+      https://git.kernel.org/krzk/linux/c/5feae3e79dbe2d357b223fc48ae907ba0aedb271
+[2/3] clk: samsung: clk-pll: Add support for pll_{0717x, 0718x, 0732x}
+      https://git.kernel.org/krzk/linux/c/4a450ed26c580316d720154e7ffb5e9b4763a11a
+[3/3] clk: samsung: Introduce Exynos990 clock controller driver
+      https://git.kernel.org/krzk/linux/c/bdd03ebf721f70df1458a720b25998a489f63297
+
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
