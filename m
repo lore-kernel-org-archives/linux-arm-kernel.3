@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87814E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6FEE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sCtQKiy0me5kc7bJj6K8HmU5ESpCzhRnxpcJPe/XrIc=; b=MHnUOAeuS9zSYe8WqDQAOvi35K
-	U8JXuQiLJNP8cM4A0EOeYRSE4yM7Mql2dUZpwYYITUDRY3pMvGenYk6/Xz2CDbnbc81mpxzC8KjqD
-	TAQLAM8TqaxuPAPb1xKbSQXAviVIx+BpIKOXUKu8gsnYOXiDdUNm9jYrwQXrRO3Qw45MtLbGM6+v7
-	Z2QA9buPlEh27J59Uevp3Ig013sszPeaHNHCd+gryRvMOfYFBhPGYAlYDLA6KImz5tapNmOw9O57p
-	vMleq7UwWfTWfvjvGQCBBqco1fe49GW1LIMehn7drd8Uj8y0AJf46LAy1OgulAm+mlV27ktf73Rd3
-	sss/569Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w/mwqlldhdUNZw8mhvNpRd4TsYnOabctYvvTfesFo7E=; b=KYokrVfNmmVsv2uJieO2FQBgE3
+	OS8g5OUJDkQjVT6HQEhBHO7CYY0TlT1rIIbtL1Y0FN7USZxiu60mEanMC22HP/NmdNLTyA9fbaop3
+	qaXYnGfvZoYS7W9+cp6tIyma7CnPVI9Bj10FfMXQjsxQVWiclJxXejPnq44CDn6AY0ZhEZL12rvJR
+	FVOWGV3Ozy8Hi/Fy1y6q3MMDQI008J0wiLpwUmSMyYD/Ht3cOKqb3lLqWoCzpz1WPsH5iiPREatN4
+	M2gUHmgBNm63TINrBbgNVIpx9WyzToUIO0nGe9GWcHZvKvUah74y78kfpyiAlv01EdcG/GLkaU+jm
+	p0wg+z7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMawJ-000000074fJ-2h0V;
-	Sat, 14 Dec 2024 22:48:47 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tMaxM-000000074ns-1L7z;
+	Sat, 14 Dec 2024 22:49:52 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMavE-000000074WU-2vOm
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 22:47:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734216461; x=1765752461;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AKxRtbsHNV4cXXEwh68zgfEHkimry76rewwLYZhrLjc=;
-  b=XI4POUVrXz9VA9E5wHXeVL0g8gtv+pHHy1F+4zvS9DBISwKti56dF6ts
-   42U+M/kGlDvKvP4nmFzdVDAzwk4Bb1TF5Q83/ISZ/+Enx5Kamez5ualFc
-   FPc5+dtzVK8ON9ywWS1L7Zg5DyAm4k/MUDQlwVz+SSCjX7ATSbvhsSuGd
-   5FaBX3CGoaLFZbHvsQqqt0DGNQr33TCiWXkpZ96MvbSjohuE8qokFdAaY
-   Mjd3u3XBq0i7UsRtPrxQ3UxUgFK9w5PFF/paMqGPEsbIqDG7stoJ/nn1v
-   bXSvP5ChbW8UziHhFLUgLrVN1FZdHkTdZk7gc3Us06pUL+nv3DufysK2P
-   A==;
-X-CSE-ConnectionGUID: VXcwpuT6Q8W5fa4D7JUlWw==
-X-CSE-MsgGUID: vnQq0Zy+R8+P84/hRTOHlA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11286"; a="45329655"
-X-IronPort-AV: E=Sophos;i="6.12,235,1728975600"; 
-   d="scan'208";a="45329655"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Dec 2024 14:47:36 -0800
-X-CSE-ConnectionGUID: GKJobGtzR7membUQCuxeXw==
-X-CSE-MsgGUID: IF8cd/2vSpiSpmThf6WLqQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="96705256"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 14 Dec 2024 14:47:32 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tMav3-000DIU-13;
-	Sat, 14 Dec 2024 22:47:29 +0000
-Date: Sun, 15 Dec 2024 06:46:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: James Houghton <jthoughton@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>
-Cc: oe-kbuild-all@lists.linux.dev, Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Yan Zhao <yan.y.zhao@intel.com>,
-	James Houghton <jthoughton@google.com>,
-	Nikita Kalyazin <kalyazin@amazon.com>,
-	Anish Moorthy <amoorthy@google.com>,
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>,
-	David Matlack <dmatlack@google.com>, Wang@google.com,
-	Wei W <wei.w.wang@intel.com>, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v1 10/13] KVM: selftests: Add KVM Userfault mode to
- demand_paging_test
-Message-ID: <202412150600.wLk8rmZf-lkp@intel.com>
-References: <20241204191349.1730936-11-jthoughton@google.com>
+	id 1tMavz-000000074cc-1yft;
+	Sat, 14 Dec 2024 22:48:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=w/mwqlldhdUNZw8mhvNpRd4TsYnOabctYvvTfesFo7E=; b=0XE8byCmo+jmC1INaQjAPTlrus
+	pPgB1W+DtrHXZxckAdQ8tpoNGo63j6EWf5xQYwEE2TzLhZS/5d4tkvPOVm8LlywyT//jfGfw/HXaW
+	T6yDc68rzv5Meia8jIcZREvC4R2K+Lrk1FMeYDMCJGZgCMEAoDmIsbjUS43Elf6h6NRzIkkBXAvoJ
+	avrIKxVO7Luc6zYYSFENDqDRaG0SFx0GuIJvNBGaosdmVFCVH14K1i1RaPSVwU/JhR67ddXf+MK7s
+	yw+xv1oA7FtwI62+Z+jmu9uDogCzzpyBqL+ezXeiqDvn4LC6gYGhEbItOLeCwjP6G2J090ckNAq75
+	TrOJStGw==;
+Received: from i53875bc4.versanet.de ([83.135.91.196] helo=phil.fritz.box)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tMavv-0000P4-Tk; Sat, 14 Dec 2024 23:48:23 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	linux-clk@vger.kernel.org,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH] clk: rockchip: rk3588: make refclko25m_ethX critical
+Date: Sat, 14 Dec 2024 23:48:19 +0100
+Message-ID: <20241214224820.200665-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241204191349.1730936-11-jthoughton@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_144740_797890_857D18F1 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241214_144827_529606_6788A441 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-kernel test robot noticed the following build errors:
+Ethernet phys normally need a 25MHz refclk input. On a lot of boards
+this is done with a dedicated 25MHz crystal. But the rk3588 CRU also
+provides a means for that via the refclko25m_ethX clock outputs that
+can be used for that function.
 
-[auto build test ERROR on 4d911c7abee56771b0219a9fbf0120d06bdc9c14]
+The mdio bus normally probes devices on the bus at runtime, by reading
+specific phy registers. This requires the phy to be running and thus
+also being supplied by its reference clock.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/James-Houghton/KVM-Add-KVM_MEM_USERFAULT-memslot-flag-and-bitmap/20241205-032516
-base:   4d911c7abee56771b0219a9fbf0120d06bdc9c14
-patch link:    https://lore.kernel.org/r/20241204191349.1730936-11-jthoughton%40google.com
-patch subject: [PATCH v1 10/13] KVM: selftests: Add KVM Userfault mode to demand_paging_test
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241215/202412150600.wLk8rmZf-lkp@intel.com/reproduce)
+While there exist the possibility and dt-binding to declare these
+input clocks for each phy in the phy-dt-node, this is only relevant
+_after_ the phy has been detected and during the drivers probe-run.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412150600.wLk8rmZf-lkp@intel.com/
+This results in a chicken-and-egg-problem. The refclks in the CRU are
+running on boot of course, but phy-probing can very well happen after
+clk_disable_unused has run.
 
-All errors (new ones prefixed by >>):
+In the past I tried to make clock-handling part of the mdio bus code [0]
+but that wasn't very well received, due to it being specific to OF and
+clocks with the consensus being that resources needed for detection
+need to be enabled before.
 
->> demand_paging_test.c:220:2: error: address argument to atomic operation must be a pointer to _Atomic type ('unsigned long *' invalid)
-     220 |         atomic_fetch_and_explicit(bitmap_chunk,
-         |         ^                         ~~~~~~~~~~~~
-   /opt/cross/clang-ab51eccf88/lib/clang/19/include/stdatomic.h:169:35: note: expanded from macro 'atomic_fetch_and_explicit'
-     169 | #define atomic_fetch_and_explicit __c11_atomic_fetch_and
-         |                                   ^
-   1 error generated.
+So to make probing ethernet phys using the internal refclks possible,
+make those 2 clocks critical.
 
+[0] https://lore.kernel.org/netdev/13590315.F0gNSz5aLb@diego/T/
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ drivers/clk/rockchip/clk-rk3588.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+index 0ffaf639f807..2f63985a6d07 100644
+--- a/drivers/clk/rockchip/clk-rk3588.c
++++ b/drivers/clk/rockchip/clk-rk3588.c
+@@ -792,10 +792,10 @@ static struct rockchip_clk_branch rk3588_clk_branches[] __initdata = {
+ 	COMPOSITE(MCLK_GMAC0_OUT, "mclk_gmac0_out", gpll_cpll_p, 0,
+ 			RK3588_CLKSEL_CON(15), 7, 1, MFLAGS, 0, 7, DFLAGS,
+ 			RK3588_CLKGATE_CON(5), 3, GFLAGS),
+-	COMPOSITE(REFCLKO25M_ETH0_OUT, "refclko25m_eth0_out", gpll_cpll_p, 0,
++	COMPOSITE(REFCLKO25M_ETH0_OUT, "refclko25m_eth0_out", gpll_cpll_p, CLK_IS_CRITICAL,
+ 			RK3588_CLKSEL_CON(15), 15, 1, MFLAGS, 8, 7, DFLAGS,
+ 			RK3588_CLKGATE_CON(5), 4, GFLAGS),
+-	COMPOSITE(REFCLKO25M_ETH1_OUT, "refclko25m_eth1_out", gpll_cpll_p, 0,
++	COMPOSITE(REFCLKO25M_ETH1_OUT, "refclko25m_eth1_out", gpll_cpll_p, CLK_IS_CRITICAL,
+ 			RK3588_CLKSEL_CON(16), 7, 1, MFLAGS, 0, 7, DFLAGS,
+ 			RK3588_CLKGATE_CON(5), 5, GFLAGS),
+ 	COMPOSITE(CLK_CIFOUT_OUT, "clk_cifout_out", gpll_cpll_24m_spll_p, 0,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.45.2
+
 
