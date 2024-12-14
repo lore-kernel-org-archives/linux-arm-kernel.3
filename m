@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3438E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 15:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC50E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 15:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kSxXgL0V1UHwaghXfPnwj6ZyebGhbcff5eVA8hQElAg=; b=c1y5DOk9z7SU7wD+iGMj7h5UyV
-	oDI5mI085455WrTt0m7z0phJHiypkisqJ9B+mhtLG69WVGHzBlQgRonQ8jEUD5mUkpnDrc9EjHYp+
-	EeDxJ2+vYjukyuAxbFOkoQ13qfcdM9tD/AnsAi91C2zGehHt9PKdBNXmbzttAXqfrrXQ9JFf1b+P5
-	+oic2RAaFVPQaKB/74P5x/zXRKzgSFAZeSkAkq6NHVkDDT433EBeTfIFTe4JqtVNvCofkWLojuDTz
-	CpTY8qTS1XMvFzMgEaHu5336eFyG8wsO0W/AmwtT9hORs2dAn5oGFz+OFEXFXYHgdlYzVTge88372
-	Q43LvQcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KSMpT2JnTQDV80YzP6AyJhTbL5jGal4RBg0V1yTlHnY=; b=nyjVhnleZE0goLnq/+EBlIICH9
+	WXskLZ/cyrw0SFnuec6auEsiZ6h/k5qRmt8zr4S+EhTEMz0muNMaxfT+z4ldEs1QLvaOc/HKSjau0
+	r21CcYxdAgfK65YbSKskUd0ZHsYlPNy6GBpeckO/5p3uPMC9XvYZrsEOb8cVwp84EvDh85z9Gs28G
+	f/J1DEEwNhkBh0uH1TisPPQ+G5Y9/OGdfqmg0Jx7/jjZcgrQhZcUzxW7uFg8jFw7FziAbMYiK065X
+	1aHpDY18a041ETWebdBHs23R+hqZkC8bss/9PjxHMgHKZokWcmqZO0BJuNDdW1UmXhxTSXqYiNC5N
+	oCx6sEjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMTpS-00000006XE2-2ErP;
-	Sat, 14 Dec 2024 15:13:14 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tMTz2-00000006Y8y-1HJc;
+	Sat, 14 Dec 2024 15:23:08 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMToK-00000006X4f-234B;
-	Sat, 14 Dec 2024 15:12:05 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38634c35129so2111441f8f.3;
-        Sat, 14 Dec 2024 07:12:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734189122; x=1734793922; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=kSxXgL0V1UHwaghXfPnwj6ZyebGhbcff5eVA8hQElAg=;
-        b=kI1LYX1qz1OdlFYu+LFqrAVtML5kllJMTkVC2iXMDPkm/VtmzLHHwiJZ8hVbbl8btu
-         Mm6NSyjkI2VyIhzDUmC11YHNA6XNuo5kNsTpSDYVWfpn3woPK9yULWSbVJCYc5n32KYd
-         l77wDssV+hnbM4NEcL4Dl1USYx4aX4Ghmf89Oo2c43+HNUVTMTJegtuW9T+s2TRpcIkH
-         JH7cmNnAM7xr6Fx8hEl/+x2J6RpwWIAsVtNNBbvYMXrNYdcbdUiI7HRqxKkhiDWjs91i
-         VzvDI06AA4lzXUhXYi8EB40kMVUiU+QZzRkNdCVHJmN0RIjTThUDXNJeKXPTWGEecoOX
-         1T7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734189122; x=1734793922;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kSxXgL0V1UHwaghXfPnwj6ZyebGhbcff5eVA8hQElAg=;
-        b=NJK6b78pew82/5kqjQ2xQQy+iC9BklDUih0F7eZjvPO/ii1UOplcSBvKeKJQjsWL5u
-         +3DIfeUHketvmTuX7irtJp8qgI64rp4EHwhrVbn1ON8lDH8rUcD4mVfRNDb4u0dXmulV
-         M+qqELwSKimKy4LICgXXIhTZhN5AJxljTDEFx3XUN05FHJie7GIjouBxwtPq9FS9iI+z
-         UDS+nhlK4L+f8MRaEZi4GP8sU2Z0khj/qwB4zf8OwqU3I3NMDHToukYwRjM/RwUIKHJo
-         CC/oZfoFFT9Vyco6mcgZ+s+TLoT4pjHRFcD3ZQLB1CFK0QJ3gmlbeBFy3aMrx2vaVZaV
-         /H2g==
-X-Forwarded-Encrypted: i=1; AJvYcCW3xXfvG9GaE0HFU5utFLMpuMx2DzUMzk303EjHxiK2vyrAHvaYjlTNqOTnZ+My+2mK9hk9UvOyOUCwXV5eP3o=@lists.infradead.org, AJvYcCWEvkLfuiTYCRO1c5gxqoptYqlEf/2IFJwrlfIkhTGyPdQOCEQk7mWjiViY3UslHp29suyu54375XAwJ0EeKWbQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS2Kp3QW71VKZyLJmXAly0kNJ3piw2E06H+QlJ5UmQaNhJ2vLn
-	B0CjeP9E/l9zgQu84e3LCBxIAm3pfge0KOgr4PL4+BlHSE43gviG
-X-Gm-Gg: ASbGncuRa2ZnYZLV8DVVRZ63oQnUQrgGiLxNkhfQDB5JHGWPSdEtoZdoehQ7nMbE3z8
-	VAuGlaI++Qux26LBJ9narHwc7iOv5TKsVKi6MGYMJay1BMca1uZZ9lvo3dYp5Yc+VSkfwZX8A0w
-	jb3pjJTD5X8q4BwFJcVk90AZZ9AjeatHVNoMs+gMW1c55ZZ+Oski6FyLRIoVTdQ7O7zXX+iZcM5
-	2wxOqTAgV/z+oesx7Z50w+nHO9HhDUb/lZiePrb5y0lZzUb+GDcmxGXd0jogAvmGV4bn2t9CQxf
-	6AB0swsFi8aH
-X-Google-Smtp-Source: AGHT+IHviim7NbVtUOIT+HnieV8oHcaBrBqk3Euy0/kRPqRbIEFM5mW2+1jwbLENz44EIQcBecLugg==
-X-Received: by 2002:a05:6000:2a3:b0:385:e4a7:df07 with SMTP id ffacd0b85a97d-3888e0b9ea9mr4497177f8f.42.1734189122114;
-        Sat, 14 Dec 2024 07:12:02 -0800 (PST)
-Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362571776asm80794525e9.40.2024.12.14.07.12.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 07:12:01 -0800 (PST)
-Message-ID: <675da041.050a0220.a8e65.af0e@mx.google.com>
-X-Google-Original-Message-ID: <Z12gOtM4EWWMgLnI@Ansuel-XPS.>
-Date: Sat, 14 Dec 2024 16:11:54 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
- AN8855 Switch MFD
-References: <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-1-ansuelsmth@gmail.com>
- <20241209134459.27110-6-ansuelsmth@gmail.com>
- <20241209134459.27110-6-ansuelsmth@gmail.com>
- <20241210211529.osgzd54flq646bcr@skbuf>
- <6758c174.050a0220.52a35.06bc@mx.google.com>
- <20241210234803.pzm7fxrve4dastth@skbuf>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241210234803.pzm7fxrve4dastth@skbuf>
+	id 1tMTxu-00000006Y4y-0dbn
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Dec 2024 15:21:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734189719; x=1765725719;
+  h=date:from:to:cc:subject:message-id;
+  bh=FRVQt0pX6uDlWgd/hJora0WZcoa/nyIZlhwpMjihalU=;
+  b=JAtehWS2YYE5R6oQoXALE2B7u0oldOSrr2XvgMZFaY3gjlER0YxKUXgu
+   vy76YYCOBkHDOMv/2VoAdpFNLcRNFW6A6PH17B0rhGrhQyDnMTNnUXjEq
+   6yf8rn7wA2AN2hOmB9hAvImcMgdKQqoqYGKulpgVTmcjwHY4mU3eyH+1C
+   qLJgbf+83V5/3r/XPTFW9fkUTbO7UAA1cy9l7/Eb9vRoi7+O1UmZpJBfG
+   LcGlYZWRpN076WsoKwopd/Ij1W6FKGP0HlblVu676EeKbQUAy8bHcFJ8g
+   EGe7QWblxuj4o9oYBVKX1OWXTXk33bzVPIoZfLxHD5Bz7XbDuWnJW54zP
+   g==;
+X-CSE-ConnectionGUID: PE8QBeKQT0q3/Vp+zPb40A==
+X-CSE-MsgGUID: z1MupTHHRQKILDyy0KHntQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11286"; a="34358564"
+X-IronPort-AV: E=Sophos;i="6.12,234,1728975600"; 
+   d="scan'208";a="34358564"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Dec 2024 07:21:58 -0800
+X-CSE-ConnectionGUID: 5xVFWMiVT2iHu4l11aBr3w==
+X-CSE-MsgGUID: FBh8hg6+TRKhsYDLOrwA9A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="100948961"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 14 Dec 2024 07:21:56 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tMTxp-000D09-0y;
+	Sat, 14 Dec 2024 15:21:53 +0000
+Date: Sat, 14 Dec 2024 23:21:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:arm/fixes] BUILD SUCCESS
+ f578281000c50cae991c40e1f68b2fc0b1b9e60e
+Message-ID: <202412142302.4BOR5CWl-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_071204_605039_411E6AA9 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20241214_072158_337741_B0FF7781 
+X-CRM114-Status: UNSURE (   4.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,93 +83,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 01:48:03AM +0200, Vladimir Oltean wrote:
-> On Tue, Dec 10, 2024 at 11:32:17PM +0100, Christian Marangi wrote:
-> > Doesn't regmap add lots of overhead tho? Maybe I should really change
-> > the switch regmap to apply a save/restore logic?
-> > 
-> > With an implementation like that current_page is not needed anymore.
-> > And I feel additional read/write are ok for switch OP.
-> > 
-> > On mdio I can use the parent-mdio-bus property to get the bus directly
-> > without using MFD priv.
-> > 
-> > What do you think?
-> 
-> If performance is a relevant factor at all, it will be hard to measure it, other
-> than with synthetic tests (various mixes of switch and PHY register access).
-> Though since you mention it, it would be interesting to see a comparison of the
-> 3 arbitration methods. This could probably be all done from the an8855_mfd_probe()
-> calling context: read a switch register and a PHY register 100K times and see how
-> long it took, then read 2 switch registers and a PHY register 100K times, then
-> 3 switch registers.... At some point, we should start seeing the penalty of the
-> page restoration in Andrew's proposal, because that will be done after each switch
-> register read. Just curious to put it into perspective and see how soon it starts
-> to make a difference. And this test will also answer the regmap overhead issue.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
+branch HEAD: f578281000c50cae991c40e1f68b2fc0b1b9e60e  Merge tag 'ffa-fix-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
 
-Ok sorry for the delay as I had to tackle an annoying crypto driver...
+elapsed time: 1457m
 
-I was also curious about this and I hope I tested this correctly...
+configs tested: 71
+configs skipped: 1
 
-The testing code is this. Following Vladimir testing and simple time
-comparision before and after. I used 100 times as 100k was very big.
-From the results we can derive our conclusions.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-static void test(struct an8855_mfd_priv *priv, struct regmap *regmap, struct regmap *regmap_phy)
-{
-	ktime_t start_time, end_time;
-	// struct mii_bus *bus = priv->bus;
-    	s64 elapsed_ns;
-	u32 val;
-	int times = 1;
-	int i, j;
+tested configs:
+arc                  randconfig-001-20241214    gcc-13.2.0
+arc                  randconfig-002-20241214    gcc-13.2.0
+arm                  randconfig-001-20241214    gcc-14.2.0
+arm                  randconfig-002-20241214    clang-15
+arm                  randconfig-003-20241214    gcc-14.2.0
+arm                  randconfig-004-20241214    gcc-14.2.0
+arm64                randconfig-001-20241214    clang-15
+arm64                randconfig-002-20241214    clang-20
+arm64                randconfig-003-20241214    clang-15
+arm64                randconfig-004-20241214    gcc-14.2.0
+csky                 randconfig-001-20241214    gcc-14.2.0
+csky                 randconfig-002-20241214    gcc-14.2.0
+hexagon              randconfig-001-20241214    clang-20
+hexagon              randconfig-002-20241214    clang-14
+i386                             allnoconfig    gcc-12
+i386       buildonly-randconfig-001-20241213    clang-19
+i386       buildonly-randconfig-001-20241214    gcc-12
+i386       buildonly-randconfig-002-20241213    gcc-12
+i386       buildonly-randconfig-002-20241214    gcc-12
+i386       buildonly-randconfig-003-20241213    gcc-12
+i386       buildonly-randconfig-003-20241214    clang-19
+i386       buildonly-randconfig-004-20241213    clang-19
+i386       buildonly-randconfig-004-20241214    clang-19
+i386       buildonly-randconfig-005-20241213    gcc-12
+i386       buildonly-randconfig-005-20241214    gcc-11
+i386       buildonly-randconfig-006-20241213    gcc-12
+i386       buildonly-randconfig-006-20241214    gcc-12
+loongarch            randconfig-001-20241214    gcc-14.2.0
+loongarch            randconfig-002-20241214    gcc-14.2.0
+nios2                randconfig-001-20241214    gcc-14.2.0
+nios2                randconfig-002-20241214    gcc-14.2.0
+openrisc                         allnoconfig    gcc-14.2.0
+parisc                           allnoconfig    gcc-14.2.0
+parisc               randconfig-001-20241214    gcc-14.2.0
+parisc               randconfig-002-20241214    gcc-14.2.0
+powerpc                          allnoconfig    gcc-14.2.0
+powerpc              randconfig-001-20241214    clang-20
+powerpc              randconfig-002-20241214    clang-15
+powerpc              randconfig-003-20241214    clang-20
+powerpc64            randconfig-001-20241214    gcc-14.2.0
+powerpc64            randconfig-003-20241214    clang-20
+riscv                            allnoconfig    gcc-14.2.0
+riscv                randconfig-001-20241214    clang-20
+riscv                randconfig-002-20241214    clang-20
+s390                            allmodconfig    clang-19
+s390                             allnoconfig    clang-20
+s390                            allyesconfig    gcc-14.2.0
+s390                 randconfig-001-20241214    gcc-14.2.0
+s390                 randconfig-002-20241214    gcc-14.2.0
+sh                              allmodconfig    gcc-14.2.0
+sh                              allyesconfig    gcc-14.2.0
+sh                   randconfig-001-20241214    gcc-14.2.0
+sh                   randconfig-002-20241214    gcc-14.2.0
+sparc                           allmodconfig    gcc-14.2.0
+sparc                randconfig-001-20241214    gcc-14.2.0
+sparc                randconfig-002-20241214    gcc-14.2.0
+sparc64              randconfig-001-20241214    gcc-14.2.0
+sparc64              randconfig-002-20241214    gcc-14.2.0
+um                               allnoconfig    clang-18
+um                   randconfig-001-20241214    clang-20
+um                   randconfig-002-20241214    clang-17
+x86_64                           allnoconfig    clang-19
+x86_64     buildonly-randconfig-001-20241214    gcc-11
+x86_64     buildonly-randconfig-002-20241214    clang-19
+x86_64     buildonly-randconfig-003-20241214    gcc-12
+x86_64     buildonly-randconfig-004-20241214    gcc-12
+x86_64     buildonly-randconfig-005-20241214    gcc-12
+x86_64     buildonly-randconfig-006-20241214    clang-19
+x86_64                             defconfig    gcc-11
+xtensa               randconfig-001-20241214    gcc-14.2.0
+xtensa               randconfig-002-20241214    gcc-14.2.0
 
-	start_time = ktime_get();
-	for (i = 0; i < 100; i++) {
-		for (j = 0; j < times; j++) {
-			regmap_read(regmap, 0x10005000, &val);
-		}
-		// mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-		// // an8855_mii_set_page(priv, priv->switch_addr, 0);
-		// __mdiobus_read(bus, priv->switch_addr, 0x1);
-		// mutex_unlock(&bus->mdio_lock);
-		regmap_read(regmap_phy,
-			   FIELD_PREP(GENMASK(20, 16), priv->switch_addr) |
-			   FIELD_PREP(GENMASK(15, 0), 0x1),
-			   &val);
-		times++;
-	}
-
-	end_time = ktime_get();
-
-	elapsed_ns = ktime_to_ns(ktime_sub(end_time, start_time));
-
-	pr_info("Time spent in the code block: %lld ns\n", elapsed_ns);
-}
-
-With the code changed accordingly.
-
-switch regmap + page (proposed implementation)
-Time spent in the code block:  866179846 ns
-
-switch regmap + phy regmap (proposed implementation + PHY regmap)
-Time spent in the code block:  861326846 ns
-
-switch regmap restore (switch regmap read/set/restore page)
-Time spent in the code block: 1151011308 ns
-
-switch regmap restore + phy regmap (switch regmap read/set/restore pgae
-+ PHY regmap)
-Time spent in the code block: 1147400462 ns
-
-We can see that:
-- as suggested regmap doesn't cause any performance penality. It does
-  even produce better result.
-- the read/set/restore implementation gives worse performance.
-
-So I guess I will follow the path of regmap + cache page. What do you
-think?
-
--- 
-	Ansuel
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
