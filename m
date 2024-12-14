@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF3DE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 10:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F42E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 10:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VV5uB4pW3I7PFM+MdqLT3Z46mt4gLHWB+cSrr/zUkkQ=; b=XHYqZ/Z27P45oM8wB832rlwmQm
-	lKjmCISGaVLEOHqblmsSLfbRFkTwbkIq5U+e1mZ9k3tWSJTCnZVTESEKYIfVfgnyB0E/AF225Oh/H
-	wsMYwZfklUyWnGCBvnKfKNs7SSRTsmxeFsZbDgGDWxgtZreDqFs4mr2+Tvm9m+6IWBoERhxoggHjG
-	SgStILZ6sMg9xH358Mpx4nJQXXo/h9BuwrfPaJWZhOVFyCCboXZJ7ypscWoSyJu1KOld1+sjX31oy
-	voOeeSx8k4c08DPd6BG1sZNO3WXRnh0JhIkXTsIYZtSncqQLmuepB2fAcFxEa/VrMtcQvg5wmGHG8
-	SU0aKbWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fBnlEPV5ymvHiGnKNKfBwtbAjaaMUki69sw/or1PJuA=; b=kgMvC2qjhZLyL7CPQutN5V/CSz
+	K5wTUhNFui69+INwawnJT/xwl3arzqHO4iVFxsFObLBLng322lt4RNejAV3LRQFEJWShxYuKkTxZ7
+	vRTu6owT8znyUTK2SnwycgC48SJDuaJU+Sgc+I/rYk5E7baM7v7P06kjooNNrp4ptxi0DYuDYlVwm
+	hnQB6SMOOIn60VvpB026EwEOvV3LyNUQpisQg+ycmrwsM0FG0rsj+AWruZA3TgquxgK10fhjTafq/
+	VU3w2RoiDzNE1Ogvy8L5/abJvZgA7PKDnAqVxFsZZMSFSDqNfErXrMGjJPYHIbo8lAp8NfvdKv/fh
+	EqUjtHKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMPkl-00000006ChY-0i0f;
-	Sat, 14 Dec 2024 10:52:07 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tMPpt-00000006D7Y-1Ztd;
+	Sat, 14 Dec 2024 10:57:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMPid-00000006CSZ-4C6j
+	id 1tMPop-00000006CzP-0H5i
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 10:49:57 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-385e0d47720so241808f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 02:49:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734173395; x=1734778195; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VV5uB4pW3I7PFM+MdqLT3Z46mt4gLHWB+cSrr/zUkkQ=;
-        b=HH9hzd5VDM2wK9yzG/LDZFB2vwT4rGLcXD4t30RS9vDIT5atUzwJ0iRg371iGTpU2W
-         ddRAiHZJC7IgpNg7h5zh+W6gJIGR0gt5QElTb+OSxb+RdBWMvvAlBKAVPvzl2DWE/eUf
-         ERPEdvaD933M4uwT7Y4y087mgMl+b0nG9bet9GZwnNhlGZCef+Iad6YjpgkI2LYRnfcC
-         gkuptzSHZKnyNn7CwXHzKKRZiIRXLnpyhjKLglxvEEWlbp783US1/+C/ZK0n4pB7X7lf
-         tS/c25Op2vbF8D/rxvO0jJZc6FIZiN9xd0o9FatqhuE2DtztY2zejIiDm8Ak0Ann6Fxc
-         8cyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734173395; x=1734778195;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VV5uB4pW3I7PFM+MdqLT3Z46mt4gLHWB+cSrr/zUkkQ=;
-        b=IU3+c9N/NyOFWsFS41meRDttYtp2vCA1yr9W0y96bDV9tf6OA4JbPn8UbVrwzehWy1
-         FuHOV1G0B5RYlqYTkQWMtZu+7rkaN2MEdXHJG/jujFkmhh9KbHlAEc1Wm/5vQQ+eqI+u
-         kh9dvQva7MSzkI0SAIUz61kHnw46FtH1vjam7Dmgry/8Gzz4PlX/2MmFFVYmNYLK/cgV
-         Gf8LSjfw51ixAA+vMA2Pnfz92LN4N0xbimvzzbBJ5Hf8edQgv6DOF8B/QAEwtcihXNqS
-         /SlwFSt//c+NLt52y51qi673JUXmjekw9uAjaSnUPIJrjszevP1cNsWzGhz4+bzUBUz9
-         DgvA==
-X-Gm-Message-State: AOJu0YzDGWjM5LTXWEIBmMk3Zz0n8CyFbJ/3zzDTAWrDvwSRpBHduEc3
-	mDiMPLYpK79m8A0gUDD4yXDcPKBzaG7zuD5HVs4YWZAVBWLiCbQRgcK44YtBZpE=
-X-Gm-Gg: ASbGncsQKx6OG6YKgwJuko6oVQQHoMsHFa8nPBa0OKkF3SumzK7zGOdJDmgOuQrZYfr
-	6HGQd0K5fjmkynkV0Yar9EtstijRXL5YUu78fxcJHmCwqBBCTlGCZyO1LMJTsv/flguuILVOuOt
-	UeCoi8ZDZCQrB1XR7bI6GqovBsDG8NyuTYGJf4fkZ2p0GuW7PfYLdHLoqqN28qQqzk8wOQL0v2S
-	0uPSdCXm0KRcdMQo81qsBqx4ojfaVyU4rxQ/zY8pWtVTcbFC3B7VK/3rtT4iOPncLpkz9Qj
-X-Google-Smtp-Source: AGHT+IHyTzhFYErYVyT7VJHfprfadGDQxildtN+M2wr4sWYswaUikDqlBN7Bu8mHFXxUDCZdzq8sog==
-X-Received: by 2002:a05:6000:400c:b0:385:e355:7ba with SMTP id ffacd0b85a97d-3888e0bfa95mr1693389f8f.12.1734173394680;
-        Sat, 14 Dec 2024 02:49:54 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c8049facsm2256481f8f.79.2024.12.14.02.49.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 02:49:53 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- krzk+dt@kernel.org, robh@kernel.org, Faraz Ata <faraz.ata@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, alim.akhtar@samsung.com, 
- rosa.pila@samsung.com
-In-Reply-To: <20241212115709.1724-1-faraz.ata@samsung.com>
-References: <CGME20241212115815epcas5p29fdba4ddb93d08035f422444cb826ec3@epcas5p2.samsung.com>
- <20241212115709.1724-1-faraz.ata@samsung.com>
-Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DMA nodes
-Message-Id: <173417339330.24605.2885183556743988867.b4-ty@linaro.org>
-Date: Sat, 14 Dec 2024 11:49:53 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+	Sat, 14 Dec 2024 10:56:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F55D5C4B50;
+	Sat, 14 Dec 2024 10:55:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3940C4CED1;
+	Sat, 14 Dec 2024 10:56:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734173776;
+	bh=MMR2ErCeRcdYEu0/gbXMrmxEoyPZCFQNk9/Pe021FjY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=th5CW7NyRAO6AsL9GNbhpzvJiKkxS1V55bQYfK0IyALfxQHhYSL09/9hhCK+BGWZ8
+	 i7SuR2nX14gd8AYPjYMKA0yvLgOsdhW+6PjK2qTT41A6qt5wtFqMJzewN//X8hho7T
+	 8rjyRCJ/ehrvGXvUCX/tgGuf2r6sUyqJzZVomH13BJTHwA7XdMRBAjriuQHUC5D450
+	 mWdj5t5xrs0q5RVLgSa7bzuyX0pjaGvwfDwCfp1b3eqf2xkNMXQ0NDHyZOQ6Dip9+K
+	 ML085KJ+qsCFUFtxprICFbA0S4bc9vO5mu/R9Q3mshmHCEbkisIyclqrvsR400VO8V
+	 nzrQm3k7RVCIQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tMPok-003hQI-5a;
+	Sat, 14 Dec 2024 10:56:14 +0000
+Date: Sat, 14 Dec 2024 10:56:13 +0000
+Message-ID: <87a5cysfci.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Peter Collingbourne <pcc@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to __cpuinfo_store_cpu()
+In-Reply-To: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
+References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, pcc@google.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_024956_039344_28BB9680 
-X-CRM114-Status: UNSURE (   6.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241214_025619_194629_33ACB748 
+X-CRM114-Status: GOOD (  33.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,21 +88,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 12 Dec 2024 17:27:05 +0530, Faraz Ata wrote:
-> ExynosAutov920 SoC has 7 DMA controllers. Two secure DMAC
-> (SPDMA0 & SPDMA1) and five non-secure DMAC (PDMA0 to PDMA4).
-> Add the required dt nodes for the same.
+[+ Mark]
+On Sat, 14 Dec 2024 00:52:08 +0000,
+Mark Brown <broonie@kernel.org> wrote:
 > 
+> In commit 892f7237b3ff ("arm64: Delay initialisation of
+> cpuinfo_arm64::reg_{zcr,smcr}") we moved access to ZCR, SMCR and SMIDR
+> later in the boot process in order to ensure that we don't attempt to
+> interact with them if SVE or SME is disabled on the command line.
+> Unfortunately when initialising the boot CPU in init_cpu_features() we work
+> on a copy of the struct cpuinfo_arm64 for the boot CPU used only during
+> boot, not the percpu copy used by the sysfs code.
 > 
+> Fix this by moving the handling for SMIDR_EL1 for the boot CPU to
+> cpuinfo_store_boot_cpu() so it can operate on the percpu copy of the data.
+> This reduces the potential for error that could come from having both the
+> percpu and boot CPU copies in init_cpu_features().
+> 
+> This issue wasn't apparent when testing on emulated platforms that do not
+> report values in this ID register.
+> 
+> Fixes: 892f7237b3ff ("arm64: Delay initialisation of cpuinfo_arm64::reg_{zcr,smcr}")
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/kernel/cpufeature.c |  6 ------
+>  arch/arm64/kernel/cpuinfo.c    | 11 +++++++++++
+>  2 files changed, 11 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 6ce71f444ed84f9056196bb21bbfac61c9687e30..b88102fd2c20f77e25af6df513fda09a484e882e 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1167,12 +1167,6 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+>  	    id_aa64pfr1_sme(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1))) {
+>  		unsigned long cpacr = cpacr_save_enable_kernel_sme();
+>  
+> -		/*
+> -		 * We mask out SMPS since even if the hardware
+> -		 * supports priorities the kernel does not at present
+> -		 * and we block access to them.
+> -		 */
+> -		info->reg_smidr = read_cpuid(SMIDR_EL1) & ~SMIDR_EL1_SMPS;
+>  		vec_init_vq_map(ARM64_VEC_SME);
+>  
+>  		cpacr_restore(cpacr);
+> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+> index d79e88fccdfce427507e7a34c5959ce6309cbd12..b7d403da71e5a01ed3943eb37e7a00af238771a2 100644
+> --- a/arch/arm64/kernel/cpuinfo.c
+> +++ b/arch/arm64/kernel/cpuinfo.c
+> @@ -499,4 +499,15 @@ void __init cpuinfo_store_boot_cpu(void)
+>  
+>  	boot_cpu_data = *info;
+>  	init_cpu_features(&boot_cpu_data);
+> +
+> +	/* SMIDR_EL1 needs to be stored in the percpu data for sysfs */
+> +	if (IS_ENABLED(CONFIG_ARM64_SME) &&
+> +	    id_aa64pfr1_sme(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1))) {
+> +		/*
+> +		 * We mask out SMPS since even if the hardware
+> +		 * supports priorities the kernel does not at present
+> +		 * and we block access to them.
+> +		 */
+> +		info->reg_smidr = read_cpuid(SMIDR_EL1) & ~SMIDR_EL1_SMPS;
+> +	}
+>  }
 
-Applied, thanks!
+I don't understand the need to single out SMIDR_EL1. It seems to only
+make things even more fragile than they already are by adding more
+synchronisation phases.
 
-[1/1] arm64: dts: exynosautov920: Add DMA nodes
-      https://git.kernel.org/krzk/linux/c/de7a4e01055b040b303d01d709262b7ce9d818ff
+Why isn't the following a good enough fix? It makes it plain that
+boot_cpu_data is only a copy of CPU0's initial boot state.
 
-Best regards,
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d79e88fccdfce..0cbb42fd48850 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -497,6 +497,6 @@ void __init cpuinfo_store_boot_cpu(void)
+ 	struct cpuinfo_arm64 *info = &per_cpu(cpu_data, 0);
+ 	__cpuinfo_store_cpu(info);
+ 
++	init_cpu_features(info);
+ 	boot_cpu_data = *info;
+-	init_cpu_features(&boot_cpu_data);
+ }
+
+
+Thanks,
+
+	M.
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Without deviation from the norm, progress is not possible.
 
