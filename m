@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659BDE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Dec 2024 23:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C98E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 00:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+VnoE8kjhhknG67/cyGbgYIuFLpdcq1ew1rIJBez+r8=; b=Xg0RRsqHL++BPVEMepKChykgF5
-	YIff3Kkz5VihaxB/EfoF2pZGFp8pvekSmSDsBDWrGPuVRlQKcZXoKnRZV0dO5WdaaxvrmbSc044wQ
-	9ElfaOS/e13XIXf4wkKI0NYQKENcM8u+FlnbkIxnSctXjyEl/1RtwGeSrXdzMxdSfAoWYtzPvlXhx
-	TiaUpe759loazXZsYXOOIcv//msnaY4Upr5gF9W5VTgR+PSDW98duWpicSOKX09BFLy1AatA5o8RV
-	Ds8tfR6ksGAqPS2wUSF1CVoLippdL4+zWrCFd8CuhgYyggTdrSUxKX3ohb5DMMjQ2LUTlwyldTlzi
-	0Wk3gNdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zZHQT3+1AXOHwySh7rmIQ56owPwbOS+jVtet/I/oewQ=; b=zTg7lxiJT/0tQ6Cd/FWCIQKKCX
+	tNpZCAUC52BycfBC5A/Uvxb2NlIZqILNBf5Nm7hsDTyCCys/FrfAtVP69QxMRY/EFAc4sxVBUU11e
+	kxitf9dHR7mq5X1Z++9uPoFEajxfS04Bot5zKDksqV6b+1Ur8lcmH12dbs5E5aY63ApbGGUje0usQ
+	CJMRpJDEFl/3/iQXqVpFAFVPypLC3RUahRecSa8xMJtrnlor3Qy4QR508lR7fvL22kohXN462HZ1V
+	jnobxX48b/3huGyhKMS2CWLv5pIr48yvjAVSSZbiM4cZhsEfNiA5i0eU/5B2SQGZW4mJEevku64Dt
+	BpKFP3hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMFSs-00000005KIa-46X5;
-	Fri, 13 Dec 2024 23:52:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tMGN6-00000005QWW-3nCR;
+	Sat, 14 Dec 2024 00:51:04 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMFRn-00000005KBP-41RI;
-	Fri, 13 Dec 2024 23:51:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C82B5A4040C;
-	Fri, 13 Dec 2024 23:49:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94490C4CED0;
-	Fri, 13 Dec 2024 23:51:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734133910;
-	bh=LBl8bC14OQtqtIKs1HukcWT3y7YKXmSmDiIE/yMGSmc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XtbDPPlZbvqi8CN6Oxf/cp0n+oSr7ObvLvF/U2VDgAChn1LmY9vPTTrZPXt16xhat
-	 inbTnXZlRscl4snJJ6UgFlEeSj8INrtWj3w+kY5Zw6Xwg/PSii2l0HnKE9BmyS9OVT
-	 8N0rE6al1xzB6jamo6faQdVxRpqtjSmRmiAwfcJhnFdx0fBBSN910Mi1qMJ5n+kktQ
-	 5hNIUPaZXmQiXX9jVYYu5/7CRPAvUoy2K6AFHWYU/z5bFe44BQV9tOCZxs16Vn8N4x
-	 pKammezScSiU7mB84NioErtAEA5PzW9kkj2h4m+pmdJm0TyG9CjJqpZAVG7w4/b+7Y
-	 1sa1Hb94hlvOw==
-Date: Fri, 13 Dec 2024 15:51:48 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>,
-	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 02/16] perf tools: arc: Support generic syscall headers
-Message-ID: <Z1zIlKq19lAXMoGs@google.com>
-References: <20241212-perf_syscalltbl-v2-0-f8ca984ffe40@rivosinc.com>
- <20241212-perf_syscalltbl-v2-2-f8ca984ffe40@rivosinc.com>
+	id 1tMGM1-00000005QNK-25BL
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Dec 2024 00:49:59 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3862ca8e0bbso2081256f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Dec 2024 16:49:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734137395; x=1734742195; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zZHQT3+1AXOHwySh7rmIQ56owPwbOS+jVtet/I/oewQ=;
+        b=oRxVwb8wW4ND6uj2xtlew+MLeQ7WGLgQbEA99hPLbQR7bWZ4atcj42w/tESITV9X4X
+         XOpKD/BZTkA2uYkpk0Oow2krklTnrrFkvfS828OEPbjUpzEc9Tobq+5/8rlBpyWLa2hd
+         o1f0Y+D2QQEe+SR1jc2/goIBoZ6C94XGyXgMxQhyv3uUA4QaermySXqBpSaOnhSAXlJx
+         8kMtb37TM5TU9QW9xAauoefmStZd9PHwO8y342ASiOYRIUQGhIDsAL0Isss5fsVJya3Z
+         ardadLgX2y/Z7pChqg1iPTFvRFNL7MYo7bzEK4ZCR2PnQG2/fQk5BJ9Po0k4hE0d6NgN
+         /5SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734137395; x=1734742195;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zZHQT3+1AXOHwySh7rmIQ56owPwbOS+jVtet/I/oewQ=;
+        b=JasZIi5ar4wosC5accqN2EhRDSPpycAa7/hiJeD/k1MgQZzIhhuTJ1TaZKxQJQt2Nw
+         lpQru5qwZvYyIvDrxO6f0Yzl2VUs6PYcaZHG6RLgzJxFznK9cGqMFTNjhFsE1jXHwITE
+         3lqqi2IKGGGnKm6IbP+LXYuewEVKZd7iRwZ10DnfUAbJlAORlwJrYK36QO2sIjqvxCae
+         MfpQ+MGHk7zj5NtiIVjTIuaUfQZVEAv9sJzdIOHBBPEwQFqWm4pssKaKfb4zMweqTKBf
+         nb1e9DPryBjgG23ic5LTkJ10aA41ASIslq+UB8dwhr8whxKfEmrtGXhP8yk1lG0TaX53
+         Wt0Q==
+X-Gm-Message-State: AOJu0Yza4GMB4R68o9RZKLNsEmU/pWbOLC2NM3lllCfJm1nnSRQAxv2j
+	CybhfonI0dW22oXSTtJZzYJt4I/b7StFORF5rnGfFx+ljigWLKpYbldgVZvL15c=
+X-Gm-Gg: ASbGnctG1P5cXa/VkJjZYUqz/aXNqBbIZBMNi1uAGDNMu1dqjctVUDoySKeFDg1yOgk
+	JLtMzwOwEUjdNxNp2BjywP/Zrag3TEzGMwL7mN78hvzxcqXEkP6fs29009QMU2zJXgZ66TQ5DZB
+	VKJ+3eGxzwhAxXy0/wY6c8QAoPmo0yNhDVfRQv1q/7wWS6k18S+03F6Om4PlFEK3uQm8Gc3Co7V
+	uGg9NJDEPl/8lZOYUr4ZV7az/u5/2ZEQvzON9Ld1S6K4WQ2WAEAqgGgMceqm+gpXtVcbg==
+X-Google-Smtp-Source: AGHT+IHGByL+SnFZLh6TJ7bPmNjCMhZaO4qaTKsbRPxcaxQjrB96T87kcly1ELijtAI4mJfcF9Gh8g==
+X-Received: by 2002:a5d:5985:0:b0:385:df73:2f42 with SMTP id ffacd0b85a97d-38880ae14c3mr3370858f8f.32.1734137395326;
+        Fri, 13 Dec 2024 16:49:55 -0800 (PST)
+Received: from [192.168.0.40] ([176.61.106.227])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80165c5sm995925f8f.25.2024.12.13.16.49.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Dec 2024 16:49:54 -0800 (PST)
+Message-ID: <08241f60-a6a1-4b69-bdb9-c9b83ec504f3@linaro.org>
+Date: Sat, 14 Dec 2024 00:49:52 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241212-perf_syscalltbl-v2-2-f8ca984ffe40@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/5] media: qcom: camss: Add sc7280 support
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
+ todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
+ hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
+ hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@quicinc.com,
+ Luca Weiss <luca.weiss@fairphone.com>
+References: <20241206191900.2545069-1-quic_vikramsa@quicinc.com>
+Content-Language: en-US
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <20241206191900.2545069-1-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_155152_114390_402A3D8C 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20241213_164957_591670_BBF7AA9B 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,83 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 04:32:52PM -0800, Charlie Jenkins wrote:
-> Arc uses the generic syscall table, use that in perf instead of
-> requiring libaudit.
+On 06/12/2024 19:18, Vikram Sharma wrote:
+> SC7280 is a Qualcomm SoC. This series adds support to bring up the CSIPHY,
+> CSID, VFE/RDI interfaces in SC7280.
 > 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  tools/perf/Makefile.config                           | 2 +-
->  tools/perf/Makefile.perf                             | 2 +-
->  tools/perf/arch/arc/entry/syscalls/Kbuild            | 2 ++
->  tools/perf/arch/arc/entry/syscalls/Makefile.syscalls | 3 +++
->  tools/perf/arch/arc/include/syscall_table.h          | 2 ++
->  5 files changed, 9 insertions(+), 2 deletions(-)
+> SC7280 provides
 > 
-> diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-> index a72f25162714f0117a88d94474da336814d4f030..3959a9c9972999f6d1bb85e8c1d7dc5dce92fd09 100644
-> --- a/tools/perf/Makefile.config
-> +++ b/tools/perf/Makefile.config
-> @@ -36,7 +36,7 @@ ifneq ($(NO_SYSCALL_TABLE),1)
->    endif
->  
->    # architectures that use the generic syscall table scripts
-> -  ifeq ($(SRCARCH),riscv)
-> +  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc))
-
-This might work as well.
-
-  ifneq ($(filter $(SRCARCH), riscv arc),)
-
-And maybe you can add a variable for supported archs.
-
-Thanks,
-Namhyung
-
-
->      NO_SYSCALL_TABLE := 0
->      CFLAGS += -DGENERIC_SYSCALL_TABLE
->      CFLAGS += -I$(OUTPUT)/tools/perf/arch/$(SRCARCH)/include/generated
-> diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-> index f5278ed9f778f928436693a14e016c5c3c5171c1..3b463b42b0e3982e74056e672b2ee6adad5a3f0e 100644
-> --- a/tools/perf/Makefile.perf
-> +++ b/tools/perf/Makefile.perf
-> @@ -311,7 +311,7 @@ FEATURE_TESTS := all
->  endif
->  endif
->  # architectures that use the generic syscall table
-> -ifeq ($(SRCARCH),riscv)
-> +ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc))
->  include $(srctree)/tools/perf/scripts/Makefile.syscalls
->  endif
->  include Makefile.config
-> diff --git a/tools/perf/arch/arc/entry/syscalls/Kbuild b/tools/perf/arch/arc/entry/syscalls/Kbuild
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..11707c481a24ecf4e220e51eb1aca890fe929a13
-> --- /dev/null
-> +++ b/tools/perf/arch/arc/entry/syscalls/Kbuild
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +syscall-y += syscalls_32.h
-> diff --git a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..391d30ab7a831b72d2ed3f2e7966fdbf558a9ed7
-> --- /dev/null
-> +++ b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
-> @@ -0,0 +1,3 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +syscall_abis_32 += arc time32 renameat stat64 rlimit
-> diff --git a/tools/perf/arch/arc/include/syscall_table.h b/tools/perf/arch/arc/include/syscall_table.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..4c942821662d95216765b176a84d5fc7974e1064
-> --- /dev/null
-> +++ b/tools/perf/arch/arc/include/syscall_table.h
-> @@ -0,0 +1,2 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#include <asm/syscalls_32.h>
+> - 3 x VFE, 3 RDI per VFE
+> - 2 x VFE Lite, 4 RDI per VFE
+> - 3 x CSID
+> - 2 x CSID Lite
+> - 5 x CSI PHY
 > 
-> -- 
-> 2.34.1
+> We have tested this on qcs6490-rb3gen2-vision-mezzanine board having IMX577
+> sensor. Verified both TPG and IMX577 sensor.
 > 
+> Used following tools for the sanity check of these changes.
+You should state in your cover-letter that you depend on a prior series.
+
+Unfortunately I found a bug in your depends series:
+
+https://lore.kernel.org/linux-arm-msm/1a570c17-c501-4a29-a4f7-020f41563f3d@linaro.org
+
+v9 will have to be gated on that series being fixed.
+
+---
+bod
 
