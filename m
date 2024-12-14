@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04206E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 08:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1974E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 08:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbKLmPzuLtQTkySQt9wxR61KeUAZZy4vzAnqkXXXBls=; b=lsiMZWGf0vV/EqgNk7xY4R7Apk
-	06dTSs4aqIx1QHPFwZRiXyFLhF17UCJpiwKChfBAxuYMQ8IjF6N/cu46fGaFU79Kci/ldw1cLVVrn
-	OpAMQCksfDVQWqDxwooER6OgavggCCZbEheceRmQrl/yXjoyikCJYXop0hZ+gwi68RFuR/44ISMyw
-	ds+INvQwqWjlxwzEob+0lIrktQA0o8Jasb59NbFbzWdfsYAjGhIS2rS+r1zsuqiUa+rAHO25ECkS5
-	lTOEsQaZgWR8M/U1ArpwLtys+7zNtcTXLUFxi8vd8WU2GPwYzuUAOXuJlW+lcg2HbWmpO0jzHR4/g
-	2smPfihQ==;
+	bh=q3F9R5g1mI+h2r+pcsr+vPpJmWeRPbUG5Wk4Xk1AFl0=; b=3ukH8Jl0v5Ngucq/lIA9Hyd6dn
+	DFwSgpL68l6+/2J4hQUi1YlPZc+9A784XyxAV6i2PnP8/1KH0zswlqI38k1GRr4yxASm0U4saA+V1
+	G3TGEo0Pvug0XyEfVAd179nQV3ih2M1rlTaP2AO7D+rvOfgjXrOKmqAicQ3aGv6DGkipOdedppa2O
+	AQNxpPm3m2CZ3yJT9FCrZ3JYZCAif+F5SOuoKfWqRzcXZaGn/7i624UmSInaJ/jCXEs5jT0Mex497
+	n8BhpcSrkSqsPPxaLNlrdcGNeQffUf/f/npXSiycWJToDiszh6fBkTVOBqHWf+6Na4+kdItYmkhFm
+	Gxo7uREw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMNa4-0000000619t-2ieY;
-	Sat, 14 Dec 2024 08:32:56 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1tMNb7-000000061Jj-47E2;
+	Sat, 14 Dec 2024 08:34:02 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMNLL-00000005y9b-0B1o;
-	Sat, 14 Dec 2024 08:17:44 +0000
+	id 1tMNLM-00000005yAf-1pPO;
+	Sat, 14 Dec 2024 08:17:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=VbKLm
-	PzuLtQTkySQt9wxR61KeUAZZy4vzAnqkXXXBls=; b=QJKVUYKqqB1CnoaImkbm+
-	Kp3K7tjbwfJnDXfHZShpDMJTsNIKLoYj394kheIlLfeQCOlFnpaRaOuJFGVoUdAg
-	YqJssyt7XksAS3Y1XeWru87h/Wr8W9Bfj0KHm9FcND0JNakaJ2kre9bFi00MoN8h
-	sjhW0audZCZTO/c7EDHwus=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=q3F9R
+	5g1mI+h2r+pcsr+vPpJmWeRPbUG5Wk4Xk1AFl0=; b=m3p5E2sQZh2Z6HSb1i0b4
+	NNRk0Npc58W5rZyi64zVNV+ynr/SOhWa+5c2/t4GD7DrqPcFMkv9sOweWK/G37Mo
+	seXrldhKdzTPy6BX5YIbSnewzd9koPFgKlFxl0wDulbyHzicYFxp2q65xejfileU
+	uRi1U4rXsmYe+fROvp8liw=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3fwEQP11ntNLtAQ--.5686S5;
-	Sat, 14 Dec 2024 16:17:27 +0800 (CST)
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3fwEQP11ntNLtAQ--.5686S12;
+	Sat, 14 Dec 2024 16:17:33 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -47,25 +47,26 @@ Cc: hjc@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	derek.foreman@collabora.com,
 	detlev.casanova@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v6 03/16] drm/rockchip: vop2: Set AXI id for rk3588
-Date: Sat, 14 Dec 2024 16:17:02 +0800
-Message-ID: <20241214081719.3330518-4-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v6 10/16] drm/rockchip: vop2: Support for different layer select configuration between VPs
+Date: Sat, 14 Dec 2024 16:17:09 +0800
+Message-ID: <20241214081719.3330518-11-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241214081719.3330518-1-andyshrk@163.com>
 References: <20241214081719.3330518-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3fwEQP11ntNLtAQ--.5686S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtw4DCF4xGF4fCrWrJFyDtrb_yoW3Cr4Upa
-	yfJ39xW3yqkr42qr97XF1YvF1rJasrt3yxZan3W3sFgFyFg34xtF1jyas8AFyag34IkrWj
-	qws8Jry7W39xtF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jfjjgUUUUU=
+X-CM-TRANSID: _____wD3fwEQP11ntNLtAQ--.5686S12
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtrW8JF4UZF47CF4UWFy8Zrb_yoWfJw4Upa
+	yUursIg3W5Cr45tryUJayrZr4rGwn8tay3uan3Kw1xGFn5KrWDJF4ktF95A3Z8KF93ZryU
+	Xw1YgryDZrW7tFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j4E__UUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQ61XmddM6y0DAAAsR
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0ge1XmddMGzoCgAAs6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_001743_408194_193DA70A 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241214_001744_985198_9F832FA9 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,202 +83,209 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-There are two AXI bus in vop2, windows attached on the same bus must
-have a unique channel YUV and RGB channel ID.
+In the upcoming VOP for rk3576, every VP has it's own LAYER_SEL
+register, and the configuration value of each VP for the same
+window maybe different, so extend the layer_sel_id to array,
+let it can descption the layer select configuration value for
+different VP.
 
-The default IDs will conflict with each other on the rk3588, so they
-need to be reassigned.
-
-Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Tested-by: Derek Foreman <derek.foreman@collabora.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
 Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
 
 ---
 
-(no changes since v5)
+(no changes since v4)
 
-Changes in v5:
-- Added in V5
+Changes in v4:
+- Typo fix: selet->select
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 14 +++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  9 +++++++
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 26 +++++++++++++++++++-
- 3 files changed, 48 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 +--
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 38 ++++++++++----------
+ 2 files changed, 22 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 81207a79530c..0723a7606cb1 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1426,6 +1426,12 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 		&fb->format->format,
- 		afbc_en ? "AFBC" : "", &yrgb_mst);
- 
-+	if (vop2->data->soc_id > 3568) {
-+		vop2_win_write(win, VOP2_WIN_AXI_BUS_ID, win->data->axi_bus_id);
-+		vop2_win_write(win, VOP2_WIN_AXI_YRGB_R_ID, win->data->axi_yrgb_r_id);
-+		vop2_win_write(win, VOP2_WIN_AXI_UV_R_ID, win->data->axi_uv_r_id);
-+	}
-+
- 	if (vop2_cluster_window(win))
- 		vop2_win_write(win, VOP2_WIN_AFBC_HALF_BLOCK_EN, half_block_en);
- 
-@@ -3354,6 +3360,10 @@ static struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
- 	[VOP2_WIN_Y2R_EN] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 8, 8),
- 	[VOP2_WIN_R2Y_EN] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 9, 9),
- 	[VOP2_WIN_CSC_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 10, 11),
-+	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 0, 3),
-+	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 5, 8),
-+	/* RK3588 only, reserved bit on rk3568*/
-+	[VOP2_WIN_AXI_BUS_ID] = REG_FIELD(RK3568_CLUSTER_CTRL, 13, 13),
- 
- 	/* Scale */
- 	[VOP2_WIN_SCALE_YRGB_X] = REG_FIELD(RK3568_CLUSTER_WIN_SCL_FACTOR_YRGB, 0, 15),
-@@ -3446,6 +3456,10 @@ static struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
- 	[VOP2_WIN_YMIRROR] = REG_FIELD(RK3568_SMART_CTRL1, 31, 31),
- 	[VOP2_WIN_COLOR_KEY] = REG_FIELD(RK3568_SMART_COLOR_KEY_CTRL, 0, 29),
- 	[VOP2_WIN_COLOR_KEY_EN] = REG_FIELD(RK3568_SMART_COLOR_KEY_CTRL, 31, 31),
-+	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_SMART_CTRL1, 4, 8),
-+	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_SMART_CTRL1, 12, 16),
-+	/* RK3588 only, reserved register on rk3568 */
-+	[VOP2_WIN_AXI_BUS_ID] = REG_FIELD(RK3588_SMART_AXI_CTRL, 1, 1),
- 
- 	/* Scale */
- 	[VOP2_WIN_SCALE_YRGB_X] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_YRGB, 0, 15),
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 2cb7b6b40c77..f4724a402ac2 100644
+index 265bb5bfa27d..af3cd92e6815 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -78,6 +78,9 @@ enum vop2_win_regs {
- 	VOP2_WIN_COLOR_KEY,
- 	VOP2_WIN_COLOR_KEY_EN,
- 	VOP2_WIN_DITHER_UP,
-+	VOP2_WIN_AXI_BUS_ID,
-+	VOP2_WIN_AXI_YRGB_R_ID,
-+	VOP2_WIN_AXI_UV_R_ID,
+@@ -166,9 +166,9 @@ struct vop2_win_data {
+ 	const unsigned int supported_rotations;
  
- 	/* scale regs */
- 	VOP2_WIN_SCALE_YRGB_X,
-@@ -149,6 +152,10 @@ struct vop2_win_data {
- 	unsigned int layer_sel_id;
+ 	/**
+-	 * @layer_sel_id: defined by register OVERLAY_LAYER_SEL of VOP2
++	 * @layer_sel_id: defined by register OVERLAY_LAYER_SEL or PORTn_LAYER_SEL
+ 	 */
+-	unsigned int layer_sel_id;
++	unsigned int layer_sel_id[ROCKCHIP_MAX_CRTC];
  	uint64_t feature;
  
-+	uint8_t axi_bus_id;
-+	uint8_t axi_yrgb_r_id;
-+	uint8_t axi_uv_r_id;
-+
- 	unsigned int max_upscale_factor;
- 	unsigned int max_downscale_factor;
- 	const u8 dly[VOP2_DLY_MODE_MAX];
-@@ -319,6 +326,7 @@ enum dst_factor_mode {
- 
- #define RK3568_CLUSTER_WIN_CTRL0		0x00
- #define RK3568_CLUSTER_WIN_CTRL1		0x04
-+#define RK3568_CLUSTER_WIN_CTRL2		0x08
- #define RK3568_CLUSTER_WIN_YRGB_MST		0x10
- #define RK3568_CLUSTER_WIN_CBR_MST		0x14
- #define RK3568_CLUSTER_WIN_VIR			0x18
-@@ -341,6 +349,7 @@ enum dst_factor_mode {
- /* (E)smart register definition, offset relative to window base */
- #define RK3568_SMART_CTRL0			0x00
- #define RK3568_SMART_CTRL1			0x04
-+#define RK3588_SMART_AXI_CTRL			0x08
- #define RK3568_SMART_REGION0_CTRL		0x10
- #define RK3568_SMART_REGION0_YRGB_MST		0x14
- #define RK3568_SMART_REGION0_CBR_MST		0x18
+ 	uint8_t axi_bus_id;
 diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index 9247f94343f2..65a88f489693 100644
+index a2e0126a31a0..01336ef2482a 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -395,7 +395,7 @@ static const struct vop2_video_port_data rk3588_vop_video_ports[] = {
-  * AXI1 is a read only bus.
-  *
-  * Every window on a AXI bus must assigned two unique
-- * read id(yrgb_id/uv_id, valid id are 0x1~0xe).
-+ * read id(yrgb_r_id/uv_r_id, valid id are 0x1~0xe).
-  *
-  * AXI0:
-  * Cluster0/1, Esmart0/1, WriteBack
-@@ -415,6 +415,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.layer_sel_id = 0,
+@@ -350,7 +350,8 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.formats = formats_smart,
+ 		.nformats = ARRAY_SIZE(formats_smart),
+ 		.format_modifiers = format_modifiers,
+-		.layer_sel_id = 3,
++		/* 0xf means this layer can't attached to this VP */
++		.layer_sel_id = { 3, 3, 3, 0xf },
+ 		.supported_rotations = DRM_MODE_REFLECT_Y,
+ 		.type = DRM_PLANE_TYPE_PRIMARY,
+ 		.max_upscale_factor = 8,
+@@ -363,7 +364,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.nformats = ARRAY_SIZE(formats_smart),
+ 		.format_modifiers = format_modifiers,
+ 		.base = 0x1e00,
+-		.layer_sel_id = 7,
++		.layer_sel_id = { 7, 7, 7, 0xf },
+ 		.supported_rotations = DRM_MODE_REFLECT_Y,
+ 		.type = DRM_PLANE_TYPE_PRIMARY,
+ 		.max_upscale_factor = 8,
+@@ -376,7 +377,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
+ 		.format_modifiers = format_modifiers,
+ 		.base = 0x1a00,
+-		.layer_sel_id = 6,
++		.layer_sel_id = { 6, 6, 6, 0xf },
+ 		.supported_rotations = DRM_MODE_REFLECT_Y,
+ 		.type = DRM_PLANE_TYPE_PRIMARY,
+ 		.max_upscale_factor = 8,
+@@ -389,7 +390,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
+ 		.format_modifiers = format_modifiers,
+ 		.base = 0x1800,
+-		.layer_sel_id = 2,
++		.layer_sel_id = { 2, 2, 2, 0xf },
+ 		.supported_rotations = DRM_MODE_REFLECT_Y,
+ 		.type = DRM_PLANE_TYPE_PRIMARY,
+ 		.max_upscale_factor = 8,
+@@ -402,7 +403,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+-		.layer_sel_id = 0,
++		.layer_sel_id = { 0, 0, 0, 0xf },
+ 		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
+ 					DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
+ 		.max_upscale_factor = 4,
+@@ -417,7 +418,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+-		.layer_sel_id = 1,
++		.layer_sel_id = { 1, 1, 1, 0xf },
+ 		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
+ 					DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
+ 		.type = DRM_PLANE_TYPE_OVERLAY,
+@@ -582,7 +583,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+-		.layer_sel_id = 0,
++		.layer_sel_id = { 0, 0, 0, 0 },
  		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
  				       DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 2,
-+		.axi_uv_r_id = 3,
- 		.max_upscale_factor = 4,
- 		.max_downscale_factor = 4,
- 		.dly = { 4, 26, 29 },
-@@ -431,6 +434,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.axi_bus_id = 0,
+@@ -600,7 +601,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+-		.layer_sel_id = 1,
++		.layer_sel_id = { 1, 1, 1, 1 },
  		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
  				       DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 6,
-+		.axi_uv_r_id = 7,
- 		.max_upscale_factor = 4,
- 		.max_downscale_factor = 4,
- 		.dly = { 4, 26, 29 },
-@@ -446,6 +452,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+@@ -618,7 +619,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+-		.layer_sel_id = 4,
++		.layer_sel_id = { 4, 4, 4, 4 },
  		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
  				       DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.axi_bus_id = 1,
-+		.axi_yrgb_r_id = 2,
-+		.axi_uv_r_id = 3,
- 		.max_upscale_factor = 4,
- 		.max_downscale_factor = 4,
- 		.dly = { 4, 26, 29 },
-@@ -461,6 +470,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+@@ -636,7 +637,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+-		.layer_sel_id = 5,
++		.layer_sel_id =  { 5, 5, 5, 5 },
  		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
  				       DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.axi_bus_id = 1,
-+		.axi_yrgb_r_id = 6,
-+		.axi_uv_r_id = 7,
- 		.max_upscale_factor = 4,
- 		.max_downscale_factor = 4,
- 		.dly = { 4, 26, 29 },
-@@ -475,6 +487,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.layer_sel_id = 2,
+@@ -654,7 +655,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+ 		.base = 0x1800,
+-		.layer_sel_id = 2,
++		.layer_sel_id = { 2, 2, 2, 2 },
  		.supported_rotations = DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 0x0a,
-+		.axi_uv_r_id = 0x0b,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
- 		.dly = { 23, 45, 48 },
-@@ -488,6 +503,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.layer_sel_id = 3,
+ 		.axi_bus_id = 0,
+@@ -670,7 +671,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+ 		.base = 0x1a00,
+-		.layer_sel_id = 3,
++		.layer_sel_id = { 3, 3, 3, 3 },
  		.supported_rotations = DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 0x0c,
-+		.axi_uv_r_id = 0x01,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
- 		.dly = { 23, 45, 48 },
-@@ -501,6 +519,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.layer_sel_id = 6,
+ 		.axi_bus_id = 0,
+@@ -686,7 +687,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.formats = formats_esmart,
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+-		.layer_sel_id = 6,
++		.layer_sel_id =  { 6, 6, 6, 6 },
  		.supported_rotations = DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 1,
-+		.axi_yrgb_r_id = 0x0a,
-+		.axi_uv_r_id = 0x0b,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
- 		.dly = { 23, 45, 48 },
-@@ -514,6 +535,9 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
- 		.layer_sel_id = 7,
+ 		.axi_bus_id = 1,
+@@ -702,7 +703,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+ 		.base = 0x1e00,
+-		.layer_sel_id = 7,
++		.layer_sel_id =  { 7, 7, 7, 7 },
  		.supported_rotations = DRM_MODE_REFLECT_Y,
  		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 1,
-+		.axi_yrgb_r_id = 0x0c,
-+		.axi_uv_r_id = 0x0d,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
- 		.dly = { 23, 45, 48 },
+ 		.axi_bus_id = 1,
+@@ -1454,7 +1455,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 		 */
+ 		for (old_layer_id = 0; old_layer_id < vop2->data->win_size; old_layer_id++) {
+ 			layer_sel_id = (layer_sel >> (4 * old_layer_id)) & 0xf;
+-			if (layer_sel_id == win->data->layer_sel_id)
++			if (layer_sel_id == win->data->layer_sel_id[vp->id])
+ 				break;
+ 		}
+ 
+@@ -1464,7 +1465,7 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 		for (i = 0; i < vop2->data->win_size; i++) {
+ 			old_win = &vop2->win[i];
+ 			layer_sel_id = (layer_sel >> (4 * layer_id)) & 0xf;
+-			if (layer_sel_id == old_win->data->layer_sel_id)
++			if (layer_sel_id == old_win->data->layer_sel_id[vp->id])
+ 				break;
+ 		}
+ 
+@@ -1512,13 +1513,14 @@ static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
+ 		}
+ 
+ 		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(layer_id, 0x7);
+-		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(layer_id, win->data->layer_sel_id);
++		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(layer_id, win->data->layer_sel_id[vp->id]);
+ 		/*
+ 		 * When we bind a window from layerM to layerN, we also need to move the old
+ 		 * window on layerN to layerM to avoid one window selected by two or more layers.
+ 		 */
+ 		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(old_layer_id, 0x7);
+-		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(old_layer_id, old_win->data->layer_sel_id);
++		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(old_layer_id,
++			     old_win->data->layer_sel_id[vp->id]);
+ 	}
+ 
+ 	vop2_writel(vop2, RK3568_OVL_LAYER_SEL, layer_sel);
 -- 
 2.34.1
 
