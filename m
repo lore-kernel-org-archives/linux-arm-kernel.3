@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAF8E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 08:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04EF1E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 08:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9kqwreHTXNHZZbYtIN60/GfMBmJOUF2KyeKvQKAMa0=; b=fhhVysCP610Pjz3p0T+bbe/pmO
-	yHBgNSqJ9dizOOkxcCvhZ7Hqe1Xqe/nT1z9K6wQIFq4XFLVRs0p9SZhtuEch8HF1iNkZB1IgHczPO
-	cs2mh0kAUhuVY8tjOCpWbtRxRvgSiVkI8v0MGaI6YHQxbXTT95RYToy82oKNLidrflKSDp57mgfef
-	S7tG0saMYMQi0FYkjNgUYn2bjXcl6gdsapZjr9pzLo7unNVU+dYrzQYBNNlb2uKI8I2y4ZsvaTUF1
-	W9zuIEPvXgd70ZrmYodCm5KemZcgdkjaEhs8a+l36VWVqINc4yX07aqs9ADdAyXpA0L2NmRZv3Qxt
-	JDqJy+GA==;
+	bh=iMPbRBdbrgKzjYWcrnT31MnocUukSFKsUhXGUgul7OQ=; b=U72a4BqIR6vrypVKSH353NgHzT
+	f8qf/LEYmyuuhd5kQPpaSxXBT8MQpRWsrGDvXTrJctAiI1kgmxm69Ku9bq1Y54Hg5vXqVIvNBfMDk
+	gXrG/6NEiTS61Ptu6AjGtSCJgqY+Jsz5mf+zeomJqlZWFS/zsurnHPc6/4Tq+cwVfLjptUr7hm+dV
+	748oN44Z/G1PD4Q9HHAYppmyURkpmULsUFAmqZIrcvihF+4ZJhD7OIQf6td0CRmdEVBq0mYWqw/VD
+	jGsRNmpF2Ts0KMOo2byHx6Jl2T4DXMgjo4nZx7yAdxA/ZKr9qdd3zuLwpydDu4E1Vlzelbc7DL3e9
+	chyjOpjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMNT6-000000060AQ-46dy;
-	Sat, 14 Dec 2024 08:25:45 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1tMNUA-000000060N0-3GBO;
+	Sat, 14 Dec 2024 08:26:50 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMNJc-00000005xaZ-0OIH;
+	id 1tMNJc-00000005xZv-2qCb;
 	Sat, 14 Dec 2024 08:15:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=n9kqw
-	reHTXNHZZbYtIN60/GfMBmJOUF2KyeKvQKAMa0=; b=NX6uTuZNwx0Ak0ow3WZ1k
-	htIFQc/h0PcXLwLjvW9kotM0sF3pMPCREIoyEhXdGLQ2XRGMU+5CTTmhtRr7A5pr
-	p5Z/JHjIbJTYmNwGV6HnHRk18t60DVdx2QLhicPDY9RLOX+bkEhzuHtK3tfMMHWf
-	HgCfNRhkMz7xluGzgchLn0=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=iMPbR
+	BdbrgKzjYWcrnT31MnocUukSFKsUhXGUgul7OQ=; b=mlt+Hdd3WdGjE67HcJAmv
+	3+lPK1wy82FRm3fjTsTbZ/2O0nulNv4YuBTKsvn0CxXy0m+WmavQ7sUKkE43Lnpg
+	GU6S47z8L3i67AMi+MGZcxFcc9IDNkAoIK+jSc19kyIuwuB2rFitg/QT1u08Pw8x
+	Y+dLszKnzZF61QxpSN2XIw=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3vwGjPl1n3T_wAQ--.16730S10;
-	Sat, 14 Dec 2024 16:15:41 +0800 (CST)
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3vwGjPl1n3T_wAQ--.16730S2;
+	Sat, 14 Dec 2024 16:15:34 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -47,27 +47,25 @@ Cc: hjc@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	derek.foreman@collabora.com,
 	detlev.casanova@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Michael Riesch <michael.riesch@wolfvision.net>
-Subject: [PATCH v6 08/16] drm/rockchip: vop2: Support 32x8 superblock afbc
-Date: Sat, 14 Dec 2024 16:15:16 +0800
-Message-ID: <20241214081529.3330243-9-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v6 00/16] VOP Support for rk3576
+Date: Sat, 14 Dec 2024 16:15:08 +0800
+Message-ID: <20241214081529.3330243-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241214081529.3330243-1-andyshrk@163.com>
+In-Reply-To: <20241209122943.2781431-1-andyshrk@163.com>
 References: <20241209122943.2781431-1-andyshrk@163.com>
- <20241214081529.3330243-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3vwGjPl1n3T_wAQ--.16730S10
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCrW3XFyUGw4xGFykuryUWrg_yoW5Gryrpr
-	W3ZrWqgw4UKF1jqa1DJrWDZF43Aan2k3y7XrnrGr1YqryYkr9rG34DKFyDZrWDt3yfGFW0
-	vFn3GrW7Zw1Fyr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j8EfOUUUUU=
+X-CM-TRANSID: _____wD3vwGjPl1n3T_wAQ--.16730S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuF1xtF48CF43WF17Zw1DZFb_yoW5ZF4xpa
+	98CryrZrWxGFyjqrs7Jw4DCrWSqwnayay7Ww4fG3ZrJasxGF9rKr9I9F15ZrW3X3W8Za1U
+	CF4fX34UKFs0vFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UZZ2fUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0g+1XmddMGzhNQABsF
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQu1XmddM6x80QABsA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_001556_678592_7E97A226 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20241214_001557_204931_C58971E4 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +82,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-This is the only afbc format supported by the upcoming
-VOP for rk3576.
 
-Add support for it.
+Thanks for the basic work from Collabora, I can bringup a HDMI
+display out on rk3576.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
-Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+PATCH 1 is a carryover from the working when add support for
+    rk3588[0], is very usefull when some people want me
+    help debug some issue online, so I really hope it can
+    be merged at this round.
+PATCH 2~8 are bugfix of rk3588 alpha blending which report and
+    test by Derek
+PATCH 9~13 are preparations for rk3576 support
+PATCH 17~18 are real support for rk376
 
----
+I test it with a 1080P/4K HDMI output with modetest and weston
+output.
 
-(no changes since v2)
+If there are some one want to have a try, I have a tree based on
+Linux 6.13-rc2 here[1]
+
+[0]https://patchwork.kernel.org/project/linux-rockchip/cover/20231211115547.1784587-1-andyshrk@163.com/
+[1]https://github.com/andyshrk/linux/tree/rk3576-vop2-upstream-v5
+
+Changes in v6:
+- Remove unnecessary blank line.
+- Limit line length not exceeds 100
+- Move the linear check to format_mod_supported() hook
+- Move 32 bpp check to format_mod_supported() hook
+- Add a blank line after hardware version check code
+-  More specific explanation about the AXI_BUS_ID register bit of
+   cluster window.
+- Collect Tested-by
+
+Changes in v5:
+- Added in V5
+- Added in V5
+- Added in V5
+- Add axi id configuration
+- Remove the non-existent CBCR scale register.
+
+Changes in v4:
+- Typo fix: selet->select
+
+Changes in v3:
+- Split it from 10/15, as it fix a exiting compile warning.
+- Add comments for why we should treat rk3566 with special care.
+- Add hardware version check
+- Add comments for why we should treat rk3566 with special care.
+- ordered by soc name
+- Add description for newly added interrupt
+- Share the alpha setup function with rk3568
+- recoder the code block by soc
 
 Changes in v2:
 - split it from main patch add support for rk3576
+- Add platform specific callback
+- Introduce vop hardware version
+- Add dt bindings
+- Add platform specific callback
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
+Andy Yan (15):
+  drm/rockchip: vop2: Add debugfs support
+  drm/rockchip: vop2: Fix the windows switch between different layers
+  drm/rockchip: vop2: Set AXI id for rk3588
+  drm/rockchip: vop2: Setup delay cycle for Esmart2/3
+  drm/rockchip: vop2: Check linear format for Cluster windows on
+    rk3566/8
+  drm/rockchip: vop2: Add check for 32 bpp format for rk3588
+  drm/rockchip: vop2: Support 32x8 superblock afbc
+  drm/rockchip: vop2: Add platform specific callback
+  drm/rockchip: vop2: Support for different layer select configuration
+    between VPs
+  drm/rockchip: vop2: Introduce vop hardware version
+  drm/rockchip: vop2: Register the primary plane and overlay plane
+    separately
+  drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
+  drm/rockchip: vop2: Add uv swap for cluster window
+  dt-bindings: display: vop2: Add rk3576 support
+  drm/rockchip: vop2: Add support for rk3576
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index b5f35839d5e8..efe7d0cbe155 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1454,16 +1454,18 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 		vop2_win_write(win, VOP2_WIN_AFBC_HALF_BLOCK_EN, half_block_en);
- 
- 	if (afbc_en) {
--		u32 stride;
-+		u32 stride, block_w;
-+
-+		/* the afbc superblock is 16 x 16 or 32 x 8 */
-+		block_w = fb->modifier & AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 ? 32 : 16;
- 
--		/* the afbc superblock is 16 x 16 */
- 		afbc_format = vop2_convert_afbc_format(fb->format->format);
- 
- 		/* Enable color transform for YTR */
- 		if (fb->modifier & AFBC_FORMAT_MOD_YTR)
- 			afbc_format |= (1 << 4);
- 
--		afbc_tile_num = ALIGN(actual_w, 16) >> 4;
-+		afbc_tile_num = ALIGN(actual_w, block_w) / block_w;
- 
- 		/*
- 		 * AFBC pic_vir_width is count by pixel, this is different
-@@ -1474,6 +1476,9 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 			drm_dbg_kms(vop2->drm, "vp%d %s stride[%d] not 64 pixel aligned\n",
- 				    vp->id, win->data->name, stride);
- 
-+		 /* It's for head stride, each head size is 16 byte */
-+		stride = ALIGN(stride, block_w) / block_w * 16;
-+
- 		uv_swap = vop2_afbc_uv_swap(fb->format->format);
- 		/*
- 		 * This is a workaround for crazy IC design, Cluster
-@@ -1504,7 +1509,11 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 		else
- 			vop2_win_write(win, VOP2_WIN_AFBC_AUTO_GATING_EN, 1);
- 
--		vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 0);
-+		if (fb->modifier & AFBC_FORMAT_MOD_SPLIT)
-+			vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 1);
-+		else
-+			vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 0);
-+
- 		transform_offset = vop2_afbc_transform_offset(pstate, half_block_en);
- 		vop2_win_write(win, VOP2_WIN_AFBC_HDR_PTR, yrgb_mst);
- 		vop2_win_write(win, VOP2_WIN_AFBC_PIC_SIZE, act_info);
+Min-Hua Chen (1):
+  drm/rockchip: vop2: include rockchip_drm_drv.h
+
+ .../display/rockchip/rockchip-vop2.yaml       |   13 +-
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c  | 1638 ++++----------
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h  |  292 ++-
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c  | 2014 ++++++++++++++++-
+ 4 files changed, 2793 insertions(+), 1164 deletions(-)
+
 -- 
 2.34.1
 
