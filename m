@@ -4,104 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A55CE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 15:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3438E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 15:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqF8zkGZ+2VzBoyfd3d5WoB474c43oRczfanBsCjA+g=; b=syONXTTw00OyEKI5FvvbI/OZ9c
-	a38k2Vf/KiTimpUlN8V0R1ekXyXvUHsFaco23RfW9pnAEdNYwEOwo+bDI8IUsSI0pV5kAW4g9Cz4A
-	BrNHzIBTVUQlo3iDwhj3GOWze+k4Gj1TmrFhfSzi0VLfKvtdk4g5SnP5EETqwnTeAMoWiVRuozEPU
-	HlkD3ytTHaRD6Cu0Wd4fZAVdFjqUpCmDuTilJHrj2E0N6iE3qbM9IPGpFQ8lpAph5pNnQpHKuHpYl
-	1yAgYOPbJRYQuDVzu8+pGtGm/tu6+VEtzpdxvgdGA2mgDXMJ77p413wWV8aTumk+uHfW72N3Y08/r
-	fss0mFng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kSxXgL0V1UHwaghXfPnwj6ZyebGhbcff5eVA8hQElAg=; b=c1y5DOk9z7SU7wD+iGMj7h5UyV
+	oDI5mI085455WrTt0m7z0phJHiypkisqJ9B+mhtLG69WVGHzBlQgRonQ8jEUD5mUkpnDrc9EjHYp+
+	EeDxJ2+vYjukyuAxbFOkoQ13qfcdM9tD/AnsAi91C2zGehHt9PKdBNXmbzttAXqfrrXQ9JFf1b+P5
+	+oic2RAaFVPQaKB/74P5x/zXRKzgSFAZeSkAkq6NHVkDDT433EBeTfIFTe4JqtVNvCofkWLojuDTz
+	CpTY8qTS1XMvFzMgEaHu5336eFyG8wsO0W/AmwtT9hORs2dAn5oGFz+OFEXFXYHgdlYzVTge88372
+	Q43LvQcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMTd1-00000006WGR-3g9l;
-	Sat, 14 Dec 2024 15:00:23 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tMTpS-00000006XE2-2ErP;
+	Sat, 14 Dec 2024 15:13:14 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMTZl-00000006Vrq-0P6z
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 14:57:02 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d3e829ff44so6901147a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 06:57:00 -0800 (PST)
+	id 1tMToK-00000006X4f-234B;
+	Sat, 14 Dec 2024 15:12:05 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38634c35129so2111441f8f.3;
+        Sat, 14 Dec 2024 07:12:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734188219; x=1734793019; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NqF8zkGZ+2VzBoyfd3d5WoB474c43oRczfanBsCjA+g=;
-        b=j3iV+qVAbKd47WAnsFP6t4D0XgklQL//kEEzliU80ymKw1XQwAgtcB4pgLEhYOWP5Z
-         k5pmXaIvgJ5rAglZBQR1SjVYxH/6FWy7sCrjC1YlanSF19gPIa+0+U9Npy6zc55uyAXe
-         JyGBF6F7CR+ds0MjxPIJt7evWLRr3gLh+tcFCcUGUEBOeMWjjJNMNmCt4u7ojwiH0q/N
-         Lnohq9qb8DOKjZIXwILDPjZCFZP5S/ff2Hts7nH+lkmqEdcVj5/C47yYu8Z2p60Ve7D4
-         f0q2ItZraTNtnVDZpwc157O/tSiiMb010zHKymWT02WzRzi6Ws4Hmpq0a4qIPv0TO5qh
-         iw4A==
+        d=gmail.com; s=20230601; t=1734189122; x=1734793922; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=kSxXgL0V1UHwaghXfPnwj6ZyebGhbcff5eVA8hQElAg=;
+        b=kI1LYX1qz1OdlFYu+LFqrAVtML5kllJMTkVC2iXMDPkm/VtmzLHHwiJZ8hVbbl8btu
+         Mm6NSyjkI2VyIhzDUmC11YHNA6XNuo5kNsTpSDYVWfpn3woPK9yULWSbVJCYc5n32KYd
+         l77wDssV+hnbM4NEcL4Dl1USYx4aX4Ghmf89Oo2c43+HNUVTMTJegtuW9T+s2TRpcIkH
+         JH7cmNnAM7xr6Fx8hEl/+x2J6RpwWIAsVtNNBbvYMXrNYdcbdUiI7HRqxKkhiDWjs91i
+         VzvDI06AA4lzXUhXYi8EB40kMVUiU+QZzRkNdCVHJmN0RIjTThUDXNJeKXPTWGEecoOX
+         1T7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734188219; x=1734793019;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NqF8zkGZ+2VzBoyfd3d5WoB474c43oRczfanBsCjA+g=;
-        b=hXxqvhKIudovBZxA9FnbfhV+s1VHUHdI/qz7Q9WiN/pICk8RFGST49O03RD3PMOFKo
-         H37bqZRzKP/ik+gnFT8c7IhfHcxS3HtVk4ZM2/RPztAYT/d+0Qg5q8Ey1bYSQkyGiJ9h
-         nJS9g7CCu2+o0dRWQPUHZAmFg6YWE3gt7Ke6HZDQqmGkj84plijd/fN88glcgNyWymCM
-         O05rGghDZYXMWmxzW8ps9ZShv1DtbOKJx6qZRkrdVhNUSLxD3J7PBU1FFCRwwI2JRH57
-         iG8ZltkpnMpqv88Bw/ghZK4Hq4YoUQGNzpaWJMtJz8YCbhCZ7GmAhj9G19InZVoeZDRz
-         QEdA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXGmwBBsXjjEu6oySrqX8uSsrYawVIoVbH3tL3Ahr2KCX6CHr7JrH1EAaJXG2g0OzsrTJxf/j0uyw96V4rSu31@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWD8VH0JYCLiq5ohngy2WvG2tcm3R+k4rFdsnbgTDk9Y0N2Pbi
-	B6LYZXdoljtvmmH3JmS5/rRVdtd1t2FROa1yAAZbjqcX5f3NXI6z
-X-Gm-Gg: ASbGncu38Koz0CchMTueirPKxAWJuzmO4iPDkZKpX0nHuoTdEm61hB7FbCFyF+ezfFe
-	P6aeYU2b9paf3mDq+EFaCd1xNwS9D6dks2vWt2c7fSFvzJxktnt8RXCBZVzvDDowbBKynGFAqPN
-	Q4+pT2qlE1vLRpUzl5IzxasekUHVyrPyWCJouhURhDWM9FUAFuAtkH//Yx7tagoTFvnry+mN2+c
-	3mT56OeoLGiFpF20LWYHSFpsAX3NAwf0vELc4NloEGhO/wm7lNDVrq0EZYSEQb0FA1f
-X-Google-Smtp-Source: AGHT+IFxNg58c28hScps000IQjmxAmucWih6Giz9E/maqKo2D7cuPoqcCZlJKfOujrTr7vMGJ+DIiw==
-X-Received: by 2002:a05:6402:5189:b0:5d0:d328:3a43 with SMTP id 4fb4d7f45d1cf-5d63c2238f0mr5933372a12.6.1734188219290;
-        Sat, 14 Dec 2024 06:56:59 -0800 (PST)
-Received: from [192.168.31.111] ([194.39.226.133])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d652f35b5bsm1057698a12.89.2024.12.14.06.56.57
+        d=1e100.net; s=20230601; t=1734189122; x=1734793922;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kSxXgL0V1UHwaghXfPnwj6ZyebGhbcff5eVA8hQElAg=;
+        b=NJK6b78pew82/5kqjQ2xQQy+iC9BklDUih0F7eZjvPO/ii1UOplcSBvKeKJQjsWL5u
+         +3DIfeUHketvmTuX7irtJp8qgI64rp4EHwhrVbn1ON8lDH8rUcD4mVfRNDb4u0dXmulV
+         M+qqELwSKimKy4LICgXXIhTZhN5AJxljTDEFx3XUN05FHJie7GIjouBxwtPq9FS9iI+z
+         UDS+nhlK4L+f8MRaEZi4GP8sU2Z0khj/qwB4zf8OwqU3I3NMDHToukYwRjM/RwUIKHJo
+         CC/oZfoFFT9Vyco6mcgZ+s+TLoT4pjHRFcD3ZQLB1CFK0QJ3gmlbeBFy3aMrx2vaVZaV
+         /H2g==
+X-Forwarded-Encrypted: i=1; AJvYcCW3xXfvG9GaE0HFU5utFLMpuMx2DzUMzk303EjHxiK2vyrAHvaYjlTNqOTnZ+My+2mK9hk9UvOyOUCwXV5eP3o=@lists.infradead.org, AJvYcCWEvkLfuiTYCRO1c5gxqoptYqlEf/2IFJwrlfIkhTGyPdQOCEQk7mWjiViY3UslHp29suyu54375XAwJ0EeKWbQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyS2Kp3QW71VKZyLJmXAly0kNJ3piw2E06H+QlJ5UmQaNhJ2vLn
+	B0CjeP9E/l9zgQu84e3LCBxIAm3pfge0KOgr4PL4+BlHSE43gviG
+X-Gm-Gg: ASbGncuRa2ZnYZLV8DVVRZ63oQnUQrgGiLxNkhfQDB5JHGWPSdEtoZdoehQ7nMbE3z8
+	VAuGlaI++Qux26LBJ9narHwc7iOv5TKsVKi6MGYMJay1BMca1uZZ9lvo3dYp5Yc+VSkfwZX8A0w
+	jb3pjJTD5X8q4BwFJcVk90AZZ9AjeatHVNoMs+gMW1c55ZZ+Oski6FyLRIoVTdQ7O7zXX+iZcM5
+	2wxOqTAgV/z+oesx7Z50w+nHO9HhDUb/lZiePrb5y0lZzUb+GDcmxGXd0jogAvmGV4bn2t9CQxf
+	6AB0swsFi8aH
+X-Google-Smtp-Source: AGHT+IHviim7NbVtUOIT+HnieV8oHcaBrBqk3Euy0/kRPqRbIEFM5mW2+1jwbLENz44EIQcBecLugg==
+X-Received: by 2002:a05:6000:2a3:b0:385:e4a7:df07 with SMTP id ffacd0b85a97d-3888e0b9ea9mr4497177f8f.42.1734189122114;
+        Sat, 14 Dec 2024 07:12:02 -0800 (PST)
+Received: from Ansuel-XPS. (93-34-91-161.ip49.fastwebnet.it. [93.34.91.161])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362571776asm80794525e9.40.2024.12.14.07.12.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 06:56:58 -0800 (PST)
-From: Markuss Broks <markuss.broks@gmail.com>
-Date: Sat, 14 Dec 2024 16:56:47 +0200
-Subject: [PATCH RESEND v4 2/2] arm64: dts: exynos: Add initial support for
- Samsung Galaxy S9 (SM-G960F)
+        Sat, 14 Dec 2024 07:12:01 -0800 (PST)
+Message-ID: <675da041.050a0220.a8e65.af0e@mx.google.com>
+X-Google-Original-Message-ID: <Z12gOtM4EWWMgLnI@Ansuel-XPS.>
+Date: Sat, 14 Dec 2024 16:11:54 +0100
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+References: <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241210211529.osgzd54flq646bcr@skbuf>
+ <6758c174.050a0220.52a35.06bc@mx.google.com>
+ <20241210234803.pzm7fxrve4dastth@skbuf>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241214-exynos9810-v4-2-4e91fbbc2133@gmail.com>
-References: <20241214-exynos9810-v4-0-4e91fbbc2133@gmail.com>
-In-Reply-To: <20241214-exynos9810-v4-0-4e91fbbc2133@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Markuss Broks <markuss.broks@gmail.com>, 
- Maksym Holovach <nergzd@nergzd723.xyz>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734188212; l=4455;
- i=markuss.broks@gmail.com; s=20241024; h=from:subject:message-id;
- bh=uMCyvBcblST8fT6tpNS3iuyS4bo3Z+mJv8estU8DrRg=;
- b=AJDcFzYMPwpHeA6CF5N0iaoMpemqx+KpuAauJgSprpU8ee8Y0ttV7ftg2WNTkL6PkWlqwF/+p
- jjrnRhbkW5XCpBmA5WwUsRx7dZJgkWZB+v3pXc5XRJuZagYJ1NmI0Jn
-X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
- pk=p3Bh4oPpeCrTpffJvGch5WsWNikteWHJ+4LBICPbZg0=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241210234803.pzm7fxrve4dastth@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_065701_154012_5CD8F1A7 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20241214_071204_605039_411E6AA9 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,161 +117,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Samsung Galaxy S9 (SM-G960F), codenamed starlte, is a mobile phone
-released in 2017. It has 4GB of RAM, 64GB of UFS storage, Exynos9810
-SoC and 1440x2960 Super AMOLED display.
+On Wed, Dec 11, 2024 at 01:48:03AM +0200, Vladimir Oltean wrote:
+> On Tue, Dec 10, 2024 at 11:32:17PM +0100, Christian Marangi wrote:
+> > Doesn't regmap add lots of overhead tho? Maybe I should really change
+> > the switch regmap to apply a save/restore logic?
+> > 
+> > With an implementation like that current_page is not needed anymore.
+> > And I feel additional read/write are ok for switch OP.
+> > 
+> > On mdio I can use the parent-mdio-bus property to get the bus directly
+> > without using MFD priv.
+> > 
+> > What do you think?
+> 
+> If performance is a relevant factor at all, it will be hard to measure it, other
+> than with synthetic tests (various mixes of switch and PHY register access).
+> Though since you mention it, it would be interesting to see a comparison of the
+> 3 arbitration methods. This could probably be all done from the an8855_mfd_probe()
+> calling context: read a switch register and a PHY register 100K times and see how
+> long it took, then read 2 switch registers and a PHY register 100K times, then
+> 3 switch registers.... At some point, we should start seeing the penalty of the
+> page restoration in Andrew's proposal, because that will be done after each switch
+> register read. Just curious to put it into perspective and see how soon it starts
+> to make a difference. And this test will also answer the regmap overhead issue.
 
-This initial device tree enables the framebuffer pre-initialised
-by bootloader and physical buttons of the device, with more support
-to come in the future.
+Ok sorry for the delay as I had to tackle an annoying crypto driver...
 
-Co-developed-by: Maksym Holovach <nergzd@nergzd723.xyz>
-Signed-off-by: Maksym Holovach <nergzd@nergzd723.xyz>
-Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
----
- arch/arm64/boot/dts/exynos/Makefile               |   1 +
- arch/arm64/boot/dts/exynos/exynos9810-starlte.dts | 119 ++++++++++++++++++++++
- 2 files changed, 120 insertions(+)
+I was also curious about this and I hope I tested this correctly...
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index ee73e1a2db7ea64a0b8e9067a1a264e366f59bc3..f6f4bc650a94db0bc6bc017432e2e3dbba90e8c3 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -8,6 +8,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos7885-jackpotlte.dtb	\
- 	exynos850-e850-96.dtb		\
- 	exynos8895-dreamlte.dtb		\
-+	exynos9810-starlte.dtb		\
- 	exynos990-c1s.dtb		\
- 	exynos990-r8s.dtb               \
- 	exynos990-x1s.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos9810-starlte.dts b/arch/arm64/boot/dts/exynos/exynos9810-starlte.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..fc0ddfee4cd63d2fc53cae3d7447f66d39c134e9
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos9810-starlte.dts
-@@ -0,0 +1,119 @@
-+// SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause
-+/*
-+ * Samsung Galaxy S9 (starlte/SM-G960F) device tree source
-+ *
-+ * Copyright (c) 2024 Markuss Broks <markuss.broks@gmail.com>
-+ * Copyright (c) 2024 Maksym Holovach <nergzd@nergzd723.xyz>
-+ */
-+
-+/dts-v1/;
-+#include "exynos9810.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+
-+/ {
-+	model = "Samsung Galaxy S9 (SM-G960F)";
-+	compatible = "samsung,starlte", "samsung,exynos9810";
-+	chassis-type = "handset";
-+
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		framebuffer@cc000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0xcc000000 (1440 * 2960 * 4)>;
-+			width = <1440>;
-+			height = <2960>;
-+			stride = <(1440 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		pinctrl-0 = <&key_power &key_voldown &key_volup &key_wink>;
-+		pinctrl-names = "default";
-+
-+		power-key {
-+			label = "Power";
-+			linux,code = <KEY_POWER>;
-+			gpios = <&gpa2 4 GPIO_ACTIVE_LOW>;
-+			wakeup-source;
-+		};
-+
-+		voldown-key {
-+			label = "Volume Down";
-+			linux,code = <KEY_VOLUMEDOWN>;
-+			gpios = <&gpa0 4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		volup-key {
-+			label = "Volume Up";
-+			linux,code = <KEY_VOLUMEUP>;
-+			gpios = <&gpa0 3 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		/* In stock firmware used for assistant. Map it as a camera button for now */
-+		wink-key {
-+			label = "Camera";
-+			linux,code = <KEY_CAMERA>;
-+			gpios = <&gpa0 6 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x3c800000>,
-+		      <0x0 0xc0000000 0x20000000>,
-+		      <0x0 0xe1900000 0x1e700000>,
-+		      <0x8 0x80000000 0x80000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		framebuffer@cc000000 {
-+			reg = <0x0 0xcc000000 (1440 * 2960 * 4)>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa2-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa0-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
-+	key_wink: key-wink-pins {
-+		samsung,pins = "gpa0-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+};
+The testing code is this. Following Vladimir testing and simple time
+comparision before and after. I used 100 times as 100k was very big.
+From the results we can derive our conclusions.
+
+static void test(struct an8855_mfd_priv *priv, struct regmap *regmap, struct regmap *regmap_phy)
+{
+	ktime_t start_time, end_time;
+	// struct mii_bus *bus = priv->bus;
+    	s64 elapsed_ns;
+	u32 val;
+	int times = 1;
+	int i, j;
+
+	start_time = ktime_get();
+	for (i = 0; i < 100; i++) {
+		for (j = 0; j < times; j++) {
+			regmap_read(regmap, 0x10005000, &val);
+		}
+		// mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
+		// // an8855_mii_set_page(priv, priv->switch_addr, 0);
+		// __mdiobus_read(bus, priv->switch_addr, 0x1);
+		// mutex_unlock(&bus->mdio_lock);
+		regmap_read(regmap_phy,
+			   FIELD_PREP(GENMASK(20, 16), priv->switch_addr) |
+			   FIELD_PREP(GENMASK(15, 0), 0x1),
+			   &val);
+		times++;
+	}
+
+	end_time = ktime_get();
+
+	elapsed_ns = ktime_to_ns(ktime_sub(end_time, start_time));
+
+	pr_info("Time spent in the code block: %lld ns\n", elapsed_ns);
+}
+
+With the code changed accordingly.
+
+switch regmap + page (proposed implementation)
+Time spent in the code block:  866179846 ns
+
+switch regmap + phy regmap (proposed implementation + PHY regmap)
+Time spent in the code block:  861326846 ns
+
+switch regmap restore (switch regmap read/set/restore page)
+Time spent in the code block: 1151011308 ns
+
+switch regmap restore + phy regmap (switch regmap read/set/restore pgae
++ PHY regmap)
+Time spent in the code block: 1147400462 ns
+
+We can see that:
+- as suggested regmap doesn't cause any performance penality. It does
+  even produce better result.
+- the read/set/restore implementation gives worse performance.
+
+So I guess I will follow the path of regmap + cache page. What do you
+think?
 
 -- 
-2.47.0
-
+	Ansuel
 
