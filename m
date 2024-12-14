@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3432E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9521BE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 22:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVxSWTXl5UIYBnL/G0S8NcTIdBJTYT5G0e8feEw+iHw=; b=oHMw9Wk1C34rMJE523mOjOQQs2
-	YliYirqa+uTYv1plgeuaPqqVE1yj0qOnHnWlg39X7Dt0keLESGWGHbylNEJeJydgcBcHc83/kPxdl
-	Yj/cMoEP9NLnqghbG64MK5iNy3kh+kZBQQp7HYGmzMgXq0BdTv2ZzHbDHEMtWlXnOt8ui8ciNW24T
-	LjlQgkwQZ/n2uUOyDUz5DzMrt3ZAHFI8ByzMQ1XTDITItfI4tCC7Ga8FTUpaAbZC9Cdtw0QJKycz1
-	xq0F4tAdFh1uddeLxeW+zbywllVxpvKtJrkuDRXmmR2mUquiZgVaCNZ3f0loiT8O/ooMAcD82eqRN
-	SyBgQECw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ACrh33/0VpPxeYXX8I2uo19L8kPY5JYfKU4wzm3RzKU=; b=HwsliCNb+xXlqXPpQLrMF5dyvp
+	+GR067Ek2AARhbYi1T+xzO3R9ezTMGW21GFmDN6x+bCIGs4badnYj4z0WlL2f6P97bBVczVck5irX
+	5AYiT3AEBidnfM999Rumu99QmjBa5ibb1GTk370KG3m6h2nFWirBNNv0SsM84tAK9pMnGYprac206
+	jprPHvR6xquBGunCBBQ3x9OTeS1WKrUhVlaD7f1EV8Dtuco2DxMw+grlrtlshk1l1KXW+qRrzi+Nj
+	QrJWkH8+yUj+mBjqhUO7Kcbj6EetC0s20zFGLfAPcTi4GkPi2AyLPrgWAwGljX22xDWgkFchw9rGX
+	Tp4GAc8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMaJ3-000000071oJ-1gZP;
-	Sat, 14 Dec 2024 22:08:13 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tMaK6-000000071wb-0Ct6;
+	Sat, 14 Dec 2024 22:09:18 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMaFr-000000071Mh-35s2
+	id 1tMaIm-000000071lm-3Ms4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 22:04:56 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43624b2d453so33259655e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 14:04:55 -0800 (PST)
+	Sat, 14 Dec 2024 22:07:57 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so1510405f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 14:07:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734213894; x=1734818694; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tVxSWTXl5UIYBnL/G0S8NcTIdBJTYT5G0e8feEw+iHw=;
-        b=kMJQ1j7dLkPCvIUOMLk2bwamkQomX0kkDeF4l4uHWndj4QfprSpCtPV14FVKnx4vdS
-         DLqsb4ZD+qCsYRA6aCMYAOStCL3ENLh4utD2YXmSnPkpnV/pXnDw3EdYxo7xBhsm8bOI
-         BHf4/8W8skq2G8mSFi0+6nEQHOVB0JLCHH96xzYG9ZAPjNrsyP/yChZu74uqqYuS+l1c
-         /5EWoXqVjlut0mR6I3gv/YumZA7o8a3+Ti7nvBpD1RN2/dU54Hva7pCgWEMmifN1UQN8
-         scy7pltVRH98AfifZbsuB0rg8Ruyep3g/9w086Fb/xkO+TvhBK7UEziNYYHMrO6Nzrun
-         s3gg==
+        d=gmail.com; s=20230601; t=1734214075; x=1734818875; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ACrh33/0VpPxeYXX8I2uo19L8kPY5JYfKU4wzm3RzKU=;
+        b=W/x+chkETYs5xWR9HA6ffZIgd2tl3jWWIKkHSFP8Nb4siBryyR+Vjt/15rQMBc2qm2
+         DkEOQzQb3O6goYmtcPNhIGntapgLnNUzPSQWXChUVGfoV6Jgi/EbPMxfXBqQm4amgIAk
+         lEXn3YgkDeDthe7rk50tktBUkzwFQIVWUQF0euGMXzCCXWT9ojIVSHaYpEj9KkpU7NXM
+         ke+zGzzbKucKrtnLKeR47x+9W/ZqnnHnJ/JZ3Q1DUyxLoTb1XuuhtgNaEHV2zEpGpZ0h
+         TFct5bqYR2OFI/WRpV2W4+sXQfENi906d8wOP3rJ5kPm37g/6WaeT6QD4LBINoatbXAH
+         84fQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734213894; x=1734818694;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tVxSWTXl5UIYBnL/G0S8NcTIdBJTYT5G0e8feEw+iHw=;
-        b=GvlvTtV6oQ3n7LpqTl5nbQWfVFZawaBWaAVZ+4MTAb+BCt0x1etxCKQysdAsaOQNAc
-         yowx/9WVvkzSDoogXYCgstcqPcGCOtVCZKvoqsgTQkmJBBcAhrASrcb/6HJbE43QNYMI
-         hqm782uEUNcn1fQQtZuKPWRVC+aV5jjX0YcUxUhtS3lMa9HEW1St4hAA26xTQ+YuAbFo
-         Jxvu3O+uVZBMGxHOMVZfQRxsCjkj4xM3Sd4+WuPk0DrLjOkpxx4Q6/0FKfewhKqAtg02
-         4gdCpZWHczsE3QkL203QC3s1MzfdmlP811tTFOeIcO6YP/g1PNhgCUXHy7VgyDg1aXgg
-         5DTw==
-X-Forwarded-Encrypted: i=1; AJvYcCWQn6pUlNGQiv09f5K7cRKDUYtbx3o2kcS6UoQYl4rlQU8i1UbGGyDZuUyQKrEtzau+YbpRKwe8ATTyXBbojxnD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC6lJ6qvP0pjlI8tAMhovaMU4Cj/mpD/ulKyhkuc4h5Jo7D2NP
-	GIdBMhwiIJT+a78tXX8JA3v08LT7zDKpkoe1dkMiPf9qxkj37CO1
-X-Gm-Gg: ASbGncuUM0oCHMoav9mZiHu7sn+L1jR9u2OEVdEW4VqWnq9ZrKVCNtXbw5MJ7UfEB3d
-	Ylx0nbu0Ln9zgGgtYF0IuwEUh0jNjmgWdXSS1CnLZ1FLCIr+2FPkNNVLQZeefGo6iiRPGSHzSp7
-	sN2SQFtTHTfw+BnkzEGZfZHOy6Ik/tlWNGnF30o/4tIbviL1gQR/1PVrOr8eF6E9/0OWRr0JDgM
-	IUvpgs4uqJWANQfJLyZ1DxXgEtdjxpB6jNIDDI4rQfLEaE1rAfhKACpC8Bje3+bKzekead0G2Zi
-	x5Q7RuWyPGScq5VRXnUEiSHTnUpV4b6G
-X-Google-Smtp-Source: AGHT+IEJf/jNx97cvTTMZFhhseIjKNYBkj9n/qe14LMzuQtZhbLL0XfC66ydjc5C+zTjGUfOFA4Xbg==
-X-Received: by 2002:a05:600c:1da4:b0:434:f753:6012 with SMTP id 5b1f17b1804b1-4362aa509abmr72449325e9.17.1734213893779;
-        Sat, 14 Dec 2024 14:04:53 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734214075; x=1734818875;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ACrh33/0VpPxeYXX8I2uo19L8kPY5JYfKU4wzm3RzKU=;
+        b=aAELYKd1+QLkRIcPM6EwPDRQw7kEH9N10Jjl/WCh/8u+SA7+6A5wIj+u99Mpavb73n
+         5xKA4e1LUEj8PwpMmaEzZUbijv50TxuslslnMgalA2CM9RYRoJh5hE2LWutx82kOW8vs
+         daPW0ql3kLvhVFqttWumMpXxvayirg36j/i5HuJjV0kV4oC/htEDIHx68UiNy9gSmWb9
+         yeyeLEupKkiYx68ex2pUzs9o2ydSe4EXM8MAAX4nXB2J/SnMgdCzpJ3BFmlSqaCJOeeG
+         5hXMUeh72z25MG04KxyvPWe8QSyQdl5ioh7BHnFcYV8IapO2n8TyZhFKFI74XWCi2Otu
+         UiOw==
+X-Forwarded-Encrypted: i=1; AJvYcCWrejuidrJUwvOdfhdNK9IIWBqnIgP8abZJYe1g2yR9oFLQNo1GSjJJ2tj/TqZ8p01szOunOfsDuoDJ6ohv4/Ti@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFnO5R/J+fAp4O8n2LAC3uKT941A+7Ck9MljvTBn55/HtWyolm
+	KTSGesLn/KdvkEEVnjb6wD31thCRvjOFfhAVjvgPVsNgYSE20hce
+X-Gm-Gg: ASbGncudbJp2yU7cylSBJ3BSAd134ZyGtRXQQRK+aaW+aKWVg7ZPJK3a+eRZ8KxKCIV
+	is9Qb6ynLFLfZauf8JV3dXXylleLaoYG7uS+u7OwHEHjBvrXb0KP6tQW0KpownffNMrET9J99wm
+	X+Q2ok7ZRWOb7t8U5cM3DNimI97o0QDtSUIpMP7L34ZCl88bqqo+pIMBWM8/q8kfEiIzMwNBeCj
+	ogc+9ZPvBikwvNDeyeDPIC0H+D5NSIwh2ihl6KFBVfo+Z8tjJfS7MSOYku8xfdv/zBqR3HeXINP
+	bMFjxwaFlK2YqF29m/L5Ag+nYggyxRpw
+X-Google-Smtp-Source: AGHT+IEfd+QSAC7E/LXZUUhBYjyLml2o2c1E1vNqypWjINCbXo/G4qVPa0wBP1p2fCV8u0Syz7iBSw==
+X-Received: by 2002:a05:6000:460c:b0:385:e961:6589 with SMTP id ffacd0b85a97d-3888dcd4789mr5336184f8f.20.1734214074709;
+        Sat, 14 Dec 2024 14:07:54 -0800 (PST)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4361ec75410sm104456185e9.1.2024.12.14.14.04.52
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c8049facsm3696434f8f.79.2024.12.14.14.07.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 14:04:53 -0800 (PST)
+        Sat, 14 Dec 2024 14:07:54 -0800 (PST)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-i2c@vger.kernel.org,
+Cc: linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/2] i2c: exynos5: Add support for Exynos8895 SoC
-Date: Sun, 15 Dec 2024 00:04:19 +0200
-Message-ID: <20241214220419.723100-3-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v1] arm64: dts: exynos8895: Add camera hsi2c nodes
+Date: Sun, 15 Dec 2024 00:07:50 +0200
+Message-ID: <20241214220750.723354-1-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_140455_793947_7AA96088 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20241214_140756_842717_DC0CF2FF 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,100 +100,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos8895 functioning logic mostly follows I2C_TYPE_EXYNOS7, but timing
-and temp calculations are slightly changed according to the following
-logic:
-
-FPCLK / FI2C = (CLK_DIV + 1) * (TSCLK_L + TSCLK_H + 2) + 2 *
-((FLT_CYCLE + 3) - (FLT_CYCLE + 3) % (CLK_DIV + 1))
-
-temp := (FPCLK / FI2C) - (FLT_CYCLE + 3) * 2
+Add nodes for hsi2c1-4 (CAM0-3), which allows using them.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 ---
- drivers/i2c/busses/i2c-exynos5.c | 31 +++++++++++++++++++++++++++++--
- 1 file changed, 29 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi | 44 ++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/drivers/i2c/busses/i2c-exynos5.c b/drivers/i2c/busses/i2c-exynos5.c
-index e33001508..8d8ee42ba 100644
---- a/drivers/i2c/busses/i2c-exynos5.c
-+++ b/drivers/i2c/busses/i2c-exynos5.c
-@@ -168,6 +168,7 @@ enum i2c_type_exynos {
- 	I2C_TYPE_EXYNOS5,
- 	I2C_TYPE_EXYNOS7,
- 	I2C_TYPE_EXYNOSAUTOV9,
-+	I2C_TYPE_EXYNOS8895,
- };
+diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+index 90b318b2f..36657abfc 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+@@ -292,6 +292,50 @@ pinctrl_peric1: pinctrl@10980000 {
+ 			interrupts = <GIC_SPI 430 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
  
- struct exynos5_i2c {
-@@ -240,6 +241,11 @@ static const struct exynos_hsi2c_variant exynosautov9_hsi2c_data = {
- 	.hw		= I2C_TYPE_EXYNOSAUTOV9,
- };
- 
-+static const struct exynos_hsi2c_variant exynos8895_hsi2c_data = {
-+	.fifo_depth	= 64,
-+	.hw		= I2C_TYPE_EXYNOS8895,
-+};
++		hsi2c_1: i2c@10990000 {
++			compatible = "samsung,exynos8895-hsi2c";
++			reg = <0x10990000 0x1000>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_HSI2C_CAM0_IPCLK>;
++			clock-names = "hsi2c";
++			interrupts = <GIC_SPI 431 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&hsi2c1_bus>;
++			pinctrl-names = "default";
++			status = "disabled";
++		};
 +
- static const struct of_device_id exynos5_i2c_match[] = {
- 	{
- 		.compatible = "samsung,exynos5-hsi2c",
-@@ -256,6 +262,9 @@ static const struct of_device_id exynos5_i2c_match[] = {
- 	}, {
- 		.compatible = "samsung,exynosautov9-hsi2c",
- 		.data = &exynosautov9_hsi2c_data
-+	}, {
-+		.compatible = "samsung,exynos8895-hsi2c",
-+		.data = &exynos8895_hsi2c_data
- 	}, {},
- };
- MODULE_DEVICE_TABLE(of, exynos5_i2c_match);
-@@ -331,6 +340,14 @@ static int exynos5_i2c_set_timing(struct exynos5_i2c *i2c, bool hs_timings)
- 	 * clk_cycle := TSCLK_L + TSCLK_H
- 	 * temp := (CLK_DIV + 1) * (clk_cycle + 2)
- 	 *
-+	 * In case of HSI2C controllers in Exynos8895
-+	 * FPCLK / FI2C =
-+	 * (CLK_DIV + 1) * (TSCLK_L + TSCLK_H + 2) +
-+	 * 2 * ((FLT_CYCLE + 3) - (FLT_CYCLE + 3) % (CLK_DIV + 1))
-+	 *
-+	 * clk_cycle := TSCLK_L + TSCLK_H
-+	 * temp := (FPCLK / FI2C) - (FLT_CYCLE + 3) * 2
-+	 *
- 	 * Constraints: 4 <= temp, 0 <= CLK_DIV < 256, 2 <= clk_cycle <= 510
- 	 *
- 	 * To split SCL clock into low, high periods appropriately, one
-@@ -352,11 +369,19 @@ static int exynos5_i2c_set_timing(struct exynos5_i2c *i2c, bool hs_timings)
- 	 *
- 	 */
- 	t_ftl_cycle = (readl(i2c->regs + HSI2C_CONF) >> 16) & 0x7;
--	temp = clkin / op_clk - 8 - t_ftl_cycle;
-+	if (i2c->variant->hw == I2C_TYPE_EXYNOS8895)
-+		temp = clkin / op_clk - (t_ftl_cycle + 3) * 2;
-+	else
-+		temp = clkin / op_clk - 8 - t_ftl_cycle;
- 	if (i2c->variant->hw != I2C_TYPE_EXYNOS7)
- 		temp -= t_ftl_cycle;
- 	div = temp / 512;
--	clk_cycle = temp / (div + 1) - 2;
++		hsi2c_2: i2c@109a0000 {
++			compatible = "samsung,exynos8895-hsi2c";
++			reg = <0x109a0000 0x1000>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_HSI2C_CAM1_IPCLK>;
++			clock-names = "hsi2c";
++			interrupts = <GIC_SPI 432 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&hsi2c2_bus>;
++			pinctrl-names = "default";
++			status = "disabled";
++		};
 +
-+	if (i2c->variant->hw == I2C_TYPE_EXYNOS8895)
-+		clk_cycle = (temp + ((t_ftl_cycle + 3) % (div + 1)) * 2) /
-+			    (div + 1) - 2;
-+	else
-+		clk_cycle = temp / (div + 1) - 2;
- 	if (temp < 4 || div >= 256 || clk_cycle < 2) {
- 		dev_err(i2c->dev, "%s clock set-up failed\n",
- 			hs_timings ? "HS" : "FS");
-@@ -491,6 +516,8 @@ static irqreturn_t exynos5_i2c_irq(int irqno, void *dev_id)
- 	switch (i2c->variant->hw) {
- 	case I2C_TYPE_EXYNOSAUTOV9:
- 		fallthrough;
-+	case I2C_TYPE_EXYNOS8895:
-+		fallthrough;
- 	case I2C_TYPE_EXYNOS7:
- 		if (int_status & HSI2C_INT_TRANS_DONE) {
- 			i2c->trans_done = 1;
++		hsi2c_3: i2c@109b0000 {
++			compatible = "samsung,exynos8895-hsi2c";
++			reg = <0x109b0000 0x1000>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_HSI2C_CAM2_IPCLK>;
++			clock-names = "hsi2c";
++			interrupts = <GIC_SPI 433 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&hsi2c3_bus>;
++			pinctrl-names = "default";
++			status = "disabled";
++		};
++
++		hsi2c_4: i2c@109c0000 {
++			compatible = "samsung,exynos8895-hsi2c";
++			reg = <0x109c0000 0x1000>;
++			clocks = <&cmu_peric1 CLK_GOUT_PERIC1_HSI2C_CAM3_IPCLK>;
++			clock-names = "hsi2c";
++			interrupts = <GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&hsi2c4_bus>;
++			pinctrl-names = "default";
++			status = "disabled";
++		};
++
+ 		spi_0: spi@109d0000 {
+ 			compatible = "samsung,exynos8895-spi",
+ 				     "samsung,exynos850-spi";
 -- 
 2.43.0
 
