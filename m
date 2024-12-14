@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB3EE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 21:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD391E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 21:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bikUv5chFR7Mp0GtINpALlwdheFMLn92Zv1sVgMXCcM=; b=JiVXs5h8JCF+6jJizSwcgjBoo2
-	cLhuqKwkVZPyNLgknzLz9QaOJx8EiBFVhRW8QQfoeUEbCAecMPimg2lXiEIPQshneS6UmuQ/AC7W+
-	flkJHj6ee25+EsaoZpSXmx3ThyrNUJP+CPf7ZCFtK28uiLaiWY7ALnHUUHvKtoCT+u3QXC6fiN0rp
-	6uNpMhada5Wx2gbbAajurvMe5JEvNoW6ONKWjDJEN4bB2fYG28oYyn/uxGHOw9U3PV+fcPBv9HP1i
-	P/MJB6VXWvsvPdGXH0HTXNOfOROimPWnVx8GGRo58gbbjjSdMyPLRPneqbbgbdOra9q/aYBNQA81R
-	16NzNIjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0R3xI1UN2GRunhZ03PNs268H2M6C30q31a5zdZmWMp8=; b=SCpwtCcVj/AePgLhScRcmkn1+1
+	RevovvAlZZFVsGw69sQW9IeflzkdpRic9WX1U+t1UtLNdUaotH0zqnEgyPCMKBtZSc1euTxrTeoys
+	0CZiyiV9mVj0c/81/nd8QooFIBOWNp7iMFFr0wSeDFSIDwbGFtm61IGE4z5agQyqCC+QdAVfcNoEv
+	bqtChiLDhkiR7AfqDb0+dHXTavAH/EqKbZICm7Oic99wZ/DB1HEroJ2kKTUysp9I13iCTANktlTUN
+	Wnu5swqcpEcF3sBECIDggYl2s7VGyT55G4vVoo0sojKkUQpt0bMt7OTzPhajSFR067o6VTBJnXKfu
+	BxTF8kdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMa90-000000070kv-0DAW;
-	Sat, 14 Dec 2024 21:57:50 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tMaAN-000000070vQ-2lqR;
+	Sat, 14 Dec 2024 21:59:15 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMa7u-000000070fK-21I4
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 21:56:44 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BELuO4A079250;
-	Sat, 14 Dec 2024 15:56:24 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1734213384;
-	bh=bikUv5chFR7Mp0GtINpALlwdheFMLn92Zv1sVgMXCcM=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Su6orVk4oGSPdNpzzHJP1K/BxQb91vziqP80ujdPLV4F5FxIncFmZccYomZwYfdjQ
-	 VGKuhfoa2tTGiEmsG9YgLdfhIw4zAWaPgIb52/M9AAAt3LAtG8KYAL1gmo67ZhkPmK
-	 JsyOWwm6Jz/pxmbd2+4tTPTvdlLuno/FGdCiZf9Y=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BELuOnd024904
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sat, 14 Dec 2024 15:56:24 -0600
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 14
- Dec 2024 15:56:24 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sat, 14 Dec 2024 15:56:23 -0600
-Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BELuOOP089856;
-	Sat, 14 Dec 2024 15:56:24 -0600
-Date: Sat, 14 Dec 2024 15:56:24 -0600
-From: Bryan Brattlof <bb@ti.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am62l: add initial infrastructure
-Message-ID: <20241214215624.e372oju6eserpf4f@bryanbrattlof.com>
-X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
-References: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
- <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
- <Z12rnZiCXQxtMWlf@livingston.pivistrello.it>
+	id 1tMa9J-000000070nV-13Ym;
+	Sat, 14 Dec 2024 21:58:10 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7b6e9586b82so223392385a.1;
+        Sat, 14 Dec 2024 13:58:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734213487; x=1734818287; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0R3xI1UN2GRunhZ03PNs268H2M6C30q31a5zdZmWMp8=;
+        b=ZoWxq49FrbkdFfoy7SiQiVPXauqm9uWlFVTe6f2Y7PEWgldVO05dFNJCqkyyPa6lE/
+         4Q+GK4PFVAMgKTaGHjZ8blTH71Bv+rAd11SCjaJ2RyzUhyva2elQeqtikuDyQWg4p3Jc
+         LymIs2UI7R0bcy9NYcj2xY4+XauB+B/2QK50Yr6LCbkMrGAaeDC3uBFMm+jfCne30KBQ
+         KnaiJDhXSbZi8eLrr27oGBKtXqHANkcs3f615DscK1xqohyOKrfFLR08Eyq0PW2tgaSr
+         fza4LwXgiSoQ4Yim5561kIZhy0bLIIzGc4TJ7mB6EUDhbKW4RR+RvdVfu9lL7HHaaG3V
+         FtwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734213487; x=1734818287;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0R3xI1UN2GRunhZ03PNs268H2M6C30q31a5zdZmWMp8=;
+        b=aYlLVwnL65WlAMMkTFkAQ9Wl6+SXisaYRSihk8zYyN5oY32WKibf4s9Iyrxi+spfc1
+         EC/+ChpC9xwSwmrnB4gydsR+hWZnhpQYZIA9afUhhE7RoqHVtUHHl2xM5HVw9j1FUP8M
+         9a2IGyR7DFkvPK4coU0IxoIfB10Vq/0T0V/vPMvlQeSWrbeKDld0DbqI817DpAftLcP9
+         6WYzaV9p3UrvTlTa8DBS86bWOLEp5uy456XcbNCR6qN6BHkbiboFyAeSJohmRGisxIN0
+         l+ZMUdsfKpR6gMC2ceJfGqfoQoRdxYR8AKBOC16Yvm/i9h72nYTyaKhMc/SUE1BIBKma
+         zs+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCULZISaEo8hxU9PttJld/vOjpfY7/wX5WajBeQR8WtKby/rrOnyWuuCNEuC5o8FdIU5hRROC3VP3uG+UZruZ3w=@lists.infradead.org, AJvYcCXcU4v+MbOj/YwRrV+GTZEPVEUoB1E1tg5o4H4OlRdRqGBhZnfHcH7zclDVcSug/S93BhKQX9MZzBO82lA13T0j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx24qP5JNqTWdLgSYqYCNojoCziSN0ePzEG3O+9JXjqSmlZ/VWq
+	et7L524jMiPSIpLtidz6d0gCxECRatA/6aGraxWub+L1ffI05BiJ
+X-Gm-Gg: ASbGncs82nu6PIoUzx5vB57tYBIigmDoyOBU8xiLnxgau4SoJ7pay+wvveQf6XoJGNd
+	7wcboGCprZgrMrq5ska8p6G5D+ZZPCkZngjN2b6pyRZxGPd7PammtaKN7/0a2RH3MEANCf5T+/o
+	DfDK5CQn0VdMV0vx5DAldn6yYpTy/KIx4xj1lJhAiuUOnrHNFakWnxdmozgrohA1unWRi0RvwVq
+	nJ22eBT58BYodJPmwpLom19AdVNPbzDQ7z6hpz0NGuSfJLlg8EAVT+cF48ahx/MAkG4
+X-Google-Smtp-Source: AGHT+IGt/f+i+UFJ3O+RvOd/bRwD3wpdtAD3wNHRnq4t2hd2j0+Yy4uR/gvcC7FSIKX3AOr1aEX9Ug==
+X-Received: by 2002:a05:620a:a005:b0:7b7:68c:cde5 with SMTP id af79cd13be357-7b7068cda7amr362626385a.1.1734213487439;
+        Sat, 14 Dec 2024 13:58:07 -0800 (PST)
+Received: from master-x64.sparksnet ([204.111.53.241])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b7048bb8cfsm95536385a.76.2024.12.14.13.58.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Dec 2024 13:58:06 -0800 (PST)
+From: Peter Geis <pgwipeout@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Peter Geis <pgwipeout@gmail.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v2] pmdomain: rockchip: fix rockchip_pd_power error handling
+Date: Sat, 14 Dec 2024 21:58:02 +0000
+Message-Id: <20241214215802.23989-1-pgwipeout@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <Z12rnZiCXQxtMWlf@livingston.pivistrello.it>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_135642_681856_3DB53DC6 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20241214_135809_291136_07ABE5CA 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,141 +101,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On December 14, 2024 thus sayeth Francesco Dolcini:
-> On Sun, Nov 17, 2024 at 11:34:07PM -0600, Bryan Brattlof wrote:
-> > From: Vignesh Raghavendra <vigneshr@ti.com>
-> > 
-> > Add the initial infrastructure needed for the AM62L. All of which can be
-> > found in the Technical Reference Manual (TRM) located here:
-> > 
-> >     https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
-> > 
-> > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> > Signed-off-by: Bryan Brattlof <bb@ti.com>
-> > ---
-> >  Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
-> >  arch/arm64/boot/dts/ti/Makefile                  |  3 +
-> >  arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 52 ++++++++++++++
-> >  arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 33 +++++++++
-> >  arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 89 ++++++++++++++++++++++++
-> >  arch/arm64/boot/dts/ti/k3-am62l3.dtsi            | 67 ++++++++++++++++++
-> >  arch/arm64/boot/dts/ti/k3-pinctrl.h              |  2 +
-> >  7 files changed, 252 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> > index 18f155cd06c84..b109e854879cb 100644
-> > --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> > @@ -31,6 +31,12 @@ properties:
-> >            - const: phytec,am62a-phycore-som
-> >            - const: ti,am62a7
-> >  
-> > +      - description: K3 AM62L3 SoC and Boards
-> > +        items:
-> > +          - enum:
-> > +              - ti,am62l3-evm
-> > +          - const: ti,am62l3
-> > +
-> 
-> can you clarify the differences between AM62L and AM62L3? you have a mix of names in this series. I assume that
-> AM62L is the SOC family / product name, while AM62L3 is a specific 
-> part number.
->
+The calls rockchip_pd_power makes to rockchip_pmu_set_idle_request lack
+any return error handling, causing device drivers to incorrectly believe
+the hardware idle requests succeed when they may have failed. This leads
+to software possibly accessing hardware that is powered off and the
+subsequent SError panic that follows.
 
-Absolutely! I found the naming a bit confusing myself. 
+Add error checking and return errors to the calling function to prevent
+such crashes.
 
-We (the baseport teams) have kinda coalesced into using less digits as a 
-way to describe all devices included in the subgroup. So for example AM6 
-would be all Sitara class MPUs in the K3 generation. AM62L would be all 
-parts in K3 in the 'lite' derivative. AM62L32 would be all AM62L parts 
-with display and dual cores.
+gst-launch-1.0 videotestsrc num-buffers=2000 ! v4l2jpegenc ! fakesink
+Setting pipeline to PAUSED ...er-x64
+Pipeline is PREROLLING ...
+Redistribute latency...
+rockchip-pm-domain ff100000.syscon:power-controller: failed to get ack on domain 'hevc', val=0x98260
+SError Interrupt on CPU2, code 0x00000000bf000002 -- SError
 
-But I should probably decode everything as these part numbers are really 
-opaque in my eye if you don't see them every day. 
+Signed-off-by: Peter Geis <pgwipeout@gmail.com>
 
-The full orderable part number for this part is the XAM62L32AOGHAANB
+---
+I have pulled this patch out to be standalone and rebased it on
+Sebastian's pmdomain work. It is now dependent on their series [1].
 
-    'X' is the production status. If you see an 'X' here it just means 
-    it's a pre-production sample that hasn't gone through validation. 
-    Most of the time (outside of TI) this will be blank
+[1] https://lore.kernel.org/linux-rockchip/20241211143044.9550-1-sebastian.reichel@collabora.com/T/#t
 
-    'AM' is the prefix which indicates a Sitara class of SoC. The AM68 
-    and AM69 being originally a Jacinto class part kinda makes this more 
-    confusing but back in the day i think it used to stand for ARM 
-    Microprocessors so that's what I've been telling people.
+Changes in v2:
+- Rebase on Sebastian's pmdomain work.
+- Handle clock cleanup.
+- Clean up commit message.
+- Pull this patch from the series and submit alone.
 
-    '62' is the generation and family of the part. So this example the 6 
-    indicates the K3 generation of SoCs and the 2 means it's an MPU 
-    family with 2k display or 2k camera support among other things.
+ drivers/pmdomain/rockchip/pm-domains.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-    'L' is the derivative of the family. This is mostly a marketing 
-    thing to indicate the target market for the SoC:
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index 31c71b6fddf1..9f6640063fda 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -602,26 +602,29 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
+ 		rockchip_pmu_save_qos(pd);
+ 
+ 		/* if powering down, idle request to NIU first */
+-		rockchip_pmu_set_idle_request(pd, true);
++		ret = rockchip_pmu_set_idle_request(pd, true);
++		if (ret < 0)
++			goto out;
+ 	}
+ 
+ 	ret = rockchip_do_pmu_set_power_domain(pd, power_on);
+-	if (ret < 0) {
+-		clk_bulk_disable(pd->num_clks, pd->clks);
+-		return ret;
+-	}
++	if (ret < 0)
++		goto out;
+ 
+ 	if (power_on) {
+ 		/* if powering up, leave idle mode */
+-		rockchip_pmu_set_idle_request(pd, false);
++		ret = rockchip_pmu_set_idle_request(pd, false);
++		if (ret < 0)
++			goto out;
+ 
+ 		rockchip_pmu_restore_qos(pd);
+ 	}
+ 
++out:
+ 	rockchip_pmu_ungate_clk(pd, false);
+ 	clk_bulk_disable(pd->num_clks, pd->clks);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static int rockchip_pd_regulator_disable(struct rockchip_pm_domain *pd)
+-- 
+2.39.5
 
-      AM62  (or blank) would be the general base class
-      AM62A is for the analytics derivative
-      AM62D is for DSP
-      AM62P is for Plus
-      AM62L is for Lite
-
-    '3' is the configuration. This really depends on what the business 
-    teams find feasible. Some of the family/derivative combinations
-    don't make sense to have. For example an AM62L9 which would just be 
-    the base AM62 derivative, so some configurations may not exist.
-
-      0 = No Display / No ISP
-      1 = No Display with ISP
-      2 = No Display with ISP and Analytics
-      3 = Display / No ISP
-      4 = Display / No ISP with Analytics
-      5 = Display / No ISP with GPU
-      6 = Display with ISP
-      7 = Display with ISP and Analytics
-      8 = Display with ISP and GPU
-      9 = includes everything
-
-    '2' is the core count. AM62L32 would be the dual core option.
-
-The rest of the digits get into stuff we try to do automatically via our 
-bootloaders so you wont see any mention of them in Linux, but I kinda 
-wanted to continue decoding this :)
-
-    'A' is the silicon revision. A = SR 1.0 
-
-    'O' is the speed grade. (there is a table somewhere with all the 
-    speed grades we support. The two I know about are.
-
-      O = 1.25GHz
-      E = 833MHz
-
-    'G' is the feature set. Because the derivative is 'L' (or lite) we 
-    probably won't have options other than G which is the baseline
-
-    'H' is the security & functional safety value
-
-      'G' is non secure no functional safety. (like the beagleplay)
-      '1-9' are dummy key devices with no functional safety
-      'H-R' are production key HS devices with no function safety 
-      'S-Z' are production key HS devices with function safety
-        
-'H-Z' is probably the most common security you will see TI make now. 
-There are ways (by talking to sales) you can purchase other variants for 
-special use cases (like aviation) but I think these are all special use 
-cases with unique regulatory or security issues.
-
-    'A' is the temperature rating
-     
-      'A' = -40C to 105C
-      'I' = -40C to 125C
-
-    'ANB' is the package: 11.9mm x 11.9mm with 0.5 BGA
-
-There can be a total of 18 digits which can vary when decoding the 
-family (AM65, AM64) but generally this decoding scheme will hold. I only 
-really see those weird parts with our vertically integrated customers 
-with their own sales teams.
-
-Sorry for the essay. I went though our catalog one day and had the very 
-same question you did so I wanted to dump as much as I could.
-
-~Bryan
 
