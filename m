@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6ABCE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 17:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C17E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Dec 2024 17:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GdcIoMV9rDgh/h7XI/XexxU3pMPlgPu8UDf7JNbHBG0=; b=ZJGdD6txREPpH87OQIHUdthGqr
-	H79bLvAJEqVwubdSr+CJZWjFPQXpfdJE1eNoRufqOu54Snof8OYmmr2TTNhDpfonwPX+x02N8qbZv
-	Y3fZeVfvli0fLokGFocMwpQtMNVb5RSvFCXl6XrTNNcDb6sxNLTTO0qYDuiudzqnw77ZCW4oAxv4a
-	gUVBt1ZRiIq9o/DZsH4T36AjE1hkxiXTJnxhc53nKyt1b65IpHXjnYn3XFuY6Yv8tFV12KZsIcSuY
-	aKpl93yPYdDkmwvWcLq+NB+CsME831qG64pGWdpkQQCis1X6ga7feWnI1OAvd5sIrRLmWPDb1Ml8Y
-	oS0OgIbQ==;
+	bh=lXrWYXYzsAx5Y7gy/qw4VXYtZagOcwsbOgV+oUbNohE=; b=dCY6taROJFgovSY2jc5PiXTrlO
+	MS3CI57rto2xPqNfHJT140tUVvcQV3zPv4sNCTUMlkW62ScBTBgOSuZ2hsJK3a0a3RFwxmsoE7cS9
+	fA8WI8qiBCZmfRJC1dRtYx5OJkODjY4We/3Sp1o9L8YxBlBVFaYWnG1nZwSSKVTsGGVWl0yyUpy1F
+	taL9BguusPnpMf27nzetFE3SgjGNktioy0uc7v+qIQdMTnZloZznynVsptOy0luBxLt67T9lRMle9
+	jPxsqiaGQtXMQWS+cShiCfYC9EvMTdlTcyYm1GuCtAEc8kNmnklIcCpuVYr8HXgTPMGXiq6alkOme
+	RVTmRX9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMW7t-00000006jK4-3aOx;
-	Sat, 14 Dec 2024 17:40:25 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1tMWBg-00000006jXe-3SLm;
+	Sat, 14 Dec 2024 17:44:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMVzg-00000006hen-2TGN
+	id 1tMWAc-00000006jVJ-1VBJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 14 Dec 2024 17:43:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=lXrWYXYzsAx5Y7gy/qw4VXYtZagOcwsbOgV+oUbNohE=; b=qB/AP1/0HkJp3AerT9AzgMY3az
+	XqXb+Dv8jQzIpo+KOPLnYmtnbwVQPqk/OeAp4c56qn2E9G7L0OUPhVj0xDRlWM2e7bSsGLMd2Ebr8
+	+Zrj9lHkB7kZ5WlWBIGlqrEgzM6ZV2ZeyRhAeKg9QArIWAZIDjWOrqxZwWSXbVrtcE5vQASl4RDd7
+	59lKEWUyedvftdCtQMiWF2kZg154xbzoFHZH2GrgaUYuA+iGvquok/U39Aer1JrZoq9mKKFMr+Png
+	B7DOzUJBSW6NbDbike0IoMuNcP1+7ROCtU4zrCjootSsjJ6h1QO3aJ0+cD3bNYuhEjmajrn/3pNcU
+	BAdM+KNg==;
+Received: from mgamail.intel.com ([198.175.65.17])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tMWAO-00000004Xbc-2C7h
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Dec 2024 17:31:59 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with both STARTTLS and AUTH (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-312-61ot2vfuOIOCZzeUwr6qww-1; Sat, 14 Dec 2024 17:31:50 +0000
-X-MC-Unique: 61ot2vfuOIOCZzeUwr6qww-1
-X-Mimecast-MFC-AGG-ID: 61ot2vfuOIOCZzeUwr6qww
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.48; Sat, 14 Dec
- 2024 17:30:53 +0000
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.048; Sat, 14 Dec 2024 17:30:53 +0000
-From: David Laight <David.Laight@ACULAB.COM>
-To: "'netdev@vger.kernel.org'" <netdev@vger.kernel.org>, 'Naresh Kamboju'
-	<naresh.kamboju@linaro.org>, 'Dan Carpenter' <dan.carpenter@linaro.org>,
-	'Julian Anastasov' <ja@ssi.bg>, "'pablo@netfilter.org'"
-	<pablo@netfilter.org>, Andrew Morton <akpm@linux-foundation.org>
-CC: 'open list' <linux-kernel@vger.kernel.org>,
-	"'lkft-triage@lists.linaro.org'" <lkft-triage@lists.linaro.org>, "'Linux
- Regressions'" <regressions@lists.linux.dev>, 'Linux ARM'
-	<linux-arm-kernel@lists.infradead.org>, "'netfilter-devel@vger.kernel.org'"
-	<netfilter-devel@vger.kernel.org>, 'Arnd Bergmann' <arnd@arndb.de>, "'Anders
- Roxell'" <anders.roxell@linaro.org>, 'Johannes Berg'
-	<johannes.berg@intel.com>, "'toke@kernel.org'" <toke@kernel.org>, 'Al Viro'
-	<viro@zeniv.linux.org.uk>, "'kernel@jfarr.cc'" <kernel@jfarr.cc>,
-	"'kees@kernel.org'" <kees@kernel.org>
-Subject: [PATCH net-next] Fix clamp() of ip_vs_conn_tab on small memory
- systems.
-Thread-Topic: [PATCH net-next] Fix clamp() of ip_vs_conn_tab on small memory
- systems.
-Thread-Index: AdtOTfU+VQ/Jz9m3Sa6gMqrna34atA==
-Date: Sat, 14 Dec 2024 17:30:53 +0000
-Message-ID: <24a6bfd0811b4931b6ef40098b33c9ee@AcuMS.aculab.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
-MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MSKn14niWZ14IiVGDT6r2oSEzcDvHwdn8oR5qTi_huA_1734197509
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	Sat, 14 Dec 2024 17:43:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734198181; x=1765734181;
+  h=date:from:to:cc:subject:message-id;
+  bh=Y1gjnqTOWVhfckLcMaKIst/+ut+0P2YUiADvJg47fKk=;
+  b=RtuSbsOqbZU32pM/LOUEFQk4f9Fy4DH7bngBS0bZ2mRBpjNBg3kDZcfa
+   GNBj8S+0BCFB45csM77H43Jp/4JJyXf4S2GHhdvpkC91+hqS2h0saxhQF
+   Cnx9elFKWyiqllKcHGIUTWmdlsWgYqMYbo8qsyuwTiGEu0mO393KI5gIk
+   Roh4010/lbsCgDcungStJVJoWk+BRBxOVDehHjHWZPXQwtcf9NJhCiqJ8
+   CDb4X31r4bdWTUQLjo2fTy+fLmc+LOwKsAZJofBtcgta2c2v8vYWdJmUP
+   fyUk+I8VGirJpfPdnOdrIbyJDHuDB5r5Jo94Uny/nSrNJKR8Tx5lJvrOz
+   Q==;
+X-CSE-ConnectionGUID: nHj+l74wSTOnhPIc83Jv3A==
+X-CSE-MsgGUID: zoZxXg8tToyqF+B3R+GtCA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11286"; a="34679362"
+X-IronPort-AV: E=Sophos;i="6.12,234,1728975600"; 
+   d="scan'208";a="34679362"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Dec 2024 09:42:52 -0800
+X-CSE-ConnectionGUID: dQrGgw+GTs6PQa3q1S2zzA==
+X-CSE-MsgGUID: uX/SxJQCS8G3DJYT7PhCQQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="134160591"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 14 Dec 2024 09:42:50 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tMWAB-000D7D-35;
+	Sat, 14 Dec 2024 17:42:47 +0000
+Date: Sun, 15 Dec 2024 01:42:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ b589fbc3f413c94b2f279c04ee802a008692a7fe
+Message-ID: <202412150158.MpLg3nHH-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_093156_896783_4B36F6BB 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20241214_174304_990388_A8726B45 
+X-CRM114-Status: UNSURE (   4.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +98,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'max_avail' value is calculated from the system memory
-size using order_base_2().
-order_base_2(x) is defined as '(x) ? fn(x) : 0'.
-The compiler generates two copies of the code that follows
-and then expands clamp(max, min, PAGE_SHIFT - 12) (11 on 32bit).
-This triggers a compile-time assert since min is 5.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: b589fbc3f413c94b2f279c04ee802a008692a7fe  ARM: dts: nuvoton: Fix at24 EEPROM node names
 
-In reality a system would have to have less than 512MB memory
-for the bounds passed to clamp to be reversed.
+elapsed time: 1448m
 
-Swap the order of the arguments to clamp() to avoid the warning.
+configs tested: 4
+configs skipped: 120
 
-Replace the clamp_val() on the line below with clamp().
-clamp_val() is just 'an accident waiting to happen' and not needed here.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Detected by compile time checks added to clamp(), specifically:
-minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+tested configs:
+arm  randconfig-001-20241214    gcc-14.2.0
+arm  randconfig-002-20241214    clang-15
+arm  randconfig-003-20241214    gcc-14.2.0
+arm  randconfig-004-20241214    gcc-14.2.0
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Closes: https://lore.kernel.org/all/CA+G9fYsT34UkGFKxus63H6UVpYi5GRZkezT9MR=
-LfAbM3f6ke0g@mail.gmail.com/
-Fixes: 4f325e26277b ("ipvs: dynamically limit the connection hash table")
-Tested-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: David Laight <david.laight@aculab.com>
----
-
-Julian seems to be waiting for a 'v2' from me.
-Changed target tree to 'net-next'.
-I've re-written the commit message.
-Copied Andrew Morton - he might want to take the change through the 'mm' tr=
-ee.
-Plausibly the 'fixes' tag should refer to the minmax.h change?
-This will need back-porting if the minmax set get back-ported.
-
-I'm not sure whether there ought to be an attribution to Dan Carpenter <dan=
-.carpenter@linaro.org>
-
- net/netfilter/ipvs/ip_vs_conn.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_con=
-n.c
-index 98d7dbe3d787..c0289f83f96d 100644
---- a/net/netfilter/ipvs/ip_vs_conn.c
-+++ b/net/netfilter/ipvs/ip_vs_conn.c
-@@ -1495,8 +1495,8 @@ int __init ip_vs_conn_init(void)
- =09max_avail -=3D 2;=09=09/* ~4 in hash row */
- =09max_avail -=3D 1;=09=09/* IPVS up to 1/2 of mem */
- =09max_avail -=3D order_base_2(sizeof(struct ip_vs_conn));
--=09max =3D clamp(max, min, max_avail);
--=09ip_vs_conn_tab_bits =3D clamp_val(ip_vs_conn_tab_bits, min, max);
-+=09max =3D clamp(max_avail, min, max);
-+=09ip_vs_conn_tab_bits =3D clamp(ip_vs_conn_tab_bits, min, max);
- =09ip_vs_conn_tab_size =3D 1 << ip_vs_conn_tab_bits;
- =09ip_vs_conn_tab_mask =3D ip_vs_conn_tab_size - 1;
-=20
---=20
-2.17.1
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1=
-PT, UK
-Registration No: 1397386 (Wales)
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
