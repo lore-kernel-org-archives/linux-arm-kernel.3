@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F39E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 13:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA67E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 13:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5OOMlKh31D8qg/p6VzUOOKKvtXI2JbyoZbCFo7ynIs=; b=nSOIn32S6/GkZw/W8lk9wkgP0N
-	2ymyI5czAenl1EI/klUdZK0oFgJQZtO1CxcYzGM/0SsZWiFzcBJ2+YFliqSkzpHvQ4DY7CiNzHJNp
-	DJ8HgQB3EhDXzH1aYsGSAKUdnGbfQulgRSBJuSbveH2ZACxUO/nxK0N/kTRBgoMQPakIuJptUg7LE
-	WbKao9pBGFFcQ1F5F1GDq26ZlkiETv1IQ/o++hP6/aLgEi75OJeOo2cq7L+L+elN2d7MEeW4j6Lcg
-	DgK2VKk4HePgvrnx29Rl0UHfWwdnl/4po+Zo4XGKzop8qQJ80QBMouY0xjfUbrNYVa9u21AH6zDT2
-	eyNUpJ4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DfcljKkBWCiMn19/qRi4mIorttXds7rFjmbFlhgdMg=; b=vXu9cvE10PZJoDeYf272vB0MO1
+	bB4hg8DQB5iKOuI6DY+oGsGXWJ78a8lKc1Jo1nuTSetkDagR33Q2xbZfcwAEooUIh2gsm1IfKlYJA
+	4f8f5YxA3e3jRTmAbxaz3nkimPa71vPEf+7QYNuYaQ766XBBLkas2a9Pu420TbOjpwuLR59OLOWuf
+	g8tU2oID0llbzvAZHRoDCHfJiNtPblE9onPXp2sidMxR5mfLVoMCm3RFH/JEuO9jpKBHdQCjVGfgf
+	CVCSpaZnYWAcBCWV1lSL7ndeI+CMmFiqsyO2CiCAhuXjRsZwstNivGUZtU4jvG60xBgwMrCq7jPze
+	RkptrLkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMoS5-00000007x0k-480w;
-	Sun, 15 Dec 2024 13:14:29 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMoQy-00000007wvM-3laM
+	id 1tMosa-00000007ypF-3CI3;
+	Sun, 15 Dec 2024 13:41:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tMorU-00000007yjD-1cdN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Dec 2024 13:13:22 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3A454A57;
-	Sun, 15 Dec 2024 14:12:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1734268359;
-	bh=oVsaFywUpOuv+msqvVac4ISm2LdrnqEXWubTqo/CYlw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UgdALH13Od9P2Xwxw2tffH3ewbTXorof9YJ0zEZTayP4/AuuA7GBo9G1Qu/tQ4O9D
-	 /4pgzVcnY/NLA+WsSi2IBCkvs/iqRuT/PXRktwTYBncCEVo0yt7+QwCjxx19LQkaGi
-	 eGx5eqBzNm7eH10t/R2GXEqEgtcMdu8NG17/3GQA=
-Date: Sun, 15 Dec 2024 15:12:58 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Karol Przybylski <karprzy7@gmail.com>
-Cc: tomi.valkeinen@ideasonboard.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, michal.simek@amd.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCHv3] drm: zynqmp_dp: Fix integer overflow in
- zynqmp_dp_rate_get()
-Message-ID: <20241215131258.GC25852@pendragon.ideasonboard.com>
-References: <20241215125355.938953-1-karprzy7@gmail.com>
+	Sun, 15 Dec 2024 13:40:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8414611FB;
+	Sun, 15 Dec 2024 05:41:05 -0800 (PST)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 730863F720;
+	Sun, 15 Dec 2024 05:40:35 -0800 (PST)
+Date: Sun, 15 Dec 2024 13:39:50 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>, Roman Beranek
+ <me@crly.cz>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH 0/3] arm64: allwinner: a64: fix video output on Pinebook
+Message-ID: <20241215133950.27e5877a@minigeek.lan>
+In-Reply-To: <20241215053639.738890-1-anarsoul@gmail.com>
+References: <20241215053639.738890-1-anarsoul@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241215125355.938953-1-karprzy7@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_051321_067041_6801FECE 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20241215_054044_484308_EB2E0AA1 
+X-CRM114-Status: GOOD (  22.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,50 +70,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ho Karol,
+On Sat, 14 Dec 2024 21:34:56 -0800
+Vasily Khoruzhick <anarsoul@gmail.com> wrote:
 
-Thank you for the patch.
+Hi Vasily,
 
-On Sun, Dec 15, 2024 at 01:53:55PM +0100, Karol Przybylski wrote:
-> This patch fixes a potential integer overflow in the zynqmp_dp_rate_get()
+thanks for tracking this issue down and sending the fixes!
+
+> Since commit ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in TCON0 mux"),
+> TCON0 clock parent is always set to PLL_MIPI, but unfortunately it breaks
+> video output on Pinebook.
 > 
-> The issue comes up when the expression
-> drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000 is evaluated using 32-bit
-> Now the constant is a compatible 64-bit type.
-> 
-> Resolves coverity issues: CID 1636340 and CID 1635811
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 28edaacb821c6 ("drm: zynqmp_dp: Add debugfs interface for compliance testing")
-> Signed-off-by: Karol Przybylski <karprzy7@gmail.com>
+> I did an experiment: I manually configured PLL_MIPI and PLL_VIDEO0_2X
+> to the same clock rate and flipped the switch with devmem. Experiment clearly
+> showed that whenever PLL_MIPI is selected as TCON0 clock parent, the video
+> output stops working.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+That is good info, together with what Roman reported in that patch
+mentioned above it seems to confirm that the parent clock selection
+also determines the output path of TCON0.
+Since there does not seem to be another register or switch setting
+the path (ignoring the pinmux), I think a DT solution is appropriate
+here, and assigned-clock-parents is the right way to go.
 
-> ---
-> Changes from previous versions:
-> Added Fixes tag
-> Added Cc for stable kernel version
-> Fixed formatting
+So the patch series looks good to me in general, but we thought that of
+Roman's series as well, so I would really like to see a Tested-by: from
+a Pinephone user and ideally a confirmation from Roman that this still
+works for him.
+
+Also I second Dragan's comments about copying the rationale into at
+least the commit messages (if not in comments). Having explanations
+in the cover letter is good, but having it in the git repo is much
+better - as the cover letter will only be in the email archives.
+
+Cheers,
+Andre
+ 
 > 
->  drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> To fix the issue, I partially reverted mentioned commit and added explicit
+> TCON0 clock parent assignment to device tree. By default, it will be
+> PLL_MIPI, and the only users with RGB output - Pinebook and Teres-I will
+> override it in their dts.
 > 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> index 25c5dc61ee88..56a261a40ea3 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> @@ -2190,7 +2190,7 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
->  	struct zynqmp_dp *dp = data;
->  
->  	mutex_lock(&dp->lock);
-> -	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000;
-> +	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
->  	mutex_unlock(&dp->lock);
->  	return 0;
->  }
+> Vasily Khoruzhick (3):
+>   dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
+>   arm64: dts: allwinner: a64: explicitly assign clock parent for TCON0
+>   clk: sunxi-ng: a64: stop force-selecting PLL-MIPI as TCON0 parent
+> 
+>  arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts |  2 ++
+>  arch/arm64/boot/dts/allwinner/sun50i-a64-teres-i.dts  |  2 ++
+>  arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi         |  2 ++
+>  drivers/clk/sunxi-ng/ccu-sun50i-a64.c                 | 11 -----------
+>  drivers/clk/sunxi-ng/ccu-sun50i-a64.h                 |  2 --
+>  include/dt-bindings/clock/sun50i-a64-ccu.h            |  2 ++
+>  6 files changed, 8 insertions(+), 13 deletions(-)
+> 
 
--- 
-Regards,
-
-Laurent Pinchart
 
