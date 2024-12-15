@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70902E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 17:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF71E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 20:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EN7iH2JrYoJnf4PuvXI5sJj1HDLFLJVThzYpRRnaNnU=; b=Dd/Qf4183e5uEugZqXxcsam45t
-	Vw94hn6R0f3EcUoGq4euygofq+iQsPidjdmWXw5WCOfxQMrmZ+g3myRBAxVY2gDdViAZxp7Ij9zJq
-	BYosipiUpT3H2PdE+fiKvfPBUIKTFq1CkBn+IQV99PcvkZ+3JC0mHtQXKa9LkzuTFSyS9QTS1ZEbu
-	4s22TFUIRE+KteJRf/bCYvLwQzwZshrztBTmzoy63n74rJiRhMgzvNDDpQCYcAJo3kK5G0Wzj4wlf
-	oN1RCuzXg6hHcMHum4i3kLM6n+SXtalxGAyyYwIQWcax/nd+2841gHbun9dZzUiFTJqz3gV/odiXw
-	oWHKkykA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YwBupfT+fyxXmEmly7oBmZ1BClZCHwQUt9Ls+vVmCiA=; b=Q6Ve1Ehhl9JSLOXaTmlpoOFWBz
+	Y9Kj9GFdNpxa6MDHQWVw32lxESAuFsWKUIXPTYvFlLF2tI7S4NU90ZO4E/o4W8a+Ki7vHaMZirHRK
+	4EluRQzJHp20FHE9WlJW5Yc2bCfWJqvx+DwinjgPx9Ipl0tAT1lSiCMNZ13hD6p+m3BV6Pgp2L2Ma
+	JoCWiQHcB6zqhQOZlEcBXxITWQQ/ce29TfQHntTj5P3wOm4IfM+BxiTECtPP6r6Rrdyryrk5o9GAW
+	Adl/sZT0yFmNXEQeJ2jIz3UQdSCiCxIC97j44HQw1YHSr4x+jnYRTpQF/UDlhQa6a507/C9GyLQXG
+	oKo89xWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMsZW-00000008ERx-3atn;
-	Sun, 15 Dec 2024 17:38:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tMurn-00000008P31-2aTM;
+	Sun, 15 Dec 2024 20:05:27 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMsYQ-00000008EKt-2Rlo;
-	Sun, 15 Dec 2024 17:37:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ABD94A40AAA;
-	Sun, 15 Dec 2024 17:35:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD81CC4CECE;
-	Sun, 15 Dec 2024 17:37:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734284235;
-	bh=TBeamio0Yi88VQx9QAOzcjx9B0WIvU23/rv2y0lsgUU=;
-	h=From:Date:Subject:To:Cc:From;
-	b=IxGWBJNFTkuIx7OEwmQzxbwphC6qjzLuGzX7i5KWbEWX3qrsqGXGOIZIKdh1th6t8
-	 Pfvmz4Ygr+iiLmUtVFRfKBYF7H52v9fQWWMHDVarTEvkCuF7Xet52BGHDPijiOrMcm
-	 US19X+/9iwgFoVeByCHAlN8853g+Dq1lrRpl3WJS2rQhIaEx2HonHwXH6WsZfY2Z8d
-	 L+I1+jbeFoZUNgXRxu7qSH1zyAGkx2hcN+ofCwyRmuX8Xs9J8QlteaJwdXs3isF7/i
-	 JUpxkZjBs9KUB0QcykWxycPMC5ouj5Ey5VnfQptOPl/zim7N23U6C1/vEHMkWundPK
-	 174ETO4j8EOdg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 15 Dec 2024 18:36:35 +0100
-Subject: [PATCH net-next] net: airoha: Fix error patch in airoha_probe()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241215-airoha_probe-error-path-fix-v1-1-dd299122d343@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAKITX2cC/x3MMQqEMBBG4avI1A4kQbfwKiKS6L+baUyYiAiSu
- xu2/F7xHipQQaGpe0hxSZF0NNi+oy364weWvZmccYN1dmQvmqJfs6YAhmpSzv6M/JWbx7B9AnY
- DZ0DtkBUt/+/zUusLT50CkW0AAAA=
-X-Change-ID: 20241215-airoha_probe-error-path-fix-5bc6bed0e20e
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Mark Lee <Mark-MC.Lee@mediatek.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+	id 1tMuqh-00000008Oxe-08EW
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Dec 2024 20:04:20 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43610eba55bso29873015e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Dec 2024 12:04:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734293056; x=1734897856; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YwBupfT+fyxXmEmly7oBmZ1BClZCHwQUt9Ls+vVmCiA=;
+        b=jdRAdxmv23YtzHnl2RE9+0MioL7SeucstCzznDeipbJQjBYtp0TctKqR0gH1+A3tmL
+         qLW1MUGCmo/skzLmw/VG0lG6AMIu35EVAyfuphJDknPQTBVEikjfC7JVYP5YHCgRJIp1
+         cER55vANHCouYNDQwIOeExY26SSzkiDceqygw7VSUoKSJPQ52c9Q2eiWKSf4RVNSYzrF
+         cbBP8hcYLwl1RTdMvT/tQ/UsXJDXjJSdXTatNww9C4bnIfhxnEobq1FVC/DrmYKx3M3D
+         rmAp2khhDw67HzWx/zd/YJ5jKT0qkWCSI7OopogtMdSl+r4PwzPSA21D2d5Gf2FN181n
+         GZOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734293056; x=1734897856;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YwBupfT+fyxXmEmly7oBmZ1BClZCHwQUt9Ls+vVmCiA=;
+        b=EkCgMjlond3druSadC29JuinQtY+0K46j1UWnAJi+Dd0Uy2h1c79x5mtelR/gZMqW9
+         JbdX0hvCec9CneHc9D34275pKvUaSoToLN3c9u0mZ6LEP2wU1vpv4qTaMWgMJQwO3JM6
+         Imjf6gTeRiQVL1IKMq37o1a7y0gXENStNck8c0FOyLqS9jQ+SiE8JjdhEGcxRNda5e4q
+         ulBWdu4PaoRQqpdQJMCQ0mP4OJS/jtp/6MmEYLHA88RwuLYzjofrWNLyeUCu9Q0dcN23
+         aUS3Gy5fepgC5r18D/aKQx0Yg1R2Zc3uJH65bQC3jEf/vq/MB3t3jLyACzDBVBOnrKFn
+         /znw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5EnUnHlyQ7R5JP9ewkVA7stCCZg+7pmMK2MoNrJB0Eikja77619cO7jrVhS6+F7OO1jUsqg5f+yXEnysIh8T/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7tmayVXhhOMMTgigrjF/+JHqX1hSBsNOPUD9yyoo+BtVEZMeW
+	w+ljyGA2o7+xP1KHOqN+7KjTVlArfKtsH7tw0ViTlrwDlqJ68XR3Pki1xvSRiPfG3d8TnHnddsA
+	4la3MLDhaGQ==
+X-Google-Smtp-Source: AGHT+IFZBtol4MC3NA/MQiwAphEXkZPoxFlwPmucl0GZUYpBLZ8Bn8rpWMLd0hZKVOn4cpUk5W+HN7MQj3EJUQ==
+X-Received: from wmaz22.prod.google.com ([2002:a05:600c:6d96:b0:434:f173:a51])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:1e87:b0:432:cbe5:4f09 with SMTP id 5b1f17b1804b1-4362aa113f1mr83361525e9.4.1734293056465;
+ Sun, 15 Dec 2024 12:04:16 -0800 (PST)
+Date: Sun, 15 Dec 2024 20:04:11 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20241215200412.561400-1-smostafa@google.com>
+Subject: [PATCH] iommu/io-pgtable-arm: Fix cfg reading in arm_lpae_concat_mandatory()
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_093718_763897_044AA03E 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20241215_120419_089899_33907292 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,109 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not run napi_disable if airoha_hw_init() fails since Tx/Rx napi
-has not been started yet. In order to fix the issue, introduce
-airoha_qdma_disable_napi routine and remove napi_disable in
-airoha_hw_cleanup().
+I messed up the newly introduced function arm_lpae_concat_mandatory()
+where ias/oas are read from the io_pgtable_cfg copy in arm_lpae_io_pgtable.
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+However, this copy is set later in alloc_io_pgtable_ops() after alloc()
+function was called.
+
+I didn=E2=80=99t catch that with my selftesting as arm_lpae_io_pgtable is
+allocated from kmalloc, which was caching old configs.
+
+While at it, fix a couple of spaces.
+
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/net/ethernet/mediatek/airoha_eth.c | 33 ++++++++++++++++++++++--------
- 1 file changed, 25 insertions(+), 8 deletions(-)
+ drivers/iommu/io-pgtable-arm.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
-index 6c683a12d5aa52dd9d966df123509075a989c0b3..5bbf5fee2802135ff6083233d0bda78f2ba5606a 100644
---- a/drivers/net/ethernet/mediatek/airoha_eth.c
-+++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-@@ -2138,17 +2138,14 @@ static void airoha_hw_cleanup(struct airoha_qdma *qdma)
- 		if (!qdma->q_rx[i].ndesc)
- 			continue;
- 
--		napi_disable(&qdma->q_rx[i].napi);
- 		netif_napi_del(&qdma->q_rx[i].napi);
- 		airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
- 		if (qdma->q_rx[i].page_pool)
- 			page_pool_destroy(qdma->q_rx[i].page_pool);
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++) {
--		napi_disable(&qdma->q_tx_irq[i].napi);
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
- 		netif_napi_del(&qdma->q_tx_irq[i].napi);
--	}
- 
- 	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
- 		if (!qdma->q_tx[i].ndesc)
-@@ -2173,6 +2170,21 @@ static void airoha_qdma_start_napi(struct airoha_qdma *qdma)
- 	}
- }
- 
-+static void airoha_qdma_disable_napi(struct airoha_qdma *qdma)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
-+		napi_disable(&qdma->q_tx_irq[i].napi);
-+
-+	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+		if (!qdma->q_rx[i].ndesc)
-+			continue;
-+
-+		napi_disable(&qdma->q_rx[i].napi);
-+	}
-+}
-+
- static void airoha_update_hw_stats(struct airoha_gdm_port *port)
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.=
+c
+index c1b62c7d81ba..7e53ee51270b 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -232,12 +232,13 @@ static inline int arm_lpae_max_entries(int i, struct =
+arm_lpae_io_pgtable *data)
+  *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables =
+for ias =3D oas)
+  *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables=
+ for ias =3D oas)
+  */
+-static inline bool arm_lpae_concat_mandatory(struct arm_lpae_io_pgtable *d=
+ata)
++static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
++					     struct arm_lpae_io_pgtable *data)
  {
- 	struct airoha_eth *eth = port->qdma->eth;
-@@ -2738,7 +2750,7 @@ static int airoha_probe(struct platform_device *pdev)
- 
- 	err = airoha_hw_init(pdev, eth);
- 	if (err)
--		goto error;
-+		goto error_hw_cleanup;
- 
- 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
- 		airoha_qdma_start_napi(&eth->qdma[i]);
-@@ -2753,13 +2765,16 @@ static int airoha_probe(struct platform_device *pdev)
- 		err = airoha_alloc_gdm_port(eth, np);
- 		if (err) {
- 			of_node_put(np);
--			goto error;
-+			goto error_napi_disable;
- 		}
- 	}
- 
- 	return 0;
- 
--error:
-+error_napi_disable:
-+	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
-+		airoha_qdma_disable_napi(&eth->qdma[i]);
-+error_hw_cleanup:
- 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
- 		airoha_hw_cleanup(&eth->qdma[i]);
- 
-@@ -2780,8 +2795,10 @@ static void airoha_remove(struct platform_device *pdev)
- 	struct airoha_eth *eth = platform_get_drvdata(pdev);
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
-+	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
-+		airoha_qdma_disable_napi(&eth->qdma[i]);
- 		airoha_hw_cleanup(&eth->qdma[i]);
-+	}
- 
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
-
----
-base-commit: 2c2b61d2138f472e50b5531ec0cb4a1485837e21
-change-id: 20241215-airoha_probe-error-path-fix-5bc6bed0e20e
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+-	unsigned int ias =3D data->iop.cfg.ias;
+-	unsigned int oas =3D data->iop.cfg.oas;
++	unsigned int ias =3D cfg->ias;
++	unsigned int oas =3D cfg->oas;
+=20
+-	/* Covers 1  and 2.d */
++	/* Covers 1 and 2.d */
+ 	if ((ARM_LPAE_GRANULE(data) =3D=3D SZ_16K) && (data->start_level =3D=3D 0=
+))
+ 		return (oas =3D=3D 48) || (ias =3D=3D 48);
+=20
+@@ -1033,7 +1034,7 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *c=
+fg, void *cookie)
+ 	if (!data)
+ 		return NULL;
+=20
+-	if (arm_lpae_concat_mandatory(data))  {
++	if (arm_lpae_concat_mandatory(cfg, data)) {
+ 		if (WARN_ON((ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte)) >
+ 			    ARM_LPAE_S2_MAX_CONCAT_PAGES))
+ 			return NULL;
+--=20
+2.47.1.613.gc27f4b7a9f-goog
 
 
