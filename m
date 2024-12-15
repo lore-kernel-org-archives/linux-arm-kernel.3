@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCECEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 03:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC04E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 05:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XMKOxO+QQQnpK/gqTmp5of8X6K9CuNI4LFknE1hYc2M=; b=K7UyG8uXixTlhtenuxKurq342+
-	I3nlEApt5IzKbmo8a+DTka/dX0UrdeFueIjL42X27sR64K9RrMxL4jRvxkqazg6uCtrLCSFhvZDAU
-	1K1Av8pKhq27qGMgVUn4LOsGEsU4EaqezHn8rUFqM6TuAmc6GdgZXACDU0pppdHPMPRG0ZwIXqam6
-	+vR1QwU3E48y7nx1fHO81tM43NLVz15RaAv9+QkWa7PWecTblfC0NsPtVW2Bza3V3OhxNmkDGgfom
-	SbPaiXG5JXH6GbIzYauJEyDOiIHaS3vUxXXlbjwGkZWBjvhI9qlG+yk8ywd0MnSdx/leRIcHZtGSN
-	ZT2JA65A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5T7Xps2U+Xbtct6WpNh1Ms/jHQH/Zy0/yiacfJI6eY8=; b=CH3b1rNSH8DXCXKbtHt/lux/dD
+	m8gYoxxAu2Yy0v954o54LsGp8Scr1318WdH+zVugvB5n9o4QkZCRj3OCqq5Ob/9XIdledFSvXnFPD
+	QniDsH602MJo3KDYNvyGH+LwDXWZ6cCSbqMODmvTLv2UUP61KVHCszJKkI8NUa2cAz+WUrwit+Fx6
+	n4gfDRCDPszu2npbOLzkGEj05VxcbVwkrGhYMJfhwaUqCsMafIDGU7lHtHmn6xcz71WykEgBb/dy0
+	uVeatGunCDUvIHRngm7iOIVQBFHMpfkOlY7iGvdBuwPxe/JAQ1sjxuw9e3hjHByd4LGCP1AUlP0gE
+	VJ1i99Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMfLp-00000007KiB-42ry;
-	Sun, 15 Dec 2024 03:31:26 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1tMhKP-00000007Rvo-3DAz;
+	Sun, 15 Dec 2024 05:38:05 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMfHy-00000007K8B-38Ki;
-	Sun, 15 Dec 2024 03:27:28 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-844e9b83aaaso172028539f.3;
-        Sat, 14 Dec 2024 19:27:26 -0800 (PST)
+	id 1tMhJK-00000007Rii-0EdZ
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Dec 2024 05:36:59 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21619108a6bso22452825ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 14 Dec 2024 21:36:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734233246; x=1734838046; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XMKOxO+QQQnpK/gqTmp5of8X6K9CuNI4LFknE1hYc2M=;
-        b=T/ZdLLrT4+0/n1lDPbE5ToJ9oeJXMG/2CN8Fn3HQRrEAbZ9Hn4dUjp9ojIMfJjQm8j
-         X26pB/RGZ4JoS2ToXLcMRvlCmZii2T5RgpwINj94wehSfWBkZLnZlzvTj3JJnMGGyr6b
-         9jmRz5Smt63o2pSeeDr3DYNPlsmWt9ozK89XHh5n8iXrrWUKYGGydbvQaKq5iS1KSlBC
-         +oQwAuMO0LX/7B9eT5vhgomB7Sf25kwuKlqE3CsTP2pxQe9oKeGFlxa4F7RxkTfO/W9v
-         T0qhB8u6RnYx5VopwdEsuu3c8bT1GGL/n0YS8qjPM+MIhu485lgSbaefza9qoe56Qu7f
-         9grQ==
+        d=gmail.com; s=20230601; t=1734241017; x=1734845817; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5T7Xps2U+Xbtct6WpNh1Ms/jHQH/Zy0/yiacfJI6eY8=;
+        b=JiJvcDMG9gjgoHvnHck0RyPBFgbCN7H7Lk6jKZKlwRGwgYxLUJCEFyhyMo0dvjDtAE
+         BJbOhTT9h4HluJ1K3vz5uzhnAj4pM/rzXfucCCZH5Saycb/fjpUr8l/G1fNFdSebk2ze
+         jZGtnqaPi/HJN9C83PM4rmKg8D/pkR5mhd814omo5iZ9s9Zs2g/qqYrTZ1SlpZx7oecB
+         d0oh3iR9RSL79fgAu/YyuubPxB/j98uDc0MDgYkbWIsGCpsYoVesnGbZ5UVv6z4bcACU
+         QmR1ysNjz9lUkMvDSPriYCXlEYetXhnBYX7tPnEicG1YM3ewvgfVBJFNW993vGJ7g6Wg
+         E6pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734233246; x=1734838046;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XMKOxO+QQQnpK/gqTmp5of8X6K9CuNI4LFknE1hYc2M=;
-        b=hLECFoizaWNcCaWrf5P7ReTd8fdPzP+GE3bPZfP0zTpHZMCxL5NLvyE85zy6oWbai1
-         aavbqRdpgpYj+t+8w7vHNE7bAmTY50lJHmXFYPKrbb8BoLhlgigs2sObfOHk5wmlVYxd
-         rk1fjci75rIi8Ymi1f64eZGzEnLXi2sa0yfEWiHpP40Ga15Wkz/8iLwR+b1V3P3d2SWs
-         cTzYaMx8bqTs5FNFqP6wGOY5xEhV0j1NeioLOLGq07ho3pxp2ZYtogxhtGHRweLiiSON
-         TIpzxjkdPvbXAG0yNjtyQZugYC80VwR1/hvFi3TTu6fuZ2jAZK6bv+41nxh9o/xrmlX9
-         KRng==
-X-Forwarded-Encrypted: i=1; AJvYcCUjlPybPIJwJDjb1c0q1qD3ZzDhFvNAURotPsF+BeZQnGZMaIm0s9Qif6RK7yOzS5cH18DcrDqQETwcHC1Ql1s=@lists.infradead.org, AJvYcCWdq45BUKRqKcCQauu4SRkgoxUSbRaYHMphbXxaYDso3qcC5LdDtLrCpgwteAug0K7uKr/xQJ3Q1mIw8IlysCY2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0TvngFuMh9Wmv5nKnySbwtkmPMtrxBPWJ9oLCD+AP3xaYQbpU
-	ZpEv8g838Zf3eguQf9kxL8lTEEPmfmmKq7Rxu+w/Gx2fWUgoEee6
-X-Gm-Gg: ASbGncvuYxy1wCkx+2R/6s71C+0LFJfsew6U80vcIZCeeseGxNweAZ0KGSTuQ0roOlb
-	aPZtGO39szSJBK+8T3pFvjZo87abq2fhU38vaAFYCTRs4akNLtS23BmYIN4pT7UvLs1TV7tC2yk
-	MvLPUX1vW6ZxU0EDEiS5KzTMunldfOCLZh5XFQKQ9F4x0UI9+99Q8MMLnhVdh2TVjLK4StZ1MTy
-	Z5+1P7QvUNPptICLpvi1hiLH3ksJG0Nge3lmAk8Zf1EMwLQz15qMIArAUF6VYcquPDzDBTU7ffx
-	odtmcIeDLP0gIMpGLzsI4ZqfYac=
-X-Google-Smtp-Source: AGHT+IH/Ga5WHa4WgsKsLSKgbEehuyqvn8KfLn7YekgXK2iiDYMjq8AZzP29aqVzMkcLbvuitLywqw==
-X-Received: by 2002:a05:6e02:3308:b0:3a7:fe8c:b012 with SMTP id e9e14a558f8ab-3aff8c92a85mr86513735ab.18.1734233245607;
-        Sat, 14 Dec 2024 19:27:25 -0800 (PST)
-Received: from localhost.localdomain (65-128-205-244.mpls.qwest.net. [65.128.205.244])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3b2482298c6sm7755575ab.31.2024.12.14.19.27.20
+        d=1e100.net; s=20230601; t=1734241017; x=1734845817;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5T7Xps2U+Xbtct6WpNh1Ms/jHQH/Zy0/yiacfJI6eY8=;
+        b=GBkL3a7TD/TUX7V8Q1VrwgaZuwbjeTVIkiisjTsZgV+FhC5eIv3FFmCh3QdJE9FlYh
+         5X8nu5J9YHcDHnXhPEc1PBbyqs1ChAeKl4E+1CutjFd9wzjks2hYS1yyOpHttYP0oalN
+         T/mpeb4NWJKjDp36qnUC7DTG/UFv8aod9vjytzlEjrvGuE9kUIH9xtMzN8oE9iEvU/y7
+         zg0XJnMc6upzIrxvU6pnTFzSdtxyUNU7+Ja6Vh8tRrFGsHfN9LCikGhUzkXiexrdQ9g2
+         Btrh6n69PBsmvzZPClyRHVxLN8VQ5ydn16oCxqv8SBvOaUTxtRi9D7Nvhe5gpybNDh4O
+         3VmA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/XMLorKhlsNG5pSL9YpkQQHjntE9g5Dtoo9Lhah6Obmg8HkYu4RMcmqVgpGIzSf0bBX8pP2w0zs5BXyHFypsS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyV4aci3k6vKZXWy9akvhjdEWjYZuE3XG6FxcxEwijCwu4abz8D
+	xeV21vEkohm9AWthtizzSjOQQhWR/XvASd1BoTAkEgGCOA4VHkwpQdOjHrEB
+X-Gm-Gg: ASbGncukvHwHjd7pDb5TrqwfEYAMSnSX0eVZX+3UUOqLQIepHpaPSSHfGaDndjt18Tx
+	5hCc5bqk91ndUOW0E+karpaG2RzvFyYmH+ObXtc2SEcQ2lcDlTn2tmzTqgjXSRFTC4oXo7PTGAf
+	SnAhb+zIu1Y0jtIU6N/JUyDl3t7/+9S2cHqcVp7oEBlMIIN3eHegYT4EtuBPwFxw9PEjL0S6F+w
+	C/ae7stDxBtM++jb5980pzNqzRex1sx89yr2HKHhFnSF+5sqA==
+X-Google-Smtp-Source: AGHT+IFi1PPQSUOrCioA0Ut+2J5jgMJCNCDNT6STQp0qD6xWCc08BjaoFiUHYwBhtNmNrzFypeNIzA==
+X-Received: by 2002:a17:902:e806:b0:20f:aee9:d8b8 with SMTP id d9443c01a7336-218929a248fmr95477575ad.20.1734241016960;
+        Sat, 14 Dec 2024 21:36:56 -0800 (PST)
+Received: from anarsoul-xps15.lan ([2604:3d08:7780:1ca9::398])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142fa1cf8sm5729803a91.38.2024.12.14.21.36.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 19:27:24 -0800 (PST)
-From: Shimrra Shai <shimrrashai@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: conor+dt@kernel.org,
+        Sat, 14 Dec 2024 21:36:56 -0800 (PST)
+From: Vasily Khoruzhick <anarsoul@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Roman Beranek <me@crly.cz>,
 	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	Shimrra Shai <shimrrashai@gmail.com>
-Subject: [PATCH v3 3/3] dt-bindings: arm: rockchip: Add Firefly ITX-3588J board
-Date: Sat, 14 Dec 2024 21:24:55 -0600
-Message-ID: <20241215032507.4739-4-shimrrashai@gmail.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241215032507.4739-1-shimrrashai@gmail.com>
-References: <20241215032507.4739-1-shimrrashai@gmail.com>
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Cc: Vasily Khoruzhick <anarsoul@gmail.com>
+Subject: [PATCH 0/3] arm64: allwinner: a64: fix video output on Pinebook
+Date: Sat, 14 Dec 2024 21:34:56 -0800
+Message-ID: <20241215053639.738890-1-anarsoul@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_192726_829437_D86DC0C8 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241214_213658_123557_4EA5DF46 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Updated DT binding documentation per @Heiko Stübner's suggestion, to
-reflect the bipartite nature of the board.
+Since commit ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in TCON0 mux"),
+TCON0 clock parent is always set to PLL_MIPI, but unfortunately it breaks
+video output on Pinebook.
 
-Signed-off-by: Shimrra Shai <shimrrashai@gmail.com>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+I did an experiment: I manually configured PLL_MIPI and PLL_VIDEO0_2X
+to the same clock rate and flipped the switch with devmem. Experiment clearly
+showed that whenever PLL_MIPI is selected as TCON0 clock parent, the video
+output stops working.
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 753199a12..fc7ee86e2 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -167,6 +167,13 @@ properties:
-           - const: engicam,px30-core
-           - const: rockchip,px30
- 
-+      - description: Firefly Core-3588J-based boards
-+        items:
-+          - enum:
-+              - firefly,itx-3588j
-+          - const: firefly,core-3588j
-+          - const: rockchip,rk3588
-+
-       - description: Firefly Core-PX30-JD4 on MB-JD4-PX30 baseboard
-         items:
-           - const: firefly,px30-jd4-core-mb
+To fix the issue, I partially reverted mentioned commit and added explicit
+TCON0 clock parent assignment to device tree. By default, it will be
+PLL_MIPI, and the only users with RGB output - Pinebook and Teres-I will
+override it in their dts.
+
+Vasily Khoruzhick (3):
+  dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
+  arm64: dts: allwinner: a64: explicitly assign clock parent for TCON0
+  clk: sunxi-ng: a64: stop force-selecting PLL-MIPI as TCON0 parent
+
+ arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts |  2 ++
+ arch/arm64/boot/dts/allwinner/sun50i-a64-teres-i.dts  |  2 ++
+ arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi         |  2 ++
+ drivers/clk/sunxi-ng/ccu-sun50i-a64.c                 | 11 -----------
+ drivers/clk/sunxi-ng/ccu-sun50i-a64.h                 |  2 --
+ include/dt-bindings/clock/sun50i-a64-ccu.h            |  2 ++
+ 6 files changed, 8 insertions(+), 13 deletions(-)
+
 -- 
-2.45.2
+2.47.1
 
 
