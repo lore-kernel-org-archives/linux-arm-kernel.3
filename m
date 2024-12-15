@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E72E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 11:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61362E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 12:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqmyyA9V+nWvG2IPtJHyJld9/5ghcdXXrxiPRuEcLP4=; b=h9TOdbmFAkl4FENPJZAcS500SX
-	VpEfwYdzgnnR5n1eBhLl/kX8GAb8KkrHpBtjsW0AANCBK15/1n2SuKOkmqCf7BQDvuZ4lYPvokUwH
-	3EvMDGdZQ/BtqUVLEb6qv7tcis48ygJ2lUYsghAPAEkkfq0R2imu41FFEKEAPe9NDtstZRyYB6J02
-	OFeG02dqIn5AKWkaJ72W3n13a/h2WVJLY4WgRgSJi5IsX0tEZqC/2s13IDWIFOqYy6bhuc4iSu+Ma
-	olnBWJYZK3RrdRU+qoP/wrMCR2oRmRls3+TmcACCbuSv1kvzR/0BKQZ6oHmTFMWkKG9Vr4Ytn3G6L
-	7V6LGZLg==;
+	bh=QNkUVDCZhDaEmA6yIBIe4bMQKnUcOVR08f2igvbWkbk=; b=EOGA33UUHceybL4lqufHTz5qEL
+	6ekEnDJUsWXgTUJZq7tS2xgGdUyO9Td4ZaB2lztIr1U6okHvV5gVGcSlTmweSDoDXrPWRg2GLwYUt
+	Xjgm9egJyiNksubQ9UA7yVZqNvCUaCzzACnq59YlV4BQSP52TVxZi4sMouVa6wgHuAiC2p4FQ5tXC
+	tKWLG/6XW/liTs1FvFJsTJ24rNpQHCsIjcjINUqSyB9xXOcp2lw9jB/MMQXfDclcYcoNW1VewFClU
+	bZuwhC2DKVnjoaXb4BL22lEZ0Z+SYQ+hpRSGz6SQC+6mw+FMtpHqDkqHrgN8iAUrLIAGkFoG3T4np
+	Un3wCABw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMmTH-00000007nVP-48w8;
-	Sun, 15 Dec 2024 11:07:35 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1tMnbL-00000007s94-3HRS;
+	Sun, 15 Dec 2024 12:19:59 +0000
+Received: from meesny.iki.fi ([195.140.195.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMmSB-00000007nPU-2CWQ
+	id 1tMnaG-00000007rz1-3tPX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Dec 2024 11:06:30 +0000
-Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 8A7FD1F920;
-	Sun, 15 Dec 2024 12:06:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1734260783;
-	bh=pqmyyA9V+nWvG2IPtJHyJld9/5ghcdXXrxiPRuEcLP4=;
-	h=Received:Received:From:To:Subject;
-	b=Z6u1m/gCu7/Y4/nty/KowRsKY0JfM/YWRcK9HRgSxHkn1lzir9qs1B1/vVHjQjbHd
-	 3gPvpnMUaOZb1K+QhzvSHgqGfdFWZ3TbdPdDsTsLdKlkzi68XtrTlZElUNsSmS2X5w
-	 7htrwVBWblRsxcWurMJWuu1tyiDMuZFuuSv3Wxb1C3342s8wmUJuy6whejFpUXAnJT
-	 +z688M9HDurpTALx0ZJaTTQ9ore/FDTQUGrG6lesO9L0ZJLkKdfR00DhoSW3aYvROH
-	 7JI3K2GrsZXZixCXFo7eNfTNRpb8kSUqTGCQ6uNCi/AUeghkoYPiZIp7tLfJQQo9gN
-	 0gtTZwxecErTQ==
-Received: from livingston (unknown [192.168.42.11])
-	by gaggiata.pivistrello.it (Postfix) with ESMTP id 396ED7FACD;
-	Sun, 15 Dec 2024 12:06:23 +0100 (CET)
-Received: from pivi by livingston with local (Exim 4.96)
-	(envelope-from <francesco@dolcini.it>)
-	id 1tMmS7-0002m8-0H;
-	Sun, 15 Dec 2024 12:06:23 +0100
-Date: Sun, 15 Dec 2024 12:06:23 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Bryan Brattlof <bb@ti.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Sun, 15 Dec 2024 12:18:54 +0000
+Received: from hillosipuli.retiisi.eu (2a00-1190-d1dd-0-c641-1eff-feae-163c.v6.cust.suomicom.net [IPv6:2a00:1190:d1dd:0:c641:1eff:feae:163c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sailus)
+	by meesny.iki.fi (Postfix) with ESMTPSA id 4YB2DN11ZnzybN;
+	Sun, 15 Dec 2024 14:18:43 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
+	t=1734265126;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QNkUVDCZhDaEmA6yIBIe4bMQKnUcOVR08f2igvbWkbk=;
+	b=q2uUHQiAoXW3hESINEMrWO1ktTOA1ljeykfiuIWAB6uaLVSHv9NWk6jkgFkJiL+vgpjAva
+	hecH1U2LgHA5duHJ/Vl/S3WdJzggwitK62FkR4HAzobWyxoaivq17OLhMzHYhltlpljmVZ
+	WZSlMLiLPOetPgEch88+myjDv6l/uBI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=meesny; t=1734265126;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QNkUVDCZhDaEmA6yIBIe4bMQKnUcOVR08f2igvbWkbk=;
+	b=sVtVx9r8BjV7s7SelVuMQyX0JbRI8W0We5vuO8mghd5K4m+Sok2OvIg5hLVfKvEFTyY8Y6
+	hiPHLNCOtBPYtbWSKkXBihWDatrs20pz9iuGEg8a/hayNnRgoFEssyg5xkvMSkKzX3yHf8
+	UQhKQat+qWAclCLg4dyi8mrUqT+gBRg=
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
+ARC-Seal: i=1; s=meesny; d=iki.fi; t=1734265126; a=rsa-sha256; cv=none;
+	b=MfJKE/lQoqP6UcKfO1WDXMpt4oQU3e4iaIa91DSFZoLmR45/AdCS+hgBuOidI+MStglFM6
+	jZ7mr/Mz3rsU2cu4O4vrnKnKWEkqAuQEQbb4z8LKToWFNQhQhwJUMMV76fEoOvvd5PqmVt
+	2B+UHHpKSmO4vUrEv0R8D3Y6AgUkdAg=
+Received: from valkosipuli.retiisi.eu (valkosipuli.localdomain [192.168.4.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id B67FC634C94;
+	Sun, 15 Dec 2024 14:18:42 +0200 (EET)
+Date: Sun, 15 Dec 2024 12:18:42 +0000
+From: Sakari Ailus <sakari.ailus@iki.fi>
+To: Alain Volmat <alain.volmat@foss.st.com>
+Cc: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am62l: add initial infrastructure
-Message-ID: <Z164Lyg-AH8KBTYZ@livingston.pivistrello.it>
-References: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
- <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
- <Z12rnZiCXQxtMWlf@livingston.pivistrello.it>
- <20241214215624.e372oju6eserpf4f@bryanbrattlof.com>
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Hans Verkuil <hverkuil@xs4all.nl>, linux-media@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v4 02/15] dt-bindings: media: add description of stm32 csi
+Message-ID: <Z17JItE-98IIrnMv@valkosipuli.retiisi.eu>
+References: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
+ <20241212-csi_dcmipp_mp25-v4-2-fbeb55a05ed7@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241214215624.e372oju6eserpf4f@bryanbrattlof.com>
+In-Reply-To: <20241212-csi_dcmipp_mp25-v4-2-fbeb55a05ed7@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_030628_466915_1C0C1910 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20241215_041853_166480_0C9AB408 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +107,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Bryan,
+Hi Alain,
 
-On Sat, Dec 14, 2024 at 03:56:24PM -0600, Bryan Brattlof wrote:
-> On December 14, 2024 thus sayeth Francesco Dolcini:
-> > On Sun, Nov 17, 2024 at 11:34:07PM -0600, Bryan Brattlof wrote:
-> > > From: Vignesh Raghavendra <vigneshr@ti.com>
-> > > 
-> > > Add the initial infrastructure needed for the AM62L. All of which can be
-> > > found in the Technical Reference Manual (TRM) located here:
-> > > 
-> > >     https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
-> > > 
-> > > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> > > Signed-off-by: Bryan Brattlof <bb@ti.com>
-> > > ---
-> > >  Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
-> > >  arch/arm64/boot/dts/ti/Makefile                  |  3 +
-> > >  arch/arm64/boot/dts/ti/k3-am62l-main.dtsi        | 52 ++++++++++++++
-> > >  arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi      | 33 +++++++++
-> > >  arch/arm64/boot/dts/ti/k3-am62l.dtsi             | 89 ++++++++++++++++++++++++
-> > >  arch/arm64/boot/dts/ti/k3-am62l3.dtsi            | 67 ++++++++++++++++++
-> > >  arch/arm64/boot/dts/ti/k3-pinctrl.h              |  2 +
-> > >  7 files changed, 252 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> > > index 18f155cd06c84..b109e854879cb 100644
-> > > --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> > > +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-> > > @@ -31,6 +31,12 @@ properties:
-> > >            - const: phytec,am62a-phycore-som
-> > >            - const: ti,am62a7
-> > >  
-> > > +      - description: K3 AM62L3 SoC and Boards
-> > > +        items:
-> > > +          - enum:
-> > > +              - ti,am62l3-evm
-> > > +          - const: ti,am62l3
-> > > +
-> > 
-> > can you clarify the differences between AM62L and AM62L3? you have a mix of names in this series. I assume that
-> > AM62L is the SOC family / product name, while AM62L3 is a specific 
-> > part number.
-> >
+On Thu, Dec 12, 2024 at 10:17:26AM +0100, Alain Volmat wrote:
+> Add the stm32 csi controller description.
 > 
-> Absolutely! I found the naming a bit confusing myself. 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> ---
+> v2:
+>   - rename into st,stm32mp25-csi.yaml to match compatible
+>   - correct port / data-lanes (remove useless lines &
+>     use data-lanes 1 and 2 instead of 0 and 1)
+>   - correct commit log
+> ---
+>  .../bindings/media/st,stm32mp25-csi.yaml           | 125 +++++++++++++++++++++
+>  1 file changed, 125 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
+> new file mode 100644
+> index 000000000000..33bedfe41924
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
+> @@ -0,0 +1,125 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/st,stm32mp25-csi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STMicroelectronics STM32 CSI controller
+> +
+> +description:
+> +  The STM32 CSI controller allows connecting a CSI based
+> +  camera to the DCMIPP camera pipeline.
 
-Thanks for the clarification, having ti,am62l3 is consistent with what
-you did with AM62, in which you have ti,am625.
+CSI-2 I presume?
 
-Francesco
+You should also document it here it has D-PHY...
 
+> +
+> +maintainers:
+> +  - Alain Volmat <alain.volmat@foss.st.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - st,stm32mp25-csi
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: pclk
+> +      - const: txesc
+> +      - const: csi2phy
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  vdd-supply:
+> +    description: Digital core power supply (0.91V)
+> +
+> +  vdda18-supply:
+> +    description: System analog power supply (1.8V)
+> +
+> +  access-controllers:
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Input port node
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +            properties:
+> +              data-lanes:
+> +                minItems: 1
+> +                items:
+> +                  - const: 1
+> +                  - const: 2
+> +
+> +            required:
+> +              - data-lanes
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description:
+> +          Output port node
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/media/video-interfaces.h>
+> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +    csi@48020000 {
+> +        compatible = "st,stm32mp25-csi";
+> +        reg = <0x48020000 0x2000>;
+> +        interrupts = <GIC_SPI 142 IRQ_TYPE_LEVEL_HIGH>;
+> +        resets = <&rcc CSI_R>;
+> +        clocks = <&rcc CK_KER_CSI>, <&rcc CK_KER_CSITXESC>, <&rcc CK_KER_CSIPHY>;
+> +        clock-names = "pclk", "txesc", "csi2phy";
+> +
+> +        ports {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            port@0 {
+> +                reg = <0>;
+> +                endpoint {
+> +                    remote-endpoint = <&imx335_ep>;
+> +                    data-lanes = <1 2>;
+> +                    bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
 
+...and drop bus-type property.
+
+> +                };
+> +            };
+> +
+> +            port@1 {
+> +                reg = <1>;
+> +                endpoint {
+> +                    remote-endpoint = <&dcmipp_0>;
+> +                };
+> +            };
+> +        };
+> +    };
+> +
+> +...
+> 
+
+-- 
+Kind regards,
+
+Sakari Ailus
 
