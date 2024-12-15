@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3CEE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 17:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70902E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 17:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gO6j8jr1nt82x5lNiGcUCtdj/U0RJroGhfhdM9wZl54=; b=Ho0F6Ka09wMb7WDVJoYKJFGhet
-	S0fw5J/gLAIkrP+CNdgbImN42zPaXgKNblnH1pOzAU3EwJ89122k1tQO4Wrf+xRpCxpoOXsZeHB0Z
-	hRoFaie4gnaYyh4DtS9IvL0piGj9ppRmJ9htJAmbZ4L/wuVi+uYzxE/EzrbK/Ly0zfpbg/fmaUgta
-	eThKKxQzLZgnFs6hCbRSQj51rZOdD/yTl/tlOY1OnUs1+WCw/VuBTXTgTnKBPNi2Wne/QKUa+JtID
-	75XazrnUDb7mvNNu/NOdpiRqurcPKXtMspLqBEBQ5y4fQQMF3RviAWWU4OmKlAclIlY2je3/45wab
-	9HITF4XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EN7iH2JrYoJnf4PuvXI5sJj1HDLFLJVThzYpRRnaNnU=; b=Dd/Qf4183e5uEugZqXxcsam45t
+	Vw94hn6R0f3EcUoGq4euygofq+iQsPidjdmWXw5WCOfxQMrmZ+g3myRBAxVY2gDdViAZxp7Ij9zJq
+	BYosipiUpT3H2PdE+fiKvfPBUIKTFq1CkBn+IQV99PcvkZ+3JC0mHtQXKa9LkzuTFSyS9QTS1ZEbu
+	4s22TFUIRE+KteJRf/bCYvLwQzwZshrztBTmzoy63n74rJiRhMgzvNDDpQCYcAJo3kK5G0Wzj4wlf
+	oN1RCuzXg6hHcMHum4i3kLM6n+SXtalxGAyyYwIQWcax/nd+2841gHbun9dZzUiFTJqz3gV/odiXw
+	oWHKkykA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMsAK-00000008CT3-2EvN;
-	Sun, 15 Dec 2024 17:12:24 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tMsZW-00000008ERx-3atn;
+	Sun, 15 Dec 2024 17:38:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMs8D-00000008CHe-3Su3
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Dec 2024 17:10:15 +0000
-DKIM-Signature: a=rsa-sha256; b=Dwwnwsi/P9XgTOdSdIr7ZKC5V2Lkq4H8UPWGssqGubAD5sqyC8UsBxgowIBWCCmSz/IUEIUtz4QvXSwPsKGBD9BRewG5AhDcoUsA0FZFQVeemZ1ULTM8Va+lBRIvFQb0uFa4+DmwjBGwD3CtuE/5G+KtAEdxSpbUUIQPf4FwpqYhkv/kjepTEG+Ux7Metm3ebgAVgheLt/yhRanYRQ1ikB3CLBf+VqmeaX+QfuBOfE2aq7QgCD2w95yujZe6blytD88OB79GkeKJySAg97S3DVpBXOcWyFG4nMyRzMAARiHxPuaMXB7AZAhXHB3qeSt2X9Ep93BUccf/EJtDddX/bw==; s=purelymail3; d=purelymail.com; v=1; bh=Xqqch/vhNEgGYAn/i2LGTac53RcxdOr6D+YPPMY4tLQ=; h=Feedback-ID:Received:From:To:Subject:Date;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1363280443;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Sun, 15 Dec 2024 17:09:56 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/1] arm64: dts: exynos990: Add clock management unit nodes
-Date: Sun, 15 Dec 2024 18:08:03 +0100
-Message-ID: <20241215170803.1756850-2-igor.belwon@mentallysanemainliners.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241215170803.1756850-1-igor.belwon@mentallysanemainliners.org>
-References: <20241215170803.1756850-1-igor.belwon@mentallysanemainliners.org>
+	id 1tMsYQ-00000008EKt-2Rlo;
+	Sun, 15 Dec 2024 17:37:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id ABD94A40AAA;
+	Sun, 15 Dec 2024 17:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD81CC4CECE;
+	Sun, 15 Dec 2024 17:37:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734284235;
+	bh=TBeamio0Yi88VQx9QAOzcjx9B0WIvU23/rv2y0lsgUU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=IxGWBJNFTkuIx7OEwmQzxbwphC6qjzLuGzX7i5KWbEWX3qrsqGXGOIZIKdh1th6t8
+	 Pfvmz4Ygr+iiLmUtVFRfKBYF7H52v9fQWWMHDVarTEvkCuF7Xet52BGHDPijiOrMcm
+	 US19X+/9iwgFoVeByCHAlN8853g+Dq1lrRpl3WJS2rQhIaEx2HonHwXH6WsZfY2Z8d
+	 L+I1+jbeFoZUNgXRxu7qSH1zyAGkx2hcN+ofCwyRmuX8Xs9J8QlteaJwdXs3isF7/i
+	 JUpxkZjBs9KUB0QcykWxycPMC5ouj5Ey5VnfQptOPl/zim7N23U6C1/vEHMkWundPK
+	 174ETO4j8EOdg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sun, 15 Dec 2024 18:36:35 +0100
+Subject: [PATCH net-next] net: airoha: Fix error patch in airoha_probe()
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241215-airoha_probe-error-path-fix-v1-1-dd299122d343@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKITX2cC/x3MMQqEMBBG4avI1A4kQbfwKiKS6L+baUyYiAiSu
+ xu2/F7xHipQQaGpe0hxSZF0NNi+oy364weWvZmccYN1dmQvmqJfs6YAhmpSzv6M/JWbx7B9AnY
+ DZ0DtkBUt/+/zUusLT50CkW0AAAA=
+X-Change-ID: 20241215-airoha_probe-error-path-fix-5bc6bed0e20e
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Mark Lee <Mark-MC.Lee@mediatek.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_091013_954641_21287CB2 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241215_093718_763897_044AA03E 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,71 +79,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CMU nodes for:
-- cmu_top: provides clocks for other blocks
-- cmu_hsi0: provides clocks for usb31
+Do not run napi_disable if airoha_hw_init() fails since Tx/Rx napi
+has not been started yet. In order to fix the issue, introduce
+airoha_qdma_disable_napi routine and remove napi_disable in
+airoha_hw_cleanup().
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- arch/arm64/boot/dts/exynos/exynos990.dtsi | 28 +++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ drivers/net/ethernet/mediatek/airoha_eth.c | 33 ++++++++++++++++++++++--------
+ 1 file changed, 25 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dt=
-s/exynos/exynos990.dtsi
-index 2619f821bc7c..d6a8c04e6602 100644
---- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2024, Igor Belwon <igor.belwon@mentallysanemainliners.org=
->
-  */
-=20
-+#include <dt-bindings/clock/samsung,exynos990.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-=20
- / {
-@@ -199,6 +200,24 @@ pinctrl_peric1: pinctrl@10730000 {
- =09=09=09interrupts =3D <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
- =09=09};
-=20
-+=09=09cmu_hsi0: clock-controller@10a00000 {
-+=09=09=09compatible =3D "samsung,exynos990-cmu-hsi0";
-+=09=09=09reg =3D <0x10a00000 0x8000>;
-+=09=09=09#clock-cells =3D <1>;
+diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
+index 6c683a12d5aa52dd9d966df123509075a989c0b3..5bbf5fee2802135ff6083233d0bda78f2ba5606a 100644
+--- a/drivers/net/ethernet/mediatek/airoha_eth.c
++++ b/drivers/net/ethernet/mediatek/airoha_eth.c
+@@ -2138,17 +2138,14 @@ static void airoha_hw_cleanup(struct airoha_qdma *qdma)
+ 		if (!qdma->q_rx[i].ndesc)
+ 			continue;
+ 
+-		napi_disable(&qdma->q_rx[i].napi);
+ 		netif_napi_del(&qdma->q_rx[i].napi);
+ 		airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
+ 		if (qdma->q_rx[i].page_pool)
+ 			page_pool_destroy(qdma->q_rx[i].page_pool);
+ 	}
+ 
+-	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++) {
+-		napi_disable(&qdma->q_tx_irq[i].napi);
++	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
+ 		netif_napi_del(&qdma->q_tx_irq[i].napi);
+-	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
+ 		if (!qdma->q_tx[i].ndesc)
+@@ -2173,6 +2170,21 @@ static void airoha_qdma_start_napi(struct airoha_qdma *qdma)
+ 	}
+ }
+ 
++static void airoha_qdma_disable_napi(struct airoha_qdma *qdma)
++{
++	int i;
 +
-+=09=09=09clocks =3D <&oscclk>,
-+=09=09=09=09 <&cmu_top CLK_DOUT_CMU_HSI0_BUS>,
-+=09=09=09=09 <&cmu_top CLK_DOUT_CMU_HSI0_USB31DRD>,
-+=09=09=09=09 <&cmu_top CLK_DOUT_CMU_HSI0_USBDP_DEBUG>,
-+=09=09=09=09 <&cmu_top CLK_DOUT_CMU_HSI0_DPGTC>;
-+=09=09=09clock-names =3D "oscclk",
-+=09=09=09=09      "bus",
-+=09=09=09=09      "usb31drd",
-+=09=09=09=09      "usbdp_debug",
-+=09=09=09=09      "dpgtc";
++	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
++		napi_disable(&qdma->q_tx_irq[i].napi);
 +
-+=09=09};
++	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
++		if (!qdma->q_rx[i].ndesc)
++			continue;
 +
- =09=09pinctrl_hsi1: pinctrl@13040000 {
- =09=09=09compatible =3D "samsung,exynos990-pinctrl";
- =09=09=09reg =3D <0x13040000 0x1000>;
-@@ -245,6 +264,15 @@ pinctrl_cmgp: pinctrl@15c30000 {
- =09=09=09compatible =3D "samsung,exynos990-pinctrl";
- =09=09=09reg =3D <0x15c30000 0x1000>;
- =09=09};
++		napi_disable(&qdma->q_rx[i].napi);
++	}
++}
 +
-+=09=09cmu_top: clock-controller@1a330000 {
-+=09=09=09compatible =3D "samsung,exynos990-cmu-top";
-+=09=09=09reg =3D <0x1a330000 0x8000>;
-+=09=09=09#clock-cells =3D <1>;
-+
-+=09=09=09clocks =3D <&oscclk>;
-+=09=09=09clock-names =3D "oscclk";
-+=09=09};
- =09};
-=20
- =09timer {
---=20
-2.45.2
+ static void airoha_update_hw_stats(struct airoha_gdm_port *port)
+ {
+ 	struct airoha_eth *eth = port->qdma->eth;
+@@ -2738,7 +2750,7 @@ static int airoha_probe(struct platform_device *pdev)
+ 
+ 	err = airoha_hw_init(pdev, eth);
+ 	if (err)
+-		goto error;
++		goto error_hw_cleanup;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_start_napi(&eth->qdma[i]);
+@@ -2753,13 +2765,16 @@ static int airoha_probe(struct platform_device *pdev)
+ 		err = airoha_alloc_gdm_port(eth, np);
+ 		if (err) {
+ 			of_node_put(np);
+-			goto error;
++			goto error_napi_disable;
+ 		}
+ 	}
+ 
+ 	return 0;
+ 
+-error:
++error_napi_disable:
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++		airoha_qdma_disable_napi(&eth->qdma[i]);
++error_hw_cleanup:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_hw_cleanup(&eth->qdma[i]);
+ 
+@@ -2780,8 +2795,10 @@ static void airoha_remove(struct platform_device *pdev)
+ 	struct airoha_eth *eth = platform_get_drvdata(pdev);
+ 	int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
++		airoha_qdma_disable_napi(&eth->qdma[i]);
+ 		airoha_hw_cleanup(&eth->qdma[i]);
++	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+
+---
+base-commit: 2c2b61d2138f472e50b5531ec0cb4a1485837e21
+change-id: 20241215-airoha_probe-error-path-fix-5bc6bed0e20e
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
