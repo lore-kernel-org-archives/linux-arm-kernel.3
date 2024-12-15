@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E582E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 08:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42154E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 09:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K5Yv0672gyBZHd8e/8Q70UYxrPwhUEW60yKl8LReM7U=; b=RC4ndrphIve4pCK31qtkmSiGq9
-	i4v3TOxC2AmPlzFsy6/XT3wtHgQ4Ik1d/KO40Ci85nY5KI2reslBWzbNb0L89B6cE6cY0Ur7gW6dU
-	P6hnn7QP9fp8M+GG6LmS2ziIuZzWdWPqZV5VVRIDi3T++ypt4yiHQYXUuZcVX2Ca+Ikqzb+IjKeeZ
-	LFkTVYV0zV/oz5oJmoyF8hhWNit2fAmj3kuuwngrZofI6E+VWCBNUMSQRqg9Zh9s0m4CE0brgE+iG
-	nr3aeBfrDPCPwNSZhnHaRiYBKDa9FW+sZtVYZuoqe7o224DrWGUEWzxbOYN1MUfOKKC6pUsqldG8G
-	saMk/+Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=foi2Bhkqn4qcb2g5yqvZXgmzEnMGSM3jwUsPdxRj76M=; b=dFG7ZGcE63NVr3lb2+Oql2PQS5
+	7p3MPRgvgRjxV7pG+ZMKJvW9PDlsYJMGkEvSIXbh+EfTUqZgwQHL18GROZPdwjOlvh8WIktqIGfPU
+	NcoLfVz+4sUBMVTqDEVQLsJvhUYVHxznudhuCpyVG/odsNtWg8FoQoNxxCXuYtHXsApBJml6rM0tG
+	20kozp17amWYRbbHuIY00R1FIl4Itu1Che/7onU27esu4w1NNsUBOXl4D6yAmUf8MCoSNJFktLE9o
+	ce9zPK14XVc5+IS0VTLvu+C7WASg1E23yPTth4YBdElxYJ4WV4rNdsPYjHkrOr4iEyz2iE7YGebWC
+	Y+crAG9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMk9u-00000007dV1-28qO;
-	Sun, 15 Dec 2024 08:39:26 +0000
-Received: from mail-m1289.netease.com ([103.209.128.9])
+	id 1tMkr5-00000007gSc-3WzE;
+	Sun, 15 Dec 2024 09:24:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMk8o-00000007dPi-2ZaR;
-	Sun, 15 Dec 2024 08:38:21 +0000
-Received: from amadeus-Vostro-3710.lan (unknown [IPV6:240e:3b3:2c02:27b0:7e2c:bf7a:d235:f376])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5c225228;
-	Sun, 15 Dec 2024 16:38:09 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: FUKAUMI Naoki <naoki@radxa.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: [PATCH 1/1] arm64: dts: rockchip: default to host mode for USB on Radxa E25
-Date: Sun, 15 Dec 2024 16:38:05 +0800
-Message-Id: <20241215083805.1461902-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1tMkq1-00000007gOz-2SpE
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Dec 2024 09:22:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B9022A40141;
+	Sun, 15 Dec 2024 09:21:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAB77C4CECE;
+	Sun, 15 Dec 2024 09:22:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1734254576;
+	bh=VA/fr2fanU2w8E9A58sNN9gLlEV2wRsSO8gXxlKoJjc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rhdoQNf8ZGsxq0OtLSI6TOY8eXGLpQiMg80mC9co5MB8vkpw0TO6RSdI2TXbLarRr
+	 3puHKaN152VDKGxcAGKQHHoUv8YpKIcGE7RdDdhGElwIw2TV+oXx0ek8hpp+N495bn
+	 eMNvUw87z4AMK5lq0N6m/Vfd2qbHpnzNSDSI0ALQ=
+Date: Sun, 15 Dec 2024 10:22:53 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, gshan@redhat.com, james.morse@arm.com,
+	maz@kernel.org, oliver.upton@linux.dev,
+	shameerali.kolothum.thodi@huawei.com, vt@altlinux.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 6.6 v1] KVM: arm64: Disable MPAM visibility by default
+ and ignore VMM writes
+Message-ID: <2024121528-refurbish-plausibly-31c7@gregkh>
+References: <20241212151406.1436382-1-joey.gouly@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZTEkZVhpPGhpJH09OSkNJTVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJT0seQUgZSEFJGEtJQUlMGUtBTB5JGEEZHUwaQR9JSE5BHUhMTVlXWRYaDx
-	IVHRRZQVlPS0hVSktISk5MTlVKS0tVSkJLS1kG
-X-HM-Tid: 0a93c977c37403a2kunm5c225228
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NlE6Ejo6CzITLiMtHQsCDBNR
-	ERQwCQ5VSlVKTEhPSU5KQ0JLSUtPVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUlP
-	Sx5BSBlIQUkYS0lBSUwZS0FMHkkYQRkdTBpBH0lITkEdSExNWVdZCAFZQU1CSDcG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241212151406.1436382-1-joey.gouly@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_003818_882471_B8C6372B 
-X-CRM114-Status: UNSURE (   6.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241215_012257_717491_EBF435FC 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Radxa E25 board has only one USB3.0 Type A connector,
-changing it to host mode is more appropriate.
+On Thu, Dec 12, 2024 at 03:14:06PM +0000, Joey Gouly wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> commit 6685f5d572c22e1003e7c0d089afe1c64340ab1f upstream.
+> 
+> commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits in
+> ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to guests,
+> but didn't add trap handling. A previous patch supplied the missing trap
+> handling.
+> 
+> Existing VMs that have the MPAM field of ID_AA64PFR0_EL1 set need to
+> be migratable, but there is little point enabling the MPAM CPU
+> interface on new VMs until there is something a guest can do with it.
+> 
+> Clear the MPAM field from the guest's ID_AA64PFR0_EL1 and on hardware
+> that supports MPAM, politely ignore the VMMs attempts to set this bit.
+> 
+> Guests exposed to this bug have the sanitised value of the MPAM field,
+> so only the correct value needs to be ignored. This means the field
+> can continue to be used to block migration to incompatible hardware
+> (between MPAM=1 and MPAM=5), and the VMM can't rely on the field
+> being ignored.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Co-developed-by: Joey Gouly <joey.gouly@arm.com>
+> Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Tested-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> Link: https://lore.kernel.org/r/20241030160317.2528209-7-joey.gouly@arm.com
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> [ joey: fixed up merge conflict, no ID_FILTERED macro in 6.6 ]
+> Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+> Cc: stable@vger.kernel.org # 6.6.x
+> Cc: Vitaly Chikunov <vt@altlinux.org>
+> Link: https://lore.kernel.org/linux-arm-kernel/20241202045830.e4yy3nkvxtzaybxk@altlinux.org/
+> ---
+> 
+> This fixes an issue seen when using KVM with a 6.6 host kernel, and
+> newer (6.13+) kernels in the guest.
+> 
+> Tested with a stripped down version of set_id_regs from the original
+> patch series.
 
-Cc: FUKAUMI Naoki <naoki@radxa.com>
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts | 1 +
- 1 file changed, 1 insertion(+)
+What about 6.12.y?  You can't just skip a stable tree, otherwise you
+will get a regression when you upgrade to 6.12.y, right?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts b/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts
-index 98cfa3abb809..90a3cb54fd47 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-radxa-e25.dts
-@@ -218,6 +218,7 @@ &usb_host0_ohci {
- };
- 
- &usb_host0_xhci {
-+	dr_mode = "host";
- 	status = "okay";
- };
- 
--- 
-2.25.1
+thanks,
 
+greg k-h
 
