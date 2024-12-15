@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 595A8E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 08:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AFDE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 08:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QUb5xuTuYQHpC3cVU3eh5B+19cq4zd2piW0HbbFtwAo=; b=H+UhN5asnRAWUIjH8M4aIOZU8W
-	ypJn1TU+52ru+Cl6FSoWCt/dWHqDCRVYMYiJ8nzLYkpqX2SugsVg24ddP4s2ZXlKp/V3a2ga6b95a
-	Zn5ru5q3Ge1J2YDGPhFIEaKE4f4FRShnY+99pQxUw2XlkvOy5e/Oi9IQ/z3M0OO+qMvbku06jfpQI
-	8aDHk1smH2SSkiH40BOgX+Og3QdanmkKxS2kZCjqk6baXr89iTZki5CbHeLpWU2BbZ8KNljk9EG/J
-	xBmv+q9CwWGuIAkF68V+pchqhvV12CVH4EsaXY/Zr+C2JgNmVN6WAhw8TGb6GjhYJZQOfiRqghDpG
-	qemIaiOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jbW+PaUOzCwCbF61CRYPi7XMG3ao6Wxw90lcjAtKDFs=; b=1eno8o0FTAA2Si
+	Bo169iESDaB4YyNAW8YhV3V7zF5pq+2+ec2JUjdZ1HFwG0OdoCnsPcjizd2sC+bDZbKV5vkSIcpJf
+	S4nUKKhvfWrqqI/3AkdV9tdZS1eOY1SWlY3u9z6/9Bfi+OzcfFJe1ppVcT9hSM6SqHHenLFBaYJLX
+	WqawQu5Lm+/FpbBGBKdWNLL4clS4HX+HFXB/VGWJSzwzoSJ8ODfmGyRgkEeHaYtDLfwXPalOY6WJG
+	lcBXMJNPKpWJYUlabH6bR/dPpRnN2hV6uyCpx1f8HhUZ8bQCLBYUFixxXZeSf4/pkO+9B9eXXqPWD
+	ajHYtggAcdMBrg9ZDyrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMjhT-00000007bcx-0b4M;
-	Sun, 15 Dec 2024 08:10:03 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tMjnb-00000007c2u-2kNn;
+	Sun, 15 Dec 2024 08:16:23 +0000
+Received: from mail-lf1-f42.google.com ([209.85.167.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMjgN-00000007bTN-18eG
+	id 1tMjmW-00000007bxn-2exY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Dec 2024 08:08:56 +0000
+	Sun, 15 Dec 2024 08:15:18 +0000
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-53df19bf6a9so4538430e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Dec 2024 00:15:15 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734250513; x=1734855313;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jbW+PaUOzCwCbF61CRYPi7XMG3ao6Wxw90lcjAtKDFs=;
+        b=hSu7YNXRyJHbidfiLTE8AHsI/dsuNGtUVdYUIr6i31riq5T91QZWIl5xlUYGTdwueW
+         1FngaDr/EofVT3Hl5ljlFAiW7uGpgEV6hPd7iVDYGTs82MahuK9CDGqn2wcWRvsRQA6D
+         Y1ktyY1eeiZCtK/jmmcqYe6/qpb5UWtpXI34l1hzzRfCwYByYpNRpa9SN67Ii3Zahg8O
+         9wtxgTQbsQYMxSSxHFyuaqInzH1hFD5gZzXh/zm9jjNvmVCfo8pdkppTDVU17aLPPeRf
+         uC2puhyBDClwwhbhmrgZLSh4/OAeBTnXyW/1A6B9e5qCwECDVoYHExX3NJfmLOcVDMSv
+         BSvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDIQf8IyCoSTpJdIOrwgn29PqDYjQi8X6EK+SKvzrNTyrUVhl8WbGlDmPHjv+G0TMQpDlZpiF2dbmJKZ0gORe7@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywdzq9gb81kkSH6/FShZ0uww3GTf5YY59ZZErMiSzQlmX+8F4v+
+	rLu5I8uugoR60tfrOYcAQduN6VAwMPLYcklicAezemWBfS2TNiXKrJpMxYD5
+X-Gm-Gg: ASbGncsqWblg+gBy0n9FmLMMP6NcjnFs9CXLEk+nRnzkywt7zrYEuvUbi0LjLsYpa5e
+	GqqhrS6FcsMtMRgNEQhyC1Y8XbPWeXiWmbkVJOyo2jHWRj2sXyh6Z7FGlSRXeqgZgF9Q3Gm4isT
+	HI6DwhN8gT65emOL3EZtAwh5HqschrfNEyCpZcLnu6fDMt9/XyFn27GtKemvTv6/xobQvqi1ivx
+	Pu3F0cB2UygLY/2Czwq6aw03dPeumpZmOLd0LFgYK9nSUZfTsNe+vMzvzyJ49O1Dnbz1gkcOyds
+	heYJzANoUgAwnw==
+X-Google-Smtp-Source: AGHT+IEa2RJmDacWg0M2DcZqDgU2CXod1PSS2OJDwNsZmgY4Pt2aZ3ohxE+VIsuPgjUm1zpxXRsfsw==
+X-Received: by 2002:a05:6512:2808:b0:53e:3a43:9245 with SMTP id 2adb3069b0e04-540905680d8mr2639412e87.28.1734250512364;
+        Sun, 15 Dec 2024 00:15:12 -0800 (PST)
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com. [209.85.208.176])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120baa89esm442750e87.111.2024.12.15.00.15.11
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 15 Dec 2024 00:15:12 -0800 (PST)
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-30037784fceso30402721fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Dec 2024 00:15:11 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVP0aWBp8ZB9GTUBtqNALOwaEfZsgTyQxikRpvzG6y6THf65dukwrTZLxV7eSOoShRNylIxlxCrisz1pvGpO1i6@lists.infradead.org
+X-Received: by 2002:a05:651c:198b:b0:300:3de4:ff7f with SMTP id
+ 38308e7fff4ca-3025456691dmr30121161fa.6.1734250511023; Sun, 15 Dec 2024
+ 00:15:11 -0800 (PST)
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1734250133;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QUb5xuTuYQHpC3cVU3eh5B+19cq4zd2piW0HbbFtwAo=;
-	b=VQwcq5hcvGxLAtm/bOe0r7v+VbxFmms5LcWlEqTd4qYYmdRx0yNVCaJa4xxsOAo2ifn/l6
-	Hk2Gd3kOpurSjjfzK46Zo1w/VnGvJdOLFEXY5l/+Gx+gkxVA4LKghcC/31KfVj75eQlh0i
-	YjZWUX/HiE9ASnjgmXMU4MRqgFbgrtAmMJlSyHmvJ8urrPeZo3ocZewkvTlbmSnibz5WE1
-	gKqyBzBvzKcfD8gBSyI3gqn+/LCLcZO5RA79RtbCazdp6n5aenuZYtzpDoqeyW0QQRvkvZ
-	ikQ9ClfZUYibbStlY+Yxi31i1iYHs39Ksp3RiNBLfpl3U/W9Yo3AuSACe9BcFg==
-Date: Sun, 15 Dec 2024 09:08:53 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Vasily Khoruzhick <anarsoul@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>, Roman Beranek
- <me@crly.cz>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH 3/3] clk: sunxi-ng: a64: stop force-selecting PLL-MIPI as
- TCON0 parent
-In-Reply-To: <20241215053639.738890-4-anarsoul@gmail.com>
 References: <20241215053639.738890-1-anarsoul@gmail.com>
- <20241215053639.738890-4-anarsoul@gmail.com>
-Message-ID: <32683972639853c626d46fa4374d1558@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+In-Reply-To: <20241215053639.738890-1-anarsoul@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Sun, 15 Dec 2024 16:14:57 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65odTCjkC493e=q57ikeKHWrKYS26N7-0Hjc=S_d6ELyQ@mail.gmail.com>
+Message-ID: <CAGb2v65odTCjkC493e=q57ikeKHWrKYS26N7-0Hjc=S_d6ELyQ@mail.gmail.com>
+Subject: Re: [PATCH 0/3] arm64: allwinner: a64: fix video output on Pinebook
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>, Roman Beranek <me@crly.cz>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_000855_616835_E6E88228 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20241215_001516_675196_E997F885 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,77 +95,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Vasily,
+On Sun, Dec 15, 2024 at 1:36=E2=80=AFPM Vasily Khoruzhick <anarsoul@gmail.c=
+om> wrote:
+>
+> Since commit ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in =
+TCON0 mux"),
+> TCON0 clock parent is always set to PLL_MIPI, but unfortunately it breaks
+> video output on Pinebook.
+>
+> I did an experiment: I manually configured PLL_MIPI and PLL_VIDEO0_2X
+> to the same clock rate and flipped the switch with devmem. Experiment cle=
+arly
+> showed that whenever PLL_MIPI is selected as TCON0 clock parent, the vide=
+o
+> output stops working.
+>
+> To fix the issue, I partially reverted mentioned commit and added explici=
+t
+> TCON0 clock parent assignment to device tree. By default, it will be
+> PLL_MIPI, and the only users with RGB output - Pinebook and Teres-I will
+> override it in their dts.
+>
+> Vasily Khoruzhick (3):
+>   dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
+>   arm64: dts: allwinner: a64: explicitly assign clock parent for TCON0
+>   clk: sunxi-ng: a64: stop force-selecting PLL-MIPI as TCON0 parent
 
-On 2024-12-15 06:34, Vasily Khoruzhick wrote:
-> Force selecting PLL-MIPI as TCON0 parent breaks video output on 
-> Pinebook
-> that uses RGB to eDP bridge.
-> 
-> TCON0 clock parent will be selected in the device tree instead.
-> 
-> Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in 
-> TCON0 mux")
-> Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
+Looks good to me.
 
-Looking good to me, as a patch that completes the panel bugfix.
-Thanks once again for the patches!
+Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 
-I'd suggest that the patch description is improved further a bit,
-by incorporating some parts of the good description of the issue
-that's already in the cover letter.  In particular, I'd suggest
-that you describe that the patch partially reverts an earlier
-commit, etc.
+I'll wait for a bit for Andre to comment.
 
-Additionally, I'd suggest that the comment block deleted below is
-actually adjusted and copied to the addition to the A64 SoC dtsi,
-which is performed in the first patch in your series.  That might
-be of high value later.
-
-With that addressed, please feel free to include
-
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-
-> ---
->  drivers/clk/sunxi-ng/ccu-sun50i-a64.c | 11 -----------
->  1 file changed, 11 deletions(-)
-> 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-> b/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-> index 3a7d61c81667..cc8de0bfbc67 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-a64.c
-> @@ -534,12 +534,6 @@ static SUNXI_CCU_M_WITH_MUX_GATE(de_clk, "de", 
-> de_parents,
->  				 0x104, 0, 4, 24, 3, BIT(31),
->  				 CLK_SET_RATE_PARENT);
-> 
-> -/*
-> - * DSI output seems to work only when PLL_MIPI selected. Set it and 
-> prevent
-> - * the mux from reparenting.
-> - */
-> -#define SUN50I_A64_TCON0_CLK_REG	0x118
-> -
->  static const char * const tcon0_parents[] = { "pll-mipi", 
-> "pll-video0-2x" };
->  static const u8 tcon0_table[] = { 0, 2, };
->  static SUNXI_CCU_MUX_TABLE_WITH_GATE_CLOSEST(tcon0_clk, "tcon0", 
-> tcon0_parents,
-> @@ -959,11 +953,6 @@ static int sun50i_a64_ccu_probe(struct
-> platform_device *pdev)
-> 
->  	writel(0x515, reg + SUN50I_A64_PLL_MIPI_REG);
-> 
-> -	/* Set PLL MIPI as parent for TCON0 */
-> -	val = readl(reg + SUN50I_A64_TCON0_CLK_REG);
-> -	val &= ~GENMASK(26, 24);
-> -	writel(val | (0 << 24), reg + SUN50I_A64_TCON0_CLK_REG);
-> -
->  	ret = devm_sunxi_ccu_probe(&pdev->dev, reg, &sun50i_a64_ccu_desc);
->  	if (ret)
->  		return ret;
+>  arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts |  2 ++
+>  arch/arm64/boot/dts/allwinner/sun50i-a64-teres-i.dts  |  2 ++
+>  arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi         |  2 ++
+>  drivers/clk/sunxi-ng/ccu-sun50i-a64.c                 | 11 -----------
+>  drivers/clk/sunxi-ng/ccu-sun50i-a64.h                 |  2 --
+>  include/dt-bindings/clock/sun50i-a64-ccu.h            |  2 ++
+>  6 files changed, 8 insertions(+), 13 deletions(-)
+>
+> --
+> 2.47.1
+>
 
