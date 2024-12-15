@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF71E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 20:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC4DE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 20:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YwBupfT+fyxXmEmly7oBmZ1BClZCHwQUt9Ls+vVmCiA=; b=Q6Ve1Ehhl9JSLOXaTmlpoOFWBz
-	Y9Kj9GFdNpxa6MDHQWVw32lxESAuFsWKUIXPTYvFlLF2tI7S4NU90ZO4E/o4W8a+Ki7vHaMZirHRK
-	4EluRQzJHp20FHE9WlJW5Yc2bCfWJqvx+DwinjgPx9Ipl0tAT1lSiCMNZ13hD6p+m3BV6Pgp2L2Ma
-	JoCWiQHcB6zqhQOZlEcBXxITWQQ/ce29TfQHntTj5P3wOm4IfM+BxiTECtPP6r6Rrdyryrk5o9GAW
-	Adl/sZT0yFmNXEQeJ2jIz3UQdSCiCxIC97j44HQw1YHSr4x+jnYRTpQF/UDlhQa6a507/C9GyLQXG
-	oKo89xWQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yY89w7EyE7YhvETBcg/BNaJrusmpuLoPjQdmt3JKcM0=; b=CpMtLdV4gDxUotlk/iFEfrlqqu
+	e+MAFJhFZ1CIG+wyJl5fYpl+haF0QA5n7btn0QRLfIX5sb6Ds24nMPJ9R0SjRZpibM5U8YIblAH3W
+	N1+XmYorwkHTMymE1Fyx2KtbHCr+3GR/elQjdbSaPqjNxxn8alyCis8mpGR4WRMG/5wJXRGxUljJG
+	XW164RvUyuXwXmaEC6G6tAnWB5ij8/CPMKxV04FIreZA4PWBLSeX8d62ri7po5WAInlKQukQqp/2+
+	YRNe3yA0UMuufkLbK34yM4vPpeHBjj1i5d3APIhWpZTnsZAELxe3KhrIrp995w7AsRIcBUID82/iG
+	84ESTIvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMurn-00000008P31-2aTM;
-	Sun, 15 Dec 2024 20:05:27 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMuqh-00000008Oxe-08EW
+	id 1tMvKb-00000008Qbt-2IL5;
+	Sun, 15 Dec 2024 20:35:13 +0000
+Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tMvJU-00000008QUA-34l4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Dec 2024 20:04:20 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43610eba55bso29873015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Dec 2024 12:04:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734293056; x=1734897856; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YwBupfT+fyxXmEmly7oBmZ1BClZCHwQUt9Ls+vVmCiA=;
-        b=jdRAdxmv23YtzHnl2RE9+0MioL7SeucstCzznDeipbJQjBYtp0TctKqR0gH1+A3tmL
-         qLW1MUGCmo/skzLmw/VG0lG6AMIu35EVAyfuphJDknPQTBVEikjfC7JVYP5YHCgRJIp1
-         cER55vANHCouYNDQwIOeExY26SSzkiDceqygw7VSUoKSJPQ52c9Q2eiWKSf4RVNSYzrF
-         cbBP8hcYLwl1RTdMvT/tQ/UsXJDXjJSdXTatNww9C4bnIfhxnEobq1FVC/DrmYKx3M3D
-         rmAp2khhDw67HzWx/zd/YJ5jKT0qkWCSI7OopogtMdSl+r4PwzPSA21D2d5Gf2FN181n
-         GZOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734293056; x=1734897856;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YwBupfT+fyxXmEmly7oBmZ1BClZCHwQUt9Ls+vVmCiA=;
-        b=EkCgMjlond3druSadC29JuinQtY+0K46j1UWnAJi+Dd0Uy2h1c79x5mtelR/gZMqW9
-         JbdX0hvCec9CneHc9D34275pKvUaSoToLN3c9u0mZ6LEP2wU1vpv4qTaMWgMJQwO3JM6
-         Imjf6gTeRiQVL1IKMq37o1a7y0gXENStNck8c0FOyLqS9jQ+SiE8JjdhEGcxRNda5e4q
-         ulBWdu4PaoRQqpdQJMCQ0mP4OJS/jtp/6MmEYLHA88RwuLYzjofrWNLyeUCu9Q0dcN23
-         aUS3Gy5fepgC5r18D/aKQx0Yg1R2Zc3uJH65bQC3jEf/vq/MB3t3jLyACzDBVBOnrKFn
-         /znw==
-X-Forwarded-Encrypted: i=1; AJvYcCW5EnUnHlyQ7R5JP9ewkVA7stCCZg+7pmMK2MoNrJB0Eikja77619cO7jrVhS6+F7OO1jUsqg5f+yXEnysIh8T/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7tmayVXhhOMMTgigrjF/+JHqX1hSBsNOPUD9yyoo+BtVEZMeW
-	w+ljyGA2o7+xP1KHOqN+7KjTVlArfKtsH7tw0ViTlrwDlqJ68XR3Pki1xvSRiPfG3d8TnHnddsA
-	4la3MLDhaGQ==
-X-Google-Smtp-Source: AGHT+IFZBtol4MC3NA/MQiwAphEXkZPoxFlwPmucl0GZUYpBLZ8Bn8rpWMLd0hZKVOn4cpUk5W+HN7MQj3EJUQ==
-X-Received: from wmaz22.prod.google.com ([2002:a05:600c:6d96:b0:434:f173:a51])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1e87:b0:432:cbe5:4f09 with SMTP id 5b1f17b1804b1-4362aa113f1mr83361525e9.4.1734293056465;
- Sun, 15 Dec 2024 12:04:16 -0800 (PST)
-Date: Sun, 15 Dec 2024 20:04:11 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241215200412.561400-1-smostafa@google.com>
-Subject: [PATCH] iommu/io-pgtable-arm: Fix cfg reading in arm_lpae_concat_mandatory()
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Sun, 15 Dec 2024 20:34:06 +0000
+X-CSE-ConnectionGUID: 3SZbd4r9Q96lrZsWPPqzJg==
+X-CSE-MsgGUID: L2EbLFJSSNCJcd9lJG+chg==
+X-IronPort-AV: E=Sophos;i="6.12,237,1728918000"; 
+   d="scan'208";a="227902833"
+Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
+  by relmlie5.idc.renesas.com with ESMTP; 16 Dec 2024 05:33:58 +0900
+Received: from ubuntu.adwin.renesas.com (unknown [10.226.92.26])
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 4A361406865D;
+	Mon, 16 Dec 2024 05:33:45 +0900 (JST)
+From: John Madieu <john.madieu.xa@bp.renesas.com>
+To: robh@kernel.org
+Cc: arnd@arndb.de,
+	heiko@sntech.de,
+	krzysztof.kozlowski@linaro.org,
+	lee@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	liviu.dudau@arm.com,
+	lpieralisi@kernel.org,
+	pankaj.dubey@samsung.com,
+	peter.griffin@linaro.org,
+	sudeep.holla@arm.com,
+	willmcvicker@google.com,
+	biju.das.jz@bp.renesas.com
+Subject: Re: [PATCH 3/3] mfd: syscon: Allow syscon nodes without a "syscon" compatible
+Date: Sun, 15 Dec 2024 21:33:44 +0100
+Message-ID: <20241215203344.46158-1-john.madieu.xa@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241211-syscon-fixes-v1-3-b5ac8c219e96@kernel.org>
+References: <20241211-syscon-fixes-v1-3-b5ac8c219e96@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_120419_089899_33907292 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20241215_123404_883471_635A2F9A 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +76,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I messed up the newly introduced function arm_lpae_concat_mandatory()
-where ias/oas are read from the io_pgtable_cfg copy in arm_lpae_io_pgtable.
+Hi Rob,
 
-However, this copy is set later in alloc_io_pgtable_ops() after alloc()
-function was called.
+On Wed, 11 Dec 2024 14:57:14 -0600 Rob Herring wrote:
+> diff --git a/drivers/mfd/syscon.c b/drivers/mfd/syscon.c
+> index bfb1f69fcff1..e6df2825c14d 100644
+> --- a/drivers/mfd/syscon.c
+> +++ b/drivers/mfd/syscon.c
+> @@ -171,8 +171,10 @@ static struct regmap *device_node_get_regmap(struct device_node *np,
+> 			break;
+> 		}
+> 
+> -	if (!syscon)
+> +	if (!syscon && of_device_is_compatible(np, "syscon"))
+> 		syscon = of_syscon_register(np, check_res);
+> +	else
+> +		syscon = ERR_PTR(-EINVAL);
 
-I didn=E2=80=99t catch that with my selftesting as arm_lpae_io_pgtable is
-allocated from kmalloc, which was caching old configs.
+The current modification will make device_node_get_regmap() return -EINVAL even 
+for syscons that were already found in the syscon_list, which I believe is not 
+the intended behavior.
 
-While at it, fix a couple of spaces.
+I suggest modifying it this way to maintain lookup functionality for registered 
+syscons while implementing your intended changes:
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/io-pgtable-arm.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+static struct regmap *device_node_get_regmap(struct device_node *np,
+					     bool check_res)
+{
+	struct syscon *entry, *syscon = NULL;
+	struct regmap *regmap;
 
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.=
-c
-index c1b62c7d81ba..7e53ee51270b 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -232,12 +232,13 @@ static inline int arm_lpae_max_entries(int i, struct =
-arm_lpae_io_pgtable *data)
-  *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables =
-for ias =3D oas)
-  *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables=
- for ias =3D oas)
-  */
--static inline bool arm_lpae_concat_mandatory(struct arm_lpae_io_pgtable *d=
-ata)
-+static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
-+					     struct arm_lpae_io_pgtable *data)
- {
--	unsigned int ias =3D data->iop.cfg.ias;
--	unsigned int oas =3D data->iop.cfg.oas;
-+	unsigned int ias =3D cfg->ias;
-+	unsigned int oas =3D cfg->oas;
-=20
--	/* Covers 1  and 2.d */
-+	/* Covers 1 and 2.d */
- 	if ((ARM_LPAE_GRANULE(data) =3D=3D SZ_16K) && (data->start_level =3D=3D 0=
-))
- 		return (oas =3D=3D 48) || (ias =3D=3D 48);
-=20
-@@ -1033,7 +1034,7 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *c=
-fg, void *cookie)
- 	if (!data)
- 		return NULL;
-=20
--	if (arm_lpae_concat_mandatory(data))  {
-+	if (arm_lpae_concat_mandatory(cfg, data)) {
- 		if (WARN_ON((ARM_LPAE_PGD_SIZE(data) / sizeof(arm_lpae_iopte)) >
- 			    ARM_LPAE_S2_MAX_CONCAT_PAGES))
- 			return NULL;
---=20
-2.47.1.613.gc27f4b7a9f-goog
+	mutex_lock(&syscon_list_lock);
+
+	list_for_each_entry(entry, &syscon_list, list)
+		if (entry->np == np) {
+			syscon = entry;
+			break;
+		}
+
+	if (syscon) {
+		regmap = syscon->regmap;
+		mutex_unlock(&syscon_list_lock);
+		return regmap;
+	}
+
+	if (of_device_is_compatible(np, "syscon")) {
+		syscon = of_syscon_register(np, check_res);
+		mutex_unlock(&syscon_list_lock);
+		if (IS_ERR(syscon))
+			return ERR_CAST(syscon);
+		return syscon->regmap;
+	}
+
+	mutex_unlock(&syscon_list_lock);
+	return ERR_PTR(-EINVAL);
+}
+
+The above is the resulting working function I've obtained while testing with
+different scenarios. This ensures that:
+
+ 1. Already registered syscons are found and returned correctly
+ 2. New syscons with "syscon" compatible are registered as before
+ 3. Nodes without "syscon" compatible return -EINVAL only if not found in the list
+
+This has been tested with my v1 syscon work [1] and with v2, where I remove the
+"syscon" compatible string for custom regmap initialization, aligning with your
+goals for this series.
+
+Let me know if I should add this series as a dependency of my v2 or how I should proceed.
+
+Thanks,
+
+John Madieu
+
+[1] https://lore.kernel.org/all/20241206212559.192705-2-john.madieu.xa@bp.renesas.com
 
 
