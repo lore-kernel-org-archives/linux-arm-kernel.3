@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C4CBE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D7BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9GBryxahmGmSZEhXWCHZRH/qGlu6UtN6W9voNHcA3Y=; b=Kx6vc0GS7+EhJkAAVl4YAsOeo2
-	e9mjlWFksFjcXk6elCDFxC1r8b/Co5zWIJJ3nealortNKsM1DGYXLH8EJGFuZTa3+gDvGM9k3s9Ja
-	Ln+tDQFCKc47Dvjv9ho0neSiGWMhbJFR9C1NoNqcKegFK1w9Y8HPw7YHy6nvnXHAlrvAGfeoGg1B0
-	18XNH31D4KoWYd9tfT4z8p4LSOd+tjy+M7bSvUy8DcCAsa4ucpbBAx6SoKrFDp18uJH+p0mPRM+Jt
-	ooMV9GZHKS8fJUDTz6ZrQfasrKjQowR0GxfPQo74nNqkHspOsoPxVGH1qiiuXF0eTCGE8HUYSAWH9
-	PjgVnZkA==;
+	bh=RLNB90HFwi4SHqmi2KVXCppej9by7Sd91qe87vHnQQY=; b=O3BvGdQnrC17m3nEct40dbTrDt
+	9iHMZxENlJ92afAKllHmrk5FYNGE87jMKRkmE5Maaxd8PgbqxqdsOdhw1yGu3af8HBQqomQn9+ztK
+	EaCH1V9d8Eg4/Ly8k8GcQT3W5OSOJqqdVXlT/0xsMINGAAuXsTok8CIn7ENJW46ZF8bYzrRx02x59
+	tazAZfjVo1gyRznfoGPcVi86EFekKoy8XCBTk97K78joYFQKro4XyCyuwtrUcS+DhPMWw6kREOK8G
+	5EReJR9ObZ08MelPxb0ZBHSWmECyjGmque8ZxdeGlgyN0SCBHdmZ6vat2d8Qmed1syJcaM8n0+hSl
+	uul/2IVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8nA-00000009kvV-3Pog;
-	Mon, 16 Dec 2024 10:57:36 +0000
+	id 1tN8oD-00000009l23-1loM;
+	Mon, 16 Dec 2024 10:58:41 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8gx-00000009jxJ-1bfs
+	id 1tN8gz-00000009jy7-0xND
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 10:51:12 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43631d8d9c7so13791955e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 02:51:10 -0800 (PST)
+	Mon, 16 Dec 2024 10:51:14 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43626224274so15454445e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 02:51:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734346269; x=1734951069; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734346271; x=1734951071; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=C9GBryxahmGmSZEhXWCHZRH/qGlu6UtN6W9voNHcA3Y=;
-        b=EPsaP9HodLEEEdAg5Abyno7HZXVaF+vAKU0dBhJ3hLK6+GzKt56Caw8mcUDbtauUS2
-         5EaR88gk4xUNjxHPD+QqCv4PdEXpOX5hW+8TAJn79KXpZ04ks6bf7OxiuanFhtl/t1EB
-         BVx/3FbhVKYE+fdYBbsZNmsAf9gAlvRwlQVNc3VnzRPGTtaGd6kem/ptYEo6Vvomq8c/
-         CerhKehIa29G9y6GC6+W8GigYewlcA+o181bLglH3Y4GaxH+8KPHvPQud13Qe6igLVA/
-         ptZjV2/amOgvtyNkxZVhjgsE2UpaFlEnXTYrUaJ2hycWcLDgHkQyJdGNURpFX1tO/MVu
-         Y7kA==
+        bh=RLNB90HFwi4SHqmi2KVXCppej9by7Sd91qe87vHnQQY=;
+        b=frJSgEJdP0c3mTVOBR4n1yvTl/V36xaRNK4VVz0b3KZLbcSi51QzfD6Zlo6AUhIUWt
+         PB/uib97nEGEjjQTaqGVO1W2RK8OgnVOkWDDQJUoDmnVOSNq7oS7jpwLwLDVUA+wrcWE
+         muqp9HmUreUF9KkQxufwSk4TPX7wQfN5s07/DGaQy+SEvmvfEBmuMoGktYk6YAvtHkuf
+         QQcv6Tc0BU3fwp9o9mj5PqJk6ktfhwQrdWIgQ3YwWf2HXblEutsSWaOoh//5x8LXC2wA
+         U/IAfNnNP4iHdcZX1mdwWk7cegK6S+IvEDjBnJWRCuCqBtXokR5JiUBBmVzxCen8U2p1
+         tHHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734346269; x=1734951069;
+        d=1e100.net; s=20230601; t=1734346271; x=1734951071;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=C9GBryxahmGmSZEhXWCHZRH/qGlu6UtN6W9voNHcA3Y=;
-        b=YS1oePLP7a03FMoiBPuiDZPnduKCs0nov8FF3lKXLTB/U14pdXuHoB6+kv8ub5pgsT
-         a6v7WJJMgpiYRZJ5/Zs73UOlpol2Xl17KWx1GdFCsGbYklklUKX/lmwo5G4xd4wEJOvS
-         vH40vOwIkZdMOa7xD+3mUngxwWXImx+B7KWSRVlZ6LSgPd4Y3q5iO6PjlDnqZOs7TXQd
-         P2DOZb8Q4bKQePWV5fiwwpC6zR9DZ7ss84oBDHNFoVf1pd20kSnmn3dVJmE8AB0FcVZu
-         6E+xu1lAQwEX6DZhFeEcDVSM51lxuQNP7rLggrKX4AqV81y52Q9AIwIPk+LN3RRg7SK/
-         k5kg==
-X-Forwarded-Encrypted: i=1; AJvYcCXIqRyCqJ2lKw41vEwKh8RkB1Vw5hUjpul2cNjLdnUkiudHHxliJgwnBQ46y+xBmVZGVSKXZWdrp3ha0C5x6Sn/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCH2I5JtDCFN7K+N6iLAIAONcCrRbHluh6VmS/i7HjZAwEjafO
-	4jDE4B2dKBA2QAcZpcWVYthz7A/bN3ckzud2kqomQcPboE2G0twFrIxrM58YDlepRLmvjrk0zg=
+        bh=RLNB90HFwi4SHqmi2KVXCppej9by7Sd91qe87vHnQQY=;
+        b=gNwi18ZuXbzoVMKkaW45lJyjiOOZpuIQZMVICHdZyT622KYCIVd81U62HLTCsi0r/6
+         rWekVdt8Evm9aOJWLrNwjpyNAKEO64aK7bkMaGA6JMGRl2GbaqaEXUWdn+uFGx8Z+ybW
+         fUgBdE4YHRUWOMseuq3orJoFyOsTJ2fMCyXnnGd/svSt6L9/R3WL1SzSITqj+95AMlWB
+         5xYFFj+Xv3m2ogxoUPrNeRTxvAuSl3kZxxmtUgS0F7yw/VSG72HpQYb0NicQsw3s8UBL
+         rccgZ4rG+fMe8BSHCUudlREnKMx8hJtkOETBP+hAoNMV9ED4Xmdfopu+KqOs+3c79D/u
+         h29A==
+X-Forwarded-Encrypted: i=1; AJvYcCWtuzFPcBufCNxw503DqOhRg2LuLfOedvX7fJV2juxfSqniYvy76GUaKRNgPq2qi3GZiGtRILDVQUAAg6RxkAV5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmLHiHmMwDLEL1uTlF5TA7a5LvtwSqDqE2e2sbgHZ61ziZHkTE
+	ymvyw4Rbxz6fBzu4M1+Y81AU65v8UOBsaLfaGIfuBPfacNub3mP7C/Qx6jk3kGWUd4mgFBFPJg=
 	=
-X-Google-Smtp-Source: AGHT+IHPZL8XVDqNOwgL7tTd/K+CfTsG1V6K4q53OJuErIEaHTfWnYIPmNKRWoQw/rWlX6rTWd9jy0e+5w==
-X-Received: from wmph6.prod.google.com ([2002:a05:600c:4986:b0:434:a2c3:d51b])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:524c:b0:434:ffb2:f9cf
- with SMTP id 5b1f17b1804b1-4362b16b28bmr98987585e9.14.1734346269330; Mon, 16
- Dec 2024 02:51:09 -0800 (PST)
-Date: Mon, 16 Dec 2024 10:50:45 +0000
+X-Google-Smtp-Source: AGHT+IG/KnLxBYGmhyms4gK4RJktxiZAprOlwrWk3fRnjJVEGCGWz+NgSli5dOU7sAR+DbTv+TAWqw5bCQ==
+X-Received: from wmol7.prod.google.com ([2002:a05:600c:47c7:b0:434:a471:130f])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:5254:b0:434:a902:97cd
+ with SMTP id 5b1f17b1804b1-4362aa3f7damr97104285e9.12.1734346271261; Mon, 16
+ Dec 2024 02:51:11 -0800 (PST)
+Date: Mon, 16 Dec 2024 10:50:46 +0000
 In-Reply-To: <20241216105057.579031-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20241216105057.579031-1-tabba@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241216105057.579031-6-tabba@google.com>
-Subject: [PATCH v5 05/17] KVM: arm64: Use KVM extension checks for allowed
- protected VM capabilities
+Message-ID: <20241216105057.579031-7-tabba@google.com>
+Subject: [PATCH v5 06/17] KVM: arm64: Initialize feature id registers for
+ protected VMs
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
@@ -76,8 +76,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org,
 	qperret@google.com, kristina.martsenko@arm.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_025111_419825_3E773A5D 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20241216_025113_266229_54FD55F7 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,151 +92,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use KVM extension checks as the source for determining which
-capabilities are allowed for protected VMs. KVM extension checks
-is the natural place for this, since it is also the interface
-exposed to users.
+The hypervisor maintains the state of protected VMs. Initialize
+the values for feature ID registers for protected VMs, to be used
+when setting traps and when advertising features to protected
+VMs.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 25 +++++++++++++++++++++++++
- arch/arm64/kvm/arm.c              | 29 ++---------------------------
- arch/arm64/kvm/hyp/nvhe/pkvm.c    | 24 ++++++------------------
- 3 files changed, 33 insertions(+), 45 deletions(-)
+ .../arm64/kvm/hyp/include/nvhe/fixed_config.h |  1 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  2 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 10 +++--
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 44 +++++++++++++++++--
+ 4 files changed, 51 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index cd56acd9a842..400f7cef1e81 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -20,6 +20,31 @@ int pkvm_init_host_vm(struct kvm *kvm);
- int pkvm_create_hyp_vm(struct kvm *kvm);
- void pkvm_destroy_hyp_vm(struct kvm *kvm);
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+index d1e59b88ff66..69e26d1a0ebe 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+@@ -201,6 +201,7 @@
+ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id);
+ bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
+ bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
++void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
+ int kvm_check_pvm_sysreg_table(void);
  
-+/*
-+ * This functions as an allow-list of protected VM capabilities.
-+ * Features not explicitly allowed by this function are denied.
-+ */
-+static inline bool kvm_pvm_ext_allowed(long ext)
-+{
-+	switch (ext) {
-+	case KVM_CAP_IRQCHIP:
-+	case KVM_CAP_ARM_PSCI:
-+	case KVM_CAP_ARM_PSCI_0_2:
-+	case KVM_CAP_NR_VCPUS:
-+	case KVM_CAP_MAX_VCPUS:
-+	case KVM_CAP_MAX_VCPU_ID:
-+	case KVM_CAP_MSI_DEVID:
-+	case KVM_CAP_ARM_VM_IPA_SIZE:
-+	case KVM_CAP_ARM_PMU_V3:
-+	case KVM_CAP_ARM_SVE:
-+	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
-+	case KVM_CAP_ARM_PTRAUTH_GENERIC:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
+ #endif /* __ARM64_KVM_FIXED_CONFIG_H__ */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index 24a9a8330d19..698bc20ab80b 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -47,6 +47,8 @@ struct pkvm_hyp_vm {
+ 	struct pkvm_hyp_vcpu *vcpus[];
+ };
+ 
++extern hyp_spinlock_t vm_table_lock;
 +
- extern struct memblock_region kvm_nvhe_sym(hyp_memory)[];
- extern unsigned int kvm_nvhe_sym(hyp_memblock_nr);
- 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a102c3aebdbc..b295218cdc24 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -80,31 +80,6 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
- 	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
- }
- 
--/*
-- * This functions as an allow-list of protected VM capabilities.
-- * Features not explicitly allowed by this function are denied.
-- */
--static bool pkvm_ext_allowed(struct kvm *kvm, long ext)
--{
--	switch (ext) {
--	case KVM_CAP_IRQCHIP:
--	case KVM_CAP_ARM_PSCI:
--	case KVM_CAP_ARM_PSCI_0_2:
--	case KVM_CAP_NR_VCPUS:
--	case KVM_CAP_MAX_VCPUS:
--	case KVM_CAP_MAX_VCPU_ID:
--	case KVM_CAP_MSI_DEVID:
--	case KVM_CAP_ARM_VM_IPA_SIZE:
--	case KVM_CAP_ARM_PMU_V3:
--	case KVM_CAP_ARM_SVE:
--	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
--	case KVM_CAP_ARM_PTRAUTH_GENERIC:
--		return true;
--	default:
--		return false;
--	}
--}
--
- int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 			    struct kvm_enable_cap *cap)
+ static inline struct pkvm_hyp_vm *
+ pkvm_hyp_vcpu_to_hyp_vm(struct pkvm_hyp_vcpu *hyp_vcpu)
  {
-@@ -113,7 +88,7 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 	if (cap->flags)
- 		return -EINVAL;
- 
--	if (kvm_vm_is_protected(kvm) && !pkvm_ext_allowed(kvm, cap->cap))
-+	if (kvm_vm_is_protected(kvm) && !kvm_pvm_ext_allowed(cap->cap))
- 		return -EINVAL;
- 
- 	switch (cap->cap) {
-@@ -311,7 +286,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- {
- 	int r;
- 
--	if (kvm && kvm_vm_is_protected(kvm) && !pkvm_ext_allowed(kvm, ext))
-+	if (kvm && kvm_vm_is_protected(kvm) && !kvm_pvm_ext_allowed(ext))
- 		return 0;
- 
- 	switch (ext) {
 diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index d3f67189497d..59ff6aac514c 100644
+index 59ff6aac514c..3014f3295d81 100644
 --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
 +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -329,32 +329,20 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+@@ -257,10 +257,10 @@ static pkvm_handle_t idx_to_vm_handle(unsigned int idx)
  
- 	bitmap_zero(allowed_features, KVM_VCPU_MAX_FEATURES);
+ /*
+  * Spinlock for protecting state related to the VM table. Protects writes
+- * to 'vm_table' and 'nr_table_entries' as well as reads and writes to
+- * 'last_hyp_vcpu_lookup'.
++ * to 'vm_table', 'nr_table_entries', and other per-vm state on initialization.
++ * Also protects reads and writes to 'last_hyp_vcpu_lookup'.
+  */
+-static DEFINE_HYP_SPINLOCK(vm_table_lock);
++DEFINE_HYP_SPINLOCK(vm_table_lock);
  
--	/*
--	 * For protected VMs, always allow:
--	 * - PSCI v0.2
--	 */
- 	set_bit(KVM_ARM_VCPU_PSCI_0_2, allowed_features);
- 
--	/*
--	 * Check if remaining features are allowed:
--	 * - Performance Monitoring
--	 * - Scalable Vectors
--	 * - Pointer Authentication
--	 */
--	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), PVM_ID_AA64DFR0_ALLOW))
-+	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_PMU_V3))
- 		set_bit(KVM_ARM_VCPU_PMU_V3, allowed_features);
- 
--	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), PVM_ID_AA64PFR0_ALLOW))
--		set_bit(KVM_ARM_VCPU_SVE, allowed_features);
--
--	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_API), PVM_ID_AA64ISAR1_ALLOW) &&
--	    FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_APA), PVM_ID_AA64ISAR1_ALLOW))
-+	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_PTRAUTH_ADDRESS))
- 		set_bit(KVM_ARM_VCPU_PTRAUTH_ADDRESS, allowed_features);
- 
--	if (FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPI), PVM_ID_AA64ISAR1_ALLOW) &&
--	    FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPA), PVM_ID_AA64ISAR1_ALLOW))
-+	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_PTRAUTH_GENERIC))
- 		set_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, allowed_features);
- 
-+	if (kvm_pvm_ext_allowed(KVM_CAP_ARM_SVE))
-+		set_bit(KVM_ARM_VCPU_SVE, allowed_features);
-+
- 	bitmap_and(kvm->arch.vcpu_features, host_kvm->arch.vcpu_features,
- 		   allowed_features, KVM_VCPU_MAX_FEATURES);
+ /*
+  * The table of VM entries for protected VMs in hyp.
+@@ -381,6 +381,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+ 	hyp_vm->kvm.created_vcpus = nr_vcpus;
+ 	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+ 	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
++	hyp_vm->kvm.arch.flags = 0;
+ 	pkvm_init_features_from_host(hyp_vm, host_kvm);
  }
+ 
+@@ -419,6 +420,9 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+ 	hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+ 	hyp_vcpu->vcpu.arch.mp_state.mp_state = KVM_MP_STATE_STOPPED;
+ 
++	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		kvm_init_pvm_id_regs(&hyp_vcpu->vcpu);
++
+ 	ret = pkvm_vcpu_init_traps(hyp_vcpu);
+ 	if (ret)
+ 		goto done;
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 59fb2f056177..453a130b7a5d 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -204,8 +204,7 @@ static u64 get_pvm_id_aa64mmfr2(const struct kvm_vcpu *vcpu)
+ 	return id_aa64mmfr2_el1_sys_val & PVM_ID_AA64MMFR2_ALLOW;
+ }
+ 
+-/* Read a sanitized cpufeature ID register by its encoding */
+-u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
++static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+ {
+ 	switch (id) {
+ 	case SYS_ID_AA64PFR0_EL1:
+@@ -240,10 +239,25 @@ u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
+ 	}
+ }
+ 
++/* Read a sanitized cpufeature ID register by its encoding */
++u64 pvm_read_id_reg(const struct kvm_vcpu *vcpu, u32 id)
++{
++	return pvm_calc_id_reg(vcpu, id);
++}
++
+ static u64 read_id_reg(const struct kvm_vcpu *vcpu,
+ 		       struct sys_reg_desc const *r)
+ {
+-	return pvm_read_id_reg(vcpu, reg_to_encoding(r));
++	struct kvm *kvm = vcpu->kvm;
++	u32 reg = reg_to_encoding(r);
++
++	if (WARN_ON_ONCE(!test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags)))
++		return 0;
++
++	if (reg >= sys_reg(3, 0, 0, 1, 0) && reg <= sys_reg(3, 0, 0, 7, 7))
++		return kvm->arch.id_regs[IDREG_IDX(reg)];
++
++	return 0;
+ }
+ 
+ /* Handler to RAZ/WI sysregs */
+@@ -448,6 +462,30 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+ 	/* Performance Monitoring Registers are restricted. */
+ };
+ 
++/*
++ * Initializes feature registers for protected vms.
++ */
++void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_arch *ka = &kvm->arch;
++	u32 r;
++
++	hyp_assert_lock_held(&vm_table_lock);
++
++	if (test_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags))
++		return;
++
++	/*
++	 * Initialize only AArch64 id registers since AArch32 isn't supported
++	 * for protected VMs.
++	 */
++	for (r = sys_reg(3, 0, 0, 4, 0); r <= sys_reg(3, 0, 0, 7, 7); r += sys_reg(0, 0, 0, 0, 1))
++		ka->id_regs[IDREG_IDX(r)] = pvm_calc_id_reg(vcpu, r);
++
++	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
++}
++
+ /*
+  * Checks that the sysreg table is unique and in-order.
+  *
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
