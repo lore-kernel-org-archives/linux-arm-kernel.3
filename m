@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F8FE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 20:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21389E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 20:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/vR3jb2+JWQ/JgXRLTRGechUkf1+2/IOW/JKHMXJKLU=; b=weDsr2WmshYT8zDVb4ccvoQWGv
-	DsbLf1KRs2cKAVjA562KI9T8xUAmh99w1qLl6SUKuZEjl1LBhPBKbVrlZHChidn24VRushdBgdp2/
-	/7w57bIPAEJ08iQuvHmumx31jp1Jm0uGkrm20xjlrlUbn91JpR1zGkNP6V0nGnbvJOY83RSCxMkhH
-	us20nY2S3JP+JnG7pq8Px2NUck9QmSe2ScmnF+l0vUxQg57vqPF0BZ895AVI6neqzm9D5XvMNwEnL
-	nia4JNh3ZqtYHuiQ0HWOc6M6ZlpapRuWIVgzyahuj76WoW/ViMoSwHJMiq0T9cU/AHuLPAlx/fbxV
-	AVtECzoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f5oXif9BpDrBWmz7s8nZtlUyESt5pnsWuJi2m792Ugw=; b=isVRyoL6L4r1jUgeQMg3WeD1E6
+	vayhplyPEECWpxzam2i1dYMU0C52lOiS+8jmrAomDun89hyyMwRVwlQNfOPCjQydNLYh1BciIRJNd
+	O9YZIt3raPoYkTQY3nfqBqMfsbWuwp3Ngptc1cA/wNYguW9zs5wp5e8ElteZf5T+MeQbPrOIsgOMM
+	6fhFhaGRQMMbUU9B3D3IS6KOG1ModXYoU67cM14KhBMId+lKm0XNXC78eiiy34k8kDaT1EU7RvC3e
+	C5Sg6wHhYgYDCG19avb+FeUlmhD4pEUFWzFT9Z6eQc2qC8WnMlnl/4lvT03iEmQot2SZd1bY8sulU
+	HnHjuB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNHGb-0000000BBo2-3fhi;
-	Mon, 16 Dec 2024 20:00:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNHj3-0000000BFxa-0Bfr;
+	Mon, 16 Dec 2024 20:29:57 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNHFW-0000000BBb8-0f7J
+	id 1tNHhx-0000000BFog-10cm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 19:59:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7E9EDA41A6C;
-	Mon, 16 Dec 2024 19:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 610BAC4CED0;
-	Mon, 16 Dec 2024 19:59:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734379165;
-	bh=9pg4FXAuFe/CPveJLo1jazZb+qVovMGyDclZS6yjorc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r4HqgMKaDL2s1piTwpNzo//zvQB0yLx8SqNF5Knx/Qzmnzk1oSxA4oejBzeO8aspj
-	 z+Z8EE61K2BFCQWoPh2pKtn5ex2TCasTLFSU1GCTekiuIIi3CVpycVliAZKgDTq0gg
-	 p95h/C8CoxyIvuMlbCKzjWz8vlADfBz/DQf/TC6SNuFcy5iELXRYghwMgooSaV2r8W
-	 oEodblxCK9ZeQ1w7muO6AJzbxYVMvukbJmhP0VV8LWfaP15EF2rKzzTyRGWCZiCg+4
-	 +jqKMG+cjQ1fk3e8JTrIYdi16VvzZ98OGuzrs1yKxF+XO8qS/blGwUWRxwAXHgy2Bc
-	 /R1OD10pcmJQg==
-Date: Mon, 16 Dec 2024 19:59:20 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: Frieder Schrempf <frieder@fris.de>,
-	linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@denx.de>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Robin Gong <yibin.gong@nxp.com>, Joy Zou <joy.zou@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 01/11] Revert "regulator: pca9450: Add sd-vsel GPIO"
-Message-ID: <20241216-unchain-respect-1c344203a140@spud>
-References: <20241127164337.613915-1-frieder@fris.de>
- <20241127164337.613915-2-frieder@fris.de>
- <20241128-candle-guzzler-b7ea4e5ce643@spud>
- <b5456480-a68f-4e71-831b-f145453e2646@kontron.de>
+	Mon, 16 Dec 2024 20:28:50 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGCk20D032589;
+	Mon, 16 Dec 2024 20:28:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	f5oXif9BpDrBWmz7s8nZtlUyESt5pnsWuJi2m792Ugw=; b=Rd4H69LOL0X0PWz3
+	bt34JGV2AYmPy7cAL1d2OUU8CfRtMJCVFoBJCjM2B5cX2TXWnQ3nKIzKK6bPXlXA
+	AvnOvshT9Moi7fY+rMJkoIeRpAT97vcq1ynJebZerRe9Bm51K7J64MBkGiaZPWiK
+	OsR5e6O9nnyfk/xsjHivFk6WuYof41h4INgcF3Qs5cAOSVz3VLQhKLVzdzmo6oVk
+	meZCnm+/JjtcYdhHjOwlWyRBStn6B/YwhpjpKJqFfWDWMhntsOe/w/wk0DRRj6NC
+	qHlhPQABotIXAAUf47FecmLqmHZdJcPgTvIFNEQRWffYPECBYQZgOAfL457pOleb
+	A+99JA==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43jmgah60u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Dec 2024 20:28:37 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BGKSa9g000717
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Dec 2024 20:28:36 GMT
+Received: from [10.216.59.147] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Dec
+ 2024 12:28:33 -0800
+Message-ID: <a15a7594-8793-478b-a86e-81a06812e4ff@quicinc.com>
+Date: Tue, 17 Dec 2024 01:58:30 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="6Wi4ZHhW6IIDtlCK"
-Content-Disposition: inline
-In-Reply-To: <b5456480-a68f-4e71-831b-f145453e2646@kontron.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
+To: Rob Clark <robdclark@gmail.com>, <iommu@lists.linux.dev>
+CC: <linux-arm-msm@vger.kernel.org>, <freedreno@lists.freedesktop.org>,
+        Rob
+ Clark <robdclark@chromium.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy
+	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        "moderated list:ARM
+ SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+        open list
+	<linux-kernel@vger.kernel.org>
+References: <20241216171017.4881-1-robdclark@gmail.com>
+Content-Language: en-US
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+In-Reply-To: <20241216171017.4881-1-robdclark@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: kIrFKqYl1sD_I1pStUItg7ckvFPQClSP
+X-Proofpoint-GUID: kIrFKqYl1sD_I1pStUItg7ckvFPQClSP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ lowpriorityscore=0 mlxlogscore=999 spamscore=0 impostorscore=0 bulkscore=0
+ phishscore=0 suspectscore=0 priorityscore=1501 clxscore=1011 adultscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412160168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_115926_331596_14FB67BC 
-X-CRM114-Status: GOOD (  36.98  )
+X-CRM114-CacheID: sfid-20241216_122849_406261_666676C3 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +105,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/16/2024 10:40 PM, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
+> 
+> On mmu-500, stall-on-fault seems to stall all context banks, causing the
+> GMU to misbehave.  So limit this feature to smmu-v2 for now.
+> 
+> This fixes an issue with an older mesa bug taking outo the system
+> because of GMU going off into the year.
+> 
+> Signed-off-by: Rob Clark <robdclark@chromium.org>
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index c4c52f7bd09a..1c881e88fc4d 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -331,8 +331,10 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+>  	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
+>  	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
+>  	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
+> -	priv->set_stall = qcom_adreno_smmu_set_stall;
+> -	priv->resume_translation = qcom_adreno_smmu_resume_translation;
+> +	if (of_device_is_compatible(np, "qcom,smmu-v2")) {
+> +		priv->set_stall = qcom_adreno_smmu_set_stall;
+> +		priv->resume_translation = qcom_adreno_smmu_resume_translation;
+> +	}
 
---6Wi4ZHhW6IIDtlCK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Shall we disable this from the driver instead? A debugfs knob to trigger
+coredump after a pagefault is very convenient.
 
-On Tue, Dec 10, 2024 at 04:59:06PM +0100, Frieder Schrempf wrote:
-> On 28.11.24 6:37 PM, Conor Dooley wrote:
-> > On Wed, Nov 27, 2024 at 05:42:17PM +0100, Frieder Schrempf wrote:
-> >> From: Frieder Schrempf <frieder.schrempf@kontron.de>
-> >>
-> >> This reverts commit 27866e3e8a7e93494f8374f48061aa73ee46ceb2.
-> >>
-> >> It turned out that this feature was implemented based on
-> >> the wrong assumption that the SD_VSEL signal needs to be
-> >> controlled as GPIO in any case.
-> >>
-> >> In fact the straight-forward approach is to mux the signal
-> >> as USDHC_VSELECT and let the USDHC controller do the job.
-> >>
-> >> Most users never even used this property and the few who
-> >> did have been or are getting migrated to the alternative
-> >> approach.
-> >>
-> >> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-> >> ---
-> >> Changes for v2:
-> >> * split revert into separate patch
-> >> ---
-> >>  .../devicetree/bindings/regulator/nxp,pca9450-regulator.yaml | 5 -----
-> >>  1 file changed, 5 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/regulator/nxp,pca9450-r=
-egulator.yaml b/Documentation/devicetree/bindings/regulator/nxp,pca9450-reg=
-ulator.yaml
-> >> index f8057bba747a5..79fc0baf5fa2f 100644
-> >> --- a/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulato=
-r.yaml
-> >> +++ b/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulato=
-r.yaml
-> >> @@ -77,11 +77,6 @@ properties:
-> >> =20
-> >>      additionalProperties: false
-> >> =20
-> >> -  sd-vsel-gpios:
-> >> -    description: GPIO that is used to switch LDO5 between being confi=
-gured by
-> >> -      LDO5CTRL_L or LDO5CTRL_H register. Use this if the SD_VSEL sign=
-al is
-> >> -      connected to a host GPIO.
-> >=20
-> > Your driver side of this, that I wasn't sent and cba downloading an
-> > mbox of is not backwards compatible. The code has been there for a few
-> > years, are you sure that there are no out of tree users or other OSes
-> > that use the property?
->=20
-> Yes, this is not backwards compatible. I introduced the original meaning
-> for the sd-vsel-gpios property based on some misunderstanding of how the
-> hardware actually works. Therefore I'm quite sure that except for the
-> cases where someone copied my erroneous implementation into their
-> devicetree, nobody has really any reason to actually use this.
->=20
-> In-tree all users have been removed (one fix still included in this
-> series). Of course we can't be fully sure that there isn't someone out
-> there having non-standard hardware (SD_VSEL not connected to
-> USDHC_VSELECT but to GPIO only) and using the old sd-vsel-gpios, but the
-> probability is very, very low.
->=20
-> IMHO taking the small risk here is better than keeping the misleading
-> implementation which will likely cause confusion and failures in the
-> future. But of course that's not up to me to decide.
+-Akhil
 
-Given that the !property case retains the behaviour from before, only
-those with the property are affected - which means if it does end up
-being problematic then it can be rectified at that point in time.
+>  	priv->set_prr_bit = NULL;
+>  	priv->set_prr_addr = NULL;
+>  
 
-> > tbh, I think all 3 of your dt-binding patches should be squashed rather
-> > than drip-feeding the conversion. It makes more sense as a single
-> > change, rather than splitting the rationales across 3 patches.
->=20
-> Ok, if you like this better in one change I can squash these for the
-> next version.
-
-Sounds good, sorry again for the delay getting back to you.
-
---6Wi4ZHhW6IIDtlCK
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2CGmAAKCRB4tDGHoIJi
-0pO5AQDDH9YtmHz8YalRyuddqOb/sFuBFnCARsqnUFpN8oFinQD/Q3AD0LQOpMpo
-yJ9zX1H8uFekOTFcji5o0ncP7pwLtQc=
-=VUPv
------END PGP SIGNATURE-----
-
---6Wi4ZHhW6IIDtlCK--
 
