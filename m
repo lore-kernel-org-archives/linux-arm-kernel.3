@@ -4,53 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0EEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48AC5E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sJUZoH2Is6A83U0xUnTN9+KX4qnwKNexfwK7cWcIG6I=; b=3KfqQtTgBIuVpKAQyBToYW8Stg
-	Dz2v8w1HNgMzVXtBFB1R1DWdPQ2SnHNLPxpSUIaurxdalan46DIGatYgGVDNoj9xaOboAqAkFmtZD
-	uKj9fBprrhTKjptMlBBK/qrviuLwmEXjpg4lordx0sOz42H3QvDxR2PY5IdtR7LPiG7riAjfVY0Iu
-	UR8O820UjCNGK2nUx4RoApRPm4xvkLKExLyDcuue341s2T44bCzRQ7eJsI3cvyydWs6Vv/7mmbrNE
-	SBtYkRaUMpor+3ek/334EtDZI/zrkbIyQYDJb2GjDs04G7B0xuLC2v5l1SH1SqEOEFX3QWdBmh0mJ
-	XBDwAxng==;
+	bh=HLzU3OoGAZg1lvIIB2cj0SjgTHG2tkXZPV4oMUjorKM=; b=iZUsRarWllV4b6VjSdtvlKxs7o
+	6bk2B6iD+CgX+CS2uz++Mk/5fsqVGQHL1Rl+ZLU7Jxpwvnt+qWN2A25ncbiJ3q1lAxc+G3d+K0apH
+	OHh5Fd0VWnHocdcnEb70yjAu6MRq12JxHHyEogiCejEti4NNmHrRyVQPdOFmQd8p9LvJ0aQ0tt8u/
+	bLr+Od1bQCfr3hmW58klw2Ww7JIf0zgqMVA6B+j1FaFduYo3xKMyGypNoNhiBE7/NCPi84dA8t6/D
+	+nPaCSAfYXWf/Gcc2cUOJNTxx0UzoAMfv4ZfFmB8TCMcgIVTy+MJ6COssC71QJ873/EBB7iVMFBbN
+	8c9IiCaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN812-00000009dlz-0amJ;
-	Mon, 16 Dec 2024 10:07:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7w4-00000009cgq-3G1l
+	id 1tN826-00000009dzq-1fCw;
+	Mon, 16 Dec 2024 10:08:58 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN7yH-00000009d9E-2AYG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 10:02:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 709BB113E;
-	Mon, 16 Dec 2024 02:03:10 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CECB43F58B;
-	Mon, 16 Dec 2024 02:02:40 -0800 (PST)
-Date: Mon, 16 Dec 2024 10:02:34 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [GIT PULL] arm64 fixes for 6.13-rc3
-Message-ID: <Z1_6ukG_Lc5leG1o@J2N7QTR9R3>
-References: <Z1xx0ha7lbKkdhRC@arm.com>
- <Z18MixiGByAqDYLC@lappy>
+	Mon, 16 Dec 2024 10:05:02 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2ffa49f623cso49007961fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 02:05:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734343499; x=1734948299; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HLzU3OoGAZg1lvIIB2cj0SjgTHG2tkXZPV4oMUjorKM=;
+        b=jXcy8H4j5shxWUZzhgEvSr2nhVuRTCZ+Tw32xVEgZr2eYL26fHo+0eoW+isemAJjlk
+         oehjlVkteZMDAyVlt3+OYvgss/cYOV3UWqU8fpL+1kdb/iXxTXOb8rbkmBa147s0wkgn
+         XLoYYVH3OXEvlMi44C2TJh6CvM4k6vRlCWR3dshY6AxZSNFh1pB5GOu3+SCRCL7ujdkI
+         I4gAgPZzMMkZUenGwXQKKh7uf9CYhxC8kLIl1pFALCuPnv/P3nep5+TOEVIBku64G0PO
+         3xZ+hBQz8zm9OZ3YRJEEhgBNLXczzKunq6TmoUX/pu1D4gbgnEEoZuqis2MqhOvgTsx/
+         iI6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734343499; x=1734948299;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HLzU3OoGAZg1lvIIB2cj0SjgTHG2tkXZPV4oMUjorKM=;
+        b=Y0cWTDLZ1cw0PBo8Jlv3J29BuRhg/wsKx30ONFv4EAhDBgEmeJ7w3BCmXUvtEVWDQr
+         tmxoMP0vZqQNkgwVGC+cWKXHmBBW7VhSuPamITV55F9bkT1xrgRIs922BmTnwsqSYm8i
+         /ynNXp724eU4k1a0etO/d4ku3uz9mt/ihrwmfIirnXaMFYIyUfovWg/DFzDEM2RF4w7l
+         rK7L1Enyxz0UoiJiobymvsgs+crOO3TBszKcGEP1CW8skcHffsjnmd1JsgTev8NzUUdz
+         zNFBzR5oIrFriZVsSl5lV1YxWLdrOkEFvMRpfBH0eSg5u4rzrOd8cCa0oUwP66VPw/cc
+         N+HA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0Zv1xP1s0GKDQVKIddVIqPYXr+lLSu53uG/1Nn0nvG05HLU70IycBoG7pF8qYPft+8KmdRop8fLxaeyS6YzQ0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlnSTXF/aIY5cg+R5W5BJTLzQJxtDv3PUhllPDfKkMfvyuZCum
+	3JumTeZoOGdOKMWV/25fR39cLSCCjMbbyezLw6DQPgVX4SgLLMkBZ9/gt8/5O4o=
+X-Gm-Gg: ASbGncsBkdp3z+7C5tEYHImggKQUGKOXHHv5qFqdbMIO8sr2tVGFgq9nVY5zinolZ7M
+	s79w0ykn4g/y9X3FMQ2+k77Sekze/wx+jwoPVPYUx6DRqtw5dcRNMSLSg51AAhjL4t9dQ6/5InE
+	ZAKcEVDYbnkqUAV/pn8Fuksk8812eiEKsoMtTir8EEmvgvUbrdsNDyI1+/YgyugH8HQSX5dJoQh
+	9YJ7lBxpV5oEGiePbI+pg47GDs93nO2tx3Bz2UPGKKW4g7DFDuQ8tu04iQphP4pWefWfSz6irbz
+	tqhmaNLrEq2uC30ujK0DCmOCvzQWGhQCCXMN
+X-Google-Smtp-Source: AGHT+IEANV1rjeOcZD+mfElWFOCdmwQitk5ard7G/sdmw/kgz+ZvJnKtp9SusUqTBt+TDbtuy27Lww==
+X-Received: by 2002:a2e:a99e:0:b0:302:16da:a052 with SMTP id 38308e7fff4ca-302544ae804mr44008281fa.27.1734343499432;
+        Mon, 16 Dec 2024 02:04:59 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30344045239sm8283241fa.36.2024.12.16.02.04.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 02:04:58 -0800 (PST)
+Date: Mon, 16 Dec 2024 12:04:56 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
+Cc: Damon Ding <damon.ding@rock-chips.com>, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
+	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
+	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v2 03/11] drm/rockchip: analogix_dp: Add support for
+ RK3588
+Message-ID: <25bh2uy6wg3kcoqmnzt5dwfamc32bjyjlivkqq4cvne6kryj3z@svlz45bbaoy7>
+References: <20241216031225.3746-1-damon.ding@rock-chips.com>
+ <20241216031225.3746-4-damon.ding@rock-chips.com>
+ <gwogudb5vae7wu452zwuqmdlyaibenoso4f5pjmu3uttckhy2w@shndol4mz5n4>
+ <4395748.ejJDZkT8p0@diego>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <Z18MixiGByAqDYLC@lappy>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4395748.ejJDZkT8p0@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_020244_904867_B2FF46F6 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20241216_020501_554512_0081506F 
+X-CRM114-Status: GOOD (  33.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,131 +107,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 15, 2024 at 12:06:19PM -0500, Sasha Levin wrote:
-> On Fri, Dec 13, 2024 at 05:41:38PM +0000, Catalin Marinas wrote:
-> > - arm64 stacktrace: address some fallout from the recent changes to
-> >  unwinding across exception boundaries
+On Mon, Dec 16, 2024 at 10:11:54AM +0100, Heiko Stübner wrote:
+> Am Montag, 16. Dezember 2024, 09:57:41 CET schrieb Dmitry Baryshkov:
+> > On Mon, Dec 16, 2024 at 11:12:17AM +0800, Damon Ding wrote:
+> > > RK3588 integrates the analogix eDP 1.3 TX controller IP and the HDMI/eDP
+> > > TX Combo PHY based on a Samsung IP block, and there are also two
+> > > independent eDP display interface on RK3588 Soc.
+> > > 
+> > > Add just the basic support for now, i.e. RGB output up to 4K@60Hz, without
+> > > the tests of audio, PSR and other eDP 1.3 specific features.
+> > > 
+> > > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> > > 
+> > > ---
+> > > 
+> > > Changes in v2:
+> > > - Add support for the other eDP output edp1
+> > > ---
+> > >  .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 82 ++++++++++++++++---
+> > >  include/drm/bridge/analogix_dp.h              |  3 +-
+> > >  2 files changed, 74 insertions(+), 11 deletions(-)
+> > > 
+> > > diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> > > index 871606a31ef1..4c9a55776ada 100644
+> > > --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> > > +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> > > @@ -51,10 +51,12 @@ struct rockchip_grf_reg_field {
+> > >  /**
+> > >   * struct rockchip_dp_chip_data - splite the grf setting of kind of chips
+> > >   * @lcdc_sel: grf register field of lcdc_sel
+> > > + * @edp_mode: grf register field of edp_mode
+> > >   * @chip_type: specific chip type
+> > >   */
+> > >  struct rockchip_dp_chip_data {
+> > >  	const struct rockchip_grf_reg_field lcdc_sel;
+> > > +	const struct rockchip_grf_reg_field edp_mode;
+> > >  	u32	chip_type;
+> > >  };
+> > >  
+> > > @@ -134,12 +136,21 @@ static int rockchip_dp_poweron(struct analogix_dp_plat_data *plat_data)
+> > >  		return ret;
+> > >  	}
+> > >  
+> > > +	ret = rockchip_grf_field_write(dp->grf, &dp->data->edp_mode, 1);
+> > > +	if (ret != 0)
+> > > +		DRM_DEV_ERROR(dp->dev, "failed to set edp mode %d\n", ret);
+> > 
+> > Is it to be called for non-eDP hosts too? Or for older hosts?
 > 
-> Hi Catalin, Mark,
+> The implementation of rockchip_grf_field_write (in patch1) seems to
+> take care of checking if that field actually exists and doing nothing if
+> not.
 > 
-> It seems that kselftests can hit a warning that was addressed in the
-> commit above:
-
-I assume you're referring to commit:
-
-  32ed1205682ec42a ("arm64: stacktrace: Skip reporting LR at exception boundaries")
-
-... ?
-
-That was intended to fix this specific issue, as explained in the commit
-message (with a very similar splat from running the ftrace kselftests).
-
-Am I missing something? i.e. are you saying it *doesn't* fix that?
-
-Mark.
-
-> <12>[   74.172204] kselftest: Running tests in ftrace
-> TAP version 13
-> 1..1
-> # timeout set to 0
-> # selftests: ftrace: ftracetest-ktap
-> # unlink: cannot unlink '/opt/kselftests/default-in-kernel/ftrace/logs/latest': No such file or directory
-> # TAP version 13
-> # 1..145
-> # ok 1 Basic trace file check
-> <4>[  108.427656] hrtimer: interrupt took 13044036 ns
-> <4>[  161.249175] sched: DL replenish lagged too much
-> <4>[  163.845977] ------------[ cut here ]------------
-> <4>[  163.851787] WARNING: CPU: 1 PID: 31 at arch/arm64/kernel/stacktrace.c:141 arch_stack_walk+0x4a0/0x4b0
-> <4>[  163.861012] Modules linked in: crct10dif_ce sm3_ce sm3 sha3_ce sha512_ce sha512_arm64 fuse drm backlight ip_tables x_tables
-> <4>[  163.890268] CPU: 1 UID: 0 PID: 31 Comm: kworker/1:1 Not tainted 6.13.0-rc2 #1
-> <4>[  163.897386] Hardware name: linux,dummy-virt (DT)
-> <4>[  163.904217] Workqueue:  0x0 (mm_percpu_wq)
-> <4>[  163.915526] pstate: 624020c9 (nZCv daIF +PAN -UAO +TCO -DIT -SSBS BTYPE=--)
-> <4>[  163.924218] pc : arch_stack_walk+0x4a0/0x4b0
-> <4>[  163.930593] lr : arch_stack_walk+0x2bc/0x4b0
-> <4>[  163.937101] sp : ffff80008000b920
-> <4>[  163.942456] x29: ffff80008000b9d0 x28: fff00000ff6d9400 x27: fff00000ff6d9928
-> <4>[  163.954275] x26: 0000000000000001 x25: 00000000000000c0 x24: ffffae003d389d40
-> <4>[  163.967208] x23: 09cfae003ae216b4 x22: ffffae003ae2e4b0 x21: ffffae003ae35c70
-> <4>[  163.978823] x20: ffff80008000ba10 x19: ffffae003ae216f0 x18: 0000000000000014
-> <4>[  163.989751] x17: 0000000000000000 x16: ffff800080008000 x15: 00000000b5b23a12
-> <4>[  164.000780] x14: 000000005865dcaf x13: 00000000b77eca6d x12: 0000959eae5a34e8
-> <4>[  164.011592] x11: ffffae003d44a670 x10: ffff80008000b920 x9 : ffffae003ae2e4b0
-> <4>[  164.022498] x8 : ffff800080043e00 x7 : fff00000c682c000 x6 : 00000000ffffffff
-> <4>[  164.033396] x5 : fff00000c682c000 x4 : 0000000000000000 x3 : ffff80008000bda0
-> <4>[  164.045100] x2 : ffffae003ae2e4b0 x1 : ffffae003ae2e4b0 x0 : ffffae003ae2e4b0
-> <4>[  164.057084] Call trace:
-> <4>[  164.061489]  arch_stack_walk+0x4a0/0x4b0 (P)
-> <4>[  164.067225]  arch_stack_walk+0x2bc/0x4b0 (L)
-> <4>[  164.073009]  profile_pc+0x44/0x80
-> <4>[  164.078489]  profile_tick+0x50/0x80 (F)
-> <4>[  164.085151]  tick_nohz_handler+0xcc/0x160 (F)
-> <4>[  164.091427]  __hrtimer_run_queues+0x2c4/0x358 (F)
-> <4>[  164.098138]  hrtimer_interrupt+0xf4/0x268 (F)
-> <4>[  164.105401]  arch_timer_handler_phys+0x34/0x58 (F)
-> <4>[  164.114958]  handle_percpu_devid_irq+0x8c/0x218 (F)
-> <4>[  164.120914]  generic_handle_domain_irq+0x34/0x58 (F)
-> <4>[  164.127570]  gic_handle_irq+0x54/0x128 (F)
-> <4>[  164.135008]  do_interrupt_handler+0x58/0x98 (F)
-> <4>[  164.140769]  el1_interrupt+0x34/0x68 (F)
-> <4>[  164.146665]  el1h_64_irq_handler+0x18/0x28
-> <4>[  164.151813]  el1h_64_irq+0x6c/0x70
-> <4>[  164.160007]  _raw_spin_unlock_irq+0x28/0x58 (PF)
-> <4>[  164.176292] ------------[ cut here ]------------
-> <4>[  164.187816] WARNING: CPU: 1 PID: 31 at arch/arm64/kernel/stacktrace.c:141 dump_backtrace+0x620/0x660
-> <4>[  164.209007] Modules linked in: crct10dif_ce sm3_ce sm3 sha3_ce sha512_ce sha512_arm64 fuse drm backlight ip_tables x_tables
-> <4>[  164.252638] CPU: 1 UID: 0 PID: 31 Comm: kworker/1:1 Not tainted 6.13.0-rc2 #1
-> <4>[  164.260491] Hardware name: linux,dummy-virt (DT)
-> <4>[  164.266531] Workqueue:  0x0 (mm_percpu_wq)
-> <4>[  164.275972] pstate: 624023c9 (nZCv DAIF +PAN -UAO +TCO -DIT -SSBS BTYPE=--)
-> <4>[  164.282685] pc : dump_backtrace+0x620/0x660
-> <4>[  164.288093] lr : dump_backtrace+0x410/0x660
-> <4>[  164.293392] sp : ffff80008000b510
-> <4>[  164.297983] x29: ffff80008000b5c0 x28: fff00000c08c91c0 x27: fff00000ff6d9928
-> <4>[  164.309075] x26: ffff80008000bda0 x25: ffffae003cd0c000 x24: ffffae003cedfaa0
-> <4>[  164.320534] x23: ffffae003cce90b8 x22: ffffae003ae35c70 x21: ffffae003ccd80a8
-> <4>[  164.331352] x20: ffffae003cd1fd38 x19: fff00000c08c91c0 x18: 0000000000000006
-> <4>[  164.343050] x17: 0000000000000000 x16: ffff800080008000 x15: ffff80008000af40
-> <4>[  164.354100] x14: ffff80010000b0fa x13: ffff80008000b102 x12: ffffae003d410098
-> <4>[  164.366177] x11: ffffae003d44a670 x10: ffff80008000b350 x9 : ffffae003ae2e4b0
-> <4>[  164.378146] x8 : ffff800080043e00 x7 : fff00000c682c000 x6 : 00000000ffffffff
-> <4>[  164.389041] x5 : fff00000c682c000 x4 : 0000000000000000 x3 : ffff80008000bda0
-> <4>[  164.400262] x2 : ffffae003ae2e4b0 x1 : ffffae003ae2e4b0 x0 : ffffae003ae2e4b0
-> <4>[  164.411526] Call trace:
-> <4>[  164.415800]  dump_backtrace+0x620/0x660 (P)
-> <4>[  164.421415]  dump_backtrace+0x410/0x660 (L)
-> <4>[  164.427393]  show_regs+0x34/0x50 (F)
-> <4>[  164.434342]  __warn+0x98/0x198 (F)
-> <4>[  164.439610]  report_bug+0x1dc/0x200 (F)
-> <4>[  164.444981]  bug_handler+0x2c/0x90
-> <4>[  164.450151]  call_break_hook+0x6c/0x88 (F)
-> <4>[  164.455802]  brk_handler+0x24/0x70 (F)
-> <4>[  164.460935]  do_debug_exception+0x74/0x118 (F)
-> <4>[  164.466742]  el1_dbg+0x70/0x90 (F)
-> <4>[  164.471595]  el1h_64_sync_handler+0xd4/0x120
-> <4>[  164.477225]  el1h_64_sync+0x6c/0x70
-> <4>[  164.482730]  arch_stack_walk+0x4a0/0x4b0 (P)
-> <4>[  164.488313]  arch_stack_walk+0x2bc/0x4b0 (L)
-> <4>[  164.494329]  profile_pc+0x44/0x80
-> <4>[  164.499430]  profile_tick+0x50/0x80 (F)
-> <4>[  164.504776]  tick_nohz_handler+0xcc/0x160 (F)
-> <4>[  164.511508]  __hrtimer_run_queues+0x2c4/0x358 (F)
-> <4>[  164.519213]  hrtimer_interrupt+0xf4/0x268 (F)
-> <4>[  164.525536]  arch_timer_handler_phys+0x34/0x58 (F)
-> <4>[  164.531384]  handle_percpu_devid_irq+0x8c/0x218 (F)
-> <4>[  164.537153]  generic_handle_domain_irq+0x34/0x58 (F)
-> <4>[  164.543448]  gic_handle_irq+0x54/0x128 (F)
-> <4>[  164.548744]  do_interrupt_handler+0x58/0x98 (F)
-> <4>[  164.555359]  el1_interrupt+0x34/0x68 (F)
-> <4>[  164.561123]  el1h_64_irq_handler+0x18/0x28
-> <4>[  164.567261]  el1h_64_irq+0x6c/0x70
-> <4>[  164.573197]  _raw_spin_unlock_irq+0x28/0x58 (PF)
-> <4>[  164.580018] ---[ end trace 0000000000000000 ]---
-> <4>[  164.585812] ---[ end trace 0000000000000000 ]---
+> I think eDP/DP is more a naming thing, the Analogix controller is called
+> an eDP controller in all documentation things.
 > 
-> -- 
-> Thanks,
-> Sasha
+> Even back on rk3288, the Analogix-DP, still is called an eDP controller in
+> documentation, with the only difference being that it does not contain
+> another additional "dedicated" DP controller
+
+At the very least this should be mentioned in the commit message.
+
+> > > +	i = 0;
+> > > +	while (is_rockchip(dp_data[i].chip_type))
+> > > +		i++;
+> > > +
+> > > +	if (id >= i) {
+> > > +		DRM_DEV_ERROR(dev, "invalid edp id: %d\n", id);
+> > > +		return -ENODEV;
+> > > +	}
+> > 
+> > Is it applicable to non-eDP case?
 > 
+> same as above, it's always called eDP in all pieces of documentation,
+> (Compliant with DP 1.2 and eDP 1.3)
+
+Ack
+
+> 
+> Heiko
+> 
+> > > +
+> > >  	dp->dev = dev;
+> > >  	dp->adp = ERR_PTR(-ENODEV);
+> > > -	dp->data = dp_data;
+> > > +	dp->data = &dp_data[id];
+> > >  	dp->plat_data.panel = panel;
+> > >  	dp->plat_data.dev_type = dp->data->chip_type;
+> > >  	dp->plat_data.power_on = rockchip_dp_poweron;
+> > > @@ -464,19 +507,38 @@ static int rockchip_dp_resume(struct device *dev)
+> > >  static DEFINE_RUNTIME_DEV_PM_OPS(rockchip_dp_pm_ops, rockchip_dp_suspend,
+> > >  		rockchip_dp_resume, NULL);
+> > >  
+> > > -static const struct rockchip_dp_chip_data rk3399_edp = {
+> > > -	.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
+> > > -	.chip_type = RK3399_EDP,
+> > > +static const struct rockchip_dp_chip_data rk3399_edp[] = {
+> > > +	{
+> > > +		.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
+> > > +		.chip_type = RK3399_EDP,
+> > > +	},
+> > > +	{ /* sentinel */ }
+> > > +};
+> > > +
+> > > +static const struct rockchip_dp_chip_data rk3288_dp[] = {
+> > > +	{
+> > > +		.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
+> > > +		.chip_type = RK3288_DP,
+> > > +	},
+> > > +	{ /* sentinel */ }
+> > >  };
+> > >  
+> > > -static const struct rockchip_dp_chip_data rk3288_dp = {
+> > > -	.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
+> > > -	.chip_type = RK3288_DP,
+> > > +static const struct rockchip_dp_chip_data rk3588_edp[] = {
+> > > +	{
+> > > +		.edp_mode = GRF_REG_FIELD(0x0000, 0, 0),
+> > > +		.chip_type = RK3588_EDP,
+> > > +	},
+> > > +	{
+> > > +		.edp_mode = GRF_REG_FIELD(0x0004, 0, 0),
+> > > +		.chip_type = RK3588_EDP,
+> > > +	},
+> > > +	{ /* sentinel */ }
+> > >  };
+> > >  
+> > >  static const struct of_device_id rockchip_dp_dt_ids[] = {
+> > >  	{.compatible = "rockchip,rk3288-dp", .data = &rk3288_dp },
+> > >  	{.compatible = "rockchip,rk3399-edp", .data = &rk3399_edp },
+> > > +	{.compatible = "rockchip,rk3588-edp", .data = &rk3588_edp },
+> > >  	{}
+> > >  };
+> > >  MODULE_DEVICE_TABLE(of, rockchip_dp_dt_ids);
+> > > diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
+> > > index 6002c5666031..54086cb2d97d 100644
+> > > --- a/include/drm/bridge/analogix_dp.h
+> > > +++ b/include/drm/bridge/analogix_dp.h
+> > > @@ -15,11 +15,12 @@ enum analogix_dp_devtype {
+> > >  	EXYNOS_DP,
+> > >  	RK3288_DP,
+> > >  	RK3399_EDP,
+> > > +	RK3588_EDP,
+> > >  };
+> > >  
+> > >  static inline bool is_rockchip(enum analogix_dp_devtype type)
+> > >  {
+> > > -	return type == RK3288_DP || type == RK3399_EDP;
+> > > +	return type == RK3288_DP || type == RK3399_EDP || type == RK3588_EDP;
+> > >  }
+> > >  
+> > >  struct analogix_dp_plat_data {
+> > 
+> > 
+> 
+> 
+> 
+> 
+
+-- 
+With best wishes
+Dmitry
 
