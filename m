@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEABFE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B27E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tH3QBbIq+Oz3UUmj0lw02AcvLXxTPOgWHp9+Xspxbik=; b=b0XMOxPx76MpGV5A3OBX0dHX8h
-	hDhBA/bvS+atUav04O76tk4MnocSjKVlfM3/QzqFG1GB21IQaUsIek8LKxm3yd0edojPj5Qjp1Uqc
-	mWrEXXuXSYmM4ycWYEooozC+z7ED0AA9jsGVv+JeaZy+h9KbNHWLooSRN8HlCo8YT5TqjZKsIvS8A
-	ugqXutyXk0Zh8lxAzl92YH8Xw1sAXaOmDNHWdCZMLgqDuphRgZyNZEX2/vAEstpRvOG9cmJ+VBiyh
-	io6hWmzuQN8VlWzeYfnX7GDuDAzabc5pqxPsyiN6ZmxGnRAThoM9e4ZzqWxS6xolzW9RSGa4tMtNI
-	AHGYDSZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JuUwiwam2NLEhcEaeDlZ9kN1aj2SGwFO1wzDqoeRp0Q=; b=TfRK7ra4nQP0fieA9RcgvTUb1s
+	koFzMv4yOhzGGeoYUeqVNPD2/CcFHneoPq693dHqRe5/tYIfH1EE/U9SXYcpu/COMEMQACbF+cgOY
+	53Og/DKvTPZwyY8ljzqyOkUFNMx9BI20njvsIrfYelre3s22EEg7cREBT1vws8VZHscaFYYNrKdfv
+	DR0KkAjAtyk+JaiszUZVwSpKJ0SiqKoe4jnrDLwGjFKKlwOXbdQaeV/6ylME6llsPK99rFtO199Ok
+	bmDir1WfvibzpdmhxD3BYCkjmxHFTE/NsbwsauVIA4vbueFQI8f4MX7HyE/8DTBNEatWx1CzDcy/i
+	M4oYeQng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7Zg-00000009YyO-040E;
-	Mon, 16 Dec 2024 09:39:36 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1tN7fT-00000009Zl0-2Jgj;
+	Mon, 16 Dec 2024 09:45:35 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7Ya-00000009Ynb-1Y4z
+	id 1tN7eM-00000009ZYD-24sh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 09:38:29 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-728ea1e0bdbso2825269b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 01:38:27 -0800 (PST)
+	Mon, 16 Dec 2024 09:44:28 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e3990bbe22cso2724910276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 01:44:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734341907; x=1734946707; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tH3QBbIq+Oz3UUmj0lw02AcvLXxTPOgWHp9+Xspxbik=;
-        b=yFRlMwk1J31Lcw+0/he4XRfYEU/mazB08adTug98bs2x6RTyi+8LoZX70YH7DXbtiy
-         UsFy7BdH4ZyvjU87ZB6bah7Bi4Lj84LrSrpCNwW5pgi2KDfQKV+fiXbxBnn1bQmZoXO2
-         zxqBP1nbldtk7l4w/sYSuy9APCy3Wb3eJU/uPZGKUi3gfOG54X2M4uBTxWSCwO5ZDzp+
-         FqsPUdbDf3L8VCAJq9ZFhzINLMEHBmjPPgdcfM8dIdMWac3sNizVqavULxEBvJ8+Oe0y
-         iBDRZD5HuMKnEOFdtPQ1ahLUK4wcAwZUtN72iDtCyLpe6lh0/Cp4zAbyrfjNr7JnMgfD
-         3pEg==
+        d=linaro.org; s=google; t=1734342265; x=1734947065; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JuUwiwam2NLEhcEaeDlZ9kN1aj2SGwFO1wzDqoeRp0Q=;
+        b=as23InBBhAZieTUxIwrKJde7uh05hCcQbl+g0eW892+NLUzLUB/N4Xhzoyqbr3vNdG
+         5Z+MtpTC8/JRk0WJxE05IaOIyNLB3/gIPxxo1DiUN5wLLf+f9dxrmi0TYxaJxsh1CEYo
+         B+gBKrgoqE26aPdAUCNTE5MrvvKjy24v8wjKAVlxPT4CuPz68I9pV1nwrcWXGMAxIiR/
+         BCo5HecVblx82PmBo8m4y8aCmd0uSv1NO9QPazZ5lq1le4K0khWk3xAeex/gYD8iiZTn
+         sNYdKo0on+kIZSZUFGkmQvMUhpUMYezcWoEGYz9F+6ZomoYqIyDEtk0/ZkbNS7Pa52yT
+         9ALQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734341907; x=1734946707;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tH3QBbIq+Oz3UUmj0lw02AcvLXxTPOgWHp9+Xspxbik=;
-        b=HtoKoPXY2/gq7sxyONg/nhbuk1NLtbFo32izwdXtVeWuBFIWELkCGAZekwlDJxfR7K
-         6lYpFahAMMS0ogunjA0yxcKJDrnnrUZ4gxqOaHxJXmphH56eeAD2QKscy0vK5ND+fGhh
-         tJx6D9q9HsLh70igjChHX00USzfHKsv638UvAgEG3IDdaV6qMmWXsOWnN5zfUhiFyx3W
-         4G8+hH0hdBHf7beQDscnbl5S8sJd2cyLxfOz7M+uocAac9aJd7p3jp/D4wJZupIOtdsz
-         T/Eqr4SWhb2Mdxe5vV3UM1FRxxuyxhCpYIb1igqB11oKBq4d/xa80XFL7us5//NZJawK
-         sy6g==
-X-Forwarded-Encrypted: i=1; AJvYcCUOD/AjFmmXkQRxk84wl1nRG0sVCr0ksoy2NaI3g6hmWK+n6UCbjo1JZ2Z2QHF/opvgdMT5dONbBvuyAa+0GSq0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHtPcJYnYh1i+hAff4n8dJquPm5T+IiJ1f+TntmYcrqrTiopZf
-	G2ulian/B1g3GU/+j314O+XsyfJjGw/OGnkI5H8+NMFVwR/aG+F0OZLP5aWwGBFHR3FHC3uKGgf
-	zbKTcXQ42Xet0OV6Dhg9mxwLOul5iDTwPi8QCOr16K64SzzzdlWO4
-X-Gm-Gg: ASbGnct+Exsp4oHvf8dyW6bhSSMnhTqhYtP9CskbMw+nHdBdMWnXK6WqiG19VVUY97M
-	3jIKU1TAh180K8BEUDqnq3U6aJBHbB7nQRuMEIcfFEIiw6NcaK2S+x+2Ho5EiKkdidYwo
-X-Google-Smtp-Source: AGHT+IGTB5sJUwQljcH3S5XL+OOeiabxzJ/8JQxqL7sZAHgT5dvELbfZeFL8O7lW9m6UCh29vDeERfH397eAur7NOuQ=
-X-Received: by 2002:a17:90b:3c02:b0:2ee:5958:86d with SMTP id
- 98e67ed59e1d1-2f28fb6764amr17469580a91.9.1734341906491; Mon, 16 Dec 2024
- 01:38:26 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734342265; x=1734947065;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JuUwiwam2NLEhcEaeDlZ9kN1aj2SGwFO1wzDqoeRp0Q=;
+        b=mcs/XWAC+M+F8qGQQdGPeicE32mxoWpXT1+6G5WMKJj9pOVDm+r0WSjoaj1yXlZyg3
+         byK0x0CRoXUfYsz9VYIk3yw4r0RwiEIaqtScZDwBQFp05m1zhJyvMq098pzIi19KrTXb
+         0PAjkRYbwhVUSr8BUqZwn4HsiXzwUtU6PURbhtvV73DjuNQba149Liz6lBHQCNw5xBgK
+         aILjyhnXDE6xK036wp0A2nP5YUSBhbfKdCwx0U1bXDgxpRKGWg3TdknDpKgYcZmTN5in
+         YhLe4USo01lYJo9fGuVdgTSXWYpgAQ5wg1TBim09Eb361Ot43IRn04tj/AQEzBNVBRvu
+         FIuw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIhm+TWrOjU4gNQiKryA7zLQPTu3VDgjZRcO0LcguUTAJK8SxLxCKExlQSefYGLYqwMgBU+jT89/tQLtfdf82t@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAtmaLCgOZM/Bj5gDrwaQPAef5q/6sNF+CZl6fwgFWGXaoxSCl
+	uBFqLMgX12Tzl0tRY3CjIaEPT9uSL0Amwd2bsBvbW2jE8gjmnKFsKfK5o5SjNyW9rA1bnI9Wkce
+	+3NkVjzEbBLaafQzzP88zSA2dzpmcG6Eh8/51Jw==
+X-Gm-Gg: ASbGncs2ae/BCs4kc1Ff8F8Fydcr2vCmm4Sj0xmxm9wno84MekpWj8/jJccZ/mvxe09
+	3OnixGwEn9sGGkcByUWW56fg1LU/rekzfnhyQ9DG1r6xGmgvuO82a
+X-Google-Smtp-Source: AGHT+IEaxgr5zAENdkbhHhWLUWeddBiATkm12WTcfnkIBrtIL6G9ABG6kqvlOs/mlL45ibQg3MGgK6n9x3gh6NKZnko=
+X-Received: by 2002:a05:6902:1587:b0:e4d:d319:ba6 with SMTP id
+ 3f1490d57ef6-e4dd3190cc0mr2042157276.39.1734342265011; Mon, 16 Dec 2024
+ 01:44:25 -0800 (PST)
 MIME-Version: 1.0
-References: <675aa352.050a0220.1ac542.0018.GAE@google.com> <867c80ro2w.wl-maz@kernel.org>
-In-Reply-To: <867c80ro2w.wl-maz@kernel.org>
-From: Aleksandr Nogikh <nogikh@google.com>
-Date: Mon, 16 Dec 2024 11:38:15 +0200
-Message-ID: <CANp29Y6Eu47CvtuKfS7qKqXVcVf7mvVoP7XQstryb_ooakCpcA@mail.gmail.com>
-Subject: Re: [syzbot] [kvmarm?] BUG: unable to handle kernel paging request in __hwasan_check_x0_ADDR
-To: Marc Zyngier <maz@kernel.org>
-Cc: syzbot <syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com>, 
-	catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	oliver.upton@linux.dev, suzuki.poulose@arm.com, 
-	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+References: <20241209033923.3009629-1-victor.liu@nxp.com> <20241209033923.3009629-13-victor.liu@nxp.com>
+ <3j4fguv4oienfaj4fghpiqpmnq3aczu4azhdo5jzvywc5mawm5@hh33p3dhf6xa>
+ <db4d9d4e-855f-4647-9b93-ccc5ec0202b3@nxp.com> <q6pdop6ucowtoxxr66czq7yooujyvp6qs5vcg6gpmi3q4rs4l3@szyqt5pxteoz>
+ <b02fb998-9420-4954-8e48-82447493bbb7@nxp.com> <CAA8EJppBpeMA3aSzk025tvzfTW-bFxeZS4kj0Ujk_AuCyoxnEg@mail.gmail.com>
+ <95a5c779-941a-4942-8988-65fbe1c4cf82@nxp.com>
+In-Reply-To: <95a5c779-941a-4942-8988-65fbe1c4cf82@nxp.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Mon, 16 Dec 2024 11:44:13 +0200
+Message-ID: <CAA8EJpoUa9y9nfrrDf47aLs5zr4XKSghySXNLnCGwDyYdOvMog@mail.gmail.com>
+Subject: Re: [PATCH v6 12/19] drm/imx: Add i.MX8qxp Display Controller KMS
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	tglx@linutronix.de, vkoul@kernel.org, kishon@kernel.org, aisheng.dong@nxp.com, 
+	agx@sigxcpu.org, francesco@dolcini.it, frank.li@nxp.com, 
+	u.kleine-koenig@baylibre.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_013828_428757_8A26B9CD 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20241216_014426_531465_04F6EA46 
+X-CRM114-Status: GOOD (  31.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,141 +102,411 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Mon, 16 Dec 2024 at 08:28, Liu Ying <victor.liu@nxp.com> wrote:
+>
+> On 12/13/2024, Dmitry Baryshkov wrote:
+> > On Fri, 13 Dec 2024 at 08:06, Liu Ying <victor.liu@nxp.com> wrote:
+> >>
+> >> On 12/12/2024, Dmitry Baryshkov wrote:
+> >>> On Wed, Dec 11, 2024 at 03:43:20PM +0800, Liu Ying wrote:
+> >>>> On 12/10/2024, Dmitry Baryshkov wrote:
+> >>>>> On Mon, Dec 09, 2024 at 11:39:16AM +0800, Liu Ying wrote:
+> >>>>>> i.MX8qxp Display Controller(DC) is comprised of three main components that
+> >>>>>> include a blit engine for 2D graphics accelerations, display controller for
+> >>>>>> display output processing, as well as a command sequencer.  Add kernel
+> >>>>>> mode setting support for the display controller part with two CRTCs and
+> >>>>>> two primary planes(backed by FetchLayer and FetchWarp respectively).  The
+> >>>>>> registers of the display controller are accessed without command sequencer
+> >>>>>> involved, instead just by using CPU.  The command sequencer is supposed to
+> >>>>>> be used by the blit engine.
+> >>>>>>
+> >>>>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> >>>>>> ---
+> >>>>>> v6:
+> >>>>>> * No change.
+> >>>>>>
+> >>>>>> v5:
+> >>>>>> * Replace .remove_new with .remove in dc-drv.c. (Uwe)
+> >>>>>>
+> >>>>>> v4:
+> >>>>>> * Move dc_fg_displaymode(), dc_fg_panic_displaymode() and dc_lb_blendcontrol()
+> >>>>>>   function calls from KMS routine to initialization stage. (Dmitry)
+> >>>>>> * Drop dc-crtc.h and dc-plane.h header files and move relevant defines to
+> >>>>>>   appropriate .h header files or .c source files. (Dmitry)
+> >>>>>> * Drop futile "else" clause from dc_crtc_common_irq_handler(). (Dmitry)
+> >>>>>> * Drop dc_drm->pe_rpm_count. (Dmitry)
+> >>>>>> * Drop DC_{CRTCS,ENCODERS,PRIMARYS} macros and only use DC_DISPLAYS. (Dmitry)
+> >>>>>> * Drop drmm_kcalloc() function call to allocate an array for storing IRQs.
+> >>>>>>   Instead, put it in struct dc_crtc.  (Dmitry)
+> >>>>>> * Call devm_request_irq() to request IRQs, instead of using drmm action.
+> >>>>>>   (Dmitry)
+> >>>>>> * Call devm_drm_of_get_bridge() to find the next bridge. (Dmitry)
+> >>>>>> * Select DRM_CLIENT_SELECTION due to rebase.
+> >>>>>> * Select the missing DRM_DISPLAY_HELPER and DRM_BRIDGE_CONNECTOR.
+> >>>>>> * Use DRM_FBDEV_DMA_DRIVER_OPS due to rebase.
+> >>>>>> * Replace drm_fbdev_dma_setup() with drm_client_setup_with_fourcc() due to
+> >>>>>>   rebase.
+> >>>>>> * Replace drmm_add_action_or_reset() with devm_add_action_or_reset() to
+> >>>>>>   register dc_drm_component_unbind_all() action.
+> >>>>>> * Request interrupts in dc_crtc_post_init() after encoder initialization to
+> >>>>>>   make sure next bridge is found first.
+> >>>>>>
+> >>>>>> v3:
+> >>>>>> * No change.
+> >>>>>>
+> >>>>>> v2:
+> >>>>>> * Find next bridge from TCon's port.
+> >>>>>> * Drop drm/drm_module.h include from dc-drv.c.
+> >>>>>>
+> >>>>>>  drivers/gpu/drm/imx/dc/Kconfig    |   5 +
+> >>>>>>  drivers/gpu/drm/imx/dc/Makefile   |   5 +-
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-crtc.c  | 558 ++++++++++++++++++++++++++++++
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-de.h    |   3 +
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-drv.c   | 244 +++++++++++++
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-drv.h   |  19 +
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-kms.c   | 143 ++++++++
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-kms.h   |  58 ++++
+> >>>>>>  drivers/gpu/drm/imx/dc/dc-plane.c | 241 +++++++++++++
+> >>>>>>  9 files changed, 1274 insertions(+), 2 deletions(-)
+> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-crtc.c
+> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.c
+> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.h
+> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-plane.c
+> >>>>>>
 
-Thanks for looking into the report!
-Let's tell syzbot about the fixing commit you mentioned:
+> >>>>>
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static const struct component_master_ops dc_drm_ops = {
+> >>>>>> +  .bind = dc_drm_bind,
+> >>>>>> +  .unbind = dc_drm_unbind,
+> >>>>>> +};
+> >>>>>> +
+> >>>>>> +static int dc_probe(struct platform_device *pdev)
+> >>>>>> +{
+> >>>>>> +  struct component_match *match = NULL;
+> >>>>>> +  struct dc_priv *priv;
+> >>>>>> +  int ret;
+> >>>>>> +
+> >>>>>> +  priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
+> >>>>>> +  if (!priv)
+> >>>>>> +          return -ENOMEM;
+> >>>>>> +
+> >>>>>> +  priv->clk_cfg = devm_clk_get(&pdev->dev, NULL);
+> >>>>>> +  if (IS_ERR(priv->clk_cfg))
+> >>>>>> +          return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk_cfg),
+> >>>>>> +                               "failed to get cfg clock\n");
+> >>>>>> +
+> >>>>>> +  dev_set_drvdata(&pdev->dev, priv);
+> >>>>>> +
+> >>>>>> +  ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
+> >>>>>> +  if (ret)
+> >>>>>> +          return ret;
+> >>>>>> +
+> >>>>>> +  ret = devm_pm_runtime_enable(&pdev->dev);
+> >>>>>> +  if (ret)
+> >>>>>> +          return ret;
+> >>>>>> +
+> >>>>>> +  ret = devm_of_platform_populate(&pdev->dev);
+> >>>>>> +  if (ret)
+> >>>>>> +          return ret;
+> >>>>>> +
+> >>>>>> +  dc_add_components(&pdev->dev, &match);
+> >>>>>> +
+> >>>>>> +  ret = component_master_add_with_match(&pdev->dev, &dc_drm_ops, match);
+> >>>>>> +  if (ret)
+> >>>>>> +          return dev_err_probe(&pdev->dev, ret,
+> >>>>>> +                               "failed to add component master\n");
+> >>>>>> +
+> >>>>>> +  return 0;
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static void dc_remove(struct platform_device *pdev)
+> >>>>>> +{
+> >>>>>> +  component_master_del(&pdev->dev, &dc_drm_ops);
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static int dc_runtime_suspend(struct device *dev)
+> >>>>>> +{
+> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
+> >>>>>> +
+> >>>>>> +  clk_disable_unprepare(priv->clk_cfg);
+> >>>>>> +
+> >>>>>> +  return 0;
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static int dc_runtime_resume(struct device *dev)
+> >>>>>> +{
+> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
+> >>>>>> +  int ret;
+> >>>>>> +
+> >>>>>> +  ret = clk_prepare_enable(priv->clk_cfg);
+> >>>>>> +  if (ret)
+> >>>>>> +          dev_err(dev, "failed to enable cfg clock: %d\n", ret);
+> >>>>>> +
+> >>>>>> +  return ret;
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static int dc_suspend(struct device *dev)
+> >>>>>> +{
+> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
+> >>>>>> +
+> >>>>>> +  return drm_mode_config_helper_suspend(priv->drm);
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static int dc_resume(struct device *dev)
+> >>>>>> +{
+> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
+> >>>>>> +
+> >>>>>> +  return drm_mode_config_helper_resume(priv->drm);
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static void dc_shutdown(struct platform_device *pdev)
+> >>>>>> +{
+> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(&pdev->dev);
+> >>>>>> +
+> >>>>>> +  drm_atomic_helper_shutdown(priv->drm);
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +static const struct dev_pm_ops dc_pm_ops = {
+> >>>>>> +  RUNTIME_PM_OPS(dc_runtime_suspend, dc_runtime_resume, NULL)
+> >>>>>> +  SYSTEM_SLEEP_PM_OPS(dc_suspend, dc_resume)
+> >>>>>> +};
+> >>>>>> +
+> >>>>>> +static const struct of_device_id dc_dt_ids[] = {
+> >>>>>> +  { .compatible = "fsl,imx8qxp-dc", },
+> >>>>>> +  { /* sentinel */ }
+> >>>>>> +};
+> >>>>>> +MODULE_DEVICE_TABLE(of, dc_dt_ids);
+> >>>>>> +
+> >>>>>> +static struct platform_driver dc_driver = {
+> >>>>>> +  .probe = dc_probe,
+> >>>>>> +  .remove = dc_remove,
+> >>>>>> +  .shutdown = dc_shutdown,
+> >>>>>> +  .driver = {
+> >>>>>> +          .name = "imx8-dc",
+> >>>>>> +          .of_match_table = dc_dt_ids,
+> >>>>>> +          .pm = pm_sleep_ptr(&dc_pm_ops),
+> >>>>>> +  },
+> >>>>>> +};
+> >>>>>> +
+> >>>>>>  static struct platform_driver * const dc_drivers[] = {
+> >>>>>>    &dc_cf_driver,
+> >>>>>>    &dc_de_driver,
+> >>>>>> @@ -19,6 +262,7 @@ static struct platform_driver * const dc_drivers[] = {
+> >>>>>>    &dc_lb_driver,
+> >>>>>>    &dc_pe_driver,
+> >>>>>>    &dc_tc_driver,
+> >>>>>> +  &dc_driver,
+> >>>>>>  };
+> >>>>>>
+> >>>>>>  static int __init dc_drm_init(void)
+> >>>>>> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
+> >>>>>> index 3b11f4862c6c..39a771a13933 100644
+> >>>>>> --- a/drivers/gpu/drm/imx/dc/dc-drv.h
+> >>>>>> +++ b/drivers/gpu/drm/imx/dc/dc-drv.h
+> >>>>>> @@ -6,19 +6,38 @@
+> >>>>>>  #ifndef __DC_DRV_H__
+> >>>>>>  #define __DC_DRV_H__
+> >>>>>>
+> >>>>>> +#include <linux/container_of.h>
+> >>>>>>  #include <linux/platform_device.h>
+> >>>>>>
+> >>>>>>  #include <drm/drm_device.h>
+> >>>>>> +#include <drm/drm_encoder.h>
+> >>>>>>
+> >>>>>>  #include "dc-de.h"
+> >>>>>> +#include "dc-kms.h"
+> >>>>>>  #include "dc-pe.h"
+> >>>>>>
+> >>>>>>  struct dc_drm_device {
+> >>>>>>    struct drm_device base;
+> >>>>>> +  struct dc_crtc dc_crtc[DC_DISPLAYS];
+> >>>>>> +  struct dc_plane dc_primary[DC_DISPLAYS];
+> >>>>>> +  struct drm_encoder encoder[DC_DISPLAYS];
+> >>>>>>    struct dc_de *de[DC_DISPLAYS];
+> >>>>>>    struct dc_pe *pe;
+> >>>>>>  };
+> >>>>>>
+> >>>>>> +static inline struct dc_drm_device *to_dc_drm_device(struct drm_device *drm)
+> >>>>>> +{
+> >>>>>> +  return container_of(drm, struct dc_drm_device, base);
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +int dc_crtc_init(struct dc_drm_device *dc_drm, int crtc_index);
+> >>>>>> +int dc_crtc_post_init(struct dc_drm_device *dc_drm, int crtc_index);
+> >>>>>> +
+> >>>>>> +int dc_kms_init(struct dc_drm_device *dc_drm);
+> >>>>>> +void dc_kms_uninit(struct dc_drm_device *dc_drm);
+> >>>>>> +
+> >>>>>> +int dc_plane_init(struct dc_drm_device *dc_drm, struct dc_plane *dc_plane);
+> >>>>>> +
+> >>>>>>  extern struct platform_driver dc_cf_driver;
+> >>>>>>  extern struct platform_driver dc_ed_driver;
+> >>>>>>  extern struct platform_driver dc_de_driver;
+> >>>>>> diff --git a/drivers/gpu/drm/imx/dc/dc-kms.c b/drivers/gpu/drm/imx/dc/dc-kms.c
+> >>>>>> new file mode 100644
+> >>>>>> index 000000000000..2b18aa37a4a8
+> >>>>>> --- /dev/null
+> >>>>>> +++ b/drivers/gpu/drm/imx/dc/dc-kms.c
+> >>>>>> @@ -0,0 +1,143 @@
+> >>>>>> +// SPDX-License-Identifier: GPL-2.0+
+> >>>>>> +/*
+> >>>>>> + * Copyright 2024 NXP
+> >>>>>> + */
+> >>>>>> +
+> >>>>>> +#include <linux/of.h>
+> >>>>>> +#include <linux/of_graph.h>
+> >>>>>> +
+> >>>>>> +#include <drm/drm_atomic_helper.h>
+> >>>>>> +#include <drm/drm_bridge.h>
+> >>>>>> +#include <drm/drm_bridge_connector.h>
+> >>>>>> +#include <drm/drm_connector.h>
+> >>>>>> +#include <drm/drm_crtc.h>
+> >>>>>> +#include <drm/drm_device.h>
+> >>>>>> +#include <drm/drm_encoder.h>
+> >>>>>> +#include <drm/drm_gem_framebuffer_helper.h>
+> >>>>>> +#include <drm/drm_mode_config.h>
+> >>>>>> +#include <drm/drm_print.h>
+> >>>>>> +#include <drm/drm_probe_helper.h>
+> >>>>>> +#include <drm/drm_simple_kms_helper.h>
+> >>>>>> +#include <drm/drm_vblank.h>
+> >>>>>> +
+> >>>>>> +#include "dc-de.h"
+> >>>>>> +#include "dc-drv.h"
+> >>>>>> +#include "dc-kms.h"
+> >>>>>> +
+> >>>>>> +static const struct drm_mode_config_funcs dc_drm_mode_config_funcs = {
+> >>>>>> +  .fb_create = drm_gem_fb_create,
+> >>>>>> +  .atomic_check = drm_atomic_helper_check,
+> >>>>>> +  .atomic_commit = drm_atomic_helper_commit,
+> >>>>>> +};
+> >>>>>> +
+> >>>>>> +static int dc_kms_init_encoder_per_crtc(struct dc_drm_device *dc_drm,
+> >>>>>> +                                  int crtc_index)
+> >>>>>> +{
+> >>>>>> +  struct dc_crtc *dc_crtc = &dc_drm->dc_crtc[crtc_index];
+> >>>>>> +  struct drm_device *drm = &dc_drm->base;
+> >>>>>> +  struct drm_crtc *crtc = &dc_crtc->base;
+> >>>>>> +  struct drm_connector *connector;
+> >>>>>> +  struct device *dev = drm->dev;
+> >>>>>> +  struct drm_encoder *encoder;
+> >>>>>> +  struct drm_bridge *bridge;
+> >>>>>> +  int ret;
+> >>>>>> +
+> >>>>>> +  bridge = devm_drm_of_get_bridge(dev, dc_crtc->de->tc->dev->of_node,
+> >>>>>> +                                  0, 0);
+> >>>>>> +  if (IS_ERR(bridge)) {
+> >>>>>> +          ret = PTR_ERR(bridge);
+> >>>>>> +          if (ret == -ENODEV)
+> >>>>>> +                  return 0;
+> >>>>>> +
+> >>>>>> +          return dev_err_probe(dev, ret,
+> >>>>>> +                               "failed to find bridge for CRTC%u\n",
+> >>>>>> +                               crtc->index);
+> >>>>>> +  }
+> >>>>>> +
+> >>>>>> +  encoder = &dc_drm->encoder[crtc_index];
+> >>>>>> +  ret = drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_NONE);
+> >>>>>> +  if (ret) {
+> >>>>>> +          dev_err(dev, "failed to initialize encoder for CRTC%u: %d\n",
+> >>>>>> +                  crtc->index, ret);
+> >>>>>> +          return ret;
+> >>>>>> +  }
+> >>>>>> +
+> >>>>>> +  encoder->possible_crtcs = drm_crtc_mask(crtc);
+> >>>>>> +
+> >>>>>> +  ret = drm_bridge_attach(encoder, bridge, NULL,
+> >>>>>> +                          DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> >>>>>> +  if (ret) {
+> >>>>>> +          dev_err(dev,
+> >>>>>> +                  "failed to attach bridge to encoder for CRTC%u: %d\n",
+> >>>>>> +                  crtc->index, ret);
+> >>>>>> +          return ret;
+> >>>>>> +  }
+> >>>>>> +
+> >>>>>> +  connector = drm_bridge_connector_init(drm, encoder);
+> >>>>>> +  if (IS_ERR(connector)) {
+> >>>>>> +          ret = PTR_ERR(connector);
+> >>>>>> +          dev_err(dev, "failed to init bridge connector for CRTC%u: %d\n",
+> >>>>>> +                  crtc->index, ret);
+> >>>>>> +          return ret;
+> >>>>>> +  }
+> >>>>>> +
+> >>>>>> +  ret = drm_connector_attach_encoder(connector, encoder);
+> >>>>>> +  if (ret)
+> >>>>>> +          dev_err(dev,
+> >>>>>> +                  "failed to attach encoder to connector for CRTC%u: %d\n",
+> >>>>>> +                  crtc->index, ret);
+> >>>>>> +
+> >>>>>> +  return ret;
+> >>>>>> +}
+> >>>>>> +
+> >>>>>> +int dc_kms_init(struct dc_drm_device *dc_drm)
+> >>>>>> +{
+> >>>>>> +  struct drm_device *drm = &dc_drm->base;
+> >>>>>> +  int ret, i;
+> >>>>>> +
+> >>>>>> +  ret = drmm_mode_config_init(drm);
+> >>>>>> +  if (ret)
+> >>>>>> +          return ret;
+> >>>>>> +
+> >>>>>> +  drm->mode_config.min_width = 60;
+> >>>>>> +  drm->mode_config.min_height = 60;
+> >>>>>> +  drm->mode_config.max_width = 8192;
+> >>>>>> +  drm->mode_config.max_height = 8192;
+> >>>>>> +  drm->mode_config.funcs = &dc_drm_mode_config_funcs;
+> >>>>>> +
+> >>>>>> +  drm->vblank_disable_immediate = true;
+> >>>>>> +  drm->max_vblank_count = DC_FRAMEGEN_MAX_FRAME_INDEX;
+> >>>>>> +
+> >>>>>> +  for (i = 0; i < DC_DISPLAYS; i++) {
+> >>>>>> +          ret = dc_crtc_init(dc_drm, i);
+> >>>>>> +          if (ret)
+> >>>>>> +                  return ret;
+> >>>>>> +
+> >>>>>> +          ret = dc_kms_init_encoder_per_crtc(dc_drm, i);
+> >>>>>> +          if (ret)
+> >>>>>> +                  return ret;
+> >>>>>> +  }
+> >>>>>> +
+> >>>>>> +  for (i = 0; i < DC_DISPLAYS; i++) {
+> >>>>>> +          ret = dc_crtc_post_init(dc_drm, i);
+> >>>>>
+> >>>>> Can you use .late_register for this?
+> >>>>
+> >>>> Kerneldoc of struct drm_crtc_funcs::late_register says it's used to register
+> >>>> additional userspace interfaces like debugfs interfaces. And, it seems that
+> >>>> everyone implementing this uses it to add debugfs interfaces. So, it will
+> >>>> kind of abuse it to do CRTC post initialization.
+> >>>
+> >>> Why can't they be requested earlier then?
+> >>
+> >> If I request them earlier in dc_crtc_init(), then they cannot be freed by
+> >> devm_irq_release() when devm_drm_of_get_bridge() called by
+> >> dc_kms_init_encoder_per_crtc() returns -EPROBE_DEFER(which means failing
+> >> to find the first DRM bridge for the CRTC).  Why can't they be freed by
+> >> devm_irq_release()?  Because they are requested by the devices of ExtDsts
+> >> and Display Engines and their drivers are not removed during the probe
+> >> deferral dance.  Furthermore, -EPROBE_DEFER won't be returned after
+> >> dc_crtc_post_init() since the later called drm_vblank_init() doesn't
+> >> return -EPROBE_DEFER anyway, so it's fine to call dc_crtc_post_init() here.
+> >>
+> >> I met the irq free issue on my i.MX8qxp MEK board before, i.e., -EBUSY is
+> >> returned when requesting them again, so it's tested.
+> >
+> > A typical solution is to request all resources before binding the
+> > device as a component. Don't tell me that your interrupt controller is
+> > another component of the DRM device :-)
+>
+> The IRQ handlers are _highly_ related to the CRTC driver(especially the
+> dc_crtc_dec_framecomplete_irq_handler() where vblank is handled), so maybe
+> it's more appropriate to request the IRQs and implement the IRQ handlers in
+> dc-crtc.c instead of doing them in dc-{de,ed}.c. No?
 
-#syz fix: KVM: arm64: vgic-v3: Sanitise guest writes to GICR_INVLPIR
+And CRTCs don't exist before master_bind(). Ack.
 
-Syzbot will close the issue once the commit reaches the fuzzed tree.
-
-
---=20
-Aleksandr
-
-On Mon, Dec 16, 2024 at 11:09=E2=80=AFAM 'Marc Zyngier' via syzkaller-bugs
-<syzkaller-bugs@googlegroups.com> wrote:
->
-> On Thu, 12 Dec 2024 08:48:18 +0000,
-> syzbot <syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com> wrote:
-> >
-> > Hello,
-> >
-> > syzbot found the following issue on:
-> >
-> > HEAD commit:    5db899a34f75 Merge remote-tracking branch 'kernel/kvmar=
-m/n..
-> > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kv=
-marm.git fuzzme
-> > console output: https://syzkaller.appspot.com/x/log.txt?x=3D16db78f8580=
-000
-> > kernel config:  https://syzkaller.appspot.com/x/.config?x=3Dfde68ab6d6c=
-8c8ab
-> > dashboard link: https://syzkaller.appspot.com/bug?extid=3D67a9ec5b1706e=
-0184581
-> > compiler:       Debian clang version 15.0.6, GNU ld (GNU Binutils for D=
-ebian) 2.40
-> > userspace arch: arm64
-> >
-> > Unfortunately, I don't have any reproducer for this issue yet.
-> >
-> > Downloadable assets:
-> > disk image (non-bootable): https://storage.googleapis.com/syzbot-assets=
-/384ffdcca292/non_bootable_disk-5db899a3.raw.xz
-> > vmlinux: https://storage.googleapis.com/syzbot-assets/4938b757ff4a/vmli=
-nux-5db899a3.xz
-> > kernel image: https://storage.googleapis.com/syzbot-assets/936938b47987=
-/Image-5db899a3.gz.xz
-> >
-> > IMPORTANT: if you fix the issue, please add the following tag to the co=
-mmit:
-> > Reported-by: syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com
-> >
-> > Unable to handle kernel paging request at virtual address efff800000000=
-137
-> > KASAN: probably user-memory-access in range [0x0000000000001370-0x00000=
-0000000137f]
-> > Mem abort info:
-> >   ESR =3D 0x0000000096000005
-> >   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
-> >   SET =3D 0, FnV =3D 0
-> >   EA =3D 0, S1PTW =3D 0
-> >   FSC =3D 0x05: level 1 translation fault
-> > Data abort info:
-> >   ISV =3D 0, ISS =3D 0x00000005, ISS2 =3D 0x00000000
-> >   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
-> >   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
-> > swapper pgtable: 4k pages, 52-bit VAs, pgdp=3D0000000044a53000
-> > [efff800000000137] pgd=3D1000000049992003, p4d=3D1000000049993003, pud=
-=3D0000000000000000
-> > Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
-> > Modules linked in:
-> > CPU: 0 UID: 0 PID: 6560 Comm: syz.2.929 Not tainted 6.12.0-rc7-syzkalle=
-r-g5db899a34f75 #0
-> > Hardware name: linux,dummy-virt (DT)
-> > pstate: 80402009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
-> > pc : __hwasan_check_x0_67043363+0x4/0x30
-> > lr : vgic_get_irq+0x7c/0x3d4 arch/arm64/kvm/vgic/vgic.c:93
-> > sp : ffff80008c597650
-> > x29: ffff80008c597660 x28: 00000000000000e0 x27: 0000000000000004
-> > x26: 0000000000000002 x25: ffff800083a7fe20 x24: 16f0000014accd90
-> > x23: 16f0000014acb9a0 x22: 0000000000000000 x21: a9ff80008c583000
-> > x20: 0000000000000001 x19: efff800000000000 x18: 0000000000000005
-> > x17: 0000000000000000 x16: 0000000000000137 x15: 0000000000000000
-> > x14: 0000000000000002 x13: 0000000000000003 x12: 70f000000a33ba80
-> > x11: 0000000000080000 x10: 0000000000001378 x9 : efff800000000000
-> > x8 : 0000000000000001 x7 : 0000000000000001 x6 : 0000000000000001
-> > x5 : ffff80008c597858 x4 : ffff8000800f2b38 x3 : ffff8000800f7a00
-> > x2 : 0000000000000001 x1 : 0000000000000001 x0 : 0000000000001378
-> > Call trace:
-> >  __hwasan_check_x0_67043363+0x4/0x30
-> >  vgic_mmio_write_invlpi+0xb0/0x174 arch/arm64/kvm/vgic/vgic-mmio-v3.c:5=
-46
-> >  dispatch_mmio_write+0x2a4/0x308
-> >  kvm_iodevice_write include/kvm/iodev.h:54 [inline]
-> >  __kvm_io_bus_write+0x290/0x340 virt/kvm/kvm_main.c:5852
-> >  kvm_io_bus_write+0x100/0x1bc virt/kvm/kvm_main.c:5877
-> >  io_mem_abort+0x4b8/0x7a0 arch/arm64/kvm/mmio.c:204
-> >  kvm_handle_guest_abort+0xb4c/0x1c64 arch/arm64/kvm/mmu.c:1880
-> >  handle_trap_exceptions arch/arm64/kvm/handle_exit.c:351 [inline]
-> >  handle_exit+0x1a0/0x274 arch/arm64/kvm/handle_exit.c:381
-> >  kvm_arch_vcpu_ioctl_run+0xbc0/0x15b0 arch/arm64/kvm/arm.c:1279
-> >  kvm_vcpu_ioctl+0x660/0xf78 virt/kvm/kvm_main.c:4475
-> >  vfs_ioctl fs/ioctl.c:51 [inline]
-> >  __do_sys_ioctl fs/ioctl.c:907 [inline]
-> >  __se_sys_ioctl fs/ioctl.c:893 [inline]
-> >  __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
-> >  __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
-> >  invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
-> >  el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
-> >  do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
-> >  el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
-> >  el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
-> >  el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
-> > Code: a90efbfd d2800441 143a3ed3 9344dc10 (38706930)
->
-> This seems to be something that is already handled by d561491ba927c
-> ("KVM: arm64: vgic-v3: Sanitise guest writes to GICR_INVLPIR"), which
-> made it into 6.13-rc1.
->
-> The branch you are using doesn't seem to contain that particular
-> commit. I have now updated it to -rc3, which should plug that issue.
->
-> Let me know if it keeps appearing.
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
->
-> --
-> You received this message because you are subscribed to the Google Groups=
- "syzkaller-bugs" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to syzkaller-bugs+unsubscribe@googlegroups.com.
-> To view this discussion visit https://groups.google.com/d/msgid/syzkaller=
--bugs/867c80ro2w.wl-maz%40kernel.org.
+-- 
+With best wishes
+Dmitry
 
