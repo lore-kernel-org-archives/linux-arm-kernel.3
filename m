@@ -4,96 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AF8E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 16:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6747BE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 16:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mncYdzsRGea1LeZVXIMipQ4Yl5I8AiDuzr1+oaEnslg=; b=X1mEraBdtvRcz7n9pmS5394Qk8
-	JhsUJnLm6Zn5s35cUOWPgZPzf/ahqIqBohVUuEEp6nRNafjw5NqhSc3t844QS2Szv4x5BYC0A4kPi
-	be51RMF0cbouU4AvxaFbKdNLgjPn5NoreeIjaj5Fz45y0UzAgGgqk1xtAozivCMPb3nfZNaVQlQCy
-	BgAZFhAH5KlC9sbnZaU1bPzbexQoiUQKdqeE/Zr5MIvBV2SQdc+0T+TdUvEMpvf+mTW1SaGJ29Yi6
-	s4PtN7CLp5iZc+itTFoMXoZb6nmDWAwwI1/4mrIM5aZWOf9zp8QMEz2e06RhxZTyr965kzxk7Eu59
-	tJe7pIgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cZOb4Oup51mkztZb/UWtRpPWTGZ+DRoM9v65S3bfnts=; b=YIbz5OVcqzqb6DvWylq6mcWZhh
+	Po4ZtKiwpxhTCuFH6L36nHPAy4HGf/jd50XBO21h9FeCTrvBYLYOzesHKXB+k2gqVbmcRbcWW6cFo
+	1/nXiDz4oALEUXDIXpV9lJDMuJHArHbj3MX8++tk4X56+mJMODNo6V+kDSLM5TgDEC8QS8CvrIZyW
+	i0yZy3mTWOTOhDjfCJy3GFoNKICwoJJViEDRW8A0Uz9+zMCK7TXFp/RtilI6kyIDfQQG13/VfFdJG
+	sH8MRa8L5h3otUFocwR3qeyw1tgoPI4CRtxEGBveOBUMgYAMPDzJESaPlMNn+giMNtQqXaqGJotnK
+	F0otfZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDrk-0000000AZ46-0mjO;
-	Mon, 16 Dec 2024 16:22:40 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1tNDzJ-0000000AbDL-3PWd;
+	Mon, 16 Dec 2024 16:30:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDqc-0000000AYpT-2sBD
+	id 1tNDyB-0000000AayI-2kWY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 16:21:32 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 2AC7625400E6;
-	Mon, 16 Dec 2024 11:21:27 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Mon, 16 Dec 2024 11:21:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1734366087; x=1734452487; bh=mn
-	cYdzsRGea1LeZVXIMipQ4Yl5I8AiDuzr1+oaEnslg=; b=EJbOwAvxvnIY7ADPPy
-	BEUTLrRE7pytTbTNDCqsgsm2TR909JnmeF9zO+Y0sumydcZhMTt5dEBAujqlCbRT
-	cqvyYP/iUxc5jrxBpQQaPvgKh+vr3xFVy1iwpx3+ql22VntrbEr17bIAy9bE/C0k
-	ev/58Dkh6WljuNe35j+BDW/bXoKmbzY0AqS/OBfqfeWhx8loqozo/610X+JQHJ4g
-	cJMK8pewDIHeCleTul8qOaOy1QsGUk/NBa1i3x1S0RGHWL7DFzeYPDeYrT8AVlbo
-	JFqDaxlvHfoG83cxGc2E01FGejUX//N4GtE3gNPIkAUmiQ90g0/NyoKGk+ODUwKq
-	f5xQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1734366087; x=1734452487; bh=mncYdzsRGea1LeZVXIMipQ4Yl5I8
-	AiDuzr1+oaEnslg=; b=1YWwjYpiwYY0RRaD3fkVCaMmuN59U6+DQqHQwbXAd0SI
-	XKHejiIqr4saa9qbkhO6Ugr0An1Pw3zfOX0cR1RFj1CyD524bWIRM3/EfuYLM/Bt
-	VUyV6ObL7ny2estNJZBPKqGh04Hcw4Y9V7FVCgcgLk3uwooWMZP1zMePlbmZdIz/
-	6XNIFftEsI25r27FiYMauQ1+Dk0ftgROfqwZVsiS6sTbbuP80bw0dUKKL/mvpM4q
-	HQUV5TXzkJjOB+hsm9PM44kn8pyHHPv1PIHY/I8hZUJb69m3C8KQrT/f4oDpTEo+
-	fU0Iqp5ZoKKGjSwp8mJagYvzfti1NiJEsaOMezhd2g==
-X-ME-Sender: <xms:hlNgZyd-ZPoeCZBGRTweh1H_Z-HSy5YyT5s-sK6x5bp-OdTG3u0N4w>
-    <xme:hlNgZ8PcCkwaQ5ygTyxEBWuNp3zsi2yD1Y_38lL7ir7zYnaCZhHraZ9XQYC4zhYo_
-    e_w4u_uBNf1J80iBDw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrleefgdekjecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkufgtgfesthejredtredttdenucfh
-    rhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqe
-    enucggtffrrghtthgvrhhnpeduleeigeekveeugeettdejtddtleeghefhvdfhueehtefh
-    udelffduvdeuleevteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsth
-    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggs
-    rdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
-    epshhuuggvvghprdhhohhllhgrsegrrhhmrdgtohhmpdhrtghpthhtohepthhorhhvrghl
-    ughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuh
-    igqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgt
-    phhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:hlNgZziJG7jrodz90G2Xdz4Sn7n2Ymdmp-w_AG_VzFnH6lF2K84rig>
-    <xmx:hlNgZ_8ohXVT_c89oc8KR3eyfsDwCKLD_wIn3JozK_ZrtcxW-GZL1Q>
-    <xmx:hlNgZ-tS39XSlZN6mZnBkfmfm8QCTKx-a6UO13h9cYTNJhvYIO0Lzg>
-    <xmx:hlNgZ2EMIHBL9dAXvgzgY6VOxAmVMagXnQBMPRR-9ju0MYG7DgdCgg>
-    <xmx:h1NgZyI9f0o8LSy0V1MI8dJ96cfP0R7HejNzNn4w9Ce1UcK8YGLybPbF>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9C4EF2220072; Mon, 16 Dec 2024 11:21:26 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 16 Dec 2024 16:29:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA1815C5FDA;
+	Mon, 16 Dec 2024 16:28:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76040C4CED0;
+	Mon, 16 Dec 2024 16:29:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734366558;
+	bh=eTH5PAJYArUjyYFUhkavXr9IHbyJp0cHmZVtDEdnjTA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Roi7m7tTvG8r+dOMRufBtBzf5LMU1seuLVmkSmHbU3rEmITSOGpJPXpjrhRr6X/Hw
+	 HjJNiLkX/IW0bMxbpw8I7wXh2MYhrvMJhlBy9D5p7t7HDayiUqPKsRawGDGMovBNlS
+	 avFCa7hVK+M+YD265Uh72h9hwn8tGEtfrsQuVmO6n24edW5BlwsRWomv+RYm5062dz
+	 ITYKSdLGCLsY/0nuuRu3xeW+So58/l4eeCXi4FPGK0wtN10XmDGoDR4YfAIyqSobCa
+	 EKeJEo+JrYhxJiit9foSGLVBy/GqYkyGTePRQtBGUgGQvaGbbHcSryDpo13zLU/db7
+	 8vatbl3MVjO4w==
+Date: Mon, 16 Dec 2024 10:29:15 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Date: Mon, 16 Dec 2024 17:21:06 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Sudeep Holla" <sudeep.holla@arm.com>
-Message-Id: <cccdf954-3374-414c-81fb-658df16325fc@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.13
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: andrew@codeconstruct.com.au, linux-arm-kernel@lists.infradead.org, 
+ krzk+dt@kernel.org, eajames@linux.ibm.com, joel@jms.id.au, 
+ devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, conor+dt@kernel.org
+To: Ninad Palsule <ninad@linux.ibm.com>
+In-Reply-To: <20241213145037.3784931-1-ninad@linux.ibm.com>
+References: <20241213145037.3784931-1-ninad@linux.ibm.com>
+Message-Id: <173436597537.264948.12611164276777551472.robh@kernel.org>
+Subject: Re: [PATCH v1 0/8] DTS updates for system1 BMC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_082131_421740_F2363377 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_082919_780691_D5FF5416 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,49 +73,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
 
-  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
+On Fri, 13 Dec 2024 08:50:26 -0600, Ninad Palsule wrote:
+> Hello
+> 
+> Please review the patch set. It has various device tree changes for
+> system1 BMC after hardware testing.
+> 
+> NINAD PALSULE (7):
+>   ARM: dts: aspeed: system1: Add IPMB device
+>   ARM: dts: aspeed: system1: Add GPIO line name
+>   ARM: dts: aspeed: system1: Add RGMII support
+>   ARM: dts: aspeed: system1: Reduce sgpio speed
+>   ARM: dts: aspeed: system1: Update LED gpio name
+>   ARM: dts: aspeed: system1: Remove VRs max8952
+>   ARM: dts: aspeed: system1: Mark GPIO line high/low
+> 
+> Ninad Palsule (1):
+>   ARM: dts: aspeed: system1: Disable gpio pull down
+> 
+>  .../dts/aspeed/aspeed-bmc-ibm-system1.dts     | 178 ++++++++++++------
+>  1 file changed, 119 insertions(+), 59 deletions(-)
+> 
+> --
+> 2.43.0
+> 
+> 
+> 
 
-are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-for you to fetch changes up to f578281000c50cae991c40e1f68b2fc0b1b9e60e:
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-  Merge tag 'ffa-fix-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes (2024-12-13 14:26:32 +0100)
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-----------------------------------------------------------------
-soc: fixes for 6.13
+  pip3 install dtschema --upgrade
 
-There are three small fixes for the soc tree:
 
- - A devicetee fix for the Arm Juno reference machine, so allow more
-   interesting PCI configurations
+New warnings running 'make CHECK_DTBS=y aspeed/aspeed-bmc-ibm-system1.dtb' for 20241213145037.3784931-1-ninad@linux.ibm.com:
 
- - A build fix for SCMI firmware on the NXP i.MX platform
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: ethernet@1e660000: phy-mode:0: 'rgmii-rxid' is not one of ['rgmii', 'rmii']
+	from schema $id: http://devicetree.org/schemas/net/faraday,ftgmac100.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: gpio@1e780000: 'fan_controller_reset', 'isolate_errs_cpu1', 'rtc_reset', 'srtc_reset' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/aspeed,ast2400-gpio.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: rtc_reset: $nodename:0: 'rtc_reset' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: srtc_reset: $nodename:0: 'srtc_reset' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: fan_controller_reset: $nodename:0: 'fan_controller_reset' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: isolate_errs_cpu1: $nodename:0: 'isolate_errs_cpu1' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-hog.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: /ahb/apb@1e780000/bus@1e78a000/i2c@280/bmc_slave@10: failed to match any schema with compatible: ['ipmb-dev']
 
- - A fix for a race condition in Arm FF-A firmware
 
-----------------------------------------------------------------
-Aneesh Kumar K.V (Arm) (1):
-      arm64: dts: fvp: Update PCIe bus-range property
 
-Arnd Bergmann (4):
-      firmware: arm_scmi: Fix i.MX build dependency
-      Merge tag 'juno-fix-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
-      Merge tag 'scmi-fix-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
-      Merge tag 'ffa-fix-6.13' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
 
-Levi Yun (1):
-      firmware: arm_ffa: Fix the race around setting ffa_dev->properties
 
- arch/arm64/boot/dts/arm/fvp-base-revc.dts     |  2 +-
- drivers/firmware/arm_ffa/bus.c                | 15 +++++++++++----
- drivers/firmware/arm_ffa/driver.c             |  7 +------
- drivers/firmware/arm_scmi/vendors/imx/Kconfig |  1 +
- drivers/firmware/imx/Kconfig                  |  1 -
- include/linux/arm_ffa.h                       | 13 ++++++++-----
- sound/soc/fsl/Kconfig                         |  2 +-
- 7 files changed, 23 insertions(+), 18 deletions(-)
 
