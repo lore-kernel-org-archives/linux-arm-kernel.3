@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F198E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 03:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB9DE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 03:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkGooVOVJx6yYNNnxIeU/aJeQgP9uUa6dfCqmnhn2Y0=; b=BggsgyHLeT2SY9vog/8LgHHf9j
-	pwGxDi/vdcSeKAQhvylhPg3AZeJoCxce06+49JA1P06+b+Q82wrlKnJ0UeZivTca0F81Hd8nCLUmG
-	Zi91h1QzFT8pbVm3nIEQZiV4Gzib2GQ3ah6T+GnS9Kwg1FZg1ZLdUsrYzBEVbH1aa0dROhWMbDi3n
-	ICUl0dmYQDUyY4XYwpg44TmiHFsripTDYOPLRZeEx9Y4vV7VeGOhpQOdoi+trIYAS1sab9BO1hbrk
-	Kgg0lK/pgXh3u2R6xMqHQePm8QCM/G0FE2IYiS9Ta0M9QNTp5H32JWBSS+5ND/tCaWWB0DGtTDwxl
-	uQ4z4T6w==;
+	bh=re+fzhahdRHRVyWuma6tflhkGROthhuZpOI1Cpv+z50=; b=O0u0qVZutnWUrI6QbmbbaMh2CI
+	0I19AufF1dho1ff+PSC/2l5cdi5rSAqy0GcEWmqV3t75ICFzl4amZyDzU2E1lKtgfVMhiuW9i9b7b
+	5W96/Ffd0W8Md6cXH8m5dWv2kPtbLpsJlzo1QCm+0mBG8sERMoAVJ6lyv8N8xOFWKKDBOSh2TluQE
+	QBdDuv4cZaHlwMWpFaBW2pFPZjSMTEd2860RW4rp+gu9WP1ofROyHAX9A0XkNbtPzcPucdo3CeSgy
+	3lD6lhq4p/nJtIYQviapC1cEHi0xSLly/flq90dMr1Ptk2sZJVxByfw7PZ9DYFdBHG0VSyShQn1qm
+	RRvcagcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN1iS-00000008vJl-053l;
-	Mon, 16 Dec 2024 03:24:16 +0000
-Received: from mail-m127216.xmail.ntesmail.com ([115.236.127.216])
+	id 1tN1jV-00000008vT0-3EOz;
+	Mon, 16 Dec 2024 03:25:21 +0000
+Received: from mail-m4920.qiye.163.com ([45.254.49.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN1Xi-00000008tId-1aci;
+	id 1tN1Xj-00000008tJW-2Q8M;
 	Mon, 16 Dec 2024 03:13:12 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5cf79933;
-	Mon, 16 Dec 2024 11:13:05 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5cf79939;
+	Mon, 16 Dec 2024 11:13:07 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -50,30 +50,30 @@ Cc: robh@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v2 09/11] arm64: dts: rockchip: Add eDP0 node for RK3588
-Date: Mon, 16 Dec 2024 11:12:23 +0800
-Message-Id: <20241216031225.3746-10-damon.ding@rock-chips.com>
+Subject: [PATCH v2 10/11] arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
+Date: Mon, 16 Dec 2024 11:12:24 +0800
+Message-Id: <20241216031225.3746-11-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241216031225.3746-1-damon.ding@rock-chips.com>
 References: <20241216031225.3746-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGksZHVZNGklLHR0dSkJOTRlWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk0eHVZNSRoeTU9KTEhOSUxWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
 	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93cd7483d503a3kunm5cf79933
+X-HM-Tid: 0a93cd748a7a03a3kunm5cf79939
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ogg6Nzo6MzIQCCFRMk8ZQhU*
-	ETFPCxdVSlVKTEhPSEpDTENMS0NNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKSENONwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MS46LDo4MTIXCCEKMk5LQhQR
+	UU8wCRBVSlVKTEhPSEpDTENDTEpMVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSUJKNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=F4cxOSLMwhE7w8kn8LwmhxNedBlJDMzDzW77KlN7bRWoGWd8KrkNep/TBVLmB8K3Um83oqRHk7O1LNJGpqBOOQM8efoTxgWw9CzvgTaxekt6s7qKJeITwInd04KEPafROuvqaPaD4ARwDbCoW4hafFPyikd/kQbcC5qNTuLX2Aw=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=YkGooVOVJx6yYNNnxIeU/aJeQgP9uUa6dfCqmnhn2Y0=;
+	b=jTvhwr/dbWMj03q5JOCMfVNYvnpN0+EalpNnywo+spSfqLqWhbjioWyfUCAvD5eSz96Ar8hhV3dAB/YAdNUgJP/6Ckr0LvSwzcFbvzWUtwvOdYa2S71uQn6s1zWw1970hZPCzZYjL23E1/PEtIcIdzbo7dkMceXzo+t51USoo8I=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=re+fzhahdRHRVyWuma6tflhkGROthhuZpOI1Cpv+z50=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_191310_586646_A912A49F 
-X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-CacheID: sfid-20241215_191311_791646_15F96070 
+X-CRM114-Status: UNSURE (   8.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,53 +89,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the eDP0 output on RK3588 SoC.
+Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
+- Add edp-panel node
+- Set pinctrl of pwm12 for backlight
+- Enable edp0/hdptxphy0/vp2
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 29 +++++++++++++++++++
- 1 file changed, 29 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 7e125897b0cd..240b0103c957 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1411,6 +1411,35 @@ hdmi0_out: port@1 {
- 		};
+---
+
+Changes in v2:
+- Remove brightness-levels and default-brightness-level properties in
+  backlight node.
+- Add the detail DT changes to commit message.
+---
+ .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+index bc4077575beb..5c1ea25b6524 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+@@ -9,6 +9,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "rk3588s.dtsi"
+ 
+@@ -120,6 +121,18 @@ backlight: backlight {
+ 		pwms = <&pwm12 0 25000 0>;
  	};
  
-+	edp0: edp@fdec0000 {
-+		compatible = "rockchip,rk3588-edp";
-+		reg = <0x0 0xfdec0000 0x0 0x1000>;
-+		clocks = <&cru CLK_EDP0_24M>, <&cru PCLK_EDP0>, <&cru CLK_EDP0_200M>;
-+		clock-names = "dp", "pclk", "spdif";
-+		interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH 0>;
-+		phys = <&hdptxphy0>;
-+		phy-names = "dp";
-+		power-domains = <&power RK3588_PD_VO1>;
-+		resets = <&cru SRST_EDP0_24M>, <&cru SRST_P_EDP0>;
-+		reset-names = "dp", "apb";
-+		rockchip,grf = <&vo1_grf>;
-+		#sound-dai-cells = <1>;
-+		status = "disabled";
++	edp_panel: edp-panel {
++		compatible = "lg,lp079qx1-sp0v";
++		backlight = <&backlight>;
++		power-supply = <&vcc3v3_lcd_edp>;
 +
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			edp0_in: port@0 {
-+				reg = <0>;
-+			};
-+
-+			edp0_out: port@1 {
-+				reg = <1>;
++		port {
++			panel_in_edp: endpoint {
++				remote-endpoint = <&edp_out_panel>;
 +			};
 +		};
 +	};
 +
- 	qos_gpu_m0: qos@fdf35000 {
- 		compatible = "rockchip,rk3588-qos", "syscon";
- 		reg = <0x0 0xfdf35000 0x0 0x20>;
+ 	combophy_avdd0v85: regulator-combophy-avdd0v85 {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "combophy_avdd0v85";
+@@ -238,6 +251,27 @@ &combphy2_psu {
+ 	status = "okay";
+ };
+ 
++&edp0 {
++	force-hpd;
++	status = "okay";
++};
++
++&edp0_in {
++	edp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_edp0>;
++	};
++};
++
++&edp0_out {
++	edp_out_panel: endpoint {
++		remote-endpoint = <&panel_in_edp>;
++	};
++};
++
++&hdptxphy0 {
++	status = "okay";
++};
++
+ &i2c3 {
+ 	status = "okay";
+ 
+@@ -399,6 +433,7 @@ usbc0_int: usbc0-int {
+ };
+ 
+ &pwm12 {
++	pinctrl-0 = <&pwm12m1_pins>;
+ 	status = "okay";
+ };
+ 
+@@ -1168,3 +1203,18 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
+ 		};
+ 	};
+ };
++
++&vop_mmu {
++	status = "okay";
++};
++
++&vop {
++	status = "okay";
++};
++
++&vp2 {
++	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
++		reg = <ROCKCHIP_VOP2_EP_EDP0>;
++		remote-endpoint = <&edp0_in_vp2>;
++	};
++};
 -- 
 2.34.1
 
