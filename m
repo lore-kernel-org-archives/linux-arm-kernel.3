@@ -4,65 +4,211 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FD2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 23:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80565E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 23:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nE0lMpFHRQbMjxCVICtRhw9zJ5Oy5M5HUo+2LUQLOXI=; b=FCbY4c6GdB1QmORp0eECps9TVo
-	oCwRP+JWE+chW3elaxyPqXrX4UDJ4fTBmSsLmvpPhIm4N9XJBgqB7hTLn/0ryEth1uPFiTjhudAVN
-	CXY9olMpJi4dPaSSQZAITYK3h7AeqXQH7JIrs6skVnFsOy+l9tOpF35M+T+Yd96+yGN4ReMmQZtUo
-	T1cd0mUHouSZxKMHfYpERsfsQ5+IwBqQUre6yibo22S6So1H/jt/P+dmnnIbwv30vlhUZWn3G8Uuk
-	x4lAN40z3U7Ja9crfGOkkRsdsmW/1sP6JRdAAyHeuapwmDJTfRwpbPlXBZXF7acF9mybP2NjGQtOS
-	j8rPEB3A==;
+	bh=Tq2J/qpsM6Qsv9lHnu/1dpnw2zpdtXpoPXiwJsuMtvg=; b=dyDHAeAeBSdS+B95v4RHiIfDu/
+	BZUEjbwfwYhfF6Zyvqky+IqUU2QyQAUQMwriLXpA+eVmj9I/9fD6YhLGUHJkhKTiDJq0NIFv9a4+B
+	0en0KeqGil3xWT+CpE6n7iR8ugKQ2vIbyPel/Zcvl/tXABEIqmaiEDfSixb3Z7+A6AGegVseuZ83B
+	zjAgi3hG0a0HtEjjqoF2XYsq8GDUwn5QJUIcCKwLReY+ozNK6fDp9TT9NKf6rxdPXoJSSX9hP3jvV
+	CWqRfc74225qMnn+j9rFy9xSsRgSIrlcijPssyPcP9MFgPP4ZWnwhwHPtRAHFxK4btKOISC0k2PuF
+	mxlF0GzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNKK6-0000000BdCB-1CPr;
-	Mon, 16 Dec 2024 23:16:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNKgO-0000000BfVs-2Tav;
+	Mon, 16 Dec 2024 23:39:24 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNKJ0-0000000Bd48-32D2
+	id 1tNKfG-0000000BfK2-0QNu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 23:15:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D6BD85C60CD;
-	Mon, 16 Dec 2024 23:14:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B59BC4CED0;
-	Mon, 16 Dec 2024 23:15:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734390913;
-	bh=WDQGE0FFR/+3pDl5MBnQd9HPJMHqNLi1cxrtKgTsVJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EczuVcpsRKVXCx0lYb5AdO0DfZtDyc0OfdX1XCRaKY5G5FnncKpFRuGDSEv498F0s
-	 +xX0kftqNilbwMoL2B+3vy3htfse1J7b8bjov9lXk5bjaIjiJ76zV4f/IFD/Btq8V5
-	 SUBv8c03T+udxenBUuYd1ge/HiudjWA3JyPw8kUpcwA+SLs0gGJ4bWjxSFZ4aY4uKo
-	 eV3VsryU7XdRnzIrwuSEHgPv0EzUQS0Ypm8N/pd77nza1oTR7GJd3XqvPD9YCs4EvA
-	 aX/hKsqvcqDkPjRb/v/kmCD+5Jkf32MjNqVkKObramCBDQUdMnw92l+O9fujlq5uZK
-	 cmJO8DGbuxH3A==
-Date: Mon, 16 Dec 2024 17:15:05 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH V2 18/46] arm64/sysreg: Add register fields for PMUACR_EL1
-Message-ID: <20241216231505.GA601635-robh@kernel.org>
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-19-anshuman.khandual@arm.com>
+	Mon, 16 Dec 2024 23:38:17 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGMjgIC010220;
+	Mon, 16 Dec 2024 23:37:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=Tq2J/qpsM6Qsv9lHnu/1dpnw2zpdtXpoPXiwJsuMtvg=; b=
+	G3JSm8K38TcV954p3AMYqrqacttTPgtZUgRVY1wcKI/3nofKXL8C3p59g2s/Uucc
+	P3OfY/YVVFd11oHyAAHIhAIhQFJViy3OukG7zPP8dHFM0r8ugSx6JJT1z86Izmm9
+	Nk4hN0M01FLX8l0/5ruM3qBqf/mhuI/w/jGEF9ZHKdjkrlA7sfqnO3/madaKze0y
+	raNJXgcisefPmZnhvrQRZMqL70sByerG0prBNyo7WuaccXuEZjj4yosAyd+gywpG
+	wxYv9ydkXbLB5qg3lO96+fNhGqiMfX/rG9NrI4Dsn7oaTkti2pDj4eN7zskIPnhm
+	ouloTdVp9RolhOO6PripXA==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 43h0xavqp4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 16 Dec 2024 23:37:32 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGLUvpH006434;
+	Mon, 16 Dec 2024 23:37:31 GMT
+Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11lp2175.outbound.protection.outlook.com [104.47.56.175])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 43h0f8p9ga-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 16 Dec 2024 23:37:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m8ZeFVUDvBU/bW/KD3pmb/6L1XT8Yn1C6FMpIh9fYh+wQIgc2ayX4CcIUhign1OPH4j1LhM7peR0lf0HKZTL0DKoJtDU5J+AOKxqh+oR26APqf0u1B3YfPAmZ/mo5MtElUQIylDjaCxFw/J2nrABc6RR0gYsPE4ucrmfsvneq58WJRe0dhDYGW6Vjfv7iPye6SJcOKyP4E/fBxAc0YoMGsxgIb1c6KQEWcbllfxDDfT7ZoJqlDQpazdJSU1ZwHOaFZGZG5gy0Q/HvUs8nnlMfoPLDL76Tvb3CmmNGAF5MY2PFL/Yf9PCtNR5fJtvUtydHgwMCAyjVhfam+NOqvkXKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Tq2J/qpsM6Qsv9lHnu/1dpnw2zpdtXpoPXiwJsuMtvg=;
+ b=MR1KtWyTzxLdOLd5sW9OIxjDAVuWoSzrw+p1+osOpdAisC39xafFggiF9yFK24oCdTBwU6BG91V9rC6lhZccCvznsYo8tmFcYmYKsRIJkpAECE+f9Xi3SrSpYif46L0WBU7pjLTTZ9+XPwOGx2EWgviXx/SECs0I8MWvFZnMwpk3pKPphpWNR2SGO6ESzkpOZD1LNFsxvyItjvWnz74PTMK3OymkVX3l3dbg7xnLns6WS3FZd27pJiBh3QSPuUIq5FHrsFQ0nVidMkCm0dBmaPnkSS4QtbeUepmdMbr/yYVAFmjMvGwAXZtOVXiSesN6Zacslr+OqfIkE3PBOVt3mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Tq2J/qpsM6Qsv9lHnu/1dpnw2zpdtXpoPXiwJsuMtvg=;
+ b=nm2m0RuUFYnEIZnnCYgf84M7iyErzzkylshMN0MSv6ZdPHu7NJBLVCgDLRCmCDSxSBYuodxzL63znk5bPrq8jJQVdXShBajYlyPGrCXd47sERhVM+Pg7bSFa5dAy8P+KXrzvmof85HQ5c53QB0hAebtYlg8dE5/hZw59NkB15lE=
+Received: from SA2PR10MB4780.namprd10.prod.outlook.com (2603:10b6:806:118::5)
+ by DS0PR10MB8200.namprd10.prod.outlook.com (2603:10b6:8:1fc::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Mon, 16 Dec
+ 2024 23:37:29 +0000
+Received: from SA2PR10MB4780.namprd10.prod.outlook.com
+ ([fe80::b66:5132:4bd6:3acb]) by SA2PR10MB4780.namprd10.prod.outlook.com
+ ([fe80::b66:5132:4bd6:3acb%6]) with mapi id 15.20.8251.015; Mon, 16 Dec 2024
+ 23:37:29 +0000
+Message-ID: <2fb8b1e5-d606-47be-a79e-a4e37a3b8f7f@oracle.com>
+Date: Mon, 16 Dec 2024 15:37:24 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 1/3] ACPI: APEI: send SIGBUS to current task if
+ synchronous memory error not recovered
+To: Shuai Xue <xueshuai@linux.alibaba.com>, yazen.ghannam@amd.com,
+        mark.rutland@arm.com, catalin.marinas@arm.com, mingo@redhat.com,
+        robin.murphy@arm.com, Jonathan.Cameron@Huawei.com, bp@alien8.de,
+        rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
+        wangkefeng.wang@huawei.com, tanxiaofei@huawei.com,
+        mawupeng1@huawei.com, tony.luck@intel.com, linmiaohe@huawei.com,
+        naoya.horiguchi@nec.com, james.morse@arm.com, tongtiangen@huawei.com,
+        gregkh@linuxfoundation.org, will@kernel.org, jarkko@kernel.org
+Cc: linux-acpi@vger.kernel.org, linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+        linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
+        ardb@kernel.org, ying.huang@intel.com, ashish.kalra@amd.com,
+        baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+        dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+        robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+        zhuo.song@linux.alibaba.com
+References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
+ <20241202030527.20586-2-xueshuai@linux.alibaba.com>
+Content-Language: en-US
+From: jane.chu@oracle.com
+In-Reply-To: <20241202030527.20586-2-xueshuai@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0346.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::21) To SA2PR10MB4780.namprd10.prod.outlook.com
+ (2603:10b6:806:118::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241210055311.780688-19-anshuman.khandual@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PR10MB4780:EE_|DS0PR10MB8200:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3238717-5785-42c7-6c79-08dd1e2a9adf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?blhCRHRRSHVDbGlWOW1ZWDBlcFNTWmNrM3N5T0N1aWR6Q2hUZWorQTlacWxy?=
+ =?utf-8?B?Z29ySE1yc2JCLzB6UFZCQllVYnJoQ2xvTFJUYmhBU013RzdVOGJQM2JrdHIz?=
+ =?utf-8?B?cFVyTTlnT2RHajh2enBFN3o4ZFZOK29wZzg3NDJ2WE1LbG4razNqRnpCOFBv?=
+ =?utf-8?B?LzVFMHhPdElNdWRPNWQxTmhvbWdib1RNUmtIQkRDSU1OYTNpcTFTYTFYbGV0?=
+ =?utf-8?B?Q2FLTG5LWUh3Zk9uY0RsMHhBclZOMURmcDU4VVR5clhkL3FtclZodnlIeGRS?=
+ =?utf-8?B?TTNTbGpZNkJrR3B5SFlwT0p0amFxVWJGdnJ1RkNXQ1VtbnhYbkV2SmVrWDRG?=
+ =?utf-8?B?RFZwSW1nRHU0T2pTaEpzb2xwTENidEwvTTB4Y3FPNVlMRldvSituV2ZoWGY1?=
+ =?utf-8?B?eGpGOUYvU1VNTCtiQWdVZFQ3QXVjNksxVTV4WmJVVzBlSEpya1BNNHBvVVFi?=
+ =?utf-8?B?WDlTYnJjK21jTngvYnp6QlI0U0pZNm9ZZmVvQTFsbjdMSHY3NVJDTFhUKy9R?=
+ =?utf-8?B?MXdzdzRMMzVoQnBqTnE1T0tCUmtNUGZVNnNMbnd6ZDlHb3MzNVN1a01ockpv?=
+ =?utf-8?B?SkJPeFJQbVMwSlFlRjRtNXZya3k2bFdyYzJ0MVBZczM0ZHl2dm9acmZUOXFB?=
+ =?utf-8?B?MW5RYXlnR0EvQmxqVk9wTVZ3Q1dSdDJ2ZG9YMzNnZmVNdkIzMEwrOXlwYmV0?=
+ =?utf-8?B?ZnMveDBwY0ExSWhONVhwZytLbklhZmJ2bnVaUWVrZHp5ZnFTR1JlY0N1cDVY?=
+ =?utf-8?B?eWJSb0QrNEVvSWEwb3NBaXZOM0tlTEJ3MkM1OXYvZ01vblVJZmFwWEJQN0NI?=
+ =?utf-8?B?Uk8xRkk5WjJHNUJjWmRISEt0amIrM05QczBtUWprQ1kwN1ZJMVZwdmJoQkhP?=
+ =?utf-8?B?SGM1ZzV0VUJDbnRFS0tET2VOSDRZTENwUWUwakFmaGdFOVRYbTFkMm5RcGNj?=
+ =?utf-8?B?VjEweVJKZUUway8zR3N3TzFUUEZERHlKUURVSStEZHR3Uk8rL2s3Z3V0N0VF?=
+ =?utf-8?B?SENuenJQcjRyaTNVemo1bHpzeUtmOUN3cThmM2VDNDllK2daRk1id1RjZ0RL?=
+ =?utf-8?B?U01NYi85MVprZVBKcDV1Q2hjRnlMRFlEcGF4QzFqU2FFaE9QSzZNeU9nb1RM?=
+ =?utf-8?B?TTI4UUpFMnpqcmVwQllpcmNKN0ZZV2pCVS91SnZ1WlUrNUFqQ3ZQRUgreWd1?=
+ =?utf-8?B?V3I2ODNDSDJEQ2RTUGxsMmlqVUxLZFRGazJPK2w0Y2RzdTl6KzdkSStVaHRp?=
+ =?utf-8?B?bThKK1pzTmdPYlZlUHJSYURORWNrOW9Vc3hTMVJFbkZTSjFGMDZiZEJ4ZnRM?=
+ =?utf-8?B?RU41TWZDWWhRY3N5a3VIcU1CM3hhZlpTS3RLMU1ZNGRSUUsxME16MU5MY0dp?=
+ =?utf-8?B?WVN6Ukl2Z3AxRDFRQnIrZW5JTHprd2pmNGlmVGgxUE5qRkY1c0oxekRoeExW?=
+ =?utf-8?B?dTFaYWZHdnlOTm00SUkxVUFRaE1pZzRNbFRxaG1HeEJVRk83NUNUQ29WUlZn?=
+ =?utf-8?B?T2dpOXVCcFI3V2E4RTlDZ2s5aGorcVZSeGpNb0J4L3RhdlkxZHplZ2JKQ0Zr?=
+ =?utf-8?B?OUZVRG5tV1Q1MUh1azdrdTlhSE5DaXd3Z0p6Smk5RkNHWDhFV08rWmpUZVF4?=
+ =?utf-8?B?U2REc3B2TE03ZTNUTDFlc0xRaktCWUxZdVVaSWtnOHZYOVdHUmxjUlJrSmRk?=
+ =?utf-8?B?L1FXaDg3MEdkSFQ3d1FDaTdROGVLRy9Yb1ZGKzNFb2NueitlRWpZOUxndktm?=
+ =?utf-8?B?NjZFMU5Hek9hSCs3b0ljZjRKL0dDT21VbThaYkpxS0VXNDNlV3doaHVWOEEz?=
+ =?utf-8?B?R0ZRQ3dtaFhkazlzcVVCMUI0d1pDVDE0VzlsRWYyY1RIaEZhNXk3TW4vaXBK?=
+ =?utf-8?B?OGNFdlhLbjlucENHRklTemNLamptR0xyaGFtWW5PVXNaQ2pRbVE3eWczK2tN?=
+ =?utf-8?Q?l1fYEtgl5IM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA2PR10MB4780.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?amg2VGk1Z3F5eDljSStrb0ltMGxDcUxLaEwrd0NqTWxNWWgvZTc1WU5qVzVX?=
+ =?utf-8?B?eHY5ZkVmNS8wUm9jTmp5YlBIR0IyRmM1NG52Q2h5V3I4Nll5NGNBd0gxT0lP?=
+ =?utf-8?B?QlY1NGc0bVFKaWRWN053dWR0VGxCUGJiaFdIVVNMUWxtSExvNjlUTjR1aVZ6?=
+ =?utf-8?B?TFBJRnZaMzlqR1FLT3RjTS9uYXFScWdPTDZJUFNMMVl0S1d1dERtL3lvUkth?=
+ =?utf-8?B?OFI0R1hwaXU1RFlpS043MzZCYlFXMnpuWGJyNUFWTldpVGVkSFpuc0ZWMlNH?=
+ =?utf-8?B?aGlHMVI2bGdlbEpCeVFFK2J1VVI5MXpETDJjdWpIRkM3ZEhiTTBlSmU0UTE1?=
+ =?utf-8?B?RjFOeXJkUjZwL3RjNzM1Q25yODN6Yno1MlFoRjNRMWd3Ujc1UFRpdGcvcERS?=
+ =?utf-8?B?K0pvTXlhZUlQRE9CYXhkamhUMWFTakh0WnU5YmlETWNpWXc3aGx1RlBmOEts?=
+ =?utf-8?B?UERpczNjSkJxOXVCR2drNktZLys2cjF5RURNd0huci94b1A3Sm5pUlN4SDN6?=
+ =?utf-8?B?UkxYNlQ5d0lYbFBsMERYVm9RQlloM3FybTg0dmRWUENxQUpNbXV1b2dZTzN5?=
+ =?utf-8?B?MjVwYndxTWloTmpJTmRIaHFRWEtVdUNwN3N5Z05IUjMrNTdYVVRFTEcxNzRq?=
+ =?utf-8?B?MEZwWXhDbXlnNkROczhkODlud2o4d25BOHUzc2l0K1RjRlJzSFYxQnVua1kr?=
+ =?utf-8?B?bFN5czExem1oWmJ1OGhHVGpaRVVrR0k2S3J6L0JRcHdHNTJEWFBYbmFXTEk0?=
+ =?utf-8?B?K0lqRy9QV0w1SVJMblNTMmpFdWdoN0k3RmdGMzgxa2dYNzdjRm5neGZpN0Np?=
+ =?utf-8?B?MHJWT0dacXQ0YzlEQk1nazRkdEFsK2VieUkzcytvS3VEMVhYMDd6YnQyVFFh?=
+ =?utf-8?B?Mkc0NENIdXF1d1FkWE81T1hYM0Uwb2lSbkc1MjMwa1YrRGJ2MDRPUXl2SThM?=
+ =?utf-8?B?eTJTSkh0UlpCbkt0QVR2RHN4U05iQzYyRC9aUFRKTXpqMGRFS1NIUWJzbE9a?=
+ =?utf-8?B?eEpTQkE0ZWU4QTljcmZiaDlqOWZ5aDJaSkdrbGNLeW82VFc0aHRwMzZ5UnNY?=
+ =?utf-8?B?R2R0bHZNM3lOUnVsT0szbmRGSHdrUWk5ODJ6cVk1M0dPQUZhZGR4dElSTjZ5?=
+ =?utf-8?B?MWZPZCtmRmhSMm13K1oxUjJPaUVzcmVzUmIvMytnSGlDOG1YSUxMSTV1eXEr?=
+ =?utf-8?B?NXlEWGpRVkhTRm1RZEhod2liMVpIdUVnTTR6U0gzam9kdkd5WWFIdzRCaXU4?=
+ =?utf-8?B?RXNzTVhkeCtxR2tUMFo2RG9xUTBhTmpyQjQrMFpBb3VoRmg4MXNUeG9yN0Jj?=
+ =?utf-8?B?NjBWcG1PTitWalA3ZDdSUEhORHN1d0dGR2F5ZlFROGdXOVZzWEViMGpHVGFj?=
+ =?utf-8?B?cVNYYnN0bnBXYWo3QmZVbjBPTG9lV1VKZWVhbnVPeUsxVk9aZm5uVHI0WHJB?=
+ =?utf-8?B?a1RjMERmZ01FdFpOc0VVclJnTjJGSHZzZWhXdzBoS3lQbGk4QkxhREVrMWFF?=
+ =?utf-8?B?TFkycjgzWlZIRFp1OG5HTWNmWWF5NnQ0NjFTbFh1clgrem9FOEJ5T1J6UXll?=
+ =?utf-8?B?YjlOTGdIUzJJVVZIeUVDNWJqYUxHYVBHRnZBVVZ0Y1p3Z0JOQUZYR0NCeWNh?=
+ =?utf-8?B?OURuUzQyYi9Cc0JDYXpNSExiQ291amtxNzFsWjZjQm03bEdEUlNmazNsQlpj?=
+ =?utf-8?B?UDY0aURPc1Z6cGFpbEl0bUdUTjNQU1RBdnVXbll2U0xaaDdLUXZMM2VTWDZI?=
+ =?utf-8?B?bThJZnJwVTY5SDdSVXdEL2hJZHNwK2IxTUlUQm1ENXI0blVHb0V3SUlFVmdN?=
+ =?utf-8?B?T2JodFZBQjJRL1dWUkUyN0NUOXdNUUkrai81V3JqZk01TWR3U0VZVFllYW1o?=
+ =?utf-8?B?aUV4Q2lUTDQ3U3hEUmE5b3lGUmhrYlpOUFBkd1ZpREZvbFF2V3NCTG1wWitW?=
+ =?utf-8?B?WGNxTytkZGNVYy8wM1VaYVFmcThNeEJRUDJpNFdBUlN5THE1Vm9INXd3QXlt?=
+ =?utf-8?B?T1pCeEttVVF2bnRtSDdlR0JEZFRPUlRQNzRNNVA0WTcvK3h4MnI5OVpEaWJG?=
+ =?utf-8?B?bFpxbVZGNk4wOFJwOHlrNTlOQ002akViRWVPTXA2d0xHM29TMFQxSmtoblQw?=
+ =?utf-8?Q?ye7tlrfne+I2WTx/IIdh7E34/?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: xK0twcfDPOCBNlIgkjaqb1vLIWDKB4zUFia9WDzC3zMPT/1ku4gidofOOiAeU6hoQPuT0UVWjCM3/6WNyRUESgFbVPfxkyA9l+wNfmvnTOlpOuGHthpeG57tJxifNsElV6fo7lm5LQnSY5dMucdyfYzG7GAT4JnBkXPiAa4idRkubsNKt2r7kF+oI5MChwGTXepVa6NS/gNezGcG83j+IXnu+lqBphezSDSs/Az9VkB2UhCN7FOr/URiiKpRr2kP+gCaz+YY3lewmamULETw9B9Np3j8DbKWgGUoyAXN3pdA4nudVMJp4D2KaRL3LDszStESaXdnXVwif/if9nChE/xw/1P8NclK/S3sWYURzHWaD1JjltTeXLvqX7gfGzoR3u4RPvD/dr2DkUMOEUSq8/NNG97kIb0glJ36Kx3xHFBZn0yg0LxQT70gnwU8gRz0DuVNSwkA0urWdjWj20cSsGmz/HXRWJ98FmTCU1LgMUsRH3+cNKNCKgWbvoQzES7H4qmmWvXjeziuqJGt+s3+1tEjoFF1a2phqh6Wg5e5zXohDVDKdOHJsBVe5cCRJeWqiRfmNwbO3Grc7xoi7T1z27MsuRv4rjlvtRst2lVNC9k=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3238717-5785-42c7-6c79-08dd1e2a9adf
+X-MS-Exchange-CrossTenant-AuthSource: SA2PR10MB4780.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 23:37:29.4845
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aul0IPFigoZhjC7ds+18Js5wbpbJd2fGyiF30PTn6+1bVjRd1HuexUNX0GfvOGi+es4XaMDHjU1KXo2iaVJ8lQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB8200
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2024-12-16_09,2024-12-16_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 phishscore=0
+ malwarescore=0 bulkscore=0 spamscore=0 mlxlogscore=999 suspectscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2411120000 definitions=main-2412160193
+X-Proofpoint-GUID: TcSwBqqXnt3vweaKPhonjOVWNb93x7g7
+X-Proofpoint-ORIG-GUID: TcSwBqqXnt3vweaKPhonjOVWNb93x7g7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_151514_812171_1126CEA9 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20241216_153814_144750_5E2FA177 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,71 +223,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 11:22:43AM +0530, Anshuman Khandual wrote:
-> This adds register fields for PMUACR_EL1 as per the definitions based
-> on DDI0601 2024-09.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
+On 12/1/2024 7:05 PM, Shuai Xue wrote:
+> Synchronous error was detected as a result of user-space process accessing
+> a 2-bit uncorrected error. The CPU will take a synchronous error exception
+> such as Synchronous External Abort (SEA) on Arm64. The kernel will queue a
+> memory_failure() work which poisons the related page, unmaps the page, and
+> then sends a SIGBUS to the process, so that a system wide panic can be
+> avoided.
+>
+> However, no memory_failure() work will be queued when abnormal synchronous
+> errors occur. These errors can include situations such as invalid PA,
+> unexpected severity, no memory failure config support, invalid GUID
+> section, etc. In such case, the user-space process will trigger SEA again.
+> This loop can potentially exceed the platform firmware threshold or even
+> trigger a kernel hard lockup, leading to a system reboot.
+>
+> Fix it by performing a force kill if no memory_failure() work is queued
+> for synchronous errors.
+>
+> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
 > ---
->  arch/arm64/tools/sysreg | 37 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 37 insertions(+)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 214ad6da1dff..462adb8031ca 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -2349,6 +2349,43 @@ Res0	63:5
->  Field	4:0	SEL
->  EndSysreg
->  
-> +Sysreg	PMUACR_EL1	3	0	9	14	4
+>   drivers/acpi/apei/ghes.c | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
+>
+> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+> index a2491905f165..106486bdfefc 100644
+> --- a/drivers/acpi/apei/ghes.c
+> +++ b/drivers/acpi/apei/ghes.c
+> @@ -801,6 +801,17 @@ static bool ghes_do_proc(struct ghes *ghes,
+>   		}
+>   	}
+>   
+> +	/*
+> +	 * If no memory failure work is queued for abnormal synchronous
+> +	 * errors, do a force kill.
+> +	 */
+> +	if (sync && !queued) {
+> +		dev_err(ghes->dev,
+> +			HW_ERR GHES_PFX "%s:%d: synchronous unrecoverable error (SIGBUS)\n",
+> +			current->comm, task_pid_nr(current));
+> +		force_sig(SIGBUS);
+> +	}
+> +
+>   	return queued;
+>   }
+>   
 
-I already added this and various other PMUv3.9 registers you've added 
-here in v6.12 and v6.13. So are you on an old base or the tool allows 
-multiple definitions? If the latter, that should be fixed.
+Looks good.
 
-> +Res0	63:33
-> +Field	32	FM
-> +Field	31	C
-> +Field	30	P30
-> +Field	29	P29
-> +Field	28	P28
-> +Field	27	P27
-> +Field	26	P26
-> +Field	25	P25
-> +Field	24	P24
-> +Field	23	P23
-> +Field	22	P22
-> +Field	21	P21
-> +Field	20	P20
-> +Field	19	P19
-> +Field	18	P18
-> +Field	17	P17
-> +Field	16	P16
-> +Field	15	P15
-> +Field	14	P14
-> +Field	13	P13
-> +Field	12	P12
-> +Field	11	P11
-> +Field	10	P10
-> +Field	9	P9
-> +Field	8	P8
-> +Field	7	P7
-> +Field	6	P6
-> +Field	5	P5
-> +Field	4	P4
-> +Field	3	P3
-> +Field	2	P2
-> +Field	1	P1
-> +Field	0	P0
+Reviewed-by: Jane Chu <jane.chu@oracle.com>
 
-We're never going to use Pnn defines. This is just useless bloat unless 
-we're aiming to top amd gpu defines LOC.
+-jane
 
-Rob
 
