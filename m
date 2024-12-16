@@ -4,145 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D588E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 16:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF3EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 16:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gimIjr0V+IvVPSAkV2M5qKEwFz/7JaI3Yve9R66BZE0=; b=IJhq0fVq9WBgN/s8U/KM0ZcodH
-	sj52ZMWG09n61cIMV4vUQJNfy/QIv05g3KlipIHjRB0w1kCrm33LxhpZuoOYITE5PG/eL4qSCeKvJ
-	5V7RXBrwoqsBqGpycLJ/msaL7HWSMtgtOIfGtV2jXThpHb6z8iXbFwmX1fOuJot4Gj2RhxJ7XAx4Q
-	OWR9Ns4p4t3b9/4YNIVJtMogs50zQ/cjxFfUzXefSfABsoMMhRQq6x+SuXf+t9EvKRsBVcJPagimi
-	Yu7KWKNSr0x1IIBRq1o24+fj8Vh/7Omji8Z9xVClKlA2V79/IU3D8184CUvBdpwTNsFrk3BtK2fzW
-	+ifeq/LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=82gDKALWw0Ekg/l8MKhauenkjup0NAxqqSYjA8q5Flo=; b=s8Q+CyneW+A8VjmnlJ37PhXh+K
+	pWLlS2z6WLccpvlfGkY5pMwamtOv4J6nQzE8sY/eSATLTidSGGdCSwHEDSPvsJRa9CtC9qmWd/xl7
+	CtN00+aRD9Wf3PFu0kxsD8SAAiTQhB+FPtVcbKy0LW/QG2d5e2bjo6oEVUmnVDw8nMyTmSJJtlioD
+	mp0/CzdFmQ6Gtg4PX8Oyn9tVgPTgtrdOgtRPAjwUWu8kWDn9sukk4872cQow2vMQSMfF/oVn2Evls
+	xtuF2eAUr8hOi5VxvbZGH2DPeLupY2KAo+NghXpzx+vkUP94GVv3wGs1e7H6/JeptAwFdqkR/Rjvp
+	EkqOfUbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDgH-0000000AWS2-0jXj;
-	Mon, 16 Dec 2024 16:10:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tNDnW-0000000AY7r-1I55;
+	Mon, 16 Dec 2024 16:18:18 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDeQ-0000000AWAs-0D9A
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Dec 2024 16:08:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gimIjr0V+IvVPSAkV2M5qKEwFz/7JaI3Yve9R66BZE0=; b=fXkOqQD81Yux/d/Nn+HipOlXIV
-	luk4bv28dpMhHN2mgyHsgLTk4cEdMNZ1OwSNB3Ku2pK6UhKhoySB7jQTFS23/6pG+Pqo6ACkPMYYl
-	jYH9zHsbcnQQeN/UUCh+8Pn3+xFBb/tUvI+93LhIRvjhlZznrC1RSUlLtCcxWJz8rnndyMdHDSQrT
-	kSqSVuSYtb/pLyrpzjT2tND0Vhx6Whqw2hMy6IjhA0bCRczJJaQRijYOw1zP8bMTuvf+tAIhAs8Lt
-	DtLnMfdvQ12v84cgH7mkmPu56ORToqr9AzMOpHzcrCW1M60W2PNAU/rwokGPbjpHCbgpM/c3UTTnA
-	SQCmd6ww==;
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDeM-00000004tZZ-30Uy
+	id 1tNDmP-0000000AXvw-08l2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 16:08:52 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-300392cc4caso51088081fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 08:08:48 -0800 (PST)
+	Mon, 16 Dec 2024 16:17:10 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-728ec840a8aso4597613b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 08:17:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734365327; x=1734970127; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gimIjr0V+IvVPSAkV2M5qKEwFz/7JaI3Yve9R66BZE0=;
-        b=YFNT5hWN8zvUwQBMG4oldTXqJq3K/yeJiIAoaTagRfYw6r6Tcxt0wWphovw91m5wWl
-         EctjgyyAix+rrH/JbL4BRAkti6T9j+k1FpV7Us3nRR51dG91jl+LAxkpP+itkkjscBhG
-         LtnQITqNcFhnmzxXv/MfBNqoaLdaVVb9P8LmdO4sWAmltTucX0C9gznjaR4SPFZvtZCU
-         HBI/TxtvCaEE/PeveRYl63bzr2T4j+5Twf4VUUyYqnXWkFt20QYJtFHguQ3fdEYeybZX
-         +b28mhGZpw/vjv9XnR5WpSOpbOHzaoNTI0l88JoM6sED2FczWrSZdONTEBsFPyVV/FF9
-         /M9A==
+        d=linaro.org; s=google; t=1734365828; x=1734970628; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=82gDKALWw0Ekg/l8MKhauenkjup0NAxqqSYjA8q5Flo=;
+        b=EV4jF6jdwbw47bTpq209W9pR4v29QtZKaBcus+kmDN+WKh8fpssmaHmYtDYw/mngc7
+         YScNHCtgJYJz2ZOE2TxaAzB+X/Wtk2Lg+nzqsEYSvo7V2koV2fAtP59T1e/Epp+VUcnc
+         Av7UHMHgx4MtHe6StbPgyVTpyl4SwGr/p1xRYfQR0LwxHWd+fJ7uepocTN0FVdMaBcMc
+         TqdTVC5zsRyzhub5rQw9J1WkC7hzEyPwRbciV9OB7sY9DFKumyArFqwxwOKOfTmSzJ6I
+         ERl/8tvwqVHYvtT0j65P0UFcqCiDAH23ELl2W9M2CT0tPcPlFvL4SmjwKjvxcn2Tm/sX
+         xmDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734365327; x=1734970127;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gimIjr0V+IvVPSAkV2M5qKEwFz/7JaI3Yve9R66BZE0=;
-        b=ifjG+IPoB0Cmquq/qM998WNdfjN6BaecWPPk5iqsaN3CsZ4dZTzFqX8zcnFluNqoTM
-         NaLx/ulF1I6JNXuyX8n18t/5r7QFQdP4sBsGqfOEa+N6BVLGViAs7SoIA2zlGp0HcwuP
-         qQMkawYGll7jZWBUTvuANFLVKd2D90hmallTGAvXak6zqhNIgDU0R10hqpaZRf6y3EFI
-         it/jQKfGvVf6i5RTR01lD74rwhjvUWIPIk/cNO3FIy8B3S4rqYCv4R2GKxvhMyVRdOIo
-         urSKajhDn9dHGxFgpelZ2PKc0uQ4m2H52pm2rovtnP+JWRZCVAtxiTPx35tPtstcU6QH
-         ubSw==
-X-Forwarded-Encrypted: i=1; AJvYcCW7uDxD1oKf382qa4QIvKcGM5XSpIY5y4CdEextYeDtkGH1VzUE+E7AKDsl13QBFLXc1dSYFokYKq4o/raFGdwY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcWHoH9xu3kc7TLfDwPcfTWXlrPLaiALEFdeETu0KlUy3zjS06
-	rlV2xNBGBdGmUcosH8d0LBb0+kT1uLf4rzpPU45cXVmtj/Gupywc88gc3/psDMc=
-X-Gm-Gg: ASbGncuvCMo1JUHMOpZtqU89zeyEw2e+nWyZv83HvwE3VSSKRc5/nlmqkY8ol6aT05i
-	HXaL26CNTm56si4k7M8LYJg7r6OUnNyEgQGXUV1xSfRP77K2RGgVozt0fe/0ZoHgxjSQrOry1Pv
-	IMhEgeGuDe7E1xuRm6rV0HwXgPVY0CZvYDOVACDqZ46U8UEAE5PFdG3/Y2d6LRqp5K8IMQV2ndb
-	KBBLE2SpHW95inC9Os29G3mCGgoAWmQsTDBg1J/93/jGd5TvSfTc/OQuxvwbZBNLxyDX+KimOHo
-	OYJ9dacZV7W823j0hyMLmb4k
-X-Google-Smtp-Source: AGHT+IEyHnHgkF8cGHfAxniJoLZXJ011DOlAgQIhnT5vzkhPcJthnAGY9LbeypdGeJjm5mrh2qegoQ==
-X-Received: by 2002:a2e:a591:0:b0:302:17e7:e17e with SMTP id 38308e7fff4ca-302543460f4mr50630091fa.0.1734365326654;
-        Mon, 16 Dec 2024 08:08:46 -0800 (PST)
-Received: from eriador.lan (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30344175ad0sm9665241fa.84.2024.12.16.08.08.43
+        d=1e100.net; s=20230601; t=1734365828; x=1734970628;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=82gDKALWw0Ekg/l8MKhauenkjup0NAxqqSYjA8q5Flo=;
+        b=CsDknV9J4pj9H6ED37kiE3S6DNe+t4YBUUWmYlfSnpmwziLi0WtOAICtVEGAldeHWz
+         PIbzjVXVMOdQfZHqNnPUARw47TZ4bzzWn5HtxO9DAP3evqtQ+oT/U0muV8UVF7zG2Woo
+         ApUzOMSPW1c7etHNl6qYrIteFJvgl1FCKclBuTi0XcB3zuL8nKeIFdzA6/xIQFoHAA/4
+         X1tPd/LdLt1+K5sqpU7Jpo2HS4ITS461Jrqg3+2j+RZItczmAurk30u5MijzVVeeQh4/
+         qYPiEJrGTEPHZhIr+dib4z+AhtyTwEze+NGxOLdHuON4EcE2oweqHE795ThOcyjv6rts
+         mpTw==
+X-Forwarded-Encrypted: i=1; AJvYcCXuPgOpymjw4rNNGQX4zbiXl/UDvrP3U6UWA7YmKJWIASgVMFTDZJEhHyXckTqUE4I66WRFkWc1T7ygBhuApmqk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3dAkTcl+gmYZTtIPajydlexvjQ3xvZMzvobRQ/PRzlgToob52
+	ZaQVxMTl5HYoMdU0UoMfj4BISnfFIbXdzeRBAAhXqiluN4sFW9Rwr0Qrf1+ZCw==
+X-Gm-Gg: ASbGncvOKSPl11QU9T1O5HE7QagFRZsthn/RkEF7OvcSmk5UbthX9zbNg8U4PqPU+DC
+	UnnXHbT8HSRN2+G9Qhn0A++eJktPnqHZCE0LcOZB62w9Yrdxhhl0106LWG02dWoIuGY++YiD2E+
+	tKiOS15EOeyKW9eO9X0dSx+VURy/A6V9TYwWsez5gQT9TCiTFE07evMDR1zhlw4ODcK1O64UuJ6
+	BwygZFCl4hh/BHacyVAO0sR3lRUYrAqtKRk7VFzRkJRCMUVlcM269Zmn4wZBVJDsB3k
+X-Google-Smtp-Source: AGHT+IGvG6qXEoCqCkROvX+b6dhtMyqPUbkI3UVWtmJgHt1xZMsm2fyfByqDiqxFQpxzhlW12Qg/Wg==
+X-Received: by 2002:a05:6a00:3688:b0:729:35b:542e with SMTP id d2e1a72fcca58-7290c25a4bcmr16844563b3a.16.1734365827870;
+        Mon, 16 Dec 2024 08:17:07 -0800 (PST)
+Received: from thinkpad ([120.56.200.168])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72918bb3a6dsm4925657b3a.136.2024.12.16.08.17.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 08:08:44 -0800 (PST)
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Leo Li <sunpeng.li@amd.com>,
-	Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Xinhui Pan <Xinhui.Pan@amd.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Phong LE <ple@baylibre.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Rob Clark <robdclark@gmail.com>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Alain Volmat <alain.volmat@foss.st.com>,
-	Raphael Gallais-Pou <rgallaispou@gmail.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	Jani Nikula <jani.nikula@intel.com>
-Subject: Re: [PATCH v2 00/10] drm/connector: add eld_mutex to protect connector->eld
-Date: Mon, 16 Dec 2024 18:08:41 +0200
-Message-ID: <173436531753.3257291.12458012077695445848.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
-References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
+        Mon, 16 Dec 2024 08:17:07 -0800 (PST)
+Date: Mon, 16 Dec 2024 21:47:00 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	p.zabel@pengutronix.de, cassel@kernel.org,
+	quic_schintav@quicinc.com, fabrice.gasnier@foss.st.com,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
+ STM32MP25
+Message-ID: <20241216161700.dtldi7fari6kafrr@thinkpad>
+References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
+ <20241126155119.1574564-5-christian.bruel@foss.st.com>
+ <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
+ <4e257489-4d90-4e47-a4d9-a2444627c356@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <4e257489-4d90-4e47-a4d9-a2444627c356@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_160850_926783_EE7D68C1 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20241216_081709_084476_EC2906DF 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,45 +107,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Dec 2024 11:43:03 +0200, Dmitry Baryshkov wrote:
-> The connector->eld is accessed by the .get_eld() callback. This access
-> can collide with the drm_edid_to_eld() updating the data at the same
-> time. Add drm_connector.eld_mutex to protect the data from concurrenct
-> access.
+On Mon, Dec 16, 2024 at 11:02:07AM +0100, Christian Bruel wrote:
+> Hi Manivanna,
 > 
-> The individual drivers were just compile tested. I propose to merge the
-> drm_connector and bridge drivers through drm-misc, allowing other
-> maintainers either to ack merging through drm-misc or merging the
-> drm-misc into their tree and then picking up correcponding patch.
+> On 12/3/24 16:22, Manivannan Sadhasivam wrote:
+> > On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
+> > 
+> > [...]
+> > 
+> > > +static int stm32_pcie_start_link(struct dw_pcie *pci)
+> > > +{
+> > > +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> > > +	int ret;
+> > > +
+> > > +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
+> > > +		dev_dbg(pci->dev, "Link is already enabled\n");
+> > > +		return 0;
+> > > +	}
+> > > +
+> > > +	ret = stm32_pcie_enable_link(pci);
+> > > +	if (ret) {
+> > > +		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
+> > > +		return ret;
+> > > +	}
+> > 
+> > How the REFCLK is supplied to the endpoint? From host or generated locally?
 > 
-> [...]
+> From Host only, we don't support the separated clock model.
+> 
 
-Applied to drm-misc-next, thanks!
+OK. So even without refclk you are still able to access the controller
+registers? So the controller CSRs should be accessible by separate local clock I
+believe.
 
-[01/10] drm/connector: add mutex to protect ELD from concurrent access
-        commit: df7c8e3dde37a9d81c0613285b43600f3cc70f34
-[02/10] drm/bridge: anx7625: use eld_mutex to protect access to connector->eld
-        commit: e72bf423a60afd744d13e40ab2194044a3af5217
-[03/10] drm/bridge: ite-it66121: use eld_mutex to protect access to connector->eld
-        commit: 39ead6e02ea7d19b421e9d42299d4293fed3064e
-[04/10] drm/amd/display: use eld_mutex to protect access to connector->eld
-        commit: 819bee01eea06282d7bda17d46caf29cae4f6d84
-[05/10] drm/exynos: hdmi: use eld_mutex to protect access to connector->eld
-        commit: 5e8436d334ed7f6785416447c50b42077c6503e0
-[06/10] drm/i915/audio: use eld_mutex to protect access to connector->eld
-        commit: 5db44dd1528625c73a31542df2a68972327c9897
-[07/10] drm/msm/dp: use eld_mutex to protect access to connector->eld
-        commit: 9aad030dc64f6994dc5de7bb81ceca55dbc555c3
-[08/10] drm/radeon: use eld_mutex to protect access to connector->eld
-        commit: b54c14f82428c8a602392d4cae1958a71a578132
-[09/10] drm/sti: hdmi: use eld_mutex to protect access to connector->eld
-        commit: e99c0b517bcd53cf61f998a3c4291333401cb391
-[10/10] drm/vc4: hdmi: use eld_mutex to protect access to connector->eld
-        commit: 81a9a93b169a273ccc4a9a1ee56f17e9981d3f98
+Anyhow, please add this limitation (refclk dependency from host) in commit
+message.
 
-Best regards,
+[...]
+
+> > > +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+> > 
+> > Hmm, so PHY mode is common for both endpoint and host?
+> 
+> Yes it is. We need to init the phy here because it is a clock source for the
+> PCIe core clk
+> 
+
+Clock source? Is it coming directly to PCIe or through RCC? There is no direct
+clock representation from PHY to PCIe in DT binding.
+
+- Mani
+
 -- 
-With best wishes
-Dmitry
-
+மணிவண்ணன் சதாசிவம்
 
