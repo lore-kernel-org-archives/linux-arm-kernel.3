@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445B5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A1CE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qwp7x4aJDUxarFTaEpzOHiBsU5haajJrQwtWnJXKDaM=; b=U5ogHNjW9CKyJLmn/rnwxZhG2l
-	4l1qm0j6swe3jTt2n6ZeuEGDPBcoK9Ae5jr9mutVSzyP03hSD6HvFpNFAhLbVtupKhuKWdUXIVq4y
-	XOvNTrbx460S71LAIFHFBN+GzEEEmYIoM/5nVzguCt7x2JuBsQW+SMSYNl8gM8rjeXUD+8HaqXo7C
-	6FWpwitJbz9wIXwyzTKOXF25EckMb+ABUPWwxxNdnUU2LuChmhheyJIL3r3JYrrWK0vJWmaC7cPVY
-	vCwjLiwvU4p3gJj8O8DWq2K06ltBd0sW7t+h7JTSlK4nRoosCCQWB7E41MOvQ0kvDkBUMeMTlXOEQ
-	gKmUPVmQ==;
+	bh=AdGL/Tz3xurrRoLzcPoxAPl+bc6OdESuPj65271AowM=; b=2DEJZmmF65elHaN09nsHatuyv0
+	vBZT9+IpWo2d0fFPZxD/aaufVsyMws4xNA9bux3MdvqKwRXrmB/mcjVOqH2L2GWS28YlKEUd7aedN
+	543cWwvCoWER2XxrxRpOTa6UFhFzUs43LG+SByzCBzL/jtoEwGqhn4kAzVFKwbCT/o0+8EhH3AD+M
+	4jH1q9XxAA95x8yau33u16xfxbZ4puKvj9XsnBamMm3eQ+Yq3Y2otiy/ScNkSVaj8gOA3uIQUaBe7
+	HRy5o4769UrdrrA07jP06p75NR2WzrAV4uqcMWww9UYTupKivJgfWBXxIiQyGwbwvmP33aPZPRaFH
+	S/nRGBSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCyZ-0000000AP5c-0YEG;
-	Mon, 16 Dec 2024 15:25:39 +0000
+	id 1tND2O-0000000APXM-1CUx;
+	Mon, 16 Dec 2024 15:29:36 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCxS-0000000AOrK-0utt
+	id 1tND1I-0000000APSE-3Mdi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 15:24:31 +0000
+	Mon, 16 Dec 2024 15:28:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D0B555C6181;
-	Mon, 16 Dec 2024 15:23:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4224EC4CED0;
-	Mon, 16 Dec 2024 15:24:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1747A5C61F5;
+	Mon, 16 Dec 2024 15:27:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E699AC4CED0;
+	Mon, 16 Dec 2024 15:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734362668;
-	bh=agePObKTKIqacVCU4rIa9k5erBpScbul3raudsvvu8Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b8QilrikF4NVH5daF8JcBRrPWW47IJcOfuBDqzAMfQm21R3U9vJi2tRp0R2CDW5KU
-	 5PerJeZDcm3voWMl8+EWYdNddW85QuUfUafcbTx+kTzNF4sUCjQ04UEDh3ph0PXAK1
-	 Z1NHTk8NagW8X10YnpCm7uKgRzHBWxsZCPpk+vfi7gkeip02Qs/Q8sl/IQN5ggPRnQ
-	 tiHqOSurdrARlgyv2rqjrH4jQgTA3uj8xMbUR/Tvgx4pm5Yzx2pKbbGLHs+Ow+FAJU
-	 9K5AFnij63nj1RL4yi2Lsp6+ZMP3PJrfPu/BXSpKNpcMrIG6YSDc/i3Kquo7nCV5DK
-	 MNuZMdT+4DpXQ==
-Date: Mon, 16 Dec 2024 16:24:26 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Harry Wentland <harry.wentland@amd.com>, 
-	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, 
-	Alex Deucher <alexander.deucher@amd.com>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
-	Xinhui Pan <Xinhui.Pan@amd.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Phong LE <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Rob Clark <robdclark@gmail.com>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	Jani Nikula <jani.nikula@intel.com>
-Subject: Re: [PATCH v2 00/10] drm/connector: add eld_mutex to protect
- connector->eld
-Message-ID: <20241216-observant-spiritual-wolf-564ee3@houat>
-References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
- <xchjpeykkqwlpniaspbzitaozuoltoq7aturtu7jq6z4lcxh77@y7t5ge2sa4er>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="yj5x4y56pv6ag7wh"
-Content-Disposition: inline
-In-Reply-To: <xchjpeykkqwlpniaspbzitaozuoltoq7aturtu7jq6z4lcxh77@y7t5ge2sa4er>
+	s=k20201202; t=1734362908;
+	bh=IbsaaHxncXLMIVV4lJHHEMhHUJMHu9Y+Jmy4PIDzRz4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LlwThIKjhLawfVwAbbGwpbaPFHItPOwAP4RqMDS/gLnvUEf2UqemRUVCbdYA0VptC
+	 CnCVPKvrlgRZzW9dZ8yAH8i8ucxO05s9OqNGbjH9j23UXJFQt7ykL6crXz0UaPKWNo
+	 yHQvNe14PFgBbMNify7hFQMow1QxN47behDRyzQ77Aasny5wn1UBmFl1Ut1KNO63lx
+	 eeiIpmy6vvjHSESD4ggZujLqQCGa/QzI0sj1ujw5ntWeKYpFGH7xQlo3DI9TbPwt+h
+	 KtsL8snCYo3baV+VNgWmJlRCQAJ2xUULAWfHXR/PO5YDnAXthWC9Ll4Ti6AirB/4HY
+	 7wQMznuOX5O+g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tND1F-004ECw-Pc;
+	Mon, 16 Dec 2024 15:28:25 +0000
+Date: Mon, 16 Dec 2024 15:28:25 +0000
+Message-ID: <8634insl46.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Peter Collingbourne <pcc@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to __cpuinfo_store_cpu()
+In-Reply-To: <Z2BCI61c9QWG7mMB@J2N7QTR9R3.cambridge.arm.com>
+References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
+	<87a5cysfci.wl-maz@kernel.org>
+	<Z2AfOZ82QG_ukWry@J2N7QTR9R3>
+	<865xnjsnqo.wl-maz@kernel.org>
+	<Z2BCI61c9QWG7mMB@J2N7QTR9R3.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, pcc@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_072430_349291_1AF0376F 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20241216_072828_926610_3D052651 
+X-CRM114-Status: GOOD (  28.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +92,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 16 Dec 2024 15:07:15 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Mon, Dec 16, 2024 at 02:31:43PM +0000, Marc Zyngier wrote:
+> > On Mon, 16 Dec 2024 12:38:17 +0000,
+> > Mark Rutland <mark.rutland@arm.com> wrote:
+> > > I think that what we did in commit:
+> > > 
+> > >    892f7237b3ff ("arm64: Delay initialisation of cpuinfo_arm64::reg_{zcr,smcr}")
+> > > 
+> > > ... introduces an anti-pattern that'd be nice to avoid. That broke the
+> > > existing split of __cpuinfo_store_cpu() and init_cpu_features(), where
+> > > the former read the ID regs, and the latter set up the features
+> > > *without* altering the copy of the ID regs that was read. i.e.
+> > > init_cpu_features() shouldn't write to its info argument at all.
+> > > 
+> > > I understand that we have to do something as a bodge for broken FW which
+> > > traps SME, but I'd much rather we did that within __cpuinfo_store_cpu().
+> > 
+> > Honestly, I'd rather revert that patch, together with b3000e2133d8
+> > ("arm64: Add the arm64.nosme command line option"). I'm getting tired
+> > of the FW nonsense, and we are only allowing vendors to ship untested
+> > crap.
+> > 
+> > Furthermore, given the state of SME in the kernel, I don't think this
+> > is makes any difference. So maybe this is the right time to reset
+> > everything to a sane state.
+> 
+> Looking again, a revert does look to be the best option.
+> 
+> We removed reg_zcr and reg_smcr in v6.7 in commits:
+> 
+>   abef0695f9665c3d ("arm64/sve: Remove ZCR pseudo register from cpufeature code")
+>   391208485c3ad50f ("arm64/sve: Remove SMCR pseudo register from cpufeature code")
+> 
+> As of those commits, ZCR and SCMR no longer matter to
+> __cpuinfo_store_cpu(), and only SMIDR_EL1 remains...
+> 
+> Per ARM DDI 0487 L.a, accesses to SMIDR_EL1 never trap to EL3, so we can
+> read that safely as long as ID_AA64PFR1_EL1.SME indicates that SME is
+> implemented.
+> 
+> Which is to say that if we revert the remaining portion of 892f7237b3ff
+> and restore the read of SMIDR, that should be good as far back as v6.7,
+> which sounds good to me.
 
---yj5x4y56pv6ag7wh
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 00/10] drm/connector: add eld_mutex to protect
- connector->eld
-MIME-Version: 1.0
+Sounds reasonable indeed. I guess *someone* will want it for the
+previous kernel versions, but they can have fun with the backport on
+their own.
 
-On Mon, Dec 16, 2024 at 01:24:29PM +0200, Dmitry Baryshkov wrote:
-> On Fri, Dec 06, 2024 at 11:43:03AM +0200, Dmitry Baryshkov wrote:
-> > The connector->eld is accessed by the .get_eld() callback. This access
-> > can collide with the drm_edid_to_eld() updating the data at the same
-> > time. Add drm_connector.eld_mutex to protect the data from concurrenct
-> > access.
-> >=20
-> > The individual drivers were just compile tested. I propose to merge the
-> > drm_connector and bridge drivers through drm-misc, allowing other
-> > maintainers either to ack merging through drm-misc or merging the
-> > drm-misc into their tree and then picking up correcponding patch.
-> >=20
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > ---
-> > Changes in v2:
-> > - Also take the mutex in clear_eld() (Jani)
-> > - Rebased on top of linux-next + drm-misc-next to solve build error
-> > - Link to v1: https://lore.kernel.org/r/20241201-drm-connector-eld-mute=
-x-v1-0-ba56a6545c03@linaro.org
-> >=20
-> > ---
-> > Dmitry Baryshkov (10):
-> >       drm/connector: add mutex to protect ELD from concurrent access
-> >       drm/bridge: anx7625: use eld_mutex to protect access to connector=
-->eld
-> >       drm/bridge: ite-it66121: use eld_mutex to protect access to conne=
-ctor->eld
-> >       drm/amd/display: use eld_mutex to protect access to connector->eld
-> >       drm/exynos: hdmi: use eld_mutex to protect access to connector->e=
-ld
-> >       drm/i915/audio: use eld_mutex to protect access to connector->eld
-> >       drm/msm/dp: use eld_mutex to protect access to connector->eld
-> >       drm/radeon: use eld_mutex to protect access to connector->eld
-> >       drm/sti: hdmi: use eld_mutex to protect access to connector->eld
-> >       drm/vc4: hdmi: use eld_mutex to protect access to connector->eld
->=20
-> Granted the lack of reviews from AMD maintainers and granted that the
-> rest of the series was reviewed and acked, is it suitable to leave those
-> two patches out and merge the rest through drm-misc-next?
+	M.
 
-Sounds reasonable to me
-
-Maxime
-
---yj5x4y56pv6ag7wh
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2BGJAAKCRAnX84Zoj2+
-dqCXAX9SjWwvOgFzh4mNa6iVP75JAzbqRH60uqV3o0fzLR0EpZr5ExXJlgdvDTJ1
-pqDitiQBf0gV4LWjS6KxH0jldZncnMFDYupvJiMgktWoAluECsTRw5fKWW43ccUY
-56/fJ5jxEg==
-=4rTF
------END PGP SIGNATURE-----
-
---yj5x4y56pv6ag7wh--
+-- 
+Without deviation from the norm, progress is not possible.
 
