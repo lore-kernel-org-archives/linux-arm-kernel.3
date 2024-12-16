@@ -4,106 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B34BE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EC2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jv3bSIoCBAxmgLzYVw0/ZOxZecUoAjlo4OXUiyorTBs=; b=EhtSbm4nBwXyEoLGoFlFnQCqhg
-	L2zoW7OIxuqrednhf0MyBL2G5ht8XF9jp/e6EXPap1b9EY6neWHGzeu9ynSOLeKTkBoVMChtBDKte
-	jID2C1OVg4uXsG4CaDfS+c2WeYxti0t0doDyzOAgF+kwRiNXVLIbkzxVm4mCe1x5WU3OBWmxtdEKt
-	FAiRQ9vxMtfWt1orzVx5g8g/geZ+d3MFEeux31i88X4ezb8TA79DNL5NVj2qjNlF7rzpEJx22sTuu
-	J0n9O9rhiMgqUHvqqSQvhaCfNfi3fRmvoBIIzg2MBqOeO7gF6bxTr3gxdh224jp+/Yx8XVZ4ObvDJ
-	NHA5OfTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B9Gi2lbBe8f7wfuW3GwYiZMF6A9fJI+RtqlNyAWo58E=; b=W+o2myF6+KmckwSFMmd53ojpbi
+	QRJ8vv4sGmjVyYPos7iDgeRHLoZsTUIklKDilBp+SsDdNO5pf4ovEASuZ2qLUoc3u0b3KYhrRInoy
+	oTETi26pnBwBxff3+h8exe5ZWZEoAo1dlMtZrMHm0e0woqCNQyN8bhcIh1rnG4GzqMms+slRfMJG8
+	2BPx5Gv4TI2Y+g7yFVFScDWd4R/9tRyz+OUW6movr9DcaZAdHpfRUepdBuOhuCSI1eXhCCkErggmz
+	zlywiXhFFnMTLhpVV/3k5Lk9ry+2Zux6Low3XmxSmb23AclQjQKjLUdC0QUh832wxIh2oNDZ5OgSa
+	e/XvtuNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6l4-00000009R3S-1MD5;
-	Mon, 16 Dec 2024 08:47:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tN6q2-00000009SLF-0vYJ;
+	Mon, 16 Dec 2024 08:52:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6jw-00000009Qt9-1X5j
+	id 1tN6oU-00000009SD4-0pOd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 08:50:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=B9Gi2lbBe8f7wfuW3GwYiZMF6A9fJI+RtqlNyAWo58E=; b=csVngC2lNbKoIP12izDa/11ndm
+	vunxNcB54Et2DIYFMmmEqdWZgqQ5JM6wubxmjbB2nFENu47s3EUXSBlRXLjSVdY9etjPRoZuN9QwF
+	uAGupBOh2keJeOv1460xpkgF1NB/XRwGhXuDXBMNL2xOZ1LnUAINW/yT+VGshwD+0Z7D5o2bAmL8I
+	vL3C01IneZHnbZiQD2HNDhKKH6Vq1s/wek2VmIFsSRRX8Gu3ESiN6NQ+pu76cW8BgNRijAcJrN2td
+	LOvkYqdnqDLt6yessoBm4TdBf070Rsc941mOzGvCdu56FylH0noLKmwc3cpr2D2nkyFX2tQ8RODGr
+	8U8yiKKA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN6oQ-00000004nyA-1edD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 08:46:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B35FDA40B98;
-	Mon, 16 Dec 2024 08:44:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E97FC4CED0;
-	Mon, 16 Dec 2024 08:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734338767;
-	bh=8bu0smSKNAuMe2IhZmGO29L41V06FksNCHa69ah7d0w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fwU/dH4b9Jp9yqpVxS+tE5hFoJuvl1RAxUy+EYmU6nYDvIkX4dt6/WjBRG8+OtLM9
-	 /Y3HowUZ9l3X/hKXqjWMxpedWbihExa58SrO2XEZMjofUEArkH6Y9j/di2eutHqrZ+
-	 seNVl1sWW48E1IIz7fAX7ep4Sr4C2qXiuS7ej0hUvw/PPtvreCLb7ctilPVDkseF6Y
-	 J8OyHOoqmpOR7jhP4XHV7yh6ZZ+GHCL2MewW0u/s+pjp3m8Ob231wbX+/TmWLm4lA+
-	 bIc5VNXF+eGR/1RUjRgd2MfNox7VsUSe5j00a7o5CafxdjebRNysquB7Q+ejsY/kA+
-	 oRp05eyHmFxww==
-Message-ID: <d75a63c9-5bfe-48b7-bb8f-bae415897f3b@kernel.org>
-Date: Mon, 16 Dec 2024 09:46:02 +0100
+	Mon, 16 Dec 2024 08:50:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D7B1113E;
+	Mon, 16 Dec 2024 00:51:11 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6F463F720;
+	Mon, 16 Dec 2024 00:50:41 -0800 (PST)
+Date: Mon, 16 Dec 2024 08:50:26 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: guomin_chen@sina.com
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Xinqi Zhang <quic_xinqzhan@quicinc.com>,
+	guomin chen <gchen.guomin@gmail.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
+Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless
+ scmi_bus_id.
+Message-ID: <Z1_p0nU93PHJ4Sg_@pluto>
+References: <20241216073745.2973317-1-guomin_chen@sina.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: dts: exynos8895: Add camera hsi2c nodes
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241214220750.723354-1-ivo.ivanov.ivanov1@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241214220750.723354-1-ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241216073745.2973317-1-guomin_chen@sina.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_004608_540978_D82CBEAF 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20241216_085046_885805_0CCE4B67 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,30 +81,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/12/2024 23:07, Ivaylo Ivanov wrote:
-> Add nodes for hsi2c1-4 (CAM0-3), which allows using them.
+On Mon, Dec 16, 2024 at 03:37:45PM +0800, guomin_chen@sina.com wrote:
+> From: guomin chen <guomin_chen@sina.com>
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Currently, scmi_bus_id is only used to set scmi_dev.id,
+> which in turn sets the SCMI device name. After removing
+> scmi_bus_id, it is clearer and more meaningful to directly
+> use the unique tuple [Parent name,device name, protocol] to 
+> set the SCMI device name.
+> 
+
+Hi Guomin,
+
+this same pTCH was NACKed(Rejected) a few days ago:
+
+https://lore.kernel.org/arm-scmi/20241211134505.2218386-1-guomin_chen@sina.com/T/#u
+
+...and you agreed that is not a simplification we can do (not to break
+multuple instances...)...
+
+..so why you are posting V2 now ?
+
+Thanks,
+Cristian
+
+> Signed-off-by: guomin chen <guomin_chen@sina.com>
 > ---
->  arch/arm64/boot/dts/exynos/exynos8895.dtsi | 44 ++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
+>  drivers/firmware/arm_scmi/bus.c    | 17 +++--------------
+>  drivers/firmware/arm_scmi/driver.c |  4 ++--
+>  2 files changed, 5 insertions(+), 16 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-> index 90b318b2f..36657abfc 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-> @@ -292,6 +292,50 @@ pinctrl_peric1: pinctrl@10980000 {
->  			interrupts = <GIC_SPI 430 IRQ_TYPE_LEVEL_HIGH>;
->  		};
+> diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+> index 157172a5f2b5..800e8ec9357c 100644
+> --- a/drivers/firmware/arm_scmi/bus.c
+> +++ b/drivers/firmware/arm_scmi/bus.c
+> @@ -20,7 +20,6 @@
+>  BLOCKING_NOTIFIER_HEAD(scmi_requested_devices_nh);
+>  EXPORT_SYMBOL_GPL(scmi_requested_devices_nh);
 >  
-> +		hsi2c_1: i2c@10990000 {
-> +			compatible = "samsung,exynos8895-hsi2c";
-
-
-
-There is no such compatible. Your changelog part or cover letter must
-always explain where the missing bindings are.
-
-Best regards,
-Krzysztof
+> -static DEFINE_IDA(scmi_bus_id);
+>  
+>  static DEFINE_IDR(scmi_requested_devices);
+>  /* Protect access to scmi_requested_devices */
+> @@ -341,7 +340,6 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
+>  	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
+>  		atomic_set(&scmi_syspower_registered, 0);
+>  
+> -	ida_free(&scmi_bus_id, scmi_dev->id);
+>  	device_unregister(&scmi_dev->dev);
+>  }
+>  
+> @@ -349,7 +347,7 @@ static struct scmi_device *
+>  __scmi_device_create(struct device_node *np, struct device *parent,
+>  		     int protocol, const char *name)
+>  {
+> -	int id, retval;
+> +	int retval;
+>  	struct scmi_device *scmi_dev;
+>  
+>  	/*
+> @@ -387,20 +385,13 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+>  		return NULL;
+>  	}
+>  
+> -	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
+> -	if (id < 0) {
+> -		kfree_const(scmi_dev->name);
+> -		kfree(scmi_dev);
+> -		return NULL;
+> -	}
+> -
+> -	scmi_dev->id = id;
+>  	scmi_dev->protocol_id = protocol;
+>  	scmi_dev->dev.parent = parent;
+>  	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+>  	scmi_dev->dev.bus = &scmi_bus_type;
+>  	scmi_dev->dev.release = scmi_device_release;
+> -	dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
+> +	dev_set_name(&scmi_dev->dev, "scmi_dev.%s.%s.%d", dev_name(parent),
+> +			scmi_dev->name, protocol);
+>  
+>  	retval = device_register(&scmi_dev->dev);
+>  	if (retval)
+> @@ -413,7 +404,6 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+>  	return scmi_dev;
+>  put_dev:
+>  	put_device(&scmi_dev->dev);
+> -	ida_free(&scmi_bus_id, id);
+>  	return NULL;
+>  }
+>  
+> @@ -526,7 +516,6 @@ static void __exit scmi_bus_exit(void)
+>  	 */
+>  	scmi_devices_unregister();
+>  	bus_unregister(&scmi_bus_type);
+> -	ida_destroy(&scmi_bus_id);
+>  }
+>  module_exit(scmi_bus_exit);
+>  
+> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> index 1b5fb2c4ce86..bbf1f05f2be3 100644
+> --- a/drivers/firmware/arm_scmi/driver.c
+> +++ b/drivers/firmware/arm_scmi/driver.c
+> @@ -2641,8 +2641,8 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+>  	cinfo->max_msg_size = info->desc->max_msg_size;
+>  
+>  	/* Create a unique name for this transport device */
+> -	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+> -		 idx ? "rx" : "tx", prot_id);
+> +	snprintf(name, 32, "__scmi_transport_device_%s",
+> +		 idx ? "rx" : "tx");
+>  	/* Create a uniquely named, dedicated transport device for this chan */
+>  	tdev = scmi_device_create(of_node, info->dev, prot_id, name);
+>  	if (!tdev) {
+> -- 
+> 2.47.1
+> 
 
