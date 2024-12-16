@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D70E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E4EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gADDHt6z9Xs2FfuEulQXnjl51FCwXIITHAjg5frr+9A=; b=ItJE6Z4YjOk7C5il8arpQ3z2jI
-	4ScIx9Yl4iMA5x2haq4ZafHpKBJGi+ag1MMlwAIINC+wDIXQbTRjzZ5oiBdPQdjr/2EN1G7zY9R0q
-	KJNTHn4ztzyr+9+d31UuqOayUWp4EFHZ6+zP63y4V2RdqfhjkhT39wrs+FnpJgsLkJ6AXZLfsJleL
-	T971K+WVuRqvYOq59xA26eSH/mGidL9F33r2M5TGGFFjotqm8WvR8PFzn7lAZhGXIOKBWQF4Yto8z
-	RxDYLipIpZcf4eQ3nbUZaDYhy0Pdoanpbj3b/Plr8f41pDcG9uUi3yp6BIpdpXA2WVuwgOhZFgvwM
-	gJC6u6ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b2GS7TGplgx8cev52aimN2rx3ubzf8xOQ9wOmvXpTnM=; b=CpRm1p80Ow2TJtec9Je8AKdNka
+	EgTGdHAWajxQuFbPbwxvLAS93w2g2JKhuJ8AYro/mcSw1bw+fzuFmMbkHgwjrZtpxdadrdnCJfsFW
+	3j60sHd8OzS7va/vCpEIaFBJ3JVfriszX6v5FovL/9JxxHu56XCMt4g7o7hNHsc42tfmmx0MyQtZq
+	laNNNpWvnpeogbtoNBxHpVFETf9Xnm0vPC7xtwck/aiSwSnHrtFELPLcq3MjKKyFb2U8G3HVddRNt
+	dYH0XfAU0jc0GjCki0cE38b5ZIm5S9cfUExQL4853TdRckhgZKV6Qvddaq7q0raDMUd5Vk5ahOdPE
+	rRqejOag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7gd-00000009a0D-0pCx;
-	Mon, 16 Dec 2024 09:46:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tN7oN-00000009b45-3qAQ;
+	Mon, 16 Dec 2024 09:54:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7fX-00000009ZmM-39tg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Dec 2024 09:45:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=gADDHt6z9Xs2FfuEulQXnjl51FCwXIITHAjg5frr+9A=; b=kQ8JkQFn7Ea6zlarxPjz88635m
-	ytBAYX+jIzZvXYG3MTSrlo10wOGnpHzGLumcTnyqLpRPIP5orH1GKRD95VKplLGqGSrA4A/CuHsKI
-	mTdaibTf+nUORUQ65mejqTeXt20CZ3kf8DT7MhjFEBComktX+L7l+rKA/j4oGN6etnRHZyIPxuLXN
-	3x6y9zmm9Vz1QO5urLCbF8BtYtBwZryM7qCEKQUHvhB8qAkeeQvy+69uAGZFtiWYSdsq26mMslnU7
-	1qSTguqhQzm4qxccmv39AoNmMrrN16Fg3+vTOxTM7A8S1rYDVNibPg14eyOk0X2f02zftjHwR8sxq
-	E9NLyjRA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7fT-00000004oqM-213e
+	id 1tN6nr-00000009S5b-1IHE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 09:45:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48D41113E;
-	Mon, 16 Dec 2024 01:46:02 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED7893F720;
-	Mon, 16 Dec 2024 01:45:32 -0800 (PST)
-Date: Mon, 16 Dec 2024 09:45:19 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: guomin_chen@sina.com
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Xinqi Zhang <quic_xinqzhan@quicinc.com>,
-	guomin chen <gchen.guomin@gmail.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
-Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless
- scmi_bus_id.
-Message-ID: <Z1_2rxJ7TOEIOMp7@pluto>
-References: <20241216073745.2973317-1-guomin_chen@sina.com>
- <Z1_p0nU93PHJ4Sg_@pluto>
+	Mon, 16 Dec 2024 08:50:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 60166A40B98;
+	Mon, 16 Dec 2024 08:48:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB924C4CED0;
+	Mon, 16 Dec 2024 08:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734339009;
+	bh=vdrWJOtTDm+yVnAiy8BwHagv1PFQ6X8i7m4IWpl2rvM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TCFNP+6bVH8BZFSrXBW35x0yD50E0rrBvNy4an5ihgL/TQ1d9g+tXqFbG9bXxr+9l
+	 xZbuhQsmBjWLVWHZCW+4T//ZtRcNLTY3v3FBi6eM+AlUAGGBBPJ/es9ibfFhbDTfiJ
+	 fUmtggU/seELb8AaWTVeG1MxySGLvjuDN3bwxCMISQti0Ez4cAoOPzuPHE/WHodJyY
+	 8yMMMOk2wQnkLbldA3g6vl12UWzD0VKF7zdkFDIq9fePqFakMYFbdyfc4StLD9zalN
+	 983yx7cxnlnsnFfpigx/M+mvusfeg+keOzZJTVfeO5zCTWUdQo0GiqlVG2POXn2NnM
+	 BF0w00BMwEv1g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tN6nn-0046Jl-Ge;
+	Mon, 16 Dec 2024 08:50:07 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Morse <james.morse@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v6.12] KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
+Date: Mon, 16 Dec 2024 08:50:02 +0000
+Message-Id: <20241216085002.334880-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z1_p0nU93PHJ4Sg_@pluto>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, james.morse@arm.com, gshan@redhat.com, shameerali.kolothum.thodi@huawei.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_094536_133186_389B0990 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20241216_005011_480960_2842C396 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,143 +86,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 08:50:26AM +0000, Cristian Marussi wrote:
-> On Mon, Dec 16, 2024 at 03:37:45PM +0800, guomin_chen@sina.com wrote:
-> > From: guomin chen <guomin_chen@sina.com>
-> > 
-> > Currently, scmi_bus_id is only used to set scmi_dev.id,
-> > which in turn sets the SCMI device name. After removing
-> > scmi_bus_id, it is clearer and more meaningful to directly
-> > use the unique tuple [Parent name,device name, protocol] to 
-> > set the SCMI device name.
-> > 
-> 
-> Hi Guomin,
-> 
-> this same pTCH was NACKed(Rejected) a few days ago:
-> 
-> https://lore.kernel.org/arm-scmi/20241211134505.2218386-1-guomin_chen@sina.com/T/#u
-> 
-> ...and you agreed that is not a simplification we can do (not to break
-> multuple instances...)...
-> 
-> ..so why you are posting V2 now ?
+From: James Morse <james.morse@arm.com>
 
-Wait...you changed slightly this indeed....you are using dev_parent...my
-bad...but please when you post new version of a patch add a summary of
-changes between versions...
+commit 6685f5d572c22e1003e7c0d089afe1c64340ab1f upstream.
 
-> 
-> Thanks,
-> Cristian
-> 
-> > Signed-off-by: guomin chen <guomin_chen@sina.com>
-> > ---
-> >  drivers/firmware/arm_scmi/bus.c    | 17 +++--------------
-> >  drivers/firmware/arm_scmi/driver.c |  4 ++--
-> >  2 files changed, 5 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-> > index 157172a5f2b5..800e8ec9357c 100644
-> > --- a/drivers/firmware/arm_scmi/bus.c
-> > +++ b/drivers/firmware/arm_scmi/bus.c
-> > @@ -20,7 +20,6 @@
-> >  BLOCKING_NOTIFIER_HEAD(scmi_requested_devices_nh);
-> >  EXPORT_SYMBOL_GPL(scmi_requested_devices_nh);
-> >  
-> > -static DEFINE_IDA(scmi_bus_id);
-> >  
-> >  static DEFINE_IDR(scmi_requested_devices);
-> >  /* Protect access to scmi_requested_devices */
-> > @@ -341,7 +340,6 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
-> >  	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
-> >  		atomic_set(&scmi_syspower_registered, 0);
-> >  
-> > -	ida_free(&scmi_bus_id, scmi_dev->id);
-> >  	device_unregister(&scmi_dev->dev);
-> >  }
-> >  
-> > @@ -349,7 +347,7 @@ static struct scmi_device *
-> >  __scmi_device_create(struct device_node *np, struct device *parent,
-> >  		     int protocol, const char *name)
-> >  {
-> > -	int id, retval;
-> > +	int retval;
-> >  	struct scmi_device *scmi_dev;
-> >  
-> >  	/*
-> > @@ -387,20 +385,13 @@ __scmi_device_create(struct device_node *np, struct device *parent,
-> >  		return NULL;
-> >  	}
-> >  
-> > -	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
-> > -	if (id < 0) {
-> > -		kfree_const(scmi_dev->name);
-> > -		kfree(scmi_dev);
-> > -		return NULL;
-> > -	}
-> > -
-> > -	scmi_dev->id = id;
-> >  	scmi_dev->protocol_id = protocol;
-> >  	scmi_dev->dev.parent = parent;
-> >  	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
-> >  	scmi_dev->dev.bus = &scmi_bus_type;
-> >  	scmi_dev->dev.release = scmi_device_release;
-> > -	dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
-> > +	dev_set_name(&scmi_dev->dev, "scmi_dev.%s.%s.%d", dev_name(parent),
-> > +			scmi_dev->name, protocol);
-> >
+commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits in
+ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to guests,
+but didn't add trap handling. A previous patch supplied the missing trap
+handling.
 
-So now you are using the parent top node SCMI device to create a unique
-device...and it probably endup in a name like:
+Existing VMs that have the MPAM field of ID_AA64PFR0_EL1 set need to
+be migratable, but there is little point enabling the MPAM CPU
+interface on new VMs until there is something a guest can do with it.
 
- 	scmi-dev.arm-scmi.0.auto.genpd.13
+Clear the MPAM field from the guest's ID_AA64PFR0_EL1 and on hardware
+that supports MPAM, politely ignore the VMMs attempts to set this bit.
 
- 	scmi-dev.arm-scmi.1.auto.genpd.13
+Guests exposed to this bug have the sanitised value of the MPAM field,
+so only the correct value needs to be ignored. This means the field
+can continue to be used to block migration to incompatible hardware
+(between MPAM=1 and MPAM=5), and the VMM can't rely on the field
+being ignored.
 
-...that certainly is more readable but is bulky and anyway giving unique
-IDs to devices is pretty common and you lookup which device is which by
-simply looking at the drivers/ link....not suure what's the benefit of
-all of this...just to avoid an IDA table ?
+Signed-off-by: James Morse <james.morse@arm.com>
+Co-developed-by: Joey Gouly <joey.gouly@arm.com>
+Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/r/20241030160317.2528209-7-joey.gouly@arm.com
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+[maz: adapted to lack of ID_FILTERED()]
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/kvm/sys_regs.c | 55 ++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 52 insertions(+), 3 deletions(-)
 
-> >  	retval = device_register(&scmi_dev->dev);
-> >  	if (retval)
-> > @@ -413,7 +404,6 @@ __scmi_device_create(struct device_node *np, struct device *parent,
-> >  	return scmi_dev;
-> >  put_dev:
-> >  	put_device(&scmi_dev->dev);
-> > -	ida_free(&scmi_bus_id, id);
-> >  	return NULL;
-> >  }
-> >  
-> > @@ -526,7 +516,6 @@ static void __exit scmi_bus_exit(void)
-> >  	 */
-> >  	scmi_devices_unregister();
-> >  	bus_unregister(&scmi_bus_type);
-> > -	ida_destroy(&scmi_bus_id);
-> >  }
-> >  module_exit(scmi_bus_exit);
-> >  
-> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> > index 1b5fb2c4ce86..bbf1f05f2be3 100644
-> > --- a/drivers/firmware/arm_scmi/driver.c
-> > +++ b/drivers/firmware/arm_scmi/driver.c
-> > @@ -2641,8 +2641,8 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
-> >  	cinfo->max_msg_size = info->desc->max_msg_size;
-> >  
-> >  	/* Create a unique name for this transport device */
-> > -	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-> > -		 idx ? "rx" : "tx", prot_id);
-> > +	snprintf(name, 32, "__scmi_transport_device_%s",
-> > +		 idx ? "rx" : "tx");
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ff8c4e1b847ed..fbed433283c9b 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1535,6 +1535,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_DF2);
+ 		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);
++		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);
+ 		break;
+ 	case SYS_ID_AA64PFR2_EL1:
+ 		/* We only expose FPMR */
+@@ -1724,6 +1725,13 @@ static u64 read_sanitised_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
+ 
+ 	val &= ~ID_AA64PFR0_EL1_AMU_MASK;
+ 
++	/*
++	 * MPAM is disabled by default as KVM also needs a set of PARTID to
++	 * program the MPAMVPMx_EL2 PARTID remapping registers with. But some
++	 * older kernels let the guest see the ID bit.
++	 */
++	val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
++
+ 	return val;
+ }
+ 
+@@ -1834,6 +1842,42 @@ static int set_id_dfr0_el1(struct kvm_vcpu *vcpu,
+ 	return set_id_reg(vcpu, rd, val);
+ }
+ 
++static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
++			       const struct sys_reg_desc *rd, u64 user_val)
++{
++	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
++	u64 mpam_mask = ID_AA64PFR0_EL1_MPAM_MASK;
++
++	/*
++	 * Commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits
++	 * in ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to
++	 * guests, but didn't add trap handling. KVM doesn't support MPAM and
++	 * always returns an UNDEF for these registers. The guest must see 0
++	 * for this field.
++	 *
++	 * But KVM must also accept values from user-space that were provided
++	 * by KVM. On CPUs that support MPAM, permit user-space to write
++	 * the sanitizied value to ID_AA64PFR0_EL1.MPAM, but ignore this field.
++	 */
++	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
++		user_val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
++
++	return set_id_reg(vcpu, rd, user_val);
++}
++
++static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
++			       const struct sys_reg_desc *rd, u64 user_val)
++{
++	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1);
++	u64 mpam_mask = ID_AA64PFR1_EL1_MPAM_frac_MASK;
++
++	/* See set_id_aa64pfr0_el1 for comment about MPAM */
++	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
++		user_val &= ~ID_AA64PFR1_EL1_MPAM_frac_MASK;
++
++	return set_id_reg(vcpu, rd, user_val);
++}
++
+ /*
+  * cpufeature ID register user accessors
+  *
+@@ -2377,7 +2421,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_ID_AA64PFR0_EL1),
+ 	  .access = access_id_reg,
+ 	  .get_user = get_id_reg,
+-	  .set_user = set_id_reg,
++	  .set_user = set_id_aa64pfr0_el1,
+ 	  .reset = read_sanitised_id_aa64pfr0_el1,
+ 	  .val = ~(ID_AA64PFR0_EL1_AMU |
+ 		   ID_AA64PFR0_EL1_MPAM |
+@@ -2385,7 +2429,12 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 		   ID_AA64PFR0_EL1_RAS |
+ 		   ID_AA64PFR0_EL1_AdvSIMD |
+ 		   ID_AA64PFR0_EL1_FP), },
+-	ID_WRITABLE(ID_AA64PFR1_EL1, ~(ID_AA64PFR1_EL1_PFAR |
++	{ SYS_DESC(SYS_ID_AA64PFR1_EL1),
++	  .access	= access_id_reg,
++	  .get_user	= get_id_reg,
++	  .set_user	= set_id_aa64pfr1_el1,
++	  .reset	= kvm_read_sanitised_id_reg,
++	  .val		=	     ~(ID_AA64PFR1_EL1_PFAR |
+ 				       ID_AA64PFR1_EL1_DF2 |
+ 				       ID_AA64PFR1_EL1_MTEX |
+ 				       ID_AA64PFR1_EL1_THE |
+@@ -2397,7 +2446,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 				       ID_AA64PFR1_EL1_RES0 |
+ 				       ID_AA64PFR1_EL1_MPAM_frac |
+ 				       ID_AA64PFR1_EL1_RAS_frac |
+-				       ID_AA64PFR1_EL1_MTE)),
++				       ID_AA64PFR1_EL1_MTE), },
+ 	ID_WRITABLE(ID_AA64PFR2_EL1, ID_AA64PFR2_EL1_FPMR),
+ 	ID_UNALLOCATED(4,3),
+ 	ID_WRITABLE(ID_AA64ZFR0_EL1, ~ID_AA64ZFR0_EL1_RES0),
+-- 
+2.39.2
 
-I agree on what Dan said AND also this results in having the same name for different
-devices across 2 instances if you have a per-protocol channel because you havent anymore
-the protocol_id bit.
-
-All in all, I would drop this patch and keep naming as it is because I dont see a real benefit
-here....up to Sudeep decide.
-
-Thanks,
-Cristian
 
