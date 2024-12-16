@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCACE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E875E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cfgH/xHLCW0nyrATLYlYPNlcx7mYw3lH5wjltUMjs+I=; b=cRC1SuQyNJ7vBWOAkQpwa5fMvg
-	fuHutOii03RIrm7mWyFo6mR1vBuJzpzvtDVq25uASb3cT06NMnIEQmWQ2hl2jpHAD74DaFlet9kFL
-	+f/4tfWI1AC3EwqVF4nGZMYqkrYa+Lz5bijyd/ZsosqfjwBAIaOHCj56W659ee7kXiAaiQpd++zZ/
-	/lNmAYyoV2nlMGm0H1Uo9xLGEzjvcEo09elpTxKiXUOrL1a4yAk0sH2e99B1LrLu7zPd6EUo/E9v+
-	eNUkF3/q5wCDoTHS4QmVqx4BKRFVvW+KZrO5Jam9ElMvDk3kpAfGy/I5t7axxfxhRlz5E/x4qu/om
-	zkcmekbQ==;
+	bh=c/c7GZNUXwiTUWXiN5svU9h/Vqh5j1pQZlxSZR0FYw0=; b=uVTBSunJTIrWyHnQ23TcjUgjsE
+	G5tlWelKOmULjQwYIckL9aP2bc8cfnJoCXAKdcRQw4HqQmqbJVkKRc/NKLsvzLNbCMlr2bVu5ycTO
+	XNnBYJUDdQxqIwnJsJAGP2Qr+cO6NJwh80zFC74rt6BGAmObTPVPHn4pZI/rvhPMTzwGbEB5psu4F
+	vPPRvLpWh318ZeT7oNN44MlRarN1b1cmFWYv8g2MqigFw+vh+4QTLgEp3kbi4FE4z1zjAzUOe+T6y
+	vJkeEa1KVD5YEUmJuXpKYPU0BmuP/IlvI8EaaDn+8s1H5jHOvrE+F2M1pAMc+ei7hkj5+1/sYNEJ0
+	y+1bjh4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7RT-00000009XsU-3Ur0;
-	Mon, 16 Dec 2024 09:31:07 +0000
+	id 1tN7VI-00000009YL5-2auL;
+	Mon, 16 Dec 2024 09:35:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7Pi-00000009XZ4-12sM
+	id 1tN7UC-00000009YAJ-1Opn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 09:29:20 +0000
+	Mon, 16 Dec 2024 09:33:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46E1A113E;
-	Mon, 16 Dec 2024 01:29:43 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E73313F720;
-	Mon, 16 Dec 2024 01:29:12 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	aruna.ramakrishna@oracle.com,
-	catalin.marinas@arm.com,
-	dave.hansen@linux.intel.com,
-	joey.gouly@arm.com,
-	keith.lucas@oracle.com,
-	ryan.roberts@arm.com,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org,
-	x86@kernel.org,
-	linux-s390@vger.kernel.org
-Subject: [PATCH] selftests/mm: fix dependency on pkey_util.c
-Date: Mon, 16 Dec 2024 09:28:49 +0000
-Message-ID: <20241216092849.2140850-1-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <Z19Tl30BuKTfL629@tuxmaker.boeblingen.de.ibm.com>
-References: <Z19Tl30BuKTfL629@tuxmaker.boeblingen.de.ibm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53170113E;
+	Mon, 16 Dec 2024 01:34:21 -0800 (PST)
+Received: from [10.57.71.247] (unknown [10.57.71.247])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6B7203F720;
+	Mon, 16 Dec 2024 01:33:52 -0800 (PST)
+Message-ID: <9094b068-ed3a-444d-b790-e43a652ab6e9@arm.com>
+Date: Mon, 16 Dec 2024 09:33:51 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] coresight: tmc: Update error logging in tmc common
+ functions
+Content-Language: en-GB
+To: Mike Leach <mike.leach@linaro.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org
+Cc: james.clark@linaro.org, alexander.shishkin@linux.intel.com
+References: <20241213144919.110642-1-mike.leach@linaro.org>
+ <20241213144919.110642-3-mike.leach@linaro.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20241213144919.110642-3-mike.leach@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_012918_328919_6F69E312 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20241216_013356_466535_A508CC70 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,74 +66,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pkey* files can only be built on architectures that support
-pkeys (pkey-helpers.h #error's otherwise). Adding pkey_util.c as
-dependency to all $(TEST_GEN_FILES) is therefore a bad idea. Make it
-a dependency of the pkeys tests only.
+On 13/12/2024 14:49, Mike Leach wrote:
+> Enhance the error logging in the tmc_wait_for_tmcready() and
+> tmc_flush_and_stop() to print key tmc  register values on error
+> conditions to improve hardware debug information.
+> 
+> Signed-off-by: Mike Leach <mike.leach@linaro.org>
+> ---
+>   .../hwtracing/coresight/coresight-tmc-core.c  | 37 +++++++++++++++----
+>   drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
+>   2 files changed, 30 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> index e9876252a789..1a9299adae93 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> @@ -34,25 +34,36 @@ DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
+>   DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
+>   DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
+>   
+> +#define TMC_WAIT_READY_FMT_STR "timeout while waiting for TMC to be Ready [STS=0x%04x]\n"
+> +
+>   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
+>   {
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   	struct csdev_access *csa = &csdev->access;
+> +	u32 tmc_sts = 0;
+>   
+>   	/* Ensure formatter, unformatter and hardware fifo are empty */
+> -	if (coresight_timeout(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
+> -		dev_err(&csdev->dev,
+> -			"timeout while waiting for TMC to be Ready\n");
+> +	if (coresight_timeout_retval(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1,
+> +				     &tmc_sts)) {
+> +		dev_err(&csdev->dev, TMC_WAIT_READY_FMT_STR, tmc_sts);
+>   		return -EBUSY;
+>   	}
+>   	return 0;
+>   }
+>   
+> -void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
+> +int tmc_flush_and_stop(struct tmc_drvdata *drvdata)
+>   {
+>   	struct coresight_device *csdev = drvdata->csdev;
+>   	struct csdev_access *csa = &csdev->access;
+> -	u32 ffcr;
+> +	u32 ffcr, ffsr, tmc_sts;
+> +	int rc = 0;
+> +
+> +	/* note any MemErr present when stopping TMC */
+> +	tmc_sts = readl_relaxed(drvdata->base + TMC_STS);
+> +	if (tmc_sts & TMC_STS_MEMERR)
+> +		dev_err(&csdev->dev,
+> +			"MemErr detected before Manual Flush; STS[0x%02x]\n",
+> +			tmc_sts);
+>   
+>   	ffcr = readl_relaxed(drvdata->base + TMC_FFCR);
+>   	ffcr |= TMC_FFCR_STOP_ON_FLUSH;
+> @@ -60,12 +71,22 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
+>   	ffcr |= BIT(TMC_FFCR_FLUSHMAN_BIT);
+>   	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
+>   	/* Ensure flush completes */
+> -	if (coresight_timeout(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
+> +	if (coresight_timeout_retval(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0,
+> +				     &ffcr)) {
+> +		ffsr = readl_relaxed(drvdata->base + TMC_FFSR);
+>   		dev_err(&csdev->dev,
+> -		"timeout while waiting for completion of Manual Flush\n");
+> +			"timeout while waiting for completion of Manual Flush\n");
+> +		dev_err(&csdev->dev,
+> +			"regs: FFCR[0x%02x] FFSR[0x%02x] STS[0x%02x]\n",
+> +			ffcr, ffsr, tmc_sts);
+> +		rc = -EBUSY;
+>   	}
+>   
+> -	tmc_wait_for_tmcready(drvdata);
+> +	if (tmc_wait_for_tmcready(drvdata)) {
+> +		dev_err(&csdev->dev, "TMC ready error after Manual flush\n");
+> +		rc = -EBUSY;
+> +	}
+> +	return rc;
+>   }
 
-Those tests are built in 32/64-bit variants on x86_64 so we need to
-add an explicit dependency there as well.
+All of this looks good to me. Do we need to move the MemErr check post 
+the flush ? There is a potential chance of hitting a MemERR on flushing
+and we could miss reproting those ones ?
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
+Suzuki
 
-Hi Alexander,
-
-Thank you for the bug report, that patch indeed breaks all
-architectures that don't support pkeys, I should have realised that!
-This patch should fix it.
-
-Andrew, it would make sense to squash this patch into the original
-("selftests/mm: Use sys_pkey helpers consistently").
-
-Cheers,
-- Kevin
-
-Cc: akpm@linux-foundation.org
-Cc: aruna.ramakrishna@oracle.com
-Cc: catalin.marinas@arm.com
-Cc: dave.hansen@linux.intel.com
-Cc: joey.gouly@arm.com
-Cc: keith.lucas@oracle.com
-Cc: ryan.roberts@arm.com
-Cc: shuah@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kselftest@vger.kernel.org
-Cc: linux-mm@kvack.org
-Cc: x86@kernel.org
-Cc: linux-s390@vger.kernel.org
----
- tools/testing/selftests/mm/Makefile | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
-index 1f0743d9459d..18041de1aebf 100644
---- a/tools/testing/selftests/mm/Makefile
-+++ b/tools/testing/selftests/mm/Makefile
-@@ -147,16 +147,20 @@ TEST_FILES += write_hugetlb_memory.sh
- 
- include ../lib.mk
- 
--$(TEST_GEN_PROGS): vm_util.c thp_settings.c pkey_util.c
--$(TEST_GEN_FILES): vm_util.c thp_settings.c pkey_util.c
-+$(TEST_GEN_PROGS): vm_util.c thp_settings.c
-+$(TEST_GEN_FILES): vm_util.c thp_settings.c
- 
- $(OUTPUT)/uffd-stress: uffd-common.c
- $(OUTPUT)/uffd-unit-tests: uffd-common.c
-+$(OUTPUT)/protection_keys: pkey_util.c
-+$(OUTPUT)/pkey_sighandler_tests: pkey_util.c
- 
- ifeq ($(ARCH),x86_64)
- BINARIES_32 := $(patsubst %,$(OUTPUT)/%,$(BINARIES_32))
- BINARIES_64 := $(patsubst %,$(OUTPUT)/%,$(BINARIES_64))
- 
-+$(BINARIES_32) $(BINARIES_64): pkey_util.c
-+
- define gen-target-rule-32
- $(1) $(1)_32: $(OUTPUT)/$(1)_32
- .PHONY: $(1) $(1)_32
--- 
-2.47.0
+>   void tmc_enable_hw(struct tmc_drvdata *drvdata)
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index 2671926be62a..34513f07c3aa 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -259,7 +259,7 @@ struct tmc_sg_table {
+>   
+>   /* Generic functions */
+>   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata);
+> -void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
+> +int tmc_flush_and_stop(struct tmc_drvdata *drvdata);
+>   void tmc_enable_hw(struct tmc_drvdata *drvdata);
+>   void tmc_disable_hw(struct tmc_drvdata *drvdata);
+>   u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
 
 
