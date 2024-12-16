@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2BEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCDEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 19:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=690bYW6+JhWBO5SGjqvjGmOT9zUI0kV2wWETtbgOT54=; b=vqXSf7ViVxj16S43OMTAeuOpsZ
-	cJ5p+CEJ/SKsfEO97qKJs9GO5RhUUExH8EEnmeWvV0V7Kzxe4LF9Xk/Ouw86mMxjl5T40eIuWMDxz
-	3XniMvk+kTLLFulx80MW0S2dAe5WCXOH2s44Nd1mszN+GtJ8FsUr7F3EePlIySlZF4kJU4TbJcxGp
-	kL2zsFPU2bTP6dRGOCaTQ7BGwqjh+j3HuHmiPmfJ1/aiXnx1zCcL2GWJKyyObNt5/xAdXyAmc6kap
-	yRP/YlkaXdvpWTCknooP/OZUEvrCLu+DGdkE9s4d3ix2PyYCK0jPmVBExLptBS1QzReYu4jWMiT2e
-	2G4n+39w==;
+	bh=dyP52yXMvdCG/qeO/nxD7I5lO2ep30nuHc1XdZd9lVE=; b=TYSCBjOb/7o4pX+LZeqRdEWXpq
+	xws8YsRDR1rnGRy+87jBGz20toyzumFV8oh20e+6sEByYF6Pc6wOw6Khsd86e8vdPNW1SFLwVmYl0
+	Lbyh+RIM4WlesKVMywOe4GJAZC4IFM83CruDibqbkEOyVZsRN16+GZXghvONREQp8pBpXBxee/f8+
+	knq1pFvpq7zcJC0LVfSJbQknDnXhjfm9Hwk05baYWen8FRvgi4jFRivUDTj/9k9GtOUTWU3zzGgzD
+	7AGjFkWH0KUDuZ0l4mTcNcQAoVFohEyWzRzWqDkYX4j8OT56FtYd8cQ6UN4bK0UjhLJ49nXZMqh/R
+	9DICP9eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNGGJ-0000000B1OK-3mFo;
-	Mon, 16 Dec 2024 18:56:11 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1tNGi4-0000000B5NH-1fX7;
+	Mon, 16 Dec 2024 19:24:52 +0000
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNGEW-0000000B18L-1wCL
+	id 1tNFMX-0000000Ar2b-10LL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 18:54:21 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-728f1525565so5264519b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 10:54:19 -0800 (PST)
+	Mon, 16 Dec 2024 17:58:34 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-5d3e77fd3b3so5297587a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 09:58:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734375259; x=1734980059; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=690bYW6+JhWBO5SGjqvjGmOT9zUI0kV2wWETtbgOT54=;
-        b=eQXjgxtE7WO/I159qj/hkRh74tJKTvoHT1B0GX885icFoJZ5zokINhCH4brOc9lWFI
-         tM7W4JGnow+YBh4XonWzAkVP79wVTaNeQ6exfzRUGfPlpY3X1pQUcNjH4mxvVBWuSPDj
-         m0ByF1JkWdUYahwWAuoCom1fF3hBZ5rm/0l7/+1J4u4iFJL4ooZmvS7Mii09AMlVdR4s
-         CGAjvLMc6NUdYYGuGwTjmEFRYkGE+wwsVjGjn6O0o5IZF1hMPYi6Qi5XuZjiz7FdgsRA
-         NHrcQVL3m+q0SSE/3CaESy4JZLttLhYkZeEtJoZXG9qMChV2zjakkNXdVJ1lNvGGvzxJ
-         2Xgw==
+        d=google.com; s=20230601; t=1734371911; x=1734976711; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dyP52yXMvdCG/qeO/nxD7I5lO2ep30nuHc1XdZd9lVE=;
+        b=b3JLtEkpPG31UkuZ6A2i6Rrom2QtOS/DfWKMwH/rZickm9sF3dcp726GuLpdrBm1Pq
+         NjE/gSSmwi1XY71xMH7JOzduFxPBjs1Z3ixbnpEYdkNrmD7TOeW5iXSRmcc5AgIo5GpX
+         iTVjIZSXlmOmNUF4gUJWMN8FU7C6MCno2sCTNLnfpdv/KgqOC4CjM3baYHUnB/ej3AtV
+         nwpbOwbBYIB8GZoGGl++mdh3tZZkRGBAN2vFZ/6iab90ABSw1d3n9EPtp90LdQsBg1Yi
+         +l13PSU1lxCdT0T7GIJk1kJYd0Qb38xGKTLSmfnWhHo38T5ia/5lHoZoKxrz9yIIGhhj
+         9g8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734375259; x=1734980059;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=690bYW6+JhWBO5SGjqvjGmOT9zUI0kV2wWETtbgOT54=;
-        b=JnJDQ5QIBF4BW2KmXOJRT6EKHZuB5zqyML0x1kCUI06i74jqBWZ6qRX/Lush3/hngI
-         WisqRjw7X9crhIYA5/l7/eVMh+rwIvvjjJzScHohKdmrrsxWD++9c3nUnLvruR7aI/UW
-         LJHfbYsP5G08MRNlMqm28oBKNqiwuosT7muhsKpXUu8GW2aRujA1zrkcFNJm4xYFcUyc
-         /q7B99Vy1WQ5MEgsrpybukgjLugjX8qFX4T+g3GI2Ln5TUS26L2c/JIyLqSohm32JBww
-         wGJJlBurTazuyH4IGdZlo0Fxv5RLFZESgGiFk6tv0lUP/asnnZhTZteBPANEK6mcJpSd
-         H6xw==
-X-Forwarded-Encrypted: i=1; AJvYcCXegew70RXKTuF+aC5Bd6Wrz2lACE8eyFxVB7Lj6wYvJ0NfxdJE7T+F6ZpZnh1XSk6NvzM2PpKGnmW8fCeXJDb7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1bI19kZyELLxwRFW4XB9nr2J0LcUWX3UZh8MOVmW4VXlgnnlW
-	IK7IfjC6c4BDm28w9cc+ituaMsZeb/uQk5oDvSBBwYrbAePfALAms/7CGmWT8w==
-X-Gm-Gg: ASbGncsWzfJYmvtJDfFxC+UqsJT0/6swjceenmnP6n5VB6u7VSpDhRQkTM2UxysorZ8
-	rKcMPzKMjikrsXxYSy+InB/rcU7ajbIXg6olcFvVGWb5XlTkqLPJu7wk01DpkAJYzjlNHiZmYba
-	GexyhwwTJZP/M6iUWuF5YatC5W6ynBPD/HiceP2eCxr8uahs6hmlUQ2Q4q61iMf6WL/jGTXTxgn
-	IWPXNZfYDlaVijlJyFkpO4GUG5EqURdG1qOAthqlsUWzPeDJ2OpT98lCeRGYBVtMHuKpUJ1hgCd
-	zP6bew3A27NruUpRTN20ouqS
-X-Google-Smtp-Source: AGHT+IFLkxN//qOcEYYuBjw4V9elaQ3W3HVovjotDyIMx9yQiA5AcZ4RTDQhTqISuW2kKbScrkRKeA==
-X-Received: by 2002:a05:6a21:1796:b0:1e1:9fef:e960 with SMTP id adf61e73a8af0-1e1dfc0970cmr19290101637.6.1734375258877;
-        Mon, 16 Dec 2024 10:54:18 -0800 (PST)
-Received: from google.com (123.65.230.35.bc.googleusercontent.com. [35.230.65.123])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-801d5a90832sm4476417a12.11.2024.12.16.10.54.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 10:54:18 -0800 (PST)
-Date: Mon, 16 Dec 2024 10:54:15 -0800
-From: William McVicker <willmcvicker@google.com>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, andre.draszik@linaro.org,
-	kernel-team@android.com, daniel.lezcano@linaro.org,
-	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-Subject: Re: [PATCH v2 3/4] arm64: dts: exynos: gs101: add ACPM protocol node
-Message-ID: <Z2B3V78k2ibIdLYh@google.com>
-References: <20241212-b4-acpm-v4-upstream-dts-v2-0-91b7a6f6d0b0@linaro.org>
- <20241212-b4-acpm-v4-upstream-dts-v2-3-91b7a6f6d0b0@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241212-b4-acpm-v4-upstream-dts-v2-3-91b7a6f6d0b0@linaro.org>
+        d=1e100.net; s=20230601; t=1734371911; x=1734976711;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dyP52yXMvdCG/qeO/nxD7I5lO2ep30nuHc1XdZd9lVE=;
+        b=RSevMVautTdbvsnY9V8CD5jsHZb3Tw+QvLrUelAdSbJwDczJTySGXhSrzOtcR8eJwp
+         s2Hf9VVcnr7EMwKDrle7BoW1azwUkGvf8QstMwkSroRK4kl6nx2hDyGBXjLUXcnXvSB3
+         It95ORE1QCzSVPugITrbbs9+MXV21w7cJygdh+WfXCs2lLgsx/XPt/q1HcnutJsBwqXd
+         87fHlUFuPEQpQ3Oq1BXSF4bIvONQJZU2W5bM/eLlZgWyIkoBFa9JoIqWnvhTxuwXEQz7
+         GH+6gRNzqh2V8M7k0f+qkFYi1I+CDq13q3o0SkgnGPViH/7SLm/gBOEQAjnjnHU/HJi8
+         7heg==
+X-Forwarded-Encrypted: i=1; AJvYcCWY8JBMsboEKbInqjxCFrXEfKIBeBisllfgdqAXeIKIG35Ixvh6AqMvNqn2sOd9jbPOYdLigBIpnu97QJwh73Ik@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyy0AQFQ2yrkRNO2GkAVjrXAdNE5jvbNxrKfIvNfN2//o0+L3mq
+	f5jwFEYrezaj6Aq9F84WD1ZFOGQ7iKIpDbXOWrlo6I4UVDTRi8lE1K4Jt0iy98oE9HbkCcsxeSE
+	B02WjUg==
+X-Google-Smtp-Source: AGHT+IFP4nw4MedeF204ACC4I+mIvh9+F0wuQVKyEpLyYdXQPbpwYFvSWf+Gws8g2zlegmkHbaKOYI4g0Iku
+X-Received: from edbek21.prod.google.com ([2002:a05:6402:3715:b0:5d6:570c:dae5])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:5191:b0:5cf:bb9e:cca7
+ with SMTP id 4fb4d7f45d1cf-5d63c3c0697mr13666506a12.28.1734371910915; Mon, 16
+ Dec 2024 09:58:30 -0800 (PST)
+Date: Mon, 16 Dec 2024 17:57:57 +0000
+In-Reply-To: <20241216175803.2716565-1-qperret@google.com>
+Mime-Version: 1.0
+References: <20241216175803.2716565-1-qperret@google.com>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20241216175803.2716565-13-qperret@google.com>
+Subject: [PATCH v3 12/18] KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_105420_506091_30CE578E 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20241216_095833_276231_E6E46F70 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +93,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+Introduce a new hypercall allowing the host to relax the stage-2
+permissions of mappings in a non-protected guest page-table. It will be
+used later once we start allowing RO memslots and dirty logging.
 
-On 12/12/2024, Tudor Ambarus wrote:
-> Add the ACPM protocol node. ACPM protocol provides interface for all
-> the client drivers making use of the features offered by the
-> Active Power Management (APM) module.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> index 04561e15b96c..8c3f07371912 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-> @@ -277,6 +277,28 @@ apm_sram: sram@2039000 {
->  		ranges = <0x0 0x0 0x2039000 0x40000>;
->  	};
->  
-> +	firmware {
-> +		acpm_ipc: power-management {
-> +			compatible = "google,gs101-acpm-ipc";
-> +			mboxes = <&ap2apm_mailbox 0 0
-> +				  &ap2apm_mailbox 0 1
-> +				  &ap2apm_mailbox 0 2
-> +				  &ap2apm_mailbox 0 3
-> +				  &ap2apm_mailbox 0 4
-> +				  &ap2apm_mailbox 0 5
-> +				  &ap2apm_mailbox 0 6
-> +				  &ap2apm_mailbox 0 7
-> +				  &ap2apm_mailbox 0 8
-> +				  &ap2apm_mailbox 0 9
-> +				  &ap2apm_mailbox 0 10
-> +				  &ap2apm_mailbox 0 11
-> +				  &ap2apm_mailbox 0 12
-> +				  &ap2apm_mailbox 0 13
-> +				  &ap2apm_mailbox 0 14>;
-> +			shmem = <&apm_sram>;
-> +		};
-> +	};
+Signed-off-by: Quentin Perret <qperret@google.com>
+---
+ arch/arm64/include/asm/kvm_asm.h              |  1 +
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 20 ++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 23 +++++++++++++++++++
+ 4 files changed, 45 insertions(+)
 
-You mentioned in the previous patch that "GS101 has 14 mailbox controllers",
-but here you have 15 mailboxes. I looked at the downstream driver and see the
-number of mailboxes is defined by the ACPM framework (firmware) which is read
-from SRAM initdata. Dumping that, I see there are 15 ACPM channels. Have you
-looked into into extracting the data from the initdata SRAM address?
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 0b6c4d325134..66ee8542dcc9 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -67,6 +67,7 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
++	__KVM_HOST_SMCCC_FUNC___pkvm_host_relax_perms_guest,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+ 	__KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index e528a42ed60e..a308dcd3b5b8 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -41,6 +41,7 @@ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+ int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
++int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+ 
+ bool addr_is_memory(phys_addr_t phys);
+ int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 3c3a27c985a2..287e4ee93ef2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -264,6 +264,25 @@ static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
+ 	cpu_reg(host_ctxt, 1) =  ret;
+ }
+ 
++static void handle___pkvm_host_relax_perms_guest(struct kvm_cpu_context *host_ctxt)
++{
++	DECLARE_REG(u64, gfn, host_ctxt, 1);
++	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 2);
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	int ret = -EINVAL;
++
++	if (!is_protected_kvm_enabled())
++		goto out;
++
++	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
++	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		goto out;
++
++	ret = __pkvm_host_relax_perms_guest(gfn, hyp_vcpu, prot);
++out:
++	cpu_reg(host_ctxt, 1) = ret;
++}
++
+ static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+ {
+ 	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+@@ -475,6 +494,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__pkvm_host_unshare_hyp),
+ 	HANDLE_FUNC(__pkvm_host_share_guest),
+ 	HANDLE_FUNC(__pkvm_host_unshare_guest),
++	HANDLE_FUNC(__pkvm_host_relax_perms_guest),
+ 	HANDLE_FUNC(__kvm_adjust_pc),
+ 	HANDLE_FUNC(__kvm_vcpu_run),
+ 	HANDLE_FUNC(__kvm_flush_vm_context),
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 30243b7922f1..aa8e0408aebb 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1488,3 +1488,26 @@ int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *vm)
+ 
+ 	return ret;
+ }
++
++int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot)
++{
++	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
++	u64 ipa = hyp_pfn_to_phys(gfn);
++	u64 phys;
++	int ret;
++
++	if (prot & ~KVM_PGTABLE_PROT_RWX)
++		return -EINVAL;
++
++	host_lock_component();
++	guest_lock_component(vm);
++
++	ret = __check_host_shared_guest(vm, &phys, ipa);
++	if (!ret)
++		ret = kvm_pgtable_stage2_relax_perms(&vm->pgt, ipa, prot, 0);
++
++	guest_unlock_component(vm);
++	host_unlock_component();
++
++	return ret;
++}
+-- 
+2.47.1.613.gc27f4b7a9f-goog
 
-Thanks,
-Will
 
