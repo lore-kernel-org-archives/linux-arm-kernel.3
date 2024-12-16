@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D682FE77184
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CBFE77183
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjMfXFGS6dA6V1YbOlWg23gRHlVpAZHSFDaIe93RbOs=; b=g1JW7X5LUDP1pMSBEkm8P1/73o
-	Z4/xFGPX2+lgbm00IwG3j147noM+evLMyRAshUoEKiKtJPiCH/umrsREW3zeZO/aEER40wiwNC33y
-	+meR8qArNs5XsvP3VogGblNhBIJgeRfsXxWCXRlHEyIcwLTh4/tgXbVTB+/1sEfguvOEh3jSPEnSH
-	CZoFaxoVj6fvC+d5LIblU0rpwKtiI5AmwhRjVS+4k3NOX8WJJq9UszkpPgFtgy2uO/NV3BTJcpuEz
-	lvhADTyVUpkiuHq7R/Sj7m7DCh9Fd8stv4nBm6STioT4CFHDH8pd3N2PGQBLw7Of782ApdsOJAFfN
-	yeSJlFQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FB3tkcrkSCAxQ2neDhf1PZI0DiqtQhl58DAttp35/wM=; b=Eli/mJ0fZFQwl24lsxAOx7aKA0
+	3u49LuseQSvefXdAYOwsfZC54IW1GsPqtUwSekNEK2QRk99cISsNQAJHwckG9XCv17qQf+3etD6Vx
+	mJFXBZfKCMlFd3mXsqSLzWHbxFzOU+PAeBTivYJMsq1pfgTFMl3TqykNMlcYYlRDbHZ2ngfhwJPW/
+	tJU2htT/G/e7MCiVUWK9KY9I21g+L1E5/8Dvm+O5AckPsoOfzMhlNML5PuRONRwV5pnBevplLXzyE
+	uyCPjxnjJ8kUPwoh1ql3Hll0X3m9B1BjWXa+QSD9v8IEw/6ialGICJux0KoBs5e+s//9HsK038BHY
+	YJDe9/kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDCM-0000000AR0L-3rKp;
-	Mon, 16 Dec 2024 15:39:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tNDCI-0000000AQx1-2MTd;
+	Mon, 16 Dec 2024 15:39:50 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBvt-0000000ADij-2qst
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 14:18:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00DE2A411AA;
-	Mon, 16 Dec 2024 14:16:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5631CC4CED7;
-	Mon, 16 Dec 2024 14:18:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734358728;
-	bh=r6E23SJ4NnZ0p4J6lfmWJy3886HYCKhaM5ebito097Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NTFUOHlWU9dh0laVfqTmC8ijE2UkEjvZVlVxgqpslvt8Zz3fLqFDZ2K0t2mYgylcH
-	 chBzA4IVhAjg1gnwmv2Wz036/a5CtySTl2dqMFYk4gldmv3D2UmzI8z67o8H0z+CNB
-	 xALkysus5ZvsIi1IkM2Dx40oyYI2X4j5wEcCBZYjV0jhlgiXeif+TfrrQ/ivSgSLmY
-	 zN9KaAZz+6VNQ7r1z+XSU1pfd0Y8O+DEPNo2XdxA1d6Sm5791Azc5GEM2T7MxemRmW
-	 fbEjXc17ZFqF+r2mcFv30/jdJi+cfqCjPQQ9iEd0k64aGsrQnDZLgOuCZPh85JoQQP
-	 Hc8XOm6nl4Sfg==
-Date: Mon, 16 Dec 2024 08:18:46 -0600
-From: Rob Herring <robh@kernel.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	tudor.ambarus@linaro.org, andre.draszik@linaro.org,
-	willmcvicker@google.com, kernel-team@android.com
-Subject: Re: [PATCH 2/4] dt-bindings: mfd: syscon: allow two reg regions for
- gs101-pmu
-Message-ID: <20241216141846.GA71151-robh@kernel.org>
-References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
- <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
+	id 1tNBoJ-0000000ABSv-3leH;
+	Mon, 16 Dec 2024 14:11:02 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1734358258;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FB3tkcrkSCAxQ2neDhf1PZI0DiqtQhl58DAttp35/wM=;
+	b=RpaXh5VyoUplmQ3aQcNuoge9O682Pz79b506PFNwkQdEvq4tApKLjJDQDMdJL7uW20tIPb
+	81USegn3WOM3np5Hy+ODfsc6SfJwy54DqbVlqHS5+GGq8e9u2NWg4ll09V+0h5GvUsctti
+	rHS6hF0hzhwGpY0qUVh3ly17jbNrgY2F5nD3TGB9z3fbhRKSYXHdzt0CD6p3U1hJUFs1A+
+	4ZwIezIaPe7KitP9zXcVpHbwnFT0rUyBj7EY8MASDGZL0BUoW2fFoIoTels8Sy0BT9Hclm
+	ATdppIHN3qV9kqAxIWfC1u6fCsKDsrQ5/TtalmsIdGFVMAF6m1Pm0bZU6oyaRQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1734358258;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FB3tkcrkSCAxQ2neDhf1PZI0DiqtQhl58DAttp35/wM=;
+	b=OYCPZOqTWgcqvUFaIiXZbrSKkv4pblTBns2X6wwko3qdByLLkKf2S09gyKdndt1Tp0q1J4
+	n9YU7hhY31vPyDBw==
+Date: Mon, 16 Dec 2024 15:10:07 +0100
+Subject: [PATCH 11/17] MIPS: vdso: Switch to generic storage implementation
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241216-vdso-store-rng-v1-11-f7aed1bdb3b2@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=9616;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=z32AnpnpxfV6B6T2JH4m9YqiJZxSBbsTaJncfC2i9Lk=;
+ b=ZkN3Zfzn87dYQnlxtAjAYeqH4canqy0S/sKwRpAB3CcHUPystHUa84UwRHybYukx3qi4nFPnb
+ FQqlAbR5CrlDsr2sHR1XcYy5AhYyIWU8U8YB3Iy2zc6R65xBHNQAjEl
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_061849_785430_A10AEAEC 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20241216_061100_288032_2B224525 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +110,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 04:44:39PM +0000, Peter Griffin wrote:
-> To avoid dtschema warnings allow google,gs101-pmu to have
-> two reg regions.
+The generic storage implementation provides the same features as the
+custom one. However it can be shared between architectures, making
+maintenance easier.
 
-It's not a "simple" syscon if you have 2 regions, so put it in its own 
-schema doc.
+Co-developed-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ arch/mips/Kconfig                         |  1 +
+ arch/mips/include/asm/vdso/gettimeofday.h |  9 +++---
+ arch/mips/include/asm/vdso/vdso.h         | 19 ++++++-------
+ arch/mips/include/asm/vdso/vsyscall.h     | 14 ++-------
+ arch/mips/kernel/vdso.c                   | 47 ++++++++++++-------------------
+ arch/mips/vdso/vdso.lds.S                 |  5 +++-
+ 6 files changed, 38 insertions(+), 57 deletions(-)
 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> I don't really like this patch, but also didn't want to submit the series
-> with a dtschema warning ;-)
-> 
-> Possibly a better solution is when Robs patch
-> `mfd: syscon: Allow syscon nodes without a "syscon" compatible` [1]
-> 
-> gets updated with a v2, we could remove syscon compatible from
-> gs101.dtsi (an ABI issue). If I understood his patch correctly,
-> it would mean this yaml update would then no longer be required.
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 467b10f4361aeb7aad0121f334eaa5d23351010c..94fae59589ae80d590ac250b52ba30e9dd6eda32 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -49,6 +49,7 @@ config MIPS
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_IDLE_POLL_SETUP
+ 	select GENERIC_TIME_VSYSCALL
++	select GENERIC_VDSO_DATA_STORE
+ 	select GUP_GET_PXX_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
+ 	select HAS_IOPORT if !NO_IOPORT_MAP || ISA
+ 	select HAVE_ARCH_COMPILER_H
+diff --git a/arch/mips/include/asm/vdso/gettimeofday.h b/arch/mips/include/asm/vdso/gettimeofday.h
+index 44a45f3fa4b01026e39efb7f8f51051ec464340c..18220bc823f7fac5b70cfbc4c876c91e752fafaa 100644
+--- a/arch/mips/include/asm/vdso/gettimeofday.h
++++ b/arch/mips/include/asm/vdso/gettimeofday.h
+@@ -167,7 +167,7 @@ static __always_inline u64 read_r4k_count(void)
+ 
+ #ifdef CONFIG_CLKSRC_MIPS_GIC
+ 
+-static __always_inline u64 read_gic_count(const struct vdso_data *data)
++static __always_inline u64 read_gic_count(const struct vdso_time_data *data)
+ {
+ 	void __iomem *gic = get_gic(data);
+ 	u32 hi, hi2, lo;
+@@ -184,7 +184,7 @@ static __always_inline u64 read_gic_count(const struct vdso_data *data)
+ #endif
+ 
+ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+-						 const struct vdso_data *vd)
++						 const struct vdso_time_data *vd)
+ {
+ #ifdef CONFIG_CSRC_R4K
+ 	if (clock_mode == VDSO_CLOCKMODE_R4K)
+@@ -209,10 +209,11 @@ static inline bool mips_vdso_hres_capable(void)
+ }
+ #define __arch_vdso_hres_capable mips_vdso_hres_capable
+ 
+-static __always_inline const struct vdso_data *__arch_get_vdso_data(void)
++static __always_inline const struct vdso_time_data *__mips_get_vdso_u_time_data(void)
+ {
+-	return get_vdso_data();
++	return get_vdso_time_data();
+ }
++#define __arch_get_vdso_u_time_data __mips_get_vdso_u_time_data
+ 
+ #endif /* !__ASSEMBLY__ */
+ 
+diff --git a/arch/mips/include/asm/vdso/vdso.h b/arch/mips/include/asm/vdso/vdso.h
+index 6cd88191fefa9ce6d8323dd70d45aa9a198ac9d0..acd0efcd3d93ef7e71107302a40d24b4b51aae99 100644
+--- a/arch/mips/include/asm/vdso/vdso.h
++++ b/arch/mips/include/asm/vdso/vdso.h
+@@ -5,16 +5,18 @@
+  */
+ 
+ #include <asm/sgidefs.h>
++#include <vdso/page.h>
++
++#define __VDSO_PAGES 4
+ 
+ #ifndef __ASSEMBLY__
+ 
+ #include <asm/asm.h>
+-#include <asm/page.h>
+ #include <asm/vdso.h>
+ 
+-static inline unsigned long get_vdso_base(void)
++static inline const struct vdso_time_data *get_vdso_time_data(void)
+ {
+-	unsigned long addr;
++	const struct vdso_time_data *addr;
+ 
+ 	/*
+ 	 * We can't use cpu_has_mips_r6 since it needs the cpu_data[]
+@@ -27,7 +29,7 @@ static inline unsigned long get_vdso_base(void)
+ 	 * We can't use addiupc because there is no label-label
+ 	 * support for the addiupc reloc
+ 	 */
+-	__asm__("lapc	%0, _start			\n"
++	__asm__("lapc	%0, vdso_u_time_data		\n"
+ 		: "=r" (addr) : :);
+ #else
+ 	/*
+@@ -46,7 +48,7 @@ static inline unsigned long get_vdso_base(void)
+ 	"	.set noreorder				\n"
+ 	"	bal	1f				\n"
+ 	"	 nop					\n"
+-	"	.word	_start - .			\n"
++	"	.word	vdso_u_time_data - .		\n"
+ 	"1:	lw	%0, 0($31)			\n"
+ 	"	" STR(PTR_ADDU) " %0, $31, %0		\n"
+ 	"	.set pop				\n"
+@@ -58,14 +60,9 @@ static inline unsigned long get_vdso_base(void)
+ 	return addr;
+ }
+ 
+-static inline const struct vdso_data *get_vdso_data(void)
+-{
+-	return (const struct vdso_data *)(get_vdso_base() - PAGE_SIZE);
+-}
+-
+ #ifdef CONFIG_CLKSRC_MIPS_GIC
+ 
+-static inline void __iomem *get_gic(const struct vdso_data *data)
++static inline void __iomem *get_gic(const struct vdso_time_data *data)
+ {
+ 	return (void __iomem *)((unsigned long)data & PAGE_MASK) - PAGE_SIZE;
+ }
+diff --git a/arch/mips/include/asm/vdso/vsyscall.h b/arch/mips/include/asm/vdso/vsyscall.h
+index a4582870aaea49ac288d62ec4fa1338a98621918..2b1debb62dee07bb49ab64f755ff9120d512458a 100644
+--- a/arch/mips/include/asm/vdso/vsyscall.h
++++ b/arch/mips/include/asm/vdso/vsyscall.h
+@@ -2,22 +2,12 @@
+ #ifndef __ASM_VDSO_VSYSCALL_H
+ #define __ASM_VDSO_VSYSCALL_H
+ 
++#include <asm/page.h>
++
+ #ifndef __ASSEMBLY__
+ 
+ #include <vdso/datapage.h>
+ 
+-extern struct vdso_data *vdso_data;
+-
+-/*
+- * Update the vDSO data page to keep in sync with kernel timekeeping.
+- */
+-static __always_inline
+-struct vdso_data *__mips_get_k_vdso_data(void)
+-{
+-	return vdso_data;
+-}
+-#define __arch_get_k_vdso_data __mips_get_k_vdso_data
+-
+ /* The asm-generic header needs to be included after the definitions above */
+ #include <asm-generic/vdso/vsyscall.h>
+ 
+diff --git a/arch/mips/kernel/vdso.c b/arch/mips/kernel/vdso.c
+index 4c8e3c0aa210476d7b8cb349b99e9a5a453aa7ce..470bf52970c9fc17b275e4e051378f8f08ebf986 100644
+--- a/arch/mips/kernel/vdso.c
++++ b/arch/mips/kernel/vdso.c
+@@ -14,6 +14,7 @@
+ #include <linux/random.h>
+ #include <linux/sched.h>
+ #include <linux/slab.h>
++#include <linux/vdso_datastore.h>
+ 
+ #include <asm/abi.h>
+ #include <asm/mips-cps.h>
+@@ -22,20 +23,7 @@
+ #include <vdso/helpers.h>
+ #include <vdso/vsyscall.h>
+ 
+-/* Kernel-provided data used by the VDSO. */
+-static union vdso_data_store mips_vdso_data __page_aligned_data;
+-struct vdso_data *vdso_data = mips_vdso_data.data;
+-
+-/*
+- * Mapping for the VDSO data/GIC pages. The real pages are mapped manually, as
+- * what we map and where within the area they are mapped is determined at
+- * runtime.
+- */
+-static struct page *no_pages[] = { NULL };
+-static struct vm_special_mapping vdso_vvar_mapping = {
+-	.name = "[vvar]",
+-	.pages = no_pages,
+-};
++static_assert(VDSO_NR_PAGES == __VDSO_PAGES);
+ 
+ static void __init init_vdso_image(struct mips_vdso_image *image)
+ {
+@@ -89,7 +77,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ {
+ 	struct mips_vdso_image *image = current->thread.abi->vdso;
+ 	struct mm_struct *mm = current->mm;
+-	unsigned long gic_size, vvar_size, size, base, data_addr, vdso_addr, gic_pfn, gic_base;
++	unsigned long gic_size, size, base, data_addr, vdso_addr, gic_pfn, gic_base;
+ 	struct vm_area_struct *vma;
+ 	int ret;
+ 
+@@ -117,8 +105,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	 * the counter registers at the start.
+ 	 */
+ 	gic_size = mips_gic_present() ? PAGE_SIZE : 0;
+-	vvar_size = gic_size + PAGE_SIZE;
+-	size = vvar_size + image->size;
++	size = gic_size + VDSO_NR_PAGES * PAGE_SIZE + image->size;
+ 
+ 	/*
+ 	 * Find a region that's large enough for us to perform the
+@@ -141,15 +128,13 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	 */
+ 	if (cpu_has_dc_aliases) {
+ 		base = __ALIGN_MASK(base, shm_align_mask);
+-		base += ((unsigned long)vdso_data - gic_size) & shm_align_mask;
++		base += ((unsigned long)vdso_k_time_data - gic_size) & shm_align_mask;
+ 	}
+ 
+ 	data_addr = base + gic_size;
+-	vdso_addr = data_addr + PAGE_SIZE;
++	vdso_addr = data_addr + VDSO_NR_PAGES * PAGE_SIZE;
+ 
+-	vma = _install_special_mapping(mm, base, vvar_size,
+-				       VM_READ | VM_MAYREAD,
+-				       &vdso_vvar_mapping);
++	vma = vdso_install_vvar_mapping(mm, data_addr);
+ 	if (IS_ERR(vma)) {
+ 		ret = PTR_ERR(vma);
+ 		goto out;
+@@ -159,6 +144,17 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	if (gic_size) {
+ 		gic_base = (unsigned long)mips_gic_base + MIPS_GIC_USER_OFS;
+ 		gic_pfn = PFN_DOWN(__pa(gic_base));
++		static const struct vm_special_mapping gic_mapping = {
++			.name	= "[gic]",
++			.pages	= (struct page **) { NULL },
++		};
++
++		vma = _install_special_mapping(mm, base, gic_size, VM_READ | VM_MAYREAD,
++					       &gic_mapping);
++		if (IS_ERR(vma)) {
++			ret = PTR_ERR(vma);
++			goto out;
++		}
+ 
+ 		ret = io_remap_pfn_range(vma, base, gic_pfn, gic_size,
+ 					 pgprot_noncached(vma->vm_page_prot));
+@@ -166,13 +162,6 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 			goto out;
+ 	}
+ 
+-	/* Map data page. */
+-	ret = remap_pfn_range(vma, data_addr,
+-			      virt_to_phys(vdso_data) >> PAGE_SHIFT,
+-			      PAGE_SIZE, vma->vm_page_prot);
+-	if (ret)
+-		goto out;
+-
+ 	/* Map VDSO image. */
+ 	vma = _install_special_mapping(mm, vdso_addr, image->size,
+ 				       VM_READ | VM_EXEC |
+diff --git a/arch/mips/vdso/vdso.lds.S b/arch/mips/vdso/vdso.lds.S
+index 836465e3bcb8a15cb3f0f96d852d2b252c9d5e2a..c8bbe56d89cb095da21ac1f56d9999914defc305 100644
+--- a/arch/mips/vdso/vdso.lds.S
++++ b/arch/mips/vdso/vdso.lds.S
+@@ -5,6 +5,8 @@
+  */
+ 
+ #include <asm/sgidefs.h>
++#include <asm/vdso/vdso.h>
++#include <vdso/datapage.h>
+ 
+ #if _MIPS_SIM == _MIPS_SIM_ABI64
+ OUTPUT_FORMAT("elf64-tradlittlemips", "elf64-tradbigmips", "elf64-tradlittlemips")
+@@ -18,7 +20,8 @@ OUTPUT_ARCH(mips)
+ 
+ SECTIONS
+ {
+-	PROVIDE(_start = .);
++	VDSO_VVAR_SYMS
++
+ 	. = SIZEOF_HEADERS;
+ 
+ 	/*
 
-Whether you can tolerate an ABI issue is up to you.
+-- 
+2.47.1
 
-Rob
 
