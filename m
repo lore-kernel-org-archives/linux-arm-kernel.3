@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD30E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50096E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFseZlhQsBozp7nqVIdMl7CvRh3Xfaeii6VYsDgLoc0=; b=4+kzXpr0D4CrU/Od2M8k86RAOD
-	pSkibz39l8sBCPUomzlYyckcWqulELV4Kp6zwhkFb3L1ZdEpELV0QYeBIi+oMGbZSAsBHCQQEBzqL
-	dW+nQldskaTVeOloUhVFW8cetDVqzwLX6kosAT8qhzyZMF8xBJvhQuJ5Vd4RsiNDy9JuswiC6zCTG
-	IhI3nFfmdXNwBdpPWYsDfm5spn+x082ucFBdkC+1ZAVjjPGvp3zr8Ynsx5WRXRgPGdj7Zop0UUmqS
-	WXf7s5/pNfkY+ZLnTENU0MToGbyuLZVFwVGo8SzJ4g56UUyxi41oezwk0M2xs/0XL4TcMZSELeQBQ
-	kVxaO0Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uAsk9ZjNjG2Xsz4F0kxEND8XevJ5WxVcer/d+hZes7Q=; b=M/K9RMS11cdMJseEvTzLbim06s
+	82kO8XiIfsOSohytQ4jf+cW16HgFOv3PZ1wEqXZ+JRWubOUrnPxAcRVLC+SOv64mvvRmSymfr9Ayr
+	dU+TvVR0S+U/aFLHoG9W45WzlX0QLWa+FdnZhvEbhGPaG9CziABnweRGIoZOTVJKhiCnjSldGb6Yv
+	QjT7a8odQG8lcyQgG0ptVG2FxO6vSJGencTRjf2J4BcsHFcHk6cwiQ+2aw6/vMXuf1pRy4FGeWK6j
+	bBGJ4tPF2cwNDLLKjZBkUSa/FmupNdYVa1BuTeCoxpzjgcd47xaBtvmq3dsWpI8iRuAxjS0RclMgR
+	S6/qfbKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDQo-0000000AU4l-0uHz;
+	id 1tNDQo-0000000AU59-35dq;
 	Mon, 16 Dec 2024 15:54:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNC8W-0000000AGqq-3Kay
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Dec 2024 14:31:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CFseZlhQsBozp7nqVIdMl7CvRh3Xfaeii6VYsDgLoc0=; b=BvekzmVKOCUtIdZsxLnz9N255f
-	k2ZSuZkgwKXhD1VD803mBn4ujLWp4x4GNITFYURrVJD4iorjvxC0wa3J4Hpke+7UJFn32jzLDud1N
-	ddE9tHBvaW50qKkM+8fMmGb0MKNWKzXoA5cBb0FT5uaZBmocJmmKBferjJxIh4XBxYDcvn1O/U47M
-	s4vo2IBVZxj1h9Uo9cfkh0b6Gmrm3VgnTayD63w3V4n4Qo1lGBTxQtiiiCw9TZ2/B4/w8xKQwmKXc
-	ZmOE3beZRlLS5H7fI3jj5w/aJUYDLW/k0GFcl8yFmYGo4VUjoeYhHV7jpk95Gtl5Fg+er65toZ49k
-	e/nqffHw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNC8T-00000004rKg-3GHq
+	id 1tNCRF-0000000AJ4b-19KU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 14:31:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1B2C45C4989;
-	Mon, 16 Dec 2024 14:31:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE72EC4CED0;
-	Mon, 16 Dec 2024 14:31:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734359506;
-	bh=q//uXuHw5NNyHRrYJA+t5Do7tOiMP5mB0zY7GpysFuw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=avK1n6GRfEbGCiA5MGkHoGcE+AINRnA4Gm4Gxqm4ZzgfVfxrRshODochg9mUYzZoA
-	 EuaMvt+DZPrqbCSp17+I2Qt+UtkV5f7U2hMg47Xq8me29/Jo4ceCrd0mkFdqAdQ+K+
-	 0/4PjG18v2Wih8ks4QULfOjTjEiCgWZpwGFG6+dz7MSBwEi6bgyD/7ojs5jH8t8ngb
-	 dcL/rq39tKYYQPEFKw5HTN7UEAKAATnPq/+9hL7w3Gz70NEBiydO7aVqNTU54oXK4K
-	 wXAS49UjQ6842fF2nciDYfbnEmOJVId1jXhIujipWFqyR5Tf9UQIQlsoEtmCFm47x8
-	 nZLFKKiHX7Gog==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tNC8N-004CsH-N6;
-	Mon, 16 Dec 2024 14:31:43 +0000
-Date: Mon, 16 Dec 2024 14:31:43 +0000
-Message-ID: <865xnjsnqo.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Peter Collingbourne <pcc@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to __cpuinfo_store_cpu()
-In-Reply-To: <Z2AfOZ82QG_ukWry@J2N7QTR9R3>
-References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>	<87a5cysfci.wl-maz@kernel.org>	<Z2AfOZ82QG_ukWry@J2N7QTR9R3>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-X-TUID: 7+uNRFeFxaHZ
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, pcc@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 16 Dec 2024 14:51:14 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361a50e337so29085465e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:51:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734360672; x=1734965472; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uAsk9ZjNjG2Xsz4F0kxEND8XevJ5WxVcer/d+hZes7Q=;
+        b=SFP7P1G4bZqUjQ+O7dn4lSSCnr09Q0oiaguKcMHyNHxAB5vrMVtw0edgZc05V3IMC5
+         DUmZ6g3H92HVAe0RF9m0bYp73JSkDAVCcPn+++povtzIW1N9jIS5GhJQtSJp87iBsBFX
+         AWBqqHx/LICHIwY4ucR+rxPy562jrIAKakm0OS6VEN2bjCwMv6UF1nxARG3Yjre31SXe
+         5HXQqpvR3VxyRuLWxf2tLkeBGQJvwz/KBHpnHsYlNDk3fIOuSDBMcx53U4AS65+L4UQN
+         S3D3rMTR6Q2kUAkiYpjuLcJ89gthzPI1B3eePzU2GZWzSFDKgpg8KnW8v1YjEPvIhw1b
+         kl7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734360672; x=1734965472;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uAsk9ZjNjG2Xsz4F0kxEND8XevJ5WxVcer/d+hZes7Q=;
+        b=G9cPOA4xVglV3/CW8axvyE3BAex/GHwjBNnFPErhq4VM0/rpXxtVKx8L60KAmXfZMS
+         kIWmPGkI9julvptoFc1JjNxP6US+vEr3bbcJxdPdiMDyVyJvdtg+e4qRXMIEkBYBwdA7
+         j7MGZGlgC4WBXr+7OEwRc+z8mI4i2FhzpyDgmARjsUgFaV0SSmduUnd2Ssp5hcwR3AvE
+         6hbyWgY65Jv8DDIHL6bWoB7PoWv5EnkSGU61MojrkHDNha9bfrA5o9qzNGkCCOq2lk/t
+         HvxfeMXSv3t/nbAZ6qbyhebePagqreLG55L2IFfhTR8/DC9OHY/+fue+zvFlN1Pp1/CP
+         Hp1A==
+X-Gm-Message-State: AOJu0YwTht6n+PSPSZyV2KQaN3zH4qFSDNKB/KqICrOlkIhymN8iGJ+1
+	nVa3QNNr4AiZXakLehy035QCLt1s2kFcd+1B+BHiYYQtpqfLO9m3
+X-Gm-Gg: ASbGncuShLiEI03NfK+zoKgHHS6+8Od1E+NKhaGTvjPyFdHtfJwFp+tcwymj7o7bmEB
+	4biqXqCinGXVRW/LGy31zuTLnAQqMUMNZG6QMc6eTURMFs/mansj2Zr5pbkh7TpJqq/GU24hHkR
+	0zGKC1FygWjLyEMzDlLcPGeZumzrWyjfdI/qFXFbeSAF6jTtELtflCTvWtKh+2WpaiMtqexoeXi
+	BdJqoE1dlHuqtKhlWA2Lm6DdqHUFcqlLQHo8AwMi0Lgocufd/hSo1qXQLGCanuK52rSArjbeyxL
+	yEsmsNLMWLD/QPT2
+X-Google-Smtp-Source: AGHT+IEEdMUhmjBce9trMWEaZmzDbJkRmOJV4eeE4OPNHba9b9GfzehogBrTvU3TQeHPPyjiEdm+kg==
+X-Received: by 2002:a05:600c:4ed4:b0:434:a734:d268 with SMTP id 5b1f17b1804b1-4362aa589f0mr119266575e9.14.1734360671467;
+        Mon, 16 Dec 2024 06:51:11 -0800 (PST)
+Received: from playground.localdomain ([92.120.5.10])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362559ed6csm141616455e9.24.2024.12.16.06.51.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 06:51:10 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Takashi Iwai <tiwai@suse.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Frank Li <Frank.li@nxp.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/5] add sof support on imx95
+Date: Mon, 16 Dec 2024 09:50:34 -0500
+Message-Id: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_143150_224185_4508550D 
-X-CRM114-Status: GOOD (  32.32  )
+X-CRM114-CacheID: sfid-20241216_065113_311773_C9FA7FDE 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,93 +106,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Dec 2024 12:38:17 +0000,
-Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> On Sat, Dec 14, 2024 at 10:56:13AM +0000, Marc Zyngier wrote:
->
-> > Why isn't the following a good enough fix? It makes it plain that
-> > boot_cpu_data is only a copy of CPU0's initial boot state.
-> > 
-> > diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> > index d79e88fccdfce..0cbb42fd48850 100644
-> > --- a/arch/arm64/kernel/cpuinfo.c
-> > +++ b/arch/arm64/kernel/cpuinfo.c
-> > @@ -497,6 +497,6 @@ void __init cpuinfo_store_boot_cpu(void)
-> >  	struct cpuinfo_arm64 *info = &per_cpu(cpu_data, 0);
-> >  	__cpuinfo_store_cpu(info);
-> >  
-> > +	init_cpu_features(info);
-> >  	boot_cpu_data = *info;
-> > -	init_cpu_features(&boot_cpu_data);
-> >  }
-> 
-> I think that change in isolation is fine, but I don't think that's the
-> right fix.
-> 
-> I think that what we did in commit:
-> 
->    892f7237b3ff ("arm64: Delay initialisation of cpuinfo_arm64::reg_{zcr,smcr}")
-> 
-> ... introduces an anti-pattern that'd be nice to avoid. That broke the
-> existing split of __cpuinfo_store_cpu() and init_cpu_features(), where
-> the former read the ID regs, and the latter set up the features
-> *without* altering the copy of the ID regs that was read. i.e.
-> init_cpu_features() shouldn't write to its info argument at all.
-> 
-> I understand that we have to do something as a bodge for broken FW which
-> traps SME, but I'd much rather we did that within __cpuinfo_store_cpu().
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Honestly, I'd rather revert that patch, together with b3000e2133d8
-("arm64: Add the arm64.nosme command line option"). I'm getting tired
-of the FW nonsense, and we are only allowing vendors to ship untested
-crap.
+Add sof support on imx95. This series also includes some changes to
+the audio-graph-card2 binding required for the support.
 
-Furthermore, given the state of SME in the kernel, I don't think this
-is makes any difference. So maybe this is the right time to reset
-everything to a sane state.
+---
+Changes in v3:
+- Ordered DT nodes alphabetically
+- Removed 'cpu' and 'cpu_ep' labels from binding example
+- Some small changes to the binding commit messages/titles.
+- Link to v2: https://lore.kernel.org/lkml/20241113195240.3699-1-laurentiumihalcea111@gmail.com/
 
-> Can we add something to check whether SME was disabled on the command
-> line, and use that in __cpuinfo_store_cpu(), effectively reverting
-> 892f7237b3ff?
+Changes in v2:
+- Added new binding for 95's CM7 core with SOF. fsl,dsp.yaml is no longer used.
+- "hp-det-gpios" and "widgets" properties now reference the definitions from audio-graph.yaml
+- Removed extra empty spaces from DTS as suggested by Frank
+- Ordered 'edma2', 'sai3', 'wm8962' DT nodes alphabetically. The order of the nodes
+placed inside / is kept the same for readability
+- Ordered driver header files includes alphabetically as suggested by Frank
+- Removed "reg-names" and changed the maximum size of the "reg" property to 1 to align
+with the other NXP CPUs sharing the same programming model (i.e: audio processing with SOF).
+The region described in the DTS is the SRAM and the mailbox region is now hardcoded in the
+driver as an offset to the start of the SRAM region.
+- Added new binding with properties required by all NXP CPUs sharing the same programming
+model (i.e: audio processing with SOF).
+- Various driver adjustments made to accomodate the DT changes + some bug fixing related
+to the mboxes not being requested/free'd on resume/suspend.
+- Fixed value passed to "dma-channel-mask". A set bit means the channel is masked, not the
+other way around.
+- Link to v1: https://lore.kernel.org/lkml/20241023162114.3354-1-laurentiumihalcea111@gmail.com/
+---
 
-Maybe, but that'd be before any sanitisation of the overrides, so it
-would have to severely limit its scope. Something like this, which I
-haven't tested:
+Laurentiu Mihalcea (5):
+  ASoC: dt-bindings: add common binding for NXP audio processors
+  ASoC: dt-bindings: support imx95's CM7 core
+  ASoC: dt-bindings: audio-graph-card2: add widgets and hp-det-gpios
+    support
+  ASoC: SOF: imx: add driver for imx95
+  arm64: dts: imx: add imx95 dts for sof
 
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d79e88fccdfce..9e9295e045009 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -492,10 +492,22 @@ void cpuinfo_store_cpu(void)
- 	update_cpu_features(smp_processor_id(), info, &boot_cpu_data);
- }
- 
-+static void cpuinfo_apply_overrides(struct cpuinfo_arm64 *info)
-+{
-+	if (FIELD_GET(ID_AA64PFR0_EL1_SVE, id_aa64pfr0_override.mask) &&
-+	    !FIELD_GET(ID_AA64PFR0_EL1_SVE, id_aa64pfr0_override.val))
-+		info->reg_id_aa64pfr0 &= ~ID_AA64PFR0_EL1_SVE;
-+
-+	if (FIELD_GET(ID_AA64PFR1_EL1_SME, id_aa64pfr1_override.mask) &&
-+	    !FIELD_GET(ID_AA64PFR1_EL1_SME, id_aa64pfr1_override.val))
-+		info->reg_id_aa64pfr1 &= ~ID_AA64PFR1_EL1_SME;
-+}
-+
- void __init cpuinfo_store_boot_cpu(void)
- {
- 	struct cpuinfo_arm64 *info = &per_cpu(cpu_data, 0);
- 	__cpuinfo_store_cpu(info);
-+	cpuinfo_apply_overrides(info);
- 
- 	boot_cpu_data = *info;
- 	init_cpu_features(&boot_cpu_data);
-
-But this will have ripple effects on the rest of the override code
-(the kernel messages are likely to be wrong).
-
-	M.
+ .../bindings/sound/audio-graph-card2.yaml     |   4 +
+ .../bindings/sound/fsl,imx95-cm7-sof.yaml     |  44 ++
+ .../bindings/sound/fsl,sof-cpu.yaml           |  35 ++
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx95-19x19-evk-sof.dts     |  75 ++++
+ sound/soc/sof/imx/Kconfig                     |   8 +
+ sound/soc/sof/imx/Makefile                    |   2 +
+ sound/soc/sof/imx/imx95.c                     | 401 ++++++++++++++++++
+ 8 files changed, 570 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
+ create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+ create mode 100644 sound/soc/sof/imx/imx95.c
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
