@@ -4,82 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB98E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A07AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9hkvI8MulT+25W8PbfwkNAdDN4qGUOYOcilt0If854=; b=k/oan0iTKGUrryQ3UrldBw1oBZ
-	tRzy5t0OxK9t9JMF0zTKq5jPwrsTzRsvJ8bNbVUIzlm0Q+QGPEu3qA69/7ZSvcqf8ML3aAUKyz7Jk
-	9ezAg1sppwU7+HjUauH2wXyqESL2Wi7KGGMQa70rW3xPwpyuVJoqmfoMkOePHW+aBmpGlXy65cDB6
-	iwURfLksgtxNCIfJ+leKCXdGgfhFK/GxD1NpwQDPop511xsFFThacLHPWxgC9slI85JBZrDmaKaRh
-	IY2aDofRfCv/dCwgKUZUc5ZQWXXghXti+cUc0hyZxd53pUlDaN+mzU0yYVo/wZ7oBGBdYkVtONR5a
-	qLwcs8vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gKk30ZIZRqGtSP6fobJeplap92YADW8Wo93ti1YEXBs=; b=5A8x+zL3yktpPl1a9HXt2FsE2n
+	YfHfIE6HtwKBXZTSDNfFQ4zUc9Hsaj8DcC3X84i87Ki1fhVCvSLaJJUWGWnHcMMGatT68rHjbVOVa
+	ugz/X3oUeZH2VSXG8Tm5rhZCUg/5CllCX7FjREzP5PugTSU3s6dHavE1cr61isCy6K3SUqRjBXEcs
+	PAVBNKwnicH2PqkpoYdoNvv4xJEFK4hiQTla8DBdNKY7/LFncvcvv+KtIjr6XhK+BHsFPDrF21KhC
+	wgOOanWH7yJzm58HzSxXRLZAb3f0rgzy4yZcO12NYna80XA0CjoMv9c2KonxpZOFTNdjkWBCrNNs3
+	YV8TWpZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6vv-00000009TSF-1ewt;
-	Mon, 16 Dec 2024 08:58:31 +0000
+	id 1tN6wz-00000009Tbe-1ZRX;
+	Mon, 16 Dec 2024 08:59:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6sh-00000009Siw-43zY;
-	Mon, 16 Dec 2024 08:55:11 +0000
+	id 1tN6sj-00000009Sjx-3QBi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 08:55:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Y9hkvI8MulT+25W8PbfwkNAdDN4qGUOYOcilt0If854=; b=I8nWXVEZrLh0RoxkjUeQTMHX8X
-	05aRJm5vgasW900IOAKhU1jFOtdCeoIXpBVB0ULBT2+fMtmIduPetLQZgPuD+wGH2+Z4lx1PMrVS4
-	dqK2OS7CiBEzH0FxMmuR8mlYAhHM1EN6p0Dx9yLUolhcXsyxgnUXPfhGaDdLmSqRbgta6THbH1eU5
-	Kd1N0T1I3C6p7FziwG+NnEg9gHVNBQFe3JVg6FWsSxDxsK+kmOdgk1CKniWlNan9F1TujTo2ItPWX
-	V1i1nnyi1i5vVb7st0GhrqAizlRNEcy/etrzejuPcA3he3nOsgNMQoSUFarLohbKHoE0JDVfUExLo
-	HgB722+w==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=gKk30ZIZRqGtSP6fobJeplap92YADW8Wo93ti1YEXBs=; b=cL1Y3Xb7JfHKTWzGVaY7Bsji+c
+	JEtjzYwGiVu+Oekmj01wgZTsfjHvgV4jutwYBbgMejQXI8ux0nNjY8wMcI/2XntSxtmnleeBnjy4a
+	dXbJVcacuklOJu/euW0Fk0MLLhNnF1scgS2ww2kN7hQrghj6Anhu1nSZOraZAX4sg9faVKtmQVfje
+	RnizN9Z0wV76MhVnfzuUVTs8rf0bOgZ1sqD0+1AOZ9PGA5ZO9+lvOzkWvqZXijLlgMEjRu7MQETsH
+	PkFtJDjQsFLw3/zK8jH+89BPffCAOz2gEqFr+UFrqImFPdDc3SYFBWsXswixoOTtQeVBGrhiOSGIG
+	P1oksGeQ==;
+Received: from cpanel.siel.si ([46.19.9.99])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6sX-00000004o8f-3y1o;
-	Mon, 16 Dec 2024 08:55:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A7E37A40D95;
-	Mon, 16 Dec 2024 08:53:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3697C4CEDD;
-	Mon, 16 Dec 2024 08:54:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734339297;
-	bh=ueAx4MDUx4QGJFCZ9Ssjl5PSZd44B1p3Fmtj8vR19uY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NeSLAR0ZbC9ioITrynkKXWeHpqr79aMbctHhZepc4Km9fVPn/4SkbLGMWlLZKlEak
-	 VMcDIE8819AUbBVa8Jqv+3TqTkJkQmIiTWf4Vqat3PH8ogenT0z7HY68LiyOuAU0sk
-	 EB+GwYHqRT2sCAIIMFnXLa4rANRXaptNIim9QC+XkjG3AHpcxz63umOIIyRxoSBnFJ
-	 Ez3nu6sYvNBRcpqUmo5StAHuj+4rmDQ5STHfQYl2DoaNPkPeTFlp8dibmTIMceBSXA
-	 xc5KRI4lzRUeA0R3G93hd32npBREHmRV7QW5gPgOY4LVu4YksrMFe83KpZF1OEbIHI
-	 QDT4/askROUAA==
-Date: Mon, 16 Dec 2024 09:54:54 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Mark Lee <Mark-MC.Lee@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	id 1tN6sf-00000004o9g-0pTu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Dec 2024 08:55:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=gKk30ZIZRqGtSP6fobJeplap92YADW8Wo93ti1YEXBs=; b=cVdIfrixyt2Yy4kaDIvyXlZXeV
+	ZJbNiAxP5oexJ5kC/kJMW9i4RyYk4xotJ5Rf6UNihvFPDEq4/RIAggx3yFItin3ZIZMim3vom5B5E
+	qNab6Txa3Px3nJrNiERs+jIbSK3Hj9Qg+0tOaK0jmpbl6VqDGpSQ4YVBkff8YDL4qvOeMGgwCVEPs
+	rXECO4yKNj60i9UIbKvDO67TA3GCAyPNaMBSGn1feguG3/va2WydaSKrZsqNeHgH1tTMtE9lmtrJy
+	fhqb8b0GRTLESeBLci3y2ImWvqGKJNxeZkI3TtP8z2kZYBQffkQ8CKXqJM+JsvrQ8QZ3mMM9Yu0p/
+	BsMndEqA==;
+Received: from [89.212.21.243] (port=57844 helo=and-HP-Z4..)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tN6sc-0053uC-37;
+	Mon, 16 Dec 2024 09:55:06 +0100
+From: Andrej Picej <andrej.picej@norik.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	marex@denx.de
+Cc: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Fix error patch in airoha_probe()
-Message-ID: <Z1_q3tnwtRBq-fQE@lore-desk>
-References: <20241215-airoha_probe-error-path-fix-v1-1-dd299122d343@kernel.org>
- <Z1/Tng80hii4dBQU@mev-dev.igk.intel.com>
+	upstream@lists.phytec.de
+Subject: [PATCH v7 3/3] arm64: dts: imx8mm-phyboard-polis-peb-av-10: Set lvds-vod-swing
+Date: Mon, 16 Dec 2024 09:54:10 +0100
+Message-Id: <20241216085410.1968634-4-andrej.picej@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241216085410.1968634-1-andrej.picej@norik.com>
+References: <20241216085410.1968634-1-andrej.picej@norik.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="k9cFlZGy+0zOzppE"
-Content-Disposition: inline
-In-Reply-To: <Z1/Tng80hii4dBQU@mev-dev.igk.intel.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_085502_343417_5E1065FF 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20241216_085510_762697_06CEA1AB 
+X-CRM114-Status: UNSURE (   4.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,98 +122,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Set custom differential output voltage for LVDS, to fulfill requirements
+of the connected display. LVDS differential voltage for data-lanes and
+clock output has to be between 200 mV and 600 mV.
+Driver sets 200 Ohm near-end termination by default.
 
---k9cFlZGy+0zOzppE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+---
+Changes in v7:
+- no change
+Changes in v6:
+- no change
+Changes in v5:
+- no change
+Changes in v4:
+- no change
+Changes in v3:
+- no change
+Changes in v2:
+- use new properties from previous patches
+---
+ .../boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso     | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> On Sun, Dec 15, 2024 at 06:36:35PM +0100, Lorenzo Bianconi wrote:
-> > Do not run napi_disable if airoha_hw_init() fails since Tx/Rx napi
-> > has not been started yet. In order to fix the issue, introduce
-> > airoha_qdma_disable_napi routine and remove napi_disable in
-> > airoha_hw_cleanup().
-> >=20
-> > Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN758=
-1 SoC")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/net/ethernet/mediatek/airoha_eth.c | 33 ++++++++++++++++++++++=
---------
-> >  1 file changed, 25 insertions(+), 8 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/e=
-thernet/mediatek/airoha_eth.c
-> > index 6c683a12d5aa52dd9d966df123509075a989c0b3..5bbf5fee2802135ff608323=
-3d0bda78f2ba5606a 100644
-> > --- a/drivers/net/ethernet/mediatek/airoha_eth.c
-> > +++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-> > @@ -2138,17 +2138,14 @@ static void airoha_hw_cleanup(struct airoha_qdm=
-a *qdma)
-> >  		if (!qdma->q_rx[i].ndesc)
-> >  			continue;
-> > =20
-> > -		napi_disable(&qdma->q_rx[i].napi);
-> >  		netif_napi_del(&qdma->q_rx[i].napi);
-> >  		airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
-> >  		if (qdma->q_rx[i].page_pool)
-> >  			page_pool_destroy(qdma->q_rx[i].page_pool);
-> >  	}
-> > =20
-> > -	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++) {
-> > -		napi_disable(&qdma->q_tx_irq[i].napi);
-> > +	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
-> >  		netif_napi_del(&qdma->q_tx_irq[i].napi);
-> > -	}
-> > =20
-> >  	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
-> >  		if (!qdma->q_tx[i].ndesc)
-> > @@ -2173,6 +2170,21 @@ static void airoha_qdma_start_napi(struct airoha=
-_qdma *qdma)
-> >  	}
-> >  }
-> > =20
-> > +static void airoha_qdma_disable_napi(struct airoha_qdma *qdma)
-> Nit: similar function for enabling napi is named airoha_qdma_start_napi()
-> maybe stop here or enable there to be consistent.
->=20
-> Reviewed-by: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
->=20
-> Thanks
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+index a9de42cf14be..8bf9cc553bea 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+@@ -186,6 +186,8 @@ port@2 {
+ 			reg = <2>;
+ 			bridge_out: endpoint {
+ 				remote-endpoint = <&panel_in>;
++				ti,lvds-vod-swing-clock-microvolt = <200000 600000>;
++				ti,lvds-vod-swing-data-microvolt = <200000 600000>;
+ 			};
+ 		};
+ 	};
+-- 
+2.34.1
 
-ack, I will fix it in v2.
-
-Regards,
-Lorenzo
-
->=20
-> > +{
-> > +	int i;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
-> > +		napi_disable(&qdma->q_tx_irq[i].napi);
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-> > +		if (!qdma->q_rx[i].ndesc)
-> > +			continue;
-> > +
-> > +		napi_disable(&qdma->q_rx[i].napi);
-> > +	}
-> > +}
-> > +
->=20
-> [...]
-
---k9cFlZGy+0zOzppE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ1/q3gAKCRA6cBh0uS2t
-rHdwAQDkwNoKHlLv4DFuRV0cVVaUQgmWSouorR++rrQv8srd6gD9HvF8JFxX6Vh9
-SWqgKwUuQpaP0ZYYs5VsyOYuzgVTPgw=
-=tfqU
------END PGP SIGNATURE-----
-
---k9cFlZGy+0zOzppE--
 
