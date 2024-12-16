@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B8EE77187
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4537E77188
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bePNlp/p1MKrXnwHvq18neFXwP/Nn0Iwf/MlDsyNHuc=; b=Sr9dkdcjlyMZYgph1o9dQmZxLi
-	/nuP9urWV7L+I8TSx2uB/802OFzIiA39vsg0aSKY9j6IctXhHvY3goj77CwD+Xnm2guQ1upew+032
-	QM1PLC0Ud5Ta67m5GQBlmC+n1goBIedf1kFdoJEU0iU8Y2mdlnliriaFmt7GeQPpE+rd8CjVs0rov
-	yacFe3hRj6oqbjL0t80U+oekam2VRUFlEQzYJwItJEU+RbjV04j/KF6ZLMCS1ur4BBiA8fzTzAx1a
-	wL6I2T88AdOLzH6f8L9tvY8nzByPNlZF9GUoeZ90eYmt9I4tAbsHlEGxcwiQz5Ml0Jx+4BFsN+i6I
-	PENLeb4g==;
+	bh=Mr35VqwgweA69AHCsQwnqUK4U36oZgsI7Vqv1GiCVuY=; b=juLBmk+5AnBKohkJ879CraN1El
+	3pfYpwCd9BAQ7ccrauOJaLAirzr8LsNk25uHey6GAs4tOi0Wm619kOHPuQ6q9YICg4NpUKD78fzZ1
+	Vps7JWPeSLm9Qp1RNVpdFj1g9zseIjZPMu6gIiFE95d03KoglHGY0dBFeFSddRNgtvvLfuXxGu5Ou
+	kb+Hz2jwfjk0fUUboM1UdP73xLVrzddlPmoS5GfXXOyVHMZq+zy8vFI6vfnNAHn3a6dsSRsLmQDGe
+	yGqvud0adY+vtyER2uE/6s8ZwBfPlJR/C1QMFr7dqcIVQl9ScSvMZ9Lqi6RpUEd0875TKTyNSwxrr
+	scDsq3KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDCL-0000000AQzI-2Ogf;
-	Mon, 16 Dec 2024 15:39:53 +0000
+	id 1tNDCO-0000000AR1j-1KcW;
+	Mon, 16 Dec 2024 15:39:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBoU-0000000ABbq-31TP;
-	Mon, 16 Dec 2024 14:11:10 +0000
+	id 1tNC4M-0000000AGAu-20BB
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 14:27:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=bePNlp/p1MKrXnwHvq18neFXwP/Nn0Iwf/MlDsyNHuc=; b=YUVo27VIvhcxkYO7Zu4icZG3Pl
-	IE3/CUhhSIrEhmEk3vvThcV3WIdERRPa5v6vjZr0SxI99N87XwhVe8Wr3qHUIS34RSlPTUFAhFDvr
-	ObIvPVNY37/yIPgPFu7I1nb5XIrz3/98DBpFZb1XpDlz0aScIEn5/Wgq92PZqsJwLRuVis4CFWBLZ
-	wnW3B9LCKi+mDDebzUnqXMycWEYvQs9VahVRW8KE4SlBGmnYJEDICgyC6Ef3S+ngeAkUbkWAzWPlM
-	tQ+4nTa5dSpgsipkDXf1QeHM1nWBOWNLC1Ipj1rESrH+Z2RwuNjvF8UF4dVw9qmNzFyDExr6InV3+
-	l2/iJgqQ==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Mr35VqwgweA69AHCsQwnqUK4U36oZgsI7Vqv1GiCVuY=; b=JxSL5qm8gfvNIFFyxZiBQhxDhr
+	P77Pcr+gEIKnM8KVn883PEYi18/L0ISS+uLR3eEX4sbYWB/hKlP5I8qvxNWxAT/mhgXcrNDCHh26v
+	NNlniA0Ro5JdxfQyQoc1Ddu2RTcRc850wFEynoR1l4EozWlhy/vTMfT0kHg5tjHS1b6xpWOg+heq5
+	YfPPl0YmnNUGJO4NEFmBHqU2BjHCdlee5Bua4m5oMSte/qvevx4P1IT0/ppmVP18/OzIU6AYRX43D
+	PQlYR1wqjAh8DzQCfd5xSRxxS+7mZhhNnvCBfdapCZb5/sJ1bErBQN0rfTXM9s0Vp5QoNeKPd2LK+
+	Jc+ieALw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBoP-00000004qzH-21Iu;
-	Mon, 16 Dec 2024 14:11:09 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1734358262;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bePNlp/p1MKrXnwHvq18neFXwP/Nn0Iwf/MlDsyNHuc=;
-	b=EjoICeHSoeCF4ZnBJ9XgtzZV1pN3f1QjAeD7QCf+3aVhPiz8k0cI5OYvMb9at3m1YoQo00
-	QxcgRU9yQlcCvRqMGy9YtWGoy8DednXn8akTfqVDPVDM9naMl7lJyC6TGs2tra4zlGN/y4
-	8Q9grBYJTiSl1VryvOrnh5vQH+Vi8EYxI4aAIzgV1zv9ZQKcvu4egNauUDGhI+gBR7wUr9
-	a4X6yi4tRfusEBVw0KvWPmt9fjCvaCOpNZAfAxNmbOIOZjb6a92iKI2uIwT27MTd4Vsyew
-	igUOaIXKIt+iqcFyXmAXRY93TD8fWsJMg0igtK7/UWXWxz55MthMdrKziRYp1Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1734358262;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bePNlp/p1MKrXnwHvq18neFXwP/Nn0Iwf/MlDsyNHuc=;
-	b=KECvIYz+QDi1Lg1U24XopJRnWfCqmvgh/zHf4Hm2lwuMnEcD35EWrMTHJZbh80gEuxbyHo
-	NOPMwX89Q3TYBNDw==
-Date: Mon, 16 Dec 2024 15:10:13 +0100
-Subject: [PATCH 17/17] vdso: Remove kconfig symbol GENERIC_VDSO_DATA_STORE
+	id 1tNC4J-00000004rBF-2BuY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Dec 2024 14:27:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1004B5C6281
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 14:26:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B53F6C4CEDF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 14:27:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734359246;
+	bh=Mr35VqwgweA69AHCsQwnqUK4U36oZgsI7Vqv1GiCVuY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fro3i912XCn1bOY2tqDZK1/F3kQ08RLKElLPkKR4AjpKHSvzjQNUBV9O5tO0vePg7
+	 etDP1F62WwqhGNXW6m5w0/wQRuyaAIRyTUKWR8lQiqGi5s15IQAH5/GN468+K/baS+
+	 Ym11OmhuaeXJk76uyVqFFeePTsyEsrv5ZZs86x3Z9nP6qSWkpQU6Bp7ok4Nqyzs50N
+	 WLzw3jddrXnlZA1cEYo0Bei6COMdjRGpJUFd8OeRayx+LzRjLIIL/wOBfJMI2veFMV
+	 EZJd+/wdLl1fEynZhgx0fCRFB8VVPuJ/5m6G3fCU64sTC9Uz3KQoLTk/k38U4mhQRL
+	 2/8eSjDm11WEA==
+Received: by mail-yb1-f179.google.com with SMTP id 3f1490d57ef6-e3c9ec344efso2764699276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:27:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWQWnesSdbsJgKlkePwxYG9CHX/DegkA/Kri78+LItsSq3gAYXpTwllrjfXvS2hc8Z3aVeHfV7Hc5y1SjsHeiWE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRAh68gfx8QnPBK7150uSh795NXyCEwjlbhHbsOoK/XQOKcM81
+	BT9Jgjp5CHvqF4kWML4+GuDru2OHNjAKQaM2OJVVE8UZzd5KBD30GLFmz3hkAEPs4AyI8nupQQ9
+	8APpTBIYWlUON6/gyOrIWXCiqDw==
+X-Google-Smtp-Source: AGHT+IF+SzaoPtVSZAlJvWgwFl8E44ixi6sB1aULDbhwrV6Mys2MrEPY+9ulABzQBZn3pK8qf8Lpu1q+VL/7Cde5Jk4=
+X-Received: by 2002:a05:6902:72a:b0:e3c:7b6c:9d1c with SMTP id
+ 3f1490d57ef6-e433f94c771mr11142194276.0.1734359245885; Mon, 16 Dec 2024
+ 06:27:25 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20241216-vdso-store-rng-v1-17-f7aed1bdb3b2@linutronix.de>
-References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
-In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
-To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=7961;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=B3Pxps8DfM8WSROY05rM3B3CvxrQAIRj6LTHSkhSnYg=;
- b=Oujw7cI/7WlZWvTQ3ZWZntnrNHHoMDU1Q/wYpvdHfSwL0otiu725rLX1pEEaqlUNfNxVHLwj8
- lafYlnufGXFCYaPDDreGNGBiZeZ6bE4uQeNdj0LLpThLGExnnWj8LPu
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
+ <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
+ <20241216141846.GA71151-robh@kernel.org>
+In-Reply-To: <20241216141846.GA71151-robh@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 16 Dec 2024 08:27:14 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqKNZGwgd17q4Em9-fdVLgTsjLYnVHEXjDcH+i60b1ssdA@mail.gmail.com>
+Message-ID: <CAL_JsqKNZGwgd17q4Em9-fdVLgTsjLYnVHEXjDcH+i60b1ssdA@mail.gmail.com>
+Subject: Re: [PATCH 2/4] dt-bindings: mfd: syscon: allow two reg regions for gs101-pmu
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_141105_747478_AAF0D247 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20241216_142731_837802_36ACE93B 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,212 +103,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All users of HAVE_GENERIC_VDSO have been switched over to the generic
-storage logic. The dedicated kconfig symbol can be removed and replaced
-by HAVE_GENERIC_VDSO.
+On Mon, Dec 16, 2024 at 8:19=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
+:
+>
+> On Fri, Dec 13, 2024 at 04:44:39PM +0000, Peter Griffin wrote:
+> > To avoid dtschema warnings allow google,gs101-pmu to have
+> > two reg regions.
+>
+> It's not a "simple" syscon if you have 2 regions, so put it in its own
+> schema doc.
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/Kconfig             | 2 +-
- arch/arm/mm/Kconfig      | 1 -
- arch/arm64/Kconfig       | 1 -
- arch/loongarch/Kconfig   | 1 -
- arch/mips/Kconfig        | 1 -
- arch/powerpc/Kconfig     | 1 -
- arch/riscv/Kconfig       | 1 -
- arch/s390/Kconfig        | 1 -
- arch/x86/Kconfig         | 1 -
- include/vdso/datapage.h  | 8 +-------
- lib/Kconfig              | 1 -
- lib/vdso_kernel/Kconfig  | 7 -------
- lib/vdso_kernel/Makefile | 2 +-
- 13 files changed, 3 insertions(+), 25 deletions(-)
+NM, I see it already does. If you keep 'syscon', then 'maxItems: 1'
+will probably need to move to syscon.yaml.
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 48f37e6c00674f433a0d6e6e05ce72c27cf000b7..63e20e5e779d5c6d786b90ccb139e16a23445fcb 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -1577,7 +1577,7 @@ config HAVE_SPARSE_SYSCALL_NR
- 	  related optimizations for a given architecture.
- 
- config ARCH_HAS_VDSO_ARCH_DATA
--	depends on GENERIC_VDSO_DATA_STORE
-+	depends on HAVE_GENERIC_VDSO
- 	bool
- 
- config ARCH_HAS_VDSO_TIME_DATA
-diff --git a/arch/arm/mm/Kconfig b/arch/arm/mm/Kconfig
-index 5c1023a6d78c1b4db67b2d62b71af5a79b7e701f..2b6f50dd547840adecbe08e684ed8f1a032cd7c2 100644
---- a/arch/arm/mm/Kconfig
-+++ b/arch/arm/mm/Kconfig
-@@ -928,7 +928,6 @@ config VDSO
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_VDSO_32
- 	select GENERIC_GETTIMEOFDAY
--	select GENERIC_VDSO_DATA_STORE
- 	help
- 	  Place in the process address space an ELF shared object
- 	  providing fast implementations of gettimeofday and
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 1a4a78ec593328d6e6bceacc1abb0821eab988ca..100570a048c5e8892c0112704f9ca74c4fc55b27 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -159,7 +159,6 @@ config ARM64
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_GETTIMEOFDAY
--	select GENERIC_VDSO_DATA_STORE
- 	select GENERIC_VDSO_TIME_NS
- 	select HARDIRQS_SW_RESEND
- 	select HAS_IOPORT
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index 6ec7ef705199fdd4039afd23ec9050a28aa894eb..4dffb5ccd46397eedd27870183a105688ab23c5e 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -105,7 +105,6 @@ config LOONGARCH
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
--	select GENERIC_VDSO_DATA_STORE
- 	select GENERIC_VDSO_TIME_NS
- 	select GPIOLIB
- 	select HAS_IOPORT
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 94fae59589ae80d590ac250b52ba30e9dd6eda32..467b10f4361aeb7aad0121f334eaa5d23351010c 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -49,7 +49,6 @@ config MIPS
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_IDLE_POLL_SETUP
- 	select GENERIC_TIME_VSYSCALL
--	select GENERIC_VDSO_DATA_STORE
- 	select GUP_GET_PXX_LOW_HIGH if CPU_MIPS32 && PHYS_ADDR_T_64BIT
- 	select HAS_IOPORT if !NO_IOPORT_MAP || ISA
- 	select HAVE_ARCH_COMPILER_H
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 600fa3b917ee902d016f2a04376950a9dc49074f..744c09813c43736089e69d06541a7a7d48a4d6da 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -207,7 +207,6 @@ config PPC
- 	select GENERIC_PTDUMP
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
--	select GENERIC_VDSO_DATA_STORE
- 	select GENERIC_VDSO_TIME_NS
- 	select HAS_IOPORT			if PCI
- 	select HAVE_ARCH_AUDITSYSCALL
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a42d74aa53fe7c18e76820499d0ae43cd3b0c0bd..25023e4bc41b2aa02242ed1fe31caa3031a3edd5 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -115,7 +115,6 @@ config RISCV
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
--	select GENERIC_VDSO_DATA_STORE if HAVE_GENERIC_VDSO
- 	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
- 	select HARDIRQS_SW_RESEND
- 	select HAS_IOPORT if MMU
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index 6472eb4c210f378eaa61ddff04a6abc2f4aa2940..0077969170e8b4ca4c99e87ec75f6ea94f3e8e00 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -158,7 +158,6 @@ config S390
- 	select GENERIC_PTDUMP
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
--	select GENERIC_VDSO_DATA_STORE
- 	select GENERIC_VDSO_TIME_NS
- 	select GENERIC_IOREMAP if PCI
- 	select HAVE_ALIGNED_STRUCT_PAGE
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index e3d7f17dc414ca93d6e746dbc7f02afd2bc043a8..9d7bd0ae48c4260f4abb6dbedc696e3915c230ea 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -177,7 +177,6 @@ config X86
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_GETTIMEOFDAY
--	select GENERIC_VDSO_DATA_STORE
- 	select GENERIC_VDSO_TIME_NS
- 	select GENERIC_VDSO_OVERFLOW_PROTECT
- 	select GUP_GET_PXX_LOW_HIGH		if X86_PAE
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index fe2368d9ae6a759101de80b1746f5cc221d7d142..49b23b35df5fc0699ac7f34693b7de1201aa4486 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -29,7 +29,7 @@ struct arch_vdso_time_data {};
- 
- #if defined(CONFIG_ARCH_HAS_VDSO_ARCH_DATA)
- #include <asm/vdso/arch_data.h>
--#elif defined(CONFIG_GENERIC_VDSO_DATA_STORE)
-+#else
- struct vdso_arch_data {
- 	/* Needed for the generic code, never actually used at runtime */
- 	char __unused;
-@@ -147,7 +147,6 @@ struct vdso_rng_data {
-  * With the hidden visibility, the compiler simply generates a PC-relative
-  * relocation, and this is what we need.
-  */
--#ifdef CONFIG_GENERIC_VDSO_DATA_STORE
- extern const struct vdso_time_data vdso_u_time_data[CS_BASES] __attribute__((visibility("hidden")));
- extern const struct vdso_time_data vdso_u_timens_data[CS_BASES] __attribute__((visibility("hidden")));
- extern const struct vdso_rng_data vdso_u_rng_data __attribute__((visibility("hidden")));
-@@ -156,9 +155,6 @@ extern const struct vdso_arch_data vdso_u_arch_data __attribute__((visibility("h
- extern struct vdso_time_data *vdso_k_time_data;
- extern struct vdso_rng_data *vdso_k_rng_data;
- extern struct vdso_arch_data *vdso_k_arch_data;
--#endif
--
--#ifdef CONFIG_GENERIC_VDSO_DATA_STORE
- 
- #define VDSO_ARCH_DATA_SIZE ALIGN(sizeof(struct vdso_arch_data), PAGE_SIZE)
- #define VDSO_ARCH_DATA_PAGES (VDSO_ARCH_DATA_SIZE >> PAGE_SHIFT)
-@@ -191,8 +187,6 @@ static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(vo
- }
- #endif /* CONFIG_VDSO_GETRANDOM */
- 
--#endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
--
- #ifdef CONFIG_ARCH_HAS_VDSO_ARCH_DATA
- static __always_inline const struct vdso_arch_data *__arch_get_vdso_u_arch_data(void)
- {
-diff --git a/lib/Kconfig b/lib/Kconfig
-index 7d59b2c10ce5ffab03378ead254d9f9017a4482f..5a318f753b2f44cb0a7905cc0092e81c133bc112 100644
---- a/lib/Kconfig
-+++ b/lib/Kconfig
-@@ -659,7 +659,6 @@ config UCS2_STRING
- # generic vdso
- #
- source "lib/vdso/Kconfig"
--source "lib/vdso_kernel/Kconfig"
- 
- source "lib/fonts/Kconfig"
- 
-diff --git a/lib/vdso_kernel/Kconfig b/lib/vdso_kernel/Kconfig
-deleted file mode 100644
-index 0c7ade9b3ece67c0c0ca892544b9e29e53c860c4..0000000000000000000000000000000000000000
---- a/lib/vdso_kernel/Kconfig
-+++ /dev/null
-@@ -1,7 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0
--
--config GENERIC_VDSO_DATA_STORE
--	bool
--	depends on HAVE_GENERIC_VDSO
--	help
--	  Selected by architectures that use the generic vDSO data store.
-diff --git a/lib/vdso_kernel/Makefile b/lib/vdso_kernel/Makefile
-index 4826e49f9edbdb48506b50957584ed89bde5f37f..aadc987caa434ef99c1420c62bb71fde04a07603 100644
---- a/lib/vdso_kernel/Makefile
-+++ b/lib/vdso_kernel/Makefile
-@@ -1,3 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--obj-$(CONFIG_GENERIC_VDSO_DATA_STORE) += datastore.o
-+obj-$(CONFIG_HAVE_GENERIC_VDSO) += datastore.o
-
--- 
-2.47.1
-
+Rob
 
