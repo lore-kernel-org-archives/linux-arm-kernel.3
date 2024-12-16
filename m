@@ -4,111 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96460E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2F4E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yO5GMkiuufjBRuXCfPmfbeoWMWDXidsSjNglbB2hHJg=; b=uZDK0F+1+YKwk//TQIAbhrHVVA
-	LskTNh+bE5WchPAnZSAeSGE2sP1rpanExLP/+MphKtMTP5enzU8GPtCnnigvw+oMAmtgIS5peGjn9
-	DGfxp4mXgjy9HJCj8lJXpGNeu89vDq1Yg0d5PJWHPz672RSdftNrnmLmxAjXJzkVpGnC858+EG/rR
-	1CHwnP8Yne1ll83QfiR8CtL+0MBoLcgp8YCb6MV4SFNi1RJ14+jUVbMPgGwzaZjB/wJkM57tWhSgx
-	6lX3pUhDbDXAriIgG1wf3c8pngfMyhUcHQKNe7eeZQiGBMU0hgvXqJ6ZCDpfoEwMMBuIQj61MFkEJ
-	0UkDHldA==;
+	bh=z5v6t5ZdFhmDa6zhk8r3XLWydriletRBT370Ih+VX4A=; b=zdp4WPieP8F6BnTSGcpVfDsJDI
+	sn7MZovjOYkvpgnicoZ+4qlK0m5rPngH3amOGASHr7P3siLHleh18ReLFlLdeVXdxkbQsJRFn/LW4
+	FYrhMPO2lBbweiIsI/SlIXMDxM3i6kAaFeAt71eM+65bFhwJYn7sNwlHnsj+Cr4iL3z9JWyE6Ynjs
+	dCGwittrUPTnUPvuXGi9n1MEEuePRTnLH9PVdKac6g1Ont/hzUmjBobey19vfg3zNw3mE+fRcOWLm
+	/QXVAjdYqwyFMqqnpTryaaAxO8ISxlSmsPVyTBvh7ViXH6XgTvO3/7om6ClDdsAvjBxGaFkZJCLFc
+	vvC9uvDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFmL-0000000Axf0-40rp;
-	Mon, 16 Dec 2024 18:25:13 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tNFoR-0000000Ay6b-28Hf;
+	Mon, 16 Dec 2024 18:27:23 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFPJ-0000000As56-2aH9
+	id 1tNFnH-0000000Axv8-0RXc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 18:01:26 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGCWE11020416;
-	Mon, 16 Dec 2024 18:01:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=yO5GMk
-	iuufjBRuXCfPmfbeoWMWDXidsSjNglbB2hHJg=; b=ZXIH8iGRGSPnR/mTH8OA7C
-	YHrzpuE7Q4PWBZEzzvdEGoo/Lt4TCDd8lxGrxXS5QRc4dn1rqt66HwY3FiGnn7w0
-	XlmVl+uMibjM0yU9ODz43wldIwb9uEEChWf6+0DY1PqL+Fwy4+j0xiitrBpaDqTF
-	8vT8E39W02Wzd3ZPO9e1QUOlQl/5oaBs84vrc5Mzj6ScdfEfHl8lmH+n/D79qsbA
-	x59L17paAIFvtanrdvmBbDWgHfUPit+4sBZIvFekxx+Cz6EEj/AFGVHIIiotsnPi
-	KlFYVeMZEF8igj52/WTBPV1j10mrGfpLcx0vd4Srjlgh/T9UGO03zBzLMwiATwrQ
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43j8xamejs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 18:01:06 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4BGHufnf011644;
-	Mon, 16 Dec 2024 18:01:05 GMT
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43j8xamejj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 18:01:05 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGFXr31014388;
-	Mon, 16 Dec 2024 18:01:04 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 43hq21eqq1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 18:01:04 +0000
-Received: from smtpav03.wdc07v.mail.ibm.com (smtpav03.wdc07v.mail.ibm.com [10.39.53.230])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BGI13rX17826524
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 16 Dec 2024 18:01:03 GMT
-Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B8D625805A;
-	Mon, 16 Dec 2024 18:01:03 +0000 (GMT)
-Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3AD015805C;
-	Mon, 16 Dec 2024 18:01:01 +0000 (GMT)
-Received: from [9.24.12.86] (unknown [9.24.12.86])
-	by smtpav03.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 16 Dec 2024 18:01:01 +0000 (GMT)
-Message-ID: <2288d2ab-51c0-4e88-86e1-7a113ac67a16@linux.ibm.com>
-Date: Mon, 16 Dec 2024 12:01:00 -0600
+	Mon, 16 Dec 2024 18:26:13 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21649a7bcdcso41572365ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 10:26:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734373569; x=1734978369; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=z5v6t5ZdFhmDa6zhk8r3XLWydriletRBT370Ih+VX4A=;
+        b=SJd426cQFgjYlTJQV82jkKheRdzbPsLLyO9KIdaQrNl2W9z/34LiqTZLFkLZhsbYIc
+         Zz/17iTOAsAzh639WpsyiRGfjlKqG86i8xKx73tBE+fPMjpnE6Pr1UoNb2Xt5WQ3o7Hr
+         hBV4rf6vZwpvwh7uN8khO5rL/RFVj5jRDFcwWJ+KqDKzjEYhr8G/y7CTjUreGGmCfJ+p
+         DyNZCngNdDklE6SwOK1dtQhE+1SIgyF0QsNqBNb19vAw6q7+PP7209pePXIjstS7gHSV
+         6yxIf5VAHjjEyOPqFbxTZwMDbEngYZ/V2HF7uh9Ww8a40TdfSICt+4i1TN+tXPpv5AFD
+         zNVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734373569; x=1734978369;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z5v6t5ZdFhmDa6zhk8r3XLWydriletRBT370Ih+VX4A=;
+        b=Ac9EqpChmp7YEGzoiwmt9dkorDiJSGVJoDbYOSpIfTffJ64uaXMgebt4Fo99NwjCG8
+         djdiFezY72rlQgzXs15l91X6BY1eLoM78I4R3WDPGGeneBF9/VuXGRbMHLy4PQGNZmxZ
+         nh4f+15/KpRUw9kQTSXxDt0kGaQQEA+8y2hmx59yKhMy7BJrMsEamLvm6h2OcQtOLFhW
+         gLnb8EFrPgBisvVH2z0wEXt2KPlumevvgHVYDDbXpNRbIksVmScQgIkk/wJPL9XEpibp
+         VHIGnpeCBZhW8idu+aqOSg/ff9wxTnbcX5axPQ8WHCAH5g6JhARSajVSfd2SP1OUhLXl
+         1xGw==
+X-Forwarded-Encrypted: i=1; AJvYcCWYvviZWKHC18sEgIhpISKxltzkpi3hOv58nMYQKCshj2ekF1e79c+SJSIhJGGmFqypxLd3+5L5LDPhP5fTgAk6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt+2O5RBYsGvYk+AdS7XGwMV6msUj45LNzDCeb6kkRS/ojlrCd
+	bjhDiwO3DjmtbLOtUasjzSeQmKpFirPrdrvzHgw3iyv+/4Nkouv3
+X-Gm-Gg: ASbGncs/TK3Zg+wWj54dATKI0IBJ+f+lk0Tz7FAV2u+YgRk6TLP9tTCsw20kMBLfD1H
+	PrqAfzBgFq7s/XR874HJnwfT0tzNhgkKQdTUjJ/8DE7itDHNliXpmamujrjRz4WrKEaWb4mJODp
+	pFrzw/aOZn7nlCtlw6PL9PeHT/u6lGD/SCNkmvmeGHNjS0nHCFqvsev8pfmSZfFBSM4uOqaLh1d
+	MnsT6QAQyvEurNaIVQoICOfXitA02V8GImVc5qfqV4CeZL2kn4BYuuWfZTAGMSL9jWC852WBnSJ
+	2rrYCgQ0z4twmTr1LGcnQM1U4gbdCQ==
+X-Google-Smtp-Source: AGHT+IFXMO5qxLvZjW18H2LzV2nIClKzOZD7sng6ZospOJmztB1yGV9lAuTs4U+9rB751t7NG8nvgQ==
+X-Received: by 2002:a17:902:ecc4:b0:216:69ca:7707 with SMTP id d9443c01a7336-21892a028d9mr169367855ad.30.1734373569238;
+        Mon, 16 Dec 2024 10:26:09 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e4ffd9sm46010555ad.142.2024.12.16.10.26.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Dec 2024 10:26:08 -0800 (PST)
+Message-ID: <68f5d2e1-10e8-4441-9338-e2a385a9c2b1@roeck-us.net>
+Date: Mon, 16 Dec 2024 10:26:06 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/4] hwmon: (pmbus/crps) Add Intel CRPS185 power supply
-To: Guenter Roeck <linux@roeck-us.net>, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, eajames@linux.ibm.com, jdelvare@suse.com,
-        corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
-        Delphine_CC_Chiu@Wiwynn.com, broonie@kernel.org,
-        peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
-        naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
-        patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
-        peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
-References: <20241212214927.3586509-1-ninad@linux.ibm.com>
- <20241212214927.3586509-3-ninad@linux.ibm.com>
- <5b095371-f835-4c23-aa43-deefa33123bb@roeck-us.net>
+Subject: Re: [PATCH v2 2/4] hwmon: (pmbus/crps) Add Intel CRPS185 power supply
+To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, eajames@linux.ibm.com, jdelvare@suse.com,
+ corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
+ Delphine_CC_Chiu@Wiwynn.com, broonie@kernel.org, peteryin.openbmc@gmail.com,
+ noahwang.wang@outlook.com, naresh.solanki@9elements.com, lukas@wunner.de,
+ jbrunet@baylibre.com, patrick.rudolph@9elements.com,
+ gregkh@linuxfoundation.org, peterz@infradead.org, pbiel7@gmail.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-i2c@vger.kernel.org
+References: <20241216175044.4144442-1-ninad@linux.ibm.com>
+ <20241216175044.4144442-3-ninad@linux.ibm.com>
 Content-Language: en-US
-From: Ninad Palsule <ninad@linux.ibm.com>
-In-Reply-To: <5b095371-f835-4c23-aa43-deefa33123bb@roeck-us.net>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20241216175044.4144442-3-ninad@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 2fCEUlfraDuxoyrjwO58bwna-nkzC0fo
-X-Proofpoint-ORIG-GUID: x6BK64iyN_VpWI0phlzSg2lbZDnX09i8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- priorityscore=1501 mlxlogscore=999 adultscore=0 malwarescore=0 spamscore=0
- lowpriorityscore=0 clxscore=1015 impostorscore=0 bulkscore=0
- suspectscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412160150
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_100125_777317_1F512BE7 
-X-CRM114-Status: GOOD (  36.42  )
+X-CRM114-CacheID: sfid-20241216_102611_155787_78574799 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,596 +152,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guenter,
+On 12/16/24 09:50, Ninad Palsule wrote:
+> Add the driver to monitor Intel common redundant power supply (crps185)
+> with hwmon over pmbus.
+> 
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+> ---
+>   Documentation/hwmon/crps.rst  | 97 +++++++++++++++++++++++++++++++++++
+>   Documentation/hwmon/index.rst |  1 +
+>   MAINTAINERS                   |  7 +++
+>   drivers/hwmon/pmbus/Kconfig   |  9 ++++
+>   drivers/hwmon/pmbus/Makefile  |  1 +
+>   drivers/hwmon/pmbus/crps.c    | 79 ++++++++++++++++++++++++++++
+>   6 files changed, 194 insertions(+)
+>   create mode 100644 Documentation/hwmon/crps.rst
+>   create mode 100644 drivers/hwmon/pmbus/crps.c
+> 
+> diff --git a/Documentation/hwmon/crps.rst b/Documentation/hwmon/crps.rst
+> new file mode 100644
+> index 000000000000..74570ed1e978
+> --- /dev/null
+> +++ b/Documentation/hwmon/crps.rst
+> @@ -0,0 +1,97 @@
+> +.. SPDX-License-Identifier: GPL-2.0-or-later
+> +
+> +Kernel driver crps
+> +==================
+> +
+> +Supported chips:
+> +
+> +  * Intel CRPS185
+> +
+> +    Prefix: 'crps185'
+> +
+> +    Addresses scanned: -
+> +
+> +    Datasheet: Publicly not available.
 
-Thanks for the review!
+Maybe "Only available under NDA". Or at least that is what I found.
 
-On 12/12/24 19:29, Guenter Roeck wrote:
-> On 12/12/24 13:49, Ninad Palsule wrote:
->> Add the driver to monitor Intel common redundant power supply (crps185)
->> with hwmon over pmbus.
->>
->> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
->> ---
->>   Documentation/hwmon/crps.rst |  95 +++++++++++
->
-> Documentation/hwmon/index.rst needs to be updated.
-Added the entry. Sorry for that.
->
->>   MAINTAINERS                  |   7 +
->>   drivers/hwmon/pmbus/Kconfig  |   9 ++
->>   drivers/hwmon/pmbus/Makefile |   1 +
->>   drivers/hwmon/pmbus/crps.c   | 299 +++++++++++++++++++++++++++++++++++
->>   5 files changed, 411 insertions(+)
->>   create mode 100644 Documentation/hwmon/crps.rst
->>   create mode 100644 drivers/hwmon/pmbus/crps.c
->>
->> diff --git a/Documentation/hwmon/crps.rst b/Documentation/hwmon/crps.rst
->> new file mode 100644
->> index 000000000000..81d5dfd68a46
->> --- /dev/null
->> +++ b/Documentation/hwmon/crps.rst
->> @@ -0,0 +1,95 @@
->> +.. SPDX-License-Identifier: GPL-2.0-or-later
->> +
->> +Kernel driver crps
->> +========================
->
-> I am quite sure that this triggers a documentation warning.
-Fixed it.
->
->> +
->> +Supported chips:
->> +
->> +  * Intel CRPS185
->> +
->> +    Prefix: 'crps185'
->> +
->> +    Addresses scanned: -
->> +
->> +Authors:
->> +    Ninad Palsule <ninad@linux.ibm.com>
->> +
->> +
->
-> Is the documentation available somewhere ?
-> If yes, please add a reference. If not, add a comment explaining that
-> it is not available to the public.
-There is no public spec, added the comment
->
->> +Description
->> +-----------
->> +
->> +This driver implements support for Common Redundant Power supply 
->> with PMBus
->
-> For _Intel_ ...
-Updated.
->
->> +support.
->> +
->> +The driver is a client driver to the core PMBus driver.
->> +Please see Documentation/hwmon/pmbus.rst for details on PMBus client 
->> drivers.
->> +
->> +
->> +Usage Notes
->> +-----------
->> +
->> +This driver does not auto-detect devices. You will have to 
->> instantiate the
->> +devices explicitly. Please see 
->> Documentation/i2c/instantiating-devices.rst for
->> +details.
->> +
->> +
->> +Sysfs entries
->> +-------------
->> +
->> +======================= 
->> ======================================================
->> +curr1_label        "iin"
->> +curr1_input        Measured input current
->> +curr1_max        Maximum input current
->> +curr1_max_alarm         Input maximum current high alarm
->> +curr1_crit              Critial high input current
->> +curr1_crit_alarm        Input critical current high alarm
->> +curr1_rated_max        Maximum rated input current
->> +
->> +curr2_label        "iout1"
->> +curr2_input        Measured output current
->> +curr2_max        Maximum output current
->> +curr2_max_alarm         Output maximum current high alarm
->> +curr2_crit            Critial high output current
->> +curr2_crit_alarm        Output critical current high alarm
->> +curr2_rated_max        Maximum rated output current
->> +
->> +in1_label        "vin"
->> +in1_input        Measured input voltage
->> +in1_crit                Critical input over voltage
->> +in1_crit_alarm          Critical input over voltage alarm
->> +in1_max                 Maximum input over voltage
->> +in1_max_alarm           Maximum input over voltage alarm
->> +in1_rated_min        Minimum rated input voltage
->> +in1_rated_max        Maximum rated input voltage
->> +
->> +in2_label        "vout1"
->> +in2_input        Measured input voltage
->> +in2_crit                Critical input over voltage
->> +in2_crit_alarm          Critical input over voltage alarm
->> +in2_lcrit               Critical input under voltage fault
->> +in2_lcrit_alarm         Critical input under voltage fault alarm
->> +in2_max                 Maximum input over voltage
->> +in2_max_alarm           Maximum input over voltage alarm
->> +in2_min                 Minimum input under voltage warning
->> +in2_min_alarm           Minimum input under voltage warning alarm
->> +in2_rated_min        Minimum rated input voltage
->> +in2_rated_max        Maximum rated input voltage
->> +
->> +power1_label        "pin"
->> +power1_input        Measured input power
->> +power1_alarm        Input power high alarm
->> +power1_max          Maximum input power
->> +power1_rated_max        Maximum rated input power
->> +
->> +temp[1-2]_input        Measured temperature
->> +temp[1-2]_crit         Critical temperature
->> +temp[1-2]_crit_alarm    Critical temperature alarm
->> +temp[1-2]_max          Maximum temperature
->> +temp[1-2]_max_alarm     Maximum temperature alarm
->> +temp[1-2]_rated_max     Maximum rated temperature
->> +
->> +fan1_alarm        Fan 1 warning.
->> +fan1_fault        Fan 1 fault.
->> +fan1_input        Fan 1 speed in RPM.
->> +fan1_target             Fan 1 target.
->> +======================= 
->> ======================================================
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 637ddd44245f..6b31d545f0f1 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -6100,6 +6100,13 @@ L:    linux-input@vger.kernel.org
->>   S:    Maintained
->>   F:    drivers/hid/hid-creative-sb0540.c
->>   +CRPS COMMON REDUNDANT PSU DRIVER
->
-> This is _INTEL_ CRPS.
-Updated.
->
->> +M:    Ninad Palsule <ninad@linux.ibm.com>
->> +L:    linux-hwmon@vger.kernel.org
->> +S:    Maintained
->> +F:    Documentation/hwmon/crps.rst
->> +F:    drivers/hwmon/pmbus/crps.c
->> +
->>   CRYPTO API
->>   M:    Herbert Xu <herbert@gondor.apana.org.au>
->>   M:    "David S. Miller" <davem@davemloft.net>
->> diff --git a/drivers/hwmon/pmbus/Kconfig b/drivers/hwmon/pmbus/Kconfig
->> index 22418a05ced0..56c4eb4b846e 100644
->> --- a/drivers/hwmon/pmbus/Kconfig
->> +++ b/drivers/hwmon/pmbus/Kconfig
->> @@ -85,6 +85,15 @@ config SENSORS_BPA_RS600
->>         This driver can also be built as a module. If so, the module 
->> will
->>         be called bpa-rs600.
->>   +config SENSORS_CRPS
->> +    tristate "Common Redundant Power Supply"
->
-> Again, this is an Intel product.
-Fixed.
->
->> +    help
->> +      If you say yes here you get hardware monitoring support for 
->> the Common
->> +      Redundant Power Supply.
->> +
->> +      This driver can also be built as a module. If so, the module will
->> +      be called crps.
->> +
->>   config SENSORS_DELTA_AHE50DC_FAN
->>       tristate "Delta AHE-50DC fan control module"
->>       help
->> diff --git a/drivers/hwmon/pmbus/Makefile b/drivers/hwmon/pmbus/Makefile
->> index 3d3183f8d2a7..c7eb7739b7f8 100644
->> --- a/drivers/hwmon/pmbus/Makefile
->> +++ b/drivers/hwmon/pmbus/Makefile
->> @@ -62,3 +62,4 @@ obj-$(CONFIG_SENSORS_XDPE122)    += xdpe12284.o
->>   obj-$(CONFIG_SENSORS_XDPE152)    += xdpe152c4.o
->>   obj-$(CONFIG_SENSORS_ZL6100)    += zl6100.o
->>   obj-$(CONFIG_SENSORS_PIM4328)    += pim4328.o
->> +obj-$(CONFIG_SENSORS_CRPS)    += crps.o
->> diff --git a/drivers/hwmon/pmbus/crps.c b/drivers/hwmon/pmbus/crps.c
->> new file mode 100644
->> index 000000000000..44d309f81803
->> --- /dev/null
->> +++ b/drivers/hwmon/pmbus/crps.c
->> @@ -0,0 +1,299 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +/*
->> + * Copyright 2024 IBM Corp.
->> + */
->> +
->> +#include <linux/debugfs.h>
->> +#include <linux/i2c.h>
->> +#include <linux/of.h>
->> +#include <linux/pmbus.h>
->> +
->> +#include "pmbus.h"
->> +
->> +/* Intel crps185 specific commands. */
->> +#define CRPS185_MFR_IOUT_MAX        0xA6
->> +#define CRPS185_MFR_POUT_MAX        0xA7
->> +
->
-> I fail to see the point in those defines, even more so since
-> PMBUS_MFR_POUT_MAX and PMBUS_MFR_IOUT_MAX are used below.
-Removed these defines.
->
->> +enum {
->> +    CRPS_DEBUGFS_PMBUS_REVISION = 0,
->> +    CRPS_DEBUGFS_MAX_POWER_OUT,
->> +    CRPS_DEBUGFS_MAX_CURRENT_OUT,
->> +    CRPS_DEBUGFS_NUM_ENTRIES
->> +};
->> +
->> +enum models { crps185 = 1, crps_unknown };
->
-> Pointless enum. The driver only supports a single power supply.
-Removed the enum.
->
->> +
->> +struct crps {
->> +    enum models version;
->> +    struct i2c_client *client;
->> +
->> +    int debugfs_entries[CRPS_DEBUGFS_NUM_ENTRIES];
->> +};
->> +
->> +#define to_psu(x, y) container_of((x), struct crps, 
->> debugfs_entries[(y)])
->> +
->> +static struct pmbus_platform_data crps_pdata = {
->> +    .flags = PMBUS_SKIP_STATUS_CHECK,
->> +};
->
-> Did you confirm that it is needed ? If so, explain why it is needed.
-I removed it and still driver is working. I added it because spec did 
-not mention about PMBUS_STATUS_CML
->
->> +
->> +static const struct i2c_device_id crps_id[] = {
->> +    { "intel_crps185", crps185 },
->> +    {}
->> +};
->> +MODULE_DEVICE_TABLE(i2c, crps_id);
->> +
->> +/*
->> + * Convert linear format word to machine format. 11 LSB side bits 
->> are two's
->> + * complement integer mantissa and 5 MSB side bits are two's complement
->> + * exponent
->> + */
->> +static int crps_convert_linear(int rc)
->> +{
->> +    s16 exponent;
->> +    s32 mantissa;
->> +    s64 val;
->> +
->> +    exponent = ((s16)rc) >> 11;
->> +    mantissa = ((s16)((rc & 0x7ff) << 5)) >> 5;
->> +
->> +    val = mantissa;
->> +    if (exponent >= 0)
->> +        val <<= exponent;
->> +    else
->> +        val >>= -exponent;
->> +
->> +    return (int)val;
->> +}
->> +
->> +static ssize_t crps_debugfs_read(struct file *file, char __user *buf,
->> +                 size_t count, loff_t *ppos)
->> +{
->> +    int rc;
->> +    int *idxp = file->private_data;
->> +    int idx = *idxp;
->> +    struct crps *psu = to_psu(idxp, idx);
->> +    char data[2 * I2C_SMBUS_BLOCK_MAX] = { 0 };
->> +
->> +    rc = pmbus_lock_interruptible(psu->client);
->> +    if (rc)
->> +        return rc;
->> +
->> +    rc = pmbus_set_page(psu->client, 0, 0xff);
->> +    if (rc)
->> +        goto unlock;
->> +
->> +    switch (idx) {
->> +    case CRPS_DEBUGFS_PMBUS_REVISION:
->> +        rc = i2c_smbus_read_byte_data(psu->client, PMBUS_REVISION);
->> +        if (rc >= 0) {
->> +            if (psu->version == crps185) {
->> +                if (rc == 0)
->> +                    rc = sprintf(data, "%s", "1.0");
->> +                else if (rc == 0x11)
->> +                    rc = sprintf(data, "%s", "1.1");
->> +                else if (rc == 0x22)
->> +                    rc = sprintf(data, "%s", "1.2");
->> +                else
->> +                    rc = snprintf(data, 3, "0x%02x", rc);
->> +            } else {
->> +                rc = snprintf(data, 3, "%02x", rc);
->> +            }
->> +        }
->
-> This attribute should be added into the PMBus core.
+> +
+> +Authors:
+> +    Ninad Palsule <ninad@linux.ibm.com>
+> +
+> +
+> +Description
+> +-----------
+> +
+> +This driver implements support for Intel Common Redundant Power supply with
+> +PMBus support.
+> +
+> +The driver is a client driver to the core PMBus driver.
+> +Please see Documentation/hwmon/pmbus.rst for details on PMBus client drivers.
+> +
+> +
+> +Usage Notes
+> +-----------
+> +
+> +This driver does not auto-detect devices. You will have to instantiate the
+> +devices explicitly. Please see Documentation/i2c/instantiating-devices.rst for
+> +details.
+> +
+> +
+> +Sysfs entries
+> +-------------
+> +
+> +======================= ======================================================
+> +curr1_label		"iin"
+> +curr1_input		Measured input current
+> +curr1_max		Maximum input current
+> +curr1_max_alarm         Input maximum current high alarm
+> +curr1_crit              Critial high input current
+> +curr1_crit_alarm        Input critical current high alarm
+> +curr1_rated_max		Maximum rated input current
+> +
+> +curr2_label		"iout1"
+> +curr2_input		Measured output current
+> +curr2_max		Maximum output current
+> +curr2_max_alarm         Output maximum current high alarm
+> +curr2_crit	        Critial high output current
+> +curr2_crit_alarm        Output critical current high alarm
+> +curr2_rated_max		Maximum rated output current
+> +
+> +in1_label		"vin"
+> +in1_input		Measured input voltage
+> +in1_crit                Critical input over voltage
+> +in1_crit_alarm          Critical input over voltage alarm
+> +in1_max                 Maximum input over voltage
+> +in1_max_alarm           Maximum input over voltage alarm
+> +in1_rated_min		Minimum rated input voltage
+> +in1_rated_max		Maximum rated input voltage
+> +
+> +in2_label		"vout1"
+> +in2_input		Measured input voltage
+> +in2_crit                Critical input over voltage
+> +in2_crit_alarm          Critical input over voltage alarm
+> +in2_lcrit               Critical input under voltage fault
+> +in2_lcrit_alarm         Critical input under voltage fault alarm
+> +in2_max                 Maximum input over voltage
+> +in2_max_alarm           Maximum input over voltage alarm
+> +in2_min                 Minimum input under voltage warning
+> +in2_min_alarm           Minimum input under voltage warning alarm
+> +in2_rated_min		Minimum rated input voltage
+> +in2_rated_max		Maximum rated input voltage
+> +
+> +power1_label		"pin"
+> +power1_input		Measured input power
+> +power1_alarm		Input power high alarm
+> +power1_max  		Maximum input power
+> +power1_rated_max        Maximum rated input power
+> +
+> +temp[1-2]_input		Measured temperature
+> +temp[1-2]_crit 		Critical temperature
+> +temp[1-2]_crit_alarm    Critical temperature alarm
+> +temp[1-2]_max  		Maximum temperature
+> +temp[1-2]_max_alarm     Maximum temperature alarm
+> +temp[1-2]_rated_max     Maximum rated temperature
+> +
+> +fan1_alarm		Fan 1 warning.
+> +fan1_fault		Fan 1 fault.
+> +fan1_input		Fan 1 speed in RPM.
+> +fan1_target             Fan 1 target.
+> +======================= ======================================================
 
-Moved the attribute in the core.
+Does this pass "make htmldocs" ?
 
 
->
->> +        break;
->> +    case CRPS_DEBUGFS_MAX_POWER_OUT:
->> +        rc = i2c_smbus_read_word_data(psu->client, PMBUS_MFR_POUT_MAX);
->> +        if (rc >= 0) {
->> +            rc = crps_convert_linear(rc);
->> +            rc = snprintf(data, I2C_SMBUS_BLOCK_MAX, "%d", rc);
->> +        }
->> +        break;
->> +    case CRPS_DEBUGFS_MAX_CURRENT_OUT:
->> +        rc = i2c_smbus_read_word_data(psu->client, PMBUS_MFR_IOUT_MAX);
->> +        if (rc >= 0) {
->> +            rc = crps_convert_linear(rc);
->> +            rc = snprintf(data, I2C_SMBUS_BLOCK_MAX, "%d", rc);
->> +        }
->> +        break;
->
-> What is the point of those two attributes ? There are already
-> standard sysfs attributes reporting those values.
-Removed debugfs
->
->> +    default:
->> +        rc = -EINVAL;
->> +        break;
->> +    }
->> +
->> +unlock:
->> +    pmbus_unlock(psu->client);
->> +    if (rc < 0)
->> +        return rc;
->> +
->> +    data[rc] = '\n';
->> +    rc += 2;
->> +
->> +    return simple_read_from_buffer(buf, count, ppos, data, rc);
->> +}
->> +
->> +static const struct file_operations crps_debugfs_fops = {
->> +    .llseek = noop_llseek,
->> +    .read = crps_debugfs_read,
->> +    .open = simple_open,
->> +};
->> +
->> +static int crps_read_word_data(struct i2c_client *client, int page,
->> +                int phase, int reg)
->> +{
->> +    int rc;
->> +
->> +    switch (reg) {
->> +    case PMBUS_STATUS_WORD:
->> +        rc = pmbus_read_word_data(client, page, phase, reg);
->> +        if (rc < 0)
->> +            return rc;
->> +        break;
->
-> Why is this needed ?
-You are right, removed it.
->
->> +    case PMBUS_OT_WARN_LIMIT:
->> +        rc = pmbus_read_word_data(client, page, phase,
->> +                      PMBUS_MFR_MAX_TEMP_1);
->> +        if (rc < 0)
->> +            return rc;
->> +        break;
->> +    case PMBUS_IOUT_OC_WARN_LIMIT:
->> +        rc = pmbus_read_word_data(client, page, phase,
->> +                      CRPS185_MFR_IOUT_MAX);
->> +        if (rc < 0)
->> +            return rc;
->> +        break;
->> +    case PMBUS_POUT_OP_WARN_LIMIT:
->> +        rc = pmbus_read_word_data(client, page, phase,
->> +                      CRPS185_MFR_POUT_MAX);
->> +        if (rc < 0)
->> +            return rc;
->> +        break;
->
-> The above three values are more than odd. They duplicate the respective
-> standard rated_max attributes as warning limits. Why ?
-I realized that some of these registers exist. So removed it.
->
-> On top of that, on writes, the actual warning limits are overwritten.
-> That makes even less sense.
-I have removed read function so now we don't need write too.
->
->> +    default:
->> +        rc = -ENODATA;
->> +        break;
->> +    }
->> +
->> +    return rc;
->> +}
->> +
->> +static struct pmbus_driver_info crps_info[] = {
->> +    [crps185] = {
->> +        .pages = 1,
->> +        /* PSU uses default linear data format. */
->> +        .func[0] = PMBUS_HAVE_PIN | PMBUS_HAVE_IOUT |
->> +            PMBUS_HAVE_STATUS_IOUT | PMBUS_HAVE_IIN |
->> +            PMBUS_HAVE_VIN | PMBUS_HAVE_STATUS_INPUT |
->> +            PMBUS_HAVE_VOUT | PMBUS_HAVE_STATUS_VOUT |
->> +            PMBUS_HAVE_TEMP | PMBUS_HAVE_TEMP2 |
->> +            PMBUS_HAVE_STATUS_TEMP |
->> +            PMBUS_HAVE_FAN12 | PMBUS_HAVE_STATUS_FAN12,
->> +        .read_word_data = crps_read_word_data,
->> +    },
->> +};
->> +
->> +#define to_psu(x, y) container_of((x), struct crps, 
->> debugfs_entries[(y)])
->> +
->> +static void crps_init_debugfs(struct crps *psu)
->> +{
->> +    struct i2c_client *client = psu->client;
->> +    struct dentry *debugfs;
->> +    int i;
->> +
->> +    /* Don't fail the probe if we can't create debugfs */
->> +    debugfs = pmbus_get_debugfs_dir(client);
->> +    if (!debugfs)
->> +        return;
->> +
->> +    for (i = 0; i < CRPS_DEBUGFS_NUM_ENTRIES; ++i)
->> +        psu->debugfs_entries[i] = i;
->> +
->> +    debugfs_create_file("pmbus_revision", 0444, debugfs,
->> + &psu->debugfs_entries[CRPS_DEBUGFS_PMBUS_REVISION],
->> +                &crps_debugfs_fops);
->> +    debugfs_create_file("max_power_out", 0444, debugfs,
->> + &psu->debugfs_entries[CRPS_DEBUGFS_MAX_POWER_OUT],
->> +                &crps_debugfs_fops);
->> +    debugfs_create_file("max_current_out", 0444, debugfs,
->> + &psu->debugfs_entries[CRPS_DEBUGFS_MAX_CURRENT_OUT],
->> +                &crps_debugfs_fops);
->> +}
->> +
->> +static int crps_probe(struct i2c_client *client)
->> +{
->> +    int rc;
->> +    struct device *dev = &client->dev;
->> +    enum models vs = crps_unknown;
->> +    struct crps *psu;
->> +    const void *md = of_device_get_match_data(&client->dev);
->> +    const struct i2c_device_id *id = NULL;
->> +    char buf[I2C_SMBUS_BLOCK_MAX + 2] = { 0 };
->> +
->> +    if (md) {
->> +        vs = (uintptr_t)md;
->> +    } else {
->> +        id = i2c_match_id(crps_id, client);
->> +        if (id)
->> +            vs = (enum models)id->driver_data;
->> +    }
->> +
-> Consider using i2c_get_match_data().
-Removed this code.
->
->> +    if (!vs || vs >= crps_unknown) {
->> +        dev_err(dev, "Version %d not supported\n", vs);
->> +        return -EINVAL;
->> +    }
->
-> This is very much pointless. The driver would not be instantiated 
-> withut match.
-Yes, removed it.
->
->> +
->> +    rc = i2c_smbus_read_block_data(client, PMBUS_MFR_MODEL, buf);
->> +    if (rc < 0) {
->> +        dev_err(dev, "Failed to read PMBUS_MFR_MODEL\n");
->> +        return rc;
->
-> dev_err_probe().
-Changed to use this function.
->
->> +    }
->> +    if (strncmp(buf, "03NK260", 7)) {
->
-> This should also check and ensure that rc == 7.
-Good idea, Added this check.
->
->> +        buf[rc] = '\0';
->> +        dev_err(dev, "Model '%s' not supported\n", buf);
->
-> dev_err_probe()
-Changed the function
->
->> +        return -ENODEV;
->> +    }
->> +
->> +    client->dev.platform_data = &crps_pdata;
->> +    rc = pmbus_do_probe(client, &crps_info[vs]);
->> +    if (rc) {
->> +        dev_err(dev, "Failed to probe %d\n", rc);
->> +        return rc;
->
-> dev_err_probe().
-Changed this function.
->
->> +    }
->> +
->> +    /*
->> +     * Don't fail the probe if there isn't enough memory for debugfs.
->> +     */
->> +    psu = devm_kzalloc(&client->dev, sizeof(*psu), GFP_KERNEL);
->> +    if (!psu) {
->> +        dev_warn(dev, "Failed to allocate memory. debugfs are not 
->> supported.\n");
->> +        return 0;
->> +    }
->> +
->> +    psu->version = vs;
->> +    psu->client = client;
->> +
->
-> Drop all this. Add the PMBus version as standard debugfs attribute to 
-> the PMBus core
-> if needed/wanted. The rest is already provided as standard sysfs 
-> attributes, and
-> reporting the same value in debugfs files adds no value.
-Yes, Removed debugfs.
->
->> +    crps_init_debugfs(psu);
->> +
->> +    return 0;
->> +}
->> +
->> +static const struct of_device_id crps_of_match[] = {
->> +    {
->> +        .compatible = "intel,crps185",
->> +        .data = (void *)crps185
->> +    },
->> +    {}
->> +};
->> +MODULE_DEVICE_TABLE(of, crps_of_match);
->> +
->> +static struct i2c_driver crps_driver = {
->> +    .driver = {
->> +        .name = "crps",
->> +        .of_match_table = crps_of_match,
->> +    },
->> +    .probe = crps_probe,
->> +    .id_table = crps_id,
->> +};
->> +
->> +module_i2c_driver(crps_driver);
->> +
->> +MODULE_AUTHOR("Ninad Palsule");
->> +MODULE_DESCRIPTION("PMBus driver for Common Redundant power supplies");
->
-> Again, this is for _Intel_ power supplies.
+> diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+> index 1a3cb0a59f72..b1ea445479b0 100644
+> --- a/Documentation/hwmon/index.rst
+> +++ b/Documentation/hwmon/index.rst
+> @@ -58,6 +58,7 @@ Hardware Monitoring Kernel Drivers
+>      corsair-cpro
+>      corsair-psu
+>      cros_ec_hwmon
+> +   crps
+>      da9052
+>      da9055
+>      dell-smm-hwmon
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 637ddd44245f..e99f26f75733 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -6100,6 +6100,13 @@ L:	linux-input@vger.kernel.org
+>   S:	Maintained
+>   F:	drivers/hid/hid-creative-sb0540.c
+>   
+> +INTEL CRPS COMMON REDUNDANT PSU DRIVER
+> +M:	Ninad Palsule <ninad@linux.ibm.com>
+> +L:	linux-hwmon@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/hwmon/crps.rst
+> +F:	drivers/hwmon/pmbus/crps.c
+> +
+>   CRYPTO API
+>   M:	Herbert Xu <herbert@gondor.apana.org.au>
+>   M:	"David S. Miller" <davem@davemloft.net>
+> diff --git a/drivers/hwmon/pmbus/Kconfig b/drivers/hwmon/pmbus/Kconfig
+> index 22418a05ced0..43b6df04e0f9 100644
+> --- a/drivers/hwmon/pmbus/Kconfig
+> +++ b/drivers/hwmon/pmbus/Kconfig
+> @@ -85,6 +85,15 @@ config SENSORS_BPA_RS600
+>   	  This driver can also be built as a module. If so, the module will
+>   	  be called bpa-rs600.
+>   
+> +config SENSORS_CRPS
+> +	tristate "Intel Common Redundant Power Supply"
+> +	help
+> +	  If you say yes here you get hardware monitoring support for the Intel
+> +	  Common Redundant Power Supply.
+> +
+> +	  This driver can also be built as a module. If so, the module will
+> +	  be called crps.
+> +
+>   config SENSORS_DELTA_AHE50DC_FAN
+>   	tristate "Delta AHE-50DC fan control module"
+>   	help
+> diff --git a/drivers/hwmon/pmbus/Makefile b/drivers/hwmon/pmbus/Makefile
+> index 3d3183f8d2a7..c7eb7739b7f8 100644
+> --- a/drivers/hwmon/pmbus/Makefile
+> +++ b/drivers/hwmon/pmbus/Makefile
+> @@ -62,3 +62,4 @@ obj-$(CONFIG_SENSORS_XDPE122)	+= xdpe12284.o
+>   obj-$(CONFIG_SENSORS_XDPE152)	+= xdpe152c4.o
+>   obj-$(CONFIG_SENSORS_ZL6100)	+= zl6100.o
+>   obj-$(CONFIG_SENSORS_PIM4328)	+= pim4328.o
+> +obj-$(CONFIG_SENSORS_CRPS)	+= crps.o
+> diff --git a/drivers/hwmon/pmbus/crps.c b/drivers/hwmon/pmbus/crps.c
+> new file mode 100644
+> index 000000000000..09425c404fc8
+> --- /dev/null
+> +++ b/drivers/hwmon/pmbus/crps.c
+> @@ -0,0 +1,79 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright 2024 IBM Corp.
+> + */
+> +
+> +#include <linux/i2c.h>
+> +#include <linux/of.h>
+> +#include <linux/pmbus.h>
+> +
+> +#include "pmbus.h"
+> +
+> +static const struct i2c_device_id crps_id[] = {
+> +	{ "intel_crps185" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(i2c, crps_id);
+> +
+> +static struct pmbus_driver_info crps_info = {
+> +	.pages = 1,
+> +	/* PSU uses default linear data format. */
+> +	.func[0] = PMBUS_HAVE_PIN | PMBUS_HAVE_IOUT |
+> +		PMBUS_HAVE_STATUS_IOUT | PMBUS_HAVE_IIN |
+> +		PMBUS_HAVE_VIN | PMBUS_HAVE_STATUS_INPUT |
+> +		PMBUS_HAVE_VOUT | PMBUS_HAVE_STATUS_VOUT |
+> +		PMBUS_HAVE_TEMP | PMBUS_HAVE_TEMP2 |
+> +		PMBUS_HAVE_STATUS_TEMP |
+> +		PMBUS_HAVE_FAN12 | PMBUS_HAVE_STATUS_FAN12,
+> +};
+> +
+> +static int crps_probe(struct i2c_client *client)
+> +{
+> +	int rc;
+> +	struct device *dev = &client->dev;
+> +	char buf[I2C_SMBUS_BLOCK_MAX + 2] = { 0 };
+> +
+> +	rc = i2c_smbus_read_block_data(client, PMBUS_MFR_MODEL, buf);
+> +	if (rc < 0) {
+> +		dev_err_probe(dev, rc, "Failed to read PMBUS_MFR_MODEL\n");
+> +		return rc;
 
-Yes, Added Intel
+		return dev_err_probe(...);
 
+> +	}
+> +
+> +	if (strncmp(buf, "03NK260", 7) == 7) {
 
-Thanks and Regards,
+strncmp() never returns 7. You probably want something like
 
-Ninad Palsule
+	if (rc != 7 || strncmp(buf, "03NK260", 7)) {
 
->
->> +MODULE_LICENSE("GPL");
->> +MODULE_IMPORT_NS("PMBUS");
->
+> +		buf[rc] = '\0';
+> +		dev_err_probe(dev, -ENODEV, "Model '%s' not supported\n", buf);
+
+		return dev_err_probe(...);
+
+> +		return -ENODEV;
+> +	}
+> +
+> +	rc = pmbus_do_probe(client, &crps_info);
+> +	if (rc) {
+> +		dev_err_probe(dev, rc, "Failed to probe %d\n", rc);
+
+dev_err_probe() already handles the error, and a message such as
+"failed to probe -22" isn't very useful anyway. Also,
+		return dev_err_probe(...);
+
+> +		return rc;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id crps_of_match[] = {
+> +	{
+> +		.compatible = "intel,crps185",
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, crps_of_match);
+> +
+> +static struct i2c_driver crps_driver = {
+> +	.driver = {
+> +		.name = "crps",
+> +		.of_match_table = crps_of_match,
+> +	},
+> +	.probe = crps_probe,
+> +	.id_table = crps_id,
+> +};
+> +
+> +module_i2c_driver(crps_driver);
+> +
+> +MODULE_AUTHOR("Ninad Palsule");
+> +MODULE_DESCRIPTION("PMBus driver for Intel Common Redundant power supplies");
+> +MODULE_LICENSE("GPL");
+> +MODULE_IMPORT_NS("PMBUS");
+
 
