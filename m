@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5C6E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 21:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8FBE77183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 21:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DRJiV63LRq8fV+tehc1tAI/LgilDFILxKmmMTE8EzxM=; b=i6UQbBQLYPmmDRFOyWDNfgABHQ
-	8FyAM+3zH1T1Zg1d0kzggsLarRBBmAbanitDuOdWv1ymcD4idydBu0gHlEwg5ENdAXXgaIKd4sMi7
-	7UnyY1mcNb4dqxjv7Fipax9xAaJdoD/4jPwghHBhVixW62yanK01Vx7jHM0mHIv0PKjvlqk3kY6rM
-	TtYPSjdVctHepgS4mHIAcIwxS4MSqGnld09oYBaygbBgKXm3ms8bqkEXNnQxLCeXaMMtAyFWaDmox
-	UfX5++ux7GY00jy8oH11TDkrij1NdZcJsM6RZKQ4UL/LaLLmUQU28DRyQv0Y9doprHxfCxKVaQ0aX
-	J4CVXU7w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sJGC5U6NyEZfHZAbEKwFZDzPBWxvDuzsYdPOHW5lSGU=; b=wBxQfrh/OrhVaMVyBAql9Jwbho
+	hQMf9Uv0ZfQfD2BIl9U6hwgXjiNz/uUSiL/t/ro0MdjmvrDV99GKhMrze3JvkLyh1f8XEju3KUo3z
+	IPcMp/jW9hzUwJjtexhpOJwHu90Gxr3h/Vi9PexlYoowqFXvVvkO44DHZ4CKWCaA99Z5UYN7nHj9H
+	fJXiNo4XOybTXR156xXlkyLwycy5hZj48M7xKjGn0SInW6IyRtorj/55o5trMw8V3C7Whf39KOfKu
+	1oBju1LBX/tZK2HR37Ih8Lgh85VZJlwuhjRqk3w9GTWnNWfok4V7AzJ7+T55cRgdjmJj7UaaIEaUq
+	cpkU+Xkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNIso-0000000BSlI-1sUW;
-	Mon, 16 Dec 2024 21:44:06 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1tNItr-0000000BT09-1uha;
+	Mon, 16 Dec 2024 21:45:11 +0000
+Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNIri-0000000BSZX-0mZ3;
-	Mon, 16 Dec 2024 21:42:59 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3a8aed87a0dso16075275ab.3;
-        Mon, 16 Dec 2024 13:42:57 -0800 (PST)
+	id 1tNIrn-0000000BSad-0Ua7;
+	Mon, 16 Dec 2024 21:43:04 +0000
+Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-844e7bc6d84so113039139f.0;
+        Mon, 16 Dec 2024 13:43:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734385376; x=1734990176; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=DRJiV63LRq8fV+tehc1tAI/LgilDFILxKmmMTE8EzxM=;
-        b=ipDMPxCrOXwjO54lg/4xLfEBqxktmeQvOwLVlfJRSHQXzsHZ8Y7tZ6SsipyyF4T+B2
-         Z+tJwB3/qJfsz/dEItSF9ebzBkMVYKH6GlsRz4ncCJfVi/+NDCEQnawR5eccBrqX/L7I
-         ZNqCYTwBa9wDXx4dkw/KuhD40uXQz+xd8E/K+bMUmuCxgkzStHMWpxGGzacs7SiD2xjY
-         S1uIpySGl9R9YOudaGc9RXrQkDT0vjwgS6bg8+M1MwGqSdf12gVjfo+7RAC7vWEimkzF
-         OPb+QEF7h/Rvb3pg/OexCO81Dh83x777q+hNS6PtRrVyhMX8+cB1g3sm/egi7AigrifJ
-         aBXw==
+        d=gmail.com; s=20230601; t=1734385382; x=1734990182; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sJGC5U6NyEZfHZAbEKwFZDzPBWxvDuzsYdPOHW5lSGU=;
+        b=IvFJ6Sibr7U1QEOEVMFLrdoAAHall691RFT1Dr4ww3UVXXrUmclrc/31smBlSftr+R
+         gXDpNxkMUE6gZItmmJN0ba6GY7McTdL4Z0qI3bzEOHg3WsTP0IiUMjiJs/tdAh1ZmfdX
+         w+yV6UDLt/15p5joric5aWKif6fw4byjM6p94Z1LI3m0FOcz6B44Bs8dazlJyJuKYJuO
+         qYiJhlxU5mNw9Z7Wu//zOM1/pjOTC+FWzCJmqURUBEfNv2dh9uRDkBkMDPlMo7KtpMZa
+         PMdcpUkrSpY1X26I5+TX2/G1sLucWg4MIeV0lphZcnsxUnyOQqKUY+138G93KiDyJA2F
+         HbEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734385376; x=1734990176;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DRJiV63LRq8fV+tehc1tAI/LgilDFILxKmmMTE8EzxM=;
-        b=M2KOGZVKKZaKbXjaRRrN4Uszpk32wwnm3jSadHEhRoclyBNP2GPe+jt9HNUhX/pbLj
-         Epj1aOeL2oO9E91xgrkV/5MYB73YsCV9Tck2mfjluD1Sy1Opls9msAMAOHJUClK9zoLa
-         EdLVzjnLGli2QJRzvnLPcmTNxN1A2Jq3omF8SMPQPtA0uf/wlPay5C8BpXQoGIqyNpz/
-         m2/fX0gRKnuvAYniuQWXdPUdDmmnh5wnr3ukUgaY0IUe3cM0LzX/kNvoHbdC0n+s1pkY
-         qOrt65O8QrzMZwFTKLp2JLUFjvvQTw2bTMO9HHDgSaFv6NTkiHv9NIWYbmZIEUHEOIwm
-         ePww==
-X-Forwarded-Encrypted: i=1; AJvYcCVOf4S5RkGBqY2yzTxVWA7P3sMEq1cG9cDr/xTMgKNBKE+mrqUelBBbo3do3Jz6j/6INFZwlMFFelzaRRg9sn2S@lists.infradead.org, AJvYcCXF1e00q3Jfz5HId+QOdLGaJQ3q1N+nSNY+ecuqp73YBaLjBpSicN4RwZgjLF0PO4/tWL/qComHpGWvX/U4K8Q=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzG3ZVExkPGb2dQ1LvhvQZvQIyWK8/YT4xR5Jr02kYGTPRDVf+p
-	hNKy3caYAKq7notB3kiUxcEr/HrT1f0LVanlQ4PjMSKskzTauqbx
-X-Gm-Gg: ASbGncv5Al6k7EHeCbBWLyoIRdxx7c2xkt1b84sZxz/2gpg6u3dQCN/DU4VUreLT4qB
-	eoCo3tB+QnkBYQNmN05XyDFQc7psh+XwFSyEA68pPYphpo/uaQFLDKeZ0rYmJSGXvogv0x7Zhgx
-	YgT/JaHItDV0L9o+ZvKFZu2NHhghChV/80lj/Owlhyfgp4uZNYFJSWCSBkYsxw86fxBrXCZ/Pyn
-	2jO3OrNqBtwfGNHkrhcCcYyeQ/O5AO3uaQREZsER/pl1p3TpetRX673VHZhMYiQvinmkx0OCxrr
-	AYVbi3zf/VPYvG1Dpabt5Rjn8PA=
-X-Google-Smtp-Source: AGHT+IFDidsqDmLm+P6RSEJBRFZE5QlyQnlF1Kd+ADUltzI0Z6Ahn4amtFa5gyQLV/DCYzsUMkU4uw==
-X-Received: by 2002:a05:6e02:1a07:b0:3ab:4bea:df97 with SMTP id e9e14a558f8ab-3affbbb656fmr162024405ab.23.1734385376356;
-        Mon, 16 Dec 2024 13:42:56 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734385382; x=1734990182;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sJGC5U6NyEZfHZAbEKwFZDzPBWxvDuzsYdPOHW5lSGU=;
+        b=pzSEzJgHHr/ZcA6NLaGiClosj7y/n/6xh1vAimkC1N+DBNgTTSVhSOyWRYVuQh+moj
+         +Kbj6zeX8BvarJXjjpbgh47WyTuir+u8CpzAybNaXiqtLbkMXvCKY7vevfC1FTP+P1cO
+         wc5KgxnQNZjXWFA88Q2FGyP632DqAruhvEMfTBkKz/zz5+wvUHo0rgQOX340XRlVi9KA
+         +RUYZqnw7nQF8TyAttuO/ij1jhB+tes7PWH7NrbNpOZKJa5CIRRbemJL8jrFolsPQ1zD
+         8vm6VONVuJzVoz24DhfSL/qSQd1Kq1W+fYQEOeFwxoZUlljxi3svtx3td8aosQlvrPCZ
+         byHw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/86O+PmjK2PYhQkCQsZggbSv9Jx/K4z2RvQFTGSwV29mOFc8QtLLx9Q0X9aLabGHyOVRMRtGnJxfz/lRj0cc=@lists.infradead.org, AJvYcCX4YlnVLJxQ08Idd1W5ED2PrjsPejIzonnYwe5pOorpDZkblrDw7BjI92XPghJ6lC1v/zRmvaOttgf2DsTESOAN@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywsq3G/WiOvybZ7fALF4ES52fDIyjGKe70Z4+5eeRjbitKHU/MG
+	XuiRictkenSjJ4bvLBo6v+kPZUJNt9J5NXMUn295LPB+VIOWWv7f
+X-Gm-Gg: ASbGnctlkwvNtvMEYxjPxhGQtY9XMUSGSe+B4rX7s9V+l6lx1HgyDmh9NMPfS0djIHQ
+	BTZ2d6x833DhwPoi+dIRkaQsyV/hz4XVAmH6AgNKZK3loyP2rIOaPeoI6zGGGEOaMbhy2v+q1XY
+	BO4ZZ7xxNP9UfiYbKapVMd0bW6SpFc06lSDamvurkEu+ZnAeBUc9rN05G5oSvae/VBRA7zThC9w
+	txas8oq0ieawsIZrLVJzpEXW+qdy4VUfW4oIrCmY/5Xa9hvhPMh6BT0ERoQHQdZhwvKEUZOcibQ
+	i0rA2CarM6gjNP6gnhJrrNZPJUY=
+X-Google-Smtp-Source: AGHT+IGGL+T7hHbT0CUdKvIQYbiW0JKuL6n1e24a8GhUs3rIydemyYi24k0v3/J7YQcbUHUUNpcXrg==
+X-Received: by 2002:a05:6602:148e:b0:835:3dfc:5ba5 with SMTP id ca18e2360f4ac-84747e25760mr101114239f.5.1734385382055;
+        Mon, 16 Dec 2024 13:43:02 -0800 (PST)
 Received: from localhost.localdomain (65-128-205-244.mpls.qwest.net. [65.128.205.244])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e5e32a342asm1426777173.89.2024.12.16.13.42.50
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e5e32a342asm1426777173.89.2024.12.16.13.42.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 13:42:55 -0800 (PST)
+        Mon, 16 Dec 2024 13:43:01 -0800 (PST)
 From: Shimrra Shai <shimrrashai@gmail.com>
 To: linux-kernel@vger.kernel.org
 Cc: conor+dt@kernel.org,
@@ -77,15 +78,18 @@ Cc: conor+dt@kernel.org,
 	linux-rockchip@lists.infradead.org,
 	robh@kernel.org,
 	Shimrra Shai <shimrrashai@gmail.com>
-Subject: [PATCH v4 0/2] arm64: dts: rockchip: Add Firefly ITX-3588J Board
-Date: Mon, 16 Dec 2024 15:41:50 -0600
-Message-ID: <20241216214152.58387-1-shimrrashai@gmail.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: rockchip: Add Firefly ITX-3588J board
+Date: Mon, 16 Dec 2024 15:41:51 -0600
+Message-ID: <20241216214152.58387-2-shimrrashai@gmail.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241216214152.58387-1-shimrrashai@gmail.com>
+References: <20241216214152.58387-1-shimrrashai@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_134258_222348_650B74E3 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20241216_134303_151764_DEC8CD55 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Draft 4 for the device trees for this board. I hope this one finally
-addresses all outstanding style and organization issues. Note that the
-technical functionality limitations from the preceding versions remain.
+Document board compatible bindings.
 
-Changes since draft 3:
- * Removed the rockchip-pca9555.h header and used the pin numbers directly
-   in the .dts.
- * Removed the display-subsystem node in the .dts. No other board seems to
-   have one like the one that was there and it was causing warnings.
- * Removed extraneous property "rk806_dvs1_pwrdn" on the PMIC subnode on
-   SPI2.
- * Removed an extraneous property "rockchip,skip-scan-in-resume" on the
-   PCIe node pcie2x1l0.
-
-Shimrra
-
+Signed-off-by: Shimrra Shai <shimrrashai@gmail.com>
 ---
-Shimrra Shai (2):
-  dt-bindings: arm: rockchip: Add Firefly ITX-3588J board
-  arm64: dts: rockchip: add DTs for Firefly ITX-3588J and its Core-3588J
-    SoM
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
- .../devicetree/bindings/arm/rockchip.yaml     |   7 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rockchip/rk3588-firefly-core-3588j.dtsi   | 447 +++++++++++
- .../dts/rockchip/rk3588-firefly-itx-3588j.dts | 705 ++++++++++++++++++
- 4 files changed, 1160 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-itx-3588j.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 753199a12..fc7ee86e2 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -167,6 +167,13 @@ properties:
+           - const: engicam,px30-core
+           - const: rockchip,px30
+ 
++      - description: Firefly Core-3588J-based boards
++        items:
++          - enum:
++              - firefly,itx-3588j
++          - const: firefly,core-3588j
++          - const: rockchip,rk3588
++
+       - description: Firefly Core-PX30-JD4 on MB-JD4-PX30 baseboard
+         items:
+           - const: firefly,px30-jd4-core-mb
 -- 
 2.45.2
 
