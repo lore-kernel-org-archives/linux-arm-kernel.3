@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B27E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47D70E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JuUwiwam2NLEhcEaeDlZ9kN1aj2SGwFO1wzDqoeRp0Q=; b=TfRK7ra4nQP0fieA9RcgvTUb1s
-	koFzMv4yOhzGGeoYUeqVNPD2/CcFHneoPq693dHqRe5/tYIfH1EE/U9SXYcpu/COMEMQACbF+cgOY
-	53Og/DKvTPZwyY8ljzqyOkUFNMx9BI20njvsIrfYelre3s22EEg7cREBT1vws8VZHscaFYYNrKdfv
-	DR0KkAjAtyk+JaiszUZVwSpKJ0SiqKoe4jnrDLwGjFKKlwOXbdQaeV/6ylME6llsPK99rFtO199Ok
-	bmDir1WfvibzpdmhxD3BYCkjmxHFTE/NsbwsauVIA4vbueFQI8f4MX7HyE/8DTBNEatWx1CzDcy/i
-	M4oYeQng==;
+	bh=gADDHt6z9Xs2FfuEulQXnjl51FCwXIITHAjg5frr+9A=; b=ItJE6Z4YjOk7C5il8arpQ3z2jI
+	4ScIx9Yl4iMA5x2haq4ZafHpKBJGi+ag1MMlwAIINC+wDIXQbTRjzZ5oiBdPQdjr/2EN1G7zY9R0q
+	KJNTHn4ztzyr+9+d31UuqOayUWp4EFHZ6+zP63y4V2RdqfhjkhT39wrs+FnpJgsLkJ6AXZLfsJleL
+	T971K+WVuRqvYOq59xA26eSH/mGidL9F33r2M5TGGFFjotqm8WvR8PFzn7lAZhGXIOKBWQF4Yto8z
+	RxDYLipIpZcf4eQ3nbUZaDYhy0Pdoanpbj3b/Plr8f41pDcG9uUi3yp6BIpdpXA2WVuwgOhZFgvwM
+	gJC6u6ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7fT-00000009Zl0-2Jgj;
-	Mon, 16 Dec 2024 09:45:35 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1tN7gd-00000009a0D-0pCx;
+	Mon, 16 Dec 2024 09:46:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7eM-00000009ZYD-24sh
+	id 1tN7fX-00000009ZmM-39tg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 09:45:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=gADDHt6z9Xs2FfuEulQXnjl51FCwXIITHAjg5frr+9A=; b=kQ8JkQFn7Ea6zlarxPjz88635m
+	ytBAYX+jIzZvXYG3MTSrlo10wOGnpHzGLumcTnyqLpRPIP5orH1GKRD95VKplLGqGSrA4A/CuHsKI
+	mTdaibTf+nUORUQ65mejqTeXt20CZ3kf8DT7MhjFEBComktX+L7l+rKA/j4oGN6etnRHZyIPxuLXN
+	3x6y9zmm9Vz1QO5urLCbF8BtYtBwZryM7qCEKQUHvhB8qAkeeQvy+69uAGZFtiWYSdsq26mMslnU7
+	1qSTguqhQzm4qxccmv39AoNmMrrN16Fg3+vTOxTM7A8S1rYDVNibPg14eyOk0X2f02zftjHwR8sxq
+	E9NLyjRA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN7fT-00000004oqM-213e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 09:44:28 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e3990bbe22cso2724910276.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 01:44:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734342265; x=1734947065; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JuUwiwam2NLEhcEaeDlZ9kN1aj2SGwFO1wzDqoeRp0Q=;
-        b=as23InBBhAZieTUxIwrKJde7uh05hCcQbl+g0eW892+NLUzLUB/N4Xhzoyqbr3vNdG
-         5Z+MtpTC8/JRk0WJxE05IaOIyNLB3/gIPxxo1DiUN5wLLf+f9dxrmi0TYxaJxsh1CEYo
-         B+gBKrgoqE26aPdAUCNTE5MrvvKjy24v8wjKAVlxPT4CuPz68I9pV1nwrcWXGMAxIiR/
-         BCo5HecVblx82PmBo8m4y8aCmd0uSv1NO9QPazZ5lq1le4K0khWk3xAeex/gYD8iiZTn
-         sNYdKo0on+kIZSZUFGkmQvMUhpUMYezcWoEGYz9F+6ZomoYqIyDEtk0/ZkbNS7Pa52yT
-         9ALQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734342265; x=1734947065;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JuUwiwam2NLEhcEaeDlZ9kN1aj2SGwFO1wzDqoeRp0Q=;
-        b=mcs/XWAC+M+F8qGQQdGPeicE32mxoWpXT1+6G5WMKJj9pOVDm+r0WSjoaj1yXlZyg3
-         byK0x0CRoXUfYsz9VYIk3yw4r0RwiEIaqtScZDwBQFp05m1zhJyvMq098pzIi19KrTXb
-         0PAjkRYbwhVUSr8BUqZwn4HsiXzwUtU6PURbhtvV73DjuNQba149Liz6lBHQCNw5xBgK
-         aILjyhnXDE6xK036wp0A2nP5YUSBhbfKdCwx0U1bXDgxpRKGWg3TdknDpKgYcZmTN5in
-         YhLe4USo01lYJo9fGuVdgTSXWYpgAQ5wg1TBim09Eb361Ot43IRn04tj/AQEzBNVBRvu
-         FIuw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIhm+TWrOjU4gNQiKryA7zLQPTu3VDgjZRcO0LcguUTAJK8SxLxCKExlQSefYGLYqwMgBU+jT89/tQLtfdf82t@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAtmaLCgOZM/Bj5gDrwaQPAef5q/6sNF+CZl6fwgFWGXaoxSCl
-	uBFqLMgX12Tzl0tRY3CjIaEPT9uSL0Amwd2bsBvbW2jE8gjmnKFsKfK5o5SjNyW9rA1bnI9Wkce
-	+3NkVjzEbBLaafQzzP88zSA2dzpmcG6Eh8/51Jw==
-X-Gm-Gg: ASbGncs2ae/BCs4kc1Ff8F8Fydcr2vCmm4Sj0xmxm9wno84MekpWj8/jJccZ/mvxe09
-	3OnixGwEn9sGGkcByUWW56fg1LU/rekzfnhyQ9DG1r6xGmgvuO82a
-X-Google-Smtp-Source: AGHT+IEaxgr5zAENdkbhHhWLUWeddBiATkm12WTcfnkIBrtIL6G9ABG6kqvlOs/mlL45ibQg3MGgK6n9x3gh6NKZnko=
-X-Received: by 2002:a05:6902:1587:b0:e4d:d319:ba6 with SMTP id
- 3f1490d57ef6-e4dd3190cc0mr2042157276.39.1734342265011; Mon, 16 Dec 2024
- 01:44:25 -0800 (PST)
+	Mon, 16 Dec 2024 09:45:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48D41113E;
+	Mon, 16 Dec 2024 01:46:02 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED7893F720;
+	Mon, 16 Dec 2024 01:45:32 -0800 (PST)
+Date: Mon, 16 Dec 2024 09:45:19 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: guomin_chen@sina.com
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Xinqi Zhang <quic_xinqzhan@quicinc.com>,
+	guomin chen <gchen.guomin@gmail.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
+Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless
+ scmi_bus_id.
+Message-ID: <Z1_2rxJ7TOEIOMp7@pluto>
+References: <20241216073745.2973317-1-guomin_chen@sina.com>
+ <Z1_p0nU93PHJ4Sg_@pluto>
 MIME-Version: 1.0
-References: <20241209033923.3009629-1-victor.liu@nxp.com> <20241209033923.3009629-13-victor.liu@nxp.com>
- <3j4fguv4oienfaj4fghpiqpmnq3aczu4azhdo5jzvywc5mawm5@hh33p3dhf6xa>
- <db4d9d4e-855f-4647-9b93-ccc5ec0202b3@nxp.com> <q6pdop6ucowtoxxr66czq7yooujyvp6qs5vcg6gpmi3q4rs4l3@szyqt5pxteoz>
- <b02fb998-9420-4954-8e48-82447493bbb7@nxp.com> <CAA8EJppBpeMA3aSzk025tvzfTW-bFxeZS4kj0Ujk_AuCyoxnEg@mail.gmail.com>
- <95a5c779-941a-4942-8988-65fbe1c4cf82@nxp.com>
-In-Reply-To: <95a5c779-941a-4942-8988-65fbe1c4cf82@nxp.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Mon, 16 Dec 2024 11:44:13 +0200
-Message-ID: <CAA8EJpoUa9y9nfrrDf47aLs5zr4XKSghySXNLnCGwDyYdOvMog@mail.gmail.com>
-Subject: Re: [PATCH v6 12/19] drm/imx: Add i.MX8qxp Display Controller KMS
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	p.zabel@pengutronix.de, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	tglx@linutronix.de, vkoul@kernel.org, kishon@kernel.org, aisheng.dong@nxp.com, 
-	agx@sigxcpu.org, francesco@dolcini.it, frank.li@nxp.com, 
-	u.kleine-koenig@baylibre.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z1_p0nU93PHJ4Sg_@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_014426_531465_04F6EA46 
-X-CRM114-Status: GOOD (  31.83  )
+X-CRM114-CacheID: sfid-20241216_094536_133186_389B0990 
+X-CRM114-Status: GOOD (  28.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,411 +82,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Dec 2024 at 08:28, Liu Ying <victor.liu@nxp.com> wrote:
->
-> On 12/13/2024, Dmitry Baryshkov wrote:
-> > On Fri, 13 Dec 2024 at 08:06, Liu Ying <victor.liu@nxp.com> wrote:
-> >>
-> >> On 12/12/2024, Dmitry Baryshkov wrote:
-> >>> On Wed, Dec 11, 2024 at 03:43:20PM +0800, Liu Ying wrote:
-> >>>> On 12/10/2024, Dmitry Baryshkov wrote:
-> >>>>> On Mon, Dec 09, 2024 at 11:39:16AM +0800, Liu Ying wrote:
-> >>>>>> i.MX8qxp Display Controller(DC) is comprised of three main components that
-> >>>>>> include a blit engine for 2D graphics accelerations, display controller for
-> >>>>>> display output processing, as well as a command sequencer.  Add kernel
-> >>>>>> mode setting support for the display controller part with two CRTCs and
-> >>>>>> two primary planes(backed by FetchLayer and FetchWarp respectively).  The
-> >>>>>> registers of the display controller are accessed without command sequencer
-> >>>>>> involved, instead just by using CPU.  The command sequencer is supposed to
-> >>>>>> be used by the blit engine.
-> >>>>>>
-> >>>>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> >>>>>> ---
-> >>>>>> v6:
-> >>>>>> * No change.
-> >>>>>>
-> >>>>>> v5:
-> >>>>>> * Replace .remove_new with .remove in dc-drv.c. (Uwe)
-> >>>>>>
-> >>>>>> v4:
-> >>>>>> * Move dc_fg_displaymode(), dc_fg_panic_displaymode() and dc_lb_blendcontrol()
-> >>>>>>   function calls from KMS routine to initialization stage. (Dmitry)
-> >>>>>> * Drop dc-crtc.h and dc-plane.h header files and move relevant defines to
-> >>>>>>   appropriate .h header files or .c source files. (Dmitry)
-> >>>>>> * Drop futile "else" clause from dc_crtc_common_irq_handler(). (Dmitry)
-> >>>>>> * Drop dc_drm->pe_rpm_count. (Dmitry)
-> >>>>>> * Drop DC_{CRTCS,ENCODERS,PRIMARYS} macros and only use DC_DISPLAYS. (Dmitry)
-> >>>>>> * Drop drmm_kcalloc() function call to allocate an array for storing IRQs.
-> >>>>>>   Instead, put it in struct dc_crtc.  (Dmitry)
-> >>>>>> * Call devm_request_irq() to request IRQs, instead of using drmm action.
-> >>>>>>   (Dmitry)
-> >>>>>> * Call devm_drm_of_get_bridge() to find the next bridge. (Dmitry)
-> >>>>>> * Select DRM_CLIENT_SELECTION due to rebase.
-> >>>>>> * Select the missing DRM_DISPLAY_HELPER and DRM_BRIDGE_CONNECTOR.
-> >>>>>> * Use DRM_FBDEV_DMA_DRIVER_OPS due to rebase.
-> >>>>>> * Replace drm_fbdev_dma_setup() with drm_client_setup_with_fourcc() due to
-> >>>>>>   rebase.
-> >>>>>> * Replace drmm_add_action_or_reset() with devm_add_action_or_reset() to
-> >>>>>>   register dc_drm_component_unbind_all() action.
-> >>>>>> * Request interrupts in dc_crtc_post_init() after encoder initialization to
-> >>>>>>   make sure next bridge is found first.
-> >>>>>>
-> >>>>>> v3:
-> >>>>>> * No change.
-> >>>>>>
-> >>>>>> v2:
-> >>>>>> * Find next bridge from TCon's port.
-> >>>>>> * Drop drm/drm_module.h include from dc-drv.c.
-> >>>>>>
-> >>>>>>  drivers/gpu/drm/imx/dc/Kconfig    |   5 +
-> >>>>>>  drivers/gpu/drm/imx/dc/Makefile   |   5 +-
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-crtc.c  | 558 ++++++++++++++++++++++++++++++
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-de.h    |   3 +
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-drv.c   | 244 +++++++++++++
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-drv.h   |  19 +
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-kms.c   | 143 ++++++++
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-kms.h   |  58 ++++
-> >>>>>>  drivers/gpu/drm/imx/dc/dc-plane.c | 241 +++++++++++++
-> >>>>>>  9 files changed, 1274 insertions(+), 2 deletions(-)
-> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-crtc.c
-> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.c
-> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.h
-> >>>>>>  create mode 100644 drivers/gpu/drm/imx/dc/dc-plane.c
-> >>>>>>
+On Mon, Dec 16, 2024 at 08:50:26AM +0000, Cristian Marussi wrote:
+> On Mon, Dec 16, 2024 at 03:37:45PM +0800, guomin_chen@sina.com wrote:
+> > From: guomin chen <guomin_chen@sina.com>
+> > 
+> > Currently, scmi_bus_id is only used to set scmi_dev.id,
+> > which in turn sets the SCMI device name. After removing
+> > scmi_bus_id, it is clearer and more meaningful to directly
+> > use the unique tuple [Parent name,device name, protocol] to 
+> > set the SCMI device name.
+> > 
+> 
+> Hi Guomin,
+> 
+> this same pTCH was NACKed(Rejected) a few days ago:
+> 
+> https://lore.kernel.org/arm-scmi/20241211134505.2218386-1-guomin_chen@sina.com/T/#u
+> 
+> ...and you agreed that is not a simplification we can do (not to break
+> multuple instances...)...
+> 
+> ..so why you are posting V2 now ?
 
-> >>>>>
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static const struct component_master_ops dc_drm_ops = {
-> >>>>>> +  .bind = dc_drm_bind,
-> >>>>>> +  .unbind = dc_drm_unbind,
-> >>>>>> +};
-> >>>>>> +
-> >>>>>> +static int dc_probe(struct platform_device *pdev)
-> >>>>>> +{
-> >>>>>> +  struct component_match *match = NULL;
-> >>>>>> +  struct dc_priv *priv;
-> >>>>>> +  int ret;
-> >>>>>> +
-> >>>>>> +  priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-> >>>>>> +  if (!priv)
-> >>>>>> +          return -ENOMEM;
-> >>>>>> +
-> >>>>>> +  priv->clk_cfg = devm_clk_get(&pdev->dev, NULL);
-> >>>>>> +  if (IS_ERR(priv->clk_cfg))
-> >>>>>> +          return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk_cfg),
-> >>>>>> +                               "failed to get cfg clock\n");
-> >>>>>> +
-> >>>>>> +  dev_set_drvdata(&pdev->dev, priv);
-> >>>>>> +
-> >>>>>> +  ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
-> >>>>>> +  if (ret)
-> >>>>>> +          return ret;
-> >>>>>> +
-> >>>>>> +  ret = devm_pm_runtime_enable(&pdev->dev);
-> >>>>>> +  if (ret)
-> >>>>>> +          return ret;
-> >>>>>> +
-> >>>>>> +  ret = devm_of_platform_populate(&pdev->dev);
-> >>>>>> +  if (ret)
-> >>>>>> +          return ret;
-> >>>>>> +
-> >>>>>> +  dc_add_components(&pdev->dev, &match);
-> >>>>>> +
-> >>>>>> +  ret = component_master_add_with_match(&pdev->dev, &dc_drm_ops, match);
-> >>>>>> +  if (ret)
-> >>>>>> +          return dev_err_probe(&pdev->dev, ret,
-> >>>>>> +                               "failed to add component master\n");
-> >>>>>> +
-> >>>>>> +  return 0;
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static void dc_remove(struct platform_device *pdev)
-> >>>>>> +{
-> >>>>>> +  component_master_del(&pdev->dev, &dc_drm_ops);
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static int dc_runtime_suspend(struct device *dev)
-> >>>>>> +{
-> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
-> >>>>>> +
-> >>>>>> +  clk_disable_unprepare(priv->clk_cfg);
-> >>>>>> +
-> >>>>>> +  return 0;
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static int dc_runtime_resume(struct device *dev)
-> >>>>>> +{
-> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
-> >>>>>> +  int ret;
-> >>>>>> +
-> >>>>>> +  ret = clk_prepare_enable(priv->clk_cfg);
-> >>>>>> +  if (ret)
-> >>>>>> +          dev_err(dev, "failed to enable cfg clock: %d\n", ret);
-> >>>>>> +
-> >>>>>> +  return ret;
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static int dc_suspend(struct device *dev)
-> >>>>>> +{
-> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
-> >>>>>> +
-> >>>>>> +  return drm_mode_config_helper_suspend(priv->drm);
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static int dc_resume(struct device *dev)
-> >>>>>> +{
-> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(dev);
-> >>>>>> +
-> >>>>>> +  return drm_mode_config_helper_resume(priv->drm);
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static void dc_shutdown(struct platform_device *pdev)
-> >>>>>> +{
-> >>>>>> +  struct dc_priv *priv = dev_get_drvdata(&pdev->dev);
-> >>>>>> +
-> >>>>>> +  drm_atomic_helper_shutdown(priv->drm);
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +static const struct dev_pm_ops dc_pm_ops = {
-> >>>>>> +  RUNTIME_PM_OPS(dc_runtime_suspend, dc_runtime_resume, NULL)
-> >>>>>> +  SYSTEM_SLEEP_PM_OPS(dc_suspend, dc_resume)
-> >>>>>> +};
-> >>>>>> +
-> >>>>>> +static const struct of_device_id dc_dt_ids[] = {
-> >>>>>> +  { .compatible = "fsl,imx8qxp-dc", },
-> >>>>>> +  { /* sentinel */ }
-> >>>>>> +};
-> >>>>>> +MODULE_DEVICE_TABLE(of, dc_dt_ids);
-> >>>>>> +
-> >>>>>> +static struct platform_driver dc_driver = {
-> >>>>>> +  .probe = dc_probe,
-> >>>>>> +  .remove = dc_remove,
-> >>>>>> +  .shutdown = dc_shutdown,
-> >>>>>> +  .driver = {
-> >>>>>> +          .name = "imx8-dc",
-> >>>>>> +          .of_match_table = dc_dt_ids,
-> >>>>>> +          .pm = pm_sleep_ptr(&dc_pm_ops),
-> >>>>>> +  },
-> >>>>>> +};
-> >>>>>> +
-> >>>>>>  static struct platform_driver * const dc_drivers[] = {
-> >>>>>>    &dc_cf_driver,
-> >>>>>>    &dc_de_driver,
-> >>>>>> @@ -19,6 +262,7 @@ static struct platform_driver * const dc_drivers[] = {
-> >>>>>>    &dc_lb_driver,
-> >>>>>>    &dc_pe_driver,
-> >>>>>>    &dc_tc_driver,
-> >>>>>> +  &dc_driver,
-> >>>>>>  };
-> >>>>>>
-> >>>>>>  static int __init dc_drm_init(void)
-> >>>>>> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
-> >>>>>> index 3b11f4862c6c..39a771a13933 100644
-> >>>>>> --- a/drivers/gpu/drm/imx/dc/dc-drv.h
-> >>>>>> +++ b/drivers/gpu/drm/imx/dc/dc-drv.h
-> >>>>>> @@ -6,19 +6,38 @@
-> >>>>>>  #ifndef __DC_DRV_H__
-> >>>>>>  #define __DC_DRV_H__
-> >>>>>>
-> >>>>>> +#include <linux/container_of.h>
-> >>>>>>  #include <linux/platform_device.h>
-> >>>>>>
-> >>>>>>  #include <drm/drm_device.h>
-> >>>>>> +#include <drm/drm_encoder.h>
-> >>>>>>
-> >>>>>>  #include "dc-de.h"
-> >>>>>> +#include "dc-kms.h"
-> >>>>>>  #include "dc-pe.h"
-> >>>>>>
-> >>>>>>  struct dc_drm_device {
-> >>>>>>    struct drm_device base;
-> >>>>>> +  struct dc_crtc dc_crtc[DC_DISPLAYS];
-> >>>>>> +  struct dc_plane dc_primary[DC_DISPLAYS];
-> >>>>>> +  struct drm_encoder encoder[DC_DISPLAYS];
-> >>>>>>    struct dc_de *de[DC_DISPLAYS];
-> >>>>>>    struct dc_pe *pe;
-> >>>>>>  };
-> >>>>>>
-> >>>>>> +static inline struct dc_drm_device *to_dc_drm_device(struct drm_device *drm)
-> >>>>>> +{
-> >>>>>> +  return container_of(drm, struct dc_drm_device, base);
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +int dc_crtc_init(struct dc_drm_device *dc_drm, int crtc_index);
-> >>>>>> +int dc_crtc_post_init(struct dc_drm_device *dc_drm, int crtc_index);
-> >>>>>> +
-> >>>>>> +int dc_kms_init(struct dc_drm_device *dc_drm);
-> >>>>>> +void dc_kms_uninit(struct dc_drm_device *dc_drm);
-> >>>>>> +
-> >>>>>> +int dc_plane_init(struct dc_drm_device *dc_drm, struct dc_plane *dc_plane);
-> >>>>>> +
-> >>>>>>  extern struct platform_driver dc_cf_driver;
-> >>>>>>  extern struct platform_driver dc_ed_driver;
-> >>>>>>  extern struct platform_driver dc_de_driver;
-> >>>>>> diff --git a/drivers/gpu/drm/imx/dc/dc-kms.c b/drivers/gpu/drm/imx/dc/dc-kms.c
-> >>>>>> new file mode 100644
-> >>>>>> index 000000000000..2b18aa37a4a8
-> >>>>>> --- /dev/null
-> >>>>>> +++ b/drivers/gpu/drm/imx/dc/dc-kms.c
-> >>>>>> @@ -0,0 +1,143 @@
-> >>>>>> +// SPDX-License-Identifier: GPL-2.0+
-> >>>>>> +/*
-> >>>>>> + * Copyright 2024 NXP
-> >>>>>> + */
-> >>>>>> +
-> >>>>>> +#include <linux/of.h>
-> >>>>>> +#include <linux/of_graph.h>
-> >>>>>> +
-> >>>>>> +#include <drm/drm_atomic_helper.h>
-> >>>>>> +#include <drm/drm_bridge.h>
-> >>>>>> +#include <drm/drm_bridge_connector.h>
-> >>>>>> +#include <drm/drm_connector.h>
-> >>>>>> +#include <drm/drm_crtc.h>
-> >>>>>> +#include <drm/drm_device.h>
-> >>>>>> +#include <drm/drm_encoder.h>
-> >>>>>> +#include <drm/drm_gem_framebuffer_helper.h>
-> >>>>>> +#include <drm/drm_mode_config.h>
-> >>>>>> +#include <drm/drm_print.h>
-> >>>>>> +#include <drm/drm_probe_helper.h>
-> >>>>>> +#include <drm/drm_simple_kms_helper.h>
-> >>>>>> +#include <drm/drm_vblank.h>
-> >>>>>> +
-> >>>>>> +#include "dc-de.h"
-> >>>>>> +#include "dc-drv.h"
-> >>>>>> +#include "dc-kms.h"
-> >>>>>> +
-> >>>>>> +static const struct drm_mode_config_funcs dc_drm_mode_config_funcs = {
-> >>>>>> +  .fb_create = drm_gem_fb_create,
-> >>>>>> +  .atomic_check = drm_atomic_helper_check,
-> >>>>>> +  .atomic_commit = drm_atomic_helper_commit,
-> >>>>>> +};
-> >>>>>> +
-> >>>>>> +static int dc_kms_init_encoder_per_crtc(struct dc_drm_device *dc_drm,
-> >>>>>> +                                  int crtc_index)
-> >>>>>> +{
-> >>>>>> +  struct dc_crtc *dc_crtc = &dc_drm->dc_crtc[crtc_index];
-> >>>>>> +  struct drm_device *drm = &dc_drm->base;
-> >>>>>> +  struct drm_crtc *crtc = &dc_crtc->base;
-> >>>>>> +  struct drm_connector *connector;
-> >>>>>> +  struct device *dev = drm->dev;
-> >>>>>> +  struct drm_encoder *encoder;
-> >>>>>> +  struct drm_bridge *bridge;
-> >>>>>> +  int ret;
-> >>>>>> +
-> >>>>>> +  bridge = devm_drm_of_get_bridge(dev, dc_crtc->de->tc->dev->of_node,
-> >>>>>> +                                  0, 0);
-> >>>>>> +  if (IS_ERR(bridge)) {
-> >>>>>> +          ret = PTR_ERR(bridge);
-> >>>>>> +          if (ret == -ENODEV)
-> >>>>>> +                  return 0;
-> >>>>>> +
-> >>>>>> +          return dev_err_probe(dev, ret,
-> >>>>>> +                               "failed to find bridge for CRTC%u\n",
-> >>>>>> +                               crtc->index);
-> >>>>>> +  }
-> >>>>>> +
-> >>>>>> +  encoder = &dc_drm->encoder[crtc_index];
-> >>>>>> +  ret = drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_NONE);
-> >>>>>> +  if (ret) {
-> >>>>>> +          dev_err(dev, "failed to initialize encoder for CRTC%u: %d\n",
-> >>>>>> +                  crtc->index, ret);
-> >>>>>> +          return ret;
-> >>>>>> +  }
-> >>>>>> +
-> >>>>>> +  encoder->possible_crtcs = drm_crtc_mask(crtc);
-> >>>>>> +
-> >>>>>> +  ret = drm_bridge_attach(encoder, bridge, NULL,
-> >>>>>> +                          DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> >>>>>> +  if (ret) {
-> >>>>>> +          dev_err(dev,
-> >>>>>> +                  "failed to attach bridge to encoder for CRTC%u: %d\n",
-> >>>>>> +                  crtc->index, ret);
-> >>>>>> +          return ret;
-> >>>>>> +  }
-> >>>>>> +
-> >>>>>> +  connector = drm_bridge_connector_init(drm, encoder);
-> >>>>>> +  if (IS_ERR(connector)) {
-> >>>>>> +          ret = PTR_ERR(connector);
-> >>>>>> +          dev_err(dev, "failed to init bridge connector for CRTC%u: %d\n",
-> >>>>>> +                  crtc->index, ret);
-> >>>>>> +          return ret;
-> >>>>>> +  }
-> >>>>>> +
-> >>>>>> +  ret = drm_connector_attach_encoder(connector, encoder);
-> >>>>>> +  if (ret)
-> >>>>>> +          dev_err(dev,
-> >>>>>> +                  "failed to attach encoder to connector for CRTC%u: %d\n",
-> >>>>>> +                  crtc->index, ret);
-> >>>>>> +
-> >>>>>> +  return ret;
-> >>>>>> +}
-> >>>>>> +
-> >>>>>> +int dc_kms_init(struct dc_drm_device *dc_drm)
-> >>>>>> +{
-> >>>>>> +  struct drm_device *drm = &dc_drm->base;
-> >>>>>> +  int ret, i;
-> >>>>>> +
-> >>>>>> +  ret = drmm_mode_config_init(drm);
-> >>>>>> +  if (ret)
-> >>>>>> +          return ret;
-> >>>>>> +
-> >>>>>> +  drm->mode_config.min_width = 60;
-> >>>>>> +  drm->mode_config.min_height = 60;
-> >>>>>> +  drm->mode_config.max_width = 8192;
-> >>>>>> +  drm->mode_config.max_height = 8192;
-> >>>>>> +  drm->mode_config.funcs = &dc_drm_mode_config_funcs;
-> >>>>>> +
-> >>>>>> +  drm->vblank_disable_immediate = true;
-> >>>>>> +  drm->max_vblank_count = DC_FRAMEGEN_MAX_FRAME_INDEX;
-> >>>>>> +
-> >>>>>> +  for (i = 0; i < DC_DISPLAYS; i++) {
-> >>>>>> +          ret = dc_crtc_init(dc_drm, i);
-> >>>>>> +          if (ret)
-> >>>>>> +                  return ret;
-> >>>>>> +
-> >>>>>> +          ret = dc_kms_init_encoder_per_crtc(dc_drm, i);
-> >>>>>> +          if (ret)
-> >>>>>> +                  return ret;
-> >>>>>> +  }
-> >>>>>> +
-> >>>>>> +  for (i = 0; i < DC_DISPLAYS; i++) {
-> >>>>>> +          ret = dc_crtc_post_init(dc_drm, i);
-> >>>>>
-> >>>>> Can you use .late_register for this?
-> >>>>
-> >>>> Kerneldoc of struct drm_crtc_funcs::late_register says it's used to register
-> >>>> additional userspace interfaces like debugfs interfaces. And, it seems that
-> >>>> everyone implementing this uses it to add debugfs interfaces. So, it will
-> >>>> kind of abuse it to do CRTC post initialization.
-> >>>
-> >>> Why can't they be requested earlier then?
-> >>
-> >> If I request them earlier in dc_crtc_init(), then they cannot be freed by
-> >> devm_irq_release() when devm_drm_of_get_bridge() called by
-> >> dc_kms_init_encoder_per_crtc() returns -EPROBE_DEFER(which means failing
-> >> to find the first DRM bridge for the CRTC).  Why can't they be freed by
-> >> devm_irq_release()?  Because they are requested by the devices of ExtDsts
-> >> and Display Engines and their drivers are not removed during the probe
-> >> deferral dance.  Furthermore, -EPROBE_DEFER won't be returned after
-> >> dc_crtc_post_init() since the later called drm_vblank_init() doesn't
-> >> return -EPROBE_DEFER anyway, so it's fine to call dc_crtc_post_init() here.
-> >>
-> >> I met the irq free issue on my i.MX8qxp MEK board before, i.e., -EBUSY is
-> >> returned when requesting them again, so it's tested.
+Wait...you changed slightly this indeed....you are using dev_parent...my
+bad...but please when you post new version of a patch add a summary of
+changes between versions...
+
+> 
+> Thanks,
+> Cristian
+> 
+> > Signed-off-by: guomin chen <guomin_chen@sina.com>
+> > ---
+> >  drivers/firmware/arm_scmi/bus.c    | 17 +++--------------
+> >  drivers/firmware/arm_scmi/driver.c |  4 ++--
+> >  2 files changed, 5 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+> > index 157172a5f2b5..800e8ec9357c 100644
+> > --- a/drivers/firmware/arm_scmi/bus.c
+> > +++ b/drivers/firmware/arm_scmi/bus.c
+> > @@ -20,7 +20,6 @@
+> >  BLOCKING_NOTIFIER_HEAD(scmi_requested_devices_nh);
+> >  EXPORT_SYMBOL_GPL(scmi_requested_devices_nh);
+> >  
+> > -static DEFINE_IDA(scmi_bus_id);
+> >  
+> >  static DEFINE_IDR(scmi_requested_devices);
+> >  /* Protect access to scmi_requested_devices */
+> > @@ -341,7 +340,6 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
+> >  	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
+> >  		atomic_set(&scmi_syspower_registered, 0);
+> >  
+> > -	ida_free(&scmi_bus_id, scmi_dev->id);
+> >  	device_unregister(&scmi_dev->dev);
+> >  }
+> >  
+> > @@ -349,7 +347,7 @@ static struct scmi_device *
+> >  __scmi_device_create(struct device_node *np, struct device *parent,
+> >  		     int protocol, const char *name)
+> >  {
+> > -	int id, retval;
+> > +	int retval;
+> >  	struct scmi_device *scmi_dev;
+> >  
+> >  	/*
+> > @@ -387,20 +385,13 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+> >  		return NULL;
+> >  	}
+> >  
+> > -	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
+> > -	if (id < 0) {
+> > -		kfree_const(scmi_dev->name);
+> > -		kfree(scmi_dev);
+> > -		return NULL;
+> > -	}
+> > -
+> > -	scmi_dev->id = id;
+> >  	scmi_dev->protocol_id = protocol;
+> >  	scmi_dev->dev.parent = parent;
+> >  	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+> >  	scmi_dev->dev.bus = &scmi_bus_type;
+> >  	scmi_dev->dev.release = scmi_device_release;
+> > -	dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
+> > +	dev_set_name(&scmi_dev->dev, "scmi_dev.%s.%s.%d", dev_name(parent),
+> > +			scmi_dev->name, protocol);
 > >
-> > A typical solution is to request all resources before binding the
-> > device as a component. Don't tell me that your interrupt controller is
-> > another component of the DRM device :-)
->
-> The IRQ handlers are _highly_ related to the CRTC driver(especially the
-> dc_crtc_dec_framecomplete_irq_handler() where vblank is handled), so maybe
-> it's more appropriate to request the IRQs and implement the IRQ handlers in
-> dc-crtc.c instead of doing them in dc-{de,ed}.c. No?
 
-And CRTCs don't exist before master_bind(). Ack.
+So now you are using the parent top node SCMI device to create a unique
+device...and it probably endup in a name like:
 
--- 
-With best wishes
-Dmitry
+ 	scmi-dev.arm-scmi.0.auto.genpd.13
+
+ 	scmi-dev.arm-scmi.1.auto.genpd.13
+
+...that certainly is more readable but is bulky and anyway giving unique
+IDs to devices is pretty common and you lookup which device is which by
+simply looking at the drivers/ link....not suure what's the benefit of
+all of this...just to avoid an IDA table ?
+
+> >  	retval = device_register(&scmi_dev->dev);
+> >  	if (retval)
+> > @@ -413,7 +404,6 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+> >  	return scmi_dev;
+> >  put_dev:
+> >  	put_device(&scmi_dev->dev);
+> > -	ida_free(&scmi_bus_id, id);
+> >  	return NULL;
+> >  }
+> >  
+> > @@ -526,7 +516,6 @@ static void __exit scmi_bus_exit(void)
+> >  	 */
+> >  	scmi_devices_unregister();
+> >  	bus_unregister(&scmi_bus_type);
+> > -	ida_destroy(&scmi_bus_id);
+> >  }
+> >  module_exit(scmi_bus_exit);
+> >  
+> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > index 1b5fb2c4ce86..bbf1f05f2be3 100644
+> > --- a/drivers/firmware/arm_scmi/driver.c
+> > +++ b/drivers/firmware/arm_scmi/driver.c
+> > @@ -2641,8 +2641,8 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+> >  	cinfo->max_msg_size = info->desc->max_msg_size;
+> >  
+> >  	/* Create a unique name for this transport device */
+> > -	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+> > -		 idx ? "rx" : "tx", prot_id);
+> > +	snprintf(name, 32, "__scmi_transport_device_%s",
+> > +		 idx ? "rx" : "tx");
+
+I agree on what Dan said AND also this results in having the same name for different
+devices across 2 instances if you have a per-protocol channel because you havent anymore
+the protocol_id bit.
+
+All in all, I would drop this patch and keep naming as it is because I dont see a real benefit
+here....up to Sudeep decide.
+
+Thanks,
+Cristian
 
