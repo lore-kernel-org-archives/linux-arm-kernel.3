@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0CCE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D06E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gNU+E/bNUeoRD0tPsyKikGu5k6XwnbaOdrZkNOIjIhs=; b=YPOmQx984rG2EJJkNe/rBld6qW
-	CAUMcZ/rkYvr4ngRTIl7H/IbSCKwTcO+UVsihLS0vPL2kfqBrkGyYsUl2Nzm+cAqs43YHOPDORy8K
-	aXCIo8jykeVKX/GKNnoUqhqQ5H6lbbLZNmR4W1iV4AtQN2vdLMvJUgZeWZkG1PPyJxYEtd5nmMn5S
-	1ryQWZZiXVyKNkrPxvfJZp7Pi6nkRr4F5Parg6a3eEv49Y/Ie+N2oXMjChvZZUoKBpyG/p0qBjySJ
-	jFtEtzmoOBinTEnjTKhd+1/jjYvHKlamMsy+73KuL/d7z3eFsTOoN7b+rvlMpOD0SykKO8T2QCFaX
-	psvD5+yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tjo6g0AkvNUOlyYjXBaQDqnzWjCUgSNKMxLQ025JeNc=; b=FGKP6Q22SSoxbGLEntcJQz8HJD
+	VOzo+JvujsgvB6aAL89jfWAsktbmaZtD/MoSq3cthb8aBosdQwa0nxIZMulH9LIxeg4gffTy3bvtP
+	4VoRn/wW284wzjt+3eVFtr+B/MUgDTtR4QowFsA8EoA9wNYwrSgNg3jzZXpXUNXJz/WbOrdhiJsvO
+	yn8v1TZqQ9wCnegHr9AN242OTQ0CK3J9h/GA+BS/cEFc48yYpOyDJT6zsNqtaGGNjo46StWHJiNWf
+	csXjGUj/I6h2tdBifHq/ZJtxPr91+8Kbb5K03gwBzXHa3sBJdYJjE84AZHNVPbl42Skz8MW7WQRrS
+	uQV7nuDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFm0-0000000AxYP-2mVg;
-	Mon, 16 Dec 2024 18:24:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNFlz-0000000AxXh-1rJC;
+	Mon, 16 Dec 2024 18:24:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNEgs-0000000Ajq2-3Gym;
-	Mon, 16 Dec 2024 17:15:31 +0000
+	id 1tNEgA-0000000Ajh9-3CLm;
+	Mon, 16 Dec 2024 17:14:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1263FA4127F;
-	Mon, 16 Dec 2024 17:13:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09C27C4CED0;
-	Mon, 16 Dec 2024 17:15:29 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 06AFEA418F4;
+	Mon, 16 Dec 2024 17:12:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04C81C4CED0;
+	Mon, 16 Dec 2024 17:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734369329;
-	bh=BYWVPSTco7NxgCFt7PuAti5s7WPTbsps5ogniby27jM=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=nd1NNY4qp5FoANXFQI8jCl/U7QtYaUohcli8BfdPGQhJzh01UHC+HcmogZYSsT7QU
-	 69UXwbb6NkJd1NWQtrLCrkFZtUbg6KMHus5WC2vPghoUvpDKvhxFQcKMAIXVXtqBcJ
-	 Urpm771eXTc0JS24NfDfDeNj3MWe90SEwqu9O+UnJbkbisJ88uWI7r7NYpIQHidcsS
-	 iyv9asoeEcQ1G09ZVL9ay2P6aLFDDMdml9MVivVG608IoNQ7ugTD7Rrrhom82fog+m
-	 uh1/lMkXyD4yD8Vvn8i3oalWIAS4ne4pmLKmdcxMTavYzcn3KZDXYXhrOMhrS6Gdhh
-	 ZvBbn8M1/VcHg==
-Message-ID: <05419690edbfe859f02d8675c57d3f8f@kernel.org>
-Date: Mon, 16 Dec 2024 17:15:26 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v6 05/10] drm/bridge: lt9611: switch to using the DRM
- HDMI codec framework
-In-Reply-To: <20241206-drm-bridge-hdmi-connector-v6-5-50dc145a9c06@linaro.org>
-References: <20241206-drm-bridge-hdmi-connector-v6-5-50dc145a9c06@linaro.org>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, "Alain
- Volmat" <alain.volmat@foss.st.com>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Andy Yan" <andy.yan@rock-chips.com>, "AngeloGioacchino
- Del Regno" <angelogioacchino.delregno@collabora.com>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "Dave
- Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>,
- =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Inki Dae" <inki.dae@samsung.com>, "Jani
- Nikula" <jani.nikula@linux.intel.com>, "Jaroslav Kysela" <perex@perex.cz>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Krzysztof
- Kozlowski" <krzk@kernel.org>, "Kyungmin Park" <kyungmin.park@samsung.com>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liam Girdwood" <lgirdwood@gmail.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Mark Brown" <broonie@kernel.org>, "Matthias
- Brugger" <matthias.bgg@gmail.com>, "Maxime Ripard" <mripard@kernel.org>,
- =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Phong LE" <ple@baylibre.com>, "Raphael
- Gallais-Pou" <rgallaispou@gmail.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Russell King" <linux@armlinux.org.uk>, "Sandy
- Huang" <hjc@rock-chips.com>, "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Simona
- Vetter" <simona@ffwll.ch>, "Takashi Iwai" <tiwai@suse.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1734369285;
+	bh=gSmxdiZIDJu8BiwcPOPmdFwY35K+Q89CNQo+hWjcaBI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hQHCHQzd7ZPIab39Ofnd+yXIC4ls5Sg800JevG7+xsIAlI5/TSS8iZD8gBLSm+9C2
+	 JYycOcmN5xNLB6YWaiULVIf49/1INTM9Yy3QYPrJ0f2XaiRWXOJtBeHR96T7ar1k9m
+	 MQTAKU0UkGhpNiwmODYRvxOxjF0c7YdtvUSpMtswW0Ap4N3E0Gb02OS0ftC986pvEM
+	 gT6r2hlcQQWyNBsLSkCXJMIsUlm7UEoD2d+l8a8zVS2NlhjBa0Tr087/RROUBQRtp6
+	 j8cO5tnt5lwpEAfKOGfC2QNiqlfdta5JMk/eS/+3crxOYye9wiuiNZ5M896vJYb1+M
+	 qumZBJPpZFwmA==
+Date: Mon, 16 Dec 2024 18:14:43 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 04/10] drm/bridge: connector: add support for HDMI
+ codec framework
+Message-ID: <20241216-benign-amiable-grebe-e0b3e1@houat>
+References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
+ <20241206-drm-bridge-hdmi-connector-v6-4-50dc145a9c06@linaro.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="h3bq7alicyplnrqd"
+Content-Disposition: inline
+In-Reply-To: <20241206-drm-bridge-hdmi-connector-v6-4-50dc145a9c06@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_091530_885562_0672DCD4 
-X-CRM114-Status: UNSURE (   6.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_091446_945709_3B5C3A02 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,17 +91,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 6 Dec 2024 12:15:59 +0200, Dmitry Baryshkov wrote:
-> Make the Lontium LT9611 DSI-to-HDMI bridge driver use the DRM HDMI Codec
-> framework. This enables programming of Audio InfoFrames using the HDMI
-> Connector interface and also enables support for the missing features,
-> including the ELD retrieval and better hotplug support.
-> 
-> 
-> [ ... ]
 
+--h3bq7alicyplnrqd
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 04/10] drm/bridge: connector: add support for HDMI
+ codec framework
+MIME-Version: 1.0
+
+On Fri, Dec 06, 2024 at 12:15:58PM +0200, Dmitry Baryshkov wrote:
+> Add necessary glue code to be able to use new HDMI codec framework from
+> the DRM bridge drivers. The drm_bridge implements a limited set of the
+> hdmi_codec_ops interface, with the functions accepting both
+> drm_connector and drm_bridge instead of just a generic void pointer.
+>=20
+> This framework is integrated with the DRM HDMI Connector framework, but
+> can also be used for DisplayPort connectors.
+>=20
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
+>  drivers/gpu/drm/display/drm_bridge_connector.c | 100 +++++++++++++++++++=
++++++-
+>  include/drm/drm_bridge.h                       |  38 ++++++++++
+>  2 files changed, 134 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu=
+/drm/display/drm_bridge_connector.c
+> index 512ced87ea18c74e182a558a686ddd83de891814..4fa1bb73d430d02d5b79a1a18=
+4c203ec9e9c66e7 100644
+> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> @@ -21,6 +21,8 @@
+>  #include <drm/display/drm_hdmi_helper.h>
+>  #include <drm/display/drm_hdmi_state_helper.h>
+> =20
+> +#include <sound/hdmi-codec.h>
+> +
+>  /**
+>   * DOC: overview
+>   *
+> @@ -368,10 +370,80 @@ static int drm_bridge_connector_write_infoframe(str=
+uct drm_connector *connector,
+>  	return bridge->funcs->hdmi_write_infoframe(bridge, type, buffer, len);
+>  }
+> =20
+> +static int drm_bridge_connector_audio_startup(struct drm_connector *conn=
+ector)
+> +{
+> +	struct drm_bridge_connector *bridge_connector =3D
+> +		to_drm_bridge_connector(connector);
+> +	struct drm_bridge *bridge;
+> +
+> +	bridge =3D bridge_connector->bridge_hdmi;
+> +	if (!bridge)
+> +		return -EINVAL;
+> +
+> +	if (bridge->funcs->hdmi_codec_audio_startup)
+> +		return bridge->funcs->hdmi_codec_audio_startup(connector, bridge);
+> +	else
+> +		return 0;
+> +}
+
+Nit: it looks like you return in other cases, and there's no need for
+that else.
+
+I'd remove the else.
+
+Looks good otherwise, once fixed
 Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-Thanks!
 Maxime
+
+--h3bq7alicyplnrqd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2BgAgAKCRAnX84Zoj2+
+diFoAYCKbrWMG5n+5jqP+LBnOpHQztpGr0fb/9SiSABc8x5qqhuNZ2mnrkin14cR
+DBnqLSoBgLO7VEPgbZZDR4NjbELbuh+1PGlUqiaaajox0mSG5OXJFXoEo+liaS9G
+zmiTmODHlw==
+=LiWN
+-----END PGP SIGNATURE-----
+
+--h3bq7alicyplnrqd--
 
