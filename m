@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A357E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038DEE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YUCxJPlmCw0HzJw1QZxkFgQihWHbkb85x5mZbr7b64c=; b=es1cguv/YNOv3X2g9pYfjTfjFn
-	0KHRgIWiFYtlk5dYoaMGWlWrS7/NNVnhicWjy3NOdWdpZ0ehDGX/oYbI3jTgaEtM1pTG9KHnFTILR
-	NVsDWC+SDGLo3AcpR3n5zWDNimKWh3a/3nHpmMsKzDEWFuE5OqYdZWukP0AU+4JivO+Gtk6zp9jFN
-	nCOFVgsc+1A8dKdKHDEWr/gmtCkM4SbpVImT5C5UucquX+57hL4p54hoq7WpTHtV6bg3AmsVWI76T
-	pGPAlKXQxSOoQAsQ6zSurx3v/BYpAA+TX+hChWmpzOXPyRRxUvR2YGJmOOjDE4l+WabB/tnoVaFw1
-	NkQ8J/KQ==;
+	bh=NJLzE+nHO7ajEDOgFMY8Qp5WgmrgOwfFjS/MmQKezlk=; b=JaAJYiHnI8OraMgTDbjgrEWFaq
+	VhWCcmrpVGzqCJqPTfCXNowmKJde+S/PCYjCqo7JWE4adfbUooPwDOjHSdPYQxbNdUWXgT6E75EGj
+	8wTESx43pv53p0vFkOe1kOrXVHMyCVx54Tw7C2YtgIsVHvGn4uAi+9h9NYrldP3PnpeVbaaZByRhi
+	FagJBFlnSI7PyOH7V6UM/s9u7IVTiAEEsDPUox2ut5qDn7MIIO+nggJfv6Zb7gX0xQMTF5+GQMXOr
+	KTKnBtssoRUHDjMZgqeN0xj03Dv3iOTdXAYvlhMyM7fmCJ+sYcbUMSep9sSiVLCWfBJJdL1SQ8C++
+	u+YaFn9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNA45-00000009wqq-0nEh;
-	Mon, 16 Dec 2024 12:19:09 +0000
+	id 1tNA9a-00000009xpJ-0PSg;
+	Mon, 16 Dec 2024 12:24:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNA30-00000009wlb-25zL
+	id 1tN8Ah-00000009gG9-1SoQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 12:18:03 +0000
+	Mon, 16 Dec 2024 10:17:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 094CF5C6234;
-	Mon, 16 Dec 2024 12:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F4C2C4CED0;
-	Mon, 16 Dec 2024 12:17:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 980AC5C5BB3;
+	Mon, 16 Dec 2024 10:17:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5001C4CED0;
+	Mon, 16 Dec 2024 10:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734351478;
-	bh=9wUkqB8f8eK0RMLaMON1J/gQnYa58rUUdB2ULEUHmzM=;
+	s=k20201202; t=1734344270;
+	bh=Wj1Oweu+Szj7mpyYgjBeEPPhvh5D8048ZrAWL9nZ3DM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sMnXtfZQp5EbWP1vD5F4aLPSj+F44yU5bQfri0VF6ER9/1j1y1ZVNbZn1oBo2rcQT
-	 CmskZUR2XVc5kajkituXx4xSvlLgz2QE7XdhheQfioWU488mqgvrCKhzAeDKzYgITC
-	 OtyJimBKhvXRGQf9O47IOIPgurSt0vttH5atAgMmEXWEyxBCoVae7DMe8w+PAVAwRk
-	 mzU616Q22h3xl8eGwYfxsLeImgBJeKKc0rUIeuU7dEUi7jQCDQuhR8oCj8eLkKIIe/
-	 dQ++IKBJJsKi1z8kp2q8DU9QlfFd3amokbHgc++IbTguzxUyuq8JIqqMShpJYc5IDJ
-	 ca/EZ76UnrrcQ==
-Date: Mon, 16 Dec 2024 12:17:54 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Peter Collingbourne <pcc@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to
- __cpuinfo_store_cpu()
-Message-ID: <709a0e75-0d0c-4bff-b9fd-3bbb55c97bd5@sirena.org.uk>
-References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
- <87a5cysfci.wl-maz@kernel.org>
+	b=uj5sMwiKyHo6YspBPoquPQgameUG7oNyAYX59Rd2tFgDP703/eJhYQXGJgMY146Pk
+	 M+uQqIr2CsijPOQm8XPUMUX818tQ5trkk9+ajFmVbSvhahaklXPJNdVcP9gX6rZd3v
+	 8L7X2HyvoW5A5Oo4BIw08EwlcWwhTois8FW3EoBibts7z86MuQE2R/HGslcuCZ1vGV
+	 cTx6UPey2wxx/f4zyGtw6Nmj4y7SqCpDzMIwCwaa72zuHeoVcE/L+Kpei9o7X6B5ij
+	 1ZhMrsZwFWgZBn7TYj2SuHUYMwk5K4mjg20ZfRYyCOyrtmIdf1Ji4Z7mjjflTDqpoS
+	 +lluJM/AoKp2Q==
+Date: Mon, 16 Dec 2024 11:17:46 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, aisheng.dong@nxp.com, peng.fan@nxp.com, frank.li@nxp.com
+Subject: Re: [PATCH] arm64: dts: freescale: Add basic dtsi for imx943
+Message-ID: <bx3r4cs3oklfduvkg65vke3clb3fc6sseske2ellq27ifpmsnm@msz6iqvjwufn>
+References: <20241212093555.1376568-1-ping.bai@nxp.com>
+ <20241212093555.1376568-2-ping.bai@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="E9e43Uydk5bsqLo+"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <87a5cysfci.wl-maz@kernel.org>
-X-Cookie: Be different: conform.
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20241212093555.1376568-2-ping.bai@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_041802_579905_EE71757F 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20241216_021751_481485_571F5F0B 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +75,411 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Dec 12, 2024 at 05:35:55PM +0800, Jacky Bai wrote:
+> The i.MX 943 applications processors integrate up to four
+> Arm Cortex A55 cores and supports functional safety with
+> built-in 2x Arm Cortex M33 and M7 cores which can be
+> configured asa safety island. Optimizing performance and
+> power efficiency for Industrial, IoT and automotive devices,
+> i.MX 943 processors are built with NXP=E2=80=99s innovative Energy
+> Flex architecture.
+>=20
+> This patch adds the minimal dtsi support for i.MX943 with
+> peripherals like uart, edma, i2c, spi, mu, sai etc.
+>=20
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx943-clock.h  |  196 +++
+>  .../arm64/boot/dts/freescale/imx943-pinfunc.h | 1542 +++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx943-power.h  |   41 +
+>  arch/arm64/boot/dts/freescale/imx943.dtsi     | 1284 ++++++++++++++
 
---E9e43Uydk5bsqLo+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+No, this is untested, uncompilable.
 
-On Sat, Dec 14, 2024 at 10:56:13AM +0000, Marc Zyngier wrote:
+We do not add dead code to the kernel. You need users.
 
-> I don't understand the need to single out SMIDR_EL1. It seems to only
-> make things even more fragile than they already are by adding more
-> synchronisation phases.
+>  4 files changed, 3063 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx943-clock.h
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx943-pinfunc.h
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx943-power.h
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx943.dtsi
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx943-clock.h b/arch/arm64/bo=
+ot/dts/freescale/imx943-clock.h
+> new file mode 100644
+> index 000000000000..64b9d5d4051e
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx943-clock.h
+> @@ -0,0 +1,196 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
+> +/*
+> + * Copyright 2024 NXP
+> + */
+> +
+> +#ifndef __CLOCK_IMX943_H
+> +#define __CLOCK_IMX943_H
+> +
+> +#define IMX943_CLK_EXT				0
+> +#define IMX943_CLK_OSC32K			1
+> +#define IMX943_CLK_OSC24M			2
+> +#define IMX943_CLK_FRO				3
+> +#define IMX943_CLK_SYSPLL1_VCO			4
+> +#define IMX943_CLK_SYSPLL1_PFD0_UNGATED		5
+> +#define IMX943_CLK_SYSPLL1_PFD0			6
+> +#define IMX943_CLK_SYSPLL1_PFD0_DIV2		7
+> +#define IMX943_CLK_SYSPLL1_PFD1_UNGATED		8
+> +#define IMX943_CLK_SYSPLL1_PFD1			9
+> +#define IMX943_CLK_SYSPLL1_PFD1_DIV2		10
+> +#define IMX943_CLK_SYSPLL1_PFD2_UNGATED		11
+> +#define IMX943_CLK_SYSPLL1_PFD2			12
+> +#define IMX943_CLK_SYSPLL1_PFD2_DIV2		13
+> +#define IMX943_CLK_AUDIOPLL1_VCO		14
+> +#define IMX943_CLK_AUDIOPLL1			15
+> +#define IMX943_CLK_AUDIOPLL2_VCO		16
+> +#define IMX943_CLK_AUDIOPLL2			17
+> +#define IMX943_CLK_RESERVED18			18
+> +#define IMX943_CLK_RESERVED19			19
+> +#define IMX943_CLK_RESERVED20			20
+> +#define IMX943_CLK_RESERVED21			21
+> +#define IMX943_CLK_RESERVED22			22
+> +#define IMX943_CLK_RESERVED23			23
+> +#define IMX943_CLK_ENCPLL_VCO			24
+> +#define IMX943_CLK_ENCPLL_PFD0_UGATED		25
+> +#define IMX943_CLK_ENCPLL_PFD0			26
+> +#define IMX943_CLK_ENCPLL_PFD1_UGATED		27
+> +#define IMX943_CLK_ENCPLL_PFD1			28
+> +#define IMX943_CLK_ARMPLL_VCO			29
+> +#define IMX943_CLK_ARMPLL_PFD0_UNGATED		30
+> +#define IMX943_CLK_ARMPLL_PFD0			31
+> +#define IMX943_CLK_ARMPLL_PFD1_UNGATED		32
+> +#define IMX943_CLK_ARMPLL_PFD1			33
+> +#define IMX943_CLK_ARMPLL_PFD2_UNGATED		34
+> +#define IMX943_CLK_ARMPLL_PFD2			35
+> +#define IMX943_CLK_ARMPLL_PFD3_UNGATED		36
+> +#define IMX943_CLK_ARMPLL_PFD3			37
+> +#define IMX943_CLK_DRAMPLL_VCO			38
+> +#define IMX943_CLK_DRAMPLL			39
+> +#define IMX943_CLK_HSIOPLL_VCO			40
+> +#define IMX943_CLK_HSIOPLL			41
+> +#define IMX943_CLK_LDBPLL_VCO			42
+> +#define IMX943_CLK_LDBPLL			43
+> +#define IMX943_CLK_EXT1				44
+> +#define IMX943_CLK_EXT2				45
+> +
+> +#define IMX943_CLK_NUM_SRC			46
 
-> Why isn't the following a good enough fix? It makes it plain that
-> boot_cpu_data is only a copy of CPU0's initial boot state.
+Drop and all other clock numbers like that.
 
-That would work but it's not clear to me that that is what the intent is
-here.  The current ordering seemed like a strange enough decision to be
-deliberate, though I couldn't identify the reasoning.
+=2E..
 
---E9e43Uydk5bsqLo+
-Content-Type: application/pgp-signature; name="signature.asc"
+> +#include <dt-bindings/dma/fsl-edma.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +#include "imx943-clock.h"
+> +#include "imx943-pinfunc.h"
+> +#include "imx943-power.h"
+> +
+> +/ {
+> +	interrupt-parent =3D <&gic>;
+> +	#address-cells =3D <2>;
+> +	#size-cells =3D <2>;
+> +
+> +	cpus {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +
+> +		idle-states {
+> +			entry-method =3D "psci";
+> +
+> +			cpu_pd_wait: cpu-pd-wait {
+> +				compatible =3D "arm,idle-state";
+> +				arm,psci-suspend-param =3D <0x0010033>;
+> +				local-timer-stop;
+> +				entry-latency-us =3D <10000>;
+> +				exit-latency-us =3D <7000>;
+> +				min-residency-us =3D <27000>;
+> +				wakeup-latency-us =3D <15000>;
+> +			};
+> +		};
+> +
+> +		A55_0: cpu@0 {
+> +			device_type =3D "cpu";
+> +			compatible =3D "arm,cortex-a55";
+> +			reg =3D <0x0>;
+> +			enable-method =3D "psci";
+> +			#cooling-cells =3D <2>;
+> +			cpu-idle-states =3D <&cpu_pd_wait>;
+> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
+> +			power-domain-names =3D "perf";
+> +			i-cache-size =3D <32768>;
+> +			i-cache-line-size =3D <64>;
+> +			i-cache-sets =3D <128>;
+> +			d-cache-size =3D <32768>;
+> +			d-cache-line-size =3D <64>;
+> +			d-cache-sets =3D <128>;
+> +			next-level-cache =3D <&l2_cache_l0>;
+> +		};
+> +
+> +		A55_1: cpu@100 {
 
------BEGIN PGP SIGNATURE-----
+labels are always lowercase.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgGnEACgkQJNaLcl1U
-h9AYKAf+MF8iAaNQZfOzVcq7lqkYOmJEIvxdmbZaGy4HG4Qyq6EiHhR9proanw9r
-zFm1HwS/071AORKmuW4ou3GTTKLbJmbFwX/y4JLpunQxncc0IEUqqPRN5d3ilWgV
-avtBILCtQ4ioBR/4BfHUdR3l+pLei3Mm3HiZwzAGt0fcabqieAFGQlrkuu18uum8
-7JMff+9Ki1Ndupfh4W8iVVhsf1cAl4DUw3SA3675SmAgjQdNIltbL1CPTiHpELn9
-ycs9q/OOYvHexiTmEbud95/2d6tfau1vF1NZxP1lxBshdMf4fTx1KfGhSm/TVv1U
-r9VtFi7sySnj59Bjl/JZNJM1Gb22RQ==
-=32wj
------END PGP SIGNATURE-----
+> +			device_type =3D "cpu";
+> +			compatible =3D "arm,cortex-a55";
+> +			reg =3D <0x100>;
+> +			enable-method =3D "psci";
+> +			#cooling-cells =3D <2>;
+> +			cpu-idle-states =3D <&cpu_pd_wait>;
+> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
+> +			power-domain-names =3D "perf";
+> +			i-cache-size =3D <32768>;
+> +			i-cache-line-size =3D <64>;
+> +			i-cache-sets =3D <128>;
+> +			d-cache-size =3D <32768>;
+> +			d-cache-line-size =3D <64>;
+> +			d-cache-sets =3D <128>;
+> +			next-level-cache =3D <&l2_cache_l1>;
+> +		};
+> +
+> +		A55_2: cpu@200 {
+> +			device_type =3D "cpu";
+> +			compatible =3D "arm,cortex-a55";
+> +			reg =3D <0x200>;
+> +			enable-method =3D "psci";
+> +			#cooling-cells =3D <2>;
+> +			cpu-idle-states =3D <&cpu_pd_wait>;
+> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
+> +			power-domain-names =3D "perf";
+> +			i-cache-size =3D <32768>;
+> +			i-cache-line-size =3D <64>;
+> +			i-cache-sets =3D <128>;
+> +			d-cache-size =3D <32768>;
+> +			d-cache-line-size =3D <64>;
+> +			d-cache-sets =3D <128>;
+> +			next-level-cache =3D <&l2_cache_l2>;
+> +		};
+> +
+> +		A55_3: cpu@300 {
+> +			device_type =3D "cpu";
+> +			compatible =3D "arm,cortex-a55";
+> +			reg =3D <0x300>;
+> +			enable-method =3D "psci";
+> +			#cooling-cells =3D <2>;
+> +			cpu-idle-states =3D <&cpu_pd_wait>;
+> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
+> +			power-domain-names =3D "perf";
+> +			i-cache-size =3D <32768>;
+> +			i-cache-line-size =3D <64>;
+> +			i-cache-sets =3D <128>;
+> +			d-cache-size =3D <32768>;
+> +			d-cache-line-size =3D <64>;
+> +			d-cache-sets =3D <128>;
+> +			next-level-cache =3D <&l2_cache_l3>;
+> +		};
+> +
+> +		l2_cache_l0: l2-cache-l0 {
+> +			compatible =3D "cache";
+> +			cache-size =3D <65536>;
+> +			cache-line-size =3D <64>;
+> +			cache-sets =3D <256>;
+> +			cache-level =3D <2>;
+> +			cache-unified;
+> +			next-level-cache =3D <&l3_cache>;
+> +		};
+> +
+> +		l2_cache_l1: l2-cache-l1 {
+> +			compatible =3D "cache";
+> +			cache-size =3D <65536>;
+> +			cache-line-size =3D <64>;
+> +			cache-sets =3D <256>;
+> +			cache-level =3D <2>;
+> +			cache-unified;
+> +			next-level-cache =3D <&l3_cache>;
+> +		};
+> +
+> +		l2_cache_l2: l2-cache-l2 {
+> +			compatible =3D "cache";
+> +			cache-size =3D <65536>;
+> +			cache-line-size =3D <64>;
+> +			cache-sets =3D <256>;
+> +			cache-level =3D <2>;
+> +			cache-unified;
+> +			next-level-cache =3D <&l3_cache>;
+> +		};
+> +
+> +		l2_cache_l3: l2-cache-l3 {
+> +			compatible =3D "cache";
+> +			cache-size =3D <65536>;
+> +			cache-line-size =3D <64>;
+> +			cache-sets =3D <256>;
+> +			cache-level =3D <2>;
+> +			cache-unified;
+> +			next-level-cache =3D <&l3_cache>;
+> +		};
+> +
+> +		l3_cache: l3-cache {
+> +			compatible =3D "cache";
+> +			cache-size =3D <1048576>;
+> +			cache-line-size =3D <64>;
+> +			cache-sets =3D <1024>;
+> +			cache-level =3D <3>;
+> +			cache-unified;
+> +		};
+> +	};
+> +
+> +	clk_ext1: clock-ext1 {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <133000000>;
+> +		clock-output-names =3D "clk_ext1";
+> +	};
+> +
+> +	dummy: clk-dummy {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <0>;
+> +		clock-output-names =3D "dummy";
+> +	};
+> +
+> +	osc_24m: clock-24m {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <24000000>;
+> +		clock-output-names =3D "osc_24m";
+> +	};
+> +
+> +	sai1_mclk: clock-sai1-mclk1 {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <0>;
+> +		clock-output-names =3D "sai1_mclk";
+> +	};
+> +
+> +	sai2_mclk: clock-sai2-mclk1 {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <0>;
+> +		clock-output-names =3D "sai2_mclk";
+> +	};
+> +
+> +	sai3_mclk: clock-sai3-mclk1 {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <0>;
+> +		clock-output-names =3D "sai3_mclk";
+> +	};
+> +
+> +	sai4_mclk: clock-sai4-mclk1 {
+> +		compatible =3D "fixed-clock";
+> +		#clock-cells =3D <0>;
+> +		clock-frequency =3D <0>;
+> +		clock-output-names =3D "sai4_mclk";
+> +	};
+> +
+> +	firmware {
+> +		scmi {
+> +			compatible =3D "arm,scmi";
+> +			mboxes =3D <&mu2 5 0>, <&mu2 3 0>, <&mu2 3 1>, <&mu2 5 1>;
+> +			shmem =3D <&scmi_buf0>, <&scmi_buf1>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +			arm,max-rx-timeout-ms =3D <5000>;
+> +
+> +			scmi_devpd: protocol@11 {
+> +				reg =3D <0x11>;
+> +				#power-domain-cells =3D <1>;
+> +			};
+> +
+> +			scmi_sys_power: protocol@12 {
+> +				reg =3D <0x12>;
+> +			};
+> +
+> +			scmi_perf: protocol@13 {
+> +				reg =3D <0x13>;
+> +				#power-domain-cells =3D <1>;
+> +			};
+> +
+> +			scmi_clk: protocol@14 {
+> +				reg =3D <0x14>;
+> +				#clock-cells =3D <1>;
+> +			};
+> +
+> +			scmi_iomuxc: protocol@19 {
+> +				reg =3D <0x19>;
+> +			};
+> +
+> +			scmi_bbm: protocol@81 {
+> +				reg =3D <0x81>;
+> +			};
+> +		};
+> +	};
+> +
+> +	pmu {
+> +		compatible =3D "arm,cortex-a55-pmu";
+> +		interrupts =3D <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIG=
+H)>;
+> +	};
+> +
+> +	psci {
+> +		compatible =3D "arm,psci-1.0";
+> +		method =3D "smc";
+> +	};
+> +
+> +	timer {
+> +		compatible =3D "arm,armv8-timer";
+> +		interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LO=
+W)>,
+> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>;
+> +		clock-frequency =3D <24000000>;
+> +		arm,no-tick-in-suspend;
+> +		interrupt-parent =3D <&gic>;
+> +	};
+> +
+> +	gic: interrupt-controller@48000000 {
+> +		compatible =3D "arm,gic-v3";
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +		reg =3D <0 0x48000000 0 0x10000>,
+> +		      <0 0x48060000 0 0xc0000>;
+> +		#interrupt-cells =3D <3>;
+> +		interrupt-controller;
+> +		interrupts =3D <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-parent =3D <&gic>;
+> +		dma-noncoherent;
+> +		ranges;
+> +
+> +		its: msi-controller@48040000 {
+> +			compatible =3D "arm,gic-v3-its";
+> +			reg =3D <0 0x48040000 0 0x20000>;
+> +			msi-controller;
+> +			#msi-cells =3D <1>;
+> +			dma-noncoherent;
+> +		};
+> +	};
+> +
+> +	soc {
+> +		compatible =3D "simple-bus";
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +		ranges;
+> +
+> +		aips2: bus@42000000 {
+> +			compatible =3D "fsl,aips-bus", "simple-bus";
+> +			reg =3D <0x0 0x42000000 0x0 0x800000>;
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <1>;
+> +			ranges =3D <0x42000000 0x0 0x42000000 0x8000000>;
+> +
+> +			edma2: dma-controller@42000000 {
+> +				compatible =3D "fsl,imx95-edma5";
 
---E9e43Uydk5bsqLo+--
+imx943 or imx95?
+
+Best regards,
+Krzysztof
+
 
