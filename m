@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEBAE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8905AE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/v1YHGVNRYUeWMmDsWob1hB9FIOwu/mNjAMSlsgc94=; b=DPmgIe3s9Rr34VrzLKyEeGJNCP
-	bd8i9X3rtDVApa5EqGIo4bfj9eEXqKXU5ba4DovzxnSrc4HVlf+TWDwh8tBfCLw1zirFJVVW54a2x
-	jA8yZr/KsR8IY0KfU3hY/dtvuxgtmO5JIO5mz0hqGuzLL6WXGao8N8UHZO3YmyzIlUDTFZS/MnjXI
-	Msz3gv8L9UG/nlzhRkO67CoNHNx9lc10A28ndXRnF6PA/diArbmQ4t9FJvGwgZipstrxJ1g1MZYxy
-	Q2dK+vp3sGGumqqEPTE2rfMBtSMbKjyW4KQv0t1zVOByCs4gKvas/u7vyR6lBgD59fqgEULjWpSxG
-	gV3wSxQQ==;
+	bh=D3j5CJpUfFk44bu0NIpTsj1poKDcdrjF8B4oIGcYhK8=; b=D2gxkotoYg9Va3yHIvee2e32B5
+	Z/oIgJ4Z333ksOuVlT4RcIABdEEegEsZp1fnu0yl4PcCInvWcq/ZETQn9DNPOzD2RoPCtMSRECZfu
+	BIjnFQhN7PTUkJq/49B2CYQy9F6DI7ZsxlY9Vlw9bQTYiVukImh5AIhaQcdm/JLV1d0eEHyYHG9au
+	XjcBFdm8QbmdU3sS0ge575Oa117/Nilji/Zmd/T0YChlq80SCvuH9xmTDJdSMQtMRmFSd266uJ8WL
+	Ocfk4ws170NVU/m6kDyWamwOdCb076uCj57J8zylAScMnFNgJeC8hgzSuGlbsXtDjDtc3BcutAHoY
+	5WAXZZKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDHg-0000000ASkF-0PnA;
-	Mon, 16 Dec 2024 15:45:24 +0000
+	id 1tNDIk-0000000ASrx-34rd;
+	Mon, 16 Dec 2024 15:46:30 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDDE-0000000ARfP-2XMs
+	id 1tNDDG-0000000ARho-3UKR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 15:40:50 +0000
+	Mon, 16 Dec 2024 15:40:52 +0000
 Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGEYKiY029957;
-	Mon, 16 Dec 2024 16:40:43 +0100
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGEYOkk030050;
+	Mon, 16 Dec 2024 16:40:45 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	s/v1YHGVNRYUeWMmDsWob1hB9FIOwu/mNjAMSlsgc94=; b=dMH7Iju0Z0vXJZaP
-	l27EatwrpqbCT/aUc7furYe28ESR/Tg4UqG8mEhdw1u3wycqD1DMV3W1fszv5zWe
-	Cnw6x18h0w4SFjJ9zYukBkPiLg3QU0N7W1BeVO1xKjaytOAvhFf20RhT8CswiG3+
-	FoggqotezUZ/nDWkUtPgy5lZDUUDGhPVAJSKq1ZN9UGiNSxK3G+TuGSyEmfucFXO
-	loIpoi07CmnNvUd5po/OVyOgCXBKcS8OnuPUzlJCckCt9ULzK1JHoYGjd72X/Ock
-	mXx8zr2QloSOYZBKcaHbfeldc8VcEfApOqabgrewncHMWVBBhDZXf+mngC0MhOVq
-	U6UdzA==
+	D3j5CJpUfFk44bu0NIpTsj1poKDcdrjF8B4oIGcYhK8=; b=QBjCY4aNw08iVj/2
+	Ff55vd4QhNyoFO2XRJea4CYS/xym4oyfmGqHk9gP5+la5mR6cHlzcs9pBiRGdwMf
+	3BYc3ohkrFoJtk8WyBXHH6h3JSwDhO0AYLI3dNQ9jXP56L9wgVSZvsEp+xO+FqYJ
+	YhZEz8hFbqhRAXuw5Xnnqyl3je8ji4/v+SvT2djRYhFkfLOBlrykUCKnmyvC3H8m
+	AH3nbPkwutasGJx6Vuvzc4s1QPXvQ419zdZwKmoPbXcUnNCPe9D+lUj6zOcQMWfI
+	D35BRbqPLj3at5KmsF1aY1dmHnSQI7ta7gpdOE/8qc7OHE980z+KbI/q+LT3OKpF
+	98p8vw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43jp3987bx-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43jp3987c7-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 16:40:42 +0100 (CET)
+	Mon, 16 Dec 2024 16:40:45 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8115140046;
-	Mon, 16 Dec 2024 16:39:47 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 65F3D4004C;
+	Mon, 16 Dec 2024 16:39:52 +0100 (CET)
 Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4A880277E0C;
-	Mon, 16 Dec 2024 16:39:20 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B822F2843D3;
+	Mon, 16 Dec 2024 16:39:22 +0100 (CET)
 Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
  (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
- 2024 16:39:20 +0100
+ 2024 16:39:22 +0100
 Received: from localhost (10.252.30.129) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
- 2024 16:39:19 +0100
+ 2024 16:39:22 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <alexandre.torgue@foss.st.com>
 CC: <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
@@ -65,9 +65,9 @@ CC: <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <fabrice.gasnier@foss.st.com>, <olivier.moysan@foss.st.com>
-Subject: [PATCH 1/5] ARM: dts: stm32: populate all timer counter nodes on stm32mp13
-Date: Mon, 16 Dec 2024 16:39:04 +0100
-Message-ID: <20241216153908.3069548-2-fabrice.gasnier@foss.st.com>
+Subject: [PATCH 4/5] ARM: dts: stm32: add counter subnodes on stm32mp157c-ev1
+Date: Mon, 16 Dec 2024 16:39:07 +0100
+Message-ID: <20241216153908.3069548-5-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241216153908.3069548-1-fabrice.gasnier@foss.st.com>
 References: <20241216153908.3069548-1-fabrice.gasnier@foss.st.com>
@@ -81,9 +81,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_074048_950339_021442BD 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_074051_164082_300695A3 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,117 +97,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Counter driver originally had support limited to quadrature interface
-and simple counter. It has been improved[1], so add the remaining
-stm32 timer counter nodes.
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240307133306.383045-1-fabrice.gasnier@foss.st.com/
+Enable the counter nodes without dedicated pins. With such configuration,
+the counter interface can be used on internal clock to generate events.
 
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp131.dtsi | 40 ++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ arch/arm/boot/dts/st/stm32mp157c-ev1.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index e1a764d269d2..0019d12c3d3d 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -261,6 +261,11 @@ timers6: timer@40004000 {
- 			dma-names = "up";
- 			status = "disabled";
- 
-+			counter {
-+				compatible = "st,stm32-timer-counter";
-+				status = "disabled";
-+			};
-+
- 			timer@5 {
- 				compatible = "st,stm32h7-timer-trigger";
- 				reg = <5>;
-@@ -281,6 +286,11 @@ timers7: timer@40005000 {
- 			dma-names = "up";
- 			status = "disabled";
- 
-+			counter {
-+				compatible = "st,stm32-timer-counter";
-+				status = "disabled";
-+			};
-+
- 			timer@6 {
- 				compatible = "st,stm32h7-timer-trigger";
- 				reg = <6>;
-@@ -1196,6 +1206,11 @@ timers12: timer@4c007000 {
- 				access-controllers = <&etzpc 23>;
- 				status = "disabled";
- 
-+				counter {
-+					compatible = "st,stm32-timer-counter";
-+					status = "disabled";
-+				};
-+
- 				pwm {
- 					compatible = "st,stm32-pwm";
- 					#pwm-cells = <3>;
-@@ -1221,6 +1236,11 @@ timers13: timer@4c008000 {
- 				access-controllers = <&etzpc 24>;
- 				status = "disabled";
- 
-+				counter {
-+					compatible = "st,stm32-timer-counter";
-+					status = "disabled";
-+				};
-+
- 				pwm {
- 					compatible = "st,stm32-pwm";
- 					#pwm-cells = <3>;
-@@ -1246,6 +1266,11 @@ timers14: timer@4c009000 {
- 				access-controllers = <&etzpc 25>;
- 				status = "disabled";
- 
-+				counter {
-+					compatible = "st,stm32-timer-counter";
-+					status = "disabled";
-+				};
-+
- 				pwm {
- 					compatible = "st,stm32-pwm";
- 					#pwm-cells = <3>;
-@@ -1276,6 +1301,11 @@ timers15: timer@4c00a000 {
- 				access-controllers = <&etzpc 26>;
- 				status = "disabled";
- 
-+				counter {
-+					compatible = "st,stm32-timer-counter";
-+					status = "disabled";
-+				};
-+
- 				pwm {
- 					compatible = "st,stm32-pwm";
- 					#pwm-cells = <3>;
-@@ -1304,6 +1334,11 @@ timers16: timer@4c00b000 {
- 				access-controllers = <&etzpc 27>;
- 				status = "disabled";
- 
-+				counter {
-+					compatible = "st,stm32-timer-counter";
-+					status = "disabled";
-+				};
-+
- 				pwm {
- 					compatible = "st,stm32-pwm";
- 					#pwm-cells = <3>;
-@@ -1332,6 +1367,11 @@ timers17: timer@4c00c000 {
- 				access-controllers = <&etzpc 28>;
- 				status = "disabled";
- 
-+				counter {
-+					compatible = "st,stm32-timer-counter";
-+					status = "disabled";
-+				};
-+
- 				pwm {
- 					compatible = "st,stm32-pwm";
- 					#pwm-cells = <3>;
+diff --git a/arch/arm/boot/dts/st/stm32mp157c-ev1.dts b/arch/arm/boot/dts/st/stm32mp157c-ev1.dts
+index 9eb9a1bf4f2c..8f99c30f1af1 100644
+--- a/arch/arm/boot/dts/st/stm32mp157c-ev1.dts
++++ b/arch/arm/boot/dts/st/stm32mp157c-ev1.dts
+@@ -306,6 +306,9 @@ &timers2 {
+ 	/delete-property/dmas;
+ 	/delete-property/dma-names;
+ 	status = "disabled";
++	counter {
++		status = "okay";
++	};
+ 	pwm {
+ 		pinctrl-0 = <&pwm2_pins_a>;
+ 		pinctrl-1 = <&pwm2_sleep_pins_a>;
+@@ -321,6 +324,9 @@ &timers8 {
+ 	/delete-property/dmas;
+ 	/delete-property/dma-names;
+ 	status = "disabled";
++	counter {
++		status = "okay";
++	};
+ 	pwm {
+ 		pinctrl-0 = <&pwm8_pins_a>;
+ 		pinctrl-1 = <&pwm8_sleep_pins_a>;
+@@ -336,6 +342,9 @@ &timers12 {
+ 	/delete-property/dmas;
+ 	/delete-property/dma-names;
+ 	status = "disabled";
++	counter {
++		status = "okay";
++	};
+ 	pwm {
+ 		pinctrl-0 = <&pwm12_pins_a>;
+ 		pinctrl-1 = <&pwm12_sleep_pins_a>;
 -- 
 2.25.1
 
