@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E8DFE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31077E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4JsiBQZM3JoW4LS4kKv+6GCIOBTm+9qFs1+V83GVDEk=; b=nlW3FN0yxhX4VFjVSC9Di4n6xB
-	Z13Vptj28zNofml4g6y0tsIamkaQqvyj1612rQ1B98bFqSfDM+lma0D5pKjGI83hQwgSkSQxgOZkJ
-	Wbd6cHi5ESw+RRsWudIL7LVUhErZ6C8ljjpjZQyKB2JWo2akuBkwa5OPGfRJ4+EmWbGt0k5SZaUie
-	Tn0Bwhxw5hR5PRxmaK404i9gnmdw2rbPYoljxjZB3BSXem7jpAgIsesMocFuvy23Lf37Km7+Y1lpq
-	PdjHtThWikJht6wo5y0gmtM33+Ic4JK8Efc5sqoiABsDUJqfX4oh1YlvUoYLXKoDnjey4/VIPxWrM
-	zxVGhp+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zTbfi6p8iEyDiLbIuWboyEfmfnDgznyILb9W4NSw86U=; b=nJX3b9LLrQRae2lA+s2JuqHtht
+	LYyNymqnCh0gZTjX7MbsZqc0wt8r3mt9jsRB/k2NrgW17aJEdENhJTyfPoShHDJPO/L87+V7zZrln
+	l7oX651WcNF/GVFTfZJX+j9gLZ1PUAeHTecMhMpbBdbdLog+2R6jBDDKslMW0kDn6+OY2+5LXPIN1
+	hcfMr+EQGEtsVJ0GllERW16MKTrksXuT80MEX461LQaF/3qxlMQotqnbopl9eddGI6Z9aWqP7FGpg
+	0+s9mYSHZ8l8jBYS7KGJpAGwv7a3WUZgDzD0ptpFBtlHiOwv52rmri26bj/xzqkWR0iNo7nIWR1xe
+	SrsbJuPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCrZ-0000000ANeG-0EjN;
-	Mon, 16 Dec 2024 15:18:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNCt1-0000000ANuv-2m44;
+	Mon, 16 Dec 2024 15:19:55 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCqT-0000000ANUC-2q4T
+	id 1tNCrv-0000000ANhM-35ZN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 15:17:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E96715C5857;
-	Mon, 16 Dec 2024 15:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B25C4CED0;
-	Mon, 16 Dec 2024 15:17:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734362236;
-	bh=4JsiBQZM3JoW4LS4kKv+6GCIOBTm+9qFs1+V83GVDEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jphz7nSY5kfiVqUjBmYHcaoAzxwdYOujihN6UScSdXLVrgI59Y7bsWV0L5Upcvilh
-	 MsPaFdOpvbYo2smFOaz/7pD5/zhEkBO/5ieC2gFbfBMZwrPgfQta5IwgCqHVjOMj+/
-	 aYCcD3y1koznHBsz/GIcmuRw3ytkCPXP3eJJIz9UPBstnMwZ6xH+AyXI1tn2Cdq39x
-	 hD7osbhdWcLvlZZPGljyHQq/0u6Dxvypl6sq5EIX+AC/yf04XgXr3tAXO3c/BW93XS
-	 pnFmEyTBLjXUS174NNdZ9RdHllu88nyOzSHWB5wHmDq1JRRhgKzvHQIxbFzy+ZUp1p
-	 mmIJpgeOXr63g==
-Date: Mon, 16 Dec 2024 15:17:11 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH V2 07/46] arm64/sysreg: Add register fields for
- HFGITR2_EL2
-Message-ID: <a953ea06-af70-4fe4-a4c4-0a4e87aa88cd@sirena.org.uk>
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-8-anshuman.khandual@arm.com>
+	Mon, 16 Dec 2024 15:18:48 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-37ed3bd6114so2071945f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 07:18:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734362325; x=1734967125; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zTbfi6p8iEyDiLbIuWboyEfmfnDgznyILb9W4NSw86U=;
+        b=mTTHVgvdcy/59vitpo1jSU4to65/HOhnBYdAlE9sh9O5/lUtIKAYtGMn7ZpiQyDap3
+         RTcFSSjRpjispKqlQJA+eYwb2W5WlaCxVwvpUnyBMiSPB0CCjP1OpJhx13S9QhMckm92
+         3XcHH7MwhQbWf2Ea+iraGcvjl//4pVwVzOJwtYlJOkkEUL+PY3WO6pARDA6gt03CSldg
+         MYDcdwf/ERL8TmUR0BsxCYp8rcyic7LJ8reupiV7h/v5eLIfOwbxqoZJiALKtWhdC3Vj
+         ira95nhguSDT+MMj3Fk8M0bu1pX0RJLXzLoKO6xm8HTU6adHff1lFiVCmEaIoYkjeUsV
+         BeGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734362325; x=1734967125;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zTbfi6p8iEyDiLbIuWboyEfmfnDgznyILb9W4NSw86U=;
+        b=E8Ns3p7U+UbTA1G0Se1cxA0JtpOzM74Wad688GpCvO6nYYEg5xQz6ZyuQmacmx9cDC
+         rH2rxSq4Pcp7LUgMTqVg3PcznT05DD23OjD1M6lniA3scxhEBVa1dAQBP6zdci7JxAMH
+         yxZA1vI/MtLkaAlqBY39J9lltvIIYyfKSFGbrZGSUqIzI32nEJYAvGqUby+prtTR9Nbx
+         T3R6regj2yDpaR6EdtleW4A+sbz0fbidtSz6Wj1RJEy8fLI+heiE2w6b9UchLTQJqAYO
+         OQPNooPZ+M66SqL2eRrS2SGDRC0ufIXa5k7nIkhqRatN/8h71ogp9j/sczDY2m+mgmTX
+         l31w==
+X-Forwarded-Encrypted: i=1; AJvYcCXcZRjymFkSNOZHxmfaAC7LcDtutjKidH5KvMR1HO/z/l9igCd+C8u6NF77xe42IZ0WKIucP8f+BqdHdGDY70fK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8xGAjV5c8U46hxBj/BxS664wKhPcd866fILvOxLYZB4ZeFRHh
+	pWZGkugfhaTmFgvPAnMyGkGeO3WVoZXWre5G7QZAd0/zo7jHgnhU
+X-Gm-Gg: ASbGnctTiyPEMuH1hdFwcqZx+QwyVAM44IPD5wOMQs2/L7mqG7OWWIWR58PLjiQweVy
+	amjCGnycnd76E7ye2UfGa6jf6JdlbNi4ohHCABvOxFViwiRPpzLAw9zhMikMAK9jouaKNyNVupF
+	lK6vcXpwUuExqPtVew4JSbIZRBxgp6RlYk/hAhphZzWF9qQKdX+zAwIFpADTTTqWQfJmMHCBc41
+	CIjiDq0VWcjo0JmZpED9vVFDN997Cah0lPsa7NKQjHfApguJLWU+nZPwn4RB8qy76IBZIBR
+X-Google-Smtp-Source: AGHT+IEr92SrsyLf8UEGh/qJ4AcuJCbiE9QwqwVLL1sL4V60D+nHXLQW58JemQqBLG51UkqEem66Mw==
+X-Received: by 2002:a5d:6487:0:b0:382:5088:9372 with SMTP id ffacd0b85a97d-3888e0b88afmr11406631f8f.43.1734362324993;
+        Mon, 16 Dec 2024 07:18:44 -0800 (PST)
+Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:9096:1cad:6f4d:511a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c8015f77sm8351129f8f.26.2024.12.16.07.18.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 07:18:44 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: o.rempel@pengutronix.de,
+	kernel@pengutronix.de,
+	andi.shyti@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	Frank.Li@nxp.com,
+	stefan.eichenberger@toradex.com,
+	francesco.dolcini@toradex.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] i2c: imx: fix missing stop condition in single-master mode
+Date: Mon, 16 Dec 2024 16:16:40 +0100
+Message-ID: <20241216151829.74056-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="y5iAGL54R8A4spMz"
-Content-Disposition: inline
-In-Reply-To: <20241210055311.780688-8-anshuman.khandual@arm.com>
-X-Cookie: Be different: conform.
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_071717_754686_DBF3B57F 
-X-CRM114-Status: UNSURE (   7.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_071847_777008_DA61A228 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,31 +103,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
---y5iAGL54R8A4spMz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+A regression was introduced with the implementation of single-master
+mode, preventing proper stop conditions from being generated. Devices
+that require a valid stop condition, such as EEPROMs, fail to function
+correctly as a result.
 
-On Tue, Dec 10, 2024 at 11:22:32AM +0530, Anshuman Khandual wrote:
-> This adds register fields for HFGITR2_EL2 as per the definitions based
-> on DDI0601 2024-09.
+The issue only affects devices with the single-master property enabled.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+This commit resolves the issue by re-enabling I2C bus busy bit (IBB)
+polling for single-master mode when generating a stop condition. The fix
+further ensures that the i2c_imx->stopped flag is cleared at the start
+of each transfer, allowing the stop condition to be correctly generated
+in i2c_imx_stop().
 
---y5iAGL54R8A4spMz
-Content-Type: application/pgp-signature; name="signature.asc"
+According to the reference manual (IMX8MMRM, Rev. 2, 09/2019, page
+5270), polling the IBB bit to determine if the bus is free is only
+necessary in multi-master mode. Consequently, the IBB bit is not polled
+for the start condition in single-master mode.
 
------BEGIN PGP SIGNATURE-----
+Fixes: 6692694aca86 ("i2c: imx: do not poll for bus busy in single master mode")
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+---
+ drivers/i2c/busses/i2c-imx.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgRHcACgkQJNaLcl1U
-h9DJPgf+MpiiCWY7iBGxX6+TU5DxbG+SW++WJE8bgS2sL0s5nfRQYCbN1wVrq+ma
-7e3cNEmGuQBHiIz6tPCTxZCdM0ahpk1MSUq6ga9LYYaKJDIv3Ued1xriHv4i6w89
-Kdt8AmurobdHLQc2jwGkICNYe6NzUs1XKDsBRZA0GPjHuqsYrou986XTuxSMEwk6
-i7fwKgDcRrZd1LL8Y3s5vsMqMO+yLX7dYKKhhPxTqiV7xyhKNlC08A99npkIMk4u
-5LgY0fhlwqAVaEG8Fa+pi2Izf9X24/wPyz6nd/Ns3L0iJf1t3unwJjyBi5NKR3+9
-ouUPgTnRgYX1JM25IX4wgmMEYiEW8Q==
-=nx3K
------END PGP SIGNATURE-----
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index f751d231ded8..cbf66a69e20b 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -534,20 +534,18 @@ static int i2c_imx_bus_busy(struct imx_i2c_struct *i2c_imx, int for_busy, bool a
+ {
+ 	unsigned long orig_jiffies = jiffies;
+ 	unsigned int temp;
+-
+-	if (!i2c_imx->multi_master)
+-		return 0;
++	bool multi_master = i2c_imx->multi_master;
+ 
+ 	while (1) {
+ 		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
+ 
+ 		/* check for arbitration lost */
+-		if (temp & I2SR_IAL) {
++		if (multi_master && (temp & I2SR_IAL)) {
+ 			i2c_imx_clear_irq(i2c_imx, I2SR_IAL);
+ 			return -EAGAIN;
+ 		}
+ 
+-		if (for_busy && (temp & I2SR_IBB)) {
++		if (for_busy && (!multi_master || (temp & I2SR_IBB))) {
+ 			i2c_imx->stopped = 0;
+ 			break;
+ 		}
+-- 
+2.45.2
 
---y5iAGL54R8A4spMz--
 
