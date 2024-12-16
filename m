@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F640E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8140DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLFPvMxNOd/WLEi1LRqiGUX6QtLVK8BvH4XlVqcaSVo=; b=rSi6sAC0MUWMbpCENlaAnrrAH/
-	jAkPUxKlcXFS+54fEfwDnARvefYSpUp6P5gekoKp0w11jdKodQvjHbJDgoD3Hj6AyBeYeBURT/n3K
-	zYLbx+9jFPlOH5sKK3CAnx6GpfXukXqpxSpWsOS7VEDeQc0J9RXRpgbiIWadj+AJF+KVTErA2Vs/9
-	krzhrlIqeQ/RyxbQ8DSr5Smkcw5/n6UMW/kRH2o2B6lbMCVVrarmMsnuMk/xLJe9VMD8ThFoDsJC/
-	XFVcW5is9OmTzXpZA6BfmcEhoDRcmBNxF+8g3OR+xQ1pgbI619qSoQv10nH56E7e4ZbYpROhijK4h
-	uGB+UiMg==;
+	bh=jLnAu/FShL4DnoDKRN5GkvloW2ufXITzhuWpCFYEyVg=; b=MLHJ5ncpiY2V7B6ZFW+d54Ukdh
+	O/iisGm38N8pWzYUX2jaAhSOCCo/r31NKl7S43cexKdykRmQ2XINCBtBjkZaDynvWZM/xwCdcCVj4
+	a+RZ6b0x/93GHMw+V07Kz05sg3sxn43r7AYqj4MqSo6bV00t31fHDOI3I34iTKM2ny9xX1nreEW5n
+	gLpj9K4hz7ZQ4Wh3fP+F99SfyBKWvgBW4+hRvy1dpJjoqff5c1VF2uvuTr7dCadZrzINTYPSc/G4L
+	Afdp5zdHJX51wSdVLo4GDPtlexzGCz8IuW7gcUh6EFVH5MkC/jVXMfbntWruACaa1yVtb3e+vnIpa
+	8QUaOxMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6CS-00000009M2k-2F6V;
-	Mon, 16 Dec 2024 08:11:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tN6DY-00000009MJa-0y3m;
+	Mon, 16 Dec 2024 08:12:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6BK-00000009LrC-0ydT
+	id 1tN6CK-00000009M1j-486c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 08:10:23 +0000
+	Mon, 16 Dec 2024 08:11:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 84A5F5C5FC8;
-	Mon, 16 Dec 2024 08:09:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA01C4CED0;
-	Mon, 16 Dec 2024 08:10:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 50F3AA40CF5;
+	Mon, 16 Dec 2024 08:09:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44BA0C4CED0;
+	Mon, 16 Dec 2024 08:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734336621;
-	bh=I8tqmc5IaiPoUplhIX6RsKbAo0QPo2Zt4joR5n0WYUk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NWUsRAM5Z9vieIYgTIUILLoq3Mhd/Yt4AGxfOtLzcfbBqlBLx8XgTeUIBxFAMZQps
-	 N1F9SrXQ0kC4lnyMVMoFfx3rKvJff4jjHqZ/IGYBRWePld0NkvpTHyr1/t2l8Wtwm4
-	 xt8fjtsNuRK2ew+zlT5XRwSD7qi4Q3QYnQaKHZd04o5HdndG7v8Lxpx9LfGaOumqFC
-	 nNVoO0Kdfc10SISV5GLedEoMvrgmDL8+SCFspc0yKCCd8Ssgl+H6QdzMmUFIX1taXh
-	 rHat1OMiPUN6KHCgrjgH+PHMz9A3fXugFQyGhFtnR62bTPRXnTHful+iIUtwpFTLMk
-	 GcJc3Tw49feqA==
-Message-ID: <d4b4d357-f1f5-4e75-938b-e6742d1d3674@kernel.org>
-Date: Mon, 16 Dec 2024 09:10:15 +0100
+	s=k20201202; t=1734336683;
+	bh=czYWF1BdoS+UaieC6uxMNzsS1RvE24N3CBEYCutzIKs=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=HdHZ/aVaBKg3TyR1TrxskaM+HEfTdSkfdzU0oINvax/VI1rbHk3az2cFkdJBWc8AW
+	 6jV0GY46MHniPzoh9mS3D7u6oCfbWmgILRQFDz034+BbCjdhywfCqEgHjJjIExTAku
+	 eCgx2us243zqlJ4ufEbB1g+c5qjrIKZJ+fhpxXMmXCm21t1FjpBFzNSmnqm0NfhiCu
+	 T0AzpOzjMn6GEal8hYIixOMv0NrcziHR+Z6Gnnfirj6YeHafFRranwAgsD1lgrobe1
+	 RAke9bhscZdgmcEl9bvQVO1waR3IZBXMm46Qm55pXzvElQfVNMHlPdhbybDKS1CR9t
+	 NmyO14cnCsNKg==
+Message-ID: <d0424774-b7af-456f-b76d-fe5e39d0d483@kernel.org>
+Date: Mon, 16 Dec 2024 09:11:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/2] arm64: dts: ti: k3-am62l: add initial infrastructure
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Bryan Brattlof <bb@ti.com>, Nishanth Menon <nm@ti.com>,
  Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -55,7 +56,7 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20241117-am62lx-v1-0-4e71e42d781d@ti.com>
  <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <d4b4d357-f1f5-4e75-938b-e6742d1d3674@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,13 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241117-am62lx-v1-1-4e71e42d781d@ti.com>
+In-Reply-To: <d4b4d357-f1f5-4e75-938b-e6742d1d3674@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_001022_364208_0F88F86B 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_001125_161499_4F1FB19D 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,23 +121,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2024 06:34, Bryan Brattlof wrote:
-> From: Vignesh Raghavendra <vigneshr@ti.com>
-> 
-> Add the initial infrastructure needed for the AM62L. All of which can be
-> found in the Technical Reference Manual (TRM) located here:
-> 
->     https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
-> 
-> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> Signed-off-by: Bryan Brattlof <bb@ti.com>
-> ---
->  Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
-Please run scripts/checkpatch.pl and fix reported warnings. Then please
-run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
-Some warnings can be ignored, especially from --strict run, but the code
-here looks like it needs a fix. Feel free to get in touch if the warning
-is not clear.
+On 16/12/2024 09:10, Krzysztof Kozlowski wrote:
+> On 18/11/2024 06:34, Bryan Brattlof wrote:
+>> From: Vignesh Raghavendra <vigneshr@ti.com>
+>>
+>> Add the initial infrastructure needed for the AM62L. All of which can be
+>> found in the Technical Reference Manual (TRM) located here:
+>>
+>>     https://www.ti.com/lit/ug/sprujb4/sprujb4.pdf
+>>
+>> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+>> Signed-off-by: Bryan Brattlof <bb@ti.com>
+>> ---
+>>  Documentation/devicetree/bindings/arm/ti/k3.yaml |  6 ++
+> Please run scripts/checkpatch.pl and fix reported warnings. Then please
+> run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
+> Some warnings can be ignored, especially from --strict run, but the code
+> here looks like it needs a fix. Feel free to get in touch if the warning
+> is not clear.
+
+Apologies for digging this old thread, some other reply bumped it to top
+of my inbox.
 
 Best regards,
 Krzysztof
