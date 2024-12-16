@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE377E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0CCE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:24:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PcLGQ7556zNYV0AH4bhLvcU39BmQmcq3mQ/qHBEnQMA=; b=SvKe8UKeIwk6zd7R5e+Jot1i9a
-	HWeiscLYOYnKevhyiC2xQrdMiHPfrmcNRp7xXBngzLPum5Oc4q/DqRCdQ3m3BqtQd02YQd6hriQ82
-	GhS5GJOcQrR57tV3iG5HShkeCHz/Pe4gCkVrWs9WVOF/s0r+SwPH5AUNyv4G4elRF7f7Rwul0ciPY
-	FpPslZXN6b+QUBsWf8YeXEgQ6ucolfI8PZdyyYm7qS65Pgxl+n2oKcit+V3qIZ71+mG5838egklhL
-	zknzCiFV/ex57m/HTUYxzZlKooMWVb+WJld70wtq4feImCP7HEJ1By2E3sVhNNUD9Z/Q33DFGpYXN
-	2Y6dlKJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gNU+E/bNUeoRD0tPsyKikGu5k6XwnbaOdrZkNOIjIhs=; b=YPOmQx984rG2EJJkNe/rBld6qW
+	CAUMcZ/rkYvr4ngRTIl7H/IbSCKwTcO+UVsihLS0vPL2kfqBrkGyYsUl2Nzm+cAqs43YHOPDORy8K
+	aXCIo8jykeVKX/GKNnoUqhqQ5H6lbbLZNmR4W1iV4AtQN2vdLMvJUgZeWZkG1PPyJxYEtd5nmMn5S
+	1ryQWZZiXVyKNkrPxvfJZp7Pi6nkRr4F5Parg6a3eEv49Y/Ie+N2oXMjChvZZUoKBpyG/p0qBjySJ
+	jFtEtzmoOBinTEnjTKhd+1/jjYvHKlamMsy+73KuL/d7z3eFsTOoN7b+rvlMpOD0SykKO8T2QCFaX
+	psvD5+yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFlG-0000000AxQu-3fw0;
-	Mon, 16 Dec 2024 18:24:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tNFm0-0000000AxYP-2mVg;
+	Mon, 16 Dec 2024 18:24:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFL6-0000000AqcD-324Y
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 17:57:05 +0000
+	id 1tNEgs-0000000Ajq2-3Gym;
+	Mon, 16 Dec 2024 17:15:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 35C1BA41979;
-	Mon, 16 Dec 2024 17:55:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8132BC4CED0;
-	Mon, 16 Dec 2024 17:57:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1263FA4127F;
+	Mon, 16 Dec 2024 17:13:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09C27C4CED0;
+	Mon, 16 Dec 2024 17:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734371823;
-	bh=Z4tZ8fVofiGwAb7FaAn7u4Dk8NVUizwERM8FmNMH8MQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JbQb5YtoHWIG2i81bmyykeMAQvNegaoDJWzvE7DlBZex3RyAfwAroe5bQGbRHlJby
-	 jjqQVAAkr8hl8Dvjtpke2QQz2r0Ad/7uEi+edK6j2lLcJoyLs70xjia11RD9bTH8Dq
-	 E3Jvt/ICN4SJjUxPtoq8GeF2toKeWTLVW2uDsDNfsZvAuGESM82qsyDGNtplv5ieGs
-	 s4kcPeGaKiDCeId0agBsQE/PlCv4C1v1aoXNADhWZn8A7+Oc8MBtKJJONGyClzTaba
-	 uY4aJE9xAyCgjoz77qfQYB/Cm4kHef8xCurK7C8gXvfvdrpKaWczWGX7XtHfT1xIwg
-	 YtZJ4kj/0G/Uw==
-Date: Mon, 16 Dec 2024 17:56:57 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Takashi Iwai <tiwai@suse.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-sound@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] ASoC: SOF: imx: add driver for imx95
-Message-ID: <03b0bcda-c351-4d76-accc-3d3e0ed9c335@sirena.org.uk>
-References: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
- <20241216145039.3074-5-laurentiumihalcea111@gmail.com>
- <Z2BZ+WUY6ecIwhEt@lizhi-Precision-Tower-5810>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="1dCq6JFN4ecgzC7O"
-Content-Disposition: inline
-In-Reply-To: <Z2BZ+WUY6ecIwhEt@lizhi-Precision-Tower-5810>
-X-Cookie: Be different: conform.
+	s=k20201202; t=1734369329;
+	bh=BYWVPSTco7NxgCFt7PuAti5s7WPTbsps5ogniby27jM=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=nd1NNY4qp5FoANXFQI8jCl/U7QtYaUohcli8BfdPGQhJzh01UHC+HcmogZYSsT7QU
+	 69UXwbb6NkJd1NWQtrLCrkFZtUbg6KMHus5WC2vPghoUvpDKvhxFQcKMAIXVXtqBcJ
+	 Urpm771eXTc0JS24NfDfDeNj3MWe90SEwqu9O+UnJbkbisJ88uWI7r7NYpIQHidcsS
+	 iyv9asoeEcQ1G09ZVL9ay2P6aLFDDMdml9MVivVG608IoNQ7ugTD7Rrrhom82fog+m
+	 uh1/lMkXyD4yD8Vvn8i3oalWIAS4ne4pmLKmdcxMTavYzcn3KZDXYXhrOMhrS6Gdhh
+	 ZvBbn8M1/VcHg==
+Message-ID: <05419690edbfe859f02d8675c57d3f8f@kernel.org>
+Date: Mon, 16 Dec 2024 17:15:26 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
+Subject: Re: [PATCH v6 05/10] drm/bridge: lt9611: switch to using the DRM
+ HDMI codec framework
+In-Reply-To: <20241206-drm-bridge-hdmi-connector-v6-5-50dc145a9c06@linaro.org>
+References: <20241206-drm-bridge-hdmi-connector-v6-5-50dc145a9c06@linaro.org>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, "Alain
+ Volmat" <alain.volmat@foss.st.com>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Andy Yan" <andy.yan@rock-chips.com>, "AngeloGioacchino
+ Del Regno" <angelogioacchino.delregno@collabora.com>, "Chun-Kuang Hu" <chunkuang.hu@kernel.org>, "Dave
+ Stevenson" <dave.stevenson@raspberrypi.com>, "David Airlie" <airlied@gmail.com>,
+ =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Inki Dae" <inki.dae@samsung.com>, "Jani
+ Nikula" <jani.nikula@linux.intel.com>, "Jaroslav Kysela" <perex@perex.cz>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Krzysztof
+ Kozlowski" <krzk@kernel.org>, "Kyungmin Park" <kyungmin.park@samsung.com>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liam Girdwood" <lgirdwood@gmail.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Mark Brown" <broonie@kernel.org>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "Maxime Ripard" <mripard@kernel.org>,
+ =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Philipp
+ Zabel" <p.zabel@pengutronix.de>, "Phong LE" <ple@baylibre.com>, "Raphael
+ Gallais-Pou" <rgallaispou@gmail.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Russell King" <linux@armlinux.org.uk>, "Sandy
+ Huang" <hjc@rock-chips.com>, "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Simona
+ Vetter" <simona@ffwll.ch>, "Takashi Iwai" <tiwai@suse.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_095704_829708_95456C2F 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20241216_091530_885562_0672DCD4 
+X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +87,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 6 Dec 2024 12:15:59 +0200, Dmitry Baryshkov wrote:
+> Make the Lontium LT9611 DSI-to-HDMI bridge driver use the DRM HDMI Codec
+> framework. This enables programming of Audio InfoFrames using the HDMI
+> Connector interface and also enables support for the missing features,
+> including the ELD retrieval and better hotplug support.
+> 
+> 
+> [ ... ]
 
---1dCq6JFN4ecgzC7O
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-On Mon, Dec 16, 2024 at 11:48:57AM -0500, Frank Li wrote:
-> On Mon, Dec 16, 2024 at 09:50:38AM -0500, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >
-> > Add SOF driver for imx95.
-> >
-> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > ---
-> >  sound/soc/sof/imx/Kconfig  |   8 +
-> >  sound/soc/sof/imx/Makefile |   2 +
-> >  sound/soc/sof/imx/imx95.c  | 401 +++++++++++++++++++++++++++++++++++++
-> >  3 files changed, 411 insertions(+)
-
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
-
---1dCq6JFN4ecgzC7O
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgaekACgkQJNaLcl1U
-h9Cl4Qf/Wqcio/gpAHtCYuQyA3wXb/0S4M/vlqazIEavGzTlUOYqnxsbU2AaeMEk
-zwpZ2+eQ/bxaq1ShK4qLnNmzrurodvT1vfHAZPzfx58S0dtVN5Y37lau53+IRyQA
-GIyaTH3CFhR1JJcXKXPfF6cl8VwHgniUTT+hlT40q8I/j7Jp5AJWqOcKfx9Zx8sd
-Rnpg5dGVAg8blZMM8ste4YKqkx2DRgtc/yIe19c2V3+hyTjmBnw8+PztkfW3hqKS
-g5i6JYX1BwjPexEl9apLPs8lhKaEn7p/sHIVz7uxUBwkKz7McqVAaXTTKGebi/KN
-RXz4I6ljBH8xC5MQ9DH0/EEnOkZgcA==
-=wqS7
------END PGP SIGNATURE-----
-
---1dCq6JFN4ecgzC7O--
+Thanks!
+Maxime
 
