@@ -4,59 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CB5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B34BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 08:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfNd/TRH9R49Llvw2K2apK4eL8Kv1bQNPNLqBzODjuU=; b=FatEwjAf12T83nyU9cdvT/NbFL
-	FCYyXRBRhfpNBu8L9CL9P33j/9lembHE6OSjNcy2qm5MIPDCvVXU9zjDfRFzPL2+gJelpbp1APi4V
-	/U5TLUo6JjDyvq7lVyhdJgRcMO0CGP2q+CB+KkfQB/5kNYussuuPBHTjmWEnkanEFqoL4yMvj9aLT
-	CO+pI7ycVl1zgmQagZdN8tbqtD3axuFAldMTWt0ZS0CG33GsOIe3YHoZKXMkS9tLCNYoEwsyovsyp
-	oAzzw4uBtHyQIaajMVp4veNPPasMjFvM7GMClgAXmCETtI7c5dZxFVaXKumcHfvB3EMDukqNKBzbj
-	HsDACRkQ==;
+	bh=jv3bSIoCBAxmgLzYVw0/ZOxZecUoAjlo4OXUiyorTBs=; b=EhtSbm4nBwXyEoLGoFlFnQCqhg
+	L2zoW7OIxuqrednhf0MyBL2G5ht8XF9jp/e6EXPap1b9EY6neWHGzeu9ynSOLeKTkBoVMChtBDKte
+	jID2C1OVg4uXsG4CaDfS+c2WeYxti0t0doDyzOAgF+kwRiNXVLIbkzxVm4mCe1x5WU3OBWmxtdEKt
+	FAiRQ9vxMtfWt1orzVx5g8g/geZ+d3MFEeux31i88X4ezb8TA79DNL5NVj2qjNlF7rzpEJx22sTuu
+	J0n9O9rhiMgqUHvqqSQvhaCfNfi3fRmvoBIIzg2MBqOeO7gF6bxTr3gxdh224jp+/Yx8XVZ4ObvDJ
+	NHA5OfTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6k0-00000009Qtm-36ET;
-	Mon, 16 Dec 2024 08:46:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tN6l4-00000009R3S-1MD5;
+	Mon, 16 Dec 2024 08:47:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6iu-00000009QlV-1Lwr
+	id 1tN6jw-00000009Qt9-1X5j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 08:45:05 +0000
+	Mon, 16 Dec 2024 08:46:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7AE1C5C606E;
-	Mon, 16 Dec 2024 08:44:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 589BBC4CED0;
-	Mon, 16 Dec 2024 08:45:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B35FDA40B98;
+	Mon, 16 Dec 2024 08:44:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E97FC4CED0;
+	Mon, 16 Dec 2024 08:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734338703;
-	bh=5hjFEUiVH39QNzhENY7Jmj31Wq3iPFZeq6t3QdLVNKM=;
+	s=k20201202; t=1734338767;
+	bh=8bu0smSKNAuMe2IhZmGO29L41V06FksNCHa69ah7d0w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=b9t16wxpiDcKHnk2wktiYMbJPjq/DzFgbvTkeoSkX8hisPzkCLeQmFSyeY6fF6T5G
-	 hXpsj1LDitHDlOIYgcpP8tL8z0ewLN3EatihKamLlJLOomZ00e9kuKUZAtP09PU1VT
-	 phQxH3XXlfiVMabvmvHXyLA6E3OwMbAemCcSDC+dh9MkfuDYuE0W5xJOpA7gH25Rs0
-	 PacbdjM8vQlDceVE6ow55XmBu4FiwdTlCbWoQSI0pygpm9rMxgT0evU8EFWyPUNmg4
-	 ybIn4WrvP1V2uWdSkI4xua7zi1W0PsnzE2qBnuxriJ6L9SpOf8Czf030gGGwxOYILJ
-	 2ak6ZL1wbsJPg==
-Message-ID: <0ebc12ed-fe91-4c8a-a626-b735b0eeecf1@kernel.org>
-Date: Mon, 16 Dec 2024 09:44:58 +0100
+	b=fwU/dH4b9Jp9yqpVxS+tE5hFoJuvl1RAxUy+EYmU6nYDvIkX4dt6/WjBRG8+OtLM9
+	 /Y3HowUZ9l3X/hKXqjWMxpedWbihExa58SrO2XEZMjofUEArkH6Y9j/di2eutHqrZ+
+	 seNVl1sWW48E1IIz7fAX7ep4Sr4C2qXiuS7ej0hUvw/PPtvreCLb7ctilPVDkseF6Y
+	 J8OyHOoqmpOR7jhP4XHV7yh6ZZ+GHCL2MewW0u/s+pjp3m8Ob231wbX+/TmWLm4lA+
+	 bIc5VNXF+eGR/1RUjRgd2MfNox7VsUSe5j00a7o5CafxdjebRNysquB7Q+ejsY/kA+
+	 oRp05eyHmFxww==
+Message-ID: <d75a63c9-5bfe-48b7-bb8f-bae415897f3b@kernel.org>
+Date: Mon, 16 Dec 2024 09:46:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: i2c: exynos5: Add
- samsung,exynos8895-hsi2c compatible
+Subject: Re: [PATCH v1] arm64: dts: exynos8895: Add camera hsi2c nodes
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
- <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241214220750.723354-1-ivo.ivanov.ivanov1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +98,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20241214220750.723354-1-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_004504_461985_C3B937C5 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20241216_004608_540978_D82CBEAF 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,61 +118,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/12/2024 23:04, Ivaylo Ivanov wrote:
-> Add samsung,exynos8895-hsi2c dedicated compatible for representing
-> I2C of Exynos8895 SoC. Since there are I2C buses that aren't implemented
-> as a part of USIv1 blocks, they only require a single clock.
+On 14/12/2024 23:07, Ivaylo Ivanov wrote:
+> Add nodes for hsi2c1-4 (CAM0-3), which allows using them.
 > 
 > Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->  .../devicetree/bindings/i2c/i2c-exynos5.yaml  | 26 ++++++++++++++++---
->  1 file changed, 23 insertions(+), 3 deletions(-)
+>  arch/arm64/boot/dts/exynos/exynos8895.dtsi | 44 ++++++++++++++++++++++
+>  1 file changed, 44 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
-> index cc8bba553..b029be88e 100644
-> --- a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
-> @@ -25,6 +25,7 @@ properties:
->            - samsung,exynos5250-hsi2c    # Exynos5250 and Exynos5420
->            - samsung,exynos5260-hsi2c    # Exynos5260
->            - samsung,exynos7-hsi2c       # Exynos7
-> +          - samsung,exynos8895-hsi2c
->            - samsung,exynosautov9-hsi2c
->        - items:
->            - enum:
-> @@ -94,9 +95,28 @@ allOf:
->          - clock-names
+> diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+> index 90b318b2f..36657abfc 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+> @@ -292,6 +292,50 @@ pinctrl_peric1: pinctrl@10980000 {
+>  			interrupts = <GIC_SPI 430 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
 >  
->      else:
-> -      properties:
-> -        clocks:
-> -          maxItems: 1
-> +      if:
-> +        properties:
-> +          compatible:
-> +            contains:
-> +              enum:
-> +                - samsung,exynos8895-hsi2c
-> +
-> +      then:
-> +        properties:
-> +          clocks:
+> +		hsi2c_1: i2c@10990000 {
+> +			compatible = "samsung,exynos8895-hsi2c";
 
-Missing minItems
 
-> +            maxItems: 2
-> +
-> +          clock-names:
 
-Ditto
-
-> +            maxItems: 2
-> +
-> +        required:
-> +          - clock-names
-I don't understand why do you need second, same branch in if, basically
-duplicating previous. But regardless of that, no nesting of ifs. Define
-clocks for all variants explicitly.
+There is no such compatible. Your changelog part or cover letter must
+always explain where the missing bindings are.
 
 Best regards,
 Krzysztof
