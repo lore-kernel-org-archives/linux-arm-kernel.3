@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0678DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E23E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ffQGy2TMqwM/P0ea5bqOaj/0Pbat+9jyPLZz6qR+vM=; b=qoVFA0UTkAAVFNE4uD/mrZh+3y
-	c7fGdZ48WD8hp0a3+DrRvTpTZsCrmT8E5H5VSQKe8hXdJ1lNE7NgDlVhVob3L9ZgOvO6IU21IaNEE
-	Sofhi6wPP+DA2+NyAQlD9jtzO5azC+DmkmpGBcryf9XpXoLML7SX2QB+21H+hyHmY20A3rUYheiCc
-	VxY+AI0hbe4NIq2Qf5wTUX0XtKpYOGOSqbmMFZ3ozuOmZmogBu/g542uTeB+5a8I4ZZBpnk6GwFJj
-	lJKmeTt0ZTdXLDKP4F5FAlbXVK97YDWOkkHFYegHS4LZ0Op+7izcuzijHVw3Qz9fnIuFpzL2ziXMh
-	lEvDbtOg==;
+	bh=wICNgf+IR97xFy25oLTLwYecGz7p9oalZishcLcdo4o=; b=2Q4AcPAKW+0Mnu5mTIl8fjXds+
+	1sbX5LsObBt1FR+nxJ8Cwk6GvxkRNyqzfeKWek1FVgN/Iuf2wv0p/FA8S7Rmh/0cKM7Sxk/D8LLT3
+	p+1OHWMVyFf0n0vgAKa28XYR5h/nhV+OlJAZaTghxDE6+Zyt35/qhFmU/x7dscJ2PxWadjiahzguf
+	DxQCTvjvbx6hiZjrO46kHHbO6WvuD5yX26h2TDp4jRF8GyErD/hlFP5SC1Dps0spMDLmzT36jj5AG
+	dodfUDkaNJ3PBWV63K7FbuAmEIm8xZlKGd/aP2nG7fT3AL8Ss7t6D6vLSFZPlW74kNDALD27xSf0W
+	y/YnTZBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCnP-0000000AN0c-2Uf5;
-	Mon, 16 Dec 2024 15:14:07 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1tNCoU-0000000ANE4-0sTo;
+	Mon, 16 Dec 2024 15:15:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNClh-0000000AMi7-3kYn
+	id 1tNCm2-0000000AMlS-0Our
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 15:12:23 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e3f78f5fc07so3107077276.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 07:12:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734361940; x=1734966740; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=2ffQGy2TMqwM/P0ea5bqOaj/0Pbat+9jyPLZz6qR+vM=;
-        b=thGkGllrBoISG3frWuR7yslzBBbGnbN5dhG4gBlMB0+f9qn3Kfy+QGBONE0TI2vJto
-         KBIBLBaYD6OnhcvrvtYlIY4YcXh0C73PqxkCH5OAvhgjvKAowQHyMm/bGmI2Mkbfwjmb
-         varKSx4dyo0yt10vAMFQqovbQAQ54U3trDcQZOfsCOR+q4diA+0ZhMsU/E6nmL0eUad6
-         UOUGoAXvYhatpTYv8qL3OcDKRyYw+F8PzfMprlfEivrWbnwPq/gPN7hmB7QTosyRnQNi
-         gZd4EozMDJ4flbogJ3roGjoJsn5q+QOgqU20ZCEKaQk1G8vfuJH4tR3MFML/NYiDAnMh
-         haRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734361940; x=1734966740;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2ffQGy2TMqwM/P0ea5bqOaj/0Pbat+9jyPLZz6qR+vM=;
-        b=TW5a24QJ2LSlt/hNVOWlTuBgDOsladijdE5xR7z4xSYwHljRXAbxeDU8DXt609e802
-         U9NpcPdyTzWePMjFTH88jP3syzwsBZr5FUmghuE8KGcEmx+BJpiH1pTkZpm+mNp88mxR
-         UCKfsUUnw4jlKhA/r+R34W4jkqliiK/xVXCJJ68Nm2Fy63FQYFTIZonk+mlAcwMfDNW8
-         U4ICBrpC7MRSl5ye9xzZzWpcNVZawabsNGw3X/zdnf2KQDnMnbx4b4p3gQNMiun9qcmK
-         jnIYHpdj2JqvzGnIulT5P+E/JEfzHu7MUGYJMEg00lwYG+JsOSG2/xXZVMfLG++gIrrT
-         d/YA==
-X-Forwarded-Encrypted: i=1; AJvYcCWEz3rE7qMCoHIX+P/k4v/SPdg2Ef7tUvnSFFzLXPwy4HL0xZBMT2AdYIT+2TyfV0kPFw6W5QtQp1DcP3H8tDa6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGpxJzwQaNAOGCCjkM2xy92aOVruhR7EbsjEw1IfwGR5zitgdm
-	CRSZqRUT0hs95lsAn4po77bQBO038Wdn5UKV2b0CYIAfL9XxzCEt3fNlKAlPS8AYSbsPq5e7AaF
-	PD7cfaT+CSgPU+nADxooymT1t2yO5FhgfqfRytQ==
-X-Gm-Gg: ASbGnctO7O+dVEzW9aHJH4S57VixrVtPgcHz1rMVb+ISMCRBUtr+T21UhSKL2uepM06
-	PjBQq7QI5nyFV8ZfqvTz7iEM9W4sRBLEKdf9I6I37kYTqbHKIuh0J
-X-Google-Smtp-Source: AGHT+IFkMt1zHDB2S3QiYdScTiiPg+ltfkwwZwvvoVehY7huEV6zK2tbYbYSsx3gC5GsnfCaH/SlaLvHa4pCCl1Vu/Q=
-X-Received: by 2002:a05:6902:3301:b0:e47:f4e3:8804 with SMTP id
- 3f1490d57ef6-e47f4e38da5mr5451800276.24.1734361940405; Mon, 16 Dec 2024
- 07:12:20 -0800 (PST)
+	Mon, 16 Dec 2024 15:12:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4BEC55C5EBC;
+	Mon, 16 Dec 2024 15:11:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38A9C4CED0;
+	Mon, 16 Dec 2024 15:12:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734361961;
+	bh=wICNgf+IR97xFy25oLTLwYecGz7p9oalZishcLcdo4o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=otuodDfADecik5dK4A+tvJlOPIlqUWxqN82gnV2UUQLF2EID4UGmWjZlMD9HWIY1D
+	 Fchlfp0Af3b4L18QVne282kKyeBqiPkAMXZyLyysO726seCflHNOTQMocYTA24YSse
+	 sh6FTadku2KIEU8lgEAWYIPE0vi0/HCbdoR7qVQwzqZStEAtZgV7p29UbStvU+sacX
+	 YsQeyrxrxRN+6uzooFaNlaBckOtCP38KhI7KNQD0nVhP4WeRILvxemZv5kk2JV8eNp
+	 dSz7paiM4H/y4tq3dQMlbDHHdGdJxKvr4NYYlD4VQ0re2qaCyCbJG5rLDeU55NOwXB
+	 ZDmW8v19na22A==
+Date: Mon, 16 Dec 2024 15:12:36 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH V2 04/46] arm64/sysreg: Update register fields for
+ TRBIDR_EL1
+Message-ID: <1c1c9117-e2b2-49e7-9bdb-7ac6a184d7fd@sirena.org.uk>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-5-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
- <20241206-drm-connector-eld-mutex-v2-4-c9bce1ee8bea@linaro.org>
- <pgi7p3aemxm3db2k27vi5euh6q6ppayrw6y7tcfeq4g5z23hzr@xousag2qhobp> <fc8e80dd-bcea-4515-b446-158649719569@amd.com>
-In-Reply-To: <fc8e80dd-bcea-4515-b446-158649719569@amd.com>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Mon, 16 Dec 2024 17:12:09 +0200
-Message-ID: <CAA8EJpoR8HYq9ATDfmR5ksSnttBzj=DY+BKp5=OuVNF1WDJ-fg@mail.gmail.com>
-Subject: Re: [PATCH v2 04/10] drm/amd/display: use eld_mutex to protect access
- to connector->eld
-To: Harry Wentland <harry.wentland@amd.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, 
-	Alex Deucher <alexander.deucher@amd.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Xinhui Pan <Xinhui.Pan@amd.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Rob Clark <robdclark@gmail.com>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, Alain Volmat <alain.volmat@foss.st.com>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7ZdiaP7+I8rZlyon"
+Content-Disposition: inline
+In-Reply-To: <20241210055311.780688-5-anshuman.khandual@arm.com>
+X-Cookie: Be different: conform.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_071222_742221_E90124AE 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20241216_071242_172237_16831CAB 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,68 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Dec 2024 at 16:53, Harry Wentland <harry.wentland@amd.com> wrote:
->
->
->
-> On 2024-12-10 16:20, Dmitry Baryshkov wrote:
-> > On Fri, Dec 06, 2024 at 11:43:07AM +0200, Dmitry Baryshkov wrote:
-> >> Reading access to connector->eld can happen at the same time the
-> >> drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
-> >> order to protect connector->eld from concurrent access.
-> >>
-> >> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> >> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> >> ---
-> >>  drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
-> >>  1 file changed, 2 insertions(+)
-> >
-> > Harry, Leo, Rodrigo, Alex, Christian, Xinhui, any response to this one
-> > and to the radeon patches? I'd like to be able to pick the series for
-> > drm-misc and these two are not reviewed by you.
-> >
-> >>
-> >> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> >> index 19a58630e774029767bf2a27eb4ddf17e3c21129..04c68c320252b5ce9647f0606fb86fe57f347639 100644
-> >> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> >> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> >> @@ -1037,8 +1037,10 @@ static int amdgpu_dm_audio_component_get_eld(struct device *kdev, int port,
-> >>                      continue;
-> >>
-> >>              *enabled = true;
-> >> +            mutex_lock(&connector->eld_mutex);
-> >>              ret = drm_eld_size(connector->eld);
-> >>              memcpy(buf, connector->eld, min(max_bytes, ret));
-> >> +            mutex_unlock(&connector->eld_mutex);
->
-> All of this is wrapped by the adev->dm.audio_lock mutex. It might
-> be safer to modify the audio_lock mutex so it only guards the
-> aconnector->audio_inst access.
->
-> But I don't see any way these mutexes would otherwise interact,
-> so this change should be good as-is.
->
-> Reviewed-by: Harry Wentland <harry.wentland@amd.com>
 
-Would you ack it to merge it through drm-misc? Or would you prefer to
-pick up those two patches after merging drm-misc-next once the rest of
-the series lands?
+--7ZdiaP7+I8rZlyon
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
->
-> Harry
->
-> >>
-> >>              break;
-> >>      }
-> >>
-> >> --
-> >> 2.39.5
-> >>
-> >
->
+On Tue, Dec 10, 2024 at 11:22:29AM +0530, Anshuman Khandual wrote:
+> This adds register fields for TRBIDR_EL1 as per the definitions based
+> on DDI0601 2024-09.
 
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
--- 
-With best wishes
-Dmitry
+--7ZdiaP7+I8rZlyon
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgQ2MACgkQJNaLcl1U
+h9CPyAf8DgQ5EoPnHTekTgf01FLNQxvy+tdd5SLWHfOh6ppF6KvXlm0TcSi5PgAu
+aSCjY9LePmuBhI1O1TwEhN0z+/n7UyXrVNMYRDuV4H0JlUBMgPra1udLCQY1OlXu
+G6IKghirOgsOKT4kZop/A/6MXyE3hrdMlYUjieSRAW0f9K+MKLyEefLkGbXYVJIq
+Hy+7fdr0rKP0ObUy6a53c5qpU3WqlGbBA+6MHT/CfyIM3wnWSdAD0hfxIbdqFnRh
+qm4dB5ri8k5XGzemPWwLnjIEjIaPCXkPCBm+JaZd4M++U4JG849hB6zzAFr7V4Dy
+L1f7nGYmPjNsp0HCoNLdxsrdhQBNog==
+=7nTo
+-----END PGP SIGNATURE-----
+
+--7ZdiaP7+I8rZlyon--
 
