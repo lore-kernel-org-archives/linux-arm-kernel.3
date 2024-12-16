@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D028E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B78E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27eSDF5ZQPbmljHUPcteK+t67TAUxV8BwmK5/uK+HAY=; b=yPXl9il7TYWxjivLeTbdNYarI+
-	ekaAjsJMQcnjGEVC4ltijFxAdlEIS6VTLF7vZlrUP3ieYDkxd2qWvFpd9N1C0hYEYz+Bq+KBAMvfM
-	HMdkg/I1MH7hvRGiG+Y/ZWP6RVWWCCE2poJJu3929O1C5Vx5aIkg7ax34L1B4kybXZWy/LZrAQkzJ
-	MlXCS4vCtutj8ZnHZ1jKUHUwFnt1XAFJJujAJz9yrFTKhmjbJXrVXEeMsHV/J9RISm2EZY4Y5q/Yi
-	HC12LI5CqdqZqzEX0mBl1R0lknrY8/XmdEMUjejVdpPrRprrDp8c2iDauuDzpeWSKCBBbxD9lgrJ3
-	C89PofsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vU+dmUIEOB3Bn235Q13lqV4rtbETnj3tLnp1CwkpGgc=; b=3m0EJA0rvXyGFIjnCJTOj1pkJq
+	Q37m5+vaUbz7oBefTA3IWq56iCqFGG7ZpNrzs9+GMXrTnnuqK2v1d7CueFeyx75ya4zgWtmbkbyJD
+	rX+xMD7rf2gsCfHu2PnSsmiS92+cDHp2BWqcG4WeZKmMa+zY86hJYjrTYVuad2GqisYz5OAB/X1Jp
+	I7tMzq0dOv78IS3rEwoDEU14k9SE11rEUgo9LTIN1KrMw3CPAqFDL7/9YSel35dOsdPLQwFd8C9ZF
+	RtT7obZwQ8/7AI6bvii3tDrBUX1StMPP30wwRwWgBbnnmoxuUp0p1HRMNVhWgl/EBieTpBU7MSZT4
+	BsFujevw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNEbP-0000000AirT-0DjY;
-	Mon, 16 Dec 2024 17:09:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDe3-0000000AW8I-3MBW
+	id 1tNEd2-0000000AjAo-2v1J;
+	Mon, 16 Dec 2024 17:11:32 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNEbv-0000000AixS-3p2w
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 16:08:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8367E1063;
-	Mon, 16 Dec 2024 08:08:58 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 64C623F58B;
-	Mon, 16 Dec 2024 08:08:29 -0800 (PST)
-Date: Mon, 16 Dec 2024 16:08:27 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: gchen chen <gchen.guomin@gmail.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, guomin_chen@sina.com,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Xinqi Zhang <quic_xinqzhan@quicinc.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
-Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless
- scmi_bus_id.
-Message-ID: <Z2BQe3-zl2IN_Cjj@bogus>
-References: <20241216073745.2973317-1-guomin_chen@sina.com>
- <Z1_p0nU93PHJ4Sg_@pluto>
- <Z1_2rxJ7TOEIOMp7@pluto>
- <CAEEwsfRhe4-YAwe027huSXwFfkV-O-8w1GDNf=URa9efRsXiKA@mail.gmail.com>
- <Z2AEzHc5f6TjxErs@bogus>
- <CAEEwsfRKVBVR+DxhkYA5atxU7+6nsaL9X8-Yoa_DqB0YKEV1zg@mail.gmail.com>
+	Mon, 16 Dec 2024 17:10:25 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2163dc5155fso37427035ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 09:10:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734369022; x=1734973822; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vU+dmUIEOB3Bn235Q13lqV4rtbETnj3tLnp1CwkpGgc=;
+        b=QHX0uE66RuNarzytdKAjPokSLilL5WwsR6Igfd7rJj9dCAY4XZZLJN6tRKYqKUoCOj
+         l4z/bXIXExtFuXr3xG4A5VWEwiR7sPgv8zBa5CuG0+gYVh4jawtu62kBH+o/AO3cLvj4
+         DuZd8a5FogkJ4Hy31xqIXOKq+T7K8uv11IdmzdZR1U0qbNP/Crqbz+6WH75/Cv5rNlud
+         bEo4GLPWAGJGsjNZp+aughnjdnsPgxRN0gWWfhroth67oIF/H4O+hH7py4xCzYhZk7il
+         +bGVPy/WFLmC2zWPYxiFOR48SFj3IYztC3joIKSgtemUDdUCCRH6M7NLtSXSAuFPMsVU
+         9NxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734369022; x=1734973822;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vU+dmUIEOB3Bn235Q13lqV4rtbETnj3tLnp1CwkpGgc=;
+        b=bed7BkiEo7eg3pc4ukwkGS+NOnruxV0fct+8V861ni6ncR91Xh20jB7IhDDUqBuzIK
+         FMqh+xowM2E4aIxIGeF8iAxKpxrrVjsUQeRRTfkxojIM3C1alLGxmfJa9jZACLqCcx7I
+         5F1RDLS7fw93o3WpDdTsme3KLwls+Y+17lEpKE6Ft16tmnSOSHk8Gw79BN7YkeNbS0Y/
+         uHo6Oe9p9/8Jgsj/hUGXLPfhxIvQNoB441oUylf3Nk0kXLFnwg8B4xrfee/IFzrcP6bO
+         2HoIsxk8xLmD4YNbuBAECdezecNZz+mFqxTI9pC3wQYiyQmiOx+DL8Zkq+MId37xVC4G
+         xd4A==
+X-Forwarded-Encrypted: i=1; AJvYcCWGkZCYNXyxPJFVHT436cm130We6jQRNHo29Dy6wL/ztLdvMsqSl4wdlfeb/kqllzh5B6XvsMCBAaYJCY+0HFiZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEMGND+jKp8Xt3lYaIJjO3uFHXKJHYf7iwr/8M3ZjMNWpx6zZE
+	p+T34lCSvWuC72yt2c4sPenrmQF3F+5dpo7Ks6E38QwTGrQuTSF7
+X-Gm-Gg: ASbGncvrgWODAu3dL0piCKdwhNHVxJAbswANuFmMFhdfTuKhUzsrL3A70c1bcm1NuQO
+	zX5d64OcMzjLuFdyxw4g9xlga6eAa931ML7sXMIxeDYPqBGXA//duVQfSQveeBcF0oiHqWwDlQB
+	ZX4PHeeWI5xqGk5/sWTc1EDTzt2hQ35AZJbjZSS08LE5L7BSd2EtGvmcMe6inCFZLKLh2CEBndi
+	UXOB+DsqJ41XQsJuj+bRgBJhi9qgH6lVNXEGoviHMbUWzspHcniZ3ljTfNxAmZdF1ZSNjjHwTYk
+	rGpjAEF11RJB4xwwCRg490QqEJhowMQ=
+X-Google-Smtp-Source: AGHT+IELBk5CES1wF4PHrucRwTPjdWhx8XVgyIQNlfgXs1jGjow9SanGNGa0Yz59QLbcpGn4/Q+npQ==
+X-Received: by 2002:a17:902:c409:b0:215:a05d:fb05 with SMTP id d9443c01a7336-218c8dd54aamr3975465ad.32.1734369022087;
+        Mon, 16 Dec 2024 09:10:22 -0800 (PST)
+Received: from localhost ([2a00:79e1:2e00:1301:12e9:d196:a1e9:ab67])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1dcb4d6sm45181925ad.80.2024.12.16.09.10.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 09:10:21 -0800 (PST)
+From: Rob Clark <robdclark@gmail.com>
+To: iommu@lists.linux.dev
+Cc: linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	Akhil P Oommen <quic_akhilpo@quicinc.com>,
+	Rob Clark <robdclark@chromium.org>,
+	Rob Clark <robdclark@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
+Date: Mon, 16 Dec 2024 09:10:17 -0800
+Message-ID: <20241216171017.4881-1-robdclark@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEEwsfRKVBVR+DxhkYA5atxU7+6nsaL9X8-Yoa_DqB0YKEV1zg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_080831_927166_B53094B6 
-X-CRM114-Status: GOOD (  33.05  )
+X-CRM114-CacheID: sfid-20241216_091023_949734_763007E4 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,80 +102,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 10:10:40PM +0800, gchen chen wrote:
-> Sudeep Holla <sudeep.holla@arm.com> 于2024年12月16日周一 18:45写道：
+From: Rob Clark <robdclark@chromium.org>
 
-[...]
+On mmu-500, stall-on-fault seems to stall all context banks, causing the
+GMU to misbehave.  So limit this feature to smmu-v2 for now.
 
-> >
-> > I would like to understand the motivation behind this change. What is the
-> > goal ? Do you prefer to fetch the name and protocol id from the device
-> > name itself ? Is that your requirement.
-> >
-> hi Sudeep
->     Okay, the reason I want to change names like 'scmi_dev.3' to
-> 'scmi_dev.firmware:scmi.perf.19' is because when I was migrating the
-> SOC's kernel from v6.1 to v6.6, I found that the context for creating
-> SCMI devices had changed (commit d3cd7c525fd2: firmware: arm_scmi:
-> Refactor protocol device creation).
+This fixes an issue with an older mesa bug taking outo the system
+because of GMU going off into the year.
 
-Correct. That's the beauty of Linux we can adjust the internals to enhance
-the features without breaking the user-space.
+Signed-off-by: Rob Clark <robdclark@chromium.org>
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-> This change meant that device creation shifted from being directly
-> created through scmi_protocol_device_request during SCMI driver
-> registration to being created via scmi_device_request_notifier.
-> This shift results in changes to the order in which devices are created,
-> causing the ID in scmi_dev.id to drift.
->
-
-What issue does this drift cause exactly ? I mean the order in which
-the devices are created should not impact on anything if the dependency
-on the order was not created. What was that dependency ?
-
-> Additionally, I encountered some cpufreq errors here—because both
-> scmi_cpufreq_drv and scmi_perf_domain_driver use the same
-> SCMI_PROTOCOL_PERF, this results in two SCMI devices corresponding to
-> the same device node. However, device_node.fwnode.dev only points to
-> the first registered scmi_device, causing other consumer devices to
-> find the wrong scmi device as the supplier. So I would find a
-> multitude of other consumer devices waiting for meaningless device
-> names like "scmi_dev.4" instead of meaningful names such as
-> "scmi_dev.firmware:scmi.perf.19" or
-> "scmi_dev.firmware:scmi.cpufreq.19".
->
-
-Yes this was reported. I think most of the std protocol may not use that
-node and need not be assigned. But I think vendor extensions are adding
-info to the DT that may need this.
-
-> Although I could further determine which specific driver it was by
-> looking at the driver links under the scmi_protocol bus directory, I
-> thought that if the logs directly displayed device names like
-> 'scmi_dev.firmware:scmi.perf.19' instead of meaningless progressive
-> IDs, it would be more convenient and logical, and thus more
-> meaningful.
->
-
-If the issue you encountered render your platform into boot issues ?
-If so I would like to know what exactly happened. If not, I can think of
-alternate solution if possible.
-
-> > From the commit log, I get a sense that you looked at the code and thought
-> > of possible improvement but when we mentioned the limitation you just
-> > improvised by adding parent name. Do you expect any userspace to parse
-> > the name as that will end up being ABI and we can't break it. I need
-> > real motive to be explained here in detail.
-> >
-> I did not use userspace tools to parse this SCMI device name; I simply
-> wanted the name to reflect the possible logic of the device.
-> I did not remove scmi_dev.id (This scmi_device structure has not
-> changed.）; I just no longer assign values to it using scmi_bus_id, so
-> it should not affect the kernel ABI (kABI).
-
-I understand the change, just not the possible impact w.r.t user-space.
-
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index c4c52f7bd09a..1c881e88fc4d 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -331,8 +331,10 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+ 	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
+ 	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
+ 	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
+-	priv->set_stall = qcom_adreno_smmu_set_stall;
+-	priv->resume_translation = qcom_adreno_smmu_resume_translation;
++	if (of_device_is_compatible(np, "qcom,smmu-v2")) {
++		priv->set_stall = qcom_adreno_smmu_set_stall;
++		priv->resume_translation = qcom_adreno_smmu_resume_translation;
++	}
+ 	priv->set_prr_bit = NULL;
+ 	priv->set_prr_addr = NULL;
+ 
 -- 
-Regards,
-Sudeep
+2.47.1
+
 
