@@ -4,83 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE93EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62C7E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESBxnGjQ6iIPamuzmkiLGEsgssX1xQExaa4qKj5XDLE=; b=WVim9xx/X05O+eyyP/xne0uzo5
-	oxXvPfdmEvXiTUv3YVJdSypcxJHtRhA9lnjjDRYzbmQSmRLItkv/VFN0MLUkcQJyQRJwduzeMp8oZ
-	gxP3dhhbbdPqbwo3BaFfLjJ05FD4On882zX2G4a0JzS5/rVTNAZjinKch5693N2xRa0S5SJhDNOXt
-	9hlLK3DcCtVLcN+R9Wgzm7sYg7B9leaNxpJRZawZoJogCYgesmgrnJYYK6ZEFcaTIyqjacakVuAWg
-	CGV2sf2NPqYbsvTIoeya2WR0AvFNf7z6emDr34n7VTBtrPnESJhUoeuQgIpEGeymjZmeeBzEs+kal
-	i3bjUUJw==;
+	bh=lbUS2hSpGUfA91ZBUqWCU2EUGjDUwjlK6bc3CIpIefE=; b=VcjI/3dgOezRGiWUlsUsoRZlWP
+	fb3h4/MIJ8p3Z0wpDK4dm5B/daMq9pzNDd3mI3lMDG/5FmanaQiM40Iv8w7yVPFsbUry0nLt3BqbA
+	TYzw6UjsXEZyo7JBzM7IBVlDbAfQmlepR89/CUjFhluIuxCT0kfYFWbRxeqgzsVhY1JGmXFU80u51
+	uN3h1coovUIh4CvY1MYSW2E+2XesRE8EGhzFHVp2UUdBpWculkIqLEMwl6jo1GezU50NryTwnYbne
+	nc9cF7Bu0dogRtqwdiUdLDUbteU+vKqGfKTPnmj7d5uSQk1WaMQG8E8Wmx2m365OkQ3lrxeZFxfeT
+	rHgnDBZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBuO-0000000ADNq-1jKV;
-	Mon, 16 Dec 2024 14:17:16 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1tNBvU-0000000ADbU-06K4;
+	Mon, 16 Dec 2024 14:18:24 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBoC-0000000ABNP-3mjY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 14:10:54 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-7fd4998b0dbso3312165a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:10:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734358252; x=1734963052; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ESBxnGjQ6iIPamuzmkiLGEsgssX1xQExaa4qKj5XDLE=;
-        b=SmjgcQdGqf/ByEaKS8hv5FmRW0qyZSw1IRZT+9/ArQiNBmALvKHqYJZHGGSKNfM7My
-         KhXrGTXm7tOG28T2yWTb08XnTBOtpcSaWagEAhk0zjv/eB9ahe8f36lVjYIluJrtjHwJ
-         07faGvQuyw+MpUjvy6oSS5UWbwGWdIZcISV+8l1N/NC9yKRA1Z7wnaQ44gmQ+s12r5pE
-         KH7KkUbCqYcZv8+AL6tl4VL9OMb7OLruTADcJd+vbajB9k0EcwG1uH0GAJmsBdSUrxTL
-         IaPXA0MeTgn0JT2xgnmK5xVgthyAZPByKjLy6p9nU346pGj3PFoJbswjD2rgmAgwK4qo
-         Sjkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734358252; x=1734963052;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ESBxnGjQ6iIPamuzmkiLGEsgssX1xQExaa4qKj5XDLE=;
-        b=AVTTUDQRoJ1jdrq6Amd5iyONMwt0O2VnokLq8BKCnmqhe1dO5pug3haCF9QszkGp4L
-         R3+rFtLa7L9tGyht9oXJuITLvcJvKk3PCkX9iORb1gKinoYa3e5krG4dluD4A2//Hr64
-         5SDi6eHhSjHD44P9p/SbzXULRG/ShM+8MS5ycqqon+44U7I4Ns7HL3XNa3Er/+DZlJBM
-         dK8Pdf3B92RNTIxbPW6kX0rImlWe0SgSzynx1Gyy83GVOs8qPq29971Z2kaO6tLwDstc
-         sY7L0nrnEm7bbBnFuttjRF39AO0whB4YC6OGC4AkkOS8zq306l/zuTVFd8P/TEVcg/19
-         nbCg==
-X-Forwarded-Encrypted: i=1; AJvYcCVPkmAjaEA0huVaAN08yAvKrDAM6rzLx8nonVeTHmkbJ2PBGqOOGcZ4GNo5kC2xuPzVmnL75xsFxtmfwkWG5xjK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrWagPh2tog6XukDzDHj7xPSKdv62Ktm4ImMHWz7eZKPPfynJh
-	OwRYWrur+AbCwwrNDxZu9WrxQql6R2lcVtJoiUIdVk5Yg0/ZQAhXmzmtJy8RFIAKGkqQcfMl9dz
-	o6yKImcq1dhoJFYgNQ3w7FEK4DQY=
-X-Gm-Gg: ASbGncvBW44hTE9tpoqQL1dYKg0dL7hVYpbbBS0Gyg2BtkQzD5/YYoE9xcIVQk8f2IM
-	jAe/eos+22gRFzumIHURza74/i+n3qOi4y0lq
-X-Google-Smtp-Source: AGHT+IHooDk2d2CvIKZ5M4nR76SBt2dDXzSYQuSOP4qV1b1v7Pgm4WhXRY5M08iYY3OwduTeED9Ovz3W2nd1vTTOPCI=
-X-Received: by 2002:a17:90b:3c4a:b0:2ee:7233:4e8c with SMTP id
- 98e67ed59e1d1-2f28fb522d7mr19148258a91.8.1734358251592; Mon, 16 Dec 2024
- 06:10:51 -0800 (PST)
+	id 1tNBoE-0000000ABNO-21lJ;
+	Mon, 16 Dec 2024 14:10:55 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1734358251;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lbUS2hSpGUfA91ZBUqWCU2EUGjDUwjlK6bc3CIpIefE=;
+	b=GuH2uzo5FyR0o68VJgLh22/tvAh4VO3tEUIc29jvZ8lPLWfEUfhNVtSSK4HXCnohLAwbXo
+	gEvHjDWSFgEqrnTfKdaUVzxP8s5vskJ2urPXPUkPw83/2mrnYmmUmtERhGRPRyqbznf4z/
+	TVaywADhuO62/QPyaae+wx5X5FFV9M6xrmUCZwtSxnJjI7TGlFQtv14U1ie1HeMP7FyoI3
+	c1H/xkAQk/cMW7DvQZU32HKaDQtXwDyR962kNnn2WJH5P5qddPMfspglgzNhxbDwOoN8y+
+	dtTDWffUBFUBMw1UmRJd6JaZJDQjLnMLryFw+HzWyUuw08nbuaNBceWbkpr+/Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1734358251;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lbUS2hSpGUfA91ZBUqWCU2EUGjDUwjlK6bc3CIpIefE=;
+	b=hHswSq9RfYopT6aqpSY7CX9cu9WJ1N9ZlLIWnRYrgQChCxsQi0dPawuK/Q9SjHGdFt/Ezg
+	DmHWkKKYf0nrzRBw==
+Date: Mon, 16 Dec 2024 15:09:57 +0100
+Subject: [PATCH 01/17] parisc: Remove unused symbol vdso_data
 MIME-Version: 1.0
-References: <20241216073745.2973317-1-guomin_chen@sina.com>
- <Z1_p0nU93PHJ4Sg_@pluto> <Z1_2rxJ7TOEIOMp7@pluto> <CAEEwsfRhe4-YAwe027huSXwFfkV-O-8w1GDNf=URa9efRsXiKA@mail.gmail.com>
- <Z2AEzHc5f6TjxErs@bogus>
-In-Reply-To: <Z2AEzHc5f6TjxErs@bogus>
-From: gchen chen <gchen.guomin@gmail.com>
-Date: Mon, 16 Dec 2024 22:10:40 +0800
-Message-ID: <CAEEwsfRKVBVR+DxhkYA5atxU7+6nsaL9X8-Yoa_DqB0YKEV1zg@mail.gmail.com>
-Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless scmi_bus_id.
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, guomin_chen@sina.com, 
-	Xinqi Zhang <quic_xinqzhan@quicinc.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241216-vdso-store-rng-v1-1-f7aed1bdb3b2@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=796;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=NPXgHz1pg7k88XY5Q1tIpqIToZjmPGQbKRJBGkTsdlQ=;
+ b=qIq583Nq2J6WTZk5uFF7tgmMVMT+mFXj9RQI8M6crN6E2uuxfEuALnkyGREgmp/vYO82I170d
+ yKTyVvOCDqzB5fc8Z9c7wx+qHEKzuwOd6U9tdpzQYbFVujg6jSoRO3t
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_061052_947585_A2D67A54 
-X-CRM114-Status: GOOD (  49.80  )
+X-CRM114-CacheID: sfid-20241216_061054_689273_2BA6941E 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,231 +111,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sudeep Holla <sudeep.holla@arm.com> =E4=BA=8E2024=E5=B9=B412=E6=9C=8816=E6=
-=97=A5=E5=91=A8=E4=B8=80 18:45=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Mon, Dec 16, 2024 at 06:37:01PM +0800, gchen chen wrote:
-> > Cristian Marussi <cristian.marussi@arm.com> =E4=BA=8E2024=E5=B9=B412=E6=
-=9C=8816=E6=97=A5=E5=91=A8=E4=B8=80 17:45=E5=86=99=E9=81=93=EF=BC=9A
-> > >
-> > > On Mon, Dec 16, 2024 at 08:50:26AM +0000, Cristian Marussi wrote:
-> > > > On Mon, Dec 16, 2024 at 03:37:45PM +0800, guomin_chen@sina.com wrot=
-e:
-> > > > > From: guomin chen <guomin_chen@sina.com>
-> > > > >
-> > > > > Currently, scmi_bus_id is only used to set scmi_dev.id,
-> > > > > which in turn sets the SCMI device name. After removing
-> > > > > scmi_bus_id, it is clearer and more meaningful to directly
-> > > > > use the unique tuple [Parent name,device name, protocol] to
-> > > > > set the SCMI device name.
-> > > > >
-> > > >
-> > > > Hi Guomin,
-> > > >
-> > > > this same pTCH was NACKed(Rejected) a few days ago:
-> > > >
-> > > > https://lore.kernel.org/arm-scmi/20241211134505.2218386-1-guomin_ch=
-en@sina.com/T/#u
-> > > >
-> > > > ...and you agreed that is not a simplification we can do (not to br=
-eak
-> > > > multuple instances...)...
-> > > >
-> > > > ..so why you are posting V2 now ?
-> > >
-> > > Wait...you changed slightly this indeed....you are using dev_parent..=
-.my
-> > > bad...but please when you post new version of a patch add a summary o=
-f
-> > > changes between versions...
-> > >
-> > > >
-> > > > Thanks,
-> > > > Cristian
-> > > >
-> > > > > Signed-off-by: guomin chen <guomin_chen@sina.com>
-> > > > > ---
-> > > > >  drivers/firmware/arm_scmi/bus.c    | 17 +++--------------
-> > > > >  drivers/firmware/arm_scmi/driver.c |  4 ++--
-> > > > >  2 files changed, 5 insertions(+), 16 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/a=
-rm_scmi/bus.c
-> > > > > index 157172a5f2b5..800e8ec9357c 100644
-> > > > > --- a/drivers/firmware/arm_scmi/bus.c
-> > > > > +++ b/drivers/firmware/arm_scmi/bus.c
-> > > > > @@ -20,7 +20,6 @@
-> > > > >  BLOCKING_NOTIFIER_HEAD(scmi_requested_devices_nh);
-> > > > >  EXPORT_SYMBOL_GPL(scmi_requested_devices_nh);
-> > > > >
-> > > > > -static DEFINE_IDA(scmi_bus_id);
-> > > > >
-> > > > >  static DEFINE_IDR(scmi_requested_devices);
-> > > > >  /* Protect access to scmi_requested_devices */
-> > > > > @@ -341,7 +340,6 @@ static void __scmi_device_destroy(struct scmi=
-_device *scmi_dev)
-> > > > >     if (scmi_dev->protocol_id =3D=3D SCMI_PROTOCOL_SYSTEM)
-> > > > >             atomic_set(&scmi_syspower_registered, 0);
-> > > > >
-> > > > > -   ida_free(&scmi_bus_id, scmi_dev->id);
-> > > > >     device_unregister(&scmi_dev->dev);
-> > > > >  }
-> > > > >
-> > > > > @@ -349,7 +347,7 @@ static struct scmi_device *
-> > > > >  __scmi_device_create(struct device_node *np, struct device *pare=
-nt,
-> > > > >                  int protocol, const char *name)
-> > > > >  {
-> > > > > -   int id, retval;
-> > > > > +   int retval;
-> > > > >     struct scmi_device *scmi_dev;
-> > > > >
-> > > > >     /*
-> > > > > @@ -387,20 +385,13 @@ __scmi_device_create(struct device_node *np=
-, struct device *parent,
-> > > > >             return NULL;
-> > > > >     }
-> > > > >
-> > > > > -   id =3D ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
-> > > > > -   if (id < 0) {
-> > > > > -           kfree_const(scmi_dev->name);
-> > > > > -           kfree(scmi_dev);
-> > > > > -           return NULL;
-> > > > > -   }
-> > > > > -
-> > > > > -   scmi_dev->id =3D id;
-> > > > >     scmi_dev->protocol_id =3D protocol;
-> > > > >     scmi_dev->dev.parent =3D parent;
-> > > > >     device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
-> > > > >     scmi_dev->dev.bus =3D &scmi_bus_type;
-> > > > >     scmi_dev->dev.release =3D scmi_device_release;
-> > > > > -   dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
-> > > > > +   dev_set_name(&scmi_dev->dev, "scmi_dev.%s.%s.%d", dev_name(pa=
-rent),
-> > > > > +                   scmi_dev->name, protocol);
-> > > > >
-> > >
-> > > So now you are using the parent top node SCMI device to create a uniq=
-ue
-> > > device...and it probably endup in a name like:
-> > >
-> > >         scmi-dev.arm-scmi.0.auto.genpd.13
-> > >
-> > >         scmi-dev.arm-scmi.1.auto.genpd.13
-> > >
-> > > ...that certainly is more readable but is bulky and anyway giving uni=
-que
-> > > IDs to devices is pretty common and you lookup which device is which =
-by
-> > > simply looking at the drivers/ link....not suure what's the benefit o=
-f
-> > > all of this...just to avoid an IDA table ?
-> > >
-> > > > >     retval =3D device_register(&scmi_dev->dev);
-> > > > >     if (retval)
-> > > > > @@ -413,7 +404,6 @@ __scmi_device_create(struct device_node *np, =
-struct device *parent,
-> > > > >     return scmi_dev;
-> > > > >  put_dev:
-> > > > >     put_device(&scmi_dev->dev);
-> > > > > -   ida_free(&scmi_bus_id, id);
-> > > > >     return NULL;
-> > > > >  }
-> > > > >
-> > > > > @@ -526,7 +516,6 @@ static void __exit scmi_bus_exit(void)
-> > > > >      */
-> > > > >     scmi_devices_unregister();
-> > > > >     bus_unregister(&scmi_bus_type);
-> > > > > -   ida_destroy(&scmi_bus_id);
-> > > > >  }
-> > > > >  module_exit(scmi_bus_exit);
-> > > > >
-> > > > > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmwar=
-e/arm_scmi/driver.c
-> > > > > index 1b5fb2c4ce86..bbf1f05f2be3 100644
-> > > > > --- a/drivers/firmware/arm_scmi/driver.c
-> > > > > +++ b/drivers/firmware/arm_scmi/driver.c
-> > > > > @@ -2641,8 +2641,8 @@ static int scmi_chan_setup(struct scmi_info=
- *info, struct device_node *of_node,
-> > > > >     cinfo->max_msg_size =3D info->desc->max_msg_size;
-> > > > >
-> > > > >     /* Create a unique name for this transport device */
-> > > > > -   snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-> > > > > -            idx ? "rx" : "tx", prot_id);
-> > > > > +   snprintf(name, 32, "__scmi_transport_device_%s",
-> > > > > +            idx ? "rx" : "tx");
-> > >
-> > > I agree on what Dan said AND also this results in having the same nam=
-e for different
-> > > devices across 2 instances if you have a per-protocol channel because=
- you havent anymore
-> > > the protocol_id bit.
-> > hi  Cristian=EF=BC=8Cand dan
-> >     Because I used a 3-tuple [parent name, name, protocol] when
-> > creating the SCMI device name, I removed the prot_id from the
-> > parameter =E2=80=98name=E2=80=99 when creating transport devices. This =
-way, it avoids
-> > the repetition of protocol ID in the SCMI device name.
-> >
-> > > All in all, I would drop this patch and keep naming as it is because =
-I dont see a real benefit
-> > > here....up to Sudeep decide.
-> >      Yes, it does not have real benefits, but from the perspective of
-> > the device name, this change will be clearer and more meaningful. And
-> > the code is more concise.
-> >
->
-> I would like to understand the motivation behind this change. What is the
-> goal ? Do you prefer to fetch the name and protocol id from the device
-> name itself ? Is that your requirement.
->
-hi Sudeep
-    Okay, the reason I want to change names like 'scmi_dev.3' to
-'scmi_dev.firmware:scmi.perf.19' is because when I was migrating the
-SOC's kernel from v6.1 to v6.6, I found that the context for creating
-SCMI devices had changed (commit d3cd7c525fd2: firmware: arm_scmi:
-Refactor protocol device creation). This change meant that device
-creation shifted from being directly created through
-scmi_protocol_device_request during SCMI driver registration to being
-created via scmi_device_request_notifier. This shift results in
-changes to the order in which devices are created, causing the ID in
-scmi_dev.id to drift.
+The symbol vdso_data is and has been unused.
+Remove it.
 
-Additionally, I encountered some cpufreq errors here=E2=80=94because both
-scmi_cpufreq_drv and scmi_perf_domain_driver use the same
-SCMI_PROTOCOL_PERF, this results in two SCMI devices corresponding to
-the same device node. However, device_node.fwnode.dev only points to
-the first registered scmi_device, causing other consumer devices to
-find the wrong scmi device as the supplier. So I would find a
-multitude of other consumer devices waiting for meaningless device
-names like "scmi_dev.4" instead of meaningful names such as
-"scmi_dev.firmware:scmi.perf.19" or
-"scmi_dev.firmware:scmi.cpufreq.19".
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ arch/parisc/include/asm/vdso.h | 2 --
+ 1 file changed, 2 deletions(-)
 
-Although I could further determine which specific driver it was by
-looking at the driver links under the scmi_protocol bus directory, I
-thought that if the logs directly displayed device names like
-'scmi_dev.firmware:scmi.perf.19' instead of meaningless progressive
-IDs, it would be more convenient and logical, and thus more
-meaningful.
+diff --git a/arch/parisc/include/asm/vdso.h b/arch/parisc/include/asm/vdso.h
+index 2a2dc11b5545fc642a7ae4596dc174111433e948..5f581c1d64606b3ec8f9967efe31dd3d551adf76 100644
+--- a/arch/parisc/include/asm/vdso.h
++++ b/arch/parisc/include/asm/vdso.h
+@@ -12,8 +12,6 @@
+ #define VDSO64_SYMBOL(tsk, name) ((tsk)->mm->context.vdso_base + (vdso64_offset_##name))
+ #define VDSO32_SYMBOL(tsk, name) ((tsk)->mm->context.vdso_base + (vdso32_offset_##name))
+ 
+-extern struct vdso_data *vdso_data;
+-
+ #endif /* __ASSEMBLY __ */
+ 
+ /* Default link addresses for the vDSOs */
 
-> From the commit log, I get a sense that you looked at the code and though=
-t
-> of possible improvement but when we mentioned the limitation you just
-> improvised by adding parent name. Do you expect any userspace to parse
-> the name as that will end up being ABI and we can't break it. I need
-> real motive to be explained here in detail.
->
-I did not use userspace tools to parse this SCMI device name; I simply
-wanted the name to reflect the possible logic of the device.
-I did not remove scmi_dev.id (This scmi_device structure has not
-changed.=EF=BC=89; I just no longer assign values to it using scmi_bus_id, =
-so
-it should not affect the kernel ABI (kABI).
+-- 
+2.47.1
 
-Thanks
-guomin.chen
-> --
-> Regards,
-> Sudeep
 
