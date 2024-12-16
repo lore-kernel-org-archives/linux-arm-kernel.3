@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2A7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A357E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R7DgLXnkn+eNvQJd57QfXRdqmzsuVaNQOQYrYyGFANM=; b=JtNgsyxZ15ovDcNN54SAhfMCJT
-	7dHHLMv48UcU2manQnmaW91UifSnn4MMgqIZhzezB+qXUyv7vCyTYBhwuPnQbtA014hIKYGUIaXaC
-	2f8k4h+eiHfLAWjKu7OSyz07fM6Rr/TRtYIpBhlS3OzBoYii5+/9kL/eW+xewsLgyhKgvYtiBifne
-	SQJE44FAhcgZDT+ArBcCE1rD0X98XyFyJ3i2CN7p6HeodcxiOFDI3HyKqJUbFOMidW4twy4obUcJm
-	0tVWUEUuFy9NIkAjyLNDmG0eOEy6NfDAEzazDc84sYI0D0McITa96nHXhnSXvzTwTNvF17FfJ6AFc
-	FZTRyGng==;
+	bh=YUCxJPlmCw0HzJw1QZxkFgQihWHbkb85x5mZbr7b64c=; b=es1cguv/YNOv3X2g9pYfjTfjFn
+	0KHRgIWiFYtlk5dYoaMGWlWrS7/NNVnhicWjy3NOdWdpZ0ehDGX/oYbI3jTgaEtM1pTG9KHnFTILR
+	NVsDWC+SDGLo3AcpR3n5zWDNimKWh3a/3nHpmMsKzDEWFuE5OqYdZWukP0AU+4JivO+Gtk6zp9jFN
+	nCOFVgsc+1A8dKdKHDEWr/gmtCkM4SbpVImT5C5UucquX+57hL4p54hoq7WpTHtV6bg3AmsVWI76T
+	pGPAlKXQxSOoQAsQ6zSurx3v/BYpAA+TX+hChWmpzOXPyRRxUvR2YGJmOOjDE4l+WabB/tnoVaFw1
+	NkQ8J/KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN9y2-00000009w5N-3LFj;
-	Mon, 16 Dec 2024 12:12:54 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tNA45-00000009wqq-0nEh;
+	Mon, 16 Dec 2024 12:19:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN9ww-00000009vps-3XsO
+	id 1tNA30-00000009wlb-25zL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 12:11:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1734351107; x=1765887107;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/uPilcPPSkM0vFf7CZp7ih66ufLi2xO3rEUxtf1Dzh8=;
-  b=AvEz7mgnA8QDnTyvXhbj1cgm6Q5mMzmXV9oVNBYa/sswpoxsZYQ3KL2h
-   SoyeFFrqaTMsxhgvmY8uiqWwaALZ5Sp/UO9dDMDYaKDTlVoyBtv/U3ikP
-   LYii1QTG4orh3IPOwKWxY8ITcbuu8iTQ2H4o/RdAMUd1TvRo+QOGlKdrt
-   b39bFs3wX/D+bsnPLEw/uvyRP9v6XT5gfaDmsfbclsUyLX7Fqbxt5a3T8
-   p0vUJULK3bzp1nvQT2bE9jW+SIHKFUMYqnd4EMIkgfMyxUYbIqt2UkyGQ
-   Rbapm9WxOjQO1k1q2QQWc4nfmFRL+4dTl6bIKaTxm3JF8Kge1EffKxYIz
-   Q==;
-X-CSE-ConnectionGUID: pK+G4L7kQ0aeZKZcimCaNA==
-X-CSE-MsgGUID: AxFEMPyOT+abSUdbeMU9OQ==
-X-IronPort-AV: E=Sophos;i="6.12,238,1728975600"; 
-   d="scan'208";a="35580346"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Dec 2024 05:11:46 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 16 Dec 2024 05:10:44 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Mon, 16 Dec 2024 05:10:41 -0700
-Date: Mon, 16 Dec 2024 12:10:40 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-CC: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
- Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, <jacob.e.keller@intel.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<robert.marko@sartura.hr>
-Subject: Re: [PATCH net-next v4 6/9] net: sparx5: verify RGMII speeds
-Message-ID: <20241216121040.2dpxb7mv6h3u3r42@DEN-DL-M70577>
-References: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
- <20241213-sparx5-lan969x-switch-driver-4-v4-6-d1a72c9c4714@microchip.com>
- <Z1yPq6OEziTNjWHK@shell.armlinux.org.uk>
+	Mon, 16 Dec 2024 12:18:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 094CF5C6234;
+	Mon, 16 Dec 2024 12:17:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F4C2C4CED0;
+	Mon, 16 Dec 2024 12:17:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734351478;
+	bh=9wUkqB8f8eK0RMLaMON1J/gQnYa58rUUdB2ULEUHmzM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sMnXtfZQp5EbWP1vD5F4aLPSj+F44yU5bQfri0VF6ER9/1j1y1ZVNbZn1oBo2rcQT
+	 CmskZUR2XVc5kajkituXx4xSvlLgz2QE7XdhheQfioWU488mqgvrCKhzAeDKzYgITC
+	 OtyJimBKhvXRGQf9O47IOIPgurSt0vttH5atAgMmEXWEyxBCoVae7DMe8w+PAVAwRk
+	 mzU616Q22h3xl8eGwYfxsLeImgBJeKKc0rUIeuU7dEUi7jQCDQuhR8oCj8eLkKIIe/
+	 dQ++IKBJJsKi1z8kp2q8DU9QlfFd3amokbHgc++IbTguzxUyuq8JIqqMShpJYc5IDJ
+	 ca/EZ76UnrrcQ==
+Date: Mon, 16 Dec 2024 12:17:54 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Peter Collingbourne <pcc@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to
+ __cpuinfo_store_cpu()
+Message-ID: <709a0e75-0d0c-4bff-b9fd-3bbb55c97bd5@sirena.org.uk>
+References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
+ <87a5cysfci.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="E9e43Uydk5bsqLo+"
 Content-Disposition: inline
-In-Reply-To: <Z1yPq6OEziTNjWHK@shell.armlinux.org.uk>
+In-Reply-To: <87a5cysfci.wl-maz@kernel.org>
+X-Cookie: Be different: conform.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_041147_101293_85747F89 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20241216_041802_579905_EE71757F 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,36 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Fri, Dec 13, 2024 at 02:41:05PM +0100, Daniel Machon wrote:
-> > When doing a port config, we verify the port speed against the PHY mode
-> > and supported speeds of that PHY mode. Add checks for the four RGMII phy
-> > modes: RGMII, RGMII_ID, RGMII_TXID and RGMII_RXID.
-> >
-> > Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
-> > Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-> > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
-> 
-> You do realise that phylink knows what speeds each interface supports
-> (see phylink_get_capabilities()) and restricts the media advertisement
-> to ensure that ethtool link modes that can't be supported by the MAC
-> capabilities and set of interfaces that would be used are not
-> advertised.
-> 
-> This should mean none of your verification ever triggers. If it does,
-> then I'd like to know about it.
 
-Yes, I agree. Having an extra look at phylink, these checks should not trigger
-at all.
+--E9e43Uydk5bsqLo+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-As it is, the default switch case is to throw an error, so without this
-addition, the sparx5_port_verify_speed() function will fail when the PHY mode
-is any of RGMII{_ID,_TXID,_RXID}. This patch just follows the established
-pattern of adding the new PHY mode and checking the speed. TBH, I think that
-all the checks in this function can be removed entirely, but that is something
-I would like to verify and follow up on in a separate series, if that is OK? 
+On Sat, Dec 14, 2024 at 10:56:13AM +0000, Marc Zyngier wrote:
 
-Thanks.
+> I don't understand the need to single out SMIDR_EL1. It seems to only
+> make things even more fragile than they already are by adding more
+> synchronisation phases.
 
-/Daniel
+> Why isn't the following a good enough fix? It makes it plain that
+> boot_cpu_data is only a copy of CPU0's initial boot state.
 
+That would work but it's not clear to me that that is what the intent is
+here.  The current ordering seemed like a strange enough decision to be
+deliberate, though I couldn't identify the reasoning.
+
+--E9e43Uydk5bsqLo+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgGnEACgkQJNaLcl1U
+h9AYKAf+MF8iAaNQZfOzVcq7lqkYOmJEIvxdmbZaGy4HG4Qyq6EiHhR9proanw9r
+zFm1HwS/071AORKmuW4ou3GTTKLbJmbFwX/y4JLpunQxncc0IEUqqPRN5d3ilWgV
+avtBILCtQ4ioBR/4BfHUdR3l+pLei3Mm3HiZwzAGt0fcabqieAFGQlrkuu18uum8
+7JMff+9Ki1Ndupfh4W8iVVhsf1cAl4DUw3SA3675SmAgjQdNIltbL1CPTiHpELn9
+ycs9q/OOYvHexiTmEbud95/2d6tfau1vF1NZxP1lxBshdMf4fTx1KfGhSm/TVv1U
+r9VtFi7sySnj59Bjl/JZNJM1Gb22RQ==
+=32wj
+-----END PGP SIGNATURE-----
+
+--E9e43Uydk5bsqLo+--
 
