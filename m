@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24920E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 04:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CBBE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 04:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMnnM01H9HssBA08iJcpWqTiIoa347Qbn11gjfAzWpU=; b=seWXRjRr/ML+uHfal9fJwU+/BV
-	S0SY4yS1h/jSHxYv0uBIvSoXNZ8CWuszKbT8/hSiJ11jWgy5s98tsEzHYeYfz8e5T6ti5DVjPGkxF
-	lOB5G3ZEY6aUk8qBaCkGQrwUPNiGffu/xu2MUfa+P7pARLF1/FSzvKnBW2kWK2Z9Cb2EmtZ4Z68iC
-	B4VhkZPkDGzZv6WCBJvZWl/mTuzzNHLAgqBJ06P4AnERMc1lOwtieT7sa9ozZSaSa4Pi2YLPOcChT
-	7ACGhnWFwNkcPWMx1E2mLU3w2DsDW15bOy2v7e10Ad6/SzCSEWPGGhjCu/yqkCjCnyB8O1mwUUOqm
-	Xau1LdOw==;
+	bh=yoQqgnWoTkVYpGd8wWmLfhgo2tVJm3TvVbDKpGIah0g=; b=LSKFGCWQr5MUVMcQXYN9V39ahy
+	CTBduMCLlHKbiZpW2oImeHMIy+I7fpTdgNGDnLBAUKMpcRixj36OLbkhdYOAbdPWNB06f4A0MBqFH
+	k8TbsqeponUGG5Eik4bH3HrSl9LZFPQlL8K0scFHgX/9lBtNOcL5jbTmLor0DneQkUH5x8L/BGzR9
+	Y0r4f/uPs94oWJEVhllpfkgfNJPGbB4ZwawLMRifmyNAqWKpS6CFMHZuZmV6OwnT2kTvTH6zOBpYB
+	kDNgXPs8D8zl3hqtk93uYHIK8kCb0nACgcDy4fUNE+ujnl1PncfC40XFlIUyaTXafdSv0uwE1hbr/
+	3rY81ndQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN2Sw-00000008zOS-1U1S;
-	Mon, 16 Dec 2024 04:12:18 +0000
+	id 1tN2Tz-00000008zV7-4BFF;
+	Mon, 16 Dec 2024 04:13:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN2Po-00000008ynK-1peQ
+	id 1tN2Pt-00000008yoP-2UbL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 04:09:05 +0000
+	Mon, 16 Dec 2024 04:09:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B43A1AED;
-	Sun, 15 Dec 2024 20:09:31 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52D011AED;
+	Sun, 15 Dec 2024 20:09:36 -0800 (PST)
 Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A2C263F58B;
-	Sun, 15 Dec 2024 20:08:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1A3A13F58B;
+	Sun, 15 Dec 2024 20:09:03 -0800 (PST)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -46,18 +46,19 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Mark Brown <broonie@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	kvmarm@lists.linux.dev
-Subject: [PATCH V3 5/7] arm64/cpufeature: Add field details for ID_AA64DFR1_EL1 register
-Date: Mon, 16 Dec 2024 09:38:29 +0530
-Message-Id: <20241216040831.2448257-6-anshuman.khandual@arm.com>
+	kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: [PATCH V3 6/7] arm64/boot: Enable EL2 requirements for FEAT_Debugv8p9
+Date: Mon, 16 Dec 2024 09:38:30 +0530
+Message-Id: <20241216040831.2448257-7-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241216040831.2448257-1-anshuman.khandual@arm.com>
 References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_200904_801850_0EBF7854 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20241215_200909_717832_EA608C5A 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,75 +73,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds required field details for ID_AA64DFR1_EL1, and also drops dummy
-ftr_raz[] array which is now redundant. These register fields will be used
-to enable increased breakpoint and watchpoint registers via FEAT_Debugv8p9
-later. The register fields have been marked as FTR_STRICT, unless there is
-a known variation in practice.
+Fine grained trap control for MDSELR_EL1 register needs to be configured in
+HDFGRTR2_EL2, and HDFGWTR2_EL2 registers when kernel enters at EL1, but EL2
+is also present. This adds a new helper __init_el2_fgt2() initializing this
+new FEAT_FGT2 based fine grained registers.
+
+MDCR_EL2.EBWE needs to be enabled for additional (beyond 16) breakpoint and
+watchpoint exceptions when kernel enters at EL1, but EL2 is also present.
+This updates __init_el2_debug() as required for FEAT_Debugv8p9.
+
+While here, also update booting.rst with MDCR_EL3 and SCR_EL3 requirements.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
-cc: Mark Brown <broonie@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Jonathan Corbet <corbet@lwn.net>
 Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
 Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-doc@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
+Cc: kvmarm@lists.linux.dev
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
 Changes in V3:
 
-- Updated the commit message
-- Marked ID_AA64DFR1_EL1.ABLE as FTR_NONSTRICT in ftr_id_aa64dfr1[]
+- Dropped MDCR_EL3.TDA boot requirement from documentation (separate series)
+- Dropped MDCR_EL2_EBWE definition as MDCR_EL2 is now defined in tools sysreg
 
- arch/arm64/kernel/cpufeature.c | 21 ++++++++++++++++-----
- 1 file changed, 16 insertions(+), 5 deletions(-)
+https://lore.kernel.org/all/20241211065425.1106683-1-anshuman.khandual@arm.com/
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 6ce71f444ed8..0dc22fde104e 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -534,6 +534,21 @@ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
- 	ARM64_FTR_END,
- };
+ Documentation/arch/arm64/booting.rst | 18 ++++++++++++++++++
+ arch/arm64/include/asm/el2_setup.h   | 26 ++++++++++++++++++++++++++
+ 2 files changed, 44 insertions(+)
+
+diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+index 3278fb4bf219..054cfe1cad18 100644
+--- a/Documentation/arch/arm64/booting.rst
++++ b/Documentation/arch/arm64/booting.rst
+@@ -288,6 +288,12 @@ Before jumping into the kernel, the following conditions must be met:
  
-+static const struct arm64_ftr_bits ftr_id_aa64dfr1[] = {
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ABL_CMPs_SHIFT, 8, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_DPFZS_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_EBEP_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ITE_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_ABLE_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_PMICNTR_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_SPMU_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_CTX_CMPs_SHIFT, 8, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_WRPs_SHIFT, 8, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_BRPs_SHIFT, 8, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR1_EL1_SYSPMUID_SHIFT, 8, 0),
-+	ARM64_FTR_END,
-+};
+     - SCR_EL3.FGTEn (bit 27) must be initialised to 0b1.
+ 
++  For CPUs with the Fine Grained Traps (FEAT_FGT2) extension present:
 +
- static const struct arm64_ftr_bits ftr_mvfr0[] = {
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, MVFR0_EL1_FPRound_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, MVFR0_EL1_FPShVec_SHIFT, 4, 0),
-@@ -720,10 +735,6 @@ static const struct arm64_ftr_bits ftr_single32[] = {
- 	ARM64_FTR_END,
- };
++  - If EL3 is present and the kernel is entered at EL2:
++
++    - SCR_EL3.FGTEn2 (bit 59) must be initialised to 0b1.
++
+   For CPUs with support for HCRX_EL2 (FEAT_HCX) present:
  
--static const struct arm64_ftr_bits ftr_raz[] = {
--	ARM64_FTR_END,
--};
--
- #define __ARM64_FTR_REG_OVERRIDE(id_str, id, table, ovr) {	\
- 		.sys_id = id,					\
- 		.reg = 	&(struct arm64_ftr_reg){		\
-@@ -796,7 +807,7 @@ static const struct __ftr_reg_entry {
+   - If EL3 is present and the kernel is entered at EL2:
+@@ -322,6 +328,18 @@ Before jumping into the kernel, the following conditions must be met:
+     - ZCR_EL2.LEN must be initialised to the same value for all CPUs the
+       kernel will execute on.
  
- 	/* Op1 = 0, CRn = 0, CRm = 5 */
- 	ARM64_FTR_REG(SYS_ID_AA64DFR0_EL1, ftr_id_aa64dfr0),
--	ARM64_FTR_REG(SYS_ID_AA64DFR1_EL1, ftr_raz),
-+	ARM64_FTR_REG(SYS_ID_AA64DFR1_EL1, ftr_id_aa64dfr1),
++  For CPUs with FEAT_Debugv8p9 extension present:
++
++  - If the kernel is entered at EL1 and EL2 is present:
++
++    - HDFGRTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
++    - HDFGWTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
++    - MDCR_EL2.EBWE (bit 43) must be initialized to 0b1
++
++  - If EL3 is present:
++
++    - MDCR_EL3.EBWE (bit 43) must be initialized to 0b1
++
+   For CPUs with the Scalable Matrix Extension (FEAT_SME):
  
- 	/* Op1 = 0, CRn = 0, CRm = 6 */
- 	ARM64_FTR_REG(SYS_ID_AA64ISAR0_EL1, ftr_id_aa64isar0),
+   - If EL3 is present:
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 4ef52d7245bb..2fbfe27d38b5 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -105,6 +105,13 @@
+ 						// to own it.
+ 
+ .Lskip_trace_\@:
++	mrs	x1, id_aa64dfr0_el1
++	ubfx	x1, x1, #ID_AA64DFR0_EL1_DebugVer_SHIFT, #4
++	cmp	x1, #ID_AA64DFR0_EL1_DebugVer_V8P9
++	b.lt	.Lskip_dbg_v8p9_\@
++
++	orr	x2, x2, #MDCR_EL2_EBWE
++.Lskip_dbg_v8p9_\@:
+ 	msr	mdcr_el2, x2			// Configure debug traps
+ .endm
+ 
+@@ -244,6 +251,24 @@
+ .Lskip_gcs_\@:
+ .endm
+ 
++.macro __init_el2_fgt2
++	mrs	x1, id_aa64mmfr0_el1
++	ubfx	x1, x1, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
++	cmp	x1, #ID_AA64MMFR0_EL1_FGT_FGT2
++	b.lt	.Lskip_fgt2_\@
++
++	mrs	x1, id_aa64dfr0_el1
++	ubfx	x1, x1, #ID_AA64DFR0_EL1_DebugVer_SHIFT, #4
++	cmp	x1, #ID_AA64DFR0_EL1_DebugVer_V8P9
++	b.lt	.Lskip_dbg_v8p9_\@
++
++	mov_q   x0, HDFGWTR2_EL2_nMDSELR_EL1
++	msr_s	SYS_HDFGWTR2_EL2, x0
++	msr_s	SYS_HDFGRTR2_EL2, x0
++.Lskip_dbg_v8p9_\@:
++.Lskip_fgt2_\@:
++.endm
++
+ .macro __init_el2_nvhe_prepare_eret
+ 	mov	x0, #INIT_PSTATE_EL1
+ 	msr	spsr_el2, x0
+@@ -283,6 +308,7 @@
+ 	__init_el2_nvhe_idregs
+ 	__init_el2_cptr
+ 	__init_el2_fgt
++	__init_el2_fgt2
+         __init_el2_gcs
+ .endm
+ 
 -- 
 2.25.1
 
