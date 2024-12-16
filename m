@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CB0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09A1E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NhaNNKCxtrPXfELgw/KHgSRSl1aX9JDfH4/Rbi26Vsk=; b=ptAKBQB6wRcTb3tpaR2a+rPzmY
-	Q3NCtuzHXvCX6Up1KoiuWS5NI1Z3iJUdvj+Ves3fBRMlEKlC40v+knqXmEuuBDVx93cNRRGxOnxgV
-	BxRn0inFLFL4+Pc3utH6OpoAFszeuwsQGd84aLgcZodWJhT6UdsdkbSY4VbaAFYq8oPho+ZldFMUz
-	UwkL0FWjbuJfuTON9gTOri+fNFE8xE6iQbu4aK+zQYs969p6KvZkiF8zK6FRjgr+RdGV+EWiutmjT
-	v5302w8/AF0HxBr0gPhCzRyVbTV57eSPngF086zqy4Ad6QgYHIsFoeENUoCgRqmFuWRRkBc1VgYwH
-	ArJ3A1og==;
+	bh=3O9xjwYbMuKJBMh8JPk0dRAP4OjyngOz+BP2VQZxpdg=; b=2y9TlDyk0D3MKm9J3upRvX1EKL
+	X2rJ/9N5ZYNH6KLb2fYg4UY7xLb0r7bZ0ixQDk8gJHDg5YKDJnQchgzwGxWmFo1bgoTI25rykRn2W
+	87+OhUYKH/3ZwCkOInPz3soPIsHzhqH9Z88Kwf+FsS55aykhUSnh1Wxpf2dfKlrrrLvbVe/nyHn5n
+	1qxD+7xaJU2MLq4F1rQJK+Y0qIEajk5U3AH9sPIGdLrT4ooFWbDxDNcCHf14466mZu/RAuVrf9sRJ
+	SofRUeCbeyRqhWeAB8KIraQr+6GcXS87T6sob4p4KWdxdCCKjP25FrXPYlCQUUZHN4h6vAqJQG7LW
+	+Ky0Z2Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCUT-0000000AJii-2d6O;
-	Mon, 16 Dec 2024 14:54:33 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tNCVY-0000000AJvP-16be;
+	Mon, 16 Dec 2024 14:55:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCRL-0000000AJ5x-27oY
+	id 1tNCRQ-0000000AJ7h-3t9N
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 14:51:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=3O9xjwYbMuKJBMh8JPk0dRAP4OjyngOz+BP2VQZxpdg=; b=gamFmcIISZumAvjZGc+tKtQKzi
+	W5FwFIciTRM+Nw1xQv/Iz/vrl2rsI19RlAbPHQlDuBZ4dv6XapSOqiEBZ8/e1yONdV6u+CEIVkCZ2
+	z3Dx9Tm19YYAyAkyfYTi/UgUw1XnmnsuR6Gp/uZAZMvcb8CiQ3LVPs7XMMJmKOKOKqdLjs49A32AS
+	rSqJDw0tcqyf+CU7s6XLNvQ7AD3bOuTz0D9oyKZ1Hqc4KWydvhdHTTSwWYeW861Ud7OYTesyernvS
+	OeaRP7W6toWUzjtp/pRoQ9nHhaigB6Kw2KH64fmJS7OneQWqbTQ6tdbEGxCZejiOzSlr/fzaftfw8
+	DX/PThZQ==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNCRO-00000004sFh-0Tmf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 14:51:21 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4361815b96cso27470605e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:51:18 -0800 (PST)
+	Mon, 16 Dec 2024 14:51:23 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43626213fffso24205725e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:51:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734360677; x=1734965477; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734360679; x=1734965479; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NhaNNKCxtrPXfELgw/KHgSRSl1aX9JDfH4/Rbi26Vsk=;
-        b=M1xmHuuDgaFqWgpwuFmVsqGpHFCzSJC1ZAMWUq1rD9bsyEv5a7vQOxvboC0fYJ3Aj3
-         wXBAeU84sATRi8a8OjC9RhoYjMDyfa79gIKlbdfjaDrV083pDM5RrYp6r1ZFe27zqRer
-         tUVstPQGSgcPWD7ttaaDLD1HtejXOFeDqycPfhWlYhSeCGJF8FiTVAC5iI7em68FvofM
-         6EKEcg3hRmzFoettWs3kJxd9Fp17IHKiC25r5DPwJBHjuodttedwwYmEQP+jqBcGR+mo
-         tx7ijxuKj4U5Acli1yJKN5snV1aGZczxUug0XziVdG69zUqvV7CWYGNPT8su6IoKJ1Wk
-         pHHA==
+        bh=3O9xjwYbMuKJBMh8JPk0dRAP4OjyngOz+BP2VQZxpdg=;
+        b=Ta6t++uaEch/WXGOallMk3k659FPRxyqP751s7zrQSlVQGpO8effMj2VdE6akf/gis
+         9fMTXvN4qS0ND6D7wIcrEyXP7LxQ7etcHOaXVV9Z2Ii26VpCcEAVplCGdlvd7jYNWJ/i
+         TcEOY4BmC7qaSUuErdIwdvPn19IStMWc/EpM/jp+PbwweJSEkWiVWiK2Fs5WkapJBZWI
+         5Fehj63MpcwaJPH0+tB0C9/L6UVMOxJSJdDTmpJLZQpyFHr747YXF0J04GrrrdvdEtVh
+         RCbqsbaCUsavWjtrriWfjHoIvWOIaCCRvd/AeWrnHPHdB4nMubNFanvSg2R44DXht2tf
+         85Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734360677; x=1734965477;
+        d=1e100.net; s=20230601; t=1734360679; x=1734965479;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NhaNNKCxtrPXfELgw/KHgSRSl1aX9JDfH4/Rbi26Vsk=;
-        b=IJkylBYKLbnvRX4VD5KdCDq3Iz71T54ue290TNeYZodW1Q2GBBrPl0fdkIfPhpdQuv
-         yAMEig7KigZCtGHnPopN8C6hzHiwHYhANfSErcjXO+rH8KpUI+tInc4q3q46q46TgGyk
-         /871iV2I3Ss7wfQ/3s9f1Q3Qosat/VvVVfVBLc2qcSlqdyVIMbXbmUlJGS8j+zgViqZp
-         UFt7AXwHQHudEEspIrDh5IycLCvpQg0sYBZdb/OyQPdVmDGkVWnQCZ/mrVDkfnZ/Gj3C
-         82UFcbl8o4Vw9NAbe8hqOaPkCjaM8zhWP7fimXDs+kF3uJME/ABbR9G1tm4yUpTnZ32n
-         AWJQ==
-X-Gm-Message-State: AOJu0YyDLRzUBoPE86/ccSUNb47ijOQNl43uUNUt47OQLkRUs0Tibfol
-	l8cefpVU+1IyplelwtKGFE6IBu79Ifl9YhxoI46s7bCLvhbt8aL8
-X-Gm-Gg: ASbGncsC8DB58Lq2rNWwP/SGRsntM7UuwErmlQLprD933Saoh8tjtIsZ4kEunffWteC
-	oDwShW/36MkTQiS3Oj6Eng4zU5I+CIjax70bhzIDaH2j2JO/PsWeqZ08aic/CgjmPMePW5gn17M
-	DdxOe390NfZLU4dr+/ul3XvSge6+SRGbmpPNfzvA/xTPoUCGbAzbnef62gZbxaQMNIRckDfMVIF
-	fBkAVD8PQTnfa2IDv3w3aUNJntvz8HsC3ZUa6qycwpn91bBoaI8ApTmIxqoENWHDT4+mJ78PT9Y
-	SgJB5CT31rSFgT0/
-X-Google-Smtp-Source: AGHT+IHp+aRH9ApI2wBs86oXmAT5Zyw16hcSyU7ofzYQJ6VdNQwOe2b+SoQNW7hpWBoCfEejVt7Ieg==
-X-Received: by 2002:a05:600c:1da7:b0:42a:a6d2:3270 with SMTP id 5b1f17b1804b1-4362aa9dd6dmr112072165e9.21.1734360677203;
-        Mon, 16 Dec 2024 06:51:17 -0800 (PST)
+        bh=3O9xjwYbMuKJBMh8JPk0dRAP4OjyngOz+BP2VQZxpdg=;
+        b=l+0E4ETKlFfq/O6cN1Xtwo/pVEEvGc6lTmVqiMT71Uf+2hkH3J83nXsTd2GeXi4lBx
+         PR62SYE3xBG4TLkTJL7A38HPFIiRb+2GVrNMTTpP6FjE8RenVmHRc5HBOZE53edzdGcA
+         ylRoSUjyH5CEItJuKfG3hzkD3hmv37dBdCtHslXrsYfu3tCANXshHYKSlinmE9McX3+y
+         UDBMerrVATWivMS+VJGgvcblZ6rmpPp3V3qTe9fHrOyaquSIRc19HXwJa50AYP9QZF9k
+         BTcZ1TUM9b5GGbq3J0dcad7K1Zt5XnVoztpaH/dkh6dCc3cckyvbRQbZ9uvpZlzMjMVu
+         zmhg==
+X-Gm-Message-State: AOJu0Yw0APNk2FlzsPaPZoxTXHZmydiOg7L+SJdUH5exPyvuphkNId1l
+	Cny/1jWHnJ1ZdKZ7YMZ/Vxu5RedHJS0p8cBksEYWd8mefCyjWkHp
+X-Gm-Gg: ASbGncuH8rH4kULPBqtkrYyp4ZL2zE63NxA5xs2Ei2Kra/H3ek/1LGVmUU3GF1b5VC/
+	DoeZ3XGKHo6GAXOghPaMeaxHAqn4CXyhVWVFwjKRGFZqxoBUtzcr3ckcsqzb0oK6Rl6KZOlQs9J
+	wvPlf62ORPfbH/y+TTJNPPOn9tr4PdTb/EAnor20s8sPaxPPHT96WBLbO2II+95XAhxDRzTa/pd
+	PYv/XUMw/D5g0A5gkmGbdYt1+P33AFavGguph73m89ItjoQ9uuNoBHE4J8gLgKfdfO2C2lvqad9
+	9pJ3tz80CJXbcPUZ
+X-Google-Smtp-Source: AGHT+IFA3RNClGg885yiYlISYsYOJeTw1Fd1eRv96uL8DaVCl3QiM+cW2wRgxshrWVj5DiQhXeuZ5w==
+X-Received: by 2002:a05:600c:1c09:b0:435:edb0:5d27 with SMTP id 5b1f17b1804b1-436230bfd93mr136287915e9.9.1734360679587;
+        Mon, 16 Dec 2024 06:51:19 -0800 (PST)
 Received: from playground.localdomain ([92.120.5.10])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362559ed6csm141616455e9.24.2024.12.16.06.51.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362559ed6csm141616455e9.24.2024.12.16.06.51.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 06:51:16 -0800 (PST)
+        Mon, 16 Dec 2024 06:51:19 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -84,17 +99,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/5] ASoC: dt-bindings: support imx95's CM7 core
-Date: Mon, 16 Dec 2024 09:50:36 -0500
-Message-Id: <20241216145039.3074-3-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v3 3/5] ASoC: dt-bindings: audio-graph-card2: add widgets and hp-det-gpios support
+Date: Mon, 16 Dec 2024 09:50:37 -0500
+Message-Id: <20241216145039.3074-4-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
 References: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_065119_550669_86E1AAC2 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20241216_145122_310466_77E64306 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,64 +127,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Add binding for imx95's CM7 core, used for audio processing.
+Introduce the 'widgets' property, allowing the creation of widgets from
+4 template widgets: Microphone, Line, Headphone, and Speaker. Also
+introduce the 'hp-det-gpios' property, which allows using headphone
+detection using the specified GPIO.
 
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- .../bindings/sound/fsl,imx95-cm7-sof.yaml     | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
+ .../devicetree/bindings/sound/audio-graph-card2.yaml          | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
-new file mode 100644
-index 000000000000..cc1eb358f288
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/fsl,imx95-cm7-sof.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: NXP imx95 CM7 core
-+
-+maintainers:
-+  - Daniel Baluta <daniel.baluta@nxp.com>
-+
-+description: NXP imx95 CM7 core used for audio processing
-+
-+allOf:
-+  - $ref: fsl,sof-cpu.yaml#
-+
-+properties:
-+  compatible:
-+    const: fsl,imx95-cm7-sof
-+
-+  port:
-+    description: SAI3 port
-+    $ref: audio-graph-port.yaml#
-+    unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - port
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    cm7-cpu@80000000 {
-+        compatible = "fsl,imx95-cm7-sof";
-+        reg = <0x80000000 0x6100000>;
-+        mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
-+        mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
-+        memory-region = <&adma_res>;
-+        port {
-+          /* SAI3-WM8962 link */
-+          endpoint { remote-endpoint = <&wm8962_ep>; };
-+        };
-+    };
+diff --git a/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml b/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml
+index f943f90d8b15..94588353f852 100644
+--- a/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml
++++ b/Documentation/devicetree/bindings/sound/audio-graph-card2.yaml
+@@ -37,6 +37,10 @@ properties:
+   codec2codec:
+     type: object
+     description: Codec to Codec node
++  hp-det-gpios:
++    $ref: audio-graph.yaml#/properties/hp-det-gpios
++  widgets:
++    $ref: audio-graph.yaml#/properties/widgets
+ 
+ required:
+   - compatible
 -- 
 2.34.1
 
