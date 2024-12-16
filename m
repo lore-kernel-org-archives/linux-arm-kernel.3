@@ -4,102 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F60E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126A8E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s21Y/vgvmg8sG4ovX1TqGYhzJ/w+qnVeUFFiaJYkYA4=; b=2sEf+8gJqSQdul3KquuJjLPn7F
-	xMzYoQjb2c3CkUWC5K23vzX8Ld1wn+fkOozafOYdU56ZotpzkHaHGl5gBrsPCsRzglQUkBVpnP9Xb
-	96mSRKfOvnkGbOsGrKmfzwZzuLXrQlUeuds2w3sSuZKVXq1FlOzWgUE82S/GiIMoaDSt9NKH3lJMt
-	KpKokGpjJJJhUdKx2luK+vpf2Nabu8Xr4CV+wLd40VQaeJh6UbkNpbA0AI9ffRuTfc+/Bg1Bn5CkU
-	VSSR9kM0RlBxh1pZna/gNQRF7Mg08D6cux9pNlDrsDqLr8A5OG3jxaY6Lt2eIpQrDXVY+V08RFH1g
-	LV8Droig==;
+	bh=OKGfjVGwMA/zsXl85TBgrTG1yFr1Bpuudax75G1PJyQ=; b=g4a0UiKO4IRnE/M+qcpjiC8yTp
+	VBgumNL/pMNCdGW5rQ3wcg1C8lgBO9psRlhkvSsToDM2jEDQwPj5L9ZOXbJSsyCkgzdQt6vYjXNMz
+	saX6k1AaZrUOeOFrCCOjky+Hx142/cciFh+6t4/KibPc2i4NH60t90UitULyRpq7p74AefpzM1vZs
+	mfa3xbZ4u4nObSwgHKLNL4QqR5Q/B2T04SomYJ8zzvnIo3kDi7D24V8nkSLAnygVDtlD6Sho8k8oh
+	hF9cGV41XZBok9uiZwO9kdblC7/47DZ2zKA/8p+XBScaaME0q5ylrycXtS2VWwvzQlUgtVpsbpSN4
+	XrN93OLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN84G-00000009emz-3g3b;
-	Mon, 16 Dec 2024 10:11:12 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tN85L-00000009f1f-2UpI;
+	Mon, 16 Dec 2024 10:12:19 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7z5-00000009dJc-1ntp
+	id 1tN7z8-00000009dHO-0qf1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 10:05:52 +0000
-Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9DCD922F;
-	Mon, 16 Dec 2024 11:05:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1734343511;
-	bh=9J3sA45LFryKQq31g6p0pJDzVfbzEf35dJB6L24U/es=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fgIHBJrE3vCUyu+BLbxAzKin36KE0r7WW2Jy1/v217aaf2NpQXetpsJQUDI7rDMYh
-	 cy/6HNOOut3nFcAVGpCgQwUnWBENQ6b2eOu7DGARykB5KSmNzYrXnzDDHrQcU6qkOo
-	 SHCdH30Bo1Bi1E4MoKbQ7QM89ojQw0ipouDK5ZS0=
-Message-ID: <062e6b9d-44ca-49e8-8be0-f6a853938c53@ideasonboard.com>
-Date: Mon, 16 Dec 2024 12:05:43 +0200
+	Mon, 16 Dec 2024 10:05:55 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BG745SY008787;
+	Mon, 16 Dec 2024 11:05:23 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	OKGfjVGwMA/zsXl85TBgrTG1yFr1Bpuudax75G1PJyQ=; b=fXP8kj+PXuOe+q7g
+	HWsi8AXR6+2S/YJFvJyjo5B8/J8SZ/PgjJZO+Of52bB+dOlv0zVbDyo/ZwPfaUmy
+	T3dc7TaemCDJOGzhqR7vOZ5PZvsN8jzFTQXYkmjMRyAJMFKISkyNL2rlBbnuyv56
+	D7ZrKg1d7ky6Z4zHKE42/TKGZ1AzcQWvDm9hrj1RWI0y1ViwXfIJY7ej/8sxyDDE
+	yqwdaL/YXHxf9ARpkUqKqZYDN9gw8BSFqAvoUjAkj9kYdIpoNL+GOcw1YodPvNo8
+	C+0wmzDmwWEaFlvmiGNP3+u5tRGT9M3ZfaKok2qAUL4JUgdx6gdntFeybkG92w74
+	CNu3JA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43jfg8ru40-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Dec 2024 11:05:23 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 61FE540046;
+	Mon, 16 Dec 2024 11:03:58 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AF45826AD7C;
+	Mon, 16 Dec 2024 11:02:09 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
+ 2024 11:02:08 +0100
+Message-ID: <4e257489-4d90-4e47-a4d9-a2444627c356@foss.st.com>
+Date: Mon, 16 Dec 2024 11:02:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3] drm: zynqmp_dp: Fix integer overflow in
- zynqmp_dp_rate_get()
-To: Karol Przybylski <karprzy7@gmail.com>, laurent.pinchart@ideasonboard.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, michal.simek@amd.com
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20241215125355.938953-1-karprzy7@gmail.com>
+Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
+ STM32MP25
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
+ <20241126155119.1574564-5-christian.bruel@foss.st.com>
+ <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
 Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20241215125355.938953-1-karprzy7@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_020551_620635_CC1956B0 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20241216_020554_752722_A85A7276 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +100,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Manivanna,
 
-On 15/12/2024 14:53, Karol Przybylski wrote:
-> This patch fixes a potential integer overflow in the zynqmp_dp_rate_get()
+On 12/3/24 16:22, Manivannan Sadhasivam wrote:
+> On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
 > 
-> The issue comes up when the expression
-> drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000 is evaluated using 32-bit
-> Now the constant is a compatible 64-bit type.
+> [...]
 > 
-> Resolves coverity issues: CID 1636340 and CID 1635811
+>> +static int stm32_pcie_start_link(struct dw_pcie *pci)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	int ret;
+>> +
+>> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
+>> +		dev_dbg(pci->dev, "Link is already enabled\n");
+>> +		return 0;
+>> +	}
+>> +
+>> +	ret = stm32_pcie_enable_link(pci);
+>> +	if (ret) {
+>> +		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
+>> +		return ret;
+>> +	}
 > 
-> Cc: stable@vger.kernel.org
-> Fixes: 28edaacb821c6 ("drm: zynqmp_dp: Add debugfs interface for compliance testing")
-> Signed-off-by: Karol Przybylski <karprzy7@gmail.com>
-> ---
-> Changes from previous versions:
-> Added Fixes tag
-> Added Cc for stable kernel version
-> Fixed formatting
-> 
->   drivers/gpu/drm/xlnx/zynqmp_dp.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> index 25c5dc61ee88..56a261a40ea3 100644
-> --- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> +++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
-> @@ -2190,7 +2190,7 @@ static int zynqmp_dp_rate_get(void *data, u64 *val)
->   	struct zynqmp_dp *dp = data;
->   
->   	mutex_lock(&dp->lock);
-> -	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000;
-> +	*val = drm_dp_bw_code_to_link_rate(dp->test.bw_code) * 10000ULL;
->   	mutex_unlock(&dp->lock);
->   	return 0;
->   }
+> How the REFCLK is supplied to the endpoint? From host or generated locally?
 
-Thanks, pushed to drm-misc-next.
+ From Host only, we don't support the separated clock model.
 
-  Tomi
+> 
+>> +
+>> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_ENABLED;
+>> +
+>> +	enable_irq(stm32_pcie->perst_irq);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +
+>> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_DISABLED) {
+>> +		dev_dbg(pci->dev, "Link is already disabled\n");
+>> +		return;
+>> +	}
+>> +
+>> +	disable_irq(stm32_pcie->perst_irq);
+>> +
+>> +	stm32_pcie_disable_link(pci);
+>> +
+>> +	stm32_pcie->link_status = STM32_PCIE_EP_LINK_DISABLED;
+>> +}
+>> +
+>> +static int stm32_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
+>> +				unsigned int type, u16 interrupt_num)
+>> +{
+>> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>> +
+>> +	switch (type) {
+>> +	case PCI_IRQ_INTX:
+>> +		return dw_pcie_ep_raise_intx_irq(ep, func_no);
+>> +	case PCI_IRQ_MSI:
+>> +		return dw_pcie_ep_raise_msi_irq(ep, func_no, interrupt_num);
+>> +	default:
+>> +		dev_err(pci->dev, "UNKNOWN IRQ type\n");
+>> +		return -EINVAL;
+>> +	}
+>> +}
+>> +
+>> +static const struct pci_epc_features stm32_pcie_epc_features = {
+>> +	.msi_capable = true,
+>> +	.align = 1 << 16,
+> 
+> Use SZ_64K
+> 
 
+OK
+
+>> +};
+>> +
+> 
+> [...]
+> 
+>> +static int stm32_add_pcie_ep(struct stm32_pcie *stm32_pcie,
+>> +			     struct platform_device *pdev)
+>> +{
+>> +	struct dw_pcie *pci = stm32_pcie->pci;
+>> +	struct dw_pcie_ep *ep = &pci->ep;
+>> +	struct device *dev = &pdev->dev;
+>> +	int ret;
+>> +
+>> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +				 STM32MP25_PCIECR_TYPE_MASK,
+>> +				 STM32MP25_PCIECR_EP);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = pm_runtime_resume_and_get(dev);
+>> +	if (ret < 0) {
+>> +		dev_err(dev, "pm runtime resume failed: %d\n", ret);
+>> +		return ret;
+>> +	}
+> 
+> You might want to do runtime resume before accessing regmap.
+
+OK
+
+>> +
+>> +	reset_control_assert(stm32_pcie->rst);
+>> +	reset_control_deassert(stm32_pcie->rst);
+>> +
+>> +	ep->ops = &stm32_pcie_ep_ops;
+>> +
+>> +	ret = dw_pcie_ep_init(ep);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to initialize ep: %d\n", ret);
+>> +		goto err_init;
+>> +	}
+>> +
+>> +	ret = stm32_pcie_enable_resources(stm32_pcie);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to enable resources: %d\n", ret);
+>> +		goto err_clk;
+>> +	}
+>> +
+>> +	ret = dw_pcie_ep_init_registers(ep);
+>> +	if (ret) {
+>> +		dev_err(dev, "Failed to initialize DWC endpoint registers\n");
+>> +		goto err_init_regs;
+>> +	}
+>> +
+>> +	pci_epc_init_notify(ep->epc);
+>> +
+>> +	return 0;
+>> +
+>> +err_init_regs:
+>> +	stm32_pcie_disable_resources(stm32_pcie);
+>> +
+>> +err_clk:
+>> +	dw_pcie_ep_deinit(ep);
+>> +
+>> +err_init:
+>> +	pm_runtime_put_sync(dev);
+>> +	return ret;
+>> +}
+>> +
+>> +static int stm32_pcie_probe(struct platform_device *pdev)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie;
+>> +	struct dw_pcie *dw;
+>> +	struct device *dev = &pdev->dev;
+>> +	int ret;
+>> +
+>> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
+>> +	if (!stm32_pcie)
+>> +		return -ENOMEM;
+>> +
+>> +	dw = devm_kzalloc(dev, sizeof(*dw), GFP_KERNEL);
+>> +	if (!dw)
+>> +		return -ENOMEM;
+> 
+> Why can't you allocate it statically inside 'struct stm32_pcie'?
+
+Will do
+
+> 
+>> +
+>> +	stm32_pcie->pci = dw;
+>> +
+>> +	dw->dev = dev;
+>> +	dw->ops = &dw_pcie_ops;
+>> +
+>> +	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
+>> +	if (IS_ERR(stm32_pcie->regmap))
+>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
+>> +				     "No syscfg specified\n");
+>> +
+>> +	stm32_pcie->phy = devm_phy_get(dev, "pcie-phy");
+>> +	if (IS_ERR(stm32_pcie->phy))
+>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
+>> +				     "failed to get pcie-phy\n");
+>> +
+>> +	stm32_pcie->clk = devm_clk_get(dev, NULL);
+>> +	if (IS_ERR(stm32_pcie->clk))
+>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
+>> +				     "Failed to get PCIe clock source\n");
+>> +
+>> +	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
+>> +	if (IS_ERR(stm32_pcie->rst))
+>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
+>> +				     "Failed to get PCIe reset\n");
+>> +
+>> +	stm32_pcie->perst_gpio = devm_gpiod_get(dev, "reset", GPIOD_IN);
+>> +	if (IS_ERR(stm32_pcie->perst_gpio))
+>> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
+>> +				     "Failed to get reset GPIO\n");
+>> +
+>> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+> 
+> Hmm, so PHY mode is common for both endpoint and host?
+
+Yes it is. We need to init the phy here because it is a clock source for 
+the PCIe core clk
+
+Thanks
+
+Christian
+
+> 
+> - Mani
+> 
 
