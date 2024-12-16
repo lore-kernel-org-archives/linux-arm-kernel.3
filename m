@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6131FE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD30E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyvfV+AYwDjBOXDtTWGqGeG/DtUzeN6+72wCHLNtRTI=; b=HkJ9M3J8h5RZ2dzhciCBgINgj4
-	nJosUKwUdtZWvIbzt3B4inl9/cYWTXcxqcCt/icnVra6/Gm5SvbEvvBzqkBIWc1pPRDaruvgTH58/
-	jnul30apI21u02SXS5yG0HCHhHyE1VjEG5PHlzYAwu5SMegJkqK/dVCYh7O6C+rLYeQ9b/5FDb4pY
-	Q3QynOODtHv2u/g4dNtR/kZvcKf/HFsxG97uw3XGBz/MXV/GUFfhL8kl4/zYAdh2dTd16fZUXripY
-	7M64nXVfG9xBuFzs5QYSGJzZ319yOvOhRdg47kpV/cHJG7JBpWumFcHPJ/gJb3FzVUh5FqrztvhOb
-	1H80dRMw==;
+	bh=CFseZlhQsBozp7nqVIdMl7CvRh3Xfaeii6VYsDgLoc0=; b=4+kzXpr0D4CrU/Od2M8k86RAOD
+	pSkibz39l8sBCPUomzlYyckcWqulELV4Kp6zwhkFb3L1ZdEpELV0QYeBIi+oMGbZSAsBHCQQEBzqL
+	dW+nQldskaTVeOloUhVFW8cetDVqzwLX6kosAT8qhzyZMF8xBJvhQuJ5Vd4RsiNDy9JuswiC6zCTG
+	IhI3nFfmdXNwBdpPWYsDfm5spn+x082ucFBdkC+1ZAVjjPGvp3zr8Ynsx5WRXRgPGdj7Zop0UUmqS
+	WXf7s5/pNfkY+ZLnTENU0MToGbyuLZVFwVGo8SzJ4g56UUyxi41oezwk0M2xs/0XL4TcMZSELeQBQ
+	kVxaO0Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDJq-0000000AT2k-1TTw;
-	Mon, 16 Dec 2024 15:47:38 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tNDQo-0000000AU4l-0uHz;
+	Mon, 16 Dec 2024 15:54:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNDDH-0000000ARi5-10Av
+	id 1tNC8W-0000000AGqq-3Kay
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 14:31:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=CFseZlhQsBozp7nqVIdMl7CvRh3Xfaeii6VYsDgLoc0=; b=BvekzmVKOCUtIdZsxLnz9N255f
+	k2ZSuZkgwKXhD1VD803mBn4ujLWp4x4GNITFYURrVJD4iorjvxC0wa3J4Hpke+7UJFn32jzLDud1N
+	ddE9tHBvaW50qKkM+8fMmGb0MKNWKzXoA5cBb0FT5uaZBmocJmmKBferjJxIh4XBxYDcvn1O/U47M
+	s4vo2IBVZxj1h9Uo9cfkh0b6Gmrm3VgnTayD63w3V4n4Qo1lGBTxQtiiiCw9TZ2/B4/w8xKQwmKXc
+	ZmOE3beZRlLS5H7fI3jj5w/aJUYDLW/k0GFcl8yFmYGo4VUjoeYhHV7jpk95Gtl5Fg+er65toZ49k
+	e/nqffHw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNC8T-00000004rKg-3GHq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 15:40:52 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGEYN89030036;
-	Mon, 16 Dec 2024 16:40:46 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	oyvfV+AYwDjBOXDtTWGqGeG/DtUzeN6+72wCHLNtRTI=; b=r/rFzRaHcJBnwpyu
-	wgMwaZrS9W+xmRnmEEXU6/ksTqmhA1XAI6vxvbsmJC0oT2kw2GjSzCsJIUVxVeiu
-	Zjw3/Fzke9nu9/65ch70VMTob8/SM4kMzldmzJ2V05MXypDMQjlTYoIqPzfbPmEq
-	rgINum/MSpBogQ3d9lOQo0I1J6HDiWzkX5ExT+viks5PrQFm5aqxlp2e+rA4xeIO
-	ImQQt0cjpSxe0ZqakelkjCUrgrc1t7sOjP6By74bVzzy9pdc7BPu0AJlOYKoKEPT
-	y6QiW5tOUabtelsCyq7cJhMR9AHgehQy1/93lYgkF8BZLx99MPTxc8EtFnFitmwX
-	Tp1pmQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43jp3987c9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 16:40:46 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 386384004B;
-	Mon, 16 Dec 2024 16:39:52 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8D395285ED5;
-	Mon, 16 Dec 2024 16:39:23 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
- 2024 16:39:23 +0100
-Received: from localhost (10.252.30.129) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
- 2024 16:39:23 +0100
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <alexandre.torgue@foss.st.com>
-CC: <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <fabrice.gasnier@foss.st.com>, <olivier.moysan@foss.st.com>
-Subject: [PATCH 5/5] ARM: dts: stm32: add counter subnodes on stm32mp157 dk boards
-Date: Mon, 16 Dec 2024 16:39:08 +0100
-Message-ID: <20241216153908.3069548-6-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241216153908.3069548-1-fabrice.gasnier@foss.st.com>
-References: <20241216153908.3069548-1-fabrice.gasnier@foss.st.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.30.129]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+	Mon, 16 Dec 2024 14:31:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1B2C45C4989;
+	Mon, 16 Dec 2024 14:31:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE72EC4CED0;
+	Mon, 16 Dec 2024 14:31:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734359506;
+	bh=q//uXuHw5NNyHRrYJA+t5Do7tOiMP5mB0zY7GpysFuw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=avK1n6GRfEbGCiA5MGkHoGcE+AINRnA4Gm4Gxqm4ZzgfVfxrRshODochg9mUYzZoA
+	 EuaMvt+DZPrqbCSp17+I2Qt+UtkV5f7U2hMg47Xq8me29/Jo4ceCrd0mkFdqAdQ+K+
+	 0/4PjG18v2Wih8ks4QULfOjTjEiCgWZpwGFG6+dz7MSBwEi6bgyD/7ojs5jH8t8ngb
+	 dcL/rq39tKYYQPEFKw5HTN7UEAKAATnPq/+9hL7w3Gz70NEBiydO7aVqNTU54oXK4K
+	 wXAS49UjQ6842fF2nciDYfbnEmOJVId1jXhIujipWFqyR5Tf9UQIQlsoEtmCFm47x8
+	 nZLFKKiHX7Gog==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tNC8N-004CsH-N6;
+	Mon, 16 Dec 2024 14:31:43 +0000
+Date: Mon, 16 Dec 2024 14:31:43 +0000
+Message-ID: <865xnjsnqo.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Peter Collingbourne <pcc@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to __cpuinfo_store_cpu()
+In-Reply-To: <Z2AfOZ82QG_ukWry@J2N7QTR9R3>
+References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>	<87a5cysfci.wl-maz@kernel.org>	<Z2AfOZ82QG_ukWry@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+X-TUID: 7+uNRFeFxaHZ
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, pcc@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_074051_568146_677F6D55 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_143150_224185_4508550D 
+X-CRM114-Status: GOOD (  32.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +101,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the counter nodes without dedicated pins. With such configuration,
-the counter interface can be used on internal clock to generate events.
+On Mon, 16 Dec 2024 12:38:17 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Sat, Dec 14, 2024 at 10:56:13AM +0000, Marc Zyngier wrote:
+>
+> > Why isn't the following a good enough fix? It makes it plain that
+> > boot_cpu_data is only a copy of CPU0's initial boot state.
+> > 
+> > diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+> > index d79e88fccdfce..0cbb42fd48850 100644
+> > --- a/arch/arm64/kernel/cpuinfo.c
+> > +++ b/arch/arm64/kernel/cpuinfo.c
+> > @@ -497,6 +497,6 @@ void __init cpuinfo_store_boot_cpu(void)
+> >  	struct cpuinfo_arm64 *info = &per_cpu(cpu_data, 0);
+> >  	__cpuinfo_store_cpu(info);
+> >  
+> > +	init_cpu_features(info);
+> >  	boot_cpu_data = *info;
+> > -	init_cpu_features(&boot_cpu_data);
+> >  }
+> 
+> I think that change in isolation is fine, but I don't think that's the
+> right fix.
+> 
+> I think that what we did in commit:
+> 
+>    892f7237b3ff ("arm64: Delay initialisation of cpuinfo_arm64::reg_{zcr,smcr}")
+> 
+> ... introduces an anti-pattern that'd be nice to avoid. That broke the
+> existing split of __cpuinfo_store_cpu() and init_cpu_features(), where
+> the former read the ID regs, and the latter set up the features
+> *without* altering the copy of the ID regs that was read. i.e.
+> init_cpu_features() shouldn't write to its info argument at all.
+> 
+> I understand that we have to do something as a bodge for broken FW which
+> traps SME, but I'd much rather we did that within __cpuinfo_store_cpu().
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
- arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+Honestly, I'd rather revert that patch, together with b3000e2133d8
+("arm64: Add the arm64.nosme command line option"). I'm getting tired
+of the FW nonsense, and we are only allowing vendors to ship untested
+crap.
 
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-index f7634c51efb2..a5511b1f0ce3 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-@@ -570,6 +570,9 @@ &timers1 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "disabled";
-+	counter {
-+		status = "okay";
-+	};
- 	pwm {
- 		pinctrl-0 = <&pwm1_pins_a>;
- 		pinctrl-1 = <&pwm1_sleep_pins_a>;
-@@ -585,6 +588,9 @@ &timers3 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "disabled";
-+	counter {
-+		status = "okay";
-+	};
- 	pwm {
- 		pinctrl-0 = <&pwm3_pins_a>;
- 		pinctrl-1 = <&pwm3_sleep_pins_a>;
-@@ -600,6 +606,9 @@ &timers4 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "disabled";
-+	counter {
-+		status = "okay";
-+	};
- 	pwm {
- 		pinctrl-0 = <&pwm4_pins_a &pwm4_pins_b>;
- 		pinctrl-1 = <&pwm4_sleep_pins_a &pwm4_sleep_pins_b>;
-@@ -615,6 +624,9 @@ &timers5 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "disabled";
-+	counter {
-+		status = "okay";
-+	};
- 	pwm {
- 		pinctrl-0 = <&pwm5_pins_a>;
- 		pinctrl-1 = <&pwm5_sleep_pins_a>;
-@@ -630,6 +642,9 @@ &timers6 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "disabled";
-+	counter {
-+		status = "okay";
-+	};
- 	timer@5 {
- 		status = "okay";
- 	};
-@@ -639,6 +654,9 @@ &timers12 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 	status = "disabled";
-+	counter {
-+		status = "okay";
-+	};
- 	pwm {
- 		pinctrl-0 = <&pwm12_pins_a>;
- 		pinctrl-1 = <&pwm12_sleep_pins_a>;
+Furthermore, given the state of SME in the kernel, I don't think this
+is makes any difference. So maybe this is the right time to reset
+everything to a sane state.
+
+> Can we add something to check whether SME was disabled on the command
+> line, and use that in __cpuinfo_store_cpu(), effectively reverting
+> 892f7237b3ff?
+
+Maybe, but that'd be before any sanitisation of the overrides, so it
+would have to severely limit its scope. Something like this, which I
+haven't tested:
+
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d79e88fccdfce..9e9295e045009 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -492,10 +492,22 @@ void cpuinfo_store_cpu(void)
+ 	update_cpu_features(smp_processor_id(), info, &boot_cpu_data);
+ }
+ 
++static void cpuinfo_apply_overrides(struct cpuinfo_arm64 *info)
++{
++	if (FIELD_GET(ID_AA64PFR0_EL1_SVE, id_aa64pfr0_override.mask) &&
++	    !FIELD_GET(ID_AA64PFR0_EL1_SVE, id_aa64pfr0_override.val))
++		info->reg_id_aa64pfr0 &= ~ID_AA64PFR0_EL1_SVE;
++
++	if (FIELD_GET(ID_AA64PFR1_EL1_SME, id_aa64pfr1_override.mask) &&
++	    !FIELD_GET(ID_AA64PFR1_EL1_SME, id_aa64pfr1_override.val))
++		info->reg_id_aa64pfr1 &= ~ID_AA64PFR1_EL1_SME;
++}
++
+ void __init cpuinfo_store_boot_cpu(void)
+ {
+ 	struct cpuinfo_arm64 *info = &per_cpu(cpu_data, 0);
+ 	__cpuinfo_store_cpu(info);
++	cpuinfo_apply_overrides(info);
+ 
+ 	boot_cpu_data = *info;
+ 	init_cpu_features(&boot_cpu_data);
+
+But this will have ripple effects on the rest of the override code
+(the kernel messages are likely to be wrong).
+
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
