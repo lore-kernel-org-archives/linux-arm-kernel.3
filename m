@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E16E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80B6E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HKVp/Caa3kBEDzmNrfvKYA3RNNrY0C92zVprRqMI1SE=; b=gcwzS8FDzEcRhK
-	w/qSzxsVTEwmtVmbxRZcWGvwQL7GlX/QyS+W3gB7fgNugTIyq3lB0VWePwXeTthhOAsZc/nldwrqB
-	fEecLkCh0ZyXhasBjFAIVD66xINegtPpQ0Om4nAPMK2Rka8rJgayVt0WT/+OlYZrxc4uttLH7ns9d
-	KO3173LA4aKuZ/3R8Sz2fu7GNDD3hoFFrv90UpTp1rHpnzd4EeM9WimTbhxPUBvXio+6R3C7uGek5
-	6LHevhacEAHWV9pVCC7CJ9VsBkiOS3K4d1joCwfu0nkKiEQzTTmrYRhlcBOpG0Iig8PPsx08CNHde
-	ihyC0tqFlDIahG60iQRQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wSwWjoN9hxq4jHDYryBIZocNpGvXWb/8NjpFHhRy2oo=; b=Tn92Zbkk419Gh8+gthhI3rrqx2
+	axaeIzbq4ftX9+311NEfT2FWv3UTL4oDEYMiEfICVb+Y+QysGzD8opnwkGTrQ6NqzK5lrtNS6/kAY
+	0jrku7dTPlEEHAIfeY58NuVR5zpB1JNMKEj1SaXse7ETcrKIm5tFa4KwAL5LXQFTL54+hyIIEHzvG
+	ki9jXK7TgcCB2+IaPtV9WEcSibZCyLYmXTSmSonCIxsw0VYNEckbBbEbUgnT02ii0ohfTIySrP4o1
+	t939SF+tv1Xvxl+wlsaDsFaIvgcMsu0aG/VU5XuzP4aMHwXcITLw6fUaVC/gTOFnglxSYdSKCYf1r
+	dUTHqsFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBwZ-0000000ADtg-1Btv;
-	Mon, 16 Dec 2024 14:19:31 +0000
+	id 1tNBxf-0000000AEMA-28tk;
+	Mon, 16 Dec 2024 14:20:39 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBoE-0000000ABNJ-1tPd;
+	id 1tNBoE-0000000ABNx-37SV;
 	Mon, 16 Dec 2024 14:10:56 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1734358250;
+	s=2020; t=1734358253;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HKVp/Caa3kBEDzmNrfvKYA3RNNrY0C92zVprRqMI1SE=;
-	b=KdufFQ9yzC5Ccn77ghWA8wMSofMP42Zkq2YdPaJ2A10YNms20X7NC8Hxi+abz4ROYmqVYh
-	CKh8+qO4oFDm3McLx4thCKwPp4d9pZkbPn7YuRT6GdMzrOCCJ9LAd+SLXp9FxXhrYc1Njf
-	EASL4b3P4RxQ/VMcgorUj16d32fvKJI5JcWLHGxqYuOOu7tXzsGjHIKxOeEWngv8j8V1xD
-	VqLUtnbtI3PL9fNVv0DclRhDYLLKxW9sneh1Gx5Q8jZ+EULkpYDXOXsb4FJG7BTQMCkBGb
-	E5E9fCgAEOXWs0vcarn0iqbq9v3goh4LSx3xpzWX3C+fuKDi/c1tOtRR/bod3w==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wSwWjoN9hxq4jHDYryBIZocNpGvXWb/8NjpFHhRy2oo=;
+	b=ZMQujSz5tD2kN7+lI0fYpPj98xs+sNfo+W3vBIuWWMNlwpDV/izuo9GkscwMhLkuBG+VwU
+	gHcWMsBZi+0oJhgJRxAUYy5qeuKaj3OpwcngqvunDPibOk9ughtlxw6pMuUb6pCV3sFP0Z
+	+ARJ8WdZfA7lEkHqX+a58WZSo2329Sf4ZWH/WQT83OraaLzYcppk0aOpV6RYAD5lZFFCM6
+	WJhmmmkV6HuSG5f9T1Dv37/9DZ33NYVKdO0fkvbOXx9aGqKVyKsknZEJH9KHiPTtrWK+E6
+	INXYArNSQNPlC8uqsma3APkSoos+GlBeVzWuv5mM9ZqC1MYMmGxLAl0UZiWS7w==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1734358250;
+	s=2020e; t=1734358253;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HKVp/Caa3kBEDzmNrfvKYA3RNNrY0C92zVprRqMI1SE=;
-	b=/u+tT8fSj1h0nM3WDlaNJH3x66iqvvap+8AtYcWufIcKOYjQK6XUnl7D/FVY+IzgCPpSQr
-	1E+y5++vPqqWOdDQ==
-Subject: [PATCH 00/17] vDSO: Introduce generic data storage
-Date: Mon, 16 Dec 2024 15:09:56 +0100
-Message-Id: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wSwWjoN9hxq4jHDYryBIZocNpGvXWb/8NjpFHhRy2oo=;
+	b=qm/1JdwisukCAQ6GVoTkT6wBWxbHH10UkJwsn+dKhsduD9m20Mq0KPz3CVRZZHlB2C11fW
+	9Ov67GseUEPV1BDA==
+Date: Mon, 16 Dec 2024 15:10:00 +0100
+Subject: [PATCH 04/17] vdso: Add generic random data storage
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIALU0YGcC/x3MywqEMAyF4VeRrCeQekVfZXAhNmo2rSQiM0jf3
- eryg3P+C4xV2GAoLlA+xSSGDPcpYN6msDKKz4aSypp65/D0FtGOqIwaVmypmyo/90wNQT7tyov
- 83uB3zN7k2f6ffkrpBvZg+p5vAAAA
-X-Change-ID: 20240911-vdso-store-rng-607a3dc9e050
+Message-Id: <20241216-vdso-store-rng-v1-4-f7aed1bdb3b2@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
 To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
  Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
  Thomas Gleixner <tglx@linutronix.de>, 
@@ -86,16 +86,16 @@ Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=7632;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=4160;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=djYBYaWoItcXUsVYqkOg6DhKy9XnOUI8nNrRC+z9rAU=;
- b=nB6k75T44i3XiBispikp3W7OCCiI+BnnKEjikbsYEp+QxVBLBTagyb2PXd9wSlsp2iNvC4Dr8
- 7Dg6HPvjJg+AI7LSiIsW01eZlsVkYR2FxwK80tr8AI4F5QdZPyk/VoF
+ bh=Klz0GewD0ghfBFLK7c5qIVdXa+oTtzdoujgf0ypgqME=;
+ b=thexmYXfp+n2eSvYCtrf5cHaHBiOJId1Zbewgq/CRRe/slaV9CWnriEbx6SMa7+VxZ1s/NRmL
+ of3YMYg6mVqBPc5bM65DLHRgkU9CD5Z5/CTZ07zGsAVXWNGT54vKQM2
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_061054_833247_A75DAC65 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20241216_061055_124473_09D547DC 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,136 +110,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently each architecture defines the setup of the vDSO data page on
-its own, mostly through copy-and-paste from some other architecture.
-Extend the existing generic vDSO implementation to also provide generic
-data storage.
-This removes duplicated code and paves the way for further changes to
-the generic vDSO implementation without having to go through a lot of
-per-architecture changes.
+Extend the generic vDSO data storage with a page for the random state data.
+The random state data is stored in a dedicated page, as the existing
+storage page is only meant for time-related, time-namespace-aware data.
+This simplifies to access logic to not need to handle time namespaces
+anymore and also frees up more space in the time-related page.
 
-Based on v6.13-rc1 and intended to be merged through the tip tree.
+In case further generic vDSO data store is required it can be added to
+the random state page.
 
-This also provides the basis for some generic vDSO reworks.
-The commits from this series and the upcoming reworks can be seen at:
-https://git.kernel.org/pub/scm/linux/kernel/git/thomas.weissschuh/linux.git/log/?h=vdso/store
-
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Thomas Weißschuh (17):
-      parisc: Remove unused symbol vdso_data
-      vdso: Introduce vdso/align.h
-      vdso: Add generic time data storage
-      vdso: Add generic random data storage
-      vdso: Add generic architecture-specific data storage
-      arm64: vdso: Switch to generic storage implementation
-      riscv: vdso: Switch to generic storage implementation
-      LoongArch: vDSO: Switch to generic storage implementation
-      arm: vdso: Switch to generic storage implementation
-      s390/vdso: Switch to generic storage implementation
-      MIPS: vdso: Switch to generic storage implementation
-      powerpc/vdso: Switch to generic storage implementation
-      x86/vdso: Switch to generic storage implementation
-      x86/vdso/vdso2c: Remove page handling
-      vdso: Remove remnants of architecture-specific random state storage
-      vdso: Remove remnants of architecture-specific time storage
-      vdso: Remove kconfig symbol GENERIC_VDSO_DATA_STORE
+ include/vdso/datapage.h     | 24 ++++++++++++++++++++++++
+ lib/vdso_kernel/datastore.c | 14 ++++++++++++++
+ 2 files changed, 38 insertions(+)
 
- MAINTAINERS                                        |   1 +
- arch/Kconfig                                       |   4 +
- arch/arm/include/asm/vdso.h                        |   2 +
- arch/arm/include/asm/vdso/gettimeofday.h           |   7 +-
- arch/arm/include/asm/vdso/vsyscall.h               |  12 +-
- arch/arm/kernel/asm-offsets.c                      |   4 -
- arch/arm/kernel/vdso.c                             |  34 ++----
- arch/arm/vdso/vdso.lds.S                           |   4 +-
- arch/arm64/include/asm/vdso.h                      |   2 +-
- arch/arm64/include/asm/vdso/compat_gettimeofday.h  |  32 +++---
- arch/arm64/include/asm/vdso/getrandom.h            |  12 --
- arch/arm64/include/asm/vdso/gettimeofday.h         |  16 +--
- arch/arm64/include/asm/vdso/vsyscall.h             |  25 +----
- arch/arm64/kernel/vdso.c                           |  90 +--------------
- arch/arm64/kernel/vdso/vdso.lds.S                  |   7 +-
- arch/arm64/kernel/vdso32/vdso.lds.S                |   7 +-
- arch/loongarch/Kconfig                             |   1 +
- arch/loongarch/include/asm/vdso.h                  |   1 -
- arch/loongarch/include/asm/vdso/arch_data.h        |  25 +++++
- arch/loongarch/include/asm/vdso/getrandom.h        |   5 -
- arch/loongarch/include/asm/vdso/gettimeofday.h     |  14 +--
- arch/loongarch/include/asm/vdso/vdso.h             |  38 +------
- arch/loongarch/include/asm/vdso/vsyscall.h         |  17 ---
- arch/loongarch/kernel/asm-offsets.c                |   2 +-
- arch/loongarch/kernel/vdso.c                       |  92 +--------------
- arch/loongarch/vdso/vdso.lds.S                     |   8 +-
- arch/loongarch/vdso/vgetcpu.c                      |   7 +-
- arch/mips/include/asm/vdso/gettimeofday.h          |   9 +-
- arch/mips/include/asm/vdso/vdso.h                  |  19 ++--
- arch/mips/include/asm/vdso/vsyscall.h              |  14 +--
- arch/mips/kernel/vdso.c                            |  47 +++-----
- arch/mips/vdso/vdso.lds.S                          |   5 +-
- arch/parisc/include/asm/vdso.h                     |   2 -
- arch/powerpc/Kconfig                               |   1 +
- arch/powerpc/include/asm/vdso.h                    |   1 +
- arch/powerpc/include/asm/vdso/arch_data.h          |  37 ++++++
- arch/powerpc/include/asm/vdso/getrandom.h          |  11 +-
- arch/powerpc/include/asm/vdso/gettimeofday.h       |  36 +++---
- arch/powerpc/include/asm/vdso/vsyscall.h           |  13 ---
- arch/powerpc/include/asm/vdso_datapage.h           |  44 +-------
- arch/powerpc/kernel/asm-offsets.c                  |   1 -
- arch/powerpc/kernel/time.c                         |   2 +-
- arch/powerpc/kernel/vdso.c                         | 115 ++-----------------
- arch/powerpc/kernel/vdso/cacheflush.S              |   2 +-
- arch/powerpc/kernel/vdso/datapage.S                |   4 +-
- arch/powerpc/kernel/vdso/gettimeofday.S            |   4 +-
- arch/powerpc/kernel/vdso/vdso32.lds.S              |   4 +-
- arch/powerpc/kernel/vdso/vdso64.lds.S              |   4 +-
- arch/powerpc/kernel/vdso/vgettimeofday.c           |  14 +--
- arch/riscv/Kconfig                                 |   2 +-
- arch/riscv/include/asm/vdso.h                      |   2 +-
- .../include/asm/vdso/{time_data.h => arch_data.h}  |   8 +-
- arch/riscv/include/asm/vdso/gettimeofday.h         |  14 +--
- arch/riscv/include/asm/vdso/vsyscall.h             |   9 --
- arch/riscv/kernel/sys_hwprobe.c                    |   3 +-
- arch/riscv/kernel/vdso.c                           |  90 +--------------
- arch/riscv/kernel/vdso/hwprobe.c                   |   6 +-
- arch/riscv/kernel/vdso/vdso.lds.S                  |   7 +-
- arch/s390/include/asm/vdso.h                       |   4 +-
- arch/s390/include/asm/vdso/getrandom.h             |  12 --
- arch/s390/include/asm/vdso/gettimeofday.h          |  15 +--
- arch/s390/include/asm/vdso/vsyscall.h              |  20 ----
- arch/s390/kernel/time.c                            |   6 +-
- arch/s390/kernel/vdso.c                            |  97 +---------------
- arch/s390/kernel/vdso32/vdso32.lds.S               |   7 +-
- arch/s390/kernel/vdso64/vdso64.lds.S               |   8 +-
- arch/x86/entry/vdso/vdso-layout.lds.S              |  10 +-
- arch/x86/entry/vdso/vdso2c.c                       |  21 ----
- arch/x86/entry/vdso/vdso2c.h                       |  20 ----
- arch/x86/entry/vdso/vma.c                          | 125 ++-------------------
- arch/x86/include/asm/vdso.h                        |   6 -
- arch/x86/include/asm/vdso/getrandom.h              |  10 --
- arch/x86/include/asm/vdso/gettimeofday.h           |  25 +----
- arch/x86/include/asm/vdso/vsyscall.h               |  22 +---
- drivers/char/random.c                              |   6 +-
- include/asm-generic/vdso/vsyscall.h                |  15 +--
- include/linux/align.h                              |  10 +-
- include/linux/time_namespace.h                     |   2 -
- include/linux/vdso_datastore.h                     |  10 ++
- include/vdso/align.h                               |  15 +++
- include/vdso/datapage.h                            | 105 ++++++++++++++---
- include/vdso/helpers.h                             |   8 +-
- kernel/time/namespace.c                            |  12 +-
- kernel/time/vsyscall.c                             |  19 ++--
- lib/Makefile                                       |   2 +
- lib/vdso/getrandom.c                               |   4 +-
- lib/vdso/gettimeofday.c                            |  62 +++++-----
- lib/vdso_kernel/Makefile                           |   3 +
- lib/vdso_kernel/datastore.c                        | 125 +++++++++++++++++++++
- 89 files changed, 574 insertions(+), 1231 deletions(-)
----
-base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
-change-id: 20240911-vdso-store-rng-607a3dc9e050
+diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
+index 69af424413db1f265607d0f1bdbf88550548c5ba..5ce322422fcb7ba77aeafddbf132fd3e5dbc5a0c 100644
+--- a/include/vdso/datapage.h
++++ b/include/vdso/datapage.h
+@@ -145,8 +145,10 @@ extern struct vdso_rng_data _vdso_rng_data __attribute__((visibility("hidden")))
+ #else
+ extern const struct vdso_time_data vdso_u_time_data[CS_BASES] __attribute__((visibility("hidden")));
+ extern const struct vdso_time_data vdso_u_timens_data[CS_BASES] __attribute__((visibility("hidden")));
++extern const struct vdso_rng_data vdso_u_rng_data __attribute__((visibility("hidden")));
+ 
+ extern struct vdso_time_data *vdso_k_time_data;
++extern struct vdso_rng_data *vdso_k_rng_data;
+ #endif
+ 
+ /**
+@@ -162,6 +164,7 @@ union vdso_data_store {
+ enum vdso_pages {
+ 	VDSO_TIME_PAGE_OFFSET,
+ 	VDSO_TIMENS_PAGE_OFFSET,
++	VDSO_RNG_PAGE_OFFSET,
+ 	VDSO_NR_PAGES
+ };
+ 
+@@ -185,6 +188,20 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_timens_dat
+ #define __arch_get_timens_vdso_data(vd) __arch_get_vdso_u_timens_data()
+ #endif /* CONFIG_TIME_NS */
+ 
++#ifdef CONFIG_VDSO_GETRANDOM
++static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(void)
++{
++	return &vdso_u_rng_data;
++}
++#define __arch_get_vdso_rng_data __arch_get_vdso_u_rng_data
++
++static __always_inline struct vdso_rng_data *__arch_get_vdso_k_rng_data(void)
++{
++	return vdso_k_rng_data;
++}
++#define __arch_get_k_vdso_rng_data __arch_get_vdso_k_rng_data
++#endif /* CONFIG_VDSO_GETRANDOM */
++
+ #endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
+ 
+ /*
+@@ -211,10 +228,17 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_timens_dat
+ #define __vdso_u_timens_data
+ #endif
+ 
++#ifdef CONFIG_VDSO_GETRANDOM
++#define __vdso_u_rng_data	PROVIDE(vdso_u_rng_data = vdso_u_data + 2 * PAGE_SIZE);
++#else
++#define __vdso_u_rng_data
++#endif
++
+ #define VDSO_VVAR_SYMS						\
+ 	PROVIDE(vdso_u_data = . - __VDSO_PAGES * PAGE_SIZE);	\
+ 	PROVIDE(vdso_u_time_data = vdso_u_data);		\
+ 	__vdso_u_timens_data					\
++	__vdso_u_rng_data					\
+ 
+ 
+ #endif /* !__ASSEMBLY__ */
+diff --git a/lib/vdso_kernel/datastore.c b/lib/vdso_kernel/datastore.c
+index c9cd269b1ed1b6cdd5fdf9fe929d0b778314b962..0d4f5317b508a54b4f3295f0335d1eefce74d78c 100644
+--- a/lib/vdso_kernel/datastore.c
++++ b/lib/vdso_kernel/datastore.c
+@@ -15,6 +15,15 @@ static union vdso_data_store vdso_time_data_store __page_aligned_data;
+ struct vdso_time_data *vdso_k_time_data = vdso_time_data_store.data;
+ static_assert(sizeof(vdso_time_data_store) == PAGE_SIZE);
+ 
++#ifdef CONFIG_VDSO_GETRANDOM
++static union {
++	struct vdso_rng_data	data;
++	u8			page[PAGE_SIZE];
++} vdso_rng_data_store __page_aligned_data;
++struct vdso_rng_data *vdso_k_rng_data = &vdso_rng_data_store.data;
++static_assert(sizeof(vdso_rng_data_store) == PAGE_SIZE);
++#endif /* CONFIG_VDSO_GETRANDOM */
++
+ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+ 			     struct vm_area_struct *vma, struct vm_fault *vmf)
+ {
+@@ -49,6 +58,11 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+ 			return VM_FAULT_SIGBUS;
+ 		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
+ 		break;
++	case VDSO_RNG_PAGE_OFFSET:
++		if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
++			return VM_FAULT_SIGBUS;
++		pfn = __phys_to_pfn(__pa_symbol(vdso_k_rng_data));
++		break;
+ 	default:
+ 		return VM_FAULT_SIGBUS;
+ 	}
 
-Best regards,
 -- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+2.47.1
 
 
