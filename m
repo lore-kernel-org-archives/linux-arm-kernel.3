@@ -4,162 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB475E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F90E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0TIfG75wJO5lrMLZtdzhGADL0JGb9XEc+PuAWLT5vQ=; b=kECFA2hl3tuh7yuazEY9vrS0nF
-	lNfbgKja2kl27520KoCisIeI1REsHmsaeMBNQ3ZZ/mLlDWbzk/Vyd43uk2fqzeC8y8+6VKAdcfJ4x
-	rwUxszf5dziMSkoDJROSNS7pO2tncznh19TtyXACJraiK5umhzckvLv/lshRLbpArN5HFhZphndJU
-	3QEWKGGzoW1Dam6WTlmOMEyXygO6bJuTw/7+UJcrYwSarLYCg2XtoqueOj+E3oJQDSttpV09ZwNYY
-	mtrTKcdTjX/zX2rOD1XESzzJlMTJB0q4BxPQajYVUc9QjPx5Ih3SU0kC6rXjC+aT2fRY677JWiORR
-	6N6+EGjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8iFsHZsvtPocVOs7tM+JW4SZTGG9RLuFNJIb6l3Vkn0=; b=3jD04ezfzSy5EBXJobIPTJr93d
+	wgfUJtH0wEWrX9xTLWWO6zAk8mStTOkzrrlsXtwebCKTuauzB1JwwmsTngkmZ1kRx7c/YaY07T0bP
+	4U9G496RzpIE7wb7qormNgDA6kYovLXdOzf+a9UGWSJgZLYAdDeAs8gy7PBx4WDgp7C6LHGdk+5I2
+	2johqgaD+LOTYOIgC8S0VHCZMR1v45XUQ7P6iVnfonNQvXhejIUBBfW6o6mARAqaXvXFA+Y8Ygusv
+	7QjEHiPFoUBP0lbsnUj+G/wKvZCcipiHPzreyysx3iF5Pedecn0irMJ0tAyvcixrs4j4Fi7AlImVC
+	D2OlSqpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFEB-0000000Aowi-0NAQ;
-	Mon, 16 Dec 2024 17:49:55 +0000
-Received: from mail-dm6nam04on20616.outbound.protection.outlook.com ([2a01:111:f403:2409::616] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1tNFFG-0000000ApAg-34m7;
+	Mon, 16 Dec 2024 17:51:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFC4-0000000Aoa8-0meC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 17:47:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p7vMTrSUWbHHbnQGHAGAEq4d1twVE2Yml42w6z97oc0GoL60JlrewaH+PkUvD7HcV0Jicy5o6DGMQZRn/suHFzWEpX+9Axuq9gE1AOy356hSthGKzPgEegJzQe6i0kkL2LxcFUOKv/ChmHp4AQlfnOr1k/pHgPJDrM+s8MFXDxB9DKJVnDM14L+Ah5BvUQzyxJ9YOTBdy21WUButyBGX38vLole/ydLI6D+EsOugPKHqmzOaXPVJwMnlAn9rr8NxUlNybq6/tp1FXw/kLFisWdXGp6yq3bYD+hX9+AvJwugZiYtFviyyvFudojIesXWUX+cUN6Hpox5ZGdNdZysGQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y0TIfG75wJO5lrMLZtdzhGADL0JGb9XEc+PuAWLT5vQ=;
- b=JOffgMo0swXKlzBy/glxCCdazWGQQ4xbFDHspmZsaX/D/gvAi1UrJgcoqFeD/4mF1CpJ2BPGsyMnp6CAAH/kPJuIpu9iVOjESLZobiNVTkmDF37ArX9se24bWCyBV84awWbpznBhQeBMma4t5fD2+vYzDIb+QL4mF47B1X+VKeZK8NW79CpdpJ/tFCk/4P+ZN7Mnp1CIZJh4L5Kgmrjw2ed1uSG8Ng8CWOvyTXgBN6JCR/hEogv0FGdMkkZNY2EngtdgL7fee/Cf7uNUFqo/7IwnsTG7U3sBDlQhrEv7+PxXCS3w1tnkuP8c2GBCBpA/w/8HYJ4o9OzOeSnghzdEUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y0TIfG75wJO5lrMLZtdzhGADL0JGb9XEc+PuAWLT5vQ=;
- b=B8m/idKZTBYiH6gBtoeAzE4E4HiheDsmop5doGS/loQNINe51G55UgxhRiV0xqblFLERB22AnWADPB+KBbO0vBOy+LwysVmDbv2y/8LcYbHiy0m9DLA8WWE3IOI9aiX49jMeBE2uoNledTf4YpLR5oFSvsPvrqx56dJHcMg5Ffo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com (2603:10b6:610:69::11)
- by MN0PR12MB6197.namprd12.prod.outlook.com (2603:10b6:208:3c6::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.20; Mon, 16 Dec
- 2024 17:47:36 +0000
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d]) by CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d%6]) with mapi id 15.20.8251.015; Mon, 16 Dec 2024
- 17:47:36 +0000
-Message-ID: <65a1d19e-e793-4371-a33d-e2374908d7f8@amd.com>
-Date: Mon, 16 Dec 2024 11:47:33 -0600
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mailbox: zynqmp: Remove invalid __percpu annotation in
- zynqmp_ipi_probe()
-To: Michal Simek <michal.simek@amd.com>, Uros Bizjak <ubizjak@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org, Jassi Brar <jassisinghbrar@gmail.com>
-References: <20241214091327.4716-1-ubizjak@gmail.com>
- <25eb1e35-83b0-46f4-9a9c-138c89665e05@amd.com>
-Content-Language: en-US
-From: Tanmay Shah <tanmay.shah@amd.com>
-In-Reply-To: <25eb1e35-83b0-46f4-9a9c-138c89665e05@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN6PR01CA0008.prod.exchangelabs.com (2603:10b6:805:b6::21)
- To CH2PR12MB4956.namprd12.prod.outlook.com (2603:10b6:610:69::11)
+	id 1tNFCR-0000000Aocb-2YCL;
+	Mon, 16 Dec 2024 17:48:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A2FAFA4197B;
+	Mon, 16 Dec 2024 17:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD1DC4CED0;
+	Mon, 16 Dec 2024 17:48:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734371286;
+	bh=YY6i8qBttwJwMGYHa0FJ7uNKRckcwymjOs5Mh2rzAaI=;
+	h=From:Date:Subject:To:Cc:From;
+	b=psRGZzTQFpUcDy5NQLC/ikAzjhe3peCZPny1d/+r6ut0Dvkr7Bshm/n4nGTk3/yIK
+	 fBQu2KIXXmvpQbHvisNK9VMFMqgtWyrOOhkOUxu3cxUS6/areYexT0DCwt1k+rXZce
+	 wsumdQafCFe0A0hIjqOqULnJL0ovbjebpKkglciOyQa7raZXG8GCDn94zUJFsoNOJv
+	 bpEt4qX622ulz4X0DOBIQ5HndttcXwg0hfwsRyTTrZArPXmsTReJIHSjCdOmxNm/Nv
+	 pEoCkB8Nv+Mkirqk3KMQrUgZLdfD72LztmsY5QHGRCFZIoCQ+zr65x9OoC+0YFpu6p
+	 Q2KUurSu4FKhw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 16 Dec 2024 18:47:33 +0100
+Subject: [PATCH net-next v2] net: airoha: Fix error path in airoha_probe()
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB4956:EE_|MN0PR12MB6197:EE_
-X-MS-Office365-Filtering-Correlation-Id: b321ffc2-5373-4c7e-cb3d-08dd1df9b9e6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y0lOeHUvbTNjZUN0ek9kQ25URytuL2ZXb0pYSjhISVpzcVBSaUFGUlRBNDk2?=
- =?utf-8?B?L3o0NXRIYnh2TnZLTHdTbksrT00yTkpWeU9rVmxncVdvaGpsWjlqSnVKN0dh?=
- =?utf-8?B?UEttb1k3UlZjRjVveFpYSUFUa3FmcXF5NmdBNUlpTkVZcVF6bE1ZZFlFWGRa?=
- =?utf-8?B?eHZtRHI5MGRLK0plaW5hU2d0dm9SZUpnMjFvckYxbWJjalhGUEJ1Zm40YUhL?=
- =?utf-8?B?SjluYlNaU1l0WVB3cHNONzZMNE1mMnFOa3hUd2thYkpNYWVSL2x3ei80WDhS?=
- =?utf-8?B?YWhGbEIrZlFuS2RHbzJzWFVVdjZFUCtiUEJGcjlQYjQ5RTgrcDUwVEpkOEh1?=
- =?utf-8?B?enVnd09pK2JIbGY0cmdhYW13MnJkZ2w0NlpKNVkrUm5QSFczYm8zR0FHa0RP?=
- =?utf-8?B?cVovNEtQdWM2dXNDTXhXR3NSUnQ1bVEwb05TS1ZqZTFiYkppSk5OaFduVS90?=
- =?utf-8?B?YmxseEQ2T3lEN0wrMHE4ZXlGbU1LcEJGbU9DVVdVdEExK2dpZjZ1Tnl0Uzl6?=
- =?utf-8?B?VGRydWRUZUJ1ZVJMc05ZeVdoSTVPUWFFSUVnTFM5alk4OW54blQ0d0IzYllG?=
- =?utf-8?B?Y3hxSXZQVzlqSGhWWGxxZTdqd2poNm9lMmlFTzJPQy9DVlJpQ204U0UwTUoz?=
- =?utf-8?B?ejdBNnpFOFpVemNkSThkaW5IeGdSL1dsSHVhU1QyM1I5YkE0Uk5lajBLeG8x?=
- =?utf-8?B?UWlaNDhQbU53eWlLVi9OT2dQVU1hWDdDNjU3OTdJZWxEVmxmMlV6MVNWM2Yy?=
- =?utf-8?B?Mm1seTdFL0p0WDFWWWJPeXh1RmdMc0swN3hsblVoc2l2bjI0SEhkcVV6b2pE?=
- =?utf-8?B?VmtqNnRXenVNTDhINmZ4eGxCOUlFbEFhYzluUGJMLzJlMFlBQ2V4aTRXS2J0?=
- =?utf-8?B?QUl0eGFjRFRWNlM3dVFnMUFKOVhmWHdQUEtQdHJvazZ3NXdLTmMrNlNJZVZt?=
- =?utf-8?B?dzB5V250VXhlVEJxd2lMQllaS0Y0bVJ6UW04bHlnTk11Wk8wOW16b1I3NXIz?=
- =?utf-8?B?ZFlNUCtreG1Ma3JpUU0vSk44YmN4c21ydWpRWS9BcW1BeUNRR3hMTTQ1RnBE?=
- =?utf-8?B?WWEvUXF1L3FJdVM1ME04Sk5pUFphWVZhbm5QSWdxWEk2MU53czBIcGk5OGRh?=
- =?utf-8?B?S3cxYVFtc2xqQUVBU0ZEamVtQ3ZxTFQzc095RTV5cTNLYTNaRUIrVXo3UVF2?=
- =?utf-8?B?WUFxVS9nOXhyeXZxMlUrZXpjalFaRjJHQitKckNxbnVqLzVNQ2dVZWcxb2d6?=
- =?utf-8?B?Q1dwVFBIQU1lVmYwTWQ0a0tRYnNieXlDOWMxSHRQMVluV2dFRWd3ZENDTWth?=
- =?utf-8?B?MWFvUGRnTGVvc0JEdE5aMmUyL2oxYWxsSFU3UysvUEthbXB4Ny8vN25QN3li?=
- =?utf-8?B?WnFKQzJDV1VKaFBwS3VmdUV6MU5vSGYzV3FBZEpTblV4WHhKZURLaWVlbGM4?=
- =?utf-8?B?ZktLNWg3VlRvcGpVR2IxeUIxMzZ2WXo2ZHdUb2lDcGcvVDg1aUc0elJyM3Vk?=
- =?utf-8?B?M1pQVGdQRzZwU1RWRnRGK05VcHg0V1BYOURpVHBMY0lqQ2k5THhiWHBCakho?=
- =?utf-8?B?ZXl0U3d6ZG9tQWJkeHNjUVBoYUYzYmJKTktybVlXbHJNT0xlbW9iVHRCTHM0?=
- =?utf-8?B?eXUvZVJmdFZLVXRsdFJQMzM1K2RzYktaRVBHOTFHajNHVDVxZzZpclA1MUFi?=
- =?utf-8?B?MXZCSHJyemhkTUlUUFd2R3k4NHNHc2JnbWgwYkRKa1FyUnQwQUsybTNJcWxF?=
- =?utf-8?B?bzdnaUtIaVBnZjdldHc2cFFrTU9sRTlxL1pGTm5HdXRDZmZlajNJbUI3Q3dM?=
- =?utf-8?B?Q0d0OG9rQnMrUDY1SEN2T2NVZUVXWENxU0xaUzBOZXVRaFhyWTR4ZmVLYUZv?=
- =?utf-8?Q?MrZoXzP0ozn+q?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB4956.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L0djdDZRNmhpR0tNWS81SG1tb3Uva2ZLUzRhdlUxdUNldjNVdkdwbzFiR04y?=
- =?utf-8?B?Qm80L0IyZk5xNDU2aUlDSzRLdEFpV3p0VG44dCtuQ2dVOGhtZGdJaU9RNGFY?=
- =?utf-8?B?Y1dsM3E2S2RLSlhnTGdwRVFudExobWxObTVQTDhlTGh0aDZ2cWJmRFVRYWE4?=
- =?utf-8?B?di9lUFhiUi9samNTYk1MMFU0ZDJZL2dWdmZjbXE5NEVyV0wvZTVBNzlUS1k5?=
- =?utf-8?B?bFRlWUZLM0tiUVhyWXZmUFFvcjM0c2E2TkJvZVNFMmY4VUF5OUpVUW5VaFZy?=
- =?utf-8?B?dWxzNTVQd3lWek5GWkJiaUhBUzRLNDdGek5MNGJQZDI3Yi9nN0tRVmVrVTgw?=
- =?utf-8?B?N2xrS1J4VlJqbFQvd2tNUXpXUEF1b2FXNEU4RWx4L3Jmd2xoWWw0dDZDYTRm?=
- =?utf-8?B?WWFqS09tYTl4S3RMQzBJTFhKNjVWU0NIRXJ5R212d3VNa2V5VWh3VnZjR2Fx?=
- =?utf-8?B?dkszS3dKNnNIYlFqdTNvQ0Nud0g1Ukt5OHB0ZXl2OWkzZkJobUZxcldSM3Bv?=
- =?utf-8?B?b0J6SjF5SnM0b2FHOVhUZ1QzVmsrOEJCTzZ4QlZ4ZmFvUExmN3ZDM0VFWHd0?=
- =?utf-8?B?dFZOSG8rQmVGYW1Jb0p1eGlFVTdZS2g4SHIzVFZsNERSTk44dWJ3Y2Z6VUh1?=
- =?utf-8?B?aVdjcDRicXkwaHNidG5UM21icFFUdTlFTGtnTVo5UGFvSEJkOGZ1Nm5OZGcw?=
- =?utf-8?B?OUp2ZGZNNUhsSmYxeFF6V2JqUnJ6T2NBd3lQTEJESWw4RVJpY3kwWk8wa0dR?=
- =?utf-8?B?UHp2T3M1V1JjTE5vNVlmdkZRNFl4UXhjR0puVVRETmc3ano1MGJ1Q3dCaVVL?=
- =?utf-8?B?a2JBaG1iNjNXZFhlY3IxTDRmd3RPcWpseVhwNTFuc21hTG53TjlOQitLemVQ?=
- =?utf-8?B?TzJKczZoaldxSE8xRFBqNWpIZzB2U2lyTzB0Qy9NUjVoZktROThBcC8wUWt6?=
- =?utf-8?B?WFFyeFEyRWZ0K3JkajJWOWNBZmJyZ1JHZ3IxcktrMjZvZG00ODBVd3k0Nnds?=
- =?utf-8?B?NWVJbzYvd0tmdWlzWi8zNjZicGFLZ2c3V0QyY2x2ZWoycjh5a255UlJmR2ZQ?=
- =?utf-8?B?ckFoWnZWSEd3WGdQdnl1UzBBblJkYXRKNjZmUGp1b0RyTVhvLzNydTM4QmFn?=
- =?utf-8?B?N0RKTGJyRmxYa1VrK1k4RGpKT3ZGWkE1YWxVdEt2U2hvZmRqd3BYaU9GSy9C?=
- =?utf-8?B?bEJENks5K21EOEprNDNINzNNbWhxamdtQ0RjOE5SWG9LdU56V0tFb0tidkNN?=
- =?utf-8?B?SW9sREtkUXJEYUswMll2aTg3RTBhZld6L29KY0QzamQyYklWdWdwdnpUT0xx?=
- =?utf-8?B?Rk81bHdkNFN0SmV3aDV1R3JJV3VIeWVOQ0d2LzJROHVxL2VzZTl0RXdFQ0Ny?=
- =?utf-8?B?UjNOUzVtT1BxYkhvQjM5b014ak9idGg3cmpLbXZzakhzNFVlSU92YmhRbnJU?=
- =?utf-8?B?VDNoSFpQY2JUMXNZUWVsR2dxYW9obmdYOHFlT0dMVTBidVR1TFErWTljQnBS?=
- =?utf-8?B?aWxNY1JqSHNNZ3g5Uld5QUxXamVWWnYwYVNBc0RBS0xwdHBDUER2V0J6U1Az?=
- =?utf-8?B?MDFMeDF1K1c1ckpXK1NBMmZLN2p1WUovSlJlSVBaNndub1lHcjFMaDU2RFNh?=
- =?utf-8?B?dVNlZ3ljNllld1UrZUZYbzAwTTZQNHpnVXRjWjJIdkxmd1REUGFhWFFtYUVK?=
- =?utf-8?B?WUlFRGFPbWp4L0xnU2NUZlNrdXFJYkt2NjIvdWNrR1p1czJvZk9odkt4Q2p0?=
- =?utf-8?B?ZnBCM0hmS1pXU0hwZ1lyakc5NUh2NkVYMUZTdDdGblVXR1ByOWl0aVFqMGlq?=
- =?utf-8?B?bzRDT2dJNVk4U2JPQWh3QURPMDFITmhvUnFUL3R6RUtxQkN3S25lRXdMSGVs?=
- =?utf-8?B?eTlDSkJBV1hwLzZlc1dXR2tZek0wcU9jWGhSMGJkL1IvU2lOaGx2ckp5czIy?=
- =?utf-8?B?K3hLUVA5d2VESWQ2QTN5WWordHBXMXUrNko3aVpqUUFIZ1VKWHNRN0ZtaUp4?=
- =?utf-8?B?aE8wWjNpSEpybHZDZk04Z1RMMk9sS0FpcWlyWnZQOFgyTUlsYWN1bThHcHNQ?=
- =?utf-8?B?bUZOOUZmeEQ5Y0dMdExPUVVweUJWTHUxamNNelphaGM0cndIQWZncE5kT3Nh?=
- =?utf-8?Q?7KVtomLhwi3zTii904ZlFjpyL?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b321ffc2-5373-4c7e-cb3d-08dd1df9b9e6
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB4956.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 17:47:36.1094
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 55UiCF1MLpqCC6vFTYnBwb+pAKtfb2EaDNKonsmApPA1lQOBNwCJHYkH8gP277hT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6197
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241216-airoha_probe-error-path-fix-v2-1-6b10e04e9a5c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALRnYGcC/42NQQ6CMBAAv0L27Bq6gAme/AchptCVbjS02RKiI
+ fzdygs8zhxmNkiswgmuxQbKqyQJcwY6FTB6O0+M4jIDlVQbMg1a0eDtPWoYGFk1KEa7eHzIG5t
+ hvAzsSqaSIReictZHvesze0lL0M8xW83P/tddDRp0jtrWELmqrm5P1plf56AT9Pu+fwEMwNMbx
+ wAAAA==
+X-Change-ID: 20241215-airoha_probe-error-path-fix-5bc6bed0e20e
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Mark Lee <Mark-MC.Lee@mediatek.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_094744_718132_583362ED 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20241216_094807_794896_DBEA0395 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,83 +78,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Tanmay Shah <tanmay.shah@amd.com>
+Do not run napi_disable() if airoha_hw_init() fails since Tx/Rx napi
+has not been started yet. In order to fix the issue, introduce
+airoha_qdma_stop_napi routine and remove napi_disable in
+airoha_hw_cleanup().
 
-On 12/16/24 1:16 AM, Michal Simek wrote:
-> 
-> 
-> On 12/14/24 10:12, Uros Bizjak wrote:
->> struct zynqmp_ipi_pdata __percpu *pdata is not a per-cpu variable,
->> so it should not be annotated with __percpu annotation.
->>
->> Remove invalid __percpu annotation to fix several
->>
->> zynqmp-ipi-mailbox.c:920:15: warning: incorrect type in assignment 
->> (different address spaces)
->> zynqmp-ipi-mailbox.c:920:15:    expected struct zynqmp_ipi_pdata 
->> [noderef] __percpu *pdata
->> zynqmp-ipi-mailbox.c:920:15:    got void *
->> zynqmp-ipi-mailbox.c:927:56: warning: incorrect type in argument 3 
->> (different address spaces)
->> zynqmp-ipi-mailbox.c:927:56:    expected unsigned int [usertype] 
->> *out_value
->> zynqmp-ipi-mailbox.c:927:56:    got unsigned int [noderef] __percpu *
->> ...
->>
->> and several
->>
->> drivers/mailbox/zynqmp-ipi-mailbox.c:924:9: warning: dereference of 
->> noderef expression
->> ...
->>
->> sparse warnings.
->>
->> There were no changes in the resulting object file.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: 6ffb1635341b ("mailbox: zynqmp: handle SGI for shared IPI")
->> Signed-off-by: Uros Bizjak <ubizjak@gmail.com>
->> Cc: Jassi Brar <jassisinghbrar@gmail.com>
->> Cc: Michal Simek <michal.simek@amd.com>
->> Cc: Tanmay Shah <tanmay.shah@amd.com>
->> ---
->> v2: - Fix typo in commit message
->>      - Add Fixes and Cc: stable.
->> ---
->>   drivers/mailbox/zynqmp-ipi-mailbox.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/ 
->> zynqmp-ipi-mailbox.c
->> index aa5249da59b2..0c143beaafda 100644
->> --- a/drivers/mailbox/zynqmp-ipi-mailbox.c
->> +++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
->> @@ -905,7 +905,7 @@ static int zynqmp_ipi_probe(struct platform_device 
->> *pdev)
->>   {
->>       struct device *dev = &pdev->dev;
->>       struct device_node *nc, *np = pdev->dev.of_node;
->> -    struct zynqmp_ipi_pdata __percpu *pdata;
->> +    struct zynqmp_ipi_pdata *pdata;
->>       struct of_phandle_args out_irq;
->>       struct zynqmp_ipi_mbox *mbox;
->>       int num_mboxes, ret = -EINVAL;
-> 
-> Tanmay: Please take a look
-> 
-> I think this patch is correct. Pdata structure is allocated only once 
-> not for every CPU and marking here is not correct. Information from 
-> zynqmp_ipi_pdata are likely fixed and the same for every CPU. Only IRQ 
-> handling is done per cpu basis but that's it.
-> 
-> Reviewed-by: Michal Simek <michal.simek@amd.com>
-> 
-> Thanks,
-> Michal
-> 
+Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+Reviewed-by: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- rename airoha_qdma_disable_napi() in airoha_qdma_stop_napi()
+- Link to v1: https://lore.kernel.org/r/20241215-airoha_probe-error-path-fix-v1-1-dd299122d343@kernel.org
+---
+ drivers/net/ethernet/mediatek/airoha_eth.c | 33 ++++++++++++++++++++++--------
+ 1 file changed, 25 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
+index 6c683a12d5aa52dd9d966df123509075a989c0b3..d8bfc21a5b194478e18201ee3beca7494c223e24 100644
+--- a/drivers/net/ethernet/mediatek/airoha_eth.c
++++ b/drivers/net/ethernet/mediatek/airoha_eth.c
+@@ -2138,17 +2138,14 @@ static void airoha_hw_cleanup(struct airoha_qdma *qdma)
+ 		if (!qdma->q_rx[i].ndesc)
+ 			continue;
+ 
+-		napi_disable(&qdma->q_rx[i].napi);
+ 		netif_napi_del(&qdma->q_rx[i].napi);
+ 		airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
+ 		if (qdma->q_rx[i].page_pool)
+ 			page_pool_destroy(qdma->q_rx[i].page_pool);
+ 	}
+ 
+-	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++) {
+-		napi_disable(&qdma->q_tx_irq[i].napi);
++	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
+ 		netif_napi_del(&qdma->q_tx_irq[i].napi);
+-	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
+ 		if (!qdma->q_tx[i].ndesc)
+@@ -2173,6 +2170,21 @@ static void airoha_qdma_start_napi(struct airoha_qdma *qdma)
+ 	}
+ }
+ 
++static void airoha_qdma_stop_napi(struct airoha_qdma *qdma)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
++		napi_disable(&qdma->q_tx_irq[i].napi);
++
++	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
++		if (!qdma->q_rx[i].ndesc)
++			continue;
++
++		napi_disable(&qdma->q_rx[i].napi);
++	}
++}
++
+ static void airoha_update_hw_stats(struct airoha_gdm_port *port)
+ {
+ 	struct airoha_eth *eth = port->qdma->eth;
+@@ -2738,7 +2750,7 @@ static int airoha_probe(struct platform_device *pdev)
+ 
+ 	err = airoha_hw_init(pdev, eth);
+ 	if (err)
+-		goto error;
++		goto error_hw_cleanup;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_start_napi(&eth->qdma[i]);
+@@ -2753,13 +2765,16 @@ static int airoha_probe(struct platform_device *pdev)
+ 		err = airoha_alloc_gdm_port(eth, np);
+ 		if (err) {
+ 			of_node_put(np);
+-			goto error;
++			goto error_napi_stop;
+ 		}
+ 	}
+ 
+ 	return 0;
+ 
+-error:
++error_napi_stop:
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++		airoha_qdma_stop_napi(&eth->qdma[i]);
++error_hw_cleanup:
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_hw_cleanup(&eth->qdma[i]);
+ 
+@@ -2780,8 +2795,10 @@ static void airoha_remove(struct platform_device *pdev)
+ 	struct airoha_eth *eth = platform_get_drvdata(pdev);
+ 	int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
++		airoha_qdma_stop_napi(&eth->qdma[i]);
+ 		airoha_hw_cleanup(&eth->qdma[i]);
++	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+
+---
+base-commit: bc6a5efe3dcd9ada8d76eeb69039a11a86add39b
+change-id: 20241215-airoha_probe-error-path-fix-5bc6bed0e20e
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
