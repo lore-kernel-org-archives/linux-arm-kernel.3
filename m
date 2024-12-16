@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC4ADE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B4B9E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RamQrwqiR8YzmFJXnap7mvQDniCLk74JwWIfHpFfvpc=; b=U9sTUjh2wpnLHPs8HReU4/5siK
-	3jMr+m9sd5pf8hN3AD+5xrb0IhHarxTDAVPXw5xm+IoQJzqvQgZ7V7qgzvbT6TznwrLHUAI/RyJIg
-	ivwYfgCKdRYF5VlJeRzLdXWRasdGozUP7Vw/UXJu+5QT3+13d3HSFLGKXH40rxc7fprC/7tbH1oCH
-	YAfbED9oMHLo1EYvWx19dXlG0LfnhR029KlLNe/Gtt3ImJB9hRWbIpDjrrT1FU0lC+Kq5uQmTB+u0
-	f0vforRXrI+56ZCzq8MID07uvsjcXL/8gR2HyEKHJ2hbgI3frKMDRTXCH2W49Fj2g15943yG1eADH
-	0d2G5Biw==;
+	bh=v4NqDvhpbu9adT0Cs5L2MtbI6B9qYT0ry+58Y+plsos=; b=N8lfNxzfrbbMn35Aj5ktYJ4OTc
+	OvuMDKY46yhc7QfSku6+KLfz/QdHC/A5uwFp3U7nEPLVaHOC0lXoWzysSNvHtqlQNajFNYyFvn3dS
+	i020yYjU955ElVoZl0WR9qPeD44lkr6SGX7SNDGoB7iW1juzWKOqTC3jTmi7yiTXNTUL92WusqTsg
+	EdXagLc+CRMSop6XJpRX1xxf20zr7zQstB+XafnX3Er9JKR+VXyF/ZK9STB7e+8yVjSrfBh44qIXv
+	MyvuIMPLw2VzBEljvSHUfSr3OyMuwfKubgFqMTcAoklaMmQ/ZGMg/olUSHs8IkMA8UrD/SvquUBza
+	Dq+6yH4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3ra-000000097UK-3AsH;
-	Mon, 16 Dec 2024 05:41:50 +0000
+	id 1tN3sf-000000097cX-29Ab;
+	Mon, 16 Dec 2024 05:42:57 +0000
 Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3lD-000000096ea-42ta
+	id 1tN3lo-000000096l2-32yv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 05:35:17 +0000
+	Mon, 16 Dec 2024 05:35:54 +0000
 Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BG4A44R017722;
-	Sun, 15 Dec 2024 21:35:09 -0800
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BG49meT016661;
+	Sun, 15 Dec 2024 21:35:47 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=RamQrwqiR8YzmFJXnap7mvQDn
-	iCLk74JwWIfHpFfvpc=; b=UyKkvcs3qyAfR/58ZBBJVXzxUsION05Ue75AH8IyK
-	BwFGt3c0L4wUln3LS1uIdvEhlX1eZEdbRjMxOI6XANH8RP5hmZgpl29QmjnHrWX5
-	0SAiKy+yHWC8NFONj0TxvVbU+rrCvgWiQdsGaPI3Al+ww+2PuFX66aqEXRhe+vc2
-	ZGfdBFRLmGhKh2FeLvEiJKbwvWmwISATS8HLVeOAabSaP+jDYjzx0r0H1Nu4Yfnl
-	a+drRA8mBjVwpG++zHFU/NZpRyoSWcYpndDbj44jI/ChCjEbkpLDVlAeJYMAPufU
-	kZcd9jh2CxVS3INnlZLEirIcvNu+nTvhrTe5XE3QCAuEA==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 43jcxgr7q6-1
+	:references:subject:to; s=pfpt0220; bh=v4NqDvhpbu9adT0Cs5L2MtbI6
+	B9qYT0ry+58Y+plsos=; b=jyFTC9fnKrEopeqHbZRkS4QogZolK4KheSlMNVJ4E
+	/NRXJY7t9Io3RXra6tSAuzVjABnhZblocX1dg1GSbyxZL+RGsYvsivsJ7mHGgHqC
+	edvMq30ZPVbL64ybAze52BTo/gLccnTN3HHU/DS399zln4FMA1GbK1KEjOXOybBH
+	ET9PUPX0SaQ6Gb/0YueYsxemTANOBY1RSXtm/UNSej+YS8hzKvKWEcE53DVogAaf
+	gvZMUf2iuW6/5RAGLZn+wlbWIeKGEZLgYecQUfC5lGbSXmak0j729A497AtAgvPJ
+	+1xJe58nQnCWoqhRqrXLhpAAxeZqQmLwtwIEa+CyOAITw==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 43jcxgr7rj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 15 Dec 2024 21:35:09 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+	Sun, 15 Dec 2024 21:35:47 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Sun, 15 Dec 2024 21:35:08 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Sun, 15 Dec 2024 21:35:08 -0800
+ 15.2.1544.4; Sun, 15 Dec 2024 21:35:45 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Sun, 15 Dec 2024 21:35:45 -0800
 Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
-	by maili.marvell.com (Postfix) with SMTP id E61D23F7041;
-	Sun, 15 Dec 2024 21:35:04 -0800 (PST)
-Date: Mon, 16 Dec 2024 11:05:03 +0530
+	by maili.marvell.com (Postfix) with SMTP id 44BED3F7041;
+	Sun, 15 Dec 2024 21:35:42 -0800 (PST)
+Date: Mon, 16 Dec 2024 11:05:41 +0530
 From: Linu Cherian <lcherian@marvell.com>
-To: Shuah Khan <skhan@linuxfoundation.org>
-CC: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>, <james.clark@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
-        <linux-kernel@vger.kernel.org>, <shuah@kernel.org>,
-        <linux-kselftest@vger.kernel.org>, <sgoutham@marvell.com>,
-        <gcherian@marvell.com>
+To: James Clark <james.clark@linaro.org>
+CC: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <shuah@kernel.org>, <linux-kselftest@vger.kernel.org>,
+        <sgoutham@marvell.com>, <gcherian@marvell.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Suzuki K Poulose <Suzuki.Poulose@arm.com>, Leo Yan
+	<leo.yan@arm.com>
 Subject: Re: [PATCH] selftests: arm coresight: sysfsmode testing
-Message-ID: <20241216053503.GB1224111@hyd1403.caveonetworks.com>
+Message-ID: <20241216053541.GC1224111@hyd1403.caveonetworks.com>
 References: <20241129083813.3056909-1-lcherian@marvell.com>
- <115bb206-8401-4475-977d-7dd98a2b872c@linuxfoundation.org>
+ <1b7aaa17-48b7-45cd-b468-ef54ca048e31@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <115bb206-8401-4475-977d-7dd98a2b872c@linuxfoundation.org>
-X-Proofpoint-GUID: ka43qKm3HAQMVCEIw_2xV_RysnTBS7RN
-X-Proofpoint-ORIG-GUID: ka43qKm3HAQMVCEIw_2xV_RysnTBS7RN
+In-Reply-To: <1b7aaa17-48b7-45cd-b468-ef54ca048e31@linaro.org>
+X-Proofpoint-GUID: l3-LipelPYiuKBTgASP_r_OCqzt4wW0i
+X-Proofpoint-ORIG-GUID: l3-LipelPYiuKBTgASP_r_OCqzt4wW0i
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_213516_062752_CED161AC 
-X-CRM114-Status: GOOD (  29.77  )
+X-CRM114-CacheID: sfid-20241215_213553_285028_264F791B 
+X-CRM114-Status: GOOD (  23.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +94,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi James,
 
-On 2024-12-04 at 05:53:56, Shuah Khan (skhan@linuxfoundation.org) wrote:
-> On 11/29/24 01:38, Linu Cherian wrote:
+On 2024-12-04 at 16:45:42, James Clark (james.clark@linaro.org) wrote:
+> 
+> 
+> On 29/11/2024 8:38 am, Linu Cherian wrote:
 > > Add sysfs mode selftest for ARM Coresight hardware tracer.
-> 
-> Please add details on what this test does in here. Include
-> the output from the test?
-
-Ack. Will add test descripion here. 
-
-> 
-> Does this test have dependencies on config? If it does, does
-> this test detect and skip if config isn't enabled?
-
-Will add dependency.
-
-Thanks.
-
-> 
 > > 
 > > Signed-off-by: Linu Cherian <lcherian@marvell.com>
 > > ---
@@ -118,6 +108,21 @@ Thanks.
 > >   .../hwtracing/coresight/sysfs_test_trace.sh   | 144 ++++++++++++++++++
 > >   2 files changed, 149 insertions(+)
 > >   create mode 100644 tools/testing/selftests/drivers/hwtracing/coresight/Makefile
+> 
+> Hi Linu,
+> 
+> You need to add this path into TARGETS for make install to work:
+> 
+>  TARGETS += drivers/dma-buf
+> +TARGETS += drivers/hwtracing/coresight
+>  TARGETS += drivers/s390x/uvdevice
+
+
+Sure will add that.
+Thanks.
+
+> 
+> 
 > >   create mode 100755 tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
 > > 
 > > diff --git a/tools/testing/selftests/drivers/hwtracing/coresight/Makefile b/tools/testing/selftests/drivers/hwtracing/coresight/Makefile
@@ -159,130 +164,14 @@ Thanks.
 > > +	# If the node of "enable_sink" is existed under the device path, this
 > > +	# means the device is a sink device.
 > > +
-> > +	if [ -e "$1/enable_sink" ]; then
-> > +
-> > +		return 0
-> > +	else
-> > +		return 1
-> > +	fi
-> > +}
-> > +
-> > +# Configure sink for buffer mode
-> > +cfg_sink_buf_mode() {
-> > +	sink_dev=$1
-> > +	mode=$2
-> > +	# Set buffer mode if supported
-> > +	if [ -e "$sink_dev/buf_modes_available" ]; then
-> > +		cat $sink_dev/buf_modes_available | grep -E -q $mode
-> > +		if [ $? -eq 0 ]; then
-> > +			echo $mode > $sink_dev/buf_mode_preferred
-> > +			return 0
-> > +		fi
-> > +	fi
-> > +
-> > +	return 1
-> > +}
-> > +
-> > +run_app() {
-> > +
-> > +	taskset -c $1 dd if=/dev/urandom  of=/dev/null bs=1M count=64
-> > +}
-> > +
-> > +sysfs_trace() {
-> > +	src_dev=$1
-> > +	sink_dev=$2
-> > +	cpu=$3
-> > +
-> > +	# Enable sink device
-> > +	echo 1 > $sink_dev/enable_sink
-> > +	# Enable source device
-> > +	echo 1 > $src_dev/enable_source
-> > +
-> > +	# Run app to be traced
-> > +	run_app $cpu
-> > +
-> > +	# Read back trace data
-> > +	dd if=/dev/$sink_dev_name of=/tmp/tracedata
-> > +
-> > +	# Verify if read is successful
-> > +	err=$?
-> > +
-> > +	# Disable source device
-> > +	echo 0 > $src_dev/enable_source
-> > +
-> > +	# Diskable sink device
-> > +	echo 0 > $sink_dev/enable_sink
-> > +
-> > +	arm_cs_report "CoreSight path testing (CPU$cpu -> $sink_dev_name)" $err
-> > +}
-> > +
-> > +try_sysfs_trace_resrv_buf() {
-> > +	src_dev=$1
-> > +	sink_dev=$2
-> > +	cpu=$3
-> > +
-> > +	# Configure the resrved buffer mode if available
-> > +	cfg_sink_buf_mode $sink_dev "resrv"
-> > +	if [ $? -eq 0 ]; then
-> > +		echo "Running sysfs trace with resrv buf mode"
-> > +		sysfs_trace $src_dev $sink_dev $cpu
-> > +		# Restore buffer mode
-> > +		cfg_sink_buf_mode $sink_dev "auto"
-> > +		if [ $? -eq 1 ]; then
-> > +			echo "Failed to restore default buf mode"
-> > +		fi
-> > +	fi
-> > +}
-> > +
-> > +arm_cs_iterate_devices() {
-> > +	src_dev=$1
-> > +	cpu=$3
-> > +	for cdev in $2/connections/out\:*; do
-> > +
-> > +		# Skip testing if it's not a directory
-> > +		! [ -d $cdev ] && continue;
-> > +
-> > +		# Read out its symbol link file name
-> > +		sink_dev=`readlink -f $cdev`
-> > +
-> > +		# Extract device name from path, e.g.
-> > +		#   sink_dev = '/sys/devices/platform/20010000.etf/tmc_etf0'
-> > +		#     `> sink_dev_name = 'tmc_etf0'
-> > +		sink_dev_name=$(basename $sink_dev)
-> > +
-> > +		if is_device_sink $sink_dev; then
-> > +			# Run trace with resrv buf mode (if available)
-> > +			try_sysfs_trace_resrv_buf $src_dev $sink_dev $cpu
-> > +
-> > +			# Run the default mode
-> > +			echo "Running sysfs trace with default settings"
-> > +			sysfs_trace $src_dev $sink_dev $cpu
-> > +		fi
-> > +
-> > +		arm_cs_iterate_devices $src_dev $cdev $cpu
-> > +
-> > +	done
-> > +}
-> > +
-> > +arm_cs_etm_traverse_path_test() {
-> > +	# Iterate for every ETM device
-> > +	for dev in /sys/bus/event_source/devices/cs_etm/cpu*; do
-> > +		# Canonicalize the path
-> > +		dev=`readlink -f $dev`
-> > +
-> > +		# Find the ETM device belonging to which CPU
-> > +		cpu=`cat $dev/cpu`
-> > +
-> > +		# Use depth-first search (DFS) to iterate outputs
-> > +		arm_cs_iterate_devices $dev $dev $cpu
-> > +	done
-> > +}
-> > +
-> > +arm_cs_etm_traverse_path_test
-> > +
-> > +exit $glb_err
 > 
-> thanks,
-> -- Shuah
+> Looks like you still need the skip for TPIU here the same as the Perf test.
+> It's an external sink and doesn't have a readable file so the test fails.
+> 
+> With those changes, looks good. Thanks for adding the first sysfs test.
+> Hopefully we can expand them more in the future.
+> 
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> 
 > 
 
