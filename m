@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC5DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D1FE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CqFXFmSmKLaSa4Vhvi8HNeoTtmpRApxU91TTMrXkHTg=; b=EE2qsYxxGUbZ2XerfOigyyZS8Z
-	P8wh51J6tIc4X/4x9aKk+h+dsz/gxQ4AGNSGjuHzN9JXhq3S9B/4nAcR3GUCA5nXjRMTMbyJDiJDD
-	5d1hkFXBLLGLDMgxRivQglR56h+aSQdb1IRYzKswDRVaqBwb3Z4b2xQffBj3W1GxuIXIh83d0dtDh
-	iQMxwKamt0f8iKF1mkwzYSlwLESzhc3iE1PVFG385BoJfULE4Qt82BRLPgqrLPzE9ilg6PsMrTrUj
-	k53j2rgsDuL01PnNNYQ0qfTr1kEV4o2tu8A+F/4ga7Y/UNg5MU/r2d5Mio2piIxlJSzuCSFw0lPlW
-	guGifqFw==;
+	bh=GUU/XypxaduzqMjt/wtaQMQLw5fmlBNHttBG958fM88=; b=ysutHxGzLnnYd3cjOT8h7uoMSv
+	UYJCgnKbQrN+Lw5MpbVdbc+lcVEFqxmSytdD0fvLxrhFNWK+u33JuK9VZFa4TSMOu7QqU7bu2Qy1X
+	o7b6forVW94snOMzV1zR/+vkFzmzBXo2CssXW5jo0gJocwmPmCSg5oGuPAOB/FIsRJq7Qnik3E64o
+	sVr/S9Yc0AcV1VfWMSaW9ZTs2f4yPJntcWisVmzifo/roLAP0p4DwLfMkmNQsO01JQopM9CJUpjhE
+	YJxh807SBGNkAvPL/1lUyCpIrJbNjE29rmTrr38VT/DjIrq3LMx7UBQjp9i8M+KdQa98Q/Mod1azD
+	McQCHAKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNG99-0000000B0Lf-3VYw;
-	Mon, 16 Dec 2024 18:48:47 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tNGAE-0000000B0XT-2DkJ;
+	Mon, 16 Dec 2024 18:49:54 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNG81-0000000B08k-2cCG
+	id 1tNG8g-0000000B0GK-1uyJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 18:47:38 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-218c8aca5f1so2516115ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 10:47:37 -0800 (PST)
+	Mon, 16 Dec 2024 18:48:19 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2efd81c7ca4so3066061a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 10:48:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734374857; x=1734979657; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734374897; x=1734979697; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=CqFXFmSmKLaSa4Vhvi8HNeoTtmpRApxU91TTMrXkHTg=;
-        b=Cb6krtb8NPL945U8t9aoE47NmJ4p+DVLebbxZip9nhPGlRXv0DRkgKI0HbetGAUu4Z
-         Qi5UtKWi4LIx+MKkGkhZwVbvw7GZYtISoIUYrxvWk8GUFLWAd5nbYt19FWJfQ+qWAdir
-         gyh+UeV2Mi9Pv62RXcr+TAaz5wMzADlHqagiBnpa3SMx02BTUc7dAHc3+wecIjnIkrsd
-         lU6rXXHjMkqnNBs//X9a+I37i/GGVLDauChBxgcVb1tnfO1AaBoaa7fKjBfds9NY1kQ+
-         Yy5G+o32tGRPbd1Fe21vrCqvG9HyvzUbGoXNCa6XgcMfL3ruECQl5qH16YH4gDbPxARm
-         u0OQ==
+        bh=GUU/XypxaduzqMjt/wtaQMQLw5fmlBNHttBG958fM88=;
+        b=AY4jKHD7XMdbTe4DWpOwrourSFMAewodCigvc5661CMqD6wHDWp0JzRTj9rfN85u24
+         F73B5mCjpk31EggxKbIX4cEAkOQRC9sDEPTlGjggRAngB03jOSdXTzd+grP2cv7HO9sq
+         TuYOPWlh6dCG+mKsedepLuWViIeKauRDaVLAQWs8oHkbhUgM1e/F3cqGZdQT5SoumXkV
+         ktWsZNwUp7B6FcmqiP+lCvKdLY8PHapRH6EQqs+THZIeDQVmZf7DOCSGpK5I95PzsS5n
+         2AbJhf8yW5+tXD2gKpMXKDlX11kvCP9y9WToUT2ZNEKzpNU6VLj3X+iens1CCR/7aW0g
+         K/Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734374857; x=1734979657;
+        d=1e100.net; s=20230601; t=1734374897; x=1734979697;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CqFXFmSmKLaSa4Vhvi8HNeoTtmpRApxU91TTMrXkHTg=;
-        b=DgoA4+TzG+bER+ctiXqpxAXescVlBY1NwyjeDvzqbIC9YIY92IbvGDDH1Lv/dEtq8g
-         3pcbN/+rhNLXyECSDWf8e/vH7MO23gZyegMNalu8n/7AMCo32OhQhRewMGpPK5qy61aN
-         4UDL4+wORwKZe5ukUHJ3xnLwSIwhZMWWJYUJtRtaK62C/MOpt4zdsHh8S5+PK0WdVI+m
-         Hu3U27jTZLAlDEaq8kcwZ/xEiHS1r+Fsnx5YpebmzwI8AaX+TvQMkof/c24o1r61e7SE
-         L6S7c6j0IdkznsAhE+5+CgllqEEFpmI3/UIlJC9FndOZxNJF6gE4ss893UxB2/bac4hP
-         UUNA==
-X-Forwarded-Encrypted: i=1; AJvYcCWsQItwrGJfLkzowS8USA/OXTmsDymoN6MYY+UuJu1NN17p6m/dXpIxgqopMMUomN/o2Wv3vuTvuHpcw/SE3Y5M@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ1fUqTb8BDriSoqjVDmgFCcl3+H235rxCNfyzc8TqnD5RTpEp
-	2XxGyGpllsCFACBa3oKHIi5GUU07UFtM7KdtMoVFOe/qCsMM6I86
-X-Gm-Gg: ASbGncuEt7Hh/siHshjYAND5kPnCnMIyx3sPC4lJR8Lm9pf8fAdHY3cwoaWgb1Vwm/4
-	PxyAR2gytMZAXjTzmgjoaPDD8qv6IZm4As4XjgGM0w6Umbrp47i8J6uluEMoGKfq7ljnhiDjgo7
-	BoAuUTuZbCJObzFRkFu5xRwYGGK2favnkTD2WIWXXKbOAMAWy7dy93Ls9gvOtquscZf+JeHCsC/
-	EkbHh3WAGsmS4p+1Mcl1ff2Zljf2KUpjpS7Ru818zaAMNN+cOb8O+mHg62Z9VP92Z52UFbGXrph
-	mR1MsEOflZMQJ5E/yLbbpP4ny+DsuA==
-X-Google-Smtp-Source: AGHT+IEIIrPoJh1GXWlfdX3/QWjWvj2/h7CMhTzjWUDIMndNQJ5On8mQEgeMF8lUXxA39smV+RBsqw==
-X-Received: by 2002:a17:902:ce8d:b0:215:385e:921c with SMTP id d9443c01a7336-21892a7a2d9mr152417255ad.51.1734374856981;
-        Mon, 16 Dec 2024 10:47:36 -0800 (PST)
+        bh=GUU/XypxaduzqMjt/wtaQMQLw5fmlBNHttBG958fM88=;
+        b=KiBUJ/JeiDrDh3fd22KT3i/eM+M68eey9bOHsVJ2LQZ/yMn97bCBlW+Byx+b7+FMpk
+         3FVi7+Hsf5H+wCan4wB2V61dkjhJX+7yrijf18fZ6QhjT+6zUnw/Cx0SAyNHWlFAAeBd
+         whHJ7QYIo0FVKzDcghMntq1gs+BrKLKiorQomjZ02JPlHoBkLcrT9q5igdgh37jvhExd
+         byZ54R0nBK4/u+NQ9dTaY7IsrlCYQvB+yW4FP1MRzGaqa/GvGEzK9JR65vuvl2ZPxYa4
+         /OImKIXo6Nqo9Ur34jW3Jdh1qpm8qhwR8Qxntcztwr5h/EDNItdMnCeY0nsV7+n26kiH
+         yomw==
+X-Forwarded-Encrypted: i=1; AJvYcCWPaq72oYwTB1QO1XruCu2zwTBy+f1ai0ekgt+b3oevvmN/8NhqA9004JJ5BxwpCHiDI/XBqg3eUSA+3+/8wE0c@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4ZtzFFtlSUr+Ckf9H08ZsopAVy69egXdybBgMw17yogm1Vsxj
+	WV1YlR6mu2kuXQpLhQLTsW1kLWI0f1sZ7vJgr3Ii5xyzEQmiyd3T
+X-Gm-Gg: ASbGncvQEeOYGmhi0lo+Jij7nxxGgKJn6ZFH+Zer1pcI3jiYkWUWsOScJGF/MaM/vJ6
+	Ml9IB+2FCZvFp7v1UuHl74OvcRt+CodyoEhyizwbBzCiH1du2WEGyDXgBBxvZYNICbgm7vtkUs3
+	zQKp6hgyxTTiQungX8u1H+fT2CcPd4lAq40NGNv5nWLrFNPAcjdx+gzEmX3g4d6lSf7QMKwudiF
+	Q3oCvjculDFvunADD75wdzGz6gNszU63scDXvn8teCeZHCwZhdDv7Bt8TbTpWf+3myI5LbqjG0u
+	3O41l+JpqUIOEMQkb/zG1qO0KWmpUw==
+X-Google-Smtp-Source: AGHT+IFjQgGzXMt3UDx2US4yIi+IDTITId8IwO9BLtbyFBWANvRg/nW81MMDSaOHXQlVmHcHYluZ1w==
+X-Received: by 2002:a17:90b:2e4f:b0:2ee:f687:6ad5 with SMTP id 98e67ed59e1d1-2f2d7d6d692mr891327a91.2.1734374897329;
+        Mon, 16 Dec 2024 10:48:17 -0800 (PST)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1dcb353sm46475315ad.76.2024.12.16.10.47.34
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142c2b1f6sm8453029a91.0.2024.12.16.10.48.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Dec 2024 10:47:36 -0800 (PST)
-Message-ID: <a010366e-b911-43bd-8445-e893e11fa51a@roeck-us.net>
-Date: Mon, 16 Dec 2024 10:47:34 -0800
+        Mon, 16 Dec 2024 10:48:16 -0800 (PST)
+Message-ID: <c64bb634-46d4-486a-8743-699775326058@roeck-us.net>
+Date: Mon, 16 Dec 2024 10:48:14 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: hwmon: intel,crps185: Add to trivial
+Subject: Re: [PATCH v2 0/4] Add support for Intel CRPS PSU
 To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, eajames@linux.ibm.com, jdelvare@suse.com,
  corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
@@ -86,7 +86,6 @@ To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
  linux-i2c@vger.kernel.org
 References: <20241216175044.4144442-1-ninad@linux.ibm.com>
- <20241216175044.4144442-4-ninad@linux.ibm.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -132,12 +131,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
  HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
  mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20241216175044.4144442-4-ninad@linux.ibm.com>
+In-Reply-To: <20241216175044.4144442-1-ninad@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_104737_669472_2E4467FC 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20241216_104818_503954_6AAE2270 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,33 +152,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/16/24 09:50, Ninad Palsule wrote:
-> Add INTEL Common Redundant Power Supply Versions crps185 bindings as
-> trivial. It is trivial because only compatibility string is required in
-> the device tree to load this driver.
+> Hello,
 > 
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+> Please review the patchset for Intel CRPS185 driver.
+> V2:
+> ---
+>    - Incorporated review comments by Guenter Roeck
+>    - Incorporated review comments by Krzysztof Kozlowski
+> 
 
-Krzysztof had Acked this patch. I don't immediately see why you dropped it.
-Am I missing something ?
+That is not a useful change log. Please describe what you changed, not who
+asked for it.
 
 Guenter
 
-> ---
->   Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
->   1 file changed, 2 insertions(+)
+> Ninad Palsule (4):
+>    hwmon: (pmbus/core) Add PMBUS_REVISION in debugfs
+>    hwmon: (pmbus/crps) Add Intel CRPS185 power supply
+>    dt-bindings: hwmon: intel,crps185: Add to trivial
+>    ARM: dts: aspeed: system1: Use crps PSU driver
 > 
-> diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-> index 73a49d50c4ef..7d07b08b1459 100644
-> --- a/Documentation/devicetree/bindings/trivial-devices.yaml
-> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-> @@ -151,6 +151,8 @@ properties:
->             - injoinic,ip5306
->               # Inspur Power System power supply unit version 1
->             - inspur,ipsps1
-> +            # Intel common redudant power supply crps185
-> +          - intel,crps185
->               # Intersil ISL29028 Ambient Light and Proximity Sensor
->             - isil,isl29028
->               # Intersil ISL29030 Ambient Light and Proximity Sensor
+>   .../devicetree/bindings/trivial-devices.yaml  |  2 +
+>   Documentation/hwmon/crps.rst                  | 97 +++++++++++++++++++
+>   Documentation/hwmon/index.rst                 |  1 +
+>   MAINTAINERS                                   |  7 ++
+>   .../dts/aspeed/aspeed-bmc-ibm-system1.dts     |  8 +-
+>   drivers/hwmon/pmbus/Kconfig                   |  9 ++
+>   drivers/hwmon/pmbus/Makefile                  |  1 +
+>   drivers/hwmon/pmbus/crps.c                    | 79 +++++++++++++++
+>   drivers/hwmon/pmbus/pmbus_core.c              | 13 ++-
+>   9 files changed, 211 insertions(+), 6 deletions(-)
+>   create mode 100644 Documentation/hwmon/crps.rst
+>   create mode 100644 drivers/hwmon/pmbus/crps.c
+> 
 
 
