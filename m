@@ -4,134 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7FCE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 21:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE246E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 21:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HJUFEqm3bRN/HRGbs3CpErmu5dSNYWAcCQnBa7nsPJ4=; b=JqoRHzNefwm7fOhGgca6F6elAZ
-	YzCwihQtNeW0zvnHlfRFqPzh7BPVGdFc/gMmMcCd5c4ehJeCQSsjboOEPHgTo10Mtzrzu8+2UtEi/
-	RdDku5KlKR0aqogE+5NtUAqX9dI5cR25slCXfUUdaB/RXWe4+mPUqOjV4naRrrFol/qZbuJWcN/x8
-	zlZVfEypgNe7Wdmd2kijB13az9CbiOUer3b/7eIGuWqIXeBWKSzTbreoDfD4/GgRhCtCeemNDOO6V
-	nuvsp5NjDo+O1bRHoYHijYJuc/Ev0InEFN+/radz7/ed4BAHYID6Sx5hwl3FquQcnUgw0pMYQJxya
-	712efLFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0X/mAoqp/sXaxB7xCWI05qdv/rXkeMO6dZ+zaMAc/ww=; b=MB6NupURIhxx4atk4NeIxmR0Pq
+	xFtZPj8jLLPxqwnmiDJBSOQX0/mTaNhs38WNrXNzBkKib6TWRsLRVKRhitAVszFldzZVvw4m1WLD1
+	qR83IWl9XskY/5YnOBmIUY4gr8wYhUpH5q3YMXkK5t74mIzAVjKNQ5X1PNhetWRc0wCVMDs0XPBzj
+	8FpDl2tD1j8EBZQSmXJvxcrMdVaK/y+sqUNb+VbDYIe649uB6yrSJIh/37k38bgk+keNHcHzIbSHM
+	qaO7pICif+izsfGKIobJFfV7c4Bxki+uoAqVjbv2vlMDW2AOD7hAq/jRbsRLS0yVdVg1KNfwRuOQv
+	GnOotIBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNIvy-0000000BTSE-3FtX;
-	Mon, 16 Dec 2024 21:47:22 +0000
-Received: from mail-dm6nam04on2062f.outbound.protection.outlook.com ([2a01:111:f403:2409::62f] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1tNJ3c-0000000BUsQ-2GYO;
+	Mon, 16 Dec 2024 21:55:16 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNIsb-0000000BSjJ-0T7f
+	id 1tNJ2W-0000000BUby-1KFL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 21:43:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CK+33Qy53sJQ/NE2uDXy8M7C5Zde2y67L8sN0Lu4G5C+O1tRksSuKliM6Gdr11DYX8WsepKNsT+UHhAF1pqz5O2nx0/R1q0wu8BQ34ihxvaXlOVV0I6pKmnV4Mvnp5ldOny0JMsKTFP/fvOu+xFCLOkaHdrovoGZvpZqikJg9BVZdashLwCuPKELFXkwi9wTT5k9trXKVfJq+AvVcgGU2lHPmZwuHa8WSEIjJOUb172KcEF6nBPGKxAvKjPZl9rwFPBmuaU3vuNuIeM5uYDgEhDuISvxRyKdBhtmsIvwzvln5qc2GTyPKzCSZZEhSfN8Y5fHCEySmaxWaeh1Iq56sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HJUFEqm3bRN/HRGbs3CpErmu5dSNYWAcCQnBa7nsPJ4=;
- b=cYlZuOh44iEl21ztvOJafGyVhXMeshZl+c8/v3vlObLomSQ4aiiKZQCRYTOnQPV9RRQTKM162OggPoPZs0GU2U6HNwan+w8tYChZ7x+oJgcrG2yGexIQ+xjhZf2mT6RI4vKCcBHwZiLGkcGtq840UduRbAYEEfPGV7a789zRUyCJDYXDCYRsOoE8XEU//bgMn8rNYhJfk0EhVuFek1M7msZpE/RlAx5sGo56q74YbXiKhzya3IbyK7okIAGOHb3d2ndgPr7OF4CISAMF5xxwgo4egbv9gTzB5QCN5t2t1BXUmqrdgFWQm/t4I1XHrhrJNmJJtAhM8RtlLeYVo59Skg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HJUFEqm3bRN/HRGbs3CpErmu5dSNYWAcCQnBa7nsPJ4=;
- b=dBuJ8FUCCPEZ3o1LMXXeQDQl++nnwXffzhlxqfeXS2n4CkTbrHd1ovPJ46//aI2+keEkBi8SNRxkz3kU1epbuXviRUC9Z/nr7c+kv+IXyUdDrlvSyX8aCzBRPTwWClYaJgvPxw/L/pgYjheinvVOvFrQLAi6YJEChBN8V9tvz6k=
-Received: from MW4PR03CA0301.namprd03.prod.outlook.com (2603:10b6:303:dd::6)
- by IA0PR12MB8328.namprd12.prod.outlook.com (2603:10b6:208:3dd::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.20; Mon, 16 Dec
- 2024 21:43:44 +0000
-Received: from CO1PEPF000042AD.namprd03.prod.outlook.com
- (2603:10b6:303:dd:cafe::6b) by MW4PR03CA0301.outlook.office365.com
- (2603:10b6:303:dd::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8251.18 via Frontend Transport; Mon,
- 16 Dec 2024 21:43:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- CO1PEPF000042AD.mail.protection.outlook.com (10.167.243.42) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8251.15 via Frontend Transport; Mon, 16 Dec 2024 21:43:43 +0000
-Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Dec
- 2024 15:43:42 -0600
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB05.amd.com
- (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Dec
- 2024 15:43:42 -0600
-Received: from xsjtanmays50.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Mon, 16 Dec 2024 15:43:41 -0600
-From: Tanmay Shah <tanmay.shah@amd.com>
-To: <jassisinghbrar@gmail.com>, <michal.simek@amd.com>, <ben.levinsky@amd.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Tanmay Shah <tanmay.shah@amd.com>, <stable@vger.kernel.org>
-Subject: [PATCH v2] mailbox: zynqmp: setup IPI for each valid child node
-Date: Mon, 16 Dec 2024 13:42:58 -0800
-Message-ID: <20241216214257.3924162-1-tanmay.shah@amd.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 16 Dec 2024 21:54:09 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5401e6efffcso5378366e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 13:54:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734386045; x=1734990845; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0X/mAoqp/sXaxB7xCWI05qdv/rXkeMO6dZ+zaMAc/ww=;
+        b=Tb4iy1RVGg1TsuQqtSqusp3oM3rcjwqNv/ZxOtB2TwIEaGq1nJaFNfbgstgExYZtgy
+         frqhuYiepRHVwo4fcHVK4FSG453wNRnqe+bDxoN/SLs1/84TdQxaBhKxBg4rOXT5t66T
+         lpJkZlCn7YFHBXR7jkM6cnwZlNkY1KPtvIPMc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734386045; x=1734990845;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0X/mAoqp/sXaxB7xCWI05qdv/rXkeMO6dZ+zaMAc/ww=;
+        b=a+2M+U5PkpZKZawomAnnId63n0tPn556yBj5vgcJY0fzOVph1eTggZHGYW6Tqxaqqk
+         6S2aF3XffxLjd+9xLZhDdRszSBAbnobjk7Fhv4X5ZbgAUR4Fc0HoyyLHKjS0kP1jFvil
+         ww+FjgFEPuNcvPXS2mnPdLGqH+kpGPjivhLtJ6+Vc0AYIvwMcbE+NHkFcWtOeFhvfS8y
+         GfTzkSwrkTBelD87ZiCvEXPXM4OM9cpx/J/koaaZAdhTqztINoNRu5JMnQKhh6fThmgZ
+         BRYenJIHt3eqaHRIZLYjgClDqJSe6gYqqC3Ln9AA2aD002gvWVCVLdaDCKegpGNZahsI
+         3MQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU1hPLd8DzJWYpU+s8Qa/WWQnfyR9QIyijK0DmmYHR2TStfyiDgvUexnocX/fxyvV/+Er0l7Y1mGlXhwmA04y/k@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCY/CrwHtiukeOecjJoBrJqMx0cHGq4o+uYGKvH1+9Ga8Fk9ie
+	VKjEEaMpfhWIRxc8uRXEbNh8YGrGXgm9P1y0qlrS9NGsDFeJW5ROdWnKR2PvDgR3UwzT0OBUNKX
+	xCA==
+X-Gm-Gg: ASbGncvZmsVVOC2lar6XylXk/2wk6DE1Ge6chXwUYn9+Fwb8Vazmhykg+TGM+eDgv8m
+	VPWhS9bDKu3qvQQmO84vT4572ifJO3uwchoRaBdHIy8MvIlPYL966x5pSLx9DeV74fSEQRy8kNg
+	XQ1tRfQxceCvKC7AnNo3Ct4fPT8md2WTabpe7WnuSDvxjaW6JkM0jgGCdt2SrOMHX981uyGcYSw
+	YtxPxHp+mFx3efaVSGX0cyrAZrT8YK31Bta6KHCeBr4DKNtSCWDW6qU3faRs8Z+LyirsXRi4XAH
+	pZJD4k01vuqRW7kwP8nJgiJw
+X-Google-Smtp-Source: AGHT+IHj34htcuZgOVDLsHu55V4mJrumYtQpP7ELahym/Du3aHDc+C4TKShsw1n/QBbFIp4otq+agA==
+X-Received: by 2002:a05:6512:130c:b0:540:1c76:1153 with SMTP id 2adb3069b0e04-54090560c3dmr5064821e87.33.1734386044682;
+        Mon, 16 Dec 2024 13:54:04 -0800 (PST)
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com. [209.85.208.176])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120b9f643sm988240e87.10.2024.12.16.13.54.03
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Dec 2024 13:54:04 -0800 (PST)
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-30229d5b22fso49139191fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 13:54:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV7bzyZaqyYZonY8sqGuNGxEfbypT75Zz/v95Ed7gHKh5OWfp9bAe6SR912wPOXbAaijyEeAZiaePTTHnpcbo54@lists.infradead.org
+X-Received: by 2002:a2e:ab07:0:b0:302:3508:f4ab with SMTP id
+ 38308e7fff4ca-3025447d9dcmr52859421fa.21.1734386043147; Mon, 16 Dec 2024
+ 13:54:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB05.amd.com: tanmay.shah@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000042AD:EE_|IA0PR12MB8328:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36ebe1b9-0fbf-4ba8-ba92-08dd1e1ab68f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xMyGP6FgaNqI3dtqtxXQitvdevB1NIy6EoV84WFAMUcdoSnKgg5I+3be0xLQ?=
- =?us-ascii?Q?9Ujx7N7b1njIY5lcjAokl/PS+iqRs4DfSecADCE/+uz/CGeyMJcpQRoo8iPU?=
- =?us-ascii?Q?y/8ON0vgH6bdQNXFRAlUPsrIUAD3ln0gybAWGtVywdwdq2/qKgaaHDxdq+4+?=
- =?us-ascii?Q?kYMuEZRmMZY2M2eFo96YoKRLknqZm+zzauo1v8Z3AIxwcrcGm0u82RMiWijK?=
- =?us-ascii?Q?MsILN1fn3VY+nRmpuonBcmgGUzzFT2E77VX/O4WKgHYRhcSDeZ90Fz6yLC8G?=
- =?us-ascii?Q?h02PLNdLiPZJr9U+Fypf0KJ3LR1wev+twRE3GbBy0P2l91DZhJTAbueX0+Xe?=
- =?us-ascii?Q?GBBiwzaovprJak1shXQJtwXOwT207xtz3rrF8tyzD9JqT3jPm/UED6iKD9FQ?=
- =?us-ascii?Q?6dUdMiJb2sWMUjNSJ0tuzoQ+kDPD/7KPbBJkGUrQnTdM8dxZlRrbbCUx3bMj?=
- =?us-ascii?Q?nINpS4kGRMQB77om7yivpycKEJsFo02i7UgfVbi1+iuZhvclyfEoQgvsaicK?=
- =?us-ascii?Q?zDmP31cyEkn/fjrdeT0TqlHm3H8bVkA7Cb4rNR51nh6awRHlRHyAHjj5fQk3?=
- =?us-ascii?Q?PnZ5Wam9SdHZc/bMytb74/fOZrwNtsASKXu2Gsi5hHqeiDQqCNLgb1kdOEJ+?=
- =?us-ascii?Q?3EU2P46/O9xNQQzJ8hwfmqDDC1lKqpcrr0NRq4HirLvwP4s20RwTwIS8yM2k?=
- =?us-ascii?Q?I49z31HbpubmXaA7AswG3PbbBxYiKuM9U3ugvIOKHK1DR3raKvJ22E3IgrRt?=
- =?us-ascii?Q?uosBUZTIeYGGUJwux1WGmTmAhx6b4lupfpyWYnnOm3Op9asas8/lIANmZ3LL?=
- =?us-ascii?Q?8ygUSYF6mfarzDIlv6mEoeJDOEA91hIDzma4/xRwXISpElRiryo04XwPO53m?=
- =?us-ascii?Q?O4FS40v/oQlBtDgbjc4UnM/vNI4sFEO9HNfx8BRWm/iLwHtWCHZosfpftOy5?=
- =?us-ascii?Q?R0fMkJArHXwe1+ZWtqzA4O4gMeH1ZIJUCTqD/6l3LuAHQyURGnxsWb0y/MQ0?=
- =?us-ascii?Q?GGOaw2b6+/YBhn1dLn41UCcrE7q+PF/10+AY1vA/Qs8MPnbO4aJJBYO3y14Q?=
- =?us-ascii?Q?bjeG95Ra+Q6jfoNZy7B2i4ZNMvwNzIiAjI8R1etUx9gZuihsi3U7H4M3Y+If?=
- =?us-ascii?Q?EjpjnITtJLtATsKOZ7W1M/o1zNQl9FMuwyQGJ+D9GRoKFen4nPwONAxlUe5P?=
- =?us-ascii?Q?u+QwJqJKju5X4zxDxMIF7Cxj5E4HcePH02qbIbZ+qgAoXUzZG7ExN91FpFhM?=
- =?us-ascii?Q?sr5uIzzY7lqvHCWqfobnCPMctjngac1jRRMjmO1lwANRgyIzxS2//R1aenDF?=
- =?us-ascii?Q?UIgka42P2ApZKNjdLXZk79l8Z51fZVtkNhfFqTgKS8NppWxQZDsiej+S5Jwh?=
- =?us-ascii?Q?8A40kUuIT/rhl6zJqGPlquJByVCkC4/ikvMbxQgOD3Uy4OA/OqkMV2p4RsqM?=
- =?us-ascii?Q?Wqe0MWDqjEEyrE7FiNgW+sTXQEN+2Iwn/G6B88fvPqvnmf/5eno5Jw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 21:43:43.5615
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36ebe1b9-0fbf-4ba8-ba92-08dd1e1ab68f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042AD.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8328
+References: <20241209174430.2904353-1-dianders@chromium.org>
+ <20241209094310.5.I41e227ed809ea607114027209b57d02dc0e98384@changeid>
+ <l5rqbbxn6hktlcxooolkvi5n3arkht6zzhrvdjf6kis322nsup@5hsrak4cgteq>
+ <CAD=FV=WQf+ig21u316WvQh0DoKsdKAmZgqPn5LB-myDXsJtXig@mail.gmail.com>
+ <CAODwPW919K+XdxjUe3aPgxsv0CEWwx0P_Hxvf=VniLhk8eagkQ@mail.gmail.com> <2qx75syaojhnsqt256li6sinafml4gohohvld6uw3zhejrayuj@biiep5dvko7t>
+In-Reply-To: <2qx75syaojhnsqt256li6sinafml4gohohvld6uw3zhejrayuj@biiep5dvko7t>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 16 Dec 2024 13:53:51 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=WQhJcCNhSV7NJkdsuGjV2TVSvepdGisMU4reVUBURAzg@mail.gmail.com>
+X-Gm-Features: AbW1kvafuAWb2tKHIUPH2ZldlV7L89d5SkwGUAoEp9RCWUT_FGgm1aB4MxqcSSg
+Message-ID: <CAD=FV=WQhJcCNhSV7NJkdsuGjV2TVSvepdGisMU4reVUBURAzg@mail.gmail.com>
+Subject: Re: [PATCH 5/6] arm64: errata: Add QCOM_KRYO_5XX_GOLD to the spectre_bhb_k24_list
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Julius Werner <jwerner@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jeffrey Hugo <quic_jhugo@quicinc.com>, Roxana Bradescu <roxabee@google.com>, 
+	bjorn.andersson@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
+	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_134353_382654_EA38A4F9 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20241216_135408_379541_F18093A4 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,45 +112,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per zynqmp-ipi bindings, zynqmp IPI node can have multiple child nodes.
-Current IPI setup function is set only for first child node. If IPI node
-has multiple child nodes in the device-tree, then IPI setup fails for
-child nodes other than first child node. In such case kernel will crash.
-Fix this crash by registering IPI setup function for each available child
-node.
+Hi,
 
-Cc: stable@vger.kernel.org
-Fixes: 41bcf30100c5 (mailbox: zynqmp: Move buffered IPI setup)
-Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
-Reviewed-by: Michal Simek <michal.simek@amd.com>
----
+On Sat, Dec 14, 2024 at 3:39=E2=80=AFAM Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
+>
+> On Fri, Dec 13, 2024 at 05:28:55PM -0800, Julius Werner wrote:
+> > > Interesting. So the Gold/Prime are actually IDing themselves as
+> > > straight Cortex A77. The Silver is IDing itself the same as
+> > > KRYO_4XX_SILVER. ...so in that sense there's nothing to do here for
+> > > those cores.
+> >
+> > Should we add some comments to cputype.h to record which other
+> > products are matched under the same ID?
+>
+> I'd say, yes.
 
-Changes in v2:
-  - Add Fixes tag
+Sure. I'll send a v3 with this tomorrow.
 
- drivers/mailbox/zynqmp-ipi-mailbox.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
-index 521d08b9ab47..815e0492f029 100644
---- a/drivers/mailbox/zynqmp-ipi-mailbox.c
-+++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
-@@ -940,10 +940,10 @@ static int zynqmp_ipi_probe(struct platform_device *pdev)
- 	pdata->num_mboxes = num_mboxes;
- 
- 	mbox = pdata->ipi_mboxes;
--	mbox->setup_ipi_fn = ipi_fn;
--
- 	for_each_available_child_of_node(np, nc) {
- 		mbox->pdata = pdata;
-+		mbox->setup_ipi_fn = ipi_fn;
-+
- 		ret = zynqmp_ipi_mbox_probe(mbox, nc);
- 		if (ret) {
- 			of_node_put(nc);
-
-base-commit: 28955f4fa2823e39f1ecfb3a37a364563527afbc
--- 
-2.34.1
-
+-Doug
 
