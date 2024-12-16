@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D483E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C9CE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5l232bDDTPHDtrpy3uPDsqoOrdHFpF2R9izCvQsfbME=; b=XIzWrVkOrCDAAgSi1xt9PTN3u9
-	wly+TKJLWPaSaMtXSrc9LTvekVqPDS3H2t82diEn0SmjZgtfP51Z1PdXM9128EdLqO4d/5xjJrsHT
-	dzyaRGK0392rkj7fneJ/FHwWTRe6OZ+ebOuArHRgIIUIWKjZCDBiSi6VIUDsPiqHkkCpy3u8sB87e
-	eiY3C7kWYQfeJgZIgjLK6vWu7kkAsvNNRpv9j1X6EiKhYur/rd9jZlqjP7EF5DrX5x7qhcI/0ICuQ
-	tiH08ChXmipYnNnK2ziIHEf/Sax4+qYbOtfWoLbv4cbO1hJr8GBjzxQtbB/56S/bwKrJqr4eyL/bA
-	9KdVhF3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X02ZOLUPeom9buw2w8ZqgNrrAMgh0Ax/tYhoCMB18bw=; b=N/17u7z4h4R72+ejKqPfIwVO8x
+	9n/TmMt1bqIPNNjsoxeEB995rwvGDvY0YBONIE7nNxIpUjFqOIn2tLhPv3w87qG8ahCh6kllS3ER9
+	UV94Fh9PY5CXJcfW/XMHAsfThbAQlhS8RGmMtXdmMzlpcHWCc4Lm9CEECB6B1+sNnbwBBbY7Erg6F
+	YqpiOncx4051iqtdwLKsJZwz2m9ldCD5+FomqwYBYVMR/sVcspnAifVHLmUVheo2F0sx2C8PGIsoD
+	eJmo94yjMV2m5SeM534YsdiWa0I0tJDB5mvHPn5a8ZhWpd9dvDic4BB9Y+dYGIjOmfJeAMer31KT4
+	qi/MWMdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCAW-0000000AH7f-2WvZ;
-	Mon, 16 Dec 2024 14:33:56 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tNCHh-0000000AI0z-0RAK;
+	Mon, 16 Dec 2024 14:41:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBoM-0000000ABUf-22DK;
-	Mon, 16 Dec 2024 14:11:05 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1734358260;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5l232bDDTPHDtrpy3uPDsqoOrdHFpF2R9izCvQsfbME=;
-	b=ya1tDQHPtGIm3l1JQG++n6r9+R5dHMnjNjX8KPLn/jS6YHnoEm3gd72gqFfTw6+cBGwhPN
-	Ey6/qe6didg8EUZDQGn7GvnupowR9l8WIOJ+vI1Uy2QYJldd3FW6q47V3Q8sclUjbeCr1Y
-	CIJ1wYYmSJs7qpSPESzxfG0WMFqfVKSfENrJVFAfY2xDdwf2wk/dXJ8TfvUtAXvPGQ3x32
-	Nhw8nCndzUfqnCBHaMhIHkaWH8gZqrQFsMjHZVvKS6+gzuIoswux1S0fsn4CI7QCOm36hJ
-	afcJHgvl0/LEtCs3rEXdQMOIuQLoINYMshRnRZKLBpYlUJuNjAoZG+AwQ/ub4w==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1734358260;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5l232bDDTPHDtrpy3uPDsqoOrdHFpF2R9izCvQsfbME=;
-	b=cLthQ9KIcCzSJeoIF8+Vdtt685Ogzf1tTB3d4qtk7EGbr4qP7jqXaqZVoaxyrobmJ2mAXf
-	gFkO7kavFaEQtpAQ==
-Date: Mon, 16 Dec 2024 15:10:10 +0100
-Subject: [PATCH 14/17] x86/vdso/vdso2c: Remove page handling
+	id 1tNC8h-0000000AGrt-3XyP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 14:32:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=X02ZOLUPeom9buw2w8ZqgNrrAMgh0Ax/tYhoCMB18bw=; b=X+tqYWm48AacWOj3ZPe5kvU1Il
+	2b+Y7h2Y1/wJ831/PKVsYYJOSspNODZu4MOjCNhjHesKHXxidqUdmmTFbMecBy2Md9xQ0xexcvh66
+	Gzg0t0NXP7ZI6Cw6Ys7UKejLO1TZMMHeD/hNrygXDi16F/lOp0L63tTROjyUQqXl+M0tkf7ClAiRo
+	EC/DDV7/JpvMAZRszNROwhRK+6cyPKCSYOuu683Z/N+urwuOKGycMNfA90gKnJxAJmxG5bHWoxvWC
+	qhk0rpyzQhMaKNgMjNgIKTXr/dw1Z9/upasqv1hitQVBuKtlrCmcHs80UMNQX6xArE9b6B+6OeQWx
+	6WLuOA3g==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNC8e-00000004rL1-2DZI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Dec 2024 14:32:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50212113E;
+	Mon, 16 Dec 2024 06:32:25 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D7D693F58B;
+	Mon, 16 Dec 2024 06:31:55 -0800 (PST)
+Date: Mon, 16 Dec 2024 14:31:47 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Peter Collingbourne <pcc@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to
+ __cpuinfo_store_cpu()
+Message-ID: <Z2A502_EpqvLYN8g@J2N7QTR9R3.cambridge.arm.com>
+References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
+ <87a5cysfci.wl-maz@kernel.org>
+ <709a0e75-0d0c-4bff-b9fd-3bbb55c97bd5@sirena.org.uk>
+ <Z2Agntn52mY5bSTp@J2N7QTR9R3>
+ <855dbb91-db37-4178-bd0b-511994d3aef7@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20241216-vdso-store-rng-v1-14-f7aed1bdb3b2@linutronix.de>
-References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
-In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
-To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Anna-Maria Behnsen <anna-maria@linutronix.de>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
- Vasily Gorbik <gor@linux.ibm.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Sven Schnelle <svens@linux.ibm.com>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=3853;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=hm6YB5615FQw+H7C/KqIosijpF6HWDKCQo7bql3/qXQ=;
- b=zb7E9hkEEWcgED43aWR2fQhrImC3Ijdh2iPo/T3cIu7zynS14K34Y3JGp0yvTAubJ7yk0tk75
- VKWqDZoSZ7CA8u6EHm0TkVPvUe15kheclbB17hFuAnFSp2ZnTm0/KG5
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <855dbb91-db37-4178-bd0b-511994d3aef7@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_061102_881740_1742659C 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20241216_143201_097545_8FEC5039 
+X-CRM114-Status: GOOD (  29.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,121 +84,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The values are not used anymore.
-Also the sanity checks performed by vdso2c can never trigger as they
-only validate invariants already enforced by the linker script.
+On Mon, Dec 16, 2024 at 01:23:55PM +0000, Mark Brown wrote:
+> On Mon, Dec 16, 2024 at 12:44:14PM +0000, Mark Rutland wrote:
+> 
+> > ... didn't matter either way, and using '&boot_cpu_data' was intended to
+> > make it clear that the features were based on the boot CPU's info, even
+> > if you just grepped for that and didn't see the surrounding context.
+> 
+> Right, that was my best guess as to what was supposed to be going on
+> but it wasn't super clear.  The code could use some more comments.
+> 
+> > I think the real fix here is to move the reading back into
+> > __cpuinfo_store_cpu(), but to have an explicit check that SME has been
+> > disabled on the commandline, with a comment explaining that this is a
+> > bodge for broken FW which traps the SME ID regs.
+> 
+> That should be doable.
+> 
+> There's a few other similar ID registers (eg, we already read GMID_EL1
+> and MPAMIDR_EL1) make me a bit nervous that we might need to generalise
+> it a bit, but we can deal with that if it comes up.  Even for SME the
+> disable was added speculatively, the factors that made this come up for
+> SVE are less likely to be an issue with SME.
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/x86/entry/vdso/vdso-layout.lds.S |  4 ----
- arch/x86/entry/vdso/vdso2c.c          | 21 ---------------------
- arch/x86/entry/vdso/vdso2c.h          | 20 --------------------
- arch/x86/include/asm/vdso.h           |  6 ------
- 4 files changed, 51 deletions(-)
+FWIW, I had a quick go (with only the SME case), and I think the shape
+that we want is roughly as below, which I think is easy to generalise to
+those other cases.
 
-diff --git a/arch/x86/entry/vdso/vdso-layout.lds.S b/arch/x86/entry/vdso/vdso-layout.lds.S
-index 6a628ead49beb3480dc750786c31dc125dfd017a..f93944ec29e5318aea29e4ad83c3e7f76889e489 100644
---- a/arch/x86/entry/vdso/vdso-layout.lds.S
-+++ b/arch/x86/entry/vdso/vdso-layout.lds.S
-@@ -24,10 +24,6 @@ SECTIONS
- 	pvclock_page = vclock_pages + VDSO_PAGE_PVCLOCK_OFFSET * PAGE_SIZE;
- 	hvclock_page = vclock_pages + VDSO_PAGE_HVCLOCK_OFFSET * PAGE_SIZE;
- 
--	/* For compatibility with vdso2c */
--	vvar_page = vdso_u_data;
--	vvar_start = vdso_u_data;
--
- 	. = SIZEOF_HEADERS;
- 
- 	.hash		: { *(.hash) }			:text
-diff --git a/arch/x86/entry/vdso/vdso2c.c b/arch/x86/entry/vdso/vdso2c.c
-index 90d15f2a72055e37f2ef4292096dd780a051bc84..f84e8f8fa5fe6d1bc680895dfef28fe9251a7fe3 100644
---- a/arch/x86/entry/vdso/vdso2c.c
-+++ b/arch/x86/entry/vdso/vdso2c.c
-@@ -69,33 +69,12 @@
- 
- const char *outfilename;
- 
--/* Symbols that we need in vdso2c. */
--enum {
--	sym_vvar_start,
--	sym_vvar_page,
--	sym_pvclock_page,
--	sym_hvclock_page,
--	sym_timens_page,
--};
--
--const int special_pages[] = {
--	sym_vvar_page,
--	sym_pvclock_page,
--	sym_hvclock_page,
--	sym_timens_page,
--};
--
- struct vdso_sym {
- 	const char *name;
- 	bool export;
+MarcZ, thoughts?
+
+Mark.
+
+---->8----
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 8b4e5a3cd24c8..f16eb99c10723 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -91,6 +91,16 @@ struct arm64_ftr_override {
+ 	u64		mask;
  };
  
- struct vdso_sym required_syms[] = {
--	[sym_vvar_start] = {"vvar_start", true},
--	[sym_vvar_page] = {"vvar_page", true},
--	[sym_pvclock_page] = {"pvclock_page", true},
--	[sym_hvclock_page] = {"hvclock_page", true},
--	[sym_timens_page] = {"timens_page", true},
- 	{"VDSO32_NOTE_MASK", true},
- 	{"__kernel_vsyscall", true},
- 	{"__kernel_sigreturn", true},
-diff --git a/arch/x86/entry/vdso/vdso2c.h b/arch/x86/entry/vdso/vdso2c.h
-index 67b3e37576a64a29ecbdc6fd75e410fc52a82e58..78ed1c1f28b92b97973f57d3f65b9c4d4694f462 100644
---- a/arch/x86/entry/vdso/vdso2c.h
-+++ b/arch/x86/entry/vdso/vdso2c.h
-@@ -150,26 +150,6 @@ static void BITSFUNC(go)(void *raw_addr, size_t raw_len,
- 		}
++static inline u64
++arm64_ftr_override_apply(const struct arm64_ftr_override *override,
++			 u64 val)
++{
++	val &= ~override->mask;
++	val |= override->val & override->mask;
++
++	return val;
++}
++
+ /*
+  * @arm64_ftr_reg - Feature register
+  * @strict_mask		Bits which should match across all CPUs for sanity.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed84..faad7d3e4cf5f 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1167,12 +1167,6 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+ 	    id_aa64pfr1_sme(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1))) {
+ 		unsigned long cpacr = cpacr_save_enable_kernel_sme();
+ 
+-		/*
+-		 * We mask out SMPS since even if the hardware
+-		 * supports priorities the kernel does not at present
+-		 * and we block access to them.
+-		 */
+-		info->reg_smidr = read_cpuid(SMIDR_EL1) & ~SMIDR_EL1_SMPS;
+ 		vec_init_vq_map(ARM64_VEC_SME);
+ 
+ 		cpacr_restore(cpacr);
+@@ -1550,10 +1544,8 @@ u64 __read_sysreg_by_encoding(u32 sys_id)
  	}
  
--	/* Validate mapping addresses. */
--	for (i = 0; i < sizeof(special_pages) / sizeof(special_pages[0]); i++) {
--		INT_BITS symval = syms[special_pages[i]];
--
--		if (!symval)
--			continue;  /* The mapping isn't used; ignore it. */
--
--		if (symval % 4096)
--			fail("%s must be a multiple of 4096\n",
--			     required_syms[i].name);
--		if (symval + 4096 < syms[sym_vvar_start])
--			fail("%s underruns vvar_start\n",
--			     required_syms[i].name);
--		if (symval + 4096 > 0)
--			fail("%s is on the wrong side of the vdso text\n",
--			     required_syms[i].name);
+ 	regp  = get_arm64_ftr_reg(sys_id);
+-	if (regp) {
+-		val &= ~regp->override->mask;
+-		val |= (regp->override->val & regp->override->mask);
 -	}
--	if (syms[sym_vvar_start] % 4096)
--		fail("vvar_begin must be a multiple of 4096\n");
--
- 	if (!image_name) {
- 		fwrite(stripped_addr, stripped_len, 1, outfile);
- 		return;
-diff --git a/arch/x86/include/asm/vdso.h b/arch/x86/include/asm/vdso.h
-index d7f6592b74a94f6fecba59ce8f23eb3990843db4..80be0da733df43de7520bef69ad120ce05d37994 100644
---- a/arch/x86/include/asm/vdso.h
-+++ b/arch/x86/include/asm/vdso.h
-@@ -18,12 +18,6 @@ struct vdso_image {
- 	unsigned long extable_base, extable_len;
- 	const void *extable;
++	if (regp)
++		val = arm64_ftr_override_apply(regp->override, val);
  
--	long sym_vvar_start;  /* Negative offset to the vvar area */
--
--	long sym_vvar_page;
--	long sym_pvclock_page;
--	long sym_hvclock_page;
--	long sym_timens_page;
- 	long sym_VDSO32_NOTE_MASK;
- 	long sym___kernel_sigreturn;
- 	long sym___kernel_rt_sigreturn;
+ 	return val;
+ }
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d79e88fccdfce..1460e3541132f 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -439,6 +439,24 @@ static void __cpuinfo_store_cpu_32bit(struct cpuinfo_32bit *info)
+ 	info->reg_mvfr2 = read_cpuid(MVFR2_EL1);
+ }
+ 
++static void __cpuinfo_store_cpu_sme(struct cpuinfo_arm64 *info)
++{
++	/*
++	 * TODO: explain that this bodge is to avoid trapping.
++	 */
++	u64 pfr1 = info->reg_id_aa64pfr1;
++	pfr1 = arm64_ftr_override_apply(&id_aa64pfr1_override, pfr1);
++	if (!id_aa64pfr1_sme(pfr1))
++		return;
++
++	/*
++	 * We mask out SMPS since even if the hardware
++	 * supports priorities the kernel does not at present
++	 * and we block access to them.
++	 */
++	info->reg_smidr = read_cpuid(SMIDR_EL1) & ~SMIDR_EL1_SMPS;
++}
++
+ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+ {
+ 	info->reg_cntfrq = arch_timer_get_cntfrq();
+@@ -482,6 +500,8 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+ 	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+ 		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+ 
++	__cpuinfo_store_cpu_sme(info);
++
+ 	cpuinfo_detect_icache_policy(info);
+ }
+ 
 
--- 
-2.47.1
 
 
