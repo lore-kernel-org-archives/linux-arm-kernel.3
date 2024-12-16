@@ -4,66 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3700E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Dec 2024 23:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124FBE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 00:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/HK4E/A1XXBdIojpdswgpBBjDQ20PrFgHRSAU0uFOc=; b=16lgCrHnyUFevy74KMzAC8Ewut
-	6TB9R9Ji5dfRPwY6kQON6o/Ai6wKPQOf3LMpbV767u82mNDa49XPPfq97Bu4oFmJojKc/eJqNYT0m
-	RJ5ubT3QmaKCoOmgfNyNjNbvYFEU9DDJeq2CF1wi53F6jGK3LldHZdPRI1w2699uBbHH/oYvve/Mi
-	BEnwYGxpk75S75D6we1fN4CzOdlCKCqb1cCZWh7W9DpQQBsGDdgoZV6c4CwJK2WvtxWDEwsk+cRYe
-	GhA/wUCQmoa6BptC0zfxSIkINn5a7rmTYBYONAVCDgL/H7tJ8fx8I6RJvrNmKxa95nAvaG0rrDmAh
-	Em4TfpZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+MN+CJaXtlA1XBsuGyZHtUk3wOTxi33O0M+S8PZbfo8=; b=40KSXYS/d1lX+Ggx5tfEiEYYXB
+	Zb1dyWB8lKBoLmOnzdXFfWAqWJloT7xWLEL1FIAhG25hgvy+qpGbWYJpa+HSfc6F4pIvxdCUBxseG
+	XwYEuHZ68jNuKovDXxkKwL05/0SI+b2/38hAcX7jB8BmUOi5Ai97g1fE0JWyE6FcjYd6+eWcrjb8o
+	VD3doU0g0bcdRPf4xeB3krt/Vdw3CZVurj1/plyRi69xHiOHCMd2+RQm/kpIQs3pHfolB7etnkV/D
+	8eNkKSKmGWT6NE2xQFmIpqq8IWKbzRmh9GertiO8Xx1mj8AleDmhx5CRjiPWq9IoMIZgwUfjPLuL4
+	F/Nm6XmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMySI-00000008fCt-3vxF;
-	Sun, 15 Dec 2024 23:55:22 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tMzPp-00000008if8-3HaS;
+	Mon, 16 Dec 2024 00:56:53 +0000
+Received: from mail-dm6nam11on20615.outbound.protection.outlook.com ([2a01:111:f403:2415::615] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMyRC-00000008f76-2OyO
+	id 1tMzOh-00000008iSs-3IMi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Dec 2024 23:54:15 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A1951048AF66;
-	Mon, 16 Dec 2024 00:54:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1734306849;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e/HK4E/A1XXBdIojpdswgpBBjDQ20PrFgHRSAU0uFOc=;
-	b=TI7J14mpcYLmk+Tft8b38gaO5OjyC2RhtCvv/s76ISz51SobZbUQTpF5irmWtztnhqb/8D
-	WXqZmlujV1tilLbaStVeCJkJ8MiBVCOe69mCms1/XOS4oVHx5Hj4ScqwsxlITAYr8tI7RP
-	xZGTJEyU/cIcTFjkW9Zo161mNGsDuPRaGaQ6TXIkdu3/5cq+/Kg1hp5s0xe1YhIuE+l8kN
-	+yg9m/bRcu7SAcLPpmhUAJkYDGTMh/Lz33RNLx/1G1HoXkRAuqQdZ3eJmP6S0t9nPK+j9/
-	tvRV/E3IT9S7+4O3mvjShrjXRnXfjkOUWTAgjxb30ru9k2KCFXnCuvLabHUrrw==
-Message-ID: <9745b3ee-ae89-4edb-8ff7-b20096dbe1de@denx.de>
-Date: Mon, 16 Dec 2024 00:41:43 +0100
+	Mon, 16 Dec 2024 00:55:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hiBhFBGl3VMTFcyaEIiR/Jyr/FJWtLkZsomIJB+l9m//3zbE2whN4+klzRClO8EutNGdQUeDPQ+7cEKJYhNltZCT77birsZ/XD22w2oPEuu8yb6wHoBn7Ff2UjcBczDm0xChN8vBnUrRV6dYtb9V88cpbFoI35fY4YHxoMUXcKqDQM0yXWkdHX/yXUpEmsVG2rBleIChFJ1R0vrYwJ3nMfOKlnNCfNPEXRTB8/6tPCziO3dtyKIPEcPDhY0ZdonNO4gvQGL+9q0phRcdpQ8yzLJcbngNMh0dJGX1OlboED5l/nokMgINFg/iw52krqaSmONCKfFkQOG06v25MQFQYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+MN+CJaXtlA1XBsuGyZHtUk3wOTxi33O0M+S8PZbfo8=;
+ b=ypguJhlZ9+43PfvzV6Ic2/CPsOUVAzd0Y1ncFVDcHcRDbXkeXTDVXAK/fWHs72QGH1CmNNG7uSB+KrLsG5/2Ehvp6vQoYWIqu1uPIOgEKsWsJCSVQz7De0Zhm+sGxk+HapLteNCyJVSO0e/Ze1dIknoKj24rQYFU/qUynMV5zRjs8SPkhMNShSqdC4ENl/WVmpPaVNbngyYlsKoADqIILrrKQZXnAfD4S/4KVmIufGDPtSL7NO+WRhYh7ct/owZFWRKSeoPD1HJ9BGG+x55v2STcYi+Rtd5C84r+FLy2UbF3fjiSLqOHGyclzV30+PLUUxPP8oZdUWgR/dJGZ6FRuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+MN+CJaXtlA1XBsuGyZHtUk3wOTxi33O0M+S8PZbfo8=;
+ b=qhFZLlx82wtcSXDQlMdEgmEGLR9wMBN1cW3+GmBBmBgQe4AaFY1Y3YCxt6cPXwCaVZyqA07TEw06iCSIWtc57L7Vz0TU3m3kdqnMNlwWqkLXq53rKVufDsSBhjNLXVhfSvD9QHfIuV9NPtVu3DI8rqzvVvNDVZ+dtxAvQFqybg5lKQMzHpapjr2Wu862EAnIcpVMfqQrxSpW3gwwzGKJTGD/8MsfXXRz+Vo1Dq8KXsXKG9iOk2frcheCvE6Una6BBgCLBwJ3N79qE0IP8F0C/tvpFgFCUWqe806arjgVA/Ghi4EU9vgYB7l391eYz5aADPoFWiVUlLD/7zYc21jb5A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ SN7PR12MB7786.namprd12.prod.outlook.com (2603:10b6:806:349::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.21; Mon, 16 Dec
+ 2024 00:55:35 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%4]) with mapi id 15.20.8251.015; Mon, 16 Dec 2024
+ 00:55:35 +0000
+Date: Mon, 16 Dec 2024 11:55:30 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Dan Williams <dan.j.williams@intel.com>, linux-mm@kvack.org, 
+	lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, 
+	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, 
+	jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, 
+	mpe@ellerman.id.au, npiggin@gmail.com, dave.hansen@linux.intel.com, 
+	ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, tytso@mit.edu, 
+	linmiaohe@huawei.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, akpm@linux-foundation.org, 
+	sfr@canb.auug.org.au
+Subject: Re: [PATCH v3 00/25] fs/dax: Fix ZONE_DEVICE page reference counts
+Message-ID: <wysuus23bqmjtwkfu3zutqtmkse3ki3erf45x32yezlrl24qto@xlqt7qducyld>
+References: <cover.e1ebdd6cab9bde0d232c1810deacf0bae25e6707.1732239628.git-series.apopple@nvidia.com>
+ <675ce1e5a3d68_fad0294d0@dwillia2-xfh.jf.intel.com.notmuch>
+ <45555f72-e82a-4196-94af-22d05d6ac947@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <45555f72-e82a-4196-94af-22d05d6ac947@redhat.com>
+X-ClientProxiedBy: SY5P300CA0044.AUSP300.PROD.OUTLOOK.COM
+ (2603:10c6:10:1fd::19) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] pinctrl: stm32: Add check for clk_enable()
-To: Mingwei Zheng <zmw12306@gmail.com>, antonio.borneo@foss.st.com
-Cc: linus.walleij@linaro.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, make24@iscas.ac.cn, peng.fan@nxp.com,
- fabien.dessenne@foss.st.com, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiasheng Jiang <jiashengjiangcool@gmail.com>
-References: <20241215204014.4076659-1-zmw12306@gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20241215204014.4076659-1-zmw12306@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|SN7PR12MB7786:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba97cd80-05be-4978-b2da-08dd1d6c5933
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vxat8zHSeABYBM+0p1vCH/IMsNy8M82YgbFVYayqgOPCAftgC7Ducy6rrNMf?=
+ =?us-ascii?Q?eqdr7agolvu9cZTayaDzY4qBMwe8r7qTT3iDXZ3PLvRs89LiuQFDAogt8737?=
+ =?us-ascii?Q?Z0UCDJkjOf64g2ctwmjt1YjeFJKVztbbyeSanzGecnUyJzGDRuXD++g2hx4r?=
+ =?us-ascii?Q?MOBT6gPjiHexf0Rh8QLOQXcWktttdv+07kYg/WeEDqH92lh4UAMNVaXn+3Eq?=
+ =?us-ascii?Q?jalnkGtCZu5/WdLp0lazGEE0TBco7xAxTU7j8oBi9dAQAvDY1tRCAM1T3JKH?=
+ =?us-ascii?Q?GOvuQRc1aqstBdzf3QMMJq8Lz4NNk6ZXKduXLQ3c/2pFicKzCZHZt+OQpmT+?=
+ =?us-ascii?Q?1Ulza7fM6kaznLGrywj4N4nU21L1lb7XX73n1nITGSPguWlqB1iSiQNIOJXe?=
+ =?us-ascii?Q?mjj0uuUU2Oteg5Rf7F7fNONnTRngqEImplz7YXuDZdnpWYAgCfP4VoKRPIoi?=
+ =?us-ascii?Q?726WxCQikwFa6ZjQ9E3dB0fV02lPratzubI7ApuSrb0NRCA4ocQE3ta/COTz?=
+ =?us-ascii?Q?oPRiFEp8tYRKlDZ6/s5pjpc9ZrT2jzO+OioCBq8TUwyOTMTvH7jcIpDCLI5r?=
+ =?us-ascii?Q?ORPmhfjhlxgJK/lFJJAaVZCrzvZ+8803eJsH/ljRmn33oBHCmkwEY/Gmv00A?=
+ =?us-ascii?Q?STQpENkBKmNKnMlmryfrm65OLpC95BPrPVh3iv7zS8ZjiZzv142kCctcxG94?=
+ =?us-ascii?Q?wexzlzqyhq8MPDjAbgpsDVoN//fgO4iSx+cw9jTnuAFeJZpFMT4sbLHpcOnQ?=
+ =?us-ascii?Q?/Owv3u5ICND0uCtouem1hJ11lQnrKcwqI1QQYyX1k5vmwTKUmGeAlUaBFsBm?=
+ =?us-ascii?Q?fuliT78bYX++jXjwF8gpGSiqhu56MZvM0sQrTHG8mxYZE4+BJDxFEZkbOv7q?=
+ =?us-ascii?Q?zp7W935ZHRXu9jSq97/mF0nUduUEeO3gVFKf6oSb5eSjI2AunG2hgYqki5kh?=
+ =?us-ascii?Q?e+g/lovUCPOs0DQ8t//i9JKhFuHWlgQahDT2RMPHlalg2AozPUr1F8EC5guv?=
+ =?us-ascii?Q?qPHlHxdiOR6HE9bPoikP1/ZeqDmcI5hlZDbLCE+RylnyAhYqpd8E1y404hAx?=
+ =?us-ascii?Q?wrPFbVQwHL4co/DpubXT4dNigRGMUzGXOdaPZn/skmyynMYgfYjQxu/x20h1?=
+ =?us-ascii?Q?y7y/eSslcAsBD0qZ52sa+deYSt57VDQG26yx7uBVfnxQHReNEIcVGf98BnFu?=
+ =?us-ascii?Q?jPIkPMB9tEkRB3qQr4H9t+qLI2HJS3EYvw6KxCuoLJLNf1X+8jCvuPVQMX+d?=
+ =?us-ascii?Q?yMyTeiRLYdBa3L+ucXxe1Ey/oKCyzyJBlpUrQkwpbJPmfwMr8SZjm9WgMUld?=
+ =?us-ascii?Q?g3icLTg5ZDSeoS5/IlMVqy2p+Z5QdXFf7zQXki1MFNZaxKhylES7zm1opF2e?=
+ =?us-ascii?Q?06raDMO+00bDqZHHpzWDHcBTx+Az?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/BU0vczWUWjGDRE4jaCAEpSsiXrohOih13LEyC8SaajYsykij4HDxgx6zAqK?=
+ =?us-ascii?Q?J6PsAOy75dl3/j+hbiK3SDx39Jre+WqmwI3np1gjYOMZAxPNhw+opbis7RXr?=
+ =?us-ascii?Q?3a5ZfA4dJKJsvY8Lu4ft4DTihEjdDTRrM2n/MX1qTkVKSVbTC54/ZLshWkRc?=
+ =?us-ascii?Q?NiOAEpcIykpPYm0xmxRSbqIiyL540qUyrTl9H1Faxe3AoRO5/2Qmw7oZaAQL?=
+ =?us-ascii?Q?t9wEmznidAbCTlOzh2hTNT0CPUDKrU9zl9FKmaa1bUUqDuWh7ZDH69VmZhA+?=
+ =?us-ascii?Q?nMmn8YptVvGsffKwoWgWhN0LMwCHwjQszQOA6UK1UvOOYybIra+JM+xh5YNs?=
+ =?us-ascii?Q?RtP6iJDe4s3yuijcSed3RoFEgQyw5Mpnv+2GxRFP8XSYB0EL97wDo5HT14wc?=
+ =?us-ascii?Q?uraCkC/4Md+CwZa58UgJPfTR/VYGgYWMsxzrDz/HIfAZ0CQESnumgg4XGDRV?=
+ =?us-ascii?Q?MSgJVh9o6v63wcBAWTjrzVzhTZ2k5t2Tby2Mlr22qO32CeXl78UacL1/wpwB?=
+ =?us-ascii?Q?Th1hVBb5iTeQPUnYu8evTPNF71511qmKLjtR9ATLFHqCF6GckXinDuMx89fw?=
+ =?us-ascii?Q?/pFOAih4s7q6lI0zfo7odGWefI9+LdMwpxLgsCrVE6g8T+pkOGb36hBYyDQc?=
+ =?us-ascii?Q?/6jTkfzwmnSfuW3etD1GAYqcEuDllFXXnA/9g0UDMSuIIerBE9wiGaUuuMqZ?=
+ =?us-ascii?Q?sYBDMKQaTKf8aaOp2ucM8/rHvtry3/kDCwHxt9f44cFVxaSHxtr0odUIA4LZ?=
+ =?us-ascii?Q?PfTWZNkIfO95oEBMm+AOgErwTQTV5pyj3rR+1QxQtgT57GYWFyNaZt27n2lt?=
+ =?us-ascii?Q?EINmclJp5eC/nYclWtGqCN55tnqVH2pXTZxvPWiXKhwezsjCXf/6ra4WhzBB?=
+ =?us-ascii?Q?qZY+vToqFoTgn+8+dycbhZ5boMxXh1rTktTXSt3QcBBodqj3q5+GxMPs7R4J?=
+ =?us-ascii?Q?MHbMvh8ieDBS7p9JI/7ZWsS5r56kQSIDAGhnMLAAMk7kvWHBeerZViSI4wS8?=
+ =?us-ascii?Q?Z1jLw3BvISYEiDWfFbRthDFhQ5QN4ssm1j9hZdSv6LI97NaxkxkI9/h6nGr6?=
+ =?us-ascii?Q?ANXJFJ/HOlviKCiJ7OM9DLfLwStLJiPgZUz9KoYcsatwB/OkFBmCA5ZzmujP?=
+ =?us-ascii?Q?tlgxylZgBEOoxfJgb5urv9fXfU1cT3CcvAv20Q527lQBkyLDOK5VKVrbEp4J?=
+ =?us-ascii?Q?cJCqODgSG7rGUSzRJGSOSqWTN2FChOjeNSlc+P3LmZ9u6yqmV99lMLMbTjoW?=
+ =?us-ascii?Q?60Q3gLi4qSI+QEox9CtvTaJA4MCHvR2AOiuQXFhnk3U+WYfqwK8TuXOb6coR?=
+ =?us-ascii?Q?9qAdeJkyFRGKXne1tIymUnYJ0p/e+T2nC4De9SfMU5OpEGvRRewZV20AJ4QY?=
+ =?us-ascii?Q?0rbsYDuh7Zus8b6/VlU2DnqpRUqeJvnaSb05SqrSnUNr6xyKcz3dskkv35Hz?=
+ =?us-ascii?Q?NgMUuoBVopVCAArJdSEFY5JhHamJJmWaD+qtf0lwRbbp/iwBTI6iuV7iFIXv?=
+ =?us-ascii?Q?9mQ/N/cdSZ/DnIbCfIRPJkkpgxsJ0/b+czuCT1MPyYUEAhDHSB85a3gNSxnk?=
+ =?us-ascii?Q?VYarB+hZpfGGA0gAiKyNKKtaHQVWPjU/PO0/SkQu?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba97cd80-05be-4978-b2da-08dd1d6c5933
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 00:55:35.0736
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: er9plMKG9iEftr4CLVT4FBUcI9i6TH1n/msEMdndTNjEfQxJ80tMAImKDiHGJaG85PeZ46FAcvy+rSUrEMa6Cw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7786
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_155414_772435_2D986037 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241215_165544_684350_A38248D4 
+X-CRM114-Status: GOOD (  46.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +167,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/15/24 9:40 PM, Mingwei Zheng wrote:
+On Sat, Dec 14, 2024 at 04:22:58PM +0100, David Hildenbrand wrote:
+> On 14.12.24 02:39, Dan Williams wrote:
+> > [ add akpm and sfr for next steps ]
+> > 
+> > Alistair Popple wrote:
+> > > Main updates since v2:
+> > > 
+> > >   - Rename the DAX specific dax_insert_XXX functions to vmf_insert_XXX
+> > >     and have them pass the vmf struct.
+> > > 
+> > >   - Seperate out the device DAX changes.
+> > > 
+> > >   - Restore the page share mapping counting and associated warnings.
+> > > 
+> > >   - Rework truncate to require file-systems to have previously called
+> > >     dax_break_layout() to remove the address space mapping for a
+> > >     page. This found several bugs which are fixed by the first half of
+> > >     the series. The motivation for this was initially to allow the FS
+> > >     DAX page-cache mappings to hold a reference on the page.
+> > > 
+> > >     However that turned out to be a dead-end (see the comments on patch
+> > >     21), but it found several bugs and I think overall it is an
+> > >     improvement so I have left it here.
+> > > 
+> > > Device and FS DAX pages have always maintained their own page
+> > > reference counts without following the normal rules for page reference
+> > > counting. In particular pages are considered free when the refcount
+> > > hits one rather than zero and refcounts are not added when mapping the
+> > > page.
+> > > 
+> > > Tracking this requires special PTE bits (PTE_DEVMAP) and a secondary
+> > > mechanism for allowing GUP to hold references on the page (see
+> > > get_dev_pagemap). However there doesn't seem to be any reason why FS
+> > > DAX pages need their own reference counting scheme.
+> > > 
+> > > By treating the refcounts on these pages the same way as normal pages
+> > > we can remove a lot of special checks. In particular pXd_trans_huge()
+> > > becomes the same as pXd_leaf(), although I haven't made that change
+> > > here. It also frees up a valuable SW define PTE bit on architectures
+> > > that have devmap PTE bits defined.
+> > > 
+> > > It also almost certainly allows further clean-up of the devmap managed
+> > > functions, but I have left that as a future improvment. It also
+> > > enables support for compound ZONE_DEVICE pages which is one of my
+> > > primary motivators for doing this work.
+> > 
+> > So this is feeling ready for -next exposure, and ideally merged for v6.14. I
+> > see the comments from John and Bjorn and that you were going to respin for
+> > that, but if it's just those details things they can probably be handled
+> > incrementally.
+> > 
+> > Alistair, are you ready for this to hit -next?
 
-[...]
+Yeah, I'm pretty happy with the series now. It "feels" right.
 
-> @@ -1617,10 +1602,18 @@ int stm32_pctl_probe(struct platform_device *pdev)
->   		return -EINVAL;
->   	}
->   	pctl->banks = devm_kcalloc(dev, banks, sizeof(*pctl->banks),
-> -			GFP_KERNEL);
-> +				   GFP_KERNEL);
+There's a couple of dumb build bot errors, so I was going to respin to fix
+those as well. I got caught up with a few other things so was just letting this
+sit awaiting feedback, but I should be able to post a respin early this week.
 
-Please drop this one change.
+> > As for which tree...
+> > 
+> > Andrew, we could take this through -mm, but my first instinct would be to try
+> > to take it through nvdimm.git mainly to offload any conflict wrangling work and
+> > small fixups which are likely to be an ongoing trickle.
+> > 
+> > However, I am not going to put up much of a fight if others prefer this go
+> > through -mm.
+> > 
+> > Thoughts?
+> 
+> I'm in the process of preparing v2 of [1] that will result in conflicts with
+> this series in the rmap code (in particular [PATCH v3 14/25] huge_memory:
+> Allow mappings of PUD sized pages).
+> 
+> I'll be away for 2 weeks over Christmas, but I assume I'll manage to post v2
+> shortly.
+> 
+> Which reminds me that I still have to take a closer look at some things in
+> this series :) Especially also #14 regarding accounting.
+> 
+> I wonder if we could split out the rmap changes in #14, and have that patch
+> simply in two trees? No idea.
 
->   	if (!pctl->banks)
->   		return -ENOMEM;
->   
-> +	pctl->clks = devm_kcalloc(dev, banks, sizeof(*pctl->clks),
-> +				  GFP_KERNEL);
-> +	if (!pctl->clks)
-> +		return -ENOMEM;
-> +
-> +	for (i = 0; i < banks; ++i)
-> +		pctl->clks[i].id = "";
+I could split out the first half (patches 1 - 8) into a series to go via
+nvdimm.git, because they are actually standalone clean ups that I think are
+worthwhile anyway.
 
-Is this ^ assignment necessary ? If so, why ?
+The remainder are more -mm focussed. However they do depend on the fs/dax
+cleanups in the first half so the trick would be making sure Andrew only takes
+them if the nvdimm.git changes have made it into -next. I'm happy with either
+approach, so let me know if I should split the series or not.
 
-[...]
+ - Alistair
+
+> [1]
+> https://lore.kernel.org/all/20240829165627.2256514-1-david@redhat.com/T/#u
+> 
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
