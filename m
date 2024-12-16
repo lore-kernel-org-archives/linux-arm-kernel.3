@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D125DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A26E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35aPFMhQL5nn16dGdQB1pIXzHWsIDzaPqfniZ4tuIOc=; b=Z11XiKKHfDFahpPo2FdlmhCke2
-	GsnXxp4gQAjOQRNx1SSoqUKyRP+BPgEQ2/8UF505KbsihdUJP5T2MWLSvhXS6/46KMbYkdv2f5kST
-	Aen7vU7SlA6cxpJRfEA//ISS3mskkE8403NYTjlDhKmJe/P4h8tJONnAk9t5yKp39FidjdcecEvL4
-	Yi8Mmdjb7L9gOBUvAO31D6tUihOWoMVhS3AjkzJywmKwQ5W02d+le1Z55oVTfs+8S4sxt6/Oe0ATk
-	50zC5ELHfPQ/6Ohi++VvQDCTSIGyqTDyWGvy62Auq9AiyqnRmPXdJiNSakR+Z36pz5WJ38JtxZRi9
-	5qL1oDug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Urcfzo6WdsffsY+BPLog1lEae7R1dbUuXiUJn46hIL0=; b=wzkbZI1mUnRCRdDC5JljN6CH5V
+	/FEsLtHlJqnbVfD4nEKuv9ahj45/YInC3hFnz+ksc4JLv07Vt+iQn8GC3AJwdlO/UGJOX2cayaukE
+	5tTBwPb+HA93Fd50l5IUa6+EVQomSYQe9G8km/xlSwDVQvyvaLmGDA6RrcRLGT9gniXVKFcARdJPC
+	shxCmJkCaqrpTnPZqEmgNJCeVBQczovwElYDqHxroqFrq35AFG4vtpEK7hc2DD/BW8FEVtQ6LQ5Wc
+	HPHH9oS/HZlvGISRQAp1UTw3q14sys5ejAC8HvPgpS2KblcgkZTyGH8bTnA/lotctNyBfDd3u49rF
+	SnpVJ3cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN87T-00000009fXL-0mC3;
-	Mon, 16 Dec 2024 10:14:31 +0000
-Received: from mail-m12769.qiye.163.com ([115.236.127.69])
+	id 1tN88X-00000009fmj-1P3i;
+	Mon, 16 Dec 2024 10:15:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN82l-00000009e79-2jfL;
-	Mon, 16 Dec 2024 10:09:40 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5dd3578b;
-	Mon, 16 Dec 2024 18:09:34 +0800 (GMT+08:00)
-Message-ID: <60c85962-f0fc-41c4-a1ec-30d5ddf3196b@rock-chips.com>
-Date: Mon, 16 Dec 2024 18:09:34 +0800
+	id 1tN87A-00000009fSF-2P8D
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Dec 2024 10:14:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D6C285C56B3;
+	Mon, 16 Dec 2024 10:13:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13BD8C4CED0;
+	Mon, 16 Dec 2024 10:14:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734344051;
+	bh=neQjXpprVKKr7+IF1BUgJEHAPq3M8lzz9xydrcqWFo4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dsWn6z+kYzVCL1d/ttsn3cAwhLsTJnrZKePws0DMQfCcdZfxqUGa1c+War27UfG/b
+	 EccRMYa4nAOQhmutyTjfkJaoZ5nCS2WY34x6FY3kLKB+/XRi5L9KGJyx1M8RkFQ9ge
+	 TIzi1EebQwjW7soX8CPxHJjUTYHCzpEWB5YVzsN3r0Gbaqj7NQMPUHIaTPxuWVo1H8
+	 WpS5l+LFSQAOVxngrZiOu5Nz4rxePRs3grq767Af1lYipAbKKa3vFgRwNwEaWT+G2I
+	 276CiLDsXZy728PqRvP18pQKkVyFP9Iq7ipiHqsspb0DyYjkJkdqTDLX7mEWvA4ejH
+	 cUUX07hmt4mUQ==
+Date: Mon, 16 Dec 2024 11:14:08 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Charan Pedumuru <charan.pedumuru@microchip.com>
+Subject: Re: [PATCH] dt-bindings: mfd: atmel,at91sam9260: Convert to json
+ schema
+Message-ID: <dxgqkdo6ulmqfa5vyerwta3vubuy32gzzu2cxfwwtespydfc4b@5wjrno3lgjsp>
+References: <20241211-matrix-v1-1-5ef0104a3af4@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/11] drm/rockchip: analogix_dp: Add support for
- RK3588
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20241216031225.3746-1-damon.ding@rock-chips.com>
- <20241216031225.3746-4-damon.ding@rock-chips.com>
- <gwogudb5vae7wu452zwuqmdlyaibenoso4f5pjmu3uttckhy2w@shndol4mz5n4>
- <4395748.ejJDZkT8p0@diego>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <4395748.ejJDZkT8p0@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhkaGVZCHR5PHUhLTR8eQ01WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93cef1d14703a3kunm5dd3578b
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OCo6HAw*PDIOHBkXGRkTIhAj
-	K0xPFDFVSlVKTEhPSE9ITExNT0hOVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFNT0hONwY+
-DKIM-Signature: a=rsa-sha256;
-	b=TSWMVG+1KPPhUTsuJupB7ml17VcXCXi6hgYoh5crM4IAcKQeA1/3NZtn/okOlIiwa8QH8/zU9to0GLPNjTyJxTvg8/+aS2Xf8j9tfjBGv6W8vYT+tBkYBStFIEf2XB6/gp136FOmD5fRXrVauPO+sFN2HszZXFtr5IRf4+nX/Jc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=35aPFMhQL5nn16dGdQB1pIXzHWsIDzaPqfniZ4tuIOc=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241211-matrix-v1-1-5ef0104a3af4@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_020939_914931_5B394430 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20241216_021412_696149_917157CB 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,198 +67,97 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Lee Jones <lee@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Dec 11, 2024 at 04:59:22PM +0530, Charan Pedumuru wrote:
+> Convert old text based binding to json schema.
+> Changes during conversion:
+> Add a fallback for all compatibles as the IP core is compatible
+> with `syscon`.
 
-On 2024/12/16 17:11, Heiko Stübner wrote:
-> Am Montag, 16. Dezember 2024, 09:57:41 CET schrieb Dmitry Baryshkov:
->> On Mon, Dec 16, 2024 at 11:12:17AM +0800, Damon Ding wrote:
->>> RK3588 integrates the analogix eDP 1.3 TX controller IP and the HDMI/eDP
->>> TX Combo PHY based on a Samsung IP block, and there are also two
->>> independent eDP display interface on RK3588 Soc.
->>>
->>> Add just the basic support for now, i.e. RGB output up to 4K@60Hz, without
->>> the tests of audio, PSR and other eDP 1.3 specific features.
->>>
->>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>>
->>> ---
->>>
->>> Changes in v2:
->>> - Add support for the other eDP output edp1
->>> ---
->>>   .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 82 ++++++++++++++++---
->>>   include/drm/bridge/analogix_dp.h              |  3 +-
->>>   2 files changed, 74 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->>> index 871606a31ef1..4c9a55776ada 100644
->>> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->>> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->>> @@ -51,10 +51,12 @@ struct rockchip_grf_reg_field {
->>>   /**
->>>    * struct rockchip_dp_chip_data - splite the grf setting of kind of chips
->>>    * @lcdc_sel: grf register field of lcdc_sel
->>> + * @edp_mode: grf register field of edp_mode
->>>    * @chip_type: specific chip type
->>>    */
->>>   struct rockchip_dp_chip_data {
->>>   	const struct rockchip_grf_reg_field lcdc_sel;
->>> +	const struct rockchip_grf_reg_field edp_mode;
->>>   	u32	chip_type;
->>>   };
->>>   
->>> @@ -134,12 +136,21 @@ static int rockchip_dp_poweron(struct analogix_dp_plat_data *plat_data)
->>>   		return ret;
->>>   	}
->>>   
->>> +	ret = rockchip_grf_field_write(dp->grf, &dp->data->edp_mode, 1);
->>> +	if (ret != 0)
->>> +		DRM_DEV_ERROR(dp->dev, "failed to set edp mode %d\n", ret);
->>
->> Is it to be called for non-eDP hosts too? Or for older hosts?
-> 
-> The implementation of rockchip_grf_field_write (in patch1) seems to
-> take care of checking if that field actually exists and doing nothing if
-> not.
-> 
-> I think eDP/DP is more a naming thing, the Analogix controller is called
-> an eDP controller in all documentation things.
-> 
-> Even back on rk3288, the Analogix-DP, still is called an eDP controller in
-> documentation, with the only difference being that it does not contain
-> another additional "dedicated" DP controller
-> 
->>> @@ -396,6 +425,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>>   	const struct rockchip_dp_chip_data *dp_data;
->>>   	struct drm_panel *panel = NULL;
->>>   	struct rockchip_dp_device *dp;
->>> +	int id, i;
->>>   	int ret;
->>>   
->>>   	dp_data = of_device_get_match_data(dev);
->>> @@ -410,9 +440,22 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>>   	if (!dp)
->>>   		return -ENOMEM;
->>>   
->>> +	id = of_alias_get_id(dev->of_node, "edp");
->>> +	if (id < 0)
->>> +		id = 0;
->>
->> Alias is not documented.
-> 
-> additionally, aliases should never be used to determine actual device
-> functionionality - e.g. the hw-device-number
-> 
->> Please check how other platforms handle device -> ID conversion and
->> consider following it (yes, the best option currently known is to
->> hardcode bus addresses into the driver data).
-> 
-> see for example the dw-dsi + dw-dsi2 for existing implementations.
-> 
-
-Indeed, I will fix it in the next version.
+I don't understand. The syscon was already there. You added different
+fallback, so provide explanation why do you think they are compatible.
 
 > 
+> Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+> ---
+>  .../bindings/mfd/atmel,at91sam9260-matrix.yaml     | 54 ++++++++++++++++++++++
+>  .../devicetree/bindings/mfd/atmel-matrix.txt       | 26 -----------
+>  2 files changed, 54 insertions(+), 26 deletions(-)
 > 
->>> +	i = 0;
->>> +	while (is_rockchip(dp_data[i].chip_type))
->>> +		i++;
->>> +
->>> +	if (id >= i) {
->>> +		DRM_DEV_ERROR(dev, "invalid edp id: %d\n", id);
->>> +		return -ENODEV;
->>> +	}
->>
->> Is it applicable to non-eDP case?
-> 
-> same as above, it's always called eDP in all pieces of documentation,
-> (Compliant with DP 1.2 and eDP 1.3)
-> 
-> Heiko
-> 
->>> +
->>>   	dp->dev = dev;
->>>   	dp->adp = ERR_PTR(-ENODEV);
->>> -	dp->data = dp_data;
->>> +	dp->data = &dp_data[id];
->>>   	dp->plat_data.panel = panel;
->>>   	dp->plat_data.dev_type = dp->data->chip_type;
->>>   	dp->plat_data.power_on = rockchip_dp_poweron;
->>> @@ -464,19 +507,38 @@ static int rockchip_dp_resume(struct device *dev)
->>>   static DEFINE_RUNTIME_DEV_PM_OPS(rockchip_dp_pm_ops, rockchip_dp_suspend,
->>>   		rockchip_dp_resume, NULL);
->>>   
->>> -static const struct rockchip_dp_chip_data rk3399_edp = {
->>> -	.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
->>> -	.chip_type = RK3399_EDP,
->>> +static const struct rockchip_dp_chip_data rk3399_edp[] = {
->>> +	{
->>> +		.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
->>> +		.chip_type = RK3399_EDP,
->>> +	},
->>> +	{ /* sentinel */ }
->>> +};
->>> +
->>> +static const struct rockchip_dp_chip_data rk3288_dp[] = {
->>> +	{
->>> +		.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
->>> +		.chip_type = RK3288_DP,
->>> +	},
->>> +	{ /* sentinel */ }
->>>   };
->>>   
->>> -static const struct rockchip_dp_chip_data rk3288_dp = {
->>> -	.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
->>> -	.chip_type = RK3288_DP,
->>> +static const struct rockchip_dp_chip_data rk3588_edp[] = {
->>> +	{
->>> +		.edp_mode = GRF_REG_FIELD(0x0000, 0, 0),
->>> +		.chip_type = RK3588_EDP,
->>> +	},
->>> +	{
->>> +		.edp_mode = GRF_REG_FIELD(0x0004, 0, 0),
->>> +		.chip_type = RK3588_EDP,
->>> +	},
->>> +	{ /* sentinel */ }
->>>   };
->>>   
->>>   static const struct of_device_id rockchip_dp_dt_ids[] = {
->>>   	{.compatible = "rockchip,rk3288-dp", .data = &rk3288_dp },
->>>   	{.compatible = "rockchip,rk3399-edp", .data = &rk3399_edp },
->>> +	{.compatible = "rockchip,rk3588-edp", .data = &rk3588_edp },
->>>   	{}
->>>   };
->>>   MODULE_DEVICE_TABLE(of, rockchip_dp_dt_ids);
->>> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
->>> index 6002c5666031..54086cb2d97d 100644
->>> --- a/include/drm/bridge/analogix_dp.h
->>> +++ b/include/drm/bridge/analogix_dp.h
->>> @@ -15,11 +15,12 @@ enum analogix_dp_devtype {
->>>   	EXYNOS_DP,
->>>   	RK3288_DP,
->>>   	RK3399_EDP,
->>> +	RK3588_EDP,
->>>   };
->>>   
->>>   static inline bool is_rockchip(enum analogix_dp_devtype type)
->>>   {
->>> -	return type == RK3288_DP || type == RK3399_EDP;
->>> +	return type == RK3288_DP || type == RK3399_EDP || type == RK3588_EDP;
->>>   }
->>>   
->>>   struct analogix_dp_plat_data {
->>
->>
-> 
-> 
-> 
-> 
-> 
-> 
+> diff --git a/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml
+> new file mode 100644
+> index 000000000000..0e827882823f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml
+> @@ -0,0 +1,54 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/atmel,at91sam9260-matrix.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip AT91 Bus Matrix
+> +
+> +maintainers:
+> +  - Nicolas Ferre <nicolas.ferre@microchip.com>
+> +
+> +description:
+> +  The Bus Matrix (MATRIX) implements a multi-layer AHB, based on the
+> +  AHB-Lite protocol, that enables parallel access paths between multiple
+> +  masters and slaves in a system, thus increasing the overall bandwidth.
+> +
+> +properties:
+> +  compatible:
+> +    anyOf:
+
+oneOf
+See other bindings for preferred syntax. There is never anyOf.
+
+> +      - items:
+> +          - enum:
+> +              - atmel,at91sam9260-matrix
+> +              - atmel,at91sam9261-matrix
+> +              - atmel,at91sam9263-matrix
+> +              - atmel,at91sam9rl-matrix
+> +              - atmel,at91sam9g45-matrix
+> +              - atmel,at91sam9n12-matrix
+> +              - atmel,at91sam9x5-matrix
+> +              - atmel,sama5d3-matrix
+> +          - const: syscon
+> +      - items:
+> +          - const: microchip,sam9x60-matrix
+> +          - const: atmel,at91sam9x5-matrix
+> +          - const: syscon
+> +      - items:
+> +          - const: microchip,sam9x7-matrix
+
+So that's just enum with previous group.
+
+
+> +          - const: atmel,at91sam9x5-matrix
+> +          - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    matrix@ffffec00 {
+
+syscon@
+or system-controller@
+
 
 Best regards,
-Damon
+Krzysztof
+
 
