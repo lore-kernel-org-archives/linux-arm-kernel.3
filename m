@@ -4,187 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040A2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 13:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B903E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8pW5F+E8e/NerHuPwJBcvwKUQKMqRgo8cOAW8Vok9X0=; b=PF9J66l8XKPUEbHDMIwWfLK8eT
-	qyKmIomybtsJv3j5HUieXWFLuJGcmOJS2i+FYj7X8c1RqyyHLbTqtmnTmXU2ZwLH1ZqUbHR7XTKTx
-	5UfnhlRhCHm37au0lSj2NjAbYQLGxiNSd/AVE87mPskGwAr4XIT5boL+dAr/LNzFk/rJj/sCrB5X8
-	HyD9N5t9HP5mlMbwV0y/FG6BGkcvItxGY1xwp7EYcrO43Q2lJ4t8RHNt76WCXAc88ROR1fEsyDfLn
-	PUWfwL46ZdY/MXHYScngbjrKsvA6XGQz5gctb9SZEAqs0MVfHqSySOHeccyXmulCH6kztHaJAeD83
-	1lBZ9GiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zg4ilhS7TTTXcjH+uIPD/koI66ea2Qpvy0x9hiKQl8Y=; b=lrm6ULRmjTLHubpg8feerBSyPa
+	oPh7ahitu9DqvFAtnkW456l06H9ZhIZzmi9BbxhdqC9QPBBrkbP6wv3nqD9ZErrWD8Dr3DMtmZBMl
+	n/ZIxQO+48gA66iFzkExJGXn4gtOin41keMdR+x7j9dvqUyu6i4rXqM3S9LVwfJwYKG3KzBZcC+hO
+	FOXex9LBQULu70aQH7PmpgtBikCuh60qzAq6jO5Gba1djeKD1jyeZ7kpJXzB0tVMZdOiDQ3VKOj82
+	2csQ9KWYOrv9WUy76Ot/haG+5m6fMRpd1bk5Ixo9N5nX9HhfbeK7CWXWQ3ymhRGke8VVeICqYqqKk
+	q7ln5WVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBZH-0000000A9gN-448n;
-	Mon, 16 Dec 2024 13:55:27 +0000
-Received: from mail-sg2apc01on20705.outbound.protection.outlook.com ([2a01:111:f403:200f::705] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	id 1tNBk0-0000000AAkw-06nk;
+	Mon, 16 Dec 2024 14:06:32 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBY9-0000000A9SJ-2R3K;
-	Mon, 16 Dec 2024 13:54:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ID8kDKdd4xIqqFubQeYG4c8NnLZ/1P6R8Y7QHCsqzCY3wqnPFmLBx70rCCJSo/w4cVQsA7e1rg3gm6qwQA7q3gnTQ7Ne4g0tbdt4xGBBXY6N1pkq8h0SZzNUdDa2ew41gjaw2/Wkv2cm6h9Q/shANo1v6WE2A10jCYvg51sCBm/J1nZ4hPN+tZ8pMOlgsvdvMJmdeMEUEXvNOpnqR1y56fxkluRctu2eGX8tHoEVNpZsPpN+scPeEVGW4B/bLKbnLBhtACkwcT1qzDo9pGgaO1DqjIKYnmBtuP6c3RhB13BHt4kmvCX3i1OF2+1LsOi3P8gakJoPKzgFYNnnG8p+0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8pW5F+E8e/NerHuPwJBcvwKUQKMqRgo8cOAW8Vok9X0=;
- b=gXaPJxlw5eezMKSLFbH1dxNTo0bfwZgrrMycE9Uzfj5SgvcP+MJR2PKr8GlPC0/bYx4aI0ISy1nArxgQlZGu+5Z6Mzbnyn32ygQgd36uB22NJP+uAHqzWYeUf1t401lq6UwNqU7xQALBYvsK07+0p0pa/ALa8nqlXd8NmZgMjdkKnLuQWJ2MPIuQjvTscccxYuUL7ldV+ZbgrBU6GbEQVXY18q8fJhCCwibwlcEfw+p7W3ynRpNfRaVwc3CXLjcFqv+s6ol7sWuCBmrjvrRgwqnCqCHUVYgNjL7W9C+iyr/NA1whbxsmQjBBtwQpTt1UdpfxzFcZIm44qvAoW/q+EA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
- dkim=pass header.d=fibocom.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8pW5F+E8e/NerHuPwJBcvwKUQKMqRgo8cOAW8Vok9X0=;
- b=ccgmECO7xs1O9+0k97QiT8HMR/ulOP+jIISK515aR7y1sPIgo3VEs7dpQjD+4zLKyUEamTuSUVq4CfQ3uj+Ov6JaVB/3zRtZv3aDqUpS9DKMI8IHGc9/c2i+AUY47mcqF9CxgXhK4Dvicuc2af291LuvasnJdJYqeTgC/44QTVg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fibocom.com;
-Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
- by SI2PR02MB5955.apcprd02.prod.outlook.com (2603:1096:4:1e6::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.20; Mon, 16 Dec
- 2024 13:53:56 +0000
-Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
- ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
- ([fe80::f53d:47b:3b04:9a8b%5]) with mapi id 15.20.8251.015; Mon, 16 Dec 2024
- 13:53:55 +0000
-From: Jinjian Song <jinjian.song@fibocom.com>
-To: ryazanov.s.a@gmail.com,
-	Jinjian Song <jinjian.song@fibocom.com>,
-	chandrashekar.devegowda@intel.com,
-	chiranjeevi.rapolu@linux.intel.com,
-	haijun.liu@mediatek.com,
-	ricardo.martinez@linux.intel.com,
-	loic.poulain@linaro.org,
-	johannes@sipsolutions.net,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: andrew+netdev@lunn.ch,
-	angelogioacchino.delregno@collabora.com,
-	corbet@lwn.net,
-	danielwinkler@google.com,
-	helgaas@kernel.org,
-	horms@kernel.org,
-	korneld@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	netdev@vger.kernel.org
-Subject: Re: [net v2] net: wwan: t7xx: Fix FSM command timeout issue
-Date: Mon, 16 Dec 2024 21:53:22 +0800
-Message-Id: <20241216135322.4533-1-jinjian.song@fibocom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <da90f64c-260a-4329-87bf-1f9ff20a5951@gmail.com>
-References: <20241213064720.122615-1-jinjian.song@fibocom.com>
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0342.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ea::20) To TY0PR02MB5766.apcprd02.prod.outlook.com
- (2603:1096:400:1b5::6)
+	id 1tNBis-0000000AAcR-1dCP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Dec 2024 14:05:24 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGBSXHC019814;
+	Mon, 16 Dec 2024 15:03:34 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	zg4ilhS7TTTXcjH+uIPD/koI66ea2Qpvy0x9hiKQl8Y=; b=lKQXyxcP27EDP2SN
+	0Op6pw5jUuTudTT1tjc1Ox1RMd+Bs1nVCHNRFoAibKwrCoxzwXiAvMDKo8RG5zTW
+	gSVmLkgZDsS8TwhTT3AXTQD9LVhpZTcwFSmeWlhCqTkTpvF5/omg4n7PSl0WLVPe
+	uUVKQBCyxdf46N8npdM9WTXr/rJbFp8SDLwl71zoU/NeJJW1ZG0BU0MK6Ul+NNuq
+	KgbNQoimNYQZuRLQbp8Zwv1gzQ8/BSRqrwKBh6x83P0scZoumiYKAus+IJsq8SGq
+	KO//wHf0gnLp2zoJdrnuuh4jwZYN5EkuMZjBdnNI42j5M+BgaPbGtwtNlsOomhc1
+	F9Ydbg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43jeeyj1h0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Dec 2024 15:03:33 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F2E9840044;
+	Mon, 16 Dec 2024 15:02:07 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 66AB926E55B;
+	Mon, 16 Dec 2024 15:01:00 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
+ 2024 15:00:59 +0100
+Message-ID: <ef02ddbf-0838-4616-a3c5-ef7ab55de3c9@foss.st.com>
+Date: Mon, 16 Dec 2024 15:00:58 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|SI2PR02MB5955:EE_
-X-MS-Office365-Filtering-Correlation-Id: f357eb12-30bc-4eb6-fbd6-08dd1dd91442
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|52116014|376014|366016|38350700014|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZkhoZDlHVE93d0hGV25SY0NFSUlFL0JnUS91TWJZenkrbkxCaTR0bUZROTN3?=
- =?utf-8?B?SE9XOGZtQ09RNmtOYXRCS0ZTQWRrREQ5UjBCQ1drV0pPZzl3NHl6MWVNakZJ?=
- =?utf-8?B?Z29NY3BDZ3ZDaGpSV25sN1VhWXRRVEV2RkFSbFMzaHdXVzA1T3NDbnpkQXlD?=
- =?utf-8?B?RkVtN3RjbWtqSzIwbk15emJuZzAzdVVtd2daU1N2aDg1QW1NZlF2K1JISnNC?=
- =?utf-8?B?akJnK203VWxKWm10azhwdkh5dGx5T0gycVJHdlpKTGdhYi9QTVE2OS9OM09r?=
- =?utf-8?B?VXdYcFJ3YjIzbVB2N1A0M29XQWNXZ2RwN2FGams3OEN4bkJseW54N0FqcTlq?=
- =?utf-8?B?MjcyRzd1WWNKTllNZ3NQVjZxUTRRb2VRSEtUZEJVd1oxWUhmQ0Jnb2Z2ODdX?=
- =?utf-8?B?NTB5RDNsTFVlWVMzaFQ1N3JTOEUzNDRMVzdUeC8wYUM1ZytYaUFwME9zWkRP?=
- =?utf-8?B?d3l1VGZ4dUVMS1loZ1kyeklVWWhCRG1ycEcwNFZxOXYwc0NON3BSZ2YxNTJs?=
- =?utf-8?B?R2hsVEdJcVpuUW9NYVlMbHZ0ZXJCQVdjb2VTRzFBL0cyZWVUd2d0Q1ZHSEJQ?=
- =?utf-8?B?ZXpLeGFyTCtDMmlZNFdxSDdyZzJZTDl5TWhlUlRSVDJzYmJXeXRiWlprNjly?=
- =?utf-8?B?TS8wbi91WWJzVGdEem1rdEIrYisya2F5eTk3Zi9TMWZVOW0rNTY4Q2d0K3Zm?=
- =?utf-8?B?alhxb0VSQUVtdEhJR21adjFxWGhVa3FYOUFmcFlkSWpXOE9DVW9DK3ZWUU00?=
- =?utf-8?B?RndyN2h1UERlWGdNeGdxbm0rVitXdGhrYkE4azRselpOeGlNYzduSmtldjNQ?=
- =?utf-8?B?MW1HNnhYNTdScytKbGVMb1BUSjZIU0tScklIVUQyTVd1Uk93cm9Fcnk4U1dS?=
- =?utf-8?B?VnMzM0pGV2tHRWQwY2ZiSVEwZzRhQXpPaEZiNG5meHNtcEhVS28wZVVNc1do?=
- =?utf-8?B?c1pjd0lCRFhheG1ENmxRTHdGTGFJNkpGS254VGdJNFdVckxhWGtEb3p3Q1lh?=
- =?utf-8?B?NXVoTTVUNzBERDdpaGJWMENycWZQbUsxelFiTnUvcEhlWkRtRllyZHI4R1Ez?=
- =?utf-8?B?R2tWemUvYmxDV1RGc2VvSlJWSlZMeWZUYmdPQlE2UU5qWFNRbFl3c0NrcXM1?=
- =?utf-8?B?NG01YTVJMXBDM0JLK0NCR2dxaDNJelVwY2hHTXlwd2xHL2ZINm51cTBkVVZx?=
- =?utf-8?B?Z0NMWGVMenRPSHg2TUs5UDBpcGtPbGRVVHdaWndacFlOaFp2RU44RkRNUzFN?=
- =?utf-8?B?cHJSMWJkRVg5MmcyYy96bnlZWlBhbHYzQXNVaW9zc2NGbWl4OG5lNFNpUU9V?=
- =?utf-8?B?MnUwRE5ScGgzMkpHRmp0d29LV2prV25GYURPN3AxamJFMU1TMjZRQUkvbmVi?=
- =?utf-8?B?MXUzaGRDNFNCQ2NBOTE4MzNubTdrYU94K0VUbjd4N3hkUmprM3JUSDBNSk9R?=
- =?utf-8?B?OHo0bmV6aHl5QnJrbjZSZms4OUQ3bHFUajEwdVhxMFA5dTRFS29iMGNVSURZ?=
- =?utf-8?B?bi83cjJGRk5nUHJHOVdVMkpqVHU3Rmo0Mkt0YVo3Vzc0VHh6akczRUgzT0lk?=
- =?utf-8?B?ZVE0Tmc5VW5vYmdHOTh5QU12bEhvWmp0S2QzWkxBWHovZWF6R25oRWNrR2hR?=
- =?utf-8?B?U1ZVeVJpT2d2ZTY2VUJWTVZUNzhZL0FkKzk4Qnh6ME9DaW94MU5CSFdPNzhM?=
- =?utf-8?B?bW8raUc3N25WOGM3emJERm1ESFU4S3pxeGFMV0NiT3ZnTFVwWkNTcVRlcHli?=
- =?utf-8?B?TnJGYU1hZmNHemdNdnJyc1F4Tks1eU9QV0VsTUxaWUVmVTltSDlnbkI0RmdB?=
- =?utf-8?B?MW51NXF3aVhQclRMWllXMlJucWJPTjdIMlREWE4wckoxVHdiRk1nb0o3RFpZ?=
- =?utf-8?B?aEl3MHlvVXFNVmt1ckk1cStEQnlrR2tZUktKRmo2bG53RlR2S2Y1UGVXUDh6?=
- =?utf-8?B?ZVFOSzVadkVBWEJpajcvcDNtdVM2ejc5N2dMd2JwL1p2SFJha3pTZHR3T21R?=
- =?utf-8?B?dnBjYmxYbFJRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(52116014)(376014)(366016)(38350700014)(7053199007)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M0o3M2tBTi9LcTl2TmM0ZkMzRlhEOFYrZno5WDU0VjJvY2x6TmNEanF2QnNq?=
- =?utf-8?B?MjNvaTBsS1BvU21SUHgrZHB0Q1V5QWhlakFZWE9zWmRrNTdvb3J5elRQVXdB?=
- =?utf-8?B?Zmdoekd6UllHMGQyUHpzc2lYSFBlTUNPOEQyNGFMTE55QmQrNG9xMFlrUktj?=
- =?utf-8?B?cVV4dmZOVzJmWWdJK0QyTGZlVjQ1UWRUK29VMldYbDlWK3pOOXltSlVsYnNo?=
- =?utf-8?B?VWw1dUdUNTY3VlRncGxJZmg3b1VEcWtSYS9lUnBmR0lpRXRmWVdkaXc4bzdS?=
- =?utf-8?B?TFR0UDdCaG9kZVlITnFPOEVHc256SFFaVWpOdG8vcGRnK2tEOGYzd3JqSGFZ?=
- =?utf-8?B?R2FxdEtqU3QwS0FFMnFNdHk4V2JVYXgweG1LMkZGYnZjMlUxUmtEUHNScGU5?=
- =?utf-8?B?akdCaEdKYW1ablc5RmIxZS94bTIzaW95SnJ3NitqY2tJb2lrMjVId2E2eWhT?=
- =?utf-8?B?cW9mQXNqZnM5U0dCMllRRlZnQ0RwVW1JZkNSS1ZIcnZNTW8yWVR2dWxNVVBp?=
- =?utf-8?B?SmkyRDhUTWlQMVlsbzVEUFZEdTl6Tll5ZzNmZTFKSFpoc21NSE9aWGd1WVJD?=
- =?utf-8?B?YlNCc1NtSlNNL1FMTmNUVkZKTXpoa29zWi9NcTVrWkxhMHdNVDc3QmpWNUs4?=
- =?utf-8?B?bTJzREFCNk5FaG9zbERacFJqK01FRitwK0xTVTVkV0V1cmlrNzBTZGFROUxY?=
- =?utf-8?B?VlYxZWdMeE01WW9mUmJrRUZ6azlERDdKR1hIVVM2N3NDcW5jWVhSQ2RyWEpN?=
- =?utf-8?B?SDZ2eUJOWTBXZmVGMzFyeTkyT2NOcEUrUFhDZTZMNWR4OHgyZWp1Qy9vdEgw?=
- =?utf-8?B?UllSU0xkUU1PU2xNR3VTZ1hNeEVOa1VuOUZQVVpIdVdnRGQyY0VoTEQ2c3J2?=
- =?utf-8?B?S1JvR2NFUThWenBxMEdhUG9vbUx5UGJVYlJBRnh5RUNVS0R3OFFHNm8xdExC?=
- =?utf-8?B?c2FlUEw5YXMyUjVTVkorcEVzcmNOZnBUNVR5dHdZc243VVJPTkVCYlk4azRT?=
- =?utf-8?B?U2tTYWVkYXlaa1dkU0tkUHJTNm4zLytVZkMrNmVEM281aWZ5T2NVV0FvWFhQ?=
- =?utf-8?B?MitKQndVWWdEQVIvUXQ5VXJSeDdzOVBQYjFsTHNRUFM0M216YjV0Z3FBOC9X?=
- =?utf-8?B?cXpaSEFrcmFLQUFrL1V0THFhZVNmdm1PYm1YVTRUYUlrRXRvYkUwcVRUTFVF?=
- =?utf-8?B?Y2tvRXk5S3NXeXJwTHI0UXltNTZBODZNUnBiWFV1ZXE5dWJUajVkdSttL0pE?=
- =?utf-8?B?Y1NLdUd6a2IxN0tzSVFrU3llazFQWDVSSmxoRzVWTXU2aHVJNTVJSkpGVnBh?=
- =?utf-8?B?RFpuOCs1U1BYUnVVd3JNU2dQUFpqdUJVU1ZLSkhzc2ZtY20yd29WQlF1RDhh?=
- =?utf-8?B?UUQ3Ym5LZmxpZERCa3ZYMURYSEZoTk9aSXIxaEJOcU1CRDVIOWo5MU16VFA3?=
- =?utf-8?B?Vm16RHZIYVJyRFVrMUNibjJvbGZ2enloRkRxZUxFalN0emF5ZVF0ZE9zUlVh?=
- =?utf-8?B?OTF3VDh4YXVsWGhza1AvdENkamRHa0U1K2ZkUVRKWkhoWHpka29sbHd5bkl5?=
- =?utf-8?B?dmZtQUVnNXdESWNsT1M4Z2wrcFRQbk5Wd3RYTFFaR1lvRnBrM1hqZlV3R3Fx?=
- =?utf-8?B?eDQ5T3BVa3BGaGV4d25KSFY0YlRFTHpMZ3Y0OUpEUFJtK0NJT2twcVJOakRP?=
- =?utf-8?B?NXU0T0tPcW9VYmllb1NibU5rM0t6R0tXL2cwQi9aUnpjbXdvR2g1T2d4U09X?=
- =?utf-8?B?alRuekY2TUZ2dkRPQThsTnBqdVBnc3FUUGRjVzc0TXBoUGk3by9ia0M0ZHBV?=
- =?utf-8?B?MGg2ZGhKbU5vVzVsWFhKc3Y0d0JXOWdaQU0rSXR6N0VtV3g0KzYzRjlydXVj?=
- =?utf-8?B?WTN4QzVJU0hnQ0YzVUE0NVZLZ09pZTNQUS9ZQ0RTMnM4bnI2bHVGSzFFVXhz?=
- =?utf-8?B?NjRVVktkMUhYREhnU0szeHpNVkNobVVmR24yUHp4dU52Qm1zcDFsNkdaUmZv?=
- =?utf-8?B?S1lqaDdXRlRMUzF4N3UvTURGSmhMY0p6QWVHVlk3TGl6S25wSWlKOHdMVzg3?=
- =?utf-8?B?NkdOTU4rSnVFMGZpMEliTmV2N1phRWcvcnRSR2h0eThZNE0wMy85V0NwOFla?=
- =?utf-8?B?WFpOQ201ek0zNldnQStxaFNSTGh2UVVuYWpwL3dhc1pNaVo5cGRKWFlaakJF?=
- =?utf-8?B?R3c9PQ==?=
-X-OriginatorOrg: fibocom.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f357eb12-30bc-4eb6-fbd6-08dd1dd91442
-X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 13:53:55.2114
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ucPCDipT7hbLqytMwwQWN5QGSxvmyLCLChFxVWKHh/sOwQrR7NBThyfgROWyHE803VsYrZw9Che26vxb6AVBMLPhBf/rKztjzy8oiElJUi0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR02MB5955
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
+ STM32MP25
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241205172738.GA3054352@bhelgaas>
+Content-Language: en-US
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241205172738.GA3054352@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_055417_626197_8E6923F3 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_060522_947121_5B512C5D 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,63 +99,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
 
->> Fixes: d785ed945de6 ("net: wwan: t7xx: PCIe reset rescan")
->
->The completion waiting was introduced in a different commit. I believe, 
->the fix tag should be 13e920d93e37 ("net: wwan: t7xx: Add core components")
->
 
-Got it.
+On 12/5/24 18:27, Bjorn Helgaas wrote:
+> On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
+>> Add driver to configure the STM32MP25 SoC PCIe Gen2 controller based on the
+>> DesignWare PCIe core in endpoint mode.
+> 
+>> +config PCIE_STM32_EP
+>> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (endpoint mode)"
+>> +	depends on ARCH_STM32 || COMPILE_TEST
+>> +	depends on PCI_ENDPOINT
+>> +	select PCIE_DW_EP
+>> +	help
+>> +	  Enables endpoint support for DesignWare core based PCIe controller in found
+>> +	  in STM32MP25 SoC.
+> 
+> s/in found in/in/ (or "found in" if you prefer)
+> 
+> Wrap so help text fits in 80 columns when for "make menuconfig".
+> 
+>> +static void stm32_pcie_ep_init(struct dw_pcie_ep *ep)
+>> +{
+>> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	enum pci_barno bar;
+>> +
+>> +	for (bar = 0; bar < PCI_STD_NUM_BARS; bar++)
+>> +		dw_pcie_ep_reset_bar(pci, bar);
+>> +
+>> +	/* Defer Completion Requests until link started */
+> 
+> I asked about this before [1] but didn't finish the conversation.  My
+> main point is that I think "Completion Request" is a misnomer.
+> There's a "Configuration Request" and a "Completion," but no such
+> thing as a "Completion Request."
+> 
+> Based on your previous response, I think this should say something
+> like "respond to config requests with Request Retry Status (RRS) until
+> we're prepared to handle them."
 
-[...]
->>   	if (cmd->flag & FSM_CMD_FLAG_WAIT_FOR_COMPLETION) {
->>   		*cmd->ret = result;
->
->The memory for the result storage is allocated on the stack as well. And 
->writing it unconditionally can cause unexpected consequences.
->
+OK thanks for the phrasing. This is inline with the DWC doc:
+"... controller completes incoming configuration requests with a
+configuration request retry status."
+The only thing is that the PCIe specs talks about CRS, not RRS.
 
-Got it.
+so slightly change to
+"respond to config requests with Configuration Request Retry Status 
+(CRS) until we're prepared to handle them."
 
-[...]
->>   		wait_ret = wait_for_completion_timeout(&done,
->>   						       msecs_to_jiffies(FSM_CMD_TIMEOUT_MS));
->> -		if (!wait_ret)
->> +		if (!wait_ret) {
->> +			cmd->done = NULL;
->
->We cannot access the command memory here, since fsm_finish_command() 
->could release it already.
->
 
-Got it.
+> 
+>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +			   STM32MP25_PCIECR_REQ_RETRY_EN,
+>> +			   STM32MP25_PCIECR_REQ_RETRY_EN);
+>> +}
+>> +
+>> +static int stm32_pcie_enable_link(struct dw_pcie *pci)
+>> +{
+>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>> +	int ret;
+>> +
+>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +			   STM32MP25_PCIECR_LTSSM_EN,
+>> +			   STM32MP25_PCIECR_LTSSM_EN);
+>> +
+>> +	ret = dw_pcie_wait_for_link(pci);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>> +			   STM32MP25_PCIECR_REQ_RETRY_EN,
+>> +			   0);
+> 
+> And I assume this means the endpoint will accept config requests and
+> handle them normally instead of responding with RRS.
+> 
+> Strictly speaking this is a different condition than "the link is up"
+> because the link must be up in order to even receive a config request.
+> The purpose of RRS is for devices that need more initialization time
+> after the link is up before they can respond to config requests.
+> 
+> The fact that the hardware provides this bit makes me think the
+> designer anticipated that the link might come up before the rest of
+> the device is fully initialized.
 
-[...]
->Here we have an ownership transfer problem and a driver author has tried 
->to solve it, but as noticed, we are still experiencing issues in case of 
->timeout.
->
->The command completion routine should not release the command memory 
->unconditionally. Looks like the references counting approach should help 
->us here. E.g.
->1. grab a reference before we put a command into the queue
->1.1. grab an extra reference if we are going to wait the completion
->2. release the reference as soon as we are done with the command execution
->3. in case of completion waiting release the reference as soon as we are 
->done with waiting due to completion or timeout
->
->Could you try the following patch? Please note, besides the reference 
->counter introduction it also moves completion and result storage inside 
->the command structure as advised by the completion documentation.
->
+Agree, this there are 2 conditions in this function: link is up + 
+accepting config requests. I'll split or rename
 
-Yes, please let me try the following patch.
-[...]
-
-Thanks.
-
-Jinjian,
-Best Regards.
+Thanks
+Christian
+> 
+> Bjorn
+> 
+> [1] https://lore.kernel.org/r/20241112203846.GA1856246@bhelgaas
+> 
 
