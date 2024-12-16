@@ -4,90 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B78E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96D6E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vU+dmUIEOB3Bn235Q13lqV4rtbETnj3tLnp1CwkpGgc=; b=3m0EJA0rvXyGFIjnCJTOj1pkJq
-	Q37m5+vaUbz7oBefTA3IWq56iCqFGG7ZpNrzs9+GMXrTnnuqK2v1d7CueFeyx75ya4zgWtmbkbyJD
-	rX+xMD7rf2gsCfHu2PnSsmiS92+cDHp2BWqcG4WeZKmMa+zY86hJYjrTYVuad2GqisYz5OAB/X1Jp
-	I7tMzq0dOv78IS3rEwoDEU14k9SE11rEUgo9LTIN1KrMw3CPAqFDL7/9YSel35dOsdPLQwFd8C9ZF
-	RtT7obZwQ8/7AI6bvii3tDrBUX1StMPP30wwRwWgBbnnmoxuUp0p1HRMNVhWgl/EBieTpBU7MSZT4
-	BsFujevw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EoB1GbKivXuBsxxps3C04czV7lAogjlaWsBJsIxZ3zo=; b=dF7Kt0lmMt2CaaMC7QZiggZtbW
+	yWy2tYpHsw/I1N8Vm6ls62W8bpNr8iHdtYP+52/LPEMuK5lwFN5hgnKJRncPI6Ai7uQqkCGPRZjaS
+	Bb97TIrHedIgzpGhrgO8O1PiwLe/qurSu6ScyCBeJlASMAC49+SRL4yj4y5p/VKtpE111tlpsQ/gT
+	G73gG/X5ZglQVdk1S1UPaQG5OR44Y6gUbZ105OLouFwTC2zyxHL3ogOeboM6JRf6OBNXmrbs4dWSZ
+	BkwfTi2eWPyvYxcZfdKtiE1fsa3SS55Kl27F8w0eB2oTkALFE6hCn+pCplTMg/JatKA1yzym4ZTO3
+	vjzw0GfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNEd2-0000000AjAo-2v1J;
-	Mon, 16 Dec 2024 17:11:32 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tNEmU-0000000Al0T-2JD2;
+	Mon, 16 Dec 2024 17:21:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNEbv-0000000AixS-3p2w
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 17:10:25 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2163dc5155fso37427035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 09:10:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734369022; x=1734973822; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vU+dmUIEOB3Bn235Q13lqV4rtbETnj3tLnp1CwkpGgc=;
-        b=QHX0uE66RuNarzytdKAjPokSLilL5WwsR6Igfd7rJj9dCAY4XZZLJN6tRKYqKUoCOj
-         l4z/bXIXExtFuXr3xG4A5VWEwiR7sPgv8zBa5CuG0+gYVh4jawtu62kBH+o/AO3cLvj4
-         DuZd8a5FogkJ4Hy31xqIXOKq+T7K8uv11IdmzdZR1U0qbNP/Crqbz+6WH75/Cv5rNlud
-         bEo4GLPWAGJGsjNZp+aughnjdnsPgxRN0gWWfhroth67oIF/H4O+hH7py4xCzYhZk7il
-         +bGVPy/WFLmC2zWPYxiFOR48SFj3IYztC3joIKSgtemUDdUCCRH6M7NLtSXSAuFPMsVU
-         9NxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734369022; x=1734973822;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vU+dmUIEOB3Bn235Q13lqV4rtbETnj3tLnp1CwkpGgc=;
-        b=bed7BkiEo7eg3pc4ukwkGS+NOnruxV0fct+8V861ni6ncR91Xh20jB7IhDDUqBuzIK
-         FMqh+xowM2E4aIxIGeF8iAxKpxrrVjsUQeRRTfkxojIM3C1alLGxmfJa9jZACLqCcx7I
-         5F1RDLS7fw93o3WpDdTsme3KLwls+Y+17lEpKE6Ft16tmnSOSHk8Gw79BN7YkeNbS0Y/
-         uHo6Oe9p9/8Jgsj/hUGXLPfhxIvQNoB441oUylf3Nk0kXLFnwg8B4xrfee/IFzrcP6bO
-         2HoIsxk8xLmD4YNbuBAECdezecNZz+mFqxTI9pC3wQYiyQmiOx+DL8Zkq+MId37xVC4G
-         xd4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWGkZCYNXyxPJFVHT436cm130We6jQRNHo29Dy6wL/ztLdvMsqSl4wdlfeb/kqllzh5B6XvsMCBAaYJCY+0HFiZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEMGND+jKp8Xt3lYaIJjO3uFHXKJHYf7iwr/8M3ZjMNWpx6zZE
-	p+T34lCSvWuC72yt2c4sPenrmQF3F+5dpo7Ks6E38QwTGrQuTSF7
-X-Gm-Gg: ASbGncvrgWODAu3dL0piCKdwhNHVxJAbswANuFmMFhdfTuKhUzsrL3A70c1bcm1NuQO
-	zX5d64OcMzjLuFdyxw4g9xlga6eAa931ML7sXMIxeDYPqBGXA//duVQfSQveeBcF0oiHqWwDlQB
-	ZX4PHeeWI5xqGk5/sWTc1EDTzt2hQ35AZJbjZSS08LE5L7BSd2EtGvmcMe6inCFZLKLh2CEBndi
-	UXOB+DsqJ41XQsJuj+bRgBJhi9qgH6lVNXEGoviHMbUWzspHcniZ3ljTfNxAmZdF1ZSNjjHwTYk
-	rGpjAEF11RJB4xwwCRg490QqEJhowMQ=
-X-Google-Smtp-Source: AGHT+IELBk5CES1wF4PHrucRwTPjdWhx8XVgyIQNlfgXs1jGjow9SanGNGa0Yz59QLbcpGn4/Q+npQ==
-X-Received: by 2002:a17:902:c409:b0:215:a05d:fb05 with SMTP id d9443c01a7336-218c8dd54aamr3975465ad.32.1734369022087;
-        Mon, 16 Dec 2024 09:10:22 -0800 (PST)
-Received: from localhost ([2a00:79e1:2e00:1301:12e9:d196:a1e9:ab67])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1dcb4d6sm45181925ad.80.2024.12.16.09.10.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 09:10:21 -0800 (PST)
-From: Rob Clark <robdclark@gmail.com>
-To: iommu@lists.linux.dev
-Cc: linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	Akhil P Oommen <quic_akhilpo@quicinc.com>,
-	Rob Clark <robdclark@chromium.org>,
-	Rob Clark <robdclark@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-Date: Mon, 16 Dec 2024 09:10:17 -0800
-Message-ID: <20241216171017.4881-1-robdclark@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	id 1tNElN-0000000AkoC-0DrP;
+	Mon, 16 Dec 2024 17:20:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C40A0A418A0;
+	Mon, 16 Dec 2024 17:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C29F4C4CED0;
+	Mon, 16 Dec 2024 17:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734369607;
+	bh=lsZu4CW9iz0IkO0ux+aw5Ej8/2IsGxdLj0arY9En0D0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YBaGcecKJuSIX6KQhirAa1qTy7d84RJx1mtuyV3FWFyFtShxsSx6ncZ2o+pLNkYbd
+	 1LbAMTvJ3sHvy+/+nd9xPMX+gWvGfHzc5fb+jUNeCi/es8c6cGxlvhDz+BwkPCRtL1
+	 FkjvbaBKWFXSNMZEXy85Lh8kQyuhu3Meb7GopQEEpT/JFAo/R90CQ8FonvliIuXpps
+	 JPc24HcLyqUOT4LztFZufzutbjjeOGBE8GJVg25Lu2rOrLijZN2UjNpHUaSciQYsOf
+	 DqEVe1T4PIX0x4vxk/JFWnIraTws+pa3/QcNk1wHgUysyA0GCxkYxdN0jxTvRkcU7U
+	 uGXHMk9e3hSng==
+Date: Mon, 16 Dec 2024 18:20:04 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 06/10] drm/display/hdmi: implement hotplug functions
+Message-ID: <20241216-courageous-mysterious-pelican-5a8d2e@houat>
+References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
+ <20241206-drm-bridge-hdmi-connector-v6-6-50dc145a9c06@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="b5r2eocu5g4kytpy"
+Content-Disposition: inline
+In-Reply-To: <20241206-drm-bridge-hdmi-connector-v6-6-50dc145a9c06@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_091023_949734_763007E4 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20241216_092009_233211_DDB9C3FA 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,37 +90,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rob Clark <robdclark@chromium.org>
 
-On mmu-500, stall-on-fault seems to stall all context banks, causing the
-GMU to misbehave.  So limit this feature to smmu-v2 for now.
+--b5r2eocu5g4kytpy
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 06/10] drm/display/hdmi: implement hotplug functions
+MIME-Version: 1.0
 
-This fixes an issue with an older mesa bug taking outo the system
-because of GMU going off into the year.
+On Fri, Dec 06, 2024 at 12:16:00PM +0200, Dmitry Baryshkov wrote:
+> The HDMI Connectors need to perform a variety of tasks when the HDMI
+> connector state changes. Such tasks include setting or invalidating CEC
+> address, notifying HDMI codec driver, updating scrambler data, etc.
+>=20
+> Implementing such tasks in a driver-specific callbacks is error prone.
+> Start implementing the generic helper function (currently handling only
+> the HDMI Codec framework) to be used by drivers utilizing HDMI Connector
+> framework.
+>=20
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 61 +++++++++++++++++++=
+++++++
+>  include/drm/display/drm_hdmi_state_helper.h     |  8 ++++
+>  2 files changed, 69 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
+u/drm/display/drm_hdmi_state_helper.c
+> index 80bf2829ba89b5f84fed4fa9eb1d6302e10a4f9e..4cdeb63688b9e48acd8e8ae87=
+a45b6253f7dd12b 100644
+> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> @@ -769,3 +769,64 @@ drm_atomic_helper_connector_hdmi_clear_audio_infofra=
+me(struct drm_connector *con
+>  	return ret;
+>  }
+>  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
+> +
+> +/**
+> + * drm_atomic_helper_connector_hdmi_hotplug_edid - Handle the hotplug ev=
+ent for the HDMI connector passing custom EDID
+> + * @connector: A pointer to the HDMI connector
+> + * @status: Connection status
+> + * @drm_edid: EDID to process
+> + *
+> + * This function should be called as a part of the .detect() / .detect_c=
+tx()
+> + * and .force() callbacks, updating the HDMI-specific connector's data. =
+Most
+> + * drivers should be able to use @drm_atomic_helper_connector_hdmi_hotpl=
+ug()
+> + * instead.
+> + *
+> + * Returns:
+> + * Zero on success, error code on failure.
+> + */
+> +int
+> +drm_atomic_helper_connector_hdmi_hotplug_edid(struct drm_connector *conn=
+ector,
+> +					      enum drm_connector_status status,
+> +					      const struct drm_edid *drm_edid)
+> +{
+> +	if (status =3D=3D connector_status_disconnected) {
+> +		// TODO: also handle CEC and scramber, HDMI sink disconnected.
+> +		drm_connector_hdmi_codec_plugged_notify(connector, false);
+> +	}
+> +
+> +	drm_edid_connector_update(connector, drm_edid);
+> +
+> +	if (status =3D=3D connector_status_connected) {
+> +		// TODO: also handle CEC and scramber, HDMI sink is now connected.
+> +		drm_connector_hdmi_codec_plugged_notify(connector, true);
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug_edid);
 
-Signed-off-by: Rob Clark <robdclark@chromium.org>
----
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+I think we discussed it in a previous version's thread after you sent
+that one, but I'd rather have that helper call an edid retrieval
+function than passing it edids.
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index c4c52f7bd09a..1c881e88fc4d 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -331,8 +331,10 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
- 	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
- 	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
--	priv->set_stall = qcom_adreno_smmu_set_stall;
--	priv->resume_translation = qcom_adreno_smmu_resume_translation;
-+	if (of_device_is_compatible(np, "qcom,smmu-v2")) {
-+		priv->set_stall = qcom_adreno_smmu_set_stall;
-+		priv->resume_translation = qcom_adreno_smmu_resume_translation;
-+	}
- 	priv->set_prr_bit = NULL;
- 	priv->set_prr_addr = NULL;
- 
--- 
-2.47.1
+Also, EDIDs are mandatory for HDMI, so I'd call the function
+drm_atomic_helper_connector_hdmi_hotplug.
 
+> +/**
+> + * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event f=
+or the HDMI connector
+> + * @connector: A pointer to the HDMI connector
+> + * @status: Connection status
+> + *
+> + * This function should be called as a part of the .detect() / .detect_c=
+tx()
+> + * and .force() callbacks, updating the HDMI-specific connector's data.
+> + *
+> + * Returns:
+> + * Zero on success, error code on failure.
+> + */
+> +int
+> +drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
+> +					 enum drm_connector_status status)
+> +{
+> +	const struct drm_edid *drm_edid;
+> +	int ret;
+> +
+> +	drm_edid =3D drm_edid_read(connector);
+> +	ret =3D drm_atomic_helper_connector_hdmi_hotplug_edid(connector, status=
+, drm_edid);
+> +	drm_edid_free(drm_edid);
+
+Oh. Why do we need the two variants? Or is it to deal with drivers that
+don't set connector->ddc?
+
+Maxime
+
+--b5r2eocu5g4kytpy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2BhRAAKCRAnX84Zoj2+
+duMGAYDwCfVmRQt5W/JuFEAWhXLZLjo4CeJIKFXnit8/2S+ODRFntJMw/cPpQN7U
+HE28DAcBfAyu8qSgYzb4NIvRrHkIsi2wL3YWiVUclrh01Haso0u/clDsW8282oLw
+FBFc2NqiHA==
+=shxs
+-----END PGP SIGNATURE-----
+
+--b5r2eocu5g4kytpy--
 
