@@ -4,105 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBB4E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA5AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 15:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQGjErUtlCZJ7iTbPpf8bUnIM6UfUxr0a27J9i+kbd4=; b=3xvsV28EZaZw+uEhni6Cs4GKRu
-	0/OO2gUQxfcUoWynJXDI0qmSezz0+/e2A45gkcNymkkOieiyLyxTxdyEO17QeyFzEVVT5PvIwRlPt
-	YY8e/l7SvvQi95rBz+3aKe1fM+cllsAPFDe7bZhIcihz3PnqwWKiDlDEng3K4o2UztTlP4QWKIaI6
-	DjG5JONLlDY/Rp61NCdC5JONMDLMAxUhrWci31Z92i7bIoB7O6kGL1vH9R3dP+hv5X8HfM7iie9oZ
-	DX2yfexoV0o7Oe2DS8gBOjZD9h12kYWleOx4z61jvWtoK1qo3fmk9aJfgi4xTB6goFLLzzbOKG4q8
-	AEWPBiuA==;
+	bh=+X6YFpq2hPlq2zytbOuG7IndNMje9dbLylp0yNgLumw=; b=JXFY5MxGeieQo5I7AJK714qew2
+	PmBhkEdUeyKfbTrCJeNZ1lsflSwtv+in39Rcw2ig00fLyOnrkIf1xqOB+/BmJacQIpQJHWP9x4DMr
+	wKyoEAA4AQdnAGN0hPj6KDX/DcZEoqsXD6e3j8P7taPdj3pPR+ATlzInedvktw5jWnMuCbc8w0/dC
+	lqOmL/qzvJ2+LF1Hivd5MxBqxQOb3PMYH2GXd5+u1Yl2f/YNN6n+fBrMlPxp7n55PrXgSZKhqE7RA
+	YQu+XU3PtvFDQ9+OWebypAuobslKMX8G2PvnQuviX8sn2Zr5p9w8LkoXV7e6k39fR2j6jwa86ItOl
+	kxTmdR0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tND5y-0000000AQ6T-1Ree;
-	Mon, 16 Dec 2024 15:33:18 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1tNDCK-0000000AQyI-3V5t;
+	Mon, 16 Dec 2024 15:39:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tND4p-0000000APxY-3PZQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 15:32:09 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-725e0798585so169729b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 07:32:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734363127; x=1734967927; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YQGjErUtlCZJ7iTbPpf8bUnIM6UfUxr0a27J9i+kbd4=;
-        b=Ymxltl6W1BkSBNdeDGFyEklNEJoZGCPoB8JKNXIPl9FRK5XYoiSDmJoTkkFicSZWXp
-         Gq53qq2xTR5CRpHOgcAMpcPOJ7ixvDdqzSSj5M52ow5JsArdPpXicKWSdmDtyP85bH6r
-         9DpEAUkGbeD+jrGkDQ5USl5DCcFMQ/FhpG7WgFbuobVN8VomeyB9VhlVFcNJ4Vfq5KgR
-         R4Zx8Puy8Xo24Pp201wN5M4y+ZCo4K3TyMVz0oWa2E+y4DO+l0FZe5ZWGM0Nqu2vMwC6
-         K25SCrZXa/gdNI75SUJ4ZtLOOgo5WVcfs97H09KAQ8uZVmrw9TFcEbQKRdYVJkOQL2bc
-         m3+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734363127; x=1734967927;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YQGjErUtlCZJ7iTbPpf8bUnIM6UfUxr0a27J9i+kbd4=;
-        b=CIdzUZL52jQhkzbWgTdULuARj+4jjm7rPSYlLWvSQ+buxjff2Q5vb8m4bPi9+ewo0H
-         RwlBog4OyZiLaWZsRj9F8BbnecgqKcx7h6kJcJ8wXSR8bLuJHf0+3ZyLvUjsc9e2SQEx
-         LZrQfvbzoTmGk2318K3NW62drPX3Tk9GK55SndU6UHrOC9YRDJvanUN7at8aK9P6ne95
-         k0Gm2445EMKHEn8gmvh0nOboGDiYRft6wOXBQC/pH+uUEt5FwwiWd4m0sb8Bh8whX+EG
-         4RPYwqUTO8rroaZQ/dwxW9GaIPi16gkQiDRVi5BksBZY4nFeSl9To8CSOrbohjriv+3N
-         4vLg==
-X-Forwarded-Encrypted: i=1; AJvYcCXtzJBfm43S8SWVBInBjn1AcH8X4rWMIyo692/8kZY1qCkxsIqc4o4ROBSI3kQdIduF8pEC+raJVeVPyO/63iAT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcEySIWvpREm2xDHfPghTlt3lvgCoDpc/qqGwAVkKhULbc7lk2
-	aOUlx6LvL3UptL7QE+YZnarwEHUcylauQ+uwyY0wQrNZ/8S3KglQ/FfvfS5q8TEzAlspi9VYNU0
-	O9v+NrXWyoXIc2Dej3a3/Pkd4Pxg=
-X-Gm-Gg: ASbGncu5FjkrMHJcbVANxtpGSyjyconN1f2aeJY+QR7V9wefY1iaWwgdpO3CLpP+E6U
-	zQfTtO/XgWyEFEQTlC1xUwWVlIM3nJdcZw7huyA==
-X-Google-Smtp-Source: AGHT+IENFuEqCpmJ+fh0Mtq+tiJji0QPe43tbh0IyC96vkUIWO6e+Z85h0KDNnVCSDCt9fLi9Qb2WTPgncrCMq+hdNM=
-X-Received: by 2002:a17:90b:5444:b0:2ef:93:154e with SMTP id
- 98e67ed59e1d1-2f2901b2b70mr7145457a91.5.1734363126741; Mon, 16 Dec 2024
- 07:32:06 -0800 (PST)
+	id 1tNBoU-0000000ABbp-31mD;
+	Mon, 16 Dec 2024 14:11:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=+X6YFpq2hPlq2zytbOuG7IndNMje9dbLylp0yNgLumw=; b=lof5eg78FPeaNwj84ooBQXKPd+
+	iCrgrorZhuW+Mwl5g+pMm/pxvkp9w8Vgd1JQNM2dl+hMjhSQQY2D1/Xw3YXCY2x6aNEyYjQ58EvR2
+	ZEYGFxVHC2nineEB/8E+DneRl77bZpiIrvjjub41szjwON0GHGFagDXNh9Hmx5v/7lZvytEyDTrw7
+	AhafmbtmktItisJxEc0fsIVxQVLQsZpTwn0LAb9KRubZDzEuWnBSUZfFWPq+F8h98VMw5wAOWtVX8
+	Bm2IFLbq1WdPTYenHGhyOlS/W9A2c3rpVEbo3+hatIYYsp8jsBkSjS7gfZApnvGVM91s4TJwViSBg
+	IYFx6eeg==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNBoO-00000004qzG-2J3A;
+	Mon, 16 Dec 2024 14:11:09 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1734358261;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+X6YFpq2hPlq2zytbOuG7IndNMje9dbLylp0yNgLumw=;
+	b=AvGSP8Vwrugo0+sWSRdWIdUjMGMPGixEOFXnsGNm/2ObSCVT55Cm1k1FdxbwBtifNhgzuP
+	HBJ9Z7HkFYPxx6SBg9qhdauOdENrM+UtUSopJiHKxdZ+8CM+XqHupZWYjiDXpc/mNQLhTx
+	6wa5t5NmBQDGVBbQ4FDNh3O25nt3kt3+sXSycD25Leek54u2kY9QiOzxlbwD4wgRtjqJuz
+	yCMK9EbDEXlMcdPanMLn6fF8/EuqVqxgAtGSG+03QOs9tKXGfcbY3lFzWKkrMH1orQQSXc
+	Tpcn6HCIp9o984qMnjoLz69jxRDRZ8NoubqU2QRmd6u1TQYrzqXhKIbPegUe3A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1734358261;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+X6YFpq2hPlq2zytbOuG7IndNMje9dbLylp0yNgLumw=;
+	b=TokoK/DRb6/6eK4cCLk9S0VuypXKh5WoL2LK69A1xhz0H9QuClCz46TdGdEBAeJ1I0aX7i
+	RCot+PJD2JpkKPCQ==
+Date: Mon, 16 Dec 2024 15:10:11 +0100
+Subject: [PATCH 15/17] vdso: Remove remnants of architecture-specific
+ random state storage
 MIME-Version: 1.0
-References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
- <20241206-drm-connector-eld-mutex-v2-4-c9bce1ee8bea@linaro.org>
- <pgi7p3aemxm3db2k27vi5euh6q6ppayrw6y7tcfeq4g5z23hzr@xousag2qhobp>
- <fc8e80dd-bcea-4515-b446-158649719569@amd.com> <CAA8EJpoR8HYq9ATDfmR5ksSnttBzj=DY+BKp5=OuVNF1WDJ-fg@mail.gmail.com>
-In-Reply-To: <CAA8EJpoR8HYq9ATDfmR5ksSnttBzj=DY+BKp5=OuVNF1WDJ-fg@mail.gmail.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Mon, 16 Dec 2024 10:31:55 -0500
-Message-ID: <CADnq5_M8jC2w=XWB4BG+id60zfGFMMkSegmeg-y=VpSHC+FvFQ@mail.gmail.com>
-Subject: Re: [PATCH v2 04/10] drm/amd/display: use eld_mutex to protect access
- to connector->eld
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Harry Wentland <harry.wentland@amd.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>, 
-	Alex Deucher <alexander.deucher@amd.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Xinhui Pan <Xinhui.Pan@amd.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Rob Clark <robdclark@gmail.com>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, Alain Volmat <alain.volmat@foss.st.com>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20241216-vdso-store-rng-v1-15-f7aed1bdb3b2@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=4459;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=MvA1FZBKdQc7iqER+HGfETL8kJGgorbHDXmM2tDCu+A=;
+ b=Zr3xRYbCcw/UO3x7DwLfDqF5D1DrgaT+ruGfbEEhYCjU6h/tg+VN3P/RMcP7buU5FAN5votq8
+ 97qrRNVioYMC0E20AHyDs0dMoBu1Wvr3yEaegeIwSyuNNXT/YyznjG7
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_073207_878264_579B6066 
-X-CRM114-Status: GOOD (  28.84  )
+X-CRM114-CacheID: sfid-20241216_141104_869805_C1EA3B24 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,84 +125,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 10:12=E2=80=AFAM Dmitry Baryshkov
-<dmitry.baryshkov@linaro.org> wrote:
->
-> On Mon, 16 Dec 2024 at 16:53, Harry Wentland <harry.wentland@amd.com> wro=
-te:
-> >
-> >
-> >
-> > On 2024-12-10 16:20, Dmitry Baryshkov wrote:
-> > > On Fri, Dec 06, 2024 at 11:43:07AM +0200, Dmitry Baryshkov wrote:
-> > >> Reading access to connector->eld can happen at the same time the
-> > >> drm_edid_to_eld() updates the data. Take the newly added eld_mutex i=
-n
-> > >> order to protect connector->eld from concurrent access.
-> > >>
-> > >> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> > >> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > >> ---
-> > >>  drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
-> > >>  1 file changed, 2 insertions(+)
-> > >
-> > > Harry, Leo, Rodrigo, Alex, Christian, Xinhui, any response to this on=
-e
-> > > and to the radeon patches? I'd like to be able to pick the series for
-> > > drm-misc and these two are not reviewed by you.
-> > >
-> > >>
-> > >> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/dri=
-vers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> > >> index 19a58630e774029767bf2a27eb4ddf17e3c21129..04c68c320252b5ce9647=
-f0606fb86fe57f347639 100644
-> > >> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> > >> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-> > >> @@ -1037,8 +1037,10 @@ static int amdgpu_dm_audio_component_get_eld(=
-struct device *kdev, int port,
-> > >>                      continue;
-> > >>
-> > >>              *enabled =3D true;
-> > >> +            mutex_lock(&connector->eld_mutex);
-> > >>              ret =3D drm_eld_size(connector->eld);
-> > >>              memcpy(buf, connector->eld, min(max_bytes, ret));
-> > >> +            mutex_unlock(&connector->eld_mutex);
-> >
-> > All of this is wrapped by the adev->dm.audio_lock mutex. It might
-> > be safer to modify the audio_lock mutex so it only guards the
-> > aconnector->audio_inst access.
-> >
-> > But I don't see any way these mutexes would otherwise interact,
-> > so this change should be good as-is.
-> >
-> > Reviewed-by: Harry Wentland <harry.wentland@amd.com>
->
-> Would you ack it to merge it through drm-misc? Or would you prefer to
-> pick up those two patches after merging drm-misc-next once the rest of
-> the series lands?
+All users of the random vDSO are using the generic storage
+implementation. Remove the now unnecessary compatibility accessor
+functions and symbols.
 
-Merging through drm-misc is fine with me.
+Co-developed-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ drivers/char/random.c   | 6 +++---
+ include/vdso/datapage.h | 8 --------
+ lib/vdso/getrandom.c    | 4 ++--
+ 3 files changed, 5 insertions(+), 13 deletions(-)
 
-Thanks,
+diff --git a/drivers/char/random.c b/drivers/char/random.c
+index 23ee76bbb4aa728274bf9980a60b863216d88797..84efda7bede348401db2ed1c443e5ab2bc5dbd2b 100644
+--- a/drivers/char/random.c
++++ b/drivers/char/random.c
+@@ -278,7 +278,7 @@ static void crng_reseed(struct work_struct *work)
+ 	WRITE_ONCE(base_crng.generation, next_gen);
+ #ifdef CONFIG_VDSO_GETRANDOM
+ 	/* base_crng.generation's invalid value is ULONG_MAX, while
+-	 * _vdso_rng_data.generation's invalid value is 0, so add one to the
++	 * vdso_k_rng_data->generation's invalid value is 0, so add one to the
+ 	 * former to arrive at the latter. Use smp_store_release so that this
+ 	 * is ordered with the write above to base_crng.generation. Pairs with
+ 	 * the smp_rmb() before the syscall in the vDSO code.
+@@ -290,7 +290,7 @@ static void crng_reseed(struct work_struct *work)
+ 	 * because the vDSO side only checks whether the value changed, without
+ 	 * actually using or interpreting the value.
+ 	 */
+-	smp_store_release((unsigned long *)&__arch_get_k_vdso_rng_data()->generation, next_gen + 1);
++	smp_store_release((unsigned long *)&vdso_k_rng_data->generation, next_gen + 1);
+ #endif
+ 	if (!static_branch_likely(&crng_is_ready))
+ 		crng_init = CRNG_READY;
+@@ -743,7 +743,7 @@ static void __cold _credit_init_bits(size_t bits)
+ 			queue_work(system_unbound_wq, &set_ready);
+ 		atomic_notifier_call_chain(&random_ready_notifier, 0, NULL);
+ #ifdef CONFIG_VDSO_GETRANDOM
+-		WRITE_ONCE(__arch_get_k_vdso_rng_data()->is_ready, true);
++		WRITE_ONCE(vdso_k_rng_data->is_ready, true);
+ #endif
+ 		wake_up_interruptible(&crng_init_wait);
+ 		kill_fasync(&fasync, SIGIO, POLL_IN);
+diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
+index b3227f1cf62895aa60ce0ca96afa42259f4771f9..0fc240c08e0f7cf596135eed18dd6f06011917d5 100644
+--- a/include/vdso/datapage.h
++++ b/include/vdso/datapage.h
+@@ -152,7 +152,6 @@ struct vdso_rng_data {
+ #ifndef CONFIG_GENERIC_VDSO_DATA_STORE
+ extern struct vdso_time_data _vdso_data[CS_BASES] __attribute__((visibility("hidden")));
+ extern struct vdso_time_data _timens_data[CS_BASES] __attribute__((visibility("hidden")));
+-extern struct vdso_rng_data _vdso_rng_data __attribute__((visibility("hidden")));
+ #else
+ extern const struct vdso_time_data vdso_u_time_data[CS_BASES] __attribute__((visibility("hidden")));
+ extern const struct vdso_time_data vdso_u_timens_data[CS_BASES] __attribute__((visibility("hidden")));
+@@ -211,13 +210,6 @@ static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(vo
+ {
+ 	return &vdso_u_rng_data;
+ }
+-#define __arch_get_vdso_rng_data __arch_get_vdso_u_rng_data
+-
+-static __always_inline struct vdso_rng_data *__arch_get_vdso_k_rng_data(void)
+-{
+-	return vdso_k_rng_data;
+-}
+-#define __arch_get_k_vdso_rng_data __arch_get_vdso_k_rng_data
+ #endif /* CONFIG_VDSO_GETRANDOM */
+ 
+ #endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
+diff --git a/lib/vdso/getrandom.c b/lib/vdso/getrandom.c
+index 938ca539aaa64bc46280ef6dd17aa661126699eb..2ed019a76abca099de33326ef45101cf50f2f778 100644
+--- a/lib/vdso/getrandom.c
++++ b/lib/vdso/getrandom.c
+@@ -152,7 +152,7 @@ __cvdso_getrandom_data(const struct vdso_rng_data *rng_info, void *buffer, size_
+ 
+ 		/*
+ 		 * Prevent the syscall from being reordered wrt current_generation. Pairs with the
+-		 * smp_store_release(&_vdso_rng_data.generation) in random.c.
++		 * smp_store_release(&vdso_k_rng_data.generation) in random.c.
+ 		 */
+ 		smp_rmb();
+ 
+@@ -256,5 +256,5 @@ __cvdso_getrandom_data(const struct vdso_rng_data *rng_info, void *buffer, size_
+ static __always_inline ssize_t
+ __cvdso_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
+ {
+-	return __cvdso_getrandom_data(__arch_get_vdso_rng_data(), buffer, len, flags, opaque_state, opaque_len);
++	return __cvdso_getrandom_data(__arch_get_vdso_u_rng_data(), buffer, len, flags, opaque_state, opaque_len);
+ }
 
-Alex
+-- 
+2.47.1
 
->
-> >
-> > Harry
-> >
-> > >>
-> > >>              break;
-> > >>      }
-> > >>
-> > >> --
-> > >> 2.39.5
-> > >>
-> > >
-> >
->
->
-> --
-> With best wishes
-> Dmitry
 
