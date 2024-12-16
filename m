@@ -4,98 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D08E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 21:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5C6E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 21:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/NWvy/T67wNQqnhJzeR7JlZsIpKitZV5e9Xln/qnac=; b=H+OYt1c2Pld9yuxd00OM0xqOQh
-	j0L4KoCR849MDqWmhJA7pUseSjo2zWsY6ffgMfrII8kzhwi9IwGFDJhRdT+cXOsc3rq5JRMq6pPez
-	Y1GjRxUDezqB2879A95loBY8qODucX4jRRMQIknYMJFkX54iJKn8SVkSyGrId0XH/5tqSCqqFRPrJ
-	tCHzi/zc66zXlVlprtd17ubIpDZyq8DZWQ5tXJjrCudXrv0Vd1ow0+6aXDYz6ia15iDr2pBq8egwd
-	fX307biWO/MJow0UVKf7mIp/lNav2DcPX+svyhPbvm8GTCZKAtjvvNupzlmGkSenzBkivF2lEouht
-	AGCf+ojg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DRJiV63LRq8fV+tehc1tAI/LgilDFILxKmmMTE8EzxM=; b=i6UQbBQLYPmmDRFOyWDNfgABHQ
+	8FyAM+3zH1T1Zg1d0kzggsLarRBBmAbanitDuOdWv1ymcD4idydBu0gHlEwg5ENdAXXgaIKd4sMi7
+	7UnyY1mcNb4dqxjv7Fipax9xAaJdoD/4jPwghHBhVixW62yanK01Vx7jHM0mHIv0PKjvlqk3kY6rM
+	TtYPSjdVctHepgS4mHIAcIwxS4MSqGnld09oYBaygbBgKXm3ms8bqkEXNnQxLCeXaMMtAyFWaDmox
+	UfX5++ux7GY00jy8oH11TDkrij1NdZcJsM6RZKQ4UL/LaLLmUQU28DRyQv0Y9doprHxfCxKVaQ0aX
+	J4CVXU7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNIfo-0000000BRcx-3eKS;
-	Mon, 16 Dec 2024 21:30:40 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tNIso-0000000BSlI-1sUW;
+	Mon, 16 Dec 2024 21:44:06 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNIeh-0000000BRRz-2ygg
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 21:29:32 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-53ffaaeeb76so4935233e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 13:29:30 -0800 (PST)
+	id 1tNIri-0000000BSZX-0mZ3;
+	Mon, 16 Dec 2024 21:42:59 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3a8aed87a0dso16075275ab.3;
+        Mon, 16 Dec 2024 13:42:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734384565; x=1734989365; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G/NWvy/T67wNQqnhJzeR7JlZsIpKitZV5e9Xln/qnac=;
-        b=U262x248Mfe2xyVKWjXnHiCQNyFrI67gxhMVDJSdc0QW8pLo1GpsFnlui7WMY9YzEW
-         6dqlMKHpio2eKQ7cse3fTsN5iZFBA1TtSXuF9xnf9RkuLX/A0yiyIVAmtlNwZ7NySbhB
-         vQspV1u4QaHq1qcSEK04C43X/o528Uokz4/XU=
+        d=gmail.com; s=20230601; t=1734385376; x=1734990176; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DRJiV63LRq8fV+tehc1tAI/LgilDFILxKmmMTE8EzxM=;
+        b=ipDMPxCrOXwjO54lg/4xLfEBqxktmeQvOwLVlfJRSHQXzsHZ8Y7tZ6SsipyyF4T+B2
+         Z+tJwB3/qJfsz/dEItSF9ebzBkMVYKH6GlsRz4ncCJfVi/+NDCEQnawR5eccBrqX/L7I
+         ZNqCYTwBa9wDXx4dkw/KuhD40uXQz+xd8E/K+bMUmuCxgkzStHMWpxGGzacs7SiD2xjY
+         S1uIpySGl9R9YOudaGc9RXrQkDT0vjwgS6bg8+M1MwGqSdf12gVjfo+7RAC7vWEimkzF
+         OPb+QEF7h/Rvb3pg/OexCO81Dh83x777q+hNS6PtRrVyhMX8+cB1g3sm/egi7AigrifJ
+         aBXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734384565; x=1734989365;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=G/NWvy/T67wNQqnhJzeR7JlZsIpKitZV5e9Xln/qnac=;
-        b=gfpSZZn63eEHMDYax2uh/wJJhNzzKOZuapnKNfWsPV1pXhd1DisxxPY+FBHpGI3KSb
-         fU1szryboJ2UmW0QbnrNIFa5kbpLSnWmkubLYub7pa7TRr+Ra4ffoZvZjcOQZmo7F7qo
-         Ai7Q1JRhkO11NeIEGl0t5pvuJnBDA8hMHFp7ZJEeA21Enp26wxJleuOGss4xjuT7CBDW
-         yVbu1fCBEYtgDOKlPH7+9G1jqp0o60v+1fWR7sgbRgZLDHaRQ4Ds/ZdB6L+mo5KFYnl+
-         o4sRJ+tP5gCPPk8Fn+UUf6wa205Umrjhgtpa6O1vDlLGTcCGAsFcjVC/cAvANF//Rez3
-         NBkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtYsKnngNdyleizqaFj30BaZmrRMyzX0pA2Y1owoLAjwbP81yhOxTZNlVHdfWA9JIzAn2l0yIPP6sOiztNrg+Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrcH5o0O+QPZUN3wbObET2szIFpK2U3rO2LJ818u2NKc5UpIce
-	H7HwppCc203wlIe0hXAieI/glsGcMJUtmJMBne9vqJEl1msCdZWfeldi9BymU+Y6IyjoL/Hz1jJ
-	/cg==
-X-Gm-Gg: ASbGncv3q/KpRykroq1byDk8JnNTYyWGQcAuklyCqTk7qD8ftAgTiAxQokkpYKEx8LX
-	7JZdyjtOd0DwT09poy9cVGYRfQZhArfek2aas2sTYqtFIYyViWeqc0fWubcw3c42Nh+gUUn5lgh
-	c8NOKXuHeGZ7hF6rOYqNtOBTvj+iNUaq+/ev6662lKIE1p0nbBaV7CN2UcfJwE6ZpCSGRZE45gc
-	53HKvLRA1OAEoNzdkYQ722ENdN6fUCcI8IQoBWpMMtZsSjgp9WeYi7F6ZQaQ0Fh6M89UpOVcRY0
-	a3HVvt6MIVR71Cs1uIQV
-X-Google-Smtp-Source: AGHT+IG15d9gFgNxUS9q2BEH+rj7KS4ypIo4MCfrQNgeuTxygpTIvvcK+VWxiUjHscU2f/k0hikSdA==
-X-Received: by 2002:a05:6512:2314:b0:540:2022:e3b7 with SMTP id 2adb3069b0e04-54099b71a53mr4198731e87.53.1734384565525;
-        Mon, 16 Dec 2024 13:29:25 -0800 (PST)
-Received: from mail-lf1-f46.google.com (mail-lf1-f46.google.com. [209.85.167.46])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120c00193sm960510e87.150.2024.12.16.13.29.23
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Dec 2024 13:29:24 -0800 (PST)
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-53f22fd6887so4701627e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 13:29:23 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWGxKHyY04iR5YKfQzzWxlSlXwynCA0r19MFkkUWNhBHAgV5ozevkJlYcmiwPy2C2HFGh9PA7t3vtzeuR0kjQ5E@lists.infradead.org
-X-Received: by 2002:a05:6512:b94:b0:540:353a:df8e with SMTP id
- 2adb3069b0e04-540905ab051mr4197028e87.39.1734384562829; Mon, 16 Dec 2024
- 13:29:22 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734385376; x=1734990176;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DRJiV63LRq8fV+tehc1tAI/LgilDFILxKmmMTE8EzxM=;
+        b=M2KOGZVKKZaKbXjaRRrN4Uszpk32wwnm3jSadHEhRoclyBNP2GPe+jt9HNUhX/pbLj
+         Epj1aOeL2oO9E91xgrkV/5MYB73YsCV9Tck2mfjluD1Sy1Opls9msAMAOHJUClK9zoLa
+         EdLVzjnLGli2QJRzvnLPcmTNxN1A2Jq3omF8SMPQPtA0uf/wlPay5C8BpXQoGIqyNpz/
+         m2/fX0gRKnuvAYniuQWXdPUdDmmnh5wnr3ukUgaY0IUe3cM0LzX/kNvoHbdC0n+s1pkY
+         qOrt65O8QrzMZwFTKLp2JLUFjvvQTw2bTMO9HHDgSaFv6NTkiHv9NIWYbmZIEUHEOIwm
+         ePww==
+X-Forwarded-Encrypted: i=1; AJvYcCVOf4S5RkGBqY2yzTxVWA7P3sMEq1cG9cDr/xTMgKNBKE+mrqUelBBbo3do3Jz6j/6INFZwlMFFelzaRRg9sn2S@lists.infradead.org, AJvYcCXF1e00q3Jfz5HId+QOdLGaJQ3q1N+nSNY+ecuqp73YBaLjBpSicN4RwZgjLF0PO4/tWL/qComHpGWvX/U4K8Q=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG3ZVExkPGb2dQ1LvhvQZvQIyWK8/YT4xR5Jr02kYGTPRDVf+p
+	hNKy3caYAKq7notB3kiUxcEr/HrT1f0LVanlQ4PjMSKskzTauqbx
+X-Gm-Gg: ASbGncv5Al6k7EHeCbBWLyoIRdxx7c2xkt1b84sZxz/2gpg6u3dQCN/DU4VUreLT4qB
+	eoCo3tB+QnkBYQNmN05XyDFQc7psh+XwFSyEA68pPYphpo/uaQFLDKeZ0rYmJSGXvogv0x7Zhgx
+	YgT/JaHItDV0L9o+ZvKFZu2NHhghChV/80lj/Owlhyfgp4uZNYFJSWCSBkYsxw86fxBrXCZ/Pyn
+	2jO3OrNqBtwfGNHkrhcCcYyeQ/O5AO3uaQREZsER/pl1p3TpetRX673VHZhMYiQvinmkx0OCxrr
+	AYVbi3zf/VPYvG1Dpabt5Rjn8PA=
+X-Google-Smtp-Source: AGHT+IFDidsqDmLm+P6RSEJBRFZE5QlyQnlF1Kd+ADUltzI0Z6Ahn4amtFa5gyQLV/DCYzsUMkU4uw==
+X-Received: by 2002:a05:6e02:1a07:b0:3ab:4bea:df97 with SMTP id e9e14a558f8ab-3affbbb656fmr162024405ab.23.1734385376356;
+        Mon, 16 Dec 2024 13:42:56 -0800 (PST)
+Received: from localhost.localdomain (65-128-205-244.mpls.qwest.net. [65.128.205.244])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e5e32a342asm1426777173.89.2024.12.16.13.42.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 13:42:55 -0800 (PST)
+From: Shimrra Shai <shimrrashai@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org,
+	Shimrra Shai <shimrrashai@gmail.com>
+Subject: [PATCH v4 0/2] arm64: dts: rockchip: Add Firefly ITX-3588J Board
+Date: Mon, 16 Dec 2024 15:41:50 -0600
+Message-ID: <20241216214152.58387-1-shimrrashai@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20241214005248.198803-1-dianders@chromium.org>
- <20241213165201.v2.1.I2040fa004dafe196243f67ebcc647cbedbb516e6@changeid> <CAODwPW_c+Ycu_zhiDOKN-fH2FEWf2pxr+FcugpqEjLX-nVjQrg@mail.gmail.com>
-In-Reply-To: <CAODwPW_c+Ycu_zhiDOKN-fH2FEWf2pxr+FcugpqEjLX-nVjQrg@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 16 Dec 2024 13:29:10 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=UHBA7zXZEw3K6TRpZEN-ApOkmymhRCOkz7h+yrAkR_Dw@mail.gmail.com>
-X-Gm-Features: AbW1kvbmXu3MO-VJHQBuZxXwEAVNjn8ERCKhnS19UuE5S2BYm8ga04moQxlHz9o
-Message-ID: <CAD=FV=UHBA7zXZEw3K6TRpZEN-ApOkmymhRCOkz7h+yrAkR_Dw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] arm64: errata: Assume that unknown CPUs _are_
- vulnerable to Spectre BHB
-To: Julius Werner <jwerner@chromium.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, linux-arm-msm@vger.kernel.org, 
-	Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
-	Roxana Bradescu <roxabee@google.com>, Trilok Soni <quic_tsoni@quicinc.com>, 
-	bjorn.andersson@oss.qualcomm.com, stable@vger.kernel.org, 
-	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_132931_769908_D13E0F02 
-X-CRM114-Status: GOOD (  38.52  )
+X-CRM114-CacheID: sfid-20241216_134258_222348_650B74E3 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +100,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Draft 4 for the device trees for this board. I hope this one finally
+addresses all outstanding style and organization issues. Note that the
+technical functionality limitations from the preceding versions remain.
 
-On Fri, Dec 13, 2024 at 6:25=E2=80=AFPM Julius Werner <jwerner@chromium.org=
-> wrote:
->
-> I feel like this patch is maybe taking a bit of a wrong angle at
-> achieving what you're trying to do. The code seems to be structured in
-> a way that it has separate functions to test for each of the possible
-> mitigation options one at a time, and pushing the default case into
-> spectre_bhb_loop_affected() feels like a bit of a layering violation.
-> I think it would work the way you wrote it, but it depends heavily on
-> the order functions are called in is_spectre_bhb_affected(), which
-> seems counter-intuitive with the way the functions seem to be designed
-> as independent checks.
->
-> What do you think about an approach like this instead:
->
-> - Refactor max_bhb_k in spectre_bhb_loop_affected() to be a global
-> instead, which starts out as zero, is updated by
-> spectre_bhb_loop_affected(), and is directly read by
-> spectre_bhb_patch_loop_iter() (could probably remove the `scope`
-> argument from spectre_bhb_loop_affected() then).
+Changes since draft 3:
+ * Removed the rockchip-pca9555.h header and used the pin numbers directly
+   in the .dts.
+ * Removed the display-subsystem node in the .dts. No other board seems to
+   have one like the one that was there and it was causing warnings.
+ * Removed extraneous property "rk806_dvs1_pwrdn" on the PMIC subnode on
+   SPI2.
+ * Removed an extraneous property "rockchip,skip-scan-in-resume" on the
+   PCIe node pcie2x1l0.
 
-Refactoring "max_bhb_k" would be a general cleanup and not related to
-anything else here, right?
+Shimrra
 
-...but the function is_spectre_bhb_affected() is called from
-"cpu_errata.c" and has a scope. Can we guarantee that it's always
-"SCOPE_LOCAL_CPU"? I tried reading through the code and it's
-_probably_ SCOPE_LOCAL_CPU most of the time, but it doesn't seem worth
-it to add an assumption here for a small cleanup.
+---
+Shimrra Shai (2):
+  dt-bindings: arm: rockchip: Add Firefly ITX-3588J board
+  arm64: dts: rockchip: add DTs for Firefly ITX-3588J and its Core-3588J
+    SoM
 
-I'm not going to do this, though I will move "max_bhb_k" to be a
-global for the suggestion below.
+ .../devicetree/bindings/arm/rockchip.yaml     |   7 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rockchip/rk3588-firefly-core-3588j.dtsi   | 447 +++++++++++
+ .../dts/rockchip/rk3588-firefly-itx-3588j.dts | 705 ++++++++++++++++++
+ 4 files changed, 1160 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-itx-3588j.dts
 
+-- 
+2.45.2
 
-> - Add a function is_spectre_bhb_safe() that just checks if the MIDR is
-> in the new list you're adding
->
-> - Add an `if (is_spectre_bhb_safe()) return false;` to the top of
-> is_spectre_bhb_affected
-
-That seems reasonable to do and lets me get rid of the "safe" checks
-from is_spectre_bhb_fw_affected() and spectre_bhb_loop_affected(), so
-it sounds good.
-
-
-> - Change the `return false` into `return true` at the end of
-> is_spectre_bhb_affected (in fact, you can probably take out some of
-> the other calls that result in returning true as well then)
-
-I'm not sure you can take out the other calls. Specifically, both
-spectre_bhb_loop_affected() and is_spectre_bhb_fw_affected() _need_ to
-be called for each CPU so that they update static globals, right?
-Maybe we could get rid of the call to supports_clearbhb(), but that
-_would_ change things in ways that are not obvious. Specifically I
-could believe that someone could have backported "clear BHB" to their
-core but their core is otherwise listed as "loop affected". That would
-affect "max_bhb_k". Maybe (?) it doesn't matter in this case, but I'd
-rather not mess with it unless someone really wants me to and is sure
-it's safe.
-
-
-> - In spectre_bhb_enable_mitigations(), at the end of the long if-else
-> chain, put a last else block that prints your WARN_ONCE(), sets the
-> max_bhb_k global to 32, and then does the same stuff that the `if
-> (spectre_bhb_loop_affected())` block would have installed (maybe
-> factoring that out into a helper function called from both cases).
-
-...or just reorder it so that the spectre_bhb_loop_affected() code is
-last and it can be the "else". Then I can WARN_ONCE() if
-spectre_bhb_loop_affected(). ...or I could just do the WARN_ONCE()
-when I get to the end of is_spectre_bhb_affected() and set "max_bhb_k"
-to 32 there. I'd actually rather do that so that "max_bhb_k" is
-consistently set after is_spectre_bhb_affected() is called on all
-cores regardless of whether or not some cores are unknown.
 
