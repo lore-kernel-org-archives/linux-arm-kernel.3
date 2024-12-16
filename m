@@ -4,99 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFD0E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80AA5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Em/Cl1Un5rZGf3VhkwdnO0AI73Gmssn5wRijQz+hyu4=; b=gFajtcaRhthABMSysC6B0E4oN1
-	arIy+LPFeknHCTW+2PX0WHcEeX7G859iRGUOz9a73yPQQ7GIlMHd1bAeLMaHl5OlxRs37wo0g60ya
-	m8ejZWLHHfZlrp3aqCrokK0SzPF4j+ejxmtFxLah/gfkF4DqR2N1N1/4jhITVIRldEX6ym7J04Oze
-	BAxpCRnUp1BDiDpQ+1K5YWSf/UqshhWG+TrFgktpfvokZRpDtIM/7HTXktvtAljQCOtstNsywLd60
-	upwLz01qgTgTXPu4q+eCXDPDIMuY7S3OST6cIPqqaQdqKWyPgNVqre5ex4kAWO4V3eTytMRUCXHpO
-	QFPEUtPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j2BPQS7yKWObBZL8O4h+IvLIVnDCVMIwOUzze6t+Z5g=; b=azc/WUQfxWM78LWKCg+ezcUtGh
+	A+JpldwizqpH7g+TuhnVgwMOoOdSlc1pyvKlDXjFGjQbJYgOKdt8t6gWDdu5a66asbImP0Zz8GFAs
+	WZMx+7m6oFauUmxKpUyer4Vlz0xdz+OeGTjqJGUxECaWYu5SjeKFVQjjM5TEIaLJwYlcc8DohVM6X
+	KYtPE5CG2sLEgHLsyBY/EQRmyjLdRZX19Yruo/pRGv0oaO1WsNgpf75UDOl7f7WDNETQnQiXC5TkS
+	3F0FTwkIxeOIuwjT6pc9cpHSDlkDFqT2E8MCx9mVTry9CIA/1rGDkElNXUP70o1QOB8Xt2W08V6tv
+	miPqXaFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3MX-000000094cv-2JXg;
-	Mon, 16 Dec 2024 05:09:45 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tN3ht-000000095yz-3j6G;
+	Mon, 16 Dec 2024 05:31:49 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3LQ-000000094Wv-1Xmb
+	id 1tN3gm-000000095ke-1boe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 05:08:38 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f1459b6f84so2405209a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Dec 2024 21:08:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734325715; x=1734930515; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Em/Cl1Un5rZGf3VhkwdnO0AI73Gmssn5wRijQz+hyu4=;
-        b=qTQndtVYx7duEeffJSL3OdnsJ+d/60tmbSfRZpJgjQsKUPdtoHtgXbm1HWk796pUfR
-         taja6091Guf+sAPHl4AjBWDZG21JsksHQOUgzRuI24105WGUuedzXBpQNvAQyCPyR2Oh
-         cKAxu4DoDSsIklA0jFyY3v2+Yz+TxN8dsVbzDFnDf1VWGagffZT0i4mppAkD+t6ffznx
-         xSVljGrhO0LieoQ17f/5hfeOZIqk8976yKWjeYjkuLUNxS/kAuginYllKhqiNtX+8KoR
-         nVcP+4kvZiKTx1dNrZgIRGpN8umfuusqfNBuSZa2q7k6Ownp+3wUM7oTrJcpIUoSvQFS
-         1Ceg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734325715; x=1734930515;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Em/Cl1Un5rZGf3VhkwdnO0AI73Gmssn5wRijQz+hyu4=;
-        b=rR8Zdc2CA+qbAlyqBp8YM1RPKO6ONPJvKAhusyoyxPcCBeNaqGlDvUd4roexxujw3J
-         m5UfTbrN4G4m9CQPAepgJs5b5cPwDr6g21KzqUMFmwwGMCPKnZvjrBKp2G7MInXJDaPi
-         t1hk2zu0OjEWSBRLJiLjK0fn24BpSR8AmgyaQPLoOGiTHr4rFxOvTV0dkjmBH/y0NW3W
-         QywmG2VGJHfAZIPURaYBIair6v8JjyKYTtOrOcKgehmeJ81Z4wW2eKTo5HF6JWw6Cl0a
-         a6Dg/TGMLzPg97x1CU0GGIQl/ufI/Z7GyCf7+1piMnOz7WwgRSVfljMlhBGC7WzctIZN
-         Srjg==
-X-Forwarded-Encrypted: i=1; AJvYcCUkiw7PesKDLDTyc3gp7gegV8mxdD08U8kyFVW2qwVwi+KRq56KvHRhFw6gr5PLq3KfoHLJBngxYK3dqb6zV+7a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu44Pj6Wk4jdsigTdw+tKZLgk3guATZkjzmdqm/gkIveW70V5L
-	6G438LEavIZqMiNWJgjZD1aXTGWMpq4EzB/MkDqFAjTo5C7A3PaarI13MyY10A==
-X-Gm-Gg: ASbGnctXRdFMmgMebYLmvxzw9agWK3EtTjLNRERE9RiINu6lA82cPoC/7LlMalqED2M
-	1P3Bx3cV+Yn5vgqCG6DDop9L3iyckaeMOKSH38WJkWdNqwUyQDirgnNgK1Q2ansqlZO0sx3iioh
-	wHTSNqnLyAYn/xbeeOQJSvrBjdQHLGU94y6LGti5vR5p3rTVayhuG4fV3epA0lBuxXfpwEdJESk
-	CJgDT5CT4g324KR0SgQJYWAFxqziKYiIjdNQuDd1jNnj+KALSV1XaJ1V8ArD6iAMiM=
-X-Google-Smtp-Source: AGHT+IGFLuaa872OiTpbwIJ12EZGTfvEXRUxI9S+oBeqTkwTJAML2INav9Us601kCggSsKLcDvu6cg==
-X-Received: by 2002:a17:90b:4a09:b0:2ee:5bc9:75c7 with SMTP id 98e67ed59e1d1-2f28fa55c38mr16565074a91.5.1734325715065;
-        Sun, 15 Dec 2024 21:08:35 -0800 (PST)
-Received: from thinkpad ([120.60.56.176])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142fa1cd5sm7111817a91.34.2024.12.15.21.08.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Dec 2024 21:08:34 -0800 (PST)
-Date: Mon, 16 Dec 2024 10:38:29 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	"open list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-pci@vger.kernel.org>,
-	"moderated list:PCI DRIVER FOR GENERIC OF HOSTS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] PCI: check bridge->bus in pci_host_common_remove
-Message-ID: <20241216050829.m4f5wqnzstsqqfcj@thinkpad>
-References: <20241028084644.3778081-1-peng.fan@oss.nxp.com>
- <20241115062005.6ifvr6ens2qnrrrf@thinkpad>
- <PAXPR04MB8459D1507CA69498D8C38E0488242@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20241115144720.ovsyq2ani47norby@thinkpad>
- <20241127195650.GA4132105-robh@kernel.org>
- <20241202092902.rp6xb3f64llpabbi@thinkpad>
- <CAL_Jsq+R39jtCeDecpEHbKq+4N-uirMQmsuNG1NaVe1Vnnnv3Q@mail.gmail.com>
- <20241215132640.GA2476@localhost.localdomain>
+	Mon, 16 Dec 2024 05:30:41 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BG4CqiQ014943;
+	Sun, 15 Dec 2024 21:30:27 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=j2BPQS7yKWObBZL8O4h+IvL
+	IVnDCVMIwOUzze6t+Z5g=; b=G2saPMYbT6OyEftPOrt9UsDEKwDbhY9QKRf1TsT
+	IRDRa1N9wG3j4qxKFJRCEaTxUsyTu/XxzFh/+fiInA96IIw3aLpR+n4WFLaPUVpg
+	tgonyRmqco5C94FxPX4TzzrrNGK9Uw7cloXKUTkTG8r22QnAQUI3gqhlppKqKVeP
+	xwf3mzBBB3POIKh9bY3zYVpPNWnQ/cUI/TAugSPpW2Ab5Z8PI5yt5nVFI5EZHlka
+	zYY2yfx8KiD1ScMZw9qU9+s9J+xwpqciY7yYrcQeh3ve9XvqJ1Wz75rLVrbNtMXJ
+	xVGMcWaDATxdDwDNgIcvAgBEiVSX76HTQ8e6COnAoG8Uqow==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 43jcyv0712-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 15 Dec 2024 21:30:27 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Sun, 15 Dec 2024 21:30:26 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Sun, 15 Dec 2024 21:30:26 -0800
+Received: from virtx40.. (unknown [10.28.34.196])
+	by maili.marvell.com (Postfix) with ESMTP id 944B03F7095;
+	Sun, 15 Dec 2024 21:30:20 -0800 (PST)
+From: Linu Cherian <lcherian@marvell.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>, <james.clark@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
+        <gcherian@marvell.com>, Linu Cherian <lcherian@marvell.com>
+Subject: [PATCH v13 0/8] Coresight for Kernel panic and watchdog reset
+Date: Mon, 16 Dec 2024 11:00:06 +0530
+Message-ID: <20241216053014.3427909-1-lcherian@marvell.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241215132640.GA2476@localhost.localdomain>
+Content-Type: text/plain
+X-Proofpoint-GUID: zX-eg8nlvKXTR0JGkFVcSGP8ZIFUWyqc
+X-Proofpoint-ORIG-GUID: zX-eg8nlvKXTR0JGkFVcSGP8ZIFUWyqc
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_210836_522418_7AFF832F 
-X-CRM114-Status: GOOD (  62.75  )
+X-CRM114-CacheID: sfid-20241215_213040_470451_80F785EB 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,147 +89,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 15, 2024 at 09:26:40PM +0800, Peng Fan wrote:
-> Hi Rob,
-> 
-> On Mon, Dec 02, 2024 at 07:55:27AM -0600, Rob Herring wrote:
-> >On Mon, Dec 2, 2024 at 3:29 AM Manivannan Sadhasivam
-> ><manivannan.sadhasivam@linaro.org> wrote:
-> >>
-> >> On Wed, Nov 27, 2024 at 01:56:50PM -0600, Rob Herring wrote:
-> >> > On Fri, Nov 15, 2024 at 08:17:20PM +0530, Manivannan Sadhasivam wrote:
-> >> > > On Fri, Nov 15, 2024 at 10:14:10AM +0000, Peng Fan wrote:
-> >> > > > Hi Manivannan,
-> >> > > >
-> >> > > > > Subject: Re: [PATCH] PCI: check bridge->bus in
-> >> > > > > pci_host_common_remove
-> >> > > > >
-> >> > > > > On Mon, Oct 28, 2024 at 04:46:43PM +0800, Peng Fan (OSS) wrote:
-> >> > > > > > From: Peng Fan <peng.fan@nxp.com>
-> >> > > > > >
-> >> > > > > > When PCI node was created using an overlay and the overlay is
-> >> > > > > > reverted/destroyed, the "linux,pci-domain" property no longer exists,
-> >> > > > > > so of_get_pci_domain_nr will return failure. Then
-> >> > > > > > of_pci_bus_release_domain_nr will actually use the dynamic IDA,
-> >> > > > > even
-> >> > > > > > if the IDA was allocated in static IDA. So the flow is as below:
-> >> > > > > > A: of_changeset_revert
-> >> > > > > >     pci_host_common_remove
-> >> > > > > >      pci_bus_release_domain_nr
-> >> > > > > >        of_pci_bus_release_domain_nr
-> >> > > > > >          of_get_pci_domain_nr      # fails because overlay is gone
-> >> > > > > >          ida_free(&pci_domain_nr_dynamic_ida)
-> >> > > > > >
-> >> > > > > > With driver calls pci_host_common_remove explicity, the flow
-> >> > > > > becomes:
-> >> > > > > > B pci_host_common_remove
-> >> > > > > >    pci_bus_release_domain_nr
-> >> > > > > >     of_pci_bus_release_domain_nr
-> >> > > > > >      of_get_pci_domain_nr      # succeeds in this order
-> >> > > > > >       ida_free(&pci_domain_nr_static_ida)
-> >> > > > > > A of_changeset_revert
-> >> > > > > >    pci_host_common_remove
-> >> > > > > >
-> >> > > > > > With updated flow, the pci_host_common_remove will be called
-> >> > > > > twice, so
-> >> > > > > > need to check 'bridge->bus' to avoid accessing invalid pointer.
-> >> > > > > >
-> >> > > > > > Fixes: c14f7ccc9f5d ("PCI: Assign PCI domain IDs by ida_alloc()")
-> >> > > > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >> > > > >
-> >> > > > > I went through the previous discussion [1] and I couldn't see an
-> >> > > > > agreement on the point raised by Bjorn on 'removing the host bridge
-> >> > > > > before the overlay'.
-> >> > > >
-> >> > > > This patch is an agreement to Bjorn's idea.
-> >> > > >
-> >> > > > I have added pci_host_common_remove to remove host bridge
-> >> > > > before removing overlay as I wrote in commit log.
-> >> > > >
-> >> > > > But of_changeset_revert will still runs into pci_host_
-> >> > > > common_remove to remove the host bridge again. Per
-> >> > > > my view, the design of of_changeset_revert to remove
-> >> > > > the device tree node will trigger device remove, so even
-> >> > > > pci_host_common_remove was explicitly used before
-> >> > > > of_changeset_revert. The following call to of_changeset_revert
-> >> > > > will still call pci_host_common_remove.
-> >> > > >
-> >> > > > So I did this patch to add a check of 'bus' to avoid remove again.
-> >> > > >
-> >> > >
-> >> > > Ok. I think there was a misunderstanding. Bjorn's example driver,
-> >> > > 'i2c-demux-pinctrl' applies the changeset, then adds the i2c adapter for its
-> >> > > own. And in remove(), it does the reverse.
-> >> > >
-> >> > > But in your case, the issue is with the host bridge driver that gets probed
-> >> > > because of the changeset. While with 'i2c-demux-pinctrl' driver, it only
-> >> > > applies the changeset. So we cannot compare both drivers. I believe in your
-> >> > > case, 'i2c-demux-pinctrl' becomes 'jailhouse', isn't it?
-> >> > >
-> >> > > So in your case, changeset is applied by jailhouse and that causes the
-> >> > > platform device to be created for the host bridge and then the host bridge
-> >> > > driver gets probed. So during destroy(), you call of_changeset_revert() that
-> >> > > removes the platform device and during that process it removes the host bridge
-> >> > > driver. The issue happens because during host bridge remove, it calls
-> >> > > pci_remove_root_bus() and that tries to remove the domain_nr using
-> >> > > pci_bus_release_domain_nr().
-> >> > >
-> >> > > But pci_bus_release_domain_nr() uses DT node to check whether to free the
-> >> > > domain_nr from static IDA or dynamic IDA. And because there is no DT node exist
-> >> > > at this time (it was already removed by of_changeset_revert()), it forces
-> >> > > pci_bus_release_domain_nr() to use dynamic IDA even though the IDA was initially
-> >> > > allocated from static IDA.
-> >> >
-> >> > Putting linux,pci-domain in an overlay is the same problem as aliases in
-> >> > overlays[1]. It's not going to work well.
-> >> >
-> >> > IMO, you can have overlays, or you can have static domains. You can't
-> >> > have both.
-> >> >
-> >>
-> >> Okay.
-> >>
-> >> > > I think a neat way to solve this issue would be by removing the OF node only
-> >> > > after removing all platform devices/drivers associated with that node. But I
-> >> > > honestly do not know whether that is possible or not. Otherwise, any other
-> >> > > driver that relies on the OF node in its remove() callback, could suffer from
-> >> > > the same issue. And whatever fix we may come up with in PCI core, it will be a
-> >> > > band-aid only.
-> >> > >
-> >> > > I'd like to check with Rob first about his opinion.
-> >> >
-> >> > If the struct device has an of_node set, there should be a reference
-> >> > count on that node. But I think that only prevents the node from being
-> >> > freed. It does not prevent the overlay from being detached. This is one
-> >> > of many of the issues with overlays Frank painstakingly documented[2].
-> >> >
-> >>
-> >> Ah, I do remember this page as Frank ended up creating it based on my
-> >> continuous nudge to add CONFIG_FS interface for applying overlays.
-> >>
-> >> So why are we applying overlays in kernel now?
-> >
-> >That's been the case for some time. Mostly it's been for fixups of old
-> >to new bindings, but those all got dropped at some point. The in
-> >kernel users are very specific use cases where we know something about
-> >what's in the overlay. In contrast, configfs interface allows for any
-> >change to any node or property with no control over it by the kernel.
-> >Never say never, but I just don't see that ever happening upstream.
-> 
-> So should I switch to use configfs for jailhouse case? Currently
-> we use overlay to add a virtual pci node to kernel device tree.
-> 
+This patch series is rebased on coresight-next-v6.12.rc4
 
-Not at all. I think you have 2 options:
+* Patches 1 & 2 adds support for allocation of trace buffer pages from
+  reserved RAM
+* Patches 3 & 4 adds support for saving metadata at the time of kernel panic 
+* Patch 5 adds support for reading trace data captured at the time of panic
+* Patches 6 & 7 adds support for disabling coresight blocks at the time of panic
+* Patch 8: Gives the full description about this feature as part of documentation 
 
-1. Get rid of 'linux,pci-domain' from overlay and rely on static id allocation.
-2. Make sure the driver is unbind for each device before removing the overlays.
+v12 is posted here,
+https://lore.kernel.org/linux-arm-kernel/20241129084714.3057080-1-lcherian@marvell.com/   
 
-Options 1 is to avoid your issue and option 2 is to fix your issue. You can
-decide which one to opt for :)
+Changelog from v12:
+* Fixed wrong buffer pointer passed to coresigh_insert_barrier_packet  
+* tmc_read_prepare/unprepare_crashdata need to be called only once and
+  hence removed from read path and added to tmc_probe
+* tmc_read_prepare_crashdata renamed to tmc_prepare_crashdata and
+  avoid taking locks  as its moved to probe function.
+* Introduced read status flag, "reading" specific to reserved buffer to keep the
+  reserved buffer reading independent of the regular buffer.
+* open/release ops for reserved buffer has to take care only about the
+  set/unset the "reading" status flag as the reserved buffer is prepared
+  during the probe time itself.  
+* Few other trivial changes  
 
-- Mani
+Changelog from v11:
+Convert all commands to literal code blocks, that was missed out in v11.
+No other code changes.
+
+Changelog from v10:
+* Converted all csdev_access_* to readl functions in tmc_panic_sync_*
+* Added "tmc" prefix for register snapshots in struct tmc_crash_metadata
+* Converted dev_info to dev_dbg in panic handlers 
+* Converted dsb to dmb in panic handlers 
+* Fixed marking metadata as invalid when a user is trying to use the
+  reserved buffer. Earlier this was wrongly set at the time of reading
+  reserved trace buffer.
+* Moved common validation checks to is_tmc_crashdata_valid and minor
+  code rearrangements for efficiency
+* Got rid of sink specific prepare/unprepare invocations  
+* Got rid of full from struct tmc_resrv_buf
+* While reading crashdata, size is now calculated from metadata instead 
+  of relying on reserved buffer size populated by dtb 
+* Minor documenation fixes
+
+Changelog from v9:
+* Add common helper function of_tmc_get_reserved_resource_by_name
+  for better code reuse
+* Reserved buffer validity and crashdata validity has been separated to
+  avoid interdependence
+* New fields added to crash metadata: version, ffcr, ffsr, mode
+* Version checks added for metadata validation
+* Special file /dev/crash_tmc_xxx would be available only when
+  crash metadata is valid
+* Removed READ_CRASHDATA mode meant for special casing crashdata reads.
+  Instead, dedicated read function added for crashdata reads from reserved
+  buffer which is common for both ETR and ETF sinks as well.
+* Documentation added to Documentation/tracing/coresight/panic.rst
+
+Changelog from v8:
+* Added missing exit path on error in __tmc_probe.
+* Few whitespace fixes, checkpatch fixes.
+* With perf sessions honouring stop_on_flush sysfs attribute, 
+  removed redundant variable stop_on_flush_en. 
+
+Changelog from v7:
+* Fixed breakage on perf test -vvvv  "arm coresight".
+  No issues seen with and without "resrv" buffer mode
+* Moved the crashdev registration into a separate function.
+* Removed redundant variable in tmc_etr_setup_crashdata_buf
+* Avoided a redundant memcpy in tmc_panic_sync_etf.
+* Tested kernel panic with trace session started uisng perf.   
+  Please see the title "Perf based testing" below for details.
+  For this, stop_on_flush sysfs attribute is taken into 
+  consideration while starting perf sessions as well. 
+
+Changelog from v6:
+* Added special device files for reading crashdata, so that
+  read_prevboot mode flag is removed. 
+* Added new sysfs TMC device attribute, stop_on_flush.
+  Stop on flush trigger event is disabled by default. 
+  User need to explicitly enable this from sysfs for panic stop
+  to work.
+* Address parameter for panicstop ETM configuration is   
+  chosen as kernel "panic" address by default.
+* Added missing tmc_wait_for_tmcready during panic handling
+* Few other misc code rearrangements. 
+
+Changelog from v5:
+* Fixed issues reported by CONFIG_DEBUG_ATOMIC_SLEEP
+* Fixed a memory leak while reading data from /dev/tmc_etrx in
+  READ_PREVBOOT mode
+* Tested reading trace data from crashdump kernel
+
+Changelog from v4:
+* Device tree binding
+  - Description is made more explicit on the usage of reserved memory
+    region
+  - Mismatch in memory region names in dts binding and driver fixed
+  - Removed "mem" suffix from the memory region names
+* Rename "struct tmc_register_snapshot" ->  "struct tmc_crash_metadata",
+  since it contains more than register snapshot.
+  Related variables are named accordingly.
+* Rename struct tmc_drvdata members
+   resrv_buf -> crash_tbuf
+   metadata  -> crash_mdata
+* Size field in metadata refers to RSZ register and hence indicates the
+  size in 32 bit words. ETR metadata follows this convention, the same
+  has been extended to ETF metadata as well.
+* Added crc32 for more robust metadata and tracedata validation.
+* Added/modified dev_dbg messages during metadata validation
+* Fixed a typo in patch 5 commit description
+
+Changelog from v3:
+* Converted the Coresight ETM driver change to a named configuration.
+  RFC tag has been removed with this change.
+* Fixed yaml issues reported by "make dt_binding_check"
+* Added names for reserved memory regions 0 and 1
+* Added prevalidation checks for metadata processing
+* Fixed a regression introduced in RFC v3
+  - TMC Status register was getting saved wrongly
+* Reverted memremap attribute changes from _WB to _WC to match
+  with the dma map attributes
+* Introduced reserved buffer mode specific .sync op.
+  This fixes a possible crash when reserved buffer mode was used in
+  normal trace capture, due to unwanted dma maintenance operations.
+
+
+
+
+Linu Cherian (8):
+  dt-bindings: arm: coresight-tmc: Add "memory-region" property
+  coresight: tmc-etr: Add support to use reserved trace memory
+  coresight: core: Add provision for panic callbacks
+  coresight: tmc: Enable panic sync handling
+  coresight: tmc: Add support for reading crash data
+  coresight: tmc: Stop trace capture on FlIn
+  coresight: config: Add preloaded configuration
+  Documentation: coresight: Panic support
+
+ .../bindings/arm/arm,coresight-tmc.yaml       |  26 ++
+ Documentation/trace/coresight/panic.rst       | 362 ++++++++++++++++++
+ drivers/hwtracing/coresight/Makefile          |   2 +-
+ .../coresight/coresight-cfg-preload.c         |   2 +
+ .../coresight/coresight-cfg-preload.h         |   2 +
+ .../hwtracing/coresight/coresight-cfg-pstop.c |  83 ++++
+ drivers/hwtracing/coresight/coresight-core.c  |  42 ++
+ .../hwtracing/coresight/coresight-tmc-core.c  | 308 ++++++++++++++-
+ .../hwtracing/coresight/coresight-tmc-etf.c   |  92 ++++-
+ .../hwtracing/coresight/coresight-tmc-etr.c   | 184 ++++++++-
+ drivers/hwtracing/coresight/coresight-tmc.h   | 105 +++++
+ include/linux/coresight.h                     |  12 +
+ 12 files changed, 1208 insertions(+), 12 deletions(-)
+ create mode 100644 Documentation/trace/coresight/panic.rst
+ create mode 100644 drivers/hwtracing/coresight/coresight-cfg-pstop.c
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
