@@ -4,54 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E875E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEABFE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/c7GZNUXwiTUWXiN5svU9h/Vqh5j1pQZlxSZR0FYw0=; b=uVTBSunJTIrWyHnQ23TcjUgjsE
-	G5tlWelKOmULjQwYIckL9aP2bc8cfnJoCXAKdcRQw4HqQmqbJVkKRc/NKLsvzLNbCMlr2bVu5ycTO
-	XNnBYJUDdQxqIwnJsJAGP2Qr+cO6NJwh80zFC74rt6BGAmObTPVPHn4pZI/rvhPMTzwGbEB5psu4F
-	vPPRvLpWh318ZeT7oNN44MlRarN1b1cmFWYv8g2MqigFw+vh+4QTLgEp3kbi4FE4z1zjAzUOe+T6y
-	vJkeEa1KVD5YEUmJuXpKYPU0BmuP/IlvI8EaaDn+8s1H5jHOvrE+F2M1pAMc+ei7hkj5+1/sYNEJ0
-	y+1bjh4A==;
+	bh=tH3QBbIq+Oz3UUmj0lw02AcvLXxTPOgWHp9+Xspxbik=; b=b0XMOxPx76MpGV5A3OBX0dHX8h
+	hDhBA/bvS+atUav04O76tk4MnocSjKVlfM3/QzqFG1GB21IQaUsIek8LKxm3yd0edojPj5Qjp1Uqc
+	mWrEXXuXSYmM4ycWYEooozC+z7ED0AA9jsGVv+JeaZy+h9KbNHWLooSRN8HlCo8YT5TqjZKsIvS8A
+	ugqXutyXk0Zh8lxAzl92YH8Xw1sAXaOmDNHWdCZMLgqDuphRgZyNZEX2/vAEstpRvOG9cmJ+VBiyh
+	io6hWmzuQN8VlWzeYfnX7GDuDAzabc5pqxPsyiN6ZmxGnRAThoM9e4ZzqWxS6xolzW9RSGa4tMtNI
+	AHGYDSZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7VI-00000009YL5-2auL;
-	Mon, 16 Dec 2024 09:35:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7UC-00000009YAJ-1Opn
+	id 1tN7Zg-00000009YyO-040E;
+	Mon, 16 Dec 2024 09:39:36 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN7Ya-00000009Ynb-1Y4z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 09:33:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53170113E;
-	Mon, 16 Dec 2024 01:34:21 -0800 (PST)
-Received: from [10.57.71.247] (unknown [10.57.71.247])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6B7203F720;
-	Mon, 16 Dec 2024 01:33:52 -0800 (PST)
-Message-ID: <9094b068-ed3a-444d-b790-e43a652ab6e9@arm.com>
-Date: Mon, 16 Dec 2024 09:33:51 +0000
+	Mon, 16 Dec 2024 09:38:29 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-728ea1e0bdbso2825269b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 01:38:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734341907; x=1734946707; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tH3QBbIq+Oz3UUmj0lw02AcvLXxTPOgWHp9+Xspxbik=;
+        b=yFRlMwk1J31Lcw+0/he4XRfYEU/mazB08adTug98bs2x6RTyi+8LoZX70YH7DXbtiy
+         UsFy7BdH4ZyvjU87ZB6bah7Bi4Lj84LrSrpCNwW5pgi2KDfQKV+fiXbxBnn1bQmZoXO2
+         zxqBP1nbldtk7l4w/sYSuy9APCy3Wb3eJU/uPZGKUi3gfOG54X2M4uBTxWSCwO5ZDzp+
+         FqsPUdbDf3L8VCAJq9ZFhzINLMEHBmjPPgdcfM8dIdMWac3sNizVqavULxEBvJ8+Oe0y
+         iBDRZD5HuMKnEOFdtPQ1ahLUK4wcAwZUtN72iDtCyLpe6lh0/Cp4zAbyrfjNr7JnMgfD
+         3pEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734341907; x=1734946707;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tH3QBbIq+Oz3UUmj0lw02AcvLXxTPOgWHp9+Xspxbik=;
+        b=HtoKoPXY2/gq7sxyONg/nhbuk1NLtbFo32izwdXtVeWuBFIWELkCGAZekwlDJxfR7K
+         6lYpFahAMMS0ogunjA0yxcKJDrnnrUZ4gxqOaHxJXmphH56eeAD2QKscy0vK5ND+fGhh
+         tJx6D9q9HsLh70igjChHX00USzfHKsv638UvAgEG3IDdaV6qMmWXsOWnN5zfUhiFyx3W
+         4G8+hH0hdBHf7beQDscnbl5S8sJd2cyLxfOz7M+uocAac9aJd7p3jp/D4wJZupIOtdsz
+         T/Eqr4SWhb2Mdxe5vV3UM1FRxxuyxhCpYIb1igqB11oKBq4d/xa80XFL7us5//NZJawK
+         sy6g==
+X-Forwarded-Encrypted: i=1; AJvYcCUOD/AjFmmXkQRxk84wl1nRG0sVCr0ksoy2NaI3g6hmWK+n6UCbjo1JZ2Z2QHF/opvgdMT5dONbBvuyAa+0GSq0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHtPcJYnYh1i+hAff4n8dJquPm5T+IiJ1f+TntmYcrqrTiopZf
+	G2ulian/B1g3GU/+j314O+XsyfJjGw/OGnkI5H8+NMFVwR/aG+F0OZLP5aWwGBFHR3FHC3uKGgf
+	zbKTcXQ42Xet0OV6Dhg9mxwLOul5iDTwPi8QCOr16K64SzzzdlWO4
+X-Gm-Gg: ASbGnct+Exsp4oHvf8dyW6bhSSMnhTqhYtP9CskbMw+nHdBdMWnXK6WqiG19VVUY97M
+	3jIKU1TAh180K8BEUDqnq3U6aJBHbB7nQRuMEIcfFEIiw6NcaK2S+x+2Ho5EiKkdidYwo
+X-Google-Smtp-Source: AGHT+IGTB5sJUwQljcH3S5XL+OOeiabxzJ/8JQxqL7sZAHgT5dvELbfZeFL8O7lW9m6UCh29vDeERfH397eAur7NOuQ=
+X-Received: by 2002:a17:90b:3c02:b0:2ee:5958:86d with SMTP id
+ 98e67ed59e1d1-2f28fb6764amr17469580a91.9.1734341906491; Mon, 16 Dec 2024
+ 01:38:26 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] coresight: tmc: Update error logging in tmc common
- functions
-Content-Language: en-GB
-To: Mike Leach <mike.leach@linaro.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org
-Cc: james.clark@linaro.org, alexander.shishkin@linux.intel.com
-References: <20241213144919.110642-1-mike.leach@linaro.org>
- <20241213144919.110642-3-mike.leach@linaro.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20241213144919.110642-3-mike.leach@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <675aa352.050a0220.1ac542.0018.GAE@google.com> <867c80ro2w.wl-maz@kernel.org>
+In-Reply-To: <867c80ro2w.wl-maz@kernel.org>
+From: Aleksandr Nogikh <nogikh@google.com>
+Date: Mon, 16 Dec 2024 11:38:15 +0200
+Message-ID: <CANp29Y6Eu47CvtuKfS7qKqXVcVf7mvVoP7XQstryb_ooakCpcA@mail.gmail.com>
+Subject: Re: [syzbot] [kvmarm?] BUG: unable to handle kernel paging request in __hwasan_check_x0_ADDR
+To: Marc Zyngier <maz@kernel.org>
+Cc: syzbot <syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com>, 
+	catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	oliver.upton@linux.dev, suzuki.poulose@arm.com, 
+	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_013356_466535_A508CC70 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20241216_013828_428757_8A26B9CD 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,107 +95,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/12/2024 14:49, Mike Leach wrote:
-> Enhance the error logging in the tmc_wait_for_tmcready() and
-> tmc_flush_and_stop() to print key tmc  register values on error
-> conditions to improve hardware debug information.
-> 
-> Signed-off-by: Mike Leach <mike.leach@linaro.org>
-> ---
->   .../hwtracing/coresight/coresight-tmc-core.c  | 37 +++++++++++++++----
->   drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
->   2 files changed, 30 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index e9876252a789..1a9299adae93 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -34,25 +34,36 @@ DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
->   DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
->   DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
->   
-> +#define TMC_WAIT_READY_FMT_STR "timeout while waiting for TMC to be Ready [STS=0x%04x]\n"
-> +
->   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
->   {
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct csdev_access *csa = &csdev->access;
-> +	u32 tmc_sts = 0;
->   
->   	/* Ensure formatter, unformatter and hardware fifo are empty */
-> -	if (coresight_timeout(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
-> -		dev_err(&csdev->dev,
-> -			"timeout while waiting for TMC to be Ready\n");
-> +	if (coresight_timeout_retval(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1,
-> +				     &tmc_sts)) {
-> +		dev_err(&csdev->dev, TMC_WAIT_READY_FMT_STR, tmc_sts);
->   		return -EBUSY;
->   	}
->   	return 0;
->   }
->   
-> -void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
-> +int tmc_flush_and_stop(struct tmc_drvdata *drvdata)
->   {
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct csdev_access *csa = &csdev->access;
-> -	u32 ffcr;
-> +	u32 ffcr, ffsr, tmc_sts;
-> +	int rc = 0;
-> +
-> +	/* note any MemErr present when stopping TMC */
-> +	tmc_sts = readl_relaxed(drvdata->base + TMC_STS);
-> +	if (tmc_sts & TMC_STS_MEMERR)
-> +		dev_err(&csdev->dev,
-> +			"MemErr detected before Manual Flush; STS[0x%02x]\n",
-> +			tmc_sts);
->   
->   	ffcr = readl_relaxed(drvdata->base + TMC_FFCR);
->   	ffcr |= TMC_FFCR_STOP_ON_FLUSH;
-> @@ -60,12 +71,22 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
->   	ffcr |= BIT(TMC_FFCR_FLUSHMAN_BIT);
->   	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
->   	/* Ensure flush completes */
-> -	if (coresight_timeout(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
-> +	if (coresight_timeout_retval(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0,
-> +				     &ffcr)) {
-> +		ffsr = readl_relaxed(drvdata->base + TMC_FFSR);
->   		dev_err(&csdev->dev,
-> -		"timeout while waiting for completion of Manual Flush\n");
-> +			"timeout while waiting for completion of Manual Flush\n");
-> +		dev_err(&csdev->dev,
-> +			"regs: FFCR[0x%02x] FFSR[0x%02x] STS[0x%02x]\n",
-> +			ffcr, ffsr, tmc_sts);
-> +		rc = -EBUSY;
->   	}
->   
-> -	tmc_wait_for_tmcready(drvdata);
-> +	if (tmc_wait_for_tmcready(drvdata)) {
-> +		dev_err(&csdev->dev, "TMC ready error after Manual flush\n");
-> +		rc = -EBUSY;
-> +	}
-> +	return rc;
->   }
+Hi Marc,
 
-All of this looks good to me. Do we need to move the MemErr check post 
-the flush ? There is a potential chance of hitting a MemERR on flushing
-and we could miss reproting those ones ?
+Thanks for looking into the report!
+Let's tell syzbot about the fixing commit you mentioned:
 
-Suzuki
+#syz fix: KVM: arm64: vgic-v3: Sanitise guest writes to GICR_INVLPIR
 
->   void tmc_enable_hw(struct tmc_drvdata *drvdata)
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index 2671926be62a..34513f07c3aa 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -259,7 +259,7 @@ struct tmc_sg_table {
->   
->   /* Generic functions */
->   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata);
-> -void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
-> +int tmc_flush_and_stop(struct tmc_drvdata *drvdata);
->   void tmc_enable_hw(struct tmc_drvdata *drvdata);
->   void tmc_disable_hw(struct tmc_drvdata *drvdata);
->   u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
+Syzbot will close the issue once the commit reaches the fuzzed tree.
 
+
+--=20
+Aleksandr
+
+On Mon, Dec 16, 2024 at 11:09=E2=80=AFAM 'Marc Zyngier' via syzkaller-bugs
+<syzkaller-bugs@googlegroups.com> wrote:
+>
+> On Thu, 12 Dec 2024 08:48:18 +0000,
+> syzbot <syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com> wrote:
+> >
+> > Hello,
+> >
+> > syzbot found the following issue on:
+> >
+> > HEAD commit:    5db899a34f75 Merge remote-tracking branch 'kernel/kvmar=
+m/n..
+> > git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kv=
+marm.git fuzzme
+> > console output: https://syzkaller.appspot.com/x/log.txt?x=3D16db78f8580=
+000
+> > kernel config:  https://syzkaller.appspot.com/x/.config?x=3Dfde68ab6d6c=
+8c8ab
+> > dashboard link: https://syzkaller.appspot.com/bug?extid=3D67a9ec5b1706e=
+0184581
+> > compiler:       Debian clang version 15.0.6, GNU ld (GNU Binutils for D=
+ebian) 2.40
+> > userspace arch: arm64
+> >
+> > Unfortunately, I don't have any reproducer for this issue yet.
+> >
+> > Downloadable assets:
+> > disk image (non-bootable): https://storage.googleapis.com/syzbot-assets=
+/384ffdcca292/non_bootable_disk-5db899a3.raw.xz
+> > vmlinux: https://storage.googleapis.com/syzbot-assets/4938b757ff4a/vmli=
+nux-5db899a3.xz
+> > kernel image: https://storage.googleapis.com/syzbot-assets/936938b47987=
+/Image-5db899a3.gz.xz
+> >
+> > IMPORTANT: if you fix the issue, please add the following tag to the co=
+mmit:
+> > Reported-by: syzbot+67a9ec5b1706e0184581@syzkaller.appspotmail.com
+> >
+> > Unable to handle kernel paging request at virtual address efff800000000=
+137
+> > KASAN: probably user-memory-access in range [0x0000000000001370-0x00000=
+0000000137f]
+> > Mem abort info:
+> >   ESR =3D 0x0000000096000005
+> >   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+> >   SET =3D 0, FnV =3D 0
+> >   EA =3D 0, S1PTW =3D 0
+> >   FSC =3D 0x05: level 1 translation fault
+> > Data abort info:
+> >   ISV =3D 0, ISS =3D 0x00000005, ISS2 =3D 0x00000000
+> >   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
+> >   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
+> > swapper pgtable: 4k pages, 52-bit VAs, pgdp=3D0000000044a53000
+> > [efff800000000137] pgd=3D1000000049992003, p4d=3D1000000049993003, pud=
+=3D0000000000000000
+> > Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
+> > Modules linked in:
+> > CPU: 0 UID: 0 PID: 6560 Comm: syz.2.929 Not tainted 6.12.0-rc7-syzkalle=
+r-g5db899a34f75 #0
+> > Hardware name: linux,dummy-virt (DT)
+> > pstate: 80402009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+> > pc : __hwasan_check_x0_67043363+0x4/0x30
+> > lr : vgic_get_irq+0x7c/0x3d4 arch/arm64/kvm/vgic/vgic.c:93
+> > sp : ffff80008c597650
+> > x29: ffff80008c597660 x28: 00000000000000e0 x27: 0000000000000004
+> > x26: 0000000000000002 x25: ffff800083a7fe20 x24: 16f0000014accd90
+> > x23: 16f0000014acb9a0 x22: 0000000000000000 x21: a9ff80008c583000
+> > x20: 0000000000000001 x19: efff800000000000 x18: 0000000000000005
+> > x17: 0000000000000000 x16: 0000000000000137 x15: 0000000000000000
+> > x14: 0000000000000002 x13: 0000000000000003 x12: 70f000000a33ba80
+> > x11: 0000000000080000 x10: 0000000000001378 x9 : efff800000000000
+> > x8 : 0000000000000001 x7 : 0000000000000001 x6 : 0000000000000001
+> > x5 : ffff80008c597858 x4 : ffff8000800f2b38 x3 : ffff8000800f7a00
+> > x2 : 0000000000000001 x1 : 0000000000000001 x0 : 0000000000001378
+> > Call trace:
+> >  __hwasan_check_x0_67043363+0x4/0x30
+> >  vgic_mmio_write_invlpi+0xb0/0x174 arch/arm64/kvm/vgic/vgic-mmio-v3.c:5=
+46
+> >  dispatch_mmio_write+0x2a4/0x308
+> >  kvm_iodevice_write include/kvm/iodev.h:54 [inline]
+> >  __kvm_io_bus_write+0x290/0x340 virt/kvm/kvm_main.c:5852
+> >  kvm_io_bus_write+0x100/0x1bc virt/kvm/kvm_main.c:5877
+> >  io_mem_abort+0x4b8/0x7a0 arch/arm64/kvm/mmio.c:204
+> >  kvm_handle_guest_abort+0xb4c/0x1c64 arch/arm64/kvm/mmu.c:1880
+> >  handle_trap_exceptions arch/arm64/kvm/handle_exit.c:351 [inline]
+> >  handle_exit+0x1a0/0x274 arch/arm64/kvm/handle_exit.c:381
+> >  kvm_arch_vcpu_ioctl_run+0xbc0/0x15b0 arch/arm64/kvm/arm.c:1279
+> >  kvm_vcpu_ioctl+0x660/0xf78 virt/kvm/kvm_main.c:4475
+> >  vfs_ioctl fs/ioctl.c:51 [inline]
+> >  __do_sys_ioctl fs/ioctl.c:907 [inline]
+> >  __se_sys_ioctl fs/ioctl.c:893 [inline]
+> >  __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
+> >  __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+> >  invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
+> >  el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
+> >  do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
+> >  el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
+> >  el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
+> >  el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
+> > Code: a90efbfd d2800441 143a3ed3 9344dc10 (38706930)
+>
+> This seems to be something that is already handled by d561491ba927c
+> ("KVM: arm64: vgic-v3: Sanitise guest writes to GICR_INVLPIR"), which
+> made it into 6.13-rc1.
+>
+> The branch you are using doesn't seem to contain that particular
+> commit. I have now updated it to -rc3, which should plug that issue.
+>
+> Let me know if it keeps appearing.
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
+>
+> --
+> You received this message because you are subscribed to the Google Groups=
+ "syzkaller-bugs" group.
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to syzkaller-bugs+unsubscribe@googlegroups.com.
+> To view this discussion visit https://groups.google.com/d/msgid/syzkaller=
+-bugs/867c80ro2w.wl-maz%40kernel.org.
 
