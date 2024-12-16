@@ -4,104 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCADE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE377E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwf0Q6wp6H/pRC8arADlqkyBJYwrH22sNYfvDfmEvNU=; b=DfTNxkJi+wgYfDdciAz+WJdm8d
-	2vceuyb7lpMl7bhC/PiZQFS3B9F1RGNbZ4oETi3kFaAAZsHHkyiFM+RE4qEm/jVezE1zLZctgliOp
-	6D2dqHiZ8sICQQ/CRuYxa8zCoFVavMgEGTXs704l+w/BDLtHoZoNjoEobnokMpHLuPmm277d6D4t7
-	VxKgzRf1Lb7djPZuV0aUTgF+SJ8dicUKc2BPiK+7NrRpfKpxigRmZ/Qq3AynHqUV5jyw7l0PoYXAw
-	Wt4vaiKe1fS02ASNfSTk0prN9g8034UmZZhrGToFxjr1oaDht/P0NSjR4afz4frpBpgZY7p/ojRQl
-	lBp6ZrUA==;
+	bh=PcLGQ7556zNYV0AH4bhLvcU39BmQmcq3mQ/qHBEnQMA=; b=SvKe8UKeIwk6zd7R5e+Jot1i9a
+	HWeiscLYOYnKevhyiC2xQrdMiHPfrmcNRp7xXBngzLPum5Oc4q/DqRCdQ3m3BqtQd02YQd6hriQ82
+	GhS5GJOcQrR57tV3iG5HShkeCHz/Pe4gCkVrWs9WVOF/s0r+SwPH5AUNyv4G4elRF7f7Rwul0ciPY
+	FpPslZXN6b+QUBsWf8YeXEgQ6ucolfI8PZdyyYm7qS65Pgxl+n2oKcit+V3qIZ71+mG5838egklhL
+	zknzCiFV/ex57m/HTUYxzZlKooMWVb+WJld70wtq4feImCP7HEJ1By2E3sVhNNUD9Z/Q33DFGpYXN
+	2Y6dlKJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFkB-0000000AxHN-121d;
-	Mon, 16 Dec 2024 18:22:59 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tNFlG-0000000AxQu-3fw0;
+	Mon, 16 Dec 2024 18:24:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFK8-0000000AqNT-0Ezx
+	id 1tNFL6-0000000AqcD-324Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 17:56:07 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5401bd6ccadso4580925e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 09:56:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734371762; x=1734976562; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qwf0Q6wp6H/pRC8arADlqkyBJYwrH22sNYfvDfmEvNU=;
-        b=eaVg9askj+JYmXl1qmUwieQSA9DFOyBDBZjHT/qLQEO1c+d9vSpGZgxhuBDiRDmKmB
-         4SOj9e2r8ooytJc2LVOL9EJCJUYs+QFdKlmwN1ldTg9TT8Afmiw/iTN2NI8PaenIVhEs
-         gPuwB5c/e2zN5D9GJ7gco6AcFCGDZESN4LiE9lmRJ402uJUm8KTaRbcY73B1UXb5P42Z
-         4ceiGsYi4fDNqZb8UgxkMJ44YMvC8KyLey5sEruxnGmDnwkFFMLjK6PG5WU4eXvFGhiN
-         gLirsfUdnpV3mjabUNxXH97MPKX9RUJCXQEtbKR3SFCGiHZUxtXiTX14hO7eGRFrvhJB
-         +PEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734371762; x=1734976562;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qwf0Q6wp6H/pRC8arADlqkyBJYwrH22sNYfvDfmEvNU=;
-        b=ItkwD4oWqJvydawiKntHHMxJiUJSlxl27xnHV/vFuLaSJiicBX0hpzmo8iQLrl/EuM
-         34lNyeLA3io42l4HdjH89V01x5ord2q7vf398wtYbjTlJj8BFVpSL4IZj2///pnFb0hh
-         qdQvzM7MH6vgnN7W30u9srXF+q6uvUrAbhMZ3zt4lfmOuAxhPupkWMpGkM/CBZiBHUuF
-         whoZSpCK93xfx8Lw2iXnvEuCuL3rL9BuAvPV3t8if4dlrQg5yzwYCPikIfMn5VQPBDve
-         jfu/KQf9GecPXPN8jTPU2kHJPV6ClLrtPgb2Se42aU3KzimayauF3Uo0bcMFo+WkNyXX
-         a+Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCWYo7ZdGA0XAkrD1H5yDYt5h6z96z8cum8FlDf0/bXPaYqxyHmVTVvp4I+DwMVYQhhMjhMGdSVafSTGvXkGJJPj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpUv7+rYnVzU5ikWAZ9xb+Kk7P09Ks2OxCg5xD/sE4FFCOdcs+
-	KdjIrPmXXWUvMWuSh7tivO4e5A98LwOsiB6X0bk9jm4Kl5ghSbcfCBhn5qEfJUM=
-X-Gm-Gg: ASbGncu5y+w8Z7exqyA1UNaMCnMW6gAHuSdHxhKlpLgcz/boEuG5CBjRZaBYSAJbbXU
-	mDqlrp08u8hiRY3nTKHN3cHYqgUt6UoQX8bNN4BEWV26phXqFkEN9/LctnCm0Whv1i2DcGiQ68l
-	hsSTAGHbr1nSZket1RPeKzEqC6Tsrge+BIRipY77BX4ZNSG/1PqJZ3nzP/WPcu1v4uzMMP53lz5
-	TX7QzvQXYBYC5+S7WqaOkmHBY2DCM1YDxtDh/IyzsqBkGcDlZ/b79XbayEF1k7EIMuHag0zWL0g
-	n/AJ2pbIJINNe34s5/pDqzeTxUlW9RDdIdVY
-X-Google-Smtp-Source: AGHT+IG29n5FlljcG2G5r78Pj66GgzI4srZEZjCTKnfT1NsJdZGIbQtNCeGwmhS44dO/GlUjtQdAug==
-X-Received: by 2002:a05:6512:280a:b0:540:5b5c:c181 with SMTP id 2adb3069b0e04-5408b800764mr4435678e87.6.1734371761893;
-        Mon, 16 Dec 2024 09:56:01 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120b9f4b8sm949454e87.13.2024.12.16.09.55.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 09:56:00 -0800 (PST)
-Date: Mon, 16 Dec 2024 19:55:57 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v6 06/10] drm/display/hdmi: implement hotplug functions
-Message-ID: <bapkgt2e33bhdmun4efcuaedshyyv7qvjgugu5y53ordw3gigl@n7zbfoga7qo7>
-References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
- <20241206-drm-bridge-hdmi-connector-v6-6-50dc145a9c06@linaro.org>
- <20241216-courageous-mysterious-pelican-5a8d2e@houat>
+	Mon, 16 Dec 2024 17:57:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 35C1BA41979;
+	Mon, 16 Dec 2024 17:55:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8132BC4CED0;
+	Mon, 16 Dec 2024 17:57:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734371823;
+	bh=Z4tZ8fVofiGwAb7FaAn7u4Dk8NVUizwERM8FmNMH8MQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JbQb5YtoHWIG2i81bmyykeMAQvNegaoDJWzvE7DlBZex3RyAfwAroe5bQGbRHlJby
+	 jjqQVAAkr8hl8Dvjtpke2QQz2r0Ad/7uEi+edK6j2lLcJoyLs70xjia11RD9bTH8Dq
+	 E3Jvt/ICN4SJjUxPtoq8GeF2toKeWTLVW2uDsDNfsZvAuGESM82qsyDGNtplv5ieGs
+	 s4kcPeGaKiDCeId0agBsQE/PlCv4C1v1aoXNADhWZn8A7+Oc8MBtKJJONGyClzTaba
+	 uY4aJE9xAyCgjoz77qfQYB/Cm4kHef8xCurK7C8gXvfvdrpKaWczWGX7XtHfT1xIwg
+	 YtZJ4kj/0G/Uw==
+Date: Mon, 16 Dec 2024 17:56:57 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Takashi Iwai <tiwai@suse.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-sound@vger.kernel.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] ASoC: SOF: imx: add driver for imx95
+Message-ID: <03b0bcda-c351-4d76-accc-3d3e0ed9c335@sirena.org.uk>
+References: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
+ <20241216145039.3074-5-laurentiumihalcea111@gmail.com>
+ <Z2BZ+WUY6ecIwhEt@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1dCq6JFN4ecgzC7O"
 Content-Disposition: inline
-In-Reply-To: <20241216-courageous-mysterious-pelican-5a8d2e@houat>
+In-Reply-To: <Z2BZ+WUY6ecIwhEt@lizhi-Precision-Tower-5810>
+X-Cookie: Be different: conform.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_095604_142503_F60C71B4 
-X-CRM114-Status: GOOD (  32.93  )
+X-CRM114-CacheID: sfid-20241216_095704_829708_95456C2F 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,110 +86,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 06:20:04PM +0100, Maxime Ripard wrote:
-> On Fri, Dec 06, 2024 at 12:16:00PM +0200, Dmitry Baryshkov wrote:
-> > The HDMI Connectors need to perform a variety of tasks when the HDMI
-> > connector state changes. Such tasks include setting or invalidating CEC
-> > address, notifying HDMI codec driver, updating scrambler data, etc.
-> > 
-> > Implementing such tasks in a driver-specific callbacks is error prone.
-> > Start implementing the generic helper function (currently handling only
-> > the HDMI Codec framework) to be used by drivers utilizing HDMI Connector
-> > framework.
-> > 
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+--1dCq6JFN4ecgzC7O
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Dec 16, 2024 at 11:48:57AM -0500, Frank Li wrote:
+> On Mon, Dec 16, 2024 at 09:50:38AM -0500, Laurentiu Mihalcea wrote:
+> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >
+> > Add SOF driver for imx95.
+> >
+> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > > ---
-> >  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 61 +++++++++++++++++++++++++
-> >  include/drm/display/drm_hdmi_state_helper.h     |  8 ++++
-> >  2 files changed, 69 insertions(+)
-> > 
-> > diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> > index 80bf2829ba89b5f84fed4fa9eb1d6302e10a4f9e..4cdeb63688b9e48acd8e8ae87a45b6253f7dd12b 100644
-> > --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> > +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> > @@ -769,3 +769,64 @@ drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *con
-> >  	return ret;
-> >  }
-> >  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
-> > +
-> > +/**
-> > + * drm_atomic_helper_connector_hdmi_hotplug_edid - Handle the hotplug event for the HDMI connector passing custom EDID
-> > + * @connector: A pointer to the HDMI connector
-> > + * @status: Connection status
-> > + * @drm_edid: EDID to process
-> > + *
-> > + * This function should be called as a part of the .detect() / .detect_ctx()
-> > + * and .force() callbacks, updating the HDMI-specific connector's data. Most
-> > + * drivers should be able to use @drm_atomic_helper_connector_hdmi_hotplug()
-> > + * instead.
-> > + *
-> > + * Returns:
-> > + * Zero on success, error code on failure.
-> > + */
-> > +int
-> > +drm_atomic_helper_connector_hdmi_hotplug_edid(struct drm_connector *connector,
-> > +					      enum drm_connector_status status,
-> > +					      const struct drm_edid *drm_edid)
-> > +{
-> > +	if (status == connector_status_disconnected) {
-> > +		// TODO: also handle CEC and scramber, HDMI sink disconnected.
-> > +		drm_connector_hdmi_codec_plugged_notify(connector, false);
-> > +	}
-> > +
-> > +	drm_edid_connector_update(connector, drm_edid);
-> > +
-> > +	if (status == connector_status_connected) {
-> > +		// TODO: also handle CEC and scramber, HDMI sink is now connected.
-> > +		drm_connector_hdmi_codec_plugged_notify(connector, true);
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug_edid);
-> 
-> I think we discussed it in a previous version's thread after you sent
-> that one, but I'd rather have that helper call an edid retrieval
-> function than passing it edids.
+> >  sound/soc/sof/imx/Kconfig  |   8 +
+> >  sound/soc/sof/imx/Makefile |   2 +
+> >  sound/soc/sof/imx/imx95.c  | 401 +++++++++++++++++++++++++++++++++++++
+> >  3 files changed, 411 insertions(+)
 
-Ack, I forgot to add the hook. I'll do that for the next version. I'll
-add the .read_edid callback to the HDMI functions.
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
 
-> 
-> Also, EDIDs are mandatory for HDMI, so I'd call the function
-> drm_atomic_helper_connector_hdmi_hotplug.
+--1dCq6JFN4ecgzC7O
+Content-Type: application/pgp-signature; name="signature.asc"
 
-See below.
+-----BEGIN PGP SIGNATURE-----
 
-> 
-> > +/**
-> > + * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event for the HDMI connector
-> > + * @connector: A pointer to the HDMI connector
-> > + * @status: Connection status
-> > + *
-> > + * This function should be called as a part of the .detect() / .detect_ctx()
-> > + * and .force() callbacks, updating the HDMI-specific connector's data.
-> > + *
-> > + * Returns:
-> > + * Zero on success, error code on failure.
-> > + */
-> > +int
-> > +drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
-> > +					 enum drm_connector_status status)
-> > +{
-> > +	const struct drm_edid *drm_edid;
-> > +	int ret;
-> > +
-> > +	drm_edid = drm_edid_read(connector);
-> > +	ret = drm_atomic_helper_connector_hdmi_hotplug_edid(connector, status, drm_edid);
-> > +	drm_edid_free(drm_edid);
-> 
-> Oh. Why do we need the two variants? Or is it to deal with drivers that
-> don't set connector->ddc?
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgaekACgkQJNaLcl1U
+h9Cl4Qf/Wqcio/gpAHtCYuQyA3wXb/0S4M/vlqazIEavGzTlUOYqnxsbU2AaeMEk
+zwpZ2+eQ/bxaq1ShK4qLnNmzrurodvT1vfHAZPzfx58S0dtVN5Y37lau53+IRyQA
+GIyaTH3CFhR1JJcXKXPfF6cl8VwHgniUTT+hlT40q8I/j7Jp5AJWqOcKfx9Zx8sd
+Rnpg5dGVAg8blZMM8ste4YKqkx2DRgtc/yIe19c2V3+hyTjmBnw8+PztkfW3hqKS
+g5i6JYX1BwjPexEl9apLPs8lhKaEn7p/sHIVz7uxUBwkKz7McqVAaXTTKGebi/KN
+RXz4I6ljBH8xC5MQ9DH0/EEnOkZgcA==
+=wqS7
+-----END PGP SIGNATURE-----
 
-Yes. There are enough HDMI bridge drivers that would provide the
-callback instead of the DDC bus. Adding callback should solve that.
-
--- 
-With best wishes
-Dmitry
+--1dCq6JFN4ecgzC7O--
 
