@@ -4,59 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA999E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2A7E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FsRM2qgrUZKzWddro5AgkMdtsFGWhfo5nOny1NPTx7s=; b=qt8vx9hENgJ0iMjFCe/mGJ7F+Q
-	5CzFuPeDIm8Fsdv7X+Bc54BNT4O5iIEjDUfnfTqQTzTWmCW6WJMOPigkI8GifIEEAiuGRRzGai9SO
-	tc0jrUjCSpkEnnj4zQoOzeswcKeIYnLGSgrUPWR1IGyGj+CpalPWrDK1Zh/2aKNoEzSCp4M0bs0WZ
-	0w6XFxPgdSZxHJMmCfzWjJ3IHQiHnzxqXdxXn2YsMK2wxXsXWPHZZgVTTQbwH1gld8LWzLcPEaTQs
-	r94bYAEkKFCoetGs3HuJeAZtOh0VukKBO3YfDGnPcWbZsuca7LVA4pHcM4+62B5jfnItSrCwzKNHM
-	ZZCO+exA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R7DgLXnkn+eNvQJd57QfXRdqmzsuVaNQOQYrYyGFANM=; b=JtNgsyxZ15ovDcNN54SAhfMCJT
+	7dHHLMv48UcU2manQnmaW91UifSnn4MMgqIZhzezB+qXUyv7vCyTYBhwuPnQbtA014hIKYGUIaXaC
+	2f8k4h+eiHfLAWjKu7OSyz07fM6Rr/TRtYIpBhlS3OzBoYii5+/9kL/eW+xewsLgyhKgvYtiBifne
+	SQJE44FAhcgZDT+ArBcCE1rD0X98XyFyJ3i2CN7p6HeodcxiOFDI3HyKqJUbFOMidW4twy4obUcJm
+	0tVWUEUuFy9NIkAjyLNDmG0eOEy6NfDAEzazDc84sYI0D0McITa96nHXhnSXvzTwTNvF17FfJ6AFc
+	FZTRyGng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN9mn-00000009uS7-0MN1;
-	Mon, 16 Dec 2024 12:01:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN9cO-00000009sqO-1akU
+	id 1tN9y2-00000009w5N-3LFj;
+	Mon, 16 Dec 2024 12:12:54 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN9ww-00000009vps-3XsO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 11:50:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2030C113E;
-	Mon, 16 Dec 2024 03:51:00 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0660E3F58B;
-	Mon, 16 Dec 2024 03:50:29 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v3 9/9] coresight/ultrasoc: change cti_drvdata spinlock's type to raw_spinlock_t
-Date: Mon, 16 Dec 2024 11:50:06 +0000
-Message-Id: <20241216115006.415861-10-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241216115006.415861-1-yeoreum.yun@arm.com>
-References: <20241216115006.415861-1-yeoreum.yun@arm.com>
+	Mon, 16 Dec 2024 12:11:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1734351107; x=1765887107;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/uPilcPPSkM0vFf7CZp7ih66ufLi2xO3rEUxtf1Dzh8=;
+  b=AvEz7mgnA8QDnTyvXhbj1cgm6Q5mMzmXV9oVNBYa/sswpoxsZYQ3KL2h
+   SoyeFFrqaTMsxhgvmY8uiqWwaALZ5Sp/UO9dDMDYaKDTlVoyBtv/U3ikP
+   LYii1QTG4orh3IPOwKWxY8ITcbuu8iTQ2H4o/RdAMUd1TvRo+QOGlKdrt
+   b39bFs3wX/D+bsnPLEw/uvyRP9v6XT5gfaDmsfbclsUyLX7Fqbxt5a3T8
+   p0vUJULK3bzp1nvQT2bE9jW+SIHKFUMYqnd4EMIkgfMyxUYbIqt2UkyGQ
+   Rbapm9WxOjQO1k1q2QQWc4nfmFRL+4dTl6bIKaTxm3JF8Kge1EffKxYIz
+   Q==;
+X-CSE-ConnectionGUID: pK+G4L7kQ0aeZKZcimCaNA==
+X-CSE-MsgGUID: AxFEMPyOT+abSUdbeMU9OQ==
+X-IronPort-AV: E=Sophos;i="6.12,238,1728975600"; 
+   d="scan'208";a="35580346"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Dec 2024 05:11:46 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 16 Dec 2024 05:10:44 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Mon, 16 Dec 2024 05:10:41 -0700
+Date: Mon, 16 Dec 2024 12:10:40 +0000
+From: Daniel Machon <daniel.machon@microchip.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+CC: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
+ Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>, Horatiu Vultur
+	<horatiu.vultur@microchip.com>, <jacob.e.keller@intel.com>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<robert.marko@sartura.hr>
+Subject: Re: [PATCH net-next v4 6/9] net: sparx5: verify RGMII speeds
+Message-ID: <20241216121040.2dpxb7mv6h3u3r42@DEN-DL-M70577>
+References: <20241213-sparx5-lan969x-switch-driver-4-v4-0-d1a72c9c4714@microchip.com>
+ <20241213-sparx5-lan969x-switch-driver-4-v4-6-d1a72c9c4714@microchip.com>
+ <Z1yPq6OEziTNjWHK@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <Z1yPq6OEziTNjWHK@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_035032_501800_957E9869 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20241216_041147_101293_85747F89 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In ultrasoc-smb drivers, smb_drv_data->spinlock can be held
-during __schedule() by perf_event_task_sched_out()/in().
+> On Fri, Dec 13, 2024 at 02:41:05PM +0100, Daniel Machon wrote:
+> > When doing a port config, we verify the port speed against the PHY mode
+> > and supported speeds of that PHY mode. Add checks for the four RGMII phy
+> > modes: RGMII, RGMII_ID, RGMII_TXID and RGMII_RXID.
+> >
+> > Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
+> > Reviewed-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+> > Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+> 
+> You do realise that phylink knows what speeds each interface supports
+> (see phylink_get_capabilities()) and restricts the media advertisement
+> to ensure that ethtool link modes that can't be supported by the MAC
+> capabilities and set of interfaces that would be used are not
+> advertised.
+> 
+> This should mean none of your verification ever triggers. If it does,
+> then I'd like to know about it.
 
-Since smb__drv_data->spinlock type is spinlock_t and
-perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-which is raw_spinlock_t (an unsleepable lock),
-this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+Yes, I agree. Having an extra look at phylink, these checks should not trigger
+at all.
 
-To address this, change type smb_drv_data->spinlock in ultrasoc-smb drivers,
-which can be called by perf_event_task_sched_out()/in(),
-from spinlock_t to raw_spinlock_t.
+As it is, the default switch case is to throw an error, so without this
+addition, the sparx5_port_verify_speed() function will fail when the PHY mode
+is any of RGMII{_ID,_TXID,_RXID}. This patch just follows the established
+pattern of adding the new PHY mode and checking the speed. TBH, I think that
+all the checks in this function can be removed entirely, but that is something
+I would like to verify and follow up on in a separate series, if that is OK? 
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/ultrasoc-smb.c | 12 ++++++------
- drivers/hwtracing/coresight/ultrasoc-smb.h |  2 +-
- 2 files changed, 7 insertions(+), 7 deletions(-)
+Thanks.
 
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
-index dc3c9504dd7c..26cfc939e5bd 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.c
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
-@@ -98,7 +98,7 @@ static int smb_open(struct inode *inode, struct file *file)
- 	struct smb_drv_data *drvdata = container_of(file->private_data,
- 					struct smb_drv_data, miscdev);
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	if (drvdata->reading)
- 		return -EBUSY;
-@@ -152,7 +152,7 @@ static int smb_release(struct inode *inode, struct file *file)
- 	struct smb_drv_data *drvdata = container_of(file->private_data,
- 					struct smb_drv_data, miscdev);
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 	drvdata->reading = false;
- 
- 	return 0;
-@@ -245,7 +245,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
- 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	int ret = 0;
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	/* Do nothing, the trace data is reading by other interface now */
- 	if (drvdata->reading)
-@@ -280,7 +280,7 @@ static int smb_disable(struct coresight_device *csdev)
- {
- 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	if (drvdata->reading)
- 		return -EBUSY;
-@@ -378,7 +378,7 @@ static unsigned long smb_update_buffer(struct coresight_device *csdev,
- 	if (!buf)
- 		return 0;
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	/* Don't do anything if another tracer is using this sink. */
- 	if (csdev->refcnt != 1)
-@@ -563,7 +563,7 @@ static int smb_probe(struct platform_device *pdev)
- 
- 	smb_reset_buffer(drvdata);
- 	platform_set_drvdata(pdev, drvdata);
--	spin_lock_init(&drvdata->spinlock);
-+	raw_spin_lock_init(&drvdata->spinlock);
- 	drvdata->pid = -1;
- 
- 	ret = smb_register_sink(pdev, drvdata);
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
-index a91d39cfccb8..c4c111275627 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.h
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
-@@ -115,7 +115,7 @@ struct smb_drv_data {
- 	struct coresight_device	*csdev;
- 	struct smb_data_buffer sdb;
- 	struct miscdevice miscdev;
--	spinlock_t spinlock;
-+	raw_spinlock_t spinlock;
- 	bool reading;
- 	pid_t pid;
- };
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+/Daniel
 
 
