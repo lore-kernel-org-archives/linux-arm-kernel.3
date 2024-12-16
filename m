@@ -4,173 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72458E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C851E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKE712LNTnq5OnoswiWWPkoFcG2Yq5+YIV5fgh+FYjU=; b=yMzt6DpTRrMQBaKYEwqXB2VNWz
-	TXmQnjlkVzVkqFaW8H5q9NSS9TkAUQav+ynSjmf2Fxb84YZ4RLaXevTgVZ/otuXUEzXKKR3cZQ7Sh
-	2ANQoBKKTiTBXeUm7bmAbp4JII2P7+4UMrgwOWGtJXCJqvNFM5+o/adPQf2wPj/SqGCiWdgk7tKkc
-	XOHGhXUs/1Vu+kRIBj4Fra3dwNDNtAHE+o8eZlT6pV8WbMZBFiHS01aTa+us4MAkIYvaRnm50fLiC
-	wbnIILkv0JZJ9k3uIrRqg5TA2nyzS5dJfNXW+hnds1hATJNKFJ4Ar+co4tYc8XnKQ6+s2S186jqyv
-	n7Tz/r4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f81KfW85wEQNoq2nlGF77lObzOhpo6oJeeHyxrLLk54=; b=B/ShuRmMQf6iDs6zt5+vVPITaU
+	E/vWnWk2iKZAUeRT6HJkgk0oP+o444evF4rOaAAuDKVZz4JUJUv2A51UjcQmO5A7hMrH7WR8F3Nrx
+	F0U2tymnQY/Sm3yP8SiEPbjQPYE1NLfqHcE0dDtuN8+YzP1tDqP9pb3oXgpzywaIHGQUF1TWP+2/A
+	q4IqJmkkGW55aYyvNNAtgYKj4qCP1x0xXObCc0M7fvr4or67AGVqPDwNef52aakzl+kCn4ly/15ny
+	Ovv/dXbWvAWICj1lxLXPAfSWNmcFHcREPI6rqTOl9YB61Q8UXSf94p7VnJlaOlSPO5fZrmBdogW1o
+	+bxP1eIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3uc-000000097pT-2qnc;
-	Mon, 16 Dec 2024 05:44:58 +0000
-Received: from mail-bn7nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2009::61c] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1tN3xU-000000098Dd-2Xat;
+	Mon, 16 Dec 2024 05:47:56 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3tI-000000097hu-3QYU
+	id 1tN3wM-0000000983B-2Fns
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 05:43:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sn7X0kGExorb2tztAVYZX2VdiyOIuZaW69hCiuW9CiUofT1h05qYSqkDxMrSy7ru463UQGMjtNXJUDCdMd9Z7rmlSBOZ1DseRGj5JKYmAHsgnnJHikLSDmIU4eLM7VuxrUkfSPKAjpwDac3PnCx1w5Ry2l3+wMANsTCCI6H60gX5Vd5IVh+2iS4+irtp0lcH3CDZTptxIQ/O4IfQzcOt9ODHN3Mb4oowj8043p/bHPvjCwmJE12MyWbGKH+SXldep360gibUAIZatTrCBTmYDi37wtV6vWnhA5mGo2anxbgW+JXViaHEnhbQ67XObzniHGUH93+dNRaHFqChuka43w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eKE712LNTnq5OnoswiWWPkoFcG2Yq5+YIV5fgh+FYjU=;
- b=J0fsicavv9hrZdg2BCjEKCC9/kLiFmie7sBilg7u8MbnsvEr0gk7JC/e1zf6HF1IgyQAKIDE3qY6D3hF0yTbXmmr1ZMynLUMeOTLZK+IcwVX7rZ+jTL0s98KS/Uz0pxuTr0ctB2aiT7sPhlHLXTlYLVPn8hKozYoJWwXbTR9NZqWA+Rp8ZPugAKwujAXKNr3kbfMG7mTPAB4sNv30hIcBjsHu5FiOu9j/jKGTE6WOgPTVgVtu9/fU3L8u0j9Tqtpltadn/MU1zogjG2mfUIXDXXEud4NvLvWIyheEAAVchnNjrFIg8JFMiIAewUoa0XscefUuGFQOxJFoI1s5JKmWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eKE712LNTnq5OnoswiWWPkoFcG2Yq5+YIV5fgh+FYjU=;
- b=Y+vN6So3Xg3Kznvr+rnLoZ9k0jsvvfU7IlTym7pZEV/sSmGwuyH6hlaajkoEJFmWGFjag8fW3ZYurAJOcbR5Cqkh02Uoi0CyjOQH3nuK7YR/AswibXW+Yen/IccJGNT93As6VGyc33UYFqSpzCaL3VBVRqefJWH3hUO/TWRACQZjLzBI1fK0+6SzvWgm3BgrsBRsgzGabUmOmyKlGzTJDXL3kka8MDVTClMNk1qd3AEWAK8QJXpaF9/JdoQ7Kx+iz/Q4Edr51uoTFDejAxqpshAYuo67qzk32H3K0M/w0cA80T9yn6oj27TCta3eF3tWq0FD2E0wQK6wxWED2Snv3g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB7914.namprd12.prod.outlook.com (2603:10b6:510:27d::13)
- by DS0PR12MB6414.namprd12.prod.outlook.com (2603:10b6:8:cd::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.21; Mon, 16 Dec
- 2024 05:43:15 +0000
-Received: from PH7PR12MB7914.namprd12.prod.outlook.com
- ([fe80::8998:fe5c:833c:f378]) by PH7PR12MB7914.namprd12.prod.outlook.com
- ([fe80::8998:fe5c:833c:f378%6]) with mapi id 15.20.8251.015; Mon, 16 Dec 2024
- 05:43:14 +0000
-Message-ID: <3f19c5a8-9ee6-42fe-8b4c-3a66c65c8d35@nvidia.com>
-Date: Mon, 16 Dec 2024 13:43:02 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-To: Beata Michalska <beata.michalska@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
- catalin.marinas@arm.com, rafael@kernel.org, viresh.kumar@linaro.org
-Cc: sumitg@nvidia.com, yang@os.amperecomputing.com,
- vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
- zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
- x86@kernel.org, linux-doc@vger.kernel.org, Carol Soto <csoto@nvidia.com>
-References: <20241206135600.4083965-1-beata.michalska@arm.com>
- <20241206135600.4083965-2-beata.michalska@arm.com>
-Content-Language: en-US
-From: Kai-Heng Feng <kaihengf@nvidia.com>
-In-Reply-To: <20241206135600.4083965-2-beata.michalska@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR02CA0025.apcprd02.prod.outlook.com
- (2603:1096:4:195::21) To PH7PR12MB7914.namprd12.prod.outlook.com
- (2603:10b6:510:27d::13)
+	Mon, 16 Dec 2024 05:46:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1734328001; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=f81KfW85wEQNoq2nlGF77lObzOhpo6oJeeHyxrLLk54=;
+	b=ThNx9AHJANEafcBuhOu2cQ36CkZQ1BqF9yvrUE3rp/Bd4szvJ8WBOfGzEufDDwIGSmtdCOLqAtT18Pv8e2qE7lmXCfOsk/1upnZ0ffjlTNjH/dn9jtqLhYzx5dEmheiLXUbagctIPJnJRxLgf+7fViDcdUmAYtxaD95JAEhBaj4=
+Received: from 30.246.161.240(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLWS82F_1734327991 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 16 Dec 2024 13:46:33 +0800
+Message-ID: <290a8ac7-4d4b-472d-a77d-a0c76d7b963e@linux.alibaba.com>
+Date: Mon, 16 Dec 2024 13:46:30 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB7914:EE_|DS0PR12MB6414:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab0a2187-970e-4d05-77e8-08dd1d948852
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZitiSUMwNWJyQjZCcGhrSnJuQUpqUHFUVndGR0pjYjRON0N5bDE5b2E0Q1l2?=
- =?utf-8?B?cEtBUVhaSWhwekJhQ1BOdjJBTTNEZ2ZvZjhOTVBrZ016VG00TmdEUmdlT0lY?=
- =?utf-8?B?WTV0VGp5c0VJQ2d3dEZmZWFIR0lJZE5QaVJvRDRWNGpJeXRkSkM3b05VdGhx?=
- =?utf-8?B?UXFhNE1CVTFvekFmZm1NU1RSdUVDc0hWdzI4V2FLTDFYaGhkeEJ6dGYyanBn?=
- =?utf-8?B?VHVqc25yRDhDd1V5S0xJSCtOQlVoMy9tVEtHRSsrR096Nmx5b2tRZG5zUkg2?=
- =?utf-8?B?c0swNGh5Mnd2eVJUR0w1THdMdVZNODFtSTZzcDY0eVV5SGJteVkxdUNkdENZ?=
- =?utf-8?B?MHVPaGVvTWQzZVlRM0pVYThveEZyWG1XVUo0aWx6cVFCSTBBL21MTWpHRG4w?=
- =?utf-8?B?a0pGSmFIT3VZYnRPN2xmeVFEYTNaV3I1WjFWZjIrSjdsaTFRb3F6R1hqSW84?=
- =?utf-8?B?U1dEUGs1V2FlY3M3SGJ6VldFSkhiT0cyblprVWM4V0RBNXRJamdGM2Q4SmhL?=
- =?utf-8?B?ZHVDbjIvUTdPZnpqZUxMWGJtOGY1OTJYOThjWk9ITmVJNDJRTE5EM1N4U1Rm?=
- =?utf-8?B?UlppYXM1ekxtdmhsYnJQSzZXUSsxQWhUZU4rTjd0OTRGbEsvZ0JhSGlxbXZz?=
- =?utf-8?B?NGdFMTVqR1RqR2Z5QkxsQXhEYmlFVTRPS2lzb21qRmhNVDZPSEJVQ1E3cTJj?=
- =?utf-8?B?OUc3aTR5ck5sWFlXNTJISHhLTVUxK3c0aUxnQU4zL3ZJcDFmN0VWUGpERGV4?=
- =?utf-8?B?RDk1bjZlQ0lyblRrT2g5bW9BNlc2amJQeG1oUDFIZStCaDc5cGpHYndrU1dV?=
- =?utf-8?B?bnlyL3p5ZWxSbngxeXMwdW9yTnNFdXhYSnA4K08xVnZYT2ltNk0waVVCRHRL?=
- =?utf-8?B?LzJEZWk4bWNTSVhmcFB2UlZEOWNLbGpZMnNXUEdaRnhzQlBTbml0U1ZqUUxM?=
- =?utf-8?B?SW4zQ0hCbVl4eTdmYitqUW9DRzdFbVY3anJ5eERyc3VqK1VrNkZBK0MyN2xj?=
- =?utf-8?B?UW9WWlJYM0xaVDd3SkRtUUo4Q0U4cFY3NXhXSzhuK1hsOUE0dGliK0srcjRK?=
- =?utf-8?B?L3c0OFNnRnloY01SWnpKb0dkelB3K0VLNGtSMkY2bmJVYkxnL2I3NnNVMlZG?=
- =?utf-8?B?VitLc0c1eTYydjhKRllyNGtmNHF5TVJxWXBTcER2RDFtcWE5K0t3OEU2d09K?=
- =?utf-8?B?enNQVk9uSkEyV05kMzl4b1ZjUy9LQTU3S2I3cWw5WEJrQit6ME5zWTEyUUE4?=
- =?utf-8?B?LzZBWW5DMzN1MC9WUzRqWUgzVHNwdThWQndReVBmK1RFUElXcU5RMnlQdUxh?=
- =?utf-8?B?NXlLK3dIS3V0THdTN0RYLzNJL1dzaTU4WUsxWkZaajIxOTRLTGppOHBQWGxL?=
- =?utf-8?B?R0c1OWFYQkttYkxHM2lLT25UQ3l1bE8vRDRSdFhGZ2dFQWVDQVhqNktnRjc3?=
- =?utf-8?B?MFZvdXVzMnBzbjRPYTZ3Yis0UzhOdXJhdXJpSG1QZkMrcWoxd245U0txOFFK?=
- =?utf-8?B?Mmh1UU5BU2xjNmFOT0k0R3k4bXF0RnQ3RWxTZkJwVis1NjErUVorWU9SS05v?=
- =?utf-8?B?L2hkUzlqYkZ2MXpWQ1ZpZGJreXVRQkdIdkVHN1NrUTJad3VtZG51M1JlSnBa?=
- =?utf-8?B?T0RadUlYcmR2eVArQUJYblp3LzRXNE0wSDlNNjlxT0hYVTZycTdsWDJKa0xj?=
- =?utf-8?B?UjgwMzdXUE5LbGp1eTkxS0xVbzNEN3RUcUlMK05HUkMxUVk1cFBGbWlsWXUr?=
- =?utf-8?B?K1U2WG5wZ3p5NWpFbVdlY2piRFBoODZNejArd0R2d2U2NWYwWjJXVkd2Y2VI?=
- =?utf-8?B?SERFTDdQUVpjOHNhZVV5QjNsOXNwdk80RDllamcrS0tnNUo3VkhTTHdGQTBJ?=
- =?utf-8?B?czJDU0RtYThKUDFIckNyMHJvVG9jbHBZcWt6RkdUOUFXenFKZzN1MjhOSkJL?=
- =?utf-8?Q?u3PcZdl0lBw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB7914.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEJzM0trU2VkNUV2UU4ybjlSbGJMVDdSQ2VEWmpwQnpONzZKRHVCRWNLOXZu?=
- =?utf-8?B?RXFRaDgzdCtqWXcwcHFHZ2pZZWVQUVVmeTEwMmFSN3lhaFNLSSttUGpKcEdS?=
- =?utf-8?B?bStOQUlEanQzcy9QMHYzTXZlSG82amFTU0xRak81N3d6K3VaV09BZFNTZ2p1?=
- =?utf-8?B?bjFFUTVLN3VwNG13aFMxdXdaVWJPS05DRnlTc01weFlUdHVDTEFKSjUrTUI2?=
- =?utf-8?B?RG0vYVBHU0h1bERkalpRaGgrVm5FT1NabnBVZTVWcTZ3d3NiTURSYlRaSkl6?=
- =?utf-8?B?elZoeURJQno1cXpoTDNNWCt2N051MkdTbE4vbXk1UWlWa3ZRZUdCTHNsYmdI?=
- =?utf-8?B?YWw2YzFqay81UktmUmFCYXgyMFI3UTlIK2liMXhIYUNHVXJtOUdsVWd3SENN?=
- =?utf-8?B?ZCtKL2N0SnN5K2FheVRjS3JCUlNzOUUwUlVtenZleENGZnFLcDhWaU9oK0NT?=
- =?utf-8?B?YmpvWkFKQ0JmNnFEQWxZYXZSWjBvamd4K0M3NFA3d3lINlJRb0U5ZGtjakVm?=
- =?utf-8?B?NUZ3WHpHZG1JWHF1NnVpWldpdjF0aVpMaThjaDl4cGlEaXM1ZXBzV1ZDc2pK?=
- =?utf-8?B?QktBd0h1TXRYNEtZVmxYdzdoNTF0Ty85WjkvOFdPQzVyVTl1QjJGUndLWjJM?=
- =?utf-8?B?MENjNElUQlRldXlGU243emsvd1UrVTVoUkUzUnNPczQ5WEFJRVhIMU9EZ2k5?=
- =?utf-8?B?MVVMWTkyazZJbTQ4R21NbzF6cjJKa1JiaEtGK3BWVGFBcWZvcG5LZFNTek9m?=
- =?utf-8?B?Y05XYTNoWit2Wm9DTE5IQTY1a3FYWlk5VlRmNTVORkNTYXVDLzZscCthaVVR?=
- =?utf-8?B?TU03cWdWS3hvaE1COWVuVUsxUHluMTJzUnIyUWtFaU5NSzYwS0p3a2FweXdp?=
- =?utf-8?B?emh6K0gxOUkvdWthNU56MnN3UlJMekdBTEpCakhtdzhEbmc3eE0wREt6Uyto?=
- =?utf-8?B?Njk4blJ3QUV2MVBRd1NKNWljOUgrZ3c0MDZRSWVzN01WZ2lDQkd4eGV1Y01n?=
- =?utf-8?B?KzN4cXFNNXJzaThGdHBGcWlGSnptN1QzYmpKbXp4eGZRdEk2UVAzWllNQ3NX?=
- =?utf-8?B?VFg5RGlraksxWUN3QW13S0NTUE94NlFyaDI0cXltUUlVS2o4MXUvNFc3amk5?=
- =?utf-8?B?OE1xTTU4TERsZWFUcjgreTQ4ZVVOWnhZdSs4Vm9KWC9aOVRBbW51c1hBclh5?=
- =?utf-8?B?WDdNelNIeUd0dEpscExVZSs2OFd6SWd1ajJJc1BROG81eWtReUxZSlNpeW9z?=
- =?utf-8?B?azBWd3VtRTNRdkRNQjQ1Z0t5KzZrZE0yUEtjYUlGNTZ4dm9BNlVMa2dIYnZi?=
- =?utf-8?B?a0hUZUNtdjllUFhlWWNOUVJyei9YNW52cXkxbjU0V3JHb25jQjZyMFd4Uk11?=
- =?utf-8?B?ZFcwbm45NnIwdXVqVjR0RU5WSGxHVVh2TGdtSzZ6bUVvYWR6NEFDZEx6OEpq?=
- =?utf-8?B?WlM2WTRzM3o4MVA0bXRKMlRiTWtxaHBSUHRwVUI0TUkzT0UxRlNNM0FmeUp1?=
- =?utf-8?B?eDJEbG5wbTB4VlQ5RjhqbEJhdWNGdmxPY2VRa2hOc0I2T1h3OFYwcTY5VllC?=
- =?utf-8?B?bThqbjVNUWNmZkNUWjJaYUZhQm9XWGw5NUNFcDdoS0xmblE1ZmJ4MzlNaWR5?=
- =?utf-8?B?RXBtbG9PaWZWRUkrRTdsS0VhWnBaWHExVXJJbkJpbStMcTBvZVZlWDVOY1M4?=
- =?utf-8?B?bTNCdGlJdkloZys1WWZZWXJ3RUREVU1iODdtdGt1VkdacFEzcUlmTlNsWDdn?=
- =?utf-8?B?NzhHeHFYL2hXRHU0dmxUV0N2VGZIQnZieXBVRkpSdDZjdU9rSWtsNWY1MXNu?=
- =?utf-8?B?R0puUjN6aFFsV1BsQ01EeXhxMmJkTjQ1OGRkajd1dEtXSFlIUHJSdE1oRlFw?=
- =?utf-8?B?VG42cGlRUkkxZUNqSHR5Z09VQlBpeEJSMDhXZkJVTTNXeDdGNGU5ZVZSNUxY?=
- =?utf-8?B?aVlJeHVvQ0VQNEhIY1MxTFVjZ2MrUCtqM1JGaXo5c1BpMXBUVmxUQjRZaFJL?=
- =?utf-8?B?cGIvSUlHaWJWNUllTHhsZUt6YlNFMENNWWFyS1B0cnRzSTFRbHozeENlOXFz?=
- =?utf-8?B?VE85b2RhVnRmZGFIZlc3TC9EZnZrRDdhdGEvQ3A4MFJQcFd6SWNDQTFnVU81?=
- =?utf-8?Q?UlYYk7pybXPdHbEK9gl36b5t8?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab0a2187-970e-4d05-77e8-08dd1d948852
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB7914.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 05:43:13.7982
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kRnZc2KxpzcKiZHRC1d5f4JHKQRniNOXA2PIps2lVRUO+3+Dafl9lrgDoYXez1Pg65e/mlBdehMswRPw8WE23A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6414
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 0/3] ACPI: APEI: handle synchronous errors in task
+ work
+To: yazen.ghannam@amd.com, mark.rutland@arm.com, catalin.marinas@arm.com,
+ mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
+ bp@alien8.de, rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
+ wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
+ tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
+ james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
+ will@kernel.org, jarkko@kernel.org
+Cc: linux-acpi@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+ linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
+ ardb@kernel.org, ying.huang@intel.com, ashish.kalra@amd.com,
+ baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+ robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+ zhuo.song@linux.alibaba.com
+References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_214338_495676_E7B55DD1 
-X-CRM114-Status: GOOD (  33.32  )
+X-CRM114-CacheID: sfid-20241215_214647_249585_B1ECB19B 
+X-CRM114-Status: GOOD (  44.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,267 +78,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Beata,
 
-On 2024/12/6 9:55 PM, Beata Michalska wrote:
-> Currently the CPUFreq core exposes two sysfs attributes that can be used
-> to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
-> and scaling_cur_freq. Both provide slightly different view on the
-> subject and they do come with their own drawbacks.
+
+在 2024/12/2 11:05, Shuai Xue 写道:
+> changes singce v16:
+> - add reviewed-by tag for patch 1 and patch 2 from Yazen
+> - rewrite warning message for force kill (per Yazen)
+> - warn with dev_err in ghes (per Jarkko)
+> - add return value -ENXIO in memory_failure comments  (per Yazen)
+> - Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linux.alibaba.com/
 > 
-> cpuinfo_cur_freq provides higher precision though at a cost of being
-> rather expensive. Moreover, the information retrieved via this attribute
-> is somewhat short lived as frequency can change at any point of time
-> making it difficult to reason from.
+> changes singce v15:
+> - add HW_ERR and GHES_PFX prefix per Yazen
 > 
-> scaling_cur_freq, on the other hand, tends to be less accurate but then
-> the actual level of precision (and source of information) varies between
-> architectures making it a bit ambiguous.
+> changes since v14:
+> - add reviewed-by tags from Jarkko and Jonathan
+> - remove local variable and use twcb->pfn
 > 
-> The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
-> distinct interface, exposing an average frequency of a given CPU(s), as
-> reported by the hardware, over a time frame spanning no more than a few
-> milliseconds. As it requires appropriate hardware support, this
-> interface is optional.
+> changes since v13:
+> - add reviewed-by tag from Jarkko
+> - rename task_work to ghes_task_work (per Jarkko)
 > 
-> Note that under the hood, the new attribute relies on the information
-> provided by arch_freq_get_on_cpu, which, up to this point, has been
-> feeding data for scaling_cur_freq attribute, being the source of
-> ambiguity when it comes to interpretation. This has been amended by
-> restoring the intended behavior for scaling_cur_freq, with a new
-> dedicated config option to maintain status quo for those, who may need
-> it.
+> changes since v12:
+> - tweak error message for force kill (per Jarkko)
+> - fix comments style (per Jarkko)
+> - fix commit log typo (per Jarko)
 > 
-> CC: Jonathan Corbet <corbet@lwn.net>
-> CC: Thomas Gleixner <tglx@linutronix.de>
-> CC: Ingo Molnar <mingo@redhat.com>
-> CC: Borislav Petkov <bp@alien8.de>
-> CC: Dave Hansen <dave.hansen@linux.intel.com>
-> CC: H. Peter Anvin <hpa@zytor.com>
-> CC: Phil Auld <pauld@redhat.com>
-> CC: x86@kernel.org
-> CC: linux-doc@vger.kernel.org
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> ---
->   Documentation/admin-guide/pm/cpufreq.rst | 16 ++++++++++-
->   arch/x86/kernel/cpu/aperfmperf.c         |  2 +-
->   arch/x86/kernel/cpu/proc.c               |  7 +++--
->   drivers/cpufreq/Kconfig.x86              | 12 ++++++++
->   drivers/cpufreq/cpufreq.c                | 36 +++++++++++++++++++++---
->   include/linux/cpufreq.h                  |  2 +-
->   6 files changed, 66 insertions(+), 9 deletions(-)
+> changes since v11:
+> - rebase to Linux 6.11-rc6
+> - fix grammer and typo in commit log (per Borislav)
+> - remove `sync_` perfix of `sync_task_work`  (per Borislav)
+> - comments flags and description of `task_work`  (per Borislav)
 > 
-> diff --git a/Documentation/admin-guide/pm/cpufreq.rst b/Documentation/admin-guide/pm/cpufreq.rst
-> index fe1be4ad88cb..76f3835afe01 100644
-> --- a/Documentation/admin-guide/pm/cpufreq.rst
-> +++ b/Documentation/admin-guide/pm/cpufreq.rst
-> @@ -248,6 +248,19 @@ are the following:
->   	If that frequency cannot be determined, this attribute should not
->   	be present.
->   
-> +``cpuinfo_avg_freq``
-> +        An average frequency (in KHz) of all CPUs belonging to a given policy,
-> +        derived from a hardware provided feedback and reported on a time frame
-> +        spanning at most few milliseconds.
-> +
-> +        This is expected to be based on the frequency the hardware actually runs
-> +        at and, as such, might require specialised hardware support (such as AMU
-> +        extension on ARM). If one cannot be determined, this attribute should
-> +        not be present.
-> +
-> +        Note, that failed attempt to retrieve current frequency for a given
-> +        CPU(s) will result in an appropriate error.
-> +
->   ``cpuinfo_max_freq``
->   	Maximum possible operating frequency the CPUs belonging to this policy
->   	can run at (in kHz).
-> @@ -293,7 +306,8 @@ are the following:
->   	Some architectures (e.g. ``x86``) may attempt to provide information
->   	more precisely reflecting the current CPU frequency through this
->   	attribute, but that still may not be the exact current CPU frequency as
-> -	seen by the hardware at the moment.
-> +	seen by the hardware at the moment. This behavior though, is only
-> +	available via c:macro:``CPUFREQ_ARCH_CUR_FREQ`` option.
->   
->   ``scaling_driver``
->   	The scaling driver currently in use.
-> diff --git a/arch/x86/kernel/cpu/aperfmperf.c b/arch/x86/kernel/cpu/aperfmperf.c
-> index 0b69bfbf345d..a00059139ca4 100644
-> --- a/arch/x86/kernel/cpu/aperfmperf.c
-> +++ b/arch/x86/kernel/cpu/aperfmperf.c
-> @@ -413,7 +413,7 @@ void arch_scale_freq_tick(void)
->    */
->   #define MAX_SAMPLE_AGE	((unsigned long)HZ / 50)
->   
-> -unsigned int arch_freq_get_on_cpu(int cpu)
-> +int arch_freq_get_on_cpu(int cpu)
->   {
->   	struct aperfmperf *s = per_cpu_ptr(&cpu_samples, cpu);
->   	unsigned int seq, freq;
-> diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
-> index e65fae63660e..34d8fb93fb70 100644
-> --- a/arch/x86/kernel/cpu/proc.c
-> +++ b/arch/x86/kernel/cpu/proc.c
-> @@ -86,9 +86,12 @@ static int show_cpuinfo(struct seq_file *m, void *v)
->   		seq_printf(m, "microcode\t: 0x%x\n", c->microcode);
->   
->   	if (cpu_has(c, X86_FEATURE_TSC)) {
-> -		unsigned int freq = arch_freq_get_on_cpu(cpu);
-> +		int freq = arch_freq_get_on_cpu(cpu);
->   
-> -		seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
-> +		if (freq <= 0)
-> +			seq_puts(m, "cpu MHz\t\t: Unknown\n");
-> +		else
-> +			seq_printf(m, "cpu MHz\t\t: %u.%03u\n", freq / 1000, (freq % 1000));
->   	}
->   
->   	/* Cache size */
-> diff --git a/drivers/cpufreq/Kconfig.x86 b/drivers/cpufreq/Kconfig.x86
-> index 97c2d4f15d76..212e1b9afe21 100644
-> --- a/drivers/cpufreq/Kconfig.x86
-> +++ b/drivers/cpufreq/Kconfig.x86
-> @@ -340,3 +340,15 @@ config X86_SPEEDSTEP_RELAXED_CAP_CHECK
->   	  option lets the probing code bypass some of those checks if the
->   	  parameter "relaxed_check=1" is passed to the module.
->   
-> +config CPUFREQ_ARCH_CUR_FREQ
-> +	default y
-> +	bool "Current frequency derived from HW provided feedback"
-> +	help
-> +	  This determines whether the scaling_cur_freq sysfs attribute returns
-> +	  the last requested frequency or a more precise value based on hardware
-> +	  provided feedback (as architected counters).
-> +	  Given that a more precise frequency can now be provided via the
-> +	  cpuinfo_avg_cur_freq attribute, by enabling this option,
-> +	  scaling_cur_freq maintains the provision of a counter based frequency,
-> +	  for compatibility reasons.
-> +
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index 04fc786dd2c0..70df2a24437b 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -747,9 +747,14 @@ show_one(cpuinfo_transition_latency, cpuinfo.transition_latency);
->   show_one(scaling_min_freq, min);
->   show_one(scaling_max_freq, max);
->   
-> -__weak unsigned int arch_freq_get_on_cpu(int cpu)
-> +__weak int arch_freq_get_on_cpu(int cpu)
->   {
-> -	return 0;
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static inline bool cpufreq_avg_freq_supported(struct cpufreq_policy *policy)
-> +{
-> +	return arch_freq_get_on_cpu(policy->cpu) != -EOPNOTSUPP;
->   }
->   
->   static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
-> @@ -757,8 +762,11 @@ static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char *buf)
->   	ssize_t ret;
->   	unsigned int freq;
->   
-> -	freq = arch_freq_get_on_cpu(policy->cpu);
-> -	if (freq)
-> +	freq = IS_ENABLED(CONFIG_CPUFREQ_ARCH_CUR_FREQ)
-> +		? arch_freq_get_on_cpu(policy->cpu)
-> +		: 0;
-> +
-> +	if (freq > 0)
->   		ret = sysfs_emit(buf, "%u\n", freq);
->   	else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
->   		ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
-> @@ -802,6 +810,19 @@ static ssize_t show_cpuinfo_cur_freq(struct cpufreq_policy *policy,
->   	return sysfs_emit(buf, "<unknown>\n");
->   }
->   
-> +/*
-> + * show_cpuinfo_avg_freq - average CPU frequency as detected by hardware
-> + */
-> +static ssize_t show_cpuinfo_avg_freq(struct cpufreq_policy *policy,
-> +				     char *buf)
-> +{
-> +	int avg_freq = arch_freq_get_on_cpu(policy->cpu);
+> changes since v10:
+> - rebase to v6.8-rc2
+> 
+> changes since v9:
+> - split patch 2 to address exactly one issue in one patch (per Borislav)
+> - rewrite commit log according to template (per Borislav)
+> - pickup reviewed-by tag of patch 1 from James Morse
+> - alloc and free twcb through gen_pool_{alloc, free) (Per James)
+> - rewrite cover letter
+> 
+> changes since v8:
+> - remove the bug fix tag of patch 2 (per Jarkko Sakkinen)
+> - remove the declaration of memory_failure_queue_kick (per Naoya Horiguchi)
+> - rewrite the return value comments of memory_failure (per Naoya Horiguchi)
+> 
+> changes since v7:
+> - rebase to Linux v6.6-rc2 (no code changed)
+> - rewritten the cover letter to explain the motivation of this patchset
+> 
+> changes since v6:
+> - add more explicty error message suggested by Xiaofei
+> - pick up reviewed-by tag from Xiaofei
+> - pick up internal reviewed-by tag from Baolin
+> 
+> changes since v5 by addressing comments from Kefeng:
+> - document return value of memory_failure()
+> - drop redundant comments in call site of memory_failure()
+> - make ghes_do_proc void and handle abnormal case within it
+> - pick up reviewed-by tag from Kefeng Wang
+> 
+> changes since v4 by addressing comments from Xiaofei:
+> - do a force kill only for abnormal sync errors
+> 
+> changes since v3 by addressing comments from Xiaofei:
+> - do a force kill for abnormal memory failure error such as invalid PA,
+> unexpected severity, OOM, etc
+> - pcik up tested-by tag from Ma Wupeng
+> 
+> changes since v2 by addressing comments from Naoya:
+> - rename mce_task_work to sync_task_work
+> - drop ACPI_HEST_NOTIFY_MCE case in is_hest_sync_notify()
+> - add steps to reproduce this problem in cover letter
+> 
+> changes since v1:
+> - synchronous events by notify type
+> - Link: https://lore.kernel.org/lkml/20221206153354.92394-3-xueshuai@linux.alibaba.com/
+> 
+> ## Cover Letter
+> 
+> There are two major types of uncorrected recoverable (UCR) errors :
+> 
+> - Synchronous error: The error is detected and raised at the point of the
+>    consumption in the execution flow, e.g. when a CPU tries to access
+>    a poisoned cache line. The CPU will take a synchronous error exception
+>    such as Synchronous External Abort (SEA) on Arm64 and Machine Check
+>    Exception (MCE) on X86. OS requires to take action (for example, offline
+>    failure page/kill failure thread) to recover this uncorrectable error.
+> 
+> - Asynchronous error: The error is detected out of processor execution
+>    context, e.g. when an error is detected by a background scrubber. Some data
+>    in the memory are corrupted. But the data have not been consumed. OS is
+>    optional to take action to recover this uncorrectable error.
+> 
+> Currently, both synchronous and asynchronous error use
+> memory_failure_queue() to schedule memory_failure() exectute in kworker
+> context. As a result, when a user-space process is accessing a poisoned
+> data, a data abort is taken and the memory_failure() is executed in the
+> kworker context:
+> 
+>    - will send wrong si_code by SIGBUS signal in early_kill mode, and
+>    - can not kill the user-space in some cases resulting a synchronous
+>      error infinite loop
+> 
+> Issue 1: send wrong si_code in early_kill mode
+> 
+> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
+> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
+> could be used to determine whether a synchronous exception occurs on
+> ARM64 platform.  When a synchronous exception is detected, the kernel is
+> expected to terminate the current process which has accessed poisoned
+> page. This is done by sending a SIGBUS signal with an error code
+> BUS_MCEERR_AR, indicating an action-required machine check error on
+> read.
+> 
+> However, when kill_proc() is called to terminate the processes who have
+> the poisoned page mapped, it sends the incorrect SIGBUS error code
+> BUS_MCEERR_AO because the context in which it operates is not the one
+> where the error was triggered.
+> 
+> To reproduce this problem:
+> 
+>    # STEP1: enable early kill mode
+>    #sysctl -w vm.memory_failure_early_kill=1
+>    vm.memory_failure_early_kill = 1
+> 
+>    # STEP2: inject an UCE error and consume it to trigger a synchronous error
+>    #einj_mem_uc single
+>    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
+>    injecting ...
+>    triggering ...
+>    signal 7 code 5 addr 0xffffb0d75000
+>    page not present
+>    Test passed
+> 
+> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
+> error and it is not fact.
+> 
+> To fix it, queue memory_failure() as a task_work so that it runs in
+> the context of the process that is actually consuming the poisoned data.
+> 
+> After this patch set:
+> 
+>    # STEP1: enable early kill mode
+>    #sysctl -w vm.memory_failure_early_kill=1
+>    vm.memory_failure_early_kill = 1
+> 
+>    # STEP2: inject an UCE error and consume it to trigger a synchronous error
+>    #einj_mem_uc single
+>    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
+>    injecting ...
+>    triggering ...
+>    signal 7 code 4 addr 0xffffb0d75000
+>    page not present
+>    Test passed
+> 
+> The si_code (code 4) from einj_mem_uc indicates that it is BUS_MCEERR_AR
+> error as we expected.
+> 
+> Issue 2: a synchronous error infinite loop due to memory_failure() failed
+> 
+> If a user-space process, e.g. devmem, a poisoned page which has been set
+> HWPosion flag, kill_accessing_process() is called to send SIGBUS to the
+> current processs with error info. Because the memory_failure() is
+> executed in the kworker contex, it will just do nothing but return
+> EFAULT. So, devmem will access the posioned page and trigger an
+> excepction again, resulting in a synchronous error infinite loop. Such
+> loop may cause platform firmware to exceed some threshold and reboot
+> when Linux could have recovered from this error.
+> 
+> To reproduce this problem:
+> 
+>    # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
+>    #einj_mem_uc single
+>    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
+>    injecting ...
+>    triggering ...
+>    signal 7 code 4 addr 0xffffb0d75000
+>    page not present
+>    Test passed
+> 
+>    # STEP 2: access the same page and it will trigger a synchronous error infinite loop
+>    devmem 0x4092d55b400
+> 
+> To fix it, if memory_failure() failed, perform a force kill to current process.
+> 
+> Issue 3: a synchronous error infinite loop due to no memory_failure() queued
+> 
+> No memory_failure() work is queued unless all bellow preconditions check passed:
+> 
+> - `if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))` in ghes_handle_memory_failure()
+> - `if (flags == -1)` in ghes_handle_memory_failure()
+> - `if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))` in ghes_do_memory_failure()
+> - `if (!pfn_valid(pfn) && !arch_is_platform_page(physical_addr)) ` in ghes_do_memory_failure()
+> 
+> If the preconditions are not passed, the user-space process will trigger SEA again.
+> This loop can potentially exceed the platform firmware threshold or even
+> trigger a kernel hard lockup, leading to a system reboot.
+> 
+> To fix it, if no memory_failure() queued, perform a force kill to current process.
+> 
+> And the the memory errors triggered in kernel-mode[5], also relies on this
+> patchset to kill the failure thread.
+> 
+> Lv Ying and XiuQi from Huawei also proposed to address similar problem[2][4].
+> Acknowledge to discussion with them.
+> 
+> [1] Add ARMv8 RAS virtualization support in QEMU https://patchew.org/QEMU/20200512030609.19593-1-gengdongjiu@huawei.com/
+> [2] https://lore.kernel.org/lkml/20221205115111.131568-3-lvying6@huawei.com/
+> [3] https://lkml.kernel.org/r/20220914064935.7851-1-xueshuai@linux.alibaba.com
+> [4] https://lore.kernel.org/lkml/20221209095407.383211-1-lvying6@huawei.com/
+> [5] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20240528085915.1955987-1-tongtiangen@huawei.com/
+> 
+> Shuai Xue (3):
+>    ACPI: APEI: send SIGBUS to current task if synchronous memory error
+>      not recovered
+>    mm: memory-failure: move return value documentation to function
+>      declaration
+>    ACPI: APEI: handle synchronous exceptions in task work
+> 
+>   arch/x86/kernel/cpu/mce/core.c |  7 ---
+>   drivers/acpi/apei/ghes.c       | 86 +++++++++++++++++++++-------------
+>   include/acpi/ghes.h            |  3 --
+>   include/linux/mm.h             |  1 -
+>   mm/memory-failure.c            | 23 +++------
+>   5 files changed, 61 insertions(+), 59 deletions(-)
+> 
 
-We are seeing issues when reading cpuinfo_avg_freq on an ARM64 system:
+Hi, Rafael,
 
-$ cat /sys/devices/system/cpu/cpufreq/policy1/cpuinfo_avg_freq
-cat: /sys/devices/system/cpu/cpufreq/policy1/cpuinfo_avg_freq: Resource 
-temporarily unavailable
+I hope this message finds you well.
 
-The CPU is in idle state, so arch_freq_get_on_cpu() can't find a good 
-alternative source for frequency info.
+I am writing to provide an update on the current status of the patch set, now
+at *revision 17*. Each patch has been thoroughly reviewed by 3-5 reviewers, and
+their feedback has been incorporated to address any concerns.
 
-One way to resolve this is to have fallback methods in show_cpuinfo_avg_freq() 
-so it will look like this:
+Given the extensive review and iterations the patch set has undergone, I would
+like to inquire that are you happy to queue this patch set?
 
-static ssize_t show_cpuinfo_avg_freq(struct cpufreq_policy *policy,
-                                      char *buf)
-{
-         int avg_freq = arch_freq_get_on_cpu(policy->cpu);
-         int ret;
-
-         if (avg_freq > 0)
-                 ret = sysfs_emit(buf, "%u\n", avg_freq);
-         else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
-                 ret = sysfs_emit(buf, "%u\n", cpufreq_driver->get(policy->cpu));
-         else
-                 ret = sysfs_emit(buf, "%u\n", policy->cur);
-         return ret;
-}
-
-But that also makes show_cpuinfo_avg_freq() pretty much the same as 
-show_scaling_cur_freq().
-
-So is it possible to consolidate show_cpuinfo_avg_freq() into 
-show_scaling_cur_freq(), by making CONFIG_CPUFREQ_ARCH_CUR_FREQ also available 
-to ARM64?
-
-Kai-Heng
-
-> +
-> +	if (avg_freq > 0)
-> +		return sysfs_emit(buf, "%u\n", avg_freq);
-> +	return avg_freq != 0 ? avg_freq : -EINVAL;
-> +}
-> +
->   /*
->    * show_scaling_governor - show the current policy for the specified CPU
->    */
-> @@ -964,6 +985,7 @@ static ssize_t show_bios_limit(struct cpufreq_policy *policy, char *buf)
->   }
->   
->   cpufreq_freq_attr_ro_perm(cpuinfo_cur_freq, 0400);
-> +cpufreq_freq_attr_ro(cpuinfo_avg_freq);
->   cpufreq_freq_attr_ro(cpuinfo_min_freq);
->   cpufreq_freq_attr_ro(cpuinfo_max_freq);
->   cpufreq_freq_attr_ro(cpuinfo_transition_latency);
-> @@ -1091,6 +1113,12 @@ static int cpufreq_add_dev_interface(struct cpufreq_policy *policy)
->   			return ret;
->   	}
->   
-> +	if (cpufreq_avg_freq_supported(policy)) {
-> +		ret = sysfs_create_file(&policy->kobj, &cpuinfo_avg_freq.attr);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->   	ret = sysfs_create_file(&policy->kobj, &scaling_cur_freq.attr);
->   	if (ret)
->   		return ret;
-> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> index d4d2f4d1d7cb..a7b6c0ccf9bc 100644
-> --- a/include/linux/cpufreq.h
-> +++ b/include/linux/cpufreq.h
-> @@ -1194,7 +1194,7 @@ static inline int of_perf_domain_get_sharing_cpumask(int pcpu, const char *list_
->   }
->   #endif
->   
-> -extern unsigned int arch_freq_get_on_cpu(int cpu);
-> +extern int arch_freq_get_on_cpu(int cpu);
->   
->   #ifndef arch_set_freq_scale
->   static __always_inline
-
+Best Regards,
+Shuai
 
