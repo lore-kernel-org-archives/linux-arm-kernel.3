@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96D6E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E37ACE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EoB1GbKivXuBsxxps3C04czV7lAogjlaWsBJsIxZ3zo=; b=dF7Kt0lmMt2CaaMC7QZiggZtbW
-	yWy2tYpHsw/I1N8Vm6ls62W8bpNr8iHdtYP+52/LPEMuK5lwFN5hgnKJRncPI6Ai7uQqkCGPRZjaS
-	Bb97TIrHedIgzpGhrgO8O1PiwLe/qurSu6ScyCBeJlASMAC49+SRL4yj4y5p/VKtpE111tlpsQ/gT
-	G73gG/X5ZglQVdk1S1UPaQG5OR44Y6gUbZ105OLouFwTC2zyxHL3ogOeboM6JRf6OBNXmrbs4dWSZ
-	BkwfTi2eWPyvYxcZfdKtiE1fsa3SS55Kl27F8w0eB2oTkALFE6hCn+pCplTMg/JatKA1yzym4ZTO3
-	vjzw0GfA==;
+	bh=YYytabqxt3kkHiUQhCkfX3bSV7UbCfUEVtARO+URuMo=; b=Qo05L5RfnBFmiSTLyYvuRoO3mT
+	djWKTcvgvHS2rk3BUleLXtsQL5Nc/pFWz3gMGNl2/8gvwcXtsbL7auZf6Jv1mFbiXmtumR6T0UArz
+	m2nk9tK7F6ark8rozvfyrruwWzuKNoUhP+psc3ScZ4KeR4voWXG2CyZ3Ge8iTLgLXXpUI2DA31t4x
+	YwmLDT7a4GtRT2q1Oqr+HNsqB2aJvinBu/vPVDBd4Jvq58bKHBcU7d0gCNNiYJY5kGXF3de+4d3EW
+	GIhonldKVPNJUQzJg+QGrXsFpE4SbOsfkaC9IJ1czXFt3Y/uvhNPbOb8MZuPchWSzNZ39ho9YRcE7
+	vgO2SJgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNEmU-0000000Al0T-2JD2;
-	Mon, 16 Dec 2024 17:21:18 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tNEwe-0000000AmQE-1wAP;
+	Mon, 16 Dec 2024 17:31:48 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNElN-0000000AkoC-0DrP;
-	Mon, 16 Dec 2024 17:20:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C40A0A418A0;
-	Mon, 16 Dec 2024 17:18:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C29F4C4CED0;
-	Mon, 16 Dec 2024 17:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734369607;
-	bh=lsZu4CW9iz0IkO0ux+aw5Ej8/2IsGxdLj0arY9En0D0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YBaGcecKJuSIX6KQhirAa1qTy7d84RJx1mtuyV3FWFyFtShxsSx6ncZ2o+pLNkYbd
-	 1LbAMTvJ3sHvy+/+nd9xPMX+gWvGfHzc5fb+jUNeCi/es8c6cGxlvhDz+BwkPCRtL1
-	 FkjvbaBKWFXSNMZEXy85Lh8kQyuhu3Meb7GopQEEpT/JFAo/R90CQ8FonvliIuXpps
-	 JPc24HcLyqUOT4LztFZufzutbjjeOGBE8GJVg25Lu2rOrLijZN2UjNpHUaSciQYsOf
-	 DqEVe1T4PIX0x4vxk/JFWnIraTws+pa3/QcNk1wHgUysyA0GCxkYxdN0jxTvRkcU7U
-	 uGXHMk9e3hSng==
-Date: Mon, 16 Dec 2024 18:20:04 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v6 06/10] drm/display/hdmi: implement hotplug functions
-Message-ID: <20241216-courageous-mysterious-pelican-5a8d2e@houat>
-References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
- <20241206-drm-bridge-hdmi-connector-v6-6-50dc145a9c06@linaro.org>
+	id 1tNEvX-0000000AmKF-1oHY;
+	Mon, 16 Dec 2024 17:30:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734370240; x=1765906240;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0GHTmDW24yDL/L87YNar8k/bzXJLqW1qzxXU3jUJqm8=;
+  b=Yv080nwb8BRO3R523aqIz9fyHdnQ6D9nAQ5dfV9w6pwjiTP+t2CVVAKG
+   cAFjnjjrZ12X9qWK3HhGC4dBZQHsZ0BL8u/VENoRxzQ9G1r8AY8ntfnac
+   RHI1CID5fMQmsmKnY8Gd2bqIoXAAbFujDmg8/6ESrow13iNYeXPKwyqV6
+   r7/xi9w29exUSihqSlk+bA9OWE3G95cTv85xQQO3bu+NVmqeAa0pBg4Y/
+   vItsmLrcP9vHyTROCH0Lu3YvfLTsCT863psToxZvVPJj1Ko0VnyMZ7vWw
+   JfJaw1K26XcCh08bfI+pkMDx2i0KzVnFcg6EWWpvSzcR+w/Id+NsULUwy
+   w==;
+X-CSE-ConnectionGUID: bya4A6ajQ6KwIWURPV1bSQ==
+X-CSE-MsgGUID: 2gTH/YOHTWa8FkFn/e2TAw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11288"; a="38445522"
+X-IronPort-AV: E=Sophos;i="6.12,239,1728975600"; 
+   d="scan'208";a="38445522"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Dec 2024 09:30:37 -0800
+X-CSE-ConnectionGUID: svyeDUJLS5e0ZfTRRRv9iw==
+X-CSE-MsgGUID: EWI4KAF3S7CLXQ763EqQ/A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="134602748"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 16 Dec 2024 09:30:34 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tNEvP-000EMq-2r;
+	Mon, 16 Dec 2024 17:30:31 +0000
+Date: Tue, 17 Dec 2024 01:30:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Geoffrey Chien <geoffrey_chien@pegatron.corp-partner.google.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sean Wang <sean.wang@mediatek.com>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	herbert1_wu@pegatron.corp-partner.google.com,
+	Thomas_Hsieh@pegatron.corp-partner.google.com,
+	Geoffrey Chien <geoffrey_chien@pegatron.corp-partner.google.com>
+Subject: Re: [PATCH] arm64: dts: mt8186: Add mt8186-skitty
+Message-ID: <202412170154.QsBtjHdl-lkp@intel.com>
+References: <20241216-skitty_kernel-v1-1-bc75dcdfeb57@pegatron.corp-partner.google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="b5r2eocu5g4kytpy"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241206-drm-bridge-hdmi-connector-v6-6-50dc145a9c06@linaro.org>
+In-Reply-To: <20241216-skitty_kernel-v1-1-bc75dcdfeb57@pegatron.corp-partner.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_092009_233211_DDB9C3FA 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20241216_093039_513049_70525763 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,131 +96,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Geoffrey,
 
---b5r2eocu5g4kytpy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 06/10] drm/display/hdmi: implement hotplug functions
-MIME-Version: 1.0
+kernel test robot noticed the following build errors:
 
-On Fri, Dec 06, 2024 at 12:16:00PM +0200, Dmitry Baryshkov wrote:
-> The HDMI Connectors need to perform a variety of tasks when the HDMI
-> connector state changes. Such tasks include setting or invalidating CEC
-> address, notifying HDMI codec driver, updating scrambler data, etc.
->=20
-> Implementing such tasks in a driver-specific callbacks is error prone.
-> Start implementing the generic helper function (currently handling only
-> the HDMI Codec framework) to be used by drivers utilizing HDMI Connector
-> framework.
->=20
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> ---
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 61 +++++++++++++++++++=
-++++++
->  include/drm/display/drm_hdmi_state_helper.h     |  8 ++++
->  2 files changed, 69 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
-u/drm/display/drm_hdmi_state_helper.c
-> index 80bf2829ba89b5f84fed4fa9eb1d6302e10a4f9e..4cdeb63688b9e48acd8e8ae87=
-a45b6253f7dd12b 100644
-> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> @@ -769,3 +769,64 @@ drm_atomic_helper_connector_hdmi_clear_audio_infofra=
-me(struct drm_connector *con
->  	return ret;
->  }
->  EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
-> +
-> +/**
-> + * drm_atomic_helper_connector_hdmi_hotplug_edid - Handle the hotplug ev=
-ent for the HDMI connector passing custom EDID
-> + * @connector: A pointer to the HDMI connector
-> + * @status: Connection status
-> + * @drm_edid: EDID to process
-> + *
-> + * This function should be called as a part of the .detect() / .detect_c=
-tx()
-> + * and .force() callbacks, updating the HDMI-specific connector's data. =
-Most
-> + * drivers should be able to use @drm_atomic_helper_connector_hdmi_hotpl=
-ug()
-> + * instead.
-> + *
-> + * Returns:
-> + * Zero on success, error code on failure.
-> + */
-> +int
-> +drm_atomic_helper_connector_hdmi_hotplug_edid(struct drm_connector *conn=
-ector,
-> +					      enum drm_connector_status status,
-> +					      const struct drm_edid *drm_edid)
-> +{
-> +	if (status =3D=3D connector_status_disconnected) {
-> +		// TODO: also handle CEC and scramber, HDMI sink disconnected.
-> +		drm_connector_hdmi_codec_plugged_notify(connector, false);
-> +	}
-> +
-> +	drm_edid_connector_update(connector, drm_edid);
-> +
-> +	if (status =3D=3D connector_status_connected) {
-> +		// TODO: also handle CEC and scramber, HDMI sink is now connected.
-> +		drm_connector_hdmi_codec_plugged_notify(connector, true);
-> +	}
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug_edid);
+[auto build test ERROR on 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8]
 
-I think we discussed it in a previous version's thread after you sent
-that one, but I'd rather have that helper call an edid retrieval
-function than passing it edids.
+url:    https://github.com/intel-lab-lkp/linux/commits/Geoffrey-Chien/arm64-dts-mt8186-Add-mt8186-skitty/20241216-153651
+base:   78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
+patch link:    https://lore.kernel.org/r/20241216-skitty_kernel-v1-1-bc75dcdfeb57%40pegatron.corp-partner.google.com
+patch subject: [PATCH] arm64: dts: mt8186: Add mt8186-skitty
+config: arm64-randconfig-003-20241216 (https://download.01.org/0day-ci/archive/20241217/202412170154.QsBtjHdl-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241217/202412170154.QsBtjHdl-lkp@intel.com/reproduce)
 
-Also, EDIDs are mandatory for HDMI, so I'd call the function
-drm_atomic_helper_connector_hdmi_hotplug.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412170154.QsBtjHdl-lkp@intel.com/
 
-> +/**
-> + * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event f=
-or the HDMI connector
-> + * @connector: A pointer to the HDMI connector
-> + * @status: Connection status
-> + *
-> + * This function should be called as a part of the .detect() / .detect_c=
-tx()
-> + * and .force() callbacks, updating the HDMI-specific connector's data.
-> + *
-> + * Returns:
-> + * Zero on success, error code on failure.
-> + */
-> +int
-> +drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
-> +					 enum drm_connector_status status)
-> +{
-> +	const struct drm_edid *drm_edid;
-> +	int ret;
-> +
-> +	drm_edid =3D drm_edid_read(connector);
-> +	ret =3D drm_atomic_helper_connector_hdmi_hotplug_edid(connector, status=
-, drm_edid);
-> +	drm_edid_free(drm_edid);
+All errors (new ones prefixed by >>):
 
-Oh. Why do we need the two variants? Or is it to deal with drivers that
-don't set connector->ddc?
+>> Error: arch/arm64/boot/dts/mediatek/mt8186-corsola-skitty.dtsi:42.1-8 Label or path target not found
+   FATAL ERROR: Syntax error parsing input tree
 
-Maxime
-
---b5r2eocu5g4kytpy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2BhRAAKCRAnX84Zoj2+
-duMGAYDwCfVmRQt5W/JuFEAWhXLZLjo4CeJIKFXnit8/2S+ODRFntJMw/cPpQN7U
-HE28DAcBfAyu8qSgYzb4NIvRrHkIsi2wL3YWiVUclrh01Haso0u/clDsW8282oLw
-FBFc2NqiHA==
-=shxs
------END PGP SIGNATURE-----
-
---b5r2eocu5g4kytpy--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
