@@ -4,65 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7E7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 16:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0305BE77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 16:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3dBi2n/O1a9/S7CGzEmtRnlAJVMGT/bP7wvzhvUN4aE=; b=t7bSIJ+Fh/dk+qNNLDL9guP2+0
-	67d7u7emJCNbBrMG//Hy1XL3FhJqEg1FgqjBHZRIOLZ+WTBG1fBNE5++FhBaATlgQZ6wfOeLwqZ/Q
-	de8Iccv/deX93I84Jz2hTLTwX2K8sVMGRySHGLKelyUEA6DTv3vx3xemoqP2zwemz09+yYpir++FQ
-	jMAM5xC9V+C/hefl9HN4MpaikOxi11sf6gGfzas+64qORdf6U6xk8DapXwdeI3F+vVl2goXuGXxlS
-	8ZI/mNezi8T7Ivd9kZxh97x9s2sQw7I9mKkG8e8xCNfRtFKlIfl2Y8XfI6P2R3YDgbl6Ln96t/x2G
-	Wzvbf3Qg==;
+	bh=niQlhFMBaxhknFDa/9BLR2GZfazI07D/cJAvKKSN+Hk=; b=3sblwgOMXyaBHJN+fJFQeMvzlM
+	MIoIk7QIgF60LM0CrYucBus5mRXHm09Ib3JiPRbdQq+ozNQWUFpnJvGiyCm4XXSfn4BSaHl4wRiig
+	54a2MExxlLW1rDqUmgbeid/qfolDgXQjbvlsggObllhl6nOC+muyGc56EjAnkAhbMjs1FgoqKDvyk
+	Ao6kv80Oo3KCpv94Gtge9CzX+WP0+QHRv+U/2dEvRYbAflcF8fjGSBYGSDEuxq1BNdGGcpmPG5bas
+	+TKtEhzlaMHiSko1w9WCez7PwMjY9BdsqoF9I9H0HqE7xh2wHq6uBlxsjpCtn71SgAvigYp9PqKU6
+	RCX2COQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNE3j-0000000AcIo-3ho1;
-	Mon, 16 Dec 2024 16:35:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNE5D-0000000AcdZ-0Z3B;
+	Mon, 16 Dec 2024 16:36:35 +0000
+Received: from mail-am0eur02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2606::62f] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNE0A-0000000AbSI-13ym
+	id 1tNE3v-0000000AcL8-1QM2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 16:31:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 96E665C5990;
-	Mon, 16 Dec 2024 16:30:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00913C4CED4;
-	Mon, 16 Dec 2024 16:31:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734366681;
-	bh=XNJCjXv1TVDA4kT/hsYK3Sls7xWWCeKlDzSzV4FSBNQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HrF+QbPyo61zH2Mj2oUy7+0IvqLa3BFSOnqTkjsvgzsgvZfmQNA4xz2YUOnacbtYk
-	 7/GcYrpUlZcd/CUXPFh5fOi2T5Hnil3FPABjyjgkUNCew4A0dwLEoLD0u6Lo72GX7f
-	 UJALuNX607i3WEssVmD2TxwX6WF4Pc0mjX2rW99eS6O8jL7ggwcNKjSJZfYnyMyPMU
-	 3kCYjw/wBLSak1pTiNNCXdlAfc7Zb/vXLoEQNzfA3sJCXHA/rrqk4jbn1mRFOBIepd
-	 nSMW2pw5qe3bGRgNV42ZQ935tSHLFfrtNAvbVo6O/yZSAn9ucVxqy8ScTXL6VFuIOS
-	 SKEi6rulnNTiQ==
-Date: Mon, 16 Dec 2024 10:31:09 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Fabio Estevam <festevam@denx.de>, conor+dt@kernel.org,
-	tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	devicetree@vger.kernel.org, daniel.lezcano@linaro.org,
-	krzk+dt@kernel.org
-Subject: Re: [PATCH RESEND 2/2] dt-bindings: timer: fsl,imxgpt: Document
- fsl,imx35-gpt
-Message-ID: <173436664990.274185.16737357220255320262.robh@kernel.org>
-References: <20241202132147.587799-1-festevam@gmail.com>
- <20241202132147.587799-2-festevam@gmail.com>
-MIME-Version: 1.0
+	Mon, 16 Dec 2024 16:35:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g8uLXzJc+/oFW/nIfQJCim3ncCqu3TPsETxrtKhzg/Kl9+tLlNryHPuSaG+498daVqznfsNcMN0JnJwAZwh+TPdQmEzMTIQVRP/ALD+hEV5Bf+cujiaykFWIy6vZenOlodKzq/46THXevQ01lZN2m0DdAiZetYZwewNUVg2r7xni0j6wKeEDtlMmCD4da6ojn5bI8y++fxkL2Xn2TI9xA56VtwTjA1OTR/vYrFoqWy6qPmSr02n9cZdHBteQ1N16lY5G+vrxiHZOds44E101zngel6s8KM/Y6cjSZeFwk7EEJDmLDcnDaE0NZqYOq5U/27Tp8jq9aeU2PPGv1vhYmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=niQlhFMBaxhknFDa/9BLR2GZfazI07D/cJAvKKSN+Hk=;
+ b=Of2RqavIcL/DpQBgMzOmqsXlonrkwr5rtZPZR0Kd1/ulheI8N73g8qUnzkbzPMqaxHTp2qPw+SFiNFYz/q5r4GBdl/UW1WDCOz/x8FqIbDcy3rA92fBvb1PsIHp1b1rkxM76QKPWkKTjV+QLsysjPs6fzEleLBEsRDBNPk/4Zs/1UdiB4/ib88B5uU2P5x/ip/CtxalZ3FRx5CHXuyToCMbHQj39HMyBr8aurtpzPJ08Dof0Vh8ayd4W3++DCZYfjqfx0CMydKHyB1ZzOT3TQX0pGpuPjJ9yleMZ/aIqwKB7FonVUQO8i9+C6lBJ+UaUFegMYEDwh67kYUTkZoKNmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=niQlhFMBaxhknFDa/9BLR2GZfazI07D/cJAvKKSN+Hk=;
+ b=VufhfdrQMZ4THSdMJFbKXx15NCe51/5of+t8dPQ8x0APKWrLUypHWpNPygy0UnS+lmerZ2rEtLlpBE6iaCSMZAmgJaa2Q+kEU351cV7a6I7fy++O/AWG8onM188ug3kPvx/LfUSFbQIjvSPD56LFuBqO7AdcBz/gwcgsTErzx8aDEDUZxiKcl+yp1R3j/c/XbEn6ct/7h5bPwKGJ+JUEgaXXlYzcMe69ulWEA6z9h25agxJu3uvVuI6gfeG5EUeFE7ddjixsYqGoJfHEm93UUq0vUh3899ZiI3UdATFrTDcLBn0G4F05rqmww3YtafLqMLy8FvSMRVG6spuOkTSRRA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8666.eurprd04.prod.outlook.com (2603:10a6:20b:43d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Mon, 16 Dec
+ 2024 16:35:10 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8251.008; Mon, 16 Dec 2024
+ 16:35:10 +0000
+Date: Mon, 16 Dec 2024 11:35:02 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
+	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] i2c: imx: fix missing stop condition in single-master
+ mode
+Message-ID: <Z2BWtjPT1sTUCZ82@lizhi-Precision-Tower-5810>
+References: <20241216151829.74056-1-eichest@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241202132147.587799-2-festevam@gmail.com>
+In-Reply-To: <20241216151829.74056-1-eichest@gmail.com>
+X-ClientProxiedBy: SJ0PR05CA0163.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8666:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7a53332-5474-46d9-a20b-08dd1def9b97
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5GkZIfSg+INnwNGvP/clD1K7MkZrY5Dv0QW5By8hnifPApp+9pGQEZqldK0x?=
+ =?us-ascii?Q?qZ4NOqriraftUbzUnkTQlbzUy/wXn20CkaRN3lJjFsVWX2SNuMcM7DnHel7P?=
+ =?us-ascii?Q?BBgfIzPcSeDNIOcztsaSOIivyfMvpfJOMbnONtxsn3ot0Z6IBBi4U3rTV0Nw?=
+ =?us-ascii?Q?fwoa4/MLpLECgGCzKGU69mb2jSCUZPtDu4hv/Br6Sk+Mg/5WmBxGRTNOgD8S?=
+ =?us-ascii?Q?mupHIbgBqd9e2+MVUHxjN8M5gzZvYpSes09IWVVGYVIddzAJfXjJmZTRCrSQ?=
+ =?us-ascii?Q?Mz7Otxtnc6tP684lsDcUCCoM7jywDd7RHaJAgy5YmULY0tO7gY0FFQpoqW+Q?=
+ =?us-ascii?Q?r4ZTAx6wKmkEDt+1uKetHp66NfUR+DJSpDRneNDBZs4XIz8w6g+BShuK4KN+?=
+ =?us-ascii?Q?v+pVsBENBlV5Fri37dfrtScRBrxL7aW818q5DoPSx46FmvdPeZsOAGXdPG1R?=
+ =?us-ascii?Q?vM8eJ91jWa6y7FHWs7KkANaGU1cEPY8Yma6bj2uEDKkA2FGCMhkYb1LbwL06?=
+ =?us-ascii?Q?eBcE9ERLvunS58LI+C8caLOEWC6ywOTKM4POh4a83a0DKSc268xprWaFmOna?=
+ =?us-ascii?Q?FROtFuX1CghETbPiMvsulUpe/CKDKad3HCHhvT9K+4aVi4aSoSQvBmy6xRlp?=
+ =?us-ascii?Q?wO84fUyO/WZBBTOCvlZeyxaurZRTS0Ov6HZz4PzGGZE2gLhkCExlEG7YG5SO?=
+ =?us-ascii?Q?vT7IMRPq4GDfIdKvF7iBuWKyKQJiUShr+llYh/aY5Mbs9c7Ye++K+w88stim?=
+ =?us-ascii?Q?C6/hODDRZNAeFgmWKUPLfVgs6SBD5KHTqULyH6vJ1vgVepmzqhx4NGQBD09D?=
+ =?us-ascii?Q?SjZZBtTmHb6TdTCXyY4rmsJ+x8Ni4RU6JJODXGqluH575y8OLVeoUStVerOZ?=
+ =?us-ascii?Q?vK8FYftPj0k71guroSVVYCYQdbr8rue5bXcpZ4+WRyTFK2nWnETdxCLqT4Iw?=
+ =?us-ascii?Q?SIYLOytwXh6idBmIS7+I/3tbveQ0T/u5uoMf+gl42zt7IXCWBc66m8WkhtMU?=
+ =?us-ascii?Q?A5lKY2A7drgozL42JuZzikIVvwX9IPvfS3IfHT6M1wdKQhyMCN0VTSqLRlVL?=
+ =?us-ascii?Q?px7yDsqEhgDh6Hkpwa2NjD4DSbbcB/j71HyDwfq/XrU1Z0iCOjTCP0HmWPIo?=
+ =?us-ascii?Q?GAacRcnod2fbC2WkCI78VkjEq9emwXTk2+T3lQcwjn1w8HzYpNBm8POetAka?=
+ =?us-ascii?Q?4QWatkcD6kT2gA/dz9dJIAbnxlZLOPJZk0bekLLN9DHzE+k+IER8zJnCJqkI?=
+ =?us-ascii?Q?yY/lnGQRrJOPeG0XRzqB0J5O2WhkvQ5xQXr48hAZNcY6DUz4reG2qF1226pk?=
+ =?us-ascii?Q?WOH+W6DmjFehmtNJ+JNi9aILxckhk6MgPXWPBLqekuGSUtZiEkhZweLPtL8X?=
+ =?us-ascii?Q?gxF8ZGzGJ1geTFwQnIZ2b6U15haWrWLPYyGZj2QSNsouIHhX9NHdjjNajzYa?=
+ =?us-ascii?Q?d6bwZGfhAAbgV1+d2CtnU1Z/89GjGo0+?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?njngju0r8fJr8IDlcU/IHMRNSTLUDcyWdpEnWXvwtHqHv+jyFdSdKA6l5u47?=
+ =?us-ascii?Q?3TWWOLAElnE7MH6eBa1NyVoyZkTW1706JLxOT8GiI0qAxok7n2F/4uoA0Mc1?=
+ =?us-ascii?Q?17jZcw44wM2zXps3wSwTloxO61PVOtewWGAKLhbhM53sAZJMU8y7jgAYVZ+e?=
+ =?us-ascii?Q?hGhmOB7QC32vKTHPcEidLbukn/4VKUqNMYmbhm78KHNt+Bi6yDWdZaSRiefs?=
+ =?us-ascii?Q?yXg9EhsjkKOVzaRZ94Nh5aHyytak9xmSsH8HgNL3/SX/HoBcxp6Ru2BwmYez?=
+ =?us-ascii?Q?0R/9hZHmjy4mjc5DGNGhVQ7GzjFUPpuY4uJrjAOloHUrrxHrWeQMYAXWsn6+?=
+ =?us-ascii?Q?VbnqWfQ2DyUnfKJn5S9h9LM9J5Nk2ywgzilASlIPVzR/ZypcL/yUeBx0z7vr?=
+ =?us-ascii?Q?NHxISFLfb2cMO9g+c8BYzSDdNwqHTG2KRZHxVtcZViGLwTZccjN/SCiAGf0l?=
+ =?us-ascii?Q?kNZU4bsqjBDXV0ttGoXMhck28lCVsRKw/mMM5OQnXwYcS0toDKCzkcLLj4SA?=
+ =?us-ascii?Q?TNvw7UEQylSnD/0lSbUCyrBB4rYAarmFLkgKSM0h9roPmCtvoSRtk+c6YZ5L?=
+ =?us-ascii?Q?YRzW4FVDSbyuXNhajwjBEhA9kbqI3++WJIKRMsPiZDpDbOldtHf/E3mSdr4g?=
+ =?us-ascii?Q?O4sVS1jK5eF1UpjybGxaVLJsZLMtJmoaJcp4Or+7cZ7gN/o5w4Bi8owtlSND?=
+ =?us-ascii?Q?VyIhQ3zRgmQA/FWgKJifBf4S3ib8cp5kwe8rf8/iQxb0Jgh+WSe60t6VMqss?=
+ =?us-ascii?Q?0ybFnpiYbz34E2CeqpGNMbLPcLReCQSnYpZi5JH+67CqUDq3isOVrLlfE5vk?=
+ =?us-ascii?Q?x75fn+r05h+F2FORpT7DDJtH0yxfnHL2jch+fBmbTOXkqU2oqc8bAAPgAagw?=
+ =?us-ascii?Q?AI96pL/IfOs+Jlo5g/H71hDgnrdTfcyr+t6xELELM5FnJtlYv0yeHg0Ml0nr?=
+ =?us-ascii?Q?lNS4qfimZIjBhfbc98JyfX2TUlreepCvgp07BCAwEgjogtx44K0hs6j9c0Zu?=
+ =?us-ascii?Q?Ew4POQ7X5yUp4VDSv4LrCcNaYA0FISxjVyiTW/W4HEsfwjzyoUoly8G5riEo?=
+ =?us-ascii?Q?PIEazO12+IM8N4zgrmjYhEbey7D5fGtBWMFtdISlC+qkqiONQiM8zCrwvlGy?=
+ =?us-ascii?Q?YegS4y/uzfoLvD1sdBAXT7IhFtRNGeh+JwwnIejfnxVlMx0rLGBrSMcLgyxw?=
+ =?us-ascii?Q?wNDagnYEjYkg8Mq7mAm4RccQH2ithtCABaji5ErARU1eXFasj7ZcyTLVXQiI?=
+ =?us-ascii?Q?6rIEWdVGcD673YzYcD+I+1KGp0s6Il7+cqan8ut/jmSi3PhZ9Q4sLMfoOnES?=
+ =?us-ascii?Q?7eYK6kCPsH1kK1EQInNeYmUQuPrLm6B21G907bPMBYzXpNxcZ1kDQZewMYeS?=
+ =?us-ascii?Q?fQiuwoOZ6imzURnFlyYS8kGuBPi7u5j2DgCh3eUWYn6A0dKxbAU7eAaI6QXv?=
+ =?us-ascii?Q?ktZ713LHLeJQg2pNHIv3pRAnY3R7MG49SEL/m0bdvzXSTiSLTZOrmgUPcDk3?=
+ =?us-ascii?Q?VsAbYLzFBKCVBhP15MWmLo+tq6lcHGinDWLcejOZrQyj1wLwQ96+Q2Axdd3N?=
+ =?us-ascii?Q?e+n23jibXtb8Bj+gDytF6WuhW2+3Qs0ikKOGNtCx?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7a53332-5474-46d9-a20b-08dd1def9b97
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 16:35:10.2995
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tfZGH3FN/5U3GYci+tCmRVYHYywwJ/oXCe+aKPFTD9/HSAf320fWdLaT58ZOGZszsZpVy+E/sfozJcIMUYsVlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8666
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_083122_336123_2B7D9642 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20241216_083515_399522_DEDF20DE 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +160,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 02 Dec 2024 10:21:47 -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
-> 
-> The i.MX35 General Purpose Timer is compatible with i.MX31.
-> 
-> Document the fsl,imx35-gpt compatible.
-> 
-> This fixes the following dt-schema warning:
-> 
-> timer@53f90000: compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['fsl,imx35-gpt', 'fsl,imx31-gpt'] is too long
-> 	'fsl,imx1-gpt' was expected
-> 	'fsl,imx21-gpt' was expected
-> 	'fsl,imx27-gpt' was expected
-> 	'fsl,imx31-gpt' was expected
-> 	'fsl,imx35-gpt' is not one of ['fsl,imx25-gpt', 'fsl,imx50-gpt', 'fsl,imx51-gpt', 'fsl,imx53-gpt', 'fsl,imx6q-gpt']
-> 	'fsl,imx6dl-gpt' was expected
-> 	'fsl,imx35-gpt' is not one of ['fsl,imx6sl-gpt', 'fsl,imx6sx-gpt', 'fsl,imx8mp-gpt', 'fsl,imxrt1050-gpt', 'fsl,imxrt1170-gpt']
-> 	'fsl,imx35-gpt' is not one of ['fsl,imx6ul-gpt', 'fsl,imx7d-gpt']
-> 	'fsl,imx6sx-gpt' was expected
-> 
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Dec 16, 2024 at 04:16:40PM +0100, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+>
+> A regression was introduced with the implementation of single-master
+> mode, preventing proper stop conditions from being generated. Devices
+> that require a valid stop condition, such as EEPROMs, fail to function
+> correctly as a result.
+>
+> The issue only affects devices with the single-master property enabled.
+>
+> This commit resolves the issue by re-enabling I2C bus busy bit (IBB)
+> polling for single-master mode when generating a stop condition. The fix
+> further ensures that the i2c_imx->stopped flag is cleared at the start
+> of each transfer, allowing the stop condition to be correctly generated
+> in i2c_imx_stop().
+>
+> According to the reference manual (IMX8MMRM, Rev. 2, 09/2019, page
+> 5270), polling the IBB bit to determine if the bus is free is only
+> necessary in multi-master mode. Consequently, the IBB bit is not polled
+> for the start condition in single-master mode.
+>
+> Fixes: 6692694aca86 ("i2c: imx: do not poll for bus busy in single master mode")
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 > ---
->  Documentation/devicetree/bindings/timer/fsl,imxgpt.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
+>  drivers/i2c/busses/i2c-imx.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index f751d231ded8..cbf66a69e20b 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -534,20 +534,18 @@ static int i2c_imx_bus_busy(struct imx_i2c_struct *i2c_imx, int for_busy, bool a
+>  {
+>  	unsigned long orig_jiffies = jiffies;
+>  	unsigned int temp;
+> -
+> -	if (!i2c_imx->multi_master)
+> -		return 0;
+> +	bool multi_master = i2c_imx->multi_master;
 
-Applied, thanks!
+Move "bool multi_master = i2c_imx->multi_master;" before
+"unsigned long orig_jiffies = jiffies;" to keep reverse christmas tree
+order.
 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>
+>  	while (1) {
+>  		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
+>
+>  		/* check for arbitration lost */
+> -		if (temp & I2SR_IAL) {
+> +		if (multi_master && (temp & I2SR_IAL)) {
+>  			i2c_imx_clear_irq(i2c_imx, I2SR_IAL);
+>  			return -EAGAIN;
+>  		}
+>
+> -		if (for_busy && (temp & I2SR_IBB)) {
+> +		if (for_busy && (!multi_master || (temp & I2SR_IBB))) {
+>  			i2c_imx->stopped = 0;
+>  			break;
+>  		}
+> --
+> 2.45.2
+>
 
