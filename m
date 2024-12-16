@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357EDE77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD330E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJ8qCqZxQls27G5FvgYB3jPJTXzsMgq7re3gkn2j14I=; b=uPhxSCSFgPukKSg2YzrckOIvFb
-	YEg75HwiPKq27MFDJ9vXMwNf+lWPthjp1p4ktGGf6DJyMqCd+iublGD1zT5FBD3P1AZbZw9718kVd
-	JXr8aeOtUaEg8NxQcKKscfNP2MLIMaLQ35EA12cgwp3RXy/Mt739z2Eu4FNbC9A2Ptz587V9EwXhq
-	09jqTkMeDxMpT79JsI57jOu/UApTpF/4VZQiVokik+pFwOz7/3tummSmOU8kssstDSEDW21Ekg9SS
-	vtpu0wsRbeKiBs+5/j62L5o1ldvTgZ+kMPdP4dBsnxgsC4brMrza6QnwqCqTM5ZFucfDU2SGlb0PY
-	H8a6bP/g==;
+	bh=EAAKa/iJbcg0hE8bXqvcJeWPfM0/EwIS0mrbbFrulwU=; b=Jz2BwIZ1eH4u/JuHB9KqT1YLDy
+	oiXqIZ9VMLNapFPMQqtfgUJu2OjkFvI5LXI+P/+ZunNtNaRdWx4uLQW/oHy95SToC150iLe/S0Fn/
+	YtjiKiGcK1t9NZ7BlAwnHkdeue0Ev1lKmDv8GMESO13LnqTIs29SXmtIuY5yz/cUYbAwQUQRzbHB4
+	pTewElX1H8w0ZkLFDFn6+gSX6Ocj7wJ8aK7BD2RjGriePMdqIfzxZnPaDsk5nY4t0X4d7wjpXeBSm
+	TuCFAcE+j1+X8QfwUQO2isrs/Hh6+sVmi62/JXO+gPKfTx4slgC77wjkZR5Wq8BBMGjyyZd7nVGV7
+	p+g1Bemg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCWb-0000000AK88-3zo4;
-	Mon, 16 Dec 2024 14:56:45 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tNCXg-0000000AKKE-2GdQ;
+	Mon, 16 Dec 2024 14:57:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCRQ-0000000AJ7P-1CdG
+	id 1tNCRV-0000000AJ96-38m8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 14:51:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=EAAKa/iJbcg0hE8bXqvcJeWPfM0/EwIS0mrbbFrulwU=; b=jrpQTJ6p/63PumhdfsFGgkPWrl
+	xkowa9F42bJgzac6adrm1k635qASeRzWOpNUD4PdbunKKfupBXz73NTEOzbXFQVHQeJHyOEtc8aRO
+	X5NRt3U6ybw3vifcj/dlFyLJ6Xy3fyA7T6m52vgiAt6PBm32UjHHQSjz3OGZ5DeYhqZ6xL38or69y
+	3AqrZ4B1RtNecHhmWAmMmOlven165bCCPiLVZsiwKb9gHnSxN7q0rTm7pCprJ9Y1nXxAJ4zp+cW/C
+	h90cor+vrvOaFpDONcrLFKtmM1K5Xk+0weNdMvpg0IC44wa5ov+7JSIYsH+W967LDv1QK5igccv0k
+	p/53L6iw==;
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNCRS-00000004sGs-47am
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 14:51:26 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4361f65ca01so41264775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:51:23 -0800 (PST)
+	Mon, 16 Dec 2024 14:51:28 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43618283dedso41219205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:51:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734360682; x=1734965482; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734360684; x=1734965484; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RJ8qCqZxQls27G5FvgYB3jPJTXzsMgq7re3gkn2j14I=;
-        b=nc21vUQxT+OXlImXZ82Gm7Lv3bt2VKCAgOM7MaS2+15BJXTCj0kD0G9D7kjApFcmu3
-         cmcN7y+gVp3ZO5M5qL8xpolAQSw4DJUR+SA9w6XvVefeBjLxVLpFa/8Jj7ZNB+hOypNb
-         E3ShR2ZZn2J/8fUA9CjAmkKPwkqvYp1WiBAYDFQ85/jRjaDYILEBXgLPmxQGszyHn5A9
-         c1ZVGz5t7BYaWvtYeSm014eBrzfv0AIDNjoEHToOtqyhoIE1ZuxYvVJuM9UslCfwyFsf
-         yfjRLymY+87gp9vrxH1JBgwviyT6Tu43eig0v+x2w2grSD31ZFFoCvtQw96LT5MA2W13
-         HycA==
+        bh=EAAKa/iJbcg0hE8bXqvcJeWPfM0/EwIS0mrbbFrulwU=;
+        b=WoJ05Mpxtp5XFoRj4gPZREhc2PLf6JU71ynlrgGm4q2KLdl7hvDfYozcaip4a1tijS
+         VHzmqNpTNvO+/T7NDMEv0pD0uF1Nwnw8WTMBVVfTOIlOMDNGEU2Ad0DRcnyyoSYc8GX7
+         CQX4+KFIcNanAIzls1wFF6Hw3e4uR+9zBC2Fqubo9pXsbiQyOCx9uC1IiqSIjFSCHCTT
+         8uWVG4yyFF75KDN4Hr79Iuug+tJOREnIx1iMFHhFgEqnxr/IlsEYtXLAVHvi6g3dPYFa
+         5N/7L/63dOkhGyNsD8Hg0lUBg6fFQWIjGvPRPeXgRNggVkFuUWOqgQQ8Bl7DhXPrUdRc
+         by+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734360682; x=1734965482;
+        d=1e100.net; s=20230601; t=1734360684; x=1734965484;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RJ8qCqZxQls27G5FvgYB3jPJTXzsMgq7re3gkn2j14I=;
-        b=Aa1h9dsFXzLXCCUAWphNM2hzdSuw+66HorRdP4ScR5Q8Aj4eEP/2HZpDOJp0Zk4+ub
-         Y5FkQ6AhMwKvrxbf1VQ4vXaGd0nNkC8KCv39pTmoqDBpJByYcSozanOMoa4ANyFxjXsU
-         bgqqeW10XNadhnJWOAC/pAihuFuc1di/K2QvF80sqt2ZQjtvZ4NvfumlXHg3jdFfkUfG
-         DjUgV5xz7eK0Rvc3/oa03e2Wy/SkYzeV5Eu4B/zPhv/wCySlEJ1wWH1fMkoJKGP9aB/g
-         LMyseYjhOTkXAVwPRkBWSGbeI6G4uZ1JJOWxeN1i2vP9upVDarwwrR6FGblSbCiucdHz
-         oeiQ==
-X-Gm-Message-State: AOJu0Yyp3tjJMmohEtKB+VzbfizbN+xe+OOBT+rLQQ0qwRaKQTTgX6KP
-	nG8NfCU3DGfqV4dnDNOg0PSLfaZCNbtSY11mB1qvh4meRLYe1c5f
-X-Gm-Gg: ASbGncvZUEJelyZ1wCtV4Oj/H4QBwCrYxtJzKmp/9XFSoxPKKPhcDqvAT2GQfxIpGt2
-	UVPepfhDIwAn3j2snTJogwpub4flrnYc5XpDQHHaEdMNVQvp5BWVXD24BmIkCzyOBVfpzmYBwG1
-	Z9lU56VkRbKfBOXuaPfb3aw7bcCbRQ1OUT5Dxqkw2GJnIp20eA88W+iwg44kttwMD4IdAyHFyyh
-	eZvYNeWVyGXkyD3rpumaynzQddtcu96QLvXCbnZoTYQgZfqbqzChXJluyJrqjmzvGwlAWglz2fP
-	6VILU0uqq3NZCscC
-X-Google-Smtp-Source: AGHT+IFKB+Xuh9xi8JLEAnc5T/rN0BHOtvzUXAgyd6cHABTq1Afej3DUhbobYMZsGyN7l6dIwCHBFg==
-X-Received: by 2002:a05:600c:a14:b0:435:32e:8270 with SMTP id 5b1f17b1804b1-4362aa3bcdcmr123530085e9.14.1734360681963;
-        Mon, 16 Dec 2024 06:51:21 -0800 (PST)
+        bh=EAAKa/iJbcg0hE8bXqvcJeWPfM0/EwIS0mrbbFrulwU=;
+        b=tHi4W72aThsyECtuGeN0rr1Eoq7qXPY3DgyPTMyCoM/eDkmSgoxnrBpKvuYUm8Ht8y
+         YKOSSqJy2SXTiC9YwgqmXnZD1mngbORQLqmJhNNK/POZlRbIhfNPXXVFoPA7oFkXyQn4
+         cgxXKBRDXcq48O59KsZ+qS+QWxSUrbQxGQvPBk/zo9jnQnCaGF76BI1N/XaIbUJkDDbw
+         TIS3bV+GadTvJ+NA9fRko1Bi8LAu7aXpzSpQ8sA53m96IFljORfEVj0mlkE4x2vho46C
+         tZiOkIeOYAEIkj2gTFYg2BVuvScQaeJzjD27ENuPHw6FkqC8Pc99FZv+kIGJbMGTZz30
+         s95A==
+X-Gm-Message-State: AOJu0YzykFGNmAeBrJlthkrnj38v6WdI16mAsoiW9DmyyQI9nnlqnWIR
+	zbJ7vxgo3jm8InwdfZZvOJqJcYqR7XXTTldtmH//a7SyvZf2iBMR
+X-Gm-Gg: ASbGncteciPb/A4ZznVob3JftZqnI6gbw5pe3nXBQ0DeRFEbe4L49oVlMt9v0+VbDKh
+	97mTqWlCk5WLTq3mE6eXBa4dqy125nwBnX2fRqqUD3KBm3f/GshI+PaT0n0bdGyUwyDOGqCMDEG
+	V+lcbGfGXEDKXLyZmosg88SidDMAw3l2mDBqYiuzSf7UtwvNszZ3kveCcYmPAUO2RcmPunxUYTE
+	OrugGAYNadaK/LUmioGjgNf3fHvQn7/kIgOx73A1s4ibMTrGDbiDw8y2mN/L9Wuepw4l3rXlr1u
+	9vOb/a3JmhZevDC7
+X-Google-Smtp-Source: AGHT+IF6mGQ66zqt23wxmdgyvCpFmx39WbIi+8c7emJk9Jb285zsFEtWpp62qxObMAzNXGOH9H4hJg==
+X-Received: by 2002:a05:600c:a011:b0:434:f819:251a with SMTP id 5b1f17b1804b1-4362aa3a029mr127042805e9.9.1734360684343;
+        Mon, 16 Dec 2024 06:51:24 -0800 (PST)
 Received: from playground.localdomain ([92.120.5.10])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362559ed6csm141616455e9.24.2024.12.16.06.51.20
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362559ed6csm141616455e9.24.2024.12.16.06.51.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 06:51:21 -0800 (PST)
+        Mon, 16 Dec 2024 06:51:23 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -84,17 +99,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/5] ASoC: SOF: imx: add driver for imx95
-Date: Mon, 16 Dec 2024 09:50:38 -0500
-Message-Id: <20241216145039.3074-5-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v3 5/5] arm64: dts: imx: add imx95 dts for sof
+Date: Mon, 16 Dec 2024 09:50:39 -0500
+Message-Id: <20241216145039.3074-6-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
 References: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_065124_333352_731CA41B 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20241216_145127_178729_20523F25 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,457 +126,108 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Add SOF driver for imx95.
+Add imx95 DTS for SOF usage.
 
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- sound/soc/sof/imx/Kconfig  |   8 +
- sound/soc/sof/imx/Makefile |   2 +
- sound/soc/sof/imx/imx95.c  | 401 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 411 insertions(+)
- create mode 100644 sound/soc/sof/imx/imx95.c
+ arch/arm64/boot/dts/freescale/Makefile        |  1 +
+ .../dts/freescale/imx95-19x19-evk-sof.dts     | 75 +++++++++++++++++++
+ 2 files changed, 76 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
 
-diff --git a/sound/soc/sof/imx/Kconfig b/sound/soc/sof/imx/Kconfig
-index 4751b04d5e6f..51a70a193533 100644
---- a/sound/soc/sof/imx/Kconfig
-+++ b/sound/soc/sof/imx/Kconfig
-@@ -50,4 +50,12 @@ config SND_SOC_SOF_IMX8ULP
- 	  Say Y if you have such a device.
- 	  If unsure select "N".
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 839432153cc7..27f64e333e4b 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -282,6 +282,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
  
-+config SND_SOC_SOF_IMX95
-+	tristate "SOF support for i.MX95"
-+	depends on IMX_DSP
-+	help
-+	  This adds support for Sound Open Firmware for NXP i.MX95 platforms.
-+	  Say Y if you have such a device.
-+	  If unsure select "N".
-+
- endif ## SND_SOC_SOF_IMX_TOPLEVEL
-diff --git a/sound/soc/sof/imx/Makefile b/sound/soc/sof/imx/Makefile
-index be0bf0736dfa..715ac3798668 100644
---- a/sound/soc/sof/imx/Makefile
-+++ b/sound/soc/sof/imx/Makefile
-@@ -2,10 +2,12 @@
- snd-sof-imx8-y := imx8.o
- snd-sof-imx8m-y := imx8m.o
- snd-sof-imx8ulp-y := imx8ulp.o
-+snd-sof-imx95-y := imx95.o
+ imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
  
- snd-sof-imx-common-y := imx-common.o
- 
- obj-$(CONFIG_SND_SOC_SOF_IMX8) += snd-sof-imx8.o
- obj-$(CONFIG_SND_SOC_SOF_IMX8M) += snd-sof-imx8m.o
- obj-$(CONFIG_SND_SOC_SOF_IMX8ULP) += snd-sof-imx8ulp.o
-+obj-$(CONFIG_SND_SOC_SOF_IMX95) += snd-sof-imx95.o
- obj-$(CONFIG_SND_SOC_SOF_IMX_COMMON) += imx-common.o
-diff --git a/sound/soc/sof/imx/imx95.c b/sound/soc/sof/imx/imx95.c
+diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
 new file mode 100644
-index 000000000000..5a0e44f5bd48
+index 000000000000..8eef83d7bdd7
 --- /dev/null
-+++ b/sound/soc/sof/imx/imx95.c
-@@ -0,0 +1,401 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
++++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+@@ -0,0 +1,75 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +/*
 + * Copyright 2024 NXP
 + */
 +
-+#include <linux/arm-smccc.h>
-+#include <linux/clk.h>
-+#include <linux/firmware/imx/dsp.h>
-+#include <linux/module.h>
-+#include <linux/of_platform.h>
-+#include <linux/of_reserved_mem.h>
-+#include <sound/sof.h>
++/dts-v1/;
 +
-+#include "../sof-of-dev.h"
-+#include "../ops.h"
++#include "imx95-19x19-evk.dts"
 +
-+#define IMX_SIP_SRC 0xC2000005
-+#define IMX_SIP_SRC_M_RESET_ADDR_SET 0x03
-+
-+#define IMX95_CPU_VEC_FLAGS_BOOT BIT(29)
-+
-+#define IMX_SIP_LMM 0xC200000F
-+#define IMX_SIP_LMM_BOOT 0x0
-+#define IMX_SIP_LMM_SHUTDOWN 0x1
-+
-+#define IMX95_M7_LM_ID 0x1
-+
-+#define MBOX_DSPBOX_OFFSET 0x1000
-+#define MBOX_WINDOW_OFFSET 0x6000000
-+
-+struct imx95_priv {
-+	struct platform_device *ipc_dev;
-+	struct imx_dsp_ipc *ipc_handle;
-+	resource_size_t bootaddr;
-+};
-+
-+static void imx95_ipc_handle_reply(struct imx_dsp_ipc *ipc)
-+{
-+	unsigned long flags;
-+	struct snd_sof_dev *sdev = imx_dsp_get_data(ipc);
-+
-+	spin_lock_irqsave(&sdev->ipc_lock, flags);
-+	snd_sof_ipc_process_reply(sdev, 0);
-+	spin_unlock_irqrestore(&sdev->ipc_lock, flags);
-+}
-+
-+static void imx95_ipc_handle_request(struct imx_dsp_ipc *ipc)
-+{
-+	snd_sof_ipc_msgs_rx(imx_dsp_get_data(ipc));
-+}
-+
-+static struct imx_dsp_ops ipc_ops = {
-+	.handle_reply = imx95_ipc_handle_reply,
-+	.handle_request = imx95_ipc_handle_request,
-+};
-+
-+static int imx95_disable_enable_core(bool enable)
-+{
-+	struct arm_smccc_res res;
-+
-+	if (enable)
-+		arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_BOOT, IMX95_M7_LM_ID,
-+			      0, 0, 0, 0, 0, &res);
-+	else
-+		arm_smccc_smc(IMX_SIP_LMM, IMX_SIP_LMM_SHUTDOWN, IMX95_M7_LM_ID,
-+			      0, 0, 0, 0, 0, &res);
-+
-+	return res.a0;
-+}
-+
-+static int imx95_run(struct snd_sof_dev *sdev)
-+{
-+	return imx95_disable_enable_core(true);
-+}
-+
-+static int imx95_send_msg(struct snd_sof_dev *sdev, struct snd_sof_ipc_msg *msg)
-+{
-+	struct imx95_priv *priv = sdev->pdata->hw_pdata;
-+
-+	sof_mailbox_write(sdev, sdev->host_box.offset,
-+			  msg->msg_data, msg->msg_size);
-+
-+	imx_dsp_ring_doorbell(priv->ipc_handle, 0);
-+
-+	return 0;
-+}
-+
-+static int imx95_get_mailbox_offset(struct snd_sof_dev *sdev)
-+{
-+	return MBOX_DSPBOX_OFFSET + MBOX_WINDOW_OFFSET;
-+}
-+
-+static int imx95_get_bar_index(struct snd_sof_dev *sdev, u32 type)
-+{
-+	switch (type) {
-+	case SOF_FW_BLK_TYPE_SRAM:
-+		return type;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static int imx95_get_window_offset(struct snd_sof_dev *sdev, u32 id)
-+{
-+	return MBOX_WINDOW_OFFSET;
-+}
-+
-+static int imx95_set_power_state(struct snd_sof_dev *sdev,
-+				 const struct sof_dsp_power_state *target_state)
-+{
-+	sdev->dsp_power_state = *target_state;
-+
-+	return 0;
-+}
-+
-+static int imx95_suspend_resume(struct snd_sof_dev *sdev, bool suspend)
-+{
-+	struct imx95_priv *priv;
-+	int ret, i;
-+
-+	priv = sdev->pdata->hw_pdata;
-+
-+	if (suspend) {
-+		ret = imx95_disable_enable_core(false);
-+		if (ret) {
-+			dev_err(sdev->dev, "failed to stop core\n");
-+			return ret;
-+		}
-+	}
-+
-+	for (i = 0; i < DSP_MU_CHAN_NUM; i++) {
-+		if (suspend)
-+			imx_dsp_free_channel(priv->ipc_handle, i);
-+		else
-+			imx_dsp_request_channel(priv->ipc_handle, i);
-+	}
-+
-+	return 0;
-+}
-+
-+static int imx95_runtime_resume(struct snd_sof_dev *sdev)
-+{
-+	int ret;
-+	const struct sof_dsp_power_state target_state = {
-+		.state = SOF_DSP_PM_D0,
++/ {
++	sof_cpu: cm7-cpu@80000000 {
++		compatible = "fsl,imx95-cm7-sof";
++		reg = <0x0 0x80000000 0x0 0x6100000>;
++		memory-region = <&adma_res>;
++		mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
++		mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
++		cpu: port {
++			cpu_ep: endpoint { remote-endpoint = <&codec_ep>; };
++		};
 +	};
 +
-+	ret = imx95_suspend_resume(sdev, false);
-+	if (ret < 0) {
-+		dev_err(sdev->dev, "failed to runtime resume: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return snd_sof_dsp_set_power_state(sdev, &target_state);
-+}
-+
-+static int imx95_resume(struct snd_sof_dev *sdev)
-+{
-+	int ret;
-+	const struct sof_dsp_power_state target_state = {
-+		.state = SOF_DSP_PM_D0,
++	reserved-memory {
++		adma_res: memory@86100000 {
++			compatible = "shared-dma-pool";
++			reg = <0x0 0x86100000 0x0 0x100000>;
++			no-map;
++		};
 +	};
 +
-+	ret = imx95_suspend_resume(sdev, false);
-+	if (ret < 0) {
-+		dev_err(sdev->dev, "failed to resume: %d\n", ret);
-+		return ret;
-+	}
-+
-+	if (pm_runtime_suspended(sdev->dev)) {
-+		pm_runtime_disable(sdev->dev);
-+		pm_runtime_set_active(sdev->dev);
-+		pm_runtime_mark_last_busy(sdev->dev);
-+		pm_runtime_enable(sdev->dev);
-+		pm_runtime_idle(sdev->dev);
-+	}
-+
-+	return snd_sof_dsp_set_power_state(sdev, &target_state);
-+}
-+
-+static int imx95_runtime_suspend(struct snd_sof_dev *sdev)
-+{
-+	int ret;
-+	const struct sof_dsp_power_state target_state = {
-+		.state = SOF_DSP_PM_D3,
++	sof-sound-wm8962 {
++		compatible = "audio-graph-card2";
++		links = <&cpu>;
++		label = "wm8962-audio";
++		hp-det-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_hp>;
++		widgets =
++			"Headphone", "Headphones",
++			"Microphone", "Headset Mic";
++		routing =
++			"Headphones", "HPOUTL",
++			"Headphones", "HPOUTR",
++			"Headset Mic", "MICBIAS",
++			"IN3R", "Headset Mic",
++			"IN1R", "Headset Mic";
 +	};
 +
-+	ret = imx95_suspend_resume(sdev, true);
-+	if (ret < 0) {
-+		dev_err(sdev->dev, "failed to runtime suspend: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return snd_sof_dsp_set_power_state(sdev, &target_state);
-+}
-+
-+static int imx95_suspend(struct snd_sof_dev *sdev, unsigned int target_state)
-+{
-+	int ret;
-+	const struct sof_dsp_power_state target_power_state = {
-+		.state = target_state,
++	sound-wm8962 {
++		status = "disabled";
 +	};
 +
-+	if (!pm_runtime_suspended(sdev->dev)) {
-+		ret = imx95_suspend_resume(sdev, true);
-+		if (ret < 0) {
-+			dev_err(sdev->dev, "failed to suspend: %d\n", ret);
-+			return ret;
-+		}
-+	}
-+
-+	return snd_sof_dsp_set_power_state(sdev, &target_power_state);
-+}
-+
-+static struct snd_soc_dai_driver imx95_dai[] = {
-+	{
-+		.name = "sai3",
-+		.playback = {
-+			.channels_min = 1,
-+			.channels_max = 32,
-+		},
-+		.capture = {
-+			.channels_min = 1,
-+			.channels_max = 32,
-+		},
-+	},
 +};
 +
-+static int imx95_probe(struct snd_sof_dev *sdev)
-+{
-+	struct platform_device *pdev;
-+	struct imx95_priv *priv;
-+	struct resource *res;
-+	struct arm_smccc_res smc_ret;
-+	int ret;
-+
-+	pdev = container_of(sdev->dev, struct platform_device, dev);
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return dev_err_probe(&pdev->dev, -ENOMEM, "failed to alloc priv\n");
-+
-+	sdev->pdata->hw_pdata = priv;
-+
-+	/* map SRAM */
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return dev_err_probe(&pdev->dev, -ENODEV,
-+				     "failed to fetch SRAM region\n");
-+
-+	sdev->bar[SOF_FW_BLK_TYPE_SRAM] = devm_ioremap(&pdev->dev, res->start,
-+						       resource_size(res));
-+	if (IS_ERR(sdev->bar[SOF_FW_BLK_TYPE_SRAM]))
-+		return dev_err_probe(&pdev->dev,
-+				     PTR_ERR(sdev->bar[SOF_FW_BLK_TYPE_SRAM]),
-+				     "failed to map SRAM region\n");
-+
-+	sdev->mmio_bar = SOF_FW_BLK_TYPE_SRAM;
-+	sdev->mailbox_bar = SOF_FW_BLK_TYPE_SRAM;
-+	sdev->dsp_box.offset = MBOX_DSPBOX_OFFSET + MBOX_WINDOW_OFFSET;
-+	priv->bootaddr = res->start;
-+
-+	ret = of_reserved_mem_device_init(sdev->dev);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to bind DMA region\n");
-+
-+	priv->ipc_dev = platform_device_register_data(&pdev->dev, "imx-dsp",
-+						      PLATFORM_DEVID_NONE,
-+						      pdev, sizeof(*pdev));
-+	if (IS_ERR(priv->ipc_dev))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(priv->ipc_dev),
-+				     "failed to create IPC device\n");
-+
-+	priv->ipc_handle = dev_get_drvdata(&priv->ipc_dev->dev);
-+	if (!priv->ipc_handle) {
-+		ret = -EPROBE_DEFER;
-+		dev_err(&pdev->dev, "failed to fetch ipc handle\n");
-+		goto err_unregister_ipc_dev;
-+	}
-+
-+	priv->ipc_handle->ops = &ipc_ops;
-+	imx_dsp_set_data(priv->ipc_handle, sdev);
-+
-+	/* set core boot reset address */
-+	arm_smccc_smc(IMX_SIP_SRC, IMX_SIP_SRC_M_RESET_ADDR_SET, priv->bootaddr,
-+		      IMX95_CPU_VEC_FLAGS_BOOT, 0, 0, 0, 0, &smc_ret);
-+	if ((int)smc_ret.a0 < 0) {
-+		ret = smc_ret.a0;
-+		dev_err(&pdev->dev, "failed to set boot address: %d", ret);
-+		goto err_unregister_ipc_dev;
-+	}
-+
-+	return 0;
-+
-+err_unregister_ipc_dev:
-+	platform_device_unregister(priv->ipc_dev);
-+
-+	return ret;
-+}
-+
-+static void imx95_remove(struct snd_sof_dev *sdev)
-+{
-+	struct imx95_priv *priv;
-+
-+	priv = sdev->pdata->hw_pdata;
-+
-+	if (imx95_disable_enable_core(false))
-+		dev_err(sdev->dev, "failed to stop core\n");
-+
-+	platform_device_unregister(priv->ipc_dev);
-+}
-+
-+static const struct snd_sof_dsp_ops sof_imx95_ops = {
-+	.probe = imx95_probe,
-+	.remove = imx95_remove,
-+
-+	/* mandatory "DSP" ops */
-+	.run = imx95_run,
-+	.block_read = sof_block_read,
-+	.block_write = sof_block_write,
-+	.send_msg = imx95_send_msg,
-+	.load_firmware = snd_sof_load_firmware_memcpy,
-+	.ipc_msg_data = sof_ipc_msg_data,
-+
-+	.mailbox_read = sof_mailbox_read,
-+	.mailbox_write = sof_mailbox_write,
-+
-+	.get_mailbox_offset = imx95_get_mailbox_offset,
-+	.get_bar_index = imx95_get_bar_index,
-+	.get_window_offset = imx95_get_window_offset,
-+
-+	.pcm_open = sof_stream_pcm_open,
-+	.pcm_close = sof_stream_pcm_close,
-+	.set_stream_data_offset = sof_set_stream_data_offset,
-+
-+	.runtime_suspend = imx95_runtime_suspend,
-+	.runtime_resume = imx95_runtime_resume,
-+
-+	.resume = imx95_resume,
-+	.suspend = imx95_suspend,
-+
-+	.set_power_state = imx95_set_power_state,
-+
-+	.drv = imx95_dai,
-+	.num_drv = ARRAY_SIZE(imx95_dai),
-+
-+	.hw_info = SNDRV_PCM_INFO_MMAP |
-+		   SNDRV_PCM_INFO_MMAP_VALID |
-+		   SNDRV_PCM_INFO_INTERLEAVED |
-+		   SNDRV_PCM_INFO_PAUSE |
-+		   SNDRV_PCM_INFO_BATCH |
-+		   SNDRV_PCM_INFO_NO_PERIOD_WAKEUP,
++&edma2 {
++	dma-channel-mask = <0xc0000000>, <0x0>;
 +};
 +
-+static struct snd_sof_of_mach sof_imx95_machs[] = {
-+	{
-+		.compatible = "fsl,imx95-19x19-evk",
-+		.sof_tplg_filename = "sof-imx95-wm8962.tplg",
-+		.drv_name = "asoc-audio-graph-card2",
-+	},
-+	{
-+	},
++&sai3 {
++	status = "disabled";
 +};
 +
-+static struct sof_dev_desc sof_of_imx95_desc = {
-+	.of_machines = sof_imx95_machs,
-+	.ipc_supported_mask = BIT(SOF_IPC_TYPE_3),
-+	.ipc_default = SOF_IPC_TYPE_3,
-+	.default_fw_path = {
-+		[SOF_IPC_TYPE_3] = "imx/sof",
-+	},
-+	.default_tplg_path = {
-+		[SOF_IPC_TYPE_3] = "imx/sof-tplg",
-+	},
-+	.default_fw_filename = {
-+		[SOF_IPC_TYPE_3] = "sof-imx95.ri",
-+	},
-+	.ops = &sof_imx95_ops,
++&wm8962 {
++	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
++			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
++			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
++			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
++			  <&scmi_clk IMX95_CLK_SAI3>;
++	assigned-clock-parents = <0>, <0>, <0>, <0>, <&scmi_clk IMX95_CLK_AUDIOPLL1>;
++	assigned-clock-rates = <3932160000>, <3612672000>,
++			       <393216000>, <361267200>,
++			       <12288000>;
++	port {
++		codec_ep: endpoint { remote-endpoint = <&cpu_ep>; };
++	};
 +};
-+
-+static const struct of_device_id sof_of_imx95_ids[] = {
-+	{ .compatible = "fsl,imx95-cm7-sof", .data = &sof_of_imx95_desc },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, sof_of_imx95_ids);
-+
-+static struct platform_driver snd_sof_of_imx95_driver = {
-+	.probe = sof_of_probe,
-+	.remove = sof_of_remove,
-+	.driver = {
-+		.name = "sof-audio-of-imx95",
-+		.pm = &sof_of_pm,
-+		.of_match_table = sof_of_imx95_ids,
-+	},
-+};
-+module_platform_driver(snd_sof_of_imx95_driver);
-+
-+MODULE_LICENSE("Dual BSD/GPL");
-+MODULE_DESCRIPTION("SOF support for i.MX95 platforms");
-+MODULE_AUTHOR("Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>");
 -- 
 2.34.1
 
