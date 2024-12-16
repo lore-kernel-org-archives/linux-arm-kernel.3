@@ -4,107 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B099E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 17:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE53FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 18:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oC8gWCVRWd7t3zyrxqyuKPb2pXvaqF9RbBIlxbK+iVs=; b=GyY92VM4wLl+DwmvvJxLUp35O6
-	UeM2m7ML6CAXmeeIeeyr8MmtgZYjWjxpwfvYB2XA+ChR+nqrJID2UZ83ZLheF/vCiguhUbBM+NWRr
-	rxyM1dMmnBq3OF94oYaaOYGZTAeeI5DwpBM0I+YYIGk+kTkH5XVvWT1eQG8eahkjacT7A3mVOkVLa
-	efFOwsVAk7G1+Sp3UHJKns2mDsN7Gjg5GliC1AGsc5Z/knpto6Wb3Nt3z5md1qUwhEz/ij6BLXPCA
-	1S3j18ySQQf9cIL7Z7UsKMf4MAo1YYKsaXl3LT+lsTtuKkMtt8MV5bsuzYmUzrbHTN0wVAfbs8Dky
-	I1qGW3tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WIvO63JbCPAYWlPtJwQFaD85WRtYv7NId9N6OYZZ/Zg=; b=141SrlZcv+I4j0InEZqqFVlH7u
+	3SI5dKMr+lteI8W9ToPzVuyOFvg9l2jaJZuRhH6tMljUc4jW8wKyfBKq2OJMIcS1ZHXp7BBuNQBCW
+	Q76F1WTu9X2f/nDRcqSDtUqxwweTD+19PxpW+iOUrvJMCcFHUwa8mgAnRYOdIV4oLj9s6ulnEm/mL
+	mMpHpfDX5kxFz2Yr9Ilb5FErKYAPZaFB2c2z9ByHEl0e9laJqoGTSy1mNBEZB9HNTzuH7M7dCItQo
+	07RK41CuIYCUL4e3SItHjd3QmjIaXM9S4ZiUSXhZZm/IAjjK/YVD4/6t++8HZQf6XXSWOPOGNR/NJ
+	oMsy2xKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFMq-0000000Ar8r-3Zxu;
-	Mon, 16 Dec 2024 17:58:52 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tNFOT-0000000Arp1-3uPL;
+	Mon, 16 Dec 2024 18:00:33 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNFFR-0000000ApH2-2IVI
+	id 1tNFM8-0000000Aqrn-0Xi9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 17:51:15 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGE6GUM011290;
-	Mon, 16 Dec 2024 17:50:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=oC8gWCVRWd7t3zyrx
-	qyuKPb2pXvaqF9RbBIlxbK+iVs=; b=D2hjXuR+5A4J3fHTWRkirxn1DvrEr2rOR
-	Z++OccL3QNvCG1Ceo6juxunNtzq8J0iiVtVVrOaVx/Csx8ebCvScwE/trHBed3AS
-	GqPQV9voJPtNC+4Y8GFyTaAK5FlAZw6R9o9WikZ+L+DgTMn4nMi/Rh73fhRe3lMR
-	i3/VlIpzjXBuC710U5jIzilZzQHbC/zYqEyMzYABWtTfOui7cs65OOa8tti4b0DY
-	a5Z2fH1Q4Rr/nBzQ17QKZIdQJtED+qf6QyF2jJaayINWAUCEA6j1rbKV+J/aBsxI
-	LfANswusG8pKzxUY5+MFwx4g27f7Id6G80ZsDZi9bgr8srL+Q6VHQ==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43jnp4h627-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 17:50:50 +0000 (GMT)
-Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4BGHlsAQ014520;
-	Mon, 16 Dec 2024 17:50:50 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43jnp4h624-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 17:50:50 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGEM1t6024044;
-	Mon, 16 Dec 2024 17:50:49 GMT
-Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43hnuk6y7y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 17:50:49 +0000
-Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
-	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BGHolKb13697640
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 16 Dec 2024 17:50:48 GMT
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B3CE458056;
-	Mon, 16 Dec 2024 17:50:47 +0000 (GMT)
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5AAE258063;
-	Mon, 16 Dec 2024 17:50:47 +0000 (GMT)
-Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
-	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 16 Dec 2024 17:50:47 +0000 (GMT)
-From: Ninad Palsule <ninad@linux.ibm.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        eajames@linux.ibm.com, jdelvare@suse.com, linux@roeck-us.net,
-        corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
-        Delphine_CC_Chiu@Wiwynn.com, broonie@kernel.org,
-        peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
-        naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
-        patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
-        peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
-Cc: Ninad Palsule <ninad@linux.ibm.com>
-Subject: [PATCH v2 2/4] hwmon: (pmbus/crps) Add Intel CRPS185 power supply
-Date: Mon, 16 Dec 2024 11:50:40 -0600
-Message-ID: <20241216175044.4144442-3-ninad@linux.ibm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241216175044.4144442-1-ninad@linux.ibm.com>
-References: <20241216175044.4144442-1-ninad@linux.ibm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: RIdgxiWY9x8mGG75KEXd_cI2H51-3DCA
-X-Proofpoint-ORIG-GUID: hPVHz1BCbW9CKnieVuuRKJybKZhN7iR9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1015
- malwarescore=0 adultscore=0 bulkscore=0 mlxscore=0 spamscore=0
- priorityscore=1501 phishscore=0 suspectscore=0 mlxlogscore=999
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412160146
+	Mon, 16 Dec 2024 17:58:09 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-aa6a1bf7a82so326149666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 09:58:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734371885; x=1734976685; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WIvO63JbCPAYWlPtJwQFaD85WRtYv7NId9N6OYZZ/Zg=;
+        b=B/u/+CRh3/ldzSfEkCSXagokTM4A9vRgUsUhZCP43x+UZPs3+KKs3PARzaqbsI7yQr
+         QgeErUV+kpgWrCdFYFQY/I9H/n5pVxl9Oe53zoq9lf9muUTtZnhkWfKTCImo3eyDIMwA
+         /OQSL29pQSK6nhSC1cxr5rDADYFBjBx/UejBYq6Y1aoPq2QX2o79RCDoiBnb0XQVba+S
+         /xCe3T5yWyNO813d2VziJkrxlJEaKEzsLGm2GVvdZ2MUahRBIJxghZOqmKKGZqQ4G8x9
+         dvtnQkTW5jAOgPl2fTiauzds0FA2qTwDPBsVYzY8bVJf3qlV6YJIfBlUtNdHfZmY37LB
+         JYDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734371885; x=1734976685;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WIvO63JbCPAYWlPtJwQFaD85WRtYv7NId9N6OYZZ/Zg=;
+        b=NV9IJdIy2b8o3PmC4DinWozUtPfFdguvwoIWxkXgIuSXI0jiZAWgGhe49C97o5T91b
+         TtATWNoX+aMpsoPLsJTABIO50Ecvv86vc4y8h2QPBl7GWJ7l6HevZVc4lcC5KkfrIALo
+         V7lXFjdbAqrAfOtBXAR8QqrKF5zbSU0Kimi5pMS4GYFESrDUhrygxjXo+A7rYfsrArje
+         6bOYcJ6ZdlNYidUNCrc4VkQeThOmPQYnH7kL39ggDJt+SihEDJ96k8wXDu9mrX8CUaeL
+         2+Cjww/jEgU+ju5K2YOY6Fm8oLQyhmNuS+EZ8qwRNT6/HkEDpEqPGfRPtNdSMr9XxBW4
+         v4ew==
+X-Forwarded-Encrypted: i=1; AJvYcCVN2KbAclC0bSOCsrabnh/g7EaGcyWj2u8KTx5B/huVlQkWHCxtHkhZOZdH5PBCU7QLRgT3NLwz30L5N4wZwdLT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1lgByUw20fLaOA4liyL3PUgx6LuHY+BE7Kkbv+swFzpW1uq/Y
+	RkeGB3tksF40xu+m948hsYMmMs4jGnxVN7DN4isdPr2V32wF1FQX2Tc+PrnuGWTR2In2B0peLLq
+	Ykn+Xkw==
+X-Google-Smtp-Source: AGHT+IEFD4waSVQTOAsVyudNcn7ejn8ek5PuLwOxwXNXNljOaLhuHKDLNM7nryfElBbu4DGNYAQqJVhQvzfM
+X-Received: from educ20.prod.google.com ([2002:a05:6402:1014:b0:5d0:84dd:d775])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:7f0c:b0:aa6:5e35:d72d
+ with SMTP id a640c23a62f3a-aab7793eb42mr1425279566b.24.1734371885432; Mon, 16
+ Dec 2024 09:58:05 -0800 (PST)
+Date: Mon, 16 Dec 2024 17:57:45 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20241216175803.2716565-1-qperret@google.com>
+Subject: [PATCH v3 00/18] KVM: arm64: Non-protected guest stage-2 support for pKVM
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_095113_747093_16C0A6BB 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20241216_095808_181099_D42E565C 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,269 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the driver to monitor Intel common redundant power supply (crps185)
-with hwmon over pmbus.
+Hi all,
 
-Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
----
- Documentation/hwmon/crps.rst  | 97 +++++++++++++++++++++++++++++++++++
- Documentation/hwmon/index.rst |  1 +
- MAINTAINERS                   |  7 +++
- drivers/hwmon/pmbus/Kconfig   |  9 ++++
- drivers/hwmon/pmbus/Makefile  |  1 +
- drivers/hwmon/pmbus/crps.c    | 79 ++++++++++++++++++++++++++++
- 6 files changed, 194 insertions(+)
- create mode 100644 Documentation/hwmon/crps.rst
- create mode 100644 drivers/hwmon/pmbus/crps.c
+This is the v3 of the series adding support for non-protected guests
+stage-2 to pKVM. Please refer to v1 for all the context:
 
-diff --git a/Documentation/hwmon/crps.rst b/Documentation/hwmon/crps.rst
-new file mode 100644
-index 000000000000..74570ed1e978
---- /dev/null
-+++ b/Documentation/hwmon/crps.rst
-@@ -0,0 +1,97 @@
-+.. SPDX-License-Identifier: GPL-2.0-or-later
-+
-+Kernel driver crps
-+==================
-+
-+Supported chips:
-+
-+  * Intel CRPS185
-+
-+    Prefix: 'crps185'
-+
-+    Addresses scanned: -
-+
-+    Datasheet: Publicly not available.
-+
-+Authors:
-+    Ninad Palsule <ninad@linux.ibm.com>
-+
-+
-+Description
-+-----------
-+
-+This driver implements support for Intel Common Redundant Power supply with
-+PMBus support.
-+
-+The driver is a client driver to the core PMBus driver.
-+Please see Documentation/hwmon/pmbus.rst for details on PMBus client drivers.
-+
-+
-+Usage Notes
-+-----------
-+
-+This driver does not auto-detect devices. You will have to instantiate the
-+devices explicitly. Please see Documentation/i2c/instantiating-devices.rst for
-+details.
-+
-+
-+Sysfs entries
-+-------------
-+
-+======================= ======================================================
-+curr1_label		"iin"
-+curr1_input		Measured input current
-+curr1_max		Maximum input current
-+curr1_max_alarm         Input maximum current high alarm
-+curr1_crit              Critial high input current
-+curr1_crit_alarm        Input critical current high alarm
-+curr1_rated_max		Maximum rated input current
-+
-+curr2_label		"iout1"
-+curr2_input		Measured output current
-+curr2_max		Maximum output current
-+curr2_max_alarm         Output maximum current high alarm
-+curr2_crit	        Critial high output current
-+curr2_crit_alarm        Output critical current high alarm
-+curr2_rated_max		Maximum rated output current
-+
-+in1_label		"vin"
-+in1_input		Measured input voltage
-+in1_crit                Critical input over voltage
-+in1_crit_alarm          Critical input over voltage alarm
-+in1_max                 Maximum input over voltage
-+in1_max_alarm           Maximum input over voltage alarm
-+in1_rated_min		Minimum rated input voltage
-+in1_rated_max		Maximum rated input voltage
-+
-+in2_label		"vout1"
-+in2_input		Measured input voltage
-+in2_crit                Critical input over voltage
-+in2_crit_alarm          Critical input over voltage alarm
-+in2_lcrit               Critical input under voltage fault
-+in2_lcrit_alarm         Critical input under voltage fault alarm
-+in2_max                 Maximum input over voltage
-+in2_max_alarm           Maximum input over voltage alarm
-+in2_min                 Minimum input under voltage warning
-+in2_min_alarm           Minimum input under voltage warning alarm
-+in2_rated_min		Minimum rated input voltage
-+in2_rated_max		Maximum rated input voltage
-+
-+power1_label		"pin"
-+power1_input		Measured input power
-+power1_alarm		Input power high alarm
-+power1_max  		Maximum input power
-+power1_rated_max        Maximum rated input power
-+
-+temp[1-2]_input		Measured temperature
-+temp[1-2]_crit 		Critical temperature
-+temp[1-2]_crit_alarm    Critical temperature alarm
-+temp[1-2]_max  		Maximum temperature
-+temp[1-2]_max_alarm     Maximum temperature alarm
-+temp[1-2]_rated_max     Maximum rated temperature
-+
-+fan1_alarm		Fan 1 warning.
-+fan1_fault		Fan 1 fault.
-+fan1_input		Fan 1 speed in RPM.
-+fan1_target             Fan 1 target.
-+======================= ======================================================
-diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
-index 1a3cb0a59f72..b1ea445479b0 100644
---- a/Documentation/hwmon/index.rst
-+++ b/Documentation/hwmon/index.rst
-@@ -58,6 +58,7 @@ Hardware Monitoring Kernel Drivers
-    corsair-cpro
-    corsair-psu
-    cros_ec_hwmon
-+   crps
-    da9052
-    da9055
-    dell-smm-hwmon
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 637ddd44245f..e99f26f75733 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -6100,6 +6100,13 @@ L:	linux-input@vger.kernel.org
- S:	Maintained
- F:	drivers/hid/hid-creative-sb0540.c
- 
-+INTEL CRPS COMMON REDUNDANT PSU DRIVER
-+M:	Ninad Palsule <ninad@linux.ibm.com>
-+L:	linux-hwmon@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/hwmon/crps.rst
-+F:	drivers/hwmon/pmbus/crps.c
-+
- CRYPTO API
- M:	Herbert Xu <herbert@gondor.apana.org.au>
- M:	"David S. Miller" <davem@davemloft.net>
-diff --git a/drivers/hwmon/pmbus/Kconfig b/drivers/hwmon/pmbus/Kconfig
-index 22418a05ced0..43b6df04e0f9 100644
---- a/drivers/hwmon/pmbus/Kconfig
-+++ b/drivers/hwmon/pmbus/Kconfig
-@@ -85,6 +85,15 @@ config SENSORS_BPA_RS600
- 	  This driver can also be built as a module. If so, the module will
- 	  be called bpa-rs600.
- 
-+config SENSORS_CRPS
-+	tristate "Intel Common Redundant Power Supply"
-+	help
-+	  If you say yes here you get hardware monitoring support for the Intel
-+	  Common Redundant Power Supply.
-+
-+	  This driver can also be built as a module. If so, the module will
-+	  be called crps.
-+
- config SENSORS_DELTA_AHE50DC_FAN
- 	tristate "Delta AHE-50DC fan control module"
- 	help
-diff --git a/drivers/hwmon/pmbus/Makefile b/drivers/hwmon/pmbus/Makefile
-index 3d3183f8d2a7..c7eb7739b7f8 100644
---- a/drivers/hwmon/pmbus/Makefile
-+++ b/drivers/hwmon/pmbus/Makefile
-@@ -62,3 +62,4 @@ obj-$(CONFIG_SENSORS_XDPE122)	+= xdpe12284.o
- obj-$(CONFIG_SENSORS_XDPE152)	+= xdpe152c4.o
- obj-$(CONFIG_SENSORS_ZL6100)	+= zl6100.o
- obj-$(CONFIG_SENSORS_PIM4328)	+= pim4328.o
-+obj-$(CONFIG_SENSORS_CRPS)	+= crps.o
-diff --git a/drivers/hwmon/pmbus/crps.c b/drivers/hwmon/pmbus/crps.c
-new file mode 100644
-index 000000000000..09425c404fc8
---- /dev/null
-+++ b/drivers/hwmon/pmbus/crps.c
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2024 IBM Corp.
-+ */
-+
-+#include <linux/i2c.h>
-+#include <linux/of.h>
-+#include <linux/pmbus.h>
-+
-+#include "pmbus.h"
-+
-+static const struct i2c_device_id crps_id[] = {
-+	{ "intel_crps185" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(i2c, crps_id);
-+
-+static struct pmbus_driver_info crps_info = {
-+	.pages = 1,
-+	/* PSU uses default linear data format. */
-+	.func[0] = PMBUS_HAVE_PIN | PMBUS_HAVE_IOUT |
-+		PMBUS_HAVE_STATUS_IOUT | PMBUS_HAVE_IIN |
-+		PMBUS_HAVE_VIN | PMBUS_HAVE_STATUS_INPUT |
-+		PMBUS_HAVE_VOUT | PMBUS_HAVE_STATUS_VOUT |
-+		PMBUS_HAVE_TEMP | PMBUS_HAVE_TEMP2 |
-+		PMBUS_HAVE_STATUS_TEMP |
-+		PMBUS_HAVE_FAN12 | PMBUS_HAVE_STATUS_FAN12,
-+};
-+
-+static int crps_probe(struct i2c_client *client)
-+{
-+	int rc;
-+	struct device *dev = &client->dev;
-+	char buf[I2C_SMBUS_BLOCK_MAX + 2] = { 0 };
-+
-+	rc = i2c_smbus_read_block_data(client, PMBUS_MFR_MODEL, buf);
-+	if (rc < 0) {
-+		dev_err_probe(dev, rc, "Failed to read PMBUS_MFR_MODEL\n");
-+		return rc;
-+	}
-+
-+	if (strncmp(buf, "03NK260", 7) == 7) {
-+		buf[rc] = '\0';
-+		dev_err_probe(dev, -ENODEV, "Model '%s' not supported\n", buf);
-+		return -ENODEV;
-+	}
-+
-+	rc = pmbus_do_probe(client, &crps_info);
-+	if (rc) {
-+		dev_err_probe(dev, rc, "Failed to probe %d\n", rc);
-+		return rc;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id crps_of_match[] = {
-+	{
-+		.compatible = "intel,crps185",
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, crps_of_match);
-+
-+static struct i2c_driver crps_driver = {
-+	.driver = {
-+		.name = "crps",
-+		.of_match_table = crps_of_match,
-+	},
-+	.probe = crps_probe,
-+	.id_table = crps_id,
-+};
-+
-+module_i2c_driver(crps_driver);
-+
-+MODULE_AUTHOR("Ninad Palsule");
-+MODULE_DESCRIPTION("PMBus driver for Intel Common Redundant power supplies");
-+MODULE_LICENSE("GPL");
-+MODULE_IMPORT_NS("PMBUS");
+  https://lore.kernel.org/kvmarm/20241104133204.85208-1-qperret@google.com/
+
+The series is organized as follows:
+
+ - Patches 01 to 04 move the host ownership state tracking from the
+   host's stage-2 page-table to the hypervisor's vmemmap. This avoids
+   fragmenting the host stage-2 for shared pages, which is only needed
+   to store an annotation in the SW bits of the corresponding PTE. All
+   pages mapped into non-protected guests are shared from pKVM's PoV,
+   so the cost of stage-2 fragmentation will increase massively as we
+   start tracking that at EL2. Note that these patches also help with
+   the existing sharing for e.g. FF-A, so they could possibly be merged
+   separately from the rest of the series.
+
+ - Patches 05 to 07 implement a minor refactoring of the pgtable code to
+   ease the integration of the pKVM MMU later on.
+
+ - Patches 08 to 16 introduce all the infrastructure needed on the pKVM
+   side for handling guest stage-2 page-tables at EL2.
+
+ - Patches 17 and 18 plumb the newly introduced pKVM support into
+   KVM/arm64.
+
+Patches based on 6.13-rc3, tested on Pixel 6 and Qemu.
+
+Changes in v3:
+ - Rebased on 6.13-rc3
+ - Applied Marc's rework of the for_each_mapping_in_range() macro mess
+ - Removed mappings_lock in favor the mmu_lock
+ - Dropped BUG_ON() from pkvm_mkstate()
+ - Renamed range_is_allowed_memory() and clarified the comment inside it
+ - Explicitly bail out when using host_stage2_set_owner_locked() on
+   non-memory regions
+ - Check PKVM_NOPAGE state as an equality rather than a bitwise
+   operator
+ - Reworked __pkvm_host_share_guest() to return -EPERM in case of
+   illegal multi-sharing
+ - Added get_np_pkvm_hyp_vm() to simplify HVC error handling in
+   hyp-main.c
+ - Cosmetic changes and improved coding consitency thoughout the series
+
+Changes in v2:
+ - Rebased on 6.13-rc1 (small conflicts with 2362506f7cff ("KVM: arm64:
+   Don't mark "struct page" accessed when making SPTE young") in
+   particular)
+ - Fixed kerneldoc breakage for __unmap_stage2_range()
+ - Fixed pkvm_pgtable_test_clear_young() to use correct HVC
+ - Folded guest_get_valid_pte() into __check_host_unshare_guest() for
+   clarity
+
+Thanks,
+Quentin
+
+Marc Zyngier (1):
+  KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
+
+Quentin Perret (17):
+  KVM: arm64: Change the layout of enum pkvm_page_state
+  KVM: arm64: Move enum pkvm_page_state to memory.h
+  KVM: arm64: Make hyp_page::order a u8
+  KVM: arm64: Move host page ownership tracking to the hyp vmemmap
+  KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
+  KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
+  KVM: arm64: Make kvm_pgtable_stage2_init() a static inline function
+  KVM: arm64: Add {get,put}_pkvm_hyp_vm() helpers
+  KVM: arm64: Introduce __pkvm_host_share_guest()
+  KVM: arm64: Introduce __pkvm_host_unshare_guest()
+  KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
+  KVM: arm64: Introduce __pkvm_host_wrprotect_guest()
+  KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
+  KVM: arm64: Introduce __pkvm_host_mkyoung_guest()
+  KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
+  KVM: arm64: Introduce the EL1 pKVM MMU
+  KVM: arm64: Plumb the pKVM MMU in KVM
+
+ arch/arm64/include/asm/kvm_asm.h              |   9 +
+ arch/arm64/include/asm/kvm_host.h             |   4 +
+ arch/arm64/include/asm/kvm_mmu.h              |  16 +
+ arch/arm64/include/asm/kvm_pgtable.h          |  38 ++-
+ arch/arm64/include/asm/kvm_pkvm.h             |  23 ++
+ arch/arm64/kvm/arm.c                          |  23 +-
+ arch/arm64/kvm/hyp/include/nvhe/gfp.h         |   6 +-
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  38 +--
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      |  42 ++-
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  16 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 201 ++++++++++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 320 ++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c          |  14 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |  68 ++++
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   7 +-
+ arch/arm64/kvm/hyp/pgtable.c                  |  13 +-
+ arch/arm64/kvm/mmu.c                          | 113 +++++--
+ arch/arm64/kvm/pkvm.c                         | 198 +++++++++++
+ arch/arm64/kvm/vgic/vgic-v3.c                 |   6 +-
+ 19 files changed, 1010 insertions(+), 145 deletions(-)
+
 -- 
-2.43.0
+2.47.1.613.gc27f4b7a9f-goog
 
 
