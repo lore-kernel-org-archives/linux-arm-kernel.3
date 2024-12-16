@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80B6E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED01FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSwWjoN9hxq4jHDYryBIZocNpGvXWb/8NjpFHhRy2oo=; b=Tn92Zbkk419Gh8+gthhI3rrqx2
-	axaeIzbq4ftX9+311NEfT2FWv3UTL4oDEYMiEfICVb+Y+QysGzD8opnwkGTrQ6NqzK5lrtNS6/kAY
-	0jrku7dTPlEEHAIfeY58NuVR5zpB1JNMKEj1SaXse7ETcrKIm5tFa4KwAL5LXQFTL54+hyIIEHzvG
-	ki9jXK7TgcCB2+IaPtV9WEcSibZCyLYmXTSmSonCIxsw0VYNEckbBbEbUgnT02ii0ohfTIySrP4o1
-	t939SF+tv1Xvxl+wlsaDsFaIvgcMsu0aG/VU5XuzP4aMHwXcITLw6fUaVC/gTOFnglxSYdSKCYf1r
-	dUTHqsFw==;
+	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=; b=47OyPP/Tj4lvPl3N1uxzsWoTd/
+	QQ/rreoHpP8GTiuCy/Ryd5El59DPbg4GE5/DA4zAV5++IpaReH6moagHSNBMYLkDfYmsjQSmRIslL
+	Vxzuw/VFWnccgA3RjA8oV9J7izqf3EhU3CBWw25AKYmZhGaeef7SsFt2jMHsrItxMfM6duX4U2Qs6
+	rOyMao4rNFp7dO4pwGOn8NQcdFZb0ZwOmzd36FNFFmNch7yJQaM0xQu/tHbJK35vpz/6y9UxnQvgP
+	C3oJ6HZxRNsblpOE7igzJ5YebsTC7wfwTyDKXh4WOaKCQcXkkjBngJMm/t6V4LuBNBpcF0P31bRE3
+	A00iRjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBxf-0000000AEMA-28tk;
-	Mon, 16 Dec 2024 14:20:39 +0000
+	id 1tNByl-0000000AEaQ-0bc8;
+	Mon, 16 Dec 2024 14:21:47 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNBoE-0000000ABNx-37SV;
+	id 1tNBoF-0000000ABNQ-0Mw9;
 	Mon, 16 Dec 2024 14:10:56 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1734358253;
+	s=2020; t=1734358252;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wSwWjoN9hxq4jHDYryBIZocNpGvXWb/8NjpFHhRy2oo=;
-	b=ZMQujSz5tD2kN7+lI0fYpPj98xs+sNfo+W3vBIuWWMNlwpDV/izuo9GkscwMhLkuBG+VwU
-	gHcWMsBZi+0oJhgJRxAUYy5qeuKaj3OpwcngqvunDPibOk9ughtlxw6pMuUb6pCV3sFP0Z
-	+ARJ8WdZfA7lEkHqX+a58WZSo2329Sf4ZWH/WQT83OraaLzYcppk0aOpV6RYAD5lZFFCM6
-	WJhmmmkV6HuSG5f9T1Dv37/9DZ33NYVKdO0fkvbOXx9aGqKVyKsknZEJH9KHiPTtrWK+E6
-	INXYArNSQNPlC8uqsma3APkSoos+GlBeVzWuv5mM9ZqC1MYMmGxLAl0UZiWS7w==
+	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=;
+	b=cmdDBZfVWS6iJxS6Qj2w9ZQQ3R6xmZGKYAB0HWFGlKDMd12wPWqlnClWQ3d9T7mCAdp/oE
+	TXGiqyd4mqPSHh1hjNowtj42QYpOidrFxIljJST2kZe4sCYwpRZiQyKF+QJUs1XFCMHY4N
+	3gjda6bRPz/5UIjh3zOmprTshVCtwZ/XomceXMNMEBF6Vow85ee5QJt7lK++hffeJWVKRW
+	9UvDDAWxuIfhR4FaJCFRZX5QrK27RFV+m3cKrSBncouypGH2CzVfL3wzZaGMtcZbWBlVgS
+	30gz/u4EggQbRrH+hJzX2F68RuF16gFJRgNK6BJyRtMzbWJiNZHpyUVvfgl1OQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1734358253;
+	s=2020e; t=1734358252;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wSwWjoN9hxq4jHDYryBIZocNpGvXWb/8NjpFHhRy2oo=;
-	b=qm/1JdwisukCAQ6GVoTkT6wBWxbHH10UkJwsn+dKhsduD9m20Mq0KPz3CVRZZHlB2C11fW
-	9Ov67GseUEPV1BDA==
-Date: Mon, 16 Dec 2024 15:10:00 +0100
-Subject: [PATCH 04/17] vdso: Add generic random data storage
+	bh=gs/m1ne1xnufcZuceBub2RzRtdWIKInpIZ86AtKhTZY=;
+	b=heZTOf2AXJAP0vRl3L0tLwZ+AYJjnJOJsGZMWC/8FrllI/jr0RX1EvBsRXVwn9qbXBWlqg
+	bQ8V7pa/w94GHaDw==
+Date: Mon, 16 Dec 2024 15:09:58 +0100
+Subject: [PATCH 02/17] vdso: Introduce vdso/align.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20241216-vdso-store-rng-v1-4-f7aed1bdb3b2@linutronix.de>
+Message-Id: <20241216-vdso-store-rng-v1-2-f7aed1bdb3b2@linutronix.de>
 References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
 In-Reply-To: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
 To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
@@ -86,16 +86,16 @@ Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=4160;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734358247; l=2181;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=Klz0GewD0ghfBFLK7c5qIVdXa+oTtzdoujgf0ypgqME=;
- b=thexmYXfp+n2eSvYCtrf5cHaHBiOJId1Zbewgq/CRRe/slaV9CWnriEbx6SMa7+VxZ1s/NRmL
- of3YMYg6mVqBPc5bM65DLHRgkU9CD5Z5/CTZ07zGsAVXWNGT54vKQM2
+ bh=zRm1/jHzhcX2cBU5SFyW7PIL5hMfUBZQzaPVvddjWs0=;
+ b=3vucqSgNyFfcPlZWU+nck873IDs3fyLmnT/Uwqgae45dcegtZe39aM9ZkpPEyADY1fE7HmIZD
+ KjgQ1Whis1RBTmvVwZEHZ6hciMQgEMdV0+RhtXHlxeCdmndFQ1Ipjf9
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_061055_124473_09D547DC 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20241216_061055_454621_B7CC981B 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,115 +110,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the generic vDSO data storage with a page for the random state data.
-The random state data is stored in a dedicated page, as the existing
-storage page is only meant for time-related, time-namespace-aware data.
-This simplifies to access logic to not need to handle time namespaces
-anymore and also frees up more space in the time-related page.
+The vDSO implementation can only include headers from the vdso/
+namespace. To enable the usage of the ALIGN() macro from the vDSO, move
+linux/align.h to vdso/align.h wholly.
+As the only dependency linux/const.h is only a wrapper around
+vdso/const.h anyways adapt that dependency.
 
-In case further generic vDSO data store is required it can be added to
-the random state page.
+Also provide a compatibility wrapper linux/align.h.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/vdso/datapage.h     | 24 ++++++++++++++++++++++++
- lib/vdso_kernel/datastore.c | 14 ++++++++++++++
- 2 files changed, 38 insertions(+)
+ include/linux/align.h | 10 +---------
+ include/vdso/align.h  | 15 +++++++++++++++
+ 2 files changed, 16 insertions(+), 9 deletions(-)
 
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 69af424413db1f265607d0f1bdbf88550548c5ba..5ce322422fcb7ba77aeafddbf132fd3e5dbc5a0c 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -145,8 +145,10 @@ extern struct vdso_rng_data _vdso_rng_data __attribute__((visibility("hidden")))
- #else
- extern const struct vdso_time_data vdso_u_time_data[CS_BASES] __attribute__((visibility("hidden")));
- extern const struct vdso_time_data vdso_u_timens_data[CS_BASES] __attribute__((visibility("hidden")));
-+extern const struct vdso_rng_data vdso_u_rng_data __attribute__((visibility("hidden")));
+diff --git a/include/linux/align.h b/include/linux/align.h
+index 2b4acec7b95a27b6768d48f46519abc584c94d5d..55debf105a5d610c592e5c53a4153018ea1ae2c6 100644
+--- a/include/linux/align.h
++++ b/include/linux/align.h
+@@ -2,14 +2,6 @@
+ #ifndef _LINUX_ALIGN_H
+ #define _LINUX_ALIGN_H
  
- extern struct vdso_time_data *vdso_k_time_data;
-+extern struct vdso_rng_data *vdso_k_rng_data;
- #endif
+-#include <linux/const.h>
+-
+-/* @a is a power of 2 value */
+-#define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
+-#define ALIGN_DOWN(x, a)	__ALIGN_KERNEL((x) - ((a) - 1), (a))
+-#define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))
+-#define PTR_ALIGN(p, a)		((typeof(p))ALIGN((unsigned long)(p), (a)))
+-#define PTR_ALIGN_DOWN(p, a)	((typeof(p))ALIGN_DOWN((unsigned long)(p), (a)))
+-#define IS_ALIGNED(x, a)		(((x) & ((typeof(x))(a) - 1)) == 0)
++#include <vdso/align.h>
  
- /**
-@@ -162,6 +164,7 @@ union vdso_data_store {
- enum vdso_pages {
- 	VDSO_TIME_PAGE_OFFSET,
- 	VDSO_TIMENS_PAGE_OFFSET,
-+	VDSO_RNG_PAGE_OFFSET,
- 	VDSO_NR_PAGES
- };
- 
-@@ -185,6 +188,20 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_timens_dat
- #define __arch_get_timens_vdso_data(vd) __arch_get_vdso_u_timens_data()
- #endif /* CONFIG_TIME_NS */
- 
-+#ifdef CONFIG_VDSO_GETRANDOM
-+static __always_inline const struct vdso_rng_data *__arch_get_vdso_u_rng_data(void)
-+{
-+	return &vdso_u_rng_data;
-+}
-+#define __arch_get_vdso_rng_data __arch_get_vdso_u_rng_data
+ #endif	/* _LINUX_ALIGN_H */
+diff --git a/include/vdso/align.h b/include/vdso/align.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..02dd8626b5c5aa59d2ee0b15799b6e9adb343f65
+--- /dev/null
++++ b/include/vdso/align.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __VDSO_ALIGN_H
++#define __VDSO_ALIGN_H
 +
-+static __always_inline struct vdso_rng_data *__arch_get_vdso_k_rng_data(void)
-+{
-+	return vdso_k_rng_data;
-+}
-+#define __arch_get_k_vdso_rng_data __arch_get_vdso_k_rng_data
-+#endif /* CONFIG_VDSO_GETRANDOM */
++#include <vdso/const.h>
 +
- #endif /* CONFIG_GENERIC_VDSO_DATA_STORE */
- 
- /*
-@@ -211,10 +228,17 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_timens_dat
- #define __vdso_u_timens_data
- #endif
- 
-+#ifdef CONFIG_VDSO_GETRANDOM
-+#define __vdso_u_rng_data	PROVIDE(vdso_u_rng_data = vdso_u_data + 2 * PAGE_SIZE);
-+#else
-+#define __vdso_u_rng_data
-+#endif
++/* @a is a power of 2 value */
++#define ALIGN(x, a)		__ALIGN_KERNEL((x), (a))
++#define ALIGN_DOWN(x, a)	__ALIGN_KERNEL((x) - ((a) - 1), (a))
++#define __ALIGN_MASK(x, mask)	__ALIGN_KERNEL_MASK((x), (mask))
++#define PTR_ALIGN(p, a)		((typeof(p))ALIGN((unsigned long)(p), (a)))
++#define PTR_ALIGN_DOWN(p, a)	((typeof(p))ALIGN_DOWN((unsigned long)(p), (a)))
++#define IS_ALIGNED(x, a)		(((x) & ((typeof(x))(a) - 1)) == 0)
 +
- #define VDSO_VVAR_SYMS						\
- 	PROVIDE(vdso_u_data = . - __VDSO_PAGES * PAGE_SIZE);	\
- 	PROVIDE(vdso_u_time_data = vdso_u_data);		\
- 	__vdso_u_timens_data					\
-+	__vdso_u_rng_data					\
- 
- 
- #endif /* !__ASSEMBLY__ */
-diff --git a/lib/vdso_kernel/datastore.c b/lib/vdso_kernel/datastore.c
-index c9cd269b1ed1b6cdd5fdf9fe929d0b778314b962..0d4f5317b508a54b4f3295f0335d1eefce74d78c 100644
---- a/lib/vdso_kernel/datastore.c
-+++ b/lib/vdso_kernel/datastore.c
-@@ -15,6 +15,15 @@ static union vdso_data_store vdso_time_data_store __page_aligned_data;
- struct vdso_time_data *vdso_k_time_data = vdso_time_data_store.data;
- static_assert(sizeof(vdso_time_data_store) == PAGE_SIZE);
- 
-+#ifdef CONFIG_VDSO_GETRANDOM
-+static union {
-+	struct vdso_rng_data	data;
-+	u8			page[PAGE_SIZE];
-+} vdso_rng_data_store __page_aligned_data;
-+struct vdso_rng_data *vdso_k_rng_data = &vdso_rng_data_store.data;
-+static_assert(sizeof(vdso_rng_data_store) == PAGE_SIZE);
-+#endif /* CONFIG_VDSO_GETRANDOM */
-+
- static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			     struct vm_area_struct *vma, struct vm_fault *vmf)
- {
-@@ -49,6 +58,11 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
- 			return VM_FAULT_SIGBUS;
- 		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
- 		break;
-+	case VDSO_RNG_PAGE_OFFSET:
-+		if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
-+			return VM_FAULT_SIGBUS;
-+		pfn = __phys_to_pfn(__pa_symbol(vdso_k_rng_data));
-+		break;
- 	default:
- 		return VM_FAULT_SIGBUS;
- 	}
++#endif	/* __VDSO_ALIGN_H */
 
 -- 
 2.47.1
