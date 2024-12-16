@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA752E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 11:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1068E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 11:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vkc2lJTmOE5SwiXWL8j1pu4J4OtvYGFDXBGNRHI6lfg=; b=LYNSoA02EEttr6Yfb/SvKvqxyb
-	g4zfzaAQQirFc85OGllLJzdmwMJdez0lqlh0y1Doe3Jfz4KfjroPlH7Pl+9WH4WRjjBw4hwc0zO8N
-	vdLbyXDizL2uzg8+kMkN1uRkJMUoInawDelzQr4hgwQSLX3Hml9Gq77qIUOwQg2g6zw7eWStwneUX
-	FXysXVAIRhu/3bdyfivIy/Wia/I1RmF4xGSokwd5ajS7gdK6g70x1JTb2OydRUbC5ASKx6ywN6UPi
-	y5CBjTELUnebKmIaExU00Jeeq6D9/AGm4IAPtU5tzkQPmNLrZAmcMmxS9keypGdZy2YAjNxhwlSQe
-	o6E/XuVg==;
+	bh=C/PsmoRvy792kxD8bL4e3toILYMjRBSNGx4CpqeF2xg=; b=JJphgFCvqmU4Xa2HU11Us2pEv2
+	1N8/pXTvIWqB5Dsz0dSkH0YiCXrsdvME+io1/12i6Y9m+JahsjNIPOiX+c7k8pa3dDLByDQ1bncwH
+	C/ByKsCLcz5MnVVyGjcGFyJ8X384JJ+ZMSAC1rkaozEqXzvx3+YA5tidwKK2McbfcxBJigbZdaKu1
+	iTy1eelr0yl/+emWjYltjEJ5lb2+r2jwEvwBJkzFT4tDD1KQunYhjN6nvreMF34gTGsJEG/gv4NOl
+	pcmOozmgeEBE4TS0PxETog5G/5I8YscchzQMbXdLxBmvkErp3tQIusr4sKRKHY71W176wYPseJ3Py
+	oOn3n2JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8zq-00000009mvQ-1hVv;
-	Mon, 16 Dec 2024 11:10:42 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8hN-00000009k38-2mpH
+	id 1tN90t-00000009n63-0Dp5;
+	Mon, 16 Dec 2024 11:11:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN8oA-00000009l1f-098r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 10:51:38 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-436219070b4so21337965e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 02:51:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734346293; x=1734951093; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vkc2lJTmOE5SwiXWL8j1pu4J4OtvYGFDXBGNRHI6lfg=;
-        b=qwXFtT0wXfugcBNWXgRPHRcalgZtxKLZqVULirbm3HkTaNMXzB0r0wtoUicj3ZUtgB
-         ripJh4zxO8p6X222c0EG3/A2914hKnZHs399UOnGdhMeol2ZIlnnh72bN082znT5d13r
-         RQksltFmttHz4FOpKwlsZeNLzv+bn81xpR/ntJjt5mOlc/XoqATLdh6gdutcEEm4Vzwk
-         w05VGQdU0EGZKQXwJiP2m9Da9FKKOIt3Z7Wx500X8bBTFKXC64DkIN66RcOxKztccVvA
-         7dEAbu9Z4ZgoDKCuy1+qBUAF++ZchcDQTblX0BlG7M7cgwnoy1RaTTAJKEkuxISDiY/n
-         vCUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734346293; x=1734951093;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Vkc2lJTmOE5SwiXWL8j1pu4J4OtvYGFDXBGNRHI6lfg=;
-        b=wjpQ/mkJi2hoQzK3cCJ5JRYEmRcxDFE+SNSrRAc8+BYfIpeYVXMX059ErDHSHOpvAz
-         rnboTL0FdorQGaxYrZHGZYCbcjZTvD7gJSUA67N5j7qGlsy1vbHhk+iZHiRQRPCAE/Zd
-         e6RqKHRCBjqnZCKAbVHQgJ97xIWQawEM2NMj9NURAv9yHYCcgX6e+js556EtldiQJ/BN
-         MDI3HcTxaFPrYD5RI4QzU+ny3R+2J3AwOj2fCMXK/VHRIeN3PrqWtGR6Is6Yzs/zTaOm
-         mUFq/92tku5/Lm48RIbIdtWa0Iyd2B1jzBYqF9X0XqhaP+z3ye6dFK4vjQAGpXhLpB6v
-         42LQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVNMDOCG6VebKZLfGziKHzRGFG+t7yaQnYFaHDCn5upfnSItwWVF53XcDKxpX/i6Ae5hcQtWFaXUstddxR00ICh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuZmRgz3A/WbRV9KVj/Rm9DHts/uqRwbK6x5tPzVvghF0Dv1hG
-	7Ws5AQaRfw328PUitHPkbx4k1iwCTj6Rh4bd3LsU8AdYeF4e/kuceOSmP2bvMsUTvsDdsKiU3Q=
-	=
-X-Google-Smtp-Source: AGHT+IE6dzPeC92Qjqfbxx0NlZAcvO57FuNuJtWGIFlLNf+nKTtzoaYF9JxHvI4ZxzEANAaeGwhjrxt5iQ==
-X-Received: from wmsd5.prod.google.com ([2002:a05:600c:3ac5:b0:431:1903:8a3e])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:871b:b0:434:f0df:a14
- with SMTP id 5b1f17b1804b1-4362aa147f8mr118538075e9.2.1734346293709; Mon, 16
- Dec 2024 02:51:33 -0800 (PST)
-Date: Mon, 16 Dec 2024 10:50:57 +0000
-In-Reply-To: <20241216105057.579031-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20241216105057.579031-1-tabba@google.com>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241216105057.579031-18-tabba@google.com>
-Subject: [PATCH v5 17/17] KVM: arm64: Use kvm_vcpu_has_feature() directly for
- struct kvm
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
-	qperret@google.com, kristina.martsenko@arm.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 16 Dec 2024 10:58:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD235113E;
+	Mon, 16 Dec 2024 02:59:03 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 901093F720;
+	Mon, 16 Dec 2024 02:58:33 -0800 (PST)
+Date: Mon, 16 Dec 2024 10:58:29 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH V3 7/7] arm64/hw_breakpoint: Enable FEAT_Debugv8p9
+Message-ID: <Z2AH1SN5CipWkkE4@J2N7QTR9R3>
+References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
+ <20241216040831.2448257-8-anshuman.khandual@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241216040831.2448257-8-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_025137_699726_96CC06C7 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20241216_025838_120529_E6364C8A 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,45 +69,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have introduced kvm_vcpu_has_feature(), use it in the
-remaining code that checks for features in struct kvm, instead of
-using the __vcpu_has_feature() helper.
+On Mon, Dec 16, 2024 at 09:38:31AM +0530, Anshuman Khandual wrote:
+> Currently there can be maximum 16 breakpoints, and 16 watchpoints available
+> on a given platform - as detected from ID_AA64DFR0_EL1.[BRPs|WRPs] register
+> fields. But these breakpoint, and watchpoints can be extended further up to
+> 64 via a new arch feature FEAT_Debugv8p9.
+> 
+> This first enables banked access for the breakpoint and watchpoint register
+> set via MDSELR_EL1, extended exceptions via MDSCR_EL1.EMBWE and determining
+> available breakpoints and watchpoints in the platform from ID_AA64DFR1_EL1,
+> when FEAT_Debugv8p9 is enabled.
 
-No functional change intended.
+[...]
 
-Suggested-by: Quentin Perret <qperret@google.com>
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/kvm/nested.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+> +static u64 read_wb_reg(int reg, int n)
+> +{
+> +	unsigned long flags;
+> +	u64 val;
+> +
+> +	if (!is_debug_v8p9_enabled())
+> +		return __read_wb_reg(reg, n);
+> +
+> +	/*
+> +	 * Bank selection in MDSELR_EL1, followed by an indexed read from
+> +	 * breakpoint (or watchpoint) registers cannot be interrupted, as
+> +	 * that might cause misread from the wrong targets instead. Hence
+> +	 * this requires mutual exclusion.
+> +	 */
+> +	local_irq_save(flags);
+> +	write_sysreg_s(SYS_FIELD_PREP(MDSELR_EL1, BANK, n / MAX_PER_BANK), SYS_MDSELR_EL1);
+> +	isb();
+> +	val = __read_wb_reg(reg, n % MAX_PER_BANK);
+> +	local_irq_restore(flags);
+> +	return val;
+> +}
+>  NOKPROBE_SYMBOL(read_wb_reg);
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index aeaa6017ffd8..92e746040de4 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1021,8 +1021,8 @@ int kvm_init_nv_sysregs(struct kvm *kvm)
- 		res0 |= HCR_NV2;
- 	if (!kvm_has_feat(kvm, ID_AA64MMFR2_EL1, NV, IMP))
- 		res0 |= (HCR_AT | HCR_NV1 | HCR_NV);
--	if (!(__vcpu_has_feature(&kvm->arch, KVM_ARM_VCPU_PTRAUTH_ADDRESS) &&
--	      __vcpu_has_feature(&kvm->arch, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
-+	if (!(kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_ADDRESS) &&
-+	      kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
- 		res0 |= (HCR_API | HCR_APK);
- 	if (!kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TME, IMP))
- 		res0 |= BIT(39);
-@@ -1078,8 +1078,8 @@ int kvm_init_nv_sysregs(struct kvm *kvm)
- 
- 	/* HFG[RW]TR_EL2 */
- 	res0 = res1 = 0;
--	if (!(__vcpu_has_feature(&kvm->arch, KVM_ARM_VCPU_PTRAUTH_ADDRESS) &&
--	      __vcpu_has_feature(&kvm->arch, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
-+	if (!(kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_ADDRESS) &&
-+	      kvm_vcpu_has_feature(kvm, KVM_ARM_VCPU_PTRAUTH_GENERIC)))
- 		res0 |= (HFGxTR_EL2_APDAKey | HFGxTR_EL2_APDBKey |
- 			 HFGxTR_EL2_APGAKey | HFGxTR_EL2_APIAKey |
- 			 HFGxTR_EL2_APIBKey);
--- 
-2.47.1.613.gc27f4b7a9f-goog
+I don't believe that disabling interrupts here is sufficient. On the
+last version I asked about the case of racing with a watchpoint handler:
 
+| For example, what prevents watchpoint_handler() from firing in the
+| middle of arch_install_hw_breakpoint() or
+| arch_uninstall_hw_breakpoint()?
+
+... and disabling interrupts cannot prevent that, because
+local_irq_{save,restore}() do not affect the behaviour of watchpoints or
+breakpoints.
+
+Please can you try to answer the questions I asked last time, i.e.
+
+| What prevents a race with an exception handler? e.g. 
+| 
+| * Does the structure of the code prevent that somehow?
+| 
+| * What context(s) does this code execute in?
+|   - Are debug exceptions always masked?
+|   - Do we disable breakpoints/watchpoints around (some) manipulation of
+|     the relevant registers?
+
+... and the question form the earlier comment, i.e.
+
+| Is the existing code correct?
+
+I suspect that the existing code might not have the necessary mutual
+exclusion in all cases, but it's difficult to trigger an issue by
+accident. Is there any way a handler could race with some other
+manipulation of watchpoints/breakpoints such that some data structure
+gets corrupted, or such that the kernel deadlocks?
+
+Mark.
 
