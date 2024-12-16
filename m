@@ -4,196 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F385E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 19:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C4AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 19:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5lEFc2e5j4ysgh7+ljtbgCNlvs0fSAytIxF5b0lfRk=; b=PIXG0MtcaNz7V4L6pnlPc3qn/P
-	zSDIcAH1K5RKlbwRmWTjEjAjK3Jyl89i3/OQBoEj18MtOri+cpycPkqy/Lec1+/eySVES095hpU5S
-	zjsnf52eqNCmQiXn5l/9zZKmKQ5tK6F66Te3xRpZZPU6wfNQED4amsM6OZu7LDniXOPs/0saNN1h1
-	J2J4KT2KA1NX6UoaWUMk8zFZvT+vnPfVtM265CToIktqaGTV4LtW4ZPzGNW/8gDAx0fb/6MwlAnw2
-	HnTZBQLpz9oWzoNqGmTCZ4anX4lBPKPsAUPz/uFlClhxS+56EX6KktkmtsYhKJHKhyQ7ydV04gYnJ
-	5A+sszSg==;
+	bh=9kDEx6aEWb4XCihAt9e19jF/ukq7Jlz0QppIXYIzNSQ=; b=Mjq1SKXhUzWq8/3w6oQKFP8DGL
+	4QIXDwQ20m1o4ibsI1fnpAFLhiOjQv3OMIxibMj6Gq6LafStfj4mykimSnxOCiG/qdTNbkv4s4PqA
+	urOLtIcYuWxxPW0KUnnf0Z38MHhTsOU7ar1728oOLBjcLoHKH/r8+U0nRU5TJP4BplQqtbX4L9bmW
+	dG3tRZCGv01yTZK1auvD0YNMlFkf4/5rfXbTBLkHqdojcvBGh3kCH7pB5/W244MjeE66e3XCtR92/
+	k+1KOS5snO9htmLSkVUVrdvBpSytAJEs1fRer/csTH1qupUDTisutguBpG34ta8ku/ia/SdZDlCVm
+	X2XV7jEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNGwv-0000000B8tp-3xNx;
-	Mon, 16 Dec 2024 19:40:13 +0000
-Received: from mail-dm6nam10on2062d.outbound.protection.outlook.com ([2a01:111:f403:2413::62d] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tNH8Q-0000000BAWs-2cfv;
+	Mon, 16 Dec 2024 19:52:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNGvp-0000000B8il-2rre
+	id 1tNH7L-0000000BAJ7-3Laf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 19:39:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F7RnMF1NvxE3JX/wITRXs0i3Bgq+LlC+KRx1g3YX5nMkyVhOz7TQGPhOibeD977VYcHoYoofJLaXyyCAnnwCbMLf/uzG3gis/pWD2KsWH6ZoxauwctCJu4IT1Q5ylmjQ1HXdy8+GUKPDoT2gro8+dkluegCgAgFuPM6NW7BCK9kgo4VTr61ss/emMetWIb/8VlkQA9L4KHzbvkfMrtZvZlt3dBD/9MBgyFjf8oWVXC3fvVghent6Itxeke3KUdilIFjk8Vjffri0dV3DROv/w6wSGnL72wkKnh4TtlYPNFVa3qbTbYdOXEjYfhxI7VHdRmazyZ8kI7EPK5kGT8pAiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n5lEFc2e5j4ysgh7+ljtbgCNlvs0fSAytIxF5b0lfRk=;
- b=Ra8U+kxM2cWODKTIT8XtCqK8SIXOdzxnL3Xh0GsjW8dlSGPUZQDUCRPrV8zFr2JVKaOf6nWLou3pVh8AeqCTcDgEtCA6mCPoImFDlkExtxjEZmaq4YiQBNe4yuQYvdGO4MPHhfyGAidqK2yyksM/6VCAizY/Cw7R3Fy0aF7l+oecxXkBhRz9A9EENJsO0+EwEi//WHhP4XtJ2SLb9rTdstszBJGW6Hw/k4pv3ZOuM37kT0172u8Os21LhVePMOjq+UZJR3r+nKYkL2dhyd1DDv8EkLk1aet+D4Dl8BOGKTWYvhBnGq+diDb8QMsSVvnDbtmAxzC1iHxK7lMoGwgN6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n5lEFc2e5j4ysgh7+ljtbgCNlvs0fSAytIxF5b0lfRk=;
- b=jdyVTih73We19x8sXgxSmMauBtspCuFzMRY8eggMCdnEhVPZ3I5yWaYQea8be76pF2HJUYa+pvFMQOZCct5Tazxlhpzj5vEIpmPraHCeRLEax4ra/zdAfR56VYq4Ijc4wwPW0MUukfCTp35jqMxSanS8omG0xj2W5f4ricoCUz8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com (2603:10b6:5:358::13)
- by SA1PR12MB8968.namprd12.prod.outlook.com (2603:10b6:806:388::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.21; Mon, 16 Dec
- 2024 19:39:01 +0000
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::1c2f:5c82:2d9c:6062]) by CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::1c2f:5c82:2d9c:6062%4]) with mapi id 15.20.8251.015; Mon, 16 Dec 2024
- 19:39:01 +0000
-Message-ID: <ab347745-80cc-4a5c-ab92-de6bc6bce3cc@amd.com>
-Date: Mon, 16 Dec 2024 14:38:54 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/10] drm/amd/display: use eld_mutex to protect access
- to connector->eld
-To: Alex Deucher <alexdeucher@gmail.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <Rodrigo.Siqueira@amd.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Xinhui Pan <Xinhui.Pan@amd.com>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Phong LE <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>,
- Seung-Woo Kim <sw0312.kim@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Rob Clark <robdclark@gmail.com>,
- Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Alain Volmat <alain.volmat@foss.st.com>,
- Raphael Gallais-Pou <rgallaispou@gmail.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org
-References: <20241206-drm-connector-eld-mutex-v2-0-c9bce1ee8bea@linaro.org>
- <20241206-drm-connector-eld-mutex-v2-4-c9bce1ee8bea@linaro.org>
- <pgi7p3aemxm3db2k27vi5euh6q6ppayrw6y7tcfeq4g5z23hzr@xousag2qhobp>
- <fc8e80dd-bcea-4515-b446-158649719569@amd.com>
- <CAA8EJpoR8HYq9ATDfmR5ksSnttBzj=DY+BKp5=OuVNF1WDJ-fg@mail.gmail.com>
- <CADnq5_M8jC2w=XWB4BG+id60zfGFMMkSegmeg-y=VpSHC+FvFQ@mail.gmail.com>
-Content-Language: en-US
-From: Harry Wentland <harry.wentland@amd.com>
-In-Reply-To: <CADnq5_M8jC2w=XWB4BG+id60zfGFMMkSegmeg-y=VpSHC+FvFQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: YT4PR01CA0116.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d7::27) To CO6PR12MB5427.namprd12.prod.outlook.com
- (2603:10b6:5:358::13)
+	Mon, 16 Dec 2024 19:51:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3E9DEA41A44;
+	Mon, 16 Dec 2024 19:49:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193EFC4CED0;
+	Mon, 16 Dec 2024 19:50:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734378658;
+	bh=DCENrOvzdQr/kVc1IkdcNpE1zRhi24sD9OPqr7cgrd0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EaJ7W90r0NH1YcpXzq/MObcJhIwJpFskVv8yOHb4b50pzHCRZrcv2xGOXH8HMvn6o
+	 j6kqOzpUYKqIMXrWxQBCeiq7mEMCNwSm88t1vAQy0koidh9Nofph6gi6Z+1wR37j1G
+	 8XT7ByEO3m9UJZ0xu9JQLDKPHIvd91jcIup4AxSvncC/d7Q+H2S1hWLeUqdt3cElYQ
+	 9ZndKGBy1a214SUZ1ap1VEYOVQzFnvlRmFPYlAUn1GWunCDQNFoM7oxDzgp8x5AkM9
+	 64ybcID98YsAKdTNQa5Bzq5+z907uiNK1iE0CJhwLgkCh2yWoy7J3+zM4jw4QqTQvN
+	 xQpRmhBd00OQw==
+Date: Mon, 16 Dec 2024 19:50:53 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Frieder Schrempf <frieder@fris.de>,
+	linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@denx.de>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Robin Gong <yibin.gong@nxp.com>, Joy Zou <joy.zou@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 03/11] dt-bindings: regulator: pca9450: Document
+ nxp,sd-vsel-fixed-low property for LDO5
+Message-ID: <20241216-reburial-turmoil-4825bbee6aa8@spud>
+References: <20241127164337.613915-1-frieder@fris.de>
+ <20241127164337.613915-4-frieder@fris.de>
+ <20241128-endanger-envy-d1b19f650b38@spud>
+ <9276fad1-0e3c-4935-a62a-1580af2e0a4b@kontron.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR12MB5427:EE_|SA1PR12MB8968:EE_
-X-MS-Office365-Filtering-Correlation-Id: d05d4583-45b3-4def-9ad2-08dd1e094a5d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MXNGUnoyZ2Y5Z0xUbmJpQm5LT3BNeTVmUzB6bjgrNjd0dEZYTXFSV21tNXBK?=
- =?utf-8?B?UjdGNGZDSlQ2LzRta2REMHFvdUdhRUZwYXZYSituOWJ0WDNlRmpZRjJyZlFz?=
- =?utf-8?B?d0Q4N1FYeGtYdU5ldFFlNHducy9FcXNCb0JNWE9sWE1Db3M2OVYyMWxabHp0?=
- =?utf-8?B?RGtGT1NhVkxNYUdjWDZmcDZkYWtubWIrWkNjQVBGbEh4dVZxQVNOSzN1aHFK?=
- =?utf-8?B?M0FHamw4c1EwUG1hSkhCcHROOXlBSzVsQ0FWMjNoNUhHZ1VWb1AzV3pMRGRL?=
- =?utf-8?B?ZE9aa3M0cGNheW00WW9OOGJEbnR0b1c1b3drRjRmcURiWkpQeWZVaXZ1TmhY?=
- =?utf-8?B?WnhncHhYd2Rnbng2eWdrdzQzdTB2Zk1KdEZHaVRuTjgrUTQ2aUNZRDVRZVlT?=
- =?utf-8?B?RTJjTi9XL3Y4TjQ1ZU9HaFd1cWw4NzRNNXRiODdLcnNteFpNaE9CWTdBcnhT?=
- =?utf-8?B?Q08raWJHbU5Kd1g2MDkyakNBYU5sbjljeHhsa1d3L3NUamk4NEZIdms4OVJl?=
- =?utf-8?B?ZFFqRHM2RlNRVlBIRU9HQWFJZ0kvQy94V3ZQS3V1TnFFYmxLQm1acGRuSVIr?=
- =?utf-8?B?dVlyNmp6dnZNWnRWVG5HSkp3dlRrMmgzeC8wcXFKbUxCdEhNZnJGUldHT3BH?=
- =?utf-8?B?ZXBTcWRoeU5peHEwc3k4ZUlwYzJCUTVBOHltazluNVBGelJNZGkzWGVNZ2E4?=
- =?utf-8?B?eER1Z1A5RzdCQzFkYnFHK1MyR1hibURNd2p6YUZySnNMQ3JnNGRFTkpveW02?=
- =?utf-8?B?NG43VTZCSXFRTXgzeU9waks3eUZGRTlxMmtGT3NNUW9lTkR5N1dCWUNEbVJ2?=
- =?utf-8?B?NjJDUTJYQzdoZktLZUFHZm16NWRTdjR5TDVsT2w0Mnh1Zy9pMkgxQmp3aXhi?=
- =?utf-8?B?ZjUxWHpSY1c2RTkwSzdqK1FWY0tidWhOSnVDV3VsU3IvUmJGMk0wV2ZEdmN0?=
- =?utf-8?B?SGo3NGVoYWlTZDlJMmhLNzBWMTcwczM2djJKU0pYWnFKZElSTlR0TlU1bmNZ?=
- =?utf-8?B?MHYzeE11OGdaTlgzdXZ3Wm51cHVtUXRMVHlTQnh3eEpURzRPQ3phUXkxTGRM?=
- =?utf-8?B?aUhHb3Bad2F6YjU5R1ZXNG9kWERKNXNIZjQ5bDVqbm0vZllVZ1M3RGRmNFBm?=
- =?utf-8?B?VjBmTG9FYTFOTTgza1UwM0pLajRkd0Y1cENlTkhkdzBwUS9wREpIOUhpYmcy?=
- =?utf-8?B?ZFpUN21FU2lDdnRPazU0b2l0dVpiT1lhSjRIQkZKSzN2NVZsc2hZeVZ6MU1P?=
- =?utf-8?B?Nzhsbjh0NUhTem1wdkQybkFEcDdzOHBFTFhzM2hhRG9VZWdFM0FESnNSQjVU?=
- =?utf-8?B?Zld0WDdSdE9CRmxYQkxGdzRGK1BIaWx0YUV2ZWZFRjJlNDRtL2JYT1k4d0M2?=
- =?utf-8?B?ZDUwdUFyckdhWUl3dFZ3anRGNDA4c2ZTRFV4OE1BYmlMb2pBbWdKNlZXelh2?=
- =?utf-8?B?L0JDZ2ZHMVdjWGtYbzFhdno2NU04b3BBME15eXBRck9FOHlwemVnTTRsdmpB?=
- =?utf-8?B?NjNYSEgzaUg4aXZNUnRmRHNFVjBGQUpuWnBHR0kyNHJmQzlFZ2N4K2VidDcy?=
- =?utf-8?B?NHcvd1dNUTRsYjlDZWFvbU1WSHArSFZOYUdnR1pxcVoyQWRNa0R3VzRPNS9l?=
- =?utf-8?B?V0IxVlN1eHdzZW02VkJ6eDBvU24yT0dFbEJKOTRiK3hDOVhqWFRubUtGNFZQ?=
- =?utf-8?B?YlJaZHRpYU0yMENwMkhtWDhDcXYvNVN4VEdXOWtVNDRweFZGTkExb215eUlM?=
- =?utf-8?B?V3ZnSmMvQ290ZW0wRDdhbjJZRGd4YTBoOXJZVFlJbVIzZjVlNTRpdnFhZjJH?=
- =?utf-8?B?WVR6dEhvb09JaExlOGQwRWtIWXdmTzYzazVQRWdtSW04WEFYWXVNV08vd0pU?=
- =?utf-8?Q?duy1dH3k/AfiR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR12MB5427.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHIxOVpyaUlkK2NiS2NTY1lmSnhwTFk1UXVMYVNDZGtrZHYxcjdKZi9rd1dp?=
- =?utf-8?B?djZRa2h4ZXpqUFNXT3VYaHdvbmJJOTBOZDhEdlloRUFTdzFjZVU4M1lPU25X?=
- =?utf-8?B?b2ZyTTdkalpKN202eENrd1kzbDdzQmd3Z2w1akJON3IyRkVidW9tYVkraEly?=
- =?utf-8?B?VHZaME9HY2hISlZxM3dmTW14ZERjcDBXbnZaMjl2eFdtckxRUEFONE1RMitC?=
- =?utf-8?B?Mk5ha3BTUjNBUklGYUdtajcrckk3eWNEakIxWEl2d284Z3U5YmF0ZWVNQVFN?=
- =?utf-8?B?N2d3bzNDQzA1eVVPWG5zbVZKUXlQTFVuYmZJRkN3Wko4ZFdNeTM2cEZ3OW9l?=
- =?utf-8?B?N2xPM0xzZU90UWkwRWxxa1ZaSzRNeitJRHk1VGcyUTZaZG4zc2lZelduYkQ3?=
- =?utf-8?B?MDJ5WDZSSElDdWtaNkxtVVZWNEIvMmo3YjdrOFp5bzJQUlVVOTEySWpuNmZG?=
- =?utf-8?B?aHd1RkhJRWhGamlDcnVVdkJ6aVRGdGJjMEhJTVB2ZHZBc0lVREwyWkxlbDB3?=
- =?utf-8?B?VVFxRm1STHdRMmp6aXpzdGI3cndPc3d3aHZQM2ltMmVaVjdJb3VZTHhyVVJG?=
- =?utf-8?B?S2wzSnJZWjRlQUdBZU42aitaK3A3WDJGSlpZWnRqVzBYZzhURzM1d1FscGhj?=
- =?utf-8?B?V1FTSkpoMGpuQm9zdG4yN0k0VE50MU5aK0IvK0F4MnQ1WklSYXhuVHZtenZN?=
- =?utf-8?B?blMwbGJBc0JtZmk0dlRBN24wMTE4bE5KY0IwcHNnZnpyblVtSmRPWmVSMkQw?=
- =?utf-8?B?WGhyaWIwemlSY1BROVRjTjBtVUw5UHhFaDBJNXBBSVA0VjJTRjZXc25UNW5v?=
- =?utf-8?B?YnppcHZZTDlKM3Z4cFlJUGpqNU0zS0JxR2NBQWVSRC92Q1dycnFEcTVSbVNa?=
- =?utf-8?B?b1lkUVJvSzFHREprQkp0MldoYld4OU9vYXNLWWgxcEFlNllZQlU2SkpndkVw?=
- =?utf-8?B?Zm93UXdJdW5XN3VJbFhBUTZlQ0puR3RMQzI5RnZkTWVQNG1qUHVtM1RWaG02?=
- =?utf-8?B?VnUwdm1yYUo1NUhMMEZ3bEhaZFdYMWh1bkxuc0poZ3ovQldiQWxSMXBkSVVl?=
- =?utf-8?B?aERNb2JSdkpxZk1UV0V1ODlRK1BWTHgyUHJpcHc3VmpDQjF1QnNCYmMvbXBw?=
- =?utf-8?B?WWRsdUJ2YnZKOEJPRE9lRFAwNU02RmF3RHdIRG0rclZySGkySHNKdDVMb1Fl?=
- =?utf-8?B?ZGN1K2VFS01EUjdOV3FzdERMSmZxS3ZOamc5aGVHMFcrN1VjcHBsZE1LU05E?=
- =?utf-8?B?ME5OdzBMUmNKYVdJUDcwYTJEZzR1d1VQcmpBVlJsVU80cnozSmpDRmVJV2hJ?=
- =?utf-8?B?V09WQmhjY3liSm12R0VYcVVveldacFd0NUYwOXpIVlNiWEYybUdGcEFWVDhS?=
- =?utf-8?B?ejhybFIzVTZxNVI1QS9zbjc3WCtsZlpVK0pOQk5vaU5tRHUzUURGem92Y3ph?=
- =?utf-8?B?Z0pFR081QVhES3hMay9hMnZCRUIzSFV0d2FIM2lhYXdxQmFhczhRR0NRRTcx?=
- =?utf-8?B?VmdHMVhTTzZqN3JsUnZjWE01UW8zSitZVVArQXFGUDhtMmZqV1VGRVhBbm9j?=
- =?utf-8?B?eVU3VjJhUUJ2dmh0Y1VNYnJ0andVbndLNy9wTm0wYkFObEJvdFN4TFE4WER1?=
- =?utf-8?B?dlZkVGpiRldUY3lDZ0d4cjh4UFZmWVpldWlPOVFLei85QTIzeU94WFZ6WWlu?=
- =?utf-8?B?QklGRE5jajBKZmJra214MU5PY0p2bk5QRTBnWFh4Q3E0R3l3SnE4UVJjT2lw?=
- =?utf-8?B?Y0hJZ1NuOER6SGQvdWUxMWUzazdUWHorWmRlQ2w0QnlEOGVObnFVMXVidVdK?=
- =?utf-8?B?QVVxQkphNVRDYjNmQ09qLzhCYzJObXFzVFM4VGJjWVRUSUdSWkJMQk1na2Nk?=
- =?utf-8?B?aDEyS1U4K25MdG9sa052V2NQQXVwRTNjYWYzdjE5dm9OSDgvVUZIT2lkSFlM?=
- =?utf-8?B?Nkc2Tmt3bVhlc2pxdjN1Y1JiZFNoSUkyaFM4NUR2RlJROWpCTTZTQjZwNVlz?=
- =?utf-8?B?aENzaWRzSVJwNXdOREZ6YVJDUW9YZTI4YzFlRFNEWVRsa1VFa0ZNcC9ZUkp1?=
- =?utf-8?B?U0FXdWM4cFZaUVRRMzB1NCttd1dMMHRrbFNVL0ljSGkxajdrUjRlOFMyVWlN?=
- =?utf-8?Q?Xe/2EqlXsvkLREZ6nImg7TGmN?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d05d4583-45b3-4def-9ad2-08dd1e094a5d
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR12MB5427.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2024 19:39:00.9535
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UMz8C23jUrIPSaqurdXBvYnY8kCYHDZ2MJhG64cCBuJxihWC9duqIxxkhZCmEo+i8nm2/e6KCp0RFqgSdcZn0Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8968
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Mv3VqQIkN3EYFrXr"
+Content-Disposition: inline
+In-Reply-To: <9276fad1-0e3c-4935-a62a-1580af2e0a4b@kontron.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_113905_717351_1514BC36 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20241216_115059_987356_15A5ED69 
+X-CRM114-Status: GOOD (  35.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -209,86 +83,93 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--Mv3VqQIkN3EYFrXr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 2024-12-16 10:31, Alex Deucher wrote:
-> On Mon, Dec 16, 2024 at 10:12 AM Dmitry Baryshkov
-> <dmitry.baryshkov@linaro.org> wrote:
->>
->> On Mon, 16 Dec 2024 at 16:53, Harry Wentland <harry.wentland@amd.com> wrote:
->>>
->>>
->>>
->>> On 2024-12-10 16:20, Dmitry Baryshkov wrote:
->>>> On Fri, Dec 06, 2024 at 11:43:07AM +0200, Dmitry Baryshkov wrote:
->>>>> Reading access to connector->eld can happen at the same time the
->>>>> drm_edid_to_eld() updates the data. Take the newly added eld_mutex in
->>>>> order to protect connector->eld from concurrent access.
->>>>>
->>>>> Reviewed-by: Maxime Ripard <mripard@kernel.org>
->>>>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->>>>> ---
->>>>>  drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
->>>>>  1 file changed, 2 insertions(+)
->>>>
->>>> Harry, Leo, Rodrigo, Alex, Christian, Xinhui, any response to this one
->>>> and to the radeon patches? I'd like to be able to pick the series for
->>>> drm-misc and these two are not reviewed by you.
->>>>
->>>>>
->>>>> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
->>>>> index 19a58630e774029767bf2a27eb4ddf17e3c21129..04c68c320252b5ce9647f0606fb86fe57f347639 100644
->>>>> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
->>>>> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
->>>>> @@ -1037,8 +1037,10 @@ static int amdgpu_dm_audio_component_get_eld(struct device *kdev, int port,
->>>>>                      continue;
->>>>>
->>>>>              *enabled = true;
->>>>> +            mutex_lock(&connector->eld_mutex);
->>>>>              ret = drm_eld_size(connector->eld);
->>>>>              memcpy(buf, connector->eld, min(max_bytes, ret));
->>>>> +            mutex_unlock(&connector->eld_mutex);
->>>
->>> All of this is wrapped by the adev->dm.audio_lock mutex. It might
->>> be safer to modify the audio_lock mutex so it only guards the
->>> aconnector->audio_inst access.
->>>
->>> But I don't see any way these mutexes would otherwise interact,
->>> so this change should be good as-is.
->>>
->>> Reviewed-by: Harry Wentland <harry.wentland@amd.com>
->>
->> Would you ack it to merge it through drm-misc? Or would you prefer to
->> pick up those two patches after merging drm-misc-next once the rest of
->> the series lands?
-> 
-> Merging through drm-misc is fine with me.
-> 
+On Tue, Dec 10, 2024 at 04:36:41PM +0100, Frieder Schrempf wrote:
+> On 28.11.24 6:33 PM, Conor Dooley wrote:
+> > On Wed, Nov 27, 2024 at 05:42:19PM +0100, Frieder Schrempf wrote:
+> >> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+> >>
+> >> This new property can be used for boards which have the SD_VSEL tied
+> >> to a fixed low level. The voltage of LDO5 is therefore only controlled
+> >> by writing to the LDO5CTRL_L register.
+> >>
+> >> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+> >> ---
+> >> Changes for v2:
+> >> * new patch
+> >> ---
+> >>  .../bindings/regulator/nxp,pca9450-regulator.yaml           | 6 ++++++
+> >>  1 file changed, 6 insertions(+)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/regulator/nxp,pca9450-r=
+egulator.yaml b/Documentation/devicetree/bindings/regulator/nxp,pca9450-reg=
+ulator.yaml
+> >> index 5d0d684186c96..0e19c54aa5f8a 100644
+> >> --- a/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulato=
+r.yaml
+> >> +++ b/Documentation/devicetree/bindings/regulator/nxp,pca9450-regulato=
+r.yaml
+> >> @@ -49,6 +49,12 @@ properties:
+> >>            Properties for single LDO5 regulator.
+> >> =20
+> >>          properties:
+> >> +          nxp,sd-vsel-fixed-low:
+> >> +            type: boolean
+> >> +            description:
+> >> +              Let the driver know that SD_VSEL is hardwired to low le=
+vel and
+> >> +              there is no GPIO to get the actual value from.
+> >=20
+> > Does this mean that if you don't provide the property or a GPIO it is t=
+ied
+> > high or High-Z? If so, please mention it here. More likely, given the
+> > context of this patch, no gpio and no tied low property means the driver
+> > should handle things as they used to be - but you should call that out
+> > in your commit message to be clear.
+>=20
+> Providing neither 'sd-vsel-gpios', nor 'nxp,sd-vsel-fixed-low' means the
+> driver has to assume that SD_VSEL is tied high and it has to use the
+> LDO5CTRL_H for voltage control.
+>=20
+> I will make this more clear in the commit message.
+>=20
+> This is the original/current behavior of the driver, though it doesn't
+> match the actual hardware as all known boards actually have the SD_VSEL
+> connected to the USDHC_VSELECT (which changes state whenever the USDHC
+> controller wants to switch IO voltage).
 
-Same.
+That's fine, as long as it is a match for the old behaviour. Sorry for
+the delay responding, I was unexpectedly AFK last week.
 
-Harry
+>=20
+> Getting rid of this mismatch is one of the main motivations for this seri=
+es.
+>=20
+> >=20
+> >> +
+> >>            sd-vsel-gpios:
+> >>              description:
+> >>                GPIO that can be used to read the current status of the=
+ SD_VSEL
+> >> --=20
+> >> 2.46.1
+> >>
+>=20
 
-> Thanks,
-> 
-> Alex
-> 
->>
->>>
->>> Harry
->>>
->>>>>
->>>>>              break;
->>>>>      }
->>>>>
->>>>> --
->>>>> 2.39.5
->>>>>
->>>>
->>>
->>
->>
->> --
->> With best wishes
->> Dmitry
+--Mv3VqQIkN3EYFrXr
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2CEnQAKCRB4tDGHoIJi
+0oetAP9Pu1rjpU+pdzrm+eH6iXyG806l63oOj31Uyy4uLHkwsQD2JBjIL+4gCPRG
+BRzqvKOglizkXPaKI5xuRY1P6rmvBA==
+=XLsF
+-----END PGP SIGNATURE-----
+
+--Mv3VqQIkN3EYFrXr--
 
