@@ -4,102 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FB1E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD49E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 09:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEiYvLzMgKQ0x0UiYk5dXUdjJMxAHCIuBnIQTXs7ixk=; b=PVi4KAjUDkHckyXRJp4wTiBX2b
-	Ff01qlaumLELTZrHanqjyeytJHN7MQYcbm/T1AeXgupzl0Vg8VcmkLE6aLCC+rbv9EADUS4Ancwl5
-	YTzZ675pPg5R2bkxlTjR+tnedAIcCKJjwHrVG7lwaMiY2fUoF9TfwuAJjjMo9zhYnfdJFMmSXk4da
-	SPruhBRH4Lh1+957/c9NLHlTGwBgMFvkVci1JiMNLJW3J6PICOMKe+PEw7E0qoL9dCUsYX99f/UB9
-	8a96wiH+ELnEf1V4bMqezvXIOOC6Yca8LBoqkXY5seDrZOxy27O5zGR/iVoPszGo/MlhLsaH+Xy4i
-	MAIk651g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ybFr+xBF+04SsTx9tZHOi4dPPshGyMog5vNkLi99Q50=; b=SDQyLzDKLKHf1NwYrAvJQz4nDQ
+	vLrPxMhbmQ8T+/czk4LyXdYSBosUFdQzRi6BeBxX3c8PKSFldi+i1uCWrl03mNReoaFa2lQUAEbce
+	8cSXkMMkVDgueI9WJuz10v1hcjiCkyIw4tPWTlLwlW/oZZIlNVMlsjvGvxEfozpUAIkqDvUBA5BJV
+	sqPgwK2GBgisnj2N7lR4FJJZnDZ5K77nt2VRvQO//Dn7uYHLmwSk5/qM4ztQEK6EfHftPJZtKfNO4
+	0pUW09bYy1eyRZ9iGjROwZM3cm2NG5I+ojPK71oiCCf7ymTm6T04qfsj4W8gyfqFcKEVGnKlFFVVS
+	JIcu4HUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN73O-00000009UiU-1XWG;
-	Mon, 16 Dec 2024 09:06:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tN74S-00000009UtT-4AZV;
+	Mon, 16 Dec 2024 09:07:21 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN711-00000009UNY-3Jc5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Dec 2024 09:03:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qEiYvLzMgKQ0x0UiYk5dXUdjJMxAHCIuBnIQTXs7ixk=; b=WaOaORPOrKRZlL6Loxs7YwW4Al
-	Om+yf59jIh09b8+pRpf7HjEhruL/Wdvlnils7Ev9guiXDd3z1Cpi9SxoQUu8SBpjuUhOnHeKhunh5
-	KpsJHkBEyDryyuD+lvBiYuV2heH57kYPoz6swswAiSo3Ybixe4cgowxHThmGcyv6CLpBr25i6NtUB
-	0gWb5lR4dyblFYerBmKyzmQ/eNCrOIcCCr2W1GfCn2fvGrJTf10qSmyiesjs8HNv1XUvftk1mPDBT
-	EC1ToXXxVsBmaCbB68P1nmYsfJPJ7FNEnPW9Q53YOAxwh1ZSqZxDwnWzDDZh0I/VtwHl69v3/zTL+
-	Y9ZoPKFA==;
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN70x-00000004oKv-44hN
+	id 1tN73J-00000009UgO-3Mr5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 09:03:46 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BG745De008787;
-	Mon, 16 Dec 2024 10:03:16 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	qEiYvLzMgKQ0x0UiYk5dXUdjJMxAHCIuBnIQTXs7ixk=; b=L0Bkks35yTScHY35
-	e7APZFOiRqTQOkfdu47wttEGeQzHNUmj3medmECIMfgrHt1nUJhXnqVtLjY45bVc
-	sVBfC3Q0QC32qAquA1P8EhdE7eOQrb3wL4c2TjHzD6MzXEOAApopBROKju6fZu8r
-	vblgZp3jfLR49hD2ofqsRJBbduh4lXzVyuZyN7JqUMchRzoVsQudclAJvJ2v7xgd
-	CAq/emATuINpQ5+vw+WQHdWGMyddXrWqVvIm080sii8rKdVzSiphTs8MYryjCTvH
-	+RuMEleH6VxiGnYfelepsHPa+wf0IJry1nl6ILKeKRLqRnydFJ3J933rxErqO0i1
-	TapOgg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43jfg8rh4c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 10:03:15 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6E64E40044;
-	Mon, 16 Dec 2024 10:01:41 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 10BE7263542;
-	Mon, 16 Dec 2024 10:00:36 +0100 (CET)
-Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Mon, 16 Dec
- 2024 10:00:35 +0100
-Message-ID: <ced7a55a-d968-497f-abc2-663855882a3f@foss.st.com>
-Date: Mon, 16 Dec 2024 10:00:27 +0100
+	Mon, 16 Dec 2024 09:06:10 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53e3a227b82so3736104e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 01:06:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734339967; x=1734944767; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ybFr+xBF+04SsTx9tZHOi4dPPshGyMog5vNkLi99Q50=;
+        b=udtSUswqtbgNebxnlihB6flWtT4NwCiX5gbi1SwETd5iICmg856PI/XgEpvJ05V+6S
+         TVeqFY0k78UYNhdaOqCnb0XKBVDhmnTqAxwzYT1lSXnFoXuP9I+cAEEdsu7fXjjEdSjM
+         167XXT1O08/CVYyvR9UkMbXaXsW67bZBA3+IPaudFB8bBN77HOepsZPV6zw368mjsKoo
+         XhZlScAhvb65v4IqLWbAr0LQe+xvr2aSAm1rsJlwP7yOoJRz2iRC3uNnrU4dxK8lxDRF
+         vVcnnQsPXCkeZcHu9ZGDoCI50t+AH1boQs0vm0v1KHf/ZfXFa1uMjH0Crw7iiD7GXGIK
+         a3/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734339967; x=1734944767;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ybFr+xBF+04SsTx9tZHOi4dPPshGyMog5vNkLi99Q50=;
+        b=oQY7MZQk59iPYcMhEujtohixIpslam96slZD2gUp87KIsvYvCYb3giGv9QXBxpt2Za
+         dTvVHQoPc/B+jOr6CVcarIZ4PsLUeOVVn1YEu6BWHDkKkTuRGDVcbX7RZC/F5dVnJ7d/
+         L0ZMLBKeKPdUA4RaK/i2D4rkzhbjcJveptZ7rn+nDw+iwNFJdsux2/tjYOggDPmBuDSr
+         p5l2OZSVJKUltSM/aNdmU47Hj38Zh7fK2H+FXfGM1kkwyrU+laUQcR7foyds/do/a+T1
+         Mv2XOqsK3jL5nuyLVzPRkZBx+gBd1HsBL0cIHhRqLZmXC7Inibfv59hLDL4VgLuYv5m3
+         TL3A==
+X-Forwarded-Encrypted: i=1; AJvYcCXNdANhwk/nxkjVSFos1b5QT0CcK3k9wFDb4Wnn3iuL+CZ89ahEhu07LfXV91uDFUmB+Q420cY0xyPVxPoQAEiP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwdLAZDOn5bDX9y64XJUrDy2gGc/Sm9SAAkgZcXR7Nrd2umb1J
+	8afatTaqXiW+XHftVuijd1tPIQad1/KcryzzTSDbfswaH2ivHn/pXEV0yYWfuj0=
+X-Gm-Gg: ASbGnctvyNgPRYwDXBP0mmSkO1qq5n5angNX21GhDiH624qipYkSZVFEO/czt+9Dsd+
+	Lnh1facpsCy9mbAQW2Ee73D6TOvPBiveOnMV5ftOKpy5b0/T4aq1dk4+x70qDSMsnDbi2vGJ9f/
+	Ot/6xeqwWnD+Q+BhUULBADFF/526ckRtBsdIwwjYceGBx2epwWmy6vNeGU07MYRGzxD058iJwmB
+	1IvZ6NVWr1dCOaLiheYs33bcZfx9CtqBrxeNrJbRzLffPxPhqsQVzmS6BdEsbqBSJt33KwVav8L
+	aLiQOGP9tLV3W0LmdmrSJ3Ruqmajaa8g3sK6
+X-Google-Smtp-Source: AGHT+IE2z+Yrxqh/d+CbdTI/ZEFbpY0tdfpWkjP3iId/t6e4EaPLDgQ5n81rb49OUv0YGO/PEvgPOg==
+X-Received: by 2002:a05:6512:b96:b0:540:2a6e:3882 with SMTP id 2adb3069b0e04-540905616b3mr3205171e87.29.1734339966797;
+        Mon, 16 Dec 2024 01:06:06 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120c00166sm768988e87.159.2024.12.16.01.06.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 01:06:05 -0800 (PST)
+Date: Mon, 16 Dec 2024 11:06:03 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
+	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
+	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v2 10/11] arm64: dts: rockchip: Enable eDP0 display on
+ RK3588S EVB1 board
+Message-ID: <ay2im4itrj3k4p2ksobgsk77b7m4laaxctkfcpffqxj5ttxenm@mzdizmf3mlcb>
+References: <20241216031225.3746-1-damon.ding@rock-chips.com>
+ <20241216031225.3746-11-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH v2 2/5] PCI: stm32: Add PCIe host support for STM32MP25
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
-        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-3-christian.bruel@foss.st.com>
- <20241203145244.trgrobtfmumtiwuc@thinkpad>
-Content-Language: en-US
-In-Reply-To: <20241203145244.trgrobtfmumtiwuc@thinkpad>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241216031225.3746-11-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_090344_800513_0B1D203C 
-X-CRM114-Status: GOOD (  43.07  )
+X-CRM114-CacheID: sfid-20241216_010609_863411_25788A56 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,474 +103,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Manivannan,
+On Mon, Dec 16, 2024 at 11:12:24AM +0800, Damon Ding wrote:
+> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
+> - Add edp-panel node
+> - Set pinctrl of pwm12 for backlight
+> - Enable edp0/hdptxphy0/vp2
+> 
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> 
+> ---
+> 
+> Changes in v2:
+> - Remove brightness-levels and default-brightness-level properties in
+>   backlight node.
+> - Add the detail DT changes to commit message.
+> ---
+>  .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 50 +++++++++++++++++++
+>  1 file changed, 50 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> index bc4077575beb..5c1ea25b6524 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> @@ -9,6 +9,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/input/input.h>
+>  #include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+>  #include <dt-bindings/usb/pd.h>
+>  #include "rk3588s.dtsi"
+>  
+> @@ -120,6 +121,18 @@ backlight: backlight {
+>  		pwms = <&pwm12 0 25000 0>;
+>  	};
+>  
+> +	edp_panel: edp-panel {
+> +		compatible = "lg,lp079qx1-sp0v";
 
-On 12/3/24 15:52, Manivannan Sadhasivam wrote:
-> On Tue, Nov 26, 2024 at 04:51:16PM +0100, Christian Bruel wrote:
->> Add driver for the STM32MP25 SoC PCIe Gen2 controller based on the
->> DesignWare PCIe core.
->>
->> Supports MSI via GICv2m, Single Virtual Channel, Single Function
->>
->> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
->> ---
->>   drivers/pci/controller/dwc/Kconfig      |  12 +
->>   drivers/pci/controller/dwc/Makefile     |   1 +
->>   drivers/pci/controller/dwc/pcie-stm32.c | 402 ++++++++++++++++++++++++
->>   drivers/pci/controller/dwc/pcie-stm32.h |  15 +
->>   4 files changed, 430 insertions(+)
->>   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
->>   create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
->>
->> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
->> index b6d6778b0698..0c18879b604c 100644
->> --- a/drivers/pci/controller/dwc/Kconfig
->> +++ b/drivers/pci/controller/dwc/Kconfig
->> @@ -389,6 +389,18 @@ config PCIE_SPEAR13XX
->>   	help
->>   	  Say Y here if you want PCIe support on SPEAr13XX SoCs.
->>   
->> +config PCIE_STM32
->> +	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
->> +	depends on ARCH_STM32 || COMPILE_TEST
->> +	depends on PCI_MSI
->> +	select PCIE_DW_HOST
->> +	help
->> +	  Enables support for the DesignWare core based PCIe host controller
->> +	  found in STM32MP25 SoC.
->> +
->> +	  This driver can also be built as a module. If so, the module
->> +	  will be called pcie-stm32.
->> +
->>   config PCI_DRA7XX
->>   	tristate
->>   
->> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
->> index a8308d9ea986..576d99cb3bc5 100644
->> --- a/drivers/pci/controller/dwc/Makefile
->> +++ b/drivers/pci/controller/dwc/Makefile
->> @@ -28,6 +28,7 @@ obj-$(CONFIG_PCIE_UNIPHIER) += pcie-uniphier.o
->>   obj-$(CONFIG_PCIE_UNIPHIER_EP) += pcie-uniphier-ep.o
->>   obj-$(CONFIG_PCIE_VISCONTI_HOST) += pcie-visconti.o
->>   obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
->> +obj-$(CONFIG_PCIE_STM32) += pcie-stm32.o
->>   
->>   # The following drivers are for devices that use the generic ACPI
->>   # pci_root.c driver but don't support standard ECAM config access.
->> diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
->> new file mode 100644
->> index 000000000000..fa787406c0e4
->> --- /dev/null
->> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
->> @@ -0,0 +1,402 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * STMicroelectronics STM32MP25 PCIe root complex driver.
->> + *
->> + * Copyright (C) 2024 STMicroelectronics
->> + * Author: Christian Bruel <christian.bruel@foss.st.com>
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/mfd/syscon.h>
->> +#include <linux/of_platform.h>
->> +#include <linux/phy/phy.h>
->> +#include <linux/pinctrl/devinfo.h>
->> +#include <linux/pm_runtime.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/regmap.h>
->> +#include <linux/reset.h>
->> +#include "pcie-designware.h"
->> +#include "pcie-stm32.h"
->> +#include "../../pci.h"
->> +
->> +struct stm32_pcie {
->> +	struct dw_pcie *pci;
->> +	struct regmap *regmap;
->> +	struct reset_control *rst;
->> +	struct phy *phy;
->> +	struct clk *clk;
->> +	struct gpio_desc *perst_gpio;
->> +	struct gpio_desc *wake_gpio;
->> +	unsigned int wake_irq;
->> +	bool link_is_up;
->> +};
->> +
->> +static int stm32_pcie_start_link(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +	u32 ret;
->> +
->> +	if (stm32_pcie->perst_gpio) {
-> 
-> gpiod_set_value() will bail out if 'perst_gpio' is NULL. So no need to add a
-> check.
+Please use aux-bus and a generic "edp-panel" entry for newer platforms
+instead of declaring the panel on the platform bus. Placing eDP panels
+on the platform bus has been deprecated for quite a while.
 
-OK
+> +		backlight = <&backlight>;
+> +		power-supply = <&vcc3v3_lcd_edp>;
+> +
+> +		port {
+> +			panel_in_edp: endpoint {
+> +				remote-endpoint = <&edp_out_panel>;
+> +			};
+> +		};
+> +	};
+> +
+>  	combophy_avdd0v85: regulator-combophy-avdd0v85 {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "combophy_avdd0v85";
 
-> 
->> +		/* Make sure PERST# is asserted. */
-> 
-> Why?
-
-Ack. We have GPIOD_OUT_HIGH already thanks devm_gpiod_get_optional, so 
-PERST# is asserted already at probe
-
-
-> 
->> +		gpiod_set_value(stm32_pcie->perst_gpio, 1);
->> +
->> +		fsleep(PCIE_T_PERST_CLK_US);
->> +		gpiod_set_value(stm32_pcie->perst_gpio, 0);
-> 
-> Why can't you deassert PERST# in stm32_add_pcie_port()?
-
-Code reuse between probe and resume. (Need de-assert PERST# after the 
-refclk is stable from both probe or resume_noirq paths).
-Can move this from start_link to:
-  - probe after the phy_init
-  - and resume_no_irq after the phy_init
-before dw_pcie_setup_rc
-
-> 
->> +	}
->> +
->> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->> +				 STM32MP25_PCIECR_LTSSM_EN,
->> +				 STM32MP25_PCIECR_LTSSM_EN);
->> +
->> +	if (stm32_pcie->perst_gpio)
-> 
-> It doesn't hurt to call msleep() always.
-
-It is optional in the DT. Why wait if we don't have a reset signal ?
-
-> 
->> +		msleep(PCIE_T_RRS_READY_MS);
->> +
->> +	return ret;
->> +}
->> +
->> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +
->> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->> +			   STM32MP25_PCIECR_LTSSM_EN, 0);
->> +
->> +	/* Assert PERST# */
->> +	if (stm32_pcie->perst_gpio)
->> +		gpiod_set_value(stm32_pcie->perst_gpio, 1);
-> 
-> I don't like tying PERST# handling with start/stop link. PERST# should be
-> handled based on the power/clock state.
-
-I don't understand your point: We turn off the PHY in suspend_noirq(), 
-so that seems a logical place to de-assert in resume_noirq after the 
-refclk is ready. PERST# should be kept active until the PHY stablilizes 
-the clock in resume. From the PCIe electromechanical specs, PERST# goes 
-active while the refclk is not stable/
-
-
-> 
->> +}
->> +
->> +static int stm32_pcie_suspend(struct device *dev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->> +
->> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
->> +		enable_irq_wake(stm32_pcie->wake_irq);
->> +
->> +	return 0;
->> +}
->> +
->> +static int stm32_pcie_resume(struct device *dev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->> +
->> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
->> +		disable_irq_wake(stm32_pcie->wake_irq);
->> +
->> +	return 0;
->> +}
->> +
->> +static int stm32_pcie_suspend_noirq(struct device *dev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->> +
->> +	stm32_pcie->link_is_up = dw_pcie_link_up(stm32_pcie->pci);
->> +
->> +	stm32_pcie_stop_link(stm32_pcie->pci);
-> 
-> I don't understand how endpoint can wakeup the host if PERST# gets asserted.
-
-The stm32 PCIe doesn't support L2, we don't expect an in-band beacon for 
-the wakeup. We support wakeup only from sideband WAKE#, that will 
-restart the link from IRQ
-
-> 
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +
->> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev))
->> +		phy_exit(stm32_pcie->phy);
->> +
->> +	return pinctrl_pm_select_sleep_state(dev);
->> +}
->> +
->> +static int stm32_pcie_resume_noirq(struct device *dev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->> +	struct dw_pcie *pci = stm32_pcie->pci;
->> +	struct dw_pcie_rp *pp = &pci->pp;
->> +	int ret;
->> +
->> +	/* init_state must be called first to force clk_req# gpio when no
-> 
-> CLKREQ#
-> 
-> Why RC should control CLKREQ#?
-
-REFCLK is gated with CLKREQ#, So we cannot access the core
-without CLKREQ# if no device is present. So force it with a init pinmux
-the time to init the PHY and the core DBI registers
-
-> 
-> Also please use preferred style for multi-line comments:
-> 
-> 	/*
-> 	 * ...
-> 	 */
-> 
->> +	 * device is plugged.
->> +	 */
->> +	if (!IS_ERR(dev->pins->init_state))
->> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
->> +	else
->> +		ret = pinctrl_pm_select_default_state(dev);
->> +
->> +	if (ret) {
->> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev)) {
->> +		ret = phy_init(stm32_pcie->phy);
->> +		if (ret) {
->> +			pinctrl_pm_select_default_state(dev);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	ret = clk_prepare_enable(stm32_pcie->clk);
->> +	if (ret)
->> +		goto clk_err;
-> 
-> Please name the goto labels of their purpose. Like err_phy_exit.
-
-OK
-
-> 
->> +
->> +	ret = dw_pcie_setup_rc(pp);
->> +	if (ret)
->> +		goto pcie_err;
-> 
-> This should be, 'err_disable_clk'.
-> 
->> +
->> +	if (stm32_pcie->link_is_up) {
-> 
-> Why do you need this check? You cannot start the link in the absence of an
-> endpoint?
-> 
-
-It is an optimization to avoid unnecessary "dw_pcie_wait_for_link" if no 
-device is present during suspend
-
-
->> +		ret = stm32_pcie_start_link(stm32_pcie->pci);
->> +		if (ret)
->> +			goto pcie_err;
->> +
->> +		/* Ignore errors, the link may come up later */
->> +		dw_pcie_wait_for_link(stm32_pcie->pci);
->> +	}
->> +
->> +	pinctrl_pm_select_default_state(dev);
->> +
->> +	return 0;
->> +
->> +pcie_err:
->> +	dw_pcie_host_deinit(pp);
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +clk_err:
->> +	phy_exit(stm32_pcie->phy);
->> +	pinctrl_pm_select_default_state(dev);
->> +
->> +	return ret;
->> +}
->> +
->> +static const struct dev_pm_ops stm32_pcie_pm_ops = {
->> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend_noirq,
->> +				  stm32_pcie_resume_noirq)
-> 
-> Can you make use of dw_pcie_{suspend/resume}_noirq() APIs?
-
-dw_pcie_suspend_noirq bails out with read_poll_timeout on ltssm = 
-DW_PCIE_LTSS_L2_IDLE. We don't support L2.
-
-> 
->> +	SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend, stm32_pcie_resume)
->> +};
->> +
->> +static const struct dw_pcie_host_ops stm32_pcie_host_ops = {
->> +};
->> +
->> +static const struct dw_pcie_ops dw_pcie_ops = {
->> +	.start_link = stm32_pcie_start_link,
->> +	.stop_link = stm32_pcie_stop_link
->> +};
->> +
-> 
-> [...]
-> 
->> +	if (device_property_read_bool(dev, "wakeup-source")) {
->> +		stm32_pcie->wake_gpio = devm_gpiod_get_optional(dev, "wake",
->> +								GPIOD_IN);
->> +		if (IS_ERR(stm32_pcie->wake_gpio))
->> +			return dev_err_probe(dev, PTR_ERR(stm32_pcie->wake_gpio),
->> +					     "Failed to get wake GPIO\n");
->> +	}
->> +
->> +	if (stm32_pcie->wake_gpio) {
->> +		stm32_pcie->wake_irq = gpiod_to_irq(stm32_pcie->wake_gpio);
->> +
->> +		ret = devm_request_threaded_irq(&pdev->dev,
->> +						stm32_pcie->wake_irq, NULL,
->> +						stm32_pcie_wake_irq_handler,
->> +						IRQF_TRIGGER_FALLING | IRQF_ONESHOT,
->> +						"wake_irq", stm32_pcie);
->> +
->> +		if (ret)
->> +			return dev_err_probe(dev, ret, "Failed to request WAKE IRQ: %d\n", ret);
->> +	}
-> 
-> Can we move WAKE# gpio handling to DWC core? There is nothing STM32 specific
-> here.
-> 
-
-OK
-
->> +
->> +	ret = devm_pm_runtime_enable(dev);
->> +	if (ret < 0) {
->> +		dev_err(dev, "Failed to enable runtime PM %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	ret = pm_runtime_resume_and_get(dev);
->> +	if (ret < 0) {
->> +		dev_err(dev, "Failed to get runtime PM %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	ret = stm32_add_pcie_port(stm32_pcie, pdev);
->> +	if (ret)  {
->> +		pm_runtime_put_sync(&pdev->dev);
->> +		return ret;
->> +	}
->> +
->> +	if (stm32_pcie->wake_gpio)
->> +		device_set_wakeup_capable(dev, true);
->> +
->> +	return 0;
->> +}
->> +
->> +static void stm32_pcie_remove(struct platform_device *pdev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = platform_get_drvdata(pdev);
->> +	struct dw_pcie_rp *pp = &stm32_pcie->pci->pp;
->> +
->> +	if (stm32_pcie->wake_gpio)
->> +		device_init_wakeup(&pdev->dev, false);
->> +
->> +	dw_pcie_host_deinit(pp);
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +
->> +	phy_exit(stm32_pcie->phy);
->> +
->> +	pm_runtime_put_sync(&pdev->dev);
->> +}
->> +
->> +static const struct of_device_id stm32_pcie_of_match[] = {
->> +	{ .compatible = "st,stm32mp25-pcie-rc" },
->> +	{},
->> +};
->> +
->> +static struct platform_driver stm32_pcie_driver = {
->> +	.probe = stm32_pcie_probe,
->> +	.remove = stm32_pcie_remove,
->> +	.driver = {
->> +		.name = "stm32-pcie",
->> +		.of_match_table = stm32_pcie_of_match,
->> +		.pm		= &stm32_pcie_pm_ops,
-> 
-> Just use a single space instead of tab.
-> 
-> Could you also set PROBE_PREFER_ASYNCHRONOUS to allow async probing of
-> controller drivers?
-
-OK
-
-> 
->> +	},
->> +};
->> +
->> +static bool is_stm32_pcie_driver(struct device *dev)
->> +{
->> +	/* PCI bridge */
->> +	dev = get_device(dev);
->> +
->> +	/* Platform driver */
->> +	dev = get_device(dev->parent);
->> +
->> +	return (dev->driver == &stm32_pcie_driver.driver);
->> +}
->> +
->> +/*
->> + * DMA masters can only access the first 4GB of memory space,
->> + * so we setup the bus DMA limit accordingly.
->> + */
->> +static int stm32_dma_limit(struct pci_dev *pdev, void *data)
->> +{
->> +	dev_dbg(&pdev->dev, "disabling DMA DAC for device");
->> +
->> +	pdev->dev.bus_dma_limit = DMA_BIT_MASK(32);
->> +
->> +	return 0;
->> +}
->> +
->> +static void quirk_stm32_dma_mask(struct pci_dev *pci)
->> +{
->> +	struct pci_dev *root_port;
->> +
->> +	root_port = pcie_find_root_port(pci);
->> +
->> +	if (root_port && is_stm32_pcie_driver(root_port->dev.parent))
->> +		pci_walk_bus(pci->bus, stm32_dma_limit, NULL);
->> +}
->> +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_SYNOPSYS, 0x0550, quirk_stm32_dma_mask);
-> 
-> This is not the correct way of using DMA masks as Bjorn noted.
-
-Yes, fixed will dma-ranges
-
-thanks
-
-Christian
-
-> 
-> - Mani
-> 
+-- 
+With best wishes
+Dmitry
 
