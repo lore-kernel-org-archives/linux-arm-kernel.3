@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C851E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66BBE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 05:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f81KfW85wEQNoq2nlGF77lObzOhpo6oJeeHyxrLLk54=; b=B/ShuRmMQf6iDs6zt5+vVPITaU
-	E/vWnWk2iKZAUeRT6HJkgk0oP+o444evF4rOaAAuDKVZz4JUJUv2A51UjcQmO5A7hMrH7WR8F3Nrx
-	F0U2tymnQY/Sm3yP8SiEPbjQPYE1NLfqHcE0dDtuN8+YzP1tDqP9pb3oXgpzywaIHGQUF1TWP+2/A
-	q4IqJmkkGW55aYyvNNAtgYKj4qCP1x0xXObCc0M7fvr4or67AGVqPDwNef52aakzl+kCn4ly/15ny
-	Ovv/dXbWvAWICj1lxLXPAfSWNmcFHcREPI6rqTOl9YB61Q8UXSf94p7VnJlaOlSPO5fZrmBdogW1o
-	+bxP1eIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k+RLTPUZy3+zfG6K2U5lRmIcgb4pnhmlUqm9rLAiFJE=; b=uOTpu29GMGWn25JPa899U6bvCK
+	1EOc6vqHPFwJpbTK30i/t2sOSXZGeGX2gaFb7cxLLjWepNOgzLWuJ0SjJw6pPXv5n3EtTPzTU4rBe
+	/okStzPyDiUMAusKsSuN3pAhzOHOz2po4FghMJdCBRTveuX0ysxfZgu2+kUBjYF1XblLhzF3vcmKn
+	xYDayLOcNLWCIkUpfg3AdrdSlNhyd65GDt5ZMp9OFpVvrj0Yt1bnoMnW7je8F22BOLB1jMivxs1IG
+	IQay8K8TwGjv9oHLPg01fevSf08SpTLopxAeRykxsln3cY1gu4AW53SQmk04N3IkRHVBl44zjccow
+	btDlI++g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3xU-000000098Dd-2Xat;
-	Mon, 16 Dec 2024 05:47:56 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1tN40y-000000098g6-1TtD;
+	Mon, 16 Dec 2024 05:51:32 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN3wM-0000000983B-2Fns
+	id 1tN3zr-000000098ZQ-3Mp2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 05:46:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1734328001; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=f81KfW85wEQNoq2nlGF77lObzOhpo6oJeeHyxrLLk54=;
-	b=ThNx9AHJANEafcBuhOu2cQ36CkZQ1BqF9yvrUE3rp/Bd4szvJ8WBOfGzEufDDwIGSmtdCOLqAtT18Pv8e2qE7lmXCfOsk/1upnZ0ffjlTNjH/dn9jtqLhYzx5dEmheiLXUbagctIPJnJRxLgf+7fViDcdUmAYtxaD95JAEhBaj4=
-Received: from 30.246.161.240(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLWS82F_1734327991 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 16 Dec 2024 13:46:33 +0800
-Message-ID: <290a8ac7-4d4b-472d-a77d-a0c76d7b963e@linux.alibaba.com>
-Date: Mon, 16 Dec 2024 13:46:30 +0800
+	Mon, 16 Dec 2024 05:50:25 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BG4CqjX014943;
+	Sun, 15 Dec 2024 21:50:16 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=k+RLTPUZy3+zfG6K2U5lRmIcg
+	b4pnhmlUqm9rLAiFJE=; b=kPNfJws6YkDTGM2m3e4Ls0SR6ZXLswcu51cG8yUu0
+	4SzW6f9oUHQaYjlJfyRJWTZumbJlSVd9psXUmVw3nV2Cg7VbyjX1olcmDwGWA2QL
+	nv2TdMyd7rvuNUaREmlbx90PYg4iyS9mPCKbC/m5tlBsSmljJY4/ebjv94toXSZE
+	Uq7xtoYk69m/vU6fY91Nnn60V9tdqxF6yDnkXyP/gNE66X7i6Asw7qruwd1Kwujk
+	Q7J+tH8baqk0SjUEZkPNfemXb7zaIeG+BL7CS9udSUplueNH9FvcCDC5x74AP/Ab
+	axIxPZ8CpuU7Fc8qDerf+wOIlwewJr8f47JRGZh15oHPA==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 43jcyv08ju-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 15 Dec 2024 21:50:16 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Sun, 15 Dec 2024 21:50:15 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Sun, 15 Dec 2024 21:50:15 -0800
+Received: from hyd1403.caveonetworks.com (unknown [10.29.37.84])
+	by maili.marvell.com (Postfix) with SMTP id 8A92F3F7093;
+	Sun, 15 Dec 2024 21:50:11 -0800 (PST)
+Date: Mon, 16 Dec 2024 11:20:10 +0530
+From: Linu Cherian <lcherian@marvell.com>
+To: James Clark <james.clark@linaro.org>
+CC: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <shuah@kernel.org>, <linux-kselftest@vger.kernel.org>,
+        <sgoutham@marvell.com>, <gcherian@marvell.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Suzuki K Poulose <Suzuki.Poulose@arm.com>, Leo Yan
+	<leo.yan@arm.com>
+Subject: Re: [PATCH] selftests: arm coresight: sysfsmode testing
+Message-ID: <20241216055010.GA1237565@hyd1403.caveonetworks.com>
+References: <20241129083813.3056909-1-lcherian@marvell.com>
+ <1b7aaa17-48b7-45cd-b468-ef54ca048e31@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 0/3] ACPI: APEI: handle synchronous errors in task
- work
-To: yazen.ghannam@amd.com, mark.rutland@arm.com, catalin.marinas@arm.com,
- mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
- bp@alien8.de, rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
- wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
- tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
- james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
- will@kernel.org, jarkko@kernel.org
-Cc: linux-acpi@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
- linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
- ardb@kernel.org, ying.huang@intel.com, ashish.kalra@amd.com,
- baolin.wang@linux.alibaba.com, tglx@linutronix.de,
- dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
- robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
- zhuo.song@linux.alibaba.com
-References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <1b7aaa17-48b7-45cd-b468-ef54ca048e31@linaro.org>
+X-Proofpoint-GUID: Zj18E5iGenMM-xpe-bK_TsBZ9dFSQz9d
+X-Proofpoint-ORIG-GUID: Zj18E5iGenMM-xpe-bK_TsBZ9dFSQz9d
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.687,Hydra:6.0.235,FMLib:17.0.607.475
+ definitions=2020-10-13_15,2020-10-13_02,2020-04-07_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_214647_249585_B1ECB19B 
-X-CRM114-Status: GOOD (  44.46  )
+X-CRM114-CacheID: sfid-20241215_215024_032655_E96558F4 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,246 +94,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2024/12/2 11:05, Shuai Xue 写道:
-> changes singce v16:
-> - add reviewed-by tag for patch 1 and patch 2 from Yazen
-> - rewrite warning message for force kill (per Yazen)
-> - warn with dev_err in ghes (per Jarkko)
-> - add return value -ENXIO in memory_failure comments  (per Yazen)
-> - Link: https://lore.kernel.org/lkml/20241104015430.98599-1-xueshuai@linux.alibaba.com/
+On 2024-12-04 at 16:45:42, James Clark (james.clark@linaro.org) wrote:
 > 
-> changes singce v15:
-> - add HW_ERR and GHES_PFX prefix per Yazen
 > 
-> changes since v14:
-> - add reviewed-by tags from Jarkko and Jonathan
-> - remove local variable and use twcb->pfn
+> On 29/11/2024 8:38 am, Linu Cherian wrote:
+> > Add sysfs mode selftest for ARM Coresight hardware tracer.
+> > 
+> > Signed-off-by: Linu Cherian <lcherian@marvell.com>
+> > ---
+> >   .../drivers/hwtracing/coresight/Makefile      |   5 +
+> >   .../hwtracing/coresight/sysfs_test_trace.sh   | 144 ++++++++++++++++++
+> >   2 files changed, 149 insertions(+)
+> >   create mode 100644 tools/testing/selftests/drivers/hwtracing/coresight/Makefile
 > 
-> changes since v13:
-> - add reviewed-by tag from Jarkko
-> - rename task_work to ghes_task_work (per Jarkko)
+> Hi Linu,
 > 
-> changes since v12:
-> - tweak error message for force kill (per Jarkko)
-> - fix comments style (per Jarkko)
-> - fix commit log typo (per Jarko)
+> You need to add this path into TARGETS for make install to work:
 > 
-> changes since v11:
-> - rebase to Linux 6.11-rc6
-> - fix grammer and typo in commit log (per Borislav)
-> - remove `sync_` perfix of `sync_task_work`  (per Borislav)
-> - comments flags and description of `task_work`  (per Borislav)
+>  TARGETS += drivers/dma-buf
+> +TARGETS += drivers/hwtracing/coresight
+>  TARGETS += drivers/s390x/uvdevice
 > 
-> changes since v10:
-> - rebase to v6.8-rc2
 > 
-> changes since v9:
-> - split patch 2 to address exactly one issue in one patch (per Borislav)
-> - rewrite commit log according to template (per Borislav)
-> - pickup reviewed-by tag of patch 1 from James Morse
-> - alloc and free twcb through gen_pool_{alloc, free) (Per James)
-> - rewrite cover letter
+> >   create mode 100755 tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
+> > 
+> > diff --git a/tools/testing/selftests/drivers/hwtracing/coresight/Makefile b/tools/testing/selftests/drivers/hwtracing/coresight/Makefile
+> > new file mode 100644
+> > index 000000000000..7dc68ae1c0a9
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/drivers/hwtracing/coresight/Makefile
+> > @@ -0,0 +1,5 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +
+> > +TEST_PROGS = sysfs_test_trace.sh
+> > +
+> > +include ../../../lib.mk
+> > diff --git a/tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh b/tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
+> > new file mode 100755
+> > index 000000000000..0d6307fff1d2
+> > --- /dev/null
+> > +++ b/tools/testing/selftests/drivers/hwtracing/coresight/sysfs_test_trace.sh
+> > @@ -0,0 +1,144 @@
+> > +#!/bin/sh
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +# Copyright (C) 2024 Marvell.
+> > +
+> > +# Test Arm CoreSight trace capture in sysfs mode
+> > +# Based on tools/perf/tests/shell/test_arm_coresight.sh
+> > +
+> > +glb_err=0
+> > +
+> > +arm_cs_report() {
+> > +	if [ $2 != 0 ]; then
+> > +		echo "$1: FAIL"
+> > +		glb_err=$2
+> > +	else
+> > +		echo "$1: PASS"
+> > +	fi
+> > +}
+> > +
+> > +is_device_sink() {
+> > +	# If the node of "enable_sink" is existed under the device path, this
+> > +	# means the device is a sink device.
+> > +
 > 
-> changes since v8:
-> - remove the bug fix tag of patch 2 (per Jarkko Sakkinen)
-> - remove the declaration of memory_failure_queue_kick (per Naoya Horiguchi)
-> - rewrite the return value comments of memory_failure (per Naoya Horiguchi)
-> 
-> changes since v7:
-> - rebase to Linux v6.6-rc2 (no code changed)
-> - rewritten the cover letter to explain the motivation of this patchset
-> 
-> changes since v6:
-> - add more explicty error message suggested by Xiaofei
-> - pick up reviewed-by tag from Xiaofei
-> - pick up internal reviewed-by tag from Baolin
-> 
-> changes since v5 by addressing comments from Kefeng:
-> - document return value of memory_failure()
-> - drop redundant comments in call site of memory_failure()
-> - make ghes_do_proc void and handle abnormal case within it
-> - pick up reviewed-by tag from Kefeng Wang
-> 
-> changes since v4 by addressing comments from Xiaofei:
-> - do a force kill only for abnormal sync errors
-> 
-> changes since v3 by addressing comments from Xiaofei:
-> - do a force kill for abnormal memory failure error such as invalid PA,
-> unexpected severity, OOM, etc
-> - pcik up tested-by tag from Ma Wupeng
-> 
-> changes since v2 by addressing comments from Naoya:
-> - rename mce_task_work to sync_task_work
-> - drop ACPI_HEST_NOTIFY_MCE case in is_hest_sync_notify()
-> - add steps to reproduce this problem in cover letter
-> 
-> changes since v1:
-> - synchronous events by notify type
-> - Link: https://lore.kernel.org/lkml/20221206153354.92394-3-xueshuai@linux.alibaba.com/
-> 
-> ## Cover Letter
-> 
-> There are two major types of uncorrected recoverable (UCR) errors :
-> 
-> - Synchronous error: The error is detected and raised at the point of the
->    consumption in the execution flow, e.g. when a CPU tries to access
->    a poisoned cache line. The CPU will take a synchronous error exception
->    such as Synchronous External Abort (SEA) on Arm64 and Machine Check
->    Exception (MCE) on X86. OS requires to take action (for example, offline
->    failure page/kill failure thread) to recover this uncorrectable error.
-> 
-> - Asynchronous error: The error is detected out of processor execution
->    context, e.g. when an error is detected by a background scrubber. Some data
->    in the memory are corrupted. But the data have not been consumed. OS is
->    optional to take action to recover this uncorrectable error.
-> 
-> Currently, both synchronous and asynchronous error use
-> memory_failure_queue() to schedule memory_failure() exectute in kworker
-> context. As a result, when a user-space process is accessing a poisoned
-> data, a data abort is taken and the memory_failure() is executed in the
-> kworker context:
-> 
->    - will send wrong si_code by SIGBUS signal in early_kill mode, and
->    - can not kill the user-space in some cases resulting a synchronous
->      error infinite loop
-> 
-> Issue 1: send wrong si_code in early_kill mode
-> 
-> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
-> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
-> could be used to determine whether a synchronous exception occurs on
-> ARM64 platform.  When a synchronous exception is detected, the kernel is
-> expected to terminate the current process which has accessed poisoned
-> page. This is done by sending a SIGBUS signal with an error code
-> BUS_MCEERR_AR, indicating an action-required machine check error on
-> read.
-> 
-> However, when kill_proc() is called to terminate the processes who have
-> the poisoned page mapped, it sends the incorrect SIGBUS error code
-> BUS_MCEERR_AO because the context in which it operates is not the one
-> where the error was triggered.
-> 
-> To reproduce this problem:
-> 
->    # STEP1: enable early kill mode
->    #sysctl -w vm.memory_failure_early_kill=1
->    vm.memory_failure_early_kill = 1
-> 
->    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 5 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
-> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
-> error and it is not fact.
-> 
-> To fix it, queue memory_failure() as a task_work so that it runs in
-> the context of the process that is actually consuming the poisoned data.
-> 
-> After this patch set:
-> 
->    # STEP1: enable early kill mode
->    #sysctl -w vm.memory_failure_early_kill=1
->    vm.memory_failure_early_kill = 1
-> 
->    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 4 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
-> The si_code (code 4) from einj_mem_uc indicates that it is BUS_MCEERR_AR
-> error as we expected.
-> 
-> Issue 2: a synchronous error infinite loop due to memory_failure() failed
-> 
-> If a user-space process, e.g. devmem, a poisoned page which has been set
-> HWPosion flag, kill_accessing_process() is called to send SIGBUS to the
-> current processs with error info. Because the memory_failure() is
-> executed in the kworker contex, it will just do nothing but return
-> EFAULT. So, devmem will access the posioned page and trigger an
-> excepction again, resulting in a synchronous error infinite loop. Such
-> loop may cause platform firmware to exceed some threshold and reboot
-> when Linux could have recovered from this error.
-> 
-> To reproduce this problem:
-> 
->    # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
->    #einj_mem_uc single
->    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->    injecting ...
->    triggering ...
->    signal 7 code 4 addr 0xffffb0d75000
->    page not present
->    Test passed
-> 
->    # STEP 2: access the same page and it will trigger a synchronous error infinite loop
->    devmem 0x4092d55b400
-> 
-> To fix it, if memory_failure() failed, perform a force kill to current process.
-> 
-> Issue 3: a synchronous error infinite loop due to no memory_failure() queued
-> 
-> No memory_failure() work is queued unless all bellow preconditions check passed:
-> 
-> - `if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))` in ghes_handle_memory_failure()
-> - `if (flags == -1)` in ghes_handle_memory_failure()
-> - `if (!IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))` in ghes_do_memory_failure()
-> - `if (!pfn_valid(pfn) && !arch_is_platform_page(physical_addr)) ` in ghes_do_memory_failure()
-> 
-> If the preconditions are not passed, the user-space process will trigger SEA again.
-> This loop can potentially exceed the platform firmware threshold or even
-> trigger a kernel hard lockup, leading to a system reboot.
-> 
-> To fix it, if no memory_failure() queued, perform a force kill to current process.
-> 
-> And the the memory errors triggered in kernel-mode[5], also relies on this
-> patchset to kill the failure thread.
-> 
-> Lv Ying and XiuQi from Huawei also proposed to address similar problem[2][4].
-> Acknowledge to discussion with them.
-> 
-> [1] Add ARMv8 RAS virtualization support in QEMU https://patchew.org/QEMU/20200512030609.19593-1-gengdongjiu@huawei.com/
-> [2] https://lore.kernel.org/lkml/20221205115111.131568-3-lvying6@huawei.com/
-> [3] https://lkml.kernel.org/r/20220914064935.7851-1-xueshuai@linux.alibaba.com
-> [4] https://lore.kernel.org/lkml/20221209095407.383211-1-lvying6@huawei.com/
-> [5] https://patchwork.kernel.org/project/linux-arm-kernel/cover/20240528085915.1955987-1-tongtiangen@huawei.com/
-> 
-> Shuai Xue (3):
->    ACPI: APEI: send SIGBUS to current task if synchronous memory error
->      not recovered
->    mm: memory-failure: move return value documentation to function
->      declaration
->    ACPI: APEI: handle synchronous exceptions in task work
-> 
->   arch/x86/kernel/cpu/mce/core.c |  7 ---
->   drivers/acpi/apei/ghes.c       | 86 +++++++++++++++++++++-------------
->   include/acpi/ghes.h            |  3 --
->   include/linux/mm.h             |  1 -
->   mm/memory-failure.c            | 23 +++------
->   5 files changed, 61 insertions(+), 59 deletions(-)
+> Looks like you still need the skip for TPIU here the same as the Perf test.
+> It's an external sink and doesn't have a readable file so the test fails.
 > 
 
-Hi, Rafael,
+Okay will skip.
 
-I hope this message finds you well.
+> With those changes, looks good. Thanks for adding the first sysfs test.
+> Hopefully we can expand them more in the future.
+> 
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> 
 
-I am writing to provide an update on the current status of the patch set, now
-at *revision 17*. Each patch has been thoroughly reviewed by 3-5 reviewers, and
-their feedback has been incorporated to address any concerns.
-
-Given the extensive review and iterations the patch set has undergone, I would
-like to inquire that are you happy to queue this patch set?
-
-Best Regards,
-Shuai
+Thanks.
+Linu Cherian.
+ 
 
