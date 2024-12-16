@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21389E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 20:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBDDE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 20:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5oXif9BpDrBWmz7s8nZtlUyESt5pnsWuJi2m792Ugw=; b=isVRyoL6L4r1jUgeQMg3WeD1E6
-	vayhplyPEECWpxzam2i1dYMU0C52lOiS+8jmrAomDun89hyyMwRVwlQNfOPCjQydNLYh1BciIRJNd
-	O9YZIt3raPoYkTQY3nfqBqMfsbWuwp3Ngptc1cA/wNYguW9zs5wp5e8ElteZf5T+MeQbPrOIsgOMM
-	6fhFhaGRQMMbUU9B3D3IS6KOG1ModXYoU67cM14KhBMId+lKm0XNXC78eiiy34k8kDaT1EU7RvC3e
-	C5Sg6wHhYgYDCG19avb+FeUlmhD4pEUFWzFT9Z6eQc2qC8WnMlnl/4lvT03iEmQot2SZd1bY8sulU
-	HnHjuB2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P4N4npRw9l2lYAIYPKpSwxZEHeTuyIbIDB3Me3pUDDU=; b=e258CigoXjs0AoMIp26V1it7L8
+	4K3IPC422sFnV9wkvMvzyVzNAthWEESqcdM2QUJ8f+FFyofQfplvaLOaA8cQ4Zq7tRhV5p4Dl1Too
+	qBJVQ5ZPOodsaIUXdRfcAuVC5g6OYU2BVO2Z2kRvaUT1b0gtOuOtx8qOGZZ2u0sTD0its99yVLgUQ
+	09Rmi3fZg6FVE1wgFj/otCh0+rHaN4C5EdihGRredswwNEBAoQEWATL1697eI8r5ks+Ri/NfEulir
+	sPuHr7X8TYJSI42BD7lIsIMqjL83gpp4Ft7MDsFOhkt59tU78QWzVCxojHIs36J3/CoGllqekhXyK
+	+zxjqtzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNHj3-0000000BFxa-0Bfr;
-	Mon, 16 Dec 2024 20:29:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tNI5g-0000000BKb4-3Tt7;
+	Mon, 16 Dec 2024 20:53:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNHhx-0000000BFog-10cm
+	id 1tNI4b-0000000BKMN-125C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 20:28:50 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGCk20D032589;
-	Mon, 16 Dec 2024 20:28:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	f5oXif9BpDrBWmz7s8nZtlUyESt5pnsWuJi2m792Ugw=; b=Rd4H69LOL0X0PWz3
-	bt34JGV2AYmPy7cAL1d2OUU8CfRtMJCVFoBJCjM2B5cX2TXWnQ3nKIzKK6bPXlXA
-	AvnOvshT9Moi7fY+rMJkoIeRpAT97vcq1ynJebZerRe9Bm51K7J64MBkGiaZPWiK
-	OsR5e6O9nnyfk/xsjHivFk6WuYof41h4INgcF3Qs5cAOSVz3VLQhKLVzdzmo6oVk
-	meZCnm+/JjtcYdhHjOwlWyRBStn6B/YwhpjpKJqFfWDWMhntsOe/w/wk0DRRj6NC
-	qHlhPQABotIXAAUf47FecmLqmHZdJcPgTvIFNEQRWffYPECBYQZgOAfL457pOleb
-	A+99JA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43jmgah60u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 20:28:37 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BGKSa9g000717
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Dec 2024 20:28:36 GMT
-Received: from [10.216.59.147] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Dec
- 2024 12:28:33 -0800
-Message-ID: <a15a7594-8793-478b-a86e-81a06812e4ff@quicinc.com>
-Date: Tue, 17 Dec 2024 01:58:30 +0530
+	Mon, 16 Dec 2024 20:52:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2B3C5A41AA4;
+	Mon, 16 Dec 2024 20:50:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B6B6C4CED0;
+	Mon, 16 Dec 2024 20:52:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734382331;
+	bh=P4N4npRw9l2lYAIYPKpSwxZEHeTuyIbIDB3Me3pUDDU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MFTWMAz5yd1SZCjlq7bX24x3pqbze2bCFMcTpKm1UX9IY2TNPqrHq8swBaG4tLgm8
+	 7s+XugKt1YR/GT6YbYq5Tq7ikXwD5CcQnz5CoagtKrKw1JBRhJj/QW/ln7DqUFzfQ/
+	 di1owgcNZrJvdChtaVIK7s5R5+htBDCIg30rkctsbJi8sEL6xrzRGafKQrxoU+zZbM
+	 INSchVZJ+0xw6wGl8SN4sUA2l6x+V+t7ccKe6RzCGfByFZbZc8i27vDhbu4rbEjQcV
+	 UnKesr9HTjRSuVReMnkXsC2A42t6Hqsce1W5dXR75wc9/QsB+4v+LdUBh8ZB2qp3pY
+	 8Hh1h++DkLqdA==
+Date: Mon, 16 Dec 2024 20:52:06 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH V2 09/46] arm64/sysreg: Add register fields for
+ HFGWTR2_EL2
+Message-ID: <1c1ac530-35cd-4fe4-93f1-1a6876c796c7@sirena.org.uk>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-10-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-To: Rob Clark <robdclark@gmail.com>, <iommu@lists.linux.dev>
-CC: <linux-arm-msm@vger.kernel.org>, <freedreno@lists.freedesktop.org>,
-        Rob
- Clark <robdclark@chromium.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy
-	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-        "moderated list:ARM
- SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-        open list
-	<linux-kernel@vger.kernel.org>
-References: <20241216171017.4881-1-robdclark@gmail.com>
-Content-Language: en-US
-From: Akhil P Oommen <quic_akhilpo@quicinc.com>
-In-Reply-To: <20241216171017.4881-1-robdclark@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: kIrFKqYl1sD_I1pStUItg7ckvFPQClSP
-X-Proofpoint-GUID: kIrFKqYl1sD_I1pStUItg7ckvFPQClSP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
- lowpriorityscore=0 mlxlogscore=999 spamscore=0 impostorscore=0 bulkscore=0
- phishscore=0 suspectscore=0 priorityscore=1501 clxscore=1011 adultscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412160168
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gQgirNPpUJRoLazz"
+Content-Disposition: inline
+In-Reply-To: <20241210055311.780688-10-anshuman.khandual@arm.com>
+X-Cookie: Be different: conform.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_122849_406261_666676C3 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20241216_125213_357442_2A0D093B 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/16/2024 10:40 PM, Rob Clark wrote:
-> From: Rob Clark <robdclark@chromium.org>
-> 
-> On mmu-500, stall-on-fault seems to stall all context banks, causing the
-> GMU to misbehave.  So limit this feature to smmu-v2 for now.
-> 
-> This fixes an issue with an older mesa bug taking outo the system
-> because of GMU going off into the year.
-> 
-> Signed-off-by: Rob Clark <robdclark@chromium.org>
-> ---
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> index c4c52f7bd09a..1c881e88fc4d 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -331,8 +331,10 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
->  	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
->  	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
->  	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
-> -	priv->set_stall = qcom_adreno_smmu_set_stall;
-> -	priv->resume_translation = qcom_adreno_smmu_resume_translation;
-> +	if (of_device_is_compatible(np, "qcom,smmu-v2")) {
-> +		priv->set_stall = qcom_adreno_smmu_set_stall;
-> +		priv->resume_translation = qcom_adreno_smmu_resume_translation;
-> +	}
 
-Shall we disable this from the driver instead? A debugfs knob to trigger
-coredump after a pagefault is very convenient.
+--gQgirNPpUJRoLazz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--Akhil
+On Tue, Dec 10, 2024 at 11:22:34AM +0530, Anshuman Khandual wrote:
+> This adds register fields for HFGWTR2_EL2 as per the definitions based
+> on DDI0601 2024-09.
 
->  	priv->set_prr_bit = NULL;
->  	priv->set_prr_addr = NULL;
->  
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
+--gQgirNPpUJRoLazz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdgkvUACgkQJNaLcl1U
+h9BxRAf/UGDgCBdJrU3TS+Kx10KsHXS5MIs8ainlwpwbKqo+Hddp7hl5ChN12hfI
+PUJ7bT89YTFmjheYBgShw88T5p+HqaK4189NAkrgLj5KzkgmhM5296OyNtLmVDKr
+0zfPSIYCIsmu5UTWI+tzH7pg+aqY76VhrLn3sd8AVnu6UYAYENaEXwsTyyExknF/
+RwLCMSwxWmibB5S7g/96QtCrGbeUvGB4XvpVMUijNuctxmAdYzCknDaiXWjKnsEv
+Q4DwAsSzJXIDPdmaAz6vZTbgjd2dFuIDFFOXqSKRmPzLgFSEyVTp38Ycr9YHYTko
+teeYnuvVoWxVt6mriGL/LR7vjicAgw==
+=zIEV
+-----END PGP SIGNATURE-----
+
+--gQgirNPpUJRoLazz--
 
