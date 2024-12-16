@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021C6E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 22:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FD2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 23:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fV5e/unfpOyTP78WuJI+lL4T0kp1x8P3iyxboyk8CI=; b=wjLIJbob3PCt4zSOYY3zOnlCIt
-	SL3fjr0XNRStur6TxHtRbfJe5TapAKwCHVVg/3MnpzYzBh/E1H6XcoJsSWuXl8wn1NjrJibzNpmRh
-	ToMAIzEluHcXlunJXF1mtkRU+QI9i/Ff69ija0qeyOCIolQFg7FIqszcJUAf6YZFdrWf1QrOZ73s7
-	oscEe6Ry8xt59hU+HiheekPcubtJr/3vFdaOgNN24E4ad4BdSLeNMz9rgfZWCvuGAk80+Jg6JzngS
-	svYiVpUnlMRymASbu6azitpCxLxiksWUJb0Wp3mwDmhfUNQKQyDcUHHsbTESRKxjTNRNrh3k7SYyr
-	ygXTQ6EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nE0lMpFHRQbMjxCVICtRhw9zJ5Oy5M5HUo+2LUQLOXI=; b=FCbY4c6GdB1QmORp0eECps9TVo
+	oCwRP+JWE+chW3elaxyPqXrX4UDJ4fTBmSsLmvpPhIm4N9XJBgqB7hTLn/0ryEth1uPFiTjhudAVN
+	CXY9olMpJi4dPaSSQZAITYK3h7AeqXQH7JIrs6skVnFsOy+l9tOpF35M+T+Yd96+yGN4ReMmQZtUo
+	T1cd0mUHouSZxKMHfYpERsfsQ5+IwBqQUre6yibo22S6So1H/jt/P+dmnnIbwv30vlhUZWn3G8Uuk
+	x4lAN40z3U7Ja9crfGOkkRsdsmW/1sP6JRdAAyHeuapwmDJTfRwpbPlXBZXF7acF9mybP2NjGQtOS
+	j8rPEB3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNK0Z-0000000BbNI-3Ugm;
-	Mon, 16 Dec 2024 22:56:11 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1tNKK6-0000000BdCB-1CPr;
+	Mon, 16 Dec 2024 23:16:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNJzU-0000000BbCC-06dk
+	id 1tNKJ0-0000000Bd48-32D2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 22:55:06 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 06679C0003;
-	Mon, 16 Dec 2024 22:54:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1734389699;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3fV5e/unfpOyTP78WuJI+lL4T0kp1x8P3iyxboyk8CI=;
-	b=M7K7dG9hNs144lbC4tFE4v5qP0Sk04SievkUEmEhp01weoUA2bmkioucoEY5RUlSvM5QFN
-	+ASgHev+xFPZZlCCnUXzK7cKR5nO0ugim6AR3b2Yzj2qnZjrfsKUW6y2rWqhA1eIwthBQS
-	oXJTxJr/I1QKeAo7lNP0KXBLoQX3n4ndPvL7MBzxrV7uLTztX62wMrkQAP3O+UdutINxP7
-	XlLoDTgDB0m/o/Sv5dpMX61MxymAICC9XTD1Qj4OsmLKI/DpVLnWiYRXti8ovnb3ksQsn4
-	rGGH62V4k5s4+PSQDfqiYWF50+cKZldlS6nAZKYmQ1ofvMlJLw//6p9VutNzUA==
-Date: Mon, 16 Dec 2024 23:54:56 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, Ulf Hansson
- <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, Marek
- Vasut <marex@denx.de>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Lucas Stach <l.stach@pengutronix.de>, Jindong
- Yue <jindong.yue@nxp.com>, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>, Paul Elder
- <paul.elder@ideasonboard.com>, =?UTF-8?Q?Herv=C3=A9?= Codina
- <herve.codina@bootlin.com>
-Subject: Re: imx8m-blk-ctrl: WARNING, no release() function
-Message-ID: <20241216235456.3a6b07a2@booty>
-In-Reply-To: <20241212141003.GA44219@francesco-nb>
-References: <20241212141003.GA44219@francesco-nb>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Mon, 16 Dec 2024 23:15:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D6BD85C60CD;
+	Mon, 16 Dec 2024 23:14:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B59BC4CED0;
+	Mon, 16 Dec 2024 23:15:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734390913;
+	bh=WDQGE0FFR/+3pDl5MBnQd9HPJMHqNLi1cxrtKgTsVJg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EczuVcpsRKVXCx0lYb5AdO0DfZtDyc0OfdX1XCRaKY5G5FnncKpFRuGDSEv498F0s
+	 +xX0kftqNilbwMoL2B+3vy3htfse1J7b8bjov9lXk5bjaIjiJ76zV4f/IFD/Btq8V5
+	 SUBv8c03T+udxenBUuYd1ge/HiudjWA3JyPw8kUpcwA+SLs0gGJ4bWjxSFZ4aY4uKo
+	 eV3VsryU7XdRnzIrwuSEHgPv0EzUQS0Ypm8N/pd77nza1oTR7GJd3XqvPD9YCs4EvA
+	 aX/hKsqvcqDkPjRb/v/kmCD+5Jkf32MjNqVkKObramCBDQUdMnw92l+O9fujlq5uZK
+	 cmJO8DGbuxH3A==
+Date: Mon, 16 Dec 2024 17:15:05 -0600
+From: Rob Herring <robh@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH V2 18/46] arm64/sysreg: Add register fields for PMUACR_EL1
+Message-ID: <20241216231505.GA601635-robh@kernel.org>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-19-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241210055311.780688-19-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_145504_330700_30A80287 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20241216_151514_812171_1126CEA9 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,54 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
+On Tue, Dec 10, 2024 at 11:22:43AM +0530, Anshuman Khandual wrote:
+> This adds register fields for PMUACR_EL1 as per the definitions based
+> on DDI0601 2024-09.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/tools/sysreg | 37 +++++++++++++++++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 214ad6da1dff..462adb8031ca 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2349,6 +2349,43 @@ Res0	63:5
+>  Field	4:0	SEL
+>  EndSysreg
+>  
+> +Sysreg	PMUACR_EL1	3	0	9	14	4
 
-+Cc: Jindong, Benjamin, Paul (recent committers, in lack of an
-imx8m-blk-ctrl.c maintainer)
-+Cc: Herv=C3=A9 (stumbled on this issue too)
+I already added this and various other PMUv3.9 registers you've added 
+here in v6.12 and v6.13. So are you on an old base or the tool allows 
+multiple definitions? If the latter, that should be fixed.
 
-On Thu, 12 Dec 2024 15:10:03 +0100
-Francesco Dolcini <francesco@dolcini.it> wrote:
+> +Res0	63:33
+> +Field	32	FM
+> +Field	31	C
+> +Field	30	P30
+> +Field	29	P29
+> +Field	28	P28
+> +Field	27	P27
+> +Field	26	P26
+> +Field	25	P25
+> +Field	24	P24
+> +Field	23	P23
+> +Field	22	P22
+> +Field	21	P21
+> +Field	20	P20
+> +Field	19	P19
+> +Field	18	P18
+> +Field	17	P17
+> +Field	16	P16
+> +Field	15	P15
+> +Field	14	P14
+> +Field	13	P13
+> +Field	12	P12
+> +Field	11	P11
+> +Field	10	P10
+> +Field	9	P9
+> +Field	8	P8
+> +Field	7	P7
+> +Field	6	P6
+> +Field	5	P5
+> +Field	4	P4
+> +Field	3	P3
+> +Field	2	P2
+> +Field	1	P1
+> +Field	0	P0
 
-> Hello,
-> on v6.13-rc2 (PREEMPT_RT, if it matters), I have the following warning
->=20
-> [    4.615793] ------------[ cut here ]------------
-> [    4.615814] Device 'mediablk-mipi-csi2-1' does not have a release() fu=
-nction, it is broken and must be fixed. See Documentation/core-api/kobject.=
-rst.
+We're never going to use Pnn defines. This is just useless bloat unless 
+we're aiming to top amd gpu defines LOC.
 
-Thanks for the report. It is happening also here after upgrading from
-6.13-rc1 to 6.13-rc3.
-
-This originates from drivers/pmdomain/imx/imx8m-blk-ctrl.c
-
-I bisected and the initial commit exposing this warning is:
-
-  commit b8f7bbd1f4ecff6d6277b8c454f62bb0a1c6dbe4
-  Author: Ulf Hansson <ulf.hansson@linaro.org>
-  Date:   Fri Nov 22 14:42:02 2024 +0100
-
-    pmdomain: core: Add missing put_device()
-   =20
-    When removing a genpd we don't clean up the genpd->dev correctly. Let's=
- add
-    the missing put_device() in genpd_free_data() to fix this.
-   =20
-    Fixes: 401ea1572de9 ("PM / Domain: Add struct device to genpd")
-    Cc: stable@vger.kernel.org
-    Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-    Message-ID: <20241122134207.157283-2-ulf.hansson@linaro.org>
-
-Superficially, it looks to me like a legitimate commit which exposes a
-pre-existing flaw in drivers/pmdomain/imx/imx8m-blk-ctrl.c.
-
-I have no more info at the moment.
-
-Luca
-
---=20
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Rob
 
