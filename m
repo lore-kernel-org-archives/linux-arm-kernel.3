@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDC8E77180
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 11:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4167E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 11:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=srCVYqgOSp6kv0pOxxC4sBz8zDZFRNfUCCYb3aqr2eg=; b=zkTF1PZRc26lP1xl7FSU6N+9KO
-	yhMj2IduN6Bw8ZR9l9JP2btrM9WTVvOIxrC/5d6W7eOjYe83r+sepbmd8ZpOjxaeN8slQtKZXDu+V
-	KAvn92fSE2ktUTs4xf6y+E+Qd3Ksi8f1NuzrgFoVenV/c+ZU62b28w0WhNgdAlC/FjheOSAQRYB1o
-	vQNkC3jsmNoO+sDMvQvGYAJwFixCcxwU0+ajp2Rd2cBhxqO1KGFvOZ/BUmx0C8J6OKOzBhBtI+Qpm
-	mwq70r8Uo6XrFOkE7jkifout7N+8J7wXgrpqy/EdScp/y32mGGvO/nyqDacZIUxwdT/adM79CqQ5P
-	fEBPm0ag==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OVYVf9T0JG6bchMCPfRX3r5WmjaLxUaQC48hkI7msks=; b=Va5OWiJ48KktRZ4MBN2DqgJbPO
+	6Vd5nmVJtdFs3XAea8fXYCOXVnMZc0/gMXmg5CiUuHNpCEN7/9hQ+HbBUT7nhzph3glCxKSmMa+T3
+	6NKkSaJK48beMNxFhnsf64IQEquAKIh0EGgFIr2o69KAm8OkeTeEn8G3uesCU+xnno9HSrCun3Ff5
+	zwuaVPjTw+fP5fnDKNhuq9HLuDjeWzOPLzTz5O6ixAclivcA1S+580WWZOHcZv/pxE7Q719EzE2tX
+	zTz8ovr94w2F/DLxFxw8bXee9Hgluq/jUaroomy+NXawhBHL0Nd/1/fwMDGO20xyO/1RiQ9y4XUe6
+	q672mKPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN91w-00000009nGp-2dgv;
-	Mon, 16 Dec 2024 11:12:52 +0000
+	id 1tN92z-00000009nNy-2VeR;
+	Mon, 16 Dec 2024 11:13:57 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8tX-00000009ly1-1GcF;
-	Mon, 16 Dec 2024 11:04:12 +0000
+	id 1tN90f-00000009n21-0OSQ;
+	Mon, 16 Dec 2024 11:11:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734347048;
-	bh=2PAzW0CAvTGnmsRLsCQwS8t9Oqwmzf5n50qbI8kumJg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nADYOdP4y0TDITg8zV4mKADEnSxzC9xYVmJiW7FNJTMLuq6sz68ov/3wyCzIqV/Sh
-	 Q8tLkvhMMCaI4MgamBdtPgzfm75P0/QybahNCZDVLMemTaDmzDw54Uxk3q4H0RpltW
-	 jTvDRZRwwrUpht1VpJ08iV60s7p2oebBQQ3Sj0SSr3oQ3mXW4DsobChiWQMtF+rrP2
-	 aAZggNcTdQxh1RhGwZUC6Tb3OC0ondVKMnJBwy2lZsk+pNB9ZF+zzo095oGQqCx7Dj
-	 tmV7TxX9pIXJglAS+Rf+Zg3ASByMsiKqXmKCqqrgIHORiuH134+l5Y2U4mZjb/iuvu
-	 fOIMFis+EQwFg==
+	s=mail; t=1734347490;
+	bh=9FtWM9F33hvv9T4AE+nNxA94QLDsh/3495wx1tvpwyI=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Z9xq+i5xhImHLW55YgRgyEM7IxDe+HmaSOrf0Zsc0OGHHFQUa0zpFwMALNHsBpZvx
+	 fW3WVEjFFWkfTxL4yAF0SBxbn+Bv9U6GjmnTtRACleNMQFr+7yrKBZI1M2uvfvroap
+	 KlhtHqNj4Mjar6nNVz2TGvz/MT7HEuqOiHXj/3Zqg9ho4Pqwr3/G3C2CyyNJle4Hgn
+	 YhpxTsAddiSSs3Zc5WklrygwBJUEf2i4dAIlfWbGcXOnAMqIJhdNZ4hXh10YKH96PD
+	 QovxEt34OTdZqKkMRsrM/xtqCC97tt4FMHjsHRvi8BunwIbL/HjFN/rEDWQ+KA+aQy
+	 C/Ao+3IuatAzQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3E31117E3632;
-	Mon, 16 Dec 2024 12:04:07 +0100 (CET)
-Message-ID: <e5788187-e894-4aab-a41e-a3d7a64762c6@collabora.com>
-Date: Mon, 16 Dec 2024 12:04:06 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E3BF817E3634;
+	Mon, 16 Dec 2024 12:11:29 +0100 (CET)
+Message-ID: <adb6356b-19ea-4350-a691-3487d42c9fe2@collabora.com>
+Date: Mon, 16 Dec 2024 12:11:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
- <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
- <803bc2bd802506635dfa9ea9b26a6ca40a7f4912.camel@mediatek.com>
+Subject: Re: [PATCH] drm/mediatek: only touch DISP_REG_OVL_PITCH_MSB if AFBC
+ is supported
+To: Daniel Golle <daniel@makrotopia.org>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Justin Green <greenjustin@chromium.org>,
+ Frank Wunderlich <frank-w@public-files.de>, John Crispin <john@phrozen.org>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ stable@vger.kernel.org
+References: <8c001c8e70d93d64d3ee6bf7dc5078d2783d4e32.1734300345.git.daniel@makrotopia.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <803bc2bd802506635dfa9ea9b26a6ca40a7f4912.camel@mediatek.com>
+In-Reply-To: <8c001c8e70d93d64d3ee6bf7dc5078d2783d4e32.1734300345.git.daniel@makrotopia.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_030411_487857_A4ADC4DB 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20241216_031133_288450_2EDDECD4 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,66 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 16/12/24 09:57, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
+Il 15/12/24 23:09, Daniel Golle ha scritto:
+> Touching DISP_REG_OVL_PITCH_MSB leads to video overlay on MT2701, MT7623N
+> and probably other older SoCs being broken.
 > 
-> On Thu, 2024-12-05 at 12:45 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
->> found in MediaTek's MT8195, MT8188 SoC and their variants, and
->> including support for display modes up to 4k60 and for HDMI
->> Audio, as per the HDMI 2.0 spec.
->>
->> HDCP and CEC functionalities are also supported by this hardware,
->> but are not included in this commit and that also poses a slight
->> difference between the V2 and V1 controllers in how they handle
->> Hotplug Detection (HPD).
->>
->> While the v1 controller was using the CEC controller to check
->> HDMI cable connection and disconnection, in this driver the v2
->> one does not.
->>
->> This is due to the fact that on parts with v2 designs, like the
->> MT8195 SoC, there is one CEC controller shared between the HDMI
->> Transmitter (HDMI-TX) and Receiver (HDMI-RX): before eventually
->> adding support to use the CEC HW to wake up the HDMI controllers
->> it is necessary to have support for one TX, one RX *and* for both
->> at the same time.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
+> Only touching it on hardware which actually supports AFBC like it was
+> before commit c410fa9b07c3 ("drm/mediatek: Add AFBC support to Mediatek
+> DRM driver") fixes it.
 > 
-> [snip]
+> Fixes: c410fa9b07c3 ("drm/mediatek: Add AFBC support to Mediatek DRM driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> ---
+>   drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
->> +static int mtk_hdmi_v2_bridge_atomic_check(struct drm_bridge *bridge,
->> +                                          struct drm_bridge_state *bridge_state,
->> +                                          struct drm_crtc_state *crtc_state,
->> +                                          struct drm_connector_state *conn_state)
->> +{
-> 
-> I would like v1 and v2 has the same behavior.
-> Why v2 has atomic check but v1 has no?
-> If this is better to have, add atomic check to v1, and this function would be common function.
-> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> index f731d4fbe8b6..321b40a387cd 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> @@ -545,7 +545,7 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+>   				      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH_MSB(idx));
+>   		mtk_ddp_write_relaxed(cmdq_pkt, hdr_pitch, &ovl->cmdq_reg, ovl->regs,
+>   				      DISP_REG_OVL_HDR_PITCH(ovl, idx));
+> -	} else {
+> +	} else if (ovl->data->supports_afbc) {
+>   		mtk_ddp_write_relaxed(cmdq_pkt,
+>   				      overlay_pitch.split_pitch.msb,
+>   				      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH_MSB(idx));
 
-That's because v2 uses the new helpers, while v1 does not.
-The v1 must be converted to the new helpers in order to use atomic_check() like v2.
+At this point you should just move the block over a new function....
+
+if (ovl->data->supports_afbc)
+	mtk_ovl_afbc_layer_config(ovl, cmdq_pkt, idx, is_afbc);
+
+static void mtk_ovl_afbc_layer_config( .... )
+{
+	if (is_afbc) {
+		.....
+	} else {
+		.....
+	}
+}
 
 Cheers,
 Angelo
-
-> Regards,
-> CK
-> 
->> +       return drm_atomic_helper_connector_hdmi_check(conn_state->connector,
->> +                                                     conn_state->state);
->> +}
->> +
-> 
-> 
-
-
-
 
