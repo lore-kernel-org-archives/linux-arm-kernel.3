@@ -4,57 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66140E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B88E77180
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 10:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tDpGqZ3q+0CxfNG3krlSUsTITmjLMVenQgpz16/GkyY=; b=vj5YvxCdz03AqY82UauJDTiUCK
-	deSqc5SohxLGxlxWdt4d4TRvgUL9tCNXhWYNeIs5WrDRcsp1pBNk0tfNxDDZa7ytCDsObX9i8JgXf
-	DvdoRkxqLQB/RZL6ffBsc0j69C5r3OfHwoLEqTNUibQ/MXD8E5rx7BYX2MKLNLw5YwgJm1qfEdBdn
-	93YPT/CpTGyiJKdPAqgGfx2ktaZgJjzh1v4Npw/S+SD6R8JMZVDCDJQoAb1vZGQRST5HokEK8oV6t
-	PW7hsNgbAGog5yFOtPp6JqoEO2nJVaIWSeP2JL9H+ZHJdVQa5Fp19IwVcqJo4Yz4z3DCIIVv7no/j
-	HjZ1XrHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xQDDzZt4y0tR25eU8iMMeXksMyuUkWpuvz05sBggv+g=; b=LQEui1vtDYcWDFtHCSg4G0wXYa
+	ZJl+O5IYjifClruomHN9L4HRxsIZT2amUVuIdjhVVpyoKO4sSajZvTYOh7NRCQ8WILdlvWCva8BCn
+	8ReDgwSkfg5HGTpxcvPK7TKe/zC/oyek39Ten0zsF7b2nJzeIhxUxH98/KF9kHubuS/u8snvFFvBr
+	2/xJMznOJl7bsV6tqtidScpz/aQluXMxN9nrPmdm90RP+NrKUVOrCwtEEJuRjoWvaiGFVv8pMC+no
+	gtq7AQ34hbVH+Knf3BSHeuwBF28p5b2JHcLZt7NE5OVRS2xJGXLdm+OHt9vt0apjrQWUj1PDJoZtj
+	8194uFHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8cf-00000009jae-38NO;
-	Mon, 16 Dec 2024 10:46:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8bZ-00000009jSm-0hsZ
+	id 1tN8ht-00000009k7N-34Fj;
+	Mon, 16 Dec 2024 10:52:09 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tN8gn-00000009jvJ-36z1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 10:45:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E553D113E;
-	Mon, 16 Dec 2024 02:46:03 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96B153F58B;
-	Mon, 16 Dec 2024 02:45:34 -0800 (PST)
-Date: Mon, 16 Dec 2024 10:45:32 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: gchen chen <gchen.guomin@gmail.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, guomin_chen@sina.com,
-	Xinqi Zhang <quic_xinqzhan@quicinc.com>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
-Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless
- scmi_bus_id.
-Message-ID: <Z2AEzHc5f6TjxErs@bogus>
-References: <20241216073745.2973317-1-guomin_chen@sina.com>
- <Z1_p0nU93PHJ4Sg_@pluto>
- <Z1_2rxJ7TOEIOMp7@pluto>
- <CAEEwsfRhe4-YAwe027huSXwFfkV-O-8w1GDNf=URa9efRsXiKA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEEwsfRhe4-YAwe027huSXwFfkV-O-8w1GDNf=URa9efRsXiKA@mail.gmail.com>
+	Mon, 16 Dec 2024 10:51:02 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-436379713baso8881325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 02:51:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734346259; x=1734951059; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xQDDzZt4y0tR25eU8iMMeXksMyuUkWpuvz05sBggv+g=;
+        b=Zmx/mjhpZ+KhiS7h/b4IpSnMN/Ge3kHDs49l8aLCp8P2+6CGGa2KmR8Vu7s8wa40XF
+         Dh1YgfFmgiZ4+beNFXuhFStNvqfY53OwVHMf+XwVkt5hE0ib36QMb83ueYbOpw1x/0jW
+         LPUWBGcXXps5kT5ww4EWmPq16DTwwF+lsNciEkSlxGdSpF1XY6xhbr4NLRwjiLQ5yhsw
+         ZiIb0NBv7IRADf6mN1rqABPZJtTjAVEevqcTq2TSE6Kc502BcosE1U6Ov3yP5MFE4JnG
+         758qPBUoS5mx6taIBfx1blfzz19A5Xag/Bwk+hjTYA5Fm1UXvioINGBQAC6LZX/XBPQD
+         T7yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734346259; x=1734951059;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xQDDzZt4y0tR25eU8iMMeXksMyuUkWpuvz05sBggv+g=;
+        b=s2xygZeqn1FW2POraPO0APjXtVhosjsDyWYYczY/0OCyex3gvM5KjDME8csbxDzxOD
+         2h23hd34mumUUWQIf++T5lZnlh3DqfDdEuaZMePhXbEF7UC2cRosx38ZuigOPafRcIfW
+         Pbqi/+F4pRHhkU25uDrK0/EORE9LBmi3nspXzGoPYaCSY8mPCiDnWpEzebKj7RZCvyTi
+         zZvriM9BDMtUVe9oJZs5UWrEfEAsZJ3Q13MF+O5nfkm+kUNsSVKLzYciEtbvp1FGndI5
+         KndLWKfwUyIeKGxHmRxNFP62mnXXbz9xVSVFHQ7l1jQ/ETgH+I2uORA9i8sSABwHuGpe
+         yrbg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXrWWWsNl501/daCwYERqT0hUd0ftDrie8q6AbKQWEQqKCw3n23LKlqZQK9vBE38fwuzLbci54JO7AonbCThhv@lists.infradead.org
+X-Gm-Message-State: AOJu0YymSggrajxXHHS7OKQTjnX7DotDrK3yGHRCmfs49HbeZVmWK4D3
+	P+P4Q7wLY/ngr7h/vFT8Ahl6mjrN1tsXzPtog+3lzquQi7inhYrZLdcmZM6h6rTx/u6NL+azrQ=
+	=
+X-Google-Smtp-Source: AGHT+IFBE3ka5DUpquNIVyUccGkw78xq0QQq56z5catf4lSJVI6W8C5lL8e99RfPzfOguFI3u5iJMdYweA==
+X-Received: from wmfq8.prod.google.com ([2002:a05:600c:2e48:b0:434:a922:b240])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1c12:b0:434:f623:9fe3
+ with SMTP id 5b1f17b1804b1-4362aa3d8bbmr117977035e9.16.1734346259304; Mon, 16
+ Dec 2024 02:50:59 -0800 (PST)
+Date: Mon, 16 Dec 2024 10:50:40 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20241216105057.579031-1-tabba@google.com>
+Subject: [PATCH v5 00/17] KVM: arm64: Rework guest VM fixed feature handling
+ and trapping in pKVM
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, james.clark@linaro.org, 
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
+	qperret@google.com, kristina.martsenko@arm.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_024537_296205_7C0FE0CB 
-X-CRM114-Status: GOOD (  40.10  )
+X-CRM114-CacheID: sfid-20241216_025101_796187_00C974DA 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,166 +90,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 06:37:01PM +0800, gchen chen wrote:
-> Cristian Marussi <cristian.marussi@arm.com> 于2024年12月16日周一 17:45写道：
-> >
-> > On Mon, Dec 16, 2024 at 08:50:26AM +0000, Cristian Marussi wrote:
-> > > On Mon, Dec 16, 2024 at 03:37:45PM +0800, guomin_chen@sina.com wrote:
-> > > > From: guomin chen <guomin_chen@sina.com>
-> > > >
-> > > > Currently, scmi_bus_id is only used to set scmi_dev.id,
-> > > > which in turn sets the SCMI device name. After removing
-> > > > scmi_bus_id, it is clearer and more meaningful to directly
-> > > > use the unique tuple [Parent name,device name, protocol] to
-> > > > set the SCMI device name.
-> > > >
-> > >
-> > > Hi Guomin,
-> > >
-> > > this same pTCH was NACKed(Rejected) a few days ago:
-> > >
-> > > https://lore.kernel.org/arm-scmi/20241211134505.2218386-1-guomin_chen@sina.com/T/#u
-> > >
-> > > ...and you agreed that is not a simplification we can do (not to break
-> > > multuple instances...)...
-> > >
-> > > ..so why you are posting V2 now ?
-> >
-> > Wait...you changed slightly this indeed....you are using dev_parent...my
-> > bad...but please when you post new version of a patch add a summary of
-> > changes between versions...
-> >
-> > >
-> > > Thanks,
-> > > Cristian
-> > >
-> > > > Signed-off-by: guomin chen <guomin_chen@sina.com>
-> > > > ---
-> > > >  drivers/firmware/arm_scmi/bus.c    | 17 +++--------------
-> > > >  drivers/firmware/arm_scmi/driver.c |  4 ++--
-> > > >  2 files changed, 5 insertions(+), 16 deletions(-)
-> > > >
-> > > > diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-> > > > index 157172a5f2b5..800e8ec9357c 100644
-> > > > --- a/drivers/firmware/arm_scmi/bus.c
-> > > > +++ b/drivers/firmware/arm_scmi/bus.c
-> > > > @@ -20,7 +20,6 @@
-> > > >  BLOCKING_NOTIFIER_HEAD(scmi_requested_devices_nh);
-> > > >  EXPORT_SYMBOL_GPL(scmi_requested_devices_nh);
-> > > >
-> > > > -static DEFINE_IDA(scmi_bus_id);
-> > > >
-> > > >  static DEFINE_IDR(scmi_requested_devices);
-> > > >  /* Protect access to scmi_requested_devices */
-> > > > @@ -341,7 +340,6 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
-> > > >     if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
-> > > >             atomic_set(&scmi_syspower_registered, 0);
-> > > >
-> > > > -   ida_free(&scmi_bus_id, scmi_dev->id);
-> > > >     device_unregister(&scmi_dev->dev);
-> > > >  }
-> > > >
-> > > > @@ -349,7 +347,7 @@ static struct scmi_device *
-> > > >  __scmi_device_create(struct device_node *np, struct device *parent,
-> > > >                  int protocol, const char *name)
-> > > >  {
-> > > > -   int id, retval;
-> > > > +   int retval;
-> > > >     struct scmi_device *scmi_dev;
-> > > >
-> > > >     /*
-> > > > @@ -387,20 +385,13 @@ __scmi_device_create(struct device_node *np, struct device *parent,
-> > > >             return NULL;
-> > > >     }
-> > > >
-> > > > -   id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
-> > > > -   if (id < 0) {
-> > > > -           kfree_const(scmi_dev->name);
-> > > > -           kfree(scmi_dev);
-> > > > -           return NULL;
-> > > > -   }
-> > > > -
-> > > > -   scmi_dev->id = id;
-> > > >     scmi_dev->protocol_id = protocol;
-> > > >     scmi_dev->dev.parent = parent;
-> > > >     device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
-> > > >     scmi_dev->dev.bus = &scmi_bus_type;
-> > > >     scmi_dev->dev.release = scmi_device_release;
-> > > > -   dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
-> > > > +   dev_set_name(&scmi_dev->dev, "scmi_dev.%s.%s.%d", dev_name(parent),
-> > > > +                   scmi_dev->name, protocol);
-> > > >
-> >
-> > So now you are using the parent top node SCMI device to create a unique
-> > device...and it probably endup in a name like:
-> >
-> >         scmi-dev.arm-scmi.0.auto.genpd.13
-> >
-> >         scmi-dev.arm-scmi.1.auto.genpd.13
-> >
-> > ...that certainly is more readable but is bulky and anyway giving unique
-> > IDs to devices is pretty common and you lookup which device is which by
-> > simply looking at the drivers/ link....not suure what's the benefit of
-> > all of this...just to avoid an IDA table ?
-> >
-> > > >     retval = device_register(&scmi_dev->dev);
-> > > >     if (retval)
-> > > > @@ -413,7 +404,6 @@ __scmi_device_create(struct device_node *np, struct device *parent,
-> > > >     return scmi_dev;
-> > > >  put_dev:
-> > > >     put_device(&scmi_dev->dev);
-> > > > -   ida_free(&scmi_bus_id, id);
-> > > >     return NULL;
-> > > >  }
-> > > >
-> > > > @@ -526,7 +516,6 @@ static void __exit scmi_bus_exit(void)
-> > > >      */
-> > > >     scmi_devices_unregister();
-> > > >     bus_unregister(&scmi_bus_type);
-> > > > -   ida_destroy(&scmi_bus_id);
-> > > >  }
-> > > >  module_exit(scmi_bus_exit);
-> > > >
-> > > > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> > > > index 1b5fb2c4ce86..bbf1f05f2be3 100644
-> > > > --- a/drivers/firmware/arm_scmi/driver.c
-> > > > +++ b/drivers/firmware/arm_scmi/driver.c
-> > > > @@ -2641,8 +2641,8 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
-> > > >     cinfo->max_msg_size = info->desc->max_msg_size;
-> > > >
-> > > >     /* Create a unique name for this transport device */
-> > > > -   snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-> > > > -            idx ? "rx" : "tx", prot_id);
-> > > > +   snprintf(name, 32, "__scmi_transport_device_%s",
-> > > > +            idx ? "rx" : "tx");
-> >
-> > I agree on what Dan said AND also this results in having the same name for different
-> > devices across 2 instances if you have a per-protocol channel because you havent anymore
-> > the protocol_id bit.
-> hi  Cristian，and dan
->     Because I used a 3-tuple [parent name, name, protocol] when
-> creating the SCMI device name, I removed the prot_id from the
-> parameter ‘name’ when creating transport devices. This way, it avoids
-> the repetition of protocol ID in the SCMI device name.
-> 
-> > All in all, I would drop this patch and keep naming as it is because I dont see a real benefit
-> > here....up to Sudeep decide.
->      Yes, it does not have real benefits, but from the perspective of
-> the device name, this change will be clearer and more meaningful. And
-> the code is more concise.
->
+Changes from v4:
+- (Oliver) Add assertion in kvm_init_pvm_id_regs() that vm_table
+  lock is held.
+- (Quentin) Carve out patches that fix RAS and that remove the
+  feature KVM_ARM_VCPU_POWER_OFF from original patches, for clarity.
+- (Quentin) Add a patch that refactors existing code to use
+  kvm_vcpu_has_feature() instead of __vcpu_has_feature().
+- (Quentin) Fixes to commit messages.
 
-I would like to understand the motivation behind this change. What is the
-goal ? Do you prefer to fetch the name and protocol id from the device
-name itself ? Is that your requirement.
+Other than added assertion, no functional changes between v4 and v5.
 
-From the commit log, I get a sense that you looked at the code and thought
-of possible improvement but when we mentioned the limitation you just
-improvised by adding parent name. Do you expect any userspace to parse
-the name as that will end up being ABI and we can't break it. I need
-real motive to be explained here in detail.
+This patch series redoes how fixed features for protected guests
+are specified in pKVM, as well as how trapping is handled based
+on the features available for the VM. It also fixes a couple of
+existing bugs in the process. Please refer to v4 for context [1].
 
---
-Regards,
-Sudeep
+This series is based on kvmarm/next (60ad25e14ab5), since it
+requires the patches from the series that fixes initialization of
+trap register values in pKVM [2].
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20241202154742.3611749-1-tabba@google.com/
+[2] https://lore.kernel.org/all/20241018074833.2563674-1-tabba@google.com/
+
+Fuad Tabba (17):
+  KVM: arm64: Consolidate allowed and restricted VM feature checks
+  KVM: arm64: Group setting traps for protected VMs by control register
+  KVM: arm64: Move checking protected vcpu features to a separate
+    function
+  KVM: arm64: Remove KVM_ARM_VCPU_POWER_OFF from protected VMs allowed
+    features in pKVM
+  KVM: arm64: Use KVM extension checks for allowed protected VM
+    capabilities
+  KVM: arm64: Initialize feature id registers for protected VMs
+  KVM: arm64: Fix RAS trapping in pKVM for protected VMs
+  KVM: arm64: Set protected VM traps based on its view of feature
+    registers
+  KVM: arm64: Rework specifying restricted features for protected VMs
+  KVM: arm64: Remove fixed_config.h header
+  KVM: arm64: Remove redundant setting of HCR_EL2 trap bit
+  KVM: arm64: Calculate cptr_el2 traps on activating traps
+  KVM: arm64: Refactor kvm_reset_cptr_el2()
+  KVM: arm64: Fix the value of the CPTR_EL2 RES1 bitmask for nVHE
+  KVM: arm64: Remove PtrAuth guest vcpu flag
+  KVM: arm64: Convert the SVE guest vcpu flag to a vm flag
+  KVM: arm64: Use kvm_vcpu_has_feature() directly for struct kvm
+
+ arch/arm64/include/asm/kvm_arm.h              |   2 +-
+ arch/arm64/include/asm/kvm_emulate.h          |  29 +-
+ arch/arm64/include/asm/kvm_host.h             |  25 +-
+ arch/arm64/include/asm/kvm_pkvm.h             |  25 ++
+ arch/arm64/kvm/arm.c                          |  30 +-
+ .../arm64/kvm/hyp/include/nvhe/fixed_config.h | 223 ----------
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   7 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 341 ++++++---------
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   1 -
+ arch/arm64/kvm/hyp/nvhe/switch.c              |  52 ++-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            | 404 ++++++++++--------
+ arch/arm64/kvm/nested.c                       |   8 +-
+ arch/arm64/kvm/reset.c                        |   6 +-
+ 13 files changed, 446 insertions(+), 707 deletions(-)
+ delete mode 100644 arch/arm64/kvm/hyp/include/nvhe/fixed_config.h
+
+
+base-commit: 60ad25e14ab5a4e56c8bf7f7d6846eacb9cd53df
+-- 
+2.47.1.613.gc27f4b7a9f-goog
+
 
