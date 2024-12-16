@@ -4,81 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E21E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810DFE77183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 14:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwji9Rr5XHV8uc5qIVKvLTjVNDo+nXCOzbh+T+wNwBk=; b=NuVmMWyhtIyQATaQyP+FRzFZb5
-	UqPEzQTGiDzvFjeC3oXoyz9mgkLkndBozqDN/m1d3xj9JEkn/RqChAaIR45qqquUhmd4H+xAUJn4n
-	xoLsJSx68ZehEsK5BlarXRa97bZ0qa6SoIWCUzTBbeUs6ipE26cg9XObh7EifsoTc7LHdzvtxjnAC
-	zjQRdkw/bLtEhb/krDZ9ypqEKnTKKU1AzxHrlES15/PReLaa8QbI+xm3rUxhWq1CJ+6b+s7+6EshP
-	Fd/XL5mfEC+esuaMJtxWzgWJZDa6y1/p7rtvKFRA4guQDE9hCrW2vFktODraxhVIWebWNNo7LYtBf
-	/ZFbwumQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FZR22IhRUpX/Fq7KGPdPODk7QFLwb+WURrRAPPoxEH0=; b=JJ4EOwodZT98F7JBz2L07ySLKd
+	9Vy8COTsBnsAV/CeFRNN66rxEGYUep5F2J8CiNVvaBNQqfMERwKPimFidq77ivYikAaFhecTxpEUi
+	t8WUMYf5GG2JRzt+tBPTc1qX2+v1Ku4ICidOSzzrz0cDZ1iN3KoycIv6/gCRh9zABgAA669oqQa1E
+	sqHZyZv9mKR4MxkGRrIGPrAQV7qfTmH7XeQVptyhr3JGRuMT5t+GqjNSJ8dxrH9Y/XfxjQIKvDxqk
+	E+dF0amFeN1+oh0FEiDx4KHQqNrmZ0ACHcr51NTpGn0EhT1lvEWleFUSjLhHidQeTgMyIXk/BTPUj
+	h+ANw/5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCLW-0000000AIRP-3S0X;
-	Mon, 16 Dec 2024 14:45:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNCTQ-0000000AJTr-02vW;
+	Mon, 16 Dec 2024 14:53:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNCKR-0000000AIMg-1qUP
+	id 1tNCRM-0000000AJ6r-3uTg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 16 Dec 2024 14:51:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=FZR22IhRUpX/Fq7KGPdPODk7QFLwb+WURrRAPPoxEH0=; b=DnAjFDpJJo6svgaYugpVKKL0Hj
+	KPvKDJu5mvHwjentKQant6w3o51f/gqpZHcP8U2Jh+dnw1e8YCzoTw1NSscLKV4PrE9k5O3OIAMf3
+	wvw/gvnRgMAhwubejIOIzkP+++GYU6t9h3Zjvie/GajnQWibJkRqBJJS0wRa3qt9m3HQ9e6IXx50B
+	+SFFP5Wrfh1BAJ/k4QWHRgPfO9Kj+fbSIkHjhKjlFVMXPbRSMygDIQH54zwtL02E4JB4Gk9bPfcoI
+	iPTzWhgii3A8KHsO7Xd7pE27wH3b/ODMKq47Bs/4jcFaucoZTEpTnB7KTpyRUyfj0JQTANn5XosBy
+	FLODlkZQ==;
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNCRJ-00000004sEI-34tn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 14:44:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CEE04A4150D;
-	Mon, 16 Dec 2024 14:42:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B14FC4CED0;
-	Mon, 16 Dec 2024 14:44:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734360250;
-	bh=AJ/WWhVzPaKeE1rHmsubud7EyXr2Qfu3Wp7Xd9V3jfQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Yf9rtZhA2oEw1g636fsQEdJ6KiJ7SmFldnYMm5h2qxBZWBpG52AX0ZLLI9djdGwzl
-	 w7DGj87h6/6U4mf5UtiVgFs65B/Z0Q2Q/QB3qM1kIXKVC8ti4L1+1dsWPQS17loNXw
-	 lNOL7MJzdpj7fVWnSKCiCkANXZmyDM+oZIkC2aIWWCkC4ckODEO1wiU0C2eyFjlYGM
-	 kB4T1hku2AqdcGAT/U3UbY3lJmCs1Qll1v7G577nHGzOljuFdIQlXMpZDY0oqntheZ
-	 cF3sXL4lyKRtKyf/u3E4wJknfXJfTZ6pdiWPi3eoo0VaqTshfTuBKQ52jhZXU1mXeS
-	 J8aeqO+00jr/w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tNCKO-004D9u-50;
-	Mon, 16 Dec 2024 14:44:08 +0000
-Date: Mon, 16 Dec 2024 14:44:07 +0000
-Message-ID: <864j33sn60.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Mark Brown <broonie@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Collingbourne <pcc@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64/sme: Move storage of reg_smidr to __cpuinfo_store_cpu()
-In-Reply-To: <Z2A502_EpqvLYN8g@J2N7QTR9R3.cambridge.arm.com>
-References: <20241214-arm64-fix-boot-cpu-smidr-v1-1-0745c40772dd@kernel.org>
-	<87a5cysfci.wl-maz@kernel.org>
-	<709a0e75-0d0c-4bff-b9fd-3bbb55c97bd5@sirena.org.uk>
-	<Z2Agntn52mY5bSTp@J2N7QTR9R3>
-	<855dbb91-db37-4178-bd0b-511994d3aef7@sirena.org.uk>
-	<Z2A502_EpqvLYN8g@J2N7QTR9R3.cambridge.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, pcc@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 16 Dec 2024 14:51:19 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38634c35129so3306644f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 06:51:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734360675; x=1734965475; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FZR22IhRUpX/Fq7KGPdPODk7QFLwb+WURrRAPPoxEH0=;
+        b=CtaLSTCbIFjBnb44eoXlq4xPGVzL4rsMZQXH8GoxgFGGLuNsaJwYLGWnP7YeJTBbhR
+         W6mx24o22kCHz4HwrvXLHfMVKoxPAx5vvU68/MQHzh+q9BJjgSiwdYU7/wZGFJn0qloK
+         x3TpOQaOUHuTUOyPMEqGBJNVOwbojlCab0/2pvYalY+QBCr0pQwyxuFft2jYNfWFf9x1
+         zfANuTx3mFu0zdVyD2Js6icBKojloaPqwyOhfE0E638UusqNZ++/pwGcQBTdDc9WeRfp
+         lx/i06PsQemDKAepl2NU9QFpXJGQ814fOq/eTAQfDPdylX0a7b4b7ZMlFEWPeLt/o3jw
+         Nd/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734360675; x=1734965475;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FZR22IhRUpX/Fq7KGPdPODk7QFLwb+WURrRAPPoxEH0=;
+        b=ssh8hTjAj1uiqUMYTo1mW1ZVTYFp0HRcpy9sQpOdQJAYN+AFAEv3vsAvwY+Hq9X207
+         CvOMl4qKclLAzlfUZiO6TpYvY6I/i1wT1LhX1ftgVO4QvwxgO22aV5XKgAUnDvuCxYS9
+         MABHBQZOB4juITd+XMxEhPojZYmDv7RYmEdyLf0k5oRmLKbICObFLAlkFvqj9m6xU8Jj
+         L/SJ/1qAnjwzIwgf38KfFrE8UiJrYinakaa7HSsQq/3k6Yasp6Nsvq+LqeIbqhVzWIFT
+         ByeuJNlB6S3pekdWQoQeNl335TDZwbpSZQSk8DfhNtJkm5TXjI5ak6XycUIsHFEMW0lE
+         lVVA==
+X-Gm-Message-State: AOJu0Yw+xrybLBeKAK1cQnO3R5Tpzr1j2+pvFkS1KaogBGTq+GLaIL0f
+	4nkAcfHYIxhUC2iDML0MchpnfEXiFlvcbYjQjGz1UEE8QRQY4zXH
+X-Gm-Gg: ASbGncs1ETugqvkZ+ER/26CeU737TvzPRxyO/1tkb3MRBBftEIM79J8lIm1aD/cfHmZ
+	OKG94HkAWG6c6sCiSGmgbPL0shoYbqQ6s3h3yYSM2ih/e8QBhQ1Vwv+oJ1fz6OamwGy3WvXp++X
+	GSUdvnXou9TFs2FpszLlwhP62aq4b4lMweB45UlyEU2ta2oJQYH1RAkhGJhfHaEtzgfEXQti6IM
+	AW3x+hdExNxXK+YJQ29ekq+XKu3Q5yqH0smhEg/m/lQo/fAuLH7feicxEHvv0XB7/sbWGBjXAhk
+	JE/mW1rakCqx+3eS
+X-Google-Smtp-Source: AGHT+IHzN/5NhLTul0WIKF2FfViCsMY2uCJdEVicfsfHV8smpoFeZ1z55RS+AV0S1OCL0ZcqZxbh/A==
+X-Received: by 2002:a5d:6c6c:0:b0:385:e1f5:476f with SMTP id ffacd0b85a97d-3888e0b9bcbmr8246013f8f.39.1734360674752;
+        Mon, 16 Dec 2024 06:51:14 -0800 (PST)
+Received: from playground.localdomain ([92.120.5.10])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4362559ed6csm141616455e9.24.2024.12.16.06.51.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 06:51:14 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Takashi Iwai <tiwai@suse.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Frank Li <Frank.li@nxp.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/5] ASoC: dt-bindings: add common binding for NXP audio processors
+Date: Mon, 16 Dec 2024 09:50:35 -0500
+Message-Id: <20241216145039.3074-2-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
+References: <20241216145039.3074-1-laurentiumihalcea111@gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_064411_604547_12042B5D 
-X-CRM114-Status: GOOD (  41.55  )
+X-CRM114-CacheID: sfid-20241216_145117_881313_9AD62539 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,121 +124,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Dec 2024 14:31:47 +0000,
-Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> On Mon, Dec 16, 2024 at 01:23:55PM +0000, Mark Brown wrote:
-> > On Mon, Dec 16, 2024 at 12:44:14PM +0000, Mark Rutland wrote:
-> > 
-> > > ... didn't matter either way, and using '&boot_cpu_data' was intended to
-> > > make it clear that the features were based on the boot CPU's info, even
-> > > if you just grepped for that and didn't see the surrounding context.
-> > 
-> > Right, that was my best guess as to what was supposed to be going on
-> > but it wasn't super clear.  The code could use some more comments.
-> > 
-> > > I think the real fix here is to move the reading back into
-> > > __cpuinfo_store_cpu(), but to have an explicit check that SME has been
-> > > disabled on the commandline, with a comment explaining that this is a
-> > > bodge for broken FW which traps the SME ID regs.
-> > 
-> > That should be doable.
-> > 
-> > There's a few other similar ID registers (eg, we already read GMID_EL1
-> > and MPAMIDR_EL1) make me a bit nervous that we might need to generalise
-> > it a bit, but we can deal with that if it comes up.  Even for SME the
-> > disable was added speculatively, the factors that made this come up for
-> > SVE are less likely to be an issue with SME.
-> 
-> FWIW, I had a quick go (with only the SME case), and I think the shape
-> that we want is roughly as below, which I think is easy to generalise to
-> those other cases.
-> 
-> MarcZ, thoughts?
-> 
-> Mark.
-> 
-> ---->8----
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index 8b4e5a3cd24c8..f16eb99c10723 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -91,6 +91,16 @@ struct arm64_ftr_override {
->  	u64		mask;
->  };
->  
-> +static inline u64
-> +arm64_ftr_override_apply(const struct arm64_ftr_override *override,
-> +			 u64 val)
-> +{
-> +	val &= ~override->mask;
-> +	val |= override->val & override->mask;
-> +
-> +	return val;
-> +}
-> +
->  /*
->   * @arm64_ftr_reg - Feature register
->   * @strict_mask		Bits which should match across all CPUs for sanity.
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 6ce71f444ed84..faad7d3e4cf5f 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -1167,12 +1167,6 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
->  	    id_aa64pfr1_sme(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1))) {
->  		unsigned long cpacr = cpacr_save_enable_kernel_sme();
->  
-> -		/*
-> -		 * We mask out SMPS since even if the hardware
-> -		 * supports priorities the kernel does not at present
-> -		 * and we block access to them.
-> -		 */
-> -		info->reg_smidr = read_cpuid(SMIDR_EL1) & ~SMIDR_EL1_SMPS;
->  		vec_init_vq_map(ARM64_VEC_SME);
->  
->  		cpacr_restore(cpacr);
-> @@ -1550,10 +1544,8 @@ u64 __read_sysreg_by_encoding(u32 sys_id)
->  	}
->  
->  	regp  = get_arm64_ftr_reg(sys_id);
-> -	if (regp) {
-> -		val &= ~regp->override->mask;
-> -		val |= (regp->override->val & regp->override->mask);
-> -	}
-> +	if (regp)
-> +		val = arm64_ftr_override_apply(regp->override, val);
->  
->  	return val;
->  }
-> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> index d79e88fccdfce..1460e3541132f 100644
-> --- a/arch/arm64/kernel/cpuinfo.c
-> +++ b/arch/arm64/kernel/cpuinfo.c
-> @@ -439,6 +439,24 @@ static void __cpuinfo_store_cpu_32bit(struct cpuinfo_32bit *info)
->  	info->reg_mvfr2 = read_cpuid(MVFR2_EL1);
->  }
->  
-> +static void __cpuinfo_store_cpu_sme(struct cpuinfo_arm64 *info)
-> +{
-> +	/*
-> +	 * TODO: explain that this bodge is to avoid trapping.
-> +	 */
-> +	u64 pfr1 = info->reg_id_aa64pfr1;
-> +	pfr1 = arm64_ftr_override_apply(&id_aa64pfr1_override, pfr1);
-> +	if (!id_aa64pfr1_sme(pfr1))
-> +		return;
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-I don't think blindly applying the override at this stage is a good
-thing. Specially not the whole register, and definitely not
-non-disabling values.
+Add common binding for NXP audio processors with Sound Open Firmware
+(SOF) support.
 
-It needs to be done on a per feature basis, and only to disable
-things.
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+---
+ .../bindings/sound/fsl,sof-cpu.yaml           | 35 +++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
 
-See the hack I posted for the things I think need checking.
-
-	M.
-
+diff --git a/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+new file mode 100644
+index 000000000000..1958afceba75
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+@@ -0,0 +1,35 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/fsl,sof-cpu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP audio processor common properties
++
++maintainers:
++  - Daniel Baluta <daniel.baluta@nxp.com>
++
++properties:
++  reg:
++    maxItems: 1
++
++  mboxes:
++    maxItems: 4
++
++  mbox-names:
++    items:
++      - const: txdb0
++      - const: txdb1
++      - const: rxdb0
++      - const: rxdb1
++
++  memory-region:
++    maxItems: 1
++
++required:
++  - reg
++  - mboxes
++  - mbox-names
++  - memory-region
++
++additionalProperties: true
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
