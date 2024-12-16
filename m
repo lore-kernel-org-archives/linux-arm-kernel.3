@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038DEE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51EFE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Dec 2024 12:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJLzE+nHO7ajEDOgFMY8Qp5WgmrgOwfFjS/MmQKezlk=; b=JaAJYiHnI8OraMgTDbjgrEWFaq
-	VhWCcmrpVGzqCJqPTfCXNowmKJde+S/PCYjCqo7JWE4adfbUooPwDOjHSdPYQxbNdUWXgT6E75EGj
-	8wTESx43pv53p0vFkOe1kOrXVHMyCVx54Tw7C2YtgIsVHvGn4uAi+9h9NYrldP3PnpeVbaaZByRhi
-	FagJBFlnSI7PyOH7V6UM/s9u7IVTiAEEsDPUox2ut5qDn7MIIO+nggJfv6Zb7gX0xQMTF5+GQMXOr
-	KTKnBtssoRUHDjMZgqeN0xj03Dv3iOTdXAYvlhMyM7fmCJ+sYcbUMSep9sSiVLCWfBJJdL1SQ8C++
-	u+YaFn9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIZOhBSbBlumClO+5WBpvKWp8vXqGKwf+GCHshUCQ6I=; b=hk5uxRzpEn++wwm9rtmTZRScu/
+	WwP7WjF4TFCtAdyGgwTubprfU/o8jLpEsq67T2vGls3Xoom7Pwfa7ROSAwmMcjMIwRr32YsiBFbBs
+	9GKUpOjXGBrh0a4im9zvY/JYq58KHCCpLRgw7UZIiuCCbg2VvQwaLsu/r6kzo5XlVORyS/qTQ6LDB
+	2HHOEQt5XoCC8tWyQtB6SXvFmrV8w4SSeuKHciln7eO8PjZ1yeWjU2ZrZv/g8lJ0XI2/LlrOizBGY
+	3k7w+y3SGwdHwxkrDtit+NoNmnPB6kjXMFEqq3MBiHN0t43hGNw49lPe5I4Ls7//vy8i8uRw/LGhf
+	3Q1s74cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNA9a-00000009xpJ-0PSg;
-	Mon, 16 Dec 2024 12:24:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNA9Z-00000009xp1-0rFR;
+	Mon, 16 Dec 2024 12:24:49 +0000
+Received: from mail-m15591.qiye.163.com ([101.71.155.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN8Ah-00000009gG9-1SoQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Dec 2024 10:17:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 980AC5C5BB3;
-	Mon, 16 Dec 2024 10:17:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5001C4CED0;
-	Mon, 16 Dec 2024 10:17:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734344270;
-	bh=Wj1Oweu+Szj7mpyYgjBeEPPhvh5D8048ZrAWL9nZ3DM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uj5sMwiKyHo6YspBPoquPQgameUG7oNyAYX59Rd2tFgDP703/eJhYQXGJgMY146Pk
-	 M+uQqIr2CsijPOQm8XPUMUX818tQ5trkk9+ajFmVbSvhahaklXPJNdVcP9gX6rZd3v
-	 8L7X2HyvoW5A5Oo4BIw08EwlcWwhTois8FW3EoBibts7z86MuQE2R/HGslcuCZ1vGV
-	 cTx6UPey2wxx/f4zyGtw6Nmj4y7SqCpDzMIwCwaa72zuHeoVcE/L+Kpei9o7X6B5ij
-	 1ZhMrsZwFWgZBn7TYj2SuHUYMwk5K4mjg20ZfRYyCOyrtmIdf1Ji4Z7mjjflTDqpoS
-	 +lluJM/AoKp2Q==
-Date: Mon, 16 Dec 2024 11:17:46 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, aisheng.dong@nxp.com, peng.fan@nxp.com, frank.li@nxp.com
-Subject: Re: [PATCH] arm64: dts: freescale: Add basic dtsi for imx943
-Message-ID: <bx3r4cs3oklfduvkg65vke3clb3fc6sseske2ellq27ifpmsnm@msz6iqvjwufn>
-References: <20241212093555.1376568-1-ping.bai@nxp.com>
- <20241212093555.1376568-2-ping.bai@nxp.com>
+	id 1tN88d-00000009fnv-0ONd;
+	Mon, 16 Dec 2024 10:15:44 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5dd55b80;
+	Mon, 16 Dec 2024 18:15:38 +0800 (GMT+08:00)
+Message-ID: <d0f89644-77b9-4bcd-9fab-42a10185c72f@rock-chips.com>
+Date: Mon, 16 Dec 2024 18:15:38 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241212093555.1376568-2-ping.bai@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/11] arm64: dts: rockchip: Enable eDP0 display on
+ RK3588S EVB1 board
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20241216031225.3746-1-damon.ding@rock-chips.com>
+ <20241216031225.3746-11-damon.ding@rock-chips.com>
+ <ay2im4itrj3k4p2ksobgsk77b7m4laaxctkfcpffqxj5ttxenm@mzdizmf3mlcb>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <ay2im4itrj3k4p2ksobgsk77b7m4laaxctkfcpffqxj5ttxenm@mzdizmf3mlcb>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh0fHVYYQxlMQh9DS0lMGEhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93cef75dd303a3kunm5dd55b80
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pxw6TCo6LjIREBkNNwNINi8T
+	VjAwCw1VSlVKTEhPSE9PSkhCQkhCVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJS09KNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=TC9dxZs/icAtO8OBygxS0RnpXEPu9qYtxe8eogDOgm3/nfYNDxZL7DAwNK72v5fA1kE1RnEuSUkU6dFhcd5nbWBqLdG0NiliydADY/owu7A8t1jtyNkaGpqpmRY3ifAaE2oMxgKBvn2obvJIaxk6h2pfI+KeVfL0pujMSR5MSyY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=bIZOhBSbBlumClO+5WBpvKWp8vXqGKwf+GCHshUCQ6I=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_021751_481485_571F5F0B 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20241216_021543_354964_4400587A 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,411 +82,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 05:35:55PM +0800, Jacky Bai wrote:
-> The i.MX 943 applications processors integrate up to four
-> Arm Cortex A55 cores and supports functional safety with
-> built-in 2x Arm Cortex M33 and M7 cores which can be
-> configured asa safety island. Optimizing performance and
-> power efficiency for Industrial, IoT and automotive devices,
-> i.MX 943 processors are built with NXP=E2=80=99s innovative Energy
-> Flex architecture.
->=20
-> This patch adds the minimal dtsi support for i.MX943 with
-> peripherals like uart, edma, i2c, spi, mu, sai etc.
->=20
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx943-clock.h  |  196 +++
->  .../arm64/boot/dts/freescale/imx943-pinfunc.h | 1542 +++++++++++++++++
->  arch/arm64/boot/dts/freescale/imx943-power.h  |   41 +
->  arch/arm64/boot/dts/freescale/imx943.dtsi     | 1284 ++++++++++++++
+Hi Dmitry,
 
-No, this is untested, uncompilable.
+On 2024/12/16 17:06, Dmitry Baryshkov wrote:
+> On Mon, Dec 16, 2024 at 11:12:24AM +0800, Damon Ding wrote:
+>> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
+>> - Add edp-panel node
+>> - Set pinctrl of pwm12 for backlight
+>> - Enable edp0/hdptxphy0/vp2
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>
+>> ---
+>>
+>> Changes in v2:
+>> - Remove brightness-levels and default-brightness-level properties in
+>>    backlight node.
+>> - Add the detail DT changes to commit message.
+>> ---
+>>   .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 50 +++++++++++++++++++
+>>   1 file changed, 50 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+>> index bc4077575beb..5c1ea25b6524 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+>> @@ -9,6 +9,7 @@
+>>   #include <dt-bindings/gpio/gpio.h>
+>>   #include <dt-bindings/input/input.h>
+>>   #include <dt-bindings/pinctrl/rockchip.h>
+>> +#include <dt-bindings/soc/rockchip,vop2.h>
+>>   #include <dt-bindings/usb/pd.h>
+>>   #include "rk3588s.dtsi"
+>>   
+>> @@ -120,6 +121,18 @@ backlight: backlight {
+>>   		pwms = <&pwm12 0 25000 0>;
+>>   	};
+>>   
+>> +	edp_panel: edp-panel {
+>> +		compatible = "lg,lp079qx1-sp0v";
+> 
+> Please use aux-bus and a generic "edp-panel" entry for newer platforms
+> instead of declaring the panel on the platform bus. Placing eDP panels
+> on the platform bus has been deprecated for quite a while.
 
-We do not add dead code to the kernel. You need users.
+I will apply the aux-bus in the next version. :-)
 
->  4 files changed, 3063 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx943-clock.h
->  create mode 100644 arch/arm64/boot/dts/freescale/imx943-pinfunc.h
->  create mode 100644 arch/arm64/boot/dts/freescale/imx943-power.h
->  create mode 100644 arch/arm64/boot/dts/freescale/imx943.dtsi
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-clock.h b/arch/arm64/bo=
-ot/dts/freescale/imx943-clock.h
-> new file mode 100644
-> index 000000000000..64b9d5d4051e
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx943-clock.h
-> @@ -0,0 +1,196 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
-> +/*
-> + * Copyright 2024 NXP
-> + */
-> +
-> +#ifndef __CLOCK_IMX943_H
-> +#define __CLOCK_IMX943_H
-> +
-> +#define IMX943_CLK_EXT				0
-> +#define IMX943_CLK_OSC32K			1
-> +#define IMX943_CLK_OSC24M			2
-> +#define IMX943_CLK_FRO				3
-> +#define IMX943_CLK_SYSPLL1_VCO			4
-> +#define IMX943_CLK_SYSPLL1_PFD0_UNGATED		5
-> +#define IMX943_CLK_SYSPLL1_PFD0			6
-> +#define IMX943_CLK_SYSPLL1_PFD0_DIV2		7
-> +#define IMX943_CLK_SYSPLL1_PFD1_UNGATED		8
-> +#define IMX943_CLK_SYSPLL1_PFD1			9
-> +#define IMX943_CLK_SYSPLL1_PFD1_DIV2		10
-> +#define IMX943_CLK_SYSPLL1_PFD2_UNGATED		11
-> +#define IMX943_CLK_SYSPLL1_PFD2			12
-> +#define IMX943_CLK_SYSPLL1_PFD2_DIV2		13
-> +#define IMX943_CLK_AUDIOPLL1_VCO		14
-> +#define IMX943_CLK_AUDIOPLL1			15
-> +#define IMX943_CLK_AUDIOPLL2_VCO		16
-> +#define IMX943_CLK_AUDIOPLL2			17
-> +#define IMX943_CLK_RESERVED18			18
-> +#define IMX943_CLK_RESERVED19			19
-> +#define IMX943_CLK_RESERVED20			20
-> +#define IMX943_CLK_RESERVED21			21
-> +#define IMX943_CLK_RESERVED22			22
-> +#define IMX943_CLK_RESERVED23			23
-> +#define IMX943_CLK_ENCPLL_VCO			24
-> +#define IMX943_CLK_ENCPLL_PFD0_UGATED		25
-> +#define IMX943_CLK_ENCPLL_PFD0			26
-> +#define IMX943_CLK_ENCPLL_PFD1_UGATED		27
-> +#define IMX943_CLK_ENCPLL_PFD1			28
-> +#define IMX943_CLK_ARMPLL_VCO			29
-> +#define IMX943_CLK_ARMPLL_PFD0_UNGATED		30
-> +#define IMX943_CLK_ARMPLL_PFD0			31
-> +#define IMX943_CLK_ARMPLL_PFD1_UNGATED		32
-> +#define IMX943_CLK_ARMPLL_PFD1			33
-> +#define IMX943_CLK_ARMPLL_PFD2_UNGATED		34
-> +#define IMX943_CLK_ARMPLL_PFD2			35
-> +#define IMX943_CLK_ARMPLL_PFD3_UNGATED		36
-> +#define IMX943_CLK_ARMPLL_PFD3			37
-> +#define IMX943_CLK_DRAMPLL_VCO			38
-> +#define IMX943_CLK_DRAMPLL			39
-> +#define IMX943_CLK_HSIOPLL_VCO			40
-> +#define IMX943_CLK_HSIOPLL			41
-> +#define IMX943_CLK_LDBPLL_VCO			42
-> +#define IMX943_CLK_LDBPLL			43
-> +#define IMX943_CLK_EXT1				44
-> +#define IMX943_CLK_EXT2				45
-> +
-> +#define IMX943_CLK_NUM_SRC			46
-
-Drop and all other clock numbers like that.
-
-=2E..
-
-> +#include <dt-bindings/dma/fsl-edma.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +#include "imx943-clock.h"
-> +#include "imx943-pinfunc.h"
-> +#include "imx943-power.h"
-> +
-> +/ {
-> +	interrupt-parent =3D <&gic>;
-> +	#address-cells =3D <2>;
-> +	#size-cells =3D <2>;
-> +
-> +	cpus {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		idle-states {
-> +			entry-method =3D "psci";
-> +
-> +			cpu_pd_wait: cpu-pd-wait {
-> +				compatible =3D "arm,idle-state";
-> +				arm,psci-suspend-param =3D <0x0010033>;
-> +				local-timer-stop;
-> +				entry-latency-us =3D <10000>;
-> +				exit-latency-us =3D <7000>;
-> +				min-residency-us =3D <27000>;
-> +				wakeup-latency-us =3D <15000>;
-> +			};
-> +		};
-> +
-> +		A55_0: cpu@0 {
-> +			device_type =3D "cpu";
-> +			compatible =3D "arm,cortex-a55";
-> +			reg =3D <0x0>;
-> +			enable-method =3D "psci";
-> +			#cooling-cells =3D <2>;
-> +			cpu-idle-states =3D <&cpu_pd_wait>;
-> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
-> +			power-domain-names =3D "perf";
-> +			i-cache-size =3D <32768>;
-> +			i-cache-line-size =3D <64>;
-> +			i-cache-sets =3D <128>;
-> +			d-cache-size =3D <32768>;
-> +			d-cache-line-size =3D <64>;
-> +			d-cache-sets =3D <128>;
-> +			next-level-cache =3D <&l2_cache_l0>;
-> +		};
-> +
-> +		A55_1: cpu@100 {
-
-labels are always lowercase.
-
-> +			device_type =3D "cpu";
-> +			compatible =3D "arm,cortex-a55";
-> +			reg =3D <0x100>;
-> +			enable-method =3D "psci";
-> +			#cooling-cells =3D <2>;
-> +			cpu-idle-states =3D <&cpu_pd_wait>;
-> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
-> +			power-domain-names =3D "perf";
-> +			i-cache-size =3D <32768>;
-> +			i-cache-line-size =3D <64>;
-> +			i-cache-sets =3D <128>;
-> +			d-cache-size =3D <32768>;
-> +			d-cache-line-size =3D <64>;
-> +			d-cache-sets =3D <128>;
-> +			next-level-cache =3D <&l2_cache_l1>;
-> +		};
-> +
-> +		A55_2: cpu@200 {
-> +			device_type =3D "cpu";
-> +			compatible =3D "arm,cortex-a55";
-> +			reg =3D <0x200>;
-> +			enable-method =3D "psci";
-> +			#cooling-cells =3D <2>;
-> +			cpu-idle-states =3D <&cpu_pd_wait>;
-> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
-> +			power-domain-names =3D "perf";
-> +			i-cache-size =3D <32768>;
-> +			i-cache-line-size =3D <64>;
-> +			i-cache-sets =3D <128>;
-> +			d-cache-size =3D <32768>;
-> +			d-cache-line-size =3D <64>;
-> +			d-cache-sets =3D <128>;
-> +			next-level-cache =3D <&l2_cache_l2>;
-> +		};
-> +
-> +		A55_3: cpu@300 {
-> +			device_type =3D "cpu";
-> +			compatible =3D "arm,cortex-a55";
-> +			reg =3D <0x300>;
-> +			enable-method =3D "psci";
-> +			#cooling-cells =3D <2>;
-> +			cpu-idle-states =3D <&cpu_pd_wait>;
-> +			power-domains =3D <&scmi_perf IMX943_PERF_A55>;
-> +			power-domain-names =3D "perf";
-> +			i-cache-size =3D <32768>;
-> +			i-cache-line-size =3D <64>;
-> +			i-cache-sets =3D <128>;
-> +			d-cache-size =3D <32768>;
-> +			d-cache-line-size =3D <64>;
-> +			d-cache-sets =3D <128>;
-> +			next-level-cache =3D <&l2_cache_l3>;
-> +		};
-> +
-> +		l2_cache_l0: l2-cache-l0 {
-> +			compatible =3D "cache";
-> +			cache-size =3D <65536>;
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <256>;
-> +			cache-level =3D <2>;
-> +			cache-unified;
-> +			next-level-cache =3D <&l3_cache>;
-> +		};
-> +
-> +		l2_cache_l1: l2-cache-l1 {
-> +			compatible =3D "cache";
-> +			cache-size =3D <65536>;
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <256>;
-> +			cache-level =3D <2>;
-> +			cache-unified;
-> +			next-level-cache =3D <&l3_cache>;
-> +		};
-> +
-> +		l2_cache_l2: l2-cache-l2 {
-> +			compatible =3D "cache";
-> +			cache-size =3D <65536>;
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <256>;
-> +			cache-level =3D <2>;
-> +			cache-unified;
-> +			next-level-cache =3D <&l3_cache>;
-> +		};
-> +
-> +		l2_cache_l3: l2-cache-l3 {
-> +			compatible =3D "cache";
-> +			cache-size =3D <65536>;
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <256>;
-> +			cache-level =3D <2>;
-> +			cache-unified;
-> +			next-level-cache =3D <&l3_cache>;
-> +		};
-> +
-> +		l3_cache: l3-cache {
-> +			compatible =3D "cache";
-> +			cache-size =3D <1048576>;
-> +			cache-line-size =3D <64>;
-> +			cache-sets =3D <1024>;
-> +			cache-level =3D <3>;
-> +			cache-unified;
-> +		};
-> +	};
-> +
-> +	clk_ext1: clock-ext1 {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <133000000>;
-> +		clock-output-names =3D "clk_ext1";
-> +	};
-> +
-> +	dummy: clk-dummy {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <0>;
-> +		clock-output-names =3D "dummy";
-> +	};
-> +
-> +	osc_24m: clock-24m {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <24000000>;
-> +		clock-output-names =3D "osc_24m";
-> +	};
-> +
-> +	sai1_mclk: clock-sai1-mclk1 {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <0>;
-> +		clock-output-names =3D "sai1_mclk";
-> +	};
-> +
-> +	sai2_mclk: clock-sai2-mclk1 {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <0>;
-> +		clock-output-names =3D "sai2_mclk";
-> +	};
-> +
-> +	sai3_mclk: clock-sai3-mclk1 {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <0>;
-> +		clock-output-names =3D "sai3_mclk";
-> +	};
-> +
-> +	sai4_mclk: clock-sai4-mclk1 {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <0>;
-> +		clock-output-names =3D "sai4_mclk";
-> +	};
-> +
-> +	firmware {
-> +		scmi {
-> +			compatible =3D "arm,scmi";
-> +			mboxes =3D <&mu2 5 0>, <&mu2 3 0>, <&mu2 3 1>, <&mu2 5 1>;
-> +			shmem =3D <&scmi_buf0>, <&scmi_buf1>;
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +			arm,max-rx-timeout-ms =3D <5000>;
-> +
-> +			scmi_devpd: protocol@11 {
-> +				reg =3D <0x11>;
-> +				#power-domain-cells =3D <1>;
-> +			};
-> +
-> +			scmi_sys_power: protocol@12 {
-> +				reg =3D <0x12>;
-> +			};
-> +
-> +			scmi_perf: protocol@13 {
-> +				reg =3D <0x13>;
-> +				#power-domain-cells =3D <1>;
-> +			};
-> +
-> +			scmi_clk: protocol@14 {
-> +				reg =3D <0x14>;
-> +				#clock-cells =3D <1>;
-> +			};
-> +
-> +			scmi_iomuxc: protocol@19 {
-> +				reg =3D <0x19>;
-> +			};
-> +
-> +			scmi_bbm: protocol@81 {
-> +				reg =3D <0x81>;
-> +			};
-> +		};
-> +	};
-> +
-> +	pmu {
-> +		compatible =3D "arm,cortex-a55-pmu";
-> +		interrupts =3D <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIG=
-H)>;
-> +	};
-> +
-> +	psci {
-> +		compatible =3D "arm,psci-1.0";
-> +		method =3D "smc";
-> +	};
-> +
-> +	timer {
-> +		compatible =3D "arm,armv8-timer";
-> +		interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LO=
-W)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_LOW)>;
-> +		clock-frequency =3D <24000000>;
-> +		arm,no-tick-in-suspend;
-> +		interrupt-parent =3D <&gic>;
-> +	};
-> +
-> +	gic: interrupt-controller@48000000 {
-> +		compatible =3D "arm,gic-v3";
-> +		#address-cells =3D <2>;
-> +		#size-cells =3D <2>;
-> +		reg =3D <0 0x48000000 0 0x10000>,
-> +		      <0 0x48060000 0 0xc0000>;
-> +		#interrupt-cells =3D <3>;
-> +		interrupt-controller;
-> +		interrupts =3D <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +		interrupt-parent =3D <&gic>;
-> +		dma-noncoherent;
-> +		ranges;
-> +
-> +		its: msi-controller@48040000 {
-> +			compatible =3D "arm,gic-v3-its";
-> +			reg =3D <0 0x48040000 0 0x20000>;
-> +			msi-controller;
-> +			#msi-cells =3D <1>;
-> +			dma-noncoherent;
-> +		};
-> +	};
-> +
-> +	soc {
-> +		compatible =3D "simple-bus";
-> +		#address-cells =3D <2>;
-> +		#size-cells =3D <2>;
-> +		ranges;
-> +
-> +		aips2: bus@42000000 {
-> +			compatible =3D "fsl,aips-bus", "simple-bus";
-> +			reg =3D <0x0 0x42000000 0x0 0x800000>;
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <1>;
-> +			ranges =3D <0x42000000 0x0 0x42000000 0x8000000>;
-> +
-> +			edma2: dma-controller@42000000 {
-> +				compatible =3D "fsl,imx95-edma5";
-
-imx943 or imx95?
-
+> 
+>> +		backlight = <&backlight>;
+>> +		power-supply = <&vcc3v3_lcd_edp>;
+>> +
+>> +		port {
+>> +			panel_in_edp: endpoint {
+>> +				remote-endpoint = <&edp_out_panel>;
+>> +			};
+>> +		};
+>> +	};
+>> +
+>>   	combophy_avdd0v85: regulator-combophy-avdd0v85 {
+>>   		compatible = "regulator-fixed";
+>>   		regulator-name = "combophy_avdd0v85";
+> 
 Best regards,
-Krzysztof
-
+Damon
 
