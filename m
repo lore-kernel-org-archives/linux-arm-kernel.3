@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624FBE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E9E8E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FgNrHb4I4ZiSK/b1r8jE+ZYhYIIIypBuSGPd1Lskgzc=; b=B8PVwVtUOcS6gOv/cM9QXXoAF6
-	32+mbWe9S28s/hdGM7/aDyyJC6K7EVDqy4+Ck8acHdAWmfsVhYqcobSsv+2ug7IAsdXOxHZQS/jV/
-	lnDCwfJo2hUOlXf7dbe4w0L0szW3wYqi9vzluujHTH6+bpoKeyNo2A8tNPGtEWfJAbYPfoFtDdUxr
-	CyS2aBfrQcjpHCv//H/09FUlKQBuc5EFpbtUiHROIw+4mvkHrgtg413B/p1UnjiSQPFqgh8hg/Uhu
-	UrTf7MUJJ+rE+fl0qzEXg1K9uSsy7dZHpemKR5v1w0Qcw9HD0BlNQb5cDcMQjlm6/F4p16lRVxkNx
-	CoYX4q1g==;
+	bh=TkdJQGrSE3oTUAQoeRuUHb1VHmnrtQkcv8oSAvhApqA=; b=kJqruKfBz0S2979MWBIZMbOueb
+	TxPb9lA1JbGvZ0nNdbofjIvKpaotcFk+4Ksrvk/+dj7NaiVO8SByXua1aEW9WNi7/aBhKbNZI6OMc
+	ccBWAgy/LJiqkJHc4jU0ZAJ7lFkGDzp3j/4vYePDGnUA01FqIpYrvk//pFplm1Vmg+EFUl7y0Lvs/
+	inMQWcRB+zgQpRxXtakdmyTXFxKQrJiwptsPqGMlM0sWlPKKrlfCFMwkNZSFcW/GebuGVIlBozGcc
+	XaJn5LrCIcr0f05Kkcaf8oN01ROTqwv0C6WkUphXQ1movB14wfGBapdCHZNDrF8GQIu0nayq4aTqj
+	XkLPXsQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSBV-0000000CbIk-3j7C;
-	Tue, 17 Dec 2024 07:40:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNSCZ-0000000CbYq-21Z3;
+	Tue, 17 Dec 2024 07:41:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSAP-0000000Cb5Q-2P9m
+	id 1tNSBO-0000000CbHB-2pQu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 07:38:54 +0000
+	Tue, 17 Dec 2024 07:39:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A5C65C5C74;
-	Tue, 17 Dec 2024 07:38:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D886C4CED3;
-	Tue, 17 Dec 2024 07:38:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0D8775C6208;
+	Tue, 17 Dec 2024 07:39:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D862C4CED3;
+	Tue, 17 Dec 2024 07:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734421132;
-	bh=tNHnx9DVG5hJfoO2tUFgXbCyMPBkjZoAyxqDuz8uz6E=;
+	s=k20201202; t=1734421193;
+	bh=f7Df3D2mYSw4EuQDLRDjYSEZXbF66N6eFGfuaboyFb8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L0evr5sGGa5QqC5BW9/gKXf1MZE2aOZ9mU4WpN+8BCRd/iJGFbWiiUuHAe7irkost
-	 Lg5P4mDLIKVyOY4wODXqHaOKe2D6G2Zm2loLKKZGIta5HuqPOmFanAxOSxpDWPvVcN
-	 ZmuOfy6U02IiKuI4TVCw9cnWfKn+a2rz5BZin6cPp38y7aDGilU7e5cMYQcNIBrPY7
-	 24yWFECXtMF17Mk3oPRH97CI6GuZQV2kNRiBEAo+glLQA6clbHigr7TewOUxw9Zzj1
-	 6NB1TnXhJGGb0sxien9H999MPOudYCA0brnO0zUKNZfFtEluUA/tZLka9WQERCxbNC
-	 S+uP5kjD79bTg==
-Date: Tue, 17 Dec 2024 08:38:48 +0100
+	b=dzSxKRGumOzngVx8WU5ajJQJw3ytC8wVC5afCVitEYN1FSmnlzVvAp4Zy+67Kc/63
+	 nPYBgpKCpHytRPZbb4naVy4pGsyTBAUGhoUQ6Q1XwAOrbBNtXYSrTpLvYWyTAhOyaT
+	 gEA1mPKGnHzFpGcVlLpFvozjDhd8jRqNVXjN9n1q4s59+gBtO8tFqY/mEVjDs3m0h6
+	 K6Oxyg3oPABTAUKfktuJug8D+GfWa7Ps0Jh2y0IIB6niDEPPPCEoNRqF/3H56Cn3je
+	 Kr2bTYvyd3RS6rdUrlahRFTZHBjcX8qeSqJLaWI6nEVRKboRUl4V8EMz/fBQp5HA0D
+	 lW2/QDGYI91cg==
+Date: Tue, 17 Dec 2024 08:39:50 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -51,19 +51,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>, Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64: dts: exynos: gs101-oriole: move common Pixel6
- & 6Pro parts into a .dtsi
-Message-ID: <fw2a6taf4kd3sggmyppeym2uxkuyotxy7ugj3bh73vetnra4m6@jllekadordju>
+Subject: Re: [PATCH 4/4] arm64: dts: exynos: gs101-raven: add new board file
+Message-ID: <2wyjctwn443oxl633qwxsxmyzqhinssrkoafgqhcc34tqgwnh5@ymrr57jxdnl6>
 References: <20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org>
- <20241216-gs101-simplefb-v1-3-8ccad1830281@linaro.org>
+ <20241216-gs101-simplefb-v1-4-8ccad1830281@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241216-gs101-simplefb-v1-3-8ccad1830281@linaro.org>
+In-Reply-To: <20241216-gs101-simplefb-v1-4-8ccad1830281@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_233853_659784_286CEDB8 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20241216_233954_753640_4E2E1655 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,34 +77,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 01:06:28PM +0000, Andr=C3=A9 Draszik wrote:
-> In order to support Pixel 6 (Oriole) and Pixel 6 Pro (Raven) properly,
-> we have to be able to distinguish them properly as we add support for
-> more features.
+On Mon, Dec 16, 2024 at 01:06:29PM +0000, Andr=C3=A9 Draszik wrote:
+> Raven is Google's code name for Pixel 6 Pro. Similar to Pixel 6
+> (Oriole), this is also based around its Tensor gs101 SoC.
 >=20
-> For example, Raven has a larger display. There are other differences,
-> like battery design capacity, etc.
+> For now, the relevant difference here is the display resolution:
+> 1440 x 3120 instead of 1080 x 2400.
 >=20
-> Move all the parts that are common for now into a gs101-raviole.dtsi,
-> and just leave the display related things in gs101-oriole.dts.
->=20
-> Raviole was chosen as the name because Google uses that when referring
-> to the combination of Oriole & Raven, keeping the familiar terminology.
+> Create a new board file to reflect this difference.
 >=20
 > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 >=20
 > ---
 > Note: MAINTAINERS doesn't need updating, it covers this whole directory
 > ---
->  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 290 +--------------=
------
->  .../boot/dts/exynos/google/gs101-raviole.dtsi      | 297 +++++++++++++++=
+>  arch/arm64/boot/dts/exynos/google/Makefile        |  1 +
+>  arch/arm64/boot/dts/exynos/google/gs101-raven.dts | 27 +++++++++++++++++=
 ++++++
->  2 files changed, 305 insertions(+), 282 deletions(-)
+>  2 files changed, 28 insertions(+)
 >=20
+> diff --git a/arch/arm64/boot/dts/exynos/google/Makefile b/arch/arm64/boot=
+/dts/exynos/google/Makefile
+> index 0a6d5e1fe4ee..7385f82b03c9 100644
+> --- a/arch/arm64/boot/dts/exynos/google/Makefile
+> +++ b/arch/arm64/boot/dts/exynos/google/Makefile
+> @@ -2,3 +2,4 @@
+> =20
+>  dtb-$(CONFIG_ARCH_EXYNOS) +=3D \
+>  	gs101-oriole.dtb \
+> +	gs101-raven.dtb
+> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-raven.dts b/arch/arm=
+64/boot/dts/exynos/google/gs101-raven.dts
+> new file mode 100644
+> index 000000000000..75fd34797fa9
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
+> @@ -0,0 +1,27 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Raven Device Tree
+> + *
+> + * Copyright 2021-2023 Google LLC
+> + * Copyright 2023-2024 Linaro Ltd
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "gs101-raviole.dtsi"
+> +
+> +/ {
+> +	model =3D "Raven";
+> +	compatible =3D "google,gs101-raven", "google,gs101";
+> +};
+> +
+> +&framebuffer0 {
+> +	reg =3D <0x0 0xfac00000 (1440 * 3120 * 4)>;
+> +	width =3D <1440>;
+> +	height =3D <3120>;
+> +	stride =3D <(1440 * 4)>;
+> +};
+> +
+> +&cont_splash_mem {
 
-This looks like move of the code, so -M/-B/-C format patch arguments
-would create better diff.
+Keep overriding/extending nodes ordered by label name.
 
 Best regards,
 Krzysztof
