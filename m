@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1503E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8D5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5weIQENd/TWSQgQ6aqWujhlJ38EIL0ozLxoFHUkrYE=; b=2iXcU+4MsQueMBR/OJsH+j2ND1
-	OiMacKub9z8M0WPmjG7z+J1OsOA0avhl1+gSfzBGDLbmx0PxzX6JFu8qEjhR6A5t2XY7fxAIBPkKz
-	m5PcWD+ATJNdgMpGqwT7aQAjqBa9t3wsw4uhgmgeIfwhtRk1f3SEEWSg6ZmwIzXqfLi2yKrdic+n0
-	+0SWUVSTzlvQD0doskeMD2WD+R4R3VP4nVla4rq6GX09Orvpg/Fv+tv/os0fOaqC0Tk1JnxvPvgt8
-	SpBjtcydEsWgJ66DxQ2NslTBEPPSs53IgVvLptLeLCw2DLypGmPI9nIOZ3bglbqaIoEd997KFbDbk
-	EDtISxPA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C9RBnRSti7f7SgIlq7qr6tqFDDd/TA3hM/2DzBsoiDc=; b=npN+K1G3lUh44n9c8zbxDl229W
+	rmpExM8Aa4Jisymg3wCxPBHhGfAX4gXOu1d4NCGno2PEFDyoFuCktQKa8n3/OtwPBNaeAmhBMBtT2
+	NlSSBijdYpAuwhUtfm6b+ekixND2afxrBsaJ9tuUUl0h1rIfrOvSs+i1M2dMxykeMOnYO5xYyGmnF
+	f9Bn9C2Q/KIuj7clU0NIHsgsXAQuy5rKWNsPwu4QlGqDFkyLOcDIYIqCerT4W+Hn9ox+aTBSUlATS
+	P0sM9KeDeo2GsLv15nC/rfdV40vpmFw6zkuW5o8JNknhUUS++PU1azAC1XSPgOzKxwR8PZlgo5LWx
+	vd5Hn5jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTlO-0000000CtFS-2xcO;
-	Tue, 17 Dec 2024 09:21:10 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tNTmT-0000000Ctep-0eaO;
+	Tue, 17 Dec 2024 09:22:17 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTZ8-0000000CqGV-46e1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 09:08:32 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-385e3621518so2535646f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 01:08:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734426509; x=1735031309; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Q5weIQENd/TWSQgQ6aqWujhlJ38EIL0ozLxoFHUkrYE=;
-        b=EF0sdldHfB/dFruV0x/3EVDtddqZEWIDIRxAtMVRlxjiXJBihDKd3cHuMgiKqkwJxn
-         RgGcmorYw68CDhYUGN+x7iqqDihzyygAtbgyDakSjeOG9McmKXXRyZoR8g/L2C2EUqeX
-         0ssye3ivxl8OWFgSYxNUJVTb6V9h/lbAL+tY4Nm7PTt2gyFCo8lZx30C6m05xWZ9QaZ2
-         rEwf843Zf+Za92Bi5pGoopwOiYmVJyeK26WogoFk0uvB0tfopdiNf+LOtL5p6DMobf0L
-         cDY4a23fbTjphAAvxoTFR1MeOgNw0Fr0h0uQeo+ad1nZ9xGtUTjPb5kRvuVm7edJVyir
-         m3IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734426509; x=1735031309;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q5weIQENd/TWSQgQ6aqWujhlJ38EIL0ozLxoFHUkrYE=;
-        b=LtB1uJb9A7fRSvzg2eiSIy7o2AD2g6f8D3eKXd6Lu6YqPpFqKvuRNo+Fg8UTIhR9ju
-         2A5Um20I3RbAj9Fj0xbb/IkHCSsrm/OJnIP5HXwCG4+zOgxX0jkbqdzqWqLcTl/kfTRY
-         DJ69TUgj7cuAStKsiUD6+aK5QGe0zFvtylW3ux6YwwsOMr30PQW0tRvs8aVEYKPfxLXY
-         nPDh3u12oORVF+h6rXkdOFlZudg2jmLPoc+MXizLem58j0o3C/CRIz7kOmJcbBup0PTX
-         rDE5rQ0dHTbAbAU43i/Z17qBANQWmN7GwGb8SgU1z46Zj+RuNyvvCaGFiFV4HDQVMHRj
-         iOKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWAcI6sPNZzFEqdcDM9AatgqVTix83fa+CkON78QDs5fTe7gVRmRRwXEzrvsNUlzu9mzPE0Wmt0ZWOTf4IMU2YZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBQvquurh1DazFy9YYjVHXQ8hqSDPq1zB3iHpBYZ+ibgbon/YD
-	y6pPnqLhm0Gzy29IgQ1V237RicLB9Ze2bW+sKoS1oRckj1I1HrDWssLU+Q==
-X-Gm-Gg: ASbGnct25hi744Bv7iofy/csd7v7wke8DW5GawXB4eUOUPbd15txv2UMLJweXvqeWzJ
-	cdr08sI4imW5WWtMSkJqvPJgiqYQAsWudsQ2fGI4pOEtmo/3FLQy6F9JlOUF3M6wyL24KKG+yUh
-	6WMCdeE7MzkB39UBtTZJbqis+IjFmxacmBHusi1yXEv+GX8HXPaVyIYDqdZ3uwCFJCbXYjJrOdB
-	E36Vfdzlfkw2BYvuWu/iFbJR/dFenvG58yCo/pQg7aCA47Zz4e2sXvXRPwHM0hDx3cuJrai8crF
-	1uBszsjIZyPEYVwXYScXXQ==
-X-Google-Smtp-Source: AGHT+IFKUA5hQNQSywoZDLpGUcdLM6zt8M6vh5FswSnswuK4fj51IzxHglfrE9X7z3ZJ7TaFHj1FhQ==
-X-Received: by 2002:a05:6000:156f:b0:385:e328:890a with SMTP id ffacd0b85a97d-3888e0c0520mr13813018f8f.49.1734426509180;
-        Tue, 17 Dec 2024 01:08:29 -0800 (PST)
-Received: from [172.16.20.173] (62-73-104-42.ip.btc-net.bg. [62.73.104.42])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80165c5sm10519556f8f.25.2024.12.17.01.08.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Dec 2024 01:08:28 -0800 (PST)
-Message-ID: <6e93d59d-71e5-4c09-862f-55b5504121aa@gmail.com>
-Date: Tue, 17 Dec 2024 11:08:26 +0200
+	id 1tNTdM-0000000Cr18-3XEM;
+	Tue, 17 Dec 2024 09:12:54 +0000
+Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
+	by mxout2.routing.net (Postfix) with ESMTP id F18AF6025C;
+	Tue, 17 Dec 2024 09:12:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1734426771;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=C9RBnRSti7f7SgIlq7qr6tqFDDd/TA3hM/2DzBsoiDc=;
+	b=kK/sYAt9QaMOQk/Kh8q9ds7yTLape+FyzYhjlfI5KX0vdxLYhW6/110fiEZd9KWnk/ifh6
+	uUhIj3Ctro4c/8XE8OI+Kf8r4h1/Wn/9WeX1dAEIXdS7T3wYt6ZrvUtw7zXtlm4isfYm7i
+	yC5fzGGauZFBt3poeCe1rLro+Zjm1n8=
+Received: from frank-u24.. (fttx-pool-217.61.150.187.bambit.de [217.61.150.187])
+	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 2765E1004DD;
+	Tue, 17 Dec 2024 09:12:50 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 00/22] continue mt7988 devicetree work
+Date: Tue, 17 Dec 2024 10:12:14 +0100
+Message-ID: <20241217091238.16032-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: i2c: exynos5: Add
- samsung,exynos8895-hsi2c compatible
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti
- <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
- <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
- <0ebc12ed-fe91-4c8a-a626-b735b0eeecf1@kernel.org>
- <007559c5-f566-4625-99b7-e761a916fba3@gmail.com>
- <cccca881-dd59-43c0-9072-dcd91d01671d@kernel.org>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <cccca881-dd59-43c0-9072-dcd91d01671d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Mail-ID: 06ab4296-b2cd-4af8-a756-3c2e5162f988
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_010831_024947_F4C19F1E 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20241217_011253_024071_D56C5245 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,82 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/17/24 07:24, Krzysztof Kozlowski wrote:
-> On 16/12/2024 21:59, Ivaylo Ivanov wrote:
->> On 12/16/24 10:44, Krzysztof Kozlowski wrote:
->>> On 14/12/2024 23:04, Ivaylo Ivanov wrote:
->>>> Add samsung,exynos8895-hsi2c dedicated compatible for representing
->>>> I2C of Exynos8895 SoC. Since there are I2C buses that aren't implemented
->>>> as a part of USIv1 blocks, they only require a single clock.
->>>>
->>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>> ---
->>>>  .../devicetree/bindings/i2c/i2c-exynos5.yaml  | 26 ++++++++++++++++---
->>>>  1 file changed, 23 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
->>>> index cc8bba553..b029be88e 100644
->>>> --- a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
->>>> +++ b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
->>>> @@ -25,6 +25,7 @@ properties:
->>>>            - samsung,exynos5250-hsi2c    # Exynos5250 and Exynos5420
->>>>            - samsung,exynos5260-hsi2c    # Exynos5260
->>>>            - samsung,exynos7-hsi2c       # Exynos7
->>>> +          - samsung,exynos8895-hsi2c
->>>>            - samsung,exynosautov9-hsi2c
->>>>        - items:
->>>>            - enum:
->>>> @@ -94,9 +95,28 @@ allOf:
->>>>          - clock-names
->>>>  
->>>>      else:
->>>> -      properties:
->>>> -        clocks:
->>>> -          maxItems: 1
->>>> +      if:
->>>> +        properties:
->>>> +          compatible:
->>>> +            contains:
->>>> +              enum:
->>>> +                - samsung,exynos8895-hsi2c
->>>> +
->>>> +      then:
->>>> +        properties:
->>>> +          clocks:
->>> Missing minItems
->>>
->>>> +            maxItems: 2
->>>> +
->>>> +          clock-names:
->>> Ditto
->>>
->>>> +            maxItems: 2
->>>> +
->>>> +        required:
->>>> +          - clock-names
->>> I don't understand why do you need second, same branch in if, basically
->> Because, as I stated in the commit message, we have HSI2C controllers
->> both implemented in USIv1 blocks and outside. These that are a part of
-> On Exynos8895? Where? With the same compatible?
+From: Frank Wunderlich <frank-w@public-files.de>
 
-hsi2c_0 which has a clock from BUSC and hsi2c_1 to hsi2c_4 which use clocks
-from PERIC1 (CLK_GOUT_PERIC1_HSI2C_CAM{0,1,2,3}_IPCLK). Why would
-they need a different compatible though? It's functionally the same i2c design
-as the one implemented in USIv1 blocks.
+This series adds some missing labels and new nodes to mt7988 DTS.
 
->
->> USIv1 need 2 clocks, and those that aren't have only one. So it's not
->> a duplicate for the previous - autov9 sets a minitems of 2 and the
->> others have a maxitems of 1.
-> We talk here about branch that says 2 items. You duplicate that one.
+based on pinctrl-series
+https://patchwork.kernel.org/project/linux-mediatek/list/?series=918572
 
-I see. I can just define the clocks for all at this point.
+changes:
+v3:
+- reorder
+- small fixes
+- add some new patches (t-phy, pcie, mmc overlays)
+- dropped pmic and proc-supply for now because we found a mismatch compared with schematic
 
-Best regards,
-Ivo.
+v2:
+- reorder and squash label-commits to where they are used
+- add some more nodes
+- add changes to bananapi-r4 board
+- moving some nodes from SoC dtsi to board dts
 
->
-> Best regards,
-> Krzysztof
+Frank Wunderlich (22):
+  arm64: dts: mediatek: mt7988: Add reserved memory
+  arm64: dts: mediatek: mt7988: Add mmc support
+  arm64: dts: mediatek: mt7988: Add lvts node
+  arm64: dts: mediatek: mt7988: Add thermal-zone
+  arm64: dts: mediatek: mt7988: Add missing clock-div property for i2c
+  arm64: dts: mediatek: mt7988: Add mcu-sys node for cpu
+  arm64: dts: mediatek: mt7988: Add CPU OPP table for clock scaling
+  arm64: dts: mediatek: mt7988: Disable usb controllers by default
+  arm64: dts: mediatek: mt7988: Add t-phy for ssusb1
+  arm64: dts: mediatek: mt7988: Add pcie nodes
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable watchdog
+  arm64: dts: mediatek: mt7988a-bpi-r4: Add fixed regulators for 1v8 and
+    3v3
+  arm64: dts: mediatek: mt7988a-bpi-r4: Add dt overlays for sd + emmc
+  arm64: dts: mediatek: mt7988a-bpi-r4: Add thermal configuration
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable serial0 debug uart
+  arm64: dts: mediatek: mt7988a-bpi-r4: Add default UART stdout
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable I2C controllers
+  arm64: dts: mediatek: mt7988a-bpi-r4: Add PCA9545 I2C Mux
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable t-phy for ssusb1
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable ssusb1 on bpi-r4
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable pwm
+  arm64: dts: mediatek: mt7988a-bpi-r4: Enable pcie
+
+ arch/arm64/boot/dts/mediatek/Makefile         |   3 +
+ .../mt7988a-bananapi-bpi-r4-emmc.dtso         |  33 ++
+ .../mediatek/mt7988a-bananapi-bpi-r4-sd.dtso  |  31 ++
+ .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 143 +++++++++
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi     | 303 +++++++++++++++++-
+ 5 files changed, 506 insertions(+), 7 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-emmc.dtso
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-sd.dtso
+
+-- 
+2.43.0
 
 
