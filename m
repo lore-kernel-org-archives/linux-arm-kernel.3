@@ -4,112 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3916CE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7344E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndXqIq5SDCXTa6B7pPPy872dAvwsWMzGfJChejMCVi4=; b=i6jh6OTA/rImKeahCJ19pw5mb5
-	CJv3kRG6bSOMHodxbT+cVqV090K6E0KKBmYg4PPHH+P1zEqSsAtTB/8xROB+IT2ugoloNCedQ15MJ
-	Q5Bei2AGpSr43AGSF1F2ZzZomzSZqflmOdnic0xZrGnDlRNHvx/7LzQJFsWdV8DaNHHuc7YSd4BgP
-	dzO24/WcdQZxJchQIEP1hAu/ewDUbtbAZ4u00yvk29L1gEhAOMw7QhuO7utjVE7uMEWSlNUwt/nZT
-	STlOf7j4oa7YlxqsZdynnf7oaIJAtSZ4TAgLrwE7AyFpgmya6INyoaAGt+LyujIwRmJbMporz4fdX
-	f2hSlCzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3eprAB6mL99nuDvuDpZ7xteMR+o2NtdFYL2yb/syKiQ=; b=h5fwRG2Dy8WclIAttu4Ae2afry
+	JhdXnRDxxCO6qZ8qCAzRbODm8g0WQruClrJ4ZNEl1VPDce4yo4uGKSOr1cEr60JecSeAld3V4+dmQ
+	w8I6ZoSFLs4f8oH1eP8SqFve5+UrELfzfQdk09w2iOY7ZuHegAFafSowAXvgV/DpR6onrw3nX5tM4
+	zCgqTq96VxU5O7ZmUIIm4slyMVdrAeNRnGqEUmYTVmABw/1p4yzb3s8Nuqrg0e3Blr7IeMzT7EFYZ
+	6OyvcaNEAdKa3VeojTR+t1Wofz6pnquGRNTKhYGBLPmEaNpA3DJNfUD7bbIcY9TZdHHOrJi8YNTxe
+	Ni4TyNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNQNL-0000000CKWx-45Xs;
-	Tue, 17 Dec 2024 05:44:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNQOQ-0000000CKwS-3DQ6;
+	Tue, 17 Dec 2024 05:45:14 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNQ4l-0000000CGrD-1kQ5
+	id 1tNQAO-0000000CIFG-3Fxp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 05:24:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1987A41D6E;
-	Tue, 17 Dec 2024 05:23:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 170B5C4CED3;
-	Tue, 17 Dec 2024 05:24:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734413094;
-	bh=9RcEuBF5bowQAtfg1xxeDCSTyQtNu3L63uQXRiWuZGg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gy6EJ1c9Ufla1uqwXLhVNI+sp3OxX5axM8kD85nc2St+C1g9/KojFx7/dVTCFbQaY
-	 wuuUjm94hYmXTfiWj08eIA8AVLu6TYizzznreAFJTakBvBLWRQXHlbIvjIOqgyt+xl
-	 XKWSpX3Br2Ucm3QWu7yi8IPyGMWAtcEKCWQlV0BnpF2bxKWx1AMgbOeEBQCf0lZ6/A
-	 2aWj3DshcG3mhisUJecw6s1Sr3gTMWP0KL1pGxO2I2Sg2wLFg6jtyIRou3rPJqoOef
-	 DY0zII+eqzmOy714FHshiqEVtvoOMTxH67Uc3w3+YvJccJQSOYLJqml1XSzGU0mtmx
-	 AMaZaryMwjH8g==
-Message-ID: <cccca881-dd59-43c0-9072-dcd91d01671d@kernel.org>
-Date: Tue, 17 Dec 2024 06:24:49 +0100
+	Tue, 17 Dec 2024 05:30:47 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-728d1a2f180so3635457b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 21:30:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734413443; x=1735018243; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3eprAB6mL99nuDvuDpZ7xteMR+o2NtdFYL2yb/syKiQ=;
+        b=K4z4j6/c/hBjK8yM/KfEh5NtLAg6kn/q5g6WcwKULNpUnWGJ6vTr4tJq7Kvzf037qK
+         omgKNX/Bw3BhuzB4RpqaJtBkTc+fKt0osNPhl4cfr05pgNjuwJ1thB5aHWMq+edyMeYX
+         ZYIDa1pHaASbdPyu1ISKHvVZ1we193Y/HVdWxMucw71IXNo2ak+gd2wQiDu/Ru/3pepo
+         W+J3+JH4TvyHiYhyjPL6JgBjCQk/ubD7L2Co1NaF8kyVd4kaDUwmINyfpC4cP0AHGRBE
+         AIqtWlcGHkrsOHRsz/FNrynZnGW9s7E1wG8blBYuNp4pDnflUFpWtzB0flWAb79X2eqP
+         fRrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734413443; x=1735018243;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3eprAB6mL99nuDvuDpZ7xteMR+o2NtdFYL2yb/syKiQ=;
+        b=N72qleArTzXavjXK3dNMY8TkR41oSZht+PT4a766G9w+pw/CVfFmSgZhZWEBYe4aKd
+         kX4Gn8RNj0NVbYhndT9b8e2ihslGcakrM7rGzYAt+Fbj4XsJ3MeX0w1y5uCEXFezmaSw
+         dCcR0P+QejpgpNg+2gdLs+tL1SMybNVBl0n8HpnGaCNVvVKob7J1EPpBgzSHELjqFL/G
+         2a8p20EYYcwPSPK2bU9e/AoQ8tYTMKydkg2pIFNvxjmvFyy1E6u+KEY3LsSquJMtYzqv
+         oC6/denKRVxWhjZa1IIzRU5LgFYK2hW5sJgDuTsmkg7MNn05ax3o/B1QJkSKTgdolOW4
+         uaNw==
+X-Forwarded-Encrypted: i=1; AJvYcCVXf3G1VTuABH4c4pVJLlTbJENJFNHRLBa4/dx1xIRKB0pGIbGLgdJ2MPW0GZK8GJJlRoGdQp/VEqwBJUnaGyJb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHub+06YF5YcgKzuZPTQ9+Q4MbWSgUrA/yHk5YmZJ7k3Wdtg06
+	eWK59r43/YbDLheDKdr2u4CWcm/ReQoCMzLyib2xpw7hv2bdN4xhMgeehj7g1IY=
+X-Gm-Gg: ASbGncv7fhcbu6XJLg3ybT4tcQkxZblexwO6aIFZ9RRGLbkx3KdGPQeYvK2KMtfyNGT
+	EVnuXxMjAVZN7UinoXmWrFJvIYXoIb2d+Thy4pH3Kvka8buApU6HozztaWP6rvgpFz2eTNKfbw4
+	9LdUoXpIxo4qlriPtTGBxISEEdrydVBDlxhfTyohAjzR2juPZglsOYxGTrdsRB38gCTQtjY5tsO
+	RBJ70i3USSbVtvjRRwHLfGf50W/vWygkGhu0GWnpYBGPx7ATJ8=
+X-Google-Smtp-Source: AGHT+IGGG8XVKg+X8rmGZK6CbMCJ7mkfFmLPI5+tN+Ymugv6wmhrKZix3qMLXbksYQCVWS+ftd5fVg==
+X-Received: by 2002:a05:6a00:7c6:b0:725:e386:3c5b with SMTP id d2e1a72fcca58-72a7872b694mr2639309b3a.5.1734413443517;
+        Mon, 16 Dec 2024 21:30:43 -0800 (PST)
+Received: from ghost ([2601:647:6700:64d0:9708:a71e:40e6:860])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72918ad5883sm5945241b3a.63.2024.12.16.21.30.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 21:30:42 -0800 (PST)
+Date: Mon, 16 Dec 2024 21:30:39 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 02/16] perf tools: arc: Support generic syscall headers
+Message-ID: <Z2EMf8_oShdXHyL1@ghost>
+References: <20241212-perf_syscalltbl-v2-0-f8ca984ffe40@rivosinc.com>
+ <20241212-perf_syscalltbl-v2-2-f8ca984ffe40@rivosinc.com>
+ <Z1zIlKq19lAXMoGs@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: i2c: exynos5: Add
- samsung,exynos8895-hsi2c compatible
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
- <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
- <0ebc12ed-fe91-4c8a-a626-b735b0eeecf1@kernel.org>
- <007559c5-f566-4625-99b7-e761a916fba3@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <007559c5-f566-4625-99b7-e761a916fba3@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z1zIlKq19lAXMoGs@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_212455_600099_F23C9A56 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20241216_213044_822141_675EF882 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,71 +116,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/12/2024 21:59, Ivaylo Ivanov wrote:
-> On 12/16/24 10:44, Krzysztof Kozlowski wrote:
->> On 14/12/2024 23:04, Ivaylo Ivanov wrote:
->>> Add samsung,exynos8895-hsi2c dedicated compatible for representing
->>> I2C of Exynos8895 SoC. Since there are I2C buses that aren't implemented
->>> as a part of USIv1 blocks, they only require a single clock.
->>>
->>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>> ---
->>>  .../devicetree/bindings/i2c/i2c-exynos5.yaml  | 26 ++++++++++++++++---
->>>  1 file changed, 23 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
->>> index cc8bba553..b029be88e 100644
->>> --- a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
->>> +++ b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
->>> @@ -25,6 +25,7 @@ properties:
->>>            - samsung,exynos5250-hsi2c    # Exynos5250 and Exynos5420
->>>            - samsung,exynos5260-hsi2c    # Exynos5260
->>>            - samsung,exynos7-hsi2c       # Exynos7
->>> +          - samsung,exynos8895-hsi2c
->>>            - samsung,exynosautov9-hsi2c
->>>        - items:
->>>            - enum:
->>> @@ -94,9 +95,28 @@ allOf:
->>>          - clock-names
->>>  
->>>      else:
->>> -      properties:
->>> -        clocks:
->>> -          maxItems: 1
->>> +      if:
->>> +        properties:
->>> +          compatible:
->>> +            contains:
->>> +              enum:
->>> +                - samsung,exynos8895-hsi2c
->>> +
->>> +      then:
->>> +        properties:
->>> +          clocks:
->> Missing minItems
->>
->>> +            maxItems: 2
->>> +
->>> +          clock-names:
->> Ditto
->>
->>> +            maxItems: 2
->>> +
->>> +        required:
->>> +          - clock-names
->> I don't understand why do you need second, same branch in if, basically
+On Fri, Dec 13, 2024 at 03:51:48PM -0800, Namhyung Kim wrote:
+> On Thu, Dec 12, 2024 at 04:32:52PM -0800, Charlie Jenkins wrote:
+> > Arc uses the generic syscall table, use that in perf instead of
+> > requiring libaudit.
+> > 
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  tools/perf/Makefile.config                           | 2 +-
+> >  tools/perf/Makefile.perf                             | 2 +-
+> >  tools/perf/arch/arc/entry/syscalls/Kbuild            | 2 ++
+> >  tools/perf/arch/arc/entry/syscalls/Makefile.syscalls | 3 +++
+> >  tools/perf/arch/arc/include/syscall_table.h          | 2 ++
+> >  5 files changed, 9 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+> > index a72f25162714f0117a88d94474da336814d4f030..3959a9c9972999f6d1bb85e8c1d7dc5dce92fd09 100644
+> > --- a/tools/perf/Makefile.config
+> > +++ b/tools/perf/Makefile.config
+> > @@ -36,7 +36,7 @@ ifneq ($(NO_SYSCALL_TABLE),1)
+> >    endif
+> >  
+> >    # architectures that use the generic syscall table scripts
+> > -  ifeq ($(SRCARCH),riscv)
+> > +  ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc))
 > 
-> Because, as I stated in the commit message, we have HSI2C controllers
-> both implemented in USIv1 blocks and outside. These that are a part of
+> This might work as well.
+> 
+>   ifneq ($(filter $(SRCARCH), riscv arc),)
+> 
+> And maybe you can add a variable for supported archs.
 
-On Exynos8895? Where? With the same compatible?
+Yeah I can do that. All of this is just temporary though. The final
+patch removes all of this, since this series implements this for every
+architecture.
 
-> USIv1 need 2 clocks, and those that aren't have only one. So it's not
-> a duplicate for the previous - autov9 sets a minitems of 2 and the
-> others have a maxitems of 1.
+- Charlie
 
-We talk here about branch that says 2 items. You duplicate that one.
-
-Best regards,
-Krzysztof
+> 
+> Thanks,
+> Namhyung
+> 
+> 
+> >      NO_SYSCALL_TABLE := 0
+> >      CFLAGS += -DGENERIC_SYSCALL_TABLE
+> >      CFLAGS += -I$(OUTPUT)/tools/perf/arch/$(SRCARCH)/include/generated
+> > diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+> > index f5278ed9f778f928436693a14e016c5c3c5171c1..3b463b42b0e3982e74056e672b2ee6adad5a3f0e 100644
+> > --- a/tools/perf/Makefile.perf
+> > +++ b/tools/perf/Makefile.perf
+> > @@ -311,7 +311,7 @@ FEATURE_TESTS := all
+> >  endif
+> >  endif
+> >  # architectures that use the generic syscall table
+> > -ifeq ($(SRCARCH),riscv)
+> > +ifeq ($(SRCARCH),$(filter $(SRCARCH),riscv arc))
+> >  include $(srctree)/tools/perf/scripts/Makefile.syscalls
+> >  endif
+> >  include Makefile.config
+> > diff --git a/tools/perf/arch/arc/entry/syscalls/Kbuild b/tools/perf/arch/arc/entry/syscalls/Kbuild
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..11707c481a24ecf4e220e51eb1aca890fe929a13
+> > --- /dev/null
+> > +++ b/tools/perf/arch/arc/entry/syscalls/Kbuild
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +syscall-y += syscalls_32.h
+> > diff --git a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..391d30ab7a831b72d2ed3f2e7966fdbf558a9ed7
+> > --- /dev/null
+> > +++ b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+> > @@ -0,0 +1,3 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +
+> > +syscall_abis_32 += arc time32 renameat stat64 rlimit
+> > diff --git a/tools/perf/arch/arc/include/syscall_table.h b/tools/perf/arch/arc/include/syscall_table.h
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..4c942821662d95216765b176a84d5fc7974e1064
+> > --- /dev/null
+> > +++ b/tools/perf/arch/arc/include/syscall_table.h
+> > @@ -0,0 +1,2 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +#include <asm/syscalls_32.h>
+> > 
+> > -- 
+> > 2.34.1
+> > 
 
