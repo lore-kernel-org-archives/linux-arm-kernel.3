@@ -4,83 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18B4E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F42E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q8ZMjen1yJSy70yGnNt9th+OC1qo4iE/tlrHQsp3QRY=; b=FTCxnxRZa2ioTeoaJ0kQ2bQJQ+
-	CozSIg4FJvJBtiys6AQgRflqT2uXo6nb59DJPZp7zxS5JLMOyYN4j8Es0MYHdVgclR/ytCAqOCKJG
-	bBaZgFdOaTqWQ1OgSDLlbPlXDsGMCOjGSCnBvHnewj48MQ9sbDp7vIvOYgOF2+iewxjfaHNTKFse7
-	8qCIw08UwARc3yPfGCNOA7euCwLUlz6Qd049dFeHWlZC1Lz4Yz8WQyjBTBLgA3K+6nnH7XCySibFX
-	eKyEJ844t10AeIBtkDlsrvu7Z3fJi/Q+d1u7qOaeJ50GDuTYrVWhZzNmevQJElKHXxZt9dqGed1Ev
-	nq8axM1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nqI8MyajU42QBkSMXXrAILjKUQG+J4FGnXcfQOxeCXg=; b=Nbg1O2GiWRThNq7TTdY3Ru3R5X
+	RyTak+ue3CbbVcF7BqafqLcdLtD176l2eSGJQysLJ+Z4iVPijN9PN0GWbf3pC1wNSi/JeUeMY9Y8T
+	KPDa4pF0u08KixWdz0ndeMS4jHnyUTzCLs+n/Zv7XVif2aDVHMmzsg5zIRG0NbGx6pc072ZsOmQYo
+	lWHN+/MPEGkZ1ff7q7iFc1Ulgpt4Mfo09V4G8EoIg+SY8P0NlFtF5WY+kMozY6gBXjs5Lv++zFE39
+	NvFbjdg56vXEeQKUO7oTW3ylQSUhIcBLFhAxzIC14gU22Md0sYlWuJlpzFMWc+iiFp2wO5xsmOval
+	/CQxWemg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUH7-0000000D0SC-3rUc;
-	Tue, 17 Dec 2024 09:53:57 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tNUIB-0000000D0e9-25yx;
+	Tue, 17 Dec 2024 09:55:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTqY-0000000CupS-2eWe
+	id 1tNTqp-0000000CuuT-4C5o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 09:26:31 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43622893c3cso28725e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 01:26:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734427589; x=1735032389; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=q8ZMjen1yJSy70yGnNt9th+OC1qo4iE/tlrHQsp3QRY=;
-        b=wOjCJiP4RJ34qLPggWiMRZtCSRpX21/KlsvX534RVDi9pOA83aGfCSFeZtp9c25WUK
-         +jVmOOxn/00hZM1ZkrOYRlyjvhJpbsnxRIA20PApXSmCkrGxyWglu07RB9Y2Dv2lGyft
-         Auvs0v2AtdvRiM2QR+PI224m5KMvOohslSucg1cuVErRM5/ihLcbRZzW+pXW3cxuviIT
-         KwvNyZGd7mhUov+8uEX8/gZFd/Q0IAVkLaHrrW3ySLhMMktCpxovLT8k3X5RVIXQf8Ae
-         YzxYiV/EHouPPshgOJGMHwRzcpOjvgQcAWCvTWNSPNRar07dp/fOahkQOGPTjDrY1KFQ
-         9bwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734427589; x=1735032389;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q8ZMjen1yJSy70yGnNt9th+OC1qo4iE/tlrHQsp3QRY=;
-        b=CjmjxJNGYTmxtnFtUqUrl05hDMnZssN9XxRAj7BYPOIuNHJpQU7vjrGODnFcDTT9Ex
-         8aUFmqkp3yHdd0Q69doWBrfM/dxD9xUUn+b/45JIcHXSvc0U3OnN9gzuhuhXTC+O/r5W
-         ix2sPyBwp8qAv4TruGWHKXdAIzspwLfe56y+j0cSiOp2rsxYAcq+mrtNID0QIfJ3sSMX
-         0BS71W017ZHD40N+pQfkg0Eyjvro4zQE/u5RhtZ8FQFL2o/W+NDJca11RN5FF6S+M8B6
-         7P86lVYWIF3VAAB+RerwL69Jlkr+d6gqFmAACe7prqIi8H4JUSk0GI7LeZ1fGEeauqJE
-         ID6A==
-X-Forwarded-Encrypted: i=1; AJvYcCUDP+LR3Kx0uoSrqqwomKKK24/2fo1WszxrZlg7Viz/maHv6bBXsl67DGUzvrphNiWeOqI0SyyU4bIo1ByXwmHv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEONnfLI9HCj6+xF2miyjPyGBEdQclIP5ZwbZ3Onx5kddC8sxX
-	5WAF7jgsvZKgySXzQyDrUC1TlWJYX7miWA3GtAphJRIvJPPJWMglFh0PGJfZ3PfF/uvjN2rH8Ki
-	N1X2paRobKajCW/gGzojHrSpvXYh40cfW67T6LICeBMAyoFr8MQ==
-X-Gm-Gg: ASbGncuJy7LWM8xtUyHTDVvGmR+VAOHP6TVf8fVBRBZ3YQm2917GpTkbZQujMs8Yvmk
-	06cy0TPs1TSCD9dGsu2hgRX8ADKp3pZee3eV9npHXv9E/iTrZ+AOTAOBJAoSmMR3g52g=
-X-Google-Smtp-Source: AGHT+IFF7byMDFVKlnmrBQvmNiNhFFA27+GN/MTPR1DNEbChmzax4aYAFvAEK6reIllga6gOu5vl+393+8r9UxeqysA=
-X-Received: by 2002:a05:600c:3205:b0:436:4e4c:7bae with SMTP id
- 5b1f17b1804b1-4364e4c7d7cmr388185e9.1.1734427589053; Tue, 17 Dec 2024
- 01:26:29 -0800 (PST)
+	Tue, 17 Dec 2024 09:26:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5C4805C0428;
+	Tue, 17 Dec 2024 09:26:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C5BC4CED3;
+	Tue, 17 Dec 2024 09:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734427607;
+	bh=hH+aXQtRv0LkIufCC2+NDXYdogSlCDjYzhV7jhPovxo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EebKne8LQEylRxUK5CD0+WlXZ8S9OBHOWvJxCv+DHguqsHTP0cLHPSLM3278+gikD
+	 HGYAvLyJcnfK//ljZlyF4e8Lio3k0uwDxOSDqJWFnatskJPuc4DPrXBdF2kt4x7w81
+	 aox4nSuc7Q3bD1GyJxOAo/f+fVB6ZU/wo+rOtwOQp7JZ1G5POuUcMAuSaPOCU9Nanc
+	 3eYY98aviZgT4iME5ZRHHgeyiLbHjlpCTBOWV5+39v2HCFLvtTxPwe7qID25RGCsAJ
+	 wAQMgtDyCtmLnw4GGDU/tesrQxfwmcX+CGcZTBxf5YMrxkr2A2voczQNZ7WuPifykL
+	 xI2zDpuWlOfPQ==
+Message-ID: <69fd1dbc-a29f-488c-a30f-7e5ea8f01a23@kernel.org>
+Date: Tue, 17 Dec 2024 10:26:41 +0100
 MIME-Version: 1.0
-References: <20241216175803.2716565-1-qperret@google.com>
-In-Reply-To: <20241216175803.2716565-1-qperret@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 17 Dec 2024 09:25:52 +0000
-Message-ID: <CA+EHjTz7=dRz5X-CjjniJgwd87Q4DQbRdXzi0on4C21urYnhOQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/18] KVM: arm64: Non-protected guest stage-2 support
- for pKVM
-To: Quentin Perret <qperret@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
-	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: i2c: exynos5: Add
+ samsung,exynos8895-hsi2c compatible
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
+ <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
+ <0ebc12ed-fe91-4c8a-a626-b735b0eeecf1@kernel.org>
+ <007559c5-f566-4625-99b7-e761a916fba3@gmail.com>
+ <cccca881-dd59-43c0-9072-dcd91d01671d@kernel.org>
+ <6e93d59d-71e5-4c09-862f-55b5504121aa@gmail.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <6e93d59d-71e5-4c09-862f-55b5504121aa@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_012630_670520_54961415 
-X-CRM114-Status: GOOD (  28.09  )
+X-CRM114-CacheID: sfid-20241217_012648_130513_7580B99C 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,120 +126,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Dec 2024 at 17:58, Quentin Perret <qperret@google.com> wrote:
->
-> Hi all,
->
-> This is the v3 of the series adding support for non-protected guests
-> stage-2 to pKVM. Please refer to v1 for all the context:
+On 17/12/2024 10:08, Ivaylo Ivanov wrote:
+>>>>>        - items:
+>>>>>            - enum:
+>>>>> @@ -94,9 +95,28 @@ allOf:
+>>>>>          - clock-names
+>>>>>  
+>>>>>      else:
+>>>>> -      properties:
+>>>>> -        clocks:
+>>>>> -          maxItems: 1
+>>>>> +      if:
+>>>>> +        properties:
+>>>>> +          compatible:
+>>>>> +            contains:
+>>>>> +              enum:
+>>>>> +                - samsung,exynos8895-hsi2c
+>>>>> +
+>>>>> +      then:
+>>>>> +        properties:
+>>>>> +          clocks:
+>>>> Missing minItems
+>>>>
+>>>>> +            maxItems: 2
+>>>>> +
+>>>>> +          clock-names:
+>>>> Ditto
+>>>>
+>>>>> +            maxItems: 2
+>>>>> +
+>>>>> +        required:
+>>>>> +          - clock-names
+>>>> I don't understand why do you need second, same branch in if, basically
+>>> Because, as I stated in the commit message, we have HSI2C controllers
+>>> both implemented in USIv1 blocks and outside. These that are a part of
+>> On Exynos8895? Where? With the same compatible?
+> 
+> hsi2c_0 which has a clock from BUSC and hsi2c_1 to hsi2c_4 which use clocks
+> from PERIC1 (CLK_GOUT_PERIC1_HSI2C_CAM{0,1,2,3}_IPCLK). Why would
+> they need a different compatible though? It's functionally the same i2c design
+> as the one implemented in USIv1 blocks.
+If one block is part of USI and other not, they might not be the same
+I2C blocks, even if interface is similar. If they were the same or even
+functionally the same, they would have the same clock inputs. However
+user manual also suggests that there is only one clock, not two (for
+both cases), so they could be functionally equivalent but then number of
+clocks looks incorrect.
 
-For the series:
-
-Tested-by: Fuad Tabba <tabba@google.com>
-
-Cheers,
-/fuad
-
-
-
->
->   https://lore.kernel.org/kvmarm/20241104133204.85208-1-qperret@google.com/
->
-> The series is organized as follows:
->
->  - Patches 01 to 04 move the host ownership state tracking from the
->    host's stage-2 page-table to the hypervisor's vmemmap. This avoids
->    fragmenting the host stage-2 for shared pages, which is only needed
->    to store an annotation in the SW bits of the corresponding PTE. All
->    pages mapped into non-protected guests are shared from pKVM's PoV,
->    so the cost of stage-2 fragmentation will increase massively as we
->    start tracking that at EL2. Note that these patches also help with
->    the existing sharing for e.g. FF-A, so they could possibly be merged
->    separately from the rest of the series.
->
->  - Patches 05 to 07 implement a minor refactoring of the pgtable code to
->    ease the integration of the pKVM MMU later on.
->
->  - Patches 08 to 16 introduce all the infrastructure needed on the pKVM
->    side for handling guest stage-2 page-tables at EL2.
->
->  - Patches 17 and 18 plumb the newly introduced pKVM support into
->    KVM/arm64.
->
-> Patches based on 6.13-rc3, tested on Pixel 6 and Qemu.
->
-> Changes in v3:
->  - Rebased on 6.13-rc3
->  - Applied Marc's rework of the for_each_mapping_in_range() macro mess
->  - Removed mappings_lock in favor the mmu_lock
->  - Dropped BUG_ON() from pkvm_mkstate()
->  - Renamed range_is_allowed_memory() and clarified the comment inside it
->  - Explicitly bail out when using host_stage2_set_owner_locked() on
->    non-memory regions
->  - Check PKVM_NOPAGE state as an equality rather than a bitwise
->    operator
->  - Reworked __pkvm_host_share_guest() to return -EPERM in case of
->    illegal multi-sharing
->  - Added get_np_pkvm_hyp_vm() to simplify HVC error handling in
->    hyp-main.c
->  - Cosmetic changes and improved coding consitency thoughout the series
->
-> Changes in v2:
->  - Rebased on 6.13-rc1 (small conflicts with 2362506f7cff ("KVM: arm64:
->    Don't mark "struct page" accessed when making SPTE young") in
->    particular)
->  - Fixed kerneldoc breakage for __unmap_stage2_range()
->  - Fixed pkvm_pgtable_test_clear_young() to use correct HVC
->  - Folded guest_get_valid_pte() into __check_host_unshare_guest() for
->    clarity
->
-> Thanks,
-> Quentin
->
-> Marc Zyngier (1):
->   KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
->
-> Quentin Perret (17):
->   KVM: arm64: Change the layout of enum pkvm_page_state
->   KVM: arm64: Move enum pkvm_page_state to memory.h
->   KVM: arm64: Make hyp_page::order a u8
->   KVM: arm64: Move host page ownership tracking to the hyp vmemmap
->   KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
->   KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
->   KVM: arm64: Make kvm_pgtable_stage2_init() a static inline function
->   KVM: arm64: Add {get,put}_pkvm_hyp_vm() helpers
->   KVM: arm64: Introduce __pkvm_host_share_guest()
->   KVM: arm64: Introduce __pkvm_host_unshare_guest()
->   KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
->   KVM: arm64: Introduce __pkvm_host_wrprotect_guest()
->   KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
->   KVM: arm64: Introduce __pkvm_host_mkyoung_guest()
->   KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
->   KVM: arm64: Introduce the EL1 pKVM MMU
->   KVM: arm64: Plumb the pKVM MMU in KVM
->
->  arch/arm64/include/asm/kvm_asm.h              |   9 +
->  arch/arm64/include/asm/kvm_host.h             |   4 +
->  arch/arm64/include/asm/kvm_mmu.h              |  16 +
->  arch/arm64/include/asm/kvm_pgtable.h          |  38 ++-
->  arch/arm64/include/asm/kvm_pkvm.h             |  23 ++
->  arch/arm64/kvm/arm.c                          |  23 +-
->  arch/arm64/kvm/hyp/include/nvhe/gfp.h         |   6 +-
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  38 +--
->  arch/arm64/kvm/hyp/include/nvhe/memory.h      |  42 ++-
->  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  16 +
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 201 ++++++++++-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 320 ++++++++++++++++--
->  arch/arm64/kvm/hyp/nvhe/page_alloc.c          |  14 +-
->  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  68 ++++
->  arch/arm64/kvm/hyp/nvhe/setup.c               |   7 +-
->  arch/arm64/kvm/hyp/pgtable.c                  |  13 +-
->  arch/arm64/kvm/mmu.c                          | 113 +++++--
->  arch/arm64/kvm/pkvm.c                         | 198 +++++++++++
->  arch/arm64/kvm/vgic/vgic-v3.c                 |   6 +-
->  19 files changed, 1010 insertions(+), 145 deletions(-)
->
-> --
-> 2.47.1.613.gc27f4b7a9f-goog
->
+Best regards,
+Krzysztof
 
