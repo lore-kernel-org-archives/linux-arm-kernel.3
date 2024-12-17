@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F679E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F02E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQIWeq5N/1+/+kDvpSpnt8IVUMXNOzsNCXvdUhT2KmU=; b=4GCmGKahISAgvPNCn7qP4MHp3Y
-	lvg/cfKLI3CZozZ3HaeDruizuUW329Xs/wl0yShrY0ZFsKMdEUbn3qw8j31fRySBoBRK3elpA2gfM
-	FGZyKRhkL2mQT0XDpJ6x/0mVDHjiyP2y5Mt1mpUA449UJ++bZ/CWY+rspHMovrRkIjGlD6UhcKa+S
-	wOwQpVPKk3+1Pf6ifeqCgwT0Z56nF/DfEwa3452BABUr4P85Y7/PD5zW87H0Z+jvmapAXmX2pfjhe
-	s0Gp7hbGVfJWf5RLWbPrJsO7/lGunp+KL4je4kiRsIbjAdhmnZcJL+QzJU8kCGEg7f5UueM6yITOL
-	pe6KrQqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jFIpSlbWhQWU4BmnuczxZhQrx3hDBfJmwoIXHjm0XOk=; b=aRZgK4hN/z87sT99u+80p1kYWx
+	ZXt0bMcvGsl7d1nKvO6vGRSzFiw2nxvFBdAnDWxK0qp30bFFiarHhmrx9x3PsHboy4lSF3/2A9DCe
+	kztdJ46rcDKpZ6fEqiUG6tC1vwUxJBWROAQwvj2uMxoohsWX4qC+fRaMOexps9xEVJHbe+r/fcNlY
+	qsTX9cLbmB9L3APpwiU7smwiBz34DNdyf2a/4s6w7e29uvHcGFz4Xq9bA1ZUQZwkm17st8dwRLrwW
+	fkQMpRtA1t1622zM29atyQnao+IMxk7DdSvgXHUlBGQHXujpCUird/OJJHy+S+JI+rKDChMtfgboW
+	9/VpIOiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXD6-0000000DSbe-0EQ9;
-	Tue, 17 Dec 2024 13:02:00 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tNXHr-0000000DVNf-1MyS;
+	Tue, 17 Dec 2024 13:06:55 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXBx-0000000DS6h-0qkv
+	id 1tNXGm-0000000DVAL-38ZE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 13:00:50 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5401b7f7141so4842683e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:00:48 -0800 (PST)
+	Tue, 17 Dec 2024 13:05:49 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a9e44654ae3so816441066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:05:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734440446; x=1735045246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GQIWeq5N/1+/+kDvpSpnt8IVUMXNOzsNCXvdUhT2KmU=;
-        b=TnD6d2+HE0Bkx/Rr9baHGlNKUAOHXTAtjhZervY/6nIMp4CHhyME/1BiSXPhelJNuq
-         AkUW7mhZZCANZV/5Lu8CyoaVt5RonppoHMbmBgisngkEJQQImYMK+zqIrbbq7PeeN6iw
-         3gMuezbmeRSFRiSGlu5a6LhItOOBsMsSfcQJxqXyjTDImxsDzvBmRq2oUZFNrqGeCBtH
-         6Eu8uNV32jOsx+TUtovXeZd0rYL+DI7lEM2ZsKnSTSs9aCZB4dosy8H8ssTTkh0txyI1
-         o0sL3bVxu6OG+VtWHcNHQQArltrkG4L2si16h6Ujbp6jde3isKH2f4QkWKKq+FzAQlKG
-         fIoQ==
+        d=google.com; s=20230601; t=1734440746; x=1735045546; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jFIpSlbWhQWU4BmnuczxZhQrx3hDBfJmwoIXHjm0XOk=;
+        b=pxzJg/F8qRo9k75MY7tNKeE/dIAECUz1/ajAAHSPgv1B6ghFWCzef3Hb7TPWJ9OuLK
+         jaV+gOSetFvhWGhOis2LvtnC8yJ5QJv8iXS0aLYFVRvF04BaShk3UqjXGPpUXfziHRLL
+         fmLh5YYor5EQSK+p+mf8703dbw63TG/5SfWMEjs7J3oOw+BjgqVc/v535S1vFWulPCVf
+         qn6htQcRAFr1KEm7WuMF6gioaj/EHdz76C5sWMp9PLOfgHyK0/wISGkuZFCGh5AURXmN
+         2FW/eNBW5iBrCrSlxXnE5WNXN0N9FxMn5g0c5g2ho6M2HWfF3+9CevDsVBpblYs5DpBd
+         /j3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734440446; x=1735045246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GQIWeq5N/1+/+kDvpSpnt8IVUMXNOzsNCXvdUhT2KmU=;
-        b=ImJeNrlFH2mhdpc2a3YqczOVjBFV4eIcdwTqbu3d9PqXiI/ESV/gHI7pmsN0rYn4pC
-         BMcZhKKIHxnYXwRsF80Fa7Wda8RdGRe4c/TGeMegnqqyc23g0cvKu4Lhn89FRoc8oKwT
-         XBCt5Cfp8Wjj5ZB8TKLL/4wZ+CDvg0kaYPpxCPpHGuwbd1MfMmRJ4dJLuPEekj3uHqVs
-         csXUVELiwtkQYMkcuyQuVIf4xuH2gtzCIP4wPeDTI2rM5KCGS6/wjVNvq8HITCIr7KbZ
-         ioWCTOVY4GU4KqPp5v8MsOatGiRgvSbWusZxcACB99ipIrpd3uN/DjoBXFMJLfAxqHOA
-         367g==
-X-Forwarded-Encrypted: i=1; AJvYcCXqwMrLvw9c9c2gC71hTKARLEU4t8wzclW4E3jtxwQ8gL4qwNr2XTgqGIZSEcwcRWDnaUp/2ddEiORNlSWzEGkU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn71URdzvhspFHeCJQLMZJ962TDtDNrr4cAo3TBZTnosKrf+Dn
-	4ayXTel2YYdm5GBRrFx+4q6shVeXayoaX0lO5JYszk+W5R8otxYZEXfhsg/eJLMCXlAYlgX9KFV
-	xeRRmHiVvXjxdlTcO9gwlrsbLh3JYBFDUuQ4OnQ==
-X-Gm-Gg: ASbGncubAxXwH7olA6CmpwZGg6M8Jhke2SEgreKPg63rTPia8Edn0NAr/3a5ajliBJA
-	qFRnNwyGjeHzFRV+biY2GKEKFiDFMWZxHyHqELA==
-X-Google-Smtp-Source: AGHT+IE11omUaJ4WXf3M872hwf4LKHvl3NeeSE6hV/ORlMdadi+NJj5MwYpomF9yj0vKXlTRigYPF4Zh1hB/AzSqds8=
-X-Received: by 2002:a05:6512:220c:b0:540:3566:5760 with SMTP id
- 2adb3069b0e04-541310a37fbmr1037395e87.35.1734440446299; Tue, 17 Dec 2024
- 05:00:46 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734440746; x=1735045546;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jFIpSlbWhQWU4BmnuczxZhQrx3hDBfJmwoIXHjm0XOk=;
+        b=cpxgqIRuo5/icAezZB6lLDhkCtIG68xRO4aqfp+7UwDB+MRC7LsVq0AfmzKlMrqZ8X
+         w9XGAtIoJ2uYHa/K0oo6UT9U91CibvwdvXGzRCMlJDnts3F/iwT+lpRie9VWFXuDcTcu
+         FyQ8VocuksSib5QnuG/BEp4ZpiPxQ9VEc79jxbHLmnkn6Xteks3rsgs+S6RTBZS6Nqva
+         Fw6VPEpH/zim3KQLKtEzxVF8sAzp4C6h+bA4kuR4dufjQ6HhTN99RYJ0Sq7TxB4jT1Fi
+         rfZx/49/d/lVecV4tPfiAsLp6uUMyZH7QfFqmfmU1cTNda5Zv8gAUrG/Dq1oOntgivCl
+         0oNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXf1aBCUKhYG4o+8SH556k68QxyvTb7/VKUAjK3kcz7c8JWPuShHN1UlShJCqeKwfZXA3UaB6gkKx3X09JzgBtl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYF8ELPGMbBPxRryfG3tQ/9M7Nf3TD9jDABJqnBTsadxo86GY0
+	+N5R6+vtOLLIMKMWPYmYkTlkMXqG4SUHbYJrzK6ens0yfkYbSctcksm8valaUg==
+X-Gm-Gg: ASbGncuMgr6arTKzWoddXGYimAT9mewkVfrbhUh9MZOFalxBYYMqJBKXoZufxnKL++T
+	kpc+Y2rkOlHSL0O2Rddt2yyEYEN6aF9zoWjGnfQK6Gt00IQ5uftrx9MaipvhglHrdXUuxyjdWrY
+	9UsKA8iDVuQ0G3nsBD6LxdDmDDHL/7F9mMsWvnQIBN0yZ/j8u6Si/lreSvhKyctaU/y/DKOcyiI
+	OvdMrg3DSDmIvyaCORgdTSjtgedT3c7WyJJq4aWHiMH4VWFrkw7427VyMX5HTcNNWvrUVwkc9EL
+	EpPmZMO6lWJ+sEU=
+X-Google-Smtp-Source: AGHT+IGm64uJtVDjEAURcs9xZJG95uD+8LpWsogmwS7IwX0FntYGVqCsBRC/TY5BflaZ6Q9qsi8S9Q==
+X-Received: by 2002:a17:906:6a1a:b0:aab:7461:fbe5 with SMTP id a640c23a62f3a-aab77e9c72cmr1588746566b.45.1734440745515;
+        Tue, 17 Dec 2024 05:05:45 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aab96005f89sm446090766b.35.2024.12.17.05.05.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 05:05:45 -0800 (PST)
+Date: Tue, 17 Dec 2024 13:05:41 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 00/18] KVM: arm64: Non-protected guest stage-2 support
+ for pKVM
+Message-ID: <Z2F3JZII0gh8iOH2@google.com>
+References: <20241216175803.2716565-1-qperret@google.com>
+ <CA+EHjTz7=dRz5X-CjjniJgwd87Q4DQbRdXzi0on4C21urYnhOQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <cover.1733136811.git.andrea.porta@suse.com> <42e09506979d878547d1140d7f6bf68ace76549b.1733136811.git.andrea.porta@suse.com>
-In-Reply-To: <42e09506979d878547d1140d7f6bf68ace76549b.1733136811.git.andrea.porta@suse.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 17 Dec 2024 14:00:35 +0100
-Message-ID: <CACRpkdY+6QPRH-Pd9SwXV6dsdah-otMa8bkt=-avzF6Aiaz7gA@mail.gmail.com>
-Subject: Re: [PATCH v5 02/10] dt-bindings: pinctrl: Add RaspberryPi RP1
- gpio/pinctrl/pinmux bindings
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Wilczynski <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, 
-	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan <saravanak@google.com>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>, 
-	Stefan Wahren <wahrenst@gmx.net>, Herve Codina <herve.codina@bootlin.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Andrew Lunn <andrew@lunn.ch>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTz7=dRz5X-CjjniJgwd87Q4DQbRdXzi0on4C21urYnhOQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_050049_236322_93D15DBB 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20241217_050548_787974_BBBE8104 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,21 +106,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 2, 2024 at 12:19=E2=80=AFPM Andrea della Porta
-<andrea.porta@suse.com> wrote:
+On Tuesday 17 Dec 2024 at 09:25:52 (+0000), Fuad Tabba wrote:
+> On Mon, 16 Dec 2024 at 17:58, Quentin Perret <qperret@google.com> wrote:
+> >
+> > Hi all,
+> >
+> > This is the v3 of the series adding support for non-protected guests
+> > stage-2 to pKVM. Please refer to v1 for all the context:
+> 
+> For the series:
+> 
+> Tested-by: Fuad Tabba <tabba@google.com>
 
-> Add device tree bindings for the gpio/pin/mux controller that is part of
-> the RP1 multi function device, and relative entries in MAINTAINERS file.
->
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-
-I can also just merge this patch to the pin control tree if you like,
-tell me what
-you desire.
-
-Yours,
-Linus Walleij
+Thank you!
+Quentin
 
