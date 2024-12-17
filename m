@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D23E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0D9E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tb68isJR4tqhT2SWweImvHp32hFUGOXopC21151ECuc=; b=yTAl/LVTU6n6lTF3FLfdQeX3ZB
-	eVkGQF9HvgZaQ+4Faf6TD/M9D92LJxoIhVdA58AniqKmDVkTyqClnhVVvl6zXnWaIbFxm9KKsNeKQ
-	Um7cH924sOf8UZa1pL8k7eEUzRGMESce5Sgmwy76gFSYtHIexFZZ7QdMqcvR8jbrwX2d9CqXRCWhH
-	QGyYmK04Ec+yUEBupBGUdcmA9BQmF5CfD7O0Lp36DiLnXMZU4CoNsY8WY2kDDxx5mB0apYFN+EPAp
-	JIBCu6fgknh8txgGCis4sJuTbHORj9grbvHWnfjCaXf9TAOKwujZ+osTHlzr+LNrQj+/oP2T5DCju
-	k1BKm8fw==;
+	bh=G+4Sws3w/Dv97lzVq6rtQW+B8wuE00ynNozwcN6asdg=; b=VPnHWJ2hXytQhNxomaRh/1I/wG
+	Ja38huZAOrbuMxQG+tWzE4BMqvU5vL+UYJtyeFfLFdiH+rqkza5y9zmKkFsEu0vOnCH9fHAAnHyJp
+	P3rpz3elJxjzs9hNptmcWdkWzf9uHKAm3QlowQXa2vEFhTSawYXT0dz78k9Cw0dIoiF8eJu8Arw7w
+	1Pn3mlUywwepFdC33FOaXcxJ5XSN2XOPVEdSpl/IVdd8gzCqM9qKtdW7CJw9Swrkt+PtiZVsKyRao
+	yq540/lYTwPo2u7D3G2YP6uWVF9lxJzpX+9TYJdEicxfVpybWuL3ZgLRClFx3KAqRLDqnVOVGThN1
+	1dRt8z6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNa24-0000000E4as-0gEd;
-	Tue, 17 Dec 2024 16:02:48 +0000
+	id 1tNa4D-0000000E55b-2vyU;
+	Tue, 17 Dec 2024 16:05:01 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZk7-0000000E009-0XIy;
-	Tue, 17 Dec 2024 15:44:16 +0000
+	id 1tNZk9-0000000E03J-3j2a;
+	Tue, 17 Dec 2024 15:44:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734450253;
-	bh=zqOdMMuCB4JnkCOh89afeVLGkYzUKYRjDyQEf0dJaFs=;
+	s=mail; t=1734450256;
+	bh=94puYrsXUdw6bQ8q7fXiSdHQew11p0Xwb/HnvveUwvk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JVESkcZbvJx6kKOlzaveLijFVpeYEIdymV4v6Vy1OlTtRVAuwia2uVJnrWHfBdhC4
-	 ed9fmsoEC/IZwGMXcAitW2LXIXLRsOrm2qbORginMsxDqV67kzPdBIBnFQlkg8ak1E
-	 mnXqb44id4qvYAPLjKM5gOYuSGYLWD7XG5Q/qtn08XwSr2x+XiXqbhVhmp+Z4VS4VY
-	 KRidZCaDHh5wI0Fa9lE4NGnlhcljv01YK8pWiuqZ3cYKuq2LmK7aVCKXDSCH+HW5P3
-	 ZiIJMDIC9K7i/6/gW/oaRIhm4qE90mmCiJsr4wEvcp0c6XcsT1HdgETKltICIALwqf
-	 ZRrIUTXtzLhoQ==
+	b=ii8i4j5JdahH86IoruDxhETLLDFVvQERrI9x3doYjv8j2cK8nJOpaiQ7a8xlF85D+
+	 WcgHvOE+AOge9wjtmzKBVXVkqE/YpDsAO64H8IASmlzlKsuR3hQr0gehIXsvnSLz4A
+	 //6eREqwaw8ybY7s7QqLuM2i7Jt/fZmsXyvcK01ZpWfrrA/UMeyF1MwFGP6X7zuyUv
+	 HkOZkEQWY4r1k9+nztZs4jRTCz2TIR8IV6iXtnE31GU1PFRaQues71lYLztDq/+rF7
+	 3TeLJHPolwhj0e/Z0q4uW+wDnBGlMEyIUif3vdASt5Uvlqzbs9yKBgO6IF7/wv5jC3
+	 muznxkvIu0YOg==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7373017E378C;
-	Tue, 17 Dec 2024 16:44:12 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 558E817E37C2;
+	Tue, 17 Dec 2024 16:44:15 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -67,17 +67,17 @@ Cc: p.zabel@pengutronix.de,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	dmitry.baryshkov@linaro.org
-Subject: [PATCH v3 16/33] drm/mediatek: mtk_hdmi: Move plugged_cb/codec_dev setting to new function
-Date: Tue, 17 Dec 2024 16:43:28 +0100
-Message-ID: <20241217154345.276919-17-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 18/33] drm/mediatek: mtk_hdmi: Move vendor/product strings to drm_bridge
+Date: Tue, 17 Dec 2024 16:43:30 +0100
+Message-ID: <20241217154345.276919-19-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_074415_373027_4E3272FC 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20241217_074418_091781_9456B89B 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +92,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for splitting common bits of this driver, move the
-mutex-protected cable plugged callback and codec device setting
-to a new function called mtk_hdmi_audio_set_plugged_cb().
+Move the vendor and product strings to the appropriate entries
+of struct drm_bridge and use that in mtk_hdmi_setup_spd_infoframe
+instead of having the same as function parameters.
+
+While at it, also beautify the strings, setting them to read
+"MediaTek On-Chip HDMI".
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index a927d9889818..f60c4effe905 100644
+index ef8dfcb77318..eb38f4b7674e 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1597,17 +1597,22 @@ static int mtk_hdmi_audio_get_eld(struct device *dev, void *data, uint8_t *buf,
+@@ -952,15 +952,14 @@ static int mtk_hdmi_setup_avi_infoframe(struct mtk_hdmi *hdmi,
  	return 0;
  }
  
--static int mtk_hdmi_audio_hook_plugged_cb(struct device *dev, void *data,
--					  hdmi_codec_plugged_cb fn,
-+static void mtk_hdmi_audio_set_plugged_cb(struct mtk_hdmi *hdmi, hdmi_codec_plugged_cb fn,
- 					  struct device *codec_dev)
+-static int mtk_hdmi_setup_spd_infoframe(struct mtk_hdmi *hdmi,
+-					const char *vendor,
+-					const char *product)
++static int mtk_hdmi_setup_spd_infoframe(struct mtk_hdmi *hdmi)
  {
--	struct mtk_hdmi *hdmi = data;
--
- 	mutex_lock(&hdmi->update_plugged_status_lock);
- 	hdmi->plugged_cb = fn;
- 	hdmi->codec_dev = codec_dev;
- 	mutex_unlock(&hdmi->update_plugged_status_lock);
-+}
-+
-+static int mtk_hdmi_audio_hook_plugged_cb(struct device *dev, void *data,
-+					  hdmi_codec_plugged_cb fn,
-+					  struct device *codec_dev)
-+{
-+	struct mtk_hdmi *hdmi = data;
++	struct drm_bridge *bridge = &hdmi->bridge;
+ 	struct hdmi_spd_infoframe frame;
+ 	u8 buffer[HDMI_INFOFRAME_HEADER_SIZE + HDMI_SPD_INFOFRAME_SIZE];
+ 	ssize_t err;
  
-+	mtk_hdmi_audio_set_plugged_cb(hdmi, fn, codec_dev);
- 	mtk_hdmi_update_plugged_status(hdmi);
+-	err = hdmi_spd_infoframe_init(&frame, vendor, product);
++	err = hdmi_spd_infoframe_init(&frame, bridge->vendor, bridge->product);
+ 	if (err < 0) {
+ 		dev_err(hdmi->dev, "Failed to initialize SPD infoframe: %zd\n",
+ 			err);
+@@ -1328,7 +1327,7 @@ static void mtk_hdmi_send_infoframe(struct mtk_hdmi *hdmi,
+ {
+ 	mtk_hdmi_setup_audio_infoframe(hdmi);
+ 	mtk_hdmi_setup_avi_infoframe(hdmi, mode);
+-	mtk_hdmi_setup_spd_infoframe(hdmi, "mediatek", "On-chip HDMI");
++	mtk_hdmi_setup_spd_infoframe(hdmi);
+ 	if (mode->flags & DRM_MODE_FLAG_3D_MASK)
+ 		mtk_hdmi_setup_vendor_specific_infoframe(hdmi, mode);
+ }
+@@ -1709,6 +1708,8 @@ static int mtk_hdmi_probe(struct platform_device *pdev)
+ 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
+ 			 | DRM_BRIDGE_OP_HPD;
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
++	hdmi->bridge.vendor = "MediaTek";
++	hdmi->bridge.product = "On-Chip HDMI";
+ 	drm_bridge_add(&hdmi->bridge);
  
- 	return 0;
+ 	ret = mtk_hdmi_clk_enable_audio(hdmi);
 -- 
 2.47.0
 
