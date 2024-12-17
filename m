@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CC4E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684D5E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H18pQDHS+Wl2oDmqnqQEEktAI+D+5x6GJFUdazxf2qo=; b=MMC6iePKYV0n+y0DnhL+KZbaCy
-	ittQiWWBVW+Q2ZH1F5OHShXhyYTYIGAS9UcM/v3CHw+MMqK/rauRnD7U8ojGNCAr2y7oVMELP2Y/y
-	jgcZjlF+M83qG7445s43mbwnwbCw3k7afjqkrDUack8UagzwYDKt5wvLzTwL+nbEyfTghUEAH9oxp
-	/4PuTWRjimXdFEBjCckHKn0Yl6wd29Lg0MSjRixnHx79pXsyaUtadkQWA0kPCqhpxUe0YxSBangAv
-	jvVGKtEZMfSsWk/CBDvUNcC3GL0iTHItAUYKydQhXUP1XNmGIhsXOfyYkvAP996MGNqULwktRcvGT
-	4IMONHuQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0sb28KyKs/AAkr7+Dy8naiBwhvL+mndE8e4f/itmW+w=; b=pUCZBIkUp533/PeCCOPb6Kvzo8
+	8WSOyMrK1/7zX/SiDnj6qXesibbTExlCLHn0Kyvpn5vpPBA+BkXYlTU3iNd++nqp5rnj9rpSCFNbF
+	az2dh1MeFcw1hAOJXHwgtaRQJ0G0gdWh6Y/jy0RWIOkeDz7vGMu3hAocCcODYplvlH/jh07L4vT/5
+	SA6oDdWWqspBmh3CoxChq3nEnLVHt8dxztDMicO2voxQNyRyZiDTGnGzfsSrlPJ8wJSDMGl2tgNn0
+	URQlRBcLRjGB7R9uaekUK6FZS1N+368SoWfbySAZOrXAkj60qc3+NPnTS34frf5/tb2CIEF/A8YKH
+	rlkS5Yrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdW1-0000000EfTb-38cg;
-	Tue, 17 Dec 2024 19:45:57 +0000
-Received: from saphodev.broadcom.com ([192.19.144.205] helo=relay.smtp-ext.broadcom.com)
+	id 1tNdX5-0000000Efen-1Rtc;
+	Tue, 17 Dec 2024 19:47:03 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdUv-0000000EfL9-2bOz
+	id 1tNdUv-0000000EfL8-2n6Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 19:44:50 +0000
+	Tue, 17 Dec 2024 19:44:51 +0000
 Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id A4C52C00280F;
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 853B7C003AA6;
 	Tue, 17 Dec 2024 11:44:48 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com A4C52C00280F
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 853B7C003AA6
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1734464688;
-	bh=Xjzhl5Kl2fzJFUBGzDTEeE5m/z/iii2XRHFZlX7lMGA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rITcCvWymgfI0li4BabB6Yog0Sn35TreNeOf0c3DqQwDXPQ3eWK8xqSU3RqMwvuGt
-	 vFXnTNNjmAGTT3nikc+WfV04OAjvZQc9uu0NpqJv1Milnk0/Z+pPQJ1zvL0PSVvguH
-	 jeBsyey6u9f6575J24Fp9iMmxFcOOoZdUU2r2OXM=
+	bh=PGKhh1jB7fq6v57AxgFxk9LUexegKCttSolkeo1YU0U=;
+	h=From:To:Cc:Subject:Date:From;
+	b=O/6wdDHLTKiiWim0FUGD/LM2ZihkoKaIOdKYJuM8w9Zl4q1/1wOAN4U5LwArnsFBl
+	 GSK6x0muViTi6C0vDsGoZ8ZbUbGKEijGGVC1chW/RuKnSpWUt0il+z+kmvtSesjyi4
+	 1uAf/uPSDAA6UTxH/lhfxRkHjrvLcl5KXikqcWJI=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 4E3D018041CACA;
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 2928E18041CAC6;
 	Tue, 17 Dec 2024 11:44:48 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: linux-arm-kernel@lists.infradead.org
@@ -52,17 +52,16 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
 	linux-kernel@vger.kernel.org (open list:MEMORY CONTROLLER DRIVERS),
 	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS)
-Subject: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5 compatible
-Date: Tue, 17 Dec 2024 11:44:38 -0800
-Message-ID: <20241217194439.929040-2-florian.fainelli@broadcom.com>
+Subject: [PATCH 0/2] memory: brcmstb_memc: Support for BCM74165
+Date: Tue, 17 Dec 2024 11:44:37 -0800
+Message-ID: <20241217194439.929040-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241217194439.929040-1-florian.fainelli@broadcom.com>
-References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_114449_736310_8430B8C9 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20241217_114449_788199_23242D40 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the revision c.1.5 compatible string that is present on newer
-Broadcom STB memory controllers (74165 and onwards).
+This patch series documents and matches the compatible string used on
+BCM74165, thanks!
 
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
- 1 file changed, 1 insertion(+)
+Florian Fainelli (2):
+  dt-bindings: memory-controller: Document rev c.1.5 compatible
+  memory: brcmstb_memc: Match rev c.1.5 compatible string
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
-index 4b072c879b02..99d79ccd1036 100644
---- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
-@@ -29,6 +29,7 @@ properties:
-           - brcm,brcmstb-memc-ddr-rev-c.1.2
-           - brcm,brcmstb-memc-ddr-rev-c.1.3
-           - brcm,brcmstb-memc-ddr-rev-c.1.4
-+          - brcm,brcmstb-memc-ddr-rev-c.1.5
-       - const: brcm,brcmstb-memc-ddr
- 
-   reg:
+ .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml    | 1 +
+ drivers/memory/brcmstb_memc.c                                 | 4 ++++
+ 2 files changed, 5 insertions(+)
+
 -- 
 2.43.0
 
