@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A76E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB145E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3KbDpu+5dgXCRMaHlMudK/PfUogFA3io0WjXBUI+vpI=; b=mSxsg+ZV7/A2ZY1/nLovI2iFtF
-	8EZqmyybFTVofktonwBbuCEbg9GmsaoQ54u0TbXn8zmPhnrbXoF8ZOvGSCXcgMSfwv/MZP6kKPt6Y
-	3wV7UoXewJrGRDT5P237TiGvg/rysWAUpfEYx2Abhkm3btfrpbI0LTutHExLiPJ5STQ6zBAwD3n9z
-	nXJIYjcxnDZQbjOocPYHRrnQTt9HbF0TgCj9Yb0BPnRyBozJG4wOfQLmrgv7gqCZV3r2aFMcTg6PY
-	yLHG4gL6YwCspvUsFvlaT4STkTczxqFwP/VYpys7EWaxxd8L1kcNyNMDULHc7agGNangmsVavH3q3
-	GRB3nkxA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uqzWbv8Vx54w1pLkcBRkhMoXdOrWLUel0oeu9kIT208=; b=2GtaudZ/UrRjP7za/Le2piE/L5
+	akMEXfCfFA7NdfsneYvIkPiuOGUSTDuc+/E/WRm0PWDFxl0CPoEi0fF2CNy5wZnZ5GG5dxBmGz//s
+	dJfyBum0gFIxd1WDNTBFItLxhAZ14i9eznGu5hXLwBM/3Gs3x+Mie5XFoEjPngg4bVjoMqWkXs7l4
+	oR8+gF59toF1dFAbjFyABJNKQRO3i7Ku8ME8PQ8F3a/Uz5+ByL8EZ6G+OQ2riJDKf5+Oc+NtosGUG
+	uWx3sxGW1Z46cduoMhVHDWRcl9LCMSvwz670uysaZRyX7fcEVPj6fNCCDBKOBY12ZDGG7kUVEUEEm
+	jgWL/pEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNWBR-0000000DJf4-2zY1;
-	Tue, 17 Dec 2024 11:56:13 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tNWCf-0000000DJwD-1HFS;
+	Tue, 17 Dec 2024 11:57:29 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNWAM-0000000DJVU-30Cr
+	id 1tNWBa-0000000DJgH-0PKK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 11:55:07 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2f1459b6f84so3528598a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 03:55:06 -0800 (PST)
+	Tue, 17 Dec 2024 11:56:23 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43625c4a50dso36003715e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 03:56:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734436506; x=1735041306; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3KbDpu+5dgXCRMaHlMudK/PfUogFA3io0WjXBUI+vpI=;
-        b=cSW2G9a0rnWQKpSzmXjXMP9cF2VOvAxxe2W7cbedZizahQw/1C7USx0o9WwDS7s2rr
-         NWw5f4rG8v5sChpDdIYWfyRKm+f/iKOfpHMFPg5zTsPeNI6qH6AsTno9MacbiB09pIX1
-         LTUekqyY8+eKmg24XTHAs7IJNWQgHLTsjewG51cFXCAbRgl9z1cu3Qnqkd54AXHiq4+q
-         JRAGOmilwtxXFZsmQS0Kc0UOtHFaWlJjMed+1nXymdn2/49Z992ogR2BLt31PpKpFewN
-         bqsBB8etcbWKasb1GLI/MhTKKOgoI6WEnyJvsxm4p0VGbMu3bkKmIqS2DNhCeiTXvHQ1
-         Z0UA==
+        d=linaro.org; s=google; t=1734436580; x=1735041380; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uqzWbv8Vx54w1pLkcBRkhMoXdOrWLUel0oeu9kIT208=;
+        b=WvPBHl70ei0klTsZc8XM4Hr/4pd0jznJ09TeBRyrwQFflC4hH58UeGSpX7Adn8lj2S
+         P7CcAfvWozjyTFqB4kaqsEb3uC8U8rctirCarqxN7YY/8OiTneRf0vJPSVNp81I0bHRC
+         qbc0bbzI93h6rC9x190boed3gqy9iNe312HBs6iTsNPFW8fLD9ZBqWsC3EqaT37Etrxl
+         XLxrTwsqEG2PYLlV8TbWj08J0d4cL6gXso5AerPxg9i4ejWnwJe4m2CBTs3PM0fz7/5V
+         ZFsbQV3eV+VRmi++XJ7O5ESQjteZOKcX7BuyCGtnpQOErgkg5R1lMjpRUONNrT1Q2rrV
+         5X/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734436506; x=1735041306;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3KbDpu+5dgXCRMaHlMudK/PfUogFA3io0WjXBUI+vpI=;
-        b=p0bl0ONwqlfp/WI/kge0/Vf1o7RDjm8UUU3lk4p75jpPJ3ukF7zD5YzvV+qh1/YsFc
-         SyYZ+Fg/aahQaoPsdZX9cacTUBjokkAcOTS5P3Ym2hSjIBlPGK8o2inCIutojn9jWH1l
-         D8N8jodM1/lDOywwwSyY2/9C/S3/YtXwWCq6SnHc5SI3PcTYs3vckAQmiyrm9mfUi0pP
-         p+GBj70vulbETn7edfnaHIX7W7IuzdZxdyB3Bg7jZxHaAIokHE37wgC1qa+WjL8ptEPm
-         wTltjZlUe1s2+ReUpPdu+fZAued/oH2nJtgpt/2JW1mLKB8JGAaX348h5RUs6OhWMr3e
-         Wprw==
-X-Forwarded-Encrypted: i=1; AJvYcCWCJjjirlVQ0xKBhai9z7y7pHTUBoHAuoasCH31SuDGZyuDej2rS69WwWTmqgQRu70303C0VgSn3BM8IHbQbKuH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmIbKACVO56m4XMs6Mg//et5afYkgpwEpZUkJOrfdSdzhd4nnN
-	u/60dfO1BBjcDTsEwVNcBhgIsPnB9yput5hFRsObhrpJFRg3jFIn
-X-Gm-Gg: ASbGncss2+3gHz36vtzlYC2ByiWUVBWCYBX4FaWrRdlany5cBUsjZNAAKJYgZBk3Vo+
-	Fh/3j0rdWWRovQV4W5Rp6BVFL/hTvxdQrw0D5QSIpvMzYIVrGBviZ+7is+yo0+T7xXKin/oMPnc
-	oGgLGXKN7vGB/G6stF8dMUHfzuZxPVYBa//kay7nvnq3H0+pU98CwxxvQhvKFhqI/gPqSW9lOC0
-	5EqSvoWYIp3w7TUeEe0Q6pBvv+ZpwX+Sey96wrz3uMNWUBbcqJebA==
-X-Google-Smtp-Source: AGHT+IHngxmcUWV4lDNQlA0QXiov5JsCMkpOQ73Ck+LNIruRGkRdnCgPCkMNUjWYyHkKOes0d7ocDQ==
-X-Received: by 2002:a17:90b:1810:b0:2ee:94d1:7a9d with SMTP id 98e67ed59e1d1-2f2901b3bb3mr21024098a91.32.1734436505718;
-        Tue, 17 Dec 2024 03:55:05 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2a1ebba00sm7161517a91.26.2024.12.17.03.55.01
+        d=1e100.net; s=20230601; t=1734436580; x=1735041380;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uqzWbv8Vx54w1pLkcBRkhMoXdOrWLUel0oeu9kIT208=;
+        b=gwxBjjJTdpJfXkD+O1Iyi6shgiaC1rMhtccH8FZyxu1ivkqLgEm4gfWQdiv+4r7ue3
+         i6wKL2bIOiUcdiJbZFWfRjOYLux9//uDSYlggkyXjvLXYhfw4YaN/M158IhXSelXTzH1
+         wL4osZDNgzp4EMQwMFrBeoUG4vuiJWLMQph8QWSnBKFDtBRaVVLi53JN8yx+FT+CWctI
+         MJ3YZSLHK5aI4kFU081YHk6Uu9Cxc271ATsx6p72VTNid2GfYTGwcC/AJJe5WD5GoQTz
+         oFiYy7LEIhjzSexFKNlFjmS6meUh8S5fNfVMEfdjunqkslH3GTpHTPYNVPReoLN6A50c
+         3v6A==
+X-Gm-Message-State: AOJu0YxsgLDVmYUvDLKiFUC4i7WcmyOfXXpdivSfb3/dtlgpSXOPjskY
+	WxpAHOpkH0bN6Q3fM7tNAdLUMh9W9BjAMkCuPsLDUD0anmT9EKPbYJrrvAnksFGzWhiQZvwrLHD
+	s
+X-Gm-Gg: ASbGnctPu2qulq1el6QjgRkem3ndOwTWcHVEDOxeNvr/a5M30lTw2l+BcqvMMLp/z9n
+	dku7wPcaDOIKbbYwlLg+gzGgtkwg7EKSEZFoHAMHf7A52EbIxkcxg74Pt6+z8m4tjwBXGepuVU/
+	j9iFH6+U8DfvhfWLKDdV2r5gRJ2O97oAn4PKjHYhLTsFwY1FPEiLoELmtNT7zPUEh5gFf2u8gKV
+	1nQwfai3lh6ycO1xongquKqUf3rFRaxjM5d4b8XrsAbO+6m4DcQc/hi
+X-Google-Smtp-Source: AGHT+IFjDZqkiyvwauk6XlCYDztdJprHg+FIrxmThEaEHO34WOG2PpkjDIx179eIda/PttDeXCiW5g==
+X-Received: by 2002:a05:600c:384c:b0:434:f871:1b97 with SMTP id 5b1f17b1804b1-4362aaa23d2mr133318405e9.33.1734436580421;
+        Tue, 17 Dec 2024 03:56:20 -0800 (PST)
+Received: from pop-os.. ([145.224.66.247])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436360159aasm114935825e9.6.2024.12.17.03.56.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 03:55:05 -0800 (PST)
-Date: Tue, 17 Dec 2024 19:54:54 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- xfr@outlook.com
-Subject: Re: [PATCH net-next v1] net: stmmac: TSO: Simplify the code flow of
- DMA descriptor allocations
-Message-ID: <20241217195454.000016ce@gmail.com>
-In-Reply-To: <9d0722fe-1547-4b44-8a4a-69a8756bdb39@redhat.com>
-References: <20241213030006.337695-1-0x1207@gmail.com>
-	<9d0722fe-1547-4b44-8a4a-69a8756bdb39@redhat.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+        Tue, 17 Dec 2024 03:56:20 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Cc: James Clark <james.clark@linaro.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Graham Woodward <graham.woodward@arm.com>,
+	linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: [PATCH 0/5] perf: arm_spe: Add format option for discard mode
+Date: Tue, 17 Dec 2024 11:56:03 +0000
+Message-Id: <20241217115610.371755-1-james.clark@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_035506_778031_08662026 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20241217_035622_144759_C568DD4D 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +110,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 10:30:24 +0100, Paolo Abeni <pabeni@redhat.com> wrote:
+Discard mode is a way to enable SPE related PMU events without the
+overhead of recording any data. Add a format option, tests and docs for
+it.
 
-> On 12/13/24 04:00, Furong Xu wrote:
-> > The DMA AXI address width of DWMAC cores can be configured to
-> > 32-bit/40-bit/48-bit, then the format of DMA transmit descriptors
-> > get a little different between 32-bit and 40-bit/48-bit.
-> > Current driver code checks priv->dma_cap.addr64 to use certain format
-> > with certain configuration.
-> > 
-> > This patch converts the format of DMA transmit descriptors on platforms
-> > that the DMA AXI address width is configured to 32-bit (as described by
-> > function comments of stmmac_tso_xmit() in current code) to a more generic
-> > format (see the updated function comments after this patch) which is
-> > actually already used on 40-bit/48-bit platforms to provide better
-> > compatibility and make code flow cleaner.
-> > 
-> > Tested and verified on:
-> > DWMAC CORE 5.10a with 32-bit DMA AXI address width
-> > DWXGMAC CORE 3.20a with 40-bit DMA AXI address width
-> > 
-> > Signed-off-by: Furong Xu <0x1207@gmail.com>  
-> 
-> Makes sense to me.
-> 
-> Since this could potentially impact multiple versions, it would be great
-> if we could have a little more 3rd parties testing.
+In theory we could make the driver drop calls to allocate the aux buffer
+when discard mode is enabled. This would give a small memory saving,
+but I think there is potential to interfere with any tools that don't
+expect this so I left the aux allocation untouched. Even old tools that
+don't know about discard mode will be able to use it because we publish
+the format option. Not allocating the aux buffer will have to be added
+to tools which I've done in Perf.
 
-Totally agree.
+Tested on the FVP with SAMPLE_FEED_OP (0x812D):
 
-Multiple devices with multiple versions of DWMAC core which is
-configured to 32-bit DMA AXI address width seem to very hard to find
-and test this patch :(
+ $ perf stat -e armv8_pmuv3/event=0x812D/ -- true
 
-Jon Hunter @ NVIDIA has two versions of DWMAC cores different from mine,
-Tegra186 Jetson TX2 (DWMAC CORE 4.10) and
-Tegra194 Jetson AGX Xavier (DWMAC CORE 5.00),
-but both of them are configured to 40-bit DMA AXI address width, this does
-not match the case that this patch tries to convert. So I decided not to
-request him to provide help.
+ Performance counter stats for 'true':
+
+                 0      armv8_pmuv3/event=0x812D/  
+ 
+ $ perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
+ $ perf stat -e armv8_pmuv3/event=0x812D/ -- true
+ 
+  Performance counter stats for 'true':
+
+             17350      armv8_pmuv3/event=0x812D/ 
+
+James Clark (5):
+  perf: arm_spe: Add format option for discard mode
+  perf tool: arm-spe: Pull out functions for aux buffer and tracking
+    setup
+  perf tool: arm-spe: Don't allocate buffer or tracking event in discard
+    mode
+  perf test: arm_spe: Add test for discard mode
+  perf docs: arm_spe: Document new discard mode
+
+ drivers/perf/arm_spe_pmu.c                | 23 ++++++
+ tools/perf/Documentation/perf-arm-spe.txt | 11 +++
+ tools/perf/arch/arm64/util/arm-spe.c      | 90 +++++++++++++++--------
+ tools/perf/tests/shell/test_arm_spe.sh    | 30 ++++++++
+ 4 files changed, 122 insertions(+), 32 deletions(-)
+
+-- 
+2.34.1
+
 
