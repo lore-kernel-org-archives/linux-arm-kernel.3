@@ -4,96 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1371E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 04:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B98E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 04:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fr3GeSntlHloZ4yayQx6BsNSKnwpryezH5Wr5AEdqz8=; b=o4egUftCqe3Kdd8j9GZlBOFfvw
-	1bbKnW0t63gVFI6YA213w3hqCy0ZpPL6mo2R51vfts58bWxLBtutO2U+ACaTnu++CIlXsnckDPxV5
-	euyjj5oAVWbIProkgRzHdMvN6dTb/mx8hnHvsZFCOsgc3vSS1v3Qg+iKqSCG9erzFUzB5U9n7Tr3/
-	MkFyk0TELK/TItgIlFd7CR+8zjaZgKwxJ8rYhvFurqKukZ4KfE3theLnidg+eq8UAHvfgmLyqrHv7
-	DP9Z0AL4dyHBUmYXy7t6aI1zmnzW8z+BYZ8mKYS7VZ6eOjagxXFR98T2hNWCCzmSa//MsCj21uUAM
-	WQAp75LA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DVIO84dCdmsOFDPPuKLHWbkKY31pXpGFb+T2B0gJYT0=; b=0t2z2qba5g0ACkB9+FPISeOwwG
+	h8d9RFfCmwYL+neg5G+tu8/O6aZZa5xtS5V6BeJzAM6Yhuu7PsxIYJfumia8WXwYV+FwZ9KMrFDjJ
+	aJdHJMkwmq8UZZ1wbCPHNmSbhFnfEFf1LvlZbxMQdsQU2fi1zq6A+bQU8tT0POFvC5LgbJj0Tuy0m
+	WWGocxbg+Q2owHyDFXH94NwAEJJkFrl8KLx4q46+z4I3q+zAIK5lU9iqZ+Xe5rhmuOybIhqFW3oaZ
+	FrRdM3YQct+y7AKx0mRCKi8IqB0qdXtzDLH3KdT68/QZGUin1K4G0rCZpG+WBA56/ecpIH0xXhLUN
+	Vy7/nOlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNPCJ-0000000C9U5-0Q3U;
-	Tue, 17 Dec 2024 04:28:39 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNPBD-0000000C9KI-2Gla
+	id 1tNPHv-0000000CA0A-0PqK;
+	Tue, 17 Dec 2024 04:34:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNPGp-0000000C9sb-3GFF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 04:27:32 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee8aa26415so4371324a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 20:27:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734409649; x=1735014449; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fr3GeSntlHloZ4yayQx6BsNSKnwpryezH5Wr5AEdqz8=;
-        b=RkHMHRdbm+9spb6hjDAzCOoskkFQdkLEBi7LoCRNqF9UBBBP8VDLpOp//qXT9J525B
-         hrkgnpfwGCfIVip626g22v0rXdrlhpPKatJrGSdAzmNDswGblpL+nlzsEZFZphX2SjTW
-         kqhgb8MtEmwN0ATiFID9Wv7Rg2qyWYumPU+r1RcZKHzMUGw68HhetxiITgB3frLj25sz
-         fGuctRqg5Xh75R8lmPKUWjomz6XaN4PWjx4vlzeeM580uSyTgZorciFqfIEzzm9k7aIh
-         lzVOrZY+PYELnpMuX94GEqEB0IbXWudbed3lm6MNOedDc9vU9lhU16iseV1XGutcF0Ye
-         0Czg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734409649; x=1735014449;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Fr3GeSntlHloZ4yayQx6BsNSKnwpryezH5Wr5AEdqz8=;
-        b=GWP8PvuWlbarpBaK8DPhvNZlKBeufesFoE9IkPYNpFtt8kJh7Kso+R4lRYvYnZbMiL
-         nIjtgDt/aFEhRbuc1DoiDlPXyALjMtJgjLeBgv3yqz6857OQfo+5nEGyEQLj2HysKVcg
-         FISp8ntpIzgqhcRi8Dn6GzMKUZ9MU2nex/rC5ph+igU+NQU5ID5UkKpxYQXAQflIWvZ1
-         7lA4BAZ2enub/qdjRIODvtNTnaMAkTIVVpuOFaLz0Jpzrj0VP8k77NJqoxLp/mdJy+JX
-         M4Yl3q2h6AJcjwQP9wCpSREOTLojB5XeYeDbc5XPpl+jiQDVzuRkv3PJwEay4WXrvZtI
-         9G7A==
-X-Forwarded-Encrypted: i=1; AJvYcCVR4Ng0SIGV/QfgqZJ6YUTZt1jSgxbzQuBOgiwU64133IY3yVGBjEpe/YDf3VjknillEwBAlH0zV5k/4KugDHaK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsgTbip9Qk5saGXMrjs8+dooPpJr1fXwvLeyW/fBCBAj+NcufS
-	5mV1FCPcjc0WTmUHjNfAjp5kCDGcTsONDAytJ5YqMYkNeBD+H3L64DNuaWmJYQM=
-X-Gm-Gg: ASbGnctsfy+sPXNYO3CRkV8LKI8SBBzBiGYUQeBnVsmGoRqtZctSumtyeU1s/ZcVVwo
-	AgABpfWLkq78o723Dwbz0SJW6+82jkAFaE2LvwRF1oTtWdxQIbjum9cari/vEJ2KcIOy1eYc1DD
-	S/MV87Cm6PgPccXHR3mTRHz0lsGmJK2q10FTIrDib788DMaq3NZvQaS250QjrD4L4nCRENEDPt+
-	Emo8kQF4EAAyGsZKltqFzBzx56P4ilDEhwlWawLNZ6aqYSExvg3tVCtGEM=
-X-Google-Smtp-Source: AGHT+IE/JeMuR4dBQFhr2ewi062MYvFxM7gFUf/kYOjekW7K8q6et1llylqaVQeIxsiURZEwVjKeIQ==
-X-Received: by 2002:a17:90b:2e48:b0:2ee:6736:8512 with SMTP id 98e67ed59e1d1-2f28fb6f983mr28756658a91.12.1734409649481;
-        Mon, 16 Dec 2024 20:27:29 -0800 (PST)
-Received: from localhost ([122.172.83.132])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142d90d45sm9072765a91.11.2024.12.16.20.27.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 20:27:28 -0800 (PST)
-Date: Tue, 17 Dec 2024 09:57:26 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
-	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
-	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
-	x86@kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v8 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-Message-ID: <20241217042726.isllh5bulpnwql7i@vireshk-i7>
-References: <20241206135600.4083965-1-beata.michalska@arm.com>
- <20241206135600.4083965-2-beata.michalska@arm.com>
- <20241212065100.sjb7lrlmksbm2hdk@vireshk-i7>
- <Z2CmcelSy89NULtz@arm.com>
+	Tue, 17 Dec 2024 04:33:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E5411063;
+	Mon, 16 Dec 2024 20:33:44 -0800 (PST)
+Received: from [10.162.16.49] (a077893.blr.arm.com [10.162.16.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6F1E3F720;
+	Mon, 16 Dec 2024 20:33:12 -0800 (PST)
+Message-ID: <0b8a055f-eab9-4b44-baac-ad25756dbbfd@arm.com>
+Date: Tue, 17 Dec 2024 10:03:10 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z2CmcelSy89NULtz@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 18/46] arm64/sysreg: Add register fields for PMUACR_EL1
+To: Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, maz@kernel.org, ryan.roberts@arm.com,
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Brown <broonie@kernel.org>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-19-anshuman.khandual@arm.com>
+ <20241216231505.GA601635-robh@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20241216231505.GA601635-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_202731_583172_EC9D5146 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20241216_203319_913551_01777D60 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,24 +70,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16-12-24, 23:15, Beata Michalska wrote:
-> My bad as I must have misinterpreted that message. Although I am not entirely
-> sure why this might be unacceptable as it is not such uncommon approach to use
-> signed int space to cover both: expected positive value as well as potential
-> error code case failure.
 
-This part is fine. The problem is with handling frequency here. Signed int can
-capture up to 2 GHz of freq, where as unsigned int can capture up to 4 GHz and
-so we would really like to keep it at 4 GHz..
 
-Maybe we need to move to 64 bits for frequency at some point of time, but at
-least we should try to not break it for now.
+On 12/17/24 04:45, Rob Herring wrote:
+> On Tue, Dec 10, 2024 at 11:22:43AM +0530, Anshuman Khandual wrote:
+>> This adds register fields for PMUACR_EL1 as per the definitions based
+>> on DDI0601 2024-09.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/tools/sysreg | 37 +++++++++++++++++++++++++++++++++++++
+>>  1 file changed, 37 insertions(+)
+>>
+>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>> index 214ad6da1dff..462adb8031ca 100644
+>> --- a/arch/arm64/tools/sysreg
+>> +++ b/arch/arm64/tools/sysreg
+>> @@ -2349,6 +2349,43 @@ Res0	63:5
+>>  Field	4:0	SEL
+>>  EndSysreg
+>>  
+>> +Sysreg	PMUACR_EL1	3	0	9	14	4
+> 
+> I already added this and various other PMUv3.9 registers you've added 
+> here in v6.12 and v6.13. So are you on an old base or the tool allows 
+> multiple definitions? If the latter, that should be fixed.
 
-> Enabling the new attribute for all is an option, tough not entirely compelling
-> one as exposing a feature that is known not to be supported seems bit
-> counterintuitive. On the other hand using cpufreq driver flags won't help much
-> as the support for the new attrib is platform-specific, not driver-specific.
+This series is based on v6.13-rc1 and as you mentioned PMUACR_EL1 has
+already been added into tools sysreg.
 
--- 
-viresh
+Sysreg  PMUACR_EL1      3       0       9       14      4
+Res0    63:33
+Field   32      F0
+Field   31      C
+Field   30:0    P
+EndSysreg
+
+Seems like the tool does allow multiple definitions for a single register.
+The generated header (arch/arm64/include/generated/asm/sysreg-defs.h) does
+include redundant blocks for the following.
+
+#define REG_PMUACR_EL1                                  S3_0_C9_C14_4
+#define SYS_PMUACR_EL1                                  sys_reg(3, 0, 9, 14, 4)
+#define SYS_PMUACR_EL1_Op0                              3
+#define SYS_PMUACR_EL1_Op1                              0
+#define SYS_PMUACR_EL1_CRn                              9
+#define SYS_PMUACR_EL1_CRm                              14
+#define SYS_PMUACR_EL1_Op2                              4
+
+#define PMUACR_EL1_C                                    GENMASK(31, 31)
+#define PMUACR_EL1_C_MASK                               GENMASK(31, 31)
+#define PMUACR_EL1_C_SHIFT                              31
+#define PMUACR_EL1_C_WIDTH                              1
+
+I am wondering how this did not cause any re-definition warning ?
+
+> 
+>> +Res0	63:33
+>> +Field	32	FM
+>> +Field	31	C
+>> +Field	30	P30
+>> +Field	29	P29
+>> +Field	28	P28
+>> +Field	27	P27
+>> +Field	26	P26
+>> +Field	25	P25
+>> +Field	24	P24
+>> +Field	23	P23
+>> +Field	22	P22
+>> +Field	21	P21
+>> +Field	20	P20
+>> +Field	19	P19
+>> +Field	18	P18
+>> +Field	17	P17
+>> +Field	16	P16
+>> +Field	15	P15
+>> +Field	14	P14
+>> +Field	13	P13
+>> +Field	12	P12
+>> +Field	11	P11
+>> +Field	10	P10
+>> +Field	9	P9
+>> +Field	8	P8
+>> +Field	7	P7
+>> +Field	6	P6
+>> +Field	5	P5
+>> +Field	4	P4
+>> +Field	3	P3
+>> +Field	2	P2
+>> +Field	1	P1
+>> +Field	0	P0
+> 
+> We're never going to use Pnn defines. This is just useless bloat unless 
+> we're aiming to top amd gpu defines LOC.
+
+Okay, this patch was trying to be cautiously comprehensive. But anyways
+PMUACR_EL1 has already been added and hence this is redundant now.
 
