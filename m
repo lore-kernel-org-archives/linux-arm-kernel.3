@@ -4,94 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A669BE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD39EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9QNzKWwcjuKoS1G8q7vft+5gTVP09htSDXmMOavO194=; b=QU/fy9IW6t/t/2K4Sdl8Gm57R3
-	ngD2eVub0nE9e09HX3QS7y2WzkVldx4O60xsEFWpkbc2E3sU2KaVBKqXQHPOwkZy39Z+/3p8mT3g1
-	gmFVSGeF+iqYhQs1lh3xgLvNK7Pils93mPM4NrAhZfiV+Uvi4LuRVfpfe5gUjhQPiXR6W4WqqiPSJ
-	Xp8+obRoGUucBG320Vk6pE+mUOyuHtMo2NbOnrmpFDpumkQ60xYPWfiGupb8vUiLva0nUR36dSP6Q
-	6x89XvxY33e9tm/ii4A5DNHwuaxQpYHTyWfoHC6rSAPib1AleqeuaSnS0zpMRCH3Z+ca5d7Z4GqU5
-	oQ64O+Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HMjCYKV984QoRr28xf3w0OYwbaOYhzni2D5iyXZ+XqY=; b=wW/9QUaPkI0qAcsdYnDX9pk83P
+	IXMkpZOgyAviT1m1PQsKC0fX84xb9DhetV5D0vcWe9aGvzQhfyUAoMgcnd+6ALIIQFFjvtVqapdRu
+	+PBsyJwqPfvTxFGdAbx45LsHzF9QMBietujT2Mo3bgi3KPlzY9ZO6Bob/P9xY0oColfN/LBxRgRYu
+	YZfYzlcPu/p1exhtkRDwI28BBSPE8onsuvASAyZA6YZnL16GfS5Qps/PPbMwFfrAbgOJcWhQSyjh0
+	hDJN9aH9Ba6ZOUVB39nWNekwhBYHqocoYV/ClMM4AaIGG8FyGx07Bgk0IEdwR+Sn7rCCCuDLri5vT
+	KH81m+nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXjB-0000000DbHE-0MXK;
-	Tue, 17 Dec 2024 13:35:09 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tNXoG-0000000DcDS-0NGS;
+	Tue, 17 Dec 2024 13:40:24 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXi6-0000000Db50-0KFC
+	id 1tNXnA-0000000Dc0Z-1iLt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 13:34:03 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-a9f1c590ecdso912394666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:34:01 -0800 (PST)
+	Tue, 17 Dec 2024 13:39:17 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54025432becso5303978e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:39:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734442440; x=1735047240; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9QNzKWwcjuKoS1G8q7vft+5gTVP09htSDXmMOavO194=;
-        b=qpORo93rr8tGtikjUnCCRe1c7M2h3ykfebREyrm/32NRoI60Y/GJ7kbTjII9kM9ldy
-         ybhGluAsQThOrOWez9Xj51UZcfh2bajPDcIM8QV0OgynElXwdZnPj61WoSDBYOHkkfff
-         ZkhMQrPfD2MMMADwrMCsd5PyqmAIs2EsDOR+z/GhOTx+Kvm+oTJ+g7aK4DH2P4awARo4
-         kvBLotLAhPDlj4csdNZKg4klD3+hiDWgDUT5GC+xpRKbTcxXttVscgoIlhdl9fccLNpL
-         kNDYKG/VfIr8gQN4gDDgyIME8Oh6WZeU+i+537xH6+T1sc+0xJRmXI4piCSmZETLjAOB
-         2BAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734442440; x=1735047240;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1734442755; x=1735047555; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9QNzKWwcjuKoS1G8q7vft+5gTVP09htSDXmMOavO194=;
-        b=et7/5NCmfkxR6gZu58I8EEJhoyYx6GTKlkP6SpMnTunSqERNBVciM6chb01FkajooB
-         2ADRBMW0giDg3H7cwc8j9aYO+gl6/BND+WSEL36jZgyxkrM3vqIIpgdbbpkx7VWmaAY/
-         gPs5pG4JIru060ru5lyTANoW1aL4hboi7AthM6IdsF7QLBCIn1cPc08OubUj81rgbkcl
-         t4f/+7XlKuPiKYBPUvxNtoZ8y/CNiziAmT521sZ0lIDIvRvomQJZjyN3yfNajXpHxhQF
-         9sX3nFjreAIJpxqmIUYhn69ALPCedNmnsZUcMoT/VdtMRvCMmuZN6G3DPMF17agJeVwB
-         3Ozw==
-X-Forwarded-Encrypted: i=1; AJvYcCWh+0URRj0dleLfdtF2j6vc8Tr3P187YFjUZvBR6Gtg5UPE4p7xLDIR/4qmINLTnJstCpZ2wqbgvOU8W9VOQVqg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVh5OrbXNGpb7x6CFelCFSZ77tFs7NNCKYjB1w15Qa3HdUumeu
-	YWm8/IxI+GqDR705lh2AtevNbeMZk1gX7pUO/KxV0+eItbU4HJZ2VBb9J6ACJA==
-X-Gm-Gg: ASbGncvDxP5fzobFw4aSqENuNhbQ6YJZAME3wMZbKpvkI+JaH3wOoRNrG36TBwqz+4F
-	snEi0GDh0HmvG3F5bpRvJsGgG7sCW0GCHrGOYj/yaeO7IZy71P88Bd2qb/ABnsEs1hqZ9HhQ1Kv
-	xvrle3ftaoymS/yZuD2qgkVyNPBLssNM3BrXp063wB0v8Z/3qyDgLkuJ1StcmqQDDbiHovhvW77
-	yAtPec3da5CXTbJiwyIMEaxGB4ZgVFxH54HD1PXcAC6LUK6MXQOUmUhD52Mxa3SRrbe6Y15mLoh
-	Hc8rXuxFK+KCUnk=
-X-Google-Smtp-Source: AGHT+IHaaBpKehN/3xKCSI4k6TebR04IYJYJaUaIapMz4+szmzBaeqriWGDQgSt0k6S3fPHQK0lNaA==
-X-Received: by 2002:a17:907:7296:b0:aa6:6c08:dc71 with SMTP id a640c23a62f3a-aab77909ee1mr1749746666b.23.1734442440424;
-        Tue, 17 Dec 2024 05:34:00 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aab963c54c7sm442926066b.195.2024.12.17.05.34.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 05:34:00 -0800 (PST)
-Date: Tue, 17 Dec 2024 13:33:57 +0000
-From: Quentin Perret <qperret@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 11/18] KVM: arm64: Introduce
- __pkvm_host_unshare_guest()
-Message-ID: <Z2F9xb4jrK1zRtNV@google.com>
-References: <20241216175803.2716565-1-qperret@google.com>
- <20241216175803.2716565-12-qperret@google.com>
- <86wmfyr1j4.wl-maz@kernel.org>
+        bh=HMjCYKV984QoRr28xf3w0OYwbaOYhzni2D5iyXZ+XqY=;
+        b=slNM/HyoxZMXr53KLk0RuFIOQOd4ejGNIVhr683xj3U6TQrO23LSkDqN5+YV04DMVr
+         ItnbLkNn+PSNWn+dGgTTC4W1AhQ8oaWTU1fQIY9BTNr/23uFvw7yUH7pLpily4TKGSe6
+         ZtyIe+hHTHoN6jonQzmLPFetRhH2rq6zJCK08kb+BhmRb0mCC20uKT20LaHldkS3h9c8
+         YO3VdrXVkQfvO3rAC+tycgldjwPd/kv+GL3H9EldkRsXsgYyboZYhmV2RxOnAxU/5Acb
+         ySdjdulcg394qr6ZZww4jmjQL3B2hTkHIgDDVaY5eVi9wn6r3Trkx7mE3AJXFtAo/fXh
+         ZTGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734442755; x=1735047555;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HMjCYKV984QoRr28xf3w0OYwbaOYhzni2D5iyXZ+XqY=;
+        b=cIErZnmODFklXSLUnb6k7LvQoXPE459fjlmRlC+qn6D1C1FBT6Kzpz8IMop9/cjedh
+         bsS2Zo0ZOFkxFi0CdfyjSY3QGGZMJzWYna2440A87Cp40b6d968Lhm3zTpy6fE75NDnt
+         +tth9zdiKXXEugtMA3mMCspaHr0QVVxAKiXASp68bqNIYFk6ekcTyWiqO/J0s0HxmNEx
+         lIVHYtY4DB8rinkzYPQ98rJfo0bYE13edGXIsa0OxKp0khJhf+LGckloa3M/+qfoAkBh
+         SUvYwuDxwO6LJC4HR9QHlMyF7BxNM3cAe3k9Uwn6SCb72g3ZtATzq2nSoagF+ahWXxYp
+         dOWA==
+X-Forwarded-Encrypted: i=1; AJvYcCUo8AtAE92ufWJctcU4hTBTqZ4cbq09ExnEZsPudSNHuhBrWOFaVxjzYTWKD89ZXfIJegLAsY804dKmB2cxrwKF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYDzSfhmKnGchkjf4mhLpUW+H50E2AC9pcMmY0YYuc0Q+3etMV
+	ZwHlETi//uWfkHAFWLI0UVktba4RNotfcau0XWBaVm8mNfjIGvu56DWM1rYaE44w8h0uSEIKWRC
+	xbMAbCurUIq3ICP7aA1n8le5k66dA4EpX1UXeBg==
+X-Gm-Gg: ASbGnctgjnJg/f0Qh2DsMGWjxYCA6g5OWkHhPp25x7FQq0PnajTS+fFJrsGLuaFD4SK
+	DvFfkziXcr2EM5UqLO3b6i+tkQEKsXbo1XLETWw==
+X-Google-Smtp-Source: AGHT+IEjrp870JNskf6bHNzYI2aNmKqs1NPMelQxcm9rfeKc8LyEkX5SdkkUq1R1luqQe2P7T5643ul/B1u9O9Mw0vc=
+X-Received: by 2002:a05:6512:1287:b0:540:1ca7:4fe9 with SMTP id
+ 2adb3069b0e04-5409054e4b0mr4948477e87.22.1734442754678; Tue, 17 Dec 2024
+ 05:39:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86wmfyr1j4.wl-maz@kernel.org>
+References: <20241119140805.3345412-1-paulk@sys-base.io> <20241119-prudent-jasmine-lizard-195cef@houat>
+ <ZzyoIABRArkGoZBn@collins>
+In-Reply-To: <ZzyoIABRArkGoZBn@collins>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 17 Dec 2024 14:39:03 +0100
+Message-ID: <CACRpkdbqufNVq4Ai6GQpgK2OY0rxLnp1wLQNmRoCv44T0xmFkQ@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Kocialkowski <contact@paulk.fr>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_053402_113262_1DE0A1B5 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20241217_053916_456768_9F0D9E1C 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +96,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday 17 Dec 2024 at 11:29:03 (+0000), Marc Zyngier wrote:
-> > +static int __check_host_shared_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ipa)
-> > +{
-> > +	enum pkvm_page_state state;
-> > +	struct hyp_page *page;
-> > +	kvm_pte_t pte;
-> > +	u64 phys;
-> > +	s8 level;
-> > +	int ret;
-> > +
-> > +	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
-> > +	if (ret)
-> > +		return ret;
-> > +	if (level != KVM_PGTABLE_LAST_LEVEL)
-> 
-> So there is still a very strong assumption that a guest is only
-> provided page mappings, and no blocks?
+Some discussion here, and some emotions involved.
 
-Yep, very much so. It's one of the main limitations of the series as-is
-(with the absence of support for mapping anything else than memory in
-guests). Those limitations were mentioned in the cover letter of v1, but
-I should have kept that mention in later versions, sorry!
+I can't seem to follow the technical matter because of all the
+social matters :/
 
-The last patch of the series has a tweak to user_mem_abort() to force
-mappings to PTE level which is trivial to do as we already need to do
-similar things for dirty logging. And __pkvm_host_share_guest() doesn't
-take a 'size' parameter in its current form, it assumes it is being
-passed a single pfn. So all in all this works well, and simplifies the
-series a lot.
+On Tue, Nov 19, 2024 at 4:00=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
+o> wrote:
 
-Huge-page support should come as a natural extension to this series, but
-I was hoping it could be done separately as that should have no
-*functional* impact observable from userspace. I'm slightly more
-concerned about the lack of support for mapping MMIO, but that too is
-going to be some work, and I guess you should just turn pKVM off if
-you want that for now...
+> My use-case here was hooking up a sparkfun sensor board by the way,
+> not some very advanced corner-case.
 
-Happy to address either or both of these limitations as part of this
-series if we think they're strictly required to land this stuff
-upstream, this is obviously up for debate. But that's going to be quite
-a few patches on top :-)
+Are you adding this as a DT overlay or by modifying an existing device
+tree? Does this sensor have an established device tree binding?
 
-Thanks,
-Quentin
+Are you using that sparkfun sensor by a kernel driver or from userspace
+using the GPIO character device?
+
+I noticed that the sunxi GPIO driver is implementing the
+.set_config() callback calling gpiochip_generic_config,
+which makes it call down to the pin control driver to set up
+the pin config.
+
+which would in turn make it eligible to use
+the gpiod_set_debounce() callback to push down the debounce
+period.
+
+But pinctrl-sunxi.c's sunxi_pconf_set() does *NOT* implement
+support for setting up the debounce, because it is (as I understand
+it) not part of the pin config hardware, but part of the interrupt
+generator hardware, correct?
+
+In that case I think we the gpiochip .set_config() callback should
+be modified something like this (pseudo code):
+
+sunxi_pinctrl_gpio_set_config()
+{
+    if (irq_is_in_use && param_is_debounce) {
+        modify_irq_debounce_according_to_param()
+        return 0;
+    }
+    gpiochip_generic_config()
+}
+
+pctl->chip->set_config =3D sunxi_pinctrl_gpio_set_config()
+
+Maybe the debounce can also be set even if the line is not used
+for IRQ? I'm not sure.
+
+In either case the latter would give the GPIO driver a handle
+on the debounce, which is good because the irqchip
+generally does not.
+
+There is a way it is possible to use the interrupt with desired debounce
+setting by first getting the GPIO descriptor and modify the debounce
+setting and then getting the interrupt from the GPIO descriptor:
+
+struct gpio_desc *g;
+int irq;
+
+g =3D gpiod_get(dev, "dataready", GPIOD_IN);
+gpiod_set_debounce(g, 1);
+irq =3D gpiod_to_irq(g);
+...request irq...
+
+Here I assume the line out from the sensor is named "dataready"
+the actual component likely has a name like that for the line.
+
+This requires changes in the device tree as well, so that a GPIO
+line is assigned to the sensor instead of "just" an interrupt:
+
+sensor {
+  dataready-gpios =3D <&gpio 14>;
+  ...
+};
+
+instead of:
+
+sensor {
+  interrupt-parent =3D <&gpio>;
+  interrupts =3D <14 IRQ_TYPE_EDGE_RISING>;
+};
+
+Unfortunately this is one of the areas where DT bindings are
+a bit ambiguous. Some just assign the GPIO line as an interrupt
+as both APIs are available, sometimes a proper GPIO line is
+preferred for the above reasons.
+
+Yours,
+Linus Walleij
 
