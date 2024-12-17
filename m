@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8489AE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1A2E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3i7JJPFrNyw+77UZNF5mOP1FaHtx5dBBOJnCZ3+cfqg=; b=kB0B4bXbe9kq5tMSRKLYiYE8g0
-	0Z6sqzf7gj5tpjsBEeoyZoWgChzO9rQX5xyFObFIhF2j9MSZiNfrJGQUzXuAeTTasmTHD4i2JS1SF
-	csnb2tYq+R5ezvjjms+ZkoLsvdtI0xxkDrdQEzM6j+9Use5mpXg2vCXDG5H3JOiONqGWFnncFYdQK
-	gpIS2HN4y0djKVuuq96T7gKbO0EI3x7A5lPFDtBH6/vy173OOv9cg2a/rFvYM5ERyk1Eu5cGLIBLh
-	WkwY+DQ/EIOzedu95i1G9ipK2UQt2OZqRlAS+lx9Tdi2aKCKldnNj4dYe7aeVqNBF22pIVba8Dh08
-	hKujE2Xw==;
+	bh=nNTJ+RSKF3nNEr9KviDI+mWYUDxyuqhmE+lCTSJr90M=; b=DZ2CVBVWk5CBVIU1MekmG3vVXl
+	/xCNzHXUNz64KRrAW6BoeIHowuBYbh+ZImK8IjvvV2t7jqw9xTS58KGDPm00TbpWiD1Giq07omCVw
+	/hArLJLpA9SFYdLz7akGeBJMEOyGMGJ5Id749GuwsiGC9PyzoD61GMnVcjZeUnU2osBW1/gegSDB+
+	Ultw7ObAdeT2eX23xK8KgfUlgjDFaqnP5BlDeYwtwvTKPchYEduaDf5TC48Sh4dznvMAJ0G50TGTj
+	teBLVZy9YElmeyXIHpDMnLqrNHqRjtn5uc80CJ5EWlSDSVwmNfhyYJl0m40k+mUjjf6M5R1UmwTCX
+	4DH64Wkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNQRa-0000000CLPH-0qcw;
-	Tue, 17 Dec 2024 05:48:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNQU3-0000000CLgs-3xkh;
+	Tue, 17 Dec 2024 05:51:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNQOI-0000000CKsa-3maH
+	id 1tNQSy-0000000CLWZ-2gun
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 05:45:08 +0000
+	Tue, 17 Dec 2024 05:49:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5D8A8A41DF1;
-	Tue, 17 Dec 2024 05:43:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 175A3C4CED3;
-	Tue, 17 Dec 2024 05:45:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AB0905C04DC;
+	Tue, 17 Dec 2024 05:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B580C4CED3;
+	Tue, 17 Dec 2024 05:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734414305;
-	bh=MWgm0EeRQAos7JU2TgGxbz8jam6Pi3oYixsMVuEC75o=;
+	s=k20201202; t=1734414595;
+	bh=nNTJ+RSKF3nNEr9KviDI+mWYUDxyuqhmE+lCTSJr90M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ol/E2pG4cjvTjNc7GRmqThIz38eNwlF7Knrm2OLb6rVTiDYZxdQTk6yVVGsRnCYbF
-	 3/dZQ2sih6n4Bwz7aN7EV6c6BanPrIKxFUGPFr9C3YtefzsNsDcy5UberetYQqDFEs
-	 NrXkmm6/cJZ0uqetT7WwiHux0zaB8r2LA6Af5/Js8K/n/xZDJ9kNLPPtsKBgtvIFth
-	 a90T6wbDpM24fKnzidZtTKKyA1B2v1J/jSj3JOzXD6ZhiD7aiLhDVVzCkSjEv06qM0
-	 vEUrBjC9W0aR39t3wbfgovHMLhV/Ty+IFuuh8M/KMKr5J5UE1eUosBThLpSjIW1vwF
-	 pcq8JD3XPacuA==
-Message-ID: <cb6be804-1649-4d17-839c-fe58a39baa1d@kernel.org>
-Date: Tue, 17 Dec 2024 06:44:58 +0100
+	b=IkOaD+mQZumFR6kVGx98rNnXoQRbhQpDBUcM0d1Ml9c9rv/dOwsJu+vM1JmmxUV/t
+	 ntunHvKGKd1aImhUM/iKqWN224vgYTZ2cbU275pZbyEG4ugUDis83N42mJybWRSF/7
+	 bkc46DKLKTHSuemlt5Exa76O7v5nKskPMGM/Go7ORYq7QXUr4aEqCNi6XeTrCtTMeG
+	 7ZX2++mKV4ddURHk6aVk+QNXQxBZyPG4ih6omQeEOrIcil938XuLN+4VEJbVnq9+vq
+	 uX5ueb0QOreybgNI0AcIXE/f2ebTolsS+kvPl2wChgonZNZF2BIXth6Ck7dzaHVoDQ
+	 kWW5ZArTDTz3w==
+Message-ID: <21008f97-d0bd-45bf-8e10-9ec2539ed858@kernel.org>
+Date: Tue, 17 Dec 2024 06:49:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 1/8] dt-bindings: media: platform: visconti: Add
- Toshiba Visconti MIPI CSI-2 Receiver
-To: yuji2.ishikawa@toshiba.co.jp, laurent.pinchart@ideasonboard.com,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, sakari.ailus@linux.intel.com, hverkuil-cisco@xs4all.nl,
- nobuhiro1.iwamatsu@toshiba.co.jp
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
- <20241125092146.1561901-2-yuji2.ishikawa@toshiba.co.jp>
- <07e0cc97-c0c4-42fd-b51d-87b0eaed4e4a@kernel.org>
- <TY3PR01MB9982FE7739FABB2275C79C0B923B2@TY3PR01MB9982.jpnprd01.prod.outlook.com>
+Subject: Re: [PATCH v3 3/4] dt-bindings: hwmon: intel,crps185: Add to trivial
+To: Ninad Palsule <ninad@linux.ibm.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, eajames@linux.ibm.com, jdelvare@suse.com,
+ linux@roeck-us.net, corbet@lwn.net, joel@jms.id.au,
+ andrew@codeconstruct.com.au, Delphine_CC_Chiu@Wiwynn.com,
+ broonie@kernel.org, peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
+ naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
+ patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
+ peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20241217022046.113830-1-ninad@linux.ibm.com>
+ <20241217022046.113830-4-ninad@linux.ibm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <TY3PR01MB9982FE7739FABB2275C79C0B923B2@TY3PR01MB9982.jpnprd01.prod.outlook.com>
+In-Reply-To: <20241217022046.113830-4-ninad@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_214507_077615_24B3AB4F 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20241216_214956_784133_C9A4872B 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,84 +127,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2024 00:57, yuji2.ishikawa@toshiba.co.jp wrote:
->> On 25/11/2024 10:21, Yuji Ishikawa wrote:
->>> Adds the Device Tree binding documentation that allows to describe the
->>> MIPI CSI-2 Receiver found in Toshiba Visconti SoCs.
->>>
->>> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
->>> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
->>
->>
->> How newly added patch can have already Rb tag? Was this review really, really
->> performed internally or you just satisfy some internal managers requirements
->> and fake the stats?
->>
-> 
-> I added this Reviewed-by tag because the patch was reviewed internally.
+On 17/12/2024 03:20, Ninad Palsule wrote:
+> Add INTEL Common Redundant Power Supply Versions crps185 bindings as
+> trivial. It is trivial because only compatibility string is required in
+> the device tree to load this driver.
 
-
-What issues were identified by internal review, especially in the
-context of bindings?
-
-> 
->>> ---
->>>
->>> Changelog v12:
->>> - Newly add bindings for CSI2RX driver
->>>
->>>  .../media/toshiba,visconti5-csi2rx.yaml       | 104
->> ++++++++++++++++++
->>>  1 file changed, 104 insertions(+)
->>>  create mode 100644
->>> Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yam
->>> l
->>> b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yam
->>> l
->>> new file mode 100644
->>> index 000000000000..5488072bc82a
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx
->>> +++ .yaml
->>> @@ -0,0 +1,104 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
->>> +---
->>> +$id:
->>> +http://devicetree.org/schemas/media/toshiba,visconti5-csi2rx.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Toshiba Visconti5 SoC MIPI CSI-2 receiver
->>> +
->>> +maintainers:
->>> +  - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
->>> +
->>> +description: |-
->>
->> Drop |-
->>
-> 
-> I'll drop "|-"
-> 
->>> +  Toshiba Visconti5 SoC MIPI CSI-2 receiver device receives MIPI
->>> + CSI-2 video  stream. Use with VIIF device. T.B.D
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: toshiba,visconti5-csi2rx
->>
->> Why this is called "RX"? Can you have a TX? I had impression that one cannot.
->>
-> 
-> VIIF has only MIPI CSI2 receiver (CSI2RX). There's no TX for it.
-
-So this device cannot be anything else? Then drop rx.
-
-> Visconti also has VOIF (Video Output Interface) hardware which has MIPI CSI2 (not DSI) transmitter (CSI2TX).
-
-Or this can be something else? Confusing.
+That's incorrect reason. You should describe the hardware, e.g. the
+hardware does not have any resources, like clocks or supplies.
 
 
 
