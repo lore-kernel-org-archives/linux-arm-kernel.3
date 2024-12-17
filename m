@@ -4,111 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44570E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE84E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AfvH5nsBGzdFeLU0T/mL8sWd62DddmNtfJ7gZUwGN4=; b=apGvdp84NZ05PkzpZbgYYsQWoF
-	b5fcFTTz98ZLH09AjS4ATjpZ3vDw8DCsa3K44fEpF/UQxYQ0M4h676eCZSkvem4upqW4cv4DGNa6r
-	X9TgySA0biI4b6kUJ843+NHY0EftbpUj9LZzswPNT4hRZDg7zbUPi7WXDzS7P7GrAtKV8BWqkzINK
-	rVy2Ux0MmnWfs9YjImNOpROo/bXqMdi3Do4CkhkE/rxLlns9uz+kXArLrWh7EcZ1mbDuTsD+LXo4L
-	dONGA0SNJf4Pr0hFQSy+HuCuh9CnSrLiDl0WVSx3gR27uVTmU3viNmjwlb07aGmjOjt9tOCLXkQdP
-	5jZlA/dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kbXWaV9B/wZwixbCzDy8Tr2NlxyDefP9tYG/0CIrKt8=; b=GMCGFJIgoqvKTFgV9ltHRrIelS
+	SZ/k+Bu2hMcnL2WeJVsYP5UKtBWM/p65Ul/rvUaYpD/qN0z6llmMNk6i804DKY61KI+egMptoT75d
+	DneV2/uL75FG1f31P9y/RJH2pi5wIdz+GSOjoSyBZzy6pjjQVWOzmegzsA7LFNQxQdIwcrmR1Xgts
+	tex5LuzstTUrAMFZtwBe8Y36K0zP3kug1szaLqKbc9sRNJ6bzHBVil09vhHv/uD9pbjJYBxbjOmth
+	2IPXmTZzQ4iMtuhbj8S6a7wNYgwHxJlH/DSHz2aGQ7OhFtaGkZKsidw/JiIWpFDyBbqjB66hQo9J2
+	kDazCw8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYPJ-0000000DiiG-3i7L;
-	Tue, 17 Dec 2024 14:18:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNYQN-0000000Diss-2MUo;
+	Tue, 17 Dec 2024 14:19:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYIc-0000000DhAa-0B24
+	id 1tNYNk-0000000DiTV-1LAa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:11:47 +0000
+	Tue, 17 Dec 2024 14:17:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 687EB5C596B;
-	Tue, 17 Dec 2024 14:11:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95D05C4CED3;
-	Tue, 17 Dec 2024 14:11:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B617DA40FDD;
+	Tue, 17 Dec 2024 14:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DB08C4CED4;
+	Tue, 17 Dec 2024 14:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734444705;
-	bh=+dprW4zFTCcIz53pVj73e4JZAt3bSbTy3ZmUnv6jlxI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eoRPkl5txePVLj9wR8JHQhrGKskOVm7bD1x1yLB2NqSNushBlTRAt5Zs/mrYuMMuB
-	 8FyjuxxDN1DOmI8qAy/h+L061c3kmg9S8EttyVs5+rYY4mmnKFXULsZyMZXulI7ECi
-	 Y8nc+B8AgjAbBH3w/HoAeg7kzWSRt3g34aVt+WN29a+rCyyyJapquNXoGGb0hVR6Qy
-	 +m8PlJ0AqKbocd3ItZOhTXH5yuLmORf76X/d3R9AKddS7lminn93bMSuvmQMEAqOFD
-	 GyXPcjVC0/8jalNnYtOGAtI4og6J1IoL36GB+DQbQO03VESzvLIjFgXkMtpQ34jfiL
-	 /qBihfOOObeHA==
-Message-ID: <ae6db654-c19a-4fde-a649-48c63f4e6394@kernel.org>
-Date: Tue, 17 Dec 2024 15:11:37 +0100
+	s=k20201202; t=1734445023;
+	bh=7EaWDQiz3ku1864YMwkASvsrUlcSGQ3K/iV69ef1jLI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nh0EmHxWnox1JJH8zFpSsJJNRKHE/nB45aTVMkteifPzmTqIaPTVIlIcbQSX/oTHc
+	 scuBBRx45bg/Ieugb8hSHrpUKeRAWphROtCMz9/Tz+z3Jv1fLV7NPTptlpLbWqToEr
+	 qdJKnL9lASYjAOLqvM+n7Ho/5HRokjuhYsteglNYLoMBsCoCTeqqBUgKN+tuJLC1E9
+	 zuhH2163YUO2tIJiZnMzxM23FTxxpyztVuTOZvxpo+aywzANYnYaFlQHUQhSa6Kp6h
+	 gDN7m4C9RhWT0PQ2X8M+Zgy8Ji8qtM5TmJ93VMFprDfSBRPu3EjoInfSr7i+oNP3MU
+	 icjUP72IXmK4Q==
+Date: Tue, 17 Dec 2024 14:16:58 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Peter Collingbourne <pcc@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64/sme: Move storage of reg_smidr to
+ __cpuinfo_store_cpu()
+Message-ID: <7bd307fb-9add-41a8-975a-a0ecfec1a933@sirena.org.uk>
+References: <20241216-arm64-fix-boot-cpu-smidr-v2-1-a99ffba2c37f@kernel.org>
+ <877c7ysois.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 2/4] media: qcom: camss: update clock names for sc7280
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
- <20241217140656.965235-3-quic_vikramsa@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241217140656.965235-3-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d2cJnMtFpxG7edgI"
+Content-Disposition: inline
+In-Reply-To: <877c7ysois.wl-maz@kernel.org>
+X-Cookie: The sum of the Universe is zero.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_061146_167037_328EBC17 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20241217_061704_426188_7ED06094 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,41 +78,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2024 15:06, Vikram Sharma wrote:
-> This patch changes gcc_cam_hf_axi clock name to make consistent
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+--d2cJnMtFpxG7edgI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> with existing platforms and add gcc_axi_sf clock too.
-> gcc_cam_hf_axi changed to gcc_axi_hf.
-> added gcc_axi_sf.
+On Tue, Dec 17, 2024 at 08:27:07AM +0000, Marc Zyngier wrote:
 
-Explain ABI impact and don't mix new features with some sort of refactoring.
+> My reading of the thread was that we don't need to kill the
+> arm64.nosme option as SMIDR_EL1 wouldn't UNDEF, which is guaranteed if
+> SME is implemented at all.
 
-> 
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->  drivers/media/platform/qcom/camss/camss.c | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index 004a74f6b2f6..1d992dc74877 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -1443,12 +1443,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
->  		.regulators = {},
->  
->  		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe0",
-> -			   "vfe0_axi", "gcc_cam_hf_axi" },
-> +			   "vfe0_axi", "gcc_axi_hf", "gcc_axi_sf" },
+My read had been the other way around, I'll drop the change to the
+override.
 
+> What was needed in 6.0 is not there anymore, for all the reasons that
+> Mark outlined and that you have pasted in the above commit message.
 
-I don't get how this works with old DTS.
+That's a rewrite of roughly the same stuff!  I pasted the commit IDs but
+the rest was a rewrite.
 
-This looks like pure ABI break without any explanation.
+--d2cJnMtFpxG7edgI
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best regards,
-Krzysztof
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdhh9kACgkQJNaLcl1U
+h9CYyQf/Wvw3RKu1eUbog9QV/00EOo70CEQSxMcNrdCNvvJqVzAzzIFapUar8CR2
+GQqcyJ1YyUWAS45ktwGfH0rNS6+ukfAx9t3muRFjtO+JjLoY0WUU0WrZHqGK2MX4
+iYULrzXLqR/FpbWNgeDf85aRXURG+pyxNM6wbna+wl3C/DXLENZB/HQn+0IRWsfc
+F7AJvXLnkSJnCoZXb0KgJGNq8vJBfIIv6/pTmdaHjfF89xVqgbdROhIWqnAQFN9v
+0GRsBI2CYs132fhseGAK7kOff+b/uhhc816mWHS01pFQ+F231vsP81CoIbzlurmX
+XeGMjA0u5HyGXJE/uW2a0eutjHKz/g==
+=Fvq5
+-----END PGP SIGNATURE-----
+
+--d2cJnMtFpxG7edgI--
 
