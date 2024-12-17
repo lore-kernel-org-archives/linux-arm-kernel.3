@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FC3E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E1AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtrGERQ0z7j8s5MKpZPlhTeeO+d+JfoGvxWjQiL2KrE=; b=tnNNlDL03EbYcpRTpNCi5toAga
-	sRt9oix7qXdA3JiHmKQMWBUBl9ez7afSEcm53C5n7C3FRjzxv3be2cff6eStCJ7Wi/zu2ZRaWDlfQ
-	4XZVjhhQQiTZvNZmyFDOUcOyCfeQsLY33aZqXQSeM8bU69XqSnVuDJyVGF9xSobPknjlHZNlGbm6x
-	mwwwHVgbmqdJ6KmudZRoJsS5Y7sfHtbGprqQHMSHlttPL52iCkCjegi2iOr9LmYmzw0mI7LBjfOlG
-	QfoGrvbJ4qasFrdtvevisHUFHfAd5dbG0OMEMDqtAQ0O79gRcN0MAGE08uz/0GLdil2mJEvDQNFRl
-	wXKCJ6UQ==;
+	bh=thQgj1yRIDIh0g6hUSMoPcv/t0taAIdT4RYoKgzoSic=; b=k05gPWRZKMk+gj2Q3GPHo+AupD
+	sm0jaiU/Rn6uQdxB1LZtWkfYXqLv/5HCyVSGBu7gV8IAnfgfmw592DeRuZLo3UuYXxMqXsLtxS1LJ
+	xRWqZ5X7Tmnmk3IbKicK+kvHLlJHQJQcSTDPeGrJQPcAVg/Gyt3Y9gLVUq5k2K//Uoba0szxdULXn
+	zneAurqG/Wt48/ipb+JAg1juqsuKQgJHDnDZ5iTL07oW2z4o5F8DnFgIPAcvwLIipy/iTsOFLrkBp
+	OHjp1fBjcSqND1nDgtIYNx2Y2D4/CFlEaksdtK0PZcEhQMc7ptAZBHIf2iXwKJek/VWZGTPjC5I2c
+	1nBbsCFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYge-0000000DmZP-3327;
-	Tue, 17 Dec 2024 14:36:36 +0000
+	id 1tNYhj-0000000Dmn9-1a2H;
+	Tue, 17 Dec 2024 14:37:43 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYU2-0000000DjZK-0WrQ
+	id 1tNYU3-0000000DjZt-3A2k
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Dec 2024 14:23:34 +0000
+	Tue, 17 Dec 2024 14:23:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=dtrGERQ0z7j8s5MKpZPlhTeeO+d+JfoGvxWjQiL2KrE=; b=jlxmfC1BOoYZfJC2CVvKHftC0Q
-	Qj/USP9T/k8+9DEiIA6Qx/Qmv8SqEXBLUC2zRGqDlVbtPRJ/u8gUDbt8w8bvUy6TZlFf3X2aPLR54
-	dnViEuVfhLFEbkC/+G1iPaM45OlLoHfn4BV6J0acIxn4soZkidaxj5OT+4AhgmJ3c97ydbgAYZtlX
-	X/n/tnn9H5jVPHD0+85ln3BqL05j0YLY83/yeMGqGj17WseVYxW0kDoo9fblS4827t5kx8bx9lHnp
-	pXL9VlA0yTLlLw0TgZmDwd3G9IK4t1oheEe53hj8DjU1ZdLSfFDv3afgw41wclti/dMuH2bYxw68K
-	GEQI6/5Q==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	bh=thQgj1yRIDIh0g6hUSMoPcv/t0taAIdT4RYoKgzoSic=; b=G8llot9afvdwjlvESsqPUnVfOr
+	1zXbDePEv8hS7YmGNipDz/WXjsXRjmNk7jICotfgUgG3f+hVn9n6/BgVGfIcGwWF/ooVYgKFpytlC
+	vx92o/2/39yWqI45ZOZChbls6fO5HEWIIq0niFSaRDmYV3hwxuHrxm5udQUPr+dx2uqHyv9q+OvLq
+	eS78D21kiy+Xrce99yOuxJJbsErFKPkz5XFyjQtykY+dcAk0iYlAZ4o/ecQv9A+E5ty8NYjyxUj/8
+	srmFc3mtlDYkkuyB9hpYPiJuiMJrL+132IZgm/tTtM1wYECp7Cc4VzmBaJdYRALIQWa5xrzMdeQc+
+	EFlEbayA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYTx-000000055Ws-42Ci
+	id 1tNYTy-000000055Ww-262E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:23:32 +0000
+	Tue, 17 Dec 2024 14:23:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CFB12A418CF;
-	Tue, 17 Dec 2024 14:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D08C4CED3;
-	Tue, 17 Dec 2024 14:23:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C19895C5B2A;
+	Tue, 17 Dec 2024 14:22:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96107C4CEDD;
+	Tue, 17 Dec 2024 14:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734445407;
-	bh=Rochb5i1Ho0E+qV9J9IDq57ZQiT0touGYCNFRT4vxqQ=;
+	s=k20201202; t=1734445408;
+	bh=RYA74l2sD117uDKoViBGCC9liyVddclXRZ7s7n7LQ/8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pLBvQcXghpWgE53TCFFOadQ4c1ZtbDM4Q2zGxBj4aIOnK2qC9fzgydztkgDnqhqIQ
-	 0LheE6Hx1Lzyr6htrOiy/Dfv33YxbArTJSQErd5eaoFYdaqUkJ1tdnNAhuivBNRWTE
-	 T/C8dcavqWTMDOjZEdfYF2+IxFHZ/Iwc8X+jLnaaZT5rjoq7Gzk9OQzSTbIkseA5U4
-	 M1H1Gj7tiu6JOL8e9K1KF0VxhfnzXTFchS4n+hjvCsNESWwg0umEMa+QE+w5QCVdIg
-	 s365Wq/vi/aLgzEOQrBNO/tNMOAgm4Yxg1uWVPfYKkQ0Au9/+n2MARIkKQqlqYMXLJ
-	 05qTftxMVcl1Q==
+	b=tbt4bZVA5s6j1EytgVxOWU38wm2Yu5uZKLxLzWeMNcBsh5ByBAAPRdHg5D7ZrsJ+c
+	 o7I6ToIDbJQB4Gx0TVAF0b4Q8oTfz5YFGsaWiIGmjCSpk8eIFXiFJFbffmMdGaIWew
+	 46g29lqk1ixXXyVxx19Hyxa4kbk1siYZqWAjrpyarvDTD26PYZI/YwSlHq4cpDo7kb
+	 zsyTOVoqwCYyhgxfjKqVK6Ilkz8l/+UQyijofHF1JFx5GPDvk2USnwhdLzl9+CimWL
+	 4HogdbcFms0FY6qdYbI9IIfEkuFX9/OqMWyESmviiT3l/dhYLbCLsmA08kwE7rztzp
+	 YnErOIFIg36pg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tNYTt-004aJx-6e;
-	Tue, 17 Dec 2024 14:23:25 +0000
+	id 1tNYTu-004aJx-QH;
+	Tue, 17 Dec 2024 14:23:26 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -76,9 +76,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
 	Chase Conklin <chase.conklin@arm.com>,
 	Eric Auger <eauger@redhat.com>
-Subject: [PATCH v2 04/12] KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
-Date: Tue, 17 Dec 2024 14:23:12 +0000
-Message-Id: <20241217142321.763801-5-maz@kernel.org>
+Subject: [PATCH v2 11/12] KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity
+Date: Tue, 17 Dec 2024 14:23:19 +0000
+Message-Id: <20241217142321.763801-12-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241217142321.763801-1-maz@kernel.org>
 References: <20241217142321.763801-1-maz@kernel.org>
@@ -89,8 +89,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_142330_237394_C29023D9 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20241217_142330_928016_766A1CEA 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,104 +105,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Although FEAT_NV2 makes most things fast, it also makes it impossible
-to correctly emulate the timers, as the sysreg accesses are redirected
-to memory.
+It appears that on Qualcomm's x1e CPU, CNTVOFF_EL2 doesn't really
+work, specially with HCR_EL2.E2H=1.
 
-FEAT_ECV addresses this by giving a hypervisor the ability to trap
-the EL02 sysregs as well as the virtual timer.
+A non-zero offset results in a screaming virtual timer interrupt,
+to the tune of a few 100k interrupts per second on a 4 vcpu VM.
+This is also evidenced by this CPU's inability to correctly run
+any of the timer selftests.
 
-Add the required trap setting to make use of the feature, allowing
-us to elide the ugly resync in the middle of the run loop.
+The only case this doesn't break is when this register is set to 0,
+which breaks VM migration.
+
+When HCR_EL2.E2H=0, the timer seems to behave normally, and does
+not result in an interrupt storm.
+
+As a workaround, use the fact that this CPU implements FEAT_ECV,
+and trap all accesses to the virtual timer and counter, keeping
+CNTVOFF_EL2 set to zero, and emulate accesses to CVAL/TVAL/CTL
+and the counter itself, fixing up the timer to account for the
+missing offset.
+
+And if you think this is disgusting, you'd probably be right.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arch_timer.c          | 36 +++++++++++++++++++++++++---
- include/clocksource/arm_arch_timer.h |  2 ++
- 2 files changed, 35 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/cputype.h   |  2 ++
+ arch/arm64/kernel/cpu_errata.c     |  8 +++++
+ arch/arm64/kernel/image-vars.h     |  3 ++
+ arch/arm64/kvm/arch_timer.c        | 58 ++++++++++++++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c | 16 ++++++---
+ arch/arm64/kvm/sys_regs.c          |  3 +-
+ arch/arm64/tools/cpucaps           |  1 +
+ include/kvm/arm_arch_timer.h       |  7 ++++
+ 8 files changed, 90 insertions(+), 8 deletions(-)
 
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 488f8e7513495..6f3f4142e214f 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -122,6 +122,7 @@
+ #define QCOM_CPU_PART_KRYO_3XX_SILVER	0x803
+ #define QCOM_CPU_PART_KRYO_4XX_GOLD	0x804
+ #define QCOM_CPU_PART_KRYO_4XX_SILVER	0x805
++#define QCOM_CPU_PART_ORYON_X1		0x001
+ 
+ #define NVIDIA_CPU_PART_DENVER		0x003
+ #define NVIDIA_CPU_PART_CARMEL		0x004
+@@ -198,6 +199,7 @@
+ #define MIDR_QCOM_KRYO_3XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_SILVER)
+ #define MIDR_QCOM_KRYO_4XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_GOLD)
+ #define MIDR_QCOM_KRYO_4XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_SILVER)
++#define MIDR_QCOM_ORYON_X1 MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_ORYON_X1)
+ #define MIDR_NVIDIA_DENVER MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_DENVER)
+ #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
+ #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index a78f247029aec..7ce5558628951 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -786,6 +786,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
+ 	},
+ #endif
++	{
++		.desc = "Broken CNTVOFF_EL2",
++		.capability = ARM64_WORKAROUND_QCOM_ORYON_CNTVOFF,
++		ERRATA_MIDR_RANGE_LIST(((const struct midr_range[]) {
++					MIDR_ALL_VERSIONS(MIDR_QCOM_ORYON_X1),
++					{}
++				})),
++	},
+ 	{
+ 	}
+ };
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index 8f5422ed1b758..ef3a69cc398e5 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -105,6 +105,9 @@ KVM_NVHE_ALIAS(__hyp_stub_vectors);
+ KVM_NVHE_ALIAS(vgic_v2_cpuif_trap);
+ KVM_NVHE_ALIAS(vgic_v3_cpuif_trap);
+ 
++/* Static key which is set if CNTVOFF_EL2 is unusable */
++KVM_NVHE_ALIAS(broken_cntvoff_key);
++
+ /* EL2 exception handling */
+ KVM_NVHE_ALIAS(__start___kvm_ex_table);
+ KVM_NVHE_ALIAS(__stop___kvm_ex_table);
 diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 8bff913ed1264..b6a06bda9e534 100644
+index e5951e6eaf236..d3d243366536c 100644
 --- a/arch/arm64/kvm/arch_timer.c
 +++ b/arch/arm64/kvm/arch_timer.c
-@@ -783,7 +783,7 @@ static void kvm_timer_vcpu_load_nested_switch(struct kvm_vcpu *vcpu,
+@@ -30,6 +30,7 @@ static u32 host_vtimer_irq_flags;
+ static u32 host_ptimer_irq_flags;
  
- static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- {
--	bool tpt, tpc;
-+	bool tvt, tpt, tvc, tpc, tvt02, tpt02;
- 	u64 clr, set;
+ static DEFINE_STATIC_KEY_FALSE(has_gic_active_state);
++DEFINE_STATIC_KEY_FALSE(broken_cntvoff_key);
  
+ static const u8 default_ppi[] = {
+ 	[TIMER_PTIMER]  = 30,
+@@ -519,7 +520,12 @@ static void timer_save_state(struct arch_timer_context *ctx)
+ 	case TIMER_VTIMER:
+ 	case TIMER_HVTIMER:
+ 		timer_set_ctl(ctx, read_sysreg_el0(SYS_CNTV_CTL));
+-		timer_set_cval(ctx, read_sysreg_el0(SYS_CNTV_CVAL));
++		cval = read_sysreg_el0(SYS_CNTV_CVAL);
++
++		if (has_broken_cntvoff())
++			cval -= timer_get_offset(ctx);
++
++		timer_set_cval(ctx, cval);
+ 
+ 		/* Disable the timer */
+ 		write_sysreg_el0(0, SYS_CNTV_CTL);
+@@ -624,8 +630,15 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+ 
+ 	case TIMER_VTIMER:
+ 	case TIMER_HVTIMER:
+-		set_cntvoff(timer_get_offset(ctx));
+-		write_sysreg_el0(timer_get_cval(ctx), SYS_CNTV_CVAL);
++		cval = timer_get_cval(ctx);
++		offset = timer_get_offset(ctx);
++		if (has_broken_cntvoff()) {
++			set_cntvoff(0);
++			cval += offset;
++		} else {
++			set_cntvoff(offset);
++		}
++		write_sysreg_el0(cval, SYS_CNTV_CVAL);
+ 		isb();
+ 		write_sysreg_el0(timer_get_ctl(ctx), SYS_CNTV_CTL);
+ 		break;
+@@ -820,6 +833,13 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
+ 	if (!has_cntpoff() && timer_get_offset(map->direct_ptimer))
+ 		tpt = tpc = true;
+ 
++	/*
++	 * For the poor sods that could not correctly substract one value
++	 * from another, trap the full virtual timer and counter.
++	 */
++	if (has_broken_cntvoff() && timer_get_offset(map->direct_vtimer))
++		tvt = tvc = true;
++
  	/*
-@@ -798,7 +798,29 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- 	 * within this function, reality kicks in and we start adding
- 	 * traps based on emulation requirements.
- 	 */
--	tpt = tpc = false;
-+	tvt = tpt = tvc = tpc = false;
-+	tvt02 = tpt02 = false;
+ 	 * Apply the enable bits that the guest hypervisor has requested for
+ 	 * its own guest. We can only add traps that wouldn't have been set
+@@ -1450,6 +1470,37 @@ static int kvm_irq_init(struct arch_timer_kvm_info *info)
+ 	return 0;
+ }
+ 
++static void kvm_timer_handle_errata(void)
++{
++	u64 mmfr0, mmfr1, mmfr4;
 +
 +	/*
-+	 * NV2 badly breaks the timer semantics by redirecting accesses to
-+	 * the EL1 timer state to memory, so let's call ECV to the rescue if
-+	 * available: we trap all CNT{P,V}_{CTL,CVAL,TVAL}_EL0 accesses.
++	 * CNTVOFF_EL2 is broken on some implementations. For those, we trap
++	 * all virtual timer/counter accesses, requiring FEAT_ECV.
 +	 *
-+	 * The treatment slightly varies depending whether we run a nVHE or
-+	 * VHE guest: nVHE will use the _EL0 registers directly, while VHE
-+	 * will use the _EL02 accessors. This translates in different trap
-+	 * bits.
++	 * However, a hypervisor supporting nesting is likely to mitigate the
++	 * erratum at L0, and not require other levels to mitigate it (which
++	 * would otherwise be a terrible performance sink due to trap
++	 * amplification).
 +	 *
-+	 * None of the trapping is required when running in non-HYP context,
-+	 * unless required by the L1 hypervisor settings once we advertise
-+	 * ECV+NV in the guest, or that we need trapping for other reasons.
++	 * Given that the affected HW implements both FEAT_VHE and FEAT_E2H0,
++	 * and that NV is likely not to (because of limitations of the
++	 * architecture), only enable the workaround when FEAT_VHE and
++	 * FEAT_E2H0 are both detected. Time will tell if this actually holds.
 +	 */
-+	if (cpus_have_final_cap(ARM64_HAS_ECV) && is_hyp_ctxt(vcpu)) {
-+		if (vcpu_el2_e2h_is_set(vcpu))
-+			tvt02 = tpt02 = true;
-+		else
-+			tvt = tpt = true;
++	mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
++	mmfr1 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
++	mmfr4 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR4_EL1);
++	if (SYS_FIELD_GET(ID_AA64MMFR1_EL1, VH, mmfr1)		&&
++	    !SYS_FIELD_GET(ID_AA64MMFR4_EL1, E2H0, mmfr4)	&&
++	    SYS_FIELD_GET(ID_AA64MMFR0_EL1, ECV, mmfr0)		&&
++	    (has_vhe() || has_hvhe())				&&
++	    cpus_have_final_cap(ARM64_WORKAROUND_QCOM_ORYON_CNTVOFF)) {
++		static_branch_enable(&broken_cntvoff_key);
++		kvm_info("Broken CNTVOFF_EL2, trapping virtual timer\n");
 +	}
++}
++
+ int __init kvm_timer_hyp_init(bool has_gic)
+ {
+ 	struct arch_timer_kvm_info *info;
+@@ -1518,6 +1569,7 @@ int __init kvm_timer_hyp_init(bool has_gic)
+ 		goto out_free_vtimer_irq;
+ 	}
  
- 	/*
- 	 * We have two possibility to deal with a physical offset:
-@@ -838,6 +860,10 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
++	kvm_timer_handle_errata();
+ 	return 0;
  
- 	assign_clear_set_bit(tpt, CNTHCTL_EL1PCEN << 10, set, clr);
- 	assign_clear_set_bit(tpc, CNTHCTL_EL1PCTEN << 10, set, clr);
-+	assign_clear_set_bit(tvt, CNTHCTL_EL1TVT, clr, set);
-+	assign_clear_set_bit(tvc, CNTHCTL_EL1TVCT, clr, set);
-+	assign_clear_set_bit(tvt02, CNTHCTL_EL1NVVCT, clr, set);
-+	assign_clear_set_bit(tpt02, CNTHCTL_EL1NVPCT, clr, set);
+ out_free_ptimer_irq:
+diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+index 3aaab20ae5b47..ff176f4ce7deb 100644
+--- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+@@ -22,15 +22,16 @@ void __kvm_timer_set_cntvoff(u64 cntvoff)
+  */
+ void __timer_disable_traps(struct kvm_vcpu *vcpu)
+ {
+-	u64 val, shift = 0;
++	u64 set, clr, shift = 0;
  
- 	/* This only happens on VHE, so use the CNTHCTL_EL2 accessor. */
+ 	if (has_hvhe())
+ 		shift = 10;
+ 
+ 	/* Allow physical timer/counter access for the host */
+-	val = read_sysreg(cnthctl_el2);
+-	val |= (CNTHCTL_EL1PCTEN | CNTHCTL_EL1PCEN) << shift;
+-	write_sysreg(val, cnthctl_el2);
++	set = (CNTHCTL_EL1PCTEN | CNTHCTL_EL1PCEN) << shift;
++	clr = CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
++
++	sysreg_clear_set(cnthctl_el2, clr, set);
+ }
+ 
+ /*
+@@ -58,5 +59,12 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+ 		set <<= 10;
+ 	}
+ 
++	/*
++	 * Trap the virtual counter/timer if we have a broken cntvoff
++	 * implementation.
++	 */
++	if (has_broken_cntvoff())
++		set |= CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
++
  	sysreg_clear_set(cnthctl_el2, clr, set);
-@@ -933,8 +959,12 @@ void kvm_timer_sync_nested(struct kvm_vcpu *vcpu)
- 	 * accesses redirected to the VNCR page. Any guest action taken on
- 	 * the timer is postponed until the next exit, leading to a very
- 	 * poor quality of emulation.
-+	 *
-+	 * This is an unmitigated disaster, only papered over by FEAT_ECV,
-+	 * which allows trapping of the timer registers even with NV2.
-+	 * Still, this is still worse than FEAT_NV on its own. Meh.
- 	 */
--	if (!is_hyp_ctxt(vcpu))
-+	if (cpus_have_final_cap(ARM64_HAS_ECV) || !is_hyp_ctxt(vcpu))
- 		return;
+ }
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 986e63d4f9faa..d161d6c05707a 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1721,7 +1721,8 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 		if (!vcpu_has_ptrauth(vcpu))
+ 			val &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3) |
+ 				 ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_GPA3));
+-		if (!cpus_have_final_cap(ARM64_HAS_WFXT))
++		if (!cpus_have_final_cap(ARM64_HAS_WFXT) ||
++		    has_broken_cntvoff())
+ 			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
+ 		break;
+ 	case SYS_ID_AA64MMFR2_EL1:
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index eb17f59e543c4..1e65f2fb45bd1 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -105,6 +105,7 @@ WORKAROUND_CLEAN_CACHE
+ WORKAROUND_DEVICE_LOAD_ACQUIRE
+ WORKAROUND_NVIDIA_CARMEL_CNP
+ WORKAROUND_QCOM_FALKOR_E1003
++WORKAROUND_QCOM_ORYON_CNTVOFF
+ WORKAROUND_REPEAT_TLBI
+ WORKAROUND_SPECULATIVE_AT
+ WORKAROUND_SPECULATIVE_SSBS
+diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+index c1ba31fab6f52..681cf0c8b9df4 100644
+--- a/include/kvm/arm_arch_timer.h
++++ b/include/kvm/arm_arch_timer.h
+@@ -151,6 +151,13 @@ void kvm_timer_cpu_down(void);
+ /* CNTKCTL_EL1 valid bits as of DDI0487J.a */
+ #define CNTKCTL_VALID_BITS	(BIT(17) | GENMASK_ULL(9, 0))
  
- 	if (!vcpu_el2_e2h_is_set(vcpu)) {
-diff --git a/include/clocksource/arm_arch_timer.h b/include/clocksource/arm_arch_timer.h
-index 877dcbb2601ae..c62811fb41309 100644
---- a/include/clocksource/arm_arch_timer.h
-+++ b/include/clocksource/arm_arch_timer.h
-@@ -24,6 +24,8 @@
- #define CNTHCTL_ECV			(1 << 12)
- #define CNTHCTL_EL1TVT			(1 << 13)
- #define CNTHCTL_EL1TVCT			(1 << 14)
-+#define CNTHCTL_EL1NVPCT		(1 << 15)
-+#define CNTHCTL_EL1NVVCT		(1 << 16)
- 
- enum arch_timer_reg {
- 	ARCH_TIMER_REG_CTRL,
++DECLARE_STATIC_KEY_FALSE(broken_cntvoff_key);
++
++static inline bool has_broken_cntvoff(void)
++{
++	return static_branch_unlikely(&broken_cntvoff_key);
++}
++
+ static inline bool has_cntpoff(void)
+ {
+ 	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
 -- 
 2.39.2
 
