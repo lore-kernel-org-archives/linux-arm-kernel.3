@@ -4,90 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E427E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 18:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B502E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 18:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zKVl4ErJTsqC1L8EpP30Wrq/2TXXpHRlMyoxXlbIuI=; b=KM9P7VKfxSCmvDC8gBDlp+++lB
-	ibTKOBFk8hhgM7QcGBNh0HIWIH5hSApPtGDyC1jAhbzXD8VvrKjyuKkofHfR3/56QMcOVRQDnm0zM
-	WgrF2SNQIKCczmrM8g1jUC0bZtXMnqPP/6A4DNQcPVkIjBz6+nt1pAaEiY4pi6bjCRjX8+a0pAx/h
-	7GPDMpTZyFH/XI4Zl5gjluU6copmECD/lxvfqKfOkRi+S6yNHJnickiiFd825TOiWfz6eU0TJ38uX
-	KDQbeWgi8cI+tryc5L8lAQJ4O+4U00ox3laftLLzEoFe5FVqXzNai4XeTlDDX9JGMj7YGcT+pVH2A
-	W8BsaFsg==;
+	bh=JLQtj3Z+YBvoe66gPP5jwG3nfGAR0rbHbfqZsmiV4Zk=; b=00Fmm5vKhU1f7eollImMtVyRbK
+	G//83dNSTBHWjVlso9x/mQA00TX77WB0vBYXi9pBvya171OtXFEPXii/kJBufk9ADOpSb+khtevb1
+	ybp6M46gTvL2E4t2FtZMe8LxvbhfXfY4F1Z4NbV5e+Y6QG9+af6QBGlq2vefIR8nN6WNufrjDx0dk
+	9MHnyRN6IpK+4UwL30u6AFrqDZC/+xW02Ml5zrKjzY3Aw6H/XSW4xojVqH2jZXrGzQ8GCmpgaz7VZ
+	HvWJAAZF5ttHJNxGA2/UB/yq7uYRio4vrC3Ndqp/NMbdxci7Mz/CHSWYi7ZULWsjBnATUppF6LLjt
+	UmzNHkLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbzS-0000000ESqm-3IkN;
-	Tue, 17 Dec 2024 18:08:14 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tNbzV-0000000ESu9-33n7;
+	Tue, 17 Dec 2024 18:08:17 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbZu-0000000ENqs-0GCZ
+	id 1tNbcU-0000000EOWE-33rn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 17:41:51 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHD9qtJ008410;
-	Tue, 17 Dec 2024 18:41:40 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	7zKVl4ErJTsqC1L8EpP30Wrq/2TXXpHRlMyoxXlbIuI=; b=duuTqoIETZ9MdyH6
-	Kzq3nDbOUtI9MHACepSiyCnDVmWWRK5dIkqHdUOyRbIFtKruZfTDnVRSnmRy6t77
-	mIqtiINAqYiykH92OfLHCWT3/neSIEHHo2MfkTYUN2EBD3rDnhdLCEQQui8z6zsQ
-	evb6Hvz9kVMgGK/kIzgBtQXg+ezgjFzUFfHm3V61JwFw2/uHuZLdAzCtNYYQ3i4N
-	I1LUwIaZT77zqwFmcj95hWES+YDMYrdwofUxbO87mOHFKwdoCBqcHezIMeeaCsyt
-	PGb2OCWMSV+8P4/vNMGgWNe+79kwxGpsuihBSJDU5/aV2hZT6z5CniBxAjW26a7R
-	0PoFGg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43k5h9jwag-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 18:41:39 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7B59C40048;
-	Tue, 17 Dec 2024 18:40:16 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A98A3290CDA;
-	Tue, 17 Dec 2024 18:39:29 +0100 (CET)
-Received: from localhost (10.252.23.235) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 17 Dec
- 2024 18:39:29 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 17 Dec 2024 18:39:22 +0100
-Subject: [PATCH 5/9] media: stm32: csi: use ARRAY_SIZE to search D-PHY
- table
+	Tue, 17 Dec 2024 17:44:31 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-53df19bf6a9so7809374e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 09:44:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734457468; x=1735062268; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JLQtj3Z+YBvoe66gPP5jwG3nfGAR0rbHbfqZsmiV4Zk=;
+        b=fHoOwrAmp0ucWHGK4OgEvVHkYYDmr5qmXQH7oOYkPp6mJhxx89fUpmcyX10vLbI7+y
+         dZTjuLAeacd1VJV+GYNqi6uTLiI4kTF+G3eYvZNNnIVjVIQ9WAtVd/f2EDVkM8xiOyCY
+         QwHIWnARYdwE/JtXXNBjYhiBJ9O/I/4doH8xg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734457468; x=1735062268;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JLQtj3Z+YBvoe66gPP5jwG3nfGAR0rbHbfqZsmiV4Zk=;
+        b=gSut1O0gin5+H7D7jA50tQKUEPNCcQVUzsOPNIJD77aYzbHVVePLi6sZgKh9gCvYWN
+         lbpZTiIX1L+2IPH6F9IIDa8hu7GmzwcYVfi+E0RV5yWqNYh6R05mw4qEmo3wztaLyWNt
+         ITS/6CsqRZgnitt4jZ9tCVHHn9Ln2f/2ErwzUCJz5fJ4VSWdXHYcvlDVEfIfulKfOgVZ
+         Zd2Ap4yVSGsNj7awPhIuKMAWDjy2J50OQ2rnoM2cuVRvDHf5YDuWGPG7Xb8xMMHoSYBP
+         WhpsAMMPtz6+guGcY57r2yOlxURGNViUAZQqiDfZ2aKHmgmI5kNiNqz9Ifqp8LbWfVva
+         meLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUw2K+brdlBFb6V0e4vDtsfu3TK6IJSjVUMu6Zh70a8V6AEW7deO52EIWRe6fBu9n1FqgDeiW0bGLx6QyRvCKNq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+Wt1vSr9SF2yFq7vk8V8laHBNljfB9jKwI2NtD6fwbS5nrE60
+	JpCfm6kui829A7/C/+wRjFSBmeXzjE8jZqpzU6SItJWl0JT2RKUl9/5QQmv6iIEMIKLVrkAHrKG
+	sVg==
+X-Gm-Gg: ASbGncu2886bNdCxigmz5HuT5JkPxmrIbST/eLqGe86oG7uKAl7EuVRvsvzLfOmVCj1
+	xHhistgDZ8pTjT2g382w7f7bERhjsPJ0o6MBImYiZ/sNsIS6cCpLB51qyH/g3KiJ92jIVZ8oCZp
+	tgLuh9DFeGOwoNWxH+oqSF0H6vf6ondhnmdtOgYxyq9sQWEzAa8Z/dNOhbVbnnWKh5cdsi/fl3K
+	Z1uLMneYiDhek/HZCkfiTxWLn/rccwLftccH70BT0Bs0M8Ar0s6jE3RvwZqLT7Ty29rk0Vj9W9X
+	7Vbz2MxPMwhglLRUTYBBIAnW
+X-Google-Smtp-Source: AGHT+IHgkMEqN/14nR/Ldc1tryW9vODY/EArdP6YimytlV83uX2pGcNBu9htcGVuSF9VZ8LqetK6Ug==
+X-Received: by 2002:a05:6512:2342:b0:540:353a:df90 with SMTP id 2adb3069b0e04-540916d73eemr5690424e87.43.1734457467748;
+        Tue, 17 Dec 2024 09:44:27 -0800 (PST)
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120ba9abdsm1220359e87.68.2024.12.17.09.44.25
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Dec 2024 09:44:25 -0800 (PST)
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-2ffd6b7d77aso67423761fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 09:44:25 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXynZ5x4uW5cBL6iaorqFf3iSsYan3QdwbV2t2R1B/tp1TpC6WHfJ4K1wil0ZmtcQlzI+HAWx8Jg+AUfKQe/FBo@lists.infradead.org
+X-Received: by 2002:a05:651c:2108:b0:302:3de5:b039 with SMTP id
+ 38308e7fff4ca-30254566a55mr66069711fa.8.1734457465327; Tue, 17 Dec 2024
+ 09:44:25 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241217-csi_dcmipp_mp25_enhancements-v1-5-2b432805d17d@foss.st.com>
-References: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
-In-Reply-To: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
-To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Hans Verkuil <hverkuil@xs4all.nl>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Alain Volmat <alain.volmat@foss.st.com>
-X-Mailer: b4 0.14.1
-X-Originating-IP: [10.252.23.235]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+References: <20241214005248.198803-1-dianders@chromium.org>
+ <20241213165201.v2.1.I2040fa004dafe196243f67ebcc647cbedbb516e6@changeid>
+ <CAODwPW_c+Ycu_zhiDOKN-fH2FEWf2pxr+FcugpqEjLX-nVjQrg@mail.gmail.com>
+ <CAD=FV=UHBA7zXZEw3K6TRpZEN-ApOkmymhRCOkz7h+yrAkR_Dw@mail.gmail.com> <CAODwPW8s4GhWGuZMUbWVNLYw_EVJe=EeMDacy1hxDLmnthwoFg@mail.gmail.com>
+In-Reply-To: <CAODwPW8s4GhWGuZMUbWVNLYw_EVJe=EeMDacy1hxDLmnthwoFg@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Tue, 17 Dec 2024 09:44:13 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=X61y+RmbWCiZut_HHVS4jPdv_ZB8F+_Hs0R-1aKHdK4w@mail.gmail.com>
+X-Gm-Features: AbW1kvbAgvCz7vA_yFdhIVykkakAa4L6Lz2IE9DR-f5ZjOd70MgEn8kxRtbYbd0
+Message-ID: <CAD=FV=X61y+RmbWCiZut_HHVS4jPdv_ZB8F+_Hs0R-1aKHdK4w@mail.gmail.com>
+Subject: Re: [PATCH v2 1/6] arm64: errata: Assume that unknown CPUs _are_
+ vulnerable to Spectre BHB
+To: Julius Werner <jwerner@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-arm-msm@vger.kernel.org, 
+	Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
+	Roxana Bradescu <roxabee@google.com>, Trilok Soni <quic_tsoni@quicinc.com>, 
+	bjorn.andersson@oss.qualcomm.com, stable@vger.kernel.org, 
+	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_094150_410817_DABE8A1F 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20241217_094430_787720_415C9003 
+X-CRM114-Status: GOOD (  52.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,75 +112,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Within stm32_csi_start, use ARRAY_SIZE loop in order to search
-for the right setting.
-Avoid useless init of lanes_ie / lanes_en.
+Hi,
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- drivers/media/platform/st/stm32/stm32-csi.c | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+On Tue, Dec 17, 2024 at 5:25=E2=80=AFAM Julius Werner <jwerner@chromium.org=
+> wrote:
+>
+> > > - Refactor max_bhb_k in spectre_bhb_loop_affected() to be a global
+> > > instead, which starts out as zero, is updated by
+> > > spectre_bhb_loop_affected(), and is directly read by
+> > > spectre_bhb_patch_loop_iter() (could probably remove the `scope`
+> > > argument from spectre_bhb_loop_affected() then).
+> >
+> > Refactoring "max_bhb_k" would be a general cleanup and not related to
+> > anything else here, right?
+> >
+> > ...but the function is_spectre_bhb_affected() is called from
+> > "cpu_errata.c" and has a scope. Can we guarantee that it's always
+> > "SCOPE_LOCAL_CPU"? I tried reading through the code and it's
+> > _probably_ SCOPE_LOCAL_CPU most of the time, but it doesn't seem worth
+> > it to add an assumption here for a small cleanup.
+> >
+> > I'm not going to do this, though I will move "max_bhb_k" to be a
+> > global for the suggestion below.
+>
+> If you make max_bhb_k a global, then whether you change all
+> `spectre_bhb_loop_affected(SCOPE_SYSTEM)` calls to read the global
+> directly or whether you keep it such that
+> `spectre_bhb_loop_affected()` simply returns that global for
+> SCOPE_SYSTEM makes no difference. I just think reading the global
+> directly would look a bit cleaner. Calling a function that's called
+> "...affected()" when you're really just trying to find out the K-value
+> feels a bit odd.
+>
+> For is_spectre_bhb_affected(), I was assuming the change below where
+> you combine all the `return true` paths, so the scope question
+> wouldn't matter there.
 
-diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
-index 89fcd7d07904..3654f9895dbc 100644
---- a/drivers/media/platform/st/stm32/stm32-csi.c
-+++ b/drivers/media/platform/st/stm32/stm32-csi.c
-@@ -325,7 +325,6 @@ static const struct stm32_csi_mbps_phy_reg snps_stm32mp25[] = {
- 	{ .mbps = 2400, .hsfreqrange = 0x47,	.osc_freq_target = 442 },
- 	{ .mbps = 2450, .hsfreqrange = 0x48,	.osc_freq_target = 451 },
- 	{ .mbps = 2500, .hsfreqrange = 0x49,	.osc_freq_target = 460 },
--	{ /* sentinel */ }
- };
- 
- static const struct v4l2_mbus_framefmt fmt_default = {
-@@ -444,13 +443,13 @@ static void stm32_csi_phy_reg_write(struct stm32_csi_dev *csidev,
- static int stm32_csi_start(struct stm32_csi_dev *csidev,
- 			   struct v4l2_subdev_state *state)
- {
--	const struct stm32_csi_mbps_phy_reg *phy_regs;
-+	const struct stm32_csi_mbps_phy_reg *phy_regs = NULL;
- 	struct v4l2_mbus_framefmt *sink_fmt;
- 	const struct stm32_csi_fmts *fmt;
- 	unsigned long phy_clk_frate;
-+	u32 lanes_ie, lanes_en;
- 	unsigned int mbps;
--	u32 lanes_ie = 0;
--	u32 lanes_en = 0;
-+	unsigned int i;
- 	s64 link_freq;
- 	int ret;
- 	u32 ccfr;
-@@ -474,11 +473,14 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
- 	mbps = div_s64(link_freq, 500000);
- 	dev_dbg(csidev->dev, "Computed Mbps: %u\n", mbps);
- 
--	for (phy_regs = snps_stm32mp25; phy_regs->mbps != 0; phy_regs++)
--		if (phy_regs->mbps >= mbps)
-+	for (i = 0; i < ARRAY_SIZE(snps_stm32mp25); i++) {
-+		if (snps_stm32mp25[i].mbps >= mbps) {
-+			phy_regs = &snps_stm32mp25[i];
- 			break;
-+		}
-+	}
- 
--	if (!phy_regs->mbps) {
-+	if (!phy_regs) {
- 		dev_err(csidev->dev, "Unsupported PHY speed (%u Mbps)", mbps);
- 		return -ERANGE;
- 	}
-@@ -488,8 +490,8 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
- 		phy_regs->osc_freq_target);
- 
- 	/* Prepare lanes related configuration bits */
--	lanes_ie |= STM32_CSI_SR1_DL0_ERRORS;
--	lanes_en |= STM32_CSI_PCR_DL0EN;
-+	lanes_ie = STM32_CSI_SR1_DL0_ERRORS;
-+	lanes_en = STM32_CSI_PCR_DL0EN;
- 	if (csidev->num_lanes == 2) {
- 		lanes_ie |= STM32_CSI_SR1_DL1_ERRORS;
- 		lanes_en |= STM32_CSI_PCR_DL1EN;
+Ah, right. OK.
 
--- 
-2.34.1
 
+> > > - Change the `return false` into `return true` at the end of
+> > > is_spectre_bhb_affected (in fact, you can probably take out some of
+> > > the other calls that result in returning true as well then)
+> >
+> > I'm not sure you can take out the other calls. Specifically, both
+> > spectre_bhb_loop_affected() and is_spectre_bhb_fw_affected() _need_ to
+> > be called for each CPU so that they update static globals, right?
+> > Maybe we could get rid of the call to supports_clearbhb(), but that
+> > _would_ change things in ways that are not obvious. Specifically I
+> > could believe that someone could have backported "clear BHB" to their
+> > core but their core is otherwise listed as "loop affected". That would
+> > affect "max_bhb_k". Maybe (?) it doesn't matter in this case, but I'd
+> > rather not mess with it unless someone really wants me to and is sure
+> > it's safe.
+>
+> Yes, but spectre_bhb_enable_mitigation() already calls all those
+> functions on its own again anyway, so I'm pretty sure the "must be
+> called once for each CPU" part of spectre_bhb_loop_affected() is
+> covered by that. (Besides, it would be really awful if they had made a
+> function whose name starts with is_... have critical side-effects that
+> break things when it doesn't get called.)
+
+The existing predicates already do change globals before my patch and
+changing that is outside of the scope of what I'm willing to entertain
+with my patchset
+
+Given that I'm not going to change the way the existing predicates
+work, if I move the "fallback" setting `max_bhb_k` to 32 to
+spectre_bhb_enable_mitigation() then when we set `max_bhb_k` becomes
+inconsistent between recognized and unrecognized CPUs. One gets set in
+the predicate and one doesn't. Even if it works, this inconsistency
+feels like bad design to me. Also, setting `max_bhb_k` to the max at
+the end of is_spectre_bhb_affected() would perhaps _help_ someone
+realize that the predicate has side effects because they'd see it in
+the function itself and not have to dig down.
+
+I would also say that having `max_bhb_k` get set in an inconsistent
+place opens us up for bugs in the future. Even if it works today, I
+imagine someone could change things in the future such that
+spectre_bhb_enable_mitigation() reads `max_bhb_k` and essentially
+caches it (maybe it constructs an instruction based on it). If that
+happened things could be subtly broken for the "unrecognized CPU" case
+because the first CPU would "cache" the value without it having been
+called on all CPUs.
+
+In case you can't tell, I'm still not convinced and will plan to keep
+setting `max_bhb_k =3D 32` in is_spectre_bhb_affected().
+
+
+> > > - In spectre_bhb_enable_mitigations(), at the end of the long if-else
+> > > chain, put a last else block that prints your WARN_ONCE(), sets the
+> > > max_bhb_k global to 32, and then does the same stuff that the `if
+> > > (spectre_bhb_loop_affected())` block would have installed (maybe
+> > > factoring that out into a helper function called from both cases).
+> >
+> > ...or just reorder it so that the spectre_bhb_loop_affected() code is
+> > last and it can be the "else". Then I can WARN_ONCE() if
+> > spectre_bhb_loop_affected(). ...or I could just do the WARN_ONCE()
+> > when I get to the end of is_spectre_bhb_affected() and set "max_bhb_k"
+> > to 32 there. I'd actually rather do that so that "max_bhb_k" is
+> > consistently set after is_spectre_bhb_affected() is called on all
+> > cores regardless of whether or not some cores are unknown.
+>
+> Yeah, you can reorder the loops too. I don't feel like moving this
+> into is_spectre_bhb_affected() would be a good idea. Functions with a
+> predicate name like that really shouldn't have such side effects.
+> Besides, I think is_spectre_bhb_affected() is probably called more
+> often per CPU, both once from spectre_bhb_enable_mitigation() and by
+> whatever calls the `matches` pointer in the cpu_errata struct.
+> spectre_bhb_enable_mitigation() seems to be the function that's called
+> once for each CPU on boot to install the correct mitigation, so that
+> feels like the best spot to put the fallback logic to me.
+
+As per above, while I agree that having predicate functions w/ side
+effects is not ideal, that predates my patch series and I'd rather
+things work consistently.
+
+-Doug
 
