@@ -4,75 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FAFE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C773E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u+CROXNMQB4zsFWzTxbDDJajvghMgBuYZmlPGZXhJXg=; b=DO3OiV4K6e+B+5KtRhZCEFkPrT
-	KMN+T0b79wedg5S8/44z+mM8ZcH00vdlTxPo6RsPb49bSzZ9PMHEcQDjdKOYxEYi/YIYXRM/wWoIZ
-	IrfI6zYQaDlvdOOL3NyOSm7AMqtNBJPRNX2Tz9VkHbfXl2xAfTBaal9YU83t/r7G2vMObPUytrzPg
-	Ady2GZER9Y4rrOGry6iTCUTyVK61bNDFf+xykt9gMwH8lBF/uOSBTpv7WSHYaWKTbHZGYo2WCEX3G
-	cgRKlpSLxopVxHYt2GdZ4u7dntVFeyNyj8kJB2wIcyVuM4Gyz++cFrbTcxGo53HtTGZLuhLKJikBt
-	5ZPXqnaw==;
+	bh=gk4RcM9aoEcltTSIN+UAXyLDoftjcHRAxwNl+W6CGjA=; b=CXrid4DLVIEqiGEyyV8t6IKIBX
+	0CuEuXoe2saIRXzOvmMJCjwBWnsToZ8g39qTRgdlRn89298rWG4Tu/tgF0vpk1lQamUhjreEQwt0F
+	XWtwL3bQQqYdxiyf2qW0AWXdMOfCL4xwF5n3Xm5IUl1DHJj8ODclqDXgBTpzhk9mCXWIvg6MzXgmP
+	wSf7q8iimbfXvwAhAaq8jCJYqw/zcJWRi8ljGyp20QznpljsNDsyXszQqpx8reKfHPKYQgWoMmB8l
+	K3sYV6mYEpLxDcnWKs3QyDefediXMWNqEzQaPARzixxvk9ez7jjnx2HZawSiQPVDXuZwTMF1aLTVh
+	kMKKvXpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSLk-0000000CcxJ-1eoL;
-	Tue, 17 Dec 2024 07:50:36 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1tNSMo-0000000Cd97-2Oud;
+	Tue, 17 Dec 2024 07:51:42 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSJG-0000000CcaT-2Zue;
-	Tue, 17 Dec 2024 07:48:04 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4YC86z6Lcmz9sPd;
-	Tue, 17 Dec 2024 08:47:55 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id fC7tw8E5ccA2; Tue, 17 Dec 2024 08:47:55 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4YC86z5K7qz9rvV;
-	Tue, 17 Dec 2024 08:47:55 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id A3F418B768;
-	Tue, 17 Dec 2024 08:47:55 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id iR2VLUnfgYsc; Tue, 17 Dec 2024 08:47:55 +0100 (CET)
-Received: from [192.168.232.97] (unknown [192.168.232.97])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 73D238B763;
-	Tue, 17 Dec 2024 08:47:54 +0100 (CET)
-Message-ID: <ddd4439e-6f6f-4513-a7dc-b7f01bec03dc@csgroup.eu>
-Date: Tue, 17 Dec 2024 08:47:54 +0100
+	id 1tNSLD-0000000Ccu7-2q8n;
+	Tue, 17 Dec 2024 07:50:04 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa6c0d1833eso877510366b.1;
+        Mon, 16 Dec 2024 23:50:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734421802; x=1735026602; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gk4RcM9aoEcltTSIN+UAXyLDoftjcHRAxwNl+W6CGjA=;
+        b=hq7mVEuq1MDzPHPZQYPlAApvfvEjFVoL9jyWjhQMutXeH+K6m2hMtOyMaL37Y/nbDP
+         Fr47xmsaPuBRSNwdWf6YqJ/eGT2jDK9P673ssVNJeIBsCl//UGQIuvoi8VrYs/iJVRu2
+         E25vPFORSKD2ZJfKWaAtNz8iixoVDx6yz0ztOErr1edxBCm0vAXmzSDoSOIWEeeJGWz0
+         /1bqW5n47KeIp1LylLWLp0IjWW3ixthjAf+KmYEqcetP/RbkEYtJH9Funp4E4TQyoPAb
+         W5vmdiWX9P8uTf867EGbYgpPJx6/hfbIIfftLAfsBFtcQTB4e6fDCIxqIgXdQD/w5O6I
+         5K5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734421802; x=1735026602;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gk4RcM9aoEcltTSIN+UAXyLDoftjcHRAxwNl+W6CGjA=;
+        b=oUqG/wyr9QDhcZCrCxoDgaT8E7+uUe+Zb3+OvYe+fHcZi9jyb8W1pM0eX6O0/Yt0ve
+         +rEXm8ff2w3m6yaEtP16ilt6JKozxTotmAWIhArRZO/0sUIrgOP1p+dxLmeHLuV1bott
+         h8aQLxTqLN1pXCk/TKlYrwDwSwegca6lOhzshAiPjAy3G9uDu/vWersLelwclvPVPVvs
+         Z8ktK3jB+ANyVBZQHWI/VwFTqrhtRJuhTvYov0VfzRAah3eGLBXQs/bCuNmkyEmjiwVL
+         EcZBC8Ryq3Bb63Ph+vWiKdRXNB1eTSv1ePQFQmffx5EG2OeZA+sSyEtw47jdsyUV+KCM
+         UkCA==
+X-Forwarded-Encrypted: i=1; AJvYcCURutz6osOq2spuJ5zoNIy8BIJ7teMg+i1nliIyQoK9plbzolS69KTUo1M0pKvp16qwhQQ136VLohly5UFjI2VX@lists.infradead.org, AJvYcCXFoA5H2OLJhL4b929ghu3xk1EAgpRhWfGZ4Cf5CS4KbhbgmRCUxKyRjsLnfKDfiHuVt1Ma10q9gafnOnIQuHo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwddKpsAIOO+5+8OgKqg3tq08zhk/LAmGH3l+F3y1JZTSs0rMoT
+	qbvCLbAEeqpZa+NbH+IJ9UBltdmg6uM6t2H9TD+8uKryBTFOypOr
+X-Gm-Gg: ASbGncvwRLuXKUxd8hzXL7Krv+uQ02bacPNq3cWmUalJ7MWxBntNKsrI47iVi3yDerF
+	GVfDnWD0Bor3PZn5K33825olh/aPKE2OzbjpAqUaE3SYYFiJiyXijAlNB3SnNl3Em6izpUuPuKq
+	pyRVrZ/xkjFACw1OA2qbmgY+UNBUgeqIF+snaxv4fmCrZgQLMUeTmGc63axicLroRLPQn9xNh+o
+	QodXDkxGin8qK8C+HjuGIJAHAfNXFCWYx6UxXONsqTo05yWxY4qI4e7u0B30djs/K886+Uo2KlP
+	Wj2ZfHNQnWrvNoYLxNH3x8A+59TlCcW1qtVXXwmn3KrcDS+7C7W2Mohe1rG5jbgb0fSKOwe4RnI
+	Dh3PRKsB78VmqNn5rb2G7iOsk9ZJMxnY=
+X-Google-Smtp-Source: AGHT+IHbCRByMXBtQymiivOVjXWEpEJtUdTZwAxA7kak7fLa7ofz1GdLtTXeNFcTkveghwVJFd7PcQ==
+X-Received: by 2002:a17:906:7da:b0:aab:de31:52d0 with SMTP id a640c23a62f3a-aabde315b3dmr177449966b.18.1734421801590;
+        Mon, 16 Dec 2024 23:50:01 -0800 (PST)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aab963b33b0sm416941066b.184.2024.12.16.23.50.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Dec 2024 23:50:01 -0800 (PST)
+Message-ID: <e1e271e3-b684-46d2-879d-e3481d25a712@gmail.com>
+Date: Tue, 17 Dec 2024 08:49:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/ptdump: Drop GENERIC_PTDUMP
-To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
-Cc: steven.price@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org
-References: <20241217034807.2541349-1-anshuman.khandual@arm.com>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <20241217034807.2541349-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 2/3] net: pcs: pcs-mtk-lynxi: implement
+ pcs_inband_caps() method
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Daniel Golle <daniel@makrotopia.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexander Couzens <lynxis@fe80.eu>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <Z1F1b8eh8s8T627j@shell.armlinux.org.uk>
+ <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
+From: Eric Woudstra <ericwouds@gmail.com>
+Content-Language: en-US
+In-Reply-To: <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_234802_816221_B90B3F39 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20241216_235003_727504_354A6B45 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,111 +108,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-Le 17/12/2024 à 04:48, Anshuman Khandual a écrit :
-> GENERIC_PTDUMP does not guard any code but instead just used for platform's
-> subscription into core ptdump defined under PTDUMP_CORE, which is selected.
-> Instead use PTDUMP_CORE for platform subscription and drop GENERIC_PTDUMP.
+On 12/5/24 10:42 AM, Russell King (Oracle) wrote:
+> Report the PCS in-band capabilities to phylink for the LynxI PCS.
 > 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Vasily Gorbik <gor@linux.ibm.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: kvmarm@lists.linux.dev
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Reviewed-by: Daniel Golle <daniel@makrotopia.org>
 > ---
-> This patch applies on v6.13-rc3 and has been tested on arm64, although it
-> also clears build tests on impacted platforms.
+>  drivers/net/pcs/pcs-mtk-lynxi.c | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
 > 
->   Documentation/arch/arm64/ptdump.rst       | 1 -
->   arch/arm64/Kconfig                        | 2 +-
->   arch/arm64/kvm/Kconfig                    | 3 +--
->   arch/powerpc/Kconfig                      | 2 +-
->   arch/powerpc/configs/mpc885_ads_defconfig | 1 -
->   arch/riscv/Kconfig                        | 2 +-
->   arch/s390/Kconfig                         | 2 +-
->   arch/x86/Kconfig                          | 2 +-
->   arch/x86/Kconfig.debug                    | 2 +-
->   kernel/configs/debug.config               | 1 -
->   mm/Kconfig.debug                          | 8 ++------
->   11 files changed, 9 insertions(+), 17 deletions(-)
-> 
+> diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
+> index 4f63abe638c4..7de804535229 100644
+> --- a/drivers/net/pcs/pcs-mtk-lynxi.c
+> +++ b/drivers/net/pcs/pcs-mtk-lynxi.c
+> @@ -88,6 +88,21 @@ static struct mtk_pcs_lynxi *pcs_to_mtk_pcs_lynxi(struct phylink_pcs *pcs)
+>  	return container_of(pcs, struct mtk_pcs_lynxi, pcs);
+>  }
+>  
+> +static unsigned int mtk_pcs_lynxi_inband_caps(struct phylink_pcs *pcs,
+> +					      phy_interface_t interface)
+> +{
+> +	switch (interface) {
+> +	case PHY_INTERFACE_MODE_1000BASEX:
+> +	case PHY_INTERFACE_MODE_2500BASEX:
 
-> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-> index a0ce777f9706..c716f8df10de 100644
-> --- a/arch/powerpc/Kconfig
-> +++ b/arch/powerpc/Kconfig
-> @@ -203,7 +203,7 @@ config PPC
->   	select GENERIC_IRQ_SHOW
->   	select GENERIC_IRQ_SHOW_LEVEL
->   	select GENERIC_PCI_IOMAP		if PCI
-> -	select GENERIC_PTDUMP
-> +	select PTDUMP_CORE
+Isn't this the place now where to report to phylink, that this PCS does
+not support in-band at 2500base-x?
 
-Please keep alphabetical order.
+Best regards,
 
->   	select GENERIC_SMP_IDLE_THREAD
->   	select GENERIC_TIME_VSYSCALL
->   	select GENERIC_VDSO_TIME_NS
+Eric
 
-> diff --git a/mm/Kconfig.debug b/mm/Kconfig.debug
-> index 41a58536531d..b206e5a11f96 100644
-> --- a/mm/Kconfig.debug
-> +++ b/mm/Kconfig.debug
-> @@ -187,7 +187,7 @@ config DEBUG_WX
->   	bool "Warn on W+X mappings at boot"
->   	depends on ARCH_HAS_DEBUG_WX
->   	depends on MMU
-> -	select PTDUMP_CORE
-> +	depends on PTDUMP_CORE
-
-This change is unclear to me. It works because all arch selecting 
-ARCH_HAS_DEBUG_WX also select GENERIC_PTDUMP. For riscv it's even more 
-tricking, Riscv only selects GENERIC_PTDUMP when MMU is set, so it works 
-because here it also depends on MMU.
-
-But what happens if in the future an architecture selects 
-ARCH_HAS_DEBUG_WX without selecting PTDUMP_CORE ?
-
-
->   	help
->   	  Generate a warning if any W+X mappings are found at boot.
->   
-> @@ -212,9 +212,6 @@ config DEBUG_WX
->   
->   	  If in doubt, say "Y".
->   
-> -config GENERIC_PTDUMP
-> -	bool
-> -
->   config PTDUMP_CORE
->   	bool
->   
-> @@ -222,8 +219,7 @@ config PTDUMP_DEBUGFS
->   	bool "Export kernel pagetable layout to userspace via debugfs"
->   	depends on DEBUG_KERNEL
->   	depends on DEBUG_FS
-> -	depends on GENERIC_PTDUMP
-> -	select PTDUMP_CORE
-> +	depends on PTDUMP_CORE
->   	help
->   	  Say Y here if you want to show the kernel pagetable layout in a
->   	  debugfs file. This information is only useful for kernel developers
+> +	case PHY_INTERFACE_MODE_SGMII:
+> +	case PHY_INTERFACE_MODE_QSGMII:
+> +		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
+> +
+> +	default:
+> +		return 0;
+> +	}
+> +}
+> +
+>  static void mtk_pcs_lynxi_get_state(struct phylink_pcs *pcs,
+>  				    struct phylink_link_state *state)
+>  {
+> @@ -241,6 +256,7 @@ static void mtk_pcs_lynxi_disable(struct phylink_pcs *pcs)
+>  }
+>  
+>  static const struct phylink_pcs_ops mtk_pcs_lynxi_ops = {
+> +	.pcs_inband_caps = mtk_pcs_lynxi_inband_caps,
+>  	.pcs_get_state = mtk_pcs_lynxi_get_state,
+>  	.pcs_config = mtk_pcs_lynxi_config,
+>  	.pcs_an_restart = mtk_pcs_lynxi_restart_an,
 
 
