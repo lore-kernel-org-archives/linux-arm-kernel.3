@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07D7E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78916E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/D20bTymHHn1mnpHZj8wgSerQH7Hot7Hk9YwwO4W1k=; b=xVYy3zrEc6OC1E6QlRNUh1cpJd
-	irkel5o8GPPjwTp8qZJN5gERclpmeGBFhHsZ2GDff5lTK3EcmUVP+voVayO6iCsF2NYpMJZaw+Nil
-	SQKtLZ9aTRKdDlcK9yt8dlguiS4j93CRu4CWBe5XpZNFfUKvSmDmMutFIdGpYhpoEm31gYd8/7Jmp
-	jD7eoxu7j04II/X7YgmBKQ4WWvJ3xTCdXzDlT9rVgpVu5S7UZEuwTPBOl99CgfQ71pyEg+PuVY89H
-	8bagiEslCZ9wKOIoeGFfATbZpQFQ6jx2Z2WlTE75vdsbYoj+N+2ViuiWefxAMzufD+FYWP26aI++g
-	yRY+c++w==;
+	bh=dR5zR7nqfqQpHw9IRVQib2Z/UUi1+FSU0j+/LH4KgIg=; b=vKaIBxfJLpp0hebY8eKmCkIEW8
+	/GQOBn9Y38s7tsBX+h1Z+MG4G3DuS+X+hVmIhAGKsaTI2o61UfQvT+UdY+faFArkuRkInxmXXH/G6
+	fWzKRRguRlwrPjFEUFn4UV48qYJplZANfN/3PFwLB7my+ce3pFKx+9n3hruxOQR9ZYavoElE75PTk
+	UVRXnK09CMzfK7eg+/FkNFreOGR4zliNCAQ4psFDNwNlth5Iru1j8a1PsWwxox0JAhMEjl96hE4Xt
+	5wapkOTPOE5ilnlRArSxW4cSYHF+A0UDJrDcdUajEwVm58bMQQX5inlLR/ruHItA41ws9ebQUfzw8
+	5A07HvIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNU6Z-0000000CyAF-1hd5;
-	Tue, 17 Dec 2024 09:43:03 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1tNU7c-0000000CyNf-1Ezp;
+	Tue, 17 Dec 2024 09:44:08 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTda-0000000Cr8T-2srS;
-	Tue, 17 Dec 2024 09:13:07 +0000
+	id 1tNTdb-0000000Cr9M-42s4;
+	Tue, 17 Dec 2024 09:13:09 +0000
 Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout2.routing.net (Postfix) with ESMTP id 607356027E;
-	Tue, 17 Dec 2024 09:13:05 +0000 (UTC)
+	by mxout4.routing.net (Postfix) with ESMTP id 1ACDA100906;
+	Tue, 17 Dec 2024 09:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1734426785;
+	s=20200217; t=1734426786;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=D/D20bTymHHn1mnpHZj8wgSerQH7Hot7Hk9YwwO4W1k=;
-	b=o9R7OUFnndhDeZfElaT5RaoSYKfiNDP18JC4uqYuTnEzqkL7nnx04t/oCZskzO2rKPLee8
-	s9Xm2vRZyyWVZTgMj1uANurYsJBZEHS0VEacOm+T3gwkrhm3u//GeA5ImrWCMaY15Kicez
-	G819Q0Gp73ipiOdxdW/0pfEMKt9SFCs=
+	bh=dR5zR7nqfqQpHw9IRVQib2Z/UUi1+FSU0j+/LH4KgIg=;
+	b=lbP79iWhx3Ggsa3KjFye94VvB4kgIWgV1yEZ//GKHGzdip3uT7jlfX14XFamcKFRK7zpdL
+	fU/PKEs1SsXs6LKA7nQ6N1jPfyIHjSQmZren/nW6jA3ySgUjvZQBKIsz1zKFLZFBnmPMQS
+	l/fuIuL8NM1GldXAk0JTmtjihxE57mI=
 Received: from frank-u24.. (fttx-pool-217.61.150.187.bambit.de [217.61.150.187])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id B47641004DD;
-	Tue, 17 Dec 2024 09:13:04 +0000 (UTC)
+	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 6578810030F;
+	Tue, 17 Dec 2024 09:13:05 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 19/22] arm64: dts: mediatek: mt7988a-bpi-r4: Enable t-phy for ssusb1
-Date: Tue, 17 Dec 2024 10:12:33 +0100
-Message-ID: <20241217091238.16032-20-linux@fw-web.de>
+Subject: [PATCH v3 20/22] arm64: dts: mediatek: mt7988a-bpi-r4: Enable ssusb1 on bpi-r4
+Date: Tue, 17 Dec 2024 10:12:34 +0100
+Message-ID: <20241217091238.16032-21-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241217091238.16032-1-linux@fw-web.de>
 References: <20241217091238.16032-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Mail-ID: 3cf734aa-7404-4242-b717-0eb736b215c1
+X-Mail-ID: 165bfefd-7350-471d-9e9d-01df6696e7fe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_011306_886481_0BA325FD 
+X-CRM114-CacheID: sfid-20241217_011308_153344_1157B697 
 X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,42 +82,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Bananapi R4 uses t-phy for usb. Enable its node at board level.
+Enable usb on Bananapi R4 board.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+changes:
+v3:
+change commit title to have bpi-r4 prefix
 ---
  arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts | 4 ++++
  arch/arm64/boot/dts/mediatek/mt7988a.dtsi                | 2 +-
  2 files changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-index 0dc1fd9265c6..129031b0d784 100644
+index 129031b0d784..08d664d6449b 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
 @@ -306,6 +306,10 @@ &serial0 {
  	status = "okay";
  };
  
-+&tphy {
++&ssusb1 {
 +	status = "okay";
 +};
 +
- &watchdog {
+ &tphy {
  	status = "okay";
  };
 diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index c0a49f68834a..0766ca0dd3f6 100644
+index 0766ca0dd3f6..f3e942db0b99 100644
 --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
 +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -525,7 +525,7 @@ pcie_intc1: interrupt-controller {
- 			};
+@@ -337,7 +337,7 @@ usb@11190000 {
+ 			status = "disabled";
  		};
  
--		t-phy@11c50000 {
-+		tphy: t-phy@11c50000 {
- 			compatible = "mediatek,mt7986-tphy",
- 				     "mediatek,generic-tphy-v2";
- 			#address-cells = <2>;
+-		usb@11200000 {
++		ssusb1: usb@11200000 {
+ 			compatible = "mediatek,mt7988-xhci", "mediatek,mtk-xhci";
+ 			reg = <0 0x11200000 0 0x2e00>,
+ 			      <0 0x11203e00 0 0x0100>;
 -- 
 2.43.0
 
