@@ -4,179 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E77E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA6EE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0XDGucpZJw/XriDJle/NOV07+tucQOs/1sZhr0+XTk=; b=fhvVu06MRTikQmMklMBP6b6glT
-	yDAN9vr88Ukj2sWeSdZFZSr1txC/3aG2BJSbjrRc2EkHMII42B3bm2d5CFK70hvb6y93b12Ien1/O
-	NkDGlfbUq1sWySz004KkrY9QRYXtIPGGMGSEW5MvSXlrqXqsSd/NX3hiLDh4lImqMZYpzsRKIaF99
-	Vyzn3bHr3iQPTOjpSFiLxih/h6j8MYf5xiLGjlCXd0RBdtFXhKktx4HBe4M+nCoEle3bV2fQV14Oj
-	N1TlH3B1WXvMuNcMRUxpjHwP8O7eyeyya9yCgNgrTwg4/0xowY0VQPWaLvuxx4AXwk5AR8/9eRR2t
-	nuhk9v1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qLUB6MPewbyNQIpMjX0irXUit4lYkxxXdSgzqb+dSWE=; b=De/vJWVr02NYhwgdRSpoI2OfRG
+	RJD32uYxz5wp3NV/WlcNWeshxOFZ30wzRqhJH31snSs3Rp8azZhOI/nQ2y7Rlb7O0f38Z6WHe/Fax
+	JHjDJDLnhHgQMai6j1Vm028Hquyw5WGCLMNexJ/W9rq99IzB5G1YekjIeby8mYU3BaeuSn4D2S60+
+	YpRxQArxx+dgSqk5FE4Qz1hoCv+IAFD4RqycbWTS9cq4V+lFoGarqG0BPzUhkJ1u3vigckFJAbTVn
+	BM8JDEPMZuR+oibFvXZg+Pa4XFXuvfLBRR1oyxpxybpyhje8zfvR22Q7HzZaszlO36FuaTAkXBRhm
+	PSbbQ5sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNaMo-0000000EA0Y-3enk;
-	Tue, 17 Dec 2024 16:24:15 +0000
-Received: from mail-vi1eur03on20616.outbound.protection.outlook.com ([2a01:111:f403:260c::616] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1tNaNs-0000000EABm-2c9Z;
+	Tue, 17 Dec 2024 16:25:20 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZqI-0000000E1ki-1Vko
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 15:50:40 +0000
+	id 1tNZuw-0000000E2po-1Iwr;
+	Tue, 17 Dec 2024 15:55:27 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tpoE7Wee7v1XDARMQ6TbPKu6z8Sx3QyJgrPUSbQUkGaOKEtKvJwtr8dsb70XcgPtttEgMlzetK3y862AXlH3XBhDtJ7Tw5ehdRazRNR2miCFLcM7X3Ri3vQu4EDTYTUIpVgl9iFnWbJaTNToi7WV4Y0E78vTkioEfICVcq9Iy+fC2ZJB/3+2UOZsvFuQobFZDSAX2bk2SpC2zVwBTbe+G14oqDczqArYiI1Z5L8gG+EgIgWF0V9bYiZlO+cvtISvCSf/JV22bGZBNXkA3qao0kKFSpQVEHUj3qp6/RVV1pE2Q/9I3yKEhoMsOUECNSMmWslmLOUO2aglHxpt5Aew7Q==
+ b=lqvZIFR6M++5CyDhub1V16ihkXERokqfRApjqLgvsQxKVyijLZcIasZZXyWeItT0F2JAR4j+nXnuXsHXiOziSJUtedD7nFMhGq+HLwsQ4We1y+YJ4ss5ulXMHsfoLtMoE9RGT+pA9ER+Jady2FtL+bZiBAXA5FFu77EtKD1idCJU1MXbbw3swBKuPAWRlrql6XlCdEZvr92F32U8VYOzW8+vE+17SyIgx/9SysowoSMBfCnijzbfwf7p5XxgI3OF80nuZIayGdv6jGCtyEKy4RijQe6vnQcSXqxVQjOgFxtWxWarqFLLANPtWO+punce3pEN7OgHlYGggau7Q41KDQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u0XDGucpZJw/XriDJle/NOV07+tucQOs/1sZhr0+XTk=;
- b=f/Omj/Mfx2P8+fRa6971/N3jo3zqfTjhouxLlsO1kbGh2IeY9b1jJzYQvQmYA6M8zWgqwerpQHxEX0tj0X+PgZ/3V0TF3GGGx67cooazOkxfZJiEbCUMrGZFy6+nO4NBsasaVopvSX2gFt8s8XPFjcPKvp4EF45HMM0fcWV44FL2nkHdXlhoi6f8q6jwUyYCNk+9yWiv5UmI8TJ/+Uo2EwU1TR2J4XsU8FJsmWhAC9LvDmcql02Sii9t5UsdVmsmTmQKajW7kqTxRJLAJhMfj4VgguJrPm7wzXdZkMGuTHovh3085ewsTyGRkr4xic6Pmjpe7WmBXS8nbshtNEo67w==
+ bh=qLUB6MPewbyNQIpMjX0irXUit4lYkxxXdSgzqb+dSWE=;
+ b=CujlkRcCdte+rV4onyfXNg5FtcP3CP/DCnzTvMDpQKAu4UCPtlNHXa1achFfkfn1Scyk1hXInV8+zQHO2wbDU75x+Tf8ZxBIQtCnUn266gf99wBkjm5ySVcgxP6h5WUa1jXjsiv+T/quGraw+E94nwSg675a0lZbkW4ehgluFie9W2bQ8ckhKix37376XIJ6y5XsnDQXH3pinZ+lJMyy+NLGtvvG2eYsd8nK9ZOSfxFQBqazSN8Lwqc/SrDzWBsR5+ZvuGrBC8DvmSmYRbwQgOCpuWUI6mUqPHYgizAr4G/PPv1Kxxriv2TqeGpXc3V84981DkMDeZ2I10RXNDDWHQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=wolfvision.net; dmarc=pass action=none
+ header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u0XDGucpZJw/XriDJle/NOV07+tucQOs/1sZhr0+XTk=;
- b=I4y6GvnxcZh7MvsEpzPCDVep+Pq44LqYu4a9WkNW6R9bvlK+mqpWRdRmWJ3Rk1DNUpJ06ODQG9iVc/VeqhS/x0+C+Nh/9WG/oQQd2YUo9/oVHc13EGNJDOvqb1QkoliOS2DQLKL8r1+cwCK4qWFA5d1XfXNRXjaqE5eoiQAAnWzVJ4g6YXkOVIea7iQXaddXYQYQj4PEJRK7d7CvWrZDJu8h46ww+qBQDKDorQaOEv9nGEZH18yUAPUWfFv+EAvyV9XzE+FX5loQ6XJGWQqRAhNdqlYVRV0+ZDNnXFrPHCDg2VjvswnWgrovjEqxSF6UnoorkhR/KWlsAQIQ4ZnlyA==
+ bh=qLUB6MPewbyNQIpMjX0irXUit4lYkxxXdSgzqb+dSWE=;
+ b=nh5B+McfXeWnl8mqVT9jzwwb4l4/xyqoouuKPdkCLsQ8AQdu82OwIgsyqlzgK1XWu97wL1kGBugqsJRAYu6iOb843uMvgok/RoFmHP5h2KHEtwlgJKPtTKAsARU5aW/rU7LoMW3un1IggzQguZUTbSvE+y9pCcCDVT3al55Zjmo=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PAXPR04MB9123.eurprd04.prod.outlook.com (2603:10a6:102:22e::9) with
+ header.d=none;dmarc=none action=none header.from=wolfvision.net;
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
+ by AS8PR08MB10149.eurprd08.prod.outlook.com (2603:10a6:20b:63f::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.21; Tue, 17 Dec
- 2024 15:50:34 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8272.005; Tue, 17 Dec 2024
- 15:50:34 +0000
-Date: Tue, 17 Dec 2024 10:50:22 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org,
-	broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org,
-	lgirdwood@gmail.com, maz@kernel.org, p.zabel@pengutronix.de,
-	robin.murphy@arm.com, will@kernel.org
-Subject: Re: [PATCH v8 2/2] PCI: imx6: Add IOMMU and ITS MSI support for
- i.MX95
-Message-ID: <Z2GdvpzT6MOygG4W@lizhi-Precision-Tower-5810>
-References: <20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com>
- <20241210-imx95_lut-v8-2-2e730b2e5fde@nxp.com>
- <Z1sTUaoA5yk9RcIc@lpieralisi>
- <Z1sdbH7N1Ly9eXc0@lizhi-Precision-Tower-5810>
- <Z1v/LCHsGOgnasuf@lpieralisi>
- <Z1xs6GkcdTg2c73F@lizhi-Precision-Tower-5810>
- <Z2FDp1zQ7JzxQKJT@lpieralisi>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+ 2024 15:55:20 +0000
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d%5]) with mapi id 15.20.8251.015; Tue, 17 Dec 2024
+ 15:55:20 +0000
+From: Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v2 0/6] media: rockchip: add a driver for the rockchip
+ camera interface (cif)
+Date: Tue, 17 Dec 2024 16:55:12 +0100
+Message-Id: <20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z2FDp1zQ7JzxQKJT@lpieralisi>
-X-ClientProxiedBy: SJ2PR07CA0013.namprd07.prod.outlook.com
- (2603:10b6:a03:505::15) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+X-B4-Tracking: v=1; b=H4sIAOCeYWcC/4WPQQ7CIBREr2JY+w1QSlpX3sN0ARTkR4UGGtQ0v
+ bu0HsDlm8lkZhaSbUKbyfmwkGQLZoyhAj8eiPEq3CzgWJlwygXlnEKR0MEcJzSQ7k0rOyho1AS
+ 6143re946IUhNa5Ut6KSC8Vv+af2IUFizeVOyDt9763Wo7DHPMX32EYVt6v++woAClx1VzCkpq
+ L684sP9DpyCncmwrusXkBIp7N8AAAA=
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas@ndufresne.ca>, 
+ Sebastian Fricke <sebastian.fricke@collabora.com>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>, 
+ Mehdi Djait <mehdi.djait@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734450919; l=6549;
+ i=michael.riesch@wolfvision.net; s=20240405; h=from:subject:message-id;
+ bh=84dAzvqqi6ZbaS/ArkaMH7z+FZ528a0O4/ApO7qsY2M=;
+ b=c/3NKPXuFcBnl/xU/u+fcfJCPSRrWqkavGYpwxzwCO/wSFWeQv4xPnuSgfZcRDib7EE+TneqK
+ wkESEkTBcdSD3w2rWfexrbSghsH3yYNjqBm+XeAuy5EbOliFNTuHjnJ
+X-Developer-Key: i=michael.riesch@wolfvision.net; a=ed25519;
+ pk=cSJmgKSH3B6kdCIDCl+IYDW1Pw/Ybc6g9rmnUd/G7Ck=
+X-ClientProxiedBy: VI1PR08CA0244.eurprd08.prod.outlook.com
+ (2603:10a6:803:dc::17) To DU0PR08MB9155.eurprd08.prod.outlook.com
+ (2603:10a6:10:416::5)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAXPR04MB9123:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2bf170eb-0470-4b00-0048-08dd1eb28aa8
+X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|AS8PR08MB10149:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e3fc888-e4da-440e-90ee-08dd1eb335d3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Tmp3ZFZzUVVYRERUZ1V2Um0zSnhrbDFBR1o5ZDFlVjZ6VXBYUkpSZ2NyU1kx?=
- =?utf-8?B?WjNleFlGNHNRSUhzQlBqaWlINWNONElPMzM1cnZCQklwV2hqQXVNSTY2WTJz?=
- =?utf-8?B?aUYwVGVURFBxVlNEbFc3dTBRamJwNzQzMXd3a0RNSVhJZ0NaVnIvRmlJMGJN?=
- =?utf-8?B?WWpmRXFEdzRVRm92YVJRU0lRbEVPK0NPQ0dHajJQeTVSN1RLYlhId0NLVkpV?=
- =?utf-8?B?R0QyKzNoZnFJQ3hVUnpZUmdKbVlkSmZvelNDdGRjcmpWL1RDWlBUZlBUaDEy?=
- =?utf-8?B?QnV2d1dWQU0zNno1SVcyYU5MZ3praDVUOU5lUkNHRmp5bkt0MmVTekkwQ2tu?=
- =?utf-8?B?RVdRR1Y2bGQ1OGJudEhoWTJERFY2Q211NDFSTHNaak1UTDc3SWFGTlBQWEN0?=
- =?utf-8?B?VVNKNlFMdDhmUUE2ZHErMmVyRFpSd2pscFoxQ290Um9kNmxFMnpXc0JyN2lG?=
- =?utf-8?B?VmpwRmZmRVdndXFxYWV2MDhSVkFZaXRYR2pUcFViYVZCOUlmQktkZDh6ODRB?=
- =?utf-8?B?QUVBcXZwOU1weFVqREF1SjFWbVY2aVo1bXhBYXJVL2d5elV1RkNvUEZjQndj?=
- =?utf-8?B?dXB5V05menROb0w2bEJqaWxQSDIrUkdZMW9HQWF6cTFiaW81dWUrWTBOUlpD?=
- =?utf-8?B?RDNvZ3JRT2FsbUtqN25FWFRtL0c5OThHZzVmWExZS2JiWXhHYUpZV2ZTcHpm?=
- =?utf-8?B?djZOclc1d1VjVk9ObXUzM1lNUzVkYkEzNllxdXF6bkFvN0lzQTR2UU9renpG?=
- =?utf-8?B?enpkc3RuR25VM3RMSTNtTVUwRlhHM0pBc2sxM2ZBb0JJekplUXJtOTlocitT?=
- =?utf-8?B?R0FLN01PY3BPYWQ0MzBYMmcrVUEvWC9xUmVPUFZ5eE1Fa0lSK0RSbEVGemRF?=
- =?utf-8?B?d1VVTXNocW9jazd2c0tOR0VKUzhVTFVlMTJxNEFZTG1SUDZrd2lJMVdZNnRr?=
- =?utf-8?B?NHZJbjRNZ1NVNWVlYXJYRkhQQVg0VjVhNUFkaWM4ZWJDclhkYml1TXc1TVhq?=
- =?utf-8?B?RVIrdVp2R0Rqb21xbE1wMTlRUko3TEE4cEJMUWpyWW9JU2UzZUlmUXBwR2U1?=
- =?utf-8?B?Y1RLOGM1V2MxVzVqVFNTUjVwamd3ZmFEVjB5VDFqNnlOVlQ5b3dyTlpwaEsr?=
- =?utf-8?B?SWFqblJVaURBbU10OFI2aDQ1MU9IeGNLS3NObDBHRkxDcHdCVktDODhhYkdz?=
- =?utf-8?B?RGpZbkVNUGxIbGFGaVBNbkhsdjYvM0tQWklLc2Y5aEorZ3dUKzBNclNqM2lE?=
- =?utf-8?B?MVVrWmFrd0FQUktrR01KMi9hcGxwUHBqMkk1cDk2R25RM2hSS1IyeXlERlh0?=
- =?utf-8?B?MzZpaEtHQ0ZaVy9JWldoQW5GdzFaUWZwakhXeStpT1JoendvOC9OT3hrRFJl?=
- =?utf-8?B?RDRLQzJ5cXNuYzdFU09jbWdOdEgxS2lrYTV2Qk1KVDg4Q21nay9HQ0ZSa0ZQ?=
- =?utf-8?B?c1hJVjZSNUdsdlFSSGRxWDU2VVdFZzZ4K1FtYlhaR3ZYNDVUTmlyRmxaaCtN?=
- =?utf-8?B?S0FyYTc0bVBXVHNqdnpNMkR3VUkrVjlvK0lmYjVwQ1BqcS9iNitmTWVaMmVS?=
- =?utf-8?B?eXBPWEVTQ0tVb28ydGJRTm9BZmhhcjArbmlwMWRybXJWaDBaSDR0aUxDZENy?=
- =?utf-8?B?YWIrL1BIZkFtYk1IdmZ1bkFEZzlUN0VtQVNHZWtEYm53QjRNMTFHVDVZUWpI?=
- =?utf-8?B?NVhyVSszaDJxckJZOWM4U3orSmlGUVZvdXp4WXI0VFNhYk41cUppSFVUN1Vx?=
- =?utf-8?B?a2lFRjIxTVJXWVJxSkNHWSswWDhxcjJtQkpEVkhXQlBRdFkyL1Z2UTZuMi9H?=
- =?utf-8?B?WjdVaGJ5c0NlRGZNZ1c3Nm1hR084MUZscXdCT3QwMlZSZVBNV2FqNUZRTk1X?=
- =?utf-8?B?Tzk2dHJhaG5iRnJ4QjUvQzlCazAyY1VzdlErS3RaN2w5SmtWbDh6c1MzUXRa?=
- =?utf-8?Q?OFLjvuyvGIFcW3FdaF+ABhuM/jUU/X/9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UldjWVRuT25lUEszR2RMcUYwUzNOandodjdNYmpvV3JLc2t6em80SWFBQ29l?=
+ =?utf-8?B?dDV6Y2V2b2gyTGoyTUsxblljcDFaMVBJL2RnbGZHREQyTlJJR0Z2MGd4eHZO?=
+ =?utf-8?B?RU0xNlhVQXdQdnczcE1ER3htRU5IWDZ6VzQvdGpNUHRIaVJzengwVzZuRFVP?=
+ =?utf-8?B?ekd4V1JvQWZtb1lGNGNSbE1HcUNHSWhvejFQK3VCZFIrRHB2cVJWU2hYc1do?=
+ =?utf-8?B?dWhWcUtOMWRSL3Z3Z1dCUm1sbFp2dExIUFBvc1lrYVM0WjFJVGZudllmMnRC?=
+ =?utf-8?B?bFVFNmNUZTZieXdTRUZnZjVqSGZ6RmMxdC9BZmhqUTAyRFp4SXUzUXAyTy9W?=
+ =?utf-8?B?cFRvdFVhNC9yVk4wV0xhS01tMXJFdVBNOWYyUkVabmlaSnJSMzhCL0RZWVBC?=
+ =?utf-8?B?NzY0VytDc0o1emwrUng3NmdvRkR5Vkp4QmlHcndKREthbk9BQ2ZmTXVvdlEv?=
+ =?utf-8?B?UGpNYjNYR05JV29IWHkyY1czcWk1WXhyNjRaZHpIbXYrMy9BTE8yQnBHcmxQ?=
+ =?utf-8?B?M0pNNDZqV0VtSU9RN0huSUZmNC96Q2ZaUHpWOEZiZ2h0UEFHNEw0cmsyeHA2?=
+ =?utf-8?B?eDl1clVIaWZxQjlIVjJyYjJYQVpQVys3dkl1NkxrcUJIZjlqNHdjNDZCcXEw?=
+ =?utf-8?B?aWtFY29IOERrUndrU1R2THdBSlBlWlROclQxVTRGOWRVUnhwOFBydTJsWitp?=
+ =?utf-8?B?QWNRUkdJWTRvYXh6U1h0Qmo1VVd0Y0pURkxLUUlJWUh4TDNkRmFPay9aaGhm?=
+ =?utf-8?B?c0Z1UElxZXVoblJYakN5blZmQ1FpdXU0eUMvVnJWa2taRzRkdE9GRXBPaFBD?=
+ =?utf-8?B?a2ZSTEpGYVhwWE9abkZWOE4wT2RXVE4zNUY5N3k1K3pHQldObmxGMDNFVzNF?=
+ =?utf-8?B?aTV4VnJMWlBnT3o5RlZSZzFKZEVrSlpIVWl6TTlkMWNJa3lJdHBtOVcxWE1k?=
+ =?utf-8?B?a25hYS9kb0szQzZQRzZodkpXbU8yZVdWWXpmby9MeHB5R3ZhTTdKU1drQ1hN?=
+ =?utf-8?B?ZldFU1JGSi9lakdEOGo1TW1IVCtnOXlvV2pRb3hHQWc4NEQyOGU1MzZYVDRL?=
+ =?utf-8?B?RjE3eG1NeWtOWEV5NkdPemhkVTZqd2VSMkNiYUpWb2pYZmNlbzAwcHVhN1k4?=
+ =?utf-8?B?bjdzTTBsWFdHUTgwTzJsQ3hwUnhCVEo4TzlrKzRRcEwvV2JTTFYzbHI4VWJE?=
+ =?utf-8?B?QXdQNVVVamcvRnZRNEhKRi95MXpzTGkwTDdsUGdiMVRTclkxR1RTeDBJcnNN?=
+ =?utf-8?B?UG1tUzRwOCtQdTRyT3owcW5lcGhKOXkza3NOQVJxT0RWR3FHSjBvWHBocEJK?=
+ =?utf-8?B?M1B1YUJSQVFmZTRYNVNhcEtyOE1PZ0o3TjJ5VkZOeWZZSmUxTDRTNVVDL1FG?=
+ =?utf-8?B?UFR3cXBTOWtvcHhkZHdGUlVYOFYrbWFvN1VoeVRkZzQ2dElvWEszaVgzQi9Q?=
+ =?utf-8?B?UjVvZ1ZVam1QS0VuenBLRlgxMUdpRmZ3VnhyREp5VEh4TUQ0bjhrOFkxNXd6?=
+ =?utf-8?B?U1ROQVgxZXpURlpPc0hyeHJhaHE2cjNodG91NVJuV0oyZWZEa0Y5YWEvZjNp?=
+ =?utf-8?B?YlYyR2o4WjBtbzV6Y1JWS3BuaFJ1enp2c2l2YzRHbEQ1QmN6S1hXdE5PSjBG?=
+ =?utf-8?B?b1VBR1VpRTRHQ2s1enVZalMwTmRsMzZDcWM3by81RHlGMVJ5b0hiL1lZdlpO?=
+ =?utf-8?B?Q2xzb0dleUMxZWlub2d4TGtrendiSjM4MjYzZHpHNFZ5TnlhVHBFMjFmQTF2?=
+ =?utf-8?B?bE1IVVlzbTZ0Y0tpejhld2krdEgremZ4aUdFMjlOSnY2c0NSN21kOGRjd3JQ?=
+ =?utf-8?B?aWovMFl5SFRqZGJTdmw2STNwVmwvb0FIZWdQUVhLUm16L2F5MXUwMW93N0J5?=
+ =?utf-8?B?aWNnbGZCVXpEd2lad0RsMXgyUXNHQkZabUh3czZTcjBtMklVM3MrTjRncVJV?=
+ =?utf-8?B?WXVsZlhpN1VlNHlkNEQvN0hRdzI5dml5U21kZU11ZVU3YzNBeXc0Y1FLL2lU?=
+ =?utf-8?B?N3VvbDltMDB3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(52116014)(921020)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDJEdzd1VSs4MUE0WFNMYjZBb1ZmOHJsbk9HVEU3aVoxV09ma252V2R1U2JQ?=
- =?utf-8?B?U3NINllZNmw3OCtkaHh4Ky82NDl4SG9PZ1JhNXlGYVJkeW5QUmJ3R0hMRUlh?=
- =?utf-8?B?NUYyOGxLdWFSaU83WEtSL3Z6djEzSE5mVmlqZURaL25ubE9XTWEyUWJqL05u?=
- =?utf-8?B?WFFMc2pxeDBVVTVZdk9idTJQYWlrU0ZEWTZGNGdSVEs1bm5NenAzdFducHB1?=
- =?utf-8?B?M3RMaVBKY0ptSldORG5BRGhkcElhWWlzcUhPMUh6N2FaNFhBbWxLVEVndDV4?=
- =?utf-8?B?Q01RQnBLWjdvcHRXVjRtcVFhN3RPdXBhTzRkYmpVMXBNNzVCTVpsMkdRQmVs?=
- =?utf-8?B?TWFvSmI5ZDh2cEM1OGIyYnVRM2VqZTgzZzM2MG50Y01qaGRtM0VETUp0QWFK?=
- =?utf-8?B?RUF4Wjkyc1RQS0lQdm5GL0FZakcwU3p4YkZuSGp3TEhSNVFUb3lSWEdwUTBo?=
- =?utf-8?B?Q083Y1lLaVlkTTBYaG5NeEU5bW1RbGJNY2dtOCt4dlh0dmpUK0JiSTlFaEJL?=
- =?utf-8?B?NkJudmVFdHkvQzZZcDJkNmVOOTV0V2JkUlUvNnUzYndXcjROMzJBZ1BnUEJV?=
- =?utf-8?B?SHJ2RGdBeUhOWTk5WjBtMVJwNmw5WkhKYkZtM25XUllaZFB1aE1ZeFYrM2E0?=
- =?utf-8?B?dEt6QnJmbEJSZG5OdCtmM0lxa1B4TkY4VUJ1TDZudnRPN3FTZFArSjZoTmpG?=
- =?utf-8?B?eVpKWnNNak1MTmdmTWEyT0p1TzZIY1lEWGJ5TXJ5ejQzcXJYbzdoUThMZFhV?=
- =?utf-8?B?VUE5V1gxbTh5TE9RRTcrZHFyb3p1ZThOeWdwSzhtejJIMUozL1l0ejVyUjBT?=
- =?utf-8?B?S2gxcHRqcW5wZktFeVp0SGtESVlBcmt6ZUxFK2NRanV3clpZb0J6QisyeVB0?=
- =?utf-8?B?Y1Ewck1FY3Fkb0NJaStPcUlVRFlocyt2ZTJ0TXNzUy9oY2tQclgwL0RobTE0?=
- =?utf-8?B?U05PTVkwN29vYllUZUFhM01rYm5nL01ZNnJxRXdzakhIc2Q4cHhoUk4yWVBW?=
- =?utf-8?B?QzFJMnIvZE95ZXFOOXZESk5KdjR2RVd5cmVlZnJrL2Y1VnNVdE9YT3BYT3BG?=
- =?utf-8?B?OUd5bDROQTVVeW5qQWFMQlpGUXgzWDE5N1dteWQwRytyOFV3RDc0REtCU1dk?=
- =?utf-8?B?SXN1UHQ0TnVFS1JwNUk0UklvcDE3QTZQUER6ZXNKaURPNktCOHUzaU1sVG5k?=
- =?utf-8?B?MGw2YTQyUVZaTDVQUWRRRXB3ZUhadWxOSEJBSDkvQ3lyQjZ5MkxQTjAyVW9u?=
- =?utf-8?B?bHhHS3ZIa2w0WktSbDNlZVhVOTQ2NUNRcXJMS1ZLT3JlL1RxNExySXppMVNp?=
- =?utf-8?B?dTE0WVhGSnc0eVE2RnFIWDJuVnV3SEpWbHdTaTNlaGlqSmtZMnRoUW41eE1J?=
- =?utf-8?B?YzlLVzE1aThOeW9ZTWdaSk44T0s0RjNqYzNnTndsOGc3eDVLeWplT2FWVzlM?=
- =?utf-8?B?aXdrOExKcnhOWDdSL1RQeWM0QmRCWVM3U2p3Vm4yUFZWdkVRSVNxZ2VRbVAr?=
- =?utf-8?B?RVFaMjJCbDJnWlowTHJzU2dlclppQ0dNelZiSGRTMksra2k3ZCswZ3BmNW5v?=
- =?utf-8?B?bVpVcXZMVGkreTErY1JNdllvTEhlMW8xL29sZW9EbDN0cW1zSDBvamYvVjR4?=
- =?utf-8?B?RHJNeU1sUTNhRmlpTFBweU5pMVE2YTMzZUx2T2NhWU5WOVh5ckpKMXo0VFZk?=
- =?utf-8?B?L3BQMldYbndrQ0ZVNFJLbk9LTE4wS2lHdmtIZnlYemlOc0dwS3FRV1E3Q3pY?=
- =?utf-8?B?WDc0N1c0MDFoT3J0dnFSN0dEVWozbmlZd00wSWF2TlZ4ZUQ2NWxjVFQ5SlRL?=
- =?utf-8?B?dlF4bjlGS21qbUkxSmVGM0pzYjVJUzZGOENWUEk5V0FtVGVYNXh4RjZwS2o4?=
- =?utf-8?B?YmJuejhtTVc1R1VmcWpXNUVuVktTNnJ0Y0xWMW1rek5mRHFFM1JSaGczSGc3?=
- =?utf-8?B?K3JYYWZLWW9GeTh1VTZad2dYQ2NIMWN6UzZMZDJ3b2s1eHFzUktSeGx4NHFy?=
- =?utf-8?B?ZmdhTEFVSk0xQ29SMTZJNUVmR1pkb3I1cmJKRUJBWDlnc2tZSmxkN3c2UUJB?=
- =?utf-8?B?U2RCVW1ZUnJUa1ptbnQ3d1NydGxJV0RYQUorREJyQkJCK2Fta0gyWDI3Q3Zx?=
- =?utf-8?Q?jnt/giOVTx2aEYjZDZAViKv8j?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2bf170eb-0470-4b00-0048-08dd1eb28aa8
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OXRDazkxQ0FZRmRxQUhiTExuNVJpZjRYUkRyZ2YzQXNXditGTjhLQzRka2ht?=
+ =?utf-8?B?Y0JZMTNTbnBSWXgyOGFkVmVtbUR5Yys3R2prcXNJaDZUZFl5eWRBbTQ1M2Fo?=
+ =?utf-8?B?UXI3cDlUZ1JhQ2RIb0ZWeDFoZzZaUEtJczZnZUJhUk1QV0RqQmt4NXBnQ3h4?=
+ =?utf-8?B?M1gvaWhLdGdzZy9laHdhcGVsZkdueUlGSDZQRWtuL0Z4ZitZYW95V1NVZWd0?=
+ =?utf-8?B?cWhzdVNXS3V4TE5YaFc4UlNTcFQ1WHlJazh6bmZLNTQvRWxNMHhCK050T1JN?=
+ =?utf-8?B?NENKU0lrRTJJQm40ZDVsK20vSzlaOXlydm1XQ1d1Y1JBTnBHRVhacHM5b1d5?=
+ =?utf-8?B?NEZORmg4OWZUNlg3cjAzL254N1NON3FqWDJJYXBCQkF5VjRPbnNqMTBpRWhy?=
+ =?utf-8?B?TzY2ZXM3WS9WN2ZjUytndmJJY0YvNHdJQVlNVU5RN1B6T0ZVSFdNRHRndVZJ?=
+ =?utf-8?B?V0FMazA4anZXNkFwME0wYzBmNmVxN2xMMmhEZmhNS29yd3JNa0c0UCt1eCtJ?=
+ =?utf-8?B?YWZsV3BsaXRSenk4RXh0MFZHaTRTWjZRRWxGbVB1T05vOTU3QjlDNXVCbXRY?=
+ =?utf-8?B?bHVlZUVBcWxJRkVQZWdacGRBQWYyTmI0WjE4RlpUc1lTcUhacDZ4Z2tLclRu?=
+ =?utf-8?B?bXZWRnlJMVV6WXhXbHhraDY5dG1nbjZBTFhjVTVvclUvUnFtQUZNRHlBeGpT?=
+ =?utf-8?B?NzVrSWJ2MUljNkFlU3BBaE5XdEtlT0oydDJzVVZ0WlQ2ZE9WbXJycGRjcFo2?=
+ =?utf-8?B?ZmVHOGF0cmFINmJ4N0VDeVNFUHliTXR5a2M4Y1VwSVdnYXNyY2lycjNRUjEx?=
+ =?utf-8?B?NHA1Z25nN2o3eHMrbkFoSEFsWENDQUtqNW9nN2pXNEVLaDAyeFZuVzJCaDI4?=
+ =?utf-8?B?cXA2bjNUY3RnNERWZ3JZUnN1eER6eGpGbmJybUFpNkdFMVNxMDc0Y1dNTDhT?=
+ =?utf-8?B?TnRpSGJpNXJaQTVxUms0T1dTMHZSTFZMUFo2cFp1cURSWnN1YmxvMDJCa3Bq?=
+ =?utf-8?B?ZVRLNWFMcUtWZFpGL0hMeDFuT2FUSXNRZnFkRnRYY1hXZk1iMGIvdGlkaGdP?=
+ =?utf-8?B?QktnVjNyWFRKZWRJTEZjbzQ2eFpHSStycnIvTWNwbmJINkgvc2JpYUxrdnQv?=
+ =?utf-8?B?T3d0MFBQS0tieEdVd05ZRTNUU1N3d21HWWhpdWJoKzlkK1N1c2lhQzZ1bGN4?=
+ =?utf-8?B?WkUvelpubEpOV1FOcDZxZU9Jc1oveDdNTnA0dXN1UkN1aHduS1VtSDVGKzll?=
+ =?utf-8?B?QnFNeWFuQmtFaWVORzBqYnVWVE9ETExiSXgvY1huLzZJQVNwQWw1Ykp3UCtL?=
+ =?utf-8?B?QkpZelBPb2xhdUVCQVdjWDhWT1ptQm5NcXcyL2ZlZHUrMXMwOG4rV2hVdlc0?=
+ =?utf-8?B?Vnl4T1JXUStxTXhLVEhHNGRJbkJWWWlxTzBOWjl2UWQ2c0xwbmlLTldZdWRD?=
+ =?utf-8?B?NmJZcEZnZDhoYktOeDhaUGUvcFk5N2NZMjROUVBNTEJlNTQvWkF3MVg4QVhU?=
+ =?utf-8?B?Z2cxRHozQVFGWUFlY3JYUXVGMERlR09aeklJOS85NllpWXFuVS9JaHhnalhi?=
+ =?utf-8?B?bE91S1oveEdrQ2pMOGdpRjRIQ3NYcG9vcXBXSTA0MU02QTRNQjVDY2JhS01U?=
+ =?utf-8?B?MXlWeUtxRlp5eDROUUdLbTNlOE5aYTB4VzR5OTJWdDZ0Slh5NndLOW0zS2lH?=
+ =?utf-8?B?L2l2eHZpNENFS0MwZjJRQUN2U042aURXSTBLMml6ZU42ek9NbklmNVJMRUZG?=
+ =?utf-8?B?TTNTcGp2VXFHWEZCY3pxUG1mRzR4YjUyTjFNUmdmWlNWY0lvbTdVbUJNRy9n?=
+ =?utf-8?B?WkJJV3RSaXJ5MVpPd0hvc3pSZWs4Y1p4V0RxYk1xemlyV29TZFZhVVdvQXlk?=
+ =?utf-8?B?WC9HK1JVcnVEdTZYU1hSUVZXRUgrK3piM0lIZ3JUQXA1azlIR2h1dXV0OUxU?=
+ =?utf-8?B?Sk56TkkzeHg5YyswWUVGYWduUE9BUFByeVhUdlE3S210V2d1R3lxRWRZMisx?=
+ =?utf-8?B?V3dMME50V0NJaWltZGx3Ty9DV3pHRmIrZVJ1anpRVTJVMlpxY2NiSGxJcTBm?=
+ =?utf-8?B?a0pKaEhIUEJwVjAzZ2J0V1VSNUFrYlhFTnJMNFFPZ1Z3U0J0bU01MExvVTIr?=
+ =?utf-8?B?dU9yQnRaNlBpS2hscVJiUTBJd0ViQjNXZE4yMjduWHkrZk5TR2hQSy8veC95?=
+ =?utf-8?B?cWc9PQ==?=
+X-OriginatorOrg: wolfvision.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e3fc888-e4da-440e-90ee-08dd1eb335d3
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2024 15:50:33.8994
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2024 15:55:20.8575
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UC1cC4hjxbOQF6yOzvAyr/q9+wo4F9oYIywLMZFpAiG3QBhtnDJIgPkE/l8QjLvDNbfnoohHgqgkSyJBDZjP9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9123
+X-MS-Exchange-CrossTenant-UserPrincipalName: rYL9nqOnUdDEH1ppiZjL6dR7a9+/5AipVgAL11mJcSffll0ZU1Z0WzS/ZXxLkPkkTbch97fB4yPJNiOJ4CUCptJIFhZlUf+1iprEzmgJ8Ao=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_075038_832916_6AD2C336 
-X-CRM114-Status: GOOD (  43.00  )
+X-CRM114-CacheID: sfid-20241217_075526_513018_EFBC7BFA 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,318 +203,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 10:25:59AM +0100, Lorenzo Pieralisi wrote:
-> On Fri, Dec 13, 2024 at 12:20:40PM -0500, Frank Li wrote:
-> > On Fri, Dec 13, 2024 at 10:32:28AM +0100, Lorenzo Pieralisi wrote:
-> > > On Thu, Dec 12, 2024 at 12:29:16PM -0500, Frank Li wrote:
-> > > > On Thu, Dec 12, 2024 at 05:46:09PM +0100, Lorenzo Pieralisi wrote:
-> > > > > On Tue, Dec 10, 2024 at 05:48:59PM -0500, Frank Li wrote:
-> > > > > > For the i.MX95, configuration of a LUT is necessary to convert Bus Device
-> > > > > > Function (BDF) to stream IDs, which are utilized by both IOMMU and ITS.
-> > > > > > This involves checking msi-map and iommu-map device tree properties to
-> > > > > > ensure consistent mapping of PCI BDF to the same stream IDs. Subsequently,
-> > > > > > LUT-related registers are configured. In the absence of an msi-map, the
-> > > > > > built-in MSI controller is utilized as a fallback.
-> > > > >
-> > > > > This is wrong information. What you want to say is that if an msi-map
-> > > > > isn't detected this means that the platform relies on DWC built-in
-> > > > > controller for MSIs (that does not need streamIDs handling).
-> > > > >
-> > > > > That's quite different from what you are writing here.
-> > > >
-> > > > How about ?
-> > > >
-> > > > "If an msi-map isn't detected, platform relies on DWC built-in controller
-> > > > for MSIs that does not need streamdIDs"
-> > >
-> > > Right. Question: what happens if DT shows that there are SMMU and/or
-> > > ITS bindings/mappings but the SMMU driver and ITS driver are either not
-> > > enabled or have not probed ?
-> >
-> > It is little bit complex.
-> > iommu:
-> > Case 1:
-> > 	iommu{
-> > 		status = "disabled"
-> > 	};
-> >
-> > 	PCI driver normal probed. if RID is in range of iommu-map, not
-> > any functional impact and harmless.
-> > 	If RID is out of range of iommu-map, "false alarm" will return.
-> > enable PCI EP device failure, but actually it can work without IOMMU.
->
-> What does "false alarm" mean in practice ? PCI device enable fails
-> but actually it should not ?
+Habidere,
 
-Yes, you are right. It should work without iommu. but return failure for
-this case.
+TL;DR:
 
-> That does not look like a false alarm to me.
+This series introduces support for the Rockchip Camera Interface (CIF),
+which can be found (in the form of variants that differ significantly) in
+different Rockchip SoCs in general, and for the Rockchip RK3568 Video
+Capture (VICAP) variant in particular.
 
-My means:  return failure but it should work without iommu. Ideally
-of_map_id() should return failure when iommu is disabled. It needs more
-work for that. I think we can improve it later.
+The patches are functional and have been tested successfully on a
+custom RK3568 board including the ITE Tech. IT6801 HDMI receiver as
+attached subdevice. The IT6801 driver still needs some loving care but
+shall be submitted as well at some point.
 
->
-> >
-> > Case 2:
-> > 	iommu {
-> > 		status = "Okay"
-> > 	}
-> > 	but iommu driver have not probed yet.  PCI Host bridge driver
-> > should defer till iommu probed.
-> >
-> > Worst case is "false alarm". But this happen is very rare if DTS is
-> > correct.
->
-> Explain what this means.
+The long story (gather 'round children):
 
-It return failure, but it should return success if "iommu disabled" and
-"RID is out of iommu-map range".
+The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs
+in different variations. For example, the PX30 Video Input Processor (VIP)
+is able to receive video data via the Digital Video Port (DVP, a parallel
+data interface and transfer it into system memory using a double-buffering
+mechanism called ping-pong mode. The RK3568 Video Capture (VICAP) unit,
+on the other hand, features a DVP and a MIPI CSI-2 receiver that can
+receive video data independently (both using the ping-pong scheme).
+The different variants may have additional features, such as scaling
+and/or cropping.
+Finally, the RK3588 VICAP unit constitutes an essential piece of the camera
+interface with one DVP, six MIPI CSI-2 receivers, scale/crop units, and
+different data path multiplexers (to system memory, to ISP, ...).
 
->
-> > MSI:
-> > case 1:
-> > 	msi-controller {
-> > 		status = "disabled";
-> > 	}
-> > 	Whole all dwc drivers will be broken.
->
-> What MSI controller. Please make an effort to be precise and explain.
+This submission bases on the work of several Bootlin developers who have
+been tirelessly submitting support for the PX30 Video Input Processor (VIP)
+block for inclusion in mainline. This process has been going on for several
+years now, with Maxime Chevallier working on the topic up to v5 [0] and
+Mehdi Djait taking over until v13 [1].
+In the review feedback on v13 a major rework with a media controller
+centric driver as a goal was requested. This motivated me to take over
+(with no clue about the MC framework whatsoever, though).
 
-For example: ARM its, I use general term here because some other platform
-such as RISC V have not use ARM ITS.
+I decided to merge Mehdi's v13 with my v1 of the RK3568 VICAP support [2]
+and refactor the whole thing. The resulting v2 of the series now adds a
+basic media controller centric V4L2 driver for the Rockchip CIF with
+ - support for the PX30 VIP (not tested, though, due to the lack of HW)
+ - support for the RK3568 VICAP DVP
+ - abstraction for the ping-pong scheme to allow for future extensions 
 
-pcie {
-	...
-	msi-map= <...>
-	...
-}
+However, several features are not yet addressed, such as
+ - support for the RK3568 MIPI CSI-2 receiver
+ - support for the RK3588 variant
+ - support for the scaling/cropping units that can be found in some
+   variants
+ - support for capturing different virtual channels (up to four IDs
+   possible)
+This needs to be in the scope of future work.
 
-DWC common driver will check property "msi-map". if it exist, built-in
-MSI controller will skip init by history reason. That is also the another
-reason why Rob don't want us to check these standard property.
+Finally, please forgive me if I forgot to address reviewer comments from
+the previous iterations. Between v1 and v13 they have seen significant
+feedback including renaming the complete driver twice (from rkcif to vip
+and back to cif) and I am pretty sure that I was not able to gather
+everything.
 
-Without MSI, system will failure back to INTx mode, same to no-msi=yes.
-But some EP devices require MSI support.
+Looking forward to your comments!
 
-Frank
+[0] https://lore.kernel.org/linux-media/20201229161724.511102-1-maxime.chevallier@bootlin.com/
+[1] https://lore.kernel.org/linux-media/cover.1707677804.git.mehdi.djait.k@gmail.com/
+[2] https://lore.kernel.org/all/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net/
 
->
-> Thanks,
-> Lorenzo
->
-> > case 2:
-> > 	msi-controller {
-> > 		status = "Okay"
-> > 	}
-> > 	if msi driver have not probed yet, PCI Host bridge driver will
-> > defer.
-> >
-> > Frank
-> >
-> > >
-> > > I assume the LUT programming makes no difference (it is useless yes but
-> > > should be harmless too) in this case but wanted to check with you`.
-> > >
-> > > Thanks,
-> > > Lorenzo
-> > >
-> > > >
-> > > > >
-> > > > > >
-> > > > > > Register a PCI bus callback function to handle enable_device() and
-> > > > > > disable_device() operations, setting up the LUT whenever a new PCI device
-> > > > > > is enabled.
-> > > > > >
-> > > > > > Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > >
-> > > > [...]
-> > > >
-> > > > > > +	int err_i, err_m;
-> > > > > > +	u32 sid;
-> > > > > > +
-> > > > > > +	dev = imx_pcie->pci->dev;
-> > > > > > +
-> > > > > > +	target = NULL;
-> > > > > > +	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask", &target, &sid_i);
-> > > > > > +	if (target) {
-> > > > > > +		of_node_put(target);
-> > > > > > +	} else {
-> > > > > > +		/*
-> > > > > > +		 * "target == NULL && err_i == 0" means use 1:1 map RID to
-> > > > >
-> > > > > Is it what it means ? Or does it mean that the iommu-map property was found
-> > > > > and RID is out of range ?
-> > > >
-> > > > yes, if this happen, sid_i will be equal to RID.
-> > > >
-> > > > >
-> > > > > Could you point me at a sample dts for this host bridge please ?
-> > > >
-> > > > https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > >
-> > > > /* 0x10~0x17 stream id for pci0 */
-> > > >    iommu-map = <0x000 &smmu 0x10 0x1>,
-> > > >                <0x100 &smmu 0x11 0x7>;
-> > > >
-> > > > /* msi part */
-> > > >    msi-map = <0x000 &its 0x10 0x1>,
-> > > >              <0x100 &its 0x11 0x7>;
-> > > >
-> > > > >
-> > > > > > +		 * stream ID. Hardware can't support this because stream ID
-> > > > > > +		 * only 5bits
-> > > > >
-> > > > > It is 5 or 6 bits ? From GENMASK(5, 0) above it should be 6.
-> > > >
-> > > > Sorry for typo. it is 6bits.
-> > > >
-> > > > >
-> > > > > > +		 */
-> > > > > > +		err_i = -EINVAL;
-> > > > > > +	}
-> > > > > > +
-> > > > > > +	target = NULL;
-> > > > > > +	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask", &target, &sid_m);
-> > > > > > +
-> > > > > > +	/*
-> > > > > > +	 *   err_m      target
-> > > > > > +	 *	0	NULL		Use 1:1 map RID to stream ID,
-> > > > >
-> > > > > Again, is that what it really means ?
-> > > > >
-> > > > > > +	 *				Current hardware can't support it,
-> > > > > > +	 *				So return -EINVAL.
-> > > > > > +	 *      != 0    NULL		msi-map not exist, use built-in MSI.
-> > > > >
-> > > > > does not exist.
-> > > > >
-> > > > > > +	 *	0	!= NULL		Get correct streamID from RID.
-> > > > > > +	 *	!= 0	!= NULL		Unexisted case, never happen.
-> > > > >
-> > > > > "Invalid combination"
-> > > > >
-> > > > > > +	 */
-> > > > > > +	if (!err_m && !target)
-> > > > > > +		return -EINVAL;
-> > > > > > +	else if (target)
-> > > > > > +		of_node_put(target); /* Find stream ID map entry for RID in msi-map */
-> > > > > > +
-> > > > > > +	/*
-> > > > > > +	 * msi-map        iommu-map
-> > > > > > +	 *   N                N            DWC MSI Ctrl
-> > > > > > +	 *   Y                Y            ITS + SMMU, require the same sid
-> > > > > > +	 *   Y                N            ITS
-> > > > > > +	 *   N                Y            DWC MSI Ctrl + SMMU
-> > > > > > +	 */
-> > > > > > +	if (err_i && err_m)
-> > > > > > +		return 0;
-> > > > > > +
-> > > > > > +	if (!err_i && !err_m) {
-> > > > > > +		/*
-> > > > > > +		 * MSI glue layer auto add 2 bits controller ID ahead of stream
-> > > > >
-> > > > > What's "MSI glue layer" ?
-> > > >
-> > > > It is common term for IC desgin, which connect IP's signal to platform with
-> > > > some simple logic. Inside chip, when connect LUT output 6bit streamIDs
-> > > > to MSI controller, there are 2bits hardcode controller ID information
-> > > > append to 6 bits streamID.
-> > > >
-> > > >            Glue Layer
-> > > >           <==========>
-> > > > ┌─────┐                  ┌──────────┐
-> > > > │ LUT │ 6bit stream ID   │          │
-> > > > │     ┼─────────────────►│  MSI     │
-> > > > └─────┘    2bit ctrl ID  │          │
-> > > >             ┌───────────►│          │
-> > > >             │            │          │
-> > > >  00 PCIe0   │            │          │
-> > > >  01 ENETC   │            │          │
-> > > >  10 PCIe1   │            │          │
-> > > >             │            └──────────┘
-> > > >
-> > > > >
-> > > > > > +		 * ID, so mask this 2bits to get stream ID.
-> > > > > > +		 * But IOMMU glue layer doesn't do that.
-> > > > >
-> > > > > and "IOMMU glue layer" ?
-> > > >
-> > > > See above.
-> > > >
-> > > > Frank
-> > > >
-> > > > >
-> > > > > > +		 */
-> > > > > > +		if (sid_i != (sid_m & IMX95_SID_MASK)) {
-> > > > > > +			dev_err(dev, "iommu-map and msi-map entries mismatch!\n");
-> > > > > > +			return -EINVAL;
-> > > > > > +		}
-> > > > > > +	}
-> > > > > > +
-> > > > > > +	sid = sid_i;
-> > > > >
-> > > > > err_i could be != 0 here, I understand that the end result is
-> > > > > fine given how the code is written but it is misleading.
-> > > > >
-> > > > > 	if (!err_i)
-> > > > > 	else if (!err_m)
-> > > >
-> > > > Okay
-> > > >
-> > > > >
-> > > > > > +	if (!err_m)
-> > > > > > +		sid = sid_m & IMX95_SID_MASK;
-> > > > > > +
-> > > > > > +	return imx_pcie_add_lut(imx_pcie, rid, sid);
-> > > > > > +}
-> > > > > > +
-> > > > > > +static void imx_pcie_disable_device(struct pci_host_bridge *bridge, struct pci_dev *pdev)
-> > > > > > +{
-> > > > > > +	struct imx_pcie *imx_pcie;
-> > > > > > +
-> > > > > > +	imx_pcie = to_imx_pcie(to_dw_pcie_from_pp(bridge->sysdata));
-> > > > > > +	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
-> > > > > > +}
-> > > > > > +
-> > > > > >  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > > > > >  {
-> > > > > >  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > > > > @@ -946,6 +1122,11 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > > > > >  		}
-> > > > > >  	}
-> > > > > >
-> > > > > > +	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
-> > > > > > +		pp->bridge->enable_device = imx_pcie_enable_device;
-> > > > > > +		pp->bridge->disable_device = imx_pcie_disable_device;
-> > > > > > +	}
-> > > > > > +
-> > > > > >  	imx_pcie_assert_core_reset(imx_pcie);
-> > > > > >
-> > > > > >  	if (imx_pcie->drvdata->init_phy)
-> > > > > > @@ -1330,6 +1511,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
-> > > > > >  	imx_pcie->pci = pci;
-> > > > > >  	imx_pcie->drvdata = of_device_get_match_data(dev);
-> > > > > >
-> > > > > > +	mutex_init(&imx_pcie->lock);
-> > > > > > +
-> > > > > >  	/* Find the PHY if one is defined, only imx7d uses it */
-> > > > > >  	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
-> > > > > >  	if (np) {
-> > > > > > @@ -1627,7 +1810,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
-> > > > > >  	},
-> > > > > >  	[IMX95] = {
-> > > > > >  		.variant = IMX95,
-> > > > > > -		.flags = IMX_PCIE_FLAG_HAS_SERDES,
-> > > > > > +		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-> > > > > > +			 IMX_PCIE_FLAG_HAS_LUT,
-> > > > > >  		.clk_names = imx8mq_clks,
-> > > > > >  		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
-> > > > > >  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
-> > > > > >
-> > > > > > --
-> > > > > > 2.34.1
-> > > > > >
+To: Mehdi Djait <mehdi.djait@linux.intel.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Théo Lebrun <theo.lebrun@bootlin.com>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+To: Sakari Ailus <sakari.ailus@iki.fi>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rob Herring <robh+dt@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Kever Yang <kever.yang@rock-chips.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: Alexander Shiyan <eagle.alexander923@gmail.com>
+To: Val Packett <val@packett.cool>
+To: Rob Herring <robh@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+
+Changes in v2:
+- merged with Mehdi's v13
+- refactored the complete driver towards a media controller centric driver
+- abstracted the generic ping-pong stream (can be used for DVP as well as for CSI-2)
+- switched to MPLANE API
+- added support for notifications
+- Link to v1: https://lore.kernel.org/r/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net
+
+---
+Mehdi Djait (2):
+      media: dt-bindings: media: add bindings for rockchip px30 vip
+      arm64: dts: rockchip: add the vip node to px30
+
+Michael Riesch (4):
+      media: dt-bindings: media: video-interfaces: add defines for sampling modes
+      media: dt-bindings: media: add bindings for rockchip rk3568 vicap
+      media: rockchip: add a driver for the rockchip camera interface (cif)
+      arm64: dts: rockchip: add vicap node to rk356x
+
+ .../bindings/media/rockchip,px30-vip.yaml          | 123 ++++
+ .../bindings/media/rockchip,rk3568-vicap.yaml      | 168 +++++
+ MAINTAINERS                                        |   9 +
+ arch/arm64/boot/dts/rockchip/px30.dtsi             |  12 +
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |  44 ++
+ drivers/media/platform/rockchip/Kconfig            |   1 +
+ drivers/media/platform/rockchip/Makefile           |   1 +
+ drivers/media/platform/rockchip/cif/Kconfig        |  15 +
+ drivers/media/platform/rockchip/cif/Makefile       |   3 +
+ .../media/platform/rockchip/cif/cif-capture-dvp.c  | 794 +++++++++++++++++++++
+ .../media/platform/rockchip/cif/cif-capture-dvp.h  |  24 +
+ drivers/media/platform/rockchip/cif/cif-common.h   | 163 +++++
+ drivers/media/platform/rockchip/cif/cif-dev.c      | 405 +++++++++++
+ drivers/media/platform/rockchip/cif/cif-regs.h     | 132 ++++
+ drivers/media/platform/rockchip/cif/cif-stream.c   | 676 ++++++++++++++++++
+ drivers/media/platform/rockchip/cif/cif-stream.h   |  24 +
+ include/dt-bindings/media/video-interfaces.h       |   4 +
+ 17 files changed, 2598 insertions(+)
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20240220-v6-8-topic-rk3568-vicap-b9b3f9925f44
+
+Best regards,
+-- 
+Michael Riesch <michael.riesch@wolfvision.net>
+
 
