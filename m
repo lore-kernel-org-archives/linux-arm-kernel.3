@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E08AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045C6E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEQGDUcHqaQl3+MAk9zJRdPKW7FjBUTxyuaYs25BI8s=; b=SXMee94BSMiPpSyvfNsY8h2kQy
-	MGxlavNnN/78tjhWyITqrO612E1LG1EReENGL4YO4Jn2XT2ufuKDqADyf4Ov73ZVeTjTVoh41Bpbb
-	0reyIIRnU1ky5vIiPK8lsNjkprYuI+Kucp6yYuepCezQK0VVUNvVhmi1pX31C7XyhVgymsY9VM3Oz
-	MTa6sqCEpXCoijhxrgKMEB/XQlX1Ruls4rLytDlt9ets2c7sYumeaQm/id7+rMHMQzgxMJrfmhRL6
-	2B57i23XG2COBeKGcwZE5UI1qdcwBL0AYs4RpQIFWFVd91hTsaYcZMc2NtaI6Ii7mNiY8m8ri64g9
-	8wxqVx8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YTo/P7f/upBFio9J5H+90ORp8e2JdLD5o/PbOI6evEI=; b=Sjh8qCTyPipdXUnKCMHKbJiVzG
+	tjDWxxqWydtd60W+iw3E9wX9ptyvEBKfYBtUa3Cs+f5VV+GgzFwrjFKrNfcnpEpu9u2aWSfc7+jcz
+	OAN0qEP0p6oRRmEcdlaIcZaqdZgW4cg3UsEd4dfbEjAsH6A8fWZTDZw/TOPrBBwpXEN08bGiZHH9r
+	cGGD2STU0GbO84R3XHe4O2ZxrrM6NhsWaOSTGvgYg4iyuDqjHpZzUxr4MclxsI/rpJhPETo4gXOLG
+	ewzbhr6kWySYstRyzVpdK36QMkvhiRkBIPoE73DyTtCo9dzYqtmr64b7NnEHZ40A9TV/i0BSQTFzV
+	7bhtguKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSFj-0000000Cc5f-1Ude;
-	Tue, 17 Dec 2024 07:44:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNSJe-0000000CcfW-0WeX;
+	Tue, 17 Dec 2024 07:48:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSEd-0000000Cbti-0SOV;
-	Tue, 17 Dec 2024 07:43:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 22183A41E15;
-	Tue, 17 Dec 2024 07:41:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A648EC4CED3;
-	Tue, 17 Dec 2024 07:43:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734421393;
-	bh=SFEB+1CioxLc5lMZKoURIeOpaioyZPe04X8yK/3CHYY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qgygh1jBZx5lw8SjMJZ9Rn89E9kJt7oapQfMySMCzPSBHCgBuwR0KzOWAzB51uN3c
-	 DFJJcdWpUijv2S9WKbhoJTLFMnw/TcqLsu5f+u/7yuUVgx8eq6k1P3RVktd6ksDe9r
-	 3KznClF/Fti3bWkP8h+V0dhDiQ7Kmfn+uvsey1jDZE5nv2DuAeGCNztZP5D18mHk93
-	 EE6lfm4G8EkU3pUWUW93gmUoHmLrgxokZ7oLJWxRvx1PCwHnSvvTJa1WsGv2sBnKJ3
-	 Di+eL1PIokZY3FnyLKS0DJF1ewNV7svRLMJRIZn0urB0dqfOOOgE7vxYn2sCjTERi+
-	 5SngBCjqBp21A==
-Date: Tue, 17 Dec 2024 08:43:10 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v6 03/10] drm/connector: implement generic HDMI codec
- helpers
-Message-ID: <20241217-heretic-hopeful-jaguar-aeabec@houat>
-References: <20241206-drm-bridge-hdmi-connector-v6-0-50dc145a9c06@linaro.org>
- <20241206-drm-bridge-hdmi-connector-v6-3-50dc145a9c06@linaro.org>
- <20241216-heretic-mackerel-of-wholeness-fcfed7@houat>
- <exocd3b65cy6cy5w47cwx3ykn54ncf34hwyj7ffihs5jjzean5@y677uywnlah2>
+	id 1tNSIY-0000000CcVW-05YM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 07:47:19 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH61s9n005066;
+	Tue, 17 Dec 2024 07:47:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	YTo/P7f/upBFio9J5H+90ORp8e2JdLD5o/PbOI6evEI=; b=KeCt8YlFhB2x1rGb
+	27DZOyy2UAFu1DvLwhs4rWGKCrr1BPmofn9DSZIu527upggXVFmpfjJH+sX5TwOv
+	XM6J4MKYa//ayP8dOzPGLce85L8jl5sxh2R9u7WeyK5Th13rFON3xFYyptdsljfr
+	RyxNtm4e33tf7GwfdIUM8lg16q6PXFScfmCmKLEYH4M3hOTINA2ABL93S3D6Ni2m
+	cijymIv5Z3YIyO8EtWeBevaySc0Q9LErcAA95fMPcJy4NZ27z2q1KlosEifvrk/D
+	nqRuWGhbZkKisiarhSaoKnC5L1MBmi1F7yFi6rURpDN9c2xLPdS8d9fs1f44Dv/1
+	ZEQUlg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k3p488ns-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 07:47:12 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BH7lAO7003168
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 07:47:10 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Dec
+ 2024 23:47:08 -0800
+Message-ID: <65de323b-ee7f-41cf-a300-1cf883494d1d@quicinc.com>
+Date: Tue, 17 Dec 2024 15:47:06 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="c4s3lijvuloytprp"
-Content-Disposition: inline
-In-Reply-To: <exocd3b65cy6cy5w47cwx3ykn54ncf34hwyj7ffihs5jjzean5@y677uywnlah2>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/3] Add support to configure TPDM MCMB subunit
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander
+ Shishkin <alexander.shishkin@linux.intel.com>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
+References: <20241105123940.39602-1-quic_jinlmao@quicinc.com>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <20241105123940.39602-1-quic_jinlmao@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: Xojj7zGYs_Wm-DhaeECuX7FKFb8Asblb
+X-Proofpoint-GUID: Xojj7zGYs_Wm-DhaeECuX7FKFb8Asblb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ mlxlogscore=920 phishscore=0 spamscore=0 clxscore=1015 suspectscore=0
+ mlxscore=0 adultscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412170063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_234315_276823_CCE191D3 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20241216_234718_202317_050E4B24 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +104,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---c4s3lijvuloytprp
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 03/10] drm/connector: implement generic HDMI codec
- helpers
-MIME-Version: 1.0
 
-Hi,
+On 2024/11/5 20:39, Mao Jinlong wrote:
+> Introduction of TPDM MCMB(Multi-lane Continuous Multi Bit) subunit
+> MCMB (Multi-lane CMB) is a special form of CMB dataset type. MCMB
+> subunit has the same number and usage of registers as CMB subunit.
+> Just like the CMB subunit, the MCMB subunit must be configured prior
+> to enablement. This series adds support for TPDM to configure the
+> MCMB subunit.
+> 
+> Once this series patches are applied properly, the new tpdm nodes for
+> should be observed at the tpdm path /sys/bus/coresight/devices/tpdm*
+> which supports MCMB subunit. All sysfs files of CMB subunit TPDM are
+> included in MCMB subunit TPDM. On this basis, MCMB subunit TPDM will
+> have new sysfs files to select and enable the lane.
+> 
+> Changes in V2:
+> 1. Use tdpm_data->cmb instead of (tpdm_has_cmb_dataset(tpdm_data) ||
+> tpdm_has_mcmb_dataset(tpdm_data)) for cmb dataset support.
+> 2. Embed mcmb_dataset struct into cmb struct.
+> 3. Update the date and version in sysfs-bus-coresight-devices-tpdm
+> 
+> Mao Jinlong (1):
+>    coresight-tpdm: Add MCMB dataset support
+> 
+> Tao Zhang (2):
+>    coresight-tpdm: Add support to select lane
+>    coresight-tpdm: Add support to enable the lane for MCMB TPDM
+> 
+>   .../testing/sysfs-bus-coresight-devices-tpdm  |  15 +++
+>   drivers/hwtracing/coresight/coresight-tpda.c  |   7 +-
+>   drivers/hwtracing/coresight/coresight-tpdm.c  | 124 +++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-tpdm.h  |  33 +++--
+>   4 files changed, 158 insertions(+), 21 deletions(-)
 
-On Mon, Dec 16, 2024 at 07:47:32PM +0200, Dmitry Baryshkov wrote:
-> On Mon, Dec 16, 2024 at 06:04:41PM +0100, Maxime Ripard wrote:
-> > > +struct drm_connector_hdmi_codec_funcs {
-> > > +	/**
-> > > +	 * @audio_startup:
-> > > +	 *
-> > > +	 * Called when ASoC starts an audio stream setup. The
-> > > +	 * @hdmi_audio_startup is optional.
-> > > +	 *
-> > > +	 * Returns:
-> > > +	 * 0 on success, a negative error code otherwise
-> > > +	 */
-> > > +	int (*audio_startup)(struct drm_connector *connector);
-> > > +
-> > > +	/**
-> > > +	 * @prepare:
-> > > +	 * Configures HDMI-encoder for audio stream. Can be called
-> > > +	 * multiple times for each setup. Mandatory.
-> > > +	 *
-> > > +	 * Returns:
-> > > +	 * 0 on success, a negative error code otherwise
-> > > +	 */
-> > > +	int (*prepare)(struct drm_connector *connector,
-> > > +		       struct hdmi_codec_daifmt *fmt,
-> > > +		       struct hdmi_codec_params *hparms);
-> >=20
-> > Missing newline
-> >=20
-> > > +	/**
-> > > +	 * @audio_shutdown:
-> > > +	 *
-> > > +	 * Shut down the audio stream. Mandatory.
-> > > +	 *
-> > > +	 * Returns:
-> > > +	 * 0 on success, a negative error code otherwise
-> > > +	 */
-> > > +	void (*audio_shutdown)(struct drm_connector *connector);
-> >=20
-> > And thus we can probably just call that one shutdown?
->=20
-> It should be called automatically by the sound system. I'd rather not
-> call items directly that we are not supposed to call.
+Gentle reminder for the review.
+> 
 
-I meant that with my suggestion to call the function
-drm_connector_hdmi_audio_init, that structure would be called
-drm_connector_hdmi_audio_funcs, and thus the audio prefix in
-audio_shutdown is redundant.
-
-Maxime
-
---c4s3lijvuloytprp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2EriQAKCRAnX84Zoj2+
-dn+KAXsHF1Me3a69DjYay1zSH0/PHfBLCaIV8MGlbctx2pAUq5SnrvsJZ2avXBJl
-7I+LlxABewcJcOkSen/hN0RxUNmpQaMQSHXReIonARDyzvaXra1BL1nAga4/ubzn
-jeARugW3sQ==
-=pdll
------END PGP SIGNATURE-----
-
---c4s3lijvuloytprp--
 
