@@ -4,67 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C5FE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2FCE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PcFZcjlJOep/8l7LtjklgvNKC15bse6OW+TbhR/p1x0=; b=w4ofyFCnLhVpXNEqHtpObXP/TH
-	4LzqtORTXyak5LbInGJVrnO81LvcVePL+cmVFD3+WFr9OJzb0/KTQaI/IJ5WuW807l3rw832R1eD+
-	VBm10aHdgVzfU9MQd6b/SpZVCkEQYVe1i43JZYeQf1pyppAjF7wQVy6TCtOPqEX2PMdv+zjYxVsT9
-	7gu+zIRHydZCWGyFsl56U5qIfWi4TVPpdDJuI1G5zKuzqy6RHktpuURRYzBJbolvt5Z92JHh/1yWy
-	DCESsbNU981oTOxGu0qM0Xvy4KsdGkgXyUagfcpOP1ajMC0HgAfFBIhDt3TaXTCYlvhfGpWzG1byG
-	mrxtSnxQ==;
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VL5yUWcYeO/+41IWEwU5ih2KiIhi0F9iezSabocUnLo=; b=FbIZRaXW2sQJMBkxBfMXSVrRqr
+	i3pb0+g6MfWrpOlEh6s9pMh+wuYdEDrxHiO1Djf/Wj6wE78uFZcl8vabGALQwzvIUtccXDjmbgQDa
+	ZAsktfdSvtZzqCCYGhKH2qrV6BBHyCxWzDD88AbVJGLCm686YX4u06bY2dGd2jrd+wAIeGsyQ3XGs
+	18SQ5NQE0sX/eX9hdbib5ttodZin5fEfNXeEJ3PioCGigX//OQC/GVbFV9RDFboUT8L04U9rL1yrI
+	8BeguzlD5InTVwEBzNPpN0/TET4o8hXSZO2bi681rHa6KVr2nS/x8Lrut8m5hUQopHCVGSC6645vy
+	mpb9yNCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNU9j-0000000CyrJ-32XM;
-	Tue, 17 Dec 2024 09:46:19 +0000
-Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	id 1tNUAm-0000000Cz4k-33fY;
+	Tue, 17 Dec 2024 09:47:24 +0000
+Received: from mail.startupcovey.pl ([217.61.0.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTdc-0000000Cr9Z-3FCD;
-	Tue, 17 Dec 2024 09:13:10 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout4.routing.net (Postfix) with ESMTP id 75177100827;
-	Tue, 17 Dec 2024 09:13:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1734426787;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PcFZcjlJOep/8l7LtjklgvNKC15bse6OW+TbhR/p1x0=;
-	b=mPfvDYcZMx2zZoxTK+XTVluWS0dIdC4zAE0M2MWyQWHEvelPbVkphCaiHTRfeqvm2dicfm
-	ATESWCWhZcyfq8CDuP49/MyOi6JUt4GpmdFuQ/DVEHii2ZwXmRyHVZ4REWmZvqi9xg/DY1
-	2gRc6eyzhrOHCAvfIFIq1VCCgg0paDc=
-Received: from frank-u24.. (fttx-pool-217.61.150.187.bambit.de [217.61.150.187])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id B14FC10052A;
-	Tue, 17 Dec 2024 09:13:06 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 22/22] arm64: dts: mediatek: mt7988a-bpi-r4: Enable pcie
-Date: Tue, 17 Dec 2024 10:12:36 +0100
-Message-ID: <20241217091238.16032-23-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241217091238.16032-1-linux@fw-web.de>
-References: <20241217091238.16032-1-linux@fw-web.de>
+	id 1tNTfn-0000000CrkM-2a8J
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 09:15:24 +0000
+Received: by mail.startupcovey.pl (Postfix, from userid 1002)
+	id 40E2483474; Tue, 17 Dec 2024 10:15:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=startupcovey.pl;
+	s=mail; t=1734426922;
+	bh=VL5yUWcYeO/+41IWEwU5ih2KiIhi0F9iezSabocUnLo=;
+	h=Date:From:To:Subject:From;
+	b=GjgeeLUAbsNl1N/67avNv9meIsMTUTot+kAix3UTft6BbhTnRQviD7DINup7GodM3
+	 TvpwazEWVPf63KYc5bTbh1CMd2UfEBKjxtEHvlpZBeMrCyDGH+uX0JDdMo5EnwPOt+
+	 uQzCQp4ElCeBmIcp7pCo3ZPvLVJZiW9/uafjTIl6hgiaGsscihrtaBjb4eOuAGybmV
+	 /ILw/MK6l5kLsNvargitEGJY8V6kNSpvguE9qTuQQCit94bKkx26VRXr0+wk7X2MNp
+	 JXOnwQNPm7Flxy138dhPnLHWyfI9Zw+rzOzM5gFSh5Y/lXFPRJbJEaHUNqSxL7d1JY
+	 K+x7hNZsbe6xA==
+Received: by mail.startupcovey.pl for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 09:15:20 GMT
+Message-ID: <20241217084500-0.1.8.e7j.0.1qao5l32sg@startupcovey.pl>
+Date: Tue, 17 Dec 2024 09:15:20 GMT
+From: "Robert Paczkowski" <robert.paczkowski@startupcovey.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?Wsp=C3=B3=C5=82praca?=
+X-Mailer: mail.startupcovey.pl
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Mail-ID: ef1f3959-efcf-4e62-9204-a040f3477067
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_011308_952211_9C4F9680 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20241217_011523_782197_BBD868A2 
+X-CRM114-Status: UNSURE (   2.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,88 +67,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+Dzie=C5=84 dobry,=20
 
-Enable the pci controllers on BPI-R4.
+Czy interesuje Pa=C5=84stwa pozyskanie nowych klient=C3=B3w?
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 20 +++++++++++++++++++
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi     |  8 ++++----
- 2 files changed, 24 insertions(+), 4 deletions(-)
+Zajmujemy si=C4=99 profesjonalnie wsparciem firm w tym zakresie.=20
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-index 4b1eaf818b66..d6f1fca3323c 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-@@ -113,6 +113,26 @@ i2c_sfp2: i2c@2 {
- 	};
- };
- 
-+/* mPCIe SIM2 */
-+&pcie0 {
-+	status = "okay";
-+};
-+
-+/* mPCIe SIM3 */
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+/* M.2 key-B SIM1 */
-+&pcie2 {
-+	status = "okay";
-+};
-+
-+/* M.2 key-M SSD */
-+&pcie3 {
-+	status = "okay";
-+};
-+
- &pio {
- 	mdio0_pins: mdio0-pins {
- 		mux {
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-index 6f6a1a1c1d78..7a5e16a97476 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-@@ -373,7 +373,7 @@ mmc0: mmc@11230000 {
- 			status = "disabled";
- 		};
- 
--		pcie@11280000 {
-+		pcie2: pcie@11280000 {
- 			compatible = "mediatek,mt7986-pcie",
- 				     "mediatek,mt8192-pcie";
- 			device_type = "pci";
-@@ -411,7 +411,7 @@ pcie_intc2: interrupt-controller {
- 			};
- 		};
- 
--		pcie@11290000 {
-+		pcie3: pcie@11290000 {
- 			compatible = "mediatek,mt7986-pcie",
- 				     "mediatek,mt8192-pcie";
- 			device_type = "pci";
-@@ -449,7 +449,7 @@ pcie_intc3: interrupt-controller {
- 			};
- 		};
- 
--		pcie@11300000 {
-+		pcie0: pcie@11300000 {
- 			compatible = "mediatek,mt7986-pcie",
- 				     "mediatek,mt8192-pcie";
- 			device_type = "pci";
-@@ -487,7 +487,7 @@ pcie_intc0: interrupt-controller {
- 			};
- 		};
- 
--		pcie@11310000 {
-+		pcie1: pcie@11310000 {
- 			compatible = "mediatek,mt7986-pcie",
- 				     "mediatek,mt8192-pcie";
- 			device_type = "pci";
--- 
-2.43.0
+Nasi partnerzy zyskuj=C4=85 sta=C5=82y nap=C5=82yw nowych zlece=C5=84 ora=
+z zam=C3=B3wie=C5=84, a tym samym zwi=C4=99kszaj=C4=85 swoje wyniki sprze=
+da=C5=BCy.
 
+Czy mo=C5=BCemy przedstawi=C4=87 szczeg=C3=B3=C5=82y dotycz=C4=85ce zasad=
+ i mo=C5=BCliwo=C5=9Bci wsp=C3=B3=C5=82pracy?
+
+
+Pozdrawiam serdecznie
+Robert Paczkowski
 
