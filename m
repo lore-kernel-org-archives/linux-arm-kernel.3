@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AE5E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BEC6E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JzFBJneA47iDhJ0GrhHnUSWy5uxvLUeSyV1v559BZTs=; b=a449Yvn6N9A4FPOtUAfOGtZ5zN
-	q4zUAoU613DbRI4uUSZjvKJS3VPa/bMMcwitZKHhTl0f8N1povt/e8Fc8iuVK7Z36iIFljIDcNLRE
-	7tO77TUPWBuRUdu57rNRCKBzLv0c7rvnhxzX61NTbC4YeUf4opVqRt3d/sIsFG8bv3nz50EX//SX1
-	xpo3dHfqJaH40wZSW8tZsDqFJyKEXHdQ8wpPLFuL2U3kjaPnq6VquaOg1vvmewG+8lLzXiyE5iIBO
-	AQ0SfKUswg0l/l+i6QtI6kRpsFo+3UwmWnlblmJL56zutNc/YqBVlP9j96xVwVYSfFmBkz+Xmv0t9
-	nyYjmbsQ==;
+	bh=ewl9ogr5K+uza39Xk2LzDhR7lf36MntMtsxv7rc6YB4=; b=VbuUGlV3zXukmI1f3p8TEGPdT8
+	2EDdxPOi1jr1SRx404xQh/XTV64j7kjOvFRJ30XU8UXVRfclWFkUsRZbEddfrMkzvwxcyNvHOoQhv
+	80rxkh3jn2/HrK0NCXla5x2XXMTbEHNPw50gm5RrTT8iYdYRCxeJP76r9UJ9OW9sCMH9tkBuTz13b
+	2uFylsbo+bbv/xci7OD8ZWcvbZLGFGWgDaemdpY7hb8wwMmkGqOOMJDJZ/5KLR7bU/lB81+JPx8T+
+	UyNPUkvySRIBUmCknzSVEf62Fn1TQOjmNgosxTMc7DHy+cu3iYPd77P/8qGo8Yhrlahv7tTppFwgD
+	l9ehieyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNaBl-0000000E7FQ-35tU;
-	Tue, 17 Dec 2024 16:12:49 +0000
+	id 1tNaD9-0000000E7cK-0I5k;
+	Tue, 17 Dec 2024 16:14:15 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZkJ-0000000E09h-3bIH;
-	Tue, 17 Dec 2024 15:44:29 +0000
+	id 1tNZkM-0000000E0BS-36Lx;
+	Tue, 17 Dec 2024 15:44:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734450266;
-	bh=vD8T5R3i/xb217YiGqCPRSsxlhMnzbBTogkNqWoL7vY=;
+	s=mail; t=1734450269;
+	bh=bnjmOBi//RTidCVEyibDlK+PfzzVLK3Nk4xJn62Ei1g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TXYb7j8Ix20ZURydgQwuCSVb+Z+/QIr+legbkI4aqFsMsnTp9rT+4o2SLRaY/PxPi
-	 AJ55Q+so+G3HdulK43EzI1IaVhJ1pzbHp9u8bDiBVYUwvE5LC06BXKmukU6lp4G5+G
-	 4dyQDDaEGzOBlAdFU/QOf9g982ltVxwQxGbjjqF0Ozvi36j5EnYD6LBQGR+DjQipdW
-	 GF9hTDEzGCX6DhARxv3AboBknvF3dxxr9gt5VHwjjgRUdY3QII78wECdJ+nfGOoGIQ
-	 hvBVzCyXbf99bFUJCWurPgxJ11g7TIYCe2nQVGbdVtMLRr5U6VJQCuyQZwvp67RriA
-	 lod4IgvgSIFjA==
+	b=Q9XXjkMhiHw3e1faduPavLk7tfdLGncnFpWf5hwynyeIxFAIWUfRqwY9iKFYaZwNp
+	 6YLYyP1h2JWU20mEUfGOU3gxYpTx42krlOZ4te4GXQsZvNysTUpay+kpXkRqYiIu2A
+	 +74bimrQf8K9r7rYSgIfyu9+/QZDdCfQSmqg3Pvucr0GnsWJTk2c5v8XdNo1JxU9Yz
+	 uRn5ZvjBxbwiwTlDBH9bSLvWHg0TeYN2SMtiNFFC2OUyfEOmOzxFdq8tA2dWOErH1P
+	 FuHR2Yc5YYR89oyZm/VvyxvgzkGSu3QQ9xYw6+HVGNwX1X4eMEEy8ADpd5h+3idWO8
+	 FUToyu1Go362Q==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B3BA17E3786;
-	Tue, 17 Dec 2024 16:44:25 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 39E9D17E37C0;
+	Tue, 17 Dec 2024 16:44:28 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -67,17 +67,17 @@ Cc: p.zabel@pengutronix.de,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	dmitry.baryshkov@linaro.org
-Subject: [PATCH v3 25/33] drm/mediatek: mtk_hdmi: Remove goto in mtk_hdmi_clk_enable_audio()
-Date: Tue, 17 Dec 2024 16:43:37 +0100
-Message-ID: <20241217154345.276919-26-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 27/33] drm/mediatek: mtk_hdmi: Improve mtk_hdmi_get_all_clk() flexibility
+Date: Tue, 17 Dec 2024 16:43:39 +0100
+Message-ID: <20241217154345.276919-28-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_074428_038904_DA4A4922 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20241217_074430_922752_C9C1FB3B 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +92,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the clk_prepare_enable() call for the SPDIF clock fails, just
-disable and unprepare the clock in the error check branch and
-return immediately instead of jumping to the end with a goto,
-slightly reducing code size.
+In preparation for splitting common bits of this driver and for
+introducing a new version of the MediaTek HDMI Encoder IP, improve
+the flexibility	of function mtk_hdmi_get_all_clk() by adding a
+pointer to the clock names array and size of it to its parameters.
 
-This commit brings no functional changes.
+Also change the array of struct clock pointers in the mtk_hdmi
+structure to be dynamically allocated, and allocate it in probe.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 7e4536391cfb..dbcb9fb09edd 100644
+index 6c9d046809b2..4dc7113fee10 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1095,13 +1095,12 @@ static int mtk_hdmi_clk_enable_audio(struct mtk_hdmi *hdmi)
- 		return ret;
+@@ -159,7 +159,7 @@ struct mtk_hdmi {
+ 	struct phy *phy;
+ 	struct device *cec_dev;
+ 	struct i2c_adapter *ddc_adpt;
+-	struct clk *clk[MTK_HDMI_CLK_COUNT];
++	struct clk **clk;
+ 	struct drm_display_mode mode;
+ 	bool dvi_mode;
+ 	struct regmap *sys_regmap;
+@@ -1072,17 +1072,18 @@ static const char * const mtk_hdmi_clk_names[MTK_HDMI_CLK_COUNT] = {
+ 	[MTK_HDMI_CLK_AUD_SPDIF] = "spdif",
+ };
  
- 	ret = clk_prepare_enable(hdmi->clk[MTK_HDMI_CLK_AUD_SPDIF]);
--	if (ret)
--		goto err;
-+	if (ret) {
-+		clk_disable_unprepare(hdmi->clk[MTK_HDMI_CLK_AUD_BCLK]);
-+		return ret;
-+	}
+-static int mtk_hdmi_get_all_clk(struct mtk_hdmi *hdmi,
+-				struct device_node *np)
++static int mtk_hdmi_get_all_clk(struct mtk_hdmi *hdmi, struct device_node *np,
++				const char * const *clock_names, size_t num_clocks)
+ {
+ 	int i;
  
+-	for (i = 0; i < ARRAY_SIZE(mtk_hdmi_clk_names); i++) {
+-		hdmi->clk[i] = of_clk_get_by_name(np,
+-						  mtk_hdmi_clk_names[i]);
++	for (i = 0; i < num_clocks; i++) {
++		hdmi->clk[i] = of_clk_get_by_name(np, clock_names[i]);
++
+ 		if (IS_ERR(hdmi->clk[i]))
+ 			return PTR_ERR(hdmi->clk[i]);
+ 	}
++
  	return 0;
--err:
--	clk_disable_unprepare(hdmi->clk[MTK_HDMI_CLK_AUD_BCLK]);
--	return ret;
  }
  
- static void mtk_hdmi_clk_disable_audio(struct mtk_hdmi *hdmi)
+@@ -1381,15 +1382,15 @@ static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *hdmi, struct device *dev, struc
+ 	return 0;
+ }
+ 
+-static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+-				   struct platform_device *pdev)
++static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi, struct platform_device *pdev,
++				   const char * const *clk_names, size_t num_clocks)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node;
+ 	struct device_node *remote, *i2c_np;
+ 	int ret;
+ 
+-	ret = mtk_hdmi_get_all_clk(hdmi, np);
++	ret = mtk_hdmi_get_all_clk(hdmi, np, clk_names, num_clocks);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+ 
+@@ -1640,6 +1641,7 @@ static int mtk_hdmi_probe(struct platform_device *pdev)
+ {
+ 	struct mtk_hdmi *hdmi;
+ 	struct device *dev = &pdev->dev;
++	const int num_clocks = MTK_HDMI_CLK_COUNT;
+ 	int ret;
+ 
+ 	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
+@@ -1649,7 +1651,11 @@ static int mtk_hdmi_probe(struct platform_device *pdev)
+ 	hdmi->dev = dev;
+ 	hdmi->conf = of_device_get_match_data(dev);
+ 
+-	ret = mtk_hdmi_dt_parse_pdata(hdmi, pdev);
++	hdmi->clk = devm_kcalloc(dev, num_clocks, sizeof(*hdmi->clk), GFP_KERNEL);
++	if (!hdmi->clk)
++		return -ENOMEM;
++
++	ret = mtk_hdmi_dt_parse_pdata(hdmi, pdev, mtk_hdmi_clk_names, num_clocks);
+ 	if (ret)
+ 		return ret;
+ 
 -- 
 2.47.0
 
