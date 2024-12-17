@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84C2E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA9DE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UbPE3OC+DmyKYXRhKy6Wi5NDjn6um8u4vW6xmgvyD0k=; b=MkRhy3X/QYpeLHi4SDMRXqGHg2
-	pFU8pr6pXEyKNi0Mga0Z2lgmLQGxn1KRXN+uuTDfy87571bUaX7dm6VAElWbY+NdeYFwrloUMwnOc
-	B9uBiZq0RxyDEvkMeTfzEV1unueW6BFrybHOFwb3tQjrHU0KKCV5za3oYNJM4siSgWGRZM9sez7am
-	xdskSsuyTjmu9dFgijiKIs8vmuLmHQybQJGMnFMlGVNmcuEID08QB6bw+WHqXYzIzjs4GeFKLKzkQ
-	btWXkZkazxAYouDi+b6nYCJn4V4A6k8+ClgeP3gJ1OguRHgFtNlzSaQ+y6qvYLzZurjifGrWqSa8w
-	7QgvZwFg==;
+	bh=k1gAvJuKub2dMg+pGZ+omk+t0yDl/qautJjaq9ShiVI=; b=HZD5a4/Ex6zN2gaQi8uGozwaXk
+	JFENR+9uOmLkN5CmWhtqaxdMR0aCU9HPh6vNkJmAAhOEq0l6hmmPZ7xAakLgzqbmkzx12seK2MmP6
+	CZYCu2xT+Hm1X0I7/fhoWqxP9L8ekDxKs5dQobjqIj9Q3dR+KhTGWQowwByfXsTP2q9MLGtIpjH18
+	g2d31s530yRz5hKtXRBuf8rw/F/Ca96fnTuFj12vo0Uoxyb+CKbZe02AY3Utl07z23NS8vyIon0Bo
+	pFdPJQvoi2jDUWW0oFZYw23jTYBxhT0vY3dX09xAlvsnjpLbZny83JGaatIu4stzk5S7uiUhOop61
+	A8cMJHhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbKe-0000000EKOE-430z;
-	Tue, 17 Dec 2024 17:26:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNbLj-0000000EKf3-0tvj;
+	Tue, 17 Dec 2024 17:27:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbJY-0000000EKDq-0sys;
-	Tue, 17 Dec 2024 17:24:57 +0000
+	id 1tNbJm-0000000EKIc-0MCL;
+	Tue, 17 Dec 2024 17:25:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 55A1F5C5E33;
-	Tue, 17 Dec 2024 17:24:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB3A0C4CED7;
-	Tue, 17 Dec 2024 17:24:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B8205C66F5;
+	Tue, 17 Dec 2024 17:24:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70CBCC4CEE2;
+	Tue, 17 Dec 2024 17:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734456295;
-	bh=1neTtSopNryfSXJpUTztXfgdin2CdL3yui9SkHic7sc=;
+	s=k20201202; t=1734456309;
+	bh=nCvy4GS2XUqGmqTA94soHiboSzyVX7nHBtkKXyCp+Cw=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
-	b=EogvqqU9oOnJ5EIFzyyngkskqdGRCP/nWMjNGQJtCFKlESW9sUMqjJVTyNyVoQnq+
-	 4yNdtA2nMz0N1XY2WBX1TdDY+vqBXBMoOHrORVPaD+OOb1J/1G7Dttwkf65CrfLYsA
-	 qiKUoUCw4nKMckzclhvvPO3LcLATPPlSJhGbmKJZAT3FXKUfKqVLnHkSVxKAx5Cs97
-	 /F6P3waG2AKau25BW5taRar4r1CPCr3bVwUimy9TR5Mh/vjduIIlAuZmwMOAUI1Pkk
-	 zjqJQOKuyDMXS6Nkhys8TXhpfnApHj8yLwZTaVkPcMvjTzmaYhpRa149+pxMeY2N8f
-	 5XHqodI69Xq+w==
-Message-ID: <2dad2c52bb2babf3af0196f17c74a9fa@kernel.org>
-Date: Tue, 17 Dec 2024 17:24:52 +0000
+	b=IXeMSPbb3US4V7xq2w1X5bwx6pWIgZ1xAGN84LaSw+VEEftIbRMCd01KUZ5qcUAjg
+	 G1jk8Rt5EUqTwLddGOxGxiddJ4ShkICVMy2YcaF10CzWd2RxBSar788si2r9ARNs6c
+	 SgB59cekKqtIDCouRcMPnHWTFbeEj6CzKP5gUL/IDRfI/4jZZeqaXIvFRd/nB1AkJ+
+	 SMzNWBYv6x53Fo92UjsXX/SlszevX4pGC9xvsLAFsGdmZ/POgQvP9jLhNAc3f3SSYE
+	 Ac0jgrgXf6ngEt3C0M0M0/ud0oNx/c0mZgyv9+f1JDI5YcENrN1CK5HwuneZd4Jn09
+	 l+f3EDeTJTHAA==
+Message-ID: <b2ad15d2d5049701f34099e0df7fb727@kernel.org>
+Date: Tue, 17 Dec 2024 17:25:06 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
-Subject: Re: [PATCH v7 06/10] drm/display/hdmi: implement hotplug functions
-In-Reply-To: <20241217-drm-bridge-hdmi-connector-v7-6-cb9df2b6a515@linaro.org>
-References: <20241217-drm-bridge-hdmi-connector-v7-6-cb9df2b6a515@linaro.org>
+Subject: Re: [PATCH v7 07/10] drm/bridge_connector: hook
+ drm_atomic_helper_connector_hdmi_hotplug()
+In-Reply-To: <20241217-drm-bridge-hdmi-connector-v7-7-cb9df2b6a515@linaro.org>
+References: <20241217-drm-bridge-hdmi-connector-v7-7-cb9df2b6a515@linaro.org>
 Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, "Alain
  Volmat" <alain.volmat@foss.st.com>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Andrzej
  Hajda" <andrzej.hajda@intel.com>, "Andy Yan" <andy.yan@rock-chips.com>, "AngeloGioacchino
@@ -69,8 +70,8 @@ Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux
  Zimmermann" <tzimmermann@suse.de>
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_092456_302699_B8E9EBA9 
-X-CRM114-Status: UNSURE (   5.69  )
+X-CRM114-CacheID: sfid-20241217_092510_165429_A5BF8D60 
+X-CRM114-Status: UNSURE (   5.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,12 +87,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 02:40:28 +0200, Dmitry Baryshkov wrote:
-> The HDMI Connectors need to perform a variety of tasks when the HDMI
-> connector state changes. Such tasks include setting or invalidating CEC
-> address, notifying HDMI codec driver, updating scrambler data, etc.
+On Tue, 17 Dec 2024 02:40:29 +0200, Dmitry Baryshkov wrote:
+> Extend drm_bridge_connector code to read the EDID and use it to update
+> connector status if the bridge chain implements HDMI bridge. Performing
+> it from the generic location minimizes individual bridge's code and
+> enforces standard behaviour from all corresponding drivers.
 > 
-> Implementing such tasks in a driver-specific callbacks is error prone.
 > 
 > [ ... ]
 
