@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB078E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41208E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pxGYnd+4LobWswnV0waIEFWUt2UrttwPRVrPPcwZbUI=; b=iUlJgcw19ot6PgUvlVYtuXbOJu
-	uSIyWMi2sCLFg3oJs7NNYwTuh2ybe1V8EurlAkFqBsClG5XuJFjo5aSGKuqWbitBdaLDDbCTUKxDg
-	9kACA8hfzon2plaswstWdChE3JGRxzQaRzeddIfozng+acYvtTzdVgQLGwFxsRyf/dUeDPxqmvNq5
-	x+CfOS+pyFxLculluh6HpCpM4h2LCbl81OkEC8bxffiIhGvUZf4yEx8spnBiAnxL8pW+YAmglRY4h
-	+KJjoivOUIEHmit8HV4TpfyphsM9aitak3AfeMRX1T7LF45q9Kr7l8nsG5oryBr9ZFZeo/ooKF1Jl
-	oEFfyCqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WbvIMH5+pmJeLk2Ms9sMvM9Wx9MqPeOBr+0S5rSdz30=; b=pcu7Bbrbzj3oFNx6CnwzTDVWiW
+	ENZk0zy97MqGiKdwk4ti+dhDZ0C79AZxqrdB5LrBSbWmJCA6S5jtfid5P5OI8YZzFGjRMH+yqB5QS
+	ESjHqICZNsDb2gg6AzqCbIa57xCaeP/+qNxjJDRVKPhnm/WxdO4fJj4vO7gIHgwCARdHse95q2ehq
+	t8EfG64PnEHqbz6UTUjDTqrd5WfKMYOepmcYHz9RJBhFbFyUfedwfYwjGH9jYvhSj2/QDjuE8bmct
+	LWT4yyY/2TwqJ7mTBwYS/UAFCJ1n/I8Wrcyo7gtWqTJh9X60PSsPFafaOLtxu1XJ802Gpsf4xU/8P
+	OQnpbOOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYqU-0000000DopD-3ygh;
-	Tue, 17 Dec 2024 14:46:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYpM-0000000DoaD-2r1Q
+	id 1tNYtw-0000000DpI4-1fXW;
+	Tue, 17 Dec 2024 14:50:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNYsp-0000000Dp47-0kKS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:45:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 360D21063;
-	Tue, 17 Dec 2024 06:46:02 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D59123F58B;
-	Tue, 17 Dec 2024 06:45:31 -0800 (PST)
-Date: Tue, 17 Dec 2024 14:45:24 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Johan Hovold <johan@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>, andersson@kernel.org,
-	konrad.dybcio@linaro.org, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, quic_rgottimu@quicinc.com,
-	quic_kshivnan@quicinc.com, conor+dt@kernel.org,
-	arm-scmi@vger.kernel.org
-Subject: Re: [PATCH V4 0/5] arm_scmi: vendors: Qualcomm Generic Vendor
- Extensions
-Message-ID: <Z2GOLFqnexEalBx_@pluto>
-References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <ZytnRc94iKUfMYH0@hovoldconsulting.com>
- <ZyvLktLUZOGP-LH5@pluto>
- <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
- <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
- <Z0BC203BhGEmXcJi@hovoldconsulting.com>
- <Z1HceQegfMl07qj_@bogus>
- <d313e40b-fa8f-a534-5037-98536ee25044@quicinc.com>
+	Tue, 17 Dec 2024 14:49:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 932475C44DB;
+	Tue, 17 Dec 2024 14:48:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAC30C4CED4;
+	Tue, 17 Dec 2024 14:49:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734446950;
+	bh=S5/ik6fbwrpyH3KSs+GVUj/CwVH+gNMOhnzP7q730h0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IqHQ23rNJvtV2zSWtz1Es0/zYfqBOVMSlTnIkbbPmk2R1d5jMnegR/jaVbOQdNwy5
+	 FVMq/xQd+jsedpESIGo7NCI+aQtoUtPuU4EcrT9DeTBmDfAD+h/at4RRBKhpQx0w5V
+	 /mj54HSZ1Cf0TzeGBfxwsSywidecWbwuBpOd4MY6kcKUsY6fOihCe+DXedu6u0rHV7
+	 upgf8hqlwkc9fm/M6L00ZcFJKs2XC2JRXZJCdeacJ3PKJagahHY/fjLsE9YjOLiXy+
+	 0GOsrJH+VuoIhHw9kzWHb/6mIVDM3SZZTxhTIBN4Cuxw7LnRu1ABU0nBAz8s3An6Rf
+	 WSlKf7rBrlnEQ==
+Date: Tue, 17 Dec 2024 06:49:07 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-socfpga: Set interface
+ modes from Lynx PCS as supported
+Message-ID: <20241217064907.0e509769@kernel.org>
+In-Reply-To: <20241217135932.60711288@fedora.home>
+References: <20241213090526.71516-1-maxime.chevallier@bootlin.com>
+	<20241213090526.71516-3-maxime.chevallier@bootlin.com>
+	<Z1wnFXlgEU84VX8F@shell.armlinux.org.uk>
+	<20241213182904.55eb2504@fedora.home>
+	<Z1yJQikqneoFNJT4@shell.armlinux.org.uk>
+	<20241216094224.199e8df7@fedora.home>
+	<20241216173333.55e35f34@kernel.org>
+	<20241217135932.60711288@fedora.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d313e40b-fa8f-a534-5037-98536ee25044@quicinc.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_064536_805503_EAEB5159 
-X-CRM114-Status: GOOD (  43.17  )
+X-CRM114-CacheID: sfid-20241217_064911_260304_D920946A 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,110 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 05:55:35PM +0530, Sibi Sankar wrote:
+Let me triple check ;)
+
+On Tue, 17 Dec 2024 13:59:32 +0100 Maxime Chevallier wrote:
+> - The priv->phylink_config.supported_interfaces is incomplete on
+> dwmac-socfpga. Russell's patch 5 intersects these modes with that the
+                                   ^^^^^^^^^^
+> PCS supports :
 > 
+> +		phy_interface_or(priv->phylink_config.supported_interfaces,
+                              ^^
+> +				 priv->phylink_config.supported_interfaces,
+> +				 pcs->supported_interfaces);
 > 
-> On 12/5/24 22:31, Sudeep Holla wrote:
-> > On Fri, Nov 22, 2024 at 09:37:47AM +0100, Johan Hovold wrote:
-> > > On Thu, Nov 14, 2024 at 09:52:12AM +0530, Sibi Sankar wrote:
-> > > > On 11/8/24 20:44, Johan Hovold wrote:
-> > > 
-> > > > > > On Wed, Nov 06, 2024 at 01:55:33PM +0100, Johan Hovold wrote:
-> > > 
-> > > > > > > Second, after loading the protocol and client drivers manually (in that
-> > > > > > > order, shouldn't the client driver pull in the protocol?), I got:
-> > > > > > > 
-> > > > > > > 	scmi_module: Loaded SCMI Vendor Protocol 0x80 - Qualcomm  20000
-> > > > > > > 	arm-scmi arm-scmi.0.auto: QCOM Generic Vendor Version 1.0
-> > > > > > > 	scmi-qcom-generic-ext-memlat scmi_dev.5: error -EOPNOTSUPP: failed to configure common events
-> > > > > > > 	scmi-qcom-generic-ext-memlat scmi_dev.5: probe with driver scmi-qcom-generic-ext-memlat failed with error -95
-> > > > > > > 
-> > > > > > > which seems to suggest that the firmware on my CRD does not support this
-> > > > > > > feature. Is that the way this should be interpreted? And does that mean
-> > > > > > > that non of the commercial laptops supports this either?
-> > > 
-> > > > > Yeah, hopefully Sibi can shed some light on this. I'm using the DT
-> > > > > patch (5/5) from this series, which according to the commit message is
-> > > > > supposed to enable bus scaling on the x1e80100 platform. So I guess
-> > > > > something is missing in my firmware.
-> > > > 
-> > > > Nah, it's probably just because of the algo string used.
-> > > > The past few series used caps MEMLAT string instead of
-> > > > memlat to pass the tuneables, looks like all the laptops
-> > > > havn't really switched to it yet. Will revert back to
-> > > > using to lower case memlat so that all devices are
-> > > > supported. Thanks for trying the series out!
-> > > 
-> > > I have a Lenovo ThinkPad T14s set up now so I gave this series a spin
-> > > there too, and there I do *not* see the above mentioned -EOPNOSUPP error
-> > > and the memlat driver probes successfully.
-> > > 
-> > > On the other hand, this series seems to have no effect on a kernel
-> > > compilation benchmark. Is that expected?
-> > > 
-> > 
-> > Hijacking this thread to rant about state of firmware implementation on
-> > this platform that gives me zero confidence in merging any of these without
-> > examining each of the interface details in depth and at lengths.
-> > 
-> 
+> So without patch 2 in the series, we'll be missing
+> PHY_INTERFACE_MODE_1000BASEX in the end result :)
 
-Hi Sibi,
+"Or" is a sum/union, not intersection.
 
-> Hey Sudeep,
-> 
-> Thanks for taking time to review the series.
-> 
-> > Also I see the standard protocol like PERF seem to have so many issues which
-> > adds to my no confidence. I can't comment on that thread for specific reasons.
-> 
-> ^^ is largely untrue, a lot of finger pointing and a gross
-> misrepresentation of reality :/
-> 
-> The only major problem that X1E perf protocol has is a firmware
-> crash in the LEVEL_GET regular message implementation. This
-> pretty much went unnoticed because of messaging in perf implementation
-> in kernel. Given the fastchannel implementation isn't mandatory
-> according to spec, the kernel clearly says it switches to
-> regular messaging when it clearly doesn't do that and uses
-> stale data structures instead. This ensured that level get regular
-> messaging never got tested.
+You set the bits in priv->phylink_config.supported_interfaces.
+Russell does:
 
-You claimed this a couple of times here and on IRC, but sincerely,
-looking at the fastchannel implementation in SCMI core and Perf, I could
-not track down where this could have happened in the recent code
-(i.e. with or without your recent, welcomed, patches...)
+	priv->phylink_config.supported_interfaces |=
+		pcs->supported_interfaces;
 
-When FC initialization fails and bailout it says:
-	
-	"Failed to get FC for protocol %X [MSG_ID:%u / RES_ID:%u] - ret:%d. Using regular messaging."
-
-... and it clears any gathered address for that FC, so that in __scmi_perf_level_get()
-you end up skipping the FC machinery and use messaging
-
-	if (dom->fc_info && dom->fc_info[PERF_FC_LEVEL].get_addr) {
-		...
-	}
-
-	return scmi_perf_msg_level_get(ph, dom->id, level, poll);
-
-Now this is done ONLY for the FC that specifically failed
-initialization, i.e. identified by the tuple PROTO_ID/MSG_ID/RES_ID
-(as stated in the noisy message above where MSG_ID is specified) NOT for
-all Fastchannel, so you can have an FC successfully initialized only on
-the GET but failing in the SET, so only the GET FC will be used.
-
-I dont really understand how the Kernel was misbehaving and using
-instead stale data, neither, if this was the case, I can see where this
-issue would have been fixed.
-
-To be clear, I am not really interested in throwing an argument here, but
-I sincerely dont see where the alleged problem was and how was fixed (kernel
-side), so I fear it could be still there, hidden maybe by a change in the
-platform fw.
-
-Apologies if I missed something along the history of this..
-
-Thanks,
-Cristian
+If I'm missing the point please repost once Russell's patches 
+are merged :)
 
