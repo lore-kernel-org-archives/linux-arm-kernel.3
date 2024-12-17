@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38FD3E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704C2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MzyMAGttA/R0puRBzpRiSvHGmkn3uhv5iY88EMm2o4A=; b=v7Fh2gSxecwzDEPl0Lo+yZ6jP5
-	Q82f12DSzEYvZty7PnFfsbY50SCbHN/XFup7S2vWUvbCWz3vGvBCTG5ln2TkX3zUh7tm9ADBxrrxr
-	iB0WdJpbB3Cg52eHSphR8JX3jw+a421Eqcg/eqZHEh4uzR6aATp6w42d/B9SBNIhL5fTpWH0nQvS6
-	au/G+UNdc/fIK0DPrbg73WlkjxcgVM5QjSznrdc3baKyD2P3Q4u1A4QMnwHwGDW0dfoW6j06bhJ4V
-	NWUUFOA8ryx26cTtLBFCC0i7qEy53eR5mXAZnykSZgdc83ok2YZeyUits0ygIQ4y0eFV2cvAKli/F
-	H4Embd7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=plXY3/Zcoe74Jr3EVPO0NcLX3LevAO5kvmSZ/p53PkM=; b=X8FD7lIrE2bkRhdtmez6xbR6w1
+	C38RVhwGOG/rps0kM3a7HNSFGWRbI0O8czYMKHtrzuyxBFBF6USgdjyHw6Nhh9wnf2+He53kuELB+
+	eK3JkSPkQfCdmPpIlu5mk/k93a0qmbPA24m4aW/OqeH6e7s8Lz/1Jq2l3fUh7OhURaBTzss4gaNYj
+	gE/CQPBlSxcQOsTuumr7s2RK1zM79a9ndVlYLbzgM6JjuX/MyFtXnITlmmEPyc2xleW46gtGeQwrs
+	FkQ7SE1NgWJNUve6WMlwz4QPI908K51zyejJBSNRu7jJWNPrGhr2aAqdTrJzL/ry8SSK5v2g59LXI
+	dGfWdk7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdY9-0000000EfrF-3yW7;
-	Tue, 17 Dec 2024 19:48:09 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
+	id 1tNdbH-0000000EgUv-0WYj;
+	Tue, 17 Dec 2024 19:51:23 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdUv-0000000EfLA-2mdG
+	id 1tNdaB-0000000EgOA-0P4K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 19:44:52 +0000
-Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B50FEC002817;
-	Tue, 17 Dec 2024 11:44:48 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B50FEC002817
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1734464688;
-	bh=82v8W/aCfyKyNH4lLoqsF3249ZAUx/s7U0qVBPIAcBk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BmBKZbhs7Hl3w51VzWeyghKPj39aujguXxZFdaSBQNdp1pAG01bxK2MVl+aAIjrGp
-	 ol/j48AB/7LvLGlfN8y2xDlgPM8ggXQPX/dziPSoLpzLcQalRU/1/i6roPtJWTaXbC
-	 skWqjXImOwsaBMjkA4OL+VchCcjcTG4r33aIpSEk=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 6976A18041CAD2;
-	Tue, 17 Dec 2024 11:44:48 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-arm-kernel@lists.infradead.org
+	Tue, 17 Dec 2024 19:50:16 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 475583E;
+	Tue, 17 Dec 2024 20:49:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1734464975;
+	bh=ObpgcoRYeh8c9yIiYD3tbYsZnfL/7m9ZSvLsrGrdD9A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d2KJ54c44K/8hPwKsfbhby6tk+Fd32DdkYirGIFG4Ir9zBS8xYUfnvU4jWQAcrXnV
+	 dPQav2LaNtA6GKvWNc1JJqn4iUfjbeOWyMfWmZoSG2dGybu9cmX16fXomEb/HyjfMW
+	 DMoT4v3qVesEB17bvZ0CUoEhjy97LeJNIeGbaEF0=
+Date: Tue, 17 Dec 2024 21:50:10 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Stefan Wahren <wahrenst@gmx.net>
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-kernel@vger.kernel.org (open list:MEMORY CONTROLLER DRIVERS),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS)
-Subject: [PATCH 2/2] memory: brcmstb_memc: Match rev c.1.5 compatible string
-Date: Tue, 17 Dec 2024 11:44:39 -0800
-Message-ID: <20241217194439.929040-3-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241217194439.929040-1-florian.fainelli@broadcom.com>
-References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com
+Subject: Re: [PATCH] arm64: defconfig: Enable pinctrl-based I2C mux
+Message-ID: <20241217195010.GE23470@pendragon.ideasonboard.com>
+References: <20241217193356.111102-1-wahrenst@gmx.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241217193356.111102-1-wahrenst@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_114449_785870_1EE461E8 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20241217_115015_272582_90209401 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +69,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Match the revision c.1.5 compatible string and apply the v2.1x register
-layout such that we can properly control the Self Refresh Power Down
-timeouts with those controller version(s).
+On Tue, Dec 17, 2024 at 08:33:56PM +0100, Stefan Wahren wrote:
+> The commit 84b1d6cc3e4c ("ARM: dts: bcm2711-rpi: Add pinctrl-based
+> multiplexing for I2C0") introduced multiplexing for I2C on BCM2711-based
+> Raspberry Pi boards. Unfortunately we missed to enable the necessary
+> driver in the defconfig.
+> 
+> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Link: https://lore.kernel.org/linux-devicetree/961b3d43-b4c9-4573-82d7-844aa129d994@notapiano/
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/memory/brcmstb_memc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-diff --git a/drivers/memory/brcmstb_memc.c b/drivers/memory/brcmstb_memc.c
-index 4f17a93aa028..a2750142cef7 100644
---- a/drivers/memory/brcmstb_memc.c
-+++ b/drivers/memory/brcmstb_memc.c
-@@ -236,6 +236,10 @@ static const struct of_device_id brcmstb_memc_of_match[] = {
- 		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.4",
- 		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
- 	},
-+	{
-+		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5",
-+		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
-+	},
- 	/* default to the original offset */
- 	{
- 		.compatible = "brcm,brcmstb-memc-ddr",
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index c62831e61586..0fee3848d03a 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -516,6 +516,7 @@ CONFIG_TCG_TIS_I2C_INFINEON=y
+>  CONFIG_I2C_CHARDEV=y
+>  CONFIG_I2C_MUX=y
+>  CONFIG_I2C_MUX_PCA954x=y
+> +CONFIG_I2C_MUX_PINCTRL=m
+>  CONFIG_I2C_BCM2835=m
+>  CONFIG_I2C_CADENCE=m
+>  CONFIG_I2C_DESIGNWARE_CORE=y
+> --
+> 2.34.1
+> 
+
 -- 
-2.43.0
+Regards,
 
+Laurent Pinchart
 
