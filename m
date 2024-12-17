@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0244E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E5AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+99q9XjXls973Ka0DVdg9XXw6YYWSF0HictcG73wjk=; b=Jv4YFc07GcgG9MZwosX7k8EbsZ
-	Se/I9+WogYQCuhWU0i2Up7UVbhta6D42n94dg9Iag7adAzpZFuIGZaQ8EfdAlFJj2mCy3OYr0VHU/
-	fcjF7p7GJ4KHEdpZWPhupqWw71ZWp4P9JEgBSBZK5Jq4TDSRJwop2YzSxlLh0g6XuRKLOMZiuE+23
-	UaLQzt6/AgU0nAEW35+06BngXWX8PkzCwQpXifrn6RwI58JP451AXnCWcqTuPuSIUrJYGHn/UxL2Z
-	8zRMRi5RZ6Z3+Qec/p0X9t49lsj1yZQTdfK+4wh0siykIyUnneSBdiCT9Sc93T/IrdRWLpgmA8SZf
-	APvGmYxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OQPsyR7dAWj0HH5X6ewchiw1dxigQ2xEs+aOiFD7V1I=; b=MBBqXfMevj18gO/3zoUMDraGLe
+	ruVLGAXvWf4JxoJNL33HfHFjcMZwq8yZyOoeN1qkXvmYFpzmoEKsyLBByuY7r53JJcZ1lIfx8wa7Z
+	qWQzpiBpD36iVJ2xZ/IiPX/1FBQ6EAh8+SiGbpR7Cfausy405+Lc01LmD8OdOBwEnCJZH2Aof0RLA
+	OSNspt7i5lkJwnzqMzFparH3qCLzrxC7Cz+3HKgwF89WQv5apguW+2CsH6Fy4HqGw+iZGYL3UJo6V
+	cjUh8eeXSeEUpJmtzHTl6m0D2wQ2gtMWBHmSHPU0MLPa9EdRH1ST32DxCe2iLZdxklZonLfsjyOad
+	8727zZuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXth-0000000DdBF-2DHd;
-	Tue, 17 Dec 2024 13:46:01 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tNXul-0000000DdLZ-0Zzb;
+	Tue, 17 Dec 2024 13:47:07 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXoj-0000000DcMJ-2apN
+	id 1tNXpd-0000000DcVX-3hDw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 13:40:54 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHB2VGQ002932;
-	Tue, 17 Dec 2024 13:40:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	O+99q9XjXls973Ka0DVdg9XXw6YYWSF0HictcG73wjk=; b=JWp/5IqV9v4fG/Gg
-	CKPfFAP4epDMmbDMRv/ECm7y/fyASBo3tqCPrNjazoCU3y6h8KCN7NPNnPvTj5Jq
-	BkdS98fGydDxz+F01lqzvkQw2kur5pi92QJw6V1H4rOhwd4UuP0/rwdVXFkvKe/N
-	rf3AcxvylzAzV9me3DuVF7kcYXvMTcISdaMbufcVR664eqol6Goc7yhApoTjNJJG
-	7o49ntzpFlscMN4pKPHEM/5EZ3F/r5X0he/l8HdzcK9WvlDJppvQ4sEOeGPDtSSs
-	JlxI0pohN6CewJANtYB8qDsJWt/4sVB9uqJgKHKd7ooi8Ef7QZBi7bctaxAQvLcf
-	/EjNyg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k8310d6g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 13:40:44 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BHDeibT029443
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 13:40:44 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 17 Dec 2024 05:40:35 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: [PATCH v9 4/4] arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Date: Tue, 17 Dec 2024 19:09:55 +0530
-Message-ID: <20241217133955.946426-5-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241217133955.946426-1-quic_vikramsa@quicinc.com>
-References: <20241217133955.946426-1-quic_vikramsa@quicinc.com>
+	Tue, 17 Dec 2024 13:41:51 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53df19bf6a9so7486016e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:41:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734442908; x=1735047708; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OQPsyR7dAWj0HH5X6ewchiw1dxigQ2xEs+aOiFD7V1I=;
+        b=a5vCzHCEetmFpfjOMZK5fGD5IXEgTGkSnKfVg9d0Y1601jvjVgQ7EwZN91Xbyq6O66
+         qNWYu4wR6/l6Huhakxkm9KDhdsOnKOGK5cE0Qyknndt3LKq1ZKZSd5679xI3WY+M2fxN
+         O9/fdxnTMkHM9zNnu/hMLR42yBfDtj/LIIhIQvnB4BwHrYgvakCoeZxxxmKlyUOG2HzQ
+         024vslrBXa+WzG9BN4Mivu7wRV5UVbnmE7A7Z1k76zPC25bdQtdS3tCl6X9DItYta5je
+         bxZ4xa7U4jrhcysIoRrWhr7ICSYS+nRDNnTL7WqUfeVx3wGLNxVxv39kw6x3cC20JU+N
+         KntQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734442908; x=1735047708;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OQPsyR7dAWj0HH5X6ewchiw1dxigQ2xEs+aOiFD7V1I=;
+        b=ssznNfY+e3X24cfMXPq21oESFs8LCVbdSkySC3bDnmiq8/dVpfeA2jEhS/tLjHhQZo
+         rG3Dn85IlxSsjOFujeNtteUHbeEHhQbp3FI0W8Ysszxa/uWAKaxcqEXjjxr7UjE8O6tb
+         ePcJJGTgJ3RdFPmPig/fZtSwe2RfEqWeqktOFaDG33lxmN9PLx+jSd0/0u2+2VW4tK3j
+         wPtltMuUiOpvb6Q/MpMUhGo81cDDB6BLZkCl1AUthrO2dZ644t/MuNCtJvYtSbcXi8C0
+         aXihEBrhYl3uCpepZGhqQnf2dxsx1oB1v8P4IWNdecqWiqGbV9BWwdA7QRBLrWJHdkQU
+         E8WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTSMyUZkFaQIoxT0TLn3MYwZkL5YkF8do+qEhOfw/peQgZoKZwX+0x0afD6fbtNAQ0SOxfy1Ynox0zZuItHe8E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz89SLzsdzF89wZYe5snJPKgsKQPNaGGtjaGawMG2Wj81N0a8JZ
+	afQBmZ8he3fTucw0r44q1Ll4j0wFpAVrhshAwZkXgd6q6zRWz6GpZ0peHxf5dWRHzVfHRDmZnah
+	CfilZBEnL7zpVVQXpSJNXuT/+yilE6Y/o0vYkQA==
+X-Gm-Gg: ASbGncv5TqiZbxaCL4HJifQH/TJQpmpBCxOEblQr0tuhpdYd/4M5Cu3Yr1qTeI5wOuh
+	Ka5TYCRDQzx7W4mFxIvi7RfZwymjxdf3VGUazBw==
+X-Google-Smtp-Source: AGHT+IH4HRXYBmosVzpwGFebPuano60MtISoT9J69VFwW0An/ivv1V9rgWffgN2jJxOLz0JsvxSobN0rBrRAtASDJGM=
+X-Received: by 2002:a05:6512:3c85:b0:540:20b8:7325 with SMTP id
+ 2adb3069b0e04-5408fac7aeemr3900258e87.2.1734442908199; Tue, 17 Dec 2024
+ 05:41:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: IfMNLodiVYElQG-_CkP5B8EV6ymyY3Vp
-X-Proofpoint-ORIG-GUID: IfMNLodiVYElQG-_CkP5B8EV6ymyY3Vp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- priorityscore=1501 lowpriorityscore=0 mlxscore=0 spamscore=0 bulkscore=0
- clxscore=1015 adultscore=0 malwarescore=0 impostorscore=0 mlxlogscore=999
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412170109
+References: <20241119140805.3345412-1-paulk@sys-base.io> <20241119-prudent-jasmine-lizard-195cef@houat>
+In-Reply-To: <20241119-prudent-jasmine-lizard-195cef@houat>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 17 Dec 2024 14:41:36 +0100
+Message-ID: <CACRpkdbcDwJaLmCa_YoP2zFw3fiWn-d1Q773jGh9kcVN8aWQKQ@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Paul Kocialkowski <paulk@sys-base.io>, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Paul Kocialkowski <contact@paulk.fr>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_054053_661326_5D6BEC1F 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20241217_054149_917037_C7582477 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,163 +95,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-Enable the IMX577 on the vision mezzanine.
+On Tue, Nov 19, 2024 at 3:43=E2=80=AFPM Maxime Ripard <mripard@kernel.org> =
+wrote:
 
-An example media-ctl pipeline for the imx577 is:
+> [Paul]
+> > The pinctrl code supports an input-debounce device-tree property to set
+> > a specific debouncing period and choose which clock source is most
+> > relevant. However the property is specified in microseconds, which is
+> > longer than the minimal period achievable from the high-frequency
+> > oscillator without a pre-scaler.
+>
+> That can be fixed by introducing a new property with a ns resolution.
 
-media-ctl --reset
-media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+Perhaps, but I think a setting of 0 should just yield the minimum
+resolution in this case, as apparently the debounce cannot be
+turned off? This would also make sense to expose for
+gpiod_set_debounce() as explained in my other mail.
 
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-
-Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/Makefile             |   4 +
- .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 109 ++++++++++++++++++
- 2 files changed, 113 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 4686f2a8ddd8..a7e88fcabded 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -115,6 +115,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-+
-+qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-+
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
-diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-new file mode 100644
-index 000000000000..7782c4aee576
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+/*
-+ * Camera Sensor overlay on top of rb3gen2 core kit.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/qcom,camcc-sc7280.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l10c_0p88>;
-+	vdda-pll-supply = <&vreg_l6b_1p2>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* The port index denotes CSIPHY id i.e. csiphy3 */
-+		port@3 {
-+			reg = <3>;
-+
-+			csiphy3_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	status = "okay";
-+};
-+
-+&cci1_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default", "suspend";
-+		pinctrl-0 = <&cam2_default>;
-+		pinctrl-1 = <&cam2_suspend>;
-+
-+		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		dovdd-supply  = <&vreg_l18b_1p8>;
-+		avdd-supply = <&vph_pwr>;
-+		dvdd-supply = <&vph_pwr>;
-+
-+		port {
-+			imx577_ep: endpoint {
-+				clock-lanes = <7>;
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy3_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam2_default: cam2-default-state {
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+	};
-+
-+	cam2_suspend: cam2-suspend-state {
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+		};
-+
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+			output-low;
-+		};
-+	};
-+};
--- 
-2.25.1
-
+Yours,
+Linus Walleij
 
