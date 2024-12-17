@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB62E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08EDE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1OijE7D/bwZ86UgAtBbLF2m/QNftawfwPt9+VBoGOMA=; b=nuUnFoumlvlc/n4n0+o7JpqqlA
-	XG9p1rst87DFNC5w7A87+o02omfGJOrdgzHnQWCiSUsRRCemqnEIm2jSPaD3p59xvZ5yS4bL4kkex
-	gYGD5Itcj7wdNh32XcimVO8psWX1Fc4nkv4znOgfEaTF4o3cfXpOvuVYRsq7LQc/HfSQtDDBkvugN
-	QTkMkGOVVVR4t9t/++kn/0sfMSqt6VX3tR77Z4ZloTF4VxakWa2TbakgJHHJhBrPN2rMPNEHN71AQ
-	kGgMiTeHG+wwsrZoqhuFerpcaxayTXhbRB0hU387J5zDXrV83YSlaU1vxxKX1TSm9NzHSEkE6Gucx
-	M2L22FDg==;
+	bh=WMhEQ5FyK9OrG4uMjs+kjYbwMOyJiryWj2ETzJ64ZW8=; b=p/bB+jRKs0TX61dG9TM1WaQxQI
+	cnEP1aYqpg0XwlLvZxsZNov0AdJQBiqz34eG71/pT2UUHcD2gv8aTHkEEROwXoBCV3Tp+GMsqT2j/
+	kNhoQlyApHqdeNYkwkPRxpDqBKOl2FuIU6TmIEu6ZlrrBOgAC7CCHqkXj9pU2yFKpb8GX2xwwY7YB
+	uvjC5bebGkPFMpDhn2WiGdkmRA+mf4jR3YlLRnQfMcJp55bevxvsb+7B5L8uymJWnan/cqIlc01cM
+	oLfXXMRyRLgPLRlJqH6WQih0PxnTSgtm0MM8EViJT5FfvRf0gX+D4EJTZTDcFlEMoVuuWpLajANDE
+	bVRDnRMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbfB-0000000EP9q-1pLE;
-	Tue, 17 Dec 2024 17:47:17 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1tNbgG-0000000EPPR-08zm;
+	Tue, 17 Dec 2024 17:48:24 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbZk-0000000ENmA-007p
+	id 1tNbZk-0000000ENm4-3zVu
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 17 Dec 2024 17:41:42 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHCvnva000961;
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHDQcJP030946;
 	Tue, 17 Dec 2024 18:41:30 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	1OijE7D/bwZ86UgAtBbLF2m/QNftawfwPt9+VBoGOMA=; b=4Il6JQoG3WY0GlyR
-	24B7CWyp3y4xjoxwRFaowF6hCj2OyeWfQsmHOOK60FTtuwgTVuJgvrvz13906Vys
-	oF9xvPuBlGC6XTtk/ERGKX1++7LQsRH5J/7UClg93YsUDkn3vgXBqLTPMa41Wvxi
-	SaCBKwDq22DdninRj4brMSwYearonpJ0e5bijzKlqypN3558Lls6kkZqgdo/StU+
-	29urYt7WF1XYIjW6xgh0weDJ3jIUtwaOmdp7fTwO45Q938g2gok0ESantRv6/aDp
-	8XDCgGpOYKKm25rq4GhXmlS17D07HHxcp3KdizasgBpb/n1VQk5/VutcLH+PFLw3
-	qPKT7w==
+	WMhEQ5FyK9OrG4uMjs+kjYbwMOyJiryWj2ETzJ64ZW8=; b=zNX30k2PU6TmCfAg
+	KEHZWF2oHtjXM2VYUN1fVCnHIuiHFD3S2xQdQA5LLsGIl2W1k4KWahzxEeWfXTDz
+	GdlleZx36i6/ziR/VPj6HM34UInNtItiBzaDv99sU0Bqdqc0oFgUOAj6Ytw9xCs1
+	HGWnRDGQxDv522vQx9DE3Cz9p6b52qZKJJ7yNAgHtGKXnjPxXNy2Pzg525L6qvsw
+	5ieqQ8NDEQNTnuRmjd93S4l00leE3eROOFZ66JVe0cGsNC0cLw4e1FoNz6aaQK+N
+	Q38KAgBu1BNfdrfJ0Pdl4uFF2KId3rYZAcGCFY6AqWjZ2kACngH3NkvtYgRgc12P
+	6MygOA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43k5ngavvg-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43k5c4u3be-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 17 Dec 2024 18:41:30 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1F12D4004F;
-	Tue, 17 Dec 2024 18:40:22 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 57B9440046;
+	Tue, 17 Dec 2024 18:40:16 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 17DE52945CB;
-	Tue, 17 Dec 2024 18:39:33 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6E9C228FD76;
+	Tue, 17 Dec 2024 18:39:27 +0100 (CET)
 Received: from localhost (10.252.23.235) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 17 Dec
- 2024 18:39:32 +0100
+ 2024 18:39:27 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 17 Dec 2024 18:39:25 +0100
-Subject: [PATCH 8/9] media: stm32: csi: correct unsigned or useless
- variable settings
+Date: Tue, 17 Dec 2024 18:39:20 +0100
+Subject: [PATCH 3/9] media: stm32: csi: add missing pm_runtime_put on error
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241217-csi_dcmipp_mp25_enhancements-v1-8-2b432805d17d@foss.st.com>
+Message-ID: <20241217-csi_dcmipp_mp25_enhancements-v1-3-2b432805d17d@foss.st.com>
 References: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
 In-Reply-To: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -86,8 +85,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_094140_337280_9521D25B 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20241217_094141_314148_05FE6593 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +101,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct several missing unsigned type missing for loop variables
-and also remove useless initialization of variables.
+Within the stm32_csi_start function, pm_runtime_put should
+be called upon error following pm_runtime_get_sync.
+Rework the function error handling by putting a label in
+order to have common error handling for all calls requiring
+pm_runtime_put.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- drivers/media/platform/st/stm32/stm32-csi.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+ drivers/media/platform/st/stm32/stm32-csi.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
-index 1be12c9dcf55..602b0879f21e 100644
+index 48941aae8c9b..e2f63bb47d33 100644
 --- a/drivers/media/platform/st/stm32/stm32-csi.c
 +++ b/drivers/media/platform/st/stm32/stm32-csi.c
-@@ -357,7 +357,7 @@ static inline struct stm32_csi_dev *to_csidev(struct v4l2_subdev *sd)
- static int stm32_csi_setup_lane_merger(struct stm32_csi_dev *csidev)
- {
- 	u32 lmcfgr = 0;
--	int i;
-+	unsigned int i;
+@@ -497,21 +497,19 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
  
- 	for (i = 0; i < csidev->num_lanes; i++) {
- 		if (!csidev->lanes[i] || csidev->lanes[i] > STM32_CSI_LANES_MAX) {
-@@ -595,20 +595,20 @@ static int stm32_csi_start_vc(struct stm32_csi_dev *csidev,
- {
- 	struct v4l2_mbus_framefmt *mbus_fmt;
- 	const struct stm32_csi_fmts *fmt;
--	u32 cfgr1 = 0;
--	int ret = 0;
- 	u32 status;
-+	u32 cfgr1;
-+	int ret;
+ 	ret = pm_runtime_get_sync(csidev->dev);
+ 	if (ret < 0)
+-		return ret;
++		goto error_put;
  
- 	mbus_fmt = v4l2_subdev_state_get_format(state, STM32_CSI_PAD_SOURCE);
- 	fmt = stm32_csi_code_to_fmt(mbus_fmt->code);
+ 	/* Retrieve CSI2PHY clock rate to compute CCFR value */
+ 	phy_clk_frate = clk_get_rate(csidev->clks[STM32_CSI_CLK_CSI2PHY].clk);
+ 	if (!phy_clk_frate) {
+-		pm_runtime_put(csidev->dev);
+ 		dev_err(csidev->dev, "CSI2PHY clock rate invalid (0)\n");
+-		return ret;
++		ret = -EINVAL;
++		goto error_put;
+ 	}
  
- 	/* If the mbus code is JPEG, don't enable filtering */
- 	if (mbus_fmt->code == MEDIA_BUS_FMT_JPEG_1X8) {
--		cfgr1 |= STM32_CSI_VCXCFGR1_ALLDT;
-+		cfgr1 = STM32_CSI_VCXCFGR1_ALLDT;
- 		cfgr1 |= fmt->input_fmt << STM32_CSI_VCXCFGR1_CDTFT_SHIFT;
- 		dev_dbg(csidev->dev, "VC%d: enable AllDT mode\n", vc);
- 	} else {
--		cfgr1 |= fmt->datatype << STM32_CSI_VCXCFGR1_DT0_SHIFT;
-+		cfgr1 = fmt->datatype << STM32_CSI_VCXCFGR1_DT0_SHIFT;
- 		cfgr1 |= fmt->input_fmt << STM32_CSI_VCXCFGR1_DT0FT_SHIFT;
- 		cfgr1 |= STM32_CSI_VCXCFGR1_DT0EN;
- 		dev_dbg(csidev->dev, "VC%d: enable DT0(0x%x)/DT0FT(0x%x)\n",
-@@ -634,8 +634,8 @@ static int stm32_csi_start_vc(struct stm32_csi_dev *csidev,
+ 	ret = stm32_csi_setup_lane_merger(csidev);
+-	if (ret) {
+-		pm_runtime_put(csidev->dev);
+-		return ret;
+-	}
++	if (ret)
++		goto error_put;
  
- static int stm32_csi_stop_vc(struct stm32_csi_dev *csidev, u32 vc)
- {
--	int ret = 0;
- 	u32 status;
-+	int ret;
+ 	/* Enable the CSI */
+ 	writel_relaxed(STM32_CSI_CR_CSIEN, csidev->base + STM32_CSI_CR);
+@@ -567,6 +565,10 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+ 	writel_relaxed(0, csidev->base + STM32_CSI_PMCR);
  
- 	/* Stop the Virtual Channel */
- 	writel_relaxed(STM32_CSI_CR_VCXSTOP(vc) | STM32_CSI_CR_CSIEN,
-@@ -714,7 +714,7 @@ static int stm32_csi_enable_streams(struct v4l2_subdev *sd,
- static int stm32_csi_init_state(struct v4l2_subdev *sd,
- 				struct v4l2_subdev_state *state)
- {
--	int i;
-+	unsigned int i;
+ 	return ret;
++
++error_put:
++	pm_runtime_put(csidev->dev);
++	return ret;
+ }
  
- 	for (i = 0; i < sd->entity.num_pads; i++)
- 		*v4l2_subdev_state_get_format(state, i) = fmt_default;
-@@ -879,7 +879,8 @@ static irqreturn_t stm32_csi_irq_thread(int irq, void *arg)
- static int stm32_csi_get_resources(struct stm32_csi_dev *csidev,
- 				   struct platform_device *pdev)
- {
--	int irq, ret, i;
-+	unsigned int i;
-+	int irq, ret;
- 
- 	csidev->base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
- 	if (IS_ERR(csidev->base))
+ static void stm32_csi_stop(struct stm32_csi_dev *csidev)
 
 -- 
 2.34.1
