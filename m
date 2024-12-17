@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD39EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF35E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:41:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMjCYKV984QoRr28xf3w0OYwbaOYhzni2D5iyXZ+XqY=; b=wW/9QUaPkI0qAcsdYnDX9pk83P
-	IXMkpZOgyAviT1m1PQsKC0fX84xb9DhetV5D0vcWe9aGvzQhfyUAoMgcnd+6ALIIQFFjvtVqapdRu
-	+PBsyJwqPfvTxFGdAbx45LsHzF9QMBietujT2Mo3bgi3KPlzY9ZO6Bob/P9xY0oColfN/LBxRgRYu
-	YZfYzlcPu/p1exhtkRDwI28BBSPE8onsuvASAyZA6YZnL16GfS5Qps/PPbMwFfrAbgOJcWhQSyjh0
-	hDJN9aH9Ba6ZOUVB39nWNekwhBYHqocoYV/ClMM4AaIGG8FyGx07Bgk0IEdwR+Sn7rCCCuDLri5vT
-	KH81m+nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pQaa+/WHvveYlcBAw46Lz2iDSBiFAMNuKbuPYmosSWU=; b=XYuK6Hb20sS0djdDRfRZpMVPQb
+	pp12TgdccKBrl2eI61eRGT+lu63h97gVpB7CNeQ4USB2Wt4xdaGg6Q+1kDN7l+11TaGB+x2iSoNAC
+	IH3SSzOTIMz11DipVR3K0+ZW8MDnpC1OfzR1idvf4IFkSsqsQnfx3IZ2uPVLOWNu3aKZL3c4UFOIF
+	NlGzohxQrY8tfOBmDl3ci/rbJyDlJh7dc6mqynEudTi8UmmOklUnC6fQeeJENieLZCMiKIJLuIJYP
+	PzfbnlH2kB2OaPBImlQNdoGAIG1/puzIxHlYPRQ6rAOEfe/bz8/xC5wnkv8CViW5kncMdiSEC9VME
+	gdGb4/eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXoG-0000000DcDS-0NGS;
-	Tue, 17 Dec 2024 13:40:24 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1tNXpU-0000000DcTE-30HJ;
+	Tue, 17 Dec 2024 13:41:40 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXnA-0000000Dc0Z-1iLt
+	id 1tNXoN-0000000DcF3-2hWp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 13:39:17 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54025432becso5303978e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:39:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734442755; x=1735047555; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HMjCYKV984QoRr28xf3w0OYwbaOYhzni2D5iyXZ+XqY=;
-        b=slNM/HyoxZMXr53KLk0RuFIOQOd4ejGNIVhr683xj3U6TQrO23LSkDqN5+YV04DMVr
-         ItnbLkNn+PSNWn+dGgTTC4W1AhQ8oaWTU1fQIY9BTNr/23uFvw7yUH7pLpily4TKGSe6
-         ZtyIe+hHTHoN6jonQzmLPFetRhH2rq6zJCK08kb+BhmRb0mCC20uKT20LaHldkS3h9c8
-         YO3VdrXVkQfvO3rAC+tycgldjwPd/kv+GL3H9EldkRsXsgYyboZYhmV2RxOnAxU/5Acb
-         ySdjdulcg394qr6ZZww4jmjQL3B2hTkHIgDDVaY5eVi9wn6r3Trkx7mE3AJXFtAo/fXh
-         ZTGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734442755; x=1735047555;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HMjCYKV984QoRr28xf3w0OYwbaOYhzni2D5iyXZ+XqY=;
-        b=cIErZnmODFklXSLUnb6k7LvQoXPE459fjlmRlC+qn6D1C1FBT6Kzpz8IMop9/cjedh
-         bsS2Zo0ZOFkxFi0CdfyjSY3QGGZMJzWYna2440A87Cp40b6d968Lhm3zTpy6fE75NDnt
-         +tth9zdiKXXEugtMA3mMCspaHr0QVVxAKiXASp68bqNIYFk6ekcTyWiqO/J0s0HxmNEx
-         lIVHYtY4DB8rinkzYPQ98rJfo0bYE13edGXIsa0OxKp0khJhf+LGckloa3M/+qfoAkBh
-         SUvYwuDxwO6LJC4HR9QHlMyF7BxNM3cAe3k9Uwn6SCb72g3ZtATzq2nSoagF+ahWXxYp
-         dOWA==
-X-Forwarded-Encrypted: i=1; AJvYcCUo8AtAE92ufWJctcU4hTBTqZ4cbq09ExnEZsPudSNHuhBrWOFaVxjzYTWKD89ZXfIJegLAsY804dKmB2cxrwKF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYDzSfhmKnGchkjf4mhLpUW+H50E2AC9pcMmY0YYuc0Q+3etMV
-	ZwHlETi//uWfkHAFWLI0UVktba4RNotfcau0XWBaVm8mNfjIGvu56DWM1rYaE44w8h0uSEIKWRC
-	xbMAbCurUIq3ICP7aA1n8le5k66dA4EpX1UXeBg==
-X-Gm-Gg: ASbGnctgjnJg/f0Qh2DsMGWjxYCA6g5OWkHhPp25x7FQq0PnajTS+fFJrsGLuaFD4SK
-	DvFfkziXcr2EM5UqLO3b6i+tkQEKsXbo1XLETWw==
-X-Google-Smtp-Source: AGHT+IEjrp870JNskf6bHNzYI2aNmKqs1NPMelQxcm9rfeKc8LyEkX5SdkkUq1R1luqQe2P7T5643ul/B1u9O9Mw0vc=
-X-Received: by 2002:a05:6512:1287:b0:540:1ca7:4fe9 with SMTP id
- 2adb3069b0e04-5409054e4b0mr4948477e87.22.1734442754678; Tue, 17 Dec 2024
- 05:39:14 -0800 (PST)
+	Tue, 17 Dec 2024 13:40:33 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH95fUc023906;
+	Tue, 17 Dec 2024 13:40:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=pQaa+/WHvveYlcBAw46Lz2
+	iDSBiFAMNuKbuPYmosSWU=; b=f3Eq9CMphI7UBEXBafAZC6X/pB9kTac6g4fdhh
+	OoBGq+CPtAdo2qdsEOdJbzN6ImNhTHqfNNP2pee/x4sUB+fxHuP2sw08T0aXDi0x
+	G2UyKi45D5SGBl5VxOarHouAv2lmj+qMajs3Q9HLIuYzBzcumX7esTX8FrYU3J0n
+	lfdB+Beemy9H55dQ0t2lvcvDsX1WzkNms10+HQ1Vw9CDIKwTdKaZFtsYRc/0XeiV
+	ejpnsX3V9YZt/DH4OYOw91vKEfzYRLYSOwFWNM1vfWzt98xmkiZy6H3X62ZZ9Ow3
+	OKGahrkWOIxmpVosh4kH/yTcZHFwFqbO7WAbzXFHhYiYM3QA==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k6c8gr4e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 13:40:20 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BHDeJgN026169
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 13:40:19 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 17 Dec 2024 05:40:10 -0800
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>,
+        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
+        <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <kernel@quicinc.com>
+Subject: [PATCH v9 0/4] media: qcom: camss: Add sc7280 support
+Date: Tue, 17 Dec 2024 19:09:51 +0530
+Message-ID: <20241217133955.946426-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20241119140805.3345412-1-paulk@sys-base.io> <20241119-prudent-jasmine-lizard-195cef@houat>
- <ZzyoIABRArkGoZBn@collins>
-In-Reply-To: <ZzyoIABRArkGoZBn@collins>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 17 Dec 2024 14:39:03 +0100
-Message-ID: <CACRpkdbqufNVq4Ai6GQpgK2OY0rxLnp1wLQNmRoCv44T0xmFkQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Kocialkowski <contact@paulk.fr>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: VuH2k1nUOvi_-J2jEX9QkdXaxqgGdrOg
+X-Proofpoint-ORIG-GUID: VuH2k1nUOvi_-J2jEX9QkdXaxqgGdrOg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 spamscore=0
+ mlxscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
+ suspectscore=0 mlxlogscore=999 malwarescore=0 clxscore=1015
+ impostorscore=0 phishscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2411120000 definitions=main-2412170109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_053916_456768_9F0D9E1C 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20241217_054031_838259_594A6722 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,93 +101,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some discussion here, and some emotions involved.
+SC7280 is a Qualcomm SoC. This series adds support to bring up the CSIPHY,
+CSID, VFE/RDI interfaces in SC7280.
 
-I can't seem to follow the technical matter because of all the
-social matters :/
+SC7280 provides
 
-On Tue, Nov 19, 2024 at 4:00=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
+- 3 x VFE, 3 RDI per VFE
+- 2 x VFE Lite, 4 RDI per VFE
+- 3 x CSID
+- 2 x CSID Lite
+- 5 x CSI PHY
 
-> My use-case here was hooking up a sparkfun sensor board by the way,
-> not some very advanced corner-case.
+We have tested this on qcs6490-rb3gen2-vision-mezzanine board having IMX577
+sensor. Verified both TPG and IMX577 sensor.
 
-Are you adding this as a DT overlay or by modifying an existing device
-tree? Does this sensor have an established device tree binding?
+Used following tools for the sanity check of these changes.
 
-Are you using that sparkfun sensor by a kernel driver or from userspace
-using the GPIO character device?
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml
+qcom/qcs6490-rb3gen2-vision-mezzanine.dtb
+- make DT_CHECKER_FLAGS=-m W=1
+DT_SCHEMA_FILES=media/qcom,sc7280-camss.yaml dt_binding_check
+- Smatch: make CHECK="smatch --full-path"
+M=drivers/media/platform/qcom/camss/
+- Sparse: make C=2 M=drivers/media/platform/qcom/camss/
+- coccicheck : make coccicheck M=drivers/media/platform/qcom/camss/
+- make -j32 W=1
+- ./scripts/checkpatch.pl
+ 
+Changes in V9:
+- Removed GCC_CAMERA_AHB_CLK as its always enabled.
+- Added GCC_CAMERA_SF_AXI_CLK.
+- Renamed gcc_cam_hf_axi to gcc_axi_hf.
+- V8 had 5 patches and V9 have 4 patches.
+- First 3 patches of V8 are already promoted to linux-next
+i.e  
+  media: dt-bindings: Add qcom,sc7280-camss
+  media: qcom: camss: Sort camss version enums and compatible strings
+  media: qcom: camss: Add support for camss driver on sc7280
+- 2 new patches are added to handle new comments from Konrad on
+  "Patch v8 4/5 arm64: dts: qcom: sc7280: Add support for camss" 
+  1 of the 2 new patches make changes in yaml and other one is making
+  change in camss driver to handle new comments in dtsi.
+- for "Patch v8 4/5 arm64: dts: qcom: sc7280: Add support for camss" I got
+  comments from Konrad to make changes for clock names so I had to make
+  respective changes in "bindings/media/qcom,sc7280-camss.yaml". As dtsi
+  changes are not merged yet, so there is no issues with backward
+  compatibility and I am assuming this should be acceptable.
+  
+Changes in V8:
+- Changed node name from camss to isp.
+- Added QCOM_ICC_TAG_ACTIVE_ONLY and QCOM_ICC_TAG_ALWAYS tags for
+  interconnects. 
+- Added blank lines when required.
+- Modified power-domain-names from horizontal to vertical list.
+- Sorted pinctrl nodes based on gpio index.
+- Link to v7: https://lore.kernel.org/linux-arm-msm/20241204100003.300123-1-quic_vikramsa@quicinc.com/
 
-I noticed that the sunxi GPIO driver is implementing the
-.set_config() callback calling gpiochip_generic_config,
-which makes it call down to the pin control driver to set up
-the pin config.
+Changes in V7:
+- Changed unit address for camss in documention and dts.
+- Added avdd-supply and dvdd-supply for sensor.
+- Changed reg/clocks/interrupts name for vfe_lite and csid_lite.
+- Link to v6: https://lore.kernel.org/linux-arm-msm/20241127100421.3447601-1-quic_vikramsa@quicinc.com/
 
-which would in turn make it eligible to use
-the gpiod_set_debounce() callback to push down the debounce
-period.
+Changes in V6:
+- Changed order of properties in Documentation [PATCH 1/5].
+- Updated description for ports in Documentaion [PATCH 1/5].
+- Moved regulators from csid to csiphy [PATCH 3/5].
+- Link to v5: https://lore.kernel.org/linux-arm-msm/20241112173032.2740119-1-quic_vikramsa@quicinc.com/ 
 
-But pinctrl-sunxi.c's sunxi_pconf_set() does *NOT* implement
-support for setting up the debounce, because it is (as I understand
-it) not part of the pin config hardware, but part of the interrupt
-generator hardware, correct?
+Changes in V5:
+- Updated Commit text for [PATCH v5 1/6].
+- Moved reg after compatible string.
+- Renamed csi'x' clocks to vfe'x'_csid
+- Removed [PATCH v4 4/6] and raised a seprate series for this one.
+- Moved gpio states to mezzanine dtso.
+- Added more clock levels to address TPG related issues.
+- Renamed power-domains-names -> power-domain-names. 
+- Link to v4: https://lore.kernel.org/linux-arm-msm/20241030105347.2117034-1-quic_vikramsa@quicinc.com/ 
 
-In that case I think we the gpiochip .set_config() callback should
-be modified something like this (pseudo code):
+Changes in V4:
+- V3 had 8 patches and V4 is reduced to 6.
+- Removed [Patch v3 2/8] as binding change is not required for dtso.
+- Removed [Patch v3 3/8] as the fix is already taken care in latest
+  kernel tip. 
+- Updated alignment for dtsi and dt-bindings.
+- Adding qcs6490-rb3gen2-vision-mezzanine as overlay. 
+- Link to v3: https://lore.kernel.org/linux-arm-msm/20241011140932.1744124-1-quic_vikramsa@quicinc.com/
 
-sunxi_pinctrl_gpio_set_config()
-{
-    if (irq_is_in_use && param_is_debounce) {
-        modify_irq_debounce_according_to_param()
-        return 0;
-    }
-    gpiochip_generic_config()
-}
+Changes in V3:
+- Added missed subject line for cover letter of V2.
+- Updated Alignment, indentation and properties order.
+- edit commit text for [PATCH 02/10] and [PATCH 03/10].
+- Refactor camss_link_entities.
+- Removed camcc enablement changes as it already done.
+- Link to v2: https://lore.kernel.org/linux-arm-msm/20240904-camss_on_sc7280_rb3gen2_vision_v2_patches-v1-0-b18ddcd7d9df@quicinc.com/
 
-pctl->chip->set_config =3D sunxi_pinctrl_gpio_set_config()
+Changes in V2:
+- Improved indentation/formatting.
+- Removed _src clocks and misleading code comments.
+- Added name fields for power domains and csid register offset in DTSI.
+- Dropped minItems field from YAML file.
+- Listed changes in alphabetical order.
+- Updated description and commit text to reflect changes
+- Changed the compatible string from imx412 to imx577.
+- Added board-specific enablement changes in the newly created vision
+  board DTSI file.
+- Fixed bug encountered during testing.
+- Moved logically independent changes to a new/seprate patch.
+- Removed cci0 as no sensor is on this port and MCLK2, which was a
+  copy-paste error from the RB5 board reference.
+- Added power rails, referencing the RB5 board.
+- Discarded Patch 5/6 completely (not required).
+- Removed unused enums.
+- Link to v1: https://lore.kernel.org/linux-arm-msm/20240629-camss_first_post_linux_next-v1-0-bc798edabc3a@quicinc.com/
 
-Maybe the debounce can also be set even if the line is not used
-for IRQ? I'm not sure.
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 
-In either case the latter would give the GPIO driver a handle
-on the debounce, which is good because the irqchip
-generally does not.
+Vikram Sharma (4):
+  media: dt-bindings: update clocks for sc7280-camss
+  media: qcom: camss: update clock names for sc7280
+  arm64: dts: qcom: sc7280: Add support for camss
+  arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision
+    mezzanine
 
-There is a way it is possible to use the interrupt with desired debounce
-setting by first getting the GPIO descriptor and modify the debounce
-setting and then getting the interrupt from the GPIO descriptor:
+ .../bindings/media/qcom,sc7280-camss.yaml     |  10 +-
+ arch/arm64/boot/dts/qcom/Makefile             |   4 +
+ .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 109 +++++++++++
+ arch/arm64/boot/dts/qcom/sc7280.dtsi          | 178 ++++++++++++++++++
+ drivers/media/platform/qcom/camss/camss.c     |  15 +-
+ 5 files changed, 306 insertions(+), 10 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
 
-struct gpio_desc *g;
-int irq;
+-- 
+2.25.1
 
-g =3D gpiod_get(dev, "dataready", GPIOD_IN);
-gpiod_set_debounce(g, 1);
-irq =3D gpiod_to_irq(g);
-...request irq...
-
-Here I assume the line out from the sensor is named "dataready"
-the actual component likely has a name like that for the line.
-
-This requires changes in the device tree as well, so that a GPIO
-line is assigned to the sensor instead of "just" an interrupt:
-
-sensor {
-  dataready-gpios =3D <&gpio 14>;
-  ...
-};
-
-instead of:
-
-sensor {
-  interrupt-parent =3D <&gpio>;
-  interrupts =3D <14 IRQ_TYPE_EDGE_RISING>;
-};
-
-Unfortunately this is one of the areas where DT bindings are
-a bit ambiguous. Some just assign the GPIO line as an interrupt
-as both APIs are available, sometimes a proper GPIO line is
-preferred for the above reasons.
-
-Yours,
-Linus Walleij
 
