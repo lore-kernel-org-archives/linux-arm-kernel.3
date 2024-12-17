@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1B0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8989EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRaA8QbuuRReYFOYhA5H3YsQUanXbjrfpnfvlWrVcZE=; b=B/lOyrtxNdJ3PiBZc6vJd2QGmU
-	6rErxZgU9cIyFrgG58+1lwyP3nI0mjKiFCsNk7h/CHj85CArM+u7JBvzh2OumWiFwsCIwC9g3QoMh
-	VMaXco/m50CYsSmaX9DDKQX5GiMIVPQCCmT15/TGeSD5wngmn5F9VvOCRtaBO7pPEO/LHtP/wOjDo
-	adbErj1nVAseGx0lzRkW4hw4cekU3Qo5sOXHqRZvY5R0efDKFi4jL47/gjTRnjLzKdnXgtFAxPbLG
-	Ovfsv7ImDWTchhKL6MIU/D8JRusUNZyccAgIa6IYDvEOWdM+JxFoZkroAjULSez4nE7yLFit1AydW
-	g88b4QHg==;
+	bh=nLEejoKg7ZzB0CDe+b/h/vQQ+cGKoAXZ0Zqql/x4s88=; b=cLhg0UZ7kmkmHuaPopAv3Sc1WI
+	/TGwBFmhqWDsQP/irYaKE6yxkVzeCttGIwu/26G1QbpyIQAdy8paeH42Xr2/phO23x3TRb1qkalql
+	35+P+Q2J0U+aWX/lskEGouS6C5NXLwgRZUHIaxKo7j1CxXzzeBoLTi1lqkSW1PWQ/PMQYZhg0SDpr
+	2dL0byt87lSUUUesQF6TQDJdNRvbzu7T12+k5KuwKsGfvYNMWD0gqSeAfkKEFE3n/wp/MdSpYYH8f
+	xELCgXF40PIr1TYnGT8KHWQV8HRS1+Q4UNCEsmBqZ58iD3G5Tn0SgJ2WNXq8snrnOj1TZV58P4j+L
+	1/c1k1Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYZE-0000000Dknm-0XNZ;
-	Tue, 17 Dec 2024 14:28:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tNYaH-0000000Dl3k-3QqA;
+	Tue, 17 Dec 2024 14:30:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYTx-0000000DjY7-1o2W
+	id 1tNYU0-0000000DjZ2-2QiS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Dec 2024 14:23:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=nLEejoKg7ZzB0CDe+b/h/vQQ+cGKoAXZ0Zqql/x4s88=; b=JbUv7v/46Y/g3iqsJXywf8v+XS
+	Kj8hZlUyh4c9LB1I4ZYBvnBJ6WRB6LNQlwxJAi6eIWIvKpeYw9su5hjHsUwrBv5mAhO4KH4Ih4F47
+	ifY6ZQ+8RMOaqwNJy0sMEEJB5S5iEMoMvqXG3Jb8U8lN8Nn2YKdnJlGLxk9npSR0vKuzRu5oPFm15
+	SDcmW4EIj1jiwwNbmbCrylD3e1h4ziP0rO0y+kxr4mJGlRdOt6vc9lAkUOSMTQE1TBlv56yyEgUUK
+	sJ0HmmUcplvRJ4wPM7cK/ZNlyYmRA4S67+FEeq9tmjCpqvyreKQmURAJ8s4o0K0/I7I4NG+plZybT
+	hfUV9yHg==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNYTx-000000055Wr-0oWT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:23:30 +0000
+	Tue, 17 Dec 2024 14:23:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C9EB9A418DD;
-	Tue, 17 Dec 2024 14:21:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 559B0C4CED3;
-	Tue, 17 Dec 2024 14:23:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 015BD5C5882;
+	Tue, 17 Dec 2024 14:22:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6AD0C4CED4;
+	Tue, 17 Dec 2024 14:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734445408;
-	bh=lF2ax88UUsP94gAzYVqXkXrfXc+/lzun8rESgff8Kw8=;
+	s=k20201202; t=1734445406;
+	bh=nt83Bx4IHnA3dzdKS/0K9IvUZKFruxfW2Pr7Afn3zv8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nkMX7o6aZMQc+YTR90omdLeqJQCyfPFiBboJmkdiDnnC/ilocBahACOwO+fC4JQdV
-	 NE6aOtD30XLpOdPnJJ+7ETQYG1jLI8vkFp6aNq0PbO/I17BkLX2azdP3YEIKZO9n/A
-	 1jmMXNUH+Osu8FvJgCcZRWYGVzwCUzBX9DgFGXaywFPyH3QAlLRQbSx0CHceCdiJbe
-	 xOM4OXeLix/51wylaTOZSBfYNJkwymn6osQ5FT37p3PMdAfsyyCIV7vy/bow9353Ga
-	 5PLMB5cjEHaRUCq357KJRqhD5O1WEn5yBAP/Hc3WiGU3HpKF5SCqYzlXOg6xk+Kgh3
-	 29pthKxKfujew==
+	b=RQIynE8QpmGUpRjsK5ottqArt6PSiSqa0XjRb0tbaXVre7Yd+6dYg8jkxM2Hp3Cgg
+	 OFT9dcfOltxZ9eADuStA2C1CPfqxsGvCixmyIFbC9Q6AbBqMp+TzT+PH4W12QDAsIp
+	 gK9vpCq+zmD9J0eaNRh1FmOV/lU5atCpY+A0Cfkf1HTUbIU/5WvXLf3blwmRr4we+8
+	 OiRULy6rmgKBw1tM/Sp0LCQiepPxp7mAeBD+rBTVCUbfjtOD+9a7VU4cVLaDZODtqQ
+	 /aUmno6TAFShy0lkpk3y3MZ19pRilri3uqKr9gpdz5ZxzY3mVAL80TOSjV7pfLmtsW
+	 LNZKQYTo7HshA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tNYTu-004aJx-CF;
-	Tue, 17 Dec 2024 14:23:26 +0000
+	id 1tNYTs-004aJx-U5;
+	Tue, 17 Dec 2024 14:23:25 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -61,9 +76,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
 	Chase Conklin <chase.conklin@arm.com>,
 	Eric Auger <eauger@redhat.com>
-Subject: [PATCH v2 09/12] KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
-Date: Tue, 17 Dec 2024 14:23:17 +0000
-Message-Id: <20241217142321.763801-10-maz@kernel.org>
+Subject: [PATCH v2 03/12] KVM: arm64: nv: Publish emulated timer interrupt state in the in-memory state
+Date: Tue, 17 Dec 2024 14:23:11 +0000
+Message-Id: <20241217142321.763801-4-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241217142321.763801-1-maz@kernel.org>
 References: <20241217142321.763801-1-maz@kernel.org>
@@ -74,8 +89,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_062329_534062_D450997A 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20241217_142329_743492_49F56E0D 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +105,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow a guest hypervisor to trap accesses to CNT{P,V}CT_EL02 by
-propagating these trap bits to the host trap configuration.
+With FEAT_NV2, the EL0 timer state is entirely stored in memory,
+meaning that the hypervisor can only provide a very poor emulation.
 
+The only thing we can really do is to publish the interrupt state
+in the guest view of CNT{P,V}_CTL_EL0, and defer everything else
+to the next exit.
+
+Only FEAT_ECV will allow us to fix it, at the cost of extra trapping.
+
+Suggested-by: Chase Conklin <chase.conklin@arm.com>
+Suggested-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arch_timer.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/kvm/arch_timer.c | 21 +++++++++++++++++++++
+ arch/arm64/kvm/arm.c        |  2 +-
+ 2 files changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 6f04f31c0a7f2..e5951e6eaf236 100644
+index ee5f732fbbece..8bff913ed1264 100644
 --- a/arch/arm64/kvm/arch_timer.c
 +++ b/arch/arm64/kvm/arch_timer.c
-@@ -824,6 +824,10 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- 	 * Apply the enable bits that the guest hypervisor has requested for
- 	 * its own guest. We can only add traps that wouldn't have been set
- 	 * above.
-+	 * Implementation choices: we do not support NV when E2H=0 in the
-+	 * guest, and we don't support configuration where E2H is writable
-+	 * by the guest (either FEAT_VHE or FEAT_E2H0 is implemented, but
-+	 * not both). This simplifies the handling of the EL1NV* bits.
- 	 */
- 	if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
- 		u64 val = __vcpu_sys_reg(vcpu, CNTHCTL_EL2);
-@@ -834,6 +838,9 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
+@@ -441,11 +441,30 @@ void kvm_timer_update_run(struct kvm_vcpu *vcpu)
+ 		regs->device_irq_level |= KVM_ARM_DEV_EL1_PTIMER;
+ }
  
- 		tpt |= !(val & (CNTHCTL_EL1PCEN << 10));
- 		tpc |= !(val & (CNTHCTL_EL1PCTEN << 10));
++static void kvm_timer_update_status(struct arch_timer_context *ctx, bool level)
++{
++	/*
++	 * Paper over NV2 brokenness by publishing the interrupt status
++	 * bit. This still results in a poor quality of emulation (guest
++	 * writes will have no effect until the next exit).
++	 *
++	 * But hey, it's fast, right?
++	 */
++	if (is_hyp_ctxt(ctx->vcpu) &&
++	    (ctx == vcpu_vtimer(ctx->vcpu) || ctx == vcpu_ptimer(ctx->vcpu))) {
++		unsigned long val = timer_get_ctl(ctx);
++		__assign_bit(__ffs(ARCH_TIMER_CTRL_IT_STAT), &val, level);
++		timer_set_ctl(ctx, val);
++	}
++}
 +
-+		tpt02 |= (val & CNTHCTL_EL1NVPCT);
-+		tvt02 |= (val & CNTHCTL_EL1NVVCT);
+ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
+ 				 struct arch_timer_context *timer_ctx)
+ {
+ 	int ret;
+ 
++	kvm_timer_update_status(timer_ctx, new_level);
++
+ 	timer_ctx->irq.level = new_level;
+ 	trace_kvm_timer_update_irq(vcpu->vcpu_id, timer_irq(timer_ctx),
+ 				   timer_ctx->irq.level);
+@@ -471,6 +490,8 @@ static void timer_emulate(struct arch_timer_context *ctx)
+ 		return;
  	}
  
++	kvm_timer_update_status(ctx, should_fire);
++
  	/*
+ 	 * If the timer can fire now, we don't need to have a soft timer
+ 	 * scheduled for the future.  If the timer cannot fire at all,
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index fa3089822f9f3..bda905022df40 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1228,7 +1228,7 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 			kvm_timer_sync_user(vcpu);
+ 
+-		if (vcpu_has_nv(vcpu))
++		if (is_hyp_ctxt(vcpu))
+ 			kvm_timer_sync_nested(vcpu);
+ 
+ 		kvm_arch_vcpu_ctxsync_fp(vcpu);
 -- 
 2.39.2
 
