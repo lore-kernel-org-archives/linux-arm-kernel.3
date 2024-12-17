@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400A0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 03:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09581E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 03:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=89/Ied276i9FOsoHd8vBC5qsTunh5CJ0SvVAdLuPAlg=; b=IZsDIvx/1QzbHZQ/PPTWEFrE6J
-	pI0LFEs2kvHPzGPfEkbg47cg2q+lf7EZtlXqvIW7cVzt/KCzC+L3HFHg4An5f9df2DRZbiY6jM1Ra
-	AlouoPZQcqPQVdqWh83z1ZSzijwxeFRdGWE5P1rrtRlOHAdIDOcw5fv+EpaGzEp4IGtpgIy0x5VzE
-	u+d4xoTO/c6fLFBda/fAENZaTMIOzGAdqQSVFJzBmOBwZfaQVBPAiSIh5ERtj8ofDOVuM155I8ncm
-	vgFa6FJWgE8leBXx39G0/Fo/nLK4tgE/1oQ/HzivVJySXfSPuiQNy6RJHx8K4r6vYwPa65Ix1i324
-	mBcV8XCA==;
+	bh=c/CARx85000XHBKgmihX+K8OJrtESPIODkKBMnaE4CQ=; b=oqIGRv3TtrjOXUGYhOZoRPpO2m
+	HmxFy1Tc4K+j2VP05KXITzTdLxvO5yXC5Q8BNf8qfKWDczCt04w0CRWsz/5pQOQJIrzBhN4puaEb+
+	YkVfqUKE8UJBxirqhQy6pck3kC8g4Oj8Q26bv/kBJrlicKHaIzginnQmCenzCCZugs0SHfNI3nQC4
+	fxH7voM0GLpUyVK9saXjeCWXne7l1g7aZGM6ShOD5W9SXBLSzogmrBvTZ1aNJewRqQJXEMhj4GCjU
+	00dSPb65q2Viv8fiDHRftla0QGHi4utn35IIMk5wYmK+NXIDahz/1jhy6YDQbhyesorTSx80uoNds
+	tmPzntAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNOHH-0000000C358-0MZH;
-	Tue, 17 Dec 2024 03:29:43 +0000
-Received: from ip-89-177-23-149.bb.vodafone.cz ([89.177.23.149] helo=ixit.cz)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNOGB-0000000C2yi-3PZj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 03:28:37 +0000
-Received: from newone.lan (99-158-29-91.lightspeed.miamfl.sbcglobal.net [99.158.29.91])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 65AC5165D79;
-	Tue, 17 Dec 2024 04:28:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1734406113;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=89/Ied276i9FOsoHd8vBC5qsTunh5CJ0SvVAdLuPAlg=;
-	b=Goh5CCtDS0tPNf+WJafGDsjV46WvVKe3mlRhlW6LAED2fz52JcKVwm0FYXThOcm/Tn/aED
-	SLg6MGyhHs+ldP9qcn3PRVdJDDUvcdQPprh/FBA5qy8sJe6mbuDkoQiMQAiyxSACOJM1pv
-	+sJk2QVvBaFGOZo6RfgKXP6SGRUmjkE=
-From: David Heidelberg <david@ixit.cz>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Umang Jain <umang.jain@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: David Heidelberg <david@ixit.cz>,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1tNOaQ-0000000C4kg-0Gp8;
+	Tue, 17 Dec 2024 03:49:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNOZK-0000000C4aE-1eVV;
+	Tue, 17 Dec 2024 03:48:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32CDA1063;
+	Mon, 16 Dec 2024 19:48:48 -0800 (PST)
+Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7C23E3F720;
+	Mon, 16 Dec 2024 19:48:13 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: steven.price@arm.com,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: media: imx283: Describe sensor address using the reg property
-Date: Mon, 16 Dec 2024 22:28:17 -0500
-Message-ID: <20241217032821.1712916-1-david@ixit.cz>
-X-Mailer: git-send-email 2.45.2
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org
+Subject: [PATCH] mm/ptdump: Drop GENERIC_PTDUMP
+Date: Tue, 17 Dec 2024 09:18:07 +0530
+Message-Id: <20241217034807.2541349-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_192836_187223_052DB175 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20241216_194822_524733_51CEC020 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +79,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the reg property instead of text in the description.
+GENERIC_PTDUMP does not guard any code but instead just used for platform's
+subscription into core ptdump defined under PTDUMP_CORE, which is selected.
+Instead use PTDUMP_CORE for platform subscription and drop GENERIC_PTDUMP.
 
-Signed-off-by: David Heidelberg <david@ixit.cz>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: kvmarm@lists.linux.dev
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-mm@kvack.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- .../devicetree/bindings/media/i2c/sony,imx283.yaml         | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+This patch applies on v6.13-rc3 and has been tested on arm64, although it
+also clears build tests on impacted platforms.
 
-diff --git ./Documentation/devicetree/bindings/media/i2c/sony,imx283.yaml ./Documentation/devicetree/bindings/media/i2c/sony,imx283.yaml
-index e4f49f1435a5..f4ee991c89a3 100644
---- ./Documentation/devicetree/bindings/media/i2c/sony,imx283.yaml
-+++ ./Documentation/devicetree/bindings/media/i2c/sony,imx283.yaml
-@@ -13,16 +13,15 @@ maintainers:
+ Documentation/arch/arm64/ptdump.rst       | 1 -
+ arch/arm64/Kconfig                        | 2 +-
+ arch/arm64/kvm/Kconfig                    | 3 +--
+ arch/powerpc/Kconfig                      | 2 +-
+ arch/powerpc/configs/mpc885_ads_defconfig | 1 -
+ arch/riscv/Kconfig                        | 2 +-
+ arch/s390/Kconfig                         | 2 +-
+ arch/x86/Kconfig                          | 2 +-
+ arch/x86/Kconfig.debug                    | 2 +-
+ kernel/configs/debug.config               | 1 -
+ mm/Kconfig.debug                          | 8 ++------
+ 11 files changed, 9 insertions(+), 17 deletions(-)
+
+diff --git a/Documentation/arch/arm64/ptdump.rst b/Documentation/arch/arm64/ptdump.rst
+index 5dcfc5d7cddf..61ca040a885b 100644
+--- a/Documentation/arch/arm64/ptdump.rst
++++ b/Documentation/arch/arm64/ptdump.rst
+@@ -22,7 +22,6 @@ offlining of memory being accessed by the ptdump code.
+ In order to dump the kernel page tables, enable the following
+ configurations and mount debugfs::
  
- description:
-   IMX283 sensor is a Sony CMOS active pixel digital image sensor with an active
--  array size of 5472H x 3648V. It is programmable through I2C interface. The
--  I2C client address is fixed to 0x1a as per sensor data sheet. Image data is
--  sent through MIPI CSI-2.
-+  array size of 5472H x 3648V. It is programmable through I2C interface.
-+  Image data is sent through MIPI CSI-2.
+- CONFIG_GENERIC_PTDUMP=y
+  CONFIG_PTDUMP_CORE=y
+  CONFIG_PTDUMP_DEBUGFS=y
  
- properties:
-   compatible:
-     const: sony,imx283
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 100570a048c5..b5479c8b454c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -154,7 +154,7 @@ config ARM64
+ 	select GENERIC_IRQ_SHOW_LEVEL
+ 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
+ 	select GENERIC_PCI_IOMAP
+-	select GENERIC_PTDUMP
++	select PTDUMP_CORE
+ 	select GENERIC_SCHED_CLOCK
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index ead632ad01b4..fe17d7f5b061 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -71,8 +71,7 @@ config PTDUMP_STAGE2_DEBUGFS
+ 	depends on KVM
+ 	depends on DEBUG_KERNEL
+ 	depends on DEBUG_FS
+-	depends on GENERIC_PTDUMP
+-	select PTDUMP_CORE
++	depends on PTDUMP_CORE
+ 	default n
+ 	help
+ 	  Say Y here if you want to show the stage-2 kernel pagetables
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index a0ce777f9706..c716f8df10de 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -203,7 +203,7 @@ config PPC
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_IRQ_SHOW_LEVEL
+ 	select GENERIC_PCI_IOMAP		if PCI
+-	select GENERIC_PTDUMP
++	select PTDUMP_CORE
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL
+ 	select GENERIC_VDSO_TIME_NS
+diff --git a/arch/powerpc/configs/mpc885_ads_defconfig b/arch/powerpc/configs/mpc885_ads_defconfig
+index 77306be62e9e..ea6f836407d2 100644
+--- a/arch/powerpc/configs/mpc885_ads_defconfig
++++ b/arch/powerpc/configs/mpc885_ads_defconfig
+@@ -78,4 +78,3 @@ CONFIG_DEBUG_VM_PGTABLE=y
+ CONFIG_DETECT_HUNG_TASK=y
+ CONFIG_BDI_SWITCH=y
+ CONFIG_PPC_EARLY_DEBUG=y
+-CONFIG_GENERIC_PTDUMP=y
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d4a7ca0388c0..05f969729e72 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -111,7 +111,7 @@ config RISCV
+ 	select GENERIC_IRQ_SHOW_LEVEL
+ 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
+ 	select GENERIC_PCI_IOMAP
+-	select GENERIC_PTDUMP if MMU
++	select PTDUMP_CORE if MMU
+ 	select GENERIC_SCHED_CLOCK
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index 0077969170e8..0e19fe547d84 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -155,7 +155,7 @@ config S390
+ 	select GENERIC_CPU_VULNERABILITIES
+ 	select GENERIC_ENTRY
+ 	select GENERIC_GETTIMEOFDAY
+-	select GENERIC_PTDUMP
++	select PTDUMP_CORE
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL
+ 	select GENERIC_VDSO_TIME_NS
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 9d7bd0ae48c4..d84cb2ac93ac 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -173,7 +173,7 @@ config X86
+ 	select GENERIC_IRQ_RESERVATION_MODE
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_PENDING_IRQ		if SMP
+-	select GENERIC_PTDUMP
++	select PTDUMP_CORE
+ 	select GENERIC_SMP_IDLE_THREAD
+ 	select GENERIC_TIME_VSYSCALL
+ 	select GENERIC_GETTIMEOFDAY
+diff --git a/arch/x86/Kconfig.debug b/arch/x86/Kconfig.debug
+index 74777a97e394..198d7f090b98 100644
+--- a/arch/x86/Kconfig.debug
++++ b/arch/x86/Kconfig.debug
+@@ -59,7 +59,7 @@ config EARLY_PRINTK_USB_XDBC
+ config EFI_PGT_DUMP
+ 	bool "Dump the EFI pagetable"
+ 	depends on EFI
+-	select PTDUMP_CORE
++	depends on PTDUMP_CORE
+ 	help
+ 	  Enable this if you want to dump the EFI page table before
+ 	  enabling virtual mode. This can be used to debug miscellaneous
+diff --git a/kernel/configs/debug.config b/kernel/configs/debug.config
+index 20552f163930..8aafd050b754 100644
+--- a/kernel/configs/debug.config
++++ b/kernel/configs/debug.config
+@@ -73,7 +73,6 @@ CONFIG_DEBUG_VM=y
+ CONFIG_DEBUG_VM_PGFLAGS=y
+ CONFIG_DEBUG_VM_RB=y
+ CONFIG_DEBUG_VM_VMACACHE=y
+-CONFIG_GENERIC_PTDUMP=y
+ CONFIG_KASAN=y
+ CONFIG_KASAN_GENERIC=y
+ CONFIG_KASAN_INLINE=y
+diff --git a/mm/Kconfig.debug b/mm/Kconfig.debug
+index 41a58536531d..b206e5a11f96 100644
+--- a/mm/Kconfig.debug
++++ b/mm/Kconfig.debug
+@@ -187,7 +187,7 @@ config DEBUG_WX
+ 	bool "Warn on W+X mappings at boot"
+ 	depends on ARCH_HAS_DEBUG_WX
+ 	depends on MMU
+-	select PTDUMP_CORE
++	depends on PTDUMP_CORE
+ 	help
+ 	  Generate a warning if any W+X mappings are found at boot.
  
-   reg:
--    maxItems: 1
-+    const: 0x1a
+@@ -212,9 +212,6 @@ config DEBUG_WX
  
-   clocks:
-     description: Clock frequency from 6 to 24 MHz.
+ 	  If in doubt, say "Y".
+ 
+-config GENERIC_PTDUMP
+-	bool
+-
+ config PTDUMP_CORE
+ 	bool
+ 
+@@ -222,8 +219,7 @@ config PTDUMP_DEBUGFS
+ 	bool "Export kernel pagetable layout to userspace via debugfs"
+ 	depends on DEBUG_KERNEL
+ 	depends on DEBUG_FS
+-	depends on GENERIC_PTDUMP
+-	select PTDUMP_CORE
++	depends on PTDUMP_CORE
+ 	help
+ 	  Say Y here if you want to show the kernel pagetable layout in a
+ 	  debugfs file. This information is only useful for kernel developers
 -- 
-2.45.2
+2.30.2
 
 
