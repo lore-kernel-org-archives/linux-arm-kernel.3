@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678F5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13E8E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjWHbvK4wz1L6jTZpefF4ZfZq+hZjsZola1zZfmj46M=; b=dZqPzhQboFbplfj/QvGUTNb/bU
-	YOGd/15QUK5W2aw0k2sPl05644aSbgg/wC4v9KXi5uROpQm34wZr1anjg+U8G38zmtFwrViACMeyc
-	GhRrzYV+UAQQGRfnaRT34F8VbG2iaFGAZ/I7ayM3gRLvdRQyw2FL7xfS9JIV/4xsw4H60PtERz1CJ
-	PM8KmR5fljbsZIjdN6vMo0VNHz7jqnFixzMJcxC83UWQZZAAsAlBcDRkAPMY6AQMeeGt+59HTEYmG
-	Ju5goavRg3v/wTT8YheHQW6UZUaWJcSS1eS7X0MDaxZZfelS8V3wWDswKdM++uHv24b4xr75+tiGp
-	L7+U/kCw==;
+	bh=4u9oA4iw4W+DGpb0H0Usn6hUzYgISvntMx+NioEpj0U=; b=MHzxSCBWfyyy5hFkM9JYFUDbS+
+	A4Jbo9fZbaQ4uBAcVxKNnrFfrLjE1v2zQ3kMfFwBgVvt/8ZZMwSWcK34UYhP80od4XcTqCikCW8QB
+	sdtj251cTSbbg6reqbWOld5RaH6+PF7lJqQGEfsF+KQnc4fbpuxbmnmCu7Q74KEsiyfZx0nGDs9ad
+	tT/P+rvN8yLX1bpDoWSto/obOxfmvNIaMOsSJ5mAv8eMr9IC6qkt9j6/E9Qyhmb2dWRs2YuqyuKfW
+	XpXjLjgV7Yol8XUXbqMCTlbv/UxU56XsRnE8sYEnei7gmnLRQDHERBTT20OgaabI3RuGuvhIF29an
+	L7RVkqrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNaJb-0000000E9BR-2Mkl;
-	Tue, 17 Dec 2024 16:20:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tNaKg-0000000E9VF-2VIK;
+	Tue, 17 Dec 2024 16:22:02 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZkV-0000000E0HA-2409;
-	Tue, 17 Dec 2024 15:44:41 +0000
+	id 1tNZkL-0000000E0A5-1Dhm;
+	Tue, 17 Dec 2024 15:44:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734450278;
-	bh=6Axjsw2p28ucXLtnFHO6KrRsanFQsoF7IYwVDDxbztw=;
+	s=mail; t=1734450268;
+	bh=K3NExiNqHDr/dH0KkasiqAHlrrm5EPcA/B5tJUWXD5o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qgSc0ZXVYLl/0d8jkK/mQ+6tjkC0gIJHJTxCCQKDf2OyP1rlVEv8leZ/jCIQd1ETw
-	 PhGbowtZsxQCKHTOnnWhxLlw5Y+gf2+dTZAZFWU++Vu8K5zrq2gQ/BM+EQ/vWkWi8E
-	 seISS4C0xviIbxDCwPUnYPDNdXXIuAUBV7OU+/ZCn2d9GmuvNlTzy8Hg/+BJOzx9O9
-	 jYpUhbYBTNsVSKhDgytg6O84Eii7molPy658bXsOfIXPwn+mnErWNdH3EcytyKGSJ6
-	 I1lhqlCW7H6H5doYFPbkobT+up9fRRAHuQEHzZL11s2wWQEqQdj34bF0XyZo3NlTuU
-	 Lg97C938fEkWg==
+	b=bpuaXE48nGNtBHXtgMR0j7EMyBgsvcNAvTnh3/bLBSKGp6d2u8W8LGH6+kxrAW+Nr
+	 plgoWmNb46qrN9DzWucPbKlM+ayuniMNAo0p+T5LazKUgb6ROHroMtsNr280cdC8so
+	 aAmENhxodxLywM5v5raZUOOexlWkcTTwY/sPaRGWHg5jYxteU9ZpnVjEIBbtHUMs/J
+	 4Voxf689aa95Zxo3+4Gug/Gb7/TQfbb9gjPaTpncnv8Z3aF26Avht4WUmAJAdZAAzb
+	 U6PCVTQsGbS8s6z9Slm6mN8U+ILBxW++CiIWPHVieE6vc6yj6fX0Xw6+ChuruBqIBE
+	 q7eA6sPJW8DkA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C9B5D17E37B9;
-	Tue, 17 Dec 2024 16:44:36 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C4A1717E37B0;
+	Tue, 17 Dec 2024 16:44:26 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -67,17 +67,18 @@ Cc: p.zabel@pengutronix.de,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	dmitry.baryshkov@linaro.org
-Subject: [PATCH v3 33/33] drm/mediatek: mtk_hdmi_v2: Add debugfs ops and implement ABIST
-Date: Tue, 17 Dec 2024 16:43:45 +0100
-Message-ID: <20241217154345.276919-34-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v3 26/33] drm/mediatek: mtk_hdmi: Cleanup function mtk_hdmi_resume()
+Date: Tue, 17 Dec 2024 16:43:38 +0100
+Message-ID: <20241217154345.276919-27-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_074439_712204_CDDDF4AD 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20241217_074429_478387_358A5CA6 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,158 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the Automated Built-In Self-Test ABIST functionality
-provided by the HDMIv2 IP and expose it through the "hdmi_abist"
-debugfs file.
-
-Write "1" to this file to activate ABIST, or "0" to deactivate.
+Remove the error print in case of mtk_hdmi_clk_enable_audio()
+failures: since the APIs will already print on their own, having
+one in there is redundant.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 123 +++++++++++++++++++++++++
- 1 file changed, 123 insertions(+)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-index 5b708fcc0e03..7daa0c8dd311 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
-@@ -1184,6 +1184,128 @@ static int mtk_hdmi_v2_bridge_atomic_check(struct drm_bridge *bridge,
- 						      conn_state->state);
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index dbcb9fb09edd..6c9d046809b2 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -1705,15 +1705,8 @@ static __maybe_unused int mtk_hdmi_suspend(struct device *dev)
+ static __maybe_unused int mtk_hdmi_resume(struct device *dev)
+ {
+ 	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+-	int ret = 0;
+ 
+-	ret = mtk_hdmi_clk_enable_audio(hdmi);
+-	if (ret) {
+-		dev_err(dev, "hdmi resume failed!\n");
+-		return ret;
+-	}
+-
+-	return 0;
++	return mtk_hdmi_clk_enable_audio(hdmi);
  }
  
-+static int mtk_hdmi_v2_set_abist(struct mtk_hdmi *hdmi, bool enable)
-+{
-+	struct drm_display_mode *mode = &hdmi->mode;
-+	int abist_format = -EINVAL;
-+	bool interlaced;
-+
-+	if (!enable) {
-+		regmap_clear_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
-+		return 0;
-+	}
-+
-+	if (!mode->hdisplay || !mode->vdisplay)
-+		return -EINVAL;
-+
-+	interlaced = mode->flags & DRM_MODE_FLAG_INTERLACE;
-+
-+	switch (mode->hdisplay) {
-+	case 720:
-+		if (mode->vdisplay == 480)
-+			abist_format = 2;
-+		else if (mode->vdisplay == 576)
-+			abist_format = 11;
-+		break;
-+	case 1280:
-+		if (mode->vdisplay == 720)
-+			abist_format = 3;
-+		break;
-+	case 1440:
-+		if (mode->vdisplay == 480)
-+			abist_format = interlaced ? 5 : 9;
-+		else if (mode->vdisplay == 576)
-+			abist_format = interlaced ? 14 : 18;
-+		break;
-+	case 1920:
-+		if (mode->vdisplay == 1080)
-+			abist_format = interlaced ? 4 : 10;
-+		break;
-+	case 3840:
-+		if (mode->vdisplay == 2160)
-+			abist_format = 25;
-+		break;
-+	case 4096:
-+		if (mode->vdisplay == 2160)
-+			abist_format = 26;
-+		break;
-+	default:
-+		break;
-+	}
-+	if (!abist_format)
-+		return -EINVAL;
-+
-+	regmap_update_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_VIDEO_FORMAT,
-+			   FIELD_PREP(HDMI_ABIST_VIDEO_FORMAT, abist_format));
-+	regmap_set_bits(hdmi->regs, TOP_CFG00, HDMI_ABIST_ENABLE);
-+	return 0;
-+}
-+
-+static int mtk_hdmi_v2_debug_abist_show(struct seq_file *m, void *arg)
-+{
-+	struct mtk_hdmi *hdmi = m->private;
-+	bool en;
-+	u32 val;
-+	int ret;
-+
-+	if (!hdmi)
-+		return -EINVAL;
-+
-+	ret = regmap_read(hdmi->regs, TOP_CFG00, &val);
-+	if (ret)
-+		return ret;
-+
-+	en = FIELD_GET(HDMI_ABIST_ENABLE, val);
-+
-+	seq_printf(m, "HDMI Automated Built-In Self Test: %s\n",
-+		   en ? "Enabled" : "Disabled");
-+
-+	return 0;
-+}
-+
-+static ssize_t mtk_hdmi_v2_debug_abist_write(struct file *file,
-+					     const char __user *ubuf,
-+					     size_t len, loff_t *offp)
-+{
-+	struct seq_file *m = file->private_data;
-+	int ret;
-+	u32 en;
-+
-+	if (!m || !m->private || *offp)
-+		return -EINVAL;
-+
-+	ret = kstrtouint_from_user(ubuf, len, 0, &en);
-+	if (ret)
-+		return ret;
-+
-+	if (en < 0 || en > 1)
-+		return -EINVAL;
-+
-+	mtk_hdmi_v2_set_abist((struct mtk_hdmi *)m->private, en);
-+	return len;
-+}
-+
-+static int mtk_hdmi_v2_debug_abist_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, mtk_hdmi_v2_debug_abist_show, inode->i_private);
-+}
-+
-+static const struct file_operations mtk_hdmi_debug_abist_fops = {
-+	.owner = THIS_MODULE,
-+	.open = mtk_hdmi_v2_debug_abist_open,
-+	.read = seq_read,
-+	.write = mtk_hdmi_v2_debug_abist_write,
-+	.llseek = seq_lseek,
-+	.release = single_release,
-+};
-+
-+static void mtk_hdmi_v2_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
-+{
-+	struct mtk_hdmi *dpi = hdmi_ctx_from_bridge(bridge);
-+
-+	debugfs_create_file("hdmi_abist", 0640, root, dpi, &mtk_hdmi_debug_abist_fops);
-+}
-+
- static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
- 	.attach = mtk_hdmi_v2_bridge_attach,
- 	.detach = mtk_hdmi_v2_bridge_detach,
-@@ -1204,6 +1326,7 @@ static const struct drm_bridge_funcs mtk_v2_hdmi_bridge_funcs = {
- 	.hdmi_tmds_char_rate_valid = mtk_hdmi_v2_hdmi_tmds_char_rate_valid,
- 	.hdmi_clear_infoframe = mtk_hdmi_v2_hdmi_clear_infoframe,
- 	.hdmi_write_infoframe = mtk_hdmi_v2_hdmi_write_infoframe,
-+	.debugfs_init = mtk_hdmi_v2_debugfs_init,
- };
- 
- /*
+ static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_resume);
 -- 
 2.47.0
 
