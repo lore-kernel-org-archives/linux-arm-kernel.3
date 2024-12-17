@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1A5E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8D2E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uYia6bkOtOvm8zyMUkFTLmAVFFk1rfM5TLia+8wKurw=; b=irN2K5PCQXRoK+XNZ0SODrLJGA
-	o3cRTgXic+B0AcJjPyX/dtO2i7/sO4k/QWImGWKR+a3aovywBAKbbkpNZaSXfscgz3Jei7PBUwGYc
-	urKEQ2f93eidStOIoLcrIRpNAEcm/qCQy61xdxq3mo5CKxZVSspewMFgJqoDEBIThcxfa/2GCO35z
-	lXj8jZJ3shAKjg9ZeS+GGwEgQ2sm9rXhh/TyJEm8Gf6FHXe5yA5zSrgMKRMOgsoGAYIwOGUEC/fbs
-	R0so+tYhSS5Da2EvXf/Y4DlxbM4Ab1fL0cBx3nHC2yGa2wFiBW58OmDTybxDAg1maO3eVkkJnaprv
-	XM8g4MbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kYl6d4MRUfxUVOQcwFQKyfwAL51QVlz+/qWhrJ2KL7Y=; b=CVfZzzsH+nhn0YKvq/6OeZHPkg
+	cDVXTB0jKrTwHBFIJu2KNktoUuLT+WTLblxo6+7FBldNWxeSDYzwUvZ3WcPovsxW1pf0lSdkMRVHT
+	xx/hfsZeHpXzcttFp1f9PVatyn4kvS7qEkhvU9HvBPI2HGx/Jpq1M/wkXB1KeysIRQ/q3mwsXTZUs
+	omSBJb4PJ5YVXLf5CuQuA/LbZWCzZkugoIIk4LSR4698CzE89V25zUVW/BSAYRmI4jgvS+K81mB/x
+	Dt2T1V+XsigrQ6/1X3Q3PIVmhtVL8IlL84DYR9bVFCZcvJ7awMmr++EBQxlve/S0al7OFQkJYXqVe
+	bIYvtDiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVS4-0000000DDbE-3drk;
-	Tue, 17 Dec 2024 11:09:20 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1tNVa3-0000000DEPm-1Q4D;
+	Tue, 17 Dec 2024 11:17:35 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVQd-0000000DDNL-1O0G
+	id 1tNVYy-0000000DEIM-1g65
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 11:07:52 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-540215984f0so5825354e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 03:07:51 -0800 (PST)
+	Tue, 17 Dec 2024 11:16:29 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5d3dce16a3dso9637215a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 03:16:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734433670; x=1735038470; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uYia6bkOtOvm8zyMUkFTLmAVFFk1rfM5TLia+8wKurw=;
-        b=wSof8217BsqzVb5riG2K6d4IU6K73Z5HH+NjVtDoHaGw0HjZjeMK6lu+4dURJ/lXlB
-         f5UvtIcGKZlVIAUg/1VEmlUiAdDKNyh3CqHBZJ0SSR6xqLO2u7XHUksa4yBMHOw/0VGh
-         T+He5iKRTzRzllC88tSVK6MrhgfZPin/UD7aABVvdMmADd6isPg6w9fZZgnaT5g+JVVd
-         xutdx6hPxSZTFv6LGjpwDo7+OdUWr7hCgbCUyZtC178ojF9LHmHJhU3UY1R/Vg6o1iGm
-         vdI2Fwrb8I/dG0XQ4Pq/M+P1dUDfQi6ONBCbY9UTovhBSM0ZlxZJqPLLhssuEgg9xgaL
-         mpqg==
+        d=gmail.com; s=20230601; t=1734434185; x=1735038985; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kYl6d4MRUfxUVOQcwFQKyfwAL51QVlz+/qWhrJ2KL7Y=;
+        b=YrOViKxRngCQaNSUSsvmVFz6oudLeqm8u8T3b7J3MaZ97rn6xcSvCsnltMnpOdwOX6
+         tk6G7pbZPCXCX6tJd8qdi0ubDSXzJflxf1eKmTg9fhepen75nL+14bq+AeVNTkpHVxub
+         PxVihJhWEgPh2i46Q2VJe1otQJbvIweHPmbBZ2wbsL7CuoBFyG3UDQoDdnWonHO9rT3V
+         UXcJ1+q5KpZzbmalKRKCQOQOHy1ZNjjo5sHJ2OG9v8uqs+37ostkvtVhMt2ot+nJCmqI
+         /ofDOn9pLZdwZMAEBfmnFS3PdcgIEHidP60mjfbz7fkluIpm3hWleKlNI2FSMQv7JEWL
+         t/SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734433670; x=1735038470;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uYia6bkOtOvm8zyMUkFTLmAVFFk1rfM5TLia+8wKurw=;
-        b=ohbwsb6vsv2G1kRHSUNNiC7z28Bu9jqJOOTWfM09o+ZmKglbe5ONDnaE4D7A2KY1yV
-         CYMe3DS5SaZom6/B6VO7lbNG8Sek0GwuUyv/7BhOoflJKtwFnvskYhibgaB1zPRkwRLw
-         Ezjwq75sCSZst1kPJoFc8v/jRZFU1/Q/uGXc0DU+v5+2K2BQ4dJTKvfha9X/dScMkfMt
-         srLPMM5DB2zH8bYyXgeHiAiMwq2GSRq5o8d85vWId1tLM/PNlhNEz0WPun80bg5pd8Uv
-         cS7shk363VHCkT6S2kLm76L2AO6dthOu/USMv3/TDrIaMEF2D+PuIPL9OVSMQE2DggIZ
-         yzBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUvtHVcSeUubLj/jX5JPIPm3nFxswHT3yhujJWSkQTWLJSp/moRSf9xbEGtpeEyjGa1JfHAPC4fOAEocIC/CyN/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/WKj/fAUtbb8tHvYNgvV3hHHSjmmHrVQkhnltevp9An7Bw8Xi
-	8lNLCpqnxfuufPR7a0DK1H4OQNFQXcls4vos1TtT0MSPTETf2R7sL/7rbXe/5Vc=
-X-Gm-Gg: ASbGncsHRZe96BwoneRNV896N2x6h93M/eA8t0VER1o7Bbk4fj3STZNznMo5PihOOA0
-	ZUtLXtSadkvQ06ZUHJdjE2I2erEzUBu6ul4SzMb8JkBjm+lEaU6Ez7sDm43a+aiRFvQaffVlK3+
-	gouF3aH590+0Fc3e4/UGCCTwQs2OiqQ2VSlI1pWQsotwcZkG7JqK7NujiHw2Lv5sMH9MWZrJkYU
-	juVHlaH+UafyL0U/u4FrO2nwatkgEU8yX+1+uEmlKKAOSX/LlFgIIAGXVrz5KWCvEz2oJWt4ITd
-	5tppKubRKWrDuUT6mBXf/NqlWaILMuUS6Usl
-X-Google-Smtp-Source: AGHT+IF9wRRafyTuXG62lAlU9PV2hBrxozyuUj5pTu0s/yHqf/P45mfDC//C58CWkkxQbTLd1cCzgA==
-X-Received: by 2002:a05:6512:4012:b0:53f:22f5:afdb with SMTP id 2adb3069b0e04-540905958a8mr5350614e87.35.1734433669649;
-        Tue, 17 Dec 2024 03:07:49 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120ba9db5sm1122725e87.88.2024.12.17.03.07.47
+        d=1e100.net; s=20230601; t=1734434185; x=1735038985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kYl6d4MRUfxUVOQcwFQKyfwAL51QVlz+/qWhrJ2KL7Y=;
+        b=L2qrEz6tAVyoP7O4Q7i97AZ0op3k1jlrUe7yH11kHaHZ9cA46SYlqTnC9kWH/tLQmX
+         /8l1uaEKX1g6C5KZArjy+tRQPfO5x+OuK5lqI10mutOW5a3ehVWxa/pN1ntS2eHt1/9t
+         +ibea0glhPGSP3IyOzIy3Gri1bBHU5x0LN9RldwB34mft1RWv8Xl8khpWkP9CCRhUKGg
+         1sMgdLoR3Bh8HkoU1CIw90thh0KGzLsJoPmzYgaC2K+YulRym65HvT3wdQXtsf3Hv62O
+         mjncFxqhBJbhg7aPcE3pFwBhKIiUEpcYOylgIMdkA48IrF1Yo5a8z0nRJHQSDYSteyw7
+         VWYw==
+X-Gm-Message-State: AOJu0YzKiQWVLJmCcnpvfBu/MTzj/HLPeHnS/b8XolSr+H+qXcJf24Vy
+	nPFzSRZMrVUununIKTogXihO3mGZgs5SeNXnc61KvRskR+JFocGH
+X-Gm-Gg: ASbGnctjBXk2pnrjlJGx1tNuqhrO/X5wzeDWxANDL//V5rWvtYpCiUkSm7s1oSukYwe
+	YC797FitvvJevjuKKsCs+vHIxZKOa/0bQdL3TJWXQ42Ua3JHYFldXcPYS6wzIX6nzQFXjubq5hZ
+	vevzE9Cx0QcbF242I+AzriM6ALywJNE2aITGcDbwpDduJhIqAtvDYtE5tfZfjfGnPMXKJvY2tVI
+	tMnLhwmq+BDSLt1LKofAnqmRHJHBCHA7hxtHGZS8lxHnBv20J7GiFysE+Q=
+X-Google-Smtp-Source: AGHT+IEnUOOKmqV/hBOpPlL7EMRXiX0BUILZ5Q5ZcQGOCv02YiP8sCT+WVCQIgWo1uXP2e+0+V4d1g==
+X-Received: by 2002:a05:6402:5207:b0:5d0:b61a:89c9 with SMTP id 4fb4d7f45d1cf-5d7d55741eemr2727283a12.5.1734434184854;
+        Tue, 17 Dec 2024 03:16:24 -0800 (PST)
+Received: from eichest-laptop.. ([77.109.188.34])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d652f25adasm4335171a12.54.2024.12.17.03.16.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 03:07:48 -0800 (PST)
-Date: Tue, 17 Dec 2024 13:07:45 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sandor Yu <Sandor.yu@nxp.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, airlied@gmail.com, 
-	daniel@ffwll.ch, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, vkoul@kernel.org, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, mripard@kernel.org, 
-	kernel@pengutronix.de, linux-imx@nxp.com, oliver.brown@nxp.com, 
-	alexander.stein@ew.tq-group.com, sam@ravnborg.org
-Subject: Re: [PATCH v20 2/9] drm: bridge: cadence: Update mhdp8546 mailbox
- access functions
-Message-ID: <z4cmwy6vh6nncq445hvm23n4ar4quciemvcj5zvofevulyofx6@w266vucwqv7s>
-References: <cover.1734340233.git.Sandor.yu@nxp.com>
- <74bc3f2ff56348afd9d773589236ddf06dc3d45c.1734340233.git.Sandor.yu@nxp.com>
+        Tue, 17 Dec 2024 03:16:24 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	tglx@linutronix.de,
+	shivamurthy.shastri@linutronix.de,
+	anna-maria@linutronix.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] irqchip/irq-mvebu-icu: Fix irq_set_type for sei and nsr
+Date: Tue, 17 Dec 2024 12:15:40 +0100
+Message-ID: <20241217111623.92625-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <74bc3f2ff56348afd9d773589236ddf06dc3d45c.1734340233.git.Sandor.yu@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_030751_374584_28D0207D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20241217_031628_438828_4A19D3FE 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,59 +97,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 02:51:44PM +0800, Sandor Yu wrote:
-> Basic mailbox access functions are removed, they are replaced by
-> mailbox helper functions:
-> - cdns_mhdp_mailbox_send()
-> - cdns_mhdp_mailbox_send_recv()
-> - cdns_mhdp_mailbox_send_recv_multi()
-> - cdns_mhdp_secure_mailbox_send()
-> - cdns_mhdp_secure_mailbox_send_recv()
-> - cdns_mhdp_secure_mailbox_send_recv_multi()
-> 
-> All MHDP commands that need to be passed through the mailbox
-> have been rewritten using these new helper functions.
-> 
-> Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
-> ---
-> v19->v20:
-> - remove mhdp helper functions from the patch.
-> 
-> v18->v19:
-> - Use guard(mutex)
-> - Add kerneldocs for all new APIs.
-> - Detail comments for mailbox access specific case.
-> - Remove cdns_mhdp_dp_reg_write() because it is not needed by driver now.
-> 
-> v17->v18:
-> - Create three ordinary mailbox access APIs
->     cdns_mhdp_mailbox_send
->     cdns_mhdp_mailbox_send_recv
->     cdns_mhdp_mailbox_send_recv_multi
-> - Create three secure mailbox access APIs
->     cdns_mhdp_secure_mailbox_send
->     cdns_mhdp_secure_mailbox_send_recv
->     cdns_mhdp_secure_mailbox_send_recv_multi
-> - MHDP8546 DP and HDCP commands that need access mailbox are rewrited
->   with above 6 API functions.
-> 
-> v16->v17:
-> - Replaces the local mutex mbox_mutex with a global mutex mhdp_mailbox_mutex
-> 
-> v12->v16:
->  *No change.
-> 
->  drivers/gpu/drm/bridge/cadence/Kconfig        |   1 +
->  .../drm/bridge/cadence/cdns-mhdp8546-core.c   | 487 +++---------------
->  .../drm/bridge/cadence/cdns-mhdp8546-core.h   |  47 +-
->  .../drm/bridge/cadence/cdns-mhdp8546-hdcp.c   | 212 +-------
->  .../drm/bridge/cadence/cdns-mhdp8546-hdcp.h   |  18 +-
->  5 files changed, 104 insertions(+), 661 deletions(-)
-> 
+A regression was introduced in commit d929e4db22b6
+("irqchip/irq-mvebu-icu: Prepare for real per device MSI") that causes
+the Armada thermal driver to fail during probe with the following error:
+genirq: Setting trigger mode 4 for irq 85 failed (irq_chip_set_type_parent+0x0/0x34)
+armada_thermal f2400000.system-controller:thermal-sensor@70: Cannot request threaded IRQ 85
+armada_thermal f2400000.system-controller:thermal-sensor@70: probe with driver armada_thermal failed with error -22
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+The issue occurs because irq_set_type is assigned to
+irq_chip_set_type_parent, but the parent IRQ chip does not implement the
+irq_set_type operation. This causes the trigger mode configuration to
+fail.
 
+This patch resolves the issue by removing the irq_set_type assignment.
+With no irq_set_type, __irq_set_trigger safely skips the trigger
+configuration, restoring functionality to the thermal driver.
+
+Fixes: d929e4db22b6 ("irqchip/irq-mvebu-icu: Prepare for real per device MSI")
+Signed-off-by: Stefan Eichenberger <eichest@gmail.com>
+---
+ drivers/irqchip/irq-mvebu-icu.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/irqchip/irq-mvebu-icu.c b/drivers/irqchip/irq-mvebu-icu.c
+index b337f6c05f18..1d4dde719db6 100644
+--- a/drivers/irqchip/irq-mvebu-icu.c
++++ b/drivers/irqchip/irq-mvebu-icu.c
+@@ -188,7 +188,6 @@ static const struct msi_domain_template mvebu_icu_nsr_msi_template = {
+ 		.irq_mask		= irq_chip_mask_parent,
+ 		.irq_unmask		= irq_chip_unmask_parent,
+ 		.irq_eoi		= irq_chip_eoi_parent,
+-		.irq_set_type		= irq_chip_set_type_parent,
+ 		.irq_write_msi_msg	= mvebu_icu_write_msi_msg,
+ 		.flags			= IRQCHIP_SUPPORTS_LEVEL_MSI,
+ 	},
+@@ -212,7 +211,6 @@ static const struct msi_domain_template mvebu_icu_sei_msi_template = {
+ 		.irq_mask		= irq_chip_mask_parent,
+ 		.irq_unmask		= irq_chip_unmask_parent,
+ 		.irq_ack		= irq_chip_ack_parent,
+-		.irq_set_type		= irq_chip_set_type_parent,
+ 		.irq_write_msi_msg	= mvebu_icu_write_msi_msg,
+ 		.flags			= IRQCHIP_SUPPORTS_LEVEL_MSI,
+ 	},
 -- 
-With best wishes
-Dmitry
+2.45.2
+
 
