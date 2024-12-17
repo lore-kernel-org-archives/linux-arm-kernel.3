@@ -4,108 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E580E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DD6E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cK+l/BTqBMQlSMv3Wwmy81zGJ0D0dTlpVAditAsXNbI=; b=WiOjBgaH+PAfk7NzXduD090qYo
-	EFh4NMYNHL+tlVNnE6tjheXkfVqdnF11Z3aWEQVvtsyI2M8V8hoZNMbMFEXOv7o8GdQu3C/I7JJrU
-	TCthMcCNMEhrJrEivV8WXrUzKIM7LBYoyeAdYR3WzeyMmDNAYwNYs1PvM4j9Rp3LBHw0bdqoQtoGg
-	R4kVwl8hfe9y8j87DDFKVdOTsMpUPkcchmZnIIOKfYWW/aiEKbNWz03yD0Nj2I+Qdn/6McmRFBEDc
-	a9+ERkWy1Sbu4IBB+Ipt4CuykF+BsV8tj43sNKoX26bjiGQeDo5RvM7Uqcwz1Uj0hZi7ypwmvEP4B
-	NQQOwGMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U242LnBE/bO3GRuUi1XKqo4ekopDLjZYpOICf3DBISI=; b=XOIXA9HJYA653bpTBfyOe1+h01
+	XnqlRcQzPmFTzbDDqLNw9B/pIbHGQmt9S1RFBorZU1UGk0tCGaEJ50Qz6yzkDb51clOtolbj+wVUB
+	nO5XYZ+fOqwBx6qvdOha7+5vfYxaFFKVw2xkPlC9J9dwm1/nDT6c6b0vhcu7+r7+x+ZZ9T/Zmaq2W
+	MzpgsdUWv4V7Hlkw3tljzyhtexxf24JOw3zpUIRSA8gaWbJPCNMJt4MDAsM/Dvqtdx4LpoOIEnVmt
+	4hyiQsgHfph+64ua2apztA1ygaGp4iQU54IWSDgijGVOZ9oy1utb/aPkxK5hl0c37nzjrUBc+Es9a
+	D2WJurew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbZn-0000000ENoD-0Ou8;
-	Tue, 17 Dec 2024 17:41:43 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tNbas-0000000EO4e-2yHr;
+	Tue, 17 Dec 2024 17:42:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbUR-0000000EMnn-2Bf0
+	id 1tNbWj-0000000ENG6-2x4m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 17:36:12 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHD0OJp028091;
-	Tue, 17 Dec 2024 17:35:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=cK+l/BTqBMQlSMv3W
-	wmy81zGJ0D0dTlpVAditAsXNbI=; b=l2Mmo76gyDIF7FxMFcSPWHqrp74Js8rrc
-	zUnTTVgPQC+jAeRur83qU6kkVEj0B05uuTGWwtf1KRL4hWEzqaqf9XThyD2rZOdi
-	VVQnxdcvD4D9ds4fSoSMF/bKBXZUAXVleHjfQhGgQUXPihWDVlyqLVlEZ3Ofe7CS
-	GObDm+rzwpUdTzp54lDf80wriKq4AARgAwbN8GZKhShYMOa35xMQx5qat8tT2dNv
-	y5Is41Ghmf6ne2c6JFBTKnKynPpp0igI/WFJlor51deQYg9M7pwhmiboX9SVPRO+
-	wP4czuq/EnNVAvzW78jmUFx4/jv42QQp2XlrjTHLIBxNiRSz01Gww==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43k9t6hef5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 17:35:48 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 4BHHNtAr023671;
-	Tue, 17 Dec 2024 17:35:48 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43k9t6hef1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 17:35:48 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHH341h010923;
-	Tue, 17 Dec 2024 17:35:46 GMT
-Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 43hpjk3mgx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 17:35:46 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BHHZjUX18416144
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 17 Dec 2024 17:35:46 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9270558060;
-	Tue, 17 Dec 2024 17:35:45 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 29F9A5805C;
-	Tue, 17 Dec 2024 17:35:44 +0000 (GMT)
-Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 17 Dec 2024 17:35:44 +0000 (GMT)
-From: Ninad Palsule <ninad@linux.ibm.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        eajames@linux.ibm.com, jdelvare@suse.com, linux@roeck-us.net,
-        corbet@lwn.net, joel@jms.id.au, andrew@codeconstruct.com.au,
-        Delphine_CC_Chiu@Wiwynn.com, broonie@kernel.org,
-        peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
-        naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
-        patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
-        peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
-Cc: Ninad Palsule <ninad@linux.ibm.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v4 3/4] dt-bindings: hwmon: intel,crps185: Add to trivial
-Date: Tue, 17 Dec 2024 11:35:34 -0600
-Message-ID: <20241217173537.192331-4-ninad@linux.ibm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241217173537.192331-1-ninad@linux.ibm.com>
-References: <20241217173537.192331-1-ninad@linux.ibm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: YEJ5j0YNKWh7fOd3NS_AbeHVFFqlrnFh
-X-Proofpoint-ORIG-GUID: oHQORVIhY3FjKRcbtuEduCLBHI18EaRk
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- lowpriorityscore=0 malwarescore=0 bulkscore=0 clxscore=1015
- priorityscore=1501 adultscore=0 impostorscore=0 suspectscore=0
- mlxlogscore=999 spamscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2412170134
+	Tue, 17 Dec 2024 17:38:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E463B5C6634;
+	Tue, 17 Dec 2024 17:37:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BADDEC4CED3;
+	Tue, 17 Dec 2024 17:38:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734457112;
+	bh=drmIapqZOtyKxi6JCkbBuJFmy/DxlTvVFIXPKTYMk9U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ntwJA53lwMeohmy4JIXkA1wKebsYZPaKwX3NKwqqMYygVn5QQ4T4UbkIOi6IR8/1u
+	 Djv6ipAsJakD7Fz5GNDF3i+Sxwn//P16A27Wf1pb8TpMpfTyLjQy5RNDj/+qw3zeN/
+	 C2Ig3oX3ZVehVEmpkcLrDQqAnquGJUS2FqivaPFz/yZjGEl/m3nSHWjRz3KyE0HBTq
+	 drgL4AfqQFrW2XiKCpyoNrvoVKSYGQd4JpxLGHM07or+KXe+1981CLJgRQRQvcE7Hn
+	 5dIlvREIx1aVEMXqQP/KlH0XTqNbFVeuRLhmdvk0dzfnyCGpx4g6SHULXVNCHu/3rb
+	 v86pckt9T6V4g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tNbWg-004eRJ-5C;
+	Tue, 17 Dec 2024 17:38:30 +0000
+Date: Tue, 17 Dec 2024 17:38:25 +0000
+Message-ID: <86ldweqkfi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Eric Auger <eauger@redhat.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Subject: Re: [PATCH 11/16] KVM: arm64: nv: Add Maintenance Interrupt emulation
+In-Reply-To: <20241217151331.934077-12-maz@kernel.org>
+References: <20241217151331.934077-1-maz@kernel.org>
+	<20241217151331.934077-12-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andre.przywara@arm.com, eauger@redhat.com, gankulkarni@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_093611_558347_EE812F96 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20241217_093833_840053_61E9AC94 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,30 +91,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add INTEL Common Redundant Power Supply Versions crps185 bindings as
-trivial. The hardware does not have any resources like clocks which are
-required to be included in the device tree.
+On Tue, 17 Dec 2024 15:13:26 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> Emulating the vGIC means emulating the dreaded Maintenance Interrupt.
+> 
+> This is a two-pronged problem:
+> 
+> - while running L2, getting an MI translates into an MI injected
+>   in the L1 based on the state of the HW.
+> 
+> - while running L1, we must accurately reflect the state of the
+>   MI line, based on the in-memory state.
+> 
+> The MI INTID is added to the distributor, as expected on any
+> virtualisation-capable implementation, and further patches
+> will allow its configuration.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/arm.c                 |  6 ++++
+>  arch/arm64/kvm/vgic/vgic-init.c      | 22 ++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-v3-nested.c | 45 ++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c           |  9 ++++++
+>  arch/arm64/kvm/vgic/vgic.h           |  2 ++
+>  include/kvm/arm_vgic.h               |  4 +++
+>  6 files changed, 88 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 5e353b2c225b4..756cc4e74e10f 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -824,6 +824,12 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+>  	if (ret)
+>  		return ret;
+>  
+> +	if (vcpu_has_nv(vcpu)) {
+> +		ret = kvm_vgic_vcpu_nv_init(vcpu);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	/*
+>  	 * This needs to happen after any restriction has been applied
+>  	 * to the feature set.
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index bc7e22ab5d812..d2724315a70e9 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -180,6 +180,20 @@ static int kvm_vgic_dist_init(struct kvm *kvm, unsigned int nr_spis)
+>  	return 0;
+>  }
+>  
+> +int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
+> +{
+> +	int ret;
+> +
+> +	guard(mutex)(&vcpu->kvm->arch.config_lock);
+> +
+> +	/* Cope with vintage userspace. Maybe we should fail instead */
+> +	if (vcpu->kvm->arch.vgic.maint_irq == 0)
+> +		vcpu->kvm->arch.vgic.maint_irq = kvm_vgic_global_state.maint_irq;
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
----
- Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Well, that didn't take too long, and Joey did hit a bug here. Although
+the two fields have the same name, they represent something totally
+different:
 
-diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-index 34e8ac1ddc24..fadbd3c041c8 100644
---- a/Documentation/devicetree/bindings/trivial-devices.yaml
-+++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-@@ -149,6 +149,8 @@ properties:
-           - injoinic,ip5306
-             # Inspur Power System power supply unit version 1
-           - inspur,ipsps1
-+            # Intel common redudant power supply crps185
-+          - intel,crps185
-             # Intersil ISL29028 Ambient Light and Proximity Sensor
-           - isil,isl29028
-             # Intersil ISL29030 Ambient Light and Proximity Sensor
+- kvm_vgic_global_state.maint_irq is the interrupt number Linux uses
+  for the host. It's just a number, without any signification other
+  than for the kernel's own stuff.
+
+- vcpu->kvm->arch.vgic.maint_irq is an GIC INTID. Really not the same
+  thing as the above.
+
+What this should read is something like:
+
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index d2724315a70e9..8d92b05639588 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -188,7 +188,7 @@ int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
+ 
+ 	/* Cope with vintage userspace. Maybe we should fail instead */
+ 	if (vcpu->kvm->arch.vgic.maint_irq == 0)
+-		vcpu->kvm->arch.vgic.maint_irq = kvm_vgic_global_state.maint_irq;
++		vcpu->kvm->arch.vgic.maint_irq = irq_get_irq_data(kvm_vgic_global_state.maint_irq)->hwirq;
+ 	ret = kvm_vgic_set_owner(vcpu, vcpu->kvm->arch.vgic.maint_irq, vcpu);
+ 
+ 	return ret;
+
+So I guess there are two things that need to happen:
+
+- rename vcpu->kvm->arch.vgic.maint_irq to something like "mi_intid"
+
+- make the damn thing fail, as the comment suggests. We don't have any
+  legacy worth speaking of anyway.
+
+Another thing is that Joey (who really didn't waste any time finding
+issues) pointed out that we happily allow NV without GICv3. Clearly,
+this should also be prevented.
+
+Thanks Joey!
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
