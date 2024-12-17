@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E53E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 21:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AF2E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 21:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jMkV/pqTTQ4xGbpkYJlRc+3Uzn+DOzgWu1oY5Quf894=; b=lN7nOW/nwLCLZslG+JJxb7tx64
-	Cse4QtTA3/OKuKKKyU9jqsHgdXlIMRnQ9Dys1wq7e2YdBHvRLVJ1Yyg4zt3ieUBiL1+hJWAdWvJTy
-	JcplLJQpBOLjBMKgo0oM6iwbYM8F1pZ27/v0/fLm1di51SLvFsCfSRDIYM1Oq/SFxG3QpaaviP5xx
-	8rHYvnNykidezaXEp1+ef1nMm4rz47Fie4Lu9Ora7//cMWt2sil2HByhQEsfYgcTEhz9Dxyu3ebh5
-	IxUbmnc04MDl4KeNHICRrVEYErlXTzgVxOkLUAnrnNBjQX4H2QKJSd8hIAkOGHiPOGgRYc2kOsGm4
-	5uU7iXdw==;
+	bh=CJFymO38mcOTwo9Ozy+04D6XjuWZMyD8ycVX0URXSkM=; b=rOXDT6uT1r2ZynfyLoWMzlwttV
+	Ac4yb3m/XHMfzdvkj90Em43iyhZJlK9JIaKVlp4thGSrsGW17WXPB58SVu8gPZxxnc2uUO99MBsul
+	Vfb3mHZwnGxYkU4uyx/jmJkYQ4BQDCRuXvrdhZ4Ua5PfA3sQmB4WCJ6dpsnnni71fNz5Yydsae9Rl
+	WUUimoEpMi4fbwsP0NyQmpDYex7VPrRxP7kLf3OEJZz+1RFGIZpJeObfj8r42r7fzDiKcLZ4+7AZR
+	YivlztME3UQD+At4lPldNuK9kCXzyB/0cQG0MqtMxg736dMWNAPgPFKD5NiXLDIE1jBDkCjYLVp7n
+	4QVjBdgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNfDG-0000000Esg1-0ugf;
-	Tue, 17 Dec 2024 21:34:42 +0000
-Received: from out-179.mta1.migadu.com ([95.215.58.179])
+	id 1tNfEJ-0000000Esnq-3O0l;
+	Tue, 17 Dec 2024 21:35:47 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNf0b-0000000EqXz-1T4L
+	id 1tNf0e-0000000EqYX-0NOi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 21:21:38 +0000
+	Tue, 17 Dec 2024 21:21:41 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1734470494;
+	t=1734470497;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jMkV/pqTTQ4xGbpkYJlRc+3Uzn+DOzgWu1oY5Quf894=;
-	b=Auta5Qq2NMz0LH5WmRLKJ5t04wTor8Egy9qmTw8Atvbo53rvzzeuNvhfnb5roEQcye7yet
-	D61M1bRMsZbDLJS6/oJWRgjafVum6cc+MFoDfKsMNaApxw+h5Y2PeBPsxA+yRRX2mfp1e3
-	PW5GxVB/fk/10BojjFqGp0e/vnO5Uvs=
+	bh=CJFymO38mcOTwo9Ozy+04D6XjuWZMyD8ycVX0URXSkM=;
+	b=rZLNaTfCEsziEgMq9tNF0aLUYY9DIeVJcADzb38IxuwltCL3ddXw/uZcwoisq/I04YudCl
+	TDdxzzPZy1KlvfB0bekieecTRrnaxG97ovgfCghK5WMTfb4zaYt9xyrnOnQJJXUMqlM/ux
+	s9suG354SnWVyc1/NWCBR8pqThWhdQ8=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,18 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 12/18] KVM: arm64: Compute synthetic sysreg ESR for Apple PMUv3 traps
-Date: Tue, 17 Dec 2024 13:20:42 -0800
-Message-Id: <20241217212048.3709204-13-oliver.upton@linux.dev>
+Subject: [PATCH 13/18] KVM: arm64: Advertise PMUv3 if IMPDEF traps are present
+Date: Tue, 17 Dec 2024 13:20:43 -0800
+Message-Id: <20241217212048.3709204-14-oliver.upton@linux.dev>
 In-Reply-To: <20241217212048.3709204-1-oliver.upton@linux.dev>
 References: <20241217212048.3709204-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_132137_528356_FDF93E0E 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241217_132140_268247_26340429 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple M* CPUs provide an IMPDEF trap for PMUv3 sysregs, where ESR_EL2.EC
-is a reserved value (0x3F) and a sysreg-like ISS is reported in
-AFSR1_EL2.
-
-Compute a synthetic ESR for these PMUv3 traps, giving the illusion of
-something architectural to the rest of KVM.
+Advertise a baseline PMUv3 implementation when running on hardware with
+IMPDEF traps of the PMUv3 sysregs.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/kvm/hyp/vhe/switch.c | 22 ++++++++++++++++++++++
- arch/arm64/tools/cpucaps        |  1 +
- 2 files changed, 23 insertions(+)
+ arch/arm64/kvm/pmu-emul.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 80581b1c3995..da2ccaefaf6f 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -418,6 +418,25 @@ static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	return kvm_hyp_handle_sysreg(vcpu, exit_code);
- }
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 98690e53dc73..553d02a03877 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -1262,7 +1262,17 @@ u8 kvm_arm_pmu_get_pmuver_limit(void)
+ 	pmuver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMUVer,
+ 			       read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1));
  
-+static bool kvm_hyp_handle_impdef(struct kvm_vcpu *vcpu, u64 *exit_code)
-+{
-+	u64 iss;
-+
-+	if (!cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
-+		return false;
+-	/* Treat IMPLEMENTATION DEFINED functionality as unimplemented */
++	/*
++	 * Spoof a barebones PMUv3 implementation if the system supports IMPDEF
++	 * traps of the PMUv3 sysregs
++	 */
++	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
++		return ID_AA64DFR0_EL1_PMUVer_IMP;
 +
 +	/*
-+	 * Compute a synthetic ESR for a sysreg trap. Conveniently, AFSR1_EL2
-+	 * is populated with a correct ISS for a sysreg trap. These fruity
-+	 * parts are 64bit only, so unconditionally set IL.
++	 * Otherwise, treat IMPLEMENTATION DEFINED functionality as
++	 * unimplemented
 +	 */
-+	iss = ESR_ELx_ISS(read_sysreg_s(SYS_AFSR1_EL2));
-+	vcpu->arch.fault.esr_el2 = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SYS64) |
-+				   FIELD_PREP(ESR_ELx_ISS_MASK, iss) |
-+				   ESR_ELx_IL;
-+	return false;
-+}
-+
- static const exit_handler_fn hyp_exit_handlers[] = {
- 	[0 ... ESR_ELx_EC_MAX]		= NULL,
- 	[ESR_ELx_EC_CP15_32]		= kvm_hyp_handle_cp15_32,
-@@ -429,6 +448,9 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 	[ESR_ELx_EC_WATCHPT_LOW]	= kvm_hyp_handle_watchpt_low,
- 	[ESR_ELx_EC_ERET]		= kvm_hyp_handle_eret,
- 	[ESR_ELx_EC_MOPS]		= kvm_hyp_handle_mops,
-+
-+	/* Apple shenanigans */
-+	[0x3F]				= kvm_hyp_handle_impdef,
- };
+ 	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
+ 		return 0;
  
- static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index b291eb73f5e0..a9c7111b831e 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -105,6 +105,7 @@ WORKAROUND_CAVIUM_TX2_219_TVM
- WORKAROUND_CLEAN_CACHE
- WORKAROUND_DEVICE_LOAD_ACQUIRE
- WORKAROUND_NVIDIA_CARMEL_CNP
-+WORKAROUND_PMUV3_IMPDEF_TRAPS
- WORKAROUND_QCOM_FALKOR_E1003
- WORKAROUND_REPEAT_TLBI
- WORKAROUND_SPECULATIVE_AT
 -- 
 2.39.5
 
