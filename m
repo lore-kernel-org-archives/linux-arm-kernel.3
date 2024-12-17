@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CD7E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DA0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSnZ0Mx4mizg0acLlif+7AZWMWB8JycxaVkhyVnyK8I=; b=xuDsmMExcl18MGSnMRDxP69ECx
-	h5JG0Pb7D/zMkq43dobIJEsNfFw+L/tQS2CWiH7n0WXNZWaU3Z+Tfz/fL+nfeguL0OS083Q0zp5Od
-	6ufq3LbMdwJwLLoKmfz+B7tldhWbEREsmXpchXbkLDs70injFeYizI2mTcbQPvN7zmjhxRbLPlMnX
-	uqly0+HQLF5YS4EPD4XYUdgn72uV/qoglMevdiKmRJXUCl+reF3mI/Tzv1/Soo/IcUWF6mQTe0Nhf
-	fD0uZMWbZDiewBBpg1Jy920gpSpiYHbNIn1Y+SwUKPQOGLY6nA3xxvr8iQR2apyn0wJodpnpRXaBr
-	G+U6CCPg==;
+	bh=igLcQFJBENfZ6b2j6uxGZ+Tt2w/r9Jg7A/CBm+xFZZ0=; b=BDBWvg29GvGWxTLp+Qh8HMa7eO
+	EulNbnhVnUOR7US1wgEETP0BD9Q27nrSpZJRn8AAO+Gs//nKLe/sWrGQRHn+w7o3YMkIss39zE4wE
+	VLEwrXruQGJYjNXHJUMTVukAU/d1bN6+GrASsM9xlRLo1u5Up2FjB4GfsjoFK2jkYFUBvu7L/C4Xk
+	V1N4Qskrz8Hp2CfTmC2JL7i1ZJDs7yUo99Ax8ANVvF878Ov+mJ3NkXPmjSF1ubKEuKf2ui8UCGRf5
+	FiYhbkI/d14e6iJ9UBXmVQDDRfhWSmOdElwBGOuyq+1RVsNDxu+MY9vWfRNTbe/4jNAHI3CQU/Q9D
+	QfzLJ1MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNV6v-0000000DAS5-08d2;
-	Tue, 17 Dec 2024 10:47:29 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1tNV7y-0000000DAiG-2emJ;
+	Tue, 17 Dec 2024 10:48:34 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNV5p-0000000DAH6-2a5z
+	id 1tNV6C-0000000DAKf-3pC4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 10:46:22 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53f22fd6887so5189546e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 02:46:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734432379; x=1735037179; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JSnZ0Mx4mizg0acLlif+7AZWMWB8JycxaVkhyVnyK8I=;
-        b=UvAk52lOblQQHS/fMR66If9Kwu2xkH18XzvFMUoV8+AKcJE+0X74a7sOw2kTy7dIcy
-         RrNLQpDF4f5iMwOWpH7SzdB7rqjGjtEKCxe0Dg55d3eYdDyUBWkaWSzuuMsyfoP0VD9Y
-         cT3DNOgPb4oTchJaWcBtf+ZLBOCuAZ4kGTtC1kECp3pwl4sgbQebgA0BV4KsoZgyHPku
-         37iYfXt6TaXHmUDjIYxfrKcbCE5KNjh936jWcxqAhfxmJdLQc8L9UcrJ3tLE5hVhyCJU
-         TD7evrVbJIGRkm+te5GSp8+7vVsyu1hyyNHMybAop1KLF1OCYKZdSavBBrKxJZEN8Kvy
-         B+hQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734432379; x=1735037179;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JSnZ0Mx4mizg0acLlif+7AZWMWB8JycxaVkhyVnyK8I=;
-        b=LsMV7EnCaLwqRRgN/yW6ormeK/JurxalTMopcj7bqQMoFBhg+yefDtz9aGSzFJ1bfZ
-         Uj4cQAwKJKDSm7xqB7JTKlmP6X7ODnMSWv+jQa5cJRmNL8kn/pP6VFG7UbpirqJTEdSD
-         8VClFG0WB9p1WpT7h8vvLQgaKr73OvGSYMRkAfWpeYRChYCJK3Nj27xaVdqRaMbCXbil
-         TjZB4vHhw9oa75vkX6Z1hnqify+mRLerooqzjONS+WLXrIt6QAn7uMvfuG2kvJhUkcOR
-         npEUJrKeVhJzJ/rbP/BNiYzM7trg2YJPdv3xGoFVSXi6Nc39LasgzJ6ccOH59JMafLgi
-         FdVA==
-X-Forwarded-Encrypted: i=1; AJvYcCX4FovufpFrFK9+CSQPSreVxiM7GX12rGlFb/qtjWDmIeG7JcZYBzNnk4RAYwwZw3745VKo5ATT5aVUaNfVcINw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVdgip7Y/eHLiDU9trnHNgUHuScdqIivAy2zlqaHw3XikwoxUL
-	ddJVy7wlDBtmUgLY4DgMX6ruUwo21951GWei2INF+hs7VqA9ZMlcYOzXMN2vSkY=
-X-Gm-Gg: ASbGncu+iEovT/3JAT3y3jsPo9U66rqdYovD74KTTOBL9ZksX2kAwGwyhZzpyyJtFCT
-	oT3wnFLCUyxq/OrMWM1VjUZSEC6Mp3kUMwU49d2A4cF0YZSdPyvQbAUEZXArXn8u2gsCyyIxrrn
-	hEHQ56jBw/TtryiTK+I8zMhJMuXYgMBBCE5mDkDJXioqgK6Um5CG9EQqraRF6pdzEHYc5YvJ6/S
-	/UEzP9RIkL/SzpCP2xFXAzHoSunfIzD7lMmf/3M3VpK63+DuRhbeRLaCPZk02UJfSk1QBQBh7Ih
-	ExKuaZDFuGvg60LjFQF9BahhmmtbCFpyD0q3
-X-Google-Smtp-Source: AGHT+IFtdnVnrp1/gspKbWgsAMJI+1h5/kNF3qFQhCksGg4KzJBNmIkm4ZMGj0ADHd8QexsymwkNwA==
-X-Received: by 2002:a05:6512:3d09:b0:540:1e75:4bdc with SMTP id 2adb3069b0e04-540905aad0dmr5140888e87.38.1734432379074;
-        Tue, 17 Dec 2024 02:46:19 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120c13c3asm1102025e87.210.2024.12.17.02.46.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 02:46:17 -0800 (PST)
-Date: Tue, 17 Dec 2024 12:46:16 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: myungjoo.ham@samsung.com, Kyungmin.park@samsung.com, 
-	cw00.choi@samsung.com, Viresh Kumar <viresh.kumar@linaro.org>, sudeep.holla@arm.com, 
-	cristian.marussi@arm.com, andersson@kernel.org, konrad.dybcio@linaro.org, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	quic_rgottimu@quicinc.com, quic_kshivnan@quicinc.com, conor+dt@kernel.org, 
-	arm-scmi@vger.kernel.org, Amir Vajid <avajid@quicinc.com>
-Subject: Re: [PATCH V4 4/5] soc: qcom: Introduce SCMI based Memlat (Memory
- Latency) governor
-Message-ID: <uwwiz2o6brn5zczbpaiajdq7yva2qpcpgzwdr26lhg4jvlwvvj@w5bkiuhdalze>
-References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <20241007061023.1978380-5-quic_sibis@quicinc.com>
- <2aycrvnvivcrqctqmweadcgenwugafdr6ub3bzkscterpenz32@bzabln2hkral>
- <29eef87e-96f6-5105-6f7a-a8e01efcb4a3@quicinc.com>
- <k4lpzxtrq3x6riyv6etxiobn7nbpczf2bp3m4oc752nhjknlit@uo53kbppzim7>
- <ac655bdc-5ccf-c6c6-3203-659f1916c53c@quicinc.com>
- <34p27za5hcpubaxjuddsir2vqnqrvwyesnclu2cocvm3yhbv3r@ak7rcnp67gyd>
- <1f5258f4-7c20-5343-dec6-0847449c821b@quicinc.com>
- <CAA8EJpoN3QSi72UUDV+=YkqySgXkiODUFJvwpBYfSmnkSotuZA@mail.gmail.com>
- <4399f7da-9478-57c0-7405-e51dc35d90ba@quicinc.com>
+	Tue, 17 Dec 2024 10:46:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tNV63-0001a5-EW; Tue, 17 Dec 2024 11:46:35 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tNV62-003qk0-0G;
+	Tue, 17 Dec 2024 11:46:34 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tNV62-004VQ6-2Q;
+	Tue, 17 Dec 2024 11:46:34 +0100
+Date: Tue, 17 Dec 2024 11:46:34 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"marex@denx.de" <marex@denx.de>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH V2] soc: imx8m: Add remove function
+Message-ID: <20241217104634.2fc7yo6hprhx2wnt@pengutronix.de>
+References: <20241217015826.1374497-1-peng.fan@oss.nxp.com>
+ <20241217082637.i2ou6bbr3tc3uvof@pengutronix.de>
+ <PAXPR04MB8459A91EEC932F41E24AE04488042@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4399f7da-9478-57c0-7405-e51dc35d90ba@quicinc.com>
+In-Reply-To: <PAXPR04MB8459A91EEC932F41E24AE04488042@PAXPR04MB8459.eurprd04.prod.outlook.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_024621_656130_D3A42A7D 
-X-CRM114-Status: GOOD (  29.86  )
+X-CRM114-CacheID: sfid-20241217_024644_948980_8B74F84C 
+X-CRM114-Status: GOOD (  34.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,160 +83,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 03:46:24PM +0530, Sibi Sankar wrote:
-> 
-> 
-> On 12/5/24 17:00, Dmitry Baryshkov wrote:
-> > On Thu, 5 Dec 2024 at 12:53, Sibi Sankar <quic_sibis@quicinc.com> wrote:
-> > > 
-> > > 
-> > > 
-> > > On 11/14/24 18:02, Dmitry Baryshkov wrote:
-> > > > On Thu, Nov 14, 2024 at 09:43:53AM +0530, Sibi Sankar wrote:
-> > > > > 
-> > > > > 
-> > > > > On 10/26/24 23:46, Dmitry Baryshkov wrote:
-> > > > > > On Tue, Oct 22, 2024 at 01:48:25PM +0530, Sibi Sankar wrote:
-> > > > > > > 
-> > > > > > > 
-> > > > > > > On 10/7/24 23:27, Dmitry Baryshkov wrote:
-> > > > > > > > On Mon, Oct 07, 2024 at 11:40:22AM GMT, Sibi Sankar wrote:
-> > > > 
-> > > > > > > > 
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +struct map_param_msg {
-> > > > > > > > > +        u32 hw_type;
-> > > > > > > > > +        u32 mon_idx;
-> > > > > > > > > +        u32 nr_rows;
-> > > > > > > > > +        struct map_table tbl[MAX_MAP_ENTRIES];
-> > > > > > > > > +} __packed;
-> > > > > > > > > +
-> > > > > > > > > +struct node_msg {
-> > > > > > > > > +        u32 cpumask;
-> > > > > > > > > +        u32 hw_type;
-> > > > > > > > > +        u32 mon_type;
-> > > > > > > > > +        u32 mon_idx;
-> > > > > > > > > +        char mon_name[MAX_NAME_LEN];
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +struct scalar_param_msg {
-> > > > > > > > > +        u32 hw_type;
-> > > > > > > > > +        u32 mon_idx;
-> > > > > > > > > +        u32 val;
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +enum common_ev_idx {
-> > > > > > > > > +        INST_IDX,
-> > > > > > > > > +        CYC_IDX,
-> > > > > > > > > +        CONST_CYC_IDX,
-> > > > > > > > > +        FE_STALL_IDX,
-> > > > > > > > > +        BE_STALL_IDX,
-> > > > > > > > > +        NUM_COMMON_EVS
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +enum grp_ev_idx {
-> > > > > > > > > +        MISS_IDX,
-> > > > > > > > > +        WB_IDX,
-> > > > > > > > > +        ACC_IDX,
-> > > > > > > > > +        NUM_GRP_EVS
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +#define EV_CPU_CYCLES           0
-> > > > > > > > > +#define EV_INST_RETIRED         2
-> > > > > > > > > +#define EV_L2_D_RFILL           5
-> > > > > > > > > +
-> > > > > > > > > +struct ev_map_msg {
-> > > > > > > > > +        u32 num_evs;
-> > > > > > > > > +        u32 hw_type;
-> > > > > > > > > +        u32 cid[NUM_COMMON_EVS];
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +struct cpufreq_memfreq_map {
-> > > > > > > > > +        unsigned int cpufreq_mhz;
-> > > > > > > > > +        unsigned int memfreq_khz;
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +struct scmi_monitor_info {
-> > > > > > > > > +        struct cpufreq_memfreq_map *freq_map;
-> > > > > > > > > +        char mon_name[MAX_NAME_LEN];
-> > > > > > > > > +        u32 mon_idx;
-> > > > > > > > > +        u32 mon_type;
-> > > > > > > > > +        u32 ipm_ceil;
-> > > > > > > > > +        u32 mask;
-> > > > > > > > > +        u32 freq_map_len;
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +struct scmi_memory_info {
-> > > > > > > > > +        struct scmi_monitor_info *monitor[MAX_MONITOR_CNT];
-> > > > > > > > > +        u32 hw_type;
-> > > > > > > > > +        int monitor_cnt;
-> > > > > > > > > +        u32 min_freq;
-> > > > > > > > > +        u32 max_freq;
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +struct scmi_memlat_info {
-> > > > > > > > > +        struct scmi_protocol_handle *ph;
-> > > > > > > > > +        const struct qcom_generic_ext_ops *ops;
-> > > > > > > > > +        struct scmi_memory_info *memory[MAX_MEMORY_TYPES];
-> > > > > > > > > +        u32 cluster_info[NR_CPUS];
-> > > > > > > > > +        int memory_cnt;
-> > > > > > > > > +};
-> > > > > > > > > +
-> > > > > > > > > +static int populate_cluster_info(u32 *cluster_info)
-> > > > > > > > > +{
-> > > > > > > > > +        char name[MAX_NAME_LEN];
-> > > > > > > > > +        int i = 0;
-> > > > > > > > > +
-> > > > > > > > > +        struct device_node *cn __free(device_node) = of_find_node_by_path("/cpus");
-> > > > > > > > > +        if (!cn)
-> > > > > > > > > +                return -ENODEV;
-> > > > > > > > > +
-> > > > > > > > > +        struct device_node *map __free(device_node) = of_get_child_by_name(cn, "cpu-map");
-> > > > > > > > > +        if (!map)
-> > > > > > > > > +                return -ENODEV;
-> > > > > > > > > +
-> > > > > > > > > +        do {
-> > > > > > > > > +                snprintf(name, sizeof(name), "cluster%d", i);
-> > > > > > > > > +                struct device_node *c __free(device_node) = of_get_child_by_name(map, name);
-> > > > > > > > > +                if (!c)
-> > > > > > > > > +                        break;
-> > > > > > > > > +
-> > > > > > > > > +                *(cluster_info + i) = of_get_child_count(c);
-> > > > > > > > > +                i++;
-> > > > > > > > > +        } while (1);
-> > > > > > > > 
-> > > > > > > > Can you use existing API from drivers/base/arch_topology.c? If not, can
-> > > > > > > > it be extended to support your usecase?
-> > > > > > > 
-> > > > > > > ack. But I'm pretty sure it's going to take a while for reaching such
-> > > > > > > an agreement so I'll drop this feature during the next re-spin.
-> > > > > > 
-> > > > > > Why? What kind of API do you actually need? The arch_topology.c simply
-> > > > > > exports a table of struct cpu_topology. Is it somehow different from
-> > > > > > what you are parsing manually?
-> > > > > 
-> > > > > yup, we had to figure out the physical id of the cpu
-> > > > > since cpus can be disabled by the bootloader using
-> > > > > status = "failed" property and we have to pass this
-> > > > > onto the cpucp memlat algorithm.
-> > > > 
-> > > > Isn't it equal to the index in the cpu_topology table?
-> > > 
-> > > from what I see cpu_topology indexes remain unpopulated
-> > > for cpus that are disabled since get_cpu_for_node
-> > > ignores those?
+On 24-12-17, Peng Fan wrote:
+> > Subject: Re: [PATCH V2] soc: imx8m: Add remove function
 > > 
-> > Why do you need cpu_topology for disabled aka non-existing CPU devices?
+> > Hi Peng,
+> > 
+> > thanks for you patch.
+> > 
+> > On 24-12-17, Peng Fan (OSS) wrote:
+> > > From: Peng Fan <peng.fan@nxp.com>
+> > >
+> > > Unregister the cpufreq device and soc device in remove path,
+> > otherwise
+> > 
+> > After reconsidiering the patch approach, I think we shouldn't add a
+> > .remove() function and instead should make use of the
+> > devm_add_action() mechanism for the proper unregister calls.
 > 
-> sorry was out sick couldn't back earlier. We need the know
-> what cpus are disbled to pass on the correct mask of cpus
-> enabled to the SCP.
+> Would you please share why devm_add_action is preferred?
+> 
+> Something as below?
+> +static void imx8m_soc_remove(void *data)
+> +{
+> +       struct imx8m_soc_priv *priv = data;
+> +
+> +       if (priv->cpufreq_dev)
+> +               platform_device_unregister(priv->cpufreq_dev);
+> +
+> +       soc_device_unregister(priv->soc_dev);
+> +}
 
-Yes. So isn't it enough to know only the enabled CPUs?
+I would split it into two action functions due to the following reasons:
+ - cleanup during the probe() if something fails afterwards
+ - no need for the if(priv->cpufreq_dev) check.
 
+> In Probe:
+> +       return devm_add_action(&pdev->dev, imx8m_soc_remove, priv);
 
--- 
-With best wishes
-Dmitry
+The actions should be added directly after the succeful device
+registration, e.g.
+ - after soc_device_register(soc_dev_attr) and
+ - after platform_device_register_simple()
+
+Regards,
+   Marco
+
+> 
+> Regards,
+> Peng.
+> 
+> > 
+> > > there will be warning when do removing test:
+> > > sysfs: cannot create duplicate filename '/devices/platform/imx-
+> > cpufreq-dt'
+> > > CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+> > > 6.13.0-rc1-next-20241204 Hardware name: NXP i.MX8MPlus EVK
+> > board (DT)
+> > >
+> > > Fixes: 9cc832d37799 ("soc: imx8m: Probe the SoC driver as platform
+> > > driver")
+> > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > ---
+> > >
+> > > V2:
+> > >  Add err check when create the cpufreq platform device
+> > 
+> > thank you for addressing this.
+> > 
+> > Regards,
+> >   Marco
+> > 
+> > >  drivers/soc/imx/soc-imx8m.c | 41
+> > > +++++++++++++++++++++++++++++++------
+> > >  1 file changed, 35 insertions(+), 6 deletions(-)
+> > >
+> > > diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-
+> > imx8m.c
+> > > index 8ac7658e3d52..97c8718c2aa1 100644
+> > > --- a/drivers/soc/imx/soc-imx8m.c
+> > > +++ b/drivers/soc/imx/soc-imx8m.c
+> > > @@ -33,6 +33,11 @@ struct imx8_soc_data {
+> > >  	int (*soc_revision)(u32 *socrev, u64 *socuid);  };
+> > >
+> > > +struct imx8m_soc_priv {
+> > > +	struct soc_device *soc_dev;
+> > > +	struct platform_device *cpufreq_dev; };
+> > > +
+> > >  #ifdef CONFIG_HAVE_ARM_SMCCC
+> > >  static u32 imx8mq_soc_revision_from_atf(void)
+> > >  {
+> > > @@ -195,10 +200,11 @@ static __maybe_unused const struct
+> > of_device_id
+> > > imx8_soc_match[] = {  static int imx8m_soc_probe(struct
+> > > platform_device *pdev)  {
+> > >  	struct soc_device_attribute *soc_dev_attr;
+> > > +	struct platform_device *cpufreq_dev;
+> > >  	const struct imx8_soc_data *data;
+> > >  	struct device *dev = &pdev->dev;
+> > >  	const struct of_device_id *id;
+> > > -	struct soc_device *soc_dev;
+> > > +	struct imx8m_soc_priv *priv;
+> > >  	u32 soc_rev = 0;
+> > >  	u64 soc_uid = 0;
+> > >  	int ret;
+> > > @@ -207,6 +213,10 @@ static int imx8m_soc_probe(struct
+> > platform_device *pdev)
+> > >  	if (!soc_dev_attr)
+> > >  		return -ENOMEM;
+> > >
+> > > +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> > > +	if (!priv)
+> > > +		return -ENOMEM;
+> > > +
+> > >  	soc_dev_attr->family = "Freescale i.MX";
+> > >
+> > >  	ret = of_property_read_string(of_root, "model",
+> > > &soc_dev_attr->machine); @@ -235,21 +245,40 @@ static int
+> > imx8m_soc_probe(struct platform_device *pdev)
+> > >  	if (!soc_dev_attr->serial_number)
+> > >  		return -ENOMEM;
+> > >
+> > > -	soc_dev = soc_device_register(soc_dev_attr);
+> > > -	if (IS_ERR(soc_dev))
+> > > -		return PTR_ERR(soc_dev);
+> > > +	priv->soc_dev = soc_device_register(soc_dev_attr);
+> > > +	if (IS_ERR(priv->soc_dev))
+> > > +		return PTR_ERR(priv->soc_dev);
+> > >
+> > >  	pr_info("SoC: %s revision %s\n", soc_dev_attr->soc_id,
+> > >  		soc_dev_attr->revision);
+> > >
+> > > -	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT))
+> > > -		platform_device_register_simple("imx-cpufreq-dt", -1,
+> > NULL, 0);
+> > > +	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT)) {
+> > > +		cpufreq_dev = platform_device_register_simple("imx-
+> > cpufreq-dt", -1, NULL, 0);
+> > > +		if (!IS_ERR(cpufreq_dev))
+> > > +			priv->cpufreq_dev = cpufreq_dev;
+> > > +		else
+> > > +			dev_err(dev, "Failed to create imx-cpufreq-
+> > dev device: %ld",
+> > > +				PTR_ERR(cpufreq_dev));
+> > > +	}
+> > > +
+> > > +	platform_set_drvdata(pdev, priv);
+> > >
+> > >  	return 0;
+> > >  }
+> > >
+> > > +static void imx8m_soc_remove(struct platform_device *pdev) {
+> > > +	struct imx8m_soc_priv *priv = platform_get_drvdata(pdev);
+> > > +
+> > > +	if (priv->cpufreq_dev)
+> > > +		platform_device_unregister(priv->cpufreq_dev);
+> > > +
+> > > +	soc_device_unregister(priv->soc_dev);
+> > > +}
+> > > +
+> > >  static struct platform_driver imx8m_soc_driver = {
+> > >  	.probe = imx8m_soc_probe,
+> > > +	.remove	= imx8m_soc_remove,
+> > >  	.driver = {
+> > >  		.name = "imx8m-soc",
+> > >  	},
+> > > --
+> > > 2.37.1
+> > >
+> > >
+> > >
+> 
 
