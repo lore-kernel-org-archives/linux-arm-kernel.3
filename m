@@ -4,106 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BFBE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8CBE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+9x4X6VsXmnlXwHD6ZB1McxUa09s6mP82ERI0J8/h/c=; b=B/Z4n18zwKOs0NbgV7AJNGx4yR
-	P0BHjDNczIR1jO4F4o3RZKXB0RXlltzP5fNq4BwKFNaA43Q6Grn6Dn1xPX1Kq1khAcAKQlKBlH+tO
-	hckF3B8khToUn4ttJSupE3RI4Og7hMmEytRKjMeb05uTZKpiBl0QLQyN+RRDbazkxw50nWUMGv/G9
-	L+DDbaoTG3Xbp1yYoh42ReDvI7JQQIQ0m+LJY8FMJifcY10zcui+5ltiQEG0H8MKhFAEVCDVAFana
-	tbD08093254/NVxOseszkV7OxF8XCWbhIOptoTVJafYHPJGEnO42BiHrGqNEHh3uvoT9+1TKxJd27
-	7a+MbenA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/3ctEhFLYPJl0ejLmEqc8V83PAPjatQzcHAuasxJTOs=; b=h4lu8ASnZianLfCHXP7biM72/O
+	7j+Gt6EHyewS8KSQA/22ydoDvmIy8syCrYIc4qku4TsZ2lLZljRjbB70EH2BtsZxnCiZrrjtS0O6L
+	6J7347e3Q21Pc/bwAFNOBMxXF+7RO3fSdRWG5Xi/RMvT8eADhii8HCueXTqM3qYp4u9BYv21j4jFd
+	yK8EURBYQjq/cbjdndyi5iHHGo33dM4SIVtUFNv0YLGnJIMQ9h1JJmuljQBoBSGty1OGUxdRFrgAU
+	G54/PgdLXCTY9nZ5FmTgHzLC96j3KD9Yo+h8Bl0oUHcKNIuCpiImJJVgDbuWekR8IhpDHmRy1Sl4V
+	uPR/Ao+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNPnF-0000000CCYW-2P7F;
-	Tue, 17 Dec 2024 05:06:49 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tNPur-0000000CDQL-2yWE;
+	Tue, 17 Dec 2024 05:14:41 +0000
+Received: from mail-co1nam11on20600.outbound.protection.outlook.com ([2a01:111:f403:2416::600] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNPm8-0000000CCNW-2qy2
+	id 1tNPtl-0000000CCxp-0wJk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 05:05:43 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21636268e43so59420575ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 21:05:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734411939; x=1735016739; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+9x4X6VsXmnlXwHD6ZB1McxUa09s6mP82ERI0J8/h/c=;
-        b=linwiaJRv7Mn4+JfqEdNsMF70NVnaX0mYk+lisw2BnuprDdQaGZrLMhvk3OzquT7b+
-         Nh5THdzSPPe0NJY/Qc650nZ4DKDBwT8lp7eoIt0PMD2G/vcBkBMF8R39M0hhcqfkZsdM
-         H2/s3dxM9l1ruhE21Q+EVugZZpElRi+VIFInvJHxM6a1ue7gUT42ZzQNd1ll8GJrDk9s
-         vwrPT9xdgYBqtwSuBjJZ1MdnpKVr+JsQl7xahxNBc2G5iyfiVv+7BbJmFiYnya3Hut6T
-         AlcduQpzMER78+FULmdA848VnAanprrvsq8vzY7O+wgDqBW/sf6tAC0bmBfrHwQAce+S
-         7StA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734411939; x=1735016739;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+9x4X6VsXmnlXwHD6ZB1McxUa09s6mP82ERI0J8/h/c=;
-        b=JxYZfzoGyKVFCr3+HC3ADku7/j3hVz0NIqL4iyks/i69t5HeXcgeeS+2GQ7fKJ36rC
-         OTfEYbJVsWEO8Izg1VGUWB75WbZ+zuHhy+Du4ozPBIgiV6uUMRJL9zWwsfz1hrjz2Hch
-         tLM8lQB8YvTSsjse6jLMiO1/KwqUddlkFeUVkXa/IVJeLFT8Rt+JTbf4G2k2jVKKpoz6
-         ujYfpdt0wHEsv3wdvnifDnGLcbYLvA6VPibPzyUt6IQO1FcGnkHf6/uNAhN3OZodBOix
-         F4CG9LnlEn69Z9Bkej/dgqYWGpNqVrShfduZVXdqqPmQ2/QONTEINhhwx1HyV5YG1rJW
-         uKwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUkhLP8P7YS2fcEqyuAVQ7PLcgSp4yV8Ic/ngKRmuGXjvqYjIHAaZxNkOiekwlyyEBQ0iA9Fc6+EjTJvJJcWtPW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcINXgRL6oBRg/mai/lGiM2tHZwHCi4CDxb5RKo9lmRzxEOSlg
-	xZX5WVJDKi7MtTTpYwtXOeVnxxQ46FEsmI8YnR7WGUekM4vpWs1ynEh/4K+RcIo=
-X-Gm-Gg: ASbGncvKA54UVm94RSmJ03jXbws4y0R5upfn8v5NHP3rgWITLMwQ6qJ4accdfYhkTOk
-	GrHIhciU3W0ZxgObdH3/oWEWUQbWJ8ahxR0N4JwqYXGm1pKpcTqf46/zkefKzh9sB4hMEJQ7Vej
-	/pwcib8L3fdEu4PFv220RrR4rrEEoE3mDdnMJ5HHmNf5NnWSnGjs1bGpW1yk319HV7ykqBYm+zD
-	kC0ftejV4GGwsOkB+zOJUiaUO5AqsRDFPN+DCUnIF//mli6ePE=
-X-Google-Smtp-Source: AGHT+IGVrWrXaPQFFobqmyGa1VQFE8sVuxv4oAOdc9G/v3DOHotCQVtFV+VjZ0E8Lez8hAQY+NAQgw==
-X-Received: by 2002:a17:902:dac6:b0:215:72aa:693f with SMTP id d9443c01a7336-21892980fecmr213696615ad.9.1734411939584;
-        Mon, 16 Dec 2024 21:05:39 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:9708:a71e:40e6:860])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e50aadsm50867095ad.156.2024.12.16.21.05.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 21:05:38 -0800 (PST)
-Date: Mon, 16 Dec 2024 21:05:35 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 01/16] perf tools: Create generic syscall table support
-Message-ID: <Z2EGn2V1OPqqKxKZ@ghost>
-References: <20241212-perf_syscalltbl-v2-0-f8ca984ffe40@rivosinc.com>
- <20241212-perf_syscalltbl-v2-1-f8ca984ffe40@rivosinc.com>
- <Z1zBzTgEYXw1DbEL@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+	Tue, 17 Dec 2024 05:13:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CArsXbOti08qmUdHoY0OUL4Q6v1KVTHTfAbytnrTtwo9xPSoXz28AcLctTDUee5mPM8Z4bXcnkX8BKUoREozzX8jW4c/rPQHry5rpvcOhJR8Aa0shIwghlNoX07L1IIgtBqMuVUQie7+UiClS0kIK/eEo/gEGYkM3bPM0dGCZtKQByLoWT6CUbbSbAnt3ZMHYrNyI6TGfnYYvcR2z0AJiKFg+HZoepuevZKfTY15AghQ7kK5W4ZvZQaIc+Z3mzU5H6idweLUIiv2abYW+lXF9DhcELo+MBR/+ndhts5w+emz6bK79dVPBkovUr3EwLjqEXQluJpMu1tZ5cUcKc3Fhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/3ctEhFLYPJl0ejLmEqc8V83PAPjatQzcHAuasxJTOs=;
+ b=GnntueXJykTuCndgQ4hvSceNfg8FnSEcvxJ4EksR/+5H5GSjR3rPglFWt4b3vqGgGOYZjcLD7dU3i97ZMvIkBPbe1wINm21/W1frWj37zrBWd4J/2dOsWdQQ/uS7pOyfL2aWxQ9D0WzLUO1Eki4c1FmLNSM+WnNGrRCr0nCPuptoMpKj1BQ8pkGIbQn6UbmHNJFX/pWr22eGgxrYUwFOC78lbRY1zS8qgZYxECYNW2belm0uCR5z+51MofaJVLJGFXGrWjGjMxwDSI+IFUmsM1r+S06ZFC/icTk9gJ+7Q/7K3CYf0AOBaurvWnUELUS9X05ZK1yYCnAX/D7zYml0lg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/3ctEhFLYPJl0ejLmEqc8V83PAPjatQzcHAuasxJTOs=;
+ b=h0JYA8VfymDmeDxaOPAj+rkxzQxjkw98IN58buwihm8ccL+LY/zj7D/cUkO+MFT2mKh5a7zwbVwoEqLSIcevK4JoiDQ8oaOCDyCyZ8OHWwP7iDW+qfXdoMm9LEHZTv+Nmwy7k5DGScGRoXSpHidSq5NTmBPYZEyFdfZZduEn0IrgBtvUJ94UPOcZDV2YplmBA1LD/82h4zfmQXp6JTQTk+3tKnwifsNLAlMwlcCE+GP0NxZ2kACLUz0hswznrz1gBRsc2LJtjKZVxX4K3qFEnQyHc10wDADZMexZKzvOVLn68FMAGIm+ACGQanAQ9wN1Bn18ZdptFH7ykQLNDm3Bpg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ CH3PR12MB8936.namprd12.prod.outlook.com (2603:10b6:610:179::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Tue, 17 Dec
+ 2024 05:13:25 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%4]) with mapi id 15.20.8251.015; Tue, 17 Dec 2024
+ 05:13:25 +0000
+From: Alistair Popple <apopple@nvidia.com>
+To: akpm@linux-foundation.org,
+	dan.j.williams@intel.com,
+	linux-mm@kvack.org
+Cc: Alistair Popple <apopple@nvidia.com>,
+	lina@asahilina.net,
+	zhang.lyra@gmail.com,
+	gerald.schaefer@linux.ibm.com,
+	vishal.l.verma@intel.com,
+	dave.jiang@intel.com,
+	logang@deltatee.com,
+	bhelgaas@google.com,
+	jack@suse.cz,
+	jgg@ziepe.ca,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	dave.hansen@linux.intel.com,
+	ira.weiny@intel.com,
+	willy@infradead.org,
+	djwong@kernel.org,
+	tytso@mit.edu,
+	linmiaohe@huawei.com,
+	david@redhat.com,
+	peterx@redhat.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	nvdimm@lists.linux.dev,
+	linux-cxl@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com,
+	hch@lst.de,
+	david@fromorbit.com
+Subject: [PATCH v4 00/25] fs/dax: Fix ZONE_DEVICE page reference counts
+Date: Tue, 17 Dec 2024 16:12:43 +1100
+Message-ID: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
+X-Mailer: git-send-email 2.45.2
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z1zBzTgEYXw1DbEL@google.com>
+Content-Type: text/plain
+X-ClientProxiedBy: SY6PR01CA0117.ausprd01.prod.outlook.com
+ (2603:10c6:10:1b8::18) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|CH3PR12MB8936:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a973c43-7f54-4223-3bf1-08dd1e598879
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Wpy5ZQ00jGuT5FToRPQvE5o3wjj0PFkPL4iNIwf/NVP432SkpdBgP37HNE9m?=
+ =?us-ascii?Q?kbo+Ae7AZIuPV3qIsfd5Z/GNhEYHsrAz5Qmzf9CYE38KT/Nn6aliiZCp/9HJ?=
+ =?us-ascii?Q?jjBRlA+mjhSMGUf2Vw6CVBrt7b6ggQ63KItbgfNep3A7ChTkmIdGnYQGFR+U?=
+ =?us-ascii?Q?DPWRbf5IGnNB+s7LPLZW5QLpN3r+cp7A4uQd2m7PwGLtyki9PsI6vNdgXnNI?=
+ =?us-ascii?Q?/edY0wInG5VVsORQpk3emhTXfLCBfhzeCGpRv/r+AZXDAY+ewBc3tvAg1T8E?=
+ =?us-ascii?Q?BSeqVw6jDZGz/datoeAkLytOY2IkUHw4LX0NarvFrsEhOXofZgQdK6WNBclZ?=
+ =?us-ascii?Q?mBtIcomGQoFvwLG9luiNINb1PXfodBkAQ2KylKNeM7UJ30YfXap3ctkjbFP+?=
+ =?us-ascii?Q?D3CuB2LdgG39rrT8dP0MyIJsAftUww3KZqzXqTyZ8GMWSzQlYmOJjjCcFZ+M?=
+ =?us-ascii?Q?6rNAzz0Hcvsg3G0XCAdV5KE+7nK39hqWQ4YC2uE62XClNxKKgHSyYEsE+pxv?=
+ =?us-ascii?Q?sEVja/FECv7LKehprXAbT0uU8TDGGvPm8Tc6Klk4f9MJexljj633sYswVrAL?=
+ =?us-ascii?Q?Fj2ez3LfG6jDamUiN7VxAS5r2VbXtVqatXf+0QcCewYTD9rXh9d1fcVG5eIW?=
+ =?us-ascii?Q?9jEmj2+81QbrmpKPfkJnwcE4a09LPSvr3oniFVu4rq+QA0YyKWTf/000RVUD?=
+ =?us-ascii?Q?7BoE8DYxtLI4jQyboMHyXDjtibk6I9i8TMreYcAkfF+07bllfT8eRS8AN3Hf?=
+ =?us-ascii?Q?P77ddLKgNBSNsa2R2cwcHmGWPy8+D8k0xpcx6ypc+YbcjP4XA/hZxEjmdZDW?=
+ =?us-ascii?Q?b8sKiPj5vFOYDUIEvpww7lLSDpPjzHs1WJmmwTEfCRRoMYQih3DnLXXyv3S8?=
+ =?us-ascii?Q?LYJQ7zu342+04psHr4npteS2So2Cqfc8BgnSUD9lN78fZMQIrrVnmqsOuP++?=
+ =?us-ascii?Q?t9x5+j8sZndd8QMaGj2e7AcJRcbVr+6mUrwbkHMuGCYHS1i5Xbjv1h7fHz8f?=
+ =?us-ascii?Q?npg6ITL+ypMT2rbxqseRbNKpeUFpUqPDUZ+5jT2BwsLUFZeDmn06ZzyYiYsL?=
+ =?us-ascii?Q?+v25Qp6Xe+YGcX6KJlNxPops0whNeL+lmFe0pL/ShO6LR1P4fh0XbIBXl6KU?=
+ =?us-ascii?Q?TqTjVccH2D2W+ln3ZIvABNmA3qHUOM2JnxX2+glBu3oX+IWO4uLiJmnZjBbO?=
+ =?us-ascii?Q?v9hbuMmO37LRF1AS7LYq/xh+sW2tJSOFUCjdVC9W8jtIqKFuOmdMOyBNS6JW?=
+ =?us-ascii?Q?eldxRJ82bAXdwYd2yUb1jKIw/uSrh7GgKPBbbZ5yGmn+nVdfxMjcOC0CJew+?=
+ =?us-ascii?Q?dr2parancdP3ALzy6NqleE4t/sdgbTxuB8Am6jMWnYayqYz2N94MSwg4eNq6?=
+ =?us-ascii?Q?f+pw+wW/00Q5NbTNyfhjFCUiA9Ac?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k2l3I5o0dnrWYU7XfDzameO7P1AM/F7qWrlVlJW5uhEJ0ZWf0rztmC9X7QxV?=
+ =?us-ascii?Q?G0kiZ09+NeHRIvxJWAnkiD6xb2ZHO+0PxW/sWDmS2oHrK6KEOiB4YKcVJNDC?=
+ =?us-ascii?Q?ElS031aeTS9Y/b34+Xo62LXdOley1/qnMId05DVBakahIxb7xpqdSv0d4iPp?=
+ =?us-ascii?Q?vkLh5VL9dcoozgFdfdd6mDRxlaEGfSSTrBI5SJ+XwSV0sxHhV2rjjHiGOZpw?=
+ =?us-ascii?Q?44geCDYpjl8pySJLncoJ6GpEGSduP38uuzNuW8HB/HlU2bTiKdDCc8MoAkfF?=
+ =?us-ascii?Q?qPoGChstBPBGKaFm6TOMtG/6FXgXfGAwXUyXhMC8oXBgFfcHYDcAekiHK6BO?=
+ =?us-ascii?Q?+VgM+xEkPorjll3dIlNDYST/X/w/5kiIltFcXSJm++jZs5mWCXUgqI+dvkdb?=
+ =?us-ascii?Q?zou7sTnIBskaW8cgdXJ39/61XlcIHa45L3eeAL33ZxlL/LlLDFOVrqax/urt?=
+ =?us-ascii?Q?4a9JXaZvyI0f6OweJG36CYsT8X6vqNicH6YeHF76qopHcNCxG8gg9iEtSvPM?=
+ =?us-ascii?Q?TfXqfx4pKjZhU0M6tN+Kn17Z5Xh7r0fd2myovtG7FcZOqcfHZ34dsE4Nosr/?=
+ =?us-ascii?Q?cvQmHgm8vw6xassUNlF2Hq+KRNDRzSqZWu7nCRB35kugZTKYkS3Tfj27yVHU?=
+ =?us-ascii?Q?+FblWxxd1neYc4EfGg+Q5PGqoI92E3Yxs6BXfHQZbGB+HyxwJvyoH1RfZla4?=
+ =?us-ascii?Q?q4wDviJNfkqNNaSEWfziePSOAzwPzdCYCn2OMOlmhglMNSvzhzpEifcqppqJ?=
+ =?us-ascii?Q?145re5ByupiD/U+Kf4KHLZuj0DNu5B93PIvNzk6cHQqE0KHIkfA626IbuC1B?=
+ =?us-ascii?Q?UYWZdAAPm30wVR4S4b2e+BuYbeLKxRa6994JVmlWnAvd9ywTU3O38tLBQBnw?=
+ =?us-ascii?Q?VYLda2BWAz6kHIG1MBpUk/kiNvctvkaOJXZeHAphOfu9nZs1ZWSBnaja6EoU?=
+ =?us-ascii?Q?Lmr/pxt60zAOeYFBHzR9ES3WdYT8q/9YdYJI5dMZAeCkgFGXEgVgvs7/zPDO?=
+ =?us-ascii?Q?eMUx8fIrzdnnwRB76lR6vr1nPqqtA6qe2r/JziB29vmPK5szXkP6Zgoa9Swf?=
+ =?us-ascii?Q?UolaVSz7jKkVF3r5SHtp4KuS5DBMhtuFgRiRu55pac9uUqFy8RpZH9s4Ciw9?=
+ =?us-ascii?Q?WMFFUJPLQCiFnBCD1xjebRHOvGCNbZ9IW1IUERCJMa4sH/nx4wNvoiE3K/o+?=
+ =?us-ascii?Q?ssIs7GKVoSf/t0PyzuN8/5R29XAVg527HSyswD+dQyMqG5Ph1B5RfGxVzpbV?=
+ =?us-ascii?Q?mzTTV8CydJPh4LEPM9qRHFvMXCDm64LRhPXPLRWRt9uncFBXT86Ymwb6hBoh?=
+ =?us-ascii?Q?//QnGmpVna85P5Xu7l2rCSBcB1IIiJNuQbRAyEBPBmCu6F/dUQgjZGtJFtOu?=
+ =?us-ascii?Q?9QmJgNeptVGXySnPPoEpNWH/t8UIHdJ7q89TI+whmpZxti3ex/+PQqYrcP/b?=
+ =?us-ascii?Q?HCTz2eNFJm+bPlcac1vHPLjIt/F9wqR7lDoysryjNRIAeaO8EjswOdaT05Cw?=
+ =?us-ascii?Q?hzlxrEMpEiTm2jkHp7gMcSe/F0iBhae2EHlAJUXtwSAo8vw1H7W4AjYae5tA?=
+ =?us-ascii?Q?f+BDB5ujDOKFJEsxGGkgBVSx6FjetRVFOoBqGA2t?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a973c43-7f54-4223-3bf1-08dd1e598879
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2024 05:13:25.0330
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tGM3K2EakZl+6YtbryBHOVs8U0HvO+PYNw2bFb86RDEYwV7qotyHbvtGWNR6TP1UEKMM6QwlMgWdC/YQPyVHqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8936
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_210540_935725_CD01A6D0 
-X-CRM114-Status: GOOD (  37.40  )
+X-CRM114-CacheID: sfid-20241216_211333_748486_6BC6D9B8 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,293 +188,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 03:22:53PM -0800, Namhyung Kim wrote:
-> Hello,
-> 
-> On Thu, Dec 12, 2024 at 04:32:51PM -0800, Charlie Jenkins wrote:
-> > Currently each architecture in perf independently generates syscall
-> > headers. Adapt the work that has gone into unifying syscall header
-> > implementations in the kernel to work with perf tools. Introduce this
-> > framework with riscv at first. riscv previously relied on libaudit, but
-> > with this change, perf tools for riscv no longer needs this external
-> > dependency.
-> 
-> Nice work!
-> 
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> >  tools/perf/Makefile.config                         |  11 +-
-> >  tools/perf/Makefile.perf                           |   4 +
-> >  tools/perf/arch/riscv/Makefile                     |  22 --
-> >  tools/perf/arch/riscv/entry/syscalls/Kbuild        |   2 +
-> >  .../arch/riscv/entry/syscalls/Makefile.syscalls    |   4 +
-> >  tools/perf/arch/riscv/entry/syscalls/mksyscalltbl  |  47 ---
-> >  tools/perf/arch/riscv/include/syscall_table.h      |   8 +
-> >  tools/perf/check-headers.sh                        |   1 +
-> >  tools/perf/scripts/Makefile.syscalls               |  60 +++
-> >  tools/perf/scripts/syscalltbl.sh                   |  86 +++++
-> >  tools/perf/util/syscalltbl.c                       |   8 +-
-> >  tools/scripts/syscall.tbl                          | 409 +++++++++++++++++++++
-> >  12 files changed, 585 insertions(+), 77 deletions(-)
-> > 
-> > diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-> > index 2916d59c88cd08b299202a48ddb42fa32aac04a6..a72f25162714f0117a88d94474da336814d4f030 100644
-> > --- a/tools/perf/Makefile.config
-> > +++ b/tools/perf/Makefile.config
-> > @@ -35,6 +35,13 @@ ifneq ($(NO_SYSCALL_TABLE),1)
-> >      NO_SYSCALL_TABLE := 0
-> >    endif
-> >  
-> > +  # architectures that use the generic syscall table scripts
-> > +  ifeq ($(SRCARCH),riscv)
-> > +    NO_SYSCALL_TABLE := 0
-> > +    CFLAGS += -DGENERIC_SYSCALL_TABLE
-> > +    CFLAGS += -I$(OUTPUT)/tools/perf/arch/$(SRCARCH)/include/generated
-> > +  endif
-> > +
-> >    ifneq ($(NO_SYSCALL_TABLE),1)
-> >      CFLAGS += -DHAVE_SYSCALL_TABLE_SUPPORT
-> >    endif
-> > @@ -83,10 +90,6 @@ ifeq ($(ARCH),mips)
-> >    LIBUNWIND_LIBS = -lunwind -lunwind-mips
-> >  endif
-> >  
-> > -ifeq ($(ARCH),riscv)
-> > -  CFLAGS += -I$(OUTPUT)arch/riscv/include/generated
-> > -endif
-> > -
-> >  # So far there's only x86 and arm libdw unwind support merged in perf.
-> >  # Disable it on all other architectures in case libdw unwind
-> >  # support is detected in system. Add supported architectures
-> > diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-> > index d74241a151313bd09101aabb5d765a5a0a6efc84..f5278ed9f778f928436693a14e016c5c3c5171c1 100644
-> > --- a/tools/perf/Makefile.perf
-> > +++ b/tools/perf/Makefile.perf
-> > @@ -310,6 +310,10 @@ ifeq ($(filter feature-dump,$(MAKECMDGOALS)),feature-dump)
-> >  FEATURE_TESTS := all
-> >  endif
-> >  endif
-> > +# architectures that use the generic syscall table
-> > +ifeq ($(SRCARCH),riscv)
-> > +include $(srctree)/tools/perf/scripts/Makefile.syscalls
-> > +endif
-> >  include Makefile.config
-> >  endif
-> >  
-> > diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-> > index 18ad078000e2bba595f92efc5d97a63fdb83ef45..087e099fb453a9236db34878077a51f711881ce0 100644
-> > --- a/tools/perf/arch/riscv/Makefile
-> > +++ b/tools/perf/arch/riscv/Makefile
-> > @@ -1,25 +1,3 @@
-> >  # SPDX-License-Identifier: GPL-2.0
-> >  PERF_HAVE_JITDUMP := 1
-> >  HAVE_KVM_STAT_SUPPORT := 1
-> > -
-> > -#
-> > -# Syscall table generation for perf
-> > -#
-> > -
-> > -out    := $(OUTPUT)arch/riscv/include/generated/asm
-> > -header := $(out)/syscalls.c
-> > -incpath := $(srctree)/tools
-> > -sysdef := $(srctree)/tools/arch/riscv/include/uapi/asm/unistd.h
-> > -sysprf := $(srctree)/tools/perf/arch/riscv/entry/syscalls/
-> > -systbl := $(sysprf)/mksyscalltbl
-> > -
-> > -# Create output directory if not already present
-> > -$(shell [ -d '$(out)' ] || mkdir -p '$(out)')
-> > -
-> > -$(header): $(sysdef) $(systbl)
-> > -	$(Q)$(SHELL) '$(systbl)' '$(CC)' '$(HOSTCC)' $(incpath) $(sysdef) > $@
-> > -
-> > -clean::
-> > -	$(call QUIET_CLEAN, riscv) $(RM) $(header)
-> > -
-> > -archheaders: $(header)
-> > diff --git a/tools/perf/arch/riscv/entry/syscalls/Kbuild b/tools/perf/arch/riscv/entry/syscalls/Kbuild
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..9a41e3572c3afd4f202321fd9e492714540e8fd3
-> > --- /dev/null
-> > +++ b/tools/perf/arch/riscv/entry/syscalls/Kbuild
-> > @@ -0,0 +1,2 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +syscall-y += syscalls_64.h
-> > diff --git a/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls b/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..9668fd1faf60e828ed2786c2ee84739ac1f153fc
-> > --- /dev/null
-> > +++ b/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
-> > @@ -0,0 +1,4 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +
-> > +syscall_abis_32 += riscv memfd_secret
-> > +syscall_abis_64 += riscv rlimit memfd_secret
-> > diff --git a/tools/perf/arch/riscv/entry/syscalls/mksyscalltbl b/tools/perf/arch/riscv/entry/syscalls/mksyscalltbl
-> > deleted file mode 100755
-> > index c59f5e852b97712a9a879b89e6ef6999ed4b6cd7..0000000000000000000000000000000000000000
-> > --- a/tools/perf/arch/riscv/entry/syscalls/mksyscalltbl
-> > +++ /dev/null
-> > @@ -1,47 +0,0 @@
-> > -#!/bin/sh
-> > -# SPDX-License-Identifier: GPL-2.0
-> > -#
-> > -# Generate system call table for perf. Derived from
-> > -# powerpc script.
-> > -#
-> > -# Copyright IBM Corp. 2017
-> > -# Author(s):  Hendrik Brueckner <brueckner@linux.vnet.ibm.com>
-> > -# Changed by: Ravi Bangoria <ravi.bangoria@linux.vnet.ibm.com>
-> > -# Changed by: Kim Phillips <kim.phillips@arm.com>
-> > -# Changed by: Björn Töpel <bjorn@rivosinc.com>
-> > -
-> > -gcc=$1
-> > -hostcc=$2
-> > -incpath=$3
-> > -input=$4
-> > -
-> > -if ! test -r $input; then
-> > -	echo "Could not read input file" >&2
-> > -	exit 1
-> > -fi
-> > -
-> > -create_sc_table()
-> > -{
-> > -	local sc nr max_nr
-> > -
-> > -	while read sc nr; do
-> > -		printf "%s\n" "	[$nr] = \"$sc\","
-> > -		max_nr=$nr
-> > -	done
-> > -
-> > -	echo "#define SYSCALLTBL_RISCV_MAX_ID $max_nr"
-> > -}
-> > -
-> > -create_table()
-> > -{
-> > -	echo "#include \"$input\""
-> > -	echo "static const char *const syscalltbl_riscv[] = {"
-> > -	create_sc_table
-> > -	echo "};"
-> > -}
-> > -
-> > -$gcc -E -dM -x c -I $incpath/include/uapi $input \
-> > -	|awk '$2 ~ "__NR" && $3 !~ "__NR3264_" {
-> > -		sub("^#define __NR(3264)?_", "");
-> > -		print | "sort -k2 -n"}' \
-> > -	|create_table
-> > diff --git a/tools/perf/arch/riscv/include/syscall_table.h b/tools/perf/arch/riscv/include/syscall_table.h
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..7ff51b783000d727ec48be960730b81ecdb05575
-> > --- /dev/null
-> > +++ b/tools/perf/arch/riscv/include/syscall_table.h
-> > @@ -0,0 +1,8 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#include <asm/bitsperlong.h>
-> > +
-> > +#if __BITS_PER_LONG == 64
-> > +#include <asm/syscalls_64.h>
-> > +#else
-> > +#include <asm/syscalls_32.h>
-> > +#endif
-> > diff --git a/tools/perf/check-headers.sh b/tools/perf/check-headers.sh
-> > index a05c1c105c51bf1bd18a59195220894598eb7461..692f48db810ccbef229e240db29261f0c60db632 100755
-> > --- a/tools/perf/check-headers.sh
-> > +++ b/tools/perf/check-headers.sh
-> > @@ -71,6 +71,7 @@ FILES=(
-> >    "include/uapi/asm-generic/ioctls.h"
-> >    "include/uapi/asm-generic/mman-common.h"
-> >    "include/uapi/asm-generic/unistd.h"
-> > +  "scripts/syscall.tbl"
-> >  )
-> >  
-> >  declare -a SYNC_CHECK_FILES
-> > diff --git a/tools/perf/scripts/Makefile.syscalls b/tools/perf/scripts/Makefile.syscalls
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..e2b0c4b513d5c42c8e9ac51a9ea774c34a1311b7
-> > --- /dev/null
-> > +++ b/tools/perf/scripts/Makefile.syscalls
-> > @@ -0,0 +1,60 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +# This Makefile generates tools/perf/arch/$(SRCARCH)/include/generated/asm from
-> > +# the generic syscall table if that is supported by the architecture, otherwise
-> > +# from the architecture's defined syscall table.
-> > +
-> > +PHONY := all
-> > +all:
-> > +
-> > +obj := $(OUTPUT)/tools/perf/arch/$(SRCARCH)/include/generated/asm
-> > +
-> > +syscall_abis_32  += common,32
-> > +syscall_abis_64  += common,64
-> 
-> Couldn't it be := instead of += ?
+Main updates since v3:
+ - Rebased onto next-20241216
 
-Yes good point.
+ - Fixed a bunch of build breakages reported by John Hubbard and the
+   kernel test robot due to various combinations of CONFIG options.
 
-> 
-> 
-> > +syscalltbl := $(srctree)/tools/scripts/syscall.tbl
-> > +
-> > +# let architectures override $(syscall_abis_%) and $(syscalltbl)
-> > +-include $(srctree)/tools/perf/arch/$(SRCARCH)/entry/syscalls/Makefile.syscalls
-> > +include $(srctree)/scripts/Kbuild.include
-> > +-include $(srctree)/tools/perf/arch/$(SRCARCH)/entry/syscalls/Kbuild
-> > +
-> > +systbl := $(srctree)/tools/perf/scripts/syscalltbl.sh
-> > +
-> > +syscall-y   := $(addprefix $(obj)/, $(syscall-y))
-> > +
-> > +# Remove stale wrappers when the corresponding files are removed from generic-y
-> > +old-headers := $(wildcard $(obj)/*.c)
-> > +unwanted    := $(filter-out $(syscall-y),$(old-headers))
-> 
-> Can you elaborate?  What's the stable wrappers?
-> 
-> I think syscall-y and old-headers have .h files but the wildcard above
-> is called for .c files?
+ - Split the rmap changes into a separate patch as suggested by David H.
 
-Oh yes! I meant to change that to .h, thank you for mentioning that, I
-had .c at some point during development but changed it to .h files.
+ - Reworded the description for the P2PDMA change.
 
-- Charlie
+Main updates since v2:
 
-> 
-> Thanks,
-> Namhyung
-> 
-> > +
-> > +quiet_cmd_remove = REMOVE  $(unwanted)
-> > +      cmd_remove = rm -f $(unwanted)
-> > +
-> > +quiet_cmd_systbl = SYSTBL  $@
-> > +      cmd_systbl = $(CONFIG_SHELL) $(systbl) \
-> > +		   $(if $(systbl-args-$*),$(systbl-args-$*),$(systbl-args)) \
-> > +		   --abis $(subst $(space),$(comma),$(strip $(syscall_abis_$*))) \
-> > +		   $< $@
-> > +
-> > +all: $(syscall-y)
-> > +	$(if $(unwanted),$(call cmd,remove))
-> > +	@:
-> > +
-> > +$(obj)/syscalls_%.h: $(syscalltbl) $(systbl) FORCE
-> > +	$(call if_changed,systbl)
-> > +
-> > +targets := $(syscall-y)
-> > +
-> > +# Create output directory. Skip it if at least one old header exists
-> > +# since we know the output directory already exists.
-> > +ifeq ($(old-headers),)
-> > +$(shell mkdir -p $(obj))
-> > +endif
-> > +
-> > +PHONY += FORCE
-> > +
-> > +FORCE:
-> > +
-> > +existing-targets := $(wildcard $(sort $(targets)))
-> > +
-> > +-include $(foreach f,$(existing-targets),$(dir $(f)).$(notdir $(f)).cmd)
-> > +
-> > +.PHONY: $(PHONY)
+ - Rename the DAX specific dax_insert_XXX functions to vmf_insert_XXX
+   and have them pass the vmf struct.
+
+ - Seperate out the device DAX changes.
+
+ - Restore the page share mapping counting and associated warnings.
+
+ - Rework truncate to require file-systems to have previously called
+   dax_break_layout() to remove the address space mapping for a
+   page. This found several bugs which are fixed by the first half of
+   the series. The motivation for this was initially to allow the FS
+   DAX page-cache mappings to hold a reference on the page.
+
+   However that turned out to be a dead-end (see the comments on patch
+   21), but it found several bugs and I think overall it is an
+   improvement so I have left it here.
+
+Device and FS DAX pages have always maintained their own page
+reference counts without following the normal rules for page reference
+counting. In particular pages are considered free when the refcount
+hits one rather than zero and refcounts are not added when mapping the
+page.
+
+Tracking this requires special PTE bits (PTE_DEVMAP) and a secondary
+mechanism for allowing GUP to hold references on the page (see
+get_dev_pagemap). However there doesn't seem to be any reason why FS
+DAX pages need their own reference counting scheme.
+
+By treating the refcounts on these pages the same way as normal pages
+we can remove a lot of special checks. In particular pXd_trans_huge()
+becomes the same as pXd_leaf(), although I haven't made that change
+here. It also frees up a valuable SW define PTE bit on architectures
+that have devmap PTE bits defined.
+
+It also almost certainly allows further clean-up of the devmap managed
+functions, but I have left that as a future improvment. It also
+enables support for compound ZONE_DEVICE pages which is one of my
+primary motivators for doing this work.
+
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
+
+---
+
+Cc: lina@asahilina.net
+Cc: zhang.lyra@gmail.com
+Cc: gerald.schaefer@linux.ibm.com
+Cc: dan.j.williams@intel.com
+Cc: vishal.l.verma@intel.com
+Cc: dave.jiang@intel.com
+Cc: logang@deltatee.com
+Cc: bhelgaas@google.com
+Cc: jack@suse.cz
+Cc: jgg@ziepe.ca
+Cc: catalin.marinas@arm.com
+Cc: will@kernel.org
+Cc: mpe@ellerman.id.au
+Cc: npiggin@gmail.com
+Cc: dave.hansen@linux.intel.com
+Cc: ira.weiny@intel.com
+Cc: willy@infradead.org
+Cc: djwong@kernel.org
+Cc: tytso@mit.edu
+Cc: linmiaohe@huawei.com
+Cc: david@redhat.com
+Cc: peterx@redhat.com
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: nvdimm@lists.linux.dev
+Cc: linux-cxl@vger.kernel.org
+Cc: linux-fsdevel@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-ext4@vger.kernel.org
+Cc: linux-xfs@vger.kernel.org
+Cc: jhubbard@nvidia.com
+Cc: hch@lst.de
+Cc: david@fromorbit.com
+
+Alistair Popple (25):
+  fuse: Fix dax truncate/punch_hole fault path
+  fs/dax: Return unmapped busy pages from dax_layout_busy_page_range()
+  fs/dax: Don't skip locked entries when scanning entries
+  fs/dax: Refactor wait for dax idle page
+  fs/dax: Create a common implementation to break DAX layouts
+  fs/dax: Always remove DAX page-cache entries when breaking layouts
+  fs/dax: Ensure all pages are idle prior to filesystem unmount
+  fs/dax: Remove PAGE_MAPPING_DAX_SHARED mapping flag
+  mm/gup.c: Remove redundant check for PCI P2PDMA page
+  mm/mm_init: Move p2pdma page refcount initialisation to p2pdma
+  mm: Allow compound zone device pages
+  mm/memory: Enhance insert_page_into_pte_locked() to create writable mappings
+  mm/memory: Add vmf_insert_page_mkwrite()
+  rmap: Add support for PUD sized mappings to rmap
+  huge_memory: Add vmf_insert_folio_pud()
+  huge_memory: Add vmf_insert_folio_pmd()
+  memremap: Add is_device_dax_page() and is_fsdax_page() helpers
+  gup: Don't allow FOLL_LONGTERM pinning of FS DAX pages
+  proc/task_mmu: Ignore ZONE_DEVICE pages
+  mm/mlock: Skip ZONE_DEVICE PMDs during mlock
+  fs/dax: Properly refcount fs dax pages
+  device/dax: Properly refcount device dax pages when mapping
+  mm: Remove pXX_devmap callers
+  mm: Remove devmap related functions and page table bits
+  Revert "riscv: mm: Add support for ZONE_DEVICE"
+
+ Documentation/mm/arch_pgtable_helpers.rst     |   6 +-
+ arch/arm64/Kconfig                            |   1 +-
+ arch/arm64/include/asm/pgtable-prot.h         |   1 +-
+ arch/arm64/include/asm/pgtable.h              |  24 +-
+ arch/powerpc/Kconfig                          |   1 +-
+ arch/powerpc/include/asm/book3s/64/hash-4k.h  |   6 +-
+ arch/powerpc/include/asm/book3s/64/hash-64k.h |   7 +-
+ arch/powerpc/include/asm/book3s/64/pgtable.h  |  52 +---
+ arch/powerpc/include/asm/book3s/64/radix.h    |  14 +-
+ arch/powerpc/mm/book3s64/hash_pgtable.c       |   3 +-
+ arch/powerpc/mm/book3s64/pgtable.c            |   8 +-
+ arch/powerpc/mm/book3s64/radix_pgtable.c      |   5 +-
+ arch/powerpc/mm/pgtable.c                     |   2 +-
+ arch/riscv/Kconfig                            |   1 +-
+ arch/riscv/include/asm/pgtable-64.h           |  20 +-
+ arch/riscv/include/asm/pgtable-bits.h         |   1 +-
+ arch/riscv/include/asm/pgtable.h              |  17 +-
+ arch/x86/Kconfig                              |   1 +-
+ arch/x86/include/asm/pgtable.h                |  51 +---
+ arch/x86/include/asm/pgtable_types.h          |   5 +-
+ drivers/dax/device.c                          |  15 +-
+ drivers/gpu/drm/nouveau/nouveau_dmem.c        |   3 +-
+ drivers/nvdimm/pmem.c                         |   4 +-
+ drivers/pci/p2pdma.c                          |  19 +-
+ fs/dax.c                                      | 357 ++++++++++++++-----
+ fs/ext4/inode.c                               |  43 +--
+ fs/fuse/dax.c                                 |  35 +--
+ fs/fuse/virtio_fs.c                           |   3 +-
+ fs/proc/task_mmu.c                            |  18 +-
+ fs/userfaultfd.c                              |   2 +-
+ fs/xfs/xfs_inode.c                            |  40 +-
+ fs/xfs/xfs_inode.h                            |   3 +-
+ fs/xfs/xfs_super.c                            |  18 +-
+ include/linux/dax.h                           |  37 ++-
+ include/linux/huge_mm.h                       |  22 +-
+ include/linux/memremap.h                      |  28 +-
+ include/linux/migrate.h                       |   4 +-
+ include/linux/mm.h                            |  40 +--
+ include/linux/mm_types.h                      |  14 +-
+ include/linux/mmzone.h                        |  12 +-
+ include/linux/page-flags.h                    |   6 +-
+ include/linux/pfn_t.h                         |  20 +-
+ include/linux/pgtable.h                       |  21 +-
+ include/linux/rmap.h                          |  15 +-
+ lib/test_hmm.c                                |   3 +-
+ mm/Kconfig                                    |   4 +-
+ mm/debug_vm_pgtable.c                         |  59 +---
+ mm/gup.c                                      | 176 +---------
+ mm/hmm.c                                      |  12 +-
+ mm/huge_memory.c                              | 233 +++++++-----
+ mm/internal.h                                 |   2 +-
+ mm/khugepaged.c                               |   2 +-
+ mm/madvise.c                                  |   8 +-
+ mm/mapping_dirty_helpers.c                    |   4 +-
+ mm/memory-failure.c                           |   6 +-
+ mm/memory.c                                   | 126 ++++---
+ mm/memremap.c                                 |  59 +--
+ mm/migrate_device.c                           |   9 +-
+ mm/mlock.c                                    |   2 +-
+ mm/mm_init.c                                  |  23 +-
+ mm/mprotect.c                                 |   2 +-
+ mm/mremap.c                                   |   5 +-
+ mm/page_vma_mapped.c                          |   5 +-
+ mm/pagewalk.c                                 |  14 +-
+ mm/pgtable-generic.c                          |   7 +-
+ mm/rmap.c                                     |  56 +++-
+ mm/swap.c                                     |   2 +-
+ mm/truncate.c                                 |  16 +-
+ mm/userfaultfd.c                              |   5 +-
+ mm/vmscan.c                                   |   5 +-
+ 70 files changed, 922 insertions(+), 928 deletions(-)
+
+base-commit: e25c8d66f6786300b680866c0e0139981273feba
+-- 
+git-series 0.9.1
 
