@@ -4,84 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685F4E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 02:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51595E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 02:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIN/h7uRleRuOPaWesWGXmjcSD2rqCCgng8WzwpjrR4=; b=YT7M4eagtAEgai+WfZh2ChqkS3
-	+WQEsO/pB4j2ZNyDw2kZ9ihDpHfPUZ5nLxyEVeNNz/9J4VyLyhGcrBSok2+eD9wKgNaOwsVuHM2nX
-	7bwOt4gpaz6r//otAIBTqAt70SjOoXMIn7VuUB9u5XZvHl+pTztPyX7elYQk/YC18aik17911aEO5
-	CwEDr3naAXFifyLLXfHAzryaWP//t+2tghb2LRywV2mbZyrZcICdTTyShqDu7kok7l21jKtal2eOk
-	QDPFJqZbe+Hn4sub2wuZhqrErxTtlfwlYTjWjO2qwTXTWekoi43jyE6sdxx8hv+ZR2Fw0DkX12n40
-	9iz67B1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P3bSQWGvyHK2h/d91JlfOa8mz0i2Oaitv4Zoq1PK2lM=; b=rZ/UI2oBsMQG/R7XfY9otF+vIG
+	yRIdeRJ2U1BLivn3kQUGGVnQzguMXMuJvp5XceS1ZUFMZEBVFZrmgD4DJJDIUHcevowQvK/3vBCJP
+	y4V/LUwQxtS61tn3Glz6ascCKCmB+9oprlkbxdRMWqAFSxNmcWJoqo2g+R5g0JFvY8JzsPcl7OYZL
+	01BiuXJg+OliKtd0q1/UJe4r6Ndo+wiB2cwXXooQTaUOmINspTmGB+l9ubrPtvla2FzaLQcO9bPYQ
+	bdgUTkTk7KfePRmCAbE3Sp9Y20FRUDyAzl/ZhuuFjrlLewSu40fiHc+aSt0MnLNnpW0w2LM3aK15/
+	K5N/aGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNN0H-0000000Bvtm-0wmQ;
-	Tue, 17 Dec 2024 02:08:05 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tNN8u-0000000Bwh4-00yc;
+	Tue, 17 Dec 2024 02:17:00 +0000
+Received: from mail-sg2apc01on20723.outbound.protection.outlook.com ([2a01:111:f403:200f::723] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNMzC-0000000Bvpu-2bU1
+	id 1tNN7p-0000000Bwao-0XHw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 02:06:59 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2ee709715d9so3295716a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Dec 2024 18:06:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734401217; x=1735006017; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EIN/h7uRleRuOPaWesWGXmjcSD2rqCCgng8WzwpjrR4=;
-        b=A7WeMz5i3k9jkvXuziN4gjNZ/wkG/lgKphPcmOqPYl/uFjvcvEC1H3oUmj4v/J11Ir
-         pLV2nPn/W7400ljnjFfsLJH1H/EM1TI/DDencleGgOxiWMUBuW5JMNsyJ2vo/ObnXY2Q
-         bRx+kxckudunsN09O3do3cvayoWZ1F9e0U973jhQq8YZgNkuL3w1Pz3U8ZJMyLMAeObY
-         WPQwWSoY3KSZyUPfqN4mJnV+FuKPFU3bwpOT8NC85xGd17eKi6GjyFKZ9dnQptgN+l9e
-         9EkyOZLdca+cjCk3KxQjhR0D9oxR+DEEQwAXDrSmg2XC5vWS6ujLO9ouDyYe6eEsqIPS
-         x3lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734401217; x=1735006017;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EIN/h7uRleRuOPaWesWGXmjcSD2rqCCgng8WzwpjrR4=;
-        b=wWrHJBVV+ZCoJ5H7PklgYeohE9bVpdmKP8fB9eEqQrcdHu0FpfEbQCIcjT7/DEGX3f
-         xp7vXEQbjEr4LP0So+f3hpzZ/06JUlkRn23n0SfWYPumu5iLCvI0JXFzRLdgFx0aaYxq
-         4OgbpCb3P/VBSp4Yy8XeAXyH83J+EVSpodeIfAqkWfc4pMvzHz6k+eEVaipJ63wmdNG8
-         zFGo6FiPhrJ11TpPXdTEq5i8gTsFwhGwVnysfaYykJikRdTisfetxm4UUfWQa/5AHCWh
-         fCqCznVmPRJpTCPgBy4/LqH7RRyCScBm+appppQ2ia3s2e/EF4EKQhJAX8EACtJ9El4Z
-         WVDg==
-X-Forwarded-Encrypted: i=1; AJvYcCXC4cYP/hdVix4VlDtyaa7Y+qLu+SN4k6c5SN5b0hf34crfLw37wfeWhWl9gsu3KPcQ5Vk4OPgqXFar0ju2ak+k@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpWnVBPXdgttmaYHdqDXBdJftUg8rMvkT9lEHuPDUB+/wghYYP
-	WXgeerjxuRlrTEnklkNuBdc2m9RBs87pVZB0YbBpCtmrsB9hDh+Jlx1+mQyemd4/zjS6ahb2Tu8
-	qoOUAY0ADMpc0C8ZxRZjAPKsQ1b8=
-X-Gm-Gg: ASbGncsGk/CCpKi1JZCNJOlgegJz1bht3Bii3XBBUq/O0wbIbLTUjHyiNme2Cmm85o3
-	ukMYAG9SYYkxHI4Qp3yEJcoysR+NLS3L6NTnK
-X-Google-Smtp-Source: AGHT+IFTM+u99ByAMGYF6W0ILyoD1phxfeZM4zZP7X+sikySq+K1IeFxuV3WjGqrp+g/slaEeDRQbTQqBPtt0AYpniw=
-X-Received: by 2002:a17:90b:4b51:b0:2ee:d186:fe48 with SMTP id
- 98e67ed59e1d1-2f2900a6737mr18594263a91.28.1734401217267; Mon, 16 Dec 2024
- 18:06:57 -0800 (PST)
+	Tue, 17 Dec 2024 02:15:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Hb9FcWU43E8jUl5jWR0fGQsaQBDDoaNKDUf8QRlddP52w2KK75qTPsK1TqbpB5IzGufrH8hyK75aBmrzt2lj6oqmGb8JcM+GJRGgC6CodzvU4b6TyuOe0cf+Wx3eK0TqpbxOWHVh5XV0cs0ZdCLD/LU6sT6o6pZKWVlXRK58ihjU3u54yD4qryAn1x9HuXnsnRM4vJTstNOQZN9AazEaXbm3e5tnntYzTLcIT7pgPd+GIx1MuPBPW0eSECaJ4QxUV/CjY5QIxFY4ybtz5X8c5NIY+FIXdVE9ZgZIAVNjIRXfj56Kq/NroRezppH6UJoSUtn2tpLfz1d92S2Zr1219A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P3bSQWGvyHK2h/d91JlfOa8mz0i2Oaitv4Zoq1PK2lM=;
+ b=e/3UPB78CE7TuHnHUyCYFCof68dlNL1er5RYtyRoSETPeCVrbTDcTJUdaW/+GCUy43q55LQH+Q2DSdO/dchgKsHMNOKp6wTwoE52HaMT9+q4GoDiNEz7ec+o/pCweXdJrYSGrXuW8aFfB71rZLy2V4WkMgiU1nV2JyAZTbQiJSUY/xD9ZxniywRPF7kD3EAGxaFPvb3JFnaqC9JLnhh7806fdho3T3umJLCnCDPazWfBK93YV7J8LHhf6wGWFL8P143jQuYmpgXg715QcCp+XRSeDNDzLkXEeOBqMkPEKUBXJPvV3AcPPol/zlR+YG5QdaQ50XF7PlRRfPXfjYOW8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P3bSQWGvyHK2h/d91JlfOa8mz0i2Oaitv4Zoq1PK2lM=;
+ b=Y/sl1u0SlGOJViwSbQStOk+iUxUvTRBxNjj6mZntD6r9zefR71D3T66G2qWhHlBm6LCZKFHhNP6j+UNhNnhBHglaHheyoyEw110L7BLuU9xoX9azg5ZmiLYTjZAblY8zZVifmQxWG9DZjmARyODTqpgwOGGujsz/QA+/vPkVE2JBTSsFwnP6V54B8a6OmuLGie0wKxgTbmYac759Cbm+yPE7W8dK3PR4Ju1306Io4AzHpDKE5tl3F9MBEYBMsjedp2j/jG0ZvMRki9mSXZW20gY++ibGdUTWXymTzJwFbl5iOaILxZTUzE/0nPNthLMPAHltOpKHSqSlWqJ5aouPzg==
+Received: from TYZPR06MB5203.apcprd06.prod.outlook.com (2603:1096:400:1f9::9)
+ by TYZPR06MB5074.apcprd06.prod.outlook.com (2603:1096:400:1c6::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.11; Tue, 17 Dec
+ 2024 02:15:19 +0000
+Received: from TYZPR06MB5203.apcprd06.prod.outlook.com
+ ([fe80::b7e4:5d25:213:ef9b]) by TYZPR06MB5203.apcprd06.prod.outlook.com
+ ([fe80::b7e4:5d25:213:ef9b%4]) with mapi id 15.20.8272.005; Tue, 17 Dec 2024
+ 02:15:18 +0000
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Guenter Roeck
+	<linux@roeck-us.net>, Patrick Williams <patrick@stwcx.xyz>,
+	"wim@linux-watchdog.org" <wim@linux-watchdog.org>
+CC: "joel@jms.id.au" <joel@jms.id.au>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-watchdog@vger.kernel.org"
+	<linux-watchdog@vger.kernel.org>, "Peter.Yin@quantatw.com"
+	<Peter.Yin@quantatw.com>, "Patrick_NC_Lin@wiwynn.com"
+	<Patrick_NC_Lin@wiwynn.com>, "Bonnie_Lo@wiwynn.com" <Bonnie_Lo@wiwynn.com>,
+	"DELPHINE_CHIU@wiwynn.com" <DELPHINE_CHIU@wiwynn.com>, BMC-SW
+	<BMC-SW@aspeedtech.com>, "chnguyen@amperecomputing.com"
+	<chnguyen@amperecomputing.com>
+Subject: RE: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+Thread-Topic: [PATCH v4 1/3] watchdog: aspeed: Update bootstatus handling
+Thread-Index: AQHbLFdFSiy5MyUwCUe0YBcXjsWUGrKivQQAgAOD0oCABQ7T0IABNwoAgABcoTCAAJM4gIAPnzaggACImACAACRWgIAAKRmAgAHMCwCAKj+80A==
+Date: Tue, 17 Dec 2024 02:15:18 +0000
+Message-ID: <TYZPR06MB52039AB24714A400FF266024B2042@TYZPR06MB5203.apcprd06.prod.outlook.com>
+References: <20241101121201.2464091-1-chin-ting_kuo@aspeedtech.com>
+	 <20241101121201.2464091-2-chin-ting_kuo@aspeedtech.com>
+	 <ZyUcIIb1dtoNhX00@heinlein.vulture-banana.ts.net>
+	 <a0faca9a6ec7f4acdfa2f29b4ffb94b5392aea6b.camel@codeconstruct.com.au>
+	 <TYZPR06MB5203053A004676F51322DECFB25C2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+	 <ed77d57facaaef0be796b4c6a742dc7bf3bff479.camel@codeconstruct.com.au>
+	 <TYZPR06MB52039B02B6D3053355F30489B25D2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+	 <9a1e64ef-81d9-48b0-b871-ce4ff792eae4@roeck-us.net>
+	 <TYZPR06MB52039DB39B62E6FA5220103AB2272@TYZPR06MB5203.apcprd06.prod.outlook.com>
+	 <2531f830-6a36-4bd5-ba1e-9e19f0f66496@roeck-us.net>
+	 <219607ab74764f3d47659fb5ab3223b3034152e5.camel@codeconstruct.com.au>
+	 <9565c496-44d8-4214-8038-931926210d0f@roeck-us.net>
+ <1bc83ee73545f9aab6e0a931cda8f5ffe41cb445.camel@codeconstruct.com.au>
+In-Reply-To: <1bc83ee73545f9aab6e0a931cda8f5ffe41cb445.camel@codeconstruct.com.au>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR06MB5203:EE_|TYZPR06MB5074:EE_
+x-ms-office365-filtering-correlation-id: 60e51951-68e4-46e6-16ee-08dd1e40a732
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?cHB2Z3V4d1Y4UExVOXMxTlYyY1ZEUCt0NklOM3A4ZTg1R0lneG9GUS9WakZG?=
+ =?utf-8?B?djNFcjNuRjJjODBSOThXVkhCQk1Pa2xpNFBsVW9oVlR0K2h1dDZiclhycWpW?=
+ =?utf-8?B?YlMzYUtuVm5SajE1YVYwazBIRStzclh1MjQvbWxLMmNtMFprWGNxYXMvRUlP?=
+ =?utf-8?B?NDBmVHpndG44TDZ6cmo1SlJTcVEzSHUycEJtUGRVaTBkMjVicUFUdWVRenZt?=
+ =?utf-8?B?Y3dZT3hGSmt4TXZLMjhCUTlkUkVLNG53SkErN2FrZEtWZ1drS1I4eGR4aHhi?=
+ =?utf-8?B?eTYzMGMvOW92OENQUWcrYzdPQWx5REhTR2NVM1B4WU5lemhUaFFJYXVGYlUw?=
+ =?utf-8?B?MjNyNGI4WG5FcURNak9sdlFwV3N0b2tiYk96V2lQME5wek5uWEtrSzEzTHA5?=
+ =?utf-8?B?VS9md0xTYWhmTERkeE8wUWE0NEcrOXFZTVprRUlzWkFCbTBaQnp2Q0pTUUxz?=
+ =?utf-8?B?Nm9wbTQ4MVQ5cE5VSVJxMll5MXhaL21uVEhuR3RQUmZERENrbThWeVZCWGpj?=
+ =?utf-8?B?elQ2Yk5qS1B0WVp0NTFseDZpMlNHbzZDdHZuTXpZVnhzeS92dy9xQTlXYVlO?=
+ =?utf-8?B?NUMyOFFCOHpobDQ2R3FFbnB0Qk9kUHE1R3Jlb1JtRUdCd1R2SHRhVjlpUm1P?=
+ =?utf-8?B?Z3MyNEsycGQrWFFEeGNZZ3FVSXQ3NGI2SUJpTlJFVW1ESDBBOVBqV0lwbExn?=
+ =?utf-8?B?NTMvalNlRkkrQjdzcGp0N21nZXBJMzFZd0ZKQjdtMDFBenNRSFVkVEZJV1Jq?=
+ =?utf-8?B?TCtjN2ZnalA5QUk2anRKZDUrWFFrcEJ2eURxWHNyQkFweDhnQTd5ZHZmQ1BX?=
+ =?utf-8?B?Q2VXQmEwWGlESjEwelBZVkFzdU9scmNlbW5tdmk3dlM1aW1Demtmd21qNVJi?=
+ =?utf-8?B?NlNITmlIZFVPVXNMaFlQTTBxUEhoS1FjOU5yOUVZRFNLUWJYRzRRYjE1MjRt?=
+ =?utf-8?B?WFl0OXN0eDQ1Wk91YXJFamNCSTRDblRYaEN4TzRNOGQ2amNLYUh6bTB4UkVv?=
+ =?utf-8?B?ZVRpa0hDaUpORlE1L1hFKzY0NzVBdkNJbSs3OHJlRnBpUGFEeDJpMUhvT04w?=
+ =?utf-8?B?V3NhOXpoMnBuV25sQ2NJNSs0QXJ5SnpVZThpem1Ub2h0RjBBdUN2aThsQUNL?=
+ =?utf-8?B?b3d6RDU2RWxiOFRhczlDTFZKQVN3UUliZFZXT2pNdGl2SHBXcmltTU1URlpK?=
+ =?utf-8?B?emxTcDMraTI4ak96Y0ptcE1KVW95dUFoQVdSaDk1bkpKNC9lamVTR2xVdmV5?=
+ =?utf-8?B?S1V0SU4vSXE3bEtTZVRaSnNvOE1MdGNQV2FKYVFvRFU3V0pZMitpNDNuSXRE?=
+ =?utf-8?B?NXFwSU1lb1cvQk5EWnJ4enZ6RTVPUlRWYjhPVnh3bXUvTjFJbXlXWThKUFll?=
+ =?utf-8?B?K3lmdXY2SW81SFpDWXpEbm0rR29xYnYydlVPRlpwODlSNTJnWEFLajU3RmZF?=
+ =?utf-8?B?NVdaTjZJRnNvUjFiZVJ0OHBiUUQ4UTdEcU9kOGVqd3JSdzlSOUlCa0lKTDJK?=
+ =?utf-8?B?OUh5YjVabGVjNTUwRTFSbTh6aFFLVGoxWXE2Vmh5SjJBYXFLK0docm9sOHhO?=
+ =?utf-8?B?WldUWkJxRUhHNkhRdzRyT1ZCRGxRc1BEOFBYVkZiWGh5NEl3ODd5eFdWVDhF?=
+ =?utf-8?B?RWViaFNxNnFLN0E5Mng0YUdpOXJVdnpxOVhCdFpHcFRvU1dDV3RkUENhQXI1?=
+ =?utf-8?B?TWJDendqd3E5VGYxZ29GY3owRDBqRDlpMmovcENjYlhQQTVtNW9OTFJqdkFq?=
+ =?utf-8?B?aHJ1Rm1nU1lmaysvZi9peU9DZlJWWjdxLzBma3VpSE1ZMDZnM0l1SFBhbCtH?=
+ =?utf-8?B?UEhGYUNDT05ESkMxTmpTQzR6QlRtK0diUDZTVUN1cHFLM2lrQjFvSUZOa2FE?=
+ =?utf-8?B?WHVzSWtwZENGTVovUko5OVBpYjEzWktnMjYrN3diWlpRcjZwNTJsZ3dNVGhD?=
+ =?utf-8?Q?NdTpj+NB3TpER3lKffJtI33zBucPqM0U?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB5203.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cnhLaGY1dkpRak9udXF4N2dwTTFiUlR6U0UzUTVhU2hTQXBOaVBBMSsyWlh1?=
+ =?utf-8?B?VG1qUkkxSGVNS3pFbFpLUmtiSjZuWlRlOU5aVHhzZGwrUjlQQVArTXhjOTky?=
+ =?utf-8?B?WFZac3hibjNtWnpjSE9VNlJUbjdLdmRBYzltTWd5QnFZUUtiTzFGd08xaFVp?=
+ =?utf-8?B?KzhNNlIvdlBpSVc3YnNlOENsMnFqbUUyZTNnbjUzeHhLTGx6WU9oQ25xTFFk?=
+ =?utf-8?B?Sk1KSGRNSmMrdW11NXVKNmVqUkpYWDYxL2FLMGRLRlBKRUIrY3VLRTBUTmV3?=
+ =?utf-8?B?RG1KUSt0VlI3dmpqekJ1SHd3RGhBNjhtZ1ZYZFhxWEdSeUI5Mk9EblZiOWJP?=
+ =?utf-8?B?WDRvaEFha2paU1pBUDNJOTBMSFQwdjMranB2aForejhleXJSN3cxQWlLZFkz?=
+ =?utf-8?B?RTFtWCtteThrVWNrUk50YjV5WmFYZlZQSFlQZGkzN1p0a3lKOGJIOWRLMVgv?=
+ =?utf-8?B?ZDFwOHpFRHlQa2xSMEJldXFnOStaYzJoQ2tlTDVyL3VtMlpTd2ZYaHdpWDFD?=
+ =?utf-8?B?cGRGQ3Mxc25PbTMzRHRpNm1IVkNER2VCaFVaaENzQ0ExSGJKZWxMR1RESXE2?=
+ =?utf-8?B?eUxPZWFwSEhlalg5WVdKcktnSVp1RUNBSWNWK0NkdGNBRmFoR3hpYzhjWlBB?=
+ =?utf-8?B?QzI0UllMTm9BUTVnaHByY2IyRUhUcVRvNkE3bi9PRzR3SldBZGZDcituRU9T?=
+ =?utf-8?B?cm9ycllWMU93VDNZYkJRN1dSQmxPemErdy94V3hRZlUrZUJ5Z1dNNXZIUHZh?=
+ =?utf-8?B?MnJWQTBxSW1lUXVRMmdiQWtjaktneFpVbGNFVXRITlQ5OTAzZkNzQW44U1Ix?=
+ =?utf-8?B?NStwSmpxTGdhRytHT1V6VThIY1o3L3Nzb0MrNHFwRzBxU1hDVmREMVJWNW90?=
+ =?utf-8?B?Kzd2aHBXM0E1czhVMHVOZGN3aGJQejN1M0VGendhZzk4Y0FncDNGTDZIM1V4?=
+ =?utf-8?B?SzM1Ni9HdlAvYU9WTG0zU3ZOVS9PWk9JVi9BYnpIekk4MkpWdmd1aFpOdjJr?=
+ =?utf-8?B?OXgrMEZSdWwxVkdIME5xODBKdlZ6Rjk3eCs0THFIRjJJSFA5M01QVi92a2dZ?=
+ =?utf-8?B?ZFVnNlFpcGd6RW9oaHRZaXgyNTQ5TktSZjVraEpzc3F0cHJqS2p4aCtnWGVB?=
+ =?utf-8?B?bHViQ0ltNFJNUWVzWlBqS1BIMWl5K0MyTVlnK3FjVllKaktCakdvMjIxNSt3?=
+ =?utf-8?B?cDQ5MEovaFpMdE4wbUpwbHFHVnBtSHFZTnI1OFAvOFFJMTlvVzI0enhWN1B2?=
+ =?utf-8?B?aUdmRktwRnN1dmJDSEpyei9LeHFpc1BNNWMzc1RMd1VZTEJVSGd4aUkxVXlU?=
+ =?utf-8?B?SUNoZHROaHJJa05jNFpJd2VYeTJxdS9PTHBOSkw2Y3p2a3FlK0p2cnVUc2ZF?=
+ =?utf-8?B?T0RGSmZIUW5qSDVqWFdWRlg4YXFmb1hUcmtpYW5lTjhTYXVKRXMyY1Y0Y0pU?=
+ =?utf-8?B?ZW1HV0VralFXNWxmL29PTHE2cExlOTBaTTVoU0d0L2tza2h1MWtidk5sZnpY?=
+ =?utf-8?B?L2d4UjZSLzg5Zm5hR0wwUFNlallaYjJ1NmlBSDFSWVlOK3RHbjJpajNmdW44?=
+ =?utf-8?B?QzUrVW45ZGpHeG55VS9LZ3NIa2wrb0ZzSGkxTXZPUUxPQTNHVHFHeVlPSHZH?=
+ =?utf-8?B?dXRjQWtkRFNKaGtvS1dIS3g1ZmRRdTE2ODZJeWZZSytpN3BZNmNyUmZlbmFn?=
+ =?utf-8?B?S29CV3VQR2h1MUNGK2hUNDRqQStYS2lLL25DMkQrWmNtTjRRUTlCbjZUWmN1?=
+ =?utf-8?B?V2x3dXgvMC9SMWJzSFlWaEZQYjV5dDZYQzN4aUlaa2J2WXZ6Unlwa2QzRkYz?=
+ =?utf-8?B?aDZzRkxrOVh4cHFVU0NFTGJ5bFJMalV3UDBjVm5hVEk5c3JaZFdkdmFQei9m?=
+ =?utf-8?B?VVFxUTZoeWVwYi8zOGpDMko5NnRpWm03T21laVIzbU1VQmpJV0FTYzVPbzBV?=
+ =?utf-8?B?aDlGTklRZHFLd0ZtLzQ4L0hwdGRDUEd5eEV4bDV1a3NaRHpldWdtTTVRZlVC?=
+ =?utf-8?B?WDVKRmtyK1pVa21oUG50QlV6aU1YRWRrdjRmaEpMc2FxV2dIOWxOVzNoTE1q?=
+ =?utf-8?B?K3AyQWM1WmFpSHBkTDJ0OTJRK3VjSEZjSW5xc1NJZi96ODJ1UTVLWHQ3cTJZ?=
+ =?utf-8?B?Ni9CV3ZwRjNnRHdoT2pkK2gyNk91ZkxvL21laUhlQTRCTm1NcHNSQURjQitk?=
+ =?utf-8?B?dFE9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20241216073745.2973317-1-guomin_chen@sina.com>
- <Z1_p0nU93PHJ4Sg_@pluto> <Z1_2rxJ7TOEIOMp7@pluto> <CAEEwsfRhe4-YAwe027huSXwFfkV-O-8w1GDNf=URa9efRsXiKA@mail.gmail.com>
- <Z2AEzHc5f6TjxErs@bogus> <CAEEwsfRKVBVR+DxhkYA5atxU7+6nsaL9X8-Yoa_DqB0YKEV1zg@mail.gmail.com>
- <Z2BQe3-zl2IN_Cjj@bogus>
-In-Reply-To: <Z2BQe3-zl2IN_Cjj@bogus>
-From: gchen chen <gchen.guomin@gmail.com>
-Date: Tue, 17 Dec 2024 10:06:46 +0800
-Message-ID: <CAEEwsfSYMx6Kdf2TK3hMN_TyoqEBbQXkCk_zPb+6-i=omZU_Fg@mail.gmail.com>
-Subject: Re: [PATCH v2] firmware: arm_scmi: Delete the meaningless scmi_bus_id.
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, guomin_chen@sina.com, 
-	Xinqi Zhang <quic_xinqzhan@quicinc.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, dan.carpenter@linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB5203.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60e51951-68e4-46e6-16ee-08dd1e40a732
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2024 02:15:18.7850
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oflbXlk1/u8jXRgRK+oyzYjtsnNzFwjBqUzOc7cjtZffh5Ofr1a1uuWVYf4hHg5T0zCyGOq5D/9Ah4Wd/uTUv12GAm+zJhqlln+77JB0mjg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_180658_657922_ACDABDA3 
-X-CRM114-Status: GOOD (  41.21  )
+X-CRM114-CacheID: sfid-20241216_181553_161062_9A584C03 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,101 +199,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sudeep Holla <sudeep.holla@arm.com> =E4=BA=8E2024=E5=B9=B412=E6=9C=8817=E6=
-=97=A5=E5=91=A8=E4=BA=8C 00:08=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Mon, Dec 16, 2024 at 10:10:40PM +0800, gchen chen wrote:
-> > Sudeep Holla <sudeep.holla@arm.com> =E4=BA=8E2024=E5=B9=B412=E6=9C=8816=
-=E6=97=A5=E5=91=A8=E4=B8=80 18:45=E5=86=99=E9=81=93=EF=BC=9A
->
-> [...]
->
-> > >
-> > > I would like to understand the motivation behind this change. What is=
- the
-> > > goal ? Do you prefer to fetch the name and protocol id from the devic=
-e
-> > > name itself ? Is that your requirement.
-> > >
-> > hi Sudeep
-> >     Okay, the reason I want to change names like 'scmi_dev.3' to
-> > 'scmi_dev.firmware:scmi.perf.19' is because when I was migrating the
-> > SOC's kernel from v6.1 to v6.6, I found that the context for creating
-> > SCMI devices had changed (commit d3cd7c525fd2: firmware: arm_scmi:
-> > Refactor protocol device creation).
->
-> Correct. That's the beauty of Linux we can adjust the internals to enhanc=
-e
-> the features without breaking the user-space.
->
-> > This change meant that device creation shifted from being directly
-> > created through scmi_protocol_device_request during SCMI driver
-> > registration to being created via scmi_device_request_notifier.
-> > This shift results in changes to the order in which devices are created=
-,
-> > causing the ID in scmi_dev.id to drift.
-> >
->
-> What issue does this drift cause exactly ? I mean the order in which
-> the devices are created should not impact on anything if the dependency
-> on the order was not created. What was that dependency ?
->
-Yes, my issue is that the loading order of the scmi_cpufreq_drv and
-scmi_perf_domain_driver drivers causes other consumer devices to find
-the wrong SCMI device as the supplier. Since both the scmi_cpufreq_drv
-and scmi_perf_domain_driver drivers use the same device node (the same
-SCMI_PROTOCOL_PERF), device_node.fwnode.dev will only point to the
-SCMI device that was registered first.
-
-Thanks
-
-> > Additionally, I encountered some cpufreq errors here=E2=80=94because bo=
-th
-> > scmi_cpufreq_drv and scmi_perf_domain_driver use the same
-> > SCMI_PROTOCOL_PERF, this results in two SCMI devices corresponding to
-> > the same device node. However, device_node.fwnode.dev only points to
-> > the first registered scmi_device, causing other consumer devices to
-> > find the wrong scmi device as the supplier. So I would find a
-> > multitude of other consumer devices waiting for meaningless device
-> > names like "scmi_dev.4" instead of meaningful names such as
-> > "scmi_dev.firmware:scmi.perf.19" or
-> > "scmi_dev.firmware:scmi.cpufreq.19".
-> >
->
-> Yes this was reported. I think most of the std protocol may not use that
-> node and need not be assigned. But I think vendor extensions are adding
-> info to the DT that may need this.
->
-> > Although I could further determine which specific driver it was by
-> > looking at the driver links under the scmi_protocol bus directory, I
-> > thought that if the logs directly displayed device names like
-> > 'scmi_dev.firmware:scmi.perf.19' instead of meaningless progressive
-> > IDs, it would be more convenient and logical, and thus more
-> > meaningful.
-> >
->
-> If the issue you encountered render your platform into boot issues ?
-> If so I would like to know what exactly happened. If not, I can think of
-> alternate solution if possible.
->
-> > > From the commit log, I get a sense that you looked at the code and th=
-ought
-> > > of possible improvement but when we mentioned the limitation you just
-> > > improvised by adding parent name. Do you expect any userspace to pars=
-e
-> > > the name as that will end up being ABI and we can't break it. I need
-> > > real motive to be explained here in detail.
-> > >
-> > I did not use userspace tools to parse this SCMI device name; I simply
-> > wanted the name to reflect the possible logic of the device.
-> > I did not remove scmi_dev.id (This scmi_device structure has not
-> > changed.=EF=BC=89; I just no longer assign values to it using scmi_bus_=
-id, so
-> > it should not affect the kernel ABI (kABI).
->
-> I understand the change, just not the possible impact w.r.t user-space.
->
-> --
-> Regards,
-> Sudeep
+SGkgQW5kcmV3LA0KDQo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZS0tLS0tDQo+IEZyb206IEFuZHJl
+dyBKZWZmZXJ5IDxhbmRyZXdAY29kZWNvbnN0cnVjdC5jb20uYXU+DQo+IFNlbnQ6IFdlZG5lc2Rh
+eSwgTm92ZW1iZXIgMjAsIDIwMjQgMTI6NTQgUE0NCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2NCAx
+LzNdIHdhdGNoZG9nOiBhc3BlZWQ6IFVwZGF0ZSBib290c3RhdHVzIGhhbmRsaW5nDQo+IA0KPiBP
+biBNb24sIDIwMjQtMTEtMTggYXQgMTc6MjcgLTA4MDAsIEd1ZW50ZXIgUm9lY2sgd3JvdGU6DQo+
+ID4gU28sIGFnYWluLCB3aGF0IGV4YWN0bHkgd291bGQgdXNlcnNwYWNlIGRvIHdpdGggdGhlIGlu
+Zm9ybWF0aW9uIHRoYXQNCj4gPiB0aGlzIHdhcyBhIHdhdGNoZG9nIHRyaWdnZXJlZCB3YXJtIHJl
+Ym9vdCA/IFdoeSB3b3VsZCBpdCBuZWVkIHRoYXQNCj4gPiBpbmZvcm1hdGlvbiA/DQo+IA0KPiBJ
+J2xsIGRlZmVyIHRvIHRoZSBvdGhlcnMgb24gVG8vQ2MgdG8gYW5zd2VyIHRoYXQuDQo+IA0KPiBN
+eSBvbmx5IHBvc2l0aW9uIGlzIEkgZG9uJ3QgdGhpbmsgY2hhbmdpbmcgYmVoYXZpb3VyIG9mIGV4
+aXN0aW5nIGRyaXZlcnMgdG8NCj4gZXhwbG9pdCBXRElPRl9FWFRFUk4xIGFzIGEgZ3JhY2VmdWwt
+cmVib290IGluZGljYXRvciBpcyBhIGdvb2QgaWRlYSBlaXRoZXIuDQo+IE9idmlvdXNseSBJIGRv
+bid0IGhhdmUgbXVjaCBza2luIGluIHRoZSBnYW1lIHdpdGggd2F0Y2hkb2cgbWFpbnRlbmFuY2Us
+IHNvDQo+IG15IHRob3VnaHRzIHNob3VsZG4ndCBoYXZlIG11Y2ggaW5mbHVlbmNlIGJleW9uZCB0
+aGUgQXNwZWVkLXNwZWNpZmljcywgYnV0IEkNCj4ganVzdCBkaWRuJ3Qgd2FudCB0byBzZWUgc29t
+ZSBmdW4gbmV3IGNvbmZ1c2lvbiBvciBpbmNvbXBhdGliaWxpdHkgYXJpc2UgYXMgYQ0KPiByZXN1
+bHQuDQo+IA0KQWdyZWUgdG8geW91ciBtaXNnaXZpbmcsIGluIHRoZSBuZXh0IHBhdGNoZXMsIG9u
+bHkgdHdvIGNhdGVnb3JpZXMsICJQb3dlciBvbiByZXNldCINCmFuZCAiV0RUIHJlc2V0IiAoQ2Fy
+ZCByZXNldCksIHdpbGwgYmUgdGFrZW4gaW50byBjb25zaWRlcmF0aW9uLiBUaGUgZ3JhY2VmdWwt
+cmVib290DQpzY2VuYXJpbyB3aWxsIGJlIHBvc3Rwb25lZCB0byB0aGUgcGF0Y2hlcyBpbiB0aGUg
+ZnV0dXJlLg0KDQoNClRoYW5rcywNCkNoaW4tVGluZw0KDQo=
 
