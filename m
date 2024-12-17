@@ -4,167 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465ACE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD09E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bU66cBFQovtZ//uxCve4x5UtRRqc2ateYx5B8wkCAiY=; b=IILPcj2+qR1Q7iXmKWdVIlCBg3
-	fxnySqCxGW3h25J4ujaq/q1ZT4OrUWTCPSqIdqVbzQW6Td/hQCStYIfeCUVR1ftyFTU2jS3xTCvJN
-	ijv543DCco8Y7i79Ys9AEspXrSv2pjf4WB0Qddt3ms4NNL/1CMphfls9ePvfFnHfF3pHtHfTM4pxf
-	7x+hNNCJxE4nGBPkk+0gEjTBBLHNW6CaCWdgPXXYggQTlf4xBA4QnmoT0H1jtTzQ2e3IEchxnGaPO
-	709V72Zs55VTMZbiCXXawyvzAL5zJ7oKMpqEX7WqkSjF9PIYwaUM3shHbR6Ly2MjZgN6W5iKb1q64
-	FnUz0BLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b/7I37hxwoXCTJgyBf1JpuEr92Ph0ikoAk2pcmg4ckM=; b=EmP+4IKY/3pIgY
+	HabbOV0QyNCV08c5YoIcVQv6Opv0fiH1bfyZnqAkH6VuKp/Pk3Cm8jMIy7QWxAing799KyHJn8MmN
+	34JmWe9xHWUm/WbfTVpF10HMwX921VndTlBWewSsaWNF30t/zVMVp50Ngfj51zbZGnIRt6Pj2GqDl
+	fxXw6J9/VHPUn5jjSiyvqG5HQgv4fHwcHb+tMVMXinzZ+sxN85ph3uwtZk1MCTZaZ+w6r1KYkwmel
+	RrH3KRY+vcx2vjvA9swfTIxlCglP3v652N9UgTDiR2YRdC+Bl5kOgHMsMA/YHzVsocPZ3EMMEScMt
+	4c1ZfUwcABJU2L79xwPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNRvK-0000000CZMQ-0FIj;
-	Tue, 17 Dec 2024 07:23:18 +0000
-Received: from mail-db8eur05on2062a.outbound.protection.outlook.com ([2a01:111:f403:2614::62a] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tNRwO-0000000CZZj-0Ivs;
+	Tue, 17 Dec 2024 07:24:24 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNRh5-0000000CX4F-3BBI;
-	Tue, 17 Dec 2024 07:08:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QnxwtfI41Geq63NRrgIbvXj1mJRLDcqCpi1i8sSuwGzheCOlcvE0DENNw2wPNBvsS7rU4xRkjJMt0rOSKoD6OFZNbhWIEXLv1vdv6bOFn4bSSjY2TuM+X9HOWbnVbNQ5/fowK8AKtHnppzchThxtF4HfIvZypxLJDZVbLpQ82Fgdj7I+dqXTNTVte+s9oTog3dYsstAObxaax6QKzoCt5U5nezLM3odA29L8z0z2eiovBl43dk0ChGnd8K78fY33c7+CW0EhsPZD40PipE1n6qv/gF+hVeJvrrggskk80lr9nGtE7wVep3nK53lZNcyMWlKj5oMlbMletH/AA0jDFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bU66cBFQovtZ//uxCve4x5UtRRqc2ateYx5B8wkCAiY=;
- b=xoUJNMUOOcXm9QE2YZuBlp92ZBYRB524Hqh0jxw+tnmU+CSu3qa0cv5/V4m6GgZcpsaCWy3RK5fyHS2gj6Eo7Kach8U20igKOzQ+YVOaO8jHHTqddNUmwD6+B7N/8RpK05FrVUG2k/mKWbNdGo6Oix0BHbrfLBb12pZSJzudTrQXD3DCpxtIF68HlUn74A0dxt6nOfYZ3BsWHDxEGcZ7kF8q93b36vsssyhdLw6VwGouYhEA8Rq8glj/3LyqjKf82sPopbE+JhfrchZfnRAWYtArOsu8BAdW/OVq1PI5+ohx6qqYIYkp2yH+KZDe1wDNst6PBAb5DbjDo4gjn9Qiow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bU66cBFQovtZ//uxCve4x5UtRRqc2ateYx5B8wkCAiY=;
- b=aC0iGw5TkOaTCmMFl8B4/WQiuZyKOqVZU129oBQ2JgvRUtUd9upFIaMwN4dYiE1RoiAEQLYHGl9h0TM2IlpL4Oovi5Hw/wvyrfDKU0/yAFN7DQFilSDF1jDRqeH6Pt9ABfyy5bNcyj/gFlYrFx3K5ElYmJjCR83WkKI1t3p3ED4r3oltWdxVA20D238kUxeFoIIyrM2jIF+B4HBeEhbm8BikYM1XV4egrrZaCsQIyKao5VteiDibtvAMfANqiRtQA00U6rtZDRBvumOAkuGnBmrk5Y5m/Z7NSeCet2bDXGCrghOvshcvJxmsF7x/IWP5o8RcguFxZOI4lGPZKanFvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9448.eurprd04.prod.outlook.com (2603:10a6:102:2b1::21)
- by DU2PR04MB9196.eurprd04.prod.outlook.com (2603:10a6:10:2fb::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.15; Tue, 17 Dec
- 2024 06:53:21 +0000
-Received: from PAXPR04MB9448.eurprd04.prod.outlook.com
- ([fe80::51ae:5f12:9744:1abc]) by PAXPR04MB9448.eurprd04.prod.outlook.com
- ([fe80::51ae:5f12:9744:1abc%2]) with mapi id 15.20.8251.015; Tue, 17 Dec 2024
- 06:53:21 +0000
-From: Sandor Yu <Sandor.yu@nxp.com>
-To: dmitry.baryshkov@linaro.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	airlied@gmail.com,
-	daniel@ffwll.ch,
-	robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	vkoul@kernel.org,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	mripard@kernel.org
-Cc: kernel@pengutronix.de,
-	linux-imx@nxp.com,
-	Sandor.yu@nxp.com,
-	oliver.brown@nxp.com,
-	alexander.stein@ew.tq-group.com,
-	sam@ravnborg.org
-Subject: [PATCH v20 1/9] soc: cadence: Create helper functions for Cadence MHDP
-Date: Tue, 17 Dec 2024 14:51:43 +0800
-Message-Id: <7fd5d54e2594aadd66598888ddf512f3d6d30e5d.1734340233.git.Sandor.yu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1734340233.git.Sandor.yu@nxp.com>
-References: <cover.1734340233.git.Sandor.yu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0214.apcprd04.prod.outlook.com
- (2603:1096:4:187::17) To PAXPR04MB9448.eurprd04.prod.outlook.com
- (2603:10a6:102:2b1::21)
+	id 1tNRo4-0000000CXxl-28BP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 07:15:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=b/7I37hxwoXCTJ
+	gyBf1JpuEr92Ph0ikoAk2pcmg4ckM=; b=aTCZSgXiv3O7G4p6VHvXKpHcWEyGW1
+	aJpixOg3kqNkPtJoulqHAdqGEEXfsyIR3VDFBDV9gpbJc6EIS3usJRiT0YO/BvDo
+	u0u/shsCvMQ2CmVxmOHUxkCJTDXyMWE5rVQL70yjcgK5utLkuIpephkboCJWkpyX
+	TqZ1PCaxeZVCeImVN3agTlaYNLESyn2ZlNmUdFa2PKP3sbj6YRFYLQmjHRWNjPq+
+	L1qaJUm+4bieXdYdYf8UzBbPNR5HfgwFqpJP3wCu288HR+szFX+1UnAAsf/q79cj
+	rWx/2bEI4g3kyQRn28iqbh/Ou2kaYs+JI2k17jgKZNOgKx/UeNIqZ/HQ==
+Received: (qmail 3980322 invoked from network); 17 Dec 2024 08:15:40 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 17 Dec 2024 08:15:40 +0100
+X-UD-Smtp-Session: l3s3148p1@VAKHEHIpqoVehhtS
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-rtc@vger.kernel.org
+Subject: [PATCH] rtc: use boolean values with device_init_wakeup()
+Date: Tue, 17 Dec 2024 08:13:26 +0100
+Message-ID: <20241217071331.3607-2-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9448:EE_|DU2PR04MB9196:EE_
-X-MS-Office365-Filtering-Correlation-Id: 027e64b0-357c-405a-f8ed-08dd1e677eb2
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Z1U1luOWnjVJk57oAOD16r6oPv6DZs5xt0/jyrubFIjGYcxn6vWOmofdG4s3?=
- =?us-ascii?Q?V2TMtxYDKJ2sDE+2Jd2bCLdOZp/NLcSooolF6Px65sod7La3JkuJNOzCZWYY?=
- =?us-ascii?Q?g+u6Nzc5E3LyN0syvNlQA52xSEHOvjN+Dj+40o19JF6M9NyhTGFjSsKg2N1h?=
- =?us-ascii?Q?XXAwUW+ViJ8GhK4/DL2ldswF+ubd2+dZ+Sbpwh2H0fv9a2r1Fp/POifYzTkB?=
- =?us-ascii?Q?IP/5b5LRAeNHYyZbtDHM9dot/4SJzhCKPqFR7zqDfb96SPbclj0hVP6g9MhL?=
- =?us-ascii?Q?kD9W9cxr3eqzORpqNJLikYQ9cFfhnihj5JJlckECn5D+kPDcV+qnBvd9eFJQ?=
- =?us-ascii?Q?OsjaN4tEG4wmENYExBrZhAe521VRMjtAKLhVZ9C8frV5a8VI5qbkI4fjfFZE?=
- =?us-ascii?Q?NxkcFWF1aGnmIFknWBMVdLbsDJtNiiCTirC8jyE/2xSgZKplDoNgpEz4T0m4?=
- =?us-ascii?Q?Z4ucHTeQpU5L8vumVgRpreoAXKcWWje2LipTiUMyHo2ZQafbloU413pzsohu?=
- =?us-ascii?Q?/EqFD90GzSajych49hU1KR2WGoRoauCKYP67aTsh2pmk0eVn2zDY0xBp08MQ?=
- =?us-ascii?Q?Fs/vLi3iQYPCcVVFUjQ5DfRCdZdJ0aAUg2Dvwv2mtpLMD2sHjYJoSrh2Ouol?=
- =?us-ascii?Q?5Gai6DHYXLrnNk/BB3oDMrI0zG0ym9Ug5yiJjrBBVoo9VsHm6iWud6jUWknU?=
- =?us-ascii?Q?Szqpy1n/82SOnAW5df8eGsf6uxHD/gJH6/HtQOTK+YWOIVc8cAGUphq4iFUu?=
- =?us-ascii?Q?65BidL+WKB7/buaKtfNEVgWzrXA1Oym/Ld56x0vS+FZ0aFhvGrFIxol/cuLL?=
- =?us-ascii?Q?SgOT/4HExlNCqaEN9WnS3AsQirtdGcaqE3K84kqM1cL9I444qCW+NH79nEBr?=
- =?us-ascii?Q?KVj3JYitWwgILDb9CEjhq6bGePkdwC/HCmPKOm3nKpNLJ4B5NkVqhCcx8B1h?=
- =?us-ascii?Q?1ypN71enGsA02D0gBZvkp88ZjVnSO4azEBMTFktsI1QBBHtGppxUSqF1hQoV?=
- =?us-ascii?Q?iYIDLQlyx/N9oD7YTcLmjuovtjvQycmLH56wb2s7PnzdYqTK92dG+2JfEVaU?=
- =?us-ascii?Q?KbD2daYtnc8yZW2RJOjVg2T9HK6oHANreio1+UVeMTRVcwRKLLCIz5nyV33P?=
- =?us-ascii?Q?59LQ0ZDPaZx3Fdy7AgrMbSrVbPLOYOk8LpWM8BzTmFuDB3qYDUwGBe2Xf73p?=
- =?us-ascii?Q?KfxKVtu6/L7s3V5bF9wbqm4f0L3/r43uAnJU+l7HzBSGK924KLtfalTyceJA?=
- =?us-ascii?Q?S8mKToY5vRSFtSZ8VnMS9rRj8UZ277H4p9CI99iG3ZtyLhbh+deWDkvgTGUM?=
- =?us-ascii?Q?JPulDLxCetWUkoM/jVGKuH4W2bM2+j4Uh1OotI+Jo3haUP12Dx5SvJI9GbRz?=
- =?us-ascii?Q?NevqdPzM8nAvsx49YOWRTS1QCZyPeN8BdUjShlnOmZcngH/VmJc8+UDfD5Tp?=
- =?us-ascii?Q?mn/X4/nUzdf2vIR+vJ1tZWbjayZOU/hI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9448.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eH4FP9A1OpfmCp5CsAzEmRkTcISZIKkIeS90Uu1uNBnBWNi4QJuzr+5TBsGI?=
- =?us-ascii?Q?OjuRSsrRuitPNCVCsM6O8N7Ypl8aoRZq4f5rcM7anx1fkaTyiMFWURITCt0G?=
- =?us-ascii?Q?qkzLcWsbqSFavTTdeQ2teiUIk6frxBtTxySTVgSF82AAyr/Qo1c5GDcquZiq?=
- =?us-ascii?Q?laJVTNOBCwOHtH2j0ilsawwvi1/uEK/wsERYUyyHBnqEplIaCOqROMfMAfRj?=
- =?us-ascii?Q?4C9S4npEHLPZXQ1ynBqX4ao2+kHBCB9J2KegJyF6e1OQr/UeRG2Sv6VJF8Po?=
- =?us-ascii?Q?pV6mAq1RAec05Ma+O87OHoa8d2B1pSESx3XgZcp7NTLB5rlWSIzM4e00Nvc5?=
- =?us-ascii?Q?TTI57Mmz4OKp4qyI3Tw61GJDLBiMebq7siUeClYo8cdfWtOPuJHU5IXdX8fv?=
- =?us-ascii?Q?eG0GGE0HWsuFmBDANwg+hM24RWyjuhSIy7sUqf5yasa9tqyPpMSMjqcvda4K?=
- =?us-ascii?Q?uE9wdaoUNHM5ubix/v2KqATjiybJ73lH3hmSA0Rwf51rePIKVkh/ViNlnoTh?=
- =?us-ascii?Q?lGtpOscKRl60sXcBBEvMv1P7CRYrp6vyngEtAKAs+3uruTjJmc/499iy9ovw?=
- =?us-ascii?Q?iIAhZufJROcwuT4W5qzVDsR8SBZIkBDnJNSxQXsnzj4QStWMQpLt6bG9lDk5?=
- =?us-ascii?Q?b94gVkdZIgGR2zeAY01DkQuzARyVv7tR1G1EWbo81hxG/w19kZy+s8/T9/7Z?=
- =?us-ascii?Q?L/XEKB2cFWpeSVQhms13xrk2tEJfB5/8pqJoYWL2zhRa6GvtMJNdYp3ynF25?=
- =?us-ascii?Q?kRYg3e48Qrt1C6vynk/7v+6VTyr1JWQaDUWJ0TPIXnKsCQryWW1E20v5BaWv?=
- =?us-ascii?Q?IxIsNbNWEiyPvQzOYjSeaB8m8tz7RwR1dp4rdJunKX0bSC8ES8jNfMBw6TKQ?=
- =?us-ascii?Q?KWxkHpzn9QT8DrhCih3w5aw+5wjHajP/c6kLZBvNj2i37+8wgQXOuP1LHJta?=
- =?us-ascii?Q?jVQoYiZGOv6s3hvFLa78QmGVAdqDPpjwpk9BEZjY4XJWqzYWEjOJW1JsdqUA?=
- =?us-ascii?Q?BDRDebAkABqJZKKQYrXUKC1bNx4r7TZPWIAWB4l7HOmB7ZJvUS9gJRgjPsDB?=
- =?us-ascii?Q?LqZjv5ySMC/hyQTAT4eR5wZbtA/0f+viTFfesR6zBzpO6kzLhX8z4YEab5Oy?=
- =?us-ascii?Q?Ll34Uhj0eV3jJ3Ivc2i3gPnXlxKGv0drlK4UtQpGuPoP2EzKCNhtrJJpREIF?=
- =?us-ascii?Q?tpcrvim31VUuILXrz5fS5cwQV71hwB3c7mCnoXrqln125zK+F2B1XobrbF5t?=
- =?us-ascii?Q?dszsT0+hsXTB3BD3zqjN68zx+5M9gmuE4egO7wlnUNSkes0nEGLlD+2nBxd6?=
- =?us-ascii?Q?nYQgkNVTWD7TicjHq23CdMkNugnvaeKkKxidf50OkoRR2aZF4Q540ShWx4o+?=
- =?us-ascii?Q?bL8Omthm4izsZIqz/MI6E7BM8tBYovv4H72a3cPR3s4u+WHAzMbkLNUv5efk?=
- =?us-ascii?Q?CwbbJCRGt5YzFVlQsLjc4QUa4Hp5Jb9LCcjqwjrDnAxQdlJ8dalcdV48zINt?=
- =?us-ascii?Q?O4FG0mirWHs+ThhLVHJreVpRvJ41P7Gab1RgLqYVXKtqCMgZMcHTyJptyDZS?=
- =?us-ascii?Q?ikUyrmA+qONYGB6+ak37fStkB/e1/Mjj9vgrwHwN?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 027e64b0-357c-405a-f8ed-08dd1e677eb2
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9448.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2024 06:53:21.6451
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TKHpTK+wo74BcXWKjByQB73MYUEchstaB/QTAZX1lPTgrSOG1Pf47Lw+uOvda9ZdbA4Zl65beO4KFKH7AokcyQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9196
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_230835_948717_DD1AF638 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20241216_231548_829060_7B15F6F4 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,808 +61,845 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Andrew Lunn <andrew@lunn.ch>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Paul Cercueil <paul@crapouillou.net>, Wolfram Sang <wsa+renesas@sang-engineering.com>, Thierry Reding <thierry.reding@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Guenter Roeck <groeck@chromium.org>, Jerome Brunet <jbrunet@baylibre.com>, chrome-platform@lists.linux.dev, linux-samsung-soc@vger.kernel.org, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Gregory Clement <gregory.clement@bootlin.com>, Krzysztof Kozlowski <krzk@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>, Michal Simek <michal.simek@amd.com>, Vincent Shih <vincent.sunplus@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, linux-mips@vger.kernel.org, linux-sunxi@lists.linux.dev, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, linux-tegra@vger.kernel.org, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, Sean Wang <sean.wang@mediatek.com>, Vladimir Zapolskiy <vz@mleia.com>, linux-mediatek@lists.infradead.org, Baolin Wang <baolin.wang@linux.alibaba.com>, Matthias Brugger <matthias.bgg@gmail.com>, linux-amlogic@lists.infradead.org, Eddie Huang <eddie.huang@mediatek.com>, Benson Leung <bleung@chromium.org>, linux-arm-kernel@lists.infradead.org, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Neil Armstrong <neil.armstrong@linaro.org>, Support Opensource <support.opensource@diasemi.com>, patches@opensource.cirrus.com, linux-renesas-soc@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>, Chunyan Zhang <zhang.lyra@gmail.com>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Yiting Deng <yiting.deng@amlogic.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cadence MHDP IP includes a firmware. Driver and firmware communicate
-through a mailbox. The basic mailbox access functions in this patch
-are derived from the DRM bridge MHDP8546 driver.
-New mailbox access functions have been created based on different mailbox
-return values and security types, making them reusable across different
-MHDP driver versions and SOCs.
+device_init_wakeup() second argument is a bool type. Use proper boolean
+values when calling it to match the type and to produce unambiguous code
+which is easier to understand.
 
-These helper fucntions will be reused in both the DRM bridge driver MDHP8501
-and the i.MX8MQ HDPTX PHY driver.
-
-Six mailbox access helper functions are introduced.
-Three for non-secure mailbox access:
- - cdns_mhdp_mailbox_send()
- - cdns_mhdp_mailbox_send_recv()
- - cdns_mhdp_mailbox_send_recv_multi()
-The other three for secure mailbox access:
- - cdns_mhdp_secure_mailbox_send()
- - cdns_mhdp_secure_mailbox_send_recv()
- - cdns_mhdp_secure_mailbox_send_recv_multi()
-
-All MHDP commands that need to be passed through the mailbox
-should be rewritten using these new helper functions.
-
-The register read/write and DP DPCD read/write command functions
-are also included in this new helper driver.
-
-Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
-v19->v20:
-- new patch in v20.
-  The patch split from Patch #1 in v19 and move to a new folder drivers/soc/cadence
+Created with a coccinelle script. I opted for a single patch because the change
+is rather trivial. I can break out per driver if this is desired. If you
+like the change at all, that is.
 
- drivers/soc/Kconfig                    |   1 +
- drivers/soc/Makefile                   |   1 +
- drivers/soc/cadence/Kconfig            |   9 +
- drivers/soc/cadence/Makefile           |   3 +
- drivers/soc/cadence/cdns-mhdp-helper.c | 565 +++++++++++++++++++++++++
- include/soc/cadence/cdns-mhdp-helper.h | 129 ++++++
- 6 files changed, 708 insertions(+)
- create mode 100644 drivers/soc/cadence/Kconfig
- create mode 100644 drivers/soc/cadence/Makefile
- create mode 100644 drivers/soc/cadence/cdns-mhdp-helper.c
- create mode 100644 include/soc/cadence/cdns-mhdp-helper.h
+ drivers/rtc/rtc-88pm80x.c       | 2 +-
+ drivers/rtc/rtc-88pm860x.c      | 2 +-
+ drivers/rtc/rtc-amlogic-a4.c    | 6 +++---
+ drivers/rtc/rtc-armada38x.c     | 2 +-
+ drivers/rtc/rtc-as3722.c        | 2 +-
+ drivers/rtc/rtc-at91rm9200.c    | 2 +-
+ drivers/rtc/rtc-at91sam9.c      | 2 +-
+ drivers/rtc/rtc-cadence.c       | 2 +-
+ drivers/rtc/rtc-cmos.c          | 2 +-
+ drivers/rtc/rtc-cpcap.c         | 2 +-
+ drivers/rtc/rtc-cros-ec.c       | 2 +-
+ drivers/rtc/rtc-da9055.c        | 2 +-
+ drivers/rtc/rtc-ds3232.c        | 2 +-
+ drivers/rtc/rtc-isl1208.c       | 2 +-
+ drivers/rtc/rtc-jz4740.c        | 2 +-
+ drivers/rtc/rtc-loongson.c      | 4 ++--
+ drivers/rtc/rtc-lp8788.c        | 2 +-
+ drivers/rtc/rtc-lpc32xx.c       | 2 +-
+ drivers/rtc/rtc-max77686.c      | 2 +-
+ drivers/rtc/rtc-max8925.c       | 2 +-
+ drivers/rtc/rtc-max8997.c       | 2 +-
+ drivers/rtc/rtc-meson-vrtc.c    | 2 +-
+ drivers/rtc/rtc-mpc5121.c       | 2 +-
+ drivers/rtc/rtc-mt6397.c        | 2 +-
+ drivers/rtc/rtc-mv.c            | 4 ++--
+ drivers/rtc/rtc-mxc.c           | 2 +-
+ drivers/rtc/rtc-mxc_v2.c        | 2 +-
+ drivers/rtc/rtc-omap.c          | 2 +-
+ drivers/rtc/rtc-palmas.c        | 2 +-
+ drivers/rtc/rtc-pic32.c         | 2 +-
+ drivers/rtc/rtc-pm8xxx.c        | 2 +-
+ drivers/rtc/rtc-pxa.c           | 2 +-
+ drivers/rtc/rtc-rc5t583.c       | 2 +-
+ drivers/rtc/rtc-rc5t619.c       | 2 +-
+ drivers/rtc/rtc-renesas-rtca3.c | 2 +-
+ drivers/rtc/rtc-rk808.c         | 2 +-
+ drivers/rtc/rtc-s3c.c           | 2 +-
+ drivers/rtc/rtc-s5m.c           | 2 +-
+ drivers/rtc/rtc-sa1100.c        | 2 +-
+ drivers/rtc/rtc-sc27xx.c        | 4 ++--
+ drivers/rtc/rtc-sh.c            | 2 +-
+ drivers/rtc/rtc-spear.c         | 4 ++--
+ drivers/rtc/rtc-sun6i.c         | 2 +-
+ drivers/rtc/rtc-sunplus.c       | 4 ++--
+ drivers/rtc/rtc-tegra.c         | 2 +-
+ drivers/rtc/rtc-test.c          | 2 +-
+ drivers/rtc/rtc-tps6586x.c      | 2 +-
+ drivers/rtc/rtc-tps65910.c      | 2 +-
+ drivers/rtc/rtc-twl.c           | 2 +-
+ drivers/rtc/rtc-wm831x.c        | 2 +-
+ drivers/rtc/rtc-wm8350.c        | 2 +-
+ drivers/rtc/rtc-xgene.c         | 4 ++--
+ drivers/rtc/rtc-zynqmp.c        | 4 ++--
+ 53 files changed, 62 insertions(+), 62 deletions(-)
 
-diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
-index 6a8daeb8c4b96..f6c18114b2d68 100644
---- a/drivers/soc/Kconfig
-+++ b/drivers/soc/Kconfig
-@@ -6,6 +6,7 @@ source "drivers/soc/apple/Kconfig"
- source "drivers/soc/aspeed/Kconfig"
- source "drivers/soc/atmel/Kconfig"
- source "drivers/soc/bcm/Kconfig"
-+source "drivers/soc/cadence/Kconfig"
- source "drivers/soc/canaan/Kconfig"
- source "drivers/soc/cirrus/Kconfig"
- source "drivers/soc/fsl/Kconfig"
-diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-index 2037a8695cb28..a5fa4f4d15321 100644
---- a/drivers/soc/Makefile
-+++ b/drivers/soc/Makefile
-@@ -7,6 +7,7 @@ obj-y				+= apple/
- obj-y				+= aspeed/
- obj-$(CONFIG_ARCH_AT91)		+= atmel/
- obj-y				+= bcm/
-+obj-y				+= cadence/
- obj-$(CONFIG_ARCH_CANAAN)	+= canaan/
- obj-$(CONFIG_EP93XX_SOC)        += cirrus/
- obj-$(CONFIG_ARCH_DOVE)		+= dove/
-diff --git a/drivers/soc/cadence/Kconfig b/drivers/soc/cadence/Kconfig
-new file mode 100644
-index 0000000000000..b668790660fa5
---- /dev/null
-+++ b/drivers/soc/cadence/Kconfig
-@@ -0,0 +1,9 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+config CDNS_MHDP_HELPER
-+	tristate "Cadence MHDP Helper driver"
-+	help
-+	  Enable Cadence MHDP helpers for mailbox, HDMI and DP.
-+	  This driver provides a foundational layer of mailbox communication for
-+	  various Cadence MHDP IP implementations, such as HDMI and DisplayPort.
-+
-diff --git a/drivers/soc/cadence/Makefile b/drivers/soc/cadence/Makefile
-new file mode 100644
-index 0000000000000..a1f42e1936ca5
---- /dev/null
-+++ b/drivers/soc/cadence/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_CDNS_MHDP_HELPER) += cdns-mhdp-helper.o
-diff --git a/drivers/soc/cadence/cdns-mhdp-helper.c b/drivers/soc/cadence/cdns-mhdp-helper.c
-new file mode 100644
-index 0000000000000..f74b4cae134a2
---- /dev/null
-+++ b/drivers/soc/cadence/cdns-mhdp-helper.c
-@@ -0,0 +1,565 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023, 2024 NXP Semiconductor, Inc.
-+ *
-+ */
-+#include <linux/dev_printk.h>
-+#include <linux/module.h>
-+#include <soc/cadence/cdns-mhdp-helper.h>
-+
-+/* Protects mailbox communications with the firmware */
-+static DEFINE_MUTEX(mhdp_mailbox_mutex);
-+
-+/* Mailbox helper functions */
-+static int mhdp_mailbox_read(void __iomem *regs)
-+{
-+	int ret, empty;
-+
-+	WARN_ON(!mutex_is_locked(&mhdp_mailbox_mutex));
-+
-+	ret = readx_poll_timeout(readl, regs + CDNS_MAILBOX_EMPTY,
-+				 empty, !empty, MAILBOX_RETRY_US,
-+				 MAILBOX_TIMEOUT_US);
-+	if (ret < 0)
-+		return ret;
-+
-+	return readl(regs + CDNS_MAILBOX_RX_DATA) & 0xff;
-+}
-+
-+static int mhdp_mailbox_write(void __iomem *regs, u8 val)
-+{
-+	int ret, full;
-+
-+	WARN_ON(!mutex_is_locked(&mhdp_mailbox_mutex));
-+
-+	ret = readx_poll_timeout(readl, regs + CDNS_MAILBOX_FULL,
-+				 full, !full, MAILBOX_RETRY_US,
-+				 MAILBOX_TIMEOUT_US);
-+	if (ret < 0)
-+		return ret;
-+
-+	writel(val, regs + CDNS_MAILBOX_TX_DATA);
-+
-+	return 0;
-+}
-+
-+static int mhdp_mailbox_recv_header(void __iomem *regs,
-+				    u8 module_id, u8 opcode,
-+				    u16 req_size)
-+{
-+	u32 mbox_size, i;
-+	u8 header[4];
-+	int ret;
-+
-+	/* read the header of the message */
-+	for (i = 0; i < sizeof(header); i++) {
-+		ret = mhdp_mailbox_read(regs);
-+		if (ret < 0)
-+			return ret;
-+
-+		header[i] = ret;
-+	}
-+
-+	mbox_size = get_unaligned_be16(header + 2);
-+
-+	/*
-+	 * If the message in mailbox is not what we want, we need to
-+	 * clear the mailbox by reading its contents.
-+	 * Response data length for HDCP TX HDCP_TRAN_IS_REC_ID_VALID depend on case.
-+	 */
-+	if (opcode != header[0] ||
-+	    module_id != header[1] ||
-+	   (opcode != HDCP_TRAN_IS_REC_ID_VALID && req_size != mbox_size)) {
-+		for (i = 0; i < mbox_size; i++)
-+			if (mhdp_mailbox_read(regs) < 0)
-+				break;
-+
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mhdp_mailbox_recv_data(void __iomem *regs,
-+				  u8 *buff, u16 buff_size)
-+{
-+	u32 i;
-+	int ret;
-+
-+	for (i = 0; i < buff_size; i++) {
-+		ret = mhdp_mailbox_read(regs);
-+		if (ret < 0)
-+			return ret;
-+
-+		buff[i] = ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mhdp_mailbox_send(void __iomem *regs, u8 module_id,
-+			     u8 opcode, u16 size, u8 *message)
-+{
-+	u8 header[4];
-+	int ret, i;
-+
-+	header[0] = opcode;
-+	header[1] = module_id;
-+	put_unaligned_be16(size, header + 2);
-+
-+	for (i = 0; i < sizeof(header); i++) {
-+		ret = mhdp_mailbox_write(regs, header[i]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	for (i = 0; i < size; i++) {
-+		ret = mhdp_mailbox_write(regs, message[i]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+/**
-+ * cdns_mhdp_mailbox_send - Sends a message via the MHDP mailbox.
-+ *
-+ * This function sends a message via the MHDP mailbox.
-+ *
-+ * @base: Pointer to the CDNS MHDP base structure.
-+ * @module_id: ID of the module to send the message to.
-+ * @opcode: Operation code of the message.
-+ * @size: Size of the message data.
-+ * @message: Pointer to the message data.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_mailbox_send(struct cdns_mhdp_base *base, u8 module_id,
-+			   u8 opcode, u16 size, u8 *message)
-+{
-+	guard(mutex)(&mhdp_mailbox_mutex);
-+
-+	return mhdp_mailbox_send(base->regs, module_id, opcode, size, message);
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_mailbox_send);
-+
-+/**
-+ * cdns_mhdp_mailbox_send_recv - Sends a message and receives a response.
-+ *
-+ * This function sends a message via the mailbox and then receives a response.
-+ *
-+ * @base: Pointer to the CDNS MHDP base structure.
-+ * @module_id: ID of the module to send the message to.
-+ * @opcode: Operation code of the message.
-+ * @msg_size: Size of the message data.
-+ * @msg: Pointer to the message data.
-+ * @resp_size: Size of the response buffer.
-+ * @resp: Pointer to the response buffer.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_mailbox_send_recv(struct cdns_mhdp_base *base,
-+				u8 module_id, u8 opcode,
-+				u16 msg_size, u8 *msg,
-+				u16 resp_size, u8 *resp)
-+{
-+	int ret;
-+
-+	guard(mutex)(&mhdp_mailbox_mutex);
-+
-+	ret = mhdp_mailbox_send(base->regs, module_id,
-+				opcode, msg_size, msg);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d send failed: %d\n",
-+			module_id, opcode, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_header(base->regs, module_id,
-+				       opcode, resp_size);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d recv header failed: %d\n",
-+			module_id, opcode, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_data(base->regs, resp, resp_size);
-+	if (ret)
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d recv data failed: %d\n",
-+			module_id, opcode, ret);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_mailbox_send_recv);
-+
-+/**
-+ * cdns_mhdp_mailbox_send_recv_multi - Sends a message and receives multiple responses.
-+ *
-+ * This function sends a message to a specified module via the MHDP mailbox and
-+ * then receives multiple responses from the module.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param module_id: ID of the module to send the message to.
-+ * @param opcode: Operation code of the message.
-+ * @param msg_size: Size of the message data.
-+ * @param msg: Pointer to the message data.
-+ * @param opcode_resp: Operation code of the response.
-+ * @param resp1_size: Size of the first response buffer.
-+ * @param resp1: Pointer to the first response buffer.
-+ * @param resp2_size: Size of the second response buffer.
-+ * @param resp2: Pointer to the second response buffer.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_mailbox_send_recv_multi(struct cdns_mhdp_base *base,
-+				      u8 module_id, u8 opcode,
-+				      u16 msg_size, u8 *msg,
-+				      u8 opcode_resp,
-+				      u16 resp1_size, u8 *resp1,
-+				      u16 resp2_size, u8 *resp2)
-+{
-+	int ret;
-+
-+	guard(mutex)(&mhdp_mailbox_mutex);
-+
-+	ret = mhdp_mailbox_send(base->regs, module_id,
-+				opcode, msg_size, msg);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d send failed: %d\n",
-+			module_id, opcode, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_header(base->regs, module_id, opcode_resp,
-+				       resp1_size + resp2_size);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, Resp_CMD=%d recv header failed: %d\n",
-+			module_id, opcode_resp, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_data(base->regs, resp1, resp1_size);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, Resp_CMD=%d recv data1 failed: %d\n",
-+			module_id, opcode_resp, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_data(base->regs, resp2, resp2_size);
-+	if (ret)
-+		dev_err(base->dev, "ModuleID=%d, Resp_CMD=%d recv data1 failed: %d\n",
-+			module_id, opcode_resp, ret);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_mailbox_send_recv_multi);
-+
-+/**
-+ * cdns_mhdp_secure_mailbox_send - Sends a secure message via the mailbox.
-+ *
-+ * This function sends a secure message to a specified module via the MHDP mailbox.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param module_id: ID of the module to send the message to.
-+ * @param opcode: Operation code of the message.
-+ * @param size: Size of the message data.
-+ * @param message: Pointer to the message data.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_secure_mailbox_send(struct cdns_mhdp_base *base, u8 module_id,
-+				  u8 opcode, u16 size, u8 *message)
-+{
-+	guard(mutex)(&mhdp_mailbox_mutex);
-+
-+	return mhdp_mailbox_send(base->sapb_regs, module_id, opcode, size, message);
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_secure_mailbox_send);
-+
-+/**
-+ * cdns_mhdp_secure_mailbox_send_recv - Sends a secure message and receives a response.
-+ *
-+ * This function sends a secure message to a specified module via the mailbox and
-+ * then receives a response from the module.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param module_id: ID of the module to send the message to.
-+ * @param opcode: Operation code of the message.
-+ * @param msg_size: Size of the message data.
-+ * @param msg: Pointer to the message data.
-+ * @param resp_size: Size of the response buffer.
-+ * @param resp: Pointer to the response buffer.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_secure_mailbox_send_recv(struct cdns_mhdp_base *base,
-+				       u8 module_id, u8 opcode,
-+				       u16 msg_size, u8 *msg,
-+				       u16 resp_size, u8 *resp)
-+{
-+	int ret;
-+
-+	guard(mutex)(&mhdp_mailbox_mutex);
-+
-+	ret = mhdp_mailbox_send(base->sapb_regs, module_id,
-+				opcode, msg_size, msg);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d send failed: %d\n",
-+			module_id, opcode, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_header(base->sapb_regs, module_id,
-+				       opcode, resp_size);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d recv header failed: %d\n",
-+			module_id, opcode, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_data(base->sapb_regs, resp, resp_size);
-+	if (ret)
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d recv data failed: %d\n",
-+			module_id, opcode, ret);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_secure_mailbox_send_recv);
-+
-+/**
-+ * cdns_mhdp_secure_mailbox_send_recv_multi - Sends a secure message and receives multiple responses.
-+ *
-+ * This function sends a secure message to a specified module and receives multiple responses.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param module_id: ID of the module to send the message to.
-+ * @param opcode: Operation code of the message.
-+ * @param msg_size: Size of the message data.
-+ * @param msg: Pointer to the message data.
-+ * @param opcode_resp: Operation code of the response.
-+ * @param resp1_size: Size of the first response buffer.
-+ * @param resp1: Pointer to the first response buffer.
-+ * @param resp2_size: Size of the second response buffer.
-+ * @param resp2: Pointer to the second response buffer.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_secure_mailbox_send_recv_multi(struct cdns_mhdp_base *base,
-+					     u8 module_id, u8 opcode,
-+					     u16 msg_size, u8 *msg,
-+					     u8 opcode_resp,
-+					     u16 resp1_size, u8 *resp1,
-+					     u16 resp2_size, u8 *resp2)
-+{
-+	int ret;
-+
-+	guard(mutex)(&mhdp_mailbox_mutex);
-+
-+	ret = mhdp_mailbox_send(base->sapb_regs, module_id,
-+				opcode, msg_size, msg);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, CMD=%d send failed: %d\n",
-+			module_id, opcode, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_header(base->sapb_regs, module_id,
-+				       opcode_resp,
-+				       resp1_size + resp2_size);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, Resp_CMD=%d recv header failed: %d\n",
-+			module_id, opcode_resp, ret);
-+		return ret;
-+	}
-+
-+	ret = mhdp_mailbox_recv_data(base->sapb_regs, resp1, resp1_size);
-+	if (ret) {
-+		dev_err(base->dev, "ModuleID=%d, Resp_CMD=%d recv data1 failed: %d\n",
-+			module_id, opcode_resp, ret);
-+		return ret;
-+	}
-+
-+	/*
-+	 * Response data length for HDCP TX HDCP_TRAN_IS_REC_ID_VALID depend on
-+	 * the number of HDCP receivers in resp1[0].
-+	 * 1 for regular case, more can be in repeater.
-+	 */
-+	if (module_id == MB_MODULE_ID_HDCP_TX &&
-+	    opcode == HDCP_TRAN_IS_REC_ID_VALID)
-+		ret = mhdp_mailbox_recv_data(base->sapb_regs, resp2, 5 * resp1[0]);
-+	else
-+		ret = mhdp_mailbox_recv_data(base->sapb_regs, resp2, resp2_size);
-+	if (ret)
-+		dev_err(base->dev, "ModuleID=%d, Resp_CMD=%d recv data2 failed: %d\n",
-+			module_id, opcode_resp, ret);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_secure_mailbox_send_recv_multi);
-+
-+/**
-+ * cdns_mhdp_reg_read - Reads a general register value.
-+ *
-+ * This function reads the value from a general register
-+ * using the mailbox.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param addr: Address of the register to read.
-+ * @param value: Pointer to store the read value.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_reg_read(struct cdns_mhdp_base *base, u32 addr, u32 *value)
-+{
-+	u8 msg[4], resp[8];
-+	int ret;
-+
-+	put_unaligned_be32(addr, msg);
-+
-+	ret = cdns_mhdp_mailbox_send_recv(base, MB_MODULE_ID_GENERAL,
-+					  GENERAL_REGISTER_READ,
-+					  sizeof(msg), msg, sizeof(resp), resp);
-+	if (ret)
-+		goto out;
-+
-+	/* Returned address value should be the same as requested */
-+	if (memcmp(msg, resp, sizeof(msg))) {
-+		ret = -EINVAL;
-+		goto out;
-+	}
-+
-+	*value = get_unaligned_be32(resp + 4);
-+out:
-+	if (ret) {
-+		dev_err(base->dev, "Failed to read register\n");
-+		*value = 0;
-+	}
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_reg_read);
-+
-+/**
-+ * cdns_mhdp_reg_write - Writes a value to a general register.
-+ *
-+ * This function writes a value to a general register using the mailbox.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param addr: Address of the register to write to.
-+ * @param val: Value to write to the register.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_reg_write(struct cdns_mhdp_base *base, u32 addr, u32 val)
-+{
-+	u8 msg[8];
-+
-+	put_unaligned_be32(addr, msg);
-+	put_unaligned_be32(val, msg + 4);
-+
-+	return cdns_mhdp_mailbox_send(base, MB_MODULE_ID_GENERAL,
-+				     GENERAL_REGISTER_WRITE,
-+				     sizeof(msg), msg);
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_reg_write);
-+
-+/* DPTX helper functions */
-+/**
-+ * cdns_mhdp_dp_reg_write_bit - Writes a bit field to a DP register.
-+ *
-+ * This function writes a specific bit field within a DP register
-+ * using the MHDP mailbox.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param addr: Address of the DP register.
-+ * @param start_bit: Starting bit position within the register.
-+ * @param bits_no: Number of bits to write.
-+ * @param val: Value to write to the bit field.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_dp_reg_write_bit(struct cdns_mhdp_base *base, u16 addr,
-+			       u8 start_bit, u8 bits_no, u32 val)
-+{
-+	u8 field[8];
-+
-+	put_unaligned_be16(addr, field);
-+	field[2] = start_bit;
-+	field[3] = bits_no;
-+	put_unaligned_be32(val, field + 4);
-+
-+	return cdns_mhdp_mailbox_send(base, MB_MODULE_ID_DP_TX,
-+				      DPTX_WRITE_FIELD, sizeof(field), field);
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_dp_reg_write_bit);
-+
-+/**
-+ * cdns_mhdp_dpcd_read - Reads data from a DPCD register.
-+ *
-+ * This function reads data from a specified DPCD register
-+ * using the MHDP mailbox.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param addr: Address of the DPCD register to read.
-+ * @param data: Buffer to store the read data.
-+ * @param len: Length of the data to read.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_dpcd_read(struct cdns_mhdp_base *base,
-+			u32 addr, u8 *data, u16 len)
-+{
-+	u8 msg[5], reg[5];
-+
-+	put_unaligned_be16(len, msg);
-+	put_unaligned_be24(addr, msg + 2);
-+
-+	return cdns_mhdp_mailbox_send_recv_multi(base,
-+						 MB_MODULE_ID_DP_TX,
-+						 DPTX_READ_DPCD,
-+						 sizeof(msg), msg,
-+						 DPTX_READ_DPCD,
-+						 sizeof(reg), reg,
-+						 len, data);
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_dpcd_read);
-+
-+/**
-+ * cdns_mhdp_dpcd_write - Writes data to a DPCD register.
-+ *
-+ * This function writes data to a specified DPCD register
-+ * using the MHDP mailbox.
-+ *
-+ * @param base: Pointer to the CDNS MHDP base structure.
-+ * @param addr: Address of the DPCD register to write to.
-+ * @param value: Value to write to the register.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int cdns_mhdp_dpcd_write(struct cdns_mhdp_base *base, u32 addr, u8 value)
-+{
-+	u8 msg[6], reg[5];
-+	int ret;
-+
-+	put_unaligned_be16(1, msg);
-+	put_unaligned_be24(addr, msg + 2);
-+	msg[5] = value;
-+
-+	ret = cdns_mhdp_mailbox_send_recv(base, MB_MODULE_ID_DP_TX,
-+					  DPTX_WRITE_DPCD,
-+					  sizeof(msg), msg, sizeof(reg), reg);
-+	if (ret) {
-+		dev_err(base->dev, "dpcd write failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	if (addr != get_unaligned_be24(reg + 2)) {
-+		dev_err(base->dev, "Invalid response: expected address 0x%06x, got 0x%06x\n",
-+			addr, get_unaligned_be24(reg + 2));
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(cdns_mhdp_dpcd_write);
-+
-+MODULE_DESCRIPTION("Cadence MHDP Helper driver");
-+MODULE_AUTHOR("Sandor Yu <Sandor.yu@nxp.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/include/soc/cadence/cdns-mhdp-helper.h b/include/soc/cadence/cdns-mhdp-helper.h
-new file mode 100644
-index 0000000000000..25b9737de615f
---- /dev/null
-+++ b/include/soc/cadence/cdns-mhdp-helper.h
-@@ -0,0 +1,129 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2023-2024 NXP Semiconductor, Inc.
-+ */
-+#ifndef __CDNS_MHDP_HELPER_H__
-+#define __CDNS_MHDP_HELPER_H__
-+
-+#include <linux/iopoll.h>
-+#include <linux/unaligned.h>
-+
-+/* mailbox regs offset */
-+#define CDNS_MAILBOX_FULL			0x00008
-+#define CDNS_MAILBOX_EMPTY			0x0000c
-+#define CDNS_MAILBOX_TX_DATA			0x00010
-+#define CDNS_MAILBOX_RX_DATA			0x00014
-+
-+#define MAILBOX_RETRY_US			1000
-+#define MAILBOX_TIMEOUT_US			2000000
-+
-+/* Module ID Code */
-+#define MB_MODULE_ID_DP_TX			0x01
-+#define MB_MODULE_ID_HDMI_TX			0x03
-+#define MB_MODULE_ID_HDCP_TX			0x07
-+#define MB_MODULE_ID_HDCP_RX			0x08
-+#define MB_MODULE_ID_HDCP_GENERAL		0x09
-+#define MB_MODULE_ID_GENERAL			0x0A
-+
-+/* General Commands */
-+#define GENERAL_MAIN_CONTROL			0x01
-+#define GENERAL_TEST_ECHO			0x02
-+#define GENERAL_BUS_SETTINGS			0x03
-+#define GENERAL_TEST_ACCESS			0x04
-+#define GENERAL_REGISTER_WRITE			0x05
-+#define GENERAL_WRITE_FIELD			0x06
-+#define GENERAL_REGISTER_READ			0x07
-+#define GENERAL_GET_HPD_STATE			0x11
-+
-+/* DPTX Commands */
-+#define DPTX_SET_POWER_MNG			0x00
-+#define DPTX_SET_HOST_CAPABILITIES		0x01
-+#define DPTX_GET_EDID				0x02
-+#define DPTX_READ_DPCD				0x03
-+#define DPTX_WRITE_DPCD				0x04
-+#define DPTX_ENABLE_EVENT			0x05
-+#define DPTX_WRITE_REGISTER			0x06
-+#define DPTX_READ_REGISTER			0x07
-+#define DPTX_WRITE_FIELD			0x08
-+#define DPTX_TRAINING_CONTROL			0x09
-+#define DPTX_READ_EVENT				0x0a
-+#define DPTX_READ_LINK_STAT			0x0b
-+#define DPTX_SET_VIDEO				0x0c
-+#define DPTX_SET_AUDIO				0x0d
-+#define DPTX_GET_LAST_AUX_STAUS			0x0e
-+#define DPTX_SET_LINK_BREAK_POINT		0x0f
-+#define DPTX_FORCE_LANES			0x10
-+#define DPTX_HPD_STATE				0x11
-+#define DPTX_ADJUST_LT				0x12
-+
-+/* HDMI TX Commands */
-+#define HDMI_TX_READ				0x00
-+#define HDMI_TX_WRITE				0x01
-+#define HDMI_TX_UPDATE_READ			0x02
-+#define HDMI_TX_EDID				0x03
-+#define HDMI_TX_EVENTS				0x04
-+#define HDMI_TX_HPD_STATUS			0x05
-+
-+/* HDCP TX Commands */
-+#define HDCP_TRAN_CONFIGURATION			0x00
-+#define HDCP2X_TX_SET_PUBLIC_KEY_PARAMS		0x01
-+#define HDCP2X_TX_SET_DEBUG_RANDOM_NUMBERS	0x02
-+#define HDCP2X_TX_RESPOND_KM			0x03
-+#define HDCP1_TX_SEND_KEYS			0x04
-+#define HDCP1_TX_SEND_RANDOM_AN			0x05
-+#define HDCP_TRAN_STATUS_CHANGE			0x06
-+#define HDCP2X_TX_IS_KM_STORED			0x07
-+#define HDCP2X_TX_STORE_KM			0x08
-+#define HDCP_TRAN_IS_REC_ID_VALID		0x09
-+#define HDCP_TRAN_RESPOND_RECEIVER_ID_VALID	0x09
-+#define HDCP_TRAN_TEST_KEYS			0x0a
-+#define HDCP2X_TX_SET_KM_KEY_PARAMS		0x0b
-+#define HDCP_NUM_OF_SUPPORTED_MESSAGES		0x0c
-+
-+struct cdns_mhdp_base {
-+	struct device *dev;
-+	void __iomem *regs;
-+	void __iomem *sapb_regs;
-+};
-+
-+/* Mailbox helper functions */
-+int cdns_mhdp_mailbox_send(struct cdns_mhdp_base *base,
-+			   u8 module_id, u8 opcode,
-+			   u16 size, u8 *message);
-+int cdns_mhdp_mailbox_send_recv(struct cdns_mhdp_base *base,
-+				u8 module_id, u8 opcode,
-+				u16 msg_size, u8 *msg,
-+				u16 resp_size, u8 *resp);
-+int cdns_mhdp_mailbox_send_recv_multi(struct cdns_mhdp_base *base,
-+				      u8 module_id, u8 opcode,
-+				      u16 msg_size, u8 *msg,
-+				      u8 opcode_resp,
-+				      u16 resp1_size, u8 *resp1,
-+				      u16 resp2_size, u8 *resp2);
-+
-+/* Secure mailbox helper functions */
-+int cdns_mhdp_secure_mailbox_send(struct cdns_mhdp_base *base,
-+				  u8 module_id, u8 opcode,
-+				  u16 size, u8 *message);
-+int cdns_mhdp_secure_mailbox_send_recv(struct cdns_mhdp_base *base,
-+				       u8 module_id, u8 opcode,
-+				       u16 msg_size, u8 *msg,
-+				       u16 resp_size, u8 *resp);
-+int cdns_mhdp_secure_mailbox_send_recv_multi(struct cdns_mhdp_base *base,
-+					     u8 module_id, u8 opcode,
-+					     u16 msg_size, u8 *msg,
-+					     u8 opcode_resp,
-+					     u16 resp1_size, u8 *resp1,
-+					     u16 resp2_size, u8 *resp2);
-+
-+/* General commands helper functions */
-+int cdns_mhdp_reg_read(struct cdns_mhdp_base *base, u32 addr, u32 *value);
-+int cdns_mhdp_reg_write(struct cdns_mhdp_base *base, u32 addr, u32 val);
-+
-+/* DPTX commands helper functions */
-+int cdns_mhdp_dp_reg_write_bit(struct cdns_mhdp_base *base, u16 addr,
-+			       u8 start_bit, u8 bits_no, u32 val);
-+int cdns_mhdp_dpcd_read(struct cdns_mhdp_base *base,
-+			u32 addr, u8 *data, u16 len);
-+int cdns_mhdp_dpcd_write(struct cdns_mhdp_base *base, u32 addr, u8 value);
-+#endif /* __CDNS_MHDP_HELPER_H__ */
+diff --git a/drivers/rtc/rtc-88pm80x.c b/drivers/rtc/rtc-88pm80x.c
+index 5c39cf252392..a3e52a5a708f 100644
+--- a/drivers/rtc/rtc-88pm80x.c
++++ b/drivers/rtc/rtc-88pm80x.c
+@@ -308,7 +308,7 @@ static int pm80x_rtc_probe(struct platform_device *pdev)
+ 	/* remember whether this power up is caused by PMIC RTC or not */
+ 	info->rtc_dev->dev.platform_data = &pdata->rtc_wakeup;
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	return 0;
+ out_rtc:
+diff --git a/drivers/rtc/rtc-88pm860x.c b/drivers/rtc/rtc-88pm860x.c
+index 814230d61842..964cd048fcdb 100644
+--- a/drivers/rtc/rtc-88pm860x.c
++++ b/drivers/rtc/rtc-88pm860x.c
+@@ -326,7 +326,7 @@ static int pm860x_rtc_probe(struct platform_device *pdev)
+ 	schedule_delayed_work(&info->calib_work, VRTC_CALIB_INTERVAL);
+ #endif	/* VRTC_CALIBRATION */
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/rtc/rtc-amlogic-a4.c b/drivers/rtc/rtc-amlogic-a4.c
+index 2278b4c98a71..09d78c2cc691 100644
+--- a/drivers/rtc/rtc-amlogic-a4.c
++++ b/drivers/rtc/rtc-amlogic-a4.c
+@@ -361,7 +361,7 @@ static int aml_rtc_probe(struct platform_device *pdev)
+ 				     "failed to get_enable rtc sys clk\n");
+ 	aml_rtc_init(rtc);
+ 
+-	device_init_wakeup(dev, 1);
++	device_init_wakeup(dev, true);
+ 	platform_set_drvdata(pdev, rtc);
+ 
+ 	rtc->rtc_dev = devm_rtc_allocate_device(dev);
+@@ -391,7 +391,7 @@ static int aml_rtc_probe(struct platform_device *pdev)
+ 	return 0;
+ err_clk:
+ 	clk_disable_unprepare(rtc->sys_clk);
+-	device_init_wakeup(dev, 0);
++	device_init_wakeup(dev, false);
+ 
+ 	return ret;
+ }
+@@ -426,7 +426,7 @@ static void aml_rtc_remove(struct platform_device *pdev)
+ 	struct aml_rtc_data *rtc = dev_get_drvdata(&pdev->dev);
+ 
+ 	clk_disable_unprepare(rtc->sys_clk);
+-	device_init_wakeup(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, false);
+ }
+ 
+ static const struct aml_rtc_config a5_rtc_config = {
+diff --git a/drivers/rtc/rtc-armada38x.c b/drivers/rtc/rtc-armada38x.c
+index 569c1054d6b0..713fa0d077cd 100644
+--- a/drivers/rtc/rtc-armada38x.c
++++ b/drivers/rtc/rtc-armada38x.c
+@@ -527,7 +527,7 @@ static __init int armada38x_rtc_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, rtc);
+ 
+ 	if (rtc->irq != -1)
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 	else
+ 		clear_bit(RTC_FEATURE_ALARM, rtc->rtc_dev->features);
+ 
+diff --git a/drivers/rtc/rtc-as3722.c b/drivers/rtc/rtc-as3722.c
+index 0f21af27f4cf..9682d6457b7f 100644
+--- a/drivers/rtc/rtc-as3722.c
++++ b/drivers/rtc/rtc-as3722.c
+@@ -187,7 +187,7 @@ static int as3722_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	as3722_rtc->rtc = devm_rtc_device_register(&pdev->dev, "as3722-rtc",
+ 				&as3722_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-at91rm9200.c b/drivers/rtc/rtc-at91rm9200.c
+index 9b3898b8de7c..f6b0102a843a 100644
+--- a/drivers/rtc/rtc-at91rm9200.c
++++ b/drivers/rtc/rtc-at91rm9200.c
+@@ -528,7 +528,7 @@ static int __init at91_rtc_probe(struct platform_device *pdev)
+ 	 * being wake-capable; if it didn't, do that here.
+ 	 */
+ 	if (!device_can_wakeup(&pdev->dev))
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 
+ 	if (at91_rtc_config->has_correction)
+ 		rtc->ops = &sama5d4_rtc_ops;
+diff --git a/drivers/rtc/rtc-at91sam9.c b/drivers/rtc/rtc-at91sam9.c
+index 15b21da2788f..38991cca5930 100644
+--- a/drivers/rtc/rtc-at91sam9.c
++++ b/drivers/rtc/rtc-at91sam9.c
+@@ -353,7 +353,7 @@ static int at91_rtc_probe(struct platform_device *pdev)
+ 
+ 	/* platform setup code should have handled this; sigh */
+ 	if (!device_can_wakeup(&pdev->dev))
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 
+ 	platform_set_drvdata(pdev, rtc);
+ 
+diff --git a/drivers/rtc/rtc-cadence.c b/drivers/rtc/rtc-cadence.c
+index bf2a9a1fdea7..8634eea799ab 100644
+--- a/drivers/rtc/rtc-cadence.c
++++ b/drivers/rtc/rtc-cadence.c
+@@ -359,7 +359,7 @@ static void cdns_rtc_remove(struct platform_device *pdev)
+ 	struct cdns_rtc *crtc = platform_get_drvdata(pdev);
+ 
+ 	cdns_rtc_alarm_irq_enable(&pdev->dev, 0);
+-	device_init_wakeup(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, false);
+ 
+ 	clk_disable_unprepare(crtc->pclk);
+ 	clk_disable_unprepare(crtc->ref_clk);
+diff --git a/drivers/rtc/rtc-cmos.c b/drivers/rtc/rtc-cmos.c
+index 78f2ce12c75a..4bd3a3a04d44 100644
+--- a/drivers/rtc/rtc-cmos.c
++++ b/drivers/rtc/rtc-cmos.c
+@@ -864,7 +864,7 @@ static void acpi_cmos_wake_setup(struct device *dev)
+ 		dev_info(dev, "RTC can wake from S4\n");
+ 
+ 	/* RTC always wakes from S1/S2/S3, and often S4/STD */
+-	device_init_wakeup(dev, 1);
++	device_init_wakeup(dev, true);
+ }
+ 
+ static void cmos_check_acpi_rtc_status(struct device *dev,
+diff --git a/drivers/rtc/rtc-cpcap.c b/drivers/rtc/rtc-cpcap.c
+index afc8fcba8f88..568a89e79c11 100644
+--- a/drivers/rtc/rtc-cpcap.c
++++ b/drivers/rtc/rtc-cpcap.c
+@@ -295,7 +295,7 @@ static int cpcap_rtc_probe(struct platform_device *pdev)
+ 	}
+ 	disable_irq(rtc->update_irq);
+ 
+-	err = device_init_wakeup(dev, 1);
++	err = device_init_wakeup(dev, true);
+ 	if (err) {
+ 		dev_err(dev, "wakeup initialization failed (%d)\n", err);
+ 		/* ignore error and continue without wakeup support */
+diff --git a/drivers/rtc/rtc-cros-ec.c b/drivers/rtc/rtc-cros-ec.c
+index 60a48c3ba3ca..865c2e82c7a5 100644
+--- a/drivers/rtc/rtc-cros-ec.c
++++ b/drivers/rtc/rtc-cros-ec.c
+@@ -337,7 +337,7 @@ static int cros_ec_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	ret = device_init_wakeup(&pdev->dev, 1);
++	ret = device_init_wakeup(&pdev->dev, true);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "failed to initialize wakeup\n");
+ 		return ret;
+diff --git a/drivers/rtc/rtc-da9055.c b/drivers/rtc/rtc-da9055.c
+index 844168fcae1e..05adec6b77bf 100644
+--- a/drivers/rtc/rtc-da9055.c
++++ b/drivers/rtc/rtc-da9055.c
+@@ -288,7 +288,7 @@ static int da9055_rtc_probe(struct platform_device *pdev)
+ 	if (ret & DA9055_RTC_ALM_EN)
+ 		rtc->alarm_enable = 1;
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	rtc->rtc = devm_rtc_device_register(&pdev->dev, pdev->name,
+ 					&da9055_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-ds3232.c b/drivers/rtc/rtc-ds3232.c
+index dd37b055693c..19c09c418746 100644
+--- a/drivers/rtc/rtc-ds3232.c
++++ b/drivers/rtc/rtc-ds3232.c
+@@ -508,7 +508,7 @@ static int ds3232_probe(struct device *dev, struct regmap *regmap, int irq,
+ 		return ret;
+ 
+ 	if (ds3232->irq > 0)
+-		device_init_wakeup(dev, 1);
++		device_init_wakeup(dev, true);
+ 
+ 	ds3232_hwmon_register(dev, name);
+ 
+diff --git a/drivers/rtc/rtc-isl1208.c b/drivers/rtc/rtc-isl1208.c
+index 7b82e4a14b7a..f71a6bb77b2a 100644
+--- a/drivers/rtc/rtc-isl1208.c
++++ b/drivers/rtc/rtc-isl1208.c
+@@ -830,7 +830,7 @@ static int isl1208_setup_irq(struct i2c_client *client, int irq)
+ 					isl1208_driver.driver.name,
+ 					client);
+ 	if (!rc) {
+-		device_init_wakeup(&client->dev, 1);
++		device_init_wakeup(&client->dev, true);
+ 		enable_irq_wake(irq);
+ 	} else {
+ 		dev_err(&client->dev,
+diff --git a/drivers/rtc/rtc-jz4740.c b/drivers/rtc/rtc-jz4740.c
+index bafa7d1b9b88..44bba356268c 100644
+--- a/drivers/rtc/rtc-jz4740.c
++++ b/drivers/rtc/rtc-jz4740.c
+@@ -367,7 +367,7 @@ static int jz4740_rtc_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, rtc);
+ 
+-	device_init_wakeup(dev, 1);
++	device_init_wakeup(dev, true);
+ 
+ 	ret = dev_pm_set_wake_irq(dev, irq);
+ 	if (ret)
+diff --git a/drivers/rtc/rtc-loongson.c b/drivers/rtc/rtc-loongson.c
+index 8d713e563d7c..6f5f4430c2ae 100644
+--- a/drivers/rtc/rtc-loongson.c
++++ b/drivers/rtc/rtc-loongson.c
+@@ -329,7 +329,7 @@ static int loongson_rtc_probe(struct platform_device *pdev)
+ 					     alarm_irq);
+ 
+ 		priv->pm_base = regs - priv->config->pm_offset;
+-		device_init_wakeup(dev, 1);
++		device_init_wakeup(dev, true);
+ 
+ 		if (has_acpi_companion(dev))
+ 			acpi_install_fixed_event_handler(ACPI_EVENT_RTC,
+@@ -360,7 +360,7 @@ static void loongson_rtc_remove(struct platform_device *pdev)
+ 		acpi_remove_fixed_event_handler(ACPI_EVENT_RTC,
+ 						loongson_rtc_handler);
+ 
+-	device_init_wakeup(dev, 0);
++	device_init_wakeup(dev, false);
+ 	loongson_rtc_alarm_irq_enable(dev, 0);
+ }
+ 
+diff --git a/drivers/rtc/rtc-lp8788.c b/drivers/rtc/rtc-lp8788.c
+index c0b8fbce1082..0793d70507f7 100644
+--- a/drivers/rtc/rtc-lp8788.c
++++ b/drivers/rtc/rtc-lp8788.c
+@@ -293,7 +293,7 @@ static int lp8788_rtc_probe(struct platform_device *pdev)
+ 	rtc->alarm = lp->pdata ? lp->pdata->alarm_sel : DEFAULT_ALARM_SEL;
+ 	platform_set_drvdata(pdev, rtc);
+ 
+-	device_init_wakeup(dev, 1);
++	device_init_wakeup(dev, true);
+ 
+ 	rtc->rdev = devm_rtc_device_register(dev, "lp8788_rtc",
+ 					&lp8788_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-lpc32xx.c b/drivers/rtc/rtc-lpc32xx.c
+index 76ad7031a13d..74280bffe1b0 100644
+--- a/drivers/rtc/rtc-lpc32xx.c
++++ b/drivers/rtc/rtc-lpc32xx.c
+@@ -257,7 +257,7 @@ static int lpc32xx_rtc_probe(struct platform_device *pdev)
+ 			dev_warn(&pdev->dev, "Can't request interrupt.\n");
+ 			rtc->irq = -1;
+ 		} else {
+-			device_init_wakeup(&pdev->dev, 1);
++			device_init_wakeup(&pdev->dev, true);
+ 		}
+ 	}
+ 
+diff --git a/drivers/rtc/rtc-max77686.c b/drivers/rtc/rtc-max77686.c
+index a8f4b645c09d..7bb044d2ac25 100644
+--- a/drivers/rtc/rtc-max77686.c
++++ b/drivers/rtc/rtc-max77686.c
+@@ -770,7 +770,7 @@ static int max77686_rtc_probe(struct platform_device *pdev)
+ 		goto err_rtc;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	info->rtc_dev = devm_rtc_device_register(&pdev->dev, id->name,
+ 					&max77686_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-max8925.c b/drivers/rtc/rtc-max8925.c
+index 64bb8ac6ef62..6ce8afbeac68 100644
+--- a/drivers/rtc/rtc-max8925.c
++++ b/drivers/rtc/rtc-max8925.c
+@@ -270,7 +270,7 @@ static int max8925_rtc_probe(struct platform_device *pdev)
+ 	/* XXX - isn't this redundant? */
+ 	platform_set_drvdata(pdev, info);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	info->rtc_dev = devm_rtc_device_register(&pdev->dev, "max8925-rtc",
+ 					&max8925_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-max8997.c b/drivers/rtc/rtc-max8997.c
+index 20e50d9fdf88..e7618d715bd8 100644
+--- a/drivers/rtc/rtc-max8997.c
++++ b/drivers/rtc/rtc-max8997.c
+@@ -473,7 +473,7 @@ static int max8997_rtc_probe(struct platform_device *pdev)
+ 	max8997_rtc_enable_wtsr(info, true);
+ 	max8997_rtc_enable_smpl(info, true);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	info->rtc_dev = devm_rtc_device_register(&pdev->dev, "max8997-rtc",
+ 					&max8997_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-meson-vrtc.c b/drivers/rtc/rtc-meson-vrtc.c
+index 648fa362ec44..5849729f7d01 100644
+--- a/drivers/rtc/rtc-meson-vrtc.c
++++ b/drivers/rtc/rtc-meson-vrtc.c
+@@ -74,7 +74,7 @@ static int meson_vrtc_probe(struct platform_device *pdev)
+ 	if (IS_ERR(vrtc->io_alarm))
+ 		return PTR_ERR(vrtc->io_alarm);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	platform_set_drvdata(pdev, vrtc);
+ 
+diff --git a/drivers/rtc/rtc-mpc5121.c b/drivers/rtc/rtc-mpc5121.c
+index 600328131603..b90f8337a7e6 100644
+--- a/drivers/rtc/rtc-mpc5121.c
++++ b/drivers/rtc/rtc-mpc5121.c
+@@ -303,7 +303,7 @@ static int mpc5121_rtc_probe(struct platform_device *op)
+ 		return PTR_ERR(rtc->regs);
+ 	}
+ 
+-	device_init_wakeup(&op->dev, 1);
++	device_init_wakeup(&op->dev, true);
+ 
+ 	platform_set_drvdata(op, rtc);
+ 
+diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
+index 152699219a2b..6979d225a78e 100644
+--- a/drivers/rtc/rtc-mt6397.c
++++ b/drivers/rtc/rtc-mt6397.c
+@@ -286,7 +286,7 @@ static int mtk_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	rtc->rtc_dev->ops = &mtk_rtc_ops;
+ 	rtc->rtc_dev->range_min = RTC_TIMESTAMP_BEGIN_1900;
+diff --git a/drivers/rtc/rtc-mv.c b/drivers/rtc/rtc-mv.c
+index 51029c536244..c27ad626d09f 100644
+--- a/drivers/rtc/rtc-mv.c
++++ b/drivers/rtc/rtc-mv.c
+@@ -264,7 +264,7 @@ static int __init mv_rtc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	if (pdata->irq >= 0)
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 	else
+ 		clear_bit(RTC_FEATURE_ALARM, pdata->rtc->features);
+ 
+@@ -287,7 +287,7 @@ static void __exit mv_rtc_remove(struct platform_device *pdev)
+ 	struct rtc_plat_data *pdata = platform_get_drvdata(pdev);
+ 
+ 	if (pdata->irq >= 0)
+-		device_init_wakeup(&pdev->dev, 0);
++		device_init_wakeup(&pdev->dev, false);
+ 
+ 	if (!IS_ERR(pdata->clk))
+ 		clk_disable_unprepare(pdata->clk);
+diff --git a/drivers/rtc/rtc-mxc.c b/drivers/rtc/rtc-mxc.c
+index dbb935dbbd8a..608db97d450c 100644
+--- a/drivers/rtc/rtc-mxc.c
++++ b/drivers/rtc/rtc-mxc.c
+@@ -377,7 +377,7 @@ static int mxc_rtc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	if (pdata->irq >= 0) {
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 		ret = dev_pm_set_wake_irq(&pdev->dev, pdata->irq);
+ 		if (ret)
+ 			dev_err(&pdev->dev, "failed to enable irq wake\n");
+diff --git a/drivers/rtc/rtc-mxc_v2.c b/drivers/rtc/rtc-mxc_v2.c
+index 13c041bb79f1..570f27af4732 100644
+--- a/drivers/rtc/rtc-mxc_v2.c
++++ b/drivers/rtc/rtc-mxc_v2.c
+@@ -302,7 +302,7 @@ static int mxc_rtc_probe(struct platform_device *pdev)
+ 	if (pdata->irq < 0)
+ 		return pdata->irq;
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 	ret = dev_pm_set_wake_irq(&pdev->dev, pdata->irq);
+ 	if (ret)
+ 		dev_err(&pdev->dev, "failed to enable irq wake\n");
+diff --git a/drivers/rtc/rtc-omap.c b/drivers/rtc/rtc-omap.c
+index c123778e2d9b..0f90065e352c 100644
+--- a/drivers/rtc/rtc-omap.c
++++ b/drivers/rtc/rtc-omap.c
+@@ -920,7 +920,7 @@ static void omap_rtc_remove(struct platform_device *pdev)
+ 		omap_rtc_power_off_rtc = NULL;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, false);
+ 
+ 	if (!IS_ERR(rtc->clk))
+ 		clk_disable_unprepare(rtc->clk);
+diff --git a/drivers/rtc/rtc-palmas.c b/drivers/rtc/rtc-palmas.c
+index 7256a88b490c..aecada6bcf8b 100644
+--- a/drivers/rtc/rtc-palmas.c
++++ b/drivers/rtc/rtc-palmas.c
+@@ -287,7 +287,7 @@ static int palmas_rtc_probe(struct platform_device *pdev)
+ 
+ 	palmas_rtc->irq = platform_get_irq(pdev, 0);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 	palmas_rtc->rtc = devm_rtc_device_register(&pdev->dev, pdev->name,
+ 				&palmas_rtc_ops, THIS_MODULE);
+ 	if (IS_ERR(palmas_rtc->rtc)) {
+diff --git a/drivers/rtc/rtc-pic32.c b/drivers/rtc/rtc-pic32.c
+index bed3c27e665f..2812da2c50c5 100644
+--- a/drivers/rtc/rtc-pic32.c
++++ b/drivers/rtc/rtc-pic32.c
+@@ -330,7 +330,7 @@ static int pic32_rtc_probe(struct platform_device *pdev)
+ 
+ 	pic32_rtc_enable(pdata, 1);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	pdata->rtc->ops = &pic32_rtcops;
+ 	pdata->rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
+diff --git a/drivers/rtc/rtc-pm8xxx.c b/drivers/rtc/rtc-pm8xxx.c
+index 2f32187ecc8d..b2518aea4218 100644
+--- a/drivers/rtc/rtc-pm8xxx.c
++++ b/drivers/rtc/rtc-pm8xxx.c
+@@ -503,7 +503,7 @@ static int pm8xxx_rtc_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, rtc_dd);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	rtc_dd->rtc = devm_rtc_allocate_device(&pdev->dev);
+ 	if (IS_ERR(rtc_dd->rtc))
+diff --git a/drivers/rtc/rtc-pxa.c b/drivers/rtc/rtc-pxa.c
+index 34d8545c8e15..62ee6b8f9bcd 100644
+--- a/drivers/rtc/rtc-pxa.c
++++ b/drivers/rtc/rtc-pxa.c
+@@ -360,7 +360,7 @@ static int __init pxa_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	device_init_wakeup(dev, 1);
++	device_init_wakeup(dev, true);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/rtc/rtc-rc5t583.c b/drivers/rtc/rtc-rc5t583.c
+index eecb49bab56a..8ba9cda74acf 100644
+--- a/drivers/rtc/rtc-rc5t583.c
++++ b/drivers/rtc/rtc-rc5t583.c
+@@ -245,7 +245,7 @@ static int rc5t583_rtc_probe(struct platform_device *pdev)
+ 		dev_err(&pdev->dev, "IRQ is not free.\n");
+ 		return ret;
+ 	}
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	ricoh_rtc->rtc = devm_rtc_device_register(&pdev->dev, pdev->name,
+ 		&rc5t583_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-rc5t619.c b/drivers/rtc/rtc-rc5t619.c
+index 711f62eecd79..74d169102074 100644
+--- a/drivers/rtc/rtc-rc5t619.c
++++ b/drivers/rtc/rtc-rc5t619.c
+@@ -414,7 +414,7 @@ static int rc5t619_rtc_probe(struct platform_device *pdev)
+ 
+ 		} else {
+ 			/* enable wake */
+-			device_init_wakeup(&pdev->dev, 1);
++			device_init_wakeup(&pdev->dev, true);
+ 			enable_irq_wake(rtc->irq);
+ 		}
+ 	} else {
+diff --git a/drivers/rtc/rtc-renesas-rtca3.c b/drivers/rtc/rtc-renesas-rtca3.c
+index d127933bfc8a..a056291d3887 100644
+--- a/drivers/rtc/rtc-renesas-rtca3.c
++++ b/drivers/rtc/rtc-renesas-rtca3.c
+@@ -768,7 +768,7 @@ static int rtca3_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	priv->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
+ 	if (IS_ERR(priv->rtc_dev))
+diff --git a/drivers/rtc/rtc-rk808.c b/drivers/rtc/rtc-rk808.c
+index 2d9bcb3ce1e3..59b8e9a30fe6 100644
+--- a/drivers/rtc/rtc-rk808.c
++++ b/drivers/rtc/rtc-rk808.c
+@@ -418,7 +418,7 @@ static int rk808_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	rk808_rtc->rtc = devm_rtc_allocate_device(&pdev->dev);
+ 	if (IS_ERR(rk808_rtc->rtc))
+diff --git a/drivers/rtc/rtc-s3c.c b/drivers/rtc/rtc-s3c.c
+index c0ac3bdb2f42..58c957eb753d 100644
+--- a/drivers/rtc/rtc-s3c.c
++++ b/drivers/rtc/rtc-s3c.c
+@@ -456,7 +456,7 @@ static int s3c_rtc_probe(struct platform_device *pdev)
+ 	dev_dbg(&pdev->dev, "s3c2410_rtc: RTCCON=%02x\n",
+ 		readw(info->base + S3C2410_RTCCON));
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	info->rtc = devm_rtc_allocate_device(&pdev->dev);
+ 	if (IS_ERR(info->rtc)) {
+diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+index dad294a0ce2a..36acca5b2639 100644
+--- a/drivers/rtc/rtc-s5m.c
++++ b/drivers/rtc/rtc-s5m.c
+@@ -729,7 +729,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 				info->irq, ret);
+ 			return ret;
+ 		}
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 	}
+ 
+ 	return devm_rtc_register_device(info->rtc_dev);
+diff --git a/drivers/rtc/rtc-sa1100.c b/drivers/rtc/rtc-sa1100.c
+index 13799b1abca1..1ad93648d69c 100644
+--- a/drivers/rtc/rtc-sa1100.c
++++ b/drivers/rtc/rtc-sa1100.c
+@@ -292,7 +292,7 @@ static int sa1100_rtc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	platform_set_drvdata(pdev, info);
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	return sa1100_rtc_init(pdev, info);
+ }
+diff --git a/drivers/rtc/rtc-sc27xx.c b/drivers/rtc/rtc-sc27xx.c
+index ce7a2ddbbc16..2b83561d4d28 100644
+--- a/drivers/rtc/rtc-sc27xx.c
++++ b/drivers/rtc/rtc-sc27xx.c
+@@ -613,14 +613,14 @@ static int sprd_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	rtc->rtc->ops = &sprd_rtc_ops;
+ 	rtc->rtc->range_min = 0;
+ 	rtc->rtc->range_max = 5662310399LL;
+ 	ret = devm_rtc_register_device(rtc->rtc);
+ 	if (ret) {
+-		device_init_wakeup(&pdev->dev, 0);
++		device_init_wakeup(&pdev->dev, false);
+ 		return ret;
+ 	}
+ 
+diff --git a/drivers/rtc/rtc-sh.c b/drivers/rtc/rtc-sh.c
+index a5df521876ba..9ea40f40188f 100644
+--- a/drivers/rtc/rtc-sh.c
++++ b/drivers/rtc/rtc-sh.c
+@@ -611,7 +611,7 @@ static int __init sh_rtc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_unmap;
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 	return 0;
+ 
+ err_unmap:
+diff --git a/drivers/rtc/rtc-spear.c b/drivers/rtc/rtc-spear.c
+index 26eed927f8b3..959acff8faff 100644
+--- a/drivers/rtc/rtc-spear.c
++++ b/drivers/rtc/rtc-spear.c
+@@ -395,7 +395,7 @@ static int spear_rtc_probe(struct platform_device *pdev)
+ 		goto err_disable_clock;
+ 
+ 	if (!device_can_wakeup(&pdev->dev))
+-		device_init_wakeup(&pdev->dev, 1);
++		device_init_wakeup(&pdev->dev, true);
+ 
+ 	return 0;
+ 
+@@ -411,7 +411,7 @@ static void spear_rtc_remove(struct platform_device *pdev)
+ 
+ 	spear_rtc_disable_interrupt(config);
+ 	clk_disable_unprepare(config->clk);
+-	device_init_wakeup(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, false);
+ }
+ 
+ #ifdef CONFIG_PM_SLEEP
+diff --git a/drivers/rtc/rtc-sun6i.c b/drivers/rtc/rtc-sun6i.c
+index e681c1745866..e5e6013d080e 100644
+--- a/drivers/rtc/rtc-sun6i.c
++++ b/drivers/rtc/rtc-sun6i.c
+@@ -826,7 +826,7 @@ static int sun6i_rtc_probe(struct platform_device *pdev)
+ 
+ 	clk_prepare_enable(chip->losc);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	chip->rtc = devm_rtc_allocate_device(&pdev->dev);
+ 	if (IS_ERR(chip->rtc))
+diff --git a/drivers/rtc/rtc-sunplus.c b/drivers/rtc/rtc-sunplus.c
+index 9b1ce0e8ba27..519a06e728d6 100644
+--- a/drivers/rtc/rtc-sunplus.c
++++ b/drivers/rtc/rtc-sunplus.c
+@@ -269,7 +269,7 @@ static int sp_rtc_probe(struct platform_device *plat_dev)
+ 	if (ret)
+ 		goto free_reset_assert;
+ 
+-	device_init_wakeup(&plat_dev->dev, 1);
++	device_init_wakeup(&plat_dev->dev, true);
+ 	dev_set_drvdata(&plat_dev->dev, sp_rtc);
+ 
+ 	sp_rtc->rtc = devm_rtc_allocate_device(&plat_dev->dev);
+@@ -307,7 +307,7 @@ static void sp_rtc_remove(struct platform_device *plat_dev)
+ {
+ 	struct sunplus_rtc *sp_rtc = dev_get_drvdata(&plat_dev->dev);
+ 
+-	device_init_wakeup(&plat_dev->dev, 0);
++	device_init_wakeup(&plat_dev->dev, false);
+ 	reset_control_assert(sp_rtc->rstc);
+ 	clk_disable_unprepare(sp_rtc->rtcclk);
+ }
+diff --git a/drivers/rtc/rtc-tegra.c b/drivers/rtc/rtc-tegra.c
+index 79a3102c8354..46788db89953 100644
+--- a/drivers/rtc/rtc-tegra.c
++++ b/drivers/rtc/rtc-tegra.c
+@@ -319,7 +319,7 @@ static int tegra_rtc_probe(struct platform_device *pdev)
+ 	writel(0xffffffff, info->base + TEGRA_RTC_REG_INTR_STATUS);
+ 	writel(0, info->base + TEGRA_RTC_REG_INTR_MASK);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	ret = devm_request_irq(&pdev->dev, info->irq, tegra_rtc_irq_handler,
+ 			       IRQF_TRIGGER_HIGH, dev_name(&pdev->dev),
+diff --git a/drivers/rtc/rtc-test.c b/drivers/rtc/rtc-test.c
+index 7e0d8fb26465..a68b8c884102 100644
+--- a/drivers/rtc/rtc-test.c
++++ b/drivers/rtc/rtc-test.c
+@@ -132,7 +132,7 @@ static int test_probe(struct platform_device *plat_dev)
+ 		break;
+ 	default:
+ 		rtd->rtc->ops = &test_rtc_ops;
+-		device_init_wakeup(&plat_dev->dev, 1);
++		device_init_wakeup(&plat_dev->dev, true);
+ 	}
+ 
+ 	timer_setup(&rtd->alarm, test_rtc_alarm_handler, 0);
+diff --git a/drivers/rtc/rtc-tps6586x.c b/drivers/rtc/rtc-tps6586x.c
+index e796729fc817..54c8429b16bf 100644
+--- a/drivers/rtc/rtc-tps6586x.c
++++ b/drivers/rtc/rtc-tps6586x.c
+@@ -241,7 +241,7 @@ static int tps6586x_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	platform_set_drvdata(pdev, rtc);
+ 	rtc->rtc = devm_rtc_allocate_device(&pdev->dev);
+diff --git a/drivers/rtc/rtc-tps65910.c b/drivers/rtc/rtc-tps65910.c
+index 2ea1bbfbbc2a..284aa2f0392b 100644
+--- a/drivers/rtc/rtc-tps65910.c
++++ b/drivers/rtc/rtc-tps65910.c
+@@ -418,7 +418,7 @@ static int tps65910_rtc_probe(struct platform_device *pdev)
+ 	tps_rtc->irq = irq;
+ 	if (irq != -1) {
+ 		if (device_property_present(tps65910->dev, "wakeup-source"))
+-			device_init_wakeup(&pdev->dev, 1);
++			device_init_wakeup(&pdev->dev, true);
+ 		else
+ 			device_set_wakeup_capable(&pdev->dev, 1);
+ 	} else {
+diff --git a/drivers/rtc/rtc-twl.c b/drivers/rtc/rtc-twl.c
+index 794429182b34..e6106e67e1f4 100644
+--- a/drivers/rtc/rtc-twl.c
++++ b/drivers/rtc/rtc-twl.c
+@@ -572,7 +572,7 @@ static int twl_rtc_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	platform_set_drvdata(pdev, twl_rtc);
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	twl_rtc->rtc = devm_rtc_device_register(&pdev->dev, pdev->name,
+ 					&twl_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-wm831x.c b/drivers/rtc/rtc-wm831x.c
+index 640833e21057..218316be942a 100644
+--- a/drivers/rtc/rtc-wm831x.c
++++ b/drivers/rtc/rtc-wm831x.c
+@@ -420,7 +420,7 @@ static int wm831x_rtc_probe(struct platform_device *pdev)
+ 	if (ret & WM831X_RTC_ALM_ENA)
+ 		wm831x_rtc->alarm_enabled = 1;
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	wm831x_rtc->rtc = devm_rtc_allocate_device(&pdev->dev);
+ 	if (IS_ERR(wm831x_rtc->rtc))
+diff --git a/drivers/rtc/rtc-wm8350.c b/drivers/rtc/rtc-wm8350.c
+index 6797eb4d2e49..3bd60d067a5e 100644
+--- a/drivers/rtc/rtc-wm8350.c
++++ b/drivers/rtc/rtc-wm8350.c
+@@ -420,7 +420,7 @@ static int wm8350_rtc_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	wm_rtc->rtc = devm_rtc_device_register(&pdev->dev, "wm8350",
+ 					&wm8350_rtc_ops, THIS_MODULE);
+diff --git a/drivers/rtc/rtc-xgene.c b/drivers/rtc/rtc-xgene.c
+index 0813ea1a03c2..6660b664e8dd 100644
+--- a/drivers/rtc/rtc-xgene.c
++++ b/drivers/rtc/rtc-xgene.c
+@@ -174,7 +174,7 @@ static int xgene_rtc_probe(struct platform_device *pdev)
+ 	/* Turn on the clock and the crystal */
+ 	writel(RTC_CCR_EN, pdata->csr_base + RTC_CCR);
+ 
+-	ret = device_init_wakeup(&pdev->dev, 1);
++	ret = device_init_wakeup(&pdev->dev, true);
+ 	if (ret) {
+ 		clk_disable_unprepare(pdata->clk);
+ 		return ret;
+@@ -197,7 +197,7 @@ static void xgene_rtc_remove(struct platform_device *pdev)
+ 	struct xgene_rtc_dev *pdata = platform_get_drvdata(pdev);
+ 
+ 	xgene_rtc_alarm_irq_enable(&pdev->dev, 0);
+-	device_init_wakeup(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, false);
+ 	clk_disable_unprepare(pdata->clk);
+ }
+ 
+diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
+index af1abb69d1e3..625f708a7caf 100644
+--- a/drivers/rtc/rtc-zynqmp.c
++++ b/drivers/rtc/rtc-zynqmp.c
+@@ -337,7 +337,7 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
+ 
+ 	xlnx_init_rtc(xrtcdev);
+ 
+-	device_init_wakeup(&pdev->dev, 1);
++	device_init_wakeup(&pdev->dev, true);
+ 
+ 	return devm_rtc_register_device(xrtcdev->rtc);
+ }
+@@ -345,7 +345,7 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
+ static void xlnx_rtc_remove(struct platform_device *pdev)
+ {
+ 	xlnx_rtc_alarm_irq_enable(&pdev->dev, 0);
+-	device_init_wakeup(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, false);
+ }
+ 
+ static int __maybe_unused xlnx_rtc_suspend(struct device *dev)
 -- 
-2.34.1
+2.45.2
 
 
