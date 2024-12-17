@@ -4,174 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4CBE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE8CE7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FVTlA1pi+6jILCfNw3lBFfz9W5TP/rhyitx5U+VGzg=; b=jbN4CkqZSvPVQCTCa55Qe5zgvh
-	L+tLfOkHtMc6tHsu9eFyHCRGfdI3k8/0PzXv0kJexBX7Ar6WtDkzq/spXHg5BBr4XLyCx/XUfKgHx
-	CoP0s2PTUmivw+MYcm4GgiXVg8V2iOV5gxlSrvZMGKYlC1I8S7lB6zepnvxzlo4+9p6uoZZ0vShqZ
-	KO41gUsaoNtsFePJQgajo+PocbDNPDNiaBwC2thEDQ3w8a38SwwKeNdeHUhAbcTUpJwwD5Aj2ZIRh
-	OtLRduzWPpxRf5nYRu1ZxO4gqFByziwE9joRVo1s4sCuA3MK+k05dWrswYdoB0vLPM9mYWA6fzJuJ
-	LtbYb0mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
+	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k7Ohw9FdZun9tCxVR+V58AxTTwpDnpaw4I4rebrkACs=; b=DE4gxtrwh5s9M7sNKhGrnmXkKK
+	3qY77BRJ64iSdvm1z0hleFR715YTjAZH9iNnoUdNtrVKLWm7suc/x2cLr4c725AL4yKHlbDl/+nJN
+	SDbo5bupjNPw3VnyxbkJRExnO/kaRKFd7fLajvOzJaNTJuo73e7XjmHOAGRRns26UcM4G4LE/8hXS
+	Wvv8Oi/ZVXyL6HOQ6l8RJZ/JF6JqAUdM9YfZr9vaET6Y6Xhx+nCEHzJxfxE7r/xfML/k6MZ8FSr84
+	l6Giv5pxz+Fwq2lDYK0EgtOSiNt7eyVIyPvO/K5D7p48jlg/Eh5OQwhdN222HiFO/2tFmGmWObca5
+	yoOUbVFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUTq-0000000D3Qn-2fwB;
-	Tue, 17 Dec 2024 10:07:06 +0000
-Received: from mail-db5eur02on2061c.outbound.protection.outlook.com ([2a01:111:f403:2608::61c] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1tNUUv-0000000D3ib-1aVq;
+	Tue, 17 Dec 2024 10:08:13 +0000
+Received: from mail-il1-f207.google.com ([209.85.166.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUAj-0000000Cz3r-0g8F
+	id 1tNUBm-0000000CzJP-1yRi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 09:47:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=utDzgzTUKEGlvaXz18lRRSWwJ97pKvmVNhvB2cHlCJBdMYhuiLF8n3G8hybLXOP1qO2GxminwE1+QAz/xxL+2bqUqpD8T7uPle21QSMXF7gIWWRX6aR8tcUplRBaWn17L490FH9EB0L3WgYPUSnbL9+CfiIJbJVZBf3n5xSj9mQkPrP2eH03bC7Rj0SbbbFOldr/6HwdRh7BhfD6gdy8EfFVR4sMaR5wZIlg8YZSdoo4fIHOnM2GT3qHEH+FpxYdNf3PehKOerssudbKu1S2itQj5mjBmgHNHXVMqx8VUhjOm+6RaxaunyE3DifYwSmG7tJnYSdBI8QqlorZTlui0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5FVTlA1pi+6jILCfNw3lBFfz9W5TP/rhyitx5U+VGzg=;
- b=VnonyZGEQ7kjt4jaxWVSBeWBsu+LlQt+JmRbycldKvCZjJEhcaKpEmUll+wpHt1p5f3IcI95j6m2A98hzqBD6w78x2Lb0zoB4quchXocknSjvKgimc3RsHknEmQUVHKvzwVDBPblF6KIXOQcYVTOyj+0QSKt5rdn41k5tJmHzsmarnhACLDjdI56sxbb0w0pOWpqtO+0nM2pD7wM6/klrEZX116JW4R8PX8XXoD7Ru4ozIBhpC57WWNDNHHAacLTcrLDl2D2G+1eA0t7MSyqZ/V2upvVPOWA1MhE6SetT6LDrU5ecT1gWxt9Td0bY04VdPLZYYi+cmkE+oOljs+rUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5FVTlA1pi+6jILCfNw3lBFfz9W5TP/rhyitx5U+VGzg=;
- b=YigPo8Gj0gBLs78szd2JQEc15U0Da4qGEVWYtzxLs/8Vo65MPCKcg0NqgJ8hY+rSUVNjZ9AWqR3JkrI2SLyAybVNxHEjW75QuPgafc4mBIlCT63CskygqVxdqC7fsiXMrqk305m2QDRZDCwABhShOZJVGJq1ks6ikFiDUIIuPi1KAsQRlVKFo2XqEKqoLtic0UNOKmMu27gKzhFRT+QhW2rl/Xd5F59AIe0FQd39QIR3TWkfGKZ+t6PYr0XGK0Ls5anMP1W2zeMKV+USE8iaJFS486vCqRaFf7nCNad6YWE1hmnyd0Td/zfC1F01urSfcJGEynuqgphD+8ovs8N9lA==
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by DB8PR04MB7020.eurprd04.prod.outlook.com (2603:10a6:10:126::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Tue, 17 Dec
- 2024 09:47:17 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8251.015; Tue, 17 Dec 2024
- 09:47:17 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Aisheng Dong <aisheng.dong@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>
-Subject: RE: [PATCH] arm64: dts: freescale: Add basic dtsi for imx943
-Thread-Topic: [PATCH] arm64: dts: freescale: Add basic dtsi for imx943
-Thread-Index: AQHbTHk81yKZ8OkADU+CIsg4vinMd7Loro0AgAF3nnCAAAXpAIAABO0A
-Date: Tue, 17 Dec 2024 09:47:17 +0000
-Message-ID: <AS8PR04MB8642F7BF3F5B8E2455EEB0BB87042@AS8PR04MB8642.eurprd04.prod.outlook.com>
-References: <20241212093555.1376568-1-ping.bai@nxp.com>
- <20241212093555.1376568-2-ping.bai@nxp.com>
- <bx3r4cs3oklfduvkg65vke3clb3fc6sseske2ellq27ifpmsnm@msz6iqvjwufn>
- <AS8PR04MB8642D11477A37E75BAB71F3087042@AS8PR04MB8642.eurprd04.prod.outlook.com>
- <fa130432-bbfe-4d8f-913c-e86488efe203@kernel.org>
-In-Reply-To: <fa130432-bbfe-4d8f-913c-e86488efe203@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|DB8PR04MB7020:EE_
-x-ms-office365-filtering-correlation-id: 20d88d37-6a33-4e38-b566-08dd1e7fcaf3
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?NTJSR1p4NXFPU1NOUkpSNW9oYjRZcy9jcXFKMm5sQjExZHFuYjNOWWJXWVAz?=
- =?utf-8?B?cjd0MWttQXdEMTdMREJFVVltcnpsenp4dVhnTlpyVENBTWNDUXltRG5SMmZy?=
- =?utf-8?B?QWE2Tnd5TnhOQ0dYenl4MUJ5SUt1RGVRdWZBYlRnTVdoNTlwL2YyQXZPZk1O?=
- =?utf-8?B?WUNBZjBXOUtPclVleHdQalVrMGxHNkJGUjh4UTJzdGIxcVBnTUhjSEpQYXk1?=
- =?utf-8?B?QVZlMlVYbk5VMHZXd0dhYU1iS2w5c2xscS81ZVFOSWNIQXhEMVBCdk9ETDZr?=
- =?utf-8?B?UU0waG1PRm9IYUxGWTFrdVN4Qi83Tm0zL3FIeVQyVnJFa3hrRnY4UDFIb3Fs?=
- =?utf-8?B?RGZjcXNmV1ZVWVhVdGlRVmdwOGlNWHRWTXNWSnVCVU54YytNZUVZUjQ2bkQ0?=
- =?utf-8?B?R2VINENwMzJtOWhXWWZ2bHNWZTdjUmloOXBYakI3Z3BtTnBuZkpTN2c4NnNY?=
- =?utf-8?B?RU10L2o0eExJdEIyWmNYU29PZjRPZGo2UlNQTWt5bURSalpSVVNyYzRoQTUv?=
- =?utf-8?B?aCszL0VxOHRaS1dXNTUydUhYQ01SeUZPajJnc01TT3hyaU1HUkpYY09neWZL?=
- =?utf-8?B?eHNPWVJIb1ovR2NmTlh0cDlvcWk5K0M5RnRjdUN2KzBNZUZCL0NLME9mUzhB?=
- =?utf-8?B?SE5tdTJKY1V0bjcwNG91UHhpdzRvZUtCMXdlbGNJZk9HdGp5WXFtaW9UOHNS?=
- =?utf-8?B?UDFYOVJaRmxLaC83QjJLZnRSa0VDYkROT1JBbUcxajlUazVCelc0MU0rZXVP?=
- =?utf-8?B?MWlCMjc2UUw4bk1nZUdNZEx0S0dSd2kwR05OTzZYNzkvZVV5a1dXYmRKeWNI?=
- =?utf-8?B?bms2Ui9qb0hFeFFpWXEyQ3FLSSs3akFmdG9LSFhCQ243U2sxakEzOHJjSDZ0?=
- =?utf-8?B?ZUtSRk82OHNkbDRlcDFIYWpUaER2ZnljZllzWWhCMkVWVE1sRXBYcUI2VEJq?=
- =?utf-8?B?SmJMbTNJZVM0K2UvU05nM0F1eFBORzM5UmR2cjd0QnFZS05SbXVTcmJaSGV2?=
- =?utf-8?B?K2M0U2lKLy84NGlvMlhHcWRIa2JqaVl1Z0p0aG5GU1JUODFUOUdoTHYrREpE?=
- =?utf-8?B?WFUvOWtJNXB6eDZsUFpVZW1HL1pFcW1xSzdOa1RmTVIwUEh0ektlMWVpRUln?=
- =?utf-8?B?Y3lkRkhoWXBGR0xGemlaamFycHZkSFlvcHlHV1dNcVc0Y3p6NTVNR29QelZ4?=
- =?utf-8?B?cFdZcGVOVHNYYTEzR1VDNlBmTHJFRkRESjZlRU0wd2FPNlA4MXNGK2tBTlVs?=
- =?utf-8?B?QllHNm9OMWpqVHZaa1YxN3pwbUpPS1ZaUWpQNUpnSnQvWnJaSVpybTF1enIr?=
- =?utf-8?B?M3BtN1lKRElrQ1doK3RjUGkvOEViMCs2T2owbWk5NU1xck8rNmlxYm0yNXpS?=
- =?utf-8?B?Z2xZSmVCenVvYUt2R0xtZE9VWEZYRU9TWGI1V1hRN21zWkhKTWZod2dwOE9w?=
- =?utf-8?B?T21rU2VrWUsxR25pTkJhMndoNEJjajFlWnRqN2U0VEtkakRjV1RSdjh0aWxs?=
- =?utf-8?B?d2hDNFFxWnh0b1c4VUszVUpoTys0Tk9BMThmYlZzU3hXaHh0YXo2SkFBM09T?=
- =?utf-8?B?U0VNZHJpY1RGMS9JczRIa2N4UlNFTlRHUk9MdlFPQ0xVZWtRY1pDUTFRWDdr?=
- =?utf-8?B?a2VhNDhWRTExUzBjaHl6TXRUL1FEOWhsNVNWOUg5UnRlZ2dhQ3hDRUtDM25N?=
- =?utf-8?B?ZCsyekxlWXZGVW12b1RieFpIanZSVDUxc0JKa3BtYUwrdExlUjhKcEs5dGZ4?=
- =?utf-8?B?K01WU2FDekZtN3RqcUtGOVJVNVovdGgzdSt5dlBWL1EyWC9aRjMvUTNjbnc3?=
- =?utf-8?B?aVBPR3BuVXB4TjJDUjBRTVlNRkRiWEtPa2x5azJTYkJDTFNRZTZvTUdBZDh3?=
- =?utf-8?B?QXN4cjhLR1hRQWNWYkc4OWtHcUxFVm1NU1RXV0ZqcTdTbEJZSGwwK0Zub2Ja?=
- =?utf-8?Q?i3cBwJDCVAM=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZEFuYlZKTG1QQXB0U21rSTZVYnY2YVdSZzNBZWNQVDUyeEF6UVEzRFI0WW1Q?=
- =?utf-8?B?dE92cUlHSERJT2tlcmFkN2NZRVhkQm1uOUUyRmJYRS9pYUUvTGJXaW94VlJw?=
- =?utf-8?B?cTQ3VmN6VVNjNk8xRHM1amNGUXJMSkRIT1hreklQSllpeVF0WVd0WXFRRXh6?=
- =?utf-8?B?R1Yza0ZJaEZEUlA4UzJ1bldwSFUzOUpTZ3lmQk1wZ2pUemhOUkhRcy9VaVhx?=
- =?utf-8?B?K09XYzQ2d280RFBFVFJ6MGJoL1BSajd2ZWFNSy85NUdtWTZPMk9qOURaMDd2?=
- =?utf-8?B?M2REWmt5Y1FOcTg5ZXowbXI0QlQwRVZPN3FkbXRpYkxuUE5VMVo5UWNCMXhy?=
- =?utf-8?B?R0lUcE14L1FEWjdyNXdzcEdCb0hSdzdBMFFyT1RxRlFwem1LRklKSHJ1VmZM?=
- =?utf-8?B?MUVzUmE4YTQ3RXFrNFZYTFFydG1LSCtRK0d4VHcrMXpZd2pMQ3N5MU02VFhZ?=
- =?utf-8?B?ZUtLRmJjN2RzMGczUFZySjk1YXdJMXRMdUxGNlZBL2FMTXU3R1FOTWVlTTJG?=
- =?utf-8?B?SVJWOEttMCtWMHNhOCtES3RmbjRkNjE0S0RDMmtQelh6RlJFaGxhUngzU2ZT?=
- =?utf-8?B?dHd0bWE1T2x2eXFBK05FQ3E3NlUwWjBsczR1bWpoQi9tMWx5TVRMTXNGQTFh?=
- =?utf-8?B?OFN0QjlzRThKMmZncTBDazNyV3JoSGJkWWNiRXVsZnRNWlY5aTJ2NHZoTzFr?=
- =?utf-8?B?NWxFdG56L0RwNVc2NkJPZllLR0RyQk1ubHVEZEI0dklUcUJOOXBuWHVFOUFK?=
- =?utf-8?B?R1l5T0NTREZRakxNOE9LTjhaaGcyUlh6b2tkL1ZoTE5VLzRTNTV1eVZTcTZ2?=
- =?utf-8?B?VlhHcGxXUEJWTk1UVDF6UTdzMzkwenFHM1J1bHJyN0hqWXk0VmlNVUtzRkw4?=
- =?utf-8?B?dFh0ZDdPeWpuUHBYRUxWZlR2WXFCOEtseWI5SmNnUkNJZThBa3NUYXJLOTdB?=
- =?utf-8?B?MmczZUdnK1RYVHV4aEFNT0diY2YzdFR3S21QU1pNVDUxWkZzeGhydU12WW5y?=
- =?utf-8?B?cnQ5OG9JbUFxaUZDOGdmODZtcXVaOVIvd254djVPMTRjNFN2d2xrWW82Z2R0?=
- =?utf-8?B?UEZDSHFrT2QzNHAyenROL1F2QVdaZXI2ZS9tNFJBeWZNcjBkV0d6eE5NUENw?=
- =?utf-8?B?QW5IblQ4T0xLSzFPZDloWXZkd3gzOXI3bkxMQWdrM0lCQ240NXdFOStTT2lm?=
- =?utf-8?B?MTE5RFg5TmtCZ1MwN0JVY3V0L2hPaWd5S1p1Sk44VTdGdU55aXVQUnJBTW4y?=
- =?utf-8?B?RjlCcWRSQ2Qyb3dMRno4V3MreFlDK0FOTStZVXZUakhBdXJTV0JqalpTZHJ5?=
- =?utf-8?B?SVJRS3Z2ZzlPdnpXQ0tvbWRZVFo0MG0yUytOOVQySjQyNk1WTnZzQVp2cmhm?=
- =?utf-8?B?TlQzMFQ0am9VS2k1WVVtcFNBbkNUU05hdDVWOGkxREJaYlFOREl3bG1xVHlH?=
- =?utf-8?B?cnBMdEVYOG1Rd2FUTFNDUzA0SjFqYWtBUmx1eHo4MW5mT01IU2RCK2FYYXpx?=
- =?utf-8?B?QTNncktSMkc5R2dHb2s0Z3dOZmZSTEg5bG54Y1liN3ZqNExsYXJwemRJQWQz?=
- =?utf-8?B?S1hHTndlQ09ya0Q1SWM1OW4xNk9EVU9CSmhEU2QzSE5nS0RvOE9EQ2loUHBj?=
- =?utf-8?B?Z1BSUEc4dG14d0tJRjdtYUhlYmFOYUJJK1UvdnhadGJtNHJ1ck8zRHZkUGZO?=
- =?utf-8?B?MmtlUG80VGFuY1lQVTlXb1huaWQwRU9ib1ZmajNMSkhyV3BWR24vaHZTZCtW?=
- =?utf-8?B?bWltSHFWeWRUQkJTYzBCN3l2akJJUUYrMzJ4eWh4WkdKeDQvakpwenpqOWg5?=
- =?utf-8?B?TElsZUh4bFhEMG40WXdWWUQyV3lBMHd5Y2NkOEp6TUs2US82ak53VzMzZlJ5?=
- =?utf-8?B?c1hELzJveTQwa3A1L3VzYW5JQTdjV1Vncm5vQm9Dbzh0Y054aTlhcTZzQmwx?=
- =?utf-8?B?NWJyTFpQVUtPejh2WkRkcXNjbUs5YjE5K2hjMGlWanFLVzNWODllN0pXTkx4?=
- =?utf-8?B?anVVMnArcFRDT1VjOEtyVkxGOGJPcWI1QTJIY1UxaTNtU1B4bnV4SnRodXdI?=
- =?utf-8?B?SWV4WGVtNEhmcGd6OExnMERjWEVtOU9GOEFLTGEvREVpQ2tDd2hFd0hVd3h0?=
- =?utf-8?Q?15H8=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Tue, 17 Dec 2024 09:48:27 +0000
+Received: by mail-il1-f207.google.com with SMTP id e9e14a558f8ab-3a819a4e83dso56115665ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 01:48:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734428904; x=1735033704;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=k7Ohw9FdZun9tCxVR+V58AxTTwpDnpaw4I4rebrkACs=;
+        b=w7SvTWPyNyhpm+64uIW1ytBhOXE0huKYa5d8hRY66TT7aJHiUaNqFUKOGzXrIdelIZ
+         yQnNcrbjkdHTSXTwFfzO6JBvtC/TwUQOyGQ325hYQFcJRGNAESnsdFMtJqcU4nB169q/
+         06p+tfcWF9yiVldjz+eKR/ysggZqhEDj4gzTBF9dABH26jqHg//ryjv13y98rGkV1iW9
+         tbnQEzy+NuWsaxUvlzjxeSf17K35YyfACAOqWh9dPaMS0U0R2m58q+uKcdytzoMvEyUo
+         9evXmngrv9wyDo1BEy2VDCD4T7cL+is1Pgx9GQ0YUQqs542crSFxRbeGB/DChvEVtXbb
+         k2gA==
+X-Forwarded-Encrypted: i=1; AJvYcCUINEHl6wIXxNKA4ukE7mbEJp7wbowDyZHzvaGjN3RN7BgSit4RB7XdRCyVIVu6OJHM/jZEsnT/xJ5iiM+TSH2Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjKMkPXTRYFZ2y8Lgqf2Zt8VtrbUA/g7NcMz/OO+ehIyv7H58R
+	leKZ3ipFyPmpV9iMl7k+huiwliuGbJLD7rg9OXq6xWOe6PBl1922QIeQT5auE4sb6o3z4pI8vPR
+	j3B5TgV8BPKd6eL0qG+W48jzwvT6XSOiEKUQBMwki/Pmvb2MAEzyyASs=
+X-Google-Smtp-Source: AGHT+IHI9tYk8oBynelfPrOkch9cOquRNVuGZrHan+16Hk0hGAubvsg8DCIGxrVhoM/XYZRyY38tAlmP5tjN4bfiN2UpHZ89frcW
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20d88d37-6a33-4e38-b566-08dd1e7fcaf3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2024 09:47:17.0814
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: L6aKW6QIuCFv24nZ0bzhvwj1K3/6PNW2HLLnJoy0xm9lj9xAuB2+TLTLyIH8PkmSCqIXIEvy5jpHfGqVUZBywA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7020
+X-Received: by 2002:a05:6e02:1905:b0:3a0:c820:c5f0 with SMTP id
+ e9e14a558f8ab-3aff9256d09mr175850255ab.24.1734428904148; Tue, 17 Dec 2024
+ 01:48:24 -0800 (PST)
+Date: Tue, 17 Dec 2024 01:48:24 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <676148e8.050a0220.37aaf.0158.GAE@google.com>
+Subject: [syzbot] [kvmarm?] BUG: unable to handle kernel paging request in vgic_its_set_attr
+From: syzbot <syzbot+62e8b837d5ec5953c8e2@syzkaller.appspotmail.com>
+To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
+	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_014721_199976_800ADE98 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20241217_014826_508248_592F9E39 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,25 +78,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIXSBhcm02NDogZHRzOiBmcmVlc2NhbGU6IEFkZCBiYXNpYyBk
-dHNpIGZvciBpbXg5NDMNCj4gDQo+IE9uIDE3LzEyLzIwMjQgMDk6NTUsIEphY2t5IEJhaSB3cm90
-ZToNCj4gPj4NCj4gPj4+ICsJCQlkZXZpY2VfdHlwZSA9ICJjcHUiOw0KPiA+DQo+ID4gLi4uDQo+
-ID4NCj4gPj4+ICsJCQllZG1hMjogZG1hLWNvbnRyb2xsZXJANDIwMDAwMDAgew0KPiA+Pj4gKwkJ
-CQljb21wYXRpYmxlID0gImZzbCxpbXg5NS1lZG1hNSI7DQo+ID4+DQo+ID4+IGlteDk0MyBvciBp
-bXg5NT8NCj4gPj4NCj4gPg0KPiA+IENvbXBhdGlibGUgd2l0aCBpbXg5NSwgc28gSSBkaWQgbm90
-IGFkZCBuZXcgcmVkdW5kYW50IGR0IGJpbmRpbmcgZW50cnkuDQo+IFRoZSBlbnRyeSBpcyBub3Qg
-cmVkdW5kYW50LCBiZWNhdXNlIGFsbG93cyBoYW5kbGluZyBxdWlya3Mgb3IgbWlzc2luZyBmZWF0
-dXJlcw0KPiAoc2VlIHdyaXRpbmcgYmluZGluZ3MpLg0KPiANCg0KVGh4IGZvciB5b3VyIHRpbWUu
-IEZvciB0aGUgZWRtYSBub2RlLCBJIGNhbiB1bmRlcnN0YW5kIHdlIG1heSBuZWVkIHRvIGFkZA0K
-aW14OTQzIHNwZWNpZmljIGNvbXBhdGlibGUgc3RyaW5nLCB0aGVuIGZ1bGxiYWNrIGNvbXBhdGli
-bGUgaW14OTUgc3RyaW5nLg0KSSBkbyBoYXZlIG9uZSBjb25jZXJuIGFib3V0IG90aGVyIG5vZGUg
-bGlrZSBscHVhcnQsIGkyYyBldGMsIElzIGl0IHN0aWxsIG5lY2Vzc2FyeQ0KdG8gYWRkIG5ldyBj
-b21wYXRpYmxlIHN0cmluZyBmb3IgbmV3IHNvYz8gQ3VycmVudGx5IEkgcmV1c2UgdGhlIGNvbXBh
-dGlibGVzDQphcyBpbXg5NS4gSSBrbm93IHByZXZpb3VzbHkgd2Ugd2VyZSBhc2tlZCB0byBhZGQg
-bmV3IGNvbXBhdGlibGUgc3RyaW5nIGZvcg0KcGVyaXBoZXJhbCBub2RlcyB3aGVuIGEgbmV3IFNv
-QyBpcyBpbnRyb2R1Y2VkLCBkbyB3ZSBzdGlsbCBuZWVkIGZvbGxvdyB0aGF0DQpzdWdnZXN0aW9u
-IG9yIHNvbWUgdHJhZGVvZmY/DQoNCmxwdWFydDE6IHNlcmlhbEA0NDM4MDAwMCB7DQoJY29tcGF0
-aWJsZSA9ICJmc2wsaW14OTUtbHB1YXJ0IiwgImZzbCxpbXg4dWxwLWxwdWFydCIsDQoJCQkgICAi
-ZnNsLGlteDd1bHAtbHB1YXJ0IjsNCglyZWcgPSA8MHg0NDM4MDAwMCAweDEwMDA+Ow0KDQpCUg0K
-DQo+IEJlc3QgcmVnYXJkcywNCj4gS3J6eXN6dG9mDQo=
+Hello,
+
+syzbot found the following issue on:
+
+HEAD commit:    5db899a34f75 Merge remote-tracking branch 'kernel/kvmarm/n..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git fuzzme
+console output: https://syzkaller.appspot.com/x/log.txt?x=148b6a0f980000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=fde68ab6d6c8c8ab
+dashboard link: https://syzkaller.appspot.com/bug?extid=62e8b837d5ec5953c8e2
+compiler:       Debian clang version 15.0.6, GNU ld (GNU Binutils for Debian) 2.40
+userspace arch: arm64
+
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/384ffdcca292/non_bootable_disk-5db899a3.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/4938b757ff4a/vmlinux-5db899a3.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/936938b47987/Image-5db899a3.gz.xz
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+62e8b837d5ec5953c8e2@syzkaller.appspotmail.com
+
+Unable to handle kernel paging request at virtual address efff800000000001
+KASAN: null-ptr-deref in range [0x0000000000000010-0x000000000000001f]
+Mem abort info:
+  ESR = 0x0000000096000005
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x05: level 1 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+  CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+swapper pgtable: 4k pages, 52-bit VAs, pgdp=0000000044a53000
+[efff800000000001] pgd=1000000049992003, p4d=1000000049993003, pud=0000000000000000
+Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
+Modules linked in:
+CPU: 0 UID: 0 PID: 5975 Comm: syz.1.647 Not tainted 6.12.0-rc7-syzkaller-g5db899a34f75 #0
+Hardware name: linux,dummy-virt (DT)
+pstate: 60402009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : __hwasan_check_x0_67043362+0x4/0x30
+lr : vgic_its_save_ite arch/arm64/kvm/vgic/vgic-its.c:2101 [inline]
+lr : vgic_its_save_itt arch/arm64/kvm/vgic/vgic-its.c:2204 [inline]
+lr : vgic_its_save_device_tables arch/arm64/kvm/vgic/vgic-its.c:2353 [inline]
+lr : vgic_its_save_tables_v0+0x258/0x634 arch/arm64/kvm/vgic/vgic-its.c:2573
+sp : ffff80008bd17be0
+x29: ffff80008bd17c30 x28: 6cf0000019180180 x27: 5bf000001952a880
+x26: 0000000000000008 x25: 0000000000000000 x24: 0000000000000000
+x23: 07f000001952a8c0 x22: 07f000001952a8d0 x21: 00000000c0030000
+x20: 07f000001952a8d0 x19: efff800000000000 x18: 00000000000000e8
+x17: 0000000000000000 x16: 0000000000000001 x15: 0000000000000000
+x14: 000000000002061b x13: 0000000000000000 x12: 0000000001fbb6cb
+x11: 0000000000000000 x10: 0000000000002000 x9 : efff800000000000
+x8 : 0000000020000000 x7 : ffff8000800fc528 x6 : 0000000000000000
+x5 : 0000000000000000 x4 : 8df00000195be2f0 x3 : 0000000000000008
+x2 : ffff8000800fc5a4 x1 : 0000000000000000 x0 : 0000000000000010
+Call trace:
+ __hwasan_check_x0_67043362+0x4/0x30
+ vgic_its_set_attr+0x394/0x508 arch/arm64/kvm/vgic/vgic-its.c:2736
+ kvm_device_ioctl_attr+0x150/0x18c virt/kvm/kvm_main.c:4721
+ kvm_device_ioctl+0x154/0x1b0
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:907 [inline]
+ __se_sys_ioctl fs/ioctl.c:893 [inline]
+ __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
+ el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
+ do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
+ el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
+ el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
+ el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
+Code: a90efbfd d2800401 143a3edf 9344dc10 (38706930) 
+---[ end trace 0000000000000000 ]---
+----------------
+Code disassembly (best guess):
+   0:	a90efbfd 	stp	x29, x30, [sp, #232]
+   4:	d2800401 	mov	x1, #0x20                  	// #32
+   8:	143a3edf 	b	0xe8fb84
+   c:	9344dc10 	sbfx	x16, x0, #4, #52
+* 10:	38706930 	ldrb	w16, [x9, x16] <-- trapping instruction
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
