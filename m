@@ -4,114 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F42E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E69E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqI8MyajU42QBkSMXXrAILjKUQG+J4FGnXcfQOxeCXg=; b=Nbg1O2GiWRThNq7TTdY3Ru3R5X
-	RyTak+ue3CbbVcF7BqafqLcdLtD176l2eSGJQysLJ+Z4iVPijN9PN0GWbf3pC1wNSi/JeUeMY9Y8T
-	KPDa4pF0u08KixWdz0ndeMS4jHnyUTzCLs+n/Zv7XVif2aDVHMmzsg5zIRG0NbGx6pc072ZsOmQYo
-	lWHN+/MPEGkZ1ff7q7iFc1Ulgpt4Mfo09V4G8EoIg+SY8P0NlFtF5WY+kMozY6gBXjs5Lv++zFE39
-	NvFbjdg56vXEeQKUO7oTW3ylQSUhIcBLFhAxzIC14gU22Md0sYlWuJlpzFMWc+iiFp2wO5xsmOval
-	/CQxWemg==;
+	bh=jsZWLwNN3Dj8vY9Jgz0ZZvXQlClGHa97ZSTKANn10HM=; b=uwmIXtvULZ2CDyI6Q5CQjSqiAv
+	ElqVDezKHbQayw44w+6i3yYN6dAeto13PIDEHl0z2ouNMH4q3lvo/iA8YlH3LpIYjg605VZxGJoRt
+	dRO4BCB5d83ut4CjKUDxGDGjNvI2ZUA+vWvFBIVaiPHcMrSCpRU7Kgrbg2vI9oZAE5pVdxXd64bUC
+	bDm/oz0Ni707ebz9td83NiPpR94TyQwVBfH0g1tI/Y1VJZSThhFS0rpQBnqxH2oJOQ6bnKe8Z+Hsm
+	I7zIX37NmGR4rzXGMZQmZrRDOuTszyJvXdsM3z0ZBO9/mN56HSaARhKRT+FyEppi5U1LXY+L3ku8u
+	m3xCLRBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUIB-0000000D0e9-25yx;
-	Tue, 17 Dec 2024 09:55:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNUJF-0000000D0yW-0rs1;
+	Tue, 17 Dec 2024 09:56:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTqp-0000000CuuT-4C5o
+	id 1tNTuT-0000000Cve2-1MX6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 09:26:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C4805C0428;
-	Tue, 17 Dec 2024 09:26:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42C5BC4CED3;
-	Tue, 17 Dec 2024 09:26:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734427607;
-	bh=hH+aXQtRv0LkIufCC2+NDXYdogSlCDjYzhV7jhPovxo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EebKne8LQEylRxUK5CD0+WlXZ8S9OBHOWvJxCv+DHguqsHTP0cLHPSLM3278+gikD
-	 HGYAvLyJcnfK//ljZlyF4e8Lio3k0uwDxOSDqJWFnatskJPuc4DPrXBdF2kt4x7w81
-	 aox4nSuc7Q3bD1GyJxOAo/f+fVB6ZU/wo+rOtwOQp7JZ1G5POuUcMAuSaPOCU9Nanc
-	 3eYY98aviZgT4iME5ZRHHgeyiLbHjlpCTBOWV5+39v2HCFLvtTxPwe7qID25RGCsAJ
-	 wAQMgtDyCtmLnw4GGDU/tesrQxfwmcX+CGcZTBxf5YMrxkr2A2voczQNZ7WuPifykL
-	 xI2zDpuWlOfPQ==
-Message-ID: <69fd1dbc-a29f-488c-a30f-7e5ea8f01a23@kernel.org>
-Date: Tue, 17 Dec 2024 10:26:41 +0100
+	Tue, 17 Dec 2024 09:30:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734427831;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jsZWLwNN3Dj8vY9Jgz0ZZvXQlClGHa97ZSTKANn10HM=;
+	b=SWHJ/Ox+4B3pNll7+Yj8KTQoQ4uDiUCINokXmXCTvUhzjDip2Oio9gnTHH5Lim1DafcbwY
+	8NxE3j6PVxZtybV+eI942RldL2k+lo72IjMszwPfcw7dLTdWzlL6i8B3uTi52XML3luo4o
+	In9iatf156Izl07n9uKRbc84xBdcyUI=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-670-Zyl48yf6O2S7GqmvDJKh4w-1; Tue, 17 Dec 2024 04:30:30 -0500
+X-MC-Unique: Zyl48yf6O2S7GqmvDJKh4w-1
+X-Mimecast-MFC-AGG-ID: Zyl48yf6O2S7GqmvDJKh4w
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-385e9c698e7so2599290f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 01:30:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734427828; x=1735032628;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jsZWLwNN3Dj8vY9Jgz0ZZvXQlClGHa97ZSTKANn10HM=;
+        b=fgRrO3gpKM2+BeVcZI/XETRKFVHX3dpyorR/IDnWxMvfjp2O8yMNXyharfimUcBOKn
+         3h6m727opWvV/ZXq+bKrkqV8FxUxk5oU7zMAhxcf1G1tAv8DY3Q4uzrPIl8bsLcVu6Do
+         /yr1pHLiAcow1WWUWiggJcx8FMqU8NDWhtW8DR4yKzBl/b60FCC5BWcGMIoHFuFssM0D
+         tJXDMf1FBv+XbT05MdzCsGVJBskZulHu3h+Ou2qK96lPk6fLCWq1Hhcn/269cbuP23PQ
+         MPBGGtOjHYA+ju2q0o6qs6vE6VNiPvBxo/hsdFvwTs6H/9Bw3MGFyFnys4fJglkCYws7
+         LjRw==
+X-Forwarded-Encrypted: i=1; AJvYcCU01JL35Kl7lpIccFlhoDQBdEWxhMvSvaDuD3h54MBPTtoGWym9ycxjhT8uM6OoK+WH4ZzzjMu6prkPWjsFmPI3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwtNFTtzt60x9H29BVnYS9eIqPwZSfPxgmQ0bf8Wh70cRZx/o4
+	PulEz4UmkL0u8wvm0VjzwStupUJ766UaXQkzERj3drgO4ofvkJckxgXVSHa5JkSBfwOczleDiHJ
+	ltKeoathFNDcdZ3nWFssim1AL8IfrY/tzN3FP4Wc3Bqy3sBionppQTr+hFIp+P/BXC+9g+bEoS2
+	NsIDUoqWI=
+X-Gm-Gg: ASbGncurNizRLymmImXy9hoxR+8B3fjdtZvaz17k5TfYO7YQd/gVxNpZnEJ3WhG6ZqX
+	SZQfafJzx/zJG3yLNq63jdNQpxCbZ0JhTjxhLk8TiKwokMqFnVbShhlkSzCW1IgXy/yjtAvmgBm
+	Ge77kGDwKI/Q14VmQ5qh3/JQ1YQaT+iTgqD1IsTjELsViOBQ5jjbmKCsIKiSvybonRyRrM8le1S
+	k8KmtHdfkZ1+eCBHBQBd6/MSDmZpxV7R7FvG+gQMWsUWyEJyyTUmbuHgacepvfgV6lQIbJpUzH5
+	l00KyohLPw==
+X-Received: by 2002:a5d:6d8e:0:b0:386:3afc:14a7 with SMTP id ffacd0b85a97d-388db23b794mr2025557f8f.7.1734427828127;
+        Tue, 17 Dec 2024 01:30:28 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHGfqm8yOmdd4TkH9Nm5un+/9BqyR43RiXrtTTnaPexsrsZBcqLS0wyDa2ydDNBgCgdLmOg5Q==
+X-Received: by 2002:a5d:6d8e:0:b0:386:3afc:14a7 with SMTP id ffacd0b85a97d-388db23b794mr2025421f8f.7.1734427826252;
+        Tue, 17 Dec 2024 01:30:26 -0800 (PST)
+Received: from [192.168.88.24] (146-241-69-227.dyn.eolo.it. [146.241.69.227])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c805d489sm10688171f8f.88.2024.12.17.01.30.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Dec 2024 01:30:25 -0800 (PST)
+Message-ID: <9d0722fe-1547-4b44-8a4a-69a8756bdb39@redhat.com>
+Date: Tue, 17 Dec 2024 10:30:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: i2c: exynos5: Add
- samsung,exynos8895-hsi2c compatible
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241214220419.723100-1-ivo.ivanov.ivanov1@gmail.com>
- <20241214220419.723100-2-ivo.ivanov.ivanov1@gmail.com>
- <0ebc12ed-fe91-4c8a-a626-b735b0eeecf1@kernel.org>
- <007559c5-f566-4625-99b7-e761a916fba3@gmail.com>
- <cccca881-dd59-43c0-9072-dcd91d01671d@kernel.org>
- <6e93d59d-71e5-4c09-862f-55b5504121aa@gmail.com>
+Subject: Re: [PATCH net-next v1] net: stmmac: TSO: Simplify the code flow of
+ DMA descriptor allocations
+To: Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+References: <20241213030006.337695-1-0x1207@gmail.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20241213030006.337695-1-0x1207@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: DQsV4y6Itilm_Hsj2MZXY6Eh1XhzTnNd8ZwVknWeuaI_1734427829
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <6e93d59d-71e5-4c09-862f-55b5504121aa@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_012648_130513_7580B99C 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20241217_013033_434045_86118B0C 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,53 +116,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2024 10:08, Ivaylo Ivanov wrote:
->>>>>        - items:
->>>>>            - enum:
->>>>> @@ -94,9 +95,28 @@ allOf:
->>>>>          - clock-names
->>>>>  
->>>>>      else:
->>>>> -      properties:
->>>>> -        clocks:
->>>>> -          maxItems: 1
->>>>> +      if:
->>>>> +        properties:
->>>>> +          compatible:
->>>>> +            contains:
->>>>> +              enum:
->>>>> +                - samsung,exynos8895-hsi2c
->>>>> +
->>>>> +      then:
->>>>> +        properties:
->>>>> +          clocks:
->>>> Missing minItems
->>>>
->>>>> +            maxItems: 2
->>>>> +
->>>>> +          clock-names:
->>>> Ditto
->>>>
->>>>> +            maxItems: 2
->>>>> +
->>>>> +        required:
->>>>> +          - clock-names
->>>> I don't understand why do you need second, same branch in if, basically
->>> Because, as I stated in the commit message, we have HSI2C controllers
->>> both implemented in USIv1 blocks and outside. These that are a part of
->> On Exynos8895? Where? With the same compatible?
+On 12/13/24 04:00, Furong Xu wrote:
+> The DMA AXI address width of DWMAC cores can be configured to
+> 32-bit/40-bit/48-bit, then the format of DMA transmit descriptors
+> get a little different between 32-bit and 40-bit/48-bit.
+> Current driver code checks priv->dma_cap.addr64 to use certain format
+> with certain configuration.
 > 
-> hsi2c_0 which has a clock from BUSC and hsi2c_1 to hsi2c_4 which use clocks
-> from PERIC1 (CLK_GOUT_PERIC1_HSI2C_CAM{0,1,2,3}_IPCLK). Why would
-> they need a different compatible though? It's functionally the same i2c design
-> as the one implemented in USIv1 blocks.
-If one block is part of USI and other not, they might not be the same
-I2C blocks, even if interface is similar. If they were the same or even
-functionally the same, they would have the same clock inputs. However
-user manual also suggests that there is only one clock, not two (for
-both cases), so they could be functionally equivalent but then number of
-clocks looks incorrect.
+> This patch converts the format of DMA transmit descriptors on platforms
+> that the DMA AXI address width is configured to 32-bit (as described by
+> function comments of stmmac_tso_xmit() in current code) to a more generic
+> format (see the updated function comments after this patch) which is
+> actually already used on 40-bit/48-bit platforms to provide better
+> compatibility and make code flow cleaner.
+> 
+> Tested and verified on:
+> DWMAC CORE 5.10a with 32-bit DMA AXI address width
+> DWXGMAC CORE 3.20a with 40-bit DMA AXI address width
+> 
+> Signed-off-by: Furong Xu <0x1207@gmail.com>
 
-Best regards,
-Krzysztof
+Makes sense to me.
+
+Since this could potentially impact multiple versions, it would be great
+if we could have a little more 3rd parties testing.
+
+Thanks,
+
+Paolo
+
 
