@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB2CE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B133E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKsYOqlLWlZZ8BNWUWGXYqge99kuK2EmHZh2v+IIWGc=; b=HlXTuZcrkuzFx212nUfvDJV6WB
-	0lgIoENgiQP80yYYGdjhKeiIHPIaopDBpPDBWB/LHTjINjNQcUtVAqQq9psXTxlkGHwpcfho/x0Ka
-	AXnGXvpnmevnOkpBOKzCE1rjuh+KHGNjjwjjAoAAYgQjtXIOHFvJztSBbhTqgZ4PBtP1EfxaQZqQ0
-	1o+TCijWo9SpDh6uJvBUZG+G553txL0bEPiBO/IRRB2gMTaKlAAEuC5ix7TbGXgkvEYMPdeBl3ThJ
-	3x9mwAnTmDgzEpwtalpePu5qBBQIkJEVS7w8zrWcARFIk5S8mBGdiqmG96bmwzR01daovN92bN5oW
-	0/AfQoBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TbexA0f0iwx+zE30YlpUUh/oUtCvCT2FrsS52uMSYwA=; b=dVga3PS3fI3+8I5Gl44imEhQ04
+	39yWA4KrN50fGXE9nw76NK2OTj19z/kApv8lchgnURibEcu0XK8Qlmy1455EpU6x8Ar57tLqNCYDc
+	2n2s6XOZ5hd7Jq+FoRPng4//Rk+CC1MTH3krjLCMlcIYrJmBRxvAXc9ow79czOv4aM2jnNnPrh1Gt
+	YaTsMpvUytBtp0uLPutDM5b8cOiR/wpakI/y6hfxnK+PIshacCTJlNK8TyhshZUFguts2LraMngtR
+	Xa2RWfuaj+a2C5z7Gaq3yWZb5aNz24epLLsScGAfBWyyH/XnC17ltWKdjBLGS6RmXJrmmxsIBq+iB
+	Y/w51Zbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNU3P-0000000CxPK-0IV1;
-	Tue, 17 Dec 2024 09:39:47 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1tNU3Y-0000000CxSQ-3mZ0;
+	Tue, 17 Dec 2024 09:39:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTdY-0000000Cr6t-2mdl;
-	Tue, 17 Dec 2024 09:13:05 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout3.routing.net (Postfix) with ESMTP id 520D5605F0;
-	Tue, 17 Dec 2024 09:13:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1734426783;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XKsYOqlLWlZZ8BNWUWGXYqge99kuK2EmHZh2v+IIWGc=;
-	b=TmiZ+k49hlgiTVw42Z+W3n5hORU4ILtAL6emBM4z9K01icAi4cnqrON1dlnB6d3lCH6QvI
-	265VRREOkWJtmXpnCaQhYvYhN7jvQtTNWyigL9v1Zp9qW6NfiYj4h48YQEQVzgNB5+u3Mm
-	MAKe7Yzp+iNXnw+aXqsoj2JNw7LlKHo=
-Received: from frank-u24.. (fttx-pool-217.61.150.187.bambit.de [217.61.150.187])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id A56B51004DD;
-	Tue, 17 Dec 2024 09:13:02 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1tNSyY-0000000CiJP-3LBg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 08:30:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DF9085C63D5;
+	Tue, 17 Dec 2024 08:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4114C4CED3;
+	Tue, 17 Dec 2024 08:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734424241;
+	bh=sJTelRh5BsOfm4lONdvvjAu3mDOe48NrRuTOIBtnAMI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=l71SWLKkp5Nr6M3mGg7Pnz7kNu8F11xrwYQn0V5no43bAVGRUefq9YI++b48YR2iF
+	 XLzjqUZM8Kxrli6aeQOs/nhmsuSFeNGB58flYwT/Osicp7ooEbd8k/maROtfilItWx
+	 95hl/39ExSBwDRDk4bJtjMT+Nbyye7DCJ6/WPw2lkagcGYv4pi58fdXz5JhxWL9ESo
+	 53w70EyCfe9PH5Z07DepXeIuhq7+cIVJYuMQ5oEEGF242D6/uau1OwGXGUfVnf37WB
+	 drfRHAwCnDGcxlCO89pXxOsWD7CExbpQTB5CIAN+tPV64VgIdYVKDufjF/4KaiRUPP
+	 dE4KMrklV1DIQ==
+Received: from [82.132.185.145] (helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tNSyV-004TdD-Hg;
+	Tue, 17 Dec 2024 08:30:39 +0000
+Date: Tue, 17 Dec 2024 08:30:37 +0000
+Message-ID: <875xnisocy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3 16/22] arm64: dts: mediatek: mt7988a-bpi-r4: Add default UART stdout
-Date: Tue, 17 Dec 2024 10:12:30 +0100
-Message-ID: <20241217091238.16032-17-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241217091238.16032-1-linux@fw-web.de>
-References: <20241217091238.16032-1-linux@fw-web.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Mail-ID: 78664bc1-ee2f-4faf-b659-93544f0edf05
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Fix set_id_regs selftest for ASIDBITS becoming unwritable
+In-Reply-To: <20241216-kvm-arm64-fix-set-id-asidbits-v1-1-8b105b888fc3@kernel.org>
+References: <20241216-kvm-arm64-fix-set-id-asidbits-v1-1-8b105b888fc3@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.185.145
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, catalin.marinas@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_011304_857557_4C137377 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241217_003042_939004_57E03D01 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +93,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+On Mon, 16 Dec 2024 19:28:24 +0000,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> In commit 03c7527e97f7 ("KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits
+> to be overridden") we made that bitfield in the ID registers unwritable
+> however the change neglected to make the corresponding update to set_id_regs
+> resulting in it failing:
+> 
+> # ok 56 ID_AA64MMFR0_EL1_BIGEND
+> # ==== Test Assertion Failure ====
+> #   aarch64/set_id_regs.c:434: masks[idx] & ftr_bits[j].mask == ftr_bits[j].mask
+> #   pid=5566 tid=5566 errno=22 - Invalid argument
+> #      1	0x00000000004034a7: test_vm_ftr_id_regs at set_id_regs.c:434
+> #      2	0x0000000000401b53: main at set_id_regs.c:684
+> #      3	0x0000ffff8e6b7543: ?? ??:0
+> #      4	0x0000ffff8e6b7617: ?? ??:0
+> #      5	0x0000000000401e6f: _start at ??:?
+> #   0 != 0xf0 (masks[idx] & ftr_bits[j].mask != ftr_bits[j].mask)
+> not ok 8 selftests: kvm: set_id_regs # exit=254
+> 
+> Remove ID_AA64MMFR1_EL1.ASIDBITS from the set of bitfields we test for
+> writeability.
+> 
+> Fixes: 03c7527e97f7 ("KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be overridden")
 
-Add chosen node on Bananapi R4 board with stdout and default bootargs.
+A patch for a test doesn't fix anything in the kernel.
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
-changes:
-v3:
-- changed stdout-path to contain serial settings and dropped
-  bootargs property
-- changed commit title
----
- arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  tools/testing/selftests/kvm/aarch64/set_id_regs.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/aarch64/set_id_regs.c b/tools/testing/selftests/kvm/aarch64/set_id_regs.c
+> index a79b7f18452d2ec336ae623b8aa5c9cf329b6b4e..3a97c160b5fec990aaf8dfaf100a907b913f057c 100644
+> --- a/tools/testing/selftests/kvm/aarch64/set_id_regs.c
+> +++ b/tools/testing/selftests/kvm/aarch64/set_id_regs.c
+> @@ -152,7 +152,6 @@ static const struct reg_ftr_bits ftr_id_aa64mmfr0_el1[] = {
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, BIGENDEL0, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, SNSMEM, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, BIGEND, 0),
+> -	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, ASIDBITS, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, PARANGE, 0),
+>  	REG_FTR_END,
+>  };
+> 
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-index 9037f35857a9..46117df7d44c 100644
---- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-@@ -9,6 +9,10 @@ / {
- 	model = "Banana Pi BPI-R4";
- 	chassis-type = "embedded";
- 
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
- 	reg_1p8v: regulator-1p8v {
- 		compatible = "regulator-fixed";
- 		regulator-name = "fixed-1.8V";
+With the Fixes: line dropped,
+
+Acked-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
