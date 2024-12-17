@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C9BE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7BAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HFkd0Dy7yBk8BYaKo2lHk/ULWZi27cg1y9bm08E6sHY=; b=bkGKC49CFmQikoF6Sirth6rvQh
-	Oc/zujwFdzIPPdqL7FI/Np14iQ4h3OCbYmDP5kEeIlLOiRiZlsPUJIyMlSbc5ekIuyWabBPbxuLpr
-	2kOKKNDz5YNjhw7AXt6n+9XWKt2Ba4AMDZI24e3fDIx0qim4DUX0loYvCTIe9LqlthcmoDGZDCF4u
-	xB+PpSSUeSnvQ9ejhGbWH/T8AT3iOsGErn2mZDdYzenJJGBQu8mslLh5nASc4BHZF0Gmo6V3hdz6/
-	qkEW7iYgemtzoEPFA1UrbXdOLqU5kRQKEQjF9+/PWY8nmM/jYagX2qiyLl2AsyaZD0jwVXWLPc4su
-	ZvBHmhxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=heBY326wXWjK91lSQdYkByNH1gV44iWJasMWTaSTgrk=; b=GeVba8gn4Eakr6cdyon7s+sFVf
+	MmTDcqn4Js8euiBNUt0MtiGR6gGq/evdrv2/zdOQAc+XcZvm7/fvTpIGcuORTICiceyJNl1KPvhlj
+	deYduiyUvBaHl/Jo2POZe8gUb52IAcUxms+jg0oTVK/arGCeMyvO/Qztid5C5pprRtXbkR3+nNIe9
+	10LzeqrS/UgwAj+J7IR1a+Qa0yJU3IOH8vxygMycNfR+1uILry39B+FzTVGE+BWFAEcTWYqmQcLSi
+	8XbVoH/TCaHnzz0daif6Mid9phmjeLQmiMJNeg5L4iC4Tkgm5UGPKIR8TK6/uc1fAm0Kfys3pj7az
+	WB5SxgCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYV0-0000000Djne-1wlj;
-	Tue, 17 Dec 2024 14:24:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNYVP-0000000Djw1-00TW;
+	Tue, 17 Dec 2024 14:24:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYTv-0000000DjWu-0k6v
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:23:28 +0000
+	id 1tNXRG-0000000DXKt-1zS4;
+	Tue, 17 Dec 2024 13:16:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 88AF65C5767;
-	Tue, 17 Dec 2024 14:22:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5870FC4CED3;
-	Tue, 17 Dec 2024 14:23:26 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 63E69A412F3;
+	Tue, 17 Dec 2024 13:14:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6638C4CED3;
+	Tue, 17 Dec 2024 13:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734445406;
-	bh=cqzDHLstDJY65pRGflLzfJn6LPL7Nl6rrznsIuKxP9c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=N6ti4CYATMYnZQXwVUJTFMXoD+FcXxODn4XcrSg14ZPqo1MqZM+fQht9zD3sM9t0T
-	 EgJ1+txAmd4Nui2fI7cqneIcdHbqA+BReGaQ09BlcEf1EqhxmO306ccpHFfyA4n/6o
-	 2wN03JhVbIDW7/rDKVngn1VnSBsh/cvY+ZatIesFbcj+KEUXBEv1t9dxThKiMEip4V
-	 VPztgXxX+hQget0zuW+9Ho7xWcbo2VfCwUJexjbq+tqNphbDYHUlm3wzMsVoJhvzd6
-	 Q5JYBU2TZP2EG8vTMeqX10AKwzAo0Cm4Hjh2HK2bCmAAuHvGyCaSZHHQnZfhvGlHxj
-	 RqmLN1EkikBNw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tNYTs-004aJx-92;
-	Tue, 17 Dec 2024 14:23:24 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Chase Conklin <chase.conklin@arm.com>,
-	Eric Auger <eauger@redhat.com>
-Subject: [PATCH v2 00/12] KVM: arm64: Add NV timer support
-Date: Tue, 17 Dec 2024 14:23:08 +0000
-Message-Id: <20241217142321.763801-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	s=k20201202; t=1734441396;
+	bh=2ZJ0ETzEGovT3C+Lhgx2MC2gLEcVqJCSkAbyfxj/Rj0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t11yFRtDXZXYf7U/turp3S/eLXdXyGIa3s7eAy2myGUTN7Gzb+yZYbXAhGF12FSrf
+	 4zwItyNXBM6iVo1U73e8rgNsrnM0uJL9Plf3F1tJQ7ADUjAbp+TV0CTe1P1BnNen5g
+	 Pceba5qP/FIbztkrQ5ar85yQI9eKTNiS+zjipfpUK6iBwtEmex91RIMbFfg1HJB69X
+	 ejQgLxNUuzKIJlQYpgv5iTm7azYq1z2UpI2OHWPe3aXgp40LluKoUzZH1AkFS2ttNw
+	 W7CJ09HlujP08DuullW2BgsV72tW4rVuu+DzJ87KXvfDwkDS3RTRISYKZkM5UEF2x1
+	 ssrvm9mZ517sw==
+Date: Tue, 17 Dec 2024 13:16:29 +0000
+From: Lee Jones <lee@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: jikos@kernel.org, jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, jdelvare@suse.com, linux@roeck-us.net,
+	srinivas.pandruvada@linux.intel.com, bentiss@kernel.org,
+	dmitry.torokhov@gmail.com, pavel@ucw.cz, ukleinek@debian.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-input@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-leds@vger.kernel.org
+Subject: [GIT PULL] Immutable branch between MFD, HID, HWMON, Input and LEDs
+ due for the v6.14 merge window
+Message-ID: <20241217131629.GJ2418536@google.com>
+References: <20241107114712.538976-1-heiko@sntech.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com, gankulkarni@os.amperecomputing.com, chase.conklin@arm.com, eauger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+In-Reply-To: <20241107114712.538976-1-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_062327_302425_E05ECB52 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20241217_051638_637967_E37E9DE8 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Here's another version of the series initially posted at [1], which
-implements support for timers in NV context.
+Enjoy!
 
-From v1:
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-- Repainted EL0->EL1 when rambling about the timers
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-- Simplified access to EL1 counters from HYP context
+are available in the Git repository at:
 
-- Update the status register when handled as an early trap
+  ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git tags/ib-mfd-hid-hwmon-input-leds-v6.14
 
-- Added some documentation about the default PPI numbers
+for you to fetch changes up to 9855caf5d4eb1d8b8bba60be256186ea8e0f907c:
 
-The whole thing has been tested with 6.13-rc3 as part of the my NV
-integration branch [2], and is functional enough to run an L3 guest
-with kvmtool as the VMM and EDK2 as the firmware. YMMV.
+  hwmon: add driver for the hwmon parts of qnap-mcu devices (2024-12-17 13:14:48 +0000)
 
-[1] https://lore.kernel.org/r/20241202172134.384923-1-maz@kernel.org
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/nv-next
+----------------------------------------------------------------
+Immutable branch between MFD, HID, HWMON, Input and LEDs due for the v6.14 merge window
 
-Marc Zyngier (12):
-  KVM: arm64: nv: Add handling of EL2-specific timer registers
-  KVM: arm64: nv: Sync nested timer state with FEAT_NV2
-  KVM: arm64: nv: Publish emulated timer interrupt state in the
-    in-memory state
-  KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
-  KVM: arm64: nv: Accelerate EL0 timer read accesses when FEAT_ECV in
-    use
-  KVM: arm64: nv: Accelerate EL0 counter accesses from hypervisor
-    context
-  KVM: arm64: Handle counter access early in non-HYP context
-  KVM: arm64: nv: Add trap routing for
-    CNTHCTL_EL2.EL1{NVPCT,NVVCT,TVT,TVCT}
-  KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
-  KVM: arm64: nv: Sanitise CNTHCTL_EL2
-  KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity
-  KVM: arm64: nv: Document EL2 timer API
+----------------------------------------------------------------
+Heiko Stuebner (7):
+      HID: hid-sensor-hub: don't use stale platform-data on remove
+      mfd: core: Make platform_data pointer const in struct mfd_cell
+      dt-bindings: mfd: Add binding for qnap,ts433-mcu devices
+      mfd: Add base driver for qnap-mcu devices
+      leds: Add driver for LEDs from qnap-mcu devices
+      Input: add driver for the input part of qnap-mcu devices
+      hwmon: add driver for the hwmon parts of qnap-mcu devices
 
- Documentation/virt/kvm/devices/vcpu.rst |  15 +-
- arch/arm64/include/asm/cputype.h        |   2 +
- arch/arm64/include/asm/kvm_host.h       |   2 +-
- arch/arm64/include/asm/sysreg.h         |   4 +
- arch/arm64/kernel/cpu_errata.c          |   8 ++
- arch/arm64/kernel/image-vars.h          |   3 +
- arch/arm64/kvm/arch_timer.c             | 179 +++++++++++++++++++++---
- arch/arm64/kvm/arm.c                    |   3 +
- arch/arm64/kvm/emulate-nested.c         |  58 +++++++-
- arch/arm64/kvm/hyp/include/hyp/switch.h |  39 ++++--
- arch/arm64/kvm/hyp/nvhe/timer-sr.c      |  16 ++-
- arch/arm64/kvm/hyp/vhe/switch.c         | 107 ++++++++++++++
- arch/arm64/kvm/nested.c                 |  15 ++
- arch/arm64/kvm/sys_regs.c               | 146 ++++++++++++++++++-
- arch/arm64/tools/cpucaps                |   1 +
- include/clocksource/arm_arch_timer.h    |   6 +
- include/kvm/arm_arch_timer.h            |  23 +++
- 17 files changed, 580 insertions(+), 47 deletions(-)
+ .../devicetree/bindings/mfd/qnap,ts433-mcu.yaml    |  42 +++
+ Documentation/hwmon/index.rst                      |   1 +
+ Documentation/hwmon/qnap-mcu-hwmon.rst             |  27 ++
+ MAINTAINERS                                        |   9 +
+ drivers/hid/hid-sensor-hub.c                       |  21 +-
+ drivers/hwmon/Kconfig                              |  12 +
+ drivers/hwmon/Makefile                             |   1 +
+ drivers/hwmon/qnap-mcu-hwmon.c                     | 364 +++++++++++++++++++++
+ drivers/input/misc/Kconfig                         |  12 +
+ drivers/input/misc/Makefile                        |   1 +
+ drivers/input/misc/qnap-mcu-input.c                | 153 +++++++++
+ drivers/leds/Kconfig                               |  11 +
+ drivers/leds/Makefile                              |   1 +
+ drivers/leds/leds-qnap-mcu.c                       | 227 +++++++++++++
+ drivers/mfd/Kconfig                                |  13 +
+ drivers/mfd/Makefile                               |   2 +
+ drivers/mfd/qnap-mcu.c                             | 338 +++++++++++++++++++
+ include/linux/mfd/core.h                           |   2 +-
+ include/linux/mfd/qnap-mcu.h                       |  26 ++
+ 19 files changed, 1255 insertions(+), 8 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mfd/qnap,ts433-mcu.yaml
+ create mode 100644 Documentation/hwmon/qnap-mcu-hwmon.rst
+ create mode 100644 drivers/hwmon/qnap-mcu-hwmon.c
+ create mode 100644 drivers/input/misc/qnap-mcu-input.c
+ create mode 100644 drivers/leds/leds-qnap-mcu.c
+ create mode 100644 drivers/mfd/qnap-mcu.c
+ create mode 100644 include/linux/mfd/qnap-mcu.h
 
 -- 
-2.39.2
-
+Lee Jones [李琼斯]
 
