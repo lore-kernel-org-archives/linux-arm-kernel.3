@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99820E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB185E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJ3/rj8MSIuFYxAR18wpWJvFAuiJssmI8OXnoxCnfwo=; b=RNzjAQMxr4wJY8eVVH5o2UbPV6
-	C/pWnsCN5ylBK1KcLswjCtZwu/1wfco/+he8qVhW0rUoeDMt4QKNHlobiEdT5J7zOw2Ash+mQ/CSS
-	ErsxOumlc3UaeJyJwf60ihFgkKFTdeACNcGNoaf1ZLF9bcSmX7o2mpiP8b7kqQS3fcL5YocTRE6LN
-	e/ctpsUajrholmv8cLaJNbUWXyMoONWyLiqm6D5fCkZi1fZotbCg04SLmbDiHHQqRrvAPJTYZ0GOT
-	8c2JcEFt7WtS2sDhl0s7HqLJWMQdYENN8DFFbTTFxXvvp1/GSLu3prHGSlU1bYv3lDr4p7aLCzc8Q
-	cfjQWDeg==;
+	bh=XpLx2OwYMIkRjIAXzp8thVzRfANzIQQRNJW0pHTLUhs=; b=jH9YCHsKvrsycf5cmMb2Jw2zi6
+	VYAIDKMfWv5vGqN7n5tQ6plU3xJaGTSJ+2tuiLW9VP0fa7nqUciYGL7VR5nEi1ZF8OKEEcVbbPRC+
+	2xuEWrFIn/tylrz94OXjcI4CR6pOiV62yzSFe0MTy1B5uNx+amydOZMqn7nx6JyobOd1UisCaQMz0
+	Z+W9npBjhBwstBIZ9WCAJIPm6dH6N+UrvkM7rH2nVC5MO83dvUYE0GqZZ71J7JncZRLKUOWAkWqqf
+	cWF1ao0sAwWJi5EpfVooSU408GCQLYGZNRN6UBgK1fgIMwhFpDdVfJyd/VfXJyArqCKDqkvZC5T0c
+	zXHM/8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNazc-0000000EH1N-1R49;
-	Tue, 17 Dec 2024 17:04:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNb56-0000000EHlO-1R8W;
+	Tue, 17 Dec 2024 17:10:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNayU-0000000EGlw-0zm7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 17:03:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A04255C6539
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 17:02:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A2F9C4CED7
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 17:03:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734454989;
-	bh=y4rvd2i45ul2OIU5/nJesQGlmoS4ZWQ/I/mmlz+Q+ow=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=i3A/LYSqFumD5PYmmp1gUpj+0qB+2xkRxXi2l7E/ripxz9fZlHVcmj9lsU0HxzRn+
-	 QIMV4RbqDd6Tu3z16J+OVDrfXm3Uxmh17biZLf/xWBqmE6dMMTgkuO8uIY14maKNEh
-	 SezSLO9l7KNVKfJZ+bxBU+u34gVl1pwJb0vdDevX/hCV4MzgzXRLYIzT7a9LERiyvo
-	 YBImUV+TW740F6GnGi1LQQqLkDEGSN2BdjOR89EhfsxhX/aOlCpYjmsFN54iRL52Rp
-	 RwuVUqtXEhMrph6yYSdO7cUrB3H1BNp9VcVu9068jW3oEMa5F2eBR0DLQQtuzZPeG9
-	 FWAiFeBIcdnZg==
-Received: by mail-yb1-f178.google.com with SMTP id 3f1490d57ef6-e3dace03a73so3517164276.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 09:03:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWku9rlYYnk1LyOkFTYldgcHF9Sem7PpIgz7V2EJUH6S1YLz2phYcysPE6+vLH6grs3nvtLD8k6U97nNsrvIABW@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC9xHwCnOgDzis4V+xpyEtrvY4o0gU9j1m2/5/mH8a46wMf8Yw
-	Os2dx6URcXzn5SQcC5ZPU03+qVrC3yYjnRSpWbxAfbVS2fBL8q8o0fSfbvn2owXE44z/XWHkmU7
-	NzZvm1ewGQCmXNU6z2nDg1VhO/g==
-X-Google-Smtp-Source: AGHT+IGKvG8I/im/k/IPybn045bPPxXVEzIGxeaZoFQYWf7CnT275gjzpCkuXW1FxOqOUlHA0uA3p6+cPeXvMyJJp6Q=
-X-Received: by 2002:a05:6902:2681:b0:e4b:b2bd:5fa0 with SMTP id
- 3f1490d57ef6-e53606627d2mr320097276.20.1734454988345; Tue, 17 Dec 2024
- 09:03:08 -0800 (PST)
+	id 1tNZk8-0000000E01u-1zpr;
+	Tue, 17 Dec 2024 15:44:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1734450255;
+	bh=OEFJhnGi56R7PJFkzZXIALf3gvTaB5bUdb5bS7WVCq0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ceSIYpKk8TPS/PsUspupzXo39GETvtMPb9+m5ZNUVWRPx6GYXgob1GlC2rFKbTvok
+	 eN9LNQjvHu/URM8M8KyjeZstvuxt5STiy8/8CN9UUhK3YN5wAocGMDOxtAW4TDxW/G
+	 6zNsGyMENIFYOlxgWCIrgeFYp4SrqfS2T/WVaWqK4Dw5H5f/b5a+PiZKq9hYaic0nZ
+	 F1fb1R0yovvp/YemFrfDWcDaqpoM6gT7u+rts3b+YW1oOZTKYMmO6FcZT6Tv2+gJ2A
+	 f9TSYW7n2/cxqbBLM5RF51rUikPyRQ3Un/sA9ikfOclArAS9Qm6Q/vzsdreiIfZDJN
+	 ieDbsjNxyp71A==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DD3B917E37B2;
+	Tue, 17 Dec 2024 16:44:13 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	ck.hu@mediatek.com,
+	jitao.shi@mediatek.com,
+	jie.qiu@mediatek.com,
+	junzhi.zhao@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	dmitry.baryshkov@linaro.org
+Subject: [PATCH v3 17/33] drm/mediatek: mtk_hdmi: Move N/CTS setting to new function
+Date: Tue, 17 Dec 2024 16:43:29 +0100
+Message-ID: <20241217154345.276919-18-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
+References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-19-anshuman.khandual@arm.com> <20241216231505.GA601635-robh@kernel.org>
- <a442bca4-d1c0-4f3e-ae13-4836caec2da9@sirena.org.uk>
-In-Reply-To: <a442bca4-d1c0-4f3e-ae13-4836caec2da9@sirena.org.uk>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 17 Dec 2024 11:02:57 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+45YNGNEcDVFvKH3Tiwtz0HF9_O4tPfQH0dbXra2bcRQ@mail.gmail.com>
-Message-ID: <CAL_Jsq+45YNGNEcDVFvKH3Tiwtz0HF9_O4tPfQH0dbXra2bcRQ@mail.gmail.com>
-Subject: Re: [PATCH V2 18/46] arm64/sysreg: Add register fields for PMUACR_EL1
-To: Mark Brown <broonie@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, 
-	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_090310_316769_33F7DC23 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20241217_074416_664835_7051E2A6 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 9:30=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Mon, Dec 16, 2024 at 05:15:05PM -0600, Rob Herring wrote:
-> > On Tue, Dec 10, 2024 at 11:22:43AM +0530, Anshuman Khandual wrote:
->
-> > > +Sysreg     PMUACR_EL1      3       0       9       14      4
->
-> > I already added this and various other PMUv3.9 registers you've added
-> > here in v6.12 and v6.13. So are you on an old base or the tool allows
-> > multiple definitions? If the latter, that should be fixed.
->
-> The tool is written in awk and hence *really* dumb so it's not going to
-> notice this, and so long as the resulting definitions are identical the
-> compiler won't either.  It would indeed be nice if the tooling were able
-> to detect this.
+In preparation for splitting common bits of this driver, moving
+the hdmi_rec_n_table struct array, and the hdmi_recommended_n(),
+hdmi_mode_clock_to_hz(), hdmi_expected_cts() functions, add one
+function called mtk_hdmi_get_ncts() that sets both N and CTS in
+a single call.
 
-Something like this should work:
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-git grep -h '^Sysreg\s' arch/arm64/tools/sysreg | tr -s ' \t' ' ' |
-sort | uniq -c | sort -n | grep -E '^\s+([2-9]|1[0-9])'
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+index f60c4effe905..ef8dfcb77318 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+@@ -682,6 +682,13 @@ static unsigned int hdmi_expected_cts(unsigned int audio_sample_rate,
+ 				     128 * audio_sample_rate);
+ }
+ 
++static void mtk_hdmi_get_ncts(unsigned int sample_rate, unsigned int clock,
++			      unsigned int *n, unsigned int *cts)
++{
++	*n = hdmi_recommended_n(sample_rate, clock);
++	*cts = hdmi_expected_cts(sample_rate, clock, *n);
++}
++
+ static void do_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi, unsigned int n,
+ 				    unsigned int cts)
+ {
+@@ -712,8 +719,7 @@ static void mtk_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi,
+ {
+ 	unsigned int n, cts;
+ 
+-	n = hdmi_recommended_n(sample_rate, clock);
+-	cts = hdmi_expected_cts(sample_rate, clock, n);
++	mtk_hdmi_get_ncts(sample_rate, clock, &n, &cts);
+ 
+ 	dev_dbg(hdmi->dev, "%s: sample_rate=%u, clock=%d, cts=%u, n=%u\n",
+ 		__func__, sample_rate, clock, n, cts);
+-- 
+2.47.0
 
-No duplicates currently.
-
-Rob
 
