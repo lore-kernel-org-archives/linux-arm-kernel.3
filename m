@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E37CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E2FE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97u39/mB75Gyvq3MUoP9A6BWuOZp1jV8oYjBZnf5YHs=; b=dgjHRmkNqyU+mDYdmAuVgOyI4B
-	04TtetrViXekgIxJE44SSMSYGI1EtbkSeSeCKyjF0EUIUgVHkm/dshVJllbDKsx/EgOOhU8GH6s14
-	1GiCa277W2Bl5mswY0jIa6R0arEPKH+YxNS6lGbE31KPf+m7wZObp3mLD9muHE6/B6ItLEZXW36v+
-	dpquoUZ6QjG+h+cdv7gBVHQqPbTRyuNRvN/eD5cEO5X+pwQ+LKz8ZoamXzAIewpLMpDix3nrQ892a
-	OBwGm60hMhfUAndkqzHKPviPh5flLAetjqrAlIXnOqERqQsgh+XE9SjXX4xAXRjyPul49jnuQXx3k
-	0dq4P3Bg==;
+	bh=uAXbopUXJXJ08hTcHH425F6DGoXZeRRXYi/W6xH7CD8=; b=RK+N5zBpk+7vFsWGEwwpV8GkK2
+	j4bTzZ7DtZxTGM63X5bM6koyM/d8fAvxU/JyvudKW5KiP9V79qCMOs6lrwiGUo/uj3tu3W/DO9cly
+	qeTGXMwSIPg9tUWoqIfr8tD/W69UboaGFHemvsA8lQ2k6+mKC89sdQ1WocfA7uFF1MVv347SqG1Jo
+	ivRlqAzIVj1esdxgd1WaOK54yBaLoJzEjHgR5JTCrc8luRjLV9VsFMQr+gX1T6JQaOX5usyUGQLEV
+	jye9johEPtBmon591/FXArwoGShMqkDrUinKRAX+Y6GwuL91Y9I+4Rk12b9P32wZv8u2Kpd+4thi5
+	UvGHErSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbGa-0000000EJXm-46D6;
-	Tue, 17 Dec 2024 17:21:52 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tNbHf-0000000EJhs-2VwJ;
+	Tue, 17 Dec 2024 17:22:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbFU-0000000EJMh-1scT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 17:20:45 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2f13acbe29bso4367789a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 09:20:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734456043; x=1735060843; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=97u39/mB75Gyvq3MUoP9A6BWuOZp1jV8oYjBZnf5YHs=;
-        b=dUZS2RuG44Xlv5Lg2Dm4ZoHVcO0ZpdqQf0phn8lDiM1NM45xoheeWBfWZSR5qJcfFg
-         grNgjYyWCxjckRK0Uefwh5yXVdCDEfX5i6vK24zcq7efwlXTFDlGeP7D9HAoLWTyFlMV
-         sbj78oSegYM01MmPhCUnw0YuD5z73J2DeCFaC9zX9pTe4WeLRRV44IBEryPu1kW/nHEW
-         lQ50rsq8RtWW7249muP73CMHoitVBmctq6UvbRIvZIBINPJidWcsIDUdxOYhc9pR5GDX
-         FnVB2zhDaBsaikMTcrXkU1vtTP9qLmp8Du1LMatuu7/40DLr0SrNi2lqGkOAmJZrUOP2
-         r7RA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734456043; x=1735060843;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=97u39/mB75Gyvq3MUoP9A6BWuOZp1jV8oYjBZnf5YHs=;
-        b=DC+yS1Vj90pOqOvRG3xdEu0J2rbw32zZ0j2h/pJMaTOwigI/9y/qVovf/4HRhIZIzb
-         aFEprK/CDH7o3I6j7VXmBYXLWj+4aor6NfeCEG1JF4QXYTbjcf1px7TY+QQ78o+AB9OQ
-         PQJvzbA6EntoSpy8Ec3MNRP5xU+0gpkkV+Z/hCzH94vuEaqdXkSv39RdWc2Gy0pBKs+p
-         ZVr9Vj7RV7ufiN8g6Wd1wub2+xzPeW540QbYe94W/bESvIEm0c50B+s1VQTQlcRxVnZ5
-         ID37oT+fG4uSM+s7sce5bI6Gurhjos7Hq/oqPP/5oUblHX07+Fn6tQ+XHqTcHlA+F5xT
-         DDGw==
-X-Forwarded-Encrypted: i=1; AJvYcCXixyRqYHdxtIVzWoa/rw7wLfXvomtQnwiRKV6kBCBjRvAzl255Zr7Bo99kM5CkgZswSTzcmhfofIpO8OB2LLDX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzO6qaHABp/PdTEa5GiT/vUYEW2yawTG1sMQTh0nUsgasHpfIDj
-	0NwgLVBa7jDvTP7F75MiiBkSl9cmBDmIqqVcEwUetMrN3imui+QOTd5/FCFoUQ==
-X-Gm-Gg: ASbGnct0aKxm8A3EDDNQt7AU6YbcEBFpuGye7IzTeVM6ktkZNJ0pAM17nZXodGftYF2
-	qzuRqbJ/cCI2TdhwqJdtTWNFuSHktHo1mBK7v32FiLF5xQ9uDSMJMO/7zARemNRt2RjLLNOkt9i
-	OLjKV28hMCbMvsjqfuYhAz5f4ZwjRLyufhm2Q9UI/BqMEq0lSGYSfN/lW921lTyYnVZgUZmFTDT
-	BQ5cxU5hKS6aU9VJnsHBAba6iHWYEpemUTfd92RtnJy/UCmibDc9WToYmqL/8+LieP7
-X-Google-Smtp-Source: AGHT+IGjUccenohiYb+SDkdAmpf0k5ZpdC9204RkXFZyFmXwB9GNV/fs0d/6P1jKINhalSCuMQyisw==
-X-Received: by 2002:a17:90b:2750:b0:2ee:7504:bb3d with SMTP id 98e67ed59e1d1-2f2d867445amr6395058a91.0.1734456043265;
-        Tue, 17 Dec 2024 09:20:43 -0800 (PST)
-Received: from thinkpad ([117.193.214.60])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2a2434a7bsm6848964a91.36.2024.12.17.09.20.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 09:20:42 -0800 (PST)
-Date: Tue, 17 Dec 2024 22:50:33 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Christian Bruel <christian.bruel@foss.st.com>,
-	Rob Herring <robh+dt@kernel.org>, lpieralisi@kernel.org,
-	kw@linux.com, bhelgaas@google.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
-	cassel@kernel.org, quic_schintav@quicinc.com,
-	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
- bindings
-Message-ID: <20241217172033.zxl4bufakzx7eww5@thinkpad>
-References: <20241126155119.1574564-2-christian.bruel@foss.st.com>
- <20241203222515.GA2967814@bhelgaas>
+	id 1tNbFy-0000000EJTF-1SKb;
+	Tue, 17 Dec 2024 17:21:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 73BC15C66A2;
+	Tue, 17 Dec 2024 17:20:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A627EC4CEDF;
+	Tue, 17 Dec 2024 17:21:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734456073;
+	bh=gSxnS9OdKpfAXVd8d7j5pZW75+bllE3VDBoL+UPSVRs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QTo3p09H4cMOYL0FydQyXHFf7eXEVuGWQHoPrBAwbMTGZ9yOmld+WlMig8fKO0ucg
+	 BhmmWEXrchYEe8MjLZrX3hkOkUdqQgtzBg+L6ArV5uW8MOI1IFo/868cNTyyuNDNvw
+	 tQZsBU5V3Oa8NSnz8O2TVMns+i4tn3frVx2jWiH+9sGKjur5C9cXXGGl018nk2Q36o
+	 B9fEZsOQ7Pdc+GiY0DH+0IjVLdX1tA3YZwcnGzLKBrhTWo3ixw9O1TZKjDkaJ5lC4n
+	 rteOmT/nwZYJaDNDv5IeE6K2btbB8PlFTSvAPNLMYf/UUpv+MrrQwgfHB974muo3bc
+	 WagjPbTiHXOnw==
+Date: Tue, 17 Dec 2024 18:21:10 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
+Message-ID: <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
+References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="mn7xe23uuqeljxgv"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241203222515.GA2967814@bhelgaas>
+In-Reply-To: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_092044_488120_CFC1BDBE 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20241217_092114_486016_21B0E992 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,54 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 03, 2024 at 04:25:15PM -0600, Bjorn Helgaas wrote:
-> On Tue, Nov 26, 2024 at 04:51:15PM +0100, Christian Bruel wrote:
-> > Document the bindings for STM32MP25 PCIe Controller configured in
-> > root complex mode.
-> > 
-> > Supports 4 legacy interrupts and MSI interrupts from the ARM
-> > GICv2m controller.
-> 
-> s/legacy/INTx/
-> 
-> > STM32 PCIe may be in a power domain which is the case for the STM32MP25
-> > based boards.
-> > 
-> > Supports wake# from wake-gpios
-> 
-> s/wake#/WAKE#/
-> 
-> > +  wake-gpios:
-> > +    description: GPIO controlled connection to WAKE# input signal
-> 
-> I'm not a hardware guy, but this sounds like a GPIO that *reads*
-> WAKE#, not controls it.
-> 
-> > +    pcie@48400000 {
-> > +        compatible = "st,stm32mp25-pcie-rc";
-> > +        device_type = "pci";
-> > +        num-lanes = <1>;
-> 
-> num-lanes applies to a Root Port, not to a Root Complex.  I know most
-> bindings conflate Root Ports with the Root Complex, maybe because many
-> of these controllers only support a single Root Port?
-> 
-> But are we ever going to separate these out?  I assume someday
-> controllers will support multiple Root Ports and/or additional devices
-> on the root bus, like RCiEPs, RCECs, etc., and we'll need per-RP phys,
-> max-link-speed, num-lanes, reset-gpios, etc.
-> 
-> Seems like it would be to our benefit to split out the Root Ports when
-> we can, even if the current hardware only supports one, so we can
-> start untangling the code and data structures.
-> 
 
-+1 for moving the properties to RP node where they should belong to. The
-controller driver might have to do some extra work to parse the RP node and get
-these properties, but it is worth the effort.
+--mn7xe23uuqeljxgv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
+MIME-Version: 1.0
 
-- Mani
+Hi,
 
--- 
-மணிவண்ணன் சதாசிவம்
+On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
+> While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
+> framework, I stumbled upon an issue while handling the Audio InfoFrames.
+> The HDMI codec callbacks weren't receiving the drm_atomic_state, so
+> there was no simple way to get the drm_connector that stayed at the end
+> of the bridge chain. At the same point the drm_hdmi_connector functions
+> expected to get drm_connector instance.
+>=20
+> While looking for a way to solve the issue, I stumbled upon several
+> deficiencies in existing hdmi_codec_ops implementations. Only few of the
+> implementations were able to handle codec's 'plugged' callback. One
+> third of the drivers didn't implement the get_eld() callback.
+>=20
+> Most of the issues can be solved if drm_connector handles
+> hdmi-audio-codec on its own, delegating functionality to the actual
+> implementation, be it a driver that implements drm_connector or
+> drm_bridge.
+>=20
+> Implement such high-level framework, adding proper support for Audio
+> InfoFrame generation to the LT9611 driver.
+>=20
+> Several design decisions to be kept in mind:
+>=20
+> - drm_connector_hdmi_codec is kept as simple as possible. It implements
+>   generic functionality (ELD, hotplug, registration).
+>=20
+> - drm_hdmi_connector sets up HDMI codec device if the connector
+>   is setup correspondingly (either I2S or S/PDIF is marked as
+>   supported).
+>=20
+> - drm_bridge_connector provides a way to link HDMI audio codec
+>   funcionality in the drm_bridge with the drm_connector_hdmi_codec
+>   framework.
+>=20
+> - It might be worth reverting the no_i2s_capture / no_spdif_capture
+>   bits. Only TDA889x driver sets them, while it's safe to assume that
+>   most of HDMI / DP devices do not support ARC / capture. I think the
+>   drivers should opt-in capture support rather than having to opt-out of
+>   it.
+
+Sorry if this isn't clear to me and I'm quite late to the party, but did
+you test this on vc4 with both a pi3 and pi4, or was it just compile
+tested?
+
+Maxime
+
+--mn7xe23uuqeljxgv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2GzBgAKCRAnX84Zoj2+
+doz7AYD+E+d4erzl9Bf5sWASu56Udkv+Nd2LpLqsDi351KTvI53a2703lFD4C28T
+bGfQBG0BfiHdABYx41nUCejaduluIOxnFrtPmutUYSE5mvh38CG3Ej7/08luvURz
+jbdIEtzSlQ==
+=zUgb
+-----END PGP SIGNATURE-----
+
+--mn7xe23uuqeljxgv--
 
