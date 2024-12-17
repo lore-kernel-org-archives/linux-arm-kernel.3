@@ -4,92 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B17E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 08:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C771E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 08:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGp2naDju3CENf7tcYGJw5g9MBEf4TS9qtH9hPAoTWM=; b=spkcER3L9t9vzfTey7jD2wpzYZ
-	8/bHbJ4jx45QLWqPVQvHFPzqSPamDR6/Pi0dhl62hlV7nqttvM5C6+TPzLvFsiGsj7TUE0afkwXIS
-	OAfv4fpLwVWUMxzuveFpoeCUX4PqD7YOFpu7uE3iYSipdnwq5n4Y6QuI2kXgoLxoS5sUVNFAm+QQt
-	KOtW71b9me/ztKz7bgGnGvy0InqbDfUWyjh8Dan61lY+iaBAmZx0RW5bmfnnSx1tnezDykCV4GVeY
-	z+PmxKHF1mK2HJP9jVeTsQPLho2ceYm8wOGeg1oZJoU0CDe2JU5zgdMWPS6D1NcuYSq4rfhZ/Jf2p
-	PwIO7pQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LwKLcx3qWGZ0J4OB9gBZAl+ma98QJfj1A73XswW/D2s=; b=e2PLzsqpVJlpP9XKnNA+h3bgkW
+	kfp9IJqrkdxrU+42LMYnKNciOj3tayuNe5EResXd2+CRuiKwCTRR+L5lvN91wuRH6rTwaA37bGHac
+	+pb/WHVqtHVJvQL5tX2jGuDKjDLZlgPNKWcxcJ0RxWPQtzw2nLkxSZalWwkWTFI4J9mDWPgKn9+eh
+	jmdXOuHdjXFUDzfiSuuOlfzwmvCJc25C/FE+g9O6zM8+T/3+cYMdVaVJDQ9OQl2/Qfo4NicaS6ZQs
+	zbpFggTREZoaGSNEGbsVWoym/XiHKs7A9Sk8eXUIhUO1UJ1DlSBP1Hnxrvt0FobJhWuZTFqgaC8cW
+	DQtKFVgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNT4k-0000000Cj3F-3xpT;
-	Tue, 17 Dec 2024 08:37:06 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tNT7D-0000000CjQd-2xSr;
+	Tue, 17 Dec 2024 08:39:39 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNT3T-0000000Ciob-3G6d
+	id 1tNT69-0000000CjIK-1S14
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 08:35:48 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38634c35129so3853151f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 00:35:47 -0800 (PST)
+	Tue, 17 Dec 2024 08:38:34 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385de59c1a0so3278933f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 00:38:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734424546; x=1735029346; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=oGp2naDju3CENf7tcYGJw5g9MBEf4TS9qtH9hPAoTWM=;
-        b=EkojYbeLzundyvdksOr+ubv4AJukYKw8o6AsvFqtI69tCylOtyzHvVFMTxN9b1Y3B+
-         kT4kLMrptQ5vDoBHg2G7Xx69V7QjgiXeySm3R0+pe9p0eSRJze7zLIi+5LF66XGASA07
-         EzJCcabyosjR7ImZRLmuKay6jBx8dzQRHFLvZ4b/cl+yPGU/utrc20m9u0H+6RV8IobT
-         LUqM1eI/UkGlxChHILAP2QC5+nX9ZtD753e4rC1KdZLKxlUBlEyMnW83m6xmBBpGvwjk
-         kEW3Rqi8HRKIOXE41g183XHjZWH7S5uNVLS7ETveAWzJa/NpVjMxUS5gzQTg/nRIdKfF
-         rmlw==
+        d=linaro.org; s=google; t=1734424711; x=1735029511; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=LwKLcx3qWGZ0J4OB9gBZAl+ma98QJfj1A73XswW/D2s=;
+        b=nKL7bBu18RUeGhv7scUSgVef7nCK7DdkiwvJ37V4uoOUVD4XVaK2SNRRnJXfDJpaub
+         2/LNv9Y3bawK1ISI/gS/w48VWmixZFjl29gTBo7B1QX/yt/6LJxx6gEBvmkO0GsJcHyC
+         0/Lvbv1F4e0w9KWdnzDWgGTq6t6/a4JsgT+SAJADts6rr3OlgwQLDibq+QzwN33YRAIp
+         6fIquTK0XiNNoKMyrfpaePBnm05muEdjrP29b9NSjjyY/uYXxlETtfT+rO9rDLkiAYNs
+         CDAMxjAFdgI6YiM6lvFO6r+TomFwkOxlCoak76ZSmw82bHugnJaMqBAEiT5Q73Ewq3FD
+         uB1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734424546; x=1735029346;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oGp2naDju3CENf7tcYGJw5g9MBEf4TS9qtH9hPAoTWM=;
-        b=eGnm76x6oQL7d9VMurTqv+IOI6bdhzP6pw5om3Vg1f6DQ5aCmUAgwCuW6aExwfYpzy
-         u3myNjoixvHYivbRabpJgvTLBlpgXeG6KDVfJ6TRy3uxD9AblwhAQ+CSaJBvC7ezTmML
-         st4LiQHgV8BzHjXytV641OgjbN/YKvX3TqN9e2zaBTRsFbbm3TgpvUsIPyjeNckdUBRv
-         lH00QIIt8odr9ndOaC7vvFyFcpm+jfias+iDgc0tmboseXTUkFGLP3ggK+kjsIGZmd6c
-         31HAkA4HQmkQm49s2ZVDMzyYkXf1uEH3JV4K+NzBUq9wEW3Up3qUlsttCG9IgNuZQs4n
-         trVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdhj3nX8aB0lLaC2ls6GBEeWKXrx6nZZodCSRn7j9RNZJ4fJmJ9luue4rpxreLdx0zlT1AFJcmgdQZ1UrQaimL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq07WBHtilxfNsfE/J/QgP7XsWgHpr7yAiQta2iADjmo6Yxyt1
-	FWq7ccDI0mSm7pQRPB0eVKH++4/zO8IBaToltJVK9DeM7lrVkHVe8cqVpox8xNc=
-X-Gm-Gg: ASbGncuZ6DiOoGfSDWQXr7hee8/r68JqfCMXwRPuVouvTYBQa11rO5gyoSs1sMOnD9a
-	RWkGaLEAalrQlg2xbfQ6MewtB5KVKClwnW3ymrh3p+siUAV/sTiuwhUfog+ib8mSAvpgdLLXJgs
-	z7ZbCpi7PLqf73llh3lmjpy5i6SiV6SFQs2ZG+hG5dWew/aYwSGOLoL8amoka1b0pIFtrrsc186
-	KQydl2YXaDLk3ERPSj0LNgkNrB3llSug8T1xwXxovV4kSPa7w+ViKQL4o35
-X-Google-Smtp-Source: AGHT+IHmaVzA+YB5mwrP2DxlfyoFUMTookYYnkdc4IP1vKUVoB3zOMtorvgOX4VjroHrHa2BsMY/HA==
-X-Received: by 2002:a05:6000:156d:b0:385:f16d:48b4 with SMTP id ffacd0b85a97d-3888e0b994fmr12286812f8f.40.1734424546079;
-        Tue, 17 Dec 2024 00:35:46 -0800 (PST)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c8016083sm10393582f8f.31.2024.12.17.00.35.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 00:35:45 -0800 (PST)
-Message-ID: <239cf14ad538285cea2f6ccdf2bd8fbdd2180bbc.camel@linaro.org>
-Subject: Re: [PATCH 4/4] arm64: dts: exynos: gs101-raven: add new board file
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, Will McVicker <willmcvicker@google.com>,
- kernel-team@android.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
-Date: Tue, 17 Dec 2024 08:35:44 +0000
-In-Reply-To: <2wyjctwn443oxl633qwxsxmyzqhinssrkoafgqhcc34tqgwnh5@ymrr57jxdnl6>
-References: <20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org>
-	 <20241216-gs101-simplefb-v1-4-8ccad1830281@linaro.org>
-	 <2wyjctwn443oxl633qwxsxmyzqhinssrkoafgqhcc34tqgwnh5@ymrr57jxdnl6>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+        d=1e100.net; s=20230601; t=1734424711; x=1735029511;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LwKLcx3qWGZ0J4OB9gBZAl+ma98QJfj1A73XswW/D2s=;
+        b=uHDnh30iWwAEL6BSY95PiQHVRluwjfJfdTnocfhb74wYOEDlywX+sumWblER4b+djH
+         b/1Al7sV9hTG2SCKhVIlSNDAIOdI07dOo69+Z/AuhdbOPITsc2t8uHEdBXYKZYnb7PhW
+         pgEJnH19YvhqCrpLX1pyYgF9xXDaZq9pawF2VAs4w1kKP70InvPvZ1fdOE7J9Kr9PhLB
+         lQRn4Nz4lMPolPuicgiYpZHescYCXTWCygLh641M+W8GXOYFjv/U0zgLge2ugsFjMVJK
+         l154yJk8lm3W6oHA5ksIIjPtGTVY5YsQrbmr65oXAQQljx7KD0SFgUwj7aXwvg4qziqX
+         vwjw==
+X-Forwarded-Encrypted: i=1; AJvYcCX3f1TiEWcdJ8SPyWDfPp9jbEDSBy4PeXoyNHae57/AMXglJiz0OreBeo7nke1xVoeKADiwzaeZk6OsXd0HnTgP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ6VnOEUqvXlD9ib7GU0Wg8lKjgcVjSEBiJTxFCilqE+vulfTn
+	j8oHxEUvJUhSXqKnUjukH1sDgRUfuggtqbQyyC+x0vCTm+Q9nd6hWAp3TOpAXCM=
+X-Gm-Gg: ASbGncstHlZrOBJxClVFBzFgMUs/SgJOv0BUi/dTGDXlkNLXj1qP1mft9QpIAfVu5nv
+	pVIk1Z5wWjNdMQhVa42pCpUB/BSJPE6lvGRkhGtuOLYCY7oP1MbctDRKbDi2zeGIpv0ux7NQBdr
+	aBRKjoligXOuzWJHNLlDSnbngdpDMhuLZweSSbTm1G1qDr5oJHKeT1BffdiYLYI+q3Bv/4N0PAv
+	L8omPrIdVopkgygoNYjeBayzOFBNfoC5BvucLnP19fTO/F7XsxTyOwLLFPboJc7
+X-Google-Smtp-Source: AGHT+IG1ScKF9S6YLpA0VEyZm9yVfmIx7vyc5/iav7Ktgk6AaGAJ4fl38EJ0MOFcy/fDQp5fgbPrhQ==
+X-Received: by 2002:a5d:6c63:0:b0:385:ee59:4510 with SMTP id ffacd0b85a97d-38880ac1cc1mr14557623f8f.9.1734424711437;
+        Tue, 17 Dec 2024 00:38:31 -0800 (PST)
+Received: from [192.168.0.14] ([188.26.61.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c8060592sm10298741f8f.98.2024.12.17.00.38.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Dec 2024 00:38:30 -0800 (PST)
+Message-ID: <4e8936e0-ac69-49e8-919f-b2776dd88779@linaro.org>
+Date: Tue, 17 Dec 2024 08:38:29 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] arm64: dts: exynos: gs101: add ACPM protocol node
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+To: William McVicker <willmcvicker@google.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ andre.draszik@linaro.org, kernel-team@android.com,
+ daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
+ ulf.hansson@linaro.org, arnd@arndb.de
+References: <20241212-b4-acpm-v4-upstream-dts-v2-0-91b7a6f6d0b0@linaro.org>
+ <20241212-b4-acpm-v4-upstream-dts-v2-3-91b7a6f6d0b0@linaro.org>
+ <Z2B3V78k2ibIdLYh@google.com>
+ <45a54924-226e-4a94-b1ae-b0f1f703f854@linaro.org>
+Content-Language: en-US
+In-Reply-To: <45a54924-226e-4a94-b1ae-b0f1f703f854@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_003547_811757_FC4C133E 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20241217_003833_401341_2CF0933B 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,75 +108,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2024-12-17 at 08:39 +0100, Krzysztof Kozlowski wrote:
-> On Mon, Dec 16, 2024 at 01:06:29PM +0000, Andr=C3=A9 Draszik wrote:
-> > Raven is Google's code name for Pixel 6 Pro. Similar to Pixel 6
-> > (Oriole), this is also based around its Tensor gs101 SoC.
-> >=20
-> > For now, the relevant difference here is the display resolution:
-> > 1440 x 3120 instead of 1080 x 2400.
-> >=20
-> > Create a new board file to reflect this difference.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> >=20
-> > ---
-> > Note: MAINTAINERS doesn't need updating, it covers this whole directory
-> > ---
-> > =C2=A0arch/arm64/boot/dts/exynos/google/Makefile=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> > =C2=A0arch/arm64/boot/dts/exynos/google/gs101-raven.dts | 27 ++++++++++=
-+++++++++++++
-> > =C2=A02 files changed, 28 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/exynos/google/Makefile b/arch/arm64/bo=
-ot/dts/exynos/google/Makefile
-> > index 0a6d5e1fe4ee..7385f82b03c9 100644
-> > --- a/arch/arm64/boot/dts/exynos/google/Makefile
-> > +++ b/arch/arm64/boot/dts/exynos/google/Makefile
-> > @@ -2,3 +2,4 @@
-> > =C2=A0
-> > =C2=A0dtb-$(CONFIG_ARCH_EXYNOS) +=3D \
-> > =C2=A0	gs101-oriole.dtb \
-> > +	gs101-raven.dtb
-> > diff --git a/arch/arm64/boot/dts/exynos/google/gs101-raven.dts b/arch/a=
-rm64/boot/dts/exynos/google/gs101-raven.dts
-> > new file mode 100644
-> > index 000000000000..75fd34797fa9
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/exynos/google/gs101-raven.dts
-> > @@ -0,0 +1,27 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Raven Device Tree
-> > + *
-> > + * Copyright 2021-2023 Google LLC
-> > + * Copyright 2023-2024 Linaro Ltd
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include "gs101-raviole.dtsi"
-> > +
-> > +/ {
-> > +	model =3D "Raven";
-> > +	compatible =3D "google,gs101-raven", "google,gs101";
-> > +};
-> > +
-> > +&framebuffer0 {
-> > +	reg =3D <0x0 0xfac00000 (1440 * 3120 * 4)>;
-> > +	width =3D <1440>;
-> > +	height =3D <3120>;
-> > +	stride =3D <(1440 * 4)>;
-> > +};
-> > +
-> > +&cont_splash_mem {
->=20
-> Keep overriding/extending nodes ordered by label name.
 
-OK - I had kept the original order (from dtsi), but will change.
 
-Cheers,
-Andre'
+On 12/17/24 7:20 AM, Tudor Ambarus wrote:
+> 
+> 
+> On 12/16/24 6:54 PM, William McVicker wrote:
+>> Hi Tudor,
+> 
+> Hi, William!
+> 
+>>
+>> On 12/12/2024, Tudor Ambarus wrote:
+>>> Add the ACPM protocol node. ACPM protocol provides interface for all
+>>> the client drivers making use of the features offered by the
+>>> Active Power Management (APM) module.
+>>>
+>>> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>>> ---
+>>>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 22 ++++++++++++++++++++++
+>>>  1 file changed, 22 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>> index 04561e15b96c..8c3f07371912 100644
+>>> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+>>> @@ -277,6 +277,28 @@ apm_sram: sram@2039000 {
+>>>  		ranges = <0x0 0x0 0x2039000 0x40000>;
+>>>  	};
+>>>  
+>>> +	firmware {
+>>> +		acpm_ipc: power-management {
+>>> +			compatible = "google,gs101-acpm-ipc";
+>>> +			mboxes = <&ap2apm_mailbox 0 0
+>>> +				  &ap2apm_mailbox 0 1
+>>> +				  &ap2apm_mailbox 0 2
+>>> +				  &ap2apm_mailbox 0 3
+>>> +				  &ap2apm_mailbox 0 4
+>>> +				  &ap2apm_mailbox 0 5
+>>> +				  &ap2apm_mailbox 0 6
+>>> +				  &ap2apm_mailbox 0 7
+>>> +				  &ap2apm_mailbox 0 8
+>>> +				  &ap2apm_mailbox 0 9
+>>> +				  &ap2apm_mailbox 0 10
+>>> +				  &ap2apm_mailbox 0 11
+>>> +				  &ap2apm_mailbox 0 12
+>>> +				  &ap2apm_mailbox 0 13
+>>> +				  &ap2apm_mailbox 0 14>;
+>>> +			shmem = <&apm_sram>;
+>>> +		};
+>>> +	};
+>>
+>> You mentioned in the previous patch that "GS101 has 14 mailbox controllers",
+> 
+> Right, I got the number from the GS101 memory map.
+> 
+>> but here you have 15 mailboxes. I looked at the downstream driver and see the
+> 
+> Here we have a single mailbox controller, ap2apm_mailbox, with 15 channels.
+> 
+>> number of mailboxes is defined by the ACPM framework (firmware) which is read
+> 
+> s/mailboxes/mailbox channels that ACPM uses/
+> 
+>> from SRAM initdata. Dumping that, I see there are 15 ACPM channels. Have you
+> 
+> Correct.
+> 
+>> looked into into extracting the data from the initdata SRAM address?
+>>
+> 
+> Yes, that's the reason why I defined the 15 channels from above for the
+> ap2apm_mailbox controller.
+> 
 
+Haven't explicitly mentioned in the commit message: the ACPM protocol is
+a mailbox client for the ap2apm_mailbox controller. The ACPM protocol
+uses 15 mailbox channels of a total of 16 channels that ap2apm_mailbox
+controller provides.
+
+Let me know if you think I shall update the commit message.
+Thanks,
+ta
 
