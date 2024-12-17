@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A38E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF07E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80hq5UlyfMPq9lLW6IHF93i21x4mkYbezwQcwT3PU3w=; b=hyCwslz7qVfCkVXGCJEtUaAASZ
-	lqlrsNxE+OQVyxQCPs6h9eoX5lp9HIKUjuIKQdHdYWqLOhdbInlHjjkoZZDWT0C285+vlTb6KbX2+
-	ZOw9YyFrdMzCm9k1ZvlmVkBcxUAJF+8VSqIco8yFGBZYXo0ORzKQkT/B7HUNFPUDx659bGDEWr+EN
-	IGNcjlgDWo7ufera6P6afp/RZLJgUuEB5bku+SrCKtGGlcL0mGq6qUTi/60OXNxRVzDT2396Yi0QB
-	DnLUjAkFG2G698o1Tsok7c1PD346QoxWigfOlYUwtSXdA9wRLdStXFZgeqPjDX0DQ7Xu0cVS2RW6Y
-	rJp4k4VQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gUC+X7AuBRAEhVcTQ10YasH5Ejszj5VFDW/8xemquL4=; b=FksrdrQ52KD5pGAlKwmdCe62Aq
+	7kiOHvKZHDx1jnE1csixHmqH55AnRlgUOH25TqhT6E6cCB+fuXIxA6PPKa+IVja0RH0Pmt3zISkm2
+	z8pO/GSZvq7M2Qj+uzT4pSXlJAXB0QuD7U3U8N/Mnq5AMhRUcAPFRelrDlJqY7XYZm08zaOQck7d8
+	RlNZiwKSNmoLLGCYUyNG7nUnHeC1gGZYX10N/G7WREEeVqU5Q0FOkhNcUe3kiN6JNYr81wD7eoHch
+	/dzXtopp1a0FDObYHCe2plWbjApaB/qXynvcRgNMRDCUUG8jZ+L2keJ3o4TWsOVDXfARTdqIf1s0t
+	ZxipfpOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYjs-0000000DnJD-1ZZS;
-	Tue, 17 Dec 2024 14:39:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYgh-0000000DmZO-0rpy
+	id 1tNYkz-0000000Dnjm-0XOL;
+	Tue, 17 Dec 2024 14:41:05 +0000
+Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNYhs-0000000Dmng-1XMw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:36:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44EE5113E;
-	Tue, 17 Dec 2024 06:37:03 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EC5B93F58B;
-	Tue, 17 Dec 2024 06:36:32 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Tao Zhang <quic_taozha@quicinc.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@arm.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Tue, 17 Dec 2024 14:37:53 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:43e0:bbcf:34a4:f7a0])
+	by albert.telenet-ops.be with cmsmtp
+	id pqdh2D00R53u7h606qdhJB; Tue, 17 Dec 2024 15:37:44 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tNYhd-001XtD-VX;
+	Tue, 17 Dec 2024 15:37:41 +0100
+Received: from geert by rox.of.borg with local (Exim 4.95)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tNYhh-00CHWN-Ao;
+	Tue, 17 Dec 2024 15:37:41 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Mark Brown <broonie@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org
-Subject: Re: [PATCH v7 0/4] source filtering for multi-port output
-Date: Tue, 17 Dec 2024 14:36:25 +0000
-Message-Id: <173444598114.864570.18416527651218850484.b4-ty@arm.com>
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] firmware: imx: IMX_SCMI_MISC_DRV should depend on ARCH_MXC
+Date: Tue, 17 Dec 2024 15:37:40 +0100
+Message-Id: <28f88e536cab0abd5712787350b012bb0f1eacb5.1734445715.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241213100731.25914-1-quic_taozha@quicinc.com>
-References: <20241213100731.25914-1-quic_taozha@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_063639_341923_A2E0A0AA 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20241217_063752_539859_A627A2C6 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,66 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Dec 2024 18:07:27 +0800, Tao Zhang wrote:
-> In our hardware design, by combining a funnel and a replicator, it
-> implement a hardware device with one-to-one correspondence between
-> output ports and input ports. The programming usage on this device
-> is the same as funnel. The software uses a funnel and a static
-> replicator to implement the driver of this device. Since original
-> funnels only support a single output connection and original
-> replicator only support a single input connection, the code needs
-> to be modified to support this new feature. The following is a
-> typical topology diagram of multi-port output mechanism.
-> |----------|     |---------|     |----------|   |---------|
-> |  TPDM 0  |     | Source0 |     | Source 1 |   | TPDM 1  |
-> |----------|     |---------|     |----------|   |---------|
->       |                |                |             |
->       |                |                |             |
->       |      --------- |                |             |
->       |      |                          |             |
->       |      |                          |             |
->       |      |                          |             |
->    \-------------/ ----------------------             |
->     \  Funnel 0 /  |                                  |
->      -----------   |     ------------------------------
->           |        |     |
->           |        |     |
->         \------------------/
->          \    Funnel 1    /     ----|
->           \--------------/          |
->                   |                 |----> Combine a funnel and a
->                   |                 |      static replicator
->           /-----------------\       |
->          /    replicator 0   \  ----|
->         /---------------------\
->              |     |      |
->              |     |      |-----------|
->              |     |---------|        |
->              |               |TPDM0   |TPDM1
->              |            \-----------------/
->              |             \   TPDA 0      /
->              |              \-------------/
->              |                    |
->              |                    |
->              |Source0/1           |
->           \-------------------------------/
->            \           Funnel 2          /
->             \---------------------------/
-> 
-> [...]
+The i.MX System Controller Management Interface firmware is only present
+on Freescale i.MX SoCs.  Hence add a dependency on ARCH_MXC, to prevent
+asking the user about this driver when configuring a kernel without
+Freescale i.MX platform support.
 
-Applied, thanks!
+Fixes: 514b2262ade48a05 ("firmware: arm_scmi: Fix i.MX build dependency")
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ drivers/firmware/imx/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-[1/4] dt-bindings: arm: qcom,coresight-static-replicator: Add property for source filtering
-      https://git.kernel.org/coresight/c/2a0bc219272b
-[2/4] coresight: Add a helper to check if a device is source
-      https://git.kernel.org/coresight/c/62374ce1876b
-[3/4] coresight: Add support for trace filtering by source
-      https://git.kernel.org/coresight/c/ec9903d6cc34
-[4/4] coresight-tpda: Optimize the function of reading element size
-      https://git.kernel.org/coresight/c/56e14a21cee4
-
-Best regards,
+diff --git a/drivers/firmware/imx/Kconfig b/drivers/firmware/imx/Kconfig
+index 907cd149c40a8b5f..c964f4924359fcd3 100644
+--- a/drivers/firmware/imx/Kconfig
++++ b/drivers/firmware/imx/Kconfig
+@@ -25,6 +25,7 @@ config IMX_SCU
+ 
+ config IMX_SCMI_MISC_DRV
+ 	tristate "IMX SCMI MISC Protocol driver"
++	depends on ARCH_MXC || COMPILE_TEST
+ 	default y if ARCH_MXC
+ 	help
+ 	  The System Controller Management Interface firmware (SCMI FW) is
 -- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+2.34.1
+
 
