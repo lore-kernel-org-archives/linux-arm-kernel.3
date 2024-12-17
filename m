@@ -4,153 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA504E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 12:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB98E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 12:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVFFrlr9VHkg0weFNiRaaF8/RkIXIM9JP5VaTND/I4Y=; b=etw5SsdOS9/1S8cWCnxRa5Of/K
-	zZKtg6Us2rhqcq3TcuIL8kf6X7xlgIdMsPgL9ShnPINWJFVq62JddTwL2j9Z6B2Oe2vhTuGbaqmOj
-	CbWus+NG8xWEJOsw+KD7WfcxKOZfXQQtvJeOtrjWBckbFGOeD7XhcVOEeXycADKLUCAD8cmhFiDzJ
-	W9HUqDXecvsALYplOuXEurfVzOBZyvoPMnOxbRpxMnykmmgp1iqY0VxA5Gixqtr/EIjPTDRFVhkip
-	UKicIonpD3wt1CVr7hlzwBm0xyr+DHoWzuUfO4tLje3qtwUrbfgsySif39MJu14pvVGZfIufYLPzq
-	i4FgiFNA==;
+	bh=wFrk9B4Z7mdoTzpBnuLcBenrDHv77JNnBq7+6dFbTlI=; b=vyPBEx6gQfu6YH+Hd43W4ON0wV
+	5bW004D8TJwMvuq8aXA2s86Lj817EVhjRXxHGVhsB5R/pjh9RwVzULs2yv7kmXw5aq/6XT6hjluio
+	oFWSNzrFLf6L7+3HDybL01SkGJMjKQaRaegNFaPOPTBLIuckPTS4zohtVzNc00UXJ8MxntjBm0JSV
+	S83Q8Z4bj/wVpL6b4/wfXQwpbagqQFdBvk6jw9jpaqPLFGU2sd25WKLWbe4uBD9IWVsfBezQZkAGR
+	7gaRIwSsx9D/r9BKuUAPG+OZD13zSMTpsIpdn+4+NJAHsCWuowsUrdxwJXvQKUjRwX+ad8V3L2Bkj
+	pilJlabA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNX1J-0000000DQp6-1SBj;
-	Tue, 17 Dec 2024 12:49:49 +0000
-Received: from mail-db5eur02on2061f.outbound.protection.outlook.com ([2a01:111:f403:2608::61f] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1tNX2e-0000000DR4k-1W7M;
+	Tue, 17 Dec 2024 12:51:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNX0D-0000000DQih-3X3j
+	id 1tNX1Z-0000000DQuy-0L2X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 12:48:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bf4c+dk97OOkwKTS3/axtRyoDPCE0FjRg7KavcXSS5l3uvPpi6so9YVhKiS3CDg+tjUHQROYtNPBnxjB+WlUhi913laUZnEdy80o5PE8jiGttw4b/kKN0tqhJV3DmQIIYuIEWMwOixzu0rk8aqgLEJmr/hCVSYF+B/wkEk+zLvRoFwquAiX+KTeyv1sH+XZoP6GMM5ng8sN962ETIIojNiVHygsVcPo1FmwpEiTQVvFe6wg3MfckWAMIwWZi3gZsbQCjTDeUUrHeHeYCmaIpHiZOSTg1VDrGSP0dAZXKk4w4lZVhqrtad8t9jmdoTpNH/aGph2ORvBNfZ7OCJfqBAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zVFFrlr9VHkg0weFNiRaaF8/RkIXIM9JP5VaTND/I4Y=;
- b=FoLdrVcCLHs19+M8+eMDO6ec4zYZW8jrdVU+YPcEd3ozEYDkbitqlL/eCk/BauKMvulj0Dv7ZA0ZcLpNkHSk+hWfXpLuJE0bur4N5OXCN3koihGRljTGzY+Yls1O426Vs8WJvx6u7t165ZQ9uGpEjDm9DP+OAzQiQ8Lb7Fep2qUdZoyKa2G+qtaGCLdjpdW8Uu1mRxcO299xA2CbhORsMATV7E69iZSEmKrsuUrDc2U4EbvMQZa7lS/ssKwvdsxDGXyRCE0dyRbxW6Iv2PnOtx2mcbSfiuTd+fT8eLjsKoeOFQE8Z2PHxjfAKoHD+WVThUp95n+4Q3sh494eobvKvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zVFFrlr9VHkg0weFNiRaaF8/RkIXIM9JP5VaTND/I4Y=;
- b=SipIxAbeXHlapmDS5EFwWLT9gPAEtrSG69qSbN5pBs218lBhlDBetBpQ47IZe5b1eD0WI6IB8YKHDDFlBY/jY6yVL38boY1rnWZnyl54hLGKKYZ2Nm8dyMUOhO3G7v8RsNPW51m4ybtR9q8Dr5AAprNfsQH1JjGZK5dbEeS3U0UItbpm6Og07FIN+gZ/vC14LFGAId3aAxLM4uDy148SLsbuTqvRbFJUjqVLExEGpX4a9zufqQEcd1bKcw1cMVgJNNeKiOUoDBXRu/T5f5wyGYTxP+5LcItpyZoMTzKw4venqlIscH/Os0wQGN9i0rWuYOZRrMl7ydP4Nux4zMDZ0g==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU4PR04MB10744.eurprd04.prod.outlook.com (2603:10a6:10:590::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Tue, 17 Dec
- 2024 12:48:38 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8272.005; Tue, 17 Dec 2024
- 12:48:38 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-CC: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"marex@denx.de" <marex@denx.de>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH V2] soc: imx8m: Add remove function
-Thread-Topic: [PATCH V2] soc: imx8m: Add remove function
-Thread-Index: AQHbUCc8cDc1WI1Wg0iGevKj2ikCS7LqGniAgAANlmCAABmEAIAAIWgQ
-Date: Tue, 17 Dec 2024 12:48:38 +0000
-Message-ID: <PAXPR04MB84594B482B89EE34A900A53E88042@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20241217015826.1374497-1-peng.fan@oss.nxp.com>
- <20241217082637.i2ou6bbr3tc3uvof@pengutronix.de>
- <PAXPR04MB8459A91EEC932F41E24AE04488042@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <20241217104634.2fc7yo6hprhx2wnt@pengutronix.de>
-In-Reply-To: <20241217104634.2fc7yo6hprhx2wnt@pengutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU4PR04MB10744:EE_
-x-ms-office365-filtering-correlation-id: 13a4fbe4-671b-448a-4241-08dd1e99209f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?+dZsHtGXmA8sYyUukKkLSfrOXBQCIJdYVRMlEwUTU1m5YCykyoOrczLjR1pl?=
- =?us-ascii?Q?he0duTHp2NeHRKflgVdps/vkH/4gGU5w2OaeN1Dg1c7Gv1u36t9w5BlkZQvw?=
- =?us-ascii?Q?iMGTKnY2NCWc1h3+JJvrdPacDaLiuAh4W3O01vmB0MuQvg+zoEcS0+hm5+Dx?=
- =?us-ascii?Q?njWbGZAgTqgLSOhlplduBPsmaqK4Bj2NA0K6VhEnM3YbDqxrIMULDd08CCfT?=
- =?us-ascii?Q?TOSIEYKvIeCfgUcBVYSWB6cleg/8gNnze/+dqFVBz5a1TwV9/LiZTEiVFTeX?=
- =?us-ascii?Q?zh3gaIUbDYxJHk+COejJIIc7jLHW/JvaFu7oO74Sg72xVOVMiqmiJYjp8Bo3?=
- =?us-ascii?Q?RSSDmS3+0NswtHnq4tPb8xo+ZVLhYvDJwESsGefq3cSIRBwPlbxc6juTbWwO?=
- =?us-ascii?Q?hXZrOPXWl+CGlNIJbZN2oxzpX+AbzEEuR970kbuWHzhsx8SQy/vBIgdHf/1a?=
- =?us-ascii?Q?ikjFrOuTKK5+Tt718DLeWyNyn3Fo60ChV3XOoK9ZssX4xRlhVL4s+rlSFC6K?=
- =?us-ascii?Q?BYFMFE57Gq/ly1R5UbwuNl0KLlMfQ/VYMm2Fz7UlFbjjgePfMwf5HoDASZC9?=
- =?us-ascii?Q?cu1xNU5GDhcdsCYRIzgCX0Juk5S/oYSLXZjPbgTnm8RyQsBjLQ3P1z3GTrxo?=
- =?us-ascii?Q?5nIeZ4nyFeqarqGwq3DA145cDyoD496qag61J9QxnBiGCUcqqxn8VJ6lqlZZ?=
- =?us-ascii?Q?eMEwCWgi6y69vHfM7LGFmGYmKHIdDO41sndQCQYWfXhcpyah85ymv2mCDUKv?=
- =?us-ascii?Q?YEJI1ztzZIbjJZvDnlQusWN/rtxWUS4rVlLtEwXro0+wWt6XMbrgZevw5mSP?=
- =?us-ascii?Q?GpV38JAu14hYbEAoumeX8QXfRbI48GOjSzkBscf7HGoi8DaYAEeOhqTPU8oo?=
- =?us-ascii?Q?4J9rR2YnhY/eOQrycvmFoCrWmY1pAhMmrrx2HtgeyoVHIoDs78g34wmqgg28?=
- =?us-ascii?Q?qRaOJIDTlEl3um7wSBRQyyNh7HkPnJGUyNRNRPvbTfXEH2osZDW3z+l1FTCM?=
- =?us-ascii?Q?92DI8dgYomRpAeu6I9OTYK/qqCTYktchLVWB8RVscta7bAWw+cKYu0CKO3Yb?=
- =?us-ascii?Q?WBMGvXduuz1XpVAJVaUo/XrHpRzB91c0/DhfLY9rXVQX931n4pHyWkQi8wzy?=
- =?us-ascii?Q?dn/juRuO43YRL3o0/Jl99SxZm+3Q+BLDhlEJVpy06dsOD9rpWpqJdeL7qGEm?=
- =?us-ascii?Q?2TContyxmEExd4ZGHf/eYGqU+uw1MhRWOg5PWWBLrtfZ7oHJr6mIt/2tq6xr?=
- =?us-ascii?Q?C4rAugoRPUuQ0JsVov12G+fAPkZ2wGWHbnaRGgAAHTLlwlL+pG+Yj6tG6fln?=
- =?us-ascii?Q?2Yal9Wmh8wiNau4ShheE8AC3knqomNv4pE+iLMpQeVPYLgTW2RM+bwWtGIrk?=
- =?us-ascii?Q?o+O3J7w0OcmsfptIvp8S+pI2jdhl/woBdLBrOg+YCTUbZPo5Qbm67Uti5k4C?=
- =?us-ascii?Q?uKISOO9rQLnzXbtJgTLNSUri3A8NOvvB?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?y/RrzcKDDXxe/SmcQY2Yo5UQQdsCxivgZhWrl6CsQi4g9BuQZPmUWV9l2H2J?=
- =?us-ascii?Q?dqwCOjw3rs6BX+9eYwjuu/wBDfeQ/kfCJTQ6hVONACpZoZ0gcwRWJtfQyjxs?=
- =?us-ascii?Q?w740O6+s82XY7WuCEx2hr4gLDC/WTOqRZBS4va4bEc80QOsETubTOQ4fCvFx?=
- =?us-ascii?Q?0Q808zgsW8hl+LC2T3TCqimVyhULPkuJ/NlPwZGWRmLMwRsEbzd8xCrYyBo/?=
- =?us-ascii?Q?2/G69w4IlK1qsOMv4pal5zh+eodHjB98pw2fnPLcuL7ZDsPpSB6WDIusYlMj?=
- =?us-ascii?Q?ODr9PLTUHljm8vEImTZBbKXTuOoyeEzvhkjw0yUgUygKNJOZBjToMf6B0dt0?=
- =?us-ascii?Q?ZsrlobRrqZIeKfSQvZ0NOyDSBAgpViWlWM+/3f8XExBGZNGMTvnY1Zup6AnH?=
- =?us-ascii?Q?8cAa/zR6CD1JUXg0D/Pa7zDaEOM7negg0IYbpOZdwDs+vR82qjYxiRXYyhKe?=
- =?us-ascii?Q?WVK1ThULenXRwhir4dA6dblbtJhVhBh9w5rz3R0FkjRP4Lcd5ScsoK7FeLUD?=
- =?us-ascii?Q?sSQtLuV+exv55M+oq9NULqY6Df+qczZyhIU2Y9VG5AKtCXu5Ig+6YU9pW39u?=
- =?us-ascii?Q?AzgLGJOSkC3B7H9kSB3wZLDf9TXZLHo8TL4yofeoj9bdE+QPaCjhKotW2obA?=
- =?us-ascii?Q?e84PaJkNrKP4RriugeGAXKtZ9ooxoFB5BoWWj4FfD+EhQfqkOlAqGqSuRMTu?=
- =?us-ascii?Q?jRHFu3G6zMrxm4hNdSgdPTq55a0VyvIjuqfEzZVXEpuzObyGPL8h9mewL47g?=
- =?us-ascii?Q?R1vHn2BAgYNpG3M2Kpg5GpiK1R5thdJDSPpseMpkhbDSNYvFwwdozubgNX9B?=
- =?us-ascii?Q?3c3ck+nsr33nbwbaHzBF10tqtD5PWtdUpoJ+2tlibl8T4jG7BBZKuzFq52UZ?=
- =?us-ascii?Q?TnSHVYNAxGDR9rtHkKgtKJuMxAKpXJ5PFP155oX1dvQSMW24l9Pi4sb3YJdG?=
- =?us-ascii?Q?qHyAPSu2fzxNQcd0tEvuSoaoXTouCxnQXOPpKhZOtzeLxWFMZNXjTGTwSePF?=
- =?us-ascii?Q?xW33OxUM0ddM6YiEDaBeYRoOzBSK8BTCmZb4pHWXm5mhIq0CAL88LAbwZ1yT?=
- =?us-ascii?Q?Lms/dF9pAxGcGPtDBT7ZJv+hBrQqoOCKeeiSGuJD032REQQ3xoucKj+F0cH+?=
- =?us-ascii?Q?zTj+WScMPovItYdxy7GMt/G0HsZMbgVorefA9gY+4O3t6P47gtKJjYpTa0Xd?=
- =?us-ascii?Q?zLAyv+y5qsVxAklBSVL5hO7pOXVpPlfrCFoBvwVqqIenW1VTfUlMmxomq9E+?=
- =?us-ascii?Q?4VgQYg2DSF/QrD5Htp+Hs1j4sL4NxiYLhPJn8mz8T0NiptiXfLGt4ziJ5ruA?=
- =?us-ascii?Q?ouC71Cw95jv246WfAeYRZzps2Y8SaybP/iVua/b+fqrsRSOs34n2mCWdeFKs?=
- =?us-ascii?Q?K+5/gc/xyNVuJoAhtK2oGZPHJ0Ao68jtXc7YNjSG4It4m9x8OT88sz/Wr78I?=
- =?us-ascii?Q?rzlDN0Qn9dNSuslSjHKEb+ZECV2Aeiirboa2yTGT3/EZbJAG+EoUUzVCRt4Q?=
- =?us-ascii?Q?WRaEftH+YBOs36ajmznSJHp6hImaaYcthKbBr5yDG3jYHLsTJf5H7jKW4OGd?=
- =?us-ascii?Q?7voT/b2Zn17s0t43WPQ=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 17 Dec 2024 12:50:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734439803;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wFrk9B4Z7mdoTzpBnuLcBenrDHv77JNnBq7+6dFbTlI=;
+	b=KJzpCZ1fpFOxDRR7OUmv1fNofn55QUKPt9ZsqAg5sc7VagHVA5oJI0ofzIZu0LB8dCimNp
+	o1eQuV6an202TDd1rQMQusWDpX91jfisN5+epZAsQk8ZK9Kij9d5lYC6WzW39C1eNwSbCs
+	ohm23Y1jXf4sI8/p3TWqTwwlrtY0UYU=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-57-gBRmuIIzMXG8J03rDHLuxw-1; Tue, 17 Dec 2024 07:47:56 -0500
+X-MC-Unique: gBRmuIIzMXG8J03rDHLuxw-1
+X-Mimecast-MFC-AGG-ID: gBRmuIIzMXG8J03rDHLuxw
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43582d49dacso13811215e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 04:47:56 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734439675; x=1735044475;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wFrk9B4Z7mdoTzpBnuLcBenrDHv77JNnBq7+6dFbTlI=;
+        b=AZqiubZ/ZNG+2GsmWIc4iSey2QaLUGZhCgZQQa6sims2x8spGipoVW5P687KK0fTS8
+         OUklTEMhYkF1Bod9/4XGOVMqhpkWiC+zFMwFN8HXvw1Z0Otw7JDZCu22DyRCLDfcRWvt
+         oYTvADhNKHZnlWvz8MxcwHjDDMdiAQm7Ru9FwCZOYSjVgG2qS+ltgcbozDBRw6H8IOgo
+         DpWU56+WU9RYNBAeoDZe6vuwOV6B8aWWMXQNPy0VW32OWKNiicAdd4d0JgqNw6dRzfm6
+         GVjGZsv58/EieZpZL7KC2D3Q8wkl9qTbZqq24xp2GQVet9vk9gavjg/DSsq0NoOz95yY
+         8JUA==
+X-Forwarded-Encrypted: i=1; AJvYcCUPoxzLSM+sZ/FON5rqqEZK00TLrfLFa9FJIHoyYy8ow3fz2XueILkZphzLcOf38kpTPfZ8XCZ3oiZ14YDKYiCD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoYsaHRUZkMrtRzTa1EKFE41XyYqHnuAxF3Ny1YzjxzUhEzw3g
+	jI0H6L1B3J18Ya2c5kB+Fvr2GXhK4NVU9tZHNxZa3T2AEkmwr0tOkDFYPlIZ7nlXcNP0JxWLd9q
+	cMoPbnfrvD2xHKdwQZvjA30nl8b+7dhD92IS3w829a3zVWrWrWQGu1R3So4qtwQXQ8LVcqk9c
+X-Gm-Gg: ASbGncuNe61nixq2HmVlHEw5K8k+1ivfoLH14EVueoOay0GSz3HUpBmBtn2VSjQaGcf
+	vQCrgmEiRZjdBubt3k1Vsz/6cJLBrCcIbkH799zqpXTn8/YbRAidIMzyiQXRoZcQoATrtxWX+I8
+	mRQ9jIAMtvL59ZGEryirljd+QCwBmpt9Js48H9QGgifET5r+UVniH6r/h1ebYPoF6S0weIkjg+6
+	iLtsMRAESunZ16LeenXRN5YoeqhN6lz
+X-Received: by 2002:a05:6000:4026:b0:385:f07b:93da with SMTP id ffacd0b85a97d-3888e0ac2f9mr14313190f8f.47.1734439675428;
+        Tue, 17 Dec 2024 04:47:55 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFHwsMdejiDMGaW3ubV5E8L0Ddxnjtm2Ra+UQjEkInSvg2c1ns6wObShSkwv0I/OwFbb7T5qA==
+X-Received: by 2002:a05:6000:4026:b0:385:f07b:93da with SMTP id ffacd0b85a97d-3888e0ac2f9mr14313145f8f.47.1734439674844;
+        Tue, 17 Dec 2024 04:47:54 -0800 (PST)
+Received: from localhost ([2a01:e0a:b25:f902::ff])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80163b8sm10895392f8f.35.2024.12.17.04.47.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 04:47:54 -0800 (PST)
+Date: Tue, 17 Dec 2024 13:47:53 +0100
+From: Maxime Ripard <mripard@redhat.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Ying Liu <victor.liu@nxp.com>, Marek Vasut <marex@denx.de>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	Abel Vesa <abel.vesa@linaro.org>, Herve Codina <herve.codina@bootlin.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Ian Ray <ian.ray@ge.com>
+Subject: Re: [PATCH 4/5] clk: Add flag to prevent frequency changes when
+ walking subtrees
+Message-ID: <20241217-brown-wapiti-of-promotion-e3bec6@houat>
+References: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com>
+ <20241121-ge-ian-debug-imx8-clk-tree-v1-4-0f1b722588fe@bootlin.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13a4fbe4-671b-448a-4241-08dd1e99209f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2024 12:48:38.2359
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: F9AfNsEwHZl7U7fV7MM7QDPFmccmC5WJmwHkWDD7OqLGa2xyi0rAewnSkL3davGJhv8BhKj5UjnpAMu/EAxxVA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10744
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="naq5whtgj6roz2n5"
+Content-Disposition: inline
+In-Reply-To: <20241121-ge-ian-debug-imx8-clk-tree-v1-4-0f1b722588fe@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_044843_103842_0E6AEBC4 
-X-CRM114-Status: GOOD (  38.12  )
+X-CRM114-CacheID: sfid-20241217_045005_253226_035F72D5 
+X-CRM114-Status: GOOD (  33.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,192 +112,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH V2] soc: imx8m: Add remove function
->=20
-> On 24-12-17, Peng Fan wrote:
-> > > Subject: Re: [PATCH V2] soc: imx8m: Add remove function
-> > >
-> > > Hi Peng,
-> > >
-> > > thanks for you patch.
-> > >
-> > > On 24-12-17, Peng Fan (OSS) wrote:
-> > > > From: Peng Fan <peng.fan@nxp.com>
-> > > >
-> > > > Unregister the cpufreq device and soc device in remove path,
-> > > otherwise
-> > >
-> > > After reconsidiering the patch approach, I think we shouldn't add a
-> > > .remove() function and instead should make use of the
-> > > devm_add_action() mechanism for the proper unregister calls.
-> >
-> > Would you please share why devm_add_action is preferred?
-> >
-> > Something as below?
-> > +static void imx8m_soc_remove(void *data) {
-> > +       struct imx8m_soc_priv *priv =3D data;
-> > +
-> > +       if (priv->cpufreq_dev)
-> > +               platform_device_unregister(priv->cpufreq_dev);
-> > +
-> > +       soc_device_unregister(priv->soc_dev);
-> > +}
->=20
-> I would split it into two action functions due to the following reasons:
->  - cleanup during the probe() if something fails afterwards
->  - no need for the if(priv->cpufreq_dev) check.
->=20
-> > In Probe:
-> > +       return devm_add_action(&pdev->dev, imx8m_soc_remove,
-> priv);
->=20
-> The actions should be added directly after the succeful device
-> registration, e.g.
->  - after soc_device_register(soc_dev_attr) and
->  - after platform_device_register_simple()
 
-With two devm_add_action, I thought below code would work,
-devm_add_action(dev, soc_device_unregister, (void *)soc_dev);
-devm_add_action(dev, platform_device_unregister, (void *)cpufreq_dev);
+--naq5whtgj6roz2n5
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 4/5] clk: Add flag to prevent frequency changes when
+ walking subtrees
+MIME-Version: 1.0
 
-But devm_add_action expects: void (*action)(void *),
-So I need introduce two functions to wrap soc_device_unregister,
-and platform_device_unregister.
+On Thu, Nov 21, 2024 at 06:41:14PM +0100, Miquel Raynal wrote:
+> There are mainly two ways to change a clock frequency.
 
-This seems not good. Using one devm_add_action just need
-one wrap function, comments?
+There's much more than that :)
 
-Thanks,
-Peng.
+Off the top of my head, setting/clearing a min/max rate and changing the
+parent might also result in a rate change.
 
+And then, the firmware might get involved too.
+
+> The active way requires calling ->set_rate() in order to ask "on
+> purpose" for a frequency change. Otherwise, a clock can passively see
+> its frequency being updated depending on upstream clock frequency
+> changes. In most cases it is fine to just accept the new upstream
+> frequency - which by definition will have an impact on downstream
+> frequencies if we do not recalculate internal divisors. But there are
+> cases where, upon an upstream frequency change, we would like to
+> maintain a specific rate.
+
+Why is clk_set_rate_exclusive not enough?
+
+> As an example, on iMX8MP the video pipeline clocks are looking like this:
 >=20
-> Regards,
->    Marco
+>     video_pll1
+>        video_pll1_bypass
+>           video_pll1_out
+>              media_ldb
+>                 media_ldb_root_clk
+>              media_disp2_pix
+>                 media_disp2_pix_root_clk
+>              media_disp1_pix
+>                 media_disp1_pix_root_clk
 >=20
-> >
-> > Regards,
-> > Peng.
-> >
-> > >
-> > > > there will be warning when do removing test:
-> > > > sysfs: cannot create duplicate filename '/devices/platform/imx-
-> > > cpufreq-dt'
-> > > > CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> > > > 6.13.0-rc1-next-20241204 Hardware name: NXP i.MX8MPlus EVK
-> > > board (DT)
-> > > >
-> > > > Fixes: 9cc832d37799 ("soc: imx8m: Probe the SoC driver as
-> platform
-> > > > driver")
-> > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> > > > ---
-> > > >
-> > > > V2:
-> > > >  Add err check when create the cpufreq platform device
-> > >
-> > > thank you for addressing this.
-> > >
-> > > Regards,
-> > >   Marco
-> > >
-> > > >  drivers/soc/imx/soc-imx8m.c | 41
-> > > > +++++++++++++++++++++++++++++++------
-> > > >  1 file changed, 35 insertions(+), 6 deletions(-)
-> > > >
-> > > > diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-
-> > > imx8m.c
-> > > > index 8ac7658e3d52..97c8718c2aa1 100644
-> > > > --- a/drivers/soc/imx/soc-imx8m.c
-> > > > +++ b/drivers/soc/imx/soc-imx8m.c
-> > > > @@ -33,6 +33,11 @@ struct imx8_soc_data {
-> > > >  	int (*soc_revision)(u32 *socrev, u64 *socuid);  };
-> > > >
-> > > > +struct imx8m_soc_priv {
-> > > > +	struct soc_device *soc_dev;
-> > > > +	struct platform_device *cpufreq_dev; };
-> > > > +
-> > > >  #ifdef CONFIG_HAVE_ARM_SMCCC
-> > > >  static u32 imx8mq_soc_revision_from_atf(void)
-> > > >  {
-> > > > @@ -195,10 +200,11 @@ static __maybe_unused const struct
-> > > of_device_id
-> > > > imx8_soc_match[] =3D {  static int imx8m_soc_probe(struct
-> > > > platform_device *pdev)  {
-> > > >  	struct soc_device_attribute *soc_dev_attr;
-> > > > +	struct platform_device *cpufreq_dev;
-> > > >  	const struct imx8_soc_data *data;
-> > > >  	struct device *dev =3D &pdev->dev;
-> > > >  	const struct of_device_id *id;
-> > > > -	struct soc_device *soc_dev;
-> > > > +	struct imx8m_soc_priv *priv;
-> > > >  	u32 soc_rev =3D 0;
-> > > >  	u64 soc_uid =3D 0;
-> > > >  	int ret;
-> > > > @@ -207,6 +213,10 @@ static int imx8m_soc_probe(struct
-> > > platform_device *pdev)
-> > > >  	if (!soc_dev_attr)
-> > > >  		return -ENOMEM;
-> > > >
-> > > > +	priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> > > > +	if (!priv)
-> > > > +		return -ENOMEM;
-> > > > +
-> > > >  	soc_dev_attr->family =3D "Freescale i.MX";
-> > > >
-> > > >  	ret =3D of_property_read_string(of_root, "model",
-> > > > &soc_dev_attr->machine); @@ -235,21 +245,40 @@ static int
-> > > imx8m_soc_probe(struct platform_device *pdev)
-> > > >  	if (!soc_dev_attr->serial_number)
-> > > >  		return -ENOMEM;
-> > > >
-> > > > -	soc_dev =3D soc_device_register(soc_dev_attr);
-> > > > -	if (IS_ERR(soc_dev))
-> > > > -		return PTR_ERR(soc_dev);
-> > > > +	priv->soc_dev =3D soc_device_register(soc_dev_attr);
-> > > > +	if (IS_ERR(priv->soc_dev))
-> > > > +		return PTR_ERR(priv->soc_dev);
-> > > >
-> > > >  	pr_info("SoC: %s revision %s\n", soc_dev_attr->soc_id,
-> > > >  		soc_dev_attr->revision);
-> > > >
-> > > > -	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT))
-> > > > -		platform_device_register_simple("imx-cpufreq-dt", -1,
-> > > NULL, 0);
-> > > > +	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT)) {
-> > > > +		cpufreq_dev =3D platform_device_register_simple("imx-
-> > > cpufreq-dt", -1, NULL, 0);
-> > > > +		if (!IS_ERR(cpufreq_dev))
-> > > > +			priv->cpufreq_dev =3D cpufreq_dev;
-> > > > +		else
-> > > > +			dev_err(dev, "Failed to create imx-cpufreq-
-> > > dev device: %ld",
-> > > > +				PTR_ERR(cpufreq_dev));
-> > > > +	}
-> > > > +
-> > > > +	platform_set_drvdata(pdev, priv);
-> > > >
-> > > >  	return 0;
-> > > >  }
-> > > >
-> > > > +static void imx8m_soc_remove(struct platform_device *pdev) {
-> > > > +	struct imx8m_soc_priv *priv =3D platform_get_drvdata(pdev);
-> > > > +
-> > > > +	if (priv->cpufreq_dev)
-> > > > +		platform_device_unregister(priv->cpufreq_dev);
-> > > > +
-> > > > +	soc_device_unregister(priv->soc_dev);
-> > > > +}
-> > > > +
-> > > >  static struct platform_driver imx8m_soc_driver =3D {
-> > > >  	.probe =3D imx8m_soc_probe,
-> > > > +	.remove	=3D imx8m_soc_remove,
-> > > >  	.driver =3D {
-> > > >  		.name =3D "imx8m-soc",
-> > > >  	},
-> > > > --
-> > > > 2.37.1
-> > > >
-> > > >
-> > > >
-> >
+> media_ldb, media_disp2_pix and media_disp1_pix are simple divisors from
+> which we might require 2 or 3 different rates, whereas video_pll1 is a
+> very configurable PLL which can achieve almost any frequency. There are
+> however relationships between them, typically the ldb clock must be 3.5
+> or 7 times higher than the media_disp* clocks.
+>=20
+> Currently, if eg. media_disp2_pix is set to 71900000Hz, when media_ldb
+> is (later) set to 503300000Hz, media_disp2_pix is updated to 503300000Hz
+> as well, which clearly does not make sense. We want it to stay at
+> 71900000Hz during the subtree walk.
+>=20
+> Achieving this is the purpose of the new clock flag:
+> CLK_NO_RATE_CHANGE_DURING_PROPAGATION
+>=20
+> Please note, if the kernel was setting the ldb clock before a pixel
+> clock, the result would be different, and this is also what this patch
+> is trying to solve.
+>=20
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+> In all cases, the LDB must be aware of the device configuration, and ask
+> for a clever frequency, we will never cope with slightly aware drivers
+> when addressing this kind of subtle situation.
+> ---
+>  drivers/clk/clk.c            | 9 +++++++--
+>  include/linux/clk-provider.h | 2 ++
+>  2 files changed, 9 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index adfc5bfb93b5a65b6f58c52ca2c432d651f7dd7d..94d93470479e77769e63e9746=
+2b176261103b552 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -1927,7 +1927,6 @@ long clk_get_accuracy(struct clk *clk)
+>  }
+>  EXPORT_SYMBOL_GPL(clk_get_accuracy);
+> =20
+> -__maybe_unused
+>  static unsigned long clk_determine(struct clk_core *core, unsigned long =
+rate)
+>  {
+>  	struct clk_rate_request req =3D {};
+> @@ -2272,7 +2271,13 @@ static void clk_calc_subtree(struct clk_core *core)
+>  {
+>  	struct clk_core *child;
+> =20
+> -	core->new_rate =3D clk_recalc(core, core->parent->new_rate);
+> +	if (core->flags & CLK_NO_RATE_CHANGE_DURING_PROPAGATION) {
+> +		core->new_rate =3D clk_determine(core, core->rate);
+> +		if (!core->new_rate)
+> +			core->new_rate =3D clk_recalc(core, core->parent->new_rate);
+> +	} else {
+> +		core->new_rate =3D clk_recalc(core, core->parent->new_rate);
+> +	}
+
+Sorry, it's not clear to me how it works. How will the parent clocks
+will get notified to adjust their dividers in that scenario? Also, what
+if they can't?
+
+Maxime
+
+--naq5whtgj6roz2n5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2Fy9QAKCRAnX84Zoj2+
+dpvBAYC0JG03qrT2KpyfhWHAqJ5sfZn8G59BZ1L3eb8a1FP1Ve8FJuWCBsWF9bVX
+CXfoByQBf0rzds0VJsH7s7/WVkbIlNGw6T1cDMU2x6WW2ywBG8h0QGxr3b8AwMlw
+5MsXjXxJHA==
+=pi7k
+-----END PGP SIGNATURE-----
+
+--naq5whtgj6roz2n5--
+
 
