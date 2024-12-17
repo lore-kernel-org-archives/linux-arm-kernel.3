@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF3CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F374E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v04OWbQd9zX8QRAIcZg32okF7NJuZUewsqMWxepfYKI=; b=g0VhSL3q3Qvc2MBXPoJGvLxwOF
-	N3tknjA6fTeZIwyRzcVO+ZlM9m5G99X1cZaOA6LNsd+bjxjRioDaD62EJgZj65doPSkO1RRPV32j5
-	o0KG7ZTWqaiZ2dTUf1seNbmEX1aJDYXK9mkQTIs5n0BHiUg5SvfucbnwIZB8K07FF/4o6BF5WmekZ
-	CjXbqH8vBFuRPMG0KF8Huc2l3jS414Qyz5rEj1Beo8IEVF2dh7FFlMyel19A9xNZMRQAoLCBCH8eq
-	IWPxkVn/8sC5rBUKPdjmbzIpH8AM1OgtjSLvkby7dz8+YMfvBOasDXaB3X7b5HyR3tEJACdDJmwV8
-	5CPIobMA==;
+	bh=8kqATcq6RoeK6gDGTkkoDMpRBzzXugdXsQ4VF49y8kA=; b=InGzXLpL1bXfy4vNi1ViSoViz7
+	TVB9q2MPA58eAtJC5AsVCL9IjGvf011b9OvpwhryPlQsb7CM+MIJt39BNTBZrTxn4tUANIfoj8tO2
+	HFq2p7hhSVNOfXIPVYMIbxFPVxybiEeAUvXjlOaiM6hZLOUnoaN/LH1j6dKA0+Hxgk/qNg8LY7+Uq
+	zrivAUVgn28reIJ7aN7on1Br3XnCubDoFA8SxKX9uvtV5tIGPK4eaX2Il9UP4cgeL34oNqNFUIFB0
+	LIREfZg+CMi524UzaYtUYPFNROTlg+MYuk0T7lKdEPzuQV5twMTGghLHImIwBdQ51UsX55Mj5PccZ
+	NaIaHNzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVCZ-0000000DBI8-43A2;
-	Tue, 17 Dec 2024 10:53:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNVGG-0000000DC0R-0PSw;
+	Tue, 17 Dec 2024 10:57:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVBU-0000000DB6F-1pz3
+	id 1tNVFB-0000000DBri-2q3f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 10:52:13 +0000
+	Tue, 17 Dec 2024 10:56:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 332E95C66FF;
-	Tue, 17 Dec 2024 10:51:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0698CC4CED3;
-	Tue, 17 Dec 2024 10:52:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39AE7A40A5C;
+	Tue, 17 Dec 2024 10:54:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C2B4C4CED3;
+	Tue, 17 Dec 2024 10:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734432731;
-	bh=pbhED1WbvB9d+y73Nfhx61ssmrE6bWmVhm/9iC3ocu0=;
+	s=k20201202; t=1734432960;
+	bh=NS1IvYP+0vQDhKLZQWwGEG18/PVpO+pMPWRt8Qw7xiw=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XVOlyztkQvyaa+I6Xxgm1t/sm7HrLdvCK9q5B5+qKIfOFD70QPSOfuNecJnkyt2I2
-	 Q9RZIt/bdmjTUknNXb74KyBIbTBIyFv3tYN8GrNG62ifYSjq5orFhzWVzvQw+jLuzR
-	 tP9IwheTiZKs0Xj72EAb8kcIrZgfkEKZJJ1JoldTYY6dTsuriadr/ccbXMwbE0KLKo
-	 9Dw+eWYab34nAGaHkODlESVlo/7xSbUEMfOq661DbGJJP/0lMkQIqhy/LiTzsMY9Lo
-	 b/nggm7T11t954G1VK79a5Ewva+8KeMT83tibMH+sFxBCcXPV7drLDB8NrXgKp9jH7
-	 LEfiFBLhWJnbg==
+	b=WRTYVhlpsxFgoWDpX90PCgXIn+l8vtZtPdS25P4neZY3A3QAvn7TbdqjhL7yPdUH+
+	 qEdutgCjAH2qWQaSl2x9L3W2HVWMdMTz26X/yX7LIbqCCq2zI8aR/aay+lG6jKKPja
+	 ZM2Z+OxqLcQjQza4l9yykfMyR+xyIgWZj+1R9d3GNKUkS0lpRW0idd88Tz0y8HpJr4
+	 jc4bbjGxQIhKwZ0te8QV4HSl9Q4ITa0hjoCR8kmZPq9RiWjgRTGTU7B1xZypR6EvaJ
+	 LiwZI/tCO2B1xduU8uPdXAET5lTQrXwc7kRsW9brTgr69ZV9rLLimIx9WIW/x0pIN2
+	 7Djy4CrR4/jlA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tNVBQ-004WXi-OM;
-	Tue, 17 Dec 2024 10:52:08 +0000
-Date: Tue, 17 Dec 2024 10:52:08 +0000
-Message-ID: <861py6sht3.wl-maz@kernel.org>
+	id 1tNVF8-004Wc7-M9;
+	Tue, 17 Dec 2024 10:55:58 +0000
+Date: Tue, 17 Dec 2024 10:55:58 +0000
+Message-ID: <86zfkur329.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Quentin Perret <qperret@google.com>
 Cc: Oliver Upton <oliver.upton@linux.dev>,
@@ -64,10 +64,10 @@ Cc: Oliver Upton <oliver.upton@linux.dev>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 01/18] KVM: arm64: Change the layout of enum pkvm_page_state
-In-Reply-To: <20241216175803.2716565-2-qperret@google.com>
+Subject: Re: [PATCH v3 03/18] KVM: arm64: Make hyp_page::order a u8
+In-Reply-To: <20241216175803.2716565-4-qperret@google.com>
 References: <20241216175803.2716565-1-qperret@google.com>
-	<20241216175803.2716565-2-qperret@google.com>
+	<20241216175803.2716565-4-qperret@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -78,8 +78,8 @@ X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.co
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_025212_569258_2DF18064 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20241217_025601_777703_0789982A 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,69 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 16 Dec 2024 17:57:46 +0000,
+On Mon, 16 Dec 2024 17:57:48 +0000,
 Quentin Perret <qperret@google.com> wrote:
 > 
-> The 'concrete' (a.k.a non-meta) page states are currently encoded using
-> software bits in PTEs. For performance reasons, the abstract
-> pkvm_page_state enum uses the same bits to encode these states as that
-> makes conversions from and to PTEs easy.
-> 
-> In order to prepare the ground for moving the 'concrete' state storage
-> to the hyp vmemmap, re-arrange the enum to use bits 0 and 1 for this
-> purpose.
-> 
-> No functional changes intended.
+> We don't need 16 bits to store the hyp page order, and we'll need some
+> bits to store page ownership data soon, so let's reduce the order
+> member.
 > 
 > Signed-off-by: Quentin Perret <qperret@google.com>
 > ---
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 16 +++++++++-------
->  1 file changed, 9 insertions(+), 7 deletions(-)
+>  arch/arm64/kvm/hyp/include/nvhe/gfp.h    |  6 +++---
+>  arch/arm64/kvm/hyp/include/nvhe/memory.h |  5 +++--
+>  arch/arm64/kvm/hyp/nvhe/page_alloc.c     | 14 +++++++-------
+>  3 files changed, 13 insertions(+), 12 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 0972faccc2af..8c30362af2b9 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -24,25 +24,27 @@
->   */
->  enum pkvm_page_state {
->  	PKVM_PAGE_OWNED			= 0ULL,
-> -	PKVM_PAGE_SHARED_OWNED		= KVM_PGTABLE_PROT_SW0,
-> -	PKVM_PAGE_SHARED_BORROWED	= KVM_PGTABLE_PROT_SW1,
-> -	__PKVM_PAGE_RESERVED		= KVM_PGTABLE_PROT_SW0 |
-> -					  KVM_PGTABLE_PROT_SW1,
-> +	PKVM_PAGE_SHARED_OWNED		= BIT(0),
-> +	PKVM_PAGE_SHARED_BORROWED	= BIT(1),
-> +	__PKVM_PAGE_RESERVED		= BIT(0) | BIT(1),
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/gfp.h b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
+> index 97c527ef53c2..f1725bad6331 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/gfp.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
+> @@ -7,7 +7,7 @@
+>  #include <nvhe/memory.h>
+>  #include <nvhe/spinlock.h>
 >  
->  	/* Meta-states which aren't encoded directly in the PTE's SW bits */
-> -	PKVM_NOPAGE,
-> +	PKVM_NOPAGE			= BIT(2),
->  };
-> +#define PKVM_PAGE_META_STATES_MASK	(~(BIT(0) | BIT(1)))
+> -#define HYP_NO_ORDER	USHRT_MAX
+> +#define HYP_NO_ORDER	0xff
 
-Shouldn't that be ~__PKVM_PAGE_RESERVED, given that you just defined it?
-
->  
->  #define PKVM_PAGE_STATE_PROT_MASK	(KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
->  static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
->  						 enum pkvm_page_state state)
->  {
-> -	return (prot & ~PKVM_PAGE_STATE_PROT_MASK) | state;
-> +	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
-> +	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
-> +	return prot;
->  }
->  
->  static inline enum pkvm_page_state pkvm_getstate(enum kvm_pgtable_prot prot)
->  {
-> -	return prot & PKVM_PAGE_STATE_PROT_MASK;
-> +	return FIELD_GET(PKVM_PAGE_STATE_PROT_MASK, prot);
->  }
->  
->  struct host_mmu {
-
-Thanks,
+nit: (u8)(~0)?
 
 	M.
 
