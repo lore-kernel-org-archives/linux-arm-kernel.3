@@ -4,95 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C773E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAA9E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gk4RcM9aoEcltTSIN+UAXyLDoftjcHRAxwNl+W6CGjA=; b=CXrid4DLVIEqiGEyyV8t6IKIBX
-	0CuEuXoe2saIRXzOvmMJCjwBWnsToZ8g39qTRgdlRn89298rWG4Tu/tgF0vpk1lQamUhjreEQwt0F
-	XWtwL3bQQqYdxiyf2qW0AWXdMOfCL4xwF5n3Xm5IUl1DHJj8ODclqDXgBTpzhk9mCXWIvg6MzXgmP
-	wSf7q8iimbfXvwAhAaq8jCJYqw/zcJWRi8ljGyp20QznpljsNDsyXszQqpx8reKfHPKYQgWoMmB8l
-	K3sYV6mYEpLxDcnWKs3QyDefediXMWNqEzQaPARzixxvk9ez7jjnx2HZawSiQPVDXuZwTMF1aLTVh
-	kMKKvXpA==;
+	bh=aQL5qS2pe+X8kDeHnQVqNSkQhE3qui4U3YosF4AomTs=; b=LgEnDc3J/+YNyNemRxa3NfIH4W
+	J45USCtjKSQY+dp/gslC1NS7qUaeIZmaOaNV6flJbmSHchfTQYuwi0q+niwl0dbE5pDZswmJZwaR3
+	WEvnZre30Mi8vqyKHDRb9lx7vng5Exq6hmEi3HQj7aHlE3r4Jp/hwW30S1L362yuSrogETbs3OVLI
+	jiBdLKnEpWnZd+9cC2YLunbghkXi6toVcUr0cP76jQ0J+4Ym+60i4Va3EEYHvYOruxBt7hLw16tu1
+	MsS0OWOhq18RhqcUixFDN3n+8o7ka3YdWAt40Z4YVIxCEmZCiRX9UszGEGbXFMxVZfzAbsW10K4hf
+	GHvbWXlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSMo-0000000Cd97-2Oud;
-	Tue, 17 Dec 2024 07:51:42 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tNSNs-0000000CdK1-270t;
+	Tue, 17 Dec 2024 07:52:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNSLD-0000000Ccu7-2q8n;
-	Tue, 17 Dec 2024 07:50:04 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aa6c0d1833eso877510366b.1;
-        Mon, 16 Dec 2024 23:50:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734421802; x=1735026602; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gk4RcM9aoEcltTSIN+UAXyLDoftjcHRAxwNl+W6CGjA=;
-        b=hq7mVEuq1MDzPHPZQYPlAApvfvEjFVoL9jyWjhQMutXeH+K6m2hMtOyMaL37Y/nbDP
-         Fr47xmsaPuBRSNwdWf6YqJ/eGT2jDK9P673ssVNJeIBsCl//UGQIuvoi8VrYs/iJVRu2
-         E25vPFORSKD2ZJfKWaAtNz8iixoVDx6yz0ztOErr1edxBCm0vAXmzSDoSOIWEeeJGWz0
-         /1bqW5n47KeIp1LylLWLp0IjWW3ixthjAf+KmYEqcetP/RbkEYtJH9Funp4E4TQyoPAb
-         W5vmdiWX9P8uTf867EGbYgpPJx6/hfbIIfftLAfsBFtcQTB4e6fDCIxqIgXdQD/w5O6I
-         5K5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734421802; x=1735026602;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gk4RcM9aoEcltTSIN+UAXyLDoftjcHRAxwNl+W6CGjA=;
-        b=oUqG/wyr9QDhcZCrCxoDgaT8E7+uUe+Zb3+OvYe+fHcZi9jyb8W1pM0eX6O0/Yt0ve
-         +rEXm8ff2w3m6yaEtP16ilt6JKozxTotmAWIhArRZO/0sUIrgOP1p+dxLmeHLuV1bott
-         h8aQLxTqLN1pXCk/TKlYrwDwSwegca6lOhzshAiPjAy3G9uDu/vWersLelwclvPVPVvs
-         Z8ktK3jB+ANyVBZQHWI/VwFTqrhtRJuhTvYov0VfzRAah3eGLBXQs/bCuNmkyEmjiwVL
-         EcZBC8Ryq3Bb63Ph+vWiKdRXNB1eTSv1ePQFQmffx5EG2OeZA+sSyEtw47jdsyUV+KCM
-         UkCA==
-X-Forwarded-Encrypted: i=1; AJvYcCURutz6osOq2spuJ5zoNIy8BIJ7teMg+i1nliIyQoK9plbzolS69KTUo1M0pKvp16qwhQQ136VLohly5UFjI2VX@lists.infradead.org, AJvYcCXFoA5H2OLJhL4b929ghu3xk1EAgpRhWfGZ4Cf5CS4KbhbgmRCUxKyRjsLnfKDfiHuVt1Ma10q9gafnOnIQuHo=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwddKpsAIOO+5+8OgKqg3tq08zhk/LAmGH3l+F3y1JZTSs0rMoT
-	qbvCLbAEeqpZa+NbH+IJ9UBltdmg6uM6t2H9TD+8uKryBTFOypOr
-X-Gm-Gg: ASbGncvwRLuXKUxd8hzXL7Krv+uQ02bacPNq3cWmUalJ7MWxBntNKsrI47iVi3yDerF
-	GVfDnWD0Bor3PZn5K33825olh/aPKE2OzbjpAqUaE3SYYFiJiyXijAlNB3SnNl3Em6izpUuPuKq
-	pyRVrZ/xkjFACw1OA2qbmgY+UNBUgeqIF+snaxv4fmCrZgQLMUeTmGc63axicLroRLPQn9xNh+o
-	QodXDkxGin8qK8C+HjuGIJAHAfNXFCWYx6UxXONsqTo05yWxY4qI4e7u0B30djs/K886+Uo2KlP
-	Wj2ZfHNQnWrvNoYLxNH3x8A+59TlCcW1qtVXXwmn3KrcDS+7C7W2Mohe1rG5jbgb0fSKOwe4RnI
-	Dh3PRKsB78VmqNn5rb2G7iOsk9ZJMxnY=
-X-Google-Smtp-Source: AGHT+IHbCRByMXBtQymiivOVjXWEpEJtUdTZwAxA7kak7fLa7ofz1GdLtTXeNFcTkveghwVJFd7PcQ==
-X-Received: by 2002:a17:906:7da:b0:aab:de31:52d0 with SMTP id a640c23a62f3a-aabde315b3dmr177449966b.18.1734421801590;
-        Mon, 16 Dec 2024 23:50:01 -0800 (PST)
-Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aab963b33b0sm416941066b.184.2024.12.16.23.50.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Dec 2024 23:50:01 -0800 (PST)
-Message-ID: <e1e271e3-b684-46d2-879d-e3481d25a712@gmail.com>
-Date: Tue, 17 Dec 2024 08:49:58 +0100
+	id 1tNSMB-0000000Cd2I-0SUk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 07:51:04 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH6231h005880;
+	Tue, 17 Dec 2024 07:50:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aQL5qS2pe+X8kDeHnQVqNSkQhE3qui4U3YosF4AomTs=; b=OZ8yJ3Ui89Z5Uhi/
+	hG8EzDrXmLKBaWRwiFLOaf8rzxUlqMe2t1X4hxPR38Av+6ip/R0oldSRCP69dYx2
+	geMNfS518MXgen3E/CZ/3ClOCXUlPJx31CbQZ1f5pvz8YMliJwbuVmdie9XE9XXi
+	H5afzyZhhISur0pXSnsP7wN6bBw80Kpa5WFbsMu2LBS+YIHO7LpigQS1y0fYVagU
+	xEp4390g2kObKdUuvKCEjM80AnB7H6vlVBZM0bPgnoF0sgfh4N6FYAuDe++EmBzP
+	hiAnjEcOt8RQ5JHvcIzjsUec6f5eOK13jKkNxy1S+C0XM24oNzY0jJYFZ1gcuILv
+	6f3AFw==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k3p48908-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 07:50:54 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BH7orrD021258
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 07:50:53 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Dec
+ 2024 23:50:49 -0800
+Message-ID: <f839a280-aa76-4963-9580-a6e089136bb5@quicinc.com>
+Date: Tue, 17 Dec 2024 15:50:47 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/3] net: pcs: pcs-mtk-lynxi: implement
- pcs_inband_caps() method
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Daniel Golle <daniel@makrotopia.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexander Couzens <lynxis@fe80.eu>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <Z1F1b8eh8s8T627j@shell.armlinux.org.uk>
- <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
-From: Eric Woudstra <ericwouds@gmail.com>
+Subject: Re: [PATCH v1 0/2] Add Qualcomm extended CTI support
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Alexander
+ Shishkin <alexander.shishkin@linux.intel.com>,
+        Andy Gross
+	<agross@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+References: <20240903121847.6964-1-quic_jinlmao@quicinc.com>
+ <742d1cec-13ec-4f08-b7f3-611c6d602b3b@quicinc.com>
 Content-Language: en-US
-In-Reply-To: <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <742d1cec-13ec-4f08-b7f3-611c6d602b3b@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: GLJg2LnoYiq9y_XL-l9hMt1WX2YF8zQO
+X-Proofpoint-GUID: GLJg2LnoYiq9y_XL-l9hMt1WX2YF8zQO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ mlxlogscore=999 phishscore=0 spamscore=0 clxscore=1011 suspectscore=0
+ mlxscore=0 adultscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412170063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_235003_727504_354A6B45 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20241216_235103_265498_C69139E1 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,56 +113,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 12/5/24 10:42 AM, Russell King (Oracle) wrote:
-> Report the PCS in-band capabilities to phylink for the LynxI PCS.
+
+On 2024/10/10 17:49, Jinlong Mao wrote:
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> Reviewed-by: Daniel Golle <daniel@makrotopia.org>
-> ---
->  drivers/net/pcs/pcs-mtk-lynxi.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
 > 
-> diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
-> index 4f63abe638c4..7de804535229 100644
-> --- a/drivers/net/pcs/pcs-mtk-lynxi.c
-> +++ b/drivers/net/pcs/pcs-mtk-lynxi.c
-> @@ -88,6 +88,21 @@ static struct mtk_pcs_lynxi *pcs_to_mtk_pcs_lynxi(struct phylink_pcs *pcs)
->  	return container_of(pcs, struct mtk_pcs_lynxi, pcs);
->  }
->  
-> +static unsigned int mtk_pcs_lynxi_inband_caps(struct phylink_pcs *pcs,
-> +					      phy_interface_t interface)
-> +{
-> +	switch (interface) {
-> +	case PHY_INTERFACE_MODE_1000BASEX:
-> +	case PHY_INTERFACE_MODE_2500BASEX:
+> On 2024/9/3 20:18, Mao Jinlong wrote:
+>> The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
+>> It allows a debugger to send to trigger events to a processor or to send
+>> a trigger event to one or more processors when a trigger event occurs on
+>> another processor on the same SoC, or even between SoCs.
+>>
+>> QCOM extended CTI supports up to 128 triggers. And some of the register
+>> offsets are changed.
+>>
+>> The commands to configure CTI triggers are the same as ARM's CTI.
+>>
+> 
+> Hi Reviewers,
+> 
+> Could you please help to provide some comments from the design point of 
+> view for the changes ?
+> 
+> The main difference of extended CTI to the normal CTI is that the
+> address mapping is changed and it supports a max of 128 trigger signals.
+> 
+> On one soc, there will be both normal arm CTIs and QCOM extended CTIs.
+> 
+> As max trigger number becomes 128. So triger registers becomes 4.
+> 
+> Like CTITRIGINSTATUS  --- > CTITRIGINSTATUS_EXTENDED(n)     (0x040 + (4 
+> * n))  n is 0 to 4.
+> 
+> Thanks
+> Jinlong Mao
 
-Isn't this the place now where to report to phylink, that this PCS does
-not support in-band at 2500base-x?
+Gentle reminder for the review from the code design point of view.
 
-Best regards,
-
-Eric
-
-> +	case PHY_INTERFACE_MODE_SGMII:
-> +	case PHY_INTERFACE_MODE_QSGMII:
-> +		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
-> +
-> +	default:
-> +		return 0;
-> +	}
-> +}
-> +
->  static void mtk_pcs_lynxi_get_state(struct phylink_pcs *pcs,
->  				    struct phylink_link_state *state)
->  {
-> @@ -241,6 +256,7 @@ static void mtk_pcs_lynxi_disable(struct phylink_pcs *pcs)
->  }
->  
->  static const struct phylink_pcs_ops mtk_pcs_lynxi_ops = {
-> +	.pcs_inband_caps = mtk_pcs_lynxi_inband_caps,
->  	.pcs_get_state = mtk_pcs_lynxi_get_state,
->  	.pcs_config = mtk_pcs_lynxi_config,
->  	.pcs_an_restart = mtk_pcs_lynxi_restart_an,
+> 
+>> Mao Jinlong (2):
+>>    dt-bindings: arm: Add Qualcomm extended CTI
+>>    coresight: cti: Add Qualcomm extended CTI support
+>>
+>>   .../bindings/arm/arm,coresight-cti.yaml       |  14 ++
+>>   .../hwtracing/coresight/coresight-cti-core.c  |  75 +++++++----
+>>   .../coresight/coresight-cti-platform.c        |  16 ++-
+>>   .../hwtracing/coresight/coresight-cti-sysfs.c | 124 ++++++++++++++----
+>>   drivers/hwtracing/coresight/coresight-cti.h   | 123 +++++++++++------
+>>   5 files changed, 253 insertions(+), 99 deletions(-)
+>>
+> 
 
 
