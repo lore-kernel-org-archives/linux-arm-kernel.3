@@ -4,66 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75587E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 21:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74659E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 21:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TcLiLiTkrT1ZOgtNZ0/LRyp4Uk9ZY3x7+K0ZAo4Rt4=; b=qpW3RbAxx/iakL6rDib4G3TVhJ
-	bgP84EqnxfumuzHJ7ipoG5VAnoPWfAx+jxWccxXTDBvKGpE0XgmD8/5G42xSjYrU7gaOwQjjt9v8v
-	c4qBTEQm4DZmKLZUr6AzOshhfbLlsUM3yRJiEoCIbad/1HphSnVkor0SRK/MlQHaelZMRIq/vdOtb
-	7oFKatPs7hgkk2e78vcq8E60mOMZfBaJgzwkf8qQgH/7/azcSoJc/kr2USDPbec/6MInblcQz2zUJ
-	7aUrmU30nff4GzjGla5Gky3j4SoHRRoar55Z8XrZJh27ECcQe8ZdX7T/ne1hbiqYD+EW4qPG+x76S
-	GDjB5eyA==;
+	bh=wW2QXiZBbLE1wGkEl5zN+AiTfa/9pU9LFPSeGXm2aqg=; b=GXBKHdDVrUdKeg5a+6dXJyfJYi
+	X6NLqf01WJEqPwoXYSW0JO8vvoY8NmhTKeLNPnxt4ZAIjRwlfdRl/AiGbZ+ZdCcseRKlfPW7WzfDd
+	xKtjqvdReF83aS2MOByCakzNSA4LpyJ0mzSJBbkC3d7tw3QNLoW8oHIhHCzgsXuEeT+nQFmJ9TiHm
+	1IRcjkWSnPCaCTiAFjuJUDoe4/E5IkugQK4cg2/Mwl8+rSDmK7DnMbfvvHzZfVMzI2nkWsnlxreA1
+	CmbBSQaaBEhfPsOYs/DOoDqdQS6JP3MCc3GRivU0sefPrJHiOkfS+0IL3qWGFlLQIaZhUM5yldAVn
+	H+ishBeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNfFN-0000000EswF-1fKf;
-	Tue, 17 Dec 2024 21:36:53 +0000
-Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
+	id 1tNfGR-0000000Et7W-07Fu;
+	Tue, 17 Dec 2024 21:37:59 +0000
+Received: from ip-89-177-23-149.bb.vodafone.cz ([89.177.23.149] helo=ixit.cz)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNf0M-0000000EqVN-2MeG
+	id 1tNf1b-0000000EqfS-1Vfm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 21:21:23 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1734470480;
+	Tue, 17 Dec 2024 21:22:42 +0000
+Received: from [192.168.86.31] (99-158-29-91.lightspeed.miamfl.sbcglobal.net [99.158.29.91])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id E228816553D;
+	Tue, 17 Dec 2024 22:22:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1734470555;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0TcLiLiTkrT1ZOgtNZ0/LRyp4Uk9ZY3x7+K0ZAo4Rt4=;
-	b=hd1Dn/97T+NoQc/hRkwhWdtzP43/slWQvmsaGSweQIX8IDm8NpLbSNX+5B1+TUfdrRObC1
-	uEyDi8M6QFSDcmbf5ugAowFLytn7XT33HSavk7UC3dcIVBcGig+M3pxNjbLgp4ZZ2+u+kg
-	HlzjMiyc5g6VTP/GTFa1086NetX/ZWk=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev
-Cc: Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 07/18] KVM: arm64: Remap PMUv3 events onto hardware
-Date: Tue, 17 Dec 2024 13:20:37 -0800
-Message-Id: <20241217212048.3709204-8-oliver.upton@linux.dev>
-In-Reply-To: <20241217212048.3709204-1-oliver.upton@linux.dev>
-References: <20241217212048.3709204-1-oliver.upton@linux.dev>
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=wW2QXiZBbLE1wGkEl5zN+AiTfa/9pU9LFPSeGXm2aqg=;
+	b=PPdU/2bK5myHkzFdmAK4Og92ZTDgAbIJsFCJddzmjOXImeU8masyqUcXSsGLMqeAUYJg3F
+	oQe4iJEFqoucuFYWGWlE/YjZH53EdujIhz2i0/ECguQPRuSUyToBMyLFVhZQSKDcas5759
+	pkOPT1LxrgeOmXGg0d2xgyFyjU1lNXg=
+Message-ID: <bf619a0e-f470-4bdb-8d09-2cea172bfe8e@ixit.cz>
+Date: Tue, 17 Dec 2024 16:22:29 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH 2/2] dt-bindings: media: imx219: Describe sensor address
+ using the reg property
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241217024206.1700170-1-david@ixit.cz>
+ <20241217024206.1700170-2-david@ixit.cz>
+ <6djxfcuroxlth2th3tpuesauhdnowatzgnyhesewjfz32v6gbz@q2dj7jsxiqlw>
+Content-Language: en-US
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <6djxfcuroxlth2th3tpuesauhdnowatzgnyhesewjfz32v6gbz@q2dj7jsxiqlw>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_132122_741658_65B94DC9 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20241217_132241_233716_D2C96254 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,54 +127,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the provided helper to map PMUv3 event IDs onto hardware, if the
-driver exposes such a helper. This is expected to be quite rare, and
-only useful for non-PMUv3 hardware.
+Oh, the checkpatch script keeps warning me every time I commit—I guess 
+it needs to be addressed.
 
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
----
- arch/arm64/kvm/pmu-emul.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+I currently use:
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 7f20da32266e..6d7fc0051ad8 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -692,6 +692,18 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
- 	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
- }
- 
-+static u64 kvm_map_pmu_event(struct kvm *kvm, u64 eventsel)
-+{
-+	struct arm_pmu *pmu = kvm->arch.arm_pmu;
-+	int hw_event;
-+
-+	if (!pmu->map_pmuv3_event)
-+		return eventsel;
-+
-+	hw_event = pmu->map_pmuv3_event(eventsel);
-+	return (hw_event < 0) ? eventsel : hw_event;
-+}
-+
- /**
-  * kvm_pmu_create_perf_event - create a perf event for a counter
-  * @pmc: Counter context
-@@ -730,13 +742,13 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
- 
- 	memset(&attr, 0, sizeof(struct perf_event_attr));
- 	attr.type = arm_pmu->pmu.type;
-+	attr.config = kvm_map_pmu_event(vcpu->kvm, eventsel);
- 	attr.size = sizeof(attr);
- 	attr.pinned = 1;
- 	attr.disabled = !kvm_pmu_counter_is_enabled(pmc);
- 	attr.exclude_user = !kvm_pmc_counts_at_el0(pmc);
- 	attr.exclude_hv = 1; /* Don't count EL2 events */
- 	attr.exclude_host = 1; /* Don't count host events */
--	attr.config = eventsel;
- 
- 	/*
- 	 * Filter events at EL1 (i.e. vEL2) when in a hyp context based on the
+[diff]
+   srcprefix = ./
+   dstprefix = ./
+
+Originally, my intention was to use:
+
+[diff]
+   noprefix = true
+
+This was to make it easier to copy-paste directly into the shell (git 
+log -p, etc.). However, it ended up breaking too many applications. 
+Setting srcprefix and dstprefix instead keeps everything working properly.
+
+Is there any chance a patch allowing a ./ prefix could make it into 
+checkpatch? What do you think, Krzysztof?
+
+Thank you,
+David
+
+On 17/12/2024 02:40, Krzysztof Kozlowski wrote:
+> On Mon, Dec 16, 2024 at 09:41:51PM -0500, David Heidelberg wrote:
+>> Use the reg property instead of text in the description.
+>> Drop useless description of reg property.
+>>
+>> Signed-off-by: David Heidelberg <david@ixit.cz>
+>> ---
+>>   Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml | 5 ++---
+>>   1 file changed, 2 insertions(+), 3 deletions(-)
+>>
+>> diff --git ./Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml ./Documentation/devicetree/bindings/media/i2c/sony,imx219.yaml
+> 
+> You are using non-standard tools to generate patches. See checkpatch
+> warnings.
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> Best regards,
+> Krzysztof
+> 
+
 -- 
-2.39.5
+David Heidelberg
 
 
