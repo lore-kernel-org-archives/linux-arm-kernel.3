@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1C0E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 15:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4331AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 15:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TchuKGq+dig15EcLZCSDG31lZ99NIZy4rM7k0XNC1M=; b=W6bfaeI1XuU1U7yaHgSd4odO/F
-	IlZhXCOsFnoZWaxDEzmgXXv9dt2O/gdfP9OShK1pwnPAZIlb81iTF/WC3J4zQsmHa/RdKwMAzhe2X
-	ZzgWSG3gv33zwGGIdSnSZAw59f4Q2q9mQuOUedrVXQRa4lZwlk6H1MputJGbaBahuTOWjhoceoJaR
-	G6LsO9GoQUyDUwN/iZrooy51SAAhU7p2SdnzKrqzHRK9U7IKEO15Pd7aFSgNqp65Y56iCzI8g2ypr
-	RbdWRMvxvEMY2ZLjS1u4rErVTY9d6k5ZhuOxU/3EnhwJ6iQToowq7IFx5TkMTIXAmEicx8maA0Rc/
-	bx1mrBdw==;
+	bh=gzvWv+GOtOVLc44EeBLzWTbjnqozsFdoa/4GIfG82rs=; b=LI45z0LwqoOAwH7Xo+MwqhYXBG
+	mBz99vNmQ3IJUgeFJyMN0z6eKjQ6pmDKa1mxQDI/AU14hNABxA8CTWGLcPqOvn49LSsJ/tqbatIND
+	0WwNqbYo3LxP2PnPwl+l1IH6lhJQBA9AGf9vCefnb68dAHq4yX90qF/o67xutD6CikH8DB7X/BMNC
+	JOYsPn70lnlgzkKqzWQiSxEgTUOS/KEzcjY0bJsFFEPkmIQmr4XPsQh/sTM+B1vfz84RSkPTYTcPV
+	zq8chSUMbGQu4yYzIF6yo+MtGbeyIg2aMEkng3GxrmxYb5pRKxxiIw+F/p5E3GntBIf2oYvrm2gSZ
+	tAvLm1Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZxl-0000000E3V0-3ilx;
-	Tue, 17 Dec 2024 15:58:21 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tNZyq-0000000E3jb-0iWm;
+	Tue, 17 Dec 2024 15:59:28 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZk1-0000000DzwS-15WB;
-	Tue, 17 Dec 2024 15:44:10 +0000
+	id 1tNZk2-0000000DzxJ-37QF;
+	Tue, 17 Dec 2024 15:44:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734450248;
-	bh=fAhCqUlJUykyfnddmIPnuD/T+NLqQJHxQR1aJ9NSwy4=;
+	s=mail; t=1734450249;
+	bh=87wdNAj+9TRq1PE+cNYOq+MAsiESQC3aLLnpxNZe5tU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=USYPN0N1KLJ/n/fBa/lzAC+avZE2bdR70VlLYJXAAzOOd2JeAr8Jn//hFjIVvoC4X
-	 9OoF6ErRUNLcgQBHt9RalpG/ymcv2JWGnyrP2RPLa2GOSTfoMy9tqXSGXsEYe40A70
-	 4lsiTVIts1eO9/0Jj8ADIRrXL6ki22Y/RrBkg4B3TUZrNJRfugLxIVotPvnVUEmUhY
-	 eKH0nd3XYlAL/8vWqgFtVepga+sWPrFuoOR8177+BOkmLwbNDJiVPsnh9K35tmAWsU
-	 lNV1Id9ojDaYjbh7zhIgjCzO6xfjNyQCLjYiwJudl689ImNxDoQH8FBGWf4ITxYoUZ
-	 Rqe2h8Cc/YDZA==
+	b=NXb4d80smfvOGEhpZwnIlJ77eHE/U0fb0hogWtDBPK7YZjoUDPwUE4coiEjAh45Dj
+	 thpmlykLHa9CM++dTNsKmtrSSmVS67PZHrNwWJmU35NUN31W1LWh//lbZKxQ+Ct8qn
+	 OwdAWWcKxU4djwQkPC7oPaJX248hiJvyp9eCt8F9a9TlumgUGt3ffhTsqJ+dKM6IR8
+	 vje6+oO6uVG70eqW39XXm+QoUVsiscimzAFX9Er/GvMBACQCH+4+fFufq6ij/BkSDw
+	 bczAiL+b5NDkmA7jiYAujp6EeZP6nxtKLL3knB/AVCqR5pp9W+55DKYJpzrFIhG114
+	 QEXyQ/aUpJEGw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD36917E3788;
-	Tue, 17 Dec 2024 16:44:06 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E49817E37B1;
+	Tue, 17 Dec 2024 16:44:08 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -66,19 +66,18 @@ Cc: p.zabel@pengutronix.de,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
-	dmitry.baryshkov@linaro.org,
-	Guillaume Ranquet <granquet@baylibre.com>
-Subject: [PATCH v3 12/33] drm/mediatek: hdmi: Use regmap instead of iomem for main registers
-Date: Tue, 17 Dec 2024 16:43:24 +0100
-Message-ID: <20241217154345.276919-13-angelogioacchino.delregno@collabora.com>
+	dmitry.baryshkov@linaro.org
+Subject: [PATCH v3 13/33] drm/mediatek: mtk_hdmi: Fix typo for aud_sampe_size member
+Date: Tue, 17 Dec 2024 16:43:25 +0100
+Message-ID: <20241217154345.276919-14-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_074409_602091_065F783E 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20241217_074410_926363_3F6FC1E7 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,443 +92,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guillaume Ranquet <granquet@baylibre.com>
+Rename member aud_sampe_size of struct hdmi_audio_param to
+aud_sample_size to fix a typo and enhance readability.
 
-In preparation for the addition of a new version of the HDMI IP
-which will need to share its iospace between multiple subdrivers,
-and in preparation for moving out the common bits between the two,
-migrate this driver to fully use regmap.
+This commit brings no functional changes.
 
-Signed-off-by: Guillaume Ranquet <granquet@baylibre.com>
+Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 173 +++++++++++-----------------
- 1 file changed, 65 insertions(+), 108 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 9131c2fdfba8..d84fae1de2b0 100644
+index d84fae1de2b0..d2f1d6286fbc 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -170,7 +170,7 @@ struct mtk_hdmi {
- 	u32 ibias_up;
- 	struct regmap *sys_regmap;
- 	unsigned int sys_offset;
--	void __iomem *regs;
-+	struct regmap *regs;
- 	enum hdmi_colorspace csp;
- 	struct platform_device *audio_pdev;
- 	struct hdmi_audio_param aud_param;
-@@ -187,50 +187,10 @@ static inline struct mtk_hdmi *hdmi_ctx_from_bridge(struct drm_bridge *b)
- 	return container_of(b, struct mtk_hdmi, bridge);
- }
+@@ -136,7 +136,7 @@ enum hdmi_aud_channel_swap_type {
  
--static u32 mtk_hdmi_read(struct mtk_hdmi *hdmi, u32 offset)
--{
--	return readl(hdmi->regs + offset);
--}
--
--static void mtk_hdmi_write(struct mtk_hdmi *hdmi, u32 offset, u32 val)
--{
--	writel(val, hdmi->regs + offset);
--}
--
--static void mtk_hdmi_clear_bits(struct mtk_hdmi *hdmi, u32 offset, u32 bits)
--{
--	void __iomem *reg = hdmi->regs + offset;
--	u32 tmp;
--
--	tmp = readl(reg);
--	tmp &= ~bits;
--	writel(tmp, reg);
--}
--
--static void mtk_hdmi_set_bits(struct mtk_hdmi *hdmi, u32 offset, u32 bits)
--{
--	void __iomem *reg = hdmi->regs + offset;
--	u32 tmp;
--
--	tmp = readl(reg);
--	tmp |= bits;
--	writel(tmp, reg);
--}
--
--static void mtk_hdmi_mask(struct mtk_hdmi *hdmi, u32 offset, u32 val, u32 mask)
--{
--	void __iomem *reg = hdmi->regs + offset;
--	u32 tmp;
--
--	tmp = readl(reg);
--	tmp = (tmp & ~mask) | (val & mask);
--	writel(tmp, reg);
--}
--
- static void mtk_hdmi_hw_vid_black(struct mtk_hdmi *hdmi, bool black)
- {
--	mtk_hdmi_mask(hdmi, VIDEO_CFG_4, black ? GEN_RGB : NORMAL_PATH,
--		      VIDEO_SOURCE_SEL);
-+	regmap_update_bits(hdmi->regs, VIDEO_SOURCE_SEL,
-+			   VIDEO_CFG_4, black ? GEN_RGB : NORMAL_PATH);
- }
+ struct hdmi_audio_param {
+ 	enum hdmi_audio_coding_type aud_codec;
+-	enum hdmi_audio_sample_size aud_sampe_size;
++	enum hdmi_audio_sample_size aud_sample_size;
+ 	enum hdmi_aud_input_type aud_input_type;
+ 	enum hdmi_aud_i2s_fmt aud_i2s_fmt;
+ 	enum hdmi_aud_mclk aud_mclk;
+@@ -1033,7 +1033,7 @@ static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
  
- static void mtk_hdmi_hw_make_reg_writable(struct mtk_hdmi *hdmi, bool enable)
-@@ -265,12 +225,12 @@ static void mtk_hdmi_hw_1p4_version_enable(struct mtk_hdmi *hdmi, bool enable)
- 
- static void mtk_hdmi_hw_aud_mute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_set_bits(hdmi, GRL_AUDIO_CFG, AUDIO_ZERO);
-+	regmap_set_bits(hdmi->regs, GRL_AUDIO_CFG, AUDIO_ZERO);
- }
- 
- static void mtk_hdmi_hw_aud_unmute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_clear_bits(hdmi, GRL_AUDIO_CFG, AUDIO_ZERO);
-+	regmap_clear_bits(hdmi->regs, GRL_AUDIO_CFG, AUDIO_ZERO);
- }
- 
- static void mtk_hdmi_hw_reset(struct mtk_hdmi *hdmi)
-@@ -279,25 +239,25 @@ static void mtk_hdmi_hw_reset(struct mtk_hdmi *hdmi)
- 			   HDMI_RST, HDMI_RST);
- 	regmap_update_bits(hdmi->sys_regmap, hdmi->sys_offset + HDMI_SYS_CFG1C,
- 			   HDMI_RST, 0);
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG3, CFG3_CONTROL_PACKET_DELAY);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG3, CFG3_CONTROL_PACKET_DELAY);
- 	regmap_update_bits(hdmi->sys_regmap, hdmi->sys_offset + HDMI_SYS_CFG1C,
- 			   ANLG_ON, ANLG_ON);
- }
- 
- static void mtk_hdmi_hw_enable_notice(struct mtk_hdmi *hdmi, bool enable_notice)
- {
--	mtk_hdmi_mask(hdmi, GRL_CFG2, enable_notice ? CFG2_NOTICE_EN : 0,
--		      CFG2_NOTICE_EN);
-+	regmap_update_bits(hdmi->regs, GRL_CFG2, CFG2_NOTICE_EN,
-+			   enable_notice ? CFG2_NOTICE_EN : 0);
- }
- 
- static void mtk_hdmi_hw_write_int_mask(struct mtk_hdmi *hdmi, u32 int_mask)
- {
--	mtk_hdmi_write(hdmi, GRL_INT_MASK, int_mask);
-+	regmap_write(hdmi->regs, GRL_INT_MASK, int_mask);
- }
- 
- static void mtk_hdmi_hw_enable_dvi_mode(struct mtk_hdmi *hdmi, bool enable)
- {
--	mtk_hdmi_mask(hdmi, GRL_CFG1, enable ? CFG1_DVI : 0, CFG1_DVI);
-+	regmap_update_bits(hdmi->regs, GRL_CFG1, CFG1_DVI, enable ? CFG1_DVI : 0);
- }
- 
- static void mtk_hdmi_hw_send_info_frame(struct mtk_hdmi *hdmi, u8 *buffer,
-@@ -343,22 +303,22 @@ static void mtk_hdmi_hw_send_info_frame(struct mtk_hdmi *hdmi, u8 *buffer,
- 		dev_err(hdmi->dev, "Unknown infoframe type %d\n", frame_type);
- 		return;
- 	}
--	mtk_hdmi_clear_bits(hdmi, ctrl_reg, ctrl_frame_en);
--	mtk_hdmi_write(hdmi, GRL_INFOFRM_TYPE, frame_type);
--	mtk_hdmi_write(hdmi, GRL_INFOFRM_VER, frame_ver);
--	mtk_hdmi_write(hdmi, GRL_INFOFRM_LNG, frame_len);
-+	regmap_clear_bits(hdmi->regs, ctrl_reg, ctrl_frame_en);
-+	regmap_write(hdmi->regs, GRL_INFOFRM_TYPE, frame_type);
-+	regmap_write(hdmi->regs, GRL_INFOFRM_VER, frame_ver);
-+	regmap_write(hdmi->regs, GRL_INFOFRM_LNG, frame_len);
- 
--	mtk_hdmi_write(hdmi, GRL_IFM_PORT, checksum);
-+	regmap_write(hdmi->regs, GRL_IFM_PORT, checksum);
- 	for (i = 0; i < frame_len; i++)
--		mtk_hdmi_write(hdmi, GRL_IFM_PORT, frame_data[i]);
-+		regmap_write(hdmi->regs, GRL_IFM_PORT, frame_data[i]);
- 
--	mtk_hdmi_set_bits(hdmi, ctrl_reg, ctrl_frame_en);
-+	regmap_set_bits(hdmi->regs, ctrl_reg, ctrl_frame_en);
- }
- 
- static void mtk_hdmi_hw_send_aud_packet(struct mtk_hdmi *hdmi, bool enable)
- {
--	mtk_hdmi_mask(hdmi, GRL_SHIFT_R2, enable ? 0 : AUDIO_PACKET_OFF,
--		      AUDIO_PACKET_OFF);
-+	regmap_update_bits(hdmi->regs, AUDIO_PACKET_OFF,
-+			   GRL_SHIFT_R2, enable ? 0 : AUDIO_PACKET_OFF);
- }
- 
- static void mtk_hdmi_hw_config_sys(struct mtk_hdmi *hdmi)
-@@ -379,44 +339,44 @@ static void mtk_hdmi_hw_set_deep_color_mode(struct mtk_hdmi *hdmi)
- 
- static void mtk_hdmi_hw_send_av_mute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG4, CTRL_AVMUTE);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG4, CTRL_AVMUTE);
- 	usleep_range(2000, 4000);
--	mtk_hdmi_set_bits(hdmi, GRL_CFG4, CTRL_AVMUTE);
-+	regmap_set_bits(hdmi->regs, GRL_CFG4, CTRL_AVMUTE);
- }
- 
- static void mtk_hdmi_hw_send_av_unmute(struct mtk_hdmi *hdmi)
- {
--	mtk_hdmi_mask(hdmi, GRL_CFG4, CFG4_AV_UNMUTE_EN,
--		      CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET);
-+	regmap_update_bits(hdmi->regs, GRL_CFG4, CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET,
-+			   CFG4_AV_UNMUTE_EN);
- 	usleep_range(2000, 4000);
--	mtk_hdmi_mask(hdmi, GRL_CFG4, CFG4_AV_UNMUTE_SET,
--		      CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET);
-+	regmap_update_bits(hdmi->regs, GRL_CFG4, CFG4_AV_UNMUTE_EN | CFG4_AV_UNMUTE_SET,
-+			   CFG4_AV_UNMUTE_SET);
- }
- 
- static void mtk_hdmi_hw_ncts_enable(struct mtk_hdmi *hdmi, bool on)
- {
--	mtk_hdmi_mask(hdmi, GRL_CTS_CTRL, on ? 0 : CTS_CTRL_SOFT,
--		      CTS_CTRL_SOFT);
-+	regmap_update_bits(hdmi->regs, GRL_CTS_CTRL, CTS_CTRL_SOFT,
-+			   on ? 0 : CTS_CTRL_SOFT);
- }
- 
- static void mtk_hdmi_hw_ncts_auto_write_enable(struct mtk_hdmi *hdmi,
- 					       bool enable)
- {
--	mtk_hdmi_mask(hdmi, GRL_CTS_CTRL, enable ? NCTS_WRI_ANYTIME : 0,
--		      NCTS_WRI_ANYTIME);
-+	regmap_update_bits(hdmi->regs, GRL_CTS_CTRL, NCTS_WRI_ANYTIME,
-+			   enable ? NCTS_WRI_ANYTIME : 0);
- }
- 
- static void mtk_hdmi_hw_msic_setting(struct mtk_hdmi *hdmi,
- 				     struct drm_display_mode *mode)
- {
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG4, CFG4_MHL_MODE);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG4, CFG4_MHL_MODE);
- 
- 	if (mode->flags & DRM_MODE_FLAG_INTERLACE &&
- 	    mode->clock == 74250 &&
- 	    mode->vdisplay == 1080)
--		mtk_hdmi_clear_bits(hdmi, GRL_CFG2, CFG2_MHL_DE_SEL);
-+		regmap_clear_bits(hdmi->regs, GRL_CFG2, CFG2_MHL_DE_SEL);
- 	else
--		mtk_hdmi_set_bits(hdmi, GRL_CFG2, CFG2_MHL_DE_SEL);
-+		regmap_set_bits(hdmi->regs, GRL_CFG2, CFG2_MHL_DE_SEL);
- }
- 
- static void mtk_hdmi_hw_aud_set_channel_swap(struct mtk_hdmi *hdmi,
-@@ -444,7 +404,7 @@ static void mtk_hdmi_hw_aud_set_channel_swap(struct mtk_hdmi *hdmi,
- 		swap_bit = LFE_CC_SWAP;
+ 	hdmi->csp = HDMI_COLORSPACE_RGB;
+ 	aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+-	aud_param->aud_sampe_size = HDMI_AUDIO_SAMPLE_SIZE_16;
++	aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+ 	aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
+ 	aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
+ 	aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
+@@ -1529,14 +1529,14 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
+ 	switch (daifmt->fmt) {
+ 	case HDMI_I2S:
+ 		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+-		hdmi_params.aud_sampe_size = HDMI_AUDIO_SAMPLE_SIZE_16;
++		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+ 		hdmi_params.aud_input_type = HDMI_AUD_INPUT_I2S;
+ 		hdmi_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
+ 		hdmi_params.aud_mclk = HDMI_AUD_MCLK_128FS;
  		break;
- 	}
--	mtk_hdmi_mask(hdmi, GRL_CH_SWAP, swap_bit, 0xff);
-+	regmap_update_bits(hdmi->regs, GRL_CH_SWAP, 0xff, swap_bit);
- }
- 
- static void mtk_hdmi_hw_aud_set_bit_num(struct mtk_hdmi *hdmi,
-@@ -465,7 +425,7 @@ static void mtk_hdmi_hw_aud_set_bit_num(struct mtk_hdmi *hdmi,
+ 	case HDMI_SPDIF:
+ 		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+-		hdmi_params.aud_sampe_size = HDMI_AUDIO_SAMPLE_SIZE_16;
++		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+ 		hdmi_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
  		break;
- 	}
- 
--	mtk_hdmi_mask(hdmi, GRL_AOUT_CFG, val, AOUT_BNUM_SEL_MASK);
-+	regmap_update_bits(hdmi->regs, GRL_AOUT_CFG, AOUT_BNUM_SEL_MASK, val);
- }
- 
- static void mtk_hdmi_hw_aud_set_i2s_fmt(struct mtk_hdmi *hdmi,
-@@ -473,7 +433,7 @@ static void mtk_hdmi_hw_aud_set_i2s_fmt(struct mtk_hdmi *hdmi,
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_CFG0);
-+	regmap_read(hdmi->regs, GRL_CFG0, &val);
- 	val &= ~(CFG0_W_LENGTH_MASK | CFG0_I2S_MODE_MASK);
- 
- 	switch (i2s_fmt) {
-@@ -497,7 +457,7 @@ static void mtk_hdmi_hw_aud_set_i2s_fmt(struct mtk_hdmi *hdmi,
- 		val |= CFG0_I2S_MODE_I2S | CFG0_W_LENGTH_16BIT;
- 		break;
- 	}
--	mtk_hdmi_write(hdmi, GRL_CFG0, val);
-+	regmap_write(hdmi->regs, GRL_CFG0, val);
- }
- 
- static void mtk_hdmi_hw_audio_config(struct mtk_hdmi *hdmi, bool dst)
-@@ -506,14 +466,14 @@ static void mtk_hdmi_hw_audio_config(struct mtk_hdmi *hdmi, bool dst)
- 	u8 val;
- 
- 	/* Disable high bitrate, set DST packet normal/double */
--	mtk_hdmi_clear_bits(hdmi, GRL_AOUT_CFG, HIGH_BIT_RATE_PACKET_ALIGN);
-+	regmap_clear_bits(hdmi->regs, GRL_AOUT_CFG, HIGH_BIT_RATE_PACKET_ALIGN);
- 
- 	if (dst)
- 		val = DST_NORMAL_DOUBLE | SACD_DST;
- 	else
- 		val = 0;
- 
--	mtk_hdmi_mask(hdmi, GRL_AUDIO_CFG, val, mask);
-+	regmap_update_bits(hdmi->regs, GRL_AUDIO_CFG, mask, val);
- }
- 
- static void mtk_hdmi_hw_aud_set_i2s_chan_num(struct mtk_hdmi *hdmi,
-@@ -554,10 +514,10 @@ static void mtk_hdmi_hw_aud_set_i2s_chan_num(struct mtk_hdmi *hdmi,
- 		i2s_uv = I2S_UV_CH_EN(0);
- 	}
- 
--	mtk_hdmi_write(hdmi, GRL_CH_SW0, ch_switch & 0xff);
--	mtk_hdmi_write(hdmi, GRL_CH_SW1, (ch_switch >> 8) & 0xff);
--	mtk_hdmi_write(hdmi, GRL_CH_SW2, (ch_switch >> 16) & 0xff);
--	mtk_hdmi_write(hdmi, GRL_I2S_UV, i2s_uv);
-+	regmap_write(hdmi->regs, GRL_CH_SW0, ch_switch & 0xff);
-+	regmap_write(hdmi->regs, GRL_CH_SW1, (ch_switch >> 8) & 0xff);
-+	regmap_write(hdmi->regs, GRL_CH_SW2, (ch_switch >> 16) & 0xff);
-+	regmap_write(hdmi->regs, GRL_I2S_UV, i2s_uv);
- }
- 
- static void mtk_hdmi_hw_aud_set_input_type(struct mtk_hdmi *hdmi,
-@@ -565,7 +525,7 @@ static void mtk_hdmi_hw_aud_set_input_type(struct mtk_hdmi *hdmi,
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_CFG1);
-+	regmap_read(hdmi->regs, GRL_CFG1, &val);
- 	if (input_type == HDMI_AUD_INPUT_I2S &&
- 	    (val & CFG1_SPDIF) == CFG1_SPDIF) {
- 		val &= ~CFG1_SPDIF;
-@@ -573,7 +533,7 @@ static void mtk_hdmi_hw_aud_set_input_type(struct mtk_hdmi *hdmi,
- 		(val & CFG1_SPDIF) == 0) {
- 		val |= CFG1_SPDIF;
- 	}
--	mtk_hdmi_write(hdmi, GRL_CFG1, val);
-+	regmap_write(hdmi->regs, GRL_CFG1, val);
- }
- 
- static void mtk_hdmi_hw_aud_set_channel_status(struct mtk_hdmi *hdmi,
-@@ -582,13 +542,13 @@ static void mtk_hdmi_hw_aud_set_channel_status(struct mtk_hdmi *hdmi,
- 	int i;
- 
- 	for (i = 0; i < 5; i++) {
--		mtk_hdmi_write(hdmi, GRL_I2S_C_STA0 + i * 4, channel_status[i]);
--		mtk_hdmi_write(hdmi, GRL_L_STATUS_0 + i * 4, channel_status[i]);
--		mtk_hdmi_write(hdmi, GRL_R_STATUS_0 + i * 4, channel_status[i]);
-+		regmap_write(hdmi->regs, GRL_I2S_C_STA0 + i * 4, channel_status[i]);
-+		regmap_write(hdmi->regs, GRL_L_STATUS_0 + i * 4, channel_status[i]);
-+		regmap_write(hdmi->regs, GRL_R_STATUS_0 + i * 4, channel_status[i]);
- 	}
- 	for (; i < 24; i++) {
--		mtk_hdmi_write(hdmi, GRL_L_STATUS_0 + i * 4, 0);
--		mtk_hdmi_write(hdmi, GRL_R_STATUS_0 + i * 4, 0);
-+		regmap_write(hdmi->regs, GRL_L_STATUS_0 + i * 4, 0);
-+		regmap_write(hdmi->regs, GRL_R_STATUS_0 + i * 4, 0);
- 	}
- }
- 
-@@ -596,13 +556,13 @@ static void mtk_hdmi_hw_aud_src_reenable(struct mtk_hdmi *hdmi)
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_MIX_CTRL);
-+	regmap_read(hdmi->regs, GRL_MIX_CTRL, &val);
- 	if (val & MIX_CTRL_SRC_EN) {
- 		val &= ~MIX_CTRL_SRC_EN;
--		mtk_hdmi_write(hdmi, GRL_MIX_CTRL, val);
-+		regmap_write(hdmi->regs, GRL_MIX_CTRL, val);
- 		usleep_range(255, 512);
- 		val |= MIX_CTRL_SRC_EN;
--		mtk_hdmi_write(hdmi, GRL_MIX_CTRL, val);
-+		regmap_write(hdmi->regs, GRL_MIX_CTRL, val);
- 	}
- }
- 
-@@ -610,10 +570,10 @@ static void mtk_hdmi_hw_aud_src_disable(struct mtk_hdmi *hdmi)
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_MIX_CTRL);
-+	regmap_read(hdmi->regs, GRL_MIX_CTRL, &val);
- 	val &= ~MIX_CTRL_SRC_EN;
--	mtk_hdmi_write(hdmi, GRL_MIX_CTRL, val);
--	mtk_hdmi_write(hdmi, GRL_SHIFT_L1, 0x00);
-+	regmap_write(hdmi->regs, GRL_MIX_CTRL, val);
-+	regmap_write(hdmi->regs, GRL_SHIFT_L1, 0x00);
- }
- 
- static void mtk_hdmi_hw_aud_set_mclk(struct mtk_hdmi *hdmi,
-@@ -621,7 +581,7 @@ static void mtk_hdmi_hw_aud_set_mclk(struct mtk_hdmi *hdmi,
- {
- 	u32 val;
- 
--	val = mtk_hdmi_read(hdmi, GRL_CFG5);
-+	regmap_read(hdmi->regs, GRL_CFG5, &val);
- 	val &= CFG5_CD_RATIO_MASK;
- 
- 	switch (mclk) {
-@@ -644,7 +604,7 @@ static void mtk_hdmi_hw_aud_set_mclk(struct mtk_hdmi *hdmi,
- 		val |= CFG5_FS256;
- 		break;
- 	}
--	mtk_hdmi_write(hdmi, GRL_CFG5, val);
-+	regmap_write(hdmi->regs, GRL_CFG5, val);
- }
- 
- struct hdmi_acr_n {
-@@ -728,9 +688,9 @@ static void do_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi, unsigned int n,
- 	unsigned char val[NCTS_BYTES];
- 	int i;
- 
--	mtk_hdmi_write(hdmi, GRL_NCTS, 0);
--	mtk_hdmi_write(hdmi, GRL_NCTS, 0);
--	mtk_hdmi_write(hdmi, GRL_NCTS, 0);
-+	regmap_write(hdmi->regs, GRL_NCTS, 0);
-+	regmap_write(hdmi->regs, GRL_NCTS, 0);
-+	regmap_write(hdmi->regs, GRL_NCTS, 0);
- 	memset(val, 0, sizeof(val));
- 
- 	val[0] = (cts >> 24) & 0xff;
-@@ -743,7 +703,7 @@ static void do_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi, unsigned int n,
- 	val[6] = n & 0xff;
- 
- 	for (i = 0; i < NCTS_BYTES; i++)
--		mtk_hdmi_write(hdmi, GRL_NCTS, val[i]);
-+		regmap_write(hdmi->regs, GRL_NCTS, val[i]);
- }
- 
- static void mtk_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi,
-@@ -758,8 +718,7 @@ static void mtk_hdmi_hw_aud_set_ncts(struct mtk_hdmi *hdmi,
- 	dev_dbg(hdmi->dev, "%s: sample_rate=%u, clock=%d, cts=%u, n=%u\n",
- 		__func__, sample_rate, clock, n, cts);
- 
--	mtk_hdmi_mask(hdmi, DUMMY_304, AUDIO_I2S_NCTS_SEL_64,
--		      AUDIO_I2S_NCTS_SEL);
-+	regmap_update_bits(hdmi->regs, DUMMY_304, AUDIO_I2S_NCTS_SEL, AUDIO_I2S_NCTS_SEL_64);
- 	do_hdmi_hw_aud_set_ncts(hdmi, n, cts);
- }
- 
-@@ -879,7 +838,7 @@ static void mtk_hdmi_aud_set_input(struct mtk_hdmi *hdmi)
- 	bool dst;
- 
- 	mtk_hdmi_hw_aud_set_channel_swap(hdmi, HDMI_AUD_SWAP_LFE_CC);
--	mtk_hdmi_set_bits(hdmi, GRL_MIX_CTRL, MIX_CTRL_FLAT);
-+	regmap_set_bits(hdmi->regs, GRL_MIX_CTRL, MIX_CTRL_FLAT);
- 
- 	if (hdmi->aud_param.aud_input_type == HDMI_AUD_INPUT_SPDIF &&
- 	    hdmi->aud_param.aud_codec == HDMI_AUDIO_CODING_TYPE_DST) {
-@@ -911,7 +870,7 @@ static int mtk_hdmi_aud_set_src(struct mtk_hdmi *hdmi,
- 
- 	mtk_hdmi_hw_ncts_enable(hdmi, false);
- 	mtk_hdmi_hw_aud_src_disable(hdmi);
--	mtk_hdmi_clear_bits(hdmi, GRL_CFG2, CFG2_ACLK_INV);
-+	regmap_clear_bits(hdmi->regs, GRL_CFG2, CFG2_ACLK_INV);
- 
- 	if (hdmi->aud_param.aud_input_type == HDMI_AUD_INPUT_I2S) {
- 		switch (sample_rate) {
-@@ -1425,7 +1384,6 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	struct device_node *cec_np, *remote, *i2c_np;
- 	struct platform_device *cec_pdev;
- 	struct regmap *regmap;
--	struct resource *mem;
- 	int ret;
- 
- 	ret = mtk_hdmi_get_all_clk(hdmi, np);
-@@ -1471,8 +1429,7 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 	}
- 	hdmi->sys_regmap = regmap;
- 
--	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	hdmi->regs = devm_ioremap_resource(dev, mem);
-+	hdmi->regs = device_node_to_regmap(dev->of_node);
- 	if (IS_ERR(hdmi->regs)) {
- 		ret = PTR_ERR(hdmi->regs);
- 		goto put_device;
+ 	default:
 -- 
 2.47.0
 
