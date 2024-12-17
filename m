@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47A4E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BC7E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 05:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TiotYBr5NvrTPMgQLlwTXCQuptDliUGGB2rfH5b9EwE=; b=gDBQq2BX9JvWNV
-	uyIk/PaViCN8K+CpsLoI9Xv6Qlk4VPcIAsorcUeJwXXWK1qPenllmcPEXmsRnhAZb9JxXXv2SALBr
-	DEwkuw9B1qcaSBolSdDozVHHXf/RGNLJ2OHlo7H5buv7EGcexqT0xxrm5gMdEiY9EOA8prsKcAI6Z
-	KJZUBk+2hl5svSsxELh/uiRIOQce9tEpUZ7AddBFoU/mz5dmSIEezRX/Rn16oCuGlC1bEvKLQ7M5f
-	RCuhoYA/0EjF//FTsMIZBBe/7oVqvG2h4URmKslX4bENWZ5ure1W4wOOTxj7nWJrN2nu3b2eVDygQ
-	oZPtZ0CpFpszICF0jr9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xA4MVsBggtpPKo32Ekyc0XfeUcqNt03fD6m9w+wXLmU=; b=DBDXtERk2S+3dWKhN/z9YN6wSX
+	+tbPGFr5YZ7xsXyCcXFHi/sXtjBkjeArdVlrtNbTnoMwtEeDScIb3qUVNTADO/s6tp8tx4qEsbOKu
+	89CKfbjZUCtzMPiUsZMbuPU8ruxcBUgqGDSvi6NfQ5XCGyV24C5sPPjuTWf6NADQ2CA1127cax92P
+	YZNv9TtqAy58u2R91xZGi9+/HZPePPLZ7Sl8OAe8Wolegvze79eteQf68+DRuDzbMFYPCBO7IByoA
+	I3Kb6ZGYXXtpxwD2M/FCfLppo9iA6ntB/5sZlvj5fcxb6AWN6KmasdjUlfYT5UTBvDd7on/y3x4R/
+	YyqYXDFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNQPU-0000000CLB2-1eK4;
-	Tue, 17 Dec 2024 05:46:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tNQQX-0000000CLIq-2ZUK;
+	Tue, 17 Dec 2024 05:47:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNQB9-0000000CIRA-0ZvC
+	id 1tNQMj-0000000CKRE-3yfT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 05:31:32 +0000
+	Tue, 17 Dec 2024 05:43:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7A963A41D9F;
-	Tue, 17 Dec 2024 05:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18917C4CED3;
-	Tue, 17 Dec 2024 05:31:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 66E24A41DE0;
+	Tue, 17 Dec 2024 05:41:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4689C4CED3;
+	Tue, 17 Dec 2024 05:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734413489;
-	bh=5phnzrZEee5oF6zAdBg+HG/4Gxe4+wwKY0XvxrzXtkQ=;
+	s=k20201202; t=1734414208;
+	bh=GF72uodN9Zq6P+OkRp5RAxXAPD/nElPUq/MurGzorkw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sAUYC4KfrrKgRAxTSLZrN8wkSYNc5r/aEx1cRBMtAiYZLzVdSw2B7kchtJ7yqHTcl
-	 R2O6QGsM1CPV/1AIqokd9IxgoXeGLypeMbRl453+spJ7td59vKbfnG38VNvhHDgEKr
-	 qsADRuJDJ7hH4yCVv2UPXkkL8gUljPTpR7zAWmwlqbtYq0Ld/tymCDSijNRRmwxt9p
-	 u8uxjwDYAbwk9Kgl8l7ZxQ/RHkZTgdlgu26J1pypDMv1BDV0ZC93jKfQXngMhyLXxI
-	 feZOIJEqUdSRCQpSF92cEwV13RVBb0MCJzImhtXmVJaTk3mWShCFeJLoDPlW2eAmMS
-	 uVEVTzqVNKxGQ==
-Message-ID: <4e4e8a02-5fc1-4b90-ad9d-9f9ec5c8bc61@kernel.org>
-Date: Tue, 17 Dec 2024 06:31:23 +0100
+	b=NNifS0BsCOdwg4g3+3+u64apaf1CgLe8nQsN0jcQ76OvxokIVAp9XzSwazDnKdKM9
+	 t4vn+Ek42Ox8bfp4Nl6nQWZkIHCCdIjodesKIRqBjWOlyVb8+mx8yomJgWBzux3If9
+	 jNqsDn78Dp4fNZjWGEVyZdMI4eCY8PgwyR/Fl3evvHmp9kvFw1SE/KVGg6xWbAXYF9
+	 s/6SRTGeydtWG4yPh4e0MASDUJ9/BfaHC0zSmYetU3dnmABzPUbkde1j1k++nqRg/S
+	 HHRjbG5HCEjezS5Qr+v+p4jopJ5bPvye7SbqIWzipn3yRCkyah3aKTPOEdHP07MEyj
+	 gGG7XWSl52B9w==
+Message-ID: <d5294015-4790-490e-8136-615039a5c733@kernel.org>
+Date: Tue, 17 Dec 2024 06:43:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: mfd: atmel,at91sam9260: Convert to json
- schema
-To: Charan.Pedumuru@microchip.com
-References: <20241211-matrix-v1-1-5ef0104a3af4@microchip.com>
- <dxgqkdo6ulmqfa5vyerwta3vubuy32gzzu2cxfwwtespydfc4b@5wjrno3lgjsp>
- <92579055-5a46-4f20-b579-123188554a03@microchip.com>
+Subject: Re: [PATCH v12 2/8] dt-bindings: media: platform: visconti: Add
+ Toshiba Visconti Video Input Interface
+To: yuji2.ishikawa@toshiba.co.jp, laurent.pinchart@ideasonboard.com,
+ mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, sakari.ailus@linux.intel.com, hverkuil-cisco@xs4all.nl,
+ nobuhiro1.iwamatsu@toshiba.co.jp
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
+ <20241125092146.1561901-3-yuji2.ishikawa@toshiba.co.jp>
+ <04a7ebf7-2924-4894-bc53-ba77e2f64fae@kernel.org>
+ <TY3PR01MB99822E6161ED319B4DE855B492042@TY3PR01MB9982.jpnprd01.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <92579055-5a46-4f20-b579-123188554a03@microchip.com>
+In-Reply-To: <TY3PR01MB99822E6161ED319B4DE855B492042@TY3PR01MB9982.jpnprd01.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_213131_317482_BABE6A14 
-X-CRM114-Status: UNSURE (   6.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241216_214330_112242_56837DBD 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,35 +120,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, lee@kernel.org, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2024 06:00, Charan.Pedumuru@microchip.com wrote:
->>
->>> +      - items:
->>> +          - enum:
->>> +              - atmel,at91sam9260-matrix
->>> +              - atmel,at91sam9261-matrix
->>> +              - atmel,at91sam9263-matrix
->>> +              - atmel,at91sam9rl-matrix
->>> +              - atmel,at91sam9g45-matrix
->>> +              - atmel,at91sam9n12-matrix
->>> +              - atmel,at91sam9x5-matrix
->>> +              - atmel,sama5d3-matrix
->>> +          - const: syscon
->>> +      - items:
->>> +          - const: microchip,sam9x60-matrix
->>> +          - const: atmel,at91sam9x5-matrix
->>> +          - const: syscon
->>> +      - items:
->>> +          - const: microchip,sam9x7-matrix
->> So that's just enum with previous group.
+On 17/12/2024 01:00, yuji2.ishikawa@toshiba.co.jp wrote:
+> Hello Krzysztof
 > 
-> Yes, as both boards have 2 compatibles one after another, I defined them 
-> as two different groups to resolve dt_check warnings.
+> Thank you for your review
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Monday, November 25, 2024 7:08 PM
+>> To: ishikawa yuji(石川 悠司 ○ＲＤＣ□ＡＩＴＣ○ＥＡ開)
+>> <yuji2.ishikawa@toshiba.co.jp>; Laurent Pinchart
+>> <laurent.pinchart@ideasonboard.com>; Mauro Carvalho Chehab
+>> <mchehab@kernel.org>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+>> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Sakari Ailus
+>> <sakari.ailus@linux.intel.com>; Hans Verkuil <hverkuil-cisco@xs4all.nl>;
+>> iwamatsu nobuhiro(岩松 信洋 ○ＤＩＴＣ□ＤＩＴ○ＯＳＴ)
+>> <nobuhiro1.iwamatsu@toshiba.co.jp>
+>> Cc: linux-media@vger.kernel.org; linux-kernel@vger.kernel.org;
+>> linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org
+>> Subject: Re: [PATCH v12 2/8] dt-bindings: media: platform: visconti: Add
+>> Toshiba Visconti Video Input Interface
+>>
+>> On 25/11/2024 10:21, Yuji Ishikawa wrote:
+>>> Adds the Device Tree binding documentation that allows to describe the
+>>> Video Input Interface found in Toshiba Visconti SoCs.
+>>>
+>>> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+>>> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+>>
+>> Why this tag stayed and other was removed? What was the reason of tag
+>> removal?
+>>
+> 
+> The stayed tag is due to internal review.
 
-My comment stands. I understand your "Yes" means you will fix it.
+Did the internal review really happened? How is it that immediately new
+version has internal review without any traces?
+
+I have doubts this review happened in the context of reviewer's
+statement of oversight.
+
+
+> The removed tag is due to code's change (split of csi2rx part) after the last review.
+> If the code is largely changed following the instruction of another reviewer
+> after obtaining the tags, how should the tags be handled?
+
+Drop all reviews and perform reviews on the list.
+
+Such internal review appearing afterwards is rather a proof it you are
+adding just the tags to satisfy your process. I have no way to even
+verify whether that person performed any reasonable review or maybe just
+acked your patch. I cannot even verify that that person understands the
+reviewer's statement of oversight.
+
+
+...
+
+>>>
+>>> Changelog v11:
+>>> - no change
+>>>
+>>> Changelog v12:
+>>> - remove property "clock-noncontinuous" as VIIF switches both modes
+>>> automatically
+>>> - remove property "link-frequencies" as VIIF does not use the
+>>> information
+>>
+>> Driver does not use or hardware supports only one frequency?
+>>
+> 
+> My comment was incorrect.
+> It should be "Driver does not use the information"
+
+Then this is not that helping. Maybe hardware supports only one frequency?
 
 
 Best regards,
