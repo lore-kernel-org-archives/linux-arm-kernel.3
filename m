@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47515E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99820E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N824IC7qgV94wOxGJ16RgGFwzH6pZ4HQWKLg/NddW6c=; b=aFgrTAAGS8jL6jFpMGpHFPIkab
-	41EG7MXO8b9Ux27kSlnlvKhs0/05+Pm9XALPqylEH9RYXD0MwQXJ25YWZkkVvecsjY6/WJWRHk4D/
-	pQSG7OwsZ7dx/GMPC23O3l9Iiryc7FuQLWEoG9usn3fU3Q0Dty6bPwdlyiZSZMVACCcsbGoo7TE4t
-	DM1razl9z8K4rHTxCsf1VeMht3oYDXG8FpimtdeP8NtKq5CFLKue2h7yEVW2V7kHkHdBKmy6OleAg
-	Si1vgbRn0O69C1tx1Y2NY4O2u88ql2nUjB5ogVbdF9wBuEc4wpZ7hHumxVUY/gWer6x/PiVSBktUi
-	++2B8nWQ==;
+	bh=LJ3/rj8MSIuFYxAR18wpWJvFAuiJssmI8OXnoxCnfwo=; b=RNzjAQMxr4wJY8eVVH5o2UbPV6
+	C/pWnsCN5ylBK1KcLswjCtZwu/1wfco/+he8qVhW0rUoeDMt4QKNHlobiEdT5J7zOw2Ash+mQ/CSS
+	ErsxOumlc3UaeJyJwf60ihFgkKFTdeACNcGNoaf1ZLF9bcSmX7o2mpiP8b7kqQS3fcL5YocTRE6LN
+	e/ctpsUajrholmv8cLaJNbUWXyMoONWyLiqm6D5fCkZi1fZotbCg04SLmbDiHHQqRrvAPJTYZ0GOT
+	8c2JcEFt7WtS2sDhl0s7HqLJWMQdYENN8DFFbTTFxXvvp1/GSLu3prHGSlU1bYv3lDr4p7aLCzc8Q
+	cfjQWDeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNawY-0000000EGWx-1caS;
-	Tue, 17 Dec 2024 17:01:10 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tNazc-0000000EH1N-1R49;
+	Tue, 17 Dec 2024 17:04:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNavS-0000000EGLE-0Ryc;
-	Tue, 17 Dec 2024 17:00:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734454800;
-	bh=uuSw8aKFWxqFiQ4Pleowz22gxsmtmaYoLcqkORPkNzc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pj3RxCaVg96G3ZKZ8XbKBInT9EL3zwrj0kTU17n4DShb5kITQRoUB/3aGkKTcZMjN
-	 v8nmEtfGKNzaq5+ToRCpKwgZcXLnyxSXyyXNyFbdFlRnVVecof2tTh3VypPTLLLEME
-	 Jb5iBAt1p3eDvdXkaMQb3N6OhkSmYnlWMAy1s9rK1H7FmjqdQf+zb29M+oeFgNT3A2
-	 yYCgO1cy7vD8tWht72XtDXCRri1l/wJXYwvETuUysrVtO6eEKpVLT5oiQln8jedKe5
-	 DtiVf3PLjiS1ikZXScPb1ehfBg8TfqIejK/ZfGmsOWvMjSc+JTKsiPzclL+QZmFd6n
-	 AQv0Bn4XVEDbA==
-Received: from [192.168.1.90] (unknown [84.232.140.38])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 809C617E37C0;
-	Tue, 17 Dec 2024 17:59:59 +0100 (CET)
-Message-ID: <2ba24dc6-b6e7-4964-af84-a5374903ce36@collabora.com>
-Date: Tue, 17 Dec 2024 18:59:57 +0200
+	id 1tNayU-0000000EGlw-0zm7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 17:03:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A04255C6539
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 17:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A2F9C4CED7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 17:03:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734454989;
+	bh=y4rvd2i45ul2OIU5/nJesQGlmoS4ZWQ/I/mmlz+Q+ow=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=i3A/LYSqFumD5PYmmp1gUpj+0qB+2xkRxXi2l7E/ripxz9fZlHVcmj9lsU0HxzRn+
+	 QIMV4RbqDd6Tu3z16J+OVDrfXm3Uxmh17biZLf/xWBqmE6dMMTgkuO8uIY14maKNEh
+	 SezSLO9l7KNVKfJZ+bxBU+u34gVl1pwJb0vdDevX/hCV4MzgzXRLYIzT7a9LERiyvo
+	 YBImUV+TW740F6GnGi1LQQqLkDEGSN2BdjOR89EhfsxhX/aOlCpYjmsFN54iRL52Rp
+	 RwuVUqtXEhMrph6yYSdO7cUrB3H1BNp9VcVu9068jW3oEMa5F2eBR0DLQQtuzZPeG9
+	 FWAiFeBIcdnZg==
+Received: by mail-yb1-f178.google.com with SMTP id 3f1490d57ef6-e3dace03a73so3517164276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 09:03:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWku9rlYYnk1LyOkFTYldgcHF9Sem7PpIgz7V2EJUH6S1YLz2phYcysPE6+vLH6grs3nvtLD8k6U97nNsrvIABW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyC9xHwCnOgDzis4V+xpyEtrvY4o0gU9j1m2/5/mH8a46wMf8Yw
+	Os2dx6URcXzn5SQcC5ZPU03+qVrC3yYjnRSpWbxAfbVS2fBL8q8o0fSfbvn2owXE44z/XWHkmU7
+	NzZvm1ewGQCmXNU6z2nDg1VhO/g==
+X-Google-Smtp-Source: AGHT+IGKvG8I/im/k/IPybn045bPPxXVEzIGxeaZoFQYWf7CnT275gjzpCkuXW1FxOqOUlHA0uA3p6+cPeXvMyJJp6Q=
+X-Received: by 2002:a05:6902:2681:b0:e4b:b2bd:5fa0 with SMTP id
+ 3f1490d57ef6-e53606627d2mr320097276.20.1734454988345; Tue, 17 Dec 2024
+ 09:03:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] drm/rockchip: vop2: Improve display modes handling
- on RK3588 HDMI0
-To: Maxime Ripard <mripard@kernel.org>
-Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, FUKAUMI Naoki <naoki@radxa.com>
-References: <20241211-vop2-hdmi0-disp-modes-v2-0-471cf5001e45@collabora.com>
- <1820767.5KxKD5qtyk@diego>
- <a4ex3s23r4k6wehyoaw3aylpcexfrclrxxykjpabhdfne2jgmu@ii6riiiga2zj>
- <1756448.izSxrag8PF@diego>
- <20241217-ubiquitous-refreshing-finch-aceade@houat>
- <c45ff74a-c9a4-4cf1-8530-04087e06b07a@collabora.com>
- <20241217-zealous-boisterous-llama-52bfcc@houat>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241217-zealous-boisterous-llama-52bfcc@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-19-anshuman.khandual@arm.com> <20241216231505.GA601635-robh@kernel.org>
+ <a442bca4-d1c0-4f3e-ae13-4836caec2da9@sirena.org.uk>
+In-Reply-To: <a442bca4-d1c0-4f3e-ae13-4836caec2da9@sirena.org.uk>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 17 Dec 2024 11:02:57 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+45YNGNEcDVFvKH3Tiwtz0HF9_O4tPfQH0dbXra2bcRQ@mail.gmail.com>
+Message-ID: <CAL_Jsq+45YNGNEcDVFvKH3Tiwtz0HF9_O4tPfQH0dbXra2bcRQ@mail.gmail.com>
+Subject: Re: [PATCH V2 18/46] arm64/sysreg: Add register fields for PMUACR_EL1
+To: Mark Brown <broonie@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, linux-kernel@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, 
+	ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_090002_352403_C6BA17B8 
-X-CRM114-Status: GOOD (  31.88  )
+X-CRM114-CacheID: sfid-20241217_090310_316769_33F7DC23 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,155 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/17/24 6:53 PM, Maxime Ripard wrote:
-> On Tue, Dec 17, 2024 at 06:36:41PM +0200, Cristian Ciocaltea wrote:
->> On 12/17/24 5:00 PM, Maxime Ripard wrote:
->>> On Wed, Dec 11, 2024 at 07:01:15PM +0100, Heiko Stübner wrote:
->>>> Am Mittwoch, 11. Dezember 2024, 18:47:44 CET schrieb Maxime Ripard:
->>>>> On Wed, Dec 11, 2024 at 06:23:03PM +0100, Heiko Stübner wrote:
->>>>>> Am Mittwoch, 11. Dezember 2024, 18:07:57 CET schrieb Maxime Ripard:
->>>>>>> On Wed, Dec 11, 2024 at 12:15:07PM +0200, Cristian Ciocaltea wrote:
->>>>>>>> The RK3588 specific implementation is currently quite limited in terms
->>>>>>>> of handling the full range of display modes supported by the connected
->>>>>>>> screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
->>>>>>>> few of them.
->>>>>>>>
->>>>>>>> Additionally, it doesn't cope well with non-integer refresh rates like
->>>>>>>> 59.94, 29.97, 23.98, etc.
->>>>>>>>
->>>>>>>> Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
->>>>>>>> all display modes up to 4K@60Hz.
->>>>>>>>
->>>>>>>> Tested-by: FUKAUMI Naoki <naoki@radxa.com>
->>>>>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>>>>>> ---
->>>>>>>>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++++++++++
->>>>>>>>  1 file changed, 34 insertions(+)
->>>>>>>>
->>>>>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>>>>>>> index 8b2f53ffefdbf1cc8737b3a86e630a03a7fd9348..393fe6aa170aaee9663c4a6d98c1cd6a5ef79392 100644
->>>>>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>>>>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
->>>>>>>> @@ -158,6 +158,7 @@ struct vop2_video_port {
->>>>>>>>  	struct drm_crtc crtc;
->>>>>>>>  	struct vop2 *vop2;
->>>>>>>>  	struct clk *dclk;
->>>>>>>> +	struct clk *dclk_src;
->>>>>>>>  	unsigned int id;
->>>>>>>>  	const struct vop2_video_port_data *data;
->>>>>>>>  
->>>>>>>> @@ -212,6 +213,7 @@ struct vop2 {
->>>>>>>>  	struct clk *hclk;
->>>>>>>>  	struct clk *aclk;
->>>>>>>>  	struct clk *pclk;
->>>>>>>> +	struct clk *pll_hdmiphy0;
->>>>>>>>  
->>>>>>>>  	/* optional internal rgb encoder */
->>>>>>>>  	struct rockchip_rgb *rgb;
->>>>>>>> @@ -220,6 +222,8 @@ struct vop2 {
->>>>>>>>  	struct vop2_win win[];
->>>>>>>>  };
->>>>>>>>  
->>>>>>>> +#define VOP2_MAX_DCLK_RATE		600000 /* kHz */
->>>>>>>> +
->>>>>>>>  #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
->>>>>>>>  					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
->>>>>>>>  
->>>>>>>> @@ -1033,6 +1037,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
->>>>>>>>  
->>>>>>>>  	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
->>>>>>>>  
->>>>>>>> +	if (vp->dclk_src)
->>>>>>>> +		clk_set_parent(vp->dclk, vp->dclk_src);
->>>>>>>> +
->>>>>>>>  	clk_disable_unprepare(vp->dclk);
->>>>>>>>  
->>>>>>>>  	vop2->enable_count--;
->>>>>>>> @@ -2049,6 +2056,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
->>>>>>>>  
->>>>>>>>  	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
->>>>>>>>  
->>>>>>>> +	/*
->>>>>>>> +	 * Switch to HDMI PHY PLL as DCLK source for display modes up
->>>>>>>> +	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
->>>>>>>> +	 */
->>>>>>>> +	if (vop2->pll_hdmiphy0 && mode->crtc_clock <= VOP2_MAX_DCLK_RATE) {
->>>>>>>> +		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
->>>>>>>> +			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
->>>>>>>> +
->>>>>>>> +			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
->>>>>>>> +				if (!vp->dclk_src)
->>>>>>>> +					vp->dclk_src = clk_get_parent(vp->dclk);
->>>>>>>> +
->>>>>>>> +				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
->>>>>>>> +				if (ret < 0)
->>>>>>>> +					drm_warn(vop2->drm,
->>>>>>>> +						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
->>>>>>>> +				break;
->>>>>>>> +			}
->>>>>>>> +		}
->>>>>>>> +	}
->>>>>>>> +
->>>>>>>
->>>>>>> It seems pretty fragile to do it at atomic_enable time, even more so
->>>>>>> since you don't lock the parent either.
->>>>>>>
->>>>>>> Any reason not to do it in the DRM or clock driver probe, and make sure
->>>>>>> you never change the parent somehow?
->>>>>>
->>>>>> On rk3588 we have 3 dclk_s and 2 hdmi controllers. Each video-port can
->>>>>> use the clock generated from either the hdmi0phy or hdmi1phy, depending
->>>>>> on which hdmi-controller it uses.
->>>>>>
->>>>>> So you actually need to know which vpX will output to which hdmiY to then
->>>>>> reparent that dclk to the hdmiphy output.
->>>>>
->>>>> The Rockchip nomenclature isn't super obvious to me, sorry. Is there a
->>>>> datasheet for this somewhere? Also, does this vpX -> HDMI-Y mapping need
->>>>> to be dynamic?
->>>>
->>>> VPs are CRTCs in drm-language and each of them can drive a differing
->>>> number of output encoders. Those video-ports also have differing output
->>>> characteristics in terms of supported resolution and other properties.
->>>>
->>>> The rk3588 TRM has leaked in a number of places, and if you find a
->>>> TRM-part2, there is a section labeled "Display Output Interface Description"
->>>> that has a nice graphic for that.
->>>>
->>>> Or in short:
->>>> - CRTC(VP)0 supports 8K resolution and can drive DP0+1, HDMI0+1, eDP0+1
->>>>   [if I'm reading things correctly, 8K together with CRTC1 somehow)
->>>> - CRTC(VP)1 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP0+1
->>>> - CRTC(VP)2 supports 4K resolution and can drive DP0+1, HDMI0+1, eDP01, DSI0+1
->>>> - CRTC(VP)3 supports 2K resolution and can drive DSI0+1 and some BT1120,BT656
->>>>
->>>> so for the 3 higher resolution CRTCs there are essentially 6 or 8 output options
->>>> depending on the board design
->>>
->>> That's much clearer, thanks. I'm not entirely sure how that links to the
->>> need for the PLL to change its parent depending on the ouput. Do you
->>> need to always have all the outputs on the same PLL?
->>
->> One of the problems is that the PHY PLLs cannot be used as clock sources
->> for resolutions above 4K@60Hz, while VOP2 on RK3588 supports up to 8K@60Hz,
->> which is supposed to be handled by the system CRU.
-> 
-> But can that system CRU drive resolutions lower than 4k@60? If so, why
-> do we bother with PHYs?
+On Tue, Dec 17, 2024 at 9:30=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
+te:
+>
+> On Mon, Dec 16, 2024 at 05:15:05PM -0600, Rob Herring wrote:
+> > On Tue, Dec 10, 2024 at 11:22:43AM +0530, Anshuman Khandual wrote:
+>
+> > > +Sysreg     PMUACR_EL1      3       0       9       14      4
+>
+> > I already added this and various other PMUv3.9 registers you've added
+> > here in v6.12 and v6.13. So are you on an old base or the tool allows
+> > multiple definitions? If the latter, that should be fixed.
+>
+> The tool is written in awk and hence *really* dumb so it's not going to
+> notice this, and so long as the resulting definitions are identical the
+> compiler won't either.  It would indeed be nice if the tooling were able
+> to detect this.
 
-It can, but it's not accurate enough to support all modes, e.g. those
-having fractional refresh rates, among others.  That's actually the
-reason we'd want to make use of the PHY PLLs.
+Something like this should work:
 
->> Moreover, the 2 PLLs are shared between 3 out of the 4 video ports already
->> mentioned by Heiko.  There is quite a bit of complexity in downstream
->> driver to handle all possible usecases - see [1] for a brief description on
->> how was that designed to work.
-> 
-> That's a generic allocation issue. Multiple drivers (vc4 for example)
-> has this issue for other components. It can be fairly easily dealt with
-> at atomic_check time.
-> 
-> Maxime
+git grep -h '^Sysreg\s' arch/arm64/tools/sysreg | tr -s ' \t' ' ' |
+sort | uniq -c | sort -n | grep -E '^\s+([2-9]|1[0-9])'
 
+No duplicates currently.
+
+Rob
 
