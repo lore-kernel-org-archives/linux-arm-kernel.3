@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01B6E7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B845FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2pqbbdVHCcH3VANkw0WgRiMAw/2BcvXvAUXBdVOTo8Y=; b=JAJ6HEhcnv6MRvVgYQf2YCITLv
-	4+TpsuMPX0cagXLQWS6/Yi1KIOsSWqjb49etbWgTAwS6sCFS7JVsNDqJDgbwcaqyCo+eCETVQmh0y
-	ZfoTG4O1AoYR58gPeBOVrtW5s1DachL7eiqL2pgP8uTsZWdJ+uzMW+zJLaUulQfo/nn2iuV7oik6U
-	11NWCdsDP59B+GHIYw1N/h6ptCjDuof7uaohnsPBLWJgqHr5ixFG8yLNQAVg46FNJdvqwuExWNJ4z
-	hIVVI32qX3EY7B9hZLXrC/JNPSBWbhzvFRkRsfZGkS7cuUxVQrNn+NwDOO433fTd01nJNSGfuQ7UW
-	7K4y39Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A9mGOwcKJkPD0/hT208rpyXS4+JWLUF2rILHUVjXzsc=; b=bsTOjPja5pNk3Itd+UG6A64UfC
+	IRJ4n5+uk7PAe8rAbAg5U3jvTAkwGrDnbohoJmKcYs25ZgBaaedNv7+WQo3DGYol1GXM9qmBvAFJO
+	MULmIhCQJ05FlGHIGYlVvigVSjZGJtEw8cjgqvrUnE3FalgpEY2f/dU0VvC8AD9l/82pbGKSg40+y
+	F4oAnyu71UihfLHBVUqycDJLSpHPm+tHGNr4uJnECb1H5Jq8yyJM9DCfeSn8LqOAbblRB+1i2OCPn
+	ZMcD09VrNLfNykrqyCPv7byGbHjuhe9Oq7ZE5i2kEtRxmsCdri/TT7SmSZHIQbFUkNF9wqRSo7SVG
+	r9zblSZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTdy-0000000CrGb-2yb3;
-	Tue, 17 Dec 2024 09:13:30 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1tNTf2-0000000CrVn-1Dj5;
+	Tue, 17 Dec 2024 09:14:36 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTLu-0000000Cn2J-2HF2;
-	Tue, 17 Dec 2024 08:54:51 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout3.routing.net (Postfix) with ESMTP id 256DD604CC;
-	Tue, 17 Dec 2024 08:54:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1734425685;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=2pqbbdVHCcH3VANkw0WgRiMAw/2BcvXvAUXBdVOTo8Y=;
-	b=n/L3xXmQKhLKYpcTbcJzXYze9sUI5wba602cFxDR6wWF9/oLQwE8LtHnzdqQPkml14Tx9M
-	BiaHg/NlwqKyHr+k316IV4aWhEJ4MccLHpdn/tlAbJNMZxnCalnj7QPszX27OkUf369TAQ
-	o775fjdMpk1M3EQrcSWe+q/J4doqJR4=
-Received: from frank-u24.. (fttx-pool-217.61.150.187.bambit.de [217.61.150.187])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 14A511003B7;
-	Tue, 17 Dec 2024 08:54:44 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sean Wang <sean.wang@kernel.org>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v7 0/5] Add pinctrl support for mt7988
-Date: Tue, 17 Dec 2024 09:54:25 +0100
-Message-ID: <20241217085435.9586-1-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
+	id 1tNTOu-0000000CnqY-06Lf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 08:57:57 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-435b0df5dbdso39695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 00:57:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734425874; x=1735030674; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=A9mGOwcKJkPD0/hT208rpyXS4+JWLUF2rILHUVjXzsc=;
+        b=De4lnx8Q0T2XPyhA7iwZ9yjJVThrO/Vf17fy51wvXKafKE889t377wk+pXSBXlpSKM
+         tl5WxlryqUyXyKp2GNoAW0XuzkLqHU2FF7YAhWeiI7HEZ78a2n87OEQ3/8XCYqXv7IF4
+         tJu7gxlzqMzh0RC86DNQpniPfo2n+bI94TDk+wvFDi3KNcN9KkVL+R0wnmllRMoIkHBp
+         RfMZhCz4EamuPMN84URkJkbSemA9uFvWjeIV5+/Me2KqckJVOxQr9oQc/VJb5t4tuxv9
+         +yqUQ7ecAQRSks4S5QtD3Cq2Qp+RBBYz24fvOzxyBNF3LIAMGP9nr8LhseumxgTuC4HD
+         xbJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734425874; x=1735030674;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=A9mGOwcKJkPD0/hT208rpyXS4+JWLUF2rILHUVjXzsc=;
+        b=ebRab5qyNtKx/Gj4U66eohDP6rTyxyuagdM1J99RHBhB4yGp8RWA8tzZ6toSYYRyIg
+         8qmBdecQr+rrJlkrPkFPZcm6KKheCgFb4iCRrqqF6sojzIstPJo8AgMNICVlGaUn6X0U
+         sq8aTSxradsPOAOSMReV9kBIKGYVmie3Z+Z0AxGwotCq32qDRmm5QrkbxMWpw9y56Pr/
+         7qkfGoruNRi3PP90AWs7gCQUY/fXyP4rzLLu96/cY6RpZwpIMdwFiZJu3CjXlRURuZwT
+         2oXyMhqWV8jnGULOqeQMGDKXFxgWpXOIBUbHyXRHrsJNTY1qOEQVP5lgb/KvJjXUlXgK
+         z33g==
+X-Forwarded-Encrypted: i=1; AJvYcCUHbfxy+02kWtlIOyU4qrPuG/RWOpVZG/+ZCQr9nHIRp7YP3CknUJoMJQ9QKAMVe3cLd80kFZ45qTqLB40zzKO8@lists.infradead.org
+X-Gm-Message-State: AOJu0YybLIf03Z2JACnKn8pSUnS5s3kaBIjeih+bYwg3bZUJtXaKfKsr
+	WpUhxjsTSjGCjFlPgT6d1Gy5IwS/NN1CptZTYdqY+dpZ+g9GZ3ORuIAdo2iiLu8mwRNRI4+1f3G
+	Rhglget+kpEcJHp/+0GfWU6L9GxCXLY+qyd3Z
+X-Gm-Gg: ASbGncsMkiSPqgkYIZzvnkv9c4qHXyZoZKi8EsYrZ6Fa5MAdN01ncVCkEq8+UL6V81q
+	Vx7HAlQVqSzmWNzoimDGzy+6utNlxkSTPJXlW0sh4Rt5dydPjE/BWjlkd5FVumWZ/OBk=
+X-Google-Smtp-Source: AGHT+IEYjt67uUTelKuWfZAZMUFcRBjP36zX3A1L63lz75C+g/NuQwlwiqMKzdVpK/gkc3nId/dg69M2v0a1+rqPXqA=
+X-Received: by 2002:a7b:cd88:0:b0:434:c967:e4b5 with SMTP id
+ 5b1f17b1804b1-4364ad490dbmr705545e9.1.1734425874443; Tue, 17 Dec 2024
+ 00:57:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Mail-ID: 9c7aa8e6-e3a5-43a8-993f-ab4d197c3c29
+References: <20241216175803.2716565-1-qperret@google.com> <20241216175803.2716565-13-qperret@google.com>
+In-Reply-To: <20241216175803.2716565-13-qperret@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 17 Dec 2024 08:57:17 +0000
+Message-ID: <CA+EHjTy-tzmmu0vNCkK_J614FG1QVO79WSfzV78hQRYqGhP7EQ@mail.gmail.com>
+Subject: Re: [PATCH v3 12/18] KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_005450_739178_6CA9146D 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20241217_005756_067069_30792753 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +94,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+On Mon, 16 Dec 2024 at 17:58, Quentin Perret <qperret@google.com> wrote:
+>
+> Introduce a new hypercall allowing the host to relax the stage-2
+> permissions of mappings in a non-protected guest page-table. It will be
+> used later once we start allowing RO memslots and dirty logging.
+>
+> Signed-off-by: Quentin Perret <qperret@google.com>
 
-This series adds pinctrl driver, dt-bindings and dts node for pinctrl
-on mediatek mt7988 SoC.
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-changes in v7:
-- add const for pins and mtk_pin_soc as suggested by Christophe JAILLET in v5
-- left angelos RB because of minor change (hope this is right)
+Cheers,
+/fuad
 
-changes in v6:
-- some fixes to binding
-- changed title and fixed typo in bpi-r4 patch
-- added RB's
-
-changes in v5:
-- rebased to 6.13-rc1
-- moved dt nodes with mutliple options to BPI-R4 board
-- changes suggested by angelo in v4
-- changed example in binding and dt node to not using const MTK_DRIVE_8mA
-
-changes in v4:
-- fixed fixed string binding error
-
-changes in v3:
-- rebase on rafals dts patches
-- update binding to have mux subnode as fixed string and conf with optional suffix
-
-changes in v2:
-  binding:
-  - drop gpio-cells description
-  - move ref in mux subnode up
-  - order uart-functions alphanumeric and fix typo
-  dts:
-  - fix indentation of reg-values
-
-Daniel Golle (2):
-  pinctrl: mediatek: add support for MTK_PULL_PD_TYPE
-  pinctrl: mediatek: add MT7988 pinctrl driver
-
-Frank Wunderlich (3):
-  dt-bindings: pinctrl: add binding for MT7988 SoC
-  arm64: dts: mediatek: mt7988: Add pinctrl support
-  arm64: dts: mediatek: mt7988a-bpi-r4: Add pinctrl subnodes for bpi-r4
-
- .../pinctrl/mediatek,mt7988-pinctrl.yaml      |  575 ++++++
- .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  |  189 ++
- arch/arm64/boot/dts/mediatek/mt7988a.dtsi     |   54 +
- drivers/pinctrl/mediatek/Kconfig              |    7 +
- drivers/pinctrl/mediatek/Makefile             |    1 +
- drivers/pinctrl/mediatek/pinctrl-mt7988.c     | 1556 +++++++++++++++++
- .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  |   73 +-
- .../pinctrl/mediatek/pinctrl-mtk-common-v2.h  |    1 +
- 8 files changed, 2445 insertions(+), 11 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml
- create mode 100644 drivers/pinctrl/mediatek/pinctrl-mt7988.c
-
--- 
-2.43.0
-
+> ---
+>  arch/arm64/include/asm/kvm_asm.h              |  1 +
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 20 ++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 23 +++++++++++++++++++
+>  4 files changed, 45 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 0b6c4d325134..66ee8542dcc9 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -67,6 +67,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_host_relax_perms_guest,
+>         __KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+>         __KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+>         __KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index e528a42ed60e..a308dcd3b5b8 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -41,6 +41,7 @@ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+>  int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
+> +int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+>
+>  bool addr_is_memory(phys_addr_t phys);
+>  int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 3c3a27c985a2..287e4ee93ef2 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -264,6 +264,25 @@ static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
+>         cpu_reg(host_ctxt, 1) =  ret;
+>  }
+>
+> +static void handle___pkvm_host_relax_perms_guest(struct kvm_cpu_context *host_ctxt)
+> +{
+> +       DECLARE_REG(u64, gfn, host_ctxt, 1);
+> +       DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 2);
+> +       struct pkvm_hyp_vcpu *hyp_vcpu;
+> +       int ret = -EINVAL;
+> +
+> +       if (!is_protected_kvm_enabled())
+> +               goto out;
+> +
+> +       hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+> +       if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> +               goto out;
+> +
+> +       ret = __pkvm_host_relax_perms_guest(gfn, hyp_vcpu, prot);
+> +out:
+> +       cpu_reg(host_ctxt, 1) = ret;
+> +}
+> +
+>  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+>  {
+>         DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+> @@ -475,6 +494,7 @@ static const hcall_t host_hcall[] = {
+>         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+>         HANDLE_FUNC(__pkvm_host_share_guest),
+>         HANDLE_FUNC(__pkvm_host_unshare_guest),
+> +       HANDLE_FUNC(__pkvm_host_relax_perms_guest),
+>         HANDLE_FUNC(__kvm_adjust_pc),
+>         HANDLE_FUNC(__kvm_vcpu_run),
+>         HANDLE_FUNC(__kvm_flush_vm_context),
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 30243b7922f1..aa8e0408aebb 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -1488,3 +1488,26 @@ int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *vm)
+>
+>         return ret;
+>  }
+> +
+> +int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot)
+> +{
+> +       struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
+> +       u64 ipa = hyp_pfn_to_phys(gfn);
+> +       u64 phys;
+> +       int ret;
+> +
+> +       if (prot & ~KVM_PGTABLE_PROT_RWX)
+> +               return -EINVAL;
+> +
+> +       host_lock_component();
+> +       guest_lock_component(vm);
+> +
+> +       ret = __check_host_shared_guest(vm, &phys, ipa);
+> +       if (!ret)
+> +               ret = kvm_pgtable_stage2_relax_perms(&vm->pgt, ipa, prot, 0);
+> +
+> +       guest_unlock_component(vm);
+> +       host_unlock_component();
+> +
+> +       return ret;
+> +}
+> --
+> 2.47.1.613.gc27f4b7a9f-goog
+>
 
