@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704C2E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250C7E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 20:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plXY3/Zcoe74Jr3EVPO0NcLX3LevAO5kvmSZ/p53PkM=; b=X8FD7lIrE2bkRhdtmez6xbR6w1
-	C38RVhwGOG/rps0kM3a7HNSFGWRbI0O8czYMKHtrzuyxBFBF6USgdjyHw6Nhh9wnf2+He53kuELB+
-	eK3JkSPkQfCdmPpIlu5mk/k93a0qmbPA24m4aW/OqeH6e7s8Lz/1Jq2l3fUh7OhURaBTzss4gaNYj
-	gE/CQPBlSxcQOsTuumr7s2RK1zM79a9ndVlYLbzgM6JjuX/MyFtXnITlmmEPyc2xleW46gtGeQwrs
-	FkQ7SE1NgWJNUve6WMlwz4QPI908K51zyejJBSNRu7jJWNPrGhr2aAqdTrJzL/ry8SSK5v2g59LXI
-	dGfWdk7A==;
+	bh=WshiQleagEJl8YvCdzl40mnAtO3MVmpgjwhG5SV0dds=; b=aoWdaaqrb98oa+NEaUJWgzd0/D
+	CjOrD2q/qsr4ZufxqZnlOvfVce+MhKYy6jAAKd+9uX1ZFpimThcSJA2W8qfuDKyLogzszsx9TssT9
+	4lZi07ChOsrfD2IWn/2y/Wpg02ElFo7nJavkfSwoCXHl1KdsrlBqKRnvtybgCbouQeBEfZkDF/cbw
+	ipmx4YagNTdkCcFxOxuqukVevbOo3d6LxZTB/QaIXNNbN+3csR6LYSJgpkyomtL2HnryJFA6jQkO4
+	z/pGcOjH6Lr5T/MqF58HXkl1Kp2MJ82zu9B2ZVeYr7UDVC3KsQmnlYp+rQa7R8G/P8Lt/6/eQ5gi/
+	qwenoGXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdbH-0000000EgUv-0WYj;
-	Tue, 17 Dec 2024 19:51:23 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdaB-0000000EgOA-0P4K
+	id 1tNdw1-0000000EiCS-3ZLx;
+	Tue, 17 Dec 2024 20:12:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNduw-0000000Ei3k-0GRs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 19:50:16 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 475583E;
-	Tue, 17 Dec 2024 20:49:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1734464975;
-	bh=ObpgcoRYeh8c9yIiYD3tbYsZnfL/7m9ZSvLsrGrdD9A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d2KJ54c44K/8hPwKsfbhby6tk+Fd32DdkYirGIFG4Ir9zBS8xYUfnvU4jWQAcrXnV
-	 dPQav2LaNtA6GKvWNc1JJqn4iUfjbeOWyMfWmZoSG2dGybu9cmX16fXomEb/HyjfMW
-	 DMoT4v3qVesEB17bvZ0CUoEhjy97LeJNIeGbaEF0=
-Date: Tue, 17 Dec 2024 21:50:10 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: Re: [PATCH] arm64: defconfig: Enable pinctrl-based I2C mux
-Message-ID: <20241217195010.GE23470@pendragon.ideasonboard.com>
-References: <20241217193356.111102-1-wahrenst@gmx.net>
+	Tue, 17 Dec 2024 20:11:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 089D4497;
+	Tue, 17 Dec 2024 12:12:09 -0800 (PST)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 825133F528;
+	Tue, 17 Dec 2024 12:11:35 -0800 (PST)
+Date: Tue, 17 Dec 2024 21:10:43 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+	x86@kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v8 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+Message-ID: <Z2Haw_o8gF-Ce1gx@arm.com>
+References: <20241206135600.4083965-1-beata.michalska@arm.com>
+ <20241206135600.4083965-2-beata.michalska@arm.com>
+ <20241212065100.sjb7lrlmksbm2hdk@vireshk-i7>
+ <Z2CmcelSy89NULtz@arm.com>
+ <20241217042726.isllh5bulpnwql7i@vireshk-i7>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241217193356.111102-1-wahrenst@gmx.net>
+In-Reply-To: <20241217042726.isllh5bulpnwql7i@vireshk-i7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_115015_272582_90209401 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20241217_121142_150367_EE5D59FE 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,40 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 08:33:56PM +0100, Stefan Wahren wrote:
-> The commit 84b1d6cc3e4c ("ARM: dts: bcm2711-rpi: Add pinctrl-based
-> multiplexing for I2C0") introduced multiplexing for I2C on BCM2711-based
-> Raspberry Pi boards. Unfortunately we missed to enable the necessary
-> driver in the defconfig.
+On Tue, Dec 17, 2024 at 09:57:26AM +0530, Viresh Kumar wrote:
+> On 16-12-24, 23:15, Beata Michalska wrote:
+> > My bad as I must have misinterpreted that message. Although I am not entirely
+> > sure why this might be unacceptable as it is not such uncommon approach to use
+> > signed int space to cover both: expected positive value as well as potential
+> > error code case failure.
 > 
-> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Link: https://lore.kernel.org/linux-devicetree/961b3d43-b4c9-4573-82d7-844aa129d994@notapiano/
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> This part is fine. The problem is with handling frequency here. Signed int can
+> capture up to 2 GHz of freq, where as unsigned int can capture up to 4 GHz and
+> so we would really like to keep it at 4 GHz..
+Right, though the arch_freq_get_on_cpu operates on kHz values.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
+---
+BR
+Beata
 > 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index c62831e61586..0fee3848d03a 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -516,6 +516,7 @@ CONFIG_TCG_TIS_I2C_INFINEON=y
->  CONFIG_I2C_CHARDEV=y
->  CONFIG_I2C_MUX=y
->  CONFIG_I2C_MUX_PCA954x=y
-> +CONFIG_I2C_MUX_PINCTRL=m
->  CONFIG_I2C_BCM2835=m
->  CONFIG_I2C_CADENCE=m
->  CONFIG_I2C_DESIGNWARE_CORE=y
-> --
-> 2.34.1
+> Maybe we need to move to 64 bits for frequency at some point of time, but at
+> least we should try to not break it for now.
 > 
-
--- 
-Regards,
-
-Laurent Pinchart
+> > Enabling the new attribute for all is an option, tough not entirely compelling
+> > one as exposing a feature that is known not to be supported seems bit
+> > counterintuitive. On the other hand using cpufreq driver flags won't help much
+> > as the support for the new attrib is platform-specific, not driver-specific.
+> 
+> -- 
+> viresh
 
