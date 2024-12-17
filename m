@@ -4,71 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A028E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 15:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AE5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 15:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AgBPklrLo9zLa7PaL3jWmpBZe2lh5uWiDaogyqfD9y0=; b=xjubgVOt8zGjk7ggCyGQuVkPqk
-	R+J3031j5rak+PcDAK8nGfD6Cuv429+Aw8+LzQvdecGVV4gspX5RdUxM6zq8Q6xEa6MdL8fDqHbFB
-	bJfEpyTVCNmIpps5WVcbtPIAwfmd7buX8FNHbbyA6EBQbuX7kKyBzRkKHguhTDBQFg7AIfa9hwjxQ
-	GGrWJtngliFMNNK8fLvIx5ygh40rtOr+vZjWuJWWqMydTiI895abbzauxjFUkoAXg7xPtBGVtiSny
-	lguS7TKFaODhwOdj4XlWvSSVaASAavXTt2/UZiFPZPkLIl+RJgwVI+NmavyglfkEYH8YulXf9qofP
-	7AUm1wLQ==;
+	bh=mIbodpRWxqrrqRRUsCSmxdoYxLL2MHEZUJwlmjhZJMc=; b=WLuONOiZ0mMeqoo2x5W9DOxFzE
+	Gk8s08k+yuXAR1Qi62Pj8tLw+lglShlIMP01UlEfJNBkoOpYKzTW0DXap4WeqwURkURy2eY/4bTf5
+	OJufRnEPFnTxLQi1h3O/aS1nBcbjgE1ZcgOTy6WiDqcCWzCwppv9/nnl3TtGGha4bdsC/AEAlCS3e
+	j95ejTmGUOYI+OZPKwlpsDYueBoEWmvrSyR2/eAHKAWVYhKxAOUs44zTv3HIVidjMjYnMwFJcW7Vq
+	C1QiSmGJmEeVkThNw/hybML2ct64ssUFrDcXkhmqdgJPme36Ofdcj8/VoqpKAYD4vr1qH2fIiD2I7
+	QQz+skAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZEd-0000000Du2U-3Z3n;
-	Tue, 17 Dec 2024 15:11:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNZHk-0000000DugT-17EV;
+	Tue, 17 Dec 2024 15:14:56 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZDX-0000000Dtpq-1tbI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 15:10:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D3F45A419E5;
-	Tue, 17 Dec 2024 15:08:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A822FC4CED3;
-	Tue, 17 Dec 2024 15:10:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734448234;
-	bh=ks+Jrej2tEqHYg73tSV5p376J4HoYDZUNHAtN+M5N9A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ey09IHrbr7Yeo/hHbNyOC1q8L2tFrcqYO6xRTNl0WBPcHSFEfq4JHrdHVZKjYSlI3
-	 wf7PGFRu/34ToHvYjeTTTp4RxEGjSGIyuWD6vY5FbTqHdgqbfAuUWyYabU2ACW6Ekz
-	 f1MErYPfWkPGztFitNV+RarkjaCEWLBh+id+sa6V+nCi15iKg0m10fZjpIY8uPp8WA
-	 nnIslgDQftF2bzymJw7lxBAM/N7y7yieXwGsOmBFKRCyqr0WnGknBuSYGBsj7t1wRv
-	 hTkvwmUBWpknSuYqPLSDkRL9tsBvjN/y2QBTyZKfTOnNd7H7NcAp8dtcaFkrsmNjO6
-	 sY8Yrdk9ivDcw==
-Date: Tue, 17 Dec 2024 15:10:28 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix set_id_regs selftest for ASIDBITS
- becoming unwritable
-Message-ID: <b13b14df-00ee-4bee-8f65-d2cb7a9bfa6b@sirena.org.uk>
-References: <20241216-kvm-arm64-fix-set-id-asidbits-v1-1-8b105b888fc3@kernel.org>
- <875xnisocy.wl-maz@kernel.org>
- <53b40aa8-f51c-4c4e-a4ad-e6a9512e5197@sirena.org.uk>
- <86v7viqusg.wl-maz@kernel.org>
+	id 1tNZGc-0000000DuOn-0IcM;
+	Tue, 17 Dec 2024 15:13:47 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-436284cdbe0so6712965e9.3;
+        Tue, 17 Dec 2024 07:13:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734448423; x=1735053223; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mIbodpRWxqrrqRRUsCSmxdoYxLL2MHEZUJwlmjhZJMc=;
+        b=Y2mtv7zrc93i1V6KKU9KtsCB6mGUJQyz2TZKlW3G+RL0TLTn9jgRGZoRMQ5fm3FN5M
+         k48qofHeFLW+eznLj4roOROmRWq7x2ooIQeDHWDK2olxU+93ygBxS/85LFuRaAzfvaDx
+         gIXKu9TdczU6bhEU8HTJQjn0KQTewNi/TFrs6V1OPFMc8XeaLNm+OtojZLCtJIRftrA/
+         Cc5VGaRgHbuePpfR9GTiC55qYXlEoLP8dc7u6MWeURe/c3K/3qBjTpz2ty4Cbj45NcST
+         xh1HO3Op5WDpwe+vC2UEgE6LkfpuhoOFKlALJyxb8XQm5QJBrt7QdYx9oS/kFfBay5hl
+         FxQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734448423; x=1735053223;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mIbodpRWxqrrqRRUsCSmxdoYxLL2MHEZUJwlmjhZJMc=;
+        b=gwGfyaSbladrA2hYgQpD82UHRYbkXOlDxee9+Y532fDKQjO9Zwy4pJR8BpJTz/y3um
+         mzvsun5X1RL9Jd68ohvqglCHUVj2FvTEEcA8xHv5s594x5YBxnYW0URmqeeV9fm9KxRi
+         yrlk+HALh3N5szAZ//pAjJt+onyxzKo47uFXI9JoA9G1uJK9MXfSGZj3grHJxITf6Qy/
+         5vpczDMyZTKcCU+7QPa7dH7FqIm1uW/Zj11zNbrvp2p1rA34cuHF8k2tfs2JuWO9JoDw
+         keF5zB5BZ8FrFqTja7TqCsjRj2lrV/8cFAuCsvwsodl1N7ywTGCCpEJf+VZqKqiXNrvl
+         5fYw==
+X-Forwarded-Encrypted: i=1; AJvYcCXOhDS9Xa31BTRix7t5UDRR+3QMS81uuCPlJl+IKofT8ZFCbxrXnDyFlw2izuDzklDs5EXO1n19/aQJ3Nyx4xZl@lists.infradead.org, AJvYcCXn5rjPpe23J7bDMKjLi7Irfw76A5+dkVqULeeEJqHAgtOiDdykjR9bbKygC/rd5GaGA3t+MM800qvSj0uecFg=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJAZjdxoRTBA0m/CSIj2z7CCn+Lzco2tNWQM0oJ9ZPV6fJZ5y0
+	p5wtspxVFiHzUVMoD187iD7LTnaiNbmxFHiGmF1dfYhC7w0Mll8jLR1fWnFK
+X-Gm-Gg: ASbGncsLvFSOu7A0SSLmhqS0nGtA12gr7SPv4WQ0YPIOL2zmAnLTELkNfSnTLcYVYPD
+	u9Cq837zCRrQUV7jOIInuz/aWkIX/yBA5hTmRvYDyQ+kLOuKyJv3+y7N0Ru6FdZ9V3TzFbhmbNq
+	QDKEDMx+kObgkgGLxQ9PotT6VaC5WGi+oIN1iRHVm61zBRb375Fpf9/NQLNAHI+8Jmd9oqTjU0/
+	2J82DVZge+K34OzmY/Wa12AKF0pfwdF9N5m2/mnwa59
+X-Google-Smtp-Source: AGHT+IHLcu6qj3H5z8Rh0t1dPSXaYp5zGOT8WvycKhg3dUOqzNjj52VHTli51/q2/uIIlYifEe4k4Q==
+X-Received: by 2002:a05:600c:4fc5:b0:434:ff85:dd77 with SMTP id 5b1f17b1804b1-4362aa3a62dmr56863795e9.3.1734448423285;
+        Tue, 17 Dec 2024 07:13:43 -0800 (PST)
+Received: from skbuf ([86.127.124.81])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436362c7d59sm119484895e9.43.2024.12.17.07.13.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 07:13:42 -0800 (PST)
+Date: Tue, 17 Dec 2024 17:13:39 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [net-next PATCH v11 5/9] mfd: an8855: Add support for Airoha
+ AN8855 Switch MFD
+Message-ID: <20241217151339.gjpdkfbechdjohza@skbuf>
+References: <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-1-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241209134459.27110-6-ansuelsmth@gmail.com>
+ <20241210211529.osgzd54flq646bcr@skbuf>
+ <6758c174.050a0220.52a35.06bc@mx.google.com>
+ <20241210234803.pzm7fxrve4dastth@skbuf>
+ <675da041.050a0220.a8e65.af0e@mx.google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Z4QihPqeM7ahcPAw"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86v7viqusg.wl-maz@kernel.org>
-X-Cookie: The sum of the Universe is zero.
+In-Reply-To: <675da041.050a0220.a8e65.af0e@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_071035_557914_C2B4905B 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20241217_071346_110350_44DAEE42 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +116,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Dec 14, 2024 at 04:11:54PM +0100, Christian Marangi wrote:
+> We can see that:
+> - as suggested regmap doesn't cause any performance penality. It does
+>   even produce better result.
+> - the read/set/restore implementation gives worse performance.
+> 
+> So I guess I will follow the path of regmap + cache page. What do you
+> think?
 
---Z4QihPqeM7ahcPAw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Tue, Dec 17, 2024 at 01:54:39PM +0000, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
-
-> > The selftests are shipped as part of the kernel source and frequently
-> > used for testing the kernel, it's all one source base and we want to
-> > ensure that for example the test fix gets backported if the relevant
-> > kernel patch does.
-
-> That's not what Fixes: describes. If you want to invent a new tag that
-> expresses a dependency, do that. Don't use these tags to misrepresent
-> what the patches does.
-
-No, this isn't a new use - a Fixes: tag indicates that the referenced
-commit introduced the problem being fixed and that is exactly what's
-going on here.  Like I say the selftests are not a completely separate
-project, they are a part of the same source release as the rest of the
-kernel and it is helpful to track information like this.
-
---Z4QihPqeM7ahcPAw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdhlGMACgkQJNaLcl1U
-h9BuXAf/dx2R8YpYX3/jMtIRY2yeLN7a+p7w0DV7dBaLXFEcPUxaS9GC2Qv71kJS
-XgZe44QxPXpIWnNMnlPWO+TsfX/Y9KLoXfiHQa7PLc4jegXgSE9t1cCd4DO//iqN
-sPerZxeVN5K6flV6SRIjmwY+67zE+0m3aituAPK/6GKjr/Jr1GTCbr46LVPWaWr6
-+Se2L+CiAPJIiYV+h1K0IPwjSkTChZAt/Ve43bKZY+3jcVbYx4unuWrSsyNGPjSD
-Xg9+XnQfdvRoSTwaipg4T+I1+CYf29gzyze7fUZ61d1YHEnNQoMXSGlnDEEcyBFf
-/OJ9bIk+wiiKn/luwRZn5hT33yU33g==
-=qHT9
------END PGP SIGNATURE-----
-
---Z4QihPqeM7ahcPAw--
+I'm not seeing results with the "times" variable changed, but in
+general, I guess the "switch regmap + page" and "switch regmap + phy
+regmap" will remain neck and neck in terms of performance, surpassing
+the "switch regmap restore" techniques more and more as "times"
+increases. So going with a PHY regmap probably sounds good.
 
