@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E5AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B58FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQPsyR7dAWj0HH5X6ewchiw1dxigQ2xEs+aOiFD7V1I=; b=MBBqXfMevj18gO/3zoUMDraGLe
-	ruVLGAXvWf4JxoJNL33HfHFjcMZwq8yZyOoeN1qkXvmYFpzmoEKsyLBByuY7r53JJcZ1lIfx8wa7Z
-	qWQzpiBpD36iVJ2xZ/IiPX/1FBQ6EAh8+SiGbpR7Cfausy405+Lc01LmD8OdOBwEnCJZH2Aof0RLA
-	OSNspt7i5lkJwnzqMzFparH3qCLzrxC7Cz+3HKgwF89WQv5apguW+2CsH6Fy4HqGw+iZGYL3UJo6V
-	cjUh8eeXSeEUpJmtzHTl6m0D2wQ2gtMWBHmSHPU0MLPa9EdRH1ST32DxCe2iLZdxklZonLfsjyOad
-	8727zZuA==;
+	bh=juPJKcDTKas6DmHfE2eez3lteaa9FffyFh6KyQJpAPM=; b=iEkm5C0U3yM6y1rl4zAII7wrg4
+	jf0JhyvI4ewbVKBdFxWtqPek40Yt0XEAeps3gAG5CoI7ojfNThA5UMOQuN2ySbv5ErhT4UyA/CvL9
+	zXteIJQ475WVW+rNCy4cJyOQTD0ZyXsu3epDTQiIY01MAXwrvE6nXFLMBXopMuWj7LfuLzzwoR3T/
+	30rwhALIfL6siyG7sMQOZpSbUwkPZCJPdilVGkJd4iM1xtzeW0wVjlSUJFyuR+5AjmpJ+UtUOgHG4
+	BXemG5teC8zG262HLbfwYVTKIq+PdR/XTlIX6fHqnoKJ/Ao60yuQHHO1xG634lb1PdsN+W67ZGVzy
+	eoVVZ7Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXul-0000000DdLZ-0Zzb;
-	Tue, 17 Dec 2024 13:47:07 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tNXvn-0000000DdWV-37zJ;
+	Tue, 17 Dec 2024 13:48:11 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXpd-0000000DcVX-3hDw
+	id 1tNXtE-0000000Dd7M-3avV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 13:41:51 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53df19bf6a9so7486016e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:41:49 -0800 (PST)
+	Tue, 17 Dec 2024 13:45:34 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54024ecc33dso5732349e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 05:45:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734442908; x=1735047708; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734443131; x=1735047931; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OQPsyR7dAWj0HH5X6ewchiw1dxigQ2xEs+aOiFD7V1I=;
-        b=a5vCzHCEetmFpfjOMZK5fGD5IXEgTGkSnKfVg9d0Y1601jvjVgQ7EwZN91Xbyq6O66
-         qNWYu4wR6/l6Huhakxkm9KDhdsOnKOGK5cE0Qyknndt3LKq1ZKZSd5679xI3WY+M2fxN
-         O9/fdxnTMkHM9zNnu/hMLR42yBfDtj/LIIhIQvnB4BwHrYgvakCoeZxxxmKlyUOG2HzQ
-         024vslrBXa+WzG9BN4Mivu7wRV5UVbnmE7A7Z1k76zPC25bdQtdS3tCl6X9DItYta5je
-         bxZ4xa7U4jrhcysIoRrWhr7ICSYS+nRDNnTL7WqUfeVx3wGLNxVxv39kw6x3cC20JU+N
-         KntQ==
+        bh=juPJKcDTKas6DmHfE2eez3lteaa9FffyFh6KyQJpAPM=;
+        b=upvJOyLG2hLmQ4EVUjbr6NwDcCZ6LV6xCcrjOYNACcXSHF8Lbdk4QLq7n0i5qMXePI
+         PY7KH8y1e4ChB/s/dfqYt/muUQKP4IRkkVZ4tgJ7jPny4OjXKo7TWGaiHEMrruDtkTkc
+         18OYZi714xpM+s7XavpANf3Vqf1/E8fJWUWGSseSezPhSBXb2TOdAVtPjdvcHP/k9APY
+         nW+NQRnRQD14aIg6m3b79/45SamMQezNwioAnt0+WJuAo7Rxx01/8x9EmPgGP4WCauWC
+         om40pkWh578knXdulEiV1F8aVz0BfOwGDJybDWTpIG5Iugf9RvKg+21CRr65I06x13J+
+         KmKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734442908; x=1735047708;
+        d=1e100.net; s=20230601; t=1734443131; x=1735047931;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OQPsyR7dAWj0HH5X6ewchiw1dxigQ2xEs+aOiFD7V1I=;
-        b=ssznNfY+e3X24cfMXPq21oESFs8LCVbdSkySC3bDnmiq8/dVpfeA2jEhS/tLjHhQZo
-         rG3Dn85IlxSsjOFujeNtteUHbeEHhQbp3FI0W8Ysszxa/uWAKaxcqEXjjxr7UjE8O6tb
-         ePcJJGTgJ3RdFPmPig/fZtSwe2RfEqWeqktOFaDG33lxmN9PLx+jSd0/0u2+2VW4tK3j
-         wPtltMuUiOpvb6Q/MpMUhGo81cDDB6BLZkCl1AUthrO2dZ644t/MuNCtJvYtSbcXi8C0
-         aXihEBrhYl3uCpepZGhqQnf2dxsx1oB1v8P4IWNdecqWiqGbV9BWwdA7QRBLrWJHdkQU
-         E8WQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXTSMyUZkFaQIoxT0TLn3MYwZkL5YkF8do+qEhOfw/peQgZoKZwX+0x0afD6fbtNAQ0SOxfy1Ynox0zZuItHe8E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz89SLzsdzF89wZYe5snJPKgsKQPNaGGtjaGawMG2Wj81N0a8JZ
-	afQBmZ8he3fTucw0r44q1Ll4j0wFpAVrhshAwZkXgd6q6zRWz6GpZ0peHxf5dWRHzVfHRDmZnah
-	CfilZBEnL7zpVVQXpSJNXuT/+yilE6Y/o0vYkQA==
-X-Gm-Gg: ASbGncv5TqiZbxaCL4HJifQH/TJQpmpBCxOEblQr0tuhpdYd/4M5Cu3Yr1qTeI5wOuh
-	Ka5TYCRDQzx7W4mFxIvi7RfZwymjxdf3VGUazBw==
-X-Google-Smtp-Source: AGHT+IH4HRXYBmosVzpwGFebPuano60MtISoT9J69VFwW0An/ivv1V9rgWffgN2jJxOLz0JsvxSobN0rBrRAtASDJGM=
-X-Received: by 2002:a05:6512:3c85:b0:540:20b8:7325 with SMTP id
- 2adb3069b0e04-5408fac7aeemr3900258e87.2.1734442908199; Tue, 17 Dec 2024
- 05:41:48 -0800 (PST)
+        bh=juPJKcDTKas6DmHfE2eez3lteaa9FffyFh6KyQJpAPM=;
+        b=Jzh1sb67Ukr6R6wzl2Zp5LdocwV+26FTVX23hEVxiWU1feTpa4O6sQXHh140yi4O7+
+         3Jg0zZ1CxSSJT4bWGjZ0Fs5+3Q/eLq6SfAJSC7Rpjteln+3hPTmgtw4trz8XWsuWKvMi
+         PyAUIOgJALzGL/b4OHCFaD/6nVgmBC/cC7iO+MpmFxSOzp9NYSCdJmRRUtlzwrLRfpS7
+         L89lLXhFVrT26KfCoXjZ01TKMxk6auOZFQy9WGS+DUnIt2IHoWSO17yEqCr+ZwvviusT
+         9k3mfT0hisfyEWgrmqwUebKPechfuZ4fNmQYAGfGGi9y/Lv+Y7i6TqDxY3qeZvGqcIrr
+         rpag==
+X-Forwarded-Encrypted: i=1; AJvYcCWjFI9WoJmROXiU582DlLTse2V9VmWj0vFhYBXhNNMQJ/qv7ImoWkANcqRZpxm8mILmP3FMgDA9ZwdXc1eYC9cJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2ix4i/nXk8JmigdeouXbSqno0Ss3RkDpaw23jc8bfiELHIlPY
+	ohbAZk691zMlfj2lwa93rPVJ+rHj4kUXyZxnb1CruhKhUm1QP5b+ZuocJERQorplP+Kb/KCSPCg
+	ydUCr+hoCvC1Dxkp+JGQuvRacR9PqdSa2ZtCgnp7MjGCVF/jhcjA=
+X-Gm-Gg: ASbGncvRQFHujnROmAZsf9wl62/t66uABJ/ArJkAmki0E43Fz6nLWH2FHBw0Q4n22HV
+	DLHD8iJE1cA4pVw/PZzXMPF35s7Vz9SVy6jSMvg==
+X-Google-Smtp-Source: AGHT+IFR6FlyV7xGudG0pVgEPvwRzGY//Q2aR/ufrejSiOLM3v/BAnZMkPxq7smAseJgipFLo05KDrbMR1c3Zo+kE9k=
+X-Received: by 2002:a05:6512:1383:b0:53e:239b:6097 with SMTP id
+ 2adb3069b0e04-54099b729dcmr5985204e87.50.1734443131096; Tue, 17 Dec 2024
+ 05:45:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20241119140805.3345412-1-paulk@sys-base.io> <20241119-prudent-jasmine-lizard-195cef@houat>
-In-Reply-To: <20241119-prudent-jasmine-lizard-195cef@houat>
+References: <20241203131302.16022-1-ot_chhao.chang@mediatek.com>
+In-Reply-To: <20241203131302.16022-1-ot_chhao.chang@mediatek.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 17 Dec 2024 14:41:36 +0100
-Message-ID: <CACRpkdbcDwJaLmCa_YoP2zFw3fiWn-d1Q773jGh9kcVN8aWQKQ@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: Use minimal debouncing period as default
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Paul Kocialkowski <paulk@sys-base.io>, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Kocialkowski <contact@paulk.fr>
+Date: Tue, 17 Dec 2024 14:45:19 +0100
+Message-ID: <CACRpkdZy7HgkT-FFJh=ubXhdcBRa-vbaNmHC32E3djZdHnwdYg@mail.gmail.com>
+Subject: Re: [PATCH] v1 pinctrl: mtk-eint: add eint new design for mt8196
+To: chang hao <ot_chhao.chang@mediatek.com>
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	sean.wang@kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_054149_917037_C7582477 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20241217_054532_890532_BF5DEFD4 
+X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,22 +95,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 3:43=E2=80=AFPM Maxime Ripard <mripard@kernel.org> =
-wrote:
+Hi Chang,
 
-> [Paul]
-> > The pinctrl code supports an input-debounce device-tree property to set
-> > a specific debouncing period and choose which clock source is most
-> > relevant. However the property is specified in microseconds, which is
-> > longer than the minimal period achievable from the high-frequency
-> > oscillator without a pre-scaler.
+thanks for your patch!
+
+On Tue, Dec 3, 2024 at 2:13=E2=80=AFPM chang hao <ot_chhao.chang@mediatek.c=
+om> wrote:
+
+> From: Chhao Chang <ot_chhao.chang@mediatek.com>
 >
-> That can be fixed by introducing a new property with a ns resolution.
+> Change 1: change EINT from 1 address to 5 addresses,
+> Eint number is stored on each base.
+> Change 2: Compatible with 1 address design
+>
+> Signed-off-by: Chhao Chang <ot_chhao.chang@mediatek.com>
 
-Perhaps, but I think a setting of 0 should just yield the minimum
-resolution in this case, as apparently the debounce cannot be
-turned off? This would also make sense to expose for
-gpiod_set_debounce() as explained in my other mail.
+This patch looks good to me, as preparation for mt8196,
+but can one of the Mediatek experts please
+review it? If nothing happens I will just apply it I guess...
 
 Yours,
 Linus Walleij
