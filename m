@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A2DE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 18:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4AF9E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 18:22:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Ko81rOXBnl15Kp9sz0wiT29r3RdvTRcC53LJ7v4IBw=; b=Y4c42169DjgA+yQmegUl/Hpmjm
-	66EQDa63yOyHeZkRWyOI0xskLmcOZrQfDb12vB2KiwTMc42HzkAdgyORb6udhE132TadW8Pb7YNXJ
-	ee78vJ/5bNVHUKrZ/vdPQEgbHS3LvA/b97oNxfINLcxiA33do9ghdC1aqotosaHqSEFX1a8o4ZRXR
-	uxoNZUZ3BCmzR18BZTzuqoxv6Yyr4X90OWMdsYTnmp4n8dVKztmKE6gPWod78IWzQL+z5Qr3HY+0v
-	lok6xuCwaGl9we+Tw7OfkxohzBXezUd1JOM48mfig+JS6y5m8EX9QEPtpj98Bp80Je/caBq8yzwM1
-	x2hRD23w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yildsclURKwBrFcuZYzExOtDLbmKY9IGWCKkE4r0JCA=; b=Mcr4zzYYujjCPDUFjKpq4i+YY3
+	YN8KlS7bE0IvndzrjHDViRPIidXAwMjBwkVcw6KGLvK0T+51K7O1lbZldJhVROEYtZSJr13NPT/Cl
+	Wf+lkzTcihAbvYwE8J+RoILq4M+xSTvXc2/kynWKy7RAk5IMfzTWveJvWapowBjijMh4HF2vF7ymZ
+	M2hexNMAN8H90Tpcc9U0ukYKbfhgW3mZIxCtbcviijWDHduK0jYx3CDh3bsiR4cD7l6+CoHcDX6GB
+	n+5iHCZPzEyZ8y3umaEJrKzI3mt0X7l3vxPbTV5XS0Xeh/NV5JqLT1Dntz0qb3tCIu8S8jtkZiNYM
+	HIfO28Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNc7K-0000000EVEZ-3l5Y;
-	Tue, 17 Dec 2024 18:16:22 +0000
+	id 1tNcCq-0000000EWMg-45gk;
+	Tue, 17 Dec 2024 18:22:04 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNc38-0000000EUUO-2Il4
+	id 1tNcBk-0000000EWBK-3wLg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 18:12:03 +0000
+	Tue, 17 Dec 2024 18:20:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2D414A41F43;
-	Tue, 17 Dec 2024 18:10:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 357FFC4CEDD;
-	Tue, 17 Dec 2024 18:12:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 858D0A40FA3;
+	Tue, 17 Dec 2024 18:19:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E710C4CED3;
+	Tue, 17 Dec 2024 18:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734459121;
-	bh=d9mGnZDHaJzDeXuKCaPy+9xk0XBg5gLpu9ArK0AHMKM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oeGJV7TzMO2K/f4KYDTiE7oK8pvu0X6kilCxjF5oFugyKqzLn+6n34touk83bBI+F
-	 skpEqsPKCkHdiNdFIBGSRhJndcH41NadHgdnnn5LSoCdZbpBoE8+VzsUH/3UA4VE5D
-	 /zyFHELz5BOhGK0S0aS5NwjPHbFEMTOE8v7gKxCgg7Kl2Hf/nrFywk2LbP40jJ1e1P
-	 G7yGDFVr1i9vvN69t0G1BcnUbV/qjvlPQi6C9CHQfZvaivfRTBfRJL/VMASFIM4xpa
-	 syn1KdPb9tFSzE25V9vueRU9bBIJ6fFv6Zu4RAF5vbZl7O/L6ErrPliOQVDL8iAjp2
-	 /BpPqY4vXonMg==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 17 Dec 2024 12:11:42 -0600
-Subject: [PATCH v2 3/3] mfd: syscon: Allow syscon nodes without a "syscon"
- compatible
+	s=k20201202; t=1734459655;
+	bh=yildsclURKwBrFcuZYzExOtDLbmKY9IGWCKkE4r0JCA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s8TKNLVu7XA5lXmycWns29seqO2hyRgVnNOPtDYIK1ZvGtRRuq3/lni9a7rj6NRwA
+	 7PpxpAOIusn9wTEce/uJMivoDJ+t8Cc3myGHyo5l6Cw8DZI1J1QJSMfrPz6N0ipLsA
+	 ioIkdczq83kqYRtTaUBLRAzkiqu8O2gDl0OhAQhgA/vXU/gZvuKk1xeUXBTBOnOqq/
+	 QCzvGg8isuiccF9y3WIVz1BJnMjH8FvJKEIeFD5hz9gmozKkDk/FVFtlOHVAH+rn3c
+	 2XI0zdgvBVBIRFYcy/81QfCNBTGKJ9R6qw136CcVzdD2qopafyyEA3mMt0jWNldRH5
+	 40N1rjSlTBjTw==
+Date: Tue, 17 Dec 2024 18:20:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: nvmem: imx-ocotp: Introduce
+ #access-controller-cells
+Message-ID: <20241217-compare-craftily-94425c53b4d8@spud>
+References: <20241217-imx-ocotp-v2-0-3faa6cbff41b@nxp.com>
+ <20241217-imx-ocotp-v2-1-3faa6cbff41b@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241217-syscon-fixes-v2-3-4f56d750541d@kernel.org>
-References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
-In-Reply-To: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
-To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Pankaj Dubey <pankaj.dubey@samsung.com>, Heiko Stuebner <heiko@sntech.de>, 
- Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, 
- John Madieu <john.madieu.xa@bp.renesas.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15-dev
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xHQ/yDLv8t1eplxP"
+Content-Disposition: inline
+In-Reply-To: <20241217-imx-ocotp-v2-1-3faa6cbff41b@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_101202_716472_48035A9F 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20241217_102057_039514_0E839C12 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_syscon_register_regmap() was added for nodes which need a custom
-regmap setup. It's not really correct for those nodes to claim they are
-compatible with "syscon" as the default handling likely doesn't work in
-those cases. If device_node_get_regmap() happens to be called first,
-then of_syscon_register() will be called and an incorrect regmap will be
-created (barring some other error). That may lead to unknown results in
-the worst case. In the best case, of_syscon_register_regmap() will fail
-with -EEXIST. This problem remains unless these cases drop "syscon" (an
-ABI issue) or we exclude them using their specific compatible. ATM,
-there is only one user: "google,gs101-pmu"
 
-There are also cases of adding "syscon" compatible to existing nodes
-after the fact in order to register the syscon. That presents a
-potential DT ABI problem. Instead, if there's a kernel change needing a
-syscon for a node, then it should be possible to allow the kernel to
-register a syscon without a DT change. That's only possible by using
-of_syscon_register_regmap() currently, but in the future we may want to
-support a match list for cases which don't need a custom regmap.
+--xHQ/yDLv8t1eplxP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-With this change, the lookup functions will succeed for any node
-registered by of_syscon_register_regmap() regardless of whether the node
-compatible contains "syscon".
+On Tue, Dec 17, 2024 at 04:43:36PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>=20
+> Introduce "#access-controller-cells" to make OCOTP be an accessing
+> controller, because i.MX Family OCOTP supports a specific peripheral
+> or function being fused which means being disabled.
+>=20
+> Add the i.MX[95,93] OCOTP gate index.
+>=20
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v2:
- - Fix logic when a syscon is found in list to not return an error
----
- drivers/mfd/syscon.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/drivers/mfd/syscon.c b/drivers/mfd/syscon.c
-index bfb1f69fcff1d3cd35cf04ccd4c449e7d0395c79..226915ca3c93dcaf47bdd46b58e00e10e155f952 100644
---- a/drivers/mfd/syscon.c
-+++ b/drivers/mfd/syscon.c
-@@ -171,9 +171,12 @@ static struct regmap *device_node_get_regmap(struct device_node *np,
- 			break;
- 		}
- 
--	if (!syscon)
--		syscon = of_syscon_register(np, check_res);
--
-+	if (!syscon) {
-+		if (of_device_is_compatible(np, "syscon"))
-+			syscon = of_syscon_register(np, check_res);
-+		else
-+			syscon = ERR_PTR(-EINVAL);
-+	}
- 	mutex_unlock(&syscon_list_lock);
- 
- 	if (IS_ERR(syscon))
-@@ -238,9 +241,6 @@ EXPORT_SYMBOL_GPL(device_node_to_regmap);
- 
- struct regmap *syscon_node_to_regmap(struct device_node *np)
- {
--	if (!of_device_is_compatible(np, "syscon"))
--		return ERR_PTR(-EINVAL);
--
- 	return device_node_get_regmap(np, true);
- }
- EXPORT_SYMBOL_GPL(syscon_node_to_regmap);
+--xHQ/yDLv8t1eplxP
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- 
-2.45.2
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2HBAgAKCRB4tDGHoIJi
+0mqiAQCvW9eoF6N7cbHaOx0lGoN8Anj0wtcz8D/mTXwQMot4WgD+NXPCSLjx/jyI
+l1ucvLcVZh77ERggFbTtxPhpmvr9hA0=
+=qNnf
+-----END PGP SIGNATURE-----
+
+--xHQ/yDLv8t1eplxP--
 
