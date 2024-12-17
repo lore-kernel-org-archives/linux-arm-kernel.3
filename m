@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A53CE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DA4E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vz3LBTZWr2lb5i0JX2cBAVV8s6UPF80S4bXuDR7OjIw=; b=CMxmcBH1aMYglVxLHx29FFU9G6
-	bU70wjf4d+4m5DIJ0OGJ2f0YLu0dXrKYHbOHd1/k4RdlkYxxHR6O1KSMRZN13ANSeyd34eaFKWXWM
-	aVIG5HazJXS0bKiqYDxIRdDDv8Ah2lJaydqhnAHLG6zNKQKZRUu3YLgTaweOHrteMGzd9vbE81AXQ
-	/WH+Ev5o6eBoi94paMt0w33yecxDrWVLaOcyOxaPYCk9pcXnOdUsFFk/MxpefLMSO2MF4S03UIGOV
-	9HJNmnDDVXUCogXXoJP5m1Ki8onxBC6YvFWgiP8dnLXWVL0h8oXFN2wQBuPL36VXWR8rlWI2B4Iry
-	7sr2ijiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AJ8xar4h5rk9ad9pw56nXrCo7RziMoyia/Xag/oqRJk=; b=u7mMEqRwhzBt/fu6+NXOXjtybW
+	/q3z1Cs1itpSTW8uvmF1+9Gtendc4440Phi6vahkyz5ImykBultqFkMmzYDYjIa8ooMQCSMy1yShm
+	7G/BNfI5RN6MEeV9ZjhpWUjgyi8nrgieUODWm29lp/0l0hoWFcDj9knu9YeAL3GR73koOppTY7trD
+	qNPNxj4xr7OWkmaFbsHHnpubeNMjq9uCYlAk2QbntzzJ+2WN1slAPuobojUNfqwTXsC57IXK5UErG
+	B3u9nwxRJrOZAi7/iDWv94om/7w84l+uipxJ+j07sAoHikel25wKQocLUGAGlrj+2F2Jzl16MiWpI
+	S5mKr96A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYEQ-0000000DgIc-0GqG;
-	Tue, 17 Dec 2024 14:07:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNYFT-0000000DgZe-2pqP;
+	Tue, 17 Dec 2024 14:08:31 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYDK-0000000DgAB-3PFS
+	id 1tNYEE-0000000DgGn-0eE7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:06:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 05C775C66AC;
-	Tue, 17 Dec 2024 14:05:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0A3EC4CED4;
-	Tue, 17 Dec 2024 14:06:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734444377;
-	bh=sRYFkVqoQ7WVWtIBYz2OuAjeAt/6gkjTXYc/NTa8jnk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=prbcWabOTuBkNbtMYI66UPlJNIkVKDob7yE4wXS+0mv640w8Mflnrm0MVNz/CrCwx
-	 jzbSn1g5TZ47pfAUdJaSvC4JWoIteeZ1FX2PrDaCMweujLl8tfWqfK/zRO3YPAQMYa
-	 /pvZtZqEl7zp/NFAX8jI6vZBLxHeHQ/dS6GAf7ngKQZBQU4EnLaii64OmE10VEPNMG
-	 Mx1QSxTLouq1iXjiY1rzzc7voVwNAQ2hHz+uqDvwxv+4aqUiOoESgIjb0JD6mTmtVr
-	 E2TgM1hBP4fpvHk9lzYmxj2ANZq52Uc46/La0B/oULauaBxSj8hARLaGKvmVWV1Smb
-	 5iAxg8B00VrRQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tNYDH-004ZwV-Rt;
-	Tue, 17 Dec 2024 14:06:15 +0000
-Date: Tue, 17 Dec 2024 14:06:15 +0000
-Message-ID: <86seqmqu94.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Quentin Perret <qperret@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 11/18] KVM: arm64: Introduce __pkvm_host_unshare_guest()
-In-Reply-To: <Z2F9xb4jrK1zRtNV@google.com>
-References: <20241216175803.2716565-1-qperret@google.com>
-	<20241216175803.2716565-12-qperret@google.com>
-	<86wmfyr1j4.wl-maz@kernel.org>
-	<Z2F9xb4jrK1zRtNV@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, vdonnefort@google.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 17 Dec 2024 14:07:15 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5401bd6ccadso5470326e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 06:07:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734444432; x=1735049232; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AJ8xar4h5rk9ad9pw56nXrCo7RziMoyia/Xag/oqRJk=;
+        b=yJV2dtlfKoYrSuB8LPoEhZQ6McyuIkW/rUh0W0QEoq2KlZy5Ldneb/2LksQ0gcDOpi
+         zOzCIkx8Fb1phYplWXS6g2IdOT71zvUEsQVDrGoDUDuXieAcHT8z+h/do1OjkD3pWFy6
+         V9/aNtFXMdL4ZBOFty+JTA562OpeTR9x9PI+gMcwJsQD0BVTR1Hcnk/b2I9DhIxbpEcx
+         zWi6+SN0VjGU5pLs2rq1D1m2kHF+Urjp6vjSgOdlS1lgcNH4idtelSnhV+hywXjLYzj9
+         SGhW/JcyOXu2C05YBRXs3tYaJuW6CX+9pOvvsPzRBvOLfBt9e6d1YZ4WHucCRIK1XTn7
+         ZEmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734444432; x=1735049232;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AJ8xar4h5rk9ad9pw56nXrCo7RziMoyia/Xag/oqRJk=;
+        b=ZaItw8tdJa8pBHFfa3xBQ6uE8f1GarqjPm582yYRHBxQnX1qpFq+Wk3MW90xDcYAsD
+         Lh1hiI9vWkB4uB03dbby2/CsaZX6BwlgjBSCxs8WWMNPpWBHJoM1vNsjLZe6jJJQWJ+e
+         Y02scjxBWy728wCM99YIramUiyYq4nJqI+/aS9439ZmTG0mEiMpCnlGMUWVQZgvvOvBN
+         TsqyJsqG10bOgek/FVId9W+zkbaSIenoUNSX2VRc5HXLYyJrFyQcHhmFdfxyHOkuwKJh
+         hRXsti+JKauu8889lvwe71FYbZiHeFqHapKPKgdVtVLa1HgGSZ1rucmFrXL6DTqwPoee
+         kFcw==
+X-Gm-Message-State: AOJu0YzQ9PrqlWp4HrPuu3Up+hA5OqzvwRmMBhkhqc3vHb8kG0E7Vy4x
+	lUoIM2leE/wWw/IIBc7b86Y/dRaPVsieu31JO3bisJ4FnbCJpVDyfCMmIjvZcApQisejILfQDnq
+	1NU8fy6+rex8TWvrjRSVyMbhg0u4grCAGSCqAfg==
+X-Gm-Gg: ASbGncvQwza7LpG5cHvyAkHS1awIR5FBVYoUwlztVqQP8gCMJdNQW+GIY7W3fByP3XN
+	nwqcEO2OLYZXJOE9YWggJ/E7Vv/+TYA1rmSj/yA==
+X-Google-Smtp-Source: AGHT+IHZjPHjo4Swh+bqa4UnyeL5dWjKS+tvSH7lJWm3TCu3xkZDTEkEtpQJJwyqbndJ5XwyTn9A1top8YhlHpFm1kc=
+X-Received: by 2002:a05:6512:124c:b0:540:2311:28c5 with SMTP id
+ 2adb3069b0e04-54099b72020mr5875156e87.57.1734444431628; Tue, 17 Dec 2024
+ 06:07:11 -0800 (PST)
+MIME-Version: 1.0
+References: <20241206221618.3453159-1-zmw12306@gmail.com>
+In-Reply-To: <20241206221618.3453159-1-zmw12306@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 17 Dec 2024 15:07:00 +0100
+Message-ID: <CACRpkdZrkt7R+NzjQmo60M9sMom_f4SRU8+g+=UEq7hqG9pKJw@mail.gmail.com>
+Subject: Re: [PATCH v2] pinctrl: nomadik: Add check for clk_enable()
+To: Mingwei Zheng <zmw12306@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_060618_936357_0657EE31 
-X-CRM114-Status: GOOD (  29.86  )
+X-CRM114-CacheID: sfid-20241217_060714_189573_18D10F5D 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +92,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 13:33:57 +0000,
-Quentin Perret <qperret@google.com> wrote:
-> 
-> On Tuesday 17 Dec 2024 at 11:29:03 (+0000), Marc Zyngier wrote:
-> > > +static int __check_host_shared_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ipa)
-> > > +{
-> > > +	enum pkvm_page_state state;
-> > > +	struct hyp_page *page;
-> > > +	kvm_pte_t pte;
-> > > +	u64 phys;
-> > > +	s8 level;
-> > > +	int ret;
-> > > +
-> > > +	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +	if (level != KVM_PGTABLE_LAST_LEVEL)
-> > 
-> > So there is still a very strong assumption that a guest is only
-> > provided page mappings, and no blocks?
-> 
-> Yep, very much so. It's one of the main limitations of the series as-is
-> (with the absence of support for mapping anything else than memory in
-> guests). Those limitations were mentioned in the cover letter of v1, but
-> I should have kept that mention in later versions, sorry!
-> 
-> The last patch of the series has a tweak to user_mem_abort() to force
-> mappings to PTE level which is trivial to do as we already need to do
-> similar things for dirty logging. And __pkvm_host_share_guest() doesn't
-> take a 'size' parameter in its current form, it assumes it is being
-> passed a single pfn. So all in all this works well, and simplifies the
-> series a lot.
-> 
-> Huge-page support should come as a natural extension to this series, but
-> I was hoping it could be done separately as that should have no
-> *functional* impact observable from userspace. I'm slightly more
-> concerned about the lack of support for mapping MMIO, but that too is
-> going to be some work, and I guess you should just turn pKVM off if
-> you want that for now...
-> 
-> Happy to address either or both of these limitations as part of this
-> series if we think they're strictly required to land this stuff
-> upstream, this is obviously up for debate. But that's going to be quite
-> a few patches on top :-)
+On Fri, Dec 6, 2024 at 11:13=E2=80=AFPM Mingwei Zheng <zmw12306@gmail.com> =
+wrote:
 
-No, I just wanted to make sure I did have the correct interpretation
-of what this does. 'd rather have something that works first, and then
-add large mapping support. You can even sell it as a performance
-improvement! :)
+> Add check for the return value of clk_enable() to catch the potential
+> error.
+> Disable success clks in the error handling.
+> Change return type of nmk_gpio_glitch_slpm_init casade.
+>
+> Fixes: 3a19805920f1 ("pinctrl: nomadik: move all Nomadik drivers to subdi=
+r")
+> Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+> Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 
-Thanks,
+Oh I took out v1 and applied this instead, I didn't see the bug
+but luckily you did!
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Yours,
+Linus Walleij
 
