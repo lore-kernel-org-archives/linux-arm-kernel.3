@@ -4,84 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D951E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0955AE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTiyx4rfntofc0k6gFLJAY5Sif0ANTcSMp5CKClJKaU=; b=uiCNcVbiIuw2UNxJvTmAwqhXWW
-	fyAXrU6J6EfC0DAIrw/1+xVo2xFQXzInHHV+w++cDhO73ELITTnebBnj72a58zbx+VTKbFyCK80QR
-	8r0Gg2XM53NIB1NCqJabMfOUhnM0p3vsWeYqleKFqn8pG+GNm0PBLgpYEmuCJM54Szb5gMPUzd07z
-	QYa6yFCtgbg3wxoLUKMo/OdmanpZum/mVkvZX9PJupUD3/+vNybMChiBJ6P4pNdESZAMnkrUv8g/m
-	Ns/aCZRBg0pH1sZt9W8jl3AumhJbK9fOcObi72GbXfN7VPtQC+u2QY5+5BZ0GHiRIKpAAGavv4j89
-	7G4Kft9g==;
+	bh=Ka+Uk71pu3J2jjmU46Z/YrwBcPcCFn6leemONWeplF8=; b=hyIlnGj0c9Jzr7u9Zd7kYwVMGv
+	wWW0PRaLVVHnta6PTIUgkR2WSQpQ6ShEWJR6Gj/qtHijG/bcgeh0PBNUffSPyiZME+LM0+6KA9nGC
+	qKGi/TPNcde1F5Z3h9zh20HpHguZ4kEGNZ4SCs1dwzEVAm/4IkLV8UF7P8qB/bxGTDiVqVs0jFt/+
+	VcU95RhcJe+PNihqYrFIswrVgkk4Y407n49P3WeU1ai8F3sPYZG2J1ao50iQ+35I65ACwumC2YrR+
+	BCBzL1hiPgF8XccE7J/L+tEhGSl5/QazitdZZu45kO0j2aUKBKL6gGaROairoxT/Qgk0cvjNM56KP
+	s2RzWh7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYw5-0000000Dpox-0CGa;
-	Tue, 17 Dec 2024 14:52:33 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYt2-0000000Dp6j-0Pa7;
-	Tue, 17 Dec 2024 14:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734446960;
-	bh=bxleyRE+0QNYUPGWu6GOO9WL8zmi27WPpMdWVX7EXaQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SHgrecisvyvFNYJkC0sG9pe+ZHI+SU1wgFAN6QytjqZ1lScWAnvGDWOB6jwwTeoOY
-	 b1mEXOq6aztZ09ZzcxhUuG3Wwzv/0G21T4aw3PxuaYchovpxJD6WhQKz/vKInV7TXt
-	 2F9t8c0lhA09WzpPWuQtgwPdwGaOyAgN1L+AguXnrTjPEhlioHJ8U/T1N/js0b6v4H
-	 iDUEuJIUtXJSf4+YCLmLEF1SWO717Weax/RRKuIQ26fs0CRlo+rHTHWpp8mCDUe4+/
-	 lCHiJr2SCxpRf/Qa93uK7R/Fmww2DmFRMHozhV7TJgvX2j2PGmH9IORwl3A1OUh22+
-	 AOVOghZSTbzQA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9389517E377A;
-	Tue, 17 Dec 2024 15:49:19 +0100 (CET)
-Message-ID: <482ccf9c-fad5-470c-964f-a2c422f79555@collabora.com>
-Date: Tue, 17 Dec 2024 15:49:18 +0100
+	id 1tNYxA-0000000Dq8S-1Qh5;
+	Tue, 17 Dec 2024 14:53:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNYvu-0000000DpnL-3Qto
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 14:52:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F0ED1063;
+	Tue, 17 Dec 2024 06:52:49 -0800 (PST)
+Received: from [10.57.71.247] (unknown [10.57.71.247])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5CA4B3F528;
+	Tue, 17 Dec 2024 06:52:20 -0800 (PST)
+Message-ID: <065b4ad2-db39-42ed-91d1-d818f82ece79@arm.com>
+Date: Tue, 17 Dec 2024 14:52:19 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/15] drm/mediatek: Introduce HDMI/DDC v2 for
- MT8195/MT8188
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20241205114518.53527-1-angelogioacchino.delregno@collabora.com>
- <20241205114518.53527-16-angelogioacchino.delregno@collabora.com>
- <6ed3b9ee742dcf814f35e15d88db538480ba2d48.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <6ed3b9ee742dcf814f35e15d88db538480ba2d48.camel@mediatek.com>
+Subject: Re: [PATCH v2 1/3] coresight-tpdm: Add MCMB dataset support
+Content-Language: en-GB
+To: Mao Jinlong <quic_jinlmao@quicinc.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Tao Zhang <quic_taozha@quicinc.com>
+References: <20241105123940.39602-1-quic_jinlmao@quicinc.com>
+ <20241105123940.39602-2-quic_jinlmao@quicinc.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20241105123940.39602-2-quic_jinlmao@quicinc.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_064924_324417_F16F7FC6 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20241217_065222_951339_D521A954 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,88 +68,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 17/12/24 10:21, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
+On 05/11/2024 12:39, Mao Jinlong wrote:
+> MCMB (Multi-lane CMB) is a special form of CMB dataset type. MCMB
+> subunit TPDM has the same number and usage of registers as CMB
+> subunit TPDM. MCMB subunit can be enabled for data collection by
+> writing 1 to the first bit of CMB_CR register. The difference is
+> that MCMB subunit TPDM needs to select the lane and enable it in
+> using it.
 > 
-> On Thu, 2024-12-05 at 12:45 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> Add support for the newer HDMI-TX (Encoder) v2 and DDC v2 IPs
->> found in MediaTek's MT8195, MT8188 SoC and their variants, and
->> including support for display modes up to 4k60 and for HDMI
->> Audio, as per the HDMI 2.0 spec.
->>
->> HDCP and CEC functionalities are also supported by this hardware,
->> but are not included in this commit and that also poses a slight
->> difference between the V2 and V1 controllers in how they handle
->> Hotplug Detection (HPD).
->>
->> While the v1 controller was using the CEC controller to check
->> HDMI cable connection and disconnection, in this driver the v2
->> one does not.
->>
->> This is due to the fact that on parts with v2 designs, like the
->> MT8195 SoC, there is one CEC controller shared between the HDMI
->> Transmitter (HDMI-TX) and Receiver (HDMI-RX): before eventually
->> adding support to use the CEC HW to wake up the HDMI controllers
->> it is necessary to have support for one TX, one RX *and* for both
->> at the same time.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
+> Signed-off-by: Tao Zhang <quic_taozha@quicinc.com>
+> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-tpda.c |  7 ++--
+>   drivers/hwtracing/coresight/coresight-tpdm.c | 44 +++++++++++++++++---
+>   drivers/hwtracing/coresight/coresight-tpdm.h | 27 ++++++------
+>   3 files changed, 57 insertions(+), 21 deletions(-)
 > 
-> [snip]
-> 
->> +static void mtk_hdmi_v2_bridge_pre_enable(struct drm_bridge *bridge,
->> +                                         struct drm_bridge_state *old_state)
->> +{
->> +       struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
->> +       struct drm_atomic_state *state = old_state->base.state;
->> +       struct drm_connector_state *conn_state;
->> +       union phy_configure_opts opts = {
->> +               .dp = { .link_rate = hdmi->mode.clock * KILO }
->> +       };
->> +
->> +       /* Retrieve the connector through the atomic state */
->> +       hdmi->curr_conn = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
->> +
->> +       conn_state = drm_atomic_get_new_connector_state(state, hdmi->curr_conn);
->> +       if (WARN_ON(!conn_state))
->> +               return;
->> +
->> +       /*
->> +        * Preconfigure the HDMI controller and the HDMI PHY at pre_enable
->> +        * stage to make sure that this IP is ready and clocked before the
->> +        * mtk_dpi gets powered on and before it enables the output.
-> 
-> In patch [6/15], you does not power on DPI power in DPI driver.
-> Could you point out the code about 'mtk_dpi gets powered on'?
-> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index bfca103f9f84..4b61b9840740 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -1,6 +1,6 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #include <linux/amba/bus.h>
+> @@ -68,11 +68,12 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+>   	int rc = -EINVAL;
+>   	struct tpdm_drvdata *tpdm_data = dev_get_drvdata(csdev->dev.parent);
+>   
+> -	if (tpdm_has_dsb_dataset(tpdm_data)) {
+> +	if (tpdm_data->dsb) {
+>   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>   				"qcom,dsb-element-bits", &drvdata->dsb_esize);
+>   	}
+> -	if (tpdm_has_cmb_dataset(tpdm_data)) {
+> +
+> +	if (tpdm_data->cmb) {
+>   		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+>   				"qcom,cmb-element-bits", &drvdata->cmb_esize);
+>   	}
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+> index b7d99e91ab84..0529858586c1 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+> @@ -1,6 +1,6 @@
+>   // SPDX-License-Identifier: GPL-2.0
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #include <linux/amba/bus.h>
+> @@ -21,6 +21,21 @@
+>   
+>   DEFINE_CORESIGHT_DEVLIST(tpdm_devs, "tpdm");
+>   
+> +static bool tpdm_has_dsb_dataset(struct tpdm_drvdata *drvdata)
+> +{
+> +	return (drvdata->datasets & TPDM_PIDR0_DS_DSB);
+> +}
+> +
+> +static bool tpdm_has_cmb_dataset(struct tpdm_drvdata *drvdata)
+> +{
+> +	return (drvdata->datasets & TPDM_PIDR0_DS_CMB);
+> +}
+> +
+> +static bool tpdm_has_mcmb_dataset(struct tpdm_drvdata *drvdata)
+> +{
+> +	return (drvdata->datasets & TPDM_PIDR0_DS_MCMB);
+> +}
+> +
+>   /* Read dataset array member with the index number */
+>   static ssize_t tpdm_simple_dataset_show(struct device *dev,
+>   					struct device_attribute *attr,
+> @@ -198,7 +213,7 @@ static umode_t tpdm_cmb_is_visible(struct kobject *kobj,
+>   	struct device *dev = kobj_to_dev(kobj);
+>   	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>   
+> -	if (drvdata && tpdm_has_cmb_dataset(drvdata))
+> +	if (drvdata && drvdata->cmb)
+>   		return attr->mode;
+>   
+>   	return 0;
+> @@ -246,8 +261,10 @@ static void tpdm_reset_datasets(struct tpdm_drvdata *drvdata)
+>   		drvdata->dsb->trig_type = false;
+>   	}
+>   
+> -	if (drvdata->cmb)
+> +	if (drvdata->cmb) {
+>   		memset(drvdata->cmb, 0, sizeof(struct cmb_dataset));
+> +		drvdata->cmb->trig_ts = true;
 
-DPI gets powered on in mtk_dpi_bridge_enable() -> mtk_dpi_power_on(dpi)
+This looks like an unrelated change from the MCMB dataset. Is there an 
+explanation ? Is this a mistake ? If it is intended, please make it a
+separate patch.
 
-Cheers,
-Angelo
+> +	}
+>   }
+>   
+>   static void set_dsb_mode(struct tpdm_drvdata *drvdata, u32 *val)
+> @@ -388,7 +405,7 @@ static void tpdm_enable_cmb(struct tpdm_drvdata *drvdata)
+>   {
+>   	u32 val, i;
+>   
+> -	if (!tpdm_has_cmb_dataset(drvdata))
+> +	if (!drvdata->cmb)
+>   		return;
+>   
+>   	/* Configure pattern registers */
+> @@ -415,6 +432,19 @@ static void tpdm_enable_cmb(struct tpdm_drvdata *drvdata)
+>   		val |= TPDM_CMB_CR_MODE;
+>   	else
+>   		val &= ~TPDM_CMB_CR_MODE;
+> +
+> +	if (tpdm_has_mcmb_dataset(drvdata)) {
+> +		val &= ~TPDM_CMB_CR_XTRIG_LNSEL;
+> +		/* Set the lane participates in tghe output pattern */
 
-> Regards,
-> CK
-> 
->> +        */
->> +       hdmi->dvi_mode = !hdmi->curr_conn->display_info.is_hdmi;
->> +       mtk_hdmi_v2_output_set_display_mode(hdmi, &hdmi->mode);
->> +
->> +       /* Reconfigure phy clock link with appropriate rate */
->> +       phy_configure(hdmi->phy, &opts);
->> +
->> +       /* Power on the PHY here to make sure that DPI_HDMI is clocked */
->> +       phy_power_on(hdmi->phy);
->> +
->> +       hdmi->powered = true;
->> +}
->> +
-> 
-> 
+minor nit: typo "tghe" => "the"
 
+> +		val |= FIELD_PREP(TPDM_CMB_CR_XTRIG_LNSEL,
+> +			drvdata->cmb->mcmb.trig_lane);
+> +
+> +		/* Set the enablement of the lane */
+> +		val &= ~TPDM_CMB_CR_E_LN;
+> +		val |= FIELD_PREP(TPDM_CMB_CR_E_LN,
+> +			drvdata->cmb->mcmb.lane_select);
+> +	}
+> +
+>   	/* Set the enable bit of CMB control register to 1 */
+>   	val |= TPDM_CMB_CR_ENA;
+>   	writel_relaxed(val, drvdata->base + TPDM_CMB_CR);
+> @@ -480,7 +510,7 @@ static void tpdm_disable_cmb(struct tpdm_drvdata *drvdata)
+>   {
+>   	u32 val;
+>   
+> -	if (!tpdm_has_cmb_dataset(drvdata))
+> +	if (!drvdata->cmb)
+>   		return;
+>   
+>   	val = readl_relaxed(drvdata->base + TPDM_CMB_CR);
+> @@ -542,12 +572,14 @@ static int tpdm_datasets_setup(struct tpdm_drvdata *drvdata)
+>   		if (!drvdata->dsb)
+>   			return -ENOMEM;
+>   	}
+> -	if (tpdm_has_cmb_dataset(drvdata) && (!drvdata->cmb)) {
+> +	if ((tpdm_has_cmb_dataset(drvdata) || tpdm_has_mcmb_dataset(drvdata))
+> +			&& (!drvdata->cmb)) {
+>   		drvdata->cmb = devm_kzalloc(drvdata->dev,
+>   						sizeof(*drvdata->cmb), GFP_KERNEL);
+>   		if (!drvdata->cmb)
+>   			return -ENOMEM;
+>   	}
+> +
+>   	tpdm_reset_datasets(drvdata);
+>   
+>   	return 0;
+> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/hwtracing/coresight/coresight-tpdm.h
+> index e08d212642e3..fd9153b92335 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
+> @@ -1,6 +1,6 @@
+>   /* SPDX-License-Identifier: GPL-2.0 */
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #ifndef _CORESIGHT_CORESIGHT_TPDM_H
+> @@ -9,7 +9,7 @@
+>   /* The max number of the datasets that TPDM supports */
+>   #define TPDM_DATASETS       7
+>   
+> -/* CMB Subunit Registers */
+> +/* CMB/MCMB Subunit Registers */
+>   #define TPDM_CMB_CR		(0xA00)
+>   /* CMB subunit timestamp insertion enable register */
+>   #define TPDM_CMB_TIER		(0xA04)
+> @@ -34,6 +34,10 @@
+>   #define TPDM_CMB_TIER_XTRIG_TSENAB	BIT(1)
+>   /* For timestamp fo all trace */
+>   #define TPDM_CMB_TIER_TS_ALL		BIT(2)
+> +/* MCMB trigger lane select */
+> +#define TPDM_CMB_CR_XTRIG_LNSEL		GENMASK(20, 18)
+> +/* MCMB lane enablement */
+> +#define TPDM_CMB_CR_E_LN		GENMASK(17, 10)
+
+Please could you move the CMB_CR related defintions together ?
+i.e., closer to TPDM_CMB_CR_MODE
+
+Suzuki
+
+>   
+>   /* Patten register number */
+>   #define TPDM_CMB_MAX_PATT		2
+> @@ -112,11 +116,13 @@
+>    * PERIPHIDR0[0] : Fix to 1 if ImplDef subunit present, else 0
+>    * PERIPHIDR0[1] : Fix to 1 if DSB subunit present, else 0
+>    * PERIPHIDR0[2] : Fix to 1 if CMB subunit present, else 0
+> + * PERIPHIDR0[6] : Fix to 1 if MCMB subunit present, else 0
+>    */
+>   
+>   #define TPDM_PIDR0_DS_IMPDEF	BIT(0)
+>   #define TPDM_PIDR0_DS_DSB	BIT(1)
+>   #define TPDM_PIDR0_DS_CMB	BIT(2)
+> +#define TPDM_PIDR0_DS_MCMB	BIT(6)
+>   
+>   #define TPDM_DSB_MAX_LINES	256
+>   /* MAX number of EDCR registers */
+> @@ -256,6 +262,9 @@ struct dsb_dataset {
+>    * @patt_ts:          Indicates if pattern match for timestamp is enabled.
+>    * @trig_ts:          Indicates if CTI trigger for timestamp is enabled.
+>    * @ts_all:           Indicates if timestamp is enabled for all packets.
+> + * struct mcmb_dataset
+> + * @mcmb_trig_lane:       Save data for trigger lane
+> + * @mcmb_lane_select:     Save data for lane enablement
+>    */
+>   struct cmb_dataset {
+>   	u32			trace_mode;
+> @@ -267,6 +276,10 @@ struct cmb_dataset {
+>   	bool			patt_ts;
+>   	bool			trig_ts;
+>   	bool			ts_all;
+> +	struct {
+> +		u8		trig_lane;
+> +		u8		lane_select;
+> +	} mcmb;
+>   };
+>   
+>   /**
+> @@ -324,14 +337,4 @@ struct tpdm_dataset_attribute {
+>   	enum dataset_mem mem;
+>   	u32 idx;
+>   };
+> -
+> -static bool tpdm_has_dsb_dataset(struct tpdm_drvdata *drvdata)
+> -{
+> -	return (drvdata->datasets & TPDM_PIDR0_DS_DSB);
+> -}
+> -
+> -static bool tpdm_has_cmb_dataset(struct tpdm_drvdata *drvdata)
+> -{
+> -	return (drvdata->datasets & TPDM_PIDR0_DS_CMB);
+> -}
+>   #endif  /* _CORESIGHT_CORESIGHT_TPDM_H */
 
 
