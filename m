@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F68E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0244E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 13:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgoduLnLxk6BKqR+/uYf8G+O1dcYDFYPhBjJsN+ZjiE=; b=plq81iKO78XRzF5a/ZwTWxIr2Y
-	i0i2SfUKtZnDYuo3k9QQw4CvWc/IX8pdgbcxglWT6Vn1Ux2HUYltJGiXgDojpk6fn229azOrz5LHc
-	NtitIbRaPug0lKVP6rfs/dIK6L91cQ84fDuKGU0mMLptCkBpgyWOnMagJ2abPvtESGdF1ak4f742N
-	FBYrNy+781LGwqi3zSKN1rmuu9raANFtrcNc/FKyGmrO4C+hXsUzKmcMRxP9ewG0zpYLHPfUDY0K4
-	b0YE8w7XZcpJU/WKEOhujK9u55HJ4IlQ5Jb2Il+NaJsamOY2tHzwoSb/D62G9wKLptuT26HPbvsQs
-	IrDX98SQ==;
+	bh=O+99q9XjXls973Ka0DVdg9XXw6YYWSF0HictcG73wjk=; b=Jv4YFc07GcgG9MZwosX7k8EbsZ
+	Se/I9+WogYQCuhWU0i2Up7UVbhta6D42n94dg9Iag7adAzpZFuIGZaQ8EfdAlFJj2mCy3OYr0VHU/
+	fcjF7p7GJ4KHEdpZWPhupqWw71ZWp4P9JEgBSBZK5Jq4TDSRJwop2YzSxlLh0g6XuRKLOMZiuE+23
+	UaLQzt6/AgU0nAEW35+06BngXWX8PkzCwQpXifrn6RwI58JP451AXnCWcqTuPuSIUrJYGHn/UxL2Z
+	8zRMRi5RZ6Z3+Qec/p0X9t49lsj1yZQTdfK+4wh0siykIyUnneSBdiCT9Sc93T/IrdRWLpgmA8SZf
+	APvGmYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXsd-0000000Dcys-3XHO;
-	Tue, 17 Dec 2024 13:44:55 +0000
+	id 1tNXth-0000000DdBF-2DHd;
+	Tue, 17 Dec 2024 13:46:01 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNXod-0000000DcKN-3f1X
+	id 1tNXoj-0000000DcMJ-2apN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 13:40:49 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHD8XAp006562;
-	Tue, 17 Dec 2024 13:40:39 GMT
+	Tue, 17 Dec 2024 13:40:54 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHB2VGQ002932;
+	Tue, 17 Dec 2024 13:40:45 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HgoduLnLxk6BKqR+/uYf8G+O1dcYDFYPhBjJsN+ZjiE=; b=TCu7YoTgiDD7Oald
-	ScS1ZyW066Y2oIyteLxQs0H6+o4oSG2UXQtA4z2vPfDOgVl07IxfPHrCn2X1WDEc
-	4qmBDH2Nx8qdOuhCA5RbuxazcV+/aujyZtPwpGVqXgftQGXUTc5XSKOzTZ5dyjsF
-	K4hRwgkLOhCiGdWzmiJ4Iv96gbuPN986qMcTQcOyR/CP0sRiBFBvlwEWDaFTkvWK
-	IlTYfQMlqpz3QT8v6jOKUNsXsADvAvzj2g71xObXjntKvKGKncqTBmmTpjERnPO7
-	2LaaJdd+qz9cihRPfxHuOcuWihDOQiJD5cyP+8Uu3LOld2Lzw5EwL5sDDfIkUxjc
-	S0deog==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k9x2r2tp-1
+	O+99q9XjXls973Ka0DVdg9XXw6YYWSF0HictcG73wjk=; b=JWp/5IqV9v4fG/Gg
+	CKPfFAP4epDMmbDMRv/ECm7y/fyASBo3tqCPrNjazoCU3y6h8KCN7NPNnPvTj5Jq
+	BkdS98fGydDxz+F01lqzvkQw2kur5pi92QJw6V1H4rOhwd4UuP0/rwdVXFkvKe/N
+	rf3AcxvylzAzV9me3DuVF7kcYXvMTcISdaMbufcVR664eqol6Goc7yhApoTjNJJG
+	7o49ntzpFlscMN4pKPHEM/5EZ3F/r5X0he/l8HdzcK9WvlDJppvQ4sEOeGPDtSSs
+	JlxI0pohN6CewJANtYB8qDsJWt/4sVB9uqJgKHKd7ooi8Ef7QZBi7bctaxAQvLcf
+	/EjNyg==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k8310d6g-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 13:40:38 +0000 (GMT)
+	Tue, 17 Dec 2024 13:40:44 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BHDecjT031956
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BHDeibT029443
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 13:40:38 GMT
+	Tue, 17 Dec 2024 13:40:44 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 17 Dec 2024 05:40:29 -0800
+ 15.2.1544.9; Tue, 17 Dec 2024 05:40:35 -0800
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -62,10 +62,10 @@ To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
 CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>
-Subject: [PATCH v9 3/4] arm64: dts: qcom: sc7280: Add support for camss
-Date: Tue, 17 Dec 2024 19:09:54 +0530
-Message-ID: <20241217133955.946426-4-quic_vikramsa@quicinc.com>
+        <kernel@quicinc.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: [PATCH v9 4/4] arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
+Date: Tue, 17 Dec 2024 19:09:55 +0530
+Message-ID: <20241217133955.946426-5-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241217133955.946426-1-quic_vikramsa@quicinc.com>
 References: <20241217133955.946426-1-quic_vikramsa@quicinc.com>
@@ -77,19 +77,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: gWLcKk7SZJG-jDcpCz4QEPx9mo9VtQKV
-X-Proofpoint-ORIG-GUID: gWLcKk7SZJG-jDcpCz4QEPx9mo9VtQKV
+X-Proofpoint-GUID: IfMNLodiVYElQG-_CkP5B8EV6ymyY3Vp
+X-Proofpoint-ORIG-GUID: IfMNLodiVYElQG-_CkP5B8EV6ymyY3Vp
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=946 adultscore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0
- clxscore=1015 malwarescore=0 suspectscore=0 mlxscore=0 spamscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ priorityscore=1501 lowpriorityscore=0 mlxscore=0 spamscore=0 bulkscore=0
+ clxscore=1015 adultscore=0 malwarescore=0 impostorscore=0 mlxlogscore=999
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2411120000 definitions=main-2412170109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_054047_909719_7AB8FB1D 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20241217_054053_661326_5D6BEC1F 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,205 +104,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add changes to support the camera subsystem on the SC7280.
+The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
+Enable the IMX577 on the vision mezzanine.
 
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
+An example media-ctl pipeline for the imx577 is:
+
+media-ctl --reset
+media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
+media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
+media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
+media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+
+yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+
+Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
 Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
 Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/qcom/sc7280.dtsi | 178 +++++++++++++++++++++++++++
- 1 file changed, 178 insertions(+)
+ arch/arm64/boot/dts/qcom/Makefile             |   4 +
+ .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 109 ++++++++++++++++++
+ 2 files changed, 113 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
 
-diff --git a/arch/arm64/boot/dts/qcom/sc7280.dtsi b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-index 55db1c83ef55..a893aade8165 100644
---- a/arch/arm64/boot/dts/qcom/sc7280.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sc7280.dtsi
-@@ -4426,6 +4426,184 @@ cci1_i2c1: i2c-bus@1 {
- 			};
- 		};
- 
-+		camss: isp@acb3000 {
-+			compatible = "qcom,sc7280-camss";
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index 4686f2a8ddd8..a7e88fcabded 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -115,6 +115,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
 +
-+			reg = <0x0 0x0acb3000 0x0 0x1000>,
-+			      <0x0 0x0acba000 0x0 0x1000>,
-+			      <0x0 0x0acc1000 0x0 0x1000>,
-+			      <0x0 0x0acc8000 0x0 0x1000>,
-+			      <0x0 0x0accf000 0x0 0x1000>,
-+			      <0x0 0x0ace0000 0x0 0x2000>,
-+			      <0x0 0x0ace2000 0x0 0x2000>,
-+			      <0x0 0x0ace4000 0x0 0x2000>,
-+			      <0x0 0x0ace6000 0x0 0x2000>,
-+			      <0x0 0x0ace8000 0x0 0x2000>,
-+			      <0x0 0x0acaf000 0x0 0x4000>,
-+			      <0x0 0x0acb6000 0x0 0x4000>,
-+			      <0x0 0x0acbd000 0x0 0x4000>,
-+			      <0x0 0x0acc4000 0x0 0x4000>,
-+			      <0x0 0x0accb000 0x0 0x4000>;
-+			reg-names = "csid0",
-+				    "csid1",
-+				    "csid2",
-+				    "csid_lite0",
-+				    "csid_lite1",
-+				    "csiphy0",
-+				    "csiphy1",
-+				    "csiphy2",
-+				    "csiphy3",
-+				    "csiphy4",
-+				    "vfe0",
-+				    "vfe1",
-+				    "vfe2",
-+				    "vfe_lite0",
-+				    "vfe_lite1";
++qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
 +
-+			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-+				 <&camcc CAM_CC_CPAS_AHB_CLK>,
-+				 <&camcc CAM_CC_CSIPHY0_CLK>,
-+				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY1_CLK>,
-+				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY2_CLK>,
-+				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY3_CLK>,
-+				 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY4_CLK>,
-+				 <&camcc CAM_CC_CSI4PHYTIMER_CLK>,
-+				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
-+				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
-+				 <&camcc CAM_CC_ICP_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_0_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_1_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CLK>,
-+				 <&camcc CAM_CC_IFE_2_AXI_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_2_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_0_CSID_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_1_CSID_CLK>;
-+			clock-names = "camnoc_axi",
-+				      "cpas_ahb",
-+				      "csiphy0",
-+				      "csiphy0_timer",
-+				      "csiphy1",
-+				      "csiphy1_timer",
-+				      "csiphy2",
-+				      "csiphy2_timer",
-+				      "csiphy3",
-+				      "csiphy3_timer",
-+				      "csiphy4",
-+				      "csiphy4_timer",
-+				      "gcc_axi_hf",
-+				      "gcc_axi_sf",
-+				      "icp_ahb",
-+				      "vfe0",
-+				      "vfe0_axi",
-+				      "vfe0_cphy_rx",
-+				      "vfe0_csid",
-+				      "vfe1",
-+				      "vfe1_axi",
-+				      "vfe1_cphy_rx",
-+				      "vfe1_csid",
-+				      "vfe2",
-+				      "vfe2_axi",
-+				      "vfe2_cphy_rx",
-+				      "vfe2_csid",
-+				      "vfe_lite0",
-+				      "vfe_lite0_cphy_rx",
-+				      "vfe_lite0_csid",
-+				      "vfe_lite1",
-+				      "vfe_lite1_cphy_rx",
-+				      "vfe_lite1_csid";
++dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
+diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+new file mode 100644
+index 000000000000..7782c4aee576
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+@@ -0,0 +1,109 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
++ */
 +
-+			interrupts = <GIC_SPI 464 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 466 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 640 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 122 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 641 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "csid0",
-+					  "csid1",
-+					  "csid2",
-+					  "csid_lite0",
-+					  "csid_lite1",
-+					  "csiphy0",
-+					  "csiphy1",
-+					  "csiphy2",
-+					  "csiphy3",
-+					  "csiphy4",
-+					  "vfe0",
-+					  "vfe1",
-+					  "vfe2",
-+					  "vfe_lite0",
-+					  "vfe_lite1";
++/*
++ * Camera Sensor overlay on top of rb3gen2 core kit.
++ */
 +
-+			interconnects = <&gem_noc  MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &cnoc2 SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-+					<&mmss_noc MASTER_CAMNOC_HF  QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-+			interconnect-names = "ahb",
-+					     "hf_0";
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/clock/qcom,camcc-sc7280.h>
 +
-+			iommus = <&apps_smmu 0x800 0x4e0>;
++/dts-v1/;
++/plugin/;
 +
-+			power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
-+					<&camcc CAM_CC_IFE_1_GDSC>,
-+					<&camcc CAM_CC_IFE_2_GDSC>,
-+					<&camcc CAM_CC_TITAN_TOP_GDSC>;
-+			power-domain-names = "ife0",
-+					     "ife1",
-+					     "ife2",
-+					     "top";
++&camss {
++	vdda-phy-supply = <&vreg_l10c_0p88>;
++	vdda-pll-supply = <&vreg_l6b_1p2>;
 +
-+			status = "disabled";
++	status = "okay";
 +
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
-+				port@0 {
-+					reg = <0>;
-+				};
++		/* The port index denotes CSIPHY id i.e. csiphy3 */
++		port@3 {
++			reg = <3>;
 +
-+				port@1 {
-+					reg = <1>;
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+				};
-+
-+				port@4 {
-+					reg = <4>;
-+				};
++			csiphy3_ep: endpoint {
++				clock-lanes = <7>;
++				data-lanes = <0 1 2 3>;
++				remote-endpoint = <&imx577_ep>;
 +			};
 +		};
++	};
++};
 +
- 		camcc: clock-controller@ad00000 {
- 			compatible = "qcom,sc7280-camcc";
- 			reg = <0 0x0ad00000 0 0x10000>;
++&cci1 {
++	status = "okay";
++};
++
++&cci1_i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	camera@1a {
++		compatible = "sony,imx577";
++
++		reg = <0x1a>;
++
++		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default", "suspend";
++		pinctrl-0 = <&cam2_default>;
++		pinctrl-1 = <&cam2_suspend>;
++
++		clocks = <&camcc CAM_CC_MCLK3_CLK>;
++		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
++		assigned-clock-rates = <24000000>;
++
++		dovdd-supply  = <&vreg_l18b_1p8>;
++		avdd-supply = <&vph_pwr>;
++		dvdd-supply = <&vph_pwr>;
++
++		port {
++			imx577_ep: endpoint {
++				clock-lanes = <7>;
++				link-frequencies = /bits/ 64 <600000000>;
++				data-lanes = <0 1 2 3>;
++				remote-endpoint = <&csiphy3_ep>;
++			};
++		};
++	};
++};
++
++&tlmm {
++	cam2_default: cam2-default-state {
++		mclk-pins {
++			pins = "gpio67";
++			function = "cam_mclk";
++			drive-strength = <2>;
++			bias-disable;
++		};
++
++		rst-pins {
++			pins = "gpio78";
++			function = "gpio";
++			drive-strength = <2>;
++			bias-disable;
++		};
++	};
++
++	cam2_suspend: cam2-suspend-state {
++		mclk-pins {
++			pins = "gpio67";
++			function = "cam_mclk";
++			drive-strength = <2>;
++			bias-pull-down;
++		};
++
++		rst-pins {
++			pins = "gpio78";
++			function = "gpio";
++			drive-strength = <2>;
++			bias-pull-down;
++			output-low;
++		};
++	};
++};
 -- 
 2.25.1
 
