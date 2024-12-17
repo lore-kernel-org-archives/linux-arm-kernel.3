@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E172E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6299E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8W6zbjZD7vNQ0FLje84lkV/+KTRs0fkniSTmcJvbfU=; b=fNygJ1rT0iMmBcxOqRkKRc3GH2
-	bgSPMW8PpC9CKPIzOz8Mcx9fXsRQ/w5RzmkbVua+ulUg5EgyFlOymuHWoB2wM4IAnYF7Tp+B+k8Gf
-	ELZDPAjN438N47jsk/SfK4HLXwinse/1FV900XdnE7LcviSXnbqpDuwAJZLPTXVRA6BNJQQpDQvn2
-	0malOwVgWc9tvofKevnEaWIZPbVEmztg4xmlrnve82WplpJMF2wirqk4jt3egiMIiCc2PVYJBdJ8N
-	9QGrrnw3lG+HqT6CWOtLgCdM4C3bEmqnSZ5Gd8mAd8Xjoim+fp4fBwQb/5s867acpJ2xsiNE9HKmT
-	Oh7UOBOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kDmS9Ambq1maXFpKniL040Nqs3Zdh9aLWBYPyXwJm2U=; b=sQbFIKxKyStdKfI0b7gkgW9OrZ
+	q13jRk72qzYEa630bspwmH4VNMlKJgAl93yjKqWoYSStSAcoV977uHNxbe4zMVxIJHawzEl8Nq4Mr
+	t5lCOaV/kHQY6z7jpV6VGaKUW2ykcNEtlPGCMP1Uao5pyJpriGNPihJKSGLrCL28Ft1/aTK4RIGwa
+	HEYvP6lD4/RXhg6lQDOy53vG2YxFU1SPVKrTH08ejQml19xp2UnwwFLqcF/XvfFGldrLELz9FEStH
+	PXAddjudoXWOxT2qzjKWTVcDHwMgYWuj6XcCH0jS0Jkrac/9KqEtX8/nOS3OPyeHq+thT73pPcmsy
+	k4YMzUWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNaVQ-0000000ECC6-02tO;
-	Tue, 17 Dec 2024 16:33:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tNaWT-0000000ECQq-2rwm;
+	Tue, 17 Dec 2024 16:34:13 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNZvV-0000000E329-3N2A
+	id 1tNZwD-0000000E3CQ-3bkH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 15:56:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4D694A41A5E;
-	Tue, 17 Dec 2024 15:54:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3F3FC4CED6;
-	Tue, 17 Dec 2024 15:56:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734450960;
-	bh=pSqIvGUdX5z1ZDvXSMhgi6s8eapLJ2Q23yPsaZtnyLg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=L9NN28U+JGrpcx/66+ZeOSHqeE5mltmLAXtDfsyUVLMgujnJaPgOXjpeBBZzyWegm
-	 4/YJfQgDBcVPsa9H2WCm7nAwVJREzYYrFAeFwM6ikVbDDaNb4TPPrj5SSktawWRqog
-	 8MET55XR+pb5FyIpMszmUPrwj30RT8RNaUqR0qaGLioxAriRg5DNh59XL3nw8KJtpt
-	 11RhM4FjCGzUco4J9T42f3Th7kK/i8oJppgL9TcZsnpPWXvn6R8eQ+CqiMwatrS1EZ
-	 ERxoq6hpdlPQ0fen7uh2F5IHIUV5vhkNNyOkNO0Pcl4fQFSbzZ5qwM3QA9yoUnGSAY
-	 udLrLtIhRiGqA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tNZvS-004cWL-OM;
-	Tue, 17 Dec 2024 15:55:58 +0000
-Date: Tue, 17 Dec 2024 15:55:57 +0000
-Message-ID: <86o71aqp6a.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Fix set_id_regs selftest for ASIDBITS becoming unwritable
-In-Reply-To: <b13b14df-00ee-4bee-8f65-d2cb7a9bfa6b@sirena.org.uk>
-References: <20241216-kvm-arm64-fix-set-id-asidbits-v1-1-8b105b888fc3@kernel.org>
-	<875xnisocy.wl-maz@kernel.org>
-	<53b40aa8-f51c-4c4e-a4ad-e6a9512e5197@sirena.org.uk>
-	<86v7viqusg.wl-maz@kernel.org>
-	<b13b14df-00ee-4bee-8f65-d2cb7a9bfa6b@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, catalin.marinas@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 17 Dec 2024 15:56:47 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHFCWv3017128;
+	Tue, 17 Dec 2024 16:56:24 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	kDmS9Ambq1maXFpKniL040Nqs3Zdh9aLWBYPyXwJm2U=; b=7NQexlbe5zKhhrpU
+	N2ofTiGRp+mreCoG4VCHgGu6UaeETr5Bv6hR8B5EXga7t6lsKfxM5hVr/KgHc3OD
+	wJGwr2ErWIVvW+zfyiE1NQpCxurX6yV5mxinLY+OVYMCBEyqZ3m91/JOaP6Grg3e
+	14GemyeQ+cR0n9qrnV2lfn29TuA1wFw3jMULYMZZBYJBi+zhnYn6Bn8Vyvn+vKL0
+	8qavgJkB7Jh7MfgRPut7h1DGnFoMsUXGbBX0Qnu6eJOxZX2nIOoxJ6JhCf7T/iw6
+	FmYSwrwyqmSxlIOAGb8TjkFXUMeN+z8TSXoR7FBjNRSGeuWoKJCbPB/nEoOnH3lg
+	itsBDg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43kbr683r9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 16:56:24 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DB36640050;
+	Tue, 17 Dec 2024 16:54:59 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E6BF9276678;
+	Tue, 17 Dec 2024 16:53:49 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 17 Dec
+ 2024 16:53:49 +0100
+Message-ID: <d976d74c-80c0-4446-bb9b-960a990c552b@foss.st.com>
+Date: Tue, 17 Dec 2024 16:53:48 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
+ bindings
+To: Bjorn Helgaas <helgaas@kernel.org>, Rob Herring <robh+dt@kernel.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <bhelgaas@google.com>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241205172022.GA3053765@bhelgaas>
+Content-Language: en-US
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241205172022.GA3053765@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_075601_972015_2E18D56C 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20241217_075646_477686_49205750 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,32 +99,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 15:10:28 +0000,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (7bit)>]
-> On Tue, Dec 17, 2024 at 01:54:39PM +0000, Marc Zyngier wrote:
-> > Mark Brown <broonie@kernel.org> wrote:
-> 
-> > > The selftests are shipped as part of the kernel source and frequently
-> > > used for testing the kernel, it's all one source base and we want to
-> > > ensure that for example the test fix gets backported if the relevant
-> > > kernel patch does.
-> 
-> > That's not what Fixes: describes. If you want to invent a new tag that
-> > expresses a dependency, do that. Don't use these tags to misrepresent
-> > what the patches does.
-> 
-> No, this isn't a new use - a Fixes: tag indicates that the referenced
-> commit introduced the problem being fixed and that is exactly what's
-> going on here.  Like I say the selftests are not a completely separate
-> project, they are a part of the same source release as the rest of the
-> kernel and it is helpful to track information like this.
 
-Well, we'll have to agree to disagree.
+> Makes sense.  What about phys, resets, etc?  I'm pretty sure a PHY
+> would be a per-Root Port thing, and some resets and wakeup signals
+> also.
+> 
+> For new drivers, I think we should start adding Root Port stanzas to
+> specifically associate those things with the Root Port, e.g.,
+> something like this?
+> 
+>    pcie@48400000 {
+>      compatible = "st,stm32mp25-pcie-rc";
+> 
+>      pcie@0,0 {
+>        reg = <0x0000 0 0 0 0>;
+>        phys = <&combophy PHY_TYPE_PCIE>;
+>        phy-names = "pcie-phy";
+>      };
+>    };
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/pci/mediatek,mt7621-pcie.yaml?id=v6.12#n111
+> is one binding that does this, others include apple,pcie.yaml,
+> brcm,stb-pcie.yaml, hisilicon,kirin-pcie.yaml.
+> 
 
-	M.
+On a second thought, moving the PHY to the root-port part would 
+introduce a discrepancy with the pcie_ep binding, whereas the PHY is 
+required on the pcie_ep node.
 
--- 
-Without deviation from the norm, progress is not possible.
+Even for the pcie_rc, the PHY is needed to enable the core_clk to access
+the PCIe core registers,
+
+So that would make 2 different required PHY locations for RC and EP:
+
+     pcie_rc: pcie@48400000 {
+       compatible = "st,stm32mp25-pcie-rc";
+
+       pcie@0,0 {
+         reg = <0x0000 0 0 0 0>;
+         phys = <&combophy PHY_TYPE_PCIE>;
+         phy-names = "pcie-phy";
+       };
+     };
+
+     pcie_ep pcie@48400000 {
+       compatible = "st,stm32mp25-pcie-ep";
+       phys = <&combophy PHY_TYPE_PCIE>;
+       phy-names = "pcie-phy";
+     };
+
+Simplest seems to keep the PHY required for the pcie core regardless of 
+the mode and keep the empty root port to split the design
+
+     pcie_rc: pcie@48400000 {
+       compatible = "st,stm32mp25-pcie-rc";
+       phys = <&combophy PHY_TYPE_PCIE>;
+       phy-names = "pcie-phy";
+
+         pcie@0,0 {
+         reg = <0x0000 0 0 0 0>;
+       };
+     };
+
+     pcie_ep: pcie@48400000 {
+       compatible = "st,stm32mp25-pcie-ep";
+       phys = <&combophy PHY_TYPE_PCIE>;
+       phy-names = "pcie-phy";
+     };
+
+But I have no experience with multiple root-port systems, I'm open for 
+the best :)
+
+Thanks
+
+Christian
 
