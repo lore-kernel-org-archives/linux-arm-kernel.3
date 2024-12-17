@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30640E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 21:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31228E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 21:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTQ2Tzn1HxAPU/EVgkiyp2AhrhJBkik6I90AqfM4kFo=; b=m2vK7RXKH/IsiqHiot2DQmAxQV
-	M0qvxHVETVzEPzyYlxRvJPaXurMUoqkjL9T1UaKr5kcophZmlGMZth9SQi+aPFvmn1KLdB4N/RMlG
-	rATixT/2unFcGCpUXnjb2tRPzxW1axKwRPYkDezhP5q3FsmHM8Xzt23kmeu45iotCgFChQNBLTkMK
-	EUCq18uEj8xeae+gTRaqWpRAEz1sPLf3syfA27p0kkvLdzCo/53Ah4DDqV3WxBrQZV8xLCjLJAC2g
-	OEuNPHMSRI1N7/NY/XEqPCqm0c34pZ67cvJSVg11K/2z/szTah5FJ517q26jYmb1YtTiRlk3+PMCO
-	eslCUkOQ==;
+	bh=pbOxUW2t68exPWAuQOWEEtmoKzFQeoyWjIWsV2ex6GI=; b=f8T+0WWaP6K3Jjdi46BTMmdExg
+	PnZkymDO56MxY5c8SUbgUjO5fSB8dZDgrdP+AHvfB8XZcl9nG2QDQ8Zeu1qiepMGpP2fnL2QJb15M
+	kG5dILLe2DGUXKUyHFf8YP7fTRfv2/vt6xk/5cXW7SCrp2ZCL77L2DRxcDD3ryG9UdHKGS7V32fV+
+	nIB2uvgjFeYyoaKzuaYMVALBGLNSU62dVIqssau8Mz3u5U9Fwhus1UYyryOIgRgYKWTUNPFhwYHdE
+	JrYWD6XWSBovcCc09B/MXonCN2onb0jGxbIWGgJ4g4rZicbT1WtkVDxqwUI0MGwa95vzUVdYvYEfo
+	LgIzkHbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNfB8-0000000EsOM-3aIP;
-	Tue, 17 Dec 2024 21:32:30 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1tNfCC-0000000EsXt-2SlL;
+	Tue, 17 Dec 2024 21:33:36 +0000
+Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNf0U-0000000EqX7-1SxV
+	id 1tNf0W-0000000EqXZ-2RoF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 21:21:31 +0000
+	Tue, 17 Dec 2024 21:21:33 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1734470488;
+	t=1734470491;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=NTQ2Tzn1HxAPU/EVgkiyp2AhrhJBkik6I90AqfM4kFo=;
-	b=wFRC6+CUAMdRwboZkqFztEUtrhANO3wvwnKa2x+r/zKBV+O2jkyh51t0hCh82UiFi/wjZ5
-	c0KX6V49bHL19huUTON3rMl+szrUm3Psf81+4lO1iPBGS1KhE4ZipLoBMOBVc+u/EbqBPf
-	6tfob6iPBsWLgRokJUrSihicu3tT+F0=
+	bh=pbOxUW2t68exPWAuQOWEEtmoKzFQeoyWjIWsV2ex6GI=;
+	b=HHeESZGQjxo+RX9Mddf7j4K+mJv4pNnXmUBlky78iZZV3BMpY9/HQbDBQNlsbtQnEohmhF
+	J3bwplJspNRaIpWkKnV37nXnx3o/C7dpmypXfMTL4fYR6qzqYqsSY/hz10+AbOAruyWBMl
+	wIgjEED2IRz7bwQqys+fjKkoCdmnVZE=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -53,17 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH 10/18] KVM: arm64: Use guard() to cleanup usage of arm_pmus_lock
-Date: Tue, 17 Dec 2024 13:20:40 -0800
-Message-Id: <20241217212048.3709204-11-oliver.upton@linux.dev>
+Subject: [PATCH 11/18] KVM: arm64: Move PMUVer filtering into KVM code
+Date: Tue, 17 Dec 2024 13:20:41 -0800
+Message-Id: <20241217212048.3709204-12-oliver.upton@linux.dev>
 In-Reply-To: <20241217212048.3709204-1-oliver.upton@linux.dev>
 References: <20241217212048.3709204-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_132130_534064_1BEE0FC0 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20241217_132132_761364_4AE0C54A 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,71 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Get rid of some goto label patterns by using guard() to drop the
-arm_pmus_lock when returning from a function.
+The supported guest PMU version on a particular platform is ultimately a
+KVM decision. Move PMUVer filtering into KVM code.
 
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/kvm/pmu-emul.c | 23 ++++++++---------------
- 1 file changed, 8 insertions(+), 15 deletions(-)
+ arch/arm64/include/asm/cpufeature.h | 23 -----------------------
+ arch/arm64/kvm/pmu-emul.c           | 15 +++++++++------
+ 2 files changed, 9 insertions(+), 29 deletions(-)
 
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index 6a989927926a..d49e9c7e201c 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -525,29 +525,6 @@ cpuid_feature_extract_unsigned_field(u64 features, int field)
+ 	return cpuid_feature_extract_unsigned_field_width(features, field, 4);
+ }
+ 
+-/*
+- * Fields that identify the version of the Performance Monitors Extension do
+- * not follow the standard ID scheme. See ARM DDI 0487E.a page D13-2825,
+- * "Alternative ID scheme used for the Performance Monitors Extension version".
+- */
+-static inline u64 __attribute_const__
+-cpuid_feature_cap_perfmon_field(u64 features, int field, u64 cap)
+-{
+-	u64 val = cpuid_feature_extract_unsigned_field(features, field);
+-	u64 mask = GENMASK_ULL(field + 3, field);
+-
+-	/* Treat IMPLEMENTATION DEFINED functionality as unimplemented */
+-	if (val == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
+-		val = 0;
+-
+-	if (val > cap) {
+-		features &= ~mask;
+-		features |= (cap << field) & mask;
+-	}
+-
+-	return features;
+-}
+-
+ static inline u64 arm64_ftr_mask(const struct arm64_ftr_bits *ftrp)
+ {
+ 	return (u64)GENMASK(ftrp->shift + ftrp->width - 1, ftrp->shift);
 diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 33cd694c754f..2c98cf24bef3 100644
+index 2c98cf24bef3..98690e53dc73 100644
 --- a/arch/arm64/kvm/pmu-emul.c
 +++ b/arch/arm64/kvm/pmu-emul.c
-@@ -821,26 +821,23 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
- 	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
- 		return;
+@@ -1257,13 +1257,16 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
  
--	mutex_lock(&arm_pmus_lock);
-+	guard(mutex)(&arm_pmus_lock);
- 
- 	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
- 	if (!entry)
--		goto out_unlock;
-+		return;
- 
- 	entry->arm_pmu = pmu;
- 	list_add_tail(&entry->entry, &arm_pmus);
--
--out_unlock:
--	mutex_unlock(&arm_pmus_lock);
- }
- 
- static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+ u8 kvm_arm_pmu_get_pmuver_limit(void)
  {
--	struct arm_pmu *tmp, *pmu = NULL;
- 	struct arm_pmu_entry *entry;
-+	struct arm_pmu *pmu;
- 	int cpu;
+-	u64 tmp;
++	unsigned int pmuver;
  
--	mutex_lock(&arm_pmus_lock);
-+	guard(mutex)(&arm_pmus_lock);
- 
- 	/*
- 	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
-@@ -861,17 +858,13 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
- 	 */
- 	cpu = raw_smp_processor_id();
- 	list_for_each_entry(entry, &arm_pmus, entry) {
--		tmp = entry->arm_pmu;
-+		pmu = entry->arm_pmu;
- 
--		if (cpumask_test_cpu(cpu, &tmp->supported_cpus)) {
--			pmu = tmp;
--			break;
--		}
-+		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-+			return pmu;
- 	}
- 
--	mutex_unlock(&arm_pmus_lock);
--
--	return pmu;
-+	return NULL;
+-	tmp = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
+-	tmp = cpuid_feature_cap_perfmon_field(tmp,
+-					      ID_AA64DFR0_EL1_PMUVer_SHIFT,
+-					      ID_AA64DFR0_EL1_PMUVer_V3P5);
+-	return FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), tmp);
++	pmuver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMUVer,
++			       read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1));
++
++	/* Treat IMPLEMENTATION DEFINED functionality as unimplemented */
++	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
++		return 0;
++
++	return min(pmuver, ID_AA64DFR0_EL1_PMUVer_V3P5);
  }
  
- static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
+ /**
 -- 
 2.39.5
 
