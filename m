@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D308E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6441DE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 17:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nc9RXMeFr31ytwA1Y5dlc81Sj4KC1vb4yt2kMR6a00c=; b=uL1FeDgSGGOkudkC8zX6nZcUiM
-	oCo7vubTjCkyYLhLou2bCZW8hjYxxSQN24xsXnqtFZpPUNrGZuXJxzYgg5KVwTmysAva3imSQA6xC
-	FtUWeiGFl7sA8zWgmFotVwjkUpGnayo2dsBnZMUY8MYbxBj8pNaBMVbrs40VTBzqHl6/QMIVjsBo2
-	VmI+RVsUgtedqu26XtCm0MFRmgKXhMttIphairoEHU8TDDuWE3o5uebwcCfy3Bah8nFzYb4rA/eTg
-	KH7m0RxxxJ7TI+knJbiuk6DJdchBFpMKNJ6keIJnsdj3JR1A88eonWXfiXy4DVO6osHphwZ0yOCml
-	trofaQcw==;
+	bh=mvpHg9TQ6IL1UuT8hLct/OvilUvBkO53Z6F+HaXouII=; b=A5dM7158T8gV0mE++IgIbnzmpH
+	Ipm/PbjQJr5HKN6UVmIHhXwn3LYYpZVZmXH5ADRY/PcMrm2n0hpAf8g1o+P104vfcTScsRflnRQLE
+	59VDzfYRIUKEQEr/oZ8ghPkpmubM6zKdEekcSCmVzhr6/eWjpRxxy1RCUfB746WWGdImc9PCrBal5
+	xL5Hq2B2a3n92+BNRrkgzZ6Oqna0P5Rn3mffOphnkxYFBjt4aJre7MLoA3B/CGUvmp8EFY6XA3006
+	6R95U+aNHcFWCsB7m7/8951JIyGJZomGTa3cj/C1e6DToPWrBXHuXtUgPk3zm3eAokOAOp8mx5KDv
+	UdZwHAGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbd2-0000000EOfW-0eJ4;
-	Tue, 17 Dec 2024 17:45:04 +0000
+	id 1tNbe6-0000000EOv4-3I1f;
+	Tue, 17 Dec 2024 17:46:10 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNbZj-0000000ENlg-3HfZ
+	id 1tNbZj-0000000ENlm-3QdY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 17:41:41 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHDQcJN030946;
-	Tue, 17 Dec 2024 18:41:25 +0100
+	Tue, 17 Dec 2024 17:41:42 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BHDBuIS020750;
+	Tue, 17 Dec 2024 18:41:26 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Nc9RXMeFr31ytwA1Y5dlc81Sj4KC1vb4yt2kMR6a00c=; b=IfKJFxJeEiMthcDX
-	vmT4BjLEf+DefvDF4W07qOJQeorlRQEjJ6IpUKGdxbftAf8xwpVkbBUkiQFKZuw0
-	rfBk72TBQ5uRdgU6bhO25tr+kgvme5PInju7yGXVyA5L/LdERjfSF0L03p4pJ2yL
-	x2OhxIFQSqHiEArW0dswRsFg2h2GG1mHEQwgsXVCnZ1t1RkWgR0Ck2cJhswOa76n
-	SKZcYM8GDo08WRruMkrWNSy4caS4QNpmD7jJNwFc0jjGbQbgmZEUEeEItuHiHBu8
-	pGFkJLiJipTP9KUIyzJt8acTUyAES4iABxJ/gVbe4vzkalAA5QuTtqKTS+39jtYZ
-	6088vA==
+	mvpHg9TQ6IL1UuT8hLct/OvilUvBkO53Z6F+HaXouII=; b=tUww6sAl9XgZvtGq
+	bscHCDBlria19rY6TKDagQ9nViKj/T9vzH4aCBn4KtYt1/YY3gJsd9bv3/+F/c2O
+	O+AWqi/YaEAoCKcEsEeU3PEo/nOZRx6Q66iO3vbSIAmzBdPvH7LClKh/QGZLGWNx
+	hKEovd9F9p6VOv+YisgECvrUt8Eg1ylGtZd/NQT6E9kbOMEJyaBfRs3SgP8Uj7DB
+	4qhP8gUi1hHTtazwtjdm2Upf/utRgJskMSPklrUetbG2xU+iuiZykIzTVVAkmWIE
+	33PHPlBBBZqghHzc3B4m35TWZXo8EwXpL/8rz8NDd7j3cRU4XAinK5ZgohGwJEBv
+	1fdwiA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43k5c4u3bb-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43k5dgtxwh-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 17 Dec 2024 18:41:25 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1AB0A40044;
-	Tue, 17 Dec 2024 18:40:16 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 219F840050;
+	Tue, 17 Dec 2024 18:40:23 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 49E6828E45A;
-	Tue, 17 Dec 2024 18:39:26 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 38FCD2945DD;
+	Tue, 17 Dec 2024 18:39:34 +0100 (CET)
 Received: from localhost (10.252.23.235) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 17 Dec
- 2024 18:39:25 +0100
+ 2024 18:39:33 +0100
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Tue, 17 Dec 2024 18:39:19 +0100
-Subject: [PATCH 2/9] dt-bindings: media: clarify stm32 csi & simplify
- example
+Date: Tue, 17 Dec 2024 18:39:26 +0100
+Subject: [PATCH 9/9] media: stm32: dcmipp: add has_csi2 & needs_mclk in
+ match data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241217-csi_dcmipp_mp25_enhancements-v1-2-2b432805d17d@foss.st.com>
+Message-ID: <20241217-csi_dcmipp_mp25_enhancements-v1-9-2b432805d17d@foss.st.com>
 References: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
 In-Reply-To: <20241217-csi_dcmipp_mp25_enhancements-v1-0-2b432805d17d@foss.st.com>
 To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
@@ -86,9 +86,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_094140_129990_F0FD96DD 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241217_094140_179658_001B60D5 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +102,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clarify the description of the stm32 csi by mentioning CSI-2 and
-D-PHY.
-Remove the bus-type property from the example.
+Introduce two variable has_csi and has_mclk within the
+match data of the driver in order to know, depending on
+the compatible if CSI-2 interface is available and if
+the mclk clk should be retrieved.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 23 ++++++++++++----------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-index 33bedfe41924..e9fa3cfea5d2 100644
---- a/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-+++ b/Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml
-@@ -7,8 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: STMicroelectronics STM32 CSI controller
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 5a04018a6a9d..1b7bae3266c8 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -89,6 +89,8 @@ struct dcmipp_pipeline_config {
+ 	const struct dcmipp_ent_link *links;
+ 	size_t num_links;
+ 	u32 hw_revision;
++	bool has_csi2;
++	bool needs_mclk;
+ };
  
- description:
--  The STM32 CSI controller allows connecting a CSI based
--  camera to the DCMIPP camera pipeline.
-+  The STM32 CSI controller, coupled with a D-PHY allows connecting a CSI-2
-+  based camera to the DCMIPP camera pipeline.
+ /* --------------------------------------------------------------------------
+@@ -164,7 +166,9 @@ static const struct dcmipp_pipeline_config stm32mp25_pipe_cfg = {
+ 	.num_ents	= ARRAY_SIZE(stm32mp25_ent_config),
+ 	.links		= stm32mp25_ent_links,
+ 	.num_links	= ARRAY_SIZE(stm32mp25_ent_links),
+-	.hw_revision    = DCMIPP_STM32MP25_VERR
++	.hw_revision    = DCMIPP_STM32MP25_VERR,
++	.has_csi2	= true,
++	.needs_mclk	= true
+ };
  
- maintainers:
-   - Alain Volmat <alain.volmat@foss.st.com>
-@@ -109,7 +109,6 @@ examples:
-                 endpoint {
-                     remote-endpoint = <&imx335_ep>;
-                     data-lanes = <1 2>;
--                    bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
-                 };
-             };
+ #define LINK_FLAG_TO_STR(f) ((f) == 0 ? "" :\
+@@ -296,7 +300,7 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+ 				     struct v4l2_async_connection *asd)
+ {
+ 	struct dcmipp_device *dcmipp = notifier_to_dcmipp(notifier);
+-	int ret;
++	int ret = -EINVAL;
+ 	int src_pad, i;
+ 	struct dcmipp_ent_device *sink;
+ 	struct v4l2_fwnode_endpoint vep = { 0 };
+@@ -304,15 +308,9 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+ 	enum v4l2_mbus_type supported_types[] = {
+ 		V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656, V4L2_MBUS_CSI2_DPHY
+ 	};
+-	int supported_types_nb = ARRAY_SIZE(supported_types);
  
+ 	dev_dbg(dcmipp->dev, "Subdev \"%s\" bound\n", subdev->name);
+ 
+-	/* Only MP25 supports CSI input */
+-	if (!of_device_is_compatible(dcmipp->dev->of_node,
+-				     "st,stm32mp25-dcmipp"))
+-		supported_types_nb--;
+-
+ 	/*
+ 	 * Link this sub-device to DCMIPP, it could be
+ 	 * a parallel camera sensor or a CSI-2 to parallel bridge
+@@ -330,7 +328,12 @@ static int dcmipp_graph_notify_bound(struct v4l2_async_notifier *notifier,
+ 	}
+ 
+ 	/* Check for supported MBUS type */
+-	for (i = 0; i < supported_types_nb; i++) {
++	for (i = 0; i < ARRAY_SIZE(supported_types); i++) {
++		/* Only MP25 supports CSI input */
++		if (supported_types[i] == V4L2_MBUS_CSI2_DPHY &&
++		    !dcmipp->pipe_cfg->has_csi2)
++			continue;
++
+ 		vep.bus_type = supported_types[i];
+ 		ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+ 		if (!ret)
+@@ -529,7 +532,7 @@ static int dcmipp_probe(struct platform_device *pdev)
+ 				     "Unable to get kclk\n");
+ 	dcmipp->kclk = kclk;
+ 
+-	if (!of_device_is_compatible(pdev->dev.of_node, "st,stm32mp13-dcmipp")) {
++	if (dcmipp->pipe_cfg->needs_mclk) {
+ 		mclk = devm_clk_get(&pdev->dev, "mclk");
+ 		if (IS_ERR(mclk))
+ 			return dev_err_probe(&pdev->dev, PTR_ERR(mclk),
 
 -- 
 2.34.1
