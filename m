@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69076E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 18:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07FCE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 18:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+t8rVtjAi1IFxV4C7otumnejZNAjS74Ra9Tp0jk2qvI=; b=vhqsa8xxZTKNz7l6Ro5y1/JTis
-	c7URnOONvAzLvHVSRHKfbgEDs0flIKRMSzR/kqJ6yhEhn2YaZs5JxjMZdjDeNw0i75g0Op2mZ0jxU
-	kxaa8m0rqWWlEHVawNsLroE7PGPYAchNVWfmBFe3C2zeI8HBtkZuv62AP0po6HMntxV8wP6MIFT0z
-	ud8X/CW4vyMf3oA3vFXQ0qylim3jORj4NgZvtUVH7C4JQg/zUMdjR3GJg96bgWc3nOmCDiq0V93mg
-	AWHEbdmeonaGRTjlgnilbZ04/NCjQbtzDTCuv82VrkrE2fa80VUJKWg6GHfbxadxTTxXAk+VV1vMw
-	hDqY7JXA==;
+	bh=4Z2FJNVhPGP8jUhzZrjlafznrNFeG4IgOVDyOCCXraQ=; b=3YY+BwhoXtlrd0QtYBeB/g/aTF
+	HtbQMa7mNCvNAPE9Wfub1hGu7UPFGARx3ZyUPA2LLEVLx2Qb3tYGKpRQgZKP5+kQ9VlCbObUgWGzv
+	TEdSN9KUqSEW+7BApJKSxsU3pMkOuTuhnni099beYVXAyhlClUvHP7KPoqq/LGwmYFw5FBhBkdsjV
+	D7DbRgqdmZx6nJWGHxszJZ02lc1kdKdQx2b5x27irM4ci1IjMlrFCjhcUKn2saFSlLgRKiYNAp8Zj
+	5qtog2xqTCtKiQARKUNyeftTie2o7M7lxbOAHkN//FVJlbxGUoLv7eptd8/I+YXcNWZ+CiILmzV7+
+	STkj+vOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNc5D-0000000EUpx-2txt;
-	Tue, 17 Dec 2024 18:14:11 +0000
+	id 1tNc6G-0000000EUvn-1BDe;
+	Tue, 17 Dec 2024 18:15:16 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNc34-0000000EUSu-36E7
+	id 1tNc36-0000000EUTs-2ioL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 18:12:00 +0000
+	Tue, 17 Dec 2024 18:12:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 47C91A41F38;
-	Tue, 17 Dec 2024 18:10:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88018C4CED3;
-	Tue, 17 Dec 2024 18:11:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 43CA5A41F45;
+	Tue, 17 Dec 2024 18:10:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC21C4CED7;
+	Tue, 17 Dec 2024 18:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734459117;
-	bh=CEymn1dapn9L+g1VujOTt+GizasEFssPjK9PHGiZzV0=;
+	s=k20201202; t=1734459119;
+	bh=kpOrvxsnyhKACVQ2qsRTR3Nb4KrhnGtNpRfRPuIsYjg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=rW5mzLpRUZmMPMfwrPOLSvNWDY0Y8MLCq63tgBR5e1U5vZ+ooFeHLat8qsB87q37v
-	 +vWDOTSiBkV1hvsM+Nq+Q768NomnFyiVhKpsruu0syZ2QdbqYeq7YhZq/10Mg6RPrJ
-	 0N/YRxCrVtbGtSFOL1/bwVJAy5u/Mv5i05KViZCEeZC3UP9DJWFFhwdarFs7XLZoM1
-	 kS6GDIyjknB1EEZMOW2pGQLGqCJ3EPIZ+bI+8o9pe7M+S80cfSbeHarlAERpWVgDvG
-	 A2m5s0LB9VjgUtBnn4jZzCM8pWD8dKJD2xTKXy1d05YA9wb2ly9PhEH2QU7r/AkmF5
-	 K84vafo7doEBg==
+	b=E0ltokNFg7sPjq2BCTSCoR6FLN9OUNYcz44OAduYWcIEGL2xsONP3goHw5eFh05fP
+	 hVjFTZQdqoyCS1kvwnMjMU9VxHCUlFDiNcD/TDRfEvEVTT07ZsDm4+vFkiQo4Ggn9z
+	 mHm2FQI8Lci6zYulzLJiuhngBn0U7+wD7aTLn/nXabFeTTJ0Zzi5Voe8/0rhbVbMS+
+	 GoaiDEOPrHAy6frh+DJc5H2E9Bx3aO2c/G8xXRb26T+WRRohVkbq8xO1sPjQPqJgmC
+	 A62rpgjIBPDtG5H4HmnE/b/yftZdliDvdyRc3e2NjbgBo9s8VVWaxgWFqApIWRva+M
+	 OByw7KNGq9Yfw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 17 Dec 2024 12:11:40 -0600
-Subject: [PATCH v2 1/3] mfd: syscon: Fix race in device_node_get_regmap()
+Date: Tue, 17 Dec 2024 12:11:41 -0600
+Subject: [PATCH v2 2/3] mfd: syscon: Remove the platform driver support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241217-syscon-fixes-v2-1-4f56d750541d@kernel.org>
+Message-Id: <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
 References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
 In-Reply-To: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
 To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
@@ -62,8 +62,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_101158_914356_3D4BF47D 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20241217_101200_818775_359393DD 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +78,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It is possible for multiple, simultaneous callers calling
-device_node_get_regmap() with the same node to fail to find an entry in
-the syscon_list. There is a period of time while the first caller is
-calling of_syscon_register() that subsequent callers also fail to find
-an entry in the syscon_list and then call of_syscon_register() a second
-time.
+The platform driver is dead code. It is not used by DT platforms since
+commit bdb0066df96e ("mfd: syscon: Decouple syscon interface from
+platform devices") which said:
 
-Fix this by keeping the lock held until after of_syscon_register()
-completes and adds the node to syscon_list. Convert the spinlock to a
-mutex as many of the functions called in of_syscon_register() such as
-kzalloc() and of_clk_get() may sleep.
+    For non-DT based platforms, this patch keeps syscon platform driver
+    structure so that syscon can be probed and such non-DT based drivers
+    can use syscon_regmap_lookup_by_pdev API and access regmap handles.
+    Once all users of "syscon_regmap_lookup_by_pdev" migrated to DT based,
+    we can completely remove platform driver of syscon, and keep only helper
+    functions to get regmap handles.
 
-Fixes: bdb0066df96e ("mfd: syscon: Decouple syscon interface from platform devices")
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The last user of syscon_regmap_lookup_by_pdevname() was removed in 2018.
+syscon_regmap_lookup_by_pdevname() was then removed in 2019, but that
+commit failed to remove the rest of the platform driver.
+
 Tested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/mfd/syscon.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
+ drivers/mfd/syscon.c                 | 66 ------------------------------------
+ drivers/mfd/vexpress-sysreg.c        |  1 -
+ include/linux/platform_data/syscon.h |  9 -----
+ 3 files changed, 76 deletions(-)
 
 diff --git a/drivers/mfd/syscon.c b/drivers/mfd/syscon.c
-index 3e1d699ba9340f8135dfdeae6feca474980cc48d..72f20de9652da2d7bad12e4bc2c43ac0c9a97f76 100644
+index 72f20de9652da2d7bad12e4bc2c43ac0c9a97f76..bfb1f69fcff1d3cd35cf04ccd4c449e7d0395c79 100644
 --- a/drivers/mfd/syscon.c
 +++ b/drivers/mfd/syscon.c
-@@ -15,6 +15,7 @@
- #include <linux/io.h>
- #include <linux/init.h>
+@@ -12,22 +12,15 @@
+ #include <linux/clk.h>
+ #include <linux/err.h>
+ #include <linux/hwspinlock.h>
+-#include <linux/io.h>
+-#include <linux/init.h>
  #include <linux/list.h>
-+#include <linux/mutex.h>
+ #include <linux/mutex.h>
  #include <linux/of.h>
  #include <linux/of_address.h>
- #include <linux/of_platform.h>
-@@ -27,7 +28,7 @@
+-#include <linux/of_platform.h>
+-#include <linux/platform_data/syscon.h>
+-#include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/reset.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/slab.h>
  
- static struct platform_driver syscon_driver;
- 
--static DEFINE_SPINLOCK(syscon_list_slock);
-+static DEFINE_MUTEX(syscon_list_lock);
+-static struct platform_driver syscon_driver;
+-
+ static DEFINE_MUTEX(syscon_list_lock);
  static LIST_HEAD(syscon_list);
  
- struct syscon {
-@@ -54,6 +55,8 @@ static struct syscon *of_syscon_register(struct device_node *np, bool check_res)
- 	struct resource res;
- 	struct reset_control *reset;
- 
-+	WARN_ON(!mutex_is_locked(&syscon_list_lock));
-+
- 	struct syscon *syscon __free(kfree) = kzalloc(sizeof(*syscon), GFP_KERNEL);
- 	if (!syscon)
- 		return ERR_PTR(-ENOMEM);
-@@ -146,9 +149,7 @@ static struct syscon *of_syscon_register(struct device_node *np, bool check_res)
- 	syscon->regmap = regmap;
- 	syscon->np = np;
- 
--	spin_lock(&syscon_list_slock);
- 	list_add_tail(&syscon->list, &syscon_list);
--	spin_unlock(&syscon_list_slock);
- 
- 	return_ptr(syscon);
- 
-@@ -169,7 +170,7 @@ static struct regmap *device_node_get_regmap(struct device_node *np,
- {
- 	struct syscon *entry, *syscon = NULL;
- 
--	spin_lock(&syscon_list_slock);
-+	mutex_lock(&syscon_list_lock);
- 
- 	list_for_each_entry(entry, &syscon_list, list)
- 		if (entry->np == np) {
-@@ -177,11 +178,11 @@ static struct regmap *device_node_get_regmap(struct device_node *np,
- 			break;
- 		}
- 
--	spin_unlock(&syscon_list_slock);
--
- 	if (!syscon)
- 		syscon = of_syscon_register(np, check_res);
- 
-+	mutex_unlock(&syscon_list_lock);
-+
- 	if (IS_ERR(syscon))
- 		return ERR_CAST(syscon);
- 
-@@ -212,7 +213,7 @@ int of_syscon_register_regmap(struct device_node *np, struct regmap *regmap)
- 		return -ENOMEM;
- 
- 	/* check if syscon entry already exists */
--	spin_lock(&syscon_list_slock);
-+	mutex_lock(&syscon_list_lock);
- 
- 	list_for_each_entry(entry, &syscon_list, list)
- 		if (entry->np == np) {
-@@ -225,12 +226,12 @@ int of_syscon_register_regmap(struct device_node *np, struct regmap *regmap)
- 
- 	/* register the regmap in syscon list */
- 	list_add_tail(&syscon->list, &syscon_list);
--	spin_unlock(&syscon_list_slock);
-+	mutex_unlock(&syscon_list_lock);
- 
- 	return 0;
- 
- err_unlock:
--	spin_unlock(&syscon_list_slock);
-+	mutex_unlock(&syscon_list_lock);
- 	kfree(syscon);
- 	return ret;
+@@ -337,62 +330,3 @@ struct regmap *syscon_regmap_lookup_by_phandle_optional(struct device_node *np,
+ 	return regmap;
  }
+ EXPORT_SYMBOL_GPL(syscon_regmap_lookup_by_phandle_optional);
+-
+-static int syscon_probe(struct platform_device *pdev)
+-{
+-	struct device *dev = &pdev->dev;
+-	struct syscon_platform_data *pdata = dev_get_platdata(dev);
+-	struct syscon *syscon;
+-	struct regmap_config syscon_config = syscon_regmap_config;
+-	struct resource *res;
+-	void __iomem *base;
+-
+-	syscon = devm_kzalloc(dev, sizeof(*syscon), GFP_KERNEL);
+-	if (!syscon)
+-		return -ENOMEM;
+-
+-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	if (!res)
+-		return -ENOENT;
+-
+-	base = devm_ioremap(dev, res->start, resource_size(res));
+-	if (!base)
+-		return -ENOMEM;
+-
+-	syscon_config.max_register = resource_size(res) - 4;
+-	if (!syscon_config.max_register)
+-		syscon_config.max_register_is_0 = true;
+-
+-	if (pdata)
+-		syscon_config.name = pdata->label;
+-	syscon->regmap = devm_regmap_init_mmio(dev, base, &syscon_config);
+-	if (IS_ERR(syscon->regmap)) {
+-		dev_err(dev, "regmap init failed\n");
+-		return PTR_ERR(syscon->regmap);
+-	}
+-
+-	platform_set_drvdata(pdev, syscon);
+-
+-	dev_dbg(dev, "regmap %pR registered\n", res);
+-
+-	return 0;
+-}
+-
+-static const struct platform_device_id syscon_ids[] = {
+-	{ "syscon", },
+-	{ }
+-};
+-
+-static struct platform_driver syscon_driver = {
+-	.driver = {
+-		.name = "syscon",
+-	},
+-	.probe		= syscon_probe,
+-	.id_table	= syscon_ids,
+-};
+-
+-static int __init syscon_init(void)
+-{
+-	return platform_driver_register(&syscon_driver);
+-}
+-postcore_initcall(syscon_init);
+diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
+index d34d58ce46db2ad0d53b3daeabc9d3763883b39a..ef03d6cec9ff6927668d051ca459eb1d8ff7269e 100644
+--- a/drivers/mfd/vexpress-sysreg.c
++++ b/drivers/mfd/vexpress-sysreg.c
+@@ -10,7 +10,6 @@
+ #include <linux/mfd/core.h>
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
+-#include <linux/platform_data/syscon.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+ #include <linux/stat.h>
+diff --git a/include/linux/platform_data/syscon.h b/include/linux/platform_data/syscon.h
+deleted file mode 100644
+index 2c089dd3e2bda3baf5cef201ef43bca709e12c0b..0000000000000000000000000000000000000000
+--- a/include/linux/platform_data/syscon.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef PLATFORM_DATA_SYSCON_H
+-#define PLATFORM_DATA_SYSCON_H
+-
+-struct syscon_platform_data {
+-	const char *label;
+-};
+-
+-#endif
 
 -- 
 2.45.2
