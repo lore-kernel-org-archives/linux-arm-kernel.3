@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA3AE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 20:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AB5E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 20:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rd4f3soLjvrasmFpqSY9zhJG2zxLz+EAi51yKBWbwXQ=; b=nzQ6b8LeAwkEzyd/13PkRCmUzQ
-	KJUe6KzBs3aG9JDzGy6sF0r5LTe/cjYwusA5RkLFVlJr+eECoEiGMz84YH6AwlmrIVnxSqEM6MxLq
-	LtQdD/7OVQoL+qW6CYKX+dVYBtXN5JBChEuOVUg2AH5aC9Z7tiuRIrx0HYo/31oskMo0J5+RZGvhv
-	tn8LqhSZnZyaXHeXr3dAy+nrqs5LaRtw2vwnlGqiRx0Z1cuUvnbnhGYo6BxUnkBVhpLHIEtVE6RVf
-	GwCh/ZDrOvF4qEMneaYiE943GWIscZtTXZluYMe3KQ8EG5pV9xmYYQWzP69nqNSX6mZZqltzAtLVg
-	f2YQ2TSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfCqAdaT7JKP/gVcpsVgJ6pvah+60OP5bkL61BKY/qY=; b=O9d5nm/cxrRjLN3aJAeMarRcV0
+	85LHfeVkbK2ygxAZSjytU4O2bY6H9wUBJXXoDTnGceMicq52Cay4PO0nHPNGw9USp1mQS2lQLCxWm
+	8XNvN0xvY5boT3P2sugCUexHTW4G+JMuIilBhcovQQyswQD6MNVhk7OMxNbue5x8pCMUnHEpdFaBk
+	gVlmub69h9k/N6BkJZvxxqlG1jYU4nXAMT/wfe9kYz6vNVK5/ONHQyVhnqTCa+R5l+vBtY9Fnk6CI
+	3+3ZFO1V2jPSWN/2nOEsV/fPX3RohDeBp3ktxyrdi28U/WLeQzCoIWZKn1AiqRjyPFeiMZZ06dKUo
+	8DudMaNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNe4Y-0000000EjTW-3vO6;
-	Tue, 17 Dec 2024 20:21:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNe07-0000000EifV-1cNW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 20:17:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 082C9497;
-	Tue, 17 Dec 2024 12:17:28 -0800 (PST)
-Received: from [172.27.42.65] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF93F3F528;
-	Tue, 17 Dec 2024 12:16:59 -0800 (PST)
-Message-ID: <8ef0a63c-bde2-443b-b2fd-59d24c5e18e6@arm.com>
-Date: Tue, 17 Dec 2024 14:16:59 -0600
+	id 1tNe5c-0000000EjcD-2D4Z;
+	Tue, 17 Dec 2024 20:22:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNe07-0000000EigD-37jd;
+	Tue, 17 Dec 2024 20:17:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 15DCC5C4ACD;
+	Tue, 17 Dec 2024 20:16:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8C07C4CED7;
+	Tue, 17 Dec 2024 20:17:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734466622;
+	bh=nfCqAdaT7JKP/gVcpsVgJ6pvah+60OP5bkL61BKY/qY=;
+	h=In-Reply-To:References:Subject:From:To:Date:From;
+	b=gW1KnDvvapk26xhTxQAuYjC/xy4yiGrkWF1PAkO0p1jyn5yYMvoPNrJCAv5MUWHzf
+	 M3SXODkntTvxJD3QAnSWtFlmnL+gOcpS4lY1MnDrJjBxKCBQMxSC0LZRy/6AlAUatp
+	 rS8AV+wmp89LyUDwTPmkYNy2DxbD+fwtKeurLXJ6kVOARoDBVN8+lGCUZUiM3ODOeR
+	 lb/wIC1J+KOyo51oJUWCFdZ0GxbpeoycE4298PFOV7ao/jIVQQyZ7jz92QNSupPTIf
+	 Lfcx5kia4cLewCCKSp5BDKwruvDCfYoBcSmpDLyIWwkFBw6Jw0YoRV+RF7oL8AMzKr
+	 VdkbJGj3LQQTg==
+Message-ID: <2c3885eb1bbaca8a939b9233fb593ace.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/1] arm64: rsi: Add automatic arm-cca-guest module
- loading
-To: Itaru Kitayama <itaru.kitayama@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com,
- gshan@redhat.com, steven.price@arm.com, sami.mujawar@arm.com,
- catalin.marinas@arm.com, will@kernel.org, linux-kernel@vger.kernel.org
-References: <20241207012128.247522-1-jeremy.linton@arm.com>
- <20241207012128.247522-2-jeremy.linton@arm.com> <Z1Uiz7Hn2XisyP-N@vm3>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <Z1Uiz7Hn2XisyP-N@vm3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <d677486a5c563fe5c47aa995841adc2aaa183b8a.1734300668.git.daniel@makrotopia.org>
+References: <b126a5577f3667ef19b1b5feea5e70174084fb03.1734300668.git.daniel@makrotopia.org> <d677486a5c563fe5c47aa995841adc2aaa183b8a.1734300668.git.daniel@makrotopia.org>
+Subject: Re: [PATCH 5/5] clk: mediatek: mt2701-img: add missing dummy clk
+From: Stephen Boyd <sboyd@kernel.org>
+To: Alexandre Mergnat <amergnat@baylibre.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frank-w@public-files.de>, Geert Uytterhoeven <geert+renesas@glider.be>, John Crispin <john@phrozen.org>, Matthias Brugger <matthias.bgg@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Miles Chen <miles.chen@mediatek.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Date: Tue, 17 Dec 2024 12:16:59 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_121703_516547_35A1A0E6 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20241217_121703_819794_B580531D 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,112 +70,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Quoting Daniel Golle (2024-12-15 14:14:48)
+> Add dummy clk for index 0 which was missed during the conversion to
+> mtk_clk_simple_probe().
+>=20
+> Fixes: 973d1607d936 ("clk: mediatek: mt2701: use mtk_clk_simple_probe to =
+simplify driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> ---
 
-On 12/7/24 10:38 PM, Itaru Kitayama wrote:
-> Hi Jeremy,
-> 
-> On Fri, Dec 06, 2024 at 07:21:28PM -0600, Jeremy Linton wrote:
->> The TSM module provides guest identification and attestation when a
->> guest runs in CCA mode. By creating a dummy platform device, let's
-> 
-> Perhaps could you spell out like; a guest runs in the Realm state?
-
-Thanks for looking at this.
-
-I thought that was evident from the rest of the commits here, but sure.
-
-Thanks again.
-
-
-> 
-> Thanks,
-> Itaru.
->   
->> ensure the module is automatically loaded. The udev daemon loads the
->> TSM module after it receives a device addition event. Once that
->> happens, it can be used earlier in the boot process to decrypt the
->> rootfs.
->>
->> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> ---
->>   arch/arm64/include/asm/rsi.h                    |  2 ++
->>   arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
->>   drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  8 ++++++++
->>   3 files changed, 25 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
->> index 188cbb9b23f5..b42aeac05340 100644
->> --- a/arch/arm64/include/asm/rsi.h
->> +++ b/arch/arm64/include/asm/rsi.h
->> @@ -10,6 +10,8 @@
->>   #include <linux/jump_label.h>
->>   #include <asm/rsi_cmds.h>
->>   
->> +#define RSI_PDEV_NAME "arm-cca-dev"
->> +
->>   DECLARE_STATIC_KEY_FALSE(rsi_present);
->>   
->>   void __init arm64_rsi_init(void);
->> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
->> index 3031f25c32ef..5434e5496ac2 100644
->> --- a/arch/arm64/kernel/rsi.c
->> +++ b/arch/arm64/kernel/rsi.c
->> @@ -8,6 +8,7 @@
->>   #include <linux/psci.h>
->>   #include <linux/swiotlb.h>
->>   #include <linux/cc_platform.h>
->> +#include <linux/platform_device.h>
->>   
->>   #include <asm/io.h>
->>   #include <asm/mem_encrypt.h>
->> @@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
->>   	static_branch_enable(&rsi_present);
->>   }
->>   
->> +static struct platform_device rsi_dev = {
->> +	.name = RSI_PDEV_NAME,
->> +	.id = PLATFORM_DEVID_NONE
->> +};
->> +
->> +static int __init rsi_init(void)
->> +{
->> +	if (is_realm_world() &&
->> +	    platform_device_register(&rsi_dev))
->> +		pr_err("failed to register rsi platform device\n");
->> +	return 0;
->> +}
->> +
->> +arch_initcall(rsi_init)
->> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
->> index 488153879ec9..87f162736b2e 100644
->> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
->> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
->> @@ -6,6 +6,7 @@
->>   #include <linux/arm-smccc.h>
->>   #include <linux/cc_platform.h>
->>   #include <linux/kernel.h>
->> +#include <linux/mod_devicetable.h>
->>   #include <linux/module.h>
->>   #include <linux/smp.h>
->>   #include <linux/tsm.h>
->> @@ -219,6 +220,13 @@ static void __exit arm_cca_guest_exit(void)
->>   }
->>   module_exit(arm_cca_guest_exit);
->>   
->> +/* modalias, so userspace can autoload this module when RSI is available */
->> +static const struct platform_device_id arm_cca_match[] __maybe_unused = {
->> +	{ RSI_PDEV_NAME, 0},
->> +	{ }
->> +};
->> +
->> +MODULE_DEVICE_TABLE(platform, arm_cca_match);
->>   MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
->>   MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
->>   MODULE_LICENSE("GPL");
->> -- 
->> 2.46.0
->>
-
+Applied to clk-next
 
