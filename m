@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE442E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44570E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTlO0Uw1Q1GWHZKBMWBa/t1ZYQRnblhrFcl/lp5XjXU=; b=K21LsVA3M/0SRAxwqFPN0l/j9o
-	ByFWnGjuNa7A9w16ki6FLKME+60JJeOyXd2HllB4WJd8lgX1a8zhrUc9Bup4/OZMU1ALH456hSJfS
-	byU6kBcZy2NBA0p5sjeb6pw+w7+fbdVpOdUMZxAoYDmtBN59mwp4jjgb/LfeIrFBlio8q8TpyBPqR
-	+KflxN7x2bS8xO0x9BWrL3gc5HrbDWb19moStBBUb4BUgf+CPjDJxrYTUxGmgsaAnJTxpaBVrRXfC
-	YziFcEqdtPuPq9oJasYXRKH2HlxawMS2srq4wRNOo+xGa+3b6sMlyK+4f/Q7WsL+pTpFwWONtH19W
-	JtQKdjYw==;
+	bh=2AfvH5nsBGzdFeLU0T/mL8sWd62DddmNtfJ7gZUwGN4=; b=apGvdp84NZ05PkzpZbgYYsQWoF
+	b5fcFTTz98ZLH09AjS4ATjpZ3vDw8DCsa3K44fEpF/UQxYQ0M4h676eCZSkvem4upqW4cv4DGNa6r
+	X9TgySA0biI4b6kUJ843+NHY0EftbpUj9LZzswPNT4hRZDg7zbUPi7WXDzS7P7GrAtKV8BWqkzINK
+	rVy2Ux0MmnWfs9YjImNOpROo/bXqMdi3Do4CkhkE/rxLlns9uz+kXArLrWh7EcZ1mbDuTsD+LXo4L
+	dONGA0SNJf4Pr0hFQSy+HuCuh9CnSrLiDl0WVSx3gR27uVTmU3viNmjwlb07aGmjOjt9tOCLXkQdP
+	5jZlA/dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYOH-0000000Diaa-0qzh;
-	Tue, 17 Dec 2024 14:17:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNYPJ-0000000DiiG-3i7L;
+	Tue, 17 Dec 2024 14:18:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYHJ-0000000DgwU-3lFl
+	id 1tNYIc-0000000DhAa-0B24
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:10:27 +0000
+	Tue, 17 Dec 2024 14:11:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 306125C0FF4;
-	Tue, 17 Dec 2024 14:09:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434D7C4CED3;
-	Tue, 17 Dec 2024 14:10:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 687EB5C596B;
+	Tue, 17 Dec 2024 14:11:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95D05C4CED3;
+	Tue, 17 Dec 2024 14:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734444625;
-	bh=C9fsxrj/yC/xYCX1w1nLRgWlDRF3wQiSpEE3jrArh6E=;
+	s=k20201202; t=1734444705;
+	bh=+dprW4zFTCcIz53pVj73e4JZAt3bSbTy3ZmUnv6jlxI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nj2/aarlfPOP+kjdNOj8fJzNkkyFeOT/0YkMU1vj80j8miA5cNUdoO9tnMc6OFBTO
-	 ws5+5771ZZoWQIEh6CokqccgWtgH/lRivSmbLBinT2ZQMyCpsWY04CKfuLXgxn0XZX
-	 FN+whl1hmXfcuLpGh5XIWDLrVwzWcdSUtWuqzSBMx9v/TxRBhsopt7bA6wnMnPF72/
-	 xHgfwzY7p7O4NJ9bgnELYtfyeTZ3WnaZb3wifWpcTRMuKeUgGsj1jBL9a56uB/WRAl
-	 ZpUNiIz7le2yV4+V19/KOIfm3LzqkSLJQVDBIsr0lW6jafX0vljfN0/FoCPWPsFlxN
-	 YurHVDxaYXWGg==
-Message-ID: <02da691b-1f5d-41a6-847c-c7e9b8239919@kernel.org>
-Date: Tue, 17 Dec 2024 15:10:17 +0100
+	b=eoRPkl5txePVLj9wR8JHQhrGKskOVm7bD1x1yLB2NqSNushBlTRAt5Zs/mrYuMMuB
+	 8FyjuxxDN1DOmI8qAy/h+L061c3kmg9S8EttyVs5+rYY4mmnKFXULsZyMZXulI7ECi
+	 Y8nc+B8AgjAbBH3w/HoAeg7kzWSRt3g34aVt+WN29a+rCyyyJapquNXoGGb0hVR6Qy
+	 +m8PlJ0AqKbocd3ItZOhTXH5yuLmORf76X/d3R9AKddS7lminn93bMSuvmQMEAqOFD
+	 GyXPcjVC0/8jalNnYtOGAtI4og6J1IoL36GB+DQbQO03VESzvLIjFgXkMtpQ34jfiL
+	 /qBihfOOObeHA==
+Message-ID: <ae6db654-c19a-4fde-a649-48c63f4e6394@kernel.org>
+Date: Tue, 17 Dec 2024 15:11:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 1/4] media: dt-bindings: update clocks for
- sc7280-camss
+Subject: Re: [PATCH v10 2/4] media: qcom: camss: update clock names for sc7280
 To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
  todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
@@ -58,7 +57,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, kernel@quicinc.com
 References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
- <20241217140656.965235-2-quic_vikramsa@quicinc.com>
+ <20241217140656.965235-3-quic_vikramsa@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241217140656.965235-2-quic_vikramsa@quicinc.com>
+In-Reply-To: <20241217140656.965235-3-quic_vikramsa@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_061026_022784_DDC72575 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241217_061146_167037_328EBC17 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,19 +124,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 17/12/2024 15:06, Vikram Sharma wrote:
-> This patch change clock names to make it consistent with
-> existing platforms as gcc_cam_hf_axi -> gcc_axi_hf.
-> This also adds gcc_axi_sf and remove gcc_camera_ahb.
+> This patch changes gcc_cam_hf_axi clock name to make consistent
 
-Don't combine ABI changes with some less important things.
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
 
-You miss here explanation why doing the ABI change in the first place.
-Without that explanation I find it rather churn. But anyway, reason for
-ABI break and impact should be documented in commit msg.
+> with existing platforms and add gcc_axi_sf clock too.
+> gcc_cam_hf_axi changed to gcc_axi_hf.
+> added gcc_axi_sf.
+
+Explain ABI impact and don't mix new features with some sort of refactoring.
 
 > 
 > Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 > ---
+>  drivers/media/platform/qcom/camss/camss.c | 15 ++++++++++-----
+>  1 file changed, 10 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+> index 004a74f6b2f6..1d992dc74877 100644
+> --- a/drivers/media/platform/qcom/camss/camss.c
+> +++ b/drivers/media/platform/qcom/camss/camss.c
+> @@ -1443,12 +1443,13 @@ static const struct camss_subdev_resources vfe_res_7280[] = {
+>  		.regulators = {},
+>  
+>  		.clock = { "camnoc_axi", "cpas_ahb", "icp_ahb", "vfe0",
+> -			   "vfe0_axi", "gcc_cam_hf_axi" },
+> +			   "vfe0_axi", "gcc_axi_hf", "gcc_axi_sf" },
+
+
+I don't get how this works with old DTS.
+
+This looks like pure ABI break without any explanation.
 
 Best regards,
 Krzysztof
