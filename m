@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C2EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18B4E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 09:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXpCVPs0jugS1q0UV41yJNLfNt45I2eZ1iN2MJt7H5E=; b=nBDyXnGiBrEwE8PzJacYEV+9Ie
-	U+O/shpMbEskjjsIvzJy2Og5qe6xmRhbUle9VOz6OOyo9ot6FtijCfiToXKU0AC0C98JUhAOAsWaV
-	phsM4qToW8eFh/NP8J15hTdYWNsaoUeGCNa434s8CLe7weTV019LmJ5nQXuAapu5TYpp2+wlindBS
-	qFBaEfXvvTdDcVx0zIOyBzMtfIBOMeq59h5F6QhpMCoawE/JvZOwCyvR88TYnNnAdwBcjH+3gPFlt
-	fKHlZjznfvddvTGxGS6gY/dprCROUQclHfHQVabzx1BBquN3NmZ/bmqHYS2TBALf8vXYBWlJIf0ex
-	LLmg2EqA==;
+	bh=q8ZMjen1yJSy70yGnNt9th+OC1qo4iE/tlrHQsp3QRY=; b=FTCxnxRZa2ioTeoaJ0kQ2bQJQ+
+	CozSIg4FJvJBtiys6AQgRflqT2uXo6nb59DJPZp7zxS5JLMOyYN4j8Es0MYHdVgclR/ytCAqOCKJG
+	bBaZgFdOaTqWQ1OgSDLlbPlXDsGMCOjGSCnBvHnewj48MQ9sbDp7vIvOYgOF2+iewxjfaHNTKFse7
+	8qCIw08UwARc3yPfGCNOA7euCwLUlz6Qd049dFeHWlZC1Lz4Yz8WQyjBTBLgA3K+6nnH7XCySibFX
+	eKyEJ844t10AeIBtkDlsrvu7Z3fJi/Q+d1u7qOaeJ50GDuTYrVWhZzNmevQJElKHXxZt9dqGed1Ev
+	nq8axM1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUG3-0000000D0En-3w5z;
-	Tue, 17 Dec 2024 09:52:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNUH7-0000000D0SC-3rUc;
+	Tue, 17 Dec 2024 09:53:57 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNTqC-0000000CulK-3fDN
+	id 1tNTqY-0000000CupS-2eWe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 09:26:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C5AB65C652D;
-	Tue, 17 Dec 2024 09:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A5E8C4CED3;
-	Tue, 17 Dec 2024 09:26:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734427567;
-	bh=wXjfLbN/gWYzb6aj0mCrlC7DlniAXecFG9InclmFG0s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C9FBeE9J+e6noiJiGld422sSzVxBSAamphSIEkbGaHzimJrbUzjuW/k5890fDsbW9
-	 e86UzKAn8JS6vV3RGsvtcPZtCmam9AF6rG8NFvQo9BgUl6KBh5yf4xLeQVrRIn69dG
-	 5lpXKiHLPjw5vxkK66RSDrTP470dMWwpvvPBgAxhEZKOAZk/f1YpIWydo32f4Uhc/V
-	 bpWvy6ZQcIIuSHU+B/xrK9Y644RtAAW4LCMGcYKJDK6HRKc7X5R4OgfxletHx2hP1C
-	 9MnusLSCVWNlQ8Nps4uJBvbemhOZxe5KPrRq8bonaNZw1p3GSU+OCM0knTCU6esWXm
-	 LbJ6mxXR7563A==
-Date: Tue, 17 Dec 2024 10:25:59 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, alyssa@rosenzweig.io, bpf@vger.kernel.org,
-	broonie@kernel.org, jgg@ziepe.ca, joro@8bytes.org,
-	lgirdwood@gmail.com, maz@kernel.org, p.zabel@pengutronix.de,
-	robin.murphy@arm.com, will@kernel.org
-Subject: Re: [PATCH v8 2/2] PCI: imx6: Add IOMMU and ITS MSI support for
- i.MX95
-Message-ID: <Z2FDp1zQ7JzxQKJT@lpieralisi>
-References: <20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com>
- <20241210-imx95_lut-v8-2-2e730b2e5fde@nxp.com>
- <Z1sTUaoA5yk9RcIc@lpieralisi>
- <Z1sdbH7N1Ly9eXc0@lizhi-Precision-Tower-5810>
- <Z1v/LCHsGOgnasuf@lpieralisi>
- <Z1xs6GkcdTg2c73F@lizhi-Precision-Tower-5810>
+	Tue, 17 Dec 2024 09:26:31 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43622893c3cso28725e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 01:26:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1734427589; x=1735032389; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=q8ZMjen1yJSy70yGnNt9th+OC1qo4iE/tlrHQsp3QRY=;
+        b=wOjCJiP4RJ34qLPggWiMRZtCSRpX21/KlsvX534RVDi9pOA83aGfCSFeZtp9c25WUK
+         +jVmOOxn/00hZM1ZkrOYRlyjvhJpbsnxRIA20PApXSmCkrGxyWglu07RB9Y2Dv2lGyft
+         Auvs0v2AtdvRiM2QR+PI224m5KMvOohslSucg1cuVErRM5/ihLcbRZzW+pXW3cxuviIT
+         KwvNyZGd7mhUov+8uEX8/gZFd/Q0IAVkLaHrrW3ySLhMMktCpxovLT8k3X5RVIXQf8Ae
+         YzxYiV/EHouPPshgOJGMHwRzcpOjvgQcAWCvTWNSPNRar07dp/fOahkQOGPTjDrY1KFQ
+         9bwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734427589; x=1735032389;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q8ZMjen1yJSy70yGnNt9th+OC1qo4iE/tlrHQsp3QRY=;
+        b=CjmjxJNGYTmxtnFtUqUrl05hDMnZssN9XxRAj7BYPOIuNHJpQU7vjrGODnFcDTT9Ex
+         8aUFmqkp3yHdd0Q69doWBrfM/dxD9xUUn+b/45JIcHXSvc0U3OnN9gzuhuhXTC+O/r5W
+         ix2sPyBwp8qAv4TruGWHKXdAIzspwLfe56y+j0cSiOp2rsxYAcq+mrtNID0QIfJ3sSMX
+         0BS71W017ZHD40N+pQfkg0Eyjvro4zQE/u5RhtZ8FQFL2o/W+NDJca11RN5FF6S+M8B6
+         7P86lVYWIF3VAAB+RerwL69Jlkr+d6gqFmAACe7prqIi8H4JUSk0GI7LeZ1fGEeauqJE
+         ID6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUDP+LR3Kx0uoSrqqwomKKK24/2fo1WszxrZlg7Viz/maHv6bBXsl67DGUzvrphNiWeOqI0SyyU4bIo1ByXwmHv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEONnfLI9HCj6+xF2miyjPyGBEdQclIP5ZwbZ3Onx5kddC8sxX
+	5WAF7jgsvZKgySXzQyDrUC1TlWJYX7miWA3GtAphJRIvJPPJWMglFh0PGJfZ3PfF/uvjN2rH8Ki
+	N1X2paRobKajCW/gGzojHrSpvXYh40cfW67T6LICeBMAyoFr8MQ==
+X-Gm-Gg: ASbGncuJy7LWM8xtUyHTDVvGmR+VAOHP6TVf8fVBRBZ3YQm2917GpTkbZQujMs8Yvmk
+	06cy0TPs1TSCD9dGsu2hgRX8ADKp3pZee3eV9npHXv9E/iTrZ+AOTAOBJAoSmMR3g52g=
+X-Google-Smtp-Source: AGHT+IFF7byMDFVKlnmrBQvmNiNhFFA27+GN/MTPR1DNEbChmzax4aYAFvAEK6reIllga6gOu5vl+393+8r9UxeqysA=
+X-Received: by 2002:a05:600c:3205:b0:436:4e4c:7bae with SMTP id
+ 5b1f17b1804b1-4364e4c7d7cmr388185e9.1.1734427589053; Tue, 17 Dec 2024
+ 01:26:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z1xs6GkcdTg2c73F@lizhi-Precision-Tower-5810>
+References: <20241216175803.2716565-1-qperret@google.com>
+In-Reply-To: <20241216175803.2716565-1-qperret@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 17 Dec 2024 09:25:52 +0000
+Message-ID: <CA+EHjTz7=dRz5X-CjjniJgwd87Q4DQbRdXzi0on4C21urYnhOQ@mail.gmail.com>
+Subject: Re: [PATCH v3 00/18] KVM: arm64: Non-protected guest stage-2 support
+ for pKVM
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
+	Sebastian Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_012608_999350_A5312BEE 
-X-CRM114-Status: GOOD (  53.00  )
+X-CRM114-CacheID: sfid-20241217_012630_670520_54961415 
+X-CRM114-Status: GOOD (  28.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,284 +95,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 12:20:40PM -0500, Frank Li wrote:
-> On Fri, Dec 13, 2024 at 10:32:28AM +0100, Lorenzo Pieralisi wrote:
-> > On Thu, Dec 12, 2024 at 12:29:16PM -0500, Frank Li wrote:
-> > > On Thu, Dec 12, 2024 at 05:46:09PM +0100, Lorenzo Pieralisi wrote:
-> > > > On Tue, Dec 10, 2024 at 05:48:59PM -0500, Frank Li wrote:
-> > > > > For the i.MX95, configuration of a LUT is necessary to convert Bus Device
-> > > > > Function (BDF) to stream IDs, which are utilized by both IOMMU and ITS.
-> > > > > This involves checking msi-map and iommu-map device tree properties to
-> > > > > ensure consistent mapping of PCI BDF to the same stream IDs. Subsequently,
-> > > > > LUT-related registers are configured. In the absence of an msi-map, the
-> > > > > built-in MSI controller is utilized as a fallback.
-> > > >
-> > > > This is wrong information. What you want to say is that if an msi-map
-> > > > isn't detected this means that the platform relies on DWC built-in
-> > > > controller for MSIs (that does not need streamIDs handling).
-> > > >
-> > > > That's quite different from what you are writing here.
-> > >
-> > > How about ?
-> > >
-> > > "If an msi-map isn't detected, platform relies on DWC built-in controller
-> > > for MSIs that does not need streamdIDs"
-> >
-> > Right. Question: what happens if DT shows that there are SMMU and/or
-> > ITS bindings/mappings but the SMMU driver and ITS driver are either not
-> > enabled or have not probed ?
-> 
-> It is little bit complex.
-> iommu:
-> Case 1:
-> 	iommu{
-> 		status = "disabled"
-> 	};
-> 
-> 	PCI driver normal probed. if RID is in range of iommu-map, not
-> any functional impact and harmless.
-> 	If RID is out of range of iommu-map, "false alarm" will return.
-> enable PCI EP device failure, but actually it can work without IOMMU.
+On Mon, 16 Dec 2024 at 17:58, Quentin Perret <qperret@google.com> wrote:
+>
+> Hi all,
+>
+> This is the v3 of the series adding support for non-protected guests
+> stage-2 to pKVM. Please refer to v1 for all the context:
 
-What does "false alarm" mean in practice ? PCI device enable fails
-but actually it should not ? That does not look like a false alarm to me.
+For the series:
 
-> 
-> Case 2:
-> 	iommu {
-> 		status = "Okay"
-> 	}
-> 	but iommu driver have not probed yet.  PCI Host bridge driver
-> should defer till iommu probed.
-> 
-> Worst case is "false alarm". But this happen is very rare if DTS is
-> correct.
+Tested-by: Fuad Tabba <tabba@google.com>
 
-Explain what this means.
+Cheers,
+/fuad
 
-> MSI:
-> case 1:
-> 	msi-controller {
-> 		status = "disabled";
-> 	}
-> 	Whole all dwc drivers will be broken.
 
-What MSI controller. Please make an effort to be precise and explain.
 
-Thanks,
-Lorenzo
-
-> case 2:
-> 	msi-controller {
-> 		status = "Okay"
-> 	}
-> 	if msi driver have not probed yet, PCI Host bridge driver will
-> defer.
-> 
-> Frank
-> 
-> >
-> > I assume the LUT programming makes no difference (it is useless yes but
-> > should be harmless too) in this case but wanted to check with you.
-> >
-> > Thanks,
-> > Lorenzo
-> >
-> > >
-> > > >
-> > > > >
-> > > > > Register a PCI bus callback function to handle enable_device() and
-> > > > > disable_device() operations, setting up the LUT whenever a new PCI device
-> > > > > is enabled.
-> > > > >
-> > > > > Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > >
-> > > [...]
-> > >
-> > > > > +	int err_i, err_m;
-> > > > > +	u32 sid;
-> > > > > +
-> > > > > +	dev = imx_pcie->pci->dev;
-> > > > > +
-> > > > > +	target = NULL;
-> > > > > +	err_i = of_map_id(dev->of_node, rid, "iommu-map", "iommu-map-mask", &target, &sid_i);
-> > > > > +	if (target) {
-> > > > > +		of_node_put(target);
-> > > > > +	} else {
-> > > > > +		/*
-> > > > > +		 * "target == NULL && err_i == 0" means use 1:1 map RID to
-> > > >
-> > > > Is it what it means ? Or does it mean that the iommu-map property was found
-> > > > and RID is out of range ?
-> > >
-> > > yes, if this happen, sid_i will be equal to RID.
-> > >
-> > > >
-> > > > Could you point me at a sample dts for this host bridge please ?
-> > >
-> > > https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > >
-> > > /* 0x10~0x17 stream id for pci0 */
-> > >    iommu-map = <0x000 &smmu 0x10 0x1>,
-> > >                <0x100 &smmu 0x11 0x7>;
-> > >
-> > > /* msi part */
-> > >    msi-map = <0x000 &its 0x10 0x1>,
-> > >              <0x100 &its 0x11 0x7>;
-> > >
-> > > >
-> > > > > +		 * stream ID. Hardware can't support this because stream ID
-> > > > > +		 * only 5bits
-> > > >
-> > > > It is 5 or 6 bits ? From GENMASK(5, 0) above it should be 6.
-> > >
-> > > Sorry for typo. it is 6bits.
-> > >
-> > > >
-> > > > > +		 */
-> > > > > +		err_i = -EINVAL;
-> > > > > +	}
-> > > > > +
-> > > > > +	target = NULL;
-> > > > > +	err_m = of_map_id(dev->of_node, rid, "msi-map", "msi-map-mask", &target, &sid_m);
-> > > > > +
-> > > > > +	/*
-> > > > > +	 *   err_m      target
-> > > > > +	 *	0	NULL		Use 1:1 map RID to stream ID,
-> > > >
-> > > > Again, is that what it really means ?
-> > > >
-> > > > > +	 *				Current hardware can't support it,
-> > > > > +	 *				So return -EINVAL.
-> > > > > +	 *      != 0    NULL		msi-map not exist, use built-in MSI.
-> > > >
-> > > > does not exist.
-> > > >
-> > > > > +	 *	0	!= NULL		Get correct streamID from RID.
-> > > > > +	 *	!= 0	!= NULL		Unexisted case, never happen.
-> > > >
-> > > > "Invalid combination"
-> > > >
-> > > > > +	 */
-> > > > > +	if (!err_m && !target)
-> > > > > +		return -EINVAL;
-> > > > > +	else if (target)
-> > > > > +		of_node_put(target); /* Find stream ID map entry for RID in msi-map */
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * msi-map        iommu-map
-> > > > > +	 *   N                N            DWC MSI Ctrl
-> > > > > +	 *   Y                Y            ITS + SMMU, require the same sid
-> > > > > +	 *   Y                N            ITS
-> > > > > +	 *   N                Y            DWC MSI Ctrl + SMMU
-> > > > > +	 */
-> > > > > +	if (err_i && err_m)
-> > > > > +		return 0;
-> > > > > +
-> > > > > +	if (!err_i && !err_m) {
-> > > > > +		/*
-> > > > > +		 * MSI glue layer auto add 2 bits controller ID ahead of stream
-> > > >
-> > > > What's "MSI glue layer" ?
-> > >
-> > > It is common term for IC desgin, which connect IP's signal to platform with
-> > > some simple logic. Inside chip, when connect LUT output 6bit streamIDs
-> > > to MSI controller, there are 2bits hardcode controller ID information
-> > > append to 6 bits streamID.
-> > >
-> > >            Glue Layer
-> > >           <==========>
-> > > ┌─────┐                  ┌──────────┐
-> > > │ LUT │ 6bit stream ID   │          │
-> > > │     ┼─────────────────►│  MSI     │
-> > > └─────┘    2bit ctrl ID  │          │
-> > >             ┌───────────►│          │
-> > >             │            │          │
-> > >  00 PCIe0   │            │          │
-> > >  01 ENETC   │            │          │
-> > >  10 PCIe1   │            │          │
-> > >             │            └──────────┘
-> > >
-> > > >
-> > > > > +		 * ID, so mask this 2bits to get stream ID.
-> > > > > +		 * But IOMMU glue layer doesn't do that.
-> > > >
-> > > > and "IOMMU glue layer" ?
-> > >
-> > > See above.
-> > >
-> > > Frank
-> > >
-> > > >
-> > > > > +		 */
-> > > > > +		if (sid_i != (sid_m & IMX95_SID_MASK)) {
-> > > > > +			dev_err(dev, "iommu-map and msi-map entries mismatch!\n");
-> > > > > +			return -EINVAL;
-> > > > > +		}
-> > > > > +	}
-> > > > > +
-> > > > > +	sid = sid_i;
-> > > >
-> > > > err_i could be != 0 here, I understand that the end result is
-> > > > fine given how the code is written but it is misleading.
-> > > >
-> > > > 	if (!err_i)
-> > > > 	else if (!err_m)
-> > >
-> > > Okay
-> > >
-> > > >
-> > > > > +	if (!err_m)
-> > > > > +		sid = sid_m & IMX95_SID_MASK;
-> > > > > +
-> > > > > +	return imx_pcie_add_lut(imx_pcie, rid, sid);
-> > > > > +}
-> > > > > +
-> > > > > +static void imx_pcie_disable_device(struct pci_host_bridge *bridge, struct pci_dev *pdev)
-> > > > > +{
-> > > > > +	struct imx_pcie *imx_pcie;
-> > > > > +
-> > > > > +	imx_pcie = to_imx_pcie(to_dw_pcie_from_pp(bridge->sysdata));
-> > > > > +	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));
-> > > > > +}
-> > > > > +
-> > > > >  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > > > >  {
-> > > > >  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > > > @@ -946,6 +1122,11 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > > > >  		}
-> > > > >  	}
-> > > > >
-> > > > > +	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
-> > > > > +		pp->bridge->enable_device = imx_pcie_enable_device;
-> > > > > +		pp->bridge->disable_device = imx_pcie_disable_device;
-> > > > > +	}
-> > > > > +
-> > > > >  	imx_pcie_assert_core_reset(imx_pcie);
-> > > > >
-> > > > >  	if (imx_pcie->drvdata->init_phy)
-> > > > > @@ -1330,6 +1511,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
-> > > > >  	imx_pcie->pci = pci;
-> > > > >  	imx_pcie->drvdata = of_device_get_match_data(dev);
-> > > > >
-> > > > > +	mutex_init(&imx_pcie->lock);
-> > > > > +
-> > > > >  	/* Find the PHY if one is defined, only imx7d uses it */
-> > > > >  	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
-> > > > >  	if (np) {
-> > > > > @@ -1627,7 +1810,8 @@ static const struct imx_pcie_drvdata drvdata[] = {
-> > > > >  	},
-> > > > >  	[IMX95] = {
-> > > > >  		.variant = IMX95,
-> > > > > -		.flags = IMX_PCIE_FLAG_HAS_SERDES,
-> > > > > +		.flags = IMX_PCIE_FLAG_HAS_SERDES |
-> > > > > +			 IMX_PCIE_FLAG_HAS_LUT,
-> > > > >  		.clk_names = imx8mq_clks,
-> > > > >  		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
-> > > > >  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
-> > > > >
-> > > > > --
-> > > > > 2.34.1
-> > > > >
+>
+>   https://lore.kernel.org/kvmarm/20241104133204.85208-1-qperret@google.com/
+>
+> The series is organized as follows:
+>
+>  - Patches 01 to 04 move the host ownership state tracking from the
+>    host's stage-2 page-table to the hypervisor's vmemmap. This avoids
+>    fragmenting the host stage-2 for shared pages, which is only needed
+>    to store an annotation in the SW bits of the corresponding PTE. All
+>    pages mapped into non-protected guests are shared from pKVM's PoV,
+>    so the cost of stage-2 fragmentation will increase massively as we
+>    start tracking that at EL2. Note that these patches also help with
+>    the existing sharing for e.g. FF-A, so they could possibly be merged
+>    separately from the rest of the series.
+>
+>  - Patches 05 to 07 implement a minor refactoring of the pgtable code to
+>    ease the integration of the pKVM MMU later on.
+>
+>  - Patches 08 to 16 introduce all the infrastructure needed on the pKVM
+>    side for handling guest stage-2 page-tables at EL2.
+>
+>  - Patches 17 and 18 plumb the newly introduced pKVM support into
+>    KVM/arm64.
+>
+> Patches based on 6.13-rc3, tested on Pixel 6 and Qemu.
+>
+> Changes in v3:
+>  - Rebased on 6.13-rc3
+>  - Applied Marc's rework of the for_each_mapping_in_range() macro mess
+>  - Removed mappings_lock in favor the mmu_lock
+>  - Dropped BUG_ON() from pkvm_mkstate()
+>  - Renamed range_is_allowed_memory() and clarified the comment inside it
+>  - Explicitly bail out when using host_stage2_set_owner_locked() on
+>    non-memory regions
+>  - Check PKVM_NOPAGE state as an equality rather than a bitwise
+>    operator
+>  - Reworked __pkvm_host_share_guest() to return -EPERM in case of
+>    illegal multi-sharing
+>  - Added get_np_pkvm_hyp_vm() to simplify HVC error handling in
+>    hyp-main.c
+>  - Cosmetic changes and improved coding consitency thoughout the series
+>
+> Changes in v2:
+>  - Rebased on 6.13-rc1 (small conflicts with 2362506f7cff ("KVM: arm64:
+>    Don't mark "struct page" accessed when making SPTE young") in
+>    particular)
+>  - Fixed kerneldoc breakage for __unmap_stage2_range()
+>  - Fixed pkvm_pgtable_test_clear_young() to use correct HVC
+>  - Folded guest_get_valid_pte() into __check_host_unshare_guest() for
+>    clarity
+>
+> Thanks,
+> Quentin
+>
+> Marc Zyngier (1):
+>   KVM: arm64: Introduce __pkvm_vcpu_{load,put}()
+>
+> Quentin Perret (17):
+>   KVM: arm64: Change the layout of enum pkvm_page_state
+>   KVM: arm64: Move enum pkvm_page_state to memory.h
+>   KVM: arm64: Make hyp_page::order a u8
+>   KVM: arm64: Move host page ownership tracking to the hyp vmemmap
+>   KVM: arm64: Pass walk flags to kvm_pgtable_stage2_mkyoung
+>   KVM: arm64: Pass walk flags to kvm_pgtable_stage2_relax_perms
+>   KVM: arm64: Make kvm_pgtable_stage2_init() a static inline function
+>   KVM: arm64: Add {get,put}_pkvm_hyp_vm() helpers
+>   KVM: arm64: Introduce __pkvm_host_share_guest()
+>   KVM: arm64: Introduce __pkvm_host_unshare_guest()
+>   KVM: arm64: Introduce __pkvm_host_relax_guest_perms()
+>   KVM: arm64: Introduce __pkvm_host_wrprotect_guest()
+>   KVM: arm64: Introduce __pkvm_host_test_clear_young_guest()
+>   KVM: arm64: Introduce __pkvm_host_mkyoung_guest()
+>   KVM: arm64: Introduce __pkvm_tlb_flush_vmid()
+>   KVM: arm64: Introduce the EL1 pKVM MMU
+>   KVM: arm64: Plumb the pKVM MMU in KVM
+>
+>  arch/arm64/include/asm/kvm_asm.h              |   9 +
+>  arch/arm64/include/asm/kvm_host.h             |   4 +
+>  arch/arm64/include/asm/kvm_mmu.h              |  16 +
+>  arch/arm64/include/asm/kvm_pgtable.h          |  38 ++-
+>  arch/arm64/include/asm/kvm_pkvm.h             |  23 ++
+>  arch/arm64/kvm/arm.c                          |  23 +-
+>  arch/arm64/kvm/hyp/include/nvhe/gfp.h         |   6 +-
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  38 +--
+>  arch/arm64/kvm/hyp/include/nvhe/memory.h      |  42 ++-
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  16 +
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 201 ++++++++++-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 320 ++++++++++++++++--
+>  arch/arm64/kvm/hyp/nvhe/page_alloc.c          |  14 +-
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  68 ++++
+>  arch/arm64/kvm/hyp/nvhe/setup.c               |   7 +-
+>  arch/arm64/kvm/hyp/pgtable.c                  |  13 +-
+>  arch/arm64/kvm/mmu.c                          | 113 +++++--
+>  arch/arm64/kvm/pkvm.c                         | 198 +++++++++++
+>  arch/arm64/kvm/vgic/vgic-v3.c                 |   6 +-
+>  19 files changed, 1010 insertions(+), 145 deletions(-)
+>
+> --
+> 2.47.1.613.gc27f4b7a9f-goog
+>
 
