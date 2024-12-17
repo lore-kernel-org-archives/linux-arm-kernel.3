@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5773EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:42:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB60E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0EZW6LlfowWIgAwJtFx9CvahXq/dyYnxzkbI6o/02Q=; b=nslYs+xLv+Rp8qEETJk9VAzkD2
-	LISq2kJlC7SHh3NVSCU7hanWXkhX/0kr+AkkvNY2Am9WT96RYDvv1kDLLdcGdKUptz2ZP0X/MjbU1
-	8FRNKQyZIwl+PutoNBNR3D9GO9+b7WgxFD7bepjeMwXKdaUP3rc+zLVbnMFHNi6eOV4RygycgSBnc
-	nQHZVPddUd9VtG7kP53SJgjhqJH55cHYEwJVgCONto4lvrxJA+LcSgWKy4BIsk7X5K3CM8j3CRDhj
-	UQIEwMv5xhEUd2ZD9W3tzgm0dxtCRXzp4sBgt2+2JoP6rPJOm8CBeCmCFgCsUygCmxix3mYXAI8dC
-	j17NlsEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Poy8u1ERUTetn7gECjlsVW4OLmGxnHVpVe/HJdcMtgo=; b=27LuC1+93JJl/CRZTDR3SO0BVR
+	qMfLESnGaYv2na/qDIpJJXd8ca7kAiBeLm7sJD0HnU1iDWWBs6tmdG4d+xpuoBbDETSJBuJCle9TE
+	mqbUJfQOfEkHA4hbkT/zbbTUWR3xfFWxcCPkMosQQX0qozxp6gg1PDZeqcOCtgPs1dIPbqy9pABPk
+	Jyrocd5byytz3w9geup8/EJgvStHumQJx66dxbG1USa8wSBQuBNn+ifhlpubE3hGfwMerfQ+ophEY
+	ZAZ96FbNcfjkpp2I6YWfetc9VfrRdsuSQ7UhSKaf1WeCbzZo8dtic0jAEqkeYCHpDQ6RHvsq7Rcjf
+	o+FDwwVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVyB-0000000DHqa-0TA2;
-	Tue, 17 Dec 2024 11:42:31 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tNW2d-0000000DIKZ-0xFK;
+	Tue, 17 Dec 2024 11:47:07 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVx5-0000000DHig-06qu
+	id 1tNW1X-0000000DIEV-3OqG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 11:41:24 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2ee6c2d6db0so4505301a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 03:41:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734435681; x=1735040481; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=b0EZW6LlfowWIgAwJtFx9CvahXq/dyYnxzkbI6o/02Q=;
-        b=GiIAYygNvSwInxhm2Zp8bDY3ZxdDY3X0AYPQGRs+CgH6xV4Pp6oPQEziRTwyPMDWqT
-         oBXtKTQNlLigfcqQr9rRUA1hLmVR5PS6ZM1hu+jkTnkGHw9Ueccr0GxDe5AxYXxdlbxN
-         nWVkAwjExqbTtQu8DDUhABDiSoDHePu4GQfeKh9Y+GXY51NCg4Ek50mcKOhjgTcoFljQ
-         OztUhIfbjqZ1UgdkN8XFE9Z9EprySLxdrye26zsrWDfbQhwu8hOhFjj9UEHPsKYFd3dU
-         gnuGkmJefr2TI/oA1mC+P/qfEmgWwpIB41yKPzAG0QZsEmy3qkJlUroFltGZWksTBrLe
-         QhUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734435681; x=1735040481;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=b0EZW6LlfowWIgAwJtFx9CvahXq/dyYnxzkbI6o/02Q=;
-        b=KVzQlvn3i3zgkIBVTF86zWzR+DmjVs3Gat54YDQmVuzlxBZ2bvL6oJEAOGwtkjcODl
-         OOsy1kPHjJeNH+OxiTL1Lo7LHFZ5d6jQSpw+3qSooRO/t7QbE7ZTEaQkwlkRnvkhAEnZ
-         dbSvuHF8X7gPbiW0RgJfpdmduEbmtq16uaWCSae/6k8PEdU8mxQzu82zRkcmEh/CvoY+
-         5rTl1lovqmjBF4v8EcS4Waw0SELS73NEPn4tlp+rTk5Tdg+0Lq6KenYOB0Z13NPTGbzc
-         MIquIuirS837b8eqMzWrK0cR7QoV2yHgCXDkTVSi0T3UYi3LvF4iX+c3blQHl23E6f5n
-         Cg+A==
-X-Forwarded-Encrypted: i=1; AJvYcCU6yCsDNS9dbfQBsiTcAwNlvS+jD9xLcjLGVlcHMqiAlDRtg9FZoyKtIkKtN+AJzZXVq700Meesr+srDZ1d81ep@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjiZRtxSzGwh+IjyWiJcILAaJNZ5eAcfT4KI6c2dJ8cJmdqHOf
-	IpvJtpFkfMLxq3vSwKwh911LZ8PPyAznM75R69is1lw7zSMazdsiwCpbLCwLZMZDaf2KlK4szK3
-	GRGqFB3L7pBdj6+0hEiur7EYbjlzGwv1JnGVBOQ==
-X-Gm-Gg: ASbGncu+oazjBmhXQcL/YmP6zdwzKWlDfHaTIHH0fLezRBFPayvKku8j84wf7MKa4JV
-	3ZA6z+ScEYGWt78DX6sk1hSF0E0/BGTCjCOm7cFQ=
-X-Google-Smtp-Source: AGHT+IGIDfrYNaywRoWFo3CQSbMxXhWSle7L1Jb4vz79u1YZalyqFK7FlUJMk0NlWFVnhyTGxjaH1yzDfdnlavipwTg=
-X-Received: by 2002:a17:90b:4b06:b0:2ee:9b2c:3253 with SMTP id
- 98e67ed59e1d1-2f2901a2a67mr23276889a91.30.1734435681520; Tue, 17 Dec 2024
- 03:41:21 -0800 (PST)
+	Tue, 17 Dec 2024 11:46:01 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH6RlwC003621;
+	Tue, 17 Dec 2024 11:45:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Poy8u1ERUTetn7gECjlsVW4OLmGxnHVpVe/HJdcMtgo=; b=dKRV42C+j64MEhKp
+	Fnx43sgB9uOV8u7vGg6qq/US9uoYmP8hZbNqslciWthudHgz4R2qvuzlzFh4fTOX
+	HAsgYVZZEjFQ2KxRyWGYsi6v+Yl2tjZDK/TlY7bRBGGZh88Dg1AZbybVYhGtS4Xs
+	vQ4XzeijrAUiYccaDm9ZvtAVjkZMy79tqNoAgo+E12Qbw9/bBhyW0ATvZbr++vEe
+	UOjAS8s7AEOL3md2pw9pv8fS6kE416gBEP1cNvsWbJKgzECGLnm+MiVtDns1rxEZ
+	rf2aT07R9Fb2r0LPXMzpsi37TOs4AOCrhAiYZyzF1R1ArpZOt7fNn46pYI32RK27
+	ACCVng==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k424gvx2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 11:45:52 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BHBjpSk030176
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 11:45:51 GMT
+Received: from [10.190.163.187] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 17 Dec
+ 2024 03:45:47 -0800
+Message-ID: <b31d2e68-e4e0-97e6-158c-1b9ab8308551@quicinc.com>
+Date: Tue, 17 Dec 2024 17:15:39 +0530
 MIME-Version: 1.0
-References: <20241213144919.110642-1-mike.leach@linaro.org>
- <20241213144919.110642-3-mike.leach@linaro.org> <9094b068-ed3a-444d-b790-e43a652ab6e9@arm.com>
-In-Reply-To: <9094b068-ed3a-444d-b790-e43a652ab6e9@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 17 Dec 2024 11:41:11 +0000
-Message-ID: <CAJ9a7VjCK+FGB+EMbcgaRfkv13TYYgBNHTG+AGp=52dZ7EfQAQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] coresight: tmc: Update error logging in tmc common functions
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	coresight@lists.linaro.org, james.clark@linaro.org, 
-	alexander.shishkin@linux.intel.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH V4 1/5] dt-bindings: firmware: Document bindings for QCOM
+ SCMI Generic Extension
+Content-Language: en-US
+To: Sudeep Holla <sudeep.holla@arm.com>
+CC: <cristian.marussi@arm.com>, <andersson@kernel.org>,
+        <konrad.dybcio@linaro.org>, <robh+dt@kernel.org>,
+        <krzysztof.kozlowski+dt@linaro.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_rgottimu@quicinc.com>,
+        <quic_kshivnan@quicinc.com>, <conor+dt@kernel.org>,
+        <arm-scmi@vger.kernel.org>
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <20241007061023.1978380-2-quic_sibis@quicinc.com> <Z1HGVhi5xebqc4d4@bogus>
+From: Sibi Sankar <quic_sibis@quicinc.com>
+In-Reply-To: <Z1HGVhi5xebqc4d4@bogus>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: zQ7Xp9YpOoJYodr4bEeXFjMVpfgIg2x3
+X-Proofpoint-ORIG-GUID: zQ7Xp9YpOoJYodr4bEeXFjMVpfgIg2x3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ mlxlogscore=999 spamscore=0 bulkscore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 lowpriorityscore=0 malwarescore=0 suspectscore=0
+ mlxscore=0 phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412170097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_034123_084440_B99AA27E 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20241217_034559_976732_C0C656EE 
+X-CRM114-Status: GOOD (  35.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,124 +106,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
-
-On Mon, 16 Dec 2024 at 09:33, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->
-> On 13/12/2024 14:49, Mike Leach wrote:
-> > Enhance the error logging in the tmc_wait_for_tmcready() and
-> > tmc_flush_and_stop() to print key tmc  register values on error
-> > conditions to improve hardware debug information.
-> >
-> > Signed-off-by: Mike Leach <mike.leach@linaro.org>
-> > ---
-> >   .../hwtracing/coresight/coresight-tmc-core.c  | 37 +++++++++++++++----
-> >   drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
-> >   2 files changed, 30 insertions(+), 9 deletions(-)
-> >
-> > diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > index e9876252a789..1a9299adae93 100644
-> > --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> > @@ -34,25 +34,36 @@ DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
-> >   DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
-> >   DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
-> >
-> > +#define TMC_WAIT_READY_FMT_STR "timeout while waiting for TMC to be Ready [STS=0x%04x]\n"
-> > +
-> >   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
-> >   {
-> >       struct coresight_device *csdev = drvdata->csdev;
-> >       struct csdev_access *csa = &csdev->access;
-> > +     u32 tmc_sts = 0;
-> >
-> >       /* Ensure formatter, unformatter and hardware fifo are empty */
-> > -     if (coresight_timeout(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
-> > -             dev_err(&csdev->dev,
-> > -                     "timeout while waiting for TMC to be Ready\n");
-> > +     if (coresight_timeout_retval(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1,
-> > +                                  &tmc_sts)) {
-> > +             dev_err(&csdev->dev, TMC_WAIT_READY_FMT_STR, tmc_sts);
-> >               return -EBUSY;
-> >       }
-> >       return 0;
-> >   }
-> >
-> > -void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
-> > +int tmc_flush_and_stop(struct tmc_drvdata *drvdata)
-> >   {
-> >       struct coresight_device *csdev = drvdata->csdev;
-> >       struct csdev_access *csa = &csdev->access;
-> > -     u32 ffcr;
-> > +     u32 ffcr, ffsr, tmc_sts;
-> > +     int rc = 0;
-> > +
-> > +     /* note any MemErr present when stopping TMC */
-> > +     tmc_sts = readl_relaxed(drvdata->base + TMC_STS);
-> > +     if (tmc_sts & TMC_STS_MEMERR)
-> > +             dev_err(&csdev->dev,
-> > +                     "MemErr detected before Manual Flush; STS[0x%02x]\n",
-> > +                     tmc_sts);
-> >
-> >       ffcr = readl_relaxed(drvdata->base + TMC_FFCR);
-> >       ffcr |= TMC_FFCR_STOP_ON_FLUSH;
-> > @@ -60,12 +71,22 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
-> >       ffcr |= BIT(TMC_FFCR_FLUSHMAN_BIT);
-> >       writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
-> >       /* Ensure flush completes */
-> > -     if (coresight_timeout(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
-> > +     if (coresight_timeout_retval(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0,
-> > +                                  &ffcr)) {
-> > +             ffsr = readl_relaxed(drvdata->base + TMC_FFSR);
-> >               dev_err(&csdev->dev,
-> > -             "timeout while waiting for completion of Manual Flush\n");
-> > +                     "timeout while waiting for completion of Manual Flush\n");
-> > +             dev_err(&csdev->dev,
-> > +                     "regs: FFCR[0x%02x] FFSR[0x%02x] STS[0x%02x]\n",
-> > +                     ffcr, ffsr, tmc_sts);
-> > +             rc = -EBUSY;
-> >       }
-> >
-> > -     tmc_wait_for_tmcready(drvdata);
-> > +     if (tmc_wait_for_tmcready(drvdata)) {
-> > +             dev_err(&csdev->dev, "TMC ready error after Manual flush\n");
-> > +             rc = -EBUSY;
-> > +     }
-> > +     return rc;
-> >   }
->
-> All of this looks good to me. Do we need to move the MemErr check post
-> the flush ? There is a potential chance of hitting a MemERR on flushing
-> and we could miss reproting those ones ?
->
-
-We need the one before - if there is already a Memerr then this will
-affect the flush operation - on Memerr the formatter will have stopped
-etc. But no harm in putting another check afterwards.
-
-Mike
-
-> Suzuki
->
-> >   void tmc_enable_hw(struct tmc_drvdata *drvdata)
-> > diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> > index 2671926be62a..34513f07c3aa 100644
-> > --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> > +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> > @@ -259,7 +259,7 @@ struct tmc_sg_table {
-> >
-> >   /* Generic functions */
-> >   int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata);
-> > -void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
-> > +int tmc_flush_and_stop(struct tmc_drvdata *drvdata);
-> >   void tmc_enable_hw(struct tmc_drvdata *drvdata);
-> >   void tmc_disable_hw(struct tmc_drvdata *drvdata);
-> >   u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
->
 
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+On 12/5/24 20:57, Sudeep Holla wrote:
+> On Mon, Oct 07, 2024 at 11:40:19AM +0530, Sibi Sankar wrote:
+>> Document the various memory buses that can be monitored and scaled by
+>> the memory latency governor hosted by the QCOM SCMI Generic Extension
+>> Protocol v1.0.
+>>
+>> Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+>> ---
+>>
+>> v3:
+>> * Restructure the bindings to mimic IMX [Christian]
+>>
+>>   .../bindings/firmware/arm,scmi.yaml           |   1 +
+>>   .../bindings/firmware/qcom,scmi-memlat.yaml   | 246 ++++++++++++++++++
+>>   .../dt-bindings/firmware/qcom,scmi-memlat.h   |  22 ++
+>>   3 files changed, 269 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/firmware/qcom,scmi-memlat.yaml
+>>   create mode 100644 include/dt-bindings/firmware/qcom,scmi-memlat.h
+>>
+>> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+>> index 54d7d11bfed4..1d405f429168 100644
+>> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+>> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+>> @@ -24,6 +24,7 @@ description: |
+>>   
+>>   anyOf:
+>>     - $ref: /schemas/firmware/nxp,imx95-scmi.yaml
+>> +  - $ref: /schemas/firmware/qcom,scmi-memlat.yaml
+>>   
+>>   properties:
+>>     $nodename:
+>> diff --git a/Documentation/devicetree/bindings/firmware/qcom,scmi-memlat.yaml b/Documentation/devicetree/bindings/firmware/qcom,scmi-memlat.yaml
+>> new file mode 100644
+>> index 000000000000..0e8ea6dacd6a
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/firmware/qcom,scmi-memlat.yaml
+>> @@ -0,0 +1,246 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/firmware/qcom,scmi-memlat.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Qualcomm SCMI Memory Bus nodes
+>> +
+>> +maintainers:
+>> +  - Sibi Sankar <quic_sibis@quicinc.com>
+>> +
+>> +description:
+>> +  This binding describes the various memory buses that can be monitored and scaled
+>> +  by memory latency governor running on the CPU Control Processor (SCMI controller).
+>> +
+>> +properties:
+>> +  protocol@80:
+>> +    $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
+>> +    unevaluatedProperties: false
+>> +
+>> +    properties:
+>> +      reg:
+>> +        const: 0x80
+>> +
+>> +    patternProperties:
+>> +      '^memory-[0-9]$':
+>> +        type: object
+>> +        unevaluatedProperties: false
+>> +        description:
+>> +          The list of all memory buses that can be monitored and scaled by the
+>> +          memory latency governor running on the SCMI controller.
+>> +
+>> +        properties:
+>> +          qcom,memory-type:
+>> +            $ref: /schemas/types.yaml#/definitions/uint32
+>> +            enum: [0, 1, 2]
+>> +            description: |
+>> +              Memory Bus Identifier
+>> +              0 = QCOM_MEM_TYPE_DDR
+>> +              1 = QCOM_MEM_TYPE_LLCC
+>> +              2 = QCOM_MEM_TYPE_DDR_QOS
+>> +
+>> +          freq-table-hz:
+>> +            items:
+>> +              items:
+>> +                - description: Minimum frequency of the memory bus in Hz
+>> +                - description: Maximum frequency of the memory bus in Hz
+>> +
+>> +        patternProperties:
+>> +          '^monitor-[0-9]$':
+>> +            type: object
+>> +            unevaluatedProperties: false
+>> +            description:
+>> +              The list of all monitors detecting the memory latency bound workloads using
+>> +              various counters.
+>> +
+>> +            properties:
+>> +              qcom,compute-type:
+>> +                description:
+>> +                  Monitors of type compute perform bus dvfs based on a rudimentary CPU
+>> +                  frequency to memory frequency map.
+>> +                type: boolean
+>> +
+>> +              qcom,ipm-ceil:
+>> +                $ref: /schemas/types.yaml#/definitions/uint32
+>> +                description:
+>> +                  Monitors having this property perform bus dvfs based on the same
+>> +                  rudimentary table but the scaling is performed only if the calculated
+>> +                  IPM (Instruction Per Misses) exceeds the given ceiling.
+>> +
+>> +              cpus:
+>> +                $ref: /schemas/types.yaml#/definitions/phandle-array
+>> +                description:
+>> +                  Should be a list of phandles to CPU nodes (as described in
+>> +                  Documentation/devicetree/bindings/arm/cpus.yaml).
+> 
+> And what exactly this list of cpu phandles represent here ?
+> 
+>> +
+>> +              operating-points-v2: true
+> 
+> Can you elaborate why the protocol can't add a command to fetch this from
+> the firmware to avoid any possible mismatch between the DT and firmware.
+> 
+>> +              opp-table:
+>> +                type: object
+>> +
+>> +            required:
+>> +              - cpus
+>> +              - operating-points-v2
+>> +
+>> +            oneOf:
+>> +              - required: [ 'qcom,compute-type' ]
+>> +              - required: [ 'qcom,ipm-ceil' ]
+>> +
+>> +        required:
+>> +          - qcom,memory-type
+>> +          - freq-table-hz
+>> +
+>> +additionalProperties: true
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/firmware/qcom,scmi-memlat.h>
+>> +
+>> +    firmware {
+>> +        scmi {
+>> +            compatible = "arm,scmi";
+>> +            mboxes = <&cpucp_mbox 0>, <&cpucp_mbox 2>;
+>> +            mbox-names = "tx", "rx";
+>> +            shmem = <&cpu_scp_lpri0>, <&cpu_scp_lpri1>;
+>> +
+>> +            #address-cells = <1>;
+>> +            #size-cells = <0>;
+>> +
+>> +            protocol@80 {
+>> +                reg = <0x80>;
+>> +
+>> +                memory-0 {
+
+
+Hey Sudeep,
+
+Thanks for taking time to review the series :)
+
+> 
+> I am not sure if it is just me, but I find this binding hard to understand.
+> Hence I thought I will look and the example and get better understanding
+> instead.
+> 
+> So these monitors are numbered ? If there were any meaningful name it would
+
+A memory type can have a variable number of monitors. The
+monitors take in a table and memory type. They track the freq
+of a group of cpus and put in requests to scale the memory
+according to the table. The naming is just arbitrary here
+and we can choose whatever that makes the most sense.
+
+
+> have been slightly better but irrespective of that I find it hard as why
+> the communication with firmware is not based on index and why they are not
+> part of the bindings though I see indices used in the driver.
+> 
+>> +                    qcom,memory-type = <QCOM_MEM_TYPE_DDR>;
+> 
+> Also I see that the type can be easily derived from the index, care to
+> elaborate why the firmware expects it to be sent, if not why is that
+> information needed here in the DT ?
+
+The firmware doesn't have any information on the memory available
+for it to scale and relies of the linux telling it everything in
+order to function.
+
+
+-Sibi
+
+
+> 
 
