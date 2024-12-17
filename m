@@ -4,66 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE8CE7716A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA35E7716A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 10:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k7Ohw9FdZun9tCxVR+V58AxTTwpDnpaw4I4rebrkACs=; b=DE4gxtrwh5s9M7sNKhGrnmXkKK
-	3qY77BRJ64iSdvm1z0hleFR715YTjAZH9iNnoUdNtrVKLWm7suc/x2cLr4c725AL4yKHlbDl/+nJN
-	SDbo5bupjNPw3VnyxbkJRExnO/kaRKFd7fLajvOzJaNTJuo73e7XjmHOAGRRns26UcM4G4LE/8hXS
-	Wvv8Oi/ZVXyL6HOQ6l8RJZ/JF6JqAUdM9YfZr9vaET6Y6Xhx+nCEHzJxfxE7r/xfML/k6MZ8FSr84
-	l6Giv5pxz+Fwq2lDYK0EgtOSiNt7eyVIyPvO/K5D7p48jlg/Eh5OQwhdN222HiFO/2tFmGmWObca5
-	yoOUbVFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oUC8C14nmQz9b0qpzY68JcxUFhr9uFuo+BsqJHz+Y0A=; b=2h5TJGzkTkHHOfXgn4PRqjpy6o
+	Rl8awogj02QWhDwmYPIVgFhQyuGaJXrfmBpHKCeJDfY1GT2rtN9Tcbvi7Su9p1CjBGbmU7yXnFyY4
+	Z+WXofLhjVwq5PA3NSdGTJ4CPTC7/iEdbBVdqMDm0tpY519GlIkYkfnpZuE7shLs4AB/iU9fqN4An
+	HmL8NYsIBhuKuQGAlGiWNtW0Y5XJhLBrHPgmhYP1Q8sq0P0AVirG0b9+P8W2LbxkBx5PDn1EHEUBt
+	dVgPF+8jLPvGsrwbh78AoG8xdbOayK9dxs/lEeGrz1ynEyLFUhRKAVbVHd3Qc3zQfCX4qDIf27+IN
+	kVkpr8sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUUv-0000000D3ib-1aVq;
-	Tue, 17 Dec 2024 10:08:13 +0000
-Received: from mail-il1-f207.google.com ([209.85.166.207])
+	id 1tNUVz-0000000D43d-1Ra5;
+	Tue, 17 Dec 2024 10:09:19 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNUBm-0000000CzJP-1yRi
+	id 1tNUEo-0000000D03A-0Syd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 09:48:27 +0000
-Received: by mail-il1-f207.google.com with SMTP id e9e14a558f8ab-3a819a4e83dso56115665ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 01:48:24 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734428904; x=1735033704;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=k7Ohw9FdZun9tCxVR+V58AxTTwpDnpaw4I4rebrkACs=;
-        b=w7SvTWPyNyhpm+64uIW1ytBhOXE0huKYa5d8hRY66TT7aJHiUaNqFUKOGzXrIdelIZ
-         yQnNcrbjkdHTSXTwFfzO6JBvtC/TwUQOyGQ325hYQFcJRGNAESnsdFMtJqcU4nB169q/
-         06p+tfcWF9yiVldjz+eKR/ysggZqhEDj4gzTBF9dABH26jqHg//ryjv13y98rGkV1iW9
-         tbnQEzy+NuWsaxUvlzjxeSf17K35YyfACAOqWh9dPaMS0U0R2m58q+uKcdytzoMvEyUo
-         9evXmngrv9wyDo1BEy2VDCD4T7cL+is1Pgx9GQ0YUQqs542crSFxRbeGB/DChvEVtXbb
-         k2gA==
-X-Forwarded-Encrypted: i=1; AJvYcCUINEHl6wIXxNKA4ukE7mbEJp7wbowDyZHzvaGjN3RN7BgSit4RB7XdRCyVIVu6OJHM/jZEsnT/xJ5iiM+TSH2Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjKMkPXTRYFZ2y8Lgqf2Zt8VtrbUA/g7NcMz/OO+ehIyv7H58R
-	leKZ3ipFyPmpV9iMl7k+huiwliuGbJLD7rg9OXq6xWOe6PBl1922QIeQT5auE4sb6o3z4pI8vPR
-	j3B5TgV8BPKd6eL0qG+W48jzwvT6XSOiEKUQBMwki/Pmvb2MAEzyyASs=
-X-Google-Smtp-Source: AGHT+IHI9tYk8oBynelfPrOkch9cOquRNVuGZrHan+16Hk0hGAubvsg8DCIGxrVhoM/XYZRyY38tAlmP5tjN4bfiN2UpHZ89frcW
+	Tue, 17 Dec 2024 09:51:35 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH88B5q032037;
+	Tue, 17 Dec 2024 10:51:13 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	oUC8C14nmQz9b0qpzY68JcxUFhr9uFuo+BsqJHz+Y0A=; b=2dlRNTOIZQmNVA3D
+	37LZPO4YILCvvRaKRsS450lvas7bZUDWMzfnNwDgFDwMQh/LnStZDLrPLR2bR5oX
+	tMcOojYwHlbjTeIIiIACkQAvjCEXTGFejvCw8QZvbxOlrLbN5c1mrt1kZ2UsINd6
+	n5xwiM0PkZu/YPNOKwKPJxECH9l2U/ZDim5fA+AAtAAGNW+qWvJ0EvKf2t+mbDk1
+	LKmOm87sfwRLqrKvCFR/H0nEGTxkE68rcG9FpWX059K4schTdZFEFDKs68wjvGp3
+	mN4n3Y5hOq8tRu4SNTyPBqfLeWAob7ovSDEww+a4Wo9iPgnfxcu+7orYTXETHmj6
+	WR+XMw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43k5h9gg7g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Dec 2024 10:51:13 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6769C4004A;
+	Tue, 17 Dec 2024 10:49:48 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BBB7425E64B;
+	Tue, 17 Dec 2024 10:48:45 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Tue, 17 Dec
+ 2024 10:48:44 +0100
+Message-ID: <fdc487c4-cbdc-45ac-a79f-aff2b8ccafcc@foss.st.com>
+Date: Tue, 17 Dec 2024 10:48:43 +0100
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:1905:b0:3a0:c820:c5f0 with SMTP id
- e9e14a558f8ab-3aff9256d09mr175850255ab.24.1734428904148; Tue, 17 Dec 2024
- 01:48:24 -0800 (PST)
-Date: Tue, 17 Dec 2024 01:48:24 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <676148e8.050a0220.37aaf.0158.GAE@google.com>
-Subject: [syzbot] [kvmarm?] BUG: unable to handle kernel paging request in vgic_its_set_attr
-From: syzbot <syzbot+62e8b837d5ec5953c8e2@syzkaller.appspotmail.com>
-To: catalin.marinas@arm.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, suzuki.poulose@arm.com, 
-	syzkaller-bugs@googlegroups.com, will@kernel.org, yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH v2 4/5] PCI: stm32: Add PCIe endpoint support for
+ STM32MP25
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
+ <20241126155119.1574564-5-christian.bruel@foss.st.com>
+ <20241203152230.5mdrt27u5u5ecwcz@thinkpad>
+ <4e257489-4d90-4e47-a4d9-a2444627c356@foss.st.com>
+ <20241216161700.dtldi7fari6kafrr@thinkpad>
+Content-Language: en-US
+In-Reply-To: <20241216161700.dtldi7fari6kafrr@thinkpad>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_014826_508248_592F9E39 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241217_015134_730753_BB47477D 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,108 +102,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-syzbot found the following issue on:
-
-HEAD commit:    5db899a34f75 Merge remote-tracking branch 'kernel/kvmarm/n..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git fuzzme
-console output: https://syzkaller.appspot.com/x/log.txt?x=148b6a0f980000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=fde68ab6d6c8c8ab
-dashboard link: https://syzkaller.appspot.com/bug?extid=62e8b837d5ec5953c8e2
-compiler:       Debian clang version 15.0.6, GNU ld (GNU Binutils for Debian) 2.40
-userspace arch: arm64
-
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/384ffdcca292/non_bootable_disk-5db899a3.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/4938b757ff4a/vmlinux-5db899a3.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/936938b47987/Image-5db899a3.gz.xz
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+62e8b837d5ec5953c8e2@syzkaller.appspotmail.com
-
-Unable to handle kernel paging request at virtual address efff800000000001
-KASAN: null-ptr-deref in range [0x0000000000000010-0x000000000000001f]
-Mem abort info:
-  ESR = 0x0000000096000005
-  EC = 0x25: DABT (current EL), IL = 32 bits
-  SET = 0, FnV = 0
-  EA = 0, S1PTW = 0
-  FSC = 0x05: level 1 translation fault
-Data abort info:
-  ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-  CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-swapper pgtable: 4k pages, 52-bit VAs, pgdp=0000000044a53000
-[efff800000000001] pgd=1000000049992003, p4d=1000000049993003, pud=0000000000000000
-Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
-Modules linked in:
-CPU: 0 UID: 0 PID: 5975 Comm: syz.1.647 Not tainted 6.12.0-rc7-syzkaller-g5db899a34f75 #0
-Hardware name: linux,dummy-virt (DT)
-pstate: 60402009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : __hwasan_check_x0_67043362+0x4/0x30
-lr : vgic_its_save_ite arch/arm64/kvm/vgic/vgic-its.c:2101 [inline]
-lr : vgic_its_save_itt arch/arm64/kvm/vgic/vgic-its.c:2204 [inline]
-lr : vgic_its_save_device_tables arch/arm64/kvm/vgic/vgic-its.c:2353 [inline]
-lr : vgic_its_save_tables_v0+0x258/0x634 arch/arm64/kvm/vgic/vgic-its.c:2573
-sp : ffff80008bd17be0
-x29: ffff80008bd17c30 x28: 6cf0000019180180 x27: 5bf000001952a880
-x26: 0000000000000008 x25: 0000000000000000 x24: 0000000000000000
-x23: 07f000001952a8c0 x22: 07f000001952a8d0 x21: 00000000c0030000
-x20: 07f000001952a8d0 x19: efff800000000000 x18: 00000000000000e8
-x17: 0000000000000000 x16: 0000000000000001 x15: 0000000000000000
-x14: 000000000002061b x13: 0000000000000000 x12: 0000000001fbb6cb
-x11: 0000000000000000 x10: 0000000000002000 x9 : efff800000000000
-x8 : 0000000020000000 x7 : ffff8000800fc528 x6 : 0000000000000000
-x5 : 0000000000000000 x4 : 8df00000195be2f0 x3 : 0000000000000008
-x2 : ffff8000800fc5a4 x1 : 0000000000000000 x0 : 0000000000000010
-Call trace:
- __hwasan_check_x0_67043362+0x4/0x30
- vgic_its_set_attr+0x394/0x508 arch/arm64/kvm/vgic/vgic-its.c:2736
- kvm_device_ioctl_attr+0x150/0x18c virt/kvm/kvm_main.c:4721
- kvm_device_ioctl+0x154/0x1b0
- vfs_ioctl fs/ioctl.c:51 [inline]
- __do_sys_ioctl fs/ioctl.c:907 [inline]
- __se_sys_ioctl fs/ioctl.c:893 [inline]
- __arm64_sys_ioctl+0x108/0x184 fs/ioctl.c:893
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x78/0x1b8 arch/arm64/kernel/syscall.c:49
- el0_svc_common+0xe8/0x1b0 arch/arm64/kernel/syscall.c:132
- do_el0_svc+0x40/0x50 arch/arm64/kernel/syscall.c:151
- el0_svc+0x54/0x14c arch/arm64/kernel/entry-common.c:712
- el0t_64_sync_handler+0x84/0xfc arch/arm64/kernel/entry-common.c:730
- el0t_64_sync+0x190/0x194 arch/arm64/kernel/entry.S:598
-Code: a90efbfd d2800401 143a3edf 9344dc10 (38706930) 
----[ end trace 0000000000000000 ]---
-----------------
-Code disassembly (best guess):
-   0:	a90efbfd 	stp	x29, x30, [sp, #232]
-   4:	d2800401 	mov	x1, #0x20                  	// #32
-   8:	143a3edf 	b	0xe8fb84
-   c:	9344dc10 	sbfx	x16, x0, #4, #52
-* 10:	38706930 	ldrb	w16, [x9, x16] <-- trapping instruction
 
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+On 12/16/24 17:17, Manivannan Sadhasivam wrote:
+> On Mon, Dec 16, 2024 at 11:02:07AM +0100, Christian Bruel wrote:
+>> Hi Manivanna,
+>>
+>> On 12/3/24 16:22, Manivannan Sadhasivam wrote:
+>>> On Tue, Nov 26, 2024 at 04:51:18PM +0100, Christian Bruel wrote:
+>>>
+>>> [...]
+>>>
+>>>> +static int stm32_pcie_start_link(struct dw_pcie *pci)
+>>>> +{
+>>>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>>>> +	int ret;
+>>>> +
+>>>> +	if (stm32_pcie->link_status == STM32_PCIE_EP_LINK_ENABLED) {
+>>>> +		dev_dbg(pci->dev, "Link is already enabled\n");
+>>>> +		return 0;
+>>>> +	}
+>>>> +
+>>>> +	ret = stm32_pcie_enable_link(pci);
+>>>> +	if (ret) {
+>>>> +		dev_err(pci->dev, "PCIe cannot establish link: %d\n", ret);
+>>>> +		return ret;
+>>>> +	}
+>>>
+>>> How the REFCLK is supplied to the endpoint? From host or generated locally?
+>>
+>>  From Host only, we don't support the separated clock model.
+>>
+> 
+> OK. So even without refclk you are still able to access the controller
+> registers? So the controller CSRs should be accessible by separate local clock I
+> believe.
+> 
+> Anyhow, please add this limitation (refclk dependency from host) in commit
+> message.
+> 
+> [...]
+> 
+>>>> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+>>>
+>>> Hmm, so PHY mode is common for both endpoint and host?
+>>
+>> Yes it is. We need to init the phy here because it is a clock source for the
+>> PCIe core clk
+>>
+> 
+> Clock source? Is it coming directly to PCIe or through RCC? There is no direct
+> clock representation from PHY to PCIe in DT binding.
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+The core_clk is generated directly by the PLL in the COMBOPHY, gated by 
+the RCC
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+> 
+> - Mani
+> 
 
