@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE657E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793D0E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 07:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZHMx5YaHfJGbP6S0hrzbEDKBNwu+eT3c7CFH3xemBA=; b=QT4Xc0RY6hv2sfBPkTjIOhB6JL
-	MjW85yaz6COjwDtcmwbyBQkzqZlRbo+eVijfxd2AN86hM143W+IVgvsN28N6gOIOyjOxHf38XTcFq
-	h5ztLp0zaN8BMN4oMyCVbzxKqHMXciTDlvsaExHUxonE9aEKKBvG4cxjcnwOvZDYA42wg+Fu29DR7
-	Odpkqr8j3EVoN+YCDv1LQTWFIPbWXjif7EqysXmcA/7r2dh8nupSWaDpXquaVQ+uw+oFsb+TVBj+G
-	IGjd7sTdNbWpKvwIKMO/NS1/fKtiPhnTQCLsp3h2rlnRXR9fBIupwc3JtAK/Rzhc1FOBYCPYDEi6B
-	6Fd4uCDQ==;
+	bh=IiRzQGvYDAz4MPsV15s205gnwIbUSzxfOnx1MkYKPcU=; b=e5uVn8EPiU7TLexCTfke9LdDuf
+	VaOKpihR01md3OAwleM05+YWmfR12+4nD13KkdjsJiL+GXh1/Padp+MYfGoWjiGHYYInSbkFqmJKJ
+	ldTz2W/P0U2yfKNuJvcKQDGygN0z2BBKjzn0KYGxMeF+vWs0LWo8CmvF/CzsfpOj+e1r/0U0KUKzs
+	Qc3619FOcIFRqhTG89P0iqjMqi+m7y254ftIRpD8O+YJPJYwS68EKZkUmqYgQOa+i0376PLPfRs9w
+	nMSeFCoKUlCI6MnDxBw/DoJw+Qpdj2C0iXXswi9qWry9+FQex5yhqzb08tBuKMzMddWjP7FVcjqS+
+	BjKoqLGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNRgH-0000000CWtF-2SY4;
-	Tue, 17 Dec 2024 07:07:45 +0000
+	id 1tNRhK-0000000CX6h-16b0;
+	Tue, 17 Dec 2024 07:08:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNROW-0000000CTJv-38k6
+	id 1tNROW-0000000CTJw-3EOJ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 17 Dec 2024 06:49:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=SZHMx5YaHfJGbP6S0hrzbEDKBNwu+eT3c7CFH3xemBA=; b=VV+ZlUPQ9uNISdv9KObcxtqUGJ
-	ewItDILQ40V4gBWdxnzILF1lV3wAY0KTMspsIUEOj4/nbabNjy3q+EmMHjaxw0VbSjnYG/AN9WoFJ
-	PzPQMr+EBSb3iQqxw6T/5YrfGJaMgrhsVo0WaQ6j5nqUWqsT/VKuwMkIaizc3gpGkthSBI+8QVLE7
-	vLlXLnFH838SmRILn4bxZEsdlQBJIUnSyC3qzC3btm6PYh0Z4UKuQM0/ctWxNpaYsdkmNZ1fYlPdo
-	Rn2q9Ue4OIL6T+Tgd2KupU+WYiZDe+nkoAlNI9yF5toNbWTqlJ0j+xJM74UwClGYI8Qs4ogYT0N/c
-	vEOIcz2A==;
+	bh=IiRzQGvYDAz4MPsV15s205gnwIbUSzxfOnx1MkYKPcU=; b=HKx6PPNGW+gZ8wCPllGzYS3HSZ
+	93w9ZDeNBzaM+e2bE5s0gThQNS71o/XU5DfTVgFI/lt08pMN1kd7g8NJk2jT0qZq7m9qu23vy0Ngz
+	NjGyPzrQntmBmYrXxQhkrATnad3nFUgzOSVj2bitKWBwVlU1sDLGhlraYrTFvQZddcrXljfOKENHK
+	ny434OlbCfxB2iXKm+93mSWFg3WfQSeYt5JZckoSK9VTWGeMq14JflS9PDiVamWvAI/L8u+DlLcPF
+	dR+5wTUTjy7IRcZXKnHsA1Fu0AOiDQaK32tv+YwCuc8rHuIFZVBiQSF0qbwMKan79ml5u8Z/xiDpA
+	9ETX17VA==;
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNROR-000000050qf-2InI
+	id 1tNROR-000000050qj-1sid
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 17 Dec 2024 06:49:23 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH6mRZP012103;
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BGIbjAo010023;
 	Tue, 17 Dec 2024 06:49:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=SZHMx5YaHfJ
-	GbP6S0hrzbEDKBNwu+eT3c7CFH3xemBA=; b=mJIRpnGN671UNVY0n4FjlH23Fyq
-	FMjLApkG5H2nEUG7lfENuvQvKGfPwKNvr01lyjVyTeQ/ro3IQFn+DZSO+wVZiXT4
-	s2E5G88CQJJzSKqMeGHU9jjNMsSlb1GZRlxnu37vqFhXnuvtaDgP19iLW7l5ZDTZ
-	na87fu7ZcUkXun4xDYXk+E8MumjIk7NntYmhzzvNQ3w3EteCicMoqfURKybIxaKa
-	4oYSOeo9FOpExZB+gSBdLWHsnPZkuKGmAeVahLfPaR9Su0XEuSoPd6PVSrWFKiNa
-	2d6t9gzIb1K5mrHXhDrlppWcc8Zb0WErVGDJe/6JTlU9TxnwArY6iG1I2hA==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=IiRzQGvYDAz
+	4MPsV15s205gnwIbUSzxfOnx1MkYKPcU=; b=GGvE/6Mbf6VIYpvE4gkJ0a+7loQ
+	8OrqOBECi1euq4mstJioV/fmpJKe4nymFO/VXQzDYg4y2vH7fr7fgTm5c0Oejc3C
+	w7Wva5lpDElKHFAr9SRDpxCMrM/c7+Kll3CnyKGGpjmSeVq+7uelOYMlYKN51elQ
+	pA3FUxnI67v0zLKMeWowEpKgT6fL/9rqsk9f1FIt444ltlmHl5LJhknJwWUDiA35
+	hBD8h+HRVhMH0ll8AxuqcP6HWkSItLcB4Q+Is91/SMNQYyXqbfWcosZIyvpezybV
+	sZIy+L0THCYpCZz7GM/+0UJrfPHLS2P+s3w3NW20cI0mHBMR+WufVc564ZA==
 Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k4bx001x-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43jsn9hf4k-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 06:49:04 +0000 (GMT)
+	Tue, 17 Dec 2024 06:49:05 +0000 (GMT)
 Received: from pps.filterd (APBLRPPMTA01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH6n0tv014924;
+	by APBLRPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH6n0Jf014904;
 	Tue, 17 Dec 2024 06:49:01 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 43h33kx8ys-1
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 43h33kx8yu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 17 Dec 2024 06:49:01 +0000
 Received: from APBLRPPMTA01.qualcomm.com (APBLRPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 4BH6n0bL014876;
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 4BH6n1oR014949;
 	Tue, 17 Dec 2024 06:49:01 GMT
 Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-wasimn-hyd.qualcomm.com [10.147.246.180])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 4BH6n1Q5014928
+	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 4BH6n1Yr014926
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 17 Dec 2024 06:49:01 +0000
 Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 3944840)
-	id 0A3795AE; Tue, 17 Dec 2024 12:18:59 +0530 (+0530)
+	id 1292E5B0; Tue, 17 Dec 2024 12:18:59 +0530 (+0530)
 From: Wasim Nazir <quic_wasimn@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -83,10 +83,11 @@ To: Bjorn Andersson <andersson@kernel.org>,
         Will Deacon <will@kernel.org>
 Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kernel@quicinc.com, Wasim Nazir <quic_wasimn@quicinc.com>
-Subject: [PATCH v4 5/7] arm64: dts: qcom: Add support for QCS9075 Ride & Ride-r3
-Date: Tue, 17 Dec 2024 12:18:54 +0530
-Message-ID: <20241217064856.2772305-6-quic_wasimn@quicinc.com>
+        kernel@quicinc.com,
+        Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
+Subject: [PATCH v4 7/7] arm64: dts: qcom: Enable cpu cooling devices for QCS9075 platforms
+Date: Tue, 17 Dec 2024 12:18:56 +0530
+Message-ID: <20241217064856.2772305-8-quic_wasimn@quicinc.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
 References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
@@ -96,19 +97,19 @@ X-QCInternal: smtphost
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: MeMfxgGqj3xJGo61ObBnNAYjBn6vtl8V
-X-Proofpoint-ORIG-GUID: MeMfxgGqj3xJGo61ObBnNAYjBn6vtl8V
+X-Proofpoint-GUID: dSHkelXadJpWJJ5GJ8BhFYwoLPGczhge
+X-Proofpoint-ORIG-GUID: dSHkelXadJpWJJ5GJ8BhFYwoLPGczhge
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0
- priorityscore=1501 impostorscore=0 lowpriorityscore=0 suspectscore=0
- spamscore=0 mlxscore=0 bulkscore=0 clxscore=1015 malwarescore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2412170054
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=1
+ priorityscore=1501 spamscore=0 malwarescore=0 mlxscore=0 clxscore=1015
+ suspectscore=0 mlxlogscore=840 impostorscore=0 adultscore=0 phishscore=0
+ lowpriorityscore=1 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412170054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_064919_986820_9E70A457 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20241217_064919_971382_7AF350E6 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,139 +124,364 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree support for QCS9075 Ride & Ride-r3 boards.
+From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
 
-QCS9075 lacks the safety monitoring features of Safety-Island (SAIL)
-subsystem which is available in QCS9100, and it affects thermal
-management.
+In QCS9100 SoC, the safety subsystem monitors all thermal sensors and
+does corrective action for each subsystem based on sensor violation
+to comply safety standards. But as QCS9075 is non-safe SoC it
+requires conventional thermal mitigation to control thermal for
+different subsystems.
 
-Also, between ride and ride-r3 ethernet phy is different.
-Ride uses 1G ethernet phy while ride-r3 uses 2.5G ethernet phy.
+The cpu frequency throttling for different cpu tsens is enabled in
+hardware as first defense for cpu thermal control. But QCS9075 SoC
+has higher ambient specification. During high ambient condition, even
+lowest frequency with multi cores can slowly build heat over the time
+and it can lead to thermal run-away situations. This patch restrict
+cpu cores during this scenario helps further thermal control and
+avoids thermal critical violation.
 
-Signed-off-by: Wasim Nazir <quic_wasimn@quicinc.com>
+Add cpu idle injection cooling bindings for cpu tsens thermal zones
+as a mitigation for cpu subsystem prior to thermal shutdown.
+
+Add cpu frequency cooling devices that will be used by userspace
+thermal governor to mitigate skin thermal management.
+
+Signed-off-by: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
 ---
- arch/arm64/boot/dts/qcom/Makefile            |  2 +
- arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts | 46 ++++++++++++++++++++
- arch/arm64/boot/dts/qcom/qcs9075-ride.dts    | 46 ++++++++++++++++++++
- 3 files changed, 94 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts
- create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-ride.dts
+ arch/arm64/boot/dts/qcom/qcs9075-rb8.dts      |   1 +
+ arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts  |   1 +
+ arch/arm64/boot/dts/qcom/qcs9075-ride.dts     |   1 +
+ arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi | 287 ++++++++++++++++++
+ 4 files changed, 290 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 78613a1bd34a..41cb2bbd3472 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -118,6 +118,8 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9075-rb8.dtb
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs9075-ride.dtb
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs9075-ride-r3.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride-r3.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qdu1000-idp.dtb
+diff --git a/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts b/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
+index ecaa383b6508..3ab6deeaacf1 100644
+--- a/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
++++ b/arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
+@@ -9,6 +9,7 @@
+
+ #include "sa8775p.dtsi"
+ #include "sa8775p-pmics.dtsi"
++#include "qcs9075-thermal.dtsi"
+
+ / {
+ 	model = "Qualcomm Technologies, Inc. Robotics RB8";
 diff --git a/arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts b/arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts
-new file mode 100644
-index 000000000000..d9a8956d3a76
---- /dev/null
+index d9a8956d3a76..5f2d9f416617 100644
+--- a/arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts
 +++ b/arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts
-@@ -0,0 +1,46 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+/dts-v1/;
-+
-+#include "sa8775p-ride.dtsi"
-+
-+/ {
-+	model = "Qualcomm Technologies, Inc. QCS9075 Ride Rev3";
-+	compatible = "qcom,qcs9075-ride-r3", "qcom,qcs9075", "qcom,sa8775p";
-+};
-+
-+&ethernet0 {
-+	phy-mode = "2500base-x";
-+};
-+
-+&ethernet1 {
-+	phy-mode = "2500base-x";
-+};
-+
-+&mdio {
-+	compatible = "snps,dwmac-mdio";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	sgmii_phy0: phy@8 {
-+		compatible = "ethernet-phy-id31c3.1c33";
-+		reg = <0x8>;
-+		device_type = "ethernet-phy";
-+		interrupts-extended = <&tlmm 7 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&pmm8654au_2_gpios 8 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <11000>;
-+		reset-deassert-us = <70000>;
-+	};
-+
-+	sgmii_phy1: phy@0 {
-+		compatible = "ethernet-phy-id31c3.1c33";
-+		reg = <0x0>;
-+		device_type = "ethernet-phy";
-+		interrupts-extended = <&tlmm 26 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&pmm8654au_2_gpios 9 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <11000>;
-+		reset-deassert-us = <70000>;
-+	};
-+};
+@@ -5,6 +5,7 @@
+ /dts-v1/;
+
+ #include "sa8775p-ride.dtsi"
++#include "qcs9075-thermal.dtsi"
+
+ / {
+ 	model = "Qualcomm Technologies, Inc. QCS9075 Ride Rev3";
 diff --git a/arch/arm64/boot/dts/qcom/qcs9075-ride.dts b/arch/arm64/boot/dts/qcom/qcs9075-ride.dts
-new file mode 100644
-index 000000000000..3b524359a72d
---- /dev/null
+index 3b524359a72d..10ce48e7ba2f 100644
+--- a/arch/arm64/boot/dts/qcom/qcs9075-ride.dts
 +++ b/arch/arm64/boot/dts/qcom/qcs9075-ride.dts
-@@ -0,0 +1,46 @@
+@@ -5,6 +5,7 @@
+ /dts-v1/;
+
+ #include "sa8775p-ride.dtsi"
++#include "qcs9075-thermal.dtsi"
+
+ / {
+ 	model = "Qualcomm Technologies, Inc. QCS9075 Ride";
+diff --git a/arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi b/arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi
+new file mode 100644
+index 000000000000..40544c8582c4
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi
+@@ -0,0 +1,287 @@
 +// SPDX-License-Identifier: BSD-3-Clause
 +/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
++ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
 + */
-+/dts-v1/;
 +
-+#include "sa8775p-ride.dtsi"
++#include <dt-bindings/thermal/thermal.h>
++
++&cpu0 {
++	#cooling-cells = <2>;
++};
++
++&cpu1 {
++	#cooling-cells = <2>;
++	cpu1_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
++
++&cpu2 {
++	#cooling-cells = <2>;
++	cpu2_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
++
++&cpu3 {
++	#cooling-cells = <2>;
++	cpu3_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
++
++&cpu4 {
++	#cooling-cells = <2>;
++	cpu4_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
++
++&cpu5 {
++	#cooling-cells = <2>;
++	cpu5_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
++
++&cpu6 {
++	#cooling-cells = <2>;
++	cpu6_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
++
++&cpu7 {
++	#cooling-cells = <2>;
++	cpu7_idle: thermal-idle {
++		#cooling-cells = <2>;
++		duration-us = <800000>;
++		exit-latency-us = <10000>;
++	};
++};
 +
 +/ {
-+	model = "Qualcomm Technologies, Inc. QCS9075 Ride";
-+	compatible = "qcom,qcs9075-ride", "qcom,qcs9075", "qcom,sa8775p";
-+};
++	thermal-zones {
++		cpu-0-1-0-thermal {
++			trips {
++				cpu_0_1_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
 +
-+&ethernet0 {
-+	phy-mode = "sgmii";
-+};
++			cooling-maps {
++				map0 {
++					trip = <&cpu_0_1_0_passive>;
++					cooling-device = <&cpu1_idle 100 100>;
++				};
++			};
++		};
 +
-+&ethernet1 {
-+	phy-mode = "sgmii";
-+};
++		cpu-0-2-0-thermal {
++			trips {
++				cpu_0_2_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
 +
-+&mdio {
-+	compatible = "snps,dwmac-mdio";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
++			cooling-maps {
++				map0 {
++					trip = <&cpu_0_2_0_passive>;
++					cooling-device = <&cpu2_idle 100 100>;
++				};
++			};
++		};
 +
-+	sgmii_phy0: phy@8 {
-+		compatible = "ethernet-phy-id0141.0dd4";
-+		reg = <0x8>;
-+		device_type = "ethernet-phy";
-+		interrupts-extended = <&tlmm 7 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&pmm8654au_2_gpios 8 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <11000>;
-+		reset-deassert-us = <70000>;
-+	};
++		cpu-0-3-0-thermal {
++			trips {
++				cpu_0_3_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
 +
-+	sgmii_phy1: phy@a {
-+		compatible = "ethernet-phy-id0141.0dd4";
-+		reg = <0xa>;
-+		device_type = "ethernet-phy";
-+		interrupts-extended = <&tlmm 26 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&pmm8654au_2_gpios 9 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <11000>;
-+		reset-deassert-us = <70000>;
++			cooling-maps {
++				map0 {
++					trip = <&cpu_0_3_0_passive>;
++					cooling-device = <&cpu3_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-0-1-1-thermal {
++			trips {
++				cpu_0_1_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_0_1_1_passive>;
++					cooling-device = <&cpu1_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-0-2-1-thermal {
++			trips {
++				cpu_0_2_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_0_2_1_passive>;
++					cooling-device = <&cpu2_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-0-3-1-thermal {
++			trips {
++				cpu_0_3_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_0_3_1_passive>;
++					cooling-device = <&cpu3_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-0-0-thermal {
++			trips {
++				cpu_1_0_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_0_0_passive>;
++					cooling-device = <&cpu4_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-1-0-thermal {
++			trips {
++				cpu_1_1_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_1_0_passive>;
++					cooling-device = <&cpu5_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-2-0-thermal {
++			trips {
++				cpu_1_2_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_2_0_passive>;
++					cooling-device = <&cpu6_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-3-0-thermal {
++			trips {
++				cpu_1_3_0_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_3_0_passive>;
++					cooling-device = <&cpu7_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-0-1-thermal {
++			trips {
++				cpu_1_0_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_0_1_passive>;
++					cooling-device = <&cpu4_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-1-1-thermal {
++			trips {
++				cpu_1_1_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_1_1_passive>;
++					cooling-device = <&cpu5_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-2-1-thermal {
++			trips {
++				cpu_1_2_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_2_1_passive>;
++					cooling-device = <&cpu6_idle 100 100>;
++				};
++			};
++		};
++
++		cpu-1-3-1-thermal {
++			trips {
++				cpu_1_3_1_passive: trip-point1 {
++					temperature = <116000>;
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&cpu_1_3_1_passive>;
++					cooling-device = <&cpu7_idle 100 100>;
++				};
++			};
++		};
 +	};
 +};
 --
