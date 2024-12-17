@@ -4,95 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719A1E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6BCAE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 16:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0MSBSw6+OhbTrh1m9W9JgXC4AYYLnaI//MfIF3U6z0=; b=NN41EMCNwC6EYP4NYetWITp29c
-	hMuBIPMV+capQUrQWHeicN2WsJ0SuYpJ2oSkpeK2gJS13MuTcBU2NN/x/oarJzCUB7MdI/yZMRkC6
-	rrFLQgE/ZP5wiIj986Cb7OPON/SZD8hPMss8yRobopQjaPkqsmXROI1wD9Row75lu5rKGAAD/aQOW
-	CP7eZeLZ0ol9DJxUmpkO2nFg6M3A3H4ESksctZdMuiaqIlO4WDVsev7Mm7sGRuH/UH7N37rw9LnfX
-	ZTi07rHWc09PPFBmshh50pnFImOHEyuNBR30QGnfsqlsrCEeoiFua2/B49l9TmuECTgTIdQKGgSyQ
-	kRcrIWUQ==;
+	bh=n9zwjCj6EBJRZwuako70jsyhbW+Mce+32hY+E/9TnlI=; b=mE9gr5aeorFupkPFBAnEtTnJj4
+	29aX8I5LYpB6UVtKTeiYqH5MLiTnd6WKO+K6Dt0++urLqMbIv40NY0CWJGCSHyOqmtKHeNuAzZbhO
+	4dfilaeW1DfF/qh1TW1K1z9c/Da+W+mJ+xIR6wCIeQMVoqJQbI/5X/MV9FDCSeKcKAbP2HaWhpAxV
+	89zaOUtDwMl+/MAQKEK25rR9qBsuP8FEyuAta1HmpwReBxqoVoTdG4RFH7McvKDkNtV0hUkeeWGKD
+	OVBSWZhRAjOqwy7RYv20ZNQ4hdNECboo9T/MAbGI6y3jS5jDhIyxPk9kexazRLhnpYgfb6DY9pNzv
+	WuHT80tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNaYg-0000000ED8v-27DZ;
-	Tue, 17 Dec 2024 16:36:30 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tNabU-0000000EDtL-0W0x;
+	Tue, 17 Dec 2024 16:39:24 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNaBa-0000000E7Af-2SlL
+	id 1tNaS1-0000000EBMH-3Twt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 16:12:40 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-385e2880606so5061908f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 08:12:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734451956; x=1735056756; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=O0MSBSw6+OhbTrh1m9W9JgXC4AYYLnaI//MfIF3U6z0=;
-        b=ZcFxcxdF98M8jvvWxwEG2E44BTjUr0JuLpTPIZ1dD3dI4jSF7gqEVZUI4eIwe9ClIk
-         dhE7dBUf20kmF3LBgYJN+9edpj3ymPTVUoz6pVN0/MsXOV13vCQEBgbmziFvzospO6hK
-         CuHSZh6PADlJAYnVXB2HBudZQmoDnWmOLie9kNoKx2cD8DhVUX2WxbybqoZrxURf9ho2
-         BDpdB9kKyvX8D+U5ZpRmEJ5qA4Lr4dd1TG91bZmAivNAhn8lR3G+tLsJxiF5v2o6jINm
-         pQmT1Q6vh2TckptboEOJNE/B0KGp75gu3YkzbS913luSWZVe3Bx+xwonGP6pUyI8eYFM
-         kerg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734451956; x=1735056756;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O0MSBSw6+OhbTrh1m9W9JgXC4AYYLnaI//MfIF3U6z0=;
-        b=IBwuJCyeCTEgGTlzb9AmS4fuXyZoZv+VYC0uXoqtigbhpTb7RoJmeQhMSlCH6PnWj2
-         BUFzkMQgOe9C0Ngn/8khm98MY6HqUjc+hrPcW9wYMdj0fUiIZUNTN4YHE/D/W6GgU9mc
-         CE/q/y7xItaidtDJRI8vG1SqyH6kmHitCSK6p9oDS+aPpuvvodheHiR0V9FFRjzixnIu
-         LOXN3L9nAX9W5dI8ugHrYx4VWSqYPoIF05QjCnDuxv7Jlnet7ET3UnqUudNPNfCq7ylR
-         F2V7+WczbTjlpoE9V21TGxhGsGOCIeNeJSR1mNE4Ge34DK/NpjUkajo0pWOclcfxmLSp
-         xcDw==
-X-Gm-Message-State: AOJu0Yw24bOdTpapvQNO9rysY9H8lAZHrSbQOR+J8uqFlgPjYupU8C1L
-	8gzNvJviVq3n/rylZfyjakACzKhqbSJoF8WoLfmZLsgmRTBJ18BvXD+AqbiWv0E=
-X-Gm-Gg: ASbGnct+O8bFPrXeH/tyNgKCV6h/VJiLOgqsGroVWFEiM+62JS5CAWe4vTU6BNoYNvJ
-	wlgwJLpR8NFenJaloFFITqkhk9Qdp8WKhTJPSAmq/Ddu/RmpRo9RE6YptqEgtpI5QAvITAipRHY
-	MY44++qr3iYvXzyw72NphHBi+ab/ruuhiQ+vkfVJnBNMpIMVyjdIeej6hacXdv3vtgisRP1AFP7
-	VK9knoLDbh0QtD0y7uV6CeWJcOaNWMceeFjcwXp0+Ap+MIxUoMLPdBzToOnnh0vMX7TdQ==
-X-Google-Smtp-Source: AGHT+IGNQ7hhBEySJuTG7bF8w2ZzmrZV4ZxMbtUaczoA4N/EwDXYjOiMdMzulLRJCZ/qQh7rX7Zo2Q==
-X-Received: by 2002:a05:6000:18c6:b0:385:fe66:9f32 with SMTP id ffacd0b85a97d-3888e0bfcc4mr12807413f8f.52.1734451956514;
-        Tue, 17 Dec 2024 08:12:36 -0800 (PST)
-Received: from [192.168.0.40] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c8046c05sm11739012f8f.73.2024.12.17.08.12.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Dec 2024 08:12:36 -0800 (PST)
-Message-ID: <c14493b0-c9d3-4e1c-9f86-991b4cb25c98@linaro.org>
-Date: Tue, 17 Dec 2024 16:12:34 +0000
+	Tue, 17 Dec 2024 16:29:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1734452970; x=1735057770; i=wahrenst@gmx.net;
+	bh=n9zwjCj6EBJRZwuako70jsyhbW+Mce+32hY+E/9TnlI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Sduztu2dzkh+F63ImWLjVCtaxFvnk8myIrUqxHjsmeNJEC6qi6VTC89A8PFby0JV
+	 D8szjnTPkyePT2HUTKfLNR0aFTZ+5gYg9BbGF8ZXvibPraZAZG6W+RLBOscZffo2z
+	 eFlRzk6L/IWGYL4fFsz/owBuCxVA9jbRckvvuIBzBs3elN5nz7eIeGwF+xmTjwZ3D
+	 T+tAueB2+eFEqbB+3lkQSKZkaEyP33nrbr91p8tFFfklt0fg3dDW5DGYLWuUi84/A
+	 qLNHXUrZrHnePF56IdA9CB1zHO09251XvC5/QE168qaag4cwXag+1xGrC1hSbxtCb
+	 G02RG6GerC75G2mGFQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.106] ([37.4.251.153]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MaJ3t-1t2Sf136pR-00UshK; Tue, 17
+ Dec 2024 17:29:30 +0100
+Message-ID: <da2113a5-301b-4421-a651-9922d4ffb0de@gmx.net>
+Date: Tue, 17 Dec 2024 17:29:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 1/4] media: dt-bindings: update clocks for
- sc7280-camss
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
- hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
- <20241217140656.965235-2-quic_vikramsa@quicinc.com>
- <02da691b-1f5d-41a6-847c-c7e9b8239919@kernel.org>
+Subject: Re: [PATCH V7] dmaengine: bcm2835-dma: Prevent suspend if DMA channel
+ is busy
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Vinod Koul <vkoul@kernel.org>
+Cc: Lukas Wunner <lukas@wunner.de>, Peter Robinson <pbrobinson@gmail.com>,
+ "Ivan T . Ivanov" <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com, dmaengine@vger.kernel.org
+References: <20241204165546.77941-1-wahrenst@gmx.net>
 Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <02da691b-1f5d-41a6-847c-c7e9b8239919@kernel.org>
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20241204165546.77941-1-wahrenst@gmx.net>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:Da3P5oCeg9aKX6VLje1ZWdJ4c+FGgHfiqv1Puf3Sy97Cv4z2cB5
+ Fl0ro4tXVQuFhUqUuaL60prR20rnCXE/nTI+XOaYHUai38ZWOL8kqK8WphB/YfacqgRemqy
+ ECxzarKJW38gTyNX4pdg0euqPrXmkwvA5cfFtY/LicFUmTHo6F3I7A9Lgy4/rWas6GpASv4
+ HMquwGzCoNKfCH+gBay9Q==
+UI-OutboundReport: notjunk:1;M01:P0:x3XvP3T0YLE=;yI4GKni3/dyqiiUPmfbmS+zpBZJ
+ Feag4HlOU+ySnEZ8ZD+E1IcFix5V0zYqmi6lGgp/Pa9YUSdCZptOyPWGF+xgiOj3f//Zpy8CE
+ NN581qddagMEZpgK5Hn4bF0/BmPPxCApzobrQk8KPOlfiqkj8nVB6VElF36JK2nOidKCce/Vz
+ hmBeUYRRAwcy0ZQ+9Eb6UEPlTpXOTYXBZWus1d83IDfhdQjRoRrsCW4l90s+AkoC6GWDpc1ST
+ Lj9hm87pdqxZ/iqvmDMLXPYmRbH60+APp05kjF9AnD9GjT+P9NoFl9/FWpJruy2/fwSOo7m/I
+ MtBkhRh6FfdRboRiwHzYx1KFDjh0Z9PRiacDDaBijHQEW3sgvazJKIf8Xf2PSFD9p+5ea7AcU
+ 3sS+pGbA8qwAe5l7MeSuGjU48JkUHP48oync8nKTb0NJVy/mw7M5rQrA4g7TtckHpXtGbxBI/
+ A1dZKvw9J4qEp1g3TjDus4TtN9RlbSm10W0a7g+6NZpryFZlx4B5C+oNeZ/RuebyoDn/buVZ4
+ Gc69nq+FkKZ+6SUvicGqNwksFHZpf6OujN3rcRufZvT23C5NGqekusC9TggKOjAZM+juLQTxk
+ z3nLJDljC0RastSguHrVs7G88Kgu+4xTZib0J8+oJRR1KK6WLoJ6PU1trBR2JMA8zGjIlKGq8
+ 5tsG9rRk0eeFf/MvubsIERbzbIcm6tLdXyNlJ/t/s0wodwb8lQTHRAxA23YZEKBpfQEwMAoiG
+ sski7S9nKqcjsLUrO1eHG4ZFYmalRQH/rWKfOavh3k9XVx6lbbV5z9IbdlECItSuzEG3aPFfV
+ jqe8i1hhGpmqEQw/kB0dNz5fzsGphd1H6NEEO5wAfwoTdJLw8OzUqIHU9jf+laP45r7dh0Wdq
+ h8f7/g3kU6EOnKi9jR46bi9r99ewoGJEAQYEVZZ9lU3fyWy4XoAZQyODRRcxavyJRZHzIzo/z
+ KAc8wziUh/ADBH5IuT5NCbv8xmIvTjrRKobgrr023zi0csEoBt2DFxCGj2iA5ImXBalL5irfU
+ bzUVRAt2kH1IayBSvOKTAJsOjSUqHYCEJ5+FQ9zmTcdrnxwOSbUe07GPDkzo2r8obiDyoiqSK
+ ZqGlJIDFTVJCBJ3ftH3I/vWl1Mluk0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_081238_637288_30444C41 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20241217_082938_164634_3E3B53A5 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +110,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2024 14:10, Krzysztof Kozlowski wrote:
-> On 17/12/2024 15:06, Vikram Sharma wrote:
->> This patch change clock names to make it consistent with
->> existing platforms as gcc_cam_hf_axi -> gcc_axi_hf.
->> This also adds gcc_axi_sf and remove gcc_camera_ahb.
-> 
-> Don't combine ABI changes with some less important things.
-> 
-> You miss here explanation why doing the ABI change in the first place.
-> Without that explanation I find it rather churn. But anyway, reason for
-> ABI break and impact should be documented in commit msg.
-> 
->>
->> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->> ---
-> 
-> Best regards,
-> Krzysztof
+Am 04.12.24 um 17:55 schrieb Stefan Wahren:
+> bcm2835-dma provides the service to others, so it should suspend
+> late and resume early. Suspend should be prevented in case a DMA
+> channel is still busy.
+>
+> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+gentle ping ...
+> ---
+>   drivers/dma/bcm2835-dma.c | 22 ++++++++++++++++++++++
+>   1 file changed, 22 insertions(+)
+>
+> Changes in V7:
+> - improve patch title and changelog
+> - add explaining comment and drop warning in suspend
+> - drop empty resume callback
+>
+> Changes in V6:
+> - split out of series because there is no dependency
+>
+> diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+> index 7ba52dee40a9..20b10c15c696 100644
+> --- a/drivers/dma/bcm2835-dma.c
+> +++ b/drivers/dma/bcm2835-dma.c
+> @@ -875,6 +875,27 @@ static struct dma_chan *bcm2835_dma_xlate(struct of_phandle_args *spec,
+>   	return chan;
+>   }
+>
+> +static int bcm2835_dma_suspend_late(struct device *dev)
+> +{
+> +	struct bcm2835_dmadev *od = dev_get_drvdata(dev);
+> +	struct bcm2835_chan *c, *next;
+> +
+> +	list_for_each_entry_safe(c, next, &od->ddev.channels,
+> +				 vc.chan.device_node) {
+> +		void __iomem *chan_base = c->chan_base;
+> +
+> +		/* Check if DMA channel is busy */
+> +		if (readl(chan_base + BCM2835_DMA_ADDR))
+> +			return -EBUSY;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dev_pm_ops bcm2835_dma_pm_ops = {
+> +	SET_LATE_SYSTEM_SLEEP_PM_OPS(bcm2835_dma_suspend_late, NULL)
+> +};
+> +
+>   static int bcm2835_dma_probe(struct platform_device *pdev)
+>   {
+>   	struct bcm2835_dmadev *od;
+> @@ -1033,6 +1054,7 @@ static struct platform_driver bcm2835_dma_driver = {
+>   	.driver = {
+>   		.name = "bcm2835-dma",
+>   		.of_match_table = of_match_ptr(bcm2835_dma_of_match),
+> +		.pm = pm_ptr(&bcm2835_dma_pm_ops),
+>   	},
+>   };
+>
+> --
+> 2.34.1
+>
 
-This change should be fine since we haven't committed and upstream dtsi, 
-so there's no ABI to break yet.
-
-Agree the cover letter should have been explicit in explaining.
-
----
-bod
 
