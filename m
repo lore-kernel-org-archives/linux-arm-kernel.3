@@ -4,95 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C1EE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB078E7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9YMcdH8avPXNZfQXLzQwJPKuLvhjYfkBvWblo32XnJE=; b=EJjpb0V4h3pH0rsyKn3V9+Jo77
-	HiHh+AJZLhHWM71sWrl9tX8A0pv623fl7ckuIAzYKk1gJMXQVnXsB61wn2am2KbY54AN0WvjIoU/I
-	DQmNzuorMalCs5fBe/GMJ4jyuTMJe6P0JicudPMWKlufbZI5BacKN5lCUIJGMNfMjrC6Xcl9WKrQO
-	m1jrD0iGbBD+qbJk+jZUMRGv401BCKGFMh27UyMjbBq++QuacRkyhRT2qHZ20859svvepmkhoUoHd
-	v5o7qmnZiWrdKt/oDht0nWQmk8Mtr+NJpmoKmcjwEdQE943F1VsBhux9c0WHQa6GH0/LKENfr6t5f
-	ODzMiMiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pxGYnd+4LobWswnV0waIEFWUt2UrttwPRVrPPcwZbUI=; b=iUlJgcw19ot6PgUvlVYtuXbOJu
+	uSIyWMi2sCLFg3oJs7NNYwTuh2ybe1V8EurlAkFqBsClG5XuJFjo5aSGKuqWbitBdaLDDbCTUKxDg
+	9kACA8hfzon2plaswstWdChE3JGRxzQaRzeddIfozng+acYvtTzdVgQLGwFxsRyf/dUeDPxqmvNq5
+	x+CfOS+pyFxLculluh6HpCpM4h2LCbl81OkEC8bxffiIhGvUZf4yEx8spnBiAnxL8pW+YAmglRY4h
+	+KJjoivOUIEHmit8HV4TpfyphsM9aitak3AfeMRX1T7LF45q9Kr7l8nsG5oryBr9ZFZeo/ooKF1Jl
+	oEFfyCqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYm3-0000000Do3P-0z04;
-	Tue, 17 Dec 2024 14:42:11 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYkC-0000000DnUV-0Gfv
+	id 1tNYqU-0000000DopD-3ygh;
+	Tue, 17 Dec 2024 14:46:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNYpM-0000000DoaD-2r1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:40:17 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-53e15299724so910378e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 06:40:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734446414; x=1735051214; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9YMcdH8avPXNZfQXLzQwJPKuLvhjYfkBvWblo32XnJE=;
-        b=NhgaLXIQlygwm0ASSdGY4s4REZrXNsPKxR+GTPQZ9RTh+4C83OnWJ8/+nrNyDxsRtw
-         3iN2ktRbXe1ip9FTSll+Ig/Zg+7ONCtqSEDlie76SC8ec4Xp6+bcRZEFg1V6jj/YozEX
-         vdOwHlEQnBSiC4GeiF7K/lazDxYpNDbroNI9Prj4YPHk+xZcPqT5P7C/HO87xXnryIzJ
-         VZR0gmVW5zaF5lwhfnKEqqsWQZ3SgwllwJ3xeK0n5kMWdfm/Us730QXRG7IRHqhRXNtS
-         T6tHWljoAPtnsO+dMA5Dco4lmYGSk4Ev34yN7DtAHdrYxz4O6eqNuGAxtffgWqJSfoMp
-         vkAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734446414; x=1735051214;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9YMcdH8avPXNZfQXLzQwJPKuLvhjYfkBvWblo32XnJE=;
-        b=DQr8eseTJNoOuU36f+xo0ps9ERMzByh6+IFIrfpoDC2sC9E13kNSwu6FnFzTPehwJE
-         ecgSA1c2hB56bnQVKSK78obXhddx1z0shm7dugHMTO02C8IGiuX1Poaiel4AfqjJpL+h
-         1eWPqOc+zN17StXAFIHuQFolj8kBkAEiehvPtOJZuSlUZBgRgHRGJug75VwJKXrE4yPR
-         Ag9LI7/EUXnc/mSVYX9DWu6/DzM6ac2OU7fLeZHEyz7cg5aynLP0SDGoIc+HDkH5sXZl
-         s5ygMCl5VGOxSuDvu4OJV6WyZ9gHWDD65EILppOIWSBWO+Sia7vabl4lDhgPgeI3dyS2
-         3Rmw==
-X-Gm-Message-State: AOJu0YzgxiWjaz2OW55qlIi7sE0P8Nukunp/rg4M//mRuk9oi8Ywv3B+
-	xA3B8dc3H69z2r+ywb3ZoIqhym0L6HvPY+GX7Pl+qMOZmjKgMyRRpWjgabVHb8k=
-X-Gm-Gg: ASbGncviCt9QG1vRg8RD1yP9LdGRkHZaEqy4zxA31lxO7Zv61p5/tB50ngmwieP+FAB
-	tfCSEUbo556+EeRnFZSOqKv3fqd/+wh+FQs9ttGQF/uqUL8ZcbJUkMbQT/ZazK7TGDAfJzQv7et
-	Pzlgk+IdDR0qsIjpjPzIjqVIPwoZFYazYsD3YEuzzfGgvA/SjhCiEiBgc7aoZo8cjI9nfcKUdi2
-	0qRRXjv4+39db7hosddmy2HJqWUqta53h+pjLB3TUDFQWjjmCJ3sPQJAK2K3PcAfpolJpZX/UbB
-	ZpCxx5JRapy/Bi91ORdLLlDxjPT3VKrAcGw=
-X-Google-Smtp-Source: AGHT+IHOWR0Y5fR+2uxPBxCjytt0LUgJIVwtzY4VhNEtFXNjP9j8AdE4VL7hkzuX+HhMism2gVrkcA==
-X-Received: by 2002:a05:6512:68c:b0:53e:3756:80b4 with SMTP id 2adb3069b0e04-54099b6d711mr1779475e87.12.1734446413951;
-        Tue, 17 Dec 2024 06:40:13 -0800 (PST)
-Received: from [192.168.1.4] (88-112-131-206.elisa-laajakaista.fi. [88.112.131.206])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120baa73csm1180366e87.101.2024.12.17.06.40.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Dec 2024 06:40:13 -0800 (PST)
-Message-ID: <22479c27-9265-4994-8974-9739ecbae5ee@linaro.org>
-Date: Tue, 17 Dec 2024 16:40:12 +0200
+	Tue, 17 Dec 2024 14:45:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 360D21063;
+	Tue, 17 Dec 2024 06:46:02 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D59123F58B;
+	Tue, 17 Dec 2024 06:45:31 -0800 (PST)
+Date: Tue, 17 Dec 2024 14:45:24 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sibi Sankar <quic_sibis@quicinc.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Johan Hovold <johan@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>, andersson@kernel.org,
+	konrad.dybcio@linaro.org, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, quic_rgottimu@quicinc.com,
+	quic_kshivnan@quicinc.com, conor+dt@kernel.org,
+	arm-scmi@vger.kernel.org
+Subject: Re: [PATCH V4 0/5] arm_scmi: vendors: Qualcomm Generic Vendor
+ Extensions
+Message-ID: <Z2GOLFqnexEalBx_@pluto>
+References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
+ <ZytnRc94iKUfMYH0@hovoldconsulting.com>
+ <ZyvLktLUZOGP-LH5@pluto>
+ <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
+ <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
+ <Z0BC203BhGEmXcJi@hovoldconsulting.com>
+ <Z1HceQegfMl07qj_@bogus>
+ <d313e40b-fa8f-a534-5037-98536ee25044@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 4/4] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Content-Language: ru-RU
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
- <20241217140656.965235-5-quic_vikramsa@quicinc.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20241217140656.965235-5-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d313e40b-fa8f-a534-5037-98536ee25044@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_064016_134235_D8D9EF60 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20241217_064536_805503_EAEB5159 
+X-CRM114-Status: GOOD (  43.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,188 +76,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/17/24 16:06, Vikram Sharma wrote:
-> The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-> Enable the IMX577 on the vision mezzanine.
+On Tue, Dec 17, 2024 at 05:55:35PM +0530, Sibi Sankar wrote:
 > 
-> An example media-ctl pipeline for the imx577 is:
 > 
-> media-ctl --reset
-> media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+> On 12/5/24 22:31, Sudeep Holla wrote:
+> > On Fri, Nov 22, 2024 at 09:37:47AM +0100, Johan Hovold wrote:
+> > > On Thu, Nov 14, 2024 at 09:52:12AM +0530, Sibi Sankar wrote:
+> > > > On 11/8/24 20:44, Johan Hovold wrote:
+> > > 
+> > > > > > On Wed, Nov 06, 2024 at 01:55:33PM +0100, Johan Hovold wrote:
+> > > 
+> > > > > > > Second, after loading the protocol and client drivers manually (in that
+> > > > > > > order, shouldn't the client driver pull in the protocol?), I got:
+> > > > > > > 
+> > > > > > > 	scmi_module: Loaded SCMI Vendor Protocol 0x80 - Qualcomm  20000
+> > > > > > > 	arm-scmi arm-scmi.0.auto: QCOM Generic Vendor Version 1.0
+> > > > > > > 	scmi-qcom-generic-ext-memlat scmi_dev.5: error -EOPNOTSUPP: failed to configure common events
+> > > > > > > 	scmi-qcom-generic-ext-memlat scmi_dev.5: probe with driver scmi-qcom-generic-ext-memlat failed with error -95
+> > > > > > > 
+> > > > > > > which seems to suggest that the firmware on my CRD does not support this
+> > > > > > > feature. Is that the way this should be interpreted? And does that mean
+> > > > > > > that non of the commercial laptops supports this either?
+> > > 
+> > > > > Yeah, hopefully Sibi can shed some light on this. I'm using the DT
+> > > > > patch (5/5) from this series, which according to the commit message is
+> > > > > supposed to enable bus scaling on the x1e80100 platform. So I guess
+> > > > > something is missing in my firmware.
+> > > > 
+> > > > Nah, it's probably just because of the algo string used.
+> > > > The past few series used caps MEMLAT string instead of
+> > > > memlat to pass the tuneables, looks like all the laptops
+> > > > havn't really switched to it yet. Will revert back to
+> > > > using to lower case memlat so that all devices are
+> > > > supported. Thanks for trying the series out!
+> > > 
+> > > I have a Lenovo ThinkPad T14s set up now so I gave this series a spin
+> > > there too, and there I do *not* see the above mentioned -EOPNOSUPP error
+> > > and the memlat driver probes successfully.
+> > > 
+> > > On the other hand, this series seems to have no effect on a kernel
+> > > compilation benchmark. Is that expected?
+> > > 
+> > 
+> > Hijacking this thread to rant about state of firmware implementation on
+> > this platform that gives me zero confidence in merging any of these without
+> > examining each of the interface details in depth and at lengths.
+> > 
 > 
-> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+
+Hi Sibi,
+
+> Hey Sudeep,
 > 
-> Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> ---
->   arch/arm64/boot/dts/qcom/Makefile             |   4 +
->   .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 109 ++++++++++++++++++
->   2 files changed, 113 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+> Thanks for taking time to review the series.
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-> index 4686f2a8ddd8..a7e88fcabded 100644
-> --- a/arch/arm64/boot/dts/qcom/Makefile
-> +++ b/arch/arm64/boot/dts/qcom/Makefile
-> @@ -115,6 +115,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-> +
-> +qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-> +
-> +dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
-> diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> new file mode 100644
-> index 000000000000..7782c4aee576
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-> @@ -0,0 +1,109 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +/*
-> + * Camera Sensor overlay on top of rb3gen2 core kit.
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/clock/qcom,camcc-sc7280.h>
+> > Also I see the standard protocol like PERF seem to have so many issues which
+> > adds to my no confidence. I can't comment on that thread for specific reasons.
+> 
+> ^^ is largely untrue, a lot of finger pointing and a gross
+> misrepresentation of reality :/
+> 
+> The only major problem that X1E perf protocol has is a firmware
+> crash in the LEVEL_GET regular message implementation. This
+> pretty much went unnoticed because of messaging in perf implementation
+> in kernel. Given the fastchannel implementation isn't mandatory
+> according to spec, the kernel clearly says it switches to
+> regular messaging when it clearly doesn't do that and uses
+> stale data structures instead. This ensured that level get regular
+> messaging never got tested.
 
-Please sort the header files alphabetically.
+You claimed this a couple of times here and on IRC, but sincerely,
+looking at the fastchannel implementation in SCMI core and Perf, I could
+not track down where this could have happened in the recent code
+(i.e. with or without your recent, welcomed, patches...)
 
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
+When FC initialization fails and bailout it says:
+	
+	"Failed to get FC for protocol %X [MSG_ID:%u / RES_ID:%u] - ret:%d. Using regular messaging."
 
-Please put these two lines right after the comments header.
+... and it clears any gathered address for that FC, so that in __scmi_perf_level_get()
+you end up skipping the FC machinery and use messaging
 
-> +&camss {
-> +	vdda-phy-supply = <&vreg_l10c_0p88>;
-> +	vdda-pll-supply = <&vreg_l6b_1p2>;
-> +
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		/* The port index denotes CSIPHY id i.e. csiphy3 */
-> +		port@3 {
-> +			reg = <3>;
-> +
-> +			csiphy3_ep: endpoint {
-> +				clock-lanes = <7>;
-> +				data-lanes = <0 1 2 3>;
-> +				remote-endpoint = <&imx577_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&cci1 {
-> +	status = "okay";
-> +};
-> +
-> +&cci1_i2c1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	camera@1a {
-> +		compatible = "sony,imx577";
-> +
-> +		reg = <0x1a>;
-> +
-> +		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-> +		pinctrl-names = "default", "suspend";
-> +		pinctrl-0 = <&cam2_default>;
-> +		pinctrl-1 = <&cam2_suspend>;
-> +
-> +		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-> +		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-> +		assigned-clock-rates = <24000000>;
-> +
-> +		dovdd-supply  = <&vreg_l18b_1p8>;
+	if (dom->fc_info && dom->fc_info[PERF_FC_LEVEL].get_addr) {
+		...
+	}
 
-Please remove double space before '='.
+	return scmi_perf_msg_level_get(ph, dom->id, level, poll);
 
-> +		avdd-supply = <&vph_pwr>;
-> +		dvdd-supply = <&vph_pwr>;
-> +
-> +		port {
-> +			imx577_ep: endpoint {
-> +				clock-lanes = <7>;
+Now this is done ONLY for the FC that specifically failed
+initialization, i.e. identified by the tuple PROTO_ID/MSG_ID/RES_ID
+(as stated in the noisy message above where MSG_ID is specified) NOT for
+all Fastchannel, so you can have an FC successfully initialized only on
+the GET but failing in the SET, so only the GET FC will be used.
 
-It is an invalid property/value of the sensor, please remove it.
+I dont really understand how the Kernel was misbehaving and using
+instead stale data, neither, if this was the case, I can see where this
+issue would have been fixed.
 
-> +				link-frequencies = /bits/ 64 <600000000>;
-> +				data-lanes = <0 1 2 3>;
+To be clear, I am not really interested in throwing an argument here, but
+I sincerely dont see where the alleged problem was and how was fixed (kernel
+side), so I fear it could be still there, hidden maybe by a change in the
+platform fw.
 
-data-lanes = <1 2 3 4>;
+Apologies if I missed something along the history of this..
 
-> +				remote-endpoint = <&csiphy3_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&tlmm {
-> +	cam2_default: cam2-default-state {
-> +		mclk-pins {
-> +			pins = "gpio67";
-> +			function = "cam_mclk";
-> +			drive-strength = <2>;
-> +			bias-disable;
-> +		};
-> +
-> +		rst-pins {
-> +			pins = "gpio78";
-> +			function = "gpio";
-> +			drive-strength = <2>;
-> +			bias-disable;
-> +		};
-> +	};
-> +
-> +	cam2_suspend: cam2-suspend-state {
-> +		mclk-pins {
-> +			pins = "gpio67";
-> +			function = "cam_mclk";
-> +			drive-strength = <2>;
-> +			bias-pull-down;
-> +		};
-> +
-> +		rst-pins {
-> +			pins = "gpio78";
-> +			function = "gpio";
-> +			drive-strength = <2>;
-> +			bias-pull-down;
-> +			output-low;
-> +		};
-
-I have doubts that it's proper to embed a reset gpio into driver's
-pinctrl suspend/resume power management.
-
-Konrad, can you please confirm that it's really accepted?
-
-I'd rather ask to remove this reset pin control.
-
-> +	};
-> +};
-
---
-Best wishes,
-Vladimir
+Thanks,
+Cristian
 
