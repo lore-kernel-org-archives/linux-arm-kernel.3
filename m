@@ -4,55 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB629E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 01:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CEDE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 01:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d5xZKXkGkA9ReUuX3szKHgBHn3sK+EeqTaggjhiBAw0=; b=aWZIIM4vgJ2xT3QJtl9MWpjivr
-	ijor1UWq5/Mxwuk8iafI3MSq0E1357cYusiBCm6bgcJGxa4cQ+0Pie2KkD8CBfjJlN1znDFVP11mw
-	rI5ug1i+p8H9k76Z979N2uY+IwIeOiHJB7r+K8msF0HSTu+IbGxIST1OrxMnsUSv5dfH1yE0wOSNz
-	s+evXopl++TAR1NOVS/jp25ixCHGi6GdTwPn/4mCtUO9mMZnncl8it8xUbAZhxJRU5WSoOwTCBdsz
-	mXjrbeAdi7wwjp5IJJmFYISqfFvE+YgbGhvZHxIpZc+4PZsGNuALN5gW02IF45qOS+FhzypmguHFQ
-	bdilg6CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DEmq3dMUp5m9GKeluLVTd9jOC1Eh336p24wnFddE1CQ=; b=SQkdVedjpvn5JqNlmSvDy4NZ6M
+	dgvjzRNrEY+IJwWb6l0QDEekqKlfk+eUyy9hgYpFwL5ew4/O4ztof1mfaDBAAAH6H1LMAkkX3Aiov
+	3FpZToBWmAIFQMvzSoFT759dljbV/JYrAiHGnwkR0hXbvcWs7u45ITgV6iSgFVa2LwojdniSv6a0B
+	cxNPPYMQpshTj/DIptK+Q/avmRny36+SG940tLPk0fpEzfWsPAGspNZJPyZdF4P39TEMH+rXBN9NH
+	vbh4geznbS7Kdbw+IWzgJQk3x9GZLYNkm+IwknB30K7B84A8JzvsWVvXt1mCcuawQoz/YwDV/cYDM
+	5Kz8/oIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNMF8-0000000Br3a-0meZ;
-	Tue, 17 Dec 2024 01:19:22 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1tNMTy-0000000BseK-2xqX;
+	Tue, 17 Dec 2024 01:34:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNME3-0000000BqsA-1APo;
-	Tue, 17 Dec 2024 01:18:16 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1tNMDs-000000004YP-4BIn;
-	Tue, 17 Dec 2024 01:18:05 +0000
-Date: Tue, 17 Dec 2024 01:18:01 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Justin Green <greenjustin@chromium.org>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	John Crispin <john@phrozen.org>, dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] drm/mediatek: only touch DISP_REG_OVL_PITCH_MSB if AFBC
- is supported
-Message-ID: <c7fbd3c3e633c0b7dd6d1cd78ccbdded31e1ca0f.1734397800.git.daniel@makrotopia.org>
+	id 1tNMSt-0000000BsZL-3DVJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 01:33:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6E9FC5C4D5E;
+	Tue, 17 Dec 2024 01:32:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB17BC4CED0;
+	Tue, 17 Dec 2024 01:33:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734399214;
+	bh=jQx59o3wR/vFzoPfSo4zsecm2GePz+OK8mpQNupeUek=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gCP71Z9nQNwt3IAPUQAkOKGdvWzMoRegQfY4Q2lItX3gZwmaSSQwC0+fbg3frju1S
+	 uty3sd2bWabuzWOiFoLSvfex6vwv1+Tes8g7HDi7Ye1WqIFyKQZdYsQPQ/ktnQoSn3
+	 MGw9zq6CdwIlxVFo4tcgRm2BKNqkFq/hhy6aO8r11h0/PF09mfxySUTJvlxhst1XIV
+	 c6jQWxs00GjjCy/5jqfxmwc8zYxzG+Hrwi9GYwl7s5ZP+Iwh/gFLoHaS3+OG/arcR+
+	 bZv+bOnwlsDQd4YYIx/JFQtKGyhGzszyxexsbIfjy7XSIqsjCJiJ7tbEIVPkelYwIo
+	 1PF5qPnajJM/A==
+Date: Mon, 16 Dec 2024 17:33:33 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-socfpga: Set interface
+ modes from Lynx PCS as supported
+Message-ID: <20241216173333.55e35f34@kernel.org>
+In-Reply-To: <20241216094224.199e8df7@fedora.home>
+References: <20241213090526.71516-1-maxime.chevallier@bootlin.com>
+	<20241213090526.71516-3-maxime.chevallier@bootlin.com>
+	<Z1wnFXlgEU84VX8F@shell.armlinux.org.uk>
+	<20241213182904.55eb2504@fedora.home>
+	<Z1yJQikqneoFNJT4@shell.armlinux.org.uk>
+	<20241216094224.199e8df7@fedora.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_171815_308169_D7087733 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20241216_173335_865068_6C9DB34F 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,121 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Touching DISP_REG_OVL_PITCH_MSB leads to video overlay on MT2701, MT7623N
-and probably other older SoCs being broken.
+On Mon, 16 Dec 2024 09:42:24 +0100 Maxime Chevallier wrote:
+> > I've actually already created that series!  
+> 
+> Woaw that was fast ! I'll review and give it a test on my setup then.
+> 
+> Maybe one thing to clarify with the net maintainers is that this work
+> you've done doesn't replace the series this thread is replying to,
+> which still makes sense (we need the
+> stmmac_priv->phylink_config.supported_interfaces to be correctly
+> populated on socfpga).
 
-Move setting up AFBC layer configuration into a separate function only
-being called on hardware which actually supports AFBC which restores the
-behavior as it was before commit c410fa9b07c3 ("drm/mediatek: Add AFBC
-support to Mediatek DRM driver") on non-AFBC hardware.
+Ah, sorry. Should have asked. 
 
-Fixes: c410fa9b07c3 ("drm/mediatek: Add AFBC support to Mediatek DRM driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v2: move AFBC layer config into a new function
-
- drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 57 +++++++++++++------------
- 1 file changed, 29 insertions(+), 28 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-index f731d4fbe8b6..e0e24f0a6edd 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-@@ -460,6 +460,29 @@ static unsigned int mtk_ovl_fmt_convert(struct mtk_disp_ovl *ovl,
- 	}
- }
- 
-+static void mtk_ovl_afbc_layer_config(struct mtk_disp_ovl *ovl,
-+				      unsigned int idx,
-+				      struct mtk_plane_pending_state *pending,
-+				      struct cmdq_pkt *cmdq_pkt)
-+{
-+	unsigned int pitch_msb = pending->pitch >> 16;
-+	unsigned int hdr_pitch = pending->hdr_pitch;
-+	unsigned int hdr_addr = pending->hdr_addr;
-+
-+	if (pending->modifier != DRM_FORMAT_MOD_LINEAR) {
-+		mtk_ddp_write_relaxed(cmdq_pkt, hdr_addr, &ovl->cmdq_reg, ovl->regs,
-+				      DISP_REG_OVL_HDR_ADDR(ovl, idx));
-+		mtk_ddp_write_relaxed(cmdq_pkt,
-+				      OVL_PITCH_MSB_2ND_SUBBUF | pitch_msb,
-+				      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH_MSB(idx));
-+		mtk_ddp_write_relaxed(cmdq_pkt, hdr_pitch, &ovl->cmdq_reg, ovl->regs,
-+				      DISP_REG_OVL_HDR_PITCH(ovl, idx));
-+	} else {
-+		mtk_ddp_write_relaxed(cmdq_pkt, pitch_msb,
-+				      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH_MSB(idx));
-+	}
-+}
-+
- void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
- 			  struct mtk_plane_state *state,
- 			  struct cmdq_pkt *cmdq_pkt)
-@@ -467,25 +490,13 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
- 	struct mtk_disp_ovl *ovl = dev_get_drvdata(dev);
- 	struct mtk_plane_pending_state *pending = &state->pending;
- 	unsigned int addr = pending->addr;
--	unsigned int hdr_addr = pending->hdr_addr;
--	unsigned int pitch = pending->pitch;
--	unsigned int hdr_pitch = pending->hdr_pitch;
-+	unsigned int pitch_lsb = pending->pitch & GENMASK(15, 0);
- 	unsigned int fmt = pending->format;
- 	unsigned int offset = (pending->y << 16) | pending->x;
- 	unsigned int src_size = (pending->height << 16) | pending->width;
- 	unsigned int blend_mode = state->base.pixel_blend_mode;
- 	unsigned int ignore_pixel_alpha = 0;
- 	unsigned int con;
--	bool is_afbc = pending->modifier != DRM_FORMAT_MOD_LINEAR;
--	union overlay_pitch {
--		struct split_pitch {
--			u16 lsb;
--			u16 msb;
--		} split_pitch;
--		u32 pitch;
--	} overlay_pitch;
--
--	overlay_pitch.pitch = pitch;
- 
- 	if (!pending->enable) {
- 		mtk_ovl_layer_off(dev, idx, cmdq_pkt);
-@@ -524,11 +535,12 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
- 	}
- 
- 	if (ovl->data->supports_afbc)
--		mtk_ovl_set_afbc(ovl, cmdq_pkt, idx, is_afbc);
-+		mtk_ovl_set_afbc(ovl, cmdq_pkt, idx,
-+				 pending->modifier != DRM_FORMAT_MOD_LINEAR);
- 
- 	mtk_ddp_write_relaxed(cmdq_pkt, con, &ovl->cmdq_reg, ovl->regs,
- 			      DISP_REG_OVL_CON(idx));
--	mtk_ddp_write_relaxed(cmdq_pkt, overlay_pitch.split_pitch.lsb | ignore_pixel_alpha,
-+	mtk_ddp_write_relaxed(cmdq_pkt, pitch_lsb | ignore_pixel_alpha,
- 			      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH(idx));
- 	mtk_ddp_write_relaxed(cmdq_pkt, src_size, &ovl->cmdq_reg, ovl->regs,
- 			      DISP_REG_OVL_SRC_SIZE(idx));
-@@ -537,19 +549,8 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
- 	mtk_ddp_write_relaxed(cmdq_pkt, addr, &ovl->cmdq_reg, ovl->regs,
- 			      DISP_REG_OVL_ADDR(ovl, idx));
- 
--	if (is_afbc) {
--		mtk_ddp_write_relaxed(cmdq_pkt, hdr_addr, &ovl->cmdq_reg, ovl->regs,
--				      DISP_REG_OVL_HDR_ADDR(ovl, idx));
--		mtk_ddp_write_relaxed(cmdq_pkt,
--				      OVL_PITCH_MSB_2ND_SUBBUF | overlay_pitch.split_pitch.msb,
--				      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH_MSB(idx));
--		mtk_ddp_write_relaxed(cmdq_pkt, hdr_pitch, &ovl->cmdq_reg, ovl->regs,
--				      DISP_REG_OVL_HDR_PITCH(ovl, idx));
--	} else {
--		mtk_ddp_write_relaxed(cmdq_pkt,
--				      overlay_pitch.split_pitch.msb,
--				      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH_MSB(idx));
--	}
-+	if (ovl->data->supports_afbc)
-+		mtk_ovl_afbc_layer_config(ovl, idx, pending, cmdq_pkt);
- 
- 	mtk_ovl_set_bit_depth(dev, idx, fmt, cmdq_pkt);
- 	mtk_ovl_layer_on(dev, idx, cmdq_pkt);
--- 
-2.47.1
+I assumed since Lynx PCS will have the SGMII and 1000BASEX set -
+Russell's patch 5 will copy them for you to
+priv->phylink_config.supported_interfaces. Your patch 1 is still needed.
+Did I get it wrong?
 
