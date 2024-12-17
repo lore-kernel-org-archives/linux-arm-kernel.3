@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36960E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F1FE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 11:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=307SwKd/Y/F3nysYP2VgxnqKAi5uGgAZdjNrtNR21mU=; b=V76aBoTuG/BUVS7hB2YO6clNY0
-	MfEC6j1EUBbrNVHRfY/jnjfB0eb2kM0m/GRSUazgd5zhxpqLz9RkHYAGmqx34ZaRzMKfwdn5MciVh
-	NoWJXTqeO721lELQkUibz0T5crzbC2pP/gi8hktbdKioGrzwEAMQR22iuX5i7fZVHZHJs0gMDrW3Y
-	BdZkTaf1O4E41c2+M0yD39XsKS4ao4ZFSJVEOm1loJ55UVhrEJeqPHO/dbg7KasbOxr1OS33Owl3a
-	uLBJ1/FgNm3dfTdGME/p/MX0ULCbKNbxP6/VdnL7dUeVv+aCS3juxyF85RmlGts1SlrfqiG3gPkLB
-	IiyC+t7w==;
+	bh=g3rlbM2hDe0gYzUbmQOHSYd2plUnxB4565GLJ1TB+hE=; b=M4Uqvil5OM4LkTio9Hw+rkJcc3
+	Secp511Er9h1IAWfj/pZFNi+B9NcQ+mdNSI/FwR4udldLfs6EK7+LhHzGNhPsG+N9ryka7wDnUu+j
+	upUKQS5EJjEcU+SQJrlUogEBmidhTFVIfNHtlHd1WhODUIrygo5ZsGFfU1TY8VqC0c6icpuQo9EES
+	eRzs1BCB0wYawPN3km1LZHHBTDPzfxt6agD0me7YKzkGrpl5Ak1pbFH/2GmwTQZHfqX4Tfyt8Kj8W
+	EWE+anxwER5wqcG8tI9gquzIbhZ2qnjcJStg4Jcrs0+Bli87mTC+N+xhJ5/hABwonk2kMdtc9w5So
+	A3lvCvVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVet-0000000DF3m-3JFH;
-	Tue, 17 Dec 2024 11:22:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNVmH-0000000DFrN-2NM1;
+	Tue, 17 Dec 2024 11:30:13 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNVdo-0000000DEwo-2fSS;
-	Tue, 17 Dec 2024 11:21:29 +0000
+	id 1tNVlC-0000000DFhb-3yGJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Dec 2024 11:29:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7624C5C675A;
-	Tue, 17 Dec 2024 11:20:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10141C4CED3;
-	Tue, 17 Dec 2024 11:21:26 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 514EFA40191;
+	Tue, 17 Dec 2024 11:27:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE4CBC4CED3;
+	Tue, 17 Dec 2024 11:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734434487;
-	bh=s5vK3vqWBeHhLp5xzRCQJldT103A0i54JjSN+MTyT8k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pv81gis4dLGqoebSqNaB4sZFJMizri+86Nhpo1NOkUH1rzZP+VH9DNfuA11C6b8iD
-	 /dEHMm76FjxT05+pB24/5rDtmrSeMHMUKczet63l3PnRqTBv+xkU2L78XzlC+8bDeF
-	 xvhqx3BXzlhTB7yNMXPsscARuB4IbdoZflcTDIu7+dUaORt8ZNcBD73GOgnUUaTqIj
-	 pci1GPVySE+mDm0JdiViVKnSOvKIg18YdJ6NTtsdL4JioODFoRNfv1Vj7ei7humRmG
-	 xD8tJAaw5mVIIarlskCmtr/HD8XTDXTzCAN/GBBPuejOh7v3Gy24gHvlqxGVW8WVtn
-	 okjOkklEn4efQ==
-Date: Tue, 17 Dec 2024 05:21:25 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Karan Sanghavi <karansanghvi98@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Alexander Aring <alex.aring@gmail.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Ray Jui <rjui@broadcom.com>, Eric Anholt <eric@anholt.net>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5] dt-bindings: power: Convert raspberrypi,bcm2835-power
- to Dt schema
-Message-ID: <173443448203.859628.7169765786016335364.robh@kernel.org>
-References: <20241216-raspberrypi-bcm2835-power-v5-1-222fc244132b@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241216-raspberrypi-bcm2835-power-v5-1-222fc244132b@gmail.com>
+	s=k20201202; t=1734434945;
+	bh=ZA5XJc1vs+Zrcy5PAhS+ySqSiRH75TTc9k5gF60rrqQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=iRDb92u8TAdFe2L/MQWADYGyZL8MCBNrpOsboMkeHw0/zWr0gojL+7Mt3c+iwyf91
+	 boA8Cz82WAde/dYj8fUeAybaStJvaLTqOZbHFNwHXpW11XE89HLAMuerU6fKTjMH3w
+	 CwJZPtz85bsnz5hS0rESPLdufXsvlCSCqJqvHZM9E8/rXrvA68SGI4uWdqsRoRFVph
+	 Jy0pwm/pSLruQFXTSYdO/kg2H13Rw9szuIlw12OpG95c4tAKivjnu51Z9ZIg4+l8Wh
+	 nJ/YXO2G965ZdtDOmYQnzkueWm+Xv7H88UZUQGcTJO9CuXLFkdRo0HFifcOYx/59AC
+	 85zgxgcSM+/nA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tNVl9-004X4R-H3;
+	Tue, 17 Dec 2024 11:29:03 +0000
+Date: Tue, 17 Dec 2024 11:29:03 +0000
+Message-ID: <86wmfyr1j4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 11/18] KVM: arm64: Introduce __pkvm_host_unshare_guest()
+In-Reply-To: <20241216175803.2716565-12-qperret@google.com>
+References: <20241216175803.2716565-1-qperret@google.com>
+	<20241216175803.2716565-12-qperret@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, vdonnefort@google.com, sebastianene@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_032128_714396_361B3D2A 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20241217_032907_123988_9F81751E 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +94,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 16 Dec 2024 17:07:00 +0000, Karan Sanghavi wrote:
-> Convert the raspberrypi,bcm2835-power binding to Dt schema
+On Mon, 16 Dec 2024 17:57:56 +0000,
+Quentin Perret <qperret@google.com> wrote:
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Karan Sanghavi <karansanghvi98@gmail.com>
+> In preparation for letting the host unmap pages from non-protected
+> guests, introduce a new hypercall implementing the host-unshare-guest
+> transition.
+> 
+> Signed-off-by: Quentin Perret <qperret@google.com>
 > ---
-> Changes in v5:
-> - Added maintainers for the power domain
-> - Link to v4: https://lore.kernel.org/r/20241028-raspberrypi-bcm2835-power-v4-1-acf44abd45ff@gmail.com
+>  arch/arm64/include/asm/kvm_asm.h              |  1 +
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |  6 ++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 21 ++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 67 +++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c                | 12 ++++
+>  6 files changed, 108 insertions(+)
 > 
-> Changes in v4:
-> - Corrected misindentations and random differences.
-> - Link to v3: https://lore.kernel.org/r/20241026-raspberrypi-bcm2835-power-v3-1-6621e075d33f@gmail.com
-> 
-> Changes in v3:
-> - Applied changes as per the feedback received for title and description
-> - Removed power label and renamed node to power-controller
-> - Moved the file from bindings/soc/bcm to bindings/power
-> - Link to v2: https://lore.kernel.org/r/20241022-raspberrypi-bcm2835-power-v2-1-1a4a8a8a5737@gmail.com
-> 
-> Changes in v2:
-> - Added original file maintainers
-> - Removed unnecessary headers from example and formating from description
-> - Link to v1: https://lore.kernel.org/r/20241019-raspberrypi-bcm2835-power-v1-1-75e924dc3745@gmail.com
-> ---
->  .../bindings/power/raspberrypi,bcm2835-power.yaml  | 42 +++++++++++++++++++
->  .../bindings/soc/bcm/raspberrypi,bcm2835-power.txt | 47 ----------------------
->  2 files changed, 42 insertions(+), 47 deletions(-)
-> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 449337f5b2a3..0b6c4d325134 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -66,6 +66,7 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_adjust_pc,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_vcpu_run,
+>  	__KVM_HOST_SMCCC_FUNC___kvm_flush_vm_context,
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index a7976e50f556..e528a42ed60e 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -40,6 +40,7 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
+> +int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
+>  
+>  bool addr_is_memory(phys_addr_t phys);
+>  int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> index be52c5b15e21..0cc2a429f1fb 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> @@ -64,6 +64,11 @@ static inline bool pkvm_hyp_vcpu_is_protected(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  	return vcpu_is_protected(&hyp_vcpu->vcpu);
+>  }
+>  
+> +static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
+> +{
+> +	return kvm_vm_is_protected(&hyp_vm->kvm);
+> +}
+> +
+>  void pkvm_hyp_vm_table_init(void *tbl);
+>  
+>  int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+> @@ -78,6 +83,7 @@ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu);
+>  struct pkvm_hyp_vcpu *pkvm_get_loaded_hyp_vcpu(void);
+>  
+>  struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle);
+> +struct pkvm_hyp_vm *get_np_pkvm_hyp_vm(pkvm_handle_t handle);
+>  void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm);
+>  
+>  #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index d659462fbf5d..3c3a27c985a2 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -244,6 +244,26 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
+>  	cpu_reg(host_ctxt, 1) =  ret;
+>  }
+>  
+> +static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+> +	DECLARE_REG(u64, gfn, host_ctxt, 2);
+> +	struct pkvm_hyp_vm *hyp_vm;
+> +	int ret = -EINVAL;
+> +
+> +	if (!is_protected_kvm_enabled())
+> +		goto out;
+> +
+> +	hyp_vm = get_np_pkvm_hyp_vm(handle);
+> +	if (!hyp_vm)
+> +		goto out;
+> +
+> +	ret = __pkvm_host_unshare_guest(gfn, hyp_vm);
+> +	put_pkvm_hyp_vm(hyp_vm);
+> +out:
+> +	cpu_reg(host_ctxt, 1) =  ret;
+> +}
+> +
+>  static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+> @@ -454,6 +474,7 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__pkvm_host_share_hyp),
+>  	HANDLE_FUNC(__pkvm_host_unshare_hyp),
+>  	HANDLE_FUNC(__pkvm_host_share_guest),
+> +	HANDLE_FUNC(__pkvm_host_unshare_guest),
+>  	HANDLE_FUNC(__kvm_adjust_pc),
+>  	HANDLE_FUNC(__kvm_vcpu_run),
+>  	HANDLE_FUNC(__kvm_flush_vm_context),
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index fb9592e721cf..30243b7922f1 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -1421,3 +1421,70 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+>  
+>  	return ret;
+>  }
+> +
+> +static int __check_host_shared_guest(struct pkvm_hyp_vm *vm, u64 *__phys, u64 ipa)
+> +{
+> +	enum pkvm_page_state state;
+> +	struct hyp_page *page;
+> +	kvm_pte_t pte;
+> +	u64 phys;
+> +	s8 level;
+> +	int ret;
+> +
+> +	ret = kvm_pgtable_get_leaf(&vm->pgt, ipa, &pte, &level);
+> +	if (ret)
+> +		return ret;
+> +	if (level != KVM_PGTABLE_LAST_LEVEL)
 
-Applied, thanks!
+So there is still a very strong assumption that a guest is only
+provided page mappings, and no blocks?
 
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
