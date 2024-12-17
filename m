@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD51E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D750BE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 14:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+99q9XjXls973Ka0DVdg9XXw6YYWSF0HictcG73wjk=; b=Eedfv9WXNFudHusRh7mks1iuWY
-	xB9qdo0x8EpePz/Ud6hpMIFGErqQtnBGfI9qjwiwgyyOVnAY6Zs8jV2ZApVQ/+wIhiHMUry/PxYo/
-	3i6cp9K+4713iX8h4Qv0wyeGQqmWc9L0GQYhia5BbqTL24V/UVlwll+U9PNtc791xJhnSWEPB8QWT
-	W4YxEvgd7VANnN9Ca7YvvS+73EmVg+m8sLY2l30T6UY47fYNMPqBUYxyQKQ4OX9LjaxBMpEvw+166
-	KqtmnZVKzYdv4dw/BN2PyoIcdayl4oxgvuFQ9blfddCsWhSd8/lG2pHR4FIH2hkrj+wwYNGMBdjRV
-	WrxfJklg==;
+	bh=/2V47s0eeSIvGJBOTuqeV8jHVOB+1VLuJ+K/KKhfb78=; b=lr2KgMDfbxRAT89EO0W2bOus5Z
+	d1oJZ+0AFsmJXObopIdAw6O0ltNXYhy9UhMcRTltYo0g9/fLupAfQw6KEZVbX7jdL7HZlJYAlha0K
+	2IxbWDg+bE8KcTRnQjOMv2Y0MWTFe8j7/k0zARBEzmmkTGHDAjpNRqGq+076b1d8ZNWoMrDZNuOpy
+	4cfFGnej8EZ8FHLDf/BpWs9EGNPGUVamifJP7f1JR9Y7kqlW6o89vZHBL1lJWrSsb+RCbxLqjjS1u
+	tbk7UcL/Yg+AxiZaMDY/hL7SGK2r56zp+m7sm6QzPILaRiBzRJuCI84fP/oP8zyRHwEwjDiMtEmtx
+	S0FufKXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYL4-0000000Dhmv-42yu;
-	Tue, 17 Dec 2024 14:14:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tNYM8-0000000Di2U-2QQI;
+	Tue, 17 Dec 2024 14:15:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNYEu-0000000DgSg-1phr
+	id 1tNYEp-0000000DgRB-0K3O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 14:07:57 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BH96pRu010364;
-	Tue, 17 Dec 2024 14:07:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	O+99q9XjXls973Ka0DVdg9XXw6YYWSF0HictcG73wjk=; b=MxGACETIqbrJMuze
-	2e4n8z3lc5qVXq6aEbrHoQlcvyUF3XWrqSzWPhc8SZx8tteYPvCF9C5AfEuK6uqQ
-	fJivO16GXdKAauWnDEW90VmO1dwrbdRm1zPXzhOPqBWP24cMUCxXcr7NuRpDIDEi
-	6iI7kQTkqUYU9uhkDDaRdCWIiPhYBZmjIr6GkDjsHAzR75BTzGmMLJ1d76zRQsBf
-	XDvG7AhXTaGV4WPVGMNB9ZSmXLaW2P+djTLfdrFLwkB7cqccDk6+CZnSKQCFcY8L
-	5fcT3rz3alcrEKIk+IO0jBKxPJr7vR+SBDNYn0RUE8tGK1XcIYS1Y0P6Zv2zLSQe
-	AXA/lg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43k6cqgsmq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 14:07:48 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BHE7lKV006389
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Dec 2024 14:07:47 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 17 Dec 2024 06:07:38 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <akapatra@quicinc.com>, <hariramp@quicinc.com>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <kernel@quicinc.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: [PATCH v10 4/4] arm64: dts: qcom: qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-Date: Tue, 17 Dec 2024 19:36:56 +0530
-Message-ID: <20241217140656.965235-5-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
-References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
+	Tue, 17 Dec 2024 14:07:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 55082A40A5E;
+	Tue, 17 Dec 2024 14:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E9AC4CED4;
+	Tue, 17 Dec 2024 14:07:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734444469;
+	bh=NHRPgt9wZuKfaDWbuJvrt8FxIJ18k5TlIbXw6qXpATM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kdqrvRksl62YTEOQQxP1LPgHv/7pPyNLtnne7/dp54gk73TTLTzdxItrRyyzkQ51f
+	 rou+tPY6lfyrmFkCJMrDQRv50YppGFwlUSS7yKJv/4un61EOQ/5UNMUjH6j9MyfWgk
+	 q2odp09139vKJtO9tl/Ivkiy3EXrOckHr/ow0qIjmBllbamOm6MQLFbR8TSsNuVnFm
+	 fK8McHqaQbbWxsXeZj1/kQARRFtkrrx7MRDBvePedetWl7mMu2n8WSLl6lX05XPQm3
+	 8aI1ZmIWHsPE/WpoEOn6posksLs2CyZwLgVkmlS2x/+QQME+5B/v9UkgDFj+Q/05I3
+	 EPc+wFXCS4k/w==
+Date: Tue, 17 Dec 2024 15:07:47 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, abelvesa@kernel.org, 
+	peng.fan@nxp.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
+	quic_bjorande@quicinc.com, geert+renesas@glider.be, dmitry.baryshkov@linaro.org, 
+	arnd@arndb.de, nfraprado@collabora.com, marex@denx.de
+Subject: Re: [PATCH v7 0/7] Add ITE IT6263 LVDS to HDMI converter support
+Message-ID: <20241217-uppish-sapphire-dinosaur-4c40a2@houat>
+References: <20241114065759.3341908-1-victor.liu@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 2zmbJHzmXrT3QkigDnTCQ_dxvMtE1qcG
-X-Proofpoint-GUID: 2zmbJHzmXrT3QkigDnTCQ_dxvMtE1qcG
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1015
- lowpriorityscore=0 suspectscore=0 priorityscore=1501 malwarescore=0
- impostorscore=0 mlxscore=0 mlxlogscore=999 phishscore=0 spamscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412170112
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="hu6r2ojwiq6ufs4p"
+Content-Disposition: inline
+In-Reply-To: <20241114065759.3341908-1-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_060756_480205_1CD5C4C7 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20241217_060751_279128_443ACAB5 
+X-CRM114-Status: GOOD (  41.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,163 +81,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Vision Mezzanine for the RB3 ships with an imx577 camera sensor.
-Enable the IMX577 on the vision mezzanine.
 
-An example media-ctl pipeline for the imx577 is:
+--hu6r2ojwiq6ufs4p
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 0/7] Add ITE IT6263 LVDS to HDMI converter support
+MIME-Version: 1.0
 
-media-ctl --reset
-media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+Hi,
 
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+Thanks for the description, I have several questions here.
 
-Signed-off-by: Hariram Purushothaman <quic_hariramp@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/Makefile             |   4 +
- .../qcs6490-rb3gen2-vision-mezzanine.dtso     | 109 ++++++++++++++++++
- 2 files changed, 113 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
+On Thu, Nov 14, 2024 at 02:57:52PM +0800, Liu Ying wrote:
+> This patch series aims to add ITE IT6263 LVDS to HDMI converter on
+> i.MX8MP EVK.
+>=20
+> Since IT6263 DT binding and driver were picked up from v5 and landed
+> in drm-misc, this patch series contains patches almost all i.MX8MP
+> SoC/platform specific.
+>=20
+> Patch 1 is a preparation patch to allow display mode of an existing
+> panel to pass the added mode validation logic in patch 3.
+>=20
+> Patch 2 is a preparation patch to drop CLK_SET_RATE_PARENT flag for
+> media_disp{1,2}_pix clocks.  Patch 5 depends on patch 2.
+>=20
+> Patch 3 allows i.MX8MP LVDS Display Bridge(LDB) bridge driver to find
+> the next non-panel bridge, that is the IT6263 in this case.
+>=20
+> Patch 4 adds mode validation logic to i.MX8MP LDB bridge driver against
+> "ldb" clock so that it can filter out unsupported display modes read
+> from EDID.
+>=20
+> Patch 5 adds mode validation logic to i.MX8MP LDB bridge driver against
+> "pix" clock so that it can filter out display modes which are not
+> supported by pixel clock tree.
+>=20
+> Patch 6 adds DT overlays to support NXP adapter cards[1][2] with IT6263
+> populated.
+>=20
+> Patch 7 enables the IT6263 bridge driver in defconfig.
+>=20
+> Note that patch 3 and 4 depend on patch[3] in shawnguo/imx/fixes.
+>=20
+> Since this patch series is related to another one[4] authored by Marek,
+> Maxime asked for a proper description[5] about the exact problem.
+>=20
+> Admittedly, it's a bit complicated.  Here, I'm trying to do so and explain
+> a bit more.
+>=20
+> [ Description ]
+> It's a clock problem about shared i.MX8MP video PLL between MIPI DSI and
+> LVDS display pipelines.  The pipelines are driven by separate DRM driver
+> instances, hence there is no way to negotiate a dynamically changeable
+> PLL rate to satisfy both of them.  The only solution is to assign a
+> sensible/unchangeable clock rate for the PLL in DT.
+>=20
+> Admittedly, sys_pll3_out can be another clock source to derive pixel clock
+> for i.MX8MP MIPI DSI display pipeline if a particalur i.MX8MP platform
+> doesn't use audio(sys_pll3_out is supposed to derive audio AXI clock runn=
+ing
+> at nominal 600MHz).  However, for i.MX8MP platforms with audio features,
+> the shared video PLL case has to be handled and it determines that the ab=
+ove
+> solution(unchangeable PLL rate assigned in DT) has to be used no matter
+> sys_pll3_out is for display or audio, because the separate DRM driver
+> instances really don't know if they are sharing the video PLL or not.
+>=20
+> [[ i.MX8MP Display Hardware ]]
+> i.MX8MP SoC supports three display pipelines:
+>=20
+>  -----------------------------           ------------------------
+> | imx8mp_media_disp_pix_sels  |         | imx8mp_media_ldb_sels  |
+>  -----------------------------           ------------------------
+> |  osc_24m (fixed 24MHz)      |         |  osc_24m (fixed 24MHz) |
+> |*-video_pll1_out (video)     |         |  sys_pll2_333m (sys)   |
+> |  audio_pll2_out (audio)     |         |  sys_pll2_100m (sys)   |
+> |  audio_pll1_out (audio)     |         | -sys_pll1_800m (sys)   |
+> | -sys_pll1_800m (sys)        |         | -sys_pll2_1000m (sys)  |
+> | -sys_pll2_1000m (sys)       |         |  clk_ext2 (external)   |
+> |  sys_pll3_out (audio ?)     |         |  audio_pll2_out (audio)|
+> |  clk_ext4 (external)        |         |*-video_pll1_out (video)|
+>  -----------------------------           ------------------------
+>              ||                                     |
+>  -----------------------------           ------------------------
+> |   media_disp{1,2}_pix       |         |        media_ldb       |
+>  ----------------------------- mux+div   ------------------------ mux+div
+>              ||                                     |
+>  -----------------------------           ------------------------
+> | media_disp{1,2}_pix_root_clk|         |   media_ldb_root_clk   |
+>  ----------------------------- gate      ------------------------ gate
+>              ||                                     | (LVDS serial clock)
+>              ||                                     V
+> 	     || (Disp2 Pclk)  --------      ------------------
+> 	     | ------------> | LCDIF2 | -> |       LDB        | -> panel/bridge
+> 	     |                --------      ------------------
+> 	     |  (Disp1 Pclk)  --------      ------------------
+> 	      -------------> | LCDIF1 | -> | Samsung MIPI DSI | -> panel/bridge
+> 	                      --------      ------------------
+>                               --------      ------------------      -----=
+-----
+>                              | LCDIF3 | -> | Synopsys HDMI TX | -> | HDMI=
+ PHY |
+>                               --------      ------------------     |     =
++    |
+>                                  ^                                 |    P=
+LL   |
+>                                  |                                  -----=
+-----
+>                                  | (Disp3 pclk)                         |=
+ |
+>                                   -------------------------------------- =
+ |
+>                                                                          =
+ V
+>                                                                     panel=
+/bridge
+>=20
+> * video_pll1_out is supposed to be used by video outputs.
+>=20
+> - LCDIF2 + LDB can only use the *same* video_pll1_out, sys_pll1_800m or
+>   sys_pll2_1000m.
+>=20
+> [[ i.MX8MP Display Drivers ]]
+> LCDIF: drivers/gpu/drm/mxsfb/lcdif_*.c
+> Three LCDIFv3 display controllers are driven by three imx-lcdif DRM insta=
+nces
+> separately.
+>=20
+> LDB: drivers/gpu/drm/bridge/fsl-ldb.c
+>=20
+> Samsung MIPI DSI: drivers/gpu/drm/bridge/samsung-dsim.c
+>=20
+> Synopsys HDMI TX: drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
+>=20
+> [[ Problem - Shared Video PLL Between Samsung MIPI DSI and LDB ]]
+> osc_24m, audio_pll*, sys_pll* and clk_ext* are not for video outputs,
+> because:
+> a. Aparently, osc_24m runs at fixed 24MHz which is too low for most displ=
+ays.
+> b. Audio subsystem may consume all audio_pll*.
+> c. sys_pll* are system clocks which are supposed to run at fixed typical
+>    rates, e.g., sys_pll2_1000m runs at 1000MHz.
+> d. sys_pll3_out is supposed to derive audio AXI clock running at nominal
+>    600MHz(i.MX8MP data sheet specifies the rate), see NXP downstream kern=
+el:
+>    https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts=
+/freescale/imx8mp-evk-ndm.dts#L19
+>    https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts=
+/freescale/imx8mp-ddr4-evk.dts#L25
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 4686f2a8ddd8..a7e88fcabded 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -115,6 +115,10 @@ dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-1000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs404-evb-4000.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs615-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2.dtb
-+
-+qcs6490-rb3gen2-vision-mezzanine-dtbs := qcs6490-rb3gen2.dtb qcs6490-rb3gen2-vision-mezzanine.dtbo
-+
-+dtb-$(CONFIG_ARCH_QCOM)	+= qcs6490-rb3gen2-vision-mezzanine.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8300-ride.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs8550-aim300-aiot.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= qcs9100-ride.dtb
-diff --git a/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-new file mode 100644
-index 000000000000..7782c4aee576
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-vision-mezzanine.dtso
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+/*
-+ * Camera Sensor overlay on top of rb3gen2 core kit.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/clock/qcom,camcc-sc7280.h>
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l10c_0p88>;
-+	vdda-pll-supply = <&vreg_l6b_1p2>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* The port index denotes CSIPHY id i.e. csiphy3 */
-+		port@3 {
-+			reg = <3>;
-+
-+			csiphy3_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	status = "okay";
-+};
-+
-+&cci1_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 78 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default", "suspend";
-+		pinctrl-0 = <&cam2_default>;
-+		pinctrl-1 = <&cam2_suspend>;
-+
-+		clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK3_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		dovdd-supply  = <&vreg_l18b_1p8>;
-+		avdd-supply = <&vph_pwr>;
-+		dvdd-supply = <&vph_pwr>;
-+
-+		port {
-+			imx577_ep: endpoint {
-+				clock-lanes = <7>;
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy3_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam2_default: cam2-default-state {
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+	};
-+
-+	cam2_suspend: cam2-suspend-state {
-+		mclk-pins {
-+			pins = "gpio67";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+		};
-+
-+		rst-pins {
-+			pins = "gpio78";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+			output-low;
-+		};
-+	};
-+};
--- 
-2.25.1
+Is there any downside to using any of these clocks, aside from the fact
+that their rate must not change?
 
+Also, if they can't change their rate, why do they have
+CLK_SET_RATE_PARENT (sys_pll* in particular) ?
+
+> e. clk_ext* are external clocks without known capabilities.
+>=20
+> So, the only eligible video_pll1_out is supposed to be shared between LDB
+> and Samsung MIPI DSI in the two separate display pipelines if sys_pll3_out
+> is already used to derive the audio AXI clock.
+>=20
+> With the shared video_pll1_out, drivers for the two display pipelines can=
+not
+> change the PLL clock rate in runtime, since the pipelines are driven by t=
+wo
+> DRM driver instances.
+
+What is the typicall frequency on those pipelines? Could setting the PLL
+high enough that any frequency required by any of these pipelines can be
+accomodated through a divider work?
+
+Something like you run the PLL at 594MHz, and then most HDMI frequencies
+can be reached by a 1, 2 or 4 divider.
+
+> [[ Solution ]]
+> Assign the PLL clock source(s) and the PLL clock rate(s) in DT.  Disallow
+> display drivers to change the PLL clock source(s) or rate(s) in runtime
+> including LCDIF driver and bridge drivers.  With sensible PLL clock rate(=
+s),
+> typical display modes like 1920x1080@60 can be supported if external HDMI
+> bridges are connected, and panel display modes can be too.  Also the unne=
+eded
+> CLK_SET_RATE_PARENT flag can be dropped for media_disp{1,2}_pix clocks.
+> If needed, bridge drivers just call clk_round_rate() to validate clocks so
+> that unsupported display modes can be filtered out.  Although the
+> unchangeable PLL clock rate disallows more potential display modes, the
+> solution works for single/dual/triple display pipelines(OFC, hardware des=
+igners
+> should pick panel/bridge display devices carefully first by considering c=
+lock
+> resources).
+
+I think it's a reasonable idea, if not for the hardcode-it it DT stuff.
+If we can manage to have a fixed setup work ok for all display use
+cases, why would it be in DT? The clock driver seems like a much better
+choice to me.
+
+Maxime
+
+--hu6r2ojwiq6ufs4p
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2GFsgAKCRAnX84Zoj2+
+dqQLAYCRSDLH9Dk0IbJPl1PnlpU1xkDY6LSYkVLWuS23g3GMCrbH9gGpziHKzx9l
+ziOFGckBf1rzk1R/u3ruFBm7DPVqwUbT7KGPmGeCy5xWW+5wrDtunG95cZqOq19p
+3g9fbpNyzQ==
+=JMAM
+-----END PGP SIGNATURE-----
+
+--hu6r2ojwiq6ufs4p--
 
