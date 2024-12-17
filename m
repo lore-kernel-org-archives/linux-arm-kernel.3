@@ -4,92 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89907E7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC7EE7717F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lxCICxJpXfei8MCzltd58yMQLgKqjwCA0gMAu7lAjwk=; b=xckELkrgCvFjv/IiCWWDbRzeja
-	8fPLyMWhocGGDbPKUAcyT1HQvOkvVb3oqedNrU5A63UT/vlWGcPiI0jaW7bUX6hzPxaVCi2wKGG5A
-	4LrOtd8BZrgybGyOf834x2eIfLYj0NJPlrTTpba3FP38zbmxPDQ26XSxkYxyfej89DYbuh7Bjb66E
-	N6ffpONR27HDBdOyeYNki0P9jYI6lemJ4o8Bq80VFqzMMu4HXAHg3d2Zq49OaGD/d6jNU5uTdYWxl
-	mcwRjkjt6DUFnmKraqRjsIeCYy0nEtfk7X7k2vRdEPLgmDA4ZrOT7Rz8tmR5uB7ST1zFOvSsmD74t
-	iabNY+vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UkNZIeQBGZ6mAgyYy/oUDiC4hHb8L1obG9NdPbrHsMU=; b=EbhkF1lyNXRrQF7FEVl18X/fsh
+	6mLeh1fcJ/FQpXE2myVR5krUWo5CyuvDfSMbvdECvxr+3Do9VSugRJ67nVQ9BwS+WaNQI6rJOQVvK
+	kLEaHHEDz3g0M2yl5LzTfDxDI9k0cIvBDQNSADjVfEuvhAJoI4UpHnfxPw8NQV01uoNh+YwOLt2cH
+	wrGznQHE1dvnEU4CWZwieWHiWdG5yf61sQdx0S/fSgE3PaT1OJOYbBJAGbbmiJekfRZT5TxCUCKu9
+	4jeG7coBc5EL//tfmLkb9JyugnJbexHjrZgm+lTnsYwCGyXVrOX4ngJtABD7c1mLOlVANeKu1M7Ga
+	E2+4BRQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdOT-0000000EeAk-21Uo;
-	Tue, 17 Dec 2024 19:38:09 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1tNdPX-0000000EeKd-0FtW;
+	Tue, 17 Dec 2024 19:39:15 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdNO-0000000Edxt-0Nwc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Dec 2024 19:37:03 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7feb6871730so3881926a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 11:37:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734464221; x=1735069021; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lxCICxJpXfei8MCzltd58yMQLgKqjwCA0gMAu7lAjwk=;
-        b=veAKb26FqAeTVJYZAtDmJUNaz+lMFDF7mJjTY2XL0aEbwAVFU3IxJ/6bmK3SRxolw1
-         ZMZVO3UAqFLzQJqq2igUMLO9w37kRhG6tI3zXaqDGpayjSbV7moeQHQ8SrTKPHGRW86l
-         f57SFfDA/0ZUGSj+beyUWhNR6QvrR4D78vaDOkQyVpU9wYkWlpGQZyfRgIPxdv58xq1V
-         QW0nUUaA91kAGj3QRBWm6jPIoN5gQjgZhOYvh2cPTyVqfg1SuBCsj/oaI/c+aNSPMiv4
-         CcD0vgmvvkwhYFqHOwDO2JQb8HrkUehBAfM8cNvm9Zcfhu7BegPWkj8gDLjdfHlzkCGj
-         kYmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734464221; x=1735069021;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lxCICxJpXfei8MCzltd58yMQLgKqjwCA0gMAu7lAjwk=;
-        b=CFUqguXqUavMqvvpSjdBY1LlV83X42m8w2qBQQHnF/z6ygy5H9xlXRYEXxnFdrixUn
-         1CJseBFuQc5ax4QBaYWPBloLCzSI/ZpB/gMTb5l6tvtvplWOk4sM3I57NQKHLJoalTd/
-         oAIDC+luaDTuYvily8T+9absorKsh2tf+baBwS3J6OP/UQZpbmvhLJFuvlwFukVdgJ1D
-         rJqtw936Hv6VcyNBV3khb6BJK30jJ0Yo7U74jVx2bTyVK6nSav98HIGognZIPHHzZGHx
-         puI699mu3oSYnRYq8o6CliL0JNuqpvcGGBgRidA3IxE2FiFPGgaziTPwY1L6LAu67aNy
-         4tOw==
-X-Forwarded-Encrypted: i=1; AJvYcCWhSJWMuo1TlOEvW8fxbDk+GGW7cFbGP+kkjsD7xKjywm90FUHWCf9PMT06B+xlkbv3OtcvafPcdlSyQv6hFgkb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY0yHVlS193kSuWrXiTLNSFVZldfa4WeHL2F6sMFqw/38FLGQg
-	+3TKqfLxGe6tHoah3uXNQJF92cuwl5yEY/N8z9F9zg3mk1PN9D6WHMSyaKuYhA==
-X-Gm-Gg: ASbGnctVI+OjYkMYHzpSxw6sxpBgHRnOT6879j9MEFYA7kmLTFK14U6ZSLU8sab6QM/
-	BuxFgohpCH3tyCEmI4FDXb0WJXAFssxAbFZ+GpmekC2vRBWEdw5ffW7/Iv8+bIFEZoOX2QMVY3n
-	G0gsr+bb7X10JUc7BCvJdRAnVkB5RqOw8O+7HCAXhCgT052QUmpY8C4bKIKIIGpTPfA6Hdt3e7z
-	T+UCfVCn+jTRVQn6Szvpjjctz9a+kIRsv6992g6ucYb71TufybEJUsFXsjlngaT+JUpOYtlsi2c
-	/B4TQOUJOUR+kgHdXC3/HbU2
-X-Google-Smtp-Source: AGHT+IE7HeidwXULiczKHkcCrFXy73r0XNQEw07ggxCtV6f/PJ01FEii3YlDMP9Kg7esnumM/Q6q2A==
-X-Received: by 2002:a17:90b:548f:b0:2ee:8e75:4aeb with SMTP id 98e67ed59e1d1-2f2e91f6469mr171028a91.17.1734464220976;
-        Tue, 17 Dec 2024 11:37:00 -0800 (PST)
-Received: from google.com (123.65.230.35.bc.googleusercontent.com. [35.230.65.123])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e5cec5sm63162375ad.172.2024.12.17.11.36.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 11:37:00 -0800 (PST)
-Date: Tue, 17 Dec 2024 11:36:57 -0800
-From: William McVicker <willmcvicker@google.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Pankaj Dubey <pankaj.dubey@samsung.com>,
-	Heiko Stuebner <heiko@sntech.de>, Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	John Madieu <john.madieu.xa@bp.renesas.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] mfd: syscon: Remove the platform driver support
-Message-ID: <Z2HS2Y0nGBMgvz8U@google.com>
-References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
- <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
+	id 1tNdNU-0000000Edya-2Gw8;
+	Tue, 17 Dec 2024 19:37:10 +0000
+Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7E89DC002821;
+	Tue, 17 Dec 2024 11:37:06 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7E89DC002821
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1734464226;
+	bh=+/S+LRrwM3J5EIBu52etndXpcG9G7qL3AVg28RtoSVk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=P0YlsuKzBM8rNwZmTeYuUn4wdku1TQmDW/zLlnELZ4+fob8MX4DHm4zlzcuYGO/6I
+	 D3pDyqmHseqZRwDhEjVHV8yqpcTsdNWWHlIzqBF3+joaLGo7Oje6zj+ka9BgxyjNRm
+	 P1maX0ZWyrcno1PPpVkRfLS39rbM7xLL38/wtTSE=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id E6AEE18041CAC6;
+	Tue, 17 Dec 2024 11:37:05 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: bcm-kernel-feedback-list@broadcom.com,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Eric Anholt <eric@anholt.net>,
+	=?iso-8859-1?b?TWHtcmE=?= Canal <mcanal@igalia.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Doug Berger <opendmb@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Stefan Wahren <wahrenst@gmx.net>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v3 5/7] arm64: dts: broadcom: Rename bcm2712 interrupt controllers
+Date: Tue, 17 Dec 2024 11:37:05 -0800
+Message-ID: <20241217193705.897820-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241212-dt-bcm2712-fixes-v3-5-44a7f3390331@raspberrypi.com>
+References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com> <20241212-dt-bcm2712-fixes-v3-5-44a7f3390331@raspberrypi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_113702_131538_D54362F4 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20241217_113708_747056_D0D70613 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +96,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/17/2024, Rob Herring (Arm) wrote:
-> The platform driver is dead code. It is not used by DT platforms since
-> commit bdb0066df96e ("mfd: syscon: Decouple syscon interface from
-> platform devices") which said:
-> 
->     For non-DT based platforms, this patch keeps syscon platform driver
->     structure so that syscon can be probed and such non-DT based drivers
->     can use syscon_regmap_lookup_by_pdev API and access regmap handles.
->     Once all users of "syscon_regmap_lookup_by_pdev" migrated to DT based,
->     we can completely remove platform driver of syscon, and keep only helper
->     functions to get regmap handles.
-> 
-> The last user of syscon_regmap_lookup_by_pdevname() was removed in 2018.
-> syscon_regmap_lookup_by_pdevname() was then removed in 2019, but that
-> commit failed to remove the rest of the platform driver.
-> 
-> Tested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+From: Florian Fainelli <f.fainelli@gmail.com>
 
-I verified this works on my Pixel 6. Thanks!
+On Thu, 12 Dec 2024 18:36:32 +0000, Dave Stevenson <dave.stevenson@raspberrypi.com> wrote:
+> CHECK_DTBS produces errors on bcm2712-rpi-5-b.dtb and bcm2712-d-rpi-5-b.dtb
+> of:
+> intc@7d508380: $nodename:0: 'intc@7d508380' does not match '^interrupt-controller(@[0-9a-f,]+)*$'
+>         from schema $id: http://devicetree.org/schemas/interrupt-controller/brcm,l2-intc.yaml#
+> intc@7d508400: $nodename:0: 'intc@7d508400' does not match '^interrupt-controller(@[0-9a-f,]+)*$'
+>         from schema $id: http://devicetree.org/schemas/interrupt-controller/brcm,l2-intc.yaml#
+> 
+> Rename the nodes from intc to interrupt-controller.
+> 
+> Fixes: f66b382affd8 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
 
-Tested-by: Will McVicker <willmcvicker@google.com>
-
-Thanks,
-Will
+Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
+--
+Florian
 
