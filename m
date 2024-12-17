@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC7EE7717F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D2AE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Dec 2024 19:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkNZIeQBGZ6mAgyYy/oUDiC4hHb8L1obG9NdPbrHsMU=; b=EbhkF1lyNXRrQF7FEVl18X/fsh
-	6mLeh1fcJ/FQpXE2myVR5krUWo5CyuvDfSMbvdECvxr+3Do9VSugRJ67nVQ9BwS+WaNQI6rJOQVvK
-	kLEaHHEDz3g0M2yl5LzTfDxDI9k0cIvBDQNSADjVfEuvhAJoI4UpHnfxPw8NQV01uoNh+YwOLt2cH
-	wrGznQHE1dvnEU4CWZwieWHiWdG5yf61sQdx0S/fSgE3PaT1OJOYbBJAGbbmiJekfRZT5TxCUCKu9
-	4jeG7coBc5EL//tfmLkb9JyugnJbexHjrZgm+lTnsYwCGyXVrOX4ngJtABD7c1mLOlVANeKu1M7Ga
-	E2+4BRQA==;
+	bh=vaD4PysxANBxyfICzMF7Bx9LmmQ9tlQ2zhPWGPCuCLg=; b=wt2D439Ax0n5xuU0kcwXQuS/X1
+	RSVRdsaMBP1VRD+VjUJ1jxokSJVJTEnKYa9ptVEJ5hMgM8RWhFoN1cO1jhC1ltWo3MTdGFF3oz613
+	s3w/zoGJ7YBB/f6t6ChSCY088YGballnPos+PnrRK4bQoX5SgyyEj7RPq/12nTeIWdikfZ3HaU666
+	ql/hDZrMNvc7E9EzoefacxefLuCzPjagX8S7CFIC2fXPlYOs6CIj8Fsh4FIZXbadLpUbPrHj8jBw9
+	KJZD2QPFmHfUuKMLspU2MJYFYX7SKf3mZ1ZvxispB3xDvQj8KkcVtgFjtAtCC6aTzL1S7pZ5CeMdo
+	5FLZLDKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdPX-0000000EeKd-0FtW;
-	Tue, 17 Dec 2024 19:39:15 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.209])
+	id 1tNdQb-0000000EeSs-0riP;
+	Tue, 17 Dec 2024 19:40:21 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNdNU-0000000Edya-2Gw8;
-	Tue, 17 Dec 2024 19:37:10 +0000
+	id 1tNdNm-0000000Ee3h-44Kr;
+	Tue, 17 Dec 2024 19:37:28 +0000
 Received: from mail-lvn-it-01.lvn.broadcom.net (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7E89DC002821;
-	Tue, 17 Dec 2024 11:37:06 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7E89DC002821
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B384CC00283F;
+	Tue, 17 Dec 2024 11:37:25 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B384CC00283F
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1734464226;
-	bh=+/S+LRrwM3J5EIBu52etndXpcG9G7qL3AVg28RtoSVk=;
+	s=dkimrelay; t=1734464245;
+	bh=ejzO3Cah0Zh00B1elpz5PcPT0EBkIRvG+U2+wWYQm+w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=P0YlsuKzBM8rNwZmTeYuUn4wdku1TQmDW/zLlnELZ4+fob8MX4DHm4zlzcuYGO/6I
-	 D3pDyqmHseqZRwDhEjVHV8yqpcTsdNWWHlIzqBF3+joaLGo7Oje6zj+ka9BgxyjNRm
-	 P1maX0ZWyrcno1PPpVkRfLS39rbM7xLL38/wtTSE=
+	b=lyHD6LAbTwFMYbzNQCOpM2a38wKD+wEMvRdvKRdAbPMHA8Rph2oAPjv6Mbij/6iBR
+	 p6l//zwU2hx76jnRxj4OGM6Zg7zo9roXG3TJhDIS/kppavK5xnkB/SK7EhIO/MD8qY
+	 QEcUYAplmhGonJBE6pi8p0k8QwQF2SxmYoqg66CY=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id E6AEE18041CAC6;
-	Tue, 17 Dec 2024 11:37:05 -0800 (PST)
+	by mail-lvn-it-01.lvn.broadcom.net (Postfix) with ESMTPSA id 337F218041CAC6;
+	Tue, 17 Dec 2024 11:37:25 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
@@ -71,17 +71,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v3 5/7] arm64: dts: broadcom: Rename bcm2712 interrupt controllers
-Date: Tue, 17 Dec 2024 11:37:05 -0800
-Message-ID: <20241217193705.897820-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v3 6/7] arm64: dts: broadcom: Correct hdmi device node names
+Date: Tue, 17 Dec 2024 11:37:24 -0800
+Message-ID: <20241217193724.899605-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241212-dt-bcm2712-fixes-v3-5-44a7f3390331@raspberrypi.com>
-References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com> <20241212-dt-bcm2712-fixes-v3-5-44a7f3390331@raspberrypi.com>
+In-Reply-To: <20241212-dt-bcm2712-fixes-v3-6-44a7f3390331@raspberrypi.com>
+References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com> <20241212-dt-bcm2712-fixes-v3-6-44a7f3390331@raspberrypi.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_113708_747056_D0D70613 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20241217_113727_082359_0D00E482 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,15 +98,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Thu, 12 Dec 2024 18:36:32 +0000, Dave Stevenson <dave.stevenson@raspberrypi.com> wrote:
-> CHECK_DTBS produces errors on bcm2712-rpi-5-b.dtb and bcm2712-d-rpi-5-b.dtb
-> of:
-> intc@7d508380: $nodename:0: 'intc@7d508380' does not match '^interrupt-controller(@[0-9a-f,]+)*$'
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/brcm,l2-intc.yaml#
-> intc@7d508400: $nodename:0: 'intc@7d508400' does not match '^interrupt-controller(@[0-9a-f,]+)*$'
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/brcm,l2-intc.yaml#
-> 
-> Rename the nodes from intc to interrupt-controller.
+On Thu, 12 Dec 2024 18:36:33 +0000, Dave Stevenson <dave.stevenson@raspberrypi.com> wrote:
+> The names of the hdmi0 and hdmi1 nodes had addresses that
+> didn't match the reg properties for the nodes.
 > 
 > Fixes: f66b382affd8 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
 > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
