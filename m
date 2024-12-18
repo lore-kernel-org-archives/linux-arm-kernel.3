@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7A1E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1B8E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvpieJCHhkISUTUlgye5lssHWrIBSVqqrABKwtDyEdQ=; b=YS7ltEifAmBcZDCDaRelabjLb2
-	ttDWtJ4NXp3IRfuUyqBQf++6Vc/zEqbtX2MeDrMJDpYJ9yv5GKlAv6LdtvNGSHBfnYC+7H2sZKclR
-	w06/+WseNBhH3RTLnn+0os9BjfHI+d80U7rQuRIhyBFpMoyxG6vweLtfPcnzSVFXEE03dpBbFjFcC
-	akSLZWuGdncJbHukzXaWNo9LawGfVd6V5h4j2/Qe0D8pmNuKHP4KLTHxy8GHsyh8DzaAF7J65fKHn
-	AVY/KSJzNHftgc2G2G6Q3RDVc9ejTCwRvZKlDdNGErq0+A6YnevOLsxM9ReEKurCmK/SnlBjN+JO/
-	VEm8Avfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y0jJAYGVaoSFGyihLm8HkjVLADfVlqphgzsJDWyTiDc=; b=t37VkeyuGisGe5YNE2dy6Br2QO
+	5WF3v51U6tuTLvDBt0J8v+iIE/iwQzl/S4nbFS7Qi+HeUwm5JEAkTRHvnJzjC97C8jwVOgjDlvgtF
+	ePUWLcyRlM8xMpdYt1MB+APqBj3YiAB8km7Y3dKdCheRZgQw9QEh9ecGBMdLJb8s5y7kqvfJaQH10
+	3ygEeZkBVoQmO/tAIUS92qLetzYVMUcF8Xb+RqaLk187X9p3EVaso9mDijbkMkW2pfNAExxrXoQnU
+	cha0t944uY70Hkwnb7q5GbMLyHmnsASOCQQP6VdMlx11mdweRmg+NcsQP+UhbhabMMJ5sDCUap3n7
+	VFAQdo8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqtH-0000000GC9d-0kh2;
-	Wed, 18 Dec 2024 10:02:51 +0000
-Received: from mail-ua1-f46.google.com ([209.85.222.46])
+	id 1tNqwY-0000000GCW4-2Kit;
+	Wed, 18 Dec 2024 10:06:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqs5-0000000GBxB-05wh;
-	Wed, 18 Dec 2024 10:01:38 +0000
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-85c48f5e2c1so1172250241.3;
-        Wed, 18 Dec 2024 02:01:36 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734516093; x=1735120893;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SvpieJCHhkISUTUlgye5lssHWrIBSVqqrABKwtDyEdQ=;
-        b=PB2nycAHCQkIbX4LiI/FLu+s0/yqUB3sdGZZptmvlILOI3w7gXSxtoIAE5LdnUbGwu
-         u1oX1swB0LxE4tDEGzkMQMYiOEsYgh/PKTCvJBP1Tb+vvE+wrom7LouwQtr3xhbXDZtE
-         GtC+6P7JiDTFPLa5YqJ//yeR6itqNyEikOuHpTNvUv5TpoDuTB56tgQpUI4FuUvctqyU
-         pj6bSlgS80iajMCy5jkUGAxZv0MV57RqujC1IEV0QOce8GgiRrsKY/oknaDe8qL/0mpL
-         jKc7YFEgP36PZj/V10zYHBsA5NfDLfQJwAU8Vhhx6309lU2cov4ZQc1avFjEXPP3UV/U
-         Mvvw==
-X-Forwarded-Encrypted: i=1; AJvYcCW7iDc3UgbvZ9QF0/ezyDnAMDCj4FogxQZ+z6OEa2jeFdpgD4pYSe5Az0jJtNjSX0w0aeXsZdtLy/39Ugqp1czS@lists.infradead.org, AJvYcCXjOzB0AAbXGoLkNP9kVvHe4DzT6fiy1xPzA6QIKW5YneJBCoqgeL/MkKyYwrgVZCN7+yunFn9wlm35ZZddno0=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya5t+3VtD3ewEnxsAm8Znw/5b0EHvvFmX2dcMQGfcWei7BzJLg
-	UqdGLpeV3jivLvsLpMlUuG5OPZhXGoeBf9b8Mn7x3EhvNVKxCQtnAUa21D6U
-X-Gm-Gg: ASbGncsq4rnkJJtd2tW6g5PDraN4hwLdVhKCIKzz5Nq5qRLcmo/5Vf7XojtVJDaW0l0
-	xZmCyeMWoRowZ5Vt+31SP9QW+Q7wal60CenB/be8gHEgchl9q27XIwTkeRu2O7b2bYCa2j19NTK
-	HsjhrUWsKcMbklMq15z5z40duX4XW+lJg8SmbM8Yth3Ni0lKe05KpVUHhWODwqMRsbuSIzV11T1
-	SIrNiPD94f2jOIuottteskQH14v2Svg0VWDXOcxilX4rh3iVYsWeuiNc/qtDLuGmHpqiCBIlrhh
-	O9BQ88G+YG5H5cNrAKt2E9Q=
-X-Google-Smtp-Source: AGHT+IHxRHOJb/pwn78LXaOPaZjvF8ZHirMxgXpzrCp62Pc9oDp9Pu6rSk/CQuGN8l17MFUyanPF0Q==
-X-Received: by 2002:a05:6102:3e25:b0:4af:e4fb:2f0b with SMTP id ada2fe7eead31-4b2ae83e7e3mr1632659137.22.1734516093580;
-        Wed, 18 Dec 2024 02:01:33 -0800 (PST)
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-860ab587ee0sm1606685241.9.2024.12.18.02.01.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Dec 2024 02:01:32 -0800 (PST)
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5174f9c0e63so1690144e0c.1;
-        Wed, 18 Dec 2024 02:01:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV164v5ovci9+Z03/t2lZ/gcGpfQw2LnHGtWTU4JYFR+4oaacEinL2VlGN1G/77IiLsanYqFovomkUGTbcTE4yk@lists.infradead.org, AJvYcCWLnlsCE5ex4gJ9pU4dfxo7qOzexMjgjAxYSILirDvMHAL9L1IPPUQBzaiPqFVhORVY1kCa8ubPVjJx9LKTzfo=@lists.infradead.org
-X-Received: by 2002:a05:6102:38c7:b0:4b1:2010:5cd7 with SMTP id
- ada2fe7eead31-4b2ae735822mr1363766137.8.1734516092461; Wed, 18 Dec 2024
- 02:01:32 -0800 (PST)
+	id 1tNqvS-0000000GCQp-3QIC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 10:05:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 247E35C05AF;
+	Wed, 18 Dec 2024 10:04:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61230C4CECE;
+	Wed, 18 Dec 2024 10:05:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734516305;
+	bh=AvgDaXHtwbjGpgaswDIE8L8Q79jWldOS8jXiymOqhVI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GBoT5JfEG3pfz6gRlPYib7Y3mQXMytM4776pg7n11Ax/1FB1gGF4PuUGD0pu+/3M1
+	 fTdCR0peOq3XVYYzqgR8vTrocVlKfazgleENOepmy9l6Y+0M/G/HgcSs0NEXyhFhKi
+	 qCamv4C0sLyGxCYRNzV/XM2xd47k9vsx0M66oZduxJLuHnahexO0GL3uauj8eWoKsW
+	 ApyVzOM0NrEciAyArjzoJrM4Rd0mPQYYo46g3DWVWeAq/YEjyTsOGEfEDm6p66i/Da
+	 SpZEfRYPaO3SWX+ZRaCiTp3oy8IUamFvJX160Qyzu/CwVRUAlyaOtIeGzrbo40jRNW
+	 bk70WqLac5pQA==
+Date: Wed, 18 Dec 2024 11:05:03 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, alexandre.torgue@foss.st.com, wbg@kernel.org, jic23@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	olivier.moysan@foss.st.com
+Subject: Re: [PATCH 5/9] pwm: stm32: add support for stm32mp25
+Message-ID: <lptm6gh2lzjqxm26lbmdw4yr2fowo6ytxwzqwl65khrx5xpcox@u25yzz6ssdy5>
+References: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
+ <20241218090153.742869-6-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
-References: <20241218085837.2670434-1-arnd@kernel.org>
-In-Reply-To: <20241218085837.2670434-1-arnd@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 18 Dec 2024 11:01:20 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW-PEnkRugFVw2=0Xozw6TQaAJN_FzNucPMTZazZ3--hw@mail.gmail.com>
-Message-ID: <CAMuHMdW-PEnkRugFVw2=0Xozw6TQaAJN_FzNucPMTZazZ3--hw@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: stop selecting foreign drivers
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Maxime Ripard <mripard@kernel.org>, Jani Nikula <jani.nikula@intel.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Chen-Yu Tsai <wenst@chromium.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="o4ocvksavacg3j36"
+Content-Disposition: inline
+In-Reply-To: <20241218090153.742869-6-fabrice.gasnier@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_020137_057543_38CC98B8 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20241218_020506_938773_E3B7385A 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +77,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
 
-On Wed, Dec 18, 2024 at 9:58=E2=80=AFAM Arnd Bergmann <arnd@kernel.org> wro=
-te:
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> The PHY portion of the mediatek hdmi driver was originally part of
-> the driver it self and later split out into drivers/phy, which a
-> 'select' to keep the prior behavior.
->
-> However, this leads to build failures when the PHY driver cannot
-> be built:
->
-> WARNING: unmet direct dependencies detected for PHY_MTK_HDMI
->   Depends on [n]: (ARCH_MEDIATEK || COMPILE_TEST [=3Dy]) && COMMON_CLK [=
-=3Dy] && OF [=3Dy] && REGULATOR [=3Dn]
->   Selected by [m]:
->   - DRM_MEDIATEK_HDMI [=3Dm] && HAS_IOMEM [=3Dy] && DRM [=3Dm] && DRM_MED=
-IATEK [=3Dm]
-> ERROR: modpost: "devm_regulator_register" [drivers/phy/mediatek/phy-mtk-h=
-dmi-drv.ko] undefined!
-> ERROR: modpost: "rdev_get_drvdata" [drivers/phy/mediatek/phy-mtk-hdmi-drv=
-.ko] undefined!
->
-> The best option here is to just not select the phy driver and leave that
-> up to the defconfig. Do the same for the other PHY and memory drivers
-> selected here as well for consistency.
->
-> Fixes: a481bf2f0ca4 ("drm/mediatek: Separate mtk_hdmi_phy to an independe=
-nt module")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+--o4ocvksavacg3j36
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 5/9] pwm: stm32: add support for stm32mp25
+MIME-Version: 1.0
 
-Thanks for your patch!
+On Wed, Dec 18, 2024 at 10:01:49AM +0100, Fabrice Gasnier wrote:
+> diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
+> index 17e591f61efb..99383e09920e 100644
+> --- a/drivers/pwm/pwm-stm32.c
+> +++ b/drivers/pwm/pwm-stm32.c
+> @@ -19,6 +19,7 @@
+>  #define CCMR_CHANNEL_SHIFT 8
+>  #define CCMR_CHANNEL_MASK  0xFF
+>  #define MAX_BREAKINPUT 2
+> +#define MAX_PWM_OUTPUT 4
 
-> --- a/drivers/gpu/drm/mediatek/Kconfig
-> +++ b/drivers/gpu/drm/mediatek/Kconfig
-> @@ -15,9 +15,6 @@ config DRM_MEDIATEK
->         select DRM_BRIDGE_CONNECTOR
->         select DRM_MIPI_DSI
->         select DRM_PANEL
-> -       select MEMORY
-> -       select MTK_SMI
-> -       select PHY_MTK_MIPI_DSI
->         select VIDEOMODE_HELPERS
->         help
->           Choose this option if you have a Mediatek SoCs.
-> @@ -28,7 +25,6 @@ config DRM_MEDIATEK
->  config DRM_MEDIATEK_DP
->         tristate "DRM DPTX Support for MediaTek SoCs"
->         depends on DRM_MEDIATEK
-> -       select PHY_MTK_DP
->         select DRM_DISPLAY_HELPER
->         select DRM_DISPLAY_DP_HELPER
->         select DRM_DISPLAY_DP_AUX_BUS
-> @@ -39,6 +35,5 @@ config DRM_MEDIATEK_HDMI
->         tristate "DRM HDMI Support for Mediatek SoCs"
->         depends on DRM_MEDIATEK
->         select SND_SOC_HDMI_CODEC if SND_SOC
-> -       select PHY_MTK_HDMI
->         help
->           DRM/KMS HDMI driver for Mediatek SoCs
+I would prefer a less generic name. Something like STM32_PWM_MAX_OUTPUT.
+=20
+>  struct stm32_breakinput {
+>  	u32 index;
+> [...]
+> @@ -790,11 +800,31 @@ static void stm32_pwm_detect_complementary(struct s=
+tm32_pwm *priv)
+>  	priv->have_complementary_output =3D (ccer !=3D 0);
+>  }
+> =20
+> -static unsigned int stm32_pwm_detect_channels(struct regmap *regmap,
+> +static unsigned int stm32_pwm_detect_channels(struct stm32_timers *ddata,
+>  					      unsigned int *num_enabled)
+>  {
+> +	struct regmap *regmap =3D ddata->regmap;
+>  	u32 ccer, ccer_backup;
+> =20
+> +	if (ddata->ipidr) {
+> +		unsigned int npwm =3D 0;
 
-What about replacing select by imply?
+No need to initialize npwm.
 
-Alternatively, PHY_MTK_HDMI could default to DRM_MEDIATEK ||
-DRM_MEDIATEK_DP || DRM_MEDIATEK_HDMI.
+> +		u32 val;
+> +
+> +		/* Simply deduce from HWCFGR the number of outputs (MP25). */
+> +		regmap_read(regmap, TIM_HWCFGR1, &val);
+> +
+> +		/*
+> +		 * Timers may have more capture/compare channels than the
+> +		 * actual number of PWM channel outputs (e.g. TIM_CH[1..4]).
+> +		 */
+> +		npwm =3D FIELD_GET(TIM_HWCFGR1_NB_OF_CC, val);
+> +
+> +		regmap_read(regmap, TIM_CCER, &ccer);
+> +		*num_enabled =3D hweight32(ccer & TIM_CCER_CCXE);
 
-Gr{oetje,eeting}s,
+So the part that determines *num_enabled is the same for both variants.
+Maybe it's possible to share the code for that?
 
-                        Geert
+> +		return npwm < MAX_PWM_OUTPUT ? npwm : MAX_PWM_OUTPUT;
+> +	}
+> +
+>  	/*
+>  	 * If channels enable bits don't exist writing 1 will have no
+>  	 * effect so we can detect and count them.
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+Best regards
+Uwe
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+--o4ocvksavacg3j36
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdinkwACgkQj4D7WH0S
+/k7nywf+JjLEk4Gaee/ADgMvYOiBEUH8OA9/D7Ae1isx7Ve33iUPYu57fZCQFdJ9
+7ah0kiX1U5gsFd96TlfydpA3EjhrHr/t8DKL5ZL9WWiKPi68Bb1HM/MZrnh641TZ
+xV6o0+OlYihaqYZpJkt93x0TXdg4+KR6PWk5aSVf47bWNC3jg3n1gLADY8GIKl/Y
+Sk/j12ktASXSCxNOscdwhwdyNIHCbmH/rU3FA8lEA1H9/5UZ5ljUoZRxBeqDqptz
+Qh4YiPPr1fs24A0/z4uh/W3CMkLkW8RXCCffGQprrejK0O1cb6JNhnAiMNZBLbcC
+Wc1T1qulU2XYmW7Of1S4WCcelNWE+A==
+=WbTY
+-----END PGP SIGNATURE-----
+
+--o4ocvksavacg3j36--
 
