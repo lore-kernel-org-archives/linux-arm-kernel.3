@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF02BE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 09:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BA0E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 09:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OjXTcsvIAL+4FtVS8P5fKPwNHbwBgsvtSCaYyw6ZUH0=; b=laxG3Sx7HVfHl947O7UAkGK394
-	CJRftmERldfPZHricaTFysaZBq5uE5J7dokOQYRLmW0u1xY2ZG2yofPoSODCxf64PqJLIwxSRMb3h
-	F2U7LamhLIWqjPNCgXAW9zEdxlrzh6Rn40FjZmB1ETH46XFRcs88pEZshRJb5tHij3KoiYUvEAUHb
-	8siznzOU5TrNtQJPGp8LT50Zwo1Im5U/jB8NJ4u+fRQdw3FtMR+fmmMsI0kwyP3UwRTvsSYxRWVdL
-	8C1Dyy3dBn+vgeQ6dgCCVbiyyBjKrvTPtSi/Q63+R/3l30xIGC62JW4qLAWrpRtLmdu+LGZsjx11o
-	KOSrK2bA==;
+	bh=D8xaHAiUI650qyQPwQru2ZW+j7rrthJZ6/9X0gNFWL0=; b=TNvb4e29N24p7s8COKcSuukpgN
+	dC2wQzcNI1m4mxxh9IjgHkxeIGAMdRaZEfdWySqw/QE3cZ3CVVmJOMJzb00qNl05eZLlq6ppCOTR2
+	hmu7ys2HzLALkUfCLwrgAz6QCy6pyStDDky5KRS0xXtRDFaaItKSM5BOasf+/o+kuNhzLxb91dwXW
+	zanf8G2qK9UlVtdmLqioPOfGVQga3UbbE0Gp9nVZBV618VPaddLuaj9tzj/g3qtR/KLM11VcROK9r
+	n8+P4ZNFjLnKyLPRr2tw2J/fTUjR1w3AZxk75dqa8yCoGBy62JTJCl9LPUNAyM3eXnEuofVxkTSur
+	7wq4x8sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNq41-0000000G1iy-1Qaw;
-	Wed, 18 Dec 2024 09:09:53 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1tNq56-0000000G203-0G0s;
+	Wed, 18 Dec 2024 09:11:00 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNpzJ-0000000G0f3-2I7P
+	id 1tNpzJ-0000000G0f7-44kX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 09:05:02 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI6mX9M021743;
+	Wed, 18 Dec 2024 09:05:03 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI60Lbd011674;
 	Wed, 18 Dec 2024 10:04:56 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	OjXTcsvIAL+4FtVS8P5fKPwNHbwBgsvtSCaYyw6ZUH0=; b=dA9VAuQBHQ0H8jVP
-	isucuDq+uF8uUS+1aF20um23q1oEi94lFruIi1mpmvSg4UNm/nZ3cwg8jYvk9Th+
-	2PlZamjknXS3t23xQUnz1DYx4Ss8JOMvTK0wUMpLnbwwYJTYDsW/TdP3Rnmpbhkv
-	gNoFRtyFx1lsqRPB/5hzv0q7YPYhvUYWzGYNlGPugS/YDChR7Nc86eFn5mkhNIWc
-	29Y9zUgdyjl8Q3N9r6NUY2JIVTzfExxQmZsF3rBfBpNBbG4PR8Hhz3nCr/wunuRz
-	wFuZMNsX0LaYa4gf1vMBWs//6tP9ZPPw4XPJI4oAJRHxw4Qh2Q1Qq2I3lx8fPq7T
-	6ZO5wA==
+	D8xaHAiUI650qyQPwQru2ZW+j7rrthJZ6/9X0gNFWL0=; b=SzeooxHI8hzvCK4O
+	aTeN4Nvt0lEfU8otzzQmKi/Zpc7jkPH7nQbAuSBfOwixPhRw/VYAXrFtFu7VkinP
+	hhge+LCjtPdTJbQh4F6FWABHlk+/0/J8laQso+3Cacn7dVHmX1CQvGqorSUgAZzU
+	k8e1mZeQSewEbG3X2Y2rDmqcJKDHLw7x28/UnOy3oLk9NQo9d48KTINd8uQysgVC
+	Q61B0ffDtqCSa5+D+Yai6zslVXChhpgCJUycrhU4nxgwh3oRgbcYMFiAAkNd0veb
+	GNgTkJt76ZLH272cWVLEwhO3H4m3f5/1k6WFyNyDQe9xVGWr3S1Y3FbRSOZK0mTh
+	gFre2Q==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43kfu8a4up-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43krrcrnm0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 18 Dec 2024 10:04:56 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E861040076;
-	Wed, 18 Dec 2024 10:03:57 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 40AEF25E677;
-	Wed, 18 Dec 2024 10:02:59 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2777140077;
+	Wed, 18 Dec 2024 10:03:58 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6AB6825FAD4;
+	Wed, 18 Dec 2024 10:02:56 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 18 Dec
- 2024 10:02:59 +0100
+ 2024 10:02:56 +0100
 Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 18 Dec
- 2024 10:02:58 +0100
+ 2024 10:02:55 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <alexandre.torgue@foss.st.com>,
@@ -67,9 +67,9 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>
-Subject: [PATCH 6/9] arm64: defconfig: enable STM32 timers drivers
-Date: Wed, 18 Dec 2024 10:01:50 +0100
-Message-ID: <20241218090153.742869-7-fabrice.gasnier@foss.st.com>
+Subject: [PATCH 2/9] mfd: stm32-timers: add support for stm32mp25
+Date: Wed, 18 Dec 2024 10:01:46 +0100
+Message-ID: <20241218090153.742869-3-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
 References: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
@@ -83,9 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_010501_867628_4CE26977 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_010502_297448_0A964CB2 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +99,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the STM32 timer drivers: MFD, counter, PWM and trigger as module.
-These drivers can be used on STM32MP25.
+Add support for STM32MP25 SoC. Use newly introduced compatible, to handle
+new features.
+Identification and hardware configuration registers allow to read the
+timer version and capabilities (counter width, number of channels...).
+So, rework the probe to avoid touching ARR register by simply read the
+counter width when available. This may avoid messing with a possibly
+running timer.
+Also add useful bit fields to stm32-timers header file.
 
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/mfd/stm32-timers.c       | 32 +++++++++++++++++++++++++++++++-
+ include/linux/mfd/stm32-timers.h |  9 +++++++++
+ 2 files changed, 40 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c62831e61586..d6aabdc103d7 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -764,6 +764,7 @@ CONFIG_MFD_TI_LP873X=m
- CONFIG_MFD_TPS65219=y
- CONFIG_MFD_TPS6594_I2C=m
- CONFIG_MFD_ROHM_BD718XX=y
-+CONFIG_MFD_STM32_TIMERS=m
- CONFIG_MFD_WCD934X=m
- CONFIG_MFD_KHADAS_MCU=m
- CONFIG_REGULATOR_FIXED_VOLTAGE=y
-@@ -1499,6 +1500,7 @@ CONFIG_IIO_CROS_EC_LIGHT_PROX=m
- CONFIG_SENSORS_ISL29018=m
- CONFIG_VCNL4000=m
- CONFIG_IIO_ST_MAGN_3AXIS=m
-+CONFIG_IIO_STM32_TIMER_TRIGGER=m
- CONFIG_IIO_CROS_EC_BARO=m
- CONFIG_MPL3115=m
- CONFIG_PWM=y
-@@ -1516,6 +1518,7 @@ CONFIG_PWM_ROCKCHIP=y
- CONFIG_PWM_RZ_MTU3=m
- CONFIG_PWM_SAMSUNG=y
- CONFIG_PWM_SL28CPLD=m
-+CONFIG_PWM_STM32=m
- CONFIG_PWM_SUN4I=m
- CONFIG_PWM_TEGRA=m
- CONFIG_PWM_TIECAP=m
-@@ -1650,6 +1653,7 @@ CONFIG_INTERCONNECT_QCOM_SM8650=y
- CONFIG_INTERCONNECT_QCOM_X1E80100=y
- CONFIG_COUNTER=m
- CONFIG_RZ_MTU3_CNT=m
-+CONFIG_STM32_TIMER_CNT=m
- CONFIG_HTE=y
- CONFIG_HTE_TEGRA194=y
- CONFIG_HTE_TEGRA194_TEST=m
+diff --git a/drivers/mfd/stm32-timers.c b/drivers/mfd/stm32-timers.c
+index 650724e19b88..6f217c32482c 100644
+--- a/drivers/mfd/stm32-timers.c
++++ b/drivers/mfd/stm32-timers.c
+@@ -9,6 +9,7 @@
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/property.h>
+ #include <linux/reset.h>
+ 
+ #define STM32_TIMERS_MAX_REGISTERS	0x3fc
+@@ -173,6 +174,32 @@ static void stm32_timers_get_arr_size(struct stm32_timers *ddata)
+ 	regmap_write(ddata->regmap, TIM_ARR, arr);
+ }
+ 
++static int stm32_timers_probe_hwcfgr(struct device *dev, struct stm32_timers *ddata)
++{
++	u32 val;
++
++	ddata->ipidr = (uintptr_t)device_get_match_data(dev);
++	if (!ddata->ipidr) {
++		/* fallback to legacy method for probing counter width */
++		stm32_timers_get_arr_size(ddata);
++		return 0;
++	}
++
++	regmap_read(ddata->regmap, TIM_IPIDR, &val);
++	/* Sanity check on IP identification register */
++	if (val != ddata->ipidr) {
++		dev_err(dev, "Unexpected identification: %u\n", val);
++		return -EINVAL;
++	}
++
++	regmap_read(ddata->regmap, TIM_HWCFGR2, &val);
++	/* Counter width in bits, max reload value is BIT(width) - 1 */
++	ddata->max_arr = BIT(FIELD_GET(TIM_HWCFGR2_CNT_WIDTH, val)) - 1;
++	dev_dbg(dev, "TIM width: %ld\n", FIELD_GET(TIM_HWCFGR2_CNT_WIDTH, val));
++
++	return 0;
++}
++
+ static int stm32_timers_dma_probe(struct device *dev,
+ 				   struct stm32_timers *ddata)
+ {
+@@ -285,7 +312,9 @@ static int stm32_timers_probe(struct platform_device *pdev)
+ 	if (IS_ERR(ddata->clk))
+ 		return PTR_ERR(ddata->clk);
+ 
+-	stm32_timers_get_arr_size(ddata);
++	ret = stm32_timers_probe_hwcfgr(dev, ddata);
++	if (ret)
++		return ret;
+ 
+ 	ret = stm32_timers_irq_probe(pdev, ddata);
+ 	if (ret)
+@@ -320,6 +349,7 @@ static void stm32_timers_remove(struct platform_device *pdev)
+ 
+ static const struct of_device_id stm32_timers_of_match[] = {
+ 	{ .compatible = "st,stm32-timers", },
++	{ .compatible = "st,stm32mp25-timers", .data = (void *)STM32MP25_TIM_IPIDR },
+ 	{ /* end node */ },
+ };
+ MODULE_DEVICE_TABLE(of, stm32_timers_of_match);
+diff --git a/include/linux/mfd/stm32-timers.h b/include/linux/mfd/stm32-timers.h
+index f09ba598c97a..23b0cae4a9f8 100644
+--- a/include/linux/mfd/stm32-timers.h
++++ b/include/linux/mfd/stm32-timers.h
+@@ -33,6 +33,9 @@
+ #define TIM_DCR		0x48			/* DMA control register			*/
+ #define TIM_DMAR	0x4C			/* DMA register for transfer		*/
+ #define TIM_TISEL	0x68			/* Input Selection			*/
++#define TIM_HWCFGR2	0x3EC			/* hardware configuration 2 Reg (MP25)	*/
++#define TIM_HWCFGR1	0x3F0			/* hardware configuration 1 Reg (MP25)	*/
++#define TIM_IPIDR	0x3F8			/* IP identification Reg (MP25)		*/
+ 
+ #define TIM_CR1_CEN		BIT(0)					/* Counter Enable				*/
+ #define TIM_CR1_DIR		BIT(4)					/* Counter Direction				*/
+@@ -100,6 +103,9 @@
+ #define TIM_BDTR_BKF(x)		(0xf << (16 + (x) * 4))
+ #define TIM_DCR_DBA		GENMASK(4, 0)				/* DMA base addr				*/
+ #define TIM_DCR_DBL		GENMASK(12, 8)				/* DMA burst len				*/
++#define TIM_HWCFGR1_NB_OF_CC	GENMASK(3, 0)				/* Capture/compare channels			*/
++#define TIM_HWCFGR1_NB_OF_DT	GENMASK(7, 4)				/* Complementary outputs & dead-time generators */
++#define TIM_HWCFGR2_CNT_WIDTH	GENMASK(15, 8)				/* Counter width				*/
+ 
+ #define MAX_TIM_PSC				0xFFFF
+ #define MAX_TIM_ICPSC				0x3
+@@ -113,6 +119,8 @@
+ #define TIM_BDTR_BKF_MASK			0xF
+ #define TIM_BDTR_BKF_SHIFT(x)			(16 + (x) * 4)
+ 
++#define STM32MP25_TIM_IPIDR	0x00120002
++
+ enum stm32_timers_dmas {
+ 	STM32_TIMERS_DMA_CH1,
+ 	STM32_TIMERS_DMA_CH2,
+@@ -151,6 +159,7 @@ struct stm32_timers_dma {
+ 
+ struct stm32_timers {
+ 	struct clk *clk;
++	u32 ipidr;
+ 	struct regmap *regmap;
+ 	u32 max_arr;
+ 	struct stm32_timers_dma dma; /* Only to be used by the parent */
 -- 
 2.25.1
 
