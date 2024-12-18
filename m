@@ -4,112 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3742E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:38:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C88E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVCQnjBuZKe3a7uShr6ngEvNLI2Ueq6svjVhzxbnkJ0=; b=cO3yfY/wkSh2Ci8Qq/I2vzl2Ke
-	0xGkITAZXEMtSPaIX5D2Ozm+5B6vD1oIDWolC77NwHndNL2S2JkD4JaG6oAd7aj1JgOsPZIl9oPf4
-	ivN93cLL8oPzVk5looVMZ4sGy5PNdug/GtzNuy3XPuUH5/LzPVZs10s1CoO8eZLCPq73ToyZU4YZX
-	wvIpwYH3M1ft/1yGs1fJv4pl85IbPRLXPm3sT0AXNGs5N6aaK1QZgLLFImOOt0n6F4lKXbrduI3ol
-	BPB2y7rWGY6Cv9bVfY/q0uzwO3Pnfhfj/Bk43K5GA3XUYX+BToZ0GeSNgtMa4KlPY7jVWv+gVJA3h
-	wVL8mTKQ==;
+	bh=XS7Pk4ioEjURDID5iONvHn6fwf9tn79746Vbx+cJWGo=; b=2XJbzkx4ChPEGeRLQKIs2VaSeT
+	amyGQUcFvikFq2U9We2PG3ZX2CWHKPRMlzTUjzxYKoh26i3qPXY/1+FyNFDnjRwdsT+6RO96jSCXg
+	6ZSSyS8N2+tJpvW5i6wr9M6u23Y1vdkzzxTeEIlw4s/QVtNIAtw53bMfvAgjxU2u7Tf+bZ7or/5/d
+	6dyrV94RGtShXTTGbuNCzPhXUum/var88vFDFf1xtGnIA4YxewCgxi+NFR2ONpw1T0FQuKzQxQrXm
+	mfwbuNMFm0JBazD34bMi4/xP/jekI35+jaXypwoG3HfLolpylZnWTUcgZytmDWMatf9pZ6ty0Huvw
+	bRs6gdVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtJY-0000000GcEx-2vPz;
-	Wed, 18 Dec 2024 12:38:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNtLf-0000000Gcfv-1nOt;
+	Wed, 18 Dec 2024 12:40:19 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtIR-0000000Gc00-1Zdl
+	id 1tNtKZ-0000000GcS1-1YXF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 12:37:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C7E385C4BF8;
-	Wed, 18 Dec 2024 12:36:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD36C4CECE;
-	Wed, 18 Dec 2024 12:36:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734525418;
-	bh=6oZbJuFwVe9P5Q9lxMG6nTIJUdfI42MqNhILjYY0AZM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UxJrMH2r0PrwE4ZL6jSXZkTvdT8Na0r9uSCY7lZtEocnVr1T2CZRQDkKYz0Rj9LIO
-	 v7FPeAxMQHN+Rb8k6jn6q0xbkaua2Cdth2SedscGj1vl9hvZHT7fejgPAyBGfLBTlk
-	 2+3x8ztAmAwC3GWBnJUvvrMjG6+WanTRCELAE1vxtKFMX4cBUiN1nnHZTX60bb+ZQc
-	 IbBJvTHGB8iyPMSLLVR9ycC2BonEZ0T9bxHcyaTRmqzwEro49pDO+HAwiMCc00jJWy
-	 7NQLvNz0+FcVfHkWvgpA6kK8tlZnZOygTXmphnfc/tebkB9UpwJVcUof6kjwvhZtDd
-	 pR3TwwX+PdRGw==
-Message-ID: <8e2a0c11-65f6-4cd9-9b75-5a5f6464fa92@kernel.org>
-Date: Wed, 18 Dec 2024 13:36:53 +0100
+	Wed, 18 Dec 2024 12:39:12 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43634b570c1so33791435e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 04:39:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734525549; x=1735130349; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XS7Pk4ioEjURDID5iONvHn6fwf9tn79746Vbx+cJWGo=;
+        b=Q2ZlD38iGjotI313bQQiABKoSvycnL+kw3ccXtQKgvN0qhldawtVS9kx+/4iM8av2v
+         AfJuMoziWEV1GsrYeC30yqHAwXrRvUfoDoKh1HKr+8T5iAJfMaq7PfivBYqq/sSTbCvM
+         Bk17xS1NzsA9RxXZ8CqQJ5lyF2FUZrsFLvLD1ZhfWUgPMFcZTSiizdlctOv+m/AJSWpr
+         UWsdM2H2PV8W5habisrv/gBXnsLH/OxHHyJIfOg2KnwsqiPdxc1yBGZj+h0HBu4Mc/ms
+         CcYecSAPAh7WdbzTPlWL16Vw7HWkLXPV9eC0VO5Oburh8xVAu2E8aHyvOkI1cw8m+Dry
+         lfSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734525549; x=1735130349;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XS7Pk4ioEjURDID5iONvHn6fwf9tn79746Vbx+cJWGo=;
+        b=lC4oTW+46FvvcREW4ACGlbSecCptzzdp77mDF5pUwqF6yJdypkN0kPjs9gtvQTz94K
+         NAmS0mC00dIdDU18xZyOcpqKsLunOtvG98ggg7D3Ya+Y/+NoNx5iP0Q8802AJSdi9ERV
+         VVU53Qq9uTZkkhtm2pApZHjVZWOqrNwNABvELAyqb6oDI4jhcQKzS+prLguCuC5dl0y7
+         6cWqU7BGZ/MQdeFJLx45lefby495I0LcRdCka31DX/+LcSdDz9oDU6HSgithyIScRpBa
+         jt8r7lGk0RBCRu7hGtT2DfaiV8cxjPYUDjPPv0uN1qeKJeRyaV/nqIQMuvcoKrG585fu
+         vy4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUohK/UCddVS9wtoZ2mf6SHxzpTYpH9PXLxD47zRgNu+3PDCRM1xt7juqYdoSLeQVBix27n15aDoFxmmohEIrD0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyS3u7OMVy294IuIZ0uaOt4zz2l7iao3U4LHBF7EwVTD/2UiBDD
+	r9v/yjyIrY0gdq6+4R1mbItul4Z5yuwynVI8tpmKnYobs4VmdW4yTDTU4LmyV2M=
+X-Gm-Gg: ASbGnctygh988v2xTqRJRAr+tGfxzgVruaempQDl//rmD5Sl8raWNgo38Yfe4MXrIaa
+	ZJEcHmBvK2+u0VYIUX8sHzsfbG4b57xtrP/c2h/+M1bzEgqY31OQCT9tppvy1JtYXtjRRVvkQEx
+	MH03DCQIAieLTWiGyZdkJU7oUfULOK8RNkkRgdqXgBLGDVbPI0Xo242QxU871+LYBkf8sAJc25e
+	1lZGUCgU7sQ3Ri5KuECCKTouRsGlcDLNOr8NjTK4T5B6XQgbV8ZxknrfR92HuQa
+X-Google-Smtp-Source: AGHT+IE1tLl1Dcj53ZXYsfNVMFp4tWjeeQ7FoBjB4ziYdja1dw78rhY6qRXK/NpCpyfOFic1A6GtHQ==
+X-Received: by 2002:a05:6000:2c4:b0:386:4acd:4d77 with SMTP id ffacd0b85a97d-388e4da5dcemr2689138f8f.44.1734525549534;
+        Wed, 18 Dec 2024 04:39:09 -0800 (PST)
+Received: from [192.168.0.14] ([188.26.61.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b441bbsm18961965e9.40.2024.12.18.04.39.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Dec 2024 04:39:09 -0800 (PST)
+Message-ID: <878f75cb-e85a-44d3-aae8-22ede6e7afde@linaro.org>
+Date: Wed, 18 Dec 2024 12:39:07 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: exynos: gs101-oriole: move common Pixel6
- & 6Pro parts into a .dtsi
+Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
 To: Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus
- <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org>
- <20241216-gs101-simplefb-v1-3-8ccad1830281@linaro.org>
- <CADrjBPqUcsiX5u80ASfWOe17Cwnr6EA0g2bxfgc-e8YpmWkUYg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ Krzysztof Kozlowski <krzk@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
+ daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
+ ulf.hansson@linaro.org, arnd@arndb.de
+References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
+ <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
+ <wlvvuq2ldv4funye2ylnccq7soyrqkqggg36oimnvmhxbbjvnl@yyy4y5nyruzn>
+ <CADrjBPq4mTsvCivBJPmADP3pfUORBV8hGeP5GrTg9YxASJLHXg@mail.gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CADrjBPqUcsiX5u80ASfWOe17Cwnr6EA0g2bxfgc-e8YpmWkUYg@mail.gmail.com>
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <CADrjBPq4mTsvCivBJPmADP3pfUORBV8hGeP5GrTg9YxASJLHXg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_043659_502165_01711E50 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20241218_043911_413915_575180EC 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,34 +108,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2024 13:14, Peter Griffin wrote:
-> Hi André,
+
+
+On 12/18/24 11:23 AM, Peter Griffin wrote:
+> Hi,
 > 
-> On Mon, 16 Dec 2024 at 13:06, André Draszik <andre.draszik@linaro.org> wrote:
+> On Wed, 18 Dec 2024 at 09:29, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >>
->> In order to support Pixel 6 (Oriole) and Pixel 6 Pro (Raven) properly,
->> we have to be able to distinguish them properly as we add support for
->> more features.
+>> On Tue, Dec 17, 2024 at 09:40:20AM +0000, Tudor Ambarus wrote:
+>>> +description: |
+>>> +  The samsung exynos mailbox controller has 16 flag bits for hardware interrupt
 >>
->> For example, Raven has a larger display. There are other differences,
->> like battery design capacity, etc.
+>> If there is going to be any new posting:
 >>
->> Move all the parts that are common for now into a gs101-raviole.dtsi,
->> and just leave the display related things in gs101-oriole.dts.
+>> The Samsung Exynos mailbox controller, used on Google GS101 SoC, ....
 >>
->> Raviole was chosen as the name because Google uses that when referring
->> to the combination of Oriole & Raven, keeping the familiar terminology.
-> 
-> As discussed off list lets not use the "raviole" terminology (as it
-> precludes Pixel 6a / Bluejay which is also based on gs101). I think
-> something like gs101-board-common.dtsi would be better.
+>>> +  generation and a shared register for passing mailbox messages. When the
+>>> +  controller is used by the ACPM protocol the shared register is ignored and
+>>> +  the mailbox controller acts as a doorbell. The controller just raises the
+>>> +  interrupt to the firmware after the ACPM protocol has written the message to
+>>> +  SRAM.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: google,gs101-mbox
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 1
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: pclk
+>>> +
+>>> +  interrupts:
+>>> +    description: IRQ line for the RX mailbox.
+>>> +    maxItems: 1
+>>> +
+>>> +  '#mbox-cells':
+>>> +    description: |
+>>> +      <&phandle type channel>
+>>> +      phandle : label name of controller.
+>>> +      type    : channel type, doorbell or data-transfer.
+>>> +      channel : channel number.
+>>> +
+>>> +      Here is how a client can reference them:
+>>> +      mboxes = <&ap2apm_mailbox DOORBELL 2>;
+>>> +      mboxes = <&ap2apm_mailbox DATA 3>;
+>>
+>> This ordering assumes there is channel "2" in doorbel and in data, so
+>> two times "2" and of course the same for all others. If this is
+>> configuration of one channel, so "2" is either doorbell or data, then
+>> type should be the last.
 
+ha, nice observation!
 
-gs101 is a SoC not a phone and you need here something common for
-boards. Choose whatever name you like, but there should be a name (so
-gs101-foo-common).
+> My understanding was each channel is either configured for doorbell or
+> data, but Tudor can confirm. With Krzysztof's feedback addressed:
 
+For the ACPM interface use case, mailbox is always used as a doorbell
+indeed. Regardless if the ACPM interface writes data or not to SRAM, it
+will use the mailbox controller just to flip the interrupt bit without
+touching the mbox controller data registers.
 
-Best regards,
-Krzysztof
+For the other cases where the mailbox controller is used to (also?) pass
+data via its data registers, I can't tell whether the passing of data is
+mandatory or not. At least not by reading the gs101 mailbox datasheet
+that I have, it doesn't describe the SR registers. However, Exynos850 -
+which has the same registers, says that:
+```CPU cores can use these registers for sharing data```.
+"Can" implies that writing to SR is optional.
+
+So I assume a channel can work in both modes and clients use mboxes to
+specify which mode to use. Shall I still switch the order?
+
+Thanks,
+ta
 
