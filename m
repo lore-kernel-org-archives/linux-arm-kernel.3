@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460BFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7A1E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t8P6OGnY9LeWIyMHQUW8ZZC60hP5k1SHsgt8/ZhZxvA=; b=DFJE0JUOScrtSjUsuuUKwHLjZ8
-	v6u9Tj3DqC7j6cj5ZuIKeP/ZLJAHN3sephjDdjWqrnkiFUgydJtwxaJSjqSbHMDNsqtsK3g4kg7dG
-	oGH13AUIuSw//4Q9DFwj3JxdIpUP/vfp7TVoHpyLYpfpTpdb64IbnkdwCLSYP7iqlrh4y568dZXVr
-	x1cGfMZU++hcoeeI/6plNYaKAMjk+aEv7v+XLC1n1ae70MBKqghyEaD7nCv2MWqV2zPOUw2F7TxWZ
-	gbuuklzWRUCZ7KOu9ZsoBiV9XrKwmhJvJniQsqzaepTzLdFt1maJmyvcNs0KL79BJBGhzLah6t74b
-	VAkSxXOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SvpieJCHhkISUTUlgye5lssHWrIBSVqqrABKwtDyEdQ=; b=YS7ltEifAmBcZDCDaRelabjLb2
+	ttDWtJ4NXp3IRfuUyqBQf++6Vc/zEqbtX2MeDrMJDpYJ9yv5GKlAv6LdtvNGSHBfnYC+7H2sZKclR
+	w06/+WseNBhH3RTLnn+0os9BjfHI+d80U7rQuRIhyBFpMoyxG6vweLtfPcnzSVFXEE03dpBbFjFcC
+	akSLZWuGdncJbHukzXaWNo9LawGfVd6V5h4j2/Qe0D8pmNuKHP4KLTHxy8GHsyh8DzaAF7J65fKHn
+	AVY/KSJzNHftgc2G2G6Q3RDVc9ejTCwRvZKlDdNGErq0+A6YnevOLsxM9ReEKurCmK/SnlBjN+JO/
+	VEm8Avfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqsD-0000000GBzt-02ql;
-	Wed, 18 Dec 2024 10:01:45 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1tNqtH-0000000GC9d-0kh2;
+	Wed, 18 Dec 2024 10:02:51 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqr6-0000000GBs9-0hKb
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 10:00:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734516036; x=1766052036;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=MpjkodXdjH0m2eFAy6RoEaJSjnejPp8HBAXSwOUjmd8=;
-  b=Lb+cs0j5dcSIJhEcgXkKOnwgbR8tg7QLcNK5OvaslwKJR6Zk8/gXT6FT
-   FJJ8rifxFLXGRY2umNJQsVICEjhLAWkWX4EvFQ5rZiMJaxm/2pFcHpQOf
-   EiT9ab4TaVHBrsJsiZqGiMjeN7I8T9S0KE15RWAeSPi/ppX92F9iuRuOD
-   iAMIEdKdS49JP0ms+MV/NUsPxJ2Yx4i1c5fhxzXv8wmBYhUmefTijIhuT
-   KWLAWuJ/cdFtDx2W3/1liaIdN0jGpZFZzu4WSIHNl5X+gk5GjWCwYAEP+
-   R1BlEiJ/EvMk/CdT/FsDGyVXcYRnfCL7cAMN3hRZ3wVcCIDb9ER17+scu
-   g==;
-X-CSE-ConnectionGUID: lgQeh9xfQGWz3Q7g1dpnLQ==
-X-CSE-MsgGUID: 1Q49msXrQCycclw44L+zdA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11289"; a="52392740"
-X-IronPort-AV: E=Sophos;i="6.12,244,1728975600"; 
-   d="scan'208";a="52392740"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2024 02:00:34 -0800
-X-CSE-ConnectionGUID: raX8lQnJSA6NjB1fN5vaVQ==
-X-CSE-MsgGUID: wCX8OO2SSl6UQ4yd3jHfug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,244,1728975600"; 
-   d="scan'208";a="128612878"
-Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 18 Dec 2024 02:00:33 -0800
-Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tNqr0-000GGs-1U;
-	Wed, 18 Dec 2024 10:00:30 +0000
-Date: Wed, 18 Dec 2024 17:59:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/nv-next 14/20]
- arch/arm64/include/asm/kvm_nested.h:341:16: error: 'FIX_VNCR' undeclared
-Message-ID: <202412181757.mImympcW-lkp@intel.com>
+	id 1tNqs5-0000000GBxB-05wh;
+	Wed, 18 Dec 2024 10:01:38 +0000
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-85c48f5e2c1so1172250241.3;
+        Wed, 18 Dec 2024 02:01:36 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734516093; x=1735120893;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SvpieJCHhkISUTUlgye5lssHWrIBSVqqrABKwtDyEdQ=;
+        b=PB2nycAHCQkIbX4LiI/FLu+s0/yqUB3sdGZZptmvlILOI3w7gXSxtoIAE5LdnUbGwu
+         u1oX1swB0LxE4tDEGzkMQMYiOEsYgh/PKTCvJBP1Tb+vvE+wrom7LouwQtr3xhbXDZtE
+         GtC+6P7JiDTFPLa5YqJ//yeR6itqNyEikOuHpTNvUv5TpoDuTB56tgQpUI4FuUvctqyU
+         pj6bSlgS80iajMCy5jkUGAxZv0MV57RqujC1IEV0QOce8GgiRrsKY/oknaDe8qL/0mpL
+         jKc7YFEgP36PZj/V10zYHBsA5NfDLfQJwAU8Vhhx6309lU2cov4ZQc1avFjEXPP3UV/U
+         Mvvw==
+X-Forwarded-Encrypted: i=1; AJvYcCW7iDc3UgbvZ9QF0/ezyDnAMDCj4FogxQZ+z6OEa2jeFdpgD4pYSe5Az0jJtNjSX0w0aeXsZdtLy/39Ugqp1czS@lists.infradead.org, AJvYcCXjOzB0AAbXGoLkNP9kVvHe4DzT6fiy1xPzA6QIKW5YneJBCoqgeL/MkKyYwrgVZCN7+yunFn9wlm35ZZddno0=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yya5t+3VtD3ewEnxsAm8Znw/5b0EHvvFmX2dcMQGfcWei7BzJLg
+	UqdGLpeV3jivLvsLpMlUuG5OPZhXGoeBf9b8Mn7x3EhvNVKxCQtnAUa21D6U
+X-Gm-Gg: ASbGncsq4rnkJJtd2tW6g5PDraN4hwLdVhKCIKzz5Nq5qRLcmo/5Vf7XojtVJDaW0l0
+	xZmCyeMWoRowZ5Vt+31SP9QW+Q7wal60CenB/be8gHEgchl9q27XIwTkeRu2O7b2bYCa2j19NTK
+	HsjhrUWsKcMbklMq15z5z40duX4XW+lJg8SmbM8Yth3Ni0lKe05KpVUHhWODwqMRsbuSIzV11T1
+	SIrNiPD94f2jOIuottteskQH14v2Svg0VWDXOcxilX4rh3iVYsWeuiNc/qtDLuGmHpqiCBIlrhh
+	O9BQ88G+YG5H5cNrAKt2E9Q=
+X-Google-Smtp-Source: AGHT+IHxRHOJb/pwn78LXaOPaZjvF8ZHirMxgXpzrCp62Pc9oDp9Pu6rSk/CQuGN8l17MFUyanPF0Q==
+X-Received: by 2002:a05:6102:3e25:b0:4af:e4fb:2f0b with SMTP id ada2fe7eead31-4b2ae83e7e3mr1632659137.22.1734516093580;
+        Wed, 18 Dec 2024 02:01:33 -0800 (PST)
+Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-860ab587ee0sm1606685241.9.2024.12.18.02.01.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Dec 2024 02:01:32 -0800 (PST)
+Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5174f9c0e63so1690144e0c.1;
+        Wed, 18 Dec 2024 02:01:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV164v5ovci9+Z03/t2lZ/gcGpfQw2LnHGtWTU4JYFR+4oaacEinL2VlGN1G/77IiLsanYqFovomkUGTbcTE4yk@lists.infradead.org, AJvYcCWLnlsCE5ex4gJ9pU4dfxo7qOzexMjgjAxYSILirDvMHAL9L1IPPUQBzaiPqFVhORVY1kCa8ubPVjJx9LKTzfo=@lists.infradead.org
+X-Received: by 2002:a05:6102:38c7:b0:4b1:2010:5cd7 with SMTP id
+ ada2fe7eead31-4b2ae735822mr1363766137.8.1734516092461; Wed, 18 Dec 2024
+ 02:01:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20241218085837.2670434-1-arnd@kernel.org>
+In-Reply-To: <20241218085837.2670434-1-arnd@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 18 Dec 2024 11:01:20 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW-PEnkRugFVw2=0Xozw6TQaAJN_FzNucPMTZazZ3--hw@mail.gmail.com>
+Message-ID: <CAMuHMdW-PEnkRugFVw2=0Xozw6TQaAJN_FzNucPMTZazZ3--hw@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: stop selecting foreign drivers
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Maxime Ripard <mripard@kernel.org>, Jani Nikula <jani.nikula@intel.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Chen-Yu Tsai <wenst@chromium.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_020036_251482_CDEA982B 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20241218_020137_057543_38CC98B8 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +99,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv-next
-head:   1e2a09d0a43f9c19dae9d321b4a5c840d45fc88b
-commit: 0cb2c18e124cd31e01221ed6c60fddc478e3286b [14/20] KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2
-config: arm64-randconfig-003-20241218 (https://download.01.org/0day-ci/archive/20241218/202412181757.mImympcW-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241218/202412181757.mImympcW-lkp@intel.com/reproduce)
+Hi Arnd,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412181757.mImympcW-lkp@intel.com/
+On Wed, Dec 18, 2024 at 9:58=E2=80=AFAM Arnd Bergmann <arnd@kernel.org> wro=
+te:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The PHY portion of the mediatek hdmi driver was originally part of
+> the driver it self and later split out into drivers/phy, which a
+> 'select' to keep the prior behavior.
+>
+> However, this leads to build failures when the PHY driver cannot
+> be built:
+>
+> WARNING: unmet direct dependencies detected for PHY_MTK_HDMI
+>   Depends on [n]: (ARCH_MEDIATEK || COMPILE_TEST [=3Dy]) && COMMON_CLK [=
+=3Dy] && OF [=3Dy] && REGULATOR [=3Dn]
+>   Selected by [m]:
+>   - DRM_MEDIATEK_HDMI [=3Dm] && HAS_IOMEM [=3Dy] && DRM [=3Dm] && DRM_MED=
+IATEK [=3Dm]
+> ERROR: modpost: "devm_regulator_register" [drivers/phy/mediatek/phy-mtk-h=
+dmi-drv.ko] undefined!
+> ERROR: modpost: "rdev_get_drvdata" [drivers/phy/mediatek/phy-mtk-hdmi-drv=
+.ko] undefined!
+>
+> The best option here is to just not select the phy driver and leave that
+> up to the defconfig. Do the same for the other PHY and memory drivers
+> selected here as well for consistency.
+>
+> Fixes: a481bf2f0ca4 ("drm/mediatek: Separate mtk_hdmi_phy to an independe=
+nt module")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-All errors (new ones prefixed by >>):
+Thanks for your patch!
 
-   In file included from arch/arm64/include/asm/kvm_emulate.h:21,
-                    from arch/arm64/include/asm/kvm_mmu.h:99,
-                    from arch/arm64/kernel/smp.c:46:
-   arch/arm64/include/asm/kvm_nested.h: In function 'vncr_fixmap':
->> arch/arm64/include/asm/kvm_nested.h:341:16: error: 'FIX_VNCR' undeclared (first use in this function)
-     341 |         return FIX_VNCR - cpu;
-         |                ^~~~~~~~
-   arch/arm64/include/asm/kvm_nested.h:341:16: note: each undeclared identifier is reported only once for each function it appears in
+> --- a/drivers/gpu/drm/mediatek/Kconfig
+> +++ b/drivers/gpu/drm/mediatek/Kconfig
+> @@ -15,9 +15,6 @@ config DRM_MEDIATEK
+>         select DRM_BRIDGE_CONNECTOR
+>         select DRM_MIPI_DSI
+>         select DRM_PANEL
+> -       select MEMORY
+> -       select MTK_SMI
+> -       select PHY_MTK_MIPI_DSI
+>         select VIDEOMODE_HELPERS
+>         help
+>           Choose this option if you have a Mediatek SoCs.
+> @@ -28,7 +25,6 @@ config DRM_MEDIATEK
+>  config DRM_MEDIATEK_DP
+>         tristate "DRM DPTX Support for MediaTek SoCs"
+>         depends on DRM_MEDIATEK
+> -       select PHY_MTK_DP
+>         select DRM_DISPLAY_HELPER
+>         select DRM_DISPLAY_DP_HELPER
+>         select DRM_DISPLAY_DP_AUX_BUS
+> @@ -39,6 +35,5 @@ config DRM_MEDIATEK_HDMI
+>         tristate "DRM HDMI Support for Mediatek SoCs"
+>         depends on DRM_MEDIATEK
+>         select SND_SOC_HDMI_CODEC if SND_SOC
+> -       select PHY_MTK_HDMI
+>         help
+>           DRM/KMS HDMI driver for Mediatek SoCs
 
+What about replacing select by imply?
 
-vim +/FIX_VNCR +341 arch/arm64/include/asm/kvm_nested.h
+Alternatively, PHY_MTK_HDMI could default to DRM_MEDIATEK ||
+DRM_MEDIATEK_DP || DRM_MEDIATEK_HDMI.
 
-   337	
-   338	static inline unsigned int vncr_fixmap(unsigned int cpu)
-   339	{
-   340		BUG_ON(cpu > NR_CPUS);
- > 341		return FIX_VNCR - cpu;
-   342	}
-   343	
+Gr{oetje,eeting}s,
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
