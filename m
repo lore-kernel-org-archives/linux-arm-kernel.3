@@ -4,68 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60FF9E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 22:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DCFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 22:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6tgjtGuZAZYpQX7UB8px4+rlQbXawD8OcbC4h3qdLQ=; b=P2U6BNBfA5YbqAMB57d8qlkHGy
-	S9IiizBLgfhHkG03Dyr9YnawEFMiCnByKgwUCisgc0yGeowCZKStgUDQcww65IMzmyqp3+JHA8KSg
-	2JZcpy/WdSzDfM7yDZU2rryUnxdx0yOIurufAjU7ZHYN4IqDKDzzTvr3ADQZeiuzo3rBUQayWmBHc
-	LJb4NTCpus9SwYHNqxnYlmmZQoVc66bCFfEIbCix+ZKWwWY3/YNRway4Ad6T56od+kQXZGCBh7PU7
-	5vtrLOTnoz+HWMJBT6Q0lctiSwCtmNNDIoqVys84KoPlzq0W6CyU4pIjefHNqfwwcCcq3acNwHn/q
-	vfPaz2xA==;
+	bh=VFMuWIeVPk2S7pzDXIHJe6MRm23ZCeaFGwzeTzwTLiY=; b=mbHu0V99sRYFrxZ03wollXLE0s
+	IG3d4kQCtHOOlPh5EkNPaYN2BHBq6CTpJvunIQ57S/4FAQLzLdg1W+j/vQ3cOI5VN6p4VKEHM5LbS
+	uwSKMv98wldT/qf6lZM3BYzzqHL4EKOkfreNN7ER0mZFU2jizHfx4rk7GsOW/Y6x1sLVIfjP25feL
+	HV/04zEfjPYscevMugS1ATINreii/sQLrkq30RZRBkT2dw4G/emBpuadN4U8W0kh6LxomWriqHcrH
+	wcovQDB6ejoP8Uxp+FsoVdR6y1C2z2RzuSbT1MJ5Uw8LGTxhGwtUs96TRY6rx0294v0+TKknwNax5
+	mtBj4PAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO2tM-00000000GVX-3hTH;
-	Wed, 18 Dec 2024 22:51:44 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tO2yL-00000000Gxp-1eLt;
+	Wed, 18 Dec 2024 22:56:53 +0000
+Received: from mail-mw2nam10on2062c.outbound.protection.outlook.com ([2a01:111:f403:2412::62c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO2rX-00000000GGW-2vrn;
-	Wed, 18 Dec 2024 22:49:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=l6tgjtGuZAZYpQX7UB8px4+rlQbXawD8OcbC4h3qdLQ=; b=UwdQuMcGp6v4V6yuMHPbP3RnCj
-	ZO0VOo3UBHLv4IiuJ9gdLsSqt+cwpzBMtrYaQKGUCtwMGypHW0GezgxeCjKInu3agQpIbAAg0+2re
-	YSaQdwooHedwxUGw981Dl3yxMaZQbz3gm2IZxhyYNp3Ur3hhCaDf7juqUse653WvVAOAhXIEs+jA4
-	Br5kiCOuJ+8rTBzCrfY92sR7xUFv1R9Y+ZvOp42vq45YcNyVGFBkKurihef3wQj5fRCvdcaWJrS5U
-	qDKaL/FpoaiWWD3lbgGBcfIqKIERSI9T5+OwWOphf8IHgWbUoiRgxbThlwPrfk8Hrz1F7ArUtVLXw
-	JB8yfd4g==;
-Received: from i53875bfb.versanet.de ([83.135.91.251] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tO2r2-0005qY-Jd; Wed, 18 Dec 2024 23:49:20 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: jikos@kernel.org, jic23@kernel.org, Lee Jones <lee@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- jdelvare@suse.com, linux@roeck-us.net, srinivas.pandruvada@linux.intel.com,
- bentiss@kernel.org, dmitry.torokhov@gmail.com, pavel@ucw.cz,
- ukleinek@debian.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-input@vger.kernel.org, linux-iio@vger.kernel.org,
- linux-leds@vger.kernel.org
-Subject: Re: [PATCH v9 0/9] Drivers to support the MCU on QNAP NAS devices
-Date: Wed, 18 Dec 2024 23:49:19 +0100
-Message-ID: <15355121.tv2OnDr8pf@diego>
-In-Reply-To: <20241212171954.GI7139@google.com>
-References: <20241107114712.538976-1-heiko@sntech.de>
- <173402387748.2234929.7484373598047473898.b4-ty@kernel.org>
- <20241212171954.GI7139@google.com>
+	id 1tO2xE-00000000Gla-3bwN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 22:55:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kmBf2uusV53pG3WWPMi9bBv9E5iUBmmGp4Pjn5FV7Z0XK8nvRZEXCe/xnNedWA0/L5UV+r4gC0tYAGPyngXngw1g0YWi6zXxEozlDDY9O80fp5TVd9DpJAP0Se0JAWlJ6+ec1exyIjcI0dxvjVMFtdnQrQVkH+DYnDtCMUs+u4SywV/ZZ5veLmP1OCe2pKwkwyY2u/yfIDeRGK9OV+XKzMI5TJp81C7SwskavwfEDwQtqF8jIQ/vxXou8zXeVD8LiPfZu159nzSZYf95jRzxkJe1fId2IZcHcRg3CKEvhQxn+8Ke7WC1HNg03qeEDg0EhCiQEogvFB0U+6hyFCk/hQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VFMuWIeVPk2S7pzDXIHJe6MRm23ZCeaFGwzeTzwTLiY=;
+ b=M59iaemGCeM3TfYX+vVfD/r/IIwhWVQLPKi6nhumGcw/KBe2wkt2A1svVCRwoWMmv7fmluAAn/ThB6GfKm6yw+CgFDvrEQaXbyJNMqZfE7B7op5JBSFfmObqlTbLyaoNCL8NFoQoN1iMo0bgDujbCwMj0g/hbX2zBTqW+URk+0AqYLWAvdF3qMl6u5fbFI3sHIFNXW4+e92PMV9EF0iJ9pZwL9YdozITfJ5v4WAamGD6CI14Is9nrtxJ0E8vntW1tFLwRNeXh+VIcK+WcmigylXVN72KDPBL/F3k6MVkAWm4Z/IPjkzMUHU0UpYdPJiJlOggWc0SL3poy2EkzyDjrg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VFMuWIeVPk2S7pzDXIHJe6MRm23ZCeaFGwzeTzwTLiY=;
+ b=UiEzp8jT5fu45A/Ato4QAlsYtegBpSGUbHXJVnWVrtX9DhZntXwBsweZpbxE4sV0CKZfn4vhq40D8Bwhgwy6E4BwTxNbDQgnygaxoeaI7jS0NSPx5vZqGFbNadtfBDrEiv9F60K7bou3FKpSizjS2mrnwR7C2Mm/TRVr9K1R/XBvhV9oTEtKSpXuIcPW8aWveNvGJH+UwfqAjLCY/sXW5HpQn6t9tPgyLpryComSlXUTNw0pixTNFHoViSK6St9p6vQL3YXOlVKlUQJXzHliLG7tJFd91n5zxsNGcmxnwHOm7kL4Zza5rnnK9zXjHNkjeFg2VChGxJNJ7L9Bc7WuNQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ BY5PR12MB4211.namprd12.prod.outlook.com (2603:10b6:a03:20f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Wed, 18 Dec
+ 2024 22:55:40 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%4]) with mapi id 15.20.8272.005; Wed, 18 Dec 2024
+ 22:55:39 +0000
+Date: Thu, 19 Dec 2024 09:55:35 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
+	linux-mm@kvack.org, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
+	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
+	tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com
+Subject: Re: [PATCH v4 14/25] rmap: Add support for PUD sized mappings to rmap
+Message-ID: <volhyxjxlbsflldgs36ghzartel2tu625ubz3kfed2gdwrsamt@cpfsfhdpc4rp>
+References: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
+ <7f739c9e9f0a25cafb76a482e31e632c8f72102e.1734407924.git-series.apopple@nvidia.com>
+ <4b5768b7-96e0-4864-9dbe-88fd1f0e87b8@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4b5768b7-96e0-4864-9dbe-88fd1f0e87b8@redhat.com>
+X-ClientProxiedBy: SY5P282CA0035.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:206::18) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|BY5PR12MB4211:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce0a1be9-88d6-42b2-ce62-08dd1fb717d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BebgaXS0OUPFiAAoEsQhZX/rRpPIHLB0uFRiBlPdjE+6etbzCAq9l//pZh5X?=
+ =?us-ascii?Q?jWmvgnBgx/9R49BEE+/67SG8EdsP03eqgZY9Znb7y3zfRnDtTbryjTg/F27/?=
+ =?us-ascii?Q?qJRHB8rYFu8Rqbu5ekDMsDM9DSd1JbxrBzkzdT64n/klTLXt5YLdBlq0ryQd?=
+ =?us-ascii?Q?nTi0mVo+gp4mgf6TJcEwi654D24u4oErmX3GG9JByv3jxzp3IfPBbuBMPFr0?=
+ =?us-ascii?Q?c1W7smSWaEMQTUHi9lsF9l/rm5Ck2in9eq3jksmq1sAfEmX0vHqEs49uaujS?=
+ =?us-ascii?Q?COHRskgweDHTU9MadF2OCBQwwKU4yv/g1UXgNpZ9mhrPh74afC49q3zmNQ6O?=
+ =?us-ascii?Q?kGz9wnFDXMoavWKFqxEDLNY41jCVRfzSC4zXUhwuVZyOQsUxSz8TvxS4GV9u?=
+ =?us-ascii?Q?nTkcd3TlXzzz802u/qnBPc10zWgosdMXN859ThCJlohltD3YV3xh4Pjsj5XO?=
+ =?us-ascii?Q?l5OCf93As1oLY6YQ2hE5ah4oVPM0JGJYDpn/2ZbchhZJj51d9V14zdALb4sw?=
+ =?us-ascii?Q?exgqSshVgU9BwZYg8QN8yHs/0l6kepL+RNAmatW1jAomi3ZSJp1kAKUe22cK?=
+ =?us-ascii?Q?Z60TImZ4UlG71YpsewWdEgqnP5GxEKrWK9gkM5B+mIVltLYTQStr3Cn4kOld?=
+ =?us-ascii?Q?EjmIqlYFAMwZ2vyEzuHVHTxAzcKZq7D+R2DDmF6cGB7aNtUbPw2AjvwU3Ib7?=
+ =?us-ascii?Q?Hs6T6TIy9GXMaK71nNEEfdI3+sC/FhXpxWi7FOetXi9Hsr5xhzE+fBidnu88?=
+ =?us-ascii?Q?Aj8MmIrrwuy1mRf2TSroYGZ8Dtd3WqCSiQRYtKhchBT/QWExTOwbI4bEk2jK?=
+ =?us-ascii?Q?fqiI+BN0PfbTndWmeVfI8wKhYSvpRSY6RJAs71HUFsx3l2pdfDDsNYrdKA27?=
+ =?us-ascii?Q?/4vnIVwRyw9bEB658v+2zpoFpJ9a9A7pq1vPLezrrVcLm6XUcQtmFiK0Xodz?=
+ =?us-ascii?Q?gydWP0fD2anseg7Dh3KxZy7GItwHM4CmNdWABz0bH7kFnvCjUIKyGbEEU6bm?=
+ =?us-ascii?Q?L/wRq3yy7knEx5Yk/8wTk6k/hYl97fRNdYDZoKt7N9boO9TWcNkO4HkZrP5a?=
+ =?us-ascii?Q?DRWCgh8+rs8NVnU5yokzVE62jbvlyNvqdrT/yOoiS00IVSOweWl5l9s+7eBP?=
+ =?us-ascii?Q?GFwD9Um6IXJWit4AbfmqglvdFg3V7Rm6n+S6Wx0SVIthw3/L+yKJMkl7PAvU?=
+ =?us-ascii?Q?FiPAHmY6YuK7mUviRAVkH+Ty/2tqptCHban5YUDHAsUyGcZMMSjh61f9iOI0?=
+ =?us-ascii?Q?NUatIkYdon56CcR/MpRl3JgCoC+sGqrsl2eWD4GmAgyd2BQJU/MJhADugUEx?=
+ =?us-ascii?Q?xiTSTzHsMaT44o/9t3eAU1Op5sB037xu63kTx9HpVMe6f1hhrl4Keo0O4/oN?=
+ =?us-ascii?Q?TvOK0j+81GNzMswlE6wYoQyPVkuu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RokkYCS9X9ofB8/bulve+U6n4VVDedHgulPHCBXoccyB8snmSyRwZPLPhiyI?=
+ =?us-ascii?Q?eTOQzRLV/X2GK1cR8eu0/eHiC8s8De8kwgrtgn/V43eMfTb3o5sBLfEft4rI?=
+ =?us-ascii?Q?NG8XJgQVNZ9EGqU7y3ClnfZ5y1YO/14bLUOJ+bAoX4jymLW0qS3EZO+0t18Z?=
+ =?us-ascii?Q?OsYjZ8YVcowiZed0AQ/d85/vIZErIhgjG/mk3Zl87e3r53hTIm/vxpD3TC5d?=
+ =?us-ascii?Q?lxThEjP2UkLTFtVKCo1l8XoypwX9THFjAmF01RbkzcQx9xwYzvVNn8KMzB2v?=
+ =?us-ascii?Q?CYucJec5osqvd+9EZV94pMg06YkTU0Vr504TVyiJjL5BJc4FsMWuICHwzDnv?=
+ =?us-ascii?Q?uv/E0UfHbxRw3F238imnrOkYJVleh5QQbISzA237O14+n9t98U6ukQ7A9r7X?=
+ =?us-ascii?Q?eP7xv9vyCyXY6Lc354+XEMSoI9dSSF8OpqpVBO8QVL+YeeXjFjmAGVSg4UFq?=
+ =?us-ascii?Q?u9wIoGyHL86e2TTKKvjwv+Wqb+Gg+FXp1YTcM2URrIOTXWB8bmHZ5ZkeoO6q?=
+ =?us-ascii?Q?PomwpaK7LFqhV8aisVmB8CsZRqFutWrStsqc9qZ2c31hVx8S/vCgJsX3HC7m?=
+ =?us-ascii?Q?Mh7EPIvssLJDEdc6PM3tt5+3QXaYl0M9uNgv9UafES8iW2bRM5eELvLW+mC/?=
+ =?us-ascii?Q?Sv06sw0YkQBLyyNbdJhi4OSdf/PSpGhDUTZZq9VLg8tGYaggQMIS1XryaC0Y?=
+ =?us-ascii?Q?/M4xKYdUPKPIO1bkL2ncUCFUE4AUPUdPWsVL5NN703m1V+IHddAlxWwzYrpr?=
+ =?us-ascii?Q?wzqPtiZMxJWng1WV8c3+TBNKV6lrRKQsV2Bik1wVRUQ4Er7wlY1XIvi3TwCb?=
+ =?us-ascii?Q?qYtJnKSsSyRH+AAqp+jEsDchM138ceguHqXzSHkEigT72vBSzhWNU9C4EN1N?=
+ =?us-ascii?Q?iW3BYgv6EfVqnVUl73t6LbtyAclI4P2C9iIiviEMf1oeEtu5WUMZuDCCyOXG?=
+ =?us-ascii?Q?xrQ0LmYQuoAEadGnKTXz/vXqNdCqpNIH2AIQxRpnHIkfUnfUlhnzcCAFp/nG?=
+ =?us-ascii?Q?5V+wGg0t8pmERD93Mx4SVXMOa9Ujq+yYfnCoYEtleX2dYqPyZiEnR1ojyxFc?=
+ =?us-ascii?Q?dToJcVZEVHxH6V2lvG6W8+s8UYiT3XWHziyUWc6Mi2rvEAmMjf+g7HOZr7NT?=
+ =?us-ascii?Q?eH1pV/sESau+JH1T7VsSnvEXyGHxsedIGnPcjFXdsdanOtDxcOWrxxFWERCV?=
+ =?us-ascii?Q?ekPdVwEIpT3HD0H7aFRVqCzDVODaN1UQaqhSyEVOVS46H9A6nO6Hd1VVmJPu?=
+ =?us-ascii?Q?87pXwECh0W1MtuZzSfBVOwoyZjn+DksieoE5jRQcJ7i0wK7I7YeIkeg1bi1E?=
+ =?us-ascii?Q?s2lV09ofVYcFDtYKJZE9rAfy+sSAbWYPqV2ikdCLCIEpBsYHpkrAQsbWzSei?=
+ =?us-ascii?Q?M7Do/ShickWlPSjtjb8GsSy9t5OPdTGOpFfBXEuSdx8EWQCxi3ctTxF5EjFc?=
+ =?us-ascii?Q?7QsZ8LOk9LX1BeghwbOn9/iWVBk4zo5ezHWkCT6LeEPSy7jMzlsJyMmCPon9?=
+ =?us-ascii?Q?8jCBItdCtsr741sas9fSl/LnCgZRtPNO8n35MgD5d0BEAMphnzmx2/qvymeX?=
+ =?us-ascii?Q?iHIBLF0gutiZAbOH5MN+PeJ1R4bjNnVvElFV8WNP?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce0a1be9-88d6-42b2-ce62-08dd1fb717d1
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 22:55:39.8800
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yvf0BkQk9R2EJvKLO5UzeeuxtmQYV6ZiH+VKcyOmZSSuf9Up3oHiHBxWKWmgxFdt0Wz4fSQHNThcb0IdmOPwCQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4211
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_144951_782568_6DC67A16 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20241218_145545_090416_1AA30419 
+X-CRM114-Status: GOOD (  36.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +166,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 12. Dezember 2024, 18:19:54 CET schrieb Lee Jones:
-> On Thu, 12 Dec 2024, Lee Jones wrote:
-> 
-> > On Thu, 07 Nov 2024 12:47:03 +0100, Heiko Stuebner wrote:
-> > > This implements a set of drivers for the MCU used on QNAP NAS devices.
-> > > 
-> > > Of course no documentation for the serial protocol is available, so
-> > > thankfully QNAP has a tool on their rescue-inird to talk to the MCU and
-> > > I found interceptty [0] to listen to what goes over the serial connection.
-> > > 
-> > > In general it looks like there are two different generations in general,
-> > > an "EC" device and now this "MCU" - referenced in the strings of the
-> > > userspace handlers for those devices.
-> > > 
-> > > [...]
+On Tue, Dec 17, 2024 at 11:27:13PM +0100, David Hildenbrand wrote:
+> On 17.12.24 06:12, Alistair Popple wrote:
+> > The rmap doesn't currently support adding a PUD mapping of a
+> > folio. This patch adds support for entire PUD mappings of folios,
+> > primarily to allow for more standard refcounting of device DAX
+> > folios. Currently DAX is the only user of this and it doesn't require
+> > support for partially mapped PUD-sized folios so we don't support for
+> > that for now.
 > > 
-> > Applied, thanks!
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
 > > 
-> > [1/9] HID: hid-sensor-hub: don't use stale platform-data on remove
-> >       commit: e079a120f31e3f9c00180aa13c1df18cc138f7fe
-> > [2/9] mfd: core: make platform_data pointer const in struct mfd_cell
-> >       commit: 8f4009ad901c44f0428dbde654c4dd1fb29c863b
-> > [3/9] dt-bindings: mfd: add binding for qnap,ts433-mcu devices
-> >       commit: 8877bcff3e3b4f08a1fc0232dbfdaeda085cfdf3
-> > [4/9] mfd: add base driver for qnap-mcu devices
-> >       commit: 944ca826f69e4723853b3876875b03aeafe67b60
-> > [5/9] leds: add driver for LEDs from qnap-mcu devices
-> >       commit: fe6a21ee38f12e3e5f9adbd2f9a840be105b943f
-> > [6/9] Input: add driver for the input part of qnap-mcu devices
-> >       commit: 4b27e0da257371d3d141fae38fdbdc3c3a67bce6
-> > [7/9] hwmon: add driver for the hwmon parts of qnap-mcu devices
-> >       commit: 41755872a8a8ab8d1644459d9634c53b743fe2be
+> > ---
+> > 
+> > David - Thanks for your previous comments, I'm less familiar with the
+> > rmap code so I would appreciate you taking another look. In particular
+> > I haven't added a stat for PUD mapped folios as it seemed like
+> > overkill for just the device DAX case but let me know if you think
+> > otherwise.
+> > 
+> > Changes for v4:
+> > 
+> >   - New for v4, split out rmap changes as suggested by David.
+> > ---
+> >   include/linux/rmap.h | 15 ++++++++++++-
+> >   mm/rmap.c            | 56 +++++++++++++++++++++++++++++++++++++++++++++-
+> >   2 files changed, 71 insertions(+)
+> > 
+> > diff --git a/include/linux/rmap.h b/include/linux/rmap.h
+> > index 683a040..7043914 100644
+> > --- a/include/linux/rmap.h
+> > +++ b/include/linux/rmap.h
+> > @@ -192,6 +192,7 @@ typedef int __bitwise rmap_t;
+> >   enum rmap_level {
+> >   	RMAP_LEVEL_PTE = 0,
+> >   	RMAP_LEVEL_PMD,
+> > +	RMAP_LEVEL_PUD,
+> >   };
+> >   static inline void __folio_rmap_sanity_checks(const struct folio *folio,
+> > @@ -228,6 +229,14 @@ static inline void __folio_rmap_sanity_checks(const struct folio *folio,
+> >   		VM_WARN_ON_FOLIO(folio_nr_pages(folio) != HPAGE_PMD_NR, folio);
+> >   		VM_WARN_ON_FOLIO(nr_pages != HPAGE_PMD_NR, folio);
+> >   		break;
+> > +	case RMAP_LEVEL_PUD:
+> > +		/*
+> > +		 * Assume that we are creating * a single "entire" mapping of the
+> > +		 * folio.
+> > +		 */
+> > +		VM_WARN_ON_FOLIO(folio_nr_pages(folio) != HPAGE_PUD_NR, folio);
+> > +		VM_WARN_ON_FOLIO(nr_pages != HPAGE_PUD_NR, folio);
+> > +		break;
+> >   	default:
+> >   		VM_WARN_ON_ONCE(true);
+> >   	}
+> > @@ -251,12 +260,16 @@ void folio_add_file_rmap_ptes(struct folio *, struct page *, int nr_pages,
+> >   	folio_add_file_rmap_ptes(folio, page, 1, vma)
+> >   void folio_add_file_rmap_pmd(struct folio *, struct page *,
+> >   		struct vm_area_struct *);
+> > +void folio_add_file_rmap_pud(struct folio *, struct page *,
+> > +		struct vm_area_struct *);
+> >   void folio_remove_rmap_ptes(struct folio *, struct page *, int nr_pages,
+> >   		struct vm_area_struct *);
+> >   #define folio_remove_rmap_pte(folio, page, vma) \
+> >   	folio_remove_rmap_ptes(folio, page, 1, vma)
+> >   void folio_remove_rmap_pmd(struct folio *, struct page *,
+> >   		struct vm_area_struct *);
+> > +void folio_remove_rmap_pud(struct folio *, struct page *,
+> > +		struct vm_area_struct *);
+> >   void hugetlb_add_anon_rmap(struct folio *, struct vm_area_struct *,
+> >   		unsigned long address, rmap_t flags);
+> > @@ -341,6 +354,7 @@ static __always_inline void __folio_dup_file_rmap(struct folio *folio,
+> >   		atomic_add(orig_nr_pages, &folio->_large_mapcount);
+> >   		break;
+> >   	case RMAP_LEVEL_PMD:
+> > +	case RMAP_LEVEL_PUD:
+> >   		atomic_inc(&folio->_entire_mapcount);
+> >   		atomic_inc(&folio->_large_mapcount);
+> >   		break;
+> > @@ -437,6 +451,7 @@ static __always_inline int __folio_try_dup_anon_rmap(struct folio *folio,
+> >   		atomic_add(orig_nr_pages, &folio->_large_mapcount);
+> >   		break;
+> >   	case RMAP_LEVEL_PMD:
+> > +	case RMAP_LEVEL_PUD:
+> >   		if (PageAnonExclusive(page)) {
+> >   			if (unlikely(maybe_pinned))
+> >   				return -EBUSY;
+> > diff --git a/mm/rmap.c b/mm/rmap.c
+> > index c6c4d4e..39d0439 100644
+> > --- a/mm/rmap.c
+> > +++ b/mm/rmap.c
+> > @@ -1203,6 +1203,11 @@ static __always_inline unsigned int __folio_add_rmap(struct folio *folio,
+> >   		}
+> >   		atomic_inc(&folio->_large_mapcount);
+> >   		break;
+> > +	case RMAP_LEVEL_PUD:
+> > +		/* We only support entire mappings of PUD sized folios in rmap */
+> > +		atomic_inc(&folio->_entire_mapcount);
+> > +		atomic_inc(&folio->_large_mapcount);
+> > +		break;
 > 
-> Once build testing is complete, I'll send out a PR.
+> 
+> This way you don't account the pages at all as mapped, whereby PTE-mapping it
+> would? And IIRC, these PUD-sized pages can be either mapped using PTEs or
+> using a single PUD.
 
-thanks a lot for picking up the driver patches.
+Oh good point. I was thinking that because we don't account PUD mappings today
+that it would be fine to ignore them. But of course this series means we start
+accounting them if mapped with PTEs so agree we should be consistent.
+ 
+> I suspect what you want is to
 
-Heiko
+Yes, I think so. Thanks for the hint. I will be out over the Christmas break but
+will do a respin to incorporate this before then.
 
-
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index c6c4d4ea29a7e..1477028d3a176 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -1187,12 +1187,19 @@ static __always_inline unsigned int __folio_add_rmap(struct folio *folio,
+>                 atomic_add(orig_nr_pages, &folio->_large_mapcount);
+>                 break;
+>         case RMAP_LEVEL_PMD:
+> +       case RMAP_LEVEL_PUD:
+>                 first = atomic_inc_and_test(&folio->_entire_mapcount);
+>                 if (first) {
+>                         nr = atomic_add_return_relaxed(ENTIRELY_MAPPED, mapped);
+>                         if (likely(nr < ENTIRELY_MAPPED + ENTIRELY_MAPPED)) {
+> -                               *nr_pmdmapped = folio_nr_pages(folio);
+> -                               nr = *nr_pmdmapped - (nr & FOLIO_PAGES_MAPPED);
+> +                               nr_pages = folio_nr_pages(folio);
+> +                               /*
+> +                                * We only track PMD mappings of PMD-sized
+> +                                * folios separately.
+> +                                */
+> +                               if (level == RMAP_LEVEL_PMD)
+> +                                       *nr_pmdmapped = nr_pages;
+> +                               nr = nr_pages - (nr & FOLIO_PAGES_MAPPED);
+>                                 /* Raced ahead of a remove and another add? */
+>                                 if (unlikely(nr < 0))
+>                                         nr = 0;
+> 
+> Similar on the removal path.
+> 
+> 
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
