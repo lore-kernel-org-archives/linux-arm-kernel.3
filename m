@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D76E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 07:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DCDE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 07:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G7OyGeVhZnbClojdUY/8BygxbsEIReJurkJRAUyyzPs=; b=fVXw8sEKygq6N5tz3zGu0B5QA3
-	pvlCDfLb2alVLehiw17PXpLHPtOeUYyM4Vw4AWt38r6hj+oQPxgwU/GnBKL8aE24bMAETo8Tt19ou
-	bkTY9CSj1KN2LRGWhBoGfwil7XrCbqiZwFp5H3yG99KGttw81PrtZYEthDPpFHnOR1LdvZhoN/N+u
-	t4HNI1SSbBhKIFpTBfBuH0Bgb3xCzvY1ILRjGvCoUAYxr7cWaqyYGpMAs6FDUhX+udpOhYn8g+OOX
-	lg4K0rkFjGT5ef9inrvVypPl0oDeFSzk6Ur88BVYV1RC8uGN9V6QC0fFPtk/VGvbtx/yg+Em7x6bf
-	NfrtRvgw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NIl8KJU4AFGK++LUrvxKZGMaRIqLeF4mmkrx2qRDW2Q=; b=xR2rNBXuJKOay9ApfYnDqX7otK
+	TnkVxvms9cXUw9q7OkUdeWFkC6RuZe6xb3K3WKdL/PtmBSEA+gsmpxJsNDciJh2v4ECcUbcZCeVO8
+	oDuFuls4Z4tuWuPTr+wcCPfKRLLsdy2YiL5hZ9bdBHiSQ96/nObVetJKOcoLbjSRjqc/p8PY/pZFG
+	3PsPspF/B0Ow91p79t9oKP+b6/Sw4deAeF72dtRERn2axa03uXDmbkdaXf/eBgQAmjrlgcZvDXWc9
+	SDRy7+fIHhi78eDvFWtZrJt5WT362u+qS3qaNGJDXrHvluJ61u4OoIFa7jNKb1xdSblG7IFuDuuJj
+	mCLH2IOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNo2R-0000000Fm8z-0rZv;
-	Wed, 18 Dec 2024 07:00:07 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNo1K-0000000Fm2r-0mQ3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 06:58:59 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2162c0f6a39so3973195ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 22:58:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734505136; x=1735109936; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=G7OyGeVhZnbClojdUY/8BygxbsEIReJurkJRAUyyzPs=;
-        b=cI2Ze6Ga8DdNVRRKbAlWJovoijgjuBy9wuk+F86kZVThGEyJQsw7V47I+bmNX0QEK8
-         f2ZCFMUaMx7OHkAPRGvj+kKfG5D8lvLI2+d4fXNAs3LtY5dlf8uyIky9j8qX5Xr9C8ov
-         LBWywVz3+pJzCxIkm1aGqGdujD5l7N/+ty0TiO6BbZ6XrY3maOuaeWIvIhfp/C7iN71W
-         Ds7Brihr5Y+lj3wytQdxL3cVTb0bBTEyQ2cmqVSTvqbHvjvX4V8iJmxyrFy0oFjRTZmE
-         2wgOo290nTqit4RXK3F1EfgXjCR/bzgyj9DkwNfXLm4g5Jjn6jX+EvwxspDSyIkDpf1e
-         Z4XQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734505136; x=1735109936;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G7OyGeVhZnbClojdUY/8BygxbsEIReJurkJRAUyyzPs=;
-        b=ed0U2E6rKu/3M8KonKlyXL0/Suzc0EZ0Z6gFygQB21Lrppx7myqCmUtI3PxSg4GJ1F
-         LziMVtebjfc8qgVhPFKnRrIGLA4z6RkD+ueBJTzpj3rQdcH6WZRv7eZdZPcXxkaJpUeA
-         V7j6WxnreZsSOTb9lx2sKcidpGNtI5FNAh/sVP7lJShtHPn3jEIo0Emqg8iU+VQAzOrV
-         dVpKp4coVoUrWNR5+XPgWhJuliTrj5RF9yDJSSRYLJ0p/BLTHtnXPAP0CWOtyu3e0iNo
-         WxsCPW1ifBFsYSvXek07lNxAuwXbSxNksWHNsz0WLn4n65XR5Gkj/1GA8mAM4XxYLKnp
-         NYMA==
-X-Gm-Message-State: AOJu0YyJzUKzCx7hFkJ7BG7CuOvzzQCqbTNg8ohFmbbKMpUy5cc+utOB
-	YgArQ043OWpf20/ZIFMSjIepzKBJ38yAmuKN1clLvKz3RXWtqEnL85uxsws+
-X-Gm-Gg: ASbGncubN2eIsr7EJtQ5m8xI+WIf/H7v+KXy26pLYZm6wMD50mFFes+7doSy4wqZ3fW
-	xxa/sc8gSJzGg5xbbFlRlkYPb+oLqrn+GHdNWUp3vxHUEz9q2DRi+246FIa/hw8p92ogIcS4r70
-	lHyjwAKKiCo5BA+9oqjvvJ3l9HNhizQEGjLFL40nt9nb0D9Wkkw/bTCWopot6ARUrP9mjMtql1N
-	QzKGFdFtWFlEapoFDnUqF8VPWP6XKDE93detoxyAMblsRFFAYP7k8dLgToEtIrNzWejei7Cx2w=
-X-Google-Smtp-Source: AGHT+IHunQCrzWf6//mYuxztn8NEiaAD9Ml9awTqJKWllifBwWP+aLkVLEmXDq4OtDZBfs8D/HK9sw==
-X-Received: by 2002:a17:902:c942:b0:215:758c:52ea with SMTP id d9443c01a7336-218d729200emr25585305ad.9.1734505136487;
-        Tue, 17 Dec 2024 22:58:56 -0800 (PST)
-Received: from localhost.localdomain ([103.158.43.22])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e652bfsm69192275ad.243.2024.12.17.22.58.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2024 22:58:56 -0800 (PST)
-From: Poojaa R <poojaamonica94@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	Poojaa R <poojaamonica94@gmail.com>
-Subject: [PATCH] dtoverlays: Added DT overlay file for MAX98090 and the detailed steps for its usage is included in https://github.com/Poojaa-Rangaiah/DeviceTreeOverlay-for-MAX98090 .
-Date: Wed, 18 Dec 2024 12:28:48 +0530
-Message-Id: <20241218065848.12254-1-poojaamonica94@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tNo3V-0000000FmJw-3JkJ;
+	Wed, 18 Dec 2024 07:01:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNo2B-0000000Fm6U-35Pf;
+	Wed, 18 Dec 2024 06:59:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 39DF8FEC;
+	Tue, 17 Dec 2024 23:00:18 -0800 (PST)
+Received: from [10.163.50.13] (unknown [10.163.50.13])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E7733F720;
+	Tue, 17 Dec 2024 22:59:43 -0800 (PST)
+Message-ID: <27980882-4433-443f-abd1-ea5d96b687ea@arm.com>
+Date: Wed, 18 Dec 2024 12:29:40 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/ptdump: Drop GENERIC_PTDUMP
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, linux-mm@kvack.org
+Cc: steven.price@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20241217034807.2541349-1-anshuman.khandual@arm.com>
+ <ddd4439e-6f6f-4513-a7dc-b7f01bec03dc@csgroup.eu>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <ddd4439e-6f6f-4513-a7dc-b7f01bec03dc@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_225858_245218_3C417E0B 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20241217_225951_856943_C850F260 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +74,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only the driver files were existing for max98090 audio codec (playback and capture) but now the max98090.dts file is also included in linux/arch/arm/boot/dts/overlays/.
-new file:   arch/arm/boot/dts/overlays/max98090.dts
 
-Signed-off-by: Poojaa R <poojaamonica94@gmail.com>
----
- arch/arm/boot/dts/overlays/max98090.dts | 96 +++++++++++++++++++++++++
- 1 file changed, 96 insertions(+)
- create mode 100644 arch/arm/boot/dts/overlays/max98090.dts
 
-diff --git a/arch/arm/boot/dts/overlays/max98090.dts b/arch/arm/boot/dts/overlays/max98090.dts
-new file mode 100644
-index 000000000000..eaf197384edb
---- /dev/null
-+++ b/arch/arm/boot/dts/overlays/max98090.dts
-@@ -0,0 +1,96 @@
-+/*
-+ * Device Tree Overlay for MAX98090, MAX98091 Audio Codec.
-+ * https://github.com/Poojaa-Rangaiah/DeviceTreeOverlay-for-MAX98090 => for more details.
-+ * MAX98090 audio codec as master and Raspberry Pi as slave.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+/ {
-+    compatible = "brcm,bcm2835", "brcm,bcm2711";
-+
-+    fragment@0 {
-+        target = <&i2s_clk_consumer>;
-+        __overlay__ {
-+            status = "okay";
-+        };
-+    };
-+
-+    fragment@1 {
-+        target = <&i2c1>;
-+        __overlay__ {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            status = "okay";
-+            max98090_codec: max98090@10 {
-+                #sound-dai-cells = <0>;
-+                compatible = "maxim,max98090","maxim,max98091";
-+                reg = <0x10>;
-+                interrupt-parent = <&gpio>;
-+                interrupts = <27 2>;	/* GPIO 27 as Edge_Falling_IRQ (2) */
-+                maxim,micbias = <3>;
-+                status = "okay";
-+            };
-+        };
-+    };
-+
-+    fragment@2 {
-+        target-path = "/";
-+        __overlay__ {
-+            clk_oscillator: oscillator {
-+                compatible = "fixed-clock";
-+                #clock-cells = <0>;
-+                clock-frequency = <12288000>;  /* Frequency of the external oscillator (mclk = 12.288 MHz) but can also be 11.2896 MHz/12 MHz/13 MHz/26 MHz/19.2 MHz. */
-+                clock-output-names = "mclk";
-+            };
-+        };
-+    };
-+
-+    fragment@3 {
-+        target = <&sound>;
-+        sound_overlay: __overlay__ {
-+            compatible = "simple-audio-card";
-+            simple-audio-card,format = "i2s";
-+            simple-audio-card,name = "MAX98090-Codec";
-+            simple-audio-card,bitclock-master = <&dailink0_master>;
-+            simple-audio-card,frame-master = <&dailink0_master>;
-+
-+            simple-audio-card,widgets =
-+                "Microphone", "Mic Jack",
-+                "Speaker", "Speaker",
-+                "Line", "Line In",
-+                "Line", "Line Out",
-+                "Headphone", "Headphone Jack";
-+
-+            simple-audio-card,routing =
-+                "Headphone Jack", "HPL",
-+                "Headphone Jack", "HPR",
-+                "Line Out", "RCVL",
-+                "Line Out", "RCVR", 
-+                /* Uncomment any of these below lines if the Line Input(s) is(are) used else leave it as such. */
-+                //"IN5", "Line In",  /* IN1/IN2/IN3/IN4/IN6 (For single ended input) */
-+                //"IN56", "Line In", /* IN34 (For differential inputs) */
-+                "MIC1", "Mic Jack",
-+                "MIC2", "Mic Jack",
-+                "Speaker", "SPKL",
-+                "Speaker", "SPKR";
-+
-+            status = "okay";
-+
-+            simple-audio-card,cpu {
-+                sound-dai = <&i2s_clk_consumer>;
-+            };
-+
-+            dailink0_master: simple-audio-card,codec {
-+                sound-dai = <&max98090_codec>;
-+                clocks = <&clk_oscillator>;
-+            };
-+        };
-+    };
-+    
-+    __overrides__ {
-+        card-name = <&sound_overlay>, "simple-audio-card,name";
-+    };
-+};
-+
--- 
-2.34.1
+On 12/17/24 13:17, Christophe Leroy wrote:
+> 
+> 
+> Le 17/12/2024 à 04:48, Anshuman Khandual a écrit :
+>> GENERIC_PTDUMP does not guard any code but instead just used for platform's
+>> subscription into core ptdump defined under PTDUMP_CORE, which is selected.
+>> Instead use PTDUMP_CORE for platform subscription and drop GENERIC_PTDUMP.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Jonathan Corbet <corbet@lwn.net>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Michael Ellerman <mpe@ellerman.id.au>
+>> Cc: Nicholas Piggin <npiggin@gmail.com>
+>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>> Cc: Heiko Carstens <hca@linux.ibm.com>
+>> Cc: Vasily Gorbik <gor@linux.ibm.com>
+>> Cc: Thomas Gleixner <tglx@linutronix.de>
+>> Cc: Ingo Molnar <mingo@redhat.com>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-doc@vger.kernel.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linuxppc-dev@lists.ozlabs.org
+>> Cc: linux-riscv@lists.infradead.org
+>> Cc: linux-s390@vger.kernel.org
+>> Cc: linux-mm@kvack.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> This patch applies on v6.13-rc3 and has been tested on arm64, although it
+>> also clears build tests on impacted platforms.
+>>
+>>   Documentation/arch/arm64/ptdump.rst       | 1 -
+>>   arch/arm64/Kconfig                        | 2 +-
+>>   arch/arm64/kvm/Kconfig                    | 3 +--
+>>   arch/powerpc/Kconfig                      | 2 +-
+>>   arch/powerpc/configs/mpc885_ads_defconfig | 1 -
+>>   arch/riscv/Kconfig                        | 2 +-
+>>   arch/s390/Kconfig                         | 2 +-
+>>   arch/x86/Kconfig                          | 2 +-
+>>   arch/x86/Kconfig.debug                    | 2 +-
+>>   kernel/configs/debug.config               | 1 -
+>>   mm/Kconfig.debug                          | 8 ++------
+>>   11 files changed, 9 insertions(+), 17 deletions(-)
+>>
+> 
+>> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+>> index a0ce777f9706..c716f8df10de 100644
+>> --- a/arch/powerpc/Kconfig
+>> +++ b/arch/powerpc/Kconfig
+>> @@ -203,7 +203,7 @@ config PPC
+>>       select GENERIC_IRQ_SHOW
+>>       select GENERIC_IRQ_SHOW_LEVEL
+>>       select GENERIC_PCI_IOMAP        if PCI
+>> -    select GENERIC_PTDUMP
+>> +    select PTDUMP_CORE
+> 
+> Please keep alphabetical order.
 
+Sure, will do that.
+
+> 
+>>       select GENERIC_SMP_IDLE_THREAD
+>>       select GENERIC_TIME_VSYSCALL
+>>       select GENERIC_VDSO_TIME_NS
+> 
+>> diff --git a/mm/Kconfig.debug b/mm/Kconfig.debug
+>> index 41a58536531d..b206e5a11f96 100644
+>> --- a/mm/Kconfig.debug
+>> +++ b/mm/Kconfig.debug
+>> @@ -187,7 +187,7 @@ config DEBUG_WX
+>>       bool "Warn on W+X mappings at boot"
+>>       depends on ARCH_HAS_DEBUG_WX
+>>       depends on MMU
+>> -    select PTDUMP_CORE
+>> +    depends on PTDUMP_CORE
+> 
+> This change is unclear to me. It works because all arch selecting ARCH_HAS_DEBUG_WX also select GENERIC_PTDUMP. For riscv it's even more tricking, Riscv only selects GENERIC_PTDUMP when MMU is set, so it works because here it also depends on MMU.
+
+Right, all the archs selecting ARCH_HAS_DEBUG_WX also select PTDUMP_CORE.
+DEBUG_WX dependency on PTDUMP_CORE will always be met, when the platform
+selects ARCH_HAS_DEBUG_WX as expected.
+
+git grep "select PTDUMP_CORE" arch/
+arch/arm64/Kconfig:     select PTDUMP_CORE
+arch/powerpc/Kconfig:   select PTDUMP_CORE
+arch/riscv/Kconfig:     select PTDUMP_CORE if MMU
+arch/s390/Kconfig:      select PTDUMP_CORE
+arch/x86/Kconfig:       select PTDUMP_CORE
+
+git grep ARCH_HAS_DEBUG_WX arch/
+arch/arm64/Kconfig:     select ARCH_HAS_DEBUG_WX
+arch/powerpc/Kconfig:   select ARCH_HAS_DEBUG_WX                if STRICT_KERNEL_RWX
+arch/riscv/Kconfig:     select ARCH_HAS_DEBUG_WX
+arch/s390/Kconfig:      select ARCH_HAS_DEBUG_WX
+arch/x86/Kconfig:       select ARCH_HAS_DEBUG_WX
+
+On riscv platform, does not PTDUMP_CORE implicitly imply existence of MMU ?
+Could there be a page table dumper without a MMU.
+
+> 
+> But what happens if in the future an architecture selects ARCH_HAS_DEBUG_WX without selecting PTDUMP_CORE ?
+
+Should DEBUG_WX just select PTDUMP_CORE as it exists now. A platform
+will be able to get PTDUMP_CORE via DEBUG_WX if ARCH_HAS_DEBUG_WX is
+subscribed into. Would that be better ?
+
+> 
+> 
+>>       help
+>>         Generate a warning if any W+X mappings are found at boot.
+>>   @@ -212,9 +212,6 @@ config DEBUG_WX
+>>           If in doubt, say "Y".
+>>   -config GENERIC_PTDUMP
+>> -    bool
+>> -
+>>   config PTDUMP_CORE
+>>       bool
+>>   @@ -222,8 +219,7 @@ config PTDUMP_DEBUGFS
+>>       bool "Export kernel pagetable layout to userspace via debugfs"
+>>       depends on DEBUG_KERNEL
+>>       depends on DEBUG_FS
+>> -    depends on GENERIC_PTDUMP
+>> -    select PTDUMP_CORE
+>> +    depends on PTDUMP_CORE
+>>       help
+>>         Say Y here if you want to show the kernel pagetable layout in a
+>>         debugfs file. This information is only useful for kernel developers
+> 
 
