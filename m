@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCADFE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F976E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSHc2ApB1snPUa7jcz/r5fBTNNzq7YKYrFNPntkx7ik=; b=SkeZ4X1GP8Am42LGKPdsR+pUh2
-	GrZZ0SvISqXx+TfMSGl0XoTzyF/h+Gnumz2zzKorudO6t1Ey+rCZjnC+2FZmAMbZP+CWv4vIu/2Bs
-	7HDY4/3cLVKmvq6dXzSwHp7+vsENc4tCmJhRUjmwpwll4s91U2jkK9syfgQrBRMZo39LfvQgAdfoJ
-	EPGnFlDG1a3IGqm1Utm8OxgkKEopeDPY/0igbKtuTVuyVrycG3CCFz6UTXWs9pifFQTWJZLpBdep1
-	JcRERWr3FZhpX5QYrMFu6OkmF/aIVMDyZyI54jOpsZKfUiDlupDZCEbryFe/Wc08/iq8Kxd7o7HYT
-	jwSV3mtw==;
+	bh=A+MEtWqv+jtuMkcOt3EU3LJknR9R8KvXbro2h2nqPjw=; b=M6IATZfw4EZU0ak5ftYqqd5Gk/
+	rcbtBYBQkvAd59dCqKYCvhhn1ZCz/UGlwwmpr+qFbMgwSkFiNdRPL11zNa+8Agvmna8V8SpaSYdxv
+	IhTXIkUjc5ZJWNjn64moU42B5pVzRB8nj2tQcctJ4hV4HN8pWXpvbS+L2Uux0ZqfePwJprOrvofXL
+	wDjaQ1ovI4vP+6e0hgY9d6NL40qqnK0q0SYpWZ9l0inCoc0wJnbKIeYB87cx1aJZvJ9m2/IxPeWo6
+	9DLvVLIq5jNinBDm4Av6rsPNg7cZhKFQ+EiojXXmbrkC303Qt9Ig2IwkJelplPNzfrB6StxG8SxHa
+	2x2qA9mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvzi-0000000H1HX-0DpG;
-	Wed, 18 Dec 2024 15:29:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tNw0t-0000000H1Xv-31HH;
+	Wed, 18 Dec 2024 15:31:03 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvyb-0000000H1CP-2zGQ
+	id 1tNvzj-0000000H1HS-1TBc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 15:28:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1734535720;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sSHc2ApB1snPUa7jcz/r5fBTNNzq7YKYrFNPntkx7ik=;
-	b=E4DBZ79NrZCtKkFQAbdAzRLTzUwV8I4tRjr0l2wfg3ol8/GD2l0ZsrXj/Y5l1ZntvRREVK
-	8rS5T7B4aorm9N/d7bHQ8ETOiYXCuB2RfxjRzPbdlh+Sfy103fAmxN/BvvgkGxywfq1Rni
-	VPEfpRarnYuDsszK4qpeK/3rpQ2HMQQ=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-244-DIKrGDkbMlWN1N0LmrDzoQ-1; Wed, 18 Dec 2024 10:28:39 -0500
-X-MC-Unique: DIKrGDkbMlWN1N0LmrDzoQ-1
-X-Mimecast-MFC-AGG-ID: DIKrGDkbMlWN1N0LmrDzoQ
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3862c67763dso2794417f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 07:28:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734535717; x=1735140517;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sSHc2ApB1snPUa7jcz/r5fBTNNzq7YKYrFNPntkx7ik=;
-        b=k7vUIXNhi5YFqE9c7rYbMiPaY+fKbmwjs4sL+FgOlpRVf/NwxvMsAOv7wqDbIMmSYN
-         WuANF8/xzmuyi4amnIoqpYU0nujhnPrrNYP2/k5FwE3jD/092QWa5GMwIoSxC2dYXIlh
-         P7WHWTX3U/55H46k9DP6N0HyX/q1BB6+Qg0cU189QtaWUqi/W24w1tajctrqwowlzU0s
-         KWH/61bWW9zRZCfJ7g2l4znlF03MyVd0V+kxdDrEJCZZ6fnFloTN6NdvFazdd4wvl+FX
-         FvoYWkVVym8s1frPM5ptktkGE7Kcwiz4cQV7rw+WRuargTuRNxuJ5P5Jvx7H//bzsfUe
-         OSzg==
-X-Forwarded-Encrypted: i=1; AJvYcCX8PjjWd7Mule2O+Z9DmKK0jEYO6gTs3Tgt12pecKqHiLrAeAH03Kdu3o4/qh1ZmyQQ6LqKr++muOiRbCOmDj0I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB5mZ2uN5q6NYHstCAfDa02PN9zy80bEq2exMLpiV7vS9wYsex
-	vo0CPL/OVh+9IifoQ1DrGIRd6susfl+ceCCT9cN8IxY3olFv4y/h36FKhMmHLaTSb0NOZkKhXyt
-	n6W6EO+kYucuk704WhN5VFU6MHoIMRja+KH+R+PwmnWDZAE7v2roM74Mi+QvngWhtmYWcv8QTUB
-	kGKL12
-X-Gm-Gg: ASbGncvEqN3vYo2wPkdQ2eeCQkkMbntCk8nlVfiSJZRrlIqf4yp7E5W3oiXey9SXwDx
-	8DbLSwkeQvdM/AUjVt4F1+Cg6i2c3hVers3PnsNZBqpDzcjV/A47x0r7jeUPivsNwGAWkoRYFqM
-	78TJEd/Lqd94PpyC7d42rhS8dz2TZXLgz8mLMDyyPWK99KuOojzyarX2qWeYwybPS+XicQXY0VH
-	g3aeq/G4zGGAjcZDnkzmbocSdQdRJsBwNwiTNej/aMhpWZCxmE9DMMuiV8ZnLqZ6zpg9nAhybh7
-	XHg1mbR35Yw5pOjYRokw/rQ=
-X-Received: by 2002:a5d:598d:0:b0:386:3dad:8147 with SMTP id ffacd0b85a97d-388e4d7ac44mr3121384f8f.32.1734535717307;
-        Wed, 18 Dec 2024 07:28:37 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGiv6kndOmgGJnN1137+7Dkjb518FlpmJgWwNyVe8dpcrKXQzcp17NV0VYD+o/4evBLu6qqIg==
-X-Received: by 2002:a5d:598d:0:b0:386:3dad:8147 with SMTP id ffacd0b85a97d-388e4d7ac44mr3121369f8f.32.1734535717021;
-        Wed, 18 Dec 2024 07:28:37 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c801a8bbsm14342588f8f.56.2024.12.18.07.28.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Dec 2024 07:28:36 -0800 (PST)
-Message-ID: <a7988236-eb81-406d-a74a-5ad1355981e3@redhat.com>
-Date: Wed, 18 Dec 2024 16:28:34 +0100
+	Wed, 18 Dec 2024 15:29:52 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D80F0BFB70;
+	Wed, 18 Dec 2024 16:29:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
+	t=1734535786; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=A+MEtWqv+jtuMkcOt3EU3LJknR9R8KvXbro2h2nqPjw=;
+	b=zTTNS0Ekiu3XFX9gHx6F0jaivYzGs4wdcpgnCHwLtjWnAeINTdfGHJccOgQiDD1PGJem0R
+	fzpbonJQFl94z6tF6/owTw/85uW3gRHHPN+VBNYM0+M0B2s3IqvrZHLJ8+ISIwbOMh00mv
+	k1KTIKGV+e/xC0sp2q2EUIemqAWmej2woXCVxC3e3Kmp6S/8YJwgBjDiMNbQzpjlPzE0pz
+	aQD8o5Pe0a5Z7jjbB/1EGSV6uZCzb2fNqfr15CuMLet8N8gAQWoNBl8vrxqraM2jl9Lo88
+	/NGmGne1M+DSYtZx91mUnc+5W4Q8CNXzdPCWozo1r1gyiRlI8pcJqQt5LoCAiw==
+From: Frieder Schrempf <frieder@fris.de>
+To: linux-arm-kernel@lists.infradead.org,
+	Marek Vasut <marex@denx.de>,
+	Conor Dooley <conor@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v3 2/9] arm64: dts: imx8mp-skov-reva: Use hardware signal for SD card VSELECT
+Date: Wed, 18 Dec 2024 16:27:25 +0100
+Message-ID: <20241218152842.97483-3-frieder@fris.de>
+In-Reply-To: <20241218152842.97483-1-frieder@fris.de>
+References: <20241218152842.97483-1-frieder@fris.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 11/46] arm64/sysreg: Add register fields for PMSIDR_EL1
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, maz@kernel.org
-Cc: ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-12-anshuman.khandual@arm.com>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <20241210055311.780688-12-anshuman.khandual@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: SDxNCzwHoF4REDNCRDxUY2nY__SZI9SwDOr6ROsHGus_1734535718
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_072841_823484_798BD277 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20241218_072951_527698_63DE31D9 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,58 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
+The USDHC controller is able to control the IO voltage of the SD card.
+There is no reason to use a GPIO to control it.
 
-On 12/10/24 06:52, Anshuman Khandual wrote:
-> This adds register fields for PMSIDR_EL1 as per the definitions based
-> on DDI0601 2024-09.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Eric Auger <eric.auger@redhat.com>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+Changes for v3:
+* Rebase to next-20241218
 
-Eric
-> ---
->  arch/arm64/tools/sysreg | 16 ++++++++++++++--
->  1 file changed, 14 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index be0091060350..a5e31e4c4474 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -2172,7 +2172,16 @@ Field	15:0	MINLAT
->  EndSysreg
->  
->  Sysreg	PMSIDR_EL1	3	0	9	9	7
-> -Res0	63:25
-> +Res0	63:33
-> +Field	32	SME
-> +UnsignedEnum	31:28	ALTCLK
-> +	0b0000	NI
-> +	0b0001	IMP
-> +	0b1111	IMP_DEF
-> +EndEnum
-> +Field	27	FPF
-> +Field	26	EFT
-> +Field	25	CRR
->  Field	24	PBT
->  Field	23:20	FORMAT
->  Enum	19:16	COUNTSIZE
-> @@ -2190,7 +2199,10 @@ Enum	11:8	INTERVAL
->  	0b0111	3072
->  	0b1000	4096
->  EndEnum
-> -Res0	7
-> +UnsignedEnum	7	FDS
-> +	0b0	NI
-> +	0b1	IMP
-> +EndEnum
->  Field	6	FnE
->  Field	5	ERND
->  Field	4	LDS
+Changes for v2:
+* new patch
+---
+ arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+index 59813ef8e2bb3..33031e946329d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+@@ -232,7 +232,6 @@ pmic@25 {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_pmic>;
+ 		interrupts-extended = <&gpio1 3 IRQ_TYPE_EDGE_RISING>;
+-		sd-vsel-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+ 
+ 		regulators {
+ 			reg_vdd_soc: BUCK1 {
+@@ -555,7 +554,6 @@ MX8MP_IOMUXC_I2C4_SDA__I2C4_SDA				0x400001c3
+ 	pinctrl_pmic: pmicirqgrp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03			0x41
+-			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04			0x41
+ 		>;
+ 	};
+ 
+@@ -623,6 +621,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0			0x1d0
+ 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1			0x1d0
+ 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2			0x1d0
+ 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3			0x1d0
++			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT			0xc0
+ 		>;
+ 	};
+ 
+@@ -634,6 +633,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0			0x1d4
+ 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1			0x1d4
+ 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2			0x1d4
+ 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3			0x1d4
++			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT			0xc0
+ 		>;
+ 	};
+ 
+@@ -645,6 +645,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0			0x1d6
+ 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1			0x1d6
+ 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2			0x1d6
+ 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3			0x1d6
++			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT			0xc0
+ 		>;
+ 	};
+ 
+-- 
+2.47.1
 
 
