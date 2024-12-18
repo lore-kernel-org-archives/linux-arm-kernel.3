@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0160CE77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 04:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56573E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 04:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SdRiH2airw9z6ypYrBmUiV3iBfgFtvLtVbmbzSaIe2M=; b=2sC8qE+RSN3Tq3Hsj81mCb+YTm
-	fUlY9aslZnIEGY0movCnuW0nrR1XqDguAB5lel/uKrtTFM/XRQSGkUYeLEAoBN19+/QZpH8DVakvl
-	HOinJ6JErsdFrHA/Y3jMe4Wy/TnpnZq9zlVL0XLFuvmAjRuhDQPN2ZyJMOKZYGMknrsmk+Cip86LT
-	vw1x9qQRQfWVonHhycUQWtz81PRn/WdDoBUpqURcfQ/C7ym4MtmYA6qwXEmE+Y1qu+IYaOGLt7KJv
-	yJB1PCiT6bQ1gZykjI9x6gVFHBj7VeS+7Cg0j4Lio9Rw6LCN4j5HydnKF+qV6LZPWBu43I5yDH1wm
-	dOSWm0eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=anbuEbZW8yvbXFC35C2SRwfKrlOPlxSRe3Xsz2o+b10=; b=PU9JnYMepteL6FT7icIkn/9vSK
+	1Y0N/YdGFsGXb2V9dGFjLQ5XEonpcCa/A6l92Xer8Ksp+cFc58dRFvw10cHpCz+a3YTGg8nREUEYE
+	plC9CPij7/nXff9rlriuv4D3W5+waKWhp6dHQxwGvulGLz2gOIQL6sI+uYEJk7DNY7NY9LE2BDK8J
+	UBnygCvuZVFEKKUWSRjUOMa7ddQuAewIySJvVsUu2RmDrk4wH4549jJpGI8hjx8tU4ppAPKwHMUIC
+	Lo6Spi1rx0WYHthAXbhxBMaGYpKXvQja7Vc+dS+wxVlcFTktaafLYBpfQZ7xQvrsBmCpqYvUgj+b9
+	+JTsQZVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNlEl-0000000FWQb-3X22;
-	Wed, 18 Dec 2024 04:00:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tNlQN-0000000FXG1-0Qe0;
+	Wed, 18 Dec 2024 04:12:39 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNlDg-0000000FWLS-0sAb
+	id 1tNlPH-0000000FX7T-2E3I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 03:59:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1734494372; x=1766030372;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=StsdnWYHV32T75XIBYHABEf0plWnrpE74s1rgUtfdfw=;
-  b=M8eCch4gJ+Sjs/i/eqvAoNxV4MHkk6O4xOxvTUHUycB4aNWbnYW8GGZR
-   kz+JemPtJmWKTsRNfB05CTV8sxKO97X3sgYhGWPldF74fkUWCrdmBTb6x
-   kdUaBk7HatQHfnhw1daijn6GeBbd/6d14h26p2KIaOHdKMA7KHu4T/0ts
-   h0hk199zmiXIhXtsqcg1B3m7JKsEqMxEA9QrAZLwnq1uxcKum1E2pQ1b0
-   o4WNhxJXr9wRXTLtvQ9cOAIu8NkLFG1BpDa5N155nvQzmJQ61UO1Kv8HG
-   F+7Vx9Is4meSlMsGMiYDtiDnebfmkwDK7W1oz0DCkpPlx0F+HE94vNj7B
-   w==;
-X-CSE-ConnectionGUID: 1K4hxExYRu+9DzMqcOCcBQ==
-X-CSE-MsgGUID: 5nSihg91QYWZhSWt6QclKA==
-X-IronPort-AV: E=Sophos;i="6.12,243,1728975600"; 
-   d="scan'208";a="39410548"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Dec 2024 20:59:26 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 17 Dec 2024 20:58:54 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Tue, 17 Dec 2024 20:58:51 -0700
-From: Charan Pedumuru <charan.pedumuru@microchip.com>
-Date: Wed, 18 Dec 2024 09:24:54 +0530
-Subject: [PATCH v2] dt-bindings: mfd: atmel,at91sam9260: Convert to json
- schema
+	Wed, 18 Dec 2024 04:11:32 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-725c86bbae7so5183765b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 20:11:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734495090; x=1735099890; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=anbuEbZW8yvbXFC35C2SRwfKrlOPlxSRe3Xsz2o+b10=;
+        b=GeLK6xKaDvQgo3bOPPzrs6eduJhVZ3yfP1SxucJCHCuSIvvNctLevNjlmb+Mm0+181
+         AB7M9Qp0Hx/d/NtegLCt2FbQu1RoGcHprkTiW63ZfzKX3/ucaTh+zhVW0GBX9LaTc/0U
+         DUPrCESoiBQA6NPZbojriBRoSKFUFD4DwZt7+dyhp5xoX3B5cXQIzGSJohAO12MJWKkJ
+         krMRdeg3sNocDF6I3duMAetviPMc7Acrk6ffFD1O65BAmm1czviF+4iueMsiDohON7Ir
+         5gFjYVCbGSYJI/2BPbLOeHeP8R7BplLyR4Sqm/uY4HINI47GXtdadSzLXBRCJcTmUzWo
+         TJCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734495090; x=1735099890;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=anbuEbZW8yvbXFC35C2SRwfKrlOPlxSRe3Xsz2o+b10=;
+        b=R4aR42txk3KQLstSnJ/Fh5xMqE0RGco+cDjSOPr+s0masw65hmDHYd7YybMtC8tbwB
+         bytUozWj3GRx1SI/w08YdhPZjdjGQZ/3K7VyLEf+23pCCSPMZhrrpxCI1hoIBjzuULNH
+         2FhALrf316Vd78HAPuU5rUX5n0XdsH01An1hsfB9iWpyzFNvJHsaN94lZU+Q9jTQnPWV
+         z+hFy8GsfOs0jgIFh5+QJI0xR4W94/KH8WyC8cg+FQQIAF2D5B7eHLBpa6GOWPNC+dV8
+         G6mmv8rRst/jsDQrbKwmGhrS+VRaT4LHr1wkfcJa9cen2LwYxFF17aIxkyUHQzzwfVpf
+         tUxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVTddxtl6F+rBGplPcrxI9sHfrGrJkSYXUUWnyeQE+NNQL6mrxGGU535JaX2JcKD97DICFY9JQ2fcxQYk0zThYS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr5DoeL4/CsvjvP4OHcFECnbDdC/RAmALEIf8e9LeVK6Jenq2+
+	adEQOOnvS0sEuRL1Wh3gMhfufOS47jZVeWaLiENboLbHN95OZM/fTU2yRegQ/GF8dRAd7/squ5d
+	o
+X-Gm-Gg: ASbGnctjPx4lJyk9Y6U9lIRVw4A6ttuC2JqbtyaE8r2z6kuReVTDWrwlryy+EN/++gn
+	CAvDAOxo7+XMz6dbLxeP3frunu+p4VDlnXb+BPVpLYcXqdAQpUGE4Wq+soDvgnuRQigWBa8skKg
+	sV0610lpl9GbbL0CZDFZD9WVDa6nQUxB+1bsbF7JPQam4F8eAp60v9nfRUWDgycR+g8ad699w4Z
+	a+gq99WrcWcttUJjO0N6m2e6pvHoGPTEsqTzX8SI9LOFJv93Z93TmI9CXE=
+X-Google-Smtp-Source: AGHT+IG4sPsc/N7IOp43iXXeKOWo6JJJXd9zgTWOHLq4CFq7GSx+SKJhvF92c9uFAmfB0bNzPUQSSg==
+X-Received: by 2002:a05:6a00:2191:b0:725:e5a7:fdac with SMTP id d2e1a72fcca58-72a8d2eedb6mr2614606b3a.26.1734495090289;
+        Tue, 17 Dec 2024 20:11:30 -0800 (PST)
+Received: from localhost ([122.172.83.132])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72a9d3e94f2sm76959b3a.199.2024.12.17.20.11.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 20:11:29 -0800 (PST)
+Date: Wed, 18 Dec 2024 09:41:27 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
+	zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+	x86@kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v8 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+Message-ID: <20241218041127.khdwo3hzmywcwuh5@vireshk-i7>
+References: <20241206135600.4083965-1-beata.michalska@arm.com>
+ <20241206135600.4083965-2-beata.michalska@arm.com>
+ <20241212065100.sjb7lrlmksbm2hdk@vireshk-i7>
+ <Z2CmcelSy89NULtz@arm.com>
+ <20241217042726.isllh5bulpnwql7i@vireshk-i7>
+ <Z2Haw_o8gF-Ce1gx@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241218-matrix-v2-1-f3a8809ee5cd@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAI1HYmcC/zXMQQrDIBCF4auEWdcyY1ILXfUeIQtrtc7CGDRIS
- vDutYEs/8fj2yHbxDbDo9sh2cKZ49xCXjowXs8fK/jdGiTKgSShCHpNvIkeUZK6K/dSDtp5Sdb
- xdkDj1NpzXmP6Hm6h/3oSdBKFBImbdUg46F674RnYpGg8L1cTA0y11h9JEeeioAAAAA==
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Nicolas
- Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Charan Pedumuru
-	<charan.pedumuru@microchip.com>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z2Haw_o8gF-Ce1gx@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_195932_279304_3F5CFEFD 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20241217_201131_630606_E5B33140 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,122 +111,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert old text based binding to json schema.
-Changes during conversion:
-Add a missing fallback `atmel,at91sam9x5-matrix` for
-`microchip,sam9x60-matrix` which is not defined in the text binding.
+On 17-12-24, 21:10, Beata Michalska wrote:
+> On Tue, Dec 17, 2024 at 09:57:26AM +0530, Viresh Kumar wrote:
+> > On 16-12-24, 23:15, Beata Michalska wrote:
+> > > My bad as I must have misinterpreted that message. Although I am not entirely
+> > > sure why this might be unacceptable as it is not such uncommon approach to use
+> > > signed int space to cover both: expected positive value as well as potential
+> > > error code case failure.
+> > 
+> > This part is fine. The problem is with handling frequency here. Signed int can
+> > capture up to 2 GHz of freq, where as unsigned int can capture up to 4 GHz and
+> > so we would really like to keep it at 4 GHz..
+> Right, though the arch_freq_get_on_cpu operates on kHz values.
 
-Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
----
-Changes in v2:
-- Modified the commit messsage.
-- Replaced `anyOf` with `oneOf` in compatible under properties.
-- Removed additional items group and added both `microchip,sam9x60-matrix` and 
-  `microchip,sam9x7-matrix` as an enum under one items group
-- Replaced `matrix@` with `syscon@` in examples.
-- Link to v1: https://lore.kernel.org/r/20241211-matrix-v1-1-5ef0104a3af4@microchip.com
----
- .../bindings/mfd/atmel,at91sam9260-matrix.yaml     | 52 ++++++++++++++++++++++
- .../devicetree/bindings/mfd/atmel-matrix.txt       | 26 -----------
- 2 files changed, 52 insertions(+), 26 deletions(-)
+Hmm.. Missed that.
 
-diff --git a/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml
-new file mode 100644
-index 000000000000..447b3a3edbfc
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-matrix.yaml
-@@ -0,0 +1,52 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/atmel,at91sam9260-matrix.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Microchip AT91 Bus Matrix
-+
-+maintainers:
-+  - Nicolas Ferre <nicolas.ferre@microchip.com>
-+
-+description:
-+  The Bus Matrix (MATRIX) implements a multi-layer AHB, based on the
-+  AHB-Lite protocol, that enables parallel access paths between multiple
-+  masters and slaves in a system, thus increasing the overall bandwidth.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - atmel,at91sam9260-matrix
-+              - atmel,at91sam9261-matrix
-+              - atmel,at91sam9263-matrix
-+              - atmel,at91sam9rl-matrix
-+              - atmel,at91sam9g45-matrix
-+              - atmel,at91sam9n12-matrix
-+              - atmel,at91sam9x5-matrix
-+              - atmel,sama5d3-matrix
-+          - const: syscon
-+      - items:
-+          - enum:
-+              - microchip,sam9x60-matrix
-+              - microchip,sam9x7-matrix
-+          - const: atmel,at91sam9x5-matrix
-+          - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    syscon@ffffec00 {
-+        compatible = "atmel,sama5d3-matrix", "syscon";
-+        reg = <0xffffec00 0x200>;
-+    };
-diff --git a/Documentation/devicetree/bindings/mfd/atmel-matrix.txt b/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
-deleted file mode 100644
-index 6e5f83614e83..000000000000
---- a/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
-+++ /dev/null
-@@ -1,26 +0,0 @@
--* Device tree bindings for Atmel Bus Matrix
--
--The Bus Matrix registers are used to configure Atmel SoCs internal bus
--behavior (master/slave priorities, undefined burst length type, ...)
--
--Required properties:
--- compatible:		Should be one of the following
--			"atmel,at91sam9260-matrix", "syscon"
--			"atmel,at91sam9261-matrix", "syscon"
--			"atmel,at91sam9263-matrix", "syscon"
--			"atmel,at91sam9rl-matrix", "syscon"
--			"atmel,at91sam9g45-matrix", "syscon"
--			"atmel,at91sam9n12-matrix", "syscon"
--			"atmel,at91sam9x5-matrix", "syscon"
--			"atmel,sama5d3-matrix", "syscon"
--			"microchip,sam9x60-matrix", "syscon"
--			"microchip,sam9x7-matrix", "atmel,at91sam9x5-matrix", "syscon"
--- reg:			Contains offset/length value of the Bus Matrix
--			memory region.
--
--Example:
--
--matrix: matrix@ffffec00 {
--	compatible = "atmel,sama5d3-matrix", "syscon";
--	reg = <0xffffec00 0x200>;
--};
+If you still want to keep it, make that change in a separate patch and
+the new sysfs entry in a different one, so related people can easily
+review.
 
----
-base-commit: 1b2ab8149928c1cea2d7eca30cd35bb7fe014053
-change-id: 20241210-matrix-30021676fb6f
-
-Best regards,
 -- 
-Charan Pedumuru <charan.pedumuru@microchip.com>
-
+viresh
 
