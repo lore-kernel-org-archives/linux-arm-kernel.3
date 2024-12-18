@@ -4,96 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B26E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 09:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB53E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 09:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GCGMCINTHycaSUk/d2i6Tkx5PMoxq8giUl7PZqrxQnU=; b=V6vw3nwuahWPnDS3J/zXST/LEW
-	ZV7oxr4VLIEBFxur2VIBW9g82h2aWYTkjCdUqdxQO6HK2dVfmbTR3YAE0TVVTwGGUb8rrzForyK4J
-	kXdWNT9l46hZftzhPz2NCzwDt2mg30MYyksIms6d4cecEnSPiWlUiWi5/n1HuVxnpe4bizt76u0xa
-	p0BoEP65rkSFUD0KuAw+43tPSPwHu/9fwSziVueyUTmdYGmtWZn6NeYs6xon9SQDdgrBhWTc3nR5P
-	/340VmeppIJhQ05sRAvsSminGoNY+iXkPEZ62Dmzf+EEheFxCoFv3MXx19AgTj0RYQOs/MidlRLWb
-	aBOfV5qQ==;
+	bh=mPlp2SlKKaeiGOn3lf/Z9KEDR6RTnZakUq9hV3QnD44=; b=UIkLy7XrXL/lNOLINH+C5BGNcP
+	rOtyofRZBPnqGvJjyKfo5Ukv+y5sRs6T49SUM+lYym2Xw6RscffNSB1vlMJ6ETUg+xMyA5Jd/0D2E
+	NJMcO13eh3mRWoETV8woUs6ZyhbAHiSudzuBiqXElLNB8cycnX/IOHsH4WAq/paBIPIzZ/0v9LBjL
+	ugKCY8esyFkgTl4o1zHB4SZnweIvtM5tkQA7XBQdsXGm0offC9xQPNT2M+Zm9VtF0Ot5eUXuEuM7d
+	QvYVp0GdfGHuKc6kTDCs+FVXR7ME6KeifhtZkoLum7YcB2wvu/suaSrBTOwlg7V7nXtTGbsESAGq/
+	27DOs8Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqAO-0000000G2zN-1SQ9;
-	Wed, 18 Dec 2024 09:16:28 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1tNqCV-0000000G3JZ-1pRl;
+	Wed, 18 Dec 2024 09:18:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNq16-0000000G148-1k08
+	id 1tNq50-0000000G1yR-3eY0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 09:06:53 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-8019338c2b2so4013191a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 01:06:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734512811; x=1735117611; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=GCGMCINTHycaSUk/d2i6Tkx5PMoxq8giUl7PZqrxQnU=;
-        b=efRj4tRiaZUo6hqvceFcG6Yi651rt5WvMySiJHxTv9TmRsAfDGzO0tduZdTiZGtFwv
-         HN+BRoCXgTxz/pGOUsPAZMWMVbYtHfsHNTsflVbSbwGs+KVq4t0EFWUzw/gEhqy5zujP
-         AvHpaBQIU7l/aFzKGOPiOo/oZQ3bf3qQcmfKzENJz7pSZVRVr/CoyA3FBsTk/LZkmwOl
-         /22se+0lrezzwAzIo2f3/9j0r8E/Uys8NERoeN7f5E1SqoxE78XoiR8PVtWKP17vKTL2
-         c43hIPjid2yMDewSH52bp9kc1KZ2okErHchUQEPClMoZc5p9mSnA4yKjazzWyFPxDlME
-         NFag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734512811; x=1735117611;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GCGMCINTHycaSUk/d2i6Tkx5PMoxq8giUl7PZqrxQnU=;
-        b=swzImcGhTC3C6t7i7zzWEEQkB4mEktXxZXEkDypAEZxOiRPfO3MkADdZvkUq5nCvbd
-         GUsMnEtKE0IkjaeiX/yv2/RR1rh1E1Fp84nzgRxH4o30TGLg6DEuEM/iCdEWcIHF26nK
-         xCHdbfya4xuuxBYxZyomkXJNHqFkSodcOvWWNWWprZooTA9j66l226jdO+Ybyie6eHCL
-         7enKmXgnEhVxATvqemSJIUzqOvoOku00h9f25Tb5iHPDwQfyV6C81XRSfEGaJB9S/+/W
-         aNbzSDtI7tJ/AkW75OE+T67pBSpB0m/CIiAvcGpQH+NwpEluMtMUjy3WbbJ35pOSOUHG
-         k+Sg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2LfixmcN27sr2uRwa6Gk7sV0YZrqJ65rcp/ivyWJPXfrN4iPNuio8XrvzTwQM/Q8TmOArwlCJEyLH+vPydrv1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxjjgmUH2dhhKQMW+/FWMTia9XF6W3aVOLlm+UcMuCp4Bgw1Rj
-	basnwYEW0ye9xfNv1Oj8QMYNCWW3p8r2GFZuyOBeiBf2XW9VYjAZZm9D7H15vQ==
-X-Gm-Gg: ASbGncuGd81yO1w/z1yLRu7vGYsarPGRqPAyV+DYtJDjOb4f5TYoPFi2htXbXiyypxy
-	o52sSlls/KqGlYp2XNlTC2+3sXJ/WvRkJeL8xm2XXCsgYo4oVSBubIo16Pu9NsTf6P4c5wMOq9e
-	RDtY5ytwPd3Zr23/kIvcAvVWvFB7Dfuk9IvOTnJLPai7EFMRF6SZAbWuy+AuNECHiyYMQwgmn3i
-	p0kXQvcUx2h9mBMdUxpD6txvBzCkasibrrGSegbxbyLVVNCo/PsyML1Hg8YEtH+efSO
-X-Google-Smtp-Source: AGHT+IHyd0rjMU5k67UAqjTzwzFPT1nFixbQFJlYVvsZ8oxYL1YYOQHvMxEIakRysvdaXHIwPi972g==
-X-Received: by 2002:a17:90b:2b8f:b0:2ee:df57:b194 with SMTP id 98e67ed59e1d1-2f2e91fef48mr2602950a91.21.1734512811162;
-        Wed, 18 Dec 2024 01:06:51 -0800 (PST)
-Received: from thinkpad ([117.193.214.60])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e6d87asm71760635ad.264.2024.12.18.01.06.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 01:06:50 -0800 (PST)
-Date: Wed, 18 Dec 2024 14:36:41 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
-	cassel@kernel.org, quic_schintav@quicinc.com,
-	fabrice.gasnier@foss.st.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
- bindings
-Message-ID: <20241218090641.dtn4niamg6gcvxml@thinkpad>
-References: <20241205172022.GA3053765@bhelgaas>
- <d976d74c-80c0-4446-bb9b-960a990c552b@foss.st.com>
- <20241217172502.borj2oy4rpxcteag@thinkpad>
- <5b835381-55bc-4fc8-b848-535f6e881420@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5b835381-55bc-4fc8-b848-535f6e881420@foss.st.com>
+	Wed, 18 Dec 2024 09:10:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2A1695C053B;
+	Wed, 18 Dec 2024 09:10:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3C43C4CECE;
+	Wed, 18 Dec 2024 09:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734513053;
+	bh=Hvg1w+ZEyCcJp/urJ9cV2Ps4mlC0ufjBKFQoebKJFcs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ioLr2T/pVRoHF5qx8GsLqXYo5ykUpBq1g1/2QTA0+xTyuvJRT1Rc1LRsD/YHIUrUY
+	 v3XxV3iZG4OlDOYluX12BKpkDxZr0la55dsiPQD/n11qdvOVMP5q1iZLsfhzYWaQxy
+	 3lURFuJ1iTqwSg7ZKlw1zLHTgA1uBR4n2l+plYBT085mDR6/QGHnEUiyotfsjyxWUA
+	 tLb1CkE7uF7K+ld9FIjpEUV35gtQnpXvG4CiN1lVt553RY/kB9i2AwkiD25IddEBtk
+	 2Za4cQdyrev/lJ3rJIRcyuwq7lb10WNm4gIhk2Ub3jNwhpoVS62YDuXL5YFyQmgq2Z
+	 RT1WMFiiL8prA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tNq4x-004quf-EG;
+	Wed, 18 Dec 2024 09:10:51 +0000
+Date: Wed, 18 Dec 2024 09:10:51 +0000
+Message-ID: <86jzbxqrtw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH V3 6/7] arm64/boot: Enable EL2 requirements for FEAT_Debugv8p9
+In-Reply-To: <CAL_Jsq+EO_s49sSK3JQQEDDpcndf4hSpM_gfoe8tZ8=4y3f-tg@mail.gmail.com>
+References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
+	<20241216040831.2448257-7-anshuman.khandual@arm.com>
+	<20241216234251.GA629562-robh@kernel.org>
+	<c64709f7-e1c6-482e-8665-912be50b15bd@arm.com>
+	<CAL_Jsq+EO_s49sSK3JQQEDDpcndf4hSpM_gfoe8tZ8=4y3f-tg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: robh@kernel.org, anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, corbet@lwn.net, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-doc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_010652_464183_D878A193 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20241218_011055_010360_2BC02E64 
+X-CRM114-Status: GOOD (  50.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,79 +99,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024 at 09:42:45AM +0100, Christian Bruel wrote:
-> 
-> 
-> On 12/17/24 18:25, Manivannan Sadhasivam wrote:
-> > On Tue, Dec 17, 2024 at 04:53:48PM +0100, Christian Bruel wrote:
-> > > 
-> > > > Makes sense.  What about phys, resets, etc?  I'm pretty sure a PHY
-> > > > would be a per-Root Port thing, and some resets and wakeup signals
-> > > > also.
-> > > > 
-> > > > For new drivers, I think we should start adding Root Port stanzas to
-> > > > specifically associate those things with the Root Port, e.g.,
-> > > > something like this?
-> > > > 
-> > > >     pcie@48400000 {
-> > > >       compatible = "st,stm32mp25-pcie-rc";
-> > > > 
-> > > >       pcie@0,0 {
-> > > >         reg = <0x0000 0 0 0 0>;
-> > > >         phys = <&combophy PHY_TYPE_PCIE>;
-> > > >         phy-names = "pcie-phy";
-> > > >       };
-> > > >     };
-> > > > 
-> > > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/pci/mediatek,mt7621-pcie.yaml?id=v6.12#n111
-> > > > is one binding that does this, others include apple,pcie.yaml,
-> > > > brcm,stb-pcie.yaml, hisilicon,kirin-pcie.yaml.
-> > > > 
-> > > 
-> > > On a second thought, moving the PHY to the root-port part would introduce a
-> > > discrepancy with the pcie_ep binding, whereas the PHY is required on the
-> > > pcie_ep node.
-> > > 
-> > > Even for the pcie_rc, the PHY is needed to enable the core_clk to access
-> > > the PCIe core registers,
-> > > 
-> > 
-> > But why that matters? You can still parse the child nodes, enable PHY and
-> > configure PCIe registers. >
-> > > So that would make 2 different required PHY locations for RC and EP:
-> > > 
-> > >      pcie_rc: pcie@48400000 {
-> > >        compatible = "st,stm32mp25-pcie-rc";
-> > > 
-> > >        pcie@0,0 {
-> > >          reg = <0x0000 0 0 0 0>;
-> > >          phys = <&combophy PHY_TYPE_PCIE>;
-> > >          phy-names = "pcie-phy";
-> > >        };
-> > >      };
-> > > 
-> > >      pcie_ep pcie@48400000 {
-> > >        compatible = "st,stm32mp25-pcie-ep";
-> > >        phys = <&combophy PHY_TYPE_PCIE>;
-> > >        phy-names = "pcie-phy";
-> > >      };
-> > > 
-> > > Simplest seems to keep the PHY required for the pcie core regardless of the
-> > > mode and keep the empty root port to split the design
-> > > 
-> > 
-> > No please. Try to do the right thing from the start itself.
-> 
-> Parsing the child node to clock the IP seems weird. Note that
-> hisilicon,kirin-pcie.yaml also declares the PHY at the controller level.
-> 
+On Tue, 17 Dec 2024 17:53:41 +0000,
+Rob Herring <robh@kernel.org> wrote:
+>=20
+> On Tue, Dec 17, 2024 at 2:48=E2=80=AFAM Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+> >
+> > On 12/17/24 05:12, Rob Herring wrote:
+> > > On Mon, Dec 16, 2024 at 09:38:30AM +0530, Anshuman Khandual wrote:
+> > >> Fine grained trap control for MDSELR_EL1 register needs to be config=
+ured in
+> > >> HDFGRTR2_EL2, and HDFGWTR2_EL2 registers when kernel enters at EL1, =
+but EL2
+> > >> is also present.
+> > >
+> > > Shouldn't this be "when kernel enters at EL2, and EL3 is also present=
+"?
+> >
+> > AFAICT - HDFGRTR2_EL2 and HDFGWTR2_EL2 registers configure traps into E=
+L2 when
+> > accessed from EL1/EL0, provided all required EL3 trap controls are in p=
+lace as
+> > well. These EL2 based trap configs need to be set before the kernel fin=
+ally
+> > enters EL1. Although there is an assumption about EL3 based trap config=
+s being
+> > in place, do we need to mention that in commit message as well. Is not =
+updating
+> > booting.rst takes care of all EL3 requirements.
+>=20
+> My point is just I read 'kernel enters at EL1' as meaning the kernel
+> booted at EL1 and EL2 is not accessible. Maybe should reworded as
+> 'before/if the kernel drops to EL1'
 
-Nothing is weird here. Almost all multi port controller drivers does the same.
-Most of the single port controller instances define port properties in
-controller node only, but that's what we want to avoid now.
+The EL2->EL1 downgrade is internal to the kernel. If we get it wrong,
+that's our fault, and there isn't anything to document. This document
+is about booting the kernel at any NS EL, so only the "external"
+requirements matter.
 
-- Mani
+But I don't think we should be prescriptive about the state of these
+registers, as long as the potential traps are correctly handled.
 
--- 
-மணிவண்ணன் சதாசிவம்
+For the above, I'd rather have something like:
+
+"The MDSELR_EL1 register must be freely accessible when the kernel is
+ entered at EL1 and that higher ELs are present in the system."
+
+On its own, that should be enough. You can subsequently add:
+
+"This includes HDFGRTR2_EL2, HDFGWTR2_EL2 and MDCR_EL2 when EL2 is
+ present, as well as MDCR_EL3 when EL3 is present".
+
+but that's paraphrasing the architecture, and is definitely incomplete
+(see the MDSELR_EL1 pseudocode for reference).
+
+>=20
+> > > Though it is really "If EL3 set FGTEn2 and the kernel is entered in
+> > > EL2, then FGT2 must be initialized for MDSELR_EL1."
+> > >
+> > > If it was me, I'd just plagarize what was written for prior FGT
+> > > commits for this code. :)
+> >
+> > There are many commits that changed __init_el2_fgt() with different des=
+cription
+> > formats. Do you have particular one in mind which can be followed here =
+? :)
+> >
+> > >
+> > >> This adds a new helper __init_el2_fgt2() initializing this
+> > >> new FEAT_FGT2 based fine grained registers.
+> > >
+> > > "This adds" is the same as saying "This patch/commit adds" which is w=
+ell
+> > > documented to avoid. Use imperative "Add a new helper...". Though it =
+is
+> > > clear from the diff that is what you are doing...
+> >
+> > Sure, will fix it.
+> >
+> > >
+> > >
+> > >> MDCR_EL2.EBWE needs to be enabled for additional (beyond 16) breakpo=
+int and
+> > >> watchpoint exceptions when kernel enters at EL1, but EL2 is also pre=
+sent.
+> > >> This updates __init_el2_debug() as required for FEAT_Debugv8p9.
+> > >>
+> > >> While here, also update booting.rst with MDCR_EL3 and SCR_EL3 requir=
+ements.
+> > >>
+> > >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > >> Cc: Will Deacon <will@kernel.org>
+> > >> Cc: Jonathan Corbet <corbet@lwn.net>
+> > >> Cc: Marc Zyngier <maz@kernel.org>
+> > >> Cc: Oliver Upton <oliver.upton@linux.dev>
+> > >> Cc: linux-arm-kernel@lists.infradead.org
+> > >> Cc: linux-doc@vger.kernel.org
+> > >> Cc: linux-kernel@vger.kernel.org
+> > >> Cc: kvmarm@lists.linux.dev
+> > >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > >> ---
+> > >> Changes in V3:
+> > >>
+> > >> - Dropped MDCR_EL3.TDA boot requirement from documentation (separate=
+ series)
+> > >> - Dropped MDCR_EL2_EBWE definition as MDCR_EL2 is now defined in too=
+ls sysreg
+> > >>
+> > >> https://lore.kernel.org/all/20241211065425.1106683-1-anshuman.khandu=
+al@arm.com/
+> > >>
+> > >>  Documentation/arch/arm64/booting.rst | 18 ++++++++++++++++++
+> > >>  arch/arm64/include/asm/el2_setup.h   | 26 ++++++++++++++++++++++++++
+> > >>  2 files changed, 44 insertions(+)
+> > >>
+> > >> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/ar=
+ch/arm64/booting.rst
+> > >> index 3278fb4bf219..054cfe1cad18 100644
+> > >> --- a/Documentation/arch/arm64/booting.rst
+> > >> +++ b/Documentation/arch/arm64/booting.rst
+> > >> @@ -288,6 +288,12 @@ Before jumping into the kernel, the following c=
+onditions must be met:
+> > >>
+> > >>      - SCR_EL3.FGTEn (bit 27) must be initialised to 0b1.
+> > >>
+> > >> +  For CPUs with the Fine Grained Traps (FEAT_FGT2) extension presen=
+t:
+> > >> +
+> > >> +  - If EL3 is present and the kernel is entered at EL2:
+> > >> +
+> > >> +    - SCR_EL3.FGTEn2 (bit 59) must be initialised to 0b1.
+> > >> +
+> > >>    For CPUs with support for HCRX_EL2 (FEAT_HCX) present:
+> > >>
+> > >>    - If EL3 is present and the kernel is entered at EL2:
+> > >> @@ -322,6 +328,18 @@ Before jumping into the kernel, the following c=
+onditions must be met:
+> > >>      - ZCR_EL2.LEN must be initialised to the same value for all CPU=
+s the
+> > >>        kernel will execute on.
+> > >>
+> > >> +  For CPUs with FEAT_Debugv8p9 extension present:
+> > >> +
+> > >> +  - If the kernel is entered at EL1 and EL2 is present:
+> > >> +
+> > >> +    - HDFGRTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
+> > >> +    - HDFGWTR2_EL2.nMDSELR_EL1 (bit 5) must be initialized to 0b1
+
+But then you don't say anything about SCR_EL3.FGTEn2. And what if the
+hypervisor wants to trap things in order to emulate on lazy switch
+things?
+
+The more I look at those, the more I think these requirements are not
+saying what we want to express, which is that some registers must be
+accessible one way or another.
+
+> > >> +    - MDCR_EL2.EBWE (bit 43) must be initialized to 0b1
+> > >> +
+> > >> +  - If EL3 is present:
+> > >> +
+> > >> +    - MDCR_EL3.EBWE (bit 43) must be initialized to 0b1
+> > >> +
+> > >>    For CPUs with the Scalable Matrix Extension (FEAT_SME):
+> > >>
+> > >>    - If EL3 is present:
+> > >> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include=
+/asm/el2_setup.h
+> > >> index 4ef52d7245bb..2fbfe27d38b5 100644
+> > >> --- a/arch/arm64/include/asm/el2_setup.h
+> > >> +++ b/arch/arm64/include/asm/el2_setup.h
+> > >> @@ -105,6 +105,13 @@
+> > >>                                              // to own it.
+> > >>
+> > >>  .Lskip_trace_\@:
+> > >> +    mrs     x1, id_aa64dfr0_el1
+> > >> +    ubfx    x1, x1, #ID_AA64DFR0_EL1_DebugVer_SHIFT, #4
+> > >> +    cmp     x1, #ID_AA64DFR0_EL1_DebugVer_V8P9
+> > >> +    b.lt    .Lskip_dbg_v8p9_\@
+> > >> +
+> > >> +    orr     x2, x2, #MDCR_EL2_EBWE
+> > >> +.Lskip_dbg_v8p9_\@:
+> > >>      msr     mdcr_el2, x2                    // Configure debug traps
+> > >>  .endm
+> > >>
+> > >> @@ -244,6 +251,24 @@
+> > >>  .Lskip_gcs_\@:
+> > >>  .endm
+> > >>
+> > >> +.macro __init_el2_fgt2
+> > >> +    mrs     x1, id_aa64mmfr0_el1
+> > >> +    ubfx    x1, x1, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
+> > >> +    cmp     x1, #ID_AA64MMFR0_EL1_FGT_FGT2
+> > >
+> > > We already read this field in __init_el2_fgt, shouldn't we leverage t=
+hat
+> > > and move all this there rather than read the feature reg twice.
+> >
+> > Should not __init_el2_fgt2() remain separate to contain all future FEAT=
+_FGT2
+> > related trap enabled/disable checks ? OTOH reading id_aa64mmfr0_el1 reg=
+ister
+> > should improve some performance as well.
+>=20
+> That's the tradeoff. I'll defer to others whether a single id register
+> read here is preferred.
+
+Are we *really* talking about *performance* here?  For something that
+is executed once per CPU boot? Just keep the damn thing readable, if
+at all possible...
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
