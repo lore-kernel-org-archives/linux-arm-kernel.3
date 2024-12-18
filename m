@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D82E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:36:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DECEE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siaclr4zkEMoTiPCVrQwCJy/mBig+w8wCm0lzo6tDAc=; b=Rpeac6udTlPwjuYS8/gTUMfn7b
-	SSEfTYI2z8GiZmuN67JfMHhBbRO7ylTiSdnM8etQLKD9lBilKo+VtQazk/msRv0D63cLXqV4+sdXc
-	FUu6lMw/XXn8ATTW1428OE10JZ+GMwiOujK/KpmKUVdfMfyO93+jYIRzw017Sx25UlHBj1A6Aboot
-	MBSHYk9w1F3qh2iv4Byk2kwamH5x+0MnSBUG0DZ+qRALep5G/N+wK/l3GLSCbca8U9vIgzDD6vO1O
-	tyzfD3ylWUJmSMW1Ff5ZL9wlAqkeojrg6rjJiQRsBVLdBrSQufhxgURj8/BzShOz9s5utW4yZACmO
-	eQJWamyg==;
+	bh=nTXgptuMgFREF49DY0l5V+KeZLqmoQe4YGE1j98aLX8=; b=fsLpUR7G0xaT1nsK4MUaVHgfT+
+	agA80QN8SkQjB7FaM3ATJhDDTxdJr3eFGg8SoDp88NEbUlVwNEBKfu+89ne1RRPY3VuEsoUkh1eIJ
+	Hu/E9EMd0GCJgWLLCya3NhlAuprdXrDNRnVoU2Sv1JfPMP1Q3IHf9kuF0yFtES0knLMk0dYzs8Ggx
+	IFNIQ4cDbGDp0nvQ6NoosucSfKD6tmAmRMDvuVqUiShKw2loWb+Ik5KqOIoqHonLm84c9vVA53Y84
+	ct4Q370genWge/gWZEOZgetcblxSTN6shiNf97u2AB0RKuRbehV4xbTCaAAFOTxcBVOZ8H4P/nNLx
+	QYm7epdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNw6E-0000000H2Zc-3qoV;
-	Wed, 18 Dec 2024 15:36:34 +0000
-Received: from mail.fris.de ([116.203.77.234])
+	id 1tNw7J-0000000H2r8-28kC;
+	Wed, 18 Dec 2024 15:37:41 +0000
+Received: from mail.fris.de ([2a01:4f8:c2c:390b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvzm-0000000H1Ju-3diC
+	id 1tNvzp-0000000H1Kk-1Zd2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 15:29:56 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A314BFB7D;
-	Wed, 18 Dec 2024 16:29:53 +0100 (CET)
+	Wed, 18 Dec 2024 15:29:58 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80ED8BFB85;
+	Wed, 18 Dec 2024 16:29:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1734535793; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1734535795; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=siaclr4zkEMoTiPCVrQwCJy/mBig+w8wCm0lzo6tDAc=;
-	b=ht14TP0JXeK9x3oZ4WhEa6p6ic7FJPjxdLY3e5DJ3E6iZNZlIW1zdlRZgkI111Ri1hOIs5
-	odxFZa/+4UrzRuNZQrFwtvYqNdeH4dTSYZgAkTvz/kecOa3BFN0lGQGXq+a1hqwu0RUbms
-	+XcQle4BVi5i4Iv6kEwRAhhLk0jSnOxw6lelLKUNGSPI+ukpk4MwxwU66h6LmpDAAPbbuZ
-	k7sE97avvFtraa/iMw8rkiUj4Iw4cT3cuHShmcpMrRIw/f+/wQq0pF6bwCcY2gOVPDSFHO
-	9UpzVgAvX4b9wXE8wPuJedNMyHE+Yp7t8i6c0Acco9DH4XL/W/iXpjJ25fx5Ew==
+	bh=nTXgptuMgFREF49DY0l5V+KeZLqmoQe4YGE1j98aLX8=;
+	b=pIcCc5U+TKhobEe1EKUuzcrduRYwibt5lfTSOah/1QeDswFNWnWkHVoHZjjFzh+yqSW8al
+	QpC1G7eOgEhJuCcYEQ5OJnRYAQ6IsMrSecEosrh+sV+YmJl2Z4zTYjroap7CbSFPugq+AK
+	ffZ/Bs2XJ6C+9CqyvA/f+KekstKMX4rPgBKkSz6DTtU8ZKYyJezMuv9QMaHF9JHIdgPdeU
+	hC631aB8J/Hs2wRCWwKMsxau6MhAyTl9UwHFEBd4K3RNs6wwRf6ma7o3tww+05Ejm/BhPA
+	UsT1WTRM1utpDJ3TzwgKJYuhq2QcSK8SmR2pQ3XZsUuQTyFLlzwaXWbK1JJ+fQ==
 From: Frieder Schrempf <frieder@fris.de>
 To: linux-arm-kernel@lists.infradead.org,
 	Marek Vasut <marex@denx.de>,
 	Conor Dooley <conor@kernel.org>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
 	Liam Girdwood <lgirdwood@gmail.com>,
 	linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Robin Gong <yibin.gong@nxp.com>
-Cc: Bo Liu <liubo03@inspur.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Bo Liu <liubo03@inspur.com>,
 	Frank Li <Frank.Li@nxp.com>,
-	Joy Zou <joy.zou@nxp.com>
-Subject: [PATCH v3 5/9] regulator: pca9450: Fix enable register for LDO5
-Date: Wed, 18 Dec 2024 16:27:28 +0100
-Message-ID: <20241218152842.97483-6-frieder@fris.de>
+	Joy Zou <joy.zou@nxp.com>,
+	Robin Gong <yibin.gong@nxp.com>
+Subject: [PATCH v3 6/9] regulator: pca9450: Handle hardware with fixed SD_VSEL for LDO5
+Date: Wed, 18 Dec 2024 16:27:29 +0100
+Message-ID: <20241218152842.97483-7-frieder@fris.de>
 In-Reply-To: <20241218152842.97483-1-frieder@fris.de>
 References: <20241218152842.97483-1-frieder@fris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_072955_047672_85D955E7 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20241218_072957_563722_EB3B5E63 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,53 +77,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-The LDO5 regulator has two configuration registers, but only
-LDO5CTRL_L contains the bits for enabling/disabling the regulator.
+There are two ways to set the output voltage of the LD05
+regulator. First by writing to the voltage selection registers
+and second by toggling the SD_VSEL signal.
 
-Fixes: 0935ff5f1f0a ("regulator: pca9450: add pca9450 pmic driver")
+Usually board designers connect SD_VSEL to the VSELECT signal
+controlled by the USDHC controller, but in some cases the
+signal is hardwired to a fixed low level (therefore selecting
+3.3V as initial value for allowing to boot from the SD card).
+
+In these cases, the voltage is only determined by the value
+of the LDO5CTRL_L register. Introduce a property
+nxp,sd-vsel-fixed-low to let the driver know that SD_VSEL
+is low and there is no GPIO to actually get that
+information from dynamically.
+
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
-Reviewed-by: Marek Vasut <marex@denx.de>
 ---
 Changes for v3:
 * Rebase to next-20241218
 
 Changes for v2:
-* none
+* new patch
 ---
- drivers/regulator/pca9450-regulator.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/regulator/pca9450-regulator.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/drivers/regulator/pca9450-regulator.c b/drivers/regulator/pca9450-regulator.c
-index 4cf5fa73765b7..4519e725706cd 100644
+index 4519e725706cd..fd40b50318d96 100644
 --- a/drivers/regulator/pca9450-regulator.c
 +++ b/drivers/regulator/pca9450-regulator.c
-@@ -512,7 +512,7 @@ static const struct pca9450_regulator_desc pca9450a_regulators[] = {
- 			.n_linear_ranges = ARRAY_SIZE(pca9450_ldo5_volts),
- 			.vsel_reg = PCA9450_REG_LDO5CTRL_H,
- 			.vsel_mask = LDO5HOUT_MASK,
--			.enable_reg = PCA9450_REG_LDO5CTRL_H,
-+			.enable_reg = PCA9450_REG_LDO5CTRL_L,
- 			.enable_mask = LDO5H_EN_MASK,
- 			.owner = THIS_MODULE,
- 		},
-@@ -726,7 +726,7 @@ static const struct pca9450_regulator_desc pca9450bc_regulators[] = {
- 			.n_linear_ranges = ARRAY_SIZE(pca9450_ldo5_volts),
- 			.vsel_reg = PCA9450_REG_LDO5CTRL_H,
- 			.vsel_mask = LDO5HOUT_MASK,
--			.enable_reg = PCA9450_REG_LDO5CTRL_H,
-+			.enable_reg = PCA9450_REG_LDO5CTRL_L,
- 			.enable_mask = LDO5H_EN_MASK,
- 			.owner = THIS_MODULE,
- 		},
-@@ -916,7 +916,7 @@ static const struct pca9450_regulator_desc pca9451a_regulators[] = {
- 			.n_linear_ranges = ARRAY_SIZE(pca9450_ldo5_volts),
- 			.vsel_reg = PCA9450_REG_LDO5CTRL_H,
- 			.vsel_mask = LDO5HOUT_MASK,
--			.enable_reg = PCA9450_REG_LDO5CTRL_H,
-+			.enable_reg = PCA9450_REG_LDO5CTRL_L,
- 			.enable_mask = LDO5H_EN_MASK,
- 			.owner = THIS_MODULE,
- 		},
+@@ -36,6 +36,7 @@ struct pca9450 {
+ 	enum pca9450_chip_type type;
+ 	unsigned int rcnt;
+ 	int irq;
++	bool sd_vsel_fixed_low;
+ };
+ 
+ static const struct regmap_range pca9450_status_range = {
+@@ -102,6 +103,9 @@ static unsigned int pca9450_ldo5_get_reg_voltage_sel(struct regulator_dev *rdev)
+ {
+ 	struct pca9450 *pca9450 = rdev_get_drvdata(rdev);
+ 
++	if (pca9450->sd_vsel_fixed_low)
++		return PCA9450_REG_LDO5CTRL_L;
++
+ 	if (pca9450->sd_vsel_gpio && !gpiod_get_value(pca9450->sd_vsel_gpio))
+ 		return PCA9450_REG_LDO5CTRL_L;
+ 
+@@ -1112,6 +1116,9 @@ static int pca9450_i2c_probe(struct i2c_client *i2c)
+ 		return ret;
+ 	}
+ 
++	pca9450->sd_vsel_fixed_low =
++		of_property_read_bool(ldo5->dev.of_node, "nxp,sd-vsel-fixed-low");
++
+ 	dev_info(&i2c->dev, "%s probed.\n",
+ 		type == PCA9450_TYPE_PCA9450A ? "pca9450a" :
+ 		(type == PCA9450_TYPE_PCA9451A ? "pca9451a" : "pca9450bc"));
 -- 
 2.47.1
 
