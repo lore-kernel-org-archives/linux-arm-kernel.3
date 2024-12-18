@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3711BE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60E0E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVHcm9pauC3GhK5+Y9PUhjKsCgNwGsAmTgrtAcTlGQE=; b=UT3+yXvjE/k2qITwCqIx41KhH/
-	n0DLXM82v2naRBbSrhVs6rEvQTIxfjYbxt6rFjRT571G5X1IKU3ceRLTO4T3XbAA1zPOnxiF15y4Q
-	9hOy4zQ4hytcPp8HiyvakDgGgPf70WS++neMOwyhPb7eOygIMiu6nEjwHhgVzInVrwjQ3XIc8dKn8
-	eezAW8OyO5hW1i6rnpAYRZslNrru25zPSOreG66AufM71ZT1f4XtnoulDuAFk0bU61m1OdEEKG6Z2
-	cfhYZdXZP/8c/XX4rzghetLXDfFyAIMxxBNNR0MWef1yKrFqgsU+4WSbGk9qCjD0Kt/gz020XtWqu
-	MwOK/0Dw==;
+	bh=asQwivYoQ6OyVNJBd3EdgJw1JjuKg7fNklboQjqanF4=; b=2IsQ1Rd/L90EUe/fUF90eVJY1A
+	MoEJwHvB2UuIfHoe8re3wst9O1wcnrc35+3ZVCc6GTHD3B21lyNfgTOvhurPmVogkV3vvCgB+jV8D
+	vXU9Ag92ggFdSssI5VV4aYY3yfdePP78MQMZ2ioEQDNt1A9vUfbV8aSesI3ujvpsjBTHhbgC37gMg
+	LA5CbMosvZcpVRmA79eNmm/Uz/uR7W3F33n6VT+OJ+mvR0iCulE8c7KJgq5Zot5atlZWan6hizYPV
+	lVW14qbBOtEkN3zHVDmgc2Ekj/4mnW4bFEajnlEvXK9z63AWlYlN2r54YmVKuGD9tc5BFf7SxKyXs
+	MkM6q3Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNr4R-0000000GDVt-1RCg;
-	Wed, 18 Dec 2024 10:14:23 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1tNr84-0000000GE7t-2sMN;
+	Wed, 18 Dec 2024 10:18:08 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNr2W-0000000GDH2-30X6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 10:12:26 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2eec9b3a1bbso4356676a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 02:12:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734516744; x=1735121544; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HVHcm9pauC3GhK5+Y9PUhjKsCgNwGsAmTgrtAcTlGQE=;
-        b=UdnFZJPmPd4rOer4qNBlAp8wnmbJCFr9b4tIy0TIKihIpVXbDVKwd5RaKt8gRKNr67
-         cMK++DGocHRa6i7Vy8JZIj+bosoYx8eJ5FzbnPbCPAIdD0Y5vhjwVazmk078N1Q+k+5D
-         yES1YnQiIaH8PD0Twt0NcgnzWb4nmtkwzY6JVTCJae/mO+UWuHFURVC7FkIlFTp8W7gU
-         /SU8FPw4QXxqQTzrO5C4uiBfgnh0Uo4y1Fp6saBx99Pa61vUA1uBESBE6Lnc8QapZVsa
-         XyZ/bQ4P5NfnhdUO8ngETyCMDsyw8Xm1qdl9liRkzCw3wg8jCPGwMmpVMDaEDXS1ksJS
-         hDSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734516744; x=1735121544;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HVHcm9pauC3GhK5+Y9PUhjKsCgNwGsAmTgrtAcTlGQE=;
-        b=uaqskwiwTlUGNFMpmgInGFejDoBw43a4Na9zRgTRmIHsSmcOZuaMQk7zrtsHQg7yx3
-         5qrMiNzBEcVhWXOufHIvdJkbPdhM8tixQZCSJBIOVL5gRbtduqivMhiYlG/oxcWVhSmO
-         D2WLm8eIMtPpKMTFdhz7YP57/O8Yc2ZE3hVFD4uNDPpOPTiB9wUv9YtUj0RJsnhQs1qw
-         r91bilZGMJkwTdnOrkhBvDuxA+qIIfCar7b2+FOTDUhCzXHi8/SCj0CZ3/tG1OEVIEGk
-         nuNJL2IfxR5vVqS1gQEiXo0BgEORkZKM3OI7mDcKQdbNDgy7wkCx3rNbOLaCtx0bvXut
-         epdw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfriEGvDscQmgpUvyAhUrIrJ8Ngm/vT7xuYZctiq/oUEjcw5L5UA991Ms1FHVtodhs/LtHTrtvXhwoQ1RIhC70@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0xPu0Ihy8pc3zffxFoYChAUfuAsX+fIa6jiwlbz3OjssxNa1Z
-	BV3e7VBb9tyIzVgNea+O47TpqlqL08+NenE617ip1q7SD6Q5Qw/lDQc5zUv7JJhHlLKl5kbq+Qo
-	C88t5BtkbgU0EHEu1H9XHIg56NmDZG2VTFNqCFg==
-X-Gm-Gg: ASbGncv9GZjXVMSpF6GynPBB91SbY//n9eyjg5BCdd1+0nE0aHiUp8RZp4UkacLh3nG
-	Vgzq82XFLVHNaE7Kby9lxWE3nDhsejxs6cB0ulsA=
-X-Google-Smtp-Source: AGHT+IGCS/12iXVQImv5VzwIKtHSK1STA1CqvbkzaVeJurm2ZhL/a0FzlOc63mIq8E3wtYzMzC2DjfMhljG616CLMWI=
-X-Received: by 2002:a17:90b:4c0e:b0:2ee:49c4:4a7c with SMTP id
- 98e67ed59e1d1-2f2e91feea3mr3241058a91.18.1734516743666; Wed, 18 Dec 2024
- 02:12:23 -0800 (PST)
+	id 1tNr6x-0000000GDyG-39kR;
+	Wed, 18 Dec 2024 10:17:01 +0000
+Date: Wed, 18 Dec 2024 11:16:53 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1734517014;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=asQwivYoQ6OyVNJBd3EdgJw1JjuKg7fNklboQjqanF4=;
+	b=k+9+2dt84P2yu2JQjHriNsnfLK1U2zwMe3zETXzWpHvMFbzWIWRl0216I0Fp7Fs0GxVlyo
+	yc6i4Q3Hu1q2hD8wlkaWxUa2/LSRxg2COBfpJYgxfKOVjFaVDrdSLxoJSE3b4rni7eSePg
+	zI/dWD74oT5nZPEZZO7hwDCfBtI4dfQFjxRIFS9AkAU85OAfFsoE1hleSOYGu1n4z2yAZY
+	Y1RK/InyIx+aLJuE6QRRzC4LUqndo/HAvuKeT1pLXt7sSb5Bh3nglAiSTENEvex8fG+geW
+	f0ENU722o2Q/62/Nus5sE3hNF3ZF1A45agg8WoxbV4hKlyXpoR26vp6T9Jw1dg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1734517014;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=asQwivYoQ6OyVNJBd3EdgJw1JjuKg7fNklboQjqanF4=;
+	b=yXhQ4RjeaS/+ewnR286ORrRNsrdJ4qpmR9IkiLgWDlKmPEPu6UZYxm4SDqI/YyJISRXAyJ
+	qqASr10vg3j1/pBg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
+	"Jason A. Donenfeld" <Jason@zx2c4.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 12/17] powerpc/vdso: Switch to generic storage
+ implementation
+Message-ID: <20241218105556-6d6d0bcb-f2d7-418e-a4e6-1222c506d2cb@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+ <20241216-vdso-store-rng-v1-12-f7aed1bdb3b2@linutronix.de>
+ <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
 MIME-Version: 1.0
-References: <20241217063324.33781-1-quic_jinlmao@quicinc.com>
- <20241217063324.33781-3-quic_jinlmao@quicinc.com> <985d234c-e088-469d-b9dc-7904fcf5a91c@arm.com>
- <f1c6da16-fbfd-40aa-a158-36ab713ce541@quicinc.com>
-In-Reply-To: <f1c6da16-fbfd-40aa-a158-36ab713ce541@quicinc.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 18 Dec 2024 10:12:12 +0000
-Message-ID: <CAJ9a7Vh6EZij9ZTMOj4601QbUZ3S6mqh7USod=uXMrJsXawkkQ@mail.gmail.com>
-Subject: Re: [PATCH v6 2/2] coresight: Add label sysfs node support
-To: Jinlong Mao <quic_jinlmao@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_021224_768788_27FA6B90 
-X-CRM114-Status: GOOD (  29.31  )
+X-CRM114-CacheID: sfid-20241218_021700_068755_B9F052A6 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,182 +98,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi Christophe,
 
-On Wed, 18 Dec 2024 at 09:57, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
->
->
->
-> On 2024/12/18 17:38, Suzuki K Poulose wrote:
-> > On 17/12/2024 06:33, Mao Jinlong wrote:
-> >> For some coresight components like CTI and TPDM, there could be
-> >> numerous of them. From the node name, we can only get the type and
-> >> register address of the component. We can't identify the HW or the
-> >> system the component belongs to. Add label sysfs node support for
-> >> showing the intuitive name of the device.
-> >>
-> >> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-> >> ---
-> >>   .../testing/sysfs-bus-coresight-devices-cti   |  6 ++++
-> >>   .../sysfs-bus-coresight-devices-funnel        |  6 ++++
-> >>   .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++++
-> >>   drivers/hwtracing/coresight/coresight-sysfs.c | 32 +++++++++++++++++++
-> >>   4 files changed, 50 insertions(+)
-> >
-> > Do you think we need to name the devices using the label ? Or is this
-> > enough ?
-> >
-> > Suzuki
-> Hi Suzuki,
->
-> In my opinion, we should use label as the device name.
->
-> It will be easier to identify the component with the folder name in
-> /sys/bus/coresight/devices/
->
->
+On Wed, Dec 18, 2024 at 08:20:51AM +0100, Christophe Leroy wrote:
+> Le 16/12/2024 à 15:10, Thomas Weißschuh a écrit :
 
-Please see the my comments from v4 of this patchset that explains why
-this should not be done- re uniqueness and allowing scripting to
-work:-
+[..]
 
-https://lists.linaro.org/archives/list/coresight@lists.linaro.org/message/Y65RKVUJUQGNARMWCOLSD636K7LROLYA/
+> >   #ifdef CONFIG_TIME_NS
+> > -static __always_inline
+> > -const struct vdso_data *__arch_get_timens_vdso_data(const struct vdso_data *vd)
+> > +static __always_inline const struct vdso_time_data *__ppc_get_vdso_u_timens_data(void)
+> >   {
+> > -	return (void *)vd + (1U << CONFIG_PAGE_SHIFT);
+> > +	struct vdso_time_data *time_data;
+> > +
+> > +	asm(
+> > +		"	bcl	20, 31, .+4\n"
+> > +		"0:	mflr	%0\n"
+> > +		"	addis	%0, %0, (vdso_u_timens_data - 0b)@ha\n"
+> > +		"	addi	%0, %0, (vdso_u_timens_data - 0b)@l\n"
+> > +	: "=r" (time_data) :: "lr");
+> > +
+> > +	return time_data;
+> 
+> Please don't do that, it kills optimisation efforts done when implementing
+> VDSO time. Commit ce7d8056e38b ("powerpc/vdso: Prepare for switching VDSO to
+> generic C implementation.") explains why.
+> 
+> For time data, the bcl/mflr dance is done by get_datapage macro called by
+> cvdso_call macro in gettimeofday.S, and given to
+> __cvdso_clock_gettime_data() by __c_kernel_clock_gettime() in
+> vgettimeofday.c . Use that information and don't redo the bcl/mflr sequence.
 
-Mike
+So instead keeping the logic of this:
 
+static __always_inline
+const struct vdso_data *__arch_get_timens_vdso_data(const struct vdso_data *vd)
+{
+	return (void *)vd + (1U << CONFIG_PAGE_SHIFT);
+}
 
-> Thanks
-> Jinlong Mao
->
-> >
-> >
-> >>
-> >> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >> index bf2869c413e7..909670e0451a 100644
-> >> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >> @@ -239,3 +239,9 @@ Date:        March 2020
-> >>   KernelVersion    5.7
-> >>   Contact:    Mike Leach or Mathieu Poirier
-> >>   Description:    (Write) Clear all channel / trigger programming.
-> >> +
-> >> +What:           /sys/bus/coresight/devices/<cti-name>/label
-> >> +Date:           Dec 2024
-> >> +KernelVersion   6.14
-> >> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-> >> +Description:    (Read) Show hardware context information of device.
-> >> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-
-> >> funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >> index d75acda5e1b3..944aad879aeb 100644
-> >> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >> @@ -10,3 +10,9 @@ Date:        November 2014
-> >>   KernelVersion:    3.19
-> >>   Contact:    Mathieu Poirier <mathieu.poirier@linaro.org>
-> >>   Description:    (RW) Defines input port priority order.
-> >> +
-> >> +What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
-> >> +Date:           Dec 2024
-> >> +KernelVersion   6.14
-> >> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-> >> +Description:    (Read) Show hardware context information of device.
-> >> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-
-> >> tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >> index bf710ea6e0ef..309802246398 100644
-> >> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >> @@ -257,3 +257,9 @@ Contact:    Jinlong Mao (QUIC)
-> >> <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_t
-> >>   Description:
-> >>           (RW) Set/Get the MSR(mux select register) for the CMB subunit
-> >>           TPDM.
-> >> +
-> >> +What:           /sys/bus/coresight/devices/<tpdm-name>/label
-> >> +Date:           Dec 2024
-> >> +KernelVersion   6.14
-> >> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-> >> +Description:    (Read) Show hardware context information of device.
-> >> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/
-> >> hwtracing/coresight/coresight-sysfs.c
-> >> index a01c9e54e2ed..4af40cd7d75a 100644
-> >> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
-> >> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-> >> @@ -7,6 +7,7 @@
-> >>   #include <linux/device.h>
-> >>   #include <linux/idr.h>
-> >>   #include <linux/kernel.h>
-> >> +#include <linux/property.h>
-> >>   #include "coresight-priv.h"
-> >>   #include "coresight-trace-id.h"
-> >> @@ -366,18 +367,47 @@ static ssize_t enable_source_store(struct device
-> >> *dev,
-> >>   }
-> >>   static DEVICE_ATTR_RW(enable_source);
-> >> +static ssize_t label_show(struct device *dev,
-> >> +        struct device_attribute *attr, char *buf)
-> >> +{
-> >> +
-> >> +    const char *str;
-> >> +    int ret = 0;
-> >> +
-> >> +    ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
-> >> +    if (ret == 0)
-> >> +        return scnprintf(buf, PAGE_SIZE, "%s\n", str);
-> >> +    else
-> >> +        return ret;
-> >> +}
-> >> +static DEVICE_ATTR_RO(label);
-> >> +
-> >>   static struct attribute *coresight_sink_attrs[] = {
-> >>       &dev_attr_enable_sink.attr,
-> >> +    &dev_attr_label.attr,
-> >>       NULL,
-> >>   };
-> >>   ATTRIBUTE_GROUPS(coresight_sink);
-> >>   static struct attribute *coresight_source_attrs[] = {
-> >>       &dev_attr_enable_source.attr,
-> >> +    &dev_attr_label.attr,
-> >>       NULL,
-> >>   };
-> >>   ATTRIBUTE_GROUPS(coresight_source);
-> >> +static struct attribute *coresight_link_attrs[] = {
-> >> +    &dev_attr_label.attr,
-> >> +    NULL,
-> >> +};
-> >> +ATTRIBUTE_GROUPS(coresight_link);
-> >> +
-> >> +static struct attribute *coresight_helper_attrs[] = {
-> >> +    &dev_attr_label.attr,
-> >> +    NULL,
-> >> +};
-> >> +ATTRIBUTE_GROUPS(coresight_helper);
-> >> +
-> >>   const struct device_type coresight_dev_type[] = {
-> >>       [CORESIGHT_DEV_TYPE_SINK] = {
-> >>           .name = "sink",
-> >> @@ -385,6 +415,7 @@ const struct device_type coresight_dev_type[] = {
-> >>       },
-> >>       [CORESIGHT_DEV_TYPE_LINK] = {
-> >>           .name = "link",
-> >> +        .groups = coresight_link_groups,
-> >>       },
-> >>       [CORESIGHT_DEV_TYPE_LINKSINK] = {
-> >>           .name = "linksink",
-> >> @@ -396,6 +427,7 @@ const struct device_type coresight_dev_type[] = {
-> >>       },
-> >>       [CORESIGHT_DEV_TYPE_HELPER] = {
-> >>           .name = "helper",
-> >> +        .groups = coresight_helper_groups,
-> >>       }
-> >>   };
-> >>   /* Ensure the enum matches the names and groups */
-> >
->
+Makes sense.
+
+Adding a constant value should be cheaper or just as cheap as a
+PC-relative addressing for all architectures, so it can go into the
+generic code, too.
+
+[..]
+
+> >   }
+> > +#define __arch_get_vdso_u_timens_data __ppc_get_vdso_u_timens_data
+> 
+> There is not #ifdef __arch_get_vdso_u_timens_data anywhere, this #define is
+> not needed, the function should be called __arch_get_vdso_u_timens_data()
+> directly as before, unnecessary indirections reduce readability.
+
+I'll see how this works out with the include order and conflicts with
+symbols in include/vdso/datapage.h.
+
+> >   #endif
+> > -static inline bool vdso_clocksource_ok(const struct vdso_data *vd)
+> > +static inline bool vdso_clocksource_ok(const struct vdso_time_data *vd)
+> >   {
+> >   	return true;
+> >   }
 
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Thanks!
+Thomas
 
