@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BB8E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 13:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2C0E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 13:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/qWCv9pXBNXlSLTUOgXh7xlzBdgLrJ6tkCgRkmuCAqU=; b=NWqBUqeq1J8zXz26pL11cVfRHg
-	FVZ/8Mt9JBMFZPdlMlnGyMGqYNbPKJc4S+eSjLS1JxJ7kgbkgSa89dU/sXtye+0YuIBhJGqhlDMXs
-	uszclhfWdWVMtiRiK08IYTRwTNB0+kzDAFHv0tWekyc6hkPLtARVHE/tsbh2oYFU+9kVZXrmm3q3A
-	wUZCMoG2zPY0lnNMAFl8HzTWx2nBv+iYd6+FoJLC9RBX5zwM63RzvV50UlOdsbN54nNFiOkViIkbL
-	f6ktbVO3wgwuCWfu0qkYZliFw5GxwQjBdquunEY5iA3anI2oNEE6Qk9/lvSFKJ3tITLu7hbQ+c+1j
-	XDLbzuaw==;
+	bh=oNRt/uikR0eGNnMWcZwn5Bi3LrNwHFMkuk2PlHieVbg=; b=C0qWkdvYFT/wB+QI1jENp1s1dR
+	VBkYq8MaHKZ6GK7AFPWOarED5jK9XdTNByfvOEWls72qx/GSPwNqc9GcGWrNJWvgigqHe6/hNYcUy
+	KVfL0WpR+qCUd/H6TMp7nS0UfapWG8aiKNCMenJ3kTk7nEP0zT+2rlwq6lRm8CZZRsGeW/kB/1lCZ
+	uoNUYWYP3GtbsySbVsJbSFWUykZhnj5tmUfXpyCQKDBFBOlzm3IfFavZC+QDWj+LpcaeRK7HTkc1w
+	pECJICiIkAiww2JBNUBm/A0byL8VZ6s4x/vSipELpqCElq11gPyfCLupt/Gcp0cwgqDlWzTBrmkXk
+	XrDB33HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtfk-0000000Gei4-0NE2;
-	Wed, 18 Dec 2024 13:01:04 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1tNthR-0000000GexE-3OxW;
+	Wed, 18 Dec 2024 13:02:49 +0000
+Received: from thales.epochal.quest ([51.222.15.28])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtee-0000000GeWG-0MEU
+	id 1tNtgM-0000000Genv-2DIM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 12:59:57 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-7fdc6e04411so4016048a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 04:59:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734526795; x=1735131595; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/qWCv9pXBNXlSLTUOgXh7xlzBdgLrJ6tkCgRkmuCAqU=;
-        b=lP/6bYLbkORbuES74lcKA+fe9LBHxBqLtLJ3xtuv5/FDOei8p/SYQ4oV9iksgWM0/W
-         46gmf4PocyNSK3Wd3XXV6d8RFpKpksau4K0TbY34W3+ciGIUr+pGFiIk2LdC6kMYakhw
-         1DLx3uKhBQzBge37yoHLFGDhKUBQmfBoO9bYaVt+Kit/yzee+L494XZtgSxS4J92clie
-         ZKCUe1S+c9YE6rG/Q7SnOjMUdSXiAKmGzVuUInk3awcVddnBAwXDAUW6BLynFs5cexDe
-         zOT+6esuylm/ACoMj3ODVksrUjf3BEauGk2k7iML349uX67AxyKnZp/D3CKk1GYy+GYk
-         YV6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734526795; x=1735131595;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/qWCv9pXBNXlSLTUOgXh7xlzBdgLrJ6tkCgRkmuCAqU=;
-        b=NILZRTomV7AyuUJ0xX4Zq3BJ3wu2jbhCogbPxCGQiOZ8yJ/NiBXJpazwtWcmOZJrBr
-         aRO980FOdRyOEwliMV+JqYVXEa+c75tJOlkygupoJYgx4wEHnyV7iuHx8BsNrEPUiG83
-         Cpk/3fQpTgEx0Qgut/Py7mbvKNUgH7BfE5l9RCDd060P7LsOZMV4+zmEGU4OIDvukZRt
-         cXbxZJvnjICEdxlhot7KhqIRd7rbXGGV12+zlfBgnqydD3UGOwQSqUDD/Xx3sTVNC4R4
-         cjmNN4jnZIJjuzp5MY0wy+spqhjCEbXFbjo2GNjIU6BOEfhtKGa6MNbfjHvi1HoGiQbh
-         t26A==
-X-Forwarded-Encrypted: i=1; AJvYcCXfjxCyb0vdrdHRTvzlgVHrLovzWqFHzBt6h9Y7snQqg3cMCH4ZT9UYhLpnjhRYVKDDE505ttAHyO/mZ+jLh2AZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx04G27IsRwxQKRBOBAj+uf2EFhsMgh10H4+E9Q+qE6lPuLOtBI
-	DMamxmL3y0tmPa8DLiPaW7TiTbbHat4zpxJKuSiZeAZZYmRcnIn1a9jWHJgykXd4vIMUvOtoTVw
-	rO2uhyV1JELIX9uHWU5CkrJoQIeiZFPToAfs=
-X-Gm-Gg: ASbGncteVWj/KCs6JApZhY31NTh0iJx+03FlVIlZK7NmQIJ/9Genh90RlFuXVieVD+B
-	cr/7KvVPSQEVM5GWdkRRId19ZZC0ZuBoU7A==
-X-Google-Smtp-Source: AGHT+IHrwBpS6CcQxAZmukcsGo476EQmoqWM2slhHPAXzThtNb2IK1NBH/tbUgYtw/82HwemO/owjrylht1ANbiMZYg=
-X-Received: by 2002:a17:90b:380e:b0:2ee:f22a:61dd with SMTP id
- 98e67ed59e1d1-2f2e9374547mr3475436a91.32.1734526794842; Wed, 18 Dec 2024
- 04:59:54 -0800 (PST)
+	Wed, 18 Dec 2024 13:01:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=epochal.quest;
+	s=default; t=1734526898;
+	bh=UtiFUB7JYOEIMLI78fhF4G8WqBGTAB6l9kQoj2W7g7Q=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jXmM0P56xEPCszSNWAG2srnBbfoN63A04qcy47Fnb+SYM/xM1N3rXfL8eSptj4Itz
+	 Ruff8oOAfZ/fiDHmUXwEwaydSR6HYm29SJe86oCxB/oumb10a/SB5anIhIMSGaVVOl
+	 NUodk1QWl26XZnlsdBjwQUhwEdbQ9cvTaHl2x3eypRcerwqKHb1PsHNdTbLMvu+ptP
+	 qhSAduiC7yhdc59AQsiSUM4Y6T7WcLEdzVbHRQ+7VopDqy48XCVuPQToowosTT1aV5
+	 ttas0gRSzxcYAJ6FzsoqM7MRKWYyLMVzbhDMB/xtxMEHZKsekhK6Q6/pLz7MyM5VJE
+	 Tafulc5+iwhig==
+X-Virus-Scanned: by epochal.quest
+From: Cody Eksal <masterr3c0rd@epochal.quest>
+Date: Wed, 18 Dec 2024 09:01:19 -0400
+Subject: [PATCH v2 2/2] arm64: dts: allwinner: a100: Add syscon nodes
 MIME-Version: 1.0
-References: <20241113195240.3699-1-laurentiumihalcea111@gmail.com>
- <20241113195240.3699-5-laurentiumihalcea111@gmail.com> <ZzUJQCeWclsrr/lr@lizhi-Precision-Tower-5810>
- <c47710a5-7e53-48b1-bd6b-c0123865aee5@gmail.com> <Z1r9hWH1ioR5vI5H@lizhi-Precision-Tower-5810>
- <c3c9389f-5116-4a5f-99f6-1b37c1e8c457@gmail.com>
-In-Reply-To: <c3c9389f-5116-4a5f-99f6-1b37c1e8c457@gmail.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Wed, 18 Dec 2024 15:01:11 +0200
-Message-ID: <CAEnQRZArKSOtka46A_SOiV2=8bs9B36ubAJM3GqYJZkKyBt_4A@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] ASoC: SOF: imx: add driver for imx95
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Frank Li <Frank.li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Mark Brown <broonie@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Takashi Iwai <tiwai@suse.com>, 
-	Bard Liao <yung-chuan.liao@linux.intel.com>, 
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, Jaroslav Kysela <perex@perex.cz>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-sound@vger.kernel.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241218-a100-syscon-v2-2-dae60b9ce192@epochal.quest>
+References: <20241218-a100-syscon-v2-0-dae60b9ce192@epochal.quest>
+In-Reply-To: <20241218-a100-syscon-v2-0-dae60b9ce192@epochal.quest>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Parthiban Nallathambi <parthiban@linumiz.com>, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Cody Eksal <masterr3c0rd@epochal.quest>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_045956_129123_33388871 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20241218_050142_630824_B3D57627 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +75,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> >>> Frank
-> >> the SOF drivers do indeed have some similarities, but each of them has=
- their own quirks which IMO makes it a bit harder to add the 95 support. We=
- need to figure out the common parts and then move them to imx-common, but =
-I believe this can be solved incrementally.
-> > You should create common part firstly, then implement equal function wi=
-th
-> > existed part. Finially add imx95 part.
-> >
-> > Frank
->
-> Yes, I'm aware of how this _should_ be done, but, like I mentioned, the c=
-hange is not trivial and will
-> require tweaking the other drivers as well. As such, I'd like to get the =
-95 support in as-is firstly.
->
-> Are there any other thoughts on this?
+The Allwinner A100 has a system configuration block, denoted as SYS_CFG
+in the user manual's memory map. It is undocumented in the manual, but
+a glance at the vendor tree shows this block is similar to its
+predecessors in the A64 and H6. The A100 also has 3 SRAM blocks: A1, A2,
+and C. Add all of these to the SoC's device tree.
 
-Laurentiu, Frank please trim the emails and keep only the relevant
-part for discussion.
+Reviewed-by: Parthiban Nallathambi <parthiban@linumiz.com>
+Signed-off-by: Cody Eksal <masterr3c0rd@epochal.quest>
+---
+ arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi | 33 ++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-As for this matter I think we should go with the current version Laurentiu =
-sent.
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+index 29ac7716c7a5284ccf8af675db9c7d016785f0ff..a24adba201af29a3a117222c67da5d269629fa47 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi
+@@ -101,6 +101,39 @@ soc {
+ 		#size-cells = <1>;
+ 		ranges = <0 0 0 0x3fffffff>;
+ 
++		syscon: syscon@3000000 {
++			compatible = "allwinner,sun50i-a100-system-control",
++				     "allwinner,sun50i-a64-system-control";
++			reg = <0x03000000 0x1000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges;
++
++			sram_a1: sram@20000 {
++				compatible = "mmio-sram";
++				reg = <0x00020000 0x4000>;
++				#address-cells = <1>;
++				#size-cells = <1>;
++				ranges = <0 0x00020000 0x4000>;
++			};
++
++			sram_c: sram@24000 {
++				compatible = "mmio-sram";
++				reg = <0x024000 0x21000>;
++				#address-cells = <1>;
++				#size-cells = <1>;
++				ranges = <0 0x024000 0x21000>;
++			};
++
++			sram_a2: sram@100000 {
++				compatible = "mmio-sram";
++				reg = <0x0100000 0x14000>;
++				#address-cells = <1>;
++				#size-cells = <1>;
++				ranges = <0 0x0100000 0x14000>;
++			};
++		};
++
+ 		ccu: clock@3001000 {
+ 			compatible = "allwinner,sun50i-a100-ccu";
+ 			reg = <0x03001000 0x1000>;
 
-It is inline with the implementation for imx8qxp, imx8qm, imx8mp and
-imx8ulp which we already have upstream.
+-- 
+2.47.1
 
-There is always space for refactorization and improvements. The
-current version of the code
-is simple enough to go in as it is.
-
-With this,
-
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-
-thanks,
-Daniel.
 
