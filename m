@@ -4,84 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E372DE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903D1E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hU1Z8+lcg+ptXSveEoYze+mbRwLw9U4+cd4zYPlrev0=; b=o820K7A23mGpA7eSfKRo8kjGIc
-	eGakcMAKxUAMAX2dfNxK4rIAO8YcZ4DKWDBilV92kNo2Xz/3K16FbcQTNcpBrnJx3vUtq/4f23NDx
-	s0NcFVGzfhLTDIRCASZccgZ65puJ21uLb4aB849AI/jr0hPXFdSNNkrHptVARzWkeVLB/zKtTppB/
-	oZri4lAFuOG2IFkUH2AuT3+q4AwI1l1euWUkZ4enrHaj2o3+KwOOT1fw6EYeKR6xn8xzgRCrJ9gma
-	6zECaXpzhO8T2UPNzfedadP1ez70gpWkYvXhs78wlFpy4jvw2MxoZodmnNpUIV1ye0Wt1TRYfFqLZ
-	KVhphUjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfvIer0zFabb2CSH4FYG5+b3Q6Xz7yeeSWmQEgNJheM=; b=yOZZcNJFoj3mED1ypeCuB/Ksf5
+	mUqYtvycLqeQWCBea+JJo+tFrnLsR1GJSBQB1EixAa5UqKdj++TIIH6EpnSSJ9MaTwDi8XjNynYde
+	k+fleD/WNHslgjYVS243RkM2YEbRzc6ZjXFmIfXlDf4KGbEMrmSYOV2o1lbp19wBDHhi3u2P6Pd9/
+	LLfVfIeXsg2yLnwYmKTbTWyTKJP2r0WGe+wGF28Ep23mcsn+s/S6DggLNRYCCtc+qhBZ4hgbYkzPM
+	4DBFc2bubLk5EQzIEp+9q8+EM79x7sUjcukrEFzq8+Kqmh7lqidPp+hr4UTf3/sBn0InA+IcaneXe
+	DuwaAGqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNx2p-0000000HCfH-0sLy;
-	Wed, 18 Dec 2024 16:37:07 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1tNx3s-0000000HCrT-3hxR;
+	Wed, 18 Dec 2024 16:38:12 +0000
+Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNx1i-0000000HCQ9-3miQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 16:36:00 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4678c9310afso272121cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 08:35:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734539757; x=1735144557; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hU1Z8+lcg+ptXSveEoYze+mbRwLw9U4+cd4zYPlrev0=;
-        b=YEI1+E47o+Jv6qm+AX68W4x7TiYQGTWuIqvk1wJyMLjLpmylUEXIssMy1Z0w+tUtxq
-         d7t9uRpNQg3GGrnAE5uNaaBujqes0vGygToZ30/50gnLgtg+Ir12euUWJAgQ5fHfl2Ab
-         hntAuLq3YMoC9qpo1kofQn3GDbydr8JRg2wZ4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734539757; x=1735144557;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hU1Z8+lcg+ptXSveEoYze+mbRwLw9U4+cd4zYPlrev0=;
-        b=MAQN4Z8eJBczgVMZrYInvdBBkPies698Gt4s5Jk9uj+IkBA7xFhMa9CdWvTVnrclGq
-         Pq3b+99+x5r3t2uv5LBku2kfWxiTwXJH+46K0sET9dr5g6xhGjzQ96MYXmNts1Ku7zmW
-         kBqqTi4GS/wA6W2ke5psuFwVj7OmcL5I0yxfoeALiwcC7OMjyL4hwbsI4ZjwSTw6yKq9
-         qzgkOIpPJfOZxV5it7FNWKJsDFph68Ib1sO5ro+DcvcQUoFT+esPFrJ7hYERs9HOFglL
-         GbWix1QopISXEBmo4xuEU4Hn/9YaQ9raGmIlsvG4rLm49W/czOYbsDEKC9i83JjRuK1T
-         S5ww==
-X-Forwarded-Encrypted: i=1; AJvYcCW8rIEniqeA0Cu9hgzr7yNVZsUPNY0cDDZK/BdPlDZQjRk1M0GP1AT6spKo2K6cf3jTV7kMu3ICqzrHErNX8lSo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2vjnGAMCEB3qhGyviQkQRQclPM1ydSRodpM9SqY7IURkDoJAS
-	5Kltv/W210bKn0SV/OQRJyugsLspD0GVDXs3yKB9/To8IvNkpXssNj/LePK1ICrHt+gehdHBMMm
-	+KLrVerW3urdW25I1VGBpveBH8VysM764Ej83
-X-Gm-Gg: ASbGnctc0hJnH4q5wRP/2Nqlr9Y9OmAf6xjo3GsLA2wbar4fr8/cLm73iorFk6KMNtr
-	375rErAGtla0cy2M/YTY3GsBo/sEbLnpfzovqLdZYLBkeBcLV3bnl6dU2/wI8hg9aANELRQ==
-X-Google-Smtp-Source: AGHT+IGlf+Wlv9h2+51DeY+YpWsJpttrKLiQ4T5hKVUT5e2IblIuVjyaICps4zat75Zd9spNCR9Zv3byB1374eRD8gw=
-X-Received: by 2002:ac8:5f49:0:b0:467:7ef7:88a3 with SMTP id
- d75a77b69052e-469090dc683mr4277431cf.16.1734539756443; Wed, 18 Dec 2024
- 08:35:56 -0800 (PST)
+	id 1tNx2N-0000000HCZd-0nPL;
+	Wed, 18 Dec 2024 16:36:41 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailflow.stl.internal (Postfix) with ESMTP id 604441D40442;
+	Wed, 18 Dec 2024 11:36:36 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Wed, 18 Dec 2024 11:36:37 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1734539796;
+	 x=1734546996; bh=nfvIer0zFabb2CSH4FYG5+b3Q6Xz7yeeSWmQEgNJheM=; b=
+	ZBQAOqwWg2K05L5uK2bYuwdACrxkLsoc2PIgD0cQgiEZ7YYzhpCxLlGgVZW3DVx6
+	RnHtDGYZacvkFOApE5i8PpEKXJJGSLMPZi1/7zYeCxngLwFiuC9mIs0r1MfRf1d7
+	ljvkEfr+wDzKKBBc+aurNSqkpq8ZRtQDdq0HUTxnfOR5XzEt97aJE7dwOdFVZ/hQ
+	G7NwA6xY0dgZ+/xg4YILY7/7WbCEybiUYNzp0z8/igRlYf8NVwKiJsF4kOTG+iqu
+	JyrXPLjrjW44Sllz4+cRSo0lIJniQhepEl9dIW9Ha7JzvHs7+IVaGL96wRRmTQVz
+	/xIay+l60aHEAef4QHVc4w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734539796; x=
+	1734546996; bh=nfvIer0zFabb2CSH4FYG5+b3Q6Xz7yeeSWmQEgNJheM=; b=K
+	qJZWQVI8dLKjsLZD5P9G0J1qUuKhEEsdqq+hKLVZma8PcO0rePXvzMeh3Gx+vBOD
+	4nrPDtjhBHF33PiCb2oLKtLN8BuhIxgjeQHXotN9690yJVqb/PXCqLhFT2gY2knP
+	SHOoAC5zDrv2o7AYcQSL9H9AgGMdlkVSHmV5ZjLFwBX52jgdNDzgyVppGNX1wod9
+	7ttZ7ZLraiTYPJxQ1MR/SR1x3wO/EGPAqJ0WFhEdeVI7D2KnDKbbNvBechT+mDuz
+	cpPDpxvu0YbekmHfrUlPuFeXsXgCSELupq6HK7beqkIp0QrURFeBQbSN0zMiN8me
+	L7v+l+rQqTjKGKfPI+cXQ==
+X-ME-Sender: <xms:EPpiZ2PhewnaDdeTezsY7UHZ-8MZHheQgg2o6m05zEshehzpenow1A>
+    <xme:EPpiZ08FeD-PHv9DfxkMbyU44Z2agIt5ndVb5bJvAT7p7tClm27qKJ2TH4eLJ14WB
+    FQJfPGZ_sMFiMW81M0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrleekgdeltdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeen
+    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
+    gvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeej
+    vdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
+    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeegiedp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtg
+    hpthhtohepthhssghoghgvnhgusegrlhhphhgrrdhfrhgrnhhkvghnrdguvgdprhgtphht
+    thhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepvh
+    hinhgtvghniihordhfrhgrshgtihhnohesrghrmhdrtghomhdprhgtphhtthhopehlihhn
+    uhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheptghhrhhishhtohhphh
+    gvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehprghlmhgvrhesuggr
+    sggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrd
+    gvughupdhrtghpthhtohepmhhpvgesvghllhgvrhhmrghnrdhiugdrrghu
+X-ME-Proxy: <xmx:EPpiZ9SUEzmB8m4BWTnSvNTtSXRoY8pckW1eK5W5rKnWC0lS5naOKQ>
+    <xmx:EPpiZ2tCYDXsXEJFpJcBW2DlzBqmukOXYouat3DqxhmhFciRrpQLMQ>
+    <xmx:EPpiZ-ctkHakbRRswX0-1x3fLnbcgCLh6ogHHQVM_Yz1HDnHdPdaLw>
+    <xmx:EPpiZ62xeygOoJZVhzcxu1Lkfiip8AzfGhxGF4meBhl3PD_5MD0-1Q>
+    <xmx:FPpiZ3eUuVl_kIXn3EabUXk14dEdg5IU1747WEAAdir6NevQA5VhmJtW>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 5B4AC2220075; Wed, 18 Dec 2024 11:36:32 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20241214005248.198803-1-dianders@chromium.org>
- <20241213165201.v2.1.I2040fa004dafe196243f67ebcc647cbedbb516e6@changeid>
- <CAODwPW_c+Ycu_zhiDOKN-fH2FEWf2pxr+FcugpqEjLX-nVjQrg@mail.gmail.com>
- <CAD=FV=UHBA7zXZEw3K6TRpZEN-ApOkmymhRCOkz7h+yrAkR_Dw@mail.gmail.com>
- <CAODwPW8s4GhWGuZMUbWVNLYw_EVJe=EeMDacy1hxDLmnthwoFg@mail.gmail.com> <CAD=FV=X61y+RmbWCiZut_HHVS4jPdv_ZB8F+_Hs0R-1aKHdK4w@mail.gmail.com>
-In-Reply-To: <CAD=FV=X61y+RmbWCiZut_HHVS4jPdv_ZB8F+_Hs0R-1aKHdK4w@mail.gmail.com>
-From: Julius Werner <jwerner@chromium.org>
-Date: Wed, 18 Dec 2024 17:35:45 +0100
-Message-ID: <CAODwPW_UNVkyXKxyhZv830bhzsy5idu6GiuR9mut+-qGOtv1pw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/6] arm64: errata: Assume that unknown CPUs _are_
- vulnerable to Spectre BHB
-To: Doug Anderson <dianders@chromium.org>
-Cc: Julius Werner <jwerner@chromium.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, linux-arm-msm@vger.kernel.org, 
-	Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
-	Roxana Bradescu <roxabee@google.com>, Trilok Soni <quic_tsoni@quicinc.com>, 
-	bjorn.andersson@oss.qualcomm.com, stable@vger.kernel.org, 
-	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Date: Wed, 18 Dec 2024 17:35:31 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Conor Dooley" <conor@kernel.org>
+Cc: "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Helge Deller" <deller@gmx.de>, "Andy Lutomirski" <luto@kernel.org>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Anna-Maria Gleixner" <anna-maria@linutronix.de>,
+ "Frederic Weisbecker" <frederic@kernel.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Theodore Ts'o" <tytso@mit.edu>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Heiko Carstens" <hca@linux.ibm.com>,
+ "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Naveen N Rao" <naveen@kernel.org>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, linux-parisc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-s390@vger.kernel.org, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ "Nam Cao" <namcao@linutronix.de>
+Message-Id: <137c0594-e178-4c91-bc8b-5f99b3ddb2f0@app.fastmail.com>
+In-Reply-To: <20241218162031-ee920684-db10-4f17-b1cb-50373d7ea954@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+ <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
+ <20241218-action-matchbook-571b597b7f55@spud>
+ <20241218162031-ee920684-db10-4f17-b1cb-50373d7ea954@linutronix.de>
+Subject: Re: [PATCH 07/17] riscv: vdso: Switch to generic storage implementation
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_083559_021907_F46CBC2E 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20241218_083639_890642_FA9EF485 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +148,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Given that I'm not going to change the way the existing predicates
-> work, if I move the "fallback" setting `max_bhb_k` to 32 to
-> spectre_bhb_enable_mitigation() then when we set `max_bhb_k` becomes
-> inconsistent between recognized and unrecognized CPUs.
+On Wed, Dec 18, 2024, at 16:46, Thomas Wei=C3=9Fschuh wrote:
+> On Wed, Dec 18, 2024 at 03:08:28PM +0000, Conor Dooley wrote:
+>> On Mon, Dec 16, 2024 at 03:10:03PM +0100, Thomas Wei=C3=9Fschuh wrote:
 
-A clean way to fix that could be to change spectre_bhb_loop_affected()
-to just return the K-value (rather than change max_bhb_k directly),
-and then set max_bhb_k to the max() of that return value and the
-existing value when it is called from spectre_bhb_enable_mitigation().
-That way, max_bhb_k would only be updated from
-spectre_bhb_enable_mitigation().
+>> Might be a clang thing, allmodconfig with clang doesn't build either.
+>
+> The proposed generic storage infrastructure currently expects that all
+> its users also use HAVE_GENERIC_VDSO.
+> I missed rv32 when checking this assumption.
+>
+> I can add a bunch of ifdefs into the storage code to handle this.
+>
+> Or we re-add the time vDSO functions which were removed in commit
+> d4c08b9776b3 ("riscv: Use latest system call ABI").
+> Today there are upstream ports of musl and glibc which can use them.
+> (currently musl even tries to use __vdso_clock_gettime() as 64-bit only
+> on rv32 due to a copy-and-paste error from its rv64 code)
 
-> I would also say that having `max_bhb_k` get set in an inconsistent
-> place opens us up for bugs in the future. Even if it works today, I
-> imagine someone could change things in the future such that
-> spectre_bhb_enable_mitigation() reads `max_bhb_k` and essentially
-> caches it (maybe it constructs an instruction based on it). If that
-> happened things could be subtly broken for the "unrecognized CPU" case
-> because the first CPU would "cache" the value without it having been
-> called on all CPUs.
+Adding back __vdso_clock_gettime() wouldn't work on rv32 because there
+is no fallback syscall for it, and it wouldn't really help since
+there is no existing userspace that uses time32 structures.
 
-This would likely already be a problem with the current code, since
-spectre_bhb_enable_mitigations() is called one at a time for each CPU
-and the max_bhb_k value is only valid once it has been called on all
-CPUs. If someone tried to just immediately use the value inside the
-function that would just be a bug either way. (Right now this should
-not be a problem because max_bhb_k is only used by
-spectre_bhb_patch_loop_iter() which ends up being called through
-apply_alternatives_all(), which should only run after all those CPU
-errata cpu_enable callbacks have been called.)
+> There is precedence in providing 64bit only vDSO functions, for example
+> __vdso_clock_gettime64() in arm.
+> I do have a small, so far untested, proof-of-concept patch for it.
+> This would even be less code than the ifdefs.
+>
+> What do you think about it?
+
+Yes, simply exposing the normal time64 syscalls through vdso
+should be fine. I think this currently works on everything except
+rv32 and sparc32, probably because neither of them have actual
+users that are able to test.
+
+       Arnd
 
