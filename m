@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7BBE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A1FE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WK1PKmsLdMHmuIS4oNCU1BzF7ljmQDQFxfjOUdX1gH4=; b=rZzDmXfARSo+/aAQaWOBiOEOTo
-	ncPmDgLfp5DAvMN2t75WXIiE51ZTqyzTM5ZokBclLIlfGqIj8yYYjxkW6okHJZj8SV7YdXaKy4epi
-	rBNZh9sfIQwh3ig8aIwwjlCmUK0xtNNbmrfwK/PduBRUA7q9EjGypiPIDvNlO32fCqxJuOQaPHYmQ
-	qtHoQMsqGrep1UlWPTMRiHeHoBa4CPpThrP7fFtTIwtWPpqhwu98ygTj6uNsyMj5HPU0ojOWsJMZt
-	em7QVZSjlua3JGGhw14nPL4VkNoPVLvvFLlfvfnDbMLcwqCU0SnjSfZcPSIYcHDD85VnE/Px4HAUW
-	xSM9IssQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RWw0YjfIq3RA4Wmm35YTKkdNVZn5xNSpCYbBF0u+pzc=; b=05YIoDo5/L4CDjtR8crt0d4uEK
+	RMaQNE25gefk1NcbDLW7lDjgflVMvuI+lBgeh8Zuu//hS4S6UBLoQJrssPoJisPiJf45zxggKA36h
+	bDXzFA/+i6uRs9t06fq/tvE7wV9+AddzQ8tRMc+ClCQjHYCmLs7YB5Ti97yGHwVXUTVHg/G6cUA4T
+	NyotHBCUdiCX4jE7pguV6mxo8ifKRQp8GD5BDunheBvqa+IvbnKfzl94Ln5CL5dZcn6a7Ba7DV2kx
+	sTgF8JvWhxlkE3qJkajkLKBYwX8/RtybqnYL+aE6+EuASLpJ7blOhJRbdnPddfl6O0pWOexaKxc2l
+	EDIWcGJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsDv-0000000GSB0-44p4;
-	Wed, 18 Dec 2024 11:28:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tNsLb-0000000GT5A-0dQi;
+	Wed, 18 Dec 2024 11:36:11 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsCp-0000000GS0c-1xxs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:27:09 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI6oHKX032719;
-	Wed, 18 Dec 2024 12:26:55 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	WK1PKmsLdMHmuIS4oNCU1BzF7ljmQDQFxfjOUdX1gH4=; b=ckUmMP0WTEqzQtDp
-	w8KlcXYffhEfhJxZVedYAeqoFU9W4nL4m7zqd07ylW9k2dkllV3ijQqXafgKYn+d
-	xSRtLs11MJEI7qM4f3AkWc2wxTuePPfTGLJMXkHaIdP65zPzjbbQmQtY6Ms8w/LR
-	YIu9V8Gi/AjzcP/Fq0fPAz2XDy7dVFg5IjCIGa6MxQ3F+vAHWCz3sU6iXH3rPIfC
-	fY29qHXoygRkggYOgp60pV2lyo3/4oV2IYHiWlTEYmU+axWa+8LKOSR5MJtSznKw
-	dt45aoxICs9uAsc6YcHkt07stpJsAJkkV7OPvfHfgq4b5uU9FqDh4rxwoaRmPrYh
-	SvMrBg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ksfrh79w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Dec 2024 12:26:54 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B5B6840048;
-	Wed, 18 Dec 2024 12:25:29 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 42FCB26C440;
-	Wed, 18 Dec 2024 12:24:23 +0100 (CET)
-Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 18 Dec
- 2024 12:24:22 +0100
-Message-ID: <d15cec4e-e06a-47f7-aa8a-744c0829d244@foss.st.com>
-Date: Wed, 18 Dec 2024 12:24:21 +0100
+	id 1tNsKU-0000000GSqI-3kaH;
+	Wed, 18 Dec 2024 11:35:04 +0000
+X-UUID: 1a265c44bd3411ef82ff63e91e7eb18c-20241218
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=RWw0YjfIq3RA4Wmm35YTKkdNVZn5xNSpCYbBF0u+pzc=;
+	b=ZaO1ix1zrIuHHCVWE1+zLy7E70trKYEUiug88KBu+2g6z7ke4LQMXkcvCdwDZORPrFtaguROzugt6zWHISLhhRpd0AFAXbhUwNui2DAf4lwZ0IpYQS+CWaKGD3PEd/D7ofOb8iR2IyhyKClZ6QhLPXs5cZ8acV1nD48S5NJRecw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:922ec55e-32bd-4ecb-9f86-e5124138de9d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:448e5513-8f5d-4ac6-9276-7b9691c7b8d6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 1a265c44bd3411ef82ff63e91e7eb18c-20241218
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <liankun.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1980500206; Wed, 18 Dec 2024 04:34:54 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Wed, 18 Dec 2024 19:34:51 +0800
+Received: from mszsdclx1211.gcn.mediatek.inc (10.16.7.31) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Wed, 18 Dec 2024 19:34:51 +0800
+From: Liankun Yang <liankun.yang@mediatek.com>
+To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <ck.hu@mediatek.com>,
+	<granquet@baylibre.com>, <dmitry.osipenko@collabora.com>,
+	<rex-bc.chen@mediatek.com>, <jitao.shi@mediatek.com>,
+	<mac.shen@mediatek.com>, <peng.liu@mediatek.com>,
+	<liankun.yang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 1/1] drm/mediatek: Add return value check when reading DPCD
+Date: Wed, 18 Dec 2024 19:34:07 +0800
+Message-ID: <20241218113448.2992-1-liankun.yang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] PCI: stm32: Add PCIe host support for STM32MP25
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
-        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
- <20241126155119.1574564-3-christian.bruel@foss.st.com>
- <20241203145244.trgrobtfmumtiwuc@thinkpad>
- <ced7a55a-d968-497f-abc2-663855882a3f@foss.st.com>
- <20241218094606.sljdx2w27thc5ahj@thinkpad>
-Content-Language: en-US
-From: Christian Bruel <christian.bruel@foss.st.com>
-In-Reply-To: <20241218094606.sljdx2w27thc5ahj@thinkpad>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_032708_042528_73848E6B 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20241218_033502_930744_C4AB6E6D 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,196 +89,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Returns the number of bytes transferred (1) on success.
+Check the return value to confirm that AUX communication is successful.
 
+Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
 
-On 12/18/24 10:46, Manivannan Sadhasivam wrote:
-> On Mon, Dec 16, 2024 at 10:00:27AM +0100, Christian Bruel wrote:
-> 
-> [...]
-> 
->>>
->>>> +		msleep(PCIE_T_RRS_READY_MS);
->>>> +
->>>> +	return ret;
->>>> +}
->>>> +
->>>> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
->>>> +{
->>>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->>>> +
->>>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->>>> +			   STM32MP25_PCIECR_LTSSM_EN, 0);
->>>> +
->>>> +	/* Assert PERST# */
->>>> +	if (stm32_pcie->perst_gpio)
->>>> +		gpiod_set_value(stm32_pcie->perst_gpio, 1);
->>>
->>> I don't like tying PERST# handling with start/stop link. PERST# should be
->>> handled based on the power/clock state.
->>
->> I don't understand your point: We turn off the PHY in suspend_noirq(), so
->> that seems a logical place to de-assert in resume_noirq after the refclk is
->> ready. PERST# should be kept active until the PHY stablilizes the clock in
->> resume. From the PCIe electromechanical specs, PERST# goes active while the
->> refclk is not stable/
->>
-> 
-> While your understanding about PERST# is correct, your implementation is not.
-> You are toggling PERST# from start/stop link callbacks which are supposed to
-> control the LTSSM state only. I don't have issues with toggling PERST# in
-> stm32_pcie_{suspend/resume}_noirq().
+Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
+---
+Changes in V3:
+- Using drm_dp_read_sink_count() to improve patch.
+Per suggestion from the previous thread:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20241128030940.25657-1-liankun.yang@mediatek.com/
 
-Ah OK. this function is split now into 2 functional blocks in the 
-upcoming version
+Changes in V2:
+- Modify Fixes in Commit Message.
+Per suggestion from the previous thread:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20240930092000.5385-1-liankun.yang@mediatek.com/
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-> 
->>
->>>
->>>> +}
->>>> +
->>>> +static int stm32_pcie_suspend(struct device *dev)
->>>> +{
->>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->>>> +
->>>> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
->>>> +		enable_irq_wake(stm32_pcie->wake_irq);
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int stm32_pcie_resume(struct device *dev)
->>>> +{
->>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->>>> +
->>>> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
->>>> +		disable_irq_wake(stm32_pcie->wake_irq);
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int stm32_pcie_suspend_noirq(struct device *dev)
->>>> +{
->>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->>>> +
->>>> +	stm32_pcie->link_is_up = dw_pcie_link_up(stm32_pcie->pci);
->>>> +
->>>> +	stm32_pcie_stop_link(stm32_pcie->pci);
->>>
->>> I don't understand how endpoint can wakeup the host if PERST# gets asserted.
->>
->> The stm32 PCIe doesn't support L2, we don't expect an in-band beacon for the
->> wakeup. We support wakeup only from sideband WAKE#, that will restart the
->> link from IRQ
->>
-> 
-> I don't understand how WAKE# is supported without L2. Only in L2 state, endpoint
-> will make use of Vaux and it will wakeup the host using either beacon or WAKE#.
-> If you don't support L2, then the endpoint will reach L3 (link off) state.
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 36713c176cfc..b26dad8783be 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -2100,7 +2100,6 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
+ 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
+ 	enum drm_connector_status ret = connector_status_disconnected;
+ 	bool enabled = mtk_dp->enabled;
+-	u8 sink_count = 0;
+ 
+ 	if (!mtk_dp->train_info.cable_plugged_in)
+ 		return ret;
+@@ -2115,8 +2114,8 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
+ 	 * function, we just need to check the HPD connection to check
+ 	 * whether we connect to a sink device.
+ 	 */
+-	drm_dp_dpcd_readb(&mtk_dp->aux, DP_SINK_COUNT, &sink_count);
+-	if (DP_GET_SINK_COUNT(sink_count))
++
++	if (drm_dp_read_sink_count(&mtk_dp->aux))
+ 		ret = connector_status_connected;
+ 
+ 	if (!enabled)
+-- 
+2.45.2
 
-I think this is what happens, my understanding is that the device is 
-still powered to get the wakeup event (eg WoL magic packet), triggers 
-the PCIe wake_IRQ from the WAKE#.
-
-> 
->>>
->>>> +	clk_disable_unprepare(stm32_pcie->clk);
->>>> +
->>>> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev))
->>>> +		phy_exit(stm32_pcie->phy);
->>>> +
->>>> +	return pinctrl_pm_select_sleep_state(dev);
->>>> +}
->>>> +
->>>> +static int stm32_pcie_resume_noirq(struct device *dev)
->>>> +{
->>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->>>> +	struct dw_pcie *pci = stm32_pcie->pci;
->>>> +	struct dw_pcie_rp *pp = &pci->pp;
->>>> +	int ret;
->>>> +
->>>> +	/* init_state must be called first to force clk_req# gpio when no
->>>
->>> CLKREQ#
->>>
->>> Why RC should control CLKREQ#?
->>
->> REFCLK is gated with CLKREQ#, So we cannot access the core
->> without CLKREQ# if no device is present. So force it with a init pinmux
->> the time to init the PHY and the core DBI registers
->>
-> 
-> Ok. You should add a comment to clarify it in the code as this is not a standard
-> behavior.
-> 
-
-OK
-
->>>
->>> Also please use preferred style for multi-line comments:
->>>
->>> 	/*
->>> 	 * ...
->>> 	 */
->>>
->>>> +	 * device is plugged.
->>>> +	 */
->>>> +	if (!IS_ERR(dev->pins->init_state))
->>>> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
->>>> +	else
->>>> +		ret = pinctrl_pm_select_default_state(dev);
->>>> +
->>>> +	if (ret) {
->>>> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
->>>> +		return ret;
->>>> +	}
->>>> +
->>>> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev)) {
->>>> +		ret = phy_init(stm32_pcie->phy);
->>>> +		if (ret) {
->>>> +			pinctrl_pm_select_default_state(dev);
->>>> +			return ret;
->>>> +		}
->>>> +	}
->>>> +
->>>> +	ret = clk_prepare_enable(stm32_pcie->clk);
->>>> +	if (ret)
->>>> +		goto clk_err;
->>>
->>> Please name the goto labels of their purpose. Like err_phy_exit.
->>
->> OK
->>
->>>
->>>> +
->>>> +	ret = dw_pcie_setup_rc(pp);
->>>> +	if (ret)
->>>> +		goto pcie_err;
->>>
->>> This should be, 'err_disable_clk'.
->>>
->>>> +
->>>> +	if (stm32_pcie->link_is_up) {
->>>
->>> Why do you need this check? You cannot start the link in the absence of an
->>> endpoint?
->>>
->>
->> It is an optimization to avoid unnecessary "dw_pcie_wait_for_link" if no
->> device is present during suspend
->>
-> 
-> In that case you'll not trigger LTSSM if there was no endpoint connected before
-> suspend. What if users connect an endpoint after resume?
-
-Yes, exactly. We don't support hotplug, and plugging a device while the 
-system is in stand-by is something that we don't expect. The imx6 
-platform does this also.
-
-thanks,
-
-Christian
-
-> 
-> - Mani
-> 
 
