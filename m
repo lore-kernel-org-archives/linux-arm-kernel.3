@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA701E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8AC8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTBZ1w2A4/OMF7++qFZpHOE+/Yr7dRTFL5zNyewIZYg=; b=nRSKyDYivEGrFyPB/34qCMW4g2
-	IfUmEyy68fFVhoZx11iQ8YOOboblBqZTj3NaOryKCR2IfNgPaFhhHU18xsOnP9pt98DawZyQ8XzY7
-	UrY3JARykiR1ti2FlmMr55HUR98+gI1GCqEFExdb6S1kN7q/18XhjzzObIJx2RB8SYhDUOYAJSQu4
-	JuU/cOR9uI3GOtwYwS/z619kFFfOi2rSl5zD0YSnMEz1D47zaLYUr1CUgQ41FUetW5lUD0lbGSGG9
-	RQMOBVTFPUJbozuf5UgBtcwsPkbtUi5pRtUCNmww1d/SDQetfv5BEv/gAPb0Nxce0n1x+WYcOR6az
-	k8nb1/+Q==;
+	bh=HwORaWFqulTAzheZWrmqJV0onw4FDgGxFD1GGSlekFk=; b=pj5ihLDjLzbR//pDJinK/ZN+0P
+	g9A4v0RQJpqRqcfuTd2M19WZPl7jnK4QQaJH4JPi7DcCMn32W1xWKXm8A6llGRcLOQLvFdE6SPdWz
+	Lp9OulIcZopXxbP7Q9giG4OXMLcmPkyO7JF56Htq+8i+PSty4Lr+J6rFODSfXnU+bxhtwCLdNd/ul
+	xcOIAQNuLxdIAZgoLXEhu9N5eE8L6FIiLhFhXTY5sHMCf4u7qyoeAbHyfBMn94UvGQA3nKrlfhVMi
+	Jh9AhhZV+YIrMITYGZGydoLAdR5W98KgPLS+g5x5tBPT9m51SopIHJQGtQIyzkvMb0DlCpjvEts1j
+	qntTcSVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzZI-0000000HWSa-3Anm;
-	Wed, 18 Dec 2024 19:18:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNzkz-0000000HXg2-47pI;
+	Wed, 18 Dec 2024 19:30:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzXx-0000000HWEG-3c8z
+	id 1tNzjt-0000000HXXj-3dKO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 19:17:26 +0000
+	Wed, 18 Dec 2024 19:29:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2B2755C6408;
-	Wed, 18 Dec 2024 19:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88D03C4CECD;
-	Wed, 18 Dec 2024 19:17:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 64D15A4085A;
+	Wed, 18 Dec 2024 19:27:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CB43C4CECD;
+	Wed, 18 Dec 2024 19:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734549444;
-	bh=MMgWmbqg6K+lSyt/F3/mvnVPj8/GqjrXyOQNEHr516c=;
+	s=k20201202; t=1734550184;
+	bh=hpHX0UvlDSyx5pI6TYm4aijPyLWk5pW7U6lcQ6Ug62M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rZCO0kdcxw/9ayBBtj6A+YrvDLWywmSB2C6180mW9DTxuqcsu4OeNIsW8LSvURY1X
-	 YtXAWomT/W9m5R2oB2N0mHq+2PUpyVVio0NwSIhErSVAKNusAP69lH8HSsDNlnwKdA
-	 DMRdROeIsJw9fTpHO984NbJXYBRyteaSf2bwGzP8L2kIkXcng9oeQI600u1Gk7T59c
-	 8DO3Kp3BFPhsuY2B35PunGtd91UzyPJECPT2LZ51/acwpOxrjOMxiyUVA0yT+4mFLq
-	 zJbE0pGBQ7P/egJCub7l1JFOuApqlxL2/eYd1tOmy3JuAuShx/7/S5Qwn60O7v5aZy
-	 xJFbWvpmcztMQ==
-Date: Wed, 18 Dec 2024 13:17:23 -0600
+	b=MTLM1y9+BaliZsAek+5vTR03HZ4lRIiGx3QMAcZopwX5TDjKj2wifgN+BF2zRiznq
+	 ofdT9C+vTHx++rtK6H24eRP222dWLDeBfN8R8qMgNoSatfP8wo733evdTQwOp+xMB/
+	 o9Sn99LrH/jy2Rb4xyPq41WU6PdTC8/Fta+POJjdrkPCyjTN9TH/wC39Haf4Siig2A
+	 KSA//35IZw/pvAGLe1qJuUz+xocCL3ttaSpbEjWkyWrkywaAdRzdn0pt2PuwqL+dEX
+	 TNFV8nyhVl+FV62uyPgtgQNTi/Jd1nEZUaDK0kRMHi15DviqjElrlEbfzdEv+mxNAN
+	 fTlKl8PD07R+A==
+Date: Wed, 18 Dec 2024 13:29:42 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: devicetree@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Will McVicker <willmcvicker@google.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, kernel-team@android.com,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: Re: [PATCH 1/4] dt-bindings: arm: google: add gs101-raven
-Message-ID: <173454944244.2180961.12803549865520284851.robh@kernel.org>
-References: <20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org>
- <20241216-gs101-simplefb-v1-1-8ccad1830281@linaro.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: arm,gic: Correct VGIC
+ interrupt description
+Message-ID: <173455018100.2198330.12077558801772545243.robh@kernel.org>
+References: <20241217061226.14139-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241216-gs101-simplefb-v1-1-8ccad1830281@linaro.org>
+In-Reply-To: <20241217061226.14139-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_111726_001819_842FABCC 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20241218_112945_991205_188D3888 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +75,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 16 Dec 2024 13:06:26 +0000, André Draszik wrote:
-> Raven is Google's code name for Pixel 6 Pro. Since there are
-> differences compared to Pixel 6 (Oriole), we need to add a separate
-> compatible for it.
+On Tue, 17 Dec 2024 07:12:26 +0100, Krzysztof Kozlowski wrote:
+> The description of VGIC interrupt referenced obsolete "see below" after
+> converting TXT to DT Schema in commit 66ed144f147a ("dt-bindings:
+> interrupt-controller: Convert ARM GIC to json-schema"), because there is
+> no dedicated "VGIC" chapter anymore below.
 > 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  Documentation/devicetree/bindings/arm/google.yaml | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  .../devicetree/bindings/interrupt-controller/arm,gic.yaml     | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Applied, thanks!
 
 
