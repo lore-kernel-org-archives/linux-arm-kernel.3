@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FE7E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE80E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 17:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wHxeofl98UpJxEPkYUNcU87+k4nJIUS9VT+0N18/vOs=; b=T6HkRJcqa49Yh7aQ3kEn2VZf7h
-	bO82V1VbssOWlT0wFAF7EX1pUXW0t5RTqWf9NiXt80/H/C3iead/lNI8Yg9rHQwA+i+zSgEOmTmsr
-	GlBOlqp1gLpTovaN8qwrU4I2apVIqRyT014FWOyZzj8JsrVBXu68x7j1HE6fJOE9PSp7OdEWVs6+5
-	WsP8VgpTs0Uu+zp3dGEKG2DxDpMC/PZ4UW7VE6wUcG3bGFvwOchWOb1L1FwsTvpaB50LzMbP7qPpR
-	qxnVDyZDJ0iW6IVk1tgqgm78YX7dMyqYhyK6Ic3CYfd4/5CDdXan9XlGMJRlxW35GNgfFQ15WcJhv
-	056zcwBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Zl8RAR4+VoktxwACTb78JwmocySVvgcud/1ayJe16tU=; b=K4XJQn8YDR/SLC
+	FJ1TmLuENHEqYvr0T2ric2kYApx6INpR1s8yoGAuNpIAegZvE/X9cnCtZvXAci+fEVgwW4n/T2YnQ
+	VSmgwWERDUxWs0zwo+s5ZIA374G6udSw2AbW19wYpJskeUuLtFg2MVSHTAcrVI9rYkAjqAPrYXAuw
+	b+ZVsb6Km7ps/X2ySVnSq47m5L4UAMN+13Fzofno2Ec0+3Sj+37r5xECNHkG5X9S4aKVlhoBfckM4
+	owp49zYfDcMGnSqcJQXuTUmuz+LV3PqSdjmbBldpF7Qoet6/SfUU0nQ0Qor47JJvQX6qa5K6fhTmZ
+	Nrg9bCN0/5gl5nt5qS2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNxOh-0000000HFXr-1ZYO;
-	Wed, 18 Dec 2024 16:59:43 +0000
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
+	id 1tNxPl-0000000HFmW-0BaG;
+	Wed, 18 Dec 2024 17:00:49 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNxNb-0000000HFOv-0Eao
+	id 1tNxNz-0000000HFRV-35CI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 16:58:36 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-29fe7ff65e6so2237403fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 08:58:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734541113; x=1735145913; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wHxeofl98UpJxEPkYUNcU87+k4nJIUS9VT+0N18/vOs=;
-        b=f35RjfQpfcMfZhgWq4eAFNTQ/s1sKfqgbxiJYhg5TqUVlKy9suchzxaz80j3L84T49
-         DdbzVFjjaBvoIBwTxWixS5Jnp+UAvE8dhYGH0KRmr5n7PtchX9OnLReF6hykPJSxg0Mg
-         B2nQjUWoB19jegEiJSbV8ol3NgrZuAY+d0doVbHi3/Q9S77lQbJq1/6YVUMtrnqCVFQp
-         gOJWxUrlRF6y+ZZz64Ekwp7iO9f0IHQ4awXvWjVFoUlhLy1rlMf62bLkXOCRZRgSrJJz
-         6Qloeph1FEqKsYwMXihsKVHGA8AmiiGkjjQFKFtHmMyivLdl9u970FbTByE5Yqn6V94e
-         pVrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734541113; x=1735145913;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wHxeofl98UpJxEPkYUNcU87+k4nJIUS9VT+0N18/vOs=;
-        b=CXKKC6+nTvX2v158POH/4iJr3EIf1mjySPazSl8Nkw2o0Pz1YOCx+OzXCssvWH2VBH
-         lPnEsa1R/Y1iDo/LcowBFmebhO28WcuoZNsgwxnRhkQl63rJEWuP8B4w1Jn/ih0ORglg
-         aqH3POvZaMFcG1pUHL/hJso5JBj+lkfi++9VSkG0+/NuBWeQ/QrwRrX7AQlZxo/DhHbk
-         9GycVt1SCIXoevjUBKHUGdnSr1caYdxBKERsUpW26OfVLpfNs5w3r7OH0+wNsc8Bh9hf
-         A9nIN4NxfqeX6IXmza/0ibvFYybfh0/9COBly4rurCl4tbKQYnNOmsVwB4A6pC2nRlTB
-         gcqg==
-X-Forwarded-Encrypted: i=1; AJvYcCXvimBtVcYGK/5tAfIk+6PLYCw8sbM4aZCYzAT0ti6kXmApfg+dT1pAi9RgUAQ4+qlIFAx+A/w1LgVD4GrQd4Be@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoR6xWlvLsV1kQCAkquqAvS3rACclcW71eCipH42uxOLtzPv1a
-	v3hwOdNYX+0n3SAuXzfczBbkGg7FTQW2HcqIAmqenvFBJ1Z8xi+mp/g//89t0IbIU2SikSbACna
-	fYf9keVnyQEMjrry7RpzRZZpdwfQ=
-X-Gm-Gg: ASbGnctBqClqP8ws2gfpMnDmLhX6Qft0WsggfXWOrams/gEEzgRQxcu7WKoWUL8M87p
-	cKQoSd3gSITMw3xNXiZrGOZQdjl1N+LBxFcPHvPY=
-X-Google-Smtp-Source: AGHT+IFwpZKhrVSIb2dpXxrrnWJbLQuoyY9JFnJrMzPrGSzl5sIBF6BA/u364X5aMpPKHy+UN0YRV4CS/l9z91ENjAA=
-X-Received: by 2002:a05:6870:b4a6:b0:29f:d0bb:618e with SMTP id
- 586e51a60fabf-2a7d080b687mr60544fac.25.1734541113322; Wed, 18 Dec 2024
- 08:58:33 -0800 (PST)
+	Wed, 18 Dec 2024 16:59:01 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 5EA95A0523;
+	Wed, 18 Dec 2024 17:58:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=Zl8RAR4+VoktxwACTb78JwmocySVvgcud/1ayJe16tU=; b=
+	UlhkcmTJ9T0bsRVvaSdvfunxQBc24iaK4u6HoRCep/wajfPYXSKEB6DuxO04ut/t
+	QUUZDdPXiDuv6dheswnpqDJWd03TiiEOzl64hkfIcTXsrodQ/ZkEBa9+F07jtAop
+	zVx+Xh8CK4XUgv0fhOuTiVeFDvllcH/lin6TWNMJyG3qcRDSWC8akhqyNnPmVxAd
+	Gmt1F+Iin0kHr/50SRjhollSdNWJSCEUThF9wBiAqG99FD05t3upnzjSNBIcmjIF
+	7H7mwpoQkkgXfsSR/qV9+GDxlOSGi3+fRTXSNzLpuftoNZqrYbdtOjUKxt2uoOIY
+	0wMzga1s6lWxd6nqDG1ErHBlND6q2/b/I1GfY7GNVCcYdtcSL5bn9s9ujSkyuVjz
+	Cz9XyS9jnRrNXgvvrGWvgm2u1bz+5BNQ8DK4xr7lCaSzP35TxoZzDh3JxFFHSDja
+	U6rtP4HvvrmcW6BhzNR8vCtVVo8SLh50tM1rlm1jsr1kPx5V5J7dpi5QRp65xKm3
+	DOgrOVmj4NFo5pLGiJc4Z3OaCivDaMbSmfri13fz/6xV2gf24JB9qhvjIz9ggego
+	9re/W8tiFVuFDBybv997aRoplG9NS2hRPMRdXqIVbYyo63HmIO75tLsvbFxK5msy
+	75nXQNGecyOkD+sePNXlhYyZGbFpoEKjZGRRLiSyQRY=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: Mark Brown <broonie@kernel.org>, Piotr Bugalski
+	<bugalski.piotr@gmail.com>, <linux-spi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] spi: atmel-qspi: Memory barriers after memory-mapped I/O
+Date: Wed, 18 Dec 2024 17:58:49 +0100
+Message-ID: <20241218165850.378909-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org> <20241217-acpm-v4-upstream-mbox-v5-2-cd1d3951fe84@linaro.org>
-In-Reply-To: <20241217-acpm-v4-upstream-mbox-v5-2-cd1d3951fe84@linaro.org>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Wed, 18 Dec 2024 10:58:09 -0600
-Message-ID: <CABb+yY1W7HM1pry+wf03HFur3F3YdZwpRjrdtZ6aJtWQ2Ed3wQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] mailbox: add Samsung Exynos driver
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
-	peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
-	daniel.lezcano@linaro.org, vincent.guittot@linaro.org, ulf.hansson@linaro.org, 
-	arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1734541135;VERSION=7982;MC=1721398368;ID=88099;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D948556D7063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_085835_090424_867F20E2 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_085900_324745_8D183200 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,25 +74,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Marco.Cardellini@microchip.com, stable@vger.kernel.org, Mahesh.Abotula@microchip.com, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Hari.PrasathGE@microchip.com, =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 3:40=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
-.org> wrote:
-....
-> +
-> +static int exynos_mbox_chan_index(struct mbox_chan *chan)
-> +{
-> +       struct mbox_controller *mbox =3D chan->mbox;
-> +       int i;
-> +
-> +       for (i =3D 0; i < mbox->num_chans; i++)
-> +               if (chan =3D=3D &mbox->chans[i])
-> +                       return i;
-> +       return -EINVAL;
-> +}
->
-Maybe simply return (chan - mbox->chans) ?
+The QSPI peripheral control and status registers are
+accessible via the SoC's APB bus, whereas MMIO transactions'
+data travels on the AHB bus.
 
-Cheers!
+Microchip documentation and even sample code from Atmel
+emphasises the need for a memory barrier before the first
+MMIO transaction to the AHB-connected QSPI, and before the
+last write to its registers via APB. This is achieved by
+the following lines in `atmel_qspi_transfer()`:
+
+	/* Dummy read of QSPI_IFR to synchronize APB and AHB accesses */
+	(void)atmel_qspi_read(aq, QSPI_IFR);
+
+However, the current documentation makes no mention to
+synchronization requirements in the other direction, i.e.
+after the last data written via AHB, and before the first
+register access on APB.
+
+---
+
+In our case, we were facing an issue where the QSPI peripheral
+would cease to send any new CSR (nCS Rise) interrupts,
+leading to a timeout in `atmel_qspi_wait_for_completion()`
+and ultimately this panic in higher levels:
+
+	ubi0 error: ubi_io_write: error -110 while writing 63108 bytes to PEB 491:128, written 63104 bytes
+
+After months of extensive research of the codebase, fiddling
+around the debugger with kgdb, and back-and-forth with
+Microchip, we came to the conclusion that the issue is
+probably that the peripheral is still busy receiving on AHB
+when the LASTXFER bit is written to its Control Register
+on APB, therefore this write gets lost, and the peripheral
+still thinks there is more data to come in the MMIO transfer.
+This was first formulated when we noticed that doubling the
+write() of QSPI_CR_LASTXFER seemed to solve the problem.
+
+Ultimately, the solution is to introduce memory barriers
+after the AHB-mapped MMIO transfers, to ensure ordering.
+
+Fixes: d5433def3153 ("mtd: spi-nor: atmel-quadspi: Add spi-mem support to atmel-quadspi")
+Cc: Hari.PrasathGE@microchip.com
+Cc: Mahesh.Abotula@microchip.com
+Cc: Marco.Cardellini@microchip.com
+Cc: <stable@vger.kernel.org> # c0a0203cf579: ("spi: atmel-quadspi: Create `atmel_qspi_ops`"...)
+Cc: <stable@vger.kernel.org> # 6.x.y
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ drivers/spi/atmel-quadspi.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index 73cf0c3f1477..96fc1c56a221 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -625,13 +625,20 @@ static int atmel_qspi_transfer(struct spi_mem *mem,
+ 	(void)atmel_qspi_read(aq, QSPI_IFR);
+ 
+ 	/* Send/Receive data */
+-	if (op->data.dir == SPI_MEM_DATA_IN)
++	if (op->data.dir == SPI_MEM_DATA_IN) {
+ 		memcpy_fromio(op->data.buf.in, aq->mem + offset,
+ 			      op->data.nbytes);
+-	else
++
++		/* Synchronize AHB and APB accesses again */
++		rmb();
++	} else {
+ 		memcpy_toio(aq->mem + offset, op->data.buf.out,
+ 			    op->data.nbytes);
+ 
++		/* Synchronize AHB and APB accesses again */
++		wmb();
++	}
++
+ 	/* Release the chip-select */
+ 	atmel_qspi_write(QSPI_CR_LASTXFER, aq, QSPI_CR);
+ 
+-- 
+2.34.1
+
+
 
