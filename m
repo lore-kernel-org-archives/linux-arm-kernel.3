@@ -4,77 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A1FE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F92E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RWw0YjfIq3RA4Wmm35YTKkdNVZn5xNSpCYbBF0u+pzc=; b=05YIoDo5/L4CDjtR8crt0d4uEK
-	RMaQNE25gefk1NcbDLW7lDjgflVMvuI+lBgeh8Zuu//hS4S6UBLoQJrssPoJisPiJf45zxggKA36h
-	bDXzFA/+i6uRs9t06fq/tvE7wV9+AddzQ8tRMc+ClCQjHYCmLs7YB5Ti97yGHwVXUTVHg/G6cUA4T
-	NyotHBCUdiCX4jE7pguV6mxo8ifKRQp8GD5BDunheBvqa+IvbnKfzl94Ln5CL5dZcn6a7Ba7DV2kx
-	sTgF8JvWhxlkE3qJkajkLKBYwX8/RtybqnYL+aE6+EuASLpJ7blOhJRbdnPddfl6O0pWOexaKxc2l
-	EDIWcGJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mgC6FT2aLsRk0iznKN/lYkL6v9+y1HJaw8g4ZlWCUFU=; b=q3NAvz1Y8ddz+PcJEYJPas1/2t
+	Lhi4ivU9J8zfs0PSQhO0f2YfVVICJ7P2hbuGFNtfIogmYw6FYDwPXnudcbBIAEJ5mAmvAUG8sHFLb
+	ncT1YS/Bm4CaF5RvEnAzw4OYkevvcLJ3oXXfYp9QdMfELPfYzWWq6wB8ZGuPlE4nIyuq6LvrmN7NA
+	VVOW2Z+tSsQLN1ySFU7/FELfvG0o9GPKNbAw/5WYbr9Z+WDbVxRjZ19ZVIAsk7IMucHEDbR4SmeSq
+	ANMQcyo1tGlyHZv82BvMXz83p2VKqyTgwfKcTbiMQvfXarMOP5DPFqzUMjjDyGPsICZXbw9s4OtyA
+	+DvUT1MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsLb-0000000GT5A-0dQi;
-	Wed, 18 Dec 2024 11:36:11 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tNsNV-0000000GTS4-0RZm;
+	Wed, 18 Dec 2024 11:38:09 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsKU-0000000GSqI-3kaH;
-	Wed, 18 Dec 2024 11:35:04 +0000
-X-UUID: 1a265c44bd3411ef82ff63e91e7eb18c-20241218
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=RWw0YjfIq3RA4Wmm35YTKkdNVZn5xNSpCYbBF0u+pzc=;
-	b=ZaO1ix1zrIuHHCVWE1+zLy7E70trKYEUiug88KBu+2g6z7ke4LQMXkcvCdwDZORPrFtaguROzugt6zWHISLhhRpd0AFAXbhUwNui2DAf4lwZ0IpYQS+CWaKGD3PEd/D7ofOb8iR2IyhyKClZ6QhLPXs5cZ8acV1nD48S5NJRecw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:922ec55e-32bd-4ecb-9f86-e5124138de9d,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:448e5513-8f5d-4ac6-9276-7b9691c7b8d6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
-	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 1a265c44bd3411ef82ff63e91e7eb18c-20241218
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <liankun.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1980500206; Wed, 18 Dec 2024 04:34:54 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Wed, 18 Dec 2024 19:34:51 +0800
-Received: from mszsdclx1211.gcn.mediatek.inc (10.16.7.31) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Wed, 18 Dec 2024 19:34:51 +0800
-From: Liankun Yang <liankun.yang@mediatek.com>
-To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <ck.hu@mediatek.com>,
-	<granquet@baylibre.com>, <dmitry.osipenko@collabora.com>,
-	<rex-bc.chen@mediatek.com>, <jitao.shi@mediatek.com>,
-	<mac.shen@mediatek.com>, <peng.liu@mediatek.com>,
-	<liankun.yang@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 1/1] drm/mediatek: Add return value check when reading DPCD
-Date: Wed, 18 Dec 2024 19:34:07 +0800
-Message-ID: <20241218113448.2992-1-liankun.yang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1tNsMO-0000000GTEt-19WF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 11:37:02 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53e3a5fa6aaso699627e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:36:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734521818; x=1735126618; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mgC6FT2aLsRk0iznKN/lYkL6v9+y1HJaw8g4ZlWCUFU=;
+        b=OTcaAoi/2tUjwbtkyi4gchbwAHcKWMHOqyhu9GaKM9BXEdC6PcnO4XfkixB7X4QThR
+         h7Gi6n2LA9tBzfxjHYDAeyl6592rymNzuZ632DrlVEiU5xIyamnjNX/N2Koe/03F5C1o
+         xofEScqUTIwBu9gs/3PrdLnc66XifSOFHZ99/w6tmJzgO3M5lLggWWhp9YYACK8elIt1
+         Em6O3anSvvsSITIDwRp5swOcHhkc0KopeXI10A8rmi8Pq4E+pA9gaMNJJo96JnILeHS+
+         49Sx5SooeKqBoyf+/S6enzjtt4pwMiNMU/7CvKCclZDxIVoyb9ewEous+uWYh6i23ndz
+         qb/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734521818; x=1735126618;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mgC6FT2aLsRk0iznKN/lYkL6v9+y1HJaw8g4ZlWCUFU=;
+        b=uRChy9ckcvC8z0sVhesfHjgaGwYA52eN3+378vS1MghcGdsLc0vbmrHBZd68fMe1Uq
+         r6/RsPbVegeeyYQGGDNsQ/X6d5Qb3uOYOFKK9lUXjRiphIhMK65KSLRVbYDj29z0ptjj
+         wr7/IyP2spJUKRoMg9k0Acg51lHf+dFPEY3p2JqVTqVHMKsimFvJ5Ro0yBLyM4GjA64w
+         jXsjcbxodprrOtJxI21EltUTL791vca+t6wrtFIPKnaDQWOZCDL+QUzW8yiUxexUw6ni
+         gWa58dSTqmMPsNpEEK63S0cyj8kgIRvhLmPJWKpaQ/MmHo9r1+j4x4IgVcZ03vNDI0UU
+         o0Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCXifmknHvqNUPFjrzwooJCkDMC79YMrh9BQUFRyVzE0n0MS4MIhoWzZlRVQis/z/WIz3Y0KW1VBaXwomV62++Vc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxi4zOG4Gu7r3/kw3KjZQ+vTQTsE34g52eNKYKJN1xhHFdhMGGa
+	rPp9rjHYX+49vxgc9pqOs6IVOVnTiDodIl5GTtjAYdCl70ZIypMRNo97n8jc6qq4kRnfI2ID1qZ
+	f
+X-Gm-Gg: ASbGncuakmhP6U9kXG84MfZ+zqKb7fzuWiO2T2jFycFOodfu+NLuUuGQ8XfNRLt0lfw
+	/xnNiL8xi4vu2Pa5UMfBWrVIIYID4+uvwfQ+xAYsjDuL2h9LAqkOlEd3ZcapAh6QX1RXShqLTlB
+	Sdua3oC1eWknf5Z6OC56qDXGFPBCW9IfIxgBM6cQdmvDpKdwkA5hKg4slbjNRtLycg0zg7c8NK3
+	oDWA8dsIl/dRq0UCxxp7Iv4XppYS24Q4JR5GXdVV1A0x8YuiQBKybWGETBJTAgTp8DbbnaE9uIO
+	qQQvXrVgs3UG0UvtiAJsUnYJyna9mA8RyFmF
+X-Google-Smtp-Source: AGHT+IEZ+sSU1SDLXJ8oJNi+0fhecW4BHBNr3eJX66/i9r+4ejfv6uryNvgWsgMb3aNXDMPAIOxqLg==
+X-Received: by 2002:a05:6512:ad5:b0:540:1fb3:e061 with SMTP id 2adb3069b0e04-541315b4f48mr2268645e87.28.1734521817999;
+        Wed, 18 Dec 2024 03:36:57 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54120ba9db5sm1426597e87.88.2024.12.18.03.36.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Dec 2024 03:36:57 -0800 (PST)
+Date: Wed, 18 Dec 2024 13:36:56 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org, todor.too@gmail.com, mchehab@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com, 
+	hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org, 
+	hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, 
+	will@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kernel@quicinc.com
+Subject: Re: [PATCH v10 1/4] media: dt-bindings: update clocks for
+ sc7280-camss
+Message-ID: <hevfx4sgsatohz4ndgrlidj5kqxaiizmakjqjghlkbmguluzi5@ezxa36uasb32>
+References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
+ <20241217140656.965235-2-quic_vikramsa@quicinc.com>
+ <02da691b-1f5d-41a6-847c-c7e9b8239919@kernel.org>
+ <c14493b0-c9d3-4e1c-9f86-991b4cb25c98@linaro.org>
+ <fe28a9bc-82ef-4fef-af50-9d9261ed9b39@kernel.org>
+ <a1032d53-6f3e-48f6-a2e9-1315bb1a3232@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a1032d53-6f3e-48f6-a2e9-1315bb1a3232@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_033502_930744_C4AB6E6D 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20241218_033700_314779_08105435 
+X-CRM114-Status: GOOD (  24.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +109,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Returns the number of bytes transferred (1) on success.
-Check the return value to confirm that AUX communication is successful.
+On Tue, Dec 17, 2024 at 04:30:37PM +0000, Bryan O'Donoghue wrote:
+> On 17/12/2024 16:23, Krzysztof Kozlowski wrote:
+> > On 17/12/2024 17:12, Bryan O'Donoghue wrote:
+> > > On 17/12/2024 14:10, Krzysztof Kozlowski wrote:
+> > > > On 17/12/2024 15:06, Vikram Sharma wrote:
+> > > > > This patch change clock names to make it consistent with
+> > > > > existing platforms as gcc_cam_hf_axi -> gcc_axi_hf.
+> > > > > This also adds gcc_axi_sf and remove gcc_camera_ahb.
+> > > > 
+> > > > Don't combine ABI changes with some less important things.
+> > > > 
+> > > > You miss here explanation why doing the ABI change in the first place.
+> > > > Without that explanation I find it rather churn. But anyway, reason for
+> > > > ABI break and impact should be documented in commit msg.
+> > > > 
+> > > > > 
+> > > > > Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> > > > > ---
+> > > > 
+> > > > Best regards,
+> > > > Krzysztof
+> > > 
+> > > This change should be fine since we haven't committed and upstream dtsi,
+> > > so there's no ABI to break yet.
+> > > 
+> > > Agree the cover letter should have been explicit in explaining.
+> > 
+> > So these are recently added bindings (sc7280 is not particularly new)?
+> > If so mention in the commit msg that no users are affected because of this.
+> > 
+> > Best regards,
+> > Krzysztof
+> 
+> Agreed.
+> 
+> The commit log should make clear that the ABI hasn't been cemented yet.
+> 
+> 20241217140656.965235-4-quic_vikramsa@quicinc.com <- is still pending
 
-Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
+If it hasn't been comitted yet, isn't it better to post a fixed version
+rather than committing a version which has known issues?
 
-Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
----
-Changes in V3:
-- Using drm_dp_read_sink_count() to improve patch.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20241128030940.25657-1-liankun.yang@mediatek.com/
+> 
+> ---
+> bod
 
-Changes in V2:
-- Modify Fixes in Commit Message.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20240930092000.5385-1-liankun.yang@mediatek.com/
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 36713c176cfc..b26dad8783be 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2100,7 +2100,6 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
- 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
- 	enum drm_connector_status ret = connector_status_disconnected;
- 	bool enabled = mtk_dp->enabled;
--	u8 sink_count = 0;
- 
- 	if (!mtk_dp->train_info.cable_plugged_in)
- 		return ret;
-@@ -2115,8 +2114,8 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
- 	 * function, we just need to check the HPD connection to check
- 	 * whether we connect to a sink device.
- 	 */
--	drm_dp_dpcd_readb(&mtk_dp->aux, DP_SINK_COUNT, &sink_count);
--	if (DP_GET_SINK_COUNT(sink_count))
-+
-+	if (drm_dp_read_sink_count(&mtk_dp->aux))
- 		ret = connector_status_connected;
- 
- 	if (!enabled)
 -- 
-2.45.2
-
+With best wishes
+Dmitry
 
