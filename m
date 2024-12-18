@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0BDE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 13:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83104E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ul3jV26q/OyEv82Q0FmpZheBVp/UPEqN3sZqLd2am5k=; b=WpT/1xalpL4fPHtdVrTSum/pJk
-	+uVKS4XnmUKcogqKyrD4Sy3XS7qsZeAdy5GFZITg7kY1T6cTje79G3I6ArMf/ZOh3KdR1GhEz901t
-	lC7ScYeuBDBLiQyY1ghT+p6hXMkBB2bVaF597oNEO1+naHqllL4lI6u7Vk5hduiVFHb7hWuKertHo
-	a0R22dFW61sV3wLzuJidMcgEIr3GxCUCh5NZY8oCoKF8/Ow+Pu3VoiANnoqXBJ+HjmIrTQrW2pgAM
-	yG+0VRJkw6ChwnKz3oXxZx4sMexLQyWzFdgbB3PHeylTeUZ544n3DYK/k2hTHw3jBsAGFl+gB4Yl+
-	7cjVARUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i+xSJtYDe1/DKQpLbvu9d31e1vj5VjbDKxZfYNH54pI=; b=s3w9exyWQ+Qxu3DwFB2PY+ewei
+	lUZSngzgqFcRvtTsEWJTM2ESH0L/Zw+rE3CLSzSX92Bni7R7xufWaNRiQKMRnalRaMHDUlhf4Ww1H
+	HF0xW2WjA+tOBIABoW3iX3ale0WKoRi/PFZaZ8pgAUixr1u+XhbcfT2R1zMWKX2iBL2fKpy05f/eR
+	JWK/sV5n6lbnNON3H9txM6X+t0F5U8qjcq6WJ5IuuwqEDqYCA9eUpA1LnSGrT29/7HfPli/9ZTw0X
+	IB91CInJ0QAsrWpyBMiSfvNnE9msdgCziXx708Fv4uMtmm7mZrXnFusdSwTWVEImwTCv9HPpsGyKB
+	TFh5Eunw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNuNI-0000000GlOf-1aUo;
-	Wed, 18 Dec 2024 13:46:04 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1tNulj-0000000Gnwh-0QWB;
+	Wed, 18 Dec 2024 14:11:19 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNuMB-0000000GlHG-2jXr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 13:44:57 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7ea8de14848so3589528a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 05:44:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734529494; x=1735134294; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ul3jV26q/OyEv82Q0FmpZheBVp/UPEqN3sZqLd2am5k=;
-        b=x+HkpOpKSaDNnpEgr9NFytWH3NUobb+Msm/9iITpJzyIFJYkKRIJBrhIlymZVISHgi
-         8yPs9nT27h/+yclC3m8M7XxZJi3lxl70mZIFgR8xTs0kPXXmr+gpsUzg77F+Zs2M3Ctp
-         hAXd0TZ4OnyYeQgcFCgCopmJeKEl/wo74O+HfWXZaQtZIN2+l0EdXsB36UuZamuLXDpZ
-         0N6a9T6oF1rregdBFm51eSAWetAjh4sSCmlG7mrk5wszmMJFwYPoP/pN7ShbpFzO0ZDd
-         MC4Eg8UYYnl2wb8Mlo0M6Khnb6d2taBfOUU4eLNcHQhgcu9c6TARDJT41HJFRpqBbjLt
-         Zpwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734529494; x=1735134294;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ul3jV26q/OyEv82Q0FmpZheBVp/UPEqN3sZqLd2am5k=;
-        b=vNglOa115eCboQM02DZXcIH62x+dnP/7BokponMF8WcU0WrSQawaRXsSAlSavoDjEa
-         VDI8YqEBU/+Gs8uiy6BH16Hl1ZDdGACLsfBGvSzZlr7ycHnWpB9sE28ILVBbD0J8WYrB
-         J+o5CO+7Sbxxcch5yPdLDlT7zjmVP/s0ivcqve2sm2d8MGQWZxZHsECd4PoihQqogJSi
-         kHZ6GyIfk1yLACLqy7TOw2nbL3bysEbAJnUzN50yJ1Rev49U4ANkf5pcTUbc6GVg+Oa7
-         xih1keGeBDYfoe9PN/69dw/s5bBUFakR4pkjluFLOK5lA8n55JOgCUly/lX1QiYgYlY0
-         NRZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIca7Ia2N4WB3D1cv1vlvpog6NnIxhlfFyyPW3KTWYVE9TNexhzUkZTdBcAkLd9IEWL367MreqxrFPf+RYpUA3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwguVyylfZkDEBhj8BJmpMHCOBlCsunNatnEgybfgDJwVOsCMm5
-	J2QHDM3T69s7Bvl1dfqsi62lKO29wWPq/mRmKSfpXoRuklv2e8XW35Pdsv72HTLp8WBVYHc/YQ4
-	yX6dprgj7CeF6BQYOr3cjxy+qq0vnP3fexOovSg==
-X-Gm-Gg: ASbGncvrCipCNKrIOzgSf116LvardffnSBRUmBr7LK48F/H2zx7hV+T72by9tfKRCsZ
-	HUN5G6ef1ulHrGMy3PWiThq8LSIakasCzI3LnsuU=
-X-Google-Smtp-Source: AGHT+IGsoXTWsZd2EEH9lplUvC3+MNK93cd4idsL7abuAi1JyYAl22P2kd0k3H8ZJ1NCDnSk3wgNv/EGdrZus4stKfo=
-X-Received: by 2002:a17:90b:5251:b0:2ee:4b8f:a59c with SMTP id
- 98e67ed59e1d1-2f2e91fe20bmr3713758a91.22.1734529492703; Wed, 18 Dec 2024
- 05:44:52 -0800 (PST)
+	id 1tNukc-0000000Gnmb-10xw;
+	Wed, 18 Dec 2024 14:10:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1734531006;
+	bh=Hq8XhkGLRdrugfZkK+fMbG5+AQ2uVsKhamccg/HdDPw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qLhSZOgv1NUWmpOq5jY9QS05o6TRhLsp0k5bG98DdwLqHjgGQmztQvvuirQ9NAeie
+	 lGImKftK04TlWgWpiqtn8pSce/yTul/hoIMOP9BG2cKP1byuX9XeVh9rxaGT4jMWYF
+	 0CEWBBTWDuOVUSNcJvkhWm6icsgvVZ5j0LiNgyDotmGKahfhrEgOqohGB6XUVE0zCO
+	 cshu8H56QHLuw0KkDIXnXphI0HyjggHPf0YsVNJ6HC1AFvg9aJNEmtgY9WnCN+bcuM
+	 ZGz50r9ugnfVIURZkkSZYt8migf4df3tHfmBMgZOZvHNoYvGFe+RYMQGfTUQezGHKJ
+	 /8vv+tgzkcD1Q==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 43B4517E3770;
+	Wed, 18 Dec 2024 15:10:06 +0100 (CET)
+Message-ID: <1b10a0ef-b6fa-4758-b3fc-0a44d840bce9@collabora.com>
+Date: Wed, 18 Dec 2024 15:10:05 +0100
 MIME-Version: 1.0
-References: <20241203114942.697188-1-yeoreum.yun@arm.com>
-In-Reply-To: <20241203114942.697188-1-yeoreum.yun@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 18 Dec 2024 13:44:41 +0000
-Message-ID: <CAJ9a7Vis9vcdJOzu9tvNQ4eAacmXkbhbZBaRYd1acOrd8G-ZUQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/9] coresight: change some driver' spinlock type to raw_spinlock_t
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: suzuki.poulose@arm.com, james.clark@linaro.org, 
-	alexander.shishkin@linux.intel.com, bigeasy@linutronix.de, 
-	clrkwllms@kernel.org, rostedt@goodmis.org, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rt-devel@lists.linux.dev, nd@arm.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/22] continue mt7988 devicetree work
+To: Frank Wunderlich <linux@fw-web.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20241217091238.16032-1-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241217091238.16032-1-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_054455_687465_9CEAF413 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20241218_061010_436640_A4B6A25F 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,78 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This change seems to omit devices:
+Il 17/12/24 10:12, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> This series adds some missing labels and new nodes to mt7988 DTS.
+> 
+> based on pinctrl-series
+> https://patchwork.kernel.org/project/linux-mediatek/list/?series=918572
+> 
 
-etm3x - which provides support for ETMv3 and PTM, both of which are
-valid trace sources in the cs_etm handling code.
-stm - can be integrated into the kernel STM via configfs providing a
-MIPI source for ftrace.
+The whole series is
 
-Mike
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-On Tue, 3 Dec 2024 at 11:49, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
->
-> In some coresight drivers, drvdata->spinlock can be held during __schedule()
-> by perf_event_task_sched_out()/in().
->
-> Since drvdata->spinlock type is spinlock_t and
-> perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-> which is raw_spinlock_t (an unsleepable lock),
-> this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
->
-> To address this,change type drvdata->spinlock in some coresight drivers,
-> which can be called by perf_event_task_sched_out()/in(),
-> from spinlock_t to raw_spinlock_t.
->
-> Reviewed-by: James Clark <james.clark@linaro.org>
->
-> v1 to v2:
->     - seperate patchsets to change locktype and apply gurad API.
->
-> Levi Yun (9):
->   coresight: change coresight_device lock type to raw_spinlock_t
->   coresight-etm4x: change etmv4_drvdata spinlock type to raw_spinlock_t
->   coresight: change coresight_trace_id_map's lock type to raw_spinlock_t
->   coresight-cti: change cti_drvdata spinlock's type to raw_spinlock_t
->   coresight-etb10: change etb_drvdata spinlock's type to raw_spinlock_t
->   coresight-funnel: change funnel_drvdata spinlock's type to
->     raw_spinlock_t
->   coresight-replicator: change replicator_drvdata spinlock's type to
->     raw_spinlock_t
->   coresight-tmc: change tmc_drvdata spinlock's type to raw_spinlock_t
->   coresight/ultrasoc: change cti_drvdata spinlock's type to
->     raw_spinlock_t
->
->  .../hwtracing/coresight/coresight-config.c    |  21 +-
->  .../hwtracing/coresight/coresight-config.h    |   2 +-
->  drivers/hwtracing/coresight/coresight-core.c  |   2 +-
->  .../hwtracing/coresight/coresight-cti-core.c  |  65 +-
->  .../hwtracing/coresight/coresight-cti-sysfs.c | 135 +++--
->  drivers/hwtracing/coresight/coresight-cti.h   |   2 +-
->  drivers/hwtracing/coresight/coresight-etb10.c |  62 +-
->  .../coresight/coresight-etm4x-core.c          |  71 ++-
->  .../coresight/coresight-etm4x-sysfs.c         | 566 +++++++++---------
->  drivers/hwtracing/coresight/coresight-etm4x.h |   2 +-
->  .../hwtracing/coresight/coresight-funnel.c    |  34 +-
->  .../coresight/coresight-replicator.c          |  36 +-
->  .../hwtracing/coresight/coresight-syscfg.c    |  75 ++-
->  .../hwtracing/coresight/coresight-tmc-core.c  |   9 +-
->  .../hwtracing/coresight/coresight-tmc-etf.c   | 195 +++---
->  .../hwtracing/coresight/coresight-tmc-etr.c   | 199 +++---
->  drivers/hwtracing/coresight/coresight-tmc.h   |   2 +-
->  .../hwtracing/coresight/coresight-trace-id.c  |  93 ++-
->  drivers/hwtracing/coresight/ultrasoc-smb.c    |  12 +-
->  drivers/hwtracing/coresight/ultrasoc-smb.h    |   2 +-
->  include/linux/coresight.h                     |   4 +-
->  21 files changed, 751 insertions(+), 838 deletions(-)
->
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->
+Good job!
 
+Cheers,
+Angelo
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+> changes:
+> v3:
+> - reorder
+> - small fixes
+> - add some new patches (t-phy, pcie, mmc overlays)
+> - dropped pmic and proc-supply for now because we found a mismatch compared with schematic
+> 
+> v2:
+> - reorder and squash label-commits to where they are used
+> - add some more nodes
+> - add changes to bananapi-r4 board
+> - moving some nodes from SoC dtsi to board dts
+> 
+> Frank Wunderlich (22):
+>    arm64: dts: mediatek: mt7988: Add reserved memory
+>    arm64: dts: mediatek: mt7988: Add mmc support
+>    arm64: dts: mediatek: mt7988: Add lvts node
+>    arm64: dts: mediatek: mt7988: Add thermal-zone
+>    arm64: dts: mediatek: mt7988: Add missing clock-div property for i2c
+>    arm64: dts: mediatek: mt7988: Add mcu-sys node for cpu
+>    arm64: dts: mediatek: mt7988: Add CPU OPP table for clock scaling
+>    arm64: dts: mediatek: mt7988: Disable usb controllers by default
+>    arm64: dts: mediatek: mt7988: Add t-phy for ssusb1
+>    arm64: dts: mediatek: mt7988: Add pcie nodes
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable watchdog
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Add fixed regulators for 1v8 and
+>      3v3
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Add dt overlays for sd + emmc
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Add thermal configuration
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable serial0 debug uart
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Add default UART stdout
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable I2C controllers
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Add PCA9545 I2C Mux
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable t-phy for ssusb1
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable ssusb1 on bpi-r4
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable pwm
+>    arm64: dts: mediatek: mt7988a-bpi-r4: Enable pcie
+> 
+>   arch/arm64/boot/dts/mediatek/Makefile         |   3 +
+>   .../mt7988a-bananapi-bpi-r4-emmc.dtso         |  33 ++
+>   .../mediatek/mt7988a-bananapi-bpi-r4-sd.dtso  |  31 ++
+>   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  | 143 +++++++++
+>   arch/arm64/boot/dts/mediatek/mt7988a.dtsi     | 303 +++++++++++++++++-
+>   5 files changed, 506 insertions(+), 7 deletions(-)
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-emmc.dtso
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-sd.dtso
+> 
+
 
