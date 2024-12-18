@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46091E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8493E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QjoOV+ZAkinCvThxRSIcNmQCq7mN+PZpFlmj0e+6WR8=; b=HuKxH0XYJWCyBCCRKjxRugXh1Y
-	jsbzuw4bhvrrrfN2zJvlkn9Qd80nRXD/1ZJ4ryshxUEq8QZJjbvTRwH/jbuXfHocPWExF+3FT486v
-	071PeIR9IanzlKJITtSf2zVk8lJoVOwd7Wblncg5cPFbWVjAMTQ+QTXE+Zkf+SvelN4979AKSrV3d
-	pyPqeNHZG7u94aFXUS+WKRxrV2MBahCYt7pXy3+vIPo0WpkfWrdHc/DzHKjEAkzAXwBYygVfOuh5f
-	sRx30GIqoGOz6o/9LV7lGVSgfNcmlOwyg/hJCOL7YLIOo4Q4uyIFnRakVYRBf1hDYAi8OuL94kLqF
-	32a8cHFQ==;
+	bh=oXtuKVetCazsOY8Hq07+RwI3bgnmCSF5EygzXu1ERHw=; b=pivkuX1neX34k98lz+tN+Y/b0U
+	oRRlWtocwo+LAvdPfbd9X5J/S9nxqR3/BVbS5/ixHS86hJs3veM/ZcrW62eVOEw+OBiG+dJr3QAqY
+	7lwzwYsmCzPS+9DRo8vd7CXzOQvVrWZnz5aozdjOL0eVpkMAzr4/LjmXgqD7I9oa6FWDHPi7UbwFw
+	zbRBsrdXdSnK8bUq/usw1pC8zJT8Xpw4zDJwdySMiw6ml6LyfqYAhg020bBkdNpf/9kdnvcdNcbdy
+	NoxzZFcPcLFBS5oCPkD+ALJjAuTptYa/7TUdXhy8gdRCOlett7n57U/DKc1na25TzjENHr+H9PZwG
+	lOp1rzBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrmq-0000000GNNJ-38mP;
-	Wed, 18 Dec 2024 11:00:16 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tNrnu-0000000GNY8-3Cl9;
+	Wed, 18 Dec 2024 11:01:22 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrh0-0000000GLEh-079a;
-	Wed, 18 Dec 2024 10:54:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734519252;
-	bh=epCoJXcqUsYqi+GYIyzyKTK3DIPV97DI5SVng2FaHf8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bfjgeqSyW/uGw9JxWiBq+jSZqZRyO7uk584FpPu5zgkQz4mc2DImn+xCrOvVnkRAP
-	 yorGbIT5n7nGMKDjpl9G8VLfDPjORwZi8LisnQ7s5kGD1v2Gg4p+5DTk+JYb8rIne7
-	 CSMs3gilUCf6fezlqpuXR+XYeHOTeVfbvsNPY/icHPIxcjV1t+/QcrN3k5Piovy9TS
-	 7c5JCkzHl8mtIP0Ej2x8pAMslnDnpXjm/vM78hueiHWRvm7WsG9Eqqw+lOBA1TrN81
-	 bNlXamfKfmMQYg8wWnDlSVxqxwTAVq7f1YY9NH43+vUTOPdKg/AsvaErhlBBbLexQK
-	 3fp/nnFC2x7/w==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 15FA917E3612;
-	Wed, 18 Dec 2024 11:54:12 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	macpaul.lin@mediatek.com
-Subject: [PATCH] arm64: dts: mediatek: mt8188: Add tertiary eMMC/SD/SDIO controller
-Date: Wed, 18 Dec 2024 11:54:09 +0100
-Message-ID: <20241218105409.39165-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
+	id 1tNrh5-0000000GLFD-3N6C
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 10:54:21 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YCr7H3BwMz6K99B;
+	Wed, 18 Dec 2024 18:50:35 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 034B6140AA7;
+	Wed, 18 Dec 2024 18:54:11 +0800 (CST)
+Received: from A2303104131.china.huawei.com (10.195.247.46) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 18 Dec 2024 11:54:02 +0100
+From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+Subject: [PATCH v4 0/3] KVM: arm64: Errata management for VM Live migration
+Date: Wed, 18 Dec 2024 10:53:42 +0000
+Message-ID: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+X-Mailer: git-send-email 2.12.0.windows.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.195.247.46]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_025414_207428_7BC06048 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_025420_130983_E73BD0AA 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +70,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a node for the third instance of the eMMC/SD/SDIO controller
-found on the MT8188 SoC and keep it disabled.
+Hi,
 
-It is expected that only boards that are using this controller
-instance will configure and enable it.
+v3 --> v4(Minor updates)
+https://lore.kernel.org/kvmarm/20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com/
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ -Changed MIDR/REVIDR to 64 bits based on feedback from Connie
+  and Marc(Patch #3).
+ -Added R-by tags from Sebastian (Thanks!).
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index 6ef385072c9f..f2d71da50ea3 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -1794,6 +1794,20 @@ mmc1: mmc@11240000 {
- 			status = "disabled";
- 		};
- 
-+		mmc2: mmc@11250000 {
-+			compatible = "mediatek,mt8188-mmc", "mediatek,mt8183-mmc";
-+			reg = <0 0x11250000 0 0x1000>,
-+			      <0 0x11e60000 0 0x1000>;
-+			interrupts = <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>;
-+			clocks = <&topckgen CLK_TOP_MSDC30_2>,
-+				 <&infracfg_ao CLK_INFRA_AO_MSDC2>,
-+				 <&infracfg_ao CLK_INFRA_AO_MSDC30_2>;
-+			clock-names = "source", "hclk", "source_cg";
-+			assigned-clocks = <&topckgen CLK_TOP_MSDC30_2>;
-+			assigned-clock-parents = <&topckgen CLK_TOP_MSDCPLL_D2>;
-+			status = "disabled";
-+		};
-+
- 		lvts_mcu: thermal-sensor@11278000 {
- 			compatible = "mediatek,mt8188-lvts-mcu";
- 			reg = <0 0x11278000 0 0x1000>;
+Thanks,
+Shameer
+
+RFC v2 --> v3
+https://lore.kernel.org/kvmarm/20241024094012.29452-1-shameerali.kolothum.thodi@huawei.com/
+
+ -Addressed comments from Oliver(Thanks!).
+ -Using implementation CPUs MIDR/REVIDR when it is set for
+  _midr_range() functions(Patch 1 & 3)
+ -New hypercall for retrieving implementation CPUs(Patch #2).
+ -Dropped RFC.
+
+RFC v1 --> RFCv2:
+https://lore.kernel.org/kvmarm/20241011075053.80540-1-shameerali.kolothum.thodi@huawei.com/
+ -Introduced hypercalls to retrieve target CPUs info from user space VMM.
+  see patch #1 for details.
+ -Patch #2 uses the hypercall to retrieve the target CPU info if any.
+ -Use the target CPUs MIDR/REVIDR in errata enablement. See patch #3.
+
+Background from v1:
+
+On ARM64 platforms most of the errata workarounds are based on CPU
+MIDR/REVIDR values and a number of these workarounds need to be
+implemented by the Guest kernel as well. This creates a problem when
+Guest needs to be migrated to a platform that differs in these
+MIDR/REVIDR values even if the VMM can come up with a common minimum
+feature list for the Guest using the recently introduced "Writable
+ID registers" support.
+
+(This is roughly based on a discussion I had with Marc and Oliver
+at KVM forum. Marc outlined his idea for a solution and this is an
+attempt to implement it. Thanks to both and I take all the blame
+if this is nowhere near what is intended/required)
+
+Shameer Kolothum (3):
+  arm64: Modify _midr_range() functions to read MIDR/REVIDR internally
+  KVM: arm64: Introduce hypercall support for retrieving target
+    implementations
+  arm64: paravirt: Enable errata based on implementation CPUs
+
+ Documentation/virt/kvm/arm/hypercalls.rst | 30 +++++++++++++
+ arch/arm64/include/asm/cputype.h          | 51 ++++++++++++++++-------
+ arch/arm64/include/asm/mmu.h              |  3 +-
+ arch/arm64/include/asm/paravirt.h         |  3 ++
+ arch/arm64/kernel/cpu_errata.c            | 37 +++++++++++-----
+ arch/arm64/kernel/cpufeature.c            |  8 ++--
+ arch/arm64/kernel/image-vars.h            |  2 +
+ arch/arm64/kernel/paravirt.c              | 31 ++++++++++++++
+ arch/arm64/kernel/proton-pack.c           | 17 ++++----
+ arch/arm64/kvm/vgic/vgic-v3.c             |  2 +-
+ drivers/clocksource/arm_arch_timer.c      |  2 +-
+ include/linux/arm-smccc.h                 |  7 ++++
+ 12 files changed, 152 insertions(+), 41 deletions(-)
+
 -- 
-2.46.1
+2.47.0
 
 
