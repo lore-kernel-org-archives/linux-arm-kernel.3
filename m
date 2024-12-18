@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E205E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 01:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D6FE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 02:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOTqUIOzXp/F1/VDnY3B8hbJ1LBkzayHMoadbBXxvqY=; b=pIyJrGTzQ1oAU0eNcb3BQp8QUP
-	eUj0wW2Y2q8Ynx1jbGQNVkMszFv/bpKwzyyC289UfQPRq3I05SZwn5HQhJ1DF7uEdlIyFAUB7HXID
-	NfsSTtat4BiIPCCpCk9T+AJAd27kDkeIm4tGWTUfh1G8tZwvLdXJ/1UxlZNcI4HcWzH9Umnyp9NiP
-	oJn6l8D38awatHON/bg+zfksCaLT7IhFVm1vwS/p74gX61AUtZVVpS/Xe74ByD13q8L91ATu5kZKj
-	iIUmix/EL9o9KFs9P3ZeZilRx15leisZZa4kxCJ8ExtwOqXSo4KApuj4aegZST0uiGZ1YLueZJRTv
-	oMkdCQVQ==;
+	bh=mi6OX5/5XV7YpUmNND/cHCqDPIuMkirhCKEh+GcVF1I=; b=ZRC+ljlR4km+Pytr96dylliIgD
+	+lWicmp317h2aA/6aBRSxLUqd1z/MNOrf77YxFs9RiPMU8pxDUsYt/T7CFbQW8upFJUmETfD3d2Sl
+	ylS94fWsyJBCUP1smG2SM2ODHRq8IFpVtfCzbONagLj5yGjf3AmK0b8YwfPWYb6GLXuSXfC+Pxd6S
+	UvWLWnRqx7qBdUC7z0pqmhJ2Utkaz0b4QIZbpp7CcSjlOYDOcAHKmexbCOTlWsUu5M76fCp1iXGu6
+	ORPMpscpcI7pTIq2M8dq+IqeTx2zN73MzKtGr1iDWSIKou8hE63TmPQXjKD5HrVJqqQ3l9xXuSAYq
+	bcv/kNrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNj3D-0000000FJqJ-0Mu9;
-	Wed, 18 Dec 2024 01:40:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNj27-0000000FJiS-1WqI
+	id 1tNjsQ-0000000FPDg-0NwP;
+	Wed, 18 Dec 2024 02:33:30 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNjrJ-0000000FP4R-3bSN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 01:39:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECC68FEC;
-	Tue, 17 Dec 2024 17:39:53 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9FB753F720;
-	Tue, 17 Dec 2024 17:39:23 -0800 (PST)
-Date: Wed, 18 Dec 2024 01:38:36 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Michael Turquette <mturquette@baylibre.com>, Stephen
- Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>, Roman Beranek
- <me@crly.cz>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and
- PLL_MIPI
-Message-ID: <20241218013836.421cc616@minigeek.lan>
-In-Reply-To: <d0bf0d9cd2df65dc2e17eb203d56eb13@manjaro.org>
-References: <20241215053639.738890-1-anarsoul@gmail.com>
-	<20241215053639.738890-2-anarsoul@gmail.com>
-	<qbtp4jvkx3r5azufe4k3vtapqpfs54dyjiu4cy5v5wkkzumrzx@vy3xzkfplbue>
-	<CA+E=qVeQ8uHBCeFtw6_2cY3252-YXc6eWrf5_YdeVgbp5LJo5g@mail.gmail.com>
-	<20241217211505.7f9c9e4e@minigeek.lan>
-	<d0bf0d9cd2df65dc2e17eb203d56eb13@manjaro.org>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Wed, 18 Dec 2024 02:32:22 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-725dc290c00so238427b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 18:32:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734489141; x=1735093941; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mi6OX5/5XV7YpUmNND/cHCqDPIuMkirhCKEh+GcVF1I=;
+        b=aX13zBc153MIiYkQEn9ItcqVHcvM1yuW8bUydvBbvYkysCERRUhgYSgusixqJsZJxW
+         l+Tr00rW2J9NTHl4PglppL//UEG1Dv7RzsWDES6/lK6F5JQ/niyyGhu8rB15bF312dsH
+         egp+FcPr80T8+VErQJrQNDqwXtX3F9Zf0QMBHoQPAdfW+H0U7LMZ4zUzXvEA+s9Nn2LK
+         JIleNa0sFx2PczuAI8Sbb7zYgy3/5Xr/Rc7AdBk16eKhCjfad/ZwC02LKuC5KF3Yg7T0
+         aAyv1ckPT04dhTl3I1NxjomgfRGHmXybQb6lFR0/iih2Qi0ZG+ra0yzxUWcA+KVlNXBo
+         OA5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734489141; x=1735093941;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mi6OX5/5XV7YpUmNND/cHCqDPIuMkirhCKEh+GcVF1I=;
+        b=S3nWrKKy6JmBtE7Cp/pmTKtSxyRYy9aCKy0kBtwxnGUjiDn5oSQ4ki4qTCrkSgAOIe
+         xSdqsDoJnJL/hx3jHp350QytEXGMZEpc7cxoTxfIfOggoibcwwHOyDgfE2SrHl/sbs0X
+         rGLfHL0nrLwc7mqGBWRwrsfQXScnORUcgiNN6Q0maMo5gmyErWB98LqJa26WVsKIVqA/
+         y+8uSX9Cz2WqaxsNAysCl+qFiTQNM9ahFFqmFgxrnMMkVvrGApfTiwAvyfy9kHu3vfCf
+         JexhE+WfzIh/CoeW1TCyCjW7PZyk151P9vN2wx0u0zR1eSZjl4GvXCOczKppcVePPpCx
+         JPqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVZriXXYv4JAGh6G94peH6R6hW3UJuxC5CPo0lzw5NJwC5otI2bhLuv916PvciJxoKohBRudZ78nG8nZ8foeTpU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKhpxAGzqL3U17PujEiidTpv1FagH+6XWqhhoawUui2QABUhMu
+	EnYQBXxQkAIBZx2SyL5/fsrCbbhU+CeRR4w/vDkz5KRE12CBeAvQ
+X-Gm-Gg: ASbGncuaMhzH6DWvAYTpRz4osgVTJGlpUTedY3W5FnrurbJqRo389HFiROe+H3iB6NA
+	5e8viPiBp7p4Qe6WRx55q9McHj3xUCYDwyyscoRw5soKEvj6/DB1x2jnwdq2TIlzl9qRfZGrj+G
+	SbRKz/mgnSqqCEj5/MB4SAnGPVPOVsmQzCEKsBJ5QrtO2tkCNAFGqltJle6Y+fYottzFLMGPmSK
+	vVdUl0/j5+qzKVvCO4Owds3EUHMGA/qVD1P89HROyJC3ymZC1BUGQ==
+X-Google-Smtp-Source: AGHT+IGOi/F5l1GM4Se3SaVQy/qnJilh4hLpQ88FZFsSLJ+TwRZhiHnC+Sn+xH74+w/kACljDGykiA==
+X-Received: by 2002:a05:6a20:3948:b0:1e1:b1b4:59b0 with SMTP id adf61e73a8af0-1e4e7993bb5mr7315774637.18.1734489140791;
+        Tue, 17 Dec 2024 18:32:20 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-801d5c38011sm6345778a12.74.2024.12.17.18.32.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 18:32:20 -0800 (PST)
+Date: Wed, 18 Dec 2024 10:32:10 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
+Subject: Re: [PATCH net v1] net: stmmac: Drop useless code related to
+ ethtool rx-copybreak
+Message-ID: <20241218103210.00000dc4@gmail.com>
+In-Reply-To: <20241217163538.GU780307@kernel.org>
+References: <20241217091712.383911-1-0x1207@gmail.com>
+	<20241217163538.GU780307@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_173927_489604_E45DEECA 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20241217_183221_899482_1BC2EC40 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +105,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 23:02:43 +0100
-Dragan Simic <dsimic@manjaro.org> wrote:
+On Tue, 17 Dec 2024 16:35:38 +0000, Simon Horman <horms@kernel.org> wrote:
 
-Hi Dragan,
+> Based on your description this feels more like an enhancement
+> for net-next, without a Fixes tag, than a fix for net.
 
-> Hello all,
->=20
-> On 2024-12-17 22:15, Andre Przywara wrote:
-> > On Tue, 17 Dec 2024 10:00:45 -0800
-> > Vasily Khoruzhick <anarsoul@gmail.com> wrote: =20
-> >> On Mon, Dec 16, 2024 at 11:33=E2=80=AFPM Krzysztof Kozlowski <krzk@ker=
-nel.org>=20
-> >> wrote: =20
-> >> >
-> >> > On Sat, Dec 14, 2024 at 09:34:57PM -0800, Vasily Khoruzhick wrote: =
-=20
-> >> > > These will be used to explicitly select TCON0 clock parent in dts
-> >> > >
-> >> > > Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in=
- TCON0 mux")
-> >> > > Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
-> >> > > ---
-> >> > >  drivers/clk/sunxi-ng/ccu-sun50i-a64.h      | 2 --
-> >> > >  include/dt-bindings/clock/sun50i-a64-ccu.h | 2 + =20
-> >>  =20
-> >> > You cannot combine these changes. =20
-> >>=20
-> >> The patch basically moves defines out from ccu-sun50i-a64.h to
-> >> sun50i-a64-ccu.h. How do I split the change without introducing
-> >> compilation failure? =20
-> >=20
-> > You can just have the binding part first, adding the (same) definition
-> > to the binding headers. As long as the #define's are not conflicting,
-> > this is fine.
-> > Then remove the now redundant definitions in the kernel headers, with a
-> > subsequent patch. =20
->=20
-> Yes, that would be a way to make it formally correct, but also much
-> less readable and understandable later, as part of the source code
-> repository.  FWIW, I find this to be an example of the form being
-> more important than the actual function.
+Thanks, I will send to net-next.
 
-Not sure I understand your last sentence, exactly, but what
-Krzysztof pointed out is that one part (the header change in
-include/dt-bindings) is a DT binding patch, so part of a spec, if you
-like, the other is Linux *code*. There is the DT rebasing repo, which
-cherry-picks DT patches, so they form a separate history there, and
-Linux code has no place in there. U-Boot for instance pull this
-repo now on a regular basis. So keeping those things strictly separate
-is really important here.
-
-Cheers,
-Andre.
-
-> >> > Please run scripts/checkpatch.pl and fix reported warnings. Then ple=
-ase
-> >> > run 'scripts/checkpatch.pl --strict' and (probably) fix more warning=
-s.
-> >> > Some warnings can be ignored, especially from --strict run, but the =
-code
-> >> > here looks like it needs a fix. Feel free to get in touch if the war=
-ning
-> >> > is not clear. =20
-> >>=20
-> >> Yeah, it is not clear what do you want me to do, assuming the previous
-> >> similar change to sun50i-a64-ccu.h did essentially the same, see
-> >> 71b597ef5d46a326fb0d5cbfc1c6ff1d73cdc7f9 =20
->=20
-
+pw-bot: changes-requested
 
