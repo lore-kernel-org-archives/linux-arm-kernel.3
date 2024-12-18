@@ -4,157 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2106E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DC2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4JG2fKa2FNmn4oZDg5cG9aVgh+dB/1soDKqR8Y8eXvo=; b=merOaMPbFCjspmJUMSqWxRwx5y
-	zY7H2to8rG7fAWNehiqYno7k0eegnLbwvOxLyEqZ/noiWURzh77Mabejkh41vh6mozq2BG5Wni2gC
-	LoLpNrSGCA4CpVQcCQvHDph6NFDx7NSCwSxSEQH4ce7WRGHdT5SsGzpUGG+v7nGVqj5DIdhMFc2E5
-	ORR/Up6mtCzB/LlFhK1tVF7oc9baRrvp1aWK+2Vcr4A0pr646EVhpQGUMxAI/4baUj7K3ae20qatv
-	s0zZDztupuXJKcOjvZB4tdpEvWc+ne3+3rhdaTV88NVq4Ll6Lot1o6SelHKjbm4XPCuO86EGKcBAo
-	/R/EHlGA==;
+	bh=s2SBxETvm52Px3OUzaEAAKhG+ijEolqfdP64sqQHZgM=; b=n6cSwNajGx0j1lkadbMJucTBS8
+	T+HKuAUfcPr8NoFeP7yzuLZB0eBXYbGPthGXV/+pv7UZc5VbaWAx4eS1RULn4XlJZ1Sy224wbqW0V
+	tWZK4gaz4Gl5VJb0Ersrfuw1S7ssckBk6OpEmMm8xxAlh+45z7wJ/bB9aXnIpG5xhRqqw4JHiVk8k
+	YX3G+r+teaZcVUpneoyKjjMF87c4i02vE7x4pSX8MVerOj4I43SKsHpxCiUDh/Wb0+QVjpxrXAX5d
+	T2boikDq+mFqh2DJAEZQWVov077mO+r39nVVoDQq7X5thGgMmFj0MEUuz7dYEuEAE+s4RB4m5DW+X
+	yehH/LDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNxK6-0000000HEij-2lCI;
-	Wed, 18 Dec 2024 16:54:58 +0000
-Received: from mail-bn8nam12on20609.outbound.protection.outlook.com ([2a01:111:f403:2418::609] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tNxLB-0000000HExO-1Sho;
+	Wed, 18 Dec 2024 16:56:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNxIz-0000000HEZC-3aLF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 16:53:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TD8BTS70aNOdgN89LurU7VzXjih1RwKxFj1u3tldLZibDsujcNZN/PhhDr6K6ApOBWaaSX6syjQp+jR+1rnxOSTe4x/H9vwIeZPyQX10/8vG1Wgeiiyc2GAjDr6+mmgRyxR0dYFq8s4cNg9Zgf4aQoj5rxiYuP1uXabIgndz8C9RfP9qA2feQFH4deTfcWUthll7aLuiPELtdyH+luSlfSI7Y42ZS+15FdX0ET/6qrwxpaz393KOwi87glZ0yLtTzWsz54GGnOBCmrXUKgSUjR9J61C5ml13IHoPKpE2nGno4kM7cBaI5QYlmyy52OGlxJLg46GH4+m3oKPek3k3mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4JG2fKa2FNmn4oZDg5cG9aVgh+dB/1soDKqR8Y8eXvo=;
- b=UWgTQT3UN2zLGaXAn49VmIQx2lImfymdUSBdAbOFK6d8+NURVEdUnFKZ4qyqIRfEyufjSvl/lM91UX3NgPp7eeJ50sOqVOa2dJ2Oz+/ebhqEnrfdDC+5typKcl6aWKb7w0EDZx5ldT0qSY5uRjyoXz5wVYMo3UOn6Frbv3AWmDrmkUlXqkTwu6H08e5YTF4kJuFAtiYALU3cH00hMUe6IM4wF6EJ55NUvzTzY9L2pkL673HqF1Vwzrdax2mfdLDN1G9jZTGED1NoOlDwpYHnwvxD1rkawhG8zz7onkKb5w8FAT1PDGA8KyU3SVnHYxD+X+Vv5g6Ly5WnCRbPLuL7Ag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4JG2fKa2FNmn4oZDg5cG9aVgh+dB/1soDKqR8Y8eXvo=;
- b=Z+af2eA+GtpwCaOMJY0TJ9q1dy8Qgi7TZJ+GJ4XJ8URdCsQKEX879WZ+XoFo10NqqvYsSlt3Rwp+jkk1/PSz67N8NuWwkkINMHazcl8b6b2jZ/dxQZH36fOc6vuGMePOYG21qL2cHaPnl7/V1o1PsVwOU5j1UFebrcVl2gO080E=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB6373.namprd12.prod.outlook.com (2603:10b6:8:a4::7) by
- PH7PR12MB6441.namprd12.prod.outlook.com (2603:10b6:510:1fb::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Wed, 18 Dec
- 2024 16:53:44 +0000
-Received: from DM4PR12MB6373.namprd12.prod.outlook.com
- ([fe80::12f7:eff:380b:589f]) by DM4PR12MB6373.namprd12.prod.outlook.com
- ([fe80::12f7:eff:380b:589f%6]) with mapi id 15.20.8251.015; Wed, 18 Dec 2024
- 16:53:44 +0000
-Date: Wed, 18 Dec 2024 11:53:31 -0500
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: mark.rutland@arm.com, catalin.marinas@arm.com, mingo@redhat.com,
-	robin.murphy@arm.com, Jonathan.Cameron@huawei.com, bp@alien8.de,
-	rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
-	wangkefeng.wang@huawei.com, tanxiaofei@huawei.com,
-	mawupeng1@huawei.com, tony.luck@intel.com, linmiaohe@huawei.com,
-	naoya.horiguchi@nec.com, james.morse@arm.com,
-	tongtiangen@huawei.com, gregkh@linuxfoundation.org, will@kernel.org,
-	jarkko@kernel.org, linux-acpi@vger.kernel.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
-	linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
-	ardb@kernel.org, ying.huang@intel.com, ashish.kalra@amd.com,
-	baolin.wang@linux.alibaba.com, tglx@linutronix.de,
-	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
-	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
-	zhuo.song@linux.alibaba.com
-Subject: Re: [PATCH v17 3/3] ACPI: APEI: handle synchronous exceptions in
- task work
-Message-ID: <20241218165331.GF1155365@yaz-khff2.amd.com>
-References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
- <20241202030527.20586-4-xueshuai@linux.alibaba.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241202030527.20586-4-xueshuai@linux.alibaba.com>
-X-ClientProxiedBy: BN9PR03CA0176.namprd03.prod.outlook.com
- (2603:10b6:408:f4::31) To DM4PR12MB6373.namprd12.prod.outlook.com
- (2603:10b6:8:a4::7)
+	id 1tNxJz-0000000HEhN-2Vxj;
+	Wed, 18 Dec 2024 16:54:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3C013A40B3B;
+	Wed, 18 Dec 2024 16:53:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A029C4CECD;
+	Wed, 18 Dec 2024 16:54:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734540890;
+	bh=s2SBxETvm52Px3OUzaEAAKhG+ijEolqfdP64sqQHZgM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pv18xzywipaGaOM6nq9UTilWK5sjSM1kEbxjo6Xpw6inXfOKAzFSfOIvKrq2aYGxv
+	 ZudnAiQMcr8FqgqxMKyW7V1YQcbrFARCSOslU8PYjNq6hrBis9sZMjbFCnDRcoaRx1
+	 smsgh2c6ieXd4V1gGP9WJv3t1s0/R8+O6yQSTzaXgB/5vxxLWFoiV9kwdfD6boPhbj
+	 7X9RosnFG5JafHWbSsywmbT0Rz+dY95UHjJNZ6E9cd79dDsX7G28l0xqujYahkGC9v
+	 XZpd71NE2vlVhstAi0ztSHn0qSQJdv21w1cIHaI7Emdk/4YEtF490hDc2GBl5hncXA
+	 9jhnLbyHwXwrg==
+Date: Wed, 18 Dec 2024 16:54:44 +0000
+From: Conor Dooley <conor@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mchehab@kernel.org,
+	matthias.bgg@gmail.com, moudy.ho@mediatek.com,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com, sebastian.fricke@collabora.com,
+	macpaul.lin@mediatek.com
+Subject: Re: [PATCH v1 1/3] dt-bindings: display: mediatek: Add compatibles
+ for MT8188 MDP3
+Message-ID: <20241218-skeleton-rockband-e25b7d60e7f3@spud>
+References: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
+ <20241218105320.38980-2-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB6373:EE_|PH7PR12MB6441:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b21d188-f1ac-42df-8549-08dd1f8488a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6iZszItc/2UjHDL91UmsDM0heIiFVGyMVSpiJ1uy67At9NQswd/Zc3d9vn2a?=
- =?us-ascii?Q?VrcznmdGTX3xvR6LW2rs6l+2HM3W5sNN0+h3kvvZpBRWIE8P0rh/a8u+Na9S?=
- =?us-ascii?Q?vc9IeZsK1q56Sc9NmfwJeOQwtwVBULFJG6rllvOcd4UO1vXWGDcUqPRKTSh8?=
- =?us-ascii?Q?vqCncuXDKb5n43tBIc5CPnAKedX9/J7aBxkiIthAWONnvB+TNtC/ehJCkYlq?=
- =?us-ascii?Q?SnRNJcjMgegd5c0MXP4SIkRo/psGcBqXk5B6wetIvlijoB96HZ9K9bIQi6zi?=
- =?us-ascii?Q?qCBreVzqktWubuyqrvJgou8zRA/0oGWVUqrBPZa8gwmdAwDLFmPeL0+IRXPX?=
- =?us-ascii?Q?WmA1pHPtgK3da8MuUBg0dpT3Qe4gutpOhyIq4Yv7q1iYRkDodf1/1aJlxP43?=
- =?us-ascii?Q?5GH/h3+yJIsmcUUI/e8CZNVy5Bvv9XdOCzR9Gi1tDtHmQwvB2NA+VTiu9Gwr?=
- =?us-ascii?Q?oG+bjHvCiKdN/MXQ1eB1nBuDadyFnFYxfnzAo7ogkQSKUgstI2ANQ0Q7a1SX?=
- =?us-ascii?Q?y2kXaNrvb9ozFw+3jPBk49k1vjwmXRYnQQZBYvXzeEp5ONItSYswnYirwAxs?=
- =?us-ascii?Q?QtA7f+yjfmmpzSEPW8jb3P5u6kAp+1U4D0+xHYyxqin8W9SUMF+YrNYUzdbn?=
- =?us-ascii?Q?7ipMztDtH1XhY8/ZGmkeMxeAXakg11XKl3vfN1BJcAiP2CEbOKWxAHgBNw45?=
- =?us-ascii?Q?+FbkpiakpKrmZh2lzrr520S/q+5mnjgNRJAYV3HgJbKUw7zhuL2Mwb05mset?=
- =?us-ascii?Q?P5Wod2p8lTDgb0XNwXbE+ohoUk9Jk7duXTPWRsB/ML48XcDbc+2FxSr/zI0b?=
- =?us-ascii?Q?lm+Gg5sT5iAFxLLA2Uea4btZCkemcn3uKkReZD1HGu2wpFKCduSBaWxsm3i2?=
- =?us-ascii?Q?/Sjg0SAAu6fWX/IpD/7yDpIqLTWF0WGGcx0+/K9JSAZa2KJHJLO3SKzmN5G8?=
- =?us-ascii?Q?oo2+iG85d+ND7jibBlCc2fZdcQEW5poXdRRvu8DVg7lle8rNrmGZst0StcyL?=
- =?us-ascii?Q?hjczrjgaLGDg7Nka4WwRGg3O2b9VH0erFBVNr6a/pX+jIVvg5cBcJbiSvvFU?=
- =?us-ascii?Q?uMpJmtpzRDJSTH+rcHPFvky8r263Jt/lQcph4SaLbrCgYu6VAgfCeM8VZhmz?=
- =?us-ascii?Q?0PIcZaB3tWuAbT/j+fF5YLS3/98ePKSEqn0bBur201hy0QuRu1XXdSfzbjAi?=
- =?us-ascii?Q?MmUdwWaxCVSzxHsxKR1tTj0CouZt2T/Tktm6ENBKPwvkt0KL/CdCCDLhwTcY?=
- =?us-ascii?Q?jjbqpddVTOxXMONk6w43HXhC9lBxTDPLvCxfoWGyteel5lyfB6a1CmDuXXxy?=
- =?us-ascii?Q?rb5nds3haf8evRg8wtxjNEuhiHk28y6gmXiV0rk/aoRAHavF7FZMxN9bgEp3?=
- =?us-ascii?Q?+AgSeXoC5ybjikVnHw3aJxSp8q5g?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6373.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5LyECBQ/wuX23ywMJvI/HyZqqrZDwggyccqBYkxoWczcQi3jpF6LVCWZoU33?=
- =?us-ascii?Q?KUMNk7LFW6wnfiNoxtz/Chl/CyDcEeGrvvqyUKxG/G1hHvhVOUpyS6FkXrTe?=
- =?us-ascii?Q?EruZDeIn+wQ5CetjuLsRXSyPt1WU+WjL1uNmflhetY8dItRooEasNszlMXce?=
- =?us-ascii?Q?pYGSpJIX3+236X7DsDFLUuBnzciiRaYZDcHMP/0h2IGqyPGU8CbjREebCrQa?=
- =?us-ascii?Q?5fGq94IfeHozvp3f9HS2dD9yQjdP3k11IUy5Bi8gbtgHJm9z/QKbMcOjfbN6?=
- =?us-ascii?Q?SlcixKEKOmFfStsSrrXodb8FZzApLJSg3iNX3C+JTrbNbG8kmEszvOfxzdWS?=
- =?us-ascii?Q?nIMPtg+KMnU7Z1pq23S75Q5DCh5c/H+BRWqJccxgnEywm5GoNs8b8A5MeMTG?=
- =?us-ascii?Q?DpHOK/vR3wOwblhbAzmcMfVBY6X7KUAhK6t/K611RaSPTYPGyp6NvAUPFTpL?=
- =?us-ascii?Q?06tV9XdfHwLsqqAZAVbWiBdHccnG8F09BelKBFp9mlKUKPHAkVZ7bMSlbWof?=
- =?us-ascii?Q?FQpEcDyHIrL6qjyPbrBmUgdtXWejn5WM+Id8H9hj8cTRRDO47UkxzZjG4ln5?=
- =?us-ascii?Q?4s4+ANOfLNOC/b54zc6jwRFiPLx79nfqUWbo1L0gxoPdiHxF+iOLSjMYcvK0?=
- =?us-ascii?Q?6jINmtdVJdIfSD3QWS5RcjH398wK+wVqjVeZ3+QZWIchC8mm4jcTaS0I9mtz?=
- =?us-ascii?Q?AEvpcEeczt7jjTFDVUB+EvJo6FQH0jESexiIJ9Z72Plg/DnvqKXH9BepICiE?=
- =?us-ascii?Q?rupioYLL0gQElpLIpuLV2tsVx9pRyNzmK9aPxw184T0WvFQFDHLR7pBSQXEe?=
- =?us-ascii?Q?2wjk+Ycw/RVGtZDRqIDZs3GiPv4qDjJMEi8jZ3P3JF/m2cde9bpZRBISLs3V?=
- =?us-ascii?Q?z8ben0bg7JIR6L6FA3UJP7bpbdtke5L8VpDaXQ2bBN0PGJZxC1xYqwv3XT0H?=
- =?us-ascii?Q?7+UCQpfbGA+HYrefluWuvjvVdqflWl8eJSZgg6y8tL+QwSUdMjTIB02fhfND?=
- =?us-ascii?Q?dLkmaRw/AQKf03r23udHxtZ6nNHbosj/wf+FpGXLPUoVgIkrQpDSzrbxYBZ8?=
- =?us-ascii?Q?3WgnVjjSWgG8QvaUk6+bHrDq9fN3JZl0qWnHgLd2uTL7ZBZutwn/CPqgew8V?=
- =?us-ascii?Q?lm+qV91KYI3wfFj5WdfRihuKtQeEcERmbZMHuzJVcyNFT8gx95KFVC47iq59?=
- =?us-ascii?Q?Di2BsCKLXPvRRp6VIb+0QofII1QkyiQvOMvotq026leoH588MkUnuUteluen?=
- =?us-ascii?Q?fTpa4uyEhOiV4y8Ft4kk4VDSMPxnIZWBGiIkbHrMYBt0nzEA5WCDSw3q9PPL?=
- =?us-ascii?Q?KaYY2mQIbuVr797cPxCP1fqBd5ekskFxf2jsKrhuJupgv/BoUGjX9JBlEhBJ?=
- =?us-ascii?Q?UzZbMuYa42vU088224fWVMkJbTVGAtLVuj0BpGv5ImoyY4phXRFRqLC9oFoS?=
- =?us-ascii?Q?d3oBDNVBqlgoZhAF2sPDrfoOMk39Eh81VFlHLVDhUrQSaQUETVLh1eucspuR?=
- =?us-ascii?Q?zx+Cipxj5cUnLmIe3dVqmgq6yHcWqRYXa0cbYzhqz94Rvvn85RMg7/o9E6vM?=
- =?us-ascii?Q?Je5Pa/cTQjsJ34MU2CnD/F5w3azw/WbVne6VMKcl?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b21d188-f1ac-42df-8549-08dd1f8488a4
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6373.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 16:53:44.7217
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 57ai5LuyJJ/M5BhXhjCH7jt7NzlZ4FKGop5hxTluzxUJ6u4zJwviT2IBHoLvC1FD2r0HeWgs9J1VCMp9Cu32cA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6441
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="HAI+tP8+x8Vxvsmq"
+Content-Disposition: inline
+In-Reply-To: <20241218105320.38980-2-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_085350_084744_0B5CE93D 
-X-CRM114-Status: GOOD (  37.75  )
+X-CRM114-CacheID: sfid-20241218_085451_701387_F77FB486 
+X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,188 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 11:05:27AM +0800, Shuai Xue wrote:
-> The memory uncorrected error could be signaled by asynchronous interrupt
-> (specifically, SPI in arm64 platform), e.g. when an error is detected by
-> a background scrubber, or signaled by synchronous exception
-> (specifically, data abort exception in arm64 platform), e.g. when a CPU
-> tries to access a poisoned cache line. Currently, both synchronous and
-> asynchronous error use memory_failure_queue() to schedule
-> memory_failure() to exectute in a kworker context.
-> 
-> As a result, when a user-space process is accessing a poisoned data, a
-> data abort is taken and the memory_failure() is executed in the kworker
-> context, memory_failure():
-> 
->   - will send wrong si_code by SIGBUS signal in early_kill mode, and
->   - can not kill the user-space in some cases resulting a synchronous
->     error infinite loop
-> 
-> Issue 1: send wrong si_code in early_kill mode
-> 
-> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
-> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
-> could be used to determine whether a synchronous exception occurs on
-> ARM64 platform.  When a synchronous exception is detected, the kernel is
-> expected to terminate the current process which has accessed poisoned
-> page. This is done by sending a SIGBUS signal with an error code
-> BUS_MCEERR_AR, indicating an action-required machine check error on
-> read.
-> 
-> However, when kill_proc() is called to terminate the processes who have
-> the poisoned page mapped, it sends the incorrect SIGBUS error code
-> BUS_MCEERR_AO because the context in which it operates is not the one
-> where the error was triggered.
-> 
-> To reproduce this problem:
-> 
->   #sysctl -w vm.memory_failure_early_kill=1
->   vm.memory_failure_early_kill = 1
-> 
->   # STEP2: inject an UCE error and consume it to trigger a synchronous error
->   #einj_mem_uc single
->   0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->   injecting ...
->   triggering ...
->   signal 7 code 5 addr 0xffffb0d75000
->   page not present
->   Test passed
-> 
-> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
-> error and it is not the fact.
-> 
-> After this patch:
-> 
->   # STEP1: enable early kill mode
->   #sysctl -w vm.memory_failure_early_kill=1
->   vm.memory_failure_early_kill = 1
->   # STEP2: inject an UCE error and consume it to trigger a synchronous error
->   #einj_mem_uc single
->   0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->   injecting ...
->   triggering ...
->   signal 7 code 4 addr 0xffffb0d75000
->   page not present
->   Test passed
-> 
-> The si_code (code 4) from einj_mem_uc indicates that it is a BUS_MCEERR_AR
-> error as we expected.
-> 
-> Issue 2: a synchronous error infinite loop
-> 
-> If a user-space process, e.g. devmem, accesses a poisoned page for which
-> the HWPoison flag is set, kill_accessing_process() is called to send
-> SIGBUS to current processs with error info. Because the memory_failure()
-> is executed in the kworker context, it will just do nothing but return
-> EFAULT. So, devmem will access the posioned page and trigger an
-> exception again, resulting in a synchronous error infinite loop. Such
-> exception loop may cause platform firmware to exceed some threshold and
-> reboot when Linux could have recovered from this error.
-> 
-> To reproduce this problem:
-> 
->   # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
->   #einj_mem_uc single
->   0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->   injecting ...
->   triggering ...
->   signal 7 code 4 addr 0xffffb0d75000
->   page not present
->   Test passed
-> 
->   # STEP 2: access the same page and it will trigger a synchronous error infinite loop
->   devmem 0x4092d55b400
-> 
-> To fix above two issues, queue memory_failure() as a task_work so that
-> it runs in the context of the process that is actually consuming the
-> poisoned data.
-> 
-> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Tested-by: Ma Wupeng <mawupeng1@huawei.com>
-> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Reviewed-by: Xiaofei Tan <tanxiaofei@huawei.com>
-> Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> ---
->  drivers/acpi/apei/ghes.c | 77 +++++++++++++++++++++++-----------------
->  include/acpi/ghes.h      |  3 --
->  include/linux/mm.h       |  1 -
->  mm/memory-failure.c      | 13 -------
->  4 files changed, 44 insertions(+), 50 deletions(-)
-> 
-> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> index 106486bdfefc..70f2ee3ad1a8 100644
-> --- a/drivers/acpi/apei/ghes.c
-> +++ b/drivers/acpi/apei/ghes.c
-> @@ -467,28 +467,41 @@ static void ghes_clear_estatus(struct ghes *ghes,
->  }
->  
->  /*
 
-The "kernel-doc" format needs an opening "/**".
+--HAI+tP8+x8Vxvsmq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> - * Called as task_work before returning to user-space.
-> - * Ensure any queued work has been done before we return to the context that
-> - * triggered the notification.
-> + * struct ghes_task_work - for synchronous RAS event
-> + *
-> + * @twork:                callback_head for task work
-> + * @pfn:                  page frame number of corrupted page
-> + * @flags:                work control flags
-> + *
-> + * Structure to pass task work to be handled before
-> + * returning to user-space via task_work_add().
->   */
-> -static void ghes_kick_task_work(struct callback_head *head)
-> +struct ghes_task_work {
-> +	struct callback_head twork;
-> +	u64 pfn;
-> +	int flags;
-> +};
-> +
-> +static void memory_failure_cb(struct callback_head *twork)
->  {
-> -	struct acpi_hest_generic_status *estatus;
-> -	struct ghes_estatus_node *estatus_node;
-> -	u32 node_len;
-> +	struct ghes_task_work *twcb = container_of(twork, struct ghes_task_work, twork);
-> +	int ret;
->  
-> -	estatus_node = container_of(head, struct ghes_estatus_node, task_work);
-> -	if (IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))
-> -		memory_failure_queue_kick(estatus_node->task_work_cpu);
-> +	ret = memory_failure(twcb->pfn, twcb->flags);
-> +	gen_pool_free(ghes_estatus_pool, (unsigned long)twcb, sizeof(*twcb));
->  
-> -	estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
-> -	node_len = GHES_ESTATUS_NODE_LEN(cper_estatus_len(estatus));
-> -	gen_pool_free(ghes_estatus_pool, (unsigned long)estatus_node, node_len);
-> +	if (!ret || ret == -EHWPOISON || ret == -EOPNOTSUPP)
-> +		return;
-> +
-> +	pr_err("%#llx: Sending SIGBUS to %s:%d due to hardware memory corruption\n",
-> +			twcb->pfn, current->comm, task_pid_nr(current));
+On Wed, Dec 18, 2024 at 11:53:18AM +0100, AngeloGioacchino Del Regno wrote:
+> Add compatible strings for the AAL, COLOR, MERGE and PADDING
+> hardware components found in MediaTek's MT8188 SoC.
+>=20
+> This hardware is compatible with MT8195.
+>=20
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 
-This is basically the same as the message in kill_proc(). Was there any
-consideration to have a shared function? Maybe this could be a future
-patch.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-> +	force_sig(SIGBUS);
->  }
->  
->  static bool ghes_do_memory_failure(u64 physical_addr, int flags)
->  {
->  	unsigned long pfn;
-> +	struct ghes_task_work *twcb;
+--HAI+tP8+x8Vxvsmq
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Minor nit: A common preference I've seen is to order variable
-declarations from longest->shortest line length.
+-----BEGIN PGP SIGNATURE-----
 
-But overall, looks okay to me.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2L+VAAKCRB4tDGHoIJi
+0u5SAP438pw1N/Szkws84SNvpbsLnX57vLfWAKvOv2y+wBPsVQEAwtZ4NMQzmlEn
+7IK6CjupfLWoWguKpgjnYhFNDzV9MAQ=
+=YaS1
+-----END PGP SIGNATURE-----
 
-Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
-
-Thanks,
-Yazen
+--HAI+tP8+x8Vxvsmq--
 
