@@ -4,60 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27B0E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EEDE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o2y4GRlz1eZMzPudftnbh29lD3U6N2lIBHaiaNUOJpc=; b=LzEoJ7dMGkwDGo5PVw5cCwAdFy
-	fuxSw0q3zKW3sH0g9phJoem+wj5VtFd3wd646rLKuVCpSPNK3wIzYNujUo536yZp+wAarmCOqMbXJ
-	3kXCxj5NIy2PMNOinf4cSgrQlR41vBmb2wZvzLZV7d9kqIa5MYjpB1FBp2xb3DGlJJ+miCh7OemXv
-	xNiHIUaK9KeweGfZKIx0GFYAeTtb0n7O8F9vOurnnG/1ctEZi1s+bxWpqMLWY2Ru4nCJDZfgB+NvT
-	kmRy7fdhgiec7ObWs1T6c13QVDWhyOeIHdRbdpNNSf7cbalsEA+ZFZQwrauQ8AGqqMItfXhV60+G4
-	4J5JmGwA==;
+	bh=dVmmteTH5HJmiV06ONEEcP4hGxtq/aqul7G3lNsssoY=; b=vFpOfUcuEocvB4g+xjDnVwkrDT
+	jUU9K2CohrxHvMky19hyOWAoGwhiO0YqT+st996Dx80Qb1kXFWCLg0MpSsB5yRxQmZ8gF7sBNMdoV
+	ZVdGFseBRpY/Bd7pqmbzFlGnXrhxO4vu/XJKkrI/gmA37pxYAG8/p6I6V6EpOt6bT84/nWyFXnIx5
+	qDwWpBVD/Yic7yZIfuPNu3WHyFink/d43evHT9j2J52ma9aus+gk5Cuz6Asg0FAlbB9FMklsNqXSi
+	eU8BbtMyB8xw4QV6K9g9tsIm1/LzObT0OJ66CYnqEPxlluS+IQxektd2LrXcjLs8Sx/oyj1ygLK/J
+	q2V4lYKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrtF-0000000GOKo-0MQI;
-	Wed, 18 Dec 2024 11:06:53 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tNrwQ-0000000GOmy-0CNJ;
+	Wed, 18 Dec 2024 11:10:10 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrhT-0000000GLNi-3gSc
+	id 1tNrsz-0000000GOGU-23mt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 10:54:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YCr7t6G5fz6K990;
-	Wed, 18 Dec 2024 18:51:06 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6AC11140133;
-	Wed, 18 Dec 2024 18:54:42 +0800 (CST)
-Received: from A2303104131.china.huawei.com (10.195.247.46) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 18 Dec 2024 11:54:34 +0100
-From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
-Subject: [PATCH v4 3/3] arm64: paravirt: Enable errata based on implementation CPUs
-Date: Wed, 18 Dec 2024 10:53:45 +0000
-Message-ID: <20241218105345.73472-4-shameerali.kolothum.thodi@huawei.com>
-X-Mailer: git-send-email 2.12.0.windows.1
-In-Reply-To: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
-References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+	Wed, 18 Dec 2024 11:06:38 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436345cc17bso34164285e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:06:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffwll.ch; s=google; t=1734519995; x=1735124795; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dVmmteTH5HJmiV06ONEEcP4hGxtq/aqul7G3lNsssoY=;
+        b=Pbsbd2KIN+Q9AXvCre4H0bbIINr/0lmfmcg2baW0w4/mYLjr0qzriW7eknrQug6YtS
+         c2O3UWbJ4eMY3PckZUIsZS8urtD1Wu+gLRoB/eotlHFTl6tYWy8vtRZyXCsgJ4rhY68X
+         H7dr5TwGmP1PbDJS4rbf1oQhRnyVmkLt5Zw40=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734519995; x=1735124795;
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dVmmteTH5HJmiV06ONEEcP4hGxtq/aqul7G3lNsssoY=;
+        b=o5ZM1jZHIZt12AzJm35F613M1pQrqYBgQ7H/3e966xbvXWzGjripOF1VNxNJRBHppv
+         km+Q77ed6iULXRl7SUIfCk3FrBwfGduZhcZXJrXKFG0jh2kRels0DWgkkhH8IwWniFM1
+         siyP/Ugs4ezcayJ9ItFjanv2CFSrPQybXRhefBtM6IfkvOT5RjbE0T1IooAIh5FPaiOX
+         DdJ932yWawXysIYqFJxjeACNayc1nvy9SaFVV9zc7UrfA3kJnVvXKz71j543VWIzvW0u
+         HCflIL4+i8aD7M88SuXk/X5zzn/fgA1vDPf/ob2R3Rvi5PdWClV50k2dvMyu5TG2QPIW
+         4bPg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1JeR9vpVHP5eoJ8OUdSlvwehGK2zJAVMMaPOEILFeluvrIV/AHW7rRXpL6P99XoWfTiJo5BfQJ+plW1VJi3qY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVbn+ZkzTcI5VvbKF2lewP9T7YquQQ7rcazEEPfUyBcfAWAbJd
+	SL9/k4ndYA9kp+U4gDhYhLYwe3PAAF7tNTI09Hwu0bmaE1G+l3/aHV3yDnfSJBs=
+X-Gm-Gg: ASbGncve7cZMjW2HM31NzNvL53gcyZSOBzRVXwc6O6x1x2dBkBQzeOBHvFHkv8A2rov
+	LjifvYnctJePGXi8ZDvFQUtrRI+CaC9j3lR4Xr4x0QfFC1AmF61Vi1cxK7aMUA+tNHKiCsbqJNe
+	nKNtD5rM4kqRu1pWr9bh/hbMFWfjUyf1hbluWo9GcURb6L6DQfKQl84IZ+2IooDy67iXZc/mqns
+	t7DBhJFLMedrzE/nUo1R2UOQfxPaX/zutPmh1Up5eDkCOFBmD9opw/hcoCI2Vq3uEzR
+X-Google-Smtp-Source: AGHT+IGO+lveh3Jbb8AZu1Ge8phdM2oV+2GRJ4PUelkWtjliAilPaysJVfHfANDTcu/J9rlhBMtD5Q==
+X-Received: by 2002:a05:6000:1ac8:b0:385:f9db:3c4b with SMTP id ffacd0b85a97d-388e4d2df3cmr2192735f8f.10.1734519995037;
+        Wed, 18 Dec 2024 03:06:35 -0800 (PST)
+Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80120dcsm14048491f8f.8.2024.12.18.03.06.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Dec 2024 03:06:34 -0800 (PST)
+Date: Wed, 18 Dec 2024 12:06:32 +0100
+From: Simona Vetter <simona.vetter@ffwll.ch>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com
+Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
+Message-ID: <Z2KsuAs-Dd4ZDaXR@phenom.ffwll.local>
+Mail-Followup-To: Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com
+References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.195.247.46]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241217100809.3962439-1-jens.wiklander@linaro.org>
+X-Operating-System: Linux phenom 6.12.3-amd64 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_025444_212428_DC20C458 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20241218_030637_533704_2F2D616B 
+X-CRM114-Status: GOOD (  39.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,196 +127,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Retrieve any migration target implementation CPUs using the hypercall
-and enable associated errata.
+On Tue, Dec 17, 2024 at 11:07:36AM +0100, Jens Wiklander wrote:
+> Hi,
+> 
+> This patch set allocates the restricted DMA-bufs via the TEE subsystem.
+> 
+> The TEE subsystem handles the DMA-buf allocations since it is the TEE
+> (OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QCOMTEE) which sets up the
+> restrictions for the memory used for the DMA-bufs.
+> 
+> I've added a new IOCTL, TEE_IOC_RSTMEM_ALLOC, to allocate the restricted
+> DMA-bufs. This IOCTL reaches the backend TEE driver, allowing it to choose
+> how to allocate the restricted physical memory.
+> 
+> TEE_IOC_RSTMEM_ALLOC takes in addition to a size and flags parameters also
+> a use-case parameter. This is used by the backend TEE driver to decide on
+> allocation policy and which devices should be able to access the memory.
+> 
+> Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
+> Recording) has been identified so far to serve as examples of what can be
+> expected. More use-cases can be added in userspace ABI, but it's up to the
+> backend TEE drivers to provide the implementation.
+> 
+> Each use-case has it's own restricted memory pool since different use-cases
+> requires isolation from different parts of the system. A restricted memory
+> pool can be based on a static carveout instantiated while probing the TEE
+> backend driver, or dynamically allocated from CMA and made restricted as
+> needed by the TEE.
+> 
+> This can be tested on QEMU with the following steps:
+> repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
+>         -b prototype/sdp-v4
+> repo sync -j8
+> cd build
+> make toolchains -j$(nproc)
+> make SPMC_AT_EL=1 all -j$(nproc)
+> make SPMC_AT_EL=1 run-only
+> # login and at the prompt:
+> xtest --sdp-basic
+> 
+> The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
+> S-EL1 inside OP-TEE. The parameter can be changed into SPMC_AT_EL=n to test
+> without FF-A using the original SMC ABI instead. Please remember to do
+> %rm -rf ../trusted-firmware-a/build/qemu
+> for TF-A to be rebuilt properly using the new configuration.
+> 
+> https://optee.readthedocs.io/en/latest/building/prerequisites.html
+> list dependencies needed to build the above.
+> 
+> The tests are pretty basic, mostly checking that a Trusted Application in
+> the secure world can access and manipulate the memory. There are also some
+> negative tests for out of bounds buffers etc.
 
-Reviewed-by: Sebastian Ott <sebott@redhat.com>
-Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
----
- arch/arm64/include/asm/cputype.h  | 25 +++++++++++++++++++++++--
- arch/arm64/include/asm/paravirt.h |  3 +++
- arch/arm64/kernel/cpu_errata.c    | 20 +++++++++++++++++---
- arch/arm64/kernel/cpufeature.c    |  2 ++
- arch/arm64/kernel/image-vars.h    |  2 ++
- arch/arm64/kernel/paravirt.c      | 31 +++++++++++++++++++++++++++++++
- 6 files changed, 78 insertions(+), 5 deletions(-)
+I think I've dropped this on earlier encrypted dma-buf discussions for
+TEE, but can't find one right now ...
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index dcf0e1ce892d..019d1b7dae80 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -265,6 +265,16 @@ struct midr_range {
- #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
- #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
- 
-+#define MAX_TARGET_IMPL_CPUS 64
-+
-+struct target_impl_cpu {
-+	u64 midr;
-+	u64 revidr;
-+};
-+
-+extern u32 target_impl_cpu_num;
-+extern struct target_impl_cpu target_impl_cpus[];
-+
- static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
- 					   u32 rv_max)
- {
-@@ -276,8 +286,19 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
- 
- static inline bool is_midr_in_range(struct midr_range const *range)
- {
--	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
--				       range->rv_min, range->rv_max);
-+	int i;
-+
-+	if (!target_impl_cpu_num)
-+		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-+					       range->rv_min, range->rv_max);
-+
-+	for (i = 0; i < target_impl_cpu_num; i++) {
-+		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
-+					    range->model,
-+					    range->rv_min, range->rv_max))
-+			return true;
-+	}
-+	return false;
- }
- 
- static inline bool
-diff --git a/arch/arm64/include/asm/paravirt.h b/arch/arm64/include/asm/paravirt.h
-index 9aa193e0e8f2..95f1c15bbb7d 100644
---- a/arch/arm64/include/asm/paravirt.h
-+++ b/arch/arm64/include/asm/paravirt.h
-@@ -19,11 +19,14 @@ static inline u64 paravirt_steal_clock(int cpu)
- }
- 
- int __init pv_time_init(void);
-+void __init pv_target_impl_cpu_init(void);
- 
- #else
- 
- #define pv_time_init() do {} while (0)
- 
-+#define pv_target_impl_cpu_init() do {} while (0)
-+
- #endif // CONFIG_PARAVIRT
- 
- #endif
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 929685c00263..4055082ce69b 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -14,6 +14,9 @@
- #include <asm/kvm_asm.h>
- #include <asm/smp_plat.h>
- 
-+u32 target_impl_cpu_num;
-+struct target_impl_cpu target_impl_cpus[MAX_TARGET_IMPL_CPUS];
-+
- static bool __maybe_unused
- __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
- 			 u32 midr, u32 revidr)
-@@ -32,9 +35,20 @@ __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
- static bool __maybe_unused
- is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
- {
--	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
--	return __is_affected_midr_range(entry, read_cpuid_id(),
--					read_cpuid(REVIDR_EL1));
-+	int i;
-+
-+	if (!target_impl_cpu_num) {
-+		WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
-+		return __is_affected_midr_range(entry, read_cpuid_id(),
-+						read_cpuid(REVIDR_EL1));
-+	}
-+
-+	for (i = 0; i < target_impl_cpu_num; i++) {
-+		if (__is_affected_midr_range(entry, target_impl_cpus[i].midr,
-+					     target_impl_cpus[i].midr))
-+			return true;
-+	}
-+	return false;
- }
- 
- static bool __maybe_unused
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 4cc4ae16b28d..d32c767bf189 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -85,6 +85,7 @@
- #include <asm/kvm_host.h>
- #include <asm/mmu_context.h>
- #include <asm/mte.h>
-+#include <asm/paravirt.h>
- #include <asm/processor.h>
- #include <asm/smp.h>
- #include <asm/sysreg.h>
-@@ -3642,6 +3643,7 @@ unsigned long cpu_get_elf_hwcap3(void)
- 
- static void __init setup_boot_cpu_capabilities(void)
- {
-+	pv_target_impl_cpu_init();
- 	/*
- 	 * The boot CPU's feature register values have been recorded. Detect
- 	 * boot cpucaps and local cpucaps for the boot CPU, then enable and
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 8f5422ed1b75..694e19709c46 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -49,6 +49,8 @@ PROVIDE(__pi_arm64_sw_feature_override	= arm64_sw_feature_override);
- PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
- #ifdef CONFIG_CAVIUM_ERRATUM_27456
- PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
-+PROVIDE(__pi_target_impl_cpu_num	= target_impl_cpu_num);
-+PROVIDE(__pi_target_impl_cpus		= target_impl_cpus);
- #endif
- PROVIDE(__pi__ctype			= _ctype);
- PROVIDE(__pi_memstart_offset_seed	= memstart_offset_seed);
-diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
-index aa718d6a9274..95fc3aae4a27 100644
---- a/arch/arm64/kernel/paravirt.c
-+++ b/arch/arm64/kernel/paravirt.c
-@@ -153,6 +153,37 @@ static bool __init has_pv_steal_clock(void)
- 	return (res.a0 == SMCCC_RET_SUCCESS);
- }
- 
-+void  __init pv_target_impl_cpu_init(void)
-+{
-+	struct arm_smccc_res res;
-+	int index = 0, max_idx = -1;
-+
-+	/* Check we have already set targets */
-+	if (target_impl_cpu_num)
-+		return;
-+
-+	do {
-+		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID,
-+				     index, &res);
-+		if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-+			return;
-+
-+		if (max_idx < 0) {
-+			/* res.a0 should have a valid maximum CPU implementation index */
-+			if (res.a0 >= MAX_TARGET_IMPL_CPUS)
-+				return;
-+			max_idx = res.a0;
-+		}
-+
-+		target_impl_cpus[index].midr = res.a1;
-+		target_impl_cpus[index].revidr = res.a2;
-+		index++;
-+	} while (index <= max_idx);
-+
-+	target_impl_cpu_num = index;
-+	pr_info("Number of target implementation CPUs is %d\n", target_impl_cpu_num);
-+}
-+
- int __init pv_time_init(void)
- {
- 	int ret;
+Do we have some open source userspace for this? To my knowledge we have
+two implementations of encrypted/content protected dma-buf in upstream
+right now in the amd and intel gpu drivers, and unless I'm mistaken they
+both have some minimal userspace supporting EXT_protected_textures:
+
+https://github.com/KhronosGroup/OpenGL-Registry/blob/main/extensions/EXT/EXT_protected_textures.txt
+
+It's not great, but it does just barely clear the bar in my opinion. I
+guess something in gstreamer or similar video pipeline framework would
+also do the job.
+
+Especially with the context of the uapi discussion in the v1/RFC thread I
+think we need more than a bare-bones testcase to make sure this works in
+actual use.
+
+Cheers, Sima
+
+> 
+> Thanks,
+> Jens
+> 
+> Changes since V3:
+> * Make the use_case and flags field in struct tee_shm u32's instead of
+>   u16's
+> * Add more description for TEE_IOC_RSTMEM_ALLOC in the header file
+> * Import namespace DMA_BUF in module tee, reported by lkp@intel.com
+> * Added a note in the commit message for "optee: account for direction
+>   while converting parameters" why it's needed
+> * Factor out dynamic restricted memory allocation from
+>   "optee: support restricted memory allocation" into two new commits
+>   "optee: FF-A: dynamic restricted memory allocation" and
+>   "optee: smc abi: dynamic restricted memory allocation"
+> * Guard CMA usage with #ifdef CONFIG_CMA, effectively disabling dynamic
+>   restricted memory allocate if CMA isn't configured
+> 
+> Changes since the V2 RFC:
+> * Based on v6.12
+> * Replaced the flags for SVP and Trusted UID memory with a u32 field with
+>   unique id for each use case
+> * Added dynamic allocation of restricted memory pools
+> * Added OP-TEE ABI both with and without FF-A for dynamic restricted memory
+> * Added support for FF-A with FFA_LEND
+> 
+> Changes since the V1 RFC:
+> * Based on v6.11
+> * Complete rewrite, replacing the restricted heap with TEE_IOC_RSTMEM_ALLOC
+> 
+> Changes since Olivier's post [2]:
+> * Based on Yong Wu's post [1] where much of dma-buf handling is done in
+>   the generic restricted heap
+> * Simplifications and cleanup
+> * New commit message for "dma-buf: heaps: add Linaro restricted dmabuf heap
+>   support"
+> * Replaced the word "secure" with "restricted" where applicable
+> 
+> Jens Wiklander (6):
+>   tee: add restricted memory allocation
+>   optee: account for direction while converting parameters
+>   optee: sync secure world ABI headers
+>   optee: support restricted memory allocation
+>   optee: FF-A: dynamic restricted memory allocation
+>   optee: smc abi: dynamic restricted memory allocation
+> 
+>  drivers/tee/Makefile              |   1 +
+>  drivers/tee/optee/Makefile        |   1 +
+>  drivers/tee/optee/call.c          |  10 +-
+>  drivers/tee/optee/core.c          |   1 +
+>  drivers/tee/optee/ffa_abi.c       | 178 +++++++++++++-
+>  drivers/tee/optee/optee_ffa.h     |  27 ++-
+>  drivers/tee/optee/optee_msg.h     |  65 ++++-
+>  drivers/tee/optee/optee_private.h |  75 ++++--
+>  drivers/tee/optee/optee_smc.h     |  71 +++++-
+>  drivers/tee/optee/rpc.c           |  31 ++-
+>  drivers/tee/optee/rstmem.c        | 388 ++++++++++++++++++++++++++++++
+>  drivers/tee/optee/smc_abi.c       | 213 ++++++++++++++--
+>  drivers/tee/tee_core.c            |  38 ++-
+>  drivers/tee/tee_private.h         |   2 +
+>  drivers/tee/tee_rstmem.c          | 201 ++++++++++++++++
+>  drivers/tee/tee_shm.c             |   2 +
+>  drivers/tee/tee_shm_pool.c        |  69 +++++-
+>  include/linux/tee_core.h          |  15 ++
+>  include/linux/tee_drv.h           |   2 +
+>  include/uapi/linux/tee.h          |  44 +++-
+>  20 files changed, 1358 insertions(+), 76 deletions(-)
+>  create mode 100644 drivers/tee/optee/rstmem.c
+>  create mode 100644 drivers/tee/tee_rstmem.c
+> 
+> 
+> base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
+> -- 
+> 2.43.0
+> 
+
 -- 
-2.47.0
-
+Simona Vetter
+Software Engineer, Intel Corporation
+http://blog.ffwll.ch
 
