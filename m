@@ -4,84 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4B4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DC8E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGDd3GsS7X/LEUACNFlLUz77SGjMRwi8NjI74LtUWbY=; b=j8LwbUEl/bk8Q7LU3O7PhU75Q4
-	IWf9LJF+aa9Lk38bX1Nlq214qb3vjc8LulxWEX8Ai9+GkkFVN1SbAp3wBQtUwntOIpNAAy5JRbQyH
-	SZVOAbciW2YpZ5ma4/yBCO3VTATZRAPShrU54NGf7GS6z+gKtAaDEZjzYufdnnEw1WA3YuJkI+o6w
-	x3YTqnbF2St6d2yDETS9OskPopSZZAcnlztmhgljWoWFATgZF0WBzqfRGc1brtweIPCJWn9V3yjeo
-	jVKLuas3s1L283rOnOkdCqdFyQbb285MNgaF2dBx/8dnn+xc14uoUPckjom3yx3FoCdLEmiI/kJJJ
-	XrkEj8/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y+W7VROJYAKWesW0btuLtsny/5rudGPHx9yR2y+wyzo=; b=HbDntXTn3rseX2Fm5M75yJD3rs
+	AtVpnFIJZQ7sGhNIvv/6dL74S61jhwgzgj1tYtVEon+nuM5aiBpYZT0oGwvQE5qTToQr6+MIqVMTA
+	4t2DiTPQVBBp24qRxRjJBctpuO46bpvyo2XsuzRlSXFbBcsP3lpBP/mCZdz9YOV7K81W2mOABT1Rv
+	KBIZ23anBESgMRy1Q6Ne0EMfOAGGuHG+RD9JhZEm2Mv0bOmXs2xY5nTAJU2B5LefseMbvBkXXZjTN
+	7aow9NcSTB1CohwwvuSwk8N9wsCzfPlGsYBRsOOMcuixi5dRGiJJj6agkDvnlrX9FO4ICpxyihOKH
+	W9WVH3qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsAl-0000000GRZ2-0Fcu;
-	Wed, 18 Dec 2024 11:24:59 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1tNsAt-0000000GRb0-2bhM;
+	Wed, 18 Dec 2024 11:25:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNs9e-0000000GRQk-3UyR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:23:51 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-5f2b21a0784so1387215eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:23:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734521029; x=1735125829; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wGDd3GsS7X/LEUACNFlLUz77SGjMRwi8NjI74LtUWbY=;
-        b=kDdJXKQNq4NYVKEPl+uqeWikzcP9S/4yWuifhvjMwjCQHfx1fLUR4Tt0YbTfETWUNx
-         WdIsYw+pBw1zeb1wuea508+rkczzhyc9r8GCSrBNlo2YDN8vk0HOSaGX4HhiGE27DhG/
-         6vrP9pc5ZUWsQtsX92eUS8pr+RuXn/tCikOXv+42pmOmDd80/nFNz1Asd6r83/PdTeGs
-         tPzbfZyAUTFrRso1YSoCPCTE8a9t769opttM52Ue6j82S39gbs3KoeDWouUuqC3oT5wf
-         LJn0UsG2vYzCoQbLnTTPbILTT/daWGlYumb8yMqlIAN4XWU1s5sHfJfwjQ6XY3iqiyo3
-         c1IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734521029; x=1735125829;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wGDd3GsS7X/LEUACNFlLUz77SGjMRwi8NjI74LtUWbY=;
-        b=IjV9q0GHhpxf+u2Ev7npoePFivWQgoZh0e0q4zTg9T6RFBvC91aez/6m5eEoa5Wc+7
-         c1S4q65upA4+Nn4yUEs0PlRcSadTg1gN622pi7qo612lNyEhjQcw/W1xWbVyDjGjjsvy
-         js9tCe+FQJ+i+qxVX9bXHRI+MfaC7zY9rOMyzTYbKa04dV/NMlD7s0LvrjhqEBcE829E
-         xkdvWwpgHoAb7/awJqZF+f3WbEuj7KO+R3zbZmwne0h7EDFgv8WEtvbIL6LeHC4wUiSj
-         ETSuqox/dW1hm/JMj7sC7xqZx0DNiAx3jgHR0NwsWOBn52w3gBoWqNxfQj0Wxdk88uBj
-         h65Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX1K7/YJlKTe4Ql54a9X38T5+YJIlkqukNHDKtYLArRg8W11w1rhSBthDiUha7skWilwyFbDeSuAiopEzWfxl9i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtICl7L6tV/LRsxAtjc8jIT4xFqX+VyMrL0pjnRFBD9jOdV2IA
-	dc9BMdzp4/axOLS8TuhCInZ33Uk4Iiw/et2NKpUavxuWNDY2rKQl8HUKbc6NNSDLXrOG6eEUJ3a
-	nRYps3ZtwNH+1ftqu093KewqOBhoEeGGoWAjBrQ==
-X-Gm-Gg: ASbGncsE/SDbIeuxxH6RAvTSbIgEyxIXJoJ/ZrzLY19zXFigIoW3eAdvWq9NDgssuGQ
-	/JhcgakSg4E2UFie7QnuPzZlOwdZUdCcg5MdnFKE=
-X-Google-Smtp-Source: AGHT+IE0SxJTQLNEo9P1nttPQbjieAU87Qbz/OG3Tx1qyRFpKK7F0I23DhhsjQFVOLFLQOC0Fg1O4vAzd0y7cFEiLlo=
-X-Received: by 2002:a05:6870:fe95:b0:29e:51ca:68b4 with SMTP id
- 586e51a60fabf-2a7b3145c1bmr1357208fac.19.1734521029643; Wed, 18 Dec 2024
- 03:23:49 -0800 (PST)
+	id 1tNrAB-0000000GEYK-0mjQ;
+	Wed, 18 Dec 2024 10:20:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Y+W7VROJYAKWesW0btuLtsny/5rudGPHx9yR2y+wyzo=; b=qd+WfcHOCwTPnnDR34QoHWF/x7
+	ZiOcQ54IhjQN/JspesBSvILNr2BUqBnkndO4OfaEGMgxL4QFiCL8Jvb2vasBi9JsjxzcPa39/OheN
+	LnyxvWC3IbHEBDYrLsnetkdGZpVlAViQciR4e+/UUMF53isrmPfqTeJPvsd7rGSnjYUZBtkhvlTx1
+	UM2QANC7awSY72XKzfI8IYXeNQhJHHUALyvi6qVE6aza+uVv70ZuCRvUjdLU28QNrPXTQa3CFl/fO
+	gSENNHjANgipzu+sYHSNgwCyK6RymWvFMbaVEMR6B8owDOOSwtDiy6EQco1Oc8SZtFloB2in4MT04
+	NBmVjblg==;
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNrA8-00000005EXv-0rJ0;
+	Wed, 18 Dec 2024 10:20:17 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4YCqSD111Vz9sPd;
+	Wed, 18 Dec 2024 11:20:12 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id gKpioB5BCG2d; Wed, 18 Dec 2024 11:20:12 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4YCqSC6pM5z9rvV;
+	Wed, 18 Dec 2024 11:20:11 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id CC0DD8B770;
+	Wed, 18 Dec 2024 11:20:11 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id ffiwrVR0qIrj; Wed, 18 Dec 2024 11:20:11 +0100 (CET)
+Received: from [10.25.209.139] (unknown [10.25.209.139])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 1D2408B763;
+	Wed, 18 Dec 2024 11:20:11 +0100 (CET)
+Message-ID: <e69b2927-b415-4e16-a346-8d874c9a8b39@csgroup.eu>
+Date: Wed, 18 Dec 2024 11:20:10 +0100
 MIME-Version: 1.0
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org> <wlvvuq2ldv4funye2ylnccq7soyrqkqggg36oimnvmhxbbjvnl@yyy4y5nyruzn>
-In-Reply-To: <wlvvuq2ldv4funye2ylnccq7soyrqkqggg36oimnvmhxbbjvnl@yyy4y5nyruzn>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 18 Dec 2024 11:23:38 +0000
-Message-ID: <CADrjBPq4mTsvCivBJPmADP3pfUORBV8hGeP5GrTg9YxASJLHXg@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
-	kernel-team@android.com, willmcvicker@google.com, daniel.lezcano@linaro.org, 
-	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/17] powerpc/vdso: Switch to generic storage
+ implementation
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+ <20241216-vdso-store-rng-v1-12-f7aed1bdb3b2@linutronix.de>
+ <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_032350_886154_E19E0407 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20241218_102016_456631_42685E30 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,64 +119,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Wed, 18 Dec 2024 at 09:29, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On Tue, Dec 17, 2024 at 09:40:20AM +0000, Tudor Ambarus wrote:
-> > +description: |
-> > +  The samsung exynos mailbox controller has 16 flag bits for hardware interrupt
->
-> If there is going to be any new posting:
->
-> The Samsung Exynos mailbox controller, used on Google GS101 SoC, ....
->
-> > +  generation and a shared register for passing mailbox messages. When the
-> > +  controller is used by the ACPM protocol the shared register is ignored and
-> > +  the mailbox controller acts as a doorbell. The controller just raises the
-> > +  interrupt to the firmware after the ACPM protocol has written the message to
-> > +  SRAM.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: google,gs101-mbox
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    maxItems: 1
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: pclk
-> > +
-> > +  interrupts:
-> > +    description: IRQ line for the RX mailbox.
-> > +    maxItems: 1
-> > +
-> > +  '#mbox-cells':
-> > +    description: |
-> > +      <&phandle type channel>
-> > +      phandle : label name of controller.
-> > +      type    : channel type, doorbell or data-transfer.
-> > +      channel : channel number.
-> > +
-> > +      Here is how a client can reference them:
-> > +      mboxes = <&ap2apm_mailbox DOORBELL 2>;
-> > +      mboxes = <&ap2apm_mailbox DATA 3>;
->
-> This ordering assumes there is channel "2" in doorbel and in data, so
-> two times "2" and of course the same for all others. If this is
-> configuration of one channel, so "2" is either doorbell or data, then
-> type should be the last.
 
-My understanding was each channel is either configured for doorbell or
-data, but Tudor can confirm. With Krzysztof's feedback addressed:
+>>   #ifdef CONFIG_TIME_NS
+>> -static __always_inline
+>> -const struct vdso_data *__arch_get_timens_vdso_data(const struct 
+>> vdso_data *vd)
+>> +static __always_inline const struct vdso_time_data 
+>> *__ppc_get_vdso_u_timens_data(void)
+>>   {
+>> -    return (void *)vd + (1U << CONFIG_PAGE_SHIFT);
+>> +    struct vdso_time_data *time_data;
+>> +
+>> +    asm(
+>> +        "    bcl    20, 31, .+4\n"
+>> +        "0:    mflr    %0\n"
+>> +        "    addis    %0, %0, (vdso_u_timens_data - 0b)@ha\n"
+>> +        "    addi    %0, %0, (vdso_u_timens_data - 0b)@l\n"
+>> +    : "=r" (time_data) :: "lr");
+>> +
+>> +    return time_data;
+> 
+> Please don't do that, it kills optimisation efforts done when 
+> implementing VDSO time. Commit ce7d8056e38b ("powerpc/vdso: Prepare for 
+> switching VDSO to generic C implementation.") explains why.
+> 
+> For time data, the bcl/mflr dance is done by get_datapage macro called 
+> by cvdso_call macro in gettimeofday.S, and given to 
+> __cvdso_clock_gettime_data() by __c_kernel_clock_gettime() in 
+> vgettimeofday.c . Use that information and don't redo the bcl/mflr 
+> sequence.
+> 
+> See for instance function __c_kernel_clock_getres():
+> 
+> Before your series it is 30 instructions.
+> After your series it is 59 instructions.
+> 
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+It is even more obvious with __c_kernel_time()
 
-regards,
+Before your series it has 12 instructions,
+After your series it has 26 instructions.
 
-Peter.
+Before
+
+00001408 <__c_kernel_time>:
+     1408:	81 44 00 04 	lwz     r10,4(r4)
+     140c:	6d 49 80 00 	xoris   r9,r10,32768
+     1410:	2c 09 ff ff 	cmpwi   r9,-1
+     1414:	40 82 00 08 	bne     141c <__c_kernel_time+0x14>
+     1418:	38 84 40 00 	addi    r4,r4,16384
+     141c:	2c 03 00 00 	cmpwi   r3,0
+     1420:	81 44 00 20 	lwz     r10,32(r4)
+     1424:	81 64 00 24 	lwz     r11,36(r4)
+     1428:	41 82 00 08 	beq     1430 <__c_kernel_time+0x28>
+     142c:	91 63 00 00 	stw     r11,0(r3)
+     1430:	7d 63 5b 78 	mr      r3,r11
+     1434:	4e 80 00 20 	blr
+
+Versus after
+
+00001534 <__c_kernel_time>:
+     1534:	81 44 00 04 	lwz     r10,4(r4)
+     1538:	6d 49 80 00 	xoris   r9,r10,32768
+     153c:	2c 09 ff ff 	cmpwi   r9,-1
+     1540:	41 82 00 20 	beq     1560 <__c_kernel_time+0x2c>
+     1544:	2c 03 00 00 	cmpwi   r3,0
+     1548:	81 44 00 20 	lwz     r10,32(r4)
+     154c:	81 64 00 24 	lwz     r11,36(r4)
+     1550:	41 82 00 08 	beq     1558 <__c_kernel_time+0x24>
+     1554:	91 63 00 00 	stw     r11,0(r3)
+     1558:	7d 63 5b 78 	mr      r3,r11
+     155c:	4e 80 00 20 	blr
+     1560:	7c 08 02 a6 	mflr    r0
+     1564:	2c 03 00 00 	cmpwi   r3,0
+     1568:	90 01 00 04 	stw     r0,4(r1)
+     156c:	42 9f 00 05 	bcl     20,4*cr7+so,1570 <__c_kernel_time+0x3c>
+     1570:	7c 88 02 a6 	mflr    r4
+     1574:	3c 84 ff ff 	addis   r4,r4,-1
+     1578:	38 84 2a 90 	addi    r4,r4,10896
+     157c:	81 44 00 20 	lwz     r10,32(r4)
+     1580:	81 64 00 24 	lwz     r11,36(r4)
+     1584:	41 82 00 08 	beq     158c <__c_kernel_time+0x58>
+     1588:	91 63 00 00 	stw     r11,0(r3)
+     158c:	80 01 00 04 	lwz     r0,4(r1)
+     1590:	7d 63 5b 78 	mr      r3,r11
+     1594:	7c 08 03 a6 	mtlr    r0
+     1598:	4e 80 00 20 	blr
+
+Christophe
 
