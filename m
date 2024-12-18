@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94309E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850ADE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JgASWdXNS3RqXVlA/ImzhuUR23AWDdoHokCYtEmwqDo=; b=rHY8vuLJeOCI6ZpuCziB+z/lzo
-	2kqn717PNI75woM5OxrDYN33YSkADPJQzcCtU95VBL0jiNVDQ9UBHgWDc4oj0RgkyaTNvDNnSxImm
-	dIrGvRcrkUy0Y+jwRvBM+vrCa3dBEDNze5cncOWTzoh8VU8Y0UbHme/3JL+VxRYsY6LraeldMLUZw
-	YB5tc8ddivV/WYS8/3shBvKseF/q7h/DpAs3V8YhTnkbC8wqpR3wDrtQqdg7tlnnacf//IsmxcVh8
-	9UpsNjn12BEBlDwTulKC3FLtXACChTWzAcmT+HzAPAMBLZZGw+Bt0lxbK+26kBUIIXvnX/DlFQPXK
-	IoAstiqQ==;
+	bh=IOTwT8HE0XwDG2FAJOX9RxAWuGIePlcHl5MDSdJ05RA=; b=0I3F3JRywCaOVQmCX8kTUPiEnU
+	KamazwGPccY/99/uZqGFZof7Ce3Hq45EZ3Tl7Df+Wal6aOcmdOgi/goBo4vL8dtuVsg6CWiCMarkB
+	AhcUb6ndV1NDB76ZTAl1gCSw9cGDBly3stVhSpBXmMvdO7y9k1lrlGPvzMuiBEjBWzo2zt5Zk29p4
+	K5iKG63OcxKZkC7rL1egnGmaktPayjWPZqlanRnjf06+lcg4VQea/bkQVZEgxDHZUZNhwpHoeceAD
+	v/gg21Dm3Cu7+AihSAG7tlvi27uz4+bRz8YC0ZWlDHUB3t9zDndyFjuwt1HSukDguV23xrsDNJI9b
+	u3UdJHew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNwAW-0000000H3V4-1Zum;
-	Wed, 18 Dec 2024 15:41:00 +0000
-Received: from mail.fris.de ([2a01:4f8:c2c:390b::1])
+	id 1tNwBa-0000000H3dz-0CFm;
+	Wed, 18 Dec 2024 15:42:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNw04-0000000H1OL-0d4B
+	id 1tNw0V-0000000H1Uf-3GiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 15:30:13 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 412FBBFB05;
-	Wed, 18 Dec 2024 16:30:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1734535810; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=JgASWdXNS3RqXVlA/ImzhuUR23AWDdoHokCYtEmwqDo=;
-	b=L20Isi2DAUo2qXpjkQIriyp7PxpAWdBObbWKlkfL2ZxkAYpaonmHa/wS1oVceOXLNgijSj
-	eunGPCDTQlNVAzlgfuQbUXxJNYH3jIpj5bNaMjogZ8FvUTWSrTaHcMbN+71Qa8LuBOk21j
-	ITYm+eh8UPy81F0ZtjcUW5ZyKLOwKSj9lzjzqCkIBDReC1iAfzWY9C0uUFdhucx7gdh13r
-	g0qXlQgI2OmwmL2kWGj3xYax6Po1ZgxvpAAp2GHOvFwe8Swgq7nTZ2VdcQrm2ycCkYiUk4
-	r+XLne08y0F4+uveZQO6XVjNWZ7yyVVC2iBTIVqkFH4h6KjmCeWUZg3iJBNJfg==
-From: Frieder Schrempf <frieder@fris.de>
-To: linux-arm-kernel@lists.infradead.org,
-	Marek Vasut <marex@denx.de>,
-	Conor Dooley <conor@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v3 9/9] arm64: dts: imx8mp-kontron: Add support for reading SD_VSEL signal
-Date: Wed, 18 Dec 2024 16:27:32 +0100
-Message-ID: <20241218152842.97483-10-frieder@fris.de>
-In-Reply-To: <20241218152842.97483-1-frieder@fris.de>
-References: <20241218152842.97483-1-frieder@fris.de>
+	Wed, 18 Dec 2024 15:30:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734535838;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IOTwT8HE0XwDG2FAJOX9RxAWuGIePlcHl5MDSdJ05RA=;
+	b=EH3p7xfMhYuNhURPpqAiPpqi1N0OLHlsQiTxNvaFcn0sLS08qUxSzTXfaWEtfsr2uze2k5
+	Dwy3rt/SyDTiLTm9HjduaiKgzG4x96/EGcf+A8swc//eXvbDNMRPZMD/3j7rj/z8lXf1Sl
+	N0vteDHv46SBXjA9dKZd0gJMoEX+TK8=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-551-L4kE_FUcNA2yr6b09_38GQ-1; Wed, 18 Dec 2024 10:30:37 -0500
+X-MC-Unique: L4kE_FUcNA2yr6b09_38GQ-1
+X-Mimecast-MFC-AGG-ID: L4kE_FUcNA2yr6b09_38GQ
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4361a8fc3bdso37278035e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 07:30:37 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734535835; x=1735140635;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IOTwT8HE0XwDG2FAJOX9RxAWuGIePlcHl5MDSdJ05RA=;
+        b=KKA0n+nhD6h+rT6OwIR847KqI3OwMhkvV9cEB72y0WtHfrgpVVHBlaqrXgo2VDG/Ik
+         vADvrc5q4BZ/tKzpeqTZMNvB/AuPrwFCyr12N2df+6wpMXedBQN8fJo3R5z/kfyjmzh+
+         0CDTKRhooI3El7Sz7bu+6OiR4eIWYmfCDHXrTORXoKkfsFw3aEUJjp4WKkZl8oDs8d4g
+         bfpeL0IW8d8KUWcDZvM9rQtklDTsTg8hQ7KWU1gz7JOzOI6BGWlahtozvzcNy3ZvTYRx
+         LP0MMCg0Xsgbet26LdE7wW/Vodecc5T2kNgX8KeDXiryRWEgZauh9AYEZDPOe3iMLl3b
+         A52A==
+X-Forwarded-Encrypted: i=1; AJvYcCUOHSOLlPbAQ0umdpNlma/vbWX+m0Ux79/0hybl5+Fm8Ykq8+uzTT75gTbkhGtX2l5DJZt5tyiPkuQfGZT3wb9f@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOWnIUw5E9FpJr42PIc2BsFiLQo9pynN0VXwNafRfmKJMVGut9
+	ioCWG5RzukwynvxN+shB3cRVGd7A0sva2f4hxNHqqkIhm+HmJ5jRKSMNYlArkAK1bk+ih5w7Fu7
+	ksiKelnLaRMQ6x1+2KdHpfPk4qhUzj97IBk7dcpBnxGh4vAoMPfAG0PLCVl2mdqRA5yf0KqYv
+X-Gm-Gg: ASbGncvY8+oARDCK3TsYKEA8z23Jcd2jTiqsCP2mNlap6hKYeeMwTg5xK7xkMqOIa5Y
+	XGnK8yt4L64NClkpDwBR+rIXPEcmZs01P/QbVfCv/MpNN3BZSXZav+LJ+M4GA2E1MmQbuBfbOI+
+	Q9rCJ2jB/6ywmEqAB2nB6wHSlMEq7dNOYALxWpJ2AjBnJBoz38Pk9tidqKo9AubriirNu7e2IC1
+	O13+7AHw5bg4A2+AdiL9Efpg0lwNK9hF6L13E23ud4E/OTdCxnTYjmYU5Bxo/WJ8mqda6IkmqI7
+	SkaOOnv0jFSOtIw6MDHqPYE=
+X-Received: by 2002:a05:600c:468a:b0:434:9499:9e87 with SMTP id 5b1f17b1804b1-436553fe17dmr24703955e9.25.1734535834979;
+        Wed, 18 Dec 2024 07:30:34 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHXy7/92tN4aqDKjWg7kMg8QCEdGz/+/l71Ezw0sjA8QjrEyldBB1pQsA/f3MKEus/gdEi2RA==
+X-Received: by 2002:a05:600c:468a:b0:434:9499:9e87 with SMTP id 5b1f17b1804b1-436553fe17dmr24703635e9.25.1734535834464;
+        Wed, 18 Dec 2024 07:30:34 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656af6c5bsm23443205e9.2.2024.12.18.07.30.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Dec 2024 07:30:33 -0800 (PST)
+Message-ID: <ac2744ad-728b-487f-af9f-1eee1ae0bab5@redhat.com>
+Date: Wed, 18 Dec 2024 16:30:32 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 12/46] arm64/sysreg: Add register fields for
+ TRBMPAM_EL1
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, maz@kernel.org
+Cc: ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-13-anshuman.khandual@arm.com>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <20241210055311.780688-13-anshuman.khandual@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 9H-FWBJ6Q4uF9mp1AG_gZhnS76p5VpvUvFSxFKHrVjI_1734535835
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_073012_346945_BA1C5925 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20241218_073039_890970_723AF3A0 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,73 +115,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This fixes the LDO5 regulator handling of the pca9450 driver by
-taking the status of the SD_VSEL into account to determine which
-configuration register is used for the voltage setting.
 
-Even without this change there is no functional issue, as the code
-for switching the voltage in sdhci.c currently switches both, the
-VSELECT/SD_VSEL signal and the regulator voltage at the same time
-and doesn't run into an invalid corner case.
+On 12/10/24 06:52, Anshuman Khandual wrote:
+> This adds register fields for TRBMPAM_EL1 as per the definitions based
+> on DDI0601 2024-09.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Eric Auger <eric.auger@redhat.com>
 
-We should still make sure, that we always use the correct register
-when controlling the regulator. At least in U-Boot this fixes an
-actual bug where the wrong IO voltage is used and it makes sure
-that the correct voltage can be read from sysfs.
-
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
----
-Changes for v3:
-* Rebase to next-20241218
-
-Changes for v2:
-* new patch
----
- arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-index e0e9f6f7616d9..b97bfeb1c30f8 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-kontron-osm-s.dtsi
-@@ -311,6 +311,7 @@ reg_nvcc_sd: LDO5 {
- 				regulator-name = "NVCC_SD (LDO5)";
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <3300000>;
-+				sd-vsel-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
- 			};
- 		};
- 	};
-@@ -808,7 +809,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d0 /* SDIO_A_D0 */
- 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d0 /* SDIO_A_D1 */
- 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d0 /* SDIO_A_D2 */
- 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d0 /* SDIO_A_D3 */
--			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x400001d0
- 		>;
- 	};
- 
-@@ -820,7 +821,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d4 /* SDIO_A_D0 */
- 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d4 /* SDIO_A_D1 */
- 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d4 /* SDIO_A_D2 */
- 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d4 /* SDIO_A_D3 */
--			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x400001d0
- 		>;
- 	};
- 
-@@ -832,7 +833,7 @@ MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d6 /* SDIO_A_D0 */
- 			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d6 /* SDIO_A_D1 */
- 			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d6 /* SDIO_A_D2 */
- 			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d6 /* SDIO_A_D3 */
--			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x1d0
-+			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0x400001d0
- 		>;
- 	};
- 
--- 
-2.47.1
+Eric
+> ---
+>  arch/arm64/tools/sysreg | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index a5e31e4c4474..78564b24b187 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -3413,6 +3413,19 @@ EndEnum
+>  Field	7:0	Attr
+>  EndSysreg
+>  
+> +Sysreg	TRBMPAM_EL1	3	0	9	11	5
+> +Res0	63:27
+> +Field 	26	EN
+> +UnsignedEnum	25:24	MPAM_SP
+> +	0b00	SECURE_PARTID
+> +	0b01	NON_SECURE_PARTID
+> +	0b10	ROOT_PARTID
+> +	0b11	REALM_PARTID
+> +EndEnum
+> +Field	23:16	PMG
+> +Field	15:0	PARTID
+> +EndSysreg
+> +
+>  Sysreg	TRBTRG_EL1	3	0	9	11	6
+>  Res0	63:32
+>  Field	31:0	TRG
 
 
