@@ -4,111 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5153CE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E128E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1TGG3kbGTx7z/PusKTdKwhjjBwZI0f0Vx0mT8z5PII=; b=bOoW1DUQAsTMGrYXOwozrklN7R
-	Q9FD5qLucYtbecH0JWnXfNh6zAe/z1ytUpFqkrgiip+MANSstrITeds7eBPSq2K8l4G6Q2emAnvNB
-	ed4H+RHpJ8ZHq5aU4k/V7sBZkBrKMyneeUjWLSv2tbsEumi9hOY0CWJLIi7J85LvlJBwxyj5jQxcD
-	5Yt4TUlo9LbWEMSzU68BMmD11jtwftcemCkqRlqP9nJmcfyR5TKtvD48tWLfCJ9beMTWzTw+LBIw6
-	6OKAGrn6FFGW/3TTx+kLKE5y8+QmUnvayHfYLVS1Jl5KciA/4BnTbIv3sX/XMbmPC7MOZ1du7gQ+/
-	ARKzA8gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3TmvtIp6TKFB6qCchT2qS2F6A//YtbgrbPs/Ok7+J2I=; b=aeR1vA1QbJc9qynmF2nvj1BNPl
+	/OOrASGxhWopffdEOVXKSjMC5vGbhXPKMdVk+XUjWI6W+bS0KN2PCqy1MAmg9tOXXtF9GPvb/aM1s
+	kYMkfbnLA1MtEJtSREWNq+QNOQtI24kODuQKPqrCsu6KtO473zNOO5emiOR7xpPs25tL+SAuG1yPP
+	nyJ0IHVZOTUqG52soWLIrNRugTSivZ4CFtFkkI7bvG4wUQs+N7PwBItnZxg4mMHI/WZXH/MYUio9z
+	LlkU+RmKCnTR5ReX4cc5SkSJTURFk79qD0tCEtRAnKFBnmG+Clog6KUmgUW60N0Y5q671Lj8ShvlX
+	2Qm35/uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrht-0000000GLVo-1N2C;
-	Wed, 18 Dec 2024 10:55:09 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tNrhw-0000000GLa6-3ws1;
+	Wed, 18 Dec 2024 10:55:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqIm-0000000G5B3-18DD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 09:25:10 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2166022c5caso49858315ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 01:25:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734513908; x=1735118708; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=R1TGG3kbGTx7z/PusKTdKwhjjBwZI0f0Vx0mT8z5PII=;
-        b=UyDZZgGQkY6u2P6gO73X1Gg6fzGfUhVXTwyI/1RWibbnmG84TATV4YbNYNRXKr/n0O
-         fPMpkW1P8YwhvRmrUlbVfwuA3mciUnuWlW46+spQsQJe1XDKFqFBnw1mBDeskJGqClui
-         0W3m0oLE5jg61VOe+X7+TtPqPOAFiJ8Hy1dkLued1ZiVOdKZB2oT/azvGwzrf3GNuLF0
-         6KenTOEHpcgF5UKcn4WGw7tasBiBu5ujcgPUP/GXalH/RU/2LT0WM1qFyLojMsgBhwHA
-         mmtThBhf3GkuzAaDElPdk4CBetv0uWRUhiFXG07vclitlLC2IEUZuJHhT90OtYIB+9N4
-         +2og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734513908; x=1735118708;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R1TGG3kbGTx7z/PusKTdKwhjjBwZI0f0Vx0mT8z5PII=;
-        b=kCPI+bNaUPCyqEH0Nwgi7XgF4pkuaIx8ya65/0FHYXvP6hRoez4IoVuPI3dg3JXQB0
-         PhiqSH+0Pq9+W5ZjaIKf5HnreebxFPYibK28p4Ei6QeDbDxWGlKfuFIBvNzr7P3doEUn
-         atsX+2H938ID6Y3P2cVwR+fBAQtyEnXfHuE6PnKxkZH9B/8twUBaGcuRpfpddZxh1cQR
-         bK5+cegAVTvNOBSbe/wMBoSnJev8PgZL+UW+ZsxBUrDfZ5BcJHbynGIommuI45ZzTLbT
-         DsWELOSC6AQ3Wjg9k6D+SB9XBfxRcWF538oYm8NmRomYNykhmsKjBltIdBdCHGWylJHP
-         wUcw==
-X-Forwarded-Encrypted: i=1; AJvYcCUNee6RsVQcD8wwWSL63ZIKtHUOAeDOsSUvxrB9PkjxN5xTPGiRyE5DqEBvf4m4+/prZsP1wR3Q5bjPKRKPCnv5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxicH+vGr9S8viPBVFxECsRBJwnZg0Fq+Mb0VRXmTy50kPXi7J+
-	XogyattlhrhaPB7uoZqT+ZUHm1t3IQKMqCX9uqmfD3wXV57+5UtFE4TDjaEtVjo=
-X-Gm-Gg: ASbGncszy/20TOF7hFnp5jTjQzB4qAJoyU28dMezqSe3LTKLHxP9jB3/vuz6CqcCgsh
-	r82siOB9Dn7+EuVTl03+y3g7Qi3S50yOmA2zx+NlooJ7nFOBs4SQPx1OhTbB4lgActunUf431q0
-	lGFPKoioC8KJFLCicLXNXrXLvEsd2uasStbCgpU6UW4AucF8JQ8dvC2gFMb3VlzJZX7aSWv3CCb
-	gDl0vCX351X5eGHh8ecO3uhjo5WBpJRAXTkL9k3naeAJ8wLR6+ZByBlFShNYuRkPYEbknkP
-X-Google-Smtp-Source: AGHT+IEHgYMjVq5rZtf6WLw+4HejtcNT8KL05yJWzt1drg0ll7jltSzjXF/FdqU6kSn4HloG1xXeBw==
-X-Received: by 2002:a17:902:e80f:b0:216:386e:dbf with SMTP id d9443c01a7336-218d70f6f4dmr31766595ad.20.1734513907613;
-        Wed, 18 Dec 2024 01:25:07 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e64f90sm72119995ad.241.2024.12.18.01.25.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 01:25:06 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 18 Dec 2024 01:24:14 -0800
-Subject: [PATCH v4 16/16] perf tools: Remove dependency on libaudit
+	id 1tNqV5-0000000G8cx-2qpi;
+	Wed, 18 Dec 2024 09:37:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3TmvtIp6TKFB6qCchT2qS2F6A//YtbgrbPs/Ok7+J2I=; b=it2XkMcI6pyPE7j7I0VycbFYjh
+	huJpq29c2eJOMV69lPbfXQvsZhkZfub8A1e0v3nC98H1azQNV4WVBpCYwxZDq09Gx2MdJZav5A6k0
+	gASwaNJowD9NyYK3e3JwgNOi8sO4NVxYr2msIuWujLtMdT828r7LlJJK/6tOV3lbWkNPGyhmyw5C8
+	hSOM9NSPXXAqpkbpa4nS5b2hOONPK+no1QfuhVAATok3SE4X2fxyW0sZY3lgI7ZRPcPyhtcQFnsyn
+	15hVAH2IgBIbJcZiLtOzig0mzXqQOigYDZqPzL2f3FNupNZiMM7gOm8StIhotMiOIvqdBoytXtUyS
+	MRVk2szA==;
+Received: from mail-psaapc01on2072c.outbound.protection.outlook.com ([2a01:111:f403:200e::72c] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNqV2-00000005DSG-1a38;
+	Wed, 18 Dec 2024 09:37:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rgo40ZE1WTtT+9nU32i8XkNbEzvSGFu5F7Qt/ot4ZLGXbGXsvMuEklNszewHbz0gyDYaTGsZtbfyNQyiVyq2Md92qLGTNUFx5UIxx073OwIvldm+7LXnbehjU86JS5evHI6AtDI46r+yB0pqG+iahf4hAG7iwR0fUksbNcj7fSt55UcQ4AiPZkU+NmcvnhoPAm6qLs2SZVDVbmXVE240/80n8twm/4QwJU+lIXOswemMazyxpMeHLkfWDac/naGQZmBL3dRJJvV8oe3kY/Ip8D6pyVLP+pVhYnV7KMQZ7lV1yInpciaEH6/qpL7goy5GnTwZMNKPyp+nUW4lbh1H8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3TmvtIp6TKFB6qCchT2qS2F6A//YtbgrbPs/Ok7+J2I=;
+ b=ADcQT+qS3+GuJE7Yr06nZXoBX/xBDC63MIi0t2fRnJiy2FohV3yuLG2meh7nLP2IUnB3x9gqp39pOXexHidxE5KsazQagmgeQBZV2uiHKih+nm899Pt2d+piD7TvVeb13wMApYGxP85Fz5aeazwGyLadFOKCnXI1kIJbAPm3k9XXEjPn392GPKndSLY0OaQFC3IuT4duris4wH4GHvs0XfAxQxzDdxTKAifsF/5ahOJN8/gIaLfcUY7m0RkkT1wYH/dmM+m2P7nvqZCsDBaB8kRuTYeqzmHzEROx3xn5tWsjzx+f9vqdMjWui7Ggne52+hqpW/7VBqvt0Wp6n+J8GQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3TmvtIp6TKFB6qCchT2qS2F6A//YtbgrbPs/Ok7+J2I=;
+ b=AFTRI0LQr1F/H3JhArawVXxkVFlYRffjG3y6Dp1uy15VutFpy+uvR5nDtTOOTlSS4MWMMBYWszJLleV4A6eG9oWh0v11kzQdkPRe8+HJTGcRAmDhKL75IqZhzxckxxRLrA8N+OHPKJAJnT9jaZzQwqm4njNCMVkXHLN+tw6aIhnP8Of5u3uC0GdoMiJOs7wPPwgjBKCw30lC25HX+VuZnGyUytQcu+phjboVFNV64xnMBJYWJlUNZznGGP5HwxzvnPRUVE4QQ5q0j8C3QavCoiRW+zedYmmMPv3xUiYdi1YVCe+4PJiudQavYhcZyQNwk9M+A1s2CFWDh7ZJqCXLhQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by TYSPR03MB7978.apcprd03.prod.outlook.com (2603:1096:400:47c::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Wed, 18 Dec
+ 2024 09:37:17 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::ac4e:718:3b03:3123%7]) with mapi id 15.20.8272.005; Wed, 18 Dec 2024
+ 09:37:16 +0000
+Message-ID: <23899c54-14ad-4724-9336-2df6fb485fd6@amlogic.com>
+Date: Wed, 18 Dec 2024 17:37:11 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 2/3] pinctrl: Add driver support for Amlogic SoCs
+Content-Language: en-US
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20241211-amlogic-pinctrl-v1-0-410727335119@amlogic.com>
+ <20241211-amlogic-pinctrl-v1-2-410727335119@amlogic.com>
+ <CACRpkdbuj-_sPpdfcyg3_QNtzt9r7n-0HBGBKgy-rKUMhvGo4w@mail.gmail.com>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <CACRpkdbuj-_sPpdfcyg3_QNtzt9r7n-0HBGBKgy-rKUMhvGo4w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2P153CA0020.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::7)
+ To TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241218-perf_syscalltbl-v4-16-bc8caef2ca8e@rivosinc.com>
-References: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
-In-Reply-To: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, 
- =?utf-8?q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
- Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>, 
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
- Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
- Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org, 
- bpf@vger.kernel.org, linux-csky@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=18163; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=fFpT1PzRDHeaxsvPnZbla0g4pbbloOVEmDDD6LZheYg=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3rSlBPcric43mVLiUn2rWCvDiw7turtQtnaFU6xH6fn8
- //5lLC8o5SFQYyDQVZMkYXnWgNz6x39sqOiZRNg5rAygQxh4OIUgIk84GD47z7pyFHF2IfrdBef
- XzntTV5wXpzd2RcHjlxp87yRGN/Fqc/w3/Osj+0dprtdrDeWPv14v39OVaNfxKWMWYuVQna55jN
- ZMQMA
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|TYSPR03MB7978:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cb79692-1429-4fad-a180-08dd1f478f6c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c0VQYzZ4UVhIY1ZudXY2ZXBKejVFQVhIMVJ4ZU9TZjVRVjQvNzVCdStkSDdm?=
+ =?utf-8?B?NFlVN2ZjdjBSYkc1eDBBRHVETmNxQXludlVhMXgxb0J6QkRwSjlET1BZamFV?=
+ =?utf-8?B?Y3FsNDNKSyswT1ArQlV1T2lxaXUyTDNOMmZBUERhYjEwTmFxMEpJZUVvTm5M?=
+ =?utf-8?B?dUZzVmhIRUdUbzQ0cm50Z0t5elpIcmJTTUNwcFFwQnhCcmVLZU1CTmV2T0RC?=
+ =?utf-8?B?S2ZuQisxa2FRTllDWEtaRkV0SlZIQjN3MjNYRDBRUHAxbCt2eE5McXlzWkJn?=
+ =?utf-8?B?SEtzZU4xQndyajYyZmlTd1FVanhvR0RxNUg3Y3BiTXZjSUdDa0RwallDdHor?=
+ =?utf-8?B?Q1cxRHZVMzVvQkMyZjVpMGM3K2dzQTRVMEd4K2x0dFRLUVRFU1dsamE3RlY3?=
+ =?utf-8?B?ZGExbno1YnlPYSthTlNhc09IZjFTYlNKdjVQek1EdUc1RWxqS1FyTDZQd1cx?=
+ =?utf-8?B?eFdKaHhKeWtxYjErNVZZZ2tiMzJ5NVRKNzZBOTNhR3JGWUZJenlQNVdOaWxh?=
+ =?utf-8?B?T2pRZFJKenZDMTlROWxMdUFkNzRibStmVmpYLzd5dlJTY0RUTkZpcEh0d0Z4?=
+ =?utf-8?B?MlF0SGpUUnl1akhGQndoV1dyZG1QeCtDNXpQSG44VUh4UWdEWnBYOS9CaWM2?=
+ =?utf-8?B?TlMzVHZYajBOYzdUa3cxNUNPTUQ5Q2VWWDBlYUNudVhxZXNORGlFek8xQ1VK?=
+ =?utf-8?B?VE1GYmRkSVJFUUx6R053K0l6TEVsZEtnbFJvUHpTM1Z4cHFVQzNFNlNURG1Y?=
+ =?utf-8?B?d0l4YkI4UVBLV3h1UmRqbnNRU21qeVUyMFJsVm9UMjkxcytWaWp6bzV5UE1U?=
+ =?utf-8?B?SUlzQld5QUIxWnNPRWJsRFcra1J5ems4dXpMZXQ5cDU1cC9TTnRpQU9aT24r?=
+ =?utf-8?B?NlM1VjFyM1FCeHZFVTFaT2hNcnRDWFpVVDdSaUdyTDhaTVJldStTZC9XVVdJ?=
+ =?utf-8?B?ekFtQ3lEQkM5Nk13akEyaDZvNUlKWXIwZkd4aUZrT0tVZm1vV0FadWNkdTY1?=
+ =?utf-8?B?ajgvY2gxMHVsTVVQSDNlWUFiK1NaSHdVTG1MK2M0T2dHQXhteGdEUzA5Q2U4?=
+ =?utf-8?B?NmpxYVRVTWNIRVRxNVI1NzFQWjJJenBEVXE2L2N0dW0wQ3l1TkJDUzVUSzEr?=
+ =?utf-8?B?TEJPRk1TVmR0V1B1bkJKdkVlZUp6dDlCZitKNlRGWmlSTnBrSjVUUjRkblU4?=
+ =?utf-8?B?NHo1aUpQSlE1VGw4TEJsWVdmblYwY3F4U1lIZlkwdjNsbnJxVTBYcnl2NHFN?=
+ =?utf-8?B?ZzF6blFHbCt5dk5oZm1WUFBLRVZoMmw2TjBFdi96amJoRElCMFVYUU12VnBW?=
+ =?utf-8?B?WERzRzE3ZnNEM25WZWZjM0dVc3Y4Rk1talplQm1NWmVtUi9LNUZUOUFDbW54?=
+ =?utf-8?B?anAwbXpjcjdESVRIK3g3emc1c3lxdmNKZS8xR1JnSEp0ZzdESkI4aTZ5UC9L?=
+ =?utf-8?B?ZnQwMU4wL2ZMQ216NzRjUFVvZ2tSQzNST2h0Q0E2K2xETStGVm5yYWJ6bFE0?=
+ =?utf-8?B?K1VESnVONzVTMENkcVpKY0RVMk1tN0JTaXd6YnRkZGlwMzByNUMzVUNOR2NX?=
+ =?utf-8?B?MTRGd000dmV1cEthamlOdk5semZ5WVFNZGNiaUEwMlNIUXVwSTRQSGxTTUgx?=
+ =?utf-8?B?eHFxYjRjSHpoVXVkQWt6SUpwY2NrVldSc2Zvem9SUjYvWElON3VWM1V3WGx2?=
+ =?utf-8?B?eUpBd1hCQ0ViVUx2dklWRnU5ZDgyaDJKQ0k3Y3Nub0Z4RzF1TnhDN1JJQmUv?=
+ =?utf-8?B?cGt3YkF1UlN0akkrUU9aa1hLMjJpeWFXMU9ZanJ2T0JyYzBFcm5WUkJVVCtr?=
+ =?utf-8?B?ZXVnclFzUFp5OHJzUi9XYlBhdFQ0KzRDd1JScGRFMmZvUUY4VW5mazhlQ0Q5?=
+ =?utf-8?Q?SKeH5ED+oBge/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QitNakFYY28xZnV2RFVDUnQwQVNpSUU4OVIrTDdTcmgvUEZlRk1aM2FXUktp?=
+ =?utf-8?B?aldNd3hnMVhQV2d2OTJXMnNoS01OV1lSZ0dSb0JEMWtmQi9TNEU4L0lZTnFv?=
+ =?utf-8?B?OVE4ZjdKcWZJeXljNkxJK3FvZ0ZwOTNmem9rKzladG5CcVlxaWh3aW9UVUQ4?=
+ =?utf-8?B?bjIwR0N6ckUrcTMvdTJZYmlWVHNMSXduazFNdzJOTFQyN0dILzVqWWk1SXQw?=
+ =?utf-8?B?YjBDbVBJb3dYb09OMWpuS2g4MUJQWTZzeE0yL0VwMkVoMmNZbzMxMW9nTVRk?=
+ =?utf-8?B?KzdZM2VyaHFOZHFRZVNUK0NvR1pNd1h3WURNelZUeVVGSGhtRSsxSWY4ekFq?=
+ =?utf-8?B?T25yaTVjd1ZvSUlseSs2SVlvTHRoTEk1ZEgvMElISFpobXBDVHJZK091cmlr?=
+ =?utf-8?B?cXMrTXlqd0pTY0Q4dkpEaFowd0pjVGZhblJYZWg3cTNkWVFqdkprSUd5Zkt6?=
+ =?utf-8?B?ejM0TGh6cmJTTmVLaTRNMEFpZUw4WUVUbmZqeFFHT2F0MGRrZW5IUVlGbXA2?=
+ =?utf-8?B?RTNYblpHZkYrUk9FeDc3emJ2d0JlRHlpSTc5Yzl2QnoybGRDRGZ6eWkzZWNt?=
+ =?utf-8?B?QmUvMDRmTWFuOFhFdUZzSmlqMGdTL2xEY3N3bjZIT3JaczhiQjVEZDRDc2NC?=
+ =?utf-8?B?VmRtSzRCK1lwWkRrSUxSYURkejg3T3lMcC9YaVhXZjJsNVlkcVVwRnlqU1Zq?=
+ =?utf-8?B?eVI3czdFSFN3ZVBhZmFhVjdVUGFPbkg3VmtUT0oycHorQjNYdWl5dHVNQ2JG?=
+ =?utf-8?B?ekZJeWlZdzJ1WmNPelp1MFZGLzFOaWZNc21aa3FXa2E4bDJoWVZuN2pOb284?=
+ =?utf-8?B?VXQyTDhwWldPRVNDbkhTZUUyYkhGTVkrZ1h6WVBERTEyaGdPK1RLeGNUVzla?=
+ =?utf-8?B?bzEzelhKRnBBUjVnVUt3UWtWdjY4UytXWnA4RDFEeW5KbEE5VDVMS1dXOG92?=
+ =?utf-8?B?M244b0tiZEViUHM5eUNsdFVZQlcxOXdtclVUWG1RNExYZXBWSENSclNPdHdj?=
+ =?utf-8?B?aTRsR1kvZEV3K3lYMkJzNDh0ZmUwWWxmcUtEd2xodDBtR3JkU3dWNFBGRE5T?=
+ =?utf-8?B?dUNaWnkrZU9qNWRYQktXeVkxUy9ydk5CbnlMSGRHYndLYnpKdEZiMUJ4bDc3?=
+ =?utf-8?B?OFZuelkzU0JDc2FXZDJJNitWSXV4REJydUpDQ3YrTzQyeXNaSFVGTFBja1Z6?=
+ =?utf-8?B?ZzRqcmRhTFkvZ0xKejVhNjNSWUE1Rk5WMXpoaHdTSzVsYUdoVjhPUUZIUjA1?=
+ =?utf-8?B?bDI2aGJUSERUanY4V1JXOVN2SnFEZ1NSN09xMmpUM3JPK0M0YU4vZ0gxbTN6?=
+ =?utf-8?B?UFFKYjlPSU84dXJEbUpsZjZtTjRaR0VTY0I4MWVrUytnTVBWaFBkUmcvcDdy?=
+ =?utf-8?B?cXB3alQydGFkYmJwSk1wd09QNTgvcGNQYzYxRkNraUNiVHF0YWtvUE5iaDZw?=
+ =?utf-8?B?UlJQTWtRazZRbFBEc1BTSUt1ZzB2RElFWkVTYlBNbm1hc1ZhU2dPbmxTRmth?=
+ =?utf-8?B?bDFZajRnL3c4M2p5TjgvMkJIU1BybmtzNHF1Rlo3cm1ENnJJWDdMMHFYNTBP?=
+ =?utf-8?B?L0hKYnRCV09iN2JLYWZqYWZBVVY4S0JMZWZDc1h0UUVjdmRFSlV4WEpIRmpp?=
+ =?utf-8?B?QzdpVnoybTN1cCtRSWpmTVRFZUVKNERWMjdVcUY2TWwzNW1OQmdGbzNSRkZk?=
+ =?utf-8?B?WlhtdEhRQ2lYU3p3RElScGJMOGJrMFFnN09kVkI2bDlvQ3ROOWtCVEJ5TE42?=
+ =?utf-8?B?OHpHWTgzb3FYdXFYTjhmbUlTcW9selcxWmhwSy9xY3JRYUU5dGlUejdkUjV2?=
+ =?utf-8?B?c0JyT0pIMFNBbFhhV0ZOczZxd1lVOXpocUdZb3lJWUhvRDJYUU1WTDMzRk1S?=
+ =?utf-8?B?MU5HTTZIUVhpdU5JT2NvTk50Vi9TUXdRVFhCb3lkY3pmM1ZvWmlGOG9NVVQw?=
+ =?utf-8?B?cXlaaGlYcDQ0THArUnJLR09EenlzOWdPb3l5NWFsS2xablE5bE9zTFFCdjdK?=
+ =?utf-8?B?VnEweml4eEZnK24wT1FWWE01UnBHMDQ5dmQ0Qy9CYmJZaTYzdjZrMW5wYkZN?=
+ =?utf-8?B?UWZZSnV1cXhtV1ZGNWpDSmo5N0wxS1c5OXBKcG9GcVRQZjVmZ043UFNOdVN2?=
+ =?utf-8?B?bUZGeG1Ea3BRcnRwdkVtb1Mzd0VNeEFBR3huRjdicTlNcm9TYXNWVGhIc21n?=
+ =?utf-8?B?a0E9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cb79692-1429-4fad-a180-08dd1f478f6c
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 09:37:16.7926
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dqk1Ds68aHZvMNPQ5qU/KlLQLV+eNZezDb5wyiPDzxk21FiFxbaDDc8NyKzR/OTpE6muIGbf7oEYTziT4WpfpcY6dKD9xQ4+41lXoOS4eTg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7978
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_012508_310383_A6B231F4 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20241218_093748_862528_4A4ECAD5 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,466 +195,357 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All architectures now support HAVE_SYSCALL_TABLE_SUPPORT, so the flag is
-no longer needed. With the removal of the flag, the related
-GENERIC_SYSCALL_TABLE can also be removed. libaudit was only used as a
-fallback for when HAVE_SYSCALL_TABLE_SUPPORT was not defined, so
-libaudit is also no longer needed for any architecture.
+Hi Linus,
+    Thanks for your reply.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- Documentation/admin-guide/workload-tracing.rst |  2 +-
- tools/build/feature/Makefile                   |  4 --
- tools/build/feature/test-libaudit.c            | 11 ------
- tools/perf/Documentation/perf-check.txt        |  1 -
- tools/perf/Makefile.config                     | 31 +--------------
- tools/perf/Makefile.perf                       | 15 --------
- tools/perf/builtin-check.c                     |  1 -
- tools/perf/builtin-help.c                      |  2 -
- tools/perf/builtin-trace.c                     | 30 ---------------
- tools/perf/perf.c                              |  6 +--
- tools/perf/tests/make                          |  7 +---
- tools/perf/util/env.c                          |  4 +-
- tools/perf/util/generate-cmdlist.sh            |  4 +-
- tools/perf/util/syscalltbl.c                   | 52 --------------------------
- tools/perf/util/syscalltbl.h                   |  1 -
- 15 files changed, 10 insertions(+), 161 deletions(-)
+On 2024/12/17 22:49, Linus Walleij wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> Hi Xianwei,
+> 
+> thanks for your patch!
+> 
+> On Wed, Dec 11, 2024 at 7:48 AM Xianwei Zhao via B4 Relay
+> <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+> 
+>> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>>
+>> Add a new pinctrl driver for Amlogic SoCs. All future Amlogic
+>> SoCs pinctrl drives use this, such A4, A5, S6, S7 etc. To support
+>> new Amlogic SoCs, only need to add the corresponding dts file.
+>>
+>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> 
+> First: are we sure these new SoCs have nothing in common
+> with sunxi? Because then the sunxi code should be reused.
+> 
+> In any way I recommend:
+> 
+> - Renaming drivers/pinctrl/sunxi to drivers/pinctrl/amlogic
+>    so we keep this sorted by actual vendor, sunxi is apparently
+>    yours (AMlogic:s) isn't it?
+> 
 
-diff --git a/Documentation/admin-guide/workload-tracing.rst b/Documentation/admin-guide/workload-tracing.rst
-index b2e254ec8ee846afe78eede74a825b51c6ab119b..6be38c1b9c5bb4be899fd261c6d2911abcf959dc 100644
---- a/Documentation/admin-guide/workload-tracing.rst
-+++ b/Documentation/admin-guide/workload-tracing.rst
-@@ -83,7 +83,7 @@ scripts/ver_linux is a good way to check if your system already has
- the necessary tools::
- 
-   sudo apt-get build-essentials flex bison yacc
--  sudo apt install libelf-dev systemtap-sdt-dev libaudit-dev libslang2-dev libperl-dev libdw-dev
-+  sudo apt install libelf-dev systemtap-sdt-dev libslang2-dev libperl-dev libdw-dev
- 
- cscope is a good tool to browse kernel sources. Let's install it now::
- 
-diff --git a/tools/build/feature/Makefile b/tools/build/feature/Makefile
-index 680f9b07150f906c0bae1ab990cc01bb0d6b0de6..cb1e3e2feedf39d7b95442bafc87d43dc84a740d 100644
---- a/tools/build/feature/Makefile
-+++ b/tools/build/feature/Makefile
-@@ -13,7 +13,6 @@ FILES=                                          \
-          test-gtk2.bin                          \
-          test-gtk2-infobar.bin                  \
-          test-hello.bin                         \
--         test-libaudit.bin                      \
-          test-libbfd.bin                        \
-          test-libbfd-buildid.bin		\
-          test-disassembler-four-args.bin        \
-@@ -232,9 +231,6 @@ $(OUTPUT)test-libunwind-debug-frame-arm.bin:
- $(OUTPUT)test-libunwind-debug-frame-aarch64.bin:
- 	$(BUILD) -lelf -llzma -lunwind-aarch64
- 
--$(OUTPUT)test-libaudit.bin:
--	$(BUILD) -laudit
--
- $(OUTPUT)test-libslang.bin:
- 	$(BUILD) -lslang
- 
-diff --git a/tools/build/feature/test-libaudit.c b/tools/build/feature/test-libaudit.c
-deleted file mode 100644
-index f5b0863fa1ec240795339428d8deed98a946d405..0000000000000000000000000000000000000000
---- a/tools/build/feature/test-libaudit.c
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--#include <libaudit.h>
--
--extern int printf(const char *format, ...);
--
--int main(void)
--{
--	printf("error message: %s\n", audit_errno_to_name(0));
--
--	return audit_open();
--}
-diff --git a/tools/perf/Documentation/perf-check.txt b/tools/perf/Documentation/perf-check.txt
-index 31741499e7867c9b712227f31a2958fd641d474a..e6d2ceeb2ca7de850f41b1baa0375b6f984bb08f 100644
---- a/tools/perf/Documentation/perf-check.txt
-+++ b/tools/perf/Documentation/perf-check.txt
-@@ -51,7 +51,6 @@ feature::
-                 dwarf_getlocations      /  HAVE_LIBDW_SUPPORT
-                 dwarf-unwind            /  HAVE_DWARF_UNWIND_SUPPORT
-                 auxtrace                /  HAVE_AUXTRACE_SUPPORT
--                libaudit                /  HAVE_LIBAUDIT_SUPPORT
-                 libbfd                  /  HAVE_LIBBFD_SUPPORT
-                 libcapstone             /  HAVE_LIBCAPSTONE_SUPPORT
-                 libcrypto               /  HAVE_LIBCRYPTO_SUPPORT
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 2da9fd705f187a8e4881b3b6ebbe5e0ec8584474..878e4cec8fdefaf6a7ae3c964d9c62ebd8d1d149 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -28,20 +28,7 @@ include $(srctree)/tools/scripts/Makefile.arch
- 
- $(call detected_var,SRCARCH)
- 
--ifneq ($(NO_SYSCALL_TABLE),1)
--  NO_SYSCALL_TABLE := 1
--
--  # architectures that use the generic syscall table scripts
--  ifneq ($(filter $(SRCARCH), $(generic_syscall_table_archs)),)
--    NO_SYSCALL_TABLE := 0
--    CFLAGS += -DGENERIC_SYSCALL_TABLE
--    CFLAGS += -I$(OUTPUT)tools/perf/arch/$(SRCARCH)/include/generated
--  endif
--
--  ifneq ($(NO_SYSCALL_TABLE),1)
--    CFLAGS += -DHAVE_SYSCALL_TABLE_SUPPORT
--  endif
--endif
-+CFLAGS += -I$(OUTPUT)tools/perf/arch/$(SRCARCH)/include/generated
- 
- # Additional ARCH settings for ppc
- ifeq ($(SRCARCH),powerpc)
-@@ -776,21 +763,7 @@ ifndef NO_LIBUNWIND
- endif
- 
- ifneq ($(NO_LIBTRACEEVENT),1)
--  ifeq ($(NO_SYSCALL_TABLE),0)
--    $(call detected,CONFIG_TRACE)
--  else
--    ifndef NO_LIBAUDIT
--      $(call feature_check,libaudit)
--      ifneq ($(feature-libaudit), 1)
--        $(warning No libaudit.h found, disables 'trace' tool, please install audit-libs-devel or libaudit-dev)
--        NO_LIBAUDIT := 1
--      else
--        CFLAGS += -DHAVE_LIBAUDIT_SUPPORT
--        EXTLIBS += -laudit
--        $(call detected,CONFIG_TRACE)
--      endif
--    endif
--  endif
-+  $(call detected,CONFIG_TRACE)
- endif
- 
- ifndef NO_LIBCRYPTO
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index 2c6a509c800d3037933c9b49e5a7dafbf78fda0c..ab2d075ff3a23350a5eea12508cf0376f1d9f4e8 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -59,8 +59,6 @@ include ../scripts/utilities.mak
- #
- # Define NO_LIBNUMA if you do not want numa perf benchmark
- #
--# Define NO_LIBAUDIT if you do not want libaudit support
--#
- # Define NO_LIBBIONIC if you do not want bionic support
- #
- # Define NO_LIBCRYPTO if you do not want libcrypto (openssl) support
-@@ -119,10 +117,6 @@ include ../scripts/utilities.mak
- #
- # Define LIBBPF_DYNAMIC to enable libbpf dynamic linking.
- #
--# Define NO_SYSCALL_TABLE=1 to disable the use of syscall id to/from name tables
--# generated from the kernel .tbl or unistd.h files and use, if available, libaudit
--# for doing the conversions to/from strings/id.
--#
- # Define NO_LIBPFM4 to disable libpfm4 events extension.
- #
- # Define NO_LIBDEBUGINFOD if you do not want support debuginfod
-@@ -310,11 +304,7 @@ ifeq ($(filter feature-dump,$(MAKECMDGOALS)),feature-dump)
- FEATURE_TESTS := all
- endif
- endif
--# architectures that use the generic syscall table
--generic_syscall_table_archs := riscv arc csky arm sh sparc xtensa x86 alpha parisc arm64 loongarch mips powerpc s390
--ifneq ($(filter $(SRCARCH), $(generic_syscall_table_archs)),)
- include $(srctree)/tools/perf/scripts/Makefile.syscalls
--endif
- include Makefile.config
- endif
- 
-@@ -1099,11 +1089,6 @@ endif
- 		$(INSTALL) $(OUTPUT)perf-archive -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
- 	$(call QUIET_INSTALL, perf-iostat) \
- 		$(INSTALL) $(OUTPUT)perf-iostat -t '$(DESTDIR_SQ)$(perfexec_instdir_SQ)'
--ifndef NO_LIBAUDIT
--	$(call QUIET_INSTALL, strace/groups) \
--		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(STRACE_GROUPS_INSTDIR_SQ)'; \
--		$(INSTALL) trace/strace/groups/* -m 644 -t '$(DESTDIR_SQ)$(STRACE_GROUPS_INSTDIR_SQ)'
--endif
- ifndef NO_LIBPERL
- 	$(call QUIET_INSTALL, perl-scripts) \
- 		$(INSTALL) -d -m 755 '$(DESTDIR_SQ)$(perfexec_instdir_SQ)/scripts/perl/Perf-Trace-Util/lib/Perf/Trace'; \
-diff --git a/tools/perf/builtin-check.c b/tools/perf/builtin-check.c
-index 2346536a5ee14f91ecd10bd130a64676e871e1b2..7aed7b9f4f5270527ee1d36327eb6a01f196a46a 100644
---- a/tools/perf/builtin-check.c
-+++ b/tools/perf/builtin-check.c
-@@ -31,7 +31,6 @@ struct feature_status supported_features[] = {
- 	FEATURE_STATUS("dwarf_getlocations", HAVE_LIBDW_SUPPORT),
- 	FEATURE_STATUS("dwarf-unwind", HAVE_DWARF_UNWIND_SUPPORT),
- 	FEATURE_STATUS("auxtrace", HAVE_AUXTRACE_SUPPORT),
--	FEATURE_STATUS("libaudit", HAVE_LIBAUDIT_SUPPORT),
- 	FEATURE_STATUS("libbfd", HAVE_LIBBFD_SUPPORT),
- 	FEATURE_STATUS("libcapstone", HAVE_LIBCAPSTONE_SUPPORT),
- 	FEATURE_STATUS("libcrypto", HAVE_LIBCRYPTO_SUPPORT),
-diff --git a/tools/perf/builtin-help.c b/tools/perf/builtin-help.c
-index 0854d3cd9f6a304cd9cb50ad430d5706d91df0e9..7be6fb6df595923c15ae51747d5bf17d867ae785 100644
---- a/tools/perf/builtin-help.c
-+++ b/tools/perf/builtin-help.c
-@@ -447,9 +447,7 @@ int cmd_help(int argc, const char **argv)
- #ifdef HAVE_LIBELF_SUPPORT
- 		"probe",
- #endif
--#if defined(HAVE_LIBAUDIT_SUPPORT) || defined(HAVE_SYSCALL_TABLE_SUPPORT)
- 		"trace",
--#endif
- 	NULL };
- 	const char *builtin_help_usage[] = {
- 		"perf help [--all] [--man|--web|--info] [command]",
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 3c46de1a8d79bfe64ad6661929f2bdc98ebba55e..80941db5bd48f11236c759babcc1c545149c8e3f 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -2074,30 +2074,11 @@ static int trace__read_syscall_info(struct trace *trace, int id)
- 	const char *name = syscalltbl__name(trace->sctbl, id);
- 	int err;
- 
--#ifdef HAVE_SYSCALL_TABLE_SUPPORT
- 	if (trace->syscalls.table == NULL) {
- 		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
- 		if (trace->syscalls.table == NULL)
- 			return -ENOMEM;
- 	}
--#else
--	if (id > trace->sctbl->syscalls.max_id || (id == 0 && trace->syscalls.table == NULL)) {
--		// When using libaudit we don't know beforehand what is the max syscall id
--		struct syscall *table = realloc(trace->syscalls.table, (id + 1) * sizeof(*sc));
--
--		if (table == NULL)
--			return -ENOMEM;
--
--		// Need to memset from offset 0 and +1 members if brand new
--		if (trace->syscalls.table == NULL)
--			memset(table, 0, (id + 1) * sizeof(*sc));
--		else
--			memset(table + trace->sctbl->syscalls.max_id + 1, 0, (id - trace->sctbl->syscalls.max_id) * sizeof(*sc));
--
--		trace->syscalls.table	      = table;
--		trace->sctbl->syscalls.max_id = id;
--	}
--#endif
- 	sc = trace->syscalls.table + id;
- 	if (sc->nonexistent)
- 		return -EEXIST;
-@@ -2448,18 +2429,7 @@ static struct syscall *trace__syscall_info(struct trace *trace,
- 
- 	err = -EINVAL;
- 
--#ifdef HAVE_SYSCALL_TABLE_SUPPORT
- 	if (id > trace->sctbl->syscalls.max_id) {
--#else
--	if (id >= trace->sctbl->syscalls.max_id) {
--		/*
--		 * With libaudit we don't know beforehand what is the max_id,
--		 * so we let trace__read_syscall_info() figure that out as we
--		 * go on reading syscalls.
--		 */
--		err = trace__read_syscall_info(trace, id);
--		if (err)
--#endif
- 		goto out_cant_read;
- 	}
- 
-diff --git a/tools/perf/perf.c b/tools/perf/perf.c
-index a2987f2cfe1a3958f53239ed1a4eec3f87d7466a..f0617cc41f5fe638986e5d8316a6b3056c2c4bc5 100644
---- a/tools/perf/perf.c
-+++ b/tools/perf/perf.c
-@@ -84,7 +84,7 @@ static struct cmd_struct commands[] = {
- #endif
- 	{ "kvm",	cmd_kvm,	0 },
- 	{ "test",	cmd_test,	0 },
--#if defined(HAVE_LIBTRACEEVENT) && (defined(HAVE_LIBAUDIT_SUPPORT) || defined(HAVE_SYSCALL_TABLE_SUPPORT))
-+#if defined(HAVE_LIBTRACEEVENT)
- 	{ "trace",	cmd_trace,	0 },
- #endif
- 	{ "inject",	cmd_inject,	0 },
-@@ -514,10 +514,6 @@ int main(int argc, const char **argv)
- 		fprintf(stderr,
- 			"trace command not available: missing libtraceevent devel package at build time.\n");
- 		goto out;
--#elif !defined(HAVE_LIBAUDIT_SUPPORT) && !defined(HAVE_SYSCALL_TABLE_SUPPORT)
--		fprintf(stderr,
--			"trace command not available: missing audit-libs devel package at build time.\n");
--		goto out;
- #else
- 		setup_path();
- 		argv[0] = "trace";
-diff --git a/tools/perf/tests/make b/tools/perf/tests/make
-index a7fcbd589752a90459815bd21075528c6dfa4d94..0ee94caf9ec19820a94a87dd46a7ccf1cefb844a 100644
---- a/tools/perf/tests/make
-+++ b/tools/perf/tests/make
-@@ -86,7 +86,6 @@ make_no_libdw_dwarf_unwind := NO_LIBDW_DWARF_UNWIND=1
- make_no_backtrace   := NO_BACKTRACE=1
- make_no_libcapstone := NO_CAPSTONE=1
- make_no_libnuma     := NO_LIBNUMA=1
--make_no_libaudit    := NO_LIBAUDIT=1
- make_no_libbionic   := NO_LIBBIONIC=1
- make_no_auxtrace    := NO_AUXTRACE=1
- make_no_libbpf	    := NO_LIBBPF=1
-@@ -97,7 +96,6 @@ make_no_libllvm     := NO_LIBLLVM=1
- make_with_babeltrace:= LIBBABELTRACE=1
- make_with_coresight := CORESIGHT=1
- make_no_sdt	    := NO_SDT=1
--make_no_syscall_tbl := NO_SYSCALL_TABLE=1
- make_no_libpfm4     := NO_LIBPFM4=1
- make_with_gtk2      := GTK2=1
- make_refcnt_check   := EXTRA_CFLAGS="-DREFCNT_CHECKING=1"
-@@ -122,10 +120,10 @@ make_static         := LDFLAGS=-static NO_PERF_READ_VDSO32=1 NO_PERF_READ_VDSOX3
- # all the NO_* variable combined
- make_minimal        := NO_LIBPERL=1 NO_LIBPYTHON=1 NO_GTK2=1
- make_minimal        += NO_DEMANGLE=1 NO_LIBELF=1 NO_BACKTRACE=1
--make_minimal        += NO_LIBNUMA=1 NO_LIBAUDIT=1 NO_LIBBIONIC=1
-+make_minimal        += NO_LIBNUMA=1 NO_LIBBIONIC=1
- make_minimal        += NO_LIBDW_DWARF_UNWIND=1 NO_AUXTRACE=1 NO_LIBBPF=1
- make_minimal        += NO_LIBCRYPTO=1 NO_SDT=1 NO_JVMTI=1 NO_LIBZSTD=1
--make_minimal        += NO_LIBCAP=1 NO_SYSCALL_TABLE=1 NO_CAPSTONE=1
-+make_minimal        += NO_LIBCAP=1 NO_CAPSTONE=1
- 
- # $(run) contains all available tests
- run := make_pure
-@@ -158,7 +156,6 @@ run += make_no_libdw_dwarf_unwind
- run += make_no_backtrace
- run += make_no_libcapstone
- run += make_no_libnuma
--run += make_no_libaudit
- run += make_no_libbionic
- run += make_no_auxtrace
- run += make_no_libbpf
-diff --git a/tools/perf/util/env.c b/tools/perf/util/env.c
-index 919fe6f205937cea11318fbf53f592aab7578040..be3081ff6204aa80f2855f5e4184e66412627ad3 100644
---- a/tools/perf/util/env.c
-+++ b/tools/perf/util/env.c
-@@ -482,13 +482,13 @@ const char *perf_env__arch(struct perf_env *env)
- 
- const char *perf_env__arch_strerrno(struct perf_env *env __maybe_unused, int err __maybe_unused)
- {
--#if defined(HAVE_SYSCALL_TABLE_SUPPORT) && defined(HAVE_LIBTRACEEVENT)
-+#if defined(HAVE_LIBTRACEEVENT)
- 	if (env->arch_strerrno == NULL)
- 		env->arch_strerrno = arch_syscalls__strerrno_function(perf_env__arch(env));
- 
- 	return env->arch_strerrno ? env->arch_strerrno(err) : "no arch specific strerrno function";
- #else
--	return "!(HAVE_SYSCALL_TABLE_SUPPORT && HAVE_LIBTRACEEVENT)";
-+	return "!HAVE_LIBTRACEEVENT";
- #endif
- }
- 
-diff --git a/tools/perf/util/generate-cmdlist.sh b/tools/perf/util/generate-cmdlist.sh
-index 1b5140e5ce9975fac87b2674dc694f9d4e439a5f..6a73c903d69050df69267a8aeaeeac1ed170efe1 100755
---- a/tools/perf/util/generate-cmdlist.sh
-+++ b/tools/perf/util/generate-cmdlist.sh
-@@ -38,7 +38,7 @@ do
- done
- echo "#endif /* HAVE_LIBELF_SUPPORT */"
- 
--echo "#if defined(HAVE_LIBTRACEEVENT) && (defined(HAVE_LIBAUDIT_SUPPORT) || defined(HAVE_SYSCALL_TABLE_SUPPORT))"
-+echo "#if defined(HAVE_LIBTRACEEVENT)"
- sed -n -e 's/^perf-\([^ 	]*\)[ 	].* audit*/\1/p' command-list.txt |
- sort |
- while read cmd
-@@ -51,7 +51,7 @@ do
- 	    p
-      }' "Documentation/perf-$cmd.txt"
- done
--echo "#endif /* HAVE_LIBTRACEEVENT && (HAVE_LIBAUDIT_SUPPORT || HAVE_SYSCALL_TABLE_SUPPORT) */"
-+echo "#endif /* HAVE_LIBTRACEEVENT */"
- 
- echo "#ifdef HAVE_LIBTRACEEVENT"
- sed -n -e 's/^perf-\([^ 	]*\)[ 	].* traceevent.*/\1/p' command-list.txt |
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index 210f61b0a7a264a427ebb602185d3a9da2f426f4..928aca4cd6e9f2f26c5c4fd825b4538c064a4cc3 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -10,20 +10,12 @@
- #include <linux/compiler.h>
- #include <linux/zalloc.h>
- 
--#ifdef HAVE_SYSCALL_TABLE_SUPPORT
- #include <string.h>
- #include "string2.h"
- 
--#if defined(GENERIC_SYSCALL_TABLE)
- #include <syscall_table.h>
- const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
- static const char *const *syscalltbl_native = syscalltbl;
--#else
--const int syscalltbl_native_max_id = 0;
--static const char *const syscalltbl_native[] = {
--	[0] = "unknown",
--};
--#endif
- 
- struct syscall {
- 	int id;
-@@ -131,47 +123,3 @@ int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_g
- 	*idx = -1;
- 	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
- }
--
--#else /* HAVE_SYSCALL_TABLE_SUPPORT */
--
--#include <libaudit.h>
--
--struct syscalltbl *syscalltbl__new(void)
--{
--	struct syscalltbl *tbl = zalloc(sizeof(*tbl));
--	if (tbl)
--		tbl->audit_machine = audit_detect_machine();
--	return tbl;
--}
--
--void syscalltbl__delete(struct syscalltbl *tbl)
--{
--	free(tbl);
--}
--
--const char *syscalltbl__name(const struct syscalltbl *tbl, int id)
--{
--	return audit_syscall_to_name(id, tbl->audit_machine);
--}
--
--int syscalltbl__id(struct syscalltbl *tbl, const char *name)
--{
--	return audit_name_to_syscall(name, tbl->audit_machine);
--}
--
--int syscalltbl__id_at_idx(struct syscalltbl *tbl __maybe_unused, int idx)
--{
--	return idx;
--}
--
--int syscalltbl__strglobmatch_next(struct syscalltbl *tbl __maybe_unused,
--				  const char *syscall_glob __maybe_unused, int *idx __maybe_unused)
--{
--	return -1;
--}
--
--int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_glob, int *idx)
--{
--	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
--}
--#endif /* HAVE_SYSCALL_TABLE_SUPPORT */
-diff --git a/tools/perf/util/syscalltbl.h b/tools/perf/util/syscalltbl.h
-index 2b53b7ed25a6affefd3d85012198eab2f2af550c..362411a6d849b1f67ec54b34345364c04ad90f89 100644
---- a/tools/perf/util/syscalltbl.h
-+++ b/tools/perf/util/syscalltbl.h
-@@ -3,7 +3,6 @@
- #define __PERF_SYSCALLTBL_H
- 
- struct syscalltbl {
--	int audit_machine;
- 	struct {
- 		int max_id;
- 		int nr_entries;
+It isn't. Sunxi is Allwinner SoCs.
 
--- 
-2.34.1
+> - Also fix MAINTAINERS accordingly.
+> 
 
+Sending the official version will be synchronized.
+
+> - Add new driver under drivers/pinctrl/amlogic
+> 
+> - Do not change the Kconfig symbols for sunxi and
+>    we should be fine.
+> >> +static int aml_dt_node_to_map(struct pinctrl_dev *pctldev,
+>> +                             struct device_node *np,
+>> +                             struct pinctrl_map **map,
+>> +                             unsigned int *num_maps)
+>> +{
+>> +       struct aml_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+>> +       const struct aml_pctl_group *grp;
+>> +       struct device *dev = info->dev;
+>> +       struct pinctrl_map *new_map;
+>> +       struct device_node *parent;
+>> +       int map_num, i;
+>> +
+>> +       grp = aml_pctl_find_group_by_name(info, np->name);
+>> +       if (!grp) {
+>> +               dev_err(dev, "unable to find group for node %pOFn\n", np);
+>> +               return -EINVAL;
+>> +       }
+>> +
+>> +       if (grp->num_configs)
+>> +               map_num = grp->npins + 1;
+>> +       else
+>> +               map_num = 1;
+>> +       new_map = devm_kcalloc(dev, map_num, sizeof(*new_map), GFP_KERNEL);
+>> +       if (!new_map)
+>> +               return -ENOMEM;
+>> +
+>> +       parent = of_get_parent(np);
+>> +       if (!parent) {
+>> +               devm_kfree(dev, new_map);
+>> +               return -EINVAL;
+>> +       }
+>> +
+>> +       *map = new_map;
+>> +       *num_maps = map_num;
+>> +       new_map[0].type = PIN_MAP_TYPE_MUX_GROUP;
+>> +       new_map[0].data.mux.function = parent->name;
+>> +       new_map[0].data.mux.group = np->name;
+>> +       of_node_put(parent);
+>> +
+>> +       if (grp->num_configs) {
+>> +               new_map++;
+>> +               for (i = 0; i < grp->npins; i++) {
+>> +                       new_map[i].type = PIN_MAP_TYPE_CONFIGS_PIN;
+>> +                       new_map[i].data.configs.group_or_pin =
+>> +                               pin_get_name(pctldev, grp->pins[i]);
+>> +                       new_map[i].data.configs.configs = grp->configs;
+>> +                       new_map[i].data.configs.num_configs = grp->num_configs;
+>> +               }
+>> +       }
+>> +
+>> +       dev_info(dev, "maps: function %s group %s num %d\n",
+>> +                (*map)->data.mux.function, grp->name, map_num);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static void aml_dt_free_map(struct pinctrl_dev *pctldev,
+>> +                           struct pinctrl_map *map, unsigned int num_maps)
+>> +{
+>> +}
+>> +
+>> +static void aml_pin_dbg_show(struct pinctrl_dev *pcdev, struct seq_file *s,
+>> +                            unsigned int offset)
+>> +{
+>> +       seq_printf(s, " %s", dev_name(pcdev->dev));
+>> +}
+>> +
+>> +static const struct pinctrl_ops aml_pctrl_ops = {
+>> +       .get_groups_count       = aml_get_groups_count,
+>> +       .get_group_name         = aml_get_group_name,
+>> +       .get_group_pins         = aml_get_group_pins,
+>> +       .dt_node_to_map         = aml_dt_node_to_map,
+>> +       .dt_free_map            = aml_dt_free_map,
+>> +       .pin_dbg_show           = aml_pin_dbg_show,
+>> +};
+>> +
+>> +static int aml_pctl_dt_calculate_pin(struct aml_pinctrl *info,
+>> +                                    unsigned int bank_idx, unsigned int offset)
+>> +{
+>> +       struct aml_gpio_bank *bank;
+>> +       int retval = -EINVAL;
+>> +       int i;
+>> +
+>> +       for (i = 0; i < info->nbanks; i++) {
+>> +               bank = &info->banks[i];
+>> +               if (bank->bank_idx == bank_idx) {
+>> +                       if (offset < bank->gpio_chip.ngpio)
+>> +                               retval = bank->pin_base + offset;
+>> +                       break;
+>> +               }
+>> +       }
+>> +       if (retval == -EINVAL)
+>> +               dev_err(info->dev, "pin [bank:%d, offset:%d] is not present\n", bank_idx, offset);
+>> +
+>> +       return retval;
+>> +}
+>> +
+>> +static int aml_pctl_dt_parse_groups(struct device_node *np,
+>> +                                   struct aml_pctl_group *grp,
+>> +                                   struct aml_pinctrl *info, int idx)
+>> +{
+>> +       struct device *dev = info->dev;
+>> +       struct aml_pinconf *conf;
+>> +       struct property *of_pins;
+>> +       unsigned int bank_idx;
+>> +       unsigned int offset, npins;
+>> +       int i = 0;
+>> +       int ret;
+>> +
+>> +       of_pins = of_find_property(np, "pinmux", NULL);
+>> +       if (!of_pins) {
+>> +               dev_info(dev, "Missing pinmux property\n");
+>> +               return -ENOENT;
+>> +       }
+>> +
+>> +       npins = of_pins->length / sizeof(u32);
+>> +       grp->npins = npins;
+>> +       grp->name = np->name;
+>> +       grp->pins = devm_kcalloc(dev, npins, sizeof(*grp->pins), GFP_KERNEL);
+>> +       grp->pin_conf = devm_kcalloc(dev, npins, sizeof(*grp->pin_conf), GFP_KERNEL);
+>> +
+>> +       if (!grp->pins || !grp->pin_conf)
+>> +               return -ENOMEM;
+>> +
+>> +       ret = pinconf_generic_parse_dt_config(np, info->pctl, &grp->configs,
+>> +                                             &grp->num_configs);
+> 
+> But can't you just move this code around? grp->num_configs give the
+> number of configs, so why do you have to go and look up pinmux
+> above, can't you just use grp->num_configs instead of of_pins
+> and npins above?
+> 
+They are different.
+The of_pins(grp->npins) specifies the mux values for pin-mux register 
+and pin index in pinctrl. It can include multiple pins in groups.
+
+The grp->configs and grp->num_configs specify the configuration 
+information for all pins of this groups(such as bias-pull-up, 
+drive-strength-microamp)
+
+uart-d-pins2{
+	pinmux= <AML_PINMUX(AMLOGIC_GPIO_T, 7, AF2)>,
+         	<AML_PINMUX(AMLOGIC_GPIO_T, 8, AF2)>,
+         	<AML_PINMUX(AMLOGIC_GPIO_T, 9, AF2)>,
+         	<AML_PINMUX(AMLOGIC_GPIO_T, 10, AF2)>;
+	bias-pull-up;
+	drive-strength-microamp = <4000>;
+};
+
+>> +static int aml_pctl_parse_functions(struct device_node *np,
+>> +                                   struct aml_pinctrl *info, u32 index,
+>> +                                   int *grp_index)
+>> +{
+>> +       struct device *dev = info->dev;
+>> +       struct aml_pmx_func *func;
+>> +       struct aml_pctl_group *grp;
+>> +       int ret, i;
+>> +
+>> +       func = &info->functions[index];
+>> +       func->name = np->name;
+>> +       func->ngroups = of_get_child_count(np);
+>> +       if (func->ngroups == 0)
+>> +               return dev_err_probe(dev, -EINVAL, "No groups defined\n");
+>> +
+>> +       func->groups = devm_kcalloc(dev, func->ngroups, sizeof(*func->groups), GFP_KERNEL);
+>> +       if (!func->groups)
+>> +               return -ENOMEM;
+>> +
+>> +       i = 0;
+>> +       for_each_child_of_node_scoped(np, child) {
+>> +               func->groups[i] = child->name;
+>> +               grp = &info->groups[*grp_index];
+>> +               *grp_index += 1;
+>> +               ret = aml_pctl_dt_parse_groups(child, grp, info, i++);
+>> +               if (ret)
+>> +                       return ret;
+>> +       }
+>> +       dev_info(dev, "Function[%d\t name:%s,\tgroups:%d]\n", index, func->name, func->ngroups);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static u32 aml_bank_pins(struct device_node *np)
+>> +{
+>> +       u32 value;
+>> +
+>> +       if (of_property_read_u32(np, "npins", &value) < 0)
+>> +               return 0;
+>> +       else
+>> +               return value;
+>> +}
+>> +
+>> +static u32 aml_bank_reg_gpio_offset(struct device_node *np)
+>> +{
+>> +       u32 value;
+>> +
+>> +       if (of_property_read_u32(np, "reg-gpio-offset", &value) < 0)
+>> +               return 0;
+>> +       else
+>> +               return value;
+>> +}
+>> +
+>> +static u32 aml_bank_reg_mux_offset(struct device_node *np)
+>> +{
+>> +       u32 value;
+>> +
+>> +       if (of_property_read_u32(np, "reg-mux-offset", &value) < 0)
+>> +               return 0;
+>> +       else
+>> +               return value;
+>> +}
+>> +
+>> +static u32 aml_bank_bit_mux_offset(struct device_node *np)
+>> +{
+>> +       u32 value;
+>> +
+>> +       if (of_property_read_u32(np, "bit-mux-offset", &value) < 0)
+>> +               return 0;
+>> +       else
+>> +               return value;
+>> +}
+>> +
+>> +static u32 aml_bank_index(struct device_node *np)
+>> +{
+>> +       u32 value;
+>> +
+>> +       if (of_property_read_u32(np, "bank-index", &value) < 0)
+>> +               return 0;
+>> +       else
+>> +               return value;
+>> +}
+> 
+> Do we really need helpers for all of this? Can't you just
+> open code it, at least if it's just used in one place?
+>
+  I will delete this function, I will move the logic to where it was called.
+
+>> +static unsigned int aml_count_pins(struct device_node *np)
+>> +{
+>> +       struct device_node *child;
+>> +       unsigned int pins = 0;
+>> +
+>> +       for_each_child_of_node(np, child) {
+>> +               if (of_property_read_bool(child, "gpio-controller"))
+>> +                       pins += aml_bank_pins(child);
+>> +       }
+>> +
+>> +       return pins;
+>> +}
+>> +
+>> +static void aml_pctl_dt_child_count(struct aml_pinctrl *info,
+>> +                                   struct device_node *np)
+>> +{
+>> +       struct device_node *child;
+>> +
+>> +       for_each_child_of_node(np, child) {
+>> +               if (of_property_read_bool(child, "gpio-controller")) {
+>> +                       info->nbanks++;
+>> +               } else {
+>> +                       info->nfunctions++;
+>> +                       info->ngroups += of_get_child_count(child);
+>> +               }
+>> +       }
+>> +}
+> 
+> This looks like a weird dependency between gpio chips and
+> pins that I don't quite understand. Some comments and
+> references to the bindings will be needed so it is clear
+> what is going on.
+> 
+
+A pinctrl device contains two types of nodes. The one named GPIO bank 
+which includes "gpio-controller" property. The other one named function 
+which includes one or more pin groups.
+The pin group include pinmux property(pin index in pinctrl dev,and mux 
+vlaue in mux reg) and pin configuration properties.
+
+I will add comment in next verison.
+>> +static struct regmap *aml_map_resource(struct aml_pinctrl *info,
+>> +                                      struct device_node *node, char *name)
+>> +{
+>> +       struct resource res;
+>> +       void __iomem *base;
+>> +       int i;
+>> +
+>> +       i = of_property_match_string(node, "reg-names", name);
+>> +       if (of_address_to_resource(node, i, &res))
+>> +               return NULL;
+>> +
+>> +       base = devm_ioremap_resource(info->dev, &res);
+>> +       if (IS_ERR(base))
+>> +               return ERR_CAST(base);
+> 
+> This looks like reimplementation of
+> devm_platform_ioremap_resource_byname(), can't you just
+> pass your platform device here?
+>
+
+I will fix it.
+
+>> +static int aml_pctl_probe_dt(struct platform_device *pdev,
+>> +                            struct pinctrl_desc *pctl_desc,
+>> +                            struct aml_pinctrl *info)
+> 
+> Because there is clearly a platform device involved.
+> 
+> I guess I will have more comments as the series progress, but this
+> is a good starting point!
+> 
+> Yours,
+> Linus Walleij
 
