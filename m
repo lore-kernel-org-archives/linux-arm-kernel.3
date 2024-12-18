@@ -4,96 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A69E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90317E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9P17ieee9B5SlwZSInMZgc5AL5v6w0qOBx6blK3MkC8=; b=C2T3txBW0H71R4hCVjKjJFMk7Y
-	POg/8D5wKcGE4V78X00Evb4qb3j0wTf8IccLa/R3NDzQdlhfVFHBiUKdw+hGc8bHjeDWdbw17My11
-	w4TREziteL5YiGQJ0lZrys2wPAQrPwO425C2hmfE7shqw6u6pV7TmnEBD5BHo2tFu0pxVbNkKWeco
-	MEjVg5njgj8Tv2U72pASYOj7yUa6qBa7fGNjnPItVStg6ibGbIiPUC8Ca3s++yCFaZ7+3bG14NQtm
-	suOCXEvTTwjHvCCbRx+tba3zbrABb4q6BrAq895LyU+oSDb434RRE6NS0CDxfmvAeke5G8BD4n6xj
-	YK8/Icng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JYhIP+6XdCauU90xrCm4a61igbxLWRkJYD2iC97akYA=; b=iIxSg5T3mriu70qlD/G+QYa8DO
+	rBf/3haPXPWv9xUr8KSPKvcHmczqdanQvGJRvnBZJ2m7WnViydQvLG7B1c5HVkwEE4fL08oo7yByr
+	5YQVqLlU4qmt25ay6YGz271D+QCZGyZt/tWBESd3XQK/m3G43z/CMEgm4J7HYU/0Lkp3gOStHvWo0
+	R1T0+MWE7XMGK1AmFoasIOYgHOAK70EC0YkxXtIQbdyTGHloeKtJuev57K54khr9ay5zxheTsPVyE
+	hi8GwT9w3n9ZiB1fYAjUjUjZqlLQY8emXilqzxvjDNyGLzO5w1PYkfb6LZOEunQslOPC3of+Bwt/3
+	eTP0I3nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqzC-0000000GCvr-1BVm;
-	Wed, 18 Dec 2024 10:08:58 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqy5-0000000GClo-283y
+	id 1tNr2K-0000000GDFI-0TG9;
+	Wed, 18 Dec 2024 10:12:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNr1E-0000000GD9i-421r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 10:07:50 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4363ae65100so38952215e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 02:07:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734516468; x=1735121268; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9P17ieee9B5SlwZSInMZgc5AL5v6w0qOBx6blK3MkC8=;
-        b=pr070Q8GfTro08iDYHU9eOq/9wv1uOrU/66kqKXoW+ztGLUpnb6YgY2qwKJ0Uq9Nxr
-         oHObiuH4drzuNWOOSMA7Wgk0kyZcH80Ls5Up+semlXeja1ybmQBb9BbIaHKzV76seIwR
-         XcVZiFFy/YarVoLFxmJc6r7J6KU0Zt2MTonHRsZjNTararrmHgXcawJ5Yx7SwWbfFSKK
-         jV5pFDVDNMirHj2ZBlKQtUTBQ3+m+PqG68p+79JWTsx8d3s86OK/ETAmruoG3ZeEcShk
-         LyRkLL2Z99CjH/QxatJvtBoPNhcmFhgaEyiKOP+l9wetztySPOmpoK7w7qzIblW76r4v
-         lcQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734516468; x=1735121268;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9P17ieee9B5SlwZSInMZgc5AL5v6w0qOBx6blK3MkC8=;
-        b=b6fxgGZNMo78CTD3MdXKbcnzS9oywYcnK2r9cTG1ZseJYOE6PGEaeF8ijSEl1mF1Xk
-         rLRhdBS2w/YrCxJB0tga/7Huf6UiUQvWhwBBSzYowS4FU9oRwdaC8L/jUVQNSMUTQuue
-         TfwYHbbtWnSqqmeoBlNqwSDBJSjdrkFBN8LDeXLzzHdWGs5zI0/2var0EpIXg0x7V7VZ
-         hTr1+SvL5/+/IT1qIm+Te+of2aIAElcEnHtoDiBZTbMCUZUBkfxavGd3qojH0aySlsyX
-         k3Hu3CM1ML63m0qd5z8DkIz0a6GNosk2ZJ1NB04Zn612J6ETYRS/5A7r74i/jeVvDLh2
-         6TBw==
-X-Gm-Message-State: AOJu0YxerggdakCCyJVwk94AMpkJBInJuZAFUXLJR06QWScz4FRMN3Bv
-	/+qd3T8kxMnbeeipBMHLK/PuFf9cGkGASTREJyHKYtVfwS/rltE6tjRorwlwK64=
-X-Gm-Gg: ASbGnct/U92X8+Bi2oOozaPOj2DF9ifxAHTCO9QPP5xUx/L7CAoVqSXfJOp/YpAUmUR
-	D/X6CmoyVPka08CqPGu94V64+ZaCm03zXnVnFInTcPg/uCvabnQj3CGnv1gXYM8y+2tSDemXHsm
-	KBUrG0GhKmsxCRBRNTjnCC9bp0DZPJmMprTKBf+cw0KNo52a5FtVzec/JIXbxO0k2G+T9/mQaId
-	VJ/quP2vFg0ER9V1KHTWzW/CMW+wWcaPrKsd+gviy++cyTZ48/aeHp/IHXoemyfyP4=
-X-Google-Smtp-Source: AGHT+IHC2RZ1yHVWgEcKRYnXsTSt7w3TIR3YVn7d27iergCOQv1IMX81+xjenYwudQOzwGcr5LlErg==
-X-Received: by 2002:a05:600c:3b14:b0:434:fec5:4ed1 with SMTP id 5b1f17b1804b1-436553fe571mr14370955e9.26.1734516467662;
-        Wed, 18 Dec 2024 02:07:47 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.66.247])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80613a9sm13518151f8f.101.2024.12.18.02.07.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Dec 2024 02:07:47 -0800 (PST)
-Message-ID: <8c15786c-47b6-47ff-b1dc-ecbf32d582fb@linaro.org>
-Date: Wed, 18 Dec 2024 10:07:45 +0000
+	Wed, 18 Dec 2024 10:11:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DB47FEC
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 02:11:30 -0800 (PST)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4EBD43F720
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 02:11:02 -0800 (PST)
+Date: Wed, 18 Dec 2024 10:10:48 +0000
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Pankaj Dubey <pankaj.dubey@samsung.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Will McVicker <willmcvicker@google.com>,
+	John Madieu <john.madieu.xa@bp.renesas.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] mfd: syscon: Remove the platform driver support
+Message-ID: <Z2KfqFVz272M_iiP@e110455-lin.cambridge.arm.com>
+References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
+ <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] perf docs: arm_spe: Document new discard mode
-To: Ian Rogers <irogers@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>,
- John Garry <john.g.garry@oracle.com>, Mike Leach <mike.leach@linaro.org>,
- Leo Yan <leo.yan@linux.dev>, Graham Woodward <graham.woodward@arm.com>,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-References: <20241217115610.371755-1-james.clark@linaro.org>
- <20241217115610.371755-6-james.clark@linaro.org>
- <CAP-5=fU7RNzvzxBcAQy3RT9Ge3YtqPhDonupNWS7Wgb8HGQkGg@mail.gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <CAP-5=fU7RNzvzxBcAQy3RT9Ge3YtqPhDonupNWS7Wgb8HGQkGg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_020749_568192_0A59F998 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20241218_021105_091379_959CEB1F 
+X-CRM114-Status: GOOD (  28.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,76 +72,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 18/12/2024 12:54 am, Ian Rogers wrote:
-> On Tue, Dec 17, 2024 at 3:56 AM James Clark <james.clark@linaro.org> wrote:
->>
->> Document the flag, hint what it's used for and give an example with
->> other useful options to get minimal output.
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   tools/perf/Documentation/perf-arm-spe.txt | 11 +++++++++++
->>   1 file changed, 11 insertions(+)
->>
->> diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
->> index de2b0b479249..588eead438bc 100644
->> --- a/tools/perf/Documentation/perf-arm-spe.txt
->> +++ b/tools/perf/Documentation/perf-arm-spe.txt
->> @@ -150,6 +150,7 @@ arm_spe/load_filter=1,min_latency=10/'
->>     pct_enable=1        - collect physical timestamp instead of virtual timestamp (PMSCR.PCT) - requires privilege
->>     store_filter=1      - collect stores only (PMSFCR.ST)
->>     ts_enable=1         - enable timestamping with value of generic timer (PMSCR.TS)
->> +  discard=1           - enable SPE PMU events but don't collect sample data - see 'Discard mode' (PMBLIMITR.FM = DISCARD)
->>
->>   +++*+++ Latency is the total latency from the point at which sampling started on that instruction, rather
->>   than only the execution latency.
->> @@ -220,6 +221,16 @@ Common errors
->>
->>      Increase sampling interval (see above)
->>
->> +Discard mode
->> +~~~~~~~~~~~~
->> +
->> +SPE PMU events can be used without the overhead of collecting sample data if
->> +discard mode is supported (optional from Armv8.6). First run a system wide SPE
->> +session (or on the core of interest) using options to minimize output. Then run
->> +perf stat:
->> +
->> +  perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
->> +  perf stat -e SAMPLE_FEED_LD
+On Tue, Dec 17, 2024 at 12:11:41PM -0600, Rob Herring (Arm) wrote:
+> The platform driver is dead code. It is not used by DT platforms since
+> commit bdb0066df96e ("mfd: syscon: Decouple syscon interface from
+> platform devices") which said:
 > 
-> Perhaps clarify this should be an ARM SPE event? It seems strange to
-> have one perf command affect a later one, the purpose of things like
-> event multiplexing is to hide the hardware limits. I'd prefer if the
-> last bit was like:
-> ```
-> Then run perf stat with an SPE event on the same PMU:
+>     For non-DT based platforms, this patch keeps syscon platform driver
+>     structure so that syscon can be probed and such non-DT based drivers
+>     can use syscon_regmap_lookup_by_pdev API and access regmap handles.
+>     Once all users of "syscon_regmap_lookup_by_pdev" migrated to DT based,
+>     we can completely remove platform driver of syscon, and keep only helper
+>     functions to get regmap handles.
 > 
-> perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
-> perf stat -e arm_spe/SAMPLE_FEED_LD/
-> ``
+> The last user of syscon_regmap_lookup_by_pdevname() was removed in 2018.
+> syscon_regmap_lookup_by_pdevname() was then removed in 2019, but that
+> commit failed to remove the rest of the platform driver.
 > 
-> Thanks,
-> Ian
+> Tested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-Hi Ian,
+(Mostly for the vexpress-sysreg.c part, but hey, it's all code being removed):
 
-Confusingly this isn't an SPE event, it is a normal PMU event. The fact 
-that one Perf command affects the other is because these events only 
-count when SPE is enabled. When it's enabled it has an effect on a 
-per-core level which is why in the example I made it simpler by enabling 
-SPE system wide.
+Acked-by: Liviu Dudau <liviu.dudau@arm.com>
 
-SPE is an exclusive PMU like Coresight and some others so it can't be 
-affected by multiplexing or anything like that. The SAMPLE_FEED_LD PMU 
-would be, but as long as SPE stays enabled it will count the right thing 
-regardless of multiplexing.
+Best regards,
+Liviu
 
-THanks
-James
+> ---
+>  drivers/mfd/syscon.c                 | 66 ------------------------------------
+>  drivers/mfd/vexpress-sysreg.c        |  1 -
+>  include/linux/platform_data/syscon.h |  9 -----
+>  3 files changed, 76 deletions(-)
+> 
+> diff --git a/drivers/mfd/syscon.c b/drivers/mfd/syscon.c
+> index 72f20de9652da2d7bad12e4bc2c43ac0c9a97f76..bfb1f69fcff1d3cd35cf04ccd4c449e7d0395c79 100644
+> --- a/drivers/mfd/syscon.c
+> +++ b/drivers/mfd/syscon.c
+> @@ -12,22 +12,15 @@
+>  #include <linux/clk.h>
+>  #include <linux/err.h>
+>  #include <linux/hwspinlock.h>
+> -#include <linux/io.h>
+> -#include <linux/init.h>
+>  #include <linux/list.h>
+>  #include <linux/mutex.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+> -#include <linux/of_platform.h>
+> -#include <linux/platform_data/syscon.h>
+> -#include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+>  #include <linux/reset.h>
+>  #include <linux/mfd/syscon.h>
+>  #include <linux/slab.h>
+>  
+> -static struct platform_driver syscon_driver;
+> -
+>  static DEFINE_MUTEX(syscon_list_lock);
+>  static LIST_HEAD(syscon_list);
+>  
+> @@ -337,62 +330,3 @@ struct regmap *syscon_regmap_lookup_by_phandle_optional(struct device_node *np,
+>  	return regmap;
+>  }
+>  EXPORT_SYMBOL_GPL(syscon_regmap_lookup_by_phandle_optional);
+> -
+> -static int syscon_probe(struct platform_device *pdev)
+> -{
+> -	struct device *dev = &pdev->dev;
+> -	struct syscon_platform_data *pdata = dev_get_platdata(dev);
+> -	struct syscon *syscon;
+> -	struct regmap_config syscon_config = syscon_regmap_config;
+> -	struct resource *res;
+> -	void __iomem *base;
+> -
+> -	syscon = devm_kzalloc(dev, sizeof(*syscon), GFP_KERNEL);
+> -	if (!syscon)
+> -		return -ENOMEM;
+> -
+> -	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> -	if (!res)
+> -		return -ENOENT;
+> -
+> -	base = devm_ioremap(dev, res->start, resource_size(res));
+> -	if (!base)
+> -		return -ENOMEM;
+> -
+> -	syscon_config.max_register = resource_size(res) - 4;
+> -	if (!syscon_config.max_register)
+> -		syscon_config.max_register_is_0 = true;
+> -
+> -	if (pdata)
+> -		syscon_config.name = pdata->label;
+> -	syscon->regmap = devm_regmap_init_mmio(dev, base, &syscon_config);
+> -	if (IS_ERR(syscon->regmap)) {
+> -		dev_err(dev, "regmap init failed\n");
+> -		return PTR_ERR(syscon->regmap);
+> -	}
+> -
+> -	platform_set_drvdata(pdev, syscon);
+> -
+> -	dev_dbg(dev, "regmap %pR registered\n", res);
+> -
+> -	return 0;
+> -}
+> -
+> -static const struct platform_device_id syscon_ids[] = {
+> -	{ "syscon", },
+> -	{ }
+> -};
+> -
+> -static struct platform_driver syscon_driver = {
+> -	.driver = {
+> -		.name = "syscon",
+> -	},
+> -	.probe		= syscon_probe,
+> -	.id_table	= syscon_ids,
+> -};
+> -
+> -static int __init syscon_init(void)
+> -{
+> -	return platform_driver_register(&syscon_driver);
+> -}
+> -postcore_initcall(syscon_init);
+> diff --git a/drivers/mfd/vexpress-sysreg.c b/drivers/mfd/vexpress-sysreg.c
+> index d34d58ce46db2ad0d53b3daeabc9d3763883b39a..ef03d6cec9ff6927668d051ca459eb1d8ff7269e 100644
+> --- a/drivers/mfd/vexpress-sysreg.c
+> +++ b/drivers/mfd/vexpress-sysreg.c
+> @@ -10,7 +10,6 @@
+>  #include <linux/mfd/core.h>
+>  #include <linux/module.h>
+>  #include <linux/of_platform.h>
+> -#include <linux/platform_data/syscon.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+>  #include <linux/stat.h>
+> diff --git a/include/linux/platform_data/syscon.h b/include/linux/platform_data/syscon.h
+> deleted file mode 100644
+> index 2c089dd3e2bda3baf5cef201ef43bca709e12c0b..0000000000000000000000000000000000000000
+> --- a/include/linux/platform_data/syscon.h
+> +++ /dev/null
+> @@ -1,9 +0,0 @@
+> -/* SPDX-License-Identifier: GPL-2.0 */
+> -#ifndef PLATFORM_DATA_SYSCON_H
+> -#define PLATFORM_DATA_SYSCON_H
+> -
+> -struct syscon_platform_data {
+> -	const char *label;
+> -};
+> -
+> -#endif
+> 
+> -- 
+> 2.45.2
+> 
 
-
-
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
