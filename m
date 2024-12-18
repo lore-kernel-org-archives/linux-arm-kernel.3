@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8F9E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0600E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fZ799AujDvtHo1AcXdC1mifOZNGSfZzq30OtsIXAG1U=; b=s1P9wrh6W1iDomiHOk5kREusJ2
-	PcXIo1l4jVf5NfTBba+zPawZwg4plk/FQ9g27N2sNT4Q45ZCoSdZp/A1nrCMrR1PIGQbebCUTfo53
-	5fVi+jtRGHVoe7yzFMdT4TYmVPP7QTY3501Ow9MEvMtviTsN8Qei4+mVmfbX7JUmEizXZY9YhBLGS
-	UuAdZV62XM2LRNN2UO+aZvwNZSHPGb0nU1jdDftv4fWz8uS9GypLmxr3xkBHryED2IQZdQHE0V4QM
-	Dr5QTItFJqSTKiQvl//nZIZts8ZW3fLW7Tasy0exmItmcgNG+506AlYO0YIviCwUEAHCv957ILCC+
-	Eo5HeiLw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HjozMOsMtZ5TwghDOEmqXJ6JAY4r0rRBxbKRxT00hdw=; b=rnyq+/teIdEuaKByBAA0WSulkA
+	7brg82ZKxYs7dQsy74ARd6kTWn/nIsx1Yw12vV5ycgqm7L/tLFX/5mxj3Yn8qF5mtYOWEyiRVq553
+	x7kzQXTSVnD09xjvTfaVTCmhaARSgtz/rw9XhlJOHGq+XC5sF0LTMOQxcB9qv/CczZKp5psQgmNzI
+	YCIftUgdJecpmsnPiP9vwfG5lD1mer9ySotFiky96V+KpwMT0Akq0+vaxaUvDOLoACb8ZcI7971+A
+	u670VXttD7NiRdQH/uh+T4nTeqDtaxLAMtJdN3MctScWKcou1jSfrswiEdZu2EPtAhCiVWBMCbPFh
+	pUCYTm9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNw1y-0000000H1lW-1LPZ;
-	Wed, 18 Dec 2024 15:32:10 +0000
+	id 1tNw31-0000000H1xN-3zZs;
+	Wed, 18 Dec 2024 15:33:15 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvzi-0000000H1HM-3jpV
+	id 1tNvzj-0000000H1HW-1VBa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 15:29:52 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B09E4BFB25;
-	Wed, 18 Dec 2024 16:29:34 +0100 (CET)
+	Wed, 18 Dec 2024 15:29:53 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 254EFBFB71;
+	Wed, 18 Dec 2024 16:29:48 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1734535782; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=fZ799AujDvtHo1AcXdC1mifOZNGSfZzq30OtsIXAG1U=;
-	b=BwINfTHUHw0yknjCNyH11gosF6cTLF5S52H/bsiZPizbQ6lFiRAdVf5lOlTTGHW9LS9OqO
-	IB3FQCUE6tu5CVMH8S1BMvUnrhRXvQSLEfMU8wA86tpirVpEzNMrjNa5aFhbdzMgfu43PJ
-	aYQEAVwsIIuNC98oRlGvhBNOmNGFkCe0jyLanvzVC8rp8lzcEHbSzxryKkxzeFobTwUuUD
-	3k46oI967WYscyUjctXxXHVdIYqqXcsDfT2TH6ulJN88/vf9L3JK9RJP+5DzUw2tcSqlaz
-	G2i3ZKl/SdOlNMTM5rJW5MXt7DHyt0FzJt9SddoJxsPg0uhiG86vtWDunbMgOg==
+	t=1734535788; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=HjozMOsMtZ5TwghDOEmqXJ6JAY4r0rRBxbKRxT00hdw=;
+	b=Rqm+vuKlBLH5Asa0NSbWGR8djdOdUjz5bqKBT28KCUDihQ8cfLZzQZ9LIphXcqU7f5icVN
+	7tOut9gktho+TMQ3jsMj3uOmEHuFJt1pJkbJbnK8DpwquuRek8L5voWys47HCNqbBkf1WE
+	rPV8SaHVUam6DnvbLS2NlCBt5gmefPEUqZHO0C5vHXzpPn6OK6P5L0l41ganib+hPTLzBN
+	vnmGc50YHSv8hOzjWKTR0YFDg1+YtF6B+qf8SvRcCFWXHtjlT36F/Z6zqyAnkqB+pApMWz
+	klrUj24RbC+CurLUm5vIG/hPw79tRqRCiKC9UU6oc3O5XVxyFB9ZuixZbvJR0A==
 From: Frieder Schrempf <frieder@fris.de>
 To: linux-arm-kernel@lists.infradead.org,
 	Marek Vasut <marex@denx.de>,
 	Conor Dooley <conor@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	imx@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>,
 	linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Robin Gong <yibin.gong@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Bo Liu <liubo03@inspur.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Fabio Estevam <festevam@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Bo Liu <liubo03@inspur.com>,
 	Frank Li <Frank.Li@nxp.com>,
 	Joy Zou <joy.zou@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v3 0/9] Use correct LDO5 control registers for PCA9450
-Date: Wed, 18 Dec 2024 16:27:23 +0100
-Message-ID: <20241218152842.97483-1-frieder@fris.de>
+	Robin Gong <yibin.gong@nxp.com>
+Subject: [PATCH v3 3/9] Revert "regulator: pca9450: Add SD_VSEL GPIO for LDO5"
+Date: Wed, 18 Dec 2024 16:27:26 +0100
+Message-ID: <20241218152842.97483-4-frieder@fris.de>
+In-Reply-To: <20241218152842.97483-1-frieder@fris.de>
+References: <20241218152842.97483-1-frieder@fris.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_072951_362896_3648FA58 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20241218_072951_547344_82B835B9 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,107 +77,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-This is a follow-up of [1].
+This reverts commit 8c67a11bae889f51fe5054364c3c789dfae3ad73.
 
-The main objective of this is to fix the PCA9450 driver to
-use the correct control register for the LDO5 regulator.
+It turns out that all boards using the PCA9450 actually have the
+SD_VSEL input connected to the VSELECT signal of the SoCs SD/MMC
+interface or use a fixed level.
 
-Currently the control register to use for LDO5 is hardcoded to
-LDO5CTRL_H. This is wrong for two reasons:
+The assumptions on which this was implemented were wrong. There
+is no need for a GPIO-only-based approach and keeping this will
+cause confusion and lead people to implement non-standard setups.
 
-1. LDO5CTRL_H doesn't contain the bits for enabling/disabling
-   the regulator. Only LDO5CTRL_L does.
+All in-tree users of this have been migrated and we can savely
+remove this now and allow for a more future-proof approach
+of syncing the actual status of SD_VSEL and the PMIC driver.
 
-2. The actual output voltage of the regulator is determined by
-   the LDO5CTRL_H only if the SD_VSEL input is HIGH. If it is
-   low, then LDO5CTRL_L is used. The driver does not take this
-   into account.
-
-This can cause several problems:
-
-1. LDO5 can not be turned on/off and we rely on the bootloader
-   to leave it turned on. On the other hand we can't save
-   power if LDO5 is unused.
-
-2. There is a potential for corner-cases where switching
-   SD_VSEL via USDHC_VSELECT and writing to the (wrong)
-   control register can cause wrong output voltage and therfore
-   SD card failures (not observed yet).
-
-3. Reading the current voltage of the LDO5 regulator (e. g. via
-   sysfs can yield the wrong value as the voltage is read from
-   the wrong control register.
-
-At the same time there is now hardware that hardwires SD_VSEL
-to a fixed LOW level and therefore relies on switching the
-voltage only via a single control register. We add support for
-this through an additional property "nxp,sd-vsel-fixed-low" in
-the LDO5 node.
-
-Summary of binding changes (patch 1):
-
-1. Adjust the bindings to remove the old and abandoned use of
-   sd-vsel-gpios property.
-
-2. Adjust the bindings to use sd-vsel-gpios in the LDO5 node to
-   retrieve an input that can be used to sample the SD_VSEL
-   status.
-
-3. Adjust bindings to allow "nxp,sd-vsel-fixed-low" to be used
-   for boards that have SD_VSEL hardwired to low level.
-
-Summary of driver changes (patch 2-6):
-
-1. Remove the old sd-vsel-gpios handling.
-
-2. Use the new sd-vsel-gpios property to determine the correct
-   control register for LDO5.
-
-3. Fix the enable register for LDO5.
-
-4. Support hardware with fixed low level of SD_VSEL.
-
-Summary of devicetree changes (patch 7-9):
-
-Implement the changes in the devicetrees for Kontron hardware
-(i.MX8MM, i.MX8MP and i.MX93).
-
-Changelog:
-
-v2 -> v3:
-
-* Merge binding patches into one and extend commit message
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+---
+Changes for v3:
 * Rebase to next-20241218
 
-v1 -> v2:
+Changes for v2:
+* rebase to current master
+---
+ drivers/regulator/pca9450-regulator.c | 13 -------------
+ 1 file changed, 13 deletions(-)
 
-* Split binding patch
-* Add solution for hardwired SD_VSEL
-* Leave regulator core untouched as requested by Mark
-* Add devicetree changes for i.MX8MP and i.MX93
-
-[1] https://lore.kernel.org/lkml/20230213155833.1644366-1-frieder@fris.de/
-
-Frieder Schrempf (9):
-  dt-bindings: regulator: pca9450: Add properties for handling LDO5
-  arm64: dts: imx8mp-skov-reva: Use hardware signal for SD card VSELECT
-  Revert "regulator: pca9450: Add SD_VSEL GPIO for LDO5"
-  regulator: pca9450: Fix control register for LDO5
-  regulator: pca9450: Fix enable register for LDO5
-  regulator: pca9450: Handle hardware with fixed SD_VSEL for LDO5
-  arm64: dts: imx8mm-kontron: Add support for reading SD_VSEL signal
-  arm64: dts: imx93-kontron: Fix SD card IO voltage control
-  arm64: dts: imx8mp-kontron: Add support for reading SD_VSEL signal
-
- .../regulator/nxp,pca9450-regulator.yaml      |  29 ++++-
- .../boot/dts/freescale/imx8mm-kontron-bl.dts  |  10 +-
- .../dts/freescale/imx8mm-kontron-osm-s.dtsi   |   7 +-
- .../dts/freescale/imx8mp-kontron-osm-s.dtsi   |   7 +-
- .../boot/dts/freescale/imx8mp-skov-reva.dtsi  |   5 +-
- .../dts/freescale/imx93-kontron-osm-s.dtsi    |   5 +-
- drivers/regulator/pca9450-regulator.c         | 103 +++++++++++++++---
- 7 files changed, 133 insertions(+), 33 deletions(-)
-
+diff --git a/drivers/regulator/pca9450-regulator.c b/drivers/regulator/pca9450-regulator.c
+index faa6b79c27d75..9e5e81a9315f6 100644
+--- a/drivers/regulator/pca9450-regulator.c
++++ b/drivers/regulator/pca9450-regulator.c
+@@ -5,7 +5,6 @@
+  */
+ 
+ #include <linux/err.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/i2c.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
+@@ -32,7 +31,6 @@ struct pca9450_regulator_desc {
+ struct pca9450 {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+-	struct gpio_desc *sd_vsel_gpio;
+ 	enum pca9450_chip_type type;
+ 	unsigned int rcnt;
+ 	int irq;
+@@ -1031,17 +1029,6 @@ static int pca9450_i2c_probe(struct i2c_client *i2c)
+ 					     "Failed to enable I2C level translator\n");
+ 	}
+ 
+-	/*
+-	 * The driver uses the LDO5CTRL_H register to control the LDO5 regulator.
+-	 * This is only valid if the SD_VSEL input of the PMIC is high. Let's
+-	 * check if the pin is available as GPIO and set it to high.
+-	 */
+-	pca9450->sd_vsel_gpio = gpiod_get_optional(pca9450->dev, "sd-vsel", GPIOD_OUT_HIGH);
+-
+-	if (IS_ERR(pca9450->sd_vsel_gpio))
+-		return dev_err_probe(&i2c->dev, PTR_ERR(pca9450->sd_vsel_gpio),
+-				     "Failed to get SD_VSEL GPIO\n");
+-
+ 	dev_info(&i2c->dev, "%s probed.\n",
+ 		type == PCA9450_TYPE_PCA9450A ? "pca9450a" :
+ 		(type == PCA9450_TYPE_PCA9451A ? "pca9451a" : "pca9450bc"));
 -- 
 2.47.1
 
