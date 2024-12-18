@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7052E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 23:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E311E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 23:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7tFLc+iUu654xr+ZEInB5+ibN3E0pOW4hXHpK7c/ao=; b=EPihJqcEUlKXS9Io4Q7VjooL0f
-	g/Q8sh1lX4aJQMYnZO5X1xj10PzJRmWgJMu6oC9vtU9xQVCBppsmNrS7NxiM/EaCFKk+pO6UxQ0Ot
-	NKeAijFDL45FZTwwP8mzn7bNIwiRUqXf+9X4PBSYlpkOXE7p7GRy96pBIV6LXL0cFEcVJR68kzrAI
-	4S3L9f2NVcOqk2kqiXB754b+gcSTX794gSzEdcmXSYXuGeDCvLLXJ5jJjSf0lw9GY5VIQzzlOCNNq
-	bjzWbz3w5obhmy0VTSeHGuLoVCy9FLGZ4pwPcIYH0bA3HodNiy3OxQ1NZhCZCFv+zxPJKa17EHV+A
-	OHz/+tVg==;
+	bh=qFJqUzl5fdNVuBn3sGLREmqduf2d1M+FGHIvccO18JM=; b=DNOVepgwwC2cAPPAvGU+YRyFl+
+	acoxbOX/eb6OySOv1laJYejpGHojWqRjejL26VhTulywiOv33rDwubufaKLO7f+p5PT9q91B2Y0Ri
+	BlHDLxIPHw9jB6xadm1XbwRX8eRSqg+fR6c5HZoTE5saBN3JPI2kT3MO3uEbRqhdacJT9dneRAEKX
+	uuQbf0J9Ol5mSDNA5y9A22AF2Pb+pD/p3lKjz8rGFOWZR2E23e9bHlOEsN3fyjl1C1nYRvgc6m0gI
+	MxVxCGAPxj5AFjxv4SRcsDckw1SiWGYELLbqH2IzndyKSrP4cNy/epIFNUG2RNhLonAsGZcGGW1no
+	Iu3sA3Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO34r-00000000HRU-14zi;
-	Wed, 18 Dec 2024 23:03:37 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tO35u-00000000HYw-3bpY;
+	Wed, 18 Dec 2024 23:04:42 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO32j-00000000HAU-1Qzs
+	id 1tO32j-00000000HAk-2fRB
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 18 Dec 2024 23:01:26 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436281c8a38so1154615e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 15:01:23 -0800 (PST)
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-436202dd7f6so2007315e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 15:01:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734562883; x=1735167683; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734562884; x=1735167684; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=S7tFLc+iUu654xr+ZEInB5+ibN3E0pOW4hXHpK7c/ao=;
-        b=C5ujgOgRU1VtDRjNC2lYbRWrZrXrpwvw89PO5OSxnI2LexuKZ0yiTHUAL4BGHuS12A
-         P+0gjRbVfvqv/Ph6j6gnOIwVmQQVPfghmz+HinjpbpMQMuH6dV+AjPx1I9GOzx2xI4h2
-         3NdtyWFn//NL14dFSONfzCdECINhNkxYqEUTkR9I0lq4eHly5ErENEvMNdKo5Oub3J41
-         BmBE9ZAtdUhjYDBmmvRANs9f1WKEj89D1c8ZAt+I9b8HYpwK+INFvZdtU1U0fG+TLU8A
-         SHc0eomdeA4ITP6lof6lcN2c6mK2iesisQxrVmqLG7nutIMQ7Jlr8pgSClMVuO5jR0QZ
-         4TuA==
+        bh=qFJqUzl5fdNVuBn3sGLREmqduf2d1M+FGHIvccO18JM=;
+        b=GPBBj8cFkXOm0Al7vy/UXLbEqQ4BrLSsa1r38ja0y+YtOAMWvYMdI+dqYDueWUEQ/s
+         byKkbcYxslfhxH40wIpC02DU+DyDuIfe4O+xr31SJuNl92YLP4iehjmP0PoxpfJJor+j
+         6XhroqP8mh20RRp9tWaQM+YELOi1F3vOShKBJwLU2kMGVMD7wc6jDf9CnkwT292I6Ie+
+         DHMUCksuv1uUgCRqWbOvTQ0bkmVm21XuJCdd+f6w0xyrPilQklsvjjkNLjLRQ9oYkQMW
+         lFHmg22xtLBOKl59QwvdeOeb8U/fSniu3qP1GNvcYRQesPt2kY9O4OfbCyhk6wvhkRXm
+         fGSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734562883; x=1735167683;
+        d=1e100.net; s=20230601; t=1734562884; x=1735167684;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=S7tFLc+iUu654xr+ZEInB5+ibN3E0pOW4hXHpK7c/ao=;
-        b=TUODMpb0A3i2WpM+mK6wYZ/i2BZiU9a0k5KyObrrdQBWmua89wLNFlYG/CR+pfzNqj
-         EynHj64XVxZ1Ow5RfgMOVuN4KovLyhWE7WqFxqZYrG5cyEPn/CFtZF67vXl5CvsfpLJu
-         DyrTEIH1wJRJ6VfiaPUAaGt8uZoLRgpIj+27y7NGlK9RARXnckuPhw85HL4Bns4T8BON
-         A3fmPhe+qcyoRUV+BK/knFUjNdV0y/C1mXAwVCRuooOUDIRDPYk+i1as38grLJFovu6l
-         OWAkfbYBsLGaX0bfSns6Q3QF5C6wW8MNmCwmMsT8a4eRCoVzjhoWQaYXjv6syjbrv+9C
-         8Z0A==
-X-Forwarded-Encrypted: i=1; AJvYcCVkSs6bGS9YiZ5NY2F7GxGjrwYP+BWC/WYM2WhMp5JTyRjeXS3qlGcMrdwYBqnw9Jv586RHdBhKmN4LoH2WD4CC@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywyw43oI9SDMSgwWIEdLmzOq+wt1/RxkD14SdtIeylNaNIhrOwE
-	3ybb7NzDP1EwH/unpDQgXVxp0qK7FEpghbtHVk2q9oA1aTv1xRIlZmWIUmhZ4EM=
-X-Gm-Gg: ASbGnctdSQE6dQdRf6+loEmLddmCm5W8nGLMH2L/QRrQGrqGdsoDQl+wh5+X8kjql85
-	AMDxvHvlZEOp85sVg5pJHCPcqgaoU5n7YfcmGMnmP8Cyaem83TxULHnajUjEc7HFvfrNpSrnuJW
-	KxXAXoWG/V2II5oyRqNpJcvn0459cvqUkNPMcvpaWngGMH0jNud+baKgpVg8U5uAazRhfXaYSu4
-	PAdKoDxT97yzlTRwA3TPxDtprFEGCtuxn26ssuVK6lRkaRT0iWWab8CbxQ=
-X-Google-Smtp-Source: AGHT+IGBekGqRLKeTUOgL5pkMylABNCwxn1vFt/8TScAu/KTnZwD5za7lopJ4KSP5x7Qv1fpeFw1Jg==
-X-Received: by 2002:a05:6000:4a15:b0:385:df44:12cb with SMTP id ffacd0b85a97d-388e4c93e55mr4969683f8f.0.1734562882670;
-        Wed, 18 Dec 2024 15:01:22 -0800 (PST)
+        bh=qFJqUzl5fdNVuBn3sGLREmqduf2d1M+FGHIvccO18JM=;
+        b=nhoncgmpox1RLTKsryOwGvj2Cssmuca4P43CfTT/5Fb/oMbec0K3hX+m2pJx2lcT/y
+         nFzmFjULcbmlUtNuRtldfKnXo5tKQBKnZSCYr+ARgdU3WcSf9GncacaWDqkKY5L7ZUWt
+         ckKNpmumh0IBI+xgTuoYU+DCW6lYjZI6jITTGg9bXb465qcck6b5PF2bRKQJLBhs5lpr
+         S5jRiKlX1qJPpB4YlpdXuTesajq3kEfAyWC8lSnOhPgeYsME7Mzu0pS+4jj763mm+HbA
+         pzr6G86HkrMB97sFG5msOaN8MWkU4LaV5nycan/y0UwFXDFwqVcPfXilv/0YXYHSDId9
+         fgig==
+X-Forwarded-Encrypted: i=1; AJvYcCXqxwjH6RHfrNwVXKVAN79/PuCR3ThqAmkIrXX3t977JxCav/KMZrm3GedxA3fG+ZEoW2uPsEpRZ74joNm/6nqq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQuy0RzJ5UAcbjxEAXxWEPDLUPJprCj94JhFreCu+/5GJTXlJe
+	uJRnTBEM+saiKSXu0mqJxfE3eeJOhfk2p1gr0bg2OxFJjrVNUfmgWgsXRhAHBc0=
+X-Gm-Gg: ASbGncsbBx0PcjAGFjoSV7dSq2J2J2WRvqgMosA3ejchQ8ipS0spEH0C0vDd79S74zA
+	xjrluC6cEuGe2Xj32T7ZYZFzhU8QbZcgS+xENBzVb9iZYcxpWWn68DGmPvCn3wikx/IyG+9B/zu
+	3uZgwtFdeKarHps/2AJCqCPqvKl5ywYQUup0uvcHt2ornIlZOUuEDjBhmso0vzqS9bAvxXHvyKy
+	mfGgdX+/Xkw6Tymin0xdI9US4EKllr6BjiGJchUL+duOfgygiMl5i9SlDc=
+X-Google-Smtp-Source: AGHT+IHJf8Ah5vkyUVf6kv8cjtnnLJhOZpe/rVCKKkvSo43Zhu7qDMGsL/5ZTN2knDnhDpQH7himWQ==
+X-Received: by 2002:a05:6000:1446:b0:385:fd31:ca31 with SMTP id ffacd0b85a97d-388e4d96b6fmr5215883f8f.53.1734562883750;
+        Wed, 18 Dec 2024 15:01:23 -0800 (PST)
 Received: from linaro.org ([2a00:23c5:6829:901:7895:12a9:ae3b:17a1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b190f3sm33291835e9.32.2024.12.18.15.01.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b190f3sm33291835e9.32.2024.12.18.15.01.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 15:01:22 -0800 (PST)
+        Wed, 18 Dec 2024 15:01:23 -0800 (PST)
 From: Mike Leach <mike.leach@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -75,17 +75,17 @@ Cc: james.clark@linaro.org,
 	mike.leach@linaro.org,
 	suzuki.poulose@arm.com,
 	alexander.shishkin@linux.intel.com
-Subject: [PATCH v3 1/3] coresight: Update timeout functions to allow return of test register value
-Date: Wed, 18 Dec 2024 23:01:16 +0000
-Message-Id: <20241218230118.999859-2-mike.leach@linaro.org>
+Subject: [PATCH v3 2/3] coresight: tmc: Update error logging in tmc common functions
+Date: Wed, 18 Dec 2024 23:01:17 +0000
+Message-Id: <20241218230118.999859-3-mike.leach@linaro.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241218230118.999859-1-mike.leach@linaro.org>
 References: <20241218230118.999859-1-mike.leach@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_150125_444109_535DDE3A 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20241218_150125_671231_06785960 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,115 +100,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current coresight_timeout function spins on a bit on a test register,
-till bit value achieved or timeout hit.
-
-Add another function to return the full value of the register being
-tested.
+Enhance the error logging in the tmc_wait_for_tmcready() and
+tmc_flush_and_stop() to print key tmc  register values on error
+conditions to improve hardware debug information.
 
 Signed-off-by: Mike Leach <mike.leach@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 50 +++++++++++++++-----
- include/linux/coresight.h                    |  2 +
- 2 files changed, 41 insertions(+), 11 deletions(-)
+ .../hwtracing/coresight/coresight-tmc-core.c  | 44 +++++++++++++++----
+ drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
+ 2 files changed, 37 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 0a9380350fb5..595f7ec0782f 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1092,32 +1092,37 @@ static void coresight_remove_conns(struct coresight_device *csdev)
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index e9876252a789..dff82facada3 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -34,25 +34,39 @@ DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
+ DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
+ DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
+ 
++#define TMC_WAIT_READY_FMT_STR "timeout while waiting for TMC to be Ready [STS=0x%04x]\n"
++
+ int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
+ {
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 	struct csdev_access *csa = &csdev->access;
++	u32 tmc_sts = 0;
+ 
+ 	/* Ensure formatter, unformatter and hardware fifo are empty */
+-	if (coresight_timeout(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1)) {
+-		dev_err(&csdev->dev,
+-			"timeout while waiting for TMC to be Ready\n");
++	if (coresight_timeout_retval(csa, TMC_STS, TMC_STS_TMCREADY_BIT, 1,
++				     &tmc_sts)) {
++		dev_err(&csdev->dev, TMC_WAIT_READY_FMT_STR, tmc_sts);
++		if (tmc_sts & TMC_STS_MEMERR)
++			dev_err(&csdev->dev,
++				"MemErr in STS reg waiting for TMC ready\n");
+ 		return -EBUSY;
+ 	}
+ 	return 0;
  }
  
- /**
-- * coresight_timeout - loop until a bit has changed to a specific register
-- *			state.
-+ * coresight_timeout_retval - loop until a bit has changed to a specific register
-+ *			      state. Optionally return final register value
-  * @csa: coresight device access for the device
-  * @offset: Offset of the register from the base of the device.
-  * @position: the position of the bit of interest.
-  * @value: the value the bit should have.
-+ * @rval: if not NULL, return the last read value of the register being tested.
-  *
-  * Return: 0 as soon as the bit has taken the desired state or -EAGAIN if
-  * TIMEOUT_US has elapsed, which ever happens first.
-  */
--int coresight_timeout(struct csdev_access *csa, u32 offset,
--		      int position, int value)
-+int coresight_timeout_retval(struct csdev_access *csa, u32 offset,
-+			     int position, int value, u32 *rval)
+-void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
++int tmc_flush_and_stop(struct tmc_drvdata *drvdata)
  {
--	int i;
--	u32 val;
-+	int i, rc = -EAGAIN;
-+	u32 val = 0;
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 	struct csdev_access *csa = &csdev->access;
+-	u32 ffcr;
++	u32 ffcr, ffsr, tmc_sts;
++	int rc = 0;
++
++	/* note any MemErr present when stopping TMC */
++	tmc_sts = readl_relaxed(drvdata->base + TMC_STS);
++	if (tmc_sts & TMC_STS_MEMERR)
++		dev_err(&csdev->dev,
++			"MemErr detected before Manual Flush; STS[0x%02x]\n",
++			tmc_sts);
  
- 	for (i = TIMEOUT_US; i > 0; i--) {
- 		val = csdev_access_read32(csa, offset);
- 		/* waiting on the bit to go from 0 to 1 */
- 		if (value) {
--			if (val & BIT(position))
--				return 0;
-+			if (val & BIT(position)) {
-+				rc = 0;
-+				goto return_rval;
-+			}
- 		/* waiting on the bit to go from 1 to 0 */
- 		} else {
--			if (!(val & BIT(position)))
--				return 0;
-+			if (!(val & BIT(position))) {
-+				rc = 0;
-+				goto return_rval;
-+			}
- 		}
- 
- 		/*
-@@ -1129,7 +1134,30 @@ int coresight_timeout(struct csdev_access *csa, u32 offset,
- 			udelay(1);
+ 	ffcr = readl_relaxed(drvdata->base + TMC_FFCR);
+ 	ffcr |= TMC_FFCR_STOP_ON_FLUSH;
+@@ -60,12 +74,26 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata)
+ 	ffcr |= BIT(TMC_FFCR_FLUSHMAN_BIT);
+ 	writel_relaxed(ffcr, drvdata->base + TMC_FFCR);
+ 	/* Ensure flush completes */
+-	if (coresight_timeout(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0)) {
++	if (coresight_timeout_retval(csa, TMC_FFCR, TMC_FFCR_FLUSHMAN_BIT, 0,
++				     &ffcr)) {
++		ffsr = readl_relaxed(drvdata->base + TMC_FFSR);
++		tmc_sts = readl_relaxed(drvdata->base + TMC_STS);
+ 		dev_err(&csdev->dev,
+-		"timeout while waiting for completion of Manual Flush\n");
++			"timeout while waiting for completion of Manual Flush\n");
++		dev_err(&csdev->dev,
++			"regs: FFCR[0x%02x] FFSR[0x%02x] STS[0x%02x]\n",
++			ffcr, ffsr, tmc_sts);
++		if (tmc_sts & TMC_STS_MEMERR)
++			dev_err(&csdev->dev,
++				"MemErr in STS reg waiting for flush complete\n");
++		rc = -EBUSY;
  	}
  
--	return -EAGAIN;
-+return_rval:
-+	/* return the register value used when terminating the test */
-+	if (rval)
-+		*rval = val;
-+
+-	tmc_wait_for_tmcready(drvdata);
++	if (tmc_wait_for_tmcready(drvdata)) {
++		dev_err(&csdev->dev, "TMC ready error after Manual flush\n");
++		rc = -EBUSY;
++	}
 +	return rc;
-+}
-+EXPORT_SYMBOL_GPL(coresight_timeout_retval);
-+
-+/**
-+ * coresight_timeout - loop until a bit has changed to a specific register
-+ *		       state
-+ * @csa: coresight device access for the device
-+ * @offset: Offset of the register from the base of the device.
-+ * @position: the position of the bit of interest.
-+ * @value: the value the bit should have.
-+ *
-+ * Return: 0 as soon as the bit has taken the desired state or -EAGAIN if
-+ * TIMEOUT_US has elapsed, which ever happens first.
-+ */
-+int coresight_timeout(struct csdev_access *csa, u32 offset,
-+		      int position, int value)
-+{
-+	return coresight_timeout_retval(csa, offset, position, value, NULL);
  }
- EXPORT_SYMBOL_GPL(coresight_timeout);
  
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 17276965ff1d..cb3592d2803c 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -649,6 +649,8 @@ extern int coresight_enable_sysfs(struct coresight_device *csdev);
- extern void coresight_disable_sysfs(struct coresight_device *csdev);
- extern int coresight_timeout(struct csdev_access *csa, u32 offset,
- 			     int position, int value);
-+extern int coresight_timeout_retval(struct csdev_access *csa, u32 offset,
-+				    int position, int value, u32 *rval);
+ void tmc_enable_hw(struct tmc_drvdata *drvdata)
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index 2671926be62a..34513f07c3aa 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -259,7 +259,7 @@ struct tmc_sg_table {
  
- extern int coresight_claim_device(struct coresight_device *csdev);
- extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
+ /* Generic functions */
+ int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata);
+-void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
++int tmc_flush_and_stop(struct tmc_drvdata *drvdata);
+ void tmc_enable_hw(struct tmc_drvdata *drvdata);
+ void tmc_disable_hw(struct tmc_drvdata *drvdata);
+ u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
 -- 
 2.25.1
 
