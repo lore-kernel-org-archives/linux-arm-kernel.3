@@ -4,135 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB66E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 17:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0491E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 17:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HcVrOzBS3DFrP/a6tiA1PBGwTzGq41w/Sq1RFzRynec=; b=bQW9p4RAswih1cfkhTlxSD+kyN
-	2pjXZ98M+u/zYAO3A2dIQMenVXVAzctMNeaEtOJBDRnSNUlVLrp7d86rUTHpipSw+b8Jg7t5PkR3c
-	3MZ5LEg/c1HO2NY1mwH3aUVyCG591noXBvof1VmIEHv96F9jamT/gohfS5ZLTM5/U9lPCkDKUcRkK
-	jBmEDFBRoW87KQQ+ER71xauatjE0M5A7I1nkFoflANzM0PyfhPO/nMUJaSc0l1/AscWbpWNaAXC7t
-	LIVSsbYhOY21OMyG2SyEOBl5MWexzruQQX8qWLLFrvqbDz5GqXPximz5vNI3d1HmRqUcif7c6LITR
-	xzwatdWA==;
+	bh=BhIbkShSV59R5JCXz2hrDMjgzzBOjFz+Dlxz+KTcoWQ=; b=KvHIqFM1YbnFKy1iUrK92yYe8R
+	W1wwI5AXjRWqvbGPAFZRmH5mC/jlez09/vx00Y2KdzX6A9yFALtOehXB+nSfed0L4j6nxQ2P1105k
+	uV6iBvvdMRX7ba/OColcXgyZK+bkPrfNM++nlbXUJm4NJF979j1aVkBwOZFoecu2sK18DmrtbWevk
+	tI0SZkXtZobc4Y74bBfEreZEqJsrpMpn8EhEXz/SgpLEAs0h2EdfFRfGV3JDIwVEsK8MVdmDH3sij
+	Yq4rymPZN74ypLPK1JW5cWMu/4jUP5wFShQUIPcGQWrUJ0WfEyJksRYIE7Q3hypljOnDTyLaKk4eq
+	zOk00d3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNxu3-0000000HKFr-3Zxk;
-	Wed, 18 Dec 2024 17:32:07 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1tNy1N-0000000HKy1-3F8K;
+	Wed, 18 Dec 2024 17:39:41 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNxsx-0000000HK9K-2bS5
+	id 1tNy0H-0000000HKpk-2IcO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 17:31:01 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4678cd314b6so66145981cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 09:30:59 -0800 (PST)
+	Wed, 18 Dec 2024 17:38:34 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3035046d4bfso36607351fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 09:38:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1734543058; x=1735147858; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=HcVrOzBS3DFrP/a6tiA1PBGwTzGq41w/Sq1RFzRynec=;
-        b=C5lcbXFpWJQkw7Yst5MzN4Xb9R4OVKrzwIcDDc0Mt0eqG7hLNKK40MoDCa2jRBGH07
-         TYnKYmlHMYHQLg4PZWyMTzFRRxpYOHYfgGxmiwp6kG1cWFPb/yAf/yQHc0bnG7onb1mz
-         rKIg1pK+s5nxOgyv/KHRiNMlU84RzWtaPZVdE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734543058; x=1735147858;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1734543509; x=1735148309; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HcVrOzBS3DFrP/a6tiA1PBGwTzGq41w/Sq1RFzRynec=;
-        b=oWSA3NdPVH0/JMZtvlBA0YUgldyZKTHz7Me1S+DmoqctVbSObZjzVPEwyDEkVATSOL
-         iWWEQ0DN/o9H5qb3KRSCaOUL5yhiFANdJsDcAwAL3aBWL8BzhlVPTH3TBcehqSKini/2
-         iyYEMbE3orv1oMv73Xr/a49Tr8IG9RKV5dM4BjpuPZ0g5z6aquDRmCG/KQWnI34nqcLI
-         fX+klPyxxhvh6OR0xqWqhrfee5nnEfym6e5RQYVsb2qHrHuY7gFPBSZFg3FaG1FSlIop
-         T/aZk9iuGNVTPxrrYMMbJ3nxypACOfo4N5q6eOBYfI6Jz86DowsTzpljFy0XeU6gO5SL
-         8n/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUsyvH0zqU+g/k+6J+H7QZSzEnSTnNx2S83jPjLFXQYD4K/W4XzTzC8sGUl+jBKjgZdkBKKMAfeFmedzYyyV8W3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDAQADlCTWYFMOeIOzPd/Ob8j5MtQHaZpBmJ7YZxfSae+Nh3yI
-	mK2StP41HJHk9WoEWY1YbuqZSr36iENmlVe8+8hUUWV077qpLEjVaKvAAJ0tgQ==
-X-Gm-Gg: ASbGncuY2SgZjYmcjm68/fcRJDC8AncH9hNAaXhO+OS3Ebiudk38aaNU1qeAwVgiwaI
-	8+RKqf/nAiDDeFGHAOZr+vC5iZNRwtoD5VTDjX0+t7ky9sBJycmn16DZwquiJ5alKBwSSjMtK9x
-	DtYj1Bj18PohB8v+9BMJdOpOdXffQP/7q6XwtPa34lBQ9dZ/aRLRVr39VUrZ/drjOjqcVpEGy3c
-	qznGe5dRQPTAIdEPtRMFfTGW3MUrj0CZecCEjd5J9Vv1suLB6i2J+r64VKIdHUOR389VmgdFiO+
-	9Ew526+YngASWsZ1TrdF
-X-Google-Smtp-Source: AGHT+IHgarmgH4Yfc6eXQMq5lh6BKBRqUsqM0vXPmwT9a+J9qaC9Hg9RJtZr6jXkN5Jkiqwu/UA9aA==
-X-Received: by 2002:a05:622a:118e:b0:467:7cda:9375 with SMTP id d75a77b69052e-46a3a7b4857mr5652781cf.24.1734543058491;
-        Wed, 18 Dec 2024 09:30:58 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-467b2ca5ee7sm53024261cf.34.2024.12.18.09.30.53
+        bh=BhIbkShSV59R5JCXz2hrDMjgzzBOjFz+Dlxz+KTcoWQ=;
+        b=ems8C873EZhyJVglsHI8EWFjeKVw8Yjz0BK4EZL1ebIILVxfMoONaWaNr0nZQFK1jn
+         pwCb3FPyemsI9kz9YW4uE2FWQd0N6ATW/QMqX4G0NbdoDV9bKTz6b7Z5NcOzT+g+puVR
+         U47IQqhiL1mJp5ecp3SISDHDKG90KMSbeBsNE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734543509; x=1735148309;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BhIbkShSV59R5JCXz2hrDMjgzzBOjFz+Dlxz+KTcoWQ=;
+        b=i+Pm2i+KHt+pWMxYDO7gHj2fG1d+VNi2BZ9NpI5iuwDw3Aq8+BMDdos8LYb4aXzEAz
+         uG4M953f71Ww6jwn1Q46s52nFUskr1Z/nnwUidCRQu6q4RLGDp2VKXVMkjJeK4zWClCh
+         LZxzkSTLi1HpeD2d8lhH5ShXqZrUKT9xPHsTelJzow7jdPBD+OfnRZkHeFsWcjDnqUiT
+         t7+xD69/tiB2vqMSA0jR3JK/2FRJXS982rXIhtCmJA9ls62I1b4OZM4x1U6Km9v7TdP3
+         n5ogPthRm/ow8blr6Uu8vcnCOinZgcAcBbP/PSzm+t06B8bvZJi2UI1laYIb50B3QtC+
+         8ang==
+X-Forwarded-Encrypted: i=1; AJvYcCU1vssjB+8FOTDH3T2KlZcY61Ze687JO7SAe1D8/tFOhqNXK6ih8HVU87UXL5hTnEO78Dn6uTlI+scuy6F+QGYS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjc+aPVefcS7mOJizisqrCPUyf0JJFQdyEg5gqUc3KFDryubEP
+	Su5UiWrAr48222R8qdTPQw8dP1VSj2Zjzbm3FQ/UcecI0vHaiFalSvEv/mJueY1CQpueuJtyFmi
+	hKTa2
+X-Gm-Gg: ASbGncvGJrpZzTIwl3bFHDjzz4wcEb33laTMarOYxWZOOf/L9Z08UEbJYMdxYdYekDH
+	puME7Hi0pXdKb5Zzmu+gApgG10sbxbgkILDCXLII0Pt1edMLzOxj6yrIPDQi+AmHSb/ApLyQx3T
+	8pg4nB+bW+1n8K9hb29I+LhJhMSFYHQyHEkkWgwNDlHtBOe6/VlzFHHzxnv7zjdrRioccSneMPT
+	nWedri3YiHgpftEnx3QGBcTGulfPVovSXteLAgCMeQq5iMW1aDD4OLNTPXsACvQKsfoU8MBd2pm
+	+Z41KS70fg3G+kgh84OL
+X-Google-Smtp-Source: AGHT+IEgU5ZiwHZRejuZK5tnnh+6Kz9WZK/WrMjceOJ1NPTxOLEz9JIWd3XCylGqUpe5Zl/rb1ppQQ==
+X-Received: by 2002:a05:651c:b24:b0:302:1c90:58f5 with SMTP id 38308e7fff4ca-30457680f07mr2128771fa.1.1734543509485;
+        Wed, 18 Dec 2024 09:38:29 -0800 (PST)
+Received: from mail-lf1-f51.google.com (mail-lf1-f51.google.com. [209.85.167.51])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30344175b6bsm16425321fa.75.2024.12.18.09.38.27
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Dec 2024 09:30:57 -0800 (PST)
-Message-ID: <5d7fbb08-4f24-4c98-ba44-f3a457729dde@broadcom.com>
-Date: Wed, 18 Dec 2024 09:30:52 -0800
+        Wed, 18 Dec 2024 09:38:28 -0800 (PST)
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5401e6efffcso7727686e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 09:38:27 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWLRYqmaD8X19lNzaOoWQJn5YPdCyGgOcz/62feCMCkz+tmzPNu5NkhJ5DEYfykhJWnGRduVMUctHYU9t9LdQVg@lists.infradead.org
+X-Received: by 2002:a05:6512:2313:b0:53e:2fdb:4de3 with SMTP id
+ 2adb3069b0e04-542210256b4mr179533e87.44.1734543507103; Wed, 18 Dec 2024
+ 09:38:27 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] dt-bindings: interrupt-controller:
- brcm,bcm2836-l1-intc: Drop interrupt-controller requirement
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>,
- Stefan Wahren <wahrenst@gmx.net>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20241218-dt-bcm2712-fixes-v4-0-54cc88b6c229@raspberrypi.com>
- <20241218-dt-bcm2712-fixes-v4-3-54cc88b6c229@raspberrypi.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20241218-dt-bcm2712-fixes-v4-3-54cc88b6c229@raspberrypi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20241214005248.198803-1-dianders@chromium.org>
+ <20241213165201.v2.1.I2040fa004dafe196243f67ebcc647cbedbb516e6@changeid>
+ <CAODwPW_c+Ycu_zhiDOKN-fH2FEWf2pxr+FcugpqEjLX-nVjQrg@mail.gmail.com>
+ <CAD=FV=UHBA7zXZEw3K6TRpZEN-ApOkmymhRCOkz7h+yrAkR_Dw@mail.gmail.com>
+ <CAODwPW8s4GhWGuZMUbWVNLYw_EVJe=EeMDacy1hxDLmnthwoFg@mail.gmail.com>
+ <CAD=FV=X61y+RmbWCiZut_HHVS4jPdv_ZB8F+_Hs0R-1aKHdK4w@mail.gmail.com> <CAODwPW_UNVkyXKxyhZv830bhzsy5idu6GiuR9mut+-qGOtv1pw@mail.gmail.com>
+In-Reply-To: <CAODwPW_UNVkyXKxyhZv830bhzsy5idu6GiuR9mut+-qGOtv1pw@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Wed, 18 Dec 2024 09:38:15 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=VtTsUsOmW+SxiUXuUZoXSFYXY4ApzmMm_ZzxWKAvTMBA@mail.gmail.com>
+X-Gm-Features: AbW1kvb6h8dQi0-AL6QfO49fCuboqPkZd7iKe9aC5hYSbnNdq3yQxBbEFEWpW7s
+Message-ID: <CAD=FV=VtTsUsOmW+SxiUXuUZoXSFYXY4ApzmMm_ZzxWKAvTMBA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/6] arm64: errata: Assume that unknown CPUs _are_
+ vulnerable to Spectre BHB
+To: Julius Werner <jwerner@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-arm-msm@vger.kernel.org, 
+	Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
+	Roxana Bradescu <roxabee@google.com>, Trilok Soni <quic_tsoni@quicinc.com>, 
+	bjorn.andersson@oss.qualcomm.com, stable@vger.kernel.org, 
+	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_093059_943847_E4FBCEEE 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20241218_093833_615082_A7BAB462 
+X-CRM114-Status: GOOD (  36.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,20 +114,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/18/24 06:48, Dave Stevenson wrote:
-> Since commit 88bbe85dcd37 ("irqchip: bcm2836: Move SMP startup code to
-> arch/arm (v2)") the bcm2836-l1-intc block on bcm2711 is only used as a
-> base address for the smp_boot_secondary hook on 32 bit kernels. It is
-> not used as an interrupt controller.
-> 
-> Drop the binding requirement for interrupt-controller and interrupt-cells
-> to satisfy validation on this platform.
-> 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Hi,
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+On Wed, Dec 18, 2024 at 8:36=E2=80=AFAM Julius Werner <jwerner@chromium.org=
+> wrote:
+>
+> > Given that I'm not going to change the way the existing predicates
+> > work, if I move the "fallback" setting `max_bhb_k` to 32 to
+> > spectre_bhb_enable_mitigation() then when we set `max_bhb_k` becomes
+> > inconsistent between recognized and unrecognized CPUs.
+>
+> A clean way to fix that could be to change spectre_bhb_loop_affected()
+> to just return the K-value (rather than change max_bhb_k directly),
+> and then set max_bhb_k to the max() of that return value and the
+> existing value when it is called from spectre_bhb_enable_mitigation().
+> That way, max_bhb_k would only be updated from
+> spectre_bhb_enable_mitigation().
 
+Sure, you could do that. ...but in my patch series I need to add
+_another_ static boolean that's updated in is_spectre_bhb_affected()
+anyway. I need to add one to the new is_spectre_bhb_safe() function
+that you requested. Specifically, the moment I detect any CPU ID
+that's not in the "safe" list then I need to note that down. If I
+don't do that then later calls to
+is_spectre_bhb_affected(SCOPE_SYSTEM) will return the wrong value. So
+while all the other "static" caches in is_spectre_bhb_affected() could
+be removed because we changed the default return to "true", the one in
+is_spectre_bhb_safe() (which causes the function to return "false")
+can't be removed.
+
+In any case, the predicates updating the static caches predates my
+series and IMO my series doesn't make it worse. If you want to post a
+followup series changing how the predicates work and can convince
+others that it's worth doing then great, but I don't think it should
+block forward progress here.
+
+
+> > I would also say that having `max_bhb_k` get set in an inconsistent
+> > place opens us up for bugs in the future. Even if it works today, I
+> > imagine someone could change things in the future such that
+> > spectre_bhb_enable_mitigation() reads `max_bhb_k` and essentially
+> > caches it (maybe it constructs an instruction based on it). If that
+> > happened things could be subtly broken for the "unrecognized CPU" case
+> > because the first CPU would "cache" the value without it having been
+> > called on all CPUs.
+>
+> This would likely already be a problem with the current code, since
+> spectre_bhb_enable_mitigations() is called one at a time for each CPU
+> and the max_bhb_k value is only valid once it has been called on all
+> CPUs. If someone tried to just immediately use the value inside the
+> function that would just be a bug either way. (Right now this should
+> not be a problem because max_bhb_k is only used by
+> spectre_bhb_patch_loop_iter() which ends up being called through
+> apply_alternatives_all(), which should only run after all those CPU
+> errata cpu_enable callbacks have been called.)
+
+Actually, today is_spectre_bhb_affected() is called much earlier I
+believe. It's installed (via cpu_errata.c) and called like this:
+
+  is_spectre_bhb_affected+0x124/0x2d8
+  update_cpu_capabilities+0xa0/0x158
+  setup_boot_cpu_capabilities+0x20/0x40
+  setup_boot_cpu_features+0x38/0x50
+  smp_prepare_boot_cpu+0x38/0x60
+  start_kernel+0x90/0x438
+
+...but then spectre_bhb_enable_mitigations() is called later and by
+that time is_spectre_bhb_affected() should have been called for each
+of the CPUs:
+
+  spectre_bhb_enable_mitigation+0xbc/0x340
+  cpu_enable_non_boot_scope_capabilities+0x74/0xc8
+  multi_cpu_stop+0xf0/0x1b8
+  cpu_stopper_thread+0xac/0x148
+  smpboot_thread_fn+0xb0/0x238
+
+I agree that it doesn't seem to be a problem today, though.
+
+-Doug
 
