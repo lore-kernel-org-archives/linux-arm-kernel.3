@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEA0E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F502E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TDrHezrIz5cTXpjA6dJ5uIqtYCcnxWcs7DL1g5f/WEU=; b=N2bFr3P5u2JCDr+6Fn0dPQvwtB
-	v6nyCZcCthiXe2jqe0vszGHxDiqHbpddB0AFQjwaOFDore1I0WJZFuqu/H/lWEoUWkqJx0tc1Gm2b
-	ODp0Nvl1f2F2V7pc2hKwlIK6T9ItuHQgSeXRkQ8Ga+x1XaFGKy0kWHuqcAbl7q9v85tVi4fjN+aPu
-	bJnDVnEm6nCeN9pdoUwlWAVA3GgwnxgNXEdz4fJBeSlkqi1vmw/Wt/fy1Wbo3yxFDP+S+PwaYMMaT
-	1u7IOAfrCUroQB9L07P8Q+8rKz63LM5ayEIyPhMh6bg6C+YjXsklnz0ldCGDZxka5y4ZHbLWRNAlT
-	sLDsPUYA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ALqiweMhEDRg7aBhjFXLJO/WC3zghsGkYaraS6orI60=; b=cFDY6GZCf3LgqoHXonCIyvMZ73
+	UMt8wqGuunNXvRk3js+sPYSAKi1+ymbbAYZ82Xe1osagxUef6mRBOIv7wX7knQkLmu734gsHeYVZc
+	Wc78fVYoKAk3+KRk8j9b59Qz8ZCJYxWUiwpFRwzFCBiqh8ksiqarVTc3k410RubaKKAdmodQZJgKL
+	gujYs5qZj1qCMtsoWGc7NMR/1CrVu52EVsbEK3bSNIZXAIiVcZzz9A9DR5pUozuw9jZDEGauhQrJi
+	zzeSX4KSWJ+v6dxV6xAwrz2J7AgicTJE46IDaVDDSRM8MAvI8swqaCieKHBHrxYFqYERhUpKbrhc5
+	Izgk3M/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNpWs-0000000FwOL-0M50;
-	Wed, 18 Dec 2024 08:35:38 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tNpif-0000000FyCH-48eY;
+	Wed, 18 Dec 2024 08:47:49 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNpVl-0000000FwBP-2GHX
+	id 1tNphY-0000000Fxxq-3vsP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 08:34:30 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2166360285dso53774235ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 00:34:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734510868; x=1735115668; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TDrHezrIz5cTXpjA6dJ5uIqtYCcnxWcs7DL1g5f/WEU=;
-        b=JFXh1PEJgrsgPmgNr+4kqUSgrgD8ibuE2mg7rhn7JOx50JfHhfaYWvmrMOiOp7Ks+N
-         8mhYIRG+CEouRUp/h31oY5eQgwjFmsWYkW/sGRZlryuZWQp0sufx9J0iw/aPt94b3HIS
-         HOVe/7/0aLd7h2JxylrJ5FZSxFXU+y1y4TkNpF7K7BL+vDYT77ZpalSZn4EilMcIeqOc
-         mrwdv34f6Sirk4TkgA4JFaJRs3/sto9+5601G5P77xso/n6GeaGVzmvshP6n741AQaeb
-         9mFj/w2rPtaOGbqG0UqtMRzV9AWOrwUBAs0YGELoojTIEvAhL955EOSlULowqnYnuuKs
-         q6Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734510868; x=1735115668;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TDrHezrIz5cTXpjA6dJ5uIqtYCcnxWcs7DL1g5f/WEU=;
-        b=FxWrChdwmiV4CMHPK7q1dR6R/0QotK+s2jgvzweeQzbZTm2uLSuRjK4BSXxJUSoaxG
-         xxD8hNf4FNrQ41djoncLu6cInwJ3PG/bY6pT9Qazpw2IYty9rIVJ1JUyb9ze2hbcC1Bl
-         MI7w9H2HsWDldnJgwCYX6X8AENlknoQS0HMU/ogqQFbnwdDZzvh3XsM61rdLcw1F0+me
-         cMijnvtQ6jBYR+me9sscZn3gc2DKdVjbSEkRFoaMQbPAnUMKhXlYkjtsSXaPU1Y+u9Aj
-         V9up4i+TsKFIyuKDkQ9PiXpFJYUlNtMGVwahcE3R2PuZTUz+vaj0U3WGzKYcikQIsvlj
-         1x4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUr7TGQalk295G+ncZ93Pq0tSMuDBpaQqr9IAv7UjOMB4BL4wdyYEym2YJv+IVwNcxfJzeOhfz3TCtPqjqHgU53@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmoSiiIy6F7a7kU5WepUM+61bOMXJcB8iOVZv9m9fZIYXByxmk
-	ZtgP7aKt7lpfON68hfm2qu2rtUqWEBF08+AQW0TNvS8FHRnW3CBw
-X-Gm-Gg: ASbGncvAt4IwohCsGdexvad+bm1JxxpWzwqz2nkSPvnIrEfVpqKUOkJMlSSL9YpJIQq
-	MmCiqQgNge1n1CD5ActG8gWCsZXiiEyBf1yJZYv1ezlzez8B7UcJu5l9jHf81NabtlFhqjaL+ra
-	78L5fUyFjiheJAH+m0GFQVHFzYQWJHmsEQ/cM7a1iN8iSTjOrghPUSqozFHfwCcUBGmgwMvqXK0
-	JbxDcNgmM7Hju5atzzlCX5YCKFpYCgvc5VMbv/1IzlIRIIOVx6itsUcdSAXYBz+kDOjnA==
-X-Google-Smtp-Source: AGHT+IGtJJCUk3iuXtE8y8mYuVun1NG2Fd8lbXIzpgpbU7+72x9qCy3AunOkM68r/azCHGKP3Ipq1g==
-X-Received: by 2002:a17:902:ccd2:b0:216:7cef:99b3 with SMTP id d9443c01a7336-218d7280492mr30713875ad.52.1734510868506;
-        Wed, 18 Dec 2024 00:34:28 -0800 (PST)
-Received: from localhost.localdomain ([129.146.253.192])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-218a206a098sm70772485ad.270.2024.12.18.00.34.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 00:34:28 -0800 (PST)
-From: Furong Xu <0x1207@gmail.com>
-To: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Simon Horman <horms@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	xfr@outlook.com,
-	Furong Xu <0x1207@gmail.com>
-Subject: [PATCH net-next v1] net: stmmac: Drop useless code related to ethtool rx-copybreak
-Date: Wed, 18 Dec 2024 16:34:07 +0800
-Message-Id: <20241218083407.390509-1-0x1207@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 18 Dec 2024 08:46:42 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI6mX56021743;
+	Wed, 18 Dec 2024 09:45:20 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ALqiweMhEDRg7aBhjFXLJO/WC3zghsGkYaraS6orI60=; b=Y24pdIIdEI/lF5cd
+	Q8odLdIb6M9hjNfe4WI/qOKlTOwd/vGfa4DIzCsL6GqXaChv33VVESO8Kzccd+wJ
+	z9VZ4oMU5vtecnEWFCz6R0BLoxg08dzHFO/zJ7/MNraAb5wrkieZLa+yf4+lEv60
+	Y0sTYUIIdzdnJdI1CI/HPXDwacohBZ1GPyjbU2TY3gHs8DVi1qnGKoFMK/K2r6vC
+	A79W1tmZKm1t57SQ7zF2Q3inDgZjxaEVidYpCGZES8XERfUFh8iGNChU8P4tFBd0
+	3FrMmduSLt+dAcKcPmdmL2amtBpJgmzojAucoZt9eyFYit1UVz5Erz9Tpnxnv2UK
+	LOVkdQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43kfu8a20e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Dec 2024 09:45:19 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CAFD74004D;
+	Wed, 18 Dec 2024 09:43:57 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8EC1F25581E;
+	Wed, 18 Dec 2024 09:42:47 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 18 Dec
+ 2024 09:42:46 +0100
+Message-ID: <5b835381-55bc-4fc8-b848-535f6e881420@foss.st.com>
+Date: Wed, 18 Dec 2024 09:42:45 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: PCI: Add STM32MP25 PCIe root complex
+ bindings
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: Bjorn Helgaas <helgaas@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+        <lpieralisi@kernel.org>, <kw@linux.com>, <bhelgaas@google.com>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241205172022.GA3053765@bhelgaas>
+ <d976d74c-80c0-4446-bb9b-960a990c552b@foss.st.com>
+ <20241217172502.borj2oy4rpxcteag@thinkpad>
+Content-Language: en-US
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241217172502.borj2oy4rpxcteag@thinkpad>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_003429_574861_EE9A4F5F 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20241218_004641_273996_18FBA949 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,130 +101,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 2af6106ae949 ("net: stmmac: Introducing support for Page
-Pool"), the driver always copies frames to get a better performance,
-zero-copy for RX frames is no more, then these code turned to be
-useless and users of ethtool may get confused about the unhandled
-rx-copybreak parameter.
 
-This patch mostly reverts
-commit 22ad38381547 ("stmmac: do not perform zero-copy for rx frames")
 
-Signed-off-by: Furong Xu <0x1207@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 -
- .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 39 -------------------
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  5 ---
- 3 files changed, 46 deletions(-)
+On 12/17/24 18:25, Manivannan Sadhasivam wrote:
+> On Tue, Dec 17, 2024 at 04:53:48PM +0100, Christian Bruel wrote:
+>>
+>>> Makes sense.  What about phys, resets, etc?  I'm pretty sure a PHY
+>>> would be a per-Root Port thing, and some resets and wakeup signals
+>>> also.
+>>>
+>>> For new drivers, I think we should start adding Root Port stanzas to
+>>> specifically associate those things with the Root Port, e.g.,
+>>> something like this?
+>>>
+>>>     pcie@48400000 {
+>>>       compatible = "st,stm32mp25-pcie-rc";
+>>>
+>>>       pcie@0,0 {
+>>>         reg = <0x0000 0 0 0 0>;
+>>>         phys = <&combophy PHY_TYPE_PCIE>;
+>>>         phy-names = "pcie-phy";
+>>>       };
+>>>     };
+>>>
+>>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/pci/mediatek,mt7621-pcie.yaml?id=v6.12#n111
+>>> is one binding that does this, others include apple,pcie.yaml,
+>>> brcm,stb-pcie.yaml, hisilicon,kirin-pcie.yaml.
+>>>
+>>
+>> On a second thought, moving the PHY to the root-port part would introduce a
+>> discrepancy with the pcie_ep binding, whereas the PHY is required on the
+>> pcie_ep node.
+>>
+>> Even for the pcie_rc, the PHY is needed to enable the core_clk to access
+>> the PCIe core registers,
+>>
+> 
+> But why that matters? You can still parse the child nodes, enable PHY and
+> configure PCIe registers. >
+>> So that would make 2 different required PHY locations for RC and EP:
+>>
+>>      pcie_rc: pcie@48400000 {
+>>        compatible = "st,stm32mp25-pcie-rc";
+>>
+>>        pcie@0,0 {
+>>          reg = <0x0000 0 0 0 0>;
+>>          phys = <&combophy PHY_TYPE_PCIE>;
+>>          phy-names = "pcie-phy";
+>>        };
+>>      };
+>>
+>>      pcie_ep pcie@48400000 {
+>>        compatible = "st,stm32mp25-pcie-ep";
+>>        phys = <&combophy PHY_TYPE_PCIE>;
+>>        phy-names = "pcie-phy";
+>>      };
+>>
+>> Simplest seems to keep the PHY required for the pcie core regardless of the
+>> mode and keep the empty root port to split the design
+>>
+> 
+> No please. Try to do the right thing from the start itself.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index 1d86439b8a14..b8d631e559c0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -126,7 +126,6 @@ struct stmmac_rx_queue {
- 	unsigned int cur_rx;
- 	unsigned int dirty_rx;
- 	unsigned int buf_alloc_num;
--	u32 rx_zeroc_thresh;
- 	dma_addr_t dma_rx_phy;
- 	u32 rx_tail_addr;
- 	unsigned int state_saved;
-@@ -266,7 +265,6 @@ struct stmmac_priv {
- 	int sph_cap;
- 	u32 sarc_type;
- 
--	unsigned int rx_copybreak;
- 	u32 rx_riwt[MTL_MAX_TX_QUEUES];
- 	int hwts_rx_en;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 1d77389ce953..16b4d8c21c90 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -1227,43 +1227,6 @@ static int stmmac_get_ts_info(struct net_device *dev,
- 		return ethtool_op_get_ts_info(dev, info);
- }
- 
--static int stmmac_get_tunable(struct net_device *dev,
--			      const struct ethtool_tunable *tuna, void *data)
--{
--	struct stmmac_priv *priv = netdev_priv(dev);
--	int ret = 0;
--
--	switch (tuna->id) {
--	case ETHTOOL_RX_COPYBREAK:
--		*(u32 *)data = priv->rx_copybreak;
--		break;
--	default:
--		ret = -EINVAL;
--		break;
--	}
--
--	return ret;
--}
--
--static int stmmac_set_tunable(struct net_device *dev,
--			      const struct ethtool_tunable *tuna,
--			      const void *data)
--{
--	struct stmmac_priv *priv = netdev_priv(dev);
--	int ret = 0;
--
--	switch (tuna->id) {
--	case ETHTOOL_RX_COPYBREAK:
--		priv->rx_copybreak = *(u32 *)data;
--		break;
--	default:
--		ret = -EINVAL;
--		break;
--	}
--
--	return ret;
--}
--
- static int stmmac_get_mm(struct net_device *ndev,
- 			 struct ethtool_mm_state *state)
- {
-@@ -1390,8 +1353,6 @@ static const struct ethtool_ops stmmac_ethtool_ops = {
- 	.set_per_queue_coalesce = stmmac_set_per_queue_coalesce,
- 	.get_channels = stmmac_get_channels,
- 	.set_channels = stmmac_set_channels,
--	.get_tunable = stmmac_get_tunable,
--	.set_tunable = stmmac_set_tunable,
- 	.get_link_ksettings = stmmac_ethtool_get_link_ksettings,
- 	.set_link_ksettings = stmmac_ethtool_set_link_ksettings,
- 	.get_mm = stmmac_get_mm,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 16b8bcfa8b11..6bc10ffe7a2b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -77,7 +77,6 @@ module_param(phyaddr, int, 0444);
- MODULE_PARM_DESC(phyaddr, "Physical device address");
- 
- #define STMMAC_TX_THRESH(x)	((x)->dma_conf.dma_tx_size / 4)
--#define STMMAC_RX_THRESH(x)	((x)->dma_conf.dma_rx_size / 4)
- 
- /* Limit to make sure XDP TX and slow path can coexist */
- #define STMMAC_XSK_TX_BUDGET_MAX	256
-@@ -107,8 +106,6 @@ static int buf_sz = DEFAULT_BUFSIZE;
- module_param(buf_sz, int, 0644);
- MODULE_PARM_DESC(buf_sz, "DMA buffer size");
- 
--#define	STMMAC_RX_COPYBREAK	256
--
- static const u32 default_msg_level = (NETIF_MSG_DRV | NETIF_MSG_PROBE |
- 				      NETIF_MSG_LINK | NETIF_MSG_IFUP |
- 				      NETIF_MSG_IFDOWN | NETIF_MSG_TIMER);
-@@ -3927,8 +3924,6 @@ static int __stmmac_open(struct net_device *dev,
- 		}
- 	}
- 
--	priv->rx_copybreak = STMMAC_RX_COPYBREAK;
--
- 	buf_sz = dma_conf->dma_buf_sz;
- 	for (int i = 0; i < MTL_MAX_TX_QUEUES; i++)
- 		if (priv->dma_conf.tx_queue[i].tbs & STMMAC_TBS_EN)
--- 
-2.34.1
+Parsing the child node to clock the IP seems weird. Note that 
+hisilicon,kirin-pcie.yaml also declares the PHY at the controller level.
 
+thanks
+
+Christian
+
+
+
+
+> 
+> - Mani
+> 
 
