@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E001FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:46:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16FBAE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=THeGjzIRoDHBNZCDp/7M2lIPDvqr7tz6+xf8HWPd0n4=; b=xVK1I4prYJrdYVYrMXz1Miz30q
-	/pJvZOQtPCLMCsRaiorwWPScbYu2SyDCKQPTNfOFRTLA7ugUYbjDP6douHBmnnyTcSlDzXzoHYefj
-	npxWARdpiQU/WSdUJn/r22zi2/Iad5bYO6a9myHFJLW6ArwSzaBAo3fNCKBat/DxeeXPFWQWche7o
-	EuC3Ahp2LSgwr+jQEqV9r+2j4a/r9IzkmunFAyi1H5xsAqkMhkYMxhzX/yyLEFIsMHMExq/Dr7Ufh
-	wCw4MBEZynpBjuFlqZOYPHIuSYZ3OhdsGu6Lt5yJtWQJKyG9Nqwo8+bjviwBAMnMTy0dSzJXHIAha
-	C0dEaL9A==;
+	bh=TLJpu+b23LSwwdvL7n7XLGKUllrDriyC6Kq2l3Yieb8=; b=ilL98iiSTFcg9UNmMk45pkYE1Q
+	NFposOWgTFAMOAmKYgRn2HmuDGzrAa7y0YHwaAPOpKseOGMl+GMFxp1wsgYjXV0uDfpiCNYPwakmZ
+	KEIFaTumjzyJXPy+Ag0ln/NrKaMdsG7CzCxuOTWBZwyoc1apbHZvzOgu6YXX2W95fO7lQ19HvJqrH
+	ibgu2ulqw4HVyG0z8ZRJsCTjccBSjlFcPuwCSl9RieLqYi01sCaVHbLbfjlrkX92BEtRGMnsOlQHa
+	l+5HhvshLFVM2tEr++F7vthsxlFOnR7ZYalqFnI0j6bL8YoI4nWizYE3mgodZ+SBC5wERDII7zNMR
+	0YnPLsuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtRc-0000000GdIS-20CU;
-	Wed, 18 Dec 2024 12:46:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tNtSg-0000000GdQs-1cpO;
+	Wed, 18 Dec 2024 12:47:34 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtQV-0000000Gd7j-41jn;
-	Wed, 18 Dec 2024 12:45:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1734525915; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NWD2o+9Y7XDPF4C1vAR+dBWAxe1uQAAPjQDmSYMjZuU8EC2LfBfIprNY0WKeuCB8oA/8x0xhgzgQiZEF1EywjlzbOX6tsjwfwFpmZWfZwJcetsf+Axi4ygNhAKNdZKZxjM8KpC682HvGTmM/z3uwUBSpk+Tshfbc/lYeeTCoKlM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1734525915; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=THeGjzIRoDHBNZCDp/7M2lIPDvqr7tz6+xf8HWPd0n4=; 
-	b=NMIyfkCxiWBXCHQIoNTdHM9WwqNkLCtOUBMRM1Z957KqI2yrQKZUsTiOIIHKZn4rH/EolgipegR+Qp7kjxbLVxUG0hkbA8ta8t9ZjLCEedUvmK5Lj89kvV5WyCs/bcG/Da+YdNtgPPniWqukKW4zXx9O8Tomp5R+4/82jwhvPyI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
-	dmarc=pass header.from=<sebastian.fricke@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1734525915;
-	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=THeGjzIRoDHBNZCDp/7M2lIPDvqr7tz6+xf8HWPd0n4=;
-	b=Sz5HZNMGiW2T5vhTYWChnAEcC6+/LOv/e1prcDMIgl61a6yGkAMQD8CpbnsNVXDr
-	U5gfTpTrGTC4uK5kaACDmtbe6qgRYTS1ZaksAj9Wj/Dlp0Fh6LithWY39WtMMIvRSTx
-	MaTa023XAbsU56IL1zEx7Na8YO/vwsVOLRQcLKAM=
-Received: by mx.zohomail.com with SMTPS id 1734525913022316.05488947907077;
-	Wed, 18 Dec 2024 04:45:13 -0800 (PST)
-Date: Wed, 18 Dec 2024 13:45:05 +0100
-From: Sebastian Fricke <sebastian.fricke@collabora.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Arnd Bergmann <arnd@kernel.org>, Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH] media: mediatek: vcodec: mark
- vdec_vp9_slice_map_counts_eob_coef noinline
-Message-ID: <20241218124505.xwgsnpi2rvbngqvs@basti-XPS-13-9310>
-References: <20241018151448.3694052-1-arnd@kernel.org>
- <20241118200641.GA768549@thelio-3990X>
- <20241119110226.dbd54clp46klvjl5@basti-XPS-13-9310>
- <20241217174628.GA2654633@ax162>
+	id 1tNtRD-0000000GdCM-0Iqc;
+	Wed, 18 Dec 2024 12:46:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=TLJpu+b23LSwwdvL7n7XLGKUllrDriyC6Kq2l3Yieb8=; b=pZ1IiM/GepDBlm0BzCnzLzCJVS
+	3TV/p+VgoCYxMIjBPchJKO8Z/heOB3k1A9MhaR6+1FK6XaNs8lxNEhe1qWzjm2QvkxkPPVZCCxOBu
+	stQz1ybGI9V+vhkgK/G9RndtK3WZnpSiMcyK6Zlv9XmcdpZdHhdN023CUQYoGxEuNL2wEHS9KgpQk
+	w4Xf3CDWuSeLuDenMdS3LBNRRcxM6rWuvlivsuWmbHOVUx2sMRsIvsx+UgMKW/DIjUJDadPC0GtB1
+	VttAj5eE9fp63i42Q3OYcwgvy1Jajki7fZL+DRT0JUR3WaTqH2d8nn+1PqVyfnSGPZVGC8s1W5XKZ
+	x+Y0HQsg==;
+Received: from i53875bfb.versanet.de ([83.135.91.251] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tNtR5-0000QS-4R; Wed, 18 Dec 2024 13:45:55 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v2 11/11] arm64: dts: rockchip: Add nodes related to eDP1 for
+ RK3588
+Date: Wed, 18 Dec 2024 13:45:54 +0100
+Message-ID: <2173171.OBFZWjSADL@diego>
+In-Reply-To: <20241216031225.3746-12-damon.ding@rock-chips.com>
+References: <20241216031225.3746-1-damon.ding@rock-chips.com>
+ <20241216031225.3746-12-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20241217174628.GA2654633@ax162>
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_044520_058450_09A68524 
-X-CRM114-Status: GOOD (  32.32  )
+X-CRM114-CacheID: sfid-20241218_044603_113010_F51B8D1D 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Nathan,
+Hi Damon,
 
-On 17.12.2024 10:46, Nathan Chancellor wrote:
->Hi Sebastian,
->
->On Tue, Nov 19, 2024 at 12:02:26PM +0100, Sebastian Fricke wrote:
->> Hey Nathan,
->>
->> On 18.11.2024 13:06, Nathan Chancellor wrote:
->> > On Fri, Oct 18, 2024 at 03:14:42PM +0000, Arnd Bergmann wrote:
->> > > From: Arnd Bergmann <arnd@arndb.de>
->> > >
->> > > With KASAN enabled, clang fails to optimize the inline version of
->> > > vdec_vp9_slice_map_counts_eob_coef() properly, leading to kilobytes
->> > > of temporary values spilled to the stack:
->> > >
->> > > drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c:1526:12: error: stack frame size (2160) exceeds limit (2048) in 'vdec_vp9_slice_update_prob' [-Werror,-Wframe-larger-than]
->> > >
->> > > This seems to affect all versions of clang including the latest (clang-20),
->> > > but the degree of stack overhead is different per release.
->> > >
->> > > Marking the function as noinline_for_stack is harmless here and avoids
->> > > the problem completely.
->> > >
->> > > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
->> >
->> > Unfortunately, I have seen no moment on my upstream report and this
->> > warning is breaking allmodconfig builds because of -Werror. Can this be
->> > applied as a workaround for now (preferrably with a Cc: stable on it)?
->> >
->> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
->>
->> I'll handle it asap, it will be part of 6.13
->
->Is there any update here? I don't see this patch applied in -next.
+Am Montag, 16. Dezember 2024, 04:12:25 CET schrieb Damon Ding:
+> The related nodes are hdptxphy1_grf, hdptxphy1 and edp1. And the
+> aliases edp0 and edp1 are added to separate two independent eDP
+> devices.
+> 
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
+>  .../arm64/boot/dts/rockchip/rk3588-extra.dtsi | 55 +++++++++++++++++++
+>  1 file changed, 55 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+> index 0ce0934ec6b7..17cc0b619744 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+> @@ -7,6 +7,11 @@
+>  #include "rk3588-extra-pinctrl.dtsi"
+>  
+>  / {
+> +	aliases {
+> +		edp0 = &edp0;
+> +		edp1 = &edp1;
+> +	};
+> +
 
-I have sent out the PR and it has been applied to the -fixes branch in
-the media tree, due to the holiday period there might be some delays but
-I expect the change to soon land in Linux-next.
+drop aliases please
 
->
->Cheers,
->Nathan
 
-Regards,
-Sebastian
+> @@ -67,6 +72,11 @@ u2phy1_otg: otg-port {
+>  		};
+>  	};
+>  
+> +	hdptxphy1_grf: syscon@fd5e4000 {
+> +		compatible = "rockchip,rk3588-hdptxphy-grf", "syscon";
+> +		reg = <0x0 0xfd5e4000 0x0 0x100>;
+> +	};
+> +
+>  	i2s8_8ch: i2s@fddc8000 {
+>  		compatible = "rockchip,rk3588-i2s-tdm";
+>  		reg = <0x0 0xfddc8000 0x0 0x1000>;
 
->
->> > > ---
->> > > I have not come to a conclusion on how exactly clang fails to do this
->> > > right, but can provide the .config and/or preprocessed source files
->> > > and command line if we think this should be fixed in clang.
->> > > ---
->> > >  .../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c         | 3 ++-
->> > >  1 file changed, 2 insertions(+), 1 deletion(-)
->> > >
->> > > diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
->> > > index eea709d93820..47c302745c1d 100644
->> > > --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
->> > > +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
->> > > @@ -1188,7 +1188,8 @@ static int vdec_vp9_slice_setup_lat(struct vdec_vp9_slice_instance *instance,
->> > >  	return ret;
->> > >  }
->> > >
->> > > -static
->> > > +/* clang stack usage explodes if this is inlined */
->> > > +static noinline_for_stack
->> > >  void vdec_vp9_slice_map_counts_eob_coef(unsigned int i, unsigned int j, unsigned int k,
->> > >  					struct vdec_vp9_slice_frame_counts *counts,
->> > >  					struct v4l2_vp9_frame_symbol_counts *counts_helper)
->> > > --
->> > > 2.39.5
->> > >
->> >
-Sebastian Fricke
-Consultant Software Engineer
+> @@ -395,6 +434,22 @@ sata-port@0 {
+>  		};
+>  	};
+>  
+> +	hdptxphy1: phy@fed70000 {
+> +		compatible = "rockchip,rk3588-hdptx-phy";
+> +		reg = <0x0 0xfed70000 0x0 0x2000>;
+> +		clocks = <&cru CLK_USB2PHY_HDPTXRXPHY_REF>, <&cru PCLK_HDPTX1>;
+> +		clock-names = "ref", "apb";
+> +		#phy-cells = <0>;
+> +		resets = <&cru SRST_HDPTX1>, <&cru SRST_P_HDPTX1>,
+> +			 <&cru SRST_HDPTX1_INIT>, <&cru SRST_HDPTX1_CMN>,
+> +			 <&cru SRST_HDPTX1_LANE>, <&cru SRST_HDPTX1_ROPLL>,
+> +			 <&cru SRST_HDPTX1_LCPLL>;
+> +		reset-names = "phy", "apb", "init", "cmn", "lane", "ropll",
+> +			      "lcpll";
+> +		rockchip,grf = <&hdptxphy1_grf>;
+> +		status = "disabled";
+> +	};
 
-Collabora Ltd
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
-Registered in England & Wales no 5513718.
+the hdptxphy nodes should be their own patch, also because most likely
+Cristian's patch for hdmi1 [0] will be slightly faster.
+
+
+[0] https://lore.kernel.org/r/20241211-rk3588-hdmi1-v2-2-02cdca22ff68@collabora.com
+
+
+
 
