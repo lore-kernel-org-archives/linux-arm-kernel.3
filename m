@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DC8E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C7BBE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y+W7VROJYAKWesW0btuLtsny/5rudGPHx9yR2y+wyzo=; b=HbDntXTn3rseX2Fm5M75yJD3rs
-	AtVpnFIJZQ7sGhNIvv/6dL74S61jhwgzgj1tYtVEon+nuM5aiBpYZT0oGwvQE5qTToQr6+MIqVMTA
-	4t2DiTPQVBBp24qRxRjJBctpuO46bpvyo2XsuzRlSXFbBcsP3lpBP/mCZdz9YOV7K81W2mOABT1Rv
-	KBIZ23anBESgMRy1Q6Ne0EMfOAGGuHG+RD9JhZEm2Mv0bOmXs2xY5nTAJU2B5LefseMbvBkXXZjTN
-	7aow9NcSTB1CohwwvuSwk8N9wsCzfPlGsYBRsOOMcuixi5dRGiJJj6agkDvnlrX9FO4ICpxyihOKH
-	W9WVH3qw==;
+	bh=WK1PKmsLdMHmuIS4oNCU1BzF7ljmQDQFxfjOUdX1gH4=; b=rZzDmXfARSo+/aAQaWOBiOEOTo
+	ncPmDgLfp5DAvMN2t75WXIiE51ZTqyzTM5ZokBclLIlfGqIj8yYYjxkW6okHJZj8SV7YdXaKy4epi
+	rBNZh9sfIQwh3ig8aIwwjlCmUK0xtNNbmrfwK/PduBRUA7q9EjGypiPIDvNlO32fCqxJuOQaPHYmQ
+	qtHoQMsqGrep1UlWPTMRiHeHoBa4CPpThrP7fFtTIwtWPpqhwu98ygTj6uNsyMj5HPU0ojOWsJMZt
+	em7QVZSjlua3JGGhw14nPL4VkNoPVLvvFLlfvfnDbMLcwqCU0SnjSfZcPSIYcHDD85VnE/Px4HAUW
+	xSM9IssQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsAt-0000000GRb0-2bhM;
-	Wed, 18 Dec 2024 11:25:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tNsDv-0000000GSB0-44p4;
+	Wed, 18 Dec 2024 11:28:15 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrAB-0000000GEYK-0mjQ;
-	Wed, 18 Dec 2024 10:20:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Y+W7VROJYAKWesW0btuLtsny/5rudGPHx9yR2y+wyzo=; b=qd+WfcHOCwTPnnDR34QoHWF/x7
-	ZiOcQ54IhjQN/JspesBSvILNr2BUqBnkndO4OfaEGMgxL4QFiCL8Jvb2vasBi9JsjxzcPa39/OheN
-	LnyxvWC3IbHEBDYrLsnetkdGZpVlAViQciR4e+/UUMF53isrmPfqTeJPvsd7rGSnjYUZBtkhvlTx1
-	UM2QANC7awSY72XKzfI8IYXeNQhJHHUALyvi6qVE6aza+uVv70ZuCRvUjdLU28QNrPXTQa3CFl/fO
-	gSENNHjANgipzu+sYHSNgwCyK6RymWvFMbaVEMR6B8owDOOSwtDiy6EQco1Oc8SZtFloB2in4MT04
-	NBmVjblg==;
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrA8-00000005EXv-0rJ0;
-	Wed, 18 Dec 2024 10:20:17 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4YCqSD111Vz9sPd;
-	Wed, 18 Dec 2024 11:20:12 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id gKpioB5BCG2d; Wed, 18 Dec 2024 11:20:12 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4YCqSC6pM5z9rvV;
-	Wed, 18 Dec 2024 11:20:11 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id CC0DD8B770;
-	Wed, 18 Dec 2024 11:20:11 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id ffiwrVR0qIrj; Wed, 18 Dec 2024 11:20:11 +0100 (CET)
-Received: from [10.25.209.139] (unknown [10.25.209.139])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 1D2408B763;
-	Wed, 18 Dec 2024 11:20:11 +0100 (CET)
-Message-ID: <e69b2927-b415-4e16-a346-8d874c9a8b39@csgroup.eu>
-Date: Wed, 18 Dec 2024 11:20:10 +0100
+	id 1tNsCp-0000000GS0c-1xxs
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 11:27:09 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI6oHKX032719;
+	Wed, 18 Dec 2024 12:26:55 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	WK1PKmsLdMHmuIS4oNCU1BzF7ljmQDQFxfjOUdX1gH4=; b=ckUmMP0WTEqzQtDp
+	w8KlcXYffhEfhJxZVedYAeqoFU9W4nL4m7zqd07ylW9k2dkllV3ijQqXafgKYn+d
+	xSRtLs11MJEI7qM4f3AkWc2wxTuePPfTGLJMXkHaIdP65zPzjbbQmQtY6Ms8w/LR
+	YIu9V8Gi/AjzcP/Fq0fPAz2XDy7dVFg5IjCIGa6MxQ3F+vAHWCz3sU6iXH3rPIfC
+	fY29qHXoygRkggYOgp60pV2lyo3/4oV2IYHiWlTEYmU+axWa+8LKOSR5MJtSznKw
+	dt45aoxICs9uAsc6YcHkt07stpJsAJkkV7OPvfHfgq4b5uU9FqDh4rxwoaRmPrYh
+	SvMrBg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43ksfrh79w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Dec 2024 12:26:54 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B5B6840048;
+	Wed, 18 Dec 2024 12:25:29 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 42FCB26C440;
+	Wed, 18 Dec 2024 12:24:23 +0100 (CET)
+Received: from [10.129.178.212] (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Wed, 18 Dec
+ 2024 12:24:22 +0100
+Message-ID: <d15cec4e-e06a-47f7-aa8a-744c0829d244@foss.st.com>
+Date: Wed, 18 Dec 2024 12:24:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/17] powerpc/vdso: Switch to generic storage
- implementation
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anna-Maria Behnsen <anna-maria@linutronix.de>,
- Frederic Weisbecker <frederic@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Theodore Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
-References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
- <20241216-vdso-store-rng-v1-12-f7aed1bdb3b2@linutronix.de>
- <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 2/5] PCI: stm32: Add PCIe host support for STM32MP25
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <cassel@kernel.org>,
+        <quic_schintav@quicinc.com>, <fabrice.gasnier@foss.st.com>,
+        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20241126155119.1574564-1-christian.bruel@foss.st.com>
+ <20241126155119.1574564-3-christian.bruel@foss.st.com>
+ <20241203145244.trgrobtfmumtiwuc@thinkpad>
+ <ced7a55a-d968-497f-abc2-663855882a3f@foss.st.com>
+ <20241218094606.sljdx2w27thc5ahj@thinkpad>
+Content-Language: en-US
+From: Christian Bruel <christian.bruel@foss.st.com>
+In-Reply-To: <20241218094606.sljdx2w27thc5ahj@thinkpad>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_102016_456631_42685E30 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20241218_032708_042528_73848E6B 
+X-CRM114-Status: GOOD (  29.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,91 +103,194 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
->>   #ifdef CONFIG_TIME_NS
->> -static __always_inline
->> -const struct vdso_data *__arch_get_timens_vdso_data(const struct 
->> vdso_data *vd)
->> +static __always_inline const struct vdso_time_data 
->> *__ppc_get_vdso_u_timens_data(void)
->>   {
->> -    return (void *)vd + (1U << CONFIG_PAGE_SHIFT);
->> +    struct vdso_time_data *time_data;
->> +
->> +    asm(
->> +        "    bcl    20, 31, .+4\n"
->> +        "0:    mflr    %0\n"
->> +        "    addis    %0, %0, (vdso_u_timens_data - 0b)@ha\n"
->> +        "    addi    %0, %0, (vdso_u_timens_data - 0b)@l\n"
->> +    : "=r" (time_data) :: "lr");
->> +
->> +    return time_data;
+On 12/18/24 10:46, Manivannan Sadhasivam wrote:
+> On Mon, Dec 16, 2024 at 10:00:27AM +0100, Christian Bruel wrote:
 > 
-> Please don't do that, it kills optimisation efforts done when 
-> implementing VDSO time. Commit ce7d8056e38b ("powerpc/vdso: Prepare for 
-> switching VDSO to generic C implementation.") explains why.
+> [...]
 > 
-> For time data, the bcl/mflr dance is done by get_datapage macro called 
-> by cvdso_call macro in gettimeofday.S, and given to 
-> __cvdso_clock_gettime_data() by __c_kernel_clock_gettime() in 
-> vgettimeofday.c . Use that information and don't redo the bcl/mflr 
-> sequence.
+>>>
+>>>> +		msleep(PCIE_T_RRS_READY_MS);
+>>>> +
+>>>> +	return ret;
+>>>> +}
+>>>> +
+>>>> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
+>>>> +{
+>>>> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+>>>> +
+>>>> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+>>>> +			   STM32MP25_PCIECR_LTSSM_EN, 0);
+>>>> +
+>>>> +	/* Assert PERST# */
+>>>> +	if (stm32_pcie->perst_gpio)
+>>>> +		gpiod_set_value(stm32_pcie->perst_gpio, 1);
+>>>
+>>> I don't like tying PERST# handling with start/stop link. PERST# should be
+>>> handled based on the power/clock state.
+>>
+>> I don't understand your point: We turn off the PHY in suspend_noirq(), so
+>> that seems a logical place to de-assert in resume_noirq after the refclk is
+>> ready. PERST# should be kept active until the PHY stablilizes the clock in
+>> resume. From the PCIe electromechanical specs, PERST# goes active while the
+>> refclk is not stable/
+>>
 > 
-> See for instance function __c_kernel_clock_getres():
+> While your understanding about PERST# is correct, your implementation is not.
+> You are toggling PERST# from start/stop link callbacks which are supposed to
+> control the LTSSM state only. I don't have issues with toggling PERST# in
+> stm32_pcie_{suspend/resume}_noirq().
+
+Ah OK. this function is split now into 2 functional blocks in the 
+upcoming version
+
 > 
-> Before your series it is 30 instructions.
-> After your series it is 59 instructions.
+>>
+>>>
+>>>> +}
+>>>> +
+>>>> +static int stm32_pcie_suspend(struct device *dev)
+>>>> +{
+>>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>>>> +
+>>>> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
+>>>> +		enable_irq_wake(stm32_pcie->wake_irq);
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static int stm32_pcie_resume(struct device *dev)
+>>>> +{
+>>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>>>> +
+>>>> +	if (device_may_wakeup(dev) || device_wakeup_path(dev))
+>>>> +		disable_irq_wake(stm32_pcie->wake_irq);
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static int stm32_pcie_suspend_noirq(struct device *dev)
+>>>> +{
+>>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>>>> +
+>>>> +	stm32_pcie->link_is_up = dw_pcie_link_up(stm32_pcie->pci);
+>>>> +
+>>>> +	stm32_pcie_stop_link(stm32_pcie->pci);
+>>>
+>>> I don't understand how endpoint can wakeup the host if PERST# gets asserted.
+>>
+>> The stm32 PCIe doesn't support L2, we don't expect an in-band beacon for the
+>> wakeup. We support wakeup only from sideband WAKE#, that will restart the
+>> link from IRQ
+>>
+> 
+> I don't understand how WAKE# is supported without L2. Only in L2 state, endpoint
+> will make use of Vaux and it will wakeup the host using either beacon or WAKE#.
+> If you don't support L2, then the endpoint will reach L3 (link off) state.
+
+I think this is what happens, my understanding is that the device is 
+still powered to get the wakeup event (eg WoL magic packet), triggers 
+the PCIe wake_IRQ from the WAKE#.
+
+> 
+>>>
+>>>> +	clk_disable_unprepare(stm32_pcie->clk);
+>>>> +
+>>>> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev))
+>>>> +		phy_exit(stm32_pcie->phy);
+>>>> +
+>>>> +	return pinctrl_pm_select_sleep_state(dev);
+>>>> +}
+>>>> +
+>>>> +static int stm32_pcie_resume_noirq(struct device *dev)
+>>>> +{
+>>>> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+>>>> +	struct dw_pcie *pci = stm32_pcie->pci;
+>>>> +	struct dw_pcie_rp *pp = &pci->pp;
+>>>> +	int ret;
+>>>> +
+>>>> +	/* init_state must be called first to force clk_req# gpio when no
+>>>
+>>> CLKREQ#
+>>>
+>>> Why RC should control CLKREQ#?
+>>
+>> REFCLK is gated with CLKREQ#, So we cannot access the core
+>> without CLKREQ# if no device is present. So force it with a init pinmux
+>> the time to init the PHY and the core DBI registers
+>>
+> 
+> Ok. You should add a comment to clarify it in the code as this is not a standard
+> behavior.
 > 
 
-It is even more obvious with __c_kernel_time()
+OK
 
-Before your series it has 12 instructions,
-After your series it has 26 instructions.
+>>>
+>>> Also please use preferred style for multi-line comments:
+>>>
+>>> 	/*
+>>> 	 * ...
+>>> 	 */
+>>>
+>>>> +	 * device is plugged.
+>>>> +	 */
+>>>> +	if (!IS_ERR(dev->pins->init_state))
+>>>> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+>>>> +	else
+>>>> +		ret = pinctrl_pm_select_default_state(dev);
+>>>> +
+>>>> +	if (ret) {
+>>>> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
+>>>> +		return ret;
+>>>> +	}
+>>>> +
+>>>> +	if (!device_may_wakeup(dev) && !device_wakeup_path(dev)) {
+>>>> +		ret = phy_init(stm32_pcie->phy);
+>>>> +		if (ret) {
+>>>> +			pinctrl_pm_select_default_state(dev);
+>>>> +			return ret;
+>>>> +		}
+>>>> +	}
+>>>> +
+>>>> +	ret = clk_prepare_enable(stm32_pcie->clk);
+>>>> +	if (ret)
+>>>> +		goto clk_err;
+>>>
+>>> Please name the goto labels of their purpose. Like err_phy_exit.
+>>
+>> OK
+>>
+>>>
+>>>> +
+>>>> +	ret = dw_pcie_setup_rc(pp);
+>>>> +	if (ret)
+>>>> +		goto pcie_err;
+>>>
+>>> This should be, 'err_disable_clk'.
+>>>
+>>>> +
+>>>> +	if (stm32_pcie->link_is_up) {
+>>>
+>>> Why do you need this check? You cannot start the link in the absence of an
+>>> endpoint?
+>>>
+>>
+>> It is an optimization to avoid unnecessary "dw_pcie_wait_for_link" if no
+>> device is present during suspend
+>>
+> 
+> In that case you'll not trigger LTSSM if there was no endpoint connected before
+> suspend. What if users connect an endpoint after resume?
 
-Before
+Yes, exactly. We don't support hotplug, and plugging a device while the 
+system is in stand-by is something that we don't expect. The imx6 
+platform does this also.
 
-00001408 <__c_kernel_time>:
-     1408:	81 44 00 04 	lwz     r10,4(r4)
-     140c:	6d 49 80 00 	xoris   r9,r10,32768
-     1410:	2c 09 ff ff 	cmpwi   r9,-1
-     1414:	40 82 00 08 	bne     141c <__c_kernel_time+0x14>
-     1418:	38 84 40 00 	addi    r4,r4,16384
-     141c:	2c 03 00 00 	cmpwi   r3,0
-     1420:	81 44 00 20 	lwz     r10,32(r4)
-     1424:	81 64 00 24 	lwz     r11,36(r4)
-     1428:	41 82 00 08 	beq     1430 <__c_kernel_time+0x28>
-     142c:	91 63 00 00 	stw     r11,0(r3)
-     1430:	7d 63 5b 78 	mr      r3,r11
-     1434:	4e 80 00 20 	blr
+thanks,
 
-Versus after
+Christian
 
-00001534 <__c_kernel_time>:
-     1534:	81 44 00 04 	lwz     r10,4(r4)
-     1538:	6d 49 80 00 	xoris   r9,r10,32768
-     153c:	2c 09 ff ff 	cmpwi   r9,-1
-     1540:	41 82 00 20 	beq     1560 <__c_kernel_time+0x2c>
-     1544:	2c 03 00 00 	cmpwi   r3,0
-     1548:	81 44 00 20 	lwz     r10,32(r4)
-     154c:	81 64 00 24 	lwz     r11,36(r4)
-     1550:	41 82 00 08 	beq     1558 <__c_kernel_time+0x24>
-     1554:	91 63 00 00 	stw     r11,0(r3)
-     1558:	7d 63 5b 78 	mr      r3,r11
-     155c:	4e 80 00 20 	blr
-     1560:	7c 08 02 a6 	mflr    r0
-     1564:	2c 03 00 00 	cmpwi   r3,0
-     1568:	90 01 00 04 	stw     r0,4(r1)
-     156c:	42 9f 00 05 	bcl     20,4*cr7+so,1570 <__c_kernel_time+0x3c>
-     1570:	7c 88 02 a6 	mflr    r4
-     1574:	3c 84 ff ff 	addis   r4,r4,-1
-     1578:	38 84 2a 90 	addi    r4,r4,10896
-     157c:	81 44 00 20 	lwz     r10,32(r4)
-     1580:	81 64 00 24 	lwz     r11,36(r4)
-     1584:	41 82 00 08 	beq     158c <__c_kernel_time+0x58>
-     1588:	91 63 00 00 	stw     r11,0(r3)
-     158c:	80 01 00 04 	lwz     r0,4(r1)
-     1590:	7d 63 5b 78 	mr      r3,r11
-     1594:	7c 08 03 a6 	mtlr    r0
-     1598:	4e 80 00 20 	blr
-
-Christophe
+> 
+> - Mani
+> 
 
