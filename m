@@ -4,147 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0A2E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C3A9E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/09/AHRuJVVRdfTLw0aOEa1Xn5ripWpsZ9vYWP8fYs=; b=PyEdP23VPfGnqhKQONnAtuz0my
-	46+XZ5ZHAmL89/uADmJISooTbhxKOEy55PW0e34dHnZD7qIWcRN6iZ+H56dJ8GVOdfhy/aKhqPkro
-	7nk01UghUQgTppRWblxzkSipAj2g3J7/yCAULh2UDjCw7sCIJf67dTYQ0JgYaSawQkWop+MHIF2vX
-	zyChEQc+IoAYLXDRpLabu2vWBgBPTYnPSFPnqOoCB1gOZQsDUmpKcXupultyVnVG14cXzY2i1kiI1
-	0Fd/oejo2zUJ8uQRsspD6Bzl6xzG7NRWv0Q6luCsKolySFzaGBH0rUIZy3iwkVzdKAAurzc6GvJ8S
-	nBovkjjw==;
+	bh=2ueKj3h38cfe5YF1eTqzn14hj6GmSLfrktwP6VjHJ2A=; b=zgyo0XFQw+xNKdEKReMZF9ni8y
+	uBgtR/GaVNgISp9e85quF1L5AW7OvjMU6NIUC0v8BE2LbjKO+Yu+9dC0JwQ1GfSBx5mjtVlqwEGMX
+	NEy8UZ2cDOds31HkdFrLCz+e7io9F1BbAOKS9KMLbVyg+8MKVUCMNfN8xLTZKaPI0CgICIrRnIVyN
+	m06UhryCiwg2kAIk0JMZjvf7d4OMjLrn2oIKU6rkdJcMBKLQK3nbZtFL3q7M3T9GcacUdDV+6mqT/
+	RUXWDpypnwf5KyPLziOa4vW3fn7iTbwrOaQ3zK/q+IZzjCKNyqBcchM1RIrRYRs8WwMb+AZ2nEjgk
+	ULVPZiQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzSN-0000000HVqP-04vR;
-	Wed, 18 Dec 2024 19:11:39 +0000
-Received: from mail-am6eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2612::60f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tNzYF-0000000HWGi-0RxZ;
+	Wed, 18 Dec 2024 19:17:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzRF-0000000HVgt-3NKO
+	id 1tNzX8-0000000HWAf-2uZ3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 19:10:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JST8lDzZcvtG5MIGQQUfII58TXx62tPkfNq9ahcPpB1eYOUFYqwIfmyQPPgVnUkZrbbrcOdjzqZNc6sMKU3QlXYQ9ShetPU0VbjoKX+kTV8m/4U4Xz8+hUMEjjMdRbjneAjjvgEe9ucH8JAwUAl2I9iHyanivW+g5OBuo8NTAcuxuTp2GllucP/6HrRnz9GzEyTyt3HwCYuQMk0Pyv7vnaivEhZADoO+cTOVO1vvRrthN+PphJ/Rjuie40uvXrbIlk6JsPQuyCJcNmSEwrMnDCk1NlR+NMum1PPS7i82A3/FZV9YV4vwRXDtCzzC6iJC5k2s/+7tqHkgrknNuV3AzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t/09/AHRuJVVRdfTLw0aOEa1Xn5ripWpsZ9vYWP8fYs=;
- b=y+HzjsByU/UpHaS7kDyPo+nvMx8VvtY7fEWLW4Z2rVQ7J35f3p8VFahK1kqmLyYcn3vM7OYAdRsiVODv49LsET/JmotvFGSszLDAOvF2mzWeeSyYOMjnXyDgDaqZqkxmulftgWtqP40g2jeiW9o+sF5IpchstrUYRE4fwu7j3B2JVg+6E8tbVUiqWnkMZlWdsgqrK1GEquzyRD/SEPH2eOO6vN30SYnlNYMYzX5dDR0VOMTVNr0sI0phP+1aFiGnk7hMh+rxW7UPAyZUzySban1Znp4ZFSM/SAALoJc8/N3IT4Bp9EvhwgtnVfUPhnPIyRWW2DnD9jMBRQA1eTY4jg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t/09/AHRuJVVRdfTLw0aOEa1Xn5ripWpsZ9vYWP8fYs=;
- b=kTtYtRoBVGu1rK6i3DNnQIXPihvFYUzYVCP4ns4UaQeHtUVTGQ7N8oDb9MfKoivybOd4TNGzKKwe4OBphF9kGFF5f6EF650DeAOwFTV2cKAWxa4pJcyjV7cs1sRSixIwNTdYwIROAhlDE1G0ZUxTCBVNRJ9yhz9D0frEdXfKjkUHnIJ8T+vIsOrgjDSu5olaE5uT2RWDsaWGfmYdKxVswIdZJgXsYra18UF/bYyNkcs2oYVE22XhPZ8VKGkx1oN1wcGOQfIDqmkofEq8AODsXAI0rz8KukZqppA5a7IrVkd1gomhIexJG4K3K5HkFjqMJ9stDKnmdX8P6OFb7+Vngg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB8PR04MB6907.eurprd04.prod.outlook.com (2603:10a6:10:119::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Wed, 18 Dec
- 2024 19:10:23 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Wed, 18 Dec 2024
- 19:10:22 +0000
-Date: Wed, 18 Dec 2024 14:10:14 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: andi.shyti@kernel.org, o.rempel@pengutronix.de, kernel@pengutronix.de,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Haibo Chen <haibo.chen@nxp.com>
-Subject: Re: [PATCH v3] i2c: imx: add imx7d compatible string for applying
- errata ERR007805
-Message-ID: <Z2MeFp8sDfDlqrOc@lizhi-Precision-Tower-5810>
-References: <20241218044238.143414-1-carlos.song@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241218044238.143414-1-carlos.song@nxp.com>
-X-ClientProxiedBy: BY5PR04CA0001.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 18 Dec 2024 19:16:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 564DDA40837;
+	Wed, 18 Dec 2024 19:14:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E1DFC4CECD;
+	Wed, 18 Dec 2024 19:16:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734549393;
+	bh=hMHHPgD+Q5TTWWhgNt+yZVrZ1As+Nx1lYcDU7z4dqus=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EKkS0CwMwa3KIYYecmq4E5W+qExO80uJ+SLr0SM103IkZ4HXSz37aKmGlkigkv/nW
+	 Azr8Y9JxygnbptIt/gbrDY2MEJZFo4e9T7e2eQwHol2kYf1xq8OcI0Rs3SN2FXYFDE
+	 7Oy2oXLEbd0l7F1vDgmYHGNF5/FFBfG+r0fo9mCTHw2ZWHNbc8ekj2/US+qktTTpJD
+	 E7LsLZSvga7RS8wc0Ykdl2cLc1ri9O0mIPI0fAOFzUJBy6ZVGltJRuWNqHnm2ISBcV
+	 XcZKtgKCt5hoOg6mfTjtPeSnaRvY78hfYe1O/m5Bk/Nh30rD/DOKz9l/YGEA+1WLaB
+	 UR0vvKQ+hKusQ==
+Date: Wed, 18 Dec 2024 13:16:31 -0600
+From: Rob Herring <robh@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 3/4] arm64: dts: exynos: gs101-oriole: move common Pixel6
+ & 6Pro parts into a .dtsi
+Message-ID: <20241218191631.GA1837559-robh@kernel.org>
+References: <20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org>
+ <20241216-gs101-simplefb-v1-3-8ccad1830281@linaro.org>
+ <fw2a6taf4kd3sggmyppeym2uxkuyotxy7ugj3bh73vetnra4m6@jllekadordju>
+ <6e22585f8d374f8e26a2a51153680041ad8b1bea.camel@linaro.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB6907:EE_
-X-MS-Office365-Filtering-Correlation-Id: c505c7b2-24db-48b3-1fa1-08dd1f979ef7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MWxLtB/RfAzoXU69yimt3Zzb6QFSYKHn78EcTPZiM3r8dSTQDvclM7nAdypl?=
- =?us-ascii?Q?Pu3h1uem2gDzZXbZoXBoSPY410vVU+37qgPWdvrgShRSZ/ukgmm3xxAPYv/l?=
- =?us-ascii?Q?5tM0HYwnHX0/UD+pO78FVcMw5jYMaDiF6xTxE55f1Zyd3QDvKDa3nXtQyUD4?=
- =?us-ascii?Q?CsmRlSUJXyCmFWzDhXpcwTt41S1NVIX0P89Sceocu2OtI+5bb6qybhbPbrH6?=
- =?us-ascii?Q?2UmRbScdIDj1H/C54YpctO+bfnBm9RuCCFngBplB8+hAE+IEQJMOAw3rh+Io?=
- =?us-ascii?Q?5iSpKbDbufYmERrkEZYsbNU1eQhvgYRfBQn/A43ooJ1pBdM+AdAHCg1bT+Vy?=
- =?us-ascii?Q?nX+/RpG+9JhsK7lZaViAbFtpqHGBlvylzeXNVOMu9vYHgWLZ3SsO+5C5zk0b?=
- =?us-ascii?Q?f7bso2HhyH8yGhI9KxEEaiDvLEgMtOp+Ph1axvtFvLdN1Mun1f6veH/JWwgQ?=
- =?us-ascii?Q?KRQ+53Kijfvj5CnmU+9/RPGiuXG/BbTfOl+rUgaSIxq5vE2okzay+2pygqqS?=
- =?us-ascii?Q?6I2QFUKsr+UrRMvqyaL39BBTcuJqOc+eP3auW027koNG8KRwdGEbsOPGW0GT?=
- =?us-ascii?Q?r6jHVOQ26aYgkjszAZx1J3p0rgGrM9YPu/1CIsRKofMXA4SBPW32LR+gP36S?=
- =?us-ascii?Q?n0xM4Ewi2SQgOrGTG2oQlcQSVDfxDacIcaE7JnLF4HIOtlcJitcXxkTLj5Jj?=
- =?us-ascii?Q?VXsMiGcVIJtLWbWshu3OnJXvZEbx1rc85zZYXnknW3NriTlb6OVG85hZ9gAO?=
- =?us-ascii?Q?5iQOjqGVJK1QC3JkLuU/CGG6NWdGfUrtt28XQ0Jk6SRwu77wGSBhsyIEwyS4?=
- =?us-ascii?Q?7yzf2Wk8siZ00SloH6mJ5StcMqmGEZcDTg9yZzu0F/xHmyB26pIdMuYY9CGL?=
- =?us-ascii?Q?fcoCehbw47MaPFXRwfaGUsx5uIwcdjzofKcj2NGCuztUTwaJEq/NrBYeCADE?=
- =?us-ascii?Q?QnYIx3Y0zFIdkGxnCyNr5qbk0luEQ4rufCpdzuD7s/emZe2av3x0UlwDi3jY?=
- =?us-ascii?Q?OyoJ7zfVlyA0ysRyNELLyQFuAh3GZDjYrQiKkCyV9hGjSztPHoMmOf87UkZc?=
- =?us-ascii?Q?SJ/VZFE+4fmFD4LInyhzY9atMyjzhj6xhnMRqgf+DUatmNUflTFGpfelj9hY?=
- =?us-ascii?Q?z2NXZsUvDBj6KD7Qn2VDFJXXwyfY+eFuu2lJ4Y08YIUVTOALmZ2bRH7is2nZ?=
- =?us-ascii?Q?pvDQiVeUSZfq2ioYEgEoz3S9xQbdjaRm+rCBvWsV3I5/6NgRcXyNtDTNAfSD?=
- =?us-ascii?Q?ACn/7X3ehAXX0H+NC50S13T7GUCel0LaHQU/FhzzDsSHeevtOLQdyvstNfwj?=
- =?us-ascii?Q?3PPJLWVXsVCo2x9lhvliXnuX+4myQQwMl9+RHS4LGAq461ZKgZqvIn9M1lW/?=
- =?us-ascii?Q?OLJeRDlnqU55BWXs/r9tmPu5J0XgCIyI/Cg7LNYy7Ib+zzHeKWVPzf9EWYj6?=
- =?us-ascii?Q?ujgX9kRPWdm+cmrPIjl3GPwHqXNgxm+M?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GKtHfioYmuWrMhMypTa0JIrwetY8ck8afC5nrNkiYjd5K1EB+5lLNSnbeanY?=
- =?us-ascii?Q?6bM7Puz2vStC68YwqmlYvj4mos9fFkrBBmPmleqSVVCDnz7Ajdzfx7gEiQ9L?=
- =?us-ascii?Q?/WoeLQBNKdE0fMiLFsc+996Z3n9P0Oq3K87uRUvBrxBBJLONVj4wCCAtGI6S?=
- =?us-ascii?Q?s0q3F7yiuNJiuRcT6mqad2snEmFPRKFMcAmq4qJdF6dSRCTtTsiDXDwWUdnM?=
- =?us-ascii?Q?MVW0NFrBXFHp1yXrXT2Wf2AyTQvxFDzmSmFaYMbVGQRC83DbHkhM6FALDIDz?=
- =?us-ascii?Q?MDeiZbB0Hm6CLM+umNtWOCaE8y0rDHFA7+fdDKREnJWsZ0ER/vHUd8RdBypI?=
- =?us-ascii?Q?HmlLN8FLjOSYao585emqhcjVUfi6cpcXQG+8Bq+0choW3A6lpTIpIh8v6xyZ?=
- =?us-ascii?Q?1OLjK7qR+IiqOm7vnabtf4WB4GLht+INAVzTUKKchrPZ1LzyHpT1r8Dwug6X?=
- =?us-ascii?Q?+N3t/60tWdGg9ejgPIDDFqio4wgebFj3BnnC7V2VsDlu8V5V7TfPaO/92jC1?=
- =?us-ascii?Q?sxN6WHLvdp90oZ+PHuuFOg2uHYasdJylOB86JrCeHbFJsGwKm5WgDN3jPQ1v?=
- =?us-ascii?Q?vHzchLPB6R41jT9nDYKWPIf5ggzHfTOarl2JL+o7vK/zrsA+yxQHXk5kBk5O?=
- =?us-ascii?Q?MDLwVdOjKqq8sJKIv4iUoofX5pAdHe962Cjax9FuhDQ8p6p9F6hpmZ5rECwg?=
- =?us-ascii?Q?OIxZbtp+ShArD2oknIM/PnR7O8pbs/CobM3DHkT5uwUPWFrEmGHnDPLUSnpm?=
- =?us-ascii?Q?lIYer+845okI2TLdBfusqCi0fd8JwnPUFgs2sS4Zt/Cf56UhEwNtBt1wynUY?=
- =?us-ascii?Q?irXRaifR/Xe2VtqYvv3FzJSQCrryhn2FFl/OLOLF8p0oAY+6LSmbltJT+aAD?=
- =?us-ascii?Q?Ui2shRmgJzVnh4fuP1FrFicDGI9170NZDhd9UhwfFgBDpxjJ3TIrpJKuYPEk?=
- =?us-ascii?Q?GLnb3O8BhmK10jscUSOGN3enDYUX+wPTVcOEce2n/djjGTOg1vVr9XoOHag8?=
- =?us-ascii?Q?3pr+65jFWYVEjyrodnCOb1HQprGNyOT+U3LAYj847x/Cy0GsjDsmFDJsMvDR?=
- =?us-ascii?Q?kUqVXAefy+PWN/7iD4grE5j+d6EsRHX+szYzF4FAYJ8p3XK/fc1YeO4MVQrU?=
- =?us-ascii?Q?n8kI14uDg/aFXzX77AcFFKE8dHNBETr6wK8dnbuwSluJNFtYBzrfkH6+Ak/m?=
- =?us-ascii?Q?ojh0eKknCFnqi/mxkpg2Car6AR+bDWsauD7egteIuIo2vMVbwkmjqZayi75E?=
- =?us-ascii?Q?oylLBAfU1VRrqBkbiR4FQJBHEoLi13gb1DdYU2XUOq6Xt8CzKOSrmcR+marw?=
- =?us-ascii?Q?i9J8mFSaCkHJUO1FaclJR3mkRmLV1veQZwDDczBCmIVPW6yJh21M+FMOH1cc?=
- =?us-ascii?Q?6bZxevstuYFwiVwSCrnzDK5hzxHn9Ls5LILLaymHWOznKE8D9rUdWYSp+hjD?=
- =?us-ascii?Q?lOLk0eccdb3ac/OvHTVv3zM7Ew2zrnERb8fCxPEIQDZC4gv0SoPWgctbLRMw?=
- =?us-ascii?Q?XATiJNtC1rhTOkza5ZrASwjLbuh9wh1Bmp1a1uy/T8aWCm6QLKzo0zP8ADCn?=
- =?us-ascii?Q?zZyq+wfridrtyyx1IPg=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c505c7b2-24db-48b3-1fa1-08dd1f979ef7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 19:10:22.6163
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xaLCNQ2ARwdiWrvGX5A6ubeDUqmYAovSK7InHrmSjUHIMwSx6e3y1cmFnhvwPdJsNQeMohAvNx/umgEmjqvnCw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6907
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6e22585f8d374f8e26a2a51153680041ad8b1bea.camel@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_111030_011273_8F08E01B 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20241218_111634_801922_59B22A45 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,50 +84,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024 at 12:42:38PM +0800, Carlos Song wrote:
-> Compatible string "fsl,imx7d-i2c" is not exited at i2c-imx driver
-> compatible string table, at the result, "fsl,imx21-i2c" will be
-> matched, but it will cause errata ERR007805 not be applied in fact.
->
-> So Add "fsl,imx7d-i2c" compatible string in i2c-imx driver to apply
-> the errata ERR007805(https://www.nxp.com/webapp/Download?colCode=
-> IMX7DS_2N09P).
->
-> "fsl,imx7d-i2c" already is documented in binding doc. This errata
-> fix has been included in imx6_i2c_hwdata and it is the same in all
-> I.MX6/7/8, so just reuse it.
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+On Tue, Dec 17, 2024 at 08:34:50AM +0000, André Draszik wrote:
+> On Tue, 2024-12-17 at 08:38 +0100, Krzysztof Kozlowski wrote:
+> > On Mon, Dec 16, 2024 at 01:06:28PM +0000, André Draszik wrote:
+> > > In order to support Pixel 6 (Oriole) and Pixel 6 Pro (Raven) properly,
+> > > we have to be able to distinguish them properly as we add support for
+> > > more features.
+> > > 
+> > > For example, Raven has a larger display. There are other differences,
+> > > like battery design capacity, etc.
+> > > 
+> > > Move all the parts that are common for now into a gs101-raviole.dtsi,
+> > > and just leave the display related things in gs101-oriole.dts.
+> > > 
+> > > Raviole was chosen as the name because Google uses that when referring
+> > > to the combination of Oriole & Raven, keeping the familiar terminology.
+> > > 
+> > > Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> > > 
+> > > ---
+> > > Note: MAINTAINERS doesn't need updating, it covers this whole directory
+> > > ---
+> > >  arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 290 +-------------------
+> > >  .../boot/dts/exynos/google/gs101-raviole.dtsi      | 297 +++++++++++++++++++++
+> > >  2 files changed, 305 insertions(+), 282 deletions(-)
+> > > 
+> > 
+> > This looks like move of the code, so -M/-B/-C format patch arguments
+> > would create better diff.
+> 
+> Ah, yes, forgot about those when I switched to using b4 instead of
+> custom scripts...
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+If b4 does not do that by default, then it should set the option. One 
+less thing to get right for users. I sent a patch for that.
 
-> ---
-> Change for V3:
-> - No ACK, so resend this patch.
-> Change for V2:
-> - I have tried to fix this issue at imx7s.dtsi in V1, according to
->   the community suggestion, I make V2 patch for i2c-imx driver to
->   avoid updating the FDT to fix an errata. Discussion in V1:
->   Subject: [PATCH] ARM: dts: imx7s: change i2c compatible string for applying errata ERR007805
->   Message-ID: <20241021031148.2682015-1-carlos.song@nxp.com> (raw)
-> ---
->  drivers/i2c/busses/i2c-imx.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 350346a7892c..9d5caa032c5c 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -335,6 +335,7 @@ static const struct of_device_id i2c_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx6sll-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,imx6sx-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,imx6ul-i2c", .data = &imx6_i2c_hwdata, },
-> +	{ .compatible = "fsl,imx7d-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,imx7s-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,imx8mm-i2c", .data = &imx6_i2c_hwdata, },
->  	{ .compatible = "fsl,imx8mn-i2c", .data = &imx6_i2c_hwdata, },
-> --
-> 2.34.1
->
+Rob
 
