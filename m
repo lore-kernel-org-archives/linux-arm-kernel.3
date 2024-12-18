@@ -4,97 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D304EE77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 05:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5D4E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 05:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXb0T9nLgGFZosqj/ZFHPS5FS6w/en1hvTkOmnMKx9o=; b=HpZ0sOsihuzSHDKBH1A6ZZtvpl
-	x32DhilkH29zZahvhNQJr0JdWcmnSE0QFZRuQ6GZ808R56fJ6tAaBaQ/UieEQns95PUQSIhjNZusX
-	0XIFmTrcCw5E+TtdWoTfIP2/Cj4MzbC30zFAouq67YM0gUAxQHHgMMfgGQz4oD4EvJYWGkwkkmgEX
-	5ZN9dMyu/9ymuT7vlYU8pKvl4HiNLC25BgknTP/kNAJsXYAuRJ5ktUbdaHfsiJyoMVeEj3NZ8CQd8
-	wpjvWyQWhUd2UqtDhSt7dBzXtN58/awxiGCHyJ9Trf6QP8KtGm1Vr0Kvrt0lSnt+A0H17qzQljX0T
-	fjhCPfNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8BpTWKGRasitTkG8NOlu7biDsOIZdOwHxm5RbaGtlnc=; b=2ZqtbhEIG00k9RoJ/zxvOSCfx2
+	NBeVGAaKhRNqirxTGw6szt4DhHV5w54nmW9jgOVXsio9ezgsuyX28+uXNBx7h/VGjy0c9BNbB89hE
+	D0YTVjgRqPw0Q0yedHpR7q+OaLTRd8s2kxyntCeTuVXydS0KU+VwdxWl3ghtwUF8xdp8nx4/4/3dq
+	IQQ4KLYQmkHLFHeu+B3lZW/iFII1z0ScFfhiZOTYQiWDOCIqZGkT4DcQaryO4f0ozgPVl/FaT/Rdh
+	zsyirRDVGBpGdef/bG7X64agEEVP9ZzxYNo9ijoOsgoIIlTpB6dt+DkHR8RYu/d0np0PQv6EX0Jjv
+	ZS9P9U8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNmZ2-0000000Fdiu-0qS7;
-	Wed, 18 Dec 2024 05:25:40 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNmXv-0000000FdZY-3XvJ
+	id 1tNmaM-0000000FduS-16ZA;
+	Wed, 18 Dec 2024 05:27:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNmZF-0000000Fdm6-1glu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 05:24:33 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e3f78f5fc07so4599603276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 21:24:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734499470; x=1735104270; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=cXb0T9nLgGFZosqj/ZFHPS5FS6w/en1hvTkOmnMKx9o=;
-        b=jK37vC/dY/dsBNP7Vdj+EZuZeq6YH6CZ8OQRPgyl3DaiwAp4UMwd8bJW9EvpxADCY4
-         OdLKHHYpzePFpyM8X8+P1nXqUubqGjKWPsFMh/Logo4GzW6MIsrsjgJXZ/XEmQDJnWMy
-         RorpOPfvcLFD7PKQVUBiaOuNIbZIyaIdHsH734WrFPuQ/6V9DiI3/l5MGeYfYcfbV37I
-         TZuw3aO3xTakFZQbDGDr+SXuwg+MR/w1JZdUbuWblx8ek/Q8FUfMOqA3HZNiNFIJ7zoz
-         ftpXO392oxg+6a8Djb7vOvOAXpLg+4whJj3N3fZP8TX7W1Pl4U4UCrq5/7mid3x3eAye
-         /TTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734499470; x=1735104270;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cXb0T9nLgGFZosqj/ZFHPS5FS6w/en1hvTkOmnMKx9o=;
-        b=sz1fYnmnTqzDsjee0+kpF3sbIRzF7IcqwJUOuh06Wk8aSMGP5XHlyCinuP7ryp7KU0
-         CApvrJsbekdo/5qp3c19SWLGW1C7u2xbD1GtaC6PdBFsRSRc8dW8riswm0nZ+KX5ulD0
-         xa8+aJiV6tWRoXITjr91XFrH0iemVLMZJJ5VojtY9hkZC0HSbmF1ITD5oUVpGVVssYrO
-         bI2xawcYa3WYpycAsNA6FOGOH3mOgp9eYLom3aI3GF1RTbEDoR4/wCqfeoGc/8pPmVk1
-         rIX/nnRIr8UWBpA4CpaMbWBeyV+w1iEAEwoqzaMuSWKigq8Y/SD9J/PmlkI2zFLxZalP
-         ohaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUjP30NR5HqP5vdqbPPlhv4J/1kHevt4AbWXSl3G9Rv//JuxIYZNqPUIE9W6zZ5JaElk21ky7XIxE+A+C32r8si@lists.infradead.org
-X-Gm-Message-State: AOJu0YyE/siGvC5VZRD0ok1CGR6/Z7qtehr+JAfCzPpyEtOo4taIyrLH
-	vst+wiuJjQZB/DOKTrD3K1/h5ZTI3vi2bVtcxsawgwmJyDKF5v8Te36Ls5ZRdTFEpvfGOLgCRIc
-	ruyHXnK63qyhEnuvgsKaaATHw6JixLuuObKqUFg==
-X-Gm-Gg: ASbGncuVebRSDz7LX/bCN8ps7s2CkEpxgcGH/OvqymZ3WiOEuz/I5JYNGRAUwrqvMp4
-	lZpGEGywJFE920CtnqCFfush0wJA9gU7ILHF7hgN2ELVBG1punlcjoZ3FbwaEkBt3qp06fg==
-X-Google-Smtp-Source: AGHT+IE3kqRdPneJyqqtRpFDLs6soyy+Bdc+Cywd1EGV0t4/4nnntxQS7NjaTVS7xOtVNpAQwVKUJPYkOMozlg43ysk=
-X-Received: by 2002:a05:6902:70f:b0:e49:5f2d:e729 with SMTP id
- 3f1490d57ef6-e53620cdcf8mr1205674276.4.1734499470459; Tue, 17 Dec 2024
- 21:24:30 -0800 (PST)
+	Wed, 18 Dec 2024 05:25:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8493FEC;
+	Tue, 17 Dec 2024 21:26:18 -0800 (PST)
+Received: from [10.163.50.13] (unknown [10.163.50.13])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E18403F7B4;
+	Tue, 17 Dec 2024 21:25:45 -0800 (PST)
+Message-ID: <96bae61a-c9a0-4b9a-af4f-b6fc6202bccd@arm.com>
+Date: Wed, 18 Dec 2024 10:55:43 +0530
 MIME-Version: 1.0
-References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org> <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
-In-Reply-To: <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Wed, 18 Dec 2024 07:24:23 +0200
-Message-ID: <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
-Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Phong LE <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Russell King <linux@armlinux.org.uk>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Alain Volmat <alain.volmat@foss.st.com>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 6/7] arm64/boot: Enable EL2 requirements for
+ FEAT_Debugv8p9
+To: Rob Herring <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, James Morse <james.morse@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ kvmarm@lists.linux.dev, linux-doc@vger.kernel.org
+References: <20241216040831.2448257-1-anshuman.khandual@arm.com>
+ <20241216040831.2448257-7-anshuman.khandual@arm.com>
+ <20241216234251.GA629562-robh@kernel.org>
+ <c64709f7-e1c6-482e-8665-912be50b15bd@arm.com>
+ <CAL_Jsq+EO_s49sSK3JQQEDDpcndf4hSpM_gfoe8tZ8=4y3f-tg@mail.gmail.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <CAL_Jsq+EO_s49sSK3JQQEDDpcndf4hSpM_gfoe8tZ8=4y3f-tg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_212431_941270_F82758FE 
-X-CRM114-Status: GOOD (  29.38  )
+X-CRM114-CacheID: sfid-20241217_212553_551901_4EA18852 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,58 +74,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 at 19:21, Maxime Ripard <mripard@kernel.org> wrote:
->
-> Hi,
->
-> On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
-> > While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
-> > framework, I stumbled upon an issue while handling the Audio InfoFrames.
-> > The HDMI codec callbacks weren't receiving the drm_atomic_state, so
-> > there was no simple way to get the drm_connector that stayed at the end
-> > of the bridge chain. At the same point the drm_hdmi_connector functions
-> > expected to get drm_connector instance.
-> >
-> > While looking for a way to solve the issue, I stumbled upon several
-> > deficiencies in existing hdmi_codec_ops implementations. Only few of the
-> > implementations were able to handle codec's 'plugged' callback. One
-> > third of the drivers didn't implement the get_eld() callback.
-> >
-> > Most of the issues can be solved if drm_connector handles
-> > hdmi-audio-codec on its own, delegating functionality to the actual
-> > implementation, be it a driver that implements drm_connector or
-> > drm_bridge.
-> >
-> > Implement such high-level framework, adding proper support for Audio
-> > InfoFrame generation to the LT9611 driver.
-> >
-> > Several design decisions to be kept in mind:
-> >
-> > - drm_connector_hdmi_codec is kept as simple as possible. It implements
-> >   generic functionality (ELD, hotplug, registration).
-> >
-> > - drm_hdmi_connector sets up HDMI codec device if the connector
-> >   is setup correspondingly (either I2S or S/PDIF is marked as
-> >   supported).
-> >
-> > - drm_bridge_connector provides a way to link HDMI audio codec
-> >   funcionality in the drm_bridge with the drm_connector_hdmi_codec
-> >   framework.
-> >
-> > - It might be worth reverting the no_i2s_capture / no_spdif_capture
-> >   bits. Only TDA889x driver sets them, while it's safe to assume that
-> >   most of HDMI / DP devices do not support ARC / capture. I think the
-> >   drivers should opt-in capture support rather than having to opt-out of
-> >   it.
->
-> Sorry if this isn't clear to me and I'm quite late to the party, but did
-> you test this on vc4 with both a pi3 and pi4, or was it just compile
-> tested?
+[....]
 
-LT9611 is actually tested, VC4 is only compile-tested. Should I put an RFT tag?
+On 12/17/24 23:23, Rob Herring wrote:
+>> Something like the commit
+>>
+>> commit 31c00d2aeaa2da89361f5b64a64ca831433be5fc
+>> Author: Mark Brown <broonie@kernel.org>
+>> Date:   Thu Apr 1 19:09:40 2021 +0100
+>>
+>>     arm64: Disable fine grained traps on boot
+>>
+>>     The arm64 FEAT_FGT extension introduces a set of traps to EL2 for accesses
+>>     to small sets of registers and instructions from EL1 and EL0.  Currently
+>>     Linux makes no use of this feature, ensure that it is not active at boot by
+>>     disabling the traps during EL2 setup.
+>>
+>>
+>>>
+>>> I just realized I forgot to add FGT2 setup for the PMUv3.9 features I
+>>> already added in 6.12 and 6.13. So this really needs to land sooner
+>>> rather than later to add that.
+>> Not sure if I got this correctly. Are you suggesting to carve out __init_el2_fgt2()
+>> from the series and post separately with PMUv3.9 requirements and fallback clearing
+>> for all FEAT_FGT2 trap config registers as mentioned above ?
+> Yes, as it needs to not be held up by any of the debug issues Mark
+> raised. Also, it may need to be back ported to 6.12. And for that we'd
+> want the PMU parts, but not the Debug. I still have to figure out what
+> needs to be done on the KVM side.
 
+Hi Rob,
 
--- 
-With best wishes
-Dmitry
+I did go through all the five FEAT_FGT2 trap control registers and it
+seems like the following are the controls available for FEAT_PMUv3p9
+based registers. Although PMZR_EL0 does not get used in kernel right
+now but still might be a good idea to include anyway. Please let me
+know, if I might have missed something else related to FEAT_PMUv3p9.
+
+HDFGRTR2_EL2_nPMUACR_EL1	(mrs PMUACR_EL1)
+HDFGWTR2_EL2_nPMUACR_EL1	(msr PMUACR_EL1)
+HDFGWTR2_EL2_nPMZR_EL0		(msr PMZR_EL0)
+
+Following will be the change required for __init_el2_fgt2() along with
+all the tools sysreg updates required for the mentioned registers here.
+
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -233,6 +233,31 @@
+ .Lskip_fgt_\@:
+ .endm
+ 
++.macro __init_el2_fgt2
++       mrs     x1, id_aa64mmfr0_el1
++       ubfx    x1, x1, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
++       cmp     x1, #ID_AA64MMFR0_EL1_FGT_FGT2
++       b.lt    .Lskip_fgt2_\@
++
++       mov     x0, xzr
++       mov     x2, xzr
++       mrs     x1, id_aa64dfr0_el1
++       ubfx    x1, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
++       cmp     x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
++       b.lt    .Lskip_pmuv3p9_\@
++
++       orr     x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
++       orr     x2, x2, #HDFGWTR2_EL2_nPMUACR_EL1
++       orr     x2, x2, #HDFGWTR2_EL2_nPMZR_EL0
++.Lskip_pmuv3p9_\@:
++       msr_s   SYS_HDFGRTR2_EL2, x0
++       msr_s   SYS_HDFGWTR2_EL2, x2
++       msr_s   SYS_HFGRTR2_EL2, xzr
++       msr_s   SYS_HFGWTR2_EL2, xzr
++       msr_s   SYS_HFGITR2_EL2, xzr
++.Lskip_fgt2_\@:
++.endm
++
+ .macro __init_el2_gcs
+        mrs_s   x1, SYS_ID_AA64PFR1_EL1
+        ubfx    x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+@@ -283,6 +308,7 @@
+        __init_el2_nvhe_idregs
+        __init_el2_cptr
+        __init_el2_fgt
++       __init_el2_fgt2
+         __init_el2_gcs
+ .endm
 
