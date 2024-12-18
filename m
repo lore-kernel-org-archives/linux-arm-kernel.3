@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D609FE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9489DE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7As/4lbcOR5wNUHmg3kLd+28u+n3jN+0C0aXurlFDw=; b=Y2Kl5KQv7nTuPNnfajeNej64/E
-	MTzPy6IxaxNj0Tu4sDE4cuD0JYw/E/R/fxmka39VaDSxirV5whKegmTIhyMsegk4r3VD6WYQdAT7I
-	CaVpiXzYYRvwpULqx5HUCULuIFYM1eIW6feyixU2HYCrnx6HbriC+1+fSOeHqag9VXYgcEVsQKGvQ
-	7r9o2KlRXNcMTP/u78GeLfiyYMB2+gROfv5gvJd105znK0RRlQfu74E1jq0YPaUjNeKL8Y16UlN8x
-	1CHQ5QnemeRymen3q+xucqVeTAPeqRY4edGtruyDg/6vxh7UtSVyqZnwrvoZO2dB9NM7TuMvGfHpB
-	Zg2Y4HNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cbM+YQBGCfTe6gTgjkWWNy8zTxGocKe32ElqHKHinEw=; b=rLxkfFpnTZDaR3O4hXW2YRdoil
+	QbBjhFIDmRU/LWrsHvOiRsSdULaSXoMqLEtl5rN4/mGrifiGeCjYx8Ip1Y45hsdszvlkuon8iOS/Y
+	4icPmcVf87MzT+fiFRA6C9nOvifJws8ocbK4IIKQx9UC13nix/brUGIy9+i028UXx8VhzlwfDsPQ/
+	XwDZPGpMf1upmntWvldEYyveIzc5VW+E/8Z0OObAirDePiPvGgbtsjr+WdhVEbAXI08n1wMhqMeR9
+	gjMrmepWBp1k5k/Cnrk4mnPdvWTIh3mhb/0ymWsm5iRGAa4D+LGO5ra2xYNC3QgzTHmHWhVzuMhR8
+	O7SJxcvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrr6-0000000GNz4-0z5g;
-	Wed, 18 Dec 2024 11:04:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tNrsA-0000000GOB1-1qhD;
+	Wed, 18 Dec 2024 11:05:46 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrh9-0000000GLH2-3VvF;
-	Wed, 18 Dec 2024 10:54:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734519262;
-	bh=yk77vsE3x+ErK6MEuD/5lMiwXMA2ViIKn58pIYLQzzc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nA/PFay/e+qHE2doEAtO/o++UwgxL6X6OAkHLQENJKWgwwfG0PuhXK3M9lQq0Flb3
-	 ORjEnDWksk0BWoSXFEoyN7e0YkoP09NK6Q9kmsinYKccRL5lImCc86dNRdPR3+yapk
-	 TJQdRWZjEtyOEPr84Smav6f+dKEBF2KU0Li0Wxyglv+hbAQ8BmDKO4GwN16IpK4W7a
-	 HN8zngZuEMiIPtfc/ECnNtSna9AivqYQaD2ZULOpFWCFqhUF5wyrCx9uAipA377CwL
-	 TL7wcp9VoG+3s+j3T1biZlPjaSeqHOD9Hw3k5AAp/i625cqLEBVdQRfCRqpUUANdGy
-	 PbV5QnO4jflHA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A19D817E361E;
-	Wed, 18 Dec 2024 11:54:21 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: sboyd@kernel.org
-Cc: mturquette@baylibre.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	geert+renesas@glider.be,
-	u.kleine-koenig@baylibre.com,
-	amergnat@baylibre.com,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kernel@collabora.com,
-	macpaul.lin@mediatek.com
-Subject: [PATCH v1 2/2] clk: mediatek: mt8188-vdo1: Add VDO1_DPI1_HDMI clock for hdmitx
-Date: Wed, 18 Dec 2024 11:54:15 +0100
-Message-ID: <20241218105415.39206-3-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241218105415.39206-1-angelogioacchino.delregno@collabora.com>
-References: <20241218105415.39206-1-angelogioacchino.delregno@collabora.com>
+	id 1tNrhD-0000000GLIW-2hrr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 10:54:29 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YCrBN62x5z6LD3c;
+	Wed, 18 Dec 2024 18:53:16 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 88D9B140B3C;
+	Wed, 18 Dec 2024 18:54:21 +0800 (CST)
+Received: from A2303104131.china.huawei.com (10.195.247.46) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 18 Dec 2024 11:54:13 +0100
+From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+Subject: [PATCH v4 1/3] arm64: Modify _midr_range() functions to read MIDR/REVIDR internally
+Date: Wed, 18 Dec 2024 10:53:43 +0000
+Message-ID: <20241218105345.73472-2-shameerali.kolothum.thodi@huawei.com>
+X-Mailer: git-send-email 2.12.0.windows.1
+In-Reply-To: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.195.247.46]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_025424_015454_D1D23DAD 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_025427_976642_BBB40F31 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,51 +72,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a missing clock found in the VDO1 controller for the HDMI TX
-controller over DPI1.
+These changes lay the groundwork for adding support for guest kernels,
+allowing them to leverage target CPU implementations provided by the
+VMM.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+No functional changes intended.
+
+Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Sebastian Ott <sebott@redhat.com>
+Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
 ---
- drivers/clk/mediatek/clk-mt8188-vdo1.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/include/asm/cputype.h     | 28 ++++++++++++++--------------
+ arch/arm64/include/asm/mmu.h         |  3 +--
+ arch/arm64/kernel/cpu_errata.c       | 23 +++++++++++++----------
+ arch/arm64/kernel/cpufeature.c       |  6 +++---
+ arch/arm64/kernel/proton-pack.c      | 17 ++++++++---------
+ arch/arm64/kvm/vgic/vgic-v3.c        |  2 +-
+ drivers/clocksource/arm_arch_timer.c |  2 +-
+ 7 files changed, 41 insertions(+), 40 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mt8188-vdo1.c b/drivers/clk/mediatek/clk-mt8188-vdo1.c
-index 4fa355f8f0c2..f715d45e545e 100644
---- a/drivers/clk/mediatek/clk-mt8188-vdo1.c
-+++ b/drivers/clk/mediatek/clk-mt8188-vdo1.c
-@@ -43,6 +43,12 @@ static const struct mtk_gate_regs vdo1_4_cg_regs = {
- 	.sta_ofs = 0x140,
- };
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 488f8e751349..dcf0e1ce892d 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -229,6 +229,16 @@
  
-+static const struct mtk_gate_regs vdo1_5_cg_regs = {
-+	.set_ofs = 0x400,
-+	.clr_ofs = 0x400,
-+	.sta_ofs = 0x400,
-+};
+ #define read_cpuid(reg)			read_sysreg_s(SYS_ ## reg)
+ 
++/*
++ * The CPU ID never changes at run time, so we might as well tell the
++ * compiler that it's constant.  Use this function to read the CPU ID
++ * rather than directly reading processor_id or read_cpuid() directly.
++ */
++static inline u32 __attribute_const__ read_cpuid_id(void)
++{
++	return read_cpuid(MIDR_EL1);
++}
 +
- #define GATE_VDO1_0(_id, _name, _parent, _shift)			\
- 	GATE_MTK(_id, _name, _parent, &vdo1_0_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
+ /*
+  * Represent a range of MIDR values for a given CPU model and a
+  * range of variant/revision values.
+@@ -264,31 +274,21 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
+ 	return _model == model && rv >= rv_min && rv <= rv_max;
+ }
  
-@@ -62,6 +68,9 @@ static const struct mtk_gate_regs vdo1_4_cg_regs = {
- #define GATE_VDO1_4(_id, _name, _parent, _shift)			\
- 	GATE_MTK(_id, _name, _parent, &vdo1_4_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
+-static inline bool is_midr_in_range(u32 midr, struct midr_range const *range)
++static inline bool is_midr_in_range(struct midr_range const *range)
+ {
+-	return midr_is_cpu_model_range(midr, range->model,
++	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+ 				       range->rv_min, range->rv_max);
+ }
  
-+#define GATE_VDO1_5(_id, _name, _parent, _shift)			\
-+	GATE_MTK(_id, _name, _parent, &vdo1_5_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
+ static inline bool
+-is_midr_in_range_list(u32 midr, struct midr_range const *ranges)
++is_midr_in_range_list(struct midr_range const *ranges)
+ {
+ 	while (ranges->model)
+-		if (is_midr_in_range(midr, ranges++))
++		if (is_midr_in_range(ranges++))
+ 			return true;
+ 	return false;
+ }
+ 
+-/*
+- * The CPU ID never changes at run time, so we might as well tell the
+- * compiler that it's constant.  Use this function to read the CPU ID
+- * rather than directly reading processor_id or read_cpuid() directly.
+- */
+-static inline u32 __attribute_const__ read_cpuid_id(void)
+-{
+-	return read_cpuid(MIDR_EL1);
+-}
+-
+ static inline u64 __attribute_const__ read_cpuid_mpidr(void)
+ {
+ 	return read_cpuid(MPIDR_EL1);
+diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+index 2ec96d91acc6..bfd303e074be 100644
+--- a/arch/arm64/include/asm/mmu.h
++++ b/arch/arm64/include/asm/mmu.h
+@@ -101,8 +101,7 @@ static inline bool kaslr_requires_kpti(void)
+ 	if (IS_ENABLED(CONFIG_CAVIUM_ERRATUM_27456)) {
+ 		extern const struct midr_range cavium_erratum_27456_cpus[];
+ 
+-		if (is_midr_in_range_list(read_cpuid_id(),
+-					  cavium_erratum_27456_cpus))
++		if (is_midr_in_range_list(cavium_erratum_27456_cpus))
+ 			return false;
+ 	}
+ 
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index a78f247029ae..929685c00263 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -15,30 +15,34 @@
+ #include <asm/smp_plat.h>
+ 
+ static bool __maybe_unused
+-is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
++__is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
++			 u32 midr, u32 revidr)
+ {
+ 	const struct arm64_midr_revidr *fix;
+-	u32 midr = read_cpuid_id(), revidr;
+-
+-	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+-	if (!is_midr_in_range(midr, &entry->midr_range))
++	if (!is_midr_in_range(&entry->midr_range))
+ 		return false;
+ 
+ 	midr &= MIDR_REVISION_MASK | MIDR_VARIANT_MASK;
+-	revidr = read_cpuid(REVIDR_EL1);
+ 	for (fix = entry->fixed_revs; fix && fix->revidr_mask; fix++)
+ 		if (midr == fix->midr_rv && (revidr & fix->revidr_mask))
+ 			return false;
+-
+ 	return true;
+ }
+ 
++static bool __maybe_unused
++is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
++	return __is_affected_midr_range(entry, read_cpuid_id(),
++					read_cpuid(REVIDR_EL1));
++}
 +
- static const struct mtk_gate vdo1_clks[] = {
- 	/* VDO1_0 */
- 	GATE_VDO1_0(CLK_VDO1_SMI_LARB2, "vdo1_smi_larb2", "top_vpp", 0),
-@@ -129,6 +138,8 @@ static const struct mtk_gate vdo1_clks[] = {
- 	GATE_VDO1_3(CLK_VDO1_DISP_MONITOR_DPINTF, "vdo1_disp_monitor_dpintf_ck", "top_vpp", 17),
- 	/* VDO1_4 */
- 	GATE_VDO1_4(CLK_VDO1_26M_SLOW, "vdo1_26m_slow_ck", "clk26m", 8),
-+	/* VDO1_5 */
-+	GATE_VDO1_5(CLK_VDO1_DPI1_HDMI, "vdo1_dpi1_hdmi", "hdmi_txpll", 0),
- };
+ static bool __maybe_unused
+ is_affected_midr_range_list(const struct arm64_cpu_capabilities *entry,
+ 			    int scope)
+ {
+ 	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+-	return is_midr_in_range_list(read_cpuid_id(), entry->midr_range_list);
++	return is_midr_in_range_list(entry->midr_range_list);
+ }
  
- static const struct mtk_clk_desc vdo1_desc = {
+ static bool __maybe_unused
+@@ -186,12 +190,11 @@ static bool __maybe_unused
+ has_neoverse_n1_erratum_1542419(const struct arm64_cpu_capabilities *entry,
+ 				int scope)
+ {
+-	u32 midr = read_cpuid_id();
+ 	bool has_dic = read_cpuid_cachetype() & BIT(CTR_EL0_DIC_SHIFT);
+ 	const struct midr_range range = MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1);
+ 
+ 	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+-	return is_midr_in_range(midr, &range) && has_dic;
++	return is_midr_in_range(&range) && has_dic;
+ }
+ 
+ #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ce71f444ed8..4cc4ae16b28d 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1783,7 +1783,7 @@ static bool unmap_kernel_at_el0(const struct arm64_cpu_capabilities *entry,
+ 	char const *str = "kpti command line option";
+ 	bool meltdown_safe;
+ 
+-	meltdown_safe = is_midr_in_range_list(read_cpuid_id(), kpti_safe_list);
++	meltdown_safe = is_midr_in_range_list(kpti_safe_list);
+ 
+ 	/* Defer to CPU feature registers */
+ 	if (has_cpuid_feature(entry, scope))
+@@ -1853,7 +1853,7 @@ static bool has_nv1(const struct arm64_cpu_capabilities *entry, int scope)
+ 
+ 	return (__system_matches_cap(ARM64_HAS_NESTED_VIRT) &&
+ 		!(has_cpuid_feature(entry, scope) ||
+-		  is_midr_in_range_list(read_cpuid_id(), nv1_ni_list)));
++		  is_midr_in_range_list(nv1_ni_list)));
+ }
+ 
+ #if defined(ID_AA64MMFR0_EL1_TGRAN_LPA2) && defined(ID_AA64MMFR0_EL1_TGRAN_2_SUPPORTED_LPA2)
+@@ -2036,7 +2036,7 @@ static bool cpu_has_broken_dbm(void)
+ 		{},
+ 	};
+ 
+-	return is_midr_in_range_list(read_cpuid_id(), cpus);
++	return is_midr_in_range_list(cpus);
+ }
+ 
+ static bool cpu_can_use_dbm(const struct arm64_cpu_capabilities *cap)
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index da53722f95d4..a573fa40d4b6 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -172,7 +172,7 @@ static enum mitigation_state spectre_v2_get_cpu_hw_mitigation_state(void)
+ 		return SPECTRE_UNAFFECTED;
+ 
+ 	/* Alternatively, we have a list of unaffected CPUs */
+-	if (is_midr_in_range_list(read_cpuid_id(), spectre_v2_safe_list))
++	if (is_midr_in_range_list(spectre_v2_safe_list))
+ 		return SPECTRE_UNAFFECTED;
+ 
+ 	return SPECTRE_VULNERABLE;
+@@ -331,7 +331,7 @@ bool has_spectre_v3a(const struct arm64_cpu_capabilities *entry, int scope)
+ 	};
+ 
+ 	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+-	return is_midr_in_range_list(read_cpuid_id(), spectre_v3a_unsafe_list);
++	return is_midr_in_range_list(spectre_v3a_unsafe_list);
+ }
+ 
+ void spectre_v3a_enable_mitigation(const struct arm64_cpu_capabilities *__unused)
+@@ -475,7 +475,7 @@ static enum mitigation_state spectre_v4_get_cpu_hw_mitigation_state(void)
+ 		{ /* sentinel */ },
+ 	};
+ 
+-	if (is_midr_in_range_list(read_cpuid_id(), spectre_v4_safe_list))
++	if (is_midr_in_range_list(spectre_v4_safe_list))
+ 		return SPECTRE_UNAFFECTED;
+ 
+ 	/* CPU features are detected first */
+@@ -878,13 +878,13 @@ u8 spectre_bhb_loop_affected(int scope)
+ 			{},
+ 		};
+ 
+-		if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
++		if (is_midr_in_range_list(spectre_bhb_k32_list))
+ 			k = 32;
+-		else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k24_list))
++		else if (is_midr_in_range_list(spectre_bhb_k24_list))
+ 			k = 24;
+-		else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k11_list))
++		else if (is_midr_in_range_list(spectre_bhb_k11_list))
+ 			k = 11;
+-		else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k8_list))
++		else if (is_midr_in_range_list(spectre_bhb_k8_list))
+ 			k =  8;
+ 
+ 		max_bhb_k = max(max_bhb_k, k);
+@@ -926,8 +926,7 @@ static bool is_spectre_bhb_fw_affected(int scope)
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A75),
+ 		{},
+ 	};
+-	bool cpu_in_list = is_midr_in_range_list(read_cpuid_id(),
+-					 spectre_bhb_firmware_mitigated_list);
++	bool cpu_in_list = is_midr_in_range_list(spectre_bhb_firmware_mitigated_list);
+ 
+ 	if (scope != SCOPE_LOCAL_CPU)
+ 		return system_affected;
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index f267bc2486a1..b815d910c7e4 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -632,7 +632,7 @@ static const struct midr_range broken_seis[] = {
+ static bool vgic_v3_broken_seis(void)
+ {
+ 	return ((kvm_vgic_global_state.ich_vtr_el2 & ICH_VTR_SEIS_MASK) &&
+-		is_midr_in_range_list(read_cpuid_id(), broken_seis));
++		is_midr_in_range_list(broken_seis));
+ }
+ 
+ /**
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 808f259781fd..981a578043a5 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -842,7 +842,7 @@ static u64 __arch_timer_check_delta(void)
+ 		{},
+ 	};
+ 
+-	if (is_midr_in_range_list(read_cpuid_id(), broken_cval_midrs)) {
++	if (is_midr_in_range_list(broken_cval_midrs)) {
+ 		pr_warn_once("Broken CNTx_CVAL_EL1, using 31 bit TVAL instead.\n");
+ 		return CLOCKSOURCE_MASK(31);
+ 	}
 -- 
-2.46.1
+2.47.0
 
 
