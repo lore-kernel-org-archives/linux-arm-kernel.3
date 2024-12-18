@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABAF0E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64439E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhT23Y8TQCYCMf1leRBky+No7WqbvnjK1DeY+t6D5qA=; b=Nui39KWwG+g+Suz7DAcyjsCSnr
-	lANY+P8N9ZBXt/ucZKGLOqGFBgerIgcfpK27xzWxLZnKsAgtYyWuWEqz4m1ao9fNl/pjaEJOGCfvi
-	pl59QVAOGbADeAGuOrbizeCW6whwNoWgVg1fsrO7u+Z+SuUc4VKyJf4TLT5LnUCPPbYJQgvFrB+pa
-	9bh5LK4wVVuwOZHDwXv76oRg2SDrsaHYWzP0+JePRoQ4V/QwvCd+/U0paSuU8568eYnqj7rT1/Cko
-	DERVt5ZzEHz5iFsenscRYjCpt3Z4QFtMeaSMmO+wDo8w8j9KE+GpUaBy8BeQY/1xCVqUJyqHIegwa
-	Bx9FyUmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=35TdKF9xDxkqp6uln8CnmJYPKimTUINBXZjiZq/HaBI=; b=xPQp4eTQUIVc0O
+	jXvZUoI3RCOLSsFYv9jCQcA7lrxx04aU94rW8ym/OhJpmFVHnTlyf9UvnRBQvImWavdxoWzhvHDiC
+	B2+fZbuQ0PqkB9BGH6S2TTmZ763NLG+SAdWhTepemEnriHFUqNmQh5JijkM9SEouxfJ/3oHKjixh7
+	U9DOPhtZjOLea7QgB9peyecWgXkoz9d89hwO8WL7oniavmZjLR5LsP6fDMHqQVR4iM8CzLJkoEEkx
+	purlbqR2yPumk7Cv1HxWBkGesTw3vaAIfdEx+CJaN6j7mRtACA+xLGYkk8Snc2vPKcl06QZAdmdnL
+	25leYGK8r70S/j3OSEtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvq1-0000000GzpT-2wkH;
-	Wed, 18 Dec 2024 15:19:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tNvr5-0000000H02l-1SET;
+	Wed, 18 Dec 2024 15:20:55 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvnn-0000000GzP9-1gbC
+	id 1tNvox-0000000Gzc5-3oKz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 15:17:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1734535050;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vhT23Y8TQCYCMf1leRBky+No7WqbvnjK1DeY+t6D5qA=;
-	b=a9aLIfI0bl9+hQQJnxvoTIzYYtopkNppDkHoFVP2lT7PcE+/B3kDRdGazUIpzOrK+yszCz
-	0G5PtLOyBoJHC0ApZXIvJx8WxACD4FIdKKdYVSS3DmkcPr5RY1bk2Q8oI55KC8kFQvBvaJ
-	2+sEHcDnY86b/e8SFn7apcq3xhy6Xw0=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-646-msKoZWGNNvaNQugn3ZfsrQ-1; Wed, 18 Dec 2024 10:17:29 -0500
-X-MC-Unique: msKoZWGNNvaNQugn3ZfsrQ-1
-X-Mimecast-MFC-AGG-ID: msKoZWGNNvaNQugn3ZfsrQ
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7b6f1595869so617811785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 07:17:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734535049; x=1735139849;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vhT23Y8TQCYCMf1leRBky+No7WqbvnjK1DeY+t6D5qA=;
-        b=pa3SuphJJSnLDIn0A2TxIZJFiCCn2ef+hfo0u7usnpMhRRDpaNtapY5s6gng8M1IAj
-         kjoLHpjLa2tMVBNBH4gLkD5VF/DTfc4l8UwV7uGTmBCw5lmEVJncCGRf17slCHCI+KDv
-         lSHe5Ewb94SrjpTf73xsX6RQUj9uv6vmNZG7ngIfxtEbDAgXF9sfClF21nE7IbKfmRZe
-         /tvzjRVB8xBDlJrwFhDvcfrK8toFkgtTfjfoQQp7s4qKlI0lJN7pQ5sBtn6PSv1lD6O1
-         lGKIGzaw8RypwYNICUCsqhY2jbUeZrCcfMTQ7ULwzz6Kq34Dd9GE7kH7PCzw6thEKu5S
-         ypIA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNeDyEDY2B/kaCPlQ5CRkXKIQlcdyFScPDYp4xlC1mm1e+UQyEvMt0YmvFXJaiCmpQWWzwZfMRGSfSL5mSb5DL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxX9hcCf9Watrcm22lcQPKTLwrYuoFGhN/aKB8XMeMntqWQ7iZ
-	HoptG+Iqchsa5cy8z1+opnpUl8kg4wnTPHB9TYzldNwBZ+HgbqwmKd+D3gGTd8X4GFKyt/SupUl
-	cT/bfEzrk/V/vh4+zFCsScqnc3pVMf5pU9zkXk7CdAP9Si90NSX+YcC0jgRCKHc6gtCxiaHkP
-X-Gm-Gg: ASbGncuAbzdw+Nph8WIqlEVSJUZDc1xBkXA/L8Sa6QaTodHkUvPRcnIBqdP5jNzP4bK
-	O6E2Ga11qlE0Jyl+z1zrTUYJBZ1QcepVbe+gh9ngLgLw6rObytpzWAiF4RgiezSh5DWOl5vAfC7
-	6CbNSRBwQmNXYpo5eE5yTpfygvYZYojAB61PTn03wPI4PYrQLxalVRKkr44mPtTxB5jG7kwNXg7
-	2YGE4fUnAeLefZS28/CdWE/TWOuq1WrjgmxVaMNWP5OaPw1S2SaXNryzZZJnmOTAXmERHQSl+i7
-	1nS5MDDZOhKZC+XJbfmmKo0=
-X-Received: by 2002:a05:620a:2995:b0:7b6:6826:2032 with SMTP id af79cd13be357-7b8637ad636mr472108285a.47.1734535049146;
-        Wed, 18 Dec 2024 07:17:29 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH+8HXh2pOBEtMvt59N3VE03WXdQuEXvRIA6SyRQfE/shKCr8OrtALWoDrSxjUGryMWNIGM8A==
-X-Received: by 2002:a05:620a:2995:b0:7b6:6826:2032 with SMTP id af79cd13be357-7b8637ad636mr472105185a.47.1734535048912;
-        Wed, 18 Dec 2024 07:17:28 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b7047aa729sm434042585a.12.2024.12.18.07.17.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Dec 2024 07:17:28 -0800 (PST)
-Message-ID: <f6f7ab18-1bfc-4f38-a48a-afebed370a44@redhat.com>
-Date: Wed, 18 Dec 2024 16:17:20 +0100
+	Wed, 18 Dec 2024 15:18:45 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7C5B0A036D;
+	Wed, 18 Dec 2024 16:18:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=35TdKF9xDxkqp6uln8CnmJYPKimTUINBXZjiZq/HaBI=; b=
+	j4pPMJ5civtDA/9KeXa1DedmpdnUbqQxUC+3CHdutarAMqup3QOMG7dxQR7Au3X2
+	wxiJaxqWXhQRA+NpIzrOti8Zi0CcZ04XQMQ9YsYp5eLdJauaFvMNumTi6o3QkCx7
+	KeDzO6n29SmTG3EzvTRBvP8v8M6Wgm2ka32HChCX7qJA2SVuUiHKFsgoBB3WIzDV
+	VhxpCbqjjY3lUcS9EXFJ8RxR38OUG8uchATLHv5K3GEybmoYvu6rD/hi96tjIuj5
+	nwRO3bqx6rxzF2VlbBrQnJ8QV8V9PmIbOq8rQX0tzkoWndp/06obn/kyR1ljJoVW
+	JG8tVbFdUSAV6c0HW1KKHdE+hBJOHKTjNe6HMQJzjkjVSRnozKNdf7r8TzGoMlEI
+	fZTaKpgqh6z3YGSLX+VRyDrz5RTpyDt+hvejwSFgxHyQdNfP9VId1rKgBlZRdxwJ
+	uZjn/sJFup+mvFN5lkAmDPtDsU7Fs1vNQ4J/J270JXbuAO1LCaE4L+cd/Ee5ZGb1
+	1gRsx4OfcmMKMrg4BhRBiqwuOygHPaODf8MmJ8fW5Ln6K0S3+EJyHa2h54dspxOY
+	IR26IqFT+kHp+gw9GQna3Jo+WFJIwMQknB6dLFwbrmW7EkzfNNqimkDEh16bktBa
+	NlnQKfxC3Vokc4mAfaPoATxxVxiJ/15HfzGm5cmQ3EA=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: Mark Brown <broonie@kernel.org>, =?UTF-8?q?Cs=C3=B3k=C3=A1s=2C=20Bence?=
+	<csokas.bence@prolan.hu>, Varshini Rajendran
+	<varshini.rajendran@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH] spi: atmel-quadspi: Factor out switching to Serial Memory Mode to function
+Date: Wed, 18 Dec 2024 16:17:54 +0100
+Message-ID: <20241218151754.365519-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 07/46] arm64/sysreg: Add register fields for
- HFGITR2_EL2
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, maz@kernel.org
-Cc: ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
- James Morse <james.morse@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
-References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-8-anshuman.khandual@arm.com>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <20241210055311.780688-8-anshuman.khandual@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Dz_GPqV3n9UBR3kSWyYBK49TiniB2rdfGeFXrXSHniE_1734535049
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1734535110;VERSION=7982;MC=1092138652;ID=87948;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D948556D7063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_071731_503199_5BF2005D 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20241218_071844_404266_87391269 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +76,184 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexander Dahl <ada@thorsis.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+SAMA7G5 support (that was forward-ported from v6.1) re-introduced
+a bug that was fixed in v6.12, thankfully only in the codepath of
+the new SoC. But to prevent similar mistakes in the future, we
+split out the offending code to a function, and use this, fixed
+version everywhere.
 
+To facilitate this, support function `atmel_qspi_update_config()`
+also had to be moved upwards. For best viewing experience, use
+`--color-moved-ws="allow-indentation-change" --color-moved`.
 
-On 12/10/24 06:52, Anshuman Khandual wrote:
-> This adds register fields for HFGITR2_EL2 as per the definitions based
-> on DDI0601 2024-09.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Eric Auger <eric.auger@redhat.com>
+Fixes: 5af42209a4d2 ("spi: atmel-quadspi: Add support for sama7g5 QSPI")
+Reported-by: Alexander Dahl <ada@thorsis.com>
+Closes: https://lore.kernel.org/linux-spi/20241218-appliance-jaws-90773405977a@thorsis.com/
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ drivers/spi/atmel-quadspi.c | 101 +++++++++++++++++++-----------------
+ 1 file changed, 53 insertions(+), 48 deletions(-)
 
-Eric
-> ---
->  arch/arm64/tools/sysreg | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 1a7d8c03f844..9d339f735648 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -2791,6 +2791,12 @@ Field	1	AMEVCNTR00_EL0
->  Field	0	AMCNTEN0
->  EndSysreg
->  
-> +Sysreg	HFGITR2_EL2	3	4	3	1	7
-> +Res0	63:2
-> +Field	1	nDCCIVAPS
-> +Field	0	TSBCSYNC
-> +EndSysreg
-> +
->  Sysreg	ZCR_EL2	3	4	1	2	0
->  Fields	ZCR_ELx
->  EndSysreg
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index 73cf0c3f1477..f46da363574f 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -414,6 +414,28 @@ static void atmel_qspi_write(u32 value, struct atmel_qspi *aq, u32 offset)
+ 	writel_relaxed(value, aq->regs + offset);
+ }
+ 
++static int atmel_qspi_reg_sync(struct atmel_qspi *aq)
++{
++	u32 val;
++	int ret;
++
++	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
++				 !(val & QSPI_SR2_SYNCBSY), 40,
++				 ATMEL_QSPI_SYNC_TIMEOUT);
++	return ret;
++}
++
++static int atmel_qspi_update_config(struct atmel_qspi *aq)
++{
++	int ret;
++
++	ret = atmel_qspi_reg_sync(aq);
++	if (ret)
++		return ret;
++	atmel_qspi_write(QSPI_CR_UPDCFG, aq, QSPI_CR);
++	return atmel_qspi_reg_sync(aq);
++}
++
+ static inline bool atmel_qspi_is_compatible(const struct spi_mem_op *op,
+ 					    const struct atmel_qspi_mode *mode)
+ {
+@@ -476,6 +498,25 @@ static bool atmel_qspi_supports_op(struct spi_mem *mem,
+ 	return true;
+ }
+ 
++/*
++ * If the QSPI controller is set in regular SPI mode, set it in
++ * Serial Memory Mode (SMM).
++ */
++static int atmel_qspi_set_serial_memory_mode(struct atmel_qspi *aq)
++{
++	int ret = 0;
++
++	if (!(aq->mr & QSPI_MR_SMM)) {
++		aq->mr |= QSPI_MR_SMM;
++		atmel_qspi_write(aq->mr, aq, QSPI_MR);
++
++		if (aq->caps->has_gclk)
++			ret = atmel_qspi_update_config(aq);
++	}
++
++	return ret;
++}
++
+ static int atmel_qspi_set_cfg(struct atmel_qspi *aq,
+ 			      const struct spi_mem_op *op, u32 *offset)
+ {
+@@ -555,14 +596,9 @@ static int atmel_qspi_set_cfg(struct atmel_qspi *aq,
+ 			ifr |= QSPI_IFR_TFRTYP_MEM;
+ 	}
+ 
+-	/*
+-	 * If the QSPI controller is set in regular SPI mode, set it in
+-	 * Serial Memory Mode (SMM).
+-	 */
+-	if (!(aq->mr & QSPI_MR_SMM)) {
+-		aq->mr |= QSPI_MR_SMM;
+-		atmel_qspi_write(aq->mr, aq, QSPI_MR);
+-	}
++	mode = atmel_qspi_set_serial_memory_mode(aq);
++	if (mode < 0)
++		return mode;
+ 
+ 	/* Clear pending interrupts */
+ 	(void)atmel_qspi_read(aq, QSPI_SR);
+@@ -638,28 +674,6 @@ static int atmel_qspi_transfer(struct spi_mem *mem,
+ 	return atmel_qspi_wait_for_completion(aq, QSPI_SR_CMD_COMPLETED);
+ }
+ 
+-static int atmel_qspi_reg_sync(struct atmel_qspi *aq)
+-{
+-	u32 val;
+-	int ret;
+-
+-	ret = readl_poll_timeout(aq->regs + QSPI_SR2, val,
+-				 !(val & QSPI_SR2_SYNCBSY), 40,
+-				 ATMEL_QSPI_SYNC_TIMEOUT);
+-	return ret;
+-}
+-
+-static int atmel_qspi_update_config(struct atmel_qspi *aq)
+-{
+-	int ret;
+-
+-	ret = atmel_qspi_reg_sync(aq);
+-	if (ret)
+-		return ret;
+-	atmel_qspi_write(QSPI_CR_UPDCFG, aq, QSPI_CR);
+-	return atmel_qspi_reg_sync(aq);
+-}
+-
+ static int atmel_qspi_sama7g5_set_cfg(struct atmel_qspi *aq,
+ 				      const struct spi_mem_op *op, u32 *offset)
+ {
+@@ -713,18 +727,9 @@ static int atmel_qspi_sama7g5_set_cfg(struct atmel_qspi *aq,
+ 			ifr |= QSPI_IFR_TFRTYP_MEM;
+ 	}
+ 
+-	/*
+-	 * If the QSPI controller is set in regular SPI mode, set it in
+-	 * Serial Memory Mode (SMM).
+-	 */
+-	if (aq->mr != QSPI_MR_SMM) {
+-		atmel_qspi_write(QSPI_MR_SMM | QSPI_MR_DQSDLYEN, aq, QSPI_MR);
+-		aq->mr = QSPI_MR_SMM;
+-
+-		ret = atmel_qspi_update_config(aq);
+-		if (ret)
+-			return ret;
+-	}
++	ret = atmel_qspi_set_serial_memory_mode(aq);
++	if (ret < 0)
++		return ret;
+ 
+ 	/* Clear pending interrupts */
+ 	(void)atmel_qspi_read(aq, QSPI_SR);
+@@ -1092,10 +1097,9 @@ static int atmel_qspi_sama7g5_init(struct atmel_qspi *aq)
+ 	}
+ 
+ 	/* Set the QSPI controller by default in Serial Memory Mode */
+-	atmel_qspi_write(QSPI_MR_SMM | QSPI_MR_DQSDLYEN, aq, QSPI_MR);
+-	aq->mr = QSPI_MR_SMM;
+-	ret = atmel_qspi_update_config(aq);
+-	if (ret)
++	aq->mr |= QSPI_MR_DQSDLYEN;
++	ret = atmel_qspi_set_serial_memory_mode(aq);
++	if (ret < 0)
+ 		return ret;
+ 
+ 	/* Enable the QSPI controller. */
+@@ -1244,8 +1248,9 @@ static int atmel_qspi_init(struct atmel_qspi *aq)
+ 	atmel_qspi_write(QSPI_CR_SWRST, aq, QSPI_CR);
+ 
+ 	/* Set the QSPI controller by default in Serial Memory Mode */
+-	aq->mr |= QSPI_MR_SMM;
+-	atmel_qspi_write(aq->mr, aq, QSPI_MR);
++	ret = atmel_qspi_set_serial_memory_mode(aq);
++	if (ret < 0)
++		return ret;
+ 
+ 	/* Enable the QSPI controller */
+ 	atmel_qspi_write(QSPI_CR_QSPIEN, aq, QSPI_CR);
+-- 
+2.34.1
+
 
 
