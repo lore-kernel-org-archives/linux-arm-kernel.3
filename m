@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D2FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E36E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysVTqtWCT9AzDtvYmXzNif8x2LyA7Yjg6q5OgTQ+FDE=; b=UChxyHik5VTT16XYl9BViNp8Nx
-	cWQUdobnCj4MkSB8P+IROel30yDZMAdTjL8RcJOEtJPLu8FvKgIQc/XnxSHBijiCg2Q2nSeQIE4K7
-	SHBGwLw/DDZmnNQXX56e+n/2liDnhbNsiPSKyewQ9Y0c37rIAUmQhjJ65pQsUVIPChOOVCHepaK+H
-	CBCZnfALNTQbfW+bsHfpGEcUuHbHd+t7YKF5/Euw5TskcEPi8wTJ1nt0bHtLka9ChrnwIhqshsouU
-	6I8KZua5AT/Df9b5dd8ECEfsWV1VRiFsJ5d+Rgbx632AN2XE5xsjHPX6uxeK5k51DMkX7mky3/FWD
-	o9mQYJvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FOaMq1h4xw9lY78crmK5fmaa/PhCj+8V/cHyU3qhiFE=; b=dybU9OHO2+o68FGRl38DOUdTlh
+	pn2HsAeP1ABWyb4rHQ2Kx9//amSjoq4eFR5KUKw5AZVrSHHrWkqWyqod39RyrKxNIGTB5fqzY3k9B
+	JEuAeuCyEzgn/NOusZEXR0JKX0G0saEQBDQvwvm9EDEunT2KO7DrW+CvaKgRT/vlEFF9gIgIegsVJ
+	WdRHZC3EKcCOThnFwhMAZGsMyEMKsw2IKEqubE1SY6dJAHXz8Y4OctuEgLnotUk4Pjo7UQt6IF7oC
+	gKDCxQZy5w5tOlFkdPQQRl6Cc+FnmY6gsLiQ4BaQfmnm91w/zS6q6cU5bCRTTTlCk7ie/goqKUQnm
+	uPsmCxGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNuo4-0000000GoHk-1Uz5;
-	Wed, 18 Dec 2024 14:13:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tNv3j-0000000GqrQ-3AUV;
+	Wed, 18 Dec 2024 14:29:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNumx-0000000Go9d-3HpT;
-	Wed, 18 Dec 2024 14:12:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734531153;
-	bh=2pMdp5vfl6grQPYfJtfZtmDs7fBVN1MuzePWFk8sH2Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Lc4RB1dNylhjmtAckKIHPhIklnjaJ27hejlFd4sF0YodB3ZtDuQFKrM4QwgGg8PQs
-	 ZC/1kvCr0Lj3dvWROhrqsJUMcnpTbWi3wwuDlU+rmALa4P1P1QXkiM5WFfbowoJ4XM
-	 VYrMMEb9d1Wqra6pRneAaZObwa72hmlwpfANA33eUcy15Buh3Et1EkTNlzDrp4lMNS
-	 3qLrOelKpsf8CMl1fmV8IxHBPRkBAbyzZUjFUzOHJtOy0RHK35ToLDRRuwwINy3qvt
-	 7f/sGbTuMtw7NKaf9QRP5EDplFs+XOBNSYkoiKm2qF+68s4ad9qD2DMzN/nTrvsXuk
-	 jWFQlUIrvJb5g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DC1FB17E3770;
-	Wed, 18 Dec 2024 15:12:32 +0100 (CET)
-Message-ID: <e1b8084d-cfc2-4541-8264-91be777a8783@collabora.com>
-Date: Wed, 18 Dec 2024 15:12:32 +0100
+	id 1tNv2d-0000000Gqg5-1FVk
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 14:28:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 96F335C61B0;
+	Wed, 18 Dec 2024 14:28:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991FBC4CECD;
+	Wed, 18 Dec 2024 14:28:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734532126;
+	bh=QBb4ql4W7i7q6VTY7ONxMF/vNewVhfHwxaZUuigiHu4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eWpXnDv9yI0O+XOaDZYnKbxqg0G+RIZCeXTl3kjkhuY2n+YdiZiKPcafpiHjTIINS
+	 ljyPUmjJGyfPteEp3tPQ7gzi0zp6kPmuuM2mOywh4NaudNz+ku7O2kR/CuRnYAzOs2
+	 dHPMIcL+jsfSrUTMIfu6aIYndNGbDeCULBeIH67N7FbPEw5sgOXFBJglAgWv2mJIpF
+	 jZUgCMTYMRqvRUX33+fl2og5Gy/TLmSBSZMob3ifiWLcXe+PoPOdSSTjPo/MkkFBTI
+	 M3HG8ZsJR6qxFOi24OaQkDQgBJqGcXlX+v7u2QNajAKvnPYicNU3N+VlztarBlNufT
+	 I2Itn2of0+IAg==
+Date: Wed, 18 Dec 2024 14:28:43 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Poojaa R <poojaamonica94@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] dtoverlays: Added DT overlay file for MAX98090 and the
+ detailed steps for its usage is included in
+ https://github.com/Poojaa-Rangaiah/DeviceTreeOverlay-for-MAX98090 .
+Message-ID: <20241218-arrange-pointer-cdd39770b48b@spud>
+References: <20241218065848.12254-1-poojaamonica94@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/5] Add pinctrl support for mt7988
-To: Frank Wunderlich <linux@fw-web.de>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Sean Wang <sean.wang@kernel.org>
-Cc: Frank Wunderlich <frank-w@public-files.de>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20241217085435.9586-1-linux@fw-web.de>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20241217085435.9586-1-linux@fw-web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="M3bhhHaTmUl9gQ+V"
+Content-Disposition: inline
+In-Reply-To: <20241218065848.12254-1-poojaamonica94@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_061235_972300_3A3D5C72 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20241218_062847_422796_A8412E75 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +73,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 17/12/24 09:54, Frank Wunderlich ha scritto:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> This series adds pinctrl driver, dt-bindings and dts node for pinctrl
-> on mediatek mt7988 SoC.
-> 
-> changes in v7:
-> - add const for pins and mtk_pin_soc as suggested by Christophe JAILLET in v5
-> - left angelos RB because of minor change (hope this is right)
 
-It's fine, I re-reviewed it and it's good (actually, better!) :-)
+--M3bhhHaTmUl9gQ+V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Cheers,
-Angelo
+On Wed, Dec 18, 2024 at 12:28:48PM +0530, Poojaa R wrote:
+> Only the driver files were existing for max98090 audio codec (playback an=
+d capture) but now the max98090.dts file is also included in linux/arch/arm=
+/boot/dts/overlays/.
+> new file:   arch/arm/boot/dts/overlays/max98090.dts
+>=20
+> Signed-off-by: Poojaa R <poojaamonica94@gmail.com>
 
-> 
-> changes in v6:
-> - some fixes to binding
-> - changed title and fixed typo in bpi-r4 patch
-> - added RB's
-> 
-> changes in v5:
-> - rebased to 6.13-rc1
-> - moved dt nodes with mutliple options to BPI-R4 board
-> - changes suggested by angelo in v4
-> - changed example in binding and dt node to not using const MTK_DRIVE_8mA
-> 
-> changes in v4:
-> - fixed fixed string binding error
-> 
-> changes in v3:
-> - rebase on rafals dts patches
-> - update binding to have mux subnode as fixed string and conf with optional suffix
-> 
-> changes in v2:
->    binding:
->    - drop gpio-cells description
->    - move ref in mux subnode up
->    - order uart-functions alphanumeric and fix typo
->    dts:
->    - fix indentation of reg-values
-> 
-> Daniel Golle (2):
->    pinctrl: mediatek: add support for MTK_PULL_PD_TYPE
->    pinctrl: mediatek: add MT7988 pinctrl driver
-> 
-> Frank Wunderlich (3):
->    dt-bindings: pinctrl: add binding for MT7988 SoC
->    arm64: dts: mediatek: mt7988: Add pinctrl support
->    arm64: dts: mediatek: mt7988a-bpi-r4: Add pinctrl subnodes for bpi-r4
-> 
->   .../pinctrl/mediatek,mt7988-pinctrl.yaml      |  575 ++++++
->   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts  |  189 ++
->   arch/arm64/boot/dts/mediatek/mt7988a.dtsi     |   54 +
->   drivers/pinctrl/mediatek/Kconfig              |    7 +
->   drivers/pinctrl/mediatek/Makefile             |    1 +
->   drivers/pinctrl/mediatek/pinctrl-mt7988.c     | 1556 +++++++++++++++++
->   .../pinctrl/mediatek/pinctrl-mtk-common-v2.c  |   73 +-
->   .../pinctrl/mediatek/pinctrl-mtk-common-v2.h  |    1 +
->   8 files changed, 2445 insertions(+), 11 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt7988-pinctrl.yaml
->   create mode 100644 drivers/pinctrl/mediatek/pinctrl-mt7988.c
-> 
+Why have you send this patch for your random github tree to lkml?
 
+Thanks,
+Conor.
 
+> ---
+>  arch/arm/boot/dts/overlays/max98090.dts | 96 +++++++++++++++++++++++++
+>  1 file changed, 96 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/overlays/max98090.dts
+>=20
+> diff --git a/arch/arm/boot/dts/overlays/max98090.dts b/arch/arm/boot/dts/=
+overlays/max98090.dts
+> new file mode 100644
+> index 000000000000..eaf197384edb
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/overlays/max98090.dts
+> @@ -0,0 +1,96 @@
+> +/*
+> + * Device Tree Overlay for MAX98090, MAX98091 Audio Codec.
+> + * https://github.com/Poojaa-Rangaiah/DeviceTreeOverlay-for-MAX98090 =3D=
+> for more details.
+> + * MAX98090 audio codec as master and Raspberry Pi as slave.
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +/ {
+> +    compatible =3D "brcm,bcm2835", "brcm,bcm2711";
+> +
+> +    fragment@0 {
+> +        target =3D <&i2s_clk_consumer>;
+> +        __overlay__ {
+> +            status =3D "okay";
+> +        };
+> +    };
+> +
+> +    fragment@1 {
+> +        target =3D <&i2c1>;
+> +        __overlay__ {
+> +            #address-cells =3D <1>;
+> +            #size-cells =3D <0>;
+> +            status =3D "okay";
+> +            max98090_codec: max98090@10 {
+> +                #sound-dai-cells =3D <0>;
+> +                compatible =3D "maxim,max98090","maxim,max98091";
+> +                reg =3D <0x10>;
+> +                interrupt-parent =3D <&gpio>;
+> +                interrupts =3D <27 2>;	/* GPIO 27 as Edge_Falling_IRQ (2=
+) */
+> +                maxim,micbias =3D <3>;
+> +                status =3D "okay";
+> +            };
+> +        };
+> +    };
+> +
+> +    fragment@2 {
+> +        target-path =3D "/";
+> +        __overlay__ {
+> +            clk_oscillator: oscillator {
+> +                compatible =3D "fixed-clock";
+> +                #clock-cells =3D <0>;
+> +                clock-frequency =3D <12288000>;  /* Frequency of the ext=
+ernal oscillator (mclk =3D 12.288 MHz) but can also be 11.2896 MHz/12 MHz/1=
+3 MHz/26 MHz/19.2 MHz. */
+> +                clock-output-names =3D "mclk";
+> +            };
+> +        };
+> +    };
+> +
+> +    fragment@3 {
+> +        target =3D <&sound>;
+> +        sound_overlay: __overlay__ {
+> +            compatible =3D "simple-audio-card";
+> +            simple-audio-card,format =3D "i2s";
+> +            simple-audio-card,name =3D "MAX98090-Codec";
+> +            simple-audio-card,bitclock-master =3D <&dailink0_master>;
+> +            simple-audio-card,frame-master =3D <&dailink0_master>;
+> +
+> +            simple-audio-card,widgets =3D
+> +                "Microphone", "Mic Jack",
+> +                "Speaker", "Speaker",
+> +                "Line", "Line In",
+> +                "Line", "Line Out",
+> +                "Headphone", "Headphone Jack";
+> +
+> +            simple-audio-card,routing =3D
+> +                "Headphone Jack", "HPL",
+> +                "Headphone Jack", "HPR",
+> +                "Line Out", "RCVL",
+> +                "Line Out", "RCVR",=20
+> +                /* Uncomment any of these below lines if the Line Input(=
+s) is(are) used else leave it as such. */
+> +                //"IN5", "Line In",  /* IN1/IN2/IN3/IN4/IN6 (For single =
+ended input) */
+> +                //"IN56", "Line In", /* IN34 (For differential inputs) */
+> +                "MIC1", "Mic Jack",
+> +                "MIC2", "Mic Jack",
+> +                "Speaker", "SPKL",
+> +                "Speaker", "SPKR";
+> +
+> +            status =3D "okay";
+> +
+> +            simple-audio-card,cpu {
+> +                sound-dai =3D <&i2s_clk_consumer>;
+> +            };
+> +
+> +            dailink0_master: simple-audio-card,codec {
+> +                sound-dai =3D <&max98090_codec>;
+> +                clocks =3D <&clk_oscillator>;
+> +            };
+> +        };
+> +    };
+> +   =20
+> +    __overrides__ {
+> +        card-name =3D <&sound_overlay>, "simple-audio-card,name";
+> +    };
+> +};
+> +
+> --=20
+> 2.34.1
+>=20
+>=20
+
+--M3bhhHaTmUl9gQ+V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2LcGwAKCRB4tDGHoIJi
+0pIgAP9wcVH4pCyWoUoFHY1sW2XjsrX0Kz3ul3TsB4/De7XkGgEA0gpSmzuZtNed
+ullh9U8xxdqmI/jNTMHGw+HQE8yiCgY=
+=mrmN
+-----END PGP SIGNATURE-----
+
+--M3bhhHaTmUl9gQ+V--
 
