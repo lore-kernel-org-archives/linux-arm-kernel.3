@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40216E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC0AE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0GSSGcRnHe8FFQURExf5BxgkwKsXJkD6Pr778L4WMk=; b=cmUw4aoYrpboTUC8HNRRXPkTjr
-	DEV0eHJpyDG7iLbJLaQFlJHxGxZDc62X9ldxUHu+86waIbhuTssr0KOTQYoKT9w54npUeqGhWT5d9
-	OIIDusjcqsirnhg1RyL0ZpgDetZiDUOy6M2T6ZAQ+N9am1JfY5e5MnTmGLpOhuItm0BmWQRLikUJ5
-	u3AEXr0fOVZnHJxyT3BdBtTfub/yxFPvoozY+4Sx5iXaPaIikdVenc2ASfwSSnnlTSLGDDgylQvc+
-	BFPk5uxlrFk9QKWr8dwtBcMxtS3zDQJ7M3pVOVcVYRiqNywO9n1o6cGtE9J0Db+XBWmv8Abz0Cafm
-	jJzzfH/A==;
+	bh=6mDeikeFSe+F1f6WRvocmJwWKAt2yrKKW2tQ+SDhd5c=; b=ymnP9WM/oFkmxQy2cmRQcWEeBU
+	DxSR7QEGTyOiv0YBWWvsiwRcTbzVZ3JmlIPqicI/OzTUspGP8CMWTzL0r2uBDptrZ096s0lJZpFpl
+	GzXwPWQUys9jVA91J1/oc/0DelJ754R5pcjiISYrRLpunAIEj90NaXvngSdzbXwjtvDvsOz8Dmrpx
+	9zPn2d/9Nmqg7vsfUH7W7SGIxys9Mrpl9WZ1X4QzeCL0HIEFbO/ytG0WAgGggcf3wH6dsjv2V45mz
+	G7aEizM6AFifd7PjScYlMKcvG+YMynkTDQjmA7aruNycYUma5tntQHvg39p7oly8GLjuLblfBBsdx
+	swo26qSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvgL-0000000GxaO-1r4X;
-	Wed, 18 Dec 2024 15:09:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNvhP-0000000GxsJ-2cr4;
+	Wed, 18 Dec 2024 15:10:55 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvfE-0000000GxLy-2ZcC;
-	Wed, 18 Dec 2024 15:08:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 37A0F5C61EC;
-	Wed, 18 Dec 2024 15:07:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31A23C4CECE;
-	Wed, 18 Dec 2024 15:08:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734534519;
-	bh=dsz8257D+6as1uUtKCRNXMXuyupbAqskFTKy5dqOl5Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DOFYmV/OC+pxzzSN2F3KRoWuPa3RBYPTcC/zoOH2NCKjp1MeXanV999doe0z17HZ9
-	 kZeRFu9n52HpxIYfDvjY68cwj2dFjby7xXYHkkhE6r1WCfyp9XvKDBOdii0weYJCm+
-	 9xKCOdfjiu4YgHKWSLJx0oNXIh9y/gozVqQ4FgrGJap66A/Q1lO5Vt/tWoIGECJlWH
-	 Rp7OGHr4sDQ+63bPykzZvg4/ERY2JHbLdJSx7PfB1jdfh7ai0OGgoE0GCVZHUb6g+l
-	 lHS+ibQI7IPTVeyzL3d/9mjIO74XkR3qFvTP3HJ4GhKXpeqZidOrYIhtpJAdAEabhd
-	 m0OkMY0OfPMpw==
-Date: Wed, 18 Dec 2024 15:08:28 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-	linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org,
-	Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH 07/17] riscv: vdso: Switch to generic storage
- implementation
-Message-ID: <20241218-action-matchbook-571b597b7f55@spud>
-References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
- <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
+	id 1tNvg5-0000000GxXE-3cst
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 15:09:34 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-218c8aca5f1so25865455ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 07:09:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734534572; x=1735139372; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6mDeikeFSe+F1f6WRvocmJwWKAt2yrKKW2tQ+SDhd5c=;
+        b=bpvw31+fphlf3ok67oSzM7jBcUwOZL48MA0aIy5VirqI2O/ClFbWKep/KtxXt5uWq4
+         NkqczG+xlttiQ93/PixGI/H9D0dnvedlS3iU54a33pwXuu0BLgKuP6Y75qygxtaQpA6f
+         WmpbW5U4UiPx+wOipzsMaAMlHC4xVG5ETpD9cHgBrc/G4yLT5cG75zndUS1jxaaRjZGU
+         wEJYiAiy2Q73tc2eRfbxxdVhTD6bhEW6OfW3VUkdZT938r+4jCbvBoAYeH7Xk2612A2Q
+         lpl/pS/hWdE8Jeo9YLjbSRgEOU9vsUy1CrbOGueuvP/yKK8hhQ30q37PGA0hEBvRz6Z5
+         lt1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734534572; x=1735139372;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6mDeikeFSe+F1f6WRvocmJwWKAt2yrKKW2tQ+SDhd5c=;
+        b=XoJLy9r6bPDIyIlweQon0tdGpkq+t+QtTwG/uwSsCuaaSG/iJD7xfZ93eF0QRdYW9k
+         3eeSS36AbMRZv1k8SYVBcMo2P/Rj5/iu+JoC0ViY+Okg6IK5zz+P9rEQYN0xaCqILOgh
+         qPQsDm6exC2fdS+NY/7dXgerRLeHkgJTNfNxuqNJwFzNuqkSUE8KbjTNP29jKv85C6Jp
+         j9jSuPTYCYZakiBnCZtBzZDlu2AT9UctXIF3w+TYLzjs4LG1l0MiYgbzYYI90S9zIkRh
+         mD0q2xMqOyuGDLwVwHH8Xy2PxI1YH8mU8+I3FyjdbgCArMd3Pho/shVDfTbC1em4Icuv
+         t+Mg==
+X-Forwarded-Encrypted: i=1; AJvYcCW9s1+97A+gYYn89mmot9DXEkNas4nX2arPJuIa/7B0bDqI1KKGVz0kxbKSo2zQW4GsQUTCyOztZ/anoU9enzZE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9q8r7hFrO7DZw6CVOAmTGfaTWK4rN9Sz7J4lF2PLJJku1nLzF
+	GdgVh00BIoEqdCVVWx2wKJ6Oxu0g8HPDDLEfCMENri2ZeZCYOEr3
+X-Gm-Gg: ASbGnctJkj0XlpPtlriCZN/88RO6ESKKWs1Edp5v4L21Ks/tuXni3m0piFIsmYztQdL
+	BjLrK242EllLuNyQ8uStDus+SIDGmN0sV5xLmAx4CV83ooErpbSkWzhFJNBzz3Z9sifpUKEEpPM
+	uqtRwvtzpfDfkNtvX4idfunHXNnZHjWxT89Bj8cczDUMXNgXjb/F4mYOGOnzanC2NfAchsArZ+k
+	fASS8EJaoVttIBkU7owNtxCypIjFbPppf0vBXkzMJJjeMy1sAHnd0eytyRvsGPdQiLMRA==
+X-Google-Smtp-Source: AGHT+IEewReQwgk+5Ua6YOOIYy2d2/wQCgEBDZk3bKIj2d8jpP3GFkNNyFGtuZW0MM3ArXC6dPDOAw==
+X-Received: by 2002:a17:902:f68e:b0:216:4b5a:998b with SMTP id d9443c01a7336-218d7252a1cmr34156515ad.45.1734534572373;
+        Wed, 18 Dec 2024 07:09:32 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e728a8sm75452185ad.280.2024.12.18.07.09.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Dec 2024 07:09:31 -0800 (PST)
+Date: Wed, 18 Dec 2024 07:09:30 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Ninad Palsule <ninad@linux.ibm.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	eajames@linux.ibm.com, jdelvare@suse.com, corbet@lwn.net,
+	joel@jms.id.au, andrew@codeconstruct.com.au,
+	Delphine_CC_Chiu@wiwynn.com, broonie@kernel.org,
+	peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
+	naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
+	patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
+	peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] hwmon: (pmbus/core) Add PMBUS_REVISION in debugfs
+Message-ID: <89ff7229-2e86-4d36-9349-50af109b0085@roeck-us.net>
+References: <20241217173537.192331-1-ninad@linux.ibm.com>
+ <20241217173537.192331-2-ninad@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fu8z2+BbmIxUgToy"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
+In-Reply-To: <20241217173537.192331-2-ninad@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_070840_744162_A55FEFAB 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20241218_070933_899256_02D2CED4 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,105 +106,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Dec 17, 2024 at 11:35:32AM -0600, Ninad Palsule wrote:
+> Add debugfs file for the PMBUS_REVISION command. This command provides
+> information about PMBus protocol revision number.
+> 
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 
---fu8z2+BbmIxUgToy
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I already applied this patch, so there is no need to re-send it.
+If it turns out to have a bug, please send an update on top of it.
 
-On Mon, Dec 16, 2024 at 03:10:03PM +0100, Thomas Wei=DFschuh wrote:
-> The generic storage implementation provides the same features as the
-> custom one. However it can be shared between architectures, making
-> maintenance easier.
->=20
-> Co-developed-by: Nam Cao <namcao@linutronix.de>
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> ---
->  arch/riscv/Kconfig                                 |  3 +-
->  arch/riscv/include/asm/vdso.h                      |  2 +-
->  .../include/asm/vdso/{time_data.h =3D> arch_data.h}  |  8 +-
->  arch/riscv/include/asm/vdso/gettimeofday.h         | 14 +---
->  arch/riscv/include/asm/vdso/vsyscall.h             |  9 ---
->  arch/riscv/kernel/sys_hwprobe.c                    |  3 +-
->  arch/riscv/kernel/vdso.c                           | 90 +---------------=
-------
->  arch/riscv/kernel/vdso/hwprobe.c                   |  6 +-
->  arch/riscv/kernel/vdso/vdso.lds.S                  |  7 +-
->  9 files changed, 18 insertions(+), 124 deletions(-)
-
-Fails to build:
-Patch 7/17: Test 1/12: .github/scripts/patches/tests/build_rv32_defconfig.sh
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:11:33: warning: de=
-claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
-ction [-Wvisibility]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:15:41: warning: de=
-claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
-ction [-Wvisibility]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:19:37: error: call=
- to undeclared function '__arch_get_vdso_u_arch_data'; ISO C99 and later do=
- not support implicit function declarations [-Wimplicit-function-declaratio=
-n]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:19:31: error: inco=
-mpatible integer to pointer conversion initializing 'const struct vdso_arch=
-_data *' with an expression of type 'int' [-Wint-conversion]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:22:36: error: arit=
-hmetic on a pointer to an incomplete type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:30:40: error: inco=
-mplete definition of type 'const struct vdso_arch_data'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:31:24: error: inco=
-mpatible pointer types passing 'struct riscv_hwprobe *' to parameter of typ=
-e 'struct riscv_hwprobe *' [-Werror,-Wincompatible-pointer-types]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:35:7: error: call =
-to undeclared function 'riscv_hwprobe_key_is_valid'; ISO C99 and later do n=
-ot support implicit function declarations [-Wimplicit-function-declaration]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:35:35: error: inco=
-mplete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:5: error: incom=
-plete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:18: error: inco=
-mplete definition of type 'const struct vdso_arch_data'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:44: error: inco=
-mplete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:39:5: error: incom=
-plete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:40:5: error: incom=
-plete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:43:4: error: arith=
-metic on a pointer to an incomplete type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:49:39: warning: de=
-claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
-ction [-Wvisibility]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:53:37: error: call=
- to undeclared function '__arch_get_vdso_u_arch_data'; ISO C99 and later do=
- not support implicit function declarations [-Wimplicit-function-declaratio=
-n]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:53:31: error: inco=
-mpatible integer to pointer conversion initializing 'const struct vdso_arch=
-_data *' with an expression of type 'int' [-Wint-conversion]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:55:36: error: arit=
-hmetic on a pointer to an incomplete type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:71:61: error: inco=
-mplete definition of type 'const struct vdso_arch_data'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:71:29: error: use =
-of undeclared identifier 'RISCV_HWPROBE_WHICH_CPUS'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:72:24: error: inco=
-mpatible pointer types passing 'struct riscv_hwprobe *' to parameter of typ=
-e 'struct riscv_hwprobe *' [-Werror,-Wincompatible-pointer-types]
-  fatal error: too many errors emitted, stopping now [-ferror-limit=3D]
-
-Might be a clang thing, allmodconfig with clang doesn't build either.
-
---fu8z2+BbmIxUgToy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2LlbAAKCRB4tDGHoIJi
-0n2PAQDyBQBbIhWl4PuPh0Arh+dY5o5V02LpT/vyZTOInKNMcgEAqZD+a5hkxJEH
-lFXI4u2esepSVEUEOeQQYFauBervVQc=
-=gqd2
------END PGP SIGNATURE-----
-
---fu8z2+BbmIxUgToy--
+Thanks,
+Guenter
 
