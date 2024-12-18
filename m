@@ -4,94 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC0AE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E27E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 15:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6mDeikeFSe+F1f6WRvocmJwWKAt2yrKKW2tQ+SDhd5c=; b=ymnP9WM/oFkmxQy2cmRQcWEeBU
-	DxSR7QEGTyOiv0YBWWvsiwRcTbzVZ3JmlIPqicI/OzTUspGP8CMWTzL0r2uBDptrZ096s0lJZpFpl
-	GzXwPWQUys9jVA91J1/oc/0DelJ754R5pcjiISYrRLpunAIEj90NaXvngSdzbXwjtvDvsOz8Dmrpx
-	9zPn2d/9Nmqg7vsfUH7W7SGIxys9Mrpl9WZ1X4QzeCL0HIEFbO/ytG0WAgGggcf3wH6dsjv2V45mz
-	G7aEizM6AFifd7PjScYlMKcvG+YMynkTDQjmA7aruNycYUma5tntQHvg39p7oly8GLjuLblfBBsdx
-	swo26qSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MUtnKQLrfLfRrfKGlctx27oDxF7G9rAMQsgI0XWA0dA=; b=uUbxiFlb7XLS5K8NXJxUQk7bSS
+	ssFcxkr5b6hrGrbMhyzybXuj6IxbbAr31TiAu4mkpkL31LxUGgyNIO5bHHPZWtPQsQO2gRpLRc4pc
+	gyB+how5G2FknOqCXGCgKy4p7aUqcQBfPsn6Nbm0skKYGZRCnu6nWU7y7YABE9HKuPIzExL4dlv8C
+	qQFsU17EvW9CEv3frAE6AZ8GlZlKmWv3e8Ulrw2U/6nmGEGampVCXKILBKHzpMXPdb1sVx2bO/cxm
+	nGUnOgbwxAxqnFIR1cvIhwGN9/cx1GyiBUqqfllP1Cj/NezlPC3C6x6/YlJKWrT0Hhyh8pceRevLH
+	FsDDRmmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvhP-0000000GxsJ-2cr4;
-	Wed, 18 Dec 2024 15:10:55 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tNvjK-0000000GyHE-3Zlc;
+	Wed, 18 Dec 2024 15:12:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvg5-0000000GxXE-3cst
+	id 1tNviF-0000000Gy5b-0Ugb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 15:09:34 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-218c8aca5f1so25865455ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 07:09:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734534572; x=1735139372; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6mDeikeFSe+F1f6WRvocmJwWKAt2yrKKW2tQ+SDhd5c=;
-        b=bpvw31+fphlf3ok67oSzM7jBcUwOZL48MA0aIy5VirqI2O/ClFbWKep/KtxXt5uWq4
-         NkqczG+xlttiQ93/PixGI/H9D0dnvedlS3iU54a33pwXuu0BLgKuP6Y75qygxtaQpA6f
-         WmpbW5U4UiPx+wOipzsMaAMlHC4xVG5ETpD9cHgBrc/G4yLT5cG75zndUS1jxaaRjZGU
-         wEJYiAiy2Q73tc2eRfbxxdVhTD6bhEW6OfW3VUkdZT938r+4jCbvBoAYeH7Xk2612A2Q
-         lpl/pS/hWdE8Jeo9YLjbSRgEOU9vsUy1CrbOGueuvP/yKK8hhQ30q37PGA0hEBvRz6Z5
-         lt1w==
+	Wed, 18 Dec 2024 15:11:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734534706;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MUtnKQLrfLfRrfKGlctx27oDxF7G9rAMQsgI0XWA0dA=;
+	b=TwNjdGsCsH4SNSajpitGnrKT1steLlplzN5tmxnnbjqHY+KRC88S8NPfhgalnFac58JBaE
+	rvfYh6ug4wywsYRRh5V8wL00+p1Yor/nK6NIIQauCijZjZlpgo+kkjO9UgpYm4z6WvCjR2
+	Zgw1kE/7I25XlOQW1ZgaEzjnx3KGQe0=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-574-p2kfdAr7Ou6OPxx57uB8uA-1; Wed, 18 Dec 2024 10:11:45 -0500
+X-MC-Unique: p2kfdAr7Ou6OPxx57uB8uA-1
+X-Mimecast-MFC-AGG-ID: p2kfdAr7Ou6OPxx57uB8uA
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6d88ccf14aeso120830496d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 07:11:45 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734534572; x=1735139372;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6mDeikeFSe+F1f6WRvocmJwWKAt2yrKKW2tQ+SDhd5c=;
-        b=XoJLy9r6bPDIyIlweQon0tdGpkq+t+QtTwG/uwSsCuaaSG/iJD7xfZ93eF0QRdYW9k
-         3eeSS36AbMRZv1k8SYVBcMo2P/Rj5/iu+JoC0ViY+Okg6IK5zz+P9rEQYN0xaCqILOgh
-         qPQsDm6exC2fdS+NY/7dXgerRLeHkgJTNfNxuqNJwFzNuqkSUE8KbjTNP29jKv85C6Jp
-         j9jSuPTYCYZakiBnCZtBzZDlu2AT9UctXIF3w+TYLzjs4LG1l0MiYgbzYYI90S9zIkRh
-         mD0q2xMqOyuGDLwVwHH8Xy2PxI1YH8mU8+I3FyjdbgCArMd3Pho/shVDfTbC1em4Icuv
-         t+Mg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9s1+97A+gYYn89mmot9DXEkNas4nX2arPJuIa/7B0bDqI1KKGVz0kxbKSo2zQW4GsQUTCyOztZ/anoU9enzZE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9q8r7hFrO7DZw6CVOAmTGfaTWK4rN9Sz7J4lF2PLJJku1nLzF
-	GdgVh00BIoEqdCVVWx2wKJ6Oxu0g8HPDDLEfCMENri2ZeZCYOEr3
-X-Gm-Gg: ASbGnctJkj0XlpPtlriCZN/88RO6ESKKWs1Edp5v4L21Ks/tuXni3m0piFIsmYztQdL
-	BjLrK242EllLuNyQ8uStDus+SIDGmN0sV5xLmAx4CV83ooErpbSkWzhFJNBzz3Z9sifpUKEEpPM
-	uqtRwvtzpfDfkNtvX4idfunHXNnZHjWxT89Bj8cczDUMXNgXjb/F4mYOGOnzanC2NfAchsArZ+k
-	fASS8EJaoVttIBkU7owNtxCypIjFbPppf0vBXkzMJJjeMy1sAHnd0eytyRvsGPdQiLMRA==
-X-Google-Smtp-Source: AGHT+IEewReQwgk+5Ua6YOOIYy2d2/wQCgEBDZk3bKIj2d8jpP3GFkNNyFGtuZW0MM3ArXC6dPDOAw==
-X-Received: by 2002:a17:902:f68e:b0:216:4b5a:998b with SMTP id d9443c01a7336-218d7252a1cmr34156515ad.45.1734534572373;
-        Wed, 18 Dec 2024 07:09:32 -0800 (PST)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e728a8sm75452185ad.280.2024.12.18.07.09.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 07:09:31 -0800 (PST)
-Date: Wed, 18 Dec 2024 07:09:30 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	eajames@linux.ibm.com, jdelvare@suse.com, corbet@lwn.net,
-	joel@jms.id.au, andrew@codeconstruct.com.au,
-	Delphine_CC_Chiu@wiwynn.com, broonie@kernel.org,
-	peteryin.openbmc@gmail.com, noahwang.wang@outlook.com,
-	naresh.solanki@9elements.com, lukas@wunner.de, jbrunet@baylibre.com,
-	patrick.rudolph@9elements.com, gregkh@linuxfoundation.org,
-	peterz@infradead.org, pbiel7@gmail.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-i2c@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] hwmon: (pmbus/core) Add PMBUS_REVISION in debugfs
-Message-ID: <89ff7229-2e86-4d36-9349-50af109b0085@roeck-us.net>
-References: <20241217173537.192331-1-ninad@linux.ibm.com>
- <20241217173537.192331-2-ninad@linux.ibm.com>
+        d=1e100.net; s=20230601; t=1734534704; x=1735139504;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MUtnKQLrfLfRrfKGlctx27oDxF7G9rAMQsgI0XWA0dA=;
+        b=kfQ22zVi3PpGldQFWrqdii++KY+saDOLIMyb+Iy31SBsjvB4AQG+K83X9PRrZtJ6Wa
+         /YC6S8DEA3uUZxSmZ2Ejf3kReDKTJxmwrLmlENI7HO3kXDyIaeYwISxyTpRETS9K1RnN
+         wAr76qERS9fs6msiohx6R9OjdCps4aIeQU5uFD9AHSzDWeabsftlu8/h8p7q42AhhYBZ
+         HkDLZQTiWXdgpHZMV+/zRCVInpslEJa4plplq0MnbsxRyUlz38nIrjcoEP8kPcREU2d7
+         1i8P1K6y5DoFUKMmndyoe5RcXoq7S1CVW64MSSl+GZuBgUHyd/vG+CY227+WoKDvZyH6
+         m9pw==
+X-Forwarded-Encrypted: i=1; AJvYcCVw6IM8Kt34hAjIhSqzeusySf86AC/JLDMmF+jHwP+udxSJDAFUSxBl2ED2AJFUXJhsO+3s4x0TY4+x+cO9w6Aq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXWMd3DG8N2SCmHl4oDn0cTr4DkPK3uI7/4vHelSzy36uWYr+e
+	/godcq+3w1jDlVUYoHJOF3IA0FE1SeFa/F6xR2CauqhIDqH/InHBTPQShmBZ0sZWOdt49eSYe5Y
+	rXDEKKEVmLMicO/wRdNRddOc8k8NsCiz2j1L7E2a540g05TWSZ4THHzgjMzEuxlq/etQn5B6d
+X-Gm-Gg: ASbGncsB9AvZq1biocUdAFDFFtRzcf73U7uPqLXGskM+PPb5/WTS0lejRY2HVM2h9U8
+	vxl0kt8UugO06mm9DXEYCmaMthdfUo1gmj5tYrRxdBHJNiyVxfsT7w/MB+wqSRbC2ZOkR8ew/8s
+	ha9nPG8fSDoaiN3jghYFZWhD76J0OVvSGZwbx/n0EhUPZFb6OZ9DRyTR3kJlaLBaM7A20Ukvj4j
+	JdnQ9hM9sVFxcyYWNDXP3vE5GMB/e0O17xUbwMUGw86mcyzxfnuqgaWKDCM6i59O5Qdk06NRkHX
+	EIJkKmZCvZRTB5ScTKDsb9w=
+X-Received: by 2002:ad4:5fc8:0:b0:6d4:2fee:c27b with SMTP id 6a1803df08f44-6dd091db2e0mr52459566d6.27.1734534704626;
+        Wed, 18 Dec 2024 07:11:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEv9VZAsXavLqKttfeD9dxe21gsPq9vvsGrZIzMw31wmGaL8NQWnX5hi1ykqI/y4qaIyV3JGA==
+X-Received: by 2002:ad4:5fc8:0:b0:6d4:2fee:c27b with SMTP id 6a1803df08f44-6dd091db2e0mr52459176d6.27.1734534704326;
+        Wed, 18 Dec 2024 07:11:44 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:59e:9d80:527b:9dff:feef:3874? ([2a01:e0a:59e:9d80:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dccd3a4c5esm49752486d6.131.2024.12.18.07.11.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Dec 2024 07:11:43 -0800 (PST)
+Message-ID: <8df1140d-5364-4979-b572-127067b18f90@redhat.com>
+Date: Wed, 18 Dec 2024 16:11:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241217173537.192331-2-ninad@linux.ibm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 06/46] arm64/sysreg: Add register fields for
+ HDFGWTR2_EL2
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, maz@kernel.org
+Cc: ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
+ James Morse <james.morse@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
+References: <20241210055311.780688-1-anshuman.khandual@arm.com>
+ <20241210055311.780688-7-anshuman.khandual@arm.com>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <20241210055311.780688-7-anshuman.khandual@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: swQm3bw4jOqQpCsG_xMC14xqQTdQHN8LMrwVyeKi0x4_1734534704
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_070933_899256_02D2CED4 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20241218_071147_227616_3588E73F 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,15 +115,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 11:35:32AM -0600, Ninad Palsule wrote:
-> Add debugfs file for the PMBUS_REVISION command. This command provides
-> information about PMBus protocol revision number.
+
+
+On 12/10/24 06:52, Anshuman Khandual wrote:
+> This adds register fields for HDFGWTR2_EL2 as per the definitions based
+> on DDI0601 2024-09.
 > 
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Eric Auger <eric.auger@redhat.com>
 
-I already applied this patch, so there is no need to re-send it.
-If it turns out to have a bug, please send an update on top of it.
+Eric
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/tools/sysreg | 28 ++++++++++++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index a56f7384d0db..1a7d8c03f844 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2591,6 +2591,34 @@ Field	1	nPMIAR_EL1
+>  Field	0	nPMECR_EL1
+>  EndSysreg
+>  
+> +Sysreg HDFGWTR2_EL2	3	4	3	1	1
+> +Res0	63:25
+> +Field	24	nPMBMAR_EL1
+> +Field	23	nMDSTEPOP_EL1
+> +Field	22	nTRBMPAM_EL1
+> +Field	21	nPMZR_EL0
+> +Field	20	nTRCITECR_EL1
+> +Field	19	nPMSDSFR_EL1
+> +Res0	18:17
+> +Field	16	nSPMSCR_EL1
+> +Field	15	nSPMACCESSR_EL1
+> +Field	14	nSPMCR_EL0
+> +Field	13	nSPMOVS
+> +Field	12	nSPMINTEN
+> +Field	11	nSPMCNTEN
+> +Field	10	nSPMSELR_EL0
+> +Field	9	nSPMEVTYPERn_EL0
+> +Field	8	nSPMEVCNTRn_EL0
+> +Field	7	nPMSSCR_EL1
+> +Res0	6
+> +Field	5	nMDSELR_EL1
+> +Field	4	nPMUACR_EL1
+> +Field	3	nPMICFILTR_EL0
+> +Field	2	nPMICNTR_EL0
+> +Field	1	nPMIAR_EL1
+> +Field	0	nPMECR_EL1
+> +EndSysreg
+> +
+>  Sysreg HDFGRTR_EL2	3	4	3	1	4
+>  Field	63	PMBIDR_EL1
+>  Field	62	nPMSNEVFR_EL1
 
-Thanks,
-Guenter
 
