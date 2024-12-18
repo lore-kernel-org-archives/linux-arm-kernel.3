@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CED6E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3504CE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8RZv5OeXRENVX3UzOWhQ4paK8gFX9BFqRtwkFFfiNDE=; b=aYMCiv2B/PlOlsso/BQa9QEMqQ
-	qULXzj74pjmTDGTQ10cQ9rgp6cqTJMZUSpb2v7q4NOXeXEfsiJehitmBCRjhmfBuy9dY+MLPKS2JV
-	NvngTQRQOt5ldKLlr8f5wS218r5qHoV/0RiVU0n6NJfsnDPa40dqhj8JuDXTw+PMCDnFi9/+S2xrZ
-	w15caBeaBVZD5IET2AiuDLclFsGG8F1+jotbc/5x2SBzLeObOQxh6guKIjzmjD3yubEkfluXhgj2M
-	I4fa1WUI0seAjRwvohORqXTs7g9/Ue1osDtZ4b6WszIlVubSAk8Fbl1WeH86wD0dwe6iDLIXjXeZ+
-	92LnzufA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=msThw48itXlU4qwJcJXvnA7E9mIJ568BNL4jgDEORz8=; b=hc7DPIHozBIOSIluVP84P3ZIVM
+	tUQE3tVvXaZge2gAur6ZriKGyuS5JdfDAVmW11vYvxwrJiriB2kKTNliwscLnIT1MGPgNOfTwQh8s
+	48xF8QPQI6V/Un1ikeBCurqcsfxinjoDF3YudFf4WpRIWHF5esvavvBld1Hod+kPPpIaQMWfXQvjZ
+	bR39Kaa4RNCvZBO+SgFN/+7BiXaDwz0/FuwOmXQjVJKIl+RoUmd4iwGbSbDdis2LbhYttnaElwBuL
+	t9YRkV04s7zyJl9CrErdsER18X1e4WWg67aUGIYl2iO3F5pjiKoDJunBMaHqZXlbycWJH6KysBb/7
+	XdXzQNTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNssS-0000000GYIa-2ejz;
-	Wed, 18 Dec 2024 12:10:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tNssT-0000000GYJA-229a;
+	Wed, 18 Dec 2024 12:10:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrgL-0000000GL4i-3mDJ;
-	Wed, 18 Dec 2024 10:53:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734519212;
-	bh=N3yE4+/zUzwrZLGitsLbjb1957m/tWo8jToq6NvN4nw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dsqlH2sqPyC5sMeSdb2HtWuMk8PfpABN0cFtmBSr5jxlJkyu+KbdCvyuLt30cUfBD
-	 cDpqob/Bq7y000yGqhTzmF1j6B10Wgwo/tZbMt4nVlgeCDGXmVta9t5JqqHlZeKsu6
-	 9luviBTwwQKo5ArPLUgv/o0KEB8tDavGN4u7jtnwgOhN3Fq6lBn8mjQN6RTUmQ4SEV
-	 vXH7RyBRYUhIGsKs1yNiMO6ENfEdG06yM2DqVQMOAMZhT3jDZm0BxXSRcGIvYa1oUM
-	 eEfWQbdECOxhs5JPUB7qvAr6NQjLAOIoCuYBo/GYqtMjpMaSq/E4BltP05fVFCvk5c
-	 1rRA1If0ACoPA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3752617E3613;
-	Wed, 18 Dec 2024 11:53:31 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mchehab@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	moudy.ho@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	sebastian.fricke@collabora.com,
-	macpaul.lin@mediatek.com
-Subject: [PATCH v1 1/3] dt-bindings: display: mediatek: Add compatibles for MT8188 MDP3
-Date: Wed, 18 Dec 2024 11:53:18 +0100
-Message-ID: <20241218105320.38980-2-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
-References: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com>
+	id 1tNrhW-0000000GLOq-2klL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 18 Dec 2024 10:54:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=msThw48itXlU4qwJcJXvnA7E9mIJ568BNL4jgDEORz8=; b=N5OhIXFoEDA5JpWMbC9jyHGn4Q
+	rQqwRnj4PAPXEJH0/2Bkc6oy3928wusny9qDEe7QFdAjMvf5UovTU6IlVvBd+/l+QE74QoqLIU55J
+	ntCEXJ7eScm8aBCgOGpyVyShIXBWunxolepv6Wa96iEpVMsYeu/ua5R75Tx6EjHeQeOQtQZZqNrYb
+	deAJ5RR+Ot/oWLbNJzqWEX8RZaxd+g582c+Gr6BUSoSg1j2WLI8Vqj9zKPzhjBk6Yl+tqIDCXAH4x
+	jEvPwIVLYMJAjS3DffLrgk7R1oM2Rl9pyV1FCwyjxaQLNiTSHRERkY1aa55Iz3evuZyhpraZkb0vO
+	U2fBVu4g==;
+Received: from [185.176.79.56] (helo=frasgout.his.huawei.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNrhT-00000005FGw-0hHJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 10:54:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YCr7h4mBCz6K99B;
+	Wed, 18 Dec 2024 18:50:56 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 20793140B3C;
+	Wed, 18 Dec 2024 18:54:32 +0800 (CST)
+Received: from A2303104131.china.huawei.com (10.195.247.46) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Wed, 18 Dec 2024 11:54:23 +0100
+From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+Subject: [PATCH v4 2/3] KVM: arm64: Introduce hypercall support for retrieving target implementations
+Date: Wed, 18 Dec 2024 10:53:44 +0000
+Message-ID: <20241218105345.73472-3-shameerali.kolothum.thodi@huawei.com>
+X-Mailer: git-send-email 2.12.0.windows.1
+In-Reply-To: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.195.247.46]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_025334_079141_E46BE43E 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_105443_401612_AB019456 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,86 +87,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible strings for the AAL, COLOR, MERGE and PADDING
-hardware components found in MediaTek's MT8188 SoC.
+If the Guest requires migration to multiple targets, this hypercall
+will provide a way to retrieve the target CPU implementations from
+the user space VMM.
 
-This hardware is compatible with MT8195.
+Subsequent patch will use this to enable the associated errata.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Sebastian Ott <sebott@redhat.com>
+Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
 ---
- .../bindings/display/mediatek/mediatek,aal.yaml        |  4 ++++
- .../bindings/display/mediatek/mediatek,color.yaml      |  4 ++++
- .../bindings/display/mediatek/mediatek,merge.yaml      |  4 ++++
- .../bindings/display/mediatek/mediatek,padding.yaml    | 10 +++++++---
- 4 files changed, 19 insertions(+), 3 deletions(-)
+ Documentation/virt/kvm/arm/hypercalls.rst | 30 +++++++++++++++++++++++
+ include/linux/arm-smccc.h                 |  7 ++++++
+ 2 files changed, 37 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
-index cf24434854ff..1479035da409 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
-@@ -25,6 +25,10 @@ properties:
-           - mediatek,mt8173-disp-aal
-           - mediatek,mt8183-disp-aal
-           - mediatek,mt8195-mdp3-aal
-+      - items:
-+          - enum:
-+              - mediatek,mt8188-mdp3-aal
-+          - const: mediatek,mt8195-mdp3-aal
-       - items:
-           - enum:
-               - mediatek,mt2712-disp-aal
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
-index 7df786bbad20..799c0b8fc1f9 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
-@@ -27,6 +27,10 @@ properties:
-           - mediatek,mt8167-disp-color
-           - mediatek,mt8173-disp-color
-           - mediatek,mt8195-mdp3-color
-+      - items:
-+          - enum:
-+              - mediatek,mt8188-mdp3-color
-+          - const: mediatek,mt8195-mdp3-color
-       - items:
-           - enum:
-               - mediatek,mt7623-disp-color
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
-index dae839279950..415a25bc18fa 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
-@@ -25,6 +25,10 @@ properties:
-           - mediatek,mt8173-disp-merge
-           - mediatek,mt8195-disp-merge
-           - mediatek,mt8195-mdp3-merge
-+      - items:
-+          - enum:
-+              - mediatek,mt8188-mdp3-merge
-+          - const: mediatek,mt8195-mdp3-merge
-       - items:
-           - const: mediatek,mt6795-disp-merge
-           - const: mediatek,mt8173-disp-merge
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
-index be07bbdc54e3..86787866ced0 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
-@@ -20,9 +20,13 @@ description:
+diff --git a/Documentation/virt/kvm/arm/hypercalls.rst b/Documentation/virt/kvm/arm/hypercalls.rst
+index af7bc2c2e0cb..16b4c02cf9d9 100644
+--- a/Documentation/virt/kvm/arm/hypercalls.rst
++++ b/Documentation/virt/kvm/arm/hypercalls.rst
+@@ -142,3 +142,33 @@ region is equal to the memory protection granule advertised by
+ |                     |          |    +---------------------------------------------+
+ |                     |          |    | ``INVALID_PARAMETER (-3)``                  |
+ +---------------------+----------+----+---------------------------------------------+
++
++``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID``
++-------------------------------------------------------
++
++Request the target CPU implementation information for the Guest VM. This hypercall
++must be handled by the userspace VMM. The Guest kernel will use this information to
++enable the associated errata. A maximum of 64 implementations is supported.
++
+++---------------------+-------------------------------------------------------------+
++| Presence:           | Optional;  KVM/ARM64 Guests only                            |
+++---------------------+-------------------------------------------------------------+
++| Calling convention: | HVC64                                                       |
+++---------------------+----------+--------------------------------------------------+
++| Function ID:        | (uint32) | 0xC600007E                                       |
+++---------------------+----------+----+---------------------------------------------+
++| Arguments:          | (uint64) | R1 | selected implementation index               |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R2 | Reserved / Must be zero                     |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R3 | Reserved / Must be zero                     |
+++---------------------+----------+----+---------------------------------------------+
++| Return Values:      | (int64)  | R0 | -1 on error else the maximum required CPU   |
++|                     |          |    | implementation index.                       |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R1 | MIDR_EL1 of the selected implementation     |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R2 | REVIDR_EL1 of the selected implementation   |
++|                     +----------+----+---------------------------------------------+
++|                     | (uint64) | R3 | Reserved / Must be zero                     |
+++---------------------+----------+----+---------------------------------------------+
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 67f6fdf2e7cd..6c080fa9d345 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -179,6 +179,7 @@
+ #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_62		62
+ #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_63		63
+ /* End of pKVM hypercall range */
++#define ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS	126
+ #define ARM_SMCCC_KVM_FUNC_FEATURES_2		127
+ #define ARM_SMCCC_KVM_NUM_FUNCS			128
  
- properties:
-   compatible:
--    enum:
--      - mediatek,mt8188-disp-padding
--      - mediatek,mt8195-mdp3-padding
-+    oneOf:
-+      - enum:
-+          - mediatek,mt8188-disp-padding
-+          - mediatek,mt8195-mdp3-padding
-+      - items:
-+          - const: mediatek,mt8188-mdp3-padding
-+          - const: mediatek,mt8195-mdp3-padding
+@@ -225,6 +226,12 @@
+ 			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
+ 			   ARM_SMCCC_KVM_FUNC_MMIO_GUARD)
  
-   reg:
-     maxItems: 1
++#define ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID		\
++	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
++			   ARM_SMCCC_SMC_64,				\
++			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
++			   ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS)
++
+ /* ptp_kvm counter type ID */
+ #define KVM_PTP_VIRT_COUNTER			0
+ #define KVM_PTP_PHYS_COUNTER			1
 -- 
-2.46.1
+2.47.0
 
 
