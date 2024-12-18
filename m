@@ -4,82 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0245E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 22:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A50E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 22:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8/Bx7vVXdjG8Qup6CRv0EW1z1SiIeJxiXGSb6iiEaI=; b=rzq1H/ADRRnuJ6XoO7/9102BI0
-	j71MwWhPQnzPm0HQN/Jj8CUbDfKnHFbO+6crcg/20Xw/v7cMM4WnG78Q3/0NwWcMqdW8YiFkSsNwJ
-	EMBujc8BgyRRo2VykgJlmAnRU6u6w3gQ0njmee41wrUUlmnLVI2y2+p1kZQpknGSjqbyccQg+4qFd
-	63RvgPRAXXN0MrQuw8raMqDsjiKtVnjHbyvPVCIQgTASgIkOk5JP2SkvbxORVnheUwt8r1PUFKvLV
-	aeEtRelpszDjl66dAPjtsHEGKef7rXEpO9DZLitkGXVlbuOLUWDv/aAQMqPa6iUbDMQqoyWR4Ne2+
-	FYINUoCA==;
+	bh=TntSzvEXUOWNPMNazJTCwbyu4pJDZYd6/Mf4IwJ2Mww=; b=r0hee8guAyQtV7YFjKr8fY06W3
+	yplQiFrDhwYnadXI9EKguNUQWQ2JuzaakHPTnVINaogtw4db/f6N4mA3unXfThEV4ehruDUUdDtkZ
+	OWx2HpMPsAbpCXTkTv2QzzfjAshOBjUfrziPsHthnBN9UvilUNnuDXuUb0NhKHP7VqGZkvGLASgNt
+	5PvpoGUZhkzfEkgbqg+2hkrEqqDORZPjl1GVaj/I4RGxyLtj97v31kMwh3SIJVJ7aHopc1nzhZYQ8
+	4N9xUJcKuxoWKpZqHj/usUK/nRwjeRn+39hb6BpHxGLcLyJ365HpZ66yAFxLSgSpiax0rQlk7yu1j
+	W0XWE0mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO2IN-00000000DSr-1ZGi;
-	Wed, 18 Dec 2024 22:13:31 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tO2sJ-00000000GOi-0ttP;
+	Wed, 18 Dec 2024 22:50:39 +0000
+Received: from mail-mw2nam12on20603.outbound.protection.outlook.com ([2a01:111:f403:200a::603] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO2HF-00000000DDs-1QQa
+	id 1tO2rC-00000000GAl-2z1A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 22:12:22 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ee8ced572eso138552a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 14:12:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734559939; x=1735164739; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=H8/Bx7vVXdjG8Qup6CRv0EW1z1SiIeJxiXGSb6iiEaI=;
-        b=iwY+CZTJvvJH6BzMUuH2VoiwmoSyMnTUAhM+aVKPXeGY6VWnj+8T+1fKgcycslebd8
-         R9QNMdHzekVFmIKITzIHSaYL1aFHIpm4/qQ2atYiosrFKxs1W0rFUhR3/EaTwhtQJYYN
-         Ll1vwCipZZ3Rt24GmqrLH/E9H++DBdMjVgP5KjmPLatQfihCwzD1fqD5NR+MSZf4JZrg
-         bxuJ3ACTtLLAOgdr4k1to/VIh+qfRqo9HObKX13zNZ4SnPHn0lnYL0rpaHRTblSW60Yz
-         j49vyoLvC5I3aWZt02M87H/RLfBF8Kip3ebsh1/Yk82g657SwGpuIoIl2x4m2AB89csU
-         ZEUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734559939; x=1735164739;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H8/Bx7vVXdjG8Qup6CRv0EW1z1SiIeJxiXGSb6iiEaI=;
-        b=mo7uePG3E49Y/F0Z3gG6/G7PsUh7+2sdvOl7rkq3etd9hIUgrm51acHYbaHztJodcA
-         wJpPdlApbX3mxhB1Volf6iEQpzuS7zpC7Ehu+EiqRitu9OXexX+DiaXzdb/a/JddsKlw
-         8+w7y7asiDKf64iJjYafGzXVQTux9w6LyaxpXwPtRMN3uZYlRWVe+h+9Ej2lTjncieaw
-         YbsFrAoq7vJvkNTWfDbowImOLaVI8awrtkp6X49/7Ml2CzMD4Q5FezKUUHxTabDfWTcW
-         JFBJUhv2J+nKOairg1S6th14JN9Jo66ffau8bJx7jVldk0QVihzWcPV8n+h+UEaid+c4
-         Pj5Q==
-X-Gm-Message-State: AOJu0YwVguaMY2KqT5iFHW33zk09gk5f0GpM9MrG4kSueV/lrXrlsCuM
-	0r5kQFCXZEDrzgOeOYyb8iQWYCyOD54fGCE2Ew1IiPPQLqm5vNbJJAJt4GpEL0/c37BHMLhfOA/
-	jhw==
-X-Google-Smtp-Source: AGHT+IErnWAR5psGjYVEFgNdPO9Ra9c1ykxsWobkdL6749/rPBHLJQjHXddkE3dKVeRJv5MVr7RsZhgUpzE=
-X-Received: from pjuj8.prod.google.com ([2002:a17:90a:d008:b0:2ea:7d73:294e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:134d:b0:2ea:37b4:5373
- with SMTP id 98e67ed59e1d1-2f443ce8daamr1395725a91.10.1734559939355; Wed, 18
- Dec 2024 14:12:19 -0800 (PST)
-Date: Wed, 18 Dec 2024 14:12:18 -0800
-In-Reply-To: <173455833964.3185228.5614329030867008316.b4-ty@google.com>
-Mime-Version: 1.0
-References: <20241128005547.4077116-1-seanjc@google.com> <173455833964.3185228.5614329030867008316.b4-ty@google.com>
-Message-ID: <Z2NIwmRDaZBc_V4o@google.com>
-Subject: Re: [PATCH v4 00/16] KVM: selftests: "tree" wide overhauls
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 18 Dec 2024 22:49:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KTaoBnevIeEQXIPNew7PdOZ9o4Lpc/4b0jNKqqh1YnKklPvbeyfAUtLYzMAD3dh2ViEzwbt9EqJbK7277070RlKrpryFlNls+u9x+kDIrPLLCU9meVGpA75gc+4RbkdnSkGk61n78SNooWZKmUQTpIay6Ke1yqx9vQ1X05r4F6W8NyaQJL1AtevTRrB+WcRE1rMMma//4ofWuNOfcjYkx/AONsv49+w8pOMWpGuXekUq7BZzLNdItxd5u93BrzK+lrzRDywnsQSmrBKdnSDHwiZ+7XxElFub0aysTFlY1mzfy5WWhUVJhmyPNSIe5GDsocBZg2/1aggSOKcg/8Bu2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TntSzvEXUOWNPMNazJTCwbyu4pJDZYd6/Mf4IwJ2Mww=;
+ b=m5Fdl/46PNjC343rMURUjpa3LylhYv5YHhtEW3S84FK59ZIewOCbyBJdzzqBHl7Q0PnV/cs7DTlA+DTfqYZfe6rrUB6uOomjJP6teS0fJxbRIseOwoV+qoAQZV+HfttLx7cKcV7PQIG390V07GyvWDy/09SOQJh6IwDs3cZonKpbTnHH6IX5MtAPkMIYbud6zP0N+I42cZrN1qvBm7juXiU8poC40jPFeBHqVgvdQeArWLjdJ90a5+M/BM+SbAstYCUhGkoCNKubDBOIQQHA0+GB8yjVmUPgzI19eqx6AzUy/Vhh+2M+RHJCc0t602obhDYGbp+EW/ktnBhE8KJjNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TntSzvEXUOWNPMNazJTCwbyu4pJDZYd6/Mf4IwJ2Mww=;
+ b=gNsbdzz24S4QoLQvEefNRhDgnVMIOId6tqFVXi+pUIqmAeYR9tyDBOI+LTEwu20UE/dWcDW6mQGYE5dmkPD/3MpWUZNj+xA7NO+XMsbn/G1MPw3QkxB4E9SJgixjGoQDglqfPFyMGrdb2HljPV/9S4SWmUCQTE+SptVAYdk7zy1UcgGMQa+Zem3z9X0FPDHElC88cfpDjnUXUp6wGIChkS6adqoMBA+EiuyUJyl7PtosDMMLt/imWCHManL+WVh+hev+oI8oMYYUCEqMBb88sXkRxQ3tnJ9SxDUeA8JEIFP6dLeXA36bSs1f1ndokY6ZOQLv4CzCxqPyw9DI0I03tA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ MN0PR12MB6104.namprd12.prod.outlook.com (2603:10b6:208:3c8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.21; Wed, 18 Dec
+ 2024 22:49:22 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%4]) with mapi id 15.20.8272.005; Wed, 18 Dec 2024
+ 22:49:22 +0000
+Date: Thu, 19 Dec 2024 09:49:18 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
+	linux-mm@kvack.org, lina@asahilina.net, zhang.lyra@gmail.com, 
+	gerald.schaefer@linux.ibm.com, vishal.l.verma@intel.com, dave.jiang@intel.com, 
+	logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, 
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com, 
+	dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, 
+	tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, 
+	linux-cxl@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com
+Subject: Re: [PATCH v4 10/25] mm/mm_init: Move p2pdma page refcount
+ initialisation to p2pdma
+Message-ID: <bk6cmiubwvor6gevit3wgl4k66xxpfcv6swmfrtvxnjnuojqkx@yow3pmyuxozw>
+References: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
+ <aaa23e6f315a2d9b30a422c3769100cdfa42e85a.1734407924.git-series.apopple@nvidia.com>
+ <359a1cf2-c5b0-4682-ba3c-980d77c4cfdb@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <359a1cf2-c5b0-4682-ba3c-980d77c4cfdb@redhat.com>
+X-ClientProxiedBy: SYCP282CA0012.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:80::24) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|MN0PR12MB6104:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ffe71dd-2e6b-4a63-8217-08dd1fb636b6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?24+F253LJRoTpK1A6lcedv6/9pmEcPT8TDXNaNl25l9WxqsD1LEYgH1yMv3w?=
+ =?us-ascii?Q?0u7EfBG8l0/e4t6MhOiiMtYrdctGmqNaTxXFYrmjMmhX+ZI34VuCH7dN3vrN?=
+ =?us-ascii?Q?DHyqEBOTIfHOCFrbd3/wCNF1BU9fDFJ3EVGZgIWNIT1+vcf+Dz+KF5QNSvlz?=
+ =?us-ascii?Q?UASvWP21cYYUnpjs6QYL6G2Gn56I8GcVNdivoCZ7zj30TpSdh+191XPNkcb+?=
+ =?us-ascii?Q?UOeYBC05jNTPocrpZ4VdUUcqCiDr3KYyYn1CRoSDPtuRreyBKnk9d6SE2u3/?=
+ =?us-ascii?Q?Y0sa4jk1TWiTDL2dlDYialOHIGhyvR0McmtVizoj0Sfb1jnRwhGb5hsW2bXs?=
+ =?us-ascii?Q?XtMks8Sb8rGHBcltxVzR6dNhwRe9U5ziE+Xdm7F291faNJicH2739wzuSNPP?=
+ =?us-ascii?Q?woDwnYFBgZ9PKgMPoNqCm3ddVVkst8xbNZxxVbookmKUW7oRwjm9VNqWNjBB?=
+ =?us-ascii?Q?J8yMdxyMKMM9hVdXMZZhUJLNt0nA1Dvh8iA5HmPvHRPC/GQF+WGhhupeQccm?=
+ =?us-ascii?Q?c5k43UPvyI0Ns63uxew6T9+fIZm8L+OVq6sUlcaRpX34MHruTjxxL57Z+I3Q?=
+ =?us-ascii?Q?DgvTY5QrEbbGGWo4u+keZ3M5mgWH3TZNI5knhiuBzc815kYu0ovy07EzbQ9F?=
+ =?us-ascii?Q?hBLQm0ZNIQsa3cpx58NUZ+9gMF3JX13IhEtoAdtMVkhcYCLqasgzlRuEqFFR?=
+ =?us-ascii?Q?QcCywwLAK+OgbHB4rEVqx7hrjY+R/Ti0GlwxZQcvXFiFLUB0O+6IJZKGGu33?=
+ =?us-ascii?Q?DT3jSma8J3QIeAal0yi6XgTVs3+4PJ81B/B/qjtmIsQ9hznjMp5z4azUSzkD?=
+ =?us-ascii?Q?VbODzFfz27pp7XbU5x8a9lmq0lIhP+MknHJNTnHRk6Q1xbF8yo9qPzn8oS68?=
+ =?us-ascii?Q?7t9KBTpRTdv3t9R3Nz9VlPyU3aUoRWwyRUzyFvKY3M36h2G6lpI77QQv5g20?=
+ =?us-ascii?Q?p7Hr/NE575LXbueC2AE8nJytEHtRzE97wCXez3DQ1aPZWMKbod0+9sehiEKy?=
+ =?us-ascii?Q?xqAN0NQTOZhHZuXLhBBRBEsSQ1j7ggrYrLNgmq7hxV60Tq1kNJoKXcxodZKv?=
+ =?us-ascii?Q?tQ2uPp7Yg+6inWobaPpNFbefiBfFX7E5YH/vjdPkD9I/pQ9LM1wu74Bm0YGx?=
+ =?us-ascii?Q?F/lC+ABGrhbmPcwbSyhipGQVbiVNOT7CpIRjfPGAhJGi6kY5+bgKw3s0agBB?=
+ =?us-ascii?Q?WA/g9IiM0qP9I8gcGSy6YBZ4ECGvA3MbXP4oxS88WbXQXhyVJh7gyl9lIsR0?=
+ =?us-ascii?Q?tmHTB1WN5vjuWkghKAksq9864TOq3+OtcyfKejQfxwJoa77f12M9wQBts2pN?=
+ =?us-ascii?Q?H2j0Jq16vngHLc3g3y1a567a3ky1Mi9YIlcdd96siuAggykkdo9aYFL7TjTO?=
+ =?us-ascii?Q?hQXzCvcd5TCkatInJssfJW4kjh70?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pjd+PGywJ+ddECp/LwLw3g+eeM9HA/SHgMPrKLJYq2KgG2OM6ds3Hodstfo7?=
+ =?us-ascii?Q?QutO7+yzJ3heAm55UnkIHuPzKEPu/lDr744wOXjKQh9sonDXGGxb5BHdqGop?=
+ =?us-ascii?Q?0Mdm45gehoHwudFUqaquUgl+kBXxfb3qDHnVM/lnBynJhZJ+i3rt7HBUUNAA?=
+ =?us-ascii?Q?IB0wZEPrZb83bTgJ1DAO8NkaOoexCcpLSfozS6KBP7ZQzfHXXzddtmGdr0tw?=
+ =?us-ascii?Q?9HelC96E9M+CyhE2C/VKU/jtmtyj6oJrISD3mCAQE/m3NNm/wMyBB/EG6shU?=
+ =?us-ascii?Q?pI6HdVOO9+1xgQlQk7OOGl9F1GWUCf/SGjwyIXkMdwWmXtGyT0NsbIiLjC2D?=
+ =?us-ascii?Q?IWh4Qez0w0mYZuK4wJvlUlEfnfMijpIsePIcZELQEwUdPScLnF/rIoBO/Avg?=
+ =?us-ascii?Q?sqYEWN13HpeJ74WMBWIAsynhBEqoEYgqRUS8fKcaF9Ek0ZSJHza3WCPfwOxW?=
+ =?us-ascii?Q?84TY+V3dhG6uSnkI59WuMv99+vcCvUk8fQTQWtqNbImI5mSl6Xtu1bOwgmVb?=
+ =?us-ascii?Q?IhcfhbesnpoviGnWdQzGrIIkBz88FUIrR+nBOwr9edjWlVC/elNzHI6xYYXi?=
+ =?us-ascii?Q?YFF4vhbSXm6biEb0pKM8NHkkUsIJQYVPcbNeiwT0ju2TvsK0+CIQcJWvGFix?=
+ =?us-ascii?Q?KT7dEpQ+fTxowI0Fap0NWz1H4y1WTkYz78xtmf75BUKxvxzBg2Xhp/PT/RJw?=
+ =?us-ascii?Q?hxoz1C3L5Dsnx1CQBP1pgDmE91c9ALyi9FyTEKzzDHShslVbcJQFrwSTY/Xs?=
+ =?us-ascii?Q?cWFhs8NRwnmo5QpTtZzwl4oL2MqVTtf4drVRsEAsP+/7G8IwXSmcI7feLKb+?=
+ =?us-ascii?Q?Wn2rrtD5861lKmtzGxZvWuA/dFxL5ko0IyjQ76uBYE71iNbP4MXVml+iti0i?=
+ =?us-ascii?Q?8Ey4FQWPrCcYGw2Oijq7K+821oN+GFvwODodYdCK2dYeZ1icuUyTdd/TxZKc?=
+ =?us-ascii?Q?4btR0oG8/lSXGf8mtNBY0pZOmCXUctEIjiLTbvkAWwa4+5sZGUnEOa18rlO8?=
+ =?us-ascii?Q?CwwtA+U2xcyLJ90P6lRo4iqEj7/oUu1q36ANNCAs76as1wOkDAjIMLjwU3Bz?=
+ =?us-ascii?Q?BxZkhu3knWPTxUIVCfpO6oZHRCiXxCxrkaAUsjS00GymLCJbPbLgLXGtDaZG?=
+ =?us-ascii?Q?jjXSnuBg107LZkqQhJJYwNVU77WANDbPFFkEeRfzdXMCQ7YLE8gjH/RxekTH?=
+ =?us-ascii?Q?NhYoYqRg5yI1Udeo7iIZr3HoYN5jOSInmduiLjdR54vf9yrNOUQsIjPpziJ2?=
+ =?us-ascii?Q?Cf7LzPTC+gDhEs+08OBF9Hpqztyp9hD1cldZR76RUxC2LBwvz8mc1SlguFmP?=
+ =?us-ascii?Q?QWGAfRHxLuCh/cYvhn4twgh25HROjRK4KmWU7SEfxcLrDqhP+4a3QyMSaBfW?=
+ =?us-ascii?Q?omNKgt0HWE6PhkWv1oh+yrfJgQa7UKeFWalol08ZO7C/HbxIHy01ykFZ0u4j?=
+ =?us-ascii?Q?R0GTy+UXwYsCsti+Z9WUaTbRMMKlXOWbpKCuikdLpBZ5hU2LL9Nf324GZ1Fb?=
+ =?us-ascii?Q?4nG0CodxAl0bDcFIwUGFQauUOA9C3kDITM3zZiylGD3rWzjWZaSQvk4N09ja?=
+ =?us-ascii?Q?wYx5Y5Te4s7ofBiHOFe41/PHNPhj8FsqyTitFy+U?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ffe71dd-2e6b-4a63-8217-08dd1fb636b6
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 22:49:22.2172
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HnBgmtDOTFmkC8UbZNf0fDHwQiJrSv/48IoakA7KAgtiPSSV2Et0ctS1OGWOtAOA31MYvJFtG2GKdelwVzjxLg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_141221_372091_3E1446FC 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20241218_144930_765749_2586A9E7 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,43 +167,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024, Sean Christopherson wrote:
-> On Wed, 27 Nov 2024 16:55:31 -0800, Sean Christopherson wrote:
-> > Two separate series (mmu_stress_test[1] and $ARCH[2]), posted as one to
-> > avoid unpleasant conflicts, and because I hope to land both in kvm/next
-> > shortly after 6.12-rc1 since they impact all of KVM selftests.
+On Tue, Dec 17, 2024 at 11:14:42PM +0100, David Hildenbrand wrote:
+> On 17.12.24 06:12, Alistair Popple wrote:
+> > Currently ZONE_DEVICE page reference counts are initialised by core
+> > memory management code in __init_zone_device_page() as part of the
+> > memremap() call which driver modules make to obtain ZONE_DEVICE
+> > pages. This initialises page refcounts to 1 before returning them to
+> > the driver.
 > > 
-> > mmu_stress_test
-> > ---------------
-> > Convert the max_guest_memory_test into a more generic mmu_stress_test.
-> > The basic gist of the "conversion" is to have the test do mprotect() on
-> > guest memory while vCPUs are accessing said memory, e.g. to verify KVM
-> > and mmu_notifiers are working as intended.
-> > 
-> > [...]
+> > This was presumably done because it drivers had a reference of sorts
+> > on the page. It also ensured the page could always be mapped with
+> > vm_insert_page() for example and would never get freed (ie. have a
+> > zero refcount), freeing drivers of manipulating page reference counts.
 > 
-> As I am running out of time before I disappear for two weeks, applied to:
-> 
->    https://github.com/kvm-x86/linux.git selftests_arch
-> 
-> Other KVM maintainers, that branch is officially immutable.  I also pushed a tag,
-> kvm-selftests-arch-6.14, just in case I pull a stupid and manage to clobber the
-> branch.  My apologies if this causes pain.  AFAICT, there aren't any queued or
-> in-flight patches that git's rename magic can't automatically handle, so hopefully
-> this ends up being pain-free.
-> 
-> Paolo, here's a pull request if you want to pull this into kvm/next long before
-> the 6.14 merge window.  Diff stats at the very bottom (hilariously long).
+> It probably dates back to copying that code from other zone-init code where
+> we
+> (a) Treat all available-at-boot memory as allocated before we release it to
+> the buddy
+> (b) Treat all hotplugged memory as allocated until we release it to the
+> buddy
+ 
+Argh, thanks for the background.
 
-Argh!  I completely forget to build test this on non-x86, and missed that arm64
-snuck in 75cd027cbcb1 ("KVM: arm64: selftests: Test ID_AA64PFR0.MPAM isn't completely 
-ignored").  *sigh*
+> As a side note, I'm working on converting (b) -- PageOffline pages -- to
+> have a refcount of 0 ("frozen").
 
-Given that I just sent out mail, I'm going to cross my fingers and hope that no
-one has merged the above branch/tag.  I've deleted the branch and tags from the
-remote, but kept the tag locally just in case.
+[...]
 
-Please holler if you managed to grab the broken branch/tag.  If no one screams,
-I'll assume I got luckly and will push a fixed version (with different names) later
-today.
+> > diff --git a/mm/mm_init.c b/mm/mm_init.c
+> > index 24b68b4..f021e63 100644
+> > --- a/mm/mm_init.c
+> > +++ b/mm/mm_init.c
+> > @@ -1017,12 +1017,26 @@ static void __ref __init_zone_device_page(struct page *page, unsigned long pfn,
+> >   	}
+> >   	/*
+> > -	 * ZONE_DEVICE pages are released directly to the driver page allocator
+> > -	 * which will set the page count to 1 when allocating the page.
+> > +	 * ZONE_DEVICE pages other than MEMORY_TYPE_GENERIC and
+> > +	 * MEMORY_TYPE_FS_DAX pages are released directly to the driver page
+> > +	 * allocator which will set the page count to 1 when allocating the
+> > +	 * page.
+> > +	 *
+> > +	 * MEMORY_TYPE_GENERIC and MEMORY_TYPE_FS_DAX pages automatically have
+> > +	 * their refcount reset to one whenever they are freed (ie. after
+> > +	 * their refcount drops to 0).
+> >   	 */
+> > -	if (pgmap->type == MEMORY_DEVICE_PRIVATE ||
+> > -	    pgmap->type == MEMORY_DEVICE_COHERENT)
+> > +	switch (pgmap->type) {
+> > +	case MEMORY_DEVICE_PRIVATE:
+> > +	case MEMORY_DEVICE_COHERENT:
+> > +	case MEMORY_DEVICE_PCI_P2PDMA:
+> >   		set_page_count(page, 0);
+> > +		break;
+> > +
+> > +	case MEMORY_DEVICE_FS_DAX:
+> > +	case MEMORY_DEVICE_GENERIC:
+> > +		break;
+> > +	}
+> >   }
+> >   /*
+> 
+> 
+> But that's a bit weird: we call __init_single_page()->init_page_count() to
+> initialize it to 1, to then set it back to 0.
+> 
+> 
+> Maybe we can just pass to __init_single_page() the refcount we want to have
+> directly? Can be a patch on top of course.
+
+Once the dust settles on this series we won't need the pgmap->type check at
+all because all ZONE_DEVICE pages will get an initial count of 0. I have some
+follow up clean-ups for after this series is applied (particularly with regards
+to pgmap refcounts), so if it's ok I'd rather do this as a follow-up.
+
+> Apart from that
+> 
+> Acked-by: David Hildenbrand <david@redhat.com>
+> 
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
