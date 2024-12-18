@@ -4,88 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C84E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 23:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582B0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 23:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QqYUm1i7e1fblFqY9jJKn51mYoOB0b0xVEyAilyqTvk=; b=S8Bk53eDQnzgA1EFSJxQEvKygU
-	X5fMOib1H3RAdKw3qzIf7jSBxs8Y6OVZz6SNJvl+u370n37QJ/ixSHGGmH1whNtFLpmUnOdczD3Pc
-	yTIplVVoZEMLzLH9CiovLZtsrONMTttATuICIxxr/JiNrcVKJN8b7CP62KAavzvX8LGFdS9YAyQRP
-	HiMzwkWa83SQfkcOvXGRHBkcOcKfM0X0ct3gzCBjR3tLC9i2t1XbAQTnUb9xVsj9wbAy04k5mbCxN
-	SdiNxB2LRg7Zx3WGhlDbp94TVq9decLH5A+iam19QKvkulskY6LPRNExFAzKOtlBwC8y0u4VzKRIy
-	iciKUqMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pvh3HQn4F1mqbxQuw2ZdzdEMcN6uLN5sN7763d3nzKo=; b=LvM7FFSANfCn0onTnVwqEinzDw
+	4ngdFxa84UtXsBSzNN5eO1ya5aIuWsLX3pbMAX4lO5GoCoekucI1AUKDHzP8bKJ05IHgbM/p3JdlV
+	LIoQaBeJ4vqd57GPrJnT2WJmq615nlPzB7AxZeoj5NJV5wL4ih9oxE2KX/oquh2sfQB+zW2cW7HMj
+	BpPyj6ce0WbHnkIjI1AzsZ8Ta9tGy+Lpm7tcA75nJNo/wvmP1Mz8aV6bURLnL5msEjGH1h+kfV8ZC
+	03rIliS/X2MxEOSc0TtZ14vqrKxAAepjZRXKSvYeg/py236ze6vMOz+vyjE742M6tf2ev/6xz/bd7
+	ovJCEXDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO36z-00000000Hfq-2TbD;
-	Wed, 18 Dec 2024 23:05:49 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tO3BH-00000000I6V-2MAP;
+	Wed, 18 Dec 2024 23:10:15 +0000
+Received: from mail-db8eur05on2061f.outbound.protection.outlook.com ([2a01:111:f403:2614::61f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO32l-00000000HBJ-0UwX
+	id 1tO3AA-00000000HsY-3MMn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 23:01:28 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4361f65ca01so1715605e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 15:01:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734562886; x=1735167686; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QqYUm1i7e1fblFqY9jJKn51mYoOB0b0xVEyAilyqTvk=;
-        b=ebtFbyVwRFr9nms/73H0G3iyhHGleY36NCQWwPmgcb/Yl2RM83EaZ2//cWXUIA9DHT
-         1k8/Zhro3Tz7k4oJ+R75d2uC4RGINzVKCfdLPGLOFMNcgLnt36j0nsMMFGf4qRvXcfCa
-         uMewu6bk+nMLp98u9vUxw474WbDUJgWPhBCF/SHClx5jAi/BMAM6T80TbLwWS+1AP3u3
-         qvlCMLR5TbcY49LcOITFKhN/HHiH4gXEaWJ+dNua3l8CNcC9nnooT/XaB4NJN0L1gyrg
-         +Edpqji3zQ8SD3HwR7TC4Eg8NugAFXrfmYm0o0xVS+meaQtpGWIfVG9AB86ouTewOeyE
-         a4IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734562886; x=1735167686;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QqYUm1i7e1fblFqY9jJKn51mYoOB0b0xVEyAilyqTvk=;
-        b=AC1WHrxGsfukJHdxgOvqrKiIec4BMZBUdFDieCL0rguVtLsirBaw6uNNYcEryJUunn
-         s/ESOuECrKP9l5Wv1BpZGvYAX5mndAeLdEXydCBJWzS0vToHj3VtERGM9QxQqcGjuEFK
-         OjLj5g/UoGoJCnR41GYOTqlXnfcMLj1RrAUYHeKF4fMBp1z6y8mDJl50cmlWmtID+WsY
-         u332atUg4Ol18eBGaXV2lUcFPM5JlSksgX8laRYNZjAFu6icAYut5anEK7DzE85TXVdE
-         mvJ2Yxi5FF4E4tuencJqZgIkE7aymxDab67jCN0PR8zoeGNBreL+djmSFupFtGQZr0SW
-         z7bQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUm3MmEs0TA3Pn14X/uXTj+hL9yn20KjA4CJJd2kB7sgz8CwcanX/jXBjV/bYBWg1Mq/t+QSlws9MCesIZhAMcw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+cQAOPOpsKUF4+0Wfz+OEZm69+cO6JGf8AILelxoecNJw7AbD
-	HkrOJkQtO/tZ9FXPc+Btsq4bY9FL1tVhR3tY9h3wzXA1JMX/ZQIuRiVMCSO9xa8=
-X-Gm-Gg: ASbGncuYXB8Z4ZzR8Nz0ik9HwucR48u1+fhWvi+1dcfT0YiskiSculOosMlc3aBERt7
-	FOlzB6rdt6nW6g3fzD/lGCSgYJkAeha+qVff6svgLNxzsOjuxHD8w2SSLoNV1H0LuAFbWzEOFs7
-	ok4xrupsQc3R+z+HnEW+cmVOm4n+pmDKEXhhFLK25Nls0pai2rKd3tFjqZUDFaZCurZpINntaTe
-	raNxEn7l7qWrpshROg1l7NazH5UAWetJ7OqzsINC2x5aEhUvL+hU5nA7kU=
-X-Google-Smtp-Source: AGHT+IH1H5gzkXGiuEoDmhNHJ2hwnBCSMabu2fmzR+8En/9OikahIreXFTalAusBqUZe4sYSxVeucA==
-X-Received: by 2002:a05:600c:4fd1:b0:434:f819:251a with SMTP id 5b1f17b1804b1-4365535b124mr42404355e9.9.1734562885805;
-        Wed, 18 Dec 2024 15:01:25 -0800 (PST)
-Received: from linaro.org ([2a00:23c5:6829:901:7895:12a9:ae3b:17a1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b190f3sm33291835e9.32.2024.12.18.15.01.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 15:01:25 -0800 (PST)
-From: Mike Leach <mike.leach@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org
-Cc: james.clark@linaro.org,
-	mike.leach@linaro.org,
-	suzuki.poulose@arm.com,
-	alexander.shishkin@linux.intel.com
-Subject: [PATCH v3 3/3] coresight: etf: etr: Update logging around flush_and_stop() errors
-Date: Wed, 18 Dec 2024 23:01:18 +0000
-Message-Id: <20241218230118.999859-4-mike.leach@linaro.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241218230118.999859-1-mike.leach@linaro.org>
-References: <20241218230118.999859-1-mike.leach@linaro.org>
-MIME-Version: 1.0
+	Wed, 18 Dec 2024 23:09:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fvt8Fh2EYeZ9ecc7BU7GnUHhCHMrAYeFseJmCgBsbAI7ll5Cv5aAPv+r6Cw8Piyi7OkKpjRFaXQazm+4vsYBpJ+z54Gk00+/5Mvbtlv/Nv3epzpdqX9Z59muPIpnZWmxpz/CcLjYqvdNVDPfrdOX5RRNgJE6L7twgjp+IBq8gzbul7PgZnxZMqbZ4x6MCtcdHiKJbZGohtepoWY0EKZAv96Re7rjnWAAoYcR2Zs4/q2iKUA+OMrio373OsK49cV71sxfTBflJC+jO74G6V256TNBE7cCKZMqw2MssOn5Wr6VAPp3IyWoXP0NZ1zXbL3t6QWBy/bXUBKz17yt5pHRMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Pvh3HQn4F1mqbxQuw2ZdzdEMcN6uLN5sN7763d3nzKo=;
+ b=X/EKvPAytpbgaNRijpHuRcJCDEgRYX+1Bf0H1fou8sVfF5f0NGIwG5S7wC3Ls7nzlV3zndcf7jSaaVay2uoKyoQa1ms+XTI1bXBzxTjmdoDTg4OajkL2Kw/RQi3O5BRQV12Ip/QOiSFGzgEId1aiQbHa3iguSjjmgYrFZF3TOF2kB5kyog5EEeh0lR56bthO7PpKYxKp/ydekjfkObUz21PCnac7IEIH49rlQ0LR109ytMpiLgG64J0ZwdpaRNAq8dhmP1IoAZBlvolRKHV50wTSRiwSz8m4wQDBSNe6sCafKEv8nodO2nGi3QUNirF1ez7Q4foZLE5iUdA5wsZOWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Pvh3HQn4F1mqbxQuw2ZdzdEMcN6uLN5sN7763d3nzKo=;
+ b=IEP1bSVKW+NKFbQe31afBMB/nrozD9M9am9sqZJ1GNP4olHubYKxXzXgt4J3i4XAR9TA4mrkTNLV3sYLgr/Jw551/onhGHv1WM6r7ENWJVHzO8/pl2hYvs8NK56GV6vszpV9bFZKzPRUKDF7660/2ILuBwJifbw4xjj2ZHiAppGm2f8P5afOtENHVtCUu6OK2TtADeRb4eG9RCLrgSozEyqXNBVC8m15f9kCgEY0p5TDqpDraTEgr5bLs5qWrOF+x4vmAVrbKKeB6uRl6K/puk/Ur5MTMv0khzFMS5lVq7isXEe0xMdcRMtckjpHy/TSv5hUwBsCPVwxqjaZ4C2IAg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB9939.eurprd04.prod.outlook.com (2603:10a6:10:4c4::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Wed, 18 Dec
+ 2024 23:09:03 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Wed, 18 Dec 2024
+ 23:09:03 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v13 0/9] PCI: EP: Add RC-to-EP doorbell with platform MSI
+ controller
+Date: Wed, 18 Dec 2024 18:08:35 -0500
+Message-Id: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAPNVY2cC/13RO27DMAwG4KsEmquCFPXs1HsUHfRsNCQx7MJIE
+ eTulQPEljOS0PeDIm9symPNE/s43NiY5zrVy7kVSG8HFo/+/JN5Ta3BBAiJgMDzwE9T5TbI6AN
+ RwJBZezyMudTrI+nru9XHOv1exr9H8ExL9xmhnhEzceAxp2idRx3Rf56vw3u8nNgSMMsOEa5IN
+ mTQJC+Sc0HYPVIbQrArUg15lE5hhARg9kh3CMWKdENSFWeEyBTFy3imR3JFpqEkfTTel5BE3CP
+ bI70i25AuWLQtJWEIe+Q2JIBW5JY/aUghUkGV0h4h9Gqbr10QuDWRjG0y6VeGPXMbw2XtkmTxl
+ pwJr0x0DLdjtW0CJ0pSkSheCdjY/X7/B3yPBbd+AgAA
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <apatel@ventanamicro.com>, 
+ Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+ imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org, 
+ jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734563338; l=9426;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=d3r3SBSPHJPR6mr4+o2/VcTEYo8LAIHnJR3CtSmnb0M=;
+ b=bjQ3amKtxVLteI32qaSg6Rbv2JYYI5NTslKj9YSK0oHEbBIv29dZLTXybrgI93osPXj5EzJJW
+ 0UX7R/7rSmpBYmgu0b+6M//fFZ+12iF1Dq8U4WQwiT5Iy5hXIvBs4Ir
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR13CA0075.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c4::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9939:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6b9f55ad-746d-4b6b-ca16-08dd1fb8f6d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?S3JXUVd4c2R2SEVYNWtNTDVxaDBIUmpLMW0vRDZUV0tCREZ1Q3J6ZnBaUEJl?=
+ =?utf-8?B?Y2pmaTJ3cGZDVDZZZTUyU2k1THRaL3hkQm8zMHJ1TkFmbWxxT1JrRjBrQTdx?=
+ =?utf-8?B?NmRMYytaNjdSdGMxUTZISzYwdnFvalZTajlMc2x1eUZSVUhHWUNEOTVvM1kr?=
+ =?utf-8?B?ZXp2QTZMU0VuazlOM0NYVHQ1SjBoSGs1bEZOdWQ2UjVEQXRDNE9RRWpPcFgz?=
+ =?utf-8?B?SnMzT2hvU2VSazIyaXlrdmN3b2JWaE9JTGgyZnJSbmJQZW5KTTUwTUYrQ0ZZ?=
+ =?utf-8?B?YWsyVjRmZWJUTXJJSmN3MTVvZlVBWllwN3pYeFhTOFhoNEp2UGxQeDg4MTlR?=
+ =?utf-8?B?UEtTTWtuMVNsOHZXZXdsZzRyVVdQR1gyMEpFallJaXlnNlEvL242R3VIVEFr?=
+ =?utf-8?B?Y2JGcVQyK3d5RFk3UThHSS91WFRVSVdpbkJVUGZ5Z3J5NW5sNG10VU5PcWV5?=
+ =?utf-8?B?OVJ0dkJlNWJtRE13VzR6R29QNEpUcHNuYmlwaHdLKzVwMThGRFc1Qmw3ZUpF?=
+ =?utf-8?B?eURlNzV5blBQZS82UVZSVzM3cWNsSlhzWVVXSlhSTm9sYjdRRVF5d2I0RGNZ?=
+ =?utf-8?B?Rk9NN2NucFlYZGpKRW9nd1VGOE9CZ3l3N0FIMmlFKzk0YVltNWFKSlNNR3Qw?=
+ =?utf-8?B?dUtpTDJYRzZQa2JIYUx0WEp1Rkp5MzBvaW9BRzNSYXVkbFRaaTF0SDk5NUk2?=
+ =?utf-8?B?cW1TUGdwVjJNSzJLUHNJUEdIcm9sL3NqbWs3cmkzcmZwaDdPaDczb3BOVUxt?=
+ =?utf-8?B?R0tZZ0VFc216RS8zbm5ZNmd6SUlHZm1HR2ZXaVBTWXJWeFI4YTVsTTl3ak1j?=
+ =?utf-8?B?bXdNL0xiZzBML2I4OEZiSkl2RGFza1NaS1crVFgzbGVyN3lXL3pZUnpORjJD?=
+ =?utf-8?B?WEtFTGdyUngyeFh4UFpET3g2b2IwbTlDdHgzV0ZmaGhkRWtSWkNqSXhPMnNo?=
+ =?utf-8?B?SkFiMEVXTXhCUU01ZWhmQTFDWFh0MEZuOEc3bkRSMEpLT3pOMGw1WGc0ZVhY?=
+ =?utf-8?B?S0JaUFl5NGVSdUdMZmxZYk9ZQTYrOFV2clJVNk4zaktaaG5RU3V2UjdHSG5G?=
+ =?utf-8?B?UUIwWEd4b0N3THMzS3FhKytMV3pJTXJ4c0M4NHgxZTM2bDNITERORm9pQUwr?=
+ =?utf-8?B?TE9RWVJIUmFid05FWXhKd1RLdjVZODRHVTNrTGJSM2g0RUxlL3d6dFJoQ2U1?=
+ =?utf-8?B?d3ZVSkRrMzVJZHU1N0dZR0h5c3JLRHhaN2ZJODg1THNkRFQ3TS9WQ3FqcWRO?=
+ =?utf-8?B?UXFMaEhiYkZ1N3BuUU5CZ2gyMlloVG8wUERFQStzOEZQSjFyaHNnUWNaNlNq?=
+ =?utf-8?B?SDBERlJxckdJMmNSR0FJVjQ2WmFEa2VCTmU1UDNNbW5mam0wRkM0Z05jZ25t?=
+ =?utf-8?B?VXU2UVpIbzlVNTZkbGJKYnBQcXJJaDArQU1LRGtNalQyVlVhNVZWaG1PUkJ3?=
+ =?utf-8?B?azBrRW5CeGVIelBocUNpeHN2UWxiN3I3TytyajUzbWx2TUlFa2tOcnRZWTNk?=
+ =?utf-8?B?clNVYTd6SHZ1RUI3NEJJamxaenRvVjBuR0FJd0h1bnRFeVhramg2Q2xtUkdu?=
+ =?utf-8?B?NnFnY24wWGpKajIwTWdFbnlXVEY3UkkvQkg1Nm95UW84dW1NYkpUSGdyT0Q2?=
+ =?utf-8?B?N1IvaEhiNlNOcmZlMlZkTlNCM0VkblZURDRaMDE1Q0trQ1NwMGpQZnhvdS9X?=
+ =?utf-8?B?NDdkUkdJMkxpSFZNazFRYkxtRm9iVEgyRitqREQ3d3ZjSHJYRkVZWlZVNVJy?=
+ =?utf-8?B?TnNNWElVRjRuYmFtUm5KRGd3RFRRd3RhMUtwOUdwd0hWNTZYNjNlanUvOGhV?=
+ =?utf-8?B?VElSd3p0NGNhOVVCYkdBV3FTVDhPZ0VFSlV2ZnRxN05YaEdFaVZlZFlMcmZp?=
+ =?utf-8?B?NVJZOHgxWlhESGJCQTh6RmxOSTdpTmFxTUlNcy9SbGJmTUVha3lBRVhHTUFu?=
+ =?utf-8?B?NU9MaG81bkFxV24rTDAxejRCK0ExU085TkQzZWxCQURndmp1eTJCZDJVY3Rz?=
+ =?utf-8?B?WFJCN1lvQ3l3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QXhES3lkSEliWUU1akJsVldxeHptdW5yWVVtL2tPLzZqbE1iUXkvZVN4VGRH?=
+ =?utf-8?B?R01EWVJtK0Uzdi9wZCtDeHljUS83N1o5VkNKZzJScnFRMUZZeFhHR1lZb1k4?=
+ =?utf-8?B?K1hzenFEbWc1dFRLclJDMzFQQVJXSVNxLzN4TjZMU3FPTmxvWHRoTnFqYnRU?=
+ =?utf-8?B?Q2Z5VjdqWGNXd05uR2djOWN3a3hHejBiRDFENWhIVURvZ1lRS29seEVyaldz?=
+ =?utf-8?B?Z1oya0lIYVBrK2I5SjZhQkV1dzVWbGpQa1B0dmdBS3g1RE1YdzNaMnhUNVNG?=
+ =?utf-8?B?TWlFclliYmpWblBEckxTeXkvQjYvbkNzM3FwdVprOVJ0am5JMGUyMENMdDJm?=
+ =?utf-8?B?dGR3WU1UQjVhS0pISC8reHl4V0R1QTJRK0s1K2t3NlpWdFhWcDU4akxDK1ht?=
+ =?utf-8?B?QXBiTDJmaE5KMWRZK3l3TjNkSXYyeUZTUENSM2Z5amhiYndRTk5IMm1EM2Fw?=
+ =?utf-8?B?Y3E4c09uN2lEdVF4SkNnQVd4V0ZWbU9LSHZLR2pHR0tjQm53MUpNTnlWZVND?=
+ =?utf-8?B?bVNGWHVvWEQyRHRZaThvc2xJSW9HbEg3STBZbldMSGR5M0g3dFZmYmRYMHV6?=
+ =?utf-8?B?VGxjNi9ndGZycnd1ODZMS3FUSXlYRDlRYzFBK3pjcHdqTnNjQldzVS9JdXB5?=
+ =?utf-8?B?Y2N2NzNCY0dneUhyb25aQnUzQkZPYzZtSStVMFcxL3VvZW9TbkRJQkI1dklO?=
+ =?utf-8?B?bWtpcjhiWDQraS8wWG5CbFg5aSttZHU0bEd1aHJNVzZERm5jYkJSSHVzSzF3?=
+ =?utf-8?B?YXBRc3hrY2ZxNTF2WDJKQlQ0Z1NEMXFpcFlhTlFNVWEzbHVSN0o0Tk0yVmd4?=
+ =?utf-8?B?U2JDUUIvVmxEblJxR1ZPdEFwVDJGVUY2cW96c1FUUDlSRnNtblJvR2dlL0ww?=
+ =?utf-8?B?WW51YzNBNDEvbVNDQjQyMXJGc1Z4MksvSEV3Z2NLaDg2Zzl4Y2YwSk1MbWkx?=
+ =?utf-8?B?dS96bGZsVVhCS1NYdGQ3dVE5RmlnSnF1R1U5a0xDT2drcTcyOFdsQUlUSk1P?=
+ =?utf-8?B?UmxCZW4yRTBtUnlyWHZVbGJwK1AyZ3dVT3Fqa0krL0pvOUp1VndiV0tFcnc3?=
+ =?utf-8?B?Nnk1S0pmTkhIY1FlblZ4QjNtVEVRaEF4eVRTemVEL3VoZWhNcEtYZ24zMzZP?=
+ =?utf-8?B?RTM1VlBiZUxkS2NLR2hBd1YrY1J3OFJsQzlEWGtuRG1ub08yRVRWTEdxN1l6?=
+ =?utf-8?B?UlhOUUpWNmdFNUhYbFBFTSsxaEliMkUyRHFPbm1WcW4zK2xkaXk3QUV6a2R3?=
+ =?utf-8?B?a3J0NVVTaVd0WXlXc0hIbEhGR0w2cnBhL0tFK0F1eGRwUjN0ZXh4VFBHbWFS?=
+ =?utf-8?B?RDgvckorWjlSaDY3YmY2eFF4eU95VXIxTHpkc1JqNEhoby9PRlVBYVJHYzVi?=
+ =?utf-8?B?WG8wNFVzajNONTJ5bnJKTG5BUEpkK3B5dW5yTjdiYWZhc2txQWpqS2d1UHlZ?=
+ =?utf-8?B?M1Q3RTRKRFRtY0NHSXVXK3lJTTNjK3NQWTFYZ2djRDJyaU92YVVsckVzWWtx?=
+ =?utf-8?B?ODJaM0U4dUNBT3BzNHMyZUhueUpiQXNBTU54enJFTm5FVFBQQ09iOHBRNmJt?=
+ =?utf-8?B?Ukh5cHFpVHFOUjNmL09VcDAyaFhtUFdENjZuRU9pY0tuOFVsakN2Z0VhZTZ2?=
+ =?utf-8?B?eHJEVGtzcWU1d1Z6djJ2Z2JPZEw0WTJwQTNJeVdHWUNqclNPQTJlQmVkZzF0?=
+ =?utf-8?B?OGc1SkxQTmVpTE1pdjhuLzdtejQ1dUQ0WFhVV1FwTncrY2xCNUFPZE5GUFhL?=
+ =?utf-8?B?eDZQVTA1NDNvSVZlSW9Rek5uN1hWZWZsdWR5amNNdEZiK2R1WGlLNlZ5VVp5?=
+ =?utf-8?B?MHVGMncrSnplUlZMODJhZXhpRnRCcTJmc29jMG14RExJaWFvOGVLOHFveTAr?=
+ =?utf-8?B?dm0zTW5pY1FnQktLakRRbVV5NXNtSERsbkpMSEhZTEE2amJiMVlkQzJ5elpW?=
+ =?utf-8?B?d3NyVGZNdEh3c2dZTkhCUmx4OGU4cGNqODQ3ZmlMQ1gwRzc2c01nMThVeVZR?=
+ =?utf-8?B?aXk4aTVWekR0YTliVlJvMVRNNWlQczNQZEtLdjVxYkRGakljSVZnd1hZWWRF?=
+ =?utf-8?B?TDd2dmFCelh4bFRDWVdpRURJOWlHTzBWNXdackh4a2xpb05VRWV5WUVveWNy?=
+ =?utf-8?Q?GfRA=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6b9f55ad-746d-4b6b-ca16-08dd1fb8f6d7
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 23:09:03.3529
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PilMQAp8ctjAEBzo2uBCe5+IGX14rAlxArkTSHsgCfR9exbzIRhTlmrxi+LkSChVRwWmYRuzmAgt0DfGS34u8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9939
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_150127_159537_EF613B37 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20241218_150907_117590_091F7E7A 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,78 +195,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Insert additional context around tmc_flush_and_stop() errors.
+┌────────────┐   ┌───────────────────────────────────┐   ┌────────────────┐
+│            │   │                                   │   │                │
+│            │   │ PCI Endpoint                      │   │ PCI Host       │
+│            │   │                                   │   │                │
+│            │◄──┤ 1.platform_msi_domain_alloc_irqs()│   │                │
+│            │   │                                   │   │                │
+│ MSI        ├──►│ 2.write_msi_msg()                 ├──►├─BAR<n>         │
+│ Controller │   │   update doorbell register address│   │                │
+│            │   │   for BAR                         │   │                │
+│            │   │                                   │   │ 3. Write BAR<n>│
+│            │◄──┼───────────────────────────────────┼───┤                │
+│            │   │                                   │   │                │
+│            ├──►│ 4.Irq Handle                      │   │                │
+│            │   │                                   │   │                │
+│            │   │                                   │   │                │
+└────────────┘   └───────────────────────────────────┘   └────────────────┘
 
-Signed-off-by: Mike Leach <mike.leach@linaro.org>
+This patches based on old https://lore.kernel.org/imx/20221124055036.1630573-1-Frank.Li@nxp.com/
+
+Original patch only target to vntb driver. But actually it is common
+method.
+
+This patches add new API to pci-epf-core, so any EP driver can use it.
+
+Previous v2 discussion here.
+https://lore.kernel.org/imx/20230911220920.1817033-1-Frank.Li@nxp.com/
+
+Changes in v13:
+- Change to use DOMAIN_BUS_PCI_DEVICE_EP_MSI
+- Change request id as  func | vfunc << 3
+- Remove IRQ_DOMAIN_MSI_IMMUTABLE
+
+Thomas Gleixner:
+
+I hope capture all your points in review comments. If missed, let me know.
+
+- Link to v12: https://lore.kernel.org/r/20241211-ep-msi-v12-0-33d4532fa520@nxp.com
+
+Changes in v12:
+- Change to use IRQ_DOMAIN_MSI_IMMUTABLE and add help function
+irq_domain_msi_is_immuatble().
+- split PCI: endpoint: pci-ep-msi: Add MSI address/data pair mutable check to 3 patches
+- Link to v11: https://lore.kernel.org/r/20241209-ep-msi-v11-0-7434fa8397bd@nxp.com
+
+Changes in v11:
+- Change to use MSI_FLAG_MSG_IMMUTABLE
+- Link to v10: https://lore.kernel.org/r/20241204-ep-msi-v10-0-87c378dbcd6d@nxp.com
+
+Changes in v10:
+
+Thomas Gleixner:
+	There are big change in pci-ep-msi.c. I am sure if go on the
+corrent path. The key improvement is remove only 1 function devices's
+limitation.
+
+	I use new patch for imutable check, which relative additional
+feature compared to base enablement patch.
+
+- Remove patch Add msi_remove_device_irq_domain() in platform_device_msi_free_irqs_all()
+- Add new patch irqchip/gic-v3-its: Avoid overwriting msi_prepare callback if provided by msi_domain_info
+- Remove only support 1 endpoint function limiation.
+- Create one MSI domain for each endpoint function devices.
+- Use "msi-map" in pci ep controler node, instead of of msi-parent. first
+argument is
+	(func_no << 8 | vfunc_no)
+
+- Link to v9: https://lore.kernel.org/r/20241203-ep-msi-v9-0-a60dbc3f15dd@nxp.com
+
+Changes in v9
+- Add patch platform-msi: Add msi_remove_device_irq_domain() in platform_device_msi_free_irqs_all()
+- Remove patch PCI: endpoint: Add pci_epc_get_fn() API for customizable filtering
+- Remove API pci_epf_align_inbound_addr_lo_hi
+- Move doorbell_alloc in to doorbell_enable function.
+- Link to v8: https://lore.kernel.org/r/20241116-ep-msi-v8-0-6f1f68ffd1bb@nxp.com
+
+Changes in v8:
+- update helper function name to pci_epf_align_inbound_addr()
+- Link to v7: https://lore.kernel.org/r/20241114-ep-msi-v7-0-d4ac7aafbd2c@nxp.com
+
+Changes in v7:
+- Add helper function pci_epf_align_addr();
+- Link to v6: https://lore.kernel.org/r/20241112-ep-msi-v6-0-45f9722e3c2a@nxp.com
+
+Changes in v6:
+- change doorbell_addr to doorbell_offset
+- use round_down()
+- add Niklas's test by tag
+- rebase to pci/endpoint
+- Link to v5: https://lore.kernel.org/r/20241108-ep-msi-v5-0-a14951c0d007@nxp.com
+
+Changes in v5:
+- Move request_irq to epf test function driver for more flexiable user case
+- Add fixed size bar handler
+- Some minor improvememtn to see each patches's changelog.
+- Link to v4: https://lore.kernel.org/r/20241031-ep-msi-v4-0-717da2d99b28@nxp.com
+
+Changes in v4:
+- Remove patch genirq/msi: Add cleanup guard define for msi_lock_descs()/msi_unlock_descs()
+- Use new method to avoid compatible problem.
+  Add new command DOORBELL_ENABLE and DOORBELL_DISABLE.
+  pcitest -B send DOORBELL_ENABLE first, EP test function driver try to
+remap one of BAR_N (except test register bar) to ITS MSI MMIO space. Old
+driver don't support new command, so failure return, not side effect.
+  After test, DOORBELL_DISABLE command send out to recover original map, so
+pcitest bar test can pass as normal.
+- Other detail change see each patches's change log
+- Link to v3: https://lore.kernel.org/r/20241015-ep-msi-v3-0-cedc89a16c1a@nxp.com
+
+Change from v2 to v3
+- Fixed manivannan's comments
+- Move common part to pci-ep-msi.c and pci-ep-msi.h
+- rebase to 6.12-rc1
+- use RevID to distingiush old version
+
+mkdir /sys/kernel/config/pci_ep/functions/pci_epf_test/func1
+echo 16 > /sys/kernel/config/pci_ep/functions/pci_epf_test/func1/msi_interrupts
+echo 0x080c > /sys/kernel/config/pci_ep/functions/pci_epf_test/func1/deviceid
+echo 0x1957 > /sys/kernel/config/pci_ep/functions/pci_epf_test/func1/vendorid
+echo 1 > /sys/kernel/config/pci_ep/functions/pci_epf_test/func1/revid
+^^^^^^ to enable platform msi support.
+ln -s /sys/kernel/config/pci_ep/functions/pci_epf_test/func1 /sys/kernel/config/pci_ep/controllers/4c380000.pcie-ep
+
+- use new device ID, which identify support doorbell to avoid broken
+compatility.
+
+    Enable doorbell support only for PCI_DEVICE_ID_IMX8_DB, while other devices
+    keep the same behavior as before.
+
+           EP side             RC with old driver      RC with new driver
+    PCI_DEVICE_ID_IMX8_DB          no probe              doorbell enabled
+    Other device ID             doorbell disabled*       doorbell disabled*
+
+    * Behavior remains unchanged.
+
+Change from v1 to v2
+- Add missed patch for endpont/pci-epf-test.c
+- Move alloc and free to epc driver from epf.
+- Provide general help function for EPC driver to alloc platform msi irq.
+- Fixed manivannan's comments.
+
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Krzysztof Wilczyński <kw@linux.com>
+To: Kishon Vijay Abraham I <kishon@kernel.org>
+To: Bjorn Helgaas <bhelgaas@google.com>
+To: Arnd Bergmann <arnd@arndb.de>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-pci@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: Niklas Cassel <cassel@kernel.org>
+Cc: dlemoal@kernel.org
+Cc: jdmason@kudzu.us
+To: Rafael J. Wysocki <rafael@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+To: Anup Patel <apatel@ventanamicro.com>
+To: Kishon Vijay Abraham I <kishon@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/hwtracing/coresight/coresight-tmc-etf.c | 12 +++++++++---
- drivers/hwtracing/coresight/coresight-tmc-etr.c |  8 ++++++--
- 2 files changed, 15 insertions(+), 5 deletions(-)
+Frank Li (9):
+      genirq/msi: Provide DOMAIN_BUS_PLATFORM_PCI_EP_MSI
+      PCI: EP: Add helper function pci_epf_msi_domain_get_msi_rid()
+      irqchip/gic-v3-its: Add helper function its_pmsi_prepare_devid()
+      irqchip/gic-v3-its: Add DOMAIN_BUS_DEVICE_PCI_EP_MSI support
+      PCI: endpoint: Add RC-to-EP doorbell support using platform MSI controller
+      PCI: endpoint: Add pci_epf_align_inbound_addr() helper for address alignment
+      PCI: endpoint: pci-epf-test: Add doorbell test support
+      misc: pci_endpoint_test: Add doorbell test case
+      tools: PCI: Add 'B' option for test doorbell
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index d4f641cd9de6..62b4b685c1a1 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -84,7 +84,9 @@ static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
- {
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error disabling ETB\n");
- 	/*
- 	 * When operating in sysFS mode the content of the buffer needs to be
- 	 * read before the TMC is disabled.
-@@ -146,7 +148,9 @@ static void tmc_etf_disable_hw(struct tmc_drvdata *drvdata)
- 
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error disabling ETF\n");
- 	tmc_disable_hw(drvdata);
- 	coresight_disclaim_device_unlocked(csdev);
- 	CS_LOCK(drvdata->base);
-@@ -496,7 +500,9 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
- 
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error updating perf buffer\n");
- 
- 	read_ptr = tmc_read_rrp(drvdata);
- 	write_ptr = tmc_read_rwp(drvdata);
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index a48bb85d0e7f..122a067d1bb8 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1139,7 +1139,9 @@ static void __tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
- {
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&drvdata->csdev->dev,
-+			"Flush and stop error disabling ETR\n");
- 	/*
- 	 * When operating in sysFS mode the content of the buffer needs to be
- 	 * read before the TMC is disabled.
-@@ -1578,7 +1580,9 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
- 
- 	CS_UNLOCK(drvdata->base);
- 
--	tmc_flush_and_stop(drvdata);
-+	if (tmc_flush_and_stop(drvdata))
-+		dev_err(&csdev->dev,
-+			"Flush and Stop error updating perf buffer\n");
- 	tmc_sync_etr_buf(drvdata);
- 
- 	CS_LOCK(drvdata->base);
--- 
-2.25.1
+ drivers/irqchip/irq-gic-v3-its-msi-parent.c   |  49 ++++++---
+ drivers/irqchip/irq-msi-lib.c                 |   4 +
+ drivers/irqchip/irq-msi-lib.h                 |   6 ++
+ drivers/misc/pci_endpoint_test.c              |  80 +++++++++++++++
+ drivers/pci/endpoint/Makefile                 |   2 +-
+ drivers/pci/endpoint/functions/pci-epf-test.c | 132 ++++++++++++++++++++++++
+ drivers/pci/endpoint/pci-ep-msi.c             | 140 ++++++++++++++++++++++++++
+ drivers/pci/endpoint/pci-epf-core.c           |  44 ++++++++
+ include/linux/irqdomain_defs.h                |   2 +
+ include/linux/pci-ep-msi.h                    |  26 +++++
+ include/linux/pci-epf.h                       |  19 ++++
+ include/uapi/linux/pcitest.h                  |   1 +
+ tools/pci/pcitest.c                           |  16 ++-
+ 13 files changed, 507 insertions(+), 14 deletions(-)
+---
+base-commit: fb32deaabac5c9ac8e555fad420113348cea8bc2
+change-id: 20241010-ep-msi-8b4cab33b1be
+
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
 
 
