@@ -4,80 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6088BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD4FE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zG6XtjkK17LL4/8PRVoCBmbSP7+NgSeFci3ROKh1cXo=; b=2Xby9/dr6+lPJNFX3Prosl5YlP
-	wlKFbtcCrnEDlIb2IaF40XckUwkevAggBHO67yRf58DNvkL1PAYuKzuBJdrOYJPk90sRoRz/DssKF
-	LQEopwl7ReuE/xY3fWli29FxZV6H5Oz5iT5cxtkjjqTEpPAWrjpVPspliC67OoN54ALhSTuXr7aHe
-	qERnIkGncnTULFbrBawtWlqWxPY15qmxAH3q5DPJ1IAzi5FEMjgNbiS6nRXKA9gfuECc6XhaqRFmz
-	sLFtwd1lPvSXhJkIptyBf5OFXO2yGwhjw8BBV/bJtTrDDvd5ti4jcOWUSsCqdMMwEyjeRuNAGURJi
-	/m66aBgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C9Pkx51GjLYHkSz9R1B6TEpI8sOQTJYv6fMFz0RxN80=; b=wb4R0s7iZv0o6wUQA/IDi6O7v+
+	op06XW7FkVQk6+/S6p3H03pN9afOLbkpvoT3xAU7kz6VUR4cFWtFX7U5P4h7LYp7ocNSO25pweazt
+	FFpwz4O5fbX5pqKLowDrBtf/q96Jq6BwVN/cI3ZfWi5mS0Kc7x2mJRuAh6i/30w85NtVLUmb+q4KL
+	zRsJjCL0yPkZAZqnKdZXgADnOlDECjsMHTAVkxVe3I0kHTKX/54+fc1cXO2Ou528RQlkcs4Ztuzuu
+	VECr8uzNHnqtKF55qr+N4cViWpR9Rx9HyNSRI1GPcjICH+bPjqNazAPOg1UF0ubkPuvDtjMZrrXex
+	MsjOuXIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNozJ-0000000FsE1-1Iec;
-	Wed, 18 Dec 2024 08:00:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNp22-0000000FseS-3YTs;
+	Wed, 18 Dec 2024 08:03:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNoyC-0000000Fs6V-2D0T;
-	Wed, 18 Dec 2024 07:59:49 +0000
+	id 1tNp0w-0000000FsTr-2DhK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Dec 2024 08:02:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 274365C5EA7;
-	Wed, 18 Dec 2024 07:59:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D16C4CECE;
-	Wed, 18 Dec 2024 07:59:46 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E492A4251C;
+	Wed, 18 Dec 2024 08:00:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76453C4CECE;
+	Wed, 18 Dec 2024 08:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734508786;
-	bh=sqi+j1FWp7VAY/ARAadBpUhCp9Sk4hgOZxPX95wClrQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X0TEM8Koa59ree2WPetcR04rE84cgfBQw46LRKM3wLj29lxQ8tpTmoj2xBlumhjlT
-	 71clqYVjOL0cNR465CyvpA/0Vn/WDPI8lgOHqCEcwen6xr76dhF+VcZ0hP3ZHlCrYs
-	 bAvnJNlFQT+2AsgLx7mI4BapfT940lJWO/bRzmmQVDpEwKUnz7oG3eMtgEJqrVVDpK
-	 e0KKdfj3cuXNvUVWPaqvY99mxU4hDBwaQ1qAIfy20mrsc497E/Ilk084B/ni5JlTB/
-	 UirwcLtdloZe94am91hJbMF08vjJaH1fr+lQleSHJj9nqm0DCzBCDTN8toxM9zPP1r
-	 XNvyI7qxTSosg==
-Date: Wed, 18 Dec 2024 08:59:43 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
-Message-ID: <20241218-wild-red-manatee-bb2a34@houat>
-References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
- <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
- <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
+	s=k20201202; t=1734508957;
+	bh=2W3UmG9afuhrvYCIxN5R9g9MtQ27HAgR55Mo1Kt10i8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JyvSZOqKDLzpdiQzyT2vhLosKTYANZf6zxZ93qi0PD66ABCGThTjvoco2i8ym05TR
+	 Qx3M1c7MFq2uZvpByaHsIUTIDvdTciBjQxrRanYA3YyQYYSx2DpjHANL4vHMq/dmrF
+	 KQ7Ps8xNWRMXzFji8SZpvCiZ3oZtXbZIb2cFTXhb/6fz8SNccYCjx94Me0hwzncKvm
+	 j3ifvwpUbIJz33F3mqmdHEh6EecpkWWHaki/utr+bZoditVcQpSBBxya/V6BJU/7tD
+	 Gl0uJmxNGfprJFD3l5IaDWt+JhnvKJLbdYYgC0oqSzv5PcgLUGM3ogo/I5yKrc1j7y
+	 bdnS0jDc1O5Tg==
+Message-ID: <59e96784-9efc-4958-baf0-a51e766e47e8@kernel.org>
+Date: Wed, 18 Dec 2024 09:02:29 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="woythu4oziodei4y"
-Content-Disposition: inline
-In-Reply-To: <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/7] arm64: defconfig: enable cpu idle injection and
+ cpu idle cooling device
+To: Wasim Nazir <quic_wasimn@quicinc.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel@quicinc.com,
+ Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
+References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
+ <20241217064856.2772305-7-quic_wasimn@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241217064856.2772305-7-quic_wasimn@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_235948_650337_EBA83524 
-X-CRM114-Status: GOOD (  31.99  )
+X-CRM114-CacheID: sfid-20241218_000238_697501_9CCBF7E6 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,87 +126,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 17/12/2024 07:48, Wasim Nazir wrote:
+> From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
+> 
+> Enable cpu idle injection framework and thermal cpu idle cooling device
+> to throttle the cpu by injecting idle cycle during high thermal condition.
+I know what they do, but why do we need it in the defconfig? This is not
+a product defconfig, just in case you mirrored downstream patches.
 
---woythu4oziodei4y
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
-MIME-Version: 1.0
-
-On Wed, Dec 18, 2024 at 07:24:23AM +0200, Dmitry Baryshkov wrote:
-> On Tue, 17 Dec 2024 at 19:21, Maxime Ripard <mripard@kernel.org> wrote:
-> > On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
-> > > While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
-> > > framework, I stumbled upon an issue while handling the Audio InfoFram=
-es.
-> > > The HDMI codec callbacks weren't receiving the drm_atomic_state, so
-> > > there was no simple way to get the drm_connector that stayed at the e=
-nd
-> > > of the bridge chain. At the same point the drm_hdmi_connector functio=
-ns
-> > > expected to get drm_connector instance.
-> > >
-> > > While looking for a way to solve the issue, I stumbled upon several
-> > > deficiencies in existing hdmi_codec_ops implementations. Only few of =
-the
-> > > implementations were able to handle codec's 'plugged' callback. One
-> > > third of the drivers didn't implement the get_eld() callback.
-> > >
-> > > Most of the issues can be solved if drm_connector handles
-> > > hdmi-audio-codec on its own, delegating functionality to the actual
-> > > implementation, be it a driver that implements drm_connector or
-> > > drm_bridge.
-> > >
-> > > Implement such high-level framework, adding proper support for Audio
-> > > InfoFrame generation to the LT9611 driver.
-> > >
-> > > Several design decisions to be kept in mind:
-> > >
-> > > - drm_connector_hdmi_codec is kept as simple as possible. It implemen=
-ts
-> > >   generic functionality (ELD, hotplug, registration).
-> > >
-> > > - drm_hdmi_connector sets up HDMI codec device if the connector
-> > >   is setup correspondingly (either I2S or S/PDIF is marked as
-> > >   supported).
-> > >
-> > > - drm_bridge_connector provides a way to link HDMI audio codec
-> > >   funcionality in the drm_bridge with the drm_connector_hdmi_codec
-> > >   framework.
-> > >
-> > > - It might be worth reverting the no_i2s_capture / no_spdif_capture
-> > >   bits. Only TDA889x driver sets them, while it's safe to assume that
-> > >   most of HDMI / DP devices do not support ARC / capture. I think the
-> > >   drivers should opt-in capture support rather than having to opt-out=
- of
-> > >   it.
-> >
-> > Sorry if this isn't clear to me and I'm quite late to the party, but did
-> > you test this on vc4 with both a pi3 and pi4, or was it just compile
-> > tested?
->=20
-> LT9611 is actually tested, VC4 is only compile-tested. Should I put an RF=
-T tag?
-
-Yeah, we definitely need to test it on the pi3 (polling-based) and the
-pi4 (irq-based) at least.
-
-Dave, Maira, could you give it a try?
-
-Maxime
-
---woythu4oziodei4y
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2KA6gAKCRAnX84Zoj2+
-doM7AYDYL5BrruN7W/ACWXLqTjEYQHCFy+iryAfwh6yE4f0RPJ6YFzy8mnTd+X1L
-Jm9FiCABgPBOTqSnWYqNQjCLhnY0tzsDweW5w5m2sSKXDd0eMFfMFWxI2AeBQJRe
-UpFPPwBPkQ==
-=R0UZ
------END PGP SIGNATURE-----
-
---woythu4oziodei4y--
+Best regards,
+Krzysztof
 
