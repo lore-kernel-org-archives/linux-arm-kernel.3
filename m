@@ -4,115 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EEDE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451FDE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dVmmteTH5HJmiV06ONEEcP4hGxtq/aqul7G3lNsssoY=; b=vFpOfUcuEocvB4g+xjDnVwkrDT
-	jUU9K2CohrxHvMky19hyOWAoGwhiO0YqT+st996Dx80Qb1kXFWCLg0MpSsB5yRxQmZ8gF7sBNMdoV
-	ZVdGFseBRpY/Bd7pqmbzFlGnXrhxO4vu/XJKkrI/gmA37pxYAG8/p6I6V6EpOt6bT84/nWyFXnIx5
-	qDwWpBVD/Yic7yZIfuPNu3WHyFink/d43evHT9j2J52ma9aus+gk5Cuz6Asg0FAlbB9FMklsNqXSi
-	eU8BbtMyB8xw4QV6K9g9tsIm1/LzObT0OJ66CYnqEPxlluS+IQxektd2LrXcjLs8Sx/oyj1ygLK/J
-	q2V4lYKg==;
+	bh=4/YYiE8DrfDSJmT0Dm8s6zXYaOz1sPe9FboUtUKQues=; b=tUO0Bd1CVP+RQ10lpGEGzdGOkw
+	0HS71z/C2gFSFq2d4ey9hOTA7U7qwJCKsS/5uKSdVG903tDveG72WF77PeAKAMiqxI+Pl7y1sDM3f
+	2D6MH8PVm/3jq7gahnWX+m8atKd+3LD8KtLMuaosWsHXopYMnUYDMlqXL8dC3Ao3VUwi/tugGwuWs
+	JXGKA+lJlZjtj+9HmKd895jyCRqkX4Vt5jXkaY07I3ISefJR0XASf7ghSpt/3QcE5rW6UM3Fp120T
+	gTJA4TvxrSbnWGQDcJfyKEj0DiiapveJFJy/dnsLzfM5mkO43YIzN7M2Uw/pqQK9Rm+d/WiRE8j+/
+	7fyB7Lhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrwQ-0000000GOmy-0CNJ;
-	Wed, 18 Dec 2024 11:10:10 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tNrxU-0000000GP1i-2j7O;
+	Wed, 18 Dec 2024 11:11:16 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrsz-0000000GOGU-23mt
+	id 1tNrvJ-0000000GObV-2DxI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:06:38 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-436345cc17bso34164285e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:06:36 -0800 (PST)
+	Wed, 18 Dec 2024 11:09:02 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3eb8db8ae9aso2805455b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:09:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffwll.ch; s=google; t=1734519995; x=1735124795; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dVmmteTH5HJmiV06ONEEcP4hGxtq/aqul7G3lNsssoY=;
-        b=Pbsbd2KIN+Q9AXvCre4H0bbIINr/0lmfmcg2baW0w4/mYLjr0qzriW7eknrQug6YtS
-         c2O3UWbJ4eMY3PckZUIsZS8urtD1Wu+gLRoB/eotlHFTl6tYWy8vtRZyXCsgJ4rhY68X
-         H7dr5TwGmP1PbDJS4rbf1oQhRnyVmkLt5Zw40=
+        d=linaro.org; s=google; t=1734520140; x=1735124940; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=4/YYiE8DrfDSJmT0Dm8s6zXYaOz1sPe9FboUtUKQues=;
+        b=u5QhXbh0OM1z7Q62jVTjBoJvGStIiG2BWgT6LCBwYtmitp4t/KaFr1/xWG8vpUWpap
+         01gUfqEp255akKjdO73MmfUFV36NODeIHexRfWGnTbp+WYFhh4umXHfyF7r/SL1URhr1
+         FX92BcatwnXEvxujLD1lgXCHD9EjSFLQyQhqDFq9ntyyztH909+s6gZQtQidjHpsU2WW
+         f4YsCHIghPrVQqLegxeKTqp+DKFvVtnhPWJbvdxgl1Eb5XtmLFDgIFqPuzsnfLmbKGcf
+         FWCHqFxE3+x7Amu5HgOuuYG23Y20LAm72CptK2PX2uVLABHW3oDWDZ8KGSTh+GfoeKcD
+         HY6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734519995; x=1735124795;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dVmmteTH5HJmiV06ONEEcP4hGxtq/aqul7G3lNsssoY=;
-        b=o5ZM1jZHIZt12AzJm35F613M1pQrqYBgQ7H/3e966xbvXWzGjripOF1VNxNJRBHppv
-         km+Q77ed6iULXRl7SUIfCk3FrBwfGduZhcZXJrXKFG0jh2kRels0DWgkkhH8IwWniFM1
-         siyP/Ugs4ezcayJ9ItFjanv2CFSrPQybXRhefBtM6IfkvOT5RjbE0T1IooAIh5FPaiOX
-         DdJ932yWawXysIYqFJxjeACNayc1nvy9SaFVV9zc7UrfA3kJnVvXKz71j543VWIzvW0u
-         HCflIL4+i8aD7M88SuXk/X5zzn/fgA1vDPf/ob2R3Rvi5PdWClV50k2dvMyu5TG2QPIW
-         4bPg==
-X-Forwarded-Encrypted: i=1; AJvYcCU1JeR9vpVHP5eoJ8OUdSlvwehGK2zJAVMMaPOEILFeluvrIV/AHW7rRXpL6P99XoWfTiJo5BfQJ+plW1VJi3qY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVbn+ZkzTcI5VvbKF2lewP9T7YquQQ7rcazEEPfUyBcfAWAbJd
-	SL9/k4ndYA9kp+U4gDhYhLYwe3PAAF7tNTI09Hwu0bmaE1G+l3/aHV3yDnfSJBs=
-X-Gm-Gg: ASbGncve7cZMjW2HM31NzNvL53gcyZSOBzRVXwc6O6x1x2dBkBQzeOBHvFHkv8A2rov
-	LjifvYnctJePGXi8ZDvFQUtrRI+CaC9j3lR4Xr4x0QfFC1AmF61Vi1cxK7aMUA+tNHKiCsbqJNe
-	nKNtD5rM4kqRu1pWr9bh/hbMFWfjUyf1hbluWo9GcURb6L6DQfKQl84IZ+2IooDy67iXZc/mqns
-	t7DBhJFLMedrzE/nUo1R2UOQfxPaX/zutPmh1Up5eDkCOFBmD9opw/hcoCI2Vq3uEzR
-X-Google-Smtp-Source: AGHT+IGO+lveh3Jbb8AZu1Ge8phdM2oV+2GRJ4PUelkWtjliAilPaysJVfHfANDTcu/J9rlhBMtD5Q==
-X-Received: by 2002:a05:6000:1ac8:b0:385:f9db:3c4b with SMTP id ffacd0b85a97d-388e4d2df3cmr2192735f8f.10.1734519995037;
-        Wed, 18 Dec 2024 03:06:35 -0800 (PST)
-Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80120dcsm14048491f8f.8.2024.12.18.03.06.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 03:06:34 -0800 (PST)
-Date: Wed, 18 Dec 2024 12:06:32 +0100
-From: Simona Vetter <simona.vetter@ffwll.ch>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Sumit Garg <sumit.garg@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-Message-ID: <Z2KsuAs-Dd4ZDaXR@phenom.ffwll.local>
-Mail-Followup-To: Jens Wiklander <jens.wiklander@linaro.org>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Sumit Garg <sumit.garg@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
+        d=1e100.net; s=20230601; t=1734520140; x=1735124940;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4/YYiE8DrfDSJmT0Dm8s6zXYaOz1sPe9FboUtUKQues=;
+        b=uvVsiZi7pDh2jLhvc+kTGJgizhrRB6hSBo1JeLfInm26jpiXkcAVndz/mdpiQaTrZB
+         J3Is6vbhz65nhs3o8kZlBRybGDCVSyDkVz27g6i9Fa3hXTE7LRndFacJJYBZeQnme3KU
+         W61mxfMNw0q4MUsufUvjeEMlxg9lghWOKmg6EbYnvsB5vkmmlEeQhTZwk8pVZaF0gunH
+         iJ0/GXv5Goj8s9FpMBXl6Aikk2lRrAhsvtG6hr6lGY9B4fRubavZaft+JL/WcbaiVEbG
+         bKXet/bovE9LVZhzNGotkz+qHm1fr4X7Q6sS58B1DQOOPFDsR87K1vaUerqLBxfTan/f
+         uENw==
+X-Forwarded-Encrypted: i=1; AJvYcCW3iNsfEXd24NoDZ+earEtN7NrLJtXDqxaQ+QioTihXp55Umc+VHYragl1Sd5F6bTxAQKzPksDPTIE8ftUcFHKV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmvF977AnnffnpJmD6ap4E37ii5M5Pf923pNaekW7FgF5dBIEy
+	FrbFDnjv7Roi8Y6/YNVIBujbPDgSxhMDHwREle89wTDXSeit1gkoxBxwmS4EbcaT6vw0TnkcsNp
+	vGadegoeZdbUuhJqmAOsTvwgAL5Q4zORSYH7YEw==
+X-Gm-Gg: ASbGncsDgG1ExMvx9Alnj1fhAqeURIYCc1G97679EXVT86mMtKv0vqu5teDsrT2ScRS
+	bDtEXGdqdvxhxM5nDgwRR7Tk9NkJIDy0JUu74n8s=
+X-Google-Smtp-Source: AGHT+IEFgoxKdoJisFUM5ICD9pBhU+fG3s7zPXYhJrT/VXlT7HQqFQRQC9gMDg4S88yvTnHjNPAX6OW7RBGF95100H4=
+X-Received: by 2002:a05:6808:10d5:b0:3e6:580b:d7d0 with SMTP id
+ 5614622812f47-3eccbf9189dmr1697114b6e.19.1734520139785; Wed, 18 Dec 2024
+ 03:08:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241217100809.3962439-1-jens.wiklander@linaro.org>
-X-Operating-System: Linux phenom 6.12.3-amd64 
+References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org> <20241217-acpm-v4-upstream-mbox-v5-3-cd1d3951fe84@linaro.org>
+In-Reply-To: <20241217-acpm-v4-upstream-mbox-v5-3-cd1d3951fe84@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 18 Dec 2024 11:08:48 +0000
+Message-ID: <CADrjBPr82hvSSyULxi0k08ts2d1vO41qXvmr08+9wP-MB9fhvQ@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] MAINTAINERS: add entry for Samsung Exynos mailbox driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
+	kernel-team@android.com, willmcvicker@google.com, daniel.lezcano@linaro.org, 
+	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_030637_533704_2F2D616B 
-X-CRM114-Status: GOOD (  39.67  )
+X-CRM114-CacheID: sfid-20241218_030901_585454_3510BB5B 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,156 +96,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 11:07:36AM +0100, Jens Wiklander wrote:
-> Hi,
-> 
-> This patch set allocates the restricted DMA-bufs via the TEE subsystem.
-> 
-> The TEE subsystem handles the DMA-buf allocations since it is the TEE
-> (OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QCOMTEE) which sets up the
-> restrictions for the memory used for the DMA-bufs.
-> 
-> I've added a new IOCTL, TEE_IOC_RSTMEM_ALLOC, to allocate the restricted
-> DMA-bufs. This IOCTL reaches the backend TEE driver, allowing it to choose
-> how to allocate the restricted physical memory.
-> 
-> TEE_IOC_RSTMEM_ALLOC takes in addition to a size and flags parameters also
-> a use-case parameter. This is used by the backend TEE driver to decide on
-> allocation policy and which devices should be able to access the memory.
-> 
-> Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
-> Recording) has been identified so far to serve as examples of what can be
-> expected. More use-cases can be added in userspace ABI, but it's up to the
-> backend TEE drivers to provide the implementation.
-> 
-> Each use-case has it's own restricted memory pool since different use-cases
-> requires isolation from different parts of the system. A restricted memory
-> pool can be based on a static carveout instantiated while probing the TEE
-> backend driver, or dynamically allocated from CMA and made restricted as
-> needed by the TEE.
-> 
-> This can be tested on QEMU with the following steps:
-> repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
->         -b prototype/sdp-v4
-> repo sync -j8
-> cd build
-> make toolchains -j$(nproc)
-> make SPMC_AT_EL=1 all -j$(nproc)
-> make SPMC_AT_EL=1 run-only
-> # login and at the prompt:
-> xtest --sdp-basic
-> 
-> The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
-> S-EL1 inside OP-TEE. The parameter can be changed into SPMC_AT_EL=n to test
-> without FF-A using the original SMC ABI instead. Please remember to do
-> %rm -rf ../trusted-firmware-a/build/qemu
-> for TF-A to be rebuilt properly using the new configuration.
-> 
-> https://optee.readthedocs.io/en/latest/building/prerequisites.html
-> list dependencies needed to build the above.
-> 
-> The tests are pretty basic, mostly checking that a Trusted Application in
-> the secure world can access and manipulate the memory. There are also some
-> negative tests for out of bounds buffers etc.
+Hi Tudor,
 
-I think I've dropped this on earlier encrypted dma-buf discussions for
-TEE, but can't find one right now ...
+On Tue, 17 Dec 2024 at 09:40, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+>
+> Add entry for the Samsung Exynos mailbox driver.
+>
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
 
-Do we have some open source userspace for this? To my knowledge we have
-two implementations of encrypted/content protected dma-buf in upstream
-right now in the amd and intel gpu drivers, and unless I'm mistaken they
-both have some minimal userspace supporting EXT_protected_textures:
-
-https://github.com/KhronosGroup/OpenGL-Registry/blob/main/extensions/EXT/EXT_protected_textures.txt
-
-It's not great, but it does just barely clear the bar in my opinion. I
-guess something in gstreamer or similar video pipeline framework would
-also do the job.
-
-Especially with the context of the uapi discussion in the v1/RFC thread I
-think we need more than a bare-bones testcase to make sure this works in
-actual use.
-
-Cheers, Sima
-
-> 
-> Thanks,
-> Jens
-> 
-> Changes since V3:
-> * Make the use_case and flags field in struct tee_shm u32's instead of
->   u16's
-> * Add more description for TEE_IOC_RSTMEM_ALLOC in the header file
-> * Import namespace DMA_BUF in module tee, reported by lkp@intel.com
-> * Added a note in the commit message for "optee: account for direction
->   while converting parameters" why it's needed
-> * Factor out dynamic restricted memory allocation from
->   "optee: support restricted memory allocation" into two new commits
->   "optee: FF-A: dynamic restricted memory allocation" and
->   "optee: smc abi: dynamic restricted memory allocation"
-> * Guard CMA usage with #ifdef CONFIG_CMA, effectively disabling dynamic
->   restricted memory allocate if CMA isn't configured
-> 
-> Changes since the V2 RFC:
-> * Based on v6.12
-> * Replaced the flags for SVP and Trusted UID memory with a u32 field with
->   unique id for each use case
-> * Added dynamic allocation of restricted memory pools
-> * Added OP-TEE ABI both with and without FF-A for dynamic restricted memory
-> * Added support for FF-A with FFA_LEND
-> 
-> Changes since the V1 RFC:
-> * Based on v6.11
-> * Complete rewrite, replacing the restricted heap with TEE_IOC_RSTMEM_ALLOC
-> 
-> Changes since Olivier's post [2]:
-> * Based on Yong Wu's post [1] where much of dma-buf handling is done in
->   the generic restricted heap
-> * Simplifications and cleanup
-> * New commit message for "dma-buf: heaps: add Linaro restricted dmabuf heap
->   support"
-> * Replaced the word "secure" with "restricted" where applicable
-> 
-> Jens Wiklander (6):
->   tee: add restricted memory allocation
->   optee: account for direction while converting parameters
->   optee: sync secure world ABI headers
->   optee: support restricted memory allocation
->   optee: FF-A: dynamic restricted memory allocation
->   optee: smc abi: dynamic restricted memory allocation
-> 
->  drivers/tee/Makefile              |   1 +
->  drivers/tee/optee/Makefile        |   1 +
->  drivers/tee/optee/call.c          |  10 +-
->  drivers/tee/optee/core.c          |   1 +
->  drivers/tee/optee/ffa_abi.c       | 178 +++++++++++++-
->  drivers/tee/optee/optee_ffa.h     |  27 ++-
->  drivers/tee/optee/optee_msg.h     |  65 ++++-
->  drivers/tee/optee/optee_private.h |  75 ++++--
->  drivers/tee/optee/optee_smc.h     |  71 +++++-
->  drivers/tee/optee/rpc.c           |  31 ++-
->  drivers/tee/optee/rstmem.c        | 388 ++++++++++++++++++++++++++++++
->  drivers/tee/optee/smc_abi.c       | 213 ++++++++++++++--
->  drivers/tee/tee_core.c            |  38 ++-
->  drivers/tee/tee_private.h         |   2 +
->  drivers/tee/tee_rstmem.c          | 201 ++++++++++++++++
->  drivers/tee/tee_shm.c             |   2 +
->  drivers/tee/tee_shm_pool.c        |  69 +++++-
->  include/linux/tee_core.h          |  15 ++
->  include/linux/tee_drv.h           |   2 +
->  include/uapi/linux/tee.h          |  44 +++-
->  20 files changed, 1358 insertions(+), 76 deletions(-)
->  create mode 100644 drivers/tee/optee/rstmem.c
->  create mode 100644 drivers/tee/tee_rstmem.c
-> 
-> 
-> base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
-> -- 
-> 2.43.0
-> 
-
--- 
-Simona Vetter
-Software Engineer, Intel Corporation
-http://blog.ffwll.ch
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
