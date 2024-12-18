@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B831E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F335FE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M2vh/xwZF5apT8bu19SqSmXzYYa1+FrHmeqyI4yFkWo=; b=sbvno/CTHqBq2LXZavDYn1DOzy
-	J2Qj1mHs62IziOSuwYaYdTkXkIyT4It7EchEety04JyDqaRNM+a7Urkr5cFZTmsZPvh2ppWW71wVv
-	J1TaocqOwaqlXQK2u6wfKNr5E4HG6O1QgQJsnGOgEE7PLmWd2e3ukxkKlCbha9eeOf6AsZSz4ujXv
-	o4O+BHxqHoHBQE9b/Fj1Y8y1ZL9U9uFITfCmg5eNiXf+CZfLiA00m/MUOIwTHcJP2+SoMPCFlEccS
-	sElpGwLRPo5w9y1a/MxUVcDybW2jDSU2akvpPk5DH5/UmCq7TStVOOiqUOmF69uP4NIt/xR6Tk1DI
-	/lNJSPJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=phZjJ8Vd0a6a/KUNLyGQpPa9OxsPWwxJsNWkp8oFdNc=; b=TbXLEYm2LMqJgAPzLu6WvuQB9U
+	CeQz8fOHQJbRlREJGAA4mOotwREZt66OnAYok8tPC543u1LwAMMmaFde6zqMohEFVqpBeitnGWaWF
+	XWc66dvoivrYA9Bqco0wlqMJDAujcmQB5TdmQNLnUhSWxrMiySTo6cxWB5P6Yil6mFSPlTpoggAgE
+	imH7fBydrrgKIynnLiLiN2y1+9M4yfrUYMtmh3vHXKuIjAsGQuLrAFiTeZoOTZu7iF5chFOwux+Bd
+	nI9QejSlmH7KJyRWEpdUR2C847HBRUJxztwwXmV/Po9d5f/AJ8POO+6+qcoo0uZTrcU2yrJU8b5Qa
+	7uy+9p3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNt1l-0000000Ga6v-3CI9;
-	Wed, 18 Dec 2024 12:19:45 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1tNtIH-0000000Gbwm-2UBB;
+	Wed, 18 Dec 2024 12:36:49 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNszf-0000000GZaX-1ihv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 12:17:36 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-71e3005916aso1150326a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 04:17:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734524254; x=1735129054; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M2vh/xwZF5apT8bu19SqSmXzYYa1+FrHmeqyI4yFkWo=;
-        b=hBznnG/v2mIBuskqn5SR+udcalYOGo9ZhJg1rDvU2omVpWARu1S9Tid/HT4WLU9k/5
-         GYqEux2Jx2pz0Kc0wuoNeBYFZJgtWr/RVihhnRLP7mt2FhUWneKE8hyEjEAKktXkrLIm
-         93BiWwdZFRUiZxV0JDNq5I/vpxvGmR3xDbXbUig5b/hJgt8oE2IrHOtEDyaMpBXsdrIW
-         wFWKXAbJsQjUeLl08n3jYtCjvohcka5RPGCTh3O3X+yjWk+g0tSvaDTq2QrY8+9crwIw
-         tw2/GImBAqh+b3be6GJwBGmBrling1pp9nepBY2Q+HnGbDN12oqcKfw5KXeC+XCcQmzz
-         upGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734524254; x=1735129054;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=M2vh/xwZF5apT8bu19SqSmXzYYa1+FrHmeqyI4yFkWo=;
-        b=vT5i/vTPm/aDt2MXs33EUk8GZoNGpptAbGv7pCTzTb7vDBC8I4Gt+F+JssiQ+QqlvL
-         E54+hKjaaDuuNnyEerDgyAjZ9O2Zb8DFRSVkRzzFI2uPuNNGh/06C1K+xMMRp9kzmFl4
-         +BtrWBt0k4wnfX9Lbimt68MST/YEC01+1eavZkac7eWLhObyFoIbLlP++/bAvVopebCA
-         EIJA6JfCQ1gNR1LK13VvjaS7X2XjFm2pGW5XyY6FDNbML45SUHBoYAmyroUPjmQVCx2s
-         UaAMLtX75svFa5l/gTMpvoT3gWrYVHpC1A5zWOi1IGG3DHea9YwP63lW+PcUK5k8vUl2
-         G9CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXl65f6cpic2Gd8mgIWIeBbdocalx8K7d+6O1YveeZkBNAYypDV+akw+6w3dAZStON7QxHfaduswP5AK8tLMYUA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGhp1hsu61kBXhp01MLY+s2DVblKN36aRpWGC7UNWOOp8HzgNA
-	sokI+sfUT6xSroEKX28idrdYp6DzoGU4wV4CQpTulqdWrUGqhN7kUWgMoNCrXZw5E/2xPUF70i1
-	RJd9Ua25lxGLCmDD/bJLA3GLd15o36qjP9jjR0Q==
-X-Gm-Gg: ASbGnctESrPU/J81sIB4Dy85AZ+vEjq8dyk1GQsH5OkxHEnGFArUI9Z7gmKXZtcbbYs
-	gUBseIFyUUWWdQaoxUkPKieJDNyHyKhEIhjcKrhA=
-X-Google-Smtp-Source: AGHT+IEojA6LnlTVG9PHZZVxfH/TlVwW+tBtuepHbLJd8n0q39aSKwMleaTiWWO3skHqftkc2ID9Y5fPiPCYVBpN7G4=
-X-Received: by 2002:a05:6830:6e83:b0:718:7c3:f86a with SMTP id
- 46e09a7af769-71fb75731acmr1512698a34.6.1734524254625; Wed, 18 Dec 2024
- 04:17:34 -0800 (PST)
+	id 1tNtHC-0000000GbmC-0TOQ;
+	Wed, 18 Dec 2024 12:35:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=phZjJ8Vd0a6a/KUNLyGQpPa9OxsPWwxJsNWkp8oFdNc=; b=lIuwHm8C3o0XdtMfisDH16HFrk
+	xW2eZCC0NsEyhgo1QgwipjBohy3XKMwfemabXrMubtE3JQsgBlBhjxNCxzvSPsOKftOgk+npqLDSf
+	eFcNtJT4PNdAkgiVD7bkntXI+XJwnWMmxMEd/3rdATt3pjh4CSCQ6Voajw1xEDtkoan5lyLsuJxdT
+	+kfKXb8SsDni0xHBr61qMlBNjF53ldb0qlaD0DSRhy3WP8adBNHKzmwdOUjPH131INjHuFoNaizkW
+	WpmFGXwgxswGU3P/RkGbheMpkqPUKzWDgYlhcdWCOvLG2Zf8GuPjgmWCmV3d+sbWwrRsJ5NDBhy6O
+	YOP8x3ug==;
+Received: from i53875bfb.versanet.de ([83.135.91.251] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tNtGw-0000Hd-65; Wed, 18 Dec 2024 13:35:26 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v2 04/11] phy: phy-rockchip-samsung-hdptx: Add support for eDP
+ mode
+Date: Wed, 18 Dec 2024 13:35:24 +0100
+Message-ID: <867267676.0ifERbkFSE@diego>
+In-Reply-To: <20241216031225.3746-5-damon.ding@rock-chips.com>
+References: <20241216031225.3746-1-damon.ding@rock-chips.com>
+ <20241216031225.3746-5-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-References: <20241216-gs101-simplefb-v1-0-8ccad1830281@linaro.org> <20241216-gs101-simplefb-v1-2-8ccad1830281@linaro.org>
-In-Reply-To: <20241216-gs101-simplefb-v1-2-8ccad1830281@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 18 Dec 2024 12:17:23 +0000
-Message-ID: <CADrjBPq4hH+kiuObXCkJXf6Ft-zEDnSVM5HuYNd=xMvaLicryg@mail.gmail.com>
-Subject: Re: [PATCH 2/4] arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_041735_445534_7D993085 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20241218_043542_142031_4EC07EB6 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,32 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre
+Hi Damon,
 
-On Mon, 16 Dec 2024 at 13:06, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
- wrote:
->
-> The bootloader configures the display hardware for a framebuffer at the
-> given address, let's add a simple-framebuffer node here until we get a
-> proper DRM driver.
->
-> This has several benefits since it's an OLED display:
-> * energy consumption goes down significantly, as it changes from white
->   (as left by bootloader) to black (linux console), and we generally
->   don't run out of battery anymore when plugged into a USB port
-> * less of a burn-in effect I assume
-> * phone stays cooler due to reduced energy consumption by display
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Am Montag, 16. Dezember 2024, 04:12:18 CET schrieb Damon Ding:
+> Add basic support for RBR/HBR/HBR2 link rates, and the voltage swing and
+> pre-emphasis configurations of each link rate have been verified according
+> to the eDP 1.3 requirements.
+> 
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> 
+> ---
+> 
+> Changes in v2:
+> - Add the module author
 > ---
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Tested-by: Peter Griffin <peter.griffin@linaro.org>
+> @@ -255,6 +364,19 @@ struct ropll_config {
+>  	u8 cd_tx_ser_rate_sel;
+>  };
+>  
+> +struct tx_drv_ctrl {
+> +	u8 tx_drv_lvl_ctrl;
+> +	u8 tx_drv_post_lvl_ctrl;
+> +	u8 ana_tx_drv_idrv_idn_ctrl;
+> +	u8 ana_tx_drv_idrv_iup_ctrl;
+> +	u8 ana_tx_drv_accdrv_en;
+> +	u8 ana_tx_drv_accdrv_ctrl;
+> +	u8 tx_drv_pre_lvl_ctrl;
+> +	u8 ana_tx_jeq_en;
+> +	u8 tx_jeq_even_ctrl;
+> +	u8 tx_jeq_odd_ctrl;
+> +};
+> +
+>  enum rk_hdptx_reset {
+>  	RST_PHY = 0,
+>  	RST_APB,
 
-Tested on Oriole device, with latest initramfs and framebuffer was function=
-al.
+not a full review (yet), but this part conflicts with
+commit f2dbca169790 ("phy: phy-rockchip-samsung-hdptx: Don't request RST_PHY/RST_ROPLL/RST_LCPLL")
 
-regards,
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=f2dbca169790ea1e436ffdd9ef37d7c3a4401c46
 
-Peter
+
 
