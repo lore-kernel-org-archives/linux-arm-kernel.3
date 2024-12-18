@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2A7E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1B0E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4nGgzN+PLoX+DtGKu6QZhwKkrW+RWGU8KNUJKfHD5k=; b=bTxDWVIL/QaIEXn6EgCXsZEtXL
-	EnOgef7a5mAwBmULwEvADTI+qhKEnIOc8BArmmLFPPobIWiFbip4XDizrPap88u8xOXx4Br6z+aMG
-	R+eO9ebDOOSrFmVTQUKHfTjy2f9ZedDb0+2k2r7hmuB2s+aq9KRpQxGApxLwa5UC8i1C/YtTA2YHi
-	QTDZ5KXdlhm2chuqYAkvjtMgDN22yxhNCfCowp4mdKtoo2TrtPRE/5ss1gWqwe0iSsPTAxdT2WZvZ
-	Qo+7yvrBexRAOEoILhBZvZpRJVqLQ5lHrWTd9+Uzu6BoAmwIw3jzW390dLIYoTBPWSSQkJXA4pGiw
-	DBSuedKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iPejERJl4XK7d4IeT4SKRyoz4LEppn+mSkxv5WuPWRE=; b=zJgPUZkKEaj+wBsal+MVnIFJK9
+	WQK+5mFRhuajwQcusDLyrsgBddwGjbZl0+ETRozOt1hXvc58IWUXXBrktCIIXaBzpvPtNmUXC/BvA
+	V7ii4oPqXVTKJ+9f21xhDGRwoyM/Av8anghUXmxRfa+G3m4PwRTb+at6/s9sKbEgUyvAvassqWWa9
+	KczjB3mvC8uLne+9p8nvbM39Gtzt7TpuLbdXvmiWOI50dBymz8qlmamTwiOwdFNCYU9fTkCWQxlAj
+	R2Q5wWgD7maMyB4I4IbZSd5iSy6diNGcqaXco48W4VkXwY4AiUd11iSY7gTsiisRHrLOnm6iKFqwv
+	YSIoi7ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsOZ-0000000GTiC-0nko;
-	Wed, 18 Dec 2024 11:39:15 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1tNsPd-0000000GTqf-08WI;
+	Wed, 18 Dec 2024 11:40:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsNF-0000000GTPX-2Net
+	id 1tNsNP-0000000GTQl-3diy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:37:54 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-725ce7b82cbso7333061b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:37:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734521872; x=1735126672; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d4nGgzN+PLoX+DtGKu6QZhwKkrW+RWGU8KNUJKfHD5k=;
-        b=My3Gnpngbm56rqOrOFNWrlRqUQR/2ifxAKDgiaRjlV36ClYunta8eBd7IiTzutVF4L
-         DhFPzJgHYskeAQ+ueH8YU7LZvPNVyUoBkFocy+TxSLAH5cF++IM8ZyK8O04n92OdaubG
-         UxbCmWVmt95aikF/1BumHe6aQAtbUfJblvPUwbbBbYk3ibs0BvzQ5t0HeblWa11uwcZv
-         9Ml9lxLd4HpzqvflToqi/WeTRGqICpgtFWgwztONl+3WT0sRQQpevtsEyPd4XKiq7rOQ
-         OKgyjEVgd98shS5JqOtKuOr9ZLW/RU7BI6gY2g4dX1t4qOggiNTz/hgoWlfKoeksyKQf
-         +5Ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734521872; x=1735126672;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=d4nGgzN+PLoX+DtGKu6QZhwKkrW+RWGU8KNUJKfHD5k=;
-        b=FMm1Piip4BhAMrDAF/otgn43xqNy85nhfT1dQ5mmpPCb3jnnx5lSAGlLYUWlNde0DV
-         sNqawiks2h4u7aguIv/oIgKUMaaJO6d3NuKAwvxqCx5fT10E1rS5r4vCjt/ZJKcwLNiO
-         GE7ikAY32fODYAXPb2Py2hYYfncxVBpqh8Wav3jet0JnKZ3K/7GoElW0cyZ9hsgD9fxP
-         zBLiOD/Zw2uf+f8m7i1AuUKec3AYbtu6DC/sbpLxDIA9V51E6goru0t0/HthVr5DbrIz
-         ljzV6nBFYZaljlKSWLmfQ1uFBQcz0VIiwM9K2xkCFZ5F9b/7/Q1soCPNPUSizbEjUdbe
-         x17Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVa40zWNQHmlMHaPLi5sVT6UEu2b5viRqXLVOU8FT1cN/QDzXS0FwS5/qwCOwcL+37dtUzOPwAIhmVEjtpVl/+v@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDMK0KcMpVGpw8cDGCMoz0kuvVYUjmnwHMlGMwPxeOatYof6iV
-	i+N5eNM6ZNQQczCpdDg/pFrqummiA0v3xaJ9vaHcbR0ei0o0iA9OOLlbRA==
-X-Gm-Gg: ASbGnctRL3PqlQlETqNNvZCiPpwxUPh0c1OkqQOB6zFP6aARbpheWOHvGlW2RaDjMS7
-	2Kt0CJCLKnLUELPPVqfkKCYDNFi5jL3+mxwkVzm47GvAkHSyQq1cGFzOdYY2RaEnmlEWCo9m7nl
-	LvFKFRN+AYKpYnQ15I/lHqeBhBUUOOTSCnyjwJZS8zlnfXbANywrn19e8S26A4CCpV30bDub1Ix
-	nLgeKG/6Ees14Tsl981nFqXINRDn75U0QRaxrc/sMcduvChLfK47g==
-X-Google-Smtp-Source: AGHT+IFBGhYjjpAE0oXnnXnxBVHrfx2nI3EfADj8QvczSv8I5fWLimmdInMDqXwJQC+cnnxzTSbD3Q==
-X-Received: by 2002:a17:90b:2dcf:b0:2ee:acb4:fee0 with SMTP id 98e67ed59e1d1-2f2e91d941fmr4373626a91.16.1734521871854;
-        Wed, 18 Dec 2024 03:37:51 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e72292sm73745605ad.273.2024.12.18.03.37.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 03:37:51 -0800 (PST)
-Date: Wed, 18 Dec 2024 19:37:43 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, xfr@outlook.com
-Subject: Re: [PATCH net-next v1] net: stmmac: TSO: Simplify the code flow of
- DMA descriptor allocations
-Message-ID: <20241218193743.0000521f@gmail.com>
-In-Reply-To: <20241213030006.337695-1-0x1207@gmail.com>
-References: <20241213030006.337695-1-0x1207@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 18 Dec 2024 11:38:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 79282A4260E;
+	Wed, 18 Dec 2024 11:36:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4680AC4CECE;
+	Wed, 18 Dec 2024 11:38:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734521882;
+	bh=XQjXoklGZLGKHVmh53VQtpS6HSx53WNxCAeG99b3Pz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q1Y03UVe5NAFohukaodG2wZKOo5F+/HiMdfV7n6d2uLUH2hjHUCDOhWGlW9hzPLkx
+	 EXZJebSep5DCQdI8ecnw97/FRiQbgAVUslZdRWGs+wJNzsnb2S2SA22gK05wf7sya3
+	 7fAEKLC2q9bHMKriScKcNC2X1fk0Gzt0lxrTNaOiYiMgt0xCsxjXTHTGRnBzAi/tTk
+	 fQkUUjq6UCzaOtT/xalfUGxctr0BFUPabZBzycn0Eyp4M2vpONGuVqa4rK3v7J4zBm
+	 lZENAXrSqQZkXsPH+E+pOK2Cz2nHsoSdPEc6+NJ4laSh0NAQyfhWKHVcznugme4/C0
+	 lCO/k1H0lAS6w==
+Date: Wed, 18 Dec 2024 12:37:59 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	"open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5
+ compatible
+Message-ID: <2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi>
+References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
+ <20241217194439.929040-2-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241217194439.929040-2-florian.fainelli@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_033753_606062_F6292FE0 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20241218_033803_971181_FB8C7996 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Dec 2024 11:00:06 +0800, Furong Xu <0x1207@gmail.com> wrote:
-
-> The DMA AXI address width of DWMAC cores can be configured to
-> 32-bit/40-bit/48-bit, then the format of DMA transmit descriptors
-> get a little different between 32-bit and 40-bit/48-bit.
-> Current driver code checks priv->dma_cap.addr64 to use certain format
-> with certain configuration.
+On Tue, Dec 17, 2024 at 11:44:38AM -0800, Florian Fainelli wrote:
+> Document the revision c.1.5 compatible string that is present on newer
+> Broadcom STB memory controllers (74165 and onwards).
 > 
-> This patch converts the format of DMA transmit descriptors on platforms
-> that the DMA AXI address width is configured to 32-bit (as described by
-> function comments of stmmac_tso_xmit() in current code) to a more generic
-> format (see the updated function comments after this patch) which is
-> actually already used on 40-bit/48-bit platforms to provide better
-> compatibility and make code flow cleaner.
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> ---
+>  .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Tested and verified on:
-> DWMAC CORE 5.10a with 32-bit DMA AXI address width
-> DWXGMAC CORE 3.20a with 40-bit DMA AXI address width
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+> index 4b072c879b02..99d79ccd1036 100644
+> --- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+> +++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+> @@ -29,6 +29,7 @@ properties:
+>            - brcm,brcmstb-memc-ddr-rev-c.1.2
+>            - brcm,brcmstb-memc-ddr-rev-c.1.3
+>            - brcm,brcmstb-memc-ddr-rev-c.1.4
+> +          - brcm,brcmstb-memc-ddr-rev-c.1.5
 
-One more DWMAC core tested and verified:
-DWMAC CORE 5.00a with 32-bit DMA AXI address width
+You should use v2.1 fallback and drop driver patch. Or explain in
+commit briefly why different approach is suitable.
+
+Best regards,
+Krzysztof
 
 
