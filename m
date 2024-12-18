@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EF8E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79354E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+XS02ndYuHh8Y6R7lznhLt5EHIcca3+r9gOHrH6w2Q=; b=gheA0+qb6ZlS0c7JId7y7M6BhU
-	7P6o5w1h6FjrcRow7etFlaDZgU/7bjdYZJjkIeJ4T9nkj/qZFGDyxNA+9FptXS2kKePfNMGk/V2fT
-	GrdMOC2hwXRGgIHRH1KvlaEgHEjOCo7kbS9rTIsaq0feNmQOnz3K32atnGJvA4WXlPLKAa62Tv6m/
-	1gP8RTTHRKxLwwZhw4JKtD30kJg/CljwK5HgCmTVtVHaRz3zWcnCquCizcH2Xu4yf8UqjKkPtRZny
-	dnYN4gcv+puOkqYweWCbVxJqdFp3Zwus5qzsXVyN/zRADI4R1NvhaSgFaOaedrVCUGoHGEec0FcKD
-	QfFzF4Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xP1+YAddq3QB4LTZdA5nyx6dbnA8sfjInYfd+GgL7v0=; b=NsytOz9SRTIjXbih7RBgAtAXM0
+	QsZnJk11Kui7gndZh9pWtUw0h8Uz37XSw/jWhCTi4fwmr9zOm1ZuftIkgz9k9UR6w9vz9aVlLgPNM
+	ZHD5D7WawuqmqeLbcsFhy8OHBoV9eiB7/Id9dHh0V1M6nSYKATnCuXCX/Q9HDWD1yI48dyCZUoywp
+	DNVhSmgArgoySrirnBYEAfXuJn4qQb2pGGi/V7Yug0A7QEvEIFltU7wEqIjctxuGx4xBqKVCKrV9h
+	VN8Jk12PLzGt1YqW+gVY6lDpSkKOcvI7YOuE3K5VZYFR6vzcj0DVlZJ3prH1MV9onNZpHJVMiBwsx
+	KhknbsDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNsil-0000000GWqS-2MbT;
-	Wed, 18 Dec 2024 12:00:07 +0000
-Received: from mail-oo1-xc2e.google.com ([2607:f8b0:4864:20::c2e])
+	id 1tNsnF-0000000GXQz-20Q2;
+	Wed, 18 Dec 2024 12:04:45 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNshf-0000000GWhy-2Rls
+	id 1tNsm9-0000000GXDN-10O3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:59:00 +0000
-Received: by mail-oo1-xc2e.google.com with SMTP id 006d021491bc7-5f321876499so333725eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:58:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734523138; x=1735127938; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1+XS02ndYuHh8Y6R7lznhLt5EHIcca3+r9gOHrH6w2Q=;
-        b=pbqa6D7ptPVykn/KjQ15FGN0mko3kBN9bft0zTiGG//SlqCPnd3h+HsSIMJ+S7KX3d
-         o5i3N4sst5N4i4e05R9QTLisZFPFMjaB5eOR1qZeeg8BdBYdInN49wUke5EMVoApmSJh
-         00usBzRabj0CMr6MhLqdQd60CqshJxB3ybowEVY5HZStz3C9/cRhf67hYYGTVvsTDg2O
-         ft3Uchgj7TTBmb5Dy0zPEytDhpOahj50L12nrmGJLJTR1km/gCB1Yt3cWD+o5DCgQ4dW
-         GsD2mqgVfffmbtVv2LhYkQwC3XM/aA+2PElwasrHCatQDUatHDOqOs3AovDpy+fH7uNM
-         foBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734523138; x=1735127938;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1+XS02ndYuHh8Y6R7lznhLt5EHIcca3+r9gOHrH6w2Q=;
-        b=nOF6tiFnm8jM/pefdDVApF3TPy9JNTvNGnBbMzCs1GmlNOKqeongzQd4oGAdiDAzro
-         zJ7lbGsWo3jC8gEpu1M/wxulupKdAE4ciTD4RH84YP0MOHlJDvYH2RlB5fPOsth+UQND
-         q1Dbi7AlYGCg1Vi6rbfNCxHut5RAGTrhqUHm9OYrNg6cr1jNO0vogkxo9p3y5XF6g+K5
-         koVYy72CMaV4EehFihPwYvdzD8qYbDEvr1OfRfL1cHxeR0c2TmTLjLw9tg6ER6U5l5yn
-         +nGZdrenVQIYDPEd7LhNm7szPzW3KJtoTPrnI0+dTHcDf9R6nHHaYWwAFo3PRXVICvKc
-         4DOg==
-X-Forwarded-Encrypted: i=1; AJvYcCXx4ktTzTo5upENs8Xl7kyr2FGlm8UjeKFyri4BOSz7weRlXpQuEEB/ADE/yow51s46JsGLjlg5PNIkzfXFrdfu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJA8gYviTqvqXoUvh/HxzJWynTik4BLxVkfhHOOlPTova6fC8Q
-	2NFHEkCX11VdFfTu0QPvYlVSjxum0tHHaCQfaW0hdoOADaJKD/hQw7J9Qt2jmSMfqzorgKkJ/Fs
-	dc4aBfO/2RzHv5nj1LI+uy87OJZtYlvjaCalIzA==
-X-Gm-Gg: ASbGncthfDjRS6PZlJfTysH/ceI5IwRW17OypNpJfHFZbN+S7dhcnMTaQA9pdCJ3aFx
-	4qVDo4KSlBdU14ig+P3gYhLIhMqtYOmhsRgIsNMs=
-X-Google-Smtp-Source: AGHT+IHTn5PamW7QopLfPRzomInn7e/qfueiK6Mp/67924pi7x26nUbu2hSnUQW+W0L7ObbKhwdLAp9PQ0RRDehLdt0=
-X-Received: by 2002:a05:6820:2287:b0:5f2:c5e0:453f with SMTP id
- 006d021491bc7-5f4ca701b85mr1225321eaf.4.1734523138285; Wed, 18 Dec 2024
- 03:58:58 -0800 (PST)
+	Wed, 18 Dec 2024 12:03:38 +0000
+Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 91A9A34D;
+	Wed, 18 Dec 2024 13:02:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1734523376;
+	bh=TSrUAda1iBvqokKZb5S2qgfqyhmMIHo0M87Zvav80xc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JKt8It7Zrd6vPZB6Fh+qNRT1Hr4iRNiXFu/5rZyTIETqS2tllGvW6m6whLs279JOc
+	 dXb+Yj0T3ZLBmEpD6ymVC9wuwOz2zTgW2iiE0KcrFu2qmzSkYG0U1CdBNKWkZ4dRHw
+	 nmNYHv8S/InBIFoikYWYX+0M5gXZ73+5wvDGWXyM=
+Message-ID: <a4949e09-b4f3-4224-80fc-913ab5dace64@ideasonboard.com>
+Date: Wed, 18 Dec 2024 14:03:30 +0200
 MIME-Version: 1.0
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org> <20241217-acpm-v4-upstream-mbox-v5-2-cd1d3951fe84@linaro.org>
-In-Reply-To: <20241217-acpm-v4-upstream-mbox-v5-2-cd1d3951fe84@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 18 Dec 2024 11:58:47 +0000
-Message-ID: <CADrjBPp5M8+3eX75XEVPUO_voVBHP_ZbMXP6YRJbrw0xj8ftRQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] mailbox: add Samsung Exynos driver
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
-	kernel-team@android.com, willmcvicker@google.com, daniel.lezcano@linaro.org, 
-	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 04/10] drm/fourcc: Add DRM_FORMAT_Y10_LE32
+To: Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com>
+ <20241204-xilinx-formats-v1-4-0bf2c5147db1@ideasonboard.com>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20241204-xilinx-formats-v1-4-0bf2c5147db1@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_035859_626873_68EBFDEB 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20241218_040337_408917_EAF23EC0 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +118,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+Hi,
 
-On Tue, 17 Dec 2024 at 09:40, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
->
-> The Samsung Exynos mailbox controller has 16 flag bits for hardware
-> interrupt generation and a shared register for passing mailbox messages.
-> When the controller is used by the ACPM protocol the shared register is
-> ignored and the mailbox controller acts as a doorbell. The controller
-> just raises the interrupt to APM after the ACPM protocol has written
-> the message to SRAM.
->
-> Add support for the Samsung Exynos mailbox controller.
->
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+On 04/12/2024 11:31, Tomi Valkeinen wrote:
+> Add Y10_LE32, a 10 bit greyscale format, with 3 pixels packed into
+> 32-bit container.
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 > ---
+>   drivers/gpu/drm/drm_fourcc.c  | 4 ++++
+>   include/uapi/drm/drm_fourcc.h | 1 +
+>   2 files changed, 5 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
+> index d721d9fdbe98..6048e0a191dc 100644
+> --- a/drivers/gpu/drm/drm_fourcc.c
+> +++ b/drivers/gpu/drm/drm_fourcc.c
+> @@ -327,6 +327,10 @@ const struct drm_format_info *__drm_format_info(u32 format)
+>   		  .num_planes = 2, .char_per_block = { 4, 8, 0 },
+>   		  .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 }, .hsub = 2,
+>   		  .vsub = 1, .is_yuv = true },
+> +		{ .format = DRM_FORMAT_Y10_LE32,        .depth = 0,
+> +		  .num_planes = 1, .char_per_block =  { 4, 0, 0 },
+> +		  .block_w = { 3, 0, 0 }, .block_h = { 1, 0, 0 }, .hsub = 1,
+> +		  .vsub = 1, .is_yuv = true },
+>   	};
+>   
+>   	unsigned int i;
+> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+> index f79ee3b93f09..82f255eb3d1b 100644
+> --- a/include/uapi/drm/drm_fourcc.h
+> +++ b/include/uapi/drm/drm_fourcc.h
+> @@ -408,6 +408,7 @@ extern "C" {
+>   /* Greyscale formats */
+>   
+>   #define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+> +#define DRM_FORMAT_Y10_LE32	fourcc_code('Y', '1', '0', 'P')  /* [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian */
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+I realized that V4L2 already has "Y10P" fourcc: V4L2_PIX_FMT_Y10P, which 
+is MIPI CSI style packed 10-bit format.
 
-regards,
+While it's not strictly speaking a problem, maybe it's best to try to 
+avoid overlapping fourccs. So... "Y04P"? I'm being a bit inventive here 
+=). 0 would be for "10". 4 as in 4 bytes. P for packed.
 
-Peter
+  Tomi
 
-[..]
 
