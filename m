@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A6B4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BDC6E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRdmYoUKXOUG+sswfkSeT6n5jAc9VmmCt4ArLqZWt3Y=; b=gLdpVeumLrBSVDEqOAedHHeGvO
-	kmRGF7eL7TTfwRGMqDqHMBjwXuFsH2uNA+XD4Id3veTMW5uNJokKVMab6nc5zT0fL9sLGhNM0xdvY
-	FSHYAnagAglcCrbhXI+iOQJ1e9bQv7uqDWdMnE+eeCDcKuwm5bf1wc8hAApW/TcNLZez/N5cpHL4t
-	xfVqw7tyE1kDGJwZPMBqiI5utcihmjVvlMPbD77yV59ZJl9Eak+2Ti2sgW4mlw4Qo7WsWgU/Bnr98
-	F4OXsnbr6O8dLxjn5gKAiSQnj9OR5jPTeqmXXAAnLBDCPTrLtoJvjjjepUwG6FvU/boayVsbK5MsB
-	wO7DAAkQ==;
+	bh=KvnjN4P6SkLUk+22h2Qqv7fPFdw/8dEz5PT/l7XI0hY=; b=nIiNSIQJzfFGd8wh1/ZkAW1u//
+	sujXvYk5IvqOp6mHtKVdOThOdcPouXabWUgmKEDyIz/1BWR1JI59cccW59FY29UYSxKbEjbpDEPMH
+	qJIPyrDZ/1YwXQzY3jA/McjnTmotUkvDhp1dPz6ROTOR9pzEsOwdl+ojGBsiZyIP1ANRZDGckFR+8
+	8dGq6Uta06dS4N1FV226AyXTMPN7TvPFogJiRtQb2yA4/pLNC4ArCEqLUdgVeS/tMf4Xwq5d6hqSh
+	8OUcE4AFr0DEXRc7EsVPayll0uu7W14nWzRBdMOqxfM9yLGZ77yyi/cffsOkkNfaulXXzeTFFc5qO
+	382tp1EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzx1-0000000HYo0-2ksV;
-	Wed, 18 Dec 2024 19:43:19 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1tNzy6-0000000HZ2o-1Hd1;
+	Wed, 18 Dec 2024 19:44:26 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzus-0000000HYIE-1r4n
+	id 1tNzuv-0000000HYIc-02cC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 19:41:07 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-5d3ff30b566so6976466a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 11:41:05 -0800 (PST)
+	Wed, 18 Dec 2024 19:41:10 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-aa6869e15ebso123481566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 11:41:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734550864; x=1735155664; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734550867; x=1735155667; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nRdmYoUKXOUG+sswfkSeT6n5jAc9VmmCt4ArLqZWt3Y=;
-        b=uMkMGYq60WmBfVaEuWYSY1/Pl0rDlNKwoZ/Gx5ST6933dDYTZ7MDI0o/oaj99ss0Lw
-         HLnBSucJbf2pUsfvwfevBy3LDOOId+kr05e6iy6HEorqQiioq39gFJkZDebGGye3W+mD
-         zLGEyk9BK1WSPjCl8vpB4hvArxTedEB2aFNmpWFhaUltn8OegJgD8ouXSDlFLt2elOP2
-         TcLnjq4tFTSDsTYxiyQPduYR56H3rtFrD3YiKeDXhoJ09muLalrPoPz5zmmyGV9VnE2A
-         8/H2gP4kj69yuVIOzkF7O3qy+CJebmcQRQTe312gWAZT4LqvaKvfsI7QvFQBImVbgvWI
-         oHxQ==
+        bh=KvnjN4P6SkLUk+22h2Qqv7fPFdw/8dEz5PT/l7XI0hY=;
+        b=TqbUiA7B0BACvniSqtVImuu0qfFyoTbl82c7BXxNJKBbYd0Q3/0ozP+l+JxSguNpYW
+         Xz/kiNPjSSiqzPcOH4gh2TaHllI4W9BiVs2DagkWsQTOeGOjvaCtwdqaVTb3fLP7Tq8K
+         oWXLrcAXj/GfSCTQ4qUpLgcphDDqfs5tLouos+BVNCM2hjtkg0C7RX3WUAiGGggYU3U/
+         HTx0DQe7wqM7GeH+ufgYwzm2AJ80capam+BY7oLhNS9ZdWd9kzFUfFYK9k6CCB6Zw8eH
+         3Y3SN+FjuEjz/8LOIC8NqAcbZPraXJ+pFSGtmxRLCPhwEwVP9OG5ZjOL5RQIy9Q27VNp
+         tYJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734550864; x=1735155664;
+        d=1e100.net; s=20230601; t=1734550867; x=1735155667;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nRdmYoUKXOUG+sswfkSeT6n5jAc9VmmCt4ArLqZWt3Y=;
-        b=N2m63BdAsvffDDjzJcVEYCqzXnKPiBrUWSCip9op+z0OXy+0KScr3GBiPoJp94Bly4
-         2Fj6A/6m7BwQcRzbVI0I8QiRcg4ftiW3yAzCmtptmXWowKcyu1y/Sp+OsQu/zgt1vI+Y
-         bbKhaPpkNvTvj4SPSefZ0UQZctEoiluXcj0k3uj1hFuVPWoLEFZtzMgWoWfIrFlCZ2sW
-         lo+QyxOXDTCkl9t2NlJrJCudq+HffK6/aqDk8Via+P4Csjf1YMYS40JWzqNc8uvWniEU
-         1Lrh1xw0gBjV8BGU7rU++5LU3Cz1glMrTWmDNjs07nh7l01FVWzN9lEQZLr7ze8czYZ4
-         EqTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV6ePQ6ZPnzxttYOwT8461qsiPWZDAvCdF3LHryFpTbNPQclV3t8+VD2FgyA+WxCe5DVan+gZl77wtdC3bvZpQz@lists.infradead.org
-X-Gm-Message-State: AOJu0YytfypNToev5TbUTexbeBlI1dJa/bXGroaP2R6raLSmqbxDGSq8
-	2Io0PhqGV8IUsaezFQ2uaRDQ3rgM5ztUOtSvRyEEYE2ohDnIP15yVqQXvsN0jntPuLNq19ZkEPe
-	w/61CVw==
-X-Google-Smtp-Source: AGHT+IHvQzDESjuWp5L1AoEov+naUf7YhDv2p3IzRK4XOlwykk+DiFMJtRC57ZjwupiXLJO6FV3a8dSL7apE
-X-Received: from edbfj18.prod.google.com ([2002:a05:6402:2b92:b0:5d4:34da:32db])
- (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:528a:b0:5cf:e218:984f
- with SMTP id 4fb4d7f45d1cf-5d7ee3ff473mr4159198a12.27.1734550864372; Wed, 18
- Dec 2024 11:41:04 -0800 (PST)
-Date: Wed, 18 Dec 2024 19:40:42 +0000
+        bh=KvnjN4P6SkLUk+22h2Qqv7fPFdw/8dEz5PT/l7XI0hY=;
+        b=wFFJsv/3xSRfo0hzzGuSzlV22IG3WTtrSlXxa4UddEt5Opl6jb0kWHhf/rUXYyIinu
+         rE8v1/UoPpWSriWpYOj0FaBAqbnpxkjTfEH5vkzBXaCoR1Fu+ZGOIwQ2nlBgsxPI/1/Y
+         nmGFRSVzqDPBAWCaEAmJFWuJgj6BnSKWeOLo+rVdI+wiMsaPXf2tuHTPhYDj4xyHPNmu
+         562fVv4bKOT3AmkhPd0fDTt4b5ZxgU+IqAgjofI3X727N04qKfRh3fo54hSePYOdOqwe
+         iIPyC5p0MMB+KJyumfohlmAJyy4az8IBsx/AsUei++k9hy4/4DuFw4xF/er5Mi8ajFxC
+         T5Kg==
+X-Forwarded-Encrypted: i=1; AJvYcCVuE01tydGkk/F9XhHX5ywF4kwOku2U9Jukm6cI2VIc0F1N2AgkTX1SA/Qfn5y7yxER+0A4sgqRSabesD0QnRV+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8CFnkIFMQnzEsniqmBjvSavdlg+X6z5RQz883mVp23+cj483G
+	QAmp+xc5Wj9A8jNVdEGCCI249MiePs104VHiASAC393EYAPm5Yd19scq9n8f6cCD7QROC9dUebn
+	sngdy6A==
+X-Google-Smtp-Source: AGHT+IFzaab4WIj+uu0eFb5+RqKYGg9wSGHkRG5sqXUBPbPpIpzkAXtULFRuD1TiGRf7/yopTJZ+yFFS1fDj
+X-Received: from ejcvw10.prod.google.com ([2002:a17:907:a70a:b0:aa9:1b4b:489d])
+ (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:c23:b0:aa6:8096:2049
+ with SMTP id a640c23a62f3a-aac08147180mr54742866b.13.1734550866770; Wed, 18
+ Dec 2024 11:41:06 -0800 (PST)
+Date: Wed, 18 Dec 2024 19:40:43 +0000
 In-Reply-To: <20241218194059.3670226-1-qperret@google.com>
 Mime-Version: 1.0
 References: <20241218194059.3670226-1-qperret@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20241218194059.3670226-2-qperret@google.com>
-Subject: [PATCH v4 01/18] KVM: arm64: Change the layout of enum pkvm_page_state
+Message-ID: <20241218194059.3670226-3-qperret@google.com>
+Subject: [PATCH v4 02/18] KVM: arm64: Move enum pkvm_page_state to memory.h
 From: Quentin Perret <qperret@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -77,8 +77,8 @@ Cc: Fuad Tabba <tabba@google.com>, Vincent Donnefort <vdonnefort@google.com>,
 	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_114106_478048_9D40B83E 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20241218_114109_052717_AFD58734 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,14 +93,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'concrete' (a.k.a non-meta) page states are currently encoded using
-software bits in PTEs. For performance reasons, the abstract
-pkvm_page_state enum uses the same bits to encode these states as that
-makes conversions from and to PTEs easy.
-
-In order to prepare the ground for moving the 'concrete' state storage
-to the hyp vmemmap, re-arrange the enum to use bits 0 and 1 for this
-purpose.
+In order to prepare the way for storing page-tracking information in
+pKVM's vmemmap, move the enum pkvm_page_state definition to
+nvhe/memory.h.
 
 No functional changes intended.
 
@@ -108,48 +103,102 @@ Tested-by: Fuad Tabba <tabba@google.com>
 Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Quentin Perret <qperret@google.com>
 ---
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 34 +------------------
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      | 33 ++++++++++++++++++
+ 2 files changed, 34 insertions(+), 33 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 0972faccc2af..5462faf6bfee 100644
+index 5462faf6bfee..25038ac705d8 100644
 --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
 +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -24,25 +24,27 @@
-  */
- enum pkvm_page_state {
- 	PKVM_PAGE_OWNED			= 0ULL,
--	PKVM_PAGE_SHARED_OWNED		= KVM_PGTABLE_PROT_SW0,
--	PKVM_PAGE_SHARED_BORROWED	= KVM_PGTABLE_PROT_SW1,
--	__PKVM_PAGE_RESERVED		= KVM_PGTABLE_PROT_SW0 |
--					  KVM_PGTABLE_PROT_SW1,
+@@ -11,42 +11,10 @@
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_pgtable.h>
+ #include <asm/virt.h>
++#include <nvhe/memory.h>
+ #include <nvhe/pkvm.h>
+ #include <nvhe/spinlock.h>
+ 
+-/*
+- * SW bits 0-1 are reserved to track the memory ownership state of each page:
+- *   00: The page is owned exclusively by the page-table owner.
+- *   01: The page is owned by the page-table owner, but is shared
+- *       with another entity.
+- *   10: The page is shared with, but not owned by the page-table owner.
+- *   11: Reserved for future use (lending).
+- */
+-enum pkvm_page_state {
+-	PKVM_PAGE_OWNED			= 0ULL,
+-	PKVM_PAGE_SHARED_OWNED		= BIT(0),
+-	PKVM_PAGE_SHARED_BORROWED	= BIT(1),
+-	__PKVM_PAGE_RESERVED		= BIT(0) | BIT(1),
+-
+-	/* Meta-states which aren't encoded directly in the PTE's SW bits */
+-	PKVM_NOPAGE			= BIT(2),
+-};
+-#define PKVM_PAGE_META_STATES_MASK	(~__PKVM_PAGE_RESERVED)
+-
+-#define PKVM_PAGE_STATE_PROT_MASK	(KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
+-static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
+-						 enum pkvm_page_state state)
+-{
+-	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
+-	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
+-	return prot;
+-}
+-
+-static inline enum pkvm_page_state pkvm_getstate(enum kvm_pgtable_prot prot)
+-{
+-	return FIELD_GET(PKVM_PAGE_STATE_PROT_MASK, prot);
+-}
+-
+ struct host_mmu {
+ 	struct kvm_arch arch;
+ 	struct kvm_pgtable pgt;
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+index ab205c4d6774..0964c461da92 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+@@ -7,6 +7,39 @@
+ 
+ #include <linux/types.h>
+ 
++/*
++ * SW bits 0-1 are reserved to track the memory ownership state of each page:
++ *   00: The page is owned exclusively by the page-table owner.
++ *   01: The page is owned by the page-table owner, but is shared
++ *       with another entity.
++ *   10: The page is shared with, but not owned by the page-table owner.
++ *   11: Reserved for future use (lending).
++ */
++enum pkvm_page_state {
++	PKVM_PAGE_OWNED			= 0ULL,
 +	PKVM_PAGE_SHARED_OWNED		= BIT(0),
 +	PKVM_PAGE_SHARED_BORROWED	= BIT(1),
 +	__PKVM_PAGE_RESERVED		= BIT(0) | BIT(1),
- 
- 	/* Meta-states which aren't encoded directly in the PTE's SW bits */
--	PKVM_NOPAGE,
++
++	/* Meta-states which aren't encoded directly in the PTE's SW bits */
 +	PKVM_NOPAGE			= BIT(2),
- };
++};
 +#define PKVM_PAGE_META_STATES_MASK	(~__PKVM_PAGE_RESERVED)
- 
- #define PKVM_PAGE_STATE_PROT_MASK	(KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
- static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
- 						 enum pkvm_page_state state)
- {
--	return (prot & ~PKVM_PAGE_STATE_PROT_MASK) | state;
++
++#define PKVM_PAGE_STATE_PROT_MASK	(KVM_PGTABLE_PROT_SW0 | KVM_PGTABLE_PROT_SW1)
++static inline enum kvm_pgtable_prot pkvm_mkstate(enum kvm_pgtable_prot prot,
++						 enum pkvm_page_state state)
++{
 +	prot &= ~PKVM_PAGE_STATE_PROT_MASK;
 +	prot |= FIELD_PREP(PKVM_PAGE_STATE_PROT_MASK, state);
 +	return prot;
- }
- 
- static inline enum pkvm_page_state pkvm_getstate(enum kvm_pgtable_prot prot)
- {
--	return prot & PKVM_PAGE_STATE_PROT_MASK;
++}
++
++static inline enum pkvm_page_state pkvm_getstate(enum kvm_pgtable_prot prot)
++{
 +	return FIELD_GET(PKVM_PAGE_STATE_PROT_MASK, prot);
- }
- 
- struct host_mmu {
++}
++
+ struct hyp_page {
+ 	unsigned short refcount;
+ 	unsigned short order;
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
