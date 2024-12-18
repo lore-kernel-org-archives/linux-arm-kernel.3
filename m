@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC0CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9A2E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 16:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCzXSFKN0uJRINAtWAWqMnJMiDEhZQKKnHn6spoOT3A=; b=rdRWL+C4U7DOm5DpjqgU8b5eG1
-	tzWcuPWSvJQeDH2xtd7DaGIBDwYv+lWewBEF1VrsCwQv6iA21VAWgHvSG1aeU2641vAu3lkubgBhy
-	SSJ4vfbJWiAJFTiNEr26noNg4xwLTTNUw4BPpQRblVJ1+LUAVoYYB8XCkYoHrNR3rbaCOk6tsXr+L
-	ZNjRlCAP+gc84JlsRuj2yW/7QR9EUOO5WvBRDXhr9kqSMFqfxpmKoEkdqCY5IfcC6vr1pOWi/AJlM
-	vBL/d3ZozQsdZfgKy8jVSoZ0OJjYOoOQThEBKG/LDWUZAA6DpLczx1jgPaiTofy87OJgnMR1FcF/z
-	71tcd+Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=obxeOv5xS3pelA9rBXGzBgBDhhTmHuY1TLuS9kkDxuM=; b=qnd2EGcFCDxGSpSq670b8NAus1
+	9J3kgtmuc7s49NmoCEWldL3wiG7Uf9UpT4g/WyAlHS0/rCE+bPepZBfKWDhgzpSMXnU5HA6uiXuoK
+	tDM5i1fIBcJhIy5fffBhTuQtywKJSgloAkjmGGliP4TZNlvNaHHIdF22bVwpSNRDaetxpX7Unh4C5
+	zoiAGUO2nzbTLk7I7If4rE0EqPA9e8kojbAx5pZAwXrfrlfSYjnS8jh0FcUaCTRepuo+zJ15v3gwJ
+	7DKn3DvBwTYaGp2+e28ISSYz/aXcq3zd2+NU0e3sD0qUMvnLhH2XCN5eJnJUP5pGbq0mtfe+Bpngp
+	IDYuLzEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNx8n-0000000HDWD-0ekI;
-	Wed, 18 Dec 2024 16:43:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNx9q-0000000HDe4-3BAi;
+	Wed, 18 Dec 2024 16:44:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNx7i-0000000HDKt-09oI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 16:42:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3C0415C63A7;
-	Wed, 18 Dec 2024 16:41:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4143CC4CECD;
-	Wed, 18 Dec 2024 16:42:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734540129;
-	bh=dhyOE4YUoRsGIZT0ogQrkPhGxu4aVtP1g3XBoISLt7U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NGeejggJplLLEXCN7Ii1Dq8SyLlYw30CUocD41RmWjnxx3EwtrNvzMPCYRFIjFgGa
-	 dn06ELmZRukffUJI/rA03m4rm8tVWntwlg2SzelkNiHd4hbFR7pyZgPS9/lNl+EBut
-	 k4mHsCVhTwXVw9dvBR+nYpQKD0RUwbZkxxnZ13SbevGIrEMNcZW8PRZ0fl36aJy/fF
-	 zp1P2TxU+oUP/yOSADxFSiGox7l/11PTdN0PPv3tk6F3j4IORiN5YwG80ui+TMEjO8
-	 PWxoyFNb/TdyxAPPkFEDaTTVzsPSR0kT/SqQ2fclwdPIteujVHXMhclDZjuafTo1kt
-	 caR+mBYrSeuuQ==
-Date: Wed, 18 Dec 2024 16:42:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: linux-arm-kernel@lists.infradead.org, Marek Vasut <marex@denx.de>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Robin Gong <yibin.gong@nxp.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Joy Zou <joy.zou@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3 1/9] dt-bindings: regulator: pca9450: Add properties
- for handling LDO5
-Message-ID: <20241218-yapping-driver-d67cf1662b57@spud>
-References: <20241218152842.97483-1-frieder@fris.de>
- <20241218152842.97483-2-frieder@fris.de>
+	id 1tNx8O-0000000HDR2-1T2Z;
+	Wed, 18 Dec 2024 16:42:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=obxeOv5xS3pelA9rBXGzBgBDhhTmHuY1TLuS9kkDxuM=; b=b9NzLt6aR6WEi8aZiCa9QDGKFj
+	b5YEFDWiz6NiZ/qWC1v+BzaqszvXu8Kb5OgZXrYqdP0anWHF4JBVyLg9NinBO32bGdfqkt3gwJwDR
+	fRNc4miuzUebN8mYkOL65cCvvEFLUj6dqdSPA/KR1aON1oqT1f9iB2ll85DvYVuPYu5MQCSjvkAgv
+	1N4ffaWNDWZo0e0llTBpcoBDmUQEbNbsV4hjDvKgtQCu/AFDRnQk/ml3nEcoHrFvRfgBzNpgF7Jma
+	YtBaW72DPcF240N1J5K/8fi3nUvaF6nHqYGNCRbAsfGDN/ff/tt0r2iwcz/D/sG3qRq2XU4B0OCEY
+	ChVAMQRg==;
+Received: from i53875bfb.versanet.de ([83.135.91.251] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tNx8C-0002kl-87; Wed, 18 Dec 2024 17:42:40 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: (subset) [PATCH v6 00/16] VOP Support for rk3576
+Date: Wed, 18 Dec 2024 17:42:29 +0100
+Message-ID: <173454013836.591676.16677827979094919661.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241214081719.3330518-1-andyshrk@163.com>
+References: <20241214081719.3330518-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="coNBr7QctIEeG3n2"
-Content-Disposition: inline
-In-Reply-To: <20241218152842.97483-2-frieder@fris.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_084210_161775_521DA34E 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20241218_084252_482585_756BF0B5 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +84,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---coNBr7QctIEeG3n2
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Sat, 14 Dec 2024 16:16:59 +0800, Andy Yan wrote:
+> Thanks for the basic work from Collabora, I can bringup a HDMI
+> display out on rk3576.
+> 
+> PATCH 1 is a carryover from the working when add support for
+>     rk3588[0], is very usefull when some people want me
+>     help debug some issue online, so I really hope it can
+>     be merged at this round.
+> PATCH 2~8 are bugfix of rk3588 alpha blending which report and
+>     test by Derek
+> PATCH 9~13 are preparations for rk3576 support
+> PATCH 17~18 are real support for rk376
+> 
+> [...]
 
-On Wed, Dec 18, 2024 at 04:27:24PM +0100, Frieder Schrempf wrote:
-> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->=20
-> This reverts commit 27866e3e8a7e93494f8374f48061aa73ee46ceb2 and
-> implements a new future-proof way of handling the mismatch between
-> the PMIC driver and the hardware for LDO5.
->=20
-> It turned out that this feature was implemented based on the wrong
-> assumption that the SD_VSEL signal needs to be controlled as GPIO
-> in any case.
->=20
-> In fact the straight-forward approach is to mux the signal as
-> USDHC_VSELECT and let the USDHC controller do the job.
->=20
-> Most users never even used this property and the few who did have
-> been or are getting migrated to the alternative approach.
->=20
-> In order to know the current status (which of the two control
-> registers is used) for the LDO5 regulator, we need to route back the
-> USDHC_VSELECT signal by setting the SION bit in the IOMUX.
->=20
-> By adding the according GPIO as sd-vsel-gpios to the LDO5 node, we
-> allow the regulator driver to sample the current status of the
-> SD_VSEL signal that is used to select the correct control register.
->=20
-> The SD_VSEL on the PMIC is always an input. It's driven by the SoC's
-> VSELECT signal (controlled by the USDHC controller) and we use the
-> SION bit in the IOMUX to internally loop back the signal in order to
-> sample it using the GPIO.
->=20
-> As the SD_VSEL pin is directly routed to the LDO5 regulator in the
-> PMIC, make the sd-vsel-gpios property part of the LDO5 node.
->=20
-> SoC                                  PMIC
-> +-----------------------+           +-------------------+
-> |                       |           |                   |
-> |                       |           |                   |
-> |  GPIO <----------+    |           |                   |
-> |                  |    |    SD_VSEL|   +-------+       |
-> |  USDHC_VSELECT ->+------------------->| LDO5  |       |
-> |                       |           |   +-------+       |
-> |                       |           |                   |
-> +-----------------------+           +-------------------+
->=20
-> For boards which have the SD_VSEL tied to a fixed low level, we add
-> 'nxp,sd-vsel-fixed-low'. The voltage of LDO5 is therefore only controlled
-> by writing to the LDO5CTRL_L register.
->=20
-> If none of 'nxp,sd-vsel-fixed-low' or 'sd-vsel-gpios' is set, we keep
-> the same behavior as before. The driver assumes that SD_VSEL is tied
-> high and the LDO5CTRL_H register can be used, which is in fact not true
-> for all known boards and works merely by chance.
->=20
-> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Applied, thanks!
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+[03/16] drm/rockchip: vop2: Set AXI id for rk3588
+        commit: 7b256880fdb2d7f23393b87bb557090f049e686a
+[04/16] drm/rockchip: vop2: Setup delay cycle for Esmart2/3
+        commit: c766998ba6df126ab6934d32ff2ff080316ec630
+[05/16] drm/rockchip: vop2: Check linear format for Cluster windows on rk3566/8
+        commit: df063c0b8ffbdca486ab2f802e716973985d8f86
+[06/16] drm/rockchip: vop2: Add check for 32 bpp format for rk3588
+        commit: 7e8a56c703c67bfa8d3f71a0c1c297bb1252b897
+[07/16] drm/rockchip: vop2: include rockchip_drm_drv.h
+        commit: 77b1ccb2a27c7b3b118a03bf1730def92070d31b
 
---coNBr7QctIEeG3n2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2L7WwAKCRB4tDGHoIJi
-0gWzAQDUtj59/3nzuoweiBKWKKIPBYM16b8nOrc4NaUzXTNqqAEA1PaDp23BDn/E
-L/KEjG6qhat2oumCyi6ESkLp+wQhkQY=
-=YsDx
------END PGP SIGNATURE-----
-
---coNBr7QctIEeG3n2--
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
