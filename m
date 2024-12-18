@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788A7E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 18:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC42E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 18:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UnF8eWl4CHp250vfS3H8w6hKmKgHouhpFlQhBDeEL9o=; b=H4PYmaktSla2yX1BQJ1QLe7drS
-	nEVQeWqy4DolxOiqIjKxVlC4c68CoEvSmYqwmNyLFGu7VlIw72ioqlnqtDunsRFT7qbclYRvBlhLR
-	V11U9/t2bR8YkW7/fS8U/tugTuM4if9lNIX7Z3ug94dZ8CVnXw0w4dQKPt23H2CVqOGi4AyLFcJ0B
-	35RBpOUWVHq5W8fgTBYG5k6my4rOoSXWhSZyhYFAor8mV1FOBbhCSLwfLSpWYdDr6LruFtfBwntep
-	sshc/+lIpl4I2u2A5ywjuqNHWkzYw718ZFzLoNK/UoS4n7AueLL+nONc4LGLpWLxolnM/BMClG4zt
-	9rP5r6gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kGw0SGEDVb1f12U4608T70W3MbtSV4YMCHvURs5zpK0=; b=2Nmi00fzBau5j223DG404Wfxpg
+	rvYeVQjL4G91tIUkH4antAQovgV8gqZwZyGesTXKWsvmS9F+EhZKNDnITQfn11UiJem9xy9dN2sE1
+	N4HLrqK5ilzQlYzVjMI6MoiG/oiNDfX1I+7tq5D/L6yocOEstHYO/QllkMQBENVr8/wvyfRb+/oLq
+	A6w4AJoZzboIuHlB+LcEVHnAV5m8CeitQgIQ88UeB2wKnLfbGxDzFbGgXOUh53Ks1vznZywuAiEop
+	GT7EQCgbFPdFubjf/ILrlup44NNUnqFGXmSTEWLDdbT/LoNp/MEbecm3GN0iM8OJfjFwDa0EfvVJ0
+	XMNxLJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNyc5-0000000HPYO-0tks;
-	Wed, 18 Dec 2024 18:17:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNyay-0000000HPN3-0zZY
+	id 1tNyd9-0000000HPl0-3b5U;
+	Wed, 18 Dec 2024 18:18:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNybM-0000000HPPw-2626
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 18:16:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A3CD65C5500;
-	Wed, 18 Dec 2024 18:15:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4EF2C4CECD;
-	Wed, 18 Dec 2024 18:16:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734545787;
-	bh=IoS8V5OJJU6ewXW9pzCcwYKAq51QATQ5Pb5qNsYdWfE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZMrAxgQqqMyB9LgVl3p28na48MJ0GAphgSvZQHaIeR28xUwqS9Siwc9H9DOXli9eS
-	 1f2/eclGFbXferEJZxopZFlDHqQaYmm8rYajUQAJdS4H+StalszSeoJvauEif0icUh
-	 lbXNjpr+Co6S8uFOkUtLZdIHoh+cPovwT01Sb71KVI8KXauIOG2oQl4cxOXt7xnTMl
-	 xbYb5fTp7uJ+2WJDcXvRNV6W4ujsm5DqrD+WifaRgUuuBLukQM5VzHzVjS9+m34lP+
-	 DanLD6P+ICV2oX1/OrdyiGVKe1W9wuQ/crJsdhz5m+xBeq0Zf+OhJuaGitV0dESQaZ
-	 PzoZFVmf3FFUQ==
-Date: Wed, 18 Dec 2024 19:16:23 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, festevam@gmail.com, Frank.Li@nxp.com, 
-	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com, linux-i2c@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] i2c: imx: fix missing stop condition in single-master
- mode
-Message-ID: <w3x46is2s463ektusvnyu5tt2rinz7eae2ekzyqw2urw5yh5ga@pfzrgzpxjc4y>
-References: <20241216151829.74056-1-eichest@gmail.com>
+	Wed, 18 Dec 2024 18:16:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 450DF1063;
+	Wed, 18 Dec 2024 10:17:17 -0800 (PST)
+Received: from [10.57.71.247] (unknown [10.57.71.247])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2E8903F7B4;
+	Wed, 18 Dec 2024 10:16:47 -0800 (PST)
+Message-ID: <53354e84-73c0-403b-bbc0-af619196596d@arm.com>
+Date: Wed, 18 Dec 2024 18:16:45 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241216151829.74056-1-eichest@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/2] coresight: Add label sysfs node support
+Content-Language: en-GB
+To: Mike Leach <Mike.Leach@arm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <James.Clark@arm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>
+References: <20241217063324.33781-1-quic_jinlmao@quicinc.com>
+ <20241217063324.33781-3-quic_jinlmao@quicinc.com>
+ <985d234c-e088-469d-b9dc-7904fcf5a91c@arm.com>
+ <PAVPR08MB967401DC65384CBA26B6829C8C052@PAVPR08MB9674.eurprd08.prod.outlook.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <PAVPR08MB967401DC65384CBA26B6829C8C052@PAVPR08MB9674.eurprd08.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_101628_376705_4638B7A7 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20241218_101652_633520_5510457B 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,79 +77,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+Hi Mike
 
-On Mon, Dec 16, 2024 at 04:16:40PM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+On 18/12/2024 09:56, Mike Leach wrote:
+> Hi
 > 
-> A regression was introduced with the implementation of single-master
-> mode, preventing proper stop conditions from being generated. Devices
-> that require a valid stop condition, such as EEPROMs, fail to function
-> correctly as a result.
+>> -----Original Message-----
+>> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Sent: Wednesday, December 18, 2024 9:38 AM
+>> To: Mao Jinlong <quic_jinlmao@quicinc.com>; Mike Leach
+>> <mike.leach@linaro.org>; James Clark <James.Clark@arm.com>; Rob Herring
+>> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+>> <conor+dt@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Bjorn
+>> Andersson <andersson@kernel.org>; Konrad Dybcio
+>> <konradybcio@kernel.org>
+>> Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org;
+>> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+>> msm@vger.kernel.org
+>> Subject: Re: [PATCH v6 2/2] coresight: Add label sysfs node support
+>>
+>> On 17/12/2024 06:33, Mao Jinlong wrote:
+>>> For some coresight components like CTI and TPDM, there could be
+>>> numerous of them. From the node name, we can only get the type and
+>>> register address of the component. We can't identify the HW or the
+>>> system the component belongs to. Add label sysfs node support for
+>>> showing the intuitive name of the device.
+>>>
+>>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>>> ---
+>>>    .../testing/sysfs-bus-coresight-devices-cti   |  6 ++++
+>>>    .../sysfs-bus-coresight-devices-funnel        |  6 ++++
+>>>    .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++++
+>>>    drivers/hwtracing/coresight/coresight-sysfs.c | 32
+>> +++++++++++++++++++
+>>>    4 files changed, 50 insertions(+)
+>>
+>> Do you think we need to name the devices using the label ?
+>>
 > 
-> The issue only affects devices with the single-master property enabled.
-> 
-> This commit resolves the issue by re-enabling I2C bus busy bit (IBB)
-> polling for single-master mode when generating a stop condition. The fix
-> further ensures that the i2c_imx->stopped flag is cleared at the start
-> of each transfer, allowing the stop condition to be correctly generated
-> in i2c_imx_stop().
-> 
-> According to the reference manual (IMX8MMRM, Rev. 2, 09/2019, page
-> 5270), polling the IBB bit to determine if the bus is free is only
-> necessary in multi-master mode. Consequently, the IBB bit is not polled
-> for the start condition in single-master mode.
-> 
-> Fixes: 6692694aca86 ("i2c: imx: do not poll for bus busy in single master mode")
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> ---
->  drivers/i2c/busses/i2c-imx.c | 8 +++-----
->  1 file changed, 3 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index f751d231ded8..cbf66a69e20b 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -534,20 +534,18 @@ static int i2c_imx_bus_busy(struct imx_i2c_struct *i2c_imx, int for_busy, bool a
->  {
->  	unsigned long orig_jiffies = jiffies;
->  	unsigned int temp;
-> -
-> -	if (!i2c_imx->multi_master)
-> -		return 0;
-> +	bool multi_master = i2c_imx->multi_master;
+> No - absolutely not. If we use label to name devices then we have to validate that the string is a correctly formed device name and that it has not been previously used.
 
-with this small adjustment, I have applied your patch to 
-i2c/i2c-host-fixes.
+Anything that doesn't contain '/' can be a device name ? And it is very 
+easy to find if the device name has been used in the coresight bus, 
+after all these devices only appear there.
 
-The idea behind the change is that variables are sorted by 
-length, forming a kind of reversed Christmas tree shape. It's 
-not a strict rule—some communities enforce it, others don't, and 
-some follow entirely different conventions.
+It is as good as :
 
-Since it feels somewhat arbitrary to me, I don't enforce it 
-strictly. However, I personally try to adhere to the reversed 
-Christmas tree rule whenever possible.
+bus_find_device_by_name(coresight_bus_type, NULL, name) == NULL
 
-Andi
+Of course with coresight_mutex() held.
 
->  
->  	while (1) {
->  		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2SR);
->  
->  		/* check for arbitration lost */
-> -		if (temp & I2SR_IAL) {
-> +		if (multi_master && (temp & I2SR_IAL)) {
->  			i2c_imx_clear_irq(i2c_imx, I2SR_IAL);
->  			return -EAGAIN;
->  		}
->  
-> -		if (for_busy && (temp & I2SR_IBB)) {
-> +		if (for_busy && (!multi_master || (temp & I2SR_IBB))) {
->  			i2c_imx->stopped = 0;
->  			break;
->  		}
-> -- 
-> 2.45.2
+Suzuki
+
+
 > 
+> Using the canonical driver selected names works best as we are guaranteed a unique name and the information label can be used to provide flexible context information that best matches the users requirements.
+> 
+> Mike
+> 
+>> Or is this enough ?
+> 
+>> Suzuki
+>>
+>>
+>>>
+>>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+>>> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+>>> index bf2869c413e7..909670e0451a 100644
+>>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+>>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+>>> @@ -239,3 +239,9 @@ Date:		March 2020
+>>>    KernelVersion	5.7
+>>>    Contact:	Mike Leach or Mathieu Poirier
+>>>    Description:	(Write) Clear all channel / trigger programming.
+>>> +
+>>> +What:           /sys/bus/coresight/devices/<cti-name>/label
+>>> +Date:           Dec 2024
+>>> +KernelVersion   6.14
+>>> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+>>> +Description:    (Read) Show hardware context information of device.
+>>> diff --git
+>>> a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+>>> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+>>> index d75acda5e1b3..944aad879aeb 100644
+>>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+>>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+>>> @@ -10,3 +10,9 @@ Date:		November 2014
+>>>    KernelVersion:	3.19
+>>>    Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+>>>    Description:	(RW) Defines input port priority order.
+>>> +
+>>> +What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
+>>> +Date:           Dec 2024
+>>> +KernelVersion   6.14
+>>> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+>>> +Description:    (Read) Show hardware context information of device.
+>>> diff --git
+>>> a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+>>> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+>>> index bf710ea6e0ef..309802246398 100644
+>>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+>>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+>>> @@ -257,3 +257,9 @@ Contact:	Jinlong Mao (QUIC)
+>> <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_t
+>>>    Description:
+>>>    		(RW) Set/Get the MSR(mux select register) for the CMB
+>> subunit
+>>>    		TPDM.
+>>> +
+>>> +What:           /sys/bus/coresight/devices/<tpdm-name>/label
+>>> +Date:           Dec 2024
+>>> +KernelVersion   6.14
+>>> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+>>> +Description:    (Read) Show hardware context information of device.
+>>> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c
+>>> b/drivers/hwtracing/coresight/coresight-sysfs.c
+>>> index a01c9e54e2ed..4af40cd7d75a 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+>>> @@ -7,6 +7,7 @@
+>>>    #include <linux/device.h>
+>>>    #include <linux/idr.h>
+>>>    #include <linux/kernel.h>
+>>> +#include <linux/property.h>
+>>>
+>>>    #include "coresight-priv.h"
+>>>    #include "coresight-trace-id.h"
+>>> @@ -366,18 +367,47 @@ static ssize_t enable_source_store(struct device
+>> *dev,
+>>>    }
+>>>    static DEVICE_ATTR_RW(enable_source);
+>>>
+>>> +static ssize_t label_show(struct device *dev,
+>>> +		struct device_attribute *attr, char *buf) {
+>>> +
+>>> +	const char *str;
+>>> +	int ret = 0;
+>>> +
+>>> +	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
+>>> +	if (ret == 0)
+>>> +		return scnprintf(buf, PAGE_SIZE, "%s\n", str);
+>>> +	else
+>>> +		return ret;
+>>> +}
+>>> +static DEVICE_ATTR_RO(label);
+>>> +
+>>>    static struct attribute *coresight_sink_attrs[] = {
+>>>    	&dev_attr_enable_sink.attr,
+>>> +	&dev_attr_label.attr,
+>>>    	NULL,
+>>>    };
+>>>    ATTRIBUTE_GROUPS(coresight_sink);
+>>>
+>>>    static struct attribute *coresight_source_attrs[] = {
+>>>    	&dev_attr_enable_source.attr,
+>>> +	&dev_attr_label.attr,
+>>>    	NULL,
+>>>    };
+>>>    ATTRIBUTE_GROUPS(coresight_source);
+>>>
+>>> +static struct attribute *coresight_link_attrs[] = {
+>>> +	&dev_attr_label.attr,
+>>> +	NULL,
+>>> +};
+>>> +ATTRIBUTE_GROUPS(coresight_link);
+>>> +
+>>> +static struct attribute *coresight_helper_attrs[] = {
+>>> +	&dev_attr_label.attr,
+>>> +	NULL,
+>>> +};
+>>> +ATTRIBUTE_GROUPS(coresight_helper);
+>>> +
+>>>    const struct device_type coresight_dev_type[] = {
+>>>    	[CORESIGHT_DEV_TYPE_SINK] = {
+>>>    		.name = "sink",
+>>> @@ -385,6 +415,7 @@ const struct device_type coresight_dev_type[] = {
+>>>    	},
+>>>    	[CORESIGHT_DEV_TYPE_LINK] = {
+>>>    		.name = "link",
+>>> +		.groups = coresight_link_groups,
+>>>    	},
+>>>    	[CORESIGHT_DEV_TYPE_LINKSINK] = {
+>>>    		.name = "linksink",
+>>> @@ -396,6 +427,7 @@ const struct device_type coresight_dev_type[] = {
+>>>    	},
+>>>    	[CORESIGHT_DEV_TYPE_HELPER] = {
+>>>    		.name = "helper",
+>>> +		.groups = coresight_helper_groups,
+>>>    	}
+>>>    };
+>>>    /* Ensure the enum matches the names and groups */
+>>
+>> _______________________________________________
+>> CoreSight mailing list -- coresight@lists.linaro.org To unsubscribe send an
+>> email to coresight-leave@lists.linaro.org
+
 
