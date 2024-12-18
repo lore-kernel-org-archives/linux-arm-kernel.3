@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80379E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC9DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrY2pupmY3cS5kWrlBb91JoKbiwZO8QDmeo+1uchgEg=; b=xc9HmiBGu2hDIIJHsHVYRnuJiY
-	rFzs3QRhCJ4/8s6oKFRDVkyJFk3lAtdAZG/gkyRE0sEov0FWuYHCVkcrmmTIPZTYDbT8iM/bmRMiK
-	8ap2CqzwhlDz+CKE1aHliFFWYhyMB1gJ/iLmDnm+W4zbhuQ3N/ZrMmNvqUpRVJoxsySuf+3HvVm2I
-	oOL/i9Erf41mRqdjWWxBWSIfSoR48c+D3RcW+8GBqhusqndYK1KrNTmkMsnP94PlTd2Za4mu5O3dD
-	wm4LQKqiRANSdaMsaVURljJO8OJSj81etGjY4d480+J8wo6NCpfSrEGMeQ+rJxTsMt1veTRlit7xD
-	m+hpMGYA==;
+	bh=0HhuvChnZxHEKbDR0wzjSlhppXuk6dBcqGjZkLEJAX4=; b=xm76p1yNcvzoCDRwir1/cPezL/
+	db22PKZR4+RETyd3gUHYaZzf2N+7VmIicnfJTQ74sU5DL2MM0YhSSiQcNspI8VtX280e9vWWYLjeF
+	SzLvp5E2LXMooudoP8OPJAnU1XOiEEuCXeNX4FyOaXjUoYS9LQgKmoNtjdfjBNOTyvV6hlg+zJhHZ
+	pIzFWQ9lOWDNdlqzInSWSvHwg7sQhI/PdsBeedMQIhj2QBgnK07KhTZSl4pyrBUb1Xn/0JipOGq9b
+	uat2p5Ne9CZ9gQWaOi5aaPFYWCYwrv93d+9CsUeTkERItW+cwOQ5W88CfMnTa/6d53cWiWPeJU804
+	A7QhPVFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvOF-0000000GunC-08d1;
-	Wed, 18 Dec 2024 14:51:07 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1tNvPJ-0000000Gv1R-32Pe;
+	Wed, 18 Dec 2024 14:52:13 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvM1-0000000GuC3-1ZLK
+	id 1tNvM0-0000000GuBT-0iTM
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 18 Dec 2024 14:48:50 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3862d16b4f5so634103f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 06:48:48 -0800 (PST)
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4361b6f9faeso5783285e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 06:48:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734533327; x=1735138127; darn=lists.infradead.org;
+        d=raspberrypi.com; s=google; t=1734533326; x=1735138126; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yrY2pupmY3cS5kWrlBb91JoKbiwZO8QDmeo+1uchgEg=;
-        b=NbFVnsFC/S0+jAYP+AawphTd/Z+EV7YLEU3QOBIP+2e6+pRGY2rQk37p3+I8jf8wLr
-         TdfESOx2tKLZ5muu+kPuth6fUc3+RgClNhAEYGdaAZtftyLTAWIObSatIAiLpk4uxBSt
-         CKnoptqp0lj6lj2dIKJaAqv9yPg298v9NzjCDROHFXFvs7Oh8P+4zbW+Q8i/raqILchO
-         0VrzPGZ2Fkqze+8F5EdnYRqr8N/rnjkCvWzcB5mq+wFQiV7oE8jiXyMKed+f48EyxXRO
-         5LWR4kSsPJC7W0w/8buRC59iSWigcf7jYdgkOoVM3xNOQ+xTuL6P0Hqg40PvySQCSWj6
-         LG7g==
+        bh=0HhuvChnZxHEKbDR0wzjSlhppXuk6dBcqGjZkLEJAX4=;
+        b=r8M72SQXKngwh6RFkatxjDFA/H4WTl3FUtK7QBSop4yNxwoyNdJPOGUZGUdBT19u0z
+         VwZCKp+Q45xhg3NmeUR5Emv37MSUuysJkfX8B+8avumzj9n4qs6Ti3u1SjOVAwWaPsc5
+         7mGHo1haAiceckiawlAvqwJEWPMN0aD7KF45h93CqdB3Ti7HFz0RQIDsT6Q7NHrv41Ko
+         6rGJLaGfzWek/M96PgcjbXjpzRtN88LvscX6uf7W8Bl6ch1KKU70FWEwwuGdRSzaIsI5
+         ySQwS40uiciX4xhEKlp7nrQWHUHXq6AWbNuGdSGpKZKYP7QO3rpX5UVxleQ677dl2vKw
+         Y82Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734533327; x=1735138127;
+        d=1e100.net; s=20230601; t=1734533326; x=1735138126;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yrY2pupmY3cS5kWrlBb91JoKbiwZO8QDmeo+1uchgEg=;
-        b=euYGsWX2mqewaNopQiY8PBM9y+JhrVlcy+qVANzK3C7msJAIZvNYYQWpfZSSA72d4V
-         3voqF2vmv/AGWIM8St8qio4RV/RbKzVfCfavcTQB8YphUO7X8gZD3qREBKL45VWLGuwA
-         G4kDKy5lUOOau0z+uJ8uJTGUlaOKY4uzvoedaWUfaqPr83Ctz9T3yTzCrP8PAJ7iWG/U
-         ReOt8khqcv9M9p/Sy37+B/d8g9ki+zFQdHQRHSsY4Rv691Fwb1tsvLzBRroBln44hxFW
-         e/onHM1uGIqWV40+4q6T/I6lpC6UutP3szwVsmGsNJzv0Z21nGpR2NRFp55ChaVoHyfW
-         MX2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVSXS5Pzx1G2ROYG3T7UXvET1isRcUOgHiLLA5hJCLVjCzUrkpVTSXLkL2AgXHlKHPMQiuDsPdEX3PK2H/32kYM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf+/6ZBQSEr8MT/PFx0Spv0Ck4Q4snuBa8Wx4/BeFpFi5zv6UP
-	z09v02S66cNwlj09aGtOD80bGuCC9B/a5qLML7rYnffL/JGmEY2IUjz1YojSMNc=
-X-Gm-Gg: ASbGncsV8gUzkyIU53VJdcNW1AERjzX/eOkFpvSlPLRPCZQY8ZGip+LrgTGT/5Q1+ch
-	+12+w0BReGsoY1m3wMCymU1l4kY3PvtBdtpYg1i9+aU0MHgIku5RKS1qbFVH+AKawHc902Np0DK
-	/K8EisthCYAVQU0Kx76OoEeNUFkfQAoEZuQ/Yly6N0c1iQZo88+Tk8Lf2LdN5Og3l69RRd25GaI
-	2i/aTMnKfT0p/qEVpEmaMvXi6U4WieqitZTye+2on+D5Jwe
-X-Google-Smtp-Source: AGHT+IGVb9AVJbgLZf6oo7CR/UM/0zP05m4m7cxzr4ZQnmR8ihuiTVlaXnWyw/vXXHA60mapsdImEQ==
-X-Received: by 2002:a05:6000:1ac9:b0:385:f64e:f177 with SMTP id ffacd0b85a97d-388e4e1d4f2mr2756907f8f.11.1734533327591;
-        Wed, 18 Dec 2024 06:48:47 -0800 (PST)
+        bh=0HhuvChnZxHEKbDR0wzjSlhppXuk6dBcqGjZkLEJAX4=;
+        b=bgO3TaU4Ccc5sCT+FoWPEloRQ0dxIZ9CoyY35ygtOwxx6qmJn72aXVup37fU6ce4nv
+         mWkMzI456dgVI0p4INFdWBLUOfb4Ij0WbRcHwuZyvM55/iSm1NLuTbxuvTk/Mcugp/Ib
+         dO5pKghaACeYseilK7djqQglg/Mf0XpilYdWrjfbJCun5rfYp3CZVTBOambZPF0g+wiG
+         Fz0Y53359YmSq2jlQQEj4dyz4Vu0RKEh8s8XOXL9rs3RW9UEJCVdubjEI0TgVwi1MWMC
+         3coYhTVGYYloAZ97MA2gaFxM4DYCoqM6o2GS379HBz7xRcBd9BsmlsZk04ih8ma+BcyE
+         rUgw==
+X-Forwarded-Encrypted: i=1; AJvYcCXGq5YFBc9fhuQ4oaCJixApnTsltCbqO1afrTzJdLWEBKPtYeoIgABeVrHkJ9BPLi7uutmBXaiAZAx2EBgQVOdx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZx7I2TfrcmRjDfxx3l2mdbVeMEd3h1AaxltfjRGMG0MhCFy4Z
+	lonU6OcVifWhYeCgyOYLnUJ6NAOmRTJ9sFwr+K6TGIniXEb/HO3yRhUPJMxfPao=
+X-Gm-Gg: ASbGnctoXc0RKVGP919PkET8Oga0JyB42+A3CHASkzhjAB3Z0NCdHC9n3zX+WmYGH22
+	p+YlR+U9za2UFnbxU2sMX7/xOIm45DuucjvgG0n+xmQMKPduTj6V/d7EgyVk7U43wB0oA/UUZhY
+	d9xlyX0O59WpL686sEHokcVAPFYgo0jD8AFG3/hg/2JKg6RFtB6RTO6UKFPqGKzkcs0ixHLrlIv
+	GWg1haaWGaZXe/DdOGzhAu3eOC2cLZR0N9LiYbJB/pKBrN4
+X-Google-Smtp-Source: AGHT+IHW10MOxS28loaYz58hcigl3Ail1h5qTPK70DcVM/fvNy/4Wh1EKi45+y5z3iUCnn9N7rshPw==
+X-Received: by 2002:a05:600c:35cb:b0:434:fa73:a906 with SMTP id 5b1f17b1804b1-436553052fbmr27423205e9.4.1734533326478;
+        Wed, 18 Dec 2024 06:48:46 -0800 (PST)
 Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-388c80613a9sm14165163f8f.101.2024.12.18.06.48.46
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-388c80613a9sm14165163f8f.101.2024.12.18.06.48.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 18 Dec 2024 06:48:46 -0800 (PST)
 From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 18 Dec 2024 14:48:33 +0000
-Subject: [PATCH v4 2/3] dt-bindings: display: Fix BCM2835 HVS bindings for
- BCM2712
+Date: Wed, 18 Dec 2024 14:48:32 +0000
+Subject: [PATCH v4 1/3] dt-bindings: display: bcm2711-hdmi: Add interrupt
+ details for BCM2712
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241218-dt-bcm2712-fixes-v4-2-54cc88b6c229@raspberrypi.com>
+Message-Id: <20241218-dt-bcm2712-fixes-v4-1-54cc88b6c229@raspberrypi.com>
 References: <20241218-dt-bcm2712-fixes-v4-0-54cc88b6c229@raspberrypi.com>
 In-Reply-To: <20241218-dt-bcm2712-fixes-v4-0-54cc88b6c229@raspberrypi.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -97,8 +97,8 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-gpio@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.com>
 X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_064849_449113_81A3CCF0 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20241218_064848_232890_190A849F 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,123 +113,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
-added the compatible string for BCM2712, but missed out that
-the number of interrupts and clocks changed too, and both need to be
-named.
+Commit 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
+added the compatible strings for BCM2712, but missed out that the
+number of interrupts changed.
 
-Update to validate clock, interrupts, and their names for the variants.
+Update the schema to include the interrupt requirements.
 
-Fixes: 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+Fixes: 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 ---
- .../bindings/display/brcm,bcm2835-hvs.yaml         | 84 ++++++++++++++++++----
- 1 file changed, 70 insertions(+), 14 deletions(-)
+ .../bindings/display/brcm,bcm2711-hdmi.yaml        | 81 ++++++++++++++++++----
+ 1 file changed, 67 insertions(+), 14 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-index f91c9dce2a44..fd25ee5ce301 100644
---- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-+++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
-@@ -20,11 +20,20 @@ properties:
-     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+index 6d11f5955b51..83c058728ef1 100644
+--- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
++++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+@@ -56,22 +56,12 @@ properties:
+       - const: cec
  
    interrupts:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 3
-+
-+  interrupt-names:
-+    minItems: 1
-+    maxItems: 3
+-    items:
+-      - description: CEC TX interrupt
+-      - description: CEC RX interrupt
+-      - description: CEC stuck at low interrupt
+-      - description: Wake-up interrupt
+-      - description: Hotplug connected interrupt
+-      - description: Hotplug removed interrupt
++    minItems: 5
++    maxItems: 6
  
-   clocks:
--    maxItems: 1
--    description: Core Clock
-+    minItems: 1
-+    maxItems: 2
-+
-+  clock-names:
-+    minItems: 1
-+    maxItems: 2
+   interrupt-names:
+-    items:
+-      - const: cec-tx
+-      - const: cec-rx
+-      - const: cec-low
+-      - const: wakeup
+-      - const: hpd-connected
+-      - const: hpd-removed
++    minItems: 5
++    maxItems: 6
  
- required:
-   - compatible
-@@ -33,17 +42,64 @@ required:
+   ddc:
+     $ref: /schemas/types.yaml#/definitions/phandle
+@@ -112,6 +102,66 @@ required:
  
  additionalProperties: false
  
--if:
--  properties:
--    compatible:
--      contains:
--        enum:
--          - brcm,bcm2711-hvs
--          - brcm,bcm2712-hvs
--
--then:
--  required:
--    - clocks
 +allOf:
 +  - if:
 +      properties:
 +        compatible:
 +          contains:
-+            const: brcm,bcm2711-hvs
-+
++            enum:
++              - brcm,bcm2711-hdmi0
++              - brcm,bcm2711-hdmi1
 +    then:
 +      properties:
-+        clocks:
-+          items:
-+            - description: Core Clock
-+        interrupts:
-+          maxItems: 1
-+
-+      required:
-+        - clocks
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: brcm,bcm2712-hvs
-+
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 2
-+          maxItems: 2
-+        clock-names:
-+          items:
-+            - const: core
-+            - const: disp
 +        interrupts:
 +          items:
-+            - description: Channel 0 End of frame
-+            - description: Channel 1 End of frame
-+            - description: Channel 2 End of frame
++            - description: CEC TX interrupt
++            - description: CEC RX interrupt
++            - description: CEC stuck at low interrupt
++            - description: Wake-up interrupt
++            - description: Hotplug connected interrupt
++            - description: Hotplug removed interrupt
 +        interrupt-names:
 +          items:
-+            - const: ch0-eof
-+            - const: ch1-eof
-+            - const: ch2-eof
++            - const: cec-tx
++            - const: cec-rx
++            - const: cec-low
++            - const: wakeup
++            - const: hpd-connected
++            - const: hpd-removed
++
++
 +      required:
-+        - clocks
-+        - clock-names
++        - interrupts
 +        - interrupt-names
 +
 +  - if:
 +      properties:
 +        compatible:
 +          contains:
-+            const: brcm,bcm2835-hvs
-+
++            enum:
++              - brcm,bcm2712-hdmi0
++              - brcm,bcm2712-hdmi1
 +    then:
 +      properties:
 +        interrupts:
-+          maxItems: 1
- 
++          items:
++            - description: CEC TX interrupt
++            - description: CEC RX interrupt
++            - description: CEC stuck at low interrupt
++            - description: Hotplug connected interrupt
++            - description: Hotplug removed interrupt
++        interrupts-names:
++          items:
++            - const: cec-tx
++            - const: cec-rx
++            - const: cec-low
++            - const: hpd-connected
++            - const: hpd-removed
++
++      required:
++        - interrupts
++        - interrupt-names
++
  examples:
    - |
+     hdmi0: hdmi@7ef00700 {
+@@ -136,6 +186,9 @@ examples:
+                     "hd";
+         clocks = <&firmware_clocks 13>, <&firmware_clocks 14>, <&dvp 1>, <&clk_27MHz>;
+         clock-names = "hdmi", "bvb", "audio", "cec";
++        interrupts = <0>, <1>, <2>, <3>, <4>, <5>;
++        interrupt-names = "cec-tx", "cec-rx", "cec-low", "wakeup",
++                "hpd-connected", "hpd-removed";
+         resets = <&dvp 0>;
+         ddc = <&ddc0>;
+     };
 
 -- 
 2.34.1
