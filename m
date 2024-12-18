@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72474E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:09:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F24E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zvVxg8TjpzTKJeVgAA52MwuzQxHGHAPTbkC5v+VP5E=; b=3IMCyoplirw1nPskiEeZz4wSeV
-	2YVvqx43yzJ82IR+0HMvifedYcfm8H22Gyj7/desRO2utj96X0XlbZl3xW7pWt6D/l4lpyIFZNIYt
-	VXWnMQdABxUEMPlz+qLA0R2rkQHQc+0pXewiqpLtb7BOZZh9wE5A4Rl+sdSvU6OKfAU3DNwjZqrlJ
-	+xV1ICYfmM28vMjlxVgiYMb4qxsJkUEJuyYsNlbiriEnOTse+NCfbXqqWb8vR3KhxlNMQF+CyLRW8
-	BQ9u61QFJ+aK3jRiyDkBsy9IbfMaKuakpVtCfRVFj56CjTM/V8KCI/EdUDBUL0bhcOlz5+xuGhWcy
-	VWbfgvug==;
+	bh=juKhwfg+Frw7VM5RTNeQJHLkr65oOosI9cDLDXSk6fs=; b=yVnU92RuUsAn50mBh/s7RrVyPw
+	9eHFNPnx627uum6z5CG7ZmGii8AgX6OrAzEHl/Z9jUpMauFm5E7KUxNSMKRiVSObmfxCOs1cinjZs
+	r2qnieI2aX3Sq2FGc5TZz5ExAAlPuessgf8Ju/ezkRADx7WakPOASKVAMo7oqyUFxR5rqm0Yf631D
+	j1cqInRftsC8xFX8OkP+x69S1+ioKV20BV8U99cBNheP9Bsc9MXdsChLh1BGPXPeyqmZqbjK91sy9
+	LjI3zzlgks/mueiBZC7CuQlA3kePdcT+4v6MvsWjeXDsoVd6phMo9IJ3t2V/MI6jc6cz51QrtqP89
+	K+Iijdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNp7Z-0000000FtlU-3yYc;
-	Wed, 18 Dec 2024 08:09:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNpAp-0000000FuHz-1WU8;
+	Wed, 18 Dec 2024 08:12:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNp5e-0000000FtGJ-1ijy
+	id 1tNp9i-0000000FuCC-0oKa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 08:07:31 +0000
+	Wed, 18 Dec 2024 08:11:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A0C3B5C5E45;
-	Wed, 18 Dec 2024 08:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 930CAC4CED0;
-	Wed, 18 Dec 2024 08:07:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 63C47A424F8;
+	Wed, 18 Dec 2024 08:09:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A524C4CED4;
+	Wed, 18 Dec 2024 08:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734509249;
-	bh=3YQQgFLzWqXSr+8cpiXWMiZeoDJOT88+J0fk3jLp0XI=;
+	s=k20201202; t=1734509500;
+	bh=GD+XRq2BWDzrYgMfELDkBiixgET0u+IfEAOVp79m8/c=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=iC91VydmXNXgoWb0ae+s8i4Yv/Uuaj+T9PnsEknpF3lE/F2GyaVzRXQvUMg0LH3jQ
-	 66yHkkV5ex3UMZ5IyFODmkSr4gAhV8BIaP98+MGZNIiDNCH5CRsxxHZj3RhKrXsRXe
-	 5rO9Wh4EHSxmPVDaxXbjut6LawLdAHceNlK6jcUz0SQF/+gax2ir+ZgTHa+cYMz7EN
-	 OuMeZ87ln3RDhwWQLDNULpsJsM92cGGur5lI/h5SQLqXijqaJHrrQB48Mqbg/Ijbjd
-	 D8XuMGzXNAAJQlOKYLuOF6kmxGtnNpUtwjgZ5vm/tqsMIS9uFYtmxfvY4QL3EKdn9U
-	 8QEFzrESLeC5Q==
-Message-ID: <4ce799f1-e8c6-4a0d-aca5-dfb3dcb0c1d8@kernel.org>
-Date: Wed, 18 Dec 2024 09:07:21 +0100
+	b=mH8otsfKPIZaIn7z2+Vlzh/Bllp9tXet1lPJLKt9j8l4aKn06FGLkfOiRD7LRDhBg
+	 8jXKz8KGdJyULSDVR6vgkU+cdNujljJdM15ovpUZGRYdiEQvGHe6P/AbGY+78T69So
+	 MBflpqIjqZKi4A8T1fEyx3H0r5OxeI8b0K6ZWdOUtbyAcnXUtq1MiWXYFiJCE3v+55
+	 q0WBwsyYNU3JAZJHAXVphTnt2x+Q2VCuYhMGKz9pmMFzkjoetCpxMv1aZLOBMSWxmZ
+	 wBmJXS2fDhiExrmSIkiOm9vuyVpgL9cDK+4X6u7m9cUlmnVkoevOyfHMedxR6PAQtm
+	 R2QEyLou8zsAA==
+Message-ID: <4717dbb3-4fea-4ca0-800e-07ceed4dfec0@kernel.org>
+Date: Wed, 18 Dec 2024 09:11:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] dt-bindings: interrupt-controller: Refine
- size/interrupt-cell usage.
+Subject: Re: [PATCH v3 2/6] dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
 To: Kevin Chen <kevin_chen@aspeedtech.com>, "robh@kernel.org"
  <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
  "conor+dt@kernel.org" <conor+dt@kernel.org>, "joel@jms.id.au"
@@ -69,9 +68,10 @@ To: Kevin Chen <kevin_chen@aspeedtech.com>, "robh@kernel.org"
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "soc@lists.linux.dev" <soc@lists.linux.dev>
 References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
- <20241212155237.848336-3-kevin_chen@aspeedtech.com>
- <11ad5a97-b066-4bea-8829-50e0416cea9d@kernel.org>
- <PSAPR06MB4949CF57BD69B2F7C1D141CD89052@PSAPR06MB4949.apcprd06.prod.outlook.com>
+ <20241212155237.848336-4-kevin_chen@aspeedtech.com>
+ <7289a50a-e139-453f-a512-3dd68a0839a2@kernel.org>
+ <7b991fca-6e2f-454f-a94d-6a583854769b@kernel.org>
+ <PSAPR06MB49495C182D0B64687E0174A389052@PSAPR06MB4949.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -117,12 +117,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <PSAPR06MB4949CF57BD69B2F7C1D141CD89052@PSAPR06MB4949.apcprd06.prod.outlook.com>
+In-Reply-To: <PSAPR06MB49495C182D0B64687E0174A389052@PSAPR06MB4949.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_000730_540935_690B8AF1 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20241218_001142_373088_042C42CA 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,77 +137,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2024 04:04, Kevin Chen wrote:
+On 18/12/2024 03:55, Kevin Chen wrote:
 > Hi Krzk,
 > 
->>> 1. Because size-cells is no need to use 2, modify to 1 for use.
->>
->> ???
-> So, is it OK that I change the size-cells back to 2 include the aspeed,ast2700-intc.yaml examples and aspeed-g7.dtsi?
-
-No, my total surprise is that I did not understand what it maens. Is
-this changelog? Commit msg? Why such change is made?
-
-> 
->>
->>> 2. Add minItems to 1 for interrupts for intc1.
->>
->> ???
-> For variable interrupt numbers, I need to fix the below warnings by minItems.
->   DTC [C] arch/arm64/boot/dts/aspeed/ast2700-evb.dtb
-> /home/kevin/linux-mainline/arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@100: interrupts-extended: [[3, 0, 3844]] is too short
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> /home/kevin/linux-mainline/arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@110: interrupts-extended: [[3, 1, 3844]] is too short
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> /home/kevin/linux-mainline/arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@120: interrupts-extended: [[3, 2, 3844]] is too short
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> /home/kevin/linux-mainline/arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@130: interrupts-extended: [[3, 3, 3844]] is too short
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> /home/kevin/linux-mainline/arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@140: interrupts-extended: [[3, 4, 3844]] is too short
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> /home/kevin/linux-mainline/arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@150: interrupts-extended: [[3, 5, 3844]] is too short
->         from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> 
->>
->>> 3. Add 1 interrupt of intc1 example into yaml file.
->>
->>> 4. Add intc1 sub-module of uart12 as example using the intc0 and intc1.
->>
->> What is all this?
->>
->> BTW, there was no such patch in previous version and your changelog is silent
->> about it.
-> Agree, I will restore the previous version.
-> 
->>
->> Subject: drop all full stops. Subject never ends with full stop.
->>
->>> ---
->>>  .../aspeed,ast2700-intc.yaml                  | 60
->> +++++++++++++++----
->>>  1 file changed, 47 insertions(+), 13 deletions(-)
+>>> On 12/12/2024 16:52, Kevin Chen wrote:
+>>>> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
+>>>> ---
+>>>>  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
+>>>>  1 file changed, 6 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+>>>> b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+>>>> index 2f92b8ab08fa..20191fee1f5b 100644
+>>>> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+>>>> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+>>>> @@ -101,4 +101,10 @@ properties:
+>>>>                - ufispace,ncplite-bmc
+>>>>            - const: aspeed,ast2600
+>>>>
+>>>> +      - description: AST2700 based boards
+>>>> +        items:
+>>>> +          - enum:
+>>>> +              - aspeed,ast2700-evb
+>>>> +          - const: aspeed,ast2700
+>>>> +
+>>>>  additionalProperties: true
 >>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
->>> 0-intc.yaml
->>> b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
->>> 0-intc.yaml index 55636d06a674..eadfbc45326b 100644
->>> ---
->>> a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
->>> 0-intc.yaml
->>> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,as
->>> +++ t2700-intc.yaml
->>> @@ -31,6 +31,7 @@ properties:
->>>        type as defined in interrupt.txt in this directory.
 >>>
->>>    interrupts:
->>> +    minItems: 1
->>
->> Nope, not explained, not constrained. Your schema is supposed to be
->> constrained.
+>>>
+>>> This patchset is just corrupted. You already sent it as patch #1.
+>>>
+>>> Please run scripts/checkpatch.pl and fix reported warnings. Then
+>>> please run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
+>>> Some warnings can be ignored, especially from --strict run, but the
+>>> code here looks like it needs a fix. Feel free to get in touch if the
+>>> warning is not clear.
+>> BTW, you already got here same comments before and this is third time you
+>> send exactly the same without implementing what we asked you.
+> Please check the following message.
+> https://lore.kernel.org/lkml/PSAPR06MB494943F3F34881D23CEEBD9A897D2@PSAPR06MB4949.apcprd06.prod.outlook.com/
+> 
+> Or, how do you think what is better for me to add ast2700-evb?
+Please stop responding just to make me go away.
 
-I still do not understand this commit at all.
+Read the comments from half a year ago, which you have never implemented:
 
+https://lore.kernel.org/lkml/e6cb6f26-fef2-49bc-ab25-fdc9a659f593@kernel.org/
+
+On every new patch I was asking you to go back, but again you were
+ignoring each of such messages.
 
 Best regards,
 Krzysztof
