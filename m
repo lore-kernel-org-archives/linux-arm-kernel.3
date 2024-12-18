@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E01E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 06:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D76E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 07:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tg+exyt2bEd/acPRMVaty3D/uVegz4OUg+5qQVFiOTE=; b=AvS2vvOdn2ajZGCGnaaAYBVTS2
-	/kC6TrA3gWBP1aCnbFDkeC6upMzfRqon+UiDqe0abXlWNnsz3mrhn9Z6DUctES+kcOg+gUyUCrmvl
-	xCZPUToZMOTrQYCJtOGZgA9Ly9st8nmZTyu1ysm66Wkk0+OmlsTnXX1To5kcVPB5qETa0o1bvN30Z
-	Mk+uaHJ9NwWppAtDMGw7jFFjsQPsa/Ui/4rxDMpHtRN4GfdayHlWuPUPf/Si1Yzqrd3xV4MzTNI2C
-	mGNAeIcj6TEVooksqB7gCz1a4NP0uKD8ZqHZD5hDGp48/kxFqoS2IbwKGK5gOXCcf3J4uLUKKnLZI
-	I7YlfoXg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G7OyGeVhZnbClojdUY/8BygxbsEIReJurkJRAUyyzPs=; b=fVXw8sEKygq6N5tz3zGu0B5QA3
+	pvlCDfLb2alVLehiw17PXpLHPtOeUYyM4Vw4AWt38r6hj+oQPxgwU/GnBKL8aE24bMAETo8Tt19ou
+	bkTY9CSj1KN2LRGWhBoGfwil7XrCbqiZwFp5H3yG99KGttw81PrtZYEthDPpFHnOR1LdvZhoN/N+u
+	t4HNI1SSbBhKIFpTBfBuH0Bgb3xCzvY1ILRjGvCoUAYxr7cWaqyYGpMAs6FDUhX+udpOhYn8g+OOX
+	lg4K0rkFjGT5ef9inrvVypPl0oDeFSzk6Ur88BVYV1RC8uGN9V6QC0fFPtk/VGvbtx/yg+Em7x6bf
+	NfrtRvgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNnh6-0000000FkCo-0h1K;
-	Wed, 18 Dec 2024 06:38:04 +0000
-Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
+	id 1tNo2R-0000000Fm8z-0rZv;
+	Wed, 18 Dec 2024 07:00:07 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNnfQ-0000000FjsA-1El2
+	id 1tNo1K-0000000Fm2r-0mQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 06:36:21 +0000
-Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-294ec8e1d8aso4428110fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 22:36:19 -0800 (PST)
+	Wed, 18 Dec 2024 06:58:59 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2162c0f6a39so3973195ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 22:58:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734503779; x=1735108579; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tg+exyt2bEd/acPRMVaty3D/uVegz4OUg+5qQVFiOTE=;
-        b=HhJOsz9bDaw2ARWfST2FXXOU93Nq1ChytH8eBQtw05UVZfXI/aK20F3R3t/tDIJu3m
-         vCaq8Dk4DKR57DQKFIBDrnRDfCFc90VMmLHORmnpmakCFdlEsYaK1o2UHsxDNE3LivQI
-         PtU6J43g5vS+PM211G+o4/+aNjAm2WM1kO5jsOWJMVldhnK99bO6/cDQQAJ0AcA4VxgF
-         Ari/kkZL1hA3HrpOgCKmbZ0a3p3GtHRk+0f2edZMM9ybVKCvZPSBBlBD/zMyUnTvqQml
-         gaH4+Csg7ANoM8BJu1ihSGpll7JZUgWkpk/N1s/OJJitoRST6fH983VMfPaerZhjjkec
-         4+Fg==
+        d=gmail.com; s=20230601; t=1734505136; x=1735109936; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=G7OyGeVhZnbClojdUY/8BygxbsEIReJurkJRAUyyzPs=;
+        b=cI2Ze6Ga8DdNVRRKbAlWJovoijgjuBy9wuk+F86kZVThGEyJQsw7V47I+bmNX0QEK8
+         f2ZCFMUaMx7OHkAPRGvj+kKfG5D8lvLI2+d4fXNAs3LtY5dlf8uyIky9j8qX5Xr9C8ov
+         LBWywVz3+pJzCxIkm1aGqGdujD5l7N/+ty0TiO6BbZ6XrY3maOuaeWIvIhfp/C7iN71W
+         Ds7Brihr5Y+lj3wytQdxL3cVTb0bBTEyQ2cmqVSTvqbHvjvX4V8iJmxyrFy0oFjRTZmE
+         2wgOo290nTqit4RXK3F1EfgXjCR/bzgyj9DkwNfXLm4g5Jjn6jX+EvwxspDSyIkDpf1e
+         Z4XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734503779; x=1735108579;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tg+exyt2bEd/acPRMVaty3D/uVegz4OUg+5qQVFiOTE=;
-        b=G9Kc5p4OHQ2C/pfxQlxzm9ozbr/geZ6of1Q6PuZ8Q+An0PV7j9HAsHgVynrPaLMdJt
-         VEmhAzAHybvj4M7yaZGgH7a2V1UUF53JAVzRekgWlBJSGQ+g6J81DehS91UqDhJQPfLF
-         3yNHyDZj50e8GxhO11zTuPj16swCczbIK5q6mcSuA1Qoy4DloqDTP9sgQ4X2RjGIaULd
-         A9zJKSeC0RbtEv9YC3CbLyzxT/q46zzxzvqfvX6SUTiqlKDOqDBtgbT+sBBFCJkc3VTf
-         ZuVE0PbDVHO3WPdnPoD0Cd66c6gEUw7niwrlHjxbv9JsiWqJCLZtF071tA8gX1OP6saX
-         7eaA==
-X-Forwarded-Encrypted: i=1; AJvYcCU3uezpdKY0OQfiTaNdQ9KeofxRbHTGbyurVdHDMNPU8Z5OqmaZMmLYL89Q9i68MJKkuBTSTRznAi2P9Ewam654@lists.infradead.org
-X-Gm-Message-State: AOJu0Yygx9VKYeOTCHBsvj9BMXfO4R8GEyA5N4K7YxLcrC3GdI+SpEyF
-	O7HR+uSze+7LyxU4abM8/tkGz70S9+ZUuaUXtRZOLJMOheqwe90CwFdrY7mSpANESDsOjqxm6Rd
-	IpsN1mCEwWGtsYbWOYjB6yhdVahM=
-X-Gm-Gg: ASbGnctvTJ8qw6qcA3UC1BGiivRpn2tucbCwpWoxM5OtWIZDaunDNan4MCcPhTHUHGS
-	pYQLJCzvX0wBogr57Arbw4VgCQ/ctfyOqkeS0NkPmwwMNICdJWAUt2ZIazoihEFymgS29Bzdj
-X-Google-Smtp-Source: AGHT+IGDZx1A4lzjevZaetM3q0p0F9NGqZ4KJyg/ET7Jin7l5ozux8ML2xLClyaZEmXGWB3tap3fvdMwxeQKOyK0U2E=
-X-Received: by 2002:a05:6870:340c:b0:29e:2345:c656 with SMTP id
- 586e51a60fabf-2a7b3435b4cmr635905fac.43.1734503778886; Tue, 17 Dec 2024
- 22:36:18 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734505136; x=1735109936;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=G7OyGeVhZnbClojdUY/8BygxbsEIReJurkJRAUyyzPs=;
+        b=ed0U2E6rKu/3M8KonKlyXL0/Suzc0EZ0Z6gFygQB21Lrppx7myqCmUtI3PxSg4GJ1F
+         LziMVtebjfc8qgVhPFKnRrIGLA4z6RkD+ueBJTzpj3rQdcH6WZRv7eZdZPcXxkaJpUeA
+         V7j6WxnreZsSOTb9lx2sKcidpGNtI5FNAh/sVP7lJShtHPn3jEIo0Emqg8iU+VQAzOrV
+         dVpKp4coVoUrWNR5+XPgWhJuliTrj5RF9yDJSSRYLJ0p/BLTHtnXPAP0CWOtyu3e0iNo
+         WxsCPW1ifBFsYSvXek07lNxAuwXbSxNksWHNsz0WLn4n65XR5Gkj/1GA8mAM4XxYLKnp
+         NYMA==
+X-Gm-Message-State: AOJu0YyJzUKzCx7hFkJ7BG7CuOvzzQCqbTNg8ohFmbbKMpUy5cc+utOB
+	YgArQ043OWpf20/ZIFMSjIepzKBJ38yAmuKN1clLvKz3RXWtqEnL85uxsws+
+X-Gm-Gg: ASbGncubN2eIsr7EJtQ5m8xI+WIf/H7v+KXy26pLYZm6wMD50mFFes+7doSy4wqZ3fW
+	xxa/sc8gSJzGg5xbbFlRlkYPb+oLqrn+GHdNWUp3vxHUEz9q2DRi+246FIa/hw8p92ogIcS4r70
+	lHyjwAKKiCo5BA+9oqjvvJ3l9HNhizQEGjLFL40nt9nb0D9Wkkw/bTCWopot6ARUrP9mjMtql1N
+	QzKGFdFtWFlEapoFDnUqF8VPWP6XKDE93detoxyAMblsRFFAYP7k8dLgToEtIrNzWejei7Cx2w=
+X-Google-Smtp-Source: AGHT+IHunQCrzWf6//mYuxztn8NEiaAD9Ml9awTqJKWllifBwWP+aLkVLEmXDq4OtDZBfs8D/HK9sw==
+X-Received: by 2002:a17:902:c942:b0:215:758c:52ea with SMTP id d9443c01a7336-218d729200emr25585305ad.9.1734505136487;
+        Tue, 17 Dec 2024 22:58:56 -0800 (PST)
+Received: from localhost.localdomain ([103.158.43.22])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e652bfsm69192275ad.243.2024.12.17.22.58.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2024 22:58:56 -0800 (PST)
+From: Poojaa R <poojaamonica94@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	Poojaa R <poojaamonica94@gmail.com>
+Subject: [PATCH] dtoverlays: Added DT overlay file for MAX98090 and the detailed steps for its usage is included in https://github.com/Poojaa-Rangaiah/DeviceTreeOverlay-for-MAX98090 .
+Date: Wed, 18 Dec 2024 12:28:48 +0530
+Message-Id: <20241218065848.12254-1-poojaamonica94@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20241215053639.738890-1-anarsoul@gmail.com> <20241215053639.738890-2-anarsoul@gmail.com>
- <qbtp4jvkx3r5azufe4k3vtapqpfs54dyjiu4cy5v5wkkzumrzx@vy3xzkfplbue>
- <CA+E=qVeQ8uHBCeFtw6_2cY3252-YXc6eWrf5_YdeVgbp5LJo5g@mail.gmail.com> <20241217211505.7f9c9e4e@minigeek.lan>
-In-Reply-To: <20241217211505.7f9c9e4e@minigeek.lan>
-From: Vasily Khoruzhick <anarsoul@gmail.com>
-Date: Tue, 17 Dec 2024 22:35:53 -0800
-Message-ID: <CA+E=qVcU9V+8LZ0Xnh+oDROVf8H99t_kiku7iSdXTHP43d9E_A@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, Roman Beranek <me@crly.cz>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_223620_332614_D061EE5F 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20241217_225858_245218_3C417E0B 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +92,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 1:15=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
-com> wrote:
->
-> On Tue, 17 Dec 2024 10:00:45 -0800
-> Vasily Khoruzhick <anarsoul@gmail.com> wrote:
->
-> Hi,
->
-> > On Mon, Dec 16, 2024 at 11:33=E2=80=AFPM Krzysztof Kozlowski <krzk@kern=
-el.org> wrote:
-> > >
-> > > On Sat, Dec 14, 2024 at 09:34:57PM -0800, Vasily Khoruzhick wrote:
-> > > > These will be used to explicitly select TCON0 clock parent in dts
-> > > >
-> > > > Fixes: ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in =
-TCON0 mux")
-> > > > Signed-off-by: Vasily Khoruzhick <anarsoul@gmail.com>
-> > > > ---
-> > > >  drivers/clk/sunxi-ng/ccu-sun50i-a64.h      | 2 --
-> > > >  include/dt-bindings/clock/sun50i-a64-ccu.h | 2 +
-> >
-> > Hi Krzysztof,
-> >
-> > > You cannot combine these changes.
-> >
-> > The patch basically moves defines out from ccu-sun50i-a64.h to
-> > sun50i-a64-ccu.h. How do I split the change without introducing
-> > compilation failure?
->
-> You can just have the binding part first, adding the (same) definition
-> to the binding headers. As long as the #define's are not conflicting,
-> this is fine.
-> Then remove the now redundant definitions in the kernel headers, with a
-> subsequent patch.
+Only the driver files were existing for max98090 audio codec (playback and capture) but now the max98090.dts file is also included in linux/arch/arm/boot/dts/overlays/.
+new file:   arch/arm/boot/dts/overlays/max98090.dts
 
-Thanks for the suggestion! I'll address it in v2.
+Signed-off-by: Poojaa R <poojaamonica94@gmail.com>
+---
+ arch/arm/boot/dts/overlays/max98090.dts | 96 +++++++++++++++++++++++++
+ 1 file changed, 96 insertions(+)
+ create mode 100644 arch/arm/boot/dts/overlays/max98090.dts
+
+diff --git a/arch/arm/boot/dts/overlays/max98090.dts b/arch/arm/boot/dts/overlays/max98090.dts
+new file mode 100644
+index 000000000000..eaf197384edb
+--- /dev/null
++++ b/arch/arm/boot/dts/overlays/max98090.dts
+@@ -0,0 +1,96 @@
++/*
++ * Device Tree Overlay for MAX98090, MAX98091 Audio Codec.
++ * https://github.com/Poojaa-Rangaiah/DeviceTreeOverlay-for-MAX98090 => for more details.
++ * MAX98090 audio codec as master and Raspberry Pi as slave.
++ */
++
++/dts-v1/;
++/plugin/;
++
++/ {
++    compatible = "brcm,bcm2835", "brcm,bcm2711";
++
++    fragment@0 {
++        target = <&i2s_clk_consumer>;
++        __overlay__ {
++            status = "okay";
++        };
++    };
++
++    fragment@1 {
++        target = <&i2c1>;
++        __overlay__ {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            status = "okay";
++            max98090_codec: max98090@10 {
++                #sound-dai-cells = <0>;
++                compatible = "maxim,max98090","maxim,max98091";
++                reg = <0x10>;
++                interrupt-parent = <&gpio>;
++                interrupts = <27 2>;	/* GPIO 27 as Edge_Falling_IRQ (2) */
++                maxim,micbias = <3>;
++                status = "okay";
++            };
++        };
++    };
++
++    fragment@2 {
++        target-path = "/";
++        __overlay__ {
++            clk_oscillator: oscillator {
++                compatible = "fixed-clock";
++                #clock-cells = <0>;
++                clock-frequency = <12288000>;  /* Frequency of the external oscillator (mclk = 12.288 MHz) but can also be 11.2896 MHz/12 MHz/13 MHz/26 MHz/19.2 MHz. */
++                clock-output-names = "mclk";
++            };
++        };
++    };
++
++    fragment@3 {
++        target = <&sound>;
++        sound_overlay: __overlay__ {
++            compatible = "simple-audio-card";
++            simple-audio-card,format = "i2s";
++            simple-audio-card,name = "MAX98090-Codec";
++            simple-audio-card,bitclock-master = <&dailink0_master>;
++            simple-audio-card,frame-master = <&dailink0_master>;
++
++            simple-audio-card,widgets =
++                "Microphone", "Mic Jack",
++                "Speaker", "Speaker",
++                "Line", "Line In",
++                "Line", "Line Out",
++                "Headphone", "Headphone Jack";
++
++            simple-audio-card,routing =
++                "Headphone Jack", "HPL",
++                "Headphone Jack", "HPR",
++                "Line Out", "RCVL",
++                "Line Out", "RCVR", 
++                /* Uncomment any of these below lines if the Line Input(s) is(are) used else leave it as such. */
++                //"IN5", "Line In",  /* IN1/IN2/IN3/IN4/IN6 (For single ended input) */
++                //"IN56", "Line In", /* IN34 (For differential inputs) */
++                "MIC1", "Mic Jack",
++                "MIC2", "Mic Jack",
++                "Speaker", "SPKL",
++                "Speaker", "SPKR";
++
++            status = "okay";
++
++            simple-audio-card,cpu {
++                sound-dai = <&i2s_clk_consumer>;
++            };
++
++            dailink0_master: simple-audio-card,codec {
++                sound-dai = <&max98090_codec>;
++                clocks = <&clk_oscillator>;
++            };
++        };
++    };
++    
++    __overrides__ {
++        card-name = <&sound_overlay>, "simple-audio-card,name";
++    };
++};
++
+-- 
+2.34.1
+
 
