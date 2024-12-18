@@ -4,64 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C0CE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0A2E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 19:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGz0brlzwy4aKVZytAVI7EPXUh6oo/GR/4fIg6WznOg=; b=G3supV3wfIKZWdLKNUhKd+1Bkk
-	8okBC6+0y6juWky6pN2W+h9Z4i6cXxlBKwA5yO1byLary9lYoHxfMfqVE4Bi3La9h/r+a5SDG2851
-	PllTf7roqAh10fNYhayEC5HilykMGlFNMArxs5goa0J3mErXcSoMegE5yB0TPpLm9wCpcgLJN23h2
-	utPaNQVSHUxxnC1JTDSHywBuO13cxAc8EHYf5JDZykp8MeszCmnUcgEgzvPF6W7YkJbBeD+AVsHY0
-	j8eGXZEO039qVjNKPgU4iUriIH1zx7N/CGOjo0gcbvZrmcYNCsS/QfL3u7DyTFMF6nwYl2qqwJw6Y
-	jBUNnN9g==;
+	bh=t/09/AHRuJVVRdfTLw0aOEa1Xn5ripWpsZ9vYWP8fYs=; b=PyEdP23VPfGnqhKQONnAtuz0my
+	46+XZ5ZHAmL89/uADmJISooTbhxKOEy55PW0e34dHnZD7qIWcRN6iZ+H56dJ8GVOdfhy/aKhqPkro
+	7nk01UghUQgTppRWblxzkSipAj2g3J7/yCAULh2UDjCw7sCIJf67dTYQ0JgYaSawQkWop+MHIF2vX
+	zyChEQc+IoAYLXDRpLabu2vWBgBPTYnPSFPnqOoCB1gOZQsDUmpKcXupultyVnVG14cXzY2i1kiI1
+	0Fd/oejo2zUJ8uQRsspD6Bzl6xzG7NRWv0Q6luCsKolySFzaGBH0rUIZy3iwkVzdKAAurzc6GvJ8S
+	nBovkjjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzNQ-0000000HVNR-3VmC;
-	Wed, 18 Dec 2024 19:06:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNzSN-0000000HVqP-04vR;
+	Wed, 18 Dec 2024 19:11:39 +0000
+Received: from mail-am6eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2612::60f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNzMK-0000000HVGk-34WB
+	id 1tNzRF-0000000HVgt-3NKO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 19:05:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEC0D5C6428;
-	Wed, 18 Dec 2024 19:04:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D703C4CECD;
-	Wed, 18 Dec 2024 19:05:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734548723;
-	bh=M+CL49EgE9Yah/DzNEo18PKR2SXlGp+eNDAr3EsAFik=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=acKc9ocoU33QzqEeQWNLzm5aWw4LICdrJWuslUIstDYxvPmj1cTn8CWVyy9hcqcoH
-	 3iJhAhZU/557qjFPrUM/wnAxrNMxoI5QDjxlZ3TlUFXDEtfsTb0d08GbELyCGfEMhJ
-	 16f1eQbG6SgYQWWx4yrOOOwKuzWgMjfxj/HWIbWXsbloz/hpRrqBk7PKyB7kQaisgH
-	 KEiJUJN9vHry01crcCsEyLQw1oQtbXxuU/RTJV7qzvVkcb8+19aHOuFw2VQfgDp3HS
-	 DSdQjthz3JQuGkVv1u1AWPSUv+joFFELHFAXE5E+FlYVGo47h4iAvs8dVJCzP4HU9m
-	 INH5A1qR7hmuQ==
-Date: Wed, 18 Dec 2024 13:05:17 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 18 Dec 2024 19:10:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JST8lDzZcvtG5MIGQQUfII58TXx62tPkfNq9ahcPpB1eYOUFYqwIfmyQPPgVnUkZrbbrcOdjzqZNc6sMKU3QlXYQ9ShetPU0VbjoKX+kTV8m/4U4Xz8+hUMEjjMdRbjneAjjvgEe9ucH8JAwUAl2I9iHyanivW+g5OBuo8NTAcuxuTp2GllucP/6HrRnz9GzEyTyt3HwCYuQMk0Pyv7vnaivEhZADoO+cTOVO1vvRrthN+PphJ/Rjuie40uvXrbIlk6JsPQuyCJcNmSEwrMnDCk1NlR+NMum1PPS7i82A3/FZV9YV4vwRXDtCzzC6iJC5k2s/+7tqHkgrknNuV3AzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t/09/AHRuJVVRdfTLw0aOEa1Xn5ripWpsZ9vYWP8fYs=;
+ b=y+HzjsByU/UpHaS7kDyPo+nvMx8VvtY7fEWLW4Z2rVQ7J35f3p8VFahK1kqmLyYcn3vM7OYAdRsiVODv49LsET/JmotvFGSszLDAOvF2mzWeeSyYOMjnXyDgDaqZqkxmulftgWtqP40g2jeiW9o+sF5IpchstrUYRE4fwu7j3B2JVg+6E8tbVUiqWnkMZlWdsgqrK1GEquzyRD/SEPH2eOO6vN30SYnlNYMYzX5dDR0VOMTVNr0sI0phP+1aFiGnk7hMh+rxW7UPAyZUzySban1Znp4ZFSM/SAALoJc8/N3IT4Bp9EvhwgtnVfUPhnPIyRWW2DnD9jMBRQA1eTY4jg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t/09/AHRuJVVRdfTLw0aOEa1Xn5ripWpsZ9vYWP8fYs=;
+ b=kTtYtRoBVGu1rK6i3DNnQIXPihvFYUzYVCP4ns4UaQeHtUVTGQ7N8oDb9MfKoivybOd4TNGzKKwe4OBphF9kGFF5f6EF650DeAOwFTV2cKAWxa4pJcyjV7cs1sRSixIwNTdYwIROAhlDE1G0ZUxTCBVNRJ9yhz9D0frEdXfKjkUHnIJ8T+vIsOrgjDSu5olaE5uT2RWDsaWGfmYdKxVswIdZJgXsYra18UF/bYyNkcs2oYVE22XhPZ8VKGkx1oN1wcGOQfIDqmkofEq8AODsXAI0rz8KukZqppA5a7IrVkd1gomhIexJG4K3K5HkFjqMJ9stDKnmdX8P6OFb7+Vngg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB8PR04MB6907.eurprd04.prod.outlook.com (2603:10a6:10:119::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Wed, 18 Dec
+ 2024 19:10:23 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Wed, 18 Dec 2024
+ 19:10:22 +0000
+Date: Wed, 18 Dec 2024 14:10:14 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: andi.shyti@kernel.org, o.rempel@pengutronix.de, kernel@pengutronix.de,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH v3] i2c: imx: add imx7d compatible string for applying
+ errata ERR007805
+Message-ID: <Z2MeFp8sDfDlqrOc@lizhi-Precision-Tower-5810>
+References: <20241218044238.143414-1-carlos.song@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241218044238.143414-1-carlos.song@nxp.com>
+X-ClientProxiedBy: BY5PR04CA0001.namprd04.prod.outlook.com
+ (2603:10b6:a03:1d0::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Konrad Dybcio <konradybcio@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, kernel@quicinc.com, 
- Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Wasim Nazir <quic_wasimn@quicinc.com>
-In-Reply-To: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
-References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
-Message-Id: <173454864189.2147955.17810187271585604985.robh@kernel.org>
-Subject: Re: [PATCH v4 0/7] arm64: qcom: Add support for QCS9075 boards
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB6907:EE_
+X-MS-Office365-Filtering-Correlation-Id: c505c7b2-24db-48b3-1fa1-08dd1f979ef7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MWxLtB/RfAzoXU69yimt3Zzb6QFSYKHn78EcTPZiM3r8dSTQDvclM7nAdypl?=
+ =?us-ascii?Q?Pu3h1uem2gDzZXbZoXBoSPY410vVU+37qgPWdvrgShRSZ/ukgmm3xxAPYv/l?=
+ =?us-ascii?Q?5tM0HYwnHX0/UD+pO78FVcMw5jYMaDiF6xTxE55f1Zyd3QDvKDa3nXtQyUD4?=
+ =?us-ascii?Q?CsmRlSUJXyCmFWzDhXpcwTt41S1NVIX0P89Sceocu2OtI+5bb6qybhbPbrH6?=
+ =?us-ascii?Q?2UmRbScdIDj1H/C54YpctO+bfnBm9RuCCFngBplB8+hAE+IEQJMOAw3rh+Io?=
+ =?us-ascii?Q?5iSpKbDbufYmERrkEZYsbNU1eQhvgYRfBQn/A43ooJ1pBdM+AdAHCg1bT+Vy?=
+ =?us-ascii?Q?nX+/RpG+9JhsK7lZaViAbFtpqHGBlvylzeXNVOMu9vYHgWLZ3SsO+5C5zk0b?=
+ =?us-ascii?Q?f7bso2HhyH8yGhI9KxEEaiDvLEgMtOp+Ph1axvtFvLdN1Mun1f6veH/JWwgQ?=
+ =?us-ascii?Q?KRQ+53Kijfvj5CnmU+9/RPGiuXG/BbTfOl+rUgaSIxq5vE2okzay+2pygqqS?=
+ =?us-ascii?Q?6I2QFUKsr+UrRMvqyaL39BBTcuJqOc+eP3auW027koNG8KRwdGEbsOPGW0GT?=
+ =?us-ascii?Q?r6jHVOQ26aYgkjszAZx1J3p0rgGrM9YPu/1CIsRKofMXA4SBPW32LR+gP36S?=
+ =?us-ascii?Q?n0xM4Ewi2SQgOrGTG2oQlcQSVDfxDacIcaE7JnLF4HIOtlcJitcXxkTLj5Jj?=
+ =?us-ascii?Q?VXsMiGcVIJtLWbWshu3OnJXvZEbx1rc85zZYXnknW3NriTlb6OVG85hZ9gAO?=
+ =?us-ascii?Q?5iQOjqGVJK1QC3JkLuU/CGG6NWdGfUrtt28XQ0Jk6SRwu77wGSBhsyIEwyS4?=
+ =?us-ascii?Q?7yzf2Wk8siZ00SloH6mJ5StcMqmGEZcDTg9yZzu0F/xHmyB26pIdMuYY9CGL?=
+ =?us-ascii?Q?fcoCehbw47MaPFXRwfaGUsx5uIwcdjzofKcj2NGCuztUTwaJEq/NrBYeCADE?=
+ =?us-ascii?Q?QnYIx3Y0zFIdkGxnCyNr5qbk0luEQ4rufCpdzuD7s/emZe2av3x0UlwDi3jY?=
+ =?us-ascii?Q?OyoJ7zfVlyA0ysRyNELLyQFuAh3GZDjYrQiKkCyV9hGjSztPHoMmOf87UkZc?=
+ =?us-ascii?Q?SJ/VZFE+4fmFD4LInyhzY9atMyjzhj6xhnMRqgf+DUatmNUflTFGpfelj9hY?=
+ =?us-ascii?Q?z2NXZsUvDBj6KD7Qn2VDFJXXwyfY+eFuu2lJ4Y08YIUVTOALmZ2bRH7is2nZ?=
+ =?us-ascii?Q?pvDQiVeUSZfq2ioYEgEoz3S9xQbdjaRm+rCBvWsV3I5/6NgRcXyNtDTNAfSD?=
+ =?us-ascii?Q?ACn/7X3ehAXX0H+NC50S13T7GUCel0LaHQU/FhzzDsSHeevtOLQdyvstNfwj?=
+ =?us-ascii?Q?3PPJLWVXsVCo2x9lhvliXnuX+4myQQwMl9+RHS4LGAq461ZKgZqvIn9M1lW/?=
+ =?us-ascii?Q?OLJeRDlnqU55BWXs/r9tmPu5J0XgCIyI/Cg7LNYy7Ib+zzHeKWVPzf9EWYj6?=
+ =?us-ascii?Q?ujgX9kRPWdm+cmrPIjl3GPwHqXNgxm+M?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GKtHfioYmuWrMhMypTa0JIrwetY8ck8afC5nrNkiYjd5K1EB+5lLNSnbeanY?=
+ =?us-ascii?Q?6bM7Puz2vStC68YwqmlYvj4mos9fFkrBBmPmleqSVVCDnz7Ajdzfx7gEiQ9L?=
+ =?us-ascii?Q?/WoeLQBNKdE0fMiLFsc+996Z3n9P0Oq3K87uRUvBrxBBJLONVj4wCCAtGI6S?=
+ =?us-ascii?Q?s0q3F7yiuNJiuRcT6mqad2snEmFPRKFMcAmq4qJdF6dSRCTtTsiDXDwWUdnM?=
+ =?us-ascii?Q?MVW0NFrBXFHp1yXrXT2Wf2AyTQvxFDzmSmFaYMbVGQRC83DbHkhM6FALDIDz?=
+ =?us-ascii?Q?MDeiZbB0Hm6CLM+umNtWOCaE8y0rDHFA7+fdDKREnJWsZ0ER/vHUd8RdBypI?=
+ =?us-ascii?Q?HmlLN8FLjOSYao585emqhcjVUfi6cpcXQG+8Bq+0choW3A6lpTIpIh8v6xyZ?=
+ =?us-ascii?Q?1OLjK7qR+IiqOm7vnabtf4WB4GLht+INAVzTUKKchrPZ1LzyHpT1r8Dwug6X?=
+ =?us-ascii?Q?+N3t/60tWdGg9ejgPIDDFqio4wgebFj3BnnC7V2VsDlu8V5V7TfPaO/92jC1?=
+ =?us-ascii?Q?sxN6WHLvdp90oZ+PHuuFOg2uHYasdJylOB86JrCeHbFJsGwKm5WgDN3jPQ1v?=
+ =?us-ascii?Q?vHzchLPB6R41jT9nDYKWPIf5ggzHfTOarl2JL+o7vK/zrsA+yxQHXk5kBk5O?=
+ =?us-ascii?Q?MDLwVdOjKqq8sJKIv4iUoofX5pAdHe962Cjax9FuhDQ8p6p9F6hpmZ5rECwg?=
+ =?us-ascii?Q?OIxZbtp+ShArD2oknIM/PnR7O8pbs/CobM3DHkT5uwUPWFrEmGHnDPLUSnpm?=
+ =?us-ascii?Q?lIYer+845okI2TLdBfusqCi0fd8JwnPUFgs2sS4Zt/Cf56UhEwNtBt1wynUY?=
+ =?us-ascii?Q?irXRaifR/Xe2VtqYvv3FzJSQCrryhn2FFl/OLOLF8p0oAY+6LSmbltJT+aAD?=
+ =?us-ascii?Q?Ui2shRmgJzVnh4fuP1FrFicDGI9170NZDhd9UhwfFgBDpxjJ3TIrpJKuYPEk?=
+ =?us-ascii?Q?GLnb3O8BhmK10jscUSOGN3enDYUX+wPTVcOEce2n/djjGTOg1vVr9XoOHag8?=
+ =?us-ascii?Q?3pr+65jFWYVEjyrodnCOb1HQprGNyOT+U3LAYj847x/Cy0GsjDsmFDJsMvDR?=
+ =?us-ascii?Q?kUqVXAefy+PWN/7iD4grE5j+d6EsRHX+szYzF4FAYJ8p3XK/fc1YeO4MVQrU?=
+ =?us-ascii?Q?n8kI14uDg/aFXzX77AcFFKE8dHNBETr6wK8dnbuwSluJNFtYBzrfkH6+Ak/m?=
+ =?us-ascii?Q?ojh0eKknCFnqi/mxkpg2Car6AR+bDWsauD7egteIuIo2vMVbwkmjqZayi75E?=
+ =?us-ascii?Q?oylLBAfU1VRrqBkbiR4FQJBHEoLi13gb1DdYU2XUOq6Xt8CzKOSrmcR+marw?=
+ =?us-ascii?Q?i9J8mFSaCkHJUO1FaclJR3mkRmLV1veQZwDDczBCmIVPW6yJh21M+FMOH1cc?=
+ =?us-ascii?Q?6bZxevstuYFwiVwSCrnzDK5hzxHn9Ls5LILLaymHWOznKE8D9rUdWYSp+hjD?=
+ =?us-ascii?Q?lOLk0eccdb3ac/OvHTVv3zM7Ew2zrnERb8fCxPEIQDZC4gv0SoPWgctbLRMw?=
+ =?us-ascii?Q?XATiJNtC1rhTOkza5ZrASwjLbuh9wh1Bmp1a1uy/T8aWCm6QLKzo0zP8ADCn?=
+ =?us-ascii?Q?zZyq+wfridrtyyx1IPg=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c505c7b2-24db-48b3-1fa1-08dd1f979ef7
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2024 19:10:22.6163
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xaLCNQ2ARwdiWrvGX5A6ubeDUqmYAovSK7InHrmSjUHIMwSx6e3y1cmFnhvwPdJsNQeMohAvNx/umgEmjqvnCw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6907
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_110524_864658_D5A93573 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20241218_111030_011273_8F08E01B 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,196 +159,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Dec 18, 2024 at 12:42:38PM +0800, Carlos Song wrote:
+> Compatible string "fsl,imx7d-i2c" is not exited at i2c-imx driver
+> compatible string table, at the result, "fsl,imx21-i2c" will be
+> matched, but it will cause errata ERR007805 not be applied in fact.
+>
+> So Add "fsl,imx7d-i2c" compatible string in i2c-imx driver to apply
+> the errata ERR007805(https://www.nxp.com/webapp/Download?colCode=
+> IMX7DS_2N09P).
+>
+> "fsl,imx7d-i2c" already is documented in binding doc. This errata
+> fix has been included in imx6_i2c_hwdata and it is the same in all
+> I.MX6/7/8, so just reuse it.
+>
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
 
-On Tue, 17 Dec 2024 12:18:49 +0530, Wasim Nazir wrote:
-> This series:
-> 
-> Add support for Qualcomm's rb8, ride/ride-r3 boards using QCS9075 SoC.
-> 
-> QCS9075 is compatible IoT-industrial grade variant of SA8775p SoC.
-> Unlike QCS9100, it doesn't have safety monitoring feature of
-> Safety-Island(SAIL) subsystem, which affects thermal management.
-> 
-> In QCS9100 SoC, the safety subsystem monitors all thermal sensors and
-> does corrective action for each subsystem based on sensor violation
-> to comply safety standards. But as QCS9075 is non-safe SoC it requires
-> conventional thermal mitigation for thermal management.
-> 
-> Difference between Ride & ride-r3 boards is ethernet phy,
-> ride uses 1G ethernet phy while ride-r3 uses 2.5G ethernet phy.
-> 
-> This series depends on [1] for thermal functionality to work.
-> 
-> [1]: https://lore.kernel.org/all/20241112-sa8775p_cpuidle-v1-1-66ff3ba72464@quicinc.com/
-> 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
-> Changelog:
-> 
-> v4:
->   - Replace dts to dtsi in Ride/Ride-r3 platform files
->   - Add thermal patch to differentiate between 9100 vs 9075
->   - Add proper abbreviation and update commit for 9100 vs 9075
->   - v3: https://lore.kernel.org/all/20241119174954.1219002-1-quic_wasimn@quicinc.com/
-> 
-> v3:
->   - Fix RB8 board compatible string
->   - v2: https://lore.kernel.org/all/20241115225152.3264396-1-quic_wasimn@quicinc.com/
-> 
-> v2:
->   - Remove unused dp nodes & update commit for ride vs ride-r3.
->   - v1: https://lore.kernel.org/all/20241110145339.3635437-1-quic_wasimn@quicinc.com/
-> 
-> Manaf Meethalavalappu Pallikunhi (2):
->   arm64: defconfig: enable cpu idle injection and cpu idle cooling
->     device
->   arm64: dts: qcom: Enable cpu cooling devices for QCS9075 platforms
-> 
-> Wasim Nazir (5):
->   dt-bindings: arm: qcom,ids: add SoC ID for QCS9075
->   soc: qcom: socinfo: add QCS9075 SoC ID
->   dt-bindings: arm: qcom: Document rb8/ride/ride-r3 on QCS9075
->   arm64: dts: qcom: Add support for QCS9075 RB8
->   arm64: dts: qcom: Add support for QCS9075 Ride & Ride-r3
-> 
->  .../devicetree/bindings/arm/qcom.yaml         |   9 +
->  arch/arm64/boot/dts/qcom/Makefile             |   3 +
->  arch/arm64/boot/dts/qcom/qcs9075-rb8.dts      | 282 +++++++++++++++++
->  arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts  |  47 +++
->  arch/arm64/boot/dts/qcom/qcs9075-ride.dts     |  47 +++
->  arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi | 287 ++++++++++++++++++
->  arch/arm64/configs/defconfig                  |   3 +
->  drivers/soc/qcom/socinfo.c                    |   1 +
->  include/dt-bindings/arm/qcom,ids.h            |   1 +
->  9 files changed, 680 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-rb8.dts
->  create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dts
->  create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-ride.dts
->  create mode 100644 arch/arm64/boot/dts/qcom/qcs9075-thermal.dtsi
-> 
-> 
-> base-commit: 4176cf5c5651c33769de83bb61b0287f4ec7719f
+> Change for V3:
+> - No ACK, so resend this patch.
+> Change for V2:
+> - I have tried to fix this issue at imx7s.dtsi in V1, according to
+>   the community suggestion, I make V2 patch for i2c-imx driver to
+>   avoid updating the FDT to fix an errata. Discussion in V1:
+>   Subject: [PATCH] ARM: dts: imx7s: change i2c compatible string for applying errata ERR007805
+>   Message-ID: <20241021031148.2682015-1-carlos.song@nxp.com> (raw)
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 350346a7892c..9d5caa032c5c 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -335,6 +335,7 @@ static const struct of_device_id i2c_imx_dt_ids[] = {
+>  	{ .compatible = "fsl,imx6sll-i2c", .data = &imx6_i2c_hwdata, },
+>  	{ .compatible = "fsl,imx6sx-i2c", .data = &imx6_i2c_hwdata, },
+>  	{ .compatible = "fsl,imx6ul-i2c", .data = &imx6_i2c_hwdata, },
+> +	{ .compatible = "fsl,imx7d-i2c", .data = &imx6_i2c_hwdata, },
+>  	{ .compatible = "fsl,imx7s-i2c", .data = &imx6_i2c_hwdata, },
+>  	{ .compatible = "fsl,imx8mm-i2c", .data = &imx6_i2c_hwdata, },
+>  	{ .compatible = "fsl,imx8mn-i2c", .data = &imx6_i2c_hwdata, },
 > --
-> 2.47.0
-> 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y qcom/qcs9075-rb8.dtb qcom/qcs9075-ride-r3.dtb qcom/qcs9075-ride.dtb' for 20241217064856.2772305-1-quic_wasimn@quicinc.com:
-
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: qcom,gpi-dma@800000: $nodename:0: 'qcom,gpi-dma@800000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-rb8.dtb: qcom,gpi-dma@800000: $nodename:0: 'qcom,gpi-dma@800000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: qcom,gpi-dma@800000: $nodename:0: 'qcom,gpi-dma@800000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: bluetooth: 'vddwlcx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: bluetooth: 'vddwlmx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: bluetooth: 'vddrfa1p8-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: bluetooth: 'vddwlcx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: bluetooth: 'vddwlmx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: bluetooth: 'vddrfa1p8-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/net/bluetooth/qualcomm-bluetooth.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-rb8.dtb: qcom,gpi-dma@900000: $nodename:0: 'qcom,gpi-dma@900000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: qcom,gpi-dma@900000: $nodename:0: 'qcom,gpi-dma@900000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: qcom,gpi-dma@900000: $nodename:0: 'qcom,gpi-dma@900000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: qcom,gpi-dma@a00000: $nodename:0: 'qcom,gpi-dma@a00000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-rb8.dtb: qcom,gpi-dma@a00000: $nodename:0: 'qcom,gpi-dma@a00000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: qcom,gpi-dma@a00000: $nodename:0: 'qcom,gpi-dma@a00000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-rb8.dtb: qcom,gpi-dma@b00000: $nodename:0: 'qcom,gpi-dma@b00000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: qcom,gpi-dma@b00000: $nodename:0: 'qcom,gpi-dma@b00000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: qcom,gpi-dma@b00000: $nodename:0: 'qcom,gpi-dma@b00000' does not match '^dma-controller(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/dma/qcom,gpi.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-rb8.dtb: crypto@1dfa000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['qcom,sa8775p-qce', 'qcom,qce'] is too long
-	['qcom,sa8775p-qce', 'qcom,qce'] is too short
-	'qcom,crypto-v5.1' was expected
-	'qcom,crypto-v5.4' was expected
-	'qcom,sa8775p-qce' is not one of ['qcom,ipq4019-qce', 'qcom,sm8150-qce']
-	'qcom,sa8775p-qce' is not one of ['qcom,ipq6018-qce', 'qcom,ipq8074-qce', 'qcom,ipq9574-qce', 'qcom,msm8996-qce', 'qcom,qcm2290-qce', 'qcom,sdm845-qce', 'qcom,sm6115-qce']
-	'qcom,ipq4019-qce' was expected
-	'qcom,sm8150-qce' was expected
-	from schema $id: http://devicetree.org/schemas/crypto/qcom-qce.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: crypto@1dfa000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['qcom,sa8775p-qce', 'qcom,qce'] is too long
-	['qcom,sa8775p-qce', 'qcom,qce'] is too short
-	'qcom,crypto-v5.1' was expected
-	'qcom,crypto-v5.4' was expected
-	'qcom,sa8775p-qce' is not one of ['qcom,ipq4019-qce', 'qcom,sm8150-qce']
-	'qcom,sa8775p-qce' is not one of ['qcom,ipq6018-qce', 'qcom,ipq8074-qce', 'qcom,ipq9574-qce', 'qcom,msm8996-qce', 'qcom,qcm2290-qce', 'qcom,sdm845-qce', 'qcom,sm6115-qce']
-	'qcom,ipq4019-qce' was expected
-	'qcom,sm8150-qce' was expected
-	from schema $id: http://devicetree.org/schemas/crypto/qcom-qce.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: crypto@1dfa000: compatible: 'oneOf' conditional failed, one must be fixed:
-	['qcom,sa8775p-qce', 'qcom,qce'] is too long
-	['qcom,sa8775p-qce', 'qcom,qce'] is too short
-	'qcom,crypto-v5.1' was expected
-	'qcom,crypto-v5.4' was expected
-	'qcom,sa8775p-qce' is not one of ['qcom,ipq4019-qce', 'qcom,sm8150-qce']
-	'qcom,sa8775p-qce' is not one of ['qcom,ipq6018-qce', 'qcom,ipq8074-qce', 'qcom,ipq9574-qce', 'qcom,msm8996-qce', 'qcom,qcm2290-qce', 'qcom,sdm845-qce', 'qcom,sm6115-qce']
-	'qcom,ipq4019-qce' was expected
-	'qcom,sm8150-qce' was expected
-	from schema $id: http://devicetree.org/schemas/crypto/qcom-qce.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-rb8.dtb: rsc@18200000: 'power-domains' is a required property
-	from schema $id: http://devicetree.org/schemas/soc/qcom/qcom,rpmh-rsc.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: rsc@18200000: 'power-domains' is a required property
-	from schema $id: http://devicetree.org/schemas/soc/qcom/qcom,rpmh-rsc.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: rsc@18200000: 'power-domains' is a required property
-	from schema $id: http://devicetree.org/schemas/soc/qcom/qcom,rpmh-rsc.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: ethernet@23000000: tx-queues-config: 'snps,tx-sched-sp' does not match any of the regexes: '^queue[0-9]$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: ethernet@23000000: Unevaluated properties are not allowed ('interconnect-names', 'interconnects', 'phy-handle', 'phy-mode', 'power-domains', 'rx-fifo-depth', 'rx-queues-config', 'snps,mtl-rx-config', 'snps,mtl-tx-config', 'snps,pbl', 'snps,ps-speed', 'snps,tso', 'tx-fifo-depth', 'tx-queues-config' were unexpected)
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: ethernet@23000000: tx-queues-config: 'snps,tx-sched-sp' does not match any of the regexes: '^queue[0-9]$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: ethernet@23000000: Unevaluated properties are not allowed ('interconnect-names', 'interconnects', 'phy-handle', 'phy-mode', 'power-domains', 'rx-fifo-depth', 'rx-queues-config', 'snps,mtl-rx-config', 'snps,mtl-tx-config', 'snps,pbl', 'snps,ps-speed', 'snps,tso', 'tx-fifo-depth', 'tx-queues-config' were unexpected)
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: ethernet@23040000: tx-queues-config: 'snps,tx-sched-sp' does not match any of the regexes: '^queue[0-9]$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: ethernet@23040000: Unevaluated properties are not allowed ('interconnect-names', 'interconnects', 'mdio', 'phy-handle', 'phy-mode', 'power-domains', 'rx-fifo-depth', 'rx-queues-config', 'snps,mtl-rx-config', 'snps,mtl-tx-config', 'snps,pbl', 'snps,ps-speed', 'snps,tso', 'tx-fifo-depth', 'tx-queues-config' were unexpected)
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: ethernet@23040000: tx-queues-config: 'snps,tx-sched-sp' does not match any of the regexes: '^queue[0-9]$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: ethernet@23040000: Unevaluated properties are not allowed ('interconnect-names', 'interconnects', 'mdio', 'phy-handle', 'phy-mode', 'power-domains', 'rx-fifo-depth', 'rx-queues-config', 'snps,mtl-rx-config', 'snps,mtl-tx-config', 'snps,pbl', 'snps,ps-speed', 'snps,tso', 'tx-fifo-depth', 'tx-queues-config' were unexpected)
-	from schema $id: http://devicetree.org/schemas/net/qcom,ethqos.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: wcn6855-pmu: 'vddpmumx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/regulator/qcom,qca6390-pmu.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride-r3.dtb: wcn6855-pmu: 'vddpmucx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/regulator/qcom,qca6390-pmu.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: wcn6855-pmu: 'vddpmumx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/regulator/qcom,qca6390-pmu.yaml#
-arch/arm64/boot/dts/qcom/qcs9075-ride.dtb: wcn6855-pmu: 'vddpmucx-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/regulator/qcom,qca6390-pmu.yaml#
-
-
-
-
-
+> 2.34.1
+>
 
