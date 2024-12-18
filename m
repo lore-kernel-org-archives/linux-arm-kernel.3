@@ -4,113 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD4FE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A0EE77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9Pkx51GjLYHkSz9R1B6TEpI8sOQTJYv6fMFz0RxN80=; b=wb4R0s7iZv0o6wUQA/IDi6O7v+
-	op06XW7FkVQk6+/S6p3H03pN9afOLbkpvoT3xAU7kz6VUR4cFWtFX7U5P4h7LYp7ocNSO25pweazt
-	FFpwz4O5fbX5pqKLowDrBtf/q96Jq6BwVN/cI3ZfWi5mS0Kc7x2mJRuAh6i/30w85NtVLUmb+q4KL
-	zRsJjCL0yPkZAZqnKdZXgADnOlDECjsMHTAVkxVe3I0kHTKX/54+fc1cXO2Ou528RQlkcs4Ztuzuu
-	VECr8uzNHnqtKF55qr+N4cViWpR9Rx9HyNSRI1GPcjICH+bPjqNazAPOg1UF0ubkPuvDtjMZrrXex
-	MsjOuXIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uENc3pcbSO7KO66KcRGgh8bEld+2asqIRXkHrQAr04A=; b=o3oIbamIINvVxGx6aIK5dU9YOo
+	wyts9lVGXXYIvZt9bOhp2zR9qRfV1XSFXNrbvDrrkoMTHKrJkgJcz7cC5sj4e4iEt0yGHuDVeORLp
+	abh+gxD15Vxw/Q+4kBGQ8sKEEcdedketZ5ChuOE4t1Y8vJ9WmIEumzc9yFsZUeCQFgfeY1yW63hnR
+	5tlByqJCV21WK2rDydY6zWyxt0UkFpzIubykIFGjnx7HLNOhnN9DLFaiyBM+9hTTA0hLO/NnDTuTu
+	3B2BA3+HzFsxdBI+cfsWlVdBC8lA44uNlFAbhsI4A6AKbbNjpOHj6dh+loK5XPHhGlekOPijRwrV4
+	gTDCM03A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNp22-0000000FseS-3YTs;
-	Wed, 18 Dec 2024 08:03:46 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tNp4L-0000000FszT-2ZMV;
+	Wed, 18 Dec 2024 08:06:09 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNp0w-0000000FsTr-2DhK
+	id 1tNp3E-0000000FsrC-2W20
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 08:02:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0E492A4251C;
-	Wed, 18 Dec 2024 08:00:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76453C4CECE;
-	Wed, 18 Dec 2024 08:02:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734508957;
-	bh=2W3UmG9afuhrvYCIxN5R9g9MtQ27HAgR55Mo1Kt10i8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JyvSZOqKDLzpdiQzyT2vhLosKTYANZf6zxZ93qi0PD66ABCGThTjvoco2i8ym05TR
-	 Qx3M1c7MFq2uZvpByaHsIUTIDvdTciBjQxrRanYA3YyQYYSx2DpjHANL4vHMq/dmrF
-	 KQ7Ps8xNWRMXzFji8SZpvCiZ3oZtXbZIb2cFTXhb/6fz8SNccYCjx94Me0hwzncKvm
-	 j3ifvwpUbIJz33F3mqmdHEh6EecpkWWHaki/utr+bZoditVcQpSBBxya/V6BJU/7tD
-	 Gl0uJmxNGfprJFD3l5IaDWt+JhnvKJLbdYYgC0oqSzv5PcgLUGM3ogo/I5yKrc1j7y
-	 bdnS0jDc1O5Tg==
-Message-ID: <59e96784-9efc-4958-baf0-a51e766e47e8@kernel.org>
-Date: Wed, 18 Dec 2024 09:02:29 +0100
+	Wed, 18 Dec 2024 08:05:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1734509101; x=1766045101;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=tHhUwVI89duGuApu6c+HrvoQwjjesU12xZgxqJCiBXI=;
+  b=GhHWcxWFibgwQOT6WlNKPIWbVjKsYAryZrJXtX73GIdINeiJ/EjPxuz+
+   q5lJNsn32B9Ms2+koaBkxzAGWotwvrXqz/7Wk3Vdk+eyKBHdJNtNmj2NE
+   5MRN5YcUfyZFqNWtQO5aKwV/LcLPRRPVjHsCxYd2eJdXbrxjO+tcKORvs
+   9yKaBDv5cRo8OLjJuCpLWLhYcjhtxFfIBufbDsgqQjEi9t6ZOFx0QBSTK
+   PDKY2OmzbiVsaLgscKhRCMDloS8eUA3sy9O7gquU8MBeor2O9jl9TmB0X
+   iJqiOo+oKlhfS1pupAtQclrIxlrROL+B9H6aaDhginc9Gds4u8qnv/MfT
+   w==;
+X-CSE-ConnectionGUID: xTeLUC79Q52BURM6x9sMBQ==
+X-CSE-MsgGUID: RQAWdpp8QhW9zjl9+yrjaA==
+X-IronPort-AV: E=Sophos;i="6.12,244,1728975600"; 
+   d="scan'208";a="266906840"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Dec 2024 01:04:59 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 18 Dec 2024 01:04:43 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Wed, 18 Dec 2024 01:04:41 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH 1/2] ARM: dts: microchip: sam9x60: Add address/size to spi-controller nodes
+Date: Wed, 18 Dec 2024 10:03:32 +0200
+Message-ID: <20241218080333.2225-2-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241218080333.2225-1-mihai.sain@microchip.com>
+References: <20241218080333.2225-1-mihai.sain@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] arm64: defconfig: enable cpu idle injection and
- cpu idle cooling device
-To: Wasim Nazir <quic_wasimn@quicinc.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@quicinc.com,
- Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
-References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
- <20241217064856.2772305-7-quic_wasimn@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241217064856.2772305-7-quic_wasimn@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_000238_697501_9CCBF7E6 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20241218_000500_712800_E9AC3BBA 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,14 +87,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2024 07:48, Wasim Nazir wrote:
-> From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
-> 
-> Enable cpu idle injection framework and thermal cpu idle cooling device
-> to throttle the cpu by injecting idle cycle during high thermal condition.
-I know what they do, but why do we need it in the defconfig? This is not
-a product defconfig, just in case you mirrored downstream patches.
+Since these properties are common for all spi subnodes,
+add them to SoC dtsi instead of board dts.
 
-Best regards,
-Krzysztof
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sam9x60.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+index 36944e18a329..b8b2c1ddf3f1 100644
+--- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
++++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+@@ -197,6 +197,8 @@ spi4: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <13 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 13>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -268,6 +270,8 @@ spi5: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <14 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 14>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -768,6 +772,8 @@ spi0: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <5 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 5>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -839,6 +845,8 @@ spi1: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <6 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 6>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -910,6 +918,8 @@ spi2: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <7 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 7>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+@@ -981,6 +991,8 @@ spi3: spi@400 {
+ 					compatible = "microchip,sam9x60-spi", "atmel,at91rm9200-spi";
+ 					reg = <0x400 0x200>;
+ 					interrupts = <8 IRQ_TYPE_LEVEL_HIGH 7>;
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					clocks = <&pmc PMC_TYPE_PERIPHERAL 8>;
+ 					clock-names = "spi_clk";
+ 					dmas = <&dma0
+-- 
+2.47.1
+
 
