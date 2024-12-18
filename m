@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC8BAE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 00:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53420E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 00:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvpdmlnbvNyjwHZf76pbDfjmJncAJiI50qIYmlkFWhs=; b=DuwMKZjjnFBvI+E/L9zqKoVmCG
-	tAgxgDRfy7IIKAF7YUIbwYZlSPUS8ivWUIo6PULYOfCuRVqow5+qX/rBXgDQbrBmeAEm2RypvgKbm
-	ckIFTc5OXcgwA59s1aICipQ1q3/Y5SQn7AYKFXWGw1XX14XVU3C/O4zrKOk8Kh4QkxNntHDCfkx9O
-	QRoXi67W3iwSKZhXhbBF5a7EtzvclAct8Sukit4Axsahq8xyXCSQZVYfrmehhdQpz6JHzQ3WS+JXy
-	9uH2nIM6D54sxTH5FWFrMv23kci8SOToCTbmGDQE9FELUhQ2AG+MuLLXx9HT+IlTPRc4zk3AmqXI6
-	h+nz0kBQ==;
+	bh=NuE+k4mRNS5zriJQH1szOEbh2OQG3C1KDJ6y0/T+qgo=; b=YoKLqK13ohqvQurS5OaPUoDxYW
+	s8NY9mW6Mcj02BRLhTwSu4aoB8GZUbyNv+/INXQ6X64mTfZV1bmJ8PhAGCyXmGzioutnk/RN3qMPM
+	+qRvzISebNxBDxPoIG3Pb8QJHoQbvk2ln+mJh7Ne7Dk7Cikrnil90ZmXerRPeYStUTFHNNGtcVpNc
+	Ss+ZWXUlKzRBzd1E6pUHmkq+6LnMcYVBgUfksCt1NYlHXek+cqoBF8tniUw8Xemy+92Lrl8KRq7aE
+	tYGx0/gA7gO/qk8fB1D70DnEmsJx/mPDTSy2S9S9Xir+cSaokGwwYV20hRbioMTWMgXLjp18+R6FI
+	s9wclG3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNiLj-0000000FFa0-2Rih;
-	Wed, 18 Dec 2024 00:55:39 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNiKe-0000000FFTo-3A0c
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 00:54:33 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3a814c54742so37835ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Dec 2024 16:54:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734483271; x=1735088071; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vvpdmlnbvNyjwHZf76pbDfjmJncAJiI50qIYmlkFWhs=;
-        b=uUQPz/nTld/dSEd/PyCo/iKIobLH/6j5BGYd579t89e2Ae1/8VUvTNkzUfth1+I8fK
-         XUVBFYovLDnhaRsnnthXyQ4QgkpE7ywa/AbKmE3DLB3RWmgio9JY3+YsAmEkxzciPy+f
-         BcwVjVHOe9Lubf5QyMC45Id4yybcU4L7+WF0e0TrIQ1RCAcMIRh1Z2k5qPfOSSzW1b32
-         WpueOFuhRbHnMaUicdeq+bzM0QPCV0osBq1vS2dLo4bX8KK6Bbnovih5mH2JAbq+gJDj
-         47EnZx7G+bWBbvLxIXWNuLygiKrTWIl8AdB/U6jyoV5ufYkGLQhSdELqp+kZqPlDQVN8
-         1XTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734483271; x=1735088071;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vvpdmlnbvNyjwHZf76pbDfjmJncAJiI50qIYmlkFWhs=;
-        b=te+HFzY/kh39dtZSWJoSM2xAv82ThTT/ZWsfn8ZUW0TwNZirrJ7MdwODhB5X5yc37K
-         hyxhOwZRSDr8cWgWg36gNMh/PuOdDyP6DIEdJ4rnP+2AHYP1z5hpzQiktMED4wWwZG0h
-         6gT0M3OeUc7DyhDyQnqgmvk5qGQBBrmK+pQFk12Na/kviNryqgV5BZgcL+zbOlY1Z0FE
-         PWPk1etZ78IWnjTodNITkCoIxd6LtmRstZ4Yd7xyGKoIIwQI0GmCU0mi3CXkfTmyU4Z7
-         PCUD9Gk+KYAN3R82FalwFrKaiLeyJLm/OUC9O801pj9L9DBmz+jzwCCws5wXdeD3PTFY
-         IowA==
-X-Gm-Message-State: AOJu0YzHbgQyjsqZF4iN61f9/rS4sr+K2sSnpCDvHN4vf6cq0gI7UPv9
-	JHPyFzur6OSoGcAU+boDkiZamcMS7RO2/uxLoyzYk8HasY4kD5aUTGQFmMVc0C+G2RC9aqx5UVC
-	ZK0KcKjKJiEVoMpTW58bh7VpUwJ2nwd5RpNjO
-X-Gm-Gg: ASbGncuaZXoaVNUOfL5mrJHu4GgO6h0Q/HkLMO+jloSR3tbyoVFrJfSX8N6YSkoONh+
-	KmwULiqA6h+CgOJWUDXzb/9GXDvC2HjsbH26zokc=
-X-Google-Smtp-Source: AGHT+IEoTRmSrfTLob8bBnU0BLl9Mr4cn15d1XMTSUV5F1B2wnA9XXGqLTQNrwEm5b7QOJKp0qMAP56nopgrXwZmSjc=
-X-Received: by 2002:a05:6e02:3c88:b0:3a7:c962:95d1 with SMTP id
- e9e14a558f8ab-3be34c58afamr427125ab.5.1734483271260; Tue, 17 Dec 2024
- 16:54:31 -0800 (PST)
+	id 1tNiOA-0000000FFsV-3Q4g;
+	Wed, 18 Dec 2024 00:58:10 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNiN4-0000000FFnw-3yuE;
+	Wed, 18 Dec 2024 00:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=WVQ1t6XbXjKcPHRJLel/oXZDB4vT3usNT7E4mGCaWbo=; b=C
+	CrFxfLsQl7/ZdHFUhT+Oiv6NIXnXWNK/3ZReX1pGDma1FKL+C4NDYyy25XHI7BeI
+	LwQbALMaRD1emzMVR2Yp0G5yUSxlM0dMEnTDJE1rKt8uTRG8xsuo9UXgAgGdnJxu
+	cIz+GDTe85g5XLSUsYkjgQiyb9tz8f7EQKOVA1l5qU=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-123 (Coremail) ; Wed, 18 Dec 2024 08:55:48 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Wed, 18 Dec 2024 08:55:48 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Daniel Stone" <daniel@fooishbar.org>
+Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org, 
+	s.hauer@pengutronix.de, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com, 
+	detlev.casanova@collabora.com, "Andy Yan" <andy.yan@rock-chips.com>, 
+	"Michael Riesch" <michael.riesch@wolfvision.net>, 
+	"Sebastian Reichel" <sebastian.reichel@collabora.com>
+Subject: Re:Re: Re: [PATCH v6 08/16] drm/rockchip: vop2: Support 32x8
+ superblock afbc
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2024 www.mailtech.cn 163com
+In-Reply-To: <CAPj87rMfFXkbyh7UEJQw4JV1R18KLXC3GyF0CznrN1k3UdL0Lw@mail.gmail.com>
+References: <20241214081719.3330518-1-andyshrk@163.com>
+ <20241214081719.3330518-9-andyshrk@163.com>
+ <CAPj87rOjqZdyht2y8MK7gVyk_eqEzk1Sy0DcxFtQRuhrHQ_oxA@mail.gmail.com>
+ <165af58a.697.193d2100239.Coremail.andyshrk@163.com>
+ <CAPj87rMfFXkbyh7UEJQw4JV1R18KLXC3GyF0CznrN1k3UdL0Lw@mail.gmail.com>
+X-NTES-SC: AL_Qu2YBviTvEsv7iOfZekZnEobh+Y5UcK2s/ki2YFXN5k0kSTd/Q0jbG5RIFzK/PmpCAemoQmKVD9t6cdjQpdIUb8uN2gn21BCSQHSCgwDyDUQ
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-References: <20241217115610.371755-1-james.clark@linaro.org> <20241217115610.371755-6-james.clark@linaro.org>
-In-Reply-To: <20241217115610.371755-6-james.clark@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 17 Dec 2024 16:54:19 -0800
-Message-ID: <CAP-5=fU7RNzvzxBcAQy3RT9Ge3YtqPhDonupNWS7Wgb8HGQkGg@mail.gmail.com>
-Subject: Re: [PATCH 5/5] perf docs: arm_spe: Document new discard mode
-To: James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, "Liang, Kan" <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Graham Woodward <graham.woodward@arm.com>, 
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Message-ID: <32246002.9ef.193d7438b96.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: eygvCgDX_3aUHWJnKQRCAA--.2254W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0g25XmdiE2lfZwAEs7
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_165432_785546_0A8E8F11 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20241217_165703_371277_D01755F7 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,64 +84,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 3:56=E2=80=AFAM James Clark <james.clark@linaro.org=
-> wrote:
->
-> Document the flag, hint what it's used for and give an example with
-> other useful options to get minimal output.
->
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  tools/perf/Documentation/perf-arm-spe.txt | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->
-> diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Docum=
-entation/perf-arm-spe.txt
-> index de2b0b479249..588eead438bc 100644
-> --- a/tools/perf/Documentation/perf-arm-spe.txt
-> +++ b/tools/perf/Documentation/perf-arm-spe.txt
-> @@ -150,6 +150,7 @@ arm_spe/load_filter=3D1,min_latency=3D10/'
->    pct_enable=3D1        - collect physical timestamp instead of virtual =
-timestamp (PMSCR.PCT) - requires privilege
->    store_filter=3D1      - collect stores only (PMSFCR.ST)
->    ts_enable=3D1         - enable timestamping with value of generic time=
-r (PMSCR.TS)
-> +  discard=3D1           - enable SPE PMU events but don't collect sample=
- data - see 'Discard mode' (PMBLIMITR.FM =3D DISCARD)
->
->  +++*+++ Latency is the total latency from the point at which sampling st=
-arted on that instruction, rather
->  than only the execution latency.
-> @@ -220,6 +221,16 @@ Common errors
->
->     Increase sampling interval (see above)
->
-> +Discard mode
-> +~~~~~~~~~~~~
-> +
-> +SPE PMU events can be used without the overhead of collecting sample dat=
-a if
-> +discard mode is supported (optional from Armv8.6). First run a system wi=
-de SPE
-> +session (or on the core of interest) using options to minimize output. T=
-hen run
-> +perf stat:
-> +
-> +  perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/nu=
-ll &
-> +  perf stat -e SAMPLE_FEED_LD
-
-Perhaps clarify this should be an ARM SPE event? It seems strange to
-have one perf command affect a later one, the purpose of things like
-event multiplexing is to hide the hardware limits. I'd prefer if the
-last bit was like:
-```
-Then run perf stat with an SPE event on the same PMU:
-
-perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
-perf stat -e arm_spe/SAMPLE_FEED_LD/
-``
-
-Thanks,
-Ian
+CkhpICBEYW5pZWwsCgpBdCAyMDI0LTEyLTE3IDIwOjA3OjU0LCAiRGFuaWVsIFN0b25lIiA8ZGFu
+aWVsQGZvb2lzaGJhci5vcmc+IHdyb3RlOgo+SGkgQW5keSwKPgo+T24gVHVlLCAxNyBEZWMgMjAy
+NCBhdCAwMDo0MSwgQW5keSBZYW4gPGFuZHlzaHJrQDE2My5jb20+IHdyb3RlOgo+PiBBdCAyMDI0
+LTEyLTE2IDIxOjA2OjA3LCAiRGFuaWVsIFN0b25lIiA8ZGFuaWVsQGZvb2lzaGJhci5vcmc+IHdy
+b3RlOgo+PiA+T24gU2F0LCAxNCBEZWMgMjAyNCBhdCAwODoxOCwgQW5keSBZYW4gPGFuZHlzaHJr
+QDE2My5jb20+IHdyb3RlOgo+PiA+PiBUaGlzIGlzIHRoZSBvbmx5IGFmYmMgZm9ybWF0IHN1cHBv
+cnRlZCBieSB0aGUgdXBjb21pbmcKPj4gPj4gVk9QIGZvciByazM1NzYuCj4+ID4+Cj4+ID4+IEFk
+ZCBzdXBwb3J0IGZvciBpdC4KPj4gPgo+PiA+T3V0IG9mIGludGVyZXN0LCBob3cgd2FzIHRoaXMg
+dGVzdGVkPyBUaGVyZSBpcyBubyAzMng4IG1vZGlmaWVyIGluIHRoZQo+PiA+Zm9ybWF0IGxpc3Qg
+aW4gZm9ybWF0X21vZGlmaWVyc19hZmJjW10sIHNvIGl0IHNlZW1zIGxpa2UgaXQgc2hvdWxkbid0
+Cj4+ID5iZSBwb3NzaWJsZSB0byBnZXQgYSAzMng4IGJ1ZmZlciBvbiBhIHBsYW5lIGF0IGFsbC4K
+Pj4KPj4gVGhlIDMyeDggbW9kaWZpZXIgIGFkZGVkIGluIFBBVENIIDE2LzE2Ogo+Pgo+PiArLyog
+dXNlZCBmcm9tIHJrMzU3NiwgYWZiYyAzMio4IGhhbGYgbW9kZSAqLwo+PiArc3RhdGljIGNvbnN0
+IHVpbnQ2NF90IGZvcm1hdF9tb2RpZmllcnNfcmszNTc2X2FmYmNbXSA9IHsKPj4gKyAgICAgICBE
+Uk1fRk9STUFUX01PRF9BUk1fQUZCQyhBRkJDX0ZPUk1BVF9NT0RfQkxPQ0tfU0laRV8zMng4IHwK
+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBRkJDX0ZPUk1BVF9NT0RfU1BMSVQp
+LAo+PiArCj4KPkhtbW0sIHRoYXQncyBzdHJhbmdlOyBJIGFwcGxpZWQgdGhlIHdob2xlIHNlcmll
+cyB3aXRoIGI0IGJ1dCB3YXNuJ3QKPnNlZWluZyB0aGF0IGJsb2NrIGRlZmluZWQuIE1heWJlIGEg
+YmFkIGNvbmZsaWN0IHJlc29sdXRpb24uIFNvcnJ5IGZvcgo+dGhlIGNvbmZ1c2lvbi4KCkkgdGhp
+bmsgdGhhdCBtaWdodCBoYXZlIGJlZW4gY2F1c2VkIGJ5IG15IG1pc3Rha2UuIEkgaW5pdGlhbGx5
+IHNlbnQgdGhlIFY2IHZlcnNpb24gYXMgYSAtaW4tcmVwbHkgdG8gdGhlIFY1IHZlcnNpb24uCldo
+ZW4gSSByZWFsaXplZCB0aGUgbWlzdGFrZSwgYSBwYXJ0IG9mIGl0IGhhZCBhbHJlYWR5IGJlZW4g
+c2VudCBvdXQuIFRoZW4gSSBzZW50IHRoZSBlbnRpcmUgVjYgc2VyaWVzIHNlcGFyYXRlbHkKYWdh
+aW4uIE1heWJlIHRoYXQgbWFrZSBiNCBhbmQgbG9yZSBjb25mdXNlZOOAggoKPgo+PiBJIHdyaXRl
+IGFuIG92bHRlc3RbMF0gdG9vbCB3aGljaCBjYW4gdGFrZSBsaW5lYXIvQUZCQyByZ2IveXV2IGRh
+dGEgZnJvbSBhIGZpbGUsIHRoZW4KPj4gY29tbWl0IHRvIGRybSBkcml2ZXIsIEkgdXNlIHRoaXMg
+dG9vbCBmb3IgbW9zdCBiYXNpYyBmb3JtYXQgdGVzdC4KPj4KPj4gQnV0IHdoZW4gdGVzdGVkIG9u
+IHdlc3RvbiwgSSBmb3VuZCB0aGF0IHdlc3RvbiBkb2VzIG5vdCB1c2UgdGhlIEFGQkMgZm9ybWF0
+IGZvciBkaXNwbGF5LAo+PiBkb24ndCBrbm93IHdoeS4KPgo+WW91J2xsIG5lZWQgYSBNZXNhIHRy
+ZWUgd2l0aCBlMGY0ODU2OGM3ZjIgaW5jbHVkZWQ7IGlmIHlvdSBoYXZlIHRoaXMKPnRoZW4gaXQg
+c2hvdWxkIGp1c3Qgd29yayBvdXQgb2YgdGhlIGJveC4KClRoYW5rcywgSSB3aWxsIGNoZWNrIGl0
+LgoKPgo+Q2hlZXJzLAo+RGFuaWVsCg==
 
