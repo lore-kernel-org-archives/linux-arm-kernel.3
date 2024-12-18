@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1B8E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A69E77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 10:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0jJAYGVaoSFGyihLm8HkjVLADfVlqphgzsJDWyTiDc=; b=t37VkeyuGisGe5YNE2dy6Br2QO
-	5WF3v51U6tuTLvDBt0J8v+iIE/iwQzl/S4nbFS7Qi+HeUwm5JEAkTRHvnJzjC97C8jwVOgjDlvgtF
-	ePUWLcyRlM8xMpdYt1MB+APqBj3YiAB8km7Y3dKdCheRZgQw9QEh9ecGBMdLJb8s5y7kqvfJaQH10
-	3ygEeZkBVoQmO/tAIUS92qLetzYVMUcF8Xb+RqaLk187X9p3EVaso9mDijbkMkW2pfNAExxrXoQnU
-	cha0t944uY70Hkwnb7q5GbMLyHmnsASOCQQP6VdMlx11mdweRmg+NcsQP+UhbhabMMJ5sDCUap3n7
-	VFAQdo8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9P17ieee9B5SlwZSInMZgc5AL5v6w0qOBx6blK3MkC8=; b=C2T3txBW0H71R4hCVjKjJFMk7Y
+	POg/8D5wKcGE4V78X00Evb4qb3j0wTf8IccLa/R3NDzQdlhfVFHBiUKdw+hGc8bHjeDWdbw17My11
+	w4TREziteL5YiGQJ0lZrys2wPAQrPwO425C2hmfE7shqw6u6pV7TmnEBD5BHo2tFu0pxVbNkKWeco
+	MEjVg5njgj8Tv2U72pASYOj7yUa6qBa7fGNjnPItVStg6ibGbIiPUC8Ca3s++yCFaZ7+3bG14NQtm
+	suOCXEvTTwjHvCCbRx+tba3zbrABb4q6BrAq895LyU+oSDb434RRE6NS0CDxfmvAeke5G8BD4n6xj
+	YK8/Icng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqwY-0000000GCW4-2Kit;
-	Wed, 18 Dec 2024 10:06:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNqzC-0000000GCvr-1BVm;
+	Wed, 18 Dec 2024 10:08:58 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqvS-0000000GCQp-3QIC
+	id 1tNqy5-0000000GClo-283y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 10:05:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 247E35C05AF;
-	Wed, 18 Dec 2024 10:04:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61230C4CECE;
-	Wed, 18 Dec 2024 10:05:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734516305;
-	bh=AvgDaXHtwbjGpgaswDIE8L8Q79jWldOS8jXiymOqhVI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GBoT5JfEG3pfz6gRlPYib7Y3mQXMytM4776pg7n11Ax/1FB1gGF4PuUGD0pu+/3M1
-	 fTdCR0peOq3XVYYzqgR8vTrocVlKfazgleENOepmy9l6Y+0M/G/HgcSs0NEXyhFhKi
-	 qCamv4C0sLyGxCYRNzV/XM2xd47k9vsx0M66oZduxJLuHnahexO0GL3uauj8eWoKsW
-	 ApyVzOM0NrEciAyArjzoJrM4Rd0mPQYYo46g3DWVWeAq/YEjyTsOGEfEDm6p66i/Da
-	 SpZEfRYPaO3SWX+ZRaCiTp3oy8IUamFvJX160Qyzu/CwVRUAlyaOtIeGzrbo40jRNW
-	 bk70WqLac5pQA==
-Date: Wed, 18 Dec 2024 11:05:03 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, alexandre.torgue@foss.st.com, wbg@kernel.org, jic23@kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	olivier.moysan@foss.st.com
-Subject: Re: [PATCH 5/9] pwm: stm32: add support for stm32mp25
-Message-ID: <lptm6gh2lzjqxm26lbmdw4yr2fowo6ytxwzqwl65khrx5xpcox@u25yzz6ssdy5>
-References: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
- <20241218090153.742869-6-fabrice.gasnier@foss.st.com>
+	Wed, 18 Dec 2024 10:07:50 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4363ae65100so38952215e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 02:07:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734516468; x=1735121268; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9P17ieee9B5SlwZSInMZgc5AL5v6w0qOBx6blK3MkC8=;
+        b=pr070Q8GfTro08iDYHU9eOq/9wv1uOrU/66kqKXoW+ztGLUpnb6YgY2qwKJ0Uq9Nxr
+         oHObiuH4drzuNWOOSMA7Wgk0kyZcH80Ls5Up+semlXeja1ybmQBb9BbIaHKzV76seIwR
+         XcVZiFFy/YarVoLFxmJc6r7J6KU0Zt2MTonHRsZjNTararrmHgXcawJ5Yx7SwWbfFSKK
+         jV5pFDVDNMirHj2ZBlKQtUTBQ3+m+PqG68p+79JWTsx8d3s86OK/ETAmruoG3ZeEcShk
+         LyRkLL2Z99CjH/QxatJvtBoPNhcmFhgaEyiKOP+l9wetztySPOmpoK7w7qzIblW76r4v
+         lcQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734516468; x=1735121268;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9P17ieee9B5SlwZSInMZgc5AL5v6w0qOBx6blK3MkC8=;
+        b=b6fxgGZNMo78CTD3MdXKbcnzS9oywYcnK2r9cTG1ZseJYOE6PGEaeF8ijSEl1mF1Xk
+         rLRhdBS2w/YrCxJB0tga/7Huf6UiUQvWhwBBSzYowS4FU9oRwdaC8L/jUVQNSMUTQuue
+         TfwYHbbtWnSqqmeoBlNqwSDBJSjdrkFBN8LDeXLzzHdWGs5zI0/2var0EpIXg0x7V7VZ
+         hTr1+SvL5/+/IT1qIm+Te+of2aIAElcEnHtoDiBZTbMCUZUBkfxavGd3qojH0aySlsyX
+         k3Hu3CM1ML63m0qd5z8DkIz0a6GNosk2ZJ1NB04Zn612J6ETYRS/5A7r74i/jeVvDLh2
+         6TBw==
+X-Gm-Message-State: AOJu0YxerggdakCCyJVwk94AMpkJBInJuZAFUXLJR06QWScz4FRMN3Bv
+	/+qd3T8kxMnbeeipBMHLK/PuFf9cGkGASTREJyHKYtVfwS/rltE6tjRorwlwK64=
+X-Gm-Gg: ASbGnct/U92X8+Bi2oOozaPOj2DF9ifxAHTCO9QPP5xUx/L7CAoVqSXfJOp/YpAUmUR
+	D/X6CmoyVPka08CqPGu94V64+ZaCm03zXnVnFInTcPg/uCvabnQj3CGnv1gXYM8y+2tSDemXHsm
+	KBUrG0GhKmsxCRBRNTjnCC9bp0DZPJmMprTKBf+cw0KNo52a5FtVzec/JIXbxO0k2G+T9/mQaId
+	VJ/quP2vFg0ER9V1KHTWzW/CMW+wWcaPrKsd+gviy++cyTZ48/aeHp/IHXoemyfyP4=
+X-Google-Smtp-Source: AGHT+IHC2RZ1yHVWgEcKRYnXsTSt7w3TIR3YVn7d27iergCOQv1IMX81+xjenYwudQOzwGcr5LlErg==
+X-Received: by 2002:a05:600c:3b14:b0:434:fec5:4ed1 with SMTP id 5b1f17b1804b1-436553fe571mr14370955e9.26.1734516467662;
+        Wed, 18 Dec 2024 02:07:47 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.66.247])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-388c80613a9sm13518151f8f.101.2024.12.18.02.07.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Dec 2024 02:07:47 -0800 (PST)
+Message-ID: <8c15786c-47b6-47ff-b1dc-ecbf32d582fb@linaro.org>
+Date: Wed, 18 Dec 2024 10:07:45 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="o4ocvksavacg3j36"
-Content-Disposition: inline
-In-Reply-To: <20241218090153.742869-6-fabrice.gasnier@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] perf docs: arm_spe: Document new discard mode
+To: Ian Rogers <irogers@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ John Garry <john.g.garry@oracle.com>, Mike Leach <mike.leach@linaro.org>,
+ Leo Yan <leo.yan@linux.dev>, Graham Woodward <graham.woodward@arm.com>,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+References: <20241217115610.371755-1-james.clark@linaro.org>
+ <20241217115610.371755-6-james.clark@linaro.org>
+ <CAP-5=fU7RNzvzxBcAQy3RT9Ge3YtqPhDonupNWS7Wgb8HGQkGg@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fU7RNzvzxBcAQy3RT9Ge3YtqPhDonupNWS7Wgb8HGQkGg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_020506_938773_E3B7385A 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20241218_020749_568192_0A59F998 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +109,75 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---o4ocvksavacg3j36
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 5/9] pwm: stm32: add support for stm32mp25
-MIME-Version: 1.0
 
-On Wed, Dec 18, 2024 at 10:01:49AM +0100, Fabrice Gasnier wrote:
-> diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-> index 17e591f61efb..99383e09920e 100644
-> --- a/drivers/pwm/pwm-stm32.c
-> +++ b/drivers/pwm/pwm-stm32.c
-> @@ -19,6 +19,7 @@
->  #define CCMR_CHANNEL_SHIFT 8
->  #define CCMR_CHANNEL_MASK  0xFF
->  #define MAX_BREAKINPUT 2
-> +#define MAX_PWM_OUTPUT 4
+On 18/12/2024 12:54 am, Ian Rogers wrote:
+> On Tue, Dec 17, 2024 at 3:56 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>> Document the flag, hint what it's used for and give an example with
+>> other useful options to get minimal output.
+>>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   tools/perf/Documentation/perf-arm-spe.txt | 11 +++++++++++
+>>   1 file changed, 11 insertions(+)
+>>
+>> diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
+>> index de2b0b479249..588eead438bc 100644
+>> --- a/tools/perf/Documentation/perf-arm-spe.txt
+>> +++ b/tools/perf/Documentation/perf-arm-spe.txt
+>> @@ -150,6 +150,7 @@ arm_spe/load_filter=1,min_latency=10/'
+>>     pct_enable=1        - collect physical timestamp instead of virtual timestamp (PMSCR.PCT) - requires privilege
+>>     store_filter=1      - collect stores only (PMSFCR.ST)
+>>     ts_enable=1         - enable timestamping with value of generic timer (PMSCR.TS)
+>> +  discard=1           - enable SPE PMU events but don't collect sample data - see 'Discard mode' (PMBLIMITR.FM = DISCARD)
+>>
+>>   +++*+++ Latency is the total latency from the point at which sampling started on that instruction, rather
+>>   than only the execution latency.
+>> @@ -220,6 +221,16 @@ Common errors
+>>
+>>      Increase sampling interval (see above)
+>>
+>> +Discard mode
+>> +~~~~~~~~~~~~
+>> +
+>> +SPE PMU events can be used without the overhead of collecting sample data if
+>> +discard mode is supported (optional from Armv8.6). First run a system wide SPE
+>> +session (or on the core of interest) using options to minimize output. Then run
+>> +perf stat:
+>> +
+>> +  perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
+>> +  perf stat -e SAMPLE_FEED_LD
+> 
+> Perhaps clarify this should be an ARM SPE event? It seems strange to
+> have one perf command affect a later one, the purpose of things like
+> event multiplexing is to hide the hardware limits. I'd prefer if the
+> last bit was like:
+> ```
+> Then run perf stat with an SPE event on the same PMU:
+> 
+> perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
+> perf stat -e arm_spe/SAMPLE_FEED_LD/
+> ``
+> 
+> Thanks,
+> Ian
 
-I would prefer a less generic name. Something like STM32_PWM_MAX_OUTPUT.
-=20
->  struct stm32_breakinput {
->  	u32 index;
-> [...]
-> @@ -790,11 +800,31 @@ static void stm32_pwm_detect_complementary(struct s=
-tm32_pwm *priv)
->  	priv->have_complementary_output =3D (ccer !=3D 0);
->  }
-> =20
-> -static unsigned int stm32_pwm_detect_channels(struct regmap *regmap,
-> +static unsigned int stm32_pwm_detect_channels(struct stm32_timers *ddata,
->  					      unsigned int *num_enabled)
->  {
-> +	struct regmap *regmap =3D ddata->regmap;
->  	u32 ccer, ccer_backup;
-> =20
-> +	if (ddata->ipidr) {
-> +		unsigned int npwm =3D 0;
+Hi Ian,
 
-No need to initialize npwm.
+Confusingly this isn't an SPE event, it is a normal PMU event. The fact 
+that one Perf command affects the other is because these events only 
+count when SPE is enabled. When it's enabled it has an effect on a 
+per-core level which is why in the example I made it simpler by enabling 
+SPE system wide.
 
-> +		u32 val;
-> +
-> +		/* Simply deduce from HWCFGR the number of outputs (MP25). */
-> +		regmap_read(regmap, TIM_HWCFGR1, &val);
-> +
-> +		/*
-> +		 * Timers may have more capture/compare channels than the
-> +		 * actual number of PWM channel outputs (e.g. TIM_CH[1..4]).
-> +		 */
-> +		npwm =3D FIELD_GET(TIM_HWCFGR1_NB_OF_CC, val);
-> +
-> +		regmap_read(regmap, TIM_CCER, &ccer);
-> +		*num_enabled =3D hweight32(ccer & TIM_CCER_CCXE);
+SPE is an exclusive PMU like Coresight and some others so it can't be 
+affected by multiplexing or anything like that. The SAMPLE_FEED_LD PMU 
+would be, but as long as SPE stays enabled it will count the right thing 
+regardless of multiplexing.
 
-So the part that determines *num_enabled is the same for both variants.
-Maybe it's possible to share the code for that?
+THanks
+James
 
-> +		return npwm < MAX_PWM_OUTPUT ? npwm : MAX_PWM_OUTPUT;
-> +	}
-> +
->  	/*
->  	 * If channels enable bits don't exist writing 1 will have no
->  	 * effect so we can detect and count them.
 
-Best regards
-Uwe
 
---o4ocvksavacg3j36
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmdinkwACgkQj4D7WH0S
-/k7nywf+JjLEk4Gaee/ADgMvYOiBEUH8OA9/D7Ae1isx7Ve33iUPYu57fZCQFdJ9
-7ah0kiX1U5gsFd96TlfydpA3EjhrHr/t8DKL5ZL9WWiKPi68Bb1HM/MZrnh641TZ
-xV6o0+OlYihaqYZpJkt93x0TXdg4+KR6PWk5aSVf47bWNC3jg3n1gLADY8GIKl/Y
-Sk/j12ktASXSCxNOscdwhwdyNIHCbmH/rU3FA8lEA1H9/5UZ5ljUoZRxBeqDqptz
-Qh4YiPPr1fs24A0/z4uh/W3CMkLkW8RXCCffGQprrejK0O1cb6JNhnAiMNZBLbcC
-Wc1T1qulU2XYmW7Of1S4WCcelNWE+A==
-=WbTY
------END PGP SIGNATURE-----
-
---o4ocvksavacg3j36--
 
