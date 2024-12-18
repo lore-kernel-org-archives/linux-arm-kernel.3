@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C88E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E001FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XS7Pk4ioEjURDID5iONvHn6fwf9tn79746Vbx+cJWGo=; b=2XJbzkx4ChPEGeRLQKIs2VaSeT
-	amyGQUcFvikFq2U9We2PG3ZX2CWHKPRMlzTUjzxYKoh26i3qPXY/1+FyNFDnjRwdsT+6RO96jSCXg
-	6ZSSyS8N2+tJpvW5i6wr9M6u23Y1vdkzzxTeEIlw4s/QVtNIAtw53bMfvAgjxU2u7Tf+bZ7or/5/d
-	6dyrV94RGtShXTTGbuNCzPhXUum/var88vFDFf1xtGnIA4YxewCgxi+NFR2ONpw1T0FQuKzQxQrXm
-	mfwbuNMFm0JBazD34bMi4/xP/jekI35+jaXypwoG3HfLolpylZnWTUcgZytmDWMatf9pZ6ty0Huvw
-	bRs6gdVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=THeGjzIRoDHBNZCDp/7M2lIPDvqr7tz6+xf8HWPd0n4=; b=xVK1I4prYJrdYVYrMXz1Miz30q
+	/pJvZOQtPCLMCsRaiorwWPScbYu2SyDCKQPTNfOFRTLA7ugUYbjDP6douHBmnnyTcSlDzXzoHYefj
+	npxWARdpiQU/WSdUJn/r22zi2/Iad5bYO6a9myHFJLW6ArwSzaBAo3fNCKBat/DxeeXPFWQWche7o
+	EuC3Ahp2LSgwr+jQEqV9r+2j4a/r9IzkmunFAyi1H5xsAqkMhkYMxhzX/yyLEFIsMHMExq/Dr7Ufh
+	wCw4MBEZynpBjuFlqZOYPHIuSYZ3OhdsGu6Lt5yJtWQJKyG9Nqwo8+bjviwBAMnMTy0dSzJXHIAha
+	C0dEaL9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtLf-0000000Gcfv-1nOt;
-	Wed, 18 Dec 2024 12:40:19 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tNtRc-0000000GdIS-20CU;
+	Wed, 18 Dec 2024 12:46:28 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNtKZ-0000000GcS1-1YXF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 12:39:12 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43634b570c1so33791435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 04:39:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734525549; x=1735130349; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XS7Pk4ioEjURDID5iONvHn6fwf9tn79746Vbx+cJWGo=;
-        b=Q2ZlD38iGjotI313bQQiABKoSvycnL+kw3ccXtQKgvN0qhldawtVS9kx+/4iM8av2v
-         AfJuMoziWEV1GsrYeC30yqHAwXrRvUfoDoKh1HKr+8T5iAJfMaq7PfivBYqq/sSTbCvM
-         Bk17xS1NzsA9RxXZ8CqQJ5lyF2FUZrsFLvLD1ZhfWUgPMFcZTSiizdlctOv+m/AJSWpr
-         UWsdM2H2PV8W5habisrv/gBXnsLH/OxHHyJIfOg2KnwsqiPdxc1yBGZj+h0HBu4Mc/ms
-         CcYecSAPAh7WdbzTPlWL16Vw7HWkLXPV9eC0VO5Oburh8xVAu2E8aHyvOkI1cw8m+Dry
-         lfSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734525549; x=1735130349;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XS7Pk4ioEjURDID5iONvHn6fwf9tn79746Vbx+cJWGo=;
-        b=lC4oTW+46FvvcREW4ACGlbSecCptzzdp77mDF5pUwqF6yJdypkN0kPjs9gtvQTz94K
-         NAmS0mC00dIdDU18xZyOcpqKsLunOtvG98ggg7D3Ya+Y/+NoNx5iP0Q8802AJSdi9ERV
-         VVU53Qq9uTZkkhtm2pApZHjVZWOqrNwNABvELAyqb6oDI4jhcQKzS+prLguCuC5dl0y7
-         6cWqU7BGZ/MQdeFJLx45lefby495I0LcRdCka31DX/+LcSdDz9oDU6HSgithyIScRpBa
-         jt8r7lGk0RBCRu7hGtT2DfaiV8cxjPYUDjPPv0uN1qeKJeRyaV/nqIQMuvcoKrG585fu
-         vy4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUohK/UCddVS9wtoZ2mf6SHxzpTYpH9PXLxD47zRgNu+3PDCRM1xt7juqYdoSLeQVBix27n15aDoFxmmohEIrD0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS3u7OMVy294IuIZ0uaOt4zz2l7iao3U4LHBF7EwVTD/2UiBDD
-	r9v/yjyIrY0gdq6+4R1mbItul4Z5yuwynVI8tpmKnYobs4VmdW4yTDTU4LmyV2M=
-X-Gm-Gg: ASbGnctygh988v2xTqRJRAr+tGfxzgVruaempQDl//rmD5Sl8raWNgo38Yfe4MXrIaa
-	ZJEcHmBvK2+u0VYIUX8sHzsfbG4b57xtrP/c2h/+M1bzEgqY31OQCT9tppvy1JtYXtjRRVvkQEx
-	MH03DCQIAieLTWiGyZdkJU7oUfULOK8RNkkRgdqXgBLGDVbPI0Xo242QxU871+LYBkf8sAJc25e
-	1lZGUCgU7sQ3Ri5KuECCKTouRsGlcDLNOr8NjTK4T5B6XQgbV8ZxknrfR92HuQa
-X-Google-Smtp-Source: AGHT+IE1tLl1Dcj53ZXYsfNVMFp4tWjeeQ7FoBjB4ziYdja1dw78rhY6qRXK/NpCpyfOFic1A6GtHQ==
-X-Received: by 2002:a05:6000:2c4:b0:386:4acd:4d77 with SMTP id ffacd0b85a97d-388e4da5dcemr2689138f8f.44.1734525549534;
-        Wed, 18 Dec 2024 04:39:09 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.61.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b441bbsm18961965e9.40.2024.12.18.04.39.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Dec 2024 04:39:09 -0800 (PST)
-Message-ID: <878f75cb-e85a-44d3-aae8-22ede6e7afde@linaro.org>
-Date: Wed, 18 Dec 2024 12:39:07 +0000
+	id 1tNtQV-0000000Gd7j-41jn;
+	Wed, 18 Dec 2024 12:45:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1734525915; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NWD2o+9Y7XDPF4C1vAR+dBWAxe1uQAAPjQDmSYMjZuU8EC2LfBfIprNY0WKeuCB8oA/8x0xhgzgQiZEF1EywjlzbOX6tsjwfwFpmZWfZwJcetsf+Axi4ygNhAKNdZKZxjM8KpC682HvGTmM/z3uwUBSpk+Tshfbc/lYeeTCoKlM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1734525915; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=THeGjzIRoDHBNZCDp/7M2lIPDvqr7tz6+xf8HWPd0n4=; 
+	b=NMIyfkCxiWBXCHQIoNTdHM9WwqNkLCtOUBMRM1Z957KqI2yrQKZUsTiOIIHKZn4rH/EolgipegR+Qp7kjxbLVxUG0hkbA8ta8t9ZjLCEedUvmK5Lj89kvV5WyCs/bcG/Da+YdNtgPPniWqukKW4zXx9O8Tomp5R+4/82jwhvPyI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1734525915;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=THeGjzIRoDHBNZCDp/7M2lIPDvqr7tz6+xf8HWPd0n4=;
+	b=Sz5HZNMGiW2T5vhTYWChnAEcC6+/LOv/e1prcDMIgl61a6yGkAMQD8CpbnsNVXDr
+	U5gfTpTrGTC4uK5kaACDmtbe6qgRYTS1ZaksAj9Wj/Dlp0Fh6LithWY39WtMMIvRSTx
+	MaTa023XAbsU56IL1zEx7Na8YO/vwsVOLRQcLKAM=
+Received: by mx.zohomail.com with SMTPS id 1734525913022316.05488947907077;
+	Wed, 18 Dec 2024 04:45:13 -0800 (PST)
+Date: Wed, 18 Dec 2024 13:45:05 +0100
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [PATCH] media: mediatek: vcodec: mark
+ vdec_vp9_slice_map_counts_eob_coef noinline
+Message-ID: <20241218124505.xwgsnpi2rvbngqvs@basti-XPS-13-9310>
+References: <20241018151448.3694052-1-arnd@kernel.org>
+ <20241118200641.GA768549@thelio-3990X>
+ <20241119110226.dbd54clp46klvjl5@basti-XPS-13-9310>
+ <20241217174628.GA2654633@ax162>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-To: Peter Griffin <peter.griffin@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
- <wlvvuq2ldv4funye2ylnccq7soyrqkqggg36oimnvmhxbbjvnl@yyy4y5nyruzn>
- <CADrjBPq4mTsvCivBJPmADP3pfUORBV8hGeP5GrTg9YxASJLHXg@mail.gmail.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <CADrjBPq4mTsvCivBJPmADP3pfUORBV8hGeP5GrTg9YxASJLHXg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20241217174628.GA2654633@ax162>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_043911_413915_575180EC 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20241218_044520_058450_09A68524 
+X-CRM114-Status: GOOD (  32.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,82 +93,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hey Nathan,
 
-
-On 12/18/24 11:23 AM, Peter Griffin wrote:
-> Hi,
-> 
-> On Wed, 18 Dec 2024 at 09:29, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 17.12.2024 10:46, Nathan Chancellor wrote:
+>Hi Sebastian,
+>
+>On Tue, Nov 19, 2024 at 12:02:26PM +0100, Sebastian Fricke wrote:
+>> Hey Nathan,
 >>
->> On Tue, Dec 17, 2024 at 09:40:20AM +0000, Tudor Ambarus wrote:
->>> +description: |
->>> +  The samsung exynos mailbox controller has 16 flag bits for hardware interrupt
+>> On 18.11.2024 13:06, Nathan Chancellor wrote:
+>> > On Fri, Oct 18, 2024 at 03:14:42PM +0000, Arnd Bergmann wrote:
+>> > > From: Arnd Bergmann <arnd@arndb.de>
+>> > >
+>> > > With KASAN enabled, clang fails to optimize the inline version of
+>> > > vdec_vp9_slice_map_counts_eob_coef() properly, leading to kilobytes
+>> > > of temporary values spilled to the stack:
+>> > >
+>> > > drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c:1526:12: error: stack frame size (2160) exceeds limit (2048) in 'vdec_vp9_slice_update_prob' [-Werror,-Wframe-larger-than]
+>> > >
+>> > > This seems to affect all versions of clang including the latest (clang-20),
+>> > > but the degree of stack overhead is different per release.
+>> > >
+>> > > Marking the function as noinline_for_stack is harmless here and avoids
+>> > > the problem completely.
+>> > >
+>> > > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+>> >
+>> > Unfortunately, I have seen no moment on my upstream report and this
+>> > warning is breaking allmodconfig builds because of -Werror. Can this be
+>> > applied as a workaround for now (preferrably with a Cc: stable on it)?
+>> >
+>> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 >>
->> If there is going to be any new posting:
->>
->> The Samsung Exynos mailbox controller, used on Google GS101 SoC, ....
->>
->>> +  generation and a shared register for passing mailbox messages. When the
->>> +  controller is used by the ACPM protocol the shared register is ignored and
->>> +  the mailbox controller acts as a doorbell. The controller just raises the
->>> +  interrupt to the firmware after the ACPM protocol has written the message to
->>> +  SRAM.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: google,gs101-mbox
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +
->>> +  clocks:
->>> +    maxItems: 1
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      - const: pclk
->>> +
->>> +  interrupts:
->>> +    description: IRQ line for the RX mailbox.
->>> +    maxItems: 1
->>> +
->>> +  '#mbox-cells':
->>> +    description: |
->>> +      <&phandle type channel>
->>> +      phandle : label name of controller.
->>> +      type    : channel type, doorbell or data-transfer.
->>> +      channel : channel number.
->>> +
->>> +      Here is how a client can reference them:
->>> +      mboxes = <&ap2apm_mailbox DOORBELL 2>;
->>> +      mboxes = <&ap2apm_mailbox DATA 3>;
->>
->> This ordering assumes there is channel "2" in doorbel and in data, so
->> two times "2" and of course the same for all others. If this is
->> configuration of one channel, so "2" is either doorbell or data, then
->> type should be the last.
+>> I'll handle it asap, it will be part of 6.13
+>
+>Is there any update here? I don't see this patch applied in -next.
 
-ha, nice observation!
+I have sent out the PR and it has been applied to the -fixes branch in
+the media tree, due to the holiday period there might be some delays but
+I expect the change to soon land in Linux-next.
 
-> My understanding was each channel is either configured for doorbell or
-> data, but Tudor can confirm. With Krzysztof's feedback addressed:
+>
+>Cheers,
+>Nathan
 
-For the ACPM interface use case, mailbox is always used as a doorbell
-indeed. Regardless if the ACPM interface writes data or not to SRAM, it
-will use the mailbox controller just to flip the interrupt bit without
-touching the mbox controller data registers.
+Regards,
+Sebastian
 
-For the other cases where the mailbox controller is used to (also?) pass
-data via its data registers, I can't tell whether the passing of data is
-mandatory or not. At least not by reading the gs101 mailbox datasheet
-that I have, it doesn't describe the SR registers. However, Exynos850 -
-which has the same registers, says that:
-```CPU cores can use these registers for sharing data```.
-"Can" implies that writing to SR is optional.
+>
+>> > > ---
+>> > > I have not come to a conclusion on how exactly clang fails to do this
+>> > > right, but can provide the .config and/or preprocessed source files
+>> > > and command line if we think this should be fixed in clang.
+>> > > ---
+>> > >  .../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c         | 3 ++-
+>> > >  1 file changed, 2 insertions(+), 1 deletion(-)
+>> > >
+>> > > diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
+>> > > index eea709d93820..47c302745c1d 100644
+>> > > --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
+>> > > +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
+>> > > @@ -1188,7 +1188,8 @@ static int vdec_vp9_slice_setup_lat(struct vdec_vp9_slice_instance *instance,
+>> > >  	return ret;
+>> > >  }
+>> > >
+>> > > -static
+>> > > +/* clang stack usage explodes if this is inlined */
+>> > > +static noinline_for_stack
+>> > >  void vdec_vp9_slice_map_counts_eob_coef(unsigned int i, unsigned int j, unsigned int k,
+>> > >  					struct vdec_vp9_slice_frame_counts *counts,
+>> > >  					struct v4l2_vp9_frame_symbol_counts *counts_helper)
+>> > > --
+>> > > 2.39.5
+>> > >
+>> >
+Sebastian Fricke
+Consultant Software Engineer
 
-So I assume a channel can work in both modes and clients use mboxes to
-specify which mode to use. Shall I still switch the order?
-
-Thanks,
-ta
+Collabora Ltd
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
+Registered in England & Wales no 5513718.
 
