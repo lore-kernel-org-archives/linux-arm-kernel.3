@@ -4,106 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBE1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4B4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSAIpP3vHzYCPqelUrOZtnAmCrK9TwEHJ8JYEWRi3Iw=; b=vMjvJ1Xkuymtz5gh4UtEYCsx9A
-	T51i0dopaJ8MwAwuQax11s9je1w3UccekSxHwMGwm3B+7mfzmVkKWNf4by1yl2iSfamncRPg2g6xv
-	UpE+8aSNgab4tTLrQzQk93QLRcCHyGLdXLSKut4lcJNfFgyd3Arw17IyaP58UenNU/BM3eV04CWST
-	6YgPqkXvnNj6DEu6aLVF3Ce08GpTdHLqp0Cyj08oDJqhTegzRtQQUFfT6qLgGzptOm+hf6M45un9M
-	+UTu5OXPsTI9Z2g5FMZL20JopNNzA/unWIByJh5z/EdyRjFdUaCmPTROI+2O4DUDATPGAfgs5HsHX
-	ADINoLrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wGDd3GsS7X/LEUACNFlLUz77SGjMRwi8NjI74LtUWbY=; b=j8LwbUEl/bk8Q7LU3O7PhU75Q4
+	IWf9LJF+aa9Lk38bX1Nlq214qb3vjc8LulxWEX8Ai9+GkkFVN1SbAp3wBQtUwntOIpNAAy5JRbQyH
+	SZVOAbciW2YpZ5ma4/yBCO3VTATZRAPShrU54NGf7GS6z+gKtAaDEZjzYufdnnEw1WA3YuJkI+o6w
+	x3YTqnbF2St6d2yDETS9OskPopSZZAcnlztmhgljWoWFATgZF0WBzqfRGc1brtweIPCJWn9V3yjeo
+	jVKLuas3s1L283rOnOkdCqdFyQbb285MNgaF2dBx/8dnn+xc14uoUPckjom3yx3FoCdLEmiI/kJJJ
+	XrkEj8/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNs4Z-0000000GQZg-43wz;
-	Wed, 18 Dec 2024 11:18:35 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tNsAl-0000000GRZ2-0Fcu;
+	Wed, 18 Dec 2024 11:24:59 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNs3O-0000000GQLr-3Y86
+	id 1tNs9e-0000000GRQk-3UyR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:17:24 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI4YAbm004011;
-	Wed, 18 Dec 2024 11:17:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rSAIpP3vHzYCPqelUrOZtnAmCrK9TwEHJ8JYEWRi3Iw=; b=lpJUP4SlFEb1PfN2
-	NNqNFMIIrHELFVx1CPeAVS2zE+7cVHQ+C4Ld6Cw9og1I4eb5I7sZ1jHzhxETpy1q
-	oOxfKXyyqMpoBk+OnOgruE+eSpSUGZ3SLOP7xdDiIFYSTo05nXaIO+HQVpB4mUtf
-	zGKlLmCwXzGAUwYkn7/6Tv6rBBIuA1/r/U9LnxOAiM+pNhDlROcjK8kTYVkQB+Ay
-	TWAYvK7q6X8ghqw+tRekN59c/Kk5FN2dAaBr2gphfE8kry1vr+TCK9t/zXda5U5+
-	hGLAjyeNm7y6fty/ChNJJmwHn3XYgxogsLahtzvBlCcaCjblhrCnouwGgQDPs7qM
-	PjcVKQ==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43kqfsrx6q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Dec 2024 11:17:13 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BIBHC7e027681
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Dec 2024 11:17:12 GMT
-Received: from [10.253.10.199] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 18 Dec
- 2024 03:17:06 -0800
-Message-ID: <2456ab36-f48e-4aa3-88e1-aeb7895c9816@quicinc.com>
-Date: Wed, 18 Dec 2024 19:17:04 +0800
+	Wed, 18 Dec 2024 11:23:51 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-5f2b21a0784so1387215eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:23:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734521029; x=1735125829; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=wGDd3GsS7X/LEUACNFlLUz77SGjMRwi8NjI74LtUWbY=;
+        b=kDdJXKQNq4NYVKEPl+uqeWikzcP9S/4yWuifhvjMwjCQHfx1fLUR4Tt0YbTfETWUNx
+         WdIsYw+pBw1zeb1wuea508+rkczzhyc9r8GCSrBNlo2YDN8vk0HOSaGX4HhiGE27DhG/
+         6vrP9pc5ZUWsQtsX92eUS8pr+RuXn/tCikOXv+42pmOmDd80/nFNz1Asd6r83/PdTeGs
+         tPzbfZyAUTFrRso1YSoCPCTE8a9t769opttM52Ue6j82S39gbs3KoeDWouUuqC3oT5wf
+         LJn0UsG2vYzCoQbLnTTPbILTT/daWGlYumb8yMqlIAN4XWU1s5sHfJfwjQ6XY3iqiyo3
+         c1IQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734521029; x=1735125829;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wGDd3GsS7X/LEUACNFlLUz77SGjMRwi8NjI74LtUWbY=;
+        b=IjV9q0GHhpxf+u2Ev7npoePFivWQgoZh0e0q4zTg9T6RFBvC91aez/6m5eEoa5Wc+7
+         c1S4q65upA4+Nn4yUEs0PlRcSadTg1gN622pi7qo612lNyEhjQcw/W1xWbVyDjGjjsvy
+         js9tCe+FQJ+i+qxVX9bXHRI+MfaC7zY9rOMyzTYbKa04dV/NMlD7s0LvrjhqEBcE829E
+         xkdvWwpgHoAb7/awJqZF+f3WbEuj7KO+R3zbZmwne0h7EDFgv8WEtvbIL6LeHC4wUiSj
+         ETSuqox/dW1hm/JMj7sC7xqZx0DNiAx3jgHR0NwsWOBn52w3gBoWqNxfQj0Wxdk88uBj
+         h65Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX1K7/YJlKTe4Ql54a9X38T5+YJIlkqukNHDKtYLArRg8W11w1rhSBthDiUha7skWilwyFbDeSuAiopEzWfxl9i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtICl7L6tV/LRsxAtjc8jIT4xFqX+VyMrL0pjnRFBD9jOdV2IA
+	dc9BMdzp4/axOLS8TuhCInZ33Uk4Iiw/et2NKpUavxuWNDY2rKQl8HUKbc6NNSDLXrOG6eEUJ3a
+	nRYps3ZtwNH+1ftqu093KewqOBhoEeGGoWAjBrQ==
+X-Gm-Gg: ASbGncsE/SDbIeuxxH6RAvTSbIgEyxIXJoJ/ZrzLY19zXFigIoW3eAdvWq9NDgssuGQ
+	/JhcgakSg4E2UFie7QnuPzZlOwdZUdCcg5MdnFKE=
+X-Google-Smtp-Source: AGHT+IE0SxJTQLNEo9P1nttPQbjieAU87Qbz/OG3Tx1qyRFpKK7F0I23DhhsjQFVOLFLQOC0Fg1O4vAzd0y7cFEiLlo=
+X-Received: by 2002:a05:6870:fe95:b0:29e:51ca:68b4 with SMTP id
+ 586e51a60fabf-2a7b3145c1bmr1357208fac.19.1734521029643; Wed, 18 Dec 2024
+ 03:23:49 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
- use fixed factor clock
-From: Jie Luo <quic_luoj@quicinc.com>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        "Stephen
- Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>
-References: <20241107-qcom_ipq_cmnpll-v6-0-a5cfe09de485@quicinc.com>
- <20241107-qcom_ipq_cmnpll-v6-5-a5cfe09de485@quicinc.com>
- <0776a26e-56cd-4838-9b52-210ae9a1f281@oss.qualcomm.com>
- <8063460d-18ad-4e54-8232-716bad9d37c3@quicinc.com>
-Content-Language: en-US
-In-Reply-To: <8063460d-18ad-4e54-8232-716bad9d37c3@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: ru_USJpoJE25j71X-NtyJ94x5LsqLzxu
-X-Proofpoint-ORIG-GUID: ru_USJpoJE25j71X-NtyJ94x5LsqLzxu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=918 bulkscore=0
- lowpriorityscore=0 spamscore=0 clxscore=1015 malwarescore=0 phishscore=0
- impostorscore=0 adultscore=0 mlxscore=0 suspectscore=0 priorityscore=1501
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412180091
+References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
+ <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org> <wlvvuq2ldv4funye2ylnccq7soyrqkqggg36oimnvmhxbbjvnl@yyy4y5nyruzn>
+In-Reply-To: <wlvvuq2ldv4funye2ylnccq7soyrqkqggg36oimnvmhxbbjvnl@yyy4y5nyruzn>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 18 Dec 2024 11:23:38 +0000
+Message-ID: <CADrjBPq4mTsvCivBJPmADP3pfUORBV8hGeP5GrTg9YxASJLHXg@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, 
+	kernel-team@android.com, willmcvicker@google.com, daniel.lezcano@linaro.org, 
+	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_031723_006179_3BD03280 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20241218_032350_886154_E19E0407 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,75 +96,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+On Wed, 18 Dec 2024 at 09:29, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On Tue, Dec 17, 2024 at 09:40:20AM +0000, Tudor Ambarus wrote:
+> > +description: |
+> > +  The samsung exynos mailbox controller has 16 flag bits for hardware interrupt
+>
+> If there is going to be any new posting:
+>
+> The Samsung Exynos mailbox controller, used on Google GS101 SoC, ....
+>
+> > +  generation and a shared register for passing mailbox messages. When the
+> > +  controller is used by the ACPM protocol the shared register is ignored and
+> > +  the mailbox controller acts as a doorbell. The controller just raises the
+> > +  interrupt to the firmware after the ACPM protocol has written the message to
+> > +  SRAM.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: google,gs101-mbox
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: pclk
+> > +
+> > +  interrupts:
+> > +    description: IRQ line for the RX mailbox.
+> > +    maxItems: 1
+> > +
+> > +  '#mbox-cells':
+> > +    description: |
+> > +      <&phandle type channel>
+> > +      phandle : label name of controller.
+> > +      type    : channel type, doorbell or data-transfer.
+> > +      channel : channel number.
+> > +
+> > +      Here is how a client can reference them:
+> > +      mboxes = <&ap2apm_mailbox DOORBELL 2>;
+> > +      mboxes = <&ap2apm_mailbox DATA 3>;
+>
+> This ordering assumes there is channel "2" in doorbel and in data, so
+> two times "2" and of course the same for all others. If this is
+> configuration of one channel, so "2" is either doorbell or data, then
+> type should be the last.
 
-On 12/13/2024 6:30 PM, Jie Luo wrote:
-> 
-> 
-> On 12/13/2024 2:33 AM, Konrad Dybcio wrote:
->> On 7.11.2024 10:50 AM, Luo Jie wrote:
->>> xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
->>> 48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
->>> block routing channel.
->>>
->>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
->>> ---
->>>   arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
->>>   arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
->>>   2 files changed, 8 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/ 
->>> arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->>> index 78f6a2e053d5..9a8692377176 100644
->>> --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->>> +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->>> @@ -174,8 +174,13 @@ &ref_48mhz_clk {
->>>       clock-mult = <1>;
->>>   };
->>> +/*
->>> + * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
->>> + * from WiFi output clock 48 MHZ divided by 2.
->>> + */
->>>   &xo_board_clk {
->>> -    clock-frequency = <24000000>;
->>> +    clock-div = <2>;
->>> +    clock-mult = <1>;
->>>   };
->>>   &xo_clk {
->>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/ 
->>> dts/qcom/ipq9574.dtsi
->>> index 8246a00a3e3e..25aed33e9358 100644
->>> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->>> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->>> @@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
->>>           };
->>>           xo_board_clk: xo-board-clk {
->>> -            compatible = "fixed-clock";
->>> +            compatible = "fixed-factor-clock";
->>> +            clocks = <&ref_48mhz_clk>;
->>
->> This must be squashed with the previous patch, you can't introduce
->> code and replace it immediately afterwards.
->>
->> Konrad
+My understanding was each channel is either configured for doorbell or
+data, but Tudor can confirm. With Krzysztof's feedback addressed:
 
-Hi Konrad,
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-Looking at this comment again, there may have been some
-misunderstanding. We are not introducing xo_board_clk in patch 4 of this
-series. xo_board_clk is a pre-existing node.
+regards,
 
-As part of this additional patch 5, we wanted to address Dmitry's
-comment earlier in v5 (reference to comment below), by converting the
-xo_board_clk as well to a fixed-factor clock. So it is better to keep
-this change as a separate patch in my view. Hope this is OK.
-
-https://lore.kernel.org/linux-arm-msm/CAA8EJpoQO7=v8QWeH8MAgX4uU=m4VJqfC3J5PKyySM2TBcHWiw@mail.gmail.com/
-
-> 
-> Ok, I will update the patch series with this patch dislodged, and push
-> this single patch in next update. Thanks.
-> 
-> 
-
+Peter.
 
