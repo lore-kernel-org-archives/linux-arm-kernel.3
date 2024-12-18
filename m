@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3504CE77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25928E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 12:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=msThw48itXlU4qwJcJXvnA7E9mIJ568BNL4jgDEORz8=; b=hc7DPIHozBIOSIluVP84P3ZIVM
-	tUQE3tVvXaZge2gAur6ZriKGyuS5JdfDAVmW11vYvxwrJiriB2kKTNliwscLnIT1MGPgNOfTwQh8s
-	48xF8QPQI6V/Un1ikeBCurqcsfxinjoDF3YudFf4WpRIWHF5esvavvBld1Hod+kPPpIaQMWfXQvjZ
-	bR39Kaa4RNCvZBO+SgFN/+7BiXaDwz0/FuwOmXQjVJKIl+RoUmd4iwGbSbDdis2LbhYttnaElwBuL
-	t9YRkV04s7zyJl9CrErdsER18X1e4WWg67aUGIYl2iO3F5pjiKoDJunBMaHqZXlbycWJH6KysBb/7
-	XdXzQNTQ==;
+	bh=5cD8OmJ5EJImHph/nljKjaiMeqKYmN9nRcxx7bv6biY=; b=z8v7rWrGwwCbzS8jBDC1miFuMy
+	YXnfwfE52t39eW+jbTDEAOyG1B/kQP5Vv9EvQ6m2noOMhF2gpi+mWK/kgz9FUIjw3bNV6nGT182vn
+	cLNismaQdNmvT1OGOy45L4o9cdJcBHL8lZnCRcGqZrE4c3nvjz+SEJF+dpX3sEZsipgrrF84BunZ4
+	pFF2M/TOER/KNEJNzPKielhK0TAHMsuwzyWGnPTFxNoLBqwb844gIetQ3k7kq2e8uDkaFvccFF2px
+	239U4Xnq74hoaRotlfCUso6PtYik+mVOSWT1597jAWqcGSO8yNsMCLGXiGyo9DyyABhgRKuX8w1G2
+	OQ95H97A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNssT-0000000GYJA-229a;
-	Wed, 18 Dec 2024 12:10:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tNssU-0000000GYK4-1PBH;
+	Wed, 18 Dec 2024 12:10:10 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrhW-0000000GLOq-2klL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Dec 2024 10:54:46 +0000
+	id 1tNrqg-0000000GNv2-3znP;
+	Wed, 18 Dec 2024 11:04:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=msThw48itXlU4qwJcJXvnA7E9mIJ568BNL4jgDEORz8=; b=N5OhIXFoEDA5JpWMbC9jyHGn4Q
-	rQqwRnj4PAPXEJH0/2Bkc6oy3928wusny9qDEe7QFdAjMvf5UovTU6IlVvBd+/l+QE74QoqLIU55J
-	ntCEXJ7eScm8aBCgOGpyVyShIXBWunxolepv6Wa96iEpVMsYeu/ua5R75Tx6EjHeQeOQtQZZqNrYb
-	deAJ5RR+Ot/oWLbNJzqWEX8RZaxd+g582c+Gr6BUSoSg1j2WLI8Vqj9zKPzhjBk6Yl+tqIDCXAH4x
-	jEvPwIVLYMJAjS3DffLrgk7R1oM2Rl9pyV1FCwyjxaQLNiTSHRERkY1aa55Iz3evuZyhpraZkb0vO
-	U2fBVu4g==;
-Received: from [185.176.79.56] (helo=frasgout.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrhT-00000005FGw-0hHJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 10:54:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YCr7h4mBCz6K99B;
-	Wed, 18 Dec 2024 18:50:56 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 20793140B3C;
-	Wed, 18 Dec 2024 18:54:32 +0800 (CST)
-Received: from A2303104131.china.huawei.com (10.195.247.46) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 18 Dec 2024 11:54:23 +0100
-From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
-Subject: [PATCH v4 2/3] KVM: arm64: Introduce hypercall support for retrieving target implementations
-Date: Wed, 18 Dec 2024 10:53:44 +0000
-Message-ID: <20241218105345.73472-3-shameerali.kolothum.thodi@huawei.com>
-X-Mailer: git-send-email 2.12.0.windows.1
-In-Reply-To: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
-References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+	bh=5cD8OmJ5EJImHph/nljKjaiMeqKYmN9nRcxx7bv6biY=; b=PjFMlKbMqlAS16sFSWEmfZC7Wd
+	P7RU2meHq1qSBPCPI+5O0Bh/UHfH0kgThLleV7PBlaDHhdnqij+O9+8Hp8P/6XzTslcCs618A7xxh
+	tTLN9cM00EolRE8v+YoiFzZndhiPA+6wE+3Ubn3QGkohQahyOph6hylE2SWfo0pUZRsD3zl4Nc3Sa
+	lZqPfJim7Xwwv0wyux9ztirXGgIH89idyA11QqWas8x1zZUdEreN6vSS4jkeDzXjC6mf/OFIRFTKv
+	8ZhluUYWcGVMvRbYbKlt3+MTKxhQzy5XdREKx1B7Bnq+GN34QEohDXpca+yegnhUQtM8Q9o+YDhvO
+	XDIMqFsw==;
+Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tNrqb-0000000AfzQ-0dqQ;
+	Wed, 18 Dec 2024 11:04:09 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 4EE883000CA; Wed, 18 Dec 2024 12:04:08 +0100 (CET)
+Date: Wed, 18 Dec 2024 12:04:08 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	x86@kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn,
+	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com,
+	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
+	benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com,
+	tmgross@umich.edu
+Subject: Re: [PATCH v2 1/5] x86/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm
+ code sharing with Rust
+Message-ID: <20241218110408.GF2484@noisy.programming.kicks-ass.net>
+References: <20241218062009.2402650-1-fujita.tomonori@gmail.com>
+ <20241218062009.2402650-2-fujita.tomonori@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.195.247.46]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- frapeml500008.china.huawei.com (7.182.85.71)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_105443_401612_AB019456 
-X-CRM114-Status: GOOD (  10.97  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241218062009.2402650-2-fujita.tomonori@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,84 +80,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the Guest requires migration to multiple targets, this hypercall
-will provide a way to retrieve the target CPU implementations from
-the user space VMM.
+On Wed, Dec 18, 2024 at 03:20:05PM +0900, FUJITA Tomonori wrote:
+> Add new ARCH_WARN_ASM macro for BUG/WARN assembly code sharing with
+> Rust to avoid the duplication.
 
-Subsequent patch will use this to enable the associated errata.
+This conflicts with some patches I've been sitting on, but nothing that
+I can't resolve I think.
 
-Suggested-by: Oliver Upton <oliver.upton@linux.dev>
-Reviewed-by: Sebastian Ott <sebott@redhat.com>
-Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
----
- Documentation/virt/kvm/arm/hypercalls.rst | 30 +++++++++++++++++++++++
- include/linux/arm-smccc.h                 |  7 ++++++
- 2 files changed, 37 insertions(+)
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 
-diff --git a/Documentation/virt/kvm/arm/hypercalls.rst b/Documentation/virt/kvm/arm/hypercalls.rst
-index af7bc2c2e0cb..16b4c02cf9d9 100644
---- a/Documentation/virt/kvm/arm/hypercalls.rst
-+++ b/Documentation/virt/kvm/arm/hypercalls.rst
-@@ -142,3 +142,33 @@ region is equal to the memory protection granule advertised by
- |                     |          |    +---------------------------------------------+
- |                     |          |    | ``INVALID_PARAMETER (-3)``                  |
- +---------------------+----------+----+---------------------------------------------+
-+
-+``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID``
-+-------------------------------------------------------
-+
-+Request the target CPU implementation information for the Guest VM. This hypercall
-+must be handled by the userspace VMM. The Guest kernel will use this information to
-+enable the associated errata. A maximum of 64 implementations is supported.
-+
-++---------------------+-------------------------------------------------------------+
-+| Presence:           | Optional;  KVM/ARM64 Guests only                            |
-++---------------------+-------------------------------------------------------------+
-+| Calling convention: | HVC64                                                       |
-++---------------------+----------+--------------------------------------------------+
-+| Function ID:        | (uint32) | 0xC600007E                                       |
-++---------------------+----------+----+---------------------------------------------+
-+| Arguments:          | (uint64) | R1 | selected implementation index               |
-+|                     +----------+----+---------------------------------------------+
-+|                     | (uint64) | R2 | Reserved / Must be zero                     |
-+|                     +----------+----+---------------------------------------------+
-+|                     | (uint64) | R3 | Reserved / Must be zero                     |
-++---------------------+----------+----+---------------------------------------------+
-+| Return Values:      | (int64)  | R0 | -1 on error else the maximum required CPU   |
-+|                     |          |    | implementation index.                       |
-+|                     +----------+----+---------------------------------------------+
-+|                     | (uint64) | R1 | MIDR_EL1 of the selected implementation     |
-+|                     +----------+----+---------------------------------------------+
-+|                     | (uint64) | R2 | REVIDR_EL1 of the selected implementation   |
-+|                     +----------+----+---------------------------------------------+
-+|                     | (uint64) | R3 | Reserved / Must be zero                     |
-++---------------------+----------+----+---------------------------------------------+
-diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-index 67f6fdf2e7cd..6c080fa9d345 100644
---- a/include/linux/arm-smccc.h
-+++ b/include/linux/arm-smccc.h
-@@ -179,6 +179,7 @@
- #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_62		62
- #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_63		63
- /* End of pKVM hypercall range */
-+#define ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS	126
- #define ARM_SMCCC_KVM_FUNC_FEATURES_2		127
- #define ARM_SMCCC_KVM_NUM_FUNCS			128
- 
-@@ -225,6 +226,12 @@
- 			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
- 			   ARM_SMCCC_KVM_FUNC_MMIO_GUARD)
- 
-+#define ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID		\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
-+			   ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS)
-+
- /* ptp_kvm counter type ID */
- #define KVM_PTP_VIRT_COUNTER			0
- #define KVM_PTP_PHYS_COUNTER			1
--- 
-2.47.0
-
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
+> ---
+>  arch/x86/include/asm/bug.h | 51 ++++++++++++++++++--------------------
+>  1 file changed, 24 insertions(+), 27 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
+> index 806649c7f23d..71df68e2a731 100644
+> --- a/arch/x86/include/asm/bug.h
+> +++ b/arch/x86/include/asm/bug.h
+> @@ -28,45 +28,42 @@
+>  #ifdef CONFIG_GENERIC_BUG
+>  
+>  #ifdef CONFIG_X86_32
+> -# define __BUG_REL(val)	".long " __stringify(val)
+> +# define __BUG_REL(val)	".long " val
+>  #else
+> -# define __BUG_REL(val)	".long " __stringify(val) " - ."
+> +# define __BUG_REL(val)	".long " val " - ."
+>  #endif
+>  
+>  #ifdef CONFIG_DEBUG_BUGVERBOSE
+> +#define __BUG_ENTRY(file, line, flags)					\
+> +	"2:\t" __BUG_REL("1b") "\t# bug_entry::bug_addr\n"		\
+> +	"\t" __BUG_REL(file)   "\t# bug_entry::file\n"			\
+> +	"\t.word " line        "\t# bug_entry::line\n"			\
+> +	"\t.word " flags       "\t# bug_entry::flags\n"
+> +#else
+> +#define __BUG_ENTRY(file, ine, flags)					\
+> +	"2:\t" __BUG_REL("1b") "\t# bug_entry::bug_addr\n"		\
+> +	"\t.word " flags       "\t# bug_entry::flags\n"
+> +#endif
+> +
+> +#define _BUG_FLAGS_ASM(ins, file, line, flags, size, extra)		\
+> +	"1:\t" ins "\n"							\
+> +	".pushsection __bug_table,\"aw\"\n"				\
+> +	__BUG_ENTRY(file, line, flags)					\
+> +	"\t.org 2b + " size "\n"					\
+> +	".popsection\n"							\
+> +	extra
+>  
+>  #define _BUG_FLAGS(ins, flags, extra)					\
+>  do {									\
+> -	asm_inline volatile("1:\t" ins "\n"				\
+> -		     ".pushsection __bug_table,\"aw\"\n"		\
+> -		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
+> -		     "\t"  __BUG_REL(%c0) "\t# bug_entry::file\n"	\
+> -		     "\t.word %c1"        "\t# bug_entry::line\n"	\
+> -		     "\t.word %c2"        "\t# bug_entry::flags\n"	\
+> -		     "\t.org 2b+%c3\n"					\
+> -		     ".popsection\n"					\
+> -		     extra						\
+> +	asm_inline volatile(_BUG_FLAGS_ASM(ins, "%c0",			\
+> +					   "%c1", "%c2", "%c3", extra)	\
+>  		     : : "i" (__FILE__), "i" (__LINE__),		\
+>  			 "i" (flags),					\
+>  			 "i" (sizeof(struct bug_entry)));		\
+>  } while (0)
+>  
+> -#else /* !CONFIG_DEBUG_BUGVERBOSE */
+> -
+> -#define _BUG_FLAGS(ins, flags, extra)					\
+> -do {									\
+> -	asm_inline volatile("1:\t" ins "\n"				\
+> -		     ".pushsection __bug_table,\"aw\"\n"		\
+> -		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
+> -		     "\t.word %c0"        "\t# bug_entry::flags\n"	\
+> -		     "\t.org 2b+%c1\n"					\
+> -		     ".popsection\n"					\
+> -		     extra						\
+> -		     : : "i" (flags),					\
+> -			 "i" (sizeof(struct bug_entry)));		\
+> -} while (0)
+> -
+> -#endif /* CONFIG_DEBUG_BUGVERBOSE */
+> +#define ARCH_WARN_ASM(file, line, flags, size)				\
+> +	_BUG_FLAGS_ASM(ASM_UD2, file, line, flags, size, "")
+>  
+>  #else
+>  
+> -- 
+> 2.43.0
+> 
+> 
 
