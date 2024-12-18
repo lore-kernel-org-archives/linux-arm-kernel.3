@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08379E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 07:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6088BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=45CEy2rxbrDuRh41EJF1xrkt88csRRe/R31pGN8EAhE=; b=Zt9FkuXAe2jEMLq4N1yuUrlro8
-	4L0LSThltEL8g8Ak7/HN4ZJvrG/pShfdqOdskfo6QNQjCVb44IvbuK3vi/xG/oK3lKuSD3/2/Qf2g
-	UMG0WEHoLELncENWPfTbxnhE1WTId0dHOYFD/sgSUpxS1mX4wVEXMGez79LN6mROnGyZ98V6ooNZa
-	2KTjMJ+7SYwLJADJDgLa+wJC0ZL2vdEdXDx+ZLA1PyNPSs4QtBq6aA1FngvW46Jym3RWd9WvhRz2b
-	rjouxojlDNndv8sOAuThTCTQ0I3TG7x8Rn3TaqHLO5YIPEkFy+3BkokK0exzhloK7iDEpmZc1be20
-	sYQBp0gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zG6XtjkK17LL4/8PRVoCBmbSP7+NgSeFci3ROKh1cXo=; b=2Xby9/dr6+lPJNFX3Prosl5YlP
+	wlKFbtcCrnEDlIb2IaF40XckUwkevAggBHO67yRf58DNvkL1PAYuKzuBJdrOYJPk90sRoRz/DssKF
+	LQEopwl7ReuE/xY3fWli29FxZV6H5Oz5iT5cxtkjjqTEpPAWrjpVPspliC67OoN54ALhSTuXr7aHe
+	qERnIkGncnTULFbrBawtWlqWxPY15qmxAH3q5DPJ1IAzi5FEMjgNbiS6nRXKA9gfuECc6XhaqRFmz
+	sLFtwd1lPvSXhJkIptyBf5OFXO2yGwhjw8BBV/bJtTrDDvd5ti4jcOWUSsCqdMMwEyjeRuNAGURJi
+	/m66aBgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNouC-0000000Frj3-0Ejq;
-	Wed, 18 Dec 2024 07:55:40 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1tNozJ-0000000FsE1-1Iec;
+	Wed, 18 Dec 2024 08:00:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNot4-0000000FrYx-0pA9;
-	Wed, 18 Dec 2024 07:54:32 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.105])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4YCmB02cwVzqVFH;
-	Wed, 18 Dec 2024 15:52:40 +0800 (CST)
-Received: from kwepemh100007.china.huawei.com (unknown [7.202.181.92])
-	by mail.maildlp.com (Postfix) with ESMTPS id 37C10140416;
-	Wed, 18 Dec 2024 15:54:26 +0800 (CST)
-Received: from huawei.com (10.67.175.69) by kwepemh100007.china.huawei.com
- (7.202.181.92) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 18 Dec
- 2024 15:54:25 +0800
-From: Zhang Kunbo <zhangkunbo@huawei.com>
-To: <nbd@nbd.name>, <lorenzo@kernel.org>, <ryder.lee@mediatek.com>,
-	<shayne.chen@mediatek.com>, <sean.wang@mediatek.com>, <kvalo@kernel.org>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<deren.wu@mediatek.com>, <mingyen.hsieh@mediatek.com>
-CC: <linux-wireless@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<chris.zjh@huawei.com>, <liaochang1@huawei.com>
-Subject: [PATCH -next] wifi: mt76: mt7925:: replace zero-length array with flexible-array member
-Date: Wed, 18 Dec 2024 07:45:52 +0000
-Message-ID: <20241218074552.3271542-1-zhangkunbo@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tNoyC-0000000Fs6V-2D0T;
+	Wed, 18 Dec 2024 07:59:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 274365C5EA7;
+	Wed, 18 Dec 2024 07:59:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D16C4CECE;
+	Wed, 18 Dec 2024 07:59:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734508786;
+	bh=sqi+j1FWp7VAY/ARAadBpUhCp9Sk4hgOZxPX95wClrQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X0TEM8Koa59ree2WPetcR04rE84cgfBQw46LRKM3wLj29lxQ8tpTmoj2xBlumhjlT
+	 71clqYVjOL0cNR465CyvpA/0Vn/WDPI8lgOHqCEcwen6xr76dhF+VcZ0hP3ZHlCrYs
+	 bAvnJNlFQT+2AsgLx7mI4BapfT940lJWO/bRzmmQVDpEwKUnz7oG3eMtgEJqrVVDpK
+	 e0KKdfj3cuXNvUVWPaqvY99mxU4hDBwaQ1qAIfy20mrsc497E/Ilk084B/ni5JlTB/
+	 UirwcLtdloZe94am91hJbMF08vjJaH1fr+lQleSHJj9nqm0DCzBCDTN8toxM9zPP1r
+	 XNvyI7qxTSosg==
+Date: Wed, 18 Dec 2024 08:59:43 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
+Message-ID: <20241218-wild-red-manatee-bb2a34@houat>
+References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
+ <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
+ <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.175.69]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemh100007.china.huawei.com (7.202.181.92)
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="woythu4oziodei4y"
+Content-Disposition: inline
+In-Reply-To: <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241217_235430_379648_7CF00499 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241217_235948_650337_EBA83524 
+X-CRM114-Status: GOOD (  31.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +92,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current codebase makes use of the zero-length array language
-extension to the C90 standard, but the preferred mechanism to declare
-variable-length types such as these ones is a flexible array member[1],
-introduced in C99:
 
-struct foo {
-	int stuff;
-	struct boo array[];
-};
+--woythu4oziodei4y
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
+MIME-Version: 1.0
 
-By making use of the mechanism above, we will get a compiler warning
-in case the flexible array does not occur last, which is beneficial
-to cultivate a high-quality code.[2]
+On Wed, Dec 18, 2024 at 07:24:23AM +0200, Dmitry Baryshkov wrote:
+> On Tue, 17 Dec 2024 at 19:21, Maxime Ripard <mripard@kernel.org> wrote:
+> > On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
+> > > While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
+> > > framework, I stumbled upon an issue while handling the Audio InfoFram=
+es.
+> > > The HDMI codec callbacks weren't receiving the drm_atomic_state, so
+> > > there was no simple way to get the drm_connector that stayed at the e=
+nd
+> > > of the bridge chain. At the same point the drm_hdmi_connector functio=
+ns
+> > > expected to get drm_connector instance.
+> > >
+> > > While looking for a way to solve the issue, I stumbled upon several
+> > > deficiencies in existing hdmi_codec_ops implementations. Only few of =
+the
+> > > implementations were able to handle codec's 'plugged' callback. One
+> > > third of the drivers didn't implement the get_eld() callback.
+> > >
+> > > Most of the issues can be solved if drm_connector handles
+> > > hdmi-audio-codec on its own, delegating functionality to the actual
+> > > implementation, be it a driver that implements drm_connector or
+> > > drm_bridge.
+> > >
+> > > Implement such high-level framework, adding proper support for Audio
+> > > InfoFrame generation to the LT9611 driver.
+> > >
+> > > Several design decisions to be kept in mind:
+> > >
+> > > - drm_connector_hdmi_codec is kept as simple as possible. It implemen=
+ts
+> > >   generic functionality (ELD, hotplug, registration).
+> > >
+> > > - drm_hdmi_connector sets up HDMI codec device if the connector
+> > >   is setup correspondingly (either I2S or S/PDIF is marked as
+> > >   supported).
+> > >
+> > > - drm_bridge_connector provides a way to link HDMI audio codec
+> > >   funcionality in the drm_bridge with the drm_connector_hdmi_codec
+> > >   framework.
+> > >
+> > > - It might be worth reverting the no_i2s_capture / no_spdif_capture
+> > >   bits. Only TDA889x driver sets them, while it's safe to assume that
+> > >   most of HDMI / DP devices do not support ARC / capture. I think the
+> > >   drivers should opt-in capture support rather than having to opt-out=
+ of
+> > >   it.
+> >
+> > Sorry if this isn't clear to me and I'm quite late to the party, but did
+> > you test this on vc4 with both a pi3 and pi4, or was it just compile
+> > tested?
+>=20
+> LT9611 is actually tested, VC4 is only compile-tested. Should I put an RF=
+T tag?
 
-This issue was found with the help of Coccinelle.
+Yeah, we definitely need to test it on the pi3 (polling-based) and the
+pi4 (irq-based) at least.
 
-[1] https://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html
-[2] commit 76497732932f ("cxgb3/l2t: Fix undefined behaviour")
+Dave, Maira, could you give it a try?
 
-Signed-off-by: Zhang Kunbo <zhangkunbo@huawei.com>
----
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Maxime
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index 748ea6adbc6b..956d62062730 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -388,7 +388,7 @@ mt7925_mcu_tx_done_event(struct mt792x_dev *dev, struct sk_buff *skb)
- 	struct mt7925_mcu_txs_event {
- 		u8 ver;
- 		u8 rsv[3];
--		u8 data[0];
-+		u8 data[];
- 	} __packed * txs;
- 	struct tlv *tlv;
- 	u32 tlv_len;
--- 
-2.34.1
+--woythu4oziodei4y
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ2KA6gAKCRAnX84Zoj2+
+doM7AYDYL5BrruN7W/ACWXLqTjEYQHCFy+iryAfwh6yE4f0RPJ6YFzy8mnTd+X1L
+Jm9FiCABgPBOTqSnWYqNQjCLhnY0tzsDweW5w5m2sSKXDd0eMFfMFWxI2AeBQJRe
+UpFPPwBPkQ==
+=R0UZ
+-----END PGP SIGNATURE-----
+
+--woythu4oziodei4y--
 
