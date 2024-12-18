@@ -4,125 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F24E77183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD87E77183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 08:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juKhwfg+Frw7VM5RTNeQJHLkr65oOosI9cDLDXSk6fs=; b=yVnU92RuUsAn50mBh/s7RrVyPw
-	9eHFNPnx627uum6z5CG7ZmGii8AgX6OrAzEHl/Z9jUpMauFm5E7KUxNSMKRiVSObmfxCOs1cinjZs
-	r2qnieI2aX3Sq2FGc5TZz5ExAAlPuessgf8Ju/ezkRADx7WakPOASKVAMo7oqyUFxR5rqm0Yf631D
-	j1cqInRftsC8xFX8OkP+x69S1+ioKV20BV8U99cBNheP9Bsc9MXdsChLh1BGPXPeyqmZqbjK91sy9
-	LjI3zzlgks/mueiBZC7CuQlA3kePdcT+4v6MvsWjeXDsoVd6phMo9IJ3t2V/MI6jc6cz51QrtqP89
-	K+Iijdkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IRKIzfyLdcWYYPGBDhzJkGr9kJMNnMGRRB5s2TQkHwY=; b=VOcTLub/zoXTqwl2fNJyjkGfnv
+	e22d8/QG2SvdcpSgHN8H95OEEFnqarBtuaddRqqiQJUOsHpEWDRyLCIzf58YcXLi2gdRSIaTp2lmu
+	d11uM8jHTt+0f+Cw3ayPim7ehndnGj0GZ9DcljPV1BLT4xFUSMRS83ZYS7cTPu4wBTN51L4BtOgLf
+	7yAHD+RDPd2U7gm8e8hF1bsiuuJN4vcA17Y59rNEASHQqXh7LUBLXZ/as+0Le58TiApb8C8KnkSCE
+	GmdyapRoCGOBJ9Rc1WGH9PkG0v/aJpmnNtB0uLQtPzdNtParoXebl+Ql3TZYnASl3crknb/zPdnKA
+	XrzkP5Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNpAp-0000000FuHz-1WU8;
-	Wed, 18 Dec 2024 08:12:51 +0000
+	id 1tNpJs-0000000Fv2D-1q5W;
+	Wed, 18 Dec 2024 08:22:12 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNp9i-0000000FuCC-0oKa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 08:11:43 +0000
+	id 1tNpIl-0000000FuwT-326k;
+	Wed, 18 Dec 2024 08:21:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 63C47A424F8;
-	Wed, 18 Dec 2024 08:09:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A524C4CED4;
-	Wed, 18 Dec 2024 08:11:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4CA0EA41D90;
+	Wed, 18 Dec 2024 08:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE1FCC4CECE;
+	Wed, 18 Dec 2024 08:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734509500;
-	bh=GD+XRq2BWDzrYgMfELDkBiixgET0u+IfEAOVp79m8/c=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=mH8otsfKPIZaIn7z2+Vlzh/Bllp9tXet1lPJLKt9j8l4aKn06FGLkfOiRD7LRDhBg
-	 8jXKz8KGdJyULSDVR6vgkU+cdNujljJdM15ovpUZGRYdiEQvGHe6P/AbGY+78T69So
-	 MBflpqIjqZKi4A8T1fEyx3H0r5OxeI8b0K6ZWdOUtbyAcnXUtq1MiWXYFiJCE3v+55
-	 q0WBwsyYNU3JAZJHAXVphTnt2x+Q2VCuYhMGKz9pmMFzkjoetCpxMv1aZLOBMSWxmZ
-	 wBmJXS2fDhiExrmSIkiOm9vuyVpgL9cDK+4X6u7m9cUlmnVkoevOyfHMedxR6PAQtm
-	 R2QEyLou8zsAA==
-Message-ID: <4717dbb3-4fea-4ca0-800e-07ceed4dfec0@kernel.org>
-Date: Wed, 18 Dec 2024 09:11:31 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/6] dt-bindings: arm: aspeed: Add ASPEED AST27XX SoC
-To: Kevin Chen <kevin_chen@aspeedtech.com>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, "joel@jms.id.au"
- <joel@jms.id.au>, "andrew@codeconstruct.com.au"
- <andrew@codeconstruct.com.au>, "tglx@linutronix.de" <tglx@linutronix.de>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- "olof@lixom.net" <olof@lixom.net>,
- "quic_bjorande@quicinc.com" <quic_bjorande@quicinc.com>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "konradybcio@kernel.org" <konradybcio@kernel.org>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "johan+linaro@kernel.org" <johan+linaro@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "soc@lists.linux.dev" <soc@lists.linux.dev>
-References: <20241212155237.848336-1-kevin_chen@aspeedtech.com>
- <20241212155237.848336-4-kevin_chen@aspeedtech.com>
- <7289a50a-e139-453f-a512-3dd68a0839a2@kernel.org>
- <7b991fca-6e2f-454f-a94d-6a583854769b@kernel.org>
- <PSAPR06MB49495C182D0B64687E0174A389052@PSAPR06MB4949.apcprd06.prod.outlook.com>
+	s=k20201202; t=1734510062;
+	bh=Y67UFTQrPnNpxipawqZdos+lVbeXi0ujBQ7g+3GP5+w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d9aoecZIumn9o1pSSiNDiYbyXoPMwNUMrowK3ZPZwuTmSP5r8unM9mhwrVE0poApQ
+	 5nRGqL7llNZonY24T5gPAdaEcxR2QiFBC+CeMCJZyp/9iKYWoMV5xTcWfxS+2ZyLOu
+	 /HQQLb3bQvEHbFFSmHQ5+Wo4j3V5v2xbAbs2E9LKSfRiwH2wzaC3IXRIGgyEe0m2YP
+	 2bee3/rkc+swKUahErNARRTJUnLDs5XlfOBd/9TEa1CJEVYnKQtAXMRz0Fw3gRoCr5
+	 ygs8lQAqIbCHARcAI1hFmYLyOUCNIHYbdWmzP0kxdnFVdujiYwCYteWU2ZgWDEGIg1
+	 JCI1nYMNr5nhQ==
+Date: Wed, 18 Dec 2024 09:20:59 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <PSAPR06MB49495C182D0B64687E0174A389052@PSAPR06MB4949.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, jie.qiu@mediatek.com, 
+	junzhi.zhao@mediatek.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, dmitry.baryshkov@linaro.org
+Subject: Re: [PATCH v3 07/33] dt-bindings: display: mediatek: Add binding for
+ MT8195 HDMI-TX v2
+Message-ID: <rsnyljmkdf7i74bkrlf5nesp2sa3n6xcnzsqao4znmczjpfyq2@dsakz56s4ypt>
+References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
+ <20241217154345.276919-8-angelogioacchino.delregno@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241217154345.276919-8-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_001142_373088_042C42CA 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20241218_002103_892842_F3354EE2 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,56 +77,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2024 03:55, Kevin Chen wrote:
-> Hi Krzk,
-> 
->>> On 12/12/2024 16:52, Kevin Chen wrote:
->>>> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
->>>> ---
->>>>  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
->>>>  1 file changed, 6 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->>>> b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->>>> index 2f92b8ab08fa..20191fee1f5b 100644
->>>> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->>>> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
->>>> @@ -101,4 +101,10 @@ properties:
->>>>                - ufispace,ncplite-bmc
->>>>            - const: aspeed,ast2600
->>>>
->>>> +      - description: AST2700 based boards
->>>> +        items:
->>>> +          - enum:
->>>> +              - aspeed,ast2700-evb
->>>> +          - const: aspeed,ast2700
->>>> +
->>>>  additionalProperties: true
->>>
->>>
->>>
->>> This patchset is just corrupted. You already sent it as patch #1.
->>>
->>> Please run scripts/checkpatch.pl and fix reported warnings. Then
->>> please run `scripts/checkpatch.pl --strict` and (probably) fix more warnings.
->>> Some warnings can be ignored, especially from --strict run, but the
->>> code here looks like it needs a fix. Feel free to get in touch if the
->>> warning is not clear.
->> BTW, you already got here same comments before and this is third time you
->> send exactly the same without implementing what we asked you.
-> Please check the following message.
-> https://lore.kernel.org/lkml/PSAPR06MB494943F3F34881D23CEEBD9A897D2@PSAPR06MB4949.apcprd06.prod.outlook.com/
-> 
-> Or, how do you think what is better for me to add ast2700-evb?
-Please stop responding just to make me go away.
+On Tue, Dec 17, 2024 at 04:43:19PM +0100, AngeloGioacchino Del Regno wrote:
+> +  i2c:
+> +    type: object
+> +    $ref: /schemas/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+> +    unevaluatedProperties: false
+> +    description: HDMI DDC I2C controller
+> +
+> +  phys:
+> +    maxItems: 1
+> +    description: PHY providing clocking TMDS and pixel to controller
+> +
+> +  phy-names:
+> +    items:
+> +      - const: hdmi
+> +
+> +  pinctrl-0: true
+> +
+> +  pinctrl-names:
+> +    items:
+> +      - const: default
 
-Read the comments from half a year ago, which you have never implemented:
+Drop both pinctrl entries.
 
-https://lore.kernel.org/lkml/e6cb6f26-fef2-49bc-ab25-fdc9a659f593@kernel.org/
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  '#sound-dai-cells':
+> +    const: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description:
+> +          Input port, usually connected to the output port of a DPI
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description:
+> +          Output port that must be connected either to the input port of
+> +          a HDMI connector node containing a ddc-i2c-bus, or to the input
+> +          port of an attached bridge chip, such as a SlimPort transmitter.
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
 
-On every new patch I was asking you to go back, but again you were
-ignoring each of such messages.
+Please keep the same order of things here and in main properties
+section.
+
+> +  - interrupts
+> +  - power-domains
+> +  - phys
+> +  - phy-names
+> +  - ports
+> +
+
+You need allOf: with ref to dai-common.yaml.
+
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/mt8195-clk.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/power/mt8195-power.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        hdmi-tx@1c300000 {
+
+hdmi@
 
 Best regards,
 Krzysztof
+
 
