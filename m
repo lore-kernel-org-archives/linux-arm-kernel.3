@@ -4,84 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94A39E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBE1E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 11:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cysivQMCAup5VX6VRdjk63p3UWGwFhZcVxFfx15JYQQ=; b=bZy5G3qswlDK4nP/ALe2So19iJ
-	QiR2w3HsSuPlLxBo0In3C8BYmHyiJcwQmc/Ocwk5KON7yuPa0qjvObSKA97ETckQRrLd/EGu3TO5w
-	3dliDhS42/sNGw7v6HT4Pd0Dk3iWs4sbhqJ6C6tFadqssD11BXy3tg4q6Au2G7XB4Q+5seLg1V5xc
-	P2KzcPoLg9FyqNDy1VraGTKlfYdb8n24/WUXb6wI3wfTXGa6Q8gMX+yHhRuxAtYbABFcg1tyKWkoz
-	FxA7pMgyKi2qcJTHH+qSqy3OcDTFvO99+YJc20Cdx4gQ3m11bPcDvx9GnyeXoq/qD36+t0VCbyWSD
-	TPaw6QOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rSAIpP3vHzYCPqelUrOZtnAmCrK9TwEHJ8JYEWRi3Iw=; b=vMjvJ1Xkuymtz5gh4UtEYCsx9A
+	T51i0dopaJ8MwAwuQax11s9je1w3UccekSxHwMGwm3B+7mfzmVkKWNf4by1yl2iSfamncRPg2g6xv
+	UpE+8aSNgab4tTLrQzQk93QLRcCHyGLdXLSKut4lcJNfFgyd3Arw17IyaP58UenNU/BM3eV04CWST
+	6YgPqkXvnNj6DEu6aLVF3Ce08GpTdHLqp0Cyj08oDJqhTegzRtQQUFfT6qLgGzptOm+hf6M45un9M
+	+UTu5OXPsTI9Z2g5FMZL20JopNNzA/unWIByJh5z/EdyRjFdUaCmPTROI+2O4DUDATPGAfgs5HsHX
+	ADINoLrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrzd-0000000GPeB-42lp;
-	Wed, 18 Dec 2024 11:13:29 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1tNs4Z-0000000GQZg-43wz;
+	Wed, 18 Dec 2024 11:18:35 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrw9-0000000GOkG-2iSx
+	id 1tNs3O-0000000GQLr-3Y86
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 11:09:54 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7fd2ff40782so5608610a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 03:09:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734520192; x=1735124992; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=cysivQMCAup5VX6VRdjk63p3UWGwFhZcVxFfx15JYQQ=;
-        b=om/Kc+/jYEE9Oz3ULiLMYKcfOL6GFmYlSwoTTVIJH4q/hmDWvHx4DbK85xnLJnxIXb
-         Ait9Iwtp0JaJzorgZrbQlt/BTIp9HIpK5jh9ACpwOzBii8R/FomtSquLNb2U+yzPT8Dn
-         GlDNm+IrAMde//LnuL9CxHBnfVXTQtdJV8dlvnZ8kg7YNEf99A+C+S5T/Kbi0rzckFIz
-         4ReitLomqbPcaWMi7SJZnvenCp9rmJJd+FSm5WeLUKLuiLW+1DTpbLtV7NVo8Ho5XZNO
-         ipd0btJdvCBxEoF/F9gbRN5GqVGlYYSF/2UMYdHjTZoniKOaUQRjH20ewkVA5cKBtsBn
-         mdOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734520192; x=1735124992;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cysivQMCAup5VX6VRdjk63p3UWGwFhZcVxFfx15JYQQ=;
-        b=mv/xBzmclpI9kbsrZNIF0UU//eNkLOOiOFvMTlatqmMvDTfxqG4S3ctkumWKBsARFb
-         1IeT5epaUF020AJBi7merw1SeOlcQO223HwQQTqvESL99+0KWnRhzn52SsOlNiHQ3fEr
-         YCdnc0zXSRpbEAk5AeFgjsGog6lGEOIJBcN9DBAxqGXCEPoFFHoC4atUKNnuF4UfUANe
-         s3uCnnk5GDwJW55qEdseFYBhQonz0p5IxrGKHIDjPPO4j+3eHBoJ5yaRDI3kf3MwrIvx
-         DjbA/qIvpBHfy7UGcgqFA8lYYBLuy2mRrg1xk5GjFIMAcQNYZkXzSfp/ZZ6RU5mf1DpQ
-         VkDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYK82EmC2s7XbOrh/7B0jaVqp5bIpYwQt6u0Z2K7cNsc1B9xnNHa9LnnoJEhf8J2DVLrR88AghmFBWbjJjFjms@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSdCp8U8g4s4e8siBKU+S0/xfEtWV0staR9mT8qjjjfi0riLtl
-	rqM02ZxnxJUTP8x8PTCKoygnQ3gqCL+llhwug7hSHpCcFH/MkLm0Y+dk+tG4QzJEG4gVi8HUTv7
-	agS/dLLgLCZBtOrq8do8ecOvs9NVDUNe9JDAN7ISGLqgymcoa
-X-Gm-Gg: ASbGncv8NpMTZlwT1/JVrlrepD9pOnsnlREKM2O3/4EWfdANhjPxzyAbGRFqyLYGUZA
-	t78YgOjz+tGo4xffh0DdoNk9TE6xAnr2HU3L0WMA=
-X-Google-Smtp-Source: AGHT+IEz+SwthpfmpijWHlgsc9by0AenGHkniwWORMm8lFz8mYBsn+oM1BmwW233q1MPW5LUjOnDSoaOOI/dEW+oQtw=
-X-Received: by 2002:a17:90b:2642:b0:2ee:b26c:10a0 with SMTP id
- 98e67ed59e1d1-2f2e9339c2amr3609913a91.24.1734520192464; Wed, 18 Dec 2024
- 03:09:52 -0800 (PST)
+	Wed, 18 Dec 2024 11:17:24 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BI4YAbm004011;
+	Wed, 18 Dec 2024 11:17:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	rSAIpP3vHzYCPqelUrOZtnAmCrK9TwEHJ8JYEWRi3Iw=; b=lpJUP4SlFEb1PfN2
+	NNqNFMIIrHELFVx1CPeAVS2zE+7cVHQ+C4Ld6Cw9og1I4eb5I7sZ1jHzhxETpy1q
+	oOxfKXyyqMpoBk+OnOgruE+eSpSUGZ3SLOP7xdDiIFYSTo05nXaIO+HQVpB4mUtf
+	zGKlLmCwXzGAUwYkn7/6Tv6rBBIuA1/r/U9LnxOAiM+pNhDlROcjK8kTYVkQB+Ay
+	TWAYvK7q6X8ghqw+tRekN59c/Kk5FN2dAaBr2gphfE8kry1vr+TCK9t/zXda5U5+
+	hGLAjyeNm7y6fty/ChNJJmwHn3XYgxogsLahtzvBlCcaCjblhrCnouwGgQDPs7qM
+	PjcVKQ==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43kqfsrx6q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Dec 2024 11:17:13 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BIBHC7e027681
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Dec 2024 11:17:12 GMT
+Received: from [10.253.10.199] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 18 Dec
+ 2024 03:17:06 -0800
+Message-ID: <2456ab36-f48e-4aa3-88e1-aeb7895c9816@quicinc.com>
+Date: Wed, 18 Dec 2024 19:17:04 +0800
 MIME-Version: 1.0
-References: <20241217063324.33781-1-quic_jinlmao@quicinc.com>
- <20241217063324.33781-2-quic_jinlmao@quicinc.com> <tida22chffj2znikeotmo52aqnzvmedn3aa7a2coarz2dwjc7w@duw5fby4hexk>
-In-Reply-To: <tida22chffj2znikeotmo52aqnzvmedn3aa7a2coarz2dwjc7w@duw5fby4hexk>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 18 Dec 2024 11:09:41 +0000
-Message-ID: <CAJ9a7VhR5AX9QD3fHiT_aU5yHShcZFaHLEDDcBJbu2xcRbWGVA@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: Add label in the coresight components
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mao Jinlong <quic_jinlmao@quicinc.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
+ use fixed factor clock
+From: Jie Luo <quic_luoj@quicinc.com>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        "Stephen
+ Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Konrad Dybcio
+	<konradybcio@kernel.org>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>
+References: <20241107-qcom_ipq_cmnpll-v6-0-a5cfe09de485@quicinc.com>
+ <20241107-qcom_ipq_cmnpll-v6-5-a5cfe09de485@quicinc.com>
+ <0776a26e-56cd-4838-9b52-210ae9a1f281@oss.qualcomm.com>
+ <8063460d-18ad-4e54-8232-716bad9d37c3@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <8063460d-18ad-4e54-8232-716bad9d37c3@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: ru_USJpoJE25j71X-NtyJ94x5LsqLzxu
+X-Proofpoint-ORIG-GUID: ru_USJpoJE25j71X-NtyJ94x5LsqLzxu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=918 bulkscore=0
+ lowpriorityscore=0 spamscore=0 clxscore=1015 malwarescore=0 phishscore=0
+ impostorscore=0 adultscore=0 mlxscore=0 suspectscore=0 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412180091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_030953_683489_105368F4 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20241218_031723_006179_3BD03280 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +118,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Dec 2024 at 09:21, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On Tue, Dec 17, 2024 at 02:33:23PM +0800, Mao Jinlong wrote:
-> > Current name of coresight component's folder consists of prefix of
-> > the device and the id in the device list. When run 'ls' command,
-> > we can get the register address of the device. Take CTI for example,
-> > if we want to set the config for modem CTI, but we can't know which
-> > CTI is modem CTI from all current information.
-> >
-> > cti_sys0 -> ../../../devices/platform/soc@0/138f0000.cti/cti_sys0
-> > cti_sys1 -> ../../../devices/platform/soc@0/13900000.cti/cti_sys1
-> >
-> > Add label to show hardware context information of each coresight
-> > device. There will be a sysfs node label in each device folder.
-> >
-> > cat /sys/bus/coresight/devices/cti_sys0/label
-> >
-> > Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->
-> Best regards,
-> Krzysztof
->
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+On 12/13/2024 6:30 PM, Jie Luo wrote:
+> 
+> 
+> On 12/13/2024 2:33 AM, Konrad Dybcio wrote:
+>> On 7.11.2024 10:50 AM, Luo Jie wrote:
+>>> xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
+>>> 48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
+>>> block routing channel.
+>>>
+>>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+>>> ---
+>>>   arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
+>>>   arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
+>>>   2 files changed, 8 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/ 
+>>> arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
+>>> index 78f6a2e053d5..9a8692377176 100644
+>>> --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
+>>> +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
+>>> @@ -174,8 +174,13 @@ &ref_48mhz_clk {
+>>>       clock-mult = <1>;
+>>>   };
+>>> +/*
+>>> + * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
+>>> + * from WiFi output clock 48 MHZ divided by 2.
+>>> + */
+>>>   &xo_board_clk {
+>>> -    clock-frequency = <24000000>;
+>>> +    clock-div = <2>;
+>>> +    clock-mult = <1>;
+>>>   };
+>>>   &xo_clk {
+>>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/ 
+>>> dts/qcom/ipq9574.dtsi
+>>> index 8246a00a3e3e..25aed33e9358 100644
+>>> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+>>> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+>>> @@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
+>>>           };
+>>>           xo_board_clk: xo-board-clk {
+>>> -            compatible = "fixed-clock";
+>>> +            compatible = "fixed-factor-clock";
+>>> +            clocks = <&ref_48mhz_clk>;
+>>
+>> This must be squashed with the previous patch, you can't introduce
+>> code and replace it immediately afterwards.
+>>
+>> Konrad
+
+Hi Konrad,
+
+Looking at this comment again, there may have been some
+misunderstanding. We are not introducing xo_board_clk in patch 4 of this
+series. xo_board_clk is a pre-existing node.
+
+As part of this additional patch 5, we wanted to address Dmitry's
+comment earlier in v5 (reference to comment below), by converting the
+xo_board_clk as well to a fixed-factor clock. So it is better to keep
+this change as a separate patch in my view. Hope this is OK.
+
+https://lore.kernel.org/linux-arm-msm/CAA8EJpoQO7=v8QWeH8MAgX4uU=m4VJqfC3J5PKyySM2TBcHWiw@mail.gmail.com/
+
+> 
+> Ok, I will update the patch series with this patch dislodged, and push
+> this single patch in next update. Thanks.
+> 
+> 
+
 
