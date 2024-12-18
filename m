@@ -4,99 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A60E77187
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D3CE77187
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Dec 2024 14:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jikMDVImI7Pf9+NM113vi4yTRoWYSpkiHuuI1ghgiGU=; b=YO/lSH7tOiVcWIi5x0Z+aysDBn
-	a6IBDBLl5qsLEWunu7IC2rl56WyBfFnZN8SuGcBoZ7Yy1Ox6BEusdI3pC3dfoj81aALlfzr2gfIbK
-	q7ukhTv/GDwpx6cOlqRHDXLMLAjWN3kUBlp9uNQnsjjZz2zSSDG2TpZcZahd0YKGhrzxMQPnFrNZi
-	YIGlTRbzH6DTCrDZ4PHzjlsEJSTDEO+TM/OCz/xuqNn/KWlOhIvYiMsyQp5pXgoaltUa5Ym8GCIct
-	WG5SVHCLd70luBLzsRN1dhDjLonlFIXx6gg5EHZkrIkcvIJGRAcLLQ0X/I7BFwIPz3UECkNatDATR
-	ghzi/fVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RSUvcPI018AyiYq0gf2zMQGKhtDHBCTfLKLQONj0Wp4=; b=bYzzg2oFG98B3K1a/9wJD9NmWX
+	tf2GYScpAtgqiXEZTx45iP29HhhmaDC91/UenlLuzRIuOR3jVp8simW4qqcbI0NplQD7rDH7kXBg2
+	E+1JWke7ctZhCQ5RqGk7P8B7XVI2g7Eetc+pClNoezoqVhA3BCD4jHsrKERJXiB6X+Fo82U8wEBac
+	q6p05/zI4HZTbiEtvYG85J/vq9gcQ4HAVsNEYmJsM+FsBcMvwuctRK7jiTDmGf7skWNiJ3uxb3XoL
+	+qBb0RNAYihG92C6YgioxwypuITm++enLvxjYUU2KeFZvIXbCMVa29QP+JlshFfn/sUSRETgu/Ydu
+	0JZhy5Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvRb-0000000GvXg-3O1M;
-	Wed, 18 Dec 2024 14:54:35 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1tNvTA-0000000Gvkl-48MV;
+	Wed, 18 Dec 2024 14:56:12 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvPT-0000000Gv3j-3LAN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Dec 2024 14:52:25 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-6f00da6232bso60381577b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 18 Dec 2024 06:52:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734533542; x=1735138342; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=jikMDVImI7Pf9+NM113vi4yTRoWYSpkiHuuI1ghgiGU=;
-        b=BjlqoEv8zQx5DyJbbBvNAWaWkbTPUWcvp2LEaB5WjR8YmxZwqsPwtwzEUE2QZESSwM
-         czRS8oPn6UbZ35yFdJdJUYxFLRtpJGFDDwR6/Ed95CQFfpJiRWjZxwPCU/HWAtRwKZJF
-         bqrdX0D4us40oSlNPOb+6hp2L5Z6KYvjYicl7lQT0MwXG3Y2XLujiSWNYr1GmMxgqRWf
-         4GsBYK1H2cUAmTfqTlLe2xLucMfmcd7o1idcfxC2OVmU8QjJYf7el23jtC/DzTpjcvH7
-         fb/C/pWyyuBh7bZ/3zjBGxMOmmjuE0g0T8c4Wam8t7M03+QE3ETke4vBIqz+3QJ9Duz+
-         FF5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734533542; x=1735138342;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jikMDVImI7Pf9+NM113vi4yTRoWYSpkiHuuI1ghgiGU=;
-        b=ehenh+PxwVlD8ugyTndiExMRf7WX+xgSwIJvmOk1+RqyF4kN9Iz8tKA6y29F+Kh3Y7
-         SULrJG63AB6FwcYHD3qWUZNbQQDGQQHdBlLbf5pXLtWR4QGHKxSDGqQhBdjpb08IBj0n
-         S3bY8fEC66pEgU7VxRHisIozVYniyRmxvcFgvi9Cs5A149M5kBkgwbL3cdZ+4B+DabuD
-         zfVeyHRGP1f66aPee68dNrLQYLqwW8M6SEn8efXd0hTkARhotmM2FlaT6RWNQ059Jzj0
-         UgV+O5tnlPciksKc1g3XeXjtkjJqg1UJYb6kKn53JtN4xkidTHnhQXDAamKwvs1A0/DJ
-         H52g==
-X-Forwarded-Encrypted: i=1; AJvYcCXd/ziUHMyX4P6gG3/+zAEx0J/nSSGNsMbRrmvWCA2TQiKiQV/HKHxLILzQygjn8V87SMAC3vlibaBx9fMKMe95@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw42cxdYLLjDvc5roeGMyNEKTAgHiLH80SEACtmkHVyL2v6SC+5
-	9+2xwGu9hdA8ixuzmAlUvzsn74xMcWzq/yWKct9Ce6k4l7nx+AtAgWwycmaMyQtNYejv5pg1Nlg
-	MjOqX/M61eqpBVXd2wkaLpPwA058ysqEg8Ai1KQ==
-X-Gm-Gg: ASbGncuqq+0FOSWdiVXkBrUYImz+yOagQeY/U3xikUI5+xwkQt7e4mW1J2njamdms9Q
-	8LxBT0v5MSHtmsA+fLkVO1lN45rHGVw77YZBe7w==
-X-Google-Smtp-Source: AGHT+IFROOIaavezTSB4qbIDqYTANawNmOriE8EjpWA/iXMqK2VjNXjnSwbVB0kRn8qDDZTN6lGUdQkOSisxyeutzXQ=
-X-Received: by 2002:a05:690c:6c91:b0:6ef:a4bc:8bc9 with SMTP id
- 00721157ae682-6f3d22573a0mr22613297b3.21.1734533540880; Wed, 18 Dec 2024
- 06:52:20 -0800 (PST)
+	id 1tNvS3-0000000Gvc6-0nxs;
+	Wed, 18 Dec 2024 14:55:06 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id EA0641F396;
+	Wed, 18 Dec 2024 14:54:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1734533699; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RSUvcPI018AyiYq0gf2zMQGKhtDHBCTfLKLQONj0Wp4=;
+	b=nLw8h69jQSs/wwYlBKzAhjAKDJsO1bLO9Q9IO6dsc72muSn1eh0CIUeAcS/AYTytb4Y5HI
+	ZTYP1iXAbwLFFphFO+jfXpgN2MfNgznvrkci5QWYGKjsFOcJReY6mm985Y8u5VBuMcl8U3
+	+qTkv+HHR0obtEyOuDhTiJDb1o8rkkI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1734533699;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RSUvcPI018AyiYq0gf2zMQGKhtDHBCTfLKLQONj0Wp4=;
+	b=uUw7S3vorA9/0YRDvlqeCc0qO67wZmrRY/xlkdXc2699/Pkbc8fm1Ltevw9X43MXrCNCXR
+	ZVFRAnhNtBsrLDDQ==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1734533698; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RSUvcPI018AyiYq0gf2zMQGKhtDHBCTfLKLQONj0Wp4=;
+	b=dM9Qe0DIpJSARNJrDvBuzSgO0bgfueBzYlwceOCeVuyrP92xL6ubsvinC60utfSvaQ7lkP
+	yNPoBtIb1W4feXKJi2g3ij7u8lZe03SkfYKEFRsCMEpln1JtMeD7OD5eOCmWKe5G/6c5WD
+	ESo2u+OEmwtcjUkYuwZex/TgqbOYyM4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1734533698;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RSUvcPI018AyiYq0gf2zMQGKhtDHBCTfLKLQONj0Wp4=;
+	b=pk8iodLnGP7TsrZ7nZNMGc4TIue8FWuwgxgAYvMNSb5bNkTTKbqnWRhwJyisjaAZzmc0Rz
+	qFOjZjy6xJvU0KCw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 01187137CF;
+	Wed, 18 Dec 2024 14:54:57 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id kG/9OEHiYmfBLAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Wed, 18 Dec 2024 14:54:57 +0000
+Message-ID: <ab136131-a306-4344-adaf-904e3b32326e@suse.de>
+Date: Wed, 18 Dec 2024 16:54:57 +0200
 MIME-Version: 1.0
-References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
- <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat> <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
- <20241218-wild-red-manatee-bb2a34@houat>
-In-Reply-To: <20241218-wild-red-manatee-bb2a34@houat>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 18 Dec 2024 14:52:04 +0000
-Message-ID: <CAPY8ntDdcOXuWVgx6+cbgX5ct_-MXcE7CWDKgGP57EX6bvBLaw@mail.gmail.com>
-Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Phong LE <ple@baylibre.com>, Inki Dae <inki.dae@samsung.com>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Russell King <linux@armlinux.org.uk>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Alain Volmat <alain.volmat@foss.st.com>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/10] PCI: brcmstb: Enable external MSI-X if available
+To: James Quinlan <james.quinlan@broadcom.com>,
+ Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>
+References: <20241025124515.14066-1-svarbanov@suse.de>
+ <20241025124515.14066-7-svarbanov@suse.de>
+ <f0a734d9-6bf6-4d28-b30b-99b6be9f62dc@broadcom.com>
+Content-Language: en-US
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <f0a734d9-6bf6-4d28-b30b-99b6be9f62dc@broadcom.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_ALL(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_065223_834706_CF2FD436 
-X-CRM114-Status: GOOD (  34.00  )
+X-CRM114-CacheID: sfid-20241218_065503_392641_D5314DED 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,66 +148,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime & Dmitry
+Hi Jim,
 
-On Wed, 18 Dec 2024 at 07:59, Maxime Ripard <mripard@kernel.org> wrote:
->
-> On Wed, Dec 18, 2024 at 07:24:23AM +0200, Dmitry Baryshkov wrote:
-> > On Tue, 17 Dec 2024 at 19:21, Maxime Ripard <mripard@kernel.org> wrote:
-> > > On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
-> > > > While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
-> > > > framework, I stumbled upon an issue while handling the Audio InfoFrames.
-> > > > The HDMI codec callbacks weren't receiving the drm_atomic_state, so
-> > > > there was no simple way to get the drm_connector that stayed at the end
-> > > > of the bridge chain. At the same point the drm_hdmi_connector functions
-> > > > expected to get drm_connector instance.
-> > > >
-> > > > While looking for a way to solve the issue, I stumbled upon several
-> > > > deficiencies in existing hdmi_codec_ops implementations. Only few of the
-> > > > implementations were able to handle codec's 'plugged' callback. One
-> > > > third of the drivers didn't implement the get_eld() callback.
-> > > >
-> > > > Most of the issues can be solved if drm_connector handles
-> > > > hdmi-audio-codec on its own, delegating functionality to the actual
-> > > > implementation, be it a driver that implements drm_connector or
-> > > > drm_bridge.
-> > > >
-> > > > Implement such high-level framework, adding proper support for Audio
-> > > > InfoFrame generation to the LT9611 driver.
-> > > >
-> > > > Several design decisions to be kept in mind:
-> > > >
-> > > > - drm_connector_hdmi_codec is kept as simple as possible. It implements
-> > > >   generic functionality (ELD, hotplug, registration).
-> > > >
-> > > > - drm_hdmi_connector sets up HDMI codec device if the connector
-> > > >   is setup correspondingly (either I2S or S/PDIF is marked as
-> > > >   supported).
-> > > >
-> > > > - drm_bridge_connector provides a way to link HDMI audio codec
-> > > >   funcionality in the drm_bridge with the drm_connector_hdmi_codec
-> > > >   framework.
-> > > >
-> > > > - It might be worth reverting the no_i2s_capture / no_spdif_capture
-> > > >   bits. Only TDA889x driver sets them, while it's safe to assume that
-> > > >   most of HDMI / DP devices do not support ARC / capture. I think the
-> > > >   drivers should opt-in capture support rather than having to opt-out of
-> > > >   it.
-> > >
-> > > Sorry if this isn't clear to me and I'm quite late to the party, but did
-> > > you test this on vc4 with both a pi3 and pi4, or was it just compile
-> > > tested?
-> >
-> > LT9611 is actually tested, VC4 is only compile-tested. Should I put an RFT tag?
->
-> Yeah, we definitely need to test it on the pi3 (polling-based) and the
-> pi4 (irq-based) at least.
->
-> Dave, Maira, could you give it a try?
+Thanks for comments!
 
-I'm on it.
+On 12/11/24 10:01 PM, James Quinlan wrote:
+> On 10/25/24 08:45, Stanimir Varbanov wrote:
+>> On RPi5 there is an external MIP MSI-X interrupt controller
+>> which can handle up to 64 interrupts.
+>>
+>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>> ---
+>> v3 -> v4:
+>>   - no changes.
+>>
+>>   drivers/pci/controller/pcie-brcmstb.c | 63 +++++++++++++++++++++++++--
+>>   1 file changed, 59 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/
+>> controller/pcie-brcmstb.c
+>> index c01462b07eea..af01a7915c94 100644
+>> --- a/drivers/pci/controller/pcie-brcmstb.c
+>> +++ b/drivers/pci/controller/pcie-brcmstb.c
+>> @@ -1318,6 +1318,52 @@ static int brcm_pcie_start_link(struct
+>> brcm_pcie *pcie)
+>>       return 0;
+>>   }
+>>   +static int brcm_pcie_enable_external_msix(struct brcm_pcie *pcie,
+>> +                      struct device_node *msi_np)
+>> +{
+>> +    struct inbound_win inbound_wins[PCIE_BRCM_MAX_INBOUND_WINS];
+>> +    u64 msi_pci_addr, msi_phys_addr;
+>> +    struct resource r;
+>> +    int mip_bar, ret;
+>> +    u32 val, reg;
+>> +
+>> +    ret = of_property_read_reg(msi_np, 1, &msi_pci_addr, NULL);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    ret = of_address_to_resource(msi_np, 0, &r);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    msi_phys_addr = r.start;
+>> +
+>> +    /* Find free inbound window for MIP access */
+>> +    mip_bar = brcm_pcie_get_inbound_wins(pcie, inbound_wins);
+>> +    if (mip_bar < 0)
+>> +        return mip_bar;
+>> +
+>> +    mip_bar += 1;
+>> +    reg = brcm_bar_reg_offset(mip_bar);
+>> +
+>> +    val = lower_32_bits(msi_pci_addr);
+>> +    val |= brcm_pcie_encode_ibar_size(SZ_4K);
+>> +    writel(val, pcie->base + reg);
+>> +
+>> +    val = upper_32_bits(msi_pci_addr);
+>> +    writel(val, pcie->base + reg + 4);
+>> +
+>> +    reg = brcm_ubus_reg_offset(mip_bar);
+>> +
+>> +    val = lower_32_bits(msi_phys_addr);
+>> +    val |= PCIE_MISC_UBUS_BAR1_CONFIG_REMAP_ACCESS_EN_MASK;
+>> +    writel(val, pcie->base + reg);
+>> +
+>> +    val = upper_32_bits(msi_phys_addr);
+>> +    writel(val, pcie->base + reg + 4);
+> 
+> Hi Stan,
+> 
+> It looks like all this is doing is setting up an identity-mapped inbound
+> window, is that correct?  If so, couldn't you get the same effect by
+> adding an identity-mapped dma-range in the PCIe DT node?
 
-  Dave
+Yes, that approach could work, I verified it.
 
-> Maxime
+Do you want me to drop this patch from the series and make the relevant
+changes in PCIe dma-ranges properties?
+
+~Stan
+
+
+
 
