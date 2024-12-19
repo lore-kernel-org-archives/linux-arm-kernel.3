@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00BDE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C67E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B6bBnhQ+Yihvnob8cdt9x+XWI3cSDJeBWRRdp8mfg8Y=; b=05I197Rjc0KRZNRDRvVFYfUwWy
-	PI7lztYxMiYvRbTI3tptdZuiOrbZlgz+dqp93F82+CfHwjzQjSDeKScZ7qBPt4usSRrzLUS77Yik7
-	FOM7rfv6v8LMpkgt1C7FyUtW1RCW4N1kTn6ZeX/wtn6Ej5LCzCGYKCgELReEzJslam81Mn5g4hfl2
-	YIKUD1y8gaMK7vZhkgbxhHmRSj2oa+PE0FBxZYkcohRBv5KtDeWn5W7soHDkq/2yhbFIlwx6SHnjl
-	8QKa/EoJopzLY6ypXLUDaCwxIemgMTdo2yxoRlKvArAzdGa7g7yNYxtsgAXeJsbL3YOWKsolV0+ao
-	UcvzJG4Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ze5ZZEhjy/r1M7IePoxG9jDEGO1Be6L3wRhyvD9jyWY=; b=heswpgAMKtljY72gIMSo1z+bJU
+	Gt377VCUdx7zpaHcVAAFy/KJhsHiJ/a2QEVLMgHTAamLFvd3na2RyBsOS/+xcSxcEKRB/9GjJUrWs
+	fgsfMhsCA89rOqShEPznVPyuj8bbpoXIErY1Zan9Ayi1n1sQkKAKJMp/APKcpiCg/3Q94jJapAw1J
+	JbVKEKoHDJkX0mq3JK612cB9oVXRNW88IGMo/6KsKxPZxLSuf3DmctUf9168KRQlRsH/iw5iZqXCg
+	LiQagfzFNvcmthvariS0cyTaLSf7aQvxExjH88CCUNT+Xuz1a3mi/xVLMCXWlpQs7+TAcKr4weMjX
+	A79Al68g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOBGd-000000019Le-2PFS;
-	Thu, 19 Dec 2024 07:48:19 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1tOBHh-000000019Tr-3HSH;
+	Thu, 19 Dec 2024 07:49:25 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOB8g-000000017Sd-0tzP;
-	Thu, 19 Dec 2024 07:40:08 +0000
+	id 1tOB8g-000000017Sm-131t;
+	Thu, 19 Dec 2024 07:40:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=B6bBn
-	hQ+Yihvnob8cdt9x+XWI3cSDJeBWRRdp8mfg8Y=; b=hY1Msfr4b51Z/y2FwVrS7
-	wAxtMk3NoMueuRYIgmqhDuj4qdsv1mKFbgOUZUTA1YZQDL9A7EFOvnx3MUm38TlS
-	ExzFYbVO7P/3cikxyaXF90nOpEFFnSK38PrHQLfoqiOanDrga29DbVEufYm9SCa4
-	eo7i0tP2qNjRxuIvIrK6X4=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=ze5ZZ
+	Ehjy/r1M7IePoxG9jDEGO1Be6L3wRhyvD9jyWY=; b=jE7eFEih7zGQ+fU+q6s9p
+	8Vn2v8da6FtIiV2wm6+m+NT9Tu9e22xgCMXalgz0uAHtY4UV7ZIeupJB3RfoEsaD
+	hnrmznOI9xJKtqilKR97o2SkOYuX2uvYb6iDuxIRaHq2EKwdAFUxeYAPKGhgs8h/
+	iIBS0slzHi/7NyEvSkY+Aw=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wBnUtq0zWNnL5jUAA--.6492S2;
-	Thu, 19 Dec 2024 15:39:36 +0800 (CST)
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wBnUtq0zWNnL5jUAA--.6492S8;
+	Thu, 19 Dec 2024 15:39:42 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -48,23 +48,26 @@ Cc: hjc@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	derek.foreman@collabora.com,
 	detlev.casanova@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v7 0/9] VOP Support for rk3576
-Date: Thu, 19 Dec 2024 15:39:08 +0800
-Message-ID: <20241219073931.3997788-1-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v7 6/9] drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
+Date: Thu, 19 Dec 2024 15:39:14 +0800
+Message-ID: <20241219073931.3997788-7-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241219073931.3997788-1-andyshrk@163.com>
+References: <20241219073931.3997788-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBnUtq0zWNnL5jUAA--.6492S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr4Dtry3Kw1UJr48uFWrAFb_yoW8KrW5pa
-	98CFyrZrWxGFy2qrs7Jw4UCrWrKFnayayxG393K3WfJ342yry7Kr1a9F15Zr9xX3WxZr4j
-	93yfCa47KF42vFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UEeHgUUUUU=
+X-CM-TRANSID: _____wBnUtq0zWNnL5jUAA--.6492S8
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtrWUXr1UGF4kGFyxKF17Wrg_yoWxKrWUpa
+	yxZr13WF4fCr4agry7Ja98ZFyak3sxAw4a93ZrKFsxKr13Kry7Wr1UK3Z8Cr1DWFyxZr1j
+	vw4aqrWDurnrtrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jsMa8UUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQS6XmdjzK8brAAAsZ
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMxm6XmdjydhsngAAsp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_234006_609860_5D9F33C2 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20241218_234006_696235_F07F4D8C 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +84,186 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
+In the upcoming VOP of rk3576, a window cannot attach to all Video
+Ports, we introduce a possible_vp_mask for every window to indicate
+which Video Ports this window can attach to.
 
-Here is the V7, because I find that I missed sync with Heiko's
-dp+dsi maxclk verification patch[0]:
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
 
-Patches that have already been merged in V6 are dropped.
+(no changes since v1)
 
-PATCH 1~7 are preparations for rk3576 support
-PATCH 8~9 are real support for rk376
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 18 +++++++++++++++++-
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  1 +
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 14 ++++++++++++++
+ 3 files changed, 32 insertions(+), 1 deletion(-)
 
-I test it with a 1080P/4K HDMI output with modetest and weston
-output.
-
-If there are some one want to have a try, I have a tree based on
-Linux 6.13-rc2 here[1]
-
-[0]https://lore.kernel.org/linux-rockchip/20241115151131.416830-1-heiko@sntech.de/
-[1]https://github.com/andyshrk/linux/tree/rk3576-vop2-upstream-v6
-
-Changes in v7:
-- Fix rk3588 dp+dsi maxclk verification
-
-Changes in v6:
-- Add a blank line after hardware version check code
--  More specific explanation about the AXI_BUS_ID register bit of
-   cluster window.
-
-Changes in v5:
-- Add axi id configuration
-- Remove the non-existent CBCR scale register.
-
-Changes in v4:
-- Typo fix: selet->select
-
-Changes in v3:
-- Add comments for why we should treat rk3566 with special care.
-- Add hardware version check
-- Add comments for why we should treat rk3566 with special care.
-- ordered by soc name
-- Add description for newly added interrupt
-- Share the alpha setup function with rk3568
-- recoder the code block by soc
-
-Changes in v2:
-- split it from main patch add support for rk3576
-- Add platform specific callback
-- Introduce vop hardware version
-- Add dt bindings
-- Add platform specific callback
-
-Andy Yan (9):
-  drm/rockchip: vop2: Support 32x8 superblock afbc
-  drm/rockchip: vop2: Add platform specific callback
-  drm/rockchip: vop2: Support for different layer select configuration
-    between VPs
-  drm/rockchip: vop2: Introduce vop hardware version
-  drm/rockchip: vop2: Register the primary plane and overlay plane
-    separately
-  drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
-  drm/rockchip: vop2: Add uv swap for cluster window
-  dt-bindings: display: vop2: Add rk3576 support
-  drm/rockchip: vop2: Add support for rk3576
-
- .../display/rockchip/rockchip-vop2.yaml       |   13 +-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c  | 1454 +++----------
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h  |  271 ++-
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c  | 1797 ++++++++++++++++-
- 4 files changed, 2307 insertions(+), 1228 deletions(-)
-
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index e588d5d01e0a..0b79f2006836 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -2311,6 +2311,10 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 			if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
+ 				continue;
+ 
++			/* If this win can not attached to this VP */
++			if (!(win->data->possible_vp_mask & BIT(vp->id)))
++				continue;
++
+ 			if (vop2_is_mirror_win(win))
+ 				continue;
+ 
+@@ -2342,7 +2346,19 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 
+ 		win->type = DRM_PLANE_TYPE_OVERLAY;
+ 
+-		possible_crtcs = (1 << nvps) - 1;
++		possible_crtcs = 0;
++		nvp = 0;
++		for (j = 0; j < vop2_data->nr_vps; j++) {
++			vp = &vop2->vps[j];
++
++			if (!vp->crtc.port)
++				continue;
++
++			if (win->data->possible_vp_mask & BIT(vp->id))
++				possible_crtcs |= BIT(nvp);
++			nvp++;
++		}
++
+ 		ret = vop2_plane_init(vop2, win, possible_crtcs);
+ 		if (ret) {
+ 			drm_err(vop2->drm, "failed to init overlay plane %s: %d\n",
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+index 21464d107bd3..3c9caf13749d 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+@@ -167,6 +167,7 @@ struct vop2_win_data {
+ 	unsigned int phys_id;
+ 
+ 	u32 base;
++	u32 possible_vp_mask;
+ 	enum drm_plane_type type;
+ 
+ 	u32 nformats;
+diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+index 48629353929d..f0b0608fe1be 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
++++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
+@@ -347,6 +347,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.name = "Smart0-win0",
+ 		.phys_id = ROCKCHIP_VOP2_SMART0,
+ 		.base = 0x1c00,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
+ 		.formats = formats_smart,
+ 		.nformats = ARRAY_SIZE(formats_smart),
+ 		.format_modifiers = format_modifiers,
+@@ -360,6 +361,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 	}, {
+ 		.name = "Smart1-win0",
+ 		.phys_id = ROCKCHIP_VOP2_SMART1,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
+ 		.formats = formats_smart,
+ 		.nformats = ARRAY_SIZE(formats_smart),
+ 		.format_modifiers = format_modifiers,
+@@ -373,6 +375,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 	}, {
+ 		.name = "Esmart1-win0",
+ 		.phys_id = ROCKCHIP_VOP2_ESMART1,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
+ 		.formats = formats_rk356x_esmart,
+ 		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
+ 		.format_modifiers = format_modifiers,
+@@ -386,6 +389,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 	}, {
+ 		.name = "Esmart0-win0",
+ 		.phys_id = ROCKCHIP_VOP2_ESMART0,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
+ 		.formats = formats_rk356x_esmart,
+ 		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
+ 		.format_modifiers = format_modifiers,
+@@ -400,6 +404,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.name = "Cluster0-win0",
+ 		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
+ 		.base = 0x1000,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+@@ -415,6 +420,7 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
+ 		.name = "Cluster1-win0",
+ 		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
+ 		.base = 0x1200,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+@@ -580,6 +586,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.name = "Cluster0-win0",
+ 		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
+ 		.base = 0x1000,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+@@ -598,6 +605,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.name = "Cluster1-win0",
+ 		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
+ 		.base = 0x1200,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+@@ -616,6 +624,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.name = "Cluster2-win0",
+ 		.phys_id = ROCKCHIP_VOP2_CLUSTER2,
+ 		.base = 0x1400,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+@@ -634,6 +643,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.name = "Cluster3-win0",
+ 		.phys_id = ROCKCHIP_VOP2_CLUSTER3,
+ 		.base = 0x1600,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_cluster,
+ 		.nformats = ARRAY_SIZE(formats_cluster),
+ 		.format_modifiers = format_modifiers_afbc,
+@@ -651,6 +661,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 	}, {
+ 		.name = "Esmart0-win0",
+ 		.phys_id = ROCKCHIP_VOP2_ESMART0,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_esmart,
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+@@ -667,6 +678,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 	}, {
+ 		.name = "Esmart1-win0",
+ 		.phys_id = ROCKCHIP_VOP2_ESMART1,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_esmart,
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+@@ -684,6 +696,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 		.name = "Esmart2-win0",
+ 		.phys_id = ROCKCHIP_VOP2_ESMART2,
+ 		.base = 0x1c00,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_esmart,
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
+@@ -699,6 +712,7 @@ static const struct vop2_win_data rk3588_vop_win_data[] = {
+ 	}, {
+ 		.name = "Esmart3-win0",
+ 		.phys_id = ROCKCHIP_VOP2_ESMART3,
++		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2) | BIT(3),
+ 		.formats = formats_esmart,
+ 		.nformats = ARRAY_SIZE(formats_esmart),
+ 		.format_modifiers = format_modifiers,
 -- 
 2.34.1
 
