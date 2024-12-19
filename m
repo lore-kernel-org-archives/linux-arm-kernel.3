@@ -4,122 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0FCE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 17:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E75CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 17:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iDfa2Muw1eLzXoysgvWlMJjmoDqf3WCXyr0RROwBOkU=; b=uo/0lR0LDEn05XeUnh4jdNYwx5
-	UieRaHxkcwQbtgsMP1CTuNrV6CLuHx42XlW2N9ZSNn9QhiNdpYVBSJl0hThhEjjkC6iZP5czjJ4Jw
-	1/k/XUDmhSQ1mGmgJu3I5sOTU75TMTlLIN3Wzfpaq8TLzulhb3i/tA7TdamHcwoTE6or4Eg9MOMpG
-	BKqVicaHDi2J81WkVd96bDFbttyaO6oeLx11yGWw2TEioHGia1Eq1lg6AP7ApJeYn6exMo0IDgoFW
-	xNt5pIKKCO/ZOqLgzi+uw/VB9j3BknkegkO/E30gIjy/JUHQ6wF9f69YcYABX7hcJ4FmcvZcFig3x
-	J8lTPsYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ap48egQQYjTFlsWXbHaljCMT9L0YYN5hLo9udbi2yJE=; b=u4lwSLwLhqJJ9nbkHcea3XeIGC
+	VJhLqY7YGE7e7tF1cXtKvvvNCS3KUiZ2q3R9769D95cNejd622SzWHCda0i4mrvoAKMi6y6/sPbTP
+	/aYR4Lq0NPk9ADOIQmERWsXcE3nx3a6NGN9vB2HfIo4FQTUDtLOLALVQaFthKV2sZyrHOocdCR25h
+	NNioy7vCR6fen+LZ8HHYCmLJHQOn8d3LBNQbIZ44ep7F55wZECYCUHx5Gh/cd4i7o3BoWuIpi3ZEk
+	gNC/5wvZDpsgh+7AXv47rTE2J59d7/mlz42NVfLSwivRctN+/Iy4vLlurTKN7T3+MsthaTaZeRhVO
+	6mvd1mJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKfT-00000002cyZ-25bf;
-	Thu, 19 Dec 2024 17:50:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tOKgZ-00000002dDs-0hii;
+	Thu, 19 Dec 2024 17:51:43 +0000
+Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKRa-00000002aFC-2Zwh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Dec 2024 17:36:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=iDfa2Muw1eLzXoysgvWlMJjmoDqf3WCXyr0RROwBOkU=; b=ElOvnr+IyUHwIrk1MrwCciDdLI
-	LiRR42U9WbQqk5SR42MaG9whGUS5kzLTTd4F+A23SnEy/nY+8xn26N3HLSGOV5qc2aMo4nGy84+X0
-	MmAboHnd5s1O9lJYU/veq3ViFrQ1VwcU/VIGR7JmKPs3Apn0TeCsOkQtq6dJqd0AY/Y5uucO2hrec
-	xYJp5PEid/u+RRwOgxZuAIm3OcjHuTxGotpE0Rhhi07D4VlYsy8lI4v/1ZFpJvTOOYYbAM9ZLj7/l
-	bADbNTBKGqPY73CdXffbVmBjqAx723R2XgG1s17/FnP1q5JIg3d2p0UuHR1X99bU2B29icTSz2cdK
-	96emMTRg==;
-Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKRW-00000005Tvx-49jv
+	id 1tOKRr-00000002aHm-2yVq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 17:36:13 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id D4E531140166;
-	Thu, 19 Dec 2024 12:36:03 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Thu, 19 Dec 2024 12:36:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1734629763;
-	 x=1734716163; bh=iDfa2Muw1eLzXoysgvWlMJjmoDqf3WCXyr0RROwBOkU=; b=
-	YPzuIoaDiSpZYJkh2n3/LpZwJ3Qyv0dhBC5pzmq7f9kkSVaSBm6TmJ9h3sM8zJsJ
-	fg5D/BZXAdnkPuewHFtcStcYOfdZ4XjrBHHN2HoVoqWjaX8PE6f2fmPZ1Mrnd2mc
-	KFLHFCcz92WI1Iep3YkosX9ORHRxoJ6uln0w4r66GltrAQ1yZWoVKcqRiV79uPCk
-	YfMH7PWtsNs+QRExzJxowaP1NxPV1l9E+UCnse90m+xL2c6HUV1IRrkcf8HbLvB+
-	UKRrkU6cyFP+5xM6pWGIUBTw5uRjBRd5IA6gH88jm4/n7kE+3EnBrulLZXHu85UP
-	sIWJvVgcKytOFZcBHhji/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734629763; x=
-	1734716163; bh=iDfa2Muw1eLzXoysgvWlMJjmoDqf3WCXyr0RROwBOkU=; b=U
-	zdnWXAWCe6KM5NqiN4EpRODxTop7JWW3cP7JNEOqZPjMXUHc8ftDE67KPbOBKEtQ
-	ahe3VIlj8uEcb0+hTxIpb8iDZbEOwaZJyWdWF2WVqBjuWaAnzAPVh7iUjjKO3kon
-	Oe3oI6PrRUSxya4XWVRrZl0unUxavngzI0irIzGROkVNqw/3agIGWjoNrPHLxhTP
-	9U3y5p0aICsvS1ZadpiJ2Fq1SxIUaHVX5Ke6yuzwCix8aCH4tVDPgGFPNVLpEYkS
-	pmgCnXxcnMUjYSJ87dXWXdYlUZ4o0jhb4LYACodrFurC1doKDEg0DTYVL9JN8tXp
-	UOQenmJ13hvM5ESB0cCOQ==
-X-ME-Sender: <xms:gllkZ8IzIr1GOq4dhOtiaswaPEXPhFpWD-vvetnXUz4BRX2rAA0iWw>
-    <xme:gllkZ8Jx3nwyOqsNEVOD2wzzD3rqhcUKiTALk3kcXaYOEOsfaXbjs_on3fEw0DYZC
-    xcJPXGNLOso6me-fV0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddttddguddtudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
-    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedu
-    uddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuh
-    igrdhorhhgrdhukhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhho
-    shhsrdhsthdrtghomhdprhgtphhtthhopehprghtrhhitggvrdgthhhothgrrhgusehfoh
-    hsshdrshhtrdgtohhmpdhrtghpthhtohepmhgtohhquhgvlhhinhdrshhtmhefvdesghhm
-    rghilhdrtghomhdprhgtphhtthhopehsohgtsehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdr
-    ohhrghdprhgtphhtthhopeholhhofheslhhigihomhdrnhgvthdprhgtphhtthhopeihoh
-    grnhhnrdgtohhnghgrlhesshhmihhlvgdrfhhrpdhrtghpthhtoheplhhinhhugidqshht
-    mhefvdesshhtqdhmugdqmhgrihhlmhgrnhdrshhtohhrmhhrvghplhihrdgtohhm
-X-ME-Proxy: <xmx:gllkZ8sTIxduK_5QK7eI7Le7J6ZDjBwwhAs4BRLwzcrpkJPKyg8tDw>
-    <xmx:gllkZ5Y7v-tnLgpqrZOgqQ7SoaDvmU3gJemn-Q84cNZH_2vY7fIygg>
-    <xmx:gllkZzbngG4eIUW0vd2_45NgebXn6yCAj7DBYsAmDmiKqOjTtA0BLQ>
-    <xmx:gllkZ1CSS1cFIGlPd3o-y0gd0nJv29lVI9rF5SE0iNUgOS-MOPGzUw>
-    <xmx:g1lkZwSzZ6XoDoQAShssJy-o93Id7cf2Fwx2clVd0HC9EkjKlv7ZgkJM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A5A862220072; Thu, 19 Dec 2024 12:36:02 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 19 Dec 2024 17:36:33 +0000
+Date: Thu, 19 Dec 2024 09:36:16 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1734629788;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ap48egQQYjTFlsWXbHaljCMT9L0YYN5hLo9udbi2yJE=;
+	b=Csc+vQ+WRhHRGl7OlGJx22m1D4aOa0/LrTi+9UzU81TvkO0x8LP2EFgVOoV+/aJvDIr5Bx
+	lzikpMxhvRNERHpxOgGQDhye/T8UhGy7Crt3bQagdyQGlb53vpJGxPaoWSWNjjWqwilWVC
+	DlVPRbzgEoEaUrY0b/iu0jNpvJ/pDDQ=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
+	mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com,
+	sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com,
+	jiangkunkun@huawei.com, jonathan.cameron@huawei.com,
+	anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org,
+	linuxarm@huawei.com
+Subject: Re: [PATCH v4 0/3] KVM: arm64: Errata management for VM Live
+ migration
+Message-ID: <Z2RZkP-v2nbmmzLV@linux.dev>
+References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+ <86a5csq93o.wl-maz@kernel.org>
 MIME-Version: 1.0
-Date: Thu, 19 Dec 2024 18:35:42 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Patrice Chotard" <patrice.chotard@foss.st.com>,
- "Olof Johansson" <olof@lixom.net>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Russell King" <linux@armlinux.org.uk>,
- "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Petr Mladek" <pmladek@suse.com>, "Yoann Congal" <yoann.congal@smile.fr>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, soc@kernel.org
-Message-Id: <7c6dc57c-f33b-4a4b-9423-01ee2933f759@app.fastmail.com>
-In-Reply-To: <20241219172934.3010875-1-patrice.chotard@foss.st.com>
-References: <20241219172934.3010875-1-patrice.chotard@foss.st.com>
-Subject: Re: [PATCH 0/7] ARM: config: stm32: Disable useless flags
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86a5csq93o.wl-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_173611_426268_95B49071 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20241219_093632_012887_FFFAD74B 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,28 +74,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024, at 18:29, patrice.chotard@foss.st.com wrote:
-> From: Patrice Chotard <patrice.chotard@foss.st.com>
->
-> *** BLURB HERE ***
->
-> Patrice Chotard (7):
->   ARM: configs: stm32: run savedefconfig for STM32 defconfig
->   ARM: configs: stm32: Disable CONFIG_COMMON_CLK_STM32MP in STM32
->     defconfig
->   ARM: configs: stm32: Disable CONFIG_SUSPEND in STM32 defconfig
->   ARM: configs: stm32: Disable CONFIG_ADVISE_SYSCALLS in STM32 defconfig
+On Thu, Dec 19, 2024 at 10:07:39AM +0000, Marc Zyngier wrote:
+> Hi Shameer,
+> 
+> On Wed, 18 Dec 2024 10:53:42 +0000,
+> Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
+> > 
+> > Hi,
+> > 
+> > v3 --> v4(Minor updates)
+> > https://lore.kernel.org/kvmarm/20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com/
+> > 
+> >  -Changed MIDR/REVIDR to 64 bits based on feedback from Connie
+> >   and Marc(Patch #3).
+> >  -Added R-by tags from Sebastian (Thanks!).
+> 
+> Thanks again for putting this together.
+> 
+> I think it would be really good to have a sample userspace
+> implementation of this extension so that we can play with it for real
+> before fully committing to it.
+> 
+> I am also wondering is we should make it mandatory that a guest is
+> presented with an MIDR_EL1.Implementer value set to 0, which denotes
+> SW use, and would make it plain to the guest (and crucially, guest
+> userspace) that we are going to play tricks.
+> 
+> Thoughts?
 
-I would structure these the other way round: you can combine patches
-2-7 and just explain why you do those changes in one commit. 
+I see no issues with giving userspace the option of doing this, but I'd
+rather not enforce this to use the PV interface.
 
+At least in a cloud setting it seems highly likely that you'd be running
+a mix of guests on the same VM definition, some aware of the PV
+interface and others not. If we use a software MIDR, all old VMs will
+lose errata mitigations and whatever else userspace might key off of MIDR.
 
-For the things that have changed by themselves, you do need a lot
-more explanation, so we can see that you have checked that these
-don't accidentally break stuff. You can probably still do them
-in a single patch, but it would be nicer to have one patch
-per option that has become unavailable, changing all defconfig
-files that need the same change.
+Userspace can make the call whether or not a VM can be migrated onto a
+different implementation based on whether or not the guest used the
+hypercall interface. And maybe just terminate the VM if it didn't.
 
-     Arnd
+-- 
+Thanks,
+Oliver
 
