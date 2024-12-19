@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039CBE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D687CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o8Jn2gNV/Wj9FZiOzKXMf/S74gi71+RRKXPGCP6+gaA=; b=YmOnJHfGUGcnu408o7IfPLR5Mp
-	aZX7pzOL2QzH9UGfhwe9LGKM6z+fz0SJpIq4PdN8MVl6GMwZ8dtaQiPunhxH4eqDtTyPMWrvo21ci
-	i4130cIEfjMOiUtfUEMVVMhL0TwOpKAeEx/TCWPAHeHtXOwfS0seed4mUpNlOR467vpRVF6uhMuJi
-	WyV5nHVjgYydfEl4Q9ptyXpTjm3tkJbiPXAEWyyJB9Fln5aqAR+4wxZaiCqHEzbTbsCrPtNB298OL
-	ATsh74W95qIYl+BuObjw5jpbFqyCow7Bwwghd5vPuErfxAI5y4SHI7FDvxDRZiFn1WHNtoQ+7iHEj
-	wflAjO4A==;
+	bh=h0OVdlNEOZtn82PTSzwnBPOB1tH/BvlkhcAFa74Apks=; b=AXeHyqM/nEx7GWqFiHq6HTNdA6
+	HwZmT98+NJ3Tl5JYMUamInpTh1ISk3CyL7r7qWclT06sSJG4Yss7IziBoPQhvrREUmRllVLg1Suw1
+	OR5nYd8wFkwCb5+BJUvOyccx00tAGGAgOS/ujhp6blW2RYCTYtPJ9XWw5KXlnAABdFqfWIYUDDxuV
+	1V4jhhhtSRJ3uq1SRplg81PC606EVpCVt6VUJvJ/5wxY7ErD3/eeKmIb8ZTr5ptRq4GY+lFlHSsbN
+	xAH0X/zJ3j8n5o9wswtsYYeLPkTfbFKW7tXf1+J3wxkQ6vbvu1nSBjI1LfSpUE+RY2clsSyebOh+V
+	cURnM42w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOENO-00000001cOZ-2OEl;
-	Thu, 19 Dec 2024 11:07:30 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tOEQp-00000001cpx-3hsI;
+	Thu, 19 Dec 2024 11:11:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEMH-00000001c5U-1235;
-	Thu, 19 Dec 2024 11:06:22 +0000
+	id 1tOEPj-00000001ch6-3S4v;
+	Thu, 19 Dec 2024 11:09:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734606379;
-	bh=zwsUAHNP7mrQdPFLP5AhvVLR+6YT1CQM3OFvTb1Ql8w=;
+	s=mail; t=1734606593;
+	bh=0arSN+ejbNxnapjrbQiLEUStjChiAuTl6JrFXXXpcUU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fggRZSnGMRdhrKMfWIMQE1xL+eTQ5Ut26nb6qBErlYM/PuCcIM4qbmaQVhWqqecX2
-	 Jzu+P1PAMYCNnFP1f9EASn5uBv/FvzZOUB2owHyAtQZXJ4wZuICaM3pT9k1t+eIj+L
-	 0PpXbITs8y2KKL+4h21+yNiY2YJ1EZf0yOy7XOYMjKyv/0cTWAjAGnwOCYkfIV6ha8
-	 VliONy4DMO2VUvl0hKjDjNTB29oCUvrHmUfkgG4VaAwmiDXf3J8EBFnRz0vx7ZsHvM
-	 EvIlxjkskCdF6ADLbQ0hlcwCVvGx5qW8kJ63/y5d9G/V8y22+/3PqkrZ/eXb2cgNO6
-	 CLriejP/R12Pg==
+	b=buLi9nq+OCoBZJowmY4W6AkR4JdD7GxHQq9GckVJ1VY7AI8sqCxrep0EAQVb5Z8+v
+	 Qjm9TTQ9SKdSa+U+9sa0xGE2i6CZoUpmekIPB6enfigGV8lWInx4lGOFZOfpQ6nwLf
+	 lL+QPqXW9aEI4gFDcrBoSd4BPxMJVi9PGzp8ma3lA7ZKpMIvVwSVGCdPoHnkF2RSVV
+	 FuSEj0nYHniVGvJRmWcn0Zsu/zy86tlTbiRV+OS0kQwd0S+S5wjTkelv28O4U/MKoU
+	 gH6Wj3DjLwNhzjlI3PiNXXcfV4eN1qLcW4YXze3bWRcCEkK/5g2dY4/B0PTQeC6pBB
+	 TMZEB6aUzpH9g==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0308F17E3614;
-	Thu, 19 Dec 2024 12:06:18 +0100 (CET)
-Message-ID: <e208a265-cd4a-4781-82a6-a7f4f2c47448@collabora.com>
-Date: Thu, 19 Dec 2024 12:06:18 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CED7717E3615;
+	Thu, 19 Dec 2024 12:09:52 +0100 (CET)
+Message-ID: <6f92c81f-84d0-4306-96d2-1cfc2ddb72e0@collabora.com>
+Date: Thu, 19 Dec 2024 12:09:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ASoC: mediatek: disable buffer pre-allocation
-To: Chen-Yu Tsai <wenst@chromium.org>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-sound@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- treapking@chromium.org, yuanhsinte@chromium.org
-References: <20241219105303.548437-1-wenst@chromium.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: display: mediatek: ovl: Modify rules
+ for MT8195/MT8188
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ Singo Chang <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>,
+ Shawn Sung <shawn.sung@mediatek.com>, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ Fei Shao <fshao@chromium.org>, Pin-yen Lin <treapking@chromium.org>
+References: <20241213095044.23757-1-jason-jh.lin@mediatek.com>
+ <20241213095044.23757-2-jason-jh.lin@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20241219105303.548437-1-wenst@chromium.org>
+In-Reply-To: <20241213095044.23757-2-jason-jh.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_030621_447074_24CC7690 
-X-CRM114-Status: GOOD (  24.15  )
+X-CRM114-CacheID: sfid-20241219_030956_038834_BE4E2F53 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,53 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 19/12/24 11:53, Chen-Yu Tsai ha scritto:
-> On Chromebooks based on Mediatek MT8195 or MT8188, the audio frontend
-> (AFE) is limited to accessing a very small window (1 MiB) of memory,
-> which is described as a reserved memory region in the device tree.
+Il 13/12/24 10:50, Jason-JH.Lin ha scritto:
+> From: Hsiao Chien Sung <shawn.sung@mediatek.com>
 > 
-> On these two platforms, the maximum buffer size is given as 512 KiB.
-> The MediaTek common code uses the same value for preallocations. This
-> means that only the first two PCM substreams get preallocations, and
-> then the whole space is exhausted, barring any other substreams from
-> working. Since the substreams used are not always the first two, this
-> means audio won't work correctly.
+> Modify rules for both MT8195 and MT8188.
+> Hardware capabilities include color formats and AFBC are
+> changed since MT8195, stop using the settings of MT8183.
 > 
-> This is observed on the MT8188 Geralt Chromebooks, on which the
-> "mediatek,dai-link" property was dropped when it was upstreamed. That
-> property causes the driver to only register the PCM substreams listed
-> in the property, and in the order given.
-> 
-> Instead of trying to compute an optimal value and figuring out which
-> streams are used, simply disable preallocation. The PCM buffers are
-> managed by the core and are allocated and released on the fly. There
-> should be no impact to any of the other MediaTek platforms.
-> 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-
-No there's no impact on the older ones, it's fine and I agree.
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
+> Acked-by: Rob Herring <robh@kernel.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: Hsiao Chien Sung <shawn.sung@mediatek.com>
+> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
 > ---
->   sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+>   .../bindings/display/mediatek/mediatek,ovl.yaml          | 9 ++++-----
+>   1 file changed, 4 insertions(+), 5 deletions(-)
 > 
-> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-> index 9b72b2a7ae91..6b6330583941 100644
-> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-> @@ -120,8 +120,8 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
->   	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+> index 9ea796a033b2..8ca8e5966b9a 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+> @@ -26,6 +26,7 @@ properties:
+>             - mediatek,mt8173-disp-ovl
+>             - mediatek,mt8183-disp-ovl
+>             - mediatek,mt8192-disp-ovl
+> +          - mediatek,mt8195-disp-ovl
+>             - mediatek,mt8195-mdp3-ovl
+>         - items:
+>             - enum:
+> @@ -36,16 +37,14 @@ properties:
+>             - enum:
+>                 - mediatek,mt6795-disp-ovl
+>             - const: mediatek,mt8173-disp-ovl
+> -      - items:
+> -          - enum:
+> -              - mediatek,mt8188-disp-ovl
+> -              - mediatek,mt8195-disp-ovl
+> -          - const: mediatek,mt8183-disp-ovl
+>         - items:
+>             - enum:
+>                 - mediatek,mt8186-disp-ovl
+>                 - mediatek,mt8365-disp-ovl
+>             - const: mediatek,mt8192-disp-ovl
+> +      - items:
+> +          - const: mediatek,mt8188-disp-ovl
+> +          - const: mediatek,mt8195-disp-ovl
 >   
->   	size = afe->mtk_afe_hardware->buffer_bytes_max;
-> -	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
-> -				       afe->dev, size, size);
-> +	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
-> +
->   	return 0;
->   }
->   EXPORT_SYMBOL_GPL(mtk_afe_pcm_new);
+>     reg:
+>       maxItems: 1
 
 
+Jason, while doing MDP3 bindings for MT8188, I noticed that the binding for OVL is
+missing; can you please add a commit on top of this series adding the following
+snippet?
+
+       - items:
+           - const: mediatek,mt8188-mdp3-ovl
+           - const: mediatek,mt8195-mdp3-ovl
+
+...with a suggested-by tag it's going to be fine :-)
+
+P.S.: Please refer to 
+https://lore.kernel.org/r/20241218105320.38980-1-angelogioacchino.delregno@collabora.com
+
+Thanks,
+Angelo
 
