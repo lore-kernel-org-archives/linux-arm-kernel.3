@@ -4,116 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FC1E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5329DE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gocZlng0p/reM2Z0HZmLyZtSompFACzks2JqqAmCik=; b=nACI/lyEg1VCTyq1iyDHe1Z6vz
-	r1J5bzdvpfJTVpOsS6KlaejOe8TM+UFiHTDr8QCfsVBx9LccBk8xk9TeefWwYRRal6F8kLO19wq3l
-	L+wAtOLtI2wVnO3zyM18GZPskAtKuaZHj6YUka6Chn5CtI/g9bkZdhG80xVRphlfhHfpEi0QsGmVR
-	4dWhbS7vdkp+8O3uIm7ubSpD6BwF/2MZOPnxCHGfL25Onxv42AWF0TSRqPcK9zXhqnvVZ1D5eZ/95
-	+yBZf//vh7oDOKbklphqqE6BBxgHlVKArjxTBI2izuXFqKbk3aSH9XCQozEOBVUBpsK9F8fpnbBVL
-	PvQldcwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0uAu7myzttaXtOAMFJqbdzvSDpY4zEacOZ2wPa7zsss=; b=JwdLuIwgqwX9EmrUt9+fthfSDR
+	9YjcVOJaLSAcly8c11hnLmFYxFU6XHl6tGRLTgenBBMXXNMyYo6v5aKq3grLi2hAaasNNcqWNEKda
+	VvwIjUh42C3dgTuLxYWOHTJnIUKaVhqWVhV223d1bpoSWpyxJkYn+FP5ZjZtyuXPyMLkDtAuTUOHu
+	coMZqZpk5JL33yNSRBo4q/ly7/WBzG8X3s8hBn0wOiUXqrqFpkF1SlA0QoonpuYJjbw2Gx+UZvqgy
+	pTq/0EtPpi2SKDEbzL+Wk6yg4isFLk6LlhSydi6ZTKlimRv1x8a+zywQ5KdHenKMCMuWxa47lA8sQ
+	7hQVHnYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOM8p-00000002qjn-41hd;
-	Thu, 19 Dec 2024 19:24:59 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tOMA4-00000002r1S-2d7n;
+	Thu, 19 Dec 2024 19:26:16 +0000
+Received: from mail-am6eur05on20624.outbound.protection.outlook.com ([2a01:111:f403:2612::624] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOM7j-00000002qW9-2KO7
+	id 1tOM8t-00000002qkY-1XYO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 19:23:52 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BJGIgKR005366
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 19:23:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6gocZlng0p/reM2Z0HZmLyZtSompFACzks2JqqAmCik=; b=FWgzBYxRtam4oByW
-	bKWLBbGsOHieOnUPWxryGwXo1P9eOM/nUNg+f38E62VtVvOiNaL5+R4Q/0l/SJLS
-	Vt5uCH5oSKAJy/+MDBflWEuB7wIrcvQMY7Ukj1jWcSciGfSi7/2ZyCpUi3MhM/mj
-	3lTtbE36Zy2XsdvhAlJsvuhAL6URK3EjstGcLlsmm+2fHfpcZFjbvujZ9AX0QBzz
-	TmC1JDWPEpNgsuhmYXbcy5FLzvjKLRTikHC8FKK6AKR43PxyJsaOHoQF8UA1ghOM
-	S7GuCf1HYz38M98GxQV9DB7SZ0wnhyEGfQOft+YFVWaG7jqpiKhEyXXMwcqXmEYK
-	SaL3Xw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43mpw60f4p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 19:23:50 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7b6f85325c3so12968385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:23:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734636229; x=1735241029;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6gocZlng0p/reM2Z0HZmLyZtSompFACzks2JqqAmCik=;
-        b=Y1733kzl45Jb5Gjd4gVKQVm5reMAX0LsHRSNBJe/QP1+gOCdWENf8EpyPvf7tOWYUs
-         Rvsia19/kSl4rX4/LvVG7NhArzn23sU0l2H2t3FH63Yc8plnQ04pd4o0uNgzGbdzRMVi
-         CJXFmpmI2b8weYpaxMbkRMnG6QpzB6c/3GPAESAZwGBnWkOwLZ9N9ySf4mpIbNSgYiaZ
-         Uazp/cm31JF36cdUzJbM7GQgF/hNFRFEvgGuac+OcNfGne66Wzv3C8ihJSOgVTuVhGJk
-         6L4eopxqYuMgr7Hr/CnV5BJa0Ad576nx/tX3JJp7IoFiYGX40GN9fWoetezJgWtlmHXU
-         iO3g==
-X-Forwarded-Encrypted: i=1; AJvYcCUKF3pOGOv4h/yIy7tnpzWJTb2yHTgwJsP5GUSWJcRXt+doC1YxBnwMP23BOTJITRV0uS4rQa+1K41lBXFJdu6e@lists.infradead.org
-X-Gm-Message-State: AOJu0YzflwIzpWBtmzDnZDSm1vITWsXPXDsqdgZ9BfpHh5arUq8Xfx27
-	WfhEGCgmKSo9kzC8utlMyK0tQpClLSUJIpp6oSE7vKxy7kTIyUs8aBUcuBIYpFWhoNm8V/cnm+c
-	7Gtesbf1aW2PpPCIaW3AnFqwbOTbQdHAChy0+DM3cBxI9KhBFSb7eF6FamqKrs1/LuonUemJ6/w
-	==
-X-Gm-Gg: ASbGncsw5AD239DIOm+KOJ5Jy78hKpnDtS08beJSsOTpLFr255eCZmHpyDTSN1bmKVC
-	xwxM+5fgTQ+83SmskPKYtozil2rt0pRv70f3/U72JmFVAy780MMUt5aNSF4WL8fzWZ6lR2btXZg
-	XgkNtGJ5/5aBMObo7gNqN4YhLP8lRrqfDT6AJ2hZW/K5RE2vrVCzc5BwHRePDpcC0A2pgozqyqg
-	FdB8lBZeh2LC1X/C1Dm+BLfqVgR3WD9fJv/n+baSyq98STTW6naVKG47Jk7DojiQP2N+28dvRiU
-	qELaPrEDJ6L31+ZaGS2tEIvRLY+Yt5x8Exg=
-X-Received: by 2002:a05:620a:4511:b0:7ac:b95b:7079 with SMTP id af79cd13be357-7b9ba7aae17mr4554285a.10.1734636229534;
-        Thu, 19 Dec 2024 11:23:49 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFM1BPlEJFAs9IGgICkS3iH2K9v9JTl8Ae4oc+exXVBSbnnU5Tx2jQefnOYgBTNxPPEtT3yjA==
-X-Received: by 2002:a05:620a:4511:b0:7ac:b95b:7079 with SMTP id af79cd13be357-7b9ba7aae17mr4552285a.10.1734636229107;
-        Thu, 19 Dec 2024 11:23:49 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e82f828sm95661466b.19.2024.12.19.11.23.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 11:23:48 -0800 (PST)
-Message-ID: <761f93a0-5894-402c-b39a-ce9a65707a55@oss.qualcomm.com>
-Date: Thu, 19 Dec 2024 20:23:46 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] firmware/psci: Allow specifying an S2RAM state
- through CPU_SUSPEND
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
+	Thu, 19 Dec 2024 19:25:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gs2W6jFEqP+mkFpzveIZOLdcB/9zSm9Qmf6TP23+G67BVitruvB+d1rKOniBtRgvt274stPfz+TRYN+H9f/Nh6P6Y6donW9uzUudkYz42kmSbzf7oI7fa5o2xXWg5g3WSbUIF8yIfymeGxtwkATp5gnnv8h57TCm8aDMsY0e/SlVuVuBIJNh/r6vn/KdSgp/1z0fX9m/HrD98QS7Vw/wRG+lBSVlr6Xcn/AXeac97IXAXCSgW/S0yVLMqvfryhfBf64wxkye442O2pBE2bbdHvycLYj0CCtEwc0IbkimBKSJwOSrBcmI0SLVxpR2Yw06opxUkmpO5s7xFZkeA0E/EA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0uAu7myzttaXtOAMFJqbdzvSDpY4zEacOZ2wPa7zsss=;
+ b=HjjyYEED0qKDVC0KyXIYqVD/qH1RaGpx8hYEcZXOxM2mx7c0wRu8G+VfuW67Qs9MPn7XwnEjLacmYEC4MFDNsmKZmYH0YePh/Cm1Z8IM5BbVHF3x0cR2XKhNadlMFafBcGT40irWUUu53C7K0uXeQzKlY8Ti92qbDcAtrcz16sbBSpw1V+99bx0x8JRaznmDVyNOEzbKD5KLMp9ww25x3AwBQNhWn6NdGL3yC19yjOSlds4Fo9AtlW2bpw5LdA55VwxcvMkJbGE9ZJ1ghNg0DrSCbTA7tmzx+JX/dMJnt9RxPzJtqn1DlBJy5I3IKGTrjfeZe/YVcBfn6t0w+sOuFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0uAu7myzttaXtOAMFJqbdzvSDpY4zEacOZ2wPa7zsss=;
+ b=XQd0nXqRxCzgnVtOFaJHoIS7OA0VsC5l3YZgfNBeRHIR+O7oDCCFQX88bURfa0L7Ji3usQyi/tzpHQ4wilXONcbYzwM9mL68v8W2aS4tZnI/+aczQUn1ElpHbW8/dSVIz4jVmjS2PYGR9ejl5NK5Yq6o4uIDkygh7e6LLu3NPUsoPDEIf9TI+BfmT4EieA5o3O3nucfA1chOMEekSC9VZ4UMehZUDQsxDea8pXSHFCnfEcrOHCgTTi+eBbHmlYl+FJ/W1fCEW0oHrR+ERzOA1tJMH1slaE8nphvkXa8MHN+J/slon5djVv4BNTj+uowTBDB20SG0sXnEtMCGgeb01w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS1PR04MB9453.eurprd04.prod.outlook.com (2603:10a6:20b:4da::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Thu, 19 Dec
+ 2024 19:24:59 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 19:24:58 +0000
+Date: Thu, 19 Dec 2024 14:24:51 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241028-topic-cpu_suspend_s2ram-v1-3-9fdd9a04b75c@oss.qualcomm.com>
- <ZzSiM6Pn6A9e1QUD@lpieralisi>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <ZzSiM6Pn6A9e1QUD@lpieralisi>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: qOo33DeOCCgH2KOfS-t9Ci7fw-NROEhP
-X-Proofpoint-GUID: qOo33DeOCCgH2KOfS-t9Ci7fw-NROEhP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999
- priorityscore=1501 lowpriorityscore=0 malwarescore=0 phishscore=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 mlxscore=0
- adultscore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2412190153
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 06/10] arm64: dts: imx8mp-skov: describe LVDS display
+ pipeline
+Message-ID: <Z2RzA5S/ch1YDdUD@lizhi-Precision-Tower-5810>
+References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
+ <20241219-skov-dt-updates-v1-6-38bf80dc22df@pengutronix.de>
+ <Z2RZ1o6AWGRe0ww9@lizhi-Precision-Tower-5810>
+ <1b5236db-9a2c-475c-825c-3feae22ea32e@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1b5236db-9a2c-475c-825c-3feae22ea32e@pengutronix.de>
+X-ClientProxiedBy: BYAPR11CA0039.namprd11.prod.outlook.com
+ (2603:10b6:a03:80::16) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9453:EE_
+X-MS-Office365-Filtering-Correlation-Id: 183be262-ebc0-409b-03cd-08dd2062d3bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|52116014|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dU91XwlzkmsyslCeLT0ZprRgO5q5YMq2c8h0vAcwUFTG4ndgpSKSwilvfEOi?=
+ =?us-ascii?Q?I3qc25mN0JcRkrKCtHSyiWojCNq7h728p5d/vZWokuZ8MrOPpmtzHAwGitPu?=
+ =?us-ascii?Q?XFuixV07BgaZNsmIluDNIeBjX5xq9GbWMDu+IaDlu6wBNsNLegvKEXbhhNtc?=
+ =?us-ascii?Q?PzQawaVxiszqH2q8LRee8jWZQ25yViYjyvDX34PsWSDy8DO/h7jjycStoFuD?=
+ =?us-ascii?Q?+YnS8thg9uVEq/n9lNR3eP/+HK6iS5r9kc87uicZZkH459IjNXvsAtFOSM04?=
+ =?us-ascii?Q?v6nWILswyeU6SCNe6Cz+OyHi7I8m5a5Urci+Vmm4ZD0xvIpp9z1q8yY2Rfqo?=
+ =?us-ascii?Q?HCYoPF5HtWeT5Lekex/Yrtx5G6dRdmafb9mSM1e0yeq/n0Xw5js3tophc1ax?=
+ =?us-ascii?Q?B/g8LSRX0stkjFxljwksl1cm9uwKWEsP6RGY7MEiPECM7U+w4jhBhd2upB7O?=
+ =?us-ascii?Q?6Fyn3be0VgQUiJBENgirBv+zY5vDaXJExGnYnoT5589ygN1oI7GKyEM7lWDO?=
+ =?us-ascii?Q?HZdvPEpU9KJM3xfJc111+s9mieheg6dm6MZv6DU6Evzck0KZvdiinpVI5G9i?=
+ =?us-ascii?Q?wxqRESA5fkql8Ak5cZb3Uf45kzVUJtxO7GbiQrSi98RBAoVwFbvtK0Kv0Kxa?=
+ =?us-ascii?Q?TfmU+wCisobbIv0EdRfzN74D9sEK220/XhauLWM4Zv8m/J1dILdN97hdHX1s?=
+ =?us-ascii?Q?cJ+pvj4M0gAfdVIy6gUCS9AD7T6e0rFlCVayVs2JTeiJK1OnWBpCouY6PNG+?=
+ =?us-ascii?Q?Cj2lMUbVPKtdJZFbcBPZGuLoQGZ7jYMHPWFbzlt7C5zltVGQFaxMaimBjhbh?=
+ =?us-ascii?Q?2dTGydCDq7amHP50FS0ejrfwS8W5hDr4sfpNXSW2MxTX/fsWOMQBVD7c6sC/?=
+ =?us-ascii?Q?99A7YCu+0MsK3ujm/lwbzK5sltjY3nUrHUIYBiz25qlLJpLXlzV+oti9zi0H?=
+ =?us-ascii?Q?PcJmvyr55iS5iqQ+UuHGyEjqD9sq7wKtBdGCMkc59i8iwvEyqn/EXJjmS2hR?=
+ =?us-ascii?Q?d7LUnSL+LLYJ9KVN9asg5fxVtUYRDUJnOs4Hed36OD76nvu+qqut7ztuw//s?=
+ =?us-ascii?Q?FqS4+RTIEyxSm1FmFFQ4wZtIV+Xl5hFUJpNA77D7F165XgS4hGQeg+Lccpo7?=
+ =?us-ascii?Q?lFFb9Zmr6kJdn+TxpVZA/eLIlCeuqaCZHMR8RoLeaca2FHonKT0rf9Vwdnsg?=
+ =?us-ascii?Q?Sg/HllSPPCWqr0X1SlHAzjGbzb5DFzBiGquvqnc6VCveCYZtzzeWvoB8wQiD?=
+ =?us-ascii?Q?4yP6guTbSmOkVC+EjOFrHuNYaBi9nFnNrE8h34A/kc80iodlZlQtJq8DNq+B?=
+ =?us-ascii?Q?3fuNiEkPOrGg7Vx+499c0kB7/3jYhzklaswsTGv/KbGdV6MKRpjd3INsMsgZ?=
+ =?us-ascii?Q?MJYTCMTNvI2crLl79qjvULpMGyR9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(52116014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6WE3ycl5yO+aHGNT2Tjb9wW1t7Tcu1Zwt8s/O/Csv0i3pQNRg5j1aOTT1yNi?=
+ =?us-ascii?Q?WvtcT4oWcvLvBnlP06F9GSdkwcoj5qzv3ZSuNCkfDh6U86CQdql/BBtL5bcO?=
+ =?us-ascii?Q?Ivarn4tLjDxpdByvD4mufYpQG7fYLLe8G9acV6XHY6xt0pl/v+UwDJ2agwge?=
+ =?us-ascii?Q?M3/wKq+6UeNgfMpHZtLHciwWq7OUEUd56OYugf4oNRLUEXPm2yGEPBCdanT1?=
+ =?us-ascii?Q?46xkYAeIH7hLkCe4i/OsNaGnLmRud1nWEIsHRtljPplp/Q+dMusMzc2HcB+W?=
+ =?us-ascii?Q?JfT8sD4E+5TAZucGUGfVxCFHsTIcaROoBLn6SrcZE4Db2RPkj5RIjwj9pdKo?=
+ =?us-ascii?Q?BgxKWPRN4jW3pguxJ3tQpWhqAzUD8kT36UbENgfkA/eVAo7ZiJP1xMi5Y+Wg?=
+ =?us-ascii?Q?6t2anJhdHgT5h4yLX0JDdt3lfJup/KsdHYC3nPMVKAbCt0n/vWuMC2/9HSQI?=
+ =?us-ascii?Q?sGJZY6ZTJZ4oaTzeK9Dw6C2qABIiaaoczoktvgDhkqV3qy9esNTQvh7U0PgH?=
+ =?us-ascii?Q?uyh1GRkv4j3hPAQzVmfgapoZ7NCuDb8RGC6F/51v5bVFL6HbWUQGwMM3XDGv?=
+ =?us-ascii?Q?LvLizM4voto7EOkmrCRHEBlYWcmduMEvH5YEqUrF6nrNwX9aCbkYtCEhMvcb?=
+ =?us-ascii?Q?oYh6VtXfXC8OPr1XHZMGEW53UPWbv5S2Bu7TqrqfVcqYnPTHgAaf3G8Xz/kl?=
+ =?us-ascii?Q?Q3lkykZtkp0cPKgD8o2O/d2CYZg032WZXQRW5cVqg/be/wlE49G3Scgb6X+0?=
+ =?us-ascii?Q?m4jsU4FLqKVbFnoLtVtuU7397GvNeJR9wMOyubDwPxBsNvQlbujg+ohsOGCH?=
+ =?us-ascii?Q?+JoUvlAosV3iun/dg1IkKe9AzjoPG9nkIGcFKB+D4KQ7e6/6vUPLSEWCLNJu?=
+ =?us-ascii?Q?8Kps6eip5fMmcdFymykB72UxtV+JsWIjXAzHSOUmJQN+J6LIh2bceNCp+ZsG?=
+ =?us-ascii?Q?rxUBYOGEkqFV2WN85akvc/Vr61bIELC1mgVDuCsyr+tqK8X0GcLWAkL496KG?=
+ =?us-ascii?Q?9NNAMTkSxM4nXce2qK5UIDQsoIZbbNRNO++HEj8uiC9tvALP4XILKzErqADq?=
+ =?us-ascii?Q?NFOJEX4gHczEfxJu1E6+l2aJ7X4bD0pXSKp5gxkaLye4zIOTMG7yYi1WhfMV?=
+ =?us-ascii?Q?5vM1tcLhGwMm1ILYuxanvMvxV6NLJjmpfpRJJ5MGi5zIsKplLwzCrwKY6cjU?=
+ =?us-ascii?Q?J4ciKla4mU4MmpPRji6pcN5lkPursqDKLlkvoFTwklAF5uyoUNShPbP+MZql?=
+ =?us-ascii?Q?GePnUVQy0/8l0NLZq8U1AjVzk2EAEykd6uciqkXJLq6XEDN4S7nrHCk6bn5Q?=
+ =?us-ascii?Q?rUzKCqH3sUPYHsDB6RWXJOgmq5S+qqIzldf77OnS2J777JALO+lb+E/z5lfC?=
+ =?us-ascii?Q?LzKG1AalFbgxPhJAMUq4uI1e41kp1UrJmvGHeENee/n+VMRB6ZqylWxLKujm?=
+ =?us-ascii?Q?ttoLDKKS9iYCNN/BSUdZpbUJvwCd0YanCLasqTAUUXCRjbof8sJHW+NLz0Vm?=
+ =?us-ascii?Q?ncsXPt0Cno2QhMULOX82VsjBNxX+kTgpR8hMJyT4CC7HHQLgQybf4d+NFEH7?=
+ =?us-ascii?Q?5hFrgTSF88Yxdr4WFYkaU28Yy4CwDRveLQG9H0+l?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 183be262-ebc0-409b-03cd-08dd2062d3bd
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 19:24:58.8637
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qI/2qclrGW3seWDASnQHFznOLeGFN0OfkqbpnxE2gFjmz6c/J1R897rt7ijWB9dnKFiGH6coEDRxiYIbOaL0vA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9453
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_112351_720398_602CCAA6 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20241219_112503_422066_24074A5F 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,51 +164,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13.11.2024 1:57 PM, Lorenzo Pieralisi wrote:
-> On Mon, Oct 28, 2024 at 03:22:59PM +0100, Konrad Dybcio wrote:
->> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->>
->> Certain firmware implementations (such as the ones found on Qualcomm
->> SoCs between roughly 2015 and 2023) expose an S3-like S2RAM state
->> through the CPU_SUSPEND call.
->>
->> This works exactly like SYSTEM_SUSPEND. The PSCI spec describes that
->> call as optional (and only introduced in PSCIv1.0), so not all
->> platforms expose it.
->>
->> Marking a DT-described "domain-idle-state" as such isn't currently
->> well accounted for in the PSCI idle topology infrastructure: the
->> cpuidle and genpd framework are deeply intertwined, and trying to
->> separate them would cause more havoc than good.
-> 
-> I don't understand what you mean here please elaborate.
-> 
-> The part of the story I understand is that you have a system (well,
-> firmware for an extended set of systems) that does not implement
-> SYSTEM_SUSPEND but can reach a S2R like system state through the
-> CPU_SUSPEND call. Firmware works in OS-initiated mode, idle-states
-> should allow you to define idle states that allow the system to
-> enter the S2R state through CPUidle.
-> 
-> Please explain to me what's missing.
-> 
->> Instead, allow the specifying of a single CPU_SUSPEND sleep param
->> under the /psci node that shall be treated exactly like SYSTEM_SUSPEND
->> from Linux's POV. As a bonus, this way we also don't have to fight
->> with the genpd idle governor to avoid taking the S3-like state into
->> consideration.
-> 
-> That's not acceptable. I want to understand what's preventing this
-> system to enter that state through suspend2idle and the mainline code.
+On Thu, Dec 19, 2024 at 06:45:24PM +0100, Ahmad Fatoum wrote:
+> On 19.12.24 18:37, Frank Li wrote:
+> > On Thu, Dec 19, 2024 at 08:25:30AM +0100, Ahmad Fatoum wrote:
+> >> From: Oleksij Rempel <o.rempel@pengutronix.de>
+> >>
+> >> The Skov i.MX8MP LT6 device tree so far described the touch screen, but
+> >> didn't describe the screen itself. Fill out these missing pieces.
+> >
+> > Add "ti,sn65lvds822" touch screen description for i.MX8MP LT6 board.
+>
+> This is not what this patch does. Touch screen was already described
+> and now the remainder is being added, just like what my message said.
 
-The answer to both is:
+My main means, use below order to descript commit message
 
-Linux doesn't get to know we're entering a S2RAM state and can't make
-different decisions based on that, if said low power state is exposed
-though cpuidle.
+Add ... for ...
 
-We e.g. can't expect all hardware to come back up functional after
-entering such state.
+Frank
 
-Konrad
+>
+> Thanks,
+> Ahmad
+>
+> >
+> > Frank
+> >
+> >> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+> >> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> >> ---
+> >>  .../boot/dts/freescale/imx8mp-skov-revb-lt6.dts    | 60 ++++++++++++++++++++++
+> >>  1 file changed, 60 insertions(+)
+> >>
+> >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
+> >> index ccbd3abedd69..baecf768a2ee 100644
+> >> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
+> >> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-lt6.dts
+> >> @@ -8,6 +8,45 @@ / {
+> >>  	model = "SKOV IMX8MP CPU revB - LT6";
+> >>  	compatible = "skov,imx8mp-skov-revb-lt6", "fsl,imx8mp";
+> >>
+> >> +	lvds-decoder {
+> >> +		compatible = "ti,sn65lvds822", "lvds-decoder";
+> >> +		power-supply = <&reg_3v3>;
+> >> +
+> >> +		ports {
+> >> +			#address-cells = <1>;
+> >> +			#size-cells = <0>;
+> >> +
+> >> +			port@0 {
+> >> +				reg = <0>;
+> >> +
+> >> +				in_lvds1: endpoint {
+> >> +					data-mapping = "vesa-24";
+> >> +					remote-endpoint = <&ldb_lvds_ch1>;
+> >> +				};
+> >> +			};
+> >> +
+> >> +			port@1 {
+> >> +				reg = <1>;
+> >> +
+> >> +				lvds_decoder_out: endpoint {
+> >> +					remote-endpoint = <&panel_in>;
+> >> +				};
+> >> +			};
+> >> +		};
+> >> +	};
+> >> +
+> >> +	panel {
+> >> +		compatible = "logictechno,lttd800480070-l6wh-rt";
+> >> +		backlight = <&backlight>;
+> >> +		power-supply = <&reg_tft_vcom>;
+> >> +
+> >> +		port {
+> >> +			panel_in: endpoint {
+> >> +				remote-endpoint = <&lvds_decoder_out>;
+> >> +			};
+> >> +		};
+> >> +	};
+> >> +
+> >>  	touchscreen {
+> >>  		compatible = "resistive-adc-touch";
+> >>  		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>, <&adc_ts 5>;
+> >> @@ -78,6 +117,27 @@ channel@5 {
+> >>  	};
+> >>  };
+> >>
+> >> +&lcdif2 {
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >> +&lvds_bridge {
+> >> +	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
+> >> +				 <&clk IMX8MP_VIDEO_PLL1>;
+> >> +	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
+> >> +	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
+> >> +	assigned-clock-rates = <0>, <462000000>;
+> >> +	status = "okay";
+> >> +
+> >> +	ports {
+> >> +		port@2 {
+> >> +			ldb_lvds_ch1: endpoint {
+> >> +				remote-endpoint = <&in_lvds1>;
+> >> +			};
+> >> +		};
+> >> +	};
+> >> +};
+> >> +
+> >>  &pwm1 {
+> >>  	status = "okay";
+> >>  };
+> >>
+> >> --
+> >> 2.39.5
+> >>
+> >
+>
+>
+> --
+> Pengutronix e.K.                           |                             |
+> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
