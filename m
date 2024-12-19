@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04079E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4171AE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApfSDrKusNK1sNEywYn1IvFpaVlL4I4KqU9pGfAKtkM=; b=BvKvRRDA/karjEnMF7abSpEyVu
-	1E0hIuFMpwibni60ZFtwKugFj+JPoG07d63MzdtpEm0/7pMcq+oBqJXFriqiwtahpsLlrgbnodfOU
-	7AjF9gOxOi8MreUteEkREJ1Mh+FDwdV3qGXjzHszSZQEVgkSqk5GheyKs5BZoJ8aGLabOhq4BQcZf
-	NcuocOr0Kzc2gvdwbgOKdhWfKcpMtCEC45JrDZR9ATVPXrUIY3gBkLPNx3fMcaTw++kUk1itq8Jo8
-	/qkgfbbr0iY9p0vl+yXLqckLOo/46vYS1TOdw8ud6t0PG4aiPW/dANIsjxWfl3Rhi3FZrFIqbVvpv
-	iff3Yz2g==;
+	bh=pYf0eiMeyVhq0xCLr/VZXQG0noaf8aQMKNSmiEBNxQM=; b=FI89WU3aSfXbGieOldt2oLG24g
+	NCIWnddZ2eEJ8hb2twe/PNTMFY1IAeJtlsBD2Gd3DQ4exHqSF2tbvPE/Ufb+cdYh3XKfUSTe8gKkE
+	Zp7TsI1KoPfM/tblKF2xhzgG1AT1H6Ro6Qy1Fc4n1iOOaCdtq+L5DUVs1AUZYf/+iGgIbJuMMsNEi
+	MOK85B60V5OkUefC3UxCUfgfBqHIYemJ9OF+bdj9/nOpZwDIXqQAVOUtAv5YIbTo5IFOvmrZpYuXQ
+	Epe45P1YseKKUznQjyAp4R6x6WcGhnbhW8EoBRPJLAK8MsRfWoycSU9TsNPENONVyeqeowg0K9MjW
+	4k2HLMiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODM3-00000001UDZ-1eph;
-	Thu, 19 Dec 2024 10:02:03 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1tODPU-00000001Uwc-2DDU;
+	Thu, 19 Dec 2024 10:05:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODKv-00000001U23-45jS
+	id 1tODON-00000001UmF-3CN2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:00:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734602454; x=1766138454;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=MvsQMKQ+7oNsyvqYjPT967sLWqGyuQ128Ftn0RLMetc=;
-  b=LKyJi5NBkk6nFYOt+iIQi2O+LtRVQDceCPMBsBnw2bBGL8S6hESXM1Ho
-   if17nlSu+AIE2m2rQ5M0zoZC8jt6TmftrY6fz7UqLHex303Rnr7rPbTJD
-   KR+dD7fY4j2TjPRR29nDLhbbBbTqPANS5Vt6aNjfALfq/eWCDheqKrDMc
-   +m2Ec34z+qPFQBa/8LZpQdEHplerKnOZrF8Py2UYD94OqeHar6JCS3tQZ
-   lNLFebiqatPl+9E/Z9ARSdMXUjaXmlZs3S6NJGO8uQiaAgAeWI2u1GEoe
-   C4eBcRkMpeJ8NwcS+2dZ1KNW1nFkHCT/6L9Xb8pITeKz4eLMmBPp+3G28
-   g==;
-X-CSE-ConnectionGUID: zMUUnQy2TwyRyfMMt0Aq8A==
-X-CSE-MsgGUID: ZoLoR18SSNKSqywBknVXCg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11290"; a="35005117"
-X-IronPort-AV: E=Sophos;i="6.12,247,1728975600"; 
-   d="scan'208";a="35005117"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Dec 2024 02:00:50 -0800
-X-CSE-ConnectionGUID: kQMo8r5eQJuTTAGnMCjq4Q==
-X-CSE-MsgGUID: NqfPAXFITlG2s4xID+um2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="103227165"
-Received: from mev-dev.igk.intel.com ([10.237.112.144])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Dec 2024 02:00:46 -0800
-Date: Thu, 19 Dec 2024 10:57:30 +0100
-From: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: aleksander.lobakin@intel.com, lukma@denx.de, m-malladi@ti.com,
-	diogo.ivo@siemens.com, rdunlap@infradead.org,
-	schnelle@linux.ibm.com, vladimir.oltean@nxp.com, horms@kernel.org,
-	rogerq@kernel.org, pabeni@redhat.com, kuba@kernel.org,
-	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next 3/4] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-Message-ID: <Z2PuCmGDGpqvc0bp@mev-dev.igk.intel.com>
-References: <20241216100044.577489-1-danishanwar@ti.com>
- <20241216100044.577489-4-danishanwar@ti.com>
- <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
- <cb319ffd-ac67-42b3-9786-e8c9970086d2@ti.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cb319ffd-ac67-42b3-9786-e8c9970086d2@ti.com>
+	Thu, 19 Dec 2024 10:04:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8056DA41F60;
+	Thu, 19 Dec 2024 10:02:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 925A4C4CECE;
+	Thu, 19 Dec 2024 10:04:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734602666;
+	bh=cRYB4PH+c23IkVx/mV1DYU4u2EVScVI/3SCcaAcJt5w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eyahSqZ14m0lXxek4DdumBpzgHdo6CE6viZIiQFCcErL3c814CAr5G91sdZhQxrbj
+	 b3suOgTOKT/6bMTyG/NRU28HlvY34aNi7q4vC1e65ji9mg8jt1qoPKzcSzLX6AahqS
+	 1FMPYr69tb4vEW40ZilatC7+qYbxhAUxsQefo2G8olgqVpmN/BGK6Tbp7gVjo92lMy
+	 3rvYBAN4r30vpja2fjoOOiX5yC00pYrLjZiGIldNn20N6wSOJLCY4zsxS30NkbmSVX
+	 vc7bt+uK/WG5bCPYuf9N5Ow4mgwc3zLddaw6PP7U09j3RJ4+FaQliEKLb7fommQq1k
+	 x67t8Ud3T4J+A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tODOK-005ENb-10;
+	Thu, 19 Dec 2024 10:04:24 +0000
+Date: Thu, 19 Dec 2024 10:04:22 +0000
+Message-ID: <86bjx8q995.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: <kvmarm@lists.linux.dev>,
+	<oliver.upton@linux.dev>,
+	<catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<mark.rutland@arm.com>,
+	<cohuck@redhat.com>,
+	<eric.auger@redhat.com>,
+	<sebott@redhat.com>,
+	<yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>,
+	<jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>,
+	<anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linuxarm@huawei.com>
+Subject: Re: [PATCH v4 3/3] arm64: paravirt: Enable errata based on implementation CPUs
+In-Reply-To: <20241218105345.73472-4-shameerali.kolothum.thodi@huawei.com>
+References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+	<20241218105345.73472-4-shameerali.kolothum.thodi@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_020054_094215_129F6D13 
-X-CRM114-Status: GOOD (  44.45  )
+X-CRM114-CacheID: sfid-20241219_020427_942931_24B44EC2 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,271 +97,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 03:06:18PM +0530, MD Danish Anwar wrote:
+On Wed, 18 Dec 2024 10:53:45 +0000,
+Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
 > 
+> Retrieve any migration target implementation CPUs using the hypercall
+> and enable associated errata.
 > 
-> On 19/12/24 12:58 pm, Michal Swiatkowski wrote:
-> > On Mon, Dec 16, 2024 at 03:30:43PM +0530, MD Danish Anwar wrote:
-> >> Add multicast filtering support for VLAN interfaces in dual EMAC mode
-> >> for ICSSG driver.
-> >>
-> >> The driver uses vlan_for_each() API to get the list of available
-> >> vlans. The driver then sync mc addr of vlan interface with a locally
-> >> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
-> >> API.
-> >>
-> >> The driver then calls the sync / unsync callbacks and based on whether
-> >> the ndev is vlan or not, driver passes appropriate vid to FDB helper
-> >> functions.
-> >>
-> >> This commit also exports __hw_addr_sync_multiple() in order to use it
-> >> from the ICSSG driver.
-> >>
-> >> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> >> ---
-> >>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 69 ++++++++++++++++----
-> >>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
-> >>  include/linux/netdevice.h                    |  3 +
-> >>  net/core/dev_addr_lists.c                    |  7 +-
-> >>  4 files changed, 68 insertions(+), 17 deletions(-)
-> >>
-> >> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> >> index e031bccf31dc..a18773ef6eab 100644
-> >> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> >> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> >> @@ -472,30 +472,43 @@ const struct icss_iep_clockops prueth_iep_clockops = {
-> >>  
-> >>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
-> >>  {
-> >> -	struct prueth_emac *emac = netdev_priv(ndev);
-> >> -	int port_mask = BIT(emac->port_id);
-> >> +	struct net_device *real_dev;
-> >> +	struct prueth_emac *emac;
-> >> +	int port_mask;
-> >> +	u8 vlan_id;
-> >>  
-> >> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
-> >> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
-> >> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
-> >> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
-> >> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-> > Looks like a helper for that can be nice to have.
-> >
+> Reviewed-by: Sebastian Ott <sebott@redhat.com>
+> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> ---
+>  arch/arm64/include/asm/cputype.h  | 25 +++++++++++++++++++++++--
+>  arch/arm64/include/asm/paravirt.h |  3 +++
+>  arch/arm64/kernel/cpu_errata.c    | 20 +++++++++++++++++---
+>  arch/arm64/kernel/cpufeature.c    |  2 ++
+>  arch/arm64/kernel/image-vars.h    |  2 ++
+>  arch/arm64/kernel/paravirt.c      | 31 +++++++++++++++++++++++++++++++
+>  6 files changed, 78 insertions(+), 5 deletions(-)
 > 
-> I don't think that's neccessary. vlan_dev_real_dev() itself is a helper
-> function to give the real dev, only down side is vlan_dev_real_dev()
-> assumes that the dev is vlan only.
-> 
-> In this function, we don't know if ndev is vlan or not, hence the check.
-> Most drivers are using vlan_dev_real_dev() the same way.
-> 
+> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+> index dcf0e1ce892d..019d1b7dae80 100644
+> --- a/arch/arm64/include/asm/cputype.h
+> +++ b/arch/arm64/include/asm/cputype.h
+> @@ -265,6 +265,16 @@ struct midr_range {
+>  #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
+>  #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
+>  
+> +#define MAX_TARGET_IMPL_CPUS 64
+> +
+> +struct target_impl_cpu {
+> +	u64 midr;
+> +	u64 revidr;
+> +};
+> +
+> +extern u32 target_impl_cpu_num;
+> +extern struct target_impl_cpu target_impl_cpus[];
+> +
+>  static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
+>  					   u32 rv_max)
+>  {
+> @@ -276,8 +286,19 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
+>  
+>  static inline bool is_midr_in_range(struct midr_range const *range)
+>  {
+> -	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> -				       range->rv_min, range->rv_max);
+> +	int i;
+> +
+> +	if (!target_impl_cpu_num)
+> +		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> +					       range->rv_min, range->rv_max);
+> +
+> +	for (i = 0; i < target_impl_cpu_num; i++) {
+> +		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
+> +					    range->model,
+> +					    range->rv_min, range->rv_max))
+> +			return true;
+> +	}
+> +	return false;
+>  }
+>  
+>  static inline bool
+> diff --git a/arch/arm64/include/asm/paravirt.h b/arch/arm64/include/asm/paravirt.h
+> index 9aa193e0e8f2..95f1c15bbb7d 100644
+> --- a/arch/arm64/include/asm/paravirt.h
+> +++ b/arch/arm64/include/asm/paravirt.h
+> @@ -19,11 +19,14 @@ static inline u64 paravirt_steal_clock(int cpu)
+>  }
+>  
+>  int __init pv_time_init(void);
+> +void __init pv_target_impl_cpu_init(void);
+>  
+>  #else
+>  
+>  #define pv_time_init() do {} while (0)
+>  
+> +#define pv_target_impl_cpu_init() do {} while (0)
+> +
+>  #endif // CONFIG_PARAVIRT
+>  
+>  #endif
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 929685c00263..4055082ce69b 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -14,6 +14,9 @@
+>  #include <asm/kvm_asm.h>
+>  #include <asm/smp_plat.h>
+>  
+> +u32 target_impl_cpu_num;
+> +struct target_impl_cpu target_impl_cpus[MAX_TARGET_IMPL_CPUS];
+> +
+>  static bool __maybe_unused
+>  __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
+>  			 u32 midr, u32 revidr)
+> @@ -32,9 +35,20 @@ __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
+>  static bool __maybe_unused
+>  is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
+>  {
+> -	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+> -	return __is_affected_midr_range(entry, read_cpuid_id(),
+> -					read_cpuid(REVIDR_EL1));
+> +	int i;
+> +
+> +	if (!target_impl_cpu_num) {
+> +		WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+> +		return __is_affected_midr_range(entry, read_cpuid_id(),
+> +						read_cpuid(REVIDR_EL1));
+> +	}
+> +
+> +	for (i = 0; i < target_impl_cpu_num; i++) {
+> +		if (__is_affected_midr_range(entry, target_impl_cpus[i].midr,
+> +					     target_impl_cpus[i].midr))
+> +			return true;
+> +	}
+> +	return false;
+>  }
+>  
+>  static bool __maybe_unused
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 4cc4ae16b28d..d32c767bf189 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -85,6 +85,7 @@
+>  #include <asm/kvm_host.h>
+>  #include <asm/mmu_context.h>
+>  #include <asm/mte.h>
+> +#include <asm/paravirt.h>
+>  #include <asm/processor.h>
+>  #include <asm/smp.h>
+>  #include <asm/sysreg.h>
+> @@ -3642,6 +3643,7 @@ unsigned long cpu_get_elf_hwcap3(void)
+>  
+>  static void __init setup_boot_cpu_capabilities(void)
+>  {
+> +	pv_target_impl_cpu_init();
+>  	/*
+>  	 * The boot CPU's feature register values have been recorded. Detect
+>  	 * boot cpucaps and local cpucaps for the boot CPU, then enable and
+> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+> index 8f5422ed1b75..694e19709c46 100644
+> --- a/arch/arm64/kernel/image-vars.h
+> +++ b/arch/arm64/kernel/image-vars.h
+> @@ -49,6 +49,8 @@ PROVIDE(__pi_arm64_sw_feature_override	= arm64_sw_feature_override);
+>  PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
+>  #ifdef CONFIG_CAVIUM_ERRATUM_27456
+>  PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
+> +PROVIDE(__pi_target_impl_cpu_num	= target_impl_cpu_num);
+> +PROVIDE(__pi_target_impl_cpus		= target_impl_cpus);
+>  #endif
+>  PROVIDE(__pi__ctype			= _ctype);
+>  PROVIDE(__pi_memstart_offset_seed	= memstart_offset_seed);
+> diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
+> index aa718d6a9274..95fc3aae4a27 100644
+> --- a/arch/arm64/kernel/paravirt.c
+> +++ b/arch/arm64/kernel/paravirt.c
+> @@ -153,6 +153,37 @@ static bool __init has_pv_steal_clock(void)
+>  	return (res.a0 == SMCCC_RET_SUCCESS);
+>  }
+>  
+> +void  __init pv_target_impl_cpu_init(void)
+> +{
+> +	struct arm_smccc_res res;
+> +	int index = 0, max_idx = -1;
+> +
+> +	/* Check we have already set targets */
+> +	if (target_impl_cpu_num)
+> +		return;
+> +
+> +	do {
+> +		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID,
+> +				     index, &res);
+> +		if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+> +			return;
 
-I meant to not repeat the
-is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-(it is also used in next patch)
+Can't you probe for this as part of the KVM guest services?
 
-But as you think, I don't have strong opinion on that.
+> +
+> +		if (max_idx < 0) {
+> +			/* res.a0 should have a valid maximum CPU implementation index */
+> +			if (res.a0 >= MAX_TARGET_IMPL_CPUS)
+> +				return;
+> +			max_idx = res.a0;
+> +		}
+> +
+> +		target_impl_cpus[index].midr = res.a1;
+> +		target_impl_cpus[index].revidr = res.a2;
+> +		index++;
+> +	} while (index <= max_idx);
+> +
+> +	target_impl_cpu_num = index;
+> +	pr_info("Number of target implementation CPUs is %d\n", target_impl_cpu_num);
+> +}
+> +
+>  int __init pv_time_init(void)
+>  {
+>  	int ret;
 
-> 
-> >> +	emac = netdev_priv(real_dev);
-> >> +
-> >> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
-> >> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
-> >> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
-> >>  
-> >>  	return 0;
-> >>  }
-> >>  
-> >>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
-> >>  {
-> >> -	struct prueth_emac *emac = netdev_priv(ndev);
-> >> -	int port_mask = BIT(emac->port_id);
-> >> +	struct net_device *real_dev;
-> >> +	struct prueth_emac *emac;
-> >>  	int other_port_mask;
-> >> +	int port_mask;
-> >> +	u8 vlan_id;
-> >> +
-> >> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
-> >> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-> >> +	emac = netdev_priv(real_dev);
-> >>  
-> >> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
-> >> +	port_mask = BIT(emac->port_id);
-> >> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
-> >>  
-> >> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
-> >> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
-> >> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
-> >> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
-> >>  
-> >>  	if (other_port_mask) {
-> >> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
-> >> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
-> >> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
-> >> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask, other_port_mask, true);
-> >>  	}
-> >>  
-> >>  	return 0;
-> >> @@ -531,6 +544,28 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
-> >>  	return 0;
-> >>  }
-> >>  
-> >> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
-> >> +				   void *args)
-> >> +{
-> >> +	struct net_device *vport_ndev;
-> >> +	struct prueth_emac *emac;
-> >> +
-> >> +	if (!vdev || !vid)
-> >> +		return 0;
-> >> +
-> >> +	vport_ndev = vlan_dev_real_dev(vdev);
-> >> +	emac = netdev_priv(vport_ndev);
-> >> +
-> >> +	netif_addr_lock_bh(vdev);
-> >> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc, vdev->addr_len);
-> > Only question, why dev_mc_sync_multiple can't be used here?
-> > 
-> 
-> dev_mc_sync_multiple() doesn't work here.
-> 
-> Let's say we call dev_mc_sync_multiple() with emac->ndev (the netdevice
-> for current port say eth1) and vdev (the netdevice for the vlan
-> interface say eth1.x with x being the vid).
-> 
-> Now dev_mc_sync_multiple() will sync the mc list from vdev to ndev. And
-> ndev will have the address added to vdev. After this set_rx_mode() gets
-> called for ndev. Which eventually calls sync / unsync APIs
-> icssg_prueth_add/del_mcast.
-> 
-> Now in this API, we will have the address to add but we won't have the vid.
-> 
-> The sync/unsync API will be called for the emac->ndev (the *to* device)
-> and emac->ndev will have no information about vid. Since it is not a
-> vlan dev and is_vlan_dev() will be false for it as a result we will
-> fallback to default vid.
-> 
-> 	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) :
-> PRUETH_DFLT_VLAN_HSR;
-> 
-> We don't want this. We want to capture the correct vid. Hence sync /
-> unsync needs to get called for the vlan device i.e. vdev.
-> 
-> Due to this dev_mc_sync_multiple() doesn't work and we need to call
-> __hw_addr_sync_multiple and __hw_addr_sync_dev on vdev so that our sync
-> / unsync APIs are called for vdev.
-> 
->
+Independent of this, I wonder what we should output in sysfs
+(/sys/devices/system/cpu/cpu*/regs/identification/*).
 
-Ok, I understand, thank for explanation.
+Thanks,
 
-> >> +	netif_addr_unlock_bh(vdev);
-> >> +
-> >> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
-> >> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >>  /**
-> >>   * emac_ndo_open - EMAC device open
-> >>   * @ndev: network adapter device
-> >> @@ -772,12 +807,17 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
-> >>  		return;
-> >>  	}
-> >>  
-> >> -	if (emac->prueth->is_hsr_offload_mode)
-> >> +	if (emac->prueth->is_hsr_offload_mode) {
-> >>  		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
-> >>  			      icssg_prueth_hsr_del_mcast);
-> >> -	else
-> >> +	} else {
-> >>  		__dev_mc_sync(ndev, icssg_prueth_add_mcast,
-> >>  			      icssg_prueth_del_mcast);
-> >> +		if (rtnl_trylock()) {
-> >> +			vlan_for_each(ndev, icssg_update_vlan_mcast, NULL);
-> >> +			rtnl_unlock();
-> >> +		}
-> >> +	}
-> >>  }
-> >>  
-> >>  /**
-> >> @@ -828,6 +868,7 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
-> >>  	if (prueth->is_hsr_offload_mode)
-> >>  		port_mask |= BIT(PRUETH_PORT_HOST);
-> >>  
-> >> +	__hw_addr_init(&emac->vlan_mcast_list[vid]);
-> >>  	netdev_err(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
-> >>  		   vid, port_mask, untag_mask);
-> >>  
-> >> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> >> index f5c1d473e9f9..4da8b87408b5 100644
-> >> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> >> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> >> @@ -83,6 +83,10 @@
-> >>  #define ICSS_CMD_ADD_FILTER 0x7
-> >>  #define ICSS_CMD_ADD_MAC 0x8
-> >>  
-> >> +/* VLAN Filtering Related MACROs */
-> >> +#define PRUETH_DFLT_VLAN_MAC	0
-> >> +#define MAX_VLAN_ID		256
-> >> +
-> >>  /* In switch mode there are 3 real ports i.e. 3 mac addrs.
-> >>   * however Linux sees only the host side port. The other 2 ports
-> >>   * are the switch ports.
-> >> @@ -201,6 +205,8 @@ struct prueth_emac {
-> >>  	/* RX IRQ Coalescing Related */
-> >>  	struct hrtimer rx_hrtimer;
-> >>  	unsigned long rx_pace_timeout_ns;
-> >> +
-> >> +	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
-> >>  };
-> >>  
-> >>  /**
-> >> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-> >> index d917949bba03..a5c169b19543 100644
-> >> --- a/include/linux/netdevice.h
-> >> +++ b/include/linux/netdevice.h
-> >> @@ -4685,6 +4685,9 @@ int devm_register_netdev(struct device *dev, struct net_device *ndev);
-> >>  /* General hardware address lists handling functions */
-> >>  int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
-> >>  		   struct netdev_hw_addr_list *from_list, int addr_len);
-> >> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> >> +			    struct netdev_hw_addr_list *from_list,
-> >> +			    int addr_len);
-> >>  void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
-> >>  		      struct netdev_hw_addr_list *from_list, int addr_len);
-> >>  int __hw_addr_sync_dev(struct netdev_hw_addr_list *list,
-> >> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
-> >> index 166e404f7c03..90716bd736f3 100644
-> >> --- a/net/core/dev_addr_lists.c
-> >> +++ b/net/core/dev_addr_lists.c
-> >> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
-> >>  	__hw_addr_del_entry(from_list, ha, false, false);
-> >>  }
-> >>  
-> >> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> >> -				   struct netdev_hw_addr_list *from_list,
-> >> -				   int addr_len)
-> >> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> >> +			    struct netdev_hw_addr_list *from_list,
-> >> +			    int addr_len)
-> >>  {
-> >>  	int err = 0;
-> >>  	struct netdev_hw_addr *ha, *tmp;
-> >> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> >>  	}
-> >>  	return err;
-> >>  }
-> >> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
-> >>  
-> >>  /* This function only works where there is a strict 1-1 relationship
-> >>   * between source and destination of they synch. If you ever need to
-> >> -- 
-> >> 2.34.1
-> 
-> -- 
-> Thanks and Regards,
-> Danish
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
