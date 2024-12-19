@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456D8E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE88CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVaHqJdzzc6/RXsrUMqwYr4L9WjHePTtMi55G/q79tg=; b=aE24rrQ/TmcCqMVJt5v8aACHfO
-	SdPBlA3Ltnqnua1TM1iLW16bZ5EPVyJi3aMVaJiOf6EYq2UK6Vtd1DkwKiYk49TBpWEcMspRdmoW+
-	5GDRpNZlw2dAFZ5GvKbu9XZwM1+zDr0DIVL15pRkgIaDZZ1AGvxeUih4exjNS4iVhrckurRNd4+hK
-	90INXVGPkbui74LVzmD0rbDiYRrBrtOsy3m8CbIsP2/1x1uzBgE9o7rVyZ3eqYsLREABq/npWJvOG
-	Ebq4+5/PasW3FemgSmBiKjnOHXJenBm4+Q7onPNjK1YFlolbUk2Bqijw0wt9d/zeYKbe4Xhsq1WEJ
-	o7PhOxPw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YX2boY8rrml6fgM6RWKd/u7pgEuMrl1kiYRJNautHpE=; b=GVSdV+EwGrl64kgpa1ELJtlFSD
+	RvuL41KaEx+awfteVe6Af6IDPJrKuzcBIMvsQgpRSqhVWDCBB1fKIDesvov/GZ4PpnEd25CfWIj+D
+	f3EwF5m0wCY7Zz6FbuNSJ3dYvkmDUeCUTdEqJ95Fzqo9sNWmfJamtPKaIOIJL2JF2xnLwQkGhSg3h
+	D1rulvTlmGizy4fX31Manv05yUJtPTsBV+lxoeRMDPxz/H8gdtKGAiRxrF6hPl2lWlpU6RTya9h/R
+	GqS2u3iPsA0dvmHII6/pAWBZdXIMQW2dIPcDxkh9V74POLucDFpDBwT1eGXX2C68cUcVxQR1/MNc1
+	22JLEYlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOE9X-00000001aHV-0aCj;
-	Thu, 19 Dec 2024 10:53:11 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tOEAa-00000001aTM-2KIV;
+	Thu, 19 Dec 2024 10:54:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOE7T-00000001Zxl-0cjF
+	id 1tOE8x-00000001aBA-2E2X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:51:04 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa66c1345caso55938966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 02:51:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734605461; x=1735210261; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aVaHqJdzzc6/RXsrUMqwYr4L9WjHePTtMi55G/q79tg=;
-        b=XH4gBI50kDFNjxlnF+rXMvy6gWImLc/UT1K1FAb2rHMoRRR1eacjc5ZHIxP9HAjahT
-         AvmeKAz3C9szgrzZHKqm5UsRRqntfj+IEOygnBIV5jTBx7vSdqf/QF7dUno8qWrcL7ZK
-         HzDlodpV4GmctHHGKhrdz+v1a+A7Je7vM/sitdoik11wGc593qOYeCOvoH0RyH+Lcdg1
-         KNwADMjwZEZJGQu/OAx/RdsM4FWLpQzOB88HTx8IaxllCUmO/IQXhIRhf5efULbwQHsE
-         MrUGcnzAOC/dLw4AZbmlOMxiJdeOrbnxPhxvYpicfx+3RrozD+XSZSnYr3ZC73hyeFEl
-         xKfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734605461; x=1735210261;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aVaHqJdzzc6/RXsrUMqwYr4L9WjHePTtMi55G/q79tg=;
-        b=N8hS5w8uCytSQyWIoo5Hepjnv+oiXL+k3ijZ4m4r5xp76DR48HcH4tkHjgQejxWicu
-         uLslsQUbZ98B3v8nKlMuYYeHKVwt03BPzEJqhXRWjt2/JpS1+z2+ZVF1yfFTVWotfviA
-         ngcUaX3OsnCTb4hpeRfTWTpcTvw6/gvWDktgCzBs+34FI5BHgorT/TIARCBmQhIS0yL2
-         H/it4tOJMUTUKdcgJq6srONziNWXlLtTQ9aLAxRjurXPb4m5GIY1anTQiDcSkWY5jBBR
-         HbTsZwd3c8niLxaie0RMgCHpZZY2pB6/esKOWNa1WGTgl1emSKLlPrVIZ5CQKO0yFxbl
-         G3oA==
-X-Forwarded-Encrypted: i=1; AJvYcCVbq5+dFuCPrIlf5wCe+GvLqEOEuNmaLYrGoYUy+xAZLg4KCwGAvvhV9sqX5XM9II5YVI7JVEeWmu1+xPn5ghEm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZh1oAOdKiRsRWkTSXdoiCpB7qRNOYXDTXOpHCdNMoYiCLB4st
-	4G3NOnchRGT7x+uhW12XseKthLJ5IFuA0LrUzHtkh+QigYP4lHTGYptXQtMEH80=
-X-Gm-Gg: ASbGncu7gV1tjf1TM1LH/ssa6gH22Hwu+kDf2TNQKQCffFw2EMD5Er5BdEPF9RP+Aot
-	llCvnUAHmlyYbt7uhDspRJuABqa2VTzFG+QBe+pdQEPW+ENTiSkW2KkhY7ngHuBghNevHa2YB+r
-	vClyGaSWCrmCM4uvglZ+SnnMFDjm0e6TEPRByKnFCBmAMlOYdf7Fm58FlXYzvm1+qfu75t3YALs
-	pvSMRNjlc9OPU0X1wtpQnTZNEaShFXMhLjX40UBPMjcuyLV8PhihvzDtAlcpkFG
-X-Google-Smtp-Source: AGHT+IHBuRkyoQD1EHB9ZmOyTHsx9PCdtAK0b+CCDpTw9RoYQfSOBxBrLbZUs1ESOuaSGAfTefp1Fg==
-X-Received: by 2002:a17:906:3145:b0:aa6:b4b3:5923 with SMTP id a640c23a62f3a-aabf47baa14mr514507566b.33.1734605461426;
-        Thu, 19 Dec 2024 02:51:01 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.61.92])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f06cf19sm51704366b.198.2024.12.19.02.50.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 02:51:00 -0800 (PST)
-Message-ID: <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org>
-Date: Thu, 19 Dec 2024 10:50:58 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- andre.draszik@linaro.org, peter.griffin@linaro.org, kernel-team@android.com,
- willmcvicker@google.com, daniel.lezcano@linaro.org,
- vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
+	Thu, 19 Dec 2024 10:52:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 29EE9A42073;
+	Thu, 19 Dec 2024 10:50:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56BDFC4CECE;
+	Thu, 19 Dec 2024 10:52:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734605554;
+	bh=vW13L2zwHZ3hPtsWWe7muVvrgkpQiIKqYaJQXfMjg2A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NgO1FvQD7/sFmTiuv1faa8PAkx1blRdl3ATIlf4H+k/GeG0ulKNYLmaxbUWNKO7r1
+	 s9EPm9MfLp9jQ/NBdYAMXNwdBsw0NZi//ME/W0jTPpBBYYYQBcJgxXdZL7WmtkYNZr
+	 ZygM4PibVRaVacKU/WYa21wFcNjenc5ulAlvmVEUp+VC/OC2u9QIlrnjqdbx2+OF9/
+	 Ou2WHLt/36NnV3MnOB3fDgkqNGk186Rs33q9t7/+pC3OXErJ9BdsxQfxS5r3RA+nrE
+	 TIn9dfF3bErr15lDUkew2vkuMajHOuiGKp7+ZCEEosukS3Vs53rkzlM0b8g5Gqkrqe
+	 xjCLVdsWf7AQw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tOE8s-005F37-Q2;
+	Thu, 19 Dec 2024 10:52:30 +0000
+Date: Thu, 19 Dec 2024 10:52:30 +0000
+Message-ID: <868qscq70x.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,	Krzysztof
+ =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,	Kishon Vijay Abraham I
+ <kishon@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Arnd Bergmann
+ <arnd@arndb.de>,	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,	Thomas Gleixner
+ <tglx@linutronix.de>,	Anup Patel <apatel@ventanamicro.com>,
+	linux-kernel@vger.kernel.org,	linux-pci@vger.kernel.org,
+	imx@lists.linux.dev,	Niklas Cassel <cassel@kernel.org>,	dlemoal@kernel.org,
+	jdmason@kudzu.us,	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add DOMAIN_BUS_DEVICE_PCI_EP_MSI support
+In-Reply-To: <20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
+References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
+	<20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Frank.Li@nxp.com, manivannan.sadhasivam@linaro.org, kw@linux.com, kishon@kernel.org, bhelgaas@google.com, arnd@arndb.de, gregkh@linuxfoundation.org, rafael@kernel.org, tglx@linutronix.de, apatel@ventanamicro.com, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org, dlemoal@kernel.org, jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_025103_250798_CB6824AF 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20241219_025235_694767_9D9800DD 
+X-CRM114-Status: GOOD (  26.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +92,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof, Jassi,
+On Wed, 18 Dec 2024 23:08:39 +0000,
+Frank Li <Frank.Li@nxp.com> wrote:
+>=20
+>            =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=90
+>            =E2=94=82                                =E2=94=82
+>            =E2=94=82     PCI Endpoint Controller    =E2=94=82
+>            =E2=94=82                                =E2=94=82
+>            =E2=94=82   =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=90  =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=90     =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90 =
+=E2=94=82
+> PCI Bus    =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=94=82  =
+   =E2=94=82     =E2=94=82 =E2=94=82
+> =E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=96=BA =E2=94=82   =E2=94=82Func1=E2=94=82  =E2=94=82Func2=E2=
+=94=82 ... =E2=94=82Func =E2=94=82 =E2=94=82
+> Doorbell   =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=94=82  =
+   =E2=94=82<n>  =E2=94=82 =E2=94=82
+>            =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=94=82  =
+   =E2=94=82     =E2=94=82 =E2=94=82
+>            =E2=94=82   =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=
+=94=80=E2=94=98  =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=
+=94=98     =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=94=98 =
+=E2=94=82
+>            =E2=94=82      =E2=94=82        =E2=94=82           =E2=94=82 =
+   =E2=94=82
+>            =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=98
+>                   =E2=94=82        =E2=94=82           =E2=94=82
+>                   =E2=96=BC        =E2=96=BC           =E2=96=BC
+>                =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=90
+>                =E2=94=82    MSI Controller      =E2=94=82
+>                =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
+=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
+=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
+=E2=94=80=E2=94=80=E2=94=98
+>=20
+> Add domain DOMAIN_BUS_DEVICE_PCI_EP_MSI to allocate MSI domain for Endpoi=
+nt
+> function in PCI Endpoint (EP) controller, So PCI Root Complex (RC) can
+> write MSI message to MSI controller to trigger doorbell IRQ for difference
+> EP functions.
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change from v12 to v13
+> - new patch
 
-On 12/17/24 9:40 AM, Tudor Ambarus wrote:
+This might be v13, but after all this time, I have no idea what you
+are trying to do. You keep pasting this non-ASCII drawing in commit
+messages, but I still have no idea what this PCI Bus Doorbell
+represents.
 
-> diff --git a/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
+I appreciate the knowledge shortage is on my end, but it would
+definitely help if someone would take the time to explain what this is
+all about.
 
-cut
+=46rom what I gather, the ITS is actually on an end-point, and get
+writes from the host, but that doesn't answer much.
 
+> ---
+>  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchi=
+p/irq-gic-v3-its-msi-parent.c
+> index b2a4b67545b82..16e7d53f0b133 100644
+> --- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> +++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> @@ -5,6 +5,7 @@
+>  // Copyright (C) 2022 Intel
+> =20
+>  #include <linux/acpi_iort.h>
+> +#include <linux/pci-ep-msi.h>
+>  #include <linux/pci.h>
+> =20
+>  #include "irq-gic-common.h"
+> @@ -173,6 +174,19 @@ static int its_pmsi_prepare(struct irq_domain *domai=
+n, struct device *dev,
+>  	return its_pmsi_prepare_devid(domain, dev, nvec, info, dev_id);
+>  }
+> =20
+> +static int its_pci_ep_msi_prepare(struct irq_domain *domain, struct devi=
+ce *dev,
+> +				  int nvec, msi_alloc_info_t *info)
+> +{
+> +	u32 dev_id;
+> +	int ret;
 > +
-> +  '#mbox-cells':
-> +    description: |
-> +      <&phandle type channel>
-> +      phandle : label name of controller.
-> +      type    : channel type, doorbell or data-transfer.
-> +      channel : channel number.
-> +
-> +      Here is how a client can reference them:
-> +      mboxes = <&ap2apm_mailbox DOORBELL 2>;
-> +      mboxes = <&ap2apm_mailbox DATA 3>;
-> +    const: 2
-> +
+> +	ret =3D pci_epf_msi_domain_get_msi_rid(dev, &dev_id);
 
-Revisiting this, I think that for the ACPM interface mailbox client use
-case, it would be better to introduce a mbox property where I reference
-just the phandle to the controller:
-	mbox = <&ap2apm_mailbox>;
+What this doesn't express is *how* are the writes conveyed to the ITS.
+Specifically, the DevID is normally sampled as sideband information at
+during the write transaction.
 
-The ACPM interface discovers the mailbox channel IDs at runtime by
-parsing SRAM. And all ACPM's channels are of type DOORBELL, thus
-specifying the type and channel in DT is redundant.
+Obviously, you can't do that over PCI. So there is a lot of
+undisclosed assumption about how the ITS is integrated, and how it
+samples the DevID.
 
-It would require to extend a bit the mailbox core to provide a
-mbox_request_channel_by_args() method. I already wrote a draft and
-tested it.
-
-Do you find the idea fine?
+My conclusion is that this is not as generic as it seems to be. It is
+definitely tied to implementation-specific behaviours, none of which
+are explained.
 
 Thanks,
-ta
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
