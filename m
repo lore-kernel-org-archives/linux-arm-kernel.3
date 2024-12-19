@@ -4,72 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F06FE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598E4E7718E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ioDPUgm26sIewyiKKt87uRLzDe3HLY/6rcUgbbVysQ=; b=lwv1TnOh671Uo5O9F0KfJpSy7G
-	gge3CS9f/ZvM8hZxvT9fgBgnoFQqp+YrRpv4P30rX3SguzEiN6E3AJ665+Ve9KV4Dr/DPNFH0I1g2
-	cut6FRjgmir9aqWjQUXRTluAr+aYDsLsgIf1A0RNSio5lbZjREb0PxQwlA0HYFwTehi0uUvPZFLVr
-	0ZKCyMhwDPdB9uWjmHPOonyHpqaOSv6xZd5XdutoiVae8+XwhRgiz35fht6p6LrDZwcAn+qM2Mamo
-	SmILlBzJLYLnC9TxtX2K1WnvaKdd5ddiIvqUxwF57UPbiaESoIxkZ8PoCbUdqVF5kOf697elUvxNx
-	rmKc6rHA==;
+	bh=tv30BUhl2KrUk+ioQQ/VXBgYHRBVaTXn2u8ymnam/0M=; b=2+veLXuCTsiwJ+J1l+rWmg3RRS
+	cxFlFpFWSg3gr73ZbdfJU94a+g/2r0zXXGzjKvqc9GvDp97/MjEHRM/2pbKtGs14MpXCfoMnu54sM
+	QuPXaPxRhZoBm9ibJjxftjvpA7MmMp24M6j07aZHo+De/A6vkfpuheeAVBbfv7FQE4iiMiGblFmuW
+	X0oK9uOY8TLdOPg3qcwcHHS4q6Or+zfjQd4X+cz8ECCgsUlNlGv5GYVW7RZItVPgxttLvmJLt7ebQ
+	nNtb5hfCgQHMLszWacczFW+VFojzIYtRkTBKkWHHzZm2PEd+s5qkQsqw8noimM2wvyZ2rkYmSdo45
+	xC5ARhyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMeF-00000002vHA-2yMt;
-	Thu, 19 Dec 2024 19:57:27 +0000
-Received: from bout3.ijzerbout.nl ([2a01:7c8:fff8:2b8:5054:ff:fe86:f72d])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMYj-00000002u2N-2gqO;
-	Thu, 19 Dec 2024 19:51:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ijzerbout.nl; s=key;
-	t=1734637904; bh=CLTYGlkArbh9G44nbamSYDRsT+GxW9EOzuXjgf57kew=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=S2S4Fpfx+y2RwzTH27vG7Pm6ixE0N+e0KsxNdKwNsdOcgb97FjTAIJIrvu/OM6DBR
-	 ERy16mpog/gaQJwHjFF/6+r7EPRYbbcl4QwR7jusUOIyoG61Iy/XUdXOTdawQ2DZhu
-	 nlcdcwJaYiMnhnIF/ND6buzeqSKdrOQj8RI2cQQNiHxLRnn3/CyzuEananaUOPIiyW
-	 lj9wtTWsMpH0THnYevKFhMdoZJRRfPi8Qzy50GzI0jTIHLQ5V8QlwpNY4NVT2SqfgF
-	 GPlbSPGLKkoSM2fecuswXSU1b/PomVoiQJeZr+Vz5AEW0Cp2Q4Iwac/jPDEI4BO8iN
-	 DPlnn7uVBrn2jEThiYgmvVOB80UDULTb2emYsVZFAuzReteGey4zvSSzvKVu/Mzcvz
-	 F8LHEf6wE5552abnvkhU/MdN/OPuG35qiwd19fK0yglFNCOccDDBke1YgkUuSicXMF
-	 PxdUdTiuiDtLjP2llVQv3U5DBDonIiYc3BxuFuH485QqvkXoiqDRUbyazCGpL6u4zL
-	 nvK2JSqFQoGXA/cLpfEZo5IvMEGXkEAnKTP/DqmSzJbPBGVkXRnnvYZXXTBUlr2AcC
-	 Jb0evGNO9isBVdjyhr6XKuPntK8SvMzBl7vw6VdhFLKUUcIYZlaomrY0XphpQSfwvX
-	 hYoP0YM6Lij67jU1554I7ki0=
-Received: from [IPV6:2a10:3781:99:1:1ac0:4dff:fea7:ec3a] (racer.ijzerbout.nl [IPv6:2a10:3781:99:1:1ac0:4dff:fea7:ec3a])
-	by bout3.ijzerbout.nl (Postfix) with ESMTPSA id 0DB7218010B;
-	Thu, 19 Dec 2024 20:51:44 +0100 (CET)
-Message-ID: <4cecc705-84ab-44d5-8725-eb973254f257@ijzerbout.nl>
-Date: Thu, 19 Dec 2024 20:51:41 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 4/9] mfd: add base driver for qnap-mcu devices
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, lee@kernel.org,
- jikos@kernel.org, jic23@kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- jdelvare@suse.com, linux@roeck-us.net, srinivas.pandruvada@linux.intel.com,
- bentiss@kernel.org, dmitry.torokhov@gmail.com, pavel@ucw.cz,
- ukleinek@debian.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-input@vger.kernel.org, linux-iio@vger.kernel.org,
- linux-leds@vger.kernel.org
-References: <20241107114712.538976-1-heiko@sntech.de>
- <20241107114712.538976-5-heiko@sntech.de>
- <5d1ddf7e-2df5-4563-81e5-e0cfa7ef58da@ijzerbout.nl>
- <3130486.CbtlEUcBR6@diego>
-Content-Language: en-US
-From: Kees Bakker <kees@ijzerbout.nl>
-In-Reply-To: <3130486.CbtlEUcBR6@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1tOMfM-00000002vku-2Ign;
+	Thu, 19 Dec 2024 19:58:36 +0000
+Received: from mail-vi1eur02on20617.outbound.protection.outlook.com ([2a01:111:f403:2607::617] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOMcD-00000002uZW-1Nqi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Dec 2024 19:55:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XS0YlWEY2kB84q6WS7QrzeBl5XT+nZeaGgOoPRIseul5ZTzM2K72AB0TLwYDHtRzBOm8fdanAO8GIO2xSWgPcO61GqkCquc6cVKvOcqdx5hmnKhZapx2OphjE6lduXeCxggZ1nBNK8cS13LUhfuFsafwXJTifnVQlBvpLR2ZjANCm+lxD2EjG47wRSXoaoWo9wuxm04t2oZn/xsnfjSTSbBM0epEbJIJ3UfLnrquJqpsIkUaijXFxcfXX624uA2V5V5sy0hiYvz5k4GM6Cys/UtQb45gxOxt/8iUPV8WNVYHbigEypkfvK4KDSGRxu+JTvf0YS/rPLehjEtmKlcRsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tv30BUhl2KrUk+ioQQ/VXBgYHRBVaTXn2u8ymnam/0M=;
+ b=OCAr+HWUAA3unfU1A6xKmHXOBeME5Ro3sFvwWBRUsjP6h++ux97BfOPO/o8l/fRjzghoSW+uMip+TsgEc/UY4MsnDyQMhaeHBHE1N8TVplNVw1UYFOdzmM598wWvNx5ZoYKMUR1AL2du15Qydl4QR/H7qRpcB9ZoM/5k+Pxok1ZOVlNOTltJjwkYit08AAkCOcQiBEH8zO0jUz28ke4nkzSlcVeh4p85A5mdoZMalEN9+d/BcG4wZcUNRaYzNvvPP35cNeCLbuhNhn2pK+D8idwnxjLJigAQRt1w5vyCxX+lt3uy3XwZZTJnPObQ9wmWahCW48yhLbbqM3ZCQ7vUGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tv30BUhl2KrUk+ioQQ/VXBgYHRBVaTXn2u8ymnam/0M=;
+ b=e0fVAMzV7vrYvoAba54Feyc2WyBDgDzOHSaO3R8O0oZYkYjl8Q3117lAxg0KFyc3LNHIfWXYvRfRouKNirIWI8g4tf+6XYASfO6hwTM3UGEqiLA8K96OA/TuNuvMt1HRxOuiOLcgvVnbG59uUvSTaIo3rnHl9o9SI2DG9pdwtz5APXAF7+Ui1y+FEwaADQva8KLwNdtTuTcovcslUo5Jg0/bB1lf+0REU3RmTc9gEPyHSPevIQpVTtg7ASZ69qDBftrmLx46S1F4/kI0ysVjyte7Un1hs9Ht7GGk0+gUIJ6VcUotxGqlcwd0VO4ITkfButtmSeMNVyDnhtvra0+iaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU7PR04MB11139.eurprd04.prod.outlook.com (2603:10a6:10:5b1::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Thu, 19 Dec
+ 2024 19:55:17 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 19:55:17 +0000
+Date: Thu, 19 Dec 2024 14:55:08 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 0/7] PCI: dwc: opitimaze RC Host/EP pci_fixup_addr()
+Message-ID: <Z2R6HET6FZEO+uwi@lizhi-Precision-Tower-5810>
+References: <20241119-pci_fixup_addr-v8-0-c4bfa5193288@nxp.com>
+ <20241124143839.hg2yj462h22rftqa@thinkpad>
+ <Z1i9uEGvsVACsF2r@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z1i9uEGvsVACsF2r@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: BYAPR04CA0014.namprd04.prod.outlook.com
+ (2603:10b6:a03:40::27) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU7PR04MB11139:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8b90485-1b9b-4157-def1-08dd20670fc4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QnNRVmVaWEl6czNFcXpEV0Z6ekhWU3lTdVc3MWJMVnhacGhCekRmSjR0b2lP?=
+ =?utf-8?B?SlhLSXRGNkpibkxwT3hwd041L2JiakpvU01PKzZCL3gwTTZkMDd6QTRud3dL?=
+ =?utf-8?B?ZHFXMk5EcEFJb2tid0lScERKdHZBd2Z2ajlaT3BOeTFrTEZPc0FhRjN6alha?=
+ =?utf-8?B?dUxSQTFVSWxUSnAvYWxQczV0N3Y4ZUFad2JldnFXRXI4Y01Mb3VuL2ZmTEIv?=
+ =?utf-8?B?U2liYmhPQVJIbHlrbWVHSFBoNFlBcjlibFlWS0RWU2J3aHZhRm1acnJ1QTJV?=
+ =?utf-8?B?QkJXZ0FUSDRrb2V4OForM1gzb3k3Yy8wOTYweUVOS1RzSmQzekgyeVlkYWhW?=
+ =?utf-8?B?TUM2dVBZdVpoTW1IUTdYbVdQTHdvbFJacnRQN3g3M1Fob2JiUzZtNExSTDk1?=
+ =?utf-8?B?elVsY2g5MDREYnZNZzE0VlhWL3JsZkJDQ2lOL25JT1pxUE5DcFVGVjdGNHJM?=
+ =?utf-8?B?T1Fjb0Y4UElpcVRIcXhwNys2ZFpLekJnN212UjN0cFNycXpVMnVZMlU2Rk14?=
+ =?utf-8?B?eHduL2wxZkVpdlYweE1jOHlOdHY3N0ZDem9WWTFOYmh2VXZ0VE8rVUFVUmp1?=
+ =?utf-8?B?cE9OcXV1dm9WTXpHWk02RGNVMk54elNWZXhXYTRUY29zUzRqMEliNzhqRDRG?=
+ =?utf-8?B?U043RklmWDQ4aENseU02Z1NDWEJrUUVaUTZFbGNOS3FSWGd5c05yYlJ6djdq?=
+ =?utf-8?B?WGk1TzdSSU5qUTdBNWRHNUFOb3J0TG1UMS90SFNITWZFWkpRbjhWSkttYUJj?=
+ =?utf-8?B?V3I0cWRZTzBSenNqYjQ4L1MrTzh4dVdZWldOM3dXQmdtb0ZtZEEzcmYyRHFi?=
+ =?utf-8?B?ekpKUmJ4a2tTOW0zZlVKVG1CQ1VLMHg2UzNwRy96T2hwOHlsSC9KSmxTaVcr?=
+ =?utf-8?B?dUxRY0UzMlVMSlZQZ3RWMnh5VmZFN0J0LzN5dXlybW9UZDdGQ2NDdjR4ZVNM?=
+ =?utf-8?B?N3pBL3RBdGFBbGlPbElZOXBlSWkydHVBcW9HSmFwTjBiUjhiQWNwaG05ZHZL?=
+ =?utf-8?B?QWJQbnlqQVJVMGJaY3g5RjZ4N0o0RVBlTnFLTEZJU3U4RUZUbTZOT0N6VThE?=
+ =?utf-8?B?TzAyWGNWM2h4UHk4T3A5WWNlOFhmUXNHeXFPVjJqUThrdG42S0R4WE11clIw?=
+ =?utf-8?B?OStJT3lONmlkVllYTjJJMzk1dlhWWmRFcmJsMjdkOVV0bzVaNFBmWVY4RmtN?=
+ =?utf-8?B?VHN5M2R2QUpPM21NMUZ2SDJzZUF4QnlKQUw5aWw0UlozR3ZrQTRWRDV3b2J1?=
+ =?utf-8?B?dXhmNnhaSE9oemVvbVZId1VGRTN3MzNndll6U2EyZUV6WUI5VUtCMVg1d20w?=
+ =?utf-8?B?SDRrTldMRmYzblhQejBzODBPYXRWN2RCOWgrVDNsMmNCQ1NpU25yWHA3aU5O?=
+ =?utf-8?B?Rjc4d1FOU1ozc0I2dndTUXRxZkJrZC83VmNzL2U5RzZUV0N5a1NmVlBsR204?=
+ =?utf-8?B?YmZJbURwVnJwekh5a29RZk4wckFDUW12eWFmZ3hoVzdsVFB0UmNhRUNRdzI2?=
+ =?utf-8?B?empkNXE2eHRWMGdSNU9MVVRkeFhkdHA5Szg4VkE3bEVPQ24xeUtJdC9CT0R6?=
+ =?utf-8?B?UGh2ZFl0ZC9Eajh2TDIzMWt1aG1TYWFDaDNmMVQxSFdVQm1uSmd0WFE1bHEw?=
+ =?utf-8?B?VUpqdlVPYXF0cFRLOXZqMHV3U09EVlR0cEd1UlQxM3JPaWluWTVmUzhYeXBl?=
+ =?utf-8?B?N2NjRFhNd3lldFpMU1pOSFc4b0ZwbkVLK0tsbitjRTlaQklpZEZLYXpYRWk5?=
+ =?utf-8?B?RC9pMFhzc3pGMDlGUXFYM1JicUhUaU90YkpBU1N3cmhTZVp3OGFmQkxvZHg5?=
+ =?utf-8?B?cmtuT3RqNTJUV21LaUswdytDSlRTMEpzRk1qdEtwNldkMFZ6NlRjNkFtS2tS?=
+ =?utf-8?B?VXBNU2FBZ0ExeW1lWS9YNWduOTRlbm1OQ1ViQ0ZRYUtMTytPRUxwaXJMb0Nw?=
+ =?utf-8?Q?fXMGyWAw2w6Ibr7/OWAE9AOsrT97qYWD?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTVLcmNQZ2IvZWdOR09nWGtlQXMvRTNBRWdQanBwYUVnL0l5ck1iSzdEUndu?=
+ =?utf-8?B?MnVyNXVLdHdCUWZZc2pOQS9ITTdjWEErVUJHWEVhSlpRTkdjUzZ4Q25LTU1S?=
+ =?utf-8?B?MmdtQzBoNGZYTXF1M3lUaXJ4Wkh0bGpBUHRhVVpzY1E2cEVXa0FqTVRFRnc0?=
+ =?utf-8?B?MVhvMnlaL1lVRy9zd1Rkc1BmZXlmc3ZpNWVqa0xCNmM0ZGdBVG1iamN4QTZT?=
+ =?utf-8?B?TUJjcHVnZXBNT29OZHRPZnVMOEVHMnZLeXRvYlJXRVlVL05kajFkVTBDRzJS?=
+ =?utf-8?B?Rkl1TGhXelp5bTIzRXIwOVkxTmY4N29mL28zTzZLLzNibm90dFN5ZjJtSHhw?=
+ =?utf-8?B?TE9SWmhSakJUUmJTMTlKcUV4Sk9tMis3TzFFajYycFhkRXBrN2wxdVU2REdr?=
+ =?utf-8?B?cCtVc2FwblJFWTFiZEQyL2NRUTA1b1lEdHV0ZmQxSCs3Sy9hUG9MWjBhZ1dH?=
+ =?utf-8?B?bmFLMjRWUkJUaitCVCtXTitSOGVnUU5NQU4rZDBKYUk5L3BzMGpJenRqalpj?=
+ =?utf-8?B?bHBPaHNCU3Nnczk2RDVCeXR4aVhFMWlPRFpGUmtTT2JwcWR3bjVuMVpUN2lt?=
+ =?utf-8?B?RFcva21INHJIYWt3NlRLcnVxNUkzNHIrZnFSd3B3a2JpVjZlb0hEZy9wcjc4?=
+ =?utf-8?B?d3VwY2VWVmE1c01MRmVIV2NWSzBzbmxFcVJjb25LeGZZMU5LUytza2M2UUt0?=
+ =?utf-8?B?WVh4aGJwOTYvSWlLVkg1VEJ2K1RPSzVsaGFGQi93anFuYWpyV1BPbFFnbkw1?=
+ =?utf-8?B?RzlqcUc2RWtqR0sxaXVkZ2V5VVhyVS85STVsNE4xMkRkb3lIbEpDbEg0ak40?=
+ =?utf-8?B?b01jSmYwZnRtZTVyTTcvQzJObGVCY1dHZ1F1aEdDWUIxaU1RZkk2NDY4NHhm?=
+ =?utf-8?B?WXBPV1FtVmlXdlRYeWU4UUlpUGZqYUp3TE9lWXRBZXltOW1OaU91a2FpY0d1?=
+ =?utf-8?B?bjVIeXlrdUNNN0RQdE1XNkF6RTVMOG9SMmVMYXR4L3dodXBPbU5MMHYrY2xh?=
+ =?utf-8?B?ZUVGWDlybEx1Y3RlWmFqeHFEeVJ6Rlk4ZGpZbCtCd2lJUmpjeTlnUHBYNk4z?=
+ =?utf-8?B?N0RPYlJwM2pvZE9CRzcvUHNQT0RxcFBuYXBQMFYrc2hMTDZzMGNhY1Noai92?=
+ =?utf-8?B?U2hXazcwZWVWNnp2SXpPc0pUR0ZDdjdaRjNLTWd6c1lXaDVwUmQwVENaZjd5?=
+ =?utf-8?B?M3J1SjVhVkZuWWF2bmtnQjRKWmM3UFZ3WVVidnQwMlliNHRxVXdLTmIrYlp1?=
+ =?utf-8?B?NUdmbHFHaStyeGw3eG01MnYvdmI3NGJKekwybGp5NWcvdUhPNHJ1Y1hYeEgr?=
+ =?utf-8?B?VmZ2R21ndDZ6bmNHMWxPemthMlYrNFB6Zncwck4zaGNMMGlxUW5NMWZEQjFv?=
+ =?utf-8?B?S1AwbFdONG1ldmR0TjBCMmliZ0FMQlNYYlhNaWhwM0hDMHFUNWhqVFdDYW9N?=
+ =?utf-8?B?RWMxSXAzMnZMUkMxYnlIendjQVVuc1o2dkNoRWZpN1d2TnFZZERGTDFUZFAr?=
+ =?utf-8?B?dmxiZkQ0YmQ2RWNOSlY1MWphblN3b29jTVpkTW1uLzF0VGhYL1ZSYURjTjhD?=
+ =?utf-8?B?bnY2NTFIVkdiSFpoK3JpYU1aV3U0SGZSVjRscmh3QklhWUV1c0thcXZ1TG1u?=
+ =?utf-8?B?Q3hGY0t6U3RTbndSeGVZVncyNnNLNithOElkaHZCeldLQkpJdHVZejBLOHJs?=
+ =?utf-8?B?V1hacmgzZmkwa3RWRjNMVkhreURGWFVVeFByZGgweFR2Y01XSFVRejlFMEhC?=
+ =?utf-8?B?d2Q1cVJHR1hiNlJHQmRzMUJlbGJzcTdIM2tLdVgwOGxmVWxoYVI2OTIvYXAz?=
+ =?utf-8?B?Vkgwc1J6WlI1Q2FBZzBVVTZtQm5ScFRTTFJxTklOMk1yUEpMeFNGU1BJdGtm?=
+ =?utf-8?B?SVMzZFVhSlB3bGg4Vkl6RWhrcDV0MHdhVm9WR2tiQnpZck1FS0MwS3o5MXJ1?=
+ =?utf-8?B?SGFENG9Yd1R5b3JPZFVBSzFwd3NWSlBKU2dUNk1HSkk5SGFWdmI1ckw2S2RZ?=
+ =?utf-8?B?dyt6UWxCTVEyRTJ0QXZmbHRETEpZdUR6V3JTTHBqVmFSMjJaNHVmVXRUdVBZ?=
+ =?utf-8?B?NkZtNVRTUXNzTE4rNEh0ZHlkbmRkQ1EweURmdWFER2x6VEt3VTVkME55ZERH?=
+ =?utf-8?Q?ARIKv5LoDF4dfIH91Nq2oDdGS?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8b90485-1b9b-4157-def1-08dd20670fc4
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 19:55:17.5957
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DS5Q1KFYOtBWXdhsHNnGR62qiExlQ9D4P12K1SgCHnZyVq06BmwVd91zcb80jXVefcDcQzDt0y70O2KThotnEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_115145_817678_56C0C042 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20241219_115521_371701_5D40F0D1 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,126 +187,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Op 19-12-2024 om 20:43 schreef Heiko Stübner:
-> Hi Kees,
+On Tue, Dec 10, 2024 at 05:16:24PM -0500, Frank Li wrote:
+> On Sun, Nov 24, 2024 at 08:08:39PM +0530, Manivannan Sadhasivam wrote:
+> > On Tue, Nov 19, 2024 at 02:44:18PM -0500, Frank Li wrote:
+[...]
+> > > Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
+> > > the device tree provides this information.
+> > >
+> > > The both pave the road to eliminate ugle cpu_fixup_addr() callback function.
+> > >
+> >
+> > Series looks good to me. Thanks a lot for your persistence! But it missed 6.13
+> > cycle. So let's get it merged early once 6.13-rc1 is out.
 >
-> Am Donnerstag, 19. Dezember 2024, 20:18:38 CET schrieb Kees Bakker:
->> Op 07-11-2024 om 12:47 schreef Heiko Stuebner:
->>> These microcontroller units are used in network-attached-storage devices
->>> made by QNAP and provide additional functionality to the system.
->>>
->>> This adds the base driver that implements the serial protocol via
->>> serdev and additionally hooks into the poweroff handlers to turn
->>> off the parts of the system not supplied by the general PMIC.
->>>
->>> Turning off (at least the TSx33 devices using Rockchip SoCs) consists of
->>> two separate actions. Turning off the MCU alone does not turn off the main
->>> SoC and turning off only the SoC/PMIC does not turn off the hard-drives.
->>> Also if the MCU is not turned off, the system also won't start again until
->>> it is unplugged from power.
->>>
->>> So on shutdown the MCU needs to be turned off separately before the
->>> main PMIC.
->>>
->>> The protocol spoken by the MCU is sadly not documented, but was
->>> obtained by listening to the chatter on the serial port, as thankfully
->>> the "hal_app" program from QNAPs firmware allows triggering all/most
->>> MCU actions from the command line.
->>>
->>> The implementation of how to talk to the serial device got some
->>> inspiration from the rave-sp servdev driver.
->>>
->>> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
->>> ---
->>>    MAINTAINERS                  |   6 +
->>>    drivers/mfd/Kconfig          |  13 ++
->>>    drivers/mfd/Makefile         |   2 +
->>>    drivers/mfd/qnap-mcu.c       | 338 +++++++++++++++++++++++++++++++++++
->>>    include/linux/mfd/qnap-mcu.h |  26 +++
->>>    5 files changed, 385 insertions(+)
->>>    create mode 100644 drivers/mfd/qnap-mcu.c
->>>    create mode 100644 include/linux/mfd/qnap-mcu.h
->>>
->>> [...]
->>> diff --git a/drivers/mfd/qnap-mcu.c b/drivers/mfd/qnap-mcu.c
->>> new file mode 100644
->>> index 000000000000..4be39d8b2905
->>> --- /dev/null
->>> +++ b/drivers/mfd/qnap-mcu.c
->>> [...]
->>> +int qnap_mcu_exec(struct qnap_mcu *mcu,
->>> +		  const u8 *cmd_data, size_t cmd_data_size,
->>> +		  u8 *reply_data, size_t reply_data_size)
->>> +{
->>> +	unsigned char rx[QNAP_MCU_RX_BUFFER_SIZE];
->>> +	size_t length = reply_data_size + QNAP_MCU_CHECKSUM_SIZE;
->>> +	struct qnap_mcu_reply *reply = &mcu->reply;
->>> +	int ret = 0;
->>> +
->>> +	if (length > sizeof(rx)) {
->>> +		dev_err(&mcu->serdev->dev, "expected data too big for receive buffer");
->>> +		return -EINVAL;
->>> +	}
->>> +
->>> +	mutex_lock(&mcu->bus_lock);
->>> +
->>> +	reply->data = rx,
->>> +	reply->length = length,
->>> +	reply->received = 0,
->>> +	reinit_completion(&reply->done);
->>> +
->>> +	qnap_mcu_write(mcu, cmd_data, cmd_data_size);
->>> +
->>> +	serdev_device_wait_until_sent(mcu->serdev, msecs_to_jiffies(QNAP_MCU_TIMEOUT_MS));
->>> +
->>> +	if (!wait_for_completion_timeout(&reply->done, msecs_to_jiffies(QNAP_MCU_TIMEOUT_MS))) {
->>> +		dev_err(&mcu->serdev->dev, "Command timeout\n");
->>> +		ret = -ETIMEDOUT;
->>> +	} else {
->>> +		u8 crc = qnap_mcu_csum(rx, reply_data_size);
->> Here `rx` is still not initialized.
-> The MCU works in a way that a sent command always causes "reply_data_size"
-> bytes to be returned.
+> Krzysztof Wilczyński:
 >
-> So for each qnap_mcu_write() above we know that this amount of bytes has
-> been returned (and thus written into rx) if the completion above finishes
-> sucessfully.
->
-> "rx" is assigned to reply->data above (same as the expected received size).
-> When characters are received on the serial line, this will trigger
-> qnap_mcu_receive_buf() from the serdev and thus fill those elements in rx.
->
-> So if we land at the qnap_mcu_csum() call, we do have received the expected
-> amount of bytes from the serdev and thus rx is filled accordingly.
->
-> If we don't receive the needed amount of bytes, we end up in the timeout
-> above that.
->
-> What did I miss?
-Sorry, my fault. I missed the essential part of the external event (external
-for this function that is).
-Thanks for explaining.
->
->
-> Heiko
->
->>> +
->>> +		if (crc != rx[reply_data_size]) {
->>> +			dev_err(&mcu->serdev->dev,
->>> +				"Invalid Checksum received\n");
->>> +			ret = -EIO;
->>> +		} else {
->>> +			memcpy(reply_data, rx, reply_data_size);
->>> +		}
->>> +	}
->>> +
->>> +	mutex_unlock(&mcu->bus_lock);
->>> +	return ret;
->>> +}
->>> +EXPORT_SYMBOL_GPL(qnap_mcu_exec);
->>>
->
->
->
+> 	Could you please pick these? all reviewed by mani? It pave the
+> road to clean up ugle cpu_fixup_addr().
 
+Krzysztof Wilczyński and Bjorn Helgaas
+
+	Any update for this? All already reviewed by mani.
+
+Frank
+
+>
+> Frank
+>
+> >
+> > - Mani
+> >
+[...]
+> >
+> > --
+> > மணிவண்ணன் சதாசிவம்
 
