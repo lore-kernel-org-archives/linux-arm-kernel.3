@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF6DE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 15:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F64E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 15:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGSpD3+3yxS9yz0CYWixS3C/FoBfovGzSM7W4jlHvCA=; b=S/6NJFtz1SqX+RoPhA8IqhmMqy
-	IpcNyLsjY0Ddm1BrhOY1pFVauSX4+eU7ppTz8PMYa0gtVexAJpzSJxC+rsnIHlszV+yjF+09Q01iA
-	vxLV/Ootx/8BC52/niRJQM4YliUmlKvwbapf/DW7kGdcRX+r+vTpgICnNFK5EI1lHia7DoO7Ocd4f
-	68fKIz3lrnKXCqwBXSrhZbhQ4TDO7LvrooSyK2OV/9FjgTG1QRSI22FiaQ2S/by6eFBnIRojqyOOg
-	qvdDfe9h+5Do+xpd1w5n60CWP5ABcOJQE4BiA45P2pXDOiSNUgrIog6yJ8Os1ZpmuNflkIgcabIlO
-	vMBzlfMg==;
+	bh=jc8yq26BIoFufnvmMd8jhmw4sJL+yowe8bF01NY8gr0=; b=EiV74Xf/skcpbby4pokGfmDAvi
+	rHBHCbKl2R1aOv5RRlc4oO8hwis46hfHYm3U+sk0CN5pJQ5fOYULxJywddXhh10ynOwTkAKn1If5d
+	/sNtk6KPv6HHukSDD8TeOya8w0LRhvZbvQdiKTcArANshv08u4zEGa6bJtz8VHnlJRCq50D0MHsAU
+	uzrkvAtpDfP5/wMnRq6CPpxar+7R3B0TOFHN5ukFjN6A9xMM4ES193pdzl9U/dSrCzXgljw06ch6g
+	NPwtTK/tx10rfkFZORg/SXPfhDsuwdyoRyhe/PoIO8CGfnbaIMQByLDJTbnHdsvRGobJ8JUw3XM+1
+	9NLim8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOI2V-000000027E7-3KKA;
-	Thu, 19 Dec 2024 15:02:11 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1tOICI-000000028RM-0P0i;
+	Thu, 19 Dec 2024 15:12:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOI1O-0000000275N-3jDI
+	id 1tOIBB-000000028IW-2PDZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 15:01:04 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3a77980fe3aso3158925ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 07:01:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734620461; x=1735225261; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kGSpD3+3yxS9yz0CYWixS3C/FoBfovGzSM7W4jlHvCA=;
-        b=AHT9eB3AY/AtPef18enw0hH3z2IwBtpGsoBfRX9GyI1uxKoI22qTR3VpWXgZyfUl9T
-         m2lbLJkciE4H6vsZrpV4PWwkkTAxZ5ooKmlOSkdF9e6U708BHYRkIEt0xB5PTn13Enc/
-         jBtfGNxX8WNAyMDSYsvArGiFy2DPl3MJGpdHbThJ8/TsWNLtnG0AKKrbhvTbj0634rks
-         fmUs9FyU+L/Y4csTk3t+hFN1Kj/vioCHPNOmRCm+vFi0VH7JdxniwbkNPjjwAcDUSfIu
-         okRD961+uOIY1R6pQo2MTeOB/qPlc5DaV6cQubUzwCPlzgKIgjBt9GLBKoRHsJ6py8wu
-         O8kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734620461; x=1735225261;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kGSpD3+3yxS9yz0CYWixS3C/FoBfovGzSM7W4jlHvCA=;
-        b=YLOCfgXaSodU5p/RQ65ZnscMdTQROZJ2tTR2oIh8VvwrKoxw1NFk75TvTywUuuXYhl
-         oXUol8T0tfS1NWXd/umnNxYFrMUp5GbAitcUSfUuo7OJqwiwDiEbe5Q83ci3BiBYdjFi
-         aPFwCsJoaesr7MpYQjdhdxu9siL9ZDT3qRREbDKCWZ8ZNuMmcqjMlQ+RboolvDH/3qb9
-         HuY+e34+Vf/+XuCQJwp/erUdH3G6wTLX14UgcAjbrIEjA/DvTiOObasQuFfAmpx6fqDD
-         GrctfdIQo+AowzvvovbGMvhXSvq9q2uDMIznYNuLmO1UiRSDbnSiuLZbFyOLHowgeLpM
-         5fEw==
-X-Forwarded-Encrypted: i=1; AJvYcCVRrv/CW0PmEgtdG7Q7F/lRiGtPCNWleooebySzbeGKmHDTrkE41F+Umf2iYViHI8iNUrQAF4T+wCCZgFVikLhw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMHywpng4aHJs1Gzv3LQlDqCeJgu9vZQA54UKoFJfHnuUHhwm2
-	cadJWPBmFz3UMuINeWqX8PezE86PjzK7KbcR2J3yD2Y6dTyFWBiYzHHXDmihFEPZCjuPD25ywaO
-	MyxPuxiwDvRdP2qD5qGVb6Uqe5ZY=
-X-Gm-Gg: ASbGncujlUS31/cqIRRiN2E9MyuD8l4HGvWbZMiEC/rWYVu6MXQjFZOMpL/pC/J0U43
-	5Ca4cR0XBysXDWyjx0tmV3hQSFt1SPMp1CZ2RaQ==
-X-Google-Smtp-Source: AGHT+IHp8ABABtvQh+2yyPlFSULZ37QjpTpYXLauYn/rtYNis49Ni4sKHQpdMdeMDdPO+HGJ2/oxRYIljcvIQuXYhZ4=
-X-Received: by 2002:a05:6e02:1649:b0:3a7:c81e:825f with SMTP id
- e9e14a558f8ab-3c02e1e9aa7mr36636045ab.9.1734620460446; Thu, 19 Dec 2024
- 07:01:00 -0800 (PST)
+	Thu, 19 Dec 2024 15:11:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8F9AF5C6757;
+	Thu, 19 Dec 2024 15:10:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFAA1C4CECE;
+	Thu, 19 Dec 2024 15:11:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734621068;
+	bh=adQ2VPRcjtI/vVkO75YJreXNfLf5pJL1trNq2V/W/Ns=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Er9JUTVg4DvjSBY76AzsEe7pZLpem8q8ZDx0p1KiGyI8kaQLiD0aBZa7dpUbQ5QCb
+	 0fwpnEX4fShYuAGYPtG4pZKh9BR/cLSjTR9w2wpNdalMJGDUit5yiPACqp9R+EsoO1
+	 MltCrnMSaHC8HQmll+vXXibFTnqg0uP3ZgQET+axUVqYONSw0mye0gtgsltoxnaCYa
+	 hRiA2ebZsY3jPxeLXQl0GtTQB//0VTB7jiMoUpsiytLLF3AivthFoD2H1aZ+QYPQwf
+	 0vsiqShNhqiRjXue2jaLwCl2LyJlqmUeOpXZYhqoB4RpXu279r5M9Zp6XGDB4rNF7C
+	 0f3wN5eT1nBsQ==
+Date: Thu, 19 Dec 2024 15:10:56 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+ <conor+dt@kernel.org>, <alexandre.torgue@foss.st.com>, <wbg@kernel.org>,
+ <ukleinek@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+ <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH 3/9] iio: trigger: stm32-timer: add support for
+ stm32mp25
+Message-ID: <20241219151056.26e21aed@jic23-huawei>
+In-Reply-To: <20241218090153.742869-4-fabrice.gasnier@foss.st.com>
+References: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
+	<20241218090153.742869-4-fabrice.gasnier@foss.st.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20241216171017.4881-1-robdclark@gmail.com> <20241219113019.GA23640@willie-the-truck>
- <41d93dac-4ef1-4cc7-a7b2-24c8289f905f@arm.com>
-In-Reply-To: <41d93dac-4ef1-4cc7-a7b2-24c8289f905f@arm.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Thu, 19 Dec 2024 07:00:48 -0800
-Message-ID: <CAF6AEGshSjOr1DE63WiXwAyH39-Tz9B3MEkKUo6sg1jpQPYZcA@mail.gmail.com>
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
-	freedreno@lists.freedesktop.org, Akhil P Oommen <quic_akhilpo@quicinc.com>, 
-	Rob Clark <robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>, 
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_070102_928770_A6CF2CEB 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20241219_071109_701898_3465F1A0 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +79,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 4:08=E2=80=AFAM Robin Murphy <robin.murphy@arm.com>=
- wrote:
->
-> On 2024-12-19 11:30 am, Will Deacon wrote:
-> > On Mon, Dec 16, 2024 at 09:10:17AM -0800, Rob Clark wrote:
-> >> From: Rob Clark <robdclark@chromium.org>
-> >>
-> >> On mmu-500, stall-on-fault seems to stall all context banks, causing t=
-he
-> >> GMU to misbehave.  So limit this feature to smmu-v2 for now.
-> >
-> > MMU-500 has public documentation so please can you dig up what the
-> > actual behaviour is rather than guess?
->
-> Yeah, I'm pretty sure that's not true as stated, especially with
-> SCTLR.HUPCF set as qcom_adreno_smmu_write_sctlr() does. However it is
-> plausible that at the system interconnect level, a sufficient number of
-> stalled transactions might backpressure other transactions from entering
-> the same TBU, even if they are destined for a different context. That's
-> more about the configuration and integration of individual SoCs than the
-> SMMU IP used.
+On Wed, 18 Dec 2024 10:01:47 +0100
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 
-I am aware of the docs and I've spent most of the last couple days
-going thru them, as well as the errata, since it would be unfortunate
-for debugging to disable this ;-)
+> Add support for STM32MP25 SoC. Use newly introduced compatible to handle
+> this new HW variant. Add TIM20 trigger definitions that can be used by
+> the stm32 analog-to-digital converter. Use compatible data to identify
+> it.
+> As the counter framework is now superseding the deprecated IIO counter
+> interface (IIO_COUNT), don't support it. Only register IIO trigger
+> devices for ADC usage. So, make the valids_table a cfg option.
+> 
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Looks good to me.  Looks like I can just pick this up for IIO?
 
-The scenario where things lock up involves at least a few thousand
-faults in rapid succession.  Disabling CFIE in the irq handler and
-re-enabling when I resume translation does stop the flood of irq's but
-not the lockup.  It might well be something about how the smmu is
-integrated with the interconnect.
+Or is thOre a dependency I'm missing?
 
-BR,
--R
+Just in case it goes another route.
+Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
-> Robin.
->
-> >> This fixes an issue with an older mesa bug taking outo the system
-> >> because of GMU going off into the year.
-> >
-> > Sorry, but I don't understand this sentence.
-> >
-> > Will
->
+Jonathan
+> ---
+>  drivers/iio/trigger/stm32-timer-trigger.c     | 21 +++++++++++++++++--
+>  include/linux/iio/timer/stm32-timer-trigger.h |  6 ++++++
+>  2 files changed, 25 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iio/trigger/stm32-timer-trigger.c b/drivers/iio/trigger/stm32-timer-trigger.c
+> index bb60b2d7b2ec..8aaf3abf044e 100644
+> --- a/drivers/iio/trigger/stm32-timer-trigger.c
+> +++ b/drivers/iio/trigger/stm32-timer-trigger.c
+> @@ -38,6 +38,9 @@ static const void *triggers_table[][MAX_TRIGGERS] = {
+>  	{ TIM15_TRGO,},
+>  	{ TIM16_OC1,},
+>  	{ TIM17_OC1,},
+> +	{ }, /* timer 18 */
+> +	{ }, /* timer 19 */
+> +	{ TIM20_TRGO, TIM20_TRGO2, TIM20_OC1, TIM20_OC2, TIM20_OC3, },
+>  };
+>  
+>  /* List the triggers accepted by each timer */
+> @@ -781,7 +784,7 @@ static int stm32_timer_trigger_probe(struct platform_device *pdev)
+>  		return -EINVAL;
+>  
+>  	/* Create an IIO device only if we have triggers to be validated */
+> -	if (*cfg->valids_table[index])
+> +	if (cfg->valids_table && *cfg->valids_table[index])
+>  		priv = stm32_setup_counter_device(dev);
+>  	else
+>  		priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> @@ -794,7 +797,8 @@ static int stm32_timer_trigger_probe(struct platform_device *pdev)
+>  	priv->clk = ddata->clk;
+>  	priv->max_arr = ddata->max_arr;
+>  	priv->triggers = triggers_table[index];
+> -	priv->valids = cfg->valids_table[index];
+> +	if (cfg->valids_table && *cfg->valids_table[index])
+> +		priv->valids = cfg->valids_table[index];
+>  	stm32_timer_detect_trgo2(priv);
+>  	mutex_init(&priv->lock);
+>  
+> @@ -886,6 +890,16 @@ static const struct stm32_timer_trigger_cfg stm32h7_timer_trg_cfg = {
+>  	.num_valids_table = ARRAY_SIZE(stm32h7_valids_table),
+>  };
+>  
+> +static const struct stm32_timer_trigger_cfg stm32mp25_timer_trg_cfg = {
+> +	/*
+> +	 * valids_table not used: counter framework is now superseding the deprecated IIO
+> +	 * counter interface (IIO_COUNT), so don't support it. num_valids_table is only
+> +	 * kept here to register the IIO HW triggers. valids_table should be moved at some
+> +	 * point to the stm32-timer-cnt driver instead.
+> +	 */
+> +	.num_valids_table = ARRAY_SIZE(triggers_table),
+> +};
+> +
+>  static const struct of_device_id stm32_trig_of_match[] = {
+>  	{
+>  		.compatible = "st,stm32-timer-trigger",
+> @@ -893,6 +907,9 @@ static const struct of_device_id stm32_trig_of_match[] = {
+>  	}, {
+>  		.compatible = "st,stm32h7-timer-trigger",
+>  		.data = (void *)&stm32h7_timer_trg_cfg,
+> +	}, {
+> +		.compatible = "st,stm32mp25-timer-trigger",
+> +		.data = (void *)&stm32mp25_timer_trg_cfg,
+>  	},
+>  	{ /* end node */ },
+>  };
+> diff --git a/include/linux/iio/timer/stm32-timer-trigger.h b/include/linux/iio/timer/stm32-timer-trigger.h
+> index 37572e4dc73a..1ee237b56183 100644
+> --- a/include/linux/iio/timer/stm32-timer-trigger.h
+> +++ b/include/linux/iio/timer/stm32-timer-trigger.h
+> @@ -72,6 +72,12 @@
+>  
+>  #define TIM17_OC1	"tim17_oc1"
+>  
+> +#define TIM20_OC1	"tim20_oc1"
+> +#define TIM20_OC2	"tim20_oc2"
+> +#define TIM20_OC3	"tim20_oc3"
+> +#define TIM20_TRGO	"tim20_trgo"
+> +#define TIM20_TRGO2	"tim20_trgo2"
+> +
+>  #if IS_REACHABLE(CONFIG_IIO_STM32_TIMER_TRIGGER)
+>  bool is_stm32_timer_trigger(struct iio_trigger *trig);
+>  #else
+
 
