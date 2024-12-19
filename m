@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BF6E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61661E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WGkN0eIRMsbxDqZZzBkMr+wzaFkYCBiUXPyTbRF2MxQ=; b=NWY90uP163JDaEiyeyztvKPwU8
-	NasJU6KEEylYRdiR7ZNvk8gHBCPu2WKL19ka4k/i3Vpq6jbEpJ/3zqu0K2TuMbu84sN1OAa+t57Vd
-	G74OXnZ2MbAE1gSUqyhJEqJTaQBtiw/ZGvgOkMMPHUubj+GV/QKjEMPKU7rRsQInK/3abK80YE2dk
-	5rKpl37eflU62UqBn5MgSH6CIEa3NgMae13W3iXukrfZtJ+Y792C9vWMwUbtn8N0f3+L4JcDQGcbT
-	UnZD/TJyVjrmh3WE24cbzn1sEHl2j+RtWPmlgM3mhdF6KUfNmiY6Zq8JYcErMykkBXigjLQXZESlh
-	nchRaqxQ==;
+	bh=MNoCLTk5PLrDllVxHnAKqOI/0xe6p3W8/JGr5L06//I=; b=OvLcFpB7XndX05ZPKgwSjHlGyv
+	719ahOVJPMB7fNp/7evqS6Nm6d0R04yrH+kt3psrAlShk13Xt+97a1PULcqU6Iv5l4bZOhk9FXbcV
+	QdWJhKTk9ukQCFMFjvyXxPbB2UwsZToQuobK5e2d/TDEu8wUbD119btth9qxAXW8+m9s8hCb/rPrD
+	Af9PgEXS8fGeOZp/gPHDaW3WmYkpGP3AU2PtYy6f5JQrNHHAj9lloXnGNJ6dWy3lM7NjP9UccfZUM
+	CEYr9Xv/8l+Rl8JX5QInCD0WY+XX5vXA/EQ+CC6poqOH7q68h8lh73ZjprDWe9lLM0qVfbjPVdAMY
+	vCFkZaJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEcL-00000001eZX-2gC0;
-	Thu, 19 Dec 2024 11:22:57 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tOEde-00000001enO-1E4h;
+	Thu, 19 Dec 2024 11:24:18 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEbC-00000001ePa-2WiL
+	id 1tOEcX-00000001edS-0u0G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 11:21:47 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43621d2dd4cso50145e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 03:21:46 -0800 (PST)
+	Thu, 19 Dec 2024 11:23:10 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa692211331so126786266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 03:23:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734607305; x=1735212105; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1734607387; x=1735212187; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WGkN0eIRMsbxDqZZzBkMr+wzaFkYCBiUXPyTbRF2MxQ=;
-        b=v31QAXzEyzmRzb+bOgPpzXfMIaHGcDJUHxoEPCNYbWeYEREMVCuavc/fKODcDKBI9a
-         p6KdlZoWOWygl9n2Kv3XoNvvY3gAn2694UpIbqLbJ9Q9m/SkMMmHGMz8ATcVTg7NRouF
-         BLrkVkg+Dp0MmE3i/CePDyFQmERJvs9ranDkJvHtg1KAlivvOdT8Q5hglA0siGJ+yESd
-         CfWPsKmYkTPu4LUuff988AIFmBecIqyIhHvgqO2U3Bz6joKeuPAYO7bQ4/17xvlNLsfh
-         cASazJiIBfjcgBRGRsj8bEuP05u5PD8v6RbRPCtDxdqtWw7bxQ6W0cXMlRx9WDT3TdyE
-         6vzA==
+        bh=MNoCLTk5PLrDllVxHnAKqOI/0xe6p3W8/JGr5L06//I=;
+        b=4eRUk7nsOQg6dm22vHR2/6836kUWDuaB6HISdC6kGMVrjooxBKF5kIaljrHws4kbaI
+         zUet0wEUOI4Z/wYtHxOolF+DskAqNFZa56BuivK+F1EyZzgeJQoa6INmR6qkhG6eFNk3
+         iFLwUjrSJevbCN6C5VvDZvBIaIk6jcm2viaBdrbwoKSsl2zkqeOUhwgbq4DmvouxxoB6
+         4fLdIZbTVcbRpMbMOe4Vz3S7TnHAzO2YtEX85MS4Lz65HHUaXSjOhxAumtcGmV//hWU/
+         blgLvvKLNVjMdj1O/R1/A8fHDUZEFW7Ea7IiCdYTEkFfrhefhgGlZmFPY41KEHF1qu3+
+         WZuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734607305; x=1735212105;
+        d=1e100.net; s=20230601; t=1734607387; x=1735212187;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WGkN0eIRMsbxDqZZzBkMr+wzaFkYCBiUXPyTbRF2MxQ=;
-        b=q26FC2ONq0nWGuWulsNFMbn/8Fuqe1zGuN2oGSqMcrH6krpp4Vp0E0HeZ5rq4bLx4g
-         M0vd67AUvc7bRQML+BENqxd8bCzFVzvuA59X5BwYbh5r0TJkFIS61td+j7D2zq8yf5Lf
-         JSXOvi+fmKnQZNIGffLtAzVJVXKhtcedk/HqVMgEzCED4QWVfOT595Mi+kh58y1W4KVb
-         wlKrLrqWgz+GOZVpbRYh2AIMectW9AgV9um5s4FajLCQMCmf+1D5rmUMLQlW1d60aLI3
-         bHVyBuLvm4FvDdpPYRir4fT+c5JhEQYmJteTFzNhvYzJ8Axi+wE8VcxFZ99Z7qSZ1mBr
-         hgYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWvj+Gr5D5fIhqZnIbyeDXWBAqXmRm6QO+OZRrgE1g7A3c2mxmn1CyoKUlZj3+WknubqXsIADXby0nZ+O98h1SS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwALP7xPneUgxNe1C0EEKDXQRuTglKIYm1iGa4lJgB/TQPNgdHb
-	lqyCCCT0FYD2pntUOCITQie28r3xxKyz2SY5ty4qVPSTivLDgikTEz9DhmjYLA==
-X-Gm-Gg: ASbGncuuE8u0YXZNLr97pAgInv2timC/OtC6JF9a6cnUnBhXI+w+C6A08VMG4+ckQL3
-	LjEEFbvGKUEqh+c/xTrUCR0l43batChkSo7mQU1hQWXlo0Rw5wFwJq6H0JVdyboRLg6cWVBxNmU
-	/ASeS0yXl+3An8a+H3qtg558gMtLAfsnLIT2uPLfGuHDSDmSWSBr+bMRlnYvxOJzljfuh76y7X2
-	f52+AVTnESzU/e+vhIHR7/6ojxCqn6rId6Gtwz4p8/Dijqo7b2JmqGiuL2SpS6TpAF4fj1QJ7hn
-	ZDFKxA41z3jDzyNwB8M=
-X-Google-Smtp-Source: AGHT+IH3i8v/BrwemmECFyya82qa5WpmpoQwTNEogOS40Upy0/Fstoyzd3BnWRDUcSAESI7APhWcyQ==
-X-Received: by 2002:a05:600c:4a01:b0:436:4e4c:7bae with SMTP id 5b1f17b1804b1-4365fca3ba4mr846885e9.1.1734607304693;
-        Thu, 19 Dec 2024 03:21:44 -0800 (PST)
-Received: from google.com (216.131.76.34.bc.googleusercontent.com. [34.76.131.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8bb4bcsm1308850f8f.111.2024.12.19.03.21.44
+        bh=MNoCLTk5PLrDllVxHnAKqOI/0xe6p3W8/JGr5L06//I=;
+        b=HfkWnsuEM1sT4QEDEbAyl6im+1tcXvlx2m+5ky0eE9vPRhczQNaTM6CpsgV/SDL2Li
+         STYpiTHrlob6gpbI3Be0xAEwru1FF/Ze1rqogv61et9Dzv6fTcXbK0p2rnJptvPc1u4P
+         LMf3WDrPwq9eLYzwpjMKDEQsdzevE67WBdRLdTFh6eUQr3SsiycXM1bhElX2uLFPrAtE
+         s0qz1AQ42yvaLre/fGBocOnY2aBP1sXITEEM7zSECUAFe58qsOjg5Ux/IednPam6WCTb
+         OUIDHyJLN7d87WV4b7PpA29hpJyZa40tF0RskkBmufPKd0M4lJFPIiOaThyGGfUtPxJX
+         YJdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWG7xErvssAHf3cKpp/F1VzOnTt8J0DZa61x6LwLoDpE3b4flLEs32Lew79WoRDC2KoYta6UbtjUJ+uAuEh+ZR1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGiTvZ4IPtIrzn9ai877e3hqmrG//NPZF5kwHt2UZb64IUF9Q3
+	wOAXqUbCfYMOwHPNjajiizzF2RFkvbSYn9V8nLy9MJwwk2SfEIPQTWkVsPRKRQ==
+X-Gm-Gg: ASbGncujZfuzY+kxW4p8UnhTcVbsyZz1iNUpUudsRjRVk9/zQbx25Q2oBmPRGdENRr2
+	9DNoZgt8dWn1AFKnzAngs+VxQEL0w2n2+/rR9HXQryaBipHHBw6eistLL3UwAt56Xk2ZR3B4yBY
+	+MZ1fHRHZ/LBsUa0fZFXOky4CjzXSh4tHHTC64DZeW+vZFCbOLTbMcyiu0hxxeJk6YpvuVio7at
+	YSZNO1I6fnZg/AqYkbluwLWNh/1yJKxEeBNHV3a19JjA2MgdPAPptlJanxOrc/FrMNof2YpjktM
+	EgSmewtlIn9QtD0=
+X-Google-Smtp-Source: AGHT+IGBbkrBT1+E3hcflKVgebxmfU7Se8YKjT9HtDdCtUo3a97FGuUSH0zyshOzjTlEgkesB5a4qg==
+X-Received: by 2002:a17:907:9615:b0:a9a:6c41:50a8 with SMTP id a640c23a62f3a-aac08155183mr234984166b.17.1734607387303;
+        Thu, 19 Dec 2024 03:23:07 -0800 (PST)
+Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e82f31bsm54976666b.1.2024.12.19.03.23.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 03:21:44 -0800 (PST)
-Date: Thu, 19 Dec 2024 11:21:40 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Quentin Perret <qperret@google.com>
+        Thu, 19 Dec 2024 03:23:06 -0800 (PST)
+Date: Thu, 19 Dec 2024 11:23:04 +0000
+From: Quentin Perret <qperret@google.com>
+To: Mostafa Saleh <smostafa@google.com>
 Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
@@ -78,18 +78,17 @@ Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
 	robin.murphy@arm.com, jean-philippe@linaro.org, jgg@ziepe.ca,
 	nicolinc@nvidia.com, vdonnefort@google.com, tabba@google.com,
 	danielmentz@google.com, tzukui@google.com
-Subject: Re: [RFC PATCH v2 11/58] KVM: arm64: pkvm: Add pkvm_udelay()
-Message-ID: <Z2QBxPyBsxGNSuzT@google.com>
+Subject: Re: [RFC PATCH v2 12/58] KVM: arm64: Add __pkvm_{use, unuse}_dma()
+Message-ID: <Z2QCGFN5V41Vux6Z@google.com>
 References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212180423.1578358-12-smostafa@google.com>
- <Z2QADxbdoYi5q9iT@google.com>
+ <20241212180423.1578358-13-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z2QADxbdoYi5q9iT@google.com>
+In-Reply-To: <20241212180423.1578358-13-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_032146_652377_EAB184ED 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20241219_032309_261703_5712138D 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 11:14:23AM +0000, Quentin Perret wrote:
-> On Thursday 12 Dec 2024 at 18:03:35 (+0000), Mostafa Saleh wrote:
-> > From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> > 
-> > Add a simple delay loop for drivers.
-> > 
-> > This could use more work. It should be possible to insert a wfe and save
-> > power, but I haven't studied whether it is safe to do so with the host
-> > in control of the event stream. The SMMU driver will use wfe anyway for
-> > frequent waits (provided the implementation can send command queue
-> > events).
-> 
-> Mooh, I'm thoroughly hating that we need this -- pKVM is non preemptible
-> so we better not wait for too long.
-> 
-> I can surely figure it out from the following patches, but could you
-> please expand on the use-case?
+On Thursday 12 Dec 2024 at 18:03:36 (+0000), Mostafa Saleh wrote:
+> +int __pkvm_host_unuse_dma(phys_addr_t phys_addr, size_t size)
+> +{
+> +	int i;
+> +	size_t nr_pages = size >> PAGE_SHIFT;
+> +
+> +	if (WARN_ON(!PAGE_ALIGNED(phys_addr | size)))
+> +		return -EINVAL;
+> +
+> +	host_lock_component();
+> +	if (!range_is_memory(phys_addr, phys_addr + size))
+> +		goto out_ret;
 
-The driver needs to poll some SMMU MMIO, so it needs to measure time
-in terms of udelay to timeout, at the moment its arbitrary set to 100ms.
+Nit: I think you can do this out of the critical section -- the memblock
+list is guaranteed stable by construction.
 
-Thanks,
-Mostafa
+> +	/*
+> +	 * We end up here after the caller successfully unmapped the page from
+> +	 * the IOMMU table. Which means that a ref is held, the page is shared
+> +	 * in the host s2, there can be no failure.
+> +	 */
+> +	for (i = 0; i < nr_pages; i++)
+> +		__pkvm_host_unuse_dma_page(phys_addr + i * PAGE_SIZE);
+> +
+> +out_ret:
+> +	host_unlock_component();
+> +	return 0;
+> +}
+> +
+>  int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
+>  			    enum kvm_pgtable_prot prot)
+>  {
+> -- 
+> 2.47.0.338.g60cca15819-goog
 > 
-> On a side note I'm not too worried about the power impact of not having
-> a wfe in there, again we better not be spinning for long enough that
-> power starts to be noticeable.
 
