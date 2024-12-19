@@ -4,80 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 938F9E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 05:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFF0E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 05:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mmc6jucBgZmDsYveNGNTIb7SUSQtNS9OQ5CWM+MIYl8=; b=WmKp5iArjWQA7m9u92rIl8QUfx
-	NBKvoAi1BGXY3wDygsk6UlbOMfOXVyvRMKDvslR+lLREjbYDae7IjQ4DEyxfCZtDVSgeGDlLSgcYG
-	S9o1Z+3pQPdDpzNHXMI/yTxtawPbrP1W2S/1L+dpKOh/Ld8leAYViz5qhbs8iA0jp8JOrO7lOaQUt
-	pUduSCRqCSrqsxhbnjqg2wsMx9rnbnErU0BQ9Te8++Lc5DWaqYW98G5LbDWwTe0OWxzqxDHQwRZKj
-	ViqKet+/JN+eMNI3XNtzYybn1UTfhfVgfTsQAuEGiXZr6kc7VzSMahDrActA0N2wqX1IILwLg2v40
-	4t18sBTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YuiQlb+X0qO3MzfMfFHGSTuOds0FP+ainneRzadih7U=; b=NI44WaQC/8tTMO/FFeWxUhHmdf
+	KS8ogfMYTvWc/++4P2pbZlq2YvdrbKnkb+hetD+KkrFp83QavvOiHgiKjiXKI1BJjsKJiIi8inQMl
+	uXKINBnJQ+fQw/Wn/s0C0gnuMVtru0rDNkLDEYg2KSwILil714q98Lj3U8Gx7JGj+rwzUAFI9Tmih
+	L0ar+t5LdrP11JG5Fh5VMYPQd1KGobImE471tmWd/Q8euAlxwOYJ/wuUycVqSXob9sj4/qo5Pz3nO
+	3X5FLWsFa8Gm0fjw//nSN1fj39VQz1gn5bVbc8QB74yRoQfr/wJmTLqx3uoQ/ucYL6JpT0+x1w54+
+	8MT4qdbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO8mZ-00000000pvS-1cdo;
-	Thu, 19 Dec 2024 05:09:07 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1tO8t7-00000000qMA-1upv;
+	Thu, 19 Dec 2024 05:15:53 +0000
+Received: from mail-bn8nam11on20628.outbound.protection.outlook.com ([2a01:111:f403:2414::628] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO8l2-00000000plx-1B6c
+	id 1tO8s1-00000000qE5-1jES
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 05:07:33 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ574Jl057189;
-	Wed, 18 Dec 2024 23:07:04 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1734584824;
-	bh=mmc6jucBgZmDsYveNGNTIb7SUSQtNS9OQ5CWM+MIYl8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=EHkuGD2cK1KIrMQOiTPVc+NKhuHjgOfjIIxCOiFERQWQrvIwekAcHMRlMwc9ncb+d
-	 hNpTM12lzTbJXlEU/lo6KB7D1x1N4vpMG0C5Th24DbXuF7hi0NxpP/9jkTE/lUpGA0
-	 FoFz44kA8xFovRRofuddNappjNudKPg+cBsLsCa0=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ574IP100295;
-	Wed, 18 Dec 2024 23:07:04 -0600
-Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 18
- Dec 2024 23:07:03 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 18 Dec 2024 23:07:04 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ56wUm055129;
-	Wed, 18 Dec 2024 23:06:59 -0600
-Message-ID: <c6254178-6e2a-47e1-ac16-22af5affc8ca@ti.com>
-Date: Thu, 19 Dec 2024 10:36:57 +0530
+	Thu, 19 Dec 2024 05:14:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qq3BprYkOX/7/h+Rv0XoQLCGwCBRixOiRsI6BZcxoLS6wBMNXPwiHooDd7Cvi3bFHT0+o45PD+Is8Dbhjwdg6quzxSwAkp9BrQ9edzw7YaFrjegIGeKD8rMy/ahO1gZ2nKCqVeFM0Is4kA+8NL97breUAj4CB20CyoGR7dMpvPK463Uipje4OE5Q4DteTgCiYJfCoZ8MPLxzy1cr2rsbvTkCJsbL4ZntU7gP6eGHIgBe1Zo0a5eJtPWVhFxtb6ZcYik0IpkwoP/096ScqngNiz2rGpwlwmEqkBOX2xJcihpCKNQ00nOlkGgzjwzbAkFBRnjBoeXw12Kxzi2vCIzzAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YuiQlb+X0qO3MzfMfFHGSTuOds0FP+ainneRzadih7U=;
+ b=JVDihPSsdgSTxtoT7ptyq7i5n1d2h2HXLcUnubeuAONPZfmsPSs+RkaPWYAuUOitC50Ultc6wCM8YxMvNjg1LpoAya61MbWTcG2xXK5RLXzjW2aabu358sDzN8TRdRorHLSLpuM4tapzMDCYNuP9U2GADxL2SKW5B+GeMROOhSoss74vrc6d7C9dg0AmtZtGm5rFUmw8SlpnRvK13pIIaA3ZrJiXRqMYvnjFfkJqrz6UtXon3hS9jVZYJnrroJ+/AMTU+tWlS1rkjrGy4kQ34F7agSvuPdHjBsXlYWSlsMxAVloolFFZEILJbDmgRYfzQb8uqNGznpRrAya7PTOu6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YuiQlb+X0qO3MzfMfFHGSTuOds0FP+ainneRzadih7U=;
+ b=czKwsG/C7nq88iI+pQ0eAh3bU944xWLDl17lyv/iEw0JLtIV5+hppdcsoyY9PqGjQ8j5/cNTbiRPaITcywslP3xY2Efe7rwJkJeth7pCu+hVb1edyQJ5JBMNoZtbdVLBfPPMvGPlr5UJ4F7A9JmSWwcTqQRhH7tZqpSyZsUlZjTUlITITgNdXxR24IR+BA9sO/4GHQk9VrUh5Z62TdrhmvWlAitJ1z4SMi3+1gM4/Nuh3YjklwRqS3pm5783wGRTCHMGPPEf0hA6p39+8cibRsOZBRkBNGWVb7B9EQo2EZ3TjeAcQJM/8uyMBsuah1B5Ds2NDrpWnSsCfIVBGrniBQ==
+Received: from CH0PR04CA0089.namprd04.prod.outlook.com (2603:10b6:610:74::34)
+ by DM4PR12MB5962.namprd12.prod.outlook.com (2603:10b6:8:69::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8272.14; Thu, 19 Dec 2024 05:14:37 +0000
+Received: from CH3PEPF0000000C.namprd04.prod.outlook.com
+ (2603:10b6:610:74:cafe::ab) by CH0PR04CA0089.outlook.office365.com
+ (2603:10b6:610:74::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8251.23 via Frontend Transport; Thu,
+ 19 Dec 2024 05:14:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH3PEPF0000000C.mail.protection.outlook.com (10.167.244.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8251.15 via Frontend Transport; Thu, 19 Dec 2024 05:14:37 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 18 Dec
+ 2024 21:14:28 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 18 Dec
+ 2024 21:14:28 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Wed, 18 Dec 2024 21:14:27 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@nvidia.com>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<patches@lists.linux.dev>, <stable@vger.kernel.org>, <ikalinowski@nvidia.com>
+Subject: [PATCH] iommu/tegra241-cmdqv: Read SMMU IDR1.CMDQS instead of hardcoding
+Date: Wed, 18 Dec 2024 21:14:21 -0800
+Message-ID: <20241219051421.1850267-1-nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/4] net: ti: Kconfig: Select HSR for ICSSG
- Driver
-To: Larysa Zaremba <larysa.zaremba@intel.com>
-CC: <aleksander.lobakin@intel.com>, <lukma@denx.de>, <m-malladi@ti.com>,
-        <diogo.ivo@siemens.com>, <rdunlap@infradead.org>,
-        <schnelle@linux.ibm.com>, <vladimir.oltean@nxp.com>,
-        <horms@kernel.org>, <rogerq@kernel.org>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>
-References: <20241216100044.577489-1-danishanwar@ti.com>
- <20241216100044.577489-2-danishanwar@ti.com>
- <Z2L/hwH5pgBV9pSB@lzaremba-mobl.ger.corp.intel.com>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <Z2L/hwH5pgBV9pSB@lzaremba-mobl.ger.corp.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000C:EE_|DM4PR12MB5962:EE_
+X-MS-Office365-Filtering-Correlation-Id: ae7be9d9-7b6d-4f2c-66e2-08dd1fec08b4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?50OfU6Bu+EdVSjyZR2AkTW3kEOjLwy0zHX7G57Rv1X+M9fQ/mu3i/z6+bI9H?=
+ =?us-ascii?Q?EHhLtrQ8RTGM3p7SASt1j296pVFyz5uiJ/ifXfogCOcrBhnMBBcEbSd2dhCF?=
+ =?us-ascii?Q?u7ewlB/MBdyExhmmiLqZB/3p0gsoUCnyS4TAOjCdg/S2lz4acov4jUnQVP8o?=
+ =?us-ascii?Q?H3lu5H0wIg6jc1KIa4JmLnUIKKXx8ODSAM5baQ7uNEQWCNvu6ig0kr0JxjBN?=
+ =?us-ascii?Q?kDHBDmVsrVlo0dWrF+nFbKfurLaPDYDauOtczdife7iwDlyMTrYgUEe3vkvy?=
+ =?us-ascii?Q?AeawXrPGuDg13w5dqohJJJrSLz6d7Ls+Vnl7CCtrqZ/5/kqMcHq4hX+CUbPw?=
+ =?us-ascii?Q?BaND8YtRvjEgSbNLoUkHl48Zx3a7H6d//BksKB0Va7fUv0bkMMQDxDMoPAO9?=
+ =?us-ascii?Q?DKGb2Ks1q6YPoDYoRxFnygYasWxwCPPhT6cgwv0Tjy7uKHgH5UQRWQaZ/+PN?=
+ =?us-ascii?Q?ZHmCyM2crRBWo1z5zKR2o3OTc8wSwtwWKGXBCL5UF6IgAkRnx4vhrAlDFDPx?=
+ =?us-ascii?Q?xzA11dwKRs+a4zSm9mvIJ4CXNshtNIs/zxDvy7Dgg6IA2j2p40xx/2kcD0TX?=
+ =?us-ascii?Q?Qten+I7UvHekxC32ENk/OxA3E56k8kGTJnsaOa5+7byMJ07l4XC0HUa4s6qK?=
+ =?us-ascii?Q?AWfaO+GUMtDRCtUCwcw6DwKLG9LugQikl7IrXjzOBcxd0UgNh/bUXRNcEL/R?=
+ =?us-ascii?Q?ctccGb+m24GLutb8BSObhaKdYBl3KubZ/l4zY0L7rhYwOBsR5Q/JREHV7NLO?=
+ =?us-ascii?Q?x7dq8A5Xezx/o4pfQ9SmKqRZgB1ytzrtMxJ0YFiJsb4h9hYEb4C4t6VP1IML?=
+ =?us-ascii?Q?loLZ1spsASolN4GwWWJiunnpsJ4PMbgk99pz0USI5vOlbbXGRpglXDcBMxtT?=
+ =?us-ascii?Q?z5TAfnwaCRdhn8AsAb5VW4uJzN5VOe+fiFDYJ9aYCyDt5/bD3bwC6kq1tgxC?=
+ =?us-ascii?Q?PkbXCXpqpaHvgnf2yM6GetJTgzBMyBIaSgoGbYZNVqSgXtsJKTKg3sS3pQHb?=
+ =?us-ascii?Q?eZanF5zwCVoJBHZ9Nfi09vSFSAdchxhOtVmZPbmJpYfc8Eoj1PLxEqcPnEgI?=
+ =?us-ascii?Q?ONCZRu6E8zUhsuonTyvoCQB9GcCgiy+j833bJTA7UctWrkHS7QQ5xfUl/fTQ?=
+ =?us-ascii?Q?Wn9XSY6di3XsW/7fZwXBAPKiuToSv4f7kbP/skaFXXA/IXSCdwtvyyQdg0vh?=
+ =?us-ascii?Q?hTp9GaZeoSptwmyQ8ekUEano1Zs0VU6hR5jEJplc3EL05V2PGarg80K5BY/o?=
+ =?us-ascii?Q?cT4PheN4YNxI7YfijnvxygS0jWzVB9nfS+E6UqqdhEc/vuWHury21Pvn9s9a?=
+ =?us-ascii?Q?Rc8Bofm396QYA0RdwW4vIO+VSkz/rmNMpxM0huByGh/KJaDahX4fPk+uhBee?=
+ =?us-ascii?Q?hVM5ELUCXtbQP/3Ikcx65PLHl0zeQ9yvc504bzly1vbFEJQN9PcGJeQk6bi7?=
+ =?us-ascii?Q?xYK1iykhEYLNSFfLvuPyBts9sDaCMNyFyTmmBefK4vh6uq7nXU/dMQH7t/jn?=
+ =?us-ascii?Q?ly3hh1HoIMZqJXY=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 05:14:37.3699
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae7be9d9-7b6d-4f2c-66e2-08dd1fec08b4
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_210732_403999_410DF681 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20241218_211445_456993_EDC8D492 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,100 +149,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The hardware limitation "max=19" actually comes from SMMU Command Queue.
+So, it'd be more natural for tegra241-cmdqv driver to read it out rather
+than hardcoding it itself.
 
+This is not an issue yet for a kernel on a baremetal system, but a guest
+kernel setting the queue base/size in form of IPA/gPA might result in a
+noncontiguous queue in the physical address space, if underlying physical
+pages backing up the guest RAM aren't contiguous entirely: e.g. 2MB-page
+backed guest RAM cannot guarantee a contiguous queue if it is 8MB (capped
+to VCMDQ_LOG2SIZE_MAX=19). This might lead to command errors when HW does
+linear-read from a noncontiguous queue memory.
 
-On 18/12/24 10:29 pm, Larysa Zaremba wrote:
-> On Mon, Dec 16, 2024 at 03:30:41PM +0530, MD Danish Anwar wrote:
->> HSR offloading is supported by ICSSG driver. Select the symbol HSR for
->> TI_ICSSG_PRUETH. Also select NET_SWITCHDEV instead of depending on it to
->> remove recursive dependency.
->>
-> 
-> 2 things:
-> 1) The explanation from the cover should have been included in the commit 
->    message.
+Adding this extra IDR1.CMDQS cap (in the guest kernel) allows VMM to set
+SMMU's IDR1.CMDQS=17 for the case mentioned above, so a guest-level queue
+will be capped to maximum 2MB, ensuring a contiguous queue memory.
 
-I wanted to keep the commit message brief so I provided the actual
-errors in cover letter. I will add the logs here as well.
+Fixes: a3799717b881 ("iommu/tegra241-cmdqv: Fix alignment failure at max_n_shift")
+Reported-by: Ian Kalinowski <ikalinowski@nvidia.com>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-> 2) Why not `depends on HSR`?
-
-Adding `depends on HSR` in `config TI_ICSSG_PRUETH` is not setting HSR.
-I have tried below scenarios and only one of them work.
-
-1) depends on NET_SWITCHDEV
-   depends on HSR
-
-	HSR doesn't get set in .config - `# CONFIG_HSR is not set`. Even the
-CONFIG_TI_ICSSG_PRUETH also gets unset although this is set to =m in
-defconfig. But keeping both as `depends on` makes CONFIG_TI_ICSSG_PRUETH
-disabled.
-
-2) select NET_SWITCHDEV
-   depends on HSR
-
-	HSR doesn't get set in .config - `# CONFIG_HSR is not set`. Even the
-CONFIG_TI_ICSSG_PRUETH also gets unset although this is set to =m in
-defconfig. But keeping both as `depends on` makes CONFIG_TI_ICSSG_PRUETH
-disabled.
-
-3) depends on NET_SWITCHDEV
-   select HSR
-	
-	Results in recursive dependency
-
-error: recursive dependency detected!
-	symbol NET_DSA depends on HSR
-	symbol HSR is selected by TI_ICSSG_PRUETH
-	symbol TI_ICSSG_PRUETH depends on NET_SWITCHDEV
-	symbol NET_SWITCHDEV is selected by NET_DSA
-For a resolution refer to Documentation/kbuild/kconfig-language.rst
-subsection "Kconfig recursive dependency limitations"
-
-make[2]: *** [scripts/kconfig/Makefile:95: defconfig] Error 1
-make[1]: *** [/home/danish/workspace/net-next/Makefile:733: defconfig]
-Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-
-4) select NET_SWITCHDEV
-   select HSR
-
-	HSR is set as `m` along with `CONFIG_TI_ICSSG_PRUETH`
-
-CONFIG_HSR=m
-CONFIG_NET_SWITCHDEV=y
-CONFIG_TI_ICSSG_PRUETH=m
-
-#4 is the only secnario where HSR gets built. That's why I sent the
-patch with `select NET_SWITCHDEV` and `select HSR`
-
->  
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
->>  drivers/net/ethernet/ti/Kconfig | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
->> index 0d5a862cd78a..ad366abfa746 100644
->> --- a/drivers/net/ethernet/ti/Kconfig
->> +++ b/drivers/net/ethernet/ti/Kconfig
->> @@ -187,8 +187,9 @@ config TI_ICSSG_PRUETH
->>  	select PHYLIB
->>  	select TI_ICSS_IEP
->>  	select TI_K3_CPPI_DESC_POOL
->> +	select NET_SWITCHDEV
->> +	select HSR
->>  	depends on PRU_REMOTEPROC
->> -	depends on NET_SWITCHDEV
->>  	depends on ARCH_K3 && OF && TI_K3_UDMA_GLUE_LAYER
->>  	depends on PTP_1588_CLOCK_OPTIONAL
->>  	help
->> -- 
->> 2.34.1
->>
->>
-
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 6e41ddaa24d6..d525ab43a4ae 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -79,7 +79,6 @@
+ #define TEGRA241_VCMDQ_PAGE1(q)		(TEGRA241_VCMDQ_PAGE1_BASE + 0x80*(q))
+ #define  VCMDQ_ADDR			GENMASK(47, 5)
+ #define  VCMDQ_LOG2SIZE			GENMASK(4, 0)
+-#define  VCMDQ_LOG2SIZE_MAX		19
+ 
+ #define TEGRA241_VCMDQ_BASE		0x00000
+ #define TEGRA241_VCMDQ_CONS_INDX_BASE	0x00008
+@@ -505,12 +504,15 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
+ 	struct arm_smmu_cmdq *cmdq = &vcmdq->cmdq;
+ 	struct arm_smmu_queue *q = &cmdq->q;
+ 	char name[16];
++	u32 regval;
+ 	int ret;
+ 
+ 	snprintf(name, 16, "vcmdq%u", vcmdq->idx);
+ 
+-	/* Queue size, capped to ensure natural alignment */
+-	q->llq.max_n_shift = min_t(u32, CMDQ_MAX_SZ_SHIFT, VCMDQ_LOG2SIZE_MAX);
++	/* Cap queue size to SMMU's IDR1.CMDQS and ensure natural alignment */
++	regval = readl_relaxed(smmu->base + ARM_SMMU_IDR1);
++	q->llq.max_n_shift =
++		min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, regval));
+ 
+ 	/* Use the common helper to init the VCMDQ, and then... */
+ 	ret = arm_smmu_init_one_queue(smmu, q, vcmdq->page0,
 -- 
-Thanks and Regards,
-Danish
+2.43.0
+
 
