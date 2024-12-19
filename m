@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25753E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B277E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9m80RBkLlIyVih+tGTy7G66Yn/eg+6sg6d3WyVh4JM=; b=r+T4CX2LTdfP6xOjzh4RhQ4bQB
-	amn8212TjrCCp04554q2hlftuJZVcKdJTjXupQLErZfunHiK/xB3yWZwnk+sv0OUhAXMFMWLIsy65
-	hF3vUeFbX6KJPpsZGykZGrLaCUMQbxEg1YNOQ/YxW1c8h5WzbTCLlKeXsScQ7lhhbo/iHuo/UBqBd
-	6E6hWlUqcuAhjEoUSGOwjyBeY2lgLRfM6WJwDowFYfsH9Vc3vedajPK7y5QostPysv3rcCfkYldnW
-	X6M9RGPfsWc4FaQoZuehLMjvPwJj0H+qhfzRkMebKAi5uFa0C60OuU5rIcWMF8pQWyqsqLvCVfO41
-	NwJJRC9g==;
+	bh=DaFUYqfbJ0FVFTC0Qejf2fBra+Am279oXsL2ycAM8YU=; b=I5RUztsvTVtKD9ZoFTVz/OdTWv
+	gzODFkjYUy0RvMBRadkGVBwgy6N0dEhB2mYaC46kYZjvIch3SGIdRYGJxFMjeX+UBLlQWA/HqLhVy
+	7ciPzOATt5QIcTDx2bRdxkSlOiII4KeWio5evM36WW8qFbGQSso4fzjmzxCBhHc9Kgz1GpjvaES0t
+	cOU/LayHD80FioXtERlKNkt/6xg3h47Rs/Bb49TlnNGp/wMgju4f1gSFS++ceH4RM9jKYJkU00XMS
+	Ba9suh+Q8rKY4w+SQvcimMTN0GdHpwCUiu9x9ro1lZb4891kLP1PhDuN9Pp+OJeUCccFL/kvdH+SZ
+	YQc1Czlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEYo-00000001dyM-0iHS;
-	Thu, 19 Dec 2024 11:19:18 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1tOEa9-00000001eDj-3rcn;
+	Thu, 19 Dec 2024 11:20:41 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEXh-00000001dis-1rWx
+	id 1tOEZ3-00000001e14-3OFC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 11:18:10 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-728f28744c5so639549b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 03:18:09 -0800 (PST)
+	Thu, 19 Dec 2024 11:19:34 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-435b0df5dbdso48625e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 03:19:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734607088; x=1735211888; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=p9m80RBkLlIyVih+tGTy7G66Yn/eg+6sg6d3WyVh4JM=;
-        b=oVpsSwTLsYCgEJ0WMxQzXUOXd6j/GeKA0ti8u0CEUHQlagyRue5DXkWX0/ig4xia5T
-         wrr+nlq3vvYp8wNiXN+BACyenxKr8NDcFRMjIJmyPTEUIc9LQEJwUJbaX+OV5kos6+z3
-         qwOX3TXPwsZChFG+hhDdBJo5YTw0MFlrOaGRdF6QDMF5KzNoivCYpEWSG9srqN96Y3i1
-         zdYyEJLcRcR08TdYsGfxFiqyZ7bIVHOpEsayrbqj7URxzmCH1ZkI1t2Kifk6ZcyywSfA
-         +bGq12QUKJQ1Nr31Sv7Ie5XF8c+tmqN7l5WfTVZHKpSBsT9g6yO9TQJS29RSsS0pvtOr
-         98kg==
+        d=google.com; s=20230601; t=1734607171; x=1735211971; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DaFUYqfbJ0FVFTC0Qejf2fBra+Am279oXsL2ycAM8YU=;
+        b=YJ/WuoNCYkzaWDBsXqCFcnZKeRNFG5A8ROOpYmLkQY3225TaLFXAFy8Qgq/BWyw6VF
+         msWWHCg1ij4f6HDy8GmelcrLOlK9VpH29Tzy4rTAEKd7C2ZKVOOq6mADboXKyqG/7TwH
+         WuIyQnqQ4b9FqEuF10JovioH9YuiNHcx+IrJRRoIwqK7SHNWkqvMjCEkQTtCpp2r7USq
+         dgbWopmLmUQsxgMpYkm3a+0nw6ML3pghCNe1wJOeAqGJCEk45SHCwC0DEWjQE+aeD/CS
+         ZlKNUmrlUVtBnpcJ2+CDrxDsQZOIN8Zi1iSWrrxWjg/1Qc5b//YJV1VYQpgiwlpUFv8t
+         sh0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734607088; x=1735211888;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p9m80RBkLlIyVih+tGTy7G66Yn/eg+6sg6d3WyVh4JM=;
-        b=uc1n5yBwles2bHwTmMdXeMK/vXDnumbtV1AkP7qQWMd8e+nkij0eDMghhrOnQDcP+m
-         Qxiw2Y3K0N63fbqhE4nCpZiJ4GfnCScRDR4LWoP3A1A8YGDuQcFcEuXCufOdBZ15UVXI
-         t8hG9EuKRSZK5FTI1n44g1cIgzJUHDckHf36nNhTB/dcDjjiZ49aV0UMyRWJ9zra1Obs
-         D/em1xXfBqr8ajZz/saD0dONiUwASU77gzowpW3mtMUnH/mpMhPJVcigFndikqcPLYwO
-         G2zFe+Hwn/nkBGvuQtxnCuWXRw6eGoB6ey4YDitGYYge7XxjUCOWBExarOPca3bdYCFy
-         BcUg==
-X-Forwarded-Encrypted: i=1; AJvYcCXV6Iiny6ywQ9f/ibCs/AVB1ncnAuiU12t/bDbC+e4+yZX+Ika9c1bo19orLqD7r7WKm1v2fvkLtTNYQ3F6dBRy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYmj4YbKfgA0NdkLRvzkusJlAae87bSJ/o7Uo3qAZM1XYAmklW
-	c7KM+TG/KT0nTjtUa21w6e02gxtnlUVxUz35gGjPcNcL7vuYY/TcoHM0GtwuplYOaxPcEmuMF8n
-	ColqAH4lsFNRCoKpFsM9q6nCpUphQlLoTVWr7xw==
-X-Gm-Gg: ASbGncuFpE/q6Y0JLfJDs5OU6MrPGkVtlPzXF/z7fwYNkTsd4kK/eCI/Qb1EFLbPziV
-	cBV/bhJW8I5n8a4Xc2+VmhIy40lnHgO4dHXN9srA=
-X-Google-Smtp-Source: AGHT+IE2XfBAsxGuH9shdOU2Tv13L+bY+D6gYw0FRiJfoudzX1LkWtV41Ix0GCCr0IC+PxnNkPEmk5Ja2luVww300+o=
-X-Received: by 2002:a17:90b:2dcc:b0:2ee:a4f2:b311 with SMTP id
- 98e67ed59e1d1-2f2e91a8c16mr9358009a91.8.1734607088488; Thu, 19 Dec 2024
- 03:18:08 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734607171; x=1735211971;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DaFUYqfbJ0FVFTC0Qejf2fBra+Am279oXsL2ycAM8YU=;
+        b=MoUV9lMKJNmi8YZmUBYNgwl+12ErmU+x4CxznTjKESrpXaYeVXjRdWqPdJZKcbAsc5
+         H66ID7bvp/92wITGOofcimC4hKn0B76pJx7OlhlYNzd8fCUXlzmQTob8abmbzmzUyZVz
+         xZiFIhfON7e4HaY54HfPi8vQR4TDBiQ/Pfk1W8jDeJO/OJQTzlecuh/5KkUJddCMAIT2
+         0xETkkl4gzOplJcs6EswZADq8Ui72E078kOsyowlns9Wa30JP9JWqRTT9mq+zz7itlcG
+         0UCVYN9GPWayzLqwBhLLdagawqDmolPvSTDdheDD+QF8dGZNkOx7OSeU24BW7qVpXw//
+         9ZPw==
+X-Forwarded-Encrypted: i=1; AJvYcCVH2ePajPKcY/cdlE0hdfx0dXeW12jZkZyDGi+I9YYwYx6L9byzN6aCDoqTtixofEeRUwf3doaJMl8jJDBao1ad@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1g81gpoFg4qXKgHXHEDSuONr1cI68UaMIdncFY7mX7dG+/Dlc
+	sK7NHnnRWrmnG3l/hxiaUal7k4cQrv4UXUxuadP5hze2pwcTcUBkcWyMECKyXA==
+X-Gm-Gg: ASbGncvmwITo4YUsRhl4f6BgRtLiIOMllu6iNYpMxPl4jyPRdRhRa26ZexUCGH4sZRt
+	1zoN9gkRy+4w7mw4h54gjP9g0s+zXXIgrj9hrM5QJ1uZcX8TvOcPm6TPSLXTTUSAgDOd1Hsbzf8
+	/0qLeaSgD0Caj/D4k+/t3CRe4rDmh2sHPWINSt6qcWEPCQOlKGvKBl3dnXh8TgO97onyLWJ5WUK
+	HNwf6LSYERNLIjP2HXawFZSu3Q4c9LMa8ORzeyOMLGygaqXi3VZjZVoi6LxgvPxya7yRsImOnF0
+	FCCK7kgjX2NV7z6V9T8=
+X-Google-Smtp-Source: AGHT+IGXfoawYuXIuMfIIDaYD8hngDHiUTctYslUp+cxCbwWzZSbONX4t2aPmw9QcUFfEenJ6bez4w==
+X-Received: by 2002:a05:600c:3590:b0:434:9fac:3408 with SMTP id 5b1f17b1804b1-4365e5dd70dmr1072565e9.2.1734607171199;
+        Thu, 19 Dec 2024 03:19:31 -0800 (PST)
+Received: from google.com (216.131.76.34.bc.googleusercontent.com. [34.76.131.216])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8a6cb1sm1345355f8f.89.2024.12.19.03.19.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Dec 2024 03:19:30 -0800 (PST)
+Date: Thu, 19 Dec 2024 11:19:26 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Quentin Perret <qperret@google.com>
+Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
+	robin.murphy@arm.com, jean-philippe@linaro.org, jgg@ziepe.ca,
+	nicolinc@nvidia.com, vdonnefort@google.com, tabba@google.com,
+	danielmentz@google.com, tzukui@google.com
+Subject: Re: [RFC PATCH v2 21/58] KVM: arm64: pkvm: Add
+ __pkvm_host_add_remove_page()
+Message-ID: <Z2QBPtRvnB3PGvMG@google.com>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212180423.1578358-22-smostafa@google.com>
+ <Z2P_H4eahmrvhkIl@google.com>
 MIME-Version: 1.0
-References: <20241217063324.33781-1-quic_jinlmao@quicinc.com>
- <20241217063324.33781-3-quic_jinlmao@quicinc.com> <985d234c-e088-469d-b9dc-7904fcf5a91c@arm.com>
- <PAVPR08MB967401DC65384CBA26B6829C8C052@PAVPR08MB9674.eurprd08.prod.outlook.com>
- <53354e84-73c0-403b-bbc0-af619196596d@arm.com>
-In-Reply-To: <53354e84-73c0-403b-bbc0-af619196596d@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 19 Dec 2024 11:17:57 +0000
-Message-ID: <CAJ9a7VhWZkNcYWUfUkU8+OuQK-Cnu6kp6x23M4s5jHLa3_TpJQ@mail.gmail.com>
-Subject: Re: [PATCH v6 2/2] coresight: Add label sysfs node support
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <Mike.Leach@arm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>, 
-	James Clark <James.Clark@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, 
-	"coresight@lists.linaro.org" <coresight@lists.linaro.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z2P_H4eahmrvhkIl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_031809_495951_0B671DB8 
-X-CRM114-Status: GOOD (  39.87  )
+X-CRM114-CacheID: sfid-20241219_031933_849139_86E6CDE0 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,244 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Dec 19, 2024 at 11:10:23AM +0000, Quentin Perret wrote:
+> On Thursday 12 Dec 2024 at 18:03:45 (+0000), Mostafa Saleh wrote:
+> > From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> > +/*
+> > + * Temporarily unmap a page from the host stage-2, if @remove is true, or put it
+> > + * back. After restoring the ownership to host, the page will be lazy-mapped.
+> > + */
+> > +int __pkvm_host_add_remove_page(u64 pfn, bool remove)
+> > +{
+> > +	int ret;
+> > +	u64 host_addr = hyp_pfn_to_phys(pfn);
+> > +	u8 owner = remove ? PKVM_ID_HYP : PKVM_ID_HOST;
+> > +
+> > +	host_lock_component();
+> > +	ret = host_stage2_set_owner_locked(host_addr, PAGE_SIZE, owner);
+> 
+> Any reason why this can't be expressed using __pkvm_host_donate_hyp()
+> and __pkvm_hyp_donate_host()?
 
-On Wed, 18 Dec 2024 at 18:16, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
->
-> Hi Mike
->
-> On 18/12/2024 09:56, Mike Leach wrote:
-> > Hi
-> >
-> >> -----Original Message-----
-> >> From: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >> Sent: Wednesday, December 18, 2024 9:38 AM
-> >> To: Mao Jinlong <quic_jinlmao@quicinc.com>; Mike Leach
-> >> <mike.leach@linaro.org>; James Clark <James.Clark@arm.com>; Rob Herring
-> >> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> >> <conor+dt@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; Bjorn
-> >> Andersson <andersson@kernel.org>; Konrad Dybcio
-> >> <konradybcio@kernel.org>
-> >> Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org;
-> >> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> >> msm@vger.kernel.org
-> >> Subject: Re: [PATCH v6 2/2] coresight: Add label sysfs node support
-> >>
-> >> On 17/12/2024 06:33, Mao Jinlong wrote:
-> >>> For some coresight components like CTI and TPDM, there could be
-> >>> numerous of them. From the node name, we can only get the type and
-> >>> register address of the component. We can't identify the HW or the
-> >>> system the component belongs to. Add label sysfs node support for
-> >>> showing the intuitive name of the device.
-> >>>
-> >>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-> >>> ---
-> >>>    .../testing/sysfs-bus-coresight-devices-cti   |  6 ++++
-> >>>    .../sysfs-bus-coresight-devices-funnel        |  6 ++++
-> >>>    .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++++
-> >>>    drivers/hwtracing/coresight/coresight-sysfs.c | 32
-> >> +++++++++++++++++++
-> >>>    4 files changed, 50 insertions(+)
-> >>
-> >> Do you think we need to name the devices using the label ?
-> >>
-> >
-> > No - absolutely not. If we use label to name devices then we have to validate that the string is a correctly formed device name and that it has not been previously used.
->
-> Anything that doesn't contain '/' can be a device name ? And it is very
-> easy to find if the device name has been used in the coresight bus,
-> after all these devices only appear there.
->
-> It is as good as :
->
-> bus_find_device_by_name(coresight_bus_type, NULL, name) == NULL
->
-> Of course with coresight_mutex() held.
->
-> Suzuki
->
-
-DTS label property (DT spec 4.1.2) is a freeform string, specified to
-be a human readable description of the device, e.g. :-
-
-cti0@0x1000 {
-reg = <0x1000>;
-label = "main system CTI";
-};
-
-Arguably the label is completely unnecessary - as the @0x1000 tells
-the knowledgeable user, with a hardware specification of the device
-precisely what this CTI does and is related to.
-
-The point of this patchset is to add context to the name@addr to make
-the identification of the devices easier.
-
-The DT compiler should ensure that the device tree is well formed.
-Using driver selected names (cti_cpu0 ... etc) guarantees  that every
-device found in the DT has a unique representation in sysfs.
-
-Once a freeform string is used, then not only are duplicates possible,
-illegal device names are possible, all of which can result in missing
-nodes or worse. This requires handling / complications that are
-unnecessary for the purpose.
-
-Yes of course it is easy to look for duplicate names, reject bad ones,
-emit errors - but that could end up with a partially working system
-with missing components.
-
-Why add potential for breakage when it is not necessary?
-
-Regards
-
-Mike
-
->
-> >
-> > Using the canonical driver selected names works best as we are guaranteed a unique name and the information label can be used to provide flexible context information that best matches the users requirements.
-> >
-> > Mike
-> >
-> >> Or is this enough ?
-> >
-> >> Suzuki
-> >>
-> >>
-> >>>
-> >>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >>> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >>> index bf2869c413e7..909670e0451a 100644
-> >>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-> >>> @@ -239,3 +239,9 @@ Date:           March 2020
-> >>>    KernelVersion    5.7
-> >>>    Contact: Mike Leach or Mathieu Poirier
-> >>>    Description:     (Write) Clear all channel / trigger programming.
-> >>> +
-> >>> +What:           /sys/bus/coresight/devices/<cti-name>/label
-> >>> +Date:           Dec 2024
-> >>> +KernelVersion   6.14
-> >>> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-> >>> +Description:    (Read) Show hardware context information of device.
-> >>> diff --git
-> >>> a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >>> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >>> index d75acda5e1b3..944aad879aeb 100644
-> >>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-> >>> @@ -10,3 +10,9 @@ Date:             November 2014
-> >>>    KernelVersion:   3.19
-> >>>    Contact: Mathieu Poirier <mathieu.poirier@linaro.org>
-> >>>    Description:     (RW) Defines input port priority order.
-> >>> +
-> >>> +What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
-> >>> +Date:           Dec 2024
-> >>> +KernelVersion   6.14
-> >>> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-> >>> +Description:    (Read) Show hardware context information of device.
-> >>> diff --git
-> >>> a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >>> b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >>> index bf710ea6e0ef..309802246398 100644
-> >>> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-> >>> @@ -257,3 +257,9 @@ Contact:        Jinlong Mao (QUIC)
-> >> <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_t
-> >>>    Description:
-> >>>             (RW) Set/Get the MSR(mux select register) for the CMB
-> >> subunit
-> >>>             TPDM.
-> >>> +
-> >>> +What:           /sys/bus/coresight/devices/<tpdm-name>/label
-> >>> +Date:           Dec 2024
-> >>> +KernelVersion   6.14
-> >>> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-> >>> +Description:    (Read) Show hardware context information of device.
-> >>> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c
-> >>> b/drivers/hwtracing/coresight/coresight-sysfs.c
-> >>> index a01c9e54e2ed..4af40cd7d75a 100644
-> >>> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
-> >>> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-> >>> @@ -7,6 +7,7 @@
-> >>>    #include <linux/device.h>
-> >>>    #include <linux/idr.h>
-> >>>    #include <linux/kernel.h>
-> >>> +#include <linux/property.h>
-> >>>
-> >>>    #include "coresight-priv.h"
-> >>>    #include "coresight-trace-id.h"
-> >>> @@ -366,18 +367,47 @@ static ssize_t enable_source_store(struct device
-> >> *dev,
-> >>>    }
-> >>>    static DEVICE_ATTR_RW(enable_source);
-> >>>
-> >>> +static ssize_t label_show(struct device *dev,
-> >>> +           struct device_attribute *attr, char *buf) {
-> >>> +
-> >>> +   const char *str;
-> >>> +   int ret = 0;
-> >>> +
-> >>> +   ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
-> >>> +   if (ret == 0)
-> >>> +           return scnprintf(buf, PAGE_SIZE, "%s\n", str);
-> >>> +   else
-> >>> +           return ret;
-> >>> +}
-> >>> +static DEVICE_ATTR_RO(label);
-> >>> +
-> >>>    static struct attribute *coresight_sink_attrs[] = {
-> >>>     &dev_attr_enable_sink.attr,
-> >>> +   &dev_attr_label.attr,
-> >>>     NULL,
-> >>>    };
-> >>>    ATTRIBUTE_GROUPS(coresight_sink);
-> >>>
-> >>>    static struct attribute *coresight_source_attrs[] = {
-> >>>     &dev_attr_enable_source.attr,
-> >>> +   &dev_attr_label.attr,
-> >>>     NULL,
-> >>>    };
-> >>>    ATTRIBUTE_GROUPS(coresight_source);
-> >>>
-> >>> +static struct attribute *coresight_link_attrs[] = {
-> >>> +   &dev_attr_label.attr,
-> >>> +   NULL,
-> >>> +};
-> >>> +ATTRIBUTE_GROUPS(coresight_link);
-> >>> +
-> >>> +static struct attribute *coresight_helper_attrs[] = {
-> >>> +   &dev_attr_label.attr,
-> >>> +   NULL,
-> >>> +};
-> >>> +ATTRIBUTE_GROUPS(coresight_helper);
-> >>> +
-> >>>    const struct device_type coresight_dev_type[] = {
-> >>>     [CORESIGHT_DEV_TYPE_SINK] = {
-> >>>             .name = "sink",
-> >>> @@ -385,6 +415,7 @@ const struct device_type coresight_dev_type[] = {
-> >>>     },
-> >>>     [CORESIGHT_DEV_TYPE_LINK] = {
-> >>>             .name = "link",
-> >>> +           .groups = coresight_link_groups,
-> >>>     },
-> >>>     [CORESIGHT_DEV_TYPE_LINKSINK] = {
-> >>>             .name = "linksink",
-> >>> @@ -396,6 +427,7 @@ const struct device_type coresight_dev_type[] = {
-> >>>     },
-> >>>     [CORESIGHT_DEV_TYPE_HELPER] = {
-> >>>             .name = "helper",
-> >>> +           .groups = coresight_helper_groups,
-> >>>     }
-> >>>    };
-> >>>    /* Ensure the enum matches the names and groups */
-> >>
-> >> _______________________________________________
-> >> CoreSight mailing list -- coresight@lists.linaro.org To unsubscribe send an
-> >> email to coresight-leave@lists.linaro.org
->
-
-
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+That makes more sense, I will fix it.
+> 
+> This doesn't check any state, so it feels like a dangerous primitive to
+> have. Is the issue the overhead of mapping/unmapping into EL2 stage-1?
 
