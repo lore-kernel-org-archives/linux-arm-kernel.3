@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB0DE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DDFE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUvfT27SCPJ/1I/rQ7u1CFfvkxFi4BwZuv6rcMUwBXw=; b=sAXhQdH2VTR1+qgoXxVGCKEBUj
-	4jtdE30+DWNUfvR4DAh1VBbr/19WB2M2NKcLMihNKDqoEifxRyvGFvQ5ER3T7ryW4C7i6KxTjeR99
-	zQdEMeT92zuyRT7GuZfsmETU+rfKgG60+xp2GpysGT1cmGXSDy9CnjxKLDyZauHxeVriIrg1xYAPh
-	/oDnRKenJWJIG1meGjRRuVa0AW3zkITiYdc1kHXpGYu3Hu227etmT3BooYI+uDkAPQDnKR/mgXQrq
-	uNDie6vFlDTxbiMv3XjY6ZlRHXgXJiuxRb36NRpFjCkKeK/jZVzafkAHx6KxZe0t2C0jaoP4/4M1h
-	2RRNML5Q==;
+	bh=gk8cThuOVr3SSVx4chFLhJB4lJSnrqBstxF8oe/bdWU=; b=I2qgdDg5GxWkd+Z1sa8ST8vOH9
+	FU098yXAxuVImtl7o6qdo5KVVSgJC35mesINeb+duknn7ESzlXgpQeyqpKhnvB/0ha1ig2FcRygQw
+	0Ncgbrv6Lv9cTe/XiuWgXyTIwOkFIeJLhCYZ6TUSPoosfy4kCpp8uJB8a/0/1sVOXs3SG4xZVcYzT
+	lVia2KwBw1XE8cHQeoq/hOodMurMzGJUGMYKP2ve0A327KtUR+OSd7w/fCA0VVQxLqTX/Q+V6k/yV
+	flXL971HWDFxdlTNkYzwYRrOsIB0fhgmIGjpiVD8wh6+gQZ+pen7bbgpcYhMrtZCzdDv18B1DMvXv
+	3v7TY/9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMlq-00000002xrs-1QDb;
-	Thu, 19 Dec 2024 20:05:18 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tOMn5-00000002y6u-08Is;
+	Thu, 19 Dec 2024 20:06:35 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMft-00000002wLg-1jqn
+	id 1tOMfv-00000002wMv-3SFW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 19:59:10 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aa67333f7d2so203921266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:59:08 -0800 (PST)
+	Thu, 19 Dec 2024 19:59:12 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3d0205bd5so1599454a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:59:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734638347; x=1735243147; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734638350; x=1735243150; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HUvfT27SCPJ/1I/rQ7u1CFfvkxFi4BwZuv6rcMUwBXw=;
-        b=qLx1xKqKW8oZmUywX/Q9ZzDNVoWyZYEWJAwvx38Dt312Uo3IohkWsfM+BKwgCAuxnJ
-         YMwnFkXs+Vhr1Ojhs4EC8SkHmQ9+dVfMBR/Kaxs9/e9wX/gIha0NnleuvEJInYDhFfH+
-         vR7/FARCJWV7XI6w2BYWKwAdorEwZLiryDIH/PBikqGGM3bpOIU5c+0kI+ypdsTyMEtU
-         pqhDlopkDHhbC17MR46XIFjoXEopmOO+fzFq0ERojy7R8RswnwPvDhsqiM6uIsiJBQUG
-         AH0WqNb6gNbp76uroqxOO0jCSuQjkjEY2XqCX33szz9SQ15Hm6+rS1HsTdRrQNiR9cr4
-         bYDA==
+        bh=gk8cThuOVr3SSVx4chFLhJB4lJSnrqBstxF8oe/bdWU=;
+        b=wt2SMglCjztgg8jxtT89pXXeZkwTtdy9beozG16V/H88ZcleiYjGlKFacv6bjJxyNH
+         yYnFTMwn+6PQAnLPRBURLBLuQ8lbIT8r2UhAL3QoWXBxw1DJHARlHToP4J3OcHrTPNMU
+         fNAkeoi4lT7Yo5BhtEnD6zfJUwJIG9uU9ePyLKPmaY9fOmyxf9Xk+OFRX91+y5x8kttB
+         ymrr3j1aSCGYYvIDgWmpTlOxP5xCa7RsH+r4juJ1Ld1AA9um6usEqU9ZwzLZ7iKNj6tE
+         eLIScBTYgUScuWNZ/nitQC2rCHKFBLq/d9zhfHp83EzT8Wd1eByoD8Y8qd+oar8KbIUB
+         QDBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734638347; x=1735243147;
+        d=1e100.net; s=20230601; t=1734638350; x=1735243150;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HUvfT27SCPJ/1I/rQ7u1CFfvkxFi4BwZuv6rcMUwBXw=;
-        b=G4AtdCUNWsYT4lEQmIABNrYLd3xiW1VICAVkyIc24viauL53GTKkJdy0AkiF/smz4+
-         04pZcQPTWa3q/39wRbTCzCYui1GRRGfZEHW5UTZQrd5ZCaH6NkWJd9vhNcq9/92MyrpV
-         mDfA/75Y4XjoLulb/A9dyxvQ5Pp9ROWxNa22Hxs81r52a0U8VjKCKHOJh6ozZgzy6m1Q
-         x4DOKmU9Hv60f1wJKy+bYCBJpZ+IqU1417EpRtRNfmOx+7yTda1uJzyKC7WNIHpYvRpr
-         imG9m2Oz/diorT0are1fqkf2pCGt5fTm5x0QLfEbOi4CWoPg9Xzku23+JgYm4WiNFpgN
-         W8kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVNH0eG1BrMa7b1nkl05x9tjzbTaNp7S3nK3D9WrtX6z56TzjKuOOBU2x6V5Ao9WgjHVR2s7W7wyfl9hpBkkCm2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYUioQbRenPf/hMVGM0f1Q8wGsWoglfaWPNZ5F4aRbRBEPIpQF
-	X3e3+k6uMCCIikGxLrSqtG5Ly6cDjqrrYLXP5JNC4P63Amnx6ygaRyWm2iSDA0A=
-X-Gm-Gg: ASbGncvz/99U5iaW+mUmdNwG2tH4VbOZxgGbknZVqoZI45LghwWW4J+C68q0JXY6q0q
-	OBPHtU6ycBTm7bHwEBcboKi9Wmto7RHFWceI/cMrusf6kXdFJiaejiEh6fymdGLR2bRsvTTUdVS
-	iWuFqw0J9Ec8g3uRaSpSoHcRFqRMa8qY/uoXly0kQYU1QY0NA7YR4KlBvIP5ulUSUKFbUHx9uPL
-	+qWXcKSMgMBM0FMDaPpJ/H3m7T0X1EyqknCrcvK7GuyA2EezA==
-X-Google-Smtp-Source: AGHT+IH/fZzedKlcK5U0wriyo0zt+BLfVIxeZ3sOC7b5Lbwtvat8IssszxYlnVAebbWoaHGw9AkAhg==
-X-Received: by 2002:a17:906:478f:b0:aa6:6c46:7ca1 with SMTP id a640c23a62f3a-aac27038e93mr8059666b.10.1734638347397;
-        Thu, 19 Dec 2024 11:59:07 -0800 (PST)
+        bh=gk8cThuOVr3SSVx4chFLhJB4lJSnrqBstxF8oe/bdWU=;
+        b=C/m1yMyglMShbrREuUlhX8P5WQHmr9DeblTbSR6XDmrgefhFea4hZOJFUeDof7Mq6r
+         hbCO5iGOs53yC5bnRwFDQhSD/3Fl7C8FmnXS9NgB3e1dy7cr6Z4ma/PyFvkrbIXeC8a6
+         y7jZh1iiHiMywcDl5upOzNpLv2khZMrw/dHc8w/UmUGxb/HSSquGydKfzIxyvnlLI5eZ
+         SqgKjbybHAKq4WT6AKd+B5loV/BYe3yLc4a74g39zQPLCjp6a2Ppo71czYgBGF2qVCWR
+         qMBdCnVBqljQ4wO3UFuhWDJdjKccODTjy63Kl3uh3VaIaKgDTEmSIffGGEavLLqlkLjS
+         /GCw==
+X-Forwarded-Encrypted: i=1; AJvYcCUaDTJ8KIVQxoMShJBXNJdphUOwYm4V4dm7AbRQEcvsunTmGk1g0YSke1o2iulsnA8/1m9G+TAwg2LmYp7jWO6v@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP8aO433Khi/dhoL9eQpL0XSwE3SPnwNfWNzNE4uhVWB8mAWgu
+	YtHgTDKNc3uxFD0bxjmt1yozDwBOiIW78PSBUnW6eXdyiLfy4daIAHjyuKZWwbQ=
+X-Gm-Gg: ASbGncvm1URbid1X8UQ9HoQV7sTFaigZrqE6Vot9+CjWHdBp2r9vBl3kcwteKYtnkjo
+	qv0j7QQNbU/ACnlTd6RDmWvKvnIeEZavJ902/rb0/bjHAlu0rmfV60W6yrcg5UqQlLBaizNhlRV
+	FVXeOSo6MQhg+kw/cE/hx0utRDM8eLF+tHb8y2rHclQ2kz2WWCP+VsquXrJtwl63vN4MwDgq4Ik
+	BCBa9jmb3Ih2/l9c9ePnhCvNXD+H39zFXnnhH8jEDut4gCt4A==
+X-Google-Smtp-Source: AGHT+IGYlDf+Xz6gFvbvHg+7Mk8TNFhqb5LHJUrSxJ853FDaHbi3aKQlIsQUWT9tR8k7sWykNjFhJg==
+X-Received: by 2002:a05:6402:510a:b0:5d2:60d9:a2ae with SMTP id 4fb4d7f45d1cf-5d81de19afcmr122678a12.33.1734638349836;
+        Thu, 19 Dec 2024 11:59:09 -0800 (PST)
 Received: from localhost ([2001:4090:a244:82f5:6854:cb:184:5d19])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f015b1asm98230866b.148.2024.12.19.11.59.06
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80675a3d2sm953164a12.16.2024.12.19.11.59.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 11:59:07 -0800 (PST)
+        Thu, 19 Dec 2024 11:59:08 -0800 (PST)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Thu, 19 Dec 2024 20:57:55 +0100
-Subject: [PATCH v6 4/7] can: m_can: Support pinctrl wakeup state
+Date: Thu, 19 Dec 2024 20:57:56 +0100
+Subject: [PATCH v6 5/7] arm64: dts: ti: k3-am62: Mark mcu_mcan0/1 as
+ wakeup-source
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-topic-mcan-wakeup-source-v6-12-v6-4-1356c7f7cfda@baylibre.com>
+Message-Id: <20241219-topic-mcan-wakeup-source-v6-12-v6-5-1356c7f7cfda@baylibre.com>
 References: <20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com>
 In-Reply-To: <20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com>
 To: Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
@@ -93,17 +94,17 @@ Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org,
  Vincent MAILHOL <mailhol.vincent@wanadoo.fr>, 
  Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4086; i=msp@baylibre.com;
- h=from:subject:message-id; bh=LNk2Yj//BXYCvnGeYALUx0IGjDCStCiWRmkgerTUxYo=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJTqj7dOLK0YW7EhP5JSS/+Pw9YorDKzmGl0NlpLTKp9
- 6IzhE/O7ChlYRDjYJAVU2S5+2Hhuzq56wsi1j1yhJnDygQyhIGLUwAmskiIkWHzS+bt04r/yzNO
- 9NWQ8zhcIVIzp//2Kaf9Dd8/bmvyuxvP8E9Z5obMcjnNn/5xPz4Z9cxVy8jbcfAce9lGW5mz2Yu
- 7bvMAAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1069; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=9hRKFs2Z9paofbu+as+4aAVd9C5fh/XVAfao6kHuNUM=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJTqr6//L3ocqJQt8MR14+vZWzlDx7cMUNDvnzjkt1Lw
+ i2vtnyd2VHKwiDGwSArpshy98PCd3Vy1xdErHvkCDOHlQlkCAMXpwBMRHQuw2/WXJNXDTePmsXY
+ i6R6NUUVXT9cvMnQQsMwuDRfOyIhP4qR4UKhdXb91Pbfc1f/qldn6BVTYvogYNBUfGn3/jWvV17
+ 5yw4A
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_115909_486033_348E870B 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20241219_115911_867657_311923A3 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,134 +119,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-am62 requires a wakeup flag being set in pinctrl when mcan pins acts as
-a wakeup source. Add support to select the wakeup state if WOL is
-enabled.
+mcu_mcan0 and mcu_mcan1 can be wakeup sources for the SoC. Mark them
+accordingly in the devicetree.
 
-Reviewed-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- drivers/net/can/m_can/m_can.c | 68 +++++++++++++++++++++++++++++++++++++++++++
- drivers/net/can/m_can/m_can.h |  4 +++
- 2 files changed, 72 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
-index e69e9799710b3e4cb267324e8e9db40ca02328e2..ce39685a7c42a2238ad8afd6cf53aa53c9bbb3bb 100644
---- a/drivers/net/can/m_can/m_can.c
-+++ b/drivers/net/can/m_can/m_can.c
-@@ -2197,6 +2197,7 @@ static void m_can_get_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
- static int m_can_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
- {
- 	struct m_can_classdev *cdev = netdev_priv(dev);
-+	struct pinctrl_state *new_pinctrl_state = NULL;
- 	bool wol_enable = !!(wol->wolopts & WAKE_PHY);
- 	int ret;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+index 68e906796aefebc5eaaa5a231e56105a9cdd13e5..cc693be47df080e8b8dba9f1aca2cd725f4ea85f 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi
+@@ -160,6 +160,7 @@ mcu_mcan0: can@4e08000 {
+ 		clocks = <&k3_clks 188 6>, <&k3_clks 188 1>;
+ 		clock-names = "hclk", "cclk";
+ 		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
++		wakeup-source = "suspend", "poweroff";
+ 		status = "disabled";
+ 	};
  
-@@ -2213,7 +2214,28 @@ static int m_can_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
- 		return ret;
- 	}
+@@ -172,6 +173,7 @@ mcu_mcan1: can@4e18000 {
+ 		clocks = <&k3_clks 189 6>, <&k3_clks 189 1>;
+ 		clock-names = "hclk", "cclk";
+ 		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
++		wakeup-source = "suspend", "poweroff";
+ 		status = "disabled";
+ 	};
  
-+	if (wol_enable)
-+		new_pinctrl_state = cdev->pinctrl_state_wakeup;
-+	else
-+		new_pinctrl_state = cdev->pinctrl_state_default;
-+
-+	if (IS_ERR_OR_NULL(new_pinctrl_state))
-+		return 0;
-+
-+	ret = pinctrl_select_state(cdev->pinctrl, new_pinctrl_state);
-+	if (ret) {
-+		netdev_err(cdev->net, "Failed to select pinctrl state %pE\n",
-+			   ERR_PTR(ret));
-+		goto err_wakeup_enable;
-+	}
-+
- 	return 0;
-+
-+err_wakeup_enable:
-+	/* Revert wakeup enable */
-+	device_set_wakeup_enable(cdev->dev, !wol_enable);
-+
-+	return ret;
- }
- 
- static const struct ethtool_ops m_can_ethtool_ops_coalescing = {
-@@ -2341,6 +2363,44 @@ int m_can_class_get_clocks(struct m_can_classdev *cdev)
- }
- EXPORT_SYMBOL_GPL(m_can_class_get_clocks);
- 
-+static int m_can_class_setup_optional_pinctrl(struct m_can_classdev *class_dev)
-+{
-+	struct device *dev = class_dev->dev;
-+	int ret;
-+
-+	class_dev->pinctrl = devm_pinctrl_get(dev);
-+	if (IS_ERR(class_dev->pinctrl)) {
-+		ret = PTR_ERR(class_dev->pinctrl);
-+		class_dev->pinctrl = NULL;
-+
-+		if (ret == -ENODEV)
-+			return 0;
-+
-+		return dev_err_probe(dev, ret, "Failed to get pinctrl\n");
-+	}
-+
-+	class_dev->pinctrl_state_wakeup =
-+		pinctrl_lookup_state(class_dev->pinctrl, "wakeup");
-+	if (IS_ERR(class_dev->pinctrl_state_wakeup)) {
-+		ret = PTR_ERR(class_dev->pinctrl_state_wakeup);
-+		class_dev->pinctrl_state_wakeup = NULL;
-+
-+		if (ret == -ENODEV)
-+			return 0;
-+
-+		return dev_err_probe(dev, ret, "Failed to lookup pinctrl wakeup state\n");
-+	}
-+
-+	class_dev->pinctrl_state_default =
-+		pinctrl_lookup_state(class_dev->pinctrl, "default");
-+	if (IS_ERR(class_dev->pinctrl_state_default)) {
-+		ret = PTR_ERR(class_dev->pinctrl_state_default);
-+		return dev_err_probe(dev, ret, "Failed to lookup pinctrl default state\n");
-+	}
-+
-+	return 0;
-+}
-+
- struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 						int sizeof_priv)
- {
-@@ -2381,7 +2441,15 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 
- 	m_can_of_parse_mram(class_dev, mram_config_vals);
- 
-+	ret = m_can_class_setup_optional_pinctrl(class_dev);
-+	if (ret)
-+		goto err_free_candev;
-+
- 	return class_dev;
-+
-+err_free_candev:
-+	free_candev(net_dev);
-+	return ERR_PTR(ret);
- }
- EXPORT_SYMBOL_GPL(m_can_class_allocate_dev);
- 
-diff --git a/drivers/net/can/m_can/m_can.h b/drivers/net/can/m_can/m_can.h
-index 92b2bd8628e6b31370f4accbc2e28f3b2257a71d..b75b0dd6ccc93973d0891daac07c92b61f81dc2a 100644
---- a/drivers/net/can/m_can/m_can.h
-+++ b/drivers/net/can/m_can/m_can.h
-@@ -126,6 +126,10 @@ struct m_can_classdev {
- 	struct mram_cfg mcfg[MRAM_CFG_NUM];
- 
- 	struct hrtimer hrtimer;
-+
-+	struct pinctrl *pinctrl;
-+	struct pinctrl_state *pinctrl_state_default;
-+	struct pinctrl_state *pinctrl_state_wakeup;
- };
- 
- struct m_can_classdev *m_can_class_allocate_dev(struct device *dev, int sizeof_priv);
 
 -- 
 2.45.2
