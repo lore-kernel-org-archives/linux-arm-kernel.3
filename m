@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60000E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA6FE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmGBp6Jz4nXDnKrhsKtK5WI9Ke0a+8w8SkZRoc2M1nA=; b=A+O/Wg2vnIPzKwbWwOgTFJgdp6
-	lbsmnw4x84dZystwjwH5NSfwk5Q3fd23hSsNqQ+9RDxqNN8paXx8/qBIytL8yBZTCCdJck+Y8Hg2s
-	72BqA8uxi2PtQKV9/FR+XejUjXXsyz0Z3lTOK38j+K8EO5ceD9byDkg3HJRIaz5YpjD+YU9Bshsuv
-	evhIVc0JQHxMoy51dWxI5Zr2APcQz2A130C0z5rE554lLJuwvUWidWvqSLe1BtBPPvo/jeelo3ObD
-	WyZs2zPQA2sDf7IWKeRGEPFcOQOtLt/PCuFuF0o/xrsjKDz0XxyvBDCLwfpXgffLxlLexMrvn7dG5
-	Cc9ktF2Q==;
+	bh=lRPtMlQGEws5Eh1SMwe1Ib+jNbK5W+VxEW7MX8ZGXs4=; b=fW2T75kDyN4KMlFPO+2yT+dqE3
+	jcRLdr8gOR8K3TvoV07eF61Ky2PDUHrTi7XgtYuX1ir17VgETKba4KFk6o5Wrg8aGNSsUBLzF6lYt
+	SIt+o2+ouLqZiWnbZEpxaBnU4KhoY2R8u7De00DDTjdejm77kzaN5auMgJ8FMW2kQ8lsC5ZCp8vQL
+	nNwWSoI9g/Mlu+3e32YJQk/FPbCfliIsQQghE9mORM+eiatPwVnfJaeflZUIrXXc0ulRdvuhhyHIC
+	yIAzR/ZuI2+KZriRbLRyS32ZHsGEQ7AtMGc0ESEN0gV2mtS9jtUZQRdXK8a+LbQQBSJX8ZJ2lURxE
+	3Ay5/SiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCte-00000001QcJ-0ZsH;
-	Thu, 19 Dec 2024 09:32:42 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tOCz8-00000001R6h-0al4;
+	Thu, 19 Dec 2024 09:38:22 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCsF-00000001QOn-3V4M
+	id 1tOCy1-00000001QwV-1iHB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 09:31:17 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BJ8p3br024853;
-	Thu, 19 Dec 2024 10:31:04 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	WmGBp6Jz4nXDnKrhsKtK5WI9Ke0a+8w8SkZRoc2M1nA=; b=sBMq9/SB9yLoCwZP
-	V8U7mKt5eXGedyPPkpqqVvIL0pPA5BrabXv8o9A9vwa60x9zx9DLiSW2L8RVKAlX
-	1gI/GZikEuzTpTArtQxrBEC9O1lXnMG3NgsFmzYpe4jup1T65tD8jh/AM43Mfaom
-	Mb+UVwfYWrB0MpLVvFWzhWzkalWkmoAyJg4N6VcmZg5iNlvTE5iA1IihpB+fftMF
-	8/C5o2z8hP0ESLXEa9jRD/6GnZiClmlZX+JjS4pd4iIaWR6xyqEXjZL/+7H3Q/9k
-	WW/Ceujv7KDfUjwa1LCTo/fcO3mhI4WrotAEu5ot/3uxqjwcJ3nbfhbO4aOMpD7l
-	ZS+i4g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43m03s3ecr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Dec 2024 10:31:04 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 21ADB4004A;
-	Thu, 19 Dec 2024 10:29:42 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5E72A25CBE0;
-	Thu, 19 Dec 2024 10:28:40 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 19 Dec
- 2024 10:28:39 +0100
-Message-ID: <b6d92560-1bcc-4c9f-be1e-a5b7056f788a@foss.st.com>
-Date: Thu, 19 Dec 2024 10:28:39 +0100
+	Thu, 19 Dec 2024 09:37:14 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BJ9aPAh297709
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Dec 2024 03:36:25 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1734600985;
+	bh=lRPtMlQGEws5Eh1SMwe1Ib+jNbK5W+VxEW7MX8ZGXs4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=mPNqnInypvrn20eKc/miT1KKi2PvSwgyoWdvxGJsbyXe3K0zF9aqmH97R5JKSTRgH
+	 w2Im/zqile/VuO7kxl90KH/7uEaWb54dUdCcHQiTKRbrhKKrC4P2bvjPkBuyrC3m1j
+	 nPsot/eK//yXlMp8huh4ZzUJyCibaq22rvCoF9sk=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BJ9aP2k082052
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 19 Dec 2024 03:36:25 -0600
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 19
+ Dec 2024 03:36:24 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 19 Dec 2024 03:36:24 -0600
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ9aIR1122488;
+	Thu, 19 Dec 2024 03:36:19 -0600
+Message-ID: <cb319ffd-ac67-42b3-9786-e8c9970086d2@ti.com>
+Date: Thu, 19 Dec 2024 15:06:18 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/15] media: stm32: introduction of CSI / DCMIPP for
- STM32MP25
-To: Alain Volmat <alain.volmat@foss.st.com>,
-        Hugues Fruchet
-	<hugues.fruchet@foss.st.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Sakari Ailus
-	<sakari.ailus@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Philipp
- Zabel <p.zabel@pengutronix.de>,
-        Hans Verkuil <hverkuil@xs4all.nl>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <stable@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-References: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
+Subject: Re: [PATCH net-next 3/4] net: ti: icssg-prueth: Add Multicast
+ Filtering support for VLAN in MAC mode
+To: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+CC: <aleksander.lobakin@intel.com>, <lukma@denx.de>, <m-malladi@ti.com>,
+        <diogo.ivo@siemens.com>, <rdunlap@infradead.org>,
+        <schnelle@linux.ibm.com>, <vladimir.oltean@nxp.com>,
+        <horms@kernel.org>, <rogerq@kernel.org>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+References: <20241216100044.577489-1-danishanwar@ti.com>
+ <20241216100044.577489-4-danishanwar@ti.com>
+ <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
 Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20241212-csi_dcmipp_mp25-v4-0-fbeb55a05ed7@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_013116_147510_2C01921E 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20241219_013713_531047_6C4FCA69 
+X-CRM114-Status: GOOD (  28.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +94,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alain
 
-On 12/12/24 10:17, Alain Volmat wrote:
-> This series introduces the camera pipeline support for the
-> STM32MP25 SOC.  The STM32MP25 has 3 pipelines, fed from a
-> single camera input which can be either parallel or csi.
-> 
-> This series adds the basic support for the 1st pipe (dump)
-> which, in term of features is same as the one featured on
-> the STM32MP13 SOC.  It focuses on introduction of the
-> CSI input stage for the DCMIPP, and the CSI specific new
-> control code for the DCMIPP.
-> One of the subdev of the DCMIPP, dcmipp_parallel is now
-> renamed as dcmipp_input since it allows to not only control
-> the parallel but also the csi interface.
-> 
-> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-> ---
-> Changes in v4:
-> * stm32-dcmipp: correct patch 13/15 with clk error handling in
->    dcmipp_runtime_resume function
-> - Link to v3: https://lore.kernel.org/r/20241118-csi_dcmipp_mp25-v3-0-c1914afb0a0f@foss.st.com
-> 
-> Changes in v3:
-> * stm32-csi: use clk_bulk api
-> * stm32-csiL perform reset control within the probe
-> - Link to v2: https://lore.kernel.org/r/20241105-csi_dcmipp_mp25-v2-0-b9fc8a7273c2@foss.st.com
-> 
-> ---
-> Alain Volmat (15):
->        media: stm32: dcmipp: correct dma_set_mask_and_coherent mask value
->        dt-bindings: media: add description of stm32 csi
->        media: stm32: csi: addition of the STM32 CSI driver
->        media: stm32: dcmipp: use v4l2_subdev_is_streaming
->        media: stm32: dcmipp: replace s_stream with enable/disable_streams
->        media: stm32: dcmipp: rename dcmipp_parallel into dcmipp_input
->        media: stm32: dcmipp: add support for csi input into dcmipp-input
->        media: stm32: dcmipp: add bayer 10~14 bits formats
->        media: stm32: dcmipp: add 1X16 RGB / YUV formats support
->        media: stm32: dcmipp: avoid duplicated format on enum in bytecap
->        media: stm32: dcmipp: fill media ctl hw_revision field
->        dt-bindings: media: add the stm32mp25 compatible of DCMIPP
->        media: stm32: dcmipp: add core support for the stm32mp25
->        arm64: dts: st: add csi & dcmipp node in stm32mp25
->        arm64: dts: st: enable imx335/csi/dcmipp pipeline on stm32mp257f-ev1
 
-DT patches applied on stm32-next (as drivers and dt-bindings patches are 
-in linux-next branch).
+On 19/12/24 12:58 pm, Michal Swiatkowski wrote:
+> On Mon, Dec 16, 2024 at 03:30:43PM +0530, MD Danish Anwar wrote:
+>> Add multicast filtering support for VLAN interfaces in dual EMAC mode
+>> for ICSSG driver.
+>>
+>> The driver uses vlan_for_each() API to get the list of available
+>> vlans. The driver then sync mc addr of vlan interface with a locally
+>> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
+>> API.
+>>
+>> The driver then calls the sync / unsync callbacks and based on whether
+>> the ndev is vlan or not, driver passes appropriate vid to FDB helper
+>> functions.
+>>
+>> This commit also exports __hw_addr_sync_multiple() in order to use it
+>> from the ICSSG driver.
+>>
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> ---
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 69 ++++++++++++++++----
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
+>>  include/linux/netdevice.h                    |  3 +
+>>  net/core/dev_addr_lists.c                    |  7 +-
+>>  4 files changed, 68 insertions(+), 17 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> index e031bccf31dc..a18773ef6eab 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> @@ -472,30 +472,43 @@ const struct icss_iep_clockops prueth_iep_clockops = {
+>>  
+>>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
+>>  {
+>> -	struct prueth_emac *emac = netdev_priv(ndev);
+>> -	int port_mask = BIT(emac->port_id);
+>> +	struct net_device *real_dev;
+>> +	struct prueth_emac *emac;
+>> +	int port_mask;
+>> +	u8 vlan_id;
+>>  
+>> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
+>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
+>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
+>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
+>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
+> Looks like a helper for that can be nice to have.
+>
 
-Thanks
-Alex
+I don't think that's neccessary. vlan_dev_real_dev() itself is a helper
+function to give the real dev, only down side is vlan_dev_real_dev()
+assumes that the dev is vlan only.
+
+In this function, we don't know if ndev is vlan or not, hence the check.
+Most drivers are using vlan_dev_real_dev() the same way.
+
+
+>> +	emac = netdev_priv(real_dev);
+>> +
+>> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
+>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
+>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
+>>  
+>>  	return 0;
+>>  }
+>>  
+>>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
+>>  {
+>> -	struct prueth_emac *emac = netdev_priv(ndev);
+>> -	int port_mask = BIT(emac->port_id);
+>> +	struct net_device *real_dev;
+>> +	struct prueth_emac *emac;
+>>  	int other_port_mask;
+>> +	int port_mask;
+>> +	u8 vlan_id;
+>> +
+>> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
+>> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
+>> +	emac = netdev_priv(real_dev);
+>>  
+>> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
+>> +	port_mask = BIT(emac->port_id);
+>> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
+>>  
+>> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
+>> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
+>> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
+>> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
+>>  
+>>  	if (other_port_mask) {
+>> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
+>> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
+>> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
+>> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask, other_port_mask, true);
+>>  	}
+>>  
+>>  	return 0;
+>> @@ -531,6 +544,28 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
+>>  	return 0;
+>>  }
+>>  
+>> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+>> +				   void *args)
+>> +{
+>> +	struct net_device *vport_ndev;
+>> +	struct prueth_emac *emac;
+>> +
+>> +	if (!vdev || !vid)
+>> +		return 0;
+>> +
+>> +	vport_ndev = vlan_dev_real_dev(vdev);
+>> +	emac = netdev_priv(vport_ndev);
+>> +
+>> +	netif_addr_lock_bh(vdev);
+>> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc, vdev->addr_len);
+> Only question, why dev_mc_sync_multiple can't be used here?
+> 
+
+dev_mc_sync_multiple() doesn't work here.
+
+Let's say we call dev_mc_sync_multiple() with emac->ndev (the netdevice
+for current port say eth1) and vdev (the netdevice for the vlan
+interface say eth1.x with x being the vid).
+
+Now dev_mc_sync_multiple() will sync the mc list from vdev to ndev. And
+ndev will have the address added to vdev. After this set_rx_mode() gets
+called for ndev. Which eventually calls sync / unsync APIs
+icssg_prueth_add/del_mcast.
+
+Now in this API, we will have the address to add but we won't have the vid.
+
+The sync/unsync API will be called for the emac->ndev (the *to* device)
+and emac->ndev will have no information about vid. Since it is not a
+vlan dev and is_vlan_dev() will be false for it as a result we will
+fallback to default vid.
+
+	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) :
+PRUETH_DFLT_VLAN_HSR;
+
+We don't want this. We want to capture the correct vid. Hence sync /
+unsync needs to get called for the vlan device i.e. vdev.
+
+Due to this dev_mc_sync_multiple() doesn't work and we need to call
+__hw_addr_sync_multiple and __hw_addr_sync_dev on vdev so that our sync
+/ unsync APIs are called for vdev.
+
+
+>> +	netif_addr_unlock_bh(vdev);
+>> +
+>> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
+>> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  /**
+>>   * emac_ndo_open - EMAC device open
+>>   * @ndev: network adapter device
+>> @@ -772,12 +807,17 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
+>>  		return;
+>>  	}
+>>  
+>> -	if (emac->prueth->is_hsr_offload_mode)
+>> +	if (emac->prueth->is_hsr_offload_mode) {
+>>  		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
+>>  			      icssg_prueth_hsr_del_mcast);
+>> -	else
+>> +	} else {
+>>  		__dev_mc_sync(ndev, icssg_prueth_add_mcast,
+>>  			      icssg_prueth_del_mcast);
+>> +		if (rtnl_trylock()) {
+>> +			vlan_for_each(ndev, icssg_update_vlan_mcast, NULL);
+>> +			rtnl_unlock();
+>> +		}
+>> +	}
+>>  }
+>>  
+>>  /**
+>> @@ -828,6 +868,7 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
+>>  	if (prueth->is_hsr_offload_mode)
+>>  		port_mask |= BIT(PRUETH_PORT_HOST);
+>>  
+>> +	__hw_addr_init(&emac->vlan_mcast_list[vid]);
+>>  	netdev_err(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
+>>  		   vid, port_mask, untag_mask);
+>>  
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> index f5c1d473e9f9..4da8b87408b5 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> @@ -83,6 +83,10 @@
+>>  #define ICSS_CMD_ADD_FILTER 0x7
+>>  #define ICSS_CMD_ADD_MAC 0x8
+>>  
+>> +/* VLAN Filtering Related MACROs */
+>> +#define PRUETH_DFLT_VLAN_MAC	0
+>> +#define MAX_VLAN_ID		256
+>> +
+>>  /* In switch mode there are 3 real ports i.e. 3 mac addrs.
+>>   * however Linux sees only the host side port. The other 2 ports
+>>   * are the switch ports.
+>> @@ -201,6 +205,8 @@ struct prueth_emac {
+>>  	/* RX IRQ Coalescing Related */
+>>  	struct hrtimer rx_hrtimer;
+>>  	unsigned long rx_pace_timeout_ns;
+>> +
+>> +	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
+>>  };
+>>  
+>>  /**
+>> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+>> index d917949bba03..a5c169b19543 100644
+>> --- a/include/linux/netdevice.h
+>> +++ b/include/linux/netdevice.h
+>> @@ -4685,6 +4685,9 @@ int devm_register_netdev(struct device *dev, struct net_device *ndev);
+>>  /* General hardware address lists handling functions */
+>>  int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
+>>  		   struct netdev_hw_addr_list *from_list, int addr_len);
+>> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+>> +			    struct netdev_hw_addr_list *from_list,
+>> +			    int addr_len);
+>>  void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
+>>  		      struct netdev_hw_addr_list *from_list, int addr_len);
+>>  int __hw_addr_sync_dev(struct netdev_hw_addr_list *list,
+>> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+>> index 166e404f7c03..90716bd736f3 100644
+>> --- a/net/core/dev_addr_lists.c
+>> +++ b/net/core/dev_addr_lists.c
+>> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
+>>  	__hw_addr_del_entry(from_list, ha, false, false);
+>>  }
+>>  
+>> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+>> -				   struct netdev_hw_addr_list *from_list,
+>> -				   int addr_len)
+>> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+>> +			    struct netdev_hw_addr_list *from_list,
+>> +			    int addr_len)
+>>  {
+>>  	int err = 0;
+>>  	struct netdev_hw_addr *ha, *tmp;
+>> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+>>  	}
+>>  	return err;
+>>  }
+>> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
+>>  
+>>  /* This function only works where there is a strict 1-1 relationship
+>>   * between source and destination of they synch. If you ever need to
+>> -- 
+>> 2.34.1
+
+-- 
+Thanks and Regards,
+Danish
 
