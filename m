@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D6CE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57E8E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxmrauwBcarL75NIlSIauvBoJN/faGvnGfZGd+8/O9o=; b=HlhVcYySKIzZzMed3ZA3C/I3/6
-	rx67o6dA3ac9rSIvxHlgi0lisM6CRNFryPCZsHF+kUpnU50LZFJyPurj5PZU5J22uOtl/6InsViR4
-	0uAGnF6tbSERVeFqcMUxwZYHv2HWosmrFKCDqb0lZuFekwxc3hMURSRm2wZRlishXFfxr+RmPULC5
-	BVhVtgGCU2ZMzibJrPcoJZr+ZEPBoKOC9UT50HjB6ykXv9Dc/JRq7obkjWbyxGWIc9O3tbH4r6NaF
-	+uIS6c4WrIc2pyv0fmWlYni0CfO/OWr91YjsKDIc7HJu0xvXY7SGJbpqzCLg9pNTvsyjaShocxD41
-	iSt50X+g==;
+	bh=F7OWD7G4boWy2ErgVPO27g1mKyci+92KVlSybLwmP7k=; b=QA1fGba6kbDaTSeQTnql3rJE7q
+	Pr/94bjY+5iT43xDmuNdQXZp6GQI/9xrnPEN8H7FPrZqWf4erbpLdg05G+k9byzDA8ocCgRQjjyjR
+	0cSlC6XJN8k/lpU0lXH37dPG+tkrrA+lG5P0kRaVIx8uPdczerj8DyCUQc3xmXOdMUiyrkuV0K5Xa
+	Md9fLShrDpWPGKi7GEwa9e5zy9fqz8AUxZW+o9d+KDefr3NV0PPNT1ir9KestZGDIYdRGs1gSh+YF
+	oMgqLlKYTtDNFCTBALkRzfmV15XaPOsaYTaZZtr2eDuxVVroD9kq+RPy4ryeDBCEDceF8fVAPS634
+	Td6zdNng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOE72-00000001Zul-3lMT;
-	Thu, 19 Dec 2024 10:50:36 +0000
-Received: from vmicros1.altlinux.org ([194.107.17.57])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOE5v-00000001Zs7-3c1L
+	id 1tOE8S-00000001a6e-29pE;
+	Thu, 19 Dec 2024 10:52:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOE7L-00000001Zwy-2SE1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:49:29 +0000
-Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
-	by vmicros1.altlinux.org (Postfix) with ESMTP id 1A80172C8CC;
-	Thu, 19 Dec 2024 13:49:23 +0300 (MSK)
-Received: from pony.office.basealt.ru (unknown [193.43.10.9])
-	by imap.altlinux.org (Postfix) with ESMTPSA id 1026E36D0193;
-	Thu, 19 Dec 2024 13:49:23 +0300 (MSK)
-Received: by pony.office.basealt.ru (Postfix, from userid 500)
-	id DB1BF360CB20; Thu, 19 Dec 2024 13:49:22 +0300 (MSK)
-Date: Thu, 19 Dec 2024 13:49:22 +0300
-From: Vitaly Chikunov <vt@altlinux.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>
-Cc: Greg KH <gregkh@linuxfoundation.org>, stable@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, gshan@redhat.com, james.morse@arm.com, 
-	maz@kernel.org, oliver.upton@linux.dev, shameerali.kolothum.thodi@huawei.com, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Jing Zhang <jingzhangos@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH 6.6 v1] KVM: arm64: Disable MPAM visibility by default
- and ignore VMM writes
-Message-ID: <fqmjpadvbc7hoakm5qsmaxbgr7jomuehxjm3axo3sbpl4nzqvg@innog6dkmwqd>
-References: <20241212151406.1436382-1-joey.gouly@arm.com>
- <2024121528-refurbish-plausibly-31c7@gregkh>
- <20241217104058.GA2151333@e124191.cambridge.arm.com>
+	Thu, 19 Dec 2024 10:50:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 25D74A42068;
+	Thu, 19 Dec 2024 10:49:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0EC8C4CECE;
+	Thu, 19 Dec 2024 10:50:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734605454;
+	bh=+jKPb1DiLgdqyf0yAd9cWxMvSxidTaZJTgk8dWiYFWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GgKWfre8ohxoaSA8FjHZFHHyo488aiCRBfOalWy9qXW/zBWa7o3iAi0HuXaHSQZY2
+	 Kc5HAloqnZbcC71lMV40hSBGilOZLxwmMPpi5dla7bv4VaHvDpREYrFzlLAyz7bxXQ
+	 3bTyYOLMgcR2mZW+T4QZURFeCyPnE652xr4P/XkJ8o2blSKKiYpF/+om0gwaraI/OG
+	 PsYd+YAPD2zyUHKFZXynzvHJAvMPhNLotj+fGnmsmDkcGHDfVNKQqfmBOuVQYbNQy2
+	 D6Om+/FVZ6EHmpIl+cx4qUzAQgKHRxvPDJlTCpwUhI9lVn/6NrbIIdKcC02gZg3Bqi
+	 T7XW7XgxQrcog==
+Date: Thu, 19 Dec 2024 11:50:51 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: frank.li@nxp.com, o.rempel@pengutronix.de, kernel@pengutronix.de, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH v3] i2c: imx: add imx7d compatible string for applying
+ errata ERR007805
+Message-ID: <zhl7dmzfvoizotjb567psnvyu34vee3hlrbsgb6uchshrj7bti@touezue3vqwe>
+References: <20241218044238.143414-1-carlos.song@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241217104058.GA2151333@e124191.cambridge.arm.com>
+In-Reply-To: <20241218044238.143414-1-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_024928_229721_F66C3803 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20241219_025055_691991_ADF04EA9 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,67 +74,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc, Joey,
+Hi Carlos,
 
-On Tue, Dec 17, 2024 at 10:40:58AM GMT, Joey Gouly wrote:
-> On Sun, Dec 15, 2024 at 10:22:53AM +0100, Greg KH wrote:
-> > On Thu, Dec 12, 2024 at 03:14:06PM +0000, Joey Gouly wrote:
-> > > From: James Morse <james.morse@arm.com>
-> > > 
-> > > commit 6685f5d572c22e1003e7c0d089afe1c64340ab1f upstream.
-> > > 
-> > > commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits in
-> > > ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to guests,
-> > > but didn't add trap handling. A previous patch supplied the missing trap
-> > > handling.
-> > > 
-> > > Existing VMs that have the MPAM field of ID_AA64PFR0_EL1 set need to
-> > > be migratable, but there is little point enabling the MPAM CPU
-> > > interface on new VMs until there is something a guest can do with it.
-> > > 
-> > > Clear the MPAM field from the guest's ID_AA64PFR0_EL1 and on hardware
-> > > that supports MPAM, politely ignore the VMMs attempts to set this bit.
-> > > 
-> > > Guests exposed to this bug have the sanitised value of the MPAM field,
-> > > so only the correct value needs to be ignored. This means the field
-> > > can continue to be used to block migration to incompatible hardware
-> > > (between MPAM=1 and MPAM=5), and the VMM can't rely on the field
-> > > being ignored.
-> > > 
-> > > Signed-off-by: James Morse <james.morse@arm.com>
-> > > Co-developed-by: Joey Gouly <joey.gouly@arm.com>
-> > > Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > Tested-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> > > Reviewed-by: Marc Zyngier <maz@kernel.org>
-> > > Link: https://lore.kernel.org/r/20241030160317.2528209-7-joey.gouly@arm.com
-> > > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> > > [ joey: fixed up merge conflict, no ID_FILTERED macro in 6.6 ]
-> > > Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-> > > Cc: stable@vger.kernel.org # 6.6.x
-> > > Cc: Vitaly Chikunov <vt@altlinux.org>
-> > > Link: https://lore.kernel.org/linux-arm-kernel/20241202045830.e4yy3nkvxtzaybxk@altlinux.org/
-> > > ---
-> > > 
-> > > This fixes an issue seen when using KVM with a 6.6 host kernel, and
-> > > newer (6.13+) kernels in the guest.
-> > > 
-> > > Tested with a stripped down version of set_id_regs from the original
-> > > patch series.
-> > 
-> > What about 6.12.y?  You can't just skip a stable tree, otherwise you
-> > will get a regression when you upgrade to 6.12.y, right?
+On Wed, Dec 18, 2024 at 12:42:38PM +0800, Carlos Song wrote:
+> Compatible string "fsl,imx7d-i2c" is not exited at i2c-imx driver
+> compatible string table, at the result, "fsl,imx21-i2c" will be
+> matched, but it will cause errata ERR007805 not be applied in fact.
 > 
-> I did have it ported/tested locally, but I wasn't sure of the stable process,
-> so just sent out one!  Next time I will send all the backports at the same
-> time.
+> So Add "fsl,imx7d-i2c" compatible string in i2c-imx driver to apply
+> the errata ERR007805(https://www.nxp.com/webapp/Download?colCode=
+> IMX7DS_2N09P).
 > 
-> Thanks Marc Z for sending it out!
-
-Thank you for backporting this, and thanks to everyone involved in the fix.
-
-Vitaly,
-
+> "fsl,imx7d-i2c" already is documented in binding doc. This errata
+> fix has been included in imx6_i2c_hwdata and it is the same in all
+> I.MX6/7/8, so just reuse it.
 > 
-> Joey
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+
+with the commit log changes, merged to i2c/i2c-host-fixes.
+
+Thanks,
+Andi
 
