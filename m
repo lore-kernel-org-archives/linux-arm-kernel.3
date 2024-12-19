@@ -4,75 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8F3E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 18:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B886E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 18:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZtyOjtT/A/959zxU+j8A5LReHquPkNj1E4QLGFdvTc0=; b=AxaNSYezXJpQIwyT6e0pL4yr+j
-	m0E3Ia+AcXch3CSrnyWGN6UA6gD1hX7d4aVFeyGqVJ6glu/O8t6dbdbLl1LeNcJR9RlbzEQ1xpVey
-	goydu2t2z93Te9NGiSUHwUW8v1+UVYlgEl3R0ClXVtolQTrsmn60Hrsu8jxEN1wRWJB8hCvsiPUEs
-	fd1Fo2g19JPt35ll1JhdAvzjCrelwljE2wTMZybDfbin9qsmRM4u9rW52cUuYqZZaGW5rN9EEhVOd
-	Gjrc0N5KwuFzcUXcSzOEeVmq5ApjZBUxoPV9kjTTSjC4PP9lY6oLahiKuS+lNvtdy9ftCigE+OIW5
-	LefyTYIQ==;
+	bh=v5Az84xyh8MQaZ+c/mrKtLTJ+ek3OUjQ/bPLfWm1F5I=; b=bt2jzeRqvbANpqxkaLUJpmU8XP
+	jusCmqaPmObIbsFvKnkXR9ZRUNsJMy/i/PVU6JWA4sJnEAAgvrtuzu9AugomxHoKp49MC18K14Xyg
+	CZn9hKPJQ1HocBBsCGhrn6LYFLy0M87ov+iqX1SAH16rmwg7hVHDPvnR29iRL59nmFJaRZzYc5rCg
+	J5EEDx0OT4uuj5bKVtI2MxHFHhomDKEMfmqTVjg4im5W2fQxYtSjVtLME056F5scP01N+aNFgeVMT
+	O5cfCNw+W8myfGkJhUeX/eosJAbJpbtBC93zTh7T7PlODBpkhAVMnz3mk3fl9QkdiFpTTWcOq2h4E
+	ZozjHtSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKyb-00000002hIS-0pAP;
-	Thu, 19 Dec 2024 18:10:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJfl-00000002PZV-38mZ;
-	Thu, 19 Dec 2024 16:46:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1677C1480;
-	Thu, 19 Dec 2024 08:47:17 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECA773F58B;
-	Thu, 19 Dec 2024 08:46:44 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
+	id 1tOKyd-00000002hJh-2IeU;
+	Thu, 19 Dec 2024 18:10:23 +0000
+Received: from mail-am0eur02on2062e.outbound.protection.outlook.com ([2a01:111:f403:2606::62e] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOJuf-00000002Sua-31vx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Dec 2024 17:02:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JtaSgeAE2blO1fGK6THDXUlZ/pgviph3u9rM1CE/OsiNs07Bl9gY4GdAMfMoPKQU05cpxEA5sgMO80dqK12mwJBoGN1zU92wrAximsxeUE75ukm2DW4ZVKM9XpFJ3QN0yuRqceCF50qdx+v5derBx6fR5bY3ngH9sutdpQyP4cEgVhWj+Yvw7ive1/+qk6s5PUAPAAvOtiINPygNzYvY61NsKRywGdGMQQFIbHwuRJemld9mmLFzTp5AytXmbch9HOwn+nvnZcGm3LDJjES4ppeydmR+urcmJOGgj7W8ds0ZxLrWVBLX1s86kWlwCfXJcGu5DqXY2b1FlXFnan9jRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v5Az84xyh8MQaZ+c/mrKtLTJ+ek3OUjQ/bPLfWm1F5I=;
+ b=nrU1WdqHML9t4D26tb6Hr25r/RrJwxqd4Cm1rbzRro9lnA7aR0AbwJCvcbU7ZjFmoBxfvixACR3EixgX2kGLGBXlkJlK/vKt16EWOU8jC2eyrB0mwnSHoe6tNKUbbe7rErILK/Tu1DDQsRM1q2IoMY4DGS1KbsCgeAWYL7cwp4pqiO7Ou77RsGEghFp1tkS9jEEowxXmI5s9oGiOZS5uA1PaNHmDNj/fF+uhs7PiZvOhiD+iNY8Hrav3fRepuxCwn/67cWTCAzYoE44iGqFUdvwtcjUXTinfe2CGnxbYZQawPfWMGYq+4Ij9V4QcQXa4sNELMVcl+JxRKfaueS1xuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v5Az84xyh8MQaZ+c/mrKtLTJ+ek3OUjQ/bPLfWm1F5I=;
+ b=KCELNZs9vGwHeP5jkcS10dLExx3CQ/5yMV83EWJ1X7w1LqR3L6Z8UOgXo/neMAo6DMgAPy4+WqAarIov1OQ2g99wqlyMJhgCnk/xvlAe4FLMXZuz+vo1FpvRo77r3Yl6wddKgnO7E707qpfdz6HBJwt7Ei8YAAzJVbmlNd0x4Hs0EoYEY/1BvnS1vKpFjfXXk5moVj6KkLllEAJxpW2GyBBBgV8CCkKNBhWFGjm961pCFX0hnaFaHf2tLnuCA0bivu9UryOZJlUialKUBhbv5Aj0ec+UxpvhChcNEkE88mOGMcqGbe5H37Sv0GAfZ59RHJ62XTG1mhdPoFok5hn73Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB9021.eurprd04.prod.outlook.com (2603:10a6:102:217::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.14; Thu, 19 Dec
+ 2024 17:02:09 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 17:02:09 +0000
+Date: Thu, 19 Dec 2024 12:02:02 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	x86@kernel.org
-Subject: [PATCH 09/10] asm-generic: pgalloc: Provide generic __pgd_{alloc,free}
-Date: Thu, 19 Dec 2024 16:44:24 +0000
-Message-ID: <20241219164425.2277022-10-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241219164425.2277022-1-kevin.brodsky@arm.com>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
-MIME-Version: 1.0
+	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, imx@lists.linux.dev,
+	Niklas Cassel <cassel@kernel.org>, dlemoal@kernel.org,
+	jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add
+ DOMAIN_BUS_DEVICE_PCI_EP_MSI support
+Message-ID: <Z2RRimPlT41Ru281@lizhi-Precision-Tower-5810>
+References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
+ <20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
+ <868qscq70x.wl-maz@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <868qscq70x.wl-maz@kernel.org>
+X-ClientProxiedBy: SN7PR04CA0091.namprd04.prod.outlook.com
+ (2603:10b6:806:122::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB9021:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79bea840-0fd2-484c-5c01-08dd204ee00d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c04zeFZZaHFVNElJOFhQVzFTcmZGUHRhQldnVEpua1BmcjA1aG9OOC8yYlhJ?=
+ =?utf-8?B?ZDE1bm9xdGtWTkRMZm51d1paOC83SDlrRldBNGRuNVV4UTlxZnlvMlRDNjRa?=
+ =?utf-8?B?SkxtYkVIaHMyMUl1Uk9QcTFQRGxNbHkwNjhOUHhFamhvNWw4TmdQSGhIa082?=
+ =?utf-8?B?T1VlUnFUNnJVNHZVYy8ycThTdmRhanJVUUVvOVV2UVJ2cjNWN0hCRXlTeXhP?=
+ =?utf-8?B?bFVoVnhkZXZPeTBNYnAzUmk0NDA4VmNYa2VINEZEZndTZHlVa1hSdEtSdzRz?=
+ =?utf-8?B?MDc5ZWM1Y1hDMElkdHdBT3A4Wkl0NDh2OFVuUnIvUmNmT2FvSUgraU4rcnJQ?=
+ =?utf-8?B?ZVZQbkVtYlBKandYUHJLOWs4REJ4WndQb0licE5LQTZhUWdXZksrKytDMkQz?=
+ =?utf-8?B?SEN4WG1VbUk0WXBXdGhqTmdLV3ZpR0IxY1FTaHExRVFNQzJ1OGdZVmtxTXBr?=
+ =?utf-8?B?K3k4TjducE5sT1dOazNRV0dTRVdLMm0zYnM2eTBlaVhWSE91QzQrWFBOYnRk?=
+ =?utf-8?B?VVFVYWwydHc0alorREMrYXlxMC9PVmFPR0cvSXQwbDF1WlBabW16T3VTeGVi?=
+ =?utf-8?B?UnhtK0lCeEdsc3RyN1lBcCs3c3NFWUNRTEtwV3VKOVdnTm10VkhQRFI5aDVs?=
+ =?utf-8?B?TXVySm4vdkFObmF5eDlEdUd6NnFhS1JpaDYrc1hkTUtTWnJCMHFaZHByRWcz?=
+ =?utf-8?B?T1NPbTQwZit6aDhmRVdDSVY1SkRzSVVRckRaa296K1R1b2ZsSWZXdHduRTlB?=
+ =?utf-8?B?bmg1OFVmY29HYzN3U2paRHF3U1VKOXF6Sy9rODFWaS8xZXdQNUxiQlJ3UnN1?=
+ =?utf-8?B?T3o2UlRUVWZYY3BQczRpekVBNDlTSlZuWnlHNFYxb293OU93Qmc0UkdPeXlu?=
+ =?utf-8?B?UW5KTGdXS1B0NTFaMHlJSUc1RkJLN1ViRDVqbVAxNERCKy82b0ErZlNSSlk0?=
+ =?utf-8?B?d3BKK3VDTW1ZVDc5dzdCd0RqajZsQWQwL2sxZzRvUG1La2NaUzEzM0RTVXdm?=
+ =?utf-8?B?WkkzUmlsUkptVDdqMTFSMWxnWkpXQ2VTdVF1N1BXaHFRajZlUVJuSmF3MWJy?=
+ =?utf-8?B?NU9QWG9ibXNkZ3pzc0xVK1RCei9zZVNvTE5WN2RXN1lrNUpvS010K0FodWto?=
+ =?utf-8?B?VWZmMTExYzFNdkRyWUp3aDhxZ3AzNWJGU25iZjVuM2RPc0hhSWwwc21iTnpZ?=
+ =?utf-8?B?cGg5ZFZtTmxRdzEzNWZXSVpIdjAyVU9YT0xDR1F5azFoem9PZ3AzSEg3Rlow?=
+ =?utf-8?B?TC9CMjdaazd1NW5ncGlBYWRoWkhDKzdPcVBKeU96VGNUeG5hNWxvQnRRekdG?=
+ =?utf-8?B?SWoySmFzbDQ5ODNTK3pQNFVReFhiQStRUHEvWXFCSzhpSmVtelBTOG1EcVVy?=
+ =?utf-8?B?d3FyOVpoR2F5ZlQ0N3E4RGhZMHNhbzE1Umg1SktVQmRYRkp2UElmTlduVE9I?=
+ =?utf-8?B?WXcxZiswTitQaDFrTGplYW1qK1VmNXhibjViOHRNQlJHRTVRaFUzNmVTWXlO?=
+ =?utf-8?B?d2NoVVRYU3JKTWhLVElRY0YzTzgrd0Z3WEVxa2RIbmZVRjNqZ2oxbG1MaVI2?=
+ =?utf-8?B?bXZYNGZleTlnREo1ZTRZNEZiTzlDbkFCaS82OTRrUSthZjFMYW5PekpEckxw?=
+ =?utf-8?B?ZXl2UTQ2ZGhGZzNWT3JIVkdCb3Y5eHVDMTh6ZTVYSGhKTGlTenZzWEQxOWta?=
+ =?utf-8?B?TjhFVTdzU0o2UHR0Q2RtYUNxUndTNmwzSkVURk5tdnFINDRwbldPRTM4WHJh?=
+ =?utf-8?B?ajluSDN1Rmd5czVVWUNYazYvbEtHQWYrcEpVeVJidkN1OHVGbDFla1JLOTRD?=
+ =?utf-8?B?OERPc09BTll3S3lKTGp5dm9IZUlaT2VORmZ5ZWRsYmtGMjFZQ2JOUVhHS2w1?=
+ =?utf-8?B?azBFVTBDQ0k1OVdjRHY0bFVoRXF2MGRJb1pmQkNuRzF6RmlSa1o1K3c3Ullm?=
+ =?utf-8?Q?fSkpK1YHl1b7Q0coSJ7udWKJj60BINCI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YzljNG5PMFJ5OEc0ZklkK0ZKeDZraXN5Yytnb0tHcGZtd0FJam9VVHJ4R1F3?=
+ =?utf-8?B?NTZraXkwbnByVlVsNC9DVUVvK3Aya3hFRDBzYzM2OWFSNVQ4Q3llS0tIazlG?=
+ =?utf-8?B?NWYyRjdsYkhWK1JnZVJaak1aWFp6OWV6NlkvUUZIcWlSMFBxVUV0UjVYZzFQ?=
+ =?utf-8?B?WDhIbVZaQy9jREExMUlFd0o5VzdBZUo3OGo0Zkl1VVp2YkdPek1pR2NhQVhi?=
+ =?utf-8?B?NERxVWYyajdQOWR5SEowdmJWTUVlblBJZTlRbFFRS0c0TnY5bjVrbzNCeWg3?=
+ =?utf-8?B?SXJFVFMya0kvV2NKajlwTjhrZC9tMmlhR2dOb3l5K3dhOUJRSGgxT0N0L25Z?=
+ =?utf-8?B?R0ZlUmJDK2ptUnQwMG0zLzY3M0cwL1F4UGg5VXQ4bXBMVk9GcVBYRTB4WXUv?=
+ =?utf-8?B?K3BwZTJTSmpVVHU2R0RFV2hjMEErRVZCWTlhaStTQnRONi9Hb0JhcmhtMXJi?=
+ =?utf-8?B?UWd4eTJVWmFzdlpOVTFoZmtPMzhZWlF1SzZvNURlclZuK1Iwd1VkRkRESWlU?=
+ =?utf-8?B?VVYwbDNkL0tTMXV1V0MxdjZyQ0IvazhXaHIvNXh4UkcrZ1JTbjVJU0xLTTQy?=
+ =?utf-8?B?bUpqWk9xOXJBWElvbzhKYWZHa0tMRUVFcVV6ZGlqOC9xN2swMDdKOENQd1RY?=
+ =?utf-8?B?ODFTS1dnOW8wQ2ZZL3hIM2NPQU1WQkVWYlR3Yml2Wld0eTNVZHBsMm5vZ2pS?=
+ =?utf-8?B?ZEljekF1RzBHRVAwa0hlelQyMkQreVlFeGpQMTN1R0hleTJiTmhBSFVCbUpm?=
+ =?utf-8?B?VDlCSFk1WkZyQ3dNbENqT1RLMzdTdWNMN3hIRjFNUmEzZ2dNc3Q1YXZSYVls?=
+ =?utf-8?B?SlVQZFFaZ1poalVZcjZIWmtCK0lPS3RiWUwvbEtPSmNqQXRzZTZJT1ZHNlFG?=
+ =?utf-8?B?REE2ejVZSkxpbTNqTmo3YlhKSHBPR1p0eTAwazZOT3dHcHY1VXpucUV0azY0?=
+ =?utf-8?B?SnJGanFsYkNhWjhKbFdyYkxjTzhtc3FiUFptS1d4V2FUR0JUOW5acVhVd1VD?=
+ =?utf-8?B?YWRrZU03WDBDcS9NNW9FYVZERkZYY1RTTkdJcU96T05mZ1ppZ0RoRFUzNGtD?=
+ =?utf-8?B?dGxvRjBmWlFKclQ2eWVrVURPNkZZUjE0MjFTUGpJbkloUmlleXdJeFBjNUg2?=
+ =?utf-8?B?WjBrdGVjcnhoaW0zUnN0Mnh6WVpySXlabGtiOVRmOXgrLzVnMnhrNVlXUjV3?=
+ =?utf-8?B?SUQ0WWFpUzhnQVFUWWI5dWJwUkF3TFFyOGs3UEM2TDRaeWNjUThqeForUllj?=
+ =?utf-8?B?MVZaeCtDQ0dYQ016WDJ6VllFaWlZTkp6NEhZMitPUDgxb0JTOStHOEx4T3hB?=
+ =?utf-8?B?Q3JPSElpUDdiQTBXazlOOGVRY3VPNUZlQzVXWThGWEJQQTR1amdJN01uL0t0?=
+ =?utf-8?B?M2dQNXJXdkxvV2hSL1ViQVlNRS9iaUx4L25uVkM2RGsxbURMREJUQ1htYnFW?=
+ =?utf-8?B?K2ZGcEdtemdTSzh3ODJVM2FuSkg2VWdPVkxmVGM5ODZNTS9QZTBkdUd1djEy?=
+ =?utf-8?B?VE9YMG02UmtSNmlnU2ZXSUZDdFQ3Skd1YXM0eGVHUGJ1ODNJUXp3VHpwRW54?=
+ =?utf-8?B?QXpPZHFXM2VLZFBBRk9kVk5PdFprUnEwMHE2eWd6eEZuTFEyWXVVODdTaXF4?=
+ =?utf-8?B?NVZkQUI2cXdaMk9zY3BHZmpPZHB5VzdOM3B5RG9ac1FKVlRUT0QyNUpIY2d4?=
+ =?utf-8?B?MlM1czBhVWdtcEp5TlZqR3BEcmNVQzRCSzVUU0FyRTdGcmtGZGoyay90dUlM?=
+ =?utf-8?B?NHFOODZWRmhwZW51NHltRWtleHBhcDV0WTA5RzVURUxGWi96MWxHSkxrenh0?=
+ =?utf-8?B?cHRMQkp5OU9TVDI2eHo1YjhES1FERWg4YlRZbjRPSzNCMUVoOFdJSWI4amFj?=
+ =?utf-8?B?d3hlZ1luQ1BRN3lJUUpRb3Foc0hXVlNybDhkeHRqbzN2VkdqNjEzTmwzZjV3?=
+ =?utf-8?B?SUxMRDFZOVl6MEdOR2d4b0xnZStpR2NwZ1NTdWZLK1pwYzc5V2djZzg1ZGs3?=
+ =?utf-8?B?dkcrSUxieWM5ZkRUSWpvdEVIT21tNDJPMytvUk1FN0o1TzlBeHdWR3RFMXNY?=
+ =?utf-8?B?OVg3NzlEbVROSmtLTnRHaGprd3phclQ0VWpmR3JrZ2k3M05PdWFKSlNXcXNk?=
+ =?utf-8?Q?LjBGFWqG1i0hr3WOtxvPrxUfi?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79bea840-0fd2-484c-5c01-08dd204ee00d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 17:02:09.6789
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4ulbhnCZm6fdtV17c6tHM7v0wST3CzuwkP/4hN7KLf6TxhOAYv795u7C4Kk+pR7XWcCKAywJeO8JoYnIw8sL3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_084649_879898_5F6B5B41 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20241219_090213_955188_0C2DD2CC 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,509 +185,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We already have a generic implementation of alloc/free up to P4D
-level, as well as pgd_free(). Let's finish the work and add a
-generic PGD-level alloc helper as well.
+On Thu, Dec 19, 2024 at 10:52:30AM +0000, Marc Zyngier wrote:
+> On Wed, 18 Dec 2024 23:08:39 +0000,
+> Frank Li <Frank.Li@nxp.com> wrote:
+> >
+> >            ┌────────────────────────────────┐
+> >            │                                │
+> >            │     PCI Endpoint Controller    │
+> >            │                                │
+> >            │   ┌─────┐  ┌─────┐     ┌─────┐ │
+> > PCI Bus    │   │     │  │     │     │     │ │
+> > ─────────► │   │Func1│  │Func2│ ... │Func │ │
+> > Doorbell   │   │     │  │     │     │<n>  │ │
+> >            │   │     │  │     │     │     │ │
+> >            │   └──┬──┘  └──┬──┘     └──┬──┘ │
+> >            │      │        │           │    │
+> >            └──────┼────────┼───────────┼────┘
+> >                   │        │           │
+> >                   ▼        ▼           ▼
+> >                ┌────────────────────────┐
+> >                │    MSI Controller      │
+> >                └────────────────────────┘
+> >
+> > Add domain DOMAIN_BUS_DEVICE_PCI_EP_MSI to allocate MSI domain for Endpoint
+> > function in PCI Endpoint (EP) controller, So PCI Root Complex (RC) can
+> > write MSI message to MSI controller to trigger doorbell IRQ for difference
+> > EP functions.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > change from v12 to v13
+> > - new patch
+>
+> This might be v13, but after all this time, I have no idea what you
+> are trying to do. You keep pasting this non-ASCII drawing in commit
+> messages, but I still have no idea what this PCI Bus Doorbell
+> represents.
 
-Unlike at lower levels, almost all architectures need some specific
-magic at PGD level (typically initialising PGD entries), so
-introducing a generic pgd_alloc() isn't worth it. Instead we
-introduce two new helpers, __pgd_alloc() and __pgd_free(), and make
-use of them in the arch-specific pgd_alloc() and pgd_free() wherever
-possible. To accommodate as many arch as possible, __pgd_alloc()
-takes a page alocation order.
+PCI Bus/Doorbell is two words. Basic over picture is a PCI EP devices (such
+as imx95), which run linux and PCI Endpoint framework. i.MX95 connect to
+PCI Host, such as PC (x86).
 
-Because pagetable_alloc() allocates zeroed pages, we are also able
-to get rid of zeroing code in some implementations of pgd_alloc().
-Some trivial implementations of pgd_free() also become unnecessary
-once __pgd_alloc() is used; remove them.
+i.MX95 can use standard PCI MSI framework to issue a irq to X86. but there
+are not reverse direction. X86 try write some MMIO register ( mapped PCI
+bar0). But i.MX95 don't know it have been modified. So currently solution
+is create a polling thread to check every 10ms.
 
-Another small improvement is consistent accounting of PGD pages by
-using GFP_PGTABLE_{USER,KERNEL} as appropriate.
+So this patches try resolve this problem at the platform, which have MSI
+controller such as ITS.
 
-Not all PGD allocations can be handled by the generic helpers. In
-particular, multiple architectures allocate PGDs from a kmem_cache,
-and those PGDs may not be page-sized.
+after this patches, i.MX95 can create a PCI Bar1, which map to MSI
+controller register space,  when X86 write data to Bar1 (call as doorbell),
+a irq will be triggered at i.MX95.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/alpha/mm/init.c                  |  2 +-
- arch/arc/include/asm/pgalloc.h        |  9 ++-------
- arch/arm/mm/pgd.c                     |  8 +++-----
- arch/arm64/mm/pgd.c                   |  4 ++--
- arch/csky/include/asm/pgalloc.h       |  2 +-
- arch/hexagon/include/asm/pgalloc.h    |  2 +-
- arch/loongarch/mm/pgtable.c           |  7 +++----
- arch/m68k/include/asm/sun3_pgalloc.h  |  2 +-
- arch/microblaze/include/asm/pgalloc.h |  7 +------
- arch/mips/include/asm/pgalloc.h       |  6 ------
- arch/mips/mm/pgtable.c                |  8 +++-----
- arch/nios2/mm/pgtable.c               |  3 ++-
- arch/openrisc/include/asm/pgalloc.h   |  6 ++----
- arch/parisc/include/asm/pgalloc.h     | 16 +---------------
- arch/riscv/include/asm/pgalloc.h      |  3 +--
- arch/um/kernel/mem.c                  |  7 +++----
- arch/x86/mm/pgtable.c                 | 24 +++++++++++-------------
- arch/xtensa/include/asm/pgalloc.h     |  2 +-
- include/asm-generic/pgalloc.h         | 27 ++++++++++++++++++++++++++-
- 19 files changed, 65 insertions(+), 80 deletions(-)
+Doorbell in diagram means 'push doorbell' (write data to bar<n>).
 
-diff --git a/arch/alpha/mm/init.c b/arch/alpha/mm/init.c
-index 4fe618446e4c..61c2198b1359 100644
---- a/arch/alpha/mm/init.c
-+++ b/arch/alpha/mm/init.c
-@@ -42,7 +42,7 @@ pgd_alloc(struct mm_struct *mm)
- {
- 	pgd_t *ret, *init;
- 
--	ret = (pgd_t *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
-+	ret = __pgd_alloc(mm, 0);
- 	init = pgd_offset(&init_mm, 0UL);
- 	if (ret) {
- #ifdef CONFIG_ALPHA_LARGE_VMALLOC
-diff --git a/arch/arc/include/asm/pgalloc.h b/arch/arc/include/asm/pgalloc.h
-index 096b8ef58edb..dfae070fe8d5 100644
---- a/arch/arc/include/asm/pgalloc.h
-+++ b/arch/arc/include/asm/pgalloc.h
-@@ -53,19 +53,14 @@ static inline void pmd_populate(struct mm_struct *mm, pmd_t *pmd, pgtable_t pte_
- 
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	pgd_t *ret = (pgd_t *) __get_free_page(GFP_KERNEL);
-+	pgd_t *ret = __pgd_alloc(mm, 0);
- 
- 	if (ret) {
- 		int num, num2;
--		num = USER_PTRS_PER_PGD + USER_KERNEL_GUTTER / PGDIR_SIZE;
--		memzero(ret, num * sizeof(pgd_t));
- 
-+		num = USER_PTRS_PER_PGD + USER_KERNEL_GUTTER / PGDIR_SIZE;
- 		num2 = VMALLOC_SIZE / PGDIR_SIZE;
- 		memcpy(ret + num, swapper_pg_dir + num, num2 * sizeof(pgd_t));
--
--		memzero(ret + num + num2,
--			       (PTRS_PER_PGD - num - num2) * sizeof(pgd_t));
--
- 	}
- 	return ret;
- }
-diff --git a/arch/arm/mm/pgd.c b/arch/arm/mm/pgd.c
-index 2a1077747758..4eb81b7ed03a 100644
---- a/arch/arm/mm/pgd.c
-+++ b/arch/arm/mm/pgd.c
-@@ -17,11 +17,11 @@
- #include "mm.h"
- 
- #ifdef CONFIG_ARM_LPAE
--#define _pgd_alloc(mm)		kmalloc_array(PTRS_PER_PGD, sizeof(pgd_t), GFP_KERNEL)
-+#define _pgd_alloc(mm)		kmalloc_array(PTRS_PER_PGD, sizeof(pgd_t), GFP_KERNEL | __GFP_ZERO)
- #define _pgd_free(mm, pgd)	kfree(pgd)
- #else
--#define _pgd_alloc(mm)		(pgd_t *)__get_free_pages(GFP_KERNEL, 2)
--#define _pgd_free(mm, pgd)	free_pages((unsigned long)pgd, 2)
-+#define _pgd_alloc(mm)		__pgd_alloc(mm, 2)
-+#define _pgd_free(mm, pgd)	__pgd_free(mm, pgd)
- #endif
- 
- /*
-@@ -39,8 +39,6 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- 	if (!new_pgd)
- 		goto no_pgd;
- 
--	memset(new_pgd, 0, USER_PTRS_PER_PGD * sizeof(pgd_t));
--
- 	/*
- 	 * Copy over the kernel and IO PGD entries
- 	 */
-diff --git a/arch/arm64/mm/pgd.c b/arch/arm64/mm/pgd.c
-index 0c501cabc238..8160cff35089 100644
---- a/arch/arm64/mm/pgd.c
-+++ b/arch/arm64/mm/pgd.c
-@@ -33,7 +33,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- 	gfp_t gfp = GFP_PGTABLE_USER;
- 
- 	if (pgdir_is_page_size())
--		return (pgd_t *)__get_free_page(gfp);
-+		return __pgd_alloc(mm, 0);
- 	else
- 		return kmem_cache_alloc(pgd_cache, gfp);
- }
-@@ -41,7 +41,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
- 	if (pgdir_is_page_size())
--		free_page((unsigned long)pgd);
-+		__pgd_free(mm, pgd);
- 	else
- 		kmem_cache_free(pgd_cache, pgd);
- }
-diff --git a/arch/csky/include/asm/pgalloc.h b/arch/csky/include/asm/pgalloc.h
-index 9c84c9012e53..9a3bbf16f03f 100644
---- a/arch/csky/include/asm/pgalloc.h
-+++ b/arch/csky/include/asm/pgalloc.h
-@@ -44,7 +44,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- 	pgd_t *ret;
- 	pgd_t *init;
- 
--	ret = (pgd_t *) __get_free_page(GFP_KERNEL);
-+	ret = __pgd_alloc(mm, 0);
- 	if (ret) {
- 		init = pgd_offset(&init_mm, 0UL);
- 		pgd_init((unsigned long *)ret);
-diff --git a/arch/hexagon/include/asm/pgalloc.h b/arch/hexagon/include/asm/pgalloc.h
-index 55988625e6fb..289dace6d76d 100644
---- a/arch/hexagon/include/asm/pgalloc.h
-+++ b/arch/hexagon/include/asm/pgalloc.h
-@@ -22,7 +22,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
- 	pgd_t *pgd;
- 
--	pgd = (pgd_t *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
-+	pgd = __pgd_alloc(mm, 0);
- 
- 	/*
- 	 * There may be better ways to do this, but to ensure
-diff --git a/arch/loongarch/mm/pgtable.c b/arch/loongarch/mm/pgtable.c
-index 3fa69b23ff84..22a94bb3e6e8 100644
---- a/arch/loongarch/mm/pgtable.c
-+++ b/arch/loongarch/mm/pgtable.c
-@@ -23,11 +23,10 @@ EXPORT_SYMBOL(tlb_virt_to_page);
- 
- pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	pgd_t *init, *ret = NULL;
--	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL & ~__GFP_HIGHMEM, 0);
-+	pgd_t *init, *ret;
- 
--	if (ptdesc) {
--		ret = (pgd_t *)ptdesc_address(ptdesc);
-+	ret = __pgd_alloc(mm, 0);
-+	if (ret) {
- 		init = pgd_offset(&init_mm, 0UL);
- 		pgd_init(ret);
- 		memcpy(ret + USER_PTRS_PER_PGD, init + USER_PTRS_PER_PGD,
-diff --git a/arch/m68k/include/asm/sun3_pgalloc.h b/arch/m68k/include/asm/sun3_pgalloc.h
-index 4a137eecb6fe..e91b0133df5d 100644
---- a/arch/m68k/include/asm/sun3_pgalloc.h
-+++ b/arch/m68k/include/asm/sun3_pgalloc.h
-@@ -43,7 +43,7 @@ static inline pgd_t * pgd_alloc(struct mm_struct *mm)
- {
- 	pgd_t *new_pgd;
- 
--	new_pgd = (pgd_t *)get_zeroed_page(GFP_KERNEL);
-+	new_pgd = __pgd_alloc(mm, 0);
- 	memcpy(new_pgd, swapper_pg_dir, PAGE_SIZE);
- 	memset(new_pgd, 0, (PAGE_OFFSET >> PGDIR_SHIFT));
- 	return new_pgd;
-diff --git a/arch/microblaze/include/asm/pgalloc.h b/arch/microblaze/include/asm/pgalloc.h
-index 6c33b05f730f..084a8a0dc239 100644
---- a/arch/microblaze/include/asm/pgalloc.h
-+++ b/arch/microblaze/include/asm/pgalloc.h
-@@ -21,12 +21,7 @@
- 
- extern void __bad_pte(pmd_t *pmd);
- 
--static inline pgd_t *get_pgd(void)
--{
--	return (pgd_t *)__get_free_pages(GFP_KERNEL|__GFP_ZERO, 0);
--}
--
--#define pgd_alloc(mm)		get_pgd()
-+#define pgd_alloc(mm)		__pgd_alloc(mm, 0)
- 
- extern pte_t *pte_alloc_one_kernel(struct mm_struct *mm);
- 
-diff --git a/arch/mips/include/asm/pgalloc.h b/arch/mips/include/asm/pgalloc.h
-index f4440edcd8fe..9ee8426b2e9d 100644
---- a/arch/mips/include/asm/pgalloc.h
-+++ b/arch/mips/include/asm/pgalloc.h
-@@ -15,7 +15,6 @@
- 
- #define __HAVE_ARCH_PMD_ALLOC_ONE
- #define __HAVE_ARCH_PUD_ALLOC_ONE
--#define __HAVE_ARCH_PGD_FREE
- #include <asm-generic/pgalloc.h>
- 
- static inline void pmd_populate_kernel(struct mm_struct *mm, pmd_t *pmd,
-@@ -49,11 +48,6 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
- extern void pgd_init(void *addr);
- extern pgd_t *pgd_alloc(struct mm_struct *mm);
- 
--static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
--{
--	pagetable_free(virt_to_ptdesc(pgd));
--}
--
- #define __pte_free_tlb(tlb, pte, address)			\
- do {								\
- 	pagetable_pte_dtor(page_ptdesc(pte));			\
-diff --git a/arch/mips/mm/pgtable.c b/arch/mips/mm/pgtable.c
-index 1506e458040d..10835414819f 100644
---- a/arch/mips/mm/pgtable.c
-+++ b/arch/mips/mm/pgtable.c
-@@ -10,12 +10,10 @@
- 
- pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	pgd_t *init, *ret = NULL;
--	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL & ~__GFP_HIGHMEM,
--			PGD_TABLE_ORDER);
-+	pgd_t *init, *ret;
- 
--	if (ptdesc) {
--		ret = ptdesc_address(ptdesc);
-+	ret = __pgd_alloc(mm, PGD_TABLE_ORDER);
-+	if (ret) {
- 		init = pgd_offset(&init_mm, 0UL);
- 		pgd_init(ret);
- 		memcpy(ret + USER_PTRS_PER_PGD, init + USER_PTRS_PER_PGD,
-diff --git a/arch/nios2/mm/pgtable.c b/arch/nios2/mm/pgtable.c
-index 7c76e8a7447a..6470ed378782 100644
---- a/arch/nios2/mm/pgtable.c
-+++ b/arch/nios2/mm/pgtable.c
-@@ -11,6 +11,7 @@
- #include <linux/sched.h>
- 
- #include <asm/cpuinfo.h>
-+#include <asm/pgalloc.h>
- 
- /* pteaddr:
-  *   ptbase | vpn* | zero
-@@ -54,7 +55,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- {
- 	pgd_t *ret, *init;
- 
--	ret = (pgd_t *) __get_free_page(GFP_KERNEL);
-+	ret = __pgd_alloc(mm, 0);
- 	if (ret) {
- 		init = pgd_offset(&init_mm, 0UL);
- 		pgd_init(ret);
-diff --git a/arch/openrisc/include/asm/pgalloc.h b/arch/openrisc/include/asm/pgalloc.h
-index c6a73772a546..c068c4942467 100644
---- a/arch/openrisc/include/asm/pgalloc.h
-+++ b/arch/openrisc/include/asm/pgalloc.h
-@@ -41,15 +41,13 @@ static inline void pmd_populate(struct mm_struct *mm, pmd_t *pmd,
-  */
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	pgd_t *ret = (pgd_t *)__get_free_page(GFP_KERNEL);
-+	pgd_t *ret = __pgd_alloc(mm, 0);
- 
--	if (ret) {
--		memset(ret, 0, USER_PTRS_PER_PGD * sizeof(pgd_t));
-+	if (ret)
- 		memcpy(ret + USER_PTRS_PER_PGD,
- 		       swapper_pg_dir + USER_PTRS_PER_PGD,
- 		       (PTRS_PER_PGD - USER_PTRS_PER_PGD) * sizeof(pgd_t));
- 
--	}
- 	return ret;
- }
- 
-diff --git a/arch/parisc/include/asm/pgalloc.h b/arch/parisc/include/asm/pgalloc.h
-index 3e8dbd79670b..2ca74a56415c 100644
---- a/arch/parisc/include/asm/pgalloc.h
-+++ b/arch/parisc/include/asm/pgalloc.h
-@@ -11,26 +11,12 @@
- #include <asm/cache.h>
- 
- #define __HAVE_ARCH_PMD_ALLOC_ONE
--#define __HAVE_ARCH_PGD_FREE
- #include <asm-generic/pgalloc.h>
- 
- /* Allocate the top level pgd (page directory) */
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	pgd_t *pgd;
--
--	pgd = (pgd_t *) __get_free_pages(GFP_KERNEL, PGD_TABLE_ORDER);
--	if (unlikely(pgd == NULL))
--		return NULL;
--
--	memset(pgd, 0, PAGE_SIZE << PGD_TABLE_ORDER);
--
--	return pgd;
--}
--
--static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
--{
--	free_pages((unsigned long)pgd, PGD_TABLE_ORDER);
-+	return __pgd_alloc(mm, PGD_TABLE_ORDER);
- }
- 
- #if CONFIG_PGTABLE_LEVELS == 3
-diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-index 3c364ecc3100..d527f141be1c 100644
---- a/arch/riscv/include/asm/pgalloc.h
-+++ b/arch/riscv/include/asm/pgalloc.h
-@@ -128,9 +128,8 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
- 	pgd_t *pgd;
- 
--	pgd = (pgd_t *)__get_free_page(GFP_KERNEL);
-+	pgd = __pgd_alloc(mm, 0);
- 	if (likely(pgd != NULL)) {
--		memset(pgd, 0, USER_PTRS_PER_PGD * sizeof(pgd_t));
- 		/* Copy kernel mappings */
- 		sync_kernel_mappings(pgd);
- 	}
-diff --git a/arch/um/kernel/mem.c b/arch/um/kernel/mem.c
-index 53248ed04771..d98812907493 100644
---- a/arch/um/kernel/mem.c
-+++ b/arch/um/kernel/mem.c
-@@ -214,14 +214,13 @@ void free_initmem(void)
- 
- pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	pgd_t *pgd = (pgd_t *)__get_free_page(GFP_KERNEL);
-+	pgd_t *pgd = __pgd_alloc(mm, 0);
- 
--	if (pgd) {
--		memset(pgd, 0, USER_PTRS_PER_PGD * sizeof(pgd_t));
-+	if (pgd)
- 		memcpy(pgd + USER_PTRS_PER_PGD,
- 		       swapper_pg_dir + USER_PTRS_PER_PGD,
- 		       (PTRS_PER_PGD - USER_PTRS_PER_PGD) * sizeof(pgd_t));
--	}
-+
- 	return pgd;
- }
- 
-diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-index c1bfdf7b4767..00917ef609b6 100644
---- a/arch/x86/mm/pgtable.c
-+++ b/arch/x86/mm/pgtable.c
-@@ -395,15 +395,14 @@ void __init pgtable_cache_init(void)
- 				      SLAB_PANIC, NULL);
- }
- 
--static inline pgd_t *_pgd_alloc(void)
-+static inline pgd_t *_pgd_alloc(struct mm_struct *mm)
- {
- 	/*
- 	 * If no SHARED_KERNEL_PMD, PAE kernel is running as a Xen domain.
- 	 * We allocate one page for pgd.
- 	 */
- 	if (!SHARED_KERNEL_PMD)
--		return (pgd_t *)__get_free_pages(GFP_PGTABLE_USER,
--						 PGD_ALLOCATION_ORDER);
-+		return __pgd_alloc(mm, PGD_ALLOCATION_ORDER);
- 
- 	/*
- 	 * Now PAE kernel is not running as a Xen domain. We can allocate
-@@ -412,24 +411,23 @@ static inline pgd_t *_pgd_alloc(void)
- 	return kmem_cache_alloc(pgd_cache, GFP_PGTABLE_USER);
- }
- 
--static inline void _pgd_free(pgd_t *pgd)
-+static inline void _pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
- 	if (!SHARED_KERNEL_PMD)
--		free_pages((unsigned long)pgd, PGD_ALLOCATION_ORDER);
-+		__pgd_free(mm, pgd);
- 	else
- 		kmem_cache_free(pgd_cache, pgd);
- }
- #else
- 
--static inline pgd_t *_pgd_alloc(void)
-+static inline pgd_t *_pgd_alloc(struct mm_struct *mm)
- {
--	return (pgd_t *)__get_free_pages(GFP_PGTABLE_USER,
--					 PGD_ALLOCATION_ORDER);
-+	return __pgd_alloc(mm, PGD_ALLOCATION_ORDER);
- }
- 
--static inline void _pgd_free(pgd_t *pgd)
-+static inline void _pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
--	free_pages((unsigned long)pgd, PGD_ALLOCATION_ORDER);
-+	__pgd_free(mm, pgd);
- }
- #endif /* CONFIG_X86_PAE */
- 
-@@ -439,7 +437,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- 	pmd_t *u_pmds[MAX_PREALLOCATED_USER_PMDS];
- 	pmd_t *pmds[MAX_PREALLOCATED_PMDS];
- 
--	pgd = _pgd_alloc();
-+	pgd = _pgd_alloc(mm);
- 
- 	if (pgd == NULL)
- 		goto out;
-@@ -482,7 +480,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
- 	if (sizeof(pmds) != 0)
- 		free_pmds(mm, pmds, PREALLOCATED_PMDS);
- out_free_pgd:
--	_pgd_free(pgd);
-+	_pgd_free(mm, pgd);
- out:
- 	return NULL;
- }
-@@ -492,7 +490,7 @@ void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- 	pgd_mop_up_pmds(mm, pgd);
- 	pgd_dtor(pgd);
- 	paravirt_pgd_free(mm, pgd);
--	_pgd_free(pgd);
-+	_pgd_free(mm, pgd);
- }
- 
- /*
-diff --git a/arch/xtensa/include/asm/pgalloc.h b/arch/xtensa/include/asm/pgalloc.h
-index 7fc0f9126dd3..1919ee9c3dd6 100644
---- a/arch/xtensa/include/asm/pgalloc.h
-+++ b/arch/xtensa/include/asm/pgalloc.h
-@@ -29,7 +29,7 @@
- static inline pgd_t*
- pgd_alloc(struct mm_struct *mm)
- {
--	return (pgd_t*) __get_free_page(GFP_KERNEL | __GFP_ZERO);
-+	return __pgd_alloc(mm, 0);
- }
- 
- static inline void ptes_clear(pte_t *ptep)
-diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-index bb482eeca0c3..daa8bea36952 100644
---- a/include/asm-generic/pgalloc.h
-+++ b/include/asm-generic/pgalloc.h
-@@ -262,10 +262,35 @@ static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
- 
- #endif /* CONFIG_PGTABLE_LEVELS > 4 */
- 
-+static inline pgd_t *__pgd_alloc_noprof(struct mm_struct *mm, unsigned int order)
-+{
-+	gfp_t gfp = GFP_PGTABLE_USER;
-+	struct ptdesc *ptdesc;
-+
-+	if (mm == &init_mm)
-+		gfp = GFP_PGTABLE_KERNEL;
-+	gfp &= ~__GFP_HIGHMEM;
-+
-+	ptdesc = pagetable_alloc_noprof(gfp, order);
-+	if (!ptdesc)
-+		return NULL;
-+
-+	return ptdesc_address(ptdesc);
-+}
-+#define __pgd_alloc(...)	alloc_hooks(__pgd_alloc_noprof(__VA_ARGS__))
-+
-+static inline void __pgd_free(struct mm_struct *mm, pgd_t *pgd)
-+{
-+	struct ptdesc *ptdesc = virt_to_ptdesc(pgd);
-+
-+	BUG_ON((unsigned long)pgd & (PAGE_SIZE-1));
-+	pagetable_free(ptdesc);
-+}
-+
- #ifndef __HAVE_ARCH_PGD_FREE
- static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
--	pagetable_free(virt_to_ptdesc(pgd));
-+	__pgd_free(mm, pgd);
- }
- #endif
- 
--- 
-2.47.0
+>
+> I appreciate the knowledge shortage is on my end, but it would
+> definitely help if someone would take the time to explain what this is
+> all about.
 
+I am not sure if diagram in corver letter can help this, or above
+descriptions is enough.
+
+
+┌────────────┐   ┌───────────────────────────────────┐   ┌────────────────┐
+│            │   │                                   │   │                │
+│            │   │ PCI Endpoint                      │   │ PCI Host       │
+│            │   │                                   │   │                │
+│            │◄──┤ 1.platform_msi_domain_alloc_irqs()│   │                │
+│            │   │                                   │   │                │
+│ MSI        ├──►│ 2.write_msi_msg()                 ├──►├─BAR<n>         │
+│ Controller │   │   update doorbell register address│   │                │
+│            │   │   for BAR                         │   │                │
+│            │   │                                   │   │ 3. Write BAR<n>│
+│            │◄──┼───────────────────────────────────┼───┤                │
+│            │   │                                   │   │                │
+│            ├──►│ 4.Irq Handle                      │   │                │
+│            │   │                                   │   │                │
+│            │   │                                   │   │                │
+└────────────┘   └───────────────────────────────────┘   └────────────────┘
+(* some detail have been changed and don't affect understand overall
+picture)
+
+>
+> From what I gather, the ITS is actually on an end-point, and get
+> writes from the host, but that doesn't answer much.
+
+Yes, baisc it is correct. PCI RC -> PCIe Bus TLP -> PCI Endpoint Ctrl ->
+AXI transaction -> ITS MMIO map register -> CPU IRQ.
+
+The major problem how to distingiush from difference PCI Endpoint function
+driver. There are have many EP functions as much as 8, which quite similar
+standard PCI, one PCIe device can have 8 physical functions.
+
+>
+> > ---
+> >  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 ++++++++++++++++++-
+> >  1 file changed, 18 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > index b2a4b67545b82..16e7d53f0b133 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+> > @@ -5,6 +5,7 @@
+> >  // Copyright (C) 2022 Intel
+> >
+> >  #include <linux/acpi_iort.h>
+> > +#include <linux/pci-ep-msi.h>
+> >  #include <linux/pci.h>
+> >
+> >  #include "irq-gic-common.h"
+> > @@ -173,6 +174,19 @@ static int its_pmsi_prepare(struct irq_domain *domain, struct device *dev,
+> >  	return its_pmsi_prepare_devid(domain, dev, nvec, info, dev_id);
+> >  }
+> >
+> > +static int its_pci_ep_msi_prepare(struct irq_domain *domain, struct device *dev,
+> > +				  int nvec, msi_alloc_info_t *info)
+> > +{
+> > +	u32 dev_id;
+> > +	int ret;
+> > +
+> > +	ret = pci_epf_msi_domain_get_msi_rid(dev, &dev_id);
+>
+> What this doesn't express is *how* are the writes conveyed to the ITS.
+> Specifically, the DevID is normally sampled as sideband information at
+> during the write transaction.
+
+Like PCI host, there msi-map in dts file, which descript how map PCI RID
+to DevID, such as
+	msi-map = <0 $its 0x80 8>;
+
+This informtion should be descripted in DTS or ACPI ...
+
+>
+> Obviously, you can't do that over PCI. So there is a lot of
+> undisclosed assumption about how the ITS is integrated, and how it
+> samples the DevID.
+
+Yes, it should be platform PCI endpoint ctrl driver jobs.  Platform EP
+driver should implement this type of covert. Such as i.MX95, there are
+hardware call LUT in PCI ctrl,  which can convert PCI' request ID to DevID
+here.
+
+On going patch may help understand these
+https://lore.kernel.org/linux-pci/20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com/
+
+If use latest ITS MSI64 should be simple, only need descript it at DTS
+(I have not hardware to test this case yet).
+pci-ep {
+	...
+	msi-map = <0 &its, 0x<8_0000, 0xff>;
+			      ^, ctrl ID.
+	msi-mask = <0xff>;
+	...
+}
+
+>
+> My conclusion is that this is not as generic as it seems to be. It is
+> definitely tied to implementation-specific behaviours, none of which
+> are explained.
+
+Compared to standard PCI MSI, which also have implementation-specific
+behaviours, which convert PCI request ID to DevID Or stream ID.
+https://lore.kernel.org/linux-pci/20241210-imx95_lut-v8-0-2e730b2e5fde@nxp.com/
+(I have struggle this for almost one year for this implementation-specific
+part)
+
+Well defined and mature PCI standard, MSI still need two parts, common part
+and "implementation-specific" part.
+
+Common part of standard PCI is at several place, such its driver/msi
+libary/ kernel msi code ...
+
+"implementation-specific" part is in PCI host bridge driver, such as
+drivers/pci/controller/dwc/pcie-qcom.c
+
+This solution already test by Tested-by: Niklas Cassel <cassel@kernel.org>
+who use another dwc controller, which they already implemented
+"implementation-specific" by only update dts to provide hardware
+information.(I guest he use ITS's MSI64)
+
+Because it is new patches, I have not added Niklas's test-by tag. There
+are not big functional change since Nikas test. The major change is make
+msi part better align current MSI framework according to Thomas's
+suggestion.
+
+Frank
+>
+> Thanks,
+>
+> 	M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
