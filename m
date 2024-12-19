@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CC1E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7734BE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhXU90riflbMMXXiNNRfoBPN4nWysFB0QvF1+RIxPmc=; b=Urf+kNomMbPH9Ud4f6KQTFb8Tr
-	B+1uKpIgfiAgPTMZGC3sRpzTbO3F96WE2PhAZ4JVB9qOLOnj5Ht+KLd5GZHDbxjEWC2ENTxR8UjEw
-	ETK5nb+nq2qNXYWH4n3DTJsUCOV4EqcVTBfvHQkb04d/VRiFg3gWSBXClF6lrBddPLhkmBxvbDl77
-	agzi5Dmd24Rl+ozlsJlAFkWIAtfj4YW/A/UmgVQnVRfm9dPCEAB67qjFidZYcjb48URJaB0EgIqz6
-	8L9bc4yWNVqyKll7seJIR49Z8Vrjr5hDKTW+oML9bGysj6KewN4MbzMbD91VsDBw2XqXl9An8cE4o
-	+8tLcJoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uXdk9iXBjbSglfglNMlCe1O5qHEJC/mlI8TGpLrLN0o=; b=JmyzS8CB22KLN3
+	G0v64p7hj7I/T5UVAn0n3BPfdWK2r8J6ACXWBnTuCwiAZ6vYZy6vVsiPSZaS20SsuKWLyHHYiMKHz
+	yMXTSQyYnlew8HsYTcdQv4CG/6Z6wNI8/0sfpcKZQ7uzojA8d9e1qDCMLjchyoJn5o0EiDVeBho9B
+	heSL974kJc5rf4RChPRbSoIfdFAhHfnQO+uNa4mKoHTz4J+6KuGuUp9+MH0LPEJdLZNBHd2B7Lxjn
+	mLIJjLTWW9BTIz/PSHQP9aFCIx5eCmSxR7XNuveo+ZtegGhMkourAbwAsIRyr2j3TFb4cYRMb4WBg
+	LQWpl+GgOQPqcuK25W/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCWs-00000001MNC-13ru;
-	Thu, 19 Dec 2024 09:09:10 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tOCYk-00000001Mq6-2AX3;
+	Thu, 19 Dec 2024 09:11:06 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCUz-00000001M63-3E6n
+	id 1tOCXc-00000001MYF-265r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 09:07:14 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38633b5dbcfso477727f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 01:07:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1734599232; x=1735204032; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=YhXU90riflbMMXXiNNRfoBPN4nWysFB0QvF1+RIxPmc=;
-        b=BhHDObaZBwjQcaJfeLd6cl1jj1zVlCtBSmKhVy4dmwhHGYIP+A0BgWVukmYhuTHmic
-         t4Tw2U6PU7jigIehE7rWzkTL5WS0Qz0OWbS8whisArZ91lxDKCyu5BiNkvcX+laC5Aqy
-         PzsHHbi8L6rJXKFL0SRE/ZWH38Gz6CZe2wSeypOym9kmuqxHsnVVARHBUg/cLAMXbMbI
-         bJJXUnH3T0o4fSAg4/EfrnAwtKOFnnb6h5qkNLluKKXSH7N6+xux+HafNeSpxSxTpFKY
-         gZ2Ye3OZQuGuHCwwpcR6keiM33KS3exuy/MRxKT9sz97bJdC9FpP0MFByh+8F7Zars2f
-         6Gbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734599232; x=1735204032;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YhXU90riflbMMXXiNNRfoBPN4nWysFB0QvF1+RIxPmc=;
-        b=sKriGdUubBnAoHRS/C6z5WSDjocV6aRUZl30rLorr6aspzXuhTHmJyJqEPPv+Gp4Ot
-         Y1ARySElYWLr3EO4K1Mhpjs0oSpFuLAiTr0YuUNDBAYmWpmpU5dFHd3H59zoPu3lAq3H
-         JgGAPauqmDAucycQsR1umBwVYYZHjDnxOLzRuc+8eZuuoWFgITe8m5J/cANGet297vb2
-         oWRXMZFSevkDK1I9LXaWUxs3mWijNDgRpMdSMYvlqz46rxciMuu16Ajmrw2ONWH63aR1
-         XE/wMtH7QoCNUefCDXtzTwGb01ZUnE1aR0gZn5F4+GGm20YbZE5LExveBzDPUxJBS/xt
-         yNMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW+awW+qWuNBKkbyqL/kacYWVrCqRCIthiQlJ58IEfXSCgi07av/1CihoCaZC0YFDrTt65FkqhVDTv2C2SGNtfZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIpydqLZNdcm/83yD77rLKFdFT1+LVsfvMs3FBO1/BrAMXNycg
-	QvLKLciGrbzMy5vWDDpcfLE/Ell84kFILcxkQuserBohK+UxqfbWrad/jIeERjeeXbzuqAocQzB
-	6
-X-Gm-Gg: ASbGncsCQzbAhXNcBOvNWqFjgWY6IhFM+57uv2bQOS+a6wGeUurZz7VDoO2Yb3PnREq
-	mPCTiI2o+4qo12wwNpkzGSEFGL3a/f/ajW4cHtz2U+KCET0k5CzpS6myw0r7tTUdaE6qc4RbX27
-	8EVBL6e/DyxOm7gXDQU/d3G3xDYcbnqL4mybyF7loq/7klPF3GMivHgq7RZHX6fYaAdtFLltPEh
-	fxtci/PIuQWSTVg3foa3WMobMCIFlDlQLqfXeCDJv/eai+vGWVQCN76eGI2nxjpRQ==
-X-Google-Smtp-Source: AGHT+IF7WYa1QHYe4An4vUxQWS2KauZ22DGqQxC5ejjoWjVjb7f9ys1QTxnqb2k6m7oIcFBfI6DzEg==
-X-Received: by 2002:a5d:5f56:0:b0:385:f996:1b8e with SMTP id ffacd0b85a97d-38a19b0504emr2588375f8f.16.1734599232117;
-        Thu, 19 Dec 2024 01:07:12 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b41904sm45606305e9.37.2024.12.19.01.07.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 01:07:11 -0800 (PST)
-Message-ID: <1e2cb493-f645-4448-8df9-e6c19cb96a70@tuxon.dev>
-Date: Thu, 19 Dec 2024 11:07:10 +0200
+	Thu, 19 Dec 2024 09:09:58 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 36265A05FF;
+	Thu, 19 Dec 2024 10:09:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=uXdk9iXBjbSglfglNMlC
+	e1O5qHEJC/mlI8TGpLrLN0o=; b=jmQoZNUTN1K0TmOO9Vccf83zEYA1Ylaf0Zkk
+	xSkEtKMlPmVnhVLCCfJCo47AhxrA3tjdD2f6RBfZ+iJV0vMpDvQBzdLkl6j4tgbT
+	wA3vwh5Tq69Ays6SEs2zaqXhj3jir00nj7qNA2qZlygbRZUNuWFiUUPgJf9dsRpU
+	sEIJf9uGe9urF7KqyDdW47cz3CLaP5cbZOB6to7k+mcrCE0QEOXCNIjWxpmtjHKY
+	YPqhTwGiPIKPt6u/Rh4UGRO19qKCtoLttE1I69P4wGbGKWb9+0zEpNK57E0VsTAf
+	2IxapyW18AeQam1NHt/IeT3nGwGK2I8GPA9mQ/hExnHCjJHV8UYvgB7DnQccx9fl
+	dwhgXVSg2fTXPkMF0oW46M4MJdpR4tllW+NvCq5jeqWisDaeWN3AgIvkHwyb2nBf
+	c9z4pIDntf7SO/Dxu90Af2YfIfu1eXmFO2P/nODpejUAvXzOF18aTv29DvTv6JJC
+	niafqNOp/81D65EehWmjcb8eBZ1rR7oH27WkSgiR1dMH0RdAMxxboKTrdgfRP5wk
+	pca7IeDSoooYd8jkKzWKqmJSfrsJ0T86cVEytXYNytEpROtez39GE84Oo5TejgIl
+	ns4kZlITv1HYPzqbo0+4/m4L+9QpBxFvcWKgs3ZYfXJhsanstNvBzhn4YGYWoLWv
+	TQ66iAA=
+Message-ID: <72874aa6-22c7-40a6-83bb-1ace0f3aec73@prolan.hu>
+Date: Thu, 19 Dec 2024 10:09:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] ARM: dts: microchip: Add no-1-8-v property to sdmmc0
- node
-To: cristian.birsan@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241119160107.598411-1-cristian.birsan@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH] spi: atmel-qspi: Memory barriers after memory-mapped I/O
+To: Mark Brown <broonie@kernel.org>
+References: <20241218165850.378909-1-csokas.bence@prolan.hu>
+ <b1661e3f-cc62-489b-a4f8-9964ccf65fae@sirena.org.uk>
 Content-Language: en-US
-In-Reply-To: <20241119160107.598411-1-cristian.birsan@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <b1661e3f-cc62-489b-a4f8-9964ccf65fae@sirena.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D948556D706B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_010713_808998_BF4B6385 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241219_010957_001138_3ABBE8C0 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,17 +78,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Marco.Cardellini@microchip.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org, Mahesh.Abotula@microchip.com, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Piotr Bugalski <bugalski.piotr@gmail.com>, Hari.PrasathGE@microchip.com, linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Right. I originally planned on splitting it into a cover letter and then 
+the patch, but I guess everything can just go into the msg. Dropping the ---
 
+Bence
 
-On 19.11.2024 18:01, cristian.birsan@microchip.com wrote:
-> Cristian Birsan (2):
->   ARM: dts: microchip: sama5d29_curiosity: Add no-1-8-v property to
->     sdmmc0 node
->   ARM: dts: microchip: sama5d27_wlsom1_ek: Add no-1-8-v property to
->     sdmmc0 node
+On 2024. 12. 18. 18:01, Mark Brown wrote:
+> On Wed, Dec 18, 2024 at 05:58:49PM +0100, Bence Csókás wrote:
+> 
+>> However, the current documentation makes no mention to
+>> synchronization requirements in the other direction, i.e.
+>> after the last data written via AHB, and before the first
+>> register access on APB.
+>>
+>> ---
+>>
+>> Fixes: d5433def3153 ("mtd: spi-nor: atmel-quadspi: Add spi-mem support to atmel-quadspi")
+>> Cc: Hari.PrasathGE@microchip.com
+>> Cc: Mahesh.Abotula@microchip.com
+>> Cc: Marco.Cardellini@microchip.com
+>> Cc: <stable@vger.kernel.org> # c0a0203cf579: ("spi: atmel-quadspi: Create `atmel_qspi_ops`"...)
+>> Cc: <stable@vger.kernel.org> # 6.x.y
+>> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+>> ---
+> 
+> Your signoffs and whatnot need to go before the --- so they don't get
+> cut off by tools, any any ancilliary stuff should go after.
 
-Applied to at91-dt, thank you!
 
