@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A360DE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 05:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BDFE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 05:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCDOKEUPoRWgxQv9Y56ec+zLrH8lDUZ5399H6YW87Ck=; b=PZVvPnQPgvHg1s0oZ+z2Q/k3EK
-	YEwxPFZJPR3cD7ud4Cj/W13JOUNVNwaRzQq6Zj1LMGMuZUDCzUWTauRv16z2sEDj0CRbkAGrAkz3K
-	KygQF7tJUkpGd1DbDTdbuSk8+k3MP91f1TLV8RX5gt4NCEJ5g6/dIA6ckFwLLPzRRmciG3CbHx8A/
-	jCISKSzvhbix4bfZLfh2+/hh6pVIy6tbe4Q/z/0eF8fZnffwNQKwYtzrLs6LUhxkJ+xkk9rfw3eIy
-	LDfp8iaw5FSI1Emx2GEblkSCHYQqLRD/AXaj6HKLvNJVTp5wk/o0qI3sttfAjzRhGMJMT9vuNBF+S
-	N/DxaGSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l19owm37vrWhE2A7+0xnE4b78Cf00LYyc5vxRMMRKJE=; b=VD551NrtCaeScevOeo5PzympLH
+	FQP1nW8+FZLtsN//G3KGfncQRUktEgVlrlyG2LtLUvNCpWpUGOZu+N2S4jP0P4ApLTI79DeLlkBEe
+	ODnpOo/jMgAx9fEVwsT0dL9TjmAtxE1Le3IRFF/mFBr+aTkb7XxfmVekqoMjLsA51TZICaYKO9Tx6
+	glp8apea3F4wpa4lwGJXkGy/NDQdgu+Zn+jzhjDlf78BBg/udjlOz3z865Oj6g4ppuek34BmJvPEz
+	7RQGU4wZqw8xvro9rMRkJbmKcZXnxVq/L4VhOKV0oQ474HBwxu5WhrD88CZnsoCNgDFhcONPTu3/W
+	cgAjPfgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO9FS-00000000sh8-1QTI;
-	Thu, 19 Dec 2024 05:38:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tO9L1-00000000tRG-1SOa;
+	Thu, 19 Dec 2024 05:44:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO9EL-00000000sV7-44Iu
+	id 1tO9Ju-00000000tIC-12iZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 05:37:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CBFAAA41BFE;
-	Thu, 19 Dec 2024 05:35:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 411AFC4CED0;
-	Thu, 19 Dec 2024 05:37:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734586668;
-	bh=f1ssCOL5WoAFhkE7v38y7Xu2e53FiZUAYFBGnEjCpZ0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=ialAkShidwlJwrlWfPoJnFpY0idSboazhqgfcvsMXJ4WZ10TEkwwaukZOvjp1u9kt
-	 u3hH5jq9vP1fMuychVCt6eJSWQR/bvHOH0Sd4QBD83X+3/P3SxKTevMjhHIlz6iKy2
-	 uo5tjyk50uEf0LbeIylxsmL6KBvKi1gTzZxli23s90z1ilTnwa9+2ovQ3Nxof7121B
-	 kSqD9OY+pdi/8dwkUkPnn0h5b7tbyYlI2hycHVqAKgqCESNVjDoR/5tdCBdqjj2aLb
-	 K7jF0+7AETgI2iKjB50StOBX6IbCSwNVx7ItYL7i9U4wbTIdZi9Ev+7zINcUdVkNn8
-	 naAuwTRmpNLYg==
-X-Mailer: emacs 31.0.50 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>
-Subject: Re: [PATCH v6 12/43] arm64: RME: Allocate/free RECs to match vCPUs
-In-Reply-To: <20241212155610.76522-13-steven.price@arm.com>
-References: <20241212155610.76522-1-steven.price@arm.com>
- <20241212155610.76522-13-steven.price@arm.com>
-Date: Thu, 19 Dec 2024 11:07:22 +0530
-Message-ID: <yq5apllos06l.fsf@kernel.org>
+	Thu, 19 Dec 2024 05:43:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1734587014; x=1766123014;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=HtvxuCvfR1+WAuH51wmAgJepZtVKamVQJfF0Nl56tY0=;
+  b=ysZ/R4DaVV4L5AZBIO91hl+FEpuN5+q0lxRboxv3crE3iw6gi9byot90
+   jgI2wrgsI+FaHmVPHpiwbVeRTlR4eOpq6Ld81sgNzrY/DQUUtWozCqZSO
+   m54XO74P9uHbx2acry0fet6pSOqlN+1VUXkMO+uA2owZ3YvoQ+B+D2oN+
+   zM9rAfaZPb/tSWfyzCdfrN1yX19qp8vTgrrP4fz3QPzYSKwyyG/EaakB1
+   1nJsdLocYG8tkM2GVdtVhcOFcY1z2p2uhZw4+hLY9bQVNBQGPVXTo71v0
+   TKc1GEZ/7qX81kO3mh6L/QmvhdBda6hyRbIwZeOycBpgyYLI7Yrki6Os2
+   w==;
+X-CSE-ConnectionGUID: hU4v6kOuSsqVI5vwQceH6A==
+X-CSE-MsgGUID: bZlwIm3LQBKFdgmbK5AFLw==
+X-IronPort-AV: E=Sophos;i="6.12,246,1728975600"; 
+   d="scan'208";a="266956083"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Dec 2024 22:43:32 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 18 Dec 2024 22:43:31 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Wed, 18 Dec 2024 22:43:26 -0700
+From: Charan Pedumuru <charan.pedumuru@microchip.com>
+Date: Thu, 19 Dec 2024 11:12:50 +0530
+Subject: [PATCH] dt-bindings: mfd: atmel: Convert to json schema
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20241219-gpbr-v1-1-e19a562ebf81@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAFmyY2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIxNDI0ND3fSCpCJdI5PEZAMLI+PklFRTJaDSgqLUtMwKsDHRsbW1AGrrreB
+ WAAAA
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Nicolas
+ Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Charan Pedumuru
+	<charan.pedumuru@microchip.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_213750_087450_5DE5450A 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20241218_214334_371268_2C789FAD 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +89,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Steven Price <steven.price@arm.com> writes:
+Convert old text based binding to json schema.
+Changes during conversion:
+The text binding is misleading, add a fallback `atmel,at91sam9260-gpbr`
+for both `microchip,sam9x60-gpbr` and `microchip,sam9x7-gpbr` which is
+missing in old binding and `microchip,sam9x60-gpbr` is not a fallback
+for `microchip,sam9x7-gpbr`.
 
-> +static int alloc_rec_aux(struct page **aux_pages,
-> +			 u64 *aux_phys_pages,
-> +			 unsigned int num_aux)
-> +{
-> +	int ret;
-> +	unsigned int i;
-> +
-> +	for (i = 0; i < num_aux; i++) {
-> +		struct page *aux_page;
-> +		phys_addr_t aux_page_phys;
-> +
-> +		aux_page = alloc_page(GFP_KERNEL);
-> +		if (!aux_page) {
-> +			ret = -ENOMEM;
-> +			goto out_err;
-> +		}
-> +		aux_page_phys = page_to_phys(aux_page);
-> +		if (rmi_granule_delegate(aux_page_phys)) {
-> +			__free_page(aux_page);
-> +			ret = -ENXIO;
-> +			goto out_err;
-> +		}
-> +		aux_pages[i] = aux_page;
-> +		aux_phys_pages[i] = aux_page_phys;
-> +	}
-> +
-> +	return 0;
-> +out_err:
-> +	free_rec_aux(aux_pages, i);
-> +	return ret;
-> +}
->
+Signed-off-by: Charan Pedumuru <charan.pedumuru@microchip.com>
+---
+ .../bindings/mfd/atmel,at91sam9260-gpbr.yaml       | 44 ++++++++++++++++++++++
+ .../devicetree/bindings/mfd/atmel-gpbr.txt         | 18 ---------
+ 2 files changed, 44 insertions(+), 18 deletions(-)
 
-We can possibly switch the above to the alloc/free helper so that all
-granule allocation is done by alloc_delegated_granule() ?
+diff --git a/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-gpbr.yaml b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-gpbr.yaml
+new file mode 100644
+index 000000000000..f805545aa62a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/atmel,at91sam9260-gpbr.yaml
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/atmel,at91sam9260-gpbr.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Microchip AT91 General Purpose Backup Registers
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++
++description:
++  The system controller embeds 256 bits of General Purpose Backup
++  registers organized as 8 32-bit registers.
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - enum:
++              - atmel,at91sam9260-gpbr
++          - const: syscon
++      - items:
++          - enum:
++              - microchip,sam9x60-gpbr
++              - microchip,sam9x7-gpbr
++          - const: atmel,at91sam9260-gpbr
++          - const: syscon
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    syscon@fffffd50 {
++        compatible = "atmel,at91sam9260-gpbr", "syscon";
++        reg = <0xfffffd50 0x10>;
++    };
+diff --git a/Documentation/devicetree/bindings/mfd/atmel-gpbr.txt b/Documentation/devicetree/bindings/mfd/atmel-gpbr.txt
+deleted file mode 100644
+index 3c989d1760a2..000000000000
+--- a/Documentation/devicetree/bindings/mfd/atmel-gpbr.txt
++++ /dev/null
+@@ -1,18 +0,0 @@
+-* Device tree bindings for Atmel GPBR (General Purpose Backup Registers)
+-
+-The GPBR are a set of battery-backed registers.
+-
+-Required properties:
+-- compatible:		Should be one of the following:
+-			"atmel,at91sam9260-gpbr", "syscon"
+-			"microchip,sam9x60-gpbr", "syscon"
+-			"microchip,sam9x7-gpbr", "microchip,sam9x60-gpbr", "syscon"
+-- reg:			contains offset/length value of the GPBR memory
+-			region.
+-
+-Example:
+-
+-gpbr: gpbr@fffffd50 {
+-	compatible = "atmel,at91sam9260-gpbr", "syscon";
+-	reg = <0xfffffd50 0x10>;
+-};
 
-static int alloc_rec_aux(struct realm *realm, u64 *aux_phys_pages, unsigned int num_aux)
-{
-	int ret;
-	unsigned int i;
+---
+base-commit: 91e71d606356e50f238d7a87aacdee4abc427f07
+change-id: 20241211-gpbr-24ac0823cde5
 
-	for (i = 0; i < num_aux; i++) {
-		phys_addr_t aux_page_phys;
-
-		aux_page_phys = alloc_delegated_granule(realm, NULL, GFP_KERNEL);
-		if (aux_page_phys == PHYS_ADDR_MAX) {
-			ret = -ENOMEM;
-			goto out_err;
-		}
-		aux_phys_pages[i] = aux_page_phys;
-	}
-
-	return 0;
-out_err:
-	free_rec_aux(realm, aux_phys_pages, i);
-	return ret;
-}
-
-
-
+Best regards,
+-- 
+Charan Pedumuru <charan.pedumuru@microchip.com>
 
 
