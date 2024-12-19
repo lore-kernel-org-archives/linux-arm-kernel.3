@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D05E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0311E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+efOnqODR5XSbllpBxRT6OF6WIdT5YO+sNBFdgpMN8Y=; b=oPxOdwiHwICafYM2Wh/ohekL1q
-	nuUy/pT0Poe2gmNq7mg2BOvPMpTZetn7IYcsh/Z46tBn8JVVwMLDva1JotCmvc1aNOjgwZ6h7IzYj
-	WX8nZkDPtI8NKjkb8wwLrmhdBAaV0Er3K2GHbELVOrip/amfu4HSp7e1/1By6JSFDuRKlqZaM3515
-	DaFFR3Fzm0ZdUZ/68ZhGaTztNKKxDxiIF3+g13uMUIJpVOBxOFVjKBWPr9H00Yqxi/RsIn8gkgWrB
-	NT+SkM5Qq/BWb7P0ffkgrEWydVs2U4tgIBhFt9RQolcCS4o5TGB5WBIcK9EQ66JlWvWwLA7Kz0yvG
-	jFSAalhg==;
+	bh=TGPXVL0/egs6Tmt22Jo7umwA4U5JIvfDhvu1Jf441ug=; b=qBUC5U16potKrw9QTDxaiDMSCW
+	poYQrOON/zhnn8s/y28RMCqB1RJ1KhycrGb7ryhjhMK+Z0bZPc2ZtRDSkrAH6+VtgfJhOTH3VxZuR
+	5QfnZtn7D2Ny7pxYRltM774fPnOVSImRlumJ19lOvofb+1XhYLzbOPMMTUjfHKSvf1pNv3GFcma9p
+	kXZfaJHGJcOv1QtJf7d5f5PwwJ0hoOclsbOb+ck36YXHbogXGXUCwH0jdumGkboxIkwBrq/ZfQ8P+
+	51VQjXQJ3uki8fMRqzKYXlwdHL7NNhtBuC0j0tUL6iYIh0QUS/QybmJKIvMtTuF+qEZzobJyvxldw
+	56oa1KeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEjE-00000001fd3-2b1g;
-	Thu, 19 Dec 2024 11:30:04 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tOEkg-00000001fo8-1AZf;
+	Thu, 19 Dec 2024 11:31:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEi4-00000001fOw-3kbk
+	id 1tOEja-00000001fgu-1pCt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 11:28:54 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa692211331so127710466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 03:28:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734607731; x=1735212531; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+efOnqODR5XSbllpBxRT6OF6WIdT5YO+sNBFdgpMN8Y=;
-        b=Fs1AhZfJnUZUceGjwd/TjO9z75asHfzIiPl+8A4NER9yYbHKIiIOOL1HVjgfw5kgu4
-         Nn22/utnRcV6CrCU6JJ8Msnb84ZCDt33bREdmSXpdxcW82jJKZnOJPtegf+W0hOdsJOg
-         OWi/RSorVgq3iznwiUyucf4AMJetGA2EPjyC8GjcNfpN+U9+vMvxTh/1Nr3qKSBHAnVO
-         SKficzDD8U8ITesC5X/Zsgg62oPcYCH6dhuj2a7oejfRXuCLeFl/0le4XlrpqJmzzh8y
-         dBo8FnDQszqs3jYmxp+XbedoX7VL3U55gdeiES2JcE3GyRfDO6VhnjUPq+iIJX1dCMu1
-         64yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734607731; x=1735212531;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+efOnqODR5XSbllpBxRT6OF6WIdT5YO+sNBFdgpMN8Y=;
-        b=fCYo7lq6F4JHfsCF1fLK+CqGIGEq7X7LKEpShznN4dE7JCBd6XK25wA+b1F4/ZpSQ6
-         8AX0JG6KNV9Gddde7fXtDgGttnp8LxYg5HLyzi8Kdy5hQMUHz9weTk8RaYlmBTPXLKnH
-         1yE0d0fUw3bMPsd2A414K9IifNuAsT/0Z1W/QjorD9Pw5Ide+gL/O8dBypM2t7JbgnJN
-         F2zGa1+8A1AKVobl3hfeytq99XxRUu/WFqxqq8FOphnoqXhOfxWjb1gsUXNyXzZLwObj
-         sD9SeGC6uCEfrCJkM9184cgI30vAbJzPIhoA3cshUErvpngbhmtZoLiVV//RdLsb5j2s
-         75NA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7c4gBPHMj/1fVyHjbFRABR82KtEia7zcvqdiauvuAIbDNbChqn288LjWKDnX9I3Zqzanx9XHRg8HTAe4ZG49+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz57oDDmZPMJgltm6324Syik+WVl3YxrFm6aeoZl0KNfkjMWSG8
-	oNY+efc0GEio5vzwZPjsAruCLNrY5T9rO5pLNrMBT5QhGFVHUN5g0njGwSOvCTisu8DdgNJa+jF
-	YUg==
-X-Gm-Gg: ASbGncskYRm/KMkHlDes5hoSy03T5wr90t9+mRyIbNU0yMVNcOTGCeXbZ+8cKGRiy3v
-	kNe6vayAuAfBllp/AHpTXi54SSzDM5TvL4SAyedVOdEXUsR6EdLkYaeWGPGh4h+vKJHgdtgXr9g
-	ee5QG1vaV6k1mhYGq2eqpbOSwa7J295im6JX76fisf9mxHE2FImzkKp6RpzHOEh3VDVD6W8DrEf
-	zb6Zz82UIlZTd+rxAmwdKVJnfOAR/VF6MKsOtd7+VKG9cbNfoY9iAbkqVoj9UfPU5ACm4I9u1VD
-	/2VsnpxtQkiclzw=
-X-Google-Smtp-Source: AGHT+IG3dsXDyN2H9c+ztZK9RDs7OlGyiKmp55kArM+zF0vJy/3UJNS0k2iPLxglWUvLs+MgvKzUiA==
-X-Received: by 2002:a17:906:308c:b0:aa6:abe7:ff49 with SMTP id a640c23a62f3a-aac08187acdmr234318566b.16.1734607731259;
-        Thu, 19 Dec 2024 03:28:51 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e82f58asm55970766b.39.2024.12.19.03.28.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 03:28:50 -0800 (PST)
-Date: Thu, 19 Dec 2024 11:28:48 +0000
-From: Quentin Perret <qperret@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
-	robin.murphy@arm.com, jean-philippe@linaro.org, jgg@ziepe.ca,
-	nicolinc@nvidia.com, vdonnefort@google.com, tabba@google.com,
-	danielmentz@google.com, tzukui@google.com
-Subject: Re: [RFC PATCH v2 11/58] KVM: arm64: pkvm: Add pkvm_udelay()
-Message-ID: <Z2QDcODuqcJojTpG@google.com>
-References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212180423.1578358-12-smostafa@google.com>
- <Z2QADxbdoYi5q9iT@google.com>
- <Z2QBxPyBsxGNSuzT@google.com>
+	Thu, 19 Dec 2024 11:30:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A06C45C5DB7;
+	Thu, 19 Dec 2024 11:29:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77DE0C4CECE;
+	Thu, 19 Dec 2024 11:30:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734607825;
+	bh=WZy77EM6Jp2nJGwMoUPBoqtGUEr8RfDUcV/Dtjbg0I8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GenVSOh3XU2e5AJnorSRRSioUtijToJOsGApMyITwDhvgZ4Y4EzR31hUh2NONg9Rw
+	 Eqz3EUsbX6qb+azS7mGCxt5h1iaVKWzB+95c1Mwk6ZgmBP8x0ayOqIL6MFbbMkhDcL
+	 lbamqngDPhxrUjnsUoeZjwAVjeQOPIqkXxQhZ/LC1f4G00ve8AMeF3q4LoUt+p/SS2
+	 OERqcx8zxSWh/ez35wO+SJFPDIYgtmRX7PW84+/udhueRPSrPysLaaZBM7Jz6MYQOE
+	 r9y0oHXrycr7RVDQBN0uA1xAlVt6645p0qVtsY3KE2DsL0Uk6jO4KC6UHu3//Us+wE
+	 ICW5uOqkwoalw==
+Date: Thu, 19 Dec 2024 11:30:20 +0000
+From: Will Deacon <will@kernel.org>
+To: Rob Clark <robdclark@gmail.com>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	Akhil P Oommen <quic_akhilpo@quicinc.com>,
+	Rob Clark <robdclark@chromium.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
+Message-ID: <20241219113019.GA23640@willie-the-truck>
+References: <20241216171017.4881-1-robdclark@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z2QBxPyBsxGNSuzT@google.com>
+In-Reply-To: <20241216171017.4881-1-robdclark@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_032852_928684_2AB9BC78 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20241219_033026_514183_1D7A8F51 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday 19 Dec 2024 at 11:21:40 (+0000), Mostafa Saleh wrote:
-> On Thu, Dec 19, 2024 at 11:14:23AM +0000, Quentin Perret wrote:
-> > On Thursday 12 Dec 2024 at 18:03:35 (+0000), Mostafa Saleh wrote:
-> > > From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> > > 
-> > > Add a simple delay loop for drivers.
-> > > 
-> > > This could use more work. It should be possible to insert a wfe and save
-> > > power, but I haven't studied whether it is safe to do so with the host
-> > > in control of the event stream. The SMMU driver will use wfe anyway for
-> > > frequent waits (provided the implementation can send command queue
-> > > events).
-> > 
-> > Mooh, I'm thoroughly hating that we need this -- pKVM is non preemptible
-> > so we better not wait for too long.
-> > 
-> > I can surely figure it out from the following patches, but could you
-> > please expand on the use-case?
+On Mon, Dec 16, 2024 at 09:10:17AM -0800, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
 > 
-> The driver needs to poll some SMMU MMIO, so it needs to measure time
-> in terms of udelay to timeout, at the moment its arbitrary set to 100ms.
+> On mmu-500, stall-on-fault seems to stall all context banks, causing the
+> GMU to misbehave.  So limit this feature to smmu-v2 for now.
 
-OK, I'll look at the patches to see how hard it'd be to return to the
-host for scheduling while this is happening. It's probably hard because
-we're presumably in a funky state, but it's worth trying to figure it
-out. Any EL2 section longer than 100us or so is problematic in my view,
-so a 100*ms* timeout is scary!
+MMU-500 has public documentation so please can you dig up what the
+actual behaviour is rather than guess?
+
+> This fixes an issue with an older mesa bug taking outo the system
+> because of GMU going off into the year.
+
+Sorry, but I don't understand this sentence.
+
+Will
 
