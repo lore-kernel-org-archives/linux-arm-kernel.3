@@ -4,100 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A58DE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 13:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB986E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 13:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUOQPXTRe3lg7UV1cQpho3gjLjQwoiMIh3ZBdN3lBVY=; b=1Yyi2D4ISyIO/0P4gyjEoOLWVU
-	ktI8R/r8nSPuz152drSq1nRl3B6WsXQe2hACxuavwu4hc9WaCtLzxx9IztA+PhT5rxlPLLuW0Ys30
-	u2h8LRFPxJ/UvT49/dy4xIQqrFqboPyimcgoIVNtnMBpI7l+z9F8f7gFPf23uriNarRcU4RYn82yB
-	EEnld8qM5C7h5tgxJGlGQkeH8x6l2Fq7uFx7OXCOD2bxN2nR1dA2DMuBeY8lCkecjSJyBtkhXpP0E
-	f7/E4YTkv75Vs3MNpLnbORzlx7LXuPcqqCCSHJwc0WVALZter64/Qa2/RYfv3fuwqxPKv3Qp+iJF3
-	fdQH3AZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1O37GGDiNqX9BN5G4PEOUKadcZso7tqGm3oWW9QOEMI=; b=yEAnumsp7586IJ1Fy7y9bhK14C
+	zxXBdEFzdC1vXRB8gtp+DoXjjSa+zHVuZ14Cc3TePDibWtyiANa0FB0/0VXCkdYMX06hQVJ+XvPfN
+	pOdmd+kBunGwJGVwNapcQEB9hERB+KTxqc4KLJzCpc5peB8DuGEwx8bCiRHl4M9AS10Imr51NX/AL
+	jwekgDzGzpjafTsQO8i7jg436PCV3gXO0QITnyhbqq4/efHVRQWXaNLOKOykpDAIu9t8MUCHe0b+0
+	9doGMBPjWIq2RyLBsYzQSwNYc5XEOeiPccExQfOHZDVvZnTn0ZzNqNyhuwS9Ku8REMe759ihJtYSm
+	ggFK0CWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOGJB-00000001uPn-3Awk;
-	Thu, 19 Dec 2024 13:11:17 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tOGKG-00000001udE-2AKq;
+	Thu, 19 Dec 2024 13:12:24 +0000
+Received: from mail-am6eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2612::61d] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOGFw-00000001toe-1djC
+	id 1tOGIa-00000001uGv-0tiT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 13:07:57 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-432d86a3085so5331215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 05:07:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734613674; x=1735218474; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AUOQPXTRe3lg7UV1cQpho3gjLjQwoiMIh3ZBdN3lBVY=;
-        b=aOPW7j4DrQLUPU4L2LYzfamPi6Xjkc+Xp4bg76acCI+SNf3aLUmcmJpwlp4fKnNJPZ
-         iS5xuN9D5+HPwQqD5UbgRRIPkrJ5XzWTG+haOi6FomcHs88r8gVFLGkZ0Z4UPK17mIZu
-         8xQEfB0CdHUSFuaDf2eTet2SaHnha5tqbPK/wGsbaGkzI5EKFXytzGte5XNYet2+KPt7
-         g/FoYog5MkwnGS32HJ2mys/6Q7tKjNFAvGoi452OFc/oNlpJJlEl6ZusOiAFLLQ3kime
-         jxn4PtQAe22Z0M6k8Tk6z/XxQOd1/EHz6OSywg8PgLRrpcJs6KWvZmeCuctr2+uJaUjz
-         tvqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734613674; x=1735218474;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AUOQPXTRe3lg7UV1cQpho3gjLjQwoiMIh3ZBdN3lBVY=;
-        b=Q7+xIDI7GiLWObK6cjjF9XwdH9jRJewaq664l1lY3rMWVRXSt+HULEOizBuUePLgmr
-         cv8S+S7qp2d564WIEgOvxi4Cb+fYxc+j2IZC8KKrwfhFX3gAh+SMnbJPP6Dp5tTd2KG/
-         2vaOz37TCJimEAupwpwPUHUiYJOXHzCeO3AN6JNodRYX+pZaOV4ijin63iEwKj8Pjdyz
-         ctuG18t9YD74u2CS9uhX4SvWIQShFZbq8zXD46X1h0mefjbNFjzGILUAF2uAXHvRETjD
-         woLXHjOZ3wDc/D9JuYuCFCNS9hgSaTahRKE8tbmp/MUwrtGWrv+TciUqs1+KCAwzgbJ3
-         XgrA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQb0NrGWLDcckN02/qajKkxJRW5RGSCr9sHGGLOrdeAxiOLnC+MNLPcDGy8tthOLsPDrqwPlcKnbRVnof2AoN0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywlrb2IVVKmDFaA5pBaNEdK3Oof4pVQzwzBFes9tPyCgYpwcSSU
-	+XGoKek1HWMmhQfxaXe+mhJh9D5K4aYC+5k7tBKmk4SgSeGyQK/aSijlC0JJyCs=
-X-Gm-Gg: ASbGncvuV95UNORr1YbotDZ7sKKiKDD7M0lL7x0SX05yletmyDWjcR7g3M682ghYeJw
-	1bXj3K1E55Cb6pj4E7nqH8EAuk8iu0UoCpqa7Qm2XpA+6TAYJGICHVve+ltBoQ9D1wdprbH61bw
-	n7SbFImTR5lzqy5tM/AJ3QxJ8A3l2d8Yicq2gwEhr2ipvHRIsCSNE8EtWELxNpX3eRhTZZDqH3l
-	T2iJT79KKTze2pij4nP+IUCbemBzi6BvX8/bYpeKSv7L5Blssyr3nZRqMYwAnrGRCjSfdKf7Ljy
-	4LmGQG0MQ4PdhnhzvFP5iW5ypW0lO3Z94wv3
-X-Google-Smtp-Source: AGHT+IH7QXzVbmArkNE6kY0mh8UxCymkYvZfRaYwodpZUWknXO1JZt6pMIJoZmzQeGk94zIBsb8bHw==
-X-Received: by 2002:a05:600c:350c:b0:436:1c04:aa8e with SMTP id 5b1f17b1804b1-4365c7942b6mr32991725e9.16.1734613674393;
-        Thu, 19 Dec 2024 05:07:54 -0800 (PST)
-Received: from ta2.c.googlers.com (130.173.34.34.bc.googleusercontent.com. [34.34.173.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436611ea387sm17436705e9.6.2024.12.19.05.07.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 05:07:53 -0800 (PST)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Thu, 19 Dec 2024 13:07:47 +0000
-Subject: [PATCH 2/2] mailbox: add support for clients to request channels
- by arguments
+	Thu, 19 Dec 2024 13:10:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xLUG5b7wakw4Bv+JnSp0SJVKOmZVwdVMqn+yy4sYLy62BAVaxUZs47heOW60TXt+X/lZKL+MXMRHEPSfMgvfcoXuNEEeBPk4bekVMuOjpK2kD9sasOGg45DyH+IpIP/NRbJKJY8gEgy3HCeyPfeJz4EyKydAmX1/s5CSRMnMmv8rt3cTf2XatFuaODxKnmnHv9z7hvXaHHrnzCSPy2VvB7nV4SNNpggOmu2/EPnpyP8C6XYL/SlbH9tcPVOLSmZCrH8oUBPcdTRD3n2bJmbkIPHbNqj29x73cS2VttlffMLjGx5G+rvnbC/7jt4XzJYwroPyDSjIxTZXZ5HJdBKCvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1O37GGDiNqX9BN5G4PEOUKadcZso7tqGm3oWW9QOEMI=;
+ b=ulpTh7IrrI0AvYH1mDuO7RGyEnKDbAz2DEV+8My058z2uZXSBFC8X7tu7Qijmi9dDXVbPhQIruyd629d/TsVR+TMcuyjldiCRbq3BN1IHGYEQdDrvDW87PnwhJQMHjfgq90Mzl7C59SmBJ5mRo6IixUPiCLJJALpaxi+suxt8bqTgxyfiNCn4uI5MGG1midMz4ZCNu/s9MU7/8k4MkCJTBlhg66WqPmM2tDh6yWEtC6ybO2W61/7T/Jx8oG99aQk+YbZaubGuYwsGSiKCISGd3S+X3cA9vUf2ZmEqwcosTHxyre4vTsDFtX6HTsUP/EXvp6iPJZY/Mwpx1EQiTOGvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1O37GGDiNqX9BN5G4PEOUKadcZso7tqGm3oWW9QOEMI=;
+ b=aQ2CV3NeThMEp8fTStf0XOlZqW6R4qhLgHngDV5YQfsZCFfj6AGdBjVNY8vCnYPbQU39i1iuqtDAvqcuAXGMSkMJnLK/5/cQZBpKpiB7NiQVzTI3sB2VpMn/jWh8ZDzAoE148f6gg2VUp2LmG4/RunvwzJNRgQRj5vlbLi61kB/yRGh2vlrFDikkHWhiPcFjCyUYroUHgNiwgfg9BWVYF8kQY3iiNC1C1dkSDbpC7IkQWjq3wVN3Z0Vb0NwadosP9MvQ3no/GNgctjzvn4hm15eRNHnvnSBUu357dPZxUFu4yVKMqQey4AB5jc1Llxy+YOafTA6IezBprePpQMaJuQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0SPRMB0099.eurprd04.prod.outlook.com (2603:10a6:10:47e::21)
+ by DBBPR04MB7754.eurprd04.prod.outlook.com (2603:10a6:10:1ee::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.14; Thu, 19 Dec
+ 2024 13:10:34 +0000
+Received: from DU0SPRMB0099.eurprd04.prod.outlook.com
+ ([fe80::81f7:ab08:594d:c11a]) by DU0SPRMB0099.eurprd04.prod.outlook.com
+ ([fe80::81f7:ab08:594d:c11a%4]) with mapi id 15.20.8251.015; Thu, 19 Dec 2024
+ 13:10:34 +0000
+From: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+To: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	NXP S32 Linux <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Subject: [PATCH v3 0/4] add I2C DTS support for S32G2/S32G3 SoCs
+Date: Thu, 19 Dec 2024 15:10:25 +0200
+Message-ID: <20241219131029.1139720-1-ciprianmarian.costea@oss.nxp.com>
+X-Mailer: git-send-email 2.45.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0PR04CA0057.eurprd04.prod.outlook.com
+ (2603:10a6:208:1::34) To DU0SPRMB0099.eurprd04.prod.outlook.com
+ (2603:10a6:10:47e::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-mbox_request_channel_by_args-v1-2-617a6910f842@linaro.org>
-References: <20241219-mbox_request_channel_by_args-v1-0-617a6910f842@linaro.org>
-In-Reply-To: <20241219-mbox_request_channel_by_args-v1-0-617a6910f842@linaro.org>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- andre.draszik@linaro.org, peter.griffin@linaro.org, kernel-team@android.com, 
- willmcvicker@google.com, daniel.lezcano@linaro.org, 
- vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734613671; l=5667;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=Q2/Ilfy56ojSZu1+fOIemD2xiXcbZHn9eQaGm8k0miI=;
- b=DjvbKV9+OxuCn/g6zNLfMtnGo0ac9oiSZ61hg9UOxS8u84Deij/SZOVt8RZG/MWpoV+4CNVYI
- JGsGxeG3VrmBjbJEriNyu7OXAB4fQa5a+qF3YVvdcTl7LG3+UQDNJyw
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0SPRMB0099:EE_|DBBPR04MB7754:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0876c3bf-fc72-4264-de52-08dd202e85eb
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UkViSFNNSllXMXV2Y2l5eHNNSHRwRHRmWTVSWGo5SlEzNHhrT1lodW5WdUlF?=
+ =?utf-8?B?S1BPUnVyNkgvdTNaN3c4ZW1tYzZveWVnWXZGNmg1U3lzRmkrNGF2VUdLVmIx?=
+ =?utf-8?B?azZhMFJVNk5LZ2dtQzBvcUNYSXpzN0VWM0Z0M05lMlpLZmFwZG9CcDVhc1Bt?=
+ =?utf-8?B?enRQcERwaTgyVmdOaFE4NFVWdGZId1V5VU95QVhPYTBFcXBpSmMvMFdNU29z?=
+ =?utf-8?B?L3RNRXQ3U0g3ZDNxRFYxeFZCbFhxcmZNYWtCaXBIbVp3cjhCbEY3VEptS015?=
+ =?utf-8?B?elhvN0orcDZRZkJqcnlvZGVFRTBUMFg0c0QvZUorM08wR04vQ1UyODNkRUw1?=
+ =?utf-8?B?VVYrRmc2MXJWSG1wd1pPMTZWR1JCNXZjK3NoTFJienlKd21Uc1Z5K2p3Tzla?=
+ =?utf-8?B?SzZhb09iV1hndW1tT1Z2M01yREVaYVd2ckxoekpTNnppMTJQQ2FHUElWazEv?=
+ =?utf-8?B?WXppU3cyazMrTzZoazBZVWl3Q2dRR2p1cGNRODNQZ0RxZTNXNWtqR0EwWGlG?=
+ =?utf-8?B?WlZYWVdwVndRWmczSkIwWnFVZlJ3UXJxN0I5T0JSdEJWNmJKR0h2STBxSHRH?=
+ =?utf-8?B?SnZkaXlmSjJicm1ab2p0VmUwU2Zyc3ZMUnkvWnJTaWdCcEQ2bkNFMXIvZk5q?=
+ =?utf-8?B?UFBZSVJCRXZzdGNLWjA5cmV2WDhWMFNEVDVkUTAybEhQdVhxTG8rV1pZWkc5?=
+ =?utf-8?B?UXFTcy9uVmE1UUcrOWRZK0UyQkxSTGZQUVE1V2U2RXl5Zml2dDR0dk5GWk4y?=
+ =?utf-8?B?RlNaMUlJOGFkcTdDa1VYRWxjczVJMVJFTit5RmpIUzNmaDg0bkg0Q3JrRWtq?=
+ =?utf-8?B?Sk12M3JSNm80MXdmUysyQlVuNWpibjdveFFNSVpiOTlqRGpnZGJsd3Bodkd1?=
+ =?utf-8?B?azFSZDlTSVZ4S3ZIYWxRYWN1OUlMUEFBTVdPMlhxdHdxdGJ6WDl4OXZGb0t4?=
+ =?utf-8?B?cnd6MHVROHk0a3Q2VTBmeDdRZG4vSm5DbGVzc1pvMzdmNXhRTGd0bFRhRk5P?=
+ =?utf-8?B?bldxNXZaNGM1TnlNMCtPUGpuK1RZZm1lUGdORGNjeDRubzIvRGFTOTZxdGlW?=
+ =?utf-8?B?Vno5UE1aNzdmQlhQWk9qRmVEU0pGRmxOMXgxSEZwNkF6TkFjanBMT0EyNGNs?=
+ =?utf-8?B?cTJ1U0dnakEzY2tEVHJaUkIwQkFsVFJiVnZvTS9wVElIalNNNTl1emErWFVk?=
+ =?utf-8?B?TnFLb3FwZ2UwQldBRHZ3NE5OS2VJSmxTblo0SEFlL2czUGtuQTcybVdpeUp5?=
+ =?utf-8?B?Y0diU2tyZnlMcHpXMjVXRzJhdnNMUHI0eDBrN1JUemhmbWxlT2xZZzkzUUVS?=
+ =?utf-8?B?ajgyNzJDbVJ4N2p5a0wwMjRoMDRuQm5ieit4aVJzcnB3UXFXeWZaTWgydFlO?=
+ =?utf-8?B?dFExKzJNM1U0YitiRWdIT3ZONjJlY3JGUnF2MWFKYWZGVDVON1gxNjN4VU9F?=
+ =?utf-8?B?TXZCY1pYTnJJTisxc2ZwdWlINWtBemFPdFRHTkFrcFBVN1VaTGcwNTR5dXRD?=
+ =?utf-8?B?S2kyMkp5SGplME81bVFtd0ROdkZmNzk2WS9rWWRLVWtOSnVLK3JxVWFNK3VE?=
+ =?utf-8?B?b0ZiNG54SWpXN3ZaNmk1aDIyS2VJTkdjaG90emdPd3V1T3FBTEVKcFI1QUN3?=
+ =?utf-8?B?UndqbnlVeWtWVGNsRFVYRUxGZ1p2bVFDZ2VMM0wyK2J0Y1F3Nm4vNDVrdXVJ?=
+ =?utf-8?B?TkZISkUzMStrVUt1U3hmVDRXTURxVjU1RlNBK0YzNW9ibHd2RnZSNnN4Wk1N?=
+ =?utf-8?B?SGNWRk9oS1RUZisyekozeVZ5cEt0OGlNUmVVNzVuZG5VMVFXa2x5RSs4YnFs?=
+ =?utf-8?B?OFVkd3VLZXE2OTlUSXhCZjBNQitzNWxkOFVDdnZ6UmVkcXFScWJicTZBQ2tu?=
+ =?utf-8?Q?zb3oY69p0bUsq?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0SPRMB0099.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFp2akRBK1grOWJaQXBaTzE2M1huMDJZT3h4NTkrQWpmK0pXWnFzYTdUV3BQ?=
+ =?utf-8?B?a08wQk1pTVhnbkdCaEVGZGVjVzdvRUUrbG1yd2pKRTZ3aityUXdkdlY3YnlL?=
+ =?utf-8?B?U1VCSm9wdHRNTVVZVXdkLzJtQm56UmkrS1hIRUJIK2ZYY1UxdlJuVDZDR1Zn?=
+ =?utf-8?B?Y1dLL0YvVFk3b3lTVlN2dmxRekplYWowK3JYdkxzVW90TTJvZUZFQmJQRm4r?=
+ =?utf-8?B?ZWYrcGdERFZqWFp0Z2Rza3hQZ0pnWkc3YnJYaVZNZVlKVS94MUdPMnczVE1h?=
+ =?utf-8?B?aHFUTUo3SkhhSEMwSkNyLy9QWUV1L2E4YzdvZWN2cVlCai9iSEdrWEdtRWpa?=
+ =?utf-8?B?SWRDVWNSbTJrMjVSZkp4NkhxOHFUaXRmSTNzbFJGNGl6bUlKSzRXR2oxVUxm?=
+ =?utf-8?B?bk94SEp5M1pDUnE4dmpPWmNyc1RrMkc3emx3Q0ZMa09MM3gzYWFacHMxUXV3?=
+ =?utf-8?B?WVVCNnAyM2dwVHQ4Rko0U21laE5OUWIvVE1TeWZrdGpMVHhzemFHbWh6ZE9B?=
+ =?utf-8?B?eXQ5djUvSDhNNlM4QTRXOVhsWWpYYWQvNlVWV3RNd2s3cThYRUt2UzltaElG?=
+ =?utf-8?B?S1VGeENtT0h1MGpNVnVnSURLZ3JEMEc5Wm5HRkJwanBxZ1FNVUQ3Nk43Y2pv?=
+ =?utf-8?B?WXRUNWxoOWNMblhEQmNoOXBoVEVXb2tXR2Qwa01kRVIyYUlReXJuYisvNlli?=
+ =?utf-8?B?Mm0wS3FYelVqWmIxK1g1SzBET3pBallHWGNyM2doSmswYk44QitaRXh6ZXhz?=
+ =?utf-8?B?SC9XUTZlTlFkVm85RjltM1NtQTVMZkkvcFppaEF1aEt5TDRjdkRTZmc5RHVy?=
+ =?utf-8?B?eng4V0tYeHJidzN5SFJldCsyUTVRWlErU3RhZUEzM3dXWHpSV2RQUlQxcVEr?=
+ =?utf-8?B?bXc2RlhYU0pEaE9qSnNkYkYvQUZGeEFCOVp0cHZLRFpPa2FVMTlZVkFudm9K?=
+ =?utf-8?B?L1JYZW9OUzJBMDhxb1FGWVBLOFk0NUJuT2xlbjZhTzh5Y2lZQzlmaHgyNXVI?=
+ =?utf-8?B?LzQzcGZGekg0cHA1TTN0QmFKVUpFZ3MwMm5IOUVaeVRxOFVZQUJtS3RKMVJy?=
+ =?utf-8?B?ays5dzFUN0JMYUZWMmUvUmMzYytSWW5YbUxnVklVZnN2SEFnYU1FbXB4Nmkr?=
+ =?utf-8?B?MzlzNExLdzRKbmRFRXltOXNaYVdQMlY0cll6ejBubnJQWldBTHBZYWdFRTlO?=
+ =?utf-8?B?a09iczVNdVF3RGJVV1BWelNJYXlTZzdSZXg2c3NRd3dmRWpDcXJWUXF6MUt4?=
+ =?utf-8?B?VGtCczVNWXc1UDdFQ1JuRklZSXQrdFY5d2hody9VZGptNnNsQStDcE5yV3Qr?=
+ =?utf-8?B?R3V1TC9iM1hONENuL3lxOUZtd2FuRVl4UTNrNFRkVVJaZEZoVlI0L3dhVVY3?=
+ =?utf-8?B?bWU4bDIxcjU0UHlOdlViK01yVnZFdmRoN3UzUUVzM1ZGWjdKNmQ1aUMrbzBI?=
+ =?utf-8?B?eWVwUkgrRi90WG54dVhqVEs4MnVNUHFwdUFuSE9vUlNrN0IrdmZhTU8rU1lF?=
+ =?utf-8?B?R2JsQ3hKb0tEbGlXOXJ2ODNkSzkzaDlwUDNoV1dPL3dFdUZERHEydmtqanhT?=
+ =?utf-8?B?bHo1SmZUUWNpU0NPYWUxbm92RUw1NnpYVllnVU5qSENNUGtzUTBOM2ZrQmM3?=
+ =?utf-8?B?WmVnYm9PUk5wb3NkV3VZaVdXRFVoUGt3bTQ3ZjhXeERhWmpReWVicEJlQnlM?=
+ =?utf-8?B?S0ZQZjdyQkhibUU0UTRxYnV6TDh3VGNTdHNmRWtaYk9kMW5jYVRhTWZ3R1dt?=
+ =?utf-8?B?eEVWR0syMWFnSnk1WHJOaU1ETW0zUW40dFR5djd5V0dMcE1qcmVTeEVZZDJv?=
+ =?utf-8?B?ZlQxQTJxNWxFZHNaaGRlM1RucmdnYXhBT1liK2VWSzVkbmkzcHNERnlBNDdN?=
+ =?utf-8?B?N3U3bzB5YXlZd2h6RUVCdHRPYTA3ZDB0cDRxbGxaVkY5WENGMkRvanl4MmE1?=
+ =?utf-8?B?SEZFVGN4elBnWENxazEwNTEwbmhRL1hLK3hPcmlTMkZqL0s2MVVUYnVrMTBK?=
+ =?utf-8?B?K0gzVFVQSzJTbnB3YnZ0TUdCMmhiWW9teHNYMEwxVy9lOUJYS01FWWFETHN0?=
+ =?utf-8?B?NHhJZ2xJVzRjTDY2cE9wT1JTUTFSWmQxV21PRFRHektpWXh3aEpTZkZxbFNp?=
+ =?utf-8?B?d1hQOFlDREhDYlNxN2ZOM0RYaXdxZ2xYZGFZKzFuQTFYbHhZeU15N1hianNu?=
+ =?utf-8?B?Ymc9PQ==?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0876c3bf-fc72-4264-de52-08dd202e85eb
+X-MS-Exchange-CrossTenant-AuthSource: DU0SPRMB0099.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 13:10:34.5422
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: doWZ1SQvnvavCvWr5F1InZ8tCQQdhrBZ1VadZteVHNMOluGs1xg92Yh3V9CxNbMWFUQvHvsYxGHcZzZGV/BNHwZIIjNa/MSeyRvQqtPWE2U=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7754
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_050756_435354_54D27DD4 
-X-CRM114-Status: GOOD (  22.79  )
+X-CRM114-CacheID: sfid-20241219_051040_252283_EC2906C3 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,170 +190,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are clients that can discover channel identifiers at runtime by
-parsing a shared memory for example, as in the ACPM interface's case.
+From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-Supply a new framework API: mbox_request_channel_by_args().
+This patchset aims to add two changes to the S32G2/S32G3 dtsi support:
+- Adding I2C dts support for S32G SoC based boards
+- Centralize the common part of 'S32G-EVB' and 'S32G-RDB' board revisions
+into dtsi files. This refactor will serve I2C in this patchset, but in the
+future it will also be used for other modules such as : FlexCAN and DSPI.
 
-It works by supplying the usual client pointer as the first argument and
-a pointer to a ``const struct mbox_xlate_args`` as a second. The newly
-introduced struct is modeled after ``struct of_phandle_args``. The API
-will search the client's node for a ``mbox`` phandle, identify the
-controller's device node, and then call that controller's xlate() method
-that will return a pointer to a mbox_chan or a ERR_PTR. The binding
-between the channel and the client is done in the typical way.
+Changes in V3:
+- Separated patchset into multiple stages: common 'I2C' dts entries, board
+'I2C' dts entries and the introduction of common 'S32GXXXA-EVB/RDB' dtsi.
+- Added missing changelog for V2 of this patchset
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- drivers/mailbox/mailbox.c          | 57 ++++++++++++++++++++++++++++++++++++++
- include/linux/mailbox.h            | 17 ++++++++++++
- include/linux/mailbox_client.h     |  3 ++
- include/linux/mailbox_controller.h |  4 +++
- 4 files changed, 81 insertions(+)
+Changes in V2:
+- Moved I2C end device '#address-size' and '#address-cells' entries from
+board dts to common 's32gxxxa-evb/rdb' common dtsi.
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index d3d26a2c9895..07ea32ebab80 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -467,6 +467,63 @@ struct mbox_chan *mbox_request_channel_byname(struct mbox_client *cl,
- }
- EXPORT_SYMBOL_GPL(mbox_request_channel_byname);
- 
-+/**
-+ * mbox_request_channel_by_args - request a mailbox channel using client's
-+ * channel identifiers.
-+ * @cl: identity of the client requesting the channel.
-+ * @spec: arguments that describe the channel.
-+ *
-+ * Used by clients that can discover the channel identifiers at runtime (by
-+ * parsing a shared memory for example). The description of
-+ * mbox_request_channel() applies here as well.
-+ *
-+ * Return: Pointer to the channel assigned to the client if successful.
-+ *         ERR_PTR for request failure.
-+ */
-+struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
-+					const struct mbox_xlate_args *spec)
-+{
-+	struct device *dev = cl->dev;
-+	struct mbox_controller *mbox;
-+	struct device_node *mbox_np;
-+	struct mbox_chan *chan;
-+	int ret;
-+
-+	if (!dev || !dev->of_node) {
-+		pr_debug("%s: No owner device node\n", __func__);
-+		return ERR_PTR(-ENODEV);
-+	}
-+
-+	mbox_np = of_parse_phandle(dev_of_node(dev), "mbox", 0);
-+	if (!mbox_np)
-+		return ERR_PTR(-ENODEV);
-+
-+	mutex_lock(&con_mutex);
-+
-+	chan = ERR_PTR(-EPROBE_DEFER);
-+	list_for_each_entry(mbox, &mbox_cons, node)
-+		if (mbox->dev->of_node == mbox_np && mbox->xlate) {
-+			chan = mbox->xlate(mbox, spec);
-+			if (!IS_ERR(chan))
-+				break;
-+		}
-+
-+	of_node_put(mbox_np);
-+
-+	if (IS_ERR(chan)) {
-+		mutex_unlock(&con_mutex);
-+		return chan;
-+	}
-+
-+	ret = __mbox_bind_client(chan, cl);
-+	if (ret)
-+		chan = ERR_PTR(ret);
-+
-+	mutex_unlock(&con_mutex);
-+	return chan;
-+}
-+EXPORT_SYMBOL_GPL(mbox_request_channel_by_args);
-+
- /**
-  * mbox_free_channel - The client relinquishes control of a mailbox
-  *			channel by this call.
-diff --git a/include/linux/mailbox.h b/include/linux/mailbox.h
-new file mode 100644
-index 000000000000..cef88c5ae49d
---- /dev/null
-+++ b/include/linux/mailbox.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright 2024 Linaro Ltd.
-+ */
-+
-+#ifndef __LINUX_MAILBOX_H
-+#define __LINUX_MAILBOX_H
-+
-+#include <linux/types.h>
-+
-+#define MBOX_XLATE_MAX_ARGS 16
-+struct mbox_xlate_args {
-+	int args_count;
-+	u32 args[MBOX_XLATE_MAX_ARGS];
-+};
-+
-+#endif /* __LINUX_MAILBOX_H */
-diff --git a/include/linux/mailbox_client.h b/include/linux/mailbox_client.h
-index 734694912ef7..a9f4d108c48c 100644
---- a/include/linux/mailbox_client.h
-+++ b/include/linux/mailbox_client.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/of.h>
- #include <linux/device.h>
-+#include <linux/mailbox.h>
- 
- struct mbox_chan;
- 
-@@ -41,6 +42,8 @@ int mbox_bind_client(struct mbox_chan *chan, struct mbox_client *cl);
- struct mbox_chan *mbox_request_channel_byname(struct mbox_client *cl,
- 					      const char *name);
- struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index);
-+struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
-+			     const struct mbox_xlate_args *spec);
- int mbox_send_message(struct mbox_chan *chan, void *mssg);
- int mbox_flush(struct mbox_chan *chan, unsigned long timeout);
- void mbox_client_txdone(struct mbox_chan *chan, int r); /* atomic */
-diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_controller.h
-index 6fee33cb52f5..dfddcf966f9f 100644
---- a/include/linux/mailbox_controller.h
-+++ b/include/linux/mailbox_controller.h
-@@ -8,6 +8,7 @@
- #include <linux/hrtimer.h>
- #include <linux/device.h>
- #include <linux/completion.h>
-+#include <linux/mailbox.h>
- 
- struct mbox_chan;
- 
-@@ -67,6 +68,7 @@ struct mbox_chan_ops {
-  * @txpoll_period:	If 'txdone_poll' is in effect, the API polls for
-  *			last TX's status after these many millisecs
-  * @of_xlate:		Controller driver specific mapping of channel via DT
-+ * @xlate:		Controller driver specific mapping of channel
-  * @poll_hrt:		API private. hrtimer used to poll for TXDONE on all
-  *			channels.
-  * @node:		API private. To hook into list of controllers.
-@@ -81,6 +83,8 @@ struct mbox_controller {
- 	unsigned txpoll_period;
- 	struct mbox_chan *(*of_xlate)(struct mbox_controller *mbox,
- 				      const struct of_phandle_args *sp);
-+	struct mbox_chan *(*xlate)(struct mbox_controller *mbox,
-+				   const struct mbox_xlate_args *sp);
- 	/* Internal to API */
- 	struct hrtimer poll_hrt;
- 	spinlock_t poll_hrt_lock;
+Ciprian Marian Costea (4):
+  arm64: dts: s32g: add 'I2C' common board support
+  arm64: dts: s32g: add common 'S32G-EVB' and 'S32G-RDB' board support
+  arm64: dts: s32g: include necessary 'EVB/RDB' common board dtsi
+  arm64: dts: s32g399a-rdb3: Add INA231 sensor entry over I2C4
+
+ arch/arm64/boot/dts/freescale/s32g2.dtsi      |  45 ++++++
+ .../arm64/boot/dts/freescale/s32g274a-evb.dts |   1 +
+ .../boot/dts/freescale/s32g274a-rdb2.dts      |   1 +
+ arch/arm64/boot/dts/freescale/s32g3.dtsi      |  50 ++++++
+ .../boot/dts/freescale/s32g399a-rdb3.dts      |   9 ++
+ .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 150 ++++++++++++++++++
+ .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 126 +++++++++++++++
+ 7 files changed, 382 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
 
 -- 
-2.47.1.613.gc27f4b7a9f-goog
+2.45.2
 
 
