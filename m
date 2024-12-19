@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5AAE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B961FE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=euiOK8NNPzupxLdx+tbLr1TI8FnBjorvwfESAZao6H8=; b=wjUAFHwKsFYOqpNVNqdn+7z2/A
-	W4oX+PAcTUYrJ8LD+9cEaFl/2jdzWoGfYSDyZH/4ffffWGyFk2JUAIqMKTy1fx74K5ZWPIg66IA8f
-	W9/C4II0xSlK3p41Ve9heLr6BUsMdMlsUus0zthIkLTE/x4DbC2LeWThgDIkrH3z/OfAlthntmyZ9
-	1mUyhtEsehXWqGGKR+B3sGJQRacVbYQjJ2NhVeR0iH0FuPtLk+/eg6JnCPGNdC/ZHR5z58F++rR4K
-	hn2RqZm6PH2Qe9pspSl36MSHljDYiztfzG4OMnEtqi3upA9V7QC94dMJo8IZYrY7BIniBZOCz/WeE
-	SZxVtGqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gsnH79CaQlp66NWw62f+jHDtlXUygpjnPNoSMN2nv0A=; b=o1zkrPVX0LZMIMNGNdlUfS6V1e
+	eNeQ1lfSaxy1N9pSs+S6/PP/oH8bbopd0vDxtuwvUj7GUITQJFMFpz4ODxOTrQSLJXe8GOpZPSCiT
+	lx5bL1Zz+oBJH4VOPu0rFKFQH+Vsky/9BwXG6rIg8s7IvZCfAP7n+pevLopRUZezMawT9Fyy7nwq/
+	HE2ibuuuDsvzdw+o559/4Yntx5s1255SfPVgxWNDdzhf3LGC4XQ00B1wvH8lvQ+A4wxB4ECGUZ0yj
+	rHC81sw7RfJTwOTDo9iGUnKcKcAUEKMOIAHFLy5nvB21NAye+/cC1h5K436KcYdjvDQzZ5eF6k7sM
+	NgEv0nUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOChf-00000001O5Z-1TiH;
-	Thu, 19 Dec 2024 09:20:19 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tOCip-00000001OWf-1om4;
+	Thu, 19 Dec 2024 09:21:31 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCgY-00000001No1-0uzj
+	id 1tOChh-00000001O6X-48QV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 09:19:11 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361dc6322fso3505045e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 01:19:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734599948; x=1735204748; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=euiOK8NNPzupxLdx+tbLr1TI8FnBjorvwfESAZao6H8=;
-        b=gmDT1Imsp8wpoFLc5q5IBGY6CMj3lgoo2iaEr3cM5IXzSnpH0ksrDkVtoh/F9p2KJS
-         p7TKG4o2EU7hQpDuwf/MGsOk+NBkHc6UMxkcCiS0nLtLW3oQ4/mnFOBNuWBYXDJ5tECu
-         oZOJGnU09emBILKx0jjADzgYIBbDhDNWXFJTHRTfaQ9wemoTru2/43nePkTh5iNcAeR3
-         1SKLOZwubpbcXpfxiG0T6XGg6xqpACX4q7rDXIJ4TKUQ9dtK3dEP4zx8oP4x4QreOb4a
-         EEiSeF/BOW91JaubNtQ2iGbeE8NIA47BjFFZK+LOI9OsWX44Rf5DosSUbAxVlmvPLbeJ
-         1pig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734599948; x=1735204748;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=euiOK8NNPzupxLdx+tbLr1TI8FnBjorvwfESAZao6H8=;
-        b=p62AFofzIgqJmgEYwuy7mOIDtC7KdWQYThBMXGD+UzigbDkiYJS+Fo0W7Xw5W+d/Uk
-         zWG1qutjPsrtvuFGMlXG4+gK0Hh04RGVIesLr9Mq17wQYndnnNT+gTofn175Qmed8yrk
-         Y1fLOTnG5aFTE5VYSQYSmJHs3K+pkrBvvLkxfGIe9lWhA/lQ+F8V9jKF8odvSnkwg2VC
-         RWVDEINkE4vNQ1mVe0W9hpFr4pP+VAScARtq+fPUl7Jrz8pBEj49deKF3LuZSaJ9Hxqo
-         s4d84pTm+msSJFg/tDww3+xbhLVNIKx30ixwMy01S44Ufg2hk45xIjnR5waHK5ulMprZ
-         0h5w==
-X-Forwarded-Encrypted: i=1; AJvYcCWJLU1t6E65HYMKyF0lkCikzrike00xNFu6cjel95A2q9KSwRctRi73Lhi7K6nb4eK3WEO4l36s9krevbnv0KTk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/FNqZfMEleDypYPyvenAgOSOhwTfCfQbQYvtMVHSLiG4PkIyQ
-	8veiOFgRhdgWderXh+YOJ5yfmoS7zkMLOKTieKVZw+2/aayHV2cN
-X-Gm-Gg: ASbGncsMaSlrAjWp6O6SNHtI7x/UKwyhb6CnZW9b2Z8qKftSzBMWh6Nai8jAbo/Wf/g
-	AhPkiKymvreMB/hkyeBRgJ15alRSOKZciVbajwCYiu8iL7vpAx2mKOr6X0Or7chJc+IPpTbBU48
-	mywzBumsj/vVcDOaa8bfD6PMZEFP+Nb3sCO8NMnzuUtQQ1AorE57ZmL+PEMWZo3XHZsB6mnAVEw
-	dL2s4OR6ReNg13Tx+KNll+zp1lV6WTuV1ZEX/wYlYjEYcCXBSK3qCnF
-X-Google-Smtp-Source: AGHT+IG0fZL5g+zEG/fpP6eHHf2IPe9NkoBsaKGeRiza0EwWdk6u44xsj9AYe2YdbuChkpugl2kmMw==
-X-Received: by 2002:a05:600c:4f08:b0:436:51bb:7a52 with SMTP id 5b1f17b1804b1-4365c77e3e9mr18873865e9.7.1734599947763;
-        Thu, 19 Dec 2024 01:19:07 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:7407:1f5c:37ef:e8ea])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8ac97fsm1056999f8f.92.2024.12.19.01.19.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 01:19:07 -0800 (PST)
-Date: Thu, 19 Dec 2024 10:19:05 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, festevam@gmail.com, Frank.Li@nxp.com,
-	stefan.eichenberger@toradex.com, francesco.dolcini@toradex.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] i2c: imx: fix missing stop condition in single-master
- mode
-Message-ID: <Z2PlCXSG8qt5_3ni@eichest-laptop>
-References: <20241216151829.74056-1-eichest@gmail.com>
- <w3x46is2s463ektusvnyu5tt2rinz7eae2ekzyqw2urw5yh5ga@pfzrgzpxjc4y>
+	Thu, 19 Dec 2024 09:20:23 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ9K3ce048749;
+	Thu, 19 Dec 2024 03:20:03 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1734600003;
+	bh=gsnH79CaQlp66NWw62f+jHDtlXUygpjnPNoSMN2nv0A=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Lhlr1qX/N2FQtNADzobSMU+l/B3Y3Py9OZRf7FtwVDYsmtTA+WuPxrFZrf51irXOI
+	 vZGIRKTJ76aggF38GfC+n9FaeY8ZKuAkr+XTLnAHX6i4trwoymgSl940ntHRaJsez7
+	 xzpJB2GAz96fN0JICjCat3c82zEYE4PKO5e8MIuc=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BJ9K2jD002828
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 19 Dec 2024 03:20:02 -0600
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 19
+ Dec 2024 03:20:01 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 19 Dec 2024 03:20:01 -0600
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ9JtfB023256;
+	Thu, 19 Dec 2024 03:19:56 -0600
+Message-ID: <06886be4-5f35-4785-bc63-a5c84887adfb@ti.com>
+Date: Thu, 19 Dec 2024 14:49:55 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <w3x46is2s463ektusvnyu5tt2rinz7eae2ekzyqw2urw5yh5ga@pfzrgzpxjc4y>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/4] net: ti: icssg-prueth: Add VLAN support in
+ EMAC mode
+To: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+CC: <aleksander.lobakin@intel.com>, <lukma@denx.de>, <m-malladi@ti.com>,
+        <diogo.ivo@siemens.com>, <rdunlap@infradead.org>,
+        <schnelle@linux.ibm.com>, <vladimir.oltean@nxp.com>,
+        <horms@kernel.org>, <rogerq@kernel.org>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+References: <20241216100044.577489-1-danishanwar@ti.com>
+ <20241216100044.577489-3-danishanwar@ti.com>
+ <Z2PE5m8R5lM4/YRT@mev-dev.igk.intel.com>
+Content-Language: en-US
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <Z2PE5m8R5lM4/YRT@mev-dev.igk.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_011910_256302_94B10E6F 
-X-CRM114-Status: GOOD (  33.55  )
+X-CRM114-CacheID: sfid-20241219_012022_110786_5B74780F 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,66 +93,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi,
 
-On Wed, Dec 18, 2024 at 07:16:23PM +0100, Andi Shyti wrote:
-> Hi Stefan,
-> 
-> On Mon, Dec 16, 2024 at 04:16:40PM +0100, Stefan Eichenberger wrote:
-> > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > 
-> > A regression was introduced with the implementation of single-master
-> > mode, preventing proper stop conditions from being generated. Devices
-> > that require a valid stop condition, such as EEPROMs, fail to function
-> > correctly as a result.
-> > 
-> > The issue only affects devices with the single-master property enabled.
-> > 
-> > This commit resolves the issue by re-enabling I2C bus busy bit (IBB)
-> > polling for single-master mode when generating a stop condition. The fix
-> > further ensures that the i2c_imx->stopped flag is cleared at the start
-> > of each transfer, allowing the stop condition to be correctly generated
-> > in i2c_imx_stop().
-> > 
-> > According to the reference manual (IMX8MMRM, Rev. 2, 09/2019, page
-> > 5270), polling the IBB bit to determine if the bus is free is only
-> > necessary in multi-master mode. Consequently, the IBB bit is not polled
-> > for the start condition in single-master mode.
-> > 
-> > Fixes: 6692694aca86 ("i2c: imx: do not poll for bus busy in single master mode")
-> > Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> > ---
-> >  drivers/i2c/busses/i2c-imx.c | 8 +++-----
-> >  1 file changed, 3 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> > index f751d231ded8..cbf66a69e20b 100644
-> > --- a/drivers/i2c/busses/i2c-imx.c
-> > +++ b/drivers/i2c/busses/i2c-imx.c
-> > @@ -534,20 +534,18 @@ static int i2c_imx_bus_busy(struct imx_i2c_struct *i2c_imx, int for_busy, bool a
-> >  {
-> >  	unsigned long orig_jiffies = jiffies;
-> >  	unsigned int temp;
-> > -
-> > -	if (!i2c_imx->multi_master)
-> > -		return 0;
-> > +	bool multi_master = i2c_imx->multi_master;
-> 
-> with this small adjustment, I have applied your patch to 
-> i2c/i2c-host-fixes.
-> 
-> The idea behind the change is that variables are sorted by 
-> length, forming a kind of reversed Christmas tree shape. It's 
-> not a strict rule—some communities enforce it, others don't, and 
-> some follow entirely different conventions.
-> 
-> Since it feels somewhat arbitrary to me, I don't enforce it 
-> strictly. However, I personally try to adhere to the reversed 
-> Christmas tree rule whenever possible.
 
-Thanks a lot for doing the change and for the explanation. I will keep
-it in mind for future patches.
+On 19/12/24 12:32 pm, Michal Swiatkowski wrote:
+> On Mon, Dec 16, 2024 at 03:30:42PM +0530, MD Danish Anwar wrote:
+>> Add support for vlan filtering in dual EMAC mode.
+>>
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> ---
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 29 +++++++++-----------
+>>  1 file changed, 13 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> index c568c84a032b..e031bccf31dc 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> @@ -822,19 +822,18 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
+>>  {
+>>  	struct prueth_emac *emac = netdev_priv(ndev);
+>>  	struct prueth *prueth = emac->prueth;
+>> +	int port_mask = BIT(emac->port_id);
+>>  	int untag_mask = 0;
+>> -	int port_mask;
+>>  
+>> -	if (prueth->is_hsr_offload_mode) {
+>> -		port_mask = BIT(PRUETH_PORT_HOST) | BIT(emac->port_id);
+>> -		untag_mask = 0;
+>> +	if (prueth->is_hsr_offload_mode)
+>> +		port_mask |= BIT(PRUETH_PORT_HOST);
+>>  
+>> -		netdev_dbg(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
+>> -			   vid, port_mask, untag_mask);
+>> +	netdev_err(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
+>> +		   vid, port_mask, untag_mask);
+>> +
+>> +	icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
+>> +	icssg_set_pvid(emac->prueth, vid, emac->port_id);
+>>  
+>> -		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
+>> -		icssg_set_pvid(emac->prueth, vid, emac->port_id);
+>> -	}
+>>  	return 0;
+>>  }
+>>  
+>> @@ -843,18 +842,16 @@ static int emac_ndo_vlan_rx_del_vid(struct net_device *ndev,
+>>  {
+>>  	struct prueth_emac *emac = netdev_priv(ndev);
+>>  	struct prueth *prueth = emac->prueth;
+>> +	int port_mask = BIT(emac->port_id);
+>>  	int untag_mask = 0;
+>> -	int port_mask;
+>>  
+>> -	if (prueth->is_hsr_offload_mode) {
+>> +	if (prueth->is_hsr_offload_mode)
+>>  		port_mask = BIT(PRUETH_PORT_HOST);
+>> -		untag_mask = 0;
+>>  
+>> -		netdev_dbg(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
+>> -			   vid, port_mask, untag_mask);
+>> +	netdev_err(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
+>> +		   vid, port_mask, untag_mask);
+> Why error? It doesn't look like error path, previously there was
+> netdev_dbg (made more sense in my opinion)
+> 
 
-Best regards,
-Stefan
+My bad. It should be netdev_dbg(). I'll change it in v2. Thanks
+
+>> +	icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
+>>  
+>> -		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
+>> -	}
+>>  	return 0;
+>>  }
+>>  
+>> -- 
+>> 2.34.1
+
+-- 
+Thanks and Regards,
+Danish
 
