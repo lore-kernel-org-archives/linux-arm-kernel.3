@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C19BE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073D1E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8z10tvWj/wyawJ2zj9iSgQgNs1xm6nnOQ6f4z3xfac=; b=oHx/sxyEFlFAYKb21oJKWlhGlL
-	Z4w2LI32B4iKnl05VcMbaM+zWPgmwIpuV+xNREuTDQN7hhi4m03QuvcMR8bd9lEYOpX764NatK7c1
-	Gdy+tZKeRe4csFDEmRqqOQMC7aoxNz8WTk3NEPN27tZcZiHXNIrXNbPYxEra/8sdAI2FSyU4ek9kp
-	3Oxivi2on0jVhHBtZFnppZJnIdzItPWMnzHTPTJZeSdeI2I/K8/nRKv5lzdBD1MxLk4qClwrCzAv+
-	A2spMaMpuky+AbvH26aPFbaafNnVP/RNRYMGxMar+PtVJNxB+Yali/sWVQh1gGvnoc7TLtcmzdlR3
-	5yu+kzvw==;
+	bh=j6w46sUlO/HwPRoKBSDtCvJLWeyuZyzCa6HUSy5lrDc=; b=IyUpxeA6P73tqURTwBarwXJp8A
+	Jv7DM3lo3gE7+kXAl6z8DfkvYRjuwfBh85CNsOBM1rx1TyMx3sVZHPsVCCJdR6ogyPpXJKUYESqNt
+	9uH0iFgcie4voxgGLmbsQpbWl+H5vYbKiNEe8HCI4MadxRcyt2UJM6Zq7eqBhOO18avHf7KzW8AgC
+	XnVOyF0RU6/Hw7QslxR1s95Jf9kVyyEDsMWU6pQWWDER1pkv9PMlQFH+ODjNJGUhXvBLxycDwBe+i
+	9N31b4zB7njl282bReJbboSyn6W/UpZzM03LjN9/zFaQHtfxG0haStEieXGwcN+7TL1bx7OLzYP5o
+	4J3qbMDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOB19-0000000168R-45yW;
-	Thu, 19 Dec 2024 07:32:19 +0000
+	id 1tOB2H-000000016Q5-2iLz;
+	Thu, 19 Dec 2024 07:33:29 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAuu-000000014pY-0TA0
+	id 1tOAuu-000000014pa-0uzO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:25:53 +0000
+	Thu, 19 Dec 2024 07:25:54 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAuc-00064K-0g; Thu, 19 Dec 2024 08:25:34 +0100
+	id 1tOAuc-00064Q-2D; Thu, 19 Dec 2024 08:25:34 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAua-004AOB-2m;
+	id 1tOAua-004AOC-2u;
 	Thu, 19 Dec 2024 08:25:33 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAub-00GenW-1f;
+	id 1tOAub-00GenW-1g;
 	Thu, 19 Dec 2024 08:25:33 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 19 Dec 2024 08:25:26 +0100
-Subject: [PATCH 02/10] arm64: dts: imx8mp-skov: operate CPU at 850 mV by
- default
+Date: Thu, 19 Dec 2024 08:25:27 +0100
+Subject: [PATCH 03/10] arm64: dts: imx8mp-skov: use I2C5 for DDC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-skov-dt-updates-v1-2-38bf80dc22df@pengutronix.de>
+Message-Id: <20241219-skov-dt-updates-v1-3-38bf80dc22df@pengutronix.de>
 References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
 In-Reply-To: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -68,8 +67,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_232552_151784_A0EAF595 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20241218_232552_287871_17E9FFCD 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Skov i.MX8MP boards are passively cooled and heatsink is specced for
-continuous operation at 1.2 GHz only. Short bouts of 1.6 GHz are ok,
-but these should be invoked intentionally, not as part of
-suspend/resume cycles.
+The HDMI DDC pads can be muxed either to an i.MX I2C controller or
+to a limited I2C controller within the Designware HDMI bridge.
 
-Therefore, configure RUN frequency as 850 mV and remove the higher
-voltage operating points from those permissible for suspend.
+So far we muxed the pads to the HDMI bridge, but the i.MX I2C controller
+is the better choice:
 
-Fixes: 6d382d51d979 ("arm64: dts: freescale: Add SKOV IMX8MP CPU revB board")
+  - We use DDC/CI commands for display brightness configuration, but the
+    Linux driver refuses[1] transfers to/from address 0x37, because the
+    controller doesn't support multi-byte requests.
+
+  - The driver doesn't support I2C bus recovery, but we need that,
+    because some HDMI panels used with the board can be flaky.
+
+As the i.MX I2C controller doesn't have either of these limitations,
+let's make use of it instead.
+
+[1]: https://lore.kernel.org/all/20190722181945.244395-1-mka@chromium.org/
+
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ .../boot/dts/freescale/imx8mp-skov-revb-hdmi.dts   | 26 ++++++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-index ae82166b5c26..7ae686d37dda 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-@@ -163,6 +163,19 @@ reg_vsd_3v3: regulator-vsd-3v3 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+index c1ca69da3cb8..206116be8166 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+@@ -9,12 +9,34 @@ / {
+ 	compatible = "skov,imx8mp-skov-revb-hdmi", "fsl,imx8mp";
+ };
+ 
++&i2c5 {
++	pinctrl-names = "default", "gpio";
++	pinctrl-0 = <&pinctrl_i2c5>;
++	pinctrl-1 = <&pinctrl_i2c5_gpio>;
++	scl-gpios = <&gpio3 26 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio3 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	clock-frequency = <100000>;
++	status = "okay";
++};
++
+ &iomuxc {
+ 	pinctrl_hdmi: hdmigrp {
+ 		fsl,pins = <
+-			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL		0x1c3
+-			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA		0x1c3
+ 			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD			0x19
+ 		>;
  	};
- };
- 
-+/*
-+ * Board is passively cooled and heatsink is specced for continuous operation
-+ * at 1.2 GHz only. Short bouts of 1.6 GHz are ok, but these should be done
-+ * intentionally, not as part of suspend/resume cycles.
-+ */
-+&{/opp-table/opp-1600000000} {
-+	/delete-property/ opp-suspend;
-+};
 +
-+&{/opp-table/opp-1800000000} {
-+	/delete-property/ opp-suspend;
-+};
++	pinctrl_i2c5: i2c5grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_HDMI_DDC_SCL__I2C5_SCL			0x400001c2
++			MX8MP_IOMUXC_HDMI_DDC_SDA__I2C5_SDA			0x400001c2
++		>;
++	};
 +
- &A53_0 {
- 	cpu-supply = <&reg_vdd_arm>;
++	pinctrl_i2c5_gpio: i2c5gpiogrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_HDMI_DDC_SCL__GPIO3_IO26			0x400001c2
++			MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27			0x400001c2
++		>;
++	};
  };
-@@ -253,7 +266,7 @@ reg_vdd_arm: BUCK2 {
- 				regulator-boot-on;
- 				regulator-always-on;
- 				regulator-ramp-delay = <3125>;
--				nxp,dvs-run-voltage = <950000>;
-+				nxp,dvs-run-voltage = <850000>;
- 				nxp,dvs-standby-voltage = <850000>;
- 			};
- 
 
 -- 
 2.39.5
