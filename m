@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0C7E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6337E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTT/MRoSUsv4+y0841WJmZ4MRr8yoqWv8FVuZC5pLyI=; b=t1hnAkduwgKSrimvzTNagcWTQR
-	GBcM+/sr7st/zRXLyIXy/RUAIS+Ft5pINbBzOWc3WZE258t6pPaXK7dY9aoUgOJhFN1Ni/KJxJWis
-	rWsES/4dpJY1/NCLx7gboC476Kj8ogA/LIEsQaJphrLHOgsMUSG5HN+pKjZD/kynHNUfGyhxzfcNX
-	ZnFOC9spOilA78kc5HpRvo1wpeO7BFY8D2TqLTAYmkNgzqWkSytT02ffiaN+OiB8Dov8xI+AICgZb
-	uEYNqrZW/BxGY5kye1URHeBthB0puZZ+NFJ9T1t84K9XNbwz6LEA6KgFf5P62gDssGRwBNppzgWF+
-	5czXlZ8Q==;
+	bh=n/kBqbP6LsO7B1RQhfMNF1xYYVhtBBBd4HlzuGdkbH4=; b=15EuvVd9UNtywzBMex9/aPyk/e
+	j5iNHMdmKT+Yo0IRDoapKNEw50aOHSYmEQfYsUshabE3S2Umr75oP6w3XhInznNjBnmnspqY42cdS
+	By3g/WGxiAclwNgVyIel1MCqzT8+SkaH4sF11PZIVaoE+BkJeKRvtxRYh2o/X7v4S0OXBjFHwtkdO
+	Q959DpKej73Qp12M+luM6oEejuE7OOT61gF24igPdSpLh1oZ/atgk3Rzsmm09gOLTYS8R9/xfHOVQ
+	i3eh4QEuefkQQ3ZQwKb6HuTHCQUxNPWy+EB9bopNR6OmLj2DMRZK1kbc6wL4TEALC+ZS8lwCkDTAg
+	5bqM0QFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOB4W-000000016xx-3wv1;
-	Thu, 19 Dec 2024 07:35:48 +0000
+	id 1tOB7r-000000017KW-3n82;
+	Thu, 19 Dec 2024 07:39:15 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAv2-000000014si-0q0x
+	id 1tOAws-000000015Id-0vel
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:26:01 +0000
+	Thu, 19 Dec 2024 07:27:55 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAuc-00064N-0e; Thu, 19 Dec 2024 08:25:34 +0100
+	id 1tOAwX-000729-N3; Thu, 19 Dec 2024 08:27:33 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAua-004AOH-2r;
-	Thu, 19 Dec 2024 08:25:33 +0100
+	id 1tOAwW-004AP9-1S;
+	Thu, 19 Dec 2024 08:27:33 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAub-00GenW-1l;
-	Thu, 19 Dec 2024 08:25:33 +0100
+	id 1tOAwX-00Gewn-0M;
+	Thu, 19 Dec 2024 08:27:33 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 19 Dec 2024 08:25:32 +0100
-Subject: [PATCH 08/10] arm64: dts: imx8mp-skov: describe mains fail
- detection
+Date: Thu, 19 Dec 2024 08:27:35 +0100
+Subject: [PATCH 4/6] arm64: dts: freescale: imx8mp-skov: fix LDB clock rate
+ configuration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-skov-dt-updates-v1-8-38bf80dc22df@pengutronix.de>
-References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
-In-Reply-To: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+Message-Id: <20241219-imx8m-clk-v1-4-cfaffa087da6@pengutronix.de>
+References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
+In-Reply-To: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@pengutronix.de, Ahmad Fatoum <a.fatoum@pengutronix.de>
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>, 
+ Marek Vasut <marex@denx.de>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
 X-Mailer: b4 0.13-dev
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
 X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_232600_242174_601BE513 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20241218_232754_267193_CC581834 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Oleksij Rempel <o.rempel@pengutronix.de>
+When the imx8mp-skov-revb-mi1010ait-1cp1 device tree was first added, it
+configured the minimum clock rate supported by the panel instead of
+the typical clock rate:
 
-The main 24V regulator will toggle GPIO4_IO23 to signal imminent voltage
-loss. Reflect this in the DT, so the OS can take appropriate action when
-this happens.
+  fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock
+  (482300000 Hz) does not match requested LVDS clock: 490000000 Hz
 
-Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Besides the warning, the display functioned normally though
+This broke with commit ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow
+media_disp pixel clock reconfigure parent rate") as the reconfiguration
+of the parent clocks removed setting the IMX8MP_VIDEO_PLL1 to 7 times
+the display clock rate:
+
+  fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock
+  (70000000 Hz) does not match requested LVDS clock: 490000000 Hz
+
+Fix this by configuring the typical rate instead and benefit from
+the new commit by dropping the now unneeded assigned-clock-rates
+in &media_blk_ctrl.
+
+Fixes: ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel clock reconfigure parent rate")
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ .../dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts | 19 +++++--------------
+ 1 file changed, 5 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-index bce23d62cd27..80d212acc0c3 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-@@ -116,6 +116,11 @@ reg_24v: regulator-24v {
- 		regulator-name = "24V";
- 		regulator-min-microvolt = <24000000>;
- 		regulator-max-microvolt = <24000000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg24v>;
-+		interrupts-extended = <&gpio4 23 IRQ_TYPE_EDGE_FALLING>;
-+		system-critical-regulator;
-+		regulator-uv-less-critical-window-ms = <50>;
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+index 30962922b361..a13f6d76a495 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+@@ -51,8 +51,11 @@ &lcdif2 {
+ };
  
- 	reg_can2rs: regulator-can2rs {
-@@ -591,6 +596,12 @@ MX8MP_IOMUXC_SAI3_MCLK__PWM4_OUT			0x116
- 		>;
- 	};
+ &lvds_bridge {
+-	/* IMX8MP_CLK_MEDIA_LDB = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
+-	assigned-clock-rates = <482300000>;
++	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
++				 <&clk IMX8MP_VIDEO_PLL1>;
++	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
++	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
++	assigned-clock-rates = <0>, <980000000>;
+ 	status = "okay";
  
-+	pinctrl_reg24v: reg24vgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI2_RXD0__GPIO4_IO23			0x154
-+		>;
-+	};
-+
- 	pinctrl_reg_vsd_3v3: regvsd3v3grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_SD2_RESET_B__GPIO2_IO19	0x40
+ 	ports {
+@@ -64,18 +67,6 @@ ldb_lvds_ch0: endpoint {
+ 	};
+ };
+ 
+-&media_blk_ctrl {
+-	/* currently it is not possible to let display clocks confugure
+-	 * automatically, so we need to set them manually
+-	 */
+-	assigned-clock-rates = <500000000>, <200000000>, <0>,
+-		/* IMX8MP_CLK_MEDIA_DISP2_PIX = pixelclk of lvds panel */
+-		<68900000>,
+-		<500000000>,
+-		/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_LDB * 2 */
+-		<964600000>;
+-};
+-
+ &pwm4 {
+ 	status = "okay";
+ };
 
 -- 
 2.39.5
