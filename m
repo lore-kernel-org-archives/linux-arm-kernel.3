@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D07EE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BDB7E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:MIME-Version:In-Reply-To:References:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lsL5MvpyUJT/g7OPRNEEH9d17/70n2QS/pZPS+4W0Y=; b=BD5hAxlOy0tIW/Aa+evL3VPTYp
-	DfU7bIuOKbWUgQZUgamj1tfHtloW3ujxiHpiQdSub75MFiUmDIXAPynkAwvYVt8UTrlDu8PoHWQ+/
-	AryWn5Vo2jV76d2bKu/wGQiYa6MBxb5qV8Vhs5amCZrane5oZIdPYQd91R7syTtavQcomrEguJvLH
-	DBdbJUmNi3nelejsCqi3vpHO7sQrsyBm9OWxPJ2tpdMUlZMsvNBa0PeVLN4KVzfqe4Y/cmAQQuVBg
-	R1qeESlsAfAlCPPmDzaTlznFKBd7gneRr8flVBOEam9RSoIe5BPntkHZPap2gZ2EkmKIOMxMguu/X
-	K845yhcQ==;
+	bh=gS6gQuLAbmpaEx9R8Q374BVrPheI5P6dtbsGVPP/jV0=; b=nKrvjX4WCyh49Xm3UZCsfpONeo
+	nN/cPeqlyfg2OCGeGo3H9LF9kw8McGYfOq48900DvsXJ1F+dFAf8zlHCIgnRVJz53B8ZQ2ooMLVNS
+	btPAYtDykIfmMMepq4gWox6xBSFGtCkqwuLs+ykwLIDctTG7QU9rpHBxbf1ZEdXK1+XspGMnfjVlV
+	AlDXjxfpcsgJHYz3s8y2+kq8ToGfJJdDtVOxUDN4LdX1HvJ5Z7zXslPca0/vz8utz1FXu7wJVhtFG
+	yNN0qX0X0EqNI4X2Zr9hNyGDh29YvnFR27Krpj3pSkWA7B92CoU5iT9x+UXqqOdn4ejydUxi5dwCu
+	IaGa400A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODCo-00000001TE7-2Omx;
-	Thu, 19 Dec 2024 09:52:30 +0000
-Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
+	id 1tODDt-00000001TQ2-0juJ;
+	Thu, 19 Dec 2024 09:53:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODBe-00000001Sut-02pM
+	id 1tODBo-00000001T0D-1cwz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 09:51:21 +0000
-Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-29e149aff1dso174505fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 01:51:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734601876; x=1735206676; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:mime-version:in-reply-to:references
-         :user-agent:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7lsL5MvpyUJT/g7OPRNEEH9d17/70n2QS/pZPS+4W0Y=;
-        b=xMdc7u2F9slkWsmMr5kyqICP3EbPb4uH7iYSgWG0Gg3cQNy1N9Y7w1oXVF51UVj8V7
-         CT/L6gAOwyyIQfip4NM2Pm9idz35xgRTq3EhtrjJut06Ev5vldkBQk0SM3ZnxUUyF8jT
-         Vjy616Iajsz5welutWRALw4iYCcI2h8RzQMTzHpYvf6Xr/Z3dX+zdQEzaLmssD451JrT
-         V1zIw2o6V+08xVxEKZSp5y9ZcQdn8DirtRTqojm6vpHaz+uhP53gS+h5C7CSYQoiN6oI
-         jNKArW48gCDRbuuoWW/jG7J7LdggYmfBufKj4NKwzwYbVv7jzdbZW5gfhWQft9BraaZD
-         S2Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734601876; x=1735206676;
-        h=cc:to:subject:message-id:date:mime-version:in-reply-to:references
-         :user-agent:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7lsL5MvpyUJT/g7OPRNEEH9d17/70n2QS/pZPS+4W0Y=;
-        b=u5ykZUNeTv587P5BTkbikuMcjzNSLvMocWIObpwHAhOKB1ZG8a5TDKwlYF1m1wapQM
-         oM0O4PJYAiMxKPHz7p7pGhcL5x5xG9IJjcBo+kO5zZPY3aPTt6T9xU4ebAtljRF2FP6X
-         zMh/w08XJ/7VzpunkQWOcYADQn7hyPmeQNWaCIw5gbY3fSIAgJC4oaHNbT3UY+R/b7EJ
-         Xpbsld13mydzEyg6h8XvaDO2//nVFlMRBzSmVRihGExM/BMuSFG5rKzTLyryu0QtZsFX
-         QosOYQxJPeNdRe9CJL9oG02KTSpzpZHjGK0oaTuNzOUMAYZpQGJbWrOTpN9A3I4GHZSN
-         KbeA==
-X-Forwarded-Encrypted: i=1; AJvYcCUE5wdEs20sg3CysG75yVlr0BMEdWk7n2SgSGHJG0vdtsPaIAp3b8hsrAkLxXprtOzFRbKem8oGWy7hc5diLHI7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDtDVb1aI7fpPYAmJsUmhcg2oOQ6i9w6E4z9vL5SMmsx6ZnPUX
-	zl4DeWwvlPI44Dfy2IApDanNSYVHQP28FCs/A5/4jKfcVCOFnmfDWiK4tCtLHozrRUANNnAT/yl
-	5VTfAtE4GxShW8jFQpAK2qYrV/G3idIMHMkSHaA==
-X-Gm-Gg: ASbGncuX8FBYlTHyT8Og+nszsscvyhJgucFq1o1d8pnyFBqbUfEfKj+H5iC0veOdsVd
-	B1AR9Gehuheg6svOv6q58CaS+nBqaKWozaY15
-X-Google-Smtp-Source: AGHT+IEy79LXyiT2op8bTAdUEawSGOv+z8DC4vTnwhR7g9WzIVoZpBiDFmT+ifNeJg1xtzw9VNaK+cZyVwT46kQSRM8=
-X-Received: by 2002:a05:6871:e786:b0:29e:255e:9551 with SMTP id
- 586e51a60fabf-2a7d074d490mr1547605fac.2.1734601876589; Thu, 19 Dec 2024
- 01:51:16 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 19 Dec 2024 03:51:16 -0600
-From: Guillaume Ranquet <granquet@baylibre.com>
-User-Agent: meli 0.8.10
-References: <20241218113448.2992-1-liankun.yang@mediatek.com>
-In-Reply-To: <20241218113448.2992-1-liankun.yang@mediatek.com>
-MIME-Version: 1.0
-Date: Thu, 19 Dec 2024 03:51:16 -0600
-Message-ID: <CABnWg9uvQ4_vxYx-_8AKE_CvLgKd04LuvS1qvKwyMHvBck7_cw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/1] drm/mediatek: Add return value check when reading DPCD
-To: Liankun Yang <liankun.yang@mediatek.com>, chunkuang.hu@kernel.org, 
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	ck.hu@mediatek.com, dmitry.osipenko@collabora.com, rex-bc.chen@mediatek.com, 
-	jitao.shi@mediatek.com, mac.shen@mediatek.com, peng.liu@mediatek.com, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 19 Dec 2024 09:51:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2453E5C6730;
+	Thu, 19 Dec 2024 09:50:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD4BEC4CECE;
+	Thu, 19 Dec 2024 09:51:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734601886;
+	bh=BeFB9iTgD5uBQm5O0ged2kFhbP2RZiy0d9iadpufIr4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Z6Gd1w9b7uUXuD7pLLMO5cfMf+t46yPo9H0chPClAoSUAPCAR1NaLHZDzpkjnrXIt
+	 UDZ8afT5eYWlcqwh6xGbRgSWeAk8FhQNl2wzVqsrlm+ijeEUyU8tRlOzk1k5g5qh6e
+	 snOt59JOKOVq2z+Z9xHRN3j3eN4XQT1UaiWZxIs63A0fOxjskG/aqvWcNlpgCCH0ii
+	 9KUqSuLOT3YNR/5LoPZgJKIBV4A7Xw/kjvcYNuJb245ImQfsnbRbzQpFQbVITrntys
+	 cCDnfWU51HQhsTGa3HGAG9AZZN8oyLgfGF0jVyCi3/ls5Me6iBBCgkgxAP1wst2HPU
+	 U232AG+t2Jy8A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tODBk-005E8A-GP;
+	Thu, 19 Dec 2024 09:51:24 +0000
+Date: Thu, 19 Dec 2024 09:51:23 +0000
+Message-ID: <86cyhoq9us.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: <kvmarm@lists.linux.dev>,
+	<oliver.upton@linux.dev>,
+	<catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<mark.rutland@arm.com>,
+	<cohuck@redhat.com>,
+	<eric.auger@redhat.com>,
+	<sebott@redhat.com>,
+	<yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>,
+	<jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>,
+	<anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linuxarm@huawei.com>
+Subject: Re: [PATCH v4 2/3] KVM: arm64: Introduce hypercall support for retrieving target implementations
+In-Reply-To: <20241218105345.73472-3-shameerali.kolothum.thodi@huawei.com>
+References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
+	<20241218105345.73472-3-shameerali.kolothum.thodi@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_015118_308025_972B10BC 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20241219_015128_514634_78008456 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +97,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Dec 2024 12:34, Liankun Yang <liankun.yang@mediatek.com> wrote:
->Returns the number of bytes transferred (1) on success.
-Hi Liankun,
+Hi Shameer,
 
-I'm not sure this statement above is true, you are not returning the
-number of transferred bytes?
+On Wed, 18 Dec 2024 10:53:44 +0000,
+Shameer Kolothum <shameerali.kolothum.thodi@huawei.com> wrote:
+> 
+> If the Guest requires migration to multiple targets, this hypercall
+> will provide a way to retrieve the target CPU implementations from
+> the user space VMM.
+> 
+> Subsequent patch will use this to enable the associated errata.
+> 
+> Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+> Reviewed-by: Sebastian Ott <sebott@redhat.com>
+> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> ---
+>  Documentation/virt/kvm/arm/hypercalls.rst | 30 +++++++++++++++++++++++
+>  include/linux/arm-smccc.h                 |  7 ++++++
+>  2 files changed, 37 insertions(+)
+> 
+> diff --git a/Documentation/virt/kvm/arm/hypercalls.rst b/Documentation/virt/kvm/arm/hypercalls.rst
+> index af7bc2c2e0cb..16b4c02cf9d9 100644
+> --- a/Documentation/virt/kvm/arm/hypercalls.rst
+> +++ b/Documentation/virt/kvm/arm/hypercalls.rst
+> @@ -142,3 +142,33 @@ region is equal to the memory protection granule advertised by
+>  |                     |          |    +---------------------------------------------+
+>  |                     |          |    | ``INVALID_PARAMETER (-3)``                  |
+>  +---------------------+----------+----+---------------------------------------------+
+> +
+> +``ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID``
+> +-------------------------------------------------------
+> +
+> +Request the target CPU implementation information for the Guest VM. This hypercall
+> +must be handled by the userspace VMM. The Guest kernel will use this information to
+> +enable the associated errata. A maximum of 64 implementations is supported.
 
+In the interest of being able to support this long term, I really
+think there should be a separate function returning:
 
-Aside of that little nitpick
+- the version of the extension, modelled after the PSCI versioning
 
-Reviewed-by: Guillaume Ranquet <granquet@baylibre.com>
+- how many different implementations the extension supports
 
->Check the return value to confirm that AUX communication is successful.
->
->Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
->
->Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
->---
->Changes in V3:
->- Using drm_dp_read_sink_count() to improve patch.
->Per suggestion from the previous thread:
->https://patchwork.kernel.org/project/linux-mediatek/patch/20241128030940.25657-1-liankun.yang@mediatek.com/
->
->Changes in V2:
->- Modify Fixes in Commit Message.
->Per suggestion from the previous thread:
->https://patchwork.kernel.org/project/linux-mediatek/patch/20240930092000.5385-1-liankun.yang@mediatek.com/
->---
-> drivers/gpu/drm/mediatek/mtk_dp.c | 5 ++---
-> 1 file changed, 2 insertions(+), 3 deletions(-)
->
->diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
->index 36713c176cfc..b26dad8783be 100644
->--- a/drivers/gpu/drm/mediatek/mtk_dp.c
->+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
->@@ -2100,7 +2100,6 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
-> 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
-> 	enum drm_connector_status ret = connector_status_disconnected;
-> 	bool enabled = mtk_dp->enabled;
->-	u8 sink_count = 0;
->
-> 	if (!mtk_dp->train_info.cable_plugged_in)
-> 		return ret;
->@@ -2115,8 +2114,8 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
-> 	 * function, we just need to check the HPD connection to check
-> 	 * whether we connect to a sink device.
-> 	 */
->-	drm_dp_dpcd_readb(&mtk_dp->aux, DP_SINK_COUNT, &sink_count);
->-	if (DP_GET_SINK_COUNT(sink_count))
->+
->+	if (drm_dp_read_sink_count(&mtk_dp->aux))
-> 		ret = connector_status_connected;
->
-> 	if (!enabled)
->--
->2.45.2
+This would avoid hardcoding this 'maximum of 64 implementations' in
+the spec, and allow us to add new ID registers if they are added in
+the future.
+
+> +
+> ++---------------------+-------------------------------------------------------------+
+> +| Presence:           | Optional;  KVM/ARM64 Guests only                            |
+> ++---------------------+-------------------------------------------------------------+
+> +| Calling convention: | HVC64                                                       |
+> ++---------------------+----------+--------------------------------------------------+
+> +| Function ID:        | (uint32) | 0xC600007E                                       |
+> ++---------------------+----------+----+---------------------------------------------+
+> +| Arguments:          | (uint64) | R1 | selected implementation index               |
+> +|                     +----------+----+---------------------------------------------+
+> +|                     | (uint64) | R2 | Reserved / Must be zero                     |
+> +|                     +----------+----+---------------------------------------------+
+> +|                     | (uint64) | R3 | Reserved / Must be zero                     |
+> ++---------------------+----------+----+---------------------------------------------+
+> +| Return Values:      | (int64)  | R0 | -1 on error else the maximum required CPU   |
+> +|                     |          |    | implementation index.                       |
+
+With the above introduced, this can be simplified to always return
+"SUCCESS (0)" or "INVALID_PARAMETERS (-3)". Please use the SMCCC names
+to describe standard return values (see section 7.1 in the spec).
+
+> +|                     +----------+----+---------------------------------------------+
+> +|                     | (uint64) | R1 | MIDR_EL1 of the selected implementation     |
+> +|                     +----------+----+---------------------------------------------+
+> +|                     | (uint64) | R2 | REVIDR_EL1 of the selected implementation   |
+> +|                     +----------+----+---------------------------------------------+
+> +|                     | (uint64) | R3 | Reserved / Must be zero                     |
+> ++---------------------+----------+----+---------------------------------------------+
+
+This is missing AIDR_EL1. Although Linux never had to use it, its
+purpose is to describe additional implementation details that we may
+find relevant in the future.
+
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index 67f6fdf2e7cd..6c080fa9d345 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.h
+> @@ -179,6 +179,7 @@
+>  #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_62		62
+>  #define ARM_SMCCC_KVM_FUNC_PKVM_RESV_63		63
+>  /* End of pKVM hypercall range */
+> +#define ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS	126
+
+No need to stay at the back of the room, you can happily take slot 64!
+
+>  #define ARM_SMCCC_KVM_FUNC_FEATURES_2		127
+>  #define ARM_SMCCC_KVM_NUM_FUNCS			128
+>  
+> @@ -225,6 +226,12 @@
+>  			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
+>  			   ARM_SMCCC_KVM_FUNC_MMIO_GUARD)
+>  
+> +#define ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID		\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_64,				\
+> +			   ARM_SMCCC_OWNER_VENDOR_HYP,			\
+> +			   ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS)
+> +
+>  /* ptp_kvm counter type ID */
+>  #define KVM_PTP_VIRT_COUNTER			0
+>  #define KVM_PTP_PHYS_COUNTER			1
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
