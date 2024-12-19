@@ -4,175 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598E4E7718E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACFAE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tv30BUhl2KrUk+ioQQ/VXBgYHRBVaTXn2u8ymnam/0M=; b=2+veLXuCTsiwJ+J1l+rWmg3RRS
-	cxFlFpFWSg3gr73ZbdfJU94a+g/2r0zXXGzjKvqc9GvDp97/MjEHRM/2pbKtGs14MpXCfoMnu54sM
-	QuPXaPxRhZoBm9ibJjxftjvpA7MmMp24M6j07aZHo+De/A6vkfpuheeAVBbfv7FQE4iiMiGblFmuW
-	X0oK9uOY8TLdOPg3qcwcHHS4q6Or+zfjQd4X+cz8ECCgsUlNlGv5GYVW7RZItVPgxttLvmJLt7ebQ
-	nNtb5hfCgQHMLszWacczFW+VFojzIYtRkTBKkWHHzZm2PEd+s5qkQsqw8noimM2wvyZ2rkYmSdo45
-	xC5ARhyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M9p15xFpI3OtdTaI4RI0VDmNj/jcCe5gDftH03DAkDo=; b=GOBmj7RlidIkYa
+	QOK6C1aSm+4lHPRJoXw4GH+JFYdeji4gZxO6G19lvFkrXgpi3SlU6rAK0Zuly++w+75Xwfqn4Vd+V
+	l9w5lUO+rkUi3uwKNrygW9RqMlyoXuuOzQrwgbdbbpW+nPZTI6QUvNB4fMbcLC9d1Y89GZ4HxBdDr
+	fP1TLGBYgqs5eKY7s2NIR0emrTXM6J1bSxmU4VUr7/VEJIxwitOB3PQUilHtk6wDakqmEAIm3Ghmo
+	NX760O5+dCwTtjXdM3amsFcPzNseGKB8p/HwFuWWCU3SLA0nZja4Eg7wzKLLej4nT1xnBlqlA51os
+	qVNamQHYgCPrVwCa6BXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMfM-00000002vku-2Ign;
-	Thu, 19 Dec 2024 19:58:36 +0000
-Received: from mail-vi1eur02on20617.outbound.protection.outlook.com ([2a01:111:f403:2607::617] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tOMhG-00000002wiF-2fNm;
+	Thu, 19 Dec 2024 20:00:34 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMcD-00000002uZW-1Nqi
+	id 1tOMfo-00000002wHO-35xG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 19:55:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XS0YlWEY2kB84q6WS7QrzeBl5XT+nZeaGgOoPRIseul5ZTzM2K72AB0TLwYDHtRzBOm8fdanAO8GIO2xSWgPcO61GqkCquc6cVKvOcqdx5hmnKhZapx2OphjE6lduXeCxggZ1nBNK8cS13LUhfuFsafwXJTifnVQlBvpLR2ZjANCm+lxD2EjG47wRSXoaoWo9wuxm04t2oZn/xsnfjSTSbBM0epEbJIJ3UfLnrquJqpsIkUaijXFxcfXX624uA2V5V5sy0hiYvz5k4GM6Cys/UtQb45gxOxt/8iUPV8WNVYHbigEypkfvK4KDSGRxu+JTvf0YS/rPLehjEtmKlcRsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tv30BUhl2KrUk+ioQQ/VXBgYHRBVaTXn2u8ymnam/0M=;
- b=OCAr+HWUAA3unfU1A6xKmHXOBeME5Ro3sFvwWBRUsjP6h++ux97BfOPO/o8l/fRjzghoSW+uMip+TsgEc/UY4MsnDyQMhaeHBHE1N8TVplNVw1UYFOdzmM598wWvNx5ZoYKMUR1AL2du15Qydl4QR/H7qRpcB9ZoM/5k+Pxok1ZOVlNOTltJjwkYit08AAkCOcQiBEH8zO0jUz28ke4nkzSlcVeh4p85A5mdoZMalEN9+d/BcG4wZcUNRaYzNvvPP35cNeCLbuhNhn2pK+D8idwnxjLJigAQRt1w5vyCxX+lt3uy3XwZZTJnPObQ9wmWahCW48yhLbbqM3ZCQ7vUGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tv30BUhl2KrUk+ioQQ/VXBgYHRBVaTXn2u8ymnam/0M=;
- b=e0fVAMzV7vrYvoAba54Feyc2WyBDgDzOHSaO3R8O0oZYkYjl8Q3117lAxg0KFyc3LNHIfWXYvRfRouKNirIWI8g4tf+6XYASfO6hwTM3UGEqiLA8K96OA/TuNuvMt1HRxOuiOLcgvVnbG59uUvSTaIo3rnHl9o9SI2DG9pdwtz5APXAF7+Ui1y+FEwaADQva8KLwNdtTuTcovcslUo5Jg0/bB1lf+0REU3RmTc9gEPyHSPevIQpVTtg7ASZ69qDBftrmLx46S1F4/kI0ysVjyte7Un1hs9Ht7GGk0+gUIJ6VcUotxGqlcwd0VO4ITkfButtmSeMNVyDnhtvra0+iaw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU7PR04MB11139.eurprd04.prod.outlook.com (2603:10a6:10:5b1::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Thu, 19 Dec
- 2024 19:55:17 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
- 19:55:17 +0000
-Date: Thu, 19 Dec 2024 14:55:08 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 0/7] PCI: dwc: opitimaze RC Host/EP pci_fixup_addr()
-Message-ID: <Z2R6HET6FZEO+uwi@lizhi-Precision-Tower-5810>
-References: <20241119-pci_fixup_addr-v8-0-c4bfa5193288@nxp.com>
- <20241124143839.hg2yj462h22rftqa@thinkpad>
- <Z1i9uEGvsVACsF2r@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z1i9uEGvsVACsF2r@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: BYAPR04CA0014.namprd04.prod.outlook.com
- (2603:10b6:a03:40::27) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 19 Dec 2024 19:59:06 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5d0f6fa6f8bso1777267a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:59:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734638342; x=1735243142; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=M9p15xFpI3OtdTaI4RI0VDmNj/jcCe5gDftH03DAkDo=;
+        b=S5Qmj3QggXAs6daK/LXqJPQUSUxQibUscbWuL5zGFTDbLM6SCGi890dh7wc+Xg6I8k
+         KXqwzWhRbG046NJqWbR+c174rapg48MbZViuXnOgKyXDZ+qaqLytZP3sSaZpi0YkXHVC
+         o2zj5oHrKozT91AXB2IsyxpLhaYJpPyogIMwcyvEW/jxM8cyOkPEboAeBweff8tbjn5i
+         eBeZakGYCbDnsQxV+n7iEx6s1gaIoWyeTXBT0pvXd0cgxCX2rh/dRXmr/cCNI28yoDXK
+         d7xPrm6mBux0kMiORfodBDFyaNyV9VgLMESEEynhd/zqkZhUY8hfF/xK0DX2jMW27+2D
+         ugbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734638342; x=1735243142;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=M9p15xFpI3OtdTaI4RI0VDmNj/jcCe5gDftH03DAkDo=;
+        b=VBWOAsAR5jCVrUmCtSCladieAnso39fxqq39hFLGe53enTl/9o/Glg34PCOnnmoxJa
+         D8EBmv/FPaPdN7/LCOwYP8H1MUgFgFYxrfOzM2qXMs2Uscfu8em/9jm7IVq6OkbmdYq6
+         D6PxG4zBzxt41pGmjiT+Nopb1ypZsygnt1Bpw0lKYOQtERbmHr5bD5uqyRUqslGBdJJX
+         VCTi5YvuqsUqmT43wfZNmfVJlIyLd4DG0q2cdP0bqTFbxjauBd4u27YgyGc7AB7u+f5U
+         8AeyXthrwf17fPrxqsUgdr3YNrmgsUvb8FGLwwU+5x2oBDKarwHCIomQoLJn2MbKPdjf
+         xEOg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsW2Bh4azp2jdxHuDwnz2CYJteiUNPi/A+Zr/scnBwOwKJqeTMhn5VGZ4SmsJKme53+ai+XjY7p2GuBbpG9LL6@lists.infradead.org
+X-Gm-Message-State: AOJu0YynzQ/1+xJDLpAAadcF3BDlg59Ywe122scO2InObpUSLiyrVGI8
+	2QN2S1t2bJy/u8TMiq9wA1LydYT1YoDbMEqIGvVNgQmX1nxlfZW4Tv6Itd3sd6k=
+X-Gm-Gg: ASbGncvelpAIeyWvhwHPn1vviPiJwtgFmNbzKz+z1aj+dBFly7WAI2+DBJv9XwOS8oi
+	cyxRcbxGqLIwWkcRrttse8vwpEK4lYK4PJKgIuKZQsjJi7dbO3Y7P79dd3N1wc+IQFlGl02plaj
+	uItu+zwLP1P2UniNpaP+J2yFfIlEeuLv3djDRwhdLw1MhfmzNYGeLqUJTyeW8KIZ0+OGkKaK7fE
+	ec0QTs0gyrfwqaR8svuVorKn2XdD3QmpusP5JcR0dwdBGCc8g==
+X-Google-Smtp-Source: AGHT+IGqEgM3Ah4T+Wz8+r13B/J1am5wz00UoQzvYl0b+jCD8bk+TH5XawNEo4BvvQIWkA5//ALkXA==
+X-Received: by 2002:a05:6402:4405:b0:5d8:16ea:cfb4 with SMTP id 4fb4d7f45d1cf-5d81dd7d02cmr168237a12.8.1734638342170;
+        Thu, 19 Dec 2024 11:59:02 -0800 (PST)
+Received: from localhost ([2001:4090:a244:82f5:6854:cb:184:5d19])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80679f900sm948330a12.53.2024.12.19.11.59.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Dec 2024 11:59:01 -0800 (PST)
+From: Markus Schneider-Pargmann <msp@baylibre.com>
+Subject: [PATCH v6 0/7] can: m_can: Add am62 wakeup support
+Date: Thu, 19 Dec 2024 20:57:51 +0100
+Message-Id: <20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU7PR04MB11139:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8b90485-1b9b-4157-def1-08dd20670fc4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QnNRVmVaWEl6czNFcXpEV0Z6ekhWU3lTdVc3MWJMVnhacGhCekRmSjR0b2lP?=
- =?utf-8?B?SlhLSXRGNkpibkxwT3hwd041L2JiakpvU01PKzZCL3gwTTZkMDd6QTRud3dL?=
- =?utf-8?B?ZHFXMk5EcEFJb2tid0lScERKdHZBd2Z2ajlaT3BOeTFrTEZPc0FhRjN6alha?=
- =?utf-8?B?dUxSQTFVSWxUSnAvYWxQczV0N3Y4ZUFad2JldnFXRXI4Y01Mb3VuL2ZmTEIv?=
- =?utf-8?B?U2liYmhPQVJIbHlrbWVHSFBoNFlBcjlibFlWS0RWU2J3aHZhRm1acnJ1QTJV?=
- =?utf-8?B?QkJXZ0FUSDRrb2V4OForM1gzb3k3Yy8wOTYweUVOS1RzSmQzekgyeVlkYWhW?=
- =?utf-8?B?TUM2dVBZdVpoTW1IUTdYbVdQTHdvbFJacnRQN3g3M1Fob2JiUzZtNExSTDk1?=
- =?utf-8?B?elVsY2g5MDREYnZNZzE0VlhWL3JsZkJDQ2lOL25JT1pxUE5DcFVGVjdGNHJM?=
- =?utf-8?B?T1Fjb0Y4UElpcVRIcXhwNys2ZFpLekJnN212UjN0cFNycXpVMnVZMlU2Rk14?=
- =?utf-8?B?eHduL2wxZkVpdlYweE1jOHlOdHY3N0ZDem9WWTFOYmh2VXZ0VE8rVUFVUmp1?=
- =?utf-8?B?cE9OcXV1dm9WTXpHWk02RGNVMk54elNWZXhXYTRUY29zUzRqMEliNzhqRDRG?=
- =?utf-8?B?U043RklmWDQ4aENseU02Z1NDWEJrUUVaUTZFbGNOS3FSWGd5c05yYlJ6djdq?=
- =?utf-8?B?WGk1TzdSSU5qUTdBNWRHNUFOb3J0TG1UMS90SFNITWZFWkpRbjhWSkttYUJj?=
- =?utf-8?B?V3I0cWRZTzBSenNqYjQ4L1MrTzh4dVdZWldOM3dXQmdtb0ZtZEEzcmYyRHFi?=
- =?utf-8?B?ekpKUmJ4a2tTOW0zZlVKVG1CQ1VLMHg2UzNwRy96T2hwOHlsSC9KSmxTaVcr?=
- =?utf-8?B?dUxRY0UzMlVMSlZQZ3RWMnh5VmZFN0J0LzN5dXlybW9UZDdGQ2NDdjR4ZVNM?=
- =?utf-8?B?N3pBL3RBdGFBbGlPbElZOXBlSWkydHVBcW9HSmFwTjBiUjhiQWNwaG05ZHZL?=
- =?utf-8?B?QWJQbnlqQVJVMGJaY3g5RjZ4N0o0RVBlTnFLTEZJU3U4RUZUbTZOT0N6VThE?=
- =?utf-8?B?TzAyWGNWM2h4UHk4T3A5WWNlOFhmUXNHeXFPVjJqUThrdG42S0R4WE11clIw?=
- =?utf-8?B?OStJT3lONmlkVllYTjJJMzk1dlhWWmRFcmJsMjdkOVV0bzVaNFBmWVY4RmtN?=
- =?utf-8?B?VHN5M2R2QUpPM21NMUZ2SDJzZUF4QnlKQUw5aWw0UlozR3ZrQTRWRDV3b2J1?=
- =?utf-8?B?dXhmNnhaSE9oemVvbVZId1VGRTN3MzNndll6U2EyZUV6WUI5VUtCMVg1d20w?=
- =?utf-8?B?SDRrTldMRmYzblhQejBzODBPYXRWN2RCOWgrVDNsMmNCQ1NpU25yWHA3aU5O?=
- =?utf-8?B?Rjc4d1FOU1ozc0I2dndTUXRxZkJrZC83VmNzL2U5RzZUV0N5a1NmVlBsR204?=
- =?utf-8?B?YmZJbURwVnJwekh5a29RZk4wckFDUW12eWFmZ3hoVzdsVFB0UmNhRUNRdzI2?=
- =?utf-8?B?empkNXE2eHRWMGdSNU9MVVRkeFhkdHA5Szg4VkE3bEVPQ24xeUtJdC9CT0R6?=
- =?utf-8?B?UGh2ZFl0ZC9Eajh2TDIzMWt1aG1TYWFDaDNmMVQxSFdVQm1uSmd0WFE1bHEw?=
- =?utf-8?B?VUpqdlVPYXF0cFRLOXZqMHV3U09EVlR0cEd1UlQxM3JPaWluWTVmUzhYeXBl?=
- =?utf-8?B?N2NjRFhNd3lldFpMU1pOSFc4b0ZwbkVLK0tsbitjRTlaQklpZEZLYXpYRWk5?=
- =?utf-8?B?RC9pMFhzc3pGMDlGUXFYM1JicUhUaU90YkpBU1N3cmhTZVp3OGFmQkxvZHg5?=
- =?utf-8?B?cmtuT3RqNTJUV21LaUswdytDSlRTMEpzRk1qdEtwNldkMFZ6NlRjNkFtS2tS?=
- =?utf-8?B?VXBNU2FBZ0ExeW1lWS9YNWduOTRlbm1OQ1ViQ0ZRYUtMTytPRUxwaXJMb0Nw?=
- =?utf-8?Q?fXMGyWAw2w6Ibr7/OWAE9AOsrT97qYWD?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTVLcmNQZ2IvZWdOR09nWGtlQXMvRTNBRWdQanBwYUVnL0l5ck1iSzdEUndu?=
- =?utf-8?B?MnVyNXVLdHdCUWZZc2pOQS9ITTdjWEErVUJHWEVhSlpRTkdjUzZ4Q25LTU1S?=
- =?utf-8?B?MmdtQzBoNGZYTXF1M3lUaXJ4Wkh0bGpBUHRhVVpzY1E2cEVXa0FqTVRFRnc0?=
- =?utf-8?B?MVhvMnlaL1lVRy9zd1Rkc1BmZXlmc3ZpNWVqa0xCNmM0ZGdBVG1iamN4QTZT?=
- =?utf-8?B?TUJjcHVnZXBNT29OZHRPZnVMOEVHMnZLeXRvYlJXRVlVL05kajFkVTBDRzJS?=
- =?utf-8?B?Rkl1TGhXelp5bTIzRXIwOVkxTmY4N29mL28zTzZLLzNibm90dFN5ZjJtSHhw?=
- =?utf-8?B?TE9SWmhSakJUUmJTMTlKcUV4Sk9tMis3TzFFajYycFhkRXBrN2wxdVU2REdr?=
- =?utf-8?B?cCtVc2FwblJFWTFiZEQyL2NRUTA1b1lEdHV0ZmQxSCs3Sy9hUG9MWjBhZ1dH?=
- =?utf-8?B?bmFLMjRWUkJUaitCVCtXTitSOGVnUU5NQU4rZDBKYUk5L3BzMGpJenRqalpj?=
- =?utf-8?B?bHBPaHNCU3Nnczk2RDVCeXR4aVhFMWlPRFpGUmtTT2JwcWR3bjVuMVpUN2lt?=
- =?utf-8?B?RFcva21INHJIYWt3NlRLcnVxNUkzNHIrZnFSd3B3a2JpVjZlb0hEZy9wcjc4?=
- =?utf-8?B?d3VwY2VWVmE1c01MRmVIV2NWSzBzbmxFcVJjb25LeGZZMU5LUytza2M2UUt0?=
- =?utf-8?B?WVh4aGJwOTYvSWlLVkg1VEJ2K1RPSzVsaGFGQi93anFuYWpyV1BPbFFnbkw1?=
- =?utf-8?B?RzlqcUc2RWtqR0sxaXVkZ2V5VVhyVS85STVsNE4xMkRkb3lIbEpDbEg0ak40?=
- =?utf-8?B?b01jSmYwZnRtZTVyTTcvQzJObGVCY1dHZ1F1aEdDWUIxaU1RZkk2NDY4NHhm?=
- =?utf-8?B?WXBPV1FtVmlXdlRYeWU4UUlpUGZqYUp3TE9lWXRBZXltOW1OaU91a2FpY0d1?=
- =?utf-8?B?bjVIeXlrdUNNN0RQdE1XNkF6RTVMOG9SMmVMYXR4L3dodXBPbU5MMHYrY2xh?=
- =?utf-8?B?ZUVGWDlybEx1Y3RlWmFqeHFEeVJ6Rlk4ZGpZbCtCd2lJUmpjeTlnUHBYNk4z?=
- =?utf-8?B?N0RPYlJwM2pvZE9CRzcvUHNQT0RxcFBuYXBQMFYrc2hMTDZzMGNhY1Noai92?=
- =?utf-8?B?U2hXazcwZWVWNnp2SXpPc0pUR0ZDdjdaRjNLTWd6c1lXaDVwUmQwVENaZjd5?=
- =?utf-8?B?M3J1SjVhVkZuWWF2bmtnQjRKWmM3UFZ3WVVidnQwMlliNHRxVXdLTmIrYlp1?=
- =?utf-8?B?NUdmbHFHaStyeGw3eG01MnYvdmI3NGJKekwybGp5NWcvdUhPNHJ1Y1hYeEgr?=
- =?utf-8?B?VmZ2R21ndDZ6bmNHMWxPemthMlYrNFB6Zncwck4zaGNMMGlxUW5NMWZEQjFv?=
- =?utf-8?B?S1AwbFdONG1ldmR0TjBCMmliZ0FMQlNYYlhNaWhwM0hDMHFUNWhqVFdDYW9N?=
- =?utf-8?B?RWMxSXAzMnZMUkMxYnlIendjQVVuc1o2dkNoRWZpN1d2TnFZZERGTDFUZFAr?=
- =?utf-8?B?dmxiZkQ0YmQ2RWNOSlY1MWphblN3b29jTVpkTW1uLzF0VGhYL1ZSYURjTjhD?=
- =?utf-8?B?bnY2NTFIVkdiSFpoK3JpYU1aV3U0SGZSVjRscmh3QklhWUV1c0thcXZ1TG1u?=
- =?utf-8?B?Q3hGY0t6U3RTbndSeGVZVncyNnNLNithOElkaHZCeldLQkpJdHVZejBLOHJs?=
- =?utf-8?B?V1hacmgzZmkwa3RWRjNMVkhreURGWFVVeFByZGgweFR2Y01XSFVRejlFMEhC?=
- =?utf-8?B?d2Q1cVJHR1hiNlJHQmRzMUJlbGJzcTdIM2tLdVgwOGxmVWxoYVI2OTIvYXAz?=
- =?utf-8?B?Vkgwc1J6WlI1Q2FBZzBVVTZtQm5ScFRTTFJxTklOMk1yUEpMeFNGU1BJdGtm?=
- =?utf-8?B?SVMzZFVhSlB3bGg4Vkl6RWhrcDV0MHdhVm9WR2tiQnpZck1FS0MwS3o5MXJ1?=
- =?utf-8?B?SGFENG9Yd1R5b3JPZFVBSzFwd3NWSlBKU2dUNk1HSkk5SGFWdmI1ckw2S2RZ?=
- =?utf-8?B?dyt6UWxCTVEyRTJ0QXZmbHRETEpZdUR6V3JTTHBqVmFSMjJaNHVmVXRUdVBZ?=
- =?utf-8?B?NkZtNVRTUXNzTE4rNEh0ZHlkbmRkQ1EweURmdWFER2x6VEt3VTVkME55ZERH?=
- =?utf-8?Q?ARIKv5LoDF4dfIH91Nq2oDdGS?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8b90485-1b9b-4157-def1-08dd20670fc4
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 19:55:17.5957
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DS5Q1KFYOtBWXdhsHNnGR62qiExlQ9D4P12K1SgCHnZyVq06BmwVd91zcb80jXVefcDcQzDt0y70O2KThotnEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11139
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL96ZGcC/4XOQW7CMBCF4asgrzvIYydOzIp7IBYTeyhWSxzZY
+ IpQ7l6DWKCqUpb/LL43d5E5Bc5is7qLxCXkEMca5mMl3JHGT4bgawslVYNSWjjHKTg4ORrhSl9
+ 8mSDHS3IMxQAq6B16Y63GwfeiIlPiQ/h5Duz2tY8hn2O6PfeKflxfNOISXTRIsF2rXIcNeVTbg
+ W7fYUi8dvEkHnpp3sV2UWyqePBUf0buiMw/Yvsmqn5RbKuoNXsnaSCj7B9xnudfhM+X8XMBAAA
+ =
+X-Change-ID: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8
+To: Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
+Cc: linux-can@vger.kernel.org, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, 
+ Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Dhruva Gole <d-gole@ti.com>, Simon Horman <horms@kernel.org>, 
+ Vincent MAILHOL <mailhol.vincent@wanadoo.fr>, 
+ Markus Schneider-Pargmann <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5191; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=FveGKuE50tvj//BccFVz6uTSoxWvQQAOqunJVHcMagI=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJTqu6nMKw3LdWZeP4yk9//ndmdPGWVHU77pv8xn3+MO
+ +Sk3e26jlIWBjEOBlkxRZa7Hxa+q5O7viBi3SNHmDmsTCBDGLg4BWAigfsZ/udl+jY/5sh5OLXp
+ SFTS0/6Wz8fmnf4ctnSx/ZQlnh8CVjAyMvw48n1ixt9dv642cT/vZ+UV1/k/yzr14T55ZYE9YeV
+ ytkwA
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_115521_371701_5D40F0D1 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20241219_115904_789972_4F364A1A 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,38 +121,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 10, 2024 at 05:16:24PM -0500, Frank Li wrote:
-> On Sun, Nov 24, 2024 at 08:08:39PM +0530, Manivannan Sadhasivam wrote:
-> > On Tue, Nov 19, 2024 at 02:44:18PM -0500, Frank Li wrote:
-[...]
-> > > Previously, `cpu_addr_fixup()` was used to handle address conversion. Now,
-> > > the device tree provides this information.
-> > >
-> > > The both pave the road to eliminate ugle cpu_fixup_addr() callback function.
-> > >
-> >
-> > Series looks good to me. Thanks a lot for your persistence! But it missed 6.13
-> > cycle. So let's get it merged early once 6.13-rc1 is out.
->
-> Krzysztof Wilczyński:
->
-> 	Could you please pick these? all reviewed by mani? It pave the
-> road to clean up ugle cpu_fixup_addr().
+Hi,
 
-Krzysztof Wilczyński and Bjorn Helgaas
+Series
+------
+am62, am62a and am62p support Partial-IO, a poweroff SoC state with a
+few pin groups being active for wakeup.
 
-	Any update for this? All already reviewed by mani.
+To support mcu_mcan0 and mcu_mcan1 wakeup for the mentioned SoCs, the
+series introduces a notion of wake-on-lan for m_can. If the user decides
+to enable wake-on-lan for a m_can device, the device is set to wakeup
+enabled. A 'wakeup' pinctrl state is selected to enable wakeup flags for
+the relevant pins. If wake-on-lan is disabled the default pinctrl is
+selected.
 
-Frank
+After feedback from Nishanth and Krzysztof, I moved to a wakeup-source
+property that can be a list of powerstates in which the device is wakeup
+capable. This describes special cases like Partial-IO where the device
+is powered off but pins can be sensible to changes and trigger a wakeup.
 
->
-> Frank
->
-> >
-> > - Mani
-> >
-[...]
-> >
-> > --
-> > மணிவண்ணன் சதாசிவம்
+It is based on v6.13-rc1.
+
+Partial-IO
+----------
+This series is part of a bigger topic to support Partial-IO on am62,
+am62a and am62p. Partial-IO is a poweroff state in which some pins are
+able to wakeup the SoC. In detail MCU m_can and two serial port pins can
+trigger the wakeup.
+A documentation can also be found in section 6.2.4 in the TRM:
+  https://www.ti.com/lit/pdf/spruiv7
+
+This other series is relevant for the support of Partial-IO:
+
+ - firmware: ti_sci: Partial-IO support
+   https://gitlab.baylibre.com/msp8/linux/-/tree/topic/am62-partialio/v6.13?ref_type=heads
+
+Testing
+-------
+A test branch is available here that includes all patches required to
+test Partial-IO:
+
+https://gitlab.baylibre.com/msp8/linux/-/tree/integration/am62-partialio/v6.13?ref_type=heads
+
+After enabling Wake-on-LAN the system can be powered off and will enter
+the Partial-IO state in which it can be woken up by activity on the
+specific pins:
+    ethtool -s can0 wol p
+    ethtool -s can1 wol p
+    poweroff
+
+I tested these patches on am62-lp-sk.
+
+Best,
+Markus
+
+Previous versions:
+ v1: https://lore.kernel.org/lkml/20240523075347.1282395-1-msp@baylibre.com/
+ v2: https://lore.kernel.org/lkml/20240729074135.3850634-1-msp@baylibre.com/
+ v3: https://lore.kernel.org/lkml/20241011-topic-mcan-wakeup-source-v6-12-v3-0-9752c714ad12@baylibre.com
+ v4: https://lore.kernel.org/r/20241015-topic-mcan-wakeup-source-v6-12-v4-0-fdac1d1e7aa6@baylibre.com
+ v5: https://lore.kernel.org/r/20241028-topic-mcan-wakeup-source-v6-12-v5-0-33edc0aba629@baylibre.com
+
+Changes in v6:
+ - Rebased to v6.13-rc1
+ - After feedback of the other Partial-IO series, I updated this series
+   and removed all use of regulator-related patches.
+ - wakeup-source is now not only a boolean property but can also be a
+   list of power states in which the device is wakeup capable.
+
+Changes in v5:
+ - Make the check of wol options nicer to read
+
+Changes in v4:
+ - Remove leftover testing code that always returned -EIO in a specific
+ - Redesign pincontrol setup to be easier understandable and less nested
+ - Fix missing parantheses around wol_enable expression
+ - Remove | from binding description
+
+Changes in v3:
+ - Rebase to v6.12-rc1
+ - Change 'wakeup-source' to only 'true'
+ - Simplify m_can_set_wol by returning early on error
+ - Add vio-suuply binding and handling of this optional property.
+   vio-supply is used to reflect the SoC architecture and which power
+   line powers the m_can unit. This is important as some units are
+   powered in special low power modes.
+
+Changes in v2:
+ - Rebase to v6.11-rc1
+ - Squash these two patches for the binding into one:
+   dt-bindings: can: m_can: Add wakeup-source property
+   dt-bindings: can: m_can: Add wakeup pinctrl state
+ - Add error handling to multiple patches of the m_can driver
+ - Add error handling in m_can_class_allocate_dev(). This also required
+   to add a new patch to return error pointers from
+   m_can_class_allocate_dev().
+
+Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+---
+Markus Schneider-Pargmann (6):
+      dt-bindings: can: m_can: Add wakeup properties
+      can: m_can: Map WoL to device_set_wakeup_enable
+      can: m_can: Return ERR_PTR on error in allocation
+      can: m_can: Support pinctrl wakeup state
+      arm64: dts: ti: k3-am62: Mark mcu_mcan0/1 as wakeup-source
+      arm64: dts: ti: k3-am62a-mcu: Mark mcu_mcan0/1 as wakeup-source
+
+Vibhore Vardhan (1):
+      arm64: dts: ti: k3-am62p-mcu: Mark mcu_mcan0/1 as wakeup-source
+
+ .../devicetree/bindings/net/can/bosch,m_can.yaml   |  27 +++++
+ arch/arm64/boot/dts/ti/k3-am62-mcu.dtsi            |   2 +
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi           |   2 +
+ .../boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi     |   2 +
+ drivers/net/can/m_can/m_can.c                      | 111 ++++++++++++++++++++-
+ drivers/net/can/m_can/m_can.h                      |   4 +
+ drivers/net/can/m_can/m_can_pci.c                  |   4 +-
+ drivers/net/can/m_can/m_can_platform.c             |   4 +-
+ drivers/net/can/m_can/tcan4x5x-core.c              |   4 +-
+ 9 files changed, 151 insertions(+), 9 deletions(-)
+---
+base-commit: 40384c840ea1944d7c5a392e8975ed088ecf0b37
+change-id: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8
+
+Best regards,
+-- 
+Markus Schneider-Pargmann <msp@baylibre.com>
+
 
