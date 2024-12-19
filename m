@@ -4,118 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BE7E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0714CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TceyOsbgXrP9OVMBWMLProxIlsK6QAaRS+A9GhoV8Yw=; b=U2VU+6Zvfl3+4evKfJI33zezCs
-	4kJ7kuim4kI+hUA8HpjImFtNckeQZXoW2jko2u6w3HE3vtWVF4RRy13e6f4wsodYrwXHuCY9dKtTV
-	p8tDn4JgdwxgcRpd0JtpO73rf82Bqg9c/wILrHqZr6WgoRBLX21lmyisjlvQdujBZNlRKdErAwozt
-	vJj3LwNeIpFLhBDd4+GWuGNdSUTbKHNiFf7TMBVZsOJHXWL8Ir2cLUEHqW2OYwKNQjdtCH6xBYqtL
-	s0D+AS8+gEn0hC566TIUdeImJgTKxOA4+ldLUpJCo19M/z54N9vZqfmMq6Ewm2rZtdz45inHRv2oV
-	9KzxYm4w==;
+	bh=fBw5kp9SSBwQvZpMGmAbVD+2jgyl0mQ5vHpGEW5CPmE=; b=qcWVEKsPOMjLKhp2RAwOIlYeZ7
+	ik1cAi6NJGSU/p1uXFUerdsOt8NCe873qSVQK+ud8fHug+jHYFM6GZN6jeKn5vF3lLNDVpTfRX7BC
+	B/sM4if4b2oA2h5TOOQsG+SX14pJhjS3ActZu6HwGjcckrCtwMGmRe8ApeG4WUWi7Yp1AVleIZzrP
+	HkE1RyRcQ6CTVRQQhcsnlPHdDswdk39uavRb/fu5jzH75kFp2LzmWoHqqVuwBu4WtyAbIlb+oMliC
+	r+skBzTYgv24raYiC3OA2BHqHRfimSZNk2T3xFG+T1zFSH+UCmcNbjdURQ6oQUHZTCWGCTzCiT6fl
+	MXi1Mx0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMBr-00000002rL9-1CoM;
-	Thu, 19 Dec 2024 19:28:07 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tOMCv-00000002rTG-3lb2;
+	Thu, 19 Dec 2024 19:29:13 +0000
+Received: from mail-db8eur05on20613.outbound.protection.outlook.com ([2a01:111:f403:2614::613] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMAj-00000002rAA-3n35
+	id 1tOMBP-00000002rFv-2CVk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 19:26:59 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BJGGkT5011022
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 19:26:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TceyOsbgXrP9OVMBWMLProxIlsK6QAaRS+A9GhoV8Yw=; b=cOUPudBNl7MXFp7C
-	4lw00F7muICON8ZEQEBOrjdc+TBV1T8VYEWIGs9g4e0Lxx493bSbWhkgKfzJ3IY8
-	dj3dVWCNJVMqLjscBH4W1QP36/LaRh78Yq2CtuziMzTcMBswd9YlWBf20QE/qNfM
-	Er3RPM+N5q38+4ZNHx7Ghp26ehNhChXCX+SP2qfTOWOTC92R9wwyCiP/VaIKYGR2
-	Y01pDuQsVavqoHXjACnwNuBDgm5jtO/Xvovvn23C+cgrbE6ar4ELUwX6UJ9nw9Do
-	//uCio/hyXMGniBGL8L8brgljxEBW6ickyziqjM8BlGebZ3MFnsDEam9kp2LuJeA
-	8O3ZjQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43mpvagewb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 19:26:56 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-467a437e5feso2616631cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:26:56 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734636416; x=1735241216;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TceyOsbgXrP9OVMBWMLProxIlsK6QAaRS+A9GhoV8Yw=;
-        b=gLGPbWBAqtrcZYmZjcyXOXz6+7aK+FEWMo1cOrLcLtouu15a2YkNRMoVFMT1ULZpRc
-         Cellqb3AH6UpihT3/ImYXU6RZZqzTMXthfUC3inTwqL0xnkS3Igrlc8rLSI+K858Y2ab
-         eHG8l3PLUbeNoUobOmuZ47ao1qQXoHAdmZe+D6cVcxzXxRfOCCqIUmo+60Xjwra6kQVx
-         wKmAN999P4cLoEEq6UXoT997kYwzybxB2fwdLmxllTyZXJTwnj8c/L46uWUCMkxBwT00
-         qKVTL+b3ezjNonY2v2CZrqs3BwfhVEcaE9PF0ypzs70YEgxQOp/2mj7JbPOixb9fxciz
-         LCuA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnkpJr9nq9EBqtHP6MPBn3kKrUGNj3TX2SQni7hgg4yZ7LxN1kDgkIh/PiegdGqDCvtX1XSurhX4M2oFE/lQ0r@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLIViJuxTsqiUvGGVZIKWFkbszBhTuT3oOVQ7xyImfaxe+6hzg
-	Vuh8LFoqGfa5asMjl6Hj5/BsbLVWRtTA057aaRAlFy34Ff5NgwZKjj9BC7lvue5Gba4/Czx47Fk
-	727a9n+cpv8VSqjw/76w48EuvgaehwLvwMN8qE1DEsOz7Q6mfEwRU+ZPwY/W8r90QZc1HGNUu3w
-	==
-X-Gm-Gg: ASbGncv58s0QSx1aeZWIOQi/94h4WKK8jDzaOcBO6stWZRhp65SfFLhWEyi8+1bJJCr
-	LCkJnzUmY1OC854Zif5G/PVTf8w+GaOVZuW0+SIXFczlYjGxMr8Oh9UmTkJ3HhiSH6Mv0penyZs
-	ixFuUdNY485ApzHf0oPg5swxFoLXjeQXmJ0HWJxtgmMgm414p+Z8e8EUTuuvjkbANS+Y8rCbbuA
-	ftsmjO3FaVIqyxABntLpz30bsKRL0GiptY063DXNLsIaMoJzGJGVJa4mxJq8E4h41c+uHStSYT/
-	WBuXhTL/eplu5a+GoTbKI9zzdxRYFOf4JJY=
-X-Received: by 2002:a05:622a:1a03:b0:467:5eaf:7d23 with SMTP id d75a77b69052e-46a4a8bd016mr1224781cf.2.1734636416002;
-        Thu, 19 Dec 2024 11:26:56 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGCTR89xxu1vHIWAIqsQT8kRuL/oLnSLIOveVBByFKOkmA6Uq0iREZhkNLGVD3V8cyr3KWBBw==
-X-Received: by 2002:a05:622a:1a03:b0:467:5eaf:7d23 with SMTP id d75a77b69052e-46a4a8bd016mr1224521cf.2.1734636415607;
-        Thu, 19 Dec 2024 11:26:55 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80678c5a4sm925835a12.38.2024.12.19.11.26.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 11:26:54 -0800 (PST)
-Message-ID: <e4509104-c809-4d45-bdbb-a2d754a816db@oss.qualcomm.com>
-Date: Thu, 19 Dec 2024 20:26:51 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on pre-SYSTEM_SUSPEND
- PSCI impls
-To: Elliot Berman <quic_eberman@quicinc.com>,
-        Konrad Dybcio <konradybcio@kernel.org>
+	Thu, 19 Dec 2024 19:27:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FLmdDs9uf82pPjIli+tgQ4rD5vCSuq8lhkNAGTQuTeJlOlqqAAMSB70PsYkl+IpuaKvlQycEAdmZdfqfy4BVnDFthJ5/rKAsgkiv6fBb6V1JDHRg3VAnDZS6W2lOZcwLd1O9aFYql9UWpupLrBQ78v8VJKAH7uSTk21N1DJmMd+AmEWYLKkxRLLDCjuxKm1WHSBj9NGUxpcORl3KGb+1CQRQQqYL3SYfFUP1Uc8J3VAd88ftAh3/kl5Epodu4WjSub1We9GqWf9/tPxSHeeFrEzi74LUuDBb1NdzbPttE/CDBuCDw/6OnSmRD2NsaUebHaUFPdaH8ofVqXLD08BZ9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fBw5kp9SSBwQvZpMGmAbVD+2jgyl0mQ5vHpGEW5CPmE=;
+ b=rHwtJV/UYIPnXrkoBMAt5Rvheg1fOSM85gKJSt4Xo9K072L2ParQnSTmQRZs003IHxYxNqyGtWxTypu7LU7MgvvP2E+t59wEsx5LnnxYyWiHwIWj4iCFGtdJX9hCQBwymWGKEhLRxL3DJA/8sWEGQlTpUxzZZnSotXwt6mvvvMqOMYV2I+Pd8k555zmhJ1k6Ag3e0oBkbSYMkh3kZJXcAX54rumpPcbfi9iXKS6OMQjSFMC1Bnmnp+VA7PqVCFSkCIrlOxyKkj0qPJJD2NOMrw1295xS6hzEYAfWzBTbelL3qLHCJw3YB5xdXD5GwMgbtJ4rikiXbDHLbOK6KKgc8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fBw5kp9SSBwQvZpMGmAbVD+2jgyl0mQ5vHpGEW5CPmE=;
+ b=QbGkbd+l62j+ZjwGuLRMUsSe3fKqgTxvk/U+Fts8WEpKyfQUZvRiuKzswM2S/HFhxVTIq5Di1uh2/oYycNMoeQ1Pamjieb4iakXxf7+xZ9+WyTWXFxXAcx2BE9o1MrIw7/9Wfi311y5PECm/pNWq+DEZ4H7NGoCNChoqQSTZEoIfKKvKt5AoQGWVCHo1+3VVQnvJU1x2FWQpBm/o2wGAyOUWHSGdBfbNUzRJ2VwT5Xv5ZoE4NzOe8ucL5DRihCMnVv+dmQ/3tJrATXiXWKMFRd96hNSooh1K/TE2c7up/DgbwfnRLgrcyJkQBRbr6DKLNCy1sMLTe0SbC24CUX7BoQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS1PR04MB9453.eurprd04.prod.outlook.com (2603:10a6:20b:4da::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Thu, 19 Dec
+ 2024 19:27:36 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 19:27:36 +0000
+Date: Thu, 19 Dec 2024 14:27:28 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Lorenzo Pieralisi
- <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Sudeep Holla <sudeep.holla@arm.com>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241113165329590-0800.eberman@hu-eberman-lv.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241113165329590-0800.eberman@hu-eberman-lv.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: B_q3K-X8Tnt2arcV7oKfGXgj2NPQDFF8
-X-Proofpoint-GUID: B_q3K-X8Tnt2arcV7oKfGXgj2NPQDFF8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 mlxscore=0
- mlxlogscore=999 bulkscore=0 malwarescore=0 priorityscore=1501
- lowpriorityscore=0 impostorscore=0 clxscore=1015 spamscore=0 adultscore=0
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412190154
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 03/10] arm64: dts: imx8mp-skov: use I2C5 for DDC
+Message-ID: <Z2RzoITPUmZFoX09@lizhi-Precision-Tower-5810>
+References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
+ <20241219-skov-dt-updates-v1-3-38bf80dc22df@pengutronix.de>
+ <Z2RZG7pAElG3TGLx@lizhi-Precision-Tower-5810>
+ <a30baba6-6252-4c69-b6a7-e4099e823920@pengutronix.de>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a30baba6-6252-4c69-b6a7-e4099e823920@pengutronix.de>
+X-ClientProxiedBy: SJ0PR13CA0228.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c1::23) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9453:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2adda695-47a6-4485-8720-08dd20633196
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|52116014|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VDNzaFpZb293bFFsa3Y3amY4OEdXUHE3SVhVdEJiSnIrWFBwTFQ1RXUyU2U2?=
+ =?utf-8?B?NTB5bnRZa0dmWm1CNmR6R3cxTjBIdEt3RVRuMGFheHdMbE5mMkdqN2FLWXdl?=
+ =?utf-8?B?QXgvY0VvOVRiWlU5ekNmNGRzZk9NbUJhK09na09iVWpVK20vQ29KRTB0TkZ5?=
+ =?utf-8?B?U3Y5dyt6R3d5d09lTHU4NDJOVERQSlJZazZWckwzbXhWa0RrWFFXdHZtUC9C?=
+ =?utf-8?B?Q29hUmdDeE5QaExYL0trenZ6bFg4L0ZVSUVCbnBPYS9JK25OU1NlZm9wZ3pR?=
+ =?utf-8?B?Z3RRUXNzdGJJTW53bkpXWldSb0xiK2t2QWJoR1Z1L1BIM01NeTI4cXFHZFRD?=
+ =?utf-8?B?QjNIS0VzcXowM3VFaHNCNVpUS21mdU5xQlBXLytmSUdlU2Q2T3NuanUveTNp?=
+ =?utf-8?B?a2ptWWlGcTl3ZmpRS2VIOUgzMG1zUU1pcDcybWNnU055a1JiSnFRa1ltQ3U0?=
+ =?utf-8?B?b2FHcFErVTBpV0RQZERVdGJOYTE1OFNVQmpiYXZsc2tGNzlyY0tTL3MxczlS?=
+ =?utf-8?B?NFhwTWxXVStWVXF4bWR0b21wU0hFTVM5Z21wSTU4M3VIRkdzaCtJK1ZtRXV6?=
+ =?utf-8?B?Z2VXQjN0WE1nU01zbzJaRjd1Z0cvWUJFdnhsVHJUMFRRZVlKZGxZTUVMQU0v?=
+ =?utf-8?B?em1LbFJyZzdnOUcrT2hSdG5MVlFVSEdxMVFYRjNMcnNGUzJJUTNBK2h5QTY5?=
+ =?utf-8?B?WDZCVXNSRXcwZE90bVRNQnprTVhCUkZFTkRSNTkzSEZwWldQaDgvMndNTnhX?=
+ =?utf-8?B?Szl5LzlaK081N3V6ZkdOYUlNVlc0VllTU3NqNGdkcU5wOHdQTW1TVW9HRUZF?=
+ =?utf-8?B?MVd4eXJGQy9od1lZSVB6QkZSdllsM3Nkd0F6dkVNbzliZWUzQzVSTkFtWFli?=
+ =?utf-8?B?YWthQkgrYWtWZjBUOGg5LzFTWGNpTmNMV09vSTRpaWZMUHg4bTc5b2xWWmxm?=
+ =?utf-8?B?UlFLVUpjdjMyNjc4b1pJdmVDb29sWHA2QVhITW5GNkRmOFNOTVdYV2E5ZVR1?=
+ =?utf-8?B?OC81ZWw4TklkMGg5cit3Z1FIajVObytqTlcwRUdBdVQ5UmhMTmtLUnFyU2FJ?=
+ =?utf-8?B?SEdKYkRvYTdkWVVubnpDYkIxZHdhWGxWRjMycTRLNzJHcS9OMXpackUrS3Zr?=
+ =?utf-8?B?RWVZTGJkWm4rV0F1VmRyM1AyQ1dhUUt1azVPMFRkR1ZUUUxtWTdCSDlPVkZM?=
+ =?utf-8?B?M1lNSmgweERFUCtTY3I4Q2NLZC9PK3plUHVBQ1hCMDBIQlY0bXpVR1lyS3dY?=
+ =?utf-8?B?MUljdWFaN1o1dU8wb1lrMUxpNCszSTRtYnpoTjVHRXRNL0lZYlFWdXNMSkcz?=
+ =?utf-8?B?bXRBZDcza2orTW1VZHZybXJhbEYvbjRJMXJ4K3VSWjFqeXFSaWFsY3h6elJH?=
+ =?utf-8?B?T2NCamhMeUhXaUI2QmJXaGR4VmdCdnhhQlJRaUgvL1BzQlNNdStOSytFcUlZ?=
+ =?utf-8?B?cTBKcnJmdzc1cjlob2NCbTBudWVzLy84eXRlUTFKMHN3OEhIQi9yU2pYN2U2?=
+ =?utf-8?B?dHdKVGh6U2V3V3YrRzRtWHJBVklTdmJId1JOV3QzZ0NKVVdxQnpFU2pNQ1Na?=
+ =?utf-8?B?ekFkU1J4bURBTWV4Ni9kbjNxajZEQTFLWG9ROUcweVJyOGxPOVhJUlJkYjdt?=
+ =?utf-8?B?TUpIYklWOWFkN09aaDRHR0xTNkNEOUZOMEZpbUdJT2p5L1MxYmUxMzExdW1J?=
+ =?utf-8?B?YXdZbzRrbE5PTnE0QzN1STQ5UUxhNFluc0o4QThaaEdNMGh6Z2Mra3pGRG5G?=
+ =?utf-8?B?alNteTRUazR0QnNWanNLbjFiRjdnL1Z1dnc2dHJ1c2tkQ2xCZk5FelVZWDlt?=
+ =?utf-8?B?L2dRS0VKVE1yYUwvM281MVhmbnlUaS8wTVdJbXZoSGl3cWlmMXpkcFJxRUhN?=
+ =?utf-8?Q?t5Bc2KW3nmg5W?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(52116014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M29sK3VDTUk2NmJtWk9iWVNYajM1R1lTQk5weXVlVlVYc1JXYjMrZWNjTW8w?=
+ =?utf-8?B?R1dWc1lObjIzeVVoaVVwclg1ZXJXYys3RmU5Ti9UNlpHS1NSSW5XanZQaXc4?=
+ =?utf-8?B?OGZDV1V4aG9ETVh5aksxUGl1Z3RCUi9PMWNUREtDNEFUd3Ezbnh1RjdwWkxU?=
+ =?utf-8?B?YzNxVGwrQmhiLzBJVW9Od0Z4MEtaZmczekRsa1crdFc2cC9ZSTIxL2FIbVRD?=
+ =?utf-8?B?L2ZPSG42ZTBORW5DVmdKWStJTTBubm0wbWxzb1JJRER4L3RnT3Z5RU5MdDJN?=
+ =?utf-8?B?TnYwUlg2cmdUU3RFbjFzRGpUKzVVNWU4blJwd081d2JCcVdyN2lhN3FwV2J2?=
+ =?utf-8?B?WThmQXc0L3FIcDR5RGp0dkkxR3Vqb3ViRythRklKZ0c3VFhuZ0NnbWJVcjlP?=
+ =?utf-8?B?Z0dDSXBHem1OSjJweTQ2VGhYVCtud0RyZGJhaXFaYmMxTUVReG5MR3M1VzV1?=
+ =?utf-8?B?SW14cmNmZURobEFLS1RKSytSc1U0R3RTc2x3UWRuZkt3dFhrMnltWjNWejlq?=
+ =?utf-8?B?Q3dIQ0NKTnBDZ2ZTNWtVaGZ5eUtGUlFsb2FBVU90enFxOTVvWUFlNEN1a3FG?=
+ =?utf-8?B?bldyVU1JcWh3aVBNdnppTEJTNkx2WTZZMGx1eFJsY1MxUjNLQ3M4Mktyd0N6?=
+ =?utf-8?B?R0MxWHY3RnE5b294M05Gd2JLeFpaTVlsOTVZNXJFZ1NqdDBGdkY2VzEzQnBu?=
+ =?utf-8?B?OEFwcTJ0SmFLZmhmMHJiMHhOMlpOUVhlZGtkcGV0VDh6dFRLcElsekdBTnZE?=
+ =?utf-8?B?RlV4RUJkUG1HTTdVZ1NSZ3FpNEtsUGVxRjJJbms3dVRJYXJ0MkxCd1g1dFE4?=
+ =?utf-8?B?V2hycGJNYzI4L3A1U21SUzZpaWdybFphbUJwZ0hPRm1DY1hkd0s4NDJIS1Uv?=
+ =?utf-8?B?U3RqZC8vT1ErUFpYUHJnV01uYXVPcXJZMmREaE9VaWw2SzQvdWh4b3RTT1Ez?=
+ =?utf-8?B?a0RUOHowR1FRME1yY0F3ajloRFhaMk4vVUIwVFRIdUpQcDVnSnlqTHZuUGdi?=
+ =?utf-8?B?aGRTYUZHVThUdjNKU09SRVBoeXVpQW41OFZ2U01pZEw3MXlIcUwwdWlqUkR0?=
+ =?utf-8?B?Tnk2U255d1RSK3ZxYmFSZ1E0QVZTL3Y1WTg5Z3RKWXVEcFk4RExOaUpPWU9y?=
+ =?utf-8?B?Mkt6NlVqM09XMGVGVkhXRjNuem94bXVRUnZmV0hxUkprR1YzSnozOENvRDla?=
+ =?utf-8?B?Z2F3TjErejBoQi9aQkVuWDAwUytVcCswdDVMMDZNS0pqcGZsR2o4cldkSDMr?=
+ =?utf-8?B?c1VzclB0Vm9VZW4rR1VxM0F6a0wyY0tkYUI0cy9RTGhPNmZEaTVqaVFmRFRv?=
+ =?utf-8?B?V2Y0SlNJbVgwc1hLQW9qcmUxWVBXUWhMbS9NS05nN0RGWVN5NUpoYnhVdjJo?=
+ =?utf-8?B?enBwYVlZQ3hkK0xWc1dra3BMalBQNWRwL3U5VGtBTkFKYzNDUmRQbytkNVMv?=
+ =?utf-8?B?Rk5OTzdkOFEzdCtvN1BsbzJpSStsZVArdFRaTEVRUlRJcWZwU3RDbTJrZGJO?=
+ =?utf-8?B?TlZUUUp3NW5YYjNqRFJHbVZBVXJkZ2VRMDg3R0pFUndHRmI0U1lERC9YaTRj?=
+ =?utf-8?B?RzF6aUMxZHVPOFR6aW5XN3ZlcXJ6QnFUTjMyRUcrYzFtQWFBbFhzY1lETGJI?=
+ =?utf-8?B?QS94VUc1aUdaSTV2ODJGaVRKeFkvVk45bFlvK2IvaWpWWmd0dm9rL0JrbTEv?=
+ =?utf-8?B?VEdaZzFoMmFLMjJ5VzFPNWozbzJobEZPY3BIS0pNdVhxMDVuOHJua2JXaG5F?=
+ =?utf-8?B?Z3hVeFBkKzlScnkrcFlMbnF2Q0VtdnBkK0pCRXBrRmoxZkdsSHN4Y2VLamJw?=
+ =?utf-8?B?N0FmOXdaR3RXN2todi9BY3BZenI3VnNOODVMV3RtSm9UREdFT1cxNTVxTW9G?=
+ =?utf-8?B?NDVIYXljWTUyd3llR3JLZEU2V0JYenZ0bHc2cjRKWVR6SVdlVUNrZ2t4eE40?=
+ =?utf-8?B?MUVPM3M5ZHRZVVBwbS9zT3VuR0RWbUswcG5kWmlyK0s5Rloza0w4K1M4ODky?=
+ =?utf-8?B?ZnV4RGJTMFFsVzhTRGdpL1NDZ0VpTDdrSTdtNklpeDNiUGovdVZuNmhrSEFM?=
+ =?utf-8?B?aytjU1RqSGxBVHZJNjJvQkNSMlZSejcwRmd5KzhpS1RiMWdHRUptZEJyRG81?=
+ =?utf-8?Q?pHTSz8W/JRlWnYaQ1BSkEwmJN?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2adda695-47a6-4485-8720-08dd20633196
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 19:27:36.4819
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Cjid+8wMkygXiR/vmTNzyiNOq1VGVcoGLmwsc3Pgb4sysxDb09jCszkFA/jiSgJhfSDSUFXWnwiyLyF9VNGs5g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9453
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_112658_062722_99BB24B3 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20241219_112739_563600_6D509A57 
+X-CRM114-Status: GOOD (  31.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,52 +181,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.11.2024 2:10 AM, Elliot Berman wrote:
-> On Mon, Oct 28, 2024 at 03:22:56PM +0100, Konrad Dybcio wrote:
->> Certain firmwares expose exactly what PSCI_SYSTEM_SUSPEND does through
->> CPU_SUSPEND instead. Inform Linux about that.
->> Please see the commit messages for a more detailed explanation.
->>
->> This is effectively a more educated follow-up to [1].
->>
->> The ultimate goal is to stop making Linux think that certain states
->> only concern cores/clusters, and consequently setting
->> pm_set_suspend/resume_via_firmware(), so that client drivers (such as
->> NVMe, see related discussion over at [2]) can make informed decisions
->> about assuming the power state of the device they govern.
->>
->> If this series gets green light, I'll push a follow-up one that wires
->> up said sleep state on Qualcomm SoCs across the board.
->>
->> [1] https://lore.kernel.org/linux-arm-kernel/20231227-topic-psci_fw_sus-v1-0-6910add70bf3@linaro.org/
->> [2] https://lore.kernel.org/linux-nvme/20241024-topic-nvmequirk-v1-1-51249999d409@oss.qualcomm.com/
->>
-> 
-> I got a bit confused, but I think I might've pieced it together. Konrad
-> wants to support s2ram (not clear why) on Qualcomm SoCs from 2015-2023.
-> On these SoCs, PSCI_SYSTEM_SUSPEND (s2ram) isn't supported but doing
-> s2idle gets you the same effect. You'd like s2ram to work, so you
-> provide a way to replace the PSCI_SYSTEM_SUSPEND param with
-> (effectively) the CPU_SUSPEND command. If this is the wrong
-> understanding, please correct me.
-> 
-> Could patch 2 be sent separately? I think it seems fine without the
-> rest of the series.
-> 
-> I'm not sure why you'd like to support s2ram. Is it *only* that you'd
-> like to be able to set pm_set_supend/resume_via_firmware()? I hope this
-> doesn't sound silly: what if you register a platform_s2idle_ops for the
-> relevant SoCs which calls pm_set_suspend/resume_via_firwmare()?
+On Thu, Dec 19, 2024 at 06:43:56PM +0100, Ahmad Fatoum wrote:
+> Hello Frank,
+>
+> On 19.12.24 18:34, Frank Li wrote:
+> > On Thu, Dec 19, 2024 at 08:25:27AM +0100, Ahmad Fatoum wrote:
+> >> The HDMI DDC pads can be muxed either to an i.MX I2C controller or
+> >> to a limited I2C controller within the Designware HDMI bridge.
+> >>
+> >> So far we muxed the pads to the HDMI bridge, but the i.MX I2C controller
+> >> is the better choice:
+> >
+> > Switch to the i.MX I2C controller because
+> >
+> >>
+> >>   - We use DDC/CI commands for display brightness configuration, but the
+> >>     Linux driver refuses[1] transfers to/from address 0x37, because the
+> >>     controller doesn't support multi-byte requests.
+> >
+> >       Designware HDMI Limited I2C controller doesn't support multi-byte
+> > requests and display brightness configuration by DDC/CI command need it.
+> >
+> >>
+> >>   - The driver doesn't support I2C bus recovery, but we need that,
+> >>     because some HDMI panels used with the board can be flaky.
+> >
+> >       Designware HDMI Limited I2C controller doesn't support I2C bus
+> > recovery.
+> >
+> >>
+> >> As the i.MX I2C controller doesn't have either of these limitations,
+> >> let's make use of it instead.
+> >
+> > Reduntant. can be removed.
+>
+> Sorry, I am very much open to review feedback, but I fail to see how
+> your subjective take improves things.
 
-S2RAM is what you get after entering a certain state, but currently
-it's presented as just another (s2idle) idle state.
+Ref https://docs.kernel.org/process/submitting-patches.html
 
-That means some hardware that may need to be reinitialized, isn't as
-Linux has no clue it might have lost power.
+"Describe your changes in imperative mood, e.g. “make xyzzy do frotz”
+instead of “[This patch] makes xyzzy do frotz” or “[I] changed xyzzy to do
+frotz”, as if you are giving orders to the codebase to change its behaviour."
 
-One of such cases is the PCIe block, with storage drivers specifically
-looking for pm_suspend_via_firmware, but that's unfortunately not the
-whole list.
+Avoid use "we(same as "I" in above example) ..."
 
-Konrad
+Frank
+
+>
+> Thanks,
+> Ahmad
+>
+>
+>
+>
+> >
+> > Frank
+> >>
+> >> [1]: https://lore.kernel.org/all/20190722181945.244395-1-mka@chromium.org/
+> >>
+> >> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> >> ---
+> >>  .../boot/dts/freescale/imx8mp-skov-revb-hdmi.dts   | 26 ++++++++++++++++++++--
+> >>  1 file changed, 24 insertions(+), 2 deletions(-)
+> >>
+> >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+> >> index c1ca69da3cb8..206116be8166 100644
+> >> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+> >> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+> >> @@ -9,12 +9,34 @@ / {
+> >>  	compatible = "skov,imx8mp-skov-revb-hdmi", "fsl,imx8mp";
+> >>  };
+> >>
+> >> +&i2c5 {
+> >> +	pinctrl-names = "default", "gpio";
+> >> +	pinctrl-0 = <&pinctrl_i2c5>;
+> >> +	pinctrl-1 = <&pinctrl_i2c5_gpio>;
+> >> +	scl-gpios = <&gpio3 26 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> >> +	sda-gpios = <&gpio3 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> >> +	clock-frequency = <100000>;
+> >> +	status = "okay";
+> >> +};
+> >> +
+> >>  &iomuxc {
+> >>  	pinctrl_hdmi: hdmigrp {
+> >>  		fsl,pins = <
+> >> -			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL		0x1c3
+> >> -			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA		0x1c3
+> >>  			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD			0x19
+> >>  		>;
+> >>  	};
+> >> +
+> >> +	pinctrl_i2c5: i2c5grp {
+> >> +		fsl,pins = <
+> >> +			MX8MP_IOMUXC_HDMI_DDC_SCL__I2C5_SCL			0x400001c2
+> >> +			MX8MP_IOMUXC_HDMI_DDC_SDA__I2C5_SDA			0x400001c2
+> >> +		>;
+> >> +	};
+> >> +
+> >> +	pinctrl_i2c5_gpio: i2c5gpiogrp {
+> >> +		fsl,pins = <
+> >> +			MX8MP_IOMUXC_HDMI_DDC_SCL__GPIO3_IO26			0x400001c2
+> >> +			MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27			0x400001c2
+> >> +		>;
+> >> +	};
+> >>  };
+> >>
+> >> --
+> >> 2.39.5
+> >>
+> >
+>
+>
+> --
+> Pengutronix e.K.                           |                             |
+> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
