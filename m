@@ -4,78 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3247DE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D6CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ceh++z+WqXGM46INc/W89OSTJw8DjpL2idRVtq4UZjM=; b=qbSDMV3xVcAxZTdUzNc/v9XZ4X
-	+2xvHSyT8ZY+eFeqtPxe555MIHI4zsAMv/fuugS3eZGjvHDl7RpHZKBEP+Aw1WqMM1hHedyRs62il
-	2agVn3zDKQ6qbJinjaWnJTxdCsewpOQivu/370jO8PEb0WqWrDMRw2FTTkAsPXzgYw0eYjm7ptAyF
-	QoD9enXf7wVH81zFt6UnpiXmFe0Co0tk5KgPOPIOAXaKn1gup2Trbyy+6nINM18sagG2A3mX1WEpm
-	PXYMLaUNqJhUiqz0DFA5mv+F8BaS+C7JmMGVjQ1Y2Yde5qQ5OrUpcEg/FOFBVoPDNAH2tdn6tmGnj
-	cNuBBZqQ==;
+	bh=HxmrauwBcarL75NIlSIauvBoJN/faGvnGfZGd+8/O9o=; b=HlhVcYySKIzZzMed3ZA3C/I3/6
+	rx67o6dA3ac9rSIvxHlgi0lisM6CRNFryPCZsHF+kUpnU50LZFJyPurj5PZU5J22uOtl/6InsViR4
+	0uAGnF6tbSERVeFqcMUxwZYHv2HWosmrFKCDqb0lZuFekwxc3hMURSRm2wZRlishXFfxr+RmPULC5
+	BVhVtgGCU2ZMzibJrPcoJZr+ZEPBoKOC9UT50HjB6ykXv9Dc/JRq7obkjWbyxGWIc9O3tbH4r6NaF
+	+uIS6c4WrIc2pyv0fmWlYni0CfO/OWr91YjsKDIc7HJu0xvXY7SGJbpqzCLg9pNTvsyjaShocxD41
+	iSt50X+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODvU-00000001YuY-1UH3;
-	Thu, 19 Dec 2024 10:38:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODuO-00000001Ynm-0N68
+	id 1tOE72-00000001Zul-3lMT;
+	Thu, 19 Dec 2024 10:50:36 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOE5v-00000001Zs7-3c1L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:37:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E52EAA42073;
-	Thu, 19 Dec 2024 10:35:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 184B0C4CED0;
-	Thu, 19 Dec 2024 10:37:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734604650;
-	bh=6NtTS3sFBKTuhe+YrFYJjIB7PeX5OysvL/IIYf8a964=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nSzDAU+HqyERLsxyx3tZBNRur3PX7/DH8uv9Fpzuq4hQlJ9wE2jv4yLtUgfx5rnDI
-	 +L0RvXFLDuUdFu7tUinxgfzFVWB/a1EXCdy3t8JOafqaeMLXgJB9CKLT3aUVO3Uc57
-	 weaGduU7CW427tXzwZkbaokDGw1tRh3RnTnPTMaoOWzyBy12FYH/0KM8kTLdiUDuXV
-	 h22oGMfLRMWV/iYrINSxXPv+M8pqgQZHwC55zVMKxBxSwXtSMydib5gjudjCt5yikj
-	 rB2W8QWckzJNiITHvlA+jXKLa/zH8loNuhGgJNbhH+IOjMmu4+fnFXbjz0o+JDAUp2
-	 o8dEXEQJtmo5Q==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tODuQ-000000001mQ-2Z6I;
-	Thu, 19 Dec 2024 11:37:34 +0100
-Date: Thu, 19 Dec 2024 11:37:34 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Sibi Sankar <quic_sibis@quicinc.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, sudeep.holla@arm.com,
-	andersson@kernel.org, konrad.dybcio@linaro.org, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, quic_rgottimu@quicinc.com,
-	quic_kshivnan@quicinc.com, conor+dt@kernel.org,
-	arm-scmi@vger.kernel.org,
-	Ettore Chimenti <ettore.chimenti@linaro.org>
-Subject: Re: [PATCH V4 0/5] arm_scmi: vendors: Qualcomm Generic Vendor
- Extensions
-Message-ID: <Z2P3bh04xXsreBF7@hovoldconsulting.com>
-References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <ZytnRc94iKUfMYH0@hovoldconsulting.com>
- <ZyvLktLUZOGP-LH5@pluto>
- <Zy4qvedrmkRdPR3x@hovoldconsulting.com>
- <8d42682b-0fa7-3962-da12-728cfe64903b@quicinc.com>
- <Z0BC203BhGEmXcJi@hovoldconsulting.com>
- <d61bb7bc-d824-883a-4edd-109ae74076c1@quicinc.com>
- <Z1HMWUa_QCsNA1-Q@hovoldconsulting.com>
- <132d1404-9009-9fb5-1fb9-63eca03ce9fc@quicinc.com>
+	Thu, 19 Dec 2024 10:49:29 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 1A80172C8CC;
+	Thu, 19 Dec 2024 13:49:23 +0300 (MSK)
+Received: from pony.office.basealt.ru (unknown [193.43.10.9])
+	by imap.altlinux.org (Postfix) with ESMTPSA id 1026E36D0193;
+	Thu, 19 Dec 2024 13:49:23 +0300 (MSK)
+Received: by pony.office.basealt.ru (Postfix, from userid 500)
+	id DB1BF360CB20; Thu, 19 Dec 2024 13:49:22 +0300 (MSK)
+Date: Thu, 19 Dec 2024 13:49:22 +0300
+From: Vitaly Chikunov <vt@altlinux.org>
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>, stable@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, gshan@redhat.com, james.morse@arm.com, 
+	maz@kernel.org, oliver.upton@linux.dev, shameerali.kolothum.thodi@huawei.com, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Jing Zhang <jingzhangos@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 6.6 v1] KVM: arm64: Disable MPAM visibility by default
+ and ignore VMM writes
+Message-ID: <fqmjpadvbc7hoakm5qsmaxbgr7jomuehxjm3axo3sbpl4nzqvg@innog6dkmwqd>
+References: <20241212151406.1436382-1-joey.gouly@arm.com>
+ <2024121528-refurbish-plausibly-31c7@gregkh>
+ <20241217104058.GA2151333@e124191.cambridge.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <132d1404-9009-9fb5-1fb9-63eca03ce9fc@quicinc.com>
+In-Reply-To: <20241217104058.GA2151333@e124191.cambridge.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_023732_261175_7640D835 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20241219_024928_229721_F66C3803 
+X-CRM114-Status: GOOD (  26.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +71,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 05:19:25PM +0530, Sibi Sankar wrote:
-> On 12/5/24 21:22, Johan Hovold wrote:
-> > On Thu, Dec 05, 2024 at 04:26:55PM +0530, Sibi Sankar wrote:
-> >> On 11/22/24 14:07, Johan Hovold wrote:
+Marc, Joey,
+
+On Tue, Dec 17, 2024 at 10:40:58AM GMT, Joey Gouly wrote:
+> On Sun, Dec 15, 2024 at 10:22:53AM +0100, Greg KH wrote:
+> > On Thu, Dec 12, 2024 at 03:14:06PM +0000, Joey Gouly wrote:
+> > > From: James Morse <james.morse@arm.com>
+> > > 
+> > > commit 6685f5d572c22e1003e7c0d089afe1c64340ab1f upstream.
+> > > 
+> > > commit 011e5f5bf529f ("arm64/cpufeature: Add remaining feature bits in
+> > > ID_AA64PFR0 register") exposed the MPAM field of AA64PFR0_EL1 to guests,
+> > > but didn't add trap handling. A previous patch supplied the missing trap
+> > > handling.
+> > > 
+> > > Existing VMs that have the MPAM field of ID_AA64PFR0_EL1 set need to
+> > > be migratable, but there is little point enabling the MPAM CPU
+> > > interface on new VMs until there is something a guest can do with it.
+> > > 
+> > > Clear the MPAM field from the guest's ID_AA64PFR0_EL1 and on hardware
+> > > that supports MPAM, politely ignore the VMMs attempts to set this bit.
+> > > 
+> > > Guests exposed to this bug have the sanitised value of the MPAM field,
+> > > so only the correct value needs to be ignored. This means the field
+> > > can continue to be used to block migration to incompatible hardware
+> > > (between MPAM=1 and MPAM=5), and the VMM can't rely on the field
+> > > being ignored.
+> > > 
+> > > Signed-off-by: James Morse <james.morse@arm.com>
+> > > Co-developed-by: Joey Gouly <joey.gouly@arm.com>
+> > > Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > > Tested-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> > > Reviewed-by: Marc Zyngier <maz@kernel.org>
+> > > Link: https://lore.kernel.org/r/20241030160317.2528209-7-joey.gouly@arm.com
+> > > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> > > [ joey: fixed up merge conflict, no ID_FILTERED macro in 6.6 ]
+> > > Signed-off-by: Joey Gouly <joey.gouly@arm.com>
+> > > Cc: stable@vger.kernel.org # 6.6.x
+> > > Cc: Vitaly Chikunov <vt@altlinux.org>
+> > > Link: https://lore.kernel.org/linux-arm-kernel/20241202045830.e4yy3nkvxtzaybxk@altlinux.org/
+> > > ---
+> > > 
+> > > This fixes an issue seen when using KVM with a 6.6 host kernel, and
+> > > newer (6.13+) kernels in the guest.
+> > > 
+> > > Tested with a stripped down version of set_id_regs from the original
+> > > patch series.
 > > 
-> >>> I have a Lenovo ThinkPad T14s set up now so I gave this series a spin
-> >>> there too, and there I do *not* see the above mentioned -EOPNOSUPP error
-> >>> and the memlat driver probes successfully.
-> >>>
-> >>> On the other hand, this series seems to have no effect on a kernel
-> >>> compilation benchmark. Is that expected?
-> >>
-> >> I can have a look at your tree. But memlat in general
-> >> depends on the cpu frequency when your benchmarks max
-> >> the cpu's the ddr/llcc are scaled accordingly by it.
-> > 
-> > A kernel compilation should max out the CPU frequency on all cores.
-
-Answering my own question here; bwmon should scale the buses for
-benchmarks like kernel compilations so I guess the non-existing impact
-of memlat is expected here.
-
-Ettore helped me run some further benchmarks, including cachebench, but
-also saw no positive (or negative) effect with this series running on an
-X1E CRD (with recent firmware).
-
-Do you have any suggestions of benchmarks to run where the effect of
-memlat should show up? What have you been using for testing?
-
-I did measure a possibly slightly higher (idle) power consumption with
-memlat, but I guess that is also expected given the intended more
-aggressive ramping of the bus clocks.
-
-These are the branches (and configs; johan_defconfig) we've used for
-testing:
-
-	https://github.com/jhovold/linux/tree/wip/x1e80100-6.13-rc3
-	https://github.com/jhovold/linux/tree/wip/x1e80100-6.13-rc3-memlat
-
-> >>> And does this mean that you should stick with the uppercase "MEMLAT"
-> >>> string after all? The firmware on my CRD is not the latest one, but I am
-> >>> using the latest available firmware for the T14s.
-> >>
-> >> We should stick with "memlat" if we run into a device in the
-> >> wild that doesn't support "MEMLAT"
-> > 
-> > Ok. So the updated firmware supports both strings?
+> > What about 6.12.y?  You can't just skip a stable tree, otherwise you
+> > will get a regression when you upgrade to 6.12.y, right?
 > 
-> Sry for the delay, was out sick. Yes the updated firmware supports both
-> strings.
+> I did have it ported/tested locally, but I wasn't sure of the stable process,
+> so just sent out one!  Next time I will send all the backports at the same
+> time.
+> 
+> Thanks Marc Z for sending it out!
 
-No worries, hope you're feeling better.
+Thank you for backporting this, and thanks to everyone involved in the fix.
 
-I noticed that the firmware on the T14s indeed accepts both strings.
+Vitaly,
 
-Johan
+> 
+> Joey
 
