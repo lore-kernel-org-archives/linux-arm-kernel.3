@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E94E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C19BE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DQFBsS7vjDN7Yy5YyjhfFpUsKHi37cyKgTd1+99/h30=; b=y9rmM1DJ/8IrDw2IPmgy4TzCf1
-	g4FgbhqYcpvih5LxAV/P//Cfix/9/nbH8onpjg2aAg1UmWqp13w8vcoI0j0CABldIlAxrURnUj9JC
-	KyUok0qEUDCbfCgN/Fy5hdWHJ90gVkTuXf+mR6XCi4BfplSiBoUNtvgfY1Zs78BWqYVpGizX9ZXok
-	VMUb5YDx7JQhrVtXz33VnPQIFaK5PRGAgVgFTvrSkGcmpX/RKxQ91dIbC45XzZXi7FKnOJtGOWsFZ
-	i01or30v4B3MeiTBLdd9UeaUTY2AomFNBcIPXFtH+9aY3gaunN72QwEw9EZ00sxZUbAnvQv9f16c9
-	LVsMIv0w==;
+	bh=j8z10tvWj/wyawJ2zj9iSgQgNs1xm6nnOQ6f4z3xfac=; b=oHx/sxyEFlFAYKb21oJKWlhGlL
+	Z4w2LI32B4iKnl05VcMbaM+zWPgmwIpuV+xNREuTDQN7hhi4m03QuvcMR8bd9lEYOpX764NatK7c1
+	Gdy+tZKeRe4csFDEmRqqOQMC7aoxNz8WTk3NEPN27tZcZiHXNIrXNbPYxEra/8sdAI2FSyU4ek9kp
+	3Oxivi2on0jVhHBtZFnppZJnIdzItPWMnzHTPTJZeSdeI2I/K8/nRKv5lzdBD1MxLk4qClwrCzAv+
+	A2spMaMpuky+AbvH26aPFbaafNnVP/RNRYMGxMar+PtVJNxB+Yali/sWVQh1gGvnoc7TLtcmzdlR3
+	5yu+kzvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOB05-000000015v7-1HSb;
-	Thu, 19 Dec 2024 07:31:13 +0000
+	id 1tOB19-0000000168R-45yW;
+	Thu, 19 Dec 2024 07:32:19 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAuu-000000014pZ-0dkR
+	id 1tOAuu-000000014pY-0TA0
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 19 Dec 2024 07:25:53 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAuc-00064L-0h; Thu, 19 Dec 2024 08:25:34 +0100
+	id 1tOAuc-00064K-0g; Thu, 19 Dec 2024 08:25:34 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAua-004AO9-2n;
+	id 1tOAua-004AOB-2m;
 	Thu, 19 Dec 2024 08:25:33 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAub-00GenW-1e;
+	id 1tOAub-00GenW-1f;
 	Thu, 19 Dec 2024 08:25:33 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 19 Dec 2024 08:25:25 +0100
-Subject: [PATCH 01/10] arm64: dts: imx8mp-skov: correct PMIC board limits
+Date: Thu, 19 Dec 2024 08:25:26 +0100
+Subject: [PATCH 02/10] arm64: dts: imx8mp-skov: operate CPU at 850 mV by
+ default
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-skov-dt-updates-v1-1-38bf80dc22df@pengutronix.de>
+Message-Id: <20241219-skov-dt-updates-v1-2-38bf80dc22df@pengutronix.de>
 References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
 In-Reply-To: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,8 +68,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_232552_193248_D06A6F26 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20241218_232552_151784_A0EAF595 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,91 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMIC voltage constraints in the device tree currently describe the
-permissible range of the PMIC. This is unnecessary as this information
-already exists in the driver and wrong as it doesn't account for
-board-specific constraints, e.g. a 2.1V on VDD_SOC would fry the SoC and
-a maximum voltage of 3.4V on the VDD_3V3 rail may be unexpected across
-the board.
+The Skov i.MX8MP boards are passively cooled and heatsink is specced for
+continuous operation at 1.2 GHz only. Short bouts of 1.6 GHz are ok,
+but these should be invoked intentionally, not as part of
+suspend/resume cycles.
 
-Fix this by adjusting constraints to reflect the board limits.
+Therefore, configure RUN frequency as 850 mV and remove the higher
+voltage operating points from those permissible for suspend.
 
 Fixes: 6d382d51d979 ("arm64: dts: freescale: Add SKOV IMX8MP CPU revB board")
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 24 +++++++++++-----------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-index 59813ef8e2bb..ae82166b5c26 100644
+index ae82166b5c26..7ae686d37dda 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-@@ -247,8 +247,8 @@ reg_vdd_soc: BUCK1 {
+@@ -163,6 +163,19 @@ reg_vsd_3v3: regulator-vsd-3v3 {
+ 	};
+ };
  
- 			reg_vdd_arm: BUCK2 {
- 				regulator-name = "VDD_ARM";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <2187500>;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <1000000>;
- 				vin-supply = <&reg_5v_p>;
++/*
++ * Board is passively cooled and heatsink is specced for continuous operation
++ * at 1.2 GHz only. Short bouts of 1.6 GHz are ok, but these should be done
++ * intentionally, not as part of suspend/resume cycles.
++ */
++&{/opp-table/opp-1600000000} {
++	/delete-property/ opp-suspend;
++};
++
++&{/opp-table/opp-1800000000} {
++	/delete-property/ opp-suspend;
++};
++
+ &A53_0 {
+ 	cpu-supply = <&reg_vdd_arm>;
+ };
+@@ -253,7 +266,7 @@ reg_vdd_arm: BUCK2 {
  				regulator-boot-on;
  				regulator-always-on;
-@@ -259,8 +259,8 @@ reg_vdd_arm: BUCK2 {
+ 				regulator-ramp-delay = <3125>;
+-				nxp,dvs-run-voltage = <950000>;
++				nxp,dvs-run-voltage = <850000>;
+ 				nxp,dvs-standby-voltage = <850000>;
+ 			};
  
- 			reg_vdd_3v3: BUCK4 {
- 				regulator-name = "VDD_3V3";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <3400000>;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
- 				vin-supply = <&reg_5v_p>;
- 				regulator-boot-on;
- 				regulator-always-on;
-@@ -268,8 +268,8 @@ reg_vdd_3v3: BUCK4 {
- 
- 			reg_vdd_1v8: BUCK5 {
- 				regulator-name = "VDD_1V8";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <3400000>;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
- 				vin-supply = <&reg_5v_p>;
- 				regulator-boot-on;
- 				regulator-always-on;
-@@ -277,8 +277,8 @@ reg_vdd_1v8: BUCK5 {
- 
- 			reg_nvcc_dram_1v1: BUCK6 {
- 				regulator-name = "NVCC_DRAM_1V1";
--				regulator-min-microvolt = <600000>;
--				regulator-max-microvolt = <3400000>;
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
- 				vin-supply = <&reg_5v_p>;
- 				regulator-boot-on;
- 				regulator-always-on;
-@@ -286,8 +286,8 @@ reg_nvcc_dram_1v1: BUCK6 {
- 
- 			reg_nvcc_snvs_1v8: LDO1 {
- 				regulator-name = "NVCC_SNVS_1V8";
--				regulator-min-microvolt = <1600000>;
--				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
- 				vin-supply = <&reg_5v_p>;
- 				regulator-boot-on;
- 				regulator-always-on;
-@@ -295,8 +295,8 @@ reg_nvcc_snvs_1v8: LDO1 {
- 
- 			reg_vdda_1v8: LDO3 {
- 				regulator-name = "VDDA_1V8";
--				regulator-min-microvolt = <800000>;
--				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
- 				vin-supply = <&reg_5v_p>;
- 				regulator-boot-on;
- 				regulator-always-on;
 
 -- 
 2.39.5
