@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE88CE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722D4E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YX2boY8rrml6fgM6RWKd/u7pgEuMrl1kiYRJNautHpE=; b=GVSdV+EwGrl64kgpa1ELJtlFSD
-	RvuL41KaEx+awfteVe6Af6IDPJrKuzcBIMvsQgpRSqhVWDCBB1fKIDesvov/GZ4PpnEd25CfWIj+D
-	f3EwF5m0wCY7Zz6FbuNSJ3dYvkmDUeCUTdEqJ95Fzqo9sNWmfJamtPKaIOIJL2JF2xnLwQkGhSg3h
-	D1rulvTlmGizy4fX31Manv05yUJtPTsBV+lxoeRMDPxz/H8gdtKGAiRxrF6hPl2lWlpU6RTya9h/R
-	GqS2u3iPsA0dvmHII6/pAWBZdXIMQW2dIPcDxkh9V74POLucDFpDBwT1eGXX2C68cUcVxQR1/MNc1
-	22JLEYlA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h9EH0VzNdlwEE7HT+ejlIQXInr2HWzq5t9FyUGd1FM0=; b=VUMeMuhJdtOH2iXUMSJLTxZGTd
+	Saqd29DfXCD1RjpbK4cETC4+mfonufB+nqFF21qPPNhfC+B9x6fbCiTfbl2VUB8qatTY1udX009XO
+	Tkx0Fn01kfi4kiSaQC+m6AA0jnDk6ENkQBQek4VnfFT6s24iHMjmYs7MtwcjoeWEd3dUEp+xUPksH
+	MjkLy7mtO4QhzAE7ePEgKN/PWPLSHgXjOUP2RBn5xAtKl/cUsv/SbsnHypwf5YAerUSc1OGlMYYoz
+	WloC9qfdpOJn/5TsDN4qlUA5nfsalJG6HrieWmQFQBmYmK+84G7QmB6KhwRjaTZn0ECNaCZslAZZ0
+	PAr1fJHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEAa-00000001aTM-2KIV;
-	Thu, 19 Dec 2024 10:54:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tOEBf-00000001agW-2BYx;
+	Thu, 19 Dec 2024 10:55:23 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOE8x-00000001aBA-2E2X
+	id 1tOE9V-00000001aGk-2AW7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:52:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 29EE9A42073;
-	Thu, 19 Dec 2024 10:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56BDFC4CECE;
-	Thu, 19 Dec 2024 10:52:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734605554;
-	bh=vW13L2zwHZ3hPtsWWe7muVvrgkpQiIKqYaJQXfMjg2A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NgO1FvQD7/sFmTiuv1faa8PAkx1blRdl3ATIlf4H+k/GeG0ulKNYLmaxbUWNKO7r1
-	 s9EPm9MfLp9jQ/NBdYAMXNwdBsw0NZi//ME/W0jTPpBBYYYQBcJgxXdZL7WmtkYNZr
-	 ZygM4PibVRaVacKU/WYa21wFcNjenc5ulAlvmVEUp+VC/OC2u9QIlrnjqdbx2+OF9/
-	 Ou2WHLt/36NnV3MnOB3fDgkqNGk186Rs33q9t7/+pC3OXErJ9BdsxQfxS5r3RA+nrE
-	 TIn9dfF3bErr15lDUkew2vkuMajHOuiGKp7+ZCEEosukS3Vs53rkzlM0b8g5Gqkrqe
-	 xjCLVdsWf7AQw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tOE8s-005F37-Q2;
-	Thu, 19 Dec 2024 10:52:30 +0000
-Date: Thu, 19 Dec 2024 10:52:30 +0000
-Message-ID: <868qscq70x.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,	Krzysztof
- =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,	Kishon Vijay Abraham I
- <kishon@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Arnd Bergmann
- <arnd@arndb.de>,	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,	Thomas Gleixner
- <tglx@linutronix.de>,	Anup Patel <apatel@ventanamicro.com>,
-	linux-kernel@vger.kernel.org,	linux-pci@vger.kernel.org,
-	imx@lists.linux.dev,	Niklas Cassel <cassel@kernel.org>,	dlemoal@kernel.org,
-	jdmason@kudzu.us,	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add DOMAIN_BUS_DEVICE_PCI_EP_MSI support
-In-Reply-To: <20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
-References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
-	<20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Frank.Li@nxp.com, manivannan.sadhasivam@linaro.org, kw@linux.com, kishon@kernel.org, bhelgaas@google.com, arnd@arndb.de, gregkh@linuxfoundation.org, rafael@kernel.org, tglx@linutronix.de, apatel@ventanamicro.com, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org, dlemoal@kernel.org, jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 19 Dec 2024 10:53:10 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7fbd9be84bdso536110a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 02:53:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734605588; x=1735210388; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=h9EH0VzNdlwEE7HT+ejlIQXInr2HWzq5t9FyUGd1FM0=;
+        b=E2lpV3hTyXR3Sxrj1rdtfITan4iCzRv94qcvwIOcR1PBgaLGi2Q6h251tqBqYI5/U6
+         SMopSXtOvv/I5f4j6fQ/+AtaIdgdVexxc4JIRp3X0J/iIZ3JyqbJjengGUIzvVdP+uoT
+         qO1FtwmNWSeI2OirFH19hGEC3zzszI7cu7yPQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734605588; x=1735210388;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h9EH0VzNdlwEE7HT+ejlIQXInr2HWzq5t9FyUGd1FM0=;
+        b=YeVelKymhjgQfzSeq31Z1Xjx+gnwaQ442Pe6e7GpGUfFYcJkiOAAn9zfPRRkg1ORk5
+         EcO8h0nLUtJLRW8mYLAvhgDDEtYfaCqLbLOJlCLOUNQf6uH5q8XlC+tDJbRv+P2Z1Vfc
+         pCJ/exa9k8dY7yJ1yGk3k9wqygsqX1NvZHM8yA8X57U2ThO5+M50uzbIhcXGg2IfXihI
+         Pjm9kezECPvngugqn3/Tl0XXOp8RnPpnX0oT2fIgxaHzXwUz7CyRdmdNWIEA0qTe590F
+         8oFJFIAv5FlQR78/ROiMm+ty6YlHyEvEe25k83Hw19/nd4bp9ZHnG0AFBzI+361fokxs
+         NiPA==
+X-Forwarded-Encrypted: i=1; AJvYcCVAjxWDDTjlzaCYCsC6JObC+qFN3ydCZPUOTGOXQgZuF2SNVWbu/W9SDv2D5uL8u1Gv4XEeA8M9GPzNsr94Lhyy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFXQchwagWM6ITvjfY12k8lt8IPC0OVmQe9M3ugQboX+q36lqb
+	uSGLnYXw8R1cqTYdIQWiRgkI1Z8OrXNg/YSteD1Jnf5OVLzCB20RacIfkjjS7g==
+X-Gm-Gg: ASbGncvZ/GRaUD5q8Q1TlQVjEXPjwBqEhm5tNXX+onQhGzZRzCcvU/9rQLT4pHr1BXj
+	vgqi8Ube/hxLpinWr5AewLFaXzOWEXVBMSpbj8rDRwZzixeHTQEZ5URkf+l8CKDCkJ+7JaU5pcG
+	+EhzTFPFqCnFwJ0+THbi7LlMLycYhi5OAafySKfWaoee/C/WeJsf9Cuj7Yo6E5GKT39woXd7jJT
+	B27QOL3bTA5d7XOsbpMe0GKertIc2Zu5rr3KIQ7m75sDoWmGEyu0oRBpN3sdBGG/PjTv1UxSQ==
+X-Google-Smtp-Source: AGHT+IENxlsOZm9def6oti4V70uj/jGgxMRZENhVtBejHswBs3FlI1YExvOn9EK0Mjoqmtw4PCN2Zg==
+X-Received: by 2002:a17:90a:c105:b0:2ee:f80c:6892 with SMTP id 98e67ed59e1d1-2f2e91a4d5emr9173937a91.3.1734605588162;
+        Thu, 19 Dec 2024 02:53:08 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:6603:6add:77e:d71c])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ee06dd61sm2975014a91.42.2024.12.19.02.53.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Dec 2024 02:53:07 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-sound@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	treapking@chromium.org,
+	yuanhsinte@chromium.org
+Subject: [PATCH] ASoC: mediatek: disable buffer pre-allocation
+Date: Thu, 19 Dec 2024 18:53:02 +0800
+Message-ID: <20241219105303.548437-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_025235_694767_9D9800DD 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20241219_025309_579484_E6159291 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,123 +99,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Dec 2024 23:08:39 +0000,
-Frank Li <Frank.Li@nxp.com> wrote:
->=20
->            =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=90
->            =E2=94=82                                =E2=94=82
->            =E2=94=82     PCI Endpoint Controller    =E2=94=82
->            =E2=94=82                                =E2=94=82
->            =E2=94=82   =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=90  =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=90     =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=90 =
-=E2=94=82
-> PCI Bus    =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=94=82  =
-   =E2=94=82     =E2=94=82 =E2=94=82
-> =E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=96=BA =E2=94=82   =E2=94=82Func1=E2=94=82  =E2=94=82Func2=E2=
-=94=82 ... =E2=94=82Func =E2=94=82 =E2=94=82
-> Doorbell   =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=94=82  =
-   =E2=94=82<n>  =E2=94=82 =E2=94=82
->            =E2=94=82   =E2=94=82     =E2=94=82  =E2=94=82     =E2=94=82  =
-   =E2=94=82     =E2=94=82 =E2=94=82
->            =E2=94=82   =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=
-=94=80=E2=94=98  =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=
-=94=98     =E2=94=94=E2=94=80=E2=94=80=E2=94=AC=E2=94=80=E2=94=80=E2=94=98 =
-=E2=94=82
->            =E2=94=82      =E2=94=82        =E2=94=82           =E2=94=82 =
-   =E2=94=82
->            =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=BC=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=98
->                   =E2=94=82        =E2=94=82           =E2=94=82
->                   =E2=96=BC        =E2=96=BC           =E2=96=BC
->                =E2=94=8C=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=90
->                =E2=94=82    MSI Controller      =E2=94=82
->                =E2=94=94=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=
-=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=
-=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=E2=94=80=
-=E2=94=80=E2=94=80=E2=94=98
->=20
-> Add domain DOMAIN_BUS_DEVICE_PCI_EP_MSI to allocate MSI domain for Endpoi=
-nt
-> function in PCI Endpoint (EP) controller, So PCI Root Complex (RC) can
-> write MSI message to MSI controller to trigger doorbell IRQ for difference
-> EP functions.
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change from v12 to v13
-> - new patch
+On Chromebooks based on Mediatek MT8195 or MT8188, the audio frontend
+(AFE) is limited to accessing a very small window (1 MiB) of memory,
+which is described as a reserved memory region in the device tree.
 
-This might be v13, but after all this time, I have no idea what you
-are trying to do. You keep pasting this non-ASCII drawing in commit
-messages, but I still have no idea what this PCI Bus Doorbell
-represents.
+On these two platforms, the maximum buffer size is given as 512 KiB.
+The MediaTek common code uses the same value for preallocations. This
+means that only the first two PCM substreams get preallocations, and
+then the whole space is exhausted, barring any other substreams from
+working. Since the substreams used are not always the first two, this
+means audio won't work correctly.
 
-I appreciate the knowledge shortage is on my end, but it would
-definitely help if someone would take the time to explain what this is
-all about.
+This is observed on the MT8188 Geralt Chromebooks, on which the
+"mediatek,dai-link" property was dropped when it was upstreamed. That
+property causes the driver to only register the PCM substreams listed
+in the property, and in the order given.
 
-=46rom what I gather, the ITS is actually on an end-point, and get
-writes from the host, but that doesn't answer much.
+Instead of trying to compute an optimal value and figuring out which
+streams are used, simply disable preallocation. The PCM buffers are
+managed by the core and are allocated and released on the fly. There
+should be no impact to any of the other MediaTek platforms.
 
-> ---
->  drivers/irqchip/irq-gic-v3-its-msi-parent.c | 19 ++++++++++++++++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchi=
-p/irq-gic-v3-its-msi-parent.c
-> index b2a4b67545b82..16e7d53f0b133 100644
-> --- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-> +++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
-> @@ -5,6 +5,7 @@
->  // Copyright (C) 2022 Intel
-> =20
->  #include <linux/acpi_iort.h>
-> +#include <linux/pci-ep-msi.h>
->  #include <linux/pci.h>
-> =20
->  #include "irq-gic-common.h"
-> @@ -173,6 +174,19 @@ static int its_pmsi_prepare(struct irq_domain *domai=
-n, struct device *dev,
->  	return its_pmsi_prepare_devid(domain, dev, nvec, info, dev_id);
->  }
-> =20
-> +static int its_pci_ep_msi_prepare(struct irq_domain *domain, struct devi=
-ce *dev,
-> +				  int nvec, msi_alloc_info_t *info)
-> +{
-> +	u32 dev_id;
-> +	int ret;
-> +
-> +	ret =3D pci_epf_msi_domain_get_msi_rid(dev, &dev_id);
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-What this doesn't express is *how* are the writes conveyed to the ITS.
-Specifically, the DevID is normally sampled as sideband information at
-during the write transaction.
+diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+index 9b72b2a7ae91..6b6330583941 100644
+--- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
++++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+@@ -120,8 +120,8 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
+ 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+ 
+ 	size = afe->mtk_afe_hardware->buffer_bytes_max;
+-	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
+-				       afe->dev, size, size);
++	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(mtk_afe_pcm_new);
+-- 
+2.47.1.613.gc27f4b7a9f-goog
 
-Obviously, you can't do that over PCI. So there is a lot of
-undisclosed assumption about how the ITS is integrated, and how it
-samples the DevID.
-
-My conclusion is that this is not as generic as it seems to be. It is
-definitely tied to implementation-specific behaviours, none of which
-are explained.
-
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
