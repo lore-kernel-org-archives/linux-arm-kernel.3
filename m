@@ -4,68 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B454E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 01:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C281E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 01:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsMRam799y1BeBH01GzJpZAfi+0+C0lyLFmFJu0j0GQ=; b=Fb/H+7ZIjANc32WSbXdGkDE9Ov
-	MbuYMnVaJZf5ZHQ6U6z6yWwWbiSpW5geTspOh1amMrBiQctXpnuN2RAcmwlimJMwsKVtdF40LmHYU
-	dM+DzmRiWJjC73duHFhWvafedbrxtrPUfAuOdIVCylVNPW0xn7r9A6Sy9hZKjA+kxSUpdh2ekpsrZ
-	pp1dsT7bdEYFH2Kvnw2llu/mD5v8R4I/mWMZGy4uLp8U4GDKCdFTbzTknvjx156MlmUtSwo/6MznP
-	gaWT5eqayGJCFbB8oVKHB0dNWOLBkxr3r5kJQGIhBlT4ttMYmKAzi4kB08UZfMXWcf5yvsEaioYb1
-	YEN765Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=leHgdd5BR8ndLLckZQqMwgDDbkR8i1YWTVH/tazIYxA=; b=Yqy5Gx7MgnalEZh2bkRGCjzW4t
+	pVw+Zge59I/pSPIpeFoQo4MiChoIjpvp1v5R3kGJ82ROxZl5A6XaYkxZ09/TD+KqyWEk0pQYd91gM
+	tTMt2umtrtjLvPfi2iS8EBpkWVcBSUEyEOWAefONNsmlfChgiEV9MmdVueAW43kQLdrqwyREew5Q2
+	j3xl+1A04ayyeSDcZfIBxoQn+SPocxlw04guw/s7En70XeXgY8Nb1NYSOV+1GGRYbDuxBMu0zVPaK
+	mHo/X5uRKkmt+2oXhbQF1K5Nh8BpWt8fKX+1cnAQd7rfmneNUogUayIdvP21+E1vRjmRchwfCLOxv
+	mfJQyRyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO5bP-00000000Wof-0uhe;
-	Thu, 19 Dec 2024 01:45:23 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1tO5jD-00000000Y2y-2xPw;
+	Thu, 19 Dec 2024 01:53:27 +0000
+Received: from mail-am0eur02on2061a.outbound.protection.outlook.com ([2a01:111:f403:2606::61a] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO5aG-00000000Wad-40HS
+	id 1tO5i6-00000000Xtb-0S7X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 01:44:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1734572647; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=LsMRam799y1BeBH01GzJpZAfi+0+C0lyLFmFJu0j0GQ=;
-	b=sYegUbRf7LSRkXxPYu4lYNRmmJlDGJcYLjHRaZVfRpDbYcLw2M0w/AjMmAoygyOv97pGbw0NVhZPDUzyBoHR7VuffT8BJnCB0rtouN7KYhjxuylAZrZJ61NhkkvIZLN94E3206Cu3njEarb2Y3aMUWEUdT8nb7BXAfecH2pxhy8=
-Received: from 30.246.161.240(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WLoNiHx_1734572640 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 19 Dec 2024 09:44:02 +0800
-Message-ID: <a9c2ea4d-7199-4d1c-8f10-57761b50d27f@linux.alibaba.com>
-Date: Thu, 19 Dec 2024 09:43:59 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 3/3] ACPI: APEI: handle synchronous exceptions in task
- work
-To: Yazen Ghannam <yazen.ghannam@amd.com>
-Cc: mark.rutland@arm.com, catalin.marinas@arm.com, mingo@redhat.com,
- robin.murphy@arm.com, Jonathan.Cameron@huawei.com, bp@alien8.de,
- rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
- wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
- tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
- james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
- will@kernel.org, jarkko@kernel.org, linux-acpi@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
- linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
- ardb@kernel.org, ying.huang@intel.com, ashish.kalra@amd.com,
- baolin.wang@linux.alibaba.com, tglx@linutronix.de,
- dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
- robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
- zhuo.song@linux.alibaba.com
-References: <20241202030527.20586-1-xueshuai@linux.alibaba.com>
- <20241202030527.20586-4-xueshuai@linux.alibaba.com>
- <20241218165331.GF1155365@yaz-khff2.amd.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <20241218165331.GF1155365@yaz-khff2.amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Thu, 19 Dec 2024 01:52:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tx6ExbbHV8k3i0fvCGuk3Y/F9uspWLw1Z1nGmomqZcCbVnbKTTTQNdQlYT6xMuIQAXgO2h3lUXnEoIsuaBDv4FxnbdS1mAg6zOdgUUT8zD0+KT5U7aFlyenORbRKg9G1YKfhqNYXshoOMikO+zR7YWDB3jXILyDkq6TLrw/AwyRM3gmPk3gN68efTysnXyunN5akQnlCt9tXxaP6QBhBQsE8HKD0WNr9JOYBvAs1Q0CFaaCAbId2iTQpnd/YvRtIpwfEb9L8Qspdsp59lK70uR5Hicab7CyGoPK/UuXImZSmvTErLqXSeWGzC6FaAJsTKDTXRP4Lb4jIBx7TgnhWiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=leHgdd5BR8ndLLckZQqMwgDDbkR8i1YWTVH/tazIYxA=;
+ b=JabE3B2oqt9vGYTWLgWSBamWgJqZrto/F54aPfEW/NlihSxeFFojEJAOHYrSgIK40h6PIq9Hf02pPydpcM9YjUkUmMR/BFWI+rWTW5ulCcjUyDOsb/GLYFSnYZanZ5pOahrwY0dhy7tRYx8jIr7MnXYIYkUcCivR9BC2jTFLIjiIkruDuZqd8aw1Xh/cXD0zAVq3FHOa9Yk504FlwnQNmtWD0ghOx5Sk5+K9WKx08Jh9PwcwdtL0XwYwMloI93dCtPbzEjqO6dk0IW41Swlb7xXutu8qoSVeJiNWMzEoDtygsF/G4Hg01Vl/blKhcbxpxS/VFCpSHecISiSOrKGNeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=leHgdd5BR8ndLLckZQqMwgDDbkR8i1YWTVH/tazIYxA=;
+ b=e51awLI100+0uWWy9xA1X3ze2DdxRLcp37Si34i2k9aHUN5PE6v96DzdZ2Xk9/bAP/x/RnJUGl3TZ49erBdpRn8vwLhRJ6FGMG2IidQPWvWcX+QQ2fH0veq2clM6e4SKztNLTjzP84Jdnqw5PQc7Iv58GSZg46HTJbDLqjKKvlS4LOfqNvEuRXjViax4QYvIf43Uq/E0QT8JwWC26HbxJsejLHSqjC0F+JQK446C+EpHJgQdFBxuhcfHLQ63Mxgxx+Wkgjs3++Bkm2HS4bZOb3/QnOD81HXhHU5FlkTqnos7z1Kzp54a5bz+IsbzKX4XaTBGKi3Ph6dKVUTHL5kNSw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by DBAPR04MB7270.eurprd04.prod.outlook.com (2603:10a6:10:1af::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Thu, 19 Dec
+ 2024 01:52:11 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%6]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 01:52:11 +0000
+From: Ming Qian <ming.qian@oss.nxp.com>
+To: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl
+Cc: nicolas@ndufresne.ca,
+	shawnguo@kernel.org,
+	robh+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-imx@nxp.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	tao.jiang_2@nxp.com,
+	ming.qian@oss.nxp.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2] media: amphion: Support display delay for Hevc format
+Date: Thu, 19 Dec 2024 10:51:45 +0900
+Message-ID: <20241219015146.706482-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0-rc1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR02CA0074.apcprd02.prod.outlook.com
+ (2603:1096:4:90::14) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DBAPR04MB7270:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb9c9200-daa3-4ff0-15a5-08dd1fcfc0e6
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fFfE5qvXhxjwOKBdzt2dNfvQ/RhPIQM8ODTIqmdpopd6thJbJ8bpBabVPOwV?=
+ =?us-ascii?Q?l1j0BmDdQvxE/iFChosIrIHyD3D4DnOZtumEJkWRvkzxnbfGbtKWjQzbtp/4?=
+ =?us-ascii?Q?yAEFPiI1RRLUf7yx7JJ+ND/l5iOp7TW/VjDSW7nTaI/O2i2XwUxlZGqd80kN?=
+ =?us-ascii?Q?eJu8Yuz/YCOTUPCYH/iqswVcK87KIUWcm5LkyOumgnPUu8IWWNARehh324Up?=
+ =?us-ascii?Q?sdiy66ZB6IizQejFMHOHeKkA+ajgNwHtXVO1sIT6MANNTOJMbetTBOo4jIN/?=
+ =?us-ascii?Q?8Z5MIIGBhRmXiVq214O2jsqJwdSks74i1hY2zNVXlcZSZGlM7ywWc0Mjwh30?=
+ =?us-ascii?Q?ECcT5i0+mKjZcyrIKlGYAum//IYy0x5+to3CEgWrvwZAmbyphNJ0218adzSU?=
+ =?us-ascii?Q?X9wgI6D5VZ9c1xC414hqI5oX1dBhOzxFU7lOWpiGClKOUd+HVidJfJteH0mA?=
+ =?us-ascii?Q?mxJBdG6K1bbEKpmJU+BOmp7W/YcS7X2GQd3XAF4feEXRu9bv1XhtUuGSQ6GZ?=
+ =?us-ascii?Q?HXQ5xtnZuHp7cRoQoG2rkKQgze4N/GPV8oyftVF08qbxeV7W05fwzHsE3mRo?=
+ =?us-ascii?Q?BgG/knjMWMJ8UdM/mEg4EIKnZJzBxkkjVNbw0UFkjG+RW9nJ1YjjBtOjfixq?=
+ =?us-ascii?Q?eJUiWRoDzQTswzPcqGdW/PG8nTnHql/8eyHrrwfoBoNjJMNncJsm+qT3+qVs?=
+ =?us-ascii?Q?yocPoP7C3pA0nHOZqAEUgUOLmeE25gyHpbkUtzkqJ3BnevgYqv+XKYoHM73Z?=
+ =?us-ascii?Q?ZxDnCEBRYJcONeFNm5n1krCeLRHHl+eSXTcf5ahoiYUSTgihO5tkflvXi5Jz?=
+ =?us-ascii?Q?jzE58VaD+GdgobBbdEOLpLhxiY/RQNLj1s/+7Hf5ZyW4joLmE2MPgjI1rnYj?=
+ =?us-ascii?Q?resaByDM3lME/a44HN1DTiSyQZQFjIOCRHkafJ8cXyaR0URUsiGtQkzQILBp?=
+ =?us-ascii?Q?t8b8PZu+CVc0YNe34pEzjpWYu/FAswGVmoMLhBg4iRqdIJKwxNGHYp51WiHa?=
+ =?us-ascii?Q?Lqpxv4zPZs+L6QhZDenW3Kg0+tpXmNilpWmOjY8Gey/nJHWg7WJrF63LO0QH?=
+ =?us-ascii?Q?ErFhXK+MqNvhaQu5UD2cZig9qn4EF2+djo4kNn4fFFVLSA+uyjGGBpLWugmY?=
+ =?us-ascii?Q?B4gn5u1NF5+Z7+3lgeteJX/B+yM80kRQLK/diSRbSQybW9QaoYH+9gyCuQRY?=
+ =?us-ascii?Q?Zl/7FdLegfa5YTmF07AVwo0+esSvqiUTvJZTs/iqfB8/hC+ccJ2Ub1qdtJDI?=
+ =?us-ascii?Q?P/X+0vYT2K5jaYz9SUmy3kb9IpDbiMkDVvr1AtvowbgvdQ7sL/700QiZCBXi?=
+ =?us-ascii?Q?bk97kUrpxQk+1S0YX+HOVvy6am+ZZvfzdlSX27uGB/pixfMzmimIOMG+nMNX?=
+ =?us-ascii?Q?OqVHsLu5pVtg6pXCQycs2z64Dv9/vULASedWeYWU6yKBk5aUunACFv3zaS9k?=
+ =?us-ascii?Q?SDjLSugoPNawX5lsuitTFNS73W5Ueuh/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lBKfAjn3NbE1y01SqekM9+lu4SMM6cYU0kAvpCgwOH//ULpsjdUu0oMsIipX?=
+ =?us-ascii?Q?MZl+h2SJ29CNuiQSK6isjx1b0kgJaqyzXYZ++DlkssJsLoQMWqm3GCBmSWAM?=
+ =?us-ascii?Q?kMiWZ+lXzuobuMBdjwQST5jkN3uFn6cd1oOWmK6FhOKPrTuSFzGpKOaexwlw?=
+ =?us-ascii?Q?d10gXF/Ohigi+BZPcBcIYHzMJoxRbQ7CH0EtiGb2OhwgkvAdjyOqLE186Vh3?=
+ =?us-ascii?Q?fea1UlIwLsuXlblmZk6RtXU23qY+CfJ18vrVWGVjAGnnEtGBWK+lVxmHob+2?=
+ =?us-ascii?Q?DLb6nku1gogW4iGNNUzfQ1yyYcu6zs9/V6tVsWOPXkuUw1xDL13aYWZFmM3l?=
+ =?us-ascii?Q?Ns9B9mq+G4wQ/qHeu/Tb10l1Z+AfDySEsVUnXR5cnzfNKw2znPgww4JEjlN/?=
+ =?us-ascii?Q?1JpPWHm1sY0gzkPI0x+Dac56vgELaB9OJ+XpGUQJW5dD0lRu6+wvz2lJlbQb?=
+ =?us-ascii?Q?ivUuQQ+MrFk0Gji8RORfiXhpQUMjyWbQSYWmWX8EqQl6MhBUkxnLmHsnshNG?=
+ =?us-ascii?Q?pdAV0ICepjSB6Z6kIjaOSnOAqlsOIwI/skWBXB2mFvk2pMVDvGb6EM2Vwvp4?=
+ =?us-ascii?Q?ZT3t3EoVNrJsEO0VpKGx5kpklwbmDrIZqWwBj6dN/837ddsUnJLh24hRI8sa?=
+ =?us-ascii?Q?vWydcBREPU9H7wMDv5Tde2yjjpGUaRB1rWEj4GMdc6gQahfxTEy7kG+EnrHm?=
+ =?us-ascii?Q?4r8jg3TXDndAIJOBVDTY+AehsRnEWGduudYHlBgQJJ4b36mvqYEAqG0MGR1I?=
+ =?us-ascii?Q?rNRa7VKEwspS0qkcgJ+gGYSo1oeMP2xyS46L94QvBXk8zb67Z02NQjNmr9bb?=
+ =?us-ascii?Q?K20X4aWQlYPQRU3iig3ZouMsudwz5jsOxHugYh/5r7Tbwpw/Qp8LmocQ+C7K?=
+ =?us-ascii?Q?GKwxtlNid3E4hzNwb8qBlhbEE5V1/1fuz6kL0HPpIl02sVi0iZlyjdHYeYfS?=
+ =?us-ascii?Q?F/EtkFoQZzWL2lP+8EXzJ8kjIFSZol66GXXJQtsd0MDLVDi91SeD+H0PHA6Y?=
+ =?us-ascii?Q?lCeonRegRqBOY5/EJGAymrbjEezejaWm5YGZdW9/aoLlBIdw/SgnogsyAO4l?=
+ =?us-ascii?Q?BPdRSLurmpE0KfIRgBJKvTFZ3/eHU4qPwTvFw62slfOsJYKQFydYlgfEV5+T?=
+ =?us-ascii?Q?97V3aMHgsXWZYgWG+0lTuSTDJyd471O7Vy+s3oWvzQ47BvlOXnQKiGZjX4ST?=
+ =?us-ascii?Q?v59ISHILf0SRbU4mxjDJ+pbif0UPSteVGl4PMgelZqw9THWWqGZLO3DxHQys?=
+ =?us-ascii?Q?TKPgTe5e1wMzahofAqlBQ4nwaOC9f2nq5cmQbuipkNDFnIhJEt8YE+SHBa08?=
+ =?us-ascii?Q?IHC02pvVZpeGTp+suBDaTG+A3SlZ9CjQd7thc2J2rOw4b7FvEMALr/PTc4sm?=
+ =?us-ascii?Q?/9bncfIvYe4CQRLqbmaoSikd7OjALCOfAjPul1MmvwBJ3Nfe+l3OegrtRNVP?=
+ =?us-ascii?Q?Jmjy9Kts9L9DGLlvZZJON5JoBr/Z/CqCfFv6vXXqmbPDp3sDU8y3hAkIdNOs?=
+ =?us-ascii?Q?ea+tqxvacO7mLS13iRi0Q8ip+ithjeXQ9pMs+QXY0WtYWmlyc4T+7lUCm3IY?=
+ =?us-ascii?Q?6Q8QsRqqPL4uoH3mLvT2DD6T1nSnn/tKj4UI7kzE?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb9c9200-daa3-4ff0-15a5-08dd1fcfc0e6
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 01:52:11.3937
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8aBI5RX6s5QNdrKpxL3NgO2LXgWnFJkpZUEkalmfgrtCvP9uLkH60KKhCABYf/k9HQNg2PIFAmhwlomBmgq2lA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7270
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_174413_537074_ACDE840A 
-X-CRM114-Status: GOOD (  31.55  )
+X-CRM114-CacheID: sfid-20241218_175218_155999_49AC4735 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,203 +171,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The amphion decoder firmware v1.9.0 supports display delay 0 for
+hevc format, then driver can enable this feature.
 
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+---
+ drivers/media/platform/amphion/vpu_malone.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
-在 2024/12/19 00:53, Yazen Ghannam 写道:
-> On Mon, Dec 02, 2024 at 11:05:27AM +0800, Shuai Xue wrote:
->> The memory uncorrected error could be signaled by asynchronous interrupt
->> (specifically, SPI in arm64 platform), e.g. when an error is detected by
->> a background scrubber, or signaled by synchronous exception
->> (specifically, data abort exception in arm64 platform), e.g. when a CPU
->> tries to access a poisoned cache line. Currently, both synchronous and
->> asynchronous error use memory_failure_queue() to schedule
->> memory_failure() to exectute in a kworker context.
->>
->> As a result, when a user-space process is accessing a poisoned data, a
->> data abort is taken and the memory_failure() is executed in the kworker
->> context, memory_failure():
->>
->>    - will send wrong si_code by SIGBUS signal in early_kill mode, and
->>    - can not kill the user-space in some cases resulting a synchronous
->>      error infinite loop
->>
->> Issue 1: send wrong si_code in early_kill mode
->>
->> Since commit a70297d22132 ("ACPI: APEI: set memory failure flags as
->> MF_ACTION_REQUIRED on synchronous events")', the flag MF_ACTION_REQUIRED
->> could be used to determine whether a synchronous exception occurs on
->> ARM64 platform.  When a synchronous exception is detected, the kernel is
->> expected to terminate the current process which has accessed poisoned
->> page. This is done by sending a SIGBUS signal with an error code
->> BUS_MCEERR_AR, indicating an action-required machine check error on
->> read.
->>
->> However, when kill_proc() is called to terminate the processes who have
->> the poisoned page mapped, it sends the incorrect SIGBUS error code
->> BUS_MCEERR_AO because the context in which it operates is not the one
->> where the error was triggered.
->>
->> To reproduce this problem:
->>
->>    #sysctl -w vm.memory_failure_early_kill=1
->>    vm.memory_failure_early_kill = 1
->>
->>    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->>    #einj_mem_uc single
->>    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->>    injecting ...
->>    triggering ...
->>    signal 7 code 5 addr 0xffffb0d75000
->>    page not present
->>    Test passed
->>
->> The si_code (code 5) from einj_mem_uc indicates that it is BUS_MCEERR_AO
->> error and it is not the fact.
->>
->> After this patch:
->>
->>    # STEP1: enable early kill mode
->>    #sysctl -w vm.memory_failure_early_kill=1
->>    vm.memory_failure_early_kill = 1
->>    # STEP2: inject an UCE error and consume it to trigger a synchronous error
->>    #einj_mem_uc single
->>    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->>    injecting ...
->>    triggering ...
->>    signal 7 code 4 addr 0xffffb0d75000
->>    page not present
->>    Test passed
->>
->> The si_code (code 4) from einj_mem_uc indicates that it is a BUS_MCEERR_AR
->> error as we expected.
->>
->> Issue 2: a synchronous error infinite loop
->>
->> If a user-space process, e.g. devmem, accesses a poisoned page for which
->> the HWPoison flag is set, kill_accessing_process() is called to send
->> SIGBUS to current processs with error info. Because the memory_failure()
->> is executed in the kworker context, it will just do nothing but return
->> EFAULT. So, devmem will access the posioned page and trigger an
->> exception again, resulting in a synchronous error infinite loop. Such
->> exception loop may cause platform firmware to exceed some threshold and
->> reboot when Linux could have recovered from this error.
->>
->> To reproduce this problem:
->>
->>    # STEP 1: inject an UCE error, and kernel will set HWPosion flag for related page
->>    #einj_mem_uc single
->>    0: single   vaddr = 0xffffb0d75400 paddr = 4092d55b400
->>    injecting ...
->>    triggering ...
->>    signal 7 code 4 addr 0xffffb0d75000
->>    page not present
->>    Test passed
->>
->>    # STEP 2: access the same page and it will trigger a synchronous error infinite loop
->>    devmem 0x4092d55b400
->>
->> To fix above two issues, queue memory_failure() as a task_work so that
->> it runs in the context of the process that is actually consuming the
->> poisoned data.
->>
->> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
->> Tested-by: Ma Wupeng <mawupeng1@huawei.com>
->> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->> Reviewed-by: Xiaofei Tan <tanxiaofei@huawei.com>
->> Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
->> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
->> ---
->>   drivers/acpi/apei/ghes.c | 77 +++++++++++++++++++++++-----------------
->>   include/acpi/ghes.h      |  3 --
->>   include/linux/mm.h       |  1 -
->>   mm/memory-failure.c      | 13 -------
->>   4 files changed, 44 insertions(+), 50 deletions(-)
->>
->> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
->> index 106486bdfefc..70f2ee3ad1a8 100644
->> --- a/drivers/acpi/apei/ghes.c
->> +++ b/drivers/acpi/apei/ghes.c
->> @@ -467,28 +467,41 @@ static void ghes_clear_estatus(struct ghes *ghes,
->>   }
->>   
->>   /*
-> 
-> The "kernel-doc" format needs an opening "/**".
-> 
->> - * Called as task_work before returning to user-space.
->> - * Ensure any queued work has been done before we return to the context that
->> - * triggered the notification.
->> + * struct ghes_task_work - for synchronous RAS event
->> + *
->> + * @twork:                callback_head for task work
->> + * @pfn:                  page frame number of corrupted page
->> + * @flags:                work control flags
->> + *
->> + * Structure to pass task work to be handled before
->> + * returning to user-space via task_work_add().
->>    */
->> -static void ghes_kick_task_work(struct callback_head *head)
->> +struct ghes_task_work {
->> +	struct callback_head twork;
->> +	u64 pfn;
->> +	int flags;
->> +};
->> +
->> +static void memory_failure_cb(struct callback_head *twork)
->>   {
->> -	struct acpi_hest_generic_status *estatus;
->> -	struct ghes_estatus_node *estatus_node;
->> -	u32 node_len;
->> +	struct ghes_task_work *twcb = container_of(twork, struct ghes_task_work, twork);
->> +	int ret;
->>   
->> -	estatus_node = container_of(head, struct ghes_estatus_node, task_work);
->> -	if (IS_ENABLED(CONFIG_ACPI_APEI_MEMORY_FAILURE))
->> -		memory_failure_queue_kick(estatus_node->task_work_cpu);
->> +	ret = memory_failure(twcb->pfn, twcb->flags);
->> +	gen_pool_free(ghes_estatus_pool, (unsigned long)twcb, sizeof(*twcb));
->>   
->> -	estatus = GHES_ESTATUS_FROM_NODE(estatus_node);
->> -	node_len = GHES_ESTATUS_NODE_LEN(cper_estatus_len(estatus));
->> -	gen_pool_free(ghes_estatus_pool, (unsigned long)estatus_node, node_len);
->> +	if (!ret || ret == -EHWPOISON || ret == -EOPNOTSUPP)
->> +		return;
->> +
->> +	pr_err("%#llx: Sending SIGBUS to %s:%d due to hardware memory corruption\n",
->> +			twcb->pfn, current->comm, task_pid_nr(current));
-> 
-> This is basically the same as the message in kill_proc(). Was there any
-> consideration to have a shared function? Maybe this could be a future
-> patch.
-
-Yep, I'd like to refactor in a future.
-> 
->> +	force_sig(SIGBUS);
->>   }
->>   
->>   static bool ghes_do_memory_failure(u64 physical_addr, int flags)
->>   {
->>   	unsigned long pfn;
->> +	struct ghes_task_work *twcb;
-> 
-> Minor nit: A common preference I've seen is to order variable
-> declarations from longest->shortest line length.
-
-Will fix it if this patch set still misses the next merge window.
-
-> 
-> But overall, looks okay to me.
-> 
-> Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
-> 
-> Thanks,
-> Yazen
-
-
-Thanks for valuable comments.
-
-Best Regards,
-Shuai
+diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
+index 5c6b2a841b6f..8f4aa48b2d65 100644
+--- a/drivers/media/platform/amphion/vpu_malone.c
++++ b/drivers/media/platform/amphion/vpu_malone.c
+@@ -332,6 +332,8 @@ struct vpu_dec_ctrl {
+ 	u32 buf_addr[VID_API_NUM_STREAMS];
+ };
+ 
++static const struct malone_padding_scode *get_padding_scode(u32 type, u32 fmt);
++
+ u32 vpu_malone_get_data_size(void)
+ {
+ 	return sizeof(struct vpu_dec_ctrl);
+@@ -654,8 +656,10 @@ static int vpu_malone_set_params(struct vpu_shared_addr *shared,
+ 		hc->jpg[instance].jpg_mjpeg_interlaced = 0;
+ 	}
+ 
+-	hc->codec_param[instance].disp_imm = params->display_delay_enable ? 1 : 0;
+-	if (malone_format != MALONE_FMT_AVC)
++	if (params->display_delay_enable &&
++	    get_padding_scode(SCODE_PADDING_BUFFLUSH, params->codec_format))
++		hc->codec_param[instance].disp_imm = 1;
++	else
+ 		hc->codec_param[instance].disp_imm = 0;
+ 	hc->codec_param[instance].dbglog_enable = 0;
+ 	iface->dbglog_desc.level = 0;
+@@ -1024,6 +1028,7 @@ static const struct malone_padding_scode padding_scodes[] = {
+ 	{SCODE_PADDING_EOS,      V4L2_PIX_FMT_JPEG,        {0x0, 0x0}},
+ 	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264,        {0x15010000, 0x0}},
+ 	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264_MVC,    {0x15010000, 0x0}},
++	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_HEVC,        {0x3e010000, 0x20}},
+ };
+ 
+ static const struct malone_padding_scode padding_scode_dft = {0x0, 0x0};
+@@ -1058,8 +1063,11 @@ static int vpu_malone_add_padding_scode(struct vpu_buffer *stream_buffer,
+ 	int ret;
+ 
+ 	ps = get_padding_scode(scode_type, pixelformat);
+-	if (!ps)
++	if (!ps) {
++		if (scode_type == SCODE_PADDING_BUFFLUSH)
++			return 0;
+ 		return -EINVAL;
++	}
+ 
+ 	wptr = readl(&str_buf->wptr);
+ 	if (wptr < stream_buffer->phys || wptr > stream_buffer->phys + stream_buffer->length)
+-- 
+2.43.0-rc1
 
 
