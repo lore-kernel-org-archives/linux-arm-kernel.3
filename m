@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6337E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28998E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/kBqbP6LsO7B1RQhfMNF1xYYVhtBBBd4HlzuGdkbH4=; b=15EuvVd9UNtywzBMex9/aPyk/e
-	j5iNHMdmKT+Yo0IRDoapKNEw50aOHSYmEQfYsUshabE3S2Umr75oP6w3XhInznNjBnmnspqY42cdS
-	By3g/WGxiAclwNgVyIel1MCqzT8+SkaH4sF11PZIVaoE+BkJeKRvtxRYh2o/X7v4S0OXBjFHwtkdO
-	Q959DpKej73Qp12M+luM6oEejuE7OOT61gF24igPdSpLh1oZ/atgk3Rzsmm09gOLTYS8R9/xfHOVQ
-	i3eh4QEuefkQQ3ZQwKb6HuTHCQUxNPWy+EB9bopNR6OmLj2DMRZK1kbc6wL4TEALC+ZS8lwCkDTAg
-	5bqM0QFQ==;
+	bh=a52a3dEh2O8JSoJeTlpjxT1zR86/R/E+4+MOU6TKo1k=; b=cie5JGmVwubBUAVd0PwR/uq20m
+	nt0Pg8Ve68SLNiFbaqflfjHB6IOuxlB4mGVo9Gdfh0bAJqWTPwOgr8xuBWxG8R11IxycTMTAiC9wz
+	mNyIbZNtPuBNELti0mvohK3dwY//ZH7QzXJBXgsQgAurdd62iBQrESU+8LwW1HQV9qzdSmyNoAdmr
+	tcBn9ZBsatgEn6w2aBR1TPs4HRjDLaGJb5kQzgO+H0LM8lEc4HaypQQArHh3a+TEkF79fWCkaM4V/
+	AguKTdT4ussmS6v2UrsdP0d1wFHj2qCxEALgd0YG3n2wGDaungwl6GunT0RNvxLPMqka+Qg2wpuTs
+	FzrdgV2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOB7r-000000017KW-3n82;
-	Thu, 19 Dec 2024 07:39:15 +0000
+	id 1tOB90-000000017cy-2GPN;
+	Thu, 19 Dec 2024 07:40:26 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAws-000000015Id-0vel
+	id 1tOAwv-000000015Jh-25zH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:27:55 +0000
+	Thu, 19 Dec 2024 07:27:58 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwX-000729-N3; Thu, 19 Dec 2024 08:27:33 +0100
+	id 1tOAwX-00072C-N2; Thu, 19 Dec 2024 08:27:33 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwW-004AP9-1S;
+	id 1tOAwW-004AP8-1O;
 	Thu, 19 Dec 2024 08:27:33 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwX-00Gewn-0M;
+	id 1tOAwX-00Gewn-0L;
 	Thu, 19 Dec 2024 08:27:33 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 19 Dec 2024 08:27:35 +0100
-Subject: [PATCH 4/6] arm64: dts: freescale: imx8mp-skov: fix LDB clock rate
- configuration
+Date: Thu, 19 Dec 2024 08:27:34 +0100
+Subject: [PATCH 3/6] arm64: dts: imx8mp: add fsl,nominal-mode property into
+ nominal.dtsi
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-imx8m-clk-v1-4-cfaffa087da6@pengutronix.de>
+Message-Id: <20241219-imx8m-clk-v1-3-cfaffa087da6@pengutronix.de>
 References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
 In-Reply-To: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
@@ -71,8 +71,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_232754_267193_CC581834 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20241218_232757_540816_9E933E79 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the imx8mp-skov-revb-mi1010ait-1cp1 device tree was first added, it
-configured the minimum clock rate supported by the panel instead of
-the typical clock rate:
+The imx8mp-nominal.dtsi is meant to be included into boards that want to
+override the default overdrive clock settings with settings suitable for
+running in nominal drive mode at its lower required voltage.
 
-  fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock
-  (482300000 Hz) does not match requested LVDS clock: 490000000 Hz
+Specifying fsl,nominal-mode informs drivers of this fact, so they can
+sanity check runtime clock reconfiguration to observe the limits imposed
+by nominal mode.
 
-Besides the warning, the display functioned normally though
-This broke with commit ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow
-media_disp pixel clock reconfigure parent rate") as the reconfiguration
-of the parent clocks removed setting the IMX8MP_VIDEO_PLL1 to 7 times
-the display clock rate:
-
-  fsl-ldb 32ec0000.blk-ctrl:bridge@5c: Configured LDB clock
-  (70000000 Hz) does not match requested LVDS clock: 490000000 Hz
-
-Fix this by configuring the typical rate instead and benefit from
-the new commit by dropping the now unneeded assigned-clock-rates
-in &media_blk_ctrl.
-
-Fixes: ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel clock reconfigure parent rate")
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- .../dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-index 30962922b361..a13f6d76a495 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-@@ -51,8 +51,11 @@ &lcdif2 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+index f9a82a663033..532eb049c7e8 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+@@ -21,6 +21,7 @@ &clk {
+ 			       <800000000>,
+ 			       <600000000>,
+ 			       <400000000>;
++	fsl,nominal-mode;
  };
  
- &lvds_bridge {
--	/* IMX8MP_CLK_MEDIA_LDB = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
--	assigned-clock-rates = <482300000>;
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <980000000>;
- 	status = "okay";
- 
- 	ports {
-@@ -64,18 +67,6 @@ ldb_lvds_ch0: endpoint {
- 	};
- };
- 
--&media_blk_ctrl {
--	/* currently it is not possible to let display clocks confugure
--	 * automatically, so we need to set them manually
--	 */
--	assigned-clock-rates = <500000000>, <200000000>, <0>,
--		/* IMX8MP_CLK_MEDIA_DISP2_PIX = pixelclk of lvds panel */
--		<68900000>,
--		<500000000>,
--		/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_LDB * 2 */
--		<964600000>;
--};
--
- &pwm4 {
- 	status = "okay";
- };
+ &pgc_hdmimix {
 
 -- 
 2.39.5
