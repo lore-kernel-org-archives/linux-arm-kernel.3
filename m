@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D327CE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E6DE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 21:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8nYPl8ByRqy7GQGlWB5bDU6INvfmgU7gSd26B40zOKE=; b=Wau6+gRbW12mp9kIFX3BR6EUVY
-	RVu5cqTO+9mIuqbKmtxOC29eFJKFOX4YLlZKzs+5qsTWKNvG/yy0yfu4K27LObO0SoUX4fbsn1BmA
-	wwj8VRtX3eeFAw1aX41vSCjNU82bySpBEqy/9VrBz0Kzpvgnv3HJdwFwnR/JG6JlPrWhmt5XJC2yL
-	NKu6QPs8uTsgTF3txAM2lkE+kx/5JqAvadMeJTTG2ciPVlvwT6wL40xCtDq2JXSPb355aIYZ6FUVw
-	7YYwYfvTjVXX9G7n4OrgQenuURkg3PjMpF8MvPJRiZTJyop7EnHnTuK9DW8YkWi3sP8yRu8Yw+uR/
-	G6qtNWEQ==;
+	bh=6s4l03z+TiOWmT76Ozzx8G2m2dVtHZ3dYvzPccSMcPU=; b=qklKZrTkGK/v/8rAt//K68DYpZ
+	O5dmASF2mJiK33ccNDrGxzM96zVK+VbHkEcyBcLurYzMdyRGhR2qYf6NDZwc2teiOUxkpZ/k4Gp7O
+	0s08aqcaBaate+NwH50ZI6WenoRxdokRv2rQ9YI1nUwhtMRsxJBbSXg0Gt3lMI1nRyu2mBQpljBI7
+	3wKYI2ibfYOaWy4DRnwcpdw6J4uvDtf25K/s27hCJTsUd9QlLYIRvy1ayzC9txM5cMVUxC/8HpSP0
+	q9gGYxAEQRGTRp7xNp8M1qD/sBCeQQewmqDpA1zXc/aTuahdfkHg0Sk+ftTMhU0lbJJ5SJ2JO2YNl
+	w/8cqX5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONbi-000000035p3-48qG;
-	Thu, 19 Dec 2024 20:58:54 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tONcq-00000003613-2a6h;
+	Thu, 19 Dec 2024 21:00:04 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONXm-000000035Ip-3yxr
+	id 1tONXq-000000035Ju-31pi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 20:54:53 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2f44353649aso930313a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 12:54:50 -0800 (PST)
+	Thu, 19 Dec 2024 20:54:56 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2161eb95317so12024955ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 12:54:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734641690; x=1735246490; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1734641693; x=1735246493; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8nYPl8ByRqy7GQGlWB5bDU6INvfmgU7gSd26B40zOKE=;
-        b=GhPr6oiWMiSRmWko4Qv2aR+xmbAH+hp2nb9RnWY4F7bKZvyK9GtJCYVLi6NifswyMv
-         0KnWL2/1j9eC5E7xdrknvJo0Oyi7yIBrlci/CHu+zlTigdbEKujAJlFFNx994GjCvhWD
-         TcT0A1UCIV7xhI/OajcJyiKPKJtkoDvusLIUA=
+        bh=6s4l03z+TiOWmT76Ozzx8G2m2dVtHZ3dYvzPccSMcPU=;
+        b=P6WVQNdbGaXPA/+3NNx/xKKk27ZuhBJHBL0scl0elDnxEjiiATwhHEkTaL42fQyDXP
+         AUpFcLMEIgyN/sf+Y1eDLeTxpdejOg6c93DQvP0CVyNjrPNgXOhGYRrxnAzsp81JJRQ9
+         /RbBoCG+eDdInE3jZejjJ6iOEuKTMBfPRaY5s=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734641690; x=1735246490;
+        d=1e100.net; s=20230601; t=1734641693; x=1735246493;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8nYPl8ByRqy7GQGlWB5bDU6INvfmgU7gSd26B40zOKE=;
-        b=tYi5Vpp0+Pz3NnZxFFUXLTMqv31j+W4yWxTCllrmb3VuxHheiqhmHdsZ24YvkyXyCo
-         PQo0SrMbCwsEj7p98Yyd9xrGvoypFzdTHueVBLvr0Kf1tzh+S5EWYDnSS84XY9Yi2Ehn
-         KfXDmlLBr6SIuvF/2/V6zeJp2bp8IBh1JfRzHni2SA7XzO3B66E5pJMRUsAfK135SB3z
-         0zEUKvTxErcruTbjfEtY+xNmwuynVp+VsNAxw5snyEBiLA73mEbTbgYQCXeJuApZxN8p
-         YVem7Ivr+KiNlPhZXM+etjqUCWh7vZtKp4qVtmkmWdUy2/3lK5hZMXpPv8ze7vnjY/gG
-         MZbw==
-X-Forwarded-Encrypted: i=1; AJvYcCVN+VdqKsO5uHT6tsqXzKBPjlVAW38pY8qPBED0D1G/x/xcDtNFCu2CSnnWLBohJKvQRNG08SbTWWMWJrmDbRH+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpuAg/F1du+1uLJ1sXGVQ7VXogWIowzm7GNdBu/dgnar4XRloI
-	1FYsQ7ewhb4srzz6DpZaiGb/evR5BoCdbvyXpcpF2C+k3eXjR3I+MU+inf876Q==
-X-Gm-Gg: ASbGnctXyEsB1pQfD/MIqfUDaPAGmISyuVTVTrIroMmNOcbQhYRdQLCpQS/SSYDtTI2
-	psIzISWaU7JMcqbQOImJxECClCWvt+h/Ta2edteG2hMbotn76/dCi3lT5JTOmAZFOSIgVw3R9P9
-	/2GjFREUmWb3tAzPgdPXbCAVelqVlzUiHqEuCL4SmmtmjgSVrE+pmDQeskx235zKV76MJfRetHR
-	lM/Wewt/fQxlR6CO5uoS5mAmyicfN94mSP68jHgjoflJrxx7FNXaT9phfh41X/sXNy0Wa5wFYLC
-X-Google-Smtp-Source: AGHT+IHwccOicX14rSFcDOJXBtww/CDCMLgDGO2mkaPlpWN8gXB9LCHU0FnM7zfKAT8dE4Ug4VhHdQ==
-X-Received: by 2002:a17:90b:5487:b0:2ee:f653:9f8e with SMTP id 98e67ed59e1d1-2f452eeda4dmr637078a91.35.1734641689761;
-        Thu, 19 Dec 2024 12:54:49 -0800 (PST)
+        bh=6s4l03z+TiOWmT76Ozzx8G2m2dVtHZ3dYvzPccSMcPU=;
+        b=l9IDUHH1VD+RLew1hSAK/BrB4Kz4sLo/7N83dGrXa845SyB4zZv0iqj7gXZZnmTZyf
+         GdlAFFXIhZ6hBEfap1K6EDS703ildRTNqCU/QYe+g/l/AudlJIRn3Tvz7ENCzFjyNfTN
+         AU6v52i7IOTRXCPuXQk1huAQOwzLWmIzywsJI6M65xaOnZLJcWstTR/8V3YHjE99rRRI
+         462LosF1tGQFCMa7KuwKmD9GMsFNS5OrS5+q5AIX5hQi7hDED8Kfmg9uGVuozoydutdl
+         6Fw5ngQXPQxySS/wjvvELfSSZq4S1HoaEK7SrQEkmr1SbRtSruwBg4jEf/SaIKSuNIeF
+         X0yg==
+X-Forwarded-Encrypted: i=1; AJvYcCWpm7A0SJKDDxZHk3DDhg2SxEW/6oRlgie7aTp1KBcXs+OFNZfMPpvOaur5lbxnJOO36BqO9NeRA0Kvr+1BJAPH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyfcf6fIdqzqeY9kCxl8ihy72MZHQKQgbFULVnlNOdhok8z084Z
+	0MRmY847QN9jKDnTI6nqmxxEfuCe3i4/BeMDXgFrM+Flc3gK9YrM3kKYsyn0wP85kiEdTOdS1Ez
+	guno9
+X-Gm-Gg: ASbGncu8bcQbou5JMNvdjTNrB4bPuaTm/2GcFr/89zqOysnzNKaofbsYbyR/qAtbdxt
+	3SOJnCqP7FeCXN/0KUzTTcCvcibpYsO0vG9vCpesIirSLE90H/NVJfGqcG5E9C0JFToRWR+Wd8K
+	VfKLI0hbHHofEftw3chGoYVvvLSbsTO27RioSx0Zh8duNFKkpcRVM8DYJFNVegjaj4WZAAMN2iK
+	vKT0yYLstFTcM8WE/gZ3n2247U16xGIuaU78sLhvbI0kwBM26WxzqqqfLw8Shii3twpAwceSnPb
+X-Google-Smtp-Source: AGHT+IEaD6/NCBxxxfKhVW+SQ2XuBT1Btw2c/4loiQPU6dq3AxKc2urxpDuKIcZdFcK3IchhrLacVA==
+X-Received: by 2002:a17:90b:134b:b0:2ef:316b:53fe with SMTP id 98e67ed59e1d1-2f452e4d0e5mr545837a91.22.1734641692063;
+        Thu, 19 Dec 2024 12:54:52 -0800 (PST)
 Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:a8a3:6409:6518:340d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed644d87sm4126905a91.27.2024.12.19.12.54.48
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed644d87sm4126905a91.27.2024.12.19.12.54.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 12:54:49 -0800 (PST)
+        Thu, 19 Dec 2024 12:54:51 -0800 (PST)
 From: Douglas Anderson <dianders@chromium.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -77,23 +78,19 @@ Cc: Roxana Bradescu <roxabee@google.com>,
 	Trilok Soni <quic_tsoni@quicinc.com>,
 	Douglas Anderson <dianders@chromium.org>,
 	stable@vger.kernel.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Besar Wicaksono <bwicaksono@nvidia.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>,
-	Easwar Hariharan <eahariha@linux.microsoft.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/3] arm64: cputype: Add MIDR_CORTEX_A76AE
-Date: Thu, 19 Dec 2024 12:53:22 -0800
-Message-ID: <20241219125317.v3.2.I151f3b7ee323bcc3082179b8c60c3cd03308aa94@changeid>
+Subject: [PATCH v3 3/3] arm64: errata: Add newer ARM cores to the spectre_bhb_loop_affected() lists
+Date: Thu, 19 Dec 2024 12:53:23 -0800
+Message-ID: <20241219125317.v3.3.I4a9a527e03f663040721c5401c41de587d015c82@changeid>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
 In-Reply-To: <20241219205426.2275508-1-dianders@chromium.org>
 References: <20241219205426.2275508-1-dianders@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_125451_000212_79A5FA7F 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20241219_125454_764353_2140BF25 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,10 +105,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From the TRM, MIDR_CORTEX_A76AE has a partnum of 0xDOE and an
-implementor of 0x41 (ARM). Add the values.
+When comparing to the ARM list [1], it appears that several ARM cores
+were missing from the lists in spectre_bhb_loop_affected(). Add them.
+
+NOTE: for some of these cores it may not matter since other ways of
+clearing the BHB may be used (like the CLRBHB instruction or ECBHB),
+but it still seems good to have all the info from ARM's whitepaper
+included.
+
+[1] https://developer.arm.com/Arm%20Security%20Center/Spectre-BHB
 
 
+Fixes: 558c303c9734 ("arm64: Mitigate spectre style branch history side channels")
 Cc: stable@vger.kernel.org
 Signed-off-by: Douglas Anderson <dianders@chromium.org>
 ---
@@ -119,29 +124,49 @@ Signed-off-by: Douglas Anderson <dianders@chromium.org>
 Changes in v3:
 - New
 
- arch/arm64/include/asm/cputype.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/kernel/proton-pack.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 488f8e751349..a345628fce51 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -75,6 +75,7 @@
- #define ARM_CPU_PART_CORTEX_A76		0xD0B
- #define ARM_CPU_PART_NEOVERSE_N1	0xD0C
- #define ARM_CPU_PART_CORTEX_A77		0xD0D
-+#define ARM_CPU_PART_CORTEX_A76AE	0xD0E
- #define ARM_CPU_PART_NEOVERSE_V1	0xD40
- #define ARM_CPU_PART_CORTEX_A78		0xD41
- #define ARM_CPU_PART_CORTEX_A78AE	0xD42
-@@ -158,6 +159,7 @@
- #define MIDR_CORTEX_A76	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A76)
- #define MIDR_NEOVERSE_N1 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N1)
- #define MIDR_CORTEX_A77	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A77)
-+#define MIDR_CORTEX_A76AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A76AE)
- #define MIDR_NEOVERSE_V1	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V1)
- #define MIDR_CORTEX_A78	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78)
- #define MIDR_CORTEX_A78AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A78AE)
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index 06e04c9e6480..86d67f5a5a72 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -872,6 +872,14 @@ static u8 spectre_bhb_loop_affected(void)
+ {
+ 	u8 k = 0;
+ 
++	static const struct midr_range spectre_bhb_k132_list[] = {
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
++		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
++	};
++	static const struct midr_range spectre_bhb_k38_list[] = {
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
++	};
+ 	static const struct midr_range spectre_bhb_k32_list[] = {
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A78),
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A78AE),
+@@ -885,6 +893,7 @@ static u8 spectre_bhb_loop_affected(void)
+ 	};
+ 	static const struct midr_range spectre_bhb_k24_list[] = {
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A76),
++		MIDR_ALL_VERSIONS(MIDR_CORTEX_A76AE),
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
+ 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
+ 		{},
+@@ -899,7 +908,11 @@ static u8 spectre_bhb_loop_affected(void)
+ 		{},
+ 	};
+ 
+-	if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
++	if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k132_list))
++		k = 132;
++	else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k38_list))
++		k = 38;
++	else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
+ 		k = 32;
+ 	else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k24_list))
+ 		k = 24;
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
