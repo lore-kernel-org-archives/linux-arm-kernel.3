@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A5AE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9B0E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCbAYMLLvTAcxGqf7AGIu8LtVN+q/aDW+3h34FBSoIk=; b=1TRC93DN5ZNtjIxL4TDSvJGaIP
-	+34WANA5o4DkFPHctZmGPKx/Ulom81u0XT2v18JYobXj1gUoLm75UYU/sbSJMRXeHap3oK0EJYg5E
-	twQSAl4O71iAfj5PJTsy8DkuQ81P+BpbO3pwNGWYhfunteYZNSVjRJIuuMQM9GxLgjmDNxwCMYboM
-	mVHMN70+VzLnY7Kz4wvRK6F6nW7Nvli0anNtMetO0cF25ae0upqryNRwHlIDfKYSUXiT3QMG+3jB1
-	9Fu0rDGjNZGz267hqfDX8AZpzwyhAMYCNTNUdyiMV3TaLNcrMzjNLaMpQsoLBmkY7EamhNfjM3BfG
-	2qb4efFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RJWmfqnmjrB5FtRKj6HopPg5U7HLL5nOtxnAuzkKTcw=; b=iuCM3iwGFMEPJeTTyPSXlqUZXc
+	THRqzikRKQscshDIlxcwMft0Puv8UfJ8RUfFmLzFpySuidllO8UpZ1h7CCuyb0E0Y0BZ323UlBw9o
+	q7/K4c7RiG8Zo3FKBJF7oe8ShgncYOCfTXxrImTGfa7YFmeVjmvqcMWHWYzv28JVkkcsZ/Ycpruh9
+	lYOTxhHAMKgkZi6mG1C6Y6eAuNeHkOQ8WLE7178dHrFyVs68YCkYA4AC0HU5OwOZMSPiSuJcrxc6x
+	FYtrWvYlDZTfcuP7hAo0YHK+DgF5WGXqVTcSY9dzMcG28NDLnhTKtNHFzCIAjDHGzgWfDwUydTcnc
+	a2XL6YBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODXe-00000001Vsb-2zta;
-	Thu, 19 Dec 2024 10:14:02 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1tODYj-00000001W3v-1Zzb;
+	Thu, 19 Dec 2024 10:15:09 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tODWY-00000001Vkg-0kIZ
+	id 1tODWa-00000001VlX-1o7O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:12:55 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-aa68b513abcso117555666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 02:12:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734603172; x=1735207972; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nCbAYMLLvTAcxGqf7AGIu8LtVN+q/aDW+3h34FBSoIk=;
-        b=utpjzvvSOam6MZAbn/Wu7c4EomzS/4QyvDWXpOc/aV741jTrkFx3X5Bi+YA3ZB2Y5T
-         7h4pUkgQrHAaIqlQfEEyNoJ5ZUzZgFe54wq7zqx9MuUhFIB8Ijbo6c23+6mdAlpgYXSq
-         S8uqfP8J7BTt0wb77OQw+CF39sBGPZvp7lyIo3lq4jCsOn8TWHtBLrWap5P6fCgLu9aV
-         4qhmYRHbVkSA4rkgL9xYByhBM+pyUDWLggIeEenrjt9bE9Tc6F+DSXaKZ0r+byhqSuZK
-         vSz6i2INaAL7pntLcU13QfZmeNsngQpifFxLCWp3Zi/UbLh8S60xvulPjt2erWxVS2jZ
-         /IoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734603172; x=1735207972;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nCbAYMLLvTAcxGqf7AGIu8LtVN+q/aDW+3h34FBSoIk=;
-        b=kL0tNq87GWEWrbNcq/W1gMGm7DAtgILH5H701wG5ZA2uNU98D+latqgqGwR/Zd0qO1
-         BAiKi6v8zOaNYnRZtpeKYw0naGpBjAvrmAch7jYbuyHnH0X6lyPKxqgARMN4dX47I5Zl
-         6g4/4pjSYM1DBfJdYxwnHW2i/B3xC97vblf709ljXQMQV+QoDCY+4QoJ7d/a1kbhhbjl
-         8RWGHFiRs4zB/aFQwyA/N/tiluNAqUl/c9TTVANPidpvZbvitsSHSTamIMf867nwH8vI
-         m2+aaIa9GsGuEZjW0EFEHGUqugU1BBajwYHNOv/qI5r8NUejQpqCQ2ELV16Yf8owmZwf
-         6lCA==
-X-Forwarded-Encrypted: i=1; AJvYcCXpiexjwUy2ntYEZW/o87wq8xPkkoUjXWsn3Uqjnhlr3SViGReg3JMm0H3Ku8GntNLegokyj3EMmCQLipB4lP8d@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLJtOQ3BIeOB1tCzvX5sZxgDdcjY1vQrjbdASTbIv/0JcyS/oF
-	hGeYco5Tfg19b3yo0ZI7ZtO4PANl/oGgaiYHlQlBwZndDSnfDACJSfDpt7YYGg==
-X-Gm-Gg: ASbGnctasbMwZ5HYJ/hsYXrAQDOaVK3LuldgiasWy4inpsczgjdV47Gp2LD7JsM9TEo
-	7wzd00yDWb/SNdqRZS8H/+5eoZGXlgggs3akeUsfoEsWILkgWIMttDNIfW650O7Rz6YGdDfBQ8q
-	vzmwxG0tR3wiZO0VQUQpyOiiovEWnppBWyPo1cOh57Vu0OVs830RVAI05T7cpAy+fyj4LCrDvcW
-	WEBXkGCx43q+2/gfE1/p7ZBYir8+cJZdFijHYyoeF2Id7ezW1Zzy5/RyNDxmtHIE1LUldRmVG7j
-	M5NFgw+BrHnlA/0=
-X-Google-Smtp-Source: AGHT+IGMl2hg/hWZAxfwmB/IK3u3QFEHEjrtfo3Stww8uFN30SkW9zfcsvkOQ6GyYADyRplBw2Y2nw==
-X-Received: by 2002:a17:907:dab:b0:aa6:538e:a311 with SMTP id a640c23a62f3a-aabf474df33mr596243266b.18.1734603171614;
-        Thu, 19 Dec 2024 02:12:51 -0800 (PST)
-Received: from google.com (61.134.90.34.bc.googleusercontent.com. [34.90.134.61])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f06ebf3sm47724366b.196.2024.12.19.02.12.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 02:12:51 -0800 (PST)
-Date: Thu, 19 Dec 2024 10:12:48 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 17/18] KVM: arm64: Introduce the EL1 pKVM MMU
-Message-ID: <Z2PxoLcB3EMfk3_-@google.com>
-References: <20241218194059.3670226-1-qperret@google.com>
- <20241218194059.3670226-18-qperret@google.com>
- <CA+EHjTymHPQGwLLpsWzYf1zHpnQKu4mV54Bz3U9HWf3Jb8TcqA@mail.gmail.com>
+	Thu, 19 Dec 2024 10:12:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734603177; x=1766139177;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=m0HTemuK9KxuX94PNTB59KqWXDkCnMgWuTP44JYg8hs=;
+  b=Ns4i8PI4s0hHsIaex6kL6TtRHJv9mEs27JEqB6HD1vWDYf3iM5CfUbeF
+   sGfHRl9nrZUJSM9jDjKUQ31mNrKQS3+tHMLajfr3TCix93pquT45UkwHW
+   zfP/7tNyhIx16ORakkqjx9oCopxjhs0EPTxwl+njOiB/zaHLXH4yozlYg
+   Ph97yHF+DZQj5qo0pPQCbd3JkyKl80LrEFhlTbqbXn8r9O+lPhDtCXXg7
+   d7XdtizHjaEB6W55L+QEddg9ia2KdsTo4hiWpQEmicmVvMf/0CXlh6dqE
+   FhXIR2nn6VHPVaQhXACinIGy1HgWY4YwIV7UiKw95xZdPkPOO8EFPoeET
+   g==;
+X-CSE-ConnectionGUID: +Hv4AT2kTda5TH+5gnNnqg==
+X-CSE-MsgGUID: CTyF9lyBQqmPEunC39HVTQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11290"; a="39045202"
+X-IronPort-AV: E=Sophos;i="6.12,247,1728975600"; 
+   d="scan'208";a="39045202"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Dec 2024 02:12:56 -0800
+X-CSE-ConnectionGUID: nIaWYPv5QOWwQ1xANTMJ6A==
+X-CSE-MsgGUID: C87xoNhZRP6RS6Gt6xxRNQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,247,1728975600"; 
+   d="scan'208";a="97974038"
+Received: from lkp-server01.sh.intel.com (HELO a46f226878e0) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 19 Dec 2024 02:12:54 -0800
+Received: from kbuild by a46f226878e0 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tODWW-0000AF-0Z;
+	Thu, 19 Dec 2024 10:12:52 +0000
+Date: Thu, 19 Dec 2024 18:12:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/nv-next 7/20] arch/arm64/kvm/at.c:267:6:
+ warning: variable 'as_el0' is uninitialized when used here
+Message-ID: <202412191856.Qakq77aj-lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTymHPQGwLLpsWzYf1zHpnQKu4mV54Bz3U9HWf3Jb8TcqA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_021254_227368_DA0BC622 
-X-CRM114-Status: GOOD (  38.79  )
+X-CRM114-CacheID: sfid-20241219_021256_488188_28ED92E8 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,362 +85,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday 19 Dec 2024 at 09:49:31 (+0000), Fuad Tabba wrote:
-> Hi Quentin
-> 
-> On Wed, 18 Dec 2024 at 19:41, Quentin Perret <qperret@google.com> wrote:
-> >
-> > Introduce a set of helper functions allowing to manipulate the pKVM
-> > guest stage-2 page-tables from EL1 using pKVM's HVC interface.
-> >
-> > Each helper has an exact one-to-one correspondance with the traditional
-> > kvm_pgtable_stage2_*() functions from pgtable.c, with a strictly
-> > matching prototype. This will ease plumbing later on in mmu.c.
-> >
-> > These callbacks track the gfn->pfn mappings in a simple rb_tree indexed
-> > by IPA in lieu of a page-table. This rb-tree is kept in sync with pKVM's
-> > state and is protected by the mmu_lock like a traditional stage-2
-> > page-table.
-> >
-> > Signed-off-by: Quentin Perret <qperret@google.com>
-> 
-> Minor nits (feel free to ignore). Apart from that, and despite that
-> for_each_mapping_in_range_safe macro:
-> 
-> Tested-by: Fuad Tabba <tabba@google.com>
-> Reviewed-by: Fuad Tabba <tabba@google.com>
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv-next
+head:   200e6aefbe57cd21d7ad678ec89f103388b20382
+commit: eca7e4423a05f5cef4a1c84f8d69e4abed046a0d [7/20] KVM: arm64: nv: Extract translation helper from the AT code
+config: arm64-randconfig-001-20241219 (https://download.01.org/0day-ci/archive/20241219/202412191856.Qakq77aj-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241219/202412191856.Qakq77aj-lkp@intel.com/reproduce)
 
-Thanks!
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412191856.Qakq77aj-lkp@intel.com/
 
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h    |   1 +
-> >  arch/arm64/include/asm/kvm_pgtable.h |  23 +--
-> >  arch/arm64/include/asm/kvm_pkvm.h    |  26 ++++
-> >  arch/arm64/kvm/pkvm.c                | 201 +++++++++++++++++++++++++++
-> >  4 files changed, 242 insertions(+), 9 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index 1246f1d01dbf..f23f4ea9ec8b 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -85,6 +85,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu);
-> >  struct kvm_hyp_memcache {
-> >         phys_addr_t head;
-> >         unsigned long nr_pages;
-> > +       struct pkvm_mapping *mapping; /* only used from EL1 */
-> >  };
-> >
-> >  static inline void push_hyp_memcache(struct kvm_hyp_memcache *mc,
-> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> > index 04418b5e3004..6b9d274052c7 100644
-> > --- a/arch/arm64/include/asm/kvm_pgtable.h
-> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> > @@ -412,15 +412,20 @@ static inline bool kvm_pgtable_walk_lock_held(void)
-> >   *                     be used instead of block mappings.
-> >   */
-> >  struct kvm_pgtable {
-> > -       u32                                     ia_bits;
-> > -       s8                                      start_level;
-> > -       kvm_pteref_t                            pgd;
-> > -       struct kvm_pgtable_mm_ops               *mm_ops;
-> > -
-> > -       /* Stage-2 only */
-> > -       struct kvm_s2_mmu                       *mmu;
-> > -       enum kvm_pgtable_stage2_flags           flags;
-> > -       kvm_pgtable_force_pte_cb_t              force_pte_cb;
-> > +       union {
-> > +               struct rb_root                                  pkvm_mappings;
-> > +               struct {
-> > +                       u32                                     ia_bits;
-> > +                       s8                                      start_level;
-> > +                       kvm_pteref_t                            pgd;
-> > +                       struct kvm_pgtable_mm_ops               *mm_ops;
-> > +
-> > +                       /* Stage-2 only */
-> > +                       enum kvm_pgtable_stage2_flags           flags;
-> > +                       kvm_pgtable_force_pte_cb_t              force_pte_cb;
-> > +               };
-> > +       };
-> > +       struct kvm_s2_mmu                                       *mmu;
-> >  };
-> >
-> >  /**
-> > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> > index cd56acd9a842..65f988b6fe0d 100644
-> > --- a/arch/arm64/include/asm/kvm_pkvm.h
-> > +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> > @@ -137,4 +137,30 @@ static inline size_t pkvm_host_sve_state_size(void)
-> >                         SVE_SIG_REGS_SIZE(sve_vq_from_vl(kvm_host_sve_max_vl)));
-> >  }
-> >
-> > +struct pkvm_mapping {
-> > +       struct rb_node node;
-> > +       u64 gfn;
-> > +       u64 pfn;
-> > +};
-> > +
-> > +int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
-> > +                            struct kvm_pgtable_mm_ops *mm_ops);
-> > +void pkvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt);
-> > +int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size, u64 phys,
-> > +                           enum kvm_pgtable_prot prot, void *mc,
-> > +                           enum kvm_pgtable_walk_flags flags);
-> > +int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-> > +int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size);
-> > +int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size);
-> > +bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold);
-> > +int pkvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_prot prot,
-> > +                                   enum kvm_pgtable_walk_flags flags);
-> > +void pkvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
-> > +                                enum kvm_pgtable_walk_flags flags);
-> > +int pkvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> > +                             struct kvm_mmu_memory_cache *mc);
-> > +void pkvm_pgtable_stage2_free_unlinked(struct kvm_pgtable_mm_ops *mm_ops, void *pgtable, s8 level);
-> > +kvm_pte_t *pkvm_pgtable_stage2_create_unlinked(struct kvm_pgtable *pgt, u64 phys, s8 level,
-> > +                                              enum kvm_pgtable_prot prot, void *mc,
-> > +                                              bool force_pte);
-> >  #endif /* __ARM64_KVM_PKVM_H__ */
-> > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> > index 85117ea8f351..930b677eb9b0 100644
-> > --- a/arch/arm64/kvm/pkvm.c
-> > +++ b/arch/arm64/kvm/pkvm.c
-> > @@ -7,6 +7,7 @@
-> >  #include <linux/init.h>
-> >  #include <linux/kmemleak.h>
-> >  #include <linux/kvm_host.h>
-> > +#include <asm/kvm_mmu.h>
-> >  #include <linux/memblock.h>
-> >  #include <linux/mutex.h>
-> >  #include <linux/sort.h>
-> > @@ -268,3 +269,203 @@ static int __init finalize_pkvm(void)
-> >         return ret;
-> >  }
-> >  device_initcall_sync(finalize_pkvm);
-> > +
-> > +static int cmp_mappings(struct rb_node *node, const struct rb_node *parent)
-> > +{
-> > +       struct pkvm_mapping *a = rb_entry(node, struct pkvm_mapping, node);
-> > +       struct pkvm_mapping *b = rb_entry(parent, struct pkvm_mapping, node);
-> > +
-> > +       if (a->gfn < b->gfn)
-> > +               return -1;
-> > +       if (a->gfn > b->gfn)
-> > +               return 1;
-> > +       return 0;
-> > +}
-> > +
-> > +static struct rb_node *find_first_mapping_node(struct rb_root *root, u64 gfn)
-> > +{
-> > +       struct rb_node *node = root->rb_node, *prev = NULL;
-> > +       struct pkvm_mapping *mapping;
-> > +
-> > +       while (node) {
-> > +               mapping = rb_entry(node, struct pkvm_mapping, node);
-> > +               if (mapping->gfn == gfn)
-> > +                       return node;
-> > +               prev = node;
-> > +               node = (gfn < mapping->gfn) ? node->rb_left : node->rb_right;
-> > +       }
-> > +
-> > +       return prev;
-> > +}
-> > +
-> > +/*
-> > + * __tmp is updated to rb_next(__tmp) *before* entering the body of the loop to allow freeing
-> > + * of __map inline.
-> > + */
-> > +#define for_each_mapping_in_range_safe(__pgt, __start, __end, __map)                           \
-> > +       for (struct rb_node *__tmp = find_first_mapping_node(&(__pgt)->pkvm_mappings,           \
-> > +                                                            ((__start) >> PAGE_SHIFT));        \
-> > +            __tmp && ({                                                                        \
-> > +                               __map = rb_entry(__tmp, struct pkvm_mapping, node);             \
-> > +                               __tmp = rb_next(__tmp);                                         \
-> > +                               true;                                                           \
-> > +                      });                                                                      \
-> > +           )                                                                                   \
-> > +               if (__map->gfn < ((__start) >> PAGE_SHIFT))                                     \
-> > +                       continue;                                                               \
-> > +               else if (__map->gfn >= ((__end) >> PAGE_SHIFT))                                 \
-> > +                       break;                                                                  \
-> > +               else
-> > +
-> > +int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
-> > +                            struct kvm_pgtable_mm_ops *mm_ops)
-> > +{
-> > +       pgt->pkvm_mappings      = RB_ROOT;
-> > +       pgt->mmu                = mmu;
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +void pkvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
-> > +{
-> > +       struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > +       pkvm_handle_t handle = kvm->arch.pkvm.handle;
-> > +       struct pkvm_mapping *mapping;
-> > +       struct rb_node *node;
-> > +
-> > +       if (!handle)
-> > +               return;
-> > +
-> > +       node = rb_first(&pgt->pkvm_mappings);
-> > +       while (node) {
-> > +               mapping = rb_entry(node, struct pkvm_mapping, node);
-> > +               kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn);
-> > +               node = rb_next(node);
-> > +               rb_erase(&mapping->node, &pgt->pkvm_mappings);
-> > +               kfree(mapping);
-> > +       }
-> > +}
-> > +
-> > +int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> > +                          u64 phys, enum kvm_pgtable_prot prot,
-> > +                          void *mc, enum kvm_pgtable_walk_flags flags)
-> > +{
-> > +       struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > +       struct pkvm_mapping *mapping = NULL;
-> > +       struct kvm_hyp_memcache *cache = mc;
-> > +       u64 gfn = addr >> PAGE_SHIFT;
-> > +       u64 pfn = phys >> PAGE_SHIFT;
-> 
-> Is it worth using the gpa_to_gfn and __phys_to_pfn helpers? Might
-> obscure rather than help, but something to think about.
+All warnings (new ones prefixed by >>):
 
-Apparently user_mem_abort() already uses an open coded variant of
-gpa_to_gfn(), so I guess it makes sense to be consistent here? I
-personally like the open coded variant better because it makes it clear
-what this does, but no strong opinion really.
+>> arch/arm64/kvm/at.c:267:6: warning: variable 'as_el0' is uninitialized when used here [-Wuninitialized]
+               as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
+               ^~~~~~
+   arch/arm64/kvm/at.c:103:29: note: initialize the variable 'as_el0' to silence this warning
+           bool va55, tbi, lva, as_el0;
+                                      ^
+                                       = 0
+   1 warning generated.
 
-> > +       int ret;
-> > +
-> > +       if (size != PAGE_SIZE)
-> > +               return -EINVAL;
-> > +
-> > +       lockdep_assert_held_write(&kvm->mmu_lock);
-> > +       ret = kvm_call_hyp_nvhe(__pkvm_host_share_guest, pfn, gfn, prot);
-> > +       if (ret) {
-> > +               /* Is the gfn already mapped due to a racing vCPU? */
-> > +               if (ret == -EPERM)
-> > +                       return -EAGAIN;
-> > +       }
-> > +
-> > +       swap(mapping, cache->mapping);
-> > +       mapping->gfn = gfn;
-> > +       mapping->pfn = pfn;
-> > +       WARN_ON(rb_find_add(&mapping->node, &pgt->pkvm_mappings, cmp_mappings));
-> 
-> In addition to the warning, is it better to return an error as well?
 
-Right, returning an error would be fatal for the guest I think, there's
-nothing the VMM can do. The WARN alone keeps it limping along a bit
-longer. In both case we're in deep trouble because the state is truly
-borked.
+vim +/as_el0 +267 arch/arm64/kvm/at.c
 
-I'm tempted to leave things as is (because the error path is really
-going to be dead code in practice) unless anybody feels strongly about
-it.
+8a9b304d7e2276 Marc Zyngier 2024-10-23   97  
+eca7e4423a05f5 Marc Zyngier 2024-09-24   98  static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+d6a01a2dc760c8 Marc Zyngier 2024-06-18   99  			 struct s1_walk_result *wr, u64 va)
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  100  {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  101  	u64 hcr, sctlr, tcr, tg, ps, ia_bits, ttbr;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  102  	unsigned int stride, x;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  103  	bool va55, tbi, lva, as_el0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  104  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  105  	hcr = __vcpu_sys_reg(vcpu, HCR_EL2);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  106  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  107  	va55 = va & BIT(55);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  108  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  109  	if (wi->regime == TR_EL2 && va55)
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  110  		goto addrsz;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  111  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  112  	wi->s2 = wi->regime == TR_EL10 && (hcr & (HCR_VM | HCR_DC));
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  113  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  114  	switch (wi->regime) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  115  	case TR_EL10:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  116  		sctlr	= vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  117  		tcr	= vcpu_read_sys_reg(vcpu, TCR_EL1);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  118  		ttbr	= (va55 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  119  			   vcpu_read_sys_reg(vcpu, TTBR1_EL1) :
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  120  			   vcpu_read_sys_reg(vcpu, TTBR0_EL1));
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  121  		break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  122  	case TR_EL2:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  123  	case TR_EL20:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  124  		sctlr	= vcpu_read_sys_reg(vcpu, SCTLR_EL2);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  125  		tcr	= vcpu_read_sys_reg(vcpu, TCR_EL2);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  126  		ttbr	= (va55 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  127  			   vcpu_read_sys_reg(vcpu, TTBR1_EL2) :
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  128  			   vcpu_read_sys_reg(vcpu, TTBR0_EL2));
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  129  		break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  130  	default:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  131  		BUG();
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  132  	}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  133  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  134  	tbi = (wi->regime == TR_EL2 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  135  	       FIELD_GET(TCR_EL2_TBI, tcr) :
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  136  	       (va55 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  137  		FIELD_GET(TCR_TBI1, tcr) :
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  138  		FIELD_GET(TCR_TBI0, tcr)));
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  139  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  140  	if (!tbi && (u64)sign_extend64(va, 55) != va)
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  141  		goto addrsz;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  142  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  143  	va = (u64)sign_extend64(va, 55);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  144  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  145  	/* Let's put the MMU disabled case aside immediately */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  146  	switch (wi->regime) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  147  	case TR_EL10:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  148  		/*
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  149  		 * If dealing with the EL1&0 translation regime, 3 things
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  150  		 * can disable the S1 translation:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  151  		 *
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  152  		 * - HCR_EL2.DC = 1
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  153  		 * - HCR_EL2.{E2H,TGE} = {0,1}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  154  		 * - SCTLR_EL1.M = 0
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  155  		 *
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  156  		 * The TGE part is interesting. If we have decided that this
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  157  		 * is EL1&0, then it means that either {E2H,TGE} == {1,0} or
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  158  		 * {0,x}, and we only need to test for TGE == 1.
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  159  		 */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  160  		if (hcr & (HCR_DC | HCR_TGE)) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  161  			wr->level = S1_MMU_DISABLED;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  162  			break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  163  		}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  164  		fallthrough;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  165  	case TR_EL2:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  166  	case TR_EL20:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  167  		if (!(sctlr & SCTLR_ELx_M))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  168  			wr->level = S1_MMU_DISABLED;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  169  		break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  170  	}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  171  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  172  	if (wr->level == S1_MMU_DISABLED) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  173  		if (va >= BIT(kvm_get_pa_bits(vcpu->kvm)))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  174  			goto addrsz;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  175  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  176  		wr->pa = va;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  177  		return 0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  178  	}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  179  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  180  	wi->be = sctlr & SCTLR_ELx_EE;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  181  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  182  	wi->hpd  = kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, HPDS, IMP);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  183  	wi->hpd &= (wi->regime == TR_EL2 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  184  		    FIELD_GET(TCR_EL2_HPD, tcr) :
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  185  		    (va55 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  186  		     FIELD_GET(TCR_HPD1, tcr) :
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  187  		     FIELD_GET(TCR_HPD0, tcr)));
+5e21b297872237 Marc Zyngier 2024-10-23  188  	/* R_JHSVW */
+5e21b297872237 Marc Zyngier 2024-10-23  189  	wi->hpd |= s1pie_enabled(vcpu, wi->regime);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  190  
+8a9b304d7e2276 Marc Zyngier 2024-10-23  191  	/* Do we have POE? */
+8a9b304d7e2276 Marc Zyngier 2024-10-23  192  	compute_s1poe(vcpu, wi);
+8a9b304d7e2276 Marc Zyngier 2024-10-23  193  
+8a9b304d7e2276 Marc Zyngier 2024-10-23  194  	/* R_BVXDG */
+8a9b304d7e2276 Marc Zyngier 2024-10-23  195  	wi->hpd |= (wi->poe || wi->e0poe);
+8a9b304d7e2276 Marc Zyngier 2024-10-23  196  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  197  	/* Someone was silly enough to encode TG0/TG1 differently */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  198  	if (va55) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  199  		wi->txsz = FIELD_GET(TCR_T1SZ_MASK, tcr);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  200  		tg = FIELD_GET(TCR_TG1_MASK, tcr);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  201  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  202  		switch (tg << TCR_TG1_SHIFT) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  203  		case TCR_TG1_4K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  204  			wi->pgshift = 12;	 break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  205  		case TCR_TG1_16K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  206  			wi->pgshift = 14;	 break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  207  		case TCR_TG1_64K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  208  		default:	    /* IMPDEF: treat any other value as 64k */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  209  			wi->pgshift = 16;	 break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  210  		}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  211  	} else {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  212  		wi->txsz = FIELD_GET(TCR_T0SZ_MASK, tcr);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  213  		tg = FIELD_GET(TCR_TG0_MASK, tcr);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  214  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  215  		switch (tg << TCR_TG0_SHIFT) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  216  		case TCR_TG0_4K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  217  			wi->pgshift = 12;	 break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  218  		case TCR_TG0_16K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  219  			wi->pgshift = 14;	 break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  220  		case TCR_TG0_64K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  221  		default:	    /* IMPDEF: treat any other value as 64k */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  222  			wi->pgshift = 16;	 break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  223  		}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  224  	}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  225  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  226  	/* R_PLCGL, R_YXNYW */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  227  	if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, ST, 48_47)) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  228  		if (wi->txsz > 39)
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  229  			goto transfault_l0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  230  	} else {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  231  		if (wi->txsz > 48 || (BIT(wi->pgshift) == SZ_64K && wi->txsz > 47))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  232  			goto transfault_l0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  233  	}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  234  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  235  	/* R_GTJBY, R_SXWGM */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  236  	switch (BIT(wi->pgshift)) {
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  237  	case SZ_4K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  238  		lva = kvm_has_feat(vcpu->kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  239  		lva &= tcr & (wi->regime == TR_EL2 ? TCR_EL2_DS : TCR_DS);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  240  		break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  241  	case SZ_16K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  242  		lva = kvm_has_feat(vcpu->kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  243  		lva &= tcr & (wi->regime == TR_EL2 ? TCR_EL2_DS : TCR_DS);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  244  		break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  245  	case SZ_64K:
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  246  		lva = kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, VARange, 52);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  247  		break;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  248  	}
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  249  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  250  	if ((lva && wi->txsz < 12) || (!lva && wi->txsz < 16))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  251  		goto transfault_l0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  252  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  253  	ia_bits = get_ia_size(wi);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  254  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  255  	/* R_YYVYV, I_THCZK */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  256  	if ((!va55 && va > GENMASK(ia_bits - 1, 0)) ||
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  257  	    (va55 && va < GENMASK(63, ia_bits)))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  258  		goto transfault_l0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  259  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  260  	/* I_ZFSYQ */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  261  	if (wi->regime != TR_EL2 &&
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  262  	    (tcr & (va55 ? TCR_EPD1_MASK : TCR_EPD0_MASK)))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  263  		goto transfault_l0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  264  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  265  	/* R_BNDVG and following statements */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  266  	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR2_EL1, E0PD, IMP) &&
+d6a01a2dc760c8 Marc Zyngier 2024-06-18 @267  	    as_el0 && (tcr & (va55 ? TCR_E0PD1 : TCR_E0PD0)))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  268  		goto transfault_l0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  269  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  270  	/* AArch64.S1StartLevel() */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  271  	stride = wi->pgshift - 3;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  272  	wi->sl = 3 - (((ia_bits - 1) - wi->pgshift) / stride);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  273  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  274  	ps = (wi->regime == TR_EL2 ?
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  275  	      FIELD_GET(TCR_EL2_PS_MASK, tcr) : FIELD_GET(TCR_IPS_MASK, tcr));
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  276  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  277  	wi->max_oa_bits = min(get_kvm_ipa_limit(), ps_to_output_size(ps));
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  278  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  279  	/* Compute minimal alignment */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  280  	x = 3 + ia_bits - ((3 - wi->sl) * stride + wi->pgshift);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  281  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  282  	wi->baddr = ttbr & TTBRx_EL1_BADDR;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  283  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  284  	/* R_VPBBF */
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  285  	if (check_output_size(wi->baddr, wi))
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  286  		goto addrsz;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  287  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  288  	wi->baddr &= GENMASK_ULL(wi->max_oa_bits - 1, x);
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  289  
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  290  	return 0;
+d6a01a2dc760c8 Marc Zyngier 2024-06-18  291  
 
-Cheers,
-Quentin
+:::::: The code at line 267 was first introduced by commit
+:::::: d6a01a2dc760c8350fa182a6afd69fabab131f73 KVM: arm64: nv: Add SW walker for AT S1 emulation
 
-> 
-> > +       return ret;
-> > +}
-> > +
-> > +int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
-> > +{
-> > +       struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > +       pkvm_handle_t handle = kvm->arch.pkvm.handle;
-> > +       struct pkvm_mapping *mapping;
-> > +       int ret = 0;
-> > +
-> > +       lockdep_assert_held_write(&kvm->mmu_lock);
-> > +       for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> > +               ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn);
-> > +               if (WARN_ON(ret))
-> > +                       break;
-> > +               rb_erase(&mapping->node, &pgt->pkvm_mappings);
-> > +               kfree(mapping);
-> > +       }
-> > +
-> > +       return ret;
-> > +}
-> > +
-> > +int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
-> > +{
-> > +       struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > +       pkvm_handle_t handle = kvm->arch.pkvm.handle;
-> > +       struct pkvm_mapping *mapping;
-> > +       int ret = 0;
-> > +
-> > +       lockdep_assert_held(&kvm->mmu_lock);
-> > +       for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> > +               ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn);
-> > +               if (WARN_ON(ret))
-> > +                       break;
-> > +       }
-> > +
-> > +       return ret;
-> > +}
-> > +
-> > +int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
-> > +{
-> > +       struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > +       struct pkvm_mapping *mapping;
-> > +
-> > +       lockdep_assert_held(&kvm->mmu_lock);
-> > +       for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> > +               __clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn), PAGE_SIZE);
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64 size, bool mkold)
-> > +{
-> > +       struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-> > +       pkvm_handle_t handle = kvm->arch.pkvm.handle;
-> > +       struct pkvm_mapping *mapping;
-> > +       bool young = false;
-> > +
-> > +       lockdep_assert_held(&kvm->mmu_lock);
-> > +       for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> > +               young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
-> > +                                          mkold);
-> > +
-> > +       return young;
-> > +}
-> > +
-> > +int pkvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr, enum kvm_pgtable_prot prot,
-> > +                                   enum kvm_pgtable_walk_flags flags)
-> > +{
-> > +       return kvm_call_hyp_nvhe(__pkvm_host_relax_perms_guest, addr >> PAGE_SHIFT, prot);
-> > +}
-> > +
-> > +void pkvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
-> > +                                enum kvm_pgtable_walk_flags flags)
-> > +{
-> > +       WARN_ON(kvm_call_hyp_nvhe(__pkvm_host_mkyoung_guest, addr >> PAGE_SHIFT));
-> > +}
-> > +
-> > +void pkvm_pgtable_stage2_free_unlinked(struct kvm_pgtable_mm_ops *mm_ops, void *pgtable, s8 level)
-> > +{
-> > +       WARN_ON_ONCE(1);
-> > +}
-> > +
-> > +kvm_pte_t *pkvm_pgtable_stage2_create_unlinked(struct kvm_pgtable *pgt, u64 phys, s8 level,
-> > +                                       enum kvm_pgtable_prot prot, void *mc, bool force_pte)
-> > +{
-> > +       WARN_ON_ONCE(1);
-> > +       return NULL;
-> > +}
-> > +
-> > +int pkvm_pgtable_stage2_split(struct kvm_pgtable *pgt, u64 addr, u64 size,
-> > +                             struct kvm_mmu_memory_cache *mc)
-> > +{
-> > +       WARN_ON_ONCE(1);
-> > +       return -EINVAL;
-> > +}
-> > --
-> > 2.47.1.613.gc27f4b7a9f-goog
-> >
+:::::: TO: Marc Zyngier <maz@kernel.org>
+:::::: CC: Marc Zyngier <maz@kernel.org>
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
