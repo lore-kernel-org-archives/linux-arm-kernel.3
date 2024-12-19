@@ -4,61 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CFC6E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 13:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E81E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 14:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLActdDddzGC52gNXiviX7j2KGTeoX5eNgyQLpsFBgk=; b=B0z47WXLMO9N4ANDesf3Qx+IqH
-	P2SSv+8t6SfpXFYymqpCS+Tw3yCJiyB6SYmoEGJZZt90+lzojCVkU7dEVdPLYR0dspku8VqFCK6SY
-	XO00Fuz3abuTbmg8j10pIJI7hxUmCrg43tPHKgSeOPFT2FfkyCcNne207fUGZbs/mp6VzlLf/vhF+
-	LOi8Is2dP4Z0PHIjZ74uq0mUEMnsAWEl7otKaaN4HFVmey+e/bd8vtvQFqiU3hERPNUEPv55k5Fr+
-	915bnU/si7dzflsoTOsFR289G029qj5rc5S7gIIKq/nyrD3BJ2OSpT8oyF2JEflV6L+Rmd7lnwYaP
-	W3pt2QGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hznEU/JjySVcox1z/n7FV7JgkYJK5W8i7mk0QDaA+1o=; b=qCapToTC1jnEt8cwr+ADzSljka
+	w/g8YU1E92l7/PsJjVHqJIdVHBjU9jKcYXPZiGP12tJ8CNYANGganmuyfY/n+zel4yufhLxi63qXi
+	Wi+cLUzrjehI3xzyDM4QKzb6go885q6WuEJbgMCjw6Dr73SZXEt4UXvpJ+OuvfgUhVJFuWw8q5SV+
+	yPjrq6sm26WIfcfjuTGQ8GpDXE2yji0HxWN0th4tYPl0pwud7lhspl8Qfjs6Rw6/3vbSDHxB2Ch83
+	gwlMyE/b07b9HURSYMMIEryrhaNRnz4yRtcLxY88tFj3vZwe3CKL6SlyVv6Oofboni4Jz39HfivXf
+	LDRBInJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOGoQ-00000001yxW-1siu;
-	Thu, 19 Dec 2024 13:43:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tOHHZ-000000021tp-2p36;
+	Thu, 19 Dec 2024 14:13:41 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOGnK-00000001yqw-0vPw;
-	Thu, 19 Dec 2024 13:42:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 431585C4D3B;
-	Thu, 19 Dec 2024 13:41:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99276C4CECE;
-	Thu, 19 Dec 2024 13:42:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734615745;
-	bh=BodwEG/s3P6E/2NShk1XvM+uIPEsnANNhnnZxJcTT7M=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=BMUD0UhBjwvnBoIorrBlY3odQNadBDjOgWdEwxwfK3rMJ+7NluOYcvhy9NLIRZ76z
-	 Co+4FlyIOtmX0/CAx9wAvH2dQoEDJik5ZQ9KEExaXg12ZygauOWaxkIOX8IIezaGDu
-	 mBK3+rIfXXYPNbVlQ0pqw1OWItnv+RS6Fqt4HxmFLpr0y+PdY3+GLWmxo6f4alaczx
-	 sOcpeN6iuzxrMelvou70olDMXNF013w9288dHOfgZ+hzDEdlxpygiG18ap7JeAt1ij
-	 6UfgLtJCeNirjSMS7PxLcJpb6eAe1m5CKzc+0Q9gK3LwnMrqA9L2FmRdeLtUBPOvN5
-	 i6ow9TW0DrF9g==
-From: Mark Brown <broonie@kernel.org>
-To: Jon Lin <jon.lin@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- heiko@sntech.de, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org
-In-Reply-To: <20241219010557.333327-1-jon.lin@rock-chips.com>
-References: <20241219010557.333327-1-jon.lin@rock-chips.com>
-Subject: Re: [PATCH] spi: rockchip-sfc: Using normal memory for dma
-Message-Id: <173461574310.119842.4743816830245681721.b4-ty@kernel.org>
-Date: Thu, 19 Dec 2024 13:42:23 +0000
+	id 1tOHGS-000000021kT-3SQh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Dec 2024 14:12:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1734617552; x=1766153552;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rL4bZKisA1ewY6FNSKjR35HRt9SyWoP4I/W6Geur4+Q=;
+  b=zPKefTSV4TDq7c9DUpS+D8hlolthQb24Br23tYqKDVNxsHQ4o2tFL/vf
+   jUFaulqGiutwCn2THhsiUDCRf7Qqz0bYnCe11HIqocwgYdCqMh13yC18E
+   CBtc/EV5uREEPVxJGdWFRLxUsD6VNQfjqW8hPJgYZ3JPGD1m5idzXO2LF
+   UzY6/GLu7sJatGjkqLbeFWb5WNzio4SmbASvqcIf3F1ItUssaUwmEsUPB
+   oifHsQyktx21CE35DRVsghg+20LGaSU+px29iOMxZrjV4QLH4M/9CIjC7
+   oO+QceJ0D3XN5PPeMsW0YjuO7LVwjU34CdyoG6dD/9Is/I00lubtHs2UV
+   A==;
+X-CSE-ConnectionGUID: duLIUFe6TgyylrqHBIcnZA==
+X-CSE-MsgGUID: IHx9uQXnT4KVcyij0LTx5Q==
+X-IronPort-AV: E=Sophos;i="6.12,247,1728975600"; 
+   d="asc'?scan'208";a="39491699"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Dec 2024 07:12:31 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 19 Dec 2024 07:12:28 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Thu, 19 Dec 2024 07:12:25 -0700
+Date: Thu, 19 Dec 2024 14:11:53 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+CC: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kernel-team@android.com>, <willmcvicker@google.com>,
+	<daniel.lezcano@linaro.org>, <vincent.guittot@linaro.org>,
+	<ulf.hansson@linaro.org>, <arnd@arndb.de>
+Subject: Re: [PATCH 1/2] dt-bindings: mailbox: add support for referencing
+ controllers solely by node
+Message-ID: <20241219-recent-everyone-865b19864693@wendy>
+References: <20241219-mbox_request_channel_by_args-v1-0-617a6910f842@linaro.org>
+ <20241219-mbox_request_channel_by_args-v1-1-617a6910f842@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-9b746
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="AgDRwXcwVb4K00Cs"
+Content-Disposition: inline
+In-Reply-To: <20241219-mbox_request_channel_by_args-v1-1-617a6910f842@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_054226_305728_CDFE0804 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241219_061233_088925_FD9C9E05 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +94,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Dec 2024 09:05:57 +0800, Jon Lin wrote:
-> Nornal memory CPU copy with cache invalidate is more efficient
-> than uncache memory copy.
-> 
-> 
+--AgDRwXcwVb4K00Cs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied to
+On Thu, Dec 19, 2024 at 01:07:46PM +0000, Tudor Ambarus wrote:
+> There are mailbox clients that can discover the mailbox channel ID at
+> run-time. For such cases passing the channel identifier via DT is
+> redundant. Add support for referencing controllers solely by node.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+I don't really get your implementation, why not just allow #mbox-cells =3D =
+0?
+That's what's done for things like fixed frequency clocks that only have
+a single output.
 
-Thanks!
+Cheers,
+Conor.
 
-[1/1] spi: rockchip-sfc: Using normal memory for dma
-      commit: b69386fcbc6066fb4885667743ab4d4967d561b8
+>=20
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/mailbox/mailbox.txt | 19 +++++++++++++=
+++----
+>  1 file changed, 15 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mailbox/mailbox.txt b/Docu=
+mentation/devicetree/bindings/mailbox/mailbox.txt
+> index af8ecee2ac68..0c4295a62f61 100644
+> --- a/Documentation/devicetree/bindings/mailbox/mailbox.txt
+> +++ b/Documentation/devicetree/bindings/mailbox/mailbox.txt
+> @@ -5,9 +5,10 @@ assign appropriate mailbox channel to client drivers.
+> =20
+>  * Mailbox Controller
+> =20
+> -Required property:
+> -- #mbox-cells: Must be at least 1. Number of cells in a mailbox
+> -		specifier.
+> +Optional property:
+> +- #mbox-cells: Must be at least 1. Number of cells in a mailbox specifie=
+r.
+> +               The property becomes mandatory for the cases where the cl=
+ients
+> +               reference the controller via the mboxes property.
+> =20
+>  Example:
+>  	mailbox: mailbox {
+> @@ -19,7 +20,11 @@ Example:
+>  * Mailbox Client
+> =20
+>  Required property:
+> +Clients must reference the mailbox controller either via the mboxes or m=
+box
+> +properties.
+>  - mboxes: List of phandle and mailbox channel specifiers.
+> +- mbox: phandle pointing to the controller. Used by clients that can dis=
+cover
+> +        the channel identifiers at runtime.
+> =20
+>  Optional property:
+>  - mbox-names: List of identifier strings for each mailbox channel.
+> @@ -29,7 +34,13 @@ Optional property:
+>  	  communication between the mailbox client and the remote.
+> =20
+> =20
+> -Example:
+> +Example using mbox:
+> +	power-management {
+> +		...
+> +		mbox =3D <&mailbox>;
+> +	};
+> +
+> +Example using mboxes:
+>  	pwr_cntrl: power {
+>  		...
+>  		mbox-names =3D "pwr-ctrl", "rpc";
+>=20
+> --=20
+> 2.47.1.613.gc27f4b7a9f-goog
+>=20
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+--AgDRwXcwVb4K00Cs
+Content-Type: application/pgp-signature; name="signature.asc"
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+-----BEGIN PGP SIGNATURE-----
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2QpqQAKCRB4tDGHoIJi
+0jNPAP4jwBK4hw6Sni3HTWgBfvx9OY6ivkQ6KxloApXofanz+gD+LuAhHCXALmhe
+kUsX/G4V8KQ7n/DEcofRph3WgvdBCg4=
+=Kz4z
+-----END PGP SIGNATURE-----
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+--AgDRwXcwVb4K00Cs--
 
