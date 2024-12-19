@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F82E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 04:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD29E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 04:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kgYKVg/xSi0OK6+9rmWNn2jW6wdrAhpNb9EJq1WRLWs=; b=UvGRD8vlXR2KPBf1ayTqhLZeQ5
-	irZ/x02M+ISfXDsWp473l01hMPa+rNukcmWxWN4INjNsjXA4nmHFqy0WCKNK6A2+SZIWfAspnxZ57
-	grMiNLWC/5/FgNwnGh0ihwDLxd16EiVrhX+T8lYVeIJIM8uZITI9PYAX9SQYf6Qh7kOSLHOcAH+9F
-	YR+IUQcu7dLoRvoP6GK3IW2wauGyNkdUF2ZZDceVa/ZjXkZMZK5WtxkMUzc9X/eMkbPmvg26W1grQ
-	//u6OlkbP7bFQOQsIX0Pu8DBcZ7Wj9E9U1yBO78Jv2M+4+0l+/WK3sJVS8oA+o3WWdbtkiHWtoIMW
-	YljPLqHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hV9rPYBMtv6zYearTenprodqq3vw1d5TA0nxIP3JZ6Y=; b=ZYxpge5QDllAlaX5DoBu5k3QJ/
+	c3lokEkXfEmxKb9gt8ekv/gJqmfTmTH09+/tCnx+jeVdv1iml2Sr8YZ7pls/Iw+YLsP0IQVUkXWBW
+	f6pcOoNjIViqrwvPZ8w6ZE0jFsA17dfBD1ZFq/Xzx4sCztlzWP7XXs2+a0UkXiHsOwU6NzLTxMzRC
+	VUT2KQF3gsJPz4GkA25EavbjrqQO2KOAeq3c79ozBXD3KfsULvRaKPDGxodM5++/yfkqt5ItNFxHH
+	tKe4qywYFef/jRztmhQEEPtPEXY69kiPyhIzqKu8CdvuK/DgmWFZZvr3I/uiS4y54kZ4+8je7v3+Y
+	Zcfv+/Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO7tz-00000000lyz-1e1d;
-	Thu, 19 Dec 2024 04:12:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1tO8HM-00000000ngO-01wb;
+	Thu, 19 Dec 2024 04:36:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO7ss-00000000lto-1iCC;
-	Thu, 19 Dec 2024 04:11:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1734581494; x=1766117494;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=R2Wn9SYot7N14emTkPFRNkyiryUGhE+kyUJk2LjZOi0=;
-  b=EBr8rPR4102+y7IML+FcQbOJ8Ug8bOxtvFabhmxFOCRlNjAPq/K1OpKQ
-   Q39vZLtvgF8ZZD2c08L07xjjwNKq+ysSqJDQgFfWoGKDBZdx7CehZyhNW
-   m+UJaYggpgTyHfJ5tCFwZlZeZQ8v0Min+HAlrpozHUydAO1txnVMJmvv6
-   /ksEkUe7PA1rZbEF6bsKXcQPyf/6FftWF5T5jrZd/MBYALbHFVjDw3Z2a
-   sGcOpQdAQbB4kGshMo5HCLaEdLY5SavKvO37kBSboEV/da0XZ03ZH7hUu
-   BbKMaeDVa/MUuurc6yGPHjtHUl+KvE8Y+GGIC65aw2EsIRjP5o/feyCMF
-   g==;
-X-CSE-ConnectionGUID: Bu64aKVFRiuMCGIiLDlv2g==
-X-CSE-MsgGUID: rY+Ot2OJREaaV8hnCrck1A==
-X-IronPort-AV: E=Sophos;i="6.12,246,1728975600"; 
-   d="scan'208";a="203189664"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Dec 2024 21:11:31 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 18 Dec 2024 21:10:51 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Wed, 18 Dec 2024 21:10:46 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Thu, 19 Dec 2024 09:40:41 +0530
-Subject: [PATCH] dt-bindings: mmc: move compatible property to its specific
- binding
+	id 1tO8GF-00000000nbX-0VBx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Dec 2024 04:35:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D63E85C663E;
+	Thu, 19 Dec 2024 04:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CDF5C4CED4;
+	Thu, 19 Dec 2024 04:35:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734582940;
+	bh=hV9rPYBMtv6zYearTenprodqq3vw1d5TA0nxIP3JZ6Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PmhVPEXtShJus3vwjeSG5S4LQfWCt0QUciQanZHZtLfx25uODBbaAxOiV+xmD4P0x
+	 lSLGwwOECXwwtM3TDH3rIlzn2tlT2Lnoe/55j6VRDIUE/fD9aYWQa4y8PFX6p7Fqbq
+	 wnJOpU+wB0MBZO2Y/mjlnvnQSMPRpT1w8BYg8o7GsVeUxmfVTs4pBCG8C8M0tIBpJ5
+	 R9h50P2Aw6FyTHvqUpO/UPwkMAzNE1FD2azO36OG3hFzIXcNFzx3w76X0f/psjKfT2
+	 BDvxuEKi0B1KhVZNDMGrTkA8HshT2oSa8zUyE+H2Q1dCK1cyYiifZ+j5igGoNhlanf
+	 PHN6ALlKl3X+g==
+Date: Thu, 19 Dec 2024 13:35:35 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alexandre.torgue@foss.st.com, jic23@kernel.org,
+	ukleinek@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
+	olivier.moysan@foss.st.com
+Subject: Re: [PATCH 4/9] counter: stm32-timer-cnt: add support for stm32mp25
+Message-ID: <Z2Oilz0GECUbovtN@ishi>
+References: <20241218090153.742869-1-fabrice.gasnier@foss.st.com>
+ <20241218090153.742869-5-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAMCcY2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDI0NL3dzcZN3inPwSXQNTcxMLC8uUxNREYyWg8oKi1LTMCrBR0bG1tQA
- n+/BZWgAAAA==
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
-	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>
-CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
-	<dharma.b@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734581446; l=1926;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=R2Wn9SYot7N14emTkPFRNkyiryUGhE+kyUJk2LjZOi0=;
- b=E+4ohOGm0CaZHEhi41ta2R+gPmJ7QEzV7VjPBewgBaV6JA/zWVQkda++p+wMyWejCmzWZGXVu
- wG8dVRWrIxcCsm7OfEMT6IptgaUCI0vnKZNd5+qBf+W2cNXEuM2Zpz5
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iv0TR1n6hMiqaW6j"
+Content-Disposition: inline
+In-Reply-To: <20241218090153.742869-5-fabrice.gasnier@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_201134_731028_92187DC3 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_203543_207702_DA2B6EB4 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,70 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the `compatible` property into its specific binding to make the MMC
-slot more generic and modular.
 
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
----
- Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml | 4 ++++
- Documentation/devicetree/bindings/mmc/mmc-slot.yaml              | 7 +------
- 2 files changed, 5 insertions(+), 6 deletions(-)
+--iv0TR1n6hMiqaW6j
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-index 022682a977c6..7600a4988eca 100644
---- a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-+++ b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
-@@ -54,6 +54,10 @@ patternProperties:
-       A node for each slot provided by the MMC controller
- 
-     properties:
-+      compatible:
-+        items:
-+          - const: mmc-slot
-+
-       reg:
-         enum: [0, 1, 2]
- 
-diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-index 1f0667828063..84c4605658e0 100644
---- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-+++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
-@@ -20,19 +20,15 @@ properties:
-   $nodename:
-     pattern: "^slot(@.*)?$"
- 
--  compatible:
--    const: mmc-slot
--
-   reg:
-     description:
-       the slot (or "port") ID
-     maxItems: 1
- 
- required:
--  - compatible
-   - reg
- 
--unevaluatedProperties: false
-+additionalProperties: true
- 
- examples:
-   - |
-@@ -40,7 +36,6 @@ examples:
-       #address-cells = <1>;
-       #size-cells = <0>;
-       slot@0 {
--        compatible = "mmc-slot";
-         reg = <0>;
-         bus-width = <4>;
-       };
+On Wed, Dec 18, 2024 at 10:01:48AM +0100, Fabrice Gasnier wrote:
+> Add support for STM32MP25 SoC. There are new counter modes that may be
+> implemented in later. Still, use newly introduced compatible to handle
+> this new HW variant and avoid being blocked with existing compatible
+> in SoC dtsi file. Modes supported currently still remains compatible.
+> New timer 20 has encoder capability, add it to the list.
+>=20
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
----
-base-commit: 7fa366f1b6e376c38966faa42da7f0f2e013fdab
-change-id: 20241219-mmc-slot-0574889daea3
+Acked-by: William Breathitt Gray <wbg@kernel.org>
 
-Best regards,
--- 
-Dharma Balasubiramani <dharma.b@microchip.com>
+--iv0TR1n6hMiqaW6j
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ2OilwAKCRC1SFbKvhIj
+K6GkAQD+kR7xgAP18OR+NrSPlqcTp3zBvvvPdQkB+Hg+9YasgQEAoM1u+U2lGv6Q
+2ZQAnG3TGdEj7O7hRpdM5mQ3nywuYQo=
+=GExD
+-----END PGP SIGNATURE-----
+
+--iv0TR1n6hMiqaW6j--
 
