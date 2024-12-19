@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722D4E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77C4E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 10:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h9EH0VzNdlwEE7HT+ejlIQXInr2HWzq5t9FyUGd1FM0=; b=VUMeMuhJdtOH2iXUMSJLTxZGTd
-	Saqd29DfXCD1RjpbK4cETC4+mfonufB+nqFF21qPPNhfC+B9x6fbCiTfbl2VUB8qatTY1udX009XO
-	Tkx0Fn01kfi4kiSaQC+m6AA0jnDk6ENkQBQek4VnfFT6s24iHMjmYs7MtwcjoeWEd3dUEp+xUPksH
-	MjkLy7mtO4QhzAE7ePEgKN/PWPLSHgXjOUP2RBn5xAtKl/cUsv/SbsnHypwf5YAerUSc1OGlMYYoz
-	WloC9qfdpOJn/5TsDN4qlUA5nfsalJG6HrieWmQFQBmYmK+84G7QmB6KhwRjaTZn0ECNaCZslAZZ0
-	PAr1fJHw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oq5JO8IAGHUgtWKu3N5PTBR3nqLoTI/1Srn3kmjKxgM=; b=FV3TJ9S1X5B5SlL6D42cAnzZGt
+	uLNDnnQlXqhgS/cliL1Hbv9cBLeBTf6Qxjyyk6gNC/a8hEIQno7FV4XB80hu7T2DtufM5belL1lv1
+	YVXobn9WB8ToY/mW7jb32ATJ3V0EOmTlk6NqCVh74WXxTDO6HlwOZGH+aMyPboA+nxwMaytGlva2f
+	678FE2AQdFtVTqmwHZtkcQqqdn31vwRe6ZIFc6UfFFUhuseXUjoiPfJqr0b8TNTBKD0XYpG6xXjG/
+	/zMCmuHnOVvZPkspYR09qAn0I7H42GgS9gD76zopnyBvWZ5wzRFvVqICLwrPVN/9xb1ppx/Fk22vd
+	ZENIELuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEBf-00000001agW-2BYx;
-	Thu, 19 Dec 2024 10:55:23 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1tOECk-00000001asC-0w1Y;
+	Thu, 19 Dec 2024 10:56:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOE9V-00000001aGk-2AW7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:53:10 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-7fbd9be84bdso536110a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 02:53:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734605588; x=1735210388; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h9EH0VzNdlwEE7HT+ejlIQXInr2HWzq5t9FyUGd1FM0=;
-        b=E2lpV3hTyXR3Sxrj1rdtfITan4iCzRv94qcvwIOcR1PBgaLGi2Q6h251tqBqYI5/U6
-         SMopSXtOvv/I5f4j6fQ/+AtaIdgdVexxc4JIRp3X0J/iIZ3JyqbJjengGUIzvVdP+uoT
-         qO1FtwmNWSeI2OirFH19hGEC3zzszI7cu7yPQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734605588; x=1735210388;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h9EH0VzNdlwEE7HT+ejlIQXInr2HWzq5t9FyUGd1FM0=;
-        b=YeVelKymhjgQfzSeq31Z1Xjx+gnwaQ442Pe6e7GpGUfFYcJkiOAAn9zfPRRkg1ORk5
-         EcO8h0nLUtJLRW8mYLAvhgDDEtYfaCqLbLOJlCLOUNQf6uH5q8XlC+tDJbRv+P2Z1Vfc
-         pCJ/exa9k8dY7yJ1yGk3k9wqygsqX1NvZHM8yA8X57U2ThO5+M50uzbIhcXGg2IfXihI
-         Pjm9kezECPvngugqn3/Tl0XXOp8RnPpnX0oT2fIgxaHzXwUz7CyRdmdNWIEA0qTe590F
-         8oFJFIAv5FlQR78/ROiMm+ty6YlHyEvEe25k83Hw19/nd4bp9ZHnG0AFBzI+361fokxs
-         NiPA==
-X-Forwarded-Encrypted: i=1; AJvYcCVAjxWDDTjlzaCYCsC6JObC+qFN3ydCZPUOTGOXQgZuF2SNVWbu/W9SDv2D5uL8u1Gv4XEeA8M9GPzNsr94Lhyy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFXQchwagWM6ITvjfY12k8lt8IPC0OVmQe9M3ugQboX+q36lqb
-	uSGLnYXw8R1cqTYdIQWiRgkI1Z8OrXNg/YSteD1Jnf5OVLzCB20RacIfkjjS7g==
-X-Gm-Gg: ASbGncvZ/GRaUD5q8Q1TlQVjEXPjwBqEhm5tNXX+onQhGzZRzCcvU/9rQLT4pHr1BXj
-	vgqi8Ube/hxLpinWr5AewLFaXzOWEXVBMSpbj8rDRwZzixeHTQEZ5URkf+l8CKDCkJ+7JaU5pcG
-	+EhzTFPFqCnFwJ0+THbi7LlMLycYhi5OAafySKfWaoee/C/WeJsf9Cuj7Yo6E5GKT39woXd7jJT
-	B27QOL3bTA5d7XOsbpMe0GKertIc2Zu5rr3KIQ7m75sDoWmGEyu0oRBpN3sdBGG/PjTv1UxSQ==
-X-Google-Smtp-Source: AGHT+IENxlsOZm9def6oti4V70uj/jGgxMRZENhVtBejHswBs3FlI1YExvOn9EK0Mjoqmtw4PCN2Zg==
-X-Received: by 2002:a17:90a:c105:b0:2ee:f80c:6892 with SMTP id 98e67ed59e1d1-2f2e91a4d5emr9173937a91.3.1734605588162;
-        Thu, 19 Dec 2024 02:53:08 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:6603:6add:77e:d71c])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ee06dd61sm2975014a91.42.2024.12.19.02.53.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 02:53:07 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-sound@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	treapking@chromium.org,
-	yuanhsinte@chromium.org
-Subject: [PATCH] ASoC: mediatek: disable buffer pre-allocation
-Date: Thu, 19 Dec 2024 18:53:02 +0800
-Message-ID: <20241219105303.548437-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+	id 1tOEAa-00000001aT5-0wHr;
+	Thu, 19 Dec 2024 10:54:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1734605654;
+	bh=6DnBAetO0n/Dt6GuKQiaQjG4sHkyUy/qLhkhpG6lREU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BKQJ395aphVnmIKWFGKR7MYowS/uaeNkIdyc3+FbEH+RDwQ2n8YzBZKSniaLpT3td
+	 lBImymLI0EVILte+Nh3YXqhHNjbehfrVQ9JTAhQEsNufY2SS0CzqLMV6yHK9z59D0q
+	 pDmeqzq7MN3BZael32voW88hN8cWgX1e/IaHsPWBwEExo4T/puTKRwHEZEymzxvwqQ
+	 hO3pnzTH9U3pUInPhMHC2LcG8XfbVB/I0ibVKxUFDqKzYtoj4Y0ZZfaMO6LuKMiqPU
+	 /hTDVv3Ux3whEJ7iYvW4X+A2w4F05h8eUX3Q8va7rzzaeNUOblc+6wxMlzj5iRVdrc
+	 WRiGPms7XSrDw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 31D5617E3612;
+	Thu, 19 Dec 2024 11:54:13 +0100 (CET)
+Message-ID: <9a75e88c-d90d-4ea8-b5c3-6d056d4f0498@collabora.com>
+Date: Thu, 19 Dec 2024 11:54:12 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/33] dt-bindings: display: mediatek: Add binding for
+ MT8195 HDMI-TX v2
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
+ jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ dmitry.baryshkov@linaro.org
+References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
+ <20241217154345.276919-8-angelogioacchino.delregno@collabora.com>
+ <rsnyljmkdf7i74bkrlf5nesp2sa3n6xcnzsqao4znmczjpfyq2@dsakz56s4ypt>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <rsnyljmkdf7i74bkrlf5nesp2sa3n6xcnzsqao4znmczjpfyq2@dsakz56s4ypt>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_025309_579484_E6159291 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20241219_025416_420417_3CC7DFE9 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +84,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Chromebooks based on Mediatek MT8195 or MT8188, the audio frontend
-(AFE) is limited to accessing a very small window (1 MiB) of memory,
-which is described as a reserved memory region in the device tree.
+Il 18/12/24 09:20, Krzysztof Kozlowski ha scritto:
+> On Tue, Dec 17, 2024 at 04:43:19PM +0100, AngeloGioacchino Del Regno wrote:
+>> +  i2c:
+>> +    type: object
+>> +    $ref: /schemas/display/mediatek/mediatek,mt8195-hdmi-ddc.yaml
+>> +    unevaluatedProperties: false
+>> +    description: HDMI DDC I2C controller
+>> +
+>> +  phys:
+>> +    maxItems: 1
+>> +    description: PHY providing clocking TMDS and pixel to controller
+>> +
+>> +  phy-names:
+>> +    items:
+>> +      - const: hdmi
+>> +
+>> +  pinctrl-0: true
+>> +
+>> +  pinctrl-names:
+>> +    items:
+>> +      - const: default
+> 
+> Drop both pinctrl entries.
+> 
+>> +
+>> +  power-domains:
+>> +    maxItems: 1
+>> +
+>> +  '#sound-dai-cells':
+>> +    const: 1
+>> +
+>> +  ports:
+>> +    $ref: /schemas/graph.yaml#/properties/ports
+>> +
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +        description:
+>> +          Input port, usually connected to the output port of a DPI
+>> +
+>> +      port@1:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+>> +        description:
+>> +          Output port that must be connected either to the input port of
+>> +          a HDMI connector node containing a ddc-i2c-bus, or to the input
+>> +          port of an attached bridge chip, such as a SlimPort transmitter.
+>> +
+>> +    required:
+>> +      - port@0
+>> +      - port@1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+> 
+> Please keep the same order of things here and in main properties
+> section.
+> 
+>> +  - interrupts
+>> +  - power-domains
+>> +  - phys
+>> +  - phy-names
+>> +  - ports
+>> +
+> 
+> You need allOf: with ref to dai-common.yaml.
+> 
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/mt8195-clk.h>
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/power/mt8195-power.h>
+>> +
+>> +    soc {
+>> +        #address-cells = <2>;
+>> +        #size-cells = <2>;
+>> +
+>> +        hdmi-tx@1c300000 {
+> 
+> hdmi@
+> 
+> Best regards,
+> Krzysztof
+> 
 
-On these two platforms, the maximum buffer size is given as 512 KiB.
-The MediaTek common code uses the same value for preallocations. This
-means that only the first two PCM substreams get preallocations, and
-then the whole space is exhausted, barring any other substreams from
-working. Since the substreams used are not always the first two, this
-means audio won't work correctly.
+Thanks for the great review krzk.
 
-This is observed on the MT8188 Geralt Chromebooks, on which the
-"mediatek,dai-link" property was dropped when it was upstreamed. That
-property causes the driver to only register the PCM substreams listed
-in the property, and in the order given.
+I was wondering if it'd be more straightforward to just send the bindings in a
+different series, instead of sending another batch of 33 (actually, 34, because
+I forgot one commit adding the DDC binding, ugh!) patches...
 
-Instead of trying to compute an optimal value and figuring out which
-streams are used, simply disable preallocation. The PCM buffers are
-managed by the core and are allocated and released on the fly. There
-should be no impact to any of the other MediaTek platforms.
+CK, any objections?
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-index 9b72b2a7ae91..6b6330583941 100644
---- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-+++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-@@ -120,8 +120,8 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
- 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
- 
- 	size = afe->mtk_afe_hardware->buffer_bytes_max;
--	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
--				       afe->dev, size, size);
-+	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
-+
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(mtk_afe_pcm_new);
--- 
-2.47.1.613.gc27f4b7a9f-goog
-
+Cheers,
+Angelo
 
