@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF2CE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952A8E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l7F6UvMOLOBpAnoJT2OPB9Sfj0Nlv6IRaUBh0BBayrw=; b=zL45asLuffuJ09U82v7tU3OyVJ
-	rat5pmSAz0No45/GqnVMjQiz62X+bzqlGksf4eSxcuUxt3OrCUC7ksIYjH3xq1+3PAnw4kDAF/OPP
-	2U3PAmCN4CmjQ0cTF/Z27zHIZVWsHl+gB7EjjxWD5xEb59HxB2t3i7nsWpcsWBJfny765ZCVRZcCl
-	nXEF3ViR6JGyrqvtM0hsWQLKWRxOd62i6er6YrI73DD6ajvKVLujpdu7tAlCEOGBjpX72Hg4AXWNt
-	4h0uya35Tkbysm3e3XReuM+pGXtGmBdQcUb4/pLG9tnVHG+8o+tZvkTFcZ/gPhlJPkDB7QwQpP2JP
-	n64f+6RQ==;
+	bh=Ft2pCYpUBF0KUcukFyWu0xI2ZpsGVh+5mxayVSvupxA=; b=qBeVbK7zJ57udqeMnhqpMJ+4Fb
+	cA92Dqx2P0XChlRZPGt8NnEHU1HfBxXFFu0Dqk9rxlcsG9sOiVG55u5HoK+weTEvk4ZtWccZvfsxG
+	UOemgBw6S4K2EzA1WSRiJBLXnNuObk3ls9ZcH2nNyOWYiCx5LLwwoLDz3emKJYcCbIvLSAND+ZQKb
+	8oBOSYHcZcAxCPAeTjvC2s0iM27u6CAr4KKEh/Kz/d8sAl1JKahwoIdHuJEWuWFUXaE59GI4S5+kc
+	ZZdlZyG2IltlwV7h+SagAENIZiLruZFX9qwhT7OwXjifnpUrncf5M4aZe7+hz1mB0Tt4dvVCV/9x8
+	aSg+Y3Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMz1-000000030kQ-2iE4;
-	Thu, 19 Dec 2024 20:18:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tON07-0000000311x-2klQ;
+	Thu, 19 Dec 2024 20:20:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMqm-00000002yqm-2E7c
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 20:10:25 +0000
+	id 1tOMrW-00000002yzq-3a8Q;
+	Thu, 19 Dec 2024 20:11:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D12D7A42867;
-	Thu, 19 Dec 2024 20:08:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 551D9C4CECE;
-	Thu, 19 Dec 2024 20:10:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2CC505C6917;
+	Thu, 19 Dec 2024 20:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78F60C4CED4;
+	Thu, 19 Dec 2024 20:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734639023;
-	bh=Mnnb+rYLxKMgvKB3JLV0A+iSR/Plp14zPx6cxIbIn8Y=;
+	s=k20201202; t=1734639070;
+	bh=Oxv7gQG1cNXbG0Fp3Bpc5LzhotYBPEpA0l2FLf6oEvM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aas/DPTnV/tYWX8qsv2YyScKUtB1C+I8dq6XFS6KjTHe3K78zTV3cuqSb3JOmrLGg
-	 KIykwCGpgXPsHid1JvwU8cqOs1bW2x1wKlNXjQczyt8tlvU7wtsdTFIh6ketSL/hDT
-	 j/OO4YnBnaDYCETAFlt23MnYElpoHUTgH9tzE1G0nntOKoYROLRMGozFzpsI23X8RD
-	 EYS6qtDvVMkiB0pIDjlYaqLDKbk83p5CkcJrbsFnA2X7z5uU8JFs/2UC0a+DU8HDE5
-	 SwxodYNlkuOi/Vcrd4d9glvIthIRht/0KStPyLGThnmaknxQCU/nLDnPk4zyFTgpFF
-	 9u0RruLpexJmQ==
-Date: Thu, 19 Dec 2024 21:10:16 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, imx@lists.linux.dev, dlemoal@kernel.org,
-	jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add
- DOMAIN_BUS_DEVICE_PCI_EP_MSI support
-Message-ID: <Z2R9qPmAyTcc5mtg@ryzen>
-References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
- <20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
- <868qscq70x.wl-maz@kernel.org>
- <Z2RRimPlT41Ru281@lizhi-Precision-Tower-5810>
+	b=TwZjYF+3NvizdHmvVN9RAsyQzBQkvEOjm5w/XOMpU39UcRQH0f1qop4Bax3JqGV7W
+	 bplpnRxoDMZyeuZ8WxbCqUUfbXQGYFW3vpNqvSdsw5VTADUl0kYL4ZCgMA0tIWZbjf
+	 /uDT4XaDk30CdDndhAgksSFqC969dtsuRNJQlV8ATaYZqf+H+Lq6rvI4OUAbR/mcsc
+	 8whZew4hdzVtIO7ZPuCvMshqSsTG22DCod0pAX+YoXzPBCvryOPaQ4nIyeR3X8FANJ
+	 oDgovQcR2EGA6aZ9T3gRRZFPnXjA8ccKV3Hl/r7NaE5d1OSW72M0ru/8lBiKukv6xS
+	 /TTXhi+l2t4gA==
+Date: Thu, 19 Dec 2024 20:11:05 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Dharma Balasubiramani <dharma.b@microchip.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: mmc: move compatible property to its
+ specific binding
+Message-ID: <20241219-scenic-revision-17da9231d61a@spud>
+References: <20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="E6C8VplMw1mOJcDT"
 Content-Disposition: inline
-In-Reply-To: <Z2RRimPlT41Ru281@lizhi-Precision-Tower-5810>
+In-Reply-To: <20241219-mmc-slot-v1-1-dfc747a3d3fb@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_121024_629681_AE46A569 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20241219_121110_977169_C053470D 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +80,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 12:02:02PM -0500, Frank Li wrote:
-> On Thu, Dec 19, 2024 at 10:52:30AM +0000, Marc Zyngier wrote:
-> > On Wed, 18 Dec 2024 23:08:39 +0000,
 
-[...]
+--E6C8VplMw1mOJcDT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> If use latest ITS MSI64 should be simple, only need descript it at DTS
-> (I have not hardware to test this case yet).
-> pci-ep {
-> 	...
-> 	msi-map = <0 &its, 0x<8_0000, 0xff>;
-> 			      ^, ctrl ID.
-> 	msi-mask = <0xff>;
-> 	...
-> }
+On Thu, Dec 19, 2024 at 09:40:41AM +0530, Dharma Balasubiramani wrote:
+> Move the `compatible` property into its specific binding to make the MMC
+> slot more generic and modular.
 
-[...]
+This makes no sense, as presented. What's the real reason for this
+change? You want to ref mmc-slot.yaml but the compatible is causing a
+driver to probe?
+Otherwise, if this is just to avoid having to fix up some devicetree
+source files, I don't think we should do this.
 
-> This solution already test by Tested-by: Niklas Cassel <cassel@kernel.org>
-> who use another dwc controller, which they already implemented
-> "implementation-specific" by only update dts to provide hardware
-> information.(I guest he use ITS's MSI64)
-> 
-> Because it is new patches, I have not added Niklas's test-by tag. There
-> are not big functional change since Nikas test. The major change is make
-> msi part better align current MSI framework according to Thomas's
-> suggestion.
+Thanks,
+Conor.
 
-Frank, I tested this series (a few revisions back) on the rockchip rk3588,
-which just like imx95, uses a DWC based PCIe EP controller, and ARM GIC ITS,
-but unlike imx95, it does not require any additional look up table registers
-to be configured.
+>=20
+> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+> ---
+>  Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml | 4 ++++
+>  Documentation/devicetree/bindings/mmc/mmc-slot.yaml              | 7 +--=
+----
+>  2 files changed, 5 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.=
+yaml b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> index 022682a977c6..7600a4988eca 100644
+> --- a/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml
+> @@ -54,6 +54,10 @@ patternProperties:
+>        A node for each slot provided by the MMC controller
+> =20
+>      properties:
+> +      compatible:
+> +        items:
+> +          - const: mmc-slot
+> +
+>        reg:
+>          enum: [0, 1, 2]
+> =20
+> diff --git a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml b/Docume=
+ntation/devicetree/bindings/mmc/mmc-slot.yaml
+> index 1f0667828063..84c4605658e0 100644
+> --- a/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/mmc-slot.yaml
+> @@ -20,19 +20,15 @@ properties:
+>    $nodename:
+>      pattern: "^slot(@.*)?$"
+> =20
+> -  compatible:
+> -    const: mmc-slot
+> -
+>    reg:
+>      description:
+>        the slot (or "port") ID
+>      maxItems: 1
+> =20
+>  required:
+> -  - compatible
+>    - reg
+> =20
+> -unevaluatedProperties: false
+> +additionalProperties: true
+> =20
+>  examples:
+>    - |
+> @@ -40,7 +36,6 @@ examples:
+>        #address-cells =3D <1>;
+>        #size-cells =3D <0>;
+>        slot@0 {
+> -        compatible =3D "mmc-slot";
+>          reg =3D <0>;
+>          bus-width =3D <4>;
+>        };
+>=20
+> ---
+> base-commit: 7fa366f1b6e376c38966faa42da7f0f2e013fdab
+> change-id: 20241219-mmc-slot-0574889daea3
+>=20
+> Best regards,
+> --=20
+> Dharma Balasubiramani <dharma.b@microchip.com>
+>=20
 
+--E6C8VplMw1mOJcDT
+Content-Type: application/pgp-signature; name="signature.asc"
 
-While the rk3588 PCIe host controller node has:
-msi-map = <0x0000 &its1 0x0000 0x1000>;
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi?h=v6.13-rc3#n164
+-----BEGIN PGP SIGNATURE-----
 
-The rk3588 PCIe endpoint controller node, which is the only one relevant
-in this case, only has:
-msi-parent = <&its1 0x0000>;
-no msi-map.
-https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?h=v6.14-armsoc/dts64&id=b6f09f497b07008aa65c31341138cecafa78222c
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2R92QAKCRB4tDGHoIJi
+0uF0AQCCkZ/AGdPEHj/YRGeKMFGk8lttRZIYHRKX8V3//6ycbgD/T1LEsSfzTuzT
+XIO5WbdO0FiyWZ0dsPH7aR+mC0O2Jgg=
+=My4h
+-----END PGP SIGNATURE-----
 
-
-Kind regards,
-Niklas
+--E6C8VplMw1mOJcDT--
 
