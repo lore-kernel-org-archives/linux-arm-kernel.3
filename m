@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A308E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 16:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E679E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 16:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DEtOl5S+zY+lZKEyqIrjSVPMuNdu+YZJg2TbuGdqk4=; b=K0X1eDbDdsSEUcBP1TP4zgmpej
-	XTJhUDuQl0M9GLjWsJqO+4WaKXp3sZ1X6PJg/ARSMEZput9W1kdBfMzLK77BJjn4DqRJEj6y9lDWv
-	tOqGejpTMYGiJGabxuRGqMGHVWbzlE4Gb0O37LrMSJaUhfRNESTVa5ylcL7r0Lw18qyEMOWGAoaDi
-	nMzp4O5LgWV6xpEOgpktS/L329InNneFuBIyfHjMcv0vpiXlC5LqanY4qqJsCVvS/Tt2WBLSH33Ke
-	Rb2Fpu6DRx1wKHCvyg/bGKgF3g4VhrnJCfsxlFupw8rJcX+HbBfOdiNhfX0NMT8d/VR9CL51qtjmH
-	+y7Sx/xg==;
+	bh=ypXaJWp5FnrK2zptKyzvmWYExxQK1Fxh1FHf08743/A=; b=Cu/tzCM6DaUlToIFHZhF5UpdE+
+	VJhIT/iGqyP/xRXkDmKva+8/6dCs04aIkmzqi8b4lMBI7SwkCXdizdeMtvUh/QmkePAOYJnZVsvUe
+	k5BOK7VsFe3d0lhsNvOvvwT161o9SOZfjm2J77g9O0lje9Mwv/PYwIw0vUOau8gB/8QwHa1zsPobh
+	w86gQmfceLKJm++F3WHpSARIJZO5SJbRCqWd1UubWfqfGRAlCOPfMgAOFTeJEcA1DwPEoe5xnpt9n
+	TD9PgA9sW5guEe4DZHA8m0rpWVzMy+DDgHDkKjDVXet93RethmGhUrtYBd48KmUgVA7Srhs3/tZQb
+	w1S/RsXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJY2-00000002Nyy-3tOB;
-	Thu, 19 Dec 2024 16:38:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tOJZU-00000002OFg-2PS2;
+	Thu, 19 Dec 2024 16:40:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJWx-00000002NoV-15Ho
+	id 1tOJYN-00000002O2E-31IX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 16:37:44 +0000
+	Thu, 19 Dec 2024 16:39:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFF775C58E0;
-	Thu, 19 Dec 2024 16:37:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30BECC4CECE;
-	Thu, 19 Dec 2024 16:37:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 35BB05C551F;
+	Thu, 19 Dec 2024 16:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74C4DC4CECE;
+	Thu, 19 Dec 2024 16:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734626262;
-	bh=EDefhr+82fJbRgYXE5hYeauAAvr+YHKOyCh5/nvtES8=;
+	s=k20201202; t=1734626350;
+	bh=ypXaJWp5FnrK2zptKyzvmWYExxQK1Fxh1FHf08743/A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D1y9GpGuL1fWahJnlbpJHQdsMRxJFEK4KZrC8kBjYXmx/0e1/SCdb29c4SxCZcWnM
-	 55tiqWJBaClPYHQJaELNouhJILty3MQy2clsZJ3CsypktKSAUDn2KtN+6w2fKGMAo9
-	 qTYmzXYVrYULvu3Q+W2apG9Kk/ecYfJ/DetIv9STDugdAak61GdBDQYL06qHnCWdUI
-	 jt5qiKFB6CKlF4ja7JTsthcxeF2NYpMMyWfzsP+ZcPnXRqpIDENiTJSWytTRZTCMNF
-	 1m4iMbb2lLn8x4L+iFtlc+bUFK+lRbStGdpzXxEkhgtOlBMdr/RLFuHZBXu05aQ70g
-	 cUcSvhd1mifXQ==
-Date: Thu, 19 Dec 2024 16:37:37 +0000
-From: Will Deacon <will@kernel.org>
-To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-Cc: ryan.roberts@arm.com, catalin.marinas@arm.com, corbet@lwn.net,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [RESEND RFC PATCH v1 5/5] arm64/mm: Elide tlbi in
- contpte_convert() under BBML2
-Message-ID: <20241219163736.GG24724@willie-the-truck>
-References: <20241211160218.41404-1-miko.lenczewski@arm.com>
- <20241211160218.41404-6-miko.lenczewski@arm.com>
+	b=auXtyA4xrFWrERNxmVwHNDhnAXBkQxQ2WML0TSPU6xnFHbLaINkmx1/oIbmaw5UBd
+	 ha3o7TLRPYCPasKpFBQqR+Scs44gxkCMHpLkg5khJ4msvqvp915YROa8KrUSQeVLys
+	 O5N4H6/CFaPPd9f2RVlV+3GPSO8k3IxcQS4D6Kc7wEA6lExl6216/v/pcHgArGaejl
+	 9CQn9BdKHAeS0gylpCDC8jMONqiIYAHQjJr28zWy6ux14GJfrVdVBOM18yC75A6/0M
+	 vnqSZ/R+PItnqEvhVKdrGRM+Qz3Cfx3Hi3bcJVcsB19zwxo818GFQM0+FE9VcSBvuP
+	 X9q/fMkZdX7vg==
+Date: Thu, 19 Dec 2024 16:39:04 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 2/9] arm64/sysreg: Update ID_AA64ISAR3_EL1 to DDI0601
+ 2024-09
+Message-ID: <51632b4e-19a0-487f-878d-f03abeea2553@sirena.org.uk>
+References: <20241203-arm64-2024-dpisa-v3-0-a6c78b1aa297@kernel.org>
+ <20241203-arm64-2024-dpisa-v3-2-a6c78b1aa297@kernel.org>
+ <20241210170953.GB16075@willie-the-truck>
+ <b859bdcd-7343-4d53-9f3a-f374deca725a@sirena.org.uk>
+ <20241211224015.GB17836@willie-the-truck>
+ <248dea18-bfad-4ec9-9a7d-5c87c7f48c84@sirena.org.uk>
+ <20241219155547.GC24724@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VyjcJ0zj30NUrDgi"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241211160218.41404-6-miko.lenczewski@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20241219155547.GC24724@willie-the-truck>
+X-Cookie: You have taken yourself too seriously.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_083743_338755_52AD5230 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241219_083911_801030_096933AB 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 11, 2024 at 04:01:41PM +0000, Mikołaj Lenczewski wrote:
-> If we support BBM level 2, we can potentially avoid an intermediate
-> TLB invalidation, as hardware is capable of managing the TLB itself
-> in this situation. Hardware will either silently clear out the
-> offending entry, or will take a TLB Conflict Abort Exception.
-> 
-> Note that such aborts should not occur on Arm hardware and indeed
-> were not seen on any of the benchmarked systems.
-> 
-> Eliding the invalidation results in a 12% improvement on a
-> microbenchmark which targeted the worst case of contpte_convert(), which
-> represents an 80% reduction in the overhead of contpte_convert().
 
-Can you run something more indicative of real world performance than a
-targetted microbenchmark please?
+--VyjcJ0zj30NUrDgi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Will
+On Thu, Dec 19, 2024 at 03:55:48PM +0000, Will Deacon wrote:
+> On Thu, Dec 12, 2024 at 11:33:05AM +0000, Mark Brown wrote:
+
+> > That'd be useful, yes - unfortunately I think that's still something I
+> > can't work on myself at the moment for the above mentioned non-technical
+> > reasons.
+
+> Is anybody able to work on it? Without insight into the "non-technical
+> reasons", I don't know what I'm supposed to do other than write the tool
+> myself (which means finding some spare cycles...) or refusing to take
+> wholesale sysreg definitions until it's been ironed out :/
+
+Similar issues will apply to anyone at Arm as things currently stand.
+
+--VyjcJ0zj30NUrDgi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdkTCgACgkQJNaLcl1U
+h9DCJAf8CuU5u1XxAnkW18x2L4cYSHQf98sGUnZENATCQW4WaqnatXSW03A/Y0Fs
+56SZ9lcKhlhbbcGp0oO4AM02igAnOtSCQBtPG/ZSv7eOLdNLvMsRve9RX5Prgbp1
+J63vhYvmVBhqcp0+OO9BJHkdqTkZvs2fgyTL5wb8yTv2u0EAkX32Dx2Qo1fCX1Pr
+dgrbnXcXjyc+yq5Q2DrpBhKsMANKyogTFubMPlgYyhCyqeEJbE6irqiO6um+thHW
+6Z9IkgN0vqfJUAEEbnOD5acFDamTlED+km44BJJ6hCAA3VtrNqesF0adCSV0Da3k
+0rPz0JhoTWgz6DjCMQFwhzG9xz4DPw==
+=evNu
+-----END PGP SIGNATURE-----
+
+--VyjcJ0zj30NUrDgi--
 
