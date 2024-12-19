@@ -4,137 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFF0E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 05:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DA3E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 05:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YuiQlb+X0qO3MzfMfFHGSTuOds0FP+ainneRzadih7U=; b=NI44WaQC/8tTMO/FFeWxUhHmdf
-	KS8ogfMYTvWc/++4P2pbZlq2YvdrbKnkb+hetD+KkrFp83QavvOiHgiKjiXKI1BJjsKJiIi8inQMl
-	uXKINBnJQ+fQw/Wn/s0C0gnuMVtru0rDNkLDEYg2KSwILil714q98Lj3U8Gx7JGj+rwzUAFI9Tmih
-	L0ar+t5LdrP11JG5Fh5VMYPQd1KGobImE471tmWd/Q8euAlxwOYJ/wuUycVqSXob9sj4/qo5Pz3nO
-	3X5FLWsFa8Gm0fjw//nSN1fj39VQz1gn5bVbc8QB74yRoQfr/wJmTLqx3uoQ/ucYL6JpT0+x1w54+
-	8MT4qdbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1cOVO0SaylYhhURTaPnk/qOmR5sKtjr4wVU6mmJAdqo=; b=Pycso59nP+8yI1z4B9GXQ07/rs
+	/l3I+MUJwrznkawIugQ54vyhQ4rvSaCaBOAsriR8CtgnX0hrD97ZWewXHS2OpHrkbsXpV6FyH57Tx
+	JYy021nci0zvE66SvN98e5fMyXlVmvih5z3xcJ3la9mG98rjvQBwr0o0JWkXxElvEudIN/gxB+Fga
+	6Dar5xs6cDb3mTJ7FPhLVpB5A87kzGiFb/nZBA90RgWOUk18RSCXB1Zpln/RUuDNHrKQTIYgJxpE7
+	ks13KpK1xoVXiGQYBmQgDh0qO3HeVBSq3XGrtYIjK8hJK4VVlZXibRVcnYjJNeU6KocNsFGksxtUp
+	ZjlRJiqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO8t7-00000000qMA-1upv;
-	Thu, 19 Dec 2024 05:15:53 +0000
-Received: from mail-bn8nam11on20628.outbound.protection.outlook.com ([2a01:111:f403:2414::628] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tO8uC-00000000qSP-0Cl4;
+	Thu, 19 Dec 2024 05:17:00 +0000
+Received: from mx.ssi.bg ([193.238.174.39])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO8s1-00000000qE5-1jES
+	id 1tO8sg-00000000qKn-0ue6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 05:14:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qq3BprYkOX/7/h+Rv0XoQLCGwCBRixOiRsI6BZcxoLS6wBMNXPwiHooDd7Cvi3bFHT0+o45PD+Is8Dbhjwdg6quzxSwAkp9BrQ9edzw7YaFrjegIGeKD8rMy/ahO1gZ2nKCqVeFM0Is4kA+8NL97breUAj4CB20CyoGR7dMpvPK463Uipje4OE5Q4DteTgCiYJfCoZ8MPLxzy1cr2rsbvTkCJsbL4ZntU7gP6eGHIgBe1Zo0a5eJtPWVhFxtb6ZcYik0IpkwoP/096ScqngNiz2rGpwlwmEqkBOX2xJcihpCKNQ00nOlkGgzjwzbAkFBRnjBoeXw12Kxzi2vCIzzAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YuiQlb+X0qO3MzfMfFHGSTuOds0FP+ainneRzadih7U=;
- b=JVDihPSsdgSTxtoT7ptyq7i5n1d2h2HXLcUnubeuAONPZfmsPSs+RkaPWYAuUOitC50Ultc6wCM8YxMvNjg1LpoAya61MbWTcG2xXK5RLXzjW2aabu358sDzN8TRdRorHLSLpuM4tapzMDCYNuP9U2GADxL2SKW5B+GeMROOhSoss74vrc6d7C9dg0AmtZtGm5rFUmw8SlpnRvK13pIIaA3ZrJiXRqMYvnjFfkJqrz6UtXon3hS9jVZYJnrroJ+/AMTU+tWlS1rkjrGy4kQ34F7agSvuPdHjBsXlYWSlsMxAVloolFFZEILJbDmgRYfzQb8uqNGznpRrAya7PTOu6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YuiQlb+X0qO3MzfMfFHGSTuOds0FP+ainneRzadih7U=;
- b=czKwsG/C7nq88iI+pQ0eAh3bU944xWLDl17lyv/iEw0JLtIV5+hppdcsoyY9PqGjQ8j5/cNTbiRPaITcywslP3xY2Efe7rwJkJeth7pCu+hVb1edyQJ5JBMNoZtbdVLBfPPMvGPlr5UJ4F7A9JmSWwcTqQRhH7tZqpSyZsUlZjTUlITITgNdXxR24IR+BA9sO/4GHQk9VrUh5Z62TdrhmvWlAitJ1z4SMi3+1gM4/Nuh3YjklwRqS3pm5783wGRTCHMGPPEf0hA6p39+8cibRsOZBRkBNGWVb7B9EQo2EZ3TjeAcQJM/8uyMBsuah1B5Ds2NDrpWnSsCfIVBGrniBQ==
-Received: from CH0PR04CA0089.namprd04.prod.outlook.com (2603:10b6:610:74::34)
- by DM4PR12MB5962.namprd12.prod.outlook.com (2603:10b6:8:69::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8272.14; Thu, 19 Dec 2024 05:14:37 +0000
-Received: from CH3PEPF0000000C.namprd04.prod.outlook.com
- (2603:10b6:610:74:cafe::ab) by CH0PR04CA0089.outlook.office365.com
- (2603:10b6:610:74::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8251.23 via Frontend Transport; Thu,
- 19 Dec 2024 05:14:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH3PEPF0000000C.mail.protection.outlook.com (10.167.244.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8251.15 via Frontend Transport; Thu, 19 Dec 2024 05:14:37 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 18 Dec
- 2024 21:14:28 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 18 Dec
- 2024 21:14:28 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Wed, 18 Dec 2024 21:14:27 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@nvidia.com>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<patches@lists.linux.dev>, <stable@vger.kernel.org>, <ikalinowski@nvidia.com>
-Subject: [PATCH] iommu/tegra241-cmdqv: Read SMMU IDR1.CMDQS instead of hardcoding
-Date: Wed, 18 Dec 2024 21:14:21 -0800
-Message-ID: <20241219051421.1850267-1-nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 19 Dec 2024 05:15:27 +0000
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id 2535423563;
+	Thu, 19 Dec 2024 07:06:29 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=1cOVO0SaylYhhURTaPnk/qOmR5sKtjr4wVU6mmJAdqo=; b=6QNb3x+EUBmT
+	TABz1BtAb78ANqrDJ01HMZP1kjtrkQmt0aO02df8e6EcVWtWa+w4QeP+qWRzYSG2
+	HVOOV59uV2SsZ24WwCrP1ZFr9pP/v4B5TYwJM/iHeUQU+1D2XJSI8aZt0DhtMjQp
+	TWJKDDkhrjC+sWHlKT5y1S5qQDFevfwlvxrAnWWtFC6wG0PzzLL6IHdBn4cJkRnQ
+	HkzWXYaeZcDKJAJ4t05mNYrVaZCJ29dipGbUnR/glev2aO//HpekCu1PMVFFa28V
+	q250M5yXbWcmNqdn5gJJGGafX8D9a5Ix1jsggjhXCIe5WLx3ELkVWmDzDyaSP01S
+	ieK8fhby7i68zWKxV0SUh+2wm8PgLKg9o5yMj1kDdmy/F7nODzUzTirThcgA6Q+L
+	lgAqcM8VYq6VZefsz7rhleFIuYe3PU1kT6WU/gSaohh+/lKgLkjuylwQaYJwt+sD
+	IzB/fmt2y9wEGyqmnL8iQ5TKRErzNDNWgZGifEw6gqGRCORePB15WEOG1eZxIlW0
+	wsmYjkJf0MF8gVk5UZm5Q7+N2GwOD3WmT4HxAkNThyTkg+1l7ba4g+dK8c//UBCX
+	xS40AxJRSDU7kcGK1jqu+S5bbpPgJuBLghr93C4UUsxPc+mqODOmcyCztsn8FLUZ
+	/h+HBBM4Q7BIMT1E4xGNf/4XZzIrAuY=
+Received: from ink.ssi.bg (ink.ssi.bg [193.238.174.40])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Thu, 19 Dec 2024 07:06:28 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by ink.ssi.bg (Postfix) with ESMTPSA id 7E04615EB0;
+	Thu, 19 Dec 2024 07:06:26 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.1/8.17.1) with ESMTP id 4BJ56GQl005317;
+	Thu, 19 Dec 2024 07:06:17 +0200
+Date: Thu, 19 Dec 2024 07:06:16 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: David Laight <David.Laight@ACULAB.COM>
+cc: "'netdev@vger.kernel.org'" <netdev@vger.kernel.org>,
+        "'Naresh Kamboju'" <naresh.kamboju@linaro.org>,
+        "'Dan Carpenter'" <dan.carpenter@linaro.org>,
+        "'pablo@netfilter.org'" <pablo@netfilter.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        "'open list'" <linux-kernel@vger.kernel.org>,
+        "'lkft-triage@lists.linaro.org'" <lkft-triage@lists.linaro.org>,
+        "'Linux Regressions'" <regressions@lists.linux.dev>,
+        "'Linux ARM'" <linux-arm-kernel@lists.infradead.org>,
+        "'netfilter-devel@vger.kernel.org'" <netfilter-devel@vger.kernel.org>,
+        Simon Horman <horms@verge.net.au>, lvs-devel@vger.kernel.org
+Subject: Re: [PATCH net-next] Fix clamp() of ip_vs_conn_tab on small memory
+ systems.
+In-Reply-To: <5e288aa5-5374-5542-b730-f3b923ba5a36@ssi.bg>
+Message-ID: <a0ebe11c-4ca2-d2f3-8e53-0d9f44bfdda0@ssi.bg>
+References: <24a6bfd0811b4931b6ef40098b33c9ee@AcuMS.aculab.com> <5e288aa5-5374-5542-b730-f3b923ba5a36@ssi.bg>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0000000C:EE_|DM4PR12MB5962:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae7be9d9-7b6d-4f2c-66e2-08dd1fec08b4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?50OfU6Bu+EdVSjyZR2AkTW3kEOjLwy0zHX7G57Rv1X+M9fQ/mu3i/z6+bI9H?=
- =?us-ascii?Q?EHhLtrQ8RTGM3p7SASt1j296pVFyz5uiJ/ifXfogCOcrBhnMBBcEbSd2dhCF?=
- =?us-ascii?Q?u7ewlB/MBdyExhmmiLqZB/3p0gsoUCnyS4TAOjCdg/S2lz4acov4jUnQVP8o?=
- =?us-ascii?Q?H3lu5H0wIg6jc1KIa4JmLnUIKKXx8ODSAM5baQ7uNEQWCNvu6ig0kr0JxjBN?=
- =?us-ascii?Q?kDHBDmVsrVlo0dWrF+nFbKfurLaPDYDauOtczdife7iwDlyMTrYgUEe3vkvy?=
- =?us-ascii?Q?AeawXrPGuDg13w5dqohJJJrSLz6d7Ls+Vnl7CCtrqZ/5/kqMcHq4hX+CUbPw?=
- =?us-ascii?Q?BaND8YtRvjEgSbNLoUkHl48Zx3a7H6d//BksKB0Va7fUv0bkMMQDxDMoPAO9?=
- =?us-ascii?Q?DKGb2Ks1q6YPoDYoRxFnygYasWxwCPPhT6cgwv0Tjy7uKHgH5UQRWQaZ/+PN?=
- =?us-ascii?Q?ZHmCyM2crRBWo1z5zKR2o3OTc8wSwtwWKGXBCL5UF6IgAkRnx4vhrAlDFDPx?=
- =?us-ascii?Q?xzA11dwKRs+a4zSm9mvIJ4CXNshtNIs/zxDvy7Dgg6IA2j2p40xx/2kcD0TX?=
- =?us-ascii?Q?Qten+I7UvHekxC32ENk/OxA3E56k8kGTJnsaOa5+7byMJ07l4XC0HUa4s6qK?=
- =?us-ascii?Q?AWfaO+GUMtDRCtUCwcw6DwKLG9LugQikl7IrXjzOBcxd0UgNh/bUXRNcEL/R?=
- =?us-ascii?Q?ctccGb+m24GLutb8BSObhaKdYBl3KubZ/l4zY0L7rhYwOBsR5Q/JREHV7NLO?=
- =?us-ascii?Q?x7dq8A5Xezx/o4pfQ9SmKqRZgB1ytzrtMxJ0YFiJsb4h9hYEb4C4t6VP1IML?=
- =?us-ascii?Q?loLZ1spsASolN4GwWWJiunnpsJ4PMbgk99pz0USI5vOlbbXGRpglXDcBMxtT?=
- =?us-ascii?Q?z5TAfnwaCRdhn8AsAb5VW4uJzN5VOe+fiFDYJ9aYCyDt5/bD3bwC6kq1tgxC?=
- =?us-ascii?Q?PkbXCXpqpaHvgnf2yM6GetJTgzBMyBIaSgoGbYZNVqSgXtsJKTKg3sS3pQHb?=
- =?us-ascii?Q?eZanF5zwCVoJBHZ9Nfi09vSFSAdchxhOtVmZPbmJpYfc8Eoj1PLxEqcPnEgI?=
- =?us-ascii?Q?ONCZRu6E8zUhsuonTyvoCQB9GcCgiy+j833bJTA7UctWrkHS7QQ5xfUl/fTQ?=
- =?us-ascii?Q?Wn9XSY6di3XsW/7fZwXBAPKiuToSv4f7kbP/skaFXXA/IXSCdwtvyyQdg0vh?=
- =?us-ascii?Q?hTp9GaZeoSptwmyQ8ekUEano1Zs0VU6hR5jEJplc3EL05V2PGarg80K5BY/o?=
- =?us-ascii?Q?cT4PheN4YNxI7YfijnvxygS0jWzVB9nfS+E6UqqdhEc/vuWHury21Pvn9s9a?=
- =?us-ascii?Q?Rc8Bofm396QYA0RdwW4vIO+VSkz/rmNMpxM0huByGh/KJaDahX4fPk+uhBee?=
- =?us-ascii?Q?hVM5ELUCXtbQP/3Ikcx65PLHl0zeQ9yvc504bzly1vbFEJQN9PcGJeQk6bi7?=
- =?us-ascii?Q?xYK1iykhEYLNSFfLvuPyBts9sDaCMNyFyTmmBefK4vh6uq7nXU/dMQH7t/jn?=
- =?us-ascii?Q?ly3hh1HoIMZqJXY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 05:14:37.3699
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae7be9d9-7b6d-4f2c-66e2-08dd1fec08b4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000C.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5962
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_211445_456993_EDC8D492 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20241218_211526_412775_29E6F5BE 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,61 +92,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hardware limitation "max=19" actually comes from SMMU Command Queue.
-So, it'd be more natural for tegra241-cmdqv driver to read it out rather
-than hardcoding it itself.
 
-This is not an issue yet for a kernel on a baremetal system, but a guest
-kernel setting the queue base/size in form of IPA/gPA might result in a
-noncontiguous queue in the physical address space, if underlying physical
-pages backing up the guest RAM aren't contiguous entirely: e.g. 2MB-page
-backed guest RAM cannot guarantee a contiguous queue if it is 8MB (capped
-to VCMDQ_LOG2SIZE_MAX=19). This might lead to command errors when HW does
-linear-read from a noncontiguous queue memory.
+	Hello,
 
-Adding this extra IDR1.CMDQS cap (in the guest kernel) allows VMM to set
-SMMU's IDR1.CMDQS=17 for the case mentioned above, so a guest-level queue
-will be capped to maximum 2MB, ensuring a contiguous queue memory.
+On Tue, 17 Dec 2024, Julian Anastasov wrote:
 
-Fixes: a3799717b881 ("iommu/tegra241-cmdqv: Fix alignment failure at max_n_shift")
-Reported-by: Ian Kalinowski <ikalinowski@nvidia.com>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+> On Sat, 14 Dec 2024, David Laight wrote:
+> 
+> > The 'max_avail' value is calculated from the system memory
+> > size using order_base_2().
+> > order_base_2(x) is defined as '(x) ? fn(x) : 0'.
+> > The compiler generates two copies of the code that follows
+> > and then expands clamp(max, min, PAGE_SHIFT - 12) (11 on 32bit).
+> > This triggers a compile-time assert since min is 5.
+> 
+> 	8 ?
+> 
+> > 
+> > In reality a system would have to have less than 512MB memory
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 6e41ddaa24d6..d525ab43a4ae 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -79,7 +79,6 @@
- #define TEGRA241_VCMDQ_PAGE1(q)		(TEGRA241_VCMDQ_PAGE1_BASE + 0x80*(q))
- #define  VCMDQ_ADDR			GENMASK(47, 5)
- #define  VCMDQ_LOG2SIZE			GENMASK(4, 0)
--#define  VCMDQ_LOG2SIZE_MAX		19
- 
- #define TEGRA241_VCMDQ_BASE		0x00000
- #define TEGRA241_VCMDQ_CONS_INDX_BASE	0x00008
-@@ -505,12 +504,15 @@ static int tegra241_vcmdq_alloc_smmu_cmdq(struct tegra241_vcmdq *vcmdq)
- 	struct arm_smmu_cmdq *cmdq = &vcmdq->cmdq;
- 	struct arm_smmu_queue *q = &cmdq->q;
- 	char name[16];
-+	u32 regval;
- 	int ret;
- 
- 	snprintf(name, 16, "vcmdq%u", vcmdq->idx);
- 
--	/* Queue size, capped to ensure natural alignment */
--	q->llq.max_n_shift = min_t(u32, CMDQ_MAX_SZ_SHIFT, VCMDQ_LOG2SIZE_MAX);
-+	/* Cap queue size to SMMU's IDR1.CMDQS and ensure natural alignment */
-+	regval = readl_relaxed(smmu->base + ARM_SMMU_IDR1);
-+	q->llq.max_n_shift =
-+		min_t(u32, CMDQ_MAX_SZ_SHIFT, FIELD_GET(IDR1_CMDQS, regval));
- 
- 	/* Use the common helper to init the VCMDQ, and then... */
- 	ret = arm_smmu_init_one_queue(smmu, q, vcmdq->page0,
--- 
-2.43.0
+	Also, note that this is 512KB (practically impossible),
+not 512MB. So, it can fail only on build.
+
+Regards
+
+--
+Julian Anastasov <ja@ssi.bg>
 
 
