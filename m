@@ -4,82 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA6FE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BA9E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 09:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lRPtMlQGEws5Eh1SMwe1Ib+jNbK5W+VxEW7MX8ZGXs4=; b=fW2T75kDyN4KMlFPO+2yT+dqE3
-	jcRLdr8gOR8K3TvoV07eF61Ky2PDUHrTi7XgtYuX1ir17VgETKba4KFk6o5Wrg8aGNSsUBLzF6lYt
-	SIt+o2+ouLqZiWnbZEpxaBnU4KhoY2R8u7De00DDTjdejm77kzaN5auMgJ8FMW2kQ8lsC5ZCp8vQL
-	nNwWSoI9g/Mlu+3e32YJQk/FPbCfliIsQQghE9mORM+eiatPwVnfJaeflZUIrXXc0ulRdvuhhyHIC
-	yIAzR/ZuI2+KZriRbLRyS32ZHsGEQ7AtMGc0ESEN0gV2mtS9jtUZQRdXK8a+LbQQBSJX8ZJ2lURxE
-	3Ay5/SiA==;
+	bh=3NnEYpWEpAhfOeFks40cyx4Me3fULkQGxyw9imXzchQ=; b=xCnbuDbWhX+StW1bYfjUq79L/5
+	JbpnPhsAR8UzcaBNPMjrmK1JLtExZYwMjoU+JIRjvtGpjMDDU1CArF/5OZaoYPY3q71t7zh/DA3pw
+	Ei42dM1jYrpnMLaw2q9/fSMnVl8iqFD83xvHZZPNmnbEakBgr3inhY5yjiiXRCjvo/wtWRb6mlEMd
+	uGZb+xHaHzWIBvQ9xaoaZR2P7G/KWNtutYqkGJZIKjYE8Gv63DWSCSlH5UeR4Kc3jGgFX8Lnh3xGC
+	ieQBZHJ96fQP8yuyac+PWBMhP+Mp3xpnrNNO9TBE7GEVAWvLCglN3g9EBN+pyb6aiqGu56iyVxZpX
+	QgmC9mJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCz8-00000001R6h-0al4;
-	Thu, 19 Dec 2024 09:38:22 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tOD99-00000001STF-2CEx;
+	Thu, 19 Dec 2024 09:48:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOCy1-00000001QwV-1iHB
+	id 1tOD83-00000001SHQ-0qX2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 09:37:14 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BJ9aPAh297709
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Dec 2024 03:36:25 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1734600985;
-	bh=lRPtMlQGEws5Eh1SMwe1Ib+jNbK5W+VxEW7MX8ZGXs4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=mPNqnInypvrn20eKc/miT1KKi2PvSwgyoWdvxGJsbyXe3K0zF9aqmH97R5JKSTRgH
-	 w2Im/zqile/VuO7kxl90KH/7uEaWb54dUdCcHQiTKRbrhKKrC4P2bvjPkBuyrC3m1j
-	 nPsot/eK//yXlMp8huh4ZzUJyCibaq22rvCoF9sk=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BJ9aP2k082052
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Dec 2024 03:36:25 -0600
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 19
- Dec 2024 03:36:24 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 19 Dec 2024 03:36:24 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BJ9aIR1122488;
-	Thu, 19 Dec 2024 03:36:19 -0600
-Message-ID: <cb319ffd-ac67-42b3-9786-e8c9970086d2@ti.com>
-Date: Thu, 19 Dec 2024 15:06:18 +0530
+	Thu, 19 Dec 2024 09:47:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B2F75C67F7;
+	Thu, 19 Dec 2024 09:46:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E14C4CECE;
+	Thu, 19 Dec 2024 09:47:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734601650;
+	bh=6FDbDOEydk5EJmywxXK6nak/rZToF0lt701hrHsepmE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OAAWvyYZUFgvTWONdj1mER08K3w5z1Iwizc+VAwbf049AzC3OiJVKbPXj7JEuBoKc
+	 j6Xi7kNcJMQTICdQDiY6IZrPZ8+1giPwpXrLkRpF/G0JKHMtRIYTHiL+uEIQXEccjQ
+	 YAtckqmTSAgQLl+q9oOSBYB49zdvhIobgaM3/LfdWYVXTo9ViP5/hNJVezMSCyViwx
+	 qcenEyo70bhIqlqwZHH9DhruDrxMapPODF3R0WBCUB93TncaQFieCdYrJl+sUcE/p6
+	 evRW6fnnHtHYhPnJVXOk08vModCUaywYyFp9UBx1hayC110aPVq2D/1VMPz+oGL7pL
+	 SgKYJkJ4Q/9ng==
+Message-ID: <27f5b3a4-8e79-4648-8603-13cce068bfe6@kernel.org>
+Date: Thu, 19 Dec 2024 10:47:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/4] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-To: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
-CC: <aleksander.lobakin@intel.com>, <lukma@denx.de>, <m-malladi@ti.com>,
-        <diogo.ivo@siemens.com>, <rdunlap@infradead.org>,
-        <schnelle@linux.ibm.com>, <vladimir.oltean@nxp.com>,
-        <horms@kernel.org>, <rogerq@kernel.org>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>
-References: <20241216100044.577489-1-danishanwar@ti.com>
- <20241216100044.577489-4-danishanwar@ti.com>
- <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
+Subject: Re: [PATCH v5 15/20] dt-bindings: clock: imx8m-clock: support spread
+ spectrum clocking
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+ Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20241205111939.1796244-1-dario.binacchi@amarulasolutions.com>
+ <20241205111939.1796244-16-dario.binacchi@amarulasolutions.com>
+ <gbymcmoya7dfmedq4nkopqpswh63d2ujxl2elc2x7x325b75bu@anp36sdya43v>
+ <CABGWkvoQzAhpVJ+QRfVZeps-Jn8REGF+21SPN=f24Tdf1d5DDQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
-Content-Type: text/plain; charset="UTF-8"
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CABGWkvoQzAhpVJ+QRfVZeps-Jn8REGF+21SPN=f24Tdf1d5DDQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_013713_531047_6C4FCA69 
-X-CRM114-Status: GOOD (  28.45  )
+X-CRM114-CacheID: sfid-20241219_014735_327937_816542A6 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,260 +128,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 19/12/24 12:58 pm, Michal Swiatkowski wrote:
-> On Mon, Dec 16, 2024 at 03:30:43PM +0530, MD Danish Anwar wrote:
->> Add multicast filtering support for VLAN interfaces in dual EMAC mode
->> for ICSSG driver.
+On 08/12/2024 17:47, Dario Binacchi wrote:
+>>>    '#clock-cells':
+>>>      const: 1
+>>> @@ -43,6 +43,34 @@ properties:
+>>>        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
+>>>        for the full list of i.MX8M clock IDs.
+>>>
+>>> +  fsl,ssc-modfreq-hz:
+>>> +    description:
+>>> +      The values of modulation frequency (Hz unit) for each clock
+>>> +      supporting spread spectrum.
+>>> +    minItems: 7
+>>> +    maxItems: 10
 >>
->> The driver uses vlan_for_each() API to get the list of available
->> vlans. The driver then sync mc addr of vlan interface with a locally
->> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
->> API.
->>
->> The driver then calls the sync / unsync callbacks and based on whether
->> the ndev is vlan or not, driver passes appropriate vid to FDB helper
->> functions.
->>
->> This commit also exports __hw_addr_sync_multiple() in order to use it
->> from the ICSSG driver.
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 69 ++++++++++++++++----
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
->>  include/linux/netdevice.h                    |  3 +
->>  net/core/dev_addr_lists.c                    |  7 +-
->>  4 files changed, 68 insertions(+), 17 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> index e031bccf31dc..a18773ef6eab 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> @@ -472,30 +472,43 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->>  
->>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->>  {
->> -	struct prueth_emac *emac = netdev_priv(ndev);
->> -	int port_mask = BIT(emac->port_id);
->> +	struct net_device *real_dev;
->> +	struct prueth_emac *emac;
->> +	int port_mask;
->> +	u8 vlan_id;
->>  
->> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
->> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
->> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
->> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-> Looks like a helper for that can be nice to have.
->
-
-I don't think that's neccessary. vlan_dev_real_dev() itself is a helper
-function to give the real dev, only down side is vlan_dev_real_dev()
-assumes that the dev is vlan only.
-
-In this function, we don't know if ndev is vlan or not, hence the check.
-Most drivers are using vlan_dev_real_dev() the same way.
-
-
->> +	emac = netdev_priv(real_dev);
->> +
->> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
->> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
->> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
->>  
->>  	return 0;
->>  }
->>  
->>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
->>  {
->> -	struct prueth_emac *emac = netdev_priv(ndev);
->> -	int port_mask = BIT(emac->port_id);
->> +	struct net_device *real_dev;
->> +	struct prueth_emac *emac;
->>  	int other_port_mask;
->> +	int port_mask;
->> +	u8 vlan_id;
->> +
->> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
->> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
->> +	emac = netdev_priv(real_dev);
->>  
->> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
->> +	port_mask = BIT(emac->port_id);
->> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
->>  
->> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
->> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
->> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
->> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
->>  
->>  	if (other_port_mask) {
->> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
->> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
->> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
->> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask, other_port_mask, true);
->>  	}
->>  
->>  	return 0;
->> @@ -531,6 +544,28 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
->>  	return 0;
->>  }
->>  
->> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
->> +				   void *args)
->> +{
->> +	struct net_device *vport_ndev;
->> +	struct prueth_emac *emac;
->> +
->> +	if (!vdev || !vid)
->> +		return 0;
->> +
->> +	vport_ndev = vlan_dev_real_dev(vdev);
->> +	emac = netdev_priv(vport_ndev);
->> +
->> +	netif_addr_lock_bh(vdev);
->> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc, vdev->addr_len);
-> Only question, why dev_mc_sync_multiple can't be used here?
+>> Why all cloks receive now spread spectrum? I had impression - and all
+>> your previous versions were doing this - that you have only three or
+>> four clocks with SSC.
 > 
+> Exactly. Indeed, the first six values are not valid as SSC properties but are
+> only used to reach the point where the first PLL with SSC (i.e., audio_pll1)
+> can be indexed, which is in position 7 in the clocks list.
+> This was the rationale I followed.
+> And it is explicitly outlined in the example section.
+> The "" for the fsl,ssc-method property is precisely aimed at specifying a
+> "no SSC" method, which also fixes the warning:
+> 
+> fsl,ssc-method:0: '' is not one of ['down-spread', 'up-spread', 'center-spread']
+> 
+> raised by
+> make dt_binding_check DT_SCHEMA_FILES=imx8m-clock.yaml
+> 
+> Or would it be acceptable to specify a list of SSC values that applies only to
+> the last 4 PLLs in the clocks list?
 
-dev_mc_sync_multiple() doesn't work here.
+Lists are strictly ordered, so their items are known. You take some
+clocks, of which last clocks are "foo" and "bar". Then you have new
+property for configuring SSC for clocks - again list - "foo" and "bar".
 
-Let's say we call dev_mc_sync_multiple() with emac->ndev (the netdevice
-for current port say eth1) and vdev (the netdevice for the vlan
-interface say eth1.x with x being the vid).
+> 
+> I feel like I might be missing something.
+> 
+> Could you kindly suggest what to do or provide a DTS example to show me
+> what you expect?
 
-Now dev_mc_sync_multiple() will sync the mc list from vdev to ndev. And
-ndev will have the address added to vdev. After this set_rx_mode() gets
-called for ndev. Which eventually calls sync / unsync APIs
-icssg_prueth_add/del_mcast.
-
-Now in this API, we will have the address to add but we won't have the vid.
-
-The sync/unsync API will be called for the emac->ndev (the *to* device)
-and emac->ndev will have no information about vid. Since it is not a
-vlan dev and is_vlan_dev() will be false for it as a result we will
-fallback to default vid.
-
-	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) :
-PRUETH_DFLT_VLAN_HSR;
-
-We don't want this. We want to capture the correct vid. Hence sync /
-unsync needs to get called for the vlan device i.e. vdev.
-
-Due to this dev_mc_sync_multiple() doesn't work and we need to call
-__hw_addr_sync_multiple and __hw_addr_sync_dev on vdev so that our sync
-/ unsync APIs are called for vdev.
-
-
->> +	netif_addr_unlock_bh(vdev);
->> +
->> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
->> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
->> +
->> +	return 0;
->> +}
->> +
->>  /**
->>   * emac_ndo_open - EMAC device open
->>   * @ndev: network adapter device
->> @@ -772,12 +807,17 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
->>  		return;
->>  	}
->>  
->> -	if (emac->prueth->is_hsr_offload_mode)
->> +	if (emac->prueth->is_hsr_offload_mode) {
->>  		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
->>  			      icssg_prueth_hsr_del_mcast);
->> -	else
->> +	} else {
->>  		__dev_mc_sync(ndev, icssg_prueth_add_mcast,
->>  			      icssg_prueth_del_mcast);
->> +		if (rtnl_trylock()) {
->> +			vlan_for_each(ndev, icssg_update_vlan_mcast, NULL);
->> +			rtnl_unlock();
->> +		}
->> +	}
->>  }
->>  
->>  /**
->> @@ -828,6 +868,7 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
->>  	if (prueth->is_hsr_offload_mode)
->>  		port_mask |= BIT(PRUETH_PORT_HOST);
->>  
->> +	__hw_addr_init(&emac->vlan_mcast_list[vid]);
->>  	netdev_err(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
->>  		   vid, port_mask, untag_mask);
->>  
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> index f5c1d473e9f9..4da8b87408b5 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> @@ -83,6 +83,10 @@
->>  #define ICSS_CMD_ADD_FILTER 0x7
->>  #define ICSS_CMD_ADD_MAC 0x8
->>  
->> +/* VLAN Filtering Related MACROs */
->> +#define PRUETH_DFLT_VLAN_MAC	0
->> +#define MAX_VLAN_ID		256
->> +
->>  /* In switch mode there are 3 real ports i.e. 3 mac addrs.
->>   * however Linux sees only the host side port. The other 2 ports
->>   * are the switch ports.
->> @@ -201,6 +205,8 @@ struct prueth_emac {
->>  	/* RX IRQ Coalescing Related */
->>  	struct hrtimer rx_hrtimer;
->>  	unsigned long rx_pace_timeout_ns;
->> +
->> +	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
->>  };
->>  
->>  /**
->> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
->> index d917949bba03..a5c169b19543 100644
->> --- a/include/linux/netdevice.h
->> +++ b/include/linux/netdevice.h
->> @@ -4685,6 +4685,9 @@ int devm_register_netdev(struct device *dev, struct net_device *ndev);
->>  /* General hardware address lists handling functions */
->>  int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
->>  		   struct netdev_hw_addr_list *from_list, int addr_len);
->> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->> +			    struct netdev_hw_addr_list *from_list,
->> +			    int addr_len);
->>  void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
->>  		      struct netdev_hw_addr_list *from_list, int addr_len);
->>  int __hw_addr_sync_dev(struct netdev_hw_addr_list *list,
->> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
->> index 166e404f7c03..90716bd736f3 100644
->> --- a/net/core/dev_addr_lists.c
->> +++ b/net/core/dev_addr_lists.c
->> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
->>  	__hw_addr_del_entry(from_list, ha, false, false);
->>  }
->>  
->> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->> -				   struct netdev_hw_addr_list *from_list,
->> -				   int addr_len)
->> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->> +			    struct netdev_hw_addr_list *from_list,
->> +			    int addr_len)
->>  {
->>  	int err = 0;
->>  	struct netdev_hw_addr *ha, *tmp;
->> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->>  	}
->>  	return err;
->>  }
->> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
->>  
->>  /* This function only works where there is a strict 1-1 relationship
->>   * between source and destination of they synch. If you ever need to
->> -- 
->> 2.34.1
-
--- 
-Thanks and Regards,
-Danish
+Best regards,
+Krzysztof
 
