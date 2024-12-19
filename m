@@ -4,113 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC90E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2178E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xme2slGOLEbJocB9IGjx7rTsSbBQsnZE7uGnFV/HUcU=; b=gQ8XSYzHGuexW34x5IC9/J99Hl
-	D7grlLWfR3e01bnz66ubmQ6SYmE7iLIebZqdejT6RNhFIOlcarjhuMvm5niHxTbG/GQqfYiHb2Ro0
-	8j5F/tKXIY2GEFaSxzJUsJAC99TjX13q3kRdfl1MQA2fzXCbbHsRpUTX1gYfaP3OU7O1ktcMN4QSQ
-	MOdikwfvpXhNqTGFp5bprb2ZkminV/W/wDeBiDJI6m1Tmopd0zmYRbvPneF5T/atVvrz+6MKxAWSt
-	a7unEjDR/RS1wB60egahzuyqrf06CDQfo+7My3f4DE3R8pvjy5AjtgQ/2W+rBfHFmTFROfqnYXYH/
-	ROy+cnpA==;
+	bh=2m+neTvn1J6jwPLArnz6aBhDUV+liWIisQpaER4E2BQ=; b=aZgmcpmXCd3MDHqtr/dCQGBAD8
+	3GhfO/RPJ8gs0Irt3IhIJZo9CdCsUTfeGqssUziSPin67yJIbxLPd3ebZOSjf2Sy4p7IfIHZcTE9b
+	gKJXVsbSORmOuTIJvC67D5G8uGozjTIqym68n42pmi8ZuFFxOOaU+JLiPSpM6Aj9zwHRuSQDRw8bb
+	TElbhiZotyUeCFp9mPVz2vtT5QH9fuhiBARKGLO3msz6tkvh6NNbMqii4tk8n2wQrU66O8ifEfZx/
+	bUKJokO/yjTKlk9Ibkb1sb4+3nsTaXm2G8LIPvbPlilIMRIyefZaFzQBRe3JUw5vDfe/6NnVmqg+7
+	YlAyAVfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOLtI-00000002nnJ-2iyG;
-	Thu, 19 Dec 2024 19:08:56 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tOLyU-00000002oPC-1zDU;
+	Thu, 19 Dec 2024 19:14:18 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOLro-00000002neS-1GNk
+	id 1tOLxM-00000002oEe-0gsk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 19:07:25 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BJIl1xj000470
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 19:07:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Xme2slGOLEbJocB9IGjx7rTsSbBQsnZE7uGnFV/HUcU=; b=lOpUjl63XbC7NSLu
-	CZQNKN6Qvy+74280qGjzpjH5O++8tY1BbypdaBhJgO7BviWzx41v80LhQm7izMib
-	kdA4vzVFHbpq37PNAldmNNPARLfdn2ndwDav/kPTYE/kdAX8UEbPRxzvdmmJSyBO
-	KmOEkIWZBGyaGm0zMgESXrVQQ8YxzxTGKKRxk1X+m3jbfRZZF46yGU3vOWE8v1s6
-	1Sm/HV9eEEargOUzgMTq6cPgK8tJddtVZbglK+yEe+Cvzap1nKLCV7/ruhhTMEoV
-	ygo4NIGB+UdJxUkd1GQpL+Xnm3HTCEjJysGy0LiU1VE3BIuWtBTRi1PSOlpZprEs
-	fc54Uw==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43mg98smcs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 19:07:23 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-467922cf961so2724001cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:07:23 -0800 (PST)
+	Thu, 19 Dec 2024 19:13:09 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5401fb9fa03so1169502e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:13:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734635583; x=1735240383; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2m+neTvn1J6jwPLArnz6aBhDUV+liWIisQpaER4E2BQ=;
+        b=ZqiKC4KRc15u68/FWtKn2d5dY/43dxa3fu9kHJp5kiUcVXh3GgxeWVU2wdQhTA3Owl
+         0lxZvXOT42Wz33pmBnGA6xUf1Fw7xAJqS+1Q6xrOqCHR3z9UQrJqWvrbm2M80Ne7GPaJ
+         jh1jeWCWdCPi3Mxc9I3rRl3bVYfibPwxdNQzA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734635242; x=1735240042;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xme2slGOLEbJocB9IGjx7rTsSbBQsnZE7uGnFV/HUcU=;
-        b=MLAUGgDTUtQbhbVCatQgaTxv7yhQRhfnJdg0Nd8Ee+P2in6T7t31j+OTxgSyYLPR2p
-         dMWvT/E5XqjL/WVgZoQ/lOIKx4l+rAcggW3Hx5IHvYKysjgyObfuyFD2nsFQs+GmwFIS
-         j5N0r8Vbj4suMEuTvVjmlEuheMthuzN1ATdnv1PxNa9mtjVejxgfSDas35rfz6hFDsJ8
-         yLrBv3dDQz+YKPXvtWNhYbbfVBMewi4Cjz/t59+T0kB8Ny2Mxal7UGhPPtuGDeYTEqHo
-         5nW5gJY+lkKkVYJZfFrioKAgU0d7zXXYybq5EbwlVojPas++a7P4u5e/sBQuDs/VO+1T
-         xJgw==
-X-Gm-Message-State: AOJu0YzEJsVI4YeRovjl3yPFwbzyzu/LfNOW7UBcN5MyMjSFs8m+XshH
-	HxvaenmrTkOFV6QhoaRWI1t6JogQloO7Y0cq/5mIoAs6Ybc1AGGXpygtLVkqGZkNWQ6BGSeyuLm
-	AYVm+KoXlc1LneqsQmtoqvKl7BD9Sj8x/d5ZwPpa99M7Pxa1fU89gTju4gSE7KClCpPLNvHZbvA
-	==
-X-Gm-Gg: ASbGncv+/GIzWXmyZUznhw+8TUsx8y1w6kcgpLAS7zoCu7rr9k5/lVYFsL58paKrbKp
-	Rza5FFJ5DO3GFg6VncRyE5bXE95+YWEB2Xdeghaj4yKp8gI/Ttqvloqizo18Dk3zUo2rXvdozVH
-	CFLS8vA5lR7lmw9U5e588pk6Fa9qo7xT1elUVYLq2aF0teVjGNacuZEkDbBuZTLKmjaxGSZ9Wdm
-	jWm8EXz2reGsPHfoMBjgZaMpvsOHBquaPEIkJsQ1nK+7ca0UG46MgbdXNYIQjHrhYnYrfGTV82c
-	JLegzOnZLorWFYpMpCPEnmjWbVlSq3nhIsk=
-X-Received: by 2002:a05:622a:1794:b0:467:5715:25c8 with SMTP id d75a77b69052e-46a4a8b81a9mr959181cf.1.1734635242137;
-        Thu, 19 Dec 2024 11:07:22 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFiLwg4qpvhyo6XSbciUnY8+6IEVaUWF1WSYXCTk5jZqKx2WFc24CxCnir5+qhYN0wAyYx1/g==
-X-Received: by 2002:a05:622a:1794:b0:467:5715:25c8 with SMTP id d75a77b69052e-46a4a8b81a9mr958821cf.1.1734635241755;
-        Thu, 19 Dec 2024 11:07:21 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe4917sm94313566b.121.2024.12.19.11.07.19
+        d=1e100.net; s=20230601; t=1734635583; x=1735240383;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2m+neTvn1J6jwPLArnz6aBhDUV+liWIisQpaER4E2BQ=;
+        b=RY/XTJ9H08ND/AINbr/9z8yrIhd3BsDBMA0FR14PxcxTLoKDjVuAMAE6IMVlICqcUd
+         CO3kcYhSoEivxUUY4Ik69MSxaCFmlOy/3kR3ZaPxSVj7JzOlqcKJGfUKjIyZAFPIW9VB
+         iXJFBQAS07f9h/dhtVuA52Kv7au6PrTz1d1ZQzRE3tL8I+RlyWR6s6EcIXxXVBjQhyhu
+         cctkInxjgfuwuomTl+7aF4af+2I2PAHVLAbzR+7xt3EXaP/fvbrB5HBv3VFbWAQMG8Lv
+         GI1Fp7hgVj9vSciaMC5qfOGJzboZHdrbMG5YYCKt+DtX1XyILXdcixgW2OZpBoRNxBvu
+         HW/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUR8I0yf68/7i8ks3gsw/AbVPt7vaPqGViQDU2mdOXs02Fh4fOAnTt4LhVTjTp6YnkD3SDMSbEUfn3l20q97TD+@lists.infradead.org
+X-Gm-Message-State: AOJu0YykAgXSUu6xZNawpg8zIYMhJrwiyWvZRsTPucdYqD4IMEQQiDXL
+	Q1XSup+h3OygwMP34umlwZ3cDk0xhUsX8eiORseb0q9oasqoUQmSSpqhM88/jWibK72FrVyPtwB
+	ruppP
+X-Gm-Gg: ASbGncvIz+y5yk33utnxqgnc9L6pNcvJCW0p+aeyERv6u9oyUjErB06UY2qvmK//hln
+	McOjCTF73ks/KxNI7RT2BYAWLDdhR6Sor67DAoFu1AsAvydBYiHHPBb2DXOX8n3Xcs1LRFrIoI7
+	ufQLp1QF4C31quGYQJpjKqyLXKXaUheXxcVMQA/+SgDJ/284mjDUkVgnT5KJ/rypQxKQvEulr9/
+	UtwLK7ff5wkJxGausYP1AaIoOrn+Hvpl1zY3upPthndqmMdpNQoMZaaDYjfziT0tnRbo1pRBMCN
+	QsTCRHcIxmI+ld5Ehmhd
+X-Google-Smtp-Source: AGHT+IET1JS1mT6Sl/4HcwmFyZR3R5BjEPOJ9ISQz3GhVTdJaq0Bc8EfsLFRzTUVeh+R0ou2rC2VkA==
+X-Received: by 2002:ac2:4c56:0:b0:542:23b2:8010 with SMTP id 2adb3069b0e04-54223b282b1mr1129290e87.23.1734635582593;
+        Thu, 19 Dec 2024 11:13:02 -0800 (PST)
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com. [209.85.167.47])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f782csm247853e87.38.2024.12.19.11.13.01
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 11:07:21 -0800 (PST)
-Message-ID: <5c4c4ee0-9e2f-4ed4-9fe4-ca41d18321bf@oss.qualcomm.com>
-Date: Thu, 19 Dec 2024 20:07:19 +0100
+        Thu, 19 Dec 2024 11:13:02 -0800 (PST)
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5401c68b89eso1271161e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 11:13:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXhytoFSbJvr4mhPABTyPQ8grmPM6OrYXZOrW75dPvK5wkN8wQynei0RMefNNFLCQ6nhdXKlPAslbprNM4lfdaV@lists.infradead.org
+X-Received: by 2002:a05:6512:2384:b0:542:2192:44dc with SMTP id
+ 2adb3069b0e04-542219244f6mr1395323e87.28.1734635580713; Thu, 19 Dec 2024
+ 11:13:00 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/4] arm64: dts: qcom: sc7280: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
-        todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        akapatra@quicinc.com, hariramp@quicinc.com, andersson@kernel.org,
-        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
- <20241217140656.965235-4-quic_vikramsa@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20241217140656.965235-4-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: 17A_WBWOmfya4UYcW_qJVYZ5Qkaech4s
-X-Proofpoint-GUID: 17A_WBWOmfya4UYcW_qJVYZ5Qkaech4s
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- lowpriorityscore=0 bulkscore=0 suspectscore=0 mlxlogscore=969
- clxscore=1015 adultscore=0 spamscore=0 phishscore=0 priorityscore=1501
- mlxscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412190152
+References: <20241214005248.198803-1-dianders@chromium.org>
+ <20241213165201.v2.1.I2040fa004dafe196243f67ebcc647cbedbb516e6@changeid> <20241219175128.GA25477@willie-the-truck>
+In-Reply-To: <20241219175128.GA25477@willie-the-truck>
+From: Doug Anderson <dianders@chromium.org>
+Date: Thu, 19 Dec 2024 11:12:49 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=WhzZ_v1+WPpG9839JwN=fKyiY_T1M37RAU_e9cHy4XGw@mail.gmail.com>
+X-Gm-Features: AbW1kvZhv1mh_PrrK_8tPeTV4O5T1QFdsJAfISMEvI9OCn5vId8bs6RT8MrmOxU
+Message-ID: <CAD=FV=WhzZ_v1+WPpG9839JwN=fKyiY_T1M37RAU_e9cHy4XGw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/6] arm64: errata: Assume that unknown CPUs _are_
+ vulnerable to Spectre BHB
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-msm@vger.kernel.org, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
+	Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	Roxana Bradescu <roxabee@google.com>, Trilok Soni <quic_tsoni@quicinc.com>, 
+	bjorn.andersson@oss.qualcomm.com, stable@vger.kernel.org, 
+	James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_110724_346551_1F75DEBA 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20241219_111308_226231_96420B82 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,16 +110,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.12.2024 3:06 PM, Vikram Sharma wrote:
-> Add changes to support the camera subsystem on the SC7280.
-> 
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Trishansh Bhardwaj <quic_tbhardwa@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> ---
+Hi,
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+On Thu, Dec 19, 2024 at 9:51=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
+>
+> > As of right now, the only CPU IDs added to the "unaffected" list are
+> > ARM Cortex A35, A53, and A55. This list was created by looking at
+> > older cores listed in cputype.h that weren't listed in the "affected"
+> > list previously.
+>
+> There's a list of affected CPUs from Arm here:
+>
+> https://developer.arm.com/Arm%20Security%20Center/Spectre-BHB
+>
+> (obviously only covers their own designs).
+>
+> So it looks like A510 and A520 should be unaffected too, although I
+> didn't check exhaustively.
 
-Konrad
+I was hoping that newer cores would hit the supports_csv2p3() check
+and be considered safe, but I guess the white paper explicitly says
+that A510 doesn't implement it and is still considered safe. I looked
+up the TRM of A520 and it looks like it also doesn't set CSV2P3, so I
+guess I'll add that one too.
+
+
+> It also looks like A715 is affected but the
+> whitepaper doesn't tell you what version of 'k' to use...
+
+It doesn't? I see a "k" of 38 there. Wow, and Neoverse N2 needs 132!!!
+
+...though I guess on newer steppings of those chips they'll just use
+"clear BHB", which seems available and is the preferred mitigation?
 
