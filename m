@@ -4,73 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C4FE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 17:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16650E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 17:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPUsp6NX8nbZo3HytH/8ms2YCrpRdzN9WurYG3GWJXo=; b=Jz0BdL4y6nYSsEnoIgSLuZuA9V
-	+3/88VOilDy7bc7sGZ4cfOpVws5Uu2Ar5YDFR+NUIC1U4m6EAD+NSIGYhg4vz1cC2tn6eAskN4g6C
-	FXjm8lct1BlBkUqcPszVGM3oQQFoHO/WGcJgnIN5L22fY07suc833Z3a2kZHWwW5dGPj6zjYRYH3X
-	g6o1f50fjmF/qwBYsf1OJqmMCr9WgkZFdYLLBmyThD7ZiQHR0wOZMxZhFI5UVs4cDH0MTMXV8qGGb
-	hWrLDlvftFNKzZdj9FxyVUpx/46dF5KMj8kVhuybzSF4DgJZ4dd5wLzQhFpHWTV6A/4PtCvL5tCs6
-	+/asKJvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vvY9fMjDoVrIodD3uYfzvQyxyqhk6LiB3Th0WtyQWUw=; b=CSQSgxGptXWRSSFqh3MuV5WwSE
+	15qciX4SJkG0sOTNM5XKBlF/MQTsNNFZTpcidPnsd/79DLokjG3ilbrtJ6VDEH23OsDJdqIzvZ05C
+	N0Ql7VtAjjwPoWzP/gWpW0QE9s+RmhBmM53OEWibvgZorO57kjo22HII8Bhjm8nC5z2iS3c1VLEIe
+	Ad5DlryklxYuultp1JlEE1K1ncqEr/S6jpQ6yCzzD17QACto+cBcaph/vnhZ8e2dQb+cXGeaHNH+6
+	nvd4rF05mPyyDJuv6ZolNw0vTseWNWStgqlM47A91mCIf7cZgJwiQJTDNnPPYkWPg5LSzFSVX35/v
+	qVk+tukQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKcE-00000002cKm-2PLR;
-	Thu, 19 Dec 2024 17:47:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tOKdJ-00000002cYn-135D;
+	Thu, 19 Dec 2024 17:48:21 +0000
+Received: from mail-am6eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2612::60f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKPR-00000002ZoN-3AI1
+	id 1tOKPv-00000002Zu0-2pQF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 17:34:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2CCE95C64AF;
-	Thu, 19 Dec 2024 17:33:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7A70C4CEE0;
-	Thu, 19 Dec 2024 17:34:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734629640;
-	bh=FCHAHr9u2qXa0Jjz/5n8GQN/cG59u8BXZQ+8Hu+MIGo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IQ1joYKBjHgn1CTmFcs47c6O/didNmiRpqaLBtB46HglBJo/rTt9owAeDSWbRsJHK
-	 0L/H1soJ4jHXyljU2UM2+wLzES4vCne7A60wy/wxmNJRXYHt3ijmuabmx/ZgubK8QZ
-	 FUEKJIarUTfoO+HkIOZpoWJfWFZTUiuNxRW6DQ3rQ5peIyCDq0HUGG8lAayZ6V1Y9v
-	 BizTmf72fyPILh9oMNSyK683COYWptM0m3vdA3SsH6yuSy5XJSYOkVUbzwLAYtU4RB
-	 h8bIcXJYBVlwHP+2heA8TcXBJbwbJFC29HnmrsZxUMVABylil9UWZa3DWFvmVv87FD
-	 X21UcULcclVSg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tOKPO-005Lao-VW;
-	Thu, 19 Dec 2024 17:33:59 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Brown <broonie@kernel.org>
-Subject: [PATCH v2 4/4] arm64/sysreg: Get rid of CPACR_ELx SysregFields
-Date: Thu, 19 Dec 2024 17:33:50 +0000
-Message-Id: <20241219173351.1123087-5-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241219173351.1123087-1-maz@kernel.org>
-References: <20241219173351.1123087-1-maz@kernel.org>
+	Thu, 19 Dec 2024 17:34:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O6tj/w9mRYvwVc1cUocJuFd/vSqhU4xEbLSJEOQlIt2uHNdTcxRWMjyZes5L+Ez3WSVl7XxAQVQeiP4OokCkH70S2d8iPejaYR8Y8DyoNBoJJpu04BC3pd9vDvyPDUkOMsKXNlts4kDEpJKR7b0MepENezdKfIfOAUcUy2h8oa5uesrlXZGaeDCKi3AHeuexokIU/KWSLsAsGL9duc+uq7/D5y5RjN+XVUVcQ+6dcRP7jF9p2h6jimoF6NVgSIPMXCiUaa8VzkG8pR8txCWAeqB0rOtKRiIaQp8jpyLis8nHzoO3m1MToyFBmDXjxxieHPiQEQoBLgaNysI0o9ep2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vvY9fMjDoVrIodD3uYfzvQyxyqhk6LiB3Th0WtyQWUw=;
+ b=oC8O3EW15tymmwtfp9VcgD5yECwF9zbrHZUrPbNHYLj73GZcJE/TfrpEExSNHjEg1YkSs83OXQoCyjk1bqS4PfIe3xoMCjwVd5xWqAuL+DWgaGy9QHlD8pbRp5YVxQBF28vqm2JX9UbMS59oeoB/zL+k9SdPuhB19L1lVU1kXEaETbh9yTKXuGB0fgaI8f5i5x4752whiFyliDTBzzdQCVoGPyjVZ1GQpsydGXnLzQD2x3566KcABLJaUSqsC0HWQLoceufyHHQRWpiLSQ3RGb1WTwTzXNbtkNr6j6/hhiVG9F7jframGPsVshkCV6r5qcLriQ2AxsYhU6eZdMazQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vvY9fMjDoVrIodD3uYfzvQyxyqhk6LiB3Th0WtyQWUw=;
+ b=VLVC3z1aLg00tA1oSLqjqy+rNUdWJ2PFHIiwcTsJ7OkrQ17n3mu0tDOozSsIocYyeO1oBtJywtSsewFfPERUxZnQoINK2VRs/+tD3Vxz6D6rqp7oOqCYT0kdWQZsNLrTBvv7usF7+gx0W4YY2E3BeneOKPcno8QdZPt9K4Zd8W17UJEcvwMUTdYpUK0zLehdrvVUMkfmlIV1D+fkF7HVO6WJwNCE0us3lLud0NzoV7HLKuE5nvITLvwihXM5Lp43ivtYkxRRHdT5L78zelVy8qCajqQO4eEl4PQyS+Lyv6XfYfCagBYoOiLukmYQny3S+4Ebnq+BB/rukLIg3/5vWw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU2PR04MB9194.eurprd04.prod.outlook.com (2603:10a6:10:2f9::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.19; Thu, 19 Dec
+ 2024 17:34:27 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 17:34:27 +0000
+Date: Thu, 19 Dec 2024 12:34:19 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 03/10] arm64: dts: imx8mp-skov: use I2C5 for DDC
+Message-ID: <Z2RZG7pAElG3TGLx@lizhi-Precision-Tower-5810>
+References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
+ <20241219-skov-dt-updates-v1-3-38bf80dc22df@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241219-skov-dt-updates-v1-3-38bf80dc22df@pengutronix.de>
+X-ClientProxiedBy: SJ0PR05CA0002.namprd05.prod.outlook.com
+ (2603:10b6:a03:33b::7) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com, broonie@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB9194:EE_
+X-MS-Office365-Filtering-Correlation-Id: c0d0de2e-85e0-4f4d-44f1-08dd2053633e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|52116014|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?F5KyKDSaP6tLE5S0h5gAk6GtfOVj46NWBn7SHBa+tAWMJeLikuYcfGHYkZ2T?=
+ =?us-ascii?Q?CfRL/BvSWbbKQ/4h9JoE3T6x/ogVuqPqmg3u35V5mQ5uJwO5SzHF0NPfVYCG?=
+ =?us-ascii?Q?BR8T4sMcVP9Ljyi+2DtRiULPdX/AT/0WRhwAdhYfLa6Mpqh6ORJq2z/ZibAV?=
+ =?us-ascii?Q?z2YLdktfhPKxwKWhr3Ess1iPJoIXWJAPLWRHwEdMA+Akhmxjxn/LP/dnY8VY?=
+ =?us-ascii?Q?mVwQnrJQTF/VWcK+fchhft/6/sAMZFy22589hFUu1lXzInDKMZGeqn9DWkZL?=
+ =?us-ascii?Q?EzvXH5Pfw9Vl7gqaNt7BUW4W5UbuQ/b4wHQ4sUxtKzaCmqXxyouSyQjt4csC?=
+ =?us-ascii?Q?jaZMl26gQ+tqVffh8Ip5evdWXhhLWdjPrwDVPHR/s0FE7WUzyu1XUgCheTuk?=
+ =?us-ascii?Q?2pBi1mrhT8NRwuEloGEzAP4tdRry8Shm/8o4iwhb6YRb/qfdW78y/4rn8xzB?=
+ =?us-ascii?Q?/fUihQ/RuIjWwzGvJydsZzxc69V+gvG5ol57OWd7ztrX3Nqj5l4nVu2Eqnlx?=
+ =?us-ascii?Q?f+vemFUaMGprBbqe8XkbU1uOM6htda9aJJfqYONmdsOzRR3suwLz3lFNPNgm?=
+ =?us-ascii?Q?vDAefwaRWgn96hOKzw5PmfBxv/358zNpgrUCnWUB1RUuEt7KXmADDtehefDp?=
+ =?us-ascii?Q?w+DEccOF0GSGwqp+swepwOJ4EpxTzeIc9QrLTd4D316i3Bf2EIaKvPLg5O75?=
+ =?us-ascii?Q?G0Ch0T1bR2e+D78EgTqSzh2+TQpb7C6x6wyCQNK6/rXEnEsmBtO9tH9iWJxY?=
+ =?us-ascii?Q?twvFb9K6he86lxG+9TpXsroFhzZ9goLBIfrMAwiHtlh1IcS04479dU04ecQF?=
+ =?us-ascii?Q?LgtAuSqeFy5VrbDka9pp0ywYWJdqcKQvdgZkBrmmc79s9v4jnqsZWUFAxQLs?=
+ =?us-ascii?Q?qip+LFj57G9S/IPbJ6vup8P+nxYVAXtvtQ/TAwtL85iXhm3NP/mh76v7KmR0?=
+ =?us-ascii?Q?gLtTn0d75UBkc7R1tqNbHUVzWTJaj52Jl4LmPUB5Fm7b8pSee0B6sODWpwiE?=
+ =?us-ascii?Q?wteKNmoF2v8vU50q4Q62Ll/1TJLfx3sQR39ZArWr4x9NrqXDoVjN5cmyT2PD?=
+ =?us-ascii?Q?sP9IlrsLDh0NeErh3snnku0xM+DNNqEvnjDnnjXSGfCojBZZE1wJQUUhpKd7?=
+ =?us-ascii?Q?PpxpiHk7LFTPX5Le9TS5ilWzZSf3EeP32CmbipJ1iurc1LfRsvbl9QdJrWcH?=
+ =?us-ascii?Q?SGVuvzSq0IS0hgRxkEPadTJpUAs0aTqxIHQa5EIsSPrWZEQM9Sh8HQIRsI5y?=
+ =?us-ascii?Q?g5bCtKigp58I9BoZABHAmYPpynOtddFSxcoiTGgvIMHc7uYj7zCoLkna8FJE?=
+ =?us-ascii?Q?kPh4doJ5QVczqwyxsjhByQd/a/jJrH57tT7BrTzfjfXHPpv9k/8qRJ7hQBgc?=
+ =?us-ascii?Q?QG7PNPX1Ri+tT0tRp1oGZ5Q2h5qE9tExf6qssHTFYTBfUcJ3UJZ8V5ZvEZ2S?=
+ =?us-ascii?Q?ao/S7WWpOAA2tMF4HXDXDPLku3FKG8/1?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(52116014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7spRSco1woM5rTtqvnd9pDy7rwzXKpfs2y+uDcm0+HOmdjtRtJqnS8yfu5md?=
+ =?us-ascii?Q?10RopXV/bKteIRmj9Q598x3fsUs2F6Lvx0Njb7nyHBwbzVw3k59R/b01jbh3?=
+ =?us-ascii?Q?T8hwlui1GtxtGTsmOnMza5/+Xss9BtfArxmKg2W+s765++yp9Dfv1iPEEk9e?=
+ =?us-ascii?Q?N1XuSckewIIh+aZSFDT8y2DGI4jVg6XJMGrWgrI7igpRFuSaaOsQaWEUqvL4?=
+ =?us-ascii?Q?W0U6U8C9Ie6gMnzAeIKh5TAci7hEdWSR69FdkQ1v2kV6mOeDiQzOGPfqlpQs?=
+ =?us-ascii?Q?behGK8u8wfR3dQTCLG3WtaYhNn3o/KzQCnIm70Tfh6AEr1z47v+z9DSRh1Eh?=
+ =?us-ascii?Q?tViZhas0tNpOfnBHIMfQfDCiWCh6Bi85Iw4KHh2XOXK9Sewt8mR1Z743Kmvl?=
+ =?us-ascii?Q?qgdixjOw4hn7Uvl6Hg7NIjX4YsHBqyCsbUB4GvCpUuj8r7HfiRI6m2mcCizL?=
+ =?us-ascii?Q?zwmGaMo7rsBD9S9AV6BYsnS/MQadR58+LuTHkGoxIHuxh0nx/Kmy8KVvyElW?=
+ =?us-ascii?Q?zQS60IwQ8Ms4PitW+XC4Bsx7qLtK8ATDpD3jnWwQ+N3K0ZT6gnfFEphqvAuU?=
+ =?us-ascii?Q?w/gVds7pNIQ3EtQvUSi14kAkPojEI2wE3GW23ccUjsT/mhHaCyS/Ms0DF+Yw?=
+ =?us-ascii?Q?hzD3u11hELsER4xEhysuePmcYhvYx6zCHZ4qjrI0ZnV/+kZMOBmUNgUaQiA+?=
+ =?us-ascii?Q?5q2yUmR2ik68SC3Df132YQeWpnduCCiD2nttVThbMR0LduGluH5ydXTlEOTF?=
+ =?us-ascii?Q?8dgBgJdx7AkrGZzMqbe84UDfTmZPppgWa43RnDWowsR1AZsgp+lA0BhRfZXU?=
+ =?us-ascii?Q?4tZm5Tu4m3OHiao76r9k3oCBGw8DtuyC7ZRPOn5NsB0xFJTnqxbyA/+c3oIv?=
+ =?us-ascii?Q?Gv2KXrqTpY3cU/h3wziZWtfjTaCybTO2FYTKJv4N/O3jHjqfvOWhGexhVWVi?=
+ =?us-ascii?Q?24ZC/x9OTP6ng9aoxUtl5atYJs9I5R/NIQXNoZTWgI9/taLPLiG0kDUNXChn?=
+ =?us-ascii?Q?z/VzN7i/hjOsPd4wQ3oC1V14JdiEML5YcM19u0Ggm+Uh1w9s6HQMm9Qfc9yW?=
+ =?us-ascii?Q?pRdpbxxb2GUplmOC4Y/IegqVAvWRfz6CZppOfQVh0jUHcThBSha9An5jdQaE?=
+ =?us-ascii?Q?TwRAVWB++nQJV80wnRWWUmJy5/CDm+xTs+jl40kHfy77g/j3uFHTcc3ZGJCX?=
+ =?us-ascii?Q?qFMb1ac9stjFuKk80dTmwPPQv6gqdra53G8SWy+9dG9oKE8PWWVwQ9GoWnP4?=
+ =?us-ascii?Q?GcGAOBpyej2D6fYKXgmgDOEoAf3z0Vac8Bk5oPpWSwSitEVNFp64ZPl2UCM2?=
+ =?us-ascii?Q?Nu3BCwaFcyVK3O3W7kgzmC4cEEvl5JP8YlQih6PI5O9/ZsyOaAElEtGI85ss?=
+ =?us-ascii?Q?BZfilx490c3HIU/60n9RLvdkPXxyTNzWft90K2CnCTt/xaJQVr3ILQQg4Ahl?=
+ =?us-ascii?Q?r2VCXo8zm4P4nevASApEHUBpH1HOPM6LJcdEJTqkhAB8hB0FKYPaVjhM3vKb?=
+ =?us-ascii?Q?6nGf2wSRMAxx0lfofs49upNmxJ5oId7qswhVxFiuLVklvxcQdJVB9kwsB86o?=
+ =?us-ascii?Q?yomRZTSvbslUDV3Ny6jucajyGp1KuCxA1yl5OjGZ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0d0de2e-85e0-4f4d-44f1-08dd2053633e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 17:34:27.6830
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VebW6W40Lfo/U24TNhmDOnEKixQRoYXB9pOmoC1h4iDWUO22aWhhlFbrTtjcOqO+qa6+vC8fGo5Azco+xkulYg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_093401_884154_2F23CDD0 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20241219_093431_861025_1A4DC7BE 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,373 +162,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is no such thing as CPACR_ELx in the architecture.
-What we have is CPACR_EL1, for which CPTR_EL12 is an accessor.
+On Thu, Dec 19, 2024 at 08:25:27AM +0100, Ahmad Fatoum wrote:
+> The HDMI DDC pads can be muxed either to an i.MX I2C controller or
+> to a limited I2C controller within the Designware HDMI bridge.
+>
+> So far we muxed the pads to the HDMI bridge, but the i.MX I2C controller
+> is the better choice:
 
-Rename CPACR_ELx_* to CPACR_EL1_*, and fix the bit of code using
-these names.
+Switch to the i.MX I2C controller because
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/el2_setup.h      |  6 ++--
- arch/arm64/include/asm/kvm_arm.h        |  2 --
- arch/arm64/include/asm/kvm_emulate.h    | 40 ++++++++++++-------------
- arch/arm64/include/asm/kvm_nested.h     |  8 ++---
- arch/arm64/kernel/cpufeature.c          |  2 +-
- arch/arm64/kvm/emulate-nested.c         |  2 +-
- arch/arm64/kvm/fpsimd.c                 |  2 +-
- arch/arm64/kvm/hyp/include/hyp/switch.h |  4 +--
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  4 +--
- arch/arm64/kvm/hyp/nvhe/pkvm.c          |  2 +-
- arch/arm64/kvm/hyp/nvhe/switch.c        |  6 ++--
- arch/arm64/kvm/hyp/vhe/switch.c         | 16 +++++-----
- arch/arm64/tools/sysreg                 |  6 +---
- 13 files changed, 47 insertions(+), 53 deletions(-)
+>
+>   - We use DDC/CI commands for display brightness configuration, but the
+>     Linux driver refuses[1] transfers to/from address 0x37, because the
+>     controller doesn't support multi-byte requests.
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 4ef52d7245bbb..25e1626517500 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -154,7 +154,7 @@
- /* Coprocessor traps */
- .macro __init_el2_cptr
- 	__check_hvhe .LnVHE_\@, x1
--	mov	x0, #CPACR_ELx_FPEN
-+	mov	x0, #CPACR_EL1_FPEN
- 	msr	cpacr_el1, x0
- 	b	.Lskip_set_cptr_\@
- .LnVHE_\@:
-@@ -332,7 +332,7 @@
- 
- 	// (h)VHE case
- 	mrs	x0, cpacr_el1			// Disable SVE traps
--	orr	x0, x0, #CPACR_ELx_ZEN
-+	orr	x0, x0, #CPACR_EL1_ZEN
- 	msr	cpacr_el1, x0
- 	b	.Lskip_set_cptr_\@
- 
-@@ -353,7 +353,7 @@
- 
- 	// (h)VHE case
- 	mrs	x0, cpacr_el1			// Disable SME traps
--	orr	x0, x0, #CPACR_ELx_SMEN
-+	orr	x0, x0, #CPACR_EL1_SMEN
- 	msr	cpacr_el1, x0
- 	b	.Lskip_set_cptr_sme_\@
- 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3e0f0de1d2da8..43e365fbff0b2 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -391,8 +391,6 @@
- 	ECN(SOFTSTP_CUR), ECN(WATCHPT_LOW), ECN(WATCHPT_CUR), \
- 	ECN(BKPT32), ECN(VECTOR32), ECN(BRK64), ECN(ERET)
- 
--#define CPACR_EL1_TTA		(1 << 28)
--
- #define kvm_mode_names				\
- 	{ PSR_MODE_EL0t,	"EL0t" },	\
- 	{ PSR_MODE_EL1t,	"EL1t" },	\
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index cf811009a33c9..4f1d99725f6b3 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -556,13 +556,13 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- 	({								\
- 		u64 cptr = 0;						\
- 									\
--		if ((set) & CPACR_ELx_FPEN)				\
-+		if ((set) & CPACR_EL1_FPEN)				\
- 			cptr |= CPTR_EL2_TFP;				\
--		if ((set) & CPACR_ELx_ZEN)				\
-+		if ((set) & CPACR_EL1_ZEN)				\
- 			cptr |= CPTR_EL2_TZ;				\
--		if ((set) & CPACR_ELx_SMEN)				\
-+		if ((set) & CPACR_EL1_SMEN)				\
- 			cptr |= CPTR_EL2_TSM;				\
--		if ((clr) & CPACR_ELx_TTA)				\
-+		if ((clr) & CPACR_EL1_TTA)				\
- 			cptr |= CPTR_EL2_TTA;				\
- 		if ((clr) & CPTR_EL2_TAM)				\
- 			cptr |= CPTR_EL2_TAM;				\
-@@ -576,13 +576,13 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- 	({								\
- 		u64 cptr = 0;						\
- 									\
--		if ((clr) & CPACR_ELx_FPEN)				\
-+		if ((clr) & CPACR_EL1_FPEN)				\
- 			cptr |= CPTR_EL2_TFP;				\
--		if ((clr) & CPACR_ELx_ZEN)				\
-+		if ((clr) & CPACR_EL1_ZEN)				\
- 			cptr |= CPTR_EL2_TZ;				\
--		if ((clr) & CPACR_ELx_SMEN)				\
-+		if ((clr) & CPACR_EL1_SMEN)				\
- 			cptr |= CPTR_EL2_TSM;				\
--		if ((set) & CPACR_ELx_TTA)				\
-+		if ((set) & CPACR_EL1_TTA)				\
- 			cptr |= CPTR_EL2_TTA;				\
- 		if ((set) & CPTR_EL2_TAM)				\
- 			cptr |= CPTR_EL2_TAM;				\
-@@ -595,13 +595,13 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- #define cpacr_clear_set(clr, set)					\
- 	do {								\
- 		BUILD_BUG_ON((set) & CPTR_VHE_EL2_RES0);		\
--		BUILD_BUG_ON((clr) & CPACR_ELx_E0POE);			\
--		__build_check_all_or_none((clr), CPACR_ELx_FPEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_FPEN);	\
--		__build_check_all_or_none((clr), CPACR_ELx_ZEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_ZEN);	\
--		__build_check_all_or_none((clr), CPACR_ELx_SMEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_SMEN);	\
-+		BUILD_BUG_ON((clr) & CPACR_EL1_E0POE);			\
-+		__build_check_all_or_none((clr), CPACR_EL1_FPEN);	\
-+		__build_check_all_or_none((set), CPACR_EL1_FPEN);	\
-+		__build_check_all_or_none((clr), CPACR_EL1_ZEN);	\
-+		__build_check_all_or_none((set), CPACR_EL1_ZEN);	\
-+		__build_check_all_or_none((clr), CPACR_EL1_SMEN);	\
-+		__build_check_all_or_none((set), CPACR_EL1_SMEN);	\
- 									\
- 		if (has_vhe() || has_hvhe())				\
- 			sysreg_clear_set(cpacr_el1, clr, set);		\
-@@ -624,16 +624,16 @@ static __always_inline u64 kvm_get_reset_cptr_el2(struct kvm_vcpu *vcpu)
- 	u64 val;
- 
- 	if (has_vhe()) {
--		val = (CPACR_ELx_FPEN | CPACR_EL1_ZEN_EL1EN);
-+		val = (CPACR_EL1_FPEN | CPACR_EL1_ZEN_EL1EN);
- 		if (cpus_have_final_cap(ARM64_SME))
- 			val |= CPACR_EL1_SMEN_EL1EN;
- 	} else if (has_hvhe()) {
--		val = CPACR_ELx_FPEN;
-+		val = CPACR_EL1_FPEN;
- 
- 		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
--			val |= CPACR_ELx_ZEN;
-+			val |= CPACR_EL1_ZEN;
- 		if (cpus_have_final_cap(ARM64_SME))
--			val |= CPACR_ELx_SMEN;
-+			val |= CPACR_EL1_SMEN;
- 	} else {
- 		val = CPTR_NVHE_EL2_RES1;
- 
-@@ -685,7 +685,7 @@ static inline bool ____cptr_xen_trap_enabled(const struct kvm_vcpu *vcpu,
- #define __guest_hyp_cptr_xen_trap_enabled(vcpu, xen)				\
- 	(!vcpu_has_nv(vcpu) ? false :						\
- 	 ____cptr_xen_trap_enabled(vcpu,					\
--				   SYS_FIELD_GET(CPACR_ELx, xen,		\
-+				   SYS_FIELD_GET(CPACR_EL1, xen,		\
- 						 vcpu_sanitised_cptr_el2(vcpu))))
- 
- static inline bool guest_hyp_fpsimd_traps_enabled(const struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 233e655227164..6cd08198bf195 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -33,14 +33,14 @@ static inline u64 translate_tcr_el2_to_tcr_el1(u64 tcr)
- 
- static inline u64 translate_cptr_el2_to_cpacr_el1(u64 cptr_el2)
- {
--	u64 cpacr_el1 = CPACR_ELx_RES1;
-+	u64 cpacr_el1 = CPACR_EL1_RES1;
- 
- 	if (cptr_el2 & CPTR_EL2_TTA)
--		cpacr_el1 |= CPACR_ELx_TTA;
-+		cpacr_el1 |= CPACR_EL1_TTA;
- 	if (!(cptr_el2 & CPTR_EL2_TFP))
--		cpacr_el1 |= CPACR_ELx_FPEN;
-+		cpacr_el1 |= CPACR_EL1_FPEN;
- 	if (!(cptr_el2 & CPTR_EL2_TZ))
--		cpacr_el1 |= CPACR_ELx_ZEN;
-+		cpacr_el1 |= CPACR_EL1_ZEN;
- 
- 	cpacr_el1 |= cptr_el2 & (CPTR_EL2_TCPAC | CPTR_EL2_TAM);
- 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 7712df48758e9..6e220da3a495b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2377,7 +2377,7 @@ static void cpu_enable_mops(const struct arm64_cpu_capabilities *__unused)
- static void cpu_enable_poe(const struct arm64_cpu_capabilities *__unused)
- {
- 	sysreg_clear_set(REG_TCR2_EL1, 0, TCR2_EL1_E0POE);
--	sysreg_clear_set(CPACR_EL1, 0, CPACR_ELx_E0POE);
-+	sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_E0POE);
- }
- #endif
- 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 1ffbfd1c3cf2e..f1b7287e1f3c3 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -494,7 +494,7 @@ static enum trap_behaviour check_cptr_tta(struct kvm_vcpu *vcpu)
- 	if (!vcpu_el2_e2h_is_set(vcpu))
- 		val = translate_cptr_el2_to_cpacr_el1(val);
- 
--	if (val & CPACR_ELx_TTA)
-+	if (val & CPACR_EL1_TTA)
- 		return BEHAVE_FORWARD_RW;
- 
- 	return BEHAVE_HANDLE_LOCALLY;
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index ea5484ce1f3ba..98718bd65bf15 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -169,7 +169,7 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
- 	if (has_vhe() && system_supports_sme()) {
- 		/* Also restore EL0 state seen on entry */
- 		if (vcpu_get_flag(vcpu, HOST_SME_ENABLED))
--			sysreg_clear_set(CPACR_EL1, 0, CPACR_ELx_SMEN);
-+			sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_SMEN);
- 		else
- 			sysreg_clear_set(CPACR_EL1,
- 					 CPACR_EL1_SMEN_EL0EN,
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 34f53707892df..abfa6ad92e91e 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -419,9 +419,9 @@ static bool kvm_hyp_handle_fpsimd(struct kvm_vcpu *vcpu, u64 *exit_code)
- 
- 	/* First disable enough traps to allow us to update the registers */
- 	if (sve_guest || (is_protected_kvm_enabled() && system_supports_sve()))
--		cpacr_clear_set(0, CPACR_ELx_FPEN | CPACR_ELx_ZEN);
-+		cpacr_clear_set(0, CPACR_EL1_FPEN | CPACR_EL1_ZEN);
- 	else
--		cpacr_clear_set(0, CPACR_ELx_FPEN);
-+		cpacr_clear_set(0, CPACR_EL1_FPEN);
- 	isb();
- 
- 	/* Write out the host state if it's in the registers */
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 6aa0b13d86e58..6c90ef6736d63 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -68,7 +68,7 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
- 	if (!guest_owns_fp_regs())
- 		return;
- 
--	cpacr_clear_set(0, CPACR_ELx_FPEN | CPACR_ELx_ZEN);
-+	cpacr_clear_set(0, CPACR_EL1_FPEN | CPACR_EL1_ZEN);
- 	isb();
- 
- 	if (vcpu_has_sve(vcpu))
-@@ -481,7 +481,7 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- 		handle_host_smc(host_ctxt);
- 		break;
- 	case ESR_ELx_EC_SVE:
--		cpacr_clear_set(0, CPACR_ELx_ZEN);
-+		cpacr_clear_set(0, CPACR_EL1_ZEN);
- 		isb();
- 		sve_cond_update_zcr_vq(sve_vq_from_vl(kvm_host_sve_max_vl) - 1,
- 				       SYS_ZCR_EL2);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 071993c16de81..73e3198913272 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -68,7 +68,7 @@ static void pvm_init_traps_aa64pfr0(struct kvm_vcpu *vcpu)
- 	/* Trap SVE */
- 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), feature_ids)) {
- 		if (has_hvhe())
--			cptr_clear |= CPACR_ELx_ZEN;
-+			cptr_clear |= CPACR_EL1_ZEN;
- 		else
- 			cptr_set |= CPTR_EL2_TZ;
- 	}
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index cc69106734ca7..0f6b01b3da5cf 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -48,14 +48,14 @@ static void __activate_traps(struct kvm_vcpu *vcpu)
- 	val |= has_hvhe() ? CPACR_EL1_TTA : CPTR_EL2_TTA;
- 	if (cpus_have_final_cap(ARM64_SME)) {
- 		if (has_hvhe())
--			val &= ~CPACR_ELx_SMEN;
-+			val &= ~CPACR_EL1_SMEN;
- 		else
- 			val |= CPTR_EL2_TSM;
- 	}
- 
- 	if (!guest_owns_fp_regs()) {
- 		if (has_hvhe())
--			val &= ~(CPACR_ELx_FPEN | CPACR_ELx_ZEN);
-+			val &= ~(CPACR_EL1_FPEN | CPACR_EL1_ZEN);
- 		else
- 			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
- 
-@@ -192,7 +192,7 @@ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
- 
- 		/* Re-enable SVE traps if not supported for the guest vcpu. */
- 		if (!vcpu_has_sve(vcpu))
--			cpacr_clear_set(CPACR_ELx_ZEN, 0);
-+			cpacr_clear_set(CPACR_EL1_ZEN, 0);
- 
- 	} else {
- 		__fpsimd_save_state(*host_data_ptr(fpsimd_state));
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 80581b1c39959..59d992455793d 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -77,12 +77,12 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
- 	 * VHE (HCR.E2H == 1) which allows us to use here the CPTR_EL2.TAM
- 	 * shift value for trapping the AMU accesses.
- 	 */
--	u64 val = CPACR_ELx_TTA | CPTR_EL2_TAM;
-+	u64 val = CPACR_EL1_TTA | CPTR_EL2_TAM;
- 
- 	if (guest_owns_fp_regs()) {
--		val |= CPACR_ELx_FPEN;
-+		val |= CPACR_EL1_FPEN;
- 		if (vcpu_has_sve(vcpu))
--			val |= CPACR_ELx_ZEN;
-+			val |= CPACR_EL1_ZEN;
- 	} else {
- 		__activate_traps_fpsimd32(vcpu);
- 	}
-@@ -122,13 +122,13 @@ static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
- 	 * hypervisor has traps enabled to dispel any illusion of something more
- 	 * complicated taking place.
- 	 */
--	if (!(SYS_FIELD_GET(CPACR_ELx, FPEN, cptr) & BIT(0)))
--		val &= ~CPACR_ELx_FPEN;
--	if (!(SYS_FIELD_GET(CPACR_ELx, ZEN, cptr) & BIT(0)))
--		val &= ~CPACR_ELx_ZEN;
-+	if (!(SYS_FIELD_GET(CPACR_EL1, FPEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_FPEN;
-+	if (!(SYS_FIELD_GET(CPACR_EL1, ZEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_ZEN;
- 
- 	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR3_EL1, S2POE, IMP))
--		val |= cptr & CPACR_ELx_E0POE;
-+		val |= cptr & CPACR_EL1_E0POE;
- 
- 	val |= cptr & CPTR_EL2_TCPAC;
- 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 899526e16a4cd..40a9e4e2cae69 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1986,7 +1986,7 @@ Field	1	A
- Field	0	M
- EndSysreg
- 
--SysregFields	CPACR_ELx
-+Sysreg	CPACR_EL1	3	0	1	0	2
- Res0	63:30
- Field	29	E0POE
- Field	28	TTA
-@@ -1997,10 +1997,6 @@ Field	21:20	FPEN
- Res0	19:18
- Field	17:16	ZEN
- Res0	15:0
--EndSysregFields
--
--Sysreg	CPACR_EL1	3	0	1	0	2
--Fields	CPACR_ELx
- EndSysreg
- 
- Sysreg	SMPRI_EL1	3	0	1	2	4
--- 
-2.39.2
+      Designware HDMI Limited I2C controller doesn't support multi-byte
+requests and display brightness configuration by DDC/CI command need it.
 
+>
+>   - The driver doesn't support I2C bus recovery, but we need that,
+>     because some HDMI panels used with the board can be flaky.
+
+      Designware HDMI Limited I2C controller doesn't support I2C bus
+recovery.
+
+>
+> As the i.MX I2C controller doesn't have either of these limitations,
+> let's make use of it instead.
+
+Reduntant. can be removed.
+
+Frank
+>
+> [1]: https://lore.kernel.org/all/20190722181945.244395-1-mka@chromium.org/
+>
+> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> ---
+>  .../boot/dts/freescale/imx8mp-skov-revb-hdmi.dts   | 26 ++++++++++++++++++++--
+>  1 file changed, 24 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+> index c1ca69da3cb8..206116be8166 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-hdmi.dts
+> @@ -9,12 +9,34 @@ / {
+>  	compatible = "skov,imx8mp-skov-revb-hdmi", "fsl,imx8mp";
+>  };
+>
+> +&i2c5 {
+> +	pinctrl-names = "default", "gpio";
+> +	pinctrl-0 = <&pinctrl_i2c5>;
+> +	pinctrl-1 = <&pinctrl_i2c5_gpio>;
+> +	scl-gpios = <&gpio3 26 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio3 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	clock-frequency = <100000>;
+> +	status = "okay";
+> +};
+> +
+>  &iomuxc {
+>  	pinctrl_hdmi: hdmigrp {
+>  		fsl,pins = <
+> -			MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL		0x1c3
+> -			MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA		0x1c3
+>  			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD			0x19
+>  		>;
+>  	};
+> +
+> +	pinctrl_i2c5: i2c5grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_HDMI_DDC_SCL__I2C5_SCL			0x400001c2
+> +			MX8MP_IOMUXC_HDMI_DDC_SDA__I2C5_SDA			0x400001c2
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c5_gpio: i2c5gpiogrp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_HDMI_DDC_SCL__GPIO3_IO26			0x400001c2
+> +			MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27			0x400001c2
+> +		>;
+> +	};
+>  };
+>
+> --
+> 2.39.5
+>
 
