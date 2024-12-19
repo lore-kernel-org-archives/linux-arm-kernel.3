@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B45E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039CBE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cS+nRbp5xUtPRCpEi25EwuCO4ItLuZHhxv5YcNc6e4M=; b=dtaGpkphJ86hm+NxqD8PJCPSlh
-	vcuqA7awIkL00VjRhSn3vNxwkt4Yzwlj6wira/4yQiHAeFUiP1cKhFeo+qcMCqz8utRr3BxOcxP6K
-	R+TGVBXZ87JavJN4DNjz+ZSVOhc4eoGJYkecQkBf8olDG762ydjwuZUk5nfJIG6LOf30wWVNBePer
-	c+DcdC+dmnj/exH7xnC4kEJBriDj6L4CTbxWIwCIZhcfPhpd6ykT/1WWBCwm4FMGikPSu033UUBno
-	svFY/uqoenZEYBR4ItqtcK00IlY0/C7kOEPdrxVE1ULfyALvS0UZ4cdJuc0FR59ohxKVGtjLx2N+5
-	zvUKgpQg==;
+	bh=o8Jn2gNV/Wj9FZiOzKXMf/S74gi71+RRKXPGCP6+gaA=; b=YmOnJHfGUGcnu408o7IfPLR5Mp
+	aZX7pzOL2QzH9UGfhwe9LGKM6z+fz0SJpIq4PdN8MVl6GMwZ8dtaQiPunhxH4eqDtTyPMWrvo21ci
+	i4130cIEfjMOiUtfUEMVVMhL0TwOpKAeEx/TCWPAHeHtXOwfS0seed4mUpNlOR467vpRVF6uhMuJi
+	WyV5nHVjgYydfEl4Q9ptyXpTjm3tkJbiPXAEWyyJB9Fln5aqAR+4wxZaiCqHEzbTbsCrPtNB298OL
+	ATsh74W95qIYl+BuObjw5jpbFqyCow7Bwwghd5vPuErfxAI5y4SHI7FDvxDRZiFn1WHNtoQ+7iHEj
+	wflAjO4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEGu-00000001bUJ-1yXX;
-	Thu, 19 Dec 2024 11:00:48 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tOENO-00000001cOZ-2OEl;
+	Thu, 19 Dec 2024 11:07:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOEFn-00000001bGY-3Tmw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 10:59:41 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3862ca8e0bbso435482f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 02:59:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734605978; x=1735210778; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cS+nRbp5xUtPRCpEi25EwuCO4ItLuZHhxv5YcNc6e4M=;
-        b=fuIBXAwmRKppMKTQNQWQYSS0zLpUrVBqMKWd8VRHZYA/IIoqBJa1FUR+4zh0xTOZUH
-         /o5kV3z9H6HSlJEI4ni7cMr97nTtTwxf1m87/lxuoCryiSkna4xgbt/ifNaLI2WujNsw
-         E1eeSZ5R7eXIPwE4sbZXD6I0EwdGhAUvpK+l4s1epQejiEFsUWWjZIxdRuHdmss6QUlp
-         E9WxEHIFosDRXPsu6868q0q16RkPne+r1j6vtYl5fyOO9AxPCOHlDMi08D1XTu/yhWKl
-         knblFV/QjDkCmY2JYkxoTSoxxL//V28535cYUj13ni1vefwk75K2VUDsg8jQngUBTQQI
-         wDpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734605978; x=1735210778;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cS+nRbp5xUtPRCpEi25EwuCO4ItLuZHhxv5YcNc6e4M=;
-        b=r+HBh11M8znSTGJMxbvzr2j0trZYkNtMrVbSh+C/AVfc+VZLaDBjQIYwASI4McPBA/
-         XDmZTUOm30KsMvA5Rx9mw9KSK4cpRfjLL2YGNszARsz+BVQAQ7gnKAUPR5khufisCwyT
-         xarMvTiqYkfoH513VxZsmSuwtsD3PC8CpaZYj9OCuOprAjiPAdS9ogI1HGqJDYW2PQ0c
-         4YvO3pwuf1VUGwlQV4bGyINVfSk5VcO5GGNkcjgeLUP2fLjQ8FuAlxa08uCfFCUZhoTZ
-         jJLBBH7mYuFbqiE36o+50IZMWwaCN/9+IUfOBent2I1SoxD65+nZzKw4OnPb+oXfJIzy
-         Z2BA==
-X-Forwarded-Encrypted: i=1; AJvYcCVDcEYeUVS/93sRqDcXXTCCjgWRBhchNvtTdsUzRR4N6aJN3SvXB9FE5m8MqTAuK9PadKLTRcmAgmGS6HEYefzq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFRSGzIquxK0N4qICmSFCj6AZLxxYiEXj47+Hf2Mh38lBAC9Hs
-	ULkooSc+vEzwHKqIMcSuQh6rhYlroTRc2w22/4Nq/uNQfZ+w3/cVXqOBUeYCoYg=
-X-Gm-Gg: ASbGncv8uTJbyY5scggfBnPXE0VqQ82E9H5jKEgiyoj+RrulrY7yMM5NGfswVZKWl2y
-	Co6zfl3nSJhKs3uD1JChO1fovlZgHBeLAXlK7tPz00AOT8WnfZi+bG4X5ozhNntQV1DkQuPyW/7
-	P2sCrE0H+XZrkWS5PjGED6K+AepYSCtCKcMNg7GJjWK1nmy1YXTKRHv0B1QEqbcHcPN+Z3Fk8k1
-	MiKVf1SAJvRxkDbxdYGQBYbP0blayRMQF6zNoQou+FAw3t8v7ILARZkBdjG/ckBieNTZgwWm0GD
-	IA==
-X-Google-Smtp-Source: AGHT+IENRpTZ1e7nnnS7IIxmPArBgJVUoa1AtaNNn0RO62JEfVFRRCR0Cb6o8qC4D0b/oXcnJqyscw==
-X-Received: by 2002:a5d:584e:0:b0:385:e9de:d521 with SMTP id ffacd0b85a97d-38a19af880cmr2997296f8f.8.1734605977659;
-        Thu, 19 Dec 2024 02:59:37 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:982:cbb0:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c89e2d2sm1289920f8f.71.2024.12.19.02.59.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 02:59:37 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: andrzej.hajda@intel.com, rfoss@kernel.org, 
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
- jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch, 
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
- festevam@gmail.com, marex@denx.de, Andrej Picej <andrej.picej@norik.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
-In-Reply-To: <20241216085410.1968634-1-andrej.picej@norik.com>
-References: <20241216085410.1968634-1-andrej.picej@norik.com>
-Subject: Re: (subset) [PATCH v7 0/3] SN65DSI83/4 lvds_vod_swing properties
-Message-Id: <173460597657.883073.14115671156294694663.b4-ty@linaro.org>
-Date: Thu, 19 Dec 2024 11:59:36 +0100
+	id 1tOEMH-00000001c5U-1235;
+	Thu, 19 Dec 2024 11:06:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1734606379;
+	bh=zwsUAHNP7mrQdPFLP5AhvVLR+6YT1CQM3OFvTb1Ql8w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fggRZSnGMRdhrKMfWIMQE1xL+eTQ5Ut26nb6qBErlYM/PuCcIM4qbmaQVhWqqecX2
+	 Jzu+P1PAMYCNnFP1f9EASn5uBv/FvzZOUB2owHyAtQZXJ4wZuICaM3pT9k1t+eIj+L
+	 0PpXbITs8y2KKL+4h21+yNiY2YJ1EZf0yOy7XOYMjKyv/0cTWAjAGnwOCYkfIV6ha8
+	 VliONy4DMO2VUvl0hKjDjNTB29oCUvrHmUfkgG4VaAwmiDXf3J8EBFnRz0vx7ZsHvM
+	 EvIlxjkskCdF6ADLbQ0hlcwCVvGx5qW8kJ63/y5d9G/V8y22+/3PqkrZ/eXb2cgNO6
+	 CLriejP/R12Pg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0308F17E3614;
+	Thu, 19 Dec 2024 12:06:18 +0100 (CET)
+Message-ID: <e208a265-cd4a-4781-82a6-a7f4f2c47448@collabora.com>
+Date: Thu, 19 Dec 2024 12:06:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: mediatek: disable buffer pre-allocation
+To: Chen-Yu Tsai <wenst@chromium.org>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-sound@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ treapking@chromium.org, yuanhsinte@chromium.org
+References: <20241219105303.548437-1-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20241219105303.548437-1-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_025939_890925_D3DA78F1 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20241219_030621_447074_24CC7690 
+X-CRM114-Status: GOOD (  24.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Mon, 16 Dec 2024 09:54:07 +0100, Andrej Picej wrote:
-> The LVDS differential voltage swing can be specified as arrays of min, max
-> in microvolts. Two arrays, one for data-lanes and one for clock-lane can
-> be specified. Additionally, because LVDS voltage swing depends on near-end
-> termination this can now also be specified with separate property.
+Il 19/12/24 11:53, Chen-Yu Tsai ha scritto:
+> On Chromebooks based on Mediatek MT8195 or MT8188, the audio frontend
+> (AFE) is limited to accessing a very small window (1 MiB) of memory,
+> which is described as a reserved memory region in the device tree.
 > 
-> Driver goes through the tables, taken from datasheet [1] and selects the
-> appropriate configuration. If appropriate configuration can not be found
-> the probe fails. If these properties are not defined default values are
-> used as before.
+> On these two platforms, the maximum buffer size is given as 512 KiB.
+> The MediaTek common code uses the same value for preallocations. This
+> means that only the first two PCM substreams get preallocations, and
+> then the whole space is exhausted, barring any other substreams from
+> working. Since the substreams used are not always the first two, this
+> means audio won't work correctly.
 > 
-> [...]
+> This is observed on the MT8188 Geralt Chromebooks, on which the
+> "mediatek,dai-link" property was dropped when it was upstreamed. That
+> property causes the driver to only register the PCM substreams listed
+> in the property, and in the order given.
+> 
+> Instead of trying to compute an optimal value and figuring out which
+> streams are used, simply disable preallocation. The PCM buffers are
+> managed by the core and are allocated and released on the fly. There
+> should be no impact to any of the other MediaTek platforms.
+> 
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
+No there's no impact on the older ones, it's fine and I agree.
 
-[1/3] dt-bindings: drm/bridge: ti-sn65dsi83: Add properties for ti,lvds-vod-swing
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/63f4e7dfef8c1162e22cd25c9a23b125ba40dfc4
-[2/3] drm/bridge: ti-sn65dsi83: Add ti,lvds-vod-swing optional properties
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/d2b8c6d5495706eee2347483ea89b5c13f256ff2
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
--- 
-Neil
+> ---
+>   sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> index 9b72b2a7ae91..6b6330583941 100644
+> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> @@ -120,8 +120,8 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
+>   	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+>   
+>   	size = afe->mtk_afe_hardware->buffer_bytes_max;
+> -	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
+> -				       afe->dev, size, size);
+> +	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
+> +
+>   	return 0;
+>   }
+>   EXPORT_SYMBOL_GPL(mtk_afe_pcm_new);
+
 
 
