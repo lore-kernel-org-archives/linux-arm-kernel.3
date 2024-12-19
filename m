@@ -4,113 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B7DE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC84E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8TbsdhOkuIbyClHWntD8vfwQsDnMaiNoencl7RGJtE=; b=h8mrZsOYdqMkklEJJ5NMStC9F1
-	hRRd9Rr6PMJG36t/Fw/ZenhWl6VGvkqf0mmdYn38EiFidc3B75LL6POI80fK8aXtBJSSEKSBtSqkK
-	26DFro2uKz7bVVJVZgFCqQNsVRVNV6Wc5jlp6essj4YA2GvWJ6Ld3//H0rrvYudwOIlAM3xsIVcK6
-	jw/KXcN5YhDl6UWhMaYRDCmgnkssWynMt0niYDvsXqMwA9Cvbe8yht8FNcRFRuKjQ0zu0SPwFI46u
-	qTPE/9QOnJ5ZUhc4Y0u7mM4TX+ufGZGDi6b9RE/6I61Z1hiHqLKiEt7yPZgymtkyNW/Ru9zY9NADr
-	mKZt+JTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CP+sZ2kTDZmAznJU8Y0O/mGyW1aybA/Ta5X+7PRgOqY=; b=4tn/jlymvpVP4morYU4DWItb0I
+	2tfqi9lq0LrNN5MrJetpZaE4yxaLLeKgv0U8NI7jVamGj/CVhm1FqFkp//2v+5NjOhQegv1bin95U
+	/OgCV00t3md43IBs+pECILwkle5u7EXVR9qvogQuyFNMp07DOyUvOLyb1hInky/g8qhp01Ev+MYdD
+	YMRZzFjhOT5CNSYuKshQGS9DOcz6v8fw0TFKSaaKFiwZavmup7Ba4KuxTXaXRhkvj2/PnAqVrH732
+	Ji5LK97dc5Vq+2LOl3TiFiFvwCr7Ov0/nSof3VUihhPkxlA2NiCcXD7bouR2zKJkwP5K9s96nE6YN
+	uTpfM1HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAVm-000000010rg-3L7C;
-	Thu, 19 Dec 2024 06:59:54 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tOAZS-000000011HX-2Z0S;
+	Thu, 19 Dec 2024 07:03:42 +0000
+Received: from mail-vi1eur05on20629.outbound.protection.outlook.com ([2a01:111:f403:2613::629] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAUg-000000010j4-3GqG
+	id 1tOAYM-0000000119R-2Ia8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 06:58:48 +0000
-Received: from [192.168.88.20] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 82F2C415;
-	Thu, 19 Dec 2024 07:58:01 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1734591482;
-	bh=oYvwkLPY3pl8psiCXyXFb2nAdZ/3rnwiHOtmrJ5udAg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oN1G0bGx8SM1Kt3zfKF6OnnKgpx2MaTXrWASohdnPd4x0Rtonl8jMX59yl8b7lRap
-	 jKZD2z95LFOTVOx79ikX7W/pNDN6Q7vE7GZOydBLMxb8LOzvSSWmZpyhuZcsQ+6Vvu
-	 jjmPGDxXNSbkcgLLiY24sRNereZK8FmNygu5gg74=
-Message-ID: <008c6590-eeee-4721-85f8-1ccd861abaac@ideasonboard.com>
-Date: Thu, 19 Dec 2024 08:58:36 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] drm: xlnx: zynqmp: Add DP audio support
-To: Lars-Peter Clausen <lars@metafoo.de>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Simona Vetter <simona.vetter@ffwll.ch>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>,
- Markus Elfring <Markus.Elfring@web.de>, "Rob Herring (Arm)" <robh@kernel.org>
-References: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
+	Thu, 19 Dec 2024 07:02:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zKYR1E9Ln+YxvB+Y+1sxAfHsfjUsnXAPQljtGZMspxqyO3gvlQMhDYowzhzekPQPH0TyXX1VPLc8a4Dv9XZgjY/W1PgNJEl0xMbWmOntYMQbD0OJwOc1liFlswVmwXW2jUzS1pm4nrqPjfzMKx0cHxu7i2GdGMxcmRrKE6dIJV37uuaNUhcc9VUIsperzl9HoaxHsfEoa8YPUZVku6+Q6iFz8E1Yn4AlXrtE/9mRoedZFPr246ETDwAHexBAl06d+UpMU24u1QuL4pNIRYYXf8/FYnQFp/jDqjtobFBL0dLf+QLKuTYww5Viu7ZFSEbb7ZF/JpFmokq3rmuVZ4Yeiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CP+sZ2kTDZmAznJU8Y0O/mGyW1aybA/Ta5X+7PRgOqY=;
+ b=dGHQPykJg2T3fRFUF0PlcUe2IZeqJe7PqpC/QBgp57ghNAilM5ch4I+1sTJKNvi23w/v274ZRZNYT8uKWsuOnlc7wQupEk36qGIhGWUrgru05klb178NTQpb7QupG0klr7wErQkFtnU2q1nZIECDkDK+alcRJINxk5valMmIFzvodqS2jhN7DXMRKH2C4ILoZGVlWGp8Wp/e7B9gu++eO4cptMM+B5t7rCF0oDzdkO85kObcTiD+rgE82NssjtsBJTkatx3G7GtMh2m7NQxbXoWvJCMw5OUoLRHCYluxXfp8wdjo7BvvtC4YOSO4gqyF5ZVMyoSS17jU1n2MBjE31Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CP+sZ2kTDZmAznJU8Y0O/mGyW1aybA/Ta5X+7PRgOqY=;
+ b=NkZrn/P/ZFCtOowOvSLgNJ6iNnuDYwvukhvjib7o+CiWU/EkCV64XdHewav2excpTNNNaxyyl3jqdG57HfBkKqs6/vE/ewlvu7NN3P39toSURpN28lyA8gq1Ou4+ZcTQeRMTYaZRrV2ZQYC5m48WWRDrBgLjJKTx4gTi2/IC2m1yMLpP8ANbw3OaX66QpVOxUTaTnW2L1N3adfvmmtgBP/t45JMaQHglWRP+OELwzXWTaH2rBIsVwBlYW6zFL/0CZyCNxzEXE6iDCWsmmuuiXoUYgEeKYbEeWzo3GU2AZJ2oFZcdXsAoU5VKCemNli0Rcj+CS0LFtRNzpBtRiNrXfA==
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
+ by AM0PR04MB6979.eurprd04.prod.outlook.com (2603:10a6:208:18b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.19; Thu, 19 Dec
+ 2024 07:02:28 +0000
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 07:02:28 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+CC: "andi.shyti@kernel.org" <andi.shyti@kernel.org>, Frank Li
+	<frank.li@nxp.com>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] i2c: imx: switch different pinctrl state in different
+ system power status
+Thread-Topic: [PATCH v2] i2c: imx: switch different pinctrl state in different
+ system power status
+Thread-Index: AQHbUeP2oTzGjjBADkOP/fNXJCdFFw==
+Date: Thu, 19 Dec 2024 07:02:28 +0000
+Message-ID: <AM0PR0402MB39376D08D11CA4CCF6F88F29E8062@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+References: <20241218044114.143358-1-carlos.song@nxp.com>
+ <Z2O26jWagFtsWJd8@pengutronix.de>
+In-Reply-To: <Z2O26jWagFtsWJd8@pengutronix.de>
+Accept-Language: en-US
 Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20241023-xilinx-dp-audio-v4-0-5128881457be@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|AM0PR04MB6979:EE_
+x-ms-office365-filtering-correlation-id: 774ca9cf-e349-4193-d9a8-08dd1ffb197f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?4x5gX94nADAB3+z93b8qFSkNG+o3L2NoImtf1eJei/wXzMZZ5ApWnM5lYetQ?=
+ =?us-ascii?Q?2lxCjfaNbe8oUyL0OTKnDTw/QbkoklJqoHeanI/CTsXNGAI2FK0loevfCVEC?=
+ =?us-ascii?Q?jLLqKUyZ75VIi8XRVMYO/hRDZpCTERTVi7zk9qU731ejKsI5iEDeuGq9TKJp?=
+ =?us-ascii?Q?upwD78M/SP5SXy/+08dv3mNiOCnlhxZIvOloKSj19H/KxYWcMopOEuYPNox5?=
+ =?us-ascii?Q?H4kQZqXoumGRmQ0QuPNfPh+pj+YFRDvl36mj2vce4TT+jbYJa53BAKQYoR6I?=
+ =?us-ascii?Q?LHKkfn471TU32z6Wn0rCqtysfGgtXaqV+EpdIw2AZNrkVJtism00Fc9rLVM/?=
+ =?us-ascii?Q?E79KkDk+KFW1Xda1bwPk1B4XJ7HaEU3lHhfLFhyETf8fQffn3AhdYiALlgFM?=
+ =?us-ascii?Q?19jJETzdwMSquPJxlhDUKYaMZvVIN03UiOHpaDtIe/PcNKIm4hO1qalVo5n5?=
+ =?us-ascii?Q?ELj6ZlaVCAtubN4ESI6/A6fXA7ZIZomFezIUwi3TW10WnayYGQ8BRZYo3tnE?=
+ =?us-ascii?Q?4F9A4hfk3HWUq7mQZirIF5CJ1CyMN3WN0U3IMGR2PhFyW8stBZr/9XAIvsH/?=
+ =?us-ascii?Q?QGa5ktbpDs9mn61TXixxMLapMGJCXnLa49eCaBLC+s5i0Rc8iLvhDVHBa+Kl?=
+ =?us-ascii?Q?DqZtppRnJOVbQrKeIAxfdNyePPOKT9K8g36/VwT1CRkPyz4e4Oj+VHkoUmLG?=
+ =?us-ascii?Q?LU1KgLMCQVR1TSO7mi+P4JHBLJFNxMa5ed8dKwleWW8n1avwlauew79xKhsi?=
+ =?us-ascii?Q?j1XkxseUYYNyycztaFTTRpGcir+ZeSEBg4yjF8uWsnY001CL0O/jM52ffk6D?=
+ =?us-ascii?Q?sttaV+fMe1HrYp63cGiPX9SgV6zLnB1vb/YRuUSj/ZWGNw2X7DeKuBMnmUAc?=
+ =?us-ascii?Q?KXVTLwp3jFqJbcy6dJSk+6Cb8+vmjdl8Ex/ERIjyKwjLZeq9d/RuEsVI7L/I?=
+ =?us-ascii?Q?YVw7QkbMK3SNKeTeXwT1s4Npxceft2RDSM0ClP2fG/B4BKqZQa4vbnZCGgBv?=
+ =?us-ascii?Q?C8gJG34FN7H9ymKV9HY0bnfAopaEqW+hr6LMUqr77bdWz3aNOubmRt+R9DPu?=
+ =?us-ascii?Q?qIr2awQsYVpvWO00AOGtd9mvK49yxJ4f3pZm43/wCuro1a2+QxfpcKCbmSSw?=
+ =?us-ascii?Q?BgH3HnUxV6hDCiJzl6Q3nrgujZ9geujZR34p8DUXQW5bLwjNBPBJrD9F1SWr?=
+ =?us-ascii?Q?LxTTe6jUg34UlPs3GWSJXZ/++GBrB3MC23Mcelcg9UwiolmKr5BjfX1q/C1u?=
+ =?us-ascii?Q?nwhKQaFrGnkN79u2Lh5pGws9bLSNqQyi0COiSMxWQjMgtNKVpgBwc3fgnw90?=
+ =?us-ascii?Q?nKDlkXWixOnQIk8RKFt7tyb1/bc3YI1edzqKOSzcRqz55WgPrvzW8QpKjVYi?=
+ =?us-ascii?Q?wF5x9GGtW1PLEIYA6Yyo3+UgZDDy?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?sHPHJEmKcJXU+T+XF4lE/+FHks3c9J6JJmL37Qkk8xf0GBn22jtWWeztHOZK?=
+ =?us-ascii?Q?8ebbrf9MLNwJB9YywDwL+oyE9b1K/hjFm09qhl6+QGY+B1y4zoKmxjQUs8de?=
+ =?us-ascii?Q?Jd2XP14jE2z5Rlj0HdZDNWfKYqBLmy7ldpAIeLypM6JWSqKjhYc0lDIGVCbk?=
+ =?us-ascii?Q?SFCOyksdGJFcJdmA4BdM6vTRU+Dpg9tgMcgZi87gBvlq0TMDzgIU3z0/I8ww?=
+ =?us-ascii?Q?j3ULwtPfUv+k203DcBh3ATk+zk8YbLBclZ394v0r1mM493zDN6SqW3UnCYCY?=
+ =?us-ascii?Q?MynHIYlXlulk7CtFvoiVdsUsutj2T+gRJzFgA/0YeSNBq/r219znLEafLjkY?=
+ =?us-ascii?Q?D7nqK2+W4OZfaxnKlPgRhsUQGed+unuVYN2bww0s3QZNV6Wvlo2RchQ8gO67?=
+ =?us-ascii?Q?LgnQQqx+GQ+8rc1/VeC+SksWAVdeOSW/BawTxAHBObdYoNwm2YemhmcdxUkD?=
+ =?us-ascii?Q?RIiz2+h5UGj6We1oX3OAMKGxZzdVERE8p9d76juA6yEPowRPmn6ojL7Aes9o?=
+ =?us-ascii?Q?dXp/BBG4keA6nzUReS7MkEHe7tHXbozAnMDd7yPvVxHEzxm2eiTHu23UhRmB?=
+ =?us-ascii?Q?9LCKiS95SqAqvezRSfR7Ha7vu4FNfDlx4xupB0xv+36Lrn134cit/6fAs+6Q?=
+ =?us-ascii?Q?4vgX/OFdh0QRqEEcgInYNFuUiW8deoqaq9J+A39hWDZu6RLZohg9upCVtfwc?=
+ =?us-ascii?Q?Nu4WLgralx8N4BDR/ooV17dTa9NkuN03XgY44V7Y8LZQXY13ZzBRXnQBjIdi?=
+ =?us-ascii?Q?/sFaCtnDnL13l2l89x4IIWs7k/C7ao69hldTeSEQEChR1K1Mw+LVgZ5/Oa8z?=
+ =?us-ascii?Q?k4S6ERvDrN5NajPWQt3XxlHznLWNyLRFWBiiUZcPdAX63AYTCdZA/hXQiC44?=
+ =?us-ascii?Q?fP7l1eSBcbDRZSVyN0B/Efjas9/qfeKnk5uyNOUE4ERjYKLAtYfYYOKPigY5?=
+ =?us-ascii?Q?WOHWkibESPWysxnXzNJ/MpcPoqn7F2XtS7G53ilvGKr9hOo3K8qg5PawDmmr?=
+ =?us-ascii?Q?q0AaxrWhZoRLp7zmbyehW3vdA+I8eNz3gljOk09goZGtaVCzHqGyUMdiPnHG?=
+ =?us-ascii?Q?vmFn68TTr6wCAfSJ0nl+JpQupQCIR6zt0GY0mG18+3TpKcjNLGRwuUwCcRSF?=
+ =?us-ascii?Q?wpctutXV0dxqu7jXV3fHGdZjqIwIGV/rdi1SoyoPu4L1vsPxkYql+F3h/oDP?=
+ =?us-ascii?Q?ngWWUPnSVZLfvS6BP9NN0gFGJrfCFF50ACxK7qtxmnJyygXdrHXRwxKKTUPS?=
+ =?us-ascii?Q?7LtELlrFFQVkxneWVjmOs8cyNe4Kfj+WlzL9eUyIsbVTS403TJayZyu2KxnW?=
+ =?us-ascii?Q?N/a4LVDKyAjSJInuGkjKJ9u2C2LH0QKv1k0n4IQC6RgcQlEK63vtAf9UDg8O?=
+ =?us-ascii?Q?urWkNNgRXptX8+bFTGMYYBEoLqiyjsmZcjmVahCVXXyFJ0+fPgEDKlN5jq5u?=
+ =?us-ascii?Q?uLg7JWRPTjaoJukGBxCSTsAUcj3G89H2J5+kyUPH/wXpBVOjfwE5S/5fO2rv?=
+ =?us-ascii?Q?7Ybuin8IxObbWfCpeUU0NilEz6PRvdIh4zMnT5hGseQCABfJZmPzQyKs/OgO?=
+ =?us-ascii?Q?b9RUoExOdxJh4n8CG5U=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 774ca9cf-e349-4193-d9a8-08dd1ffb197f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Dec 2024 07:02:28.1263
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JCOQHfflUTTJ0O2uFmgNBaA5dcrq5WAP/ajYD9iZzyB8Ddn0m8BHLHRv8JZ2kSkAyqSCpKJy36uZAvsGI640ig==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6979
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_225846_954103_AB7F01F1 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20241218_230234_590140_0BCFAD2E 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,86 +167,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Thank you! I will fix it at V3.
 
-On 23/10/2024 14:52, Tomi Valkeinen wrote:
-> Add DisplayPort audio support for Xilinx ZynqMP platforms.
-> 
-> The current DT is, for some reason, missing the DMA channels for the
-> audio. This series adds that to the bindings and the dts file, but to
-> support older dtb files without the audio DMA, the driver will not fail
-> if the audio DMA is missing, but will just mark the audio support as
-> disabled.
-> 
-> To: Lars-Peter Clausen <lars@metafoo.de>
-> To: Jaroslav Kysela <perex@perex.cz>
-> To: Takashi Iwai <tiwai@suse.com>
-> To: Liam Girdwood <lgirdwood@gmail.com>
-> To: Mark Brown <broonie@kernel.org>
-> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> To: Maxime Ripard <mripard@kernel.org>
-> To: Thomas Zimmermann <tzimmermann@suse.de>
-> To: David Airlie <airlied@gmail.com>
-> To: Daniel Vetter <daniel@ffwll.ch>
-> To: Rob Herring <robh+dt@kernel.org>
-> To: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Michal Simek <michal.simek@amd.com>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: linux-sound@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: Vishal Sagar <vishal.sagar@amd.com>
-> Cc: Anatoliy Klymenko <anatoliy.klymenko@amd.com>
-> Cc: Péter Ujfalusi <peter.ujfalusi@gmail.com>
-> Cc: Markus Elfring <Markus.Elfring@web.de>
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> 
-> Changes in v4:
-> - Update copyright year
-> - Use guard(mutex) in the zynqmp_dp_audio.c
-> - Add Rb and Ab tags
-> - Link to v3: https://lore.kernel.org/r/20240910-xilinx-dp-audio-v3-0-75560793f4d0@ideasonboard.com
-> 
-> Changes in v3:
-> - Expand the description in "dt-bindings: display/xlnx/zynqmp-dpsub: Add
->    audio DMAs" to be more clear about the DT binding change.
-> - Rebased on top of current upstream
-> - Link to v2: https://lore.kernel.org/r/20240319-xilinx-dp-audio-v2-0-92d6d3a7ca7e@ideasonboard.com
-> 
-> Changes in v2:
-> - Fix a missing double-quote in the DT binding
-> - Link to v1: https://lore.kernel.org/r/20240312-xilinx-dp-audio-v1-0-696c79facbb9@ideasonboard.com
-> 
-> ---
-> Tomi Valkeinen (3):
->        dt-bindings: display/xlnx/zynqmp-dpsub: Add audio DMAs
->        arm64: dts: zynqmp: Add DMA for DP audio
->        drm: xlnx: zynqmp_dpsub: Add DP audio support
-> 
->   .../bindings/display/xlnx/xlnx,zynqmp-dpsub.yaml   |  10 +-
->   arch/arm64/boot/dts/xilinx/zynqmp.dtsi             |   7 +-
->   drivers/gpu/drm/xlnx/Kconfig                       |   9 +
->   drivers/gpu/drm/xlnx/Makefile                      |   1 +
->   drivers/gpu/drm/xlnx/zynqmp_disp.c                 |  48 ---
->   drivers/gpu/drm/xlnx/zynqmp_disp_regs.h            |   7 +-
->   drivers/gpu/drm/xlnx/zynqmp_dp.c                   |  54 ++-
->   drivers/gpu/drm/xlnx/zynqmp_dp.h                   |   7 +
->   drivers/gpu/drm/xlnx/zynqmp_dp_audio.c             | 447 +++++++++++++++++++++
->   drivers/gpu/drm/xlnx/zynqmp_dpsub.c                |  39 +-
->   drivers/gpu/drm/xlnx/zynqmp_dpsub.h                |  15 +-
->   11 files changed, 539 insertions(+), 105 deletions(-)
-> ---
-> base-commit: 42f7652d3eb527d03665b09edac47f85fb600924
-> change-id: 20240312-xilinx-dp-audio-468ad12f9f64
-> 
-> Best regards,
-
-Pushed to drm-misc-next.
-
-  Tomi
-
+> -----Original Message-----
+> From: Oleksij Rempel <o.rempel@pengutronix.de>
+> Sent: Thursday, December 19, 2024 2:02 PM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: andi.shyti@kernel.org; Frank Li <frank.li@nxp.com>;
+> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
+> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: [EXT] Re: [PATCH v2] i2c: imx: switch different pinctrl state in=
+ different
+> system power status
+>
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report =
+this
+> email' button
+>
+>
+> On Wed, Dec 18, 2024 at 12:41:14PM +0800, Carlos Song wrote:
+> > Switch different pinctrl state in different system power status.
+> >
+> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > Change for V2:
+> > - Add Frank reviewed-by. No code change.
+> > ---
+> >  drivers/i2c/busses/i2c-imx.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/drivers/i2c/busses/i2c-imx.c
+> > b/drivers/i2c/busses/i2c-imx.c index b6ed270dd04b..350346a7892c 100644
+> > --- a/drivers/i2c/busses/i2c-imx.c
+> > +++ b/drivers/i2c/busses/i2c-imx.c
+> > @@ -1871,6 +1871,7 @@ static int i2c_imx_runtime_suspend(struct device
+> *dev)
+> >       struct imx_i2c_struct *i2c_imx =3D dev_get_drvdata(dev);
+> >
+> >       clk_disable(i2c_imx->clk);
+> > +     pinctrl_pm_select_sleep_state(dev);
+> >
+> >       return 0;
+> >  }
+> > @@ -1880,6 +1881,7 @@ static int i2c_imx_runtime_resume(struct device
+> *dev)
+> >       struct imx_i2c_struct *i2c_imx =3D dev_get_drvdata(dev);
+> >       int ret;
+> >
+> > +     pinctrl_pm_select_default_state(dev);
+>
+> Both pinctrl_pm_select_sleep_state() and
+> pinctrl_pm_select_default_state() may fail. Please use return values.
+>
+> --
+> Pengutronix e.K.                           |
+> |
+> Steuerwalder Str. 21                       |
+> http://www.pen/
+> gutronix.de%2F&data=3D05%7C02%7Ccarlos.song%40nxp.com%7C556bac4a4d18
+> 45fe9c6e08dd1ff2b262%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7
+> C638701849411172324%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOn
+> RydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3
+> D%3D%7C0%7C%7C%7C&sdata=3DGd6mIwBSMo6f03z3rVIInaPZXQXhCeyFEHYYl
+> ctBPZQ%3D&reserved=3D0  |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
+> |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:
+> +49-5121-206917-5555 |
 
