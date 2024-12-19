@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F41E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 16:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D64EE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 16:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGXtKyIBxO1nCcIBpzr+iCSsH+/WIbcJkid2JJ3TqdI=; b=KJWqLHHvrJ4BlEIkyAEE+PQe9V
-	K/z+Dn/YGyLEKR1PjLj3fFu58euYDhGhA15Z6S4qPciYz0Jsa23OiwgUncD8d+G7m0gPit4IXMANc
-	KuJKHgK2R7Bf7f3AKj2tMiBDoTJpzSyNK+m5G5++3+/aKYLkKJiCAk7IeoMIvb49g5io3tUa+OJKc
-	faZLepd5ZL+H7ebj0zHZ4rVjvelEJx9hV1OKxNFlT9prZjKbEnzSBrhCT95FCf/bA4iDwoZclQN6I
-	HrG+I3IoGpM7slBmfouZvLwkUF67f0yWvEsSCDoAN7qO4p55X9gIe/P2UziF5d2LrJJty9Iy1CXeU
-	LLXQ3Kmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wp0oaqsXF/iBOoZvz9+PuRRYfUJuPOenMeX0zhejQi0=; b=qAR54gB1lb4LifRbc4Q0JEwndH
+	fuWmR4f4Yd2T2N/sBo3AL1FbVHlGFZa8zOUHtHNy7W9eCxi4/L6gvpKxAN982Pnjzt4hwzHoNlLpl
+	ndz5xCsnqDXlymygfyUW6AK6kpcxxiKu8LjwXLr9rmR6QkY6Kc5Q5FU+53+xm1VbJTEVbdR4MlUbA
+	Okbya23GaHRSTbhbcmN/XsZ35LDk5BgGsC0CzbQ8wdLiu478xljFiCBfgtTwhkv5+uW6GZ7S0ENJ6
+	Z7XudTxjfPipK6O2TeqnLnz1UAWV5wtfSMdr3W428lyJ0L/cAiJjzP2CB3vsdi+j2A+CYubW/iW2b
+	N/kR243Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJoM-00000002RuR-1Kh9;
-	Thu, 19 Dec 2024 16:55:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJfd-00000002PUV-0whZ;
-	Thu, 19 Dec 2024 16:46:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A3511480;
-	Thu, 19 Dec 2024 08:47:08 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C03F3F58B;
-	Thu, 19 Dec 2024 08:46:36 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	x86@kernel.org
-Subject: [PATCH 07/10] mm: Introduce ctor/dtor at P4D level
-Date: Thu, 19 Dec 2024 16:44:22 +0000
-Message-ID: <20241219164425.2277022-8-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241219164425.2277022-1-kevin.brodsky@arm.com>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
+	id 1tOJqz-00000002SP7-2vwi;
+	Thu, 19 Dec 2024 16:58:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOJi4-00000002QJm-08VU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Dec 2024 16:49:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 751E95C5820;
+	Thu, 19 Dec 2024 16:48:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF3D1C4CED7;
+	Thu, 19 Dec 2024 16:49:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734626951;
+	bh=Xm84D3l3NpU5NKUTVyT8w/ufo2rcyj5nHyqMIUT7JTk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gReFUXPTQhLSY/INzkO5P1595KEEU3wS+8Jxztwm7clFveUxNhylRJPxjR+jv8TDJ
+	 Lf4rHs1RE/DpdsKSYWr8/aYvtXFFl+KTOPjxFW3D0OIZlTP3KELzhr2aSvkhhAzMif
+	 ClvvXbNS2jeUub0gidzktAKrb4Lu58CmJ8fXeSO7PnD4W6VjF/Mlj/7DyZxj+oIWjg
+	 5qy7XMtTHfTNbWpEg3VE4qEVbLACsaGjJi9uHwGv7DxupfDX32+jyX8R1tib5/1XFx
+	 PpOx1RUr6BBWGZfuC9p4Fq/nq6FducIfsW13WOqCfTC9GHdzm+KNUK8AqROVW8B7uR
+	 u+pzIgoGQM7Kg==
+Date: Thu, 19 Dec 2024 16:49:05 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v3 2/9] arm64/sysreg: Update ID_AA64ISAR3_EL1 to DDI0601
+ 2024-09
+Message-ID: <317e06e8-6e85-48cb-902b-4b3c7748bd8f@sirena.org.uk>
+References: <20241203-arm64-2024-dpisa-v3-0-a6c78b1aa297@kernel.org>
+ <20241203-arm64-2024-dpisa-v3-2-a6c78b1aa297@kernel.org>
+ <20241210170953.GB16075@willie-the-truck>
+ <b859bdcd-7343-4d53-9f3a-f374deca725a@sirena.org.uk>
+ <20241211224015.GB17836@willie-the-truck>
+ <248dea18-bfad-4ec9-9a7d-5c87c7f48c84@sirena.org.uk>
+ <20241219155547.GC24724@willie-the-truck>
+ <51632b4e-19a0-487f-878d-f03abeea2553@sirena.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="NY5bhLdnipifDOsr"
+Content-Disposition: inline
+In-Reply-To: <51632b4e-19a0-487f-878d-f03abeea2553@sirena.org.uk>
+X-Cookie: You have taken yourself too seriously.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_084641_342385_2F7AD38D 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20241219_084912_112679_3B5E0FC3 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,128 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 55d2a0bd5ead ("mm: add statistics for PUD level pagetable")
-added accounting for PUD-level page tables. This patch does exactly
-the same thing for P4D-level page tables, introducing
-pagetable_p4d_[cd]tor with the same implementation as the PUD
-ctor/dtor and calling them on all alloc/free paths.
 
-Besides the small improvement in accounting accuracy, this also
-enables adding construction/destruction hooks in just one generic
-place for page tables at P4D level (like lower levels).
+--NY5bhLdnipifDOsr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/riscv/include/asm/pgalloc.h |  8 ++++++--
- arch/s390/include/asm/pgalloc.h  | 12 ++++++++----
- arch/x86/mm/pgtable.c            |  3 +++
- include/asm-generic/pgalloc.h    |  2 ++
- include/linux/mm.h               | 10 ++++++++++
- 5 files changed, 29 insertions(+), 6 deletions(-)
+On Thu, Dec 19, 2024 at 04:39:11PM +0000, Mark Brown wrote:
+> On Thu, Dec 19, 2024 at 03:55:48PM +0000, Will Deacon wrote:
+> > On Thu, Dec 12, 2024 at 11:33:05AM +0000, Mark Brown wrote:
 
-diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-index 551d614d3369..3c364ecc3100 100644
---- a/arch/riscv/include/asm/pgalloc.h
-+++ b/arch/riscv/include/asm/pgalloc.h
-@@ -108,8 +108,12 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
- static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
- 				  unsigned long addr)
- {
--	if (pgtable_l5_enabled)
--		riscv_tlb_remove_ptdesc(tlb, virt_to_ptdesc(p4d));
-+	if (pgtable_l5_enabled) {
-+		struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
-+
-+		pagetable_p4d_dtor(ptdesc);
-+		riscv_tlb_remove_ptdesc(tlb, ptdesc);
-+	}
- }
- #endif /* __PAGETABLE_PMD_FOLDED */
- 
-diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
-index 97db66ae06b9..85a5d07365aa 100644
---- a/arch/s390/include/asm/pgalloc.h
-+++ b/arch/s390/include/asm/pgalloc.h
-@@ -53,15 +53,19 @@ static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long address)
- {
- 	unsigned long *table = crst_table_alloc(mm);
- 
--	if (table)
--		crst_table_init(table, _REGION2_ENTRY_EMPTY);
-+	if (!table)
-+		return NULL;
-+	crst_table_init(table, _REGION2_ENTRY_EMPTY);
-+	pagetable_p4d_ctor(virt_to_ptdesc(table));
- 	return (p4d_t *) table;
- }
- 
- static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
- {
--	if (!mm_p4d_folded(mm))
--		crst_table_free(mm, (unsigned long *) p4d);
-+	if (mm_p4d_folded(mm))
-+		return;
-+	pagetable_p4d_dtor(virt_to_ptdesc(p4d));
-+	crst_table_free(mm, (unsigned long *) p4d);
- }
- 
- static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long address)
-diff --git a/arch/x86/mm/pgtable.c b/arch/x86/mm/pgtable.c
-index 5745a354a241..c1bfdf7b4767 100644
---- a/arch/x86/mm/pgtable.c
-+++ b/arch/x86/mm/pgtable.c
-@@ -86,6 +86,9 @@ void ___pud_free_tlb(struct mmu_gather *tlb, pud_t *pud)
- #if CONFIG_PGTABLE_LEVELS > 4
- void ___p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d)
- {
-+	struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
-+
-+	pagetable_p4d_dtor(ptdesc);
- 	paravirt_release_p4d(__pa(p4d) >> PAGE_SHIFT);
- 	paravirt_tlb_remove_table(tlb, virt_to_page(p4d));
- }
-diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-index 59131629ac9c..bb482eeca0c3 100644
---- a/include/asm-generic/pgalloc.h
-+++ b/include/asm-generic/pgalloc.h
-@@ -230,6 +230,7 @@ static inline p4d_t *__p4d_alloc_one_noprof(struct mm_struct *mm, unsigned long
- 	if (!ptdesc)
- 		return NULL;
- 
-+	pagetable_p4d_ctor(ptdesc);
- 	return ptdesc_address(ptdesc);
- }
- #define __p4d_alloc_one(...)	alloc_hooks(__p4d_alloc_one_noprof(__VA_ARGS__))
-@@ -247,6 +248,7 @@ static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
- 	struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
- 
- 	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
-+	pagetable_p4d_dtor(ptdesc);
- 	pagetable_free(ptdesc);
- }
- 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index a5b482362792..e8b92f4bf3f1 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3161,6 +3161,16 @@ static inline void pagetable_pud_dtor(struct ptdesc *ptdesc)
- 	__pagetable_dtor(ptdesc);
- }
- 
-+static inline void pagetable_p4d_ctor(struct ptdesc *ptdesc)
-+{
-+	__pagetable_ctor(ptdesc);
-+}
-+
-+static inline void pagetable_p4d_dtor(struct ptdesc *ptdesc)
-+{
-+	__pagetable_dtor(ptdesc);
-+}
-+
- extern void __init pagecache_init(void);
- extern void free_initmem(void);
- 
--- 
-2.47.0
+> > > That'd be useful, yes - unfortunately I think that's still something I
+> > > can't work on myself at the moment for the above mentioned non-technical
+> > > reasons.
 
+> > Is anybody able to work on it? Without insight into the "non-technical
+> > reasons", I don't know what I'm supposed to do other than write the tool
+> > myself (which means finding some spare cycles...) or refusing to take
+> > wholesale sysreg definitions until it's been ironed out :/
+
+> Similar issues will apply to anyone at Arm as things currently stand.
+
+Oh, actually - shortly after I sent this mail I got a notification that
+there's now an "Open Source Machine Readable Data" package at:
+
+  https://developer.arm.com/Architectures/A-Profile%20Architecture#Downloads
+
+as part of the 2024-12 which should unblock this, just in time for
+Christmas.  There's just the small matter of free time to resolve!
+
+--NY5bhLdnipifDOsr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdkToEACgkQJNaLcl1U
+h9C2Fgf+JZ+qKMeiKATn1vrhbEFer8uBWjfv5s3Mvjk3inPB8EqptcDPjvRi1iCV
+jt2bnBCvCS+xxyIh9jBTA0haLLsU0NQAWx0Xo9cj7NzlSmwgTANMS2IoONiAPNkq
+vMVr4w05tASvh1x1zdFnGlzrL5MVi7HdlzqQDy0OadoHgoaGyEczPEragmsHVk/c
+o63AwA9mastQ96ekaYBPYKA+Atl1N4LuneAJpWUYS3CWyNL6M0XRmmUt27AfwzEx
+AYN0eWKqDbU+hgXw88AMTJCyvzaV1UEfd2uYUGQJbnlgzWhfY3UKkN3M300ELC4X
+YWjZSRImDrolSzFOQPADzXjyMd+3RQ==
+=ywW0
+-----END PGP SIGNATURE-----
+
+--NY5bhLdnipifDOsr--
 
