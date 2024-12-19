@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637EDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 02:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADC9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 03:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LvLxv5drfC4Ugh3ixIRT4L/1mQoq1RfdjOPmZWDLjTc=; b=rzaYHpM1LhwMo9z+qQG2AY6DXq
-	D4eAT/X/dv7wl0Gt1R0Mbwk5VkBt2UbXlWAPuWs/H+aGTexwssj+pTJdfwmESZaCbFd2HCXB0ISRH
-	rMTZMf+09RgQRbZJxf0Dcfruch9tR/j5AbMuNFLiqfsP/bZEcR8Xni1pQ1fWZ3n69sMc1nu5cSJ0S
-	hT7pp9czaWOpV7tQ1UyNn4RS2+sX8wgkI7GbacdV/SppqCZkkFN0hNMZD6A7LM0gQTbTRwG+s2xzx
-	ujrEmoxkGdA+t9RSTl9PZolc5lxW2gB0gjwDZXnS0YWyys0s5snasCdFzQWS54sOkyDxVZ21XLRoS
-	ohTPXwdg==;
+	bh=R5wQboncGK/zebfhyUWbUZZBGDEilhZTyvOXA7Z/fB4=; b=QihoclBGaYtHAj3V+rv+gt7iey
+	YMtVJMtOkgSoOgRibwE0VLb2IeljGQJhU3l7XwnEqIAxelLI8esLBYCWfVjq5WPo2D8wiQnLX0shI
+	Yafbn0r+dajbgRXgHPJm6wYb4ORgii+oAYPt2uYCgIBvKoEnCxz+PqNp4pHIPlu0ewiWXmSr88kO0
+	f2M19nJOfTJpB79cJ0FpaZLzMvFHKk4qNRw0RbUhddwnZEc1EG9vDIkZj5cvx5FuKR12qn/A+rQrP
+	2sg6Gv7aoZEGgriGF/2ChychEBOyFOlmjLuqXkA/JlmYWSP5u7BqHGm+1v0qgT9QZKN65+hEFsotq
+	1TXpe+Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO6bu-00000000emQ-3H3X;
-	Thu, 19 Dec 2024 02:49:58 +0000
+	id 1tO707-00000000gt4-0sPV;
+	Thu, 19 Dec 2024 03:14:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO6ao-00000000ecF-02BG
+	id 1tO6z0-00000000gnO-0J6Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 02:48:51 +0000
+	Thu, 19 Dec 2024 03:13:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC6601480;
-	Wed, 18 Dec 2024 18:49:15 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A19731480;
+	Wed, 18 Dec 2024 19:14:16 -0800 (PST)
 Received: from [10.162.16.49] (unknown [10.162.16.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 307223F720;
-	Wed, 18 Dec 2024 18:48:43 -0800 (PST)
-Message-ID: <8ad1e830-9ac9-4776-a877-c8d37bb03a3c@arm.com>
-Date: Thu, 19 Dec 2024 08:18:41 +0530
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CF143F528;
+	Wed, 18 Dec 2024 19:13:44 -0800 (PST)
+Message-ID: <c707ecfd-6f1f-47d2-93ec-116f5dfd419e@arm.com>
+Date: Thu, 19 Dec 2024 08:43:42 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 04/46] arm64/sysreg: Update register fields for
- TRBIDR_EL1
+Subject: Re: [PATCH V2 15/46] arm64/sysreg: Add register fields for PFAR_EL1
 To: Eric Auger <eauger@redhat.com>, linux-kernel@vger.kernel.org,
  kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org
 Cc: ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
@@ -46,16 +45,16 @@ Cc: ryan.roberts@arm.com, Oliver Upton <oliver.upton@linux.dev>,
  <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
  Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
 References: <20241210055311.780688-1-anshuman.khandual@arm.com>
- <20241210055311.780688-5-anshuman.khandual@arm.com>
- <36aba488-26d7-4dc9-9ca0-a14e3de028e9@redhat.com>
+ <20241210055311.780688-16-anshuman.khandual@arm.com>
+ <5203176c-2646-425b-b375-edb7931ef54f@redhat.com>
 Content-Language: en-US
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <36aba488-26d7-4dc9-9ca0-a14e3de028e9@redhat.com>
+In-Reply-To: <5203176c-2646-425b-b375-edb7931ef54f@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_184850_095271_CC9C2BC0 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20241218_191350_163243_9DE5610C 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,12 +71,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 12/18/24 20:10, Eric Auger wrote:
-> Hi Anshuman
+On 12/18/24 21:12, Eric Auger wrote:
+> Hi Anshuman,
 > 
 > On 12/10/24 06:52, Anshuman Khandual wrote:
->> This adds register fields for TRBIDR_EL1 as per the definitions based
->> on DDI0601 2024-09.
+>> This adds register fields for PFAR_EL1 as per the definitions based on
+>> DDI0601 2024-09.
 >>
 >> Cc: Catalin Marinas <catalin.marinas@arm.com>
 >> Cc: Will Deacon <will@kernel.org>
@@ -86,27 +85,35 @@ On 12/18/24 20:10, Eric Auger wrote:
 >> Cc: linux-kernel@vger.kernel.org
 >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 >> ---
->>  arch/arm64/tools/sysreg | 15 +++++++++++++--
->>  1 file changed, 13 insertions(+), 2 deletions(-)
+>>  arch/arm64/tools/sysreg | 7 +++++++
+>>  1 file changed, 7 insertions(+)
 >>
 >> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
->> index 59351931d907..10b1a0998d99 100644
+>> index 18b814ff2c41..e33edb41721a 100644
 >> --- a/arch/arm64/tools/sysreg
 >> +++ b/arch/arm64/tools/sysreg
->> @@ -3295,13 +3295,24 @@ Field	31:0	TRG
+>> @@ -3533,3 +3533,10 @@ Field	5	F
+>>  Field	4	P
+>>  Field	3:0	Align
 >>  EndSysreg
->>  
->>  Sysreg	TRBIDR_EL1	3	0	9	11	7
->> -Res0	63:12
->> +Res0	63:48
->> +Field	47:32	MaxBuffSize
->> +Res0	31:16
->> +UnsignedEnum	15:12	MPAM
->> +	0b0000	NI
->> +	0b0001	PMG
-> Out of curiosity how did you choose the PMG terminology?
-> I see "MPAM implemented by the Trace Buffer Unit, using default PARTID
-> and PMG values in External mode". Wouldn't be TBU more meaningful?
+>> +
+>> +Sysreg	PFAR_EL1	3	0	6	0	5
+>> +Field	63	NS
+>> +Field	62	NSE
+>> +Res0	61:56
+>> +Field	55:0	PA
+> Just wondering: part of the PA definition depends on FEAT_D128 or
+> FEAT_LPA and the reset field value is UNKNOWN if the feature is not
+> available. Shouldn't introduce separate fields directly?
+Generated PFAR_EL1_PA_MASK aka GENMASK_ULL(55, 0) should cover all the
+cases for PA i.e 48 bits, LPA, D128 etc. Although individual use cases
+will have to trim the mask subsequently as required.
 
-Right, TBU seems better. Unless Mark thinks otherwise, will change.
+Are you suggesting something like the following instead where the user
+will have to concatenate these fields selectively to find the required
+PA mask ?
+
+Field	55:52	PA_D128
+Field	51:48	PA_LPA
+Field	47:0	PA
 
