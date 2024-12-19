@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E6DE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 21:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE85E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 21:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6s4l03z+TiOWmT76Ozzx8G2m2dVtHZ3dYvzPccSMcPU=; b=qklKZrTkGK/v/8rAt//K68DYpZ
-	O5dmASF2mJiK33ccNDrGxzM96zVK+VbHkEcyBcLurYzMdyRGhR2qYf6NDZwc2teiOUxkpZ/k4Gp7O
-	0s08aqcaBaate+NwH50ZI6WenoRxdokRv2rQ9YI1nUwhtMRsxJBbSXg0Gt3lMI1nRyu2mBQpljBI7
-	3wKYI2ibfYOaWy4DRnwcpdw6J4uvDtf25K/s27hCJTsUd9QlLYIRvy1ayzC9txM5cMVUxC/8HpSP0
-	q9gGYxAEQRGTRp7xNp8M1qD/sBCeQQewmqDpA1zXc/aTuahdfkHg0Sk+ftTMhU0lbJJ5SJ2JO2YNl
-	w/8cqX5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tp2pK6lzyD5U9SMCt2mZyhgNP17G7t7mTEM/wB/wlzQ=; b=fGMgcXcMyknbCq9hubZ8gnRvTk
+	M+kAA4eVuB3DxpXN2s+QQXq5/9oQ6gWiym1ioA1k3aWz1Nz1ffKH7rozFuVYF5P3MIl/pQ4z0ih97
+	UfCZKIHuQFUCAaInA5NEp/Or1I4hfWnTy64JvzoD8IIGye1QafAZb80jQNsXqMDNJW0rM6zChJcL0
+	hnICx3NcRE2s7peXmZszZTv+s0RGX/4/RoXwIm0UYd5KqLACXiIDt5536wRJImDwo3w+hhSlvgsk+
+	Qz85KWXOTnQByApnH8WODZJVgmD/tLHJMUpU1OCRD6GUhd6cg8Hep3mQLXwXimo+sQU76d492akaB
+	4vKG+Pew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONcq-00000003613-2a6h;
-	Thu, 19 Dec 2024 21:00:04 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tONmo-0000000372v-3sGz;
+	Thu, 19 Dec 2024 21:10:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONXq-000000035Ju-31pi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 20:54:56 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2161eb95317so12024955ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 12:54:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734641693; x=1735246493; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6s4l03z+TiOWmT76Ozzx8G2m2dVtHZ3dYvzPccSMcPU=;
-        b=P6WVQNdbGaXPA/+3NNx/xKKk27ZuhBJHBL0scl0elDnxEjiiATwhHEkTaL42fQyDXP
-         AUpFcLMEIgyN/sf+Y1eDLeTxpdejOg6c93DQvP0CVyNjrPNgXOhGYRrxnAzsp81JJRQ9
-         /RbBoCG+eDdInE3jZejjJ6iOEuKTMBfPRaY5s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734641693; x=1735246493;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6s4l03z+TiOWmT76Ozzx8G2m2dVtHZ3dYvzPccSMcPU=;
-        b=l9IDUHH1VD+RLew1hSAK/BrB4Kz4sLo/7N83dGrXa845SyB4zZv0iqj7gXZZnmTZyf
-         GdlAFFXIhZ6hBEfap1K6EDS703ildRTNqCU/QYe+g/l/AudlJIRn3Tvz7ENCzFjyNfTN
-         AU6v52i7IOTRXCPuXQk1huAQOwzLWmIzywsJI6M65xaOnZLJcWstTR/8V3YHjE99rRRI
-         462LosF1tGQFCMa7KuwKmD9GMsFNS5OrS5+q5AIX5hQi7hDED8Kfmg9uGVuozoydutdl
-         6Fw5ngQXPQxySS/wjvvELfSSZq4S1HoaEK7SrQEkmr1SbRtSruwBg4jEf/SaIKSuNIeF
-         X0yg==
-X-Forwarded-Encrypted: i=1; AJvYcCWpm7A0SJKDDxZHk3DDhg2SxEW/6oRlgie7aTp1KBcXs+OFNZfMPpvOaur5lbxnJOO36BqO9NeRA0Kvr+1BJAPH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfcf6fIdqzqeY9kCxl8ihy72MZHQKQgbFULVnlNOdhok8z084Z
-	0MRmY847QN9jKDnTI6nqmxxEfuCe3i4/BeMDXgFrM+Flc3gK9YrM3kKYsyn0wP85kiEdTOdS1Ez
-	guno9
-X-Gm-Gg: ASbGncu8bcQbou5JMNvdjTNrB4bPuaTm/2GcFr/89zqOysnzNKaofbsYbyR/qAtbdxt
-	3SOJnCqP7FeCXN/0KUzTTcCvcibpYsO0vG9vCpesIirSLE90H/NVJfGqcG5E9C0JFToRWR+Wd8K
-	VfKLI0hbHHofEftw3chGoYVvvLSbsTO27RioSx0Zh8duNFKkpcRVM8DYJFNVegjaj4WZAAMN2iK
-	vKT0yYLstFTcM8WE/gZ3n2247U16xGIuaU78sLhvbI0kwBM26WxzqqqfLw8Shii3twpAwceSnPb
-X-Google-Smtp-Source: AGHT+IEaD6/NCBxxxfKhVW+SQ2XuBT1Btw2c/4loiQPU6dq3AxKc2urxpDuKIcZdFcK3IchhrLacVA==
-X-Received: by 2002:a17:90b:134b:b0:2ef:316b:53fe with SMTP id 98e67ed59e1d1-2f452e4d0e5mr545837a91.22.1734641692063;
-        Thu, 19 Dec 2024 12:54:52 -0800 (PST)
-Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:a8a3:6409:6518:340d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed644d87sm4126905a91.27.2024.12.19.12.54.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 12:54:51 -0800 (PST)
-From: Douglas Anderson <dianders@chromium.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: Roxana Bradescu <roxabee@google.com>,
-	Julius Werner <jwerner@chromium.org>,
-	bjorn.andersson@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	Jeffrey Hugo <quic_jhugo@quicinc.com>,
-	Trilok Soni <quic_tsoni@quicinc.com>,
-	Douglas Anderson <dianders@chromium.org>,
-	stable@vger.kernel.org,
-	James Morse <james.morse@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/3] arm64: errata: Add newer ARM cores to the spectre_bhb_loop_affected() lists
-Date: Thu, 19 Dec 2024 12:53:23 -0800
-Message-ID: <20241219125317.v3.3.I4a9a527e03f663040721c5401c41de587d015c82@changeid>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-In-Reply-To: <20241219205426.2275508-1-dianders@chromium.org>
-References: <20241219205426.2275508-1-dianders@chromium.org>
+	id 1tOMiz-00000002xCZ-0XGs;
+	Thu, 19 Dec 2024 20:02:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Tp2pK6lzyD5U9SMCt2mZyhgNP17G7t7mTEM/wB/wlzQ=; b=vBiqfcfLrYdj2SfSKxFCxxLjK5
+	+BS3nhubWvI92g3iIT3ypQf/dHEO/g1f4zOpaKzpvZEkvmPLoEPep20OfdzOiF2SAWqbnhTytrPdA
+	uJVoWP87LdoKm3S+yL2kc94F48IauVLGVGpB/Q1Wy51CmGC0fh3qxpWm7VJUqeUNWE8WDVJl4MuKQ
+	q2eS+OKgcX7UDcMJrvQ4PlWw7PHEuZty29h2oTg7fH79wzGku+teodDzj3V5awl2mb7A3z1R5Uzd6
+	7EBx3lL/rpI4kEgylLcBNvjVY438SLRm13XuU67Eb/Y+fxgQElD/NL/09Xisvf18vDUwJPoJfNKJx
+	twovPmzA==;
+Received: from i53875bfb.versanet.de ([83.135.91.251] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tOMic-0002JL-NF; Thu, 19 Dec 2024 21:01:58 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: lee@kernel.org, jikos@kernel.org, jic23@kernel.org,
+ Kees Bakker <kees@ijzerbout.nl>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ jdelvare@suse.com, linux@roeck-us.net, srinivas.pandruvada@linux.intel.com,
+ bentiss@kernel.org, dmitry.torokhov@gmail.com, pavel@ucw.cz,
+ ukleinek@debian.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-input@vger.kernel.org, linux-iio@vger.kernel.org,
+ linux-leds@vger.kernel.org
+Subject: Re: [PATCH v9 4/9] mfd: add base driver for qnap-mcu devices
+Date: Thu, 19 Dec 2024 21:01:57 +0100
+Message-ID: <5047567.0VBMTVartN@diego>
+In-Reply-To: <4cecc705-84ab-44d5-8725-eb973254f257@ijzerbout.nl>
+References: <20241107114712.538976-1-heiko@sntech.de> <3130486.CbtlEUcBR6@diego>
+ <4cecc705-84ab-44d5-8725-eb973254f257@ijzerbout.nl>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_125454_764353_2140BF25 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20241219_120221_169724_227A9CB3 
+X-CRM114-Status: GOOD (  34.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +80,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When comparing to the ARM list [1], it appears that several ARM cores
-were missing from the lists in spectre_bhb_loop_affected(). Add them.
+Am Donnerstag, 19. Dezember 2024, 20:51:41 CET schrieb Kees Bakker:
+> Op 19-12-2024 om 20:43 schreef Heiko St=FCbner:
+> > Hi Kees,
+> >
+> > Am Donnerstag, 19. Dezember 2024, 20:18:38 CET schrieb Kees Bakker:
+> >> Op 07-11-2024 om 12:47 schreef Heiko Stuebner:
+> >>> These microcontroller units are used in network-attached-storage devi=
+ces
+> >>> made by QNAP and provide additional functionality to the system.
+> >>>
+> >>> This adds the base driver that implements the serial protocol via
+> >>> serdev and additionally hooks into the poweroff handlers to turn
+> >>> off the parts of the system not supplied by the general PMIC.
+> >>>
+> >>> Turning off (at least the TSx33 devices using Rockchip SoCs) consists=
+ of
+> >>> two separate actions. Turning off the MCU alone does not turn off the=
+ main
+> >>> SoC and turning off only the SoC/PMIC does not turn off the hard-driv=
+es.
+> >>> Also if the MCU is not turned off, the system also won't start again =
+until
+> >>> it is unplugged from power.
+> >>>
+> >>> So on shutdown the MCU needs to be turned off separately before the
+> >>> main PMIC.
+> >>>
+> >>> The protocol spoken by the MCU is sadly not documented, but was
+> >>> obtained by listening to the chatter on the serial port, as thankfully
+> >>> the "hal_app" program from QNAPs firmware allows triggering all/most
+> >>> MCU actions from the command line.
+> >>>
+> >>> The implementation of how to talk to the serial device got some
+> >>> inspiration from the rave-sp servdev driver.
+> >>>
+> >>> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> >>> ---
+> >>>    MAINTAINERS                  |   6 +
+> >>>    drivers/mfd/Kconfig          |  13 ++
+> >>>    drivers/mfd/Makefile         |   2 +
+> >>>    drivers/mfd/qnap-mcu.c       | 338 +++++++++++++++++++++++++++++++=
+++++
+> >>>    include/linux/mfd/qnap-mcu.h |  26 +++
+> >>>    5 files changed, 385 insertions(+)
+> >>>    create mode 100644 drivers/mfd/qnap-mcu.c
+> >>>    create mode 100644 include/linux/mfd/qnap-mcu.h
+> >>>
+> >>> [...]
+> >>> diff --git a/drivers/mfd/qnap-mcu.c b/drivers/mfd/qnap-mcu.c
+> >>> new file mode 100644
+> >>> index 000000000000..4be39d8b2905
+> >>> --- /dev/null
+> >>> +++ b/drivers/mfd/qnap-mcu.c
+> >>> [...]
+> >>> +int qnap_mcu_exec(struct qnap_mcu *mcu,
+> >>> +		  const u8 *cmd_data, size_t cmd_data_size,
+> >>> +		  u8 *reply_data, size_t reply_data_size)
+> >>> +{
+> >>> +	unsigned char rx[QNAP_MCU_RX_BUFFER_SIZE];
+> >>> +	size_t length =3D reply_data_size + QNAP_MCU_CHECKSUM_SIZE;
+> >>> +	struct qnap_mcu_reply *reply =3D &mcu->reply;
+> >>> +	int ret =3D 0;
+> >>> +
+> >>> +	if (length > sizeof(rx)) {
+> >>> +		dev_err(&mcu->serdev->dev, "expected data too big for receive buff=
+er");
+> >>> +		return -EINVAL;
+> >>> +	}
+> >>> +
+> >>> +	mutex_lock(&mcu->bus_lock);
+> >>> +
+> >>> +	reply->data =3D rx,
+> >>> +	reply->length =3D length,
+> >>> +	reply->received =3D 0,
+> >>> +	reinit_completion(&reply->done);
+> >>> +
+> >>> +	qnap_mcu_write(mcu, cmd_data, cmd_data_size);
+> >>> +
+> >>> +	serdev_device_wait_until_sent(mcu->serdev, msecs_to_jiffies(QNAP_MC=
+U_TIMEOUT_MS));
+> >>> +
+> >>> +	if (!wait_for_completion_timeout(&reply->done, msecs_to_jiffies(QNA=
+P_MCU_TIMEOUT_MS))) {
+> >>> +		dev_err(&mcu->serdev->dev, "Command timeout\n");
+> >>> +		ret =3D -ETIMEDOUT;
+> >>> +	} else {
+> >>> +		u8 crc =3D qnap_mcu_csum(rx, reply_data_size);
+> >> Here `rx` is still not initialized.
+> > The MCU works in a way that a sent command always causes "reply_data_si=
+ze"
+> > bytes to be returned.
+> >
+> > So for each qnap_mcu_write() above we know that this amount of bytes has
+> > been returned (and thus written into rx) if the completion above finish=
+es
+> > sucessfully.
+> >
+> > "rx" is assigned to reply->data above (same as the expected received si=
+ze).
+> > When characters are received on the serial line, this will trigger
+> > qnap_mcu_receive_buf() from the serdev and thus fill those elements in =
+rx.
+> >
+> > So if we land at the qnap_mcu_csum() call, we do have received the expe=
+cted
+> > amount of bytes from the serdev and thus rx is filled accordingly.
+> >
+> > If we don't receive the needed amount of bytes, we end up in the timeout
+> > above that.
+> >
+> > What did I miss?
+> Sorry, my fault. I missed the essential part of the external event (exter=
+nal
+> for this function that is).
+> Thanks for explaining.
 
-NOTE: for some of these cores it may not matter since other ways of
-clearing the BHB may be used (like the CLRBHB instruction or ECBHB),
-but it still seems good to have all the info from ARM's whitepaper
-included.
+no worries :-) .
 
-[1] https://developer.arm.com/Arm%20Security%20Center/Spectre-BHB
+The more eyes, the better.
 
+Heiko
 
-Fixes: 558c303c9734 ("arm64: Mitigate spectre style branch history side channels")
-Cc: stable@vger.kernel.org
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
-
-Changes in v3:
-- New
-
- arch/arm64/kernel/proton-pack.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index 06e04c9e6480..86d67f5a5a72 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -872,6 +872,14 @@ static u8 spectre_bhb_loop_affected(void)
- {
- 	u8 k = 0;
- 
-+	static const struct midr_range spectre_bhb_k132_list[] = {
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
-+		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
-+	};
-+	static const struct midr_range spectre_bhb_k38_list[] = {
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
-+	};
- 	static const struct midr_range spectre_bhb_k32_list[] = {
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A78),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A78AE),
-@@ -885,6 +893,7 @@ static u8 spectre_bhb_loop_affected(void)
- 	};
- 	static const struct midr_range spectre_bhb_k24_list[] = {
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A76),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A76AE),
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
- 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
- 		{},
-@@ -899,7 +908,11 @@ static u8 spectre_bhb_loop_affected(void)
- 		{},
- 	};
- 
--	if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
-+	if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k132_list))
-+		k = 132;
-+	else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k38_list))
-+		k = 38;
-+	else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k32_list))
- 		k = 32;
- 	else if (is_midr_in_range_list(read_cpuid_id(), spectre_bhb_k24_list))
- 		k = 24;
--- 
-2.47.1.613.gc27f4b7a9f-goog
 
 
