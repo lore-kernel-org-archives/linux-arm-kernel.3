@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01546E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 16:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EC8E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 16:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=URvkOy53UcBsPFjkdm3DY6eWupuu8tvChY7EKfoY7IQ=; b=y7bMWKd6cdQzufJbrYgzsVNC3K
-	9JSo/OXixGvVdSYRSCF8sTr4M9Ru1606QUW/yI67O7I63bdv3el0dTrwQKcO8ErfVrW852VhOQTOk
-	3m7M34KGU0Zdhqe++a9LCkVVMUGhfLFQS+9qFoKCYWxnOX3ZOM9eXuHbhaumGusFICYAhMG0kR29H
-	05bTLsY6uEu8eziXMXAQAFYxtDY5THo7CHBHJhHRpDBpQExIy3Vy71BoHy/SOL57zn/17F16aRHlj
-	j3GjdxmxpLMUdmDyhV6xBsxXFSm/FWMaW2tpeHLoYwx6xDU7AW//WTMKMNNFJ7fDPuLnHCUBiukEn
-	OecVhgvg==;
+	bh=lZA9kLthfPyIxwHp01Yxv5Ht/fhkFKG3TTGvCJtNyWQ=; b=EG65S3U2+7dtECU9THq36DwkJb
+	Yc+bVHxDJLB1L/6ZtIBf3gbNVqxFzCPmkjFQM4ZQrpvXfEVU0asnwUeofFcmxYW5+5kRvA8IjCD4l
+	dxT4uy2PxL8IZS6y3hnSbDBUTp6U+G7T7btDTDLtG9VL8yOTslLqUpNh88TY88IOQWj3Y21H6G9Tt
+	0g5sWG4Z9fnRJZ6rMY4GlUPoMAGyuiN4D8Z/rBfRlToB85Ya6gg1ZSrU52l+XPok9oCU5uUvWB1F/
+	1yxuGmUS2AjKs6o0ChLBSWhOtG7tKpaDtwMtCGRMh0VTI2DdvRU2vb86F1GpD+k82aOLN/uwJvlM1
+	pLaU0plA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJk1-00000002Qn2-3USf;
-	Thu, 19 Dec 2024 16:51:13 +0000
+	id 1tOJmB-00000002RL2-0fJv;
+	Thu, 19 Dec 2024 16:53:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOJfM-00000002PM1-2AUT;
-	Thu, 19 Dec 2024 16:46:26 +0000
+	id 1tOJfU-00000002PPf-24pC;
+	Thu, 19 Dec 2024 16:46:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEB531480;
-	Thu, 19 Dec 2024 08:46:51 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A70A1480;
+	Thu, 19 Dec 2024 08:47:00 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C069C3F58B;
-	Thu, 19 Dec 2024 08:46:19 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B9613F58B;
+	Thu, 19 Dec 2024 08:46:28 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
@@ -62,17 +62,17 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
 	linux-um@lists.infradead.org,
 	loongarch@lists.linux.dev,
 	x86@kernel.org
-Subject: [PATCH 03/10] m68k: mm: Add calls to pagetable_pmd_[cd]tor
-Date: Thu, 19 Dec 2024 16:44:18 +0000
-Message-ID: <20241219164425.2277022-4-kevin.brodsky@arm.com>
+Subject: [PATCH 05/10] riscv: mm: Skip pgtable level check in {pud,p4d}_alloc_one
+Date: Thu, 19 Dec 2024 16:44:20 +0000
+Message-ID: <20241219164425.2277022-6-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241219164425.2277022-1-kevin.brodsky@arm.com>
 References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_084624_681851_22EA2490 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20241219_084632_573851_D9510325 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,99 +87,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-get_pointer_table() and free_pointer_table() already special-case
-TABLE_PTE to call pagetable_pte_[cd]tor. Let's do the same at PMD
-level to improve accounting further. TABLE_PGD and TABLE_PMD are
-currently defined to the same value, so we first need to separate
-them. That also implies separating ptable_list for PMD/PGD levels.
+{pmd,pud,p4d}_alloc_one() is never called if the corresponding page
+table level is folded, as {pmd,pud,p4d}_alloc() already does the
+required check. We can therefore remove the runtime page table level
+checks in {pud,p4d}_alloc_one. The PUD helper becomes equivalent to
+the generic version, so we remove it altogether.
+
+This is consistent with the way arm64 and x86 handle this situation
+(runtime check in p4d_free() only).
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/m68k/include/asm/motorola_pgalloc.h |  6 +++---
- arch/m68k/mm/motorola.c                  | 25 +++++++++++++++++++-----
- 2 files changed, 23 insertions(+), 8 deletions(-)
+ arch/riscv/include/asm/pgalloc.h | 22 ++++------------------
+ 1 file changed, 4 insertions(+), 18 deletions(-)
 
-diff --git a/arch/m68k/include/asm/motorola_pgalloc.h b/arch/m68k/include/asm/motorola_pgalloc.h
-index 74a817d9387f..5abe7da8ac5a 100644
---- a/arch/m68k/include/asm/motorola_pgalloc.h
-+++ b/arch/m68k/include/asm/motorola_pgalloc.h
-@@ -9,9 +9,9 @@ extern void mmu_page_ctor(void *page);
- extern void mmu_page_dtor(void *page);
+diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+index f52264304f77..8ad0bbe838a2 100644
+--- a/arch/riscv/include/asm/pgalloc.h
++++ b/arch/riscv/include/asm/pgalloc.h
+@@ -12,7 +12,6 @@
+ #include <asm/tlb.h>
  
- enum m68k_table_types {
--	TABLE_PGD = 0,
--	TABLE_PMD = 0, /* same size as PGD */
--	TABLE_PTE = 1,
-+	TABLE_PGD,
-+	TABLE_PMD,
-+	TABLE_PTE,
- };
+ #ifdef CONFIG_MMU
+-#define __HAVE_ARCH_PUD_ALLOC_ONE
+ #define __HAVE_ARCH_PUD_FREE
+ #include <asm-generic/pgalloc.h>
  
- extern void init_pointer_table(void *table, int type);
-diff --git a/arch/m68k/mm/motorola.c b/arch/m68k/mm/motorola.c
-index c1761d309fc6..37010ee15928 100644
---- a/arch/m68k/mm/motorola.c
-+++ b/arch/m68k/mm/motorola.c
-@@ -97,17 +97,19 @@ void mmu_page_dtor(void *page)
+@@ -88,15 +87,6 @@ static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd,
+ 	}
+ }
  
- typedef struct list_head ptable_desc;
+-#define pud_alloc_one pud_alloc_one
+-static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
+-{
+-	if (pgtable_l4_enabled)
+-		return __pud_alloc_one(mm, addr);
+-
+-	return NULL;
+-}
+-
+ #define pud_free pud_free
+ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
+ {
+@@ -118,15 +108,11 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
+ #define p4d_alloc_one p4d_alloc_one
+ static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
+ {
+-	if (pgtable_l5_enabled) {
+-		gfp_t gfp = GFP_PGTABLE_USER;
+-
+-		if (mm == &init_mm)
+-			gfp = GFP_PGTABLE_KERNEL;
+-		return (p4d_t *)get_zeroed_page(gfp);
+-	}
++	gfp_t gfp = GFP_PGTABLE_USER;
  
--static struct list_head ptable_list[2] = {
-+static struct list_head ptable_list[3] = {
- 	LIST_HEAD_INIT(ptable_list[0]),
- 	LIST_HEAD_INIT(ptable_list[1]),
-+	LIST_HEAD_INIT(ptable_list[2]),
- };
+-	return NULL;
++	if (mm == &init_mm)
++		gfp = GFP_PGTABLE_KERNEL;
++	return (p4d_t *)get_zeroed_page(gfp);
+ }
  
- #define PD_PTABLE(page) ((ptable_desc *)&(virt_to_page((void *)(page))->lru))
- #define PD_PAGE(ptable) (list_entry(ptable, struct page, lru))
- #define PD_MARKBITS(dp) (*(unsigned int *)&PD_PAGE(dp)->index)
- 
--static const int ptable_shift[2] = {
--	7+2, /* PGD, PMD */
-+static const int ptable_shift[3] = {
-+	7+2, /* PGD */
-+	7+2, /* PMD */
- 	6+2, /* PTE */
- };
- 
-@@ -156,12 +158,17 @@ void *get_pointer_table(int type)
- 		if (!(page = (void *)get_zeroed_page(GFP_KERNEL)))
- 			return NULL;
- 
--		if (type == TABLE_PTE) {
-+		switch (type) {
-+		case TABLE_PTE:
- 			/*
- 			 * m68k doesn't have SPLIT_PTE_PTLOCKS for not having
- 			 * SMP.
- 			 */
- 			pagetable_pte_ctor(virt_to_ptdesc(page));
-+			break;
-+		case TABLE_PMD:
-+			pagetable_pmd_ctor(virt_to_ptdesc(page));
-+			break;
- 		}
- 
- 		mmu_page_ctor(page);
-@@ -200,8 +207,16 @@ int free_pointer_table(void *table, int type)
- 		/* all tables in page are free, free page */
- 		list_del(dp);
- 		mmu_page_dtor((void *)page);
--		if (type == TABLE_PTE)
-+
-+		switch (type) {
-+		case TABLE_PTE:
- 			pagetable_pte_dtor(virt_to_ptdesc((void *)page));
-+			break;
-+		case TABLE_PMD:
-+			pagetable_pmd_dtor(virt_to_ptdesc((void *)page));
-+			break;
-+		}
-+
- 		free_page (page);
- 		return 1;
- 	} else if (ptable_list[type].next != dp) {
+ static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
 -- 
 2.47.0
 
