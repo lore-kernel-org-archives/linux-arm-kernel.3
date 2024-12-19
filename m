@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957D1E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27E4E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQVQSzUcgckGzNm/G+sHNAy/MIxr80U/xLcKk2Fov1Q=; b=LeYrYkUJcy7Ay2LGzsabcfzzyf
-	UFpexHT3RbpS6LFNTr+n17Bt5ZM9hv5wnvTkpqAG6W8nCfCsAU381cPgdJ0p5yprpoWev+5o0nULP
-	+2KyDFyse1LrPQPXIEmN+Rw3kn17+GJGOTDqmEBr8sdGPCXShZgLRfW9Ie9cVtLgThJWnLpfV3KVG
-	7rAJ1wohdW3UIVVKsRg7Z2IWCDhcoVD2WYlK0qtXCRfld5rSSWBVieVPG0uPeNwXTSZD2aMfLwq9z
-	cHC+q/N+YE3u4ZZMcvuyRwXMuMEMwBnmIezglSjMg+15lKwoYCh7L9PW8zWRjJli8kpi7hvFNHbYQ
-	Bs/pgYCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n9kqwreHTXNHZZbYtIN60/GfMBmJOUF2KyeKvQKAMa0=; b=Jf7JyaerbK1Mpkz2E3K0DMubFe
+	pSsjRcdrcWDlHSSFnQEs/3nEvGwIexP7fEM6Som6D8eKVrpEZllnKeI+PXT0yg+GBxcj8G3Tx6FmN
+	QrqgrtE273F/z7zo6kkkc5ZnPxNWexWnK3I34/dIfg9ebwJq4yf/XQxr+q8srCy2OL9dLp3wz6ZDM
+	A4IzC6gWsjAyxaUFomMu7fT455cy0oOzS1qvWbHhdPpfGpI9oQGxZbcwqCjS6/hzouhFezbgd8KrG
+	9OBOcCZmjGPy/njO9hm7izLR7lLAY/doK+o3lmZgXsxvngdWiRHLX+t4H6u3q/CPc/Q0+WEN9IwV5
+	lnrNM6FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOBET-000000018rG-41CM;
-	Thu, 19 Dec 2024 07:46:05 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOB0G-000000015xs-3UWU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:31:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734593485; x=1766129485;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZZ4Yw8mnLFE9pr9KFpUOJ0wK/oQg7MB5V5+2UKyheDk=;
-  b=dLt36csg+3ZY1poM1gGDnQLfNbHFl/Z+zdKThqB/jRk5M5jDLRiAiWVA
-   C9sq4nZwZAoO4u4+tEmS8heJ5OIPVmIpWu8cPcKmhnuGBSWGtgCfobEfU
-   lTvrNzYiAhEoVwHWbSGWP6j5+Q8leDnQsNRhL1i1HKfIcMRf4qQ89Fic6
-   DV5Un8PAbPLB9HdsN0FWHlTndO3novhdwZTgGoIe2/hnw+OMVAmfdNflj
-   asMILPYrvOFdqvapMlhgTR4hFP5EhMbxMN09rsmVfzDsNr3n6xgyhNX9p
-   gvgNMe2CcBkv3vUHYUItPuXdKsK1CirwHQe9SfvfGdV/IvgXDr/gMJIkT
-   w==;
-X-CSE-ConnectionGUID: unmUa+VkT/C8395J6cuLiw==
-X-CSE-MsgGUID: CiFlO8GFSkS+4YIAUS2MyQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11290"; a="52617402"
-X-IronPort-AV: E=Sophos;i="6.12,247,1728975600"; 
-   d="scan'208";a="52617402"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2024 23:31:24 -0800
-X-CSE-ConnectionGUID: YXZ1m4t6Sk+gTUfnKbNs4g==
-X-CSE-MsgGUID: 8cusURGOSjiiGLYNquOujQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="102249969"
-Received: from mev-dev.igk.intel.com ([10.237.112.144])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2024 23:31:19 -0800
-Date: Thu, 19 Dec 2024 08:28:14 +0100
-From: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: aleksander.lobakin@intel.com, lukma@denx.de, m-malladi@ti.com,
-	diogo.ivo@siemens.com, rdunlap@infradead.org,
-	schnelle@linux.ibm.com, vladimir.oltean@nxp.com, horms@kernel.org,
-	rogerq@kernel.org, pabeni@redhat.com, kuba@kernel.org,
-	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, srk@ti.com,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next 3/4] net: ti: icssg-prueth: Add Multicast
- Filtering support for VLAN in MAC mode
-Message-ID: <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
-References: <20241216100044.577489-1-danishanwar@ti.com>
- <20241216100044.577489-4-danishanwar@ti.com>
+	id 1tOBFY-000000019Cz-2Vq4;
+	Thu, 19 Dec 2024 07:47:12 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOB8g-000000017Sk-0QKG;
+	Thu, 19 Dec 2024 07:40:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=n9kqw
+	reHTXNHZZbYtIN60/GfMBmJOUF2KyeKvQKAMa0=; b=IgAazdgwBSPEiE8U7WbIC
+	kb6QmvWjOHXZeWQ9QelVConMdjwY9z02lfFTz/2wfBozIoQ3hUyqMvI+4PrTsWx7
+	JVHAqCUJqvlSa6W3gQzUtz732FzcVMnKalVQGEe8nN819ITUMuR6rLOE2ul1B88J
+	uwmtWlEyRA7aqDZ05fJM5M=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wBnUtq0zWNnL5jUAA--.6492S3;
+	Thu, 19 Dec 2024 15:39:37 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	sebastian.reichel@collabora.com,
+	devicetree@vger.kernel.org,
+	daniel@fooishbar.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v7 1/9] drm/rockchip: vop2: Support 32x8 superblock afbc
+Date: Thu, 19 Dec 2024 15:39:09 +0800
+Message-ID: <20241219073931.3997788-2-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241219073931.3997788-1-andyshrk@163.com>
+References: <20241219073931.3997788-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241216100044.577489-4-danishanwar@ti.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBnUtq0zWNnL5jUAA--.6492S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCrW3XFyUGw4xGFykuryUWrg_yoW5Gryrpr
+	W3ZrWqgw4UKF1jqa1DJrWDZF43Aan2k3y7XrnrGr1YqryYkr9rG34DKFyDZrWDt3yfGFW0
+	vFn3GrW7Zw1Fyr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j5kucUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gm6Xmdjx5evBwAAsD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_233124_887478_33D6D0FF 
-X-CRM114-Status: GOOD (  31.63  )
+X-CRM114-CacheID: sfid-20241218_234006_489275_1DE16A60 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,214 +82,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 16, 2024 at 03:30:43PM +0530, MD Danish Anwar wrote:
-> Add multicast filtering support for VLAN interfaces in dual EMAC mode
-> for ICSSG driver.
-> 
-> The driver uses vlan_for_each() API to get the list of available
-> vlans. The driver then sync mc addr of vlan interface with a locally
-> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
-> API.
-> 
-> The driver then calls the sync / unsync callbacks and based on whether
-> the ndev is vlan or not, driver passes appropriate vid to FDB helper
-> functions.
-> 
-> This commit also exports __hw_addr_sync_multiple() in order to use it
-> from the ICSSG driver.
-> 
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> ---
->  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 69 ++++++++++++++++----
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
->  include/linux/netdevice.h                    |  3 +
->  net/core/dev_addr_lists.c                    |  7 +-
->  4 files changed, 68 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> index e031bccf31dc..a18773ef6eab 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-> @@ -472,30 +472,43 @@ const struct icss_iep_clockops prueth_iep_clockops = {
->  
->  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
->  {
-> -	struct prueth_emac *emac = netdev_priv(ndev);
-> -	int port_mask = BIT(emac->port_id);
-> +	struct net_device *real_dev;
-> +	struct prueth_emac *emac;
-> +	int port_mask;
-> +	u8 vlan_id;
->  
-> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
-> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
-> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
-> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
-> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-Looks like a helper for that can be nice to have.
+From: Andy Yan <andy.yan@rock-chips.com>
 
-> +	emac = netdev_priv(real_dev);
-> +
-> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
-> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
-> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
->  
->  	return 0;
->  }
->  
->  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
->  {
-> -	struct prueth_emac *emac = netdev_priv(ndev);
-> -	int port_mask = BIT(emac->port_id);
-> +	struct net_device *real_dev;
-> +	struct prueth_emac *emac;
->  	int other_port_mask;
-> +	int port_mask;
-> +	u8 vlan_id;
-> +
-> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
-> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
-> +	emac = netdev_priv(real_dev);
->  
-> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
-> +	port_mask = BIT(emac->port_id);
-> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
->  
-> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
-> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
-> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
-> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
->  
->  	if (other_port_mask) {
-> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
-> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
-> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
-> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask, other_port_mask, true);
->  	}
->  
->  	return 0;
-> @@ -531,6 +544,28 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
->  	return 0;
->  }
->  
-> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
-> +				   void *args)
-> +{
-> +	struct net_device *vport_ndev;
-> +	struct prueth_emac *emac;
-> +
-> +	if (!vdev || !vid)
-> +		return 0;
-> +
-> +	vport_ndev = vlan_dev_real_dev(vdev);
-> +	emac = netdev_priv(vport_ndev);
-> +
-> +	netif_addr_lock_bh(vdev);
-> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc, vdev->addr_len);
-Only question, why dev_mc_sync_multiple can't be used here?
+This is the only afbc format supported by the upcoming
+VOP for rk3576.
 
-> +	netif_addr_unlock_bh(vdev);
-> +
-> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
-> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
-> +
-> +	return 0;
-> +}
-> +
->  /**
->   * emac_ndo_open - EMAC device open
->   * @ndev: network adapter device
-> @@ -772,12 +807,17 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
->  		return;
->  	}
->  
-> -	if (emac->prueth->is_hsr_offload_mode)
-> +	if (emac->prueth->is_hsr_offload_mode) {
->  		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
->  			      icssg_prueth_hsr_del_mcast);
-> -	else
-> +	} else {
->  		__dev_mc_sync(ndev, icssg_prueth_add_mcast,
->  			      icssg_prueth_del_mcast);
-> +		if (rtnl_trylock()) {
-> +			vlan_for_each(ndev, icssg_update_vlan_mcast, NULL);
-> +			rtnl_unlock();
-> +		}
-> +	}
->  }
->  
->  /**
-> @@ -828,6 +868,7 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
->  	if (prueth->is_hsr_offload_mode)
->  		port_mask |= BIT(PRUETH_PORT_HOST);
->  
-> +	__hw_addr_init(&emac->vlan_mcast_list[vid]);
->  	netdev_err(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
->  		   vid, port_mask, untag_mask);
->  
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index f5c1d473e9f9..4da8b87408b5 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -83,6 +83,10 @@
->  #define ICSS_CMD_ADD_FILTER 0x7
->  #define ICSS_CMD_ADD_MAC 0x8
->  
-> +/* VLAN Filtering Related MACROs */
-> +#define PRUETH_DFLT_VLAN_MAC	0
-> +#define MAX_VLAN_ID		256
-> +
->  /* In switch mode there are 3 real ports i.e. 3 mac addrs.
->   * however Linux sees only the host side port. The other 2 ports
->   * are the switch ports.
-> @@ -201,6 +205,8 @@ struct prueth_emac {
->  	/* RX IRQ Coalescing Related */
->  	struct hrtimer rx_hrtimer;
->  	unsigned long rx_pace_timeout_ns;
-> +
-> +	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
->  };
->  
->  /**
-> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-> index d917949bba03..a5c169b19543 100644
-> --- a/include/linux/netdevice.h
-> +++ b/include/linux/netdevice.h
-> @@ -4685,6 +4685,9 @@ int devm_register_netdev(struct device *dev, struct net_device *ndev);
->  /* General hardware address lists handling functions */
->  int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
->  		   struct netdev_hw_addr_list *from_list, int addr_len);
-> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> +			    struct netdev_hw_addr_list *from_list,
-> +			    int addr_len);
->  void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
->  		      struct netdev_hw_addr_list *from_list, int addr_len);
->  int __hw_addr_sync_dev(struct netdev_hw_addr_list *list,
-> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
-> index 166e404f7c03..90716bd736f3 100644
-> --- a/net/core/dev_addr_lists.c
-> +++ b/net/core/dev_addr_lists.c
-> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
->  	__hw_addr_del_entry(from_list, ha, false, false);
->  }
->  
-> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> -				   struct netdev_hw_addr_list *from_list,
-> -				   int addr_len)
-> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
-> +			    struct netdev_hw_addr_list *from_list,
-> +			    int addr_len)
->  {
->  	int err = 0;
->  	struct netdev_hw_addr *ha, *tmp;
-> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
->  	}
->  	return err;
->  }
-> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
->  
->  /* This function only works where there is a strict 1-1 relationship
->   * between source and destination of they synch. If you ever need to
-> -- 
-> 2.34.1
+Add support for it.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+
+---
+
+(no changes since v2)
+
+Changes in v2:
+- split it from main patch add support for rk3576
+
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index b5f35839d5e8..efe7d0cbe155 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1454,16 +1454,18 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 		vop2_win_write(win, VOP2_WIN_AFBC_HALF_BLOCK_EN, half_block_en);
+ 
+ 	if (afbc_en) {
+-		u32 stride;
++		u32 stride, block_w;
++
++		/* the afbc superblock is 16 x 16 or 32 x 8 */
++		block_w = fb->modifier & AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 ? 32 : 16;
+ 
+-		/* the afbc superblock is 16 x 16 */
+ 		afbc_format = vop2_convert_afbc_format(fb->format->format);
+ 
+ 		/* Enable color transform for YTR */
+ 		if (fb->modifier & AFBC_FORMAT_MOD_YTR)
+ 			afbc_format |= (1 << 4);
+ 
+-		afbc_tile_num = ALIGN(actual_w, 16) >> 4;
++		afbc_tile_num = ALIGN(actual_w, block_w) / block_w;
+ 
+ 		/*
+ 		 * AFBC pic_vir_width is count by pixel, this is different
+@@ -1474,6 +1476,9 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 			drm_dbg_kms(vop2->drm, "vp%d %s stride[%d] not 64 pixel aligned\n",
+ 				    vp->id, win->data->name, stride);
+ 
++		 /* It's for head stride, each head size is 16 byte */
++		stride = ALIGN(stride, block_w) / block_w * 16;
++
+ 		uv_swap = vop2_afbc_uv_swap(fb->format->format);
+ 		/*
+ 		 * This is a workaround for crazy IC design, Cluster
+@@ -1504,7 +1509,11 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 		else
+ 			vop2_win_write(win, VOP2_WIN_AFBC_AUTO_GATING_EN, 1);
+ 
+-		vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 0);
++		if (fb->modifier & AFBC_FORMAT_MOD_SPLIT)
++			vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 1);
++		else
++			vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 0);
++
+ 		transform_offset = vop2_afbc_transform_offset(pstate, half_block_en);
+ 		vop2_win_write(win, VOP2_WIN_AFBC_HDR_PTR, yrgb_mst);
+ 		vop2_win_write(win, VOP2_WIN_AFBC_PIC_SIZE, act_info);
+-- 
+2.34.1
+
 
