@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12135E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BF1E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVjgrQn8Kz4udT6tzl75DQdtN/PzzMcqDzmpRZCKMhU=; b=hzYw8OlyG8rPLYu1aX5M/4u4g2
-	QejUBV02Kn6MBTt+7Y/P62sUPGcLI4sc3opENVv0v9Wmr2s2QVb7KuMGhtW65LZwmfLZlJd4fISki
-	NtIakIA09Y1FymTgyBzHJbrfgpKdcHXz2VdZJsTupi8v85c3243W8YH0EOG+A7y0wH/i7fo1hk0ia
-	UUxgJQvEVOCjIbn6YPBiCqqXdWo9m0kfPxl5k0jGGXDAuvD3edI0QJtPun2n8mQUFM/IQ3AwiIL2f
-	Rd4VZDF8OVs0CfARG0AERXcaTTjipbokxjK4BR1dX0/2itv+GhL+2tDj4gLCMumFIfBBOu+DnsoKs
-	0yPzKU/Q==;
+	bh=G8RfmL3AvNvjRbFRvayxLtCSLHYtKd02ysA1kw03ndY=; b=uH6rGFG8vMRipJJFj+idYhZKEt
+	5rj255BdsFaFlmGisn1GTsBGeZ7+zs9aamSN6zopkP1OuIZxeFAiivj79oIihvfVw2H5p+8nmX47q
+	FQNWiO5eEffh0tw8dGwCWbTmRFQnXu0E3rXzq8xcyeL6T0epZy1EdMFSLAenXEzucJPv7RKuHWD8/
+	qMUZxPBc6gif6u9E8EyIYzH8/cT1YmKKoI9P2WyWYj46mgY8zusl6p5/AGg4nPAS32M14qFRwDceM
+	m8OSzckgJLJ5UE1Pysv+oYCYupwnJ0a7OM9k62nZGx8gJw4eMoRJ4quoWdVYED+rCU12pKnhdimSZ
+	8d6aOm2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFZl-00000001m9n-1rUk;
-	Thu, 19 Dec 2024 12:24:21 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tOFar-00000001mSB-0Dhw;
+	Thu, 19 Dec 2024 12:25:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFYf-00000001lzp-20UU
+	id 1tOFZ7-00000001m1l-2OOV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 12:23:14 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tOFYR-000535-OG; Thu, 19 Dec 2024 13:22:59 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tOFYQ-004CcC-2E;
-	Thu, 19 Dec 2024 13:22:59 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tOFYR-008SaE-19;
-	Thu, 19 Dec 2024 13:22:59 +0100
-Date: Thu, 19 Dec 2024 13:22:59 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Carlos Song <carlos.song@nxp.com>, frank.li@nxp.com,
-	kernel@pengutronix.de, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	festevam@gmail.com, linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-Message-ID: <Z2QQI2gJNLjI-fam@pengutronix.de>
-References: <20241218043541.143194-1-carlos.song@nxp.com>
- <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Thu, 19 Dec 2024 12:23:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0C5D35C5FD7;
+	Thu, 19 Dec 2024 12:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B74EBC4CECE;
+	Thu, 19 Dec 2024 12:23:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734611020;
+	bh=/IuAcPIwUBrCjXNwP8OYHSPNpkb99m7b4O65MtXVJrM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jF6svL7s0EeSRwdvaf52rRum1UQJK+YieySotxqwrp+hKKcFWbEYueceh6qoA46PI
+	 a3crP6EOruTdfvMfM2YinuL7CDidKdKgn92CaJ6BDjpHx4gtuGMjnOES7sOOlY8et4
+	 RBoJkQVp3qzkIXGyR7SCny5K8dopP1nACDB1c8zMANv6Kf5LH8V7/Sq+pAw2VRa8w9
+	 C9/wx4JnBYquaLo6GdDATgfuW651htP7wf3RFc7mKpF+4QmGYjjEzcY2nZ/ddbnRCI
+	 0W7Gtsgb6dFbUG6rkGfzzwgWiFCgSaMrCXTBh5NceepKj0VzmDUcQQ25G1j4VwpKjY
+	 vsbSPHSXYSK5g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tOFZ4-005GGT-Dw;
+	Thu, 19 Dec 2024 12:23:38 +0000
+Date: Thu, 19 Dec 2024 12:23:37 +0000
+Message-ID: <864j2zrhdi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Eric Auger <eauger@redhat.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+References: <20241209053201.339939-1-gankulkarni@os.amperecomputing.com>
+	<867c89tc4q.wl-maz@kernel.org>
+	<c5b1c3d7-56ca-4afc-a831-045dba4beffa@os.amperecomputing.com>
+	<865xntt2kv.wl-maz@kernel.org>
+	<8be59ff3-6a68-48e1-8181-0ce4b2e7180f@os.amperecomputing.com>
+	<bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_042313_514375_FFBCBDC6 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20241219_042341_693671_BAABE1FE 
+X-CRM114-Status: GOOD (  30.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +103,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 01:02:29PM +0100, Andi Shyti wrote:
-> Hi Carlos,
+On Thu, 19 Dec 2024 09:30:11 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> > +	/*
-> > +	 * Init DMA config if supported, -ENODEV means DMA not enabled at
-> > +	 * this platform, that is not a real error, so just remind "only
-> > +	 * PIO mode is used". If DMA is enabled, but meet error when request
-> > +	 * DMA channel, error should be showed in probe error log. PIO mode
-> > +	 * should be available regardless of DMA.
-> > +	 */
-> > +	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-> > +	if (ret) {
-> > +		if (ret == -EPROBE_DEFER)
-> > +			goto clk_notifier_unregister;
-> > +		else if (ret == -ENODEV)
-> > +			dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> > +		else
-> > +			dev_err_probe(&pdev->dev, ret, "Failed to setup DMA, only use PIO mode\n");
 > 
-> Just for understanding, should we quit in this last case, as
-> well?
 > 
-> Before we were ignoring ENODEV and EPROBE_DEFER, but now you are
-> making it clear that other failures like ENOMEM might happen.
+> On 09-12-2024 11:04 pm, Eric Auger wrote:
+> > Hi Marc,
+> > 
+> > On 12/9/24 18:30, Marc Zyngier wrote:
+> >> On Mon, 09 Dec 2024 16:46:30 +0000,
+> >> Eric Auger <eauger@redhat.com> wrote:
+> >>> 
+> >>> Hi,
+> >>> 
+> >>> On 12/9/24 16:39, Ganapatrao Kulkarni wrote:
+> >>>> 
+> >>>> 
+> >>>> On 09-12-2024 06:50 pm, Marc Zyngier wrote:
+> >>>>> On Mon, 09 Dec 2024 12:25:34 +0000,
+> >>>>> Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+> >>>>>>>> 
+> >>>>>>>> During automated testing of Nested Virtualization using avocado-vt,
+> >>>>>>> 
+> >>>>>>> Which is not merged upstream. So what branch are you using? Based on
+> >>>>>>> what kernel version? On what HW? With which virtualisation features?
+> >>>>>>> 
+> >>>>>> 
+> >>>>>> Testing is done on Ampere's AmpereOne platform using 6.10 based kernel
+> >>>>>> with NV patches from your repo.
+> >>>>> 
+> >>>>> Grmbl... *Which* patches? At least give me the SHA1 of the branch,
+> >>>>> because I have no idea what you are running. And 6.10 is definitely
+> >>>>> not something I care about. If you're using the NV patches, the
+> >>>>> *minimum* you should run is 6.13-rc1, because that's what the current
+> >>>>> code is based on.
+> >>>>> 
+> >>>> 
+> >>>> I tried 6.13-rc1 based nv-next branch today, which failed to boot
+> >>>> UEFI as L1. Yet to debug this.
+> >>> 
+> >>> I confirm am stuck with the same issue with nv-next on AmpereOne.
+> >> 
+> >> All I can say is that it Works For Me (TM) on M2 and Snapdragon, using
+> >> kvmtool, a fresh EDK2 built by Ard, and with the guest running purely
+> >> VHE (FEAT_E2H0 not implemented).
+> >> 
+> >> I haven't tried QEMU, I don't have an AmpereOne. I have also spent way
+> >> too much time on this recently. So I'm afraid people interested in
+> >> making this particular combination work will have to debug it.
+> > 
+> > yes I do agree. I am currently setting up kvmtool to double check and I
+> > will debug the qemu issue.
+> 
+> I could boot Guest-hypervisor using QEMU with -bios and nv-next as L0
+> with edk2 (QEMU_EFI.fd) built from upstream tree and fedora-41 as
+> Guest-Hypervisor.
 
-Good point, dev_err_probe() would not print an error in case of EPROBE_DEFER,
-but in this case we should only print error and continue with PIO.
+Cool. This shows that Ard's hard work on EDK2 is paying off.
+
+> 
+> The issue was disappeared when upgraded from fc39 to fc41. Same was
+> experienced with the kvmtool boot as well(KVMTOOL_EFI.fd).
+
+I guess the fc39 kernel is too old to understand the VHE-only ID
+registers, which was introduced in 6.9.
+
+Once you teach QEMU how to disable VHE, you should be able to boot
+older kernels that predate this change.
+
+	M.
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Without deviation from the norm, progress is not possible.
 
