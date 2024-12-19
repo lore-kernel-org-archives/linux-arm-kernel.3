@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9E1E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12135E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFifa8ccl5RjkZmJV5Bnljn6AmhjaZzsqoQL6C+WMaI=; b=NGm4flCIBBRxcFCTrbgg5xmNgS
-	qfp3fD8kWp+BrBFyUfHKKKROjH5gYyCWnzCvxbBOuSi8Jn+2AzULW+lQhxjaprjarL2ZetNMVxyOI
-	EObZLXMcoMwNwifp4k6+diMtjoTILTY9qzGxPHi2oag462pAgcQ+yRU/w867VFOuQP7hg9a91IUg0
-	shh15K73jfoj58DnPu+dMJ6Konj7j8jsSFA/9HMcr0dlyjuHLzM1no77X3LT/fItCeHbOQi8VOd4p
-	lT/n0+pcH0yc2blUI76D7C8MEFQc3jdDM8qgMrhnt3fxYo1dZoIQGdi+RVM3zkxZfpR9neXpUAp+I
-	qXnbntIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BVjgrQn8Kz4udT6tzl75DQdtN/PzzMcqDzmpRZCKMhU=; b=hzYw8OlyG8rPLYu1aX5M/4u4g2
+	QejUBV02Kn6MBTt+7Y/P62sUPGcLI4sc3opENVv0v9Wmr2s2QVb7KuMGhtW65LZwmfLZlJd4fISki
+	NtIakIA09Y1FymTgyBzHJbrfgpKdcHXz2VdZJsTupi8v85c3243W8YH0EOG+A7y0wH/i7fo1hk0ia
+	UUxgJQvEVOCjIbn6YPBiCqqXdWo9m0kfPxl5k0jGGXDAuvD3edI0QJtPun2n8mQUFM/IQ3AwiIL2f
+	Rd4VZDF8OVs0CfARG0AERXcaTTjipbokxjK4BR1dX0/2itv+GhL+2tDj4gLCMumFIfBBOu+DnsoKs
+	0yPzKU/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFXG-00000001llZ-1ol4;
-	Thu, 19 Dec 2024 12:21:46 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tOFZl-00000001m9n-1rUk;
+	Thu, 19 Dec 2024 12:24:21 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFW9-00000001lVb-0f2f;
-	Thu, 19 Dec 2024 12:20:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1734610835;
-	bh=6I5nC4pkzPQPTM76bNW5JcA9mDmtxzl0/S6e8Z9l9so=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=exPgg5mqxnXefGuruwVmotBP2Pc1lYfflmOuK/oIfx+S2I6YDC9ACfpzXDit5wV7h
-	 TLpWmq+IgbM9d8+BeygQL6eSnol/qiAHFB7VoeuDvQIlpwHwkWn6Z0RALfP7IwYLxV
-	 9KZk1bAdq9Z7X2uQjKhrv7+gNpEw9a61x9KfGuH6jw6GCxUzClcke/5SJI8vUd3hsw
-	 nAo2lH/V10k9wSf3aembiTCOdBcp4Vo4Ov1fhZ9G+sXJM89XtanujtiNfJj3A6Z9yV
-	 aDdVvRcWq+W5bo3+pXDflvFmrS698L+kJNsABF2mx97tvi1rtC2LQqK58U4pgQ/5Pp
-	 8simtcZrDKBsQ==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7FA3317E3684;
-	Thu, 19 Dec 2024 13:20:34 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Tinghan Shen <tinghan.shen@mediatek.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20241218-mt8195-pcie1-reset-suspend-fix-v1-1-1c021dda42a6@collabora.com>
-References: <20241218-mt8195-pcie1-reset-suspend-fix-v1-1-1c021dda42a6@collabora.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8195: Remove suspend-breaking
- reset from pcie1
-Message-Id: <173461083442.58336.13259484924514720817.b4-ty@collabora.com>
-Date: Thu, 19 Dec 2024 13:20:34 +0100
+	id 1tOFYf-00000001lzp-20UU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 19 Dec 2024 12:23:14 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tOFYR-000535-OG; Thu, 19 Dec 2024 13:22:59 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tOFYQ-004CcC-2E;
+	Thu, 19 Dec 2024 13:22:59 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tOFYR-008SaE-19;
+	Thu, 19 Dec 2024 13:22:59 +0100
+Date: Thu, 19 Dec 2024 13:22:59 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Carlos Song <carlos.song@nxp.com>, frank.li@nxp.com,
+	kernel@pengutronix.de, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	festevam@gmail.com, linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
+Message-ID: <Z2QQI2gJNLjI-fam@pengutronix.de>
+References: <20241218043541.143194-1-carlos.song@nxp.com>
+ <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_042037_355764_7FEBA6E8 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241219_042313_514375_FFBCBDC6 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 Dec 2024 19:01:08 -0300, Nícolas F. R. A. Prado wrote:
-> The MAC reset for PCIe port 1 on MT8195 when asserted during suspend
-> causes the system to hang during resume with the following error (with
-> no_console_suspend enabled):
+On Thu, Dec 19, 2024 at 01:02:29PM +0100, Andi Shyti wrote:
+> Hi Carlos,
 > 
->   mtk-pcie-gen3 112f8000.pcie: PCIe link down, current LTSSM state: detect.quiet (0x0)
->   mtk-pcie-gen3 112f8000.pcie: PM: dpm_run_callback(): genpd_resume_noirq+0x0/0x24 returns -110
->   mtk-pcie-gen3 112f8000.pcie: PM: failed to resume noirq: error -110
+> > +	/*
+> > +	 * Init DMA config if supported, -ENODEV means DMA not enabled at
+> > +	 * this platform, that is not a real error, so just remind "only
+> > +	 * PIO mode is used". If DMA is enabled, but meet error when request
+> > +	 * DMA channel, error should be showed in probe error log. PIO mode
+> > +	 * should be available regardless of DMA.
+> > +	 */
+> > +	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+> > +	if (ret) {
+> > +		if (ret == -EPROBE_DEFER)
+> > +			goto clk_notifier_unregister;
+> > +		else if (ret == -ENODEV)
+> > +			dev_dbg(&pdev->dev, "Only use PIO mode\n");
+> > +		else
+> > +			dev_err_probe(&pdev->dev, ret, "Failed to setup DMA, only use PIO mode\n");
 > 
-> [...]
+> Just for understanding, should we quit in this last case, as
+> well?
+> 
+> Before we were ignoring ENODEV and EPROBE_DEFER, but now you are
+> making it clear that other failures like ENOMEM might happen.
 
-Applied to v6.13-next/dts64, thanks!
+Good point, dev_err_probe() would not print an error in case of EPROBE_DEFER,
+but in this case we should only print error and continue with PIO.
 
-[1/1] arm64: dts: mediatek: mt8195: Remove suspend-breaking reset from pcie1
-      commit: 3d7fdd8e38aafd4858935df2392762c1ab8fb40f
-
-Cheers,
-Angelo
-
-
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
