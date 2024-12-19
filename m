@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220DCE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 13:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D08E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 13:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMD1W6cpsE4dlGftuAN55ixpGuMA3g4YGiIJBVrtChc=; b=PPKkxLJJugEzyDBFDxcMma0HOt
-	g1yOC3EPnYDAWtetQLTGi+MMi1RI6kTBLEbNh6oqNTCKgjYX2MKf1m+xoqfvMt0GBqhMmceOHNb+F
-	QT1xgqHpLTkPA+UO7lStkmIKcFOuOaDfowi3+SOj0iQzulx/9CkbuvvcD7Hm+0eGeRzd/DGjlT5gz
-	LYs7Y8eYIz1iHYMe5qYvo8iKvn4LjLLhLTgCtmk8aqB+NwHwrQcfvtD7IBaSoV+/2bcENUoxjbEU2
-	+ezNfUJ1zqI6SbQp82ay/MH8NfZKKm7QWtIJJir1d07meaUZOOvDwMiPeF8+NNoeoGx52NTmzhkD8
-	AFafctyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MjdwPRbmSyVNFHa8aoT5DvbYJ1KQ+SpVtDOsm2CCGPk=; b=r2HVFMOSbhqQwZ9cdJx4UH7lWy
+	ilHi7V4x6qDNrb3W4hAx8327KsvD9FEXpWy2SVW/udpXr+f57DCVqecH7cPchs3oea1sizlK1i2Su
+	mAfO6QaORY9ZLt7HciK0WsJgJfGyarzV6Fu1bWoTXuxD7ZJKVCimO2VzzvontqJlzTb1/YXZwUoq/
+	lvVdvvDeDAHO44aWDQ9NCIE36avi7FGvDsr9nvKO4J3Zys43YuKRqIWtIA942QC2xayowoGzPUzSm
+	9XOIIueYAIqlrMoAI4JT0IxCGzlOQrqe6Wb1kgEO/ruNP+4ISfEsxSi3T42oeqI7WwqPNeiLwHvD3
+	NpGbrwOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOGlH-00000001yVG-0UUz;
-	Thu, 19 Dec 2024 13:40:19 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tOGmJ-00000001ygy-3C9b;
+	Thu, 19 Dec 2024 13:41:23 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFa2-00000001mGe-22D9
+	id 1tOGl0-00000001yPc-01GR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 12:24:39 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2f13acbe29bso1471738a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 04:24:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734611077; x=1735215877; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xMD1W6cpsE4dlGftuAN55ixpGuMA3g4YGiIJBVrtChc=;
-        b=FxgQtY6qur0Bj7F0cgU4YOXTwq7CfZ2eQL/LnPwjwEY3QJieYVmhSNBG9A5AkGAV6Y
-         9nJKiCHcHekOpGRK47g6XLhnSywKYvrLxBKU1KNeMszD3TCUmXAHO1D9LntHUJ4olYzW
-         C7qJq1nowANuUyS5eoJGIWNyCXGcr4tm2OCb8voFO9d2OQtlkoVhHmhiowUPxJyLG0/X
-         Wj5xJhnoQk9KFT+z83ypYWVX9qGUVjxzcP/eelmtolvk53DuZQ9/JxGSwkd/2R4ZwgjB
-         FAeO0y0NAgaNlH65Zn0ZQavwk38a4N0L3G3cUHI0E5R+uqiFmurqiNyesEpAZpKx/QAn
-         3Xyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734611077; x=1735215877;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xMD1W6cpsE4dlGftuAN55ixpGuMA3g4YGiIJBVrtChc=;
-        b=t+EzwSnswRjkKm2joaF4rgdZaWuOvWHbVmwb+iC6jhMStUWRYwxraRMItXp/7hG70K
-         kY2pRRjzsNdVcpIPIPfClTdJTw7fo9F6vMFlJVyCH9vNs9DGME0gdRshn4wMqaxV1BT4
-         cDf3prq52vcGDzqaR2TrH7XKReEiCEzdLz9HMpBBpdUQ77AkgJtXXyo2ZxIs8IYtzcLq
-         3f9s3W7dWfR4NICj2DdQ92pNMo7da/xEnOPBOfgizzcJDz4KW7kKlEUQuM2XVZ6QvaYr
-         2oHihGd/jNM9qiVa+0rmCr9ii8HprRw3F4MGWvCq/pTwULrqWSYyiTdhRFFsyR7vOwxF
-         bWZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXcxl3MXByR6Vflr5Y4NWmjFaDPIiOmjzgDgV8Yu0nZqMxTG1o1Xm2kX0hooTLz69TWjRUT/Ep2VOVgJ3zNGQKV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywt6FNQeP0KsYblkqnIGqygC6KuWtJanT98F2FSy2PpwryTtqq+
-	tzlfj8xWVQWXwV83UEneIZyLZD6ky/K+WlCHvr/9JeNziP6DzK5765EY2vMeBMvu3KbCGw6N3n4
-	fVvSLlaHIiHI570ikPGYtYa8CTOJQC7z9/ZFo2g==
-X-Gm-Gg: ASbGncsjgAbTNz6DYfMHJUb+6ZZ4roT+tE0vMpzcE5z3tQlgPQjVL4MnMIU0ef9Htjt
-	4PQmY9i1OTOS9sgDElb5zoBA+JorKRV6JU0zQ2mc=
-X-Google-Smtp-Source: AGHT+IG7EkxyS4TQVkuiVVr+U0GafJQCULAaD0tMNyJzz6oqJuxymrmgecG5I0N5Jw8IQhcm61gXWaBDUODf0G/ZCRs=
-X-Received: by 2002:a17:90b:548c:b0:2ef:e063:b3f8 with SMTP id
- 98e67ed59e1d1-2f4435abac6mr5262624a91.7.1734611077500; Thu, 19 Dec 2024
- 04:24:37 -0800 (PST)
+	Thu, 19 Dec 2024 13:40:04 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4YDWml4jnPzFrcl;
+	Thu, 19 Dec 2024 21:36:55 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 605D314010D;
+	Thu, 19 Dec 2024 21:39:52 +0800 (CST)
+Received: from [10.174.179.163] (10.174.179.163) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 19 Dec 2024 21:39:51 +0800
+Message-ID: <0a84f8ce-80a3-c49a-28a1-0d3c5e8839fa@huawei.com>
+Date: Thu, 19 Dec 2024 21:39:50 +0800
 MIME-Version: 1.0
-References: <20241216115006.415861-1-yeoreum.yun@arm.com> <20241216115006.415861-10-yeoreum.yun@arm.com>
-In-Reply-To: <20241216115006.415861-10-yeoreum.yun@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 19 Dec 2024 12:24:26 +0000
-Message-ID: <CAJ9a7ViC+ZSzNYTo+mKK4UYw=GBO9TCyJ2WHN879=hO-tq8JvQ@mail.gmail.com>
-Subject: Re: [PATCH v3 9/9] coresight/ultrasoc: change cti_drvdata spinlock's
- type to raw_spinlock_t
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: suzuki.poulose@arm.com, james.clark@linaro.org, 
-	alexander.shishkin@linux.intel.com, bigeasy@linutronix.de, 
-	clrkwllms@kernel.org, rostedt@goodmis.org, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rt-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+From: Zeng Heng <zengheng4@huawei.com>
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 2/5] arm_mpam: Read
+ monitor value with new closid/rmid pair
+To: Dave Martin <Dave.Martin@arm.com>
+CC: <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <jonathan.cameron@huawei.com>,
+	<xiexiuqi@huawei.com>, "Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <20241207092136.2488426-3-zengheng4@huawei.com>
+ <Z1sMxKM9o6lAiZGr@e133380.arm.com>
+Content-Language: en-US
+In-Reply-To: <Z1sMxKM9o6lAiZGr@e133380.arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.179.163]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_042438_521453_D0B481DB 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20241219_054002_382459_C64C1A30 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,109 +76,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Title of patch - this patch has nothing to do with cti_drvdata.
-
-Mike
 
 
-On Mon, 16 Dec 2024 at 11:50, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
->
-> In ultrasoc-smb drivers, smb_drv_data->spinlock can be held
-> during __schedule() by perf_event_task_sched_out()/in().
->
-> Since smb__drv_data->spinlock type is spinlock_t and
-> perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-> which is raw_spinlock_t (an unsleepable lock),
-> this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
->
-> To address this, change type smb_drv_data->spinlock in ultrasoc-smb drivers,
-> which can be called by perf_event_task_sched_out()/in(),
-> from spinlock_t to raw_spinlock_t.
->
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  drivers/hwtracing/coresight/ultrasoc-smb.c | 12 ++++++------
->  drivers/hwtracing/coresight/ultrasoc-smb.h |  2 +-
->  2 files changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
-> index dc3c9504dd7c..26cfc939e5bd 100644
-> --- a/drivers/hwtracing/coresight/ultrasoc-smb.c
-> +++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
-> @@ -98,7 +98,7 @@ static int smb_open(struct inode *inode, struct file *file)
->         struct smb_drv_data *drvdata = container_of(file->private_data,
->                                         struct smb_drv_data, miscdev);
->
-> -       guard(spinlock)(&drvdata->spinlock);
-> +       guard(raw_spinlock)(&drvdata->spinlock);
->
->         if (drvdata->reading)
->                 return -EBUSY;
-> @@ -152,7 +152,7 @@ static int smb_release(struct inode *inode, struct file *file)
->         struct smb_drv_data *drvdata = container_of(file->private_data,
->                                         struct smb_drv_data, miscdev);
->
-> -       guard(spinlock)(&drvdata->spinlock);
-> +       guard(raw_spinlock)(&drvdata->spinlock);
->         drvdata->reading = false;
->
->         return 0;
-> @@ -245,7 +245,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
->         struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
->         int ret = 0;
->
-> -       guard(spinlock)(&drvdata->spinlock);
-> +       guard(raw_spinlock)(&drvdata->spinlock);
->
->         /* Do nothing, the trace data is reading by other interface now */
->         if (drvdata->reading)
-> @@ -280,7 +280,7 @@ static int smb_disable(struct coresight_device *csdev)
->  {
->         struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
->
-> -       guard(spinlock)(&drvdata->spinlock);
-> +       guard(raw_spinlock)(&drvdata->spinlock);
->
->         if (drvdata->reading)
->                 return -EBUSY;
-> @@ -378,7 +378,7 @@ static unsigned long smb_update_buffer(struct coresight_device *csdev,
->         if (!buf)
->                 return 0;
->
-> -       guard(spinlock)(&drvdata->spinlock);
-> +       guard(raw_spinlock)(&drvdata->spinlock);
->
->         /* Don't do anything if another tracer is using this sink. */
->         if (csdev->refcnt != 1)
-> @@ -563,7 +563,7 @@ static int smb_probe(struct platform_device *pdev)
->
->         smb_reset_buffer(drvdata);
->         platform_set_drvdata(pdev, drvdata);
-> -       spin_lock_init(&drvdata->spinlock);
-> +       raw_spin_lock_init(&drvdata->spinlock);
->         drvdata->pid = -1;
->
->         ret = smb_register_sink(pdev, drvdata);
-> diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
-> index a91d39cfccb8..c4c111275627 100644
-> --- a/drivers/hwtracing/coresight/ultrasoc-smb.h
-> +++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
-> @@ -115,7 +115,7 @@ struct smb_drv_data {
->         struct coresight_device *csdev;
->         struct smb_data_buffer sdb;
->         struct miscdevice miscdev;
-> -       spinlock_t spinlock;
-> +       raw_spinlock_t spinlock;
->         bool reading;
->         pid_t pid;
->  };
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
->
+On 2024/12/13 0:18, Dave Martin wrote:
+> Hi,
+> 
+> On Sat, Dec 07, 2024 at 05:21:33PM +0800, Zeng Heng wrote:
+>> The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs.
+>> For the new rmid allocation strategy, it will check if there is an
+>> available rmid of any reqPARTID which belongs to the input closid, not just
+>> the rmids belonging to the closid.
+>>
+>> For a mixture of MSCs system, for MSCs that do not support narrow-partid,
+>> we use the PARTIDs exceeding the number of closids as reqPARTIDs for
+>> expanding the monitoring groups.
+>>
+>> In order to keep the existing resctrl API interface, the rmid contains both
+>> req_idx and PMG information instead of PMG only under the MPAM driver. The
+>> req_idx represents the req_idx-th sub-monitoring group under the control
+>> group. The new rmid would be like:
+>>
+>>      rmid = (req_idx << shift | pmg).
+>>
+>> The mapping relationships between each group's closid/rmid and the
+>> respective MSCs' intPARTID/reqPARTID/PARTID are illustrated:
+>>
+>> n - Indicates the total number of intPARTIDs
+>> m - Indicates the number of reqPARTIDs per intPARTID
+>>
+>> P - Partition group (control group)
+>> M - Monitoring group
+>>
+>> Group closid rmid.req_idx (req)PARTID      MSCs with narrow-partid  MSCs without narrow-partid
+>> P1    0      -            0                   intPARTID_1              PARTID_1
+>> M1_1  0      0            0                       ├── reqPARTID_1_1       ├── PARTID_1_1
+>> M1_2  0      1            0+n                     ├── reqPARTID_1_2       ├── PARTID_1_2
+>> M1_3  0      2            0+n*2                   ├── reqPARTID_1_3       ├── PARTID_1_3
+>>   ...                                              ├── ...                 ├── ...
+>> M1_m  0      (m-1)        0+n*(m-1)               └── reqPARTID_1_m       └── PARTID_1_m
+>>
+>> P2    1      -            1                   intPARTID_2              PARTID_2
+>> M2_1  1      0            1                       ├── reqPARTID_2_1       ├── PARTID_2_1
+>> M2_2  1      1            1+n                     ├── reqPARTID_2_2       ├── PARTID_2_2
+>> M2_3  1      2            1+n*2                   ├── reqPARTID_2_3       ├── PARTID_2_3
+>>   ...                                              ├── ...                 ├── ...
+>> M2_m  1      (m-1)        1+n*(m-1)               └── reqPARTID_2_m       └── PARTID_2_m
+>>
+>> Pn    (n-1)  -            (n-1)               intPARTID_n              PARTID_n
+>> Mn_1  (n-1)  0            (n-1)                   ├── reqPARTID_n_1       ├── PARTID_n_1
+>> Mn_2  (n-1)  1            (n-1)+n                 ├── reqPARTID_n_2       ├── PARTID_n_2
+>> Mn_3  (n-1)  2            (n-1)+n*2               ├── reqPARTID_n_3       ├── PARTID_n_3
+>>   ...                                              ├── ...                 ├── ...
+>> Mn_m  (n-1)  (m-1)        (n-1)+n*(m-1) = n*m-1   └── reqPARTID_n_m       └── PARTID_n_m
+>>
+>> Based on the example provided, the conversion relationship between
+>> closid/rmid and (req)PARTID/PMG is:
+>>
+>>      (req)PARTID = (rmid.req_idx * n) + closid,
+>>      PMG = rmid.pmg.
+> 
+> It seemed more natural to me for the PARTIDs assigned to a particular
+> CLOSID to be consecutively numbered (see [1]), though it works either
+> way.
+> 
+> Otherwise, the approach makes sense.
+
+Yes, I agree with your point and it would be included in the next 
+version soon.
 
 
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Best Regards,
+Zeng Heng
 
