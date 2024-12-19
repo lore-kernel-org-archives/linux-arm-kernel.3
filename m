@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A182E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4D7E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 20:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULCkiQ8VoXo6ciE6Elqk4HCN1p6ytUWA5waL2W1UArY=; b=esc+M/ljiSU95Yu5CbcMahsiGh
-	9jDfZsgBdqvpgNxXtMcJjIsd5EAQwLeyjn/8o/DwGx3iF/w1PvXwryfBrGVZTVejav15+uza0ICZv
-	aqO9tZFovZjA3ACJVqYneCL+6wZGLjBPFpnxc3+fEzE7WczfMS6VBUdIjRUdMmbvU1FldM/XArgWN
-	r+QQT18NxuDMnckMCByzasa2AjzkAFdaMHpJbAukqaQH027NWGt5hEcZtDpWhNhigu0iUnicfXX0t
-	cBOuOhGu2VAltSIAtWrZBzHrnJ7ynExUjlIVDyYSixxjeDZxX7HBXkG2pjZpbp7Q7d2aKzx1MQEgt
-	oDVB6/WQ==;
+	bh=NpSkCESXzD33ldEw8LvJ7rj1ygUxBpHnL7ohb5Ul8P4=; b=rOTprgtZwMSJBoBmaid1vP49WW
+	8H777uWeu4N6RYe+JsLQ7iYcQvUPA6L1DOAvxRzvzKimrTPBVCNRawaZXeJz8hKCgnCZRjeSk34PD
+	rx+3HsaXQDp+UxCs4uJ80wRGfagmg5sNsmU60NWML8nGI2wLFl20MJOU6tR91qTNC9j6H8rqxUgwU
+	nEJxmVDdIF1rKOkircAVrt0n5Vn1Iu6GAH3goG2VXnvbHiguF2Ma8T6+9oCaIKNLRmF0kE66xwmq8
+	8Uhfmtq0564tI73yH3S7lwy2o8SdkPdGOLCzaEvr+Nnp49qaqZ+iuZvBPo/O+h2btWQ66A7t/S2aJ
+	Ja3TRSmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMuf-00000002zkV-0OBX;
-	Thu, 19 Dec 2024 20:14:25 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tOMvk-0000000301J-3Boo;
+	Thu, 19 Dec 2024 20:15:32 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMkO-00000002xa4-2v2D
+	id 1tOMkQ-00000002xbJ-2Bxi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 20:03:50 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5d0ac27b412so1486723a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 12:03:48 -0800 (PST)
+	Thu, 19 Dec 2024 20:03:51 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3e6f6cf69so1706383a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 12:03:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734638627; x=1735243427; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734638629; x=1735243429; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ULCkiQ8VoXo6ciE6Elqk4HCN1p6ytUWA5waL2W1UArY=;
-        b=BLFDDxForMYWJPzLDtbsmVIkrHE+B1hw/Hg4Cs1ZdVDF1D8pcVjJYJVHv4ZhrvDPqi
-         2yojZRGezt1z9bL5NJBFXjFHHSXxfXXIzcUWzsN0aqwt1lw63cElep9RLqGUJeFMPuts
-         1Vi4nT5ntzy9jeLyTEJWIQ8R16ewVIHCqcWrqam8q4NwQ10wInC5Zm+sH9taSpihErcH
-         0enAIIkz7luUJjwK4k04nl9nlwt9MRDs8sAORdkWQVjTWyOVeEjRJPip9cbFhMkZtOOa
-         jIn6mq1gf+vnTjewC9OEIlEXDo2y/GR42JAsKEKp9DV1qv7AWkQSJW87CEPfAnLaDnLa
-         fLxw==
+        bh=NpSkCESXzD33ldEw8LvJ7rj1ygUxBpHnL7ohb5Ul8P4=;
+        b=ZrvnabzVTBVsR73QP6udv8nFWwIAK2o61G3ghVrFgmLPHO8J16KOnkYupsQjiMo+Vm
+         dVpQeHEdt1hsXOuSQ4nnEO5kdKVD3Bhcit7ywbHl7yCBhDUUZGtDhb6TJK/qWmyjiB7r
+         TbfKBT5MN7YfnZKtkGqbRfrBxtT4tl3uK2V/Mj++O9Xh5E1qO3P/0KMZLHQ7HCql3zxb
+         NocTnWNSKiQqMKIMac+VUeUg++zcorucLthvjv85GF1uDtSiFUfAiOG3evQZCYwRjMvZ
+         C8qFcvaI3a6tEkkdFjacS+hkthO8b8CQ87VQnOusdhUF1mawT7+loeSmkct3Luv6Oelr
+         jXbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734638627; x=1735243427;
+        d=1e100.net; s=20230601; t=1734638629; x=1735243429;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ULCkiQ8VoXo6ciE6Elqk4HCN1p6ytUWA5waL2W1UArY=;
-        b=F9IxY7e/s8VGl+/j6s/wgeT57OO8auOTzTs+c/aPVAt1tx4+3BrLJCXPPXsVE7fuNN
-         Mdl23pRCr4EYRJkCCU+tzkC8yP9l83EytwEi0jIYiAuDIgBlv+G/kFrQi/eyiqCT/vs1
-         4V1BVCdMTyapVlTWWDJXQcgSjFrvnM6FKj8I4nSyLtqwe4qLK9KBm9xZdhtapdpHXFUx
-         91ByccoE2yy7RqOJ5A0yo9kHoWemEvSlF1DEHvy/f1JSssQuDDHx/GHPXNpztVJl953X
-         qiQTvWnpDr+Uz2lOr2hajf/MT2Krx4pyE/emmtM6m67PtwVd/ytM/Wq4/Urm9AOtASWh
-         9iZQ==
-X-Gm-Message-State: AOJu0Yy7GdXHcuYSr2DcZYkpyyJveZ+Gyr3ZvXk1SSeakFGzkcyfKrzz
-	6TMdoK/6sC1T/LzIvix20nHyB68xnL5WNriQ7g3vfVi/kSiM0u6Oz6un3nVy9hA=
-X-Gm-Gg: ASbGnctWNYOz/YNEK6/TVPOGtwYzLGnB3/Jku1ManWKF8ZhW9zqJpiFkKvfvFsNrg9N
-	pWTyIdoB8bTtzUD+btGjB2pHI/fANrYWI6ljwo5PsUyVc1osA163goM8d62qTZkbpqfBe8QO0EA
-	cpqVtgODp1/o2Yqv10xMK7zER5YabLTJYE3xHFQpWeHAI6tuMu72u9MJUjmc+X3hPTbp5cMg1hY
-	1OGD1lHO4laI/e6eYbdxCkY6zr3RZaqI01TSSsWX0rjt0Jy3Q==
-X-Google-Smtp-Source: AGHT+IELH0oCu4fjW7oZX27SBjII/M71jzzcfKoxPHZ++4GSGWA7IXgMSzFoeG+SeCLv2JVdSNynlA==
-X-Received: by 2002:a17:907:944d:b0:aa6:c266:97cc with SMTP id a640c23a62f3a-aac2ad8e1c2mr8332966b.23.1734638627209;
-        Thu, 19 Dec 2024 12:03:47 -0800 (PST)
+        bh=NpSkCESXzD33ldEw8LvJ7rj1ygUxBpHnL7ohb5Ul8P4=;
+        b=V6W4o/OfwFhFazttq17rjVp6+83YgEK6Dk++y1pwhOWbDpd2Gz1UWI9jryGXtzAk2M
+         bvvH/ma4JfjRxHg+c6ihdICsLTRWP4K+xDqQq0CKPgGEr+P26Yxtsm7DWCRnj9C8p08F
+         NZok6+niFGNwvggiqiBOfb0V6mINJFoNlwMvsSXL4p8xcNfciv6FcNGzJHBIwpyMKpKN
+         ijGWQJhaCsPwOLtXlLm03m5MnVRk2kjhovylyctQF6vt3x2xU0ksRq5JaOY7l3iEPkAD
+         CUo8XwDu40ULECZMfRR4YxtELjHEvzUav5IIFwLRYJh48uy9aHlBjjDBydL1Wpp5s7DI
+         xCQQ==
+X-Gm-Message-State: AOJu0Yxb1vyxSxmMm7aDsL4tVA/wYeAeXESMTnUKek86JpBublfSLXtl
+	2XKXnqapISaXZG7Z7iS1otaR2aW9YiIAdhIyYA80Ts7vVJ9VPzGJBhqA647xvg0=
+X-Gm-Gg: ASbGncvVgYp9nXedoxQMtOs8LEYohYVZqCHBlpHbVDGYWS2poUW1V+Dm2QqFVxha/eO
+	HzmZy5mly69+YFdPuVL7eGGwYbm2ZPK7nT8QJc/PyBF9figC8Bm5pCmUPCFP9oMklcnttueqapm
+	bIIUqUsoZB08whJ1pBCDJOgO6TEuCcSBCFvlNNKL/gJOwQDxv8nEKG70flnG0ItCxtez+QDxQJ5
+	E+uQTcKCUG4JYHhBV5APu8DPomW+eij4cynWzQ3ADmOrRvqKQ==
+X-Google-Smtp-Source: AGHT+IF82S/mlq+e2He9tjy3cysnJj4+yC4VHjyyy2VTYMe7y13y6XuWTxuoxho0NH4K7vaCcomgtA==
+X-Received: by 2002:a17:907:9621:b0:aab:f8e8:53b9 with SMTP id a640c23a62f3a-aac345f427dmr6210066b.58.1734638628989;
+        Thu, 19 Dec 2024 12:03:48 -0800 (PST)
 Received: from localhost ([2001:4090:a244:82f5:6854:cb:184:5d19])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e830ae6sm99991566b.22.2024.12.19.12.03.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f011f87sm98415366b.142.2024.12.19.12.03.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 12:03:46 -0800 (PST)
+        Thu, 19 Dec 2024 12:03:48 -0800 (PST)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Thu, 19 Dec 2024 21:02:14 +0100
-Subject: [PATCH v4 3/4] arm64: dts: ti: k3-pinctrl: Add WKUP_EN flag
+Date: Thu, 19 Dec 2024 21:02:15 +0100
+Subject: [PATCH v4 4/4] arm64: dts: ti: am62-lp-sk: Add wakeup mcu_mcan0/1
+ pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-topic-am62-partialio-v6-12-b4-v4-3-1cb8eabd407e@baylibre.com>
+Message-Id: <20241219-topic-am62-partialio-v6-12-b4-v4-4-1cb8eabd407e@baylibre.com>
 References: <20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com>
 In-Reply-To: <20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
@@ -85,17 +86,17 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Kevin Hilman <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, 
  Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1051; i=msp@baylibre.com;
- h=from:subject:message-id; bh=raNMV7XctJIbSEmg1aR+IsRod9wfbi2q0jEtotc1h3A=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJTakRWuOsJ1L8p1NALuSEx9UrfAfFqxypZpe5/mybfe
- H/3tVpVRykLgxgHg6yYIsvdDwvf1cldXxCx7pEjzBxWJpAhDFycAjCRJx8ZGZ4Lvit/aTfVSXaL
- VsTXWYmMm7yWfTJzz9u4c8fr0kU90q8Z/ucWZ+evvDdrgfvTgAOrgmccv9IhqL1uqa/1R4ak+wn
- RqWwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2255; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=IOefNd31nyYbDmidXJO9wxo5hzXqvpD8mI8ntPvadk0=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJTaiTq6r7J5Zyv2RT7eklD9UodC2fLU5s+uYeHt1SnP
+ 9PUn87cUcrCIMbBICumyHL3w8J3dXLXF0Sse+QIM4eVCWQIAxenAEykn4GRYedvBcGnond2OHxo
+ eJH+Oyfg9YPrq2X+MP90NW7zP1Mw6zzD/yILA+GjCyQ+1Rc+V3g8y+/aMydGsXqHw3u1I+7xTFn
+ yngkA
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_120348_735774_6DE3009E 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20241219_120350_565324_BB8C79C3 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +111,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-WKUP_EN is a flag to enable pin wakeup. Any activity will wakeup the SoC
-in that case.
+Add pincontrol definitions for mcu_mcan0 and mcu_mcan1 for wakeup from
+Partial-IO. Add these as wakeup pinctrl entries for both devices.
 
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- arch/arm64/boot/dts/ti/k3-pinctrl.h | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts | 52 ++++++++++++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-index 22b8d73cfd3264735ddf91874e60a0c5fc7ade5b..dd4d53e8420a1d671e04a70d4af8b0ea1b75b2b2 100644
---- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-+++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-@@ -12,6 +12,7 @@
- #define PULLTYPESEL_SHIFT	(17)
- #define RXACTIVE_SHIFT		(18)
- #define DEBOUNCE_SHIFT		(11)
-+#define WKUP_EN_SHIFT		(29)
- 
- #define PULL_DISABLE		(1 << PULLUDEN_SHIFT)
- #define PULL_ENABLE		(0 << PULLUDEN_SHIFT)
-@@ -38,6 +39,8 @@
- #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
- #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
- 
-+#define WKUP_EN			(1 << WKUP_EN_SHIFT)
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+index 8e9fc00a6b3c7459a360f9e1d6bbb60e68c460ab..22695715239644b1bfe209ba4f1c42fae4c59f70 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+@@ -232,3 +232,55 @@ &tlv320aic3106 {
+ &gpmc0 {
+ 	ranges = <0 0 0x00 0x51000000 0x01000000>; /* CS0 space. Min partition = 16MB */
+ };
 +
- /* Default mux configuration for gpio-ranges to use with pinctrl */
- #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
- 
++&mcu_mcan0 {
++	pinctrl-names = "default", "wakeup";
++	pinctrl-0 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_default>;
++	pinctrl-1 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_wakeup>;
++	status = "okay";
++};
++
++&mcu_mcan1 {
++	pinctrl-names = "default", "wakeup";
++	pinctrl-0 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_default>;
++	pinctrl-1 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_wakeup>;
++	status = "okay";
++};
++
++&mcu_pmx0 {
++	mcu_mcan0_tx_pins_default: mcu-mcan0-tx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x034, PIN_OUTPUT, 0) /* (D6) MCU_MCAN0_TX */
++		>;
++	};
++
++	mcu_mcan0_rx_pins_default: mcu-mcan0-rx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x038, PIN_INPUT, 0) /* (B3) MCU_MCAN0_RX */
++		>;
++	};
++
++	mcu_mcan0_rx_pins_wakeup: mcu-mcan0-rx-wakeup-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x038, PIN_INPUT | WKUP_EN, 0) /* (B3) MCU_MCAN0_RX */
++		>;
++	};
++
++	mcu_mcan1_tx_pins_default: mcu-mcan1-tx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x03c, PIN_OUTPUT, 0) /* (E5) MCU_MCAN1_TX */
++		>;
++	};
++
++	mcu_mcan1_rx_pins_default: mcu-mcan1-rx-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x040, PIN_INPUT, 0) /* (D4) MCU_MCAN1_RX */
++		>;
++	};
++
++	mcu_mcan1_rx_pins_wakeup: mcu-mcan1-rx-wakeup-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x040, PIN_INPUT | WKUP_EN, 0) /* (D4) MCU_MCAN1_RX */
++		>;
++	};
++};
 
 -- 
 2.45.2
