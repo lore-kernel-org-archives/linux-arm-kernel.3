@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27595E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 21:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF336E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 22:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3gUn+s2ljtXDVSpszgzdGFVOy55D1hgdYmkF4lUwd8=; b=W8L5OlpvQsIyGKKo0pCujPDPjU
-	ioWUzmXmdzBLKL03OtwTrKqA8NN8A8A/AsqBMlUWZPOb2XRgx0YvjEu7mE65NuNVesRSf80iidxDh
-	/g2aXyYF3+VivH8YzrvUme8gNqXjeaE1ZlST3CbHgOXEYV/Gd399KygiqidqQqzzBunodG1xTSYxT
-	UGv7I+qlUqPxMWzfjJaX6bHpbK93hO1jY0E81/4RkFHXY5f/5uDwo2lNM3MoDEkPF1Sq/xiCn5PBu
-	NrpRL9B3dCnswogtKeo0qWfxPIO6x0wHhpPcAgOWZAVBGWvq7LszY8QeZtu4vw7h58zgQFQvaWuKm
-	OaRu46jw==;
+	bh=FFzGcow9cupWHpIZyQc8735bkdGhLQtdRInVDTKhJy8=; b=41q+/rsckrkfQ+d8PQIOGOwrCo
+	fTiQArJgYunK8KYFi2IRB69YGQTYrxbVCXph+BoFxCQQn8fwdc5N6l8sWLO7S+aDYXTa4nTShuYkF
+	UgEHt8hcJaig0Ax7sQJp34wJJl7KtRKMUM1S8LlZb6Gd0sSj+PJPyHaDdYLP/HnxgUFMSdYS6oYg9
+	mscyP8K9eIk9hTknayRmyXTptAFzIl3E8Fx9hjhSJQkwXuugyZ5Cex7IBCE6BRi6lemmrfeHynjw1
+	RNsHvNX8QKaH4AEgHtgA9T63i3mtpaJPWM9tw+1rXjxehHgWq9qj47J4m7bPuomnIuXurbdzi5wK4
+	IYQxf2IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOOUM-00000003Cy3-30JH;
-	Thu, 19 Dec 2024 21:55:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tOOaQ-00000003DVf-3sGT;
+	Thu, 19 Dec 2024 22:01:38 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONMg-0000000346W-2Idz
+	id 1tOOZJ-00000003DNl-0r9S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 20:43:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5943DA42943;
-	Thu, 19 Dec 2024 20:41:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52CA6C4CEE2;
-	Thu, 19 Dec 2024 20:43:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734641001;
-	bh=G6bMfexz+wArkOSIy0OifiSOvN5KLKUMvRsykmliEsE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dmJnD9Qex8zb76MkRSNV8w/pleJc7agAVHdZmk37esuv92MR/LJ+YtapO71KAsR0K
-	 wI3cyZvGyyTX+/6RA4VqzLlu+fUanKgjXDCTfoym6JUz68cONpDKiG/kSGOXPILz3l
-	 2Tf4LrHcWE5FwJkGTRDWsetCsD9NcdIc36xzqIiDYA7Amva1d4tyqeCndgAhBOl2gz
-	 TQZgJmAXO52yqjkMX32XiSaIEJStw5vpBgqRuyPniwP5pJsKFxF1lILwVSYhlbhhQj
-	 OBt8J9DpejQAFpBEkfRqxCr6Gsf+4lHvWpWO0Am/Ge3EQUcPF6lbjHf98AVS6Wowq7
-	 bkXmD0fjJMD/w==
-Date: Thu, 19 Dec 2024 21:43:15 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <apatel@ventanamicro.com>, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, imx@lists.linux.dev, dlemoal@kernel.org,
-	jdmason@kudzu.us, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v13 4/9] irqchip/gic-v3-its: Add
- DOMAIN_BUS_DEVICE_PCI_EP_MSI support
-Message-ID: <Z2SFYwC7KC-qiZD2@ryzen>
-References: <20241218-ep-msi-v13-0-646e2192dc24@nxp.com>
- <20241218-ep-msi-v13-4-646e2192dc24@nxp.com>
- <868qscq70x.wl-maz@kernel.org>
- <Z2RRimPlT41Ru281@lizhi-Precision-Tower-5810>
- <Z2R9qPmAyTcc5mtg@ryzen>
- <Z2R/S4y3fF2Dw4Ye@lizhi-Precision-Tower-5810>
+	Thu, 19 Dec 2024 22:00:30 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5401b7f7141so994920e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 14:00:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734645627; x=1735250427; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FFzGcow9cupWHpIZyQc8735bkdGhLQtdRInVDTKhJy8=;
+        b=g+w19Ek5JqCNHeeMPaxxHm32ChgepMHruyg97k1zU4bQDmmJQK4YcvtOYek17q9t9l
+         9rBBnvP5vzx+ETH2RrHcdb59aDxHFq9tf50GEM82DRd/16HoaoElksNrPYhVNotlGgrq
+         ohlyX5c1rlf7q3/mA8SdxFmP1/h5oK+HUXMwGIKcu44xR0Yi0fMXjt/Exc4iwqCkaV98
+         nd9PT2NpPXEQ6XaWINY8MqR7/cmoBSnkqomI7iSx9E61TaHiB1D3XNvzdY0P5TBmht34
+         IELyIZY+RDfI60mniADUQpLtU8a6A1jhe6z3A4nEy7+LDRPM33cae1Bo5pwhyoKHBYoB
+         lvAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734645627; x=1735250427;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FFzGcow9cupWHpIZyQc8735bkdGhLQtdRInVDTKhJy8=;
+        b=Ad8K3dW5vzva+HmcJehx40r3GA4Q92VJqTpkbOtmK3+/ntNrbZUFaPPOsJagSTSru8
+         eYqBPz+YxvFRvCnuWbj75zjNTEOvL5cAFlrVZh6dirZ1cC2AHtLUGUBLU/llGwoHpP3i
+         gxpO+LLsUIw/pP6ll/lwcPCx3xJBihipf624n7XL2SP2JDXAaRsObUk+ly/YiXdsbmkA
+         z4XnKg4DkQBzun+8gohZwiiYTCVc1UtW91LjwGI77uN2GBSXaSANOLuP6mVIsM/ihKcs
+         VPNWnd2PTSiroaKAg2e6C0Wu7sE9bv7qHjpKOfLQs2m83Waaj/gj/9231COQmeMyxVWF
+         CMTg==
+X-Forwarded-Encrypted: i=1; AJvYcCXrd3uxSQS5/LvQFtkOooMVpeL9WnLp1VGCNYa2p0o8mHNuTBPYssvAEx6+oJcFH1Kdq6FuuVsm0utafZyGjPJr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmflP8AOPJvI+X3lpSXpZtWAdsZ4Vvkc75en/lycuSg02rJtIQ
+	hGpGe0n1XyVX43pP85J1cR4XLbXMPNbOJs7FzO4K/XOTRjzyRy06Jfq3Z3Pw5+4=
+X-Gm-Gg: ASbGncuy2b56WF9+N4fipmC+XiLVQOCDb7H9PTam1ZMLWG5X4FQbqDbj24qf8WW9q5a
+	FfOr13AdC8vJCgbmpWmDe7+OHvDVyA25/mzSAUJrTQUkFOZG/wTdULsRoLXtDgCj8x1lqgx5joh
+	K6qxKwHvu+7W8ykC+VNdX0HjMSHaNl5bopt3ayZ/Ip2PfLHSQPkj/PE9OujK4SCkuYMLcI/Ku9O
+	NSkymHB1leRg+wC1wJxA3qU/7iYOabEbTGIZquzFeKQfYTaCRcBh3BFa5qhPPraCi3MwdVXT/Rn
+	pK2nV7R8qoB+h3TcgwzO5SkeCBZYkkwO9flv
+X-Google-Smtp-Source: AGHT+IHQBbZSkaVrRpWCT0IrdJegFxLytVpYTu6EC2PCFOGjuoGMf59MaiCeqFQIHDIIyb9fygWDtQ==
+X-Received: by 2002:a05:6512:1150:b0:540:353a:7954 with SMTP id 2adb3069b0e04-5422957af61mr73815e87.54.1734645627457;
+        Thu, 19 Dec 2024 14:00:27 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f654csm286377e87.10.2024.12.19.14.00.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Dec 2024 14:00:26 -0800 (PST)
+Date: Fri, 20 Dec 2024 00:00:23 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Douglas Anderson <dianders@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Trilok Soni <quic_tsoni@quicinc.com>, Jeffrey Hugo <quic_jhugo@quicinc.com>, 
+	Roxana Bradescu <roxabee@google.com>, bjorn.andersson@oss.qualcomm.com, 
+	Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Besar Wicaksono <bwicaksono@nvidia.com>, D Scott Phillips <scott@os.amperecomputing.com>, 
+	Easwar Hariharan <eahariha@linux.microsoft.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] arm64: cputype: Add comments about Qualcomm Kryo
+ 5XX and 6XX cores
+Message-ID: <6xubvdnyo4otwanapxersipmae4uuwkvple2jaxyuu5ucepjju@kl6lhbde4ney>
+References: <20241219211131.2389091-1-dianders@chromium.org>
+ <20241219131107.v3.2.I520dfa10ad9f598581c2591d631aa6e9e26f7603@changeid>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z2R/S4y3fF2Dw4Ye@lizhi-Precision-Tower-5810>
+In-Reply-To: <20241219131107.v3.2.I520dfa10ad9f598581c2591d631aa6e9e26f7603@changeid>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_124322_647732_1815DCB0 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20241219_140029_259983_966A3D0A 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +105,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 03:17:15PM -0500, Frank Li wrote:
+On Thu, Dec 19, 2024 at 01:11:10PM -0800, Douglas Anderson wrote:
+> As tested on one example of a Qualcomm Kryo 5XX CPU [1] and one
+> example of a Qualcomm Kryo 6XX CPU [2], we don't need any extra MIDR
+> definitions for the cores in those processors. Add comments to make it
+> clear that these IDs weren't forgotten and just aren't needed.
 > 
-> Thank you very much. I update msi part, so endpoint controller node align
-> host controller node.
+> [1] https://lore.kernel.org/r/l5rqbbxn6hktlcxooolkvi5n3arkht6zzhrvdjf6kis322nsup@5hsrak4cgteq/
+> [2] https://lore.kernel.org/r/tx7vtur7yea6ruefrkpkccqptahgmxnsrudwdz5uzcfxnng25b@afrr5bmdk2xa/
 > 
-> It should be
-> msi-map = <0x0000 &its1 0x0000 0x1000>;
 > 
-> So if your hardware support multi physical function, your can create more
-> than one pci_test func. Previous version only support one EP func.
-
-I see. That seems like an improvement.
-I will need to ask Rockchip maintainer to drop my msi-parent patch for PCIe
-EP node then. (Which is currently queued up in for-6.14)
-
-However, for the PCIe host node, rk3588 has:
-iommu-map = <0x0000 &mmu600_pcie 0x0000 0x1000>;
-
-For the PCIe endpoint node, rk3588 has:
-iommus = <&mmu600_pcie 0x0000>;
-
-https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?h=v6.14-armsoc/dts64&id=da92d3dfc871e821a1bface3ba5afcf8cda19805
-
-Is it fine that for the PCIe EP node, we specify iommu mapping using:
-iommus = <&mmu600_pcie 0x0000>;
-but the ITS/MSI map will be:
-msi-map = <0x0000 &its1 0x0000 0x1000>;
-
-isn't this a bit inconsistent?
-
-The physical function is the "F" in the BDF.
-Does this mean that:
-iommus = <&mmu600_pcie 0x0000>;
-the IOMMU will not be able to distinguish different PCI physical functions
-from the same PCI device? So two different physical functions on the same
-PCI device share the same IOMMU mappings?
+> Suggested-by: Julius Werner <jwerner@chromium.org>
+> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+> ---
 
 
-Kind regards,
-Niklas
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+-- 
+With best wishes
+Dmitry
 
