@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97856E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4A6E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 19:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PSsUsziGK81k1yTW75CnH5+sdovk94GxRNxIWozf1vc=; b=txlYckt1o4xavpJdKfmIDOJmXn
-	6Fysx0JeIqxopiay5Udod0lF1FWCF0K9JYUFTbaLW8mKuQhZksrEmtjby0hIvJFA4N4/qurnxoTub
-	YoS3jceCJV2zC2turSoCcWBFOziPHkLGmSMLQqhXNSFt7smIBxfbcPXmmjCSo6Dlt2cc+jG4sgXd3
-	//MEkiysatZPpgcv4q1HdbS8NkZ5N94llr3StWpRVrItwCJ5IMJMqJQ6j5kvWqrf5x0GXyakwc6X/
-	7Y6xtNPjw/hDiuORAmiYUYoCZFmfQqoCsH0BAfp+zImSJpSUbg00WhM188Yk5ba0Q5LfjkEIpiKQA
-	nv9yggZA==;
+	bh=DcNykSXvZEZH6Z09FdqxCdBH2W9p3k2YZzsg2iWZuw4=; b=HtniTk8ELilXWuiPr4CgO2hjyT
+	aRKinhmT3oxSFULBzzXlcIHsiV1N1I5yBlaIzocuinEc82Qk9c/U+5W/6AmAiLmZ7M4sdA5IRFZQn
+	X+8S2E7MrCb/W68+utJhujFmHzzw5SugUYIoMAnEuVG5qzyeHVUkKDjZN2Ewqn+flIDQ9v6b9P85k
+	b0NUuacDJ8gFgHz+dBoqmH08zSWFnXDo7FutTusoOnWojmNiLP5quBWLnfAeVCVlOa/Q6amVGc8X6
+	DRZqwfO6o4moAWP8zIwWWP5uRj/ppIzyRtfkYmTV/x7mSeRIEFSHEj3o9b6WgL6x1RB2qC+V3CH8j
+	8EwZ3CZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMZw-00000002uFl-0DGK;
-	Thu, 19 Dec 2024 19:53:00 +0000
+	id 1tOMb0-00000002uOO-2iVJ;
+	Thu, 19 Dec 2024 19:54:06 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOMUl-00000002tTm-3u5U
+	id 1tOMUo-00000002tUh-0II9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 19:47:41 +0000
+	Thu, 19 Dec 2024 19:47:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AE4D8A428A9;
-	Thu, 19 Dec 2024 19:45:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A10A5C4CED0;
-	Thu, 19 Dec 2024 19:47:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DB971A428A9;
+	Thu, 19 Dec 2024 19:45:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59C22C4CED6;
+	Thu, 19 Dec 2024 19:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734637658;
-	bh=5t0vrlKWqM+WvY2kQcPO5vA5TZpypogXwio0H5peQRY=;
+	s=k20201202; t=1734637661;
+	bh=dkp8ipPFDwPUJsG40zHLmUUIeVPvehlts/Xx6kkeFyU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rs7AST/6sZLFxdbORIt4OjZHQmUxnQ2GXinwfg2nm9MMKSZ6KXN6D1P8UHEQZEpSZ
-	 jeqdtp7lIYmqrTaOw5gyXXN6spMy+DDdABvF8B05IdsmXS7XGiil01NSJFtBCPb0Fc
-	 K+OlMAgnBoLRHt/bCDfWPvX5lKuVZPi07jk03b748nADM6YAJRY7M1rv/582MLrMXn
-	 QYykUhEsrNLZ2crn3WvOcLxqZloZKfASVaQnLu4e9NVPNHoPnKGIKBEvYfCZdpcgkO
-	 KK/eTGo3+XB1byMzKlpd0m9GaFPaViPqRsJ4RiSvN5dnEVxFrbYanG9uRNk9BMH0Ik
-	 Ndm7EQPZCGj0A==
+	b=M+RbjNAv2y635UX58SLCFa7dknjWuDxCP0P9jtGl+RfoHw0+nqdGZBBWIA/RkU7tp
+	 09rdOAravATsThubSsycjvc8O9IDCHbQlxb2L5VsvNvN/aWds2bG4bVPXEXv9xrCDJ
+	 XwBjOqAd8I/H2rk3D1PL86W+NFomYCnfBx1DvnnOn5o8ZGYlauLtrXpKi4xUaxg8lL
+	 63bQQlmIpbpASNjj+SgM9BYE4mt0obyrOgci41xnD4KvDvbV7WqoqEzOKk27pVucLP
+	 KAsfpyWi3EkCCzj5TF3+kiMSHREncZHTIhG/kWJFaUaW+k2k8QdBIU+CI7CHdLrYEM
+	 QhWvaKABIeTqg==
 From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
+To: linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Mostafa Saleh <smostafa@google.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] perf/arm-cmn: Permit more exhaustive groups
-Date: Thu, 19 Dec 2024 19:47:12 +0000
-Message-Id: <173462242272.3910338.7654467298369824108.b4-ty@kernel.org>
+	robin.murphy@arm.com,
+	joro@8bytes.org
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Fix cfg reading in arm_lpae_concat_mandatory()
+Date: Thu, 19 Dec 2024 19:47:13 +0000
+Message-Id: <173462288874.3912129.4288094387004225028.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <bdfd1e58dac449e407c5cacfd6bf8577dc0a5899.1733943898.git.robin.murphy@arm.com>
-References: <bdfd1e58dac449e407c5cacfd6bf8577dc0a5899.1733943898.git.robin.murphy@arm.com>
+In-Reply-To: <20241215200412.561400-1-smostafa@google.com>
+References: <20241215200412.561400-1-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_114740_029267_3EBEF5CE 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20241219_114742_167051_49C3309A 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,21 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 Dec 2024 19:04:58 +0000, Robin Murphy wrote:
-> The group validation logic still somewhat assumes the original CMN-600
-> case of events counting globally, such that if one tries to group 9
-> events where the first 8 target a single DTC domain, the 9th will be
-> rejected because *a* DTC domain is full, even though it might only
-> target other non-overlapping domains and thus still be schedulable.
-> Improve matters by only counting the DTCs that the new event actually
-> needs (as arm_cmn_val_add_event() was already clever enough to do).
+On Sun, 15 Dec 2024 20:04:11 +0000, Mostafa Saleh wrote:
+> I messed up the newly introduced function arm_lpae_concat_mandatory()
+> where ias/oas are read from the io_pgtable_cfg copy in arm_lpae_io_pgtable.
+> 
+> However, this copy is set later in alloc_io_pgtable_ops() after alloc()
+> function was called.
+> 
+> I didn’t catch that with my selftesting as arm_lpae_io_pgtable is
+> allocated from kmalloc, which was caching old configs.
 > 
 > [...]
 
-Applied to will (for-next/perf), thanks!
+Applied to will (for-joerg/arm-smmu/updates), thanks!
 
-[1/1] perf/arm-cmn: Permit more exhaustive groups
-      https://git.kernel.org/will/c/e49ecdf79a60
+[1/1] iommu/io-pgtable-arm: Fix cfg reading in arm_lpae_concat_mandatory()
+      https://git.kernel.org/will/c/b7b8a6305557
 
 Cheers,
 -- 
