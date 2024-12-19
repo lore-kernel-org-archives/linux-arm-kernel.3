@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD394E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957D1E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ymriWqFwr9HRxksNE3aE+0DrnJhNrMNVqd3pw6xghYU=; b=hafCvkitL4XpGn
-	uTXV+/Vrb8FmdYNR6+B1y30bs5jqLdWViRs0P4dtakQAF6DZBMV5bAiNp3HmbOChBtG2jtfK0xaFp
-	XTMW924zVX8gs0JLX2/3pgLfiuyHKFpTa/HozEfYm66pJC5XTaw2BtufpQTuT3sKF92A7MRoX8z5p
-	XK+k5/UJ752+9dmHgf5c8OyennbjUXY9O6AV2i+wBus9Kh30chX/yUX4kfIfVYVg16lnZknb+jlOA
-	IiedwAk9izq0CX5GvwoAOGyW2FKUQcTvr/DQD1zbxtOdkpvxOkTIWzSlrJUWxP6RYjquYKmFCyyz3
-	9Rps4o962SwRUX4RfnMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NQVQSzUcgckGzNm/G+sHNAy/MIxr80U/xLcKk2Fov1Q=; b=LeYrYkUJcy7Ay2LGzsabcfzzyf
+	UFpexHT3RbpS6LFNTr+n17Bt5ZM9hv5wnvTkpqAG6W8nCfCsAU381cPgdJ0p5yprpoWev+5o0nULP
+	+2KyDFyse1LrPQPXIEmN+Rw3kn17+GJGOTDqmEBr8sdGPCXShZgLRfW9Ie9cVtLgThJWnLpfV3KVG
+	7rAJ1wohdW3UIVVKsRg7Z2IWCDhcoVD2WYlK0qtXCRfld5rSSWBVieVPG0uPeNwXTSZD2aMfLwq9z
+	cHC+q/N+YE3u4ZZMcvuyRwXMuMEMwBnmIezglSjMg+15lKwoYCh7L9PW8zWRjJli8kpi7hvFNHbYQ
+	Bs/pgYCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOBDO-000000018bm-1TAA;
-	Thu, 19 Dec 2024 07:44:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tOBET-000000018rG-41CM;
+	Thu, 19 Dec 2024 07:46:05 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAxL-000000015NI-3fGe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 19 Dec 2024 07:28:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=ymriWqFwr9HRxksNE3aE+0DrnJhNrMNVqd3pw6xghYU=; b=GOBlCT+l0B2xvV1ll8oYqUO53G
-	INTr7auWpMeXWoeZby1NQoQTwtVdfY8w84NDOGD3hlXh30foF332GXoExy5160zPjYdJu03sOxBHR
-	P+mguemxJpIjInhJu8kq64qx35opJtsGNyA+CGwEnpHtbfZnrmaXhim4PlXsrg8T9s1IgSfyehVg1
-	oVnboZo0j42AQCyNUzmXSYEecbE7NtpeGU3OJyPtH2S6JDI9tkYM9IGiL37R1epO7hzNqYMRm3MZ/
-	jGtIqjxAmEpwcVpNDVCRjDvYLTHD3NRm6HZHSx5helIUR48/CTfIvOQLbUxE+FU2KceM8Pu81aLCq
-	1QaGDFWw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAxI-00000005P7I-3QaX
+	id 1tOB0G-000000015xs-3UWU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:28:22 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwX-000727-NA; Thu, 19 Dec 2024 08:27:33 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwW-004AP5-1G;
-	Thu, 19 Dec 2024 08:27:33 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwX-00Gewn-0I;
-	Thu, 19 Dec 2024 08:27:33 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: [PATCH 0/6] arm64: dts: freescale: imx8mp-skov: switch to nominal
- drive mode
-Date: Thu, 19 Dec 2024 08:27:31 +0100
-Message-Id: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
+	Thu, 19 Dec 2024 07:31:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734593485; x=1766129485;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZZ4Yw8mnLFE9pr9KFpUOJ0wK/oQg7MB5V5+2UKyheDk=;
+  b=dLt36csg+3ZY1poM1gGDnQLfNbHFl/Z+zdKThqB/jRk5M5jDLRiAiWVA
+   C9sq4nZwZAoO4u4+tEmS8heJ5OIPVmIpWu8cPcKmhnuGBSWGtgCfobEfU
+   lTvrNzYiAhEoVwHWbSGWP6j5+Q8leDnQsNRhL1i1HKfIcMRf4qQ89Fic6
+   DV5Un8PAbPLB9HdsN0FWHlTndO3novhdwZTgGoIe2/hnw+OMVAmfdNflj
+   asMILPYrvOFdqvapMlhgTR4hFP5EhMbxMN09rsmVfzDsNr3n6xgyhNX9p
+   gvgNMe2CcBkv3vUHYUItPuXdKsK1CirwHQe9SfvfGdV/IvgXDr/gMJIkT
+   w==;
+X-CSE-ConnectionGUID: unmUa+VkT/C8395J6cuLiw==
+X-CSE-MsgGUID: CiFlO8GFSkS+4YIAUS2MyQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11290"; a="52617402"
+X-IronPort-AV: E=Sophos;i="6.12,247,1728975600"; 
+   d="scan'208";a="52617402"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2024 23:31:24 -0800
+X-CSE-ConnectionGUID: YXZ1m4t6Sk+gTUfnKbNs4g==
+X-CSE-MsgGUID: 8cusURGOSjiiGLYNquOujQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="102249969"
+Received: from mev-dev.igk.intel.com ([10.237.112.144])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2024 23:31:19 -0800
+Date: Thu, 19 Dec 2024 08:28:14 +0100
+From: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: aleksander.lobakin@intel.com, lukma@denx.de, m-malladi@ti.com,
+	diogo.ivo@siemens.com, rdunlap@infradead.org,
+	schnelle@linux.ibm.com, vladimir.oltean@nxp.com, horms@kernel.org,
+	rogerq@kernel.org, pabeni@redhat.com, kuba@kernel.org,
+	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next 3/4] net: ti: icssg-prueth: Add Multicast
+ Filtering support for VLAN in MAC mode
+Message-ID: <Z2PLDqqrLdXhLtAF@mev-dev.igk.intel.com>
+References: <20241216100044.577489-1-danishanwar@ti.com>
+ <20241216100044.577489-4-danishanwar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOPKY2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIxNDI0Nz3czcCotc3eScbF1LEzNzczPjlLTkFAsloPqCotS0zAqwWdGxtbU
- AOf4Rq1sAAAA=
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>, 
- Marek Vasut <marex@denx.de>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.13-dev
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241216100044.577489-4-danishanwar@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_072820_965077_1265E0D5 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20241218_233124_887478_33D6D0FF 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,49 +91,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the imx8mp.dtsi
-configures some clocks at frequencies that are only validated for
-overdrive mode, i.e., when VDD_SOC is 950 mV.
+On Mon, Dec 16, 2024 at 03:30:43PM +0530, MD Danish Anwar wrote:
+> Add multicast filtering support for VLAN interfaces in dual EMAC mode
+> for ICSSG driver.
+> 
+> The driver uses vlan_for_each() API to get the list of available
+> vlans. The driver then sync mc addr of vlan interface with a locally
+> mainatined list emac->vlan_mcast_list[vid] using __hw_addr_sync_multiple()
+> API.
+> 
+> The driver then calls the sync / unsync callbacks and based on whether
+> the ndev is vlan or not, driver passes appropriate vid to FDB helper
+> functions.
+> 
+> This commit also exports __hw_addr_sync_multiple() in order to use it
+> from the ICSSG driver.
+> 
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> ---
+>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 69 ++++++++++++++++----
+>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  6 ++
+>  include/linux/netdevice.h                    |  3 +
+>  net/core/dev_addr_lists.c                    |  7 +-
+>  4 files changed, 68 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index e031bccf31dc..a18773ef6eab 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -472,30 +472,43 @@ const struct icss_iep_clockops prueth_iep_clockops = {
+>  
+>  static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
+>  {
+> -	struct prueth_emac *emac = netdev_priv(ndev);
+> -	int port_mask = BIT(emac->port_id);
+> +	struct net_device *real_dev;
+> +	struct prueth_emac *emac;
+> +	int port_mask;
+> +	u8 vlan_id;
+>  
+> -	port_mask |= icssg_fdb_lookup(emac, addr, 0);
+> -	icssg_fdb_add_del(emac, addr, 0, port_mask, true);
+> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, true);
+> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
+> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
+Looks like a helper for that can be nice to have.
 
-For the Skov i.MX8MP board, we want to run the SoC at the lower voltage of
-850 mV though to reduce heat generation and power usage. For this to work,
-clock rates need to adhere to the limits of the nominal drive mode.
+> +	emac = netdev_priv(real_dev);
+> +
+> +	port_mask = BIT(emac->port_id) | icssg_fdb_lookup(emac, addr, vlan_id);
+> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, true);
+> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, true);
+>  
+>  	return 0;
+>  }
+>  
+>  static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
+>  {
+> -	struct prueth_emac *emac = netdev_priv(ndev);
+> -	int port_mask = BIT(emac->port_id);
+> +	struct net_device *real_dev;
+> +	struct prueth_emac *emac;
+>  	int other_port_mask;
+> +	int port_mask;
+> +	u8 vlan_id;
+> +
+> +	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_MAC;
+> +	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
+> +	emac = netdev_priv(real_dev);
+>  
+> -	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, 0);
+> +	port_mask = BIT(emac->port_id);
+> +	other_port_mask = port_mask ^ icssg_fdb_lookup(emac, addr, vlan_id);
+>  
+> -	icssg_fdb_add_del(emac, addr, 0, port_mask, false);
+> -	icssg_vtbl_modify(emac, 0, port_mask, port_mask, false);
+> +	icssg_fdb_add_del(emac, addr, vlan_id, port_mask, false);
+> +	icssg_vtbl_modify(emac, vlan_id, port_mask, port_mask, false);
+>  
+>  	if (other_port_mask) {
+> -		icssg_fdb_add_del(emac, addr, 0, other_port_mask, true);
+> -		icssg_vtbl_modify(emac, 0, other_port_mask, other_port_mask, true);
+> +		icssg_fdb_add_del(emac, addr, vlan_id, other_port_mask, true);
+> +		icssg_vtbl_modify(emac, vlan_id, other_port_mask, other_port_mask, true);
+>  	}
+>  
+>  	return 0;
+> @@ -531,6 +544,28 @@ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
+>  	return 0;
+>  }
+>  
+> +static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+> +				   void *args)
+> +{
+> +	struct net_device *vport_ndev;
+> +	struct prueth_emac *emac;
+> +
+> +	if (!vdev || !vid)
+> +		return 0;
+> +
+> +	vport_ndev = vlan_dev_real_dev(vdev);
+> +	emac = netdev_priv(vport_ndev);
+> +
+> +	netif_addr_lock_bh(vdev);
+> +	__hw_addr_sync_multiple(&emac->vlan_mcast_list[vid], &vdev->mc, vdev->addr_len);
+Only question, why dev_mc_sync_multiple can't be used here?
 
-This is done by this series: A new imx8mp-nominal.dtsi reconfigures
-the imx8mp.dtsi clock tree to be compatible with nominal mode, an adaptation
-to the Linux clock driver makes it sanity check the actual clock rates against
-the SoC operating mode's constraints and finally the Skov DT makes use
-of it.
-
-Actual configuration of the VDD_SOC rail continues to happen prior to Linux
-as well as PLL configuration that needs to happen earlier than the kernel
-running. See the corresponding barebox patch series[1] for details.
-Note that the barebox series didn't yet include VDD_SOC reconfiguration
-to 850mV, that would follow once the kernel changes have been merged.
-
-[1]: https://lore.kernel.org/barebox/20240503103717.1370636-1-a.fatoum@pengutronix.de/
-
----
-Ahmad Fatoum (6):
-      dt-bindings: clock: imx8m: document nominal/overdrive properties
-      arm64: dts: imx8mp: Add optional nominal drive mode DTSI
-      arm64: dts: imx8mp: add fsl,nominal-mode property into nominal.dtsi
-      arm64: dts: freescale: imx8mp-skov: fix LDB clock rate configuration
-      arm64: dts: freescale: imx8mp-skov: operate SoC in nominal mode
-      clk: imx8mp: inform CCF of maximum frequency of clocks
-
- .../devicetree/bindings/clock/imx8m-clock.yaml     |  14 ++
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi  |  64 +++++++++
- .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi |   5 +-
- .../freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts  |  19 +--
- drivers/clk/imx/clk-imx8mp.c                       | 147 +++++++++++++++++++++
- 5 files changed, 233 insertions(+), 16 deletions(-)
----
-base-commit: 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
-change-id: 20241217-imx8m-clk-9467763dfcd8
-
-Best regards,
--- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
-
+> +	netif_addr_unlock_bh(vdev);
+> +
+> +	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
+> +			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * emac_ndo_open - EMAC device open
+>   * @ndev: network adapter device
+> @@ -772,12 +807,17 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
+>  		return;
+>  	}
+>  
+> -	if (emac->prueth->is_hsr_offload_mode)
+> +	if (emac->prueth->is_hsr_offload_mode) {
+>  		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
+>  			      icssg_prueth_hsr_del_mcast);
+> -	else
+> +	} else {
+>  		__dev_mc_sync(ndev, icssg_prueth_add_mcast,
+>  			      icssg_prueth_del_mcast);
+> +		if (rtnl_trylock()) {
+> +			vlan_for_each(ndev, icssg_update_vlan_mcast, NULL);
+> +			rtnl_unlock();
+> +		}
+> +	}
+>  }
+>  
+>  /**
+> @@ -828,6 +868,7 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
+>  	if (prueth->is_hsr_offload_mode)
+>  		port_mask |= BIT(PRUETH_PORT_HOST);
+>  
+> +	__hw_addr_init(&emac->vlan_mcast_list[vid]);
+>  	netdev_err(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
+>  		   vid, port_mask, untag_mask);
+>  
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index f5c1d473e9f9..4da8b87408b5 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -83,6 +83,10 @@
+>  #define ICSS_CMD_ADD_FILTER 0x7
+>  #define ICSS_CMD_ADD_MAC 0x8
+>  
+> +/* VLAN Filtering Related MACROs */
+> +#define PRUETH_DFLT_VLAN_MAC	0
+> +#define MAX_VLAN_ID		256
+> +
+>  /* In switch mode there are 3 real ports i.e. 3 mac addrs.
+>   * however Linux sees only the host side port. The other 2 ports
+>   * are the switch ports.
+> @@ -201,6 +205,8 @@ struct prueth_emac {
+>  	/* RX IRQ Coalescing Related */
+>  	struct hrtimer rx_hrtimer;
+>  	unsigned long rx_pace_timeout_ns;
+> +
+> +	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
+>  };
+>  
+>  /**
+> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+> index d917949bba03..a5c169b19543 100644
+> --- a/include/linux/netdevice.h
+> +++ b/include/linux/netdevice.h
+> @@ -4685,6 +4685,9 @@ int devm_register_netdev(struct device *dev, struct net_device *ndev);
+>  /* General hardware address lists handling functions */
+>  int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
+>  		   struct netdev_hw_addr_list *from_list, int addr_len);
+> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+> +			    struct netdev_hw_addr_list *from_list,
+> +			    int addr_len);
+>  void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
+>  		      struct netdev_hw_addr_list *from_list, int addr_len);
+>  int __hw_addr_sync_dev(struct netdev_hw_addr_list *list,
+> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> index 166e404f7c03..90716bd736f3 100644
+> --- a/net/core/dev_addr_lists.c
+> +++ b/net/core/dev_addr_lists.c
+> @@ -242,9 +242,9 @@ static void __hw_addr_unsync_one(struct netdev_hw_addr_list *to_list,
+>  	__hw_addr_del_entry(from_list, ha, false, false);
+>  }
+>  
+> -static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+> -				   struct netdev_hw_addr_list *from_list,
+> -				   int addr_len)
+> +int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+> +			    struct netdev_hw_addr_list *from_list,
+> +			    int addr_len)
+>  {
+>  	int err = 0;
+>  	struct netdev_hw_addr *ha, *tmp;
+> @@ -260,6 +260,7 @@ static int __hw_addr_sync_multiple(struct netdev_hw_addr_list *to_list,
+>  	}
+>  	return err;
+>  }
+> +EXPORT_SYMBOL(__hw_addr_sync_multiple);
+>  
+>  /* This function only works where there is a strict 1-1 relationship
+>   * between source and destination of they synch. If you ever need to
+> -- 
+> 2.34.1
 
