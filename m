@@ -4,56 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2368E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73EF2E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2M825NDB4/Bj9UxpPUCSqA5uXq4jUZw3QO6OfHdEl9o=; b=zNK1Bw+dOSr9Yhu0oBKGGwy+si
-	5tmcXbqUNPjTDts/S+327Cl9Djn8Vhum+cQN1xsC9a98hZZ9hicL29RsWrexNp43jXiZ2HIaXH4hU
-	2VyXvIFNzXzcrErmqUlfiyg5i207T9NrFLr52yivff0vG+wOtTiOoE4botjsVW018etKEKdewLYL9
-	1AbvM6790ox7bhSQg1goKbeAkuCjhWvTHOPtS8IHzb/Qh+UtTb7+/KcjINZqzk7kGIu3MSK9YlwaD
-	suaWeua6lJFgIrhgvHzFEFaIsv4+QoOzDQ11bxFVrmb64NWZgVKNX+JuCmJ3LPVs5UGV8FwuCb0m4
-	KXeOfNjA==;
+	bh=6eG11F0VbeFbuNtom9kwWUv31wb1EOxQI/iqcycB7+s=; b=eLNONVTq+bvVV6Bk/UxtjRZCqC
+	XCilId2AyPwwv84Fk3wRHsks664m8z/cbTbWjjdFGESjLmsjjGi6mAJ/QQfU/e813b+cpuBRxxBpS
+	+NOG2kwWaJEUrbcAQsy53WntcnxCEXUeHQWUmeTmzgyT/COJlIIoGKpgt2soS+wYc/RYuI3/SXc3G
+	OM/qYJlB6OHxjPodFvHlkTGtJ00moCMBw/Jt6kI9RI9bbqnzwulcIumeHv+Oc5eg2zoOEcz1pDlsA
+	Z6jSKZrFN4RQitv8tq21OkneAn/Krne9EYVW/nRbZcJ2HNTUendH5FQrStkM0vN75BKgBFzp1pYH2
+	oOBirHOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFLp-00000001kJ2-3CHS;
-	Thu, 19 Dec 2024 12:09:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFKk-00000001kDi-0hCs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 12:08:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D6FD1477;
-	Thu, 19 Dec 2024 04:09:15 -0800 (PST)
-Received: from [10.57.1.39] (unknown [10.57.1.39])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCDD43F720;
-	Thu, 19 Dec 2024 04:08:45 -0800 (PST)
-Message-ID: <41d93dac-4ef1-4cc7-a7b2-24c8289f905f@arm.com>
-Date: Thu, 19 Dec 2024 12:08:39 +0000
+	id 1tOFRO-00000001kgO-39a0;
+	Thu, 19 Dec 2024 12:15:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOFQH-00000001kXp-0Tf5;
+	Thu, 19 Dec 2024 12:14:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F212A41FF7;
+	Thu, 19 Dec 2024 12:12:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0571DC4CECE;
+	Thu, 19 Dec 2024 12:14:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734610471;
+	bh=jswSLq35Y+IdsUb0wXzPhwIdE6q0OErga8nf6MPHT6A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HM7CuuFvV+m3KHpxPviNp9JAG32VxXqJ3QinE6rmVvUFIZiGDtKkhPGRUVG6+XdiA
+	 afdy7JBfqkoO/GGqyp6gSjNwe2cDGhLqmB7mKqL0Z0ngQUn7UlT2bR3Kbjk1/r+Bzg
+	 m3nbj/gRAxsRZZcJG29EGQsS7k5MJ0KgNGOiX5WQfeRUCiTvGcshiLd3iicF8OlEtd
+	 UJba77Pfk1fZCxNA4CLY7nZL/LGYh5UI3lNV2X6ePb2bfPNj0ECc1WWGeOMR+qO11L
+	 hqdYybX2EA6SSalfU83YpLQZn8vdEUFprobuEVSKzDvkQt/z9xFh3felGHkriPVO14
+	 EylpJ6lvEBW5Q==
+Message-ID: <09bee93e-48bd-4a7c-b975-b10dce945d60@kernel.org>
+Date: Thu, 19 Dec 2024 13:14:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-To: Will Deacon <will@kernel.org>, Rob Clark <robdclark@gmail.com>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org, Akhil P Oommen <quic_akhilpo@quicinc.com>,
- Rob Clark <robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>,
- "moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20241216171017.4881-1-robdclark@gmail.com>
- <20241219113019.GA23640@willie-the-truck>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20241219113019.GA23640@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v4 2/3] dt-bindings: display: Fix BCM2835 HVS bindings for
+ BCM2712
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>,
+ Stefan Wahren <wahrenst@gmx.net>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Florian Fainelli <f.fainelli@gmail.com>, linux-gpio@vger.kernel.org
+References: <20241218-dt-bcm2712-fixes-v4-0-54cc88b6c229@raspberrypi.com>
+ <20241218-dt-bcm2712-fixes-v4-2-54cc88b6c229@raspberrypi.com>
+ <lzvcaspulvsulbulqinzftt3xtdyro64hi674u2bnkpvbrihri@e2o247mjom5s>
+ <CAPY8ntCX8+yg1RFhAXu4ystGF_JivTh43RY=k2P0bUm5JxvzRA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CAPY8ntCX8+yg1RFhAXu4ystGF_JivTh43RY=k2P0bUm5JxvzRA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_040850_260175_06DCFD8F 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20241219_041433_287078_25B6F48E 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,31 +134,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024-12-19 11:30 am, Will Deacon wrote:
-> On Mon, Dec 16, 2024 at 09:10:17AM -0800, Rob Clark wrote:
->> From: Rob Clark <robdclark@chromium.org>
+On 19/12/2024 12:54, Dave Stevenson wrote:
+> Hi Krzysztof
+> 
+> On Thu, 19 Dec 2024 at 08:42, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >>
->> On mmu-500, stall-on-fault seems to stall all context banks, causing the
->> GMU to misbehave.  So limit this feature to smmu-v2 for now.
+>> On Wed, Dec 18, 2024 at 02:48:33PM +0000, Dave Stevenson wrote:
+>>> Commit 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+>>> added the compatible string for BCM2712, but missed out that
+>>> the number of interrupts and clocks changed too, and both need to be
+>>> named.
+>>>
+>>> Update to validate clock, interrupts, and their names for the variants.
+>>>
+>>> Fixes: 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+>>> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+>>> ---
+>>>  .../bindings/display/brcm,bcm2835-hvs.yaml         | 84 ++++++++++++++++++----
+>>>  1 file changed, 70 insertions(+), 14 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+>>> index f91c9dce2a44..fd25ee5ce301 100644
+>>> --- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+>>> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+>>> @@ -20,11 +20,20 @@ properties:
+>>>      maxItems: 1
+>>>
+>>>    interrupts:
+>>> -    maxItems: 1
+>>> +    minItems: 1
+>>> +    maxItems: 3
+>>> +
+>>> +  interrupt-names:
+>>> +    minItems: 1
+>>> +    maxItems: 3
+>>>
+>>>    clocks:
+>>> -    maxItems: 1
+>>> -    description: Core Clock
+>>> +    minItems: 1
+>>> +    maxItems: 2
+>>> +
+>>> +  clock-names:
+>>> +    minItems: 1
+>>> +    maxItems: 2
+>>>
+>>>  required:
+>>>    - compatible
+>>> @@ -33,17 +42,64 @@ required:
+>>>
+>>>  additionalProperties: false
+>>>
+>>> -if:
+>>> -  properties:
+>>> -    compatible:
+>>> -      contains:
+>>> -        enum:
+>>> -          - brcm,bcm2711-hvs
+>>> -          - brcm,bcm2712-hvs
+>>> -
+>>> -then:
+>>> -  required:
+>>> -    - clocks
+>>> +allOf:
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: brcm,bcm2711-hvs
+>>> +
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          items:
+>>> +            - description: Core Clock
+>>> +        interrupts:
+>>> +          maxItems: 1
+>>
+>>
+>> clock-names and interrupt-names: false, unless driver needs them but all
+>> this should be explained in the commit msg because it would be a change
+>> to the binding.
 > 
-> MMU-500 has public documentation so please can you dig up what the
-> actual behaviour is rather than guess?
-
-Yeah, I'm pretty sure that's not true as stated, especially with 
-SCTLR.HUPCF set as qcom_adreno_smmu_write_sctlr() does. However it is 
-plausible that at the system interconnect level, a sufficient number of 
-stalled transactions might backpressure other transactions from entering 
-the same TBU, even if they are destined for a different context. That's 
-more about the configuration and integration of individual SoCs than the 
-SMMU IP used.
-
-Robin.
-
->> This fixes an issue with an older mesa bug taking outo the system
->> because of GMU going off into the year.
+> False it is then.
 > 
-> Sorry, but I don't understand this sentence.
+> Is there actually a full guide to binding requirements?
+> https://www.kernel.org/doc/html/latest/devicetree/bindings/writing-schema.html
+> is the closest I've found, but it doesn't obviously cover these types
+> of things.
 > 
-> Will
+>>> +
+>>> +      required:
+>>> +        - clocks
+>>> +
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: brcm,bcm2712-hvs
+>>> +
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          minItems: 2
+>>> +          maxItems: 2
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: core
+>>> +            - const: disp
+>>> +        interrupts:
+>>> +          items:
+>>> +            - description: Channel 0 End of frame
+>>> +            - description: Channel 1 End of frame
+>>> +            - description: Channel 2 End of frame
+>>> +        interrupt-names:
+>>> +          items:
+>>> +            - const: ch0-eof
+>>> +            - const: ch1-eof
+>>> +            - const: ch2-eof
+>>> +      required:
+>>> +        - clocks
+>>> +        - clock-names
+>>> +        - interrupt-names
+>>
+>> My previous comment still stands. Reply to people's feedback instead of
+>> ignoring it.
+> 
+> Your previous comment was
+> "Why requiring last two names? Commit msg does not explain that."
+> 
+> I didn't ignore it. The driver needs them, and the commit msg states
 
+Uh, so someone added undocumented ABI. How this passed any checks? Or no
+one cared to run validation?
+
+
+> " but missed out that the number of interrupts and clocks changed too,
+> and *both need to be
+> named*.
+
+Ah, I really did not get this.
+
+> Update to validate clock, interrupts, and *their names* for the variants."
+
+Please say explicitly that since some commit driver needs this. There
+should be a clear reason in the commit msg why you are adding this ABI.
+
+
+Best regards,
+Krzysztof
 
