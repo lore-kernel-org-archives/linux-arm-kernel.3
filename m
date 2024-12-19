@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83DCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 01:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335EAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 01:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9WLo9P0p6Y1Vr7K+3r8P1YMOWdk5vWT9KA5P3lqs1TQ=; b=D72MYAJQE6/gNPF/uTc8/IYeHV
-	ZzpWI0NjcReCotGc7ZIA/hKO4OcsK2ZYEDW4PH5UfIGdT/dFNiQ9/Vps/oKBbwygRvRuKbGyBD80O
-	mlNTOJIGBH1wS3j3Ny/njEbuzA7vY6gzrwV5RrZkO706Z3qtv8ouTXHl/qHzF8bDABXhoce9tVjuq
-	Moy9X+/2pQyKB0vEIpQrpHjzO0eB2HXguNzrHeolfN6AzLqDd3Ez7/D0AXjsl8r03mKUEnLLzbgZb
-	OmcayD5OTvEjSJbwgAs854o8Kmetw5sLlqrliEB3s85Oa33XSxtDG5kYEGkKFeYyr0cag79vQ4oA3
-	oR0LxrkQ==;
+	bh=v5KQiPBEK7te3XVLhGwOItVgj11ELHSc7Ns4KFJJ4sk=; b=R6GUhDUx5mD8WKfBJqvnYpIBZv
+	yvU3aukBnS92XGaZwnLR2LFX8tZDXv2LqsdjrR+QrODKbPcEzdnqWbzFIbv5WDQfZQa5LykSc08Qr
+	joqpAcw3A0EOe9OkQM6SPhU0+9hNhNAf0oAndPSOLH9e/bqvh+twtVPsFKyTk29JAhsxgV1VAo2ZP
+	unRzi0Y0nPkgjUzpQ9WUQ98vDohLtTfv4nsJ+4418yRIlhpvEJyzEa6ESZiwCGoh7GD0fDpSG1Fci
+	cBBgplcLuteyvyHdoQPxBqEus3BxECjugVAEEdLqsXDv0JLhPrd1GU7gLVN9NqxPKliHoDvUXrh60
+	o9beB9rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO50W-00000000SgS-2BNc;
-	Thu, 19 Dec 2024 01:07:16 +0000
-Received: from mail-m32124.qiye.163.com ([220.197.32.124])
+	id 1tO56L-00000000T8m-0kFz;
+	Thu, 19 Dec 2024 01:13:17 +0000
+Received: from mail-m127175.xmail.ntesmail.com ([115.236.127.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO4zP-00000000ScD-2BHa;
-	Thu, 19 Dec 2024 01:06:09 +0000
+	id 1tO55F-00000000Szv-0ANo;
+	Thu, 19 Dec 2024 01:12:10 +0000
 Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 62689e96;
-	Thu, 19 Dec 2024 09:05:59 +0800 (GMT+08:00)
-From: Jon Lin <jon.lin@rock-chips.com>
-To: broonie@kernel.org
-Cc: linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	by smtp.qiye.163.com (Hmail) with ESMTP id 626be198;
+	Thu, 19 Dec 2024 09:12:00 +0800 (GMT+08:00)
+From: Elaine Zhang <zhangqing@rock-chips.com>
+To: zhangqing@rock-chips.com,
+	mkl@pengutronix.de,
+	kernel@pengutronix.de,
+	mailhol.vincent@wanadoo.fr,
 	heiko@sntech.de,
-	jon.lin@rock-chips.com,
+	cl@rock-chips.com,
+	kever.yang@rock-chips.com
+Cc: linux-can@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org
-Subject: [PATCH] spi: rockchip-sfc: Using normal memory for dma
-Date: Thu, 19 Dec 2024 09:05:57 +0800
-Message-Id: <20241219010557.333327-1-jon.lin@rock-chips.com>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v2 0/2] rockchip: add can for RK3576 Soc
+Date: Thu, 19 Dec 2024 09:11:57 +0800
+Message-Id: <20241219011159.3357530-1-zhangqing@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ08YGVYZHUgdSx0YSB8fTBlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93dc733a5309d9kunm62689e96
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx9JTFZCS0gdSU0eHUoaTRpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93dc78bc2903a3kunm626be198
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Kyo6ORw4DzIXDBc#Ijg8CioY
-	NyxPCQFVSlVKTEhPTkxLSE1LTkpOVTMWGhIXVREUFVUXEhU7CRQYEFYYExILCFUYFBZFWVdZEgtZ
-	QVlOQ1VJSVVMVUpKT1lXWQgBWUFIQklPNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PDo6Fhw6SDIVIhcNFB1RMEkM
+	ViMwCjlVSlVKTEhPTkxLTElKT05LVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUNLSzcG
 DKIM-Signature: a=rsa-sha256;
-	b=ArX75nozRt5ddukmT6M0gsKqaaaB8H4Ibjvrsb6mEpLtcJQmI9/pulkmT3xAK4vXcLUZGwOyXq2W9s+s3GaC8SGOaEew7nDDFpR2f+lBL9haHufywCZSDKRVQgiScjVGljNZBTD+aZtTRDV8LH82+Md7PWXN0YV3Syp5lZZ5c+M=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=9WLo9P0p6Y1Vr7K+3r8P1YMOWdk5vWT9KA5P3lqs1TQ=;
+	b=gGN/NZG1w4r3Fb4NPDY4FOzxiUj1JzyUyN52IJ13obm4b3yAL1yjWlVw2JtPuZcbb1VSEmwFZSreUcTTTsPiMFQB/rN9ilK0duH3Ou2rw8am3hx5f9yJ55z80av7c7bpEDcJInVP9eOqQcOMw70e6IAIZaD7zitPQoPd6M+qwf4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=v5KQiPBEK7te3XVLhGwOItVgj11ELHSc7Ns4KFJJ4sk=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_170608_054953_80ECAE46 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20241218_171209_295540_C785C192 
+X-CRM114-Status: UNSURE (   6.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,126 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nornal memory CPU copy with cache invalidate is more efficient
-than uncache memory copy.
+rk3576 can is a new controller:
+Support CAN and CANFD protocol.
 
-Signed-off-by: Jon Lin <jon.lin@rock-chips.com>
----
+There are major differences from the previous rk3568. All errata on the
+rk3568 have been fixed and redesigned.
 
- drivers/spi/spi-rockchip-sfc.c | 47 ++++++++++++++++++----------------
- 1 file changed, 25 insertions(+), 22 deletions(-)
+Change in V2:
+[PATCH v2 1/2]: remove rk3576_canfd.c, use the rockchip_canfd driver
+[PATCH v2 2/2]: code style.
 
-diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
-index ca4f20283d23..36509bcccc27 100644
---- a/drivers/spi/spi-rockchip-sfc.c
-+++ b/drivers/spi/spi-rockchip-sfc.c
-@@ -156,10 +156,9 @@
- 
- #define SFC_MAX_CHIPSELECT_NUM		2
- 
--/* The SFC can transfer max 16KB - 1 at one time
-- * we set it to 15.5KB here for alignment.
-- */
- #define SFC_MAX_IOSIZE_VER3		(512 * 31)
-+/* Although up to 4GB, 64KB is enough with less mem reserved */
-+#define SFC_MAX_IOSIZE_VER4		(0x10000U)
- 
- /* DMA is only enabled for large data transmission */
- #define SFC_DMA_TRANS_THRETHOLD		(0x40)
-@@ -457,8 +456,10 @@ static int rockchip_sfc_xfer_data_dma(struct rockchip_sfc *sfc,
- 
- 	dev_dbg(sfc->dev, "sfc xfer_dma len=%x\n", len);
- 
--	if (op->data.dir == SPI_MEM_DATA_OUT)
-+	if (op->data.dir == SPI_MEM_DATA_OUT) {
- 		memcpy(sfc->buffer, op->data.buf.out, len);
-+		dma_sync_single_for_device(sfc->dev, sfc->dma_buffer, len, DMA_TO_DEVICE);
-+	}
- 
- 	ret = rockchip_sfc_fifo_transfer_dma(sfc, sfc->dma_buffer, len);
- 	if (!wait_for_completion_timeout(&sfc->cp, msecs_to_jiffies(2000))) {
-@@ -466,8 +467,11 @@ static int rockchip_sfc_xfer_data_dma(struct rockchip_sfc *sfc,
- 		ret = -ETIMEDOUT;
- 	}
- 	rockchip_sfc_irq_mask(sfc, SFC_IMR_DMA);
--	if (op->data.dir == SPI_MEM_DATA_IN)
-+
-+	if (op->data.dir == SPI_MEM_DATA_IN) {
-+		dma_sync_single_for_cpu(sfc->dev, sfc->dma_buffer, len, DMA_FROM_DEVICE);
- 		memcpy(op->data.buf.in, sfc->buffer, len);
-+	}
- 
- 	return ret;
- }
-@@ -633,19 +637,6 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
- 
- 	sfc->use_dma = !of_property_read_bool(sfc->dev->of_node, "rockchip,sfc-no-dma");
- 
--	if (sfc->use_dma) {
--		ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
--		if (ret) {
--			dev_warn(dev, "Unable to set dma mask\n");
--			return ret;
--		}
--
--		sfc->buffer = dmam_alloc_coherent(dev, SFC_MAX_IOSIZE_VER3,
--						  &sfc->dma_buffer, GFP_KERNEL);
--		if (!sfc->buffer)
--			return -ENOMEM;
--	}
--
- 	ret = clk_prepare_enable(sfc->hclk);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to enable ahb clk\n");
-@@ -676,8 +667,8 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_irq;
- 
--	sfc->max_iosize = rockchip_sfc_get_max_iosize(sfc);
- 	sfc->version = rockchip_sfc_get_version(sfc);
-+	sfc->max_iosize = rockchip_sfc_get_max_iosize(sfc);
- 
- 	pm_runtime_set_autosuspend_delay(dev, ROCKCHIP_AUTOSUSPEND_DELAY);
- 	pm_runtime_use_autosuspend(dev);
-@@ -685,16 +676,27 @@ static int rockchip_sfc_probe(struct platform_device *pdev)
- 	pm_runtime_enable(dev);
- 	pm_runtime_get_noresume(dev);
- 
-+	if (sfc->use_dma) {
-+		sfc->buffer = (u8 *)__get_free_pages(GFP_KERNEL | GFP_DMA32,
-+						     get_order(sfc->max_iosize));
-+		if (!sfc->buffer) {
-+			ret = -ENOMEM;
-+			goto err_dma;
-+		}
-+		sfc->dma_buffer = virt_to_phys(sfc->buffer);
-+	}
-+
- 	ret = devm_spi_register_controller(dev, host);
- 	if (ret)
--		goto err_pm_runtime_free;
-+		goto err_register;
- 
- 	pm_runtime_mark_last_busy(dev);
- 	pm_runtime_put_autosuspend(dev);
- 
- 	return 0;
--
--err_pm_runtime_free:
-+err_register:
-+	free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
-+err_dma:
- 	pm_runtime_get_sync(dev);
- 	pm_runtime_put_noidle(dev);
- 	pm_runtime_disable(dev);
-@@ -714,6 +716,7 @@ static void rockchip_sfc_remove(struct platform_device *pdev)
- 	struct spi_controller *host = sfc->host;
- 
- 	spi_unregister_controller(host);
-+	free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
- 
- 	clk_disable_unprepare(sfc->clk);
- 	clk_disable_unprepare(sfc->hclk);
+Elaine Zhang (2):
+  net: can: rockchip: add can for RK3576 Soc
+  arm64: dts: rockchip: rk3576: add can dts nodes
+
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  26 +
+ .../net/can/rockchip/rockchip_canfd-core.c    | 453 +++++++++++++++---
+ drivers/net/can/rockchip/rockchip_canfd-rx.c  | 111 ++++-
+ drivers/net/can/rockchip/rockchip_canfd-tx.c  |  29 ++
+ drivers/net/can/rockchip/rockchip_canfd.h     | 285 +++++++++++
+ 5 files changed, 846 insertions(+), 58 deletions(-)
+
 -- 
 2.34.1
 
