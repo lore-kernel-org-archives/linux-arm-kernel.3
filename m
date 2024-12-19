@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD86E7718C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 08:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2931CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 08:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=He1n5KokW3uvs1jzig0WytfSfCNp4Xzlph959XURDec=; b=Kw+tvLqfMIDYo3Nrf7Fkz9rpIO
-	+hnkSL9OJ6wt5n285632as1dVp5AfgW1WtY4q1QtZfmWyzbqtiVAC/wyDKwzpHvRcnOu61tDGB2E+
-	3UIEdUwaujuHYAtQF4SrH1fLuHXWtgg+BJJrqwaNgbnH/Bf67k0AGdiGkL2bt/fsYVkVJy2dcgRL2
-	rxn2tLDTHwmP1J1T0x9RwtwzdX2msv0qJrh11m7a0yVugIeyF9doa+i5g89LLR0l60zxL7Bigd6yk
-	8h5Q0cxrcfVwZaUV/Ge3t5QF7urmcngLnit2xZI5zy30+LB0BgjptwnNFYn59NbfR3NL8n4SjA6To
-	2z9+m9rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YxYTua3hiNM4cpWYdNE0p0Bp8jcaJn2f2CD+r98zPa8=; b=0JzdaTICWX4Nzq8uzYZSZOfhtr
+	3e8Tr1/+rGZiblDkxED1Yd/YUeM0I0Zn4T/e9EXJ1qHgbVibVpCHeOIXI6LsKFhVRn569FrO7YSB4
+	gjC9lYhSdI4SqwAsBG/CzF0e3wnc2/uiDxOnpZyRmG8vUq3dbm1l7i8ArSFoANGIPQLLqd1RMjAWb
+	Mj6aKpDri2Hh2pRIx7xdrKffrUrbyvFbdWjRg/wBWOOT+tvFLCgUIbD1bWWnQzo321b/SZEBNX7JX
+	OZBL2KYdhzlfulmwtR9S2wykLU1DoXEnKkXCT13frJ8WUtV+wgWIOVSPNwgc7oki8ywzCU7sQIn3F
+	ESkDwzbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOC4w-00000001J2K-19Wx;
-	Thu, 19 Dec 2024 08:40:18 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tOC7i-00000001Jgk-09S0;
+	Thu, 19 Dec 2024 08:43:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAwq-000000015Hv-1SY3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:27:53 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwX-00072A-My; Thu, 19 Dec 2024 08:27:33 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwW-004AP7-1O;
-	Thu, 19 Dec 2024 08:27:33 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAwX-00Gewn-0K;
-	Thu, 19 Dec 2024 08:27:33 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 19 Dec 2024 08:27:33 +0100
-Subject: [PATCH 2/6] arm64: dts: imx8mp: Add optional nominal drive mode
- DTSI
+	id 1tOC6b-00000001JUv-2oCb;
+	Thu, 19 Dec 2024 08:42:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0D0A85C6717;
+	Thu, 19 Dec 2024 08:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8EA9C4CED0;
+	Thu, 19 Dec 2024 08:41:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734597720;
+	bh=EkcnPB9WBd/TNqG00+8vwrlF/Hfm2d74IUOXRibreB4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bSVwBsXZOOPUXdDt31Z0SB68MwUpAMHI+qUtla7oQExLQYez0KZvnNrfUsrvp2ESs
+	 w+n2m/laXsCukY5YwQO6A4kMcLHru0ZgYbCLUSUvgA7nj6tZXUZlFh1ZetxzoaFAQv
+	 HgjS1uh1MT87iOL39Ky6GtLgF4cyJXgyMs5kca5QA6zflbbqeFyVpZQTRoiu4pkQ16
+	 k/eTsTQxAL53LWip218huMV7Q3eP0OG1ujQPOSqSwpreuXrMjnLYLiuaQNPo39nFPG
+	 uNG5GItgnfImkpkd1GeAQwhj/rewb8bULqqaTlNr7EMt4Rh6NvfzBdCCp3tTTYZBS2
+	 Nh7l6IBxEymEA==
+Date: Thu, 19 Dec 2024 09:41:57 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, 
+	Stefan Wahren <wahrenst@gmx.net>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] dt-bindings: display: Fix BCM2835 HVS bindings
+ for BCM2712
+Message-ID: <lzvcaspulvsulbulqinzftt3xtdyro64hi674u2bnkpvbrihri@e2o247mjom5s>
+References: <20241218-dt-bcm2712-fixes-v4-0-54cc88b6c229@raspberrypi.com>
+ <20241218-dt-bcm2712-fixes-v4-2-54cc88b6c229@raspberrypi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-imx8m-clk-v1-2-cfaffa087da6@pengutronix.de>
-References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
-In-Reply-To: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>, 
- Marek Vasut <marex@denx.de>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.13-dev
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241218-dt-bcm2712-fixes-v4-2-54cc88b6c229@raspberrypi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_232752_389240_D63D24C5 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20241219_004202_122121_549E5912 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +84,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the device tree for
-the i.MX8MP configures some clocks at frequencies that are only validated
-for overdrive mode, i.e. when VDD_SOC is 950 mV.
+On Wed, Dec 18, 2024 at 02:48:33PM +0000, Dave Stevenson wrote:
+> Commit 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+> added the compatible string for BCM2712, but missed out that
+> the number of interrupts and clocks changed too, and both need to be
+> named.
+> 
+> Update to validate clock, interrupts, and their names for the variants.
+> 
+> Fixes: 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+>  .../bindings/display/brcm,bcm2835-hvs.yaml         | 84 ++++++++++++++++++----
+>  1 file changed, 70 insertions(+), 14 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> index f91c9dce2a44..fd25ee5ce301 100644
+> --- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> @@ -20,11 +20,20 @@ properties:
+>      maxItems: 1
+>  
+>    interrupts:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    maxItems: 3
+>  
+>    clocks:
+> -    maxItems: 1
+> -    description: Core Clock
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 2
+>  
+>  required:
+>    - compatible
+> @@ -33,17 +42,64 @@ required:
+>  
+>  additionalProperties: false
+>  
+> -if:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        enum:
+> -          - brcm,bcm2711-hvs
+> -          - brcm,bcm2712-hvs
+> -
+> -then:
+> -  required:
+> -    - clocks
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2711-hvs
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Core Clock
+> +        interrupts:
+> +          maxItems: 1
 
-Boards may want to run their SoC at the lower voltage of 850 mV though
-to reduce heat generation and power usage. For this to work, clock rates
-need to adhere to the limits of the nominal drive mode.
 
-Add an optional DTSI file which can be included by various boards to run
-in this mode.
+clock-names and interrupt-names: false, unless driver needs them but all
+this should be explained in the commit msg because it would be a change
+to the binding.
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi | 63 +++++++++++++++++++++++
- 1 file changed, 63 insertions(+)
+> +
+> +      required:
+> +        - clocks
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2712-hvs
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+> +        clock-names:
+> +          items:
+> +            - const: core
+> +            - const: disp
+> +        interrupts:
+> +          items:
+> +            - description: Channel 0 End of frame
+> +            - description: Channel 1 End of frame
+> +            - description: Channel 2 End of frame
+> +        interrupt-names:
+> +          items:
+> +            - const: ch0-eof
+> +            - const: ch1-eof
+> +            - const: ch2-eof
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +        - interrupt-names
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-new file mode 100644
-index 000000000000..f9a82a663033
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-@@ -0,0 +1,63 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2024 Pengutronix, Ahmad Fatoum <kernel@pengutronix.de>
-+ */
-+
-+&clk {
-+	assigned-clocks = <&clk IMX8MP_CLK_A53_SRC>,
-+			  <&clk IMX8MP_CLK_A53_CORE>,
-+			  <&clk IMX8MP_SYS_PLL3>,
-+			  <&clk IMX8MP_CLK_NOC>,
-+			  <&clk IMX8MP_CLK_NOC_IO>,
-+			  <&clk IMX8MP_CLK_GIC>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_ARM_PLL_OUT>,
-+				 <0>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL3_OUT>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <0>, <0>,
-+			       <600000000>,
-+			       <800000000>,
-+			       <600000000>,
-+			       <400000000>;
-+};
-+
-+&pgc_hdmimix {
-+	assigned-clocks = <&clk IMX8MP_CLK_HDMI_AXI>,
-+			  <&clk IMX8MP_CLK_HDMI_APB>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_133M>;
-+	assigned-clock-rates = <400000000>, <133000000>;
-+};
-+
-+&pgc_hsiomix {
-+	assigned-clocks = <&clk IMX8MP_CLK_HSIO_AXI>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <400000000>;
-+};
-+
-+&pgc_gpumix {
-+	assigned-clocks = <&clk IMX8MP_CLK_GPU_AXI>,
-+			  <&clk IMX8MP_CLK_GPU_AHB>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL3_OUT>,
-+				 <&clk IMX8MP_SYS_PLL3_OUT>;
-+	assigned-clock-rates = <600000000>, <300000000>;
-+};
-+
-+&media_blk_ctrl {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_AXI>,
-+			  <&clk IMX8MP_CLK_MEDIA_APB>,
-+			  <&clk IMX8MP_CLK_MEDIA_DISP1_PIX>,
-+			  <&clk IMX8MP_CLK_MEDIA_DISP2_PIX>,
-+			  <&clk IMX8MP_CLK_MEDIA_ISP>,
-+			  <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_VIDEO_PLL1_OUT>,
-+				 <&clk IMX8MP_VIDEO_PLL1_OUT>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <400000000>, <200000000>,
-+			       <0>, <0>, <400000000>,
-+			       <1039500000>;
-+};
+My previous comment still stands. Reply to people's feedback instead of
+ignoring it.
 
--- 
-2.39.5
+Best regards,
+Krzysztof
 
 
