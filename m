@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88D2E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 18:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BD1E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 18:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/FLWDTPFbLG9DG5vzOMUOczrPmOEfAof7+piK4UuRCg=; b=ymT9lA5NYxjU2c1FzpPwvBTu0R
-	LOFdfAbFVQllhQ9AF7Ujnp5aLizVp+vl/aKJp8D89bH6FNQ0Otk4XomI863laifEou5NwtvlnXdzB
-	GAxUVy7MChm3lYz603WkgfDNbEkxMtoUquOGB5A/r7QTW3fv21MxbzO0yRwdK7/FSnReDUirQNWuD
-	ubWS0/JGY+/kRWjj80a26NtjrGFbnGihlY60otziZHSmNItyGdQyVUYs4f+bkbgeW8sCFz9o+85Hk
-	hiNMTu3nOLv4ovvOvoGbQSaqMbGQn1UYAzCmQduKL9GAA8Fm1uFW7GBCi5//hBoqg5WD0HpdGHYum
-	h1FvSoEQ==;
+	bh=SAQLVdwutb+8hdf8yPs2vBsQPPGJ9HU+Aj5HIuMPLTg=; b=OvVBJhHFAZkjI0XmkiQH9hVquy
+	yQYHnAITXaItshlz7nDMEx6fwskTlPtXgUExefRrH6xZX2T4a6HifJYR0z978S9Ucr+lotF03KCm5
+	En2lDFi63cgK8cHfZbuH397OWmqugLDjKu48r2CT9EErJvSpob3QjZ9C9uklcAEqXNFG553LwE/lv
+	xY9XUY+QJH+J69WCz2qq2UsDCZSFj/pfKa3OizbKYIIAoyyDGbw/MGhJ/UQtX6EXr1AtioTF4rW0u
+	PN9jsygRwAnyZIjNplWObVJX7ywwCbqumpgMZeYMRfQcOCLvNRHhE/eJzPYCuD74bD+0zDbvFs4vS
+	OaOlFKGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOLbe-00000002mI1-1EBX;
-	Thu, 19 Dec 2024 18:50:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tOLkN-00000002n0m-3faO;
+	Thu, 19 Dec 2024 18:59:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOLaX-00000002mB7-3fva
+	id 1tOLjH-00000002mrQ-12uw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 18:49:35 +0000
+	Thu, 19 Dec 2024 18:58:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A6A46A4123E;
-	Thu, 19 Dec 2024 18:47:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D969C4CECE;
-	Thu, 19 Dec 2024 18:49:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3CDFE5C4648;
+	Thu, 19 Dec 2024 18:57:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC152C4CECE;
+	Thu, 19 Dec 2024 18:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734634172;
-	bh=/FLWDTPFbLG9DG5vzOMUOczrPmOEfAof7+piK4UuRCg=;
+	s=k20201202; t=1734634714;
+	bh=5lJoFb1ogNkglTJoNJUT9Eg7QJAB+5pbzROZLHfkCpY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TCzzr4TX35E/WB6YctHhMiH+VIJfPOGsEVrrnIIUz+m4ocaKkh57u4JuiNAfiCfa4
-	 /pbe5jcnXJAmpWs0dlBZdDzF43U2KEAMFajh5S5QipBJEhZIXAbPSeH8ONlW3Hd8wu
-	 Thpx3+mzPCjyg+BvF2ZEI4U77k5vVZ5jWlOkZ9h+Fic28C1bphU5KcfXn62kPdHKS6
-	 VxvG+lLl7ZHntOGQgweR+6jxFYzfYHzRoHuPbmixq435nm5AMt5eipV54NBHr4o7Cr
-	 jVSzLl3HNzyQGDq78RlwW+sSuDMqrWTkkZBl6ZdJMmEs7YMTHFk4UdCIrQkJ94Fopm
-	 IIAks3/lx7kSA==
-Date: Thu, 19 Dec 2024 18:49:28 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>
-Subject: Re: [PATCH v2 2/4] arm64/sysreg: Get rid of the TCR2_EL1x
- SysregFields
-Message-ID: <53a95b37-0b46-4ec8-bad6-a431f81cdc44@sirena.org.uk>
-References: <20241219173351.1123087-1-maz@kernel.org>
- <20241219173351.1123087-3-maz@kernel.org>
+	b=lB0N5s/bKTVhnO7BJ8QaT49JXljtgwDxlfMye3BIVI1hOVMPL02R5XhntzwgLdfP8
+	 udwDWZn5NeE0siZQLSGXI4LFIqaxvvzyVQLdmIbEHUXIPliojANnksZHWGPHsWYcJc
+	 /u827GSe3Z26XuJU5ZSSCqvVC6zkZyRdK5mZG7hTnVr3h7/iW5bFTyBGreB9+CAt31
+	 qVvOQ2Bsoef04MklW089E6u6XPHpom55P4/QEEZJIzRa2s6Mia0OgjVHBb+hlchkNj
+	 mLYU7Y7S48T9sdIUfmJf/EIFo3BHExVhVKsbqxGh6VOM6A6TMVC9SBdrhEk39QNNhD
+	 kMgqToinn3edA==
+Date: Thu, 19 Dec 2024 18:58:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
+	peter.griffin@linaro.org, kernel-team@android.com,
+	willmcvicker@google.com, daniel.lezcano@linaro.org,
+	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+Subject: Re: [PATCH 1/2] dt-bindings: mailbox: add support for referencing
+ controllers solely by node
+Message-ID: <20241219-strum-cheese-89e5e60d22c3@spud>
+References: <20241219-mbox_request_channel_by_args-v1-0-617a6910f842@linaro.org>
+ <20241219-mbox_request_channel_by_args-v1-1-617a6910f842@linaro.org>
+ <20241219-recent-everyone-865b19864693@wendy>
+ <d9e635c8-de05-4812-bf2b-11651f6da5c1@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="a+0hFz7K0adwt5ZB"
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="7uEMfKSFSh7bUHVr"
 Content-Disposition: inline
-In-Reply-To: <20241219173351.1123087-3-maz@kernel.org>
-X-Cookie: You have taken yourself too seriously.
+In-Reply-To: <d9e635c8-de05-4812-bf2b-11651f6da5c1@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_104933_979413_DC9A8B85 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20241219_105835_332541_84D4E4B2 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +85,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---a+0hFz7K0adwt5ZB
+--7uEMfKSFSh7bUHVr
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Dec 19, 2024 at 05:33:48PM +0000, Marc Zyngier wrote:
-> TCR2_EL1x is a pretty bizarre construct, as it is shared between
-> TCR2_EL1 and TCR2_EL12. But the latter is obviously only an
-> accessor to the former.
+On Thu, Dec 19, 2024 at 03:42:11PM +0000, Tudor Ambarus wrote:
+> Hi, Conor,
+>=20
+> On 12/19/24 2:11 PM, Conor Dooley wrote:
+> >> There are mailbox clients that can discover the mailbox channel ID at
+> >> run-time. For such cases passing the channel identifier via DT is
+> >> redundant. Add support for referencing controllers solely by node.
+> > I don't really get your implementation, why not just allow #mbox-cells =
+=3D 0?
+> > That's what's done for things like fixed frequency clocks that only have
+> > a single output.
+>=20
+> Ah, indeed!
+>=20
+> instead of:
+> 	of_parse_phandle(dev->of_node, "mbox", 0);
+> I can do a:
+> 	of_parse_phandle_with_args(dev->of_node, "mboxes",
+>                                    "#mbox-cells", 0, &of_args)
+> where #mbox-cells =3D 0;
+>=20
+> Or ... can I pass NULL for cells_name and make the #mbox-cells property
+> optional and still keeping its requirement of being at least 1?
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+I think the mbox-cells =3D 0 approach is preferred, that property is what
+marks it as a mailbox controller after all. Perhaps Rob or Krzysztof can
+comment?
 
-Sorry, I thought I'd sent this on v1.
-
---a+0hFz7K0adwt5ZB
+--7uEMfKSFSh7bUHVr
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmdkarcACgkQJNaLcl1U
-h9Auugf9HdJD/xc50mrg+8pmJHd5i5jsUnscG2fMzBioJ6tkmETXISrPkaPiAmgv
-OnJhO1CFYvP4eHa/OSBoh6+8SIDVyIxS20q6wNphB4TmkcEu4jDKa7zJzcYCanuj
-0B/9kq0uuVOajjg/5Fsx0Gtw9u1a28YJAjt3GlP7tHQXLnGt1ao0D8jr00kG7bvn
-12zTsJ2gSJ9+/3X82hM08l91I7LFICIH0MQuoE0cJJkqWg9RBEqZP5OjWPtQ3pF2
-NxPgnyt2N1sJbksED6M8V/Bmt2WBcgslnSQ98Gf/9YB8MndEDO+hj4N+nK1xpnQA
-f6pBzicIWev9whRTmkmhIVNloAHO7A==
-=Wlkz
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2Rs1AAKCRB4tDGHoIJi
+0nLvAP9ToMBHB4C3Rre2xvEvPhvlw39ZEfEZy++feDZz4E+SrAD+PHASE/M2kEJi
+ylZ8oz0XIwxFixxF8qqyAlSnOzgynAs=
+=RjlM
 -----END PGP SIGNATURE-----
 
---a+0hFz7K0adwt5ZB--
+--7uEMfKSFSh7bUHVr--
 
