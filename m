@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70E3E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 17:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F422E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 17:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7J+xS/H3snVoj+wbOe5GrKPaIpTRTEgtYy2lupU7XmU=; b=Fw8wo9FBiAC9fB53hwQJ6FdoT2
-	pW+jFCiCdQsbqT3pBlB1BNRJk+/D2Adzlu8I8D3XMZi+im8YnfcizyxoQgNVi1FXyN4lFOpgEs4+a
-	ItbV0R/sQw7cPzptkS/jos73RwbDhoneZbiF9Wtwj3DPzttFpCv370fgjte8I/gx4WXP8d9E4BLkq
-	muVsHr3skcWOY032+ajXTT/a7Z+jAc7vaQxVQkUbXdKKANr/btBXGbua+LkcD5dQLM7F/mKAsIOnV
-	mZtKZw8Yy/hcjfKMZJlyX59pC7zyTjf1KYpZJXMf3Ljt9sDZUUeE91/wcPTEMMJsbMeKzIl2xk/FB
-	R3XI4xBA==;
+	bh=XP8tGry8QPhC+d2CSlQqWf2Cwz8m/rsIKfC4H6XstXY=; b=kceNgqoBarSFNrb3A/Q2/pnG9C
+	BOBBuqb1TmaVoJ9AcbbLaspZSnkq6ma5CSkgNAWMWFpO2q6lRWq2w2+26fMrroYPGA+gKoWu+40Rp
+	f7nMGAv+JKBRAMVNwtLwMaQkJf/RKrXsGGQvy/VgIdhRmtSIGAszQsltNENum27VWYBP94739hhFK
+	NEPAkU+m8bHWNGNlH22VGYK0pWqZaKhlp+SbabWcj/P8hHn07u0TxLOW0vyJ+1fBKN7uT6yfjpojs
+	Q7cJbfzMs2sxnQNYazeGIfTQK0eUZl6aUlhn26Z+5Wk4T4MRybr8WQtgIBaWOVIYvjg76I3OsRZvi
+	pL1wZzew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKUc-00000002amY-3oWf;
-	Thu, 19 Dec 2024 17:39:22 +0000
+	id 1tOKVj-00000002b2A-2cLo;
+	Thu, 19 Dec 2024 17:40:31 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOKO9-00000002ZaR-0KIN
+	id 1tOKO9-00000002ZaS-1Xmg
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 19 Dec 2024 17:32:42 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BJChvu1011954;
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BJFYBXY028696;
 	Thu, 19 Dec 2024 18:32:32 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	7J+xS/H3snVoj+wbOe5GrKPaIpTRTEgtYy2lupU7XmU=; b=FJbqamI+5rNBYjEK
-	U8XxfYt8/nd/Q+GsAjeMxaoMcPqf5MFK01BPEUQWN6WAZSghMNh5FmqIy3LZg7wu
-	INNHQs2TCkwrV0MuDRaCyzQWDTyF3KhgeCjm76AAg3m1OMbVgKHO3t3JlKYIQvFI
-	WYu/26nYLDpJpjUbOSQk4+QDqpIdx4NsltVI9B8ac867UY7QNm+dLefg90I2Gtmy
-	Tv4k9Q9GyAZLERTbG1wb//xJhbNEV3sUOm3FiLphfBXiPtBpDFNnmXyShZ3UoTRJ
-	uThtdE3J7/tbs6e3h2HC/Bad0nnu/HCKihuSY+A6g5O8o6m2FYoNXSAQFeFApAEO
-	muHY8A==
+	XP8tGry8QPhC+d2CSlQqWf2Cwz8m/rsIKfC4H6XstXY=; b=WcayoApLWhXG7+z1
+	vS6+avtmgpT9mhJA+S5pd2Q1066j7T69GwoAx6Lv9YzHD8rOF0jE4m5DfaFUr23l
+	CdVfHpTV3cEnnAdMDPubzRhYtTjAIu0bMW4OeDtvgCdMJcavd162zczyt8iApDNE
+	biRi3kN2GxiCDS+iN4xUD739JkrStnNSnzSgQj/2saV5zUfnBfzECMObYoQpDQCW
+	33IIR5SnPvY/ZN0VMGQewozP+Fg4SDnXxAftagyDj/A9TRgJp/MeXShSV+Ga9U4n
+	iqMqZ6Lx+jdSrjX/h9iko9lMDzyIi/YNylj5lJmBu4CUEie5v9/MxuZowBI6Y2lr
+	VqROeg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43mhad9vj1-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43mp8b8dns-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 19 Dec 2024 18:32:32 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 52CFE40058;
-	Thu, 19 Dec 2024 18:31:07 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 520BD40052;
+	Thu, 19 Dec 2024 18:31:06 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EB8F2288B69;
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3F860288B47;
 	Thu, 19 Dec 2024 18:30:00 +0100 (CET)
 Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 19 Dec
- 2024 18:30:00 +0100
+ 2024 18:29:59 +0100
 From: <patrice.chotard@foss.st.com>
 To: Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
+        "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>,
         Russell King <linux@armlinux.org.uk>,
         Maxime Coquelin <mcoquelin.stm32@gmail.com>,
         Petr Mladek <pmladek@suse.com>, Yoann Congal <yoann.congal@smile.fr>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>, <soc@kernel.org>,
         Patrice Chotard
-	<patrice.chotard@foss.st.com>
-Subject: [PATCH 5/7] ARM: configs: stm32: Disable CONFIG_IO_URING in STM32 defconfig
-Date: Thu, 19 Dec 2024 18:29:32 +0100
-Message-ID: <20241219172934.3010875-6-patrice.chotard@foss.st.com>
+	<patrice.chotard@foss.st.com>,
+        Patrice Chotard <patrice.chotard@st.com>
+Subject: [PATCH 4/7] ARM: configs: stm32: Disable CONFIG_ADVISE_SYSCALLS in STM32 defconfig
+Date: Thu, 19 Dec 2024 18:29:31 +0100
+Message-ID: <20241219172934.3010875-5-patrice.chotard@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241219172934.3010875-1-patrice.chotard@foss.st.com>
 References: <20241219172934.3010875-1-patrice.chotard@foss.st.com>
@@ -81,8 +82,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_093241_414158_1DD95BB5 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20241219_093241_707884_BEAAA631 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +100,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Disable CONFIG_IO_URING in stm32_defconfig.
+Disable CONFIG_ADVISE_SYSCALLS in stm32_defconfig.
 It will reduce the kernel image size for these platform which
 embeds a low amount of memory.
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@st.com>
 ---
  arch/arm/configs/stm32_defconfig | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm/configs/stm32_defconfig b/arch/arm/configs/stm32_defconfig
-index 20fa929e2f9b..3a9bffa06d6d 100644
+index 0fc411e7d87c..20fa929e2f9b 100644
 --- a/arch/arm/configs/stm32_defconfig
 +++ b/arch/arm/configs/stm32_defconfig
 @@ -12,6 +12,7 @@ CONFIG_BASE_SMALL=y
  # CONFIG_SIGNALFD is not set
  # CONFIG_EVENTFD is not set
  # CONFIG_AIO is not set
-+# CONFIG_IO_URING is not set
- # CONFIG_ADVISE_SYSCALLS is not set
++# CONFIG_ADVISE_SYSCALLS is not set
  # CONFIG_MMU is not set
  CONFIG_ARCH_STM32=y
+ CONFIG_CPU_V7M_NUM_IRQ=240
 -- 
 2.25.1
 
