@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B154E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E94E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 07:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VP0+g6S62LhM6b8BLIcvO/05qFcoS1b6FFLnLooGfMM=; b=wv4xOp4mca/eBZrvTLffniUNRD
-	A6KwlZ6GMYYGhGSxUGiOPNCt/RqAucFDlW0herIh3cjrp0Snub8mc9l6cm/Zl9Fb14IRUPeRCH47X
-	dFpUscnhyXRGejF8wYJ+buceYSDkMFtXp8/s2Lt/vkP1cbe6GWk0O22C4RG0kSoQvxKr8VhqtxMYs
-	uv1QXHxj+yO/Ueww5laylhvICGGrf/nRkuI4MkWvZQcBkFPGUPtp2fwK/WDnFEUkntq/3whxr9NxS
-	2fbhliGSXwTfV+qULdkoDVNBiBtNXRmHmx3h3lC9Dl2tCAc70b8iZg/8KAs10Oi71EQR7y8Ee3gHZ
-	h9I2dAHQ==;
+	bh=DQFBsS7vjDN7Yy5YyjhfFpUsKHi37cyKgTd1+99/h30=; b=y9rmM1DJ/8IrDw2IPmgy4TzCf1
+	g4FgbhqYcpvih5LxAV/P//Cfix/9/nbH8onpjg2aAg1UmWqp13w8vcoI0j0CABldIlAxrURnUj9JC
+	KyUok0qEUDCbfCgN/Fy5hdWHJ90gVkTuXf+mR6XCi4BfplSiBoUNtvgfY1Zs78BWqYVpGizX9ZXok
+	VMUb5YDx7JQhrVtXz33VnPQIFaK5PRGAgVgFTvrSkGcmpX/RKxQ91dIbC45XzZXi7FKnOJtGOWsFZ
+	i01or30v4B3MeiTBLdd9UeaUTY2AomFNBcIPXFtH+9aY3gaunN72QwEw9EZ00sxZUbAnvQv9f16c9
+	LVsMIv0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAz0-000000015fq-2qv4;
-	Thu, 19 Dec 2024 07:30:06 +0000
+	id 1tOB05-000000015v7-1HSb;
+	Thu, 19 Dec 2024 07:31:13 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOAum-000000014nl-0Kpl
+	id 1tOAuu-000000014pZ-0dkR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 07:25:45 +0000
+	Thu, 19 Dec 2024 07:25:53 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAuc-00064O-1t; Thu, 19 Dec 2024 08:25:34 +0100
+	id 1tOAuc-00064L-0h; Thu, 19 Dec 2024 08:25:34 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAua-004AOG-2u;
+	id 1tOAua-004AO9-2n;
 	Thu, 19 Dec 2024 08:25:33 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOAub-00GenW-1k;
+	id 1tOAub-00GenW-1e;
 	Thu, 19 Dec 2024 08:25:33 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Thu, 19 Dec 2024 08:25:31 +0100
-Subject: [PATCH 07/10] arm64: dts: imx8mp-skov: configure uart1 for RS485
+Date: Thu, 19 Dec 2024 08:25:25 +0100
+Subject: [PATCH 01/10] arm64: dts: imx8mp-skov: correct PMIC board limits
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241219-skov-dt-updates-v1-7-38bf80dc22df@pengutronix.de>
+Message-Id: <20241219-skov-dt-updates-v1-1-38bf80dc22df@pengutronix.de>
 References: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
 In-Reply-To: <20241219-skov-dt-updates-v1-0-38bf80dc22df@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,8 +67,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_232544_118373_3BCBDCE5 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20241218_232552_193248_D06A6F26 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +83,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-uart1 TX, RX and RTS signals go off the base board and to a RS485
-transceiver. Describe this in the device tree.
+The PMIC voltage constraints in the device tree currently describe the
+permissible range of the PMIC. This is unnecessary as this information
+already exists in the driver and wrong as it doesn't account for
+board-specific constraints, e.g. a 2.1V on VDD_SOC would fry the SoC and
+a maximum voltage of 3.4V on the VDD_3V3 rail may be unexpected across
+the board.
 
+Fix this by adjusting constraints to reflect the board limits.
+
+Fixes: 6d382d51d979 ("arm64: dts: freescale: Add SKOV IMX8MP CPU revB board")
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 24 +++++++++++-----------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-index 7ae686d37dda..bce23d62cd27 100644
+index 59813ef8e2bb..ae82166b5c26 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-@@ -404,6 +404,13 @@ &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
- 	status = "okay";
-+	/*
-+	 * While there is no CTS line, the property "uart-has-rtscts" is still
-+	 * the right thing to do to enable the UART to do RS485. In RS485-Mode
-+	 * CTS isn't used anyhow and there is no dedicated property
-+	 * "uart-has-rts-but-no-cts".
-+	 */
-+	uart-has-rtscts;
- };
+@@ -247,8 +247,8 @@ reg_vdd_soc: BUCK1 {
  
- &uart2 {
-@@ -618,6 +625,8 @@ pinctrl_uart1: uart1grp {
- 			MX8MP_IOMUXC_UART1_RXD__UART1_DCE_RX			0x140
- 			MX8MP_IOMUXC_UART1_TXD__UART1_DCE_TX			0x140
- 			MX8MP_IOMUXC_UART3_RXD__UART1_DTE_RTS			0x140
-+			/* CTS pin is not connected, but needed as workaround */
-+			MX8MP_IOMUXC_UART3_TXD__UART1_DTE_CTS			0x140
- 		>;
- 	};
+ 			reg_vdd_arm: BUCK2 {
+ 				regulator-name = "VDD_ARM";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <2187500>;
++				regulator-min-microvolt = <850000>;
++				regulator-max-microvolt = <1000000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -259,8 +259,8 @@ reg_vdd_arm: BUCK2 {
  
+ 			reg_vdd_3v3: BUCK4 {
+ 				regulator-name = "VDD_3V3";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <3400000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -268,8 +268,8 @@ reg_vdd_3v3: BUCK4 {
+ 
+ 			reg_vdd_1v8: BUCK5 {
+ 				regulator-name = "VDD_1V8";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <3400000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -277,8 +277,8 @@ reg_vdd_1v8: BUCK5 {
+ 
+ 			reg_nvcc_dram_1v1: BUCK6 {
+ 				regulator-name = "NVCC_DRAM_1V1";
+-				regulator-min-microvolt = <600000>;
+-				regulator-max-microvolt = <3400000>;
++				regulator-min-microvolt = <1100000>;
++				regulator-max-microvolt = <1100000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -286,8 +286,8 @@ reg_nvcc_dram_1v1: BUCK6 {
+ 
+ 			reg_nvcc_snvs_1v8: LDO1 {
+ 				regulator-name = "NVCC_SNVS_1V8";
+-				regulator-min-microvolt = <1600000>;
+-				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
+@@ -295,8 +295,8 @@ reg_nvcc_snvs_1v8: LDO1 {
+ 
+ 			reg_vdda_1v8: LDO3 {
+ 				regulator-name = "VDDA_1V8";
+-				regulator-min-microvolt = <800000>;
+-				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
+ 				vin-supply = <&reg_5v_p>;
+ 				regulator-boot-on;
+ 				regulator-always-on;
 
 -- 
 2.39.5
