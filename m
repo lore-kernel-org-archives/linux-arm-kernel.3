@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB966E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 21:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717B7E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 21:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/sSS+VDQ56vpYCpkE7vAlH0OJ/9adGK5Yjw02tWP75g=; b=mHtH2F7BAJ1zBknkOcMpJCH92e
-	IrkzWkOWOSbyKLtfQv2895mAZU9GVmRx50ZRtx8HJAnbk6KG6lSrisyTnz/soTtmjF9o7DyyVpDLH
-	bVEqKMuSYatL9e9FVllhL1hbSOWtKRt+wGmvyeXKAP9hFPW/AHBIr6266BAvEbleVHltbyfLjn7ya
-	VGmvgWd0N9nG6aiOxiGiuLCVCUr6Naess/q8diaf771CSR+tmjhSLUdTGd7in5CXnAWTf9oPqbqza
-	M2iEVYxyfDA8+OrXCU94Myq0ucvzDYEpZ1twyvpVSpv3ihRHQV35v47Lc8gsEw5gyhbWeySXrGi4e
-	EMZzqAkw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFdap/sOPpq0KBRuIbSWSowsNeRO1eLNOr+oanM3LgM=; b=4wXp8zdpc77mdQo5+R3Qc0fOk+
+	I358I9UhDRaFk3Hr/CUwgI870BAycFEv81EWZ4aAmWJ6bXGOwjNYLV/Vi32lH8ksK2ypdoXu2XbKi
+	xO8rUxgayhRVP0dxVvieA3qA9uv7PQH08sCuwXvkkqYdKO65+cWSD536xconOT+ajapEvZQwlfGOY
+	trTWhUH5RwQze/fjhYuDWJKwZpQbR7TAY7rAVEpYP7K20Mx3H//JnRejsjUbgSsYpebQIjlFdXlvV
+	l9dqpoFVObOXboJw3+phJ2H+5dUAFcK0W46zu68Nm9BQx8AhlavXzHallA84JzpdejvZwoc3cdv5n
+	yn/lq3fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONpH-000000037bM-1Ley;
-	Thu, 19 Dec 2024 21:12:55 +0000
+	id 1tONqM-000000037p5-3mcP;
+	Thu, 19 Dec 2024 21:14:02 +0000
 Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tONo7-000000037LW-3CDi
+	id 1tONo9-000000037MB-1tpi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 21:11:45 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2ee76befe58so1076124a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 13:11:43 -0800 (PST)
+	Thu, 19 Dec 2024 21:11:46 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2ef8c012913so883716a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 13:11:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734642702; x=1735247502; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/sSS+VDQ56vpYCpkE7vAlH0OJ/9adGK5Yjw02tWP75g=;
-        b=BbWlmaMZjf7FQUFMEogWinV8OoECRG7em1SIkaDiAO4DTY7fz18VWwBTPeKY+2XUKK
-         v1tYBhnrny9g6V0OUD77R1nvP+pIfKkWuqVAPQCUBS5ybGz6XYb6WuCwF7iMzovmu6MF
-         8nRuJGyBVcszyJmOd1mNmXMLJ9iglUcadNwbw=
+        d=chromium.org; s=google; t=1734642705; x=1735247505; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IFdap/sOPpq0KBRuIbSWSowsNeRO1eLNOr+oanM3LgM=;
+        b=OB6CnqKa1upniCCr1m6oXEuwyIfj1AIuy+00rdkfaijMjNxsjgQUPmAJSpbdUlpNFd
+         x2DUqB/7KKsyx7V7fa/rGJW3W23S63Dzv/JxLj6M6H3i3yIee2e9HwDSHoWLmAurjf2y
+         A0rOIVcR2ldSHnMKzUAD8aHsvY+LaoguDH3Y0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734642702; x=1735247502;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/sSS+VDQ56vpYCpkE7vAlH0OJ/9adGK5Yjw02tWP75g=;
-        b=bdMLMELyT6OKWrS3garhkxblPaHDm0PJ6i8QjQ6GFpxN9bzEXEYR1gbnUa/hRJApev
-         wDZIN463PaLFOpw4sSba5zoYNs5rPvFyAdXoZWmslMbhoJoeKkunoLAalplqTDMzh3WH
-         J/bl+elVwbDdVTlgg3gb/+7FR2NNq6HwWlbNW36hBYVB2LxoxiiikqhpjoBOVGIZKNA7
-         djzJIbQNLYYZiWHKRKMBzbZLeRpHZkOr6axm2TUtuFmKzcHJRrKpjuNiplP2W8HLCP2p
-         2jCtTLsI+1GT1lyZ81udt7ju3/2h6fQkC6PwWxYpos6PHXeV8flmbXUuZ8RvnARMF0nc
-         e4IA==
-X-Forwarded-Encrypted: i=1; AJvYcCXk7AOUifh83k1y6FKv4+5VFau7ZsE4lmVEIe4KxZNmGSTJzdgHzU7SpFmzHkTFGZQ5Dm8gwYxKdShczt0H3xvD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd2EqjuZBobHz0RJPlo87dKIJhA8MeyobLZ72lZ0EKHFpTpVPB
-	Kyoa3Om7e9qzTUto88aCSBr7En620kt9FgoL5dgkk7d69a+uRoFnvhvTfuZKWA==
-X-Gm-Gg: ASbGncvA9LGhjilm6vJKayjfkthM8dfZjqJcl6+9t7A7l64X//h8vgJitOJBEjabolW
-	YX/AAJFBOIujrYX6V6ax5ZTJd+QSsUJCR5k9XGh7w5xGZPqQxE7Jj04Pl35Cm2kzHRJEtXJxGL2
-	f23bkYwh+VpfA1p6hjachdRQ7oXCR+2murxitQJv17wIiZMwqGlWAV3smZayz8WjaznJ/gemX5e
-	ChfRQbK1gywC4sgCbAN4yKGET9IrKA7EmDtHiqxl1uSyD22aNOLtY7zA8nuVtNkq9PLQF9hmoaU
-X-Google-Smtp-Source: AGHT+IGkhzCQPV8lorDMXfmjA7b3/juLtvk/PIrlhRwbN39eCpa4HiixAvg8reFLAOw8QF/aoxeEow==
-X-Received: by 2002:a17:90b:2cc7:b0:2ee:53b3:3f1c with SMTP id 98e67ed59e1d1-2f452debcdamr740134a91.5.1734642702669;
-        Thu, 19 Dec 2024 13:11:42 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734642705; x=1735247505;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IFdap/sOPpq0KBRuIbSWSowsNeRO1eLNOr+oanM3LgM=;
+        b=X7dlb4JvJl0FOeCpg0eXejaRWPgkr+0eMRR/KCphxs286ctzw4b2PZ7FbAMn8WwxKp
+         aAWAKK3kfp7/XGPHd1lIteurJprct8SO01qR53C+0z9Xu+MaSH2fGVHJM2dxdg7r5k8u
+         VXxqrHtjaEEWsZDqgNtTPDuZ93q4YbUY0P7EdRe6+XW0NUcrlv4QCowuQS8cDhjq7xpL
+         WvVlDuKfRVfGe913Xhs/yrWyec8ryP7ahyLZRS3fSdgbcGL8O0cpVoevnMLVGCXf5jqh
+         bELPCS4y4LjSTYbqj7FMq6u+U5VXvAheitljxePbs+zy1gg1fARLEeVCE1jACdYXPFhM
+         YowQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXmlOkVY0hfGyCNbR18eC7QLvMEpxoYLDWeO0gYHhAeUEc87NnqL1jd47z3f6UdijSJHyRB92+LnpsRyvgMqsXZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzva6/QwBUglQuG1yDz7hmtapwb2RYoTl4y0co4clxErIgyNS1C
+	81Aih5Fykbg/VHJAzHRx5M1dd2qsIEksdibShbKsbjZDI19Px2L+7PaFgvk5Og==
+X-Gm-Gg: ASbGncvncvTGfsEhLkYNMTu3rRzfb+Prn/a0rUFc0aUtzJKfFjxR2n49vzdrWSKIsh3
+	Ldq054lmH345/jMhGePhoZ9YQhDJ9wObl2BTOVSfbuDSuQazSAz/zdliZ3ghoa2mchZlsltKv3k
+	O0sQFDmofBJFDDanjAgH+OLLeg+eA/5jHhLMuqWpHlFU5IfEWpcXBHLZHjo1wHVTyJSwMG4Sij8
+	7xy3ORIRvk3iQCPXWhgdFeju8Ts1gufBm/tE+iGqK97gGvxSmC2WX7ijOfhnz18ZzH36wefFbBY
+X-Google-Smtp-Source: AGHT+IGGlFCtPFGDg3TdCtB0hxPFvr8OnZ5HyqWHMKdJ0cGGUX0g5v4rfCRR8thJne3bzlkoFYIN3w==
+X-Received: by 2002:a17:90b:2652:b0:2f2:ab09:c256 with SMTP id 98e67ed59e1d1-2f452f01cd4mr699326a91.33.1734642704943;
+        Thu, 19 Dec 2024 13:11:44 -0800 (PST)
 Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:a8a3:6409:6518:340d])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4477c8461sm1880887a91.13.2024.12.19.13.11.41
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4477c8461sm1880887a91.13.2024.12.19.13.11.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 13:11:41 -0800 (PST)
+        Thu, 19 Dec 2024 13:11:44 -0800 (PST)
 From: Douglas Anderson <dianders@chromium.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -75,21 +76,25 @@ Cc: Trilok Soni <quic_tsoni@quicinc.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org,
 	Douglas Anderson <dianders@chromium.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Besar Wicaksono <bwicaksono@nvidia.com>,
 	D Scott Phillips <scott@os.amperecomputing.com>,
 	Easwar Hariharan <eahariha@linux.microsoft.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/2] arm64: cputype: Add info about some Qualcomm Kryo cores
-Date: Thu, 19 Dec 2024 13:11:08 -0800
-Message-ID: <20241219211131.2389091-1-dianders@chromium.org>
+Subject: [PATCH v3 1/2] arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
+Date: Thu, 19 Dec 2024 13:11:09 -0800
+Message-ID: <20241219131107.v3.1.I18e0288742871393228249a768e5d56ea65d93dc@changeid>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+In-Reply-To: <20241219211131.2389091-1-dianders@chromium.org>
+References: <20241219211131.2389091-1-dianders@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_131143_821131_EDD4589D 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20241219_131145_494155_7EFD4C5C 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +109,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a definition for the Qualcomm Kryo 300-series Gold cores.
 
-This series breaks off of my series that reworked Spectre BHB
-mitigations. Originally I needed Qualcomm Kryo IDs because I was
-adding "guesses" about their Spectre BHB mitigations. Now that the
-Spectre BHB series no longer has guesses I don't need them there, but
-these two patches still seem worth it to land on their own.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Signed-off-by: Douglas Anderson <dianders@chromium.org>
+---
 
-I've still called this series "v3" because the first patch was part of
-the v1 and v2 of the previous series.
+(no changes since v1)
 
-Link to prev versions:
-v1: https://lore.kernel.org/r/20241209174430.2904353-1-dianders@chromium.org/
-v2: https://lore.kernel.org/r/20241214005248.198803-1-dianders@chromium.org
+ arch/arm64/include/asm/cputype.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v3:
-- arm64: cputype: Add comments about Qualcomm Kryo 5XX and 6XX cores
-
-Douglas Anderson (2):
-  arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
-  arm64: cputype: Add comments about Qualcomm Kryo 5XX and 6XX cores
-
- arch/arm64/include/asm/cputype.h | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 488f8e751349..c8058f91a5bd 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -119,6 +119,7 @@
+ #define QCOM_CPU_PART_KRYO		0x200
+ #define QCOM_CPU_PART_KRYO_2XX_GOLD	0x800
+ #define QCOM_CPU_PART_KRYO_2XX_SILVER	0x801
++#define QCOM_CPU_PART_KRYO_3XX_GOLD	0x802
+ #define QCOM_CPU_PART_KRYO_3XX_SILVER	0x803
+ #define QCOM_CPU_PART_KRYO_4XX_GOLD	0x804
+ #define QCOM_CPU_PART_KRYO_4XX_SILVER	0x805
+@@ -195,6 +196,7 @@
+ #define MIDR_QCOM_KRYO MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO)
+ #define MIDR_QCOM_KRYO_2XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_GOLD)
+ #define MIDR_QCOM_KRYO_2XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_2XX_SILVER)
++#define MIDR_QCOM_KRYO_3XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_GOLD)
+ #define MIDR_QCOM_KRYO_3XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_3XX_SILVER)
+ #define MIDR_QCOM_KRYO_4XX_GOLD MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_GOLD)
+ #define MIDR_QCOM_KRYO_4XX_SILVER MIDR_CPU_MODEL(ARM_CPU_IMP_QCOM, QCOM_CPU_PART_KRYO_4XX_SILVER)
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
