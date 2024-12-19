@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF29E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 11:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356B5E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 12:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t90xHskqUVBSv++euNNE3Tg4H9uyAQ8V9ZeW0J/mlPk=; b=Ga1Rg0/+TOwVrOZcyEhn+lcqWm
-	kDRXK7znzYawzW6gAOEITzjROaJcA+QK/wKwJ6JVktmJOgu5wA1jRZ9rxcIrF9qRf5sLbG28wot+H
-	LxhM651vxq3bXL1G/x+5HdE4jYPvCuqyD4GuXeAPA3M5WFniSbtqGZuw48ERjzr6sygyt5QkxFvML
-	d58DshNNVyvIsfhavTlTwOMlOjGSB+d5mdn148/yYPC9yDr8suhS37vv3n8p3uTUpVQxh5tFWbiQh
-	LDdpdJFjg+mBCLGdU5Pvw+0mnjoWgyGI6GUPHHRMvARemrbJs8cm6twdxgOuHw0jCLWuFzou1gJpe
-	+OEYhYAA==;
+	bh=dFPNZlEooIcwCnb3CHp/TZeV+ht1n+cuCeueLEr05qg=; b=sdM7DpFh8u6urD6D9j8St937xh
+	+uFgfQBl8tSO1QqRu/z3Xsv+iBfWRqchWlAsYqVSMBC41YhPcqer6AWIrr3U3iub4261h0r6VTo5l
+	PlfhxktQdHsUW0m80SLke89SIh5r7VqfhySQdSz0xj8r4pUr3NcVszORqngvKlSKIfOuhy/6vGlqq
+	8Pa/WZibSLG1JbntT98Z5YYIJPOGS2q+NaDrBe3OC4M10tt0MSXvd3BwMmXd8dSwqEAo3e5fAtTvq
+	Iue1U8ntXQUlF6esKyPFjOA+d7S1IC1St9oNFSuBo85hzT88HgnbnWjT8Cru1RqEwrrwrPRWRNjmr
+	AmS0qZ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFBU-00000001jIB-1ma2;
-	Thu, 19 Dec 2024 11:59:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFAN-00000001jA8-3ZwU
+	id 1tOFFn-00000001jj1-35oP;
+	Thu, 19 Dec 2024 12:03:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOFEh-00000001jae-079O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 11:58:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B3C31480;
-	Thu, 19 Dec 2024 03:58:33 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 073D83F720;
-	Thu, 19 Dec 2024 03:57:59 -0800 (PST)
-Date: Thu, 19 Dec 2024 12:57:07 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
-	rafael@kernel.org, sumitg@nvidia.com, yang@os.amperecomputing.com,
-	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com,
-	zhanjie9@hisilicon.com, Jonathan Corbet <corbet@lwn.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
-	x86@kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v8 1/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-Message-ID: <Z2QKE3uml7CRm0DD@arm.com>
-References: <20241206135600.4083965-1-beata.michalska@arm.com>
- <20241206135600.4083965-2-beata.michalska@arm.com>
- <20241212065100.sjb7lrlmksbm2hdk@vireshk-i7>
- <Z2CmcelSy89NULtz@arm.com>
- <20241217042726.isllh5bulpnwql7i@vireshk-i7>
- <Z2Haw_o8gF-Ce1gx@arm.com>
- <20241218041127.khdwo3hzmywcwuh5@vireshk-i7>
+	Thu, 19 Dec 2024 12:02:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 78C6A5C5744;
+	Thu, 19 Dec 2024 12:01:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A10F9C4CECE;
+	Thu, 19 Dec 2024 12:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734609754;
+	bh=hFX3zZUpFJljafxwc6mZtbVjERwcv2b9BVgvXBWnGGw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E0lDq/YGgQS3XixO17VMlzszN0bELqF56oxoFRog7N4hgtR0PUiEgbJqO7ud5y9tg
+	 d8Zizqpdyc3XrrjJ1y4SmfvfBB/oUopfrKBEfNEaQo10TigZ+5dHgP/P5BRVqXQh5r
+	 RFMRhOqwYO5W1mX3SREIjucpkl+sp5yLcljg61F3M9SNfVDAd6YVEkaZpMor7zBrM4
+	 Sh44vkaFBj3gAN2mwsWaUNzlwYjyiqPnF60BfWnc7+0IhlE4dTg2foMQTRcC+aiMIb
+	 s2WLXZkA6RAYrd4a2dlVwErbXFHeiC0AhxD0v/lweqT8Ob5t9hfq7s3WhfAoBbPdwj
+	 fnxywvxtCfexg==
+Date: Thu, 19 Dec 2024 13:02:29 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: frank.li@nxp.com, o.rempel@pengutronix.de, kernel@pengutronix.de, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Clark Wang <xiaoning.wang@nxp.com>, 
+	Ahmad Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
+Message-ID: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
+References: <20241218043541.143194-1-carlos.song@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241218041127.khdwo3hzmywcwuh5@vireshk-i7>
+In-Reply-To: <20241218043541.143194-1-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_035807_932801_3211EA7B 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20241219_040235_111933_B51CD48E 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +74,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024 at 09:41:27AM +0530, Viresh Kumar wrote:
-> On 17-12-24, 21:10, Beata Michalska wrote:
-> > On Tue, Dec 17, 2024 at 09:57:26AM +0530, Viresh Kumar wrote:
-> > > On 16-12-24, 23:15, Beata Michalska wrote:
-> > > > My bad as I must have misinterpreted that message. Although I am not entirely
-> > > > sure why this might be unacceptable as it is not such uncommon approach to use
-> > > > signed int space to cover both: expected positive value as well as potential
-> > > > error code case failure.
-> > > 
-> > > This part is fine. The problem is with handling frequency here. Signed int can
-> > > capture up to 2 GHz of freq, where as unsigned int can capture up to 4 GHz and
-> > > so we would really like to keep it at 4 GHz..
-> > Right, though the arch_freq_get_on_cpu operates on kHz values.
-> 
-> Hmm.. Missed that.
-> 
-> If you still want to keep it, make that change in a separate patch and
-> the new sysfs entry in a different one, so related people can easily
-> review.
-> 
-Will do.
-Thank you for your feedback. Much appreciated.
+Hi Carlos,
 
----
-BR
-Beata
+> +	/*
+> +	 * Init DMA config if supported, -ENODEV means DMA not enabled at
+> +	 * this platform, that is not a real error, so just remind "only
+> +	 * PIO mode is used". If DMA is enabled, but meet error when request
+> +	 * DMA channel, error should be showed in probe error log. PIO mode
+> +	 * should be available regardless of DMA.
+> +	 */
+> +	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+> +	if (ret) {
+> +		if (ret == -EPROBE_DEFER)
+> +			goto clk_notifier_unregister;
+> +		else if (ret == -ENODEV)
+> +			dev_dbg(&pdev->dev, "Only use PIO mode\n");
+> +		else
+> +			dev_err_probe(&pdev->dev, ret, "Failed to setup DMA, only use PIO mode\n");
 
-> -- 
-> viresh
+Just for understanding, should we quit in this last case, as
+well?
+
+Before we were ignoring ENODEV and EPROBE_DEFER, but now you are
+making it clear that other failures like ENOMEM might happen.
+
+Thanks,
+Andi
 
