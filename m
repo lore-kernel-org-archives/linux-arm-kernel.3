@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252DEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A919E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zMwNf9t0q5gn7SR4oFkzDlcS6LsVE6kD2nIRkFUlp4=; b=aED/OdJjZ9p6qUK+qoKLKeTDiP
-	pBLRvp46SLJ4HFcBFieAzIyH1ojQWcY4lcF+ztc0r5a6RUT4IXGVltN392qH9niO6GsYJabTA0PJK
-	ds2gQDCVH9vpCUQDt713/znu18NY3W33wgMcCGUt2TbWf964ipvmO/eLKudxskKTtmrZ2ovp5jODg
-	fhVgnSOtZmb8HZOFZPceDNdf6CVCLpPp7maGF1aRqsvyDHiBHm2sLV0Ba+8G6RgDS7W215KkTDY6I
-	vpt/m04s6nB8EFuGGKehkN82Z4zqGyaaFLGWPp2tggK31i4vCtiHqJJLwQF+4eS7XHcIZV11QOW44
-	ea7mlpRg==;
+	bh=aAxZhNgk1rtIGa1kSUqiUHbGpsQKOEDQpw7f9uu1F6A=; b=U3whPZgP+amyFUBkjaIiva4R9L
+	rWgAIxmRGYyX35LZp62iRLjH+SUVsGAVcWlhmv7gBX32N1UJuZyP8ko/a9I+x90e3TmVkWpCY71o0
+	CODLDjyEIc6w/QlYr8oNJKv1H5la2WRuEeyMS9iqt4bIEWkJT8T7DorX8Rh43SekM2KNtk9MuTzju
+	K9b8/KLAEWGELyVSPxo4eHlqyxvBe7YPWMih38Rry2iUfQwuicxGp4fJ0ScyG2MyrbI1Q0VEwETmo
+	dGSAvTJ3ZZV0I+4eAmZkMFpMcWpSmjSGhQXLrvp7RpQ746vcq6ISDrXF2gsTz+vCDC1e+3R8YiG4H
+	ucQieblA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgNP-00000005Y7m-04aj;
-	Fri, 20 Dec 2024 17:01:23 +0000
+	id 1tOgOW-00000005YNU-2l4E;
+	Fri, 20 Dec 2024 17:02:32 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgDo-00000005Vx2-3Bhh
+	id 1tOgDs-00000005VxN-1ZWN
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Dec 2024 16:51:28 +0000
+	Fri, 20 Dec 2024 16:51:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=2zMwNf9t0q5gn7SR4oFkzDlcS6LsVE6kD2nIRkFUlp4=; b=dOPxuV08yM1ylFocf0z08ufXGo
-	qTJinN/o78HDACeBdTv1LDHMqaRCDRwLjJRanZBlL63P5epvWQt+D10o7D7CLBocaq+BJxLFUH/Et
-	kUAkKtjN51228DdNa+tQ4VYAw5Ya1v/LaRTUkpWpHlptlhO2VTOVF5jod0B0Ak0JfYs3VAmYhIFL4
-	nYFpfuMafeLmpahpld1SqCjCFHBBdWVO/LTuTbLaM14Nwx0Nw0UCa0u80WpCNnclXLcX59MZwlr0+
-	1N+klVj6pFhslhMGK7FHdpJvpexWzqlraMs5HenDwJLEDL+CIC7yZEfRFTK5fRUZWtt2qCp/NyNDe
-	XKcrbVPw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=aAxZhNgk1rtIGa1kSUqiUHbGpsQKOEDQpw7f9uu1F6A=; b=TdSGrixl/v/XXUEgaHLPe3/PxQ
+	Z34quBrnhKYlSWsCow25TZAeLSkzz5G4/VxJz0fP8/6woUJq+jTpws2spHiyBM2XktKdApqieuA1s
+	wCO2NHuzSfi12VwxqCJxaRZ49oeaY3/7cvMdzKzxlxPTu/yuO1J8XYSvgr6rHblST207gY2t3NXNd
+	Z/knRPBre1I8zgBrBZjH1MWQuNKkvPN3CQJFwOUFoMk8JW0+PiJNlNNryAJv9VK6C5TM/dOFyhs7X
+	zPFYDBIU2W9TEFiGvnYnpSARCCax7oiIaq9Yin/xYvTSlYzt6UN9Wt9pPjUSQ2ukAXnQZDJIHF81e
+	ZnlqtlJA==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgDl-00000005jV9-2l3m
+	id 1tOgDp-00000005jW2-1e39
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 16:51:27 +0000
+	Fri, 20 Dec 2024 16:51:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 26833A42017;
-	Fri, 20 Dec 2024 16:49:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D7A3C4CED3;
-	Fri, 20 Dec 2024 16:51:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DAB15A42017;
+	Fri, 20 Dec 2024 16:49:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAB8C4CEDC;
+	Fri, 20 Dec 2024 16:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734713484;
-	bh=a+yncXwMMueTmbDqZnDIxIoJ5xsyf/PU5pYLC6ZbRbM=;
+	s=k20201202; t=1734713488;
+	bh=/i3TwaKgCBLSWDUFzgZJ5E4rHb3UDDDbQ/9/hT2MAGs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=vLhYu+o1l++cILw7iyIVCcLat3F3ew01Ad54HxoZ0pxbH6rThGz/L0017gDWjF0Te
-	 2dsAfTr8PLX+dlbs/lw6y+VBYIILA/8P6jovxfMPegV5yFcjF14U1UvdVGD7jL8f73
-	 xwpkqjohLRCroOVtSg0rhhqL5tuTq8e8tSFGANkEH/3xgEMf3iz3fPW5W5WyHfMb13
-	 XoKFe3Aba1VLOG+VjFFcL7zslcQ+OGdwUErrh0dZc9tFWio/bUfXnnVo3X4TY6EzJW
-	 2PXEDecDpmzbhMkIiwKCs+s4zXLdWAGtEDKNHbB1pVUEMKbgGGpL+adtC/HI4R7tF+
-	 x48mrTY9irCgg==
+	b=crEj/i06gGmZk5M1LHwTVOq3Ku4eZAwf5Lzjlpp4UJMXlDax1g3QMdBxXpwDIF7FL
+	 3f4Sw2E19x5pgh+/SUWeExgu5ZqBXoC0UQYa9MfQqEiEqAYj7i1uvEoPBmwRt3Zch/
+	 yBRzbMe3fLfIJ0ZQU2nlMSoQ4Z4Ft0xsLUnbt10tgLxn8eAPoNfh4jbCJEWaXWYKkj
+	 6+JriIQTN1rfxrzPFATGPza69g/KlQ6qL7xrR2ftbW4arHneM8tELY2c83conD3+sc
+	 Ne7bT4T5Z9rC0XG/I9u3BvNBBAG9H0C3RtojGEnJmqcjV8an0PT22I8GWfXd1YQeOo
+	 D+NPSWaiBOsYg==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 20 Dec 2024 16:46:32 +0000
-Subject: [PATCH RFC v3 07/27] KVM: arm64: Convert cpacr_clear_set() to a
- static inline
+Date: Fri, 20 Dec 2024 16:46:33 +0000
+Subject: [PATCH RFC v3 08/27] KVM: arm64: Move SVE state access macros
+ after feature test macros
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241220-kvm-arm64-sme-v3-7-05b018c1ffeb@kernel.org>
+Message-Id: <20241220-kvm-arm64-sme-v3-8-05b018c1ffeb@kernel.org>
 References: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
 In-Reply-To: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -78,20 +78,20 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-1b0d6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2083; i=broonie@kernel.org;
- h=from:subject:message-id; bh=a+yncXwMMueTmbDqZnDIxIoJ5xsyf/PU5pYLC6ZbRbM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnZaBZdrU2V+OphtPgF7NwJy6uVDv4tmY4K7qACS27
- 7872fXSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ2WgWQAKCRAk1otyXVSH0BvtB/
- wI5sZMQ9hxIxROX5W9UZZrhMrY9fD+KkpsCZhFytntZ+8JR14prgNoUKPp3948eBLgtc15UJFySKGQ
- Ndru+92DG2ZY0Jfpg8pOhwNHdNFRf7i8iy3x6NzdfOWsfqsFgHVk4qGK9zhmwxyzl84dDIWHGhpD6e
- aRNiSuALRNHMgpvN3KbhOIO2wOCiR1eJz6gqILHINr0Cx6I7KcuiDQ4ryhz0W6rq+fPlwFLAM8lKW4
- grkNv1hEE5V4XG9cdtv5p0H99/KNSRxF0mf2l92afCdiNeSWHOqx3stkBvfaEzA96MuM5jrGDz875+
- KAGD/VaHBJfxPDBer/1e77U+E3qsCQ
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2613; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=/i3TwaKgCBLSWDUFzgZJ5E4rHb3UDDDbQ/9/hT2MAGs=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnZaBaSCMFrVKugleuCqcjESXruDC/s6CaD4yZ5F6Z
+ p7wReKWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ2WgWgAKCRAk1otyXVSH0LqlB/
+ 9idSTtrsfAftjwtJ51rl1MDfrczjOESiyC+PCFAePnmVi3KdagMZPCJQvdE7wrKQuchGOWvo9/CLq+
+ cN7EaMnLRHfgp8Z/hUnReRjkCeiHX6BBOj0iNBGSRirbpxgDO95XXMQAGYnQLEeGAXP1431tdMRmzf
+ LAzBVbJtNVeUBBEHCRD0Yn5Wb8AKl7fWQYwAJHJikESsLd6fPuwCVKe+oekBg/R1YaUxiTNfVApgOM
+ s4PZRY/HFMAqM77VIzYl/XflL9D6jQAwR2yKjwLDgt7OK5tGxJk41JJH0hl36jcAdH41yrYuMic6lU
+ kq+tPZijmIyttMxtCnye3BE46zZ1AN
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_165125_992981_9C653C6D 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20241220_165129_743232_442E4872 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +106,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently cpacr_clear_set() is defined as a macro in order to allow it to
-include a number of build time asserts that the bits being set and cleared
-are appropriate. While this check is welcome it only works when the
-arguments are constant which starts to scale poorly as we add SME unless we
-do multiple updates of the system register.
-
-Convert the function to a static inline so that it can accept runtime
-variable arguments.
+In preparation for SME support move the macros used to access SVE state
+after the feature test macros, we will need to test for SME subfeatures to
+determine the size of the SME state.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h | 27 +++++++++------------------
- 1 file changed, 9 insertions(+), 18 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 46 +++++++++++++++++++--------------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 2d91fb88298a263dcd73a4269318f8edf1379650..5f05da7f538d29d321c424233f21b8448d8b4628 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -592,24 +592,15 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
- 		cptr;							\
- 	})
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index fca81ede6140c0ee7d03cb6ca8f5eead45b87033..97b617606221e8c11fd2b55d9636848d8453209f 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -934,29 +934,6 @@ struct kvm_vcpu_arch {
+ #define IN_WFI			__vcpu_single_flag(sflags, BIT(7))
  
--#define cpacr_clear_set(clr, set)					\
--	do {								\
--		BUILD_BUG_ON((set) & CPTR_VHE_EL2_RES0);		\
--		BUILD_BUG_ON((clr) & CPACR_ELx_E0POE);			\
--		__build_check_all_or_none((clr), CPACR_ELx_FPEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_FPEN);	\
--		__build_check_all_or_none((clr), CPACR_ELx_ZEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_ZEN);	\
--		__build_check_all_or_none((clr), CPACR_ELx_SMEN);	\
--		__build_check_all_or_none((set), CPACR_ELx_SMEN);	\
+ 
+-/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
+-#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
+-			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
+-
+-#define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
+-
+-#define vcpu_sve_zcr_elx(vcpu)						\
+-	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
+-
+-#define vcpu_sve_state_size(vcpu) ({					\
+-	size_t __size_ret;						\
+-	unsigned int __vcpu_vq;						\
 -									\
--		if (has_vhe() || has_hvhe())				\
--			sysreg_clear_set(cpacr_el1, clr, set);		\
--		else							\
--			sysreg_clear_set(cptr_el2,			\
--					 __cpacr_to_cptr_clr(clr, set),	\
--					 __cpacr_to_cptr_set(clr, set));\
--	} while (0)
-+static __always_inline void cpacr_clear_set(u64 clr, u64 set)
-+{
-+	if (has_vhe() || has_hvhe())
-+		sysreg_clear_set(cpacr_el1, clr, set);
-+	else
-+		sysreg_clear_set(cptr_el2,
-+				 __cpacr_to_cptr_clr(clr, set),
-+				 __cpacr_to_cptr_set(clr, set));
-+}
+-	if (WARN_ON(!sve_vl_valid((vcpu)->arch.sve_max_vl))) {		\
+-		__size_ret = 0;						\
+-	} else {							\
+-		__vcpu_vq = vcpu_sve_max_vq(vcpu);			\
+-		__size_ret = SVE_SIG_REGS_SIZE(__vcpu_vq);		\
+-	}								\
+-									\
+-	__size_ret;							\
+-})
+-
+ #define KVM_GUESTDBG_VALID_MASK (KVM_GUESTDBG_ENABLE | \
+ 				 KVM_GUESTDBG_USE_SW_BP | \
+ 				 KVM_GUESTDBG_USE_HW | \
+@@ -992,6 +969,29 @@ struct kvm_vcpu_arch {
  
- static __always_inline void kvm_write_cptr_el2(u64 val)
- {
+ #define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
+ 
++/* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
++#define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
++			     sve_ffr_offset((vcpu)->arch.sve_max_vl))
++
++#define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
++
++#define vcpu_sve_zcr_elx(vcpu)						\
++	(unlikely(is_hyp_ctxt(vcpu)) ? ZCR_EL2 : ZCR_EL1)
++
++#define vcpu_sve_state_size(vcpu) ({					\
++	size_t __size_ret;						\
++	unsigned int __vcpu_vq;						\
++									\
++	if (WARN_ON(!sve_vl_valid((vcpu)->arch.sve_max_vl))) {		\
++		__size_ret = 0;						\
++	} else {							\
++		__vcpu_vq = vcpu_sve_max_vq(vcpu);			\
++		__size_ret = SVE_SIG_REGS_SIZE(__vcpu_vq);		\
++	}								\
++									\
++	__size_ret;							\
++})
++
+ /*
+  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
+  * memory backed version of a register, and not the one most recently
 
 -- 
 2.39.5
