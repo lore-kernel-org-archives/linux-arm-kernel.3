@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4C3E7718C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24DD0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dRQf5pCtS98olBDfm75Y/wTQJYSNQxlX5eEUv/v7GTM=; b=VT3Dla2BFDLhQAd3HelAEU6Zty
-	R8zYwTLWc5tCyPn+SAOevz9qpaAcFFYAuEdfeTCsjh59f2n4a2ZY38x9U5i/UWFlwyxjSFcH2urx0
-	BoCjdybVFMsD+8OPlpJiApVJHS21+Q6L0JUlP84TvYMiLQDaD9MSqxJo8/6cOw5r5D1osJ+DkCtS8
-	G24LWEMLYJOKxld269B0rpe7M2bAZB9iovHSncYKWGKfKX9iLNCiMR1aHtAJ/WaaNtNPxmVk8tuXR
-	X4v+OVkTaHKqK6JsssyHoK9MmfmgXCZgvfkhjtSpNrAHEI9XXCc1yEeDzpGF63vvYYZV6BKhjVtdD
-	yiLRI5MQ==;
+	bh=MmtDICGM0l65a5mYlLLpFXLAWoazTxk0waoWhv6Z7hU=; b=t4tXFwvRRYIQgWxLu7gbrlvNM8
+	5ujxeK97X0Vj6VyKhxgW1v7ibECJJN2otS3Qb5AejZvl93U9BJlin2PL/h6ynuO0Ambzou5ziNWbQ
+	Xd+1h/evteDY4jUT/b3p8H/PVeHHjmrk3PgQlqAoA4HLxwtyLOvB/P4I+/4b6L/eQmnOfQGizqhnB
+	kTbRmJtfFFTm5Fmw3E/sEKld+NVCOUWWCfr0PycJyL7cHIHQBbV7qZpjbwAFSSdI0bOE38srbN15c
+	PzecnKdv5u+9SeQXAlqaFL1BPflfRG0CL+QJ36rp/3RykfI07aqUPCOPjHSsjIMwCjYf4Yo0e+d+T
+	3hx24VoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOhCK-00000005hrA-2baa;
-	Fri, 20 Dec 2024 17:54:00 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tOhCM-00000005hrU-2Rot;
+	Fri, 20 Dec 2024 17:54:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfkx-00000005Rpx-3CEQ
+	id 1tOgEy-00000005WBV-0vjP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 16:21:41 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4361d5dcf5bso22687075e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 08:21:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734711698; x=1735316498; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dRQf5pCtS98olBDfm75Y/wTQJYSNQxlX5eEUv/v7GTM=;
-        b=Ef5qP4s+2o3hcTgIuk2fXuGwZgpOzvyOzQxZJqJKoaANGL+PB8jyRCTVrI4B6qtEiG
-         Gpd8RJs+wvoPKyIUqf9FX8mdwN/LJ3SB0ysEUxaBUPWBIYlXz7KykiHY1MGakx5bz6Xh
-         OuJZtXTRtfs1/Xw1tNgBKIPhe3RiFqcm1nyglWAsf9qfDuniITeRgxRCxCrnCWt1EGYj
-         E42Oqf1ae18LwHJpP6MdVx+pzvDLK6qDtKswosZ0G7UY3SRvFOErQZLb436dU1U+tnYQ
-         SPd6HxvNlkIPhhfOMMKNj9lwjCQ8QQ5TYBMFL2QZw7ppKAeikNAW//oYvqfgzCsPqSmW
-         z78w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734711698; x=1735316498;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dRQf5pCtS98olBDfm75Y/wTQJYSNQxlX5eEUv/v7GTM=;
-        b=C+aNWaJnM5B+lRCmsf9qlZfGl53qikUAphIIvGuk/nEbbxbnwtkgaCQAorI5/bTG8F
-         oZYK5MaH0gre7RP1/AUudPlZbGb6of7aDuFQG2tcygeO5a1qoPBV86se++ZhajMTczF3
-         3FyF27yhxuld0fC0IH0x+5VWomswKamAuDbrhTgbRGMgHwS7f2AEFdqFNsFvzS+o+7yK
-         a1r93npwL/TaDKxPVpF/LtZAdZjYtYPYA1CWDeZGp1ePmnc1+c/X+qx3rjXG/KLEsHI0
-         VRQakSESLb1U6q3nAAAGgq0QyJsnxURkAJxwCHQck7WIW67Kk7KYaT9ShWSyKf2L/QXl
-         eSHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWXGtMD36iwaMy8OziEmcKGJymjW+mHAJWWg+N1ZSAgvDxMxumtqJJSNZMY/seIGafQNz1jVdTTK36chEsFUI8H@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZ7h9lAD9atJzvLh+1joFhsOuTplyICRlG7JCan95QAZywakUi
-	dWR4PLU4TXLjf1Tbr+PjAgfYV2Lyj9o98jPtpi+CBhJdtkZSYOheQP49BAAo+Y4=
-X-Gm-Gg: ASbGncvwXDrCdRESkq8BWtDiLvilgu4p716SUEveaQQ6ps3SXxLs68vyACEWRYkbmQO
-	xREbYs+3MU8JijoafDKUL6UBuXCPK+3ZWDsY85QtBFBqWOsSnqj+Ru4yiFSnQgJU4kEMIFuciDP
-	fGUrXh2obsG9/T4RBiyWqrGY4vCYsiKoEFq83C9JnxoLY/tzJwBGXWtFkpI/P2jSWMUuv54SxY5
-	8ChLQNXhM496IZGXsctt5mZ7KY50n+Q2+wK0Ez62S9Y5Mxd
-X-Google-Smtp-Source: AGHT+IFxW+RopysqEF8jPbYWDmorW73wBvGIWAYULKR3uETdewbravBIGqJ2B2OrN6Kmdympczu2lQ==
-X-Received: by 2002:a05:6000:1fab:b0:385:e30a:394e with SMTP id ffacd0b85a97d-38a221e2066mr4017975f8f.3.1734711697793;
-        Fri, 20 Dec 2024 08:21:37 -0800 (PST)
-Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43656b013e1sm82824045e9.12.2024.12.20.08.21.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 08:21:37 -0800 (PST)
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 20 Dec 2024 16:21:15 +0000
-Subject: [PATCH 4/7] media: dt-bindings: media: Add binding for the
- Raspberry Pi HEVC decoder
+	Fri, 20 Dec 2024 16:52:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1C30CA42021;
+	Fri, 20 Dec 2024 16:50:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E167AC4CED3;
+	Fri, 20 Dec 2024 16:52:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734713559;
+	bh=6kn8YcyG3uuWVTS1B2ujfbi26Z2jCCYjwR1TrhqEy2Q=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=XqRjWyNk9kIYPWXzlnb9og0pSjDfTTTe45d7kqmxpS9DXBj2LHwD6ojWrjz8MNbwu
+	 XwIouMaWV2fBKQ+cu7e/1Pos7V7ZvsOS+pwchWq6wY6ryoWo4bqjn+zzo+6+HW5QZN
+	 Br8LuB95Av9Nr6aVlrX765GiIvBh7Av6TuI6y27s0lLm5YjoApuZHxeATGCeaYUxfN
+	 UeFtlTva/ah9guJwpvQtv6eV8+jMr38vXUgyxmJ4VIh1nk1XIH2v5ZDFpVrLCRve1C
+	 Q9ZC4lkKJQzEw7HocYHRJI5X3zYDQegf0ANXiVp3x3NdNhGreJj44Bl6mzMAFFwSSO
+	 IX1T3X2OKfhcg==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 20 Dec 2024 16:46:52 +0000
+Subject: [PATCH RFC v3 27/27] KVM: arm64: selftests: Add SME to set_id_regs
+ test
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241220-media-rpi-hevc-dec-v1-4-0ebcc04ed42e@raspberrypi.com>
-References: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
-In-Reply-To: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>, 
- review list <kernel-list@raspberrypi.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: John Cox <jc@kynesim.co.uk>, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-X-Mailer: b4 0.14.1
+Message-Id: <20241220-kvm-arm64-sme-v3-27-05b018c1ffeb@kernel.org>
+References: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
+In-Reply-To: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3741; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=6kn8YcyG3uuWVTS1B2ujfbi26Z2jCCYjwR1TrhqEy2Q=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnZaBpXKAVT7Xj2TrzanVTCDxoQiBb4OID5YM+cEX6
+ jYIeZXKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ2WgaQAKCRAk1otyXVSH0IeFB/
+ 9sKnmq2qh8uWU0H5kwqGp5XMMe1DPeJUtofdlK9oQiX2eJ6fapOjfe0UTwC2KukPy2FJNYDiHfAhfZ
+ M66Y9CgKhl52tOGqK7TBZoHhJLSA5EoNKUHEsD2u0Ck6av673xKkWaWzP9VtfzkEn17ZUthldmVcB+
+ QIs/WZbMDD51k777cWEyWmHmboUneznPe9Cok2xzLQRTWk8PV6goqbZm4/RRKtyB98khGEBocmacrx
+ yUJgOvL+aX0tooOaYFhnmA8oXyJNJruPuaaqs06xzOkyVPfMLbU0KKMkgvfRHaqPdjtsJM/2TxjOO/
+ Jfded9UGUS71PlDH+JqqMIFCtnSqYm
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_082139_815920_992591A5 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20241220_085240_390747_9FD2F6F9 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,94 +92,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds a binding for the HEVC decoder found on the BCM2711 / Raspberry Pi 4,
-and BCM2712 / Raspberry Pi 5.
+Add coverage of the SME ID registers to set_id_regs, ID_AA64PFR1_EL1.SME
+becomes writable and we add ID_AA64SMFR_EL1 and it's subfields.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- .../bindings/media/raspberrypi,hevc-dec.yaml       | 72 ++++++++++++++++++++++
- 1 file changed, 72 insertions(+)
+ tools/testing/selftests/kvm/aarch64/set_id_regs.c | 29 +++++++++++++++++++++--
+ 1 file changed, 27 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
-new file mode 100644
-index 000000000000..d9e804300297
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/raspberrypi,hevc-dec.yaml
-@@ -0,0 +1,72 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/raspberrypi,hevc-dec.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/tools/testing/selftests/kvm/aarch64/set_id_regs.c b/tools/testing/selftests/kvm/aarch64/set_id_regs.c
+index a79b7f18452d2ec336ae623b8aa5c9cf329b6b4e..ce20ca3bd2733002465ff690e3b99d23d1284de4 100644
+--- a/tools/testing/selftests/kvm/aarch64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/aarch64/set_id_regs.c
+@@ -138,6 +138,7 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
+ 
+ static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, CSV2_frac, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SME, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, SSBS, ID_AA64PFR1_EL1_SSBS_NI),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR1_EL1, BT, 0),
+ 	REG_FTR_END,
+@@ -183,6 +184,28 @@ static const struct reg_ftr_bits ftr_id_aa64mmfr2_el1[] = {
+ 	REG_FTR_END,
+ };
+ 
++static const struct reg_ftr_bits ftr_id_aa64smfr0_el1[] = {
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, FA64, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, LUTv2, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SMEver, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I64, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F64F64, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16B16, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F16, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F16, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I8I32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16F32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, BI32I32, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F32F32, 0)
++,	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8FMA, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP4, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP2, 0),
++	REG_FTR_END,
++};
 +
-+title: Raspberry Pi HEVC Decoder
-+
-+maintainers:
-+  - John Cox <john.cox@raspberrypi.com>
-+  - Dom Cobley <dom@raspberrypi.com>
-+  - Dave Stevenson <dave.stevenson@raspberrypi.com>
-+  - Raspberry Pi internal review list <kernel-list@raspberrypi.com>
-+
-+description: |-
-+  The Raspberry Pi HEVC decoder is a hardware video decode accelerator block
-+  found in the BCM2711 and BCM2712 processors used on Raspberry Pi 4 and 5
-+  boards respectively.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - raspberrypi,hevc-dec
-+
-+  reg:
-+    items:
-+      - description: The HEVC main register region
-+      - description: The Interrupt control register region
-+
-+  reg-names:
-+    items:
-+      - const: intc
-+      - const: hevc
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: The HEVC block clock
-+
-+  clock-names:
-+    items:
-+      - const: hevc
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    video-codec@7eb10000 {
-+        compatible = "raspberrypi,hevc-dec";
-+        reg = <0x7eb10000 0x1000>,	/* INTC */
-+              <0x7eb00000 0x10000>; /* HEVC */
-+        reg-names = "intc",
-+                    "hevc";
-+
-+        interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+
-+        clocks = <&clk 0>;
-+        clock-names = "hevc";
-+    };
-+
-+...
+ static const struct reg_ftr_bits ftr_id_aa64zfr0_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F64MM, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F32MM, 0),
+@@ -213,6 +236,7 @@ static struct test_feature_reg test_regs[] = {
+ 	TEST_REG(SYS_ID_AA64MMFR0_EL1, ftr_id_aa64mmfr0_el1),
+ 	TEST_REG(SYS_ID_AA64MMFR1_EL1, ftr_id_aa64mmfr1_el1),
+ 	TEST_REG(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2_el1),
++	TEST_REG(SYS_ID_AA64ZFR0_EL1, ftr_id_aa64smfr0_el1),
+ 	TEST_REG(SYS_ID_AA64ZFR0_EL1, ftr_id_aa64zfr0_el1),
+ };
+ 
+@@ -229,6 +253,7 @@ static void guest_code(void)
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
++	GUEST_REG_SYNC(SYS_ID_AA64SMFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
+ 	GUEST_REG_SYNC(SYS_CTR_EL0);
+ 
+@@ -676,8 +701,8 @@ int main(void)
+ 		   ARRAY_SIZE(ftr_id_aa64isar2_el1) + ARRAY_SIZE(ftr_id_aa64pfr0_el1) +
+ 		   ARRAY_SIZE(ftr_id_aa64pfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr0_el1) +
+ 		   ARRAY_SIZE(ftr_id_aa64mmfr1_el1) + ARRAY_SIZE(ftr_id_aa64mmfr2_el1) +
+-		   ARRAY_SIZE(ftr_id_aa64zfr0_el1) - ARRAY_SIZE(test_regs) + 2 +
+-		   MPAM_IDREG_TEST;
++		   ARRAY_SIZE(ftr_id_aa64zfr0_el1) + ARRAY_SIZE(ftr_id_aa64smfr0_el1) - ARRAY_SIZE(test_regs) +
++		   2 + MPAM_IDREG_TEST;
+ 
+ 	ksft_set_plan(test_cnt);
+ 
 
 -- 
-2.34.1
+2.39.5
 
 
