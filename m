@@ -4,110 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F02DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39732E7718C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nZtvjese48KZzlytF02YIE1ieOtjMj+XC4JVW8Rkw1o=; b=tWZ5edQp0IFYwN17Ewb2PM1Vxc
-	E63JT0kIiTKi1TgxW+HR0XR/JlgCwWBZxh4iPnZ00r1Emyde0zFnLC5lt2ry6TkOPSkUM5UrKfKq1
-	tP1qYUuHILIb90uFAnCOREQNeuylPNmJY5ehV1gAkOrc9hwFsGysU5U9Chhotzg7XpNAuWyIIY/Z4
-	2k5/PlTziJdzrcjUWBL6Ydl4s4+/enpjcvhBlQ5SRdgDKkT422v0FNUm8ZquJ8Ei3PFHZ5iCDbGWH
-	Sc7japHEdFQvHnZ6+WS9HI8sL1s8hGiJ6Gjm6cja9XbvcCzzmgSNQ9omWfuC6zkwWHpIBUfgz1qGS
-	3Woo2tnA==;
+	bh=TH0ggL15ha3cHvAVBubqS5XbrDlSBVnwD+kCElIWxLY=; b=UyRwUWc53tuVYAKlZtL+Tq7uAZ
+	RCxzOSxY4xoknoYbEdBzCDS1H1+igUy0l+TNQRjO14OEt0nJgPHZK9i6ZIjtJ+6vkyMIUG7bf6ar0
+	1ncgLpv0w05HmgZUesEGy5r1PkRwdvCBonBuoBKqtait6KuMnZlY8z90MX4qaBhsjd1j2IzcPmfzS
+	YinHpXUcTnfaQz5Gl2+Z4TyGZLSPYO5A7YM/gFgSxknGEYLbaqQuWOXVB4Zuh7AsboHjvWD08pc9z
+	EgKkp+WQkboeQDL7L0piIaQ1llF79w97LI9iO2u+VOeTafDgSGQmVcWj7Yr4FPEoYFdPTWe+SooJk
+	OfJm267A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOe9T-00000005AXZ-32T9;
-	Fri, 20 Dec 2024 14:38:51 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tOeBh-00000005Azx-2Fgd;
+	Fri, 20 Dec 2024 14:41:09 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOe6I-000000059rk-1rsK
+	id 1tOeA3-00000005Ah2-12ZN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 14:35:36 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21634338cfdso25712945ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 06:35:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1734705334; x=1735310134; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nZtvjese48KZzlytF02YIE1ieOtjMj+XC4JVW8Rkw1o=;
-        b=V8DAFTBjHV4qDGroLmxlFiLjEJ7wvsBCNLFEwZ4rY/4B6v8wqNAfDAa7ug/E1qh+Vo
-         S0J0HzkGvxf3VgQLWzXoPC2zWCk3VsoSHlDnU5wXDnNF+Q3KdP7xrsPQlr6dd3ewlQZW
-         qFETNtSV+G5z8IAIfkhx+g2RqjK8BA5FdTmhr71E8lOTZ5+vWb/RtjumpVczTYZxNexo
-         haPQLYWZ5xPqAi0PQpv2T1ZSiPS06ONpr1IlzakoNRt9RekV0mEG3qyoTM/OuCCUZYsv
-         wPj4IVHilWb15vvb+H0dK/LnPXAhuYN3w1lbkWT3GBOBzG39dewIfPsdWGdfJiy19iJ5
-         ywuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734705334; x=1735310134;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nZtvjese48KZzlytF02YIE1ieOtjMj+XC4JVW8Rkw1o=;
-        b=qQiay5uKzjT7Voyzo3nh/XUiMNTwaz9d3wKpMV7DabIm+PHfQKlxjuPrehq6a039HR
-         jluTr1iwIJ0tR3IFHlw85FVHPHzzeoBVVVMoWFS0PRDNAosVZPdCEnwhbIOlwR7N9jBI
-         UJejZRMGGPkSdenFiWubw8dHNbx0HqZZGG9hXvOrXrxzqEBgRDQz3bksul9DEg2ele8T
-         BZerYlLnKbba6Gj6PtzyackcKyqJiE9+7iy6EuL7kYpCl9h76LdxWbI8CoHGPrIJBm4O
-         BzEbuuiJW5YjGAqazAF1N+LO7E+GzFhn9/T0EaP6h3LFF26FJ4NKDL03nPaMxsf+/Bde
-         xxTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXsKWvNvLB/GcSAzNZqDAEohktTE8BPqbxh8vSAJV0Jlndc5w0ZaySiGuAXMkh6qygYhvi0dUOlaFCFfs+G1+Di@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyqwu0kq5I27+PBHuYN96J0cPJyBMJ+E6g2H3BhRK3r2tFdBX+M
-	mC7QOVSJac5aUCbIh1aeyFk064VvsxU6XEBH7EYn/AHRTXHbFBFw8c3eTxhj7m4=
-X-Gm-Gg: ASbGncsovbKYrVAq3K3I76qa8ZKJUvXpFx773hPJAl8DJfvzNbnv3f//vHAJ/OeX/S5
-	Yq0J8ozDwr3KWDf4bnYoAcGcadNnKFsye5iW2GE1ulNB6KfWENMPWyXoj5Uf2fttMAEK4Bho+bp
-	skeu0BNJxf6vdRcyY8E+2f9C6F6RLtSMRDK8oqUudCnRqukpFF9mo7m0OGznTZ4mgOQld//HKpQ
-	fNOQ2/dE7JMb21V087OJMt2+DX7f+dLAf30Y5o9NDYzq+uNVpVdtgN5VzYxAB5YzbQYMW/uBqFk
-	tgCuKnzdWPRjcyYWbsxLzHA3yq92WHPZHVupTRaQMj7no8nH8YswGMU=
-X-Google-Smtp-Source: AGHT+IEB+BvsoefjQ7Vgsp4o6cvW8xDLBZZay+9fVCOXIUsW3GchN/svfJCRC88uzsyXVDtiu7XXHA==
-X-Received: by 2002:a17:902:d485:b0:215:b5d6:5fa8 with SMTP id d9443c01a7336-219e6ea8948mr44866765ad.22.1734705333728;
-        Fri, 20 Dec 2024 06:35:33 -0800 (PST)
-Received: from ?IPV6:2409:8a28:f44:3764:dc48:fb1b:dd06:cba7? ([2409:8a28:f44:3764:dc48:fb1b:dd06:cba7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9704dbsm29773545ad.98.2024.12.20.06.35.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 06:35:32 -0800 (PST)
-Message-ID: <0725252d-1339-4841-bc1d-6cf9e82b2170@bytedance.com>
-Date: Fri, 20 Dec 2024 22:35:23 +0800
+	Fri, 20 Dec 2024 14:39:28 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 2551D25401FB;
+	Fri, 20 Dec 2024 09:39:26 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 20 Dec 2024 09:39:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1734705565;
+	 x=1734791965; bh=TH0ggL15ha3cHvAVBubqS5XbrDlSBVnwD+kCElIWxLY=; b=
+	k1Ia4Hye/+r3OslBAM1Nfg4JNNP2wAGtX/h2mle4t2Rq9CXKP1sZZqcdnzMvUyqv
+	Lx4M1XJ1y7rghBiGweJe1Rizz0401DVg9Reg/kR9VtnVAuDH9LO//3KL9wbR1oJV
+	8mDmDSbB8h2yIEfqH6BrzYE+7v/ZX4Ujywbyw262LZpwPrqmOiaIdh2jj4QpFxKP
+	Lj8JXV1jsLJmHiuPzNriKzUm+0vdMvynmUvcCHFtmRdRQQmfTClRN3ynH3I+FkNv
+	AV7kL7QWZdYgw38Yejho0v8o8tX5s9e2Pmnft92daOQzupRGKXX5+FS8EnwRGE67
+	UY0B5XnSLx6LzACPgBu0Vw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734705565; x=
+	1734791965; bh=TH0ggL15ha3cHvAVBubqS5XbrDlSBVnwD+kCElIWxLY=; b=x
+	y94a0sw0ybcp+11dExMmj+RMTfxpSykhQSEb2K/+wAL9Khl1kMAxQRB2HKczfN75
+	NKRw6eJLM21vQjChucba3QPltwOtTbc5tLG8oWjz1P16uyl8+h0iZ7p1XSjNlI/R
+	cEaDHkmCfywffhueszbdgMMKsRouwm5O7hdK5xwdFOClqbUihxkRuwVL5/btrxUB
+	udczGFjAaht0wbHNupaLet9fRmStlC8RnQSExy2URKBVLn0l67ddq2UiWHoATJzH
+	Bz/hpVCsIZYwWr5Gy17IB/oHyGdTqIEHVrGhf8AjmeSl5XtmTMHrulQpD0reycsD
+	lgjHelQfiJE/p6s1On7DQ==
+X-ME-Sender: <xms:nYFlZ3EZpI4kx4jO0g0genC6RGhZ-Ju_Lv-JCpoq6y6V9IJm3HaYzQ>
+    <xme:nYFlZ0V33OQWym_0oCB11Y9H8c0CLY9bRCI5Y-UbK9YBDD3SICSK5597YdLK9tvLX
+    W-ydl5hEAbuXhmyaog>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtvddgieegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudei
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehjsggrrhhonhesrghkrghmrghird
+    gtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghp
+    thhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehroh
+    hsthgvughtsehgohhoughmihhsrdhorhhgpdhrtghpthhtohepphgvthgvrhiisehinhhf
+    rhgruggvrggurdhorhhgpdhrtghpthhtohepfihilhhlhiesihhnfhhrrgguvggrugdroh
+    hrghdprhgtphhtthhopegrrhgusgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghr
+    nhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtlhhrkhiflhhlmhhssehkvghrnh
+    gvlhdrohhrgh
+X-ME-Proxy: <xmx:nYFlZ5IeA0agIQS9WG9-oCGqCbUK8YKCb55q9nS6rbdQalz-tAdeiw>
+    <xmx:nYFlZ1GcRqypaBd-6kFgrzxaG6XZZi6XtePVlMXD3A1PPpmDlpiEiA>
+    <xmx:nYFlZ9UYcV92jtT5rMUEMW4UgzYkMY_7LfClJMPOzMGSJnBZ4R10sA>
+    <xmx:nYFlZwONuVoybRnzJ8AF8-wnRIEjDtAHeyFNi5ugySfspO1SDeSjNw>
+    <xmx:nYFlZ-XfwLfzt-yuEwsBvS1PN6Do7TfHDM1ufhT_V4IFoez9ntl6hdMu>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 5AF242220073; Fri, 20 Dec 2024 09:39:25 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/10] mm: Move common parts of pagetable_*_[cd]tor to
- helpers
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, linux-mm@kvack.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>, Ryan Roberts
- <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Will Deacon <will@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- loongarch@lists.linux.dev, x86@kernel.org,
- Alexander Gordeev <agordeev@linux.ibm.com>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <20241219164425.2277022-2-kevin.brodsky@arm.com>
- <20241219171920.GB26279@noisy.programming.kicks-ass.net>
- <75cb4ff8-eb0c-4519-a30a-f8be717ba278@arm.com>
- <0daabd32-cba4-4345-baa8-e8c66bc899ff@bytedance.com>
- <2f65f93e-9d44-4acc-b63c-8f5a35f59699@arm.com>
- <33ce9b58-4787-49cd-a7f2-34272cb3ecf7@bytedance.com>
- <7f5e6ac7-01ef-46c8-bc85-7f8399dadb19@arm.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <7f5e6ac7-01ef-46c8-bc85-7f8399dadb19@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Date: Fri, 20 Dec 2024 15:37:30 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Russell King" <linux@armlinux.org.uk>,
+ "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>
+Cc: "Arnd Bergmann" <arnd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-rt-devel@lists.linux.dev, "Ard Biesheuvel" <ardb@kernel.org>,
+ "Clark Williams" <clrkwllms@kernel.org>, "Jason Baron" <jbaron@akamai.com>,
+ "Josh Poimboeuf" <jpoimboe@kernel.org>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Matthew Wilcox" <willy@infradead.org>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Steven Rostedt" <rostedt@goodmis.org>
+Message-Id: <41427a05-f032-4713-812d-7f8a021067d8@app.fastmail.com>
+In-Reply-To: <Z1m18yn67dsJRVWA@shell.armlinux.org.uk>
+References: <20241210160556.2341497-1-arnd@kernel.org>
+ <20241210160556.2341497-3-arnd@kernel.org>
+ <20241211134811.wM_UADhQ@linutronix.de>
+ <20241211140402.yf7gMExr@linutronix.de>
+ <Z1m18yn67dsJRVWA@shell.armlinux.org.uk>
+Subject: Re: [PATCH 2/4] ARM: Disable HIGHPTE on PREEMPT_RT kernels
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_063534_522532_C4A5321A 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20241220_063927_344649_E14535A5 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,62 +126,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+TL;DR: I would still like to merge patch 3 and 4, but let's
+keep that separate from the RT patches.
 
+(just realized I had never sent my reply here)
 
-On 2024/12/20 22:28, Kevin Brodsky wrote:
-> On 20/12/2024 15:16, Qi Zheng wrote:
->>>>
->>>> Did I miss something?
->>>>
->>>> My patch series is not only for cleanup, but also for fixes of
->>>> UAF issue [1], so is it possible to rebase your patch series onto
->>>> mine? I can post v3 ASAP.
->>>
->>> I see, yours should be merged first then. The issue is that yours would
->>> depend on some of the patches in mine, not the other way round.
->>>
->>> My suggestion would then be for you to take patch 5, 6 and 7 from my
->>> series, as they match Alexander's suggestions (and patch 5 is I think a
->>> useful simplification), and replace patch 2 in your series with those. I
->>> would then rebase my series on top and adapt it accordingly. Does that
->>> sound reasonable?
->>
->> Sounds good. But maybe just patch 5 and 6. Because I actually did
->> the work of your patch 7 in my patch 2 and 4.
-> 
-> Yes that's fair! You'd have to do adapt my patch 7 to make it fit in
-> your series so I agree it makes more sense this way.
+On Wed, Dec 11, 2024, at 16:55, Russell King (Oracle) wrote:
+> On Wed, Dec 11, 2024 at 03:04:02PM +0100, Sebastian Andrzej Siewior wrote:
+>
+> However, what is quite different is the L1 page tables. On x86,
+> everything is nice and easy, and each page table is one 4k page.
+> On 32-bit Arm, this is not the case - we need to grab a 16k page for
+> the L1, and the more immovable allocations we have in lowmem, the
+> harder it will be to satisfy this. Failing to grab a 16k page
+> leads to fork() failing and an unusable system.
+>
+> So, we want to keep as many immovable allocations out of lowmem as
+> possible - which is an additional constraint x86 doesn't have, and
+> shouldn't be overlooked without ensuring that the probability of it
+> happening remains acceptably low.
 
-Thanks!
+Right, non-LPAE systems indeed have a bigger problem with
+fragmentation here, I hadn't thought of that.  Most of the
+systems with 4GB RAM (and all of those with more) support
+LPAE though, which means they can use the same page table
+layout as x86 when when using CONFIG_LPAE=y.
 
-> 
->>
->> So, is it okay to do something like the following?
->>
->> 1. I separate the ctor()/dtor() part from my patch 2, and then replace
->>     the rest with your patch 6.
->> 2. take your patch 5 form your series
-> 
-> Sounds good to me!
-> 
-> IIUC Dave Hansen gave his Acked-by for the x86 part of patch 6 [1],
-> would make sense to add it when you post your v3.
+Almost all SoCs prior to ARMv7VE are limited to 2GB of RAM
+or less, the only exceptions I can think of are three SoCs
+that can use close to 4GB (a small physical address range 
+is used for MMIO):
 
-OK, will add it!
+- Calxeda highbank
+- Hisilicon hip01
+- NXP i.MX6D/DP/Q/QP
 
-> 
->>
->> If it's ok, I will post the v3 next Monday. ;)
-> 
-> Perfect. I'm going offline tonight, when I come back in the new year
-> I'll review your v3 series and post a new version of this one.
+We can throw the first two under the bus, I'm sure nobody
+cares enough, but the i.MX6Q was actually shipped in a
+handful of products with 4GB that some users still have:
 
-Thank you very much! And Happy New Year!
+- Bunnie's Novena Laptop (856 original backers on crowdsupply)
+- Solidrun CuBox i4x4 (not the more common i4P)
+- Solidrun Hummingboard (early revisions only, later 2GB)
 
-> 
-> Cheers,
-> - Kevin
-> 
-> [1]
-> https://lore.kernel.org/linux-mm/a7398426-56d1-40b4-a1c9-40ae8c8a4b4b@intel.com/
+A couple of other i.MX6Q boards were advertised as supporting
+"up to 4GB", but if you tried to buy those, the only ones in
+stock anywhere seemed to be limited to 1 or 2 GB. Examples:
+
+- armstone A9r4 (dts not upstream)
+- DFI FS053 (dts not  upstream)
+- VAR-SOM-MX6
+
+[Part of the problem here apparently was availability
+and cost of qualified 8Gbit DDR3 chips.]
+
+Do you know of any other SoCs or boards in that category?
+
+My feeling so far is that none of these are show-stoppers:
+
+- The 4GB/8GB boards with LPAE don't have the added problem
+  of fragmentation with order-2 page table allocations.
+  They can run low on lowmem with CONFIG_VMSPLIT_3G, but
+  as Sebastian cited, HIGHPTE is not likely to be the
+  breaking point for them. These were mainly built around
+  2012-2013 (before 64-bit became available) as high-end
+  SoCs and are reaching the end of their commercial life.
+- The 4GB boards without LPAE are also 10+ years old by now
+  and were fairly rare even then. These would suffer the
+  most from the fragmentation though.
+- The 2GB boards with or without LPAE can theoretically
+  avoid HIGHMEM entirely by using CONFIG_VMSPLIT_2G_OPT.
+  These are still very common today, but at least a third
+  of the total memory is going to be available as lowmem
+  even with VMSPLIT_3G.
+
+The case that is less clear to me is the one where memory
+is sparse enough to lead to exhausting lowmem without
+having a lot of total RAM. These are a little harder
+to find, but I think e.g. Renesas has some chips that
+need this, and Realview PBX had a custom __phys_to_virt
+in earlier versions to work around this. This should
+be solved when we get the "densemem" support that Linus
+mentioned.
+
+     Arnd
 
