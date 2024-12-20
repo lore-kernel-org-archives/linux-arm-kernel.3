@@ -4,67 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F59EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 16:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5568E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 16:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WZ7h11kZly3QoJFMB/N92RRhyJ1v9jBfDMSQ8Nj7b88=; b=oQXkm++2YFl97WE1ngLG+p15hr
-	cuU12d/eXVgTWm8RcX1uTBxvT54tS2WyNpaR5fkr3Szv6h+YZvL8+FDE6MTVBNA9/Tb3sEr4gLiMt
-	2p99KT0qamwprCRgHG12iaDPOwLs/Z718ID0guFOmWbcVlftwd4lEyXC88aRTY3M6SvF8QMOdJT+M
-	2DfXTh0tzspTLPntYuSFNue/O6DKa8p+Jx8gncIAbQiG3vzxCFp8Jv3p2wmn/c/7S/x6FDGFBraue
-	mSxxXawSl2ICSOwTq7QxeOUuFd7FRcX0+DzZ1wJqx1iQGIFahjM/eWs66aJrMHMhiRyaahtFnDjho
-	56hNkq+g==;
+	bh=m9hsOEnFw57KtZ8od7nqLjxzee/igk3u0Pzdmux3Dxk=; b=IcPCmdoddBH9fuZLzWRHi6EiJ3
+	QUhI1AGY/pN/NbGwcdhAID4X6us4IM93q6AVzpFvbR19i6hgbiQOEerjmiZsvzd2mkMviyo2zmHPl
+	1bb8SeOWF/JXz6SoxLMmnrZxI8eit0MwyVPX5IWryfL12VB3c1XCCPBGWllsVi+qHfGxgO5cNtp4K
+	ZV3Nw8Vi3jGLBxMbbVRgqGswivZJ/M+0W4A0+ds80E7rA84Dr2YQRyoDYq9s37RqSlutcSReQz9DP
+	Lay8qDfIdQEeom6DLl+s02HS295zmV28a3hL/+O2fUoCK56fjIs2cicFyIuFSqA5oyy4+NzmkkYp7
+	aYb3kk+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgIv-00000005X4X-2tco;
-	Fri, 20 Dec 2024 16:56:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgDV-00000005VtJ-41aM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 20 Dec 2024 16:51:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=WZ7h11kZly3QoJFMB/N92RRhyJ1v9jBfDMSQ8Nj7b88=; b=GXa4Qlzm7nGlgbrZ9tdyK1b/Pt
-	4dmV0cvmN+q4o8mUru/NTymDp7yeJBkekHfh/d0xJfVS2iuWnLXtURhSe7zDkD5ML0r8AwXJWFa2h
-	BgLHKC9EpYHnew5UPpMAb2vWKUokIe70gUGB5C3Q4ZcOikq2019+w6qtLUuAEma4IjgfiHEr8/K0U
-	LTpv1lXGWUQUa3kOqpI/zAz4Vi827E1AnqjOU43cMdg8raxM5Ps8h20/cUWSP035ehwcMsidD6mRe
-	KpaWh1+eCUzH+jgyH0YeYQnJuve5go4mS2CJgY8yZ/7zIHCjTZtRbArlK3yTB5tDUvg2AY/S2TIzq
-	tMJ/3B+A==;
+	id 1tOgK2-00000005XJj-2XIE;
+	Fri, 20 Dec 2024 16:57:54 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgDS-00000005jSa-3X2L
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOgDX-00000005VtZ-1Hrk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 16:51:08 +0000
+	Fri, 20 Dec 2024 16:51:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 59103A4202B;
-	Fri, 20 Dec 2024 16:49:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 158D5C4CED3;
-	Fri, 20 Dec 2024 16:51:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1FAA5A4202D;
+	Fri, 20 Dec 2024 16:49:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE162C4CEDD;
+	Fri, 20 Dec 2024 16:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734713465;
-	bh=a79dWEQuz4lN5+ZR85xtsyqrLMzIRNiH+ZgTGzqkyTk=;
+	s=k20201202; t=1734713470;
+	bh=fk7img7pT6wgpuZQLS9waoWrhY76ao9cwX81iGcxSKQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=j+DXmh56L3Btf6+Rvx9v/lj7WF1rd1Mf1XID8Z9kAZ3M+t5+t8gJOxAkz3uNTEm4/
-	 elq75KEhDQt8euIshEsiS6gE1x+vWWacdzIGscAXsAGkxRGCO5D8HGFEjlDPQblLrk
-	 avtWc3gQBWXU/gf39yUAjPsExinlsxFtLMZ8C4A9brZOdR+hhw6IuT9UtrkzVkmnAU
-	 VBx4t8NVEilPraTk/+T6zvMOzRwe/MyqP1v/BLztsNE0itaP3FzTXTcVnC26TVeF9q
-	 l3Falxc5SslcFF1e/tx4KinHyAV3FBzGQ66QqAQqfmwWWjDrspDE54tZmuqc7ooynM
-	 q1b58utBo7FnQ==
+	b=r40FRzzAD3sThPfoOUv5MyiG47YJJ0vUQJfugJx/VJ2FdIH4Jq1EQjAqh5xLDpERG
+	 pRPOMBM0moFgk2Gk8JtejusZ97o1LMZON6Jz5p+Rs1HExLVpMmPpllE+R7lKLmspFp
+	 YL+9ifTPscFe0nulX2K2q9kBmzbsdsydoAyevBAGYd8T4MHQC+I5y4ndI3DxxKO8tP
+	 IhJCXqOmgFehQaX0nZQ7itPUxCjACzMYXxIPg4s+42L6byPdHRM4RXXGa8Jr3C0czi
+	 AVunGWujtHucm8uUfArMp9QaAyonFMc2Uc31N+IQbyI3biz4o+k1ntq7W8YKMHHe1Y
+	 ptJz6lfM1rerQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 20 Dec 2024 16:46:28 +0000
-Subject: [PATCH RFC v3 03/27] arm64/fpsimd: Check enable bit for FA64 when
- saving EFI state
+Date: Fri, 20 Dec 2024 16:46:29 +0000
+Subject: [PATCH RFC v3 04/27] arm64/fpsimd: Determine maximum virtualisable
+ SME vector length
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241220-kvm-arm64-sme-v3-3-05b018c1ffeb@kernel.org>
+Message-Id: <20241220-kvm-arm64-sme-v3-4-05b018c1ffeb@kernel.org>
 References: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
 In-Reply-To: <20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -78,20 +63,20 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-1b0d6
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1524; i=broonie@kernel.org;
- h=from:subject:message-id; bh=a79dWEQuz4lN5+ZR85xtsyqrLMzIRNiH+ZgTGzqkyTk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnZaBW2Hy1qulZq7d1XQX6Oaip9UEsJD/p5OTWqqfR
- SoTdq3yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ2WgVgAKCRAk1otyXVSH0J1/B/
- sEiIHvTFQypVacv8wFQ6IUikCeXXpGO8HJ3ETxw9BOn2LpiB1GMEA3dSd5oYMRAzbciGfQc6HXaKjb
- KUU3+CDXVTd0j1bVkY2+HVgLUrNYO4iKaS9nV0yV0+0+cU1i+A7F8m42z5GpiMMI+/+2LlWKNRo9wB
- uSxHSAbWxSkIJfKei5WM9jDeDU8yXHm2p2FwO+v+z2+R3KODeUZp1JsFjhvTpkCnMOYZwTmhN7ZZ2k
- v2hprIvZlNsDYT6zFrC31afAfa8iUKZqY8Lo/hX+zbxHRUIq7cDWuYXg2HFe5JFcrClWkb0rrwYV8d
- HgU+PccmqKURz+Egk40B3ty57FkAAx
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2233; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=fk7img7pT6wgpuZQLS9waoWrhY76ao9cwX81iGcxSKQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnZaBXHrVm0TzLRgpwCo4EdZG2bTDNm8vyq1D2fzBF
+ 7WlvjpuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ2WgVwAKCRAk1otyXVSH0BO3B/
+ 0Qyd/4GV4pTYzevIebRa4EB3r1j8mUDGAUC466RIT9GNevbNxUj/nblW6f2YTc27rq9axg3XaNJxh7
+ oVessmtZ70Q7Dt7AmJeBZ6jU24Sfa2pqjH05G8Xi+d9VU8Jy/vRa9fmom8LcX2vmJLtJixGNPcIg0g
+ TaS5sQ2wmPvYfON+whNW9XgsG3MK4cdpIc+pPu90FNe9bMScnZ4LDXQx+PUvmMaZ8LhZY7PnXXOmzL
+ 8JNOilCBVafF3TGjr2asrEQvoLkUpeCRmlobv5NBg7g6dHGOAebedFOx+2B2r5cCRxZkgyT7g/Ncjc
+ 6imY3E7ReG1krovkI0/39Mtgs69+gf
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_165107_389490_46943639 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20241220_085111_478540_11211D67 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +91,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently when deciding if we need to save FFR when in streaming mode prior
-to EFI calls we check if FA64 is supported by the system. Since KVM guest
-support will mean that FA64 might be enabled and disabled at runtime switch
-to checking if traps for FA64 are enabled in SMCR_EL1 instead.
+As with SVE we can only virtualise SME vector lengths that are supported by
+all CPUs in the system, implement similar checks to those for SVE. Since
+unlike SVE there are no specific vector lengths that are architecturally
+required the handling is subtly different, we report a system where this
+happens with a maximum vector length of -1.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/fpsimd.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 7c66ed6e43c34d1b5e1cc00595c12244d13d3d0d..a6f9a102fadb0547b4988cb5b0c239ca90a262a0 100644
+index a6f9a102fadb0547b4988cb5b0c239ca90a262a0..d976708d84854846fe38a35a19c60ff36f44030a 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1980,6 +1980,11 @@ static DEFINE_PER_CPU(bool, efi_sm_state);
-  * either doing something wrong or you need to propose some refactoring.
-  */
+@@ -1276,7 +1276,8 @@ void cpu_enable_sme(const struct arm64_cpu_capabilities *__always_unused p)
+ void __init sme_setup(void)
+ {
+ 	struct vl_info *info = &vl_info[ARM64_VEC_SME];
+-	int min_bit, max_bit;
++	DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
++	int min_bit, max_bit, b;
  
-+static bool fa64_enabled(void)
-+{
-+	return read_sysreg_s(SYS_SMCR_EL1) & SMCR_ELx_FA64;
-+}
+ 	if (!system_supports_sme())
+ 		return;
+@@ -1306,12 +1307,32 @@ void __init sme_setup(void)
+ 	 */
+ 	set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
+ 
++	bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
++		      SVE_VQ_MAX);
 +
- /*
-  * __efi_fpsimd_begin(): prepare FPSIMD for making an EFI runtime services call
-  */
-@@ -2014,7 +2019,7 @@ void __efi_fpsimd_begin(void)
- 				 * Unless we have FA64 FFR does not
- 				 * exist in streaming mode.
- 				 */
--				if (!system_supports_fa64())
-+				if (!fa64_enabled())
- 					ffr = !(svcr & SVCR_SM_MASK);
- 			}
++	b = find_last_bit(tmp_map, SVE_VQ_MAX);
++	if (b >= SVE_VQ_MAX)
++		/* All VLs virtualisable */
++		info->max_virtualisable_vl = SVE_VQ_MAX;
++	else if (b == SVE_VQ_MAX - 1)
++		/* No virtualisable VLs */
++		info->max_virtualisable_vl = -1;
++	else
++		info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b +  1));
++
++	if (info->max_virtualisable_vl > info->max_vl)
++		info->max_virtualisable_vl = info->max_vl;
++
+ 	pr_info("SME: minimum available vector length %u bytes per vector\n",
+ 		info->min_vl);
+ 	pr_info("SME: maximum available vector length %u bytes per vector\n",
+ 		info->max_vl);
+ 	pr_info("SME: default vector length %u bytes per vector\n",
+ 		get_sme_default_vl());
++
++	/* KVM decides whether to support mismatched systems. Just warn here: */
++	if (info->max_virtualisable_vl < info->max_vl)
++		pr_warn("SME: unvirtualisable vector lengths present\n");
+ }
  
-@@ -2065,7 +2070,7 @@ void __efi_fpsimd_end(void)
- 					 * Unless we have FA64 FFR does not
- 					 * exist in streaming mode.
- 					 */
--					if (!system_supports_fa64())
-+					if (!fa64_enabled())
- 						ffr = false;
- 				}
- 			}
+ void sme_suspend_exit(void)
 
 -- 
 2.39.5
