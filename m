@@ -4,162 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F101AE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 08:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F71E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 08:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1yrhmSRM1EDiXKcRcXWRyiD6K32DmNHU0keOUX/0/rQ=; b=ZuvB9bzjhx3VcO0dH2ttFsC4A5
-	B96zu5xRqlI/Q27MFbmh8XU5cmAfEUgsd3dwBuy2k35kkLuU5Hl/2MR7VOwOsYue5xw/D5/ltiwsz
-	+xOruCPTkjvh77IXsefFIpQfObdMovW9AvJlWCcjJFXqpV7nJzaYIQnx7CivWSy/8NaROp+LE00h3
-	pQ2cDWRQpoLcO1o/JzySZAnvNobq450ZqlQJ8TVT8TpOOITRzmXSOmbX13SUxZjwMTX2MvEahIH/s
-	xFGxu4SeLLxXkyo4yaYQ6pMSakQWlBbN7QxdWXoZc3juFFbhrhUSX4mAozpwUeQJ4uJxTbDXzIPZj
-	88K260FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sIHIgWFpQUvX2jXNx2azeaWpatd549ZsSnWm31PKQmM=; b=lbs4jH0y1u4JKm1W9SojGsnTxk
+	pjo0Wl1Jade55ed+hyqnoYLSDHAq2Z/3BBzdTQQy5Rs3V7+sDn2fOe+qTQAWMKYfc1ohKSmprOuV0
+	kKZ64p6FjRvsFgHdirZYgfYUD61izZDPFlAIoquQwZGS2YYG53K7iFTw4fS1MXyDu20EZKzQ6iVqm
+	ZAzDgWJdykQDbeb8n72Ehh9+QJv2O8aMpKXsmnM5cbxIjD0W6iwJWOMYaTQlkm62cRiZmtHTqPwcu
+	iP168J7/td119vKpWegFibS4k4lzcOh34TOspPW1VbwBcNTB7WTOfFTOFDjh7nKQMeyP4TbhE9s5s
+	9ALGn3ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOY31-00000004Es4-0PkX;
-	Fri, 20 Dec 2024 08:07:47 +0000
-Received: from mail-am6eur05on2060d.outbound.protection.outlook.com ([2a01:111:f403:2612::60d] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tOY4J-00000004F2x-33pN;
+	Fri, 20 Dec 2024 08:09:07 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOY1s-00000004EnE-3dHM
+	id 1tOY3B-00000004Ete-1mkd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 08:06:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tuTlCy7dsJ3Zgai2sseFzhq6Wwt2b34HauUWRJ+KC0xSfxmVgNk5SSdmJV0s+YATaGFdcuTxIBiWxrCtvxvxZpvohmMns3NhwvJT8KpXmH4QA/D0aqzRn15CaCkNtSrmtqvCwNgl7b8aRDYyR6H5xu1ywjH8udBBqJ8MOcvJCFOG3IEeeegn2H6N9mKs2OEsspbJywkupWMRq/MxIL2InIwhMFZTHTcUPxezsaoHeu87d4NG7emZzKQ5XwCuWzd6m/8Q7LdwE27XOd8vVFam8zK9BXKl9jQNV9KTLH3kB4dp2MeWcvFWtWQTohl+59mrV1wpuVDHItSojst81v1clQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1yrhmSRM1EDiXKcRcXWRyiD6K32DmNHU0keOUX/0/rQ=;
- b=Z2bqU3XCIjz1GAzB0h9qvwdd9rXxrQUNp9kVyXZtN1RcEey1cOfyoWAZdAPzhRUAiKjmkvRXwQGBu3WfAVFaNWTBRBmFBPWehriRhrs04LYmLj2kycR4S1MNTxxM3Bmkehg1yOfCrrw8uj16D7/plR4UdGQrVY6UJh9zJWcJo1NOVOFGswUA8/aTkR/yc9G3imCRIa/gQtugdPETMUhpHxiVWGXKK93vg/tYWNPCcHJRa3Vv1R3uPWzv834OTlw9wPvpLcPkLvAX7F3yf7unTjUwlJy4WalUKYVCiNYeBP97Fx74uHDZ58abavJWVkFyv7VxmyvRZylLT6rY/R2GGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1yrhmSRM1EDiXKcRcXWRyiD6K32DmNHU0keOUX/0/rQ=;
- b=ZkktVl9TwtLymaql6+gTiJyzgxR9bYhG1Egy26fdfq8abazL2SynEEHFX/zqmWEH1aF3HnDyTYtreMFcQPAp7R+zCv6ccJDCuzwUken65aAvAzVqrFjgsZoqspxpv/j4ifwtFAKNONazv0Rz/2GOYwmN1FHMQb7Qmd+nd1UsU4OvHEf1oo3dnP2qreNPrZ9HplZulAf4VQofFqGARoM/NtU5QFbyanrQWRjyLpw51o0ppb2z43CTPFPwF8i42mjiAG0pqnX+UCx2SF6vo1Sfd4442CwnhYH6ldTOXglF/EqdoV6NfuJOGlw7trtQCcqRlZ0HXxc7dL2tfMrjaR1omw==
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by AS8PR04MB8787.eurprd04.prod.outlook.com (2603:10a6:20b:42e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.16; Fri, 20 Dec
- 2024 08:06:33 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.005; Fri, 20 Dec 2024
- 08:06:33 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-CC: Ahmad Fatoum <a.fatoum@pengutronix.de>, Andi Shyti
-	<andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Clark Wang <xiaoning.wang@nxp.com>
-Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-Thread-Topic: [PATCH v5] i2c: imx: support DMA defer probing
-Thread-Index: AQHbUrYVhgzQt8jFEk22aVmIZK+jWQ==
-Date: Fri, 20 Dec 2024 08:06:33 +0000
-Message-ID: <AM0PR0402MB3937419BBB58B75FB8F8DE2DE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-References: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
- <Z2QQI2gJNLjI-fam@pengutronix.de>
- <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2UBfcq6pE-JMUrb@pengutronix.de>
- <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2UK4rMxrtNsPw5V@pengutronix.de>
- <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
- <Z2UeKZcpeRUt2OQ4@pengutronix.de>
- <AM0PR0402MB393739E1D91ED2A539B5A2C7E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2Ugt8NVued0_4c4@pengutronix.de>
-In-Reply-To: <Z2Ugt8NVued0_4c4@pengutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|AS8PR04MB8787:EE_
-x-ms-office365-filtering-correlation-id: 18d052dc-104f-422a-8fd4-08dd20cd37ec
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ObCT4zxBUxea3jdL+oupzQ6HAFyAL3/knxykbGFLoKoGWu/Db7DkdfmSUvzk?=
- =?us-ascii?Q?1L63+27CjftfZLWG3oCmH6yJretYHNECkQq+nbxkaAgQtdfwzOyHcAOiH6pV?=
- =?us-ascii?Q?/ReZExr33ez1ULNHFwhRJfaWmLeltrW/f7W6nk8GH5NAeVsYqw0vgjiQ5NOZ?=
- =?us-ascii?Q?LSVkwrvdzEeWDgRZFs0VAf62vl8GZqqSxRyt4U842Xh8qmGzugmzZYyZ0D3N?=
- =?us-ascii?Q?EME3FO5pfoofz2wrO7dTrE2g+/CpqoZRIt8GVHU4vjPOn1NEUzGHFPmIKXyU?=
- =?us-ascii?Q?bPfnbqB5HsbY0YEw/qxqVinHvEtnCIggtk2v1e912GPWYd4WILXugW90xM+a?=
- =?us-ascii?Q?2bEIAMffioG1gTO1EU5AN/XibQ6Ef4Echcg+83isdS+5RiGA8dEv1ZWyvbHD?=
- =?us-ascii?Q?QASLqsc8rAjFr3EgVCjGKwg07RJZxXZX1bqLIDUcMJSFWQOwIZP9jJpb4mbi?=
- =?us-ascii?Q?fflL2hS6HC/gclbAVndUQES6/rgp8/V1SmVkGrl9MuGKyG6fnQ6fGM1d03eu?=
- =?us-ascii?Q?3uSp3caQs8wOH+3Su7odT8m0LYarFe1uxJyhj1UAucYf14pR1tgmhM6zlWR0?=
- =?us-ascii?Q?rk4ArC4xEr6vV6fkf6nFCSqNUbk4eNuksRLAifbruy86oo6x5RQ6e5hcDCys?=
- =?us-ascii?Q?Sp6w65Xx52vQj1uczU9lXmUSoysYr6TA7kYFm74Txu4E2TWBS8doh3XBUFKv?=
- =?us-ascii?Q?KuMKIj4GxGGKZALf1n4VWE/mdh66u1qln3ZwEPZshqvCJ+rk9d1ieo8gmIRu?=
- =?us-ascii?Q?hxrbOplNh0aXUYWtehV/Gf6/6oMsneRoeTs5QkLTF2jKrjkwvo9A3En4JjTc?=
- =?us-ascii?Q?vAMlnxhglIo6fFxaBgseV6vC7h7eTBjc7WjxmaOYJwer2aoi4wh5YaD8Dg7X?=
- =?us-ascii?Q?0shcgk4sRLhi2IQ7Gm5MnIkA/Gt7GLdLaufeWBUrC5bq3xIuEOqKBZBncV80?=
- =?us-ascii?Q?Iuxp3f3qPTyqrhmCKlegm8vhAJPoD/Xezpq+7tqCwdiCyWSFfNijErFTIEXH?=
- =?us-ascii?Q?t3jHHqu5sfcfnet1ooDIqgpwWDcnkUzIaEK7TVJDkymJW0WG0tcgibblCDes?=
- =?us-ascii?Q?aFlHTOqBbmePuU1sHP9YfyYcrKJSJHzFhHPcSP0dr/NGe+jjm5Rzfrtuafkc?=
- =?us-ascii?Q?gGL4W0arZsq1BftnmXFxaHYllZHPFPRYQpuoKjEty3hMSGRbI25I3OQE5akk?=
- =?us-ascii?Q?70ItBzvyk2Uuc4+nfUSIjy7ffbKAw3AOz87MYTmJ4uudJ0OF+fsMMibpt1zU?=
- =?us-ascii?Q?JmP2uAVj/7xxyrJIyO+3oNUSi3cZyNeYq9tbmnjJgKEa+wD6XtY7Bl1bDQmA?=
- =?us-ascii?Q?EfBL6TQrRCVhT31KLFfxFGh+VEye95yMz8FnPWkFiWAa8s7xMDE+5HhlmVla?=
- =?us-ascii?Q?HRjjRBH46MwOTsGseH6c4CqJT1x4?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ekbHd7VtNa5BpPZ4y6vAv8eZwV8FxgnDvzXecPMPwYOpUv8tv50yvquVYJvd?=
- =?us-ascii?Q?mZFJZoXcZ845nRfMOknfcmtu7WJjyAXhXZRixUmrRKUlYSMo5ADhAxDM+DH3?=
- =?us-ascii?Q?jSxubmomZYwBpdF7a8/TxhsGUYKXD4m7zO/yFRnjy9/Ii8KFRbpRTBtjaFvg?=
- =?us-ascii?Q?pkGc43z9n+/IxDGFW3QXIx2v2uDqcQT3YMPkqH7tsqFhjoykP2/bDpNZ1i5h?=
- =?us-ascii?Q?140gUTAtVe94PTpFsKr6zPl/ILA/gibmhj/Vfcv8E5dxxCSwu+Upfzq95Q7e?=
- =?us-ascii?Q?Y5R7Wp9mAispPe8unceC6QOt/xucLJxSkksrdMm3gaOzvHce2Fp0SMNBCXej?=
- =?us-ascii?Q?c94SKZpbwvoaYep7Zl4ApMj+l9q2Un514FTelxFPHMKltpkWsujh72YTE2Vr?=
- =?us-ascii?Q?LFOPzsJsRaSNBXgqsIihs0O+eFcL1hJbxyinw9vyEiKwbCz+YPPtA1qA0ClF?=
- =?us-ascii?Q?vpuT+aSXlsEW9Di8T8UdBHuGAZVlzP9H2uM+mMGoeJRi4iEdMrdfm6vGtJXE?=
- =?us-ascii?Q?/TkLXVje1ErxLyskawiykwP3py4GoQb57jHVsOf+6CON35hRz53SNb/pT93L?=
- =?us-ascii?Q?FH7zDYEB9NP278JiDGJIZ+a20BEYN6Ec24Ngoih8qwzfb+hEgkM7K/CE1Rve?=
- =?us-ascii?Q?xlBHTuvuCblzly7p/QyULQwayH5McOORvCHZi87hYLAx0ImW/awtLj0K46cr?=
- =?us-ascii?Q?+vr4GOhW5r6xI4Imyba0pdlGopa9jrr5g+YkNqG6NPDsjcg5Q4K7RcL9lTO9?=
- =?us-ascii?Q?je65VodcINDAuSHE7ZLd62/TUNlmz4XKFtEDKnVg5DVL6hTPqs5t5RaPlG21?=
- =?us-ascii?Q?uaH1yPX1QMfLJZ4QTCDyAgBlbeMT0RIxhl1u0p6kM88XKoXO+lHqsfTHmdnE?=
- =?us-ascii?Q?nKsW8B06sPxXIWLKOPm+QxTqzwixBx0A0kcTcoK1ndd+qBtbOufAK8t1MNs/?=
- =?us-ascii?Q?0yk8Kh+v8jGWBqI8wfENUeeqDLctB3/Bt6mFTGttifUq/XQslY9bxH+VMlsH?=
- =?us-ascii?Q?h+BJKlIuSbzf2YUwaMvEtrXA+Tm0O0QjBigQIAHzD5Y4IQtL70pH7ylaJhmc?=
- =?us-ascii?Q?kw2Ej620Zmj7HAf18ID5pJEC6N069LjhlTA7HuE8EcIXq51NYr+SR1RuGJp6?=
- =?us-ascii?Q?qD/376wr+l7HFGrHHR0IZShAqU+wuvUTm+lYDtj0Lvftd6UAkjtQduuib32A?=
- =?us-ascii?Q?zOJ3wr3fDIRqT5IbbLpSFM4An5tRp73BUP279tRhxW0kONT0rYwhmgYyqS8Q?=
- =?us-ascii?Q?1/0chGoE0vYTbGmr3Ypb2jPsRu+wYl9aRW92SFBnnGUlRAAgoKaIdmlK2L0K?=
- =?us-ascii?Q?gwtKZ6UM0DCsCBG0HodZIi02UPEYm/7WlIWqQLnYlUs81Wd3jsr42MJJdf8a?=
- =?us-ascii?Q?3ZIa2cVBdjJ6qMHZ0Mulmv6SFj5CG66hWV0Nhs5Kp1r1u7mbFpscVzINoLum?=
- =?us-ascii?Q?JPlbwx8f8qwlj34nWNH9KEDEHn/UCqEKVDHf4fFEaMm5717fuMsPfoMudlw7?=
- =?us-ascii?Q?jwCgwlZZM3HV7u8tz/973HxaYaChf9sQ8YkYmn5pDXnt+lCA10XJVhVhMKgP?=
- =?us-ascii?Q?wG0LY9UiCHBLl/DiUSd3nAISeEu6Zq1Z9FmYYd7G?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 20 Dec 2024 08:07:58 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7fd5248d663so1188368a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 00:07:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734682076; x=1735286876; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sIHIgWFpQUvX2jXNx2azeaWpatd549ZsSnWm31PKQmM=;
+        b=BvGs4f1NvL1NHuWbI2wC2Q+xL28bFal7C6QGMBSFIN/BuYVVJMwSakTeIqPq0Q1xy5
+         U8mMee8l0ioFGs0GhQ5XyiSTt7Lvs0N59SWu0aZ4wqtVwizXp4q5WjxtmXcESLOhM5kq
+         /U0DparduCctXmA4/N/xKdgd91v3RXTSwUhkx90DZZ0WiWhPiN8Vv8KnRXkxdY/686oY
+         CR6bPyj9c8BklBhVdJvXRQrEBonFZmP8EAIqScZdrmJglJhkPF84zk190+8TGfQLs/5a
+         YuRf7PSQ+9qT9z8z7RfJ++U5rr6hWLZqn29iK/iNrIvHtSLaqB6UkdQb5W9lRRxiJlAP
+         9ANQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734682076; x=1735286876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sIHIgWFpQUvX2jXNx2azeaWpatd549ZsSnWm31PKQmM=;
+        b=khcKXqG/8yIAOe3sloP0rrOwERdtl/gXmqzl+QK0PEUEsdtK8ThLduGXe6Bnpj+s4L
+         A5hPXRNZWJutHX32wJFHFwfpd48gKXGzpct8w7BBH6QFjAY1LNCYjNsu8D2FabSI2R8t
+         qisk2Yc+kXFuBjyhURiUWw9Y6GHgkLnG4hAOrB+xGjpouvu7k8DVvrs4aBUDQqmiHbLh
+         gQWqGS1QLxRmoCOUwvxmNdatve3TIxUxsc1OZ2B8Jnzq/Hc70w66Ypfs3l6DuNMcPOkT
+         fzNbIOpYmxOZGKYkn4k2ukAMIj/WVE069BZnps0lzZ4b/GT0U2nSX9Jda6I8uRZcHaMa
+         MloQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUReJxZUqVCPXB2/Pl/cCikhtuPGrY/z7El+WB7nEnNpWloWJK4abkqtXu400V4ttWbG1kb8IjzIqdQ3/EJWHmk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcPMkY7bK4oLsbEYU0huELuPSMpOYm74f5qTR+++yOxCunV/lq
+	HoXaaD9Ita5q7OJRNWCBiP6H6BMzYte0SNeit8F+YQlj/jZRTft5
+X-Gm-Gg: ASbGncsXqRoNsuu3CzFiZBrQlpFeNffEte1fcOgLgH0wxftHuKMmDo4daTXXnJg07NL
+	X/BqDvsoMSLfiX0fTxZEsAz5lHSuxmeRpAvnVQuBCs8gaOuQYyymKuSHvwzKybuWNCGrERZ3yTC
+	nakw2squ8TWFzuZEaPeU5WtFSIHD5XJMWFItNkeJu63scQ6YPnzZ3yPOPj41Ka3i7krVM29YoeQ
+	brgGVt8eWsLam08Htbh2cuC6TWJiFBINdGDMqn80By7E6XgtXpoLvovyO2dYWmi3zv59g==
+X-Google-Smtp-Source: AGHT+IG/D9plEVilAERZI3fidpIBW8JkrUOdC70JJmLdSIf9OIsnZlzX/HnlT4jua2CEoZFs6bN1Fw==
+X-Received: by 2002:a17:90b:5487:b0:2ee:d9f5:cfb4 with SMTP id 98e67ed59e1d1-2f452eeb66dmr2697667a91.36.1734682075918;
+        Fri, 20 Dec 2024 00:07:55 -0800 (PST)
+Received: from localhost.localdomain ([129.146.253.192])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2f447883b0csm2971735a91.42.2024.12.20.00.07.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 00:07:55 -0800 (PST)
+From: Furong Xu <0x1207@gmail.com>
+To: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	xfr@outlook.com,
+	Furong Xu <0x1207@gmail.com>
+Subject: [PATCH net-next v2] net: stmmac: TSO: Simplify the code flow of DMA descriptor allocations
+Date: Fri, 20 Dec 2024 16:07:26 +0800
+Message-Id: <20241220080726.1733837-1-0x1207@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18d052dc-104f-422a-8fd4-08dd20cd37ec
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 08:06:33.4697
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7mOXvy2KBTKowzW1JzcEwRzkECvW0oMmOlJvbtvppCsVolzHf0duxQ8Va3daYfsZ9hMc+A0ldC+qaaxQE6WPng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8787
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_000637_059302_79AB4DB2 
-X-CRM114-Status: GOOD (  43.78  )
+X-CRM114-CacheID: sfid-20241220_000757_466935_F8D07624 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,255 +104,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The TCP Segmentation Offload (TSO) engine is an optional function in
+DWMAC cores, it is implemented for dwmac4 and dwxgmac2 only, ancient
+dwmac100 and dwmac1000 are not supported by hardware. Current driver
+code checks priv->dma_cap.tsoen which is read from MAC_HW_Feature1
+register to determine if TSO is enabled in hardware configurations,
+if (!priv->dma_cap.tsoen) driver never sets NETIF_F_TSO for net_device.
 
+This patch never affects dwmac100/dwmac1000 and their stmmac_desc_ops:
+ndesc_ops/enh_desc_ops, since TSO is never supported by them two.
 
-> -----Original Message-----
-> From: Oleksij Rempel <o.rempel@pengutronix.de>
-> Sent: Friday, December 20, 2024 3:46 PM
-> To: Carlos Song <carlos.song@nxp.com>
-> Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>; Andi Shyti
-> <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>; kernel@pengutronix.=
-de;
-> shawnguo@kernel.org; s.hauer@pengutronix.de; festevam@gmail.com;
-> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Clark=
- Wang
-> <xiaoning.wang@nxp.com>
-> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
->
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->
->
-> On Fri, Dec 20, 2024 at 07:38:47AM +0000, Carlos Song wrote:
-> >
-> >
-> > > -----Original Message-----
-> > > From: Oleksij Rempel <o.rempel@pengutronix.de>
-> > > Sent: Friday, December 20, 2024 3:35 PM
-> > > To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> > > Cc: Carlos Song <carlos.song@nxp.com>; Andi Shyti
-> > > <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>;
-> > > kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > > festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> > > linux-arm-kernel@lists.infradead.org;
-> > > linux-kernel@vger.kernel.org; Clark Wang <xiaoning.wang@nxp.com>
-> > > Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
-> > >
-> > > Caution: This is an external email. Please take care when clicking
-> > > links or opening attachments. When in doubt, report the message
-> > > using the 'Report this email' button
-> > >
-> > >
-> > > On Fri, Dec 20, 2024 at 08:06:25AM +0100, Ahmad Fatoum wrote:
-> > > > Hello Carlos,
-> > > >
-> > > > On 20.12.24 07:58, Carlos Song wrote:
-> > > > >
-> > > > >
-> > > > >> -----Original Message-----
-> > > > >> From: Oleksij Rempel <o.rempel@pengutronix.de>
-> > > > >> Sent: Friday, December 20, 2024 2:13 PM
-> > > > >> To: Carlos Song <carlos.song@nxp.com>
-> > > > >> Cc: Andi Shyti <andi.shyti@kernel.org>; Frank Li
-> > > > >> <frank.li@nxp.com>; kernel@pengutronix.de; shawnguo@kernel.org;
-> > > > >> s.hauer@pengutronix.de; festevam@gmail.com;
-> > > > >> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> > > > >> linux-arm-kernel@lists.infradead.org;
-> > > > >> linux-kernel@vger.kernel.org; Clark Wang
-> > > > >> <xiaoning.wang@nxp.com>; Ahmad Fatoum
-> <a.fatoum@pengutronix.de>
-> > > > >> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer
-> > > > >> probing
-> > > > >>
-> > > > >> Caution: This is an external email. Please take care when
-> > > > >> clicking links or opening attachments. When in doubt, report
-> > > > >> the message using the 'Report this email' button
-> > > > >>
-> > > > >>
-> > > > >> On Fri, Dec 20, 2024 at 05:59:38AM +0000, Carlos Song wrote:
-> > > > >>>>> So we make this logic. Anyway we let the I2C controller
-> > > > >>>>> registered whether
-> > > > >>>> DMA is available or not(except defer probe).
-> > > > >>>>> Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing
-> > > > >>>>> happened if
-> > > > >>>> DMA is defer probed or not enabled(This is an expected).
-> > > > >>>>> However we still need i2c DMA status is known when meet an
-> > > > >>>>> unexpected
-> > > > >>>> error, so we use dev_err_probe() to print error.
-> > > > >>>>
-> > > > >>>> Why dev_err_probe() instead of dev_err()?
-> > > > >>>>
-> > > > >>> Hi,
-> > > > >>> In patch V2 discussion, Marc suggested just return
-> > > > >>> dev_err_probe(), but I don't accept it so I choose to use
-> > > > >>> dev_err_probe() to print error in V3.[1]
-> > > > >> In this case, the two APIs have the same function, do you mean
-> > > > >> dev_err() is more suitable?
-> > > > >>
-> > > > >> Yes, dev_err_probe() should be used in combination with return.
-> > > > >> For
-> > > > >> example:
-> > > > >>   return dev_err_probe(...);
-> > > > >>
-> > > > >> It will pass the return value on exit of the function and
-> > > > >> optionally print of the error message if it is not EPROBE_DEFER.
-> > > > >> Practically it replace commonly used coding pattern:
-> > > > >>   if (ret =3D=3D -EPROBE_DEFER) {
-> > > > >>     return ret;
-> > > > >>   } else if (ret) {
-> > > > >>     dev_err(..);
-> > > > >>     return ret;
-> > > > >>   }
-> > > > >>
-> > > > > Hi,
-> > > > >
-> > > > > Get your good point. I will change my code in V6:
-> > > > > +       ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > > > +       if (ret) {
-> > > > > +               if (ret =3D=3D -EPROBE_DEFER)
-> > > > > +                       goto clk_notifier_unregister;
-> > > > > +               else if (ret =3D=3D -ENODEV)
-> > > > > +                       dev_dbg(&pdev->dev, "Only use PIO
-> > > mode\n");
-> > > > > +               else
-> > > > > +                       dev_err(&pdev->dev, "Failed to setup
-> > > > > + DMA,
-> > > only use PIO mode\n");
-> > > > > +       }
-> > > > >
-> > > > > I think this is what you want to see, right?
-> > > >
-> > > > This loses the information why the error happens (ret). Using
-> > > > dev_err_probe even if no probe deferral is expected in that branch
-> > > > is perfectly fine and the kernel-doc even points it out:
-> > > >
-> > > >   Using this helper in your probe function is totally fine even if =
-@err
-> > > >   is known to never be -EPROBE_DEFER.
-> > >
-> > > Thank you for the feedback. While I recognize the benefits of
-> > > dev_err_probe() for compact and standardized error handling, using
-> > > it without returning its result raises a red flag.
-> > >
-> > > The function's primary purpose is to combine error logging with
-> > > returning the error code. If the return value is not used, it can
-> > > create confusion and suggests potential oversight or unintended
-> > > behavior. This misuse might mislead readers into thinking that the
-> > > function always returns at that point, which is not the case here.
-> > >
-> > > In this scenario, using dev_err() directly is more explicit and
-> > > avoids any ambiguity about the control flow or error handling
-> > > intent. It keeps the code clear and aligned with its actual behavior.
-> > >
-> >
-> > how about this?
-> >
-> > +       ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > +       if (ret) {
-> > +               if (ret =3D=3D -EPROBE_DEFER)
-> > +                       goto clk_notifier_unregister;
-> > +               else if (ret =3D=3D -ENODEV)
-> > +                       dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> > +               else
-> > +                       dev_err(&pdev->dev, "Failed to setup DMA (%d),
-> only use PIO mode\n", ret);
-> > +       }
->
-> Please use human readable version of error value. In this case it will
-> be:
->   dev_err(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n",
-> ERR_PTR(ret));
->
+The DMA AXI address width of DWMAC cores can be configured to
+32-bit/40-bit/48-bit, then the format of DMA transmit descriptors
+get a little different between 32-bit and 40-bit/48-bit.
+Current driver code checks priv->dma_cap.addr64 to use certain format
+with certain configuration.
 
-Hi, the ret is from i2c_imx_dma_request() and look like that ret has been c=
-onverted by PTR_ERR,
-So the ret error has been human readable version?
+This patch converts the format of DMA transmit descriptors on dwmac4
+and dwxgmac2 that the DMA AXI address width is configured to 32-bit (as
+described by function comments of stmmac_tso_xmit() in current code) to
+a more generic format (see updated function comments after this patch)
+which is actually already used on 40-bit/48-bit platforms to provide
+better compatibility and make code flow cleaner in TSO TX routine.
 
-static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx, dma_addr_t p=
-hy_addr)
-{
-...
-        dma =3D devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
-        if (!dma)
----->           return -ENOMEM;
+Another interesting finding, struct stmmac_desc_ops is a common abstract
+interface to maintain descriptors, we should avoid the direct assignment
+of descriptor members (e.g. desc->des0), stmmac_set_desc_addr() is the
+proper method yet. This patch tries to improve this by the way.
 
-        dma->chan_tx =3D dma_request_chan(dev, "tx");
-        if (IS_ERR(dma->chan_tx)) {
----->           ret =3D PTR_ERR(dma->chan_tx);
-                if (ret !=3D -ENODEV && ret !=3D -EPROBE_DEFER)
-                        dev_err(dev, "can't request DMA tx channel (%d)\n",=
- ret);
-                goto fail_al;
-        }
+Tested and verified on:
+DWMAC CORE 5.00a with 32-bit DMA AXI address width
+DWMAC CORE 5.10a with 32-bit DMA AXI address width
+DWXGMAC CORE 3.20a with 40-bit DMA AXI address width
 
-        dma_sconfig.dst_addr =3D phy_addr +
-                                (IMX_I2C_I2DR << i2c_imx->hwdata->regshift)=
-;
-        dma_sconfig.dst_addr_width =3D DMA_SLAVE_BUSWIDTH_1_BYTE;
-        dma_sconfig.dst_maxburst =3D 1;
-        dma_sconfig.direction =3D DMA_MEM_TO_DEV;
----->   ret =3D dmaengine_slave_config(dma->chan_tx, &dma_sconfig);
-        if (ret < 0) {
-                dev_err(dev, "can't configure tx channel (%d)\n", ret);
-                goto fail_tx;
-        }
+Signed-off-by: Furong Xu <0x1207@gmail.com>
+---
+V1 -> V2: Update commit message
+V1: https://lore.kernel.org/r/20241213030006.337695-1-0x1207@gmail.com
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 60 ++++++++-----------
+ 1 file changed, 24 insertions(+), 36 deletions(-)
 
-        dma->chan_rx =3D dma_request_chan(dev, "rx");
-        if (IS_ERR(dma->chan_rx)) {
----->           ret =3D PTR_ERR(dma->chan_rx);
-                if (ret !=3D -ENODEV && ret !=3D -EPROBE_DEFER)
-                        dev_err(dev, "can't request DMA rx channel (%d)\n",=
- ret);
-                goto fail_tx;
-        }
-
-        dma_sconfig.src_addr =3D phy_addr +
-                                (IMX_I2C_I2DR << i2c_imx->hwdata->regshift)=
-;
-        dma_sconfig.src_addr_width =3D DMA_SLAVE_BUSWIDTH_1_BYTE;
-        dma_sconfig.src_maxburst =3D 1;
-        dma_sconfig.direction =3D DMA_DEV_TO_MEM;
-        ret =3D dmaengine_slave_config(dma->chan_rx, &dma_sconfig);
-        if (ret < 0) {
-                dev_err(dev, "can't configure rx channel (%d)\n", ret);
-                goto fail_rx;
-        }
-
-        i2c_imx->dma =3D dma;
-        init_completion(&dma->cmd_complete);
-        dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
-                dma_chan_name(dma->chan_tx), dma_chan_name(dma->chan_rx));
-
-        return 0;
-
-fail_rx:
-        dma_release_channel(dma->chan_rx);
-fail_tx:
-        dma_release_channel(dma->chan_tx);
-fail_al:
-        devm_kfree(dev, dma);
-
-        return ret;
-}
->
-> --
-> Pengutronix e.K.                           |
-> |
-> Steuerwalder Str. 21                       |
-> http://www.pen/
-> gutronix.de%2F&data=3D05%7C02%7Ccarlos.song%40nxp.com%7Cd77fb08d389a
-> 46773df008dd20ca5fdc%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%
-> 7C638702775737161676%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiO
-> nRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%
-> 3D%3D%7C0%7C%7C%7C&sdata=3DB%2BR4YbexNiAlDpf5xTf%2BWp2GbmwtfG4
-> yKaW8FBvaTRI%3D&reserved=3D0  |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
-> |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:
-> +49-5121-206917-5555 |
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 6bc10ffe7a2b..99eaec8bac4a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4116,11 +4116,7 @@ static void stmmac_tso_allocator(struct stmmac_priv *priv, dma_addr_t des,
+ 			desc = &tx_q->dma_tx[tx_q->cur_tx];
+ 
+ 		curr_addr = des + (total_len - tmp_len);
+-		if (priv->dma_cap.addr64 <= 32)
+-			desc->des0 = cpu_to_le32(curr_addr);
+-		else
+-			stmmac_set_desc_addr(priv, desc, curr_addr);
+-
++		stmmac_set_desc_addr(priv, desc, curr_addr);
+ 		buff_size = tmp_len >= TSO_MAX_BUFF_SIZE ?
+ 			    TSO_MAX_BUFF_SIZE : tmp_len;
+ 
+@@ -4166,17 +4162,27 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
+  *  First Descriptor
+  *   --------
+  *   | DES0 |---> buffer1 = L2/L3/L4 header
+- *   | DES1 |---> TCP Payload (can continue on next descr...)
+- *   | DES2 |---> buffer 1 and 2 len
++ *   | DES1 |---> can be used as buffer2 for TCP Payload if the DMA AXI address
++ *   |      |     width is 32-bit, but we never use it.
++ *   |      |     Also can be used as the most-significant 8-bits or 16-bits of
++ *   |      |     buffer1 address pointer if the DMA AXI address width is 40-bit
++ *   |      |     or 48-bit, and we always use it.
++ *   | DES2 |---> buffer1 len
+  *   | DES3 |---> must set TSE, TCP hdr len-> [22:19]. TCP payload len [17:0]
+  *   --------
++ *   --------
++ *   | DES0 |---> buffer1 = TCP Payload (can continue on next descr...)
++ *   | DES1 |---> same as the First Descriptor
++ *   | DES2 |---> buffer1 len
++ *   | DES3 |
++ *   --------
+  *	|
+  *     ...
+  *	|
+  *   --------
+- *   | DES0 | --| Split TCP Payload on Buffers 1 and 2
+- *   | DES1 | --|
+- *   | DES2 | --> buffer 1 and 2 len
++ *   | DES0 |---> buffer1 = Split TCP Payload
++ *   | DES1 |---> same as the First Descriptor
++ *   | DES2 |---> buffer1 len
+  *   | DES3 |
+  *   --------
+  *
+@@ -4186,15 +4192,14 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ {
+ 	struct dma_desc *desc, *first, *mss_desc = NULL;
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+-	int tmp_pay_len = 0, first_tx, nfrags;
+ 	unsigned int first_entry, tx_packets;
+ 	struct stmmac_txq_stats *txq_stats;
+ 	struct stmmac_tx_queue *tx_q;
+ 	u32 pay_len, mss, queue;
+-	dma_addr_t tso_des, des;
++	int i, first_tx, nfrags;
+ 	u8 proto_hdr_len, hdr;
++	dma_addr_t des;
+ 	bool set_ic;
+-	int i;
+ 
+ 	/* Always insert VLAN tag to SKB payload for TSO frames.
+ 	 *
+@@ -4279,24 +4284,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	if (dma_mapping_error(priv->device, des))
+ 		goto dma_map_err;
+ 
+-	if (priv->dma_cap.addr64 <= 32) {
+-		first->des0 = cpu_to_le32(des);
+-
+-		/* Fill start of payload in buff2 of first descriptor */
+-		if (pay_len)
+-			first->des1 = cpu_to_le32(des + proto_hdr_len);
+-
+-		/* If needed take extra descriptors to fill the remaining payload */
+-		tmp_pay_len = pay_len - TSO_MAX_BUFF_SIZE;
+-		tso_des = des;
+-	} else {
+-		stmmac_set_desc_addr(priv, first, des);
+-		tmp_pay_len = pay_len;
+-		tso_des = des + proto_hdr_len;
+-		pay_len = 0;
+-	}
+-
+-	stmmac_tso_allocator(priv, tso_des, tmp_pay_len, (nfrags == 0), queue);
++	stmmac_set_desc_addr(priv, first, des);
++	stmmac_tso_allocator(priv, des + proto_hdr_len, pay_len,
++			     (nfrags == 0), queue);
+ 
+ 	/* In case two or more DMA transmit descriptors are allocated for this
+ 	 * non-paged SKB data, the DMA buffer address should be saved to
+@@ -4400,11 +4390,9 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	}
+ 
+ 	/* Complete the first descriptor before granting the DMA */
+-	stmmac_prepare_tso_tx_desc(priv, first, 1,
+-			proto_hdr_len,
+-			pay_len,
+-			1, tx_q->tx_skbuff_dma[first_entry].last_segment,
+-			hdr / 4, (skb->len - proto_hdr_len));
++	stmmac_prepare_tso_tx_desc(priv, first, 1, proto_hdr_len, 0, 1,
++				   tx_q->tx_skbuff_dma[first_entry].last_segment,
++				   hdr / 4, (skb->len - proto_hdr_len));
+ 
+ 	/* If context desc is used to change MSS */
+ 	if (mss_desc) {
+-- 
+2.34.1
 
 
