@@ -4,68 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BAAE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B63E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 07:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TY81vIHRnBXf+OI+5XhrCOHNSWZ0LTW6G706Yyamms4=; b=zr+AaomQDNqre9orxeK3ZfQp2F
-	rM39jcy4jwalFQT0sArwZNvVv/+Y9oSLBYdsgtLSLd1A/oUQX0fnB6hjR+R76mmADeTnPzgaikEm5
-	ZWlTP7a/cEDzvac2qAssz7SDUDqm9XlJwsI+lm2Az0ba+13Dx/SnEHICsRrQ3BaotDeqd9B0PQ57o
-	2d9TrkkRd3wugEp80NBCCH8gG6G9AQcGeNxK47RNUqWS7Q/Q0uM2bSJXLKDOrJijZd51aQF2SXTFL
-	fq8cMlronAaZN/lb9p1p5Ezb7xAza/o2YheM2XFleVI7j2fipNtYBet96bDvsLPBQjuOtAB5IVTPs
-	vWoS9MqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X9G0sn3xYJ1534yAllD+T/qPtDutwf37TtG1eLFZyEg=; b=wLQfD+w8ua4/pgG3mx80zSMxRc
+	9U+gVeVH8Bu2bF6KL3cjFg51nNiPgp1uWdLTsPjMbGq4/53EJCa+HBsvPijrEeGMBOMkZ40jvygbU
+	hJhXNKFuXtWCaSAZcvelWNHrJ48yAp62wLYYoNwJ62J1wXHgdmJRmOE3sGuj0Nboa+JIXPJWzHZav
+	p1/tdIYRc3fH1Io7BkY1FHLnieGZLgoqIo7vGoItquZ/t1w6RkBPbaaKjxSpdIzFloTry+4cF4jjR
+	NFoRL27y7gG5Jj4q2px9jVlXMpC2tFWeLuZXdA6LwbTCwhmVMAho8B1NxHvdVR9UC/vbvlQQfvTxZ
+	6T6dgW8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWyy-0000000480w-1x6q;
-	Fri, 20 Dec 2024 06:59:32 +0000
-Received: from mail-db8eur05on2062c.outbound.protection.outlook.com ([2a01:111:f403:2614::62c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tOX6x-000000048ed-2XWG;
+	Fri, 20 Dec 2024 07:07:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWxp-000000047vS-1aO9
+	id 1tOX5o-000000048Wy-1wrj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 06:58:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QiTgeljGT1YL/O/CJTpYGhdwitb/AWxdb82+mj1/gtfRQQGBx08YaisT4IpVqf70CiOkiJf/Zm0nd8impH/QJuODUMtayZMyUNCS+bBOM0aBlbCgEgfFcxBrMZMxC4yi2baNYk0sS6L93XZ2F1LCwYFKZJ7ONK9AtPpTG/+uTk2IUyGwte8SyDaMLEOdXY2mKM6q5/AMu/v06v7hjM/qEB7TV6WVh2o82BF8ytlDyR3VTq9ziyU4Wyxx1SLjFNkIncf4sEuJS60Ti+bILX6OblApXXAJO+XlN8ZVj3GoXpSAEPt0P+xCp7L/DfiIPOIncTeSxuJzSlUQNsN7miMZIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TY81vIHRnBXf+OI+5XhrCOHNSWZ0LTW6G706Yyamms4=;
- b=ySIWfF0YoJWwkKG3QDV0VqPZIQqpt2g1SGEW4SxzX+mrIT6BfLGg4d6womEE+LtdEQUX/uPTsIln5vldy+uRyZoxtUU7gioNf1i0Yy+KIcNdCL0LOpshCp54M7u0TtKHlxmDD/YhBUkq33detYzM/8n4O46e6nTROqZjA0RBiRjFS0uxbYbgDnPJPFLX6hJrQ0z7zjEKSc2e+ljqdPrua1shYNTO1+3Oz3NEKvFumcr1uzLg9IDE0pgbRNsfsZ8pZTFtG8fsK9MXlZwKImJTDdLRLKi7x5lHNeZ6o+TrXHxYOtaS9eJkulQ/y4X8e3vPeXMwBpVppwXRxlZq7Ux1/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TY81vIHRnBXf+OI+5XhrCOHNSWZ0LTW6G706Yyamms4=;
- b=HqQL7FK77ULakP4mP8i75XnRMD3ZXNBCmRknwWsjs6FBTN6RI692pdIOXg+cZ2TfFjNkt/H96ukj9CjAEPhZn71MVPNYOTBDO7ICG9HEz4Y7j7QUtOwIxlxbGtJHo2ow1v3UFY/njS0+ATPunpkRshhxfH09nnpkdx85DQKrBO0+4kjD4uSMb6JP1IkcJtGcgHmrOv2Jm9ScsfaS0E42vr1yqBFc1yb+8Uo3J+l5X02jEeQ44iu3xGTrsOehVKTxUIJsE+hukZA1y63jcwYcbwbwRvhTBEjfCkCpRQXBXkUgsK1SmAzTOWE0e1a6Evw++/TM4LMeGKXMM+CpLXBcnw==
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by PA1PR04MB10698.eurprd04.prod.outlook.com (2603:10a6:102:492::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.15; Fri, 20 Dec
- 2024 06:58:16 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.005; Fri, 20 Dec 2024
- 06:58:16 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-CC: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Clark Wang <xiaoning.wang@nxp.com>, Ahmad
- Fatoum <a.fatoum@pengutronix.de>
+	Fri, 20 Dec 2024 07:06:37 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tOX5e-0007sl-Dz; Fri, 20 Dec 2024 08:06:26 +0100
+Message-ID: <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
+Date: Fri, 20 Dec 2024 08:06:25 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-Thread-Topic: [PATCH v5] i2c: imx: support DMA defer probing
-Thread-Index: AQHbUqyLfXdPeS6Lg02Kvo5iqL4MRQ==
-Date: Fri, 20 Dec 2024 06:58:16 +0000
-Message-ID: <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+To: Carlos Song <carlos.song@nxp.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Clark Wang <xiaoning.wang@nxp.com>
 References: <20241218043541.143194-1-carlos.song@nxp.com>
  <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
  <Z2QQI2gJNLjI-fam@pengutronix.de>
@@ -73,89 +56,19 @@ References: <20241218043541.143194-1-carlos.song@nxp.com>
  <Z2UBfcq6pE-JMUrb@pengutronix.de>
  <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
  <Z2UK4rMxrtNsPw5V@pengutronix.de>
-In-Reply-To: <Z2UK4rMxrtNsPw5V@pengutronix.de>
-Accept-Language: en-US
+ <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|PA1PR04MB10698:EE_
-x-ms-office365-filtering-correlation-id: e030791e-7bd8-477c-2bd6-08dd20c3adc0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?+9+QtpI69ecRwBd8jokZxbZbogeM/KDYJeaRj7ykbSReWKs4oq+gHp6w463o?=
- =?us-ascii?Q?CVa1YuBxd35OFCE48OZwh45oBAuOEVIZ4IGYV+0sqcxY9pCZ+f58SSGIZnJW?=
- =?us-ascii?Q?dsH/AztiEz7Oe1Cqg9Qg6vqd2kozJeLLSyHiul4wQdjOLDqgoKFwxunlLr8A?=
- =?us-ascii?Q?woZ6OLEUedimMaIKrxX5l1tmwSKt3hMkRd/PH2LGJ7bHGWB3qu1ca9tA+pJe?=
- =?us-ascii?Q?mJ2OVghPICng8rLkW21BLtJzVEwqemmNSDa6dXM5qTKU/BwTeVqXa5AxpMWN?=
- =?us-ascii?Q?XkW7Z3bxY3+nGQRrHZELtK9npgwU+9zSKCqcl1rmnI/ngk6fUfFdYjsqy+DK?=
- =?us-ascii?Q?qnFrl0ozJUTShys1inBxzaVo7xI9EA54nZCEg5yEWOE5SmPc6kqfoCkjGZSe?=
- =?us-ascii?Q?XhiNUwWqI3UNMkq6dQTiHOVn3DfmxwyVzYL5b29LgZj0vNzZvXJlRyXO+Tby?=
- =?us-ascii?Q?hfprygcLRaqT6OvIUGwRsP8KBryuybxecItNBhqxXpkRUqJF2rZOOLP7x93A?=
- =?us-ascii?Q?DOfVqcpNZbyufmhu0rPlS7JutuOrs81kBuRkooqn35l4GDleJQcELgFJN/dm?=
- =?us-ascii?Q?fc5kZ5M6L1ThrNuNCzbdp7mJCbRc20GzeW1FAUqmNBYu1tjtC7Rn9wtw4xPj?=
- =?us-ascii?Q?QyxgCN9/aCjE4zY6w2uwLWziXR5ak+1cw5QGe+x12bNtEkDnvnrFEl3MNaus?=
- =?us-ascii?Q?yLwZDYOStkQ1y4a4VBT8LWw/llbUiHSPHIgiU/vc3BSQY/6QLL6shP82A4bC?=
- =?us-ascii?Q?aIFXalUDsUwUHDUBEptelyCpvez0FkaEGbWvUmrAUGeFxqG+PJ9kR/lEZlFq?=
- =?us-ascii?Q?506WCOUeBjVzU4/h0hhsSNHAyKOjVUReHQX0NMy+FAYsaf/A7AijCW19SA33?=
- =?us-ascii?Q?CcjTY/gCq7Uu430hfa5VRvF049iZZIAIhCeodrXGY3+tCSEscy3z5Sh0voZk?=
- =?us-ascii?Q?p4xr4WrzL+tpsWiN0Pztf8gFuBKN4szkaLzktYcG2eOJql+wR1ErmeNbtYLC?=
- =?us-ascii?Q?UBXJdhjket3+FY3XVieKraZQjh1fzNII6Sc9FCNMw+7c0PZaeuitw6KI0mwS?=
- =?us-ascii?Q?9yYhfztrSUQRHyLbue+jgKnMdPYJ7UtfPRRRBtxb7bAH/uMhOC7aeF9VOX1l?=
- =?us-ascii?Q?QaIf0i11kQt7WxFSY2UFHBQp+gdszwOrze9ZsJsDbiZirNwXC9Al2EZJpBW8?=
- =?us-ascii?Q?Na9uC8O0rK1pC0QovDHywul25wdhakYI6OyNcshywwLwic+xDJ9eyAZnpytS?=
- =?us-ascii?Q?JVzoqOsu46J/wACDSUpinBBFEG9/+lJBVfvyhVF9rhfWfx6kFR1oS4a7Rh1p?=
- =?us-ascii?Q?A/SFH99+5tyiIXYjJBe/FDpeTic5TI5UTPKsmr+jSsph0KyC171MUSJLRvlk?=
- =?us-ascii?Q?hNn6CZGQ0oGMNMfobhoX7SPBxb35?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+s66YsRKMdYYXdKuD/K151CvZiAobyPNxYibdN7shJfr4T9rpF0WyxFoB8na?=
- =?us-ascii?Q?ovhffL+ZX+F2nZFdEjQskLBIk4w3+imGFJwLheathFRIRdaU1ZNeNP8FKtOZ?=
- =?us-ascii?Q?TOWfy7dLJzI71FcfgO3v+luO19rr0hTJmhpUoM0lQp4Y0lE8+zd5xEOBX3do?=
- =?us-ascii?Q?WP6QQtDg5yiv/tfNcnm+lJbrLkvIrlzvFDyz2SrqC0Bdf0oiqZAsFCaZZUTK?=
- =?us-ascii?Q?I13HvbaMVs4GIsJTgRHpyAck2TOqjTwO71/DIeQwOyr+wP8xpQfBE+YYgwk7?=
- =?us-ascii?Q?3AtwDT/lyX2vNifUJ29kgXenghh/9KBuvOraQTevXhgV0iTsWulkWSfrFFs+?=
- =?us-ascii?Q?YJ9Z17eRW8PNYsRyygnEAtGVuLJZiUKsudbfOZ3xdHRkUpE5SfgWIwajD/xH?=
- =?us-ascii?Q?l2p1SbMNWFPj6NYxLLEHIbkprJlKnk97zg6K1k8b4ESAbpUiZsLfnFw8ajje?=
- =?us-ascii?Q?fJC+MI9R5DmeZQYuP1SjRCBx8qDFWR96OtGjg706A8P5vIFBIQa04+CiRQX9?=
- =?us-ascii?Q?s50CHCfGLjvbPiF9hAigJjyAEQ6EthvVGAjVSH2noqrCQuhSxKX4Q62JJtZT?=
- =?us-ascii?Q?ATrgHziWESL1hpf3+XHywN1VINpDzHo0nvqXpcc4R/4DsX9Ph4vzhEbuPhyq?=
- =?us-ascii?Q?EC0BbP/TUNDW6sZ5NyWPxeSIwBsBz/LlIYh2Gk0QBbdziOhoRux82L6YfKxc?=
- =?us-ascii?Q?F6ErzPfu69+6cwNhwWnlpNKYZ4spnyxaLeFjXFo2c1WdVjNhkARi3CdUtk5N?=
- =?us-ascii?Q?8aQMWfLG7wKHISFMZAT2hoA7v/f1xu60q7f9Vt3hScHVdIm0kKa5a61JYusy?=
- =?us-ascii?Q?CCKyICCfpxZ4Mxm9XwDiyFm3RCiFthg80EGZ5d32MGZeFYGB/31tHLe/Gytr?=
- =?us-ascii?Q?CTZG0mDFDOGWpx+6MvLwgJzdF+Kt7G3k4LbZgvhTAZKq2IzePIiNFWS4VqFp?=
- =?us-ascii?Q?NZOtF3erffGvksebhBO5Aafbl5tZZxTTwjaajOKToNCvlPJ6VnQVB6Dd8/AE?=
- =?us-ascii?Q?o1mzx+VrTspRoUz38XH6Jp4lYeyn2adp47HefWrmYChQSSXCQC+OSG99J+NW?=
- =?us-ascii?Q?TNbILg7b4vW5qTBGnHZ1rCx+TQcLv6/g0/oo/XqQ7qpIfU+Uwr0Vax+RRRnw?=
- =?us-ascii?Q?KT5SwdSup+KdqWP52x7Xu9xpyePavEAp9m+3gVqnG3hOavR0Imzjsry7Cq8s?=
- =?us-ascii?Q?OQDcfzITDAi/SLzzvdGfD85HRQ+n8SsX7wssdb/xz0K+EYMs1DUrEAuWF6Wt?=
- =?us-ascii?Q?NAAnDWw1rMMwpC5CRh5WZsq8jI5e8HPj/DPTpjTyiHScU2QRFfmb6yq0WA2j?=
- =?us-ascii?Q?cRGPgmTFX4N4LxGilZ0ZSpuDv5Ht3UL3Kb0afOKAvgytZ/PaIhXHnbU3jRXm?=
- =?us-ascii?Q?lHS0l2i+ivdbA9hsCn2miPNDHlDnMs6TLl0BrxiQ9RqpcdvrbBrhvVz4nNTw?=
- =?us-ascii?Q?FjziqUlXyibhNg2H4/t8l04JKKZlTyF8hKWgS0NIm0iwla+Z41pKaA7S6XO8?=
- =?us-ascii?Q?NGCeq1VF+ZXoTjfbKg5pLptVkMyVZRbMCYcGAXW2uu9Ls7DanzGWOFobqZ+6?=
- =?us-ascii?Q?PBFEY9HWiCozLVCA5TFd7Lkqhq3iAti0Zf1rwzGB?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e030791e-7bd8-477c-2bd6-08dd20c3adc0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 06:58:16.1610
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: MFCtINW2CQ5/WMFHCmTTW/WiL6x+bqiMwFw+A3LassS18xmz5JWyXFhYgfO1tDnnOdqT+LFoX0stYhLRCCkk/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10698
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_225821_422763_FF3C8B84 
-X-CRM114-Status: GOOD (  30.42  )
+X-CRM114-CacheID: sfid-20241219_230636_515472_CF20511B 
+X-CRM114-Status: GOOD (  25.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,93 +83,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Carlos,
+
+On 20.12.24 07:58, Carlos Song wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Oleksij Rempel <o.rempel@pengutronix.de>
+>> Sent: Friday, December 20, 2024 2:13 PM
+>> To: Carlos Song <carlos.song@nxp.com>
+>> Cc: Andi Shyti <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>;
+>> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
+>> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Clark Wang
+>> <xiaoning.wang@nxp.com>; Ahmad Fatoum <a.fatoum@pengutronix.de>
+>> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
+>>
+>> Caution: This is an external email. Please take care when clicking links or
+>> opening attachments. When in doubt, report the message using the 'Report this
+>> email' button
+>>
+>>
+>> On Fri, Dec 20, 2024 at 05:59:38AM +0000, Carlos Song wrote:
+>>>>> So we make this logic. Anyway we let the I2C controller registered
+>>>>> whether
+>>>> DMA is available or not(except defer probe).
+>>>>> Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing
+>>>>> happened if
+>>>> DMA is defer probed or not enabled(This is an expected).
+>>>>> However we still need i2c DMA status is known when meet an
+>>>>> unexpected
+>>>> error, so we use dev_err_probe() to print error.
+>>>>
+>>>> Why dev_err_probe() instead of dev_err()?
+>>>>
+>>> Hi,
+>>> In patch V2 discussion, Marc suggested just return dev_err_probe(),
+>>> but I don't accept it so I choose to use dev_err_probe() to print error in V3.[1]
+>> In this case, the two APIs have the same function, do you mean dev_err() is more
+>> suitable?
+>>
+>> Yes, dev_err_probe() should be used in combination with return. For
+>> example:
+>>   return dev_err_probe(...);
+>>
+>> It will pass the return value on exit of the function and optionally print of the
+>> error message if it is not EPROBE_DEFER. Practically it replace commonly used
+>> coding pattern:
+>>   if (ret == -EPROBE_DEFER) {
+>>     return ret;
+>>   } else if (ret) {
+>>     dev_err(..);
+>>     return ret;
+>>   }
+>>
+> Hi,
+> 
+> Get your good point. I will change my code in V6:
+> +       ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+> +       if (ret) {
+> +               if (ret == -EPROBE_DEFER)
+> +                       goto clk_notifier_unregister;
+> +               else if (ret == -ENODEV)
+> +                       dev_dbg(&pdev->dev, "Only use PIO mode\n");
+> +               else
+> +                       dev_err(&pdev->dev, "Failed to setup DMA, only use PIO mode\n");
+> +       }
+> 
+> I think this is what you want to see, right?
+
+This loses the information why the error happens (ret). Using dev_err_probe
+even if no probe deferral is expected in that branch is perfectly fine
+and the kernel-doc even points it out:
+
+  Using this helper in your probe function is totally fine even if @err
+  is known to never be -EPROBE_DEFER.
+
+Cheers,
+Ahmad
+
+> 
+>> --
+>> Pengutronix e.K.                           |
+>> |
+>> Steuerwalder Str. 21                       |
+>> http://www.pen/
+>> gutronix.de%2F&data=05%7C02%7Ccarlos.song%40nxp.com%7C2950266755a
+>> 241c00a9208dd20bd5cf2%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
+>> %7C638702719862691439%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGki
+>> OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ
+>> %3D%3D%7C0%7C%7C%7C&sdata=aIuzJP0v5C6HzOCGnCHobK9Llml3thHclTwu
+>> CjD13IM%3D&reserved=0  |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
+>> |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:
+>> +49-5121-206917-5555 |
+> 
 
 
-> -----Original Message-----
-> From: Oleksij Rempel <o.rempel@pengutronix.de>
-> Sent: Friday, December 20, 2024 2:13 PM
-> To: Carlos Song <carlos.song@nxp.com>
-> Cc: Andi Shyti <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>;
-> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Clark=
- Wang
-> <xiaoning.wang@nxp.com>; Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
->
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->
->
-> On Fri, Dec 20, 2024 at 05:59:38AM +0000, Carlos Song wrote:
-> > > > So we make this logic. Anyway we let the I2C controller registered
-> > > > whether
-> > > DMA is available or not(except defer probe).
-> > > > Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing
-> > > > happened if
-> > > DMA is defer probed or not enabled(This is an expected).
-> > > > However we still need i2c DMA status is known when meet an
-> > > > unexpected
-> > > error, so we use dev_err_probe() to print error.
-> > >
-> > > Why dev_err_probe() instead of dev_err()?
-> > >
-> > Hi,
-> > In patch V2 discussion, Marc suggested just return dev_err_probe(),
-> > but I don't accept it so I choose to use dev_err_probe() to print error=
- in V3.[1]
-> In this case, the two APIs have the same function, do you mean dev_err() =
-is more
-> suitable?
->
-> Yes, dev_err_probe() should be used in combination with return. For
-> example:
->   return dev_err_probe(...);
->
-> It will pass the return value on exit of the function and optionally prin=
-t of the
-> error message if it is not EPROBE_DEFER. Practically it replace commonly =
-used
-> coding pattern:
->   if (ret =3D=3D -EPROBE_DEFER) {
->     return ret;
->   } else if (ret) {
->     dev_err(..);
->     return ret;
->   }
->
-Hi,
-
-Get your good point. I will change my code in V6:
-+       ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-+       if (ret) {
-+               if (ret =3D=3D -EPROBE_DEFER)
-+                       goto clk_notifier_unregister;
-+               else if (ret =3D=3D -ENODEV)
-+                       dev_dbg(&pdev->dev, "Only use PIO mode\n");
-+               else
-+                       dev_err(&pdev->dev, "Failed to setup DMA, only use =
-PIO mode\n");
-+       }
-
-I think this is what you want to see, right?
-
-> --
-> Pengutronix e.K.                           |
-> |
-> Steuerwalder Str. 21                       |
-> http://www.pen/
-> gutronix.de%2F&data=3D05%7C02%7Ccarlos.song%40nxp.com%7C2950266755a
-> 241c00a9208dd20bd5cf2%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
-> %7C638702719862691439%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGki
-> OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ
-> %3D%3D%7C0%7C%7C%7C&sdata=3DaIuzJP0v5C6HzOCGnCHobK9Llml3thHclTwu
-> CjD13IM%3D&reserved=3D0  |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
-> |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:
-> +49-5121-206917-5555 |
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
