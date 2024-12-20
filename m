@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D98E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD9EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2OQDSxlIjkv6IYB32QqjLNdXWxA9l5+c++JHu/xF9o=; b=I44uwZfvKUVSfp/RuHBsFrBjuU
-	YOo6soS6yjwxotZ265ukSPc3FLSuerqjw2hY3t13O8F8OCWnsi9sQo335hxPCLpzwAygx5xhDagBu
-	0pAT4BSBFhf+qmEMoYqh3wex8FrPxWEnm3NHCKimOwTy+aL5+jRV/7rNHKJ5sMmfwIHP8rU6Furam
-	rwEQFCEbc/R1ihGHpfCAZFOva6K8VhPXGsMnZpuMwXrHbf5Tlf5JxALVmq1Hiq0P6IBnE+9ptQS9z
-	LGS5mJmjDLQTgecR49LphjKHO5cjtEVGGEd7S7g8snmmvCgoDBXI5VcWhu0OFW7ezyfo7xwTfxVpX
-	LlOO9dKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UTiupyMcHhqzGfFRi2yCgW/66f0WiYflJTMes6I6iFc=; b=g2YIuE03h7TUuVhCvHsObwEx3/
+	GM3iQ3WcfslVbogPZWyFVr125LwiE17STumUbLVpBbgFBk3+zh3vUfYwueqcrPxO9f2o/HFnsBHS0
+	C47pA4ezxZ/wqMFnkf3sEQZFwKY1+J7tV+EIdINrfOLBGM03tqSiQTWdtjmy1kjfua4Ith3I9KgHx
+	ftxu2UH+RwLvYrv2YS56hTddRS51QtBbF1yeF8JIKAe9djDx4RoR9Y+dFAJYR1Z8LrOD2Om2STUl7
+	Q+r39c6lnOwKokw/QlmfdB5CG7vuXPq0Aq2xnTtDDY7sJ73O0hEy0J83mlfklEWrQgJqDoXFLawA9
+	OaZr+iTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdlx-00000005720-2yUd;
-	Fri, 20 Dec 2024 14:14:33 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tOdn4-0000000579S-3Mor;
+	Fri, 20 Dec 2024 14:15:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdg2-0000000565x-4BD5
+	id 1tOdku-000000056sD-3OWR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 14:08:29 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-388cae9eb9fso1160869f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 06:08:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734703705; x=1735308505; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p2OQDSxlIjkv6IYB32QqjLNdXWxA9l5+c++JHu/xF9o=;
-        b=du1OCQZ7axvr0Kb/Yfvm4p0b6PRBsLzGJytInemtca96IA6e01L85h9rUHzPICSeaq
-         lwZiwhjjdcIcqq7r66wjjnwPDPss04ZTW5i3vawfxr1C3mZsPVGO6G1qTWGhsGkr3I2a
-         01vicqfWVOobjY5eia2W/AwXDHHBg6MkiTlp6jRPxsUtvEw6pcu0ZTNdkcwyHSKLqgde
-         JQekyBk8QVaL3zvxo+nDIkHyo3Wycaqm4qB34yKJeH8fGjKKIb+kYxxf05n19K6toKSG
-         /PhD7BGhOdfToSH2IYIB2wtsfAomraDWqrqgfjL0sYBGyYMfj9/XUTtSNFkTc4p7a5Jo
-         2Xng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734703705; x=1735308505;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p2OQDSxlIjkv6IYB32QqjLNdXWxA9l5+c++JHu/xF9o=;
-        b=qCl6VFva+7jdj/7iMbcBKbrAwm1EV43S8lPEDiLnIAcKjZxi7lw1KsC37rMEIUPsgj
-         SIE41SeunDiwbGZ+tKdrjmtz5uYjIxDqJy5NsyyLvWIz7YcZqlsN6FROE+anKjny6Glk
-         lAvFunDU1Xxm8zp71q9rU6SunIbhI+iVMZTBI4XVuoEUT3VWQLxuHLQnNM7Exksz45Ds
-         uf3dcOZARfx1hYS0cLc2E5PBmj1+jpSlFo4yS2mp1Fh0n3nzAvEn/n6RP15O7NuouVsC
-         Gb9OUCZ53fqcPuOhsOx1qBheyvtjDt4FSebFTsxOMlejgkMNPJXREGc+h0MoV9uBr9wK
-         mq4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWSqJHMyMOfDIXi0zkd9nGCxpU4HpvHlJRYM2IMqA4wsyzCwmE1CEM1aRbSopPB/UeEpYMoJyE6Jb6aGnxo70EQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlOyaQRTd7D8UmTc677hY6OZ2/OAPq2Z11SpTWGiPWgP44PchN
-	GEvNCEox6lx0RDf01/wdh8anJvPqZytxmLnOfEqydP73WKtY8+IWey7I7l3aqjo=
-X-Gm-Gg: ASbGncv2f+OQCosoHfIRmPQBAAjratVmvBgKvFmvxCiv0ovK4aEGmmuG6m2Hn3HG00o
-	fRfPiQCWfF+ow7ZtU2o+zBNPFtFKCj5/hqQY9dedQd6vAKFFfKTUVu809dotctO6oYgT36Znf1p
-	fOqt6fNFZ7qecD4Yfj9JJu0aUaN50lf4h96508k84T5eQ0k7HDWqw/sBxJKlzfOJpcQPhnP6n6C
-	NURDo2Rn0WqstHEAfVy5Z37+AMqqTs/mwg57lctRpJQUdJACKuIVusYdEtCtj/pIvoMkXc=
-X-Google-Smtp-Source: AGHT+IHaVoo3sOmtyWzw4UW+4I/j953uzAjZoTRNej1wZU+3u9kyNjoPkTcRqItKHRuM4B6rwHxI9A==
-X-Received: by 2002:a05:6000:1fa5:b0:385:ed16:c91 with SMTP id ffacd0b85a97d-38a221faf85mr2931306f8f.24.1734703704952;
-        Fri, 20 Dec 2024 06:08:24 -0800 (PST)
-Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:c000:46df:1e3e:983f])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c84722dsm4148880f8f.53.2024.12.20.06.08.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 06:08:24 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jerome Brunet <jbrunet@baylibre.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241220-amlogic-clk-gxbb-32k-fixes-v1-0-baca56ecf2db@baylibre.com>
-References: <20241220-amlogic-clk-gxbb-32k-fixes-v1-0-baca56ecf2db@baylibre.com>
-Subject: Re: [PATCH 0/2] clk: amlogic: gxbb: 32k clock fixes
-Message-Id: <173470370410.3067219.1883604095856278984.b4-ty@baylibre.com>
-Date: Fri, 20 Dec 2024 15:08:24 +0100
+	Fri, 20 Dec 2024 14:13:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3FECE5C5C31;
+	Fri, 20 Dec 2024 14:12:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14334C4CECD;
+	Fri, 20 Dec 2024 14:13:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734704007;
+	bh=IfxXl6UuG4j5BIYEfkssc862+8tnobUWp4ToirmrRTw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ClQHk595OanK3NzR1jRz96i5ng2jJw5jsvAlQtROFDF0mMP6HpYkOOjk7gpcozy1M
+	 09nrL57Tv17Tqe2GScMn4nbdj22MAQ6yha3SDW77160RWKR5OTsMfGpEe99PR8sshe
+	 5FT05wI5eAKBNyFmp0apHsR+qWtlOcPemRveYpuRHW4BTgJx1UwUMkHjVuZqljA+On
+	 7c2/IBZQ7YxXR/CIFQfk+DoowDh37N7VkgpeHcilbyvbtT9350TR+B+Rn/iYoBsfxX
+	 n7GD738cBWuy00SH9W3PxmYEaUPzk2tcvvghNnB6z1Z2fEDeAuF5E3svfU79yO853Y
+	 w5XZBuLZuYU6A==
+Date: Fri, 20 Dec 2024 14:13:22 +0000
+From: Will Deacon <will@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Selftest for pKVM transitions
+Message-ID: <20241220141321.GA26794@willie-the-truck>
+References: <20241129125800.992468-1-qperret@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241129125800.992468-1-qperret@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_060827_255762_AFD99514 
-X-CRM114-Status: UNSURE (   4.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241220_061328_938372_E79D041C 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,15 +77,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Applied to clk-meson (clk-meson-next), thanks!
+On Fri, Nov 29, 2024 at 12:58:00PM +0000, Quentin Perret wrote:
+> We have recently found a bug [1] in the pKVM memory ownership
+> transitions by code inspection, but it could have been caught with a
+> test.
+> 
+> Introduce a boot-time selftest exercising all the known pKVM memory
+> transitions and importantly checks the rejection of illegal transitions.
 
-[1/2] clk: amlogic: gxbb: drop incorrect flag on 32k clock
-      https://github.com/BayLibre/clk-meson/commit/66eff51d972c
-[2/2] clk: amlogic: gxbb: drop non existing 32k clock parent
-      https://github.com/BayLibre/clk-meson/commit/1e1fd26ed4ca
+Thanks for doing this!
 
-Best regards,
---
-Jerome
+> 
+> The new test is hidden behind a new Kconfig option separate from
+> CONFIG_EL2_NVHE_DEBUG on purpose as that has side effects on the
+> transition checks ([1] doesn't reproduce with EL2 debug enabled).
 
+Hmm. What does a test failure look like without CONFIG_EL2_NVHE_DEBUG
+enabled? Do we still get file:line information?
+
+[...]
+
+> +void pkvm_ownership_selftest(void)
+> +{
+> +	void *virt = hyp_alloc_pages(&host_s2_pool, 0);
+> +	u64 phys, size, pfn;
+> +
+> +	WARN_ON(!virt);
+> +	selftest_page = hyp_virt_to_page(virt);
+> +	selftest_page->refcount = 0;
+> +
+> +	size = PAGE_SIZE << selftest_page->order;
+> +	phys = hyp_virt_to_phys(virt);
+> +	pfn = hyp_phys_to_pfn(phys);
+> +
+> +	selftest_state.host = PKVM_NOPAGE;
+> +	selftest_state.hyp = PKVM_PAGE_OWNED;
+> +	assert_page_state();
+> +	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_unshare_ffa, pfn, 1);
+> +	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
+> +
+> +	selftest_state.host = PKVM_PAGE_OWNED;
+> +	selftest_state.hyp = PKVM_NOPAGE;
+> +	assert_transition_res(0,	__pkvm_hyp_donate_host, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+> +	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
+
+Should we recheck the unshare transitions here?
+
+> +	selftest_state.host = PKVM_PAGE_SHARED_OWNED;
+> +	selftest_state.hyp = PKVM_PAGE_SHARED_BORROWED;
+> +	assert_transition_res(0,	__pkvm_host_share_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
+
+We could check unshare_ffa here.
+
+> +	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+> +
+> +	assert_transition_res(0,	hyp_pin_shared_mem, virt, virt + size);
+
+Is it worth trying an extra pin + unpin?
+
+> +	WARN_ON(!hyp_page_count(virt));
+
+Can we assert an exact value (e.g. count == 1)?
+
+> +	assert_transition_res(-EBUSY,	__pkvm_host_unshare_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
+
+unshare_ffa again here.
+
+> +	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+> +
+> +	hyp_unpin_shared_mem(virt, virt + size);
+> +	assert_page_state();
+> +	WARN_ON(hyp_page_count(virt));
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+
+Is this block actually testing anything new? Once we've asserted the page
+state and checked the refcount, the transitions seem redundant to me.
+
+> +	selftest_state.host = PKVM_PAGE_OWNED;
+> +	selftest_state.hyp = PKVM_NOPAGE;
+> +	assert_transition_res(0,	__pkvm_host_unshare_hyp, pfn);
+> +
+> +	selftest_state.host = PKVM_PAGE_SHARED_OWNED;
+> +	selftest_state.hyp = PKVM_NOPAGE;
+> +	assert_transition_res(0,	__pkvm_host_share_ffa, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
+> +	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
+> +	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
+> +	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
+> +
+> +	selftest_state.host = PKVM_PAGE_OWNED;
+> +	selftest_state.hyp = PKVM_NOPAGE;
+> +	assert_transition_res(0,	__pkvm_host_unshare_ffa, pfn, 1);
+
+Try it twice?
+
+Will
 
