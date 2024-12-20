@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D25FE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 00:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF2EE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 00:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JdEM25avAV3Wk0/A8V/RskskKqNdHIG3q8iPcW7Zhuw=; b=CrqLcXW1NWEupMQC5uRv2ffjs3
-	hGpt13jm0P7zM+a0LDtDLdqD2JBuRMDfg18TnP6l3nn/v1b9TCVagI70Vi5Re1hiFFPaVyV7MLTGS
-	6WarqDBrNuXSqgNfMfpbA08osRkAYgC8HuSCHUPbTMLrjWW3rnx7ZvFqfH9T+nIWqxnj+md2qXIBB
-	ESYDBI2bEKhGxoD2SZ2qepkKTvxuR0LLayjESn8dKKVPK/UY943GHHIc6mwjXmmxV09F0fgM/nhDf
-	YcLWl0dXCj2/eLCvVR2pJki/Ax4O6to8J7EQZUaKqxuiNmDFp3AYiH6rAddUypxD/d6zJ9iTFhS27
-	iSz5U01g==;
+	bh=aGfaJoG1T2GqAeho5K1MGIVQ1DuQHl43bpzlBdelgis=; b=etigWIg7wTddFX9n13DvzCXBMD
+	gTY2n/yF3OXua9k8OTEkgS727BfOot0DHctWWV4CirD3nyVzvCaQvBzoL4Xzyv1+llbgqdPW9eP0P
+	hNO04ulIu5nO1EsXBCq9xmoA1TK7JKFrt1dWjpD9n1KbUEzhPyhi8izyxtPnI2JqPXqimryG6ETin
+	QLqorwj42ldvNXRTn+Y2ztdIkx/8ONgFlhrK/OEiYpu+Sg1Ip3xgdMdd7yUBkJQ7kSDubi5OFRaLe
+	zubNxTlW8Ix9mfcoZatwiQak9P5V52sQfooPPMBbdf93Jm7p+hPle5IOo1kLAahnJXD1vWCDfdb4v
+	ECB02gWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOQlf-00000003SLI-0VAp;
-	Fri, 20 Dec 2024 00:21:23 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tOQmk-00000003SWQ-2ZAp;
+	Fri, 20 Dec 2024 00:22:30 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOQir-00000003Rbe-2ePe
+	id 1tOQke-00000003S5G-23wE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 00:18:31 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54026562221so1254704e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 16:18:29 -0800 (PST)
+	Fri, 20 Dec 2024 00:20:22 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-53ff1f7caaeso1346340e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 16:20:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734653908; x=1735258708; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734654018; x=1735258818; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JdEM25avAV3Wk0/A8V/RskskKqNdHIG3q8iPcW7Zhuw=;
-        b=bstqHfkfqSuemiGFxEujZYN7DETYcKgRVlm3u8FMxG/FRGwC5yEgDMAoKwA5+IgVdk
-         98R/P5Bih14thg95sSOH5/Y2qI8mp5MZS0MLyfgDkA/73sBFIN7w7D+8lEMeW+Qop67S
-         XTVz4KDtAjmjSkW8zwiqdDBEEhM68CoOqDjkigdcR2pZBDb9C2c8Z0xYcLUWYEn/gOTu
-         BFrLcFyny+SQiZAw+ug4dNvJNU5pDXvIEr/wcpF8NOvJsy5+3WrbPCFKnayFImTU6/5p
-         y5ikXJzFkJCrX0Ms67CrvvvlQiLxvEFAfQ4BEoWYrFoCr42JmaglPF7aVQekapC/GcIe
-         JQtw==
+        bh=aGfaJoG1T2GqAeho5K1MGIVQ1DuQHl43bpzlBdelgis=;
+        b=Ey+YsyHIiMGhzhsnEp7jbJeeEW+3qkhxt6z6nth8BdpQNGCFkKUJUytNX58Z0vhMAW
+         Sv9NsBPidrICY4qi1umwRCHbNuub+SIl9dYPooUJLwx6LHRjLI1m0XpIUhkatvEgVYHi
+         6kDN0tlU7RzRiPU2i2GA0Adh37HPa12ZfuFCaOONpr4brntSyLQYhzwcfQZCB3pczMjx
+         AKf8ucd/gm3tjrpM8VX5oWtOn1bQAvoWWSWTlF5mnQB32OmWUW0r55LQCexkdGzwloBh
+         wtNzWX9KLNxj1nbcNoy+vA/l70jool/L/4cSY7+fG569PGyuJwqRViCpr9o+MM2YJiJr
+         6GNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734653908; x=1735258708;
+        d=1e100.net; s=20230601; t=1734654018; x=1735258818;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JdEM25avAV3Wk0/A8V/RskskKqNdHIG3q8iPcW7Zhuw=;
-        b=tHFEBHrGHhVnK9SgLLGwIFvrzjeXJwQb8b0uRguAEmSJIfa1jDIabuW+ZNVVfr+95j
-         FVVRfDZN55YAIe1O9QsMMnpe5e7oy61aoRZShulvgEoXM8hEBazypsvXhJaClDzpoOCN
-         fVtaP8SQlmQV2N5wos7y1MkK6tCrOvG1GH+PmFaFHYP4ljQVU/aiMVBlSmRDvR8EHoA6
-         fHpFLn6WSYW4V62HQSvFqEt9QSf/ZJsgxy/lds9USpT1qDZfWE1QXIpFXcFVyR7l2TZm
-         oLTYhUFtGRMaI+s/tsBKozMeSDsXXf0Ms8r/8jvolfnJodqQj1BoB3uqBSpBsgDJiXm2
-         88Nw==
-X-Forwarded-Encrypted: i=1; AJvYcCUfcE7YAQEXr1FqpkNgSXKeTOPrk/ab9GSXikBuPwpIDkfUB9w4+iDm1erAhQlO806h/u3w9RMjyg+Q7LNUHhJ/@lists.infradead.org
-X-Gm-Message-State: AOJu0YydAFrHIdkdzh6y0P1RkveS7y5kepl9Vob4dKIlNxi5+v2zkX6U
-	TrlE1DDEe9AjLiXJTpIXs/yz8nkGm9C4uxwus34IV0KXM48UkztDf4M2g5QUFo4=
-X-Gm-Gg: ASbGnctzAzlm9BgEnNRWoyhjX2+iS5Uy2W+QqvZJGf5td4yQ6sFjCJg0kMe9z4XqFg8
-	5E3yNfmweIpwhrOtqdePcn+V4J2+zPIGdWDJn6S87SNPD96rZqyCDR3iHaEJGq4f2z8oPEn5qYz
-	8LBSK7kyzfnME1WnJSPr5oolRWvynHAhdspQGROSv4Mt2xgVcIZSNrAyUuxDkoGAQasNqsrIGzZ
-	5NeCaPT0VBJt+BbBm+w6psWDSwiaXeeiCNVnvdlKZWvpeBZmbK2VukYZFqYvsatRxyN+fx4yZqP
-	EXFSeDxEt2fr1xTUVmkW9rH9DN5kez0ZJsDE
-X-Google-Smtp-Source: AGHT+IHaBhOQ2F/tQJgKM89Gv/3h/pUJDiIxhbwnt6itHhtFdLYkVHk0tzYt/YbigfNxUGxwQcqftw==
-X-Received: by 2002:a05:6512:3d16:b0:540:1b2d:8ee1 with SMTP id 2adb3069b0e04-54229522508mr159038e87.11.1734653907712;
-        Thu, 19 Dec 2024 16:18:27 -0800 (PST)
+        bh=aGfaJoG1T2GqAeho5K1MGIVQ1DuQHl43bpzlBdelgis=;
+        b=YKvIQbIFfmgq4Cjy9HZpB869UAnvftIl+/K74B4RMAfzlH9UrXg/OOIOi7aOpRef4B
+         o2fX0ti8i+OplBAiJDWx98oXNvS3Z/umM/zbL/TR62cNt6+8VDpUZ3R1XmgzQhWshCXN
+         MiV9FePXJTqnirCTrvuzA0gQLXysTStkm5yPTofzph3D2mV+hJtN9Rb1S/dwnrnioEkQ
+         EgZgpUA5G9UF/phkWo+nvZQf8DAaqOg+NB6TOQYUc1CFMGOMdRyVY8hC6paH9OeYC5RL
+         OyFqYaTLuqR5TAS5ygFdkiqFpxcjIfzqiKX+kZxriyqX8F1f3qzJ1VAm5NbBztKSinPB
+         ab1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUADuS/m1UHRZ9P5lEwzPxuuAjlTp4N7RV8fuNyTNOQoR3dz0yRbl/6wR6xg6HxlPSa0+/VXmxzAPvWq5e+RDJF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKccVGzK/Rmb1v6UvyyM2Wax+BCDIAPTwbRUVavMvLJSP6hP4I
+	mF8AFxCO6DtKc0s2MeLv1xXIZeZjdEJZSkGacKiLf6KXJyojZok0MJ881L/jlNc=
+X-Gm-Gg: ASbGncvgVqyDGkhum3JZ1ANB2h7vrYaB/ExDSx/YxIkkp1SxAYXCJJOdQQRsguIkL95
+	umj1s8YqN1+U+j1bisIjKAoO6oiI1f3ttstSTp/qAcb98WJ/x+Uldc6uidLFGhu1q3KYaObuJnw
+	HJnnyWAxJ5psu3IQI9g5Qvm/dAQKnOcYlrUW14Lu23jqb9OPfxMPMU1nrGLd/TRpgGx9f2OpFWe
+	d4scdb/VVlRVDVT5bWzb0rz7qLpa/MFxbI2ONhWPaI4wvPt+7vmmNN1wCE/ENCmJxIbEsxfreSu
+	wcSyu4uk+zh/CEdJZKwx0inpgVPxzaW1V9ug
+X-Google-Smtp-Source: AGHT+IFre8iAJ8qmAC/GMNvKWBPlrLOwqvhJV/vx+wZq/0GVkU2u75qwt0RAs2Qd9uPRT+dmO47+yQ==
+X-Received: by 2002:a05:6512:114a:b0:540:1d0a:5812 with SMTP id 2adb3069b0e04-54229533ad6mr159865e87.23.1734654018559;
+        Thu, 19 Dec 2024 16:20:18 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238135basm315388e87.130.2024.12.19.16.18.25
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238136a8sm317995e87.163.2024.12.19.16.20.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 16:18:26 -0800 (PST)
-Date: Fri, 20 Dec 2024 02:18:24 +0200
+        Thu, 19 Dec 2024 16:20:18 -0800 (PST)
+Date: Fri, 20 Dec 2024 02:20:15 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Damon Ding <damon.ding@rock-chips.com>
 Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
@@ -77,18 +77,18 @@ Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
 	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 10/15] dt-bindings: display: rockchip: analogix-dp:
- Add support to get panel from the DP AUX bus
-Message-ID: <bjkcue3dfgaf5i66cqbiczifo7r3xngupghklxgevwqpwfeeix@i2jfd477igri>
+Subject: Re: [PATCH v3 14/15] arm64: dts: rockchip: Enable eDP0 display on
+ RK3588S EVB1 board
+Message-ID: <cg7bnhol4gvzji7agxazas7nkxy7zammzy67rjvhp35yqyraju@73daepsbmuae>
 References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
- <20241219080604.1423600-11-damon.ding@rock-chips.com>
+ <20241219080604.1423600-15-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241219080604.1423600-11-damon.ding@rock-chips.com>
+In-Reply-To: <20241219080604.1423600-15-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_161829_660611_4A183B48 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20241219_162020_530842_4CEB71EB 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +103,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 04:05:59PM +0800, Damon Ding wrote:
-> According to Documentation/devicetree/bindings/display/dp-aux-bus.yaml,
-> it is a good way to get panel through the DP AUX bus.
+On Thu, Dec 19, 2024 at 04:06:03PM +0800, Damon Ding wrote:
+> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
+> - Add edp-panel node
+> - Set pinctrl of pwm12 for backlight
+> - Enable edp0/hdptxphy0/vp2
 > 
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> ---
->  .../bindings/display/rockchip/rockchip,analogix-dp.yaml        | 3 +++
->  1 file changed, 3 insertions(+)
-
-Business before pleasure.^W^W^W Bindings before the driver.
-
 > 
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-> index 4f84e8849876..c45d92a2d901 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-> @@ -49,6 +49,9 @@ properties:
->      description:
->        This SoC makes use of GRF regs.
+> ---
+> 
+> Changes in v2:
+> - Remove brightness-levels and default-brightness-level properties in
+>   backlight node.
+> - Add the detail DT changes to commit message.
+> 
+> Changes in v3:
+> - Use aux-bus instead of platform bus for edp-panel.
+> ---
+>  .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 52 +++++++++++++++++++
+>  1 file changed, 52 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> index bc4077575beb..9547ab18e596 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+> @@ -9,6 +9,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/input/input.h>
+>  #include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/soc/rockchip,vop2.h>
+>  #include <dt-bindings/usb/pd.h>
+>  #include "rk3588s.dtsi"
 >  
-> +  aux-bus:
-> +    $ref: /schemas/display/dp-aux-bus.yaml#
+> @@ -238,6 +239,41 @@ &combphy2_psu {
+>  	status = "okay";
+>  };
+>  
+> +&edp0 {
+> +	force-hpd;
+> +	status = "okay";
 > +
->  required:
->    - compatible
->    - clocks
+> +	aux-bus {
+> +		panel {
+> +			compatible = "lg,lp079qx1-sp0v";
+
+Why do you need the particular compat string here? Can you use the
+generic "edp-panel" instead? What if the user swaps the panel?
+
+> +			backlight = <&backlight>;
+> +			power-supply = <&vcc3v3_lcd_edp>;
+> +
+> +			port {
+> +				panel_in_edp: endpoint {
+> +					remote-endpoint = <&edp_out_panel>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&edp0_in {
+> +	edp0_in_vp2: endpoint {
+> +		remote-endpoint = <&vp2_out_edp0>;
+> +	};
+> +};
+> +
+> +&edp0_out {
+> +	edp_out_panel: endpoint {
+> +		remote-endpoint = <&panel_in_edp>;
+> +	};
+> +};
+> +
+> +&hdptxphy0 {
+> +	status = "okay";
+> +};
+> +
+>  &i2c3 {
+>  	status = "okay";
+>  
+> @@ -399,6 +435,7 @@ usbc0_int: usbc0-int {
+>  };
+>  
+>  &pwm12 {
+> +	pinctrl-0 = <&pwm12m1_pins>;
+>  	status = "okay";
+>  };
+>  
+> @@ -1168,3 +1205,18 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
+>  		};
+>  	};
+>  };
+> +
+> +&vop_mmu {
+> +	status = "okay";
+> +};
+> +
+> +&vop {
+> +	status = "okay";
+> +};
+> +
+> +&vp2 {
+> +	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
+> +		reg = <ROCKCHIP_VOP2_EP_EDP0>;
+> +		remote-endpoint = <&edp0_in_vp2>;
+> +	};
+> +};
 > -- 
 > 2.34.1
 > 
