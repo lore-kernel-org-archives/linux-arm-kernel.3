@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6406EE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 10:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0414FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 10:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OjXTcsvIAL+4FtVS8P5fKPwNHbwBgsvtSCaYyw6ZUH0=; b=i++L9e8tboWD0OoqSxZgU6KmSo
-	En1xTY1R04E0liSGsfFWpfooHJ4KSSwAiRaBSOW6zvCPFHEhv4PWtzILStaNs+W+ZJ7lNaqJ43IHG
-	QVHSRRqpyypISm7RuhGkJaAEZVvro4HOvM6PCQGOO3kYuiRmwP2c18jRggsbA7Bl39IrCbNPN/0+b
-	dj07u+rZWVYNIoszqRnzZyCyulZwHkFXkDEjC7d0CKGgksxhZmGDq4NfU2mRp7FHKzvOpxXLg8ecE
-	15ud1C3kftGUHOymKvojlSvDc+1cFHj0sbzlcRlahyWnKLw/GbBUQGcOkRNKg2amEc4NhcyeLIV1m
-	uoBxxr/w==;
+	bh=+82biZaVNxLrPwnRt+Mf4mhE6BomVWsuu3IFQ+UAqLo=; b=B6qSCJYI4xtp1nLlH7UwDSS4wu
+	J6RoeHLSE/h8f6F8pB0OedQcK8dlBI3mIXbk3YeO1IUFp8olF+t84SXhXST3muQx27akSKSgU9xqO
+	bvAU36CLF9zABsKcMl+YhfvjsPuqGMaREDSzlz3BtNUhnsmKn8njuyyk7yjZ9OSmBURWguStK1Fwh
+	wIpz20X72o/Wcx4gR4Yrs0d69hHvB64iluxoeFX44hVbOovndOIL/6G94UB1CKuJqTd0r6W9aBTiW
+	QBZF6C3Hxz5eW0ERny/r/RZuzVWVH0YvqDh829ul1SW7lscQEr0asRBFNUzWmfA/E1nPeJm7WnrPE
+	DORI82rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZxo-00000004XRr-20rN;
-	Fri, 20 Dec 2024 10:10:32 +0000
+	id 1tOZyv-00000004Xfr-0MUi;
+	Fri, 20 Dec 2024 10:11:41 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZqA-00000004VmW-2A7t
+	id 1tOZqB-00000004VmZ-1aDV
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Dec 2024 10:02:40 +0000
 Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK89EJl001225;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK89Gt9001238;
 	Fri, 20 Dec 2024 11:02:33 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	OjXTcsvIAL+4FtVS8P5fKPwNHbwBgsvtSCaYyw6ZUH0=; b=g0Yh4hn+nV7g7rQp
-	8vFgC51gPbXJa0QZICP8Hw6WYjEwOiyBiFRVEiP2j5KOsRb3l97QIOhSdP8JTLCB
-	91g4+9XFq8aZu8xgyfq1gilZS+ix5B7X+ANo6WttFHo4ylt6SHVDpPXLdeRZKZRM
-	X9ikMPK0cTwJ3aPybIn62mBdir7oEOpBRR7gljHA4sfI5GhzplXkyU5nzUvA1hQJ
-	vjs9tO1hEchwKhOkvfFjhIcNmqpYinUm4+HGG3xpWjiWNngX4SKp95OrVUThDLZj
-	cyTYOGxJk3OpPqjLT6LgOoFoz/vbAviyGdhnwvSOE2EInaMyculxo1lacADg7LFs
-	qlr5og==
+	+82biZaVNxLrPwnRt+Mf4mhE6BomVWsuu3IFQ+UAqLo=; b=Q+sHuRRLd0gBCbuU
+	n1eOSTmEA2KcttSk2jsnijNf4f1iHOUhHXACCupsq0A/2z9EbUG3EQYTRzILmb8j
+	NTiW+1b/lsnf5HjpWLzx9I47Lckq5IBQeUXquvtMf4azvdDk28Op3+sd9P13m3DW
+	Ui82BQ0ywUSY9ueiadZaa3gDHiaC95fT1556lA9PzNJ2lM+EWZli9O5RWpxfQGpI
+	YSzI21Na5ueEIx1hy9uQOeBUeiA7KSTxtGvN7YKPfCXDXOIWA8J88fVw6AmsyYSx
+	Mav/QD04nD5CpI844Kh9iYI9QqaXo/wzdLrhtKq4MWTlzoFucZ9/XjNI4hZQR2Nu
+	+zOAgg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43n4d88pkw-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43n4d88pkx-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 20 Dec 2024 11:02:33 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 35A0540062;
-	Fri, 20 Dec 2024 11:01:14 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 02E9A40064;
+	Fri, 20 Dec 2024 11:01:18 +0100 (CET)
 Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 73E63262B05;
-	Fri, 20 Dec 2024 11:00:11 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E98EA257ABA;
+	Fri, 20 Dec 2024 11:00:12 +0100 (CET)
 Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
  (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 20 Dec
- 2024 11:00:11 +0100
+ 2024 11:00:12 +0100
 Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 20 Dec
- 2024 11:00:11 +0100
+ 2024 11:00:12 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <alexandre.torgue@foss.st.com>,
@@ -67,9 +67,9 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>
-Subject: [PATCH v2 6/9] arm64: defconfig: enable STM32 timers drivers
-Date: Fri, 20 Dec 2024 10:59:24 +0100
-Message-ID: <20241220095927.1122782-7-fabrice.gasnier@foss.st.com>
+Subject: [PATCH v2 8/9] arm64: dts: st: add timer pins for stm32mp257f-ev1
+Date: Fri, 20 Dec 2024 10:59:26 +0100
+Message-ID: <20241220095927.1122782-9-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241220095927.1122782-1-fabrice.gasnier@foss.st.com>
 References: <20241220095927.1122782-1-fabrice.gasnier@foss.st.com>
@@ -83,9 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_020238_858608_11604D9F 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241220_020239_709230_0E780BE7 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +99,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the STM32 timer drivers: MFD, counter, PWM and trigger as module.
-These drivers can be used on STM32MP25.
+Add timer pins available on stm32mp257f-ev1, configured for PWM:
+- timer3 CH2 is available on mikroBUS connector
+- timer8 CH1, timer8 CH4, timer10 CH1 and timer12 CH2 are available
+  on EXPANSION connector
+Arbitrary define all these pins to be used as PWM (output) channels,
+except for timer10 CH1, to be used as counter input.
 
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 61 +++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c62831e61586..d6aabdc103d7 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -764,6 +764,7 @@ CONFIG_MFD_TI_LP873X=m
- CONFIG_MFD_TPS65219=y
- CONFIG_MFD_TPS6594_I2C=m
- CONFIG_MFD_ROHM_BD718XX=y
-+CONFIG_MFD_STM32_TIMERS=m
- CONFIG_MFD_WCD934X=m
- CONFIG_MFD_KHADAS_MCU=m
- CONFIG_REGULATOR_FIXED_VOLTAGE=y
-@@ -1499,6 +1500,7 @@ CONFIG_IIO_CROS_EC_LIGHT_PROX=m
- CONFIG_SENSORS_ISL29018=m
- CONFIG_VCNL4000=m
- CONFIG_IIO_ST_MAGN_3AXIS=m
-+CONFIG_IIO_STM32_TIMER_TRIGGER=m
- CONFIG_IIO_CROS_EC_BARO=m
- CONFIG_MPL3115=m
- CONFIG_PWM=y
-@@ -1516,6 +1518,7 @@ CONFIG_PWM_ROCKCHIP=y
- CONFIG_PWM_RZ_MTU3=m
- CONFIG_PWM_SAMSUNG=y
- CONFIG_PWM_SL28CPLD=m
-+CONFIG_PWM_STM32=m
- CONFIG_PWM_SUN4I=m
- CONFIG_PWM_TEGRA=m
- CONFIG_PWM_TIECAP=m
-@@ -1650,6 +1653,7 @@ CONFIG_INTERCONNECT_QCOM_SM8650=y
- CONFIG_INTERCONNECT_QCOM_X1E80100=y
- CONFIG_COUNTER=m
- CONFIG_RZ_MTU3_CNT=m
-+CONFIG_STM32_TIMER_CNT=m
- CONFIG_HTE=y
- CONFIG_HTE_TEGRA194=y
- CONFIG_HTE_TEGRA194_TEST=m
+diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+index 8fdd5f020425..bb9dc82d3dd5 100644
+--- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+@@ -82,6 +82,53 @@ pins {
+ 		};
+ 	};
+ 
++	pwm3_pins_a: pwm3-0 {
++		pins {
++			pinmux = <STM32_PINMUX('B', 15, AF7)>; /* TIM3_CH2 */
++			bias-pull-down;
++			drive-push-pull;
++			slew-rate = <0>;
++		};
++	};
++
++	pwm3_sleep_pins_a: pwm3-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('B', 15, ANALOG)>; /* TIM3_CH2 */
++		};
++	};
++
++	pwm8_pins_a: pwm8-0 {
++		pins {
++			pinmux = <STM32_PINMUX('J', 5, AF8)>, /* TIM8_CH1 */
++				 <STM32_PINMUX('J', 4, AF8)>; /* TIM8_CH4 */
++			bias-pull-down;
++			drive-push-pull;
++			slew-rate = <0>;
++		};
++	};
++
++	pwm8_sleep_pins_a: pwm8-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('J', 5, ANALOG)>, /* TIM8_CH1 */
++				 <STM32_PINMUX('J', 4, ANALOG)>; /* TIM8_CH4 */
++		};
++	};
++
++	pwm12_pins_a: pwm12-0 {
++		pins {
++			pinmux = <STM32_PINMUX('B', 11, AF9)>; /* TIM12_CH2 */
++			bias-pull-down;
++			drive-push-pull;
++			slew-rate = <0>;
++		};
++	};
++
++	pwm12_sleep_pins_a: pwm12-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('B', 11, ANALOG)>; /* TIM12_CH2 */
++		};
++	};
++
+ 	sdmmc1_b4_pins_a: sdmmc1-b4-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('E', 4, AF10)>, /* SDMMC1_D0 */
+@@ -158,6 +205,20 @@ pins1 {
+ 		};
+ 	};
+ 
++	tim10_counter_pins_a: tim10-counter-0 {
++		pins {
++			pinmux = <STM32_PINMUX('B', 9, AF9)>; /* TIM10_CH1 */
++			bias-disable;
++		};
++	};
++
++	tim10_counter_sleep_pins_a: tim10-counter-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('B', 9, ANALOG)>; /* TIM10_CH1 */
++			bias-disable;
++		};
++	};
++
+ 	usart2_pins_a: usart2-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('A', 4, AF6)>; /* USART2_TX */
 -- 
 2.25.1
 
