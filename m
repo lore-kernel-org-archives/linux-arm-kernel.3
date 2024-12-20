@@ -4,102 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C386E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 396BAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2reHl71yPviop2jw11dCLzSPN7jxrfNGGXDev2cP5SQ=; b=W+LdSF+95TTQm2gUTvYHvh3T+t
-	Y6I8z87yxK3E0B83eWR4wCCDQD0QwxOm53MWCNeDRanNzqETE4ZbN1Loc9vEoIIhzK7kdIc4wjuIG
-	TUzJX8oOB6rbU402ESrajnkskUqSK3reDhXTLuLWHxH6GZEJEDtHlZbU10Ou4UvQZRZpr6CcnmxeT
-	unl5TyYrbMXs2S/k3mLMKMb3mc2HcAX2aLMnHD5snOUO6IMzi2lqLg4A+78qgDqoby/c9kHyvLQ4D
-	C1MrZOu5ALHfPrpGc3SBiWtbxL4N/3BB0tkBRLhOMFrgOTW5+AqlsgXqMqo9pmeHH9AQaLlcuQRVN
-	zkG1eXMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbD9MDSfwH2QSRLOsRxhlY+2MRwY+0j6TrtDMpkD2gg=; b=gbA9zM9zmlNt6SDZUorRodRmJD
+	L1t/fWuKJUmtpER8LqpD5o7mJOQ2sL5pmLcQ6M1dAD2/VHHpRnI8EplYEKS1XoNJVvYn7mDUnQwCm
+	Xp25pYbYkQkR0e0nfR0HJzUMaZij8WP3Xap91moGjDVVnowr/WAOUaxFGqQFnxG2MHOkR3L3Wc+Oj
+	eaUc8LjdE7XQnTrs2fazhrytKpNuU9KBcogfrGjCKfvpif54WXD2yMtKZtSVj8gtWlOdtw9b9fQI7
+	djDmAa7HEsUbRsvd2xvNDvlPw2YUlvd/Y9B+UNUsBWk6ZUzP9R0K5Fycy6XIG1vTOz7EE6BzA1Zc0
+	s7kt2C2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObMm-00000004ngb-00Df;
-	Fri, 20 Dec 2024 11:40:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObLb-00000004nWO-3TLP
+	id 1tObNs-00000004noO-2XRa;
+	Fri, 20 Dec 2024 11:41:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tObMF-00000004na7-16v1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 11:39:13 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BKA4WXe016197;
-	Fri, 20 Dec 2024 11:39:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2reHl71yPviop2jw11dCLzSPN7jxrfNGGXDev2cP5SQ=; b=g6ZpuQE2NxWe7h5H
-	CTRvMDxIY0U1YtDKYlekTwkiVjmwAV9HwgPkJ7OsRgOjrVB/iHMerqRvALdiQC20
-	wQF3oOaVei35Pq/SCShMmll+CTrd0WjecEFao/64JNS6L3abteyDiEH25clmu0lN
-	ZQYPrEWPM/F5H2Vq9J2EoMKe9VRVc2Y2QJjOy3DUTOf05jdn8VRGq6NeqcSG7d5h
-	4N18hoPU1L+kwYC6vnFkqi47WMXaJZw4wsDkM9q3C+jKRFVX6HfNlIDHs7itz/vg
-	h5/XniQgnKsoWHbQNT3tMQUMXabP9bzyi7wKU4hqnYWb7VuV3Tdi/9K/skLdWNex
-	FllvxA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43n6gug7jd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 11:39:05 +0000 (GMT)
-Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BKBd4ag007308
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 11:39:04 GMT
-Received: from [10.216.16.88] (10.80.80.8) by nasanex01c.na.qualcomm.com
- (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 20 Dec
- 2024 03:38:57 -0800
-Message-ID: <b98cc6ea-d215-2200-1537-1a53c2587c81@quicinc.com>
-Date: Fri, 20 Dec 2024 17:08:38 +0530
+	Fri, 20 Dec 2024 11:39:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C670F1480;
+	Fri, 20 Dec 2024 03:40:18 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEE4F3F58B;
+	Fri, 20 Dec 2024 03:39:48 -0800 (PST)
+Date: Fri, 20 Dec 2024 11:39:46 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Elliot Berman <quic_eberman@quicinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on
+ pre-SYSTEM_SUSPEND PSCI impls
+Message-ID: <Z2VXgkJ4x5TJTKJ_@bogus>
+References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
+ <20241113165329590-0800.eberman@hu-eberman-lv.qualcomm.com>
+ <e4509104-c809-4d45-bdbb-a2d754a816db@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.13.0
-Subject: Re: [PATCH v4 6/7] arm64: defconfig: enable cpu idle injection and
- cpu idle cooling device
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Wasim Nazir
-	<quic_wasimn@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        "Konrad
- Dybcio" <konradybcio@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <kernel@quicinc.com>
-References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
- <20241217064856.2772305-7-quic_wasimn@quicinc.com>
- <59e96784-9efc-4958-baf0-a51e766e47e8@kernel.org>
-From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
-In-Reply-To: <59e96784-9efc-4958-baf0-a51e766e47e8@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01c.na.qualcomm.com (10.45.79.139)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: UMBrxD59iLYTlJhHSVNlXpfTRgB4c2cW
-X-Proofpoint-GUID: UMBrxD59iLYTlJhHSVNlXpfTRgB4c2cW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
- spamscore=0 impostorscore=0 lowpriorityscore=0 priorityscore=1501
- bulkscore=0 clxscore=1011 adultscore=0 mlxlogscore=999 malwarescore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412200096
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e4509104-c809-4d45-bdbb-a2d754a816db@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_033911_993051_2A52FB19 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20241220_033951_349599_C3A2E544 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Dec 19, 2024 at 08:26:51PM +0100, Konrad Dybcio wrote:
+> On 14.11.2024 2:10 AM, Elliot Berman wrote:
+>
+> > I'm not sure why you'd like to support s2ram. Is it *only* that you'd
+> > like to be able to set pm_set_supend/resume_via_firmware()? I hope this
+> > doesn't sound silly: what if you register a platform_s2idle_ops for the
+> > relevant SoCs which calls pm_set_suspend/resume_via_firwmare()?
+>
+> S2RAM is what you get after entering a certain state, but currently
+> it's presented as just another (s2idle) idle state.
+>
 
-Hi Krzysztof,
+Just to be clear, I assume you mean CPU_SUSPEND idle state. There is
+no special or different s2idle idle states IIUC.
 
-Thank you for reviewing this patch.
+> That means some hardware that may need to be reinitialized, isn't as
+> Linux has no clue it might have lost power.
+>
 
-On 12/18/2024 1:32 PM, Krzysztof Kozlowski wrote:
-> On 17/12/2024 07:48, Wasim Nazir wrote:
->> From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
->>
->> Enable cpu idle injection framework and thermal cpu idle cooling device
->> to throttle the cpu by injecting idle cycle during high thermal condition.
-> I know what they do, but why do we need it in the defconfig? This is not
-> a product defconfig, just in case you mirrored downstream patches.
+Interesting, so this means firmware doesn't automatically save and restore
+states yet exposes it as CPU_SUSPEND idle state.
 
-We believe these defconfigs serve as a generic framework rather than 
-being tied to specific product features. Therefore, we have enabled them 
-in the defconfig to ensure the end-to-end feature is available in the 
-pristine upstream build. However, if you think this would introduce 
-overhead for other products, we will exclude this patch in the next 
-revision.
+> One of such cases is the PCIe block, with storage drivers specifically
+> looking for pm_suspend_via_firmware, but that's unfortunately not the
+> whole list.
+>
 
-Best regards,
+Well I can now imagine and I understand what's wrong here. An idle state
+is exposed to OS with an expectation that OS saves and restores certain
+state. Unless you tie it some other power domains that theses devices
+share, it is hard for OS to know the state is being lost and it needs
+to save and restore them. It is simple wrong to assume that OS needs
+to take care of them even though the power domain hierarchy doesn't
+represent this dependency to enter such a state. cpuidle-psci-domain.c
+takes care of this IIUC. Ulf can provide details if you are interested.
 
-Manaf
-
-> Best regards,
-> Krzysztofthe
+--
+Regards,
+Sudeep
 
