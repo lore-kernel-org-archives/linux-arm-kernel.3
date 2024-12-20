@@ -4,82 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9767E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EB1E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XMbMkrizWP2c5Wm6SBC1kkAQD+eBe6zUwJCK1RJ0qg=; b=jzJv1LSpOYMxG9sTXWyj/GOjKd
-	nmw0wWLydcVk37Q8p3Mnc0p/zip4h+MrnI7gm+JUxAvdoXLLZ3BQXl/HiTUjHFyyvtw/HBCy6BSXQ
-	Iz03UDnyrZT7OSlHm4bZJejgwakqR31FZ3PsuvkdXUnNVZfg5QqNVxtUPhc3d7fLYLhNNNrjPyAhv
-	PbHt2ipOeYru0chgCWLr/i8cZ86D6+uONcMy8oWrKYGMObI8YjRpQKVVKXL0qkPk1mLPIFRljHQYW
-	unsQThVBD4H20x6fzhBE9ovllBAD7CZ4lcBLDWOCWOvlBxydQLu3Q0kjNrol1GrgxqAADbPRhYOGM
-	KWlLxQwg==;
+	bh=vYqkobOK+CGs+TgrhYtB4J6Yl7NbzklVF+5ziOlA9ss=; b=Nct/0jRcTzUyXLKZERq3uHPV2D
+	RvNdQwmreItuGKwIa+A+ygEYIfRalvHNrTrLN3L3Q+EnsXVtKIg7/3mGfNpGWVkvXGzXFp1yLV86E
+	B1oznqZpXPtbKxXOviym3GQQrSuvdXytK25apAVhUHpqyA8JRo/XJZl7crqlb4dNoPKPqX0gUn+iA
+	moZQ0ceMkGwei90R6MeuEs1CE/uyLKuAz4BEuXmqtkmOm0JVGaMlsJHLPTcrIo/9bupVQFLVryib9
+	/Pe/reNRe1gUck9EzvyzH0UZ5RLxHSDME8/Qxz1v/tloW0AGj7TkbtFsI2t4EQQfZ5gDPvE8pYV0D
+	D/3zky9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdYW-0000000554p-0VdV;
-	Fri, 20 Dec 2024 14:00:40 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tOdZc-000000055Fq-3Ub1;
+	Fri, 20 Dec 2024 14:01:48 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdO2-0000000533B-3FRR
+	id 1tOdOE-0000000534z-3Uel
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 13:49:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1734702591; x=1766238591;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=FRo8Ufl7iucYReatrCym9BzetwbYuzm+buoOeBMYDqQ=;
-  b=ww5R3XYXWjA1+rh+X7j3XgL1B8TfIFgq/pIAxEsw7GzcbQIYRayoyqfv
-   KxkLhMXw+4oVHxCvJzOSP9MttsW9Gyt5t4BFBzIGhCkO17s8RkEHNoMNe
-   YnBBRDx+jdsBj4AfxGsLIqSIDFeDOhsqoxY5jTDhzWh1znbion+hi0Kk1
-   igL+X7aboqyNh9fVMuPEMOKba/nmOyf1rA4J2MuSWaiL8/fGIyKZGZ7PP
-   yWYC0ruehYBcmol2yxEMg6bb0M6JHtqnNC8DFDVcBjb8u2v4lns3p2reR
-   Xb4IHYN+PHjYNNI4wu74ITIeZP5r/jD6YnOuwHRbWjZbYC3CFrEP+UIus
-   Q==;
-X-CSE-ConnectionGUID: Lq5BqadMRMm7eOW5EpI9IQ==
-X-CSE-MsgGUID: RxHNOPDOTBWY8CZmwd/bZg==
-X-IronPort-AV: E=Sophos;i="6.12,250,1728975600"; 
-   d="scan'208";a="35794900"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Dec 2024 06:49:49 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 20 Dec 2024 06:49:21 -0700
-Received: from DEN-DL-M70577.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 20 Dec 2024 06:49:18 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 20 Dec 2024 14:48:48 +0100
-Subject: [PATCH net-next v5 9/9] dt-bindings: net: sparx5: document RGMII
- delays
+	Fri, 20 Dec 2024 13:50:04 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-385e1fcb0e1so1126791f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 05:50:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734702600; x=1735307400; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vYqkobOK+CGs+TgrhYtB4J6Yl7NbzklVF+5ziOlA9ss=;
+        b=gwD5dfMtaAaKrx+d9rTqMw6AZ45AbC5KhBrKpXVS/zZs5etZ1QTNhM/hTNdmjQtEt1
+         ItlKmqy8VXaNv14poMRFF5GhiTNnD+4KuRqKsQiFwjXz6+68hdvRT5cmOgwQCiK6yNfz
+         5YA+K/BZVQFUZgs7BRO/L5gMfh5vNTZASgyfe9kxokrfHEEba61IK8xgd/Qa4H9UgcDZ
+         mE1DwgsV+Ljv92kYfkznFoK3qsG5spgT/BhpPFjH54zkH5Rx8QBKeeDb0W1RLuhksfNG
+         0UrdlakL6cJW8rcjGLbWO03gscNWmNryJ00Q/pmD02tKMi2QFUoa7+tsRfeDjUUs/RVs
+         o2BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734702600; x=1735307400;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vYqkobOK+CGs+TgrhYtB4J6Yl7NbzklVF+5ziOlA9ss=;
+        b=N0kGqjQQavZBcb7VnDU4O4I/KflhJC4mZokHFzJFvWpGL6LQfR4RC1Mw00wvDNfq0L
+         h6zi4RzqYrGXTIaoEK813+A0xCv8+mzn9FBaMZEXXPpoc/ZjRQNRATlt1E6p0NksBltz
+         kt4hEMABXDs3/idHKS9+F6zta53oRePF8/I6niIt7QP9uuizFy4GGxznMtl+Ul+Xi8jz
+         2Oewf4Y2f6ioJv4gz+u1//bOlEEQQqUonUxz2K76HUY7Efyx1oJqTgBq8vnyVpWfirjV
+         zBRZnComOSOuT/grVrLz4Gt+jeSZIq87sJdj7Z7SidkyaTAmfXl0aWT6xWTIOMQGDOGK
+         2SoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfmVC35I46hppPSplj/MM/3gpG1oDuKP2WM8mNYiis1IocPfVTJovkwsiKSDpApR30N8xMD9TxSSWQfJPqN3aC@lists.infradead.org
+X-Gm-Message-State: AOJu0YykX4gQAA2LP+RByPv9K+7144FN2OUJF2/ALA6SlWakv3QF/8WR
+	aD8dCUrWQOAhYuepRi6mNJKwEtP37OF77U2/VHbVDD40/2rdKZZEWfpTywROajs=
+X-Gm-Gg: ASbGncvIWbc5+/kMY7RcoHmghODqQo93vVOsoxU0VKkqPL/N8KiZYPleJClRFlCH/P/
+	l8lo12DmNlKz3WsEcBW4tUfIcACMeQPVGDGEH7CAewt/toA1RWhQdJtJod0O476OHvmYk/jQqsr
+	94dA7WGEMTaY33oFUQfbR7N+NO9gGk4cIrDNpaSjt85x6I3ZAodB9S9ItEo7Dz8xtEPTEGqpwAa
+	7SQA7e6sjCIKoCFjrYHS3jYfSlDEFJ+7FT3wHLPQGDu2Kaa1RLsLNlXRG5rqxnIkxA/cDUVY2vl
+	bVqgKVRJYbhBl0ALxMBFehDV4SO2bWGy+NM8
+X-Google-Smtp-Source: AGHT+IHmrkvtNC0bpXN3WfagnYqTmX3f/cgHqADtcvMIQyUNWR5Q5Jsopz545p5OgeVnpUJdIYXklg==
+X-Received: by 2002:a05:6000:178c:b0:385:dfab:1643 with SMTP id ffacd0b85a97d-38a221ff705mr2979256f8f.27.1734702600234;
+        Fri, 20 Dec 2024 05:50:00 -0800 (PST)
+Received: from ta2.c.googlers.com (130.173.34.34.bc.googleusercontent.com. [34.34.173.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c832e74sm4044313f8f.30.2024.12.20.05.49.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 05:49:59 -0800 (PST)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Fri, 20 Dec 2024 13:49:56 +0000
+Subject: [PATCH v6 1/5] dt-bindings: mailbox: allow #mbox-cells = <0>;
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20241220-sparx5-lan969x-switch-driver-4-v5-9-fa8ba5dff732@microchip.com>
-References: <20241220-sparx5-lan969x-switch-driver-4-v5-0-fa8ba5dff732@microchip.com>
-In-Reply-To: <20241220-sparx5-lan969x-switch-driver-4-v5-0-fa8ba5dff732@microchip.com>
-To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Lars
- Povlsen" <lars.povlsen@microchip.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Russell King <linux@armlinux.org.uk>,
-	<jacob.e.keller@intel.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<robert.marko@sartura.hr>
-X-Mailer: b4 0.14-dev
+Message-Id: <20241220-acpm-v4-upstream-mbox-v6-1-a6942806e52a@linaro.org>
+References: <20241220-acpm-v4-upstream-mbox-v6-0-a6942806e52a@linaro.org>
+In-Reply-To: <20241220-acpm-v4-upstream-mbox-v6-0-a6942806e52a@linaro.org>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ andre.draszik@linaro.org, peter.griffin@linaro.org, kernel-team@android.com, 
+ willmcvicker@google.com, daniel.lezcano@linaro.org, 
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734702598; l=1213;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=98UdmgNXZR4Odm8WAK3DNauL946xSKIV8vPYFoFzXtc=;
+ b=L27tekKbbbVcK6U5BoYlAcu5YGoP7VilFJa2kRv2a4piHaSjgl6c8pZq3lyr2xXRNPu1TQkQh
+ AuzOHGFoQW1DsplvHHW5KhfrQXyL0uUAXa/BQ4Qcems105t6N1TPsWA
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_054950_825987_7826F104 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241220_055002_892167_8B87CCCD 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +112,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The lan969x switch device supports two RGMII port interfaces that can be
-configured for MAC level rx and tx delays. Document two new properties
-{rx,tx}-internal-delay-ps in the bindings, used to select these delays.
+There are mailbox clients that can discover the mailbox channel
+identifiers at runtime. For such cases passing the channel
+identifiers via DT is redundant.
 
-Tested-by: Robert Marko <robert.marko@sartura.hr>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
+The framework API will be supplied with mbox_request_channel_by_args().
+It will allow clients to request a mailbox channel using the runtime
+discovered channel identifiers.
+
+Add support for referencing controllers solely by phandle.
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- .../bindings/net/microchip,sparx5-switch.yaml          | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ Documentation/devicetree/bindings/mailbox/mailbox.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
-index dedfad526666..a73fc5036905 100644
---- a/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
-+++ b/Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml
-@@ -129,6 +129,24 @@ properties:
-             minimum: 0
-             maximum: 383
+diff --git a/Documentation/devicetree/bindings/mailbox/mailbox.txt b/Documentation/devicetree/bindings/mailbox/mailbox.txt
+index af8ecee2ac68..fc31a4a3b637 100644
+--- a/Documentation/devicetree/bindings/mailbox/mailbox.txt
++++ b/Documentation/devicetree/bindings/mailbox/mailbox.txt
+@@ -6,8 +6,7 @@ assign appropriate mailbox channel to client drivers.
+ * Mailbox Controller
  
-+          rx-internal-delay-ps:
-+            description:
-+              RGMII Receive Clock Delay defined in pico seconds, used to select
-+              the DLL phase shift between 1000 ps (45 degree shift at 1Gbps) and
-+              3300 ps (147 degree shift at 1Gbps). A value of 0 ps will disable
-+              any delay. The Default is no delay.
-+            enum: [0, 1000, 1700, 2000, 2500, 3000, 3300]
-+            default: 0
-+
-+          tx-internal-delay-ps:
-+            description:
-+              RGMII Transmit Clock Delay defined in pico seconds, used to select
-+              the DLL phase shift between 1000 ps (45 degree shift at 1Gbps) and
-+              3300 ps (147 degree shift at 1Gbps). A value of 0 ps will disable
-+              any delay. The Default is no delay.
-+            enum: [0, 1000, 1700, 2000, 2500, 3000, 3300]
-+            default: 0
-+
-         required:
-           - reg
-           - phys
+ Required property:
+-- #mbox-cells: Must be at least 1. Number of cells in a mailbox
+-		specifier.
++- #mbox-cells: Must be at least 0. Number of cells in a mailbox specifier.
+ 
+ Example:
+ 	mailbox: mailbox {
 
 -- 
-2.34.1
+2.47.1.613.gc27f4b7a9f-goog
 
 
