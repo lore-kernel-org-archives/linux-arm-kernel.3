@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24C3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 08:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A19EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 08:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zy8imzueMQw99ZQ7lwqk6XBywRy7MiuJd+4SAPvvk+U=; b=z1XGYVccJZnpKNtWBrzGvpro1q
-	F2quyuMOU7wQMF+VtFOqy4o3F+5/dctfD1iqoNh/JpkiT6zYzbDEfwoB0f63lG9UEFmEGXn9pEHJr
-	g1XHBX2z9buvv5cD0qh6JqftpLCS4/nANcMnB4wZ++cKzRWMmVEYbSGyE724dAEb+aKQbhZt3GV/n
-	U+SrliLpIZASuVxgGuOkzMt5dK+3dTALiu0/FloZP8UE6s64WXjsbh5fcLj/MR64lnjdnedRAjmur
-	UQ8hfG2hXLOQOdJ7RxdMuGTY3RKEUeFITKX7SwC7nEbmUdmh3/r8getjUseumh/JNdCSxOSDGG0Wx
-	8MIoElLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+xMgk20Jc1GtA0XgUpJcBSrSXC1qbOde0T99h5mQB/U=; b=lg5RzGW59dqJ0kV/+WXBle4MzC
+	ljddhmwRhM3k4+CmrW7+5GSFGkqja0/QYbxWjCv7aWubcSKB/z5hM6z71Sw7bqVQrki/zMCJG9O94
+	o87CkRp1ZQzF5DtBjFrzzDmzoII+QD7J+eA6MP1boq4LV0I9JlGskqMERqUKvXOgHQjw6eLmJS0V5
+	WRc/+SQI8p3X0THf2pgcWHJx2ActyiEREz3t2sbDnSViXddU2tRcr8RKL9IObY4XhZtM1RshtkOVu
+	Zi6lZJdPy3gKdfuL4pa1b76kc3CwmEEQkz3GlPyjlTx/E3/Y2idWarnk0GygTv0dfBBkeMW4599av
+	T52r9uEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOXxx-00000004EQX-13Ac;
-	Fri, 20 Dec 2024 08:02:33 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tOY0C-00000004EdU-03qW;
+	Fri, 20 Dec 2024 08:04:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOXv4-00000004E0i-0HN5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 07:59:35 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YF0FJ0B79z20lsc;
-	Fri, 20 Dec 2024 15:59:48 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2D7171401E0;
-	Fri, 20 Dec 2024 15:59:29 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Fri, 20 Dec 2024 15:59:28 +0800
-CC: <yangyicong@hisilicon.com>, <linuxppc-dev@lists.ozlabs.org>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
-	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>
-Subject: Re: [PATCH v10 1/4] cpu/SMT: Provide a default
- topology_is_primary_thread()
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
-	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
-	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
-	<dietmar.eggemann@arm.com>
-References: <20241220075313.51502-1-yangyicong@huawei.com>
- <20241220075313.51502-2-yangyicong@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <a5690fee-3019-f26c-8bad-1d95e388e877@huawei.com>
-Date: Fri, 20 Dec 2024 15:59:27 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1tOXz3-00000004EX1-30b5;
+	Fri, 20 Dec 2024 08:03:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7F366A42B62;
+	Fri, 20 Dec 2024 08:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0B7C4CECD;
+	Fri, 20 Dec 2024 08:03:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734681820;
+	bh=mIEsjG6cGAMR/EZZn/eyKKGNtuOQBefQB9mVoFjFBOE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DvRhos8Jst09ngqQVgSPOjY0UxkNn5FAUo09m/88T9klqMT9WVMJmBo0hfvS/E5O8
+	 IkJbF1j8QfbL1rQ1sDHFKjLMGPO3+WqyXg3Z6WxyQGi+VKJ2328qesXWuI5D5exj8O
+	 2bcNC1GNi0S1qG3JdR6a+LBQLaI6Bdv/48xVeKbQDQZ4LdehvX2jc9wn5t000zfz3K
+	 snOlaceApMHKBCVCZwZ7CGDM0w3G/Lwp911sNUClmojqqcMzagRKB7cOjIWM8uJY7Y
+	 TutnctkimaeGz980YnFleltc0bBoZQ1ETKdZeqU39wAvCa6paN8BIZXNSd2q+EnsQ8
+	 xy3bXm+FgR+Wg==
+Date: Fri, 20 Dec 2024 09:03:36 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: rk3588: add msi-parent for
+ pcie3x4_ep
+Message-ID: <Z2Uk2A7-YwkSfAOh@ryzen>
+References: <20241120171048.2839621-2-cassel@kernel.org>
+ <173318214613.1403925.10026428339576666444.b4-ty@sntech.de>
 MIME-Version: 1.0
-In-Reply-To: <20241220075313.51502-2-yangyicong@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <173318214613.1403925.10026428339576666444.b4-ty@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_235934_462451_02A864BC 
-X-CRM114-Status: GOOD (  35.31  )
+X-CRM114-CacheID: sfid-20241220_000341_819568_A1213A9A 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,213 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2024/12/20 15:53, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Tue, Dec 03, 2024 at 12:29:16AM +0100, Heiko Stuebner wrote:
 > 
-> Currently if architectures want to support HOTPLUG_SMT they need to
-> provide a topology_is_primary_thread() telling the framework which
-> thread in the SMT cannot offline. However arm64 doesn't have a
-> restriction on which thread in the SMT cannot offline, a simplest
-> choice is that just make 1st thread as the "primary" thread. So
-> just make this as the default implementation in the framework and
-> let architectures like x86 that have special primary thread to
-> override this function (which they've already done).
+> On Wed, 20 Nov 2024 18:10:49 +0100, Niklas Cassel wrote:
+> > Add msi-parent for the pcie3x4_ep PCI endpoint node.
+> > 
+> > The pcie3x4_ep node should use the same msi-parent as the pcie3x4 node
+> > (which represents the PCIe controller running in Root Complex mode).
+> > 
+> > The GIC ITS can be used to trigger an IRQ on the endpoint when any of
+> > the endpoint's PCI BARs are written to by the host[1].
+> > 
+> > [...]
 > 
-> There's no need to provide a stub function if !CONFIG_SMP or
-> !CONFIG_HOTPLUG_SMP. In such case the testing CPU is already
-> the 1st CPU in the SMT so it's always the primary thread.
+> Applied, thanks!
 > 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> ---
-> As questioned in v9 [1] whether this works on architectures not using
-> CONFIG_GENERIC_ARCH_TOPOLOGY, hacked on LoongArch VM and this also works.
-> Architectures should use this on their own situation.
-> [1] https://lore.kernel.org/linux-arm-kernel/427bd639-33c3-47e4-9e83-68c428eb1a7d@arm.com/
+> [1/1] arm64: dts: rockchip: rk3588: add msi-parent for pcie3x4_ep
+>       commit: b6f09f497b07008aa65c31341138cecafa78222c
 > 
-> [root@localhost smt]# uname -m
-> loongarch64
-> [root@localhost smt]# pwd
-> /sys/devices/system/cpu/smt
-> [root@localhost smt]# cat ../possible 
-> 0-3
-> [root@localhost smt]# cat ../online 
-> 0-3
-> [root@localhost smt]# cat control 
-> on
-> [root@localhost smt]# echo off > control 
-> [root@localhost smt]# cat control 
-> off
-> [root@localhost smt]# cat ../online 
-> 0,2
-> [root@localhost smt]# echo on > control 
-> [root@localhost smt]# cat control 
-> on
-> [root@localhost smt]# cat ../online 
-> 0-3
 
-Tested with below code using the topology_is_primary_thread() introduced
-in this patch. Tested on an ACPI-based QEMU VM emulating SMT2.
+Hello Heiko,
 
-Subject: [PATCH] LoongArch: Support HOTPLUG_SMT on ACPI-based system
+When I sent this patch, I had tested it against Frank's v8 series which adds
+support for a PCIe endpoint triggering an interrupt (using GIC ITS) when the
+host side writes to the PCI BAR that the endpoint has configured as doorbell:
+https://lore.kernel.org/linux-pci/20241116-ep-msi-v8-0-6f1f68ffd1bb@nxp.com/
 
-Support HOTPLUG_SMT on ACPI-based system using generic
-topology_is_primary_thread().
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- arch/loongarch/Kconfig       |  1 +
- arch/loongarch/kernel/acpi.c | 26 ++++++++++++++++++++++++--
- 2 files changed, 25 insertions(+), 2 deletions(-)
+However, it seems that in v10 of his series, he has changed it so that the
+PCIe endpoint node now requires 'msi-map' instead of 'msi-parent'
+(just like how it is done in the PCIe root complex node):
 
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index dae3a9104ca6..bed1b0640b97 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -172,6 +172,7 @@ config LOONGARCH
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select HAVE_TIF_NOHZ
- 	select HAVE_VIRT_CPU_ACCOUNTING_GEN if !SMP
-+	select HOTPLUG_SMT if HOTPLUG_CPU
- 	select IRQ_FORCED_THREADING
- 	select IRQ_LOONGARCH_CPU
- 	select LOCK_MM_AND_FIND_VMA
-diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
-index 382a09a7152c..e642b0de57e7 100644
---- a/arch/loongarch/kernel/acpi.c
-+++ b/arch/loongarch/kernel/acpi.c
-@@ -15,9 +15,11 @@
- #include <linux/memblock.h>
- #include <linux/of_fdt.h>
- #include <linux/serial_core.h>
-+#include <linux/xarray.h>
- #include <asm/io.h>
- #include <asm/numa.h>
- #include <asm/loongson.h>
-+#include <linux/cpu_smt.h>
+See:
+https://lore.kernel.org/linux-pci/20241204-ep-msi-v10-0-87c378dbcd6d@nxp.com/
 
- int acpi_disabled;
- EXPORT_SYMBOL(acpi_disabled);
-@@ -175,8 +177,12 @@ int pptt_enabled;
+"""
+Changes in v10:
 
- int __init parse_acpi_topology(void)
- {
-+	int thread_num, max_smt_thread_num = 1;
-+	struct xarray core_threads;
- 	int cpu, topology_id;
-+	void *entry;
+[...]
 
-+	xa_init(&core_threads);
- 	for_each_possible_cpu(cpu) {
- 		topology_id = find_acpi_cpu_topology(cpu, 0);
- 		if (topology_id < 0) {
-@@ -184,19 +190,35 @@ int __init parse_acpi_topology(void)
- 			return -ENOENT;
- 		}
+- Use "msi-map" in pci ep controler node, instead of of msi-parent. first
+argument is
+	(func_no << 8 | vfunc_no)
+"""
 
--		if (acpi_pptt_cpu_is_thread(cpu) <= 0)
-+		if (acpi_pptt_cpu_is_thread(cpu) <= 0) {
- 			cpu_data[cpu].core = topology_id;
--		else {
-+		} else {
- 			topology_id = find_acpi_cpu_topology(cpu, 1);
- 			if (topology_id < 0)
- 				return -ENOENT;
 
- 			cpu_data[cpu].core = topology_id;
-+
-+			entry = xa_load(&core_threads, topology_id);
-+			if (!entry) {
-+				xa_store(&core_threads, topology_id,
-+					 xa_mk_value(1), GFP_KERNEL);
-+			} else {
-+				thread_num = xa_to_value(entry);
-+				thread_num++;
-+				xa_store(&core_threads, topology_id,
-+					 xa_mk_value(thread_num), GFP_KERNEL);
-+
-+				if (thread_num > max_smt_thread_num)
-+					max_smt_thread_num = thread_num;
-+			}
- 		}
- 	}
+I didn't realize that DT property required for this feature could change so
+drastically, since DT is supposed to describe hardware, and msi-parent made
+perfect sense, since this property is usually the one used for devices
+connected to a bus.
+(msi-map is usually only used on the host bus adapter / root complex.)
 
- 	pptt_enabled = 1;
+Knowing what I now know, I should have waited until this feature had landed
+before submitting this patch. I apologize for this.
 
-+	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-+	xa_destroy(&core_threads);
- 	return 0;
- }
+Could you please drop this patch from your v6.14-armsoc/dts64 branch?
 
--- 
-2.24.0
+Or should I send a revert?
 
-> 
->  arch/powerpc/include/asm/topology.h |  1 +
->  arch/x86/include/asm/topology.h     |  2 +-
->  include/linux/topology.h            | 22 ++++++++++++++++++++++
->  3 files changed, 24 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
-> index 16bacfe8c7a2..da15b5efe807 100644
-> --- a/arch/powerpc/include/asm/topology.h
-> +++ b/arch/powerpc/include/asm/topology.h
-> @@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
->  {
->  	return cpu == cpu_first_thread_sibling(cpu);
->  }
-> +#define topology_is_primary_thread topology_is_primary_thread
->  
->  static inline bool topology_smt_thread_allowed(unsigned int cpu)
->  {
-> diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
-> index fd41103ad342..faa0d6334ea4 100644
-> --- a/arch/x86/include/asm/topology.h
-> +++ b/arch/x86/include/asm/topology.h
-> @@ -228,11 +228,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
->  {
->  	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
->  }
-> +#define topology_is_primary_thread topology_is_primary_thread
->  
->  #else /* CONFIG_SMP */
->  static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
->  static inline int topology_max_smt_threads(void) { return 1; }
-> -static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
->  static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
->  #endif /* !CONFIG_SMP */
->  
-> diff --git a/include/linux/topology.h b/include/linux/topology.h
-> index 52f5850730b3..b3aba443c4eb 100644
-> --- a/include/linux/topology.h
-> +++ b/include/linux/topology.h
-> @@ -240,6 +240,28 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
->  }
->  #endif
->  
-> +#ifndef topology_is_primary_thread
-> +
-> +#define topology_is_primary_thread topology_is_primary_thread
-> +
-> +static inline bool topology_is_primary_thread(unsigned int cpu)
-> +{
-> +	/*
-> +	 * On SMT hotplug the primary thread of the SMT won't be disabled.
-> +	 * Architectures do have a special primary thread (e.g. x86) need
-> +	 * to override this function. Otherwise just make the first thread
-> +	 * in the SMT as the primary thread.
-> +	 *
-> +	 * The sibling cpumask of an offline CPU contains always the CPU
-> +	 * itself for architectures using CONFIG_GENERIC_ARCH_TOPOLOGY.
-> +	 * Other architectures should use this depend on their own
-> +	 * situation.
-> +	 */
-> +	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
-> +}
-> +
-> +#endif
-> +
->  static inline const struct cpumask *cpu_cpu_mask(int cpu)
->  {
->  	return cpumask_of_node(cpu_to_node(cpu));
-> 
+Once Frank's series has landed, I can resubmit a patch that adds whichever
+DT property he finally ends up using.
+
+
+Kind regards,
+Niklas
 
