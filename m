@@ -4,126 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E52BE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 19 Dec 2024 23:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBB6E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 00:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6u0WGZX5bevNCSER8rkacAs/YIoLEm2PS2d0eBud4o=; b=fm5VlybK9arvCyVsw3VT2qRZ5Y
-	L8zbTo/tkbo72g+sZYCH2hdk6Tacn/HKOJuxafUfEy3TSbjBIPohmaQDZYinebBTgnLyEDyXxEGnF
-	kLUJOeLgJHbffX85GtUniVO5Y23KyrnHnF1Qbsb0LDDo38ve+VnMsqcnFs8VdgNNqkMkgAbstHC1D
-	ovGBUiqNbaP5eF0pWz+U22UTXr//y7FxfklIZpf2t6e8tujYM4ymYHu/WPXli+p1c9Y++qtTvLYxF
-	bbePa0j8V9bpnRUAqYpgSfYaUmUHSf9ruBz2vz2BOASp7XpDRiUkyD1wFwec36n6gA02sLbkt7rA3
-	pBDJWIJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/e51GvyrQnHEMqJKF9SDH++J0wx5NY1fcxzIefJnKDk=; b=PLQTB1uPRhVT9J+ObI3wMNp2Nr
+	xgDGoMuqDnqENsBCp/chxAW2BGk/Jt7QXymHfgJrLMFGGNZ6Sas32fEnOb2jJWdWyRnv0QAt7C1PT
+	RoeE8gSCMmcQpTsFv8wGLObmbKPcuP48i3aZ6TODdtH/s20JY8uvtdzNso3S5yVne73v4ypt+Zw9m
+	s2wlbb+0Z44kTYkOF8vo6AY2BzflUHXwzejGPwAJYhJVwLqPZT+lXHwM//m9NNb00zjYKRJJs5VYz
+	jTpEN2mEk7cc/cio5sHkEkB1evwquiy7IlrF+0nE/aS1oHpuna/1GH3cFBKh+pYCpw3/UMMAOndg3
+	vpFkpwuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOQC0-00000003ODp-2Qi8;
-	Thu, 19 Dec 2024 23:44:32 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1tOQcx-00000003QdT-2bnb;
+	Fri, 20 Dec 2024 00:12:23 +0000
+Received: from mail-am0eur02on20603.outbound.protection.outlook.com ([2a01:111:f403:2606::603] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOQAt-00000003O5a-17J9
+	id 1tOQbp-00000003QTF-0E3Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 19 Dec 2024 23:43:24 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-46741855f9bso12163021cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 15:43:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1734651801; x=1735256601; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=l6u0WGZX5bevNCSER8rkacAs/YIoLEm2PS2d0eBud4o=;
-        b=KHSnAJdSy3a6caOCYann+CtTML1VO81Y/E8GDoBYWacUTWElppgUfF4ZUBIGNsoMC9
-         tFSocV4SRqZbFUHAIDxrou8UOODcWaEu1mqkbbqiVx59OsKc44gMmXa3Q3UsPvhFguuv
-         rMGilxHzn8YST177xpY2z+0ySKYe0lnhJD+Nc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734651801; x=1735256601;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l6u0WGZX5bevNCSER8rkacAs/YIoLEm2PS2d0eBud4o=;
-        b=ei3S6LoHMKQyokFag+OhhH4B1bwPEm0jCQ1JsZpR9s4S/fM5ZjJIMooU06A0yI5AbY
-         ekh5W/85W2Z24ALzJ6sCLloTy6C+urnm2AzICLr87hd0Os3YVcb/oL7emB9HSHoz5iW+
-         IKkeOqvBQroIyWfPm0QKU6DKiogkXAei3QpRoGjoQualLnzNrHIl3pU2GRUvaryNgUgY
-         pj8lRoq05Ht487aLhnaLoQFCgJD3J/rXCvpwFUn6Y9/MEEle0fX8725qONC24ypF9F9c
-         NGwoDIqC+Bh7uCu0g2sFiF8AEizbBxui/6SdN1FufxpZGqvCjnZSNW4G1GN3SOBAPcJ+
-         80eA==
-X-Gm-Message-State: AOJu0YxDGXUtYYiURewQJeJ9hUZTIaLXgmtZrB0/eFvsjJSS7Y4wRLCF
-	LUQyaAtvbZqFa13Z2PiqNuQPf07MYf4MI4/6PvF28KHUQEZUM/7Oj8tCXzqAhg==
-X-Gm-Gg: ASbGncvUSxrfog5rMZXNsMITDpw+Ayxof84jdGSCK+qyLD5LCy9CAZrLOOnrUV1b++z
-	9A6H36kcKBAIAO+goXmVPhedsvteSL+0aEjHdbLYlxRBN8WWLeIhanRvn1xYLa7gnee1UNlwMhM
-	zpPxLwjABsL4N7iHJ6IVwiVHzO0ZfFmq3/WBUbuw0CqbKbEqdfqV5GLo12xqI/3ZdNAqFGAHqJa
-	6HG5CpurupdNuHz8kfTQTKINUyRfWUae8Su9xkMQNX1RoN5aIEpv30iLUyMD9I06Q31TiPHujEC
-	q/GnL3SFDKFr8SIMGXg5
-X-Google-Smtp-Source: AGHT+IEjd8IiHxml5lbZa6gNKaiW0KSQ9nxH/Dk9j8Q1oe17A8BPbx9sEBBLtJ3uAYYOg9WO0aTQVw==
-X-Received: by 2002:ac8:5854:0:b0:467:6e45:218d with SMTP id d75a77b69052e-46a4a8af764mr17603711cf.3.1734651801237;
-        Thu, 19 Dec 2024 15:43:21 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46a3e6a61cfsm10954571cf.44.2024.12.19.15.43.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 15:43:20 -0800 (PST)
-Message-ID: <f906a056-3c6b-4115-9fd0-e50da8fc049b@broadcom.com>
-Date: Thu, 19 Dec 2024 15:43:17 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5
- compatible
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>
-References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
- <20241217194439.929040-2-florian.fainelli@broadcom.com>
- <2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi>
- <93a1333d-442f-4cec-b823-9b1a5ff6dc6b@broadcom.com>
- <wxq5zzfh5jesucbbste2j6x2jtj45wjfc5xzjkqbqqta7cprda@oaf5arr3z6pt>
+	Fri, 20 Dec 2024 00:11:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=greZogsOcsWyQa2gru9W4zRdyQc2Vq6nXmk3EoNTpVyR47kv9eRdvJbsnxt96EOJ7SO9UXpWVeojc2S9vqX1UGVoPv7BIFjk4kM7I0cpj2q1W/AYz60dW4tUb0nQGsIHjDhTDF3aeVKhBdUPEvLVR3kevZr6mmWK4pPHknPBkX12duAdxXG8fYLWKbhgeAAmRbd6fEh5UcJYxOHurn4PO1aK8z4cQgMH6wx47w/XHKHpgL4yMApL1dvVQU2kVaTwzWl1ylBVwzban8FsnQ/cqSpgW7jRjH7PejRIvMEDeNtRROGNw3ntyifYtKpGMn1+N5K2SyGQkyI+/k+ScE0fvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/e51GvyrQnHEMqJKF9SDH++J0wx5NY1fcxzIefJnKDk=;
+ b=mYKe8Zj8a3hNPvSt1ybce8vs/vlX+h801vsNxNBrTf1Nnt5rmIRMGnaa5WKvMCIInTZS6EJz2y66mGs9LCQELYgJd8hPsUcmqs4WVKYWv7m+gooo2JvqILYXXVTPYftPRTpnnrivtFenDCG25MRtyBiAwoFdd3FNUXT7SLbdC+FoK80UA22aqyoFCxdx4xy/p5LJDF0zCvxLLegAYaWpKGjahYgFl3FK+Uxivi2z+lrU87T4AW4utiV31RHqFTZQNNROoulacsQRY/JT0haTPCTJVI18gCdftidCO1yOztKIZRQD7sxxFUK1VUdYKoy81uvWuwAEkTTZF8CAViXGhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/e51GvyrQnHEMqJKF9SDH++J0wx5NY1fcxzIefJnKDk=;
+ b=Ekxb51Eg6LBcQELgHMWcjQB/OcB9VVkTwXNGO9OOyERxiJyjvWepKBmdY5k+7OHd/pH0aGPepB44NMtcgT3Ynpq/J3tLUEETHP2u3/7OGNefiVkuZMY7jNFi+VVnpmb1BQdPAyuiEyFWvYRpcU2dkpn746NdeOEfNSEfjuIB95K+1z0n+ESiqc++1/5RYJ+Q12NANYGRPCFNUZvtPjS/wYc11XaOuTmSn7oY8OUSPIpbyWOcvIKLoEedPJ41GunPoO69ZgXpg4E48t/M8eYnffu48Yz7C48kCl6zNeOD0fyBGBk0yWndmdL6RyBQdGWiqFfDcs9VIItZoM0bK5UD8g==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8602.eurprd04.prod.outlook.com (2603:10a6:20b:439::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Fri, 20 Dec
+ 2024 00:11:06 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8272.013; Fri, 20 Dec 2024
+ 00:11:05 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Frank Li <frank.li@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+CC: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 2/2] nvmem: imx-ocotp-ele: Support accessing controller
+ for i.MX9
+Thread-Topic: [PATCH v3 2/2] nvmem: imx-ocotp-ele: Support accessing
+ controller for i.MX9
+Thread-Index: AQHbUiHrXeSngRxPAUCxE4kfPl6ji7LtzoEAgAB0YzA=
+Date: Fri, 20 Dec 2024 00:11:05 +0000
+Message-ID: <PAXPR04MB8459E92CDCE9AE6EE7BDA95188072@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20241219-imx-ocotp-v3-0-b22371098071@nxp.com>
+ <20241219-imx-ocotp-v3-2-b22371098071@nxp.com>
+ <Z2RUVK/nj5Mf8hVr@lizhi-Precision-Tower-5810>
+In-Reply-To: <Z2RUVK/nj5Mf8hVr@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
 Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <wxq5zzfh5jesucbbste2j6x2jtj45wjfc5xzjkqbqqta7cprda@oaf5arr3z6pt>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM9PR04MB8602:EE_
+x-ms-office365-filtering-correlation-id: c4b31eaf-0020-4d36-541b-08dd208acc1f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?qQrIehzgFBUd3cxZz06oWxBXPO7/N+8Fu6kNoYQBgrLFyXnlel9ztm/9pqBX?=
+ =?us-ascii?Q?b5htqTEZ681dwGbbWy6V9vep8FglWCGTX9MkaG24e6J0skWrOpZwdYAuWrIx?=
+ =?us-ascii?Q?vuHkPd0mq/EthpsgN4R10jc0cq9gnF7sA4zH0pOIQ/rYb8ytlaCxOz/KHn7Q?=
+ =?us-ascii?Q?6RJWSq8KQT2IlZAU6PETtvq3aNi3vAs8eaCPAEViF1Js4bvEcUWXkQ/BLOaK?=
+ =?us-ascii?Q?hIlBYmE4NtFz2cg6Vpo52f8u6oAdcUQDTOmNSraYDfQuxCcL7GKBE2LWo117?=
+ =?us-ascii?Q?CEHTECizxbTPzqGpDWi4BU1vkQEZJ2/ulEgDTozzaPGjzu1Hrh0/JhCDuxmB?=
+ =?us-ascii?Q?gxrk5gT4NBLaZ7HxCgF9t27aeGo9qPDn0nTGGYgKKRcbgTwLI6OpM2bYCc3m?=
+ =?us-ascii?Q?c6WQRMpsnpHbkVCfU30UsakfDbLHzxjnuMA63fLwJ8HrD4ucVC2xGj2MOb6h?=
+ =?us-ascii?Q?boPmVYYcrPDLXWGQxFkBZocYQRc2pGH6oykLaAusYwQQyHExQTF28iexRrEJ?=
+ =?us-ascii?Q?u2uXcg+kmWfB8zzA5ytR23/oneP9hVWg6/ngN2Wrp/Q0orAMwP3Nc1WKBHCU?=
+ =?us-ascii?Q?H234hQCrD9uzwkC/z3TGVZ6QR1U/fVnqk9wwPUifALfmh4VHSQ6rThmvIhqT?=
+ =?us-ascii?Q?q4xS8j6YLwZkMVBhtjNsh9RcmUV/1QaSjni4GyWEiqXa8Uoib8baEEjR8L/A?=
+ =?us-ascii?Q?W5CUm9NV5vgBnM9MuoXckX7SYyKqJvM0vpbgAaQEPvGgqBZArej3lxaUCM65?=
+ =?us-ascii?Q?ELTXEPfhMwRDhcc6TNcWDDHCNINtMea3upGkWCPOrkU2j3eQO72smQPdi8GN?=
+ =?us-ascii?Q?X6tYd5BVwbMoS8RdOT+Yz3jpO6kiCLN20ZUwgVfIYcziRrBBLBcAXcNYWxwm?=
+ =?us-ascii?Q?Nukf3kIAIpmEevQn6IyaanjeY/fJFcp4WNaEEQcFX0Oah9f6L6r7jpD8OJnS?=
+ =?us-ascii?Q?D1xK4vefk1r8oj1p2MaPTcTQXUutDy4jq4rjgu4cvnBiCSmf0OD0jujHlcgy?=
+ =?us-ascii?Q?pbWphYslJE8cH4c8uPR6KX+1xo7IOBAL+a0NXXId36zdcd4amPzYbtTdmvNf?=
+ =?us-ascii?Q?VUNjbHDgGfzZxEoUzT3Zkk6qOf6VFBDVeG5PHU8tlFs9eZj6cTFIcbZEaGdu?=
+ =?us-ascii?Q?WrNquhEu4UvjMeGVwmZu14ylQHtMizC8tPMjcMyK8o4DRFYTBKDvvi0JABeP?=
+ =?us-ascii?Q?3xRVNZXwAkwkHtD3oG1bpFsjyR0stIHpLnv0DI6LRCdZJuEzPTjgQBrsDq9w?=
+ =?us-ascii?Q?uSrIAFWN2HBCPkdH3EMXAtQ8QtDeFrCfPXUU181RRLvSHygeVRu/AUqIqJMN?=
+ =?us-ascii?Q?giX890dJajbYcHlOmz/l6e8LzAYBhpymNX5+q6aJ7ts35P5N97C73NnoR+gF?=
+ =?us-ascii?Q?EhxabjBbkNthSNwGSDsvY0U1k+80rgVcifpyTukHiNx39QMr/rj5BkMkfEQV?=
+ =?us-ascii?Q?VZFi7viEb9onaesGazUjc63H8MKTDdnp?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?jMNE2apTQHSh4/upIPZ7opRfXBbd0ijm+XOx4JPX0ke+Sc7B0b50avgnkKSC?=
+ =?us-ascii?Q?Nd9C2B3+yTr3TlhIENQCE5o10OPyokk0S7Cu43feMVoShjc4/htTH+Vp4N4w?=
+ =?us-ascii?Q?zFnnW4Ab3pnOHUjKNKwPT8c0zJQJWzp5XXaB/XXDiatQY5RxfBaikeYuge+0?=
+ =?us-ascii?Q?FUwVroWj04D0zJe7oo52b1jlo/Y1WY82WnpBAjAZUsLm7gwAPBGd5+6RtrQM?=
+ =?us-ascii?Q?KI1P9eB2ihHw6y1fghwzYe1lU2+NUK4rit5RKiTRiPUZ7Cbj8Bcxnd5QC/Je?=
+ =?us-ascii?Q?lOxjD1Zx4JI1ass3sIZ2c/o0WDOYN75tMeYVM7I25GZkz//yzBLFZhqHVQxe?=
+ =?us-ascii?Q?Ohn4T4TfdIV/l8/XmOzE5PVPBuKqqsBLasu/NwWGqNOGXGvU8Ax1EbuPEzdb?=
+ =?us-ascii?Q?n7A4PYlD3mgxZ3oQ+ZVn29ZkTf5oTAEwH4bAJ17y7HMeDqgjIRWu7ClSUBXr?=
+ =?us-ascii?Q?vpG+zuNiVog4pSpMwAcMADYwugvIoXk0JYuvOWSBUNmFpsoGckkw/kFyQjgf?=
+ =?us-ascii?Q?z82+/xq/reO47SmttsIvrTIFODSUSXHzQ6bnToxcX/HGVu6auiSLeFKnRceU?=
+ =?us-ascii?Q?s8oxd/k/TGQsx8ieby+qBL6v+G16rMu2NiNVyUif1vYmgvQlXuAw2P06PUmB?=
+ =?us-ascii?Q?rptay5X31lA2u2LYF7e7865nVEyNE1Cy37Zp/leLbgyK0F50OgVlwPEZdFck?=
+ =?us-ascii?Q?P0sMPgyzgJE8+RglzRjqAYjKbHXQ7FurGkXI4S7bSAeVsg3Iy0UrAve26oMt?=
+ =?us-ascii?Q?h5RzB1OOfW+OLY7IYbzjsWFnlWpEO5N75d8IAQ9JJ5y08bKDPQnZ/RHeaXD+?=
+ =?us-ascii?Q?Ah2Ep6UaNum7tpOkCEC+vrHjhprj7bfxNKFo9pQWxtQ0LSsm8ouRoolAQ+Km?=
+ =?us-ascii?Q?IomH6PWchQfcV0ae7BZ7k4FHtjekvw3JU0j2xkuTx+mLAuqmDaaXsMHs3Rbp?=
+ =?us-ascii?Q?4APIUHxgnyEwcPBnUlOyyfvaRzWnjuXCvOOr4MtWlP3Af1+4iXXLxiD9/d0Y?=
+ =?us-ascii?Q?vBBTpFcI4trENQIoehUTbjHpTYJ6dCVAOb1QKyKL9emxdKD+y/Z4B9zmf5JR?=
+ =?us-ascii?Q?UC5mi5zrvKSr+0zSjYT3PaDfAWDCyjaaVGUY8sqayyAdlwOLwCzi74FqP4ZD?=
+ =?us-ascii?Q?e3JG8Uo/dvF+vL6nVJGCsRqOApsGqLrk0mYjJpP7rW7r4jJ60FlfVqrD0YqZ?=
+ =?us-ascii?Q?PJz96QwLZAXkbivB20C+Kk3AduhOrkEWhWSCNOYpJzbmXSPmSNrC16FnAGFq?=
+ =?us-ascii?Q?X3TeXcVlEj3e+Mb5MFtOVCqomKPTJ5m5681u0aTxo6ST+AV+y6fb/HexIplD?=
+ =?us-ascii?Q?HsJQ4sKRyzsyEEOnb90xUliOSElc7KA1dKPs2nfM7CNinMwmKjREzucEV6S4?=
+ =?us-ascii?Q?s6/6LwR9UuNNcYiY57+bJ09zRn//+QcfjLMTImWXe1t4mdbMdwHvMF4Z3aIg?=
+ =?us-ascii?Q?Sk7DfBCkV20EybpImveu6/yu6BSTBtnhlxSXMRwsXGI6tOS31nBbaUi+MWfe?=
+ =?us-ascii?Q?KnEnDhQIJhZ0sMB9AjAps1ypJDqMDAPa1enKyQ+wxIVZkdzKCDRS0fWeGYIn?=
+ =?us-ascii?Q?JTo4KqFJi2kCI3K/GfQ=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4b31eaf-0020-4d36-541b-08dd208acc1f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 00:11:05.8305
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: p/rgHQDWENp7xZ3gMuNSYVduT+/SSE96gFyRtMmZGFvI6W9jtMYk9UlVmd7DA/i+5ka84pD6TBj3foPjpa8sKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8602
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_154323_319493_3B889469 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20241219_161113_130763_38BC8F3F 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,88 +169,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/19/24 00:58, Krzysztof Kozlowski wrote:
-> On Wed, Dec 18, 2024 at 09:15:08AM -0800, Florian Fainelli wrote:
->> On 12/18/24 03:37, Krzysztof Kozlowski wrote:
->>> On Tue, Dec 17, 2024 at 11:44:38AM -0800, Florian Fainelli wrote:
->>>> Document the revision c.1.5 compatible string that is present on newer
->>>> Broadcom STB memory controllers (74165 and onwards).
->>>>
->>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>>> ---
->>>>    .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
->>>>    1 file changed, 1 insertion(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>> index 4b072c879b02..99d79ccd1036 100644
->>>> --- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>> +++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>> @@ -29,6 +29,7 @@ properties:
->>>>              - brcm,brcmstb-memc-ddr-rev-c.1.2
->>>>              - brcm,brcmstb-memc-ddr-rev-c.1.3
->>>>              - brcm,brcmstb-memc-ddr-rev-c.1.4
->>>> +          - brcm,brcmstb-memc-ddr-rev-c.1.5
->>>
->>> You should use v2.1 fallback and drop driver patch. Or explain in
->>> commit briefly why different approach is suitable.
->>
->> Are you suggesting that we should have fallback compatible strings, such
->> that we have something like this:
->>
->> compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5",
->> "brcm,brcmstb-memc-ddr-rev-c", "brcm,brcmstb-memc-ddr"
->>
->> and the driver only needs to match on "brcm,brcmstb-memc-ddr-rev-c" and
->> apply the adequate register offset table?
-> 
-> Almost, fallback should be brcm,brcmstb-memc-ddr-rev-b.2.1 or whatever
-> was in the driver first or whatever is the oldest known common
-> interface.
-> 
-> brcm,brcmstb-memc-ddr-rev-c is not a specific compatible.
-> 
->> If so, that is not how the current binding, and therefore DTBs are being
->> deployed, so that will introduce a breakage until we update all DTBs in the
->> field...
-> 
-> No. First, I thought about new comaptible so the one you add here. No
-> breakage, it's new compatible. This saves you these pointless updates of
-> driver everytime you add new compatible.
+> Subject: Re: [PATCH v3 2/2] nvmem: imx-ocotp-ele: Support accessing
+> controller for i.MX9
+>=20
+> On Thu, Dec 19, 2024 at 10:25:18PM +0800, Peng Fan (OSS) wrote:
+> > From: Peng Fan <peng.fan@nxp.com>
+> >
+> > i.MX9 OCOTP supports a specific peripheral or function being fused
+> > which means disabled, so
+> >  - Introduce ocotp_access_gates to be container of efuse gate info
+> >  - Iterate each node under '/soc' to check accessing permission. If
+> > not
+>=20
+> Nit: Iterate all nodes to ....
+>=20
+> >    allowed to be accessed, detach the node
+> >
+> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > ---
+> >  drivers/nvmem/imx-ocotp-ele.c | 183
+> > +++++++++++++++++++++++++++++++++++++++++-
+> >  1 file changed, 182 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/nvmem/imx-ocotp-ele.c
+> > b/drivers/nvmem/imx-ocotp-ele.c index
+> >
+> ca6dd71d8a2e29888c6e556aaea116c1a967cb5f..173863b1fd7de1505
+> 76b78f03c25
+> > 6a151b174389 100644
+> > --- a/drivers/nvmem/imx-ocotp-ele.c
+> > +++ b/drivers/nvmem/imx-ocotp-ele.c
+> > @@ -5,6 +5,8 @@
+> >   * Copyright 2023 NXP
+> >   */
+> >
+> [...]
+> > +
+> > +	for_each_available_child_of_node_scoped(parent, child) {
+> > +		struct of_phandle_iterator it;
+> > +		int err;
+> > +		u32 id;
+> > +
+> > +		of_for_each_phandle(&it, err, child, "access-
+> controllers",
+> > +				    "#access-controller-cells", 0) {
+> > +			struct of_phandle_args provider_args;
+> > +			struct device_node *provider =3D it.node;
+> > +
+> > +			if (err) {
+> > +				dev_err(dev, "Unable to get access-
+> controllers property for node %s\n, err: %d",
+> > +					child->full_name, err);
+> > +				of_node_put(provider);
+> > +				return err;
+> > +			}
+> > +
+> > +			/* Only support one cell */
+> > +			if (of_phandle_iterator_args(&it,
+> provider_args.args, 1) !=3D 1) {
+> > +				dev_err(dev, "wrong args count\n");
+>=20
+> you call of_node_put(provider) in above err branch.
+> why not call it here?
 
-Yes, but that is not how the binding has been defined until now, so all 
-of the DTBs out there have:
+Good catch. I will fix in v4.
 
-compatible = "brcm,brcmstb-memc-ddr-rev-b.2.x", "brcm,brcmstb-memc-ddr"
+Thanks,
+Peng.
 
-(where X is in range [1..5])
-
-and there is no fallback defined to "brcm,brcmstb-memc-ddr-rev-b.2.1", 
-so it is not like we can retrofit that easily by adding one now.
-
- > > Second, you can introduce fallbacks to older compatibles as well - 
-there
-> will be no breakage, because you add one more compatible. The old
-> compatibles (covered by fallback) of course stays in the driver, so
-> there is no breakage at all. We did it multiple times for several
-> different bindings in Qualcomm. People were doing exactly the same:
-> adding compatible for new device to binding and driver, without
-> considering the compatibility at all.
-> 
-> Except being logically correct choice - using fallbacks - this really
-> has huge benefits when later upstreaming complete, big SoCs, like we do
-> for latest Qualcomm SoCs: several changes will be only bindings updates.
-
-Yes, there are advantages to using fallbacks and we (ab)use that 
-whenever practical.
-
-The driver only uses a very limited subset of registers (for now), the 
-registers change between minor revisions as well in a way that using a 
-fallback like "brcm,brcmstb-memc-ddr-rev-b.2.1" is not accurate enough 
-not practical. In particular for some of the changes that I am thinking 
-of adding later on, we would need the precise minor version because the 
-behavior and/or register interface is subtly different that this matters.
-
-Thanks
--- 
-Florian
+>=20
+> Frank
+> > +				return -EINVAL;
+> > +			}
+> > +
+> > +			id =3D provider_args.args[0];
+> > +
+> > +			dev_dbg(dev, "Checking node: %s gate: %d\n",
+> child->full_name,
+> > +id);
+> > +
+> > +			if (imx_ele_ocotp_check_access(pdev, id)) {
+> > +				of_detach_node(child);
+> > +				dev_err(dev, "%s: Not granted,
+> device driver will not be probed\n",
+> > +					child->full_name);
+> > +			}
+> > +		}
+> > +
+> > +		imx_ele_ocotp_grant_access(pdev, child);
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+>=20
+> [...]
+>=20
+> >
+> > --
+> > 2.37.1
+> >
 
