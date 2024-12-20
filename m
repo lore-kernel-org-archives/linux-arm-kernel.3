@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598C0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 13:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE64E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 13:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8aydGhIo9XxOke5I+yIVto0Os8osvsq6hM83XEMMBBE=; b=bzq7O5mbzSafJ5VKVPfPVMFztS
-	/DQ+XDiswX0BL6QoiL0wfn6Be4kGJePHxM37i2dbnsxqErmQlP+5eGHH/uxLcvzB/AKYp3+TkpDnc
-	DYjUoC9HOUiY++xBWiZ4Oot/HEq9ak7AsX+ZusY6eh1+wsRj3mnv8OJzjAfhPl452NsRBd6GI0IV5
-	ygqRu7LoDc8PffDF7/WhcOkRQNbj4erbICvFTvDsjgCmj8hoei23mAmyeEgKoGT6aoHliWSiY5yqS
-	IpXS/2HwuKEU6tZEzRUB5ajDo+RPt+m16TCJXn49UPbJq880rKHxBAfAx4vuyt4uCidZf1dbARvzm
-	g9nhjfrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BR0lvrcd1Dq6cbiamgP646QwiZniuCzvGi8BcLneE2Y=; b=GStvz507box65flBIlgjkOBTnn
+	qUMrp1IusD15j73vEx/fp2hYK1dKUwbtme4MoUqALwOdDv0U8yFGhjEX2Hs8vo52d3HuO6/o0HrdQ
+	O+jqxwFQBQ3n1O4O7IS7fqlsMy2x19l+HEp3/4pq039NISywqGQUVktcYD3SLtS8InhHwG946yB5p
+	MaWhJyBm6rtTr7r2QT4Rw+Yt4zgkgFcYiFZ+IICdTR3Ly7GgS83Id/aP3VqyJhKqQLkWSZDvz5VO3
+	/zRESxULptv8dU8XPHA3//HWA8+SrvVTblKbAMn77whu+T8lOOUbURb9ID5+BgCA0VJPvQ2XkaPZi
+	K4KppFkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOd5C-000000050zN-3e7Q;
-	Fri, 20 Dec 2024 13:30:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tOd6K-000000051FV-21vB;
+	Fri, 20 Dec 2024 13:31:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOcyq-00000004zrE-1GmJ
+	id 1tOd0u-000000050Bl-02ub
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 13:23:49 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BKDHX3m017499;
-	Fri, 20 Dec 2024 13:23:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8aydGhIo9XxOke5I+yIVto0Os8osvsq6hM83XEMMBBE=; b=n//yoy8MWHpGQ6yl
-	hEePsQAqwgote55twPpdcHHjIovxXxvijiwy73MJ5/RIYAM+I9fwDjqIiBd8qgL9
-	MQMuGDwNlxCKWBlOAYALta8ZKcB+4v6Bn8WRdFmKBBwhKF9I2jmAYAuda12TJxBl
-	XtcoTRVkQ6ZCad99q+tkb/TvLRRupI9iPMQzLxcQ3I1aIMSc+NAC0njwsuupxI3x
-	i6gNu/K1308kfqVAwNrwrxOU9VYwYuEH9idDkgK6SeIhgEub4F02ZP5PjnAmwS+M
-	p/A+u4XnKOwryNj3JyQ4ZoA/C/bWjCQIqgOuDrtxmmNaeS46q40Od8h/e42ftgEk
-	oG3L6g==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43n9b9g0mt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 13:23:41 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BKDNesO029020
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 13:23:41 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 20 Dec 2024 05:23:35 -0800
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Fri, 20 Dec 2024 21:22:46 +0800
-Subject: [PATCH v7 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
- use fixed factor clock
+	Fri, 20 Dec 2024 13:25:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C0C49A40577;
+	Fri, 20 Dec 2024 13:24:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05144C4CED7;
+	Fri, 20 Dec 2024 13:25:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734701154;
+	bh=Gtdj17NCspdMOIm9i8+zMaixKQjNDai/MnI74NIyjbs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=atK36AeXQ66/v9cDLfBzANdTeJNxF/hD+yje8eGEvf1ph5dV/5O4edIJNoGAIZXfG
+	 SxX1peJc9exv4FdinEs3s2gDazVObHcPmLjNy6Zd/O4znrxg/srEzGXOtPaOOBt9iB
+	 hmcevxKogZMaeRsc2f0TikiUQ6u3eemCtD86W9SzcB+3HBsXvIgJ+x+OZOqTVQ6C2R
+	 0LznAb2m52CfF93lZPBiBONZ1fU97O7OFDILhSiY07DY8G35wmSFxu4h/mOVmZJWy7
+	 2cUMQljo/ng8cnoxy1LAqmCPmghCOBmTdpnApUEp26MAHdKwGlYYv+hFIxLSPO1VX9
+	 IBtIqLtC0wAdw==
+Date: Fri, 20 Dec 2024 13:25:50 +0000
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: cki-project@redhat.com, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com
+Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
+ for-kernelci (6.13.0-rc3, upstream-arm-next, 06a57361)
+Message-ID: <20241220132549.GA26731@willie-the-truck>
+References: <64955.124121918121002524@us-mta-554.us.mimecast.lan>
+ <20241220123526.GA26697@willie-the-truck>
+ <CAMj1kXENrzsF6JzvbGSwiJT5nupfJbij86zp0k2+YbqUCqvqNA@mail.gmail.com>
+ <CAMj1kXGx+Li4qwh_05Uf-aTtEOLSThv8o3JjKgWrPp9t8rqQyg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241220-qcom_ipq_cmnpll-v7-5-438a1b5cb98e@quicinc.com>
-References: <20241220-qcom_ipq_cmnpll-v7-0-438a1b5cb98e@quicinc.com>
-In-Reply-To: <20241220-qcom_ipq_cmnpll-v7-0-438a1b5cb98e@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>,
-        Luo Jie
-	<quic_luoj@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734700989; l=1501;
- i=quic_luoj@quicinc.com; s=20240808; h=from:subject:message-id;
- bh=VyC3W8O7pEMyWv06ZRGk03/Ezl+Iu9sbnPsh4K208us=;
- b=Lqqt3yw5tzWS6T/CG8ZThU7Q8tm0UkLLT0dlHtLS5R5vObpMGwqZYH32YWpGLNBeX0mwDN3A8
- s6grmxNFgokDJBR3O1urPzwBWdtg39GUW+mdW4r9xj8sL2EISlvbSxp
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=P81jeEL23FcOkZtXZXeDDiPwIwgAHVZFASJV12w3U6w=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: bNmf3A6NCSZq-Xp2jHc3Mq56imBzgx1K
-X-Proofpoint-GUID: bNmf3A6NCSZq-Xp2jHc3Mq56imBzgx1K
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- malwarescore=0 impostorscore=0 spamscore=0 clxscore=1015
- lowpriorityscore=0 bulkscore=0 adultscore=0 mlxlogscore=999 phishscore=0
- suspectscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412200110
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXGx+Li4qwh_05Uf-aTtEOLSThv8o3JjKgWrPp9t8rqQyg@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_052348_349631_FD6CFB07 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20241220_052556_131477_41BD72DA 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,52 +76,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
-48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
-block routing channel.
+On Fri, Dec 20, 2024 at 02:06:21PM +0100, Ard Biesheuvel wrote:
+> On Fri, 20 Dec 2024 at 13:49, Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > On Fri, 20 Dec 2024 at 13:35, Will Deacon <will@kernel.org> wrote:
+> > >
+> > > On Thu, Dec 19, 2024 at 11:12:08PM -0000, cki-project@redhat.com wrote:
+> > > > Hi, we tested your kernel and here are the results:
+> > > >
+> > > >     Overall result: FAILED
+> > > >              Merge: OK
+> > > >            Compile: OK
+> > > >               Test: FAILED (Did not boot)
+> > > >
+> > > >
+> > > > Kernel information:
+> > > >     Commit message: Merge branch 'for-next/core' into for-kernelci
+> > > >
+> > > > You can find all the details about the test run at
+> > > >     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1596629923
+> > > >
+> > > > One or more kernel builds failed:
+> > > >     Builds that are failing to boot:
+> > > >          aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redhat:1596629923-aarch64-kernel
+> > >
+> > > Hmm, I can't find any console logs here. Did the machines really fail that
+> > > early?
+> > >
+> >
+> > This appears to be my fault: commit 32d053d6f5e92efd
+> >
+> >   arm64/mm: Drop configurable 48-bit physical address space limit
+> >
+> > inadvertently sets CONFIG_ARM64_LPA2 for all VA space sizes. The
+> > following hunk needs to be applied to address this
+> >
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -1418,7 +1418,7 @@ config ARM64_VA_BITS
+> >
+> >  config ARM64_LPA2
+> >         def_bool y
+> > -       depends on !ARM64_64K_PAGES
+> > +       depends on ARM64_VA_BITS_52 && !ARM64_64K_PAGES
+> >
+> >  choice
+> >         prompt "Endianness"
+> 
+> On second thought, let's just omit commit 32d053d6f5e92efd  for now -
+> it's at the tip of the for-next/mm branch so it can just be dropped.
+> 
+> I'll revisit this later - I have to double check that non-LPA2 configs
+> (such as the one this report is about) work correctly on LPA2 capable
+> hardware, and don't deviate from LPA2 configs booting with arm64.nolva
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
- arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
- arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
- 2 files changed, 8 insertions(+), 2 deletions(-)
+Sure thing, I'll drop it for now. I've managed to repro the failure
+under qemu using the CKI .config, so I'll check that things are happy
+again before I pushed the updated branch.
 
-diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-index bb1ff79360d3..ae12f069f26f 100644
---- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-@@ -175,8 +175,13 @@ &ref_48mhz_clk {
- 	clock-mult = <1>;
- };
- 
-+/*
-+ * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
-+ * from WiFi output clock 48 MHZ divided by 2.
-+ */
- &xo_board_clk {
--	clock-frequency = <24000000>;
-+	clock-div = <2>;
-+	clock-mult = <1>;
- };
- 
- &xo_clk {
-diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-index 475868a241cc..b5c8d2ab2ab5 100644
---- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-+++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-@@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
- 		};
- 
- 		xo_board_clk: xo-board-clk {
--			compatible = "fixed-clock";
-+			compatible = "fixed-factor-clock";
-+			clocks = <&ref_48mhz_clk>;
- 			#clock-cells = <0>;
- 		};
- 
-
--- 
-2.34.1
-
+Will
 
