@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC1CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 12:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7F3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 12:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEji9Lk/pLdeX2iw8xpCZ0zV1uqpSfb5ZgA2NAx2XR8=; b=lLqRaRk3Obg0rhnAKjEE+PgLjI
-	rd0+EttdHjfEE4Pz+IU8sXjQ7zBl0wxWu3pp1UlzBqnWz7+2qi8iDqmGl70t+QJ7afJWM3fqfxQoL
-	zhQccuLlccAAnjw6D3rO0Mp8D6P15HEXyTH5+7XNz0N00naehYVamLgQzggx4xJSl7iZjr9BhNHEk
-	xY6QQRgLZM3gk5Okk/F7zu54viE0h0HA3r6BvjaWSoUaQkAFK/lKm/DXguERbu4QKnZ19SJlXoX/k
-	O2MCIXm4dvSLnxlYrwyhagMw3T0lo50e+N5rVJnhqOIvl/v6/unKpWjOJt85j7mR9w4FqtdItNt2w
-	rZhtWY3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t8QBsY44aeHsnC8jmAJ8//UtQanr3bN3Vc/JtHR8dwQ=; b=mAaCDsEdRcF7bKan/NZp0OnEAK
+	dnmmG1lMEQ0uTLW82WLJ97k53cFexQDidaQKGa73fOJrnVhz9//hDODrOXB+LKh2mzze7tcx3AJSW
+	ikpkQpX0ueW6JFf3+1budGWE3513wcj4MxxnV//6dHnlLvj58vlDHa9w0lPZh4cvzHQPyyQ72aGwz
+	8Z5GWc7Y1pCpEor7/vnkDXixsl4kjyIUm7pb3d5hLiGWqmM+JBsepEB9Wg8G6k1S/v/sXV0xc8rSh
+	H9kNcSXiSYEZEPATuFYsvoq/4GGIjO9GFbL2MAeZMBAeNux3Fl24hmtXYvFGJwAlQ6l1/GyaG4GYS
+	b2Qs6v3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObmu-00000004rC5-1z3F;
-	Fri, 20 Dec 2024 12:07:24 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObll-00000004r6n-1KN4
+	id 1tOc4P-00000004su4-0FRs;
+	Fri, 20 Dec 2024 12:25:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOaVx-00000004d8s-49Eu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 12:06:14 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tObli-0008UH-Kf; Fri, 20 Dec 2024 13:06:10 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tOblg-004Mzd-0v;
-	Fri, 20 Dec 2024 13:06:09 +0100
-Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 2E122392EF0;
-	Fri, 20 Dec 2024 12:06:06 +0000 (UTC)
-Date: Fri, 20 Dec 2024 13:06:01 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, heiko@sntech.de, 
-	cl@rock-chips.com, kever.yang@rock-chips.com, linux-can@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] net: can: rockchip: add can for RK3576 Soc
-Message-ID: <20241219-sapphire-vicugna-of-opposition-be748f-mkl@pengutronix.de>
-References: <20241219011159.3357530-1-zhangqing@rock-chips.com>
- <20241219011159.3357530-2-zhangqing@rock-chips.com>
+	Fri, 20 Dec 2024 10:45:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B54491596;
+	Fri, 20 Dec 2024 02:46:17 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9624B3F720;
+	Fri, 20 Dec 2024 02:45:47 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	mike.leach@linaro.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v4 9/9] coresight/ultrasoc: change smb_drv_data spinlock's type to raw_spinlock_t
+Date: Fri, 20 Dec 2024 10:45:21 +0000
+Message-Id: <20241220104521.809071-11-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241220104521.809071-1-yeoreum.yun@arm.com>
+References: <20241220104521.809071-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eudui3nm55akuurq"
-Content-Disposition: inline
-In-Reply-To: <20241219011159.3357530-2-zhangqing@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_040613_355561_23B1EFED 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20241220_024550_108795_2A822F4C 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,72 +71,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In ultrasoc-smb drivers, smb_drv_data->spinlock can be held
+during __schedule() by perf_event_task_sched_out()/in().
 
---eudui3nm55akuurq
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/2] net: can: rockchip: add can for RK3576 Soc
-MIME-Version: 1.0
+Since smb__drv_data->spinlock type is spinlock_t and
+perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+which is raw_spinlock_t (an unsleepable lock),
+this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
 
-On 19.12.2024 09:11:58, Elaine Zhang wrote:
-> Is new controller:
-> Support CAN and CANFD protocol.
->=20
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+To address this, change type smb_drv_data->spinlock in ultrasoc-smb drivers,
+which can be called by perf_event_task_sched_out()/in(),
+from spinlock_t to raw_spinlock_t.
 
-Thanks for porting the rk3576 to the mainline driver. Looking at subtle
-differences between the IP cores I'm not sure if you want to add it to
-the existing driver or have a dedicated driver. But we can decide on
-this later. At least the mainline driver has a better structure than
-your original downstream driver.
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ drivers/hwtracing/coresight/ultrasoc-smb.c | 12 ++++++------
+ drivers/hwtracing/coresight/ultrasoc-smb.h |  2 +-
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
-Why was the timestamp register removed from the registers? Previously
-the driver supported hardware timestamping. :(
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
+index dc3c9504dd7c..26cfc939e5bd 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.c
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
+@@ -98,7 +98,7 @@ static int smb_open(struct inode *inode, struct file *file)
+ 	struct smb_drv_data *drvdata = container_of(file->private_data,
+ 					struct smb_drv_data, miscdev);
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	if (drvdata->reading)
+ 		return -EBUSY;
+@@ -152,7 +152,7 @@ static int smb_release(struct inode *inode, struct file *file)
+ 	struct smb_drv_data *drvdata = container_of(file->private_data,
+ 					struct smb_drv_data, miscdev);
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 	drvdata->reading = false;
+ 
+ 	return 0;
+@@ -245,7 +245,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
+ 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	int ret = 0;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* Do nothing, the trace data is reading by other interface now */
+ 	if (drvdata->reading)
+@@ -280,7 +280,7 @@ static int smb_disable(struct coresight_device *csdev)
+ {
+ 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	if (drvdata->reading)
+ 		return -EBUSY;
+@@ -378,7 +378,7 @@ static unsigned long smb_update_buffer(struct coresight_device *csdev,
+ 	if (!buf)
+ 		return 0;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* Don't do anything if another tracer is using this sink. */
+ 	if (csdev->refcnt != 1)
+@@ -563,7 +563,7 @@ static int smb_probe(struct platform_device *pdev)
+ 
+ 	smb_reset_buffer(drvdata);
+ 	platform_set_drvdata(pdev, drvdata);
+-	spin_lock_init(&drvdata->spinlock);
++	raw_spin_lock_init(&drvdata->spinlock);
+ 	drvdata->pid = -1;
+ 
+ 	ret = smb_register_sink(pdev, drvdata);
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
+index a91d39cfccb8..c4c111275627 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.h
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
+@@ -115,7 +115,7 @@ struct smb_drv_data {
+ 	struct coresight_device	*csdev;
+ 	struct smb_data_buffer sdb;
+ 	struct miscdevice miscdev;
+-	spinlock_t spinlock;
++	raw_spinlock_t spinlock;
+ 	bool reading;
+ 	pid_t pid;
+ };
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-Some general comments here, a more detailed review will follow.
-
-Why have bits been removed from several registers and the remaining ones
-moved? That doesn't make it easier for driver developers to cover new IP
-cores. :(
-
-Please use FIELD_GET(), FIELD_PREP() macros instead of open coding shift
-and mask operations. See rest of the driver.
-
-Have you actually tested this code in both RX and TX direction? I don't
-see rkcanfd_handle_tx_int() being called?
-
-What's the purpose of "rockchip,rx-max-data"?
-
-Why do you add "rx_fifo_depth" to "struct rkcanfd_priv"? It's not used
-outside of rkcanfd_probe().
-
-Can you configure the IP core for CAN-2.0 only mode, so that it only
-receives CAN-2.0 frames only?
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---eudui3nm55akuurq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdlXZAACgkQKDiiPnot
-vG83mQf/f6DaBGVIT5WusxNppsrY5LvjB2UCWh8j3u0AGBRxOL5ktwa/cZna9O4L
-BH0KOBH+K6mUQ6ssME6tH0EYz17DUbaaFnhPjVTRDGAQu0qktLXoFf0cRjiTo4vV
-xLLVVPn9++OTYFUQmN+SxWih0MHBK5+HhIUd+HZTw5GGWdt5V+Wh5kkS048slc9E
-mP2tspwcyzJaOAXz9zsdxOc540tcT4cfgI8GgzSIFiVtZWoliAEvgHFzNcp6ZZts
-GWRSK2Lf/sf6+mmbHNpa0GhG7M6zqu+nC6oVgVuWY23RO6laQvUTSktw0Ek9nq2f
-EtgEcqjYtJiSK62wZQ8ijhtgtX6D+Q==
-=AKwc
------END PGP SIGNATURE-----
-
---eudui3nm55akuurq--
 
