@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CACE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 10:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43C79E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 10:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAT2h6WzrOZMzEhukTS7X5Mg1zcABGayhHzVGz0aqKM=; b=IJsIjUxEqkGDm0tOYw+gh9FEVl
-	5ZfzdLL0sjeYdoS+Izt/0to1aKf8mgeT3VplBVt2NymB/2T8Z7xwe8n5LO5bMVTrEsgSTVxOs8VKp
-	dbRYX5ulc9kkQgw2AxDUvLiGIsIFI2BYqMWqBTJysXHrK60Ajmvi4Z/23Q6+APAkvbLON2PCvPz/m
-	wZ/DMRqVX9xJ7jqVEsLwgMcp3RrIK+Wci+TWenNtr2nVKUZ2b7AMZF4MMI++f0SOZ08KcJ7WUqKBN
-	SfEVsQxpQwSs199lrk/DRXLaoQSLjrdobaY8o+mcX7YuiIIXlHsmSFSwYV8HFQpePR76SES8gbcem
-	frTACwCQ==;
+	bh=h6ab+x6Ynx/O74V+SfsXYwAL7nLhG88cwarhkjj6DpE=; b=DX2cygylCvUyG+YdViNmKFhFCv
+	YIufpgNY3tO+QT+bizaYHjcEYWoBpyre3tEtFreG4F/Zuc0PqhkWrNqyLa90Cdwk0FWg0lP5Ht9vq
+	xzbGv1W6sXOKqAjojztdhl/dKr3VVC4RpJR9pAfsEZpxWqVQHFEwx387DuvOEjzstLS22fin9/K6d
+	SPKWqRtj01IN46xcF5pVdA4DotfyugAL5TpxZbTsNyvakD4e1Ymu5hNM75cBsVSxsvsU2bnb7O+Bf
+	S/5/U3UollhrIV/uzOdrjq+26+KaTyqjNtai3SkgsQ8GkHDsuzVaF5mYIith+JsryJ2xV46qa9ybe
+	fIxgOktA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZs7-00000004W9C-2wtw;
-	Fri, 20 Dec 2024 10:04:39 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tOZtM-00000004WSm-2Q6B;
+	Fri, 20 Dec 2024 10:05:56 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZpr-00000004VdC-0Jh8
+	id 1tOZpr-00000004VdV-2S6i
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 20 Dec 2024 10:02:21 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK89Ckx013359;
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK89FH3005122;
 	Fri, 20 Dec 2024 11:02:04 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	RAT2h6WzrOZMzEhukTS7X5Mg1zcABGayhHzVGz0aqKM=; b=yjOoLFPyG4vrIF3a
-	uABz+3W01cWmGeLbRzdoX6FrjjPiNy0G/0TQ/SJJdgmcTHQNHV8L5Etc97KuFlUo
-	Yd+U7fjoBLngy971I07ysATlghw+O1Sd8d3tcKuWGOJ8mVCBLFzGkmfKyEvFBjf3
-	wKkJwjDg9UUROpJwaumB5Emv4364ytSC9OBhygtKhyhBywLANc3Lekjkcg+uD+Ny
-	FKvfXIQu6DPxrZeTMbjRUvYaRsHuVtRKe1LeB3uiawXQkFTT7InhR+k+ZfElbKoS
-	B/nCijRXkFr+8ksAhdHEv92Nlzbp1Nad5mec7IlvxG3V6AG+QB8vjHD2QJRSMMKy
-	84VYzA==
+	h6ab+x6Ynx/O74V+SfsXYwAL7nLhG88cwarhkjj6DpE=; b=WoltuoB82zYIyGVh
+	3+t1Bv4bA+yUhTDdAeEueRcA/O54JL7OAnEgjp57Slzk1PGiijVV8NdJEeg9hfmH
+	OrheVwHS/0jYOjc3lCyERXkWOvo1WPEOQWrTS42zFjbSIExzjrfKlnu2/+TsHNNu
+	bc2F75Ct8ayq6Yc1TWwSsKvzh9ZEButgMGGBYgf25iKRc+PQkLrojDSgmDiGzh4q
+	KaA16SWPtfbJDYAJKWw7pVYweVuXx651uwqS1Y7wBIUqq1BpmGlrQebFwcSHiiU4
+	vU3d+NwX5SgsklHPV+Ncb60J9s8+BQ06QH3KLyJeeLOixTl1mlPq8w4zRI2arQdm
+	BHaNfg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43n34bryww-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43n4c80np0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 20 Dec 2024 11:02:04 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 491754005E;
-	Fri, 20 Dec 2024 11:01:09 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CDEFB4004B;
+	Fri, 20 Dec 2024 11:01:13 +0100 (CET)
 Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D9CD725F1F4;
-	Fri, 20 Dec 2024 11:00:07 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0A3AB258D86;
+	Fri, 20 Dec 2024 11:00:10 +0100 (CET)
 Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
  (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 20 Dec
- 2024 11:00:07 +0100
+ 2024 11:00:09 +0100
 Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 20 Dec
- 2024 11:00:07 +0100
+ 2024 11:00:09 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <alexandre.torgue@foss.st.com>,
@@ -67,9 +67,9 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>
-Subject: [PATCH v2 1/9] dt-bindings: mfd: stm32-timers: add support for stm32mp25
-Date: Fri, 20 Dec 2024 10:59:19 +0100
-Message-ID: <20241220095927.1122782-2-fabrice.gasnier@foss.st.com>
+Subject: [PATCH v2 4/9] counter: stm32-timer-cnt: add support for stm32mp25
+Date: Fri, 20 Dec 2024 10:59:22 +0100
+Message-ID: <20241220095927.1122782-5-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241220095927.1122782-1-fabrice.gasnier@foss.st.com>
 References: <20241220095927.1122782-1-fabrice.gasnier@foss.st.com>
@@ -83,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_020219_624433_41C1FDF4 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20241220_020219_925631_98347BF1 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,86 +99,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new stm32mp25 compatible to stm32-timer dt-bindings in order to
-support the STM32MP25 SoC. Some features has been added or updated in
-the stm32-timer timer such as:
-- hardware configuration and identification registers to read the timer
-  version and capabilities (counter width, number of channels...)
-- dithering mode (can be used to extend PWM resolution)
-- input triggers list
-- new counter modes
-- various bit-field updates
-- power-domains property
-Timer trigger identifier can be up to 19 (from timer 20)
+Add support for STM32MP25 SoC. There are new counter modes that may be
+implemented in later. Still, use newly introduced compatible to handle
+this new HW variant and avoid being blocked with existing compatible
+in SoC dtsi file. Modes supported currently still remains compatible.
+New timer 20 has encoder capability, add it to the list.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: William Breathitt Gray <wbg@kernel.org>
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
- .../bindings/mfd/st,stm32-timers.yaml          | 18 ++++++++++++++----
- 1 file changed, 14 insertions(+), 4 deletions(-)
+ drivers/counter/stm32-timer-cnt.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/st,stm32-timers.yaml b/Documentation/devicetree/bindings/mfd/st,stm32-timers.yaml
-index b0e438ff4950..66aa1550a4e5 100644
---- a/Documentation/devicetree/bindings/mfd/st,stm32-timers.yaml
-+++ b/Documentation/devicetree/bindings/mfd/st,stm32-timers.yaml
-@@ -21,7 +21,9 @@ maintainers:
+diff --git a/drivers/counter/stm32-timer-cnt.c b/drivers/counter/stm32-timer-cnt.c
+index e75b69476a00..3d3384cbea87 100644
+--- a/drivers/counter/stm32-timer-cnt.c
++++ b/drivers/counter/stm32-timer-cnt.c
+@@ -669,12 +669,14 @@ static void stm32_timer_cnt_detect_channels(struct device *dev,
+ 	dev_dbg(dev, "has %d cc channels\n", priv->nchannels);
+ }
  
- properties:
-   compatible:
--    const: st,stm32-timers
-+    enum:
-+      - st,stm32-timers
-+      - st,stm32mp25-timers
+-/* encoder supported on TIM1 TIM2 TIM3 TIM4 TIM5 TIM8 */
+-#define STM32_TIM_ENCODER_SUPPORTED	(BIT(0) | BIT(1) | BIT(2) | BIT(3) | BIT(4) | BIT(7))
++/* encoder supported on TIM1 TIM2 TIM3 TIM4 TIM5 TIM8 TIM20 */
++#define STM32_TIM_ENCODER_SUPPORTED	(BIT(0) | BIT(1) | BIT(2) | BIT(3) | BIT(4) | BIT(7) | \
++					 BIT(19))
  
-   reg:
-     maxItems: 1
-@@ -36,6 +38,9 @@ properties:
-   resets:
-     maxItems: 1
+ static const char * const stm32_timer_trigger_compat[] = {
+ 	"st,stm32-timer-trigger",
+ 	"st,stm32h7-timer-trigger",
++	"st,stm32mp25-timer-trigger",
+ };
  
-+  power-domains:
-+    maxItems: 1
-+
-   dmas:
-     minItems: 1
-     maxItems: 7
-@@ -77,7 +82,9 @@ properties:
+ static int stm32_timer_cnt_probe_encoder(struct device *dev,
+@@ -846,6 +848,7 @@ static SIMPLE_DEV_PM_OPS(stm32_timer_cnt_pm_ops, stm32_timer_cnt_suspend,
  
-     properties:
-       compatible:
--        const: st,stm32-pwm
-+        enum:
-+          - st,stm32-pwm
-+          - st,stm32mp25-pwm
- 
-       "#pwm-cells":
-         const: 3
-@@ -113,7 +120,9 @@ properties:
- 
-     properties:
-       compatible:
--        const: st,stm32-timer-counter
-+        enum:
-+          - st,stm32-timer-counter
-+          - st,stm32mp25-timer-counter
- 
-     required:
-       - compatible
-@@ -128,12 +137,13 @@ patternProperties:
-         enum:
-           - st,stm32-timer-trigger
-           - st,stm32h7-timer-trigger
-+          - st,stm32mp25-timer-trigger
- 
-       reg:
-         description: Identify trigger hardware block.
-         items:
-           minimum: 0
--          maximum: 16
-+          maximum: 19
- 
-     required:
-       - compatible
+ static const struct of_device_id stm32_timer_cnt_of_match[] = {
+ 	{ .compatible = "st,stm32-timer-counter", },
++	{ .compatible = "st,stm32mp25-timer-counter", },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, stm32_timer_cnt_of_match);
 -- 
 2.25.1
 
