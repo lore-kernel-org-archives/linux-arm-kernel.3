@@ -4,85 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09CE1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B602E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVsc614XsfmnjDR1QbDYAxBtRFE60C2ghiXEL7ttYLA=; b=Hw7CsuZ32K2H1z5iCeZUPY6SZg
-	JMoCfowIkRxrXGxYNjS2WAXWHVvFYVsGLkkYg8B+gVxMDDvSAM03AgqLaYoVXzJgRRG19mW3z+SHk
-	vhw/hjgWC1T+Vkmp9VvzC20giWV2oItYh8eYV70c3RvmJFOIXNqxOLMvZBAs9YNwgMLNFnjDiglJJ
-	gGYuKh3Wb8Cwd3uGqEtSlqQv7k+hndyj/o+VEFm/7q5380OJrtXIszmfAtC44vG9aL/ZimhVmI9HC
-	WjTcxKxG7FQiYoF++u0diCnGYqmx1ENaAZqSOeThiYClb5++WLA9EBdz9Cbb69p4bmze5vtdPfBBX
-	nxyR1pSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JKNHQWTpUdMTuuuYQmeQEhaz3fxhEUu13oWLNebrmjw=; b=MWojUkCG4bP+LmOmfBVIQsU1B/
+	WpRmNLVwBbENj6ZXXOkwMohB/OdWudM9RS9DeUDYTUGso7RdkIJ1WpKvqvg4arBBvBaOMuFGSwkS1
+	/6q8hO38y8n22X9Cg5KmQ7zqDRtkI2NinlK4R2t4rms8IfntdyRYue2V0dZQxt6JX122cxiGqj/ew
+	bHQmlwQEn+aJFT+ZA4HM2F12MkEMx1mcp8g61ipx3Bz8ji1viT4ZMKrUh/c9yRfmNb9407R0lLBK7
+	yhlnMgYvLYwvZJq6QAfx/dcmFLTqusYvcKe6q9fxPpjXRHstFe+2Gm8Kzdr+zYWhIc8WDzN5eeXEX
+	TxOvEtYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObUk-00000004p0Q-44BI;
-	Fri, 20 Dec 2024 11:48:38 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObTC-00000004ogw-32y1
+	id 1tObVs-00000004pAy-2Wgf;
+	Fri, 20 Dec 2024 11:49:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tObUH-00000004ovk-3jpO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 11:47:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tObT5-0005Gt-Uu; Fri, 20 Dec 2024 12:46:55 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tObT4-004Msi-2X;
-	Fri, 20 Dec 2024 12:46:55 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tObT5-00AQqo-1S;
-	Fri, 20 Dec 2024 12:46:55 +0100
-Date: Fri, 20 Dec 2024 12:46:55 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Carlos Song <carlos.song@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Clark Wang <xiaoning.wang@nxp.com>
-Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-Message-ID: <Z2VZLw0RGiEA68Nd@pengutronix.de>
-References: <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
- <Z2UeKZcpeRUt2OQ4@pengutronix.de>
- <AM0PR0402MB393739E1D91ED2A539B5A2C7E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2Ugt8NVued0_4c4@pengutronix.de>
- <AM0PR0402MB3937419BBB58B75FB8F8DE2DE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <89a3b1c9-2be2-4e7f-a0c6-abbf8b88957b@pengutronix.de>
- <AM0PR0402MB39374CFFA66D8121DB218334E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <451e8c12-7b45-4b12-af10-63f60ba6e92e@pengutronix.de>
- <AM0PR0402MB3937E87BBDC5CEA1C51E4E3AE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <f2690b83-b907-4ade-bb9d-daa0636c6786@pengutronix.de>
+	Fri, 20 Dec 2024 11:48:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3380E1480;
+	Fri, 20 Dec 2024 03:48:37 -0800 (PST)
+Received: from [10.57.31.233] (unknown [10.57.31.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3E8043F58B;
+	Fri, 20 Dec 2024 03:48:07 -0800 (PST)
+Message-ID: <f0c15466-a27f-4cc2-90a1-476ec278d870@arm.com>
+Date: Fri, 20 Dec 2024 11:48:06 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <f2690b83-b907-4ade-bb9d-daa0636c6786@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/9] coresight: change some driver' spinlock type to
+ raw_spinlock_t
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, bigeasy@linutronix.de,
+ clrkwllms@kernel.org, rostedt@goodmis.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+References: <20241216115006.415861-1-yeoreum.yun@arm.com>
+ <CAJ9a7VhxG_8R6j5uRCzOhLpy4ZmzyVvyW0+ryCcd4w7wqpZ2ew@mail.gmail.com>
+ <Z2VJIh2+Z40bZi1e@e129823.arm.com>
+ <ac537889-dc0a-4d2e-870b-c5a33279633e@arm.com>
+ <Z2VXc/R/nOLGz+Cg@e129823.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <Z2VXc/R/nOLGz+Cg@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_034702_766104_9B749132 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20241220_034809_981292_F150CCC0 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +72,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 11:51:27AM +0100, Ahmad Fatoum wrote:
-> Hi Carlos,
+On 20/12/2024 11:39, Yeoreum Yun wrote:
+> Hi Suzuki,
+>> On 20/12/2024 10:38, Yeoreum Yun wrote:
+>>> Hi Mike.
+>>>
+>>>> Notably missing is the same changes for the etm3x driver. The ETMv3.x
+>>>> and PTM1.x are supported by this driver, and these trace source
+>>>> variants are also supported in perf in the cs_etm.c code.
+>>>
+>>> But I wonder etmv3 needs to change. Because its spinlock is used only
+>>> via sysfs enable/disable path.
+>>> So, I think it doesn't need to change the lock type.
+>>
+>> ETM3 can be used in perf mode, similar to the ETM4x.
+>>
+>> So, you need to fix it as well.
 > 
-> On 20.12.24 11:46, Carlos Song wrote:
-> > 
-> > 
-> >> -----Original Message-----
-> >> From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> >> Sent: Friday, December 20, 2024 5:32 PM
-> >> To: Carlos Song <carlos.song@nxp.com>; Oleksij Rempel
-> 
-> >> I know -110, but -12 I need to look up :) Both are cryptic to end users, which is
-> >> why %pe was added on top of the existing %p:
-> >>
-> >> If CONFIG_SYMBOLIC_ERRNAME is enabled %pe expands to an error string, e.g.
-> >> "ENOMEM" or "ETIMEDOUT". If it's disabled, you get the same error number
-> >> that was printed raw before.
-> >>
-> >> Cheers,
-> >> Ahmad
-> >>
-> > 
-> > Wow! Looks so cool.
-> > Thank you very much for your patient explanation! I agree it.
-> > 
-> > Also I will change the comment from your suggestion[1]:
-> > 
-> > "
-> >   /*
-> >    * As we can always fall back to PIO, let's ignore the error setting up
-> >    * DMA and see if we run into errors while setting up PIO mode.
-> >    */
-> > "
-> > In fact, other errors are also from DMA setting not from setting PIO mode.
-> > So can I comment simply like this?
-> > 
-> >         /* As we can always fall back to PIO, let's ignore the error setting up DMA. */
-> >         ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-> >         if (ret) {
-> >                 if (ret == -EPROBE_DEFER)
-> >                         goto clk_notifier_unregister;
-> >                 else if (ret == -ENODEV)
-> >                         dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> >                 else
-> >                         dev_err(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n", ERR_PTR(ret));
-> >         }
-> > 
-> > [1]https://lore.kernel.org/imx/89a3b1c9-2be2-4e7f-a0c6-abbf8b88957b@pengutronix.de/
-> 
-> Sure, looks good to me. @Oleksij?
+> Yes. But etmv3's etmdata->spinlock doesn't used in perf path
+> its usage is only in sysfs interface path.
+> That's why I think it could skip too.
 
-Ack, looks good. Thank you!
+Ok, which I think is a problem, since the sysfs mode could overwrite the 
+"config" while perf is preparing the config from the event parsing.
+And we would need it there. So, for the time being, we can accept this
+series, pending other review comments and address this issue separately
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Suzuki
+
+
+> 
+> Thanks.
+
 
