@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44C0E7718C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAC5E7718E
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmLkNhlh52qxwrvFivlE8SeoFFAV1sZ6D7hnvXFjrXo=; b=NWXssz0PUwrV/13s2fqWcfDddv
-	W8HnUWh1X+w50KKd/KufT1B58sZjjJOdpT3BFxtkKcwEfXOKsKsJXUrF/47ejO7T3xPU10PMMFczf
-	2CE4mBo2hx0DxDhn9vsmLf63qJ8EhaN957HTsQk+mQIkHyhxZzXJ9BE7qy8jdEgQBHyFjJBI84D0O
-	N8G2xm+olVGJUnDRNepXLUecUrzn71hRIPNyXCFexTfsABY9uprVqz+ZTHsOtZRjIyswOnorT3cBI
-	Hpt8SnVthQqoPwkkPbmwFg8ocqSKziPrtm5I/fGjMNqKwrJwuLojEqA96UGSm3CoUiSxcr+W+xoWa
-	1biZmvbQ==;
+	bh=Oz5+m6krR9F3XX8vryGgTQHT/rs6J1ikVTSxPHIDDiE=; b=V5bU1LSAXcCz1MCBGqB9Ijo/IS
+	XnkhSUYWSvxsLVDJifnzoTBHf2UlqrvPDF7IJhBYdKF/UrSJ0PcRenZLAFb96NHVp2WrMb19fCnLF
+	5NvbfJqJNg8CL9a66Ne4pnP8wcUgrqJQw9nviZfPXCzRoAEVcQSmK56IWVy4+vZNkOOD3UNvneLZ7
+	fsLf60pW2R0cV77naho7blcWs8QSgHeaba8XUu043UWOVORGbvcO/ApC0X4EZBMsdMC/IkCqiKXqI
+	A5e9jMP/18xs4TuDSwebpoqc08XwL+WweNhBhRLdY+WUT02Vzi9D+bpVS6vFridIs4tTI9tIaQo8n
+	ju43SlNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOhCQ-00000005hvB-17vN;
-	Fri, 20 Dec 2024 17:54:06 +0000
-Received: from [129.206.100.213] (helo=relay3.uni-heidelberg.de)
+	id 1tOhCN-00000005hrk-0qfH;
+	Fri, 20 Dec 2024 17:54:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgh4-00000005cJP-36H7
+	id 1tOgRk-00000005Z4Z-0JtF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 17:21:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=uni-heidelberg.de; i=@uni-heidelberg.de; q=dns/txt;
-  s=s1; t=1734715303; x=1766251303;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0Iq/l1VCFWMzFCGzZtb+UJvIPEnIq0yAQf8ku6mfu/s=;
-  b=YJrm9zYaccVDuMht32wYiEcF3LXF4ojIDJnkbeRZq0AwGmWJ9iFZbrEF
-   7dV/Qe9HeFWlxCgKscR5l9rqmTJt8KMK7PptXy7ML4m1U+ytLT1ok5/Cq
-   /KO1BLwVKPCAcAk8mNZZvUnwHPzcR7Q/2MUyTxc9vVgX8CeZNctLW/C87
-   XwwJX4FHAY/YD0D2F/PC3UsvujyZxa7VUujHi0dPqzaHJemCS2cmyogcX
-   dUhSOWOOyAgXT2RbHFYYy6kDsyP1xFh/8Q2xd3A5asNOKe3xM/AtpAQye
-   puhmqHo0AZrl6JxcpW7anxTaRzfOLh2ah722XDWhhdp5eCig4Xpq7SfIP
-   w==;
-X-CSE-ConnectionGUID: HCj2TTxGSZSBRJGVLgyuww==
-X-CSE-MsgGUID: zVamI+oyQ2u6XGS8KNPj7A==
-X-IPAS-Result: =?us-ascii?q?A2BpBACkpmVn/1BqzoFagQmBU4l6kXGSNY1wAQEBAQEBA?=
- =?us-ascii?q?QEBCUQEAQGPdSg3Bg4BAgQBAQEBAwIDAQEBAQEBAQEOAQEGAQEBAQEHBYEhh?=
- =?us-ascii?q?giGWgEBBAEjMCYFCwsOCgICJgICFEiFViOwLXqBMoEB3jOBSiOBGi6Fa4JjA?=
- =?us-ascii?q?YVrhHc2gVVEgRQBgyo+hBoLg3k6gi8EgjhMgkqDSZ5LUnt4LAFVExcLBwWBK?=
- =?us-ascii?q?R8rA4EVggWBWwU2Cj06ghBpSTcCDQI2giB8gk2CW4I9hGGEV4YagheBawMDF?=
- =?us-ascii?q?hIBgVIdQAMLbT03FBukR4EuQJZJr0s0B4I4gWWBYwyfVwQWM5dRkwGYe6krg?=
- =?us-ascii?q?X1RgS4zGiSDN1EZD8s+gTMCBwsBAQMJjy6BfQEB?=
-IronPort-Data: A9a23:6QqcLq81VmrLGmNZRIUoDrUDoXmTJUtcMsCJ2f8bNWPcYEJGY0x3x
- zQWDD+COveCZWWjf4xxYd++8xtUvZDXy4U1QQdspH9EQiMRo6IpJ/zAcxiqb33ORiHgoOCLy
- +1EN7Es+ehtFie0Si+Fa+Wn9T8mk/nTGtIQMcacUghpXwhoVSw9vhxqnu89k+ZAjMOwa++3k
- YuaT/b3Zhn8gVaYDkpOs/jf8Uk15Kyo0N8llgVWic5j7Qe2e0Y9Ucp3yZGZdxPQXoRSF+imc
- OfPpJnRErTxpkpF5nuNy94XQ2VSKlLgFVHmZkl+A8BOtiN/Shkaic7XAha8hXB/0F1ll/gpo
- DlEWAfZpQ0BZsUgk8xFO/VU/r0X0aBuoNf6zXaDXcO772bEKUfQ09pVPnocB683xMJ4EHxR6
- qlNQNwNRkjra+OexL++Te8qh9s5atTtPcYft3BswDXTAOwpB5zOK0nIzYYCjXFq3p4IRK6AI
- ZpBAdZsRE2ojxlnOlMeFZ8ktOOlg375NTxHshSIo6ty42XSwAF12rX3P5zZd7RmQO0PxBjG+
- TyWpjmR7hcyJuKWzBvG9WOV3PKRrQzACKE0LL/n36s/6LGU7jZKU0xLDgXTTeOColOhRvpeI
- EES/TU/660/nGSiSNXnUlugumyVoRcGUvJZCeh84waIooL07hycD24CCBpIddE8nNIwRHkq2
- 16FktfjCCZg9rGYIVqH8b2UhTC/Iy4YKSkFfyBsZQgf8dqgrJ0bjR/VSNtnVqmvgbXdEjb2x
- CrJoDQWhLgJi8MPkaKh8jjvnD+qvbDCVQ84oALNUQqN7A5jYoOnIZer81HR4P1oI4OQT13Ht
- 38B8+CF5eUTAJWljyyKROEEGr3v4OyKWBXYgFhyD9wo7THo+HO5e41UyDV/P1tydMcCdyXgb
- ELatUVW/pA7FH+ra7JnJpmsDdQr5azhDsj+EPTVaMdeJJR8amev8CxwZEWdw3rgnWAynqwlf
- 5SWa8ChCTAdE6sP5D63QfoNlLwm3CYzwUvNSp3hiReqy7yTYDiSU7htDbeVRuQ06aSC5gTK6
- ZBCMcrPyxheXOD6aCTN/sgfIDjmMETXG7jWgM4NStKTDTFUI0sbKdDv5bwwZpN6yvE9evjzw
- lmxXUpRyVzajHLBKBmXZn0LVF8JdcslxZ7cFXFwVWtEy0QejZCTALA3W7ZfQFXK3OhuyPlyC
- fgaYYOdBPUKSjnG9zkZZ5Tno8pueXxHZD5i3QL/OFDTnLY5GWQlH+MImSO1rEEz4tKf75dWn
- lFZ/lqzrFpqb10K4DzqQPyu1UitmnMWhfh/WUDFSvEKJx6wrtMxcXKs0aNmSy3pFfkl7mbAv
- +pxKUpEzdQhX6domDU0rfnf9tzzQ4OS4GILRjmBhVpJCcUq1jD6mt4dC7jgkcH1SWX15qi4f
- uRJxvzgeP0KnVpHt4BxCbkD8E7Nz4WHmlKbpyw6dEj2g6ODVuo4fiDbhZYV6sWgBNZx4GOLZ
- 65GwfECUZ3hBS8vOAR5yNYNBghb6cwppw==
-IronPort-HdrOrdr: A9a23:5a0Ym628iWh+HfbqXUXgnQqjBLAkLtp133Aq2lEZdPUzSKOlfq
- GV8Mjyt3fP4wr5PUtLpTnuAsm9qB/nmKKdpLNhWItKIjOW3FdAXbsN0WKK+VSJJ8S9zJ8/6U
- 4KSclD4bPLfDpHZL7BkW6FL+o=
-X-Talos-CUID: 9a23:0Q5PvGOp2g60xe5DeAJlrnIoCu8eQEb39lX/HWu3GHt2V+jA
-X-Talos-MUID: 9a23:0h/UigUusDc3oIPq/C3SjTRDd8B52v6zVnAiqsUlnfGGagUlbg==
-X-IronPort-Anti-Spam-Filtered: true
-Received: from lemon.iwr.uni-heidelberg.de ([129.206.106.80])
-  by relay3.uni-heidelberg.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Dec 2024 18:21:35 +0100
-Received: from hlauer by lemon.iwr.uni-heidelberg.de with local (Exim 4.92)
-	(envelope-from <hlauer@lemon.iwr.uni-heidelberg.de>)
-	id 1tOggw-0002aC-JX; Fri, 20 Dec 2024 18:21:34 +0100
-Date: Fri, 20 Dec 2024 18:21:34 +0100
-From: Hermann Lauer <Hermann.Lauer@iwr.uni-heidelberg.de>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Hermann.Lauer@uni-heidelberg.de, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	Fri, 20 Dec 2024 17:05:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 727E65C679A;
+	Fri, 20 Dec 2024 17:05:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EABF3C4CECD;
+	Fri, 20 Dec 2024 17:05:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734714351;
+	bh=aLRpmoFlSiffI+8pSXYAenJ2Szl7E9MaB0ISMvMUC+U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=VD+LDgLgx0DJ2OTeqszvLPQkL5zTVhcvvEue81rh9DYNyLCZ+OW5UcMy645I/Xb3T
+	 vjFS5xz4O30rt13/9apArILf4M6drqXZQm0L5m98UZ0/jJyE4ZGRH7uU7XEK+w9TYH
+	 8MdimxoUr3OJ4zmx6t4JYsE1c0As3NHlpJhBSEJmvJdVNEtBiZSTHT32v2BWIjWH02
+	 vkDQEKI39QLfa1RI9JMuB06BsmlHMgjeeNEJ05XEzpuvKvz2AMwFqPEwKi+3q8ePKb
+	 EYhkvSXdm5cQ0KEZTQ2FdCKbN9ehKtkqq7ubbY3CyNtg46vI3PUO2KHxdHeCkNOZh5
+	 qtu2E8w2Mr8Og==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tOgRg-005j9s-GS;
+	Fri, 20 Dec 2024 17:05:48 +0000
+Date: Fri, 20 Dec 2024 17:05:46 +0000
+Message-ID: <86ttayp9n9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Brown <broonie@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: Re: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
-Message-ID: <20241220172134.GA9899@lemon.iwr.uni-heidelberg.de>
-References: <20241213195433.GA1568@lemon.iwr.uni-heidelberg.de>
- <20241214011612.4fd9e4bf@minigeek.lan>
- <e61c927a4dfe909f4ede4a07dffd9dcd762875be.camel@icenowy.me>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <e61c927a4dfe909f4ede4a07dffd9dcd762875be.camel@icenowy.me>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Subject: Re: [PATCH v8 6/8] KVM: arm64: coresight: Give TRBE enabled state to KVM
+In-Reply-To: <20241127100130.1162639-7-james.clark@linaro.org>
+References: <20241127100130.1162639-1-james.clark@linaro.org>
+	<20241127100130.1162639-7-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, broonie@kernel.org, anshuman.khandual@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, tabba@google.com, james.morse@arm.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_092143_350628_DEA6B505 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20241220_090552_202581_CA06AC4D 
+X-CRM114-Status: GOOD (  39.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +101,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, 27 Nov 2024 10:01:23 +0000,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> Currently in nVHE, KVM has to check if TRBE is enabled on every guest
+> switch even if it was never used. Because it's a debug feature and is
+> more likely to not be used than used, give KVM the TRBE buffer status to
+> allow a much simpler and faster do-nothing path in the hyp.
+> 
+> This is always called with preemption disabled except for probe/hotplug
+> which gets wrapped with preempt_disable().
+> 
+> Protected mode disables trace regardless of TRBE (because
+> guest_trfcr_el1 is always 0), which was not previously done. HAS_TRBE
+> becomes redundant, but HAS_TRF is now required for this.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h            | 10 +++-
+>  arch/arm64/kvm/debug.c                       | 25 ++++++++--
+>  arch/arm64/kvm/hyp/nvhe/debug-sr.c           | 51 +++++++++++---------
+>  drivers/hwtracing/coresight/coresight-trbe.c |  5 ++
+>  4 files changed, 65 insertions(+), 26 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 7e3478386351..ba251caa593b 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -611,7 +611,8 @@ struct cpu_sve_state {
+>   */
+>  struct kvm_host_data {
+>  #define KVM_HOST_DATA_FLAG_HAS_SPE	0
+> -#define KVM_HOST_DATA_FLAG_HAS_TRBE	1
+> +#define KVM_HOST_DATA_FLAG_HAS_TRF	1
+> +#define KVM_HOST_DATA_FLAG_TRBE_ENABLED	2
+>  	unsigned long flags;
+>  
+>  	struct kvm_cpu_context host_ctxt;
+> @@ -657,6 +658,9 @@ struct kvm_host_data {
+>  		u64 mdcr_el2;
+>  	} host_debug_state;
+>  
+> +	/* Guest trace filter value */
+> +	u64 guest_trfcr_el1;
 
-On Sat, Dec 14, 2024 at 03:13:23PM +0800, Icenowy Zheng wrote:
-> > CC:ing Icenowy, who added the regulator originally, with commit
-> > 0ca12c1ee43c ("ARM: sun8i: r40: add 5V regulator for Banana Pi M2
-> > Ultra").
-...
-> > Icenowy: can you clarify what "newer" version this was referring to
-> > in
-> > that commit message? That commit in itself doesn't seem to do
-> > anything,
-> > as the regulator isn't referenced, and it's not always-on. It's only
-> > later when the USB nodes were added that it got used?
-> > So was PH23 really necessary? As Hermann reports, setting PH23 on a
-> > v1.1
-> > makes it reboot.
+Guest value? Or host state while running the guest? If the former,
+then this has nothing to do here. If the latter, this should be
+spelled out (trfcr_in_guest?), and the comment amended.
 
-diagnosed that futher now: PH23 is indeed powering the USB-Ports. Whats
-happens ist that I powered the board through the micro USB port which turned
-out to be limited to 900mA in axp221s. So the setting of reg 0x30 is
-the real culprit: Setting the two lowest bits in this register allows
-unlimited power over micro usb.
+> +
+>  	/* Number of programmable event counters (PMCR_EL0.N) for this CPU */
+>  	unsigned int nr_event_counters;
+>  };
+> @@ -1381,6 +1385,8 @@ static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+>  void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+>  void kvm_clr_pmu_events(u64 clr);
+>  bool kvm_set_pmuserenr(u64 val);
+> +void kvm_enable_trbe(void);
+> +void kvm_disable_trbe(void);
+>  #else
+>  static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+>  static inline void kvm_clr_pmu_events(u64 clr) {}
+> @@ -1388,6 +1394,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
+>  {
+>  	return false;
+>  }
+> +static inline void kvm_enable_trbe(void) {}
+> +static inline void kvm_disable_trbe(void) {}
+>  #endif
+>  
+>  void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> index dd9e139dfd13..0c340ae7b5d1 100644
+> --- a/arch/arm64/kvm/debug.c
+> +++ b/arch/arm64/kvm/debug.c
+> @@ -314,7 +314,26 @@ void kvm_init_host_debug_data(void)
+>  	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+>  		host_data_set_flag(HAS_SPE);
+>  
+> -	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceBuffer_SHIFT) &&
+> -	    !(read_sysreg_s(SYS_TRBIDR_EL1) & TRBIDR_EL1_P))
+> -		host_data_set_flag(HAS_TRBE);
+> +	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceFilt_SHIFT))
+> +		host_data_set_flag(HAS_TRF);
+>  }
+> +
+> +void kvm_enable_trbe(void)
+> +{
+> +	if (has_vhe() || is_protected_kvm_enabled() ||
+> +	    WARN_ON_ONCE(preemptible()))
+> +		return;
+> +
+> +	host_data_set_flag(TRBE_ENABLED);
+> +}
+> +EXPORT_SYMBOL_GPL(kvm_enable_trbe);
+> +
+> +void kvm_disable_trbe(void)
+> +{
+> +	if (has_vhe() || is_protected_kvm_enabled() ||
+> +	    WARN_ON_ONCE(preemptible()))
+> +		return;
+> +
+> +	host_data_clear_flag(TRBE_ENABLED);
+> +}
+> +EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> index 858bb38e273f..9479bee41801 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> @@ -51,32 +51,39 @@ static void __debug_restore_spe(u64 pmscr_el1)
+>  	write_sysreg_el1(pmscr_el1, SYS_PMSCR);
+>  }
+>  
+> -static void __debug_save_trace(u64 *trfcr_el1)
+> +static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+>  {
+> -	*trfcr_el1 = 0;
+> +	*saved_trfcr = read_sysreg_el1(SYS_TRFCR);
+> +	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+>  
+> -	/* Check if the TRBE is enabled */
+> -	if (!(read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E))
+> +	/* No need to drain if going to an enabled state or from disabled state */
+> +	if (new_trfcr || !*saved_trfcr)
 
-In U-Boot:
- i2c dev 0
- i2c mw 34 30 63
+What if TRFCR_EL1.TS is set to something non-zero? I'd rather you
+check for the E*TRE bits instead of assuming things.
 
-Or power the board through the barrel connector.
+>  		return;
+> -	/*
+> -	 * Prohibit trace generation while we are in guest.
+> -	 * Since access to TRFCR_EL1 is trapped, the guest can't
+> -	 * modify the filtering set by the host.
+> -	 */
+> -	*trfcr_el1 = read_sysreg_el1(SYS_TRFCR);
+> -	write_sysreg_el1(0, SYS_TRFCR);
+> +
+>  	isb();
+> -	/* Drain the trace buffer to memory */
+>  	tsb_csync();
+>  }
+>  
+> -static void __debug_restore_trace(u64 trfcr_el1)
+> +static bool __trace_needs_switch(void)
+>  {
+> -	if (!trfcr_el1)
+> -		return;
+> +	return host_data_test_flag(TRBE_ENABLED) ||
+> +	       (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRF));
+> +}
+>  
+> -	/* Restore trace filter controls */
+> -	write_sysreg_el1(trfcr_el1, SYS_TRFCR);
+> +static void __trace_switch_to_guest(void)
+> +{
+> +	/* Unsupported with TRBE so disable */
+> +	if (host_data_test_flag(TRBE_ENABLED))
+> +		*host_data_ptr(guest_trfcr_el1) = 0;
+> +
+> +	__trace_do_switch(host_data_ptr(host_debug_state.trfcr_el1),
+> +			  *host_data_ptr(guest_trfcr_el1));
+> +}
+> +
+> +static void __trace_switch_to_host(void)
+> +{
+> +	__trace_do_switch(host_data_ptr(guest_trfcr_el1),
+> +			  *host_data_ptr(host_debug_state.trfcr_el1));
+>  }
+>  
+>  void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+> @@ -84,9 +91,9 @@ void __debug_save_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+>  	/* Disable and flush SPE data generation */
+>  	if (host_data_test_flag(HAS_SPE))
+>  		__debug_save_spe(host_data_ptr(host_debug_state.pmscr_el1));
+> -	/* Disable and flush Self-Hosted Trace generation */
+> -	if (host_data_test_flag(HAS_TRBE))
+> -		__debug_save_trace(host_data_ptr(host_debug_state.trfcr_el1));
+> +
+> +	if (__trace_needs_switch())
+> +		__trace_switch_to_guest();
+>  }
+>  
+>  void __debug_switch_to_guest(struct kvm_vcpu *vcpu)
+> @@ -98,8 +105,8 @@ void __debug_restore_host_buffers_nvhe(struct kvm_vcpu *vcpu)
+>  {
+>  	if (host_data_test_flag(HAS_SPE))
+>  		__debug_restore_spe(*host_data_ptr(host_debug_state.pmscr_el1));
+> -	if (host_data_test_flag(HAS_TRBE))
+> -		__debug_restore_trace(*host_data_ptr(host_debug_state.trfcr_el1));
+> +	if (__trace_needs_switch())
+> +		__trace_switch_to_host();
+>  }
+>  
+>  void __debug_switch_to_host(struct kvm_vcpu *vcpu)
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 96a32b213669..9c0f8c43e6fe 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -18,6 +18,7 @@
+>  #include <asm/barrier.h>
+>  #include <asm/cpufeature.h>
+>  #include <linux/vmalloc.h>
+> +#include <linux/kvm_host.h>
 
-In all cases the kernel turns on USB-A power and boots.
+Ordering of include files.
 
-> I am not sure, the schematics I have here (which says V1.0) have PH23
-> as NC... Well, the M2 Berry schematics have PH23 as 5V EN, maybe I
-> messed up M2U and M2B when developing?
+>  
+>  #include "coresight-self-hosted-trace.h"
+>  #include "coresight-trbe.h"
+> @@ -221,6 +222,7 @@ static inline void set_trbe_enabled(struct trbe_cpudata *cpudata, u64 trblimitr)
+>  	 */
+>  	trblimitr |= TRBLIMITR_EL1_E;
+>  	write_sysreg_s(trblimitr, SYS_TRBLIMITR_EL1);
+> +	kvm_enable_trbe();
+>  
+>  	/* Synchronize the TRBE enable event */
+>  	isb();
+> @@ -239,6 +241,7 @@ static inline void set_trbe_disabled(struct trbe_cpudata *cpudata)
+>  	 */
+>  	trblimitr &= ~TRBLIMITR_EL1_E;
+>  	write_sysreg_s(trblimitr, SYS_TRBLIMITR_EL1);
+> +	kvm_disable_trbe();
+>  
+>  	if (trbe_needs_drain_after_disable(cpudata))
+>  		trbe_drain_buffer();
+> @@ -253,8 +256,10 @@ static void trbe_drain_and_disable_local(struct trbe_cpudata *cpudata)
+>  
+>  static void trbe_reset_local(struct trbe_cpudata *cpudata)
+>  {
+> +	preempt_disable();
+>  	trbe_drain_and_disable_local(cpudata);
+>  	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> +	preempt_enable();
 
-While V1.0 didn't need the PH23 setup due to nc, V1.1 needs it. Maybe V1.1
-was already on the horizon...
+This looks terribly wrong. If you need to disable preemption here, why
+doesn't the critical section cover all register accesses? Surely you
+don't want to nuke another CPU's context?
 
-Thanks for the insights and your support, guys.
+But looking at the calling sites, this makes even less sense. The two
+callers of this thing mess with *per-CPU* interrupts. Dealing with
+per-CPU interrupts in preemptible context is a big no-no (hint: they
+start with a call to smp_processor_id()).
 
-With seasons greetings
-  Hermann
+So what is this supposed to ensure?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
