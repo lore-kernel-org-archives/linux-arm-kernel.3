@@ -4,75 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A0AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 08:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D57E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 08:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+pYEpJLHLmynLvPvYUw9aBkkJjdq6u3b4fGi7lX/QDQ=; b=s4xSTUDQUqJOXOi9glyfObctS7
-	JHlzfSgAKVewk7rgOEr0n1hqVDaVAvf2xbnvbtkPfD/du7qzDApEXMbGjp3HYWhsDp8eKIrUCGulR
-	oOK934b9Lj+m2Le1I9tTkjgFacGVcFFNaLfG0nLZzrUo1QHqq1N+NaN+APBhX2geIcB+iOh2K0CK3
-	lPly6aU5FxTQ0D8fuq4HD0utS7qhYcaxDCYloNNL0+RG2gsdX0NIUj91buHz/ODJA959xqrAc/7+E
-	W/i85dXUOvWUHyf9Pxz9ENqyerP2sCsHp3YPnkeCuqIrJYEj09CZz9zrquzaIpqzn1xDy7R3ZxyNA
-	BEi5SBbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=764FN0kjKGwrqKqHzfTio0GE0ZmimsPvMmxa1MbNajc=; b=wGZuHALQu5r96MaLvBNZIr/4EB
+	kE2bFfXyBfAfntersd+U1x+nPDYKbj11V+KPCoLnR1r+5xEFVZ/FkvBEBIpm6OLtYf/YJyRUhmkJf
+	pPg498Oabv9TnrdavXa4RDKQ32EGa+bZ9E+vDaYm9H/V2PL/u6Jy8R6pM6IN9tp50B4+ELY4AHyA4
+	1hktZwVPqU2WIMZWG/Le9wA3TYPxIy1LpLpiGtrHZvmtnTCDZ0IHvYI5wRCO8OdT9Pv8Ca5c3r0eG
+	xubPJwddr5fuL3+bLJc34AETww/CU13JvXybWTul3hhM7EA6km/BrJKmSVpsVM6DMSUyIPOW17if3
+	KvAYzeFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOYZg-00000004Jbt-2hGa;
-	Fri, 20 Dec 2024 08:41:32 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tOYk9-00000004KnB-2YY0;
+	Fri, 20 Dec 2024 08:52:21 +0000
+Received: from mail-eastasiaazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c400::2] helo=HK3PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOYYW-00000004JFY-2rML
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 08:40:22 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOYYJ-0003lY-5P; Fri, 20 Dec 2024 09:40:07 +0100
-Message-ID: <89a3b1c9-2be2-4e7f-a0c6-abbf8b88957b@pengutronix.de>
-Date: Fri, 20 Dec 2024 09:40:06 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-To: Carlos Song <carlos.song@nxp.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Clark Wang <xiaoning.wang@nxp.com>
-References: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
- <Z2QQI2gJNLjI-fam@pengutronix.de>
- <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2UBfcq6pE-JMUrb@pengutronix.de>
- <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2UK4rMxrtNsPw5V@pengutronix.de>
- <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
- <Z2UeKZcpeRUt2OQ4@pengutronix.de>
- <AM0PR0402MB393739E1D91ED2A539B5A2C7E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2Ugt8NVued0_4c4@pengutronix.de>
- <AM0PR0402MB3937419BBB58B75FB8F8DE2DE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+	id 1tOYj0-00000004KYR-02g5;
+	Fri, 20 Dec 2024 08:51:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wwff4fRjMV6itOqvSKvUHqdvTxSVE+y6PXXa0UqRWskU48DKaIMA7TTdWa5sJ3MQKpFOmxjqJjy8uLQ/yiWiLhBiGCr42PsG/LBTUxXHYBLcWJQBgBUyOYV2cKMyhac0rVqhlshvbnD14Dfc8b0rmShPzJkZuYklK89UUn/VCUsCFEyQDRQcBG0TOcMA5UgY5N6CGodAbmqv2XMlbUUmdgFQzk1tqI0QITIl5zuftN+67uXyMjIlSDqusVvOOJsrBaWJXIfHdcGqlpZAPj6rVLnlQq0g9KL0MGiFEeWjdqd95vZKmsatabZZ1iWfTUr7XPrBYsxFCmjrTaSz2V4hZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=764FN0kjKGwrqKqHzfTio0GE0ZmimsPvMmxa1MbNajc=;
+ b=G5dE0pZMkAY6vm6NVZBYsQ9MX2Sk0O3EcHCZRBtaHy7gpE3rLh+5tgYdnt7B1ekXZeT1XB459yz9JJdTuSNKLiRI8K8b+uJZxLt8MiGW01xxTUXxgMhTKmBPxw01g8EGKKWEVjpDhzUxFN2l8LnqOAUoddDwlO//6n0YGhJJTEiXbGu47aqPGzhIkFYnQBkvaSobTZduauv1Z8uiVmB9tvrHZLy53jjAhV9mB6iuC0jWcv0Tvcie77sqc4nbSwrbWO6ZpE35wkfqtGVQI8TQaJzOij2mMvd/NS8SGJDjzn+p5MA73bf4jfVjcglXG4WoT+hgcbCGKjpX50bU+E6koA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
+ dkim=pass header.d=fibocom.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=764FN0kjKGwrqKqHzfTio0GE0ZmimsPvMmxa1MbNajc=;
+ b=n7BeUfuFHNiZ1YqSmV9ekjWa4h+LXopoTenwBqT4ahWSe8RuYJ2uYQ68vywGgtUSw3vrmCEX2p7dmv8fGrJwu8HZvATp9QiloXvIy/mjQzvErftKnpOsDoeOjWunfvS9ARF6QGdCbP/PrjYUnZxU3Bwy1eWRCg9DcoPXf7GhOrs=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fibocom.com;
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
+ by TYZPR02MB6011.apcprd02.prod.outlook.com (2603:1096:400:1f1::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Fri, 20 Dec
+ 2024 08:50:59 +0000
+Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
+ ([fe80::f53d:47b:3b04:9a8b%5]) with mapi id 15.20.8272.005; Fri, 20 Dec 2024
+ 08:50:59 +0000
+From: Jinjian Song <jinjian.song@fibocom.com>
+To: ryazanov.s.a@gmail.com,
+	Jinjian Song <jinjian.song@fibocom.com>,
+	chandrashekar.devegowda@intel.com,
+	chiranjeevi.rapolu@linux.intel.com,
+	haijun.liu@mediatek.com,
+	ricardo.martinez@linux.intel.com,
+	loic.poulain@linaro.org,
+	johannes@sipsolutions.net,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com,
+	corbet@lwn.net,
+	danielwinkler@google.com,
+	helgaas@kernel.org,
+	horms@kernel.org,
+	korneld@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com,
+	netdev@vger.kernel.org
+Subject: Re: [net v2] net: wwan: t7xx: Fix FSM command timeout issue
+Date: Fri, 20 Dec 2024 16:50:27 +0800
+Message-Id: <20241220085027.7692-1-jinjian.song@fibocom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <da90f64c-260a-4329-87bf-1f9ff20a5951@gmail.com>
+References: <20241213064720.122615-1-jinjian.song@fibocom.com>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <AM0PR0402MB3937419BBB58B75FB8F8DE2DE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR3P281CA0041.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:4a::17) To TY0PR02MB5766.apcprd02.prod.outlook.com
+ (2603:1096:400:1b5::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|TYZPR02MB6011:EE_
+X-MS-Office365-Filtering-Correlation-Id: f15d42b8-abcc-49fd-6aa1-08dd20d36c45
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|921020|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?em42blhvT1ByVkkreE9LZzdVNzBNcjJveVByMUNaRllRVlY3OFZWMTZDTmFl?=
+ =?utf-8?B?dzdHQW1lNXlWNmtLNFFBOEFrQTdDa0tvaE9PZVBhbE11VFZqZ2liL3NzRGtR?=
+ =?utf-8?B?N0VldnFtTHF3eXYrRDBMOGI0ZHB1SE5NT0tOQkF1L3UwUldjQ0hsT1ppdmkx?=
+ =?utf-8?B?eXhLTXRIRnltMWQrQlpVN2JjdFFkeTVNdHR5VndsQ1YvZDFEd1dZSmJtWnZ4?=
+ =?utf-8?B?VUpYRXBVcGZxVitsU0VZelBYdjBFdCtaOU9QdmpXTFBtWFdobHpURVR2WGV2?=
+ =?utf-8?B?YndWcXd3em9NMTk1clVwNGVFZWZNL25meDViR3VRYWozUXFBd0FXMmk3Y1pw?=
+ =?utf-8?B?cHVMempHam13MWorc1hXOEpSNkdORjVVZzZQMVJXZzVKc2I0Z3BNTFdNNEhq?=
+ =?utf-8?B?NVBvL00rSE8vdUlNa2RPMmZyRlhTejZObXNFdU9TRnNsdkxaZzg3K1d3NTdQ?=
+ =?utf-8?B?dEtxcE1od1EyTENWTTJPNWxaR3F2d3hRSXlJUXJkWW00TGJLYjExY1ArMjhW?=
+ =?utf-8?B?aFZ5R1FvbldoVU1KUzVueVZrZmVKaUF1RUd3MzBYMFJUODhnR0xOaStWT3Uy?=
+ =?utf-8?B?R1ZyOGZzUWU1WjdwbldEWUtSS0NUR2FGNmYzS2dOWHdpS05qN1lEYVF0VERl?=
+ =?utf-8?B?R0NrWDA1cUYraWpxckF1MU9CTEI3WDEwSDFBOUZLODZYTUVoK21ITndmUFVB?=
+ =?utf-8?B?QTB4OFZDMEN1djY0cjI2anI2MEhOUkJYWW41dVIzL09YV2JaWTF4dU4wbnFV?=
+ =?utf-8?B?N3gyMVlSZFdEL280OFpvZkNkNkNXeS8ybGY2Sk5rRnUrS0lRWmY1NVo5bVFT?=
+ =?utf-8?B?VFYyd1EvVk91Z1dwL1lPVlFnaGRKNmdoRVNLOE1ZSEdtSTltbEFzb3c0WGMx?=
+ =?utf-8?B?Vzdwd0hwL1BVd29tb29LUGt6NTQ3bkUvZlYzc0lDTllYbHRUaEJPRnArbFE3?=
+ =?utf-8?B?SE5YYk5xN0RBN2hPTWpSMU0rbGdnL0tSUG1meFB3TWw5NzZNczQydXdIQ29z?=
+ =?utf-8?B?SlpqRVhLYWpMNkRRM0x4RCt4S3ovZ3FuQ05TWWhUUDV1cjRrM2thbDVnaUkr?=
+ =?utf-8?B?K2w1OENaM2FiKytUM1U3SkZEeUV0M0E4dmlGL05RbzJ5a1I0MEpXTFM5UkI4?=
+ =?utf-8?B?TzE1SmZ0UVAzTXl5cktWSW1KeHMya0pqZHNVSjV4aXgrT1FSUEwvN24xaHRo?=
+ =?utf-8?B?VmZqTDlBMDk2MDFDbnRVaFNrZ25xYjdURkxHclJ5RGFmek1jdkJXbmhOYlhu?=
+ =?utf-8?B?ZFRTTU5YelZkQ0Z3Y29XR0ZESERkUjdkNEFQd3hlczBxRldlaTZNWHVaeWVv?=
+ =?utf-8?B?a0xhZ08zZlpVWUorYnFSSkpBUVVwbStXVnFiWDY0RHQreTJZS2xKTjFmWFhU?=
+ =?utf-8?B?cWVpTlhHb0NJdXdkeGdiOGg5OGgvSUJhRWJyeHJxd3JaVCtpdlRwME85Q3lW?=
+ =?utf-8?B?a2xLUi9sbFBIL05qWEc2aDBhMStNV25jRGdaV2lzc1JaZXFUTytNUGx2dFVB?=
+ =?utf-8?B?R3lwKzUwWFRFQWVGMkRvcTZ2Z1k4UXdxVWF1d2xrUHRPY1lVSERnTkl4aW9O?=
+ =?utf-8?B?YXBhc1dyeUZnbU90OWsxT04wREFWSmdPdFp2ZkdQeXpNS2RkSWNRSWxFeDhj?=
+ =?utf-8?B?U0FQck9wWWNLY3VGYlhQT1Z0TCs0QVBja1RncVFJcVJrbWN4ZmtzbEJ5UUV2?=
+ =?utf-8?B?SEJ6ajJKbjN6Rk9VcDVBSGMyRExWcm42SmM2dGZvOEdwNysvWEt6azRZQSsw?=
+ =?utf-8?B?bDJoSHJlZ0c3eWd4YmU3M2xtNzVXZlhuc3ptblF4ZjVMZTdja04xSkhtcG1T?=
+ =?utf-8?B?VmhSdFpCbEtjOTV4bjMvU2FncWJZQm9hZ25GVE1XUS85ejF5RjBCWnovSXJa?=
+ =?utf-8?B?MlIrbHdXcU0rR2d6c3RRT05wWnpGbWUzWlRVbWlqT0loWm81b2NDcVUxRGFF?=
+ =?utf-8?B?bHFXWTBsendEOXVRNmppeC9ycEhrR0pjNFdOVmFidEhjVnAwS3l2aWVRVlR2?=
+ =?utf-8?B?RzBmSUtJVjFBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(921020)(7053199007)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MUZycit1VGJpcndQOFNudldUZW15NXhMZkMxaENpdXk2M2k2c0cvSXZPRWhW?=
+ =?utf-8?B?OHNjTWVYTUUwd2h1aVdxbGtac1VOeGI2d3RJYTA4WkJxMFk4WEpTT3pGMTY0?=
+ =?utf-8?B?N3Q4K05JRFhHREVUT3NCNTBzU01LK0l3SHJFamVMVUR5NDdQVlExeUp5UGRs?=
+ =?utf-8?B?NVM3UGR6OTRrUm84ajB5WkdOWjJVOGlmSjJRdFVUUE13ek9sWHExL1JWVmUr?=
+ =?utf-8?B?TCszMUs1SGRkWW9xQnRFSjBhQ0V5VFAzRE91eExuRnJCL1k0TTFGZy9HVElP?=
+ =?utf-8?B?VUpod3NQVFBQNWZTOVNpaHVJNlBaK3RTeitLdzhvMHZPQWNnY3poRG1Qd0Vn?=
+ =?utf-8?B?ZjQxclh3UVp3RnNQOUNzUzBrLzFMWU40ZjRkTUFzSWF5aE1JdG5TMjIxbjFL?=
+ =?utf-8?B?UGJuM1BucFFlV0lWWVpEZy9KeXZhcWdCSFVtSGFMVXpuVHU0TzY0M1UzUk93?=
+ =?utf-8?B?dzlhKzJiOEIvdFdqSmtHSllkUDQ0dm1tUXliNS9nQmRvZUVOY3d5RElKVEw2?=
+ =?utf-8?B?WnZpNjdNZjBxTXN3MXZ1dXJ3VlhHYkI3aUV2ZnV5cHNCQ05GSHVtWDVLZ3JB?=
+ =?utf-8?B?MU1IUFQ1M1V0R1lDUDMzT0VockZhMzFYZHFXVGQ4RGR4QjdKWGRlbGN2OVRY?=
+ =?utf-8?B?emYzK1I1OEF5eThaZS82anlhQUNiaVFxLzd1Y1plNjFQYzJDOVVSa055MU5i?=
+ =?utf-8?B?bG00c0ZrSTloeWJSaEd2bXBTay9BV2tmR0tnNDNxMm5oZVFrc2c5OU43RTZl?=
+ =?utf-8?B?cDNraGVsWnVkOVFaMjFTaTFJeTY2NTBrRHdIZS9iL2lSdURGZGxLRlRDMGt1?=
+ =?utf-8?B?c0I4TXJVMFBnbW5ocnRpay85aE1aYjZjZTAzbU1aZzMxM3M5c2xrdU9PNmM0?=
+ =?utf-8?B?V042dHdPajRRQms1Uk5ody95dUdNaU9JWHhVNjdyTGErTWZIc09pVHdoRlRm?=
+ =?utf-8?B?Znprb2ptVGNyTGtmNFFpa3lDblJuVEUrRjFMejhPWERWcnZmUjZzc3g0aFNP?=
+ =?utf-8?B?K0JZTkkybm1uckJTT2Y2bVZEclBpbTVybjQ3R256Q0Y4ajFKb0JLN1pzSk13?=
+ =?utf-8?B?YndqeENPWWF0bmg4RThHQ2JyMmZRK2JnZUs0UU1yTXhwMnU4MzlWMDdOQTQ0?=
+ =?utf-8?B?bSsvRDdoUFRLUURiSWdHeTVBWmNLQnlvMm5DOUMzZVRmTkszQVd4MU5nWjBE?=
+ =?utf-8?B?S3lSSHAwZkxFVDRXMjZsSExxVGJYb0RRUThvVEE0bDI2d3IwdU1McytoSXZU?=
+ =?utf-8?B?SGY3WjEzZ0FBZno1T0Yza0VraFVyLy82ODAxMEFrblNuSVJhTFF5eVBlQ0Y1?=
+ =?utf-8?B?dWxyUzZkNmtxZHFWSCthU0tOSzJUN2VOTjQwdmdWS3JHN2Rnd1J5Tm5ONExR?=
+ =?utf-8?B?M0NqK0pWTUh4ZDE4QkZ3a1haYXBkRXIvam1EQTJMeWhKcXdrOVQ5dG8yTU96?=
+ =?utf-8?B?eXJ1eElkbkNrZHVpYXFiNHVsUzhiZHFRelJSS0JSdG1ETlJTaWdBczJxeGta?=
+ =?utf-8?B?MFR0clNkdEdOSTZFRWtNREc5cXFlbFFoUncveDNpU0tTUjdnWDFwWTBVdURn?=
+ =?utf-8?B?ZERnTlZjNGlrMFB4QTZwUzMrV1VFMzY2a0gzbTR0UFF2SVNoYzNGQlpYc2pS?=
+ =?utf-8?B?UDhHUkNOcVRWNzZTaVk0VDVneGd6aWdwcXdLQ3lhQ3BqQVRhbGxZUldnb0Vn?=
+ =?utf-8?B?K05VVzRIb0htOUJ1S1ljUU1nZjlibUtrUk1udGRjMElRaWZMM2xvWHdSc3gr?=
+ =?utf-8?B?V3pJS2hxM2FhQ0JoOTZVdFFwbVkzNXUwQkR5MzVvNGp6T3cxTnAxY2luUTQw?=
+ =?utf-8?B?V05RZWsyayszellmUkxjZkRwaCtBaDdHQzcvNmJ3VXRidkhmd29KMElKQ0s4?=
+ =?utf-8?B?UXdPamVJalFFSjFsTHo1M2NQdjNNbExnemZvdmNkMTFqOVZWRVdrbWwrYlcx?=
+ =?utf-8?B?TWJuM3lQVU1nM3dLOGRkdm1OOEM4cGRza084bEVQODRTaTJ0UUxXM2R3eUhi?=
+ =?utf-8?B?R2RsU0RwWXZsK2NCdW1LdVNZS3E5SGhZNUt4OERYL2cwTDlxQnYzeURXM243?=
+ =?utf-8?B?SHZtZkFDT1Q5RmhBb01ibkoxc0dCV2tYdmNvUnluT1JwWGQ5T2htSm9qTlMr?=
+ =?utf-8?B?OVMvMGU4WU0vRnZVZHdvd1RSVWJBRkMxRlM4V2JBWjgyNW1Yb2FYbklZMWZV?=
+ =?utf-8?B?MFE9PQ==?=
+X-OriginatorOrg: fibocom.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f15d42b8-abcc-49fd-6aa1-08dd20d36c45
+X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Dec 2024 08:50:58.9580
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QRJerlumVH4mxSKM+c91hjW23SI03XUfDAk1DPTAJ/sULrY4x/OYwlAnhm3xM88J2vl0Ipa5nrRyMjHH7g8YaBVJ3/CPpcK5cQ9psMHlnSE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR02MB6011
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_004020_738244_98816D70 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20241220_005110_215420_A5BD01B7 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +198,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
 
-On 20.12.24 09:06, Carlos Song wrote:
->> -----Original Message-----
->> On Fri, Dec 20, 2024 at 07:38:47AM +0000, Carlos Song wrote:
->>>> -----Original Message-----
->>>> From: Oleksij Rempel <o.rempel@pengutronix.de>
->>>> Sent: Friday, December 20, 2024 3:35 PM
->>>> To: Ahmad Fatoum <a.fatoum@pengutronix.de>
->>>> Cc: Carlos Song <carlos.song@nxp.com>; Andi Shyti
->>>> <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>;
->>>> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
->>>> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
->>>> linux-arm-kernel@lists.infradead.org;
->>>> linux-kernel@vger.kernel.org; Clark Wang <xiaoning.wang@nxp.com>
->>>> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
+>> Fixes: d785ed945de6 ("net: wwan: t7xx: PCIe reset rescan")
+>
+>The completion waiting was introduced in a different commit. I believe, 
+>the fix tag should be 13e920d93e37 ("net: wwan: t7xx: Add core components")
+>
 
->>>>>> I think this is what you want to see, right?
->>>>>
->>>>> This loses the information why the error happens (ret). Using
->>>>> dev_err_probe even if no probe deferral is expected in that branch
->>>>> is perfectly fine and the kernel-doc even points it out:
->>>>>
->>>>>   Using this helper in your probe function is totally fine even if @err
->>>>>   is known to never be -EPROBE_DEFER.
->>>>
->>>> Thank you for the feedback. While I recognize the benefits of
->>>> dev_err_probe() for compact and standardized error handling, using
->>>> it without returning its result raises a red flag.
+Got it.
 
-Agreed, which is what spawned this thread in the first place.
+[...]
+>>   	if (cmd->flag & FSM_CMD_FLAG_WAIT_FOR_COMPLETION) {
+>>   		*cmd->ret = result;
+>
+>The memory for the result storage is allocated on the stack as well. And 
+>writing it unconditionally can cause unexpected consequences.
+>
 
-If we want to ignore errors intentionally, I think a comment
-like the following would make this clearer:
+Got it.
 
-  /*
-   * As we can always fall back to PIO, let's ignore the error setting up
-   * DMA and see if we run into errors while setting up PIO mode.
-   */
+[...]
+>>   		wait_ret = wait_for_completion_timeout(&done,
+>>   						       msecs_to_jiffies(FSM_CMD_TIMEOUT_MS));
+>> -		if (!wait_ret)
+>> +		if (!wait_ret) {
+>> +			cmd->done = NULL;
+>
+>We cannot access the command memory here, since fsm_finish_command() 
+>could release it already.
+>
 
+Got it.
 
->>>> The function's primary purpose is to combine error logging with
->>>> returning the error code. If the return value is not used, it can
->>>> create confusion and suggests potential oversight or unintended
->>>> behavior. This misuse might mislead readers into thinking that the
->>>> function always returns at that point, which is not the case here.
->>>>
->>>> In this scenario, using dev_err() directly is more explicit and
->>>> avoids any ambiguity about the control flow or error handling
->>>> intent. It keeps the code clear and aligned with its actual behavior.
+[...]
+>Here we have an ownership transfer problem and a driver author has tried 
+>to solve it, but as noticed, we are still experiencing issues in case of 
+>timeout.
+>
+>The command completion routine should not release the command memory 
+>unconditionally. Looks like the references counting approach should help 
+>us here. E.g.
+>1. grab a reference before we put a command into the queue
+>1.1. grab an extra reference if we are going to wait the completion
+>2. release the reference as soon as we are done with the command execution
+>3. in case of completion waiting release the reference as soon as we are 
+>done with waiting due to completion or timeout
+>
+>Could you try the following patch? Please note, besides the reference 
+>counter introduction it also moves completion and result storage inside 
+>the command structure as advised by the completion documentation.
+>
 
-This is a fair point. I don't mind whether we use dev_err_probe or
-dev_err with a return code, it's up to you ultimately. I just wanted
-the error code to be included and I think a comment would be a good
-idea to avoid confusion (provided we keep behavior as-is).
+Hi Sergey,
 
->>> how about this?
->>>
->>> +       ret = i2c_imx_dma_request(i2c_imx, phy_addr);
->>> +       if (ret) {
->>> +               if (ret == -EPROBE_DEFER)
->>> +                       goto clk_notifier_unregister;
->>> +               else if (ret == -ENODEV)
->>> +                       dev_dbg(&pdev->dev, "Only use PIO mode\n");
->>> +               else
->>> +                       dev_err(&pdev->dev, "Failed to setup DMA (%d),
->> only use PIO mode\n", ret);
->>> +       }
->>
->> Please use human readable version of error value. In this case it will
->> be:
->>   dev_err(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n",
->> ERR_PTR(ret));
+Yes, the patch works fine, needs some minor modifications, could we 
+feedback to the driver author to merge these changes.
 
-Sounds good to me.
+diff --git a/drivers/net/wwan/t7xx/t7xx_state_monitor.c b/drivers/net/wwan/t7xx/t7xx_state_monitor.c
+index 3931c7a13f5a..265c40b29f56 100644
+--- a/drivers/net/wwan/t7xx/t7xx_state_monitor.c
++++ b/drivers/net/wwan/t7xx/t7xx_state_monitor.c
+@@ -104,14 +104,20 @@ void t7xx_fsm_broadcast_state(struct t7xx_fsm_ctl *ctl, enum md_state state)
+ 	fsm_state_notify(ctl->md, state);
+ }
+ 
++static void fsm_release_command(struct kref *ref)
++{
++	struct t7xx_fsm_command *cmd = container_of(ref, typeof(*cmd), refcnt);
++	kfree(cmd);
++}
++
+ static void fsm_finish_command(struct t7xx_fsm_ctl *ctl, struct t7xx_fsm_command *cmd, int result)
+ {
+ 	if (cmd->flag & FSM_CMD_FLAG_WAIT_FOR_COMPLETION) {
+-		*cmd->ret = result;
+-		complete_all(cmd->done);
++		cmd->result = result;
++		complete_all(&cmd->done);
+ 	}
+ 
+-	kfree(cmd);
++	kref_put(&cmd->refcnt, fsm_release_command);
+ }
+ 
+ static void fsm_del_kf_event(struct t7xx_fsm_event *event)
+@@ -475,7 +481,6 @@ static int fsm_main_thread(void *data)
+ 
+ int t7xx_fsm_append_cmd(struct t7xx_fsm_ctl *ctl, enum t7xx_fsm_cmd_state cmd_id, unsigned int flag)
+ {
+-	DECLARE_COMPLETION_ONSTACK(done);
+ 	struct t7xx_fsm_command *cmd;
+ 	unsigned long flags;
+ 	int ret;
+@@ -487,11 +492,13 @@ int t7xx_fsm_append_cmd(struct t7xx_fsm_ctl *ctl, enum t7xx_fsm_cmd_state cmd_id
+ 	INIT_LIST_HEAD(&cmd->entry);
+ 	cmd->cmd_id = cmd_id;
+ 	cmd->flag = flag;
++	kref_init(&cmd->refcnt);
+ 	if (flag & FSM_CMD_FLAG_WAIT_FOR_COMPLETION) {
+-		cmd->done = &done;
+-		cmd->ret = &ret;
++		init_completion(&cmd->done);
++		kref_get(&cmd->refcnt);
+ 	}
+ 
++	kref_get(&cmd->refcnt);
+ 	spin_lock_irqsave(&ctl->command_lock, flags);
+ 	list_add_tail(&cmd->entry, &ctl->command_queue);
+ 	spin_unlock_irqrestore(&ctl->command_lock, flags);
+@@ -501,11 +508,11 @@ int t7xx_fsm_append_cmd(struct t7xx_fsm_ctl *ctl, enum t7xx_fsm_cmd_state cmd_id
+ 	if (flag & FSM_CMD_FLAG_WAIT_FOR_COMPLETION) {
+ 		unsigned long wait_ret;
+ 
+-		wait_ret = wait_for_completion_timeout(&done,
++		wait_ret = wait_for_completion_timeout(&cmd->done,
+ 						       msecs_to_jiffies(FSM_CMD_TIMEOUT_MS));
+-		if (!wait_ret)
+-			return -ETIMEDOUT;
+ 
++		ret = wait_ret ? cmd->result : -ETIMEDOUT;
++		kref_put(&cmd->refcnt, fsm_release_command);
+ 		return ret;
+ 	}
+ 
+diff --git a/drivers/net/wwan/t7xx/t7xx_state_monitor.h b/drivers/net/wwan/t7xx/t7xx_state_monitor.h
+index 7b0a9baf488c..6e0601bb752e 100644
+--- a/drivers/net/wwan/t7xx/t7xx_state_monitor.h
++++ b/drivers/net/wwan/t7xx/t7xx_state_monitor.h
+@@ -110,8 +110,9 @@ struct t7xx_fsm_command {
+ 	struct list_head	entry;
+ 	enum t7xx_fsm_cmd_state	cmd_id;
+ 	unsigned int		flag;
+-	struct completion	*done;
+-	int			*ret;
++	struct completion	done;
++	int			result;
++	struct kref		refcnt;
+ };
+ 
+ struct t7xx_fsm_notifier {
 
-> Hi, the ret is from i2c_imx_dma_request() and look like that ret has been converted by PTR_ERR,
-> So the ret error has been human readable version?
+Thanks.
 
-I am not sure I understand the question. ERR_PTR() makes an error pointer and %pe
-formats that pointer as error message. So you don't need to change any function
-return types unless needed, just at the end print it with %pe instead of %d
-(and after error pointer conversion if needed).
-
-Cheers,
-Ahmad
-
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Jinjian,
+Best Regards.
 
