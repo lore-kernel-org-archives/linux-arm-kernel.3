@@ -4,213 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2E8E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 02:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8813E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 02:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jv23q/i6/wIz2pUXJpHo6rKl3ctr2GOQpPP69HfG1lY=; b=Js8Pc+kIafKyT0p0HJRqCVMFdt
-	eTX4hJ4TL3MdgJiz4+J/lWBiXtOmX49FTLUzLRv/oH57Fvd0QOYOJ0Hvp6Ug7ksH5aFeN149ULcwZ
-	F/1DAjAqwT5d+pV2RQek08oXxnTpL6svhVosUmUjEEslG1C3ty8olFAnZJasXUv/qJcF7UfQBq4fB
-	9aGx5o5esOwolkln7M4f/59iz1PRHwxCpHHsiYaHOiMRe6+VdV3MBYNMqwu9LPNZhDi2NIa6l/iJp
-	eGMWoPux3tx12AD2PqYVhOW+XZoyBKtDc2v+5XecRkHK69F8LEyaL2oUCBSvHIaRMFv8eBu9LD1lG
-	dcp6kutQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Dg8fmjMM2o4ZdUzcCM3IsD7JuuynFC9AcsVyNRsKeBU=; b=OeWSbI4goKexL+
+	vmjsWOcHKe43jCyWyYFIghrxt3ic7KYySYdIn9oXUBDvonKvqb6iHhQ3eCFoSyE8WUSpQYgsKcwju
+	aRvLlhyTgVBA9ALaA3IErfDV/NymqB3fDbR1gMpO6c59oHGHXGDtAEKkEoQlRazFQu5VFDdPUFxTC
+	ra2W7DxzJqg0EQXgyRowd8hZFlSgzjtr9f79mSpMtGDnqGf1cwQlLhXoQWdx1aWdmpUkk4G+Uy1NA
+	QHGdsK6QW0orR6+t4wNVywj7Nvt6AFWE6+zkoPD0sYIaJA/R6h2DAHQL/QPNpZSUbx8s3zE7Qu32I
+	ETGynHsXJaic5smTq+xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOT8b-00000003kbo-2AV0;
-	Fri, 20 Dec 2024 02:53:13 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tOTAi-00000003kxV-2SSP;
+	Fri, 20 Dec 2024 02:55:24 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOT7R-00000003kSI-15h2;
-	Fri, 20 Dec 2024 02:52:02 +0000
-X-UUID: 5a98eccabe7d11ef9048ed6ed365623b-20241219
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=Jv23q/i6/wIz2pUXJpHo6rKl3ctr2GOQpPP69HfG1lY=;
-	b=gVq8E5ZcXXg3tcLNLaH3xpTJNF6A7uTHEHccWZlkpdy2W93zFDs7nvGQhOZbyL5r6SaSg8jMS828H88eNpZ/Z+poZPqRwAmiK0Ydaen1o8WCe5JyXVA6LKuVxRDEHeuAmwyEDuhLFZw2o43q8puPed/eIYKxsL+01Bxmw+0npr8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:c3e6339d-f4f3-49f4-a5d4-1192bdb9f698,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:-32768,SF:-32768,FILE:0,BULK:-32768,RULE:Rele
-	ase_Ham,ACTION:release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:630552e6-8d52-4d8f-9f93-b258cf7bc333,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:nil,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 5a98eccabe7d11ef9048ed6ed365623b-20241219
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1914798025; Thu, 19 Dec 2024 19:51:47 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 20 Dec 2024 10:51:44 +0800
-Received: from APC01-SG2-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 20 Dec 2024 10:51:44 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FFpAyxDDsUGaYjNekXoBhpR9PIeQXGUcMu2Upkw0VEJ6wy6DysZ7dXNWQP2YYE4nglDBiw7xNQh3fBNkMYeF72/KT4pKxXdPcoEZuem1kvioNamaIKKBdh1ABk1r9joMrl5ZdHzpGKKqcHdFuS11Si6LsmKFGlFy9sT1IzQMBMcJGV+Djjk5DxX9ncNmfDJmFgleCIfqthkAcoilmgs/QVcIa2EMdaooCuZw+twzsAe1BC5IeIJs6A47jZcRZYfJRN9MjNlk1fw5tege47RzuK7cjNBhZ2K17tl4G8sEuPWuHAigWPv3BlIFePXpHyCrf88gH7Bpfqv6D/XFc1a00A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jv23q/i6/wIz2pUXJpHo6rKl3ctr2GOQpPP69HfG1lY=;
- b=lG9YYaGju6ApIqd4r78uXKR0e8f5JM0TuOsP+rD6WnQ6oJ2FRnO57wntcuDL5mfl6N14m4LOctB7aLMA+sbD1f0jig1Q9GonL7QWkSqErkR8UdW79QyHSVT6fC1Qn/7P/lsqMWyW7Jaf7huRw56fqWBYHqD5WyL61zKiWyRw/c1sdIfyExOYdK3xi8JiDx6pMR/KhxfzGwp11OtppbtFh303JSOuZ/zE9osZ1bZ/Mdkdv7NEJgkAaxZFQLay8TvWwf8nv/PBxLnOuXZkH0e/ByWkZbApU/j2+Xj0ELWa6hGYu4LGHj6kDwxMNX8DKEf7bDvOK/flFu3Sc6Gw+quYgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1tORz9-00000003d4i-3ycS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Dec 2024 01:39:25 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-7eaac1e95ffso910932a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 17:39:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jv23q/i6/wIz2pUXJpHo6rKl3ctr2GOQpPP69HfG1lY=;
- b=RdyZwxhUOBkQIP6V2hY68zmevns+E7tzONZ/lvUnp39lnkeNbnr7rX6t1ixvEuPFVe+ypjI5Y3R3f9WVpc7n+F1egKLOCjUPoteYhCkLYDbe1EGUzPXXTkbiI2emcZuox5ediWS85v56wT30LldV+jR8W7q5N2ebqyT7/FQQ1MA=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by OSQPR03MB8745.apcprd03.prod.outlook.com (2603:1096:604:272::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.13; Fri, 20 Dec
- 2024 02:51:41 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8251.015; Fri, 20 Dec 2024
- 02:51:41 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "jie.qiu@mediatek.com"
-	<jie.qiu@mediatek.com>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
-	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
-	<mripard@kernel.org>, =?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
-	<jitao.shi@mediatek.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
-	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"airlied@gmail.com" <airlied@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "junzhi.zhao@mediatek.com"
-	<junzhi.zhao@mediatek.com>
-Subject: Re: [PATCH v3 13/33] drm/mediatek: mtk_hdmi: Fix typo for
- aud_sampe_size member
-Thread-Topic: [PATCH v3 13/33] drm/mediatek: mtk_hdmi: Fix typo for
- aud_sampe_size member
-Thread-Index: AQHbUJqlCZb7Z3yJekan1FyQAxP0f7LucvoA
-Date: Fri, 20 Dec 2024 02:51:41 +0000
-Message-ID: <37b5aac8e889ced47af3388e1439050c53149de9.camel@mediatek.com>
-References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
-	 <20241217154345.276919-14-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20241217154345.276919-14-angelogioacchino.delregno@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|OSQPR03MB8745:EE_
-x-ms-office365-filtering-correlation-id: 8ee5920d-22c7-4968-62d3-08dd20a13b57
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?dG5HZ2ZFRVNndDQ0TTJPRER2cjI5UDZnRkZsTVdRUVVkd3dvS3VwQ3pXV1Zm?=
- =?utf-8?B?TjRRNFFncVAwMjQvQktPUjhmSUhMcE9hYytrRVRqZU91T1JUMll5dU51U0Zm?=
- =?utf-8?B?L1BBSElRYzJ3OG45UmYzRUg2MC9DQzVmUS9jbWJxV0JEbTZvdDBieDhaZWl5?=
- =?utf-8?B?K296Rmc1eTY2Q2lRYUZtK0lNNHlaYmpTZzhBZnZhQ3dIRkNsT3hEeWlld0dH?=
- =?utf-8?B?NjBFa3VEZzlDb0lRSDRFdW84MGZBaHErNWNZY21tcUsvZGJmbWlxdjlOZWV0?=
- =?utf-8?B?UFMwYzFUZGE0QjU4OHdGWmVoTjd5Lyt0Y2FVMFBlWDhjKzdHcDNzQ2FCYlBs?=
- =?utf-8?B?aWgwWjBQelVpSTI5UHpveS9EU1crMFJNbXoyRXBxeXVHMDVwV1BDSW5lVDFv?=
- =?utf-8?B?anQzVXlHTzQyRWwyU1FYZC9DUlJ0QWhsVU5VekpDdjhsdE5ncmVLNGZ4azJQ?=
- =?utf-8?B?UjRkaWE0ZU1xUzJEQjNIclJYVGlqQlNrUGlPaWlKM1hpbjBhZmNQQXVrKzkv?=
- =?utf-8?B?Z04xaXpxeXBEN0tvSVZjVXdiekloQTBqUjRkd00xWGtSNjBObno4UEF2dW15?=
- =?utf-8?B?WGJwMWV5ZXkra3FzV3NZYXUvOEkwZnBPb1pVSFRBYkpXNEhpdktSdGNhTndY?=
- =?utf-8?B?Q2JYeGpWbi9TVEpib0JSb1hZdjJOZUVNSWtHbk5xWGJ2aVMwUllyN0xVRkY5?=
- =?utf-8?B?Vk02Uk9VdForbTVqdGNlUWFhN3l3YWY1RGJxbWQ1R280L1ZGRUY2RGtwTTgz?=
- =?utf-8?B?Z1JIQzQvd2M5OTBGcEd2L0RMTFZ1OUZlSTQxQnhLQnF3aTlFd05IMGxrNXFa?=
- =?utf-8?B?aDBmZjN6UDZaTHhBOFpwak5xT3ZLUXl2U0tMZWVqRStKQWtmN3FUU3NLNzQz?=
- =?utf-8?B?OGtiRUEvU1pVRXdNdWYzUTJOMVovMUZraEF1RVV3dWhwR0ZYQ1ZJQ3Y3UGw0?=
- =?utf-8?B?NW4wcFpEbzc0MUduWVpQU254Y1BZNmhkK2hJS3kxWHk5cVhsb3pwNnZlbjMv?=
- =?utf-8?B?d3hoQlJheFBaNENudG5CaFBVN3ZZRDNzYVVKb1pwZGZVZ3V5bC9QY3Y2Tjk3?=
- =?utf-8?B?Zm1XeW9FMXFmK1NpMFFQQitTMXdINjJCSU9TU1lvWnZrY1JFQko4cTgvMFlO?=
- =?utf-8?B?eDFYTXBsNTErRVhEQkI3Z2hTMzhONmdhN0JpUkxWNlVvcnBtMEpLc1NXME5w?=
- =?utf-8?B?TDR2djQ0MUx4L21tU0tWTk4rZVdqRWJ4bjBFSVJ0WHBVZ2RmeTljRGVNd3Nm?=
- =?utf-8?B?TUpacEJFNG1OblFObzYxVHMyOHhpME5sa3hLbmxnbWRZdVFjRzNybmtXUnk4?=
- =?utf-8?B?ZEF0cWY3UXYwUVRWek84VkZxdTBDeU9BV2I2dWFJOVd1eTBEbXRBNHhsb2pK?=
- =?utf-8?B?dFRtRmRiOXI0TkYwNlF2V3lEMnh2czRYSUtRWjRMckpLNUhHZEM4UEZlMFVB?=
- =?utf-8?B?amdIOHZ0Tk8rM3V1M3UzaEIwZHV3MWpCc1g2cnE0UkxvUEpwRnVvdko0dlA0?=
- =?utf-8?B?d285MHdUNlhaT29hdE12NWcyaU05clZERTRua0tYczZNTkpXVitGQVp3WHM5?=
- =?utf-8?B?Tk1NQ0pBYVgxa1JYN2VzV0tUbHJUUDdLekdoWktLKytHTjBpY0tKUnJUUWFW?=
- =?utf-8?B?QXozUDVQd0RVTmE0VWg0Z0lqTW1Od0JoWFcxeDhoSllEY2VXdTJrS0hzaWJw?=
- =?utf-8?B?TWdMQ1FKUzkzWGNseDRZQW56Z20rNkxWSGZUYlNMUmh0alZxcFlnR3J5Q2Ur?=
- =?utf-8?B?K2N6SEZkU2pFeElQaEtKdjVudVRhaEpPaE9RS0hiR1NZOGhEaCtFMnp6UUYy?=
- =?utf-8?B?THFxYVNSeDROQk5QTTAxZyt5THJ3ZXdCRjRqR1ZkVjQ3OXpZb2tnbkpmc210?=
- =?utf-8?B?U0VlVk9HRE16c09na0ZqdHc0UDBvT1VGdzZiQnBCU1pPclJpdE5lV3huNHdJ?=
- =?utf-8?Q?HdjjZDP83lyMZndzTBfkyNfFqte6aViH?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Y05tc1NqTWRpU2hvUTdURHJENndPWW1EbGVBKzluaTVmRFIrSy9TUXB6UGVp?=
- =?utf-8?B?ME8rTUUxbVhJZVdmWUNaNVErR3JmcHU2SXowQ28yTVpKTkZaR0cwTHg5WjY4?=
- =?utf-8?B?eG02SXhiYmVoRzNKMlkwSmNvN3ZaUTBjYVJZNktLT0c4YnJkaHhRRlFnOWRx?=
- =?utf-8?B?U3Ywcy9qbHdoQS9aZnJ5TkJJS2sxd2E3d3kzTnA0UGkvUE1BSGt2NnRoSW1k?=
- =?utf-8?B?YXRmTnh1eDhUa25JZko0TExMTm9PTE9SbWYvZ0FBQ2F2emJWcWU0bU9wME9x?=
- =?utf-8?B?bW5pTGpHdmZoZk16OWtyZXRBeURrMDg3WDQ3SmxmN05GNEJ0Z0ZsaFBVUk9I?=
- =?utf-8?B?R3hBeXpPRFNQTEFkVWsrY2JDQ285MkhDVk83ZHpRcXFZZDc2bGxZTGxZVjR2?=
- =?utf-8?B?V2N2M2paU3BQYWQ3NHJORFh0UUY4RllnL0p5RHdmR2NndmlGbkpwcEJNbUhG?=
- =?utf-8?B?QStreHpSdFVpc2cwTStwSFF4UEh5VTFINmdzaEFuTEpmVWRLT1poQVcvVVB3?=
- =?utf-8?B?eWR4U2hxWmR3TWpiTFpWdTV2anUvMFZJTFJJVDdGdjdPQTErdHJvK3ZxVmha?=
- =?utf-8?B?eTNHUHZUaXhxME5zV1IyQi9JMmdsYXNZS1Q4Si80Y1NRTmcyaEVBTkx5YkZp?=
- =?utf-8?B?WHVjcDltdTA0bWtZQUJZOVkwekViYlo3NTBvMmMvVG82bkRDSjFvYzJJVXRj?=
- =?utf-8?B?NlJvT3dWejhiTVNoTkdGME83bzkyNnk3OWt2aUVFdTYxdFk5c0N3ZjVPNU1r?=
- =?utf-8?B?WnQ0ckhTdlUzZzRIL3pXc2ZRNmRlTms4Z05yUU1YTWo5YzAvMXIxRHowWVpQ?=
- =?utf-8?B?amh3d3ZwMmxraXorRXc1cXR3dHBzZmY4VTVqVnMyWFFIQnFERHFISWlaUnlw?=
- =?utf-8?B?NVZ0NWJxUGVKdjBtUWlwTndGSGdwMUVsUFpXcGlYaDYyd3hkQzR3Z01wQ3Z6?=
- =?utf-8?B?dHJoSE5wYm0wZEcrcmVPMEV5dlBuK1U1QUpkbllzVVd6bXMzV0ZkdUt6TFJp?=
- =?utf-8?B?VUJVWUNjUmY3b0R5Y053c3E4Y2ZSeFYxSXhFd1NrejhFczY5SEFNcnVZMHd1?=
- =?utf-8?B?K3ZaaTlkNjFTWXZROW5jTmpYWFJOaDFhRmkrQnpCcDhWMFlidEVwNnFxbVcx?=
- =?utf-8?B?LzI5YW1yaWYzcHRkeC84azVzV2p0cHBhTVJBdURLNk9wZVBHZUVENXd3ZjZ1?=
- =?utf-8?B?SnVJUGQrb0FTTnZYendLdkpBengvSldYU0VxNGVyOGNiZEVtN3ZTQlh2WmlW?=
- =?utf-8?B?SElqY2xuRTRIYlJYd3QwbS9qVDNrSTVQOGltL3puUy9YUlhmQUVjVDRYTmZT?=
- =?utf-8?B?UXVYenA2SlBzOThncFVzWHlBd2NxcjNKeUxSVTNOcko1SisrYUFCWWlsa0ZL?=
- =?utf-8?B?UHdwaVlrSkw1RXJmVmlWeTB5YjlBT0NPeVl2MGYxeFhtMjhBOG15VjU4N2lj?=
- =?utf-8?B?ZUhTQngyTjZUSEQ2Tll4bWRoWGdkNGpQWUNqT2VCa1lxKzlvU05xZUVMZklS?=
- =?utf-8?B?NmdUaVRneURJZXVoRXVzVEZGcXh3dStrNG1HdUMvbVhBTUFWTDhzMjFnNGlU?=
- =?utf-8?B?TUhOeDVhU2dET09Ec3R3VU5rcWtsNlluWjhMZCtaVkhiaWtXWmlkNkQyazNi?=
- =?utf-8?B?eFVWbzB6SkZhS0lTbDZ4OUdQajRCYnl6N0Noc0lOcXJlM3lSUURBcmhjdkFv?=
- =?utf-8?B?ZWRBQStRZEhHVmwxaWRFM2hackwxNldvTWRkek5Hd3pKanBHdmhaWkNQU295?=
- =?utf-8?B?NXZiSHFCZnZNa09ZT3dHNWhGVG9rR2ViWEgwSlNLRmlDanoyQmMveG1YK3Ev?=
- =?utf-8?B?WTA1YUNmdzJXaGxwQjFET3VWdlU2ZzN4YVU0bmduaVJFeml2akZSeWlWMHdx?=
- =?utf-8?B?clY4czRTUEtjWGNLbDdILzg1b2ZBTVNIanVDa05CM0pLQWlpUEhMN0p5eWFQ?=
- =?utf-8?B?MVA2YlBqZ01zQU9CL1FXSy9Vdk9DRzhKU3hSaDB4cDNDa0UvRUxJWENRTmQ4?=
- =?utf-8?B?dEd6Kyt3NkNKT2JRZG1FOFF3QzFXUkhUVzhUWWRFeU9OeVgvdUkwQ1NObHZK?=
- =?utf-8?B?Smp1V1N1RGxuY3dZUmNnek43T2lCaUhxL3VHUTNodXJCVG9NMVhVeUp5MkdJ?=
- =?utf-8?Q?09u4U6Nufjq5S7/lGAvyBlEZP?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <F4C649C7C2A94B49A2F1651E3E98E606@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ee5920d-22c7-4968-62d3-08dd20a13b57
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 02:51:41.3485
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lMo5rkxJsTgkUwGpWEzgX8iMHgKGJ/odFYwbPZuxQ64FZ9Bgqc3F0DlOK+JFqcr3W+vSmU826NeOICisJDuU1Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSQPR03MB8745
+        d=google.com; s=20230601; t=1734658763; x=1735263563; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Dg8fmjMM2o4ZdUzcCM3IsD7JuuynFC9AcsVyNRsKeBU=;
+        b=VQW/HJbM8Mz3bqURjdEqVzHJuOW1beKe8KMUVYYgBUpoEbekOp/Ttp7z2fryLQc+LG
+         4in6vEvTHVW2VYA4cfIbEhCY3fV4/GZUb3Gj68yUr0dWYkJKo2IMitVgjAnVie9Hkb/K
+         Y0m/87mwKYYfISMAzBHEaBa9eneVxh7oVFXOhPOft93KBKvk/amOgS95AMV8sa4jPRmU
+         W0JLxmP0mCnsLsAR1ju51a68sh2No9hzfFw/NlfACNiFK3FDQk5LSWIiTuB00iayF+Uy
+         0dcGj3kZen7vV57o7Ls0brJ2o3QEcfgTUC8mO86uvgxOzre2kNGseopFJFfBSEOTddpj
+         sf/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734658763; x=1735263563;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Dg8fmjMM2o4ZdUzcCM3IsD7JuuynFC9AcsVyNRsKeBU=;
+        b=YWh0irqHlMrU8ZWt4QrfY9FRtQdC5tnD/4Ww9oCX12+i2d+dSY/wh23PEg64wHOfVd
+         ko3yzct26uokrTT58qa7JWipuGHe8S7HXHQzJUdmm3YrE53pERqQ0FV1B3Dr/Op/HYKF
+         0Okq77UvpleQeRx2EysSiddnJ/IHF/V2UKa8XCf5DpU3n6j12cobbnlw4Nvq03bO4/no
+         0HILYiU4YjlL/9+JG/LmKUUz/54M/B7UcICcIYfXvHYIkHlSO6Eqmj1GX/Mww24qijnf
+         ll048RtESZI4p7Xo0YDgxdO8GOVZTtK6CKG78KMaaMj/HXGSgK2/O+EWGO4hS1cvMV+k
+         AIJA==
+X-Gm-Message-State: AOJu0YwNB6aA/QRdfx/dCmyPMKdj98rx2kxAkx8LeOiW6Cm3MMv9+E22
+	yTtPM5tmapWT1bwcfsoxTXoO6z4tK9tALDeZ73Oxaa4GOv2IiI3uNbeh/qGx8p7IfNQ7kK9zbDv
+	U9A==
+X-Google-Smtp-Source: AGHT+IE6EA1Soh2HbsBhs8mA4Cxp5/kcHpg0QYYkszskXT1G6lUfvmxNE+q8q9njljny5qS/JMm3vKiIjQ4=
+X-Received: from pgbbw29.prod.google.com ([2002:a05:6a02:49d:b0:801:d768:c174])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:6681:b0:1e0:c6c0:1e1f
+ with SMTP id adf61e73a8af0-1e5e07f8a98mr2122068637.36.1734658762701; Thu, 19
+ Dec 2024 17:39:22 -0800 (PST)
+Date: Thu, 19 Dec 2024 17:39:06 -0800
+In-Reply-To: <20241220013906.3518334-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20241220013906.3518334-1-seanjc@google.com>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20241220013906.3518334-9-seanjc@google.com>
+Subject: [PATCH 8/8] KVM: selftests: Add compile-time assertions to guard
+ against stats typos
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_185201_305537_8DE22F35 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241219_173924_028198_97AA23E4 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,18 +95,357 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksIEFuZ2VsbzoNCg0KT24gVHVlLCAyMDI0LTEyLTE3IGF0IDE2OjQzICswMTAwLCBBbmdlbG9H
-aW9hY2NoaW5vIERlbCBSZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8g
-bm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZp
-ZWQgdGhlIHNlbmRlciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBSZW5hbWUgbWVtYmVyIGF1
-ZF9zYW1wZV9zaXplIG9mIHN0cnVjdCBoZG1pX2F1ZGlvX3BhcmFtIHRvDQo+IGF1ZF9zYW1wbGVf
-c2l6ZSB0byBmaXggYSB0eXBvIGFuZCBlbmhhbmNlIHJlYWRhYmlsaXR5Lg0KPiANCj4gVGhpcyBj
-b21taXQgYnJpbmdzIG5vIGZ1bmN0aW9uYWwgY2hhbmdlcy4NCg0KUmV2aWV3ZWQtYnk6IENLIEh1
-IDxjay5odUBtZWRpYXRlay5jb20+DQoNCj4gDQo+IEZpeGVzOiA4ZjgzZjI2ODkxZTEgKCJkcm0v
-bWVkaWF0ZWs6IEFkZCBIRE1JIHN1cHBvcnQiKQ0KPiBTaWduZWQtb2ZmLWJ5OiBBbmdlbG9HaW9h
-Y2NoaW5vIERlbCBSZWdubyA8YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29t
-Pg0KPiAtLS0NCg0K
+Add compile-time assertions to the main binary stats accessor to verify
+the stat is a known KVM stat of the appropriate scope, and "add" all
+known stats for all architectures.
+
+To build the set of known stats, define enums for each stat, with a
+completely arbitrary magic value to specify the scope of the stat.  With
+the assert in place, misuse of stat (or usage of a new stat) generates
+error like so:
+
+  In file included from include/x86/kvm_util_arch.h:8,
+                   from include/kvm_util.h:23,
+                   from x86/dirty_log_page_splitting_test.c:16:
+   x86/dirty_log_page_splitting_test.c: In function =E2=80=98get_page_stats=
+=E2=80=99:
+  include/kvm_util.h:563:42: error: =E2=80=98VM_STAT_pages_4m=E2=80=99 unde=
+clared
+    (first use in this function); did you mean =E2=80=98VM_STAT_pages_2m=E2=
+=80=99?
+    563 | #define vm_get_stat(vm, stat) __get_stat(VM, &(vm)->stats, stat)
+        |                                          ^~
+
+  ...
+  x86/dirty_log_page_splitting_test.c:45:27: note: in expansion of macro =
+=E2=80=98vm_get_stat=E2=80=99
+     45 |         stats->pages_2m =3D vm_get_stat(vm, pages_4m);
+        |                           ^~~~~~~~~~~
+
+Using pre-defined lists of stats doesn't completely eliminate human error,
+e.g. it's obviously possible to make a typo when adding a state.  And
+while there is also a non-zero cost to maintaining the set of stats,
+adding stats in KVM is relatively uncommon, and removing stats is extremely
+rare.  On the flip side, providing a list of known stats should make it
+easier to use stats in test, at which point detecting goofs at compile-time
+will also be more valuable.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ .../kvm/include/arm64/kvm_util_arch.h         |  12 ++
+ .../testing/selftests/kvm/include/kvm_util.h  |  24 +++-
+ .../selftests/kvm/include/kvm_util_types.h    |   6 +
+ .../kvm/include/riscv/kvm_util_arch.h         |  14 +++
+ .../kvm/include/s390/kvm_util_arch.h          | 113 ++++++++++++++++++
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  52 ++++++++
+ 6 files changed, 218 insertions(+), 3 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h b/to=
+ols/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+index e43a57d99b56..12097262f585 100644
+--- a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+@@ -2,6 +2,18 @@
+ #ifndef SELFTEST_KVM_UTIL_ARCH_H
+ #define SELFTEST_KVM_UTIL_ARCH_H
+=20
++#include "kvm_util_types.h"
++
+ struct kvm_vm_arch {};
+=20
++enum kvm_arm64_stats {
++	VCPU_STAT(hvc_exit_stat),
++	VCPU_STAT(wfe_exit_stat),
++	VCPU_STAT(wfi_exit_stat),
++	VCPU_STAT(mmio_exit_user),
++	VCPU_STAT(mmio_exit_kernel),
++	VCPU_STAT(signal_exits),
++	VCPU_STAT(exits),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing=
+/selftests/kvm/include/kvm_util.h
+index e0d23873158e..f4f0e27cea27 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -535,19 +535,37 @@ void read_stat_data(int stats_fd, struct kvm_stats_he=
+ader *header,
+ 		    struct kvm_stats_desc *desc, uint64_t *data,
+ 		    size_t max_elements);
+=20
++enum kvm_common_stats {
++	VM_STAT(remote_tlb_flush),
++	VM_STAT(remote_tlb_flush_requests),
++
++	VCPU_STAT(halt_successfull_poll),
++	VCPU_STAT(halt_attempted_poll),
++	VCPU_STAT(halt_poll_invalid),
++	VCPU_STAT(halt_wakeup),
++	VCPU_STAT(halt_poll_success_ns),
++	VCPU_STAT(halt_poll_fail_ns),
++	VCPU_STAT(halt_wait_ns),
++	VCPU_STAT(halt_poll_success_hist),
++	VCPU_STAT(halt_poll_fail_hist),
++	VCPU_STAT(halt_wait_hist),
++	VCPU_STAT(blocking),
++};
++
+ void kvm_get_stat(struct kvm_binary_stats *stats, const char *name,
+ 		  uint64_t *data, size_t max_elements);
+=20
+-#define __get_stat(stats, stat)							\
++#define __get_stat(type, stats, stat)						\
+ ({										\
+ 	uint64_t data;								\
+ 										\
++	kvm_static_assert(type##_STAT_##stat =3D=3D type##_STAT_MAGIC_NUMBER);	\
+ 	kvm_get_stat(stats, #stat, &data, 1);					\
+ 	data;									\
+ })
+=20
+-#define vm_get_stat(vm, stat) __get_stat(&(vm)->stats, stat)
+-#define vcpu_get_stat(vcpu, stat) __get_stat(&(vcpu)->stats, stat)
++#define vm_get_stat(vm, stat) __get_stat(VM, &(vm)->stats, stat)
++#define vcpu_get_stat(vcpu, stat) __get_stat(VCPU, &(vcpu)->stats, stat)
+=20
+ void vm_create_irqchip(struct kvm_vm *vm);
+=20
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_types.h b/tools/t=
+esting/selftests/kvm/include/kvm_util_types.h
+index ec787b97cf18..20e6717a0d24 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_types.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_types.h
+@@ -17,4 +17,10 @@
+ typedef uint64_t vm_paddr_t; /* Virtual Machine (Guest) physical address *=
+/
+ typedef uint64_t vm_vaddr_t; /* Virtual Machine (Guest) virtual address */
+=20
++#define VM_STAT_MAGIC_NUMBER   1
++#define VM_STAT(stat)  VM_STAT_##stat =3D VM_STAT_MAGIC_NUMBER
++
++#define VCPU_STAT_MAGIC_NUMBER   2
++#define VCPU_STAT(stat) VCPU_STAT_##stat =3D VCPU_STAT_MAGIC_NUMBER
++
+ #endif /* SELFTEST_KVM_UTIL_TYPES_H */
+diff --git a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h b/to=
+ols/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+index e43a57d99b56..ea53d6aeb693 100644
+--- a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+@@ -2,6 +2,20 @@
+ #ifndef SELFTEST_KVM_UTIL_ARCH_H
+ #define SELFTEST_KVM_UTIL_ARCH_H
+=20
++#include "kvm_util_types.h"
++
+ struct kvm_vm_arch {};
+=20
++enum kvm_riscv_stats {
++	VCPU_STAT(ecall_exit_stat),
++	VCPU_STAT(wfi_exit_stat),
++	VCPU_STAT(wrs_exit_stat),
++	VCPU_STAT(mmio_exit_user),
++	VCPU_STAT(mmio_exit_kernel),
++	VCPU_STAT(csr_exit_user),
++	VCPU_STAT(csr_exit_kernel),
++	VCPU_STAT(signal_exits),
++	VCPU_STAT(exits),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+diff --git a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h b/too=
+ls/testing/selftests/kvm/include/s390/kvm_util_arch.h
+index e43a57d99b56..64d4de333e09 100644
+--- a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+@@ -2,6 +2,119 @@
+ #ifndef SELFTEST_KVM_UTIL_ARCH_H
+ #define SELFTEST_KVM_UTIL_ARCH_H
+=20
++#include "kvm_util_types.h"
++
+ struct kvm_vm_arch {};
+=20
++enum kvm_s390_stats {
++	VM_STAT(inject_io),
++	VM_STAT(inject_float_mchk),
++	VM_STAT(inject_pfault_done),
++	VM_STAT(inject_service_signal),
++	VM_STAT(inject_virtio),
++	VM_STAT(aen_forward),
++	VM_STAT(gmap_shadow_reuse),
++	VM_STAT(gmap_shadow_create),
++	VM_STAT(gmap_shadow_r1_entry),
++	VM_STAT(gmap_shadow_r2_entry),
++	VM_STAT(gmap_shadow_r3_entry),
++	VM_STAT(gmap_shadow_sg_entry),
++	VM_STAT(gmap_shadow_pg_entry),
++
++	VCPU_STAT(exit_userspace),
++	VCPU_STAT(exit_null),
++	VCPU_STAT(exit_external_request),
++	VCPU_STAT(exit_io_request),
++	VCPU_STAT(exit_external_interrupt),
++	VCPU_STAT(exit_stop_request),
++	VCPU_STAT(exit_validity),
++	VCPU_STAT(exit_instruction),
++	VCPU_STAT(exit_pei),
++	VCPU_STAT(halt_no_poll_steal),
++	VCPU_STAT(instruction_lctl),
++	VCPU_STAT(instruction_lctlg),
++	VCPU_STAT(instruction_stctl),
++	VCPU_STAT(instruction_stctg),
++	VCPU_STAT(exit_program_interruption),
++	VCPU_STAT(exit_instr_and_program),
++	VCPU_STAT(exit_operation_exception),
++	VCPU_STAT(deliver_ckc),
++	VCPU_STAT(deliver_cputm),
++	VCPU_STAT(deliver_external_call),
++	VCPU_STAT(deliver_emergency_signal),
++	VCPU_STAT(deliver_service_signal),
++	VCPU_STAT(deliver_virtio),
++	VCPU_STAT(deliver_stop_signal),
++	VCPU_STAT(deliver_prefix_signal),
++	VCPU_STAT(deliver_restart_signal),
++	VCPU_STAT(deliver_program),
++	VCPU_STAT(deliver_io),
++	VCPU_STAT(deliver_machine_check),
++	VCPU_STAT(exit_wait_state),
++	VCPU_STAT(inject_ckc),
++	VCPU_STAT(inject_cputm),
++	VCPU_STAT(inject_external_call),
++	VCPU_STAT(inject_emergency_signal),
++	VCPU_STAT(inject_mchk),
++	VCPU_STAT(inject_pfault_init),
++	VCPU_STAT(inject_program),
++	VCPU_STAT(inject_restart),
++	VCPU_STAT(inject_set_prefix),
++	VCPU_STAT(inject_stop_signal),
++	VCPU_STAT(instruction_epsw),
++	VCPU_STAT(instruction_gs),
++	VCPU_STAT(instruction_io_other),
++	VCPU_STAT(instruction_lpsw),
++	VCPU_STAT(instruction_lpswe),
++	VCPU_STAT(instruction_lpswey),
++	VCPU_STAT(instruction_pfmf),
++	VCPU_STAT(instruction_ptff),
++	VCPU_STAT(instruction_sck),
++	VCPU_STAT(instruction_sckpf),
++	VCPU_STAT(instruction_stidp),
++	VCPU_STAT(instruction_spx),
++	VCPU_STAT(instruction_stpx),
++	VCPU_STAT(instruction_stap),
++	VCPU_STAT(instruction_iske),
++	VCPU_STAT(instruction_ri),
++	VCPU_STAT(instruction_rrbe),
++	VCPU_STAT(instruction_sske),
++	VCPU_STAT(instruction_ipte_interlock),
++	VCPU_STAT(instruction_stsi),
++	VCPU_STAT(instruction_stfl),
++	VCPU_STAT(instruction_tb),
++	VCPU_STAT(instruction_tpi),
++	VCPU_STAT(instruction_tprot),
++	VCPU_STAT(instruction_tsch),
++	VCPU_STAT(instruction_sie),
++	VCPU_STAT(instruction_essa),
++	VCPU_STAT(instruction_sthyi),
++	VCPU_STAT(instruction_sigp_sense),
++	VCPU_STAT(instruction_sigp_sense_running),
++	VCPU_STAT(instruction_sigp_external_call),
++	VCPU_STAT(instruction_sigp_emergency),
++	VCPU_STAT(instruction_sigp_cond_emergency),
++	VCPU_STAT(instruction_sigp_start),
++	VCPU_STAT(instruction_sigp_stop),
++	VCPU_STAT(instruction_sigp_stop_store_status),
++	VCPU_STAT(instruction_sigp_store_status),
++	VCPU_STAT(instruction_sigp_store_adtl_status),
++	VCPU_STAT(instruction_sigp_arch),
++	VCPU_STAT(instruction_sigp_prefix),
++	VCPU_STAT(instruction_sigp_restart),
++	VCPU_STAT(instruction_sigp_init_cpu_reset),
++	VCPU_STAT(instruction_sigp_cpu_reset),
++	VCPU_STAT(instruction_sigp_unknown),
++	VCPU_STAT(instruction_diagnose_10),
++	VCPU_STAT(instruction_diagnose_44),
++	VCPU_STAT(instruction_diagnose_9c),
++	VCPU_STAT(diag_9c_ignored),
++	VCPU_STAT(diag_9c_forward),
++	VCPU_STAT(instruction_diagnose_258),
++	VCPU_STAT(instruction_diagnose_308),
++	VCPU_STAT(instruction_diagnose_500),
++	VCPU_STAT(instruction_diagnose_other),
++	VCPU_STAT(pfault_sync),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+diff --git a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h b/tool=
+s/testing/selftests/kvm/include/x86/kvm_util_arch.h
+index 972bb1c4ab4c..f9c4aedddbd0 100644
+--- a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+@@ -48,4 +48,56 @@ do {											\
+ 	}										\
+ } while (0)
+=20
++enum kvm_x86_stats {
++	VM_STAT(mmu_shadow_zapped),
++	VM_STAT(mmu_pte_write),
++	VM_STAT(mmu_pde_zapped),
++	VM_STAT(mmu_flooded),
++	VM_STAT(mmu_recycled),
++	VM_STAT(mmu_cache_miss),
++	VM_STAT(mmu_unsync),
++	VM_STAT(pages_4k),
++	VM_STAT(pages_2m),
++	VM_STAT(pages_1g),
++	VM_STAT(pages),
++	VM_STAT(nx_lpage_splits),
++	VM_STAT(max_mmu_page_hash_collisions),
++	VM_STAT(max_mmu_rmap_size),
++
++	VCPU_STAT(pf_taken),
++	VCPU_STAT(pf_fixed),
++	VCPU_STAT(pf_emulate),
++	VCPU_STAT(pf_spurious),
++	VCPU_STAT(pf_fast),
++	VCPU_STAT(pf_mmio_spte_created),
++	VCPU_STAT(pf_guest),
++	VCPU_STAT(tlb_flush),
++	VCPU_STAT(invlpg),
++	VCPU_STAT(exits),
++	VCPU_STAT(io_exits),
++	VCPU_STAT(mmio_exits),
++	VCPU_STAT(signal_exits),
++	VCPU_STAT(irq_window_exits),
++	VCPU_STAT(nmi_window_exits),
++	VCPU_STAT(l1d_flush),
++	VCPU_STAT(halt_exits),
++	VCPU_STAT(request_irq_exits),
++	VCPU_STAT(irq_exits),
++	VCPU_STAT(host_state_reload),
++	VCPU_STAT(fpu_reload),
++	VCPU_STAT(insn_emulation),
++	VCPU_STAT(insn_emulation_fail),
++	VCPU_STAT(hypercalls),
++	VCPU_STAT(irq_injections),
++	VCPU_STAT(nmi_injections),
++	VCPU_STAT(req_event),
++	VCPU_STAT(nested_run),
++	VCPU_STAT(directed_yield_attempted),
++	VCPU_STAT(directed_yield_successful),
++	VCPU_STAT(preemption_reported),
++	VCPU_STAT(preemption_other),
++	VCPU_STAT(guest_mode),
++	VCPU_STAT(notify_window_exits),
++};
++
+ #endif  // SELFTEST_KVM_UTIL_ARCH_H
+--=20
+2.47.1.613.gc27f4b7a9f-goog
+
 
