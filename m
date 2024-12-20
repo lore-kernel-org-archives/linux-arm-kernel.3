@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AA5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78620E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y3R4Jhe3KgMdcHWwBtGAqNwkL06pjGhdfYrGLYcX0qU=; b=0kaG6bhd8pl92rYj/2Q/ec9DKs
-	oxF9OQkzgaAhplsY+5XdQcxFIeDS9UL7T2I2lNvSrOI4WW6fBgU0NPZ9RUnMu4ZjQLSXgrjrnqN1r
-	M0IIno102GEHzwps9SvGv+qs++ShOyo4Ck16MHsjZ1SagkddtyjxmvcGIi6C9Hb40Vh1NZWtaqplo
-	rLy3K9b0PUJz3yAfYp1DdPJS+MWPbUaQ3pJDLeqcJOqv0Ysurzbyxf7FAjwO+t5XWAz4LK2Eq6jxJ
-	TWdnk5pxEEYDiiCeM6l2ec+MMwHSRmLEzvtrCse8LOr3h5qtqunB3FsxCOLmetar0cxmB6d8EADVU
-	ABM4Et3g==;
+	bh=QmwzVQdSamTI4Mm25hbiGBJIk1Q/esKMsBlmHYpUYHM=; b=Iv2BCDC8MQ2DMs0TrxOIHDA5Jo
+	AYm/6oBnuJ4kDOP+lk7IOM6yrRC8pzMAm4iRB3uUO4YoLReKVDJfQZ6B6CuQwIaEOELZc1RG2Uq6X
+	DDM+jfQQ7SJWctSfVnTy5K0lTUGygQKa0DfgtIaaeI1fTSBoKfBNTzRbrEPaHwju3izimwC5AKJsM
+	gFkKEUPvbhP5nV75/N+8K1oWE7HqHT7rG8g9GHxmpkkmaZmL7ek9xTN7Ce8+Ei5gcrJ5J4oBj1yTf
+	I4iQi1E4N7b+0zK7DmAn4C0H73Ukwv5ZCD1flt9h7cGkyy/QdyuSqZcE2J9v5KBXnx0eoheY4pJm7
+	x+hf8OFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdd0-000000055gT-0Rvk;
-	Fri, 20 Dec 2024 14:05:18 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tOde7-000000055pT-38Zt;
+	Fri, 20 Dec 2024 14:06:27 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdOG-0000000535B-0Olt
+	id 1tOdOH-0000000536L-1o7g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 13:50:05 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3862d16b4f5so1333275f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 05:50:03 -0800 (PST)
+	Fri, 20 Dec 2024 13:50:06 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3862d16b4f5so1333297f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 05:50:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734702602; x=1735307402; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734702603; x=1735307403; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Y3R4Jhe3KgMdcHWwBtGAqNwkL06pjGhdfYrGLYcX0qU=;
-        b=lT0ASPbtGa8hpRb0qZ9PkwCWG1TaMHfAy7O14pUSydjew5TMtVyqrdYvmlVaL0/Myl
-         LgnnL9ENgc5LDZcPjKt7+3tAnKe5jAq7UOn0K3BOT3RhP51zGio7hO1QJzHO36XiP5GS
-         eWvRbDaDB7TyKipPC2tcVP98y6S1c3e+6EcHgStwgQLstx4JgmracLXiGXhpZMBk+BAz
-         b1wzv9Z+N7rcVkzNF8M/2tRiVSBqbyD6KgyD4DUYXoZQDEP6j2tMGlOT103GXvYyt6rk
-         wWWSBstl9oJpxyHi1hEAzzNx2zjOqq4NGK7dvDSIHWY2zOB5zI1xou7G6Ax2by/GFvqp
-         ibNQ==
+        bh=QmwzVQdSamTI4Mm25hbiGBJIk1Q/esKMsBlmHYpUYHM=;
+        b=Vk2oAGMF1tFiCTRCjdA8aalFq4InKqdMz8pNA8i2FwEFRy+QWQzDTpl0hH6P4Kc/N+
+         1+AEip1d+Sh2uhx/+YGhZY3FjHoIKG4h7hA9WPcrk0mUrmRFpUmbCCSdfdz3JfjnRuG1
+         aguflxDunTffdGchgAbeiPywDSJBmOvefGWBdTfyVgoUjj/uBhh/FMfnuReAkGuXzt7F
+         oCeUKMLRFevGS87/kGPhcnQ3B6fGDz61o11DwWYZzIPU6JW/j5GnGLWgSF1t4p2cqOT7
+         cCmKFrJXv9/8bmdR6GhnurAA3vXtvrlch3aJszkEDOdNme8V/lnnsmCxM+6083wOGeTw
+         LzOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734702602; x=1735307402;
+        d=1e100.net; s=20230601; t=1734702603; x=1735307403;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Y3R4Jhe3KgMdcHWwBtGAqNwkL06pjGhdfYrGLYcX0qU=;
-        b=lIZjaHjbsLQP3n08K3x+Jjhxljr4dYX0LcwvxAwaSdwS8KopAv5UTTlIDtHjT9JBBS
-         KRCvSaPXWu4uUBHY02Zyrg+tBebUsFhCfBbl2Q/e6cxOVV5wy0GsRJFpIMvNHCwGP618
-         sqioUGQzij1Q0Cl8NECii5E4uHxmDOUSbVmJ5Mwy2dqFU2HpoPBkAI9ekqD5pTd/S5Hq
-         w9dikK3SiN9ls0N12SGFahmp/Eg6WoOqlapIv/oyg7LFqTTMw7btb+dru83ADbxLJ6zb
-         WQ7IRVh8NinI55c+HPAGxpuNkG1CkNzHDTtl8FWnTfiq9emoUMfVbErCTs2QrmNt3jh6
-         eMjA==
-X-Forwarded-Encrypted: i=1; AJvYcCWRxRrOTu3ZTJa9UjB/PejLtJT4IyeRxyCoMCOFK78QtPadfpIOaQQtY1487+wyV2lXrzd37QEogtIzx1YL7ASK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQB5pTGC6oKV4EyfbpcZljsAU/vWdk/bkzBCplZtfTQl87muo5
-	NnoxeGRsghVMjTJvKmJE14V4GAuCCrkJrtjiO/RwwotGM2iPoxhr2OXzzF1ytvc=
-X-Gm-Gg: ASbGncsjda5okdl5/+jJ2zb6LH4tmQlt8xJBHyrPIJslFyEKBElxZy4gbqD7+YK5zY+
-	yKvAOcKuYikIpBUkUhdzMuAEzIWvH9PDtNnouC/bV0gsbutML6ML37cq4y1ALSrAiuyErb5xaR6
-	GeFxw8w2yHn7k3G2NRTV7LS0p6pbBa6SytznYwvtd7b8BFAYZceVxMyKSgmAe8RoZJqdM1VrS7B
-	Yu1HxV5aHCL37KSIIyF4Y/SKC9bFI/SM3KtC3bykcuhKv/UgOi2XTXtlhcX55DZg0NehKGTPtNl
-	WY2PQHM9YqSsSfDRZlm27sCV95RDP4Dt7ayP
-X-Google-Smtp-Source: AGHT+IFO4m1UMUWH98xI6WEcrXsCmyinFas11MjCCiL6zLrmfdc5i7QkqHRJkTCA4ukd1H0E1zdRFw==
-X-Received: by 2002:a05:6000:1785:b0:386:3c93:70ff with SMTP id ffacd0b85a97d-38a1a1fdd35mr6675772f8f.8.1734702602133;
-        Fri, 20 Dec 2024 05:50:02 -0800 (PST)
+        bh=QmwzVQdSamTI4Mm25hbiGBJIk1Q/esKMsBlmHYpUYHM=;
+        b=UtB/55CIjtiLQuA7J2z+BZGde5a6AUlJfenieGqfRIgbQC4q/aZKqFC4ssfSlN9dJM
+         nREh83d9xcl5R7Rb1m8w+Jwrl2JsleDbNkPZr/s9Rall8w0ngx0/z1oGibMPPuW/vkJ9
+         31fot54PKIgqi3CZqoazHAfC73FhkHVkxEU+m18Z1Q0YiZCgZEWxVnXtshUWP0+Norz1
+         rcfjEHWaqNJDzcubw32uLKzj1LcNe2Q8iIr/UTI9+mqb0K0hNkdz/2O2mmRgR6msKFn2
+         RI/pS6ClVp/vGZhN/tAq4s61l5UQF4lx27wrgpfl/2CIC7YztkPGuZiZ5IOSAb+wjxHc
+         3BXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXJWs7ZxVydqZlZw3EVwZ3Kga1lJZs6+W/6oLadYLOQuJuUAHKe/y2yhv+t2mlc+fZ1/kReT2zO0F8vv00UXG+P@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVWdmOM+3n1MFcTfwwaMCGZ9WLeMtl09H2ITb4p35MbRxf/Fy8
+	Isw7gUccNLF1BVJ8CMVUBpxnGz9XLf56RrE9t1gXeRjZNq2mupahDQ64WemyQUAq+i5WCMzaQII
+	dg4k=
+X-Gm-Gg: ASbGncsonfhCfQAkKTbmctgQbxqxW/E/xEO5qf/wvXgnYHAGs6JU/Ool36en6b1lKL5
+	efmo7fT6uy9q+YcOcrgPTvmTXI9iv2P5AVG+gjRUohpCWnjmS0XdwqGnoQ+4svvd9lEMj8LZMO6
+	ezAtORbFD4C0ew7NiMMVtB7pxIN8ZNYisdVTIFSDVL0sEAfTAylOYiEd4oPODCQ0Ljl8xCWclJY
+	f3T0BfGu5omqiC4dBb+H+y/se+Za4Fiv4bZm65eLKC6t9uhtvl7PgE4MJoJ27mUQKky3lIqP5o9
+	BlxrMgJbPX+Zuay+EiNNyDnau82yFG67mOu/
+X-Google-Smtp-Source: AGHT+IG4yktd0Nvj4jp85019vCB0iMT9S1j+gDh88vOL8Wge+kTTESou7askbSNFyaZ7Gt6ZtnOLAg==
+X-Received: by 2002:a05:6000:1acd:b0:386:3c2f:a3e7 with SMTP id ffacd0b85a97d-38a1a1f7298mr6356413f8f.3.1734702603348;
+        Fri, 20 Dec 2024 05:50:03 -0800 (PST)
 Received: from ta2.c.googlers.com (130.173.34.34.bc.googleusercontent.com. [34.34.173.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c832e74sm4044313f8f.30.2024.12.20.05.50.01
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c832e74sm4044313f8f.30.2024.12.20.05.50.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 05:50:01 -0800 (PST)
+        Fri, 20 Dec 2024 05:50:02 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 20 Dec 2024 13:49:58 +0000
-Subject: [PATCH v6 3/5] mailbox: add support for clients to request
- channels by args
+Date: Fri, 20 Dec 2024 13:49:59 +0000
+Subject: [PATCH v6 4/5] mailbox: add Samsung Exynos driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a@linaro.org>
+Message-Id: <20241220-acpm-v4-upstream-mbox-v6-4-a6942806e52a@linaro.org>
 References: <20241220-acpm-v4-upstream-mbox-v6-0-a6942806e52a@linaro.org>
 In-Reply-To: <20241220-acpm-v4-upstream-mbox-v6-0-a6942806e52a@linaro.org>
 To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1734702598; l=5904;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734702598; l=7455;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=yyB5CQGhVmNL0L7BcpLJ32JRUO4zLOTRcjHSgygE7Ik=;
- b=vsmN1tUctzs2mQxUDHpQYFZZw2uQY7/lH7aU0MJkG/FL5nc9qKT2nTT5HYlqjC6BnhqU8Jipu
- zaGST/SqFPyALdMnBZnXEks6QaRLLJw/KxnPYpoXUa0ql5fqZ+5W8/P
+ bh=8V4hRjvTjS/OPHho+b5gFECG0twWFwovkcgrCiubsOw=;
+ b=aFSKkY8CH0jktsAVfeCjhnjjDoAFx4ULnLvakRK6H6Z+77IEJyqtRBaxSWah93ELQ7I8E4wWw
+ nM/5nv7SeA+A0J15n+UpbuzK9zJ4psVXCTpXcGxYoVWX9ALZbNSHk2w
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_055004_158845_12BB581D 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20241220_055005_475394_5DCCB4CA 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,172 +113,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are clients that can discover channel identifiers at runtime by
-parsing a shared memory for example, as in the ACPM interface's case.
+The Samsung Exynos mailbox controller, used on Google GS101 SoC, has 16
+flag bits for hardware interrupt generation and a shared register for
+passing mailbox messages. When the controller is used by the
+ACPM protocol the shared register is ignored and the mailbox controller
+acts as a doorbell. The controller just raises the interrupt to APM
+after the ACPM protocol has written the message to SRAM.
 
-Supply a new framework API: mbox_request_channel_by_args().
-
-It works by supplying the usual client pointer as the first argument,
-the usual index of the mailbox specifier in the 'mboxes' property as
-a second argument, and a pointer to a 'const struct mbox_xlate_args'
-as a third. The newly introduced struct is modeled after
-'struct of_phandle_args'. The API identifies the controller's device
-node, and then calls that controller's xlate() method that will return
-a pointer to a mbox_chan or a ERR_PTR. The binding between the channel
-and the client is done in the typical way.
+Add support for the Samsung Exynos mailbox controller.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- drivers/mailbox/mailbox.c          | 60 ++++++++++++++++++++++++++++++++++++++
- include/linux/mailbox.h            | 17 +++++++++++
- include/linux/mailbox_client.h     |  3 ++
- include/linux/mailbox_controller.h |  4 +++
- 4 files changed, 84 insertions(+)
+ drivers/mailbox/Kconfig          |  11 +++
+ drivers/mailbox/Makefile         |   2 +
+ drivers/mailbox/exynos-mailbox.c | 174 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 187 insertions(+)
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index d3d26a2c9895..0eecffd5a2ad 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -467,6 +467,66 @@ struct mbox_chan *mbox_request_channel_byname(struct mbox_client *cl,
- }
- EXPORT_SYMBOL_GPL(mbox_request_channel_byname);
+diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+index 8ecba7fb999e..44b808c4d97f 100644
+--- a/drivers/mailbox/Kconfig
++++ b/drivers/mailbox/Kconfig
+@@ -36,6 +36,17 @@ config ARM_MHU_V3
+ 	  that provides different means of transports: supported extensions
+ 	  will be discovered and possibly managed at probe-time.
  
-+/**
-+ * mbox_request_channel_by_args - request a mailbox channel using client's
-+ * channel identifiers.
-+ * @cl: identity of the client requesting the channel.
-+ * @index: index of mailbox specifier in 'mboxes' property.
-+ * @spec: arguments that describe the channel.
-+ *
-+ * Used by clients that can discover the channel identifiers at runtime (by
-+ * parsing a shared memory for example). The description of
-+ * mbox_request_channel() applies here as well.
-+ *
-+ * Return: Pointer to the channel assigned to the client if successful.
-+ *         ERR_PTR for request failure.
-+ */
-+struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
-+			int index, const struct mbox_xlate_args *mbox_spec)
-+{
-+	struct of_phandle_args of_args;
-+	struct device *dev = cl->dev;
-+	struct mbox_controller *mbox;
-+	struct mbox_chan *chan;
-+	int ret;
++config EXYNOS_MBOX
++	tristate "Exynos Mailbox"
++	depends on ARCH_EXYNOS || COMPILE_TEST
++	help
++	  Say Y here if you want to build the Samsung Exynos Mailbox controller
++	  driver. The controller has 16 flag bits for hardware interrupt
++	  generation and a shared register for passing mailbox messages.
++	  When the controller is used by the ACPM protocol the shared register
++	  is ignored and the mailbox controller acts as a doorbell that raises
++	  the interrupt to the ACPM firmware.
 +
-+	if (!dev || !dev->of_node) {
-+		pr_debug("%s: No owner device node\n", __func__);
-+		return ERR_PTR(-ENODEV);
-+	}
+ config IMX_MBOX
+ 	tristate "i.MX Mailbox"
+ 	depends on ARCH_MXC || COMPILE_TEST
+diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+index 5f4f5b0ce2cc..86192b5c7c32 100644
+--- a/drivers/mailbox/Makefile
++++ b/drivers/mailbox/Makefile
+@@ -11,6 +11,8 @@ obj-$(CONFIG_ARM_MHU_V2)	+= arm_mhuv2.o
+ 
+ obj-$(CONFIG_ARM_MHU_V3)	+= arm_mhuv3.o
+ 
++obj-$(CONFIG_EXYNOS_MBOX)	+= exynos-mailbox.o
 +
-+	if (of_parse_phandle_with_args(dev->of_node, "mboxes",
-+				       "#mbox-cells", index, &of_args)) {
-+		dev_dbg(dev, "%s: can't parse \"mboxes\" property\n", __func__);
-+		return ERR_PTR(-ENODEV);
-+	}
-+
-+	mutex_lock(&con_mutex);
-+
-+	chan = ERR_PTR(-EPROBE_DEFER);
-+	list_for_each_entry(mbox, &mbox_cons, node)
-+		if (mbox->dev->of_node == of_args.np && mbox->xlate) {
-+			chan = mbox->xlate(mbox, mbox_spec);
-+			if (!IS_ERR(chan))
-+				break;
-+		}
-+
-+	of_node_put(of_args.np);
-+
-+	if (IS_ERR(chan)) {
-+		mutex_unlock(&con_mutex);
-+		return chan;
-+	}
-+
-+	ret = __mbox_bind_client(chan, cl);
-+	if (ret)
-+		chan = ERR_PTR(ret);
-+
-+	mutex_unlock(&con_mutex);
-+	return chan;
-+}
-+EXPORT_SYMBOL_GPL(mbox_request_channel_by_args);
-+
- /**
-  * mbox_free_channel - The client relinquishes control of a mailbox
-  *			channel by this call.
-diff --git a/include/linux/mailbox.h b/include/linux/mailbox.h
+ obj-$(CONFIG_IMX_MBOX)	+= imx-mailbox.o
+ 
+ obj-$(CONFIG_ARMADA_37XX_RWTM_MBOX)	+= armada-37xx-rwtm-mailbox.o
+diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-mailbox.c
 new file mode 100644
-index 000000000000..cef88c5ae49d
+index 000000000000..07bbc6b442ef
 --- /dev/null
-+++ b/include/linux/mailbox.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/drivers/mailbox/exynos-mailbox.c
+@@ -0,0 +1,174 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
++ * Copyright 2020 Samsung Electronics Co., Ltd.
++ * Copyright 2020 Google LLC.
 + * Copyright 2024 Linaro Ltd.
 + */
 +
-+#ifndef __LINUX_MAILBOX_H
-+#define __LINUX_MAILBOX_H
++#include <dt-bindings/mailbox/google,gs101.h>
++#include <linux/bitops.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/mailbox_controller.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
 +
-+#include <linux/types.h>
++#define EXYNOS_MBOX_MCUCTRL		0x0	/* Mailbox Control Register */
++#define EXYNOS_MBOX_INTCR0		0x24	/* Interrupt Clear Register 0 */
++#define EXYNOS_MBOX_INTMR0		0x28	/* Interrupt Mask Register 0 */
++#define EXYNOS_MBOX_INTSR0		0x2c	/* Interrupt Status Register 0 */
++#define EXYNOS_MBOX_INTMSR0		0x30	/* Interrupt Mask Status Register 0 */
++#define EXYNOS_MBOX_INTGR1		0x40	/* Interrupt Generation Register 1 */
++#define EXYNOS_MBOX_INTMR1		0x48	/* Interrupt Mask Register 1 */
++#define EXYNOS_MBOX_INTSR1		0x4c	/* Interrupt Status Register 1 */
++#define EXYNOS_MBOX_INTMSR1		0x50	/* Interrupt Mask Status Register 1 */
 +
-+#define MBOX_XLATE_MAX_ARGS 16
-+struct mbox_xlate_args {
-+	int args_count;
-+	u32 args[MBOX_XLATE_MAX_ARGS];
++#define EXYNOS_MBOX_INTMR0_MASK		GENMASK(15, 0)
++#define EXYNOS_MBOX_INTGR1_MASK		GENMASK(15, 0)
++
++#define EXYNOS_MBOX_CHAN_COUNT		HWEIGHT32(EXYNOS_MBOX_INTGR1_MASK)
++
++enum {
++	EXYNOS_MBOX_CELL_ID,
++	EXYNOS_MBOX_CELL_TYPE,
++	EXYNOS_MBOX_CELLS
 +};
 +
-+#endif /* __LINUX_MAILBOX_H */
-diff --git a/include/linux/mailbox_client.h b/include/linux/mailbox_client.h
-index 734694912ef7..06e2721313ca 100644
---- a/include/linux/mailbox_client.h
-+++ b/include/linux/mailbox_client.h
-@@ -9,6 +9,7 @@
- 
- #include <linux/of.h>
- #include <linux/device.h>
-+#include <linux/mailbox.h>
- 
- struct mbox_chan;
- 
-@@ -41,6 +42,8 @@ int mbox_bind_client(struct mbox_chan *chan, struct mbox_client *cl);
- struct mbox_chan *mbox_request_channel_byname(struct mbox_client *cl,
- 					      const char *name);
- struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index);
-+struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
-+			int index, const struct mbox_xlate_args *mbox_spec);
- int mbox_send_message(struct mbox_chan *chan, void *mssg);
- int mbox_flush(struct mbox_chan *chan, unsigned long timeout);
- void mbox_client_txdone(struct mbox_chan *chan, int r); /* atomic */
-diff --git a/include/linux/mailbox_controller.h b/include/linux/mailbox_controller.h
-index 6fee33cb52f5..dfddcf966f9f 100644
---- a/include/linux/mailbox_controller.h
-+++ b/include/linux/mailbox_controller.h
-@@ -8,6 +8,7 @@
- #include <linux/hrtimer.h>
- #include <linux/device.h>
- #include <linux/completion.h>
-+#include <linux/mailbox.h>
- 
- struct mbox_chan;
- 
-@@ -67,6 +68,7 @@ struct mbox_chan_ops {
-  * @txpoll_period:	If 'txdone_poll' is in effect, the API polls for
-  *			last TX's status after these many millisecs
-  * @of_xlate:		Controller driver specific mapping of channel via DT
-+ * @xlate:		Controller driver specific mapping of channel
-  * @poll_hrt:		API private. hrtimer used to poll for TXDONE on all
-  *			channels.
-  * @node:		API private. To hook into list of controllers.
-@@ -81,6 +83,8 @@ struct mbox_controller {
- 	unsigned txpoll_period;
- 	struct mbox_chan *(*of_xlate)(struct mbox_controller *mbox,
- 				      const struct of_phandle_args *sp);
-+	struct mbox_chan *(*xlate)(struct mbox_controller *mbox,
-+				   const struct mbox_xlate_args *sp);
- 	/* Internal to API */
- 	struct hrtimer poll_hrt;
- 	spinlock_t poll_hrt_lock;
++#define EXYNOS_MBOX_CELL_TYPE_COUNT	2
++
++/**
++ * struct exynos_mbox - driver's private data.
++ * @regs:	mailbox registers base address.
++ * @mbox:	pointer to the mailbox controller.
++ * @dev:	pointer to the mailbox device.
++ * @pclk:	pointer to the mailbox peripheral clock.
++ */
++struct exynos_mbox {
++	void __iomem *regs;
++	struct mbox_controller *mbox;
++	struct device *dev;
++	struct clk *pclk;
++};
++
++static inline int exynos_mbox_chan_index(struct mbox_chan *chan)
++{
++	return chan - chan->mbox->chans;
++}
++
++static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
++{
++	struct exynos_mbox *exynos_mbox = dev_get_drvdata(chan->mbox->dev);
++	int index = exynos_mbox_chan_index(chan);
++
++	writel(BIT(index), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
++
++	return 0;
++}
++
++static const struct mbox_chan_ops exynos_mbox_chan_ops = {
++	.send_data = exynos_mbox_send_data,
++};
++
++static struct mbox_chan *exynos_mbox_xlate(struct mbox_controller *mbox,
++					   const struct mbox_xlate_args *sp)
++{
++	u32 id, type;
++
++	if (sp->args_count != EXYNOS_MBOX_CELLS) {
++		dev_err(mbox->dev, "Invalid argument count %d\n",
++			sp->args_count);
++		return ERR_PTR(-EINVAL);
++	}
++
++	id = sp->args[EXYNOS_MBOX_CELL_ID];
++	if (id >= mbox->num_chans) {
++		dev_err(mbox->dev, "Invalid channel ID %d\n", id);
++		return ERR_PTR(-EINVAL);
++	}
++
++	type = sp->args[EXYNOS_MBOX_CELL_TYPE];
++	if (type >= EXYNOS_MBOX_CELL_TYPE_COUNT) {
++		dev_err(mbox->dev, "Invalid channel type %d\n", type);
++		return ERR_PTR(-EINVAL);
++	}
++
++	if (type == DATA) {
++		dev_err(mbox->dev, "DATA channel type [%d] not supported\n",
++			type);
++		return ERR_PTR(-EINVAL);
++	};
++
++	return &mbox->chans[id];
++}
++
++static const struct of_device_id exynos_mbox_match[] = {
++	{ .compatible = "google,gs101-mbox" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, exynos_mbox_match);
++
++static int exynos_mbox_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct exynos_mbox *exynos_mbox;
++	struct mbox_controller *mbox;
++	struct mbox_chan *chans;
++	int i;
++
++	exynos_mbox = devm_kzalloc(dev, sizeof(*exynos_mbox), GFP_KERNEL);
++	if (!exynos_mbox)
++		return -ENOMEM;
++
++	mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
++	if (!mbox)
++		return -ENOMEM;
++
++	chans = devm_kcalloc(dev, EXYNOS_MBOX_CHAN_COUNT, sizeof(*chans),
++			     GFP_KERNEL);
++	if (!chans)
++		return -ENOMEM;
++
++	exynos_mbox->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(exynos_mbox->regs))
++		return PTR_ERR(exynos_mbox->regs);
++
++	exynos_mbox->pclk = devm_clk_get_enabled(dev, "pclk");
++	if (IS_ERR(exynos_mbox->pclk))
++		return dev_err_probe(dev, PTR_ERR(exynos_mbox->pclk),
++				     "Failed to enable clock.\n");
++
++	mbox->num_chans = EXYNOS_MBOX_CHAN_COUNT;
++	mbox->chans = chans;
++	mbox->dev = dev;
++	mbox->ops = &exynos_mbox_chan_ops;
++	mbox->xlate = exynos_mbox_xlate;
++
++	for (i = 0; i < EXYNOS_MBOX_CHAN_COUNT; i++)
++		chans[i].mbox = mbox;
++
++	exynos_mbox->dev = dev;
++	exynos_mbox->mbox = mbox;
++
++	platform_set_drvdata(pdev, exynos_mbox);
++
++	/* Mask out all interrupts. We support just polling channels for now. */
++	writel(EXYNOS_MBOX_INTMR0_MASK, exynos_mbox->regs + EXYNOS_MBOX_INTMR0);
++
++	return devm_mbox_controller_register(dev, mbox);
++}
++
++static struct platform_driver exynos_mbox_driver = {
++	.probe	= exynos_mbox_probe,
++	.driver	= {
++		.name = "exynos-acpm-mbox",
++		.of_match_table	= exynos_mbox_match,
++	},
++};
++module_platform_driver(exynos_mbox_driver);
++
++MODULE_AUTHOR("Tudor Ambarus <tudor.ambarus@linaro.org>");
++MODULE_DESCRIPTION("Samsung Exynos mailbox driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.47.1.613.gc27f4b7a9f-goog
