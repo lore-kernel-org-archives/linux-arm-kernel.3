@@ -4,158 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3435E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 19:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9881E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 19:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFkEsTciWcnTwL/TtonKd+lF734hGRTV7zLxkP7e2NM=; b=U5G2UlYZDVi5LwYrdxVXk2tO4a
-	Yl+R9S0+Yxg0vd2R983Nd9DQWPYolgHxdBDu9OkxfKKMUI6Bb8NAHx3Mh2dtwcXZZSdKL0P0nyT8z
-	yH/eLwwwUevhoSLouZ2Dyr5WRQyvpfuF0jh9Q8PBVkvfr0SGtq7XKQS+5IpPt3RNnefWJPrL5fCAE
-	3/FQU+w/pLhfSPc4FnCA+Ey5HGKdsSXe3bEXaRRx/dM934y/YEBwWRAKPBOGBkzYwHiHZrP40tNiN
-	g4SKJu2qjZRaM6C7gnStkBdbZWnOSDb7afgajaf1U/WlQ2qw98Dyw45XEtqn8mvto5P5kJI1YKlxd
-	VyJ4uIQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LVhGdRV7+tmpOWeS9zvGkR7uXA0VR0Po2tyiFNSf/dY=; b=sQYVSvuQKrXYg4LkVyTh3erGgm
+	nr/nfHtta/UhQFHjnd6ImBea+UITbbFkWAOc9M22JgtOhSNn3DAMPce8UMWHJorLjE+LP4AOrsw8Y
+	NtBpBvqGwrYtTV4EK8I9Qpr9yjqhM2l9KXmfh+jrBK7aE6YptHXKTyRoqCueKzl3AOEUqaCV1sokq
+	g7X90AuVhwMveTFKvkju7/STMNbXiXBK1+9RyNlE1b3dN1BFPAQFevDGd8HcJ7ELX9dge8RxwVIzF
+	5K2JMriKRNXXC5hjc823GIHPngpgGHq8c8375ZrY/Vls5W7nQwMpX+UtleW4JLEs/EH6Zx5JZCHjH
+	14hiT71w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOiM5-00000005sUJ-1Gbv;
-	Fri, 20 Dec 2024 19:08:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tOiUr-00000005tQ2-2qc0;
+	Fri, 20 Dec 2024 19:17:13 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOiKu-00000005sMK-3Ozo
+	id 1tOiTh-00000005tB9-3X1T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 19:06:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1734721615;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=RFkEsTciWcnTwL/TtonKd+lF734hGRTV7zLxkP7e2NM=;
-	b=fgBnBrHMG93kC8O+AvYgWyjXvtHg41t3iKU72MtnZa0JJK9ii7IHPYMvfUVZ9WIhPGjj76
-	oR1awzLr4uJU2scWJaQ0p+RcJjC0MXlJvkcu0v0DUtkTZCpUCNKFy8bHYFzA5+6DtbYF+v
-	UQMAbdt0zXXs0XMaOOqhRtGOKPkZpOI=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-86-3pV2Nu3gPLO1ft74jF4Isg-1; Fri, 20 Dec 2024 14:06:54 -0500
-X-MC-Unique: 3pV2Nu3gPLO1ft74jF4Isg-1
-X-Mimecast-MFC-AGG-ID: 3pV2Nu3gPLO1ft74jF4Isg
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-436225d4389so16570915e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 11:06:53 -0800 (PST)
+	Fri, 20 Dec 2024 19:16:03 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-53e3a5fa6aaso3577984e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 11:16:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734722160; x=1735326960; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LVhGdRV7+tmpOWeS9zvGkR7uXA0VR0Po2tyiFNSf/dY=;
+        b=seDlzxte2SmeOen7jOJLlnZCcGcg3P2SI70rlQUsAaWIrmzBVpd56TX36VSXxNgnpH
+         TZOFnIib2fVI8geLjS76wDsxBo8xoCtYAmhH1McO68P3tPDkmWwIxIsY/lN2kvqJuP5b
+         X5hRue75eakXSH4Udvg/Ru79NNyVog1epjZPsdacxh5sIENUey36PoEgA9D3nmYjedR+
+         cO/pKg19nC/dtooPOe6VvbF5sVCfBHKU6Iy7wgelcd44TF/C0Y1tWcv+uELKleaI1AUI
+         0FH/yNdxrVr+WF9f8PK46NVX9A5teSQYxiDDDwhwzqIKebLDWp9d8AXRGjb672c1P4XB
+         P80g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734721613; x=1735326413;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:from:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=RFkEsTciWcnTwL/TtonKd+lF734hGRTV7zLxkP7e2NM=;
-        b=Vo3mu6lIc0xdSgIHLNF48gaOwnN5Xl2NkmNqTOwUgug3n4EId9lb2vMdE8G5MaZCOL
-         KwLMUzPLGg/9l8wQstRsIpzVbFl9LKPj1RWJ+VqCE36nczvPmVA8uvlFC5k0QbGUaEXB
-         x7z/zB1Cxvl0zeqTznrxKKoiR/gATqnvf5NjMNHuCzdNch8cJFHWMXHhhS2314ok8GjH
-         bBarrR6ViUKzkueaFYZXy3jmABfV440E39jKWNrWtiPDKxSfmlJ3JG8nDNToUmou2Pfx
-         0xKg66btiDoRsadE8EnOAgMMIBMQaE9mPI51H1pbuQ7E/zPHILhW7Kk7iuVt2P1TeGrk
-         I4dQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWac90W6VTmNCx7v+ulx5ouPZwswgbaz6SAmBc4bANuTHVVpn11DktucXb1SxjxXzlmDRuAF3k4l4gJIiPznzHr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiPuw+yF37bZ1QWJOAldNOOvglq6wkPQfh4lkTAkd3mOe//mJw
-	yntC64aRXYtV6a4J2qSJiaANGS3rZS51kpNky9zbFwf6QyzLlWsNggktsU89HTblugg1JMvvxRn
-	6lZegg7PFjM5il3FVakzB1zuUVDM766aGxsWJqptsJiRuJHdqym38Z/jX330NH8Qj3MWQCdG5
-X-Gm-Gg: ASbGncuPxlaJo5TVcMVgcIVWC8ZKHRrIpyyoxVYYEWSS8cUpNWUg1MF6Y+AbXYeqMKI
-	JCEJ5tby75tZnLWpWLNOnSCM9RcnYQNgAMmZKirMd4J5gqSkp7N4RFR0adqSsHKyUzGlrLY9tVg
-	Y9FbLpnpgAzL0q5OUxHfrS458OTFM6N36WCDHnM+zk1sV1jHdpVbKNsLcT7OYH5PQ4LVypFyMGS
-	xmNMJDwkLtHy3w8oV0hHtQcr1q62ybrAAFn0+5au6zAfZEHPzredNa8OoT+xx1WH44TA4RMXjts
-	V/yhd4s0Zfb3OtbihNOKh96goLYyM5dwaDwNMGRfc0pn2SQa0mGATvPPn2o9Pifsipe6gVzW6DO
-	Yh/2BkBCr
-X-Received: by 2002:a05:600c:511d:b0:434:fddf:5c06 with SMTP id 5b1f17b1804b1-436696fec16mr35270455e9.1.1734721612816;
-        Fri, 20 Dec 2024 11:06:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IERqIf8xGPJCOcwULreRIrmoeCTCQCdfJF2ZzCiP9Fl3O6hFSwQAHiUYx6RQs/AxsCHXPlxOQ==
-X-Received: by 2002:a05:600c:511d:b0:434:fddf:5c06 with SMTP id 5b1f17b1804b1-436696fec16mr35270125e9.1.1734721612322;
-        Fri, 20 Dec 2024 11:06:52 -0800 (PST)
-Received: from ?IPV6:2003:cb:c708:9d00:edd9:835b:4bfb:2ce3? (p200300cbc7089d00edd9835b4bfb2ce3.dip0.t-ipconnect.de. [2003:cb:c708:9d00:edd9:835b:4bfb:2ce3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366112e780sm53169585e9.0.2024.12.20.11.06.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 11:06:51 -0800 (PST)
-Message-ID: <6254ce2c-4a47-4501-b518-dedaddcbf91a@redhat.com>
-Date: Fri, 20 Dec 2024 20:06:48 +0100
+        d=1e100.net; s=20230601; t=1734722160; x=1735326960;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LVhGdRV7+tmpOWeS9zvGkR7uXA0VR0Po2tyiFNSf/dY=;
+        b=S0oJ1nHtyg5YgyyIJ0YK6zBpx15R9fgP9YrLujvVENTWFm6KRKlCGgd2w6iQuLkjnm
+         KBZe5XFOzk142D6eUQbUiDFX7DYUw29BKytgOQr3V0wxc+ZAOhwvwwaNwIJZb7J1Kaz7
+         77Km4a50zA4pPrP/NPrZobr++TZciTq4rT2TNwhD7HfhHLf/0cV01UzSWQcLdX2i4+yV
+         RG6LJUajKsCYnLzkWT6GNN/tFCU2gk/x2mUubdumkDV2SX2uJC9cq8IJtfK9gU6crrhw
+         Md7p90TQxQSwtHZh3+yBDGFlEjLre6jW71jvK60Un18DsU8K2VZo1fESkUBlvEVp+2Dr
+         JYSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWhD7J6S8FpUOkkWu6J244R7I6zZ4hO3/4tEsN4Bd1WuaTbXABf+LT+zgk2WzBQdWKf18UIXeVBceiIWfQLOBDN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+gDeJFzXDeFDfxSXIhJcH9V9emMx12gQZWWiC3p0tUwqf5Kga
+	dygaFaK0cRH72y4mFY7/GZk3L4IHqkrhgEywWe8PSExWm/6p0mQWJYc90YnKRJI=
+X-Gm-Gg: ASbGncsgYid7rUPmoArWeAqap5JpyBQhzpIt43tjRUgo1Al9n1vkFTXnUqs1Km6R2XG
+	rZJS/3l+TnfZnFyTrzHQrjOvqJ6wqWz/2AorPy5Hk6OTMlrD0qY3xoaNctZy65J1N6NMKzF+mSE
+	WmyO6HIwy8tHLtK6fogLrdy98TH+enIllpKlc5vpt4GJcgTf8OrqLFS3QaHITHTduI5vLrUJvjd
+	RPsQQMNAzRgl6nn6WkVd4A2PriYYGyzi2jc14/X4OhQamQZcBK4eqmAvnrbhLPIW/a1G7C8NQDD
+	N4i6LolIQRWaQS+eTx/ZvPSfmyymLdFbzvCm
+X-Google-Smtp-Source: AGHT+IEURyWKTn2FJTwcAgejvV5qcX/pZ5aDO4aMQy2EhYkLh3O2M6VjdFgjz7JOFFtdAxgONBeT/Q==
+X-Received: by 2002:a05:6512:1242:b0:540:2122:faea with SMTP id 2adb3069b0e04-542212ef59emr2889028e87.14.1734722159575;
+        Fri, 20 Dec 2024 11:15:59 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5422382fb31sm544143e87.235.2024.12.20.11.15.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 11:15:58 -0800 (PST)
+Date: Fri, 20 Dec 2024 21:15:55 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Maxime Ripard <mripard@kernel.org>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
+	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
+Message-ID: <2ut2qwy2geh7f2f75wq2ttlh4xbniwow24rtnzaikit7sd5smt@nrm5wiigrrha>
+References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
+ <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
+ <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
+ <20241218-wild-red-manatee-bb2a34@houat>
+ <CAPY8ntDdcOXuWVgx6+cbgX5ct_-MXcE7CWDKgGP57EX6bvBLaw@mail.gmail.com>
+ <CAPY8ntAnJ1YDQee=pFSDY3+EXHj4_RZ-M1NMp2C3ZDdD5DsCKA@mail.gmail.com>
+ <c7qyka3hsrggqevdwdlfcanzps3z63s4joryskijlbuztacmly@tadqjm2vkj24>
+ <CAPY8ntDUaFnvkjkqES4AkrzZ2z659h3w5MFSd8vW04Eh-iJ1FA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/25] mm/memory: Enhance insert_page_into_pte_locked()
- to create writable mappings
-From: David Hildenbrand <david@redhat.com>
-To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
- dan.j.williams@intel.com, linux-mm@kvack.org
-Cc: lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
- vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
- bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
- will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
- dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
- djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
- david@fromorbit.com
-References: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
- <25a23433cb70f0fe6af92042eb71e962fcbf092b.1734407924.git-series.apopple@nvidia.com>
- <d4d32e17-d8e2-4447-bd33-af41e89a528f@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <d4d32e17-d8e2-4447-bd33-af41e89a528f@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: murU6TyVnroOyXI_TJf8N0LiT6N19SiNVVHUqrDfoKI_1734721613
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAPY8ntDUaFnvkjkqES4AkrzZ2z659h3w5MFSd8vW04Eh-iJ1FA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_110656_927721_E6F16D63 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20241220_111601_917560_7697A891 
+X-CRM114-Status: GOOD (  51.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,91 +122,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.12.24 20:01, David Hildenbrand wrote:
-> On 17.12.24 06:12, Alistair Popple wrote:
->> In preparation for using insert_page() for DAX, enhance
->> insert_page_into_pte_locked() to handle establishing writable
->> mappings.  Recall that DAX returns VM_FAULT_NOPAGE after installing a
->> PTE which bypasses the typical set_pte_range() in finish_fault.
->>
->> Signed-off-by: Alistair Popple <apopple@nvidia.com>
->> Suggested-by: Dan Williams <dan.j.williams@intel.com>
->>
->> ---
->>
->> Changes since v2:
->>
->>    - New patch split out from "mm/memory: Add dax_insert_pfn"
->> ---
->>    mm/memory.c | 45 +++++++++++++++++++++++++++++++++++++--------
->>    1 file changed, 37 insertions(+), 8 deletions(-)
->>
->> diff --git a/mm/memory.c b/mm/memory.c
->> index 06bb29e..cd82952 100644
->> --- a/mm/memory.c
->> +++ b/mm/memory.c
->> @@ -2126,19 +2126,47 @@ static int validate_page_before_insert(struct vm_area_struct *vma,
->>    }
->>    
->>    static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
->> -			unsigned long addr, struct page *page, pgprot_t prot)
->> +				unsigned long addr, struct page *page,
->> +				pgprot_t prot, bool mkwrite)
->>    {
->>    	struct folio *folio = page_folio(page);
->> +	pte_t entry = ptep_get(pte);
->>    	pte_t pteval;
->>    
->> -	if (!pte_none(ptep_get(pte)))
->> -		return -EBUSY;
->> +	if (!pte_none(entry)) {
->> +		if (!mkwrite)
->> +			return -EBUSY;
->> +
->> +		/*
->> +		 * For read faults on private mappings the PFN passed in may not
->> +		 * match the PFN we have mapped if the mapped PFN is a writeable
->> +		 * COW page.  In the mkwrite case we are creating a writable PTE
->> +		 * for a shared mapping and we expect the PFNs to match. If they
->> +		 * don't match, we are likely racing with block allocation and
->> +		 * mapping invalidation so just skip the update.
->> +		 */
+On Fri, Dec 20, 2024 at 03:00:47PM +0000, Dave Stevenson wrote:
+> On Fri, 20 Dec 2024 at 00:45, Dmitry Baryshkov
+> <dmitry.baryshkov@linaro.org> wrote:
+> >
+> > On Thu, Dec 19, 2024 at 04:16:37PM +0000, Dave Stevenson wrote:
+> > > On Wed, 18 Dec 2024 at 14:52, Dave Stevenson
+> > > <dave.stevenson@raspberrypi.com> wrote:
+> > > >
+> > > > Hi Maxime & Dmitry
+> > > >
+> > > > On Wed, 18 Dec 2024 at 07:59, Maxime Ripard <mripard@kernel.org> wrote:
+> > > > >
+> > > > > On Wed, Dec 18, 2024 at 07:24:23AM +0200, Dmitry Baryshkov wrote:
+> > > > > > On Tue, 17 Dec 2024 at 19:21, Maxime Ripard <mripard@kernel.org> wrote:
+> > > > > > > On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
+> > > > > > > > While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
+> > > > > > > > framework, I stumbled upon an issue while handling the Audio InfoFrames.
+> > > > > > > > The HDMI codec callbacks weren't receiving the drm_atomic_state, so
+> > > > > > > > there was no simple way to get the drm_connector that stayed at the end
+> > > > > > > > of the bridge chain. At the same point the drm_hdmi_connector functions
+> > > > > > > > expected to get drm_connector instance.
+> > > > > > > >
+> > > > > > > > While looking for a way to solve the issue, I stumbled upon several
+> > > > > > > > deficiencies in existing hdmi_codec_ops implementations. Only few of the
+> > > > > > > > implementations were able to handle codec's 'plugged' callback. One
+> > > > > > > > third of the drivers didn't implement the get_eld() callback.
+> > > > > > > >
+> > > > > > > > Most of the issues can be solved if drm_connector handles
+> > > > > > > > hdmi-audio-codec on its own, delegating functionality to the actual
+> > > > > > > > implementation, be it a driver that implements drm_connector or
+> > > > > > > > drm_bridge.
+> > > > > > > >
+> > > > > > > > Implement such high-level framework, adding proper support for Audio
+> > > > > > > > InfoFrame generation to the LT9611 driver.
+> > > > > > > >
+> > > > > > > > Several design decisions to be kept in mind:
+> > > > > > > >
+> > > > > > > > - drm_connector_hdmi_codec is kept as simple as possible. It implements
+> > > > > > > >   generic functionality (ELD, hotplug, registration).
+> > > > > > > >
+> > > > > > > > - drm_hdmi_connector sets up HDMI codec device if the connector
+> > > > > > > >   is setup correspondingly (either I2S or S/PDIF is marked as
+> > > > > > > >   supported).
+> > > > > > > >
+> > > > > > > > - drm_bridge_connector provides a way to link HDMI audio codec
+> > > > > > > >   funcionality in the drm_bridge with the drm_connector_hdmi_codec
+> > > > > > > >   framework.
+> > > > > > > >
+> > > > > > > > - It might be worth reverting the no_i2s_capture / no_spdif_capture
+> > > > > > > >   bits. Only TDA889x driver sets them, while it's safe to assume that
+> > > > > > > >   most of HDMI / DP devices do not support ARC / capture. I think the
+> > > > > > > >   drivers should opt-in capture support rather than having to opt-out of
+> > > > > > > >   it.
+> > > > > > >
+> > > > > > > Sorry if this isn't clear to me and I'm quite late to the party, but did
+> > > > > > > you test this on vc4 with both a pi3 and pi4, or was it just compile
+> > > > > > > tested?
+> > > > > >
+> > > > > > LT9611 is actually tested, VC4 is only compile-tested. Should I put an RFT tag?
+> > > > >
+> > > > > Yeah, we definitely need to test it on the pi3 (polling-based) and the
+> > > > > pi4 (irq-based) at least.
+> > > > >
+> > > > > Dave, Maira, could you give it a try?
+> > > >
+> > > > I'm on it.
+> > >
+> > > Basic checks look OK.
+> > > Pi3 and Pi4 tested, including 4k60 on Pi4 (enables scrambling). Audio
+> > > works, and all the EDID parsing seems to be correct.
+> > >
+> > > Ideally I would like to do a couple more tests though as I had a
+> > > couple of spontaneous reboots on Pi4 whilst hotplugging.
+> > > Most likely it was just grounding issues, as I can't think of an
+> > > obvious way for the kernel to be triggering an automatic reboot. They
+> > > seemed to go away when I had enabled drm.debug=0x14, but more likely
+> > > I'd connected the serial port and therefore provided another ground.
+> > > Please don't hold the patches waiting on me though - I don't know when
+> > > I'll have time to do them.
+> >
+> > Tested-by?
 > 
-> Would it make sense to instead have here
+> I'd held off hoping to get the extra testing done today, but that
+> hasn't happened, and today is my last day before the Christmas break.
+> So based on what I've done so far:
 > 
-> /* See insert_pfn(). */
-> 
-> But ...
-> 
->> +		if (pte_pfn(entry) != page_to_pfn(page)) {
->> +			WARN_ON_ONCE(!is_zero_pfn(pte_pfn(entry)));
->> +			return -EFAULT;
->> +		}
->> +		entry = maybe_mkwrite(entry, vma);
->> +		entry = pte_mkyoung(entry);
->> +		if (ptep_set_access_flags(vma, addr, pte, entry, 1))
->> +			update_mmu_cache(vma, addr, pte);
-> 
-> ... I am not sure if we want the above at all. Someone inserted a page,
-> which is refcounted + mapcounted already.
-> 
-> Now you ignore that and do like the second insertion "worked" ?
-> 
-> No, that feels wrong, I suspect you will run into refcount+mapcount issues.
-> 
-> If there is already something, inserting must fail IMHO. If you want to
-> change something to upgrade write permissions, then a different
-> interface should be used.
+> Tested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 
-Ah, now I realize that the early exit saves you because we won't adjust 
-the refcount +mapcount.
+Thank you!
 
-I still wonder if that really belongs in here, I would prefer to not 
-play such tricks to upgrade write permissions if possible.
+> 
+> > >
+> > >
+> > > Also unrelated to this patch set, I have noted I'm getting
+> > > [   60.780897] WARNING: CPU: 3 PID: 501 at
+> > > drivers/gpu/drm/vc4/vc4_hvs.c:743 __vc4_hvs_stop_channel+0x148/0x164
+> > > [vc4]
+> > > ...
+> > > [   60.781192]  __vc4_hvs_stop_channel+0x148/0x164 [vc4] (P)
+> > > [   60.781212]  __vc4_hvs_stop_channel+0x40/0x164 [vc4] (L)
+> > > [   60.781230]  vc4_hvs_stop_channel+0x30/0x3c [vc4]
+> > > [   60.781248]  vc4_crtc_disable+0x140/0x1e8 [vc4]
+> > > [   60.781266]  vc4_crtc_atomic_disable+0x98/0xb8 [vc4]
+> > > [   60.781284]  disable_outputs+0x22c/0x33c [drm_kms_helper]
+> > > [   60.781326]  drm_atomic_helper_commit_modeset_disables+0x1c/0x4c
+> > > [drm_kms_helper]
+> > > [   60.781347]  vc4_atomic_commit_tail+0x10c/0x8e4 [vc4]
+> > > [   60.781364]  commit_tail+0xa0/0x188 [drm_kms_helper]
+> > > [   60.781385]  drm_atomic_helper_commit+0x16c/0x180 [drm_kms_helper]
+> > > [   60.781406]  drm_atomic_commit+0x88/0xc4 [drm]
+> > > [   60.781500]  drm_client_modeset_commit_atomic+0x204/0x264 [drm]
+> > > [   60.781553]  drm_client_modeset_commit_locked+0x5c/0x198 [drm]
+> > > [   60.781603]  drm_client_modeset_commit+0x30/0x58 [drm]
+> > > [   60.781652]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0xe8
+> > > [drm_kms_helper]
+> > > [   60.781674]  drm_fb_helper_hotplug_event+0x108/0x12c [drm_kms_helper]
+> > > [   60.781695]  drm_fbdev_client_hotplug+0x28/0xd4 [drm_client_lib]
+> > > [   60.781700]  drm_client_dev_hotplug+0xc8/0x12c [drm]
+> > > [   60.781750]  drm_connector_helper_hpd_irq_event+0x70/0xb0 [drm_kms_helper]
+> > > [   60.781771]  vc4_hdmi_hpd_irq_thread+0x2c/0x3c [vc4]
+> > > [   60.781790]  irq_thread_fn+0x2c/0xa8
+> > > [   60.781799]  irq_thread+0x16c/0x2f4
+> > > [   60.781805]  kthread+0x118/0x11c
+> > > [   60.781813]  ret_from_fork+0x10/0x20
+> > > On first plugging or unplugging a second monitor. I suspect that is
+> > > spurious though and I'll look into it, but probably not this side of
+> > > the Christmas break.
+> > >
+> > >   Dave
+> >
+> > --
+> > With best wishes
+> > Dmitry
 
 -- 
-Cheers,
-
-David / dhildenb
-
+With best wishes
+Dmitry
 
