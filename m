@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B5AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 19:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3435E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 19:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ug2XIccF0/YqFCL6Bdhqogh1COfkkzUL+XNw1IcnJx8=; b=Fvx81ZWEpE9Z2/jyOgHtGzM0P/
-	Y1hxT6RXxk5zcLIpGbNzVZ3ShwbvslupxcJr4J2v0pVD6NpJ3eSTDvnmbGuRl4emGF+1gySTXTK5o
-	pkQBiO8R+tIOpmsRnC36qsRjqgdbzxclmeH+soOG6KL5COk2jrHfpV+oWxNeA//LwA6uHM0vKGf7t
-	9MoQlwCysb1xUcFq3wtaTsWJQZO8aykHfxEIhY8Ed06l9dVNMuh1A/Ecvpf8ACHAM8EYPJMhZR5B6
-	dFSsOVJQmPEAZhur70IBTnJclbtgcQlvIQgIpC854JDR/rgMKxFIYl9F/7aKtqoqx++RfAX605kL0
-	yppzUfGg==;
+	bh=RFkEsTciWcnTwL/TtonKd+lF734hGRTV7zLxkP7e2NM=; b=U5G2UlYZDVi5LwYrdxVXk2tO4a
+	Yl+R9S0+Yxg0vd2R983Nd9DQWPYolgHxdBDu9OkxfKKMUI6Bb8NAHx3Mh2dtwcXZZSdKL0P0nyT8z
+	yH/eLwwwUevhoSLouZ2Dyr5WRQyvpfuF0jh9Q8PBVkvfr0SGtq7XKQS+5IpPt3RNnefWJPrL5fCAE
+	3/FQU+w/pLhfSPc4FnCA+Ey5HGKdsSXe3bEXaRRx/dM934y/YEBwWRAKPBOGBkzYwHiHZrP40tNiN
+	g4SKJu2qjZRaM6C7gnStkBdbZWnOSDb7afgajaf1U/WlQ2qw98Dyw45XEtqn8mvto5P5kJI1YKlxd
+	VyJ4uIQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOiGU-00000005ryK-18rw;
-	Fri, 20 Dec 2024 19:02:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tOiM5-00000005sUJ-1Gbv;
+	Fri, 20 Dec 2024 19:08:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOiFK-00000005rq5-1FJz
+	id 1tOiKu-00000005sMK-3Ozo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 19:01:11 +0000
+	Fri, 20 Dec 2024 19:06:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1734721269;
+	s=mimecast20190719; t=1734721615;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ug2XIccF0/YqFCL6Bdhqogh1COfkkzUL+XNw1IcnJx8=;
-	b=JgctmeK0h5hCK84WClPmHoD5CGaE34yotuDkcEheI111kpaTA3soUEaT1od2kgCtpvlgfL
-	rFdRVZEz62hNF9wrmyM6dc6VXmuGEGf0vHPDm2DYKbsDqF5nJDvJjpmAAFy4b/9QG2I1p/
-	b9u8l9bCJG/J2Yv35cSJ6W+iErwZ1W0=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=RFkEsTciWcnTwL/TtonKd+lF734hGRTV7zLxkP7e2NM=;
+	b=fgBnBrHMG93kC8O+AvYgWyjXvtHg41t3iKU72MtnZa0JJK9ii7IHPYMvfUVZ9WIhPGjj76
+	oR1awzLr4uJU2scWJaQ0p+RcJjC0MXlJvkcu0v0DUtkTZCpUCNKFy8bHYFzA5+6DtbYF+v
+	UQMAbdt0zXXs0XMaOOqhRtGOKPkZpOI=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-541-NJk0j4IXNUeY0ijUhDBhoQ-1; Fri, 20 Dec 2024 14:01:07 -0500
-X-MC-Unique: NJk0j4IXNUeY0ijUhDBhoQ-1
-X-Mimecast-MFC-AGG-ID: NJk0j4IXNUeY0ijUhDBhoQ
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-38639b4f19cso1574780f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 11:01:07 -0800 (PST)
+ us-mta-86-3pV2Nu3gPLO1ft74jF4Isg-1; Fri, 20 Dec 2024 14:06:54 -0500
+X-MC-Unique: 3pV2Nu3gPLO1ft74jF4Isg-1
+X-Mimecast-MFC-AGG-ID: 3pV2Nu3gPLO1ft74jF4Isg
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-436225d4389so16570915e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 11:06:53 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734721266; x=1735326066;
+        d=1e100.net; s=20230601; t=1734721613; x=1735326413;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
+         :content-language:references:cc:to:from:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=ug2XIccF0/YqFCL6Bdhqogh1COfkkzUL+XNw1IcnJx8=;
-        b=vnoIF4OouYTYwW6wytSP0NW6jkx549W4I1N43CalbcfbY00SM98HKKFMIJUClddIbS
-         9vIt3R1yoTguzkPgZipIhIdFbrk8CNORWlq9tM98EXt1mm6tTRhAdQxcq+iJDctMrJ20
-         KPLrGn/HVM5mqc4RkwwNAxWWA9f4Px+L9Z7EoIW6lv3k8qSta/uorQAQKnVjVlejXBKI
-         q32vmnMC+u/jfWWsAhWBNMcxgqhNh0gVXrVnLiJio/t2Qu0FXf5U8pMIzKsytBKN+jfk
-         a05uU4Sddc8s8ZFgMaBk+DJ8ZqXJwIfSMkS2IDvA5B89u8az/h3fVZF78S8UGbDytg1j
-         pAQg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjLfOWqCwvvkuEnLsHL4cH0XNppZNM33gWELSl5WapD3b8zegxnEXLrlpz5uxI3o8LY4uBRUU1ZC6Apv4iRJF6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSavAJv1Wbe8w/r97y2VASffDuQCaYi1fzXMoM64BBfEFoQcAQ
-	v7qiaLbF3i+Fx4wal6H1OqzgixBVm7VWKWOHlOXoL5UlG+/N22y+Hv+gVzOjQRtbg6AfiX2Xohw
-	JBazsBivv4BvJn9YuyNWAlfNS4vAkEMu/RtMEiSf3/65PyubsqI84np9VqhrM+TAuVebygjqx
-X-Gm-Gg: ASbGncuxhnZgP7jjAwhUWsba1OwAJAujYxj8JfLVYRlld8RZydC0JYQTLxT4o1LKr1z
-	VMNbVti3Ib4OcU1fgDVd2M+GoU8rWJZF+f2jWuh7TBIAaZQdTww+ws1L0ciIWsL5XHXFJa939Cs
-	EpIPxLgBWS35ve/5chfI+4x9eUrQHuBUWrx2gwfnCQ/vsn0/FDLRLpULzaREx5TUFw0zYpXZnDe
-	icGhiJHTgNCxdyardsHeYdDfwsbCy4DkzGz+f5XIzfJO1UvZIrf4YrMQS5JMvW+dV0BV2jkaG8v
-	mUAZR66bs8w77WJACvs4P+ETYgtTfUxE5Swl/6W3MFN9764OPKbx1JIOZKdQnRbbDf1I21eRb7j
-	6hU+uhoob
-X-Received: by 2002:a5d:6d84:0:b0:382:46ea:113f with SMTP id ffacd0b85a97d-38a221e2799mr4695494f8f.10.1734721266472;
-        Fri, 20 Dec 2024 11:01:06 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE509IM4SN9jE/jQGrc5Y1LN5lcHkipiJsCNaT3s/Oi8fyaGDIBaILpQ3fg+YFYHK3krJT9Yg==
-X-Received: by 2002:a5d:6d84:0:b0:382:46ea:113f with SMTP id ffacd0b85a97d-38a221e2799mr4695410f8f.10.1734721265957;
-        Fri, 20 Dec 2024 11:01:05 -0800 (PST)
+        bh=RFkEsTciWcnTwL/TtonKd+lF734hGRTV7zLxkP7e2NM=;
+        b=Vo3mu6lIc0xdSgIHLNF48gaOwnN5Xl2NkmNqTOwUgug3n4EId9lb2vMdE8G5MaZCOL
+         KwLMUzPLGg/9l8wQstRsIpzVbFl9LKPj1RWJ+VqCE36nczvPmVA8uvlFC5k0QbGUaEXB
+         x7z/zB1Cxvl0zeqTznrxKKoiR/gATqnvf5NjMNHuCzdNch8cJFHWMXHhhS2314ok8GjH
+         bBarrR6ViUKzkueaFYZXy3jmABfV440E39jKWNrWtiPDKxSfmlJ3JG8nDNToUmou2Pfx
+         0xKg66btiDoRsadE8EnOAgMMIBMQaE9mPI51H1pbuQ7E/zPHILhW7Kk7iuVt2P1TeGrk
+         I4dQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWac90W6VTmNCx7v+ulx5ouPZwswgbaz6SAmBc4bANuTHVVpn11DktucXb1SxjxXzlmDRuAF3k4l4gJIiPznzHr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiPuw+yF37bZ1QWJOAldNOOvglq6wkPQfh4lkTAkd3mOe//mJw
+	yntC64aRXYtV6a4J2qSJiaANGS3rZS51kpNky9zbFwf6QyzLlWsNggktsU89HTblugg1JMvvxRn
+	6lZegg7PFjM5il3FVakzB1zuUVDM766aGxsWJqptsJiRuJHdqym38Z/jX330NH8Qj3MWQCdG5
+X-Gm-Gg: ASbGncuPxlaJo5TVcMVgcIVWC8ZKHRrIpyyoxVYYEWSS8cUpNWUg1MF6Y+AbXYeqMKI
+	JCEJ5tby75tZnLWpWLNOnSCM9RcnYQNgAMmZKirMd4J5gqSkp7N4RFR0adqSsHKyUzGlrLY9tVg
+	Y9FbLpnpgAzL0q5OUxHfrS458OTFM6N36WCDHnM+zk1sV1jHdpVbKNsLcT7OYH5PQ4LVypFyMGS
+	xmNMJDwkLtHy3w8oV0hHtQcr1q62ybrAAFn0+5au6zAfZEHPzredNa8OoT+xx1WH44TA4RMXjts
+	V/yhd4s0Zfb3OtbihNOKh96goLYyM5dwaDwNMGRfc0pn2SQa0mGATvPPn2o9Pifsipe6gVzW6DO
+	Yh/2BkBCr
+X-Received: by 2002:a05:600c:511d:b0:434:fddf:5c06 with SMTP id 5b1f17b1804b1-436696fec16mr35270455e9.1.1734721612816;
+        Fri, 20 Dec 2024 11:06:52 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IERqIf8xGPJCOcwULreRIrmoeCTCQCdfJF2ZzCiP9Fl3O6hFSwQAHiUYx6RQs/AxsCHXPlxOQ==
+X-Received: by 2002:a05:600c:511d:b0:434:fddf:5c06 with SMTP id 5b1f17b1804b1-436696fec16mr35270125e9.1.1734721612322;
+        Fri, 20 Dec 2024 11:06:52 -0800 (PST)
 Received: from ?IPV6:2003:cb:c708:9d00:edd9:835b:4bfb:2ce3? (p200300cbc7089d00edd9835b4bfb2ce3.dip0.t-ipconnect.de. [2003:cb:c708:9d00:edd9:835b:4bfb:2ce3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8b874asm4653683f8f.109.2024.12.20.11.01.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366112e780sm53169585e9.0.2024.12.20.11.06.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 11:01:05 -0800 (PST)
-Message-ID: <d4d32e17-d8e2-4447-bd33-af41e89a528f@redhat.com>
-Date: Fri, 20 Dec 2024 20:01:02 +0100
+        Fri, 20 Dec 2024 11:06:51 -0800 (PST)
+Message-ID: <6254ce2c-4a47-4501-b518-dedaddcbf91a@redhat.com>
+Date: Fri, 20 Dec 2024 20:06:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 12/25] mm/memory: Enhance insert_page_into_pte_locked()
  to create writable mappings
+From: David Hildenbrand <david@redhat.com>
 To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org,
  dan.j.williams@intel.com, linux-mm@kvack.org
 Cc: lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
@@ -99,7 +100,7 @@ Cc: lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
  david@fromorbit.com
 References: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
  <25a23433cb70f0fe6af92042eb71e962fcbf092b.1734407924.git-series.apopple@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
+ <d4d32e17-d8e2-4447-bd33-af41e89a528f@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
  dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
@@ -145,16 +146,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <25a23433cb70f0fe6af92042eb71e962fcbf092b.1734407924.git-series.apopple@nvidia.com>
+In-Reply-To: <d4d32e17-d8e2-4447-bd33-af41e89a528f@redhat.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KM1nQBdnAicbqFtnqyZj0RfGJvknxKoliY573VNnTIU_1734721267
+X-Mimecast-MFC-PROC-ID: murU6TyVnroOyXI_TJf8N0LiT6N19SiNVVHUqrDfoKI_1734721613
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_110110_410559_DD8A400B 
-X-CRM114-Status: GOOD (  25.61  )
+X-CRM114-CacheID: sfid-20241220_110656_927721_E6F16D63 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,117 +170,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.12.24 06:12, Alistair Popple wrote:
-> In preparation for using insert_page() for DAX, enhance
-> insert_page_into_pte_locked() to handle establishing writable
-> mappings.  Recall that DAX returns VM_FAULT_NOPAGE after installing a
-> PTE which bypasses the typical set_pte_range() in finish_fault.
+On 20.12.24 20:01, David Hildenbrand wrote:
+> On 17.12.24 06:12, Alistair Popple wrote:
+>> In preparation for using insert_page() for DAX, enhance
+>> insert_page_into_pte_locked() to handle establishing writable
+>> mappings.  Recall that DAX returns VM_FAULT_NOPAGE after installing a
+>> PTE which bypasses the typical set_pte_range() in finish_fault.
+>>
+>> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+>> Suggested-by: Dan Williams <dan.j.williams@intel.com>
+>>
+>> ---
+>>
+>> Changes since v2:
+>>
+>>    - New patch split out from "mm/memory: Add dax_insert_pfn"
+>> ---
+>>    mm/memory.c | 45 +++++++++++++++++++++++++++++++++++++--------
+>>    1 file changed, 37 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/mm/memory.c b/mm/memory.c
+>> index 06bb29e..cd82952 100644
+>> --- a/mm/memory.c
+>> +++ b/mm/memory.c
+>> @@ -2126,19 +2126,47 @@ static int validate_page_before_insert(struct vm_area_struct *vma,
+>>    }
+>>    
+>>    static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
+>> -			unsigned long addr, struct page *page, pgprot_t prot)
+>> +				unsigned long addr, struct page *page,
+>> +				pgprot_t prot, bool mkwrite)
+>>    {
+>>    	struct folio *folio = page_folio(page);
+>> +	pte_t entry = ptep_get(pte);
+>>    	pte_t pteval;
+>>    
+>> -	if (!pte_none(ptep_get(pte)))
+>> -		return -EBUSY;
+>> +	if (!pte_none(entry)) {
+>> +		if (!mkwrite)
+>> +			return -EBUSY;
+>> +
+>> +		/*
+>> +		 * For read faults on private mappings the PFN passed in may not
+>> +		 * match the PFN we have mapped if the mapped PFN is a writeable
+>> +		 * COW page.  In the mkwrite case we are creating a writable PTE
+>> +		 * for a shared mapping and we expect the PFNs to match. If they
+>> +		 * don't match, we are likely racing with block allocation and
+>> +		 * mapping invalidation so just skip the update.
+>> +		 */
 > 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Suggested-by: Dan Williams <dan.j.williams@intel.com>
+> Would it make sense to instead have here
 > 
-> ---
+> /* See insert_pfn(). */
 > 
-> Changes since v2:
+> But ...
 > 
->   - New patch split out from "mm/memory: Add dax_insert_pfn"
-> ---
->   mm/memory.c | 45 +++++++++++++++++++++++++++++++++++++--------
->   1 file changed, 37 insertions(+), 8 deletions(-)
+>> +		if (pte_pfn(entry) != page_to_pfn(page)) {
+>> +			WARN_ON_ONCE(!is_zero_pfn(pte_pfn(entry)));
+>> +			return -EFAULT;
+>> +		}
+>> +		entry = maybe_mkwrite(entry, vma);
+>> +		entry = pte_mkyoung(entry);
+>> +		if (ptep_set_access_flags(vma, addr, pte, entry, 1))
+>> +			update_mmu_cache(vma, addr, pte);
 > 
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 06bb29e..cd82952 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -2126,19 +2126,47 @@ static int validate_page_before_insert(struct vm_area_struct *vma,
->   }
->   
->   static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
-> -			unsigned long addr, struct page *page, pgprot_t prot)
-> +				unsigned long addr, struct page *page,
-> +				pgprot_t prot, bool mkwrite)
->   {
->   	struct folio *folio = page_folio(page);
-> +	pte_t entry = ptep_get(pte);
->   	pte_t pteval;
->   
-> -	if (!pte_none(ptep_get(pte)))
-> -		return -EBUSY;
-> +	if (!pte_none(entry)) {
-> +		if (!mkwrite)
-> +			return -EBUSY;
-> +
-> +		/*
-> +		 * For read faults on private mappings the PFN passed in may not
-> +		 * match the PFN we have mapped if the mapped PFN is a writeable
-> +		 * COW page.  In the mkwrite case we are creating a writable PTE
-> +		 * for a shared mapping and we expect the PFNs to match. If they
-> +		 * don't match, we are likely racing with block allocation and
-> +		 * mapping invalidation so just skip the update.
-> +		 */
+> ... I am not sure if we want the above at all. Someone inserted a page,
+> which is refcounted + mapcounted already.
+> 
+> Now you ignore that and do like the second insertion "worked" ?
+> 
+> No, that feels wrong, I suspect you will run into refcount+mapcount issues.
+> 
+> If there is already something, inserting must fail IMHO. If you want to
+> change something to upgrade write permissions, then a different
+> interface should be used.
 
-Would it make sense to instead have here
+Ah, now I realize that the early exit saves you because we won't adjust 
+the refcount +mapcount.
 
-/* See insert_pfn(). */
-
-But ...
-
-> +		if (pte_pfn(entry) != page_to_pfn(page)) {
-> +			WARN_ON_ONCE(!is_zero_pfn(pte_pfn(entry)));
-> +			return -EFAULT;
-> +		}
-> +		entry = maybe_mkwrite(entry, vma);
-> +		entry = pte_mkyoung(entry);
-> +		if (ptep_set_access_flags(vma, addr, pte, entry, 1))
-> +			update_mmu_cache(vma, addr, pte);
-
-... I am not sure if we want the above at all. Someone inserted a page, 
-which is refcounted + mapcounted already.
-
-Now you ignore that and do like the second insertion "worked" ?
-
-No, that feels wrong, I suspect you will run into refcount+mapcount issues.
-
-If there is already something, inserting must fail IMHO. If you want to 
-change something to upgrade write permissions, then a different 
-interface should be used.
-
-> +		return 0;
-> +	}
-> +
->   	/* Ok, finally just insert the thing.. */
->   	pteval = mk_pte(page, prot);
->   	if (unlikely(is_zero_folio(folio))) {
->   		pteval = pte_mkspecial(pteval);
->   	} else {
->   		folio_get(folio);
-> +		entry = mk_pte(page, prot);
-> +		if (mkwrite) {
-> +			entry = pte_mkyoung(entry);
- > +			entry = maybe_mkwrite(pte_mkdirty(entry), vma);> +		}
->   		inc_mm_counter(vma->vm_mm, mm_counter_file(folio));
->   		folio_add_file_rmap_pte(folio, page, vma);
->   	}
-> @@ -2147,7 +2175,7 @@ static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
->   }
->   
->   static int insert_page(struct vm_area_struct *vma, unsigned long addr,
-> -			struct page *page, pgprot_t prot)
-> +			struct page *page, pgprot_t prot, bool mkwrite)
->   {
->   	int retval;
->   	pte_t *pte;
-> @@ -2160,7 +2188,8 @@ static int insert_page(struct vm_area_struct *vma, unsigned long addr,
->   	pte = get_locked_pte(vma->vm_mm, addr, &ptl);
->   	if (!pte)
->   		goto out;
-> -	retval = insert_page_into_pte_locked(vma, pte, addr, page, prot);
-> +	retval = insert_page_into_pte_locked(vma, pte, addr, page, prot,
-> +					mkwrite);
-
-Alignment looks odd. Likely you can also just put it into a single line.
-
-
+I still wonder if that really belongs in here, I would prefer to not 
+play such tricks to upgrade write permissions if possible.
 
 -- 
 Cheers,
