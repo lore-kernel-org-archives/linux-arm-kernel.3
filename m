@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F2BE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223D2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DX+s8SYjoLyT8V5e9PoQro4jGwH4zJksKdm1dnt49Ms=; b=YRSCA1nFLqOj5u2V6MoHRN1i+z
-	nr2zzkjmSo+ep3XOyQvj+gmUC9/Y2fuqpuYEfpo9+UrfK4D0qrKlRPb17zjS8ZHHqaldChkuXfoID
-	cXIny7yvGeQEdnWzp+CWUJTLuaD3v8Cyqsl0W1kY+Q/rotT61Kb16lwD7ZKY1TuwzbHE/Jf7LQkNZ
-	YTjhHx8eBsJMHwmjpNIl8wHf4znvn+Jz/K3ykrwscd1lYuPjKc5n/vaurlw9XpCfEZE1qn3P4xnxP
-	R0IiXzvJpz6LuM6DcwybBrchJtcrGeOmpaCFJqaT7cA4FaSsqmHwR7npFXbgz1fjY65AZkR+gaPNr
-	Nhn4OzWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtFBXkqVj1dep+GtPPs1kNMNrl/cJ0RdGXwT5VL7VeI=; b=OJbX95lB/cbcugiU65fjBMnYHp
+	ZvpUe13y7GScpzDfmR08ixrUpozgSXH3TFEkPx9Y8pgXb8cxuN/msIUSpA2XxI+22KlY7FRqsGDcz
+	GGIFKZTT3HQqRXHlvvBkTilXxEwpxmuxtfWVEqZnwUy/E+x30nf19OJEUPphxSM2G3TQxH1o49ss5
+	d+XVMqUj0DKBlhNUhcDFUch+Yr2wu9cfNr7TSrwSEt64VU+eHxMmeuVWyR0l38+LneqotLBNLC8x1
+	ePtfmCMIEN+UM9s1YSr/5QGKDvmlwVk0Prk0fetBS+xe8Trj6i9QTn5dpWiBk8Vu5WIXvlLYkJvFn
+	aprojogA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWgS-000000046n9-0w8S;
-	Fri, 20 Dec 2024 06:40:24 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tOWlB-000000047HP-21gY;
+	Fri, 20 Dec 2024 06:45:17 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWfJ-000000046hO-1iqL
+	id 1tOWk2-000000047Bp-1FKm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 06:39:14 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ef6c56032eso1036865a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 22:39:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734676752; x=1735281552; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DX+s8SYjoLyT8V5e9PoQro4jGwH4zJksKdm1dnt49Ms=;
-        b=Xt1llWn08f/ML1LWKA9iBsh7pXqaGC4dGN4FBBaAHaSz8YLS1sUV9sP6U1GzE0MIGH
-         RZDWAvyqk+f/+0bTaoJdwtwsWGE16SHgDqMsZ61hwtnwsWvXxRZUPjg5Pag2AhtXjzgV
-         T80hytpj04cCMs8sAAE4aisK1OOujOwilJCEP7x7QSxtdSjTn5mUWrWhM9A4xuKPvPDv
-         UqowDr0ou0royhb5qJa//bclwhxPz0ZNqRCP3iCArsqvCZY4Q448OSMQCXUIo+VHL+rw
-         HYvQp5qMhhK1r8DLQOezjKhwSks5YZUESHuh92JoICLwzLMm2q87R2ME77dVxVwUc2cq
-         kgCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734676752; x=1735281552;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DX+s8SYjoLyT8V5e9PoQro4jGwH4zJksKdm1dnt49Ms=;
-        b=veF8dgWITDIQAjAEOp3R01b+1sXAQ1z77ifp7d6PXvSEl7ZX6YW9Af3a6jjy/6Lm90
-         Zzu93yBZxCH7N4WgmT9K0Hx5G1tf+QU3reQoh5z6PdNx1jlwc78F0vt3AQ4cfJrCYrji
-         SnTMSZDN9Vf23sG3PV5+7l3T2hrFQd6vyoudBZVe1yH7SbpbBtTvirxIckWIVcqUikMj
-         hwFDhqGZgOHa0jSXvkILidlK/MJVVG6LbHQqAYjqJHWhKMsjjJkfeIgcECuyigZHzqQi
-         DoIer9TuGzdb2WAMFVgMtew9Mvwz59dHz1J5O6r6yymatJMyQS4c5fD/OTWXlxH0ZpJn
-         bdFg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9JxrEko8fB5coIUo3YzzeDB1UcQ39hqCvC/6BFd5/rjhBmyi8+DAO2wkQR36caEVqfD//izw+0FIAKAqDTxE4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5D/so2g1Bg7Bc2sjRuwC0DQs5JQbMEDgjKaRS16vAfoQ7FCf0
-	q27ZGt+UppOdZz4wqeIst+TdRuXS/jSOdhd/z5pfmelSBDzUeN6CeNt7OGQZY54=
-X-Gm-Gg: ASbGnctbWpLzpaR/FLzQp/75IvfVzMLzao2wHloLSadUGa4azUWq3szthlAmlBoQbXO
-	CvjywF8oh1/QTrG4lV1GRxKd7FgtpfwdKps0xi5YWPzYJKdAfQ+YAbQ5RqUdM0zHSoenUcsiUDm
-	7IbLBCKRQmQ5bpynxgx4jp/S4cZ5iQctgoHgDk6u7xBa9ttQ044YUhMp+o0ktGP4yUVVa3owYIK
-	yNhnjMRdu+hkr4/KALUnANRXw7IID08lySInoPZTbvXZGUvwmHV+MG9LQg=
-X-Google-Smtp-Source: AGHT+IHmdLCLVNBWI5BWwKKNhNvlrQ7mUVMYbsTuM9iwdeWGmXMlPqQG8bCfHySO5m70NUB4661tpQ==
-X-Received: by 2002:a17:90b:4ec6:b0:2ee:cdea:ad91 with SMTP id 98e67ed59e1d1-2f452e2e460mr3213467a91.15.1734676751857;
-        Thu, 19 Dec 2024 22:39:11 -0800 (PST)
-Received: from localhost ([122.172.83.132])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed52cf35sm4432536a91.11.2024.12.19.22.39.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 22:39:11 -0800 (PST)
-Date: Fri, 20 Dec 2024 12:09:09 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Asahi Linux <asahi@lists.linux.dev>,
-	Linux ARM Kernel Architecture <linux-arm-kernel@lists.infradead.org>,
-	Linux power management <linux-pm@vger.kernel.org>,
-	Devicetree <devicetree@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 0/7] Apple A7-A11, T2 SoC cpufreq support
-Message-ID: <20241220063909.hrqrch5fy44nywl2@vireshk-i7>
-References: <20241218182834.22334-1-towinchenmi@gmail.com>
+	Fri, 20 Dec 2024 06:44:07 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK5ejHP005092;
+	Fri, 20 Dec 2024 06:43:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vtFBXkqVj1dep+GtPPs1kNMNrl/cJ0RdGXwT5VL7VeI=; b=H0ieImpBVKhwGwlr
+	GrJQn4qi67a3vmu3h70DL3iFW75tAsTqZuevLEjpdZsiWPkF68GDtVMmjY0oaG47
+	pFZxrwhGRR/QKm0w8KFaBDjYq7oiKYV7gX8chi2XYoMUtzohwaHI+/yKWYznKGHw
+	1RRCByuniB78qXODFuvo/WwEQM3z45KgW3w2j3BjsCltGLPrW8Bo23RDywCz2foA
+	eEBVMmvSqPbyD78imfWyofVcMv3q/hTI8O4ffeI/NYthUNotzHhC/KH9JOOjno3D
+	ne0dAf0++qVrXmDTM8g2tisGdTnhvhgpaPSl3P5eyC9WI97BCogREurZGvG6pOch
+	kekHIA==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43n2n5r4t3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Dec 2024 06:43:59 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BK6hwhd022279
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Dec 2024 06:43:58 GMT
+Received: from [10.253.34.152] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 19 Dec
+ 2024 22:43:54 -0800
+Message-ID: <f6930a4c-6d31-4cd9-a9ba-d6ff50e274e2@quicinc.com>
+Date: Fri, 20 Dec 2024 14:43:51 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241218182834.22334-1-towinchenmi@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
+ use fixed factor clock
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        "Stephen
+ Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Konrad Dybcio
+	<konradybcio@kernel.org>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>
+References: <20241107-qcom_ipq_cmnpll-v6-0-a5cfe09de485@quicinc.com>
+ <20241107-qcom_ipq_cmnpll-v6-5-a5cfe09de485@quicinc.com>
+ <0776a26e-56cd-4838-9b52-210ae9a1f281@oss.qualcomm.com>
+ <8063460d-18ad-4e54-8232-716bad9d37c3@quicinc.com>
+ <2456ab36-f48e-4aa3-88e1-aeb7895c9816@quicinc.com>
+ <fb9d117e-77bd-4a01-a738-f72d07f6b84c@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Luo <quic_luoj@quicinc.com>
+In-Reply-To: <fb9d117e-77bd-4a01-a738-f72d07f6b84c@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: gY6dZNpW44EhaxGfjAfgtSKNPqoRNL7Y
+X-Proofpoint-GUID: gY6dZNpW44EhaxGfjAfgtSKNPqoRNL7Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
+ bulkscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 mlxscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412200055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_223913_507973_69312A7D 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241219_224406_343645_43946343 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +120,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19-12-24, 02:25, Nick Chan wrote:
-> This series add driver support for cpufreq Apple A7-A11, T2 SoCs.
-> Device Tree nodes will be included in another series.
-> 
-> Changes since v2:
-> - Use NSEC_PER_USEC instead of 1000 as multplier.
-> 
-> v2: https://lore.kernel.org/asahi/20241212070344.3858-1-towinchenmi@gmail.com/T
 
-Applied. Thanks.
 
--- 
-viresh
+On 12/20/2024 5:28 AM, Konrad Dybcio wrote:
+> On 18.12.2024 12:17 PM, Jie Luo wrote:
+>>
+>>
+>> On 12/13/2024 6:30 PM, Jie Luo wrote:
+>>>
+>>>
+>>> On 12/13/2024 2:33 AM, Konrad Dybcio wrote:
+>>>> On 7.11.2024 10:50 AM, Luo Jie wrote:
+>>>>> xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
+>>>>> 48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
+>>>>> block routing channel.
+>>>>>
+>>>>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+>>>>> ---
+>>>>>    arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
+>>>>>    arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
+>>>>>    2 files changed, 8 insertions(+), 2 deletions(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/ arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
+>>>>> index 78f6a2e053d5..9a8692377176 100644
+>>>>> --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
+>>>>> @@ -174,8 +174,13 @@ &ref_48mhz_clk {
+>>>>>        clock-mult = <1>;
+>>>>>    };
+>>>>> +/*
+>>>>> + * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
+>>>>> + * from WiFi output clock 48 MHZ divided by 2.
+>>>>> + */
+>>>>>    &xo_board_clk {
+>>>>> -    clock-frequency = <24000000>;
+>>>>> +    clock-div = <2>;
+>>>>> +    clock-mult = <1>;
+>>>>>    };
+>>>>>    &xo_clk {
+>>>>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/ dts/qcom/ipq9574.dtsi
+>>>>> index 8246a00a3e3e..25aed33e9358 100644
+>>>>> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
+>>>>> @@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
+>>>>>            };
+>>>>>            xo_board_clk: xo-board-clk {
+>>>>> -            compatible = "fixed-clock";
+>>>>> +            compatible = "fixed-factor-clock";
+>>>>> +            clocks = <&ref_48mhz_clk>;
+>>>>
+>>>> This must be squashed with the previous patch, you can't introduce
+>>>> code and replace it immediately afterwards.
+>>>>
+>>>> Konrad
+>>
+>> Hi Konrad,
+>>
+>> Looking at this comment again, there may have been some
+>> misunderstanding. We are not introducing xo_board_clk in patch 4 of this
+>> series. xo_board_clk is a pre-existing node.
+>>
+>> As part of this additional patch 5, we wanted to address Dmitry's
+>> comment earlier in v5 (reference to comment below), by converting the
+>> xo_board_clk as well to a fixed-factor clock. So it is better to keep
+>> this change as a separate patch in my view. Hope this is OK.
+> 
+> Oh okay..
+> 
+> What's the difference between xo_board_clk and xo_clk then, if the
+> divider is accounted for in xo_board_clk?
+> 
+> Konrad
+
+Here is the clock chain for the relationship between the clocks:
+xo_clk (48 MHZ or 96 MHZ)-->WiFi (mul/div)--> 48 MHZ-->CMN PLL
+				               |
+					       +-->fixed factor(div by 2) --> xo_board_clk (24 MHZ)
+
+So there are two dividers (fixed factor clocks): first for generating
+the 48 MHZ clock (ref-48mhz-clk) from the fixed clock source 'xo_clk',
+and a second for generating the 24 MHZ 'xo_board_clk' from the 48 MHZ
+ref clock.
 
