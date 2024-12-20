@@ -4,97 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6888E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A945E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x8tvjSHvBnYEUrXXehqqoug7u5Rbl1jMwLkYtbBCoO8=; b=s102/YLTGKa5vUviY7V8I8LNKN
-	9K151M1vFSNi0DF7TiQL7QO53LxXtmwG1JN+8JX8ePt17+cBXPyiNq8ilJYIgKG3Od7h0d/XcMteL
-	AY223fffcZAc+cPAaQ4nAY8YdfSIdCFMYpWMcaW9WOGkIhMip2Dy2DV+0X8H91Kks7bPc7SwIjM8L
-	lpiJ6WtYAPjjCxRZrPWvtK3OPd2u2Nq3WBFSgNw5t8v+pOn08/jQhAGtJa2SJUZ/FOiZSeIJ9dIXy
-	u9ut7LIusIU73tTjyMpqlqck8ZVhE93IF0X7wUDVxuCzr1NBALXUsIm+uPDRLZK8FeAYLNwxN68pZ
-	xXh9XjiA==;
+	bh=gKbh784gSKI3i+Xb8BoJ8RM+wuGg+Udul1q+E+iU8Fc=; b=GiQ6L412nPycJbgf4pf9CK8AOo
+	oICpyMLpHW4v+Yi6ler8IQNqufz0YjrQkPJpzcGajVGmCiMilyQEnAgDsTt72LZZvjr0MRCcc5HmK
+	JUbvnDHrftRJ5w4+cbVJqv+yHAWPOtTvv9kcolIWBBIHmkCDNcMYotf+OtoHSzZRPWQQR9/P5fmNk
+	kUw6A2goJDdW6HF3MCXlcE1Qgic7/XDGaghVZN4/cVYVjhJjf/DLKSoSOutd4R8Is0uvK2gQfVyzX
+	29bLlGRPFj07a91Z7VyAPx1cd3ozkdwI8h+saa2pVBelaO/JC7NaX9aUyW7Ia1cb7aP0g8twnk30f
+	OtxfqseA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgkn-00000005dB9-0mKM;
-	Fri, 20 Dec 2024 17:25:33 +0000
-Received: from mail-wm1-f45.google.com ([209.85.128.45])
+	id 1tOglO-00000005dMd-4AM4;
+	Fri, 20 Dec 2024 17:26:10 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfkw-00000005Rpp-3YQX
+	id 1tOgSx-00000005ZHM-1EDS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 16:21:40 +0000
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-43618283d48so15694625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 08:21:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734711696; x=1735316496; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=x8tvjSHvBnYEUrXXehqqoug7u5Rbl1jMwLkYtbBCoO8=;
-        b=iUeLCVgAQlfC6li7RHEMzKoKu1uUPibSDKYbdRg06VlCTZsgYvLFuEIqCOP8qOCgF/
-         LjN+vhNYYi332DK+KGsa0lK+HKZvSgcjCZMQ6r+PMsrMpH/U8bZwmx9LyhW85dPlLlZJ
-         oiONtME/l8t247jHZ+Nr3HcKV0V/H5fxo4jyP6v2eNwZq70soOBPmKF4WiUewBEFZ3NI
-         4sQB5xO9Z+Q6jc78S1fi4VwN80tDP+8w1Fq0bvqnTsgytRLJDfhj8Ok79BK8IDXPhHSd
-         hU9U4bnAa2UNe1xK5F4shRkLp67TSeBv1EsP3/EtOsOLOnJ6lu54YFLkAXu7viXqKby/
-         Uwnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734711696; x=1735316496;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=x8tvjSHvBnYEUrXXehqqoug7u5Rbl1jMwLkYtbBCoO8=;
-        b=sPZ8Rfs3Fu245eZvooWm39I+f2fwtyGnZ0tw9xPtL+IOdPHtLMaJFb71V5nWeIOu+G
-         4/sTdgZxxnsudbV/w7qBhO/PE7kRRkTAAYqRze0BpRYU1F9pPCtxG7z+j2+SKUwciUga
-         vmVvnhHfSjFHyS7YQloucvyLyJxeyIwGQ2gbVpuI+gJND3VNlvQ0Zh01s0wsvPi0GVbp
-         EPtk6MSzOAUcBtMD4WNpEGWCIKAfuSAB2x1pvV9FRoF3oWszLLweC8RhQpWzHJAzvYlp
-         fS1icG1j/KrzmIpUheSm/E5W0htzZFJQ/T6KveLxDEvdNaxBFZsbLsmXawGTMQeXgE+6
-         IbSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXPoiGTTKfYbxlx+Jqcw/+xYzuHboGD/gGu0J39IvqexwdF42/6wpedD/jK68J7M4Xu1nF5kwLMF1I4hliKSbVe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqQR0Y5OG3aSsIDb49tNv6FhKNhR22InuXN3cbZrt783SvfbYM
-	jCmVHdaW0HDPwHoObrMka6WtoeUbSJJuy0z8oKRBbCo1E95JdagkLUGFPNyjTGo=
-X-Gm-Gg: ASbGnctDGriAkBuLHcuFueFxz2w6edbHdIKfCwyEWJ9v1CzLHvrS77ix9dihMQ/CxPN
-	I3/znCeOD1ImeesFtfy7/S9H1ba5BK+iDRRsMr7wU+SxwxlidoJhr/CgefoL66BZZIGMaSbgkRz
-	Of3EIVOGxxn+ACw4trtayoBFEltFGKmgZQBTLfdRF9HXehB47w8Q8yBvx3o5dmWUrJb6kgAoA57
-	R9bS7SXGTUwhkqb781LNbRCpNvmivYUXAd0Kav39y4E3VvE
-X-Google-Smtp-Source: AGHT+IEVPW76VkTXU2nIJfPsd/7W6ZLfDVF9Rnt4kJTE9CYOpNt7uO369Z3pkgOqLTDRQ8mK233MkA==
-X-Received: by 2002:a05:600c:1ca7:b0:434:fe3c:c67c with SMTP id 5b1f17b1804b1-43668b5e201mr28263535e9.26.1734711696100;
-        Fri, 20 Dec 2024 08:21:36 -0800 (PST)
-Received: from [127.0.1.1] ([2a00:1098:3142:e::8])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43656b013e1sm82824045e9.12.2024.12.20.08.21.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 08:21:35 -0800 (PST)
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 20 Dec 2024 16:21:13 +0000
-Subject: [PATCH 2/7] docs: uapi: media: Document Raspberry Pi NV12 column
- format
+	Fri, 20 Dec 2024 17:07:08 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id D0B412540140;
+	Fri, 20 Dec 2024 12:07:05 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Fri, 20 Dec 2024 12:07:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1734714425;
+	 x=1734800825; bh=gKbh784gSKI3i+Xb8BoJ8RM+wuGg+Udul1q+E+iU8Fc=; b=
+	cVwnjnieistFLbwIZ2ck2NZjatfgBOiKFR/kAQQ4K+FKRlL8KQQbjhZhOWU069zs
+	+zgIU3AbXP9+gkyt95dE3SIBNNA3kvw4E6UfF6OherufYWAvX0YKfApKCxp2i6zQ
+	77g1yeVh0zAyGNG0wE9mzRntgkKspASoDW22pp6IITndzi2lTJ4HKwNs5nqoii3w
+	4+HCH21yGGTdbQnKhCQRJ8uTM84A67EBk6bF2z8ez9dzxMBOu+tSLlYPfnH3AMRd
+	YFaO1Joe4dFYu/kUD9v5QjDF3u4hCIvbGv8Ior03+1p2/LvTO+X2ZwJGkdDw3QD0
+	lNjjkbwJvjrkXka7ONY9IQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734714425; x=
+	1734800825; bh=gKbh784gSKI3i+Xb8BoJ8RM+wuGg+Udul1q+E+iU8Fc=; b=d
+	CQGlbiemfZDolaPsSx6dIh3Zy2pEsHaBs/FZwjo7AmR7XFj4fZqn3BZLQdNw1iJT
+	17ecwD/VcWs3jAAGF/y28KdkqdfS4RvC91W+gHU+NxdA07uf0Jy1dTliDTv2nve9
+	uIN7IaraXNbD84wpTAQ3BQJ6F1LxqG79Bbx/yyD4aTv6AAzTy5aClB4clbt5FO2P
+	bNAyX/j7Lb8biFooKHhqg6Y0ij1PqAFSytVswDMlf4cy7sk1Ilc7uzBMTfsTA/H2
+	IUCSKaTPdpIAUeqgmK189ibMDmyW7sZqRv3FHL7xXnUDc4+A64Hmfa+y7OiZoAn+
+	hI4XcznclYJ9zInqBynoQ==
+X-ME-Sender: <xms:OaRlZ84R-kzFHFhkxsWwmtvoGpFX4liL6es0xQYwIJnB1iBIbzOgzg>
+    <xme:OaRlZ97EVsjrhU7qvxO6iZHcXvuiYymsnzpAg2IH0XFadKew3I4Osk_NFfVU8vMWX
+    Y7ShD4EnHxq3ihh1a8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtvddgleegucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddu
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugi
+    drohhrghdruhhkpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhs
+    shdrshhtrdgtohhmpdhrtghpthhtohepphgrthhrihgtvgdrtghhohhtrghrugesfhhosh
+    hsrdhsthdrtghomhdprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgr
+    ihhlrdgtohhmpdhrtghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    eplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdho
+    rhhgpdhrtghpthhtohepohhlohhfsehlihigohhmrdhnvghtpdhrtghpthhtohephihorg
+    hnnhdrtghonhhgrghlsehsmhhilhgvrdhfrhdprhgtphhtthhopehlihhnuhigqdhsthhm
+    fedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomh
+X-ME-Proxy: <xmx:OaRlZ7ee2TnH3FQ-LBboFcEmjH5NZAZmDHibOgB9dxwBhty6GDqMuw>
+    <xmx:OaRlZxJq2G0x78tz8ranjIqb-HRx0z0Sc6uSXruoYjFja-nwQBHW3g>
+    <xmx:OaRlZwIaTdUokn6guHcSSJk27WlOZv8Gly2XG0BNutc7tLGd2upGwQ>
+    <xmx:OaRlZyx78E0kyHNq3r1UCyOgvVimBZkit4uOjMFCSjSgFHOvsIbixA>
+    <xmx:OaRlZ9AwFtxX37i_8NvGG0tbPEz9bSRIyR74VdXQgqSEXJjnaCvnOuU3>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 15B872220073; Fri, 20 Dec 2024 12:07:05 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Fri, 20 Dec 2024 18:06:44 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Patrice Chotard" <patrice.chotard@foss.st.com>,
+ "Olof Johansson" <olof@lixom.net>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ "Petr Mladek" <pmladek@suse.com>, "Yoann Congal" <yoann.congal@smile.fr>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, soc@kernel.org
+Message-Id: <c48b7e84-5287-4da0-84a0-7747581f49d0@app.fastmail.com>
+In-Reply-To: <20241220125506.3157268-5-patrice.chotard@foss.st.com>
+References: <20241220125506.3157268-1-patrice.chotard@foss.st.com>
+ <20241220125506.3157268-5-patrice.chotard@foss.st.com>
+Subject: Re: [PATCH v2 4/4] ARM: configs: stm32: Remove useless flags in STM32
+ defconfig
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241220-media-rpi-hevc-dec-v1-2-0ebcc04ed42e@raspberrypi.com>
-References: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
-In-Reply-To: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- John Cox <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>, 
- review list <kernel-list@raspberrypi.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: John Cox <jc@kynesim.co.uk>, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_082138_969403_9E567108 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20241220_090707_647643_72F77816 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,70 +122,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Raspberry Pi HEVC decoder uses a tiled format based on
-columns for 8 and 10 bit YUV images, so document them as
-NV12MT_COL128 and NV12MT_10_COL128.
+On Fri, Dec 20, 2024, at 13:55, patrice.chotard@foss.st.com wrote:
+> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>
+> As stm32_defconfig is dedicated to STM32 MCUs, disable
+> CONFIG_COMMON_CLK_STM32MP flag which is only used by STM32 MPUs.
+>
+> Disable CONFIG_SUSPEND, CONFIG_ADVISE_SYSCALLS, CONFIG_IO_URING
+> CONFIG_POSIX_TIMERS, CONFIG_GCC_PLUGINS, it will reduce the kernel
+> image size for these platforms which embed a low amount of memory.
+>
+> Tested on STM32F746-DISCO board which embeds 8MB of memory.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
----
- .../userspace-api/media/v4l/pixfmt-yuv-planar.rst  | 42 ++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+Out of curiosity, what is the smallest memory configuration that
+you see people using on stm32f7/h7 these days? I know we had
+configs that kind-of worked on 2MB in the past, but I assume there
+has been a lot of bloat since.
 
-diff --git a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-index b788f6933855..90414491d7b5 100644
---- a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-+++ b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
-@@ -827,6 +827,48 @@ Data in the 12 high bits, zeros in the 4 low bits, arranged in little endian ord
-       - Cb\ :sub:`11`
-       - Cr\ :sub:`11`
- 
-+NV12MT_COL128 and NV12MT_10_COL128
-+----------------------------------
-+
-+``V4L2_PIX_FMT_NV12MT_COL128`` is a tiled version of
-+``V4L2_PIX_FMT_NV12M`` where the two planes are split into 128 byte wide columns
-+of Y or interleaved CbCr.
-+
-+NV12MT_10_COL128 expands that as a 10 bit format where 3 10 bit values are
-+packed into a 32bit word. A 128 byte wide column therefore holds 96 samples
-+(either Y or interleaved CrCb). That effectively makes it 6 values in a 64 bit
-+word for the CbCr plane, as the values always go in pairs.
-+
-+Bit-packed representation.
-+
-+.. tabularcolumns:: |p{1.2cm}||p{1.2cm}||p{1.2cm}||p{1.2cm}|p{3.2cm}|p{3.2cm}|
-+
-+.. flat-table::
-+    :header-rows:  0
-+    :stub-columns: 0
-+    :widths: 8 8 8 8
-+
-+    * - Y'\ :sub:`00[7:0]`
-+      - Y'\ :sub:`01[5:0] (bits 7--2)` Y'\ :sub:`00[9:8]`\ (bits 1--0)
-+      - Y'\ :sub:`02[3:0] (bits 7--4)` Y'\ :sub:`01[9:6]`\ (bits 3--0)
-+      - unused (bits 7--6)` Y'\ :sub:`02[9:4]`\ (bits 5--0)
-+
-+.. tabularcolumns:: |p{1.2cm}||p{1.2cm}||p{1.2cm}||p{1.2cm}|p{3.2cm}|p{3.2cm}|
-+
-+.. flat-table::
-+    :header-rows:  0
-+    :stub-columns: 0
-+    :widths: 12 12 12 12 12 12 12 12
-+
-+    * - Cb\ :sub:`00[7:0]`
-+      - Cr\ :sub:`00[5:0]`\ (bits 7--2) Cb\ :sub:`00[9:8]`\ (bits 1--0)
-+      - Cb\ :sub:`01[3:0]`\ (bits 7--4) Cr\ :sub:`00[9:6]`\ (bits 3--0)
-+      - unused (bits 7--6) Cb\ :sub:`02[9:4]`\ (bits 5--0)
-+      - Cr\ :sub:`01[7:0]`
-+      - Cb\ :sub:`02[5:0]`\ (bits 7--2) Cr\ :sub:`01[9:8]`\ (bits 1--0)
-+      - Cr\ :sub:`02[3:0]`\ (bits 7--4) Cb\ :sub:`02[9:6]`\ (bits 3--0)
-+      - unused (bits 7--6) Cr\ :sub:`02[9:4]`\ (bits 5--0)
-+
- 
- Fully Planar YUV Formats
- ========================
-
--- 
-2.34.1
-
+       Arnd
 
