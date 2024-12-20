@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3146BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 13:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B258E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 13:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fu02/Fmh4ZbtCqxR5/+0fGOTzDcq8jLPwYadQJ7QU4I=; b=OCyH8Ihi+xTBGTANSVUfvFXuWm
-	OjR2y5zxxBZvrUKcjqZELbXPciiLdOPKdR8j/x7sOFZSCRjrfviRFG7Qoib80it3o/BwnMn8ogIkk
-	H/l8pggGN48DdMBPFgPr8oksV4g/VY2TCdyc44w8TsVCDIExqKOOmZS1Q1CcViAqHvws3ZhjgYGtI
-	CGWt3VehOC02K/Lve2PRxAyMpKsMUQDnGMqdduIKuz/z2hDKj84pxD0k9Hi/2TQjAMnG7ZFwr5YOa
-	vw9XfKLsiwgJw4tIc9KWeZYjxMAsidSGLtlnNIqQMKvfuPSjC0m9S6qQGE+gpz6k37Kv2DYz4+NYk
-	q4iHYuOQ==;
+	bh=qrHqZqqEaVMU3oCHDCS41i+I4fc1QPJYYRzHrA7T2c0=; b=Pd1H6KMH3AYYrC7swUJ8sJh512
+	upBEjjEqHr9lwBHdOl/WQ8AmqBfkCzG4z29qJkPycLVeZ2ISo5QcwOw/2jR5Zoqt1OjZ9zs8PUVVq
+	6ByJLXFnweNKzJA0Ux6uOsmE6IFDaAsThtTyvvpaOX+RiEZcbtkpQedyn/FMIDiHhi+NNzY+CGd5m
+	czFU8bEKzy6NGUabik3VWk2naRyZYpQt66Ni82260OcvTYu7hSJwer1ksuAwyL/YxC155Q3zTYCEV
+	xgsKc1gVkdkSOxnAz9GIjSK3wb0B9kffZHdqU+z+N0CCCoZXoAP/y64qhwjMWquLJ2nx6qcvOUQif
+	l7jwfz8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOcfy-00000004xdv-49RA;
-	Fri, 20 Dec 2024 13:04:18 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1tOcnA-00000004ySy-2DT5;
+	Fri, 20 Dec 2024 13:11:44 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOcdu-00000004xNn-3ITi
+	id 1tOclz-00000004yDn-2laJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 13:02:12 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-6ef60e500d7so15643877b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 05:02:10 -0800 (PST)
+	Fri, 20 Dec 2024 13:10:32 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53df6322ea7so2285717e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 05:10:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1734699729; x=1735304529; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734700230; x=1735305030; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Fu02/Fmh4ZbtCqxR5/+0fGOTzDcq8jLPwYadQJ7QU4I=;
-        b=lyQijDCpxWoj9gqqHw1S7kSA5GtTjwIbikidGHegylOJHD8GeO4EZj96rkUuRbXVro
-         tvInV8FL//Y8K5ODVUR5gRy0nI1ysm+/eWg+OVLGjyLojk0KKsS5WXoqoyHgxy2Wh7Pc
-         jGTLi2tsT4CLb12+qYGIcN50qstaSYiJFoZqDuulhzy0a/vpYahZ9b99Mz5d6qQIdH+S
-         uzaoXwk30OIiTf4/CwBhpvyLXSDhLaB3GbqgTo8hNIYnvZiWt+Kj2Xe6AmTHPPPIbOcF
-         06gP9WKliIwXN0pY213SN0aQkzRCekJXEIXKWLLzJzjee98P6ZgIFz3tSuqZCFW50VRw
-         Oc7Q==
+        bh=qrHqZqqEaVMU3oCHDCS41i+I4fc1QPJYYRzHrA7T2c0=;
+        b=Ap7WuQEwb8lfVkJmr5XDmw+W2yOoGIN3fBiVY2Zwh9vJZ5ck9AOUmCYtScZwsh2c4t
+         7TcI8+CLy/COR3jlUd4jby2LLW3jczjnPjxU8c0VxvBvclxPS51kLGSBUySnLRntKo6g
+         CK/mpizR5KivIGNBqPtV1cEPrJo+pamJJs/HKL6oELdm4GCmAUyekfy59utxWpF8KOQn
+         jJ45q7Q2oMM5RI7RC4vm4HBbceNIyzVo/a1fz10NjBrekthnpIF1F5g/w4SWrR4Wu88v
+         9c/5qZqSDaDPNqPtN0XfiSw7lpTa+2nPpIwDeY0Bc/RY/x3anEQ/oHoNW26RubNJqbaj
+         na7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734699729; x=1735304529;
+        d=1e100.net; s=20230601; t=1734700230; x=1735305030;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Fu02/Fmh4ZbtCqxR5/+0fGOTzDcq8jLPwYadQJ7QU4I=;
-        b=g4v9XYEKIUiXDy/tvGyS8kxzMYn0frOKh5cFuULlxik6HFlYITAM/4CftuFxJl0ASV
-         sPn00Gy9g8cJCJ2tLq7YLMyWscUeFZvuPbeppRdjSXx+S/z0wZYOQ/NfjntmqpSePGm1
-         qlxpGxjrN9lMJ72gDSV7sprm3yUpE0GlSKmK7PROIzroAe8haqU9WBBxdLFOQe5hi/Rc
-         OwD7NLLxVizX0hV48tXh2qyYOSXeXqpu4VCkwA/LXpEIA7xpkpFcsuvhCav0pvwzUuqd
-         qPJJpcx8T/ceXcJzQFILte1MRGqvrey7y08z4bS+zwWhV2bb44MD6kkeRLTgEMRPicRL
-         mM/w==
-X-Forwarded-Encrypted: i=1; AJvYcCX+iMcLl3jakQ0gg+hh041hNxywtVn3yfx7Z/qgB8HTBWModAySLPBBRLs28UPFU2RT6nqsOqZoCv84KpYdgxwe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRPPRtcdfhfiyu+6+hU3DbmIEAtVBOhc+om6OMetecyAAoNRf1
-	DHD8c3k4XmJKMTaPs/iuBsNbyvjcJq8pxXSuddbMKQblX7S9iU6IArV3fCHwvNJx936s9fMZKa4
-	8OYK0lHTeCgIdbA7Rt3brcs6+rbQpCUF99Zw5vA==
-X-Gm-Gg: ASbGnctdePGXNFjYoHTxIc0q7IKB53XF3cqz4fWjx/lqAELXlXFFi/b161pgeKuF90Y
-	lcOFR54bM5UNN0EDQMWY9Ji+ZbqmfrMfN9QjqTg==
-X-Google-Smtp-Source: AGHT+IFzQLWMZQE/IRCrzQuJ49iVkiuSr8lSUXTeAQq7Q5a0dorvlXsI8IoArLc+t/qm0OgPgCykCrt4mTj6yv3UQxo=
-X-Received: by 2002:a05:690c:368f:b0:6ef:60db:5e8d with SMTP id
- 00721157ae682-6f3f80d626dmr17834807b3.4.1734699729509; Fri, 20 Dec 2024
- 05:02:09 -0800 (PST)
+        bh=qrHqZqqEaVMU3oCHDCS41i+I4fc1QPJYYRzHrA7T2c0=;
+        b=ATpXFfTPvL7U03BSg+lRyG3acajtUILegVn4SS0xDc3H+OqyfyOwOau/9urF2/Sasa
+         AVdZiCJT/UbSAhbbpkZHREo7zhD+00jN2wb3adi4zUXTuhLx1bNqKO33qRNjCPNdGohl
+         TaJl+CNi5+sDr4kw0LHAPyvYAhHYwqrmgl1lPNbsJkIIF24knzNPPe1nGzAEgdMmR6Sf
+         0BotLX5YD2GAH1nMQ5mISIS4RhiXZkkvRezN/JUp4aQeibnV0epAX/ixODSqDlEDjvsH
+         SrNgMyhL1UoXsfw+IXq/wW2/mrrR4aVZkn1xq+zSCupCj6reHPnrNyUPLSjog7FZp4Sh
+         BXXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbAGPEwlDc5Fkzjm5w3d9NvE7F4ox5stqZGTi2YppfrZ1LQp/Ga0hFGljWyFUSK5txiSzse811PPeLZMHEacsu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgrEsF+J2JucTbNEJNMb7yIk/femlUnjoRlsKRPZoZweML8xZQ
+	06JwFBYGk2n8iZl5U1QnmHqMvXt/9L5DEHp0G0WOTFJyBdkjh3pdf2/s5lk3zzRYgQLWI+FPni3
+	zfGY9eFit6GA4yQLKmDrqFymrxrx/FIk8WD8XPQ==
+X-Gm-Gg: ASbGncsYpFOMQkOGtknIXZlLk5t/uoNWmNgroGgo+/E6l/zNROI2vt7LZobdm7sovZE
+	t228TWqVQeHsy0q1vlyOMm9x7BEIbkUlCo1mM7Q==
+X-Google-Smtp-Source: AGHT+IEsWa7ECublo4QBSm9SpricFNqVcJqJSRxA1U/TGctMJucN3JX8+bo5j0L+A2ogMgWJu00AKQ5Mn/t8hFoEZhs=
+X-Received: by 2002:a05:6512:b06:b0:540:2549:b6da with SMTP id
+ 2adb3069b0e04-54229547969mr730789e87.23.1734700229726; Fri, 20 Dec 2024
+ 05:10:29 -0800 (PST)
 MIME-Version: 1.0
-References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com>
- <20241212-dt-bcm2712-fixes-v3-3-44a7f3390331@raspberrypi.com> <CACRpkdaB9kqcjmhaXd5RxpYvqdSVMZkj0wHAtEgdqDs03+wzJg@mail.gmail.com>
-In-Reply-To: <CACRpkdaB9kqcjmhaXd5RxpYvqdSVMZkj0wHAtEgdqDs03+wzJg@mail.gmail.com>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Fri, 20 Dec 2024 13:01:51 +0000
-Message-ID: <CAPY8ntBJqukSJs7VUXvUFAsiKqNWknL8VjgtQG_VAEmw576EPQ@mail.gmail.com>
-Subject: Re: [PATCH v3 3/7] dt-bindings: gpio: brcmstb: permit gpio-line-names property
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
-	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Doug Berger <opendmb@gmail.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, Stefan Wahren <wahrenst@gmx.net>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
-	linux-gpio@vger.kernel.org
+References: <20241210160556.2341497-1-arnd@kernel.org> <20241210160556.2341497-4-arnd@kernel.org>
+ <d54e11cf3f4d4216b5cecf29b761cd45@AcuMS.aculab.com>
+In-Reply-To: <d54e11cf3f4d4216b5cecf29b761cd45@AcuMS.aculab.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 20 Dec 2024 14:10:18 +0100
+Message-ID: <CACRpkdYihj15SRp5t_8Aq4i4jtgP1-VLOSbbKG+ozLgiAuLgmQ@mail.gmail.com>
+Subject: Re: [PATCH 3/4] ARM: drop CONFIG_HIGHPTE support
+To: David Laight <David.Laight@aculab.com>
+Cc: Arnd Bergmann <arnd@kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	"linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	"linux-rt-devel@lists.linux.dev" <linux-rt-devel@lists.linux.dev>, Ard Biesheuvel <ardb@kernel.org>, 
+	Clark Williams <clrkwllms@kernel.org>, Jason Baron <jbaron@akamai.com>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Matthew Wilcox <willy@infradead.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Russell King <linux@armlinux.org.uk>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Steven Rostedt <rostedt@goodmis.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_050210_995364_4B34B6B4 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20241220_051031_717344_3DAA0DAF 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +101,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus
+On Sat, Dec 14, 2024 at 7:41=E2=80=AFPM David Laight <David.Laight@aculab.c=
+om> wrote:
 
-On Fri, 20 Dec 2024 at 12:50, Linus Walleij <linus.walleij@linaro.org> wrot=
-e:
+> From: Arnd Bergmann
+> > Sent: 10 December 2024 16:06
+> ...
+> > Since Arm is the last architecture remaining that uses this, and almost
+> > no 32-bit machines support more than 4GB of RAM, the cost of continuing
+> > to maintain HIGHPTE seems unjustified, so remove it here to allow
+> > simplifying the generic page table handling.
 >
-> On Thu, Dec 12, 2024 at 7:36=E2=80=AFPM Dave Stevenson
-> <dave.stevenson@raspberrypi.com> wrote:
->
-> > gpio-line-names is a generic property that can be supported by any
-> > GPIO controller, so permit it through the binding.
-> >
-> > It is permitted to have a variable number of GPIOs per node based
-> > on brcm,gpio-bank-widths, so define an arbitrary maximum number of
-> > items based on current users.
-> >
-> > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
->
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+> 'Picking at nits' 'highmem' support was needed for systems with 4GB of RA=
+M
+> in order to use more than 3GB or 3.5GB (depending on the bios) because
+> of the physical addresses that are reserved for PCI (and other MMIO).
 
-Thank you.
+Wow I didn't know that, there are so many reasons why highmem is used
+by different architectures.
 
-> Perhaps Bartosz can just apply this one patch separately?
+On ARM it was originally added for a certain Marvell system with
+a mere 2GB of RAM:
+commit 053a96ca11a9785a7e63fc89eed4514a6446ec58
 
-I believe he already has, but commented against the cover letter
-rather than this patch -
-https://lore.kernel.org/linux-arm-kernel/173434013318.38429.808413721248542=
-013.b4-ty@linaro.org/
+The reason was that since the virtual address space is just 4GB and
+we have reserved virtual kernel memory from (typically) 0xc0000000
+only ~1GB can be linearly accessed by the kernel (actually less than
+that).
 
-  Dave
+This wasn't a problem since no ARM system was using more than
+1GB until Nico ran into it.
 
-> Yours,
-> Linus Walleij
+So the ARM "high memory" is something to do with virtual memory
+size rather than physical memory reservations as in the x86 case.
+
+Yours,
+Linus Walleij
 
