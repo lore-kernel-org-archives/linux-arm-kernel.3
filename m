@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4413BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 07:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFD5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 07:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oZBiaG60crzIRd6ktiqaR1l0GhCpxQ1Ic+19aSimK5Q=; b=H0Syy1QDhOsWAPKGpZuqGlU5F0
-	m7KjgOK3psemwjO3LRZrQAfI1Sicocid7ZZC8/xocUkwZXh4+hXQT6pkn/hgO1d+WWbDkLX79wWwc
-	t39nEFZwXH3RkZFWco4bim7EYfyaYQXDsVdNYuRx97HDh3UQkIgzyss9HMk/EWhDLVA55BZnUnsdU
-	PiUjOw/jTGOak+9vc4sqiHHcKEicsOPL24ZC0N33LnNqhzTVh0WRKEjRNYS4G5VlMymUCfjRW66Pg
-	QTrl5M1wXGCOWebQML5YdrCznMh0PaLJIpSRpPvqE8G0fbVWfHVk15Fkz0DlxTQsovFGi4CK5yshN
-	1kW44F9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WEp56+U+imrhqgPZjqX5quI+DEwB2ZvJx+p22EiolY4=; b=g+E2Maq1ancnw11f/UvfxKgeZ6
+	H8q6lFGPRWs36X7uaxai3uvvO/uGkueHEMZjHJ5z9zgsW8bvwzv4AbKhehxt0HaE7zojix0k/D/yG
+	Mhf5+2c7fveMwUMEJghX+wlVFX1QfPWqiPAWP5S8KmkpzSiL6DIrV9bZ4RBBGjftSLe/GnQZPeThB
+	65YFvH4NE4+IUyZr05cOdrRktN+4esllJBWw27I6J4GeE3GBOXrcvbqWQpWOqCtmADkOwwcz3KcJR
+	RXfDNFI77Sy7wCN3Ns/EljzY77c1r6KoN7+41q0xbj2Vi6tO3eQF924RqcU8+8Mh3YQSIjJZGS6dC
+	XO0fDnug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOXWj-00000004BRP-3xk5;
-	Fri, 20 Dec 2024 07:34:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tOXYb-00000004Bh2-2hDF;
+	Fri, 20 Dec 2024 07:36:21 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOXSr-00000004AtY-3N46
+	id 1tOXXS-00000004BZ5-3DrN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 07:30:27 +0000
-Received: from [127.0.1.1] (91-157-155-49.elisa-laajakaista.fi [91.157.155.49])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4B0DB4D4;
-	Fri, 20 Dec 2024 08:29:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1734679778;
-	bh=fAT8ASg3ViXCQ79QuPRFMqvR1E5z2fvyF5UYulgSbrE=;
-	h=From:Date:Subject:To:Cc:From;
-	b=QElZ+k/5PGjLgZmmhrUEhvC/u1JCLUiiX1Yp/QuT4LQEDkz6kUByO+KSP6aYRl41q
-	 qWKOnRCedDOleW0sW9ehbs8P/rbCYqAQPnb7uKALS/C6UU2wAhpHWxXb2wvQoL9Ed9
-	 egKNlM8lEnmyFR7ndg4oYZO2+9DyJh81nrDP3+XU=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Fri, 20 Dec 2024 09:29:40 +0200
-Subject: [PATCH] drm: xlnx: zynqmp_dpsub: Fix kernel doc
+	Fri, 20 Dec 2024 07:35:12 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tOXXN-0002vQ-FB; Fri, 20 Dec 2024 08:35:05 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tOXXM-004L4A-1B;
+	Fri, 20 Dec 2024 08:35:05 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tOXXN-00ANee-04;
+	Fri, 20 Dec 2024 08:35:05 +0100
+Date: Fri, 20 Dec 2024 08:35:05 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Carlos Song <carlos.song@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Clark Wang <xiaoning.wang@nxp.com>
+Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
+Message-ID: <Z2UeKZcpeRUt2OQ4@pengutronix.de>
+References: <20241218043541.143194-1-carlos.song@nxp.com>
+ <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
+ <Z2QQI2gJNLjI-fam@pengutronix.de>
+ <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UBfcq6pE-JMUrb@pengutronix.de>
+ <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UK4rMxrtNsPw5V@pengutronix.de>
+ <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241220-xilinx-dp-audio-doc-fix-v1-1-cc488996e463@ideasonboard.com>
-X-B4-Tracking: v=1; b=H4sIAOQcZWcC/x2MQQqAIBAAvxJ7bkGXMuor0SF0q4VQUQoh+nvSc
- QZmHsichDNMzQOJb8kSfAXdNmCP1e+M4ioDKeo0kcIip/iCLuJ6OQnogsVNCirTa0Wj0YYHqHV
- MXPV/npf3/QBudexDaQAAAA==
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jonathan Corbet <corbet@lwn.net>, Michal Simek <michal.simek@amd.com>, 
- Vishal Sagar <vishal.sagar@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1647;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=fAT8ASg3ViXCQ79QuPRFMqvR1E5z2fvyF5UYulgSbrE=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBnZR0EBS6sDhJBZMeydtixlq2kEKFKXkr/tY3uv
- A95KZPbT+KJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCZ2UdBAAKCRD6PaqMvJYe
- 9bKrD/9ByB3EZ0lZNkh4O44fFwTO4Tr5XDSkcwNT+1Ep0NST2BlUgoNbQZvqYZSnkJpUAa2dpo6
- bGrjgAxRTkUJNmObLh4siTrPPCfzOuP0HPkWj20RPLIc3BsYFmh44PfrQWrZQH3JJwrR12Sim/r
- tGZBdo8luyqtJrCPThwN1U5pDVekzGSV2jtyuy1FL2dHlU91iczv7XCY8gV2Kt5OamUxXaz6wos
- ibtZ2040+bRH9udk7ffBWqAS/TyafYVhD4N9SUtEKzcMxkqLDUsLgNuWgxRaFdqo9VB7uemKBDT
- lp/uzccXvAF75Z4++mAgsxrhYZOyv77LHj8KTsu8U6NVLE8rTRjbecxmFWat1pXM9EtBdTjnjN6
- UlzevpvRche0r7LPQ5LUES/aquX/SFiK/Iqx7KfKkFzasjREY5NQW7fAxJRf2i2B16z0C7bRyuU
- X6XtUiffrdMqNg+EaMYhGucIA9rUoeiqjG66XEuD3LCRvusJvfczH5UWOiPfr1rr64RHmjp8jUu
- PUm8V9CJBfPwO4HNnjiHWIRGiLk2nPdOCGj7hoUCbrv88ZPFf1JMeGwelIwttO/0um63Uuo2N0C
- lysHSrcPbq+OhGIpS/hCwSVPmD6rttExjDcKa+JsWxX0LXt7bRT2VfGcw1hAv72/UUTrjMzMjCT
- 7p8qGp3lUUCJbfw==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_233025_978959_5C6D90A2 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20241219_233510_816562_9F0DA719 
+X-CRM114-Status: GOOD (  37.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +96,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix two kernel doc warnings introduced by the recent DP audio patch:
+On Fri, Dec 20, 2024 at 08:06:25AM +0100, Ahmad Fatoum wrote:
+> Hello Carlos,
+> 
+> On 20.12.24 07:58, Carlos Song wrote:
+> > 
+> > 
+> >> -----Original Message-----
+> >> From: Oleksij Rempel <o.rempel@pengutronix.de>
+> >> Sent: Friday, December 20, 2024 2:13 PM
+> >> To: Carlos Song <carlos.song@nxp.com>
+> >> Cc: Andi Shyti <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>;
+> >> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
+> >> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> >> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Clark Wang
+> >> <xiaoning.wang@nxp.com>; Ahmad Fatoum <a.fatoum@pengutronix.de>
+> >> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
+> >>
+> >> Caution: This is an external email. Please take care when clicking links or
+> >> opening attachments. When in doubt, report the message using the 'Report this
+> >> email' button
+> >>
+> >>
+> >> On Fri, Dec 20, 2024 at 05:59:38AM +0000, Carlos Song wrote:
+> >>>>> So we make this logic. Anyway we let the I2C controller registered
+> >>>>> whether
+> >>>> DMA is available or not(except defer probe).
+> >>>>> Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing
+> >>>>> happened if
+> >>>> DMA is defer probed or not enabled(This is an expected).
+> >>>>> However we still need i2c DMA status is known when meet an
+> >>>>> unexpected
+> >>>> error, so we use dev_err_probe() to print error.
+> >>>>
+> >>>> Why dev_err_probe() instead of dev_err()?
+> >>>>
+> >>> Hi,
+> >>> In patch V2 discussion, Marc suggested just return dev_err_probe(),
+> >>> but I don't accept it so I choose to use dev_err_probe() to print error in V3.[1]
+> >> In this case, the two APIs have the same function, do you mean dev_err() is more
+> >> suitable?
+> >>
+> >> Yes, dev_err_probe() should be used in combination with return. For
+> >> example:
+> >>   return dev_err_probe(...);
+> >>
+> >> It will pass the return value on exit of the function and optionally print of the
+> >> error message if it is not EPROBE_DEFER. Practically it replace commonly used
+> >> coding pattern:
+> >>   if (ret == -EPROBE_DEFER) {
+> >>     return ret;
+> >>   } else if (ret) {
+> >>     dev_err(..);
+> >>     return ret;
+> >>   }
+> >>
+> > Hi,
+> > 
+> > Get your good point. I will change my code in V6:
+> > +       ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+> > +       if (ret) {
+> > +               if (ret == -EPROBE_DEFER)
+> > +                       goto clk_notifier_unregister;
+> > +               else if (ret == -ENODEV)
+> > +                       dev_dbg(&pdev->dev, "Only use PIO mode\n");
+> > +               else
+> > +                       dev_err(&pdev->dev, "Failed to setup DMA, only use PIO mode\n");
+> > +       }
+> > 
+> > I think this is what you want to see, right?
+> 
+> This loses the information why the error happens (ret). Using dev_err_probe
+> even if no probe deferral is expected in that branch is perfectly fine
+> and the kernel-doc even points it out:
+> 
+>   Using this helper in your probe function is totally fine even if @err
+>   is known to never be -EPROBE_DEFER.
 
-- Add a doc line for the new "audio" field
-- Remove a reference to zynqmp_dpsub.c from zynqmp.rst, as the .c file
-  no longer has structured comments
+Thank you for the feedback. While I recognize the benefits of
+dev_err_probe() for compact and standardized error handling, using it
+without returning its result raises a red flag.
 
-Fixes: 3ec5c1579305 ("drm: xlnx: zynqmp_dpsub: Add DP audio support")
-Closes: https://lore.kernel.org/all/20241220154208.720d990b@canb.auug.org.au/
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- Documentation/gpu/zynqmp.rst        | 2 --
- drivers/gpu/drm/xlnx/zynqmp_dpsub.h | 1 +
- 2 files changed, 1 insertion(+), 2 deletions(-)
+The function's primary purpose is to combine error logging with
+returning the error code. If the return value is not used, it can create
+confusion and suggests potential oversight or unintended behavior. This
+misuse might mislead readers into thinking that the function always
+returns at that point, which is not the case here.
 
-diff --git a/Documentation/gpu/zynqmp.rst b/Documentation/gpu/zynqmp.rst
-index f57bfa0ad6ec..1a6f9193de22 100644
---- a/Documentation/gpu/zynqmp.rst
-+++ b/Documentation/gpu/zynqmp.rst
-@@ -144,6 +144,4 @@ Internals
- 
- .. kernel-doc:: drivers/gpu/drm/xlnx/zynqmp_dp.c
- 
--.. kernel-doc:: drivers/gpu/drm/xlnx/zynqmp_dpsub.c
--
- .. kernel-doc:: drivers/gpu/drm/xlnx/zynqmp_kms.c
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_dpsub.h b/drivers/gpu/drm/xlnx/zynqmp_dpsub.h
-index 49875529c2a4..d771b8b199e0 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_dpsub.h
-+++ b/drivers/gpu/drm/xlnx/zynqmp_dpsub.h
-@@ -60,6 +60,7 @@ struct zynqmp_dpsub_audio;
-  * @layers: Video and graphics layers
-  * @dp: The DisplayPort controller
-  * @dma_align: DMA alignment constraint (must be a power of 2)
-+ * @audio: DP audio data
-  */
- struct zynqmp_dpsub {
- 	struct device *dev;
+In this scenario, using dev_err() directly is more explicit and avoids
+any ambiguity about the control flow or error handling intent. It keeps
+the code clear and aligned with its actual behavior.
 
----
-base-commit: 74ef9527bd87ead62deabe749a6d867af748d448
-change-id: 20241220-xilinx-dp-audio-doc-fix-0651029616e7
-
-Best regards,
 -- 
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
