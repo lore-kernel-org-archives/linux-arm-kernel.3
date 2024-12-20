@@ -4,108 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223D2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BAAE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vtFBXkqVj1dep+GtPPs1kNMNrl/cJ0RdGXwT5VL7VeI=; b=OJbX95lB/cbcugiU65fjBMnYHp
-	ZvpUe13y7GScpzDfmR08ixrUpozgSXH3TFEkPx9Y8pgXb8cxuN/msIUSpA2XxI+22KlY7FRqsGDcz
-	GGIFKZTT3HQqRXHlvvBkTilXxEwpxmuxtfWVEqZnwUy/E+x30nf19OJEUPphxSM2G3TQxH1o49ss5
-	d+XVMqUj0DKBlhNUhcDFUch+Yr2wu9cfNr7TSrwSEt64VU+eHxMmeuVWyR0l38+LneqotLBNLC8x1
-	ePtfmCMIEN+UM9s1YSr/5QGKDvmlwVk0Prk0fetBS+xe8Trj6i9QTn5dpWiBk8Vu5WIXvlLYkJvFn
-	aprojogA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TY81vIHRnBXf+OI+5XhrCOHNSWZ0LTW6G706Yyamms4=; b=zr+AaomQDNqre9orxeK3ZfQp2F
+	rM39jcy4jwalFQT0sArwZNvVv/+Y9oSLBYdsgtLSLd1A/oUQX0fnB6hjR+R76mmADeTnPzgaikEm5
+	ZWlTP7a/cEDzvac2qAssz7SDUDqm9XlJwsI+lm2Az0ba+13Dx/SnEHICsRrQ3BaotDeqd9B0PQ57o
+	2d9TrkkRd3wugEp80NBCCH8gG6G9AQcGeNxK47RNUqWS7Q/Q0uM2bSJXLKDOrJijZd51aQF2SXTFL
+	fq8cMlronAaZN/lb9p1p5Ezb7xAza/o2YheM2XFleVI7j2fipNtYBet96bDvsLPBQjuOtAB5IVTPs
+	vWoS9MqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWlB-000000047HP-21gY;
-	Fri, 20 Dec 2024 06:45:17 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tOWyy-0000000480w-1x6q;
+	Fri, 20 Dec 2024 06:59:32 +0000
+Received: from mail-db8eur05on2062c.outbound.protection.outlook.com ([2a01:111:f403:2614::62c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWk2-000000047Bp-1FKm
+	id 1tOWxp-000000047vS-1aO9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 06:44:07 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK5ejHP005092;
-	Fri, 20 Dec 2024 06:43:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vtFBXkqVj1dep+GtPPs1kNMNrl/cJ0RdGXwT5VL7VeI=; b=H0ieImpBVKhwGwlr
-	GrJQn4qi67a3vmu3h70DL3iFW75tAsTqZuevLEjpdZsiWPkF68GDtVMmjY0oaG47
-	pFZxrwhGRR/QKm0w8KFaBDjYq7oiKYV7gX8chi2XYoMUtzohwaHI+/yKWYznKGHw
-	1RRCByuniB78qXODFuvo/WwEQM3z45KgW3w2j3BjsCltGLPrW8Bo23RDywCz2foA
-	eEBVMmvSqPbyD78imfWyofVcMv3q/hTI8O4ffeI/NYthUNotzHhC/KH9JOOjno3D
-	ne0dAf0++qVrXmDTM8g2tisGdTnhvhgpaPSl3P5eyC9WI97BCogREurZGvG6pOch
-	kekHIA==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43n2n5r4t3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 06:43:59 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BK6hwhd022279
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 06:43:58 GMT
-Received: from [10.253.34.152] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 19 Dec
- 2024 22:43:54 -0800
-Message-ID: <f6930a4c-6d31-4cd9-a9ba-d6ff50e274e2@quicinc.com>
-Date: Fri, 20 Dec 2024 14:43:51 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
- use fixed factor clock
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        "Stephen
- Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>
-References: <20241107-qcom_ipq_cmnpll-v6-0-a5cfe09de485@quicinc.com>
- <20241107-qcom_ipq_cmnpll-v6-5-a5cfe09de485@quicinc.com>
- <0776a26e-56cd-4838-9b52-210ae9a1f281@oss.qualcomm.com>
- <8063460d-18ad-4e54-8232-716bad9d37c3@quicinc.com>
- <2456ab36-f48e-4aa3-88e1-aeb7895c9816@quicinc.com>
- <fb9d117e-77bd-4a01-a738-f72d07f6b84c@oss.qualcomm.com>
+	Fri, 20 Dec 2024 06:58:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QiTgeljGT1YL/O/CJTpYGhdwitb/AWxdb82+mj1/gtfRQQGBx08YaisT4IpVqf70CiOkiJf/Zm0nd8impH/QJuODUMtayZMyUNCS+bBOM0aBlbCgEgfFcxBrMZMxC4yi2baNYk0sS6L93XZ2F1LCwYFKZJ7ONK9AtPpTG/+uTk2IUyGwte8SyDaMLEOdXY2mKM6q5/AMu/v06v7hjM/qEB7TV6WVh2o82BF8ytlDyR3VTq9ziyU4Wyxx1SLjFNkIncf4sEuJS60Ti+bILX6OblApXXAJO+XlN8ZVj3GoXpSAEPt0P+xCp7L/DfiIPOIncTeSxuJzSlUQNsN7miMZIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TY81vIHRnBXf+OI+5XhrCOHNSWZ0LTW6G706Yyamms4=;
+ b=ySIWfF0YoJWwkKG3QDV0VqPZIQqpt2g1SGEW4SxzX+mrIT6BfLGg4d6womEE+LtdEQUX/uPTsIln5vldy+uRyZoxtUU7gioNf1i0Yy+KIcNdCL0LOpshCp54M7u0TtKHlxmDD/YhBUkq33detYzM/8n4O46e6nTROqZjA0RBiRjFS0uxbYbgDnPJPFLX6hJrQ0z7zjEKSc2e+ljqdPrua1shYNTO1+3Oz3NEKvFumcr1uzLg9IDE0pgbRNsfsZ8pZTFtG8fsK9MXlZwKImJTDdLRLKi7x5lHNeZ6o+TrXHxYOtaS9eJkulQ/y4X8e3vPeXMwBpVppwXRxlZq7Ux1/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TY81vIHRnBXf+OI+5XhrCOHNSWZ0LTW6G706Yyamms4=;
+ b=HqQL7FK77ULakP4mP8i75XnRMD3ZXNBCmRknwWsjs6FBTN6RI692pdIOXg+cZ2TfFjNkt/H96ukj9CjAEPhZn71MVPNYOTBDO7ICG9HEz4Y7j7QUtOwIxlxbGtJHo2ow1v3UFY/njS0+ATPunpkRshhxfH09nnpkdx85DQKrBO0+4kjD4uSMb6JP1IkcJtGcgHmrOv2Jm9ScsfaS0E42vr1yqBFc1yb+8Uo3J+l5X02jEeQ44iu3xGTrsOehVKTxUIJsE+hukZA1y63jcwYcbwbwRvhTBEjfCkCpRQXBXkUgsK1SmAzTOWE0e1a6Evw++/TM4LMeGKXMM+CpLXBcnw==
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
+ by PA1PR04MB10698.eurprd04.prod.outlook.com (2603:10a6:102:492::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.15; Fri, 20 Dec
+ 2024 06:58:16 +0000
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.005; Fri, 20 Dec 2024
+ 06:58:16 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+CC: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Clark Wang <xiaoning.wang@nxp.com>, Ahmad
+ Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
+Thread-Topic: [PATCH v5] i2c: imx: support DMA defer probing
+Thread-Index: AQHbUqyLfXdPeS6Lg02Kvo5iqL4MRQ==
+Date: Fri, 20 Dec 2024 06:58:16 +0000
+Message-ID: <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+References: <20241218043541.143194-1-carlos.song@nxp.com>
+ <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
+ <Z2QQI2gJNLjI-fam@pengutronix.de>
+ <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UBfcq6pE-JMUrb@pengutronix.de>
+ <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UK4rMxrtNsPw5V@pengutronix.de>
+In-Reply-To: <Z2UK4rMxrtNsPw5V@pengutronix.de>
+Accept-Language: en-US
 Content-Language: en-US
-From: Jie Luo <quic_luoj@quicinc.com>
-In-Reply-To: <fb9d117e-77bd-4a01-a738-f72d07f6b84c@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: gY6dZNpW44EhaxGfjAfgtSKNPqoRNL7Y
-X-Proofpoint-GUID: gY6dZNpW44EhaxGfjAfgtSKNPqoRNL7Y
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
- bulkscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 mlxscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412200055
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|PA1PR04MB10698:EE_
+x-ms-office365-filtering-correlation-id: e030791e-7bd8-477c-2bd6-08dd20c3adc0
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?+9+QtpI69ecRwBd8jokZxbZbogeM/KDYJeaRj7ykbSReWKs4oq+gHp6w463o?=
+ =?us-ascii?Q?CVa1YuBxd35OFCE48OZwh45oBAuOEVIZ4IGYV+0sqcxY9pCZ+f58SSGIZnJW?=
+ =?us-ascii?Q?dsH/AztiEz7Oe1Cqg9Qg6vqd2kozJeLLSyHiul4wQdjOLDqgoKFwxunlLr8A?=
+ =?us-ascii?Q?woZ6OLEUedimMaIKrxX5l1tmwSKt3hMkRd/PH2LGJ7bHGWB3qu1ca9tA+pJe?=
+ =?us-ascii?Q?mJ2OVghPICng8rLkW21BLtJzVEwqemmNSDa6dXM5qTKU/BwTeVqXa5AxpMWN?=
+ =?us-ascii?Q?XkW7Z3bxY3+nGQRrHZELtK9npgwU+9zSKCqcl1rmnI/ngk6fUfFdYjsqy+DK?=
+ =?us-ascii?Q?qnFrl0ozJUTShys1inBxzaVo7xI9EA54nZCEg5yEWOE5SmPc6kqfoCkjGZSe?=
+ =?us-ascii?Q?XhiNUwWqI3UNMkq6dQTiHOVn3DfmxwyVzYL5b29LgZj0vNzZvXJlRyXO+Tby?=
+ =?us-ascii?Q?hfprygcLRaqT6OvIUGwRsP8KBryuybxecItNBhqxXpkRUqJF2rZOOLP7x93A?=
+ =?us-ascii?Q?DOfVqcpNZbyufmhu0rPlS7JutuOrs81kBuRkooqn35l4GDleJQcELgFJN/dm?=
+ =?us-ascii?Q?fc5kZ5M6L1ThrNuNCzbdp7mJCbRc20GzeW1FAUqmNBYu1tjtC7Rn9wtw4xPj?=
+ =?us-ascii?Q?QyxgCN9/aCjE4zY6w2uwLWziXR5ak+1cw5QGe+x12bNtEkDnvnrFEl3MNaus?=
+ =?us-ascii?Q?yLwZDYOStkQ1y4a4VBT8LWw/llbUiHSPHIgiU/vc3BSQY/6QLL6shP82A4bC?=
+ =?us-ascii?Q?aIFXalUDsUwUHDUBEptelyCpvez0FkaEGbWvUmrAUGeFxqG+PJ9kR/lEZlFq?=
+ =?us-ascii?Q?506WCOUeBjVzU4/h0hhsSNHAyKOjVUReHQX0NMy+FAYsaf/A7AijCW19SA33?=
+ =?us-ascii?Q?CcjTY/gCq7Uu430hfa5VRvF049iZZIAIhCeodrXGY3+tCSEscy3z5Sh0voZk?=
+ =?us-ascii?Q?p4xr4WrzL+tpsWiN0Pztf8gFuBKN4szkaLzktYcG2eOJql+wR1ErmeNbtYLC?=
+ =?us-ascii?Q?UBXJdhjket3+FY3XVieKraZQjh1fzNII6Sc9FCNMw+7c0PZaeuitw6KI0mwS?=
+ =?us-ascii?Q?9yYhfztrSUQRHyLbue+jgKnMdPYJ7UtfPRRRBtxb7bAH/uMhOC7aeF9VOX1l?=
+ =?us-ascii?Q?QaIf0i11kQt7WxFSY2UFHBQp+gdszwOrze9ZsJsDbiZirNwXC9Al2EZJpBW8?=
+ =?us-ascii?Q?Na9uC8O0rK1pC0QovDHywul25wdhakYI6OyNcshywwLwic+xDJ9eyAZnpytS?=
+ =?us-ascii?Q?JVzoqOsu46J/wACDSUpinBBFEG9/+lJBVfvyhVF9rhfWfx6kFR1oS4a7Rh1p?=
+ =?us-ascii?Q?A/SFH99+5tyiIXYjJBe/FDpeTic5TI5UTPKsmr+jSsph0KyC171MUSJLRvlk?=
+ =?us-ascii?Q?hNn6CZGQ0oGMNMfobhoX7SPBxb35?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+s66YsRKMdYYXdKuD/K151CvZiAobyPNxYibdN7shJfr4T9rpF0WyxFoB8na?=
+ =?us-ascii?Q?ovhffL+ZX+F2nZFdEjQskLBIk4w3+imGFJwLheathFRIRdaU1ZNeNP8FKtOZ?=
+ =?us-ascii?Q?TOWfy7dLJzI71FcfgO3v+luO19rr0hTJmhpUoM0lQp4Y0lE8+zd5xEOBX3do?=
+ =?us-ascii?Q?WP6QQtDg5yiv/tfNcnm+lJbrLkvIrlzvFDyz2SrqC0Bdf0oiqZAsFCaZZUTK?=
+ =?us-ascii?Q?I13HvbaMVs4GIsJTgRHpyAck2TOqjTwO71/DIeQwOyr+wP8xpQfBE+YYgwk7?=
+ =?us-ascii?Q?3AtwDT/lyX2vNifUJ29kgXenghh/9KBuvOraQTevXhgV0iTsWulkWSfrFFs+?=
+ =?us-ascii?Q?YJ9Z17eRW8PNYsRyygnEAtGVuLJZiUKsudbfOZ3xdHRkUpE5SfgWIwajD/xH?=
+ =?us-ascii?Q?l2p1SbMNWFPj6NYxLLEHIbkprJlKnk97zg6K1k8b4ESAbpUiZsLfnFw8ajje?=
+ =?us-ascii?Q?fJC+MI9R5DmeZQYuP1SjRCBx8qDFWR96OtGjg706A8P5vIFBIQa04+CiRQX9?=
+ =?us-ascii?Q?s50CHCfGLjvbPiF9hAigJjyAEQ6EthvVGAjVSH2noqrCQuhSxKX4Q62JJtZT?=
+ =?us-ascii?Q?ATrgHziWESL1hpf3+XHywN1VINpDzHo0nvqXpcc4R/4DsX9Ph4vzhEbuPhyq?=
+ =?us-ascii?Q?EC0BbP/TUNDW6sZ5NyWPxeSIwBsBz/LlIYh2Gk0QBbdziOhoRux82L6YfKxc?=
+ =?us-ascii?Q?F6ErzPfu69+6cwNhwWnlpNKYZ4spnyxaLeFjXFo2c1WdVjNhkARi3CdUtk5N?=
+ =?us-ascii?Q?8aQMWfLG7wKHISFMZAT2hoA7v/f1xu60q7f9Vt3hScHVdIm0kKa5a61JYusy?=
+ =?us-ascii?Q?CCKyICCfpxZ4Mxm9XwDiyFm3RCiFthg80EGZ5d32MGZeFYGB/31tHLe/Gytr?=
+ =?us-ascii?Q?CTZG0mDFDOGWpx+6MvLwgJzdF+Kt7G3k4LbZgvhTAZKq2IzePIiNFWS4VqFp?=
+ =?us-ascii?Q?NZOtF3erffGvksebhBO5Aafbl5tZZxTTwjaajOKToNCvlPJ6VnQVB6Dd8/AE?=
+ =?us-ascii?Q?o1mzx+VrTspRoUz38XH6Jp4lYeyn2adp47HefWrmYChQSSXCQC+OSG99J+NW?=
+ =?us-ascii?Q?TNbILg7b4vW5qTBGnHZ1rCx+TQcLv6/g0/oo/XqQ7qpIfU+Uwr0Vax+RRRnw?=
+ =?us-ascii?Q?KT5SwdSup+KdqWP52x7Xu9xpyePavEAp9m+3gVqnG3hOavR0Imzjsry7Cq8s?=
+ =?us-ascii?Q?OQDcfzITDAi/SLzzvdGfD85HRQ+n8SsX7wssdb/xz0K+EYMs1DUrEAuWF6Wt?=
+ =?us-ascii?Q?NAAnDWw1rMMwpC5CRh5WZsq8jI5e8HPj/DPTpjTyiHScU2QRFfmb6yq0WA2j?=
+ =?us-ascii?Q?cRGPgmTFX4N4LxGilZ0ZSpuDv5Ht3UL3Kb0afOKAvgytZ/PaIhXHnbU3jRXm?=
+ =?us-ascii?Q?lHS0l2i+ivdbA9hsCn2miPNDHlDnMs6TLl0BrxiQ9RqpcdvrbBrhvVz4nNTw?=
+ =?us-ascii?Q?FjziqUlXyibhNg2H4/t8l04JKKZlTyF8hKWgS0NIm0iwla+Z41pKaA7S6XO8?=
+ =?us-ascii?Q?NGCeq1VF+ZXoTjfbKg5pLptVkMyVZRbMCYcGAXW2uu9Ls7DanzGWOFobqZ+6?=
+ =?us-ascii?Q?PBFEY9HWiCozLVCA5TFd7Lkqhq3iAti0Zf1rwzGB?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e030791e-7bd8-477c-2bd6-08dd20c3adc0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 06:58:16.1610
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: MFCtINW2CQ5/WMFHCmTTW/WiL6x+bqiMwFw+A3LassS18xmz5JWyXFhYgfO1tDnnOdqT+LFoX0stYhLRCCkk/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10698
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_224406_343645_43946343 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20241219_225821_422763_FF3C8B84 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,83 +172,91 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 12/20/2024 5:28 AM, Konrad Dybcio wrote:
-> On 18.12.2024 12:17 PM, Jie Luo wrote:
->>
->>
->> On 12/13/2024 6:30 PM, Jie Luo wrote:
->>>
->>>
->>> On 12/13/2024 2:33 AM, Konrad Dybcio wrote:
->>>> On 7.11.2024 10:50 AM, Luo Jie wrote:
->>>>> xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
->>>>> 48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
->>>>> block routing channel.
->>>>>
->>>>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
->>>>> ---
->>>>>    arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
->>>>>    arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
->>>>>    2 files changed, 8 insertions(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/ arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->>>>> index 78f6a2e053d5..9a8692377176 100644
->>>>> --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->>>>> +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
->>>>> @@ -174,8 +174,13 @@ &ref_48mhz_clk {
->>>>>        clock-mult = <1>;
->>>>>    };
->>>>> +/*
->>>>> + * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
->>>>> + * from WiFi output clock 48 MHZ divided by 2.
->>>>> + */
->>>>>    &xo_board_clk {
->>>>> -    clock-frequency = <24000000>;
->>>>> +    clock-div = <2>;
->>>>> +    clock-mult = <1>;
->>>>>    };
->>>>>    &xo_clk {
->>>>> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/ dts/qcom/ipq9574.dtsi
->>>>> index 8246a00a3e3e..25aed33e9358 100644
->>>>> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->>>>> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->>>>> @@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
->>>>>            };
->>>>>            xo_board_clk: xo-board-clk {
->>>>> -            compatible = "fixed-clock";
->>>>> +            compatible = "fixed-factor-clock";
->>>>> +            clocks = <&ref_48mhz_clk>;
->>>>
->>>> This must be squashed with the previous patch, you can't introduce
->>>> code and replace it immediately afterwards.
->>>>
->>>> Konrad
->>
->> Hi Konrad,
->>
->> Looking at this comment again, there may have been some
->> misunderstanding. We are not introducing xo_board_clk in patch 4 of this
->> series. xo_board_clk is a pre-existing node.
->>
->> As part of this additional patch 5, we wanted to address Dmitry's
->> comment earlier in v5 (reference to comment below), by converting the
->> xo_board_clk as well to a fixed-factor clock. So it is better to keep
->> this change as a separate patch in my view. Hope this is OK.
-> 
-> Oh okay..
-> 
-> What's the difference between xo_board_clk and xo_clk then, if the
-> divider is accounted for in xo_board_clk?
-> 
-> Konrad
+> -----Original Message-----
+> From: Oleksij Rempel <o.rempel@pengutronix.de>
+> Sent: Friday, December 20, 2024 2:13 PM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: Andi Shyti <andi.shyti@kernel.org>; Frank Li <frank.li@nxp.com>;
+> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
+> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Clark=
+ Wang
+> <xiaoning.wang@nxp.com>; Ahmad Fatoum <a.fatoum@pengutronix.de>
+> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
+>
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report =
+this
+> email' button
+>
+>
+> On Fri, Dec 20, 2024 at 05:59:38AM +0000, Carlos Song wrote:
+> > > > So we make this logic. Anyway we let the I2C controller registered
+> > > > whether
+> > > DMA is available or not(except defer probe).
+> > > > Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing
+> > > > happened if
+> > > DMA is defer probed or not enabled(This is an expected).
+> > > > However we still need i2c DMA status is known when meet an
+> > > > unexpected
+> > > error, so we use dev_err_probe() to print error.
+> > >
+> > > Why dev_err_probe() instead of dev_err()?
+> > >
+> > Hi,
+> > In patch V2 discussion, Marc suggested just return dev_err_probe(),
+> > but I don't accept it so I choose to use dev_err_probe() to print error=
+ in V3.[1]
+> In this case, the two APIs have the same function, do you mean dev_err() =
+is more
+> suitable?
+>
+> Yes, dev_err_probe() should be used in combination with return. For
+> example:
+>   return dev_err_probe(...);
+>
+> It will pass the return value on exit of the function and optionally prin=
+t of the
+> error message if it is not EPROBE_DEFER. Practically it replace commonly =
+used
+> coding pattern:
+>   if (ret =3D=3D -EPROBE_DEFER) {
+>     return ret;
+>   } else if (ret) {
+>     dev_err(..);
+>     return ret;
+>   }
+>
+Hi,
 
-Here is the clock chain for the relationship between the clocks:
-xo_clk (48 MHZ or 96 MHZ)-->WiFi (mul/div)--> 48 MHZ-->CMN PLL
-				               |
-					       +-->fixed factor(div by 2) --> xo_board_clk (24 MHZ)
+Get your good point. I will change my code in V6:
++       ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
++       if (ret) {
++               if (ret =3D=3D -EPROBE_DEFER)
++                       goto clk_notifier_unregister;
++               else if (ret =3D=3D -ENODEV)
++                       dev_dbg(&pdev->dev, "Only use PIO mode\n");
++               else
++                       dev_err(&pdev->dev, "Failed to setup DMA, only use =
+PIO mode\n");
++       }
 
-So there are two dividers (fixed factor clocks): first for generating
-the 48 MHZ clock (ref-48mhz-clk) from the fixed clock source 'xo_clk',
-and a second for generating the 24 MHZ 'xo_board_clk' from the 48 MHZ
-ref clock.
+I think this is what you want to see, right?
+
+> --
+> Pengutronix e.K.                           |
+> |
+> Steuerwalder Str. 21                       |
+> http://www.pen/
+> gutronix.de%2F&data=3D05%7C02%7Ccarlos.song%40nxp.com%7C2950266755a
+> 241c00a9208dd20bd5cf2%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
+> %7C638702719862691439%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGki
+> OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ
+> %3D%3D%7C0%7C%7C%7C&sdata=3DaIuzJP0v5C6HzOCGnCHobK9Llml3thHclTwu
+> CjD13IM%3D&reserved=3D0  |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
+> |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:
+> +49-5121-206917-5555 |
 
