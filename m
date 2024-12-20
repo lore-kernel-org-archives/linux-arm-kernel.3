@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5B6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 13:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A53AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 13:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wb7iNHmEf3kwk8PZ83J0Vflb2+dZOrkblrsPmP2Xs6k=; b=zFJZBeYB4yUFcaqh0/dw855plB
-	XZ/bXHkvMPKbcnyw05sAoYZmtusWCEqsoqwJq71smIXCwKdg24MEUJwi4BKlqBVuV6SkZfBFQJ1NC
-	viB9E2LtvSM7J7UuRPQONeIhvDFx9Ua+6UBypriN8Pi8AkAb5ELQl+JSHNoGsj06x+ljOzxDYcgxQ
-	6EJXrQshrxNb1oVEb+ZP0SterljawztHmH9lELPchGplu4JWsb5aDfUc6DTnwvh75SiJY1MDJIEKX
-	EepakDHwS2nkrGe/iHf8bt/EUzOYaT/EFoDJ1uUxQNf0JXd62VCCW+dqLURJJRd5inRwAXJyXMBo1
-	ReH1Kffw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t/eSIZxsQMcENJr/D+vZaiIGDQsWh+vH0nKnhYuKDXw=; b=hKR/ArtPgKhIfaajOUflOiO4N5
+	AZwXnDkIHrEknmtUrpYU0hagFtjpqmqFtdM0vQZK3Sl+Xc2bpuoWTC6cpZcB503+WNWsmIJ8QMi9V
+	30IqUingjCs0RUCABE9GDVbS2HLJ0QZbh1tyy9fVrafX7MRI7XYm8hi3LiXwhedbpmtjSYKxrk5jE
+	sQ0XnfhVPkhW6x3iehsrSmvpEAJuozP7sTz29e4OecbfrKZyOcFx7T76t5Bl2FHQtG14aMOzN2max
+	Snb23MlaPH0EmtVUOHy17ueLWRRcf2Jsp3KwPpm0r3tUXJRJ/k5oeX1qv7UPHpqp93ylt7aiQEqFG
+	6ySwM8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdGc-000000052A2-1C0s;
-	Fri, 20 Dec 2024 13:42:10 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tOdJ4-000000052Vs-1HeI;
+	Fri, 20 Dec 2024 13:44:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdFS-0000000524D-1Z86
+	id 1tOdHu-000000052MN-0TKE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 13:40:59 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5401bd6cdb4so2046145e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 05:40:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1734702056; x=1735306856; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Wb7iNHmEf3kwk8PZ83J0Vflb2+dZOrkblrsPmP2Xs6k=;
-        b=HHUbAjUVgmjRtJpGV/W3k5mZoWeeBO/Fu4DxYlUOvVi8M1LBX/c8MYDS32IWImpLZz
-         2A+0jXZIBj3riNe9pUEZ/YusQxfNvwDB4dwZU2Pl8AVx76A/C1dcXQ6x0rcxN4ljskYD
-         MblT1WY8wDFC7f8llcDr+6N5Zj2zZVa0z8Cy8+/If8Pait2+QRpvxjT6YhkTEqsiyJNg
-         gMaGkZ9wzw9EEbibFMUNhfHhh7uznlzVY+LIfQ1EVG003k87SpYlYCrifc9Sx1fAYl9X
-         EYPbkOHCUGjLKHFLV+9yrP3Cozx/NP23sCQ8T2wDyVMmh2UIcFAmkYQaH8e0mimTluOE
-         fRdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734702056; x=1735306856;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Wb7iNHmEf3kwk8PZ83J0Vflb2+dZOrkblrsPmP2Xs6k=;
-        b=gD665BebeL34pNC5/bD0Ecv3NLw3QWzYP9WG9t3lRiuOrY1dg0iz1hPmpuoTxKghuq
-         RMLS0Z4cMg2bxEbNrMUXZ1rpfmlmX22Y50zkDYNnJCjnxRfUgK4eN9eanHP2bAmchrFQ
-         EtE8kNW6QtXhjAgh8lk7roUzv2cOF5qTCRsh3NOSjHyeVO+s22vrGX/nUkGAnEqTe2/5
-         /qWq2KbkiZOF3axWsgSiQ8hiIJALunfjHqeNDSdSElOVfeK04N8+sX2RSjAZJ8j32l9m
-         kj03jQUMZvsfxiA2jewIhXkFRx7NE15sMEckfVXqaX9B5UoOsy56m+m7GrrAX6u/9Wkb
-         c/MA==
-X-Forwarded-Encrypted: i=1; AJvYcCU7Kipb10klboWghKElt3VZdXRI7w6CIj+XW+c5cXPTPMRX5L2HZRljd161x88UuTvDWdD7iJdSUv65zD5/2UnV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZpts67ZF0ofMS4HfY5+Gl2vlUKA3c0zOfyECg1qSCGcQZJTz/
-	+Kp9uwxQiTyVWeTR0LFEQtamWJOumbEHGuVr68tZXjG9GbTWfpZHUJ1ryuSz3BMtWNpMM5ESNzA
-	vVNWiGAH4KwCF6heWUBy0fNoLLHnFDnrJ4Wbw+g==
-X-Gm-Gg: ASbGncvdiTYB2aSvTDw9og2cq7dLj++Y6t1/Bm/ekfj2b+KiydKFSjL3H8b3iovh30F
-	ssSwbhzhwP0IXT+A4w/NjYcyTDhw67nxQULJB87bUpkNUNbkW0VxZBIcfqLfJL7RWFeXSSw==
-X-Google-Smtp-Source: AGHT+IEMcr6UeakjvG9LcaBj7crEG/f7t7TlT4cYf0tYtIrj73ltbIs/soNZTMABMCsyh5ylcV4ql8R8oH3XQgmpM/I=
-X-Received: by 2002:a05:6512:398d:b0:540:1a40:ab0f with SMTP id
- 2adb3069b0e04-5422954b160mr821931e87.27.1734702055700; Fri, 20 Dec 2024
- 05:40:55 -0800 (PST)
+	Fri, 20 Dec 2024 13:43:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A8C165C5FC8;
+	Fri, 20 Dec 2024 13:42:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75569C4CED3;
+	Fri, 20 Dec 2024 13:43:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734702209;
+	bh=lV6r+LNOfCx85KGIBSkBaigxztrKSsTLXQrG5Dvnx98=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FEvTdwIlc5cQko8VVMQqLXbuNU17fqwKVBSOQcNrvSFO9THKPC2vj45EtvdPRd6vF
+	 PMify3yW9UxzzF0e6g5lTxMHk3EWTObubQWQRnUTSJbn2sJOVcmfdepoooqmaw9Hjq
+	 USdW1laSulZsDFTVja6Pmg3xt6M1bgzugYPebsa6cvnBvGbRMPXPvhOjAJKkrAi3rO
+	 uaS9p2Ga61GSB6en5ap/b+Ni4oU3km00fIr5re85gblQnb1XJFHRv70Y+EivRkrrCS
+	 rFXy6dyH1BsUTGHHUlPA/QkJ54vuNACn1lSvqCAHhpJ8IK4/+TxbfvuREmY+7cHor5
+	 QH+Xm8Pqy8uCw==
+Date: Fri, 20 Dec 2024 13:43:24 +0000
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: cki-project@redhat.com, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com
+Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
+ for-kernelci (6.13.0-rc3, upstream-arm-next, 06a57361)
+Message-ID: <20241220134324.GB26731@willie-the-truck>
+References: <64955.124121918121002524@us-mta-554.us.mimecast.lan>
+ <20241220123526.GA26697@willie-the-truck>
+ <CAMj1kXENrzsF6JzvbGSwiJT5nupfJbij86zp0k2+YbqUCqvqNA@mail.gmail.com>
+ <CAMj1kXGx+Li4qwh_05Uf-aTtEOLSThv8o3JjKgWrPp9t8rqQyg@mail.gmail.com>
+ <20241220132549.GA26731@willie-the-truck>
 MIME-Version: 1.0
-References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com>
- <20241212-dt-bcm2712-fixes-v3-3-44a7f3390331@raspberrypi.com>
- <CACRpkdaB9kqcjmhaXd5RxpYvqdSVMZkj0wHAtEgdqDs03+wzJg@mail.gmail.com> <CAPY8ntBJqukSJs7VUXvUFAsiKqNWknL8VjgtQG_VAEmw576EPQ@mail.gmail.com>
-In-Reply-To: <CAPY8ntBJqukSJs7VUXvUFAsiKqNWknL8VjgtQG_VAEmw576EPQ@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 20 Dec 2024 14:40:44 +0100
-Message-ID: <CAMRc=McmtEuc06YdEOXho8hkW30hYEYOtbOR3+mttmg4yrzrxg@mail.gmail.com>
-Subject: Re: [PATCH v3 3/7] dt-bindings: gpio: brcmstb: permit gpio-line-names property
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
-	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Doug Berger <opendmb@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Stefan Wahren <wahrenst@gmx.net>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Florian Fainelli <f.fainelli@gmail.com>, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241220132549.GA26731@willie-the-truck>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_054058_479621_9FE5AE11 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20241220_054330_237912_3EB60B68 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 2:02=E2=80=AFPM Dave Stevenson
-<dave.stevenson@raspberrypi.com> wrote:
->
-> Hi Linus
->
-> On Fri, 20 Dec 2024 at 12:50, Linus Walleij <linus.walleij@linaro.org> wr=
-ote:
-> >
-> > On Thu, Dec 12, 2024 at 7:36=E2=80=AFPM Dave Stevenson
-> > <dave.stevenson@raspberrypi.com> wrote:
-> >
-> > > gpio-line-names is a generic property that can be supported by any
-> > > GPIO controller, so permit it through the binding.
+On Fri, Dec 20, 2024 at 01:25:50PM +0000, Will Deacon wrote:
+> On Fri, Dec 20, 2024 at 02:06:21PM +0100, Ard Biesheuvel wrote:
+> > On Fri, 20 Dec 2024 at 13:49, Ard Biesheuvel <ardb@kernel.org> wrote:
 > > >
-> > > It is permitted to have a variable number of GPIOs per node based
-> > > on brcm,gpio-bank-widths, so define an arbitrary maximum number of
-> > > items based on current users.
+> > > On Fri, 20 Dec 2024 at 13:35, Will Deacon <will@kernel.org> wrote:
+> > > >
+> > > > On Thu, Dec 19, 2024 at 11:12:08PM -0000, cki-project@redhat.com wrote:
+> > > > > Hi, we tested your kernel and here are the results:
+> > > > >
+> > > > >     Overall result: FAILED
+> > > > >              Merge: OK
+> > > > >            Compile: OK
+> > > > >               Test: FAILED (Did not boot)
+> > > > >
+> > > > >
+> > > > > Kernel information:
+> > > > >     Commit message: Merge branch 'for-next/core' into for-kernelci
+> > > > >
+> > > > > You can find all the details about the test run at
+> > > > >     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1596629923
+> > > > >
+> > > > > One or more kernel builds failed:
+> > > > >     Builds that are failing to boot:
+> > > > >          aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redhat:1596629923-aarch64-kernel
+> > > >
+> > > > Hmm, I can't find any console logs here. Did the machines really fail that
+> > > > early?
+> > > >
 > > >
-> > > Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> >
-> > Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
->
-> Thank you.
->
-> > Perhaps Bartosz can just apply this one patch separately?
->
-> I believe he already has, but commented against the cover letter
-> rather than this patch -
-> https://lore.kernel.org/linux-arm-kernel/173434013318.38429.8084137212485=
-42013.b4-ty@linaro.org/
->
+> > > This appears to be my fault: commit 32d053d6f5e92efd
+> > >
+> > >   arm64/mm: Drop configurable 48-bit physical address space limit
+> > >
+> > > inadvertently sets CONFIG_ARM64_LPA2 for all VA space sizes. The
+> > > following hunk needs to be applied to address this
+> > >
+> > > --- a/arch/arm64/Kconfig
+> > > +++ b/arch/arm64/Kconfig
+> > > @@ -1418,7 +1418,7 @@ config ARM64_VA_BITS
+> > >
+> > >  config ARM64_LPA2
+> > >         def_bool y
+> > > -       depends on !ARM64_64K_PAGES
+> > > +       depends on ARM64_VA_BITS_52 && !ARM64_64K_PAGES
+> > >
+> > >  choice
+> > >         prompt "Endianness"
+> > 
+> > On second thought, let's just omit commit 32d053d6f5e92efd  for now -
+> > it's at the tip of the for-next/mm branch so it can just be dropped.
+> > 
+> > I'll revisit this later - I have to double check that non-LPA2 configs
+> > (such as the one this report is about) work correctly on LPA2 capable
+> > hardware, and don't deviate from LPA2 configs booting with arm64.nolva
+> 
+> Sure thing, I'll drop it for now. I've managed to repro the failure
+> under qemu using the CKI .config, so I'll check that things are happy
+> again before I pushed the updated branch.
 
-Ah, this is how b4 works. Even if you apply a single patch, it
-responds to the cover letter (or the first patch in the series if
-there's no cover letter).
+Ok, now pushed!
 
-Bart
+Will
 
