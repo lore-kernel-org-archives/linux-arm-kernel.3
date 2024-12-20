@@ -4,92 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88D1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14BBE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhMGmKlGGOtZ2SvpqF+i7oaaEFRcqd8HwZsDBdF9tV0=; b=1oQ87yH5wTNsSlhsAhbJorBX0y
-	/aZQMudLCso8hF5b8vRTZLS4euZMspid54zd3/tFKTMutDcxXbBw1QUjc4r5de7wQlawdJj9KEAGb
-	rjlS1SPK+qeH1DVjiKH3R/iTimP5nVJCU1ah23pzm0DQTVS1B2A5jnP7HX4eiNSqiEdcMIPjZ8jNN
-	AwGbX9pBVyrMkI+1v9J3CP6UDjB7lV4tz2ofpPagFPouBfnPY+/6v6/IkEtusB9W95W83UGRjCPmv
-	mIs9d8y0oFZq4Rmxw/yDJgyeqycDDRIpbGQvDW+Nd+DYO0trFexhwhQJWyC42xsc2hotlAKSxi7V0
-	W0aB2rJA==;
+	bh=PLDdnskGsK57IZbbvP+AtkMjNmYoDMuVT9X8vaCOBV8=; b=YzsT9myftSX6nq8gaRvWapXxWk
+	+4deiSf/wA200VJpYY/9fEyOaMDgG1dyDfbJaPBWQHI1Gep3eAMOlY+CnfEIqYv3doEd/YrikHEtL
+	UmB01LqViDL2xeOBWPWDfb7NZHAC+v/C7keEauoM6l13BNC+NbfW4Np1yb3/eT+3VGuFp6fyhXuGE
+	7DqngdZFy+wrEMWDMoJadcQ/aeB0E0mKhcYhH4nwlkVPrC21Lgbr+307eLfn3FL4e/RrbEO4834tL
+	543jmVfoKaoTW6V8xVtcsd+68pZz1ASMHafN6GldIr7pvgZEgL+vq0dpNp4SG7wmNCPZh3O69NSHy
+	JlSbQBKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObFf-00000004mlF-0oG5;
-	Fri, 20 Dec 2024 11:33:03 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObAn-00000004lgJ-27uw
+	id 1tObJN-00000004nJJ-0UGW;
+	Fri, 20 Dec 2024 11:36:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tObID-00000004nBR-36Ys
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 11:28:02 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d0d32cd31aso2494711a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 03:28:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734694080; x=1735298880; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vhMGmKlGGOtZ2SvpqF+i7oaaEFRcqd8HwZsDBdF9tV0=;
-        b=E7d2nFMesIr2tOIWMqEjRFONmLJ85WpPcV3zX38MCPBM9Hf3s21Lgrkh3X4ZFK7eZK
-         Hu7jKaV4YwpXpc25F36CfZ1acOikhgu/GVyaF3ZF+VPvijBAENPORB8OLZy8bvCCTgYY
-         J7tzRQJU5MXbFpOj/m2cJfG6dPiMYV6no9L6xN8FJmwr3QBVsf57cOCA8iFBHihLr1RK
-         yppbuXXzJJoEEgbGhFPpqb8bdAWl0UGsu0+NYv3yWBjNehaCu9TGVFfULcbOEJuyBBt+
-         2P5S8j9ghYMfZYCoAgV/4sw/91s2cVJgIiiKLkN+8ua1l9XyJCjERuQSwmfO+eOR/WjN
-         PjnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734694080; x=1735298880;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vhMGmKlGGOtZ2SvpqF+i7oaaEFRcqd8HwZsDBdF9tV0=;
-        b=Yaj2nCfBxfDd4v7BAlueP40t2ejyoNPviq3onL2bm9douknyFLwnXKEEVHzyaPN186
-         RWmDZ1SoRsloo+5u6ZYTb8Ly78Dz+jDLFUtoIL4diN6mWSXDQ6onAF7/0mNx3WHzXRU6
-         u4uIjKrsY9MBUFi3NHPklHZgHZb6iQJiKbSQ4uMGlZot1qiHDS79zST1r/KlSmL8smL9
-         5+Tbdh+cFW3h1n+kmDo0WBPye7pu3zXnJvKqUAmGRdCeiT4XLAYBU5OEUnn2ZJlBNk6S
-         MklaQy7V8gXycw0RyjHqWThhAq6VNzdurViyZquP6HT3NrRJS7PTLZxofVy+ncUpqiAU
-         vtgA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPip4SIrjcvi+Pl+G9tHHY/1g4g5hOus59fLyTTbtjyPrb/7Fi+CNHbhF636Shq1ytakar7desIhwnf7VC0+/y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5QNGUulfS5G/lMvf1pvI6ggZPMpIPG1Y/HsqQU9OMMgT5u6z0
-	2bwEh1jLezokAElRvGvlV6DAHJzT5ME4CYGs7tm+XmqJvSzZFCkoLjM22bFcWG0=
-X-Gm-Gg: ASbGncsQY2z9MCSfdYKs9KSee6Dbq84rBNiqwuJXRG4zvCjhBhQjvVJWSqMpssfRH4d
-	9wz8njJ2df0QqheP6xBWiwvvZKGQzxVNP5hOiiKb39AWR4/oWE3RMEzVAoiqtqz3oFqmpDvi98o
-	nKZV8CeqGT5zk1DDDMQkbwJv03e1kAH//B/OA8i1/77ifgztRW6UUyQ8IPnXemkUQzSfB0ZZEc/
-	6aUdxOLwTTpJK172fwga/rwSFzOx2qCrvIUVNDWPnJPlpPrAPopzPZbiOyV40jImsLD5dprEuJD
-	m1WWSGsvsPm/tXdL70lSvpQZB4h90Ijs9bqThSNo
-X-Google-Smtp-Source: AGHT+IFU2H+Pw1Dmh9hoL+lth2FhsMr8S0vXuAclD0J3+yf3rw+Dc8UEEShqb5npXBaErUn+eaUhdA==
-X-Received: by 2002:a05:6402:3206:b0:5d1:2377:5af3 with SMTP id 4fb4d7f45d1cf-5d81dd83b23mr5556412a12.5.1734694080230;
-        Fri, 20 Dec 2024 03:28:00 -0800 (PST)
-Received: from puffmais.c.googlers.com (64.227.90.34.bc.googleusercontent.com. [34.90.227.64])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80701abd1sm1632634a12.76.2024.12.20.03.27.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 03:27:59 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 20 Dec 2024 11:27:26 +0000
-Subject: [PATCH v2 3/3] arm64: dts: exynos: gs101-raven: add new board file
+	Fri, 20 Dec 2024 11:35:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84D911480;
+	Fri, 20 Dec 2024 03:36:07 -0800 (PST)
+Received: from [10.57.31.233] (unknown [10.57.31.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 90AB83F58B;
+	Fri, 20 Dec 2024 03:35:37 -0800 (PST)
+Message-ID: <ac537889-dc0a-4d2e-870b-c5a33279633e@arm.com>
+Date: Fri, 20 Dec 2024 11:35:36 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20241220-gs101-simplefb-v2-3-c10a8f9e490b@linaro.org>
-References: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
-In-Reply-To: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.13.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/9] coresight: change some driver' spinlock type to
+ raw_spinlock_t
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Mike Leach <mike.leach@linaro.org>
+Cc: james.clark@linaro.org, alexander.shishkin@linux.intel.com,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+References: <20241216115006.415861-1-yeoreum.yun@arm.com>
+ <CAJ9a7VhxG_8R6j5uRCzOhLpy4ZmzyVvyW0+ryCcd4w7wqpZ2ew@mail.gmail.com>
+ <Z2VJIh2+Z40bZi1e@e129823.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <Z2VJIh2+Z40bZi1e@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_032801_588086_52A4162F 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241220_033541_829577_85B678C2 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,75 +69,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Raven is Google's code name for Pixel 6 Pro. Similar to Pixel 6
-(Oriole), this is also based around its Tensor gs101 SoC.
+On 20/12/2024 10:38, Yeoreum Yun wrote:
+> Hi Mike.
+> 
+>> Notably missing is the same changes for the etm3x driver. The ETMv3.x
+>> and PTM1.x are supported by this driver, and these trace source
+>> variants are also supported in perf in the cs_etm.c code.
+> 
+> But I wonder etmv3 needs to change. Because its spinlock is used only
+> via sysfs enable/disable path.
+> So, I think it doesn't need to change the lock type.
 
-For now, the relevant difference here is the display resolution:
-1440 x 3120 instead of 1080 x 2400.
+ETM3 can be used in perf mode, similar to the ETM4x.
 
-Create a new board file to reflect this difference.
+So, you need to fix it as well.
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
----
-Note: MAINTAINERS doesn't need updating, it covers this whole directory
----
- arch/arm64/boot/dts/exynos/google/Makefile         |  3 ++
- arch/arm64/boot/dts/exynos/google/gs101-raven.dtso | 33 ++++++++++++++++++++++
- 2 files changed, 36 insertions(+)
+> 
+>> STM is also missing, though this is not directly enabled via perf -
+>> but could perhaps run concurrently as it can be a target output for
+>> ftrace.
+> 
+> Actually, I couldn't find out the path where
+> the STM's lock could be grabbed under other raw_spin_lock (including csdev)
+> If you don't mind would you let me the code path please?
 
-diff --git a/arch/arm64/boot/dts/exynos/google/Makefile b/arch/arm64/boot/dts/exynos/google/Makefile
-index 6e6b5319212a..bc6d600fda84 100644
---- a/arch/arm64/boot/dts/exynos/google/Makefile
-+++ b/arch/arm64/boot/dts/exynos/google/Makefile
-@@ -4,3 +4,6 @@ dtb-$(CONFIG_ARCH_EXYNOS) += gs101-pixel-generic.dtb
- 
- gs101-oriole-dtbs := gs101-pixel-generic.dtb gs101-oriole.dtbo
- dtb-$(CONFIG_ARCH_EXYNOS) += gs101-oriole.dtb
-+
-+gs101-raven-dtbs := gs101-pixel-generic.dtb gs101-raven.dtbo
-+dtb-$(CONFIG_ARCH_EXYNOS) += gs101-raven.dtb
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-raven.dtso b/arch/arm64/boot/dts/exynos/google/gs101-raven.dtso
-new file mode 100644
-index 000000000000..577f52a4fdad
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-raven.dtso
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Raven Device Tree
-+ *
-+ * Copyright 2021-2023 Google LLC
-+ * Copyright 2023-2024 Linaro Ltd
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	model = "Raven";
-+	compatible = "google,gs101-raven", "google,gs101-pixel", "google,gs101";
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		splash@fac00000 {
-+			reg = <0x0 0xfac00000 (1440 * 3120 * 4)>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&framebuffer0 {
-+	width = <1440>;
-+	height = <3120>;
-+	stride = <(1440 * 4)>;
-+	format = "a8r8g8b8";
-+	status = "okay";
-+};
+STM can't be used in perf mode, and as such you may skip it.
 
--- 
-2.47.1.613.gc27f4b7a9f-goog
+Suzuki
+
+
+> 
+> Thanks
+>> --
+>> Mike Leach
+>> Principal Engineer, ARM Ltd.
+>> Manchester Design Centre. UK
 
 
