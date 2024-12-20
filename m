@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0107DE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69260E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x5BuWukCG2nI77w+TMjN1WmznmMLHRams/Et+rV4HX0=; b=JdI/WMryfkwHVAwVW1iaYE7Da1
-	RLip5gsHEvXEUh5HncFrIJZo3FBCfPKSP3SJZ5aT0m+EkNhxlw+8FhBLKDFavsQYKn5Gohne2srt5
-	7QsIIJpcKpvqe2vy8kPCua4v65zVRCIGG9o30ZY5rugwnbOfxt0Tnzmus7YVNaKqofiPUQWaE+nBc
-	S2MdkSuKz6QnV/4uWqNKdCwywzk5cx3YVRj6qI4D67qqn97tqEc2KCVa5EYhykh2H+OFEYNaQEomn
-	/FmZg9Ix3oWP9R6WHO1aFM0uah4NFJjRZsP1IpBs+fL/kdvBsmcQ1+ybxdgbrsqHbKi7mr+zBQgrB
-	a5ugrJ7A==;
+	bh=aBV9j4BPyjValUeNedtz5efCKdJ+slFlC5TlpbQkvbM=; b=To/gK0qiB7sXDUqrPpuYZplMkc
+	S8PyieqCZag0mhmZM7+uYF1XIDVXWpv33XXjXOe7NX3a2PUv9VLgW198p+AY+DzwCkc1w1CKlSXY9
+	FRglftdXi24optIet6vDFlux7Z3PgrWVehALynJXQwhIeMPJPCkcggMnZcjHnR5AATZPq2sYqvFTt
+	0JcOIPglDL55fEwrABeHjyuM3TeT6N1rxoDkhe+p98KIkk/1n3c7KHkLGs+DGssC/je2+Y2X83Z4e
+	STqkBMUD+GFQa8oNYSQ8O2MO6VTSLtILGO5O/2ezLTfq0l4zNi4NKj1ZEscdv1kCU6KOTQ6uCWY3y
+	DcGVMglQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObQ8-00000004oBa-1wuH;
-	Fri, 20 Dec 2024 11:43:52 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tObRc-00000004oRe-0hOn;
+	Fri, 20 Dec 2024 11:45:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObNm-00000004nnI-05Uk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 11:41:27 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BKBfJgV152381
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Dec 2024 05:41:19 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1734694880;
-	bh=x5BuWukCG2nI77w+TMjN1WmznmMLHRams/Et+rV4HX0=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=IPms/HokTlrxIOx69z40U0s6dw1mkG+Wjwkc0yL5qlLPuAoFSFfpJeo54tKj+TCOt
-	 MwCKdOQWW5ZHyYqT+YKvXKuvi27Z6u9vnhTsaL9W2SPMG0GI5+g9PLnAPdPejy86kk
-	 Dc9GrCfF2cd0SOB5Tuv/K6gI+Kgbc6FqOOcveBiM=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BKBfJcg099797
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 20 Dec 2024 05:41:19 -0600
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 20
- Dec 2024 05:41:19 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 20 Dec 2024 05:41:19 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BKBfIXf050514;
-	Fri, 20 Dec 2024 05:41:19 -0600
-Date: Fri, 20 Dec 2024 17:11:18 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Santosh
- Shilimkar <ssantosh@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>, Anand Gadiyar <gadiyar@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Vishal Mahaveer <vishalm@ti.com>,
-        Kevin Hilman
-	<khilman@baylibre.com>
-Subject: Re: [PATCH v4 1/4] firmware: ti_sci: Support transfers without
- response
-Message-ID: <20241220114118.uwi5bsefxnue46re@lcpd911>
-References: <20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com>
- <20241219-topic-am62-partialio-v6-12-b4-v4-1-1cb8eabd407e@baylibre.com>
+	id 1tObQH-00000004oDi-0HPH;
+	Fri, 20 Dec 2024 11:44:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BE8675C5E98;
+	Fri, 20 Dec 2024 11:43:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F39EC4CECD;
+	Fri, 20 Dec 2024 11:43:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734695039;
+	bh=1qaji/tPXJ3XFWsCN7ydyqQqoYJ3IFUXjpiRi1Tvqos=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=N3mLsHPsylqpb12A3xvUwgV8NZl0bbI9kcs45hj4BqnkU6osyxMMBlQFie65QfwsS
+	 mBW+X6SzrmWicuTrBDsGUhI5h2oeAJA+FxR+LrF/DHMw3INKYEmXhnJG6BlEgig64s
+	 8g0mkjguAbx1YiWJe5rC+4Yr/5gajiaO0B7PjkGwLfmjyA8p8JIGg1DLsFkogdQkW9
+	 gMA89iOlR32OtqKVjFjrk0wF2Fs+GiRoHxkKg/+Uq43LnrsYo6OR5iQUAe9U6/Tnyb
+	 chhOQRFYaEvBFOPONMcDGRL+gAMh65LnDRTzQgiB1rDr0wSBEyQhGYl5DGkrMv7Q8b
+	 wpz4Ct9dYYkBw==
+Date: Fri, 20 Dec 2024 05:43:57 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241219-topic-am62-partialio-v6-12-b4-v4-1-1cb8eabd407e@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, heiko@sntech.de, 
+ linux-rockchip@lists.infradead.org, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Simon Xue <xxm@rock-chips.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Kever Yang <kever.yang@rock-chips.com>
+In-Reply-To: <20241220101551.3505917-3-kever.yang@rock-chips.com>
+References: <20241220101551.3505917-1-kever.yang@rock-chips.com>
+ <20241220101551.3505917-3-kever.yang@rock-chips.com>
+Message-Id: <173469503748.2890446.9450914997693920466.robh@kernel.org>
+Subject: Re: [PATCH v2 2/7] dt-bindings: PCI: dwc: rockchip: Add rk3576
+ support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_034126_226380_B3E7E4E4 
-X-CRM114-Status: GOOD (  22.42  )
+X-CRM114-CacheID: sfid-20241220_034401_197599_500E276C 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +80,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Dec 19, 2024 at 21:02:12 +0100, Markus Schneider-Pargmann wrote:
-> Check the header flags if an response is expected or not. If it is not
-> expected skip the receive part of ti_sci_do_xfer(). This prepares the
-> driver for one-way messages as prepare_sleep for Partial-IO.
+
+On Fri, 20 Dec 2024 18:15:46 +0800, Kever Yang wrote:
+> rk3576 is using dwc controller, but use msi interrupt instead of its,
+> so the msi-map is not required, and need to add a new 'msi' interrupt name.
 > 
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 > ---
->  drivers/firmware/ti_sci.c | 7 +++++++
->  1 file changed, 7 insertions(+)
 > 
-> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> index 806a975fff22ae00ecb88587b2c47ba172120bc2..ec0c54935ac0d667323d98b86ac9d288b73be6aa 100644
-> --- a/drivers/firmware/ti_sci.c
-> +++ b/drivers/firmware/ti_sci.c
-> @@ -398,10 +398,13 @@ static void ti_sci_put_one_xfer(struct ti_sci_xfers_info *minfo,
->  static inline int ti_sci_do_xfer(struct ti_sci_info *info,
->  				 struct ti_sci_xfer *xfer)
->  {
-> +	struct ti_sci_msg_hdr *hdr = (struct ti_sci_msg_hdr *)xfer->tx_message.buf;
+> Changes in v2:
+> - remove required 'msi-map'
+> - add interrupt name 'msi'
+> 
+>  .../devicetree/bindings/pci/rockchip-dw-pcie-common.yaml      | 1 +
+>  Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml   | 4 +---
+>  2 files changed, 2 insertions(+), 3 deletions(-)
+> 
 
-I think it's best to sort this in order? so it will come below struct
-device?
+My bot found errors running 'make dt_binding_check' on your patch:
 
->  	int ret;
->  	int timeout;
->  	struct device *dev = info->dev;
->  	bool done_state = true;
-> +	bool response_expected = !!(hdr->flags & (TI_SCI_FLAG_REQ_ACK_ON_PROCESSED |
-> +						  TI_SCI_FLAG_REQ_ACK_ON_RECEIVED));
->  
->  	ret = mbox_send_message(info->chan_tx, &xfer->tx_message);
->  	if (ret < 0)
-> @@ -409,6 +412,9 @@ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
->  
->  	ret = 0;
->  
-> +	if (!response_expected)
-> +		goto no_response;
-> +
+yamllint warnings/errors:
 
-I am not a very big fan of using goto here, it feels like we should be
-more clear in our implementation and make the else part below more
-specific by using `else if` and checking for more specific SYSTEM_XX
-states. Then based on POWEROFF, skip any polling or whatever wait for
-response.
-Infact, with that we may not even need the response_expected part, but I
-am okay keeping both checks in place just for the clarity in design.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-ep.example.dtb: pcie-ep@fe150000: interrupt-names:5: 'msi' was expected
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie-ep.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-ep.example.dtb: pcie-ep@fe150000: interrupt-names:6: 'dma0' was expected
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie-ep.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-ep.example.dtb: pcie-ep@fe150000: interrupt-names:7: 'dma1' was expected
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie-ep.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-ep.example.dtb: pcie-ep@fe150000: interrupt-names:8: 'dma2' was expected
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie-ep.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-ep.example.dtb: pcie-ep@fe150000: Unevaluated properties are not allowed ('power-domains' was unexpected)
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie-ep.yaml#
 
->  	if (system_state <= SYSTEM_RUNNING) {
->  		/* And we wait for the response. */
->  		timeout = msecs_to_jiffies(info->desc->max_rx_timeout_ms);
-> @@ -429,6 +435,7 @@ static inline int ti_sci_do_xfer(struct ti_sci_info *info,
->  		dev_err(dev, "Mbox timedout in resp(caller: %pS)\n",
->  			(void *)_RET_IP_);
->  
+doc reference errors (make refcheckdocs):
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241220101551.3505917-3-kever.yang@rock-chips.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
