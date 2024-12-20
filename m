@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884B6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 09:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD75E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 09:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNCwTAAXeO7cfiIJbpT278fKLSv6GPfZdgeicUTKEO8=; b=QX5qsCMEHA5XpYsDelR8JPFFet
-	JVwBNvl29+t0sd4KrUbLCfWvXMwwY8zQ/c78y/kJqkwHdZB2KJB9TPVdhHtGlaGS5PhODnooWQa7j
-	QLlQcmXQ3Tpey0YY2cjHdkXoSQcitLDsX0Ft98ds9cEKUBV4/our9xMiLblVtrpve92wFq2GLgJMM
-	xLE3cPbG6n+UN9NOz2LTdCLeWNN3cpYYhHfArbfS5a4v1Fp5ehV7rS6mnjlygTXVZIEsXOTR1kKV8
-	tiZtAPG/JBV2kIOBQ2PlLd15pHFDYxtTFHZsPL3oWwUDTr8p9CyRnZ1iX534MjOyrMItkUQ81p50N
-	RXazzI2g==;
+	bh=sAGVHkBAv4DKPBWXbvZEL50b7QWLDGXfPoabj2FSbxY=; b=YnRMEkHqpSdpVQ+iRyo7U0Z7ho
+	i1eD+DX4MS/5NfJZMGidUZ4a0vNSCWzucZa+J+fc5uVne4oCr1xt7/Sg5nhZ99h5Swkd6mSfkLTmI
+	O2ws/QzzDPCMXUKlhwm7wMlPGvpzsJctvC0t0c6P1GZdjHy/qGOd2wVZo4zmesjD7muUr4rQ4mANM
+	t3gtrgda9b7DY4e2n9C+a4dUehMkRf6RC3KmIuFVO8ZHPw3Y8oBDgCA+3pz9/TIIh/ZA26yCK8WIc
+	QTKhlBDjQ7nbf64Fd0WJeJofVJRIr/2r/+I+a2GfkqxS4i8OoyR94tYdzNLZoGEu0AUwItzu4aU8a
+	ddD0YbDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZGc-00000004Pyy-0m4T;
-	Fri, 20 Dec 2024 09:25:54 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tOZHi-00000004Q8G-1rmJ;
+	Fri, 20 Dec 2024 09:27:02 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZEf-00000004Pis-30w6
+	id 1tOZEg-00000004Piu-11nT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 09:23:56 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so913608f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 01:23:52 -0800 (PST)
+	Fri, 20 Dec 2024 09:23:57 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso11546775e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 01:23:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734686631; x=1735291431; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iNCwTAAXeO7cfiIJbpT278fKLSv6GPfZdgeicUTKEO8=;
-        b=Fo6fDgAhvN2sN5SYV2TTftIhQ42ZDcRea5owKgx+ALz8BVPy0N/0jl32Tz4O9f7wfq
-         iLqx/re2z61BTbMVze+fJ7gpRHzzpbiw8d//uYzXF4gMDzNSzIDltc5yPJ7B6F+aJrG1
-         FXwAMm8qEIZKR4TUCZzfQt2bRyyvi6lcS9xeV3X1FERwpF33A5l57R5wzaKRj0/NB7Cb
-         pJFa9RZl/WsYbEj9KuncsFHzvs1eeXddB+0cWaOGT1LUPEVWIzw/pLao94lvGloyj/Oa
-         PZJA0V6eSbHjZEoEhZ7qtCYg5tXw1C+mYdZzISUZua9lBwE9Z7XqQzYcM5cy6ZwCAiCS
-         zS6A==
+        bh=sAGVHkBAv4DKPBWXbvZEL50b7QWLDGXfPoabj2FSbxY=;
+        b=nN+1O8SFGS8wXVJekP0EKKqaczXoWIEDenzwG9oFCK5PMxTDIqZSq1e4TxTor1lT+3
+         m7kcVWhnHmTH5HLSd8PZB5Z5NlesOJymUTPswokdUi5/htIQwElEfGVdYqoZt2TD/cwf
+         jofs77c1UcZmrmBWllp4HLCwj9doxxd+aUZpox+aihbYpvfpSlnMHivNklm91RaOoUVH
+         Fl3ofcLApwv7eDEfG2PGiCtM1qxxOFLl8xK9cZuv9T3RaTR9aJudZ3Sky4hBiAqvgEx5
+         vVK1WNhFc8+jyzFnLfXa8/PlwWTn6IaucAoVm005U/A9fjPJn5gPrlRJFQjypBV3ke3Y
+         Gu/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1734686631; x=1735291431;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iNCwTAAXeO7cfiIJbpT278fKLSv6GPfZdgeicUTKEO8=;
-        b=axtGZp8uDYe6R8ulYQbx+BFds0cVBN96bdcpk4A7ClJ8KZ1eYTm53qcMnf0mtgVv06
-         MjhmMWDUqy0UAGk7Lp1ILCwh9GZtlzTT4pBKAr77XDXhMUy4L00UjSd/9KgIFisMwqcR
-         ym9FaxNtUaiX+cJCT3zVODDlyiaMySV1wHkrhrqjQdfZb1BX6OJ8JQld44BzqmSbHSxZ
-         5UqZ6RcvnOl2pbDDj6oBY93pMTir05TIhhBKda9iUrNbz+5meedEQuEMx9ZQ0VEfvYRR
-         9WNuPen/2/qorGiCB6b/b9IBBEoWbazf77oQavT/nCGLLCwOctKU3zRLTdvdzDy9z7eh
-         wLzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHkDLJZbiAM10yba8f1lVxn+Jis9hWGaOkVXG4bFkMvYzN4LT3bnb6F6WYuMRSNx/v7igFK9gqoxcLymNFYcYt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNL6fUaj+vYr2CBZExvUG2b0isJc7t7UUaF55qD6h4P8xZoxb0
-	wHI+kV4eqRcLU+1cIVgxUliZC6U9H2Vddf2niAx55pljvlBSzSPcS/0XVTXmPhA=
-X-Gm-Gg: ASbGnctGnAJQVB48PUqhczY6EcTllW7g/FNCXFThLt+9nFha3FWIti8wauNNOe4KbC+
-	7clo/JlvfBs/U3Eyj3VTbx9kC7RcpD1ARoh937prz2eB0SmiRIBXZ3aOSrbaKra/TjymYFVow1Z
-	JpkoC2bO+xLuPX1j7g8bXZ7aDyGO/bjQgYarLiqzMkrX5zqWMt3aC7d4HjEbTd7zKtu1oC2GLkf
-	xnpg+InHe3XvCpa54NYxsVmCc45/n4azZ4SVeonIhfcKl4OSr7uBD6sROc=
-X-Google-Smtp-Source: AGHT+IHCGJuc0QPgWiSCcz1rPztAry1sR+Zkfuc/Y/QNK+fl9LlKGIVA6ytnJgB8Y5pGXPIW38hmKw==
-X-Received: by 2002:a05:6000:1a8f:b0:386:4034:f9a8 with SMTP id ffacd0b85a97d-38a223f5c51mr1646408f8f.38.1734686628582;
-        Fri, 20 Dec 2024 01:23:48 -0800 (PST)
+        bh=sAGVHkBAv4DKPBWXbvZEL50b7QWLDGXfPoabj2FSbxY=;
+        b=fv2kuj7GJiqgTKh7kkylyY6NcdAYjvTmDnNA7LVw3v0GjgWaTC4AIAezeDZR6ucy9X
+         p8Is/SZ52EL2iMElkjA5FUnxcxrGThTPQT1BpjyMIOqFFggUJ7UKEr8/uqP3BYtHOg/r
+         trNab4UTUV8swtXEzmoU974IAcNPInkS1USlxZmVhIi6FTGCPw7PyGQYlhCGcWWleAn1
+         rLqiuUX2VI+eKpWabyzVCcWWXy+J/083pLFkZWA4myczf3UFxDsbHZ0pwTd6FsJHsfKp
+         IX0FaLN6YB5r/+ozsVfZIEiY2sdXZnT9fZHauoslwG2ByMweOdn+Fx9Ahuw7KydcF3Vc
+         kB6g==
+X-Forwarded-Encrypted: i=1; AJvYcCW1CAoX1RQkmoAjUICS00DtXIYzWi/cHI5nDl4u0qUmTzJ4WbmiPW+ZCgXO9bPMPsyM49k4DO+plp6b62cHzzPb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxxyzm4pGUyzKNdFzDB3J0YKwF8u6wV7yCwO7NEKKEV+G8kHAo0
+	xXdNL8HxPSOiF4Aays3o+7Z30u80wSByuWwp0Mb9+JDen13FpuWZv71HG0BLt80=
+X-Gm-Gg: ASbGnctmrAyqnMTY/5hfW2HEJWYnXtqO+UmJiw2GIhpEzSzQJwIMRbdetubwsukxLgI
+	xVSMDqJ1R0fNCFapZeqfCYt35APHWPBJUHDQPVQlsjArE4vl0XCLWBHonq2FsIZpLZ9WbVtDj37
+	8vlxsLegeQw7xKzMHRF2AvFrPcuMMsMvwN9B1XEUxKl4imXQktwXzvlHaw8LLv2Gf5fsF6Bsz+m
+	lUg77U1BdTWWplqB1r9Fz6vyB5HZrfsacMXTXmgmQhkZmY6Xwp6IMkA964=
+X-Google-Smtp-Source: AGHT+IHWOjD/ySetVcGFfENJkiWJiFBUr1+JfvjdK6eG9oGbSiFLzshOfEXMASqPgSzH7pcRRzPmsA==
+X-Received: by 2002:a05:6000:481d:b0:388:da2a:e48 with SMTP id ffacd0b85a97d-38a221fb99bmr1646750f8f.23.1734686629442;
+        Fri, 20 Dec 2024 01:23:49 -0800 (PST)
 Received: from toaster.lan ([2a01:e0a:3c5:5fb1:c000:46df:1e3e:983f])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c828f8fsm3538787f8f.12.2024.12.20.01.23.47
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c828f8fsm3538787f8f.12.2024.12.20.01.23.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 01:23:48 -0800 (PST)
+        Fri, 20 Dec 2024 01:23:49 -0800 (PST)
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Kevin Hilman <khilman@baylibre.com>,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jian Hu <jian.hu@amlogic.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
 	Jerome Brunet <jbrunet@baylibre.com>
 Cc: linux-amlogic@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: amlogic: g12a: fix mmc A peripheral clock
-Date: Fri, 20 Dec 2024 10:23:37 +0100
-Message-ID: <173468657763.2759236.17472540885807657211.b4-ty@baylibre.com>
+Subject: Re: [PATCH] clk: amlogic: g12b: fix cluster A parent data
+Date: Fri, 20 Dec 2024 10:23:38 +0100
+Message-ID: <173468657763.2759236.18371740322790756565.b4-ty@baylibre.com>
 X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241213-amlogic-clk-g12a-mmca-fix-v1-1-5af421f58b64@baylibre.com>
-References: <20241213-amlogic-clk-g12a-mmca-fix-v1-1-5af421f58b64@baylibre.com>
+In-Reply-To: <20241213-amlogic-clk-g12a-cpua-parent-fix-v1-1-d8c0f41865fe@baylibre.com>
+References: <20241213-amlogic-clk-g12a-cpua-parent-fix-v1-1-d8c0f41865fe@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_012354_020695_39EBC46A 
+X-CRM114-CacheID: sfid-20241220_012354_275371_077A9AE8 
 X-CRM114-Status: UNSURE (   5.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -108,8 +108,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Applied to clk-meson (clk-meson-next), thanks!
 
-[1/1] clk: amlogic: g12a: fix mmc A peripheral clock
-      https://github.com/BayLibre/clk-meson/commit/799ce46951dc
+[1/1] clk: amlogic: g12b: fix cluster A parent data
+      https://github.com/BayLibre/clk-meson/commit/1909d0d351ed
 
 Best regards,
 --
