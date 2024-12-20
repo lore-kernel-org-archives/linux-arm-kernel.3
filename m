@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FA0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 22:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A477EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 22:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PPBNquw9bDve05ZXRyZElIGNn95SHQ0uPV8Ww/9iWX8=; b=y6orgBq/S4CxMmr27GGvj1pDpT
-	KGEJB7+CMUWNDGTevGD/cnL06vHBSIYbMYvnYgMnAfiAq/q/ui+cTVyZdvXoXVGV8/nmzZ1kdTBu8
-	Zhzhx23t+uZqKG/1BOEgsXtmphKQYXhnJvE+eQ4PlvYHrfHOBNxnF4i62IEEsllOk4DsBn0A0DlPF
-	OYrvnx/3NvlhlTIOxvNQgvpSxjh+Wbv9v4OMO8tkZ9QCZYO8bOYcimT+LF+OdX4FbJ4r65UsjPVaa
-	TKry72LtTyQnt5IdIQkYJWFJDxp52MF1mQmpcRiItYLSJpJnxmVCOboI/YdCz1oZDSmuKR4JmWNiA
-	7K5fPChA==;
+	bh=WfzpZGzEaK6vM1prAdFoenLv8AQGr/EXZ+gAiTa1N+8=; b=ugSRYy47LYAccGweBDElA6mPWu
+	Y8+OkM8fIOk15JK4po4fpKqM49QHr7nfKzIgfZvtKHRkd0ZPnkfHUgRpCMV+k8p0AdrIef5mnwfK+
+	Z+VpCQGO2KAyGGI3WjGEOTRMNKlxgRqksO1QJ1QpY7rYZBxS0+4lN7d2zUv19r2TUdPa+7CLjSuuV
+	Qjn+I+TDLqCPEGHvlDdcOwMSXqP8l4cQgXlXNsv/ht3w3Qnie8cuIo2eKIe4hEj13sGB57H7CeTLD
+	9EGIEluEjOvQVZ/j+2yvhj3yb50lpTvXGBru0yvyJe2ZPl3/5zNP5sGge/wZPc6laB3tk3+nbO1vA
+	dLMk6E7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOlsU-00000006E7i-1iVK;
-	Fri, 20 Dec 2024 22:53:50 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tOlte-00000006EFv-0ZK1;
+	Fri, 20 Dec 2024 22:55:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOlrH-00000006DxI-1rYn
+	id 1tOlro-00000006E4N-3eWr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 22:52:36 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2161eb95317so24024585ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 14:52:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734735154; x=1735339954; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PPBNquw9bDve05ZXRyZElIGNn95SHQ0uPV8Ww/9iWX8=;
-        b=jEqbnhm9RgiPpdKEODAhWlvOmnK18AWek0AKiUBqUbVSDxRbsy6lE9VKJy8jZ8E6R2
-         CMM2Rrqu6U6XLx4IB05tplVOeBp9a4tGoLqOl356YWC1MjS3mc29ITbN87fSvXgWUt7U
-         vqPDky4pg35kC5OWd+8ziOyC21mklsqmMTTSU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734735154; x=1735339954;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PPBNquw9bDve05ZXRyZElIGNn95SHQ0uPV8Ww/9iWX8=;
-        b=s4y50QB3p0ARMrdqjWWwa7KBvTLjxeYt2PakfXEYT7G6hkrcLrvNEXjpl1Q6CA2dic
-         tzyPxaS6SH9w/J5x4qoRx/IIarJgjK80urB31qIvKHLq14xPrwHH9/iYCorn6/T6A6GQ
-         uDqa8C7uzuD3pT2FGX+7D1B0KgHAJgTbWFXhhrQXVBsBtiMYF+9toidX9Dm2aJqX9Xsp
-         7AtPE4g+t1UHnPcmKKyNSYVhnFKNBD62Tkq+1/a/ncBabrAkYIac/e7dn5o/9glRK4Wm
-         vp1QpnGeAzECVM61GnVfziiRARUyPZzQ6Ha0CO594v7LpSK7d62E2ZjTBG2s4zCUUvtY
-         YyYg==
-X-Forwarded-Encrypted: i=1; AJvYcCW850IPrZkvGRxAaAIvqH35XtD6xuiq1mHtjbDplAd2iRtA/RaCb2vsCSwTebYkZZoXXsrklGIN+T97T5QWfwGE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjNdunOiMK899qZQhmvQmpTSwIMCXYWewkbdVkn4OaTaLKsvHm
-	m5l6IqYt/OwIN+qzjuct3XeYgdTF1N29KC/ETWKlBO+iN8oI7KJ0R6xOcSDAEsjvhnLlGHkqTlK
-	QYg==
-X-Gm-Gg: ASbGnctHbVQ1CxHe5Iu4l7RIv2NIJlsBlowrmIOHoLWd0dlu4fYaj45j4HLyiGhC29E
-	j9XQQFaes48KQJda8pwdCkUsTmEIBPhQxSJ7z9blsXFqIvkzdjcroSZOCVm4IMUdVHVO8najsdg
-	qgCrDfnPUbSFaFIpjVHE2PhNbSE47IUc1iiTwxiHKLBRs8KKzJLkjKThm5+HGH/P5dZeTZGi9F3
-	qu/TumEVnHesxQHPBnxERKR6YvPkuHRvul8tp+ODAuRJ3cpkSs7vyybS2tdCHLE0Jq+QKdmjhpo
-X-Google-Smtp-Source: AGHT+IGAQkf1R3nFR0oaCc4mviuMrzg5Lh74UTX9WYEEnS7yyvUzZLFXHXFR6wAwBwTUIv3/nUaYnA==
-X-Received: by 2002:a17:903:22c5:b0:215:7faa:ece2 with SMTP id d9443c01a7336-219e6f145a8mr61141965ad.35.1734735154069;
-        Fri, 20 Dec 2024 14:52:34 -0800 (PST)
-Received: from dianders.sjc.corp.google.com ([2620:15c:9d:2:ac44:423a:e4fb:5757])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc964b54sm34177065ad.1.2024.12.20.14.52.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 14:52:33 -0800 (PST)
-From: Douglas Anderson <dianders@chromium.org>
-To: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Douglas Anderson <dianders@chromium.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-pci@vger.kernel.org
-Subject: [PATCH] PCI: mediatek-gen3: Enable async probe by default
-Date: Fri, 20 Dec 2024 14:52:05 -0800
-Message-ID: <20241220145205.1.Ibf2563896c3b1fc133bb46d3fc96ad0041763922@changeid>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+	Fri, 20 Dec 2024 22:53:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734735187;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=WfzpZGzEaK6vM1prAdFoenLv8AQGr/EXZ+gAiTa1N+8=;
+	b=TYNed9ZBzi9eHtvyqcI8P8mPiQf+My/m1+xlnFpQVSaxSRqxxhL8kX/7F/MGh6ZysrUVJM
+	Qp27GGFdigrzNZlDc8o5qusXqYWFAnKFxnn3r3Q8CxQNixW2MuiyFLrS6HFi7iHUCseGIE
+	plstKf+zUOuOn09HgwfN3ogkRHZfkgM=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-326-YC049LZVNlKocn2RDPTq_A-1; Fri,
+ 20 Dec 2024 17:53:04 -0500
+X-MC-Unique: YC049LZVNlKocn2RDPTq_A-1
+X-Mimecast-MFC-AGG-ID: YC049LZVNlKocn2RDPTq_A
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3727119560B1;
+	Fri, 20 Dec 2024 22:53:03 +0000 (UTC)
+Received: from [172.64.13.20] (unknown [10.30.32.164])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 67BCD195608A;
+	Fri, 20 Dec 2024 22:53:02 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 9 of 69): Test report for for-kernelci
+ (6.13.0-rc3, upstream-arm-next, 573067a5)
+Date: Fri, 20 Dec 2024 22:53:02 -0000
+To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <51385.124122017530400723@us-mta-326.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: XKCaII80wmD6PriUpoXl6RrecVRsSy2XqFEsY3P5cxI_1734735183
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_145235_486738_FA924DA6 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20241220_145308_983947_87FB92F7 
+X-CRM114-Status: UNSURE (   5.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +84,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like other PCIe drivers, the mediatek-gen3 driver has a fairly slow
-probe. Turn on async probe since there's no reason to block the rest
-of the system.
+Hi, we tested your kernel and here are the results:
 
-Signed-off-by: Douglas Anderson <dianders@chromium.org>
----
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
- drivers/pci/controller/pcie-mediatek-gen3.c | 1 +
- 1 file changed, 1 insertion(+)
+Tested-by: CKI Project <cki-project@redhat.com>
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index be52e3a123ab..49512786d5e4 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -1301,6 +1301,7 @@ static struct platform_driver mtk_pcie_driver = {
- 		.name = "mtk-pcie-gen3",
- 		.of_match_table = mtk_pcie_of_match,
- 		.pm = &mtk_pcie_pm_ops,
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
- 	},
- };
- 
--- 
-2.47.1.613.gc27f4b7a9f-goog
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1597713487
+
+One or more kernel tests failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: [aarch64][coresight_etm4x][kernel 5.19.0] coresight-etm4x: p=
+robe of ARMHC500:20 failed with error -17
+            URL: https://lore.kernel.org/all/CA+QYu4ogiTa1V20aqxFqBrMH0z927=
+YNNN2O=3DCKma+=3DM_8E81iQ@mail.gmail.com/
+            Affected tests:
+                Boot test [aarch64]
+                Reboot test [aarch64]
+
+
+Tests that were not ran because of internal issues:
+    Hardware - Firmware test suite [aarch64]
+    Reboot test [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    Storage - swraid scsi_raid [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
