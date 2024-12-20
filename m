@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94638E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D98E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J6/gB3u8MzzMaESsev9mupvNJ++/KBSir43ihUbKnXs=; b=TMd9EtXymxMaoUSQag39f9ZiwH
-	4ULj1B3fvFqG9Vkl5p4F/i8gDp6ivFBy53C30MHeGAOOuwmv1o9CRGqbj4QlFVAos0uxuLTmxR6G6
-	lsQrehwxfbPM7Lp5Fk1IGmzEF4UKoUfQA30EfTkNsTLLAinRwxoVoepOpAU5hMzZoOaOBX6xZ0Ap3
-	VPdZ7fzzMhjI4+j+jPYVMWnmU3M40plwp/G/3E2nU5rhfcDQ5xZDlnR92zwlCHjDY2mVEHKBNINvt
-	NLOklrI/edI4MtC6xcHbB9084qR4sI5tqVDnNUuIcfTnYT6jgGD9YZvzpmy7FIukl5MEU+mIfnU1q
-	j0fdxMUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p2OQDSxlIjkv6IYB32QqjLNdXWxA9l5+c++JHu/xF9o=; b=I44uwZfvKUVSfp/RuHBsFrBjuU
+	YOo6soS6yjwxotZ265ukSPc3FLSuerqjw2hY3t13O8F8OCWnsi9sQo335hxPCLpzwAygx5xhDagBu
+	0pAT4BSBFhf+qmEMoYqh3wex8FrPxWEnm3NHCKimOwTy+aL5+jRV/7rNHKJ5sMmfwIHP8rU6Furam
+	rwEQFCEbc/R1ihGHpfCAZFOva6K8VhPXGsMnZpuMwXrHbf5Tlf5JxALVmq1Hiq0P6IBnE+9ptQS9z
+	LGS5mJmjDLQTgecR49LphjKHO5cjtEVGGEd7S7g8snmmvCgoDBXI5VcWhu0OFW7ezyfo7xwTfxVpX
+	LlOO9dKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdkr-000000056rd-0PJM;
-	Fri, 20 Dec 2024 14:13:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOdbx-000000055Xq-2Mag
+	id 1tOdlx-00000005720-2yUd;
+	Fri, 20 Dec 2024 14:14:33 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOdg2-0000000565x-4BD5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 14:04:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 183AE1480;
-	Fri, 20 Dec 2024 06:04:41 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E84FB3F720;
-	Fri, 20 Dec 2024 06:04:10 -0800 (PST)
-Date: Fri, 20 Dec 2024 14:04:08 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: Re: [PATCH 1/3] dt-bindings: arm,psci: Allow S2RAM power_state
- parameter description
-Message-ID: <Z2V5WMN5aHQwQlNH@bogus>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241028-topic-cpu_suspend_s2ram-v1-1-9fdd9a04b75c@oss.qualcomm.com>
- <Z1LQOmEfFy640PjG@bogus>
- <54cc4221-ba5f-4741-9033-20874265ca01@oss.qualcomm.com>
- <Z2VUiHWHgbWowdal@bogus>
- <349bac70-87e0-4870-a3f0-9f6a3b3e6824@oss.qualcomm.com>
- <Z2V3amqWYDUWA2uM@bogus>
- <c80c4cdb-48e1-4b6f-8ab8-fad6e100af00@oss.qualcomm.com>
+	Fri, 20 Dec 2024 14:08:29 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-388cae9eb9fso1160869f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 06:08:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734703705; x=1735308505; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p2OQDSxlIjkv6IYB32QqjLNdXWxA9l5+c++JHu/xF9o=;
+        b=du1OCQZ7axvr0Kb/Yfvm4p0b6PRBsLzGJytInemtca96IA6e01L85h9rUHzPICSeaq
+         lwZiwhjjdcIcqq7r66wjjnwPDPss04ZTW5i3vawfxr1C3mZsPVGO6G1qTWGhsGkr3I2a
+         01vicqfWVOobjY5eia2W/AwXDHHBg6MkiTlp6jRPxsUtvEw6pcu0ZTNdkcwyHSKLqgde
+         JQekyBk8QVaL3zvxo+nDIkHyo3Wycaqm4qB34yKJeH8fGjKKIb+kYxxf05n19K6toKSG
+         /PhD7BGhOdfToSH2IYIB2wtsfAomraDWqrqgfjL0sYBGyYMfj9/XUTtSNFkTc4p7a5Jo
+         2Xng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734703705; x=1735308505;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=p2OQDSxlIjkv6IYB32QqjLNdXWxA9l5+c++JHu/xF9o=;
+        b=qCl6VFva+7jdj/7iMbcBKbrAwm1EV43S8lPEDiLnIAcKjZxi7lw1KsC37rMEIUPsgj
+         SIE41SeunDiwbGZ+tKdrjmtz5uYjIxDqJy5NsyyLvWIz7YcZqlsN6FROE+anKjny6Glk
+         lAvFunDU1Xxm8zp71q9rU6SunIbhI+iVMZTBI4XVuoEUT3VWQLxuHLQnNM7Exksz45Ds
+         uf3dcOZARfx1hYS0cLc2E5PBmj1+jpSlFo4yS2mp1Fh0n3nzAvEn/n6RP15O7NuouVsC
+         Gb9OUCZ53fqcPuOhsOx1qBheyvtjDt4FSebFTsxOMlejgkMNPJXREGc+h0MoV9uBr9wK
+         mq4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWSqJHMyMOfDIXi0zkd9nGCxpU4HpvHlJRYM2IMqA4wsyzCwmE1CEM1aRbSopPB/UeEpYMoJyE6Jb6aGnxo70EQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlOyaQRTd7D8UmTc677hY6OZ2/OAPq2Z11SpTWGiPWgP44PchN
+	GEvNCEox6lx0RDf01/wdh8anJvPqZytxmLnOfEqydP73WKtY8+IWey7I7l3aqjo=
+X-Gm-Gg: ASbGncv2f+OQCosoHfIRmPQBAAjratVmvBgKvFmvxCiv0ovK4aEGmmuG6m2Hn3HG00o
+	fRfPiQCWfF+ow7ZtU2o+zBNPFtFKCj5/hqQY9dedQd6vAKFFfKTUVu809dotctO6oYgT36Znf1p
+	fOqt6fNFZ7qecD4Yfj9JJu0aUaN50lf4h96508k84T5eQ0k7HDWqw/sBxJKlzfOJpcQPhnP6n6C
+	NURDo2Rn0WqstHEAfVy5Z37+AMqqTs/mwg57lctRpJQUdJACKuIVusYdEtCtj/pIvoMkXc=
+X-Google-Smtp-Source: AGHT+IHaVoo3sOmtyWzw4UW+4I/j953uzAjZoTRNej1wZU+3u9kyNjoPkTcRqItKHRuM4B6rwHxI9A==
+X-Received: by 2002:a05:6000:1fa5:b0:385:ed16:c91 with SMTP id ffacd0b85a97d-38a221faf85mr2931306f8f.24.1734703704952;
+        Fri, 20 Dec 2024 06:08:24 -0800 (PST)
+Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:c000:46df:1e3e:983f])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c84722dsm4148880f8f.53.2024.12.20.06.08.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 06:08:24 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241220-amlogic-clk-gxbb-32k-fixes-v1-0-baca56ecf2db@baylibre.com>
+References: <20241220-amlogic-clk-gxbb-32k-fixes-v1-0-baca56ecf2db@baylibre.com>
+Subject: Re: [PATCH 0/2] clk: amlogic: gxbb: 32k clock fixes
+Message-Id: <173470370410.3067219.1883604095856278984.b4-ty@baylibre.com>
+Date: Fri, 20 Dec 2024 15:08:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c80c4cdb-48e1-4b6f-8ab8-fad6e100af00@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_060413_643875_046108B8 
-X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-CacheID: sfid-20241220_060827_255762_AFD99514 
+X-CRM114-Status: UNSURE (   4.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,19 +102,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 02:57:34PM +0100, Konrad Dybcio wrote:
-> On 20.12.2024 2:55 PM, Sudeep Holla wrote:
-> > 
-> > Please take a look at the preconditions for both the calls. They are
-> > different.
-> 
-> Which is *precisely* why I want to tell the OS that it's a S2RAM state,
-> so that different actions can be taken in peripheral device drivers.
+Applied to clk-meson (clk-meson-next), thanks!
 
-Yes we do that for SYSTEM_SUSPEND. And CPU_SUSPEND is not SYSTEM_SUSPEND
-hence 2 different APIs. My NACK still stands.
+[1/2] clk: amlogic: gxbb: drop incorrect flag on 32k clock
+      https://github.com/BayLibre/clk-meson/commit/66eff51d972c
+[2/2] clk: amlogic: gxbb: drop non existing 32k clock parent
+      https://github.com/BayLibre/clk-meson/commit/1e1fd26ed4ca
 
+Best regards,
 --
-Regards,
-Sudeep
+Jerome
+
 
