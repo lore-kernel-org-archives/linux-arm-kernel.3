@@ -4,81 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42B0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 18:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF04AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 18:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6GTypMQlijOJKUm9wP9eDOFztTD3UokA0W/uK+gMKCw=; b=Mh/raunAlcxxjyIhISZoqy75zO
-	NKGUIV1V8/w/fDvHtOvyHS5bQtDKF8WOB5Wgup51nKwC+AW3o8k+W0EL0K0pgdN3wAcorSl/sPjWY
-	Nxm0zsoi0Z9k2WznQ03lT5WR2D8jd5DN3Oo6iIe8PSJpqZ1NE8KM6y8ei99/7UtemoJvpfrhgrZMg
-	ymW1WNXi7vwpWra7NizaV/Pm34SmIGyXNucIobU+YceCsQ+ZQUAht/V6slrH2Z4meAuP+QP+vd4BY
-	1f5kyB69ZTAVk4rylQ/zAzq83sjyfUMHiWgFe/XXsCMBR73tt3dQIupqoN/oIi4GzWqLOyy4Ub9gW
-	eYt1r4og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ShuO3TfEMw80wDehD7G0N/FfiqkQn0QjW6tjkfqEvXA=; b=QsK/hDnaxh7OREu1sOCOprJoqq
+	erx3olhH4nkPKkFJWctlybtI/A3OCK1caeL9HUZOlNDHsRgoq8zSezDYtoUrBAR/WdBs7+3tuY6Fu
+	ChvFpCAzRuz/WjNMW3dhY9oIIjOQpTfhA/GGKIfenwqYTObf70U3exANt6+cgEOXU7j+pmEV+f3k1
+	AmB/37hNp+/NkZw2k1RhU/5YsiUVQqziVkAtLhVJFzC1RLXCuL8E+rhmzJZZN7vdHcr7T384/zNbU
+	DW4abyCzyu/NKYePnzWVKgepAYdyhJjFORlmULGt1L4Sc0lxyZhg9SQQHIknH9MIeEuu6ymytHUIM
+	p9gE9INg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOhjS-00000005nz2-3edy;
-	Fri, 20 Dec 2024 18:28:14 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1tOhln-00000005oKh-3vQO;
+	Fri, 20 Dec 2024 18:30:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOhiI-00000005nqf-2OR1;
-	Fri, 20 Dec 2024 18:27:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734719222; x=1766255222;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lVeG2+LVxzEoZ+Rnc836huFlQp02+Oj9SvSRKpveDbo=;
-  b=TE2sNz4d8fsH7yf7xfr6MZ/YBbi8/DMQFbhYQx3YKhOFunLubhIYfd9q
-   jUhuzZH4VIU8ZE6aMosYRk2oqlF2aXpnWNgV5hFaZzRqG9FEZ/ajM929P
-   7OMEmI26tTwESOi17pzhYmt0wwy9hAzwNh9/M74vNGsHEhgxni4cHJzbb
-   6eY3ypHgHpObWHJZsaDgN8S45s/EAdmEzQ4h5V686YNIBQ/cO+UAlhE0f
-   /mdhzjOG4IIrboZHemXJTdOLwkTkkKxU1DaZFageLLDSBYNgiC4cuygsG
-   4EfdYhz+swT2W+0fxMP5771L0dkOrRlp6wbMwnPmc2DJwj8kFVW5+aglV
-   A==;
-X-CSE-ConnectionGUID: I3B8dltRSbWvdm4jrqHcIg==
-X-CSE-MsgGUID: KbHyC3MWSpixWbZISjX+rA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="45882396"
-X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="45882396"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 10:27:02 -0800
-X-CSE-ConnectionGUID: K4pW+d6OTAmFjJn+m7+PFQ==
-X-CSE-MsgGUID: lM36vNWZR1qKyNPD2rstbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="98354381"
-Received: from lkp-server01.sh.intel.com (HELO a46f226878e0) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Dec 2024 10:26:59 -0800
-Received: from kbuild by a46f226878e0 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tOhiC-0001Wd-3B;
-	Fri, 20 Dec 2024 18:26:56 +0000
-Date: Sat, 21 Dec 2024 02:26:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: mtk22730 <Cloud.Zhang@mediatek.com>, Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	Cloud Zhang <cloud.zhang@mediatek.com>
-Subject: Re: [PATCH] [v1] spi: spi-mtk-nor: Modify the clock architecture of
- nor controller
-Message-ID: <202412210247.Brq06CHb-lkp@intel.com>
-References: <20241212092206.14071-1-Cloud.Zhang@mediatek.com>
+	id 1tOhkb-00000005o8y-2pC3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Dec 2024 18:29:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734719364;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=ShuO3TfEMw80wDehD7G0N/FfiqkQn0QjW6tjkfqEvXA=;
+	b=Nv3nag2ONqN9wr5gUrNzI4yz5bzuF/TgGFoBIG887ioWrLG7qj+yddc6C5jC5p2HXZ57dA
+	K+qPXUhv35PCPl5bFJBiAissgHxCXyRfiUqOTS2hFniCeZvGp/G760yIg8emwxY4UUCssa
+	JS6nMTCR3oQqFn4/ZpOfvwxXkLGKrYQ=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-173-zySb8QdNPUi8B9ZJUGV_cg-1; Fri, 20 Dec 2024 13:29:23 -0500
+X-MC-Unique: zySb8QdNPUi8B9ZJUGV_cg-1
+X-Mimecast-MFC-AGG-ID: zySb8QdNPUi8B9ZJUGV_cg
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-385e1339790so1367993f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 10:29:23 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734719362; x=1735324162;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ShuO3TfEMw80wDehD7G0N/FfiqkQn0QjW6tjkfqEvXA=;
+        b=YMrSUY+t0jwNmsQRKnqBsWUzB+v0rmhEa20hAqxRosVVLv8dUyWqIeTqYmTAQWm9TO
+         AXq4a8pVvUeF4s2VJITX70OYdYdzsRVcp4ilVOf+BWmh0IogzlngqS4LRZe2KmLmrJsb
+         PiCygVoYjXXnlN6vyUiGFLEj3oVXTw2Jl6VMkq1Mekl2+rKzCH2H0kVUpiBK+ijoZT4t
+         bQvqYrxwWk+bIzDunJbhoIdHlAsettT3XAPxRB7Iv5DwnncQWhK9fzPvdqzB92rXnwJA
+         kPyvCb0HSPD/HFe9O9Qtg169QB/B8DKqRi2mtB3ji/ygOCV5lYtB+fEyttutCI7No0dy
+         tYVg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXMgnjNLZrxM6CrzAjvFWDhNl1eq9VJvsRfTs4HerxjTs97DpxIT7G2LnrWF3iBvDvX5Q1/y8Cy8FRMNzvtE2R@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHxLVSv76I/SIjIITecIOzTrgw6GbvOH1k1+SO8oMrOG/XLjsZ
+	f9vK5res5VCrhfZnJU5j3Ur6gmu6b6XBG/NuE5dQ5nY8tXTpkJSAvqizuhvILifrtBjlxAwrqgu
+	l4zuJlhSqoZjVHFRFt1qggI1sWG6nFJsLzvVMf/4qd/6vW/swFnBIIcFUukC98GRPd9xEDay5
+X-Gm-Gg: ASbGncvbkNWPLVxPzRK6jPIAlSQ4SD7KsLofVxaVnkebNL9A6XvCXL3Gp4UD0EN7Al4
+	8iRXdp63c4sCLEDYRUJLF1up6qv92cT+uCvx19kCV6mgVxkiot46ZTWKshT3ELBAkhvbdU8Mdy6
+	7NTm9woWjJSEqCvCb8Qi3/sNkxePZFPlzLP+CARhhEXK7lFLtBnUwiiH6eUsFDklVe7niifIWnE
+	nbxt0pmgc8iSwU7R+m77DplY0f1X3MMVgNOtGh2MwTwHQVj1MzIYRaZaoM7VtjkaD0va9kLQl/l
+	/ZaePRpYq+wWjMTO7FiVkFuYsNCDQyZqszax8ofyinX7ms/i3PLNlUMl+cJbgKin9cKDZH10zEF
+	F+1UIlnmU
+X-Received: by 2002:a05:6000:18a9:b0:386:3835:9fff with SMTP id ffacd0b85a97d-38a22406d43mr4852352f8f.59.1734719362336;
+        Fri, 20 Dec 2024 10:29:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG4GC48OmfJNltY6Ek7vleCwhpqJySNAWqKHGuZFUvMe2tCVDpmaDR4IIQ/DXZtWNsmnqadZA==
+X-Received: by 2002:a05:6000:18a9:b0:386:3835:9fff with SMTP id ffacd0b85a97d-38a22406d43mr4852317f8f.59.1734719361985;
+        Fri, 20 Dec 2024 10:29:21 -0800 (PST)
+Received: from ?IPV6:2003:cb:c708:9d00:edd9:835b:4bfb:2ce3? (p200300cbc7089d00edd9835b4bfb2ce3.dip0.t-ipconnect.de. [2003:cb:c708:9d00:edd9:835b:4bfb:2ce3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b441bbsm85576885e9.40.2024.12.20.10.29.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Dec 2024 10:29:20 -0800 (PST)
+Message-ID: <4446a9c9-613b-4303-9a06-686fb10af363@redhat.com>
+Date: Fri, 20 Dec 2024 19:29:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241212092206.14071-1-Cloud.Zhang@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 10/25] mm/mm_init: Move p2pdma page refcount
+ initialisation to p2pdma
+To: Alistair Popple <apopple@nvidia.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, linux-mm@kvack.org,
+ lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+ vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+ bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
+ will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
+ djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ david@fromorbit.com
+References: <cover.18cbcff3638c6aacc051c44533ebc6c002bf2bd9.1734407924.git-series.apopple@nvidia.com>
+ <aaa23e6f315a2d9b30a422c3769100cdfa42e85a.1734407924.git-series.apopple@nvidia.com>
+ <359a1cf2-c5b0-4682-ba3c-980d77c4cfdb@redhat.com>
+ <bk6cmiubwvor6gevit3wgl4k66xxpfcv6swmfrtvxnjnuojqkx@yow3pmyuxozw>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <bk6cmiubwvor6gevit3wgl4k66xxpfcv6swmfrtvxnjnuojqkx@yow3pmyuxozw>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: g4U2EfwD1GNqkvwG6RYolJJ3ahScpX-ia-5SMtuQye0_1734719362
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_102702_624248_2ED1D500 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20241220_102925_777464_4502EF62 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,146 +171,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi mtk22730,
 
-kernel test robot noticed the following build warnings:
+>>
+>>
+>> But that's a bit weird: we call __init_single_page()->init_page_count() to
+>> initialize it to 1, to then set it back to 0.
+>>
+>>
+>> Maybe we can just pass to __init_single_page() the refcount we want to have
+>> directly? Can be a patch on top of course.
+> 
+> Once the dust settles on this series we won't need the pgmap->type check at
+> all because all ZONE_DEVICE pages will get an initial count of 0. I have some
+> follow up clean-ups for after this series is applied (particularly with regards
+> to pgmap refcounts), so if it's ok I'd rather do this as a follow-up.
 
-[auto build test WARNING on broonie-spi/for-next]
-[also build test WARNING on linus/master v6.13-rc3 next-20241220]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/mtk22730/spi-spi-mtk-nor-Modify-the-clock-architecture-of-nor-controller/20241212-172704
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-patch link:    https://lore.kernel.org/r/20241212092206.14071-1-Cloud.Zhang%40mediatek.com
-patch subject: [PATCH] [v1] spi: spi-mtk-nor: Modify the clock architecture of nor controller
-config: um-randconfig-002-20241220 (https://download.01.org/0day-ci/archive/20241221/202412210247.Brq06CHb-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 9daf10ff8f29ba3a88a105aaa9d2379c21b77d35)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241221/202412210247.Brq06CHb-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412210247.Brq06CHb-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from drivers/spi/spi-mtk-nor.c:10:
-   In file included from include/linux/dma-mapping.h:8:
-   In file included from include/linux/scatterlist.h:8:
-   In file included from include/linux/mm.h:2223:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   In file included from drivers/spi/spi-mtk-nor.c:10:
-   In file included from include/linux/dma-mapping.h:8:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:549:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     549 |         val = __raw_readb(PCI_IOBASE + addr);
-         |                           ~~~~~~~~~~ ^
-   include/asm-generic/io.h:567:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     567 |         val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/little_endian.h:37:51: note: expanded from macro '__le16_to_cpu'
-      37 | #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
-         |                                                   ^
-   In file included from drivers/spi/spi-mtk-nor.c:10:
-   In file included from include/linux/dma-mapping.h:8:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:585:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     585 |         val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
-         |                                                         ~~~~~~~~~~ ^
-   include/uapi/linux/byteorder/little_endian.h:35:51: note: expanded from macro '__le32_to_cpu'
-      35 | #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
-         |                                                   ^
-   In file included from drivers/spi/spi-mtk-nor.c:10:
-   In file included from include/linux/dma-mapping.h:8:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:601:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     601 |         __raw_writeb(value, PCI_IOBASE + addr);
-         |                             ~~~~~~~~~~ ^
-   include/asm-generic/io.h:616:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     616 |         __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:631:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     631 |         __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
-         |                                                       ~~~~~~~~~~ ^
-   include/asm-generic/io.h:724:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     724 |         readsb(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:737:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     737 |         readsw(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:750:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     750 |         readsl(PCI_IOBASE + addr, buffer, count);
-         |                ~~~~~~~~~~ ^
-   include/asm-generic/io.h:764:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     764 |         writesb(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:778:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     778 |         writesw(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
-   include/asm-generic/io.h:792:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     792 |         writesl(PCI_IOBASE + addr, buffer, count);
-         |                 ~~~~~~~~~~ ^
->> drivers/spi/spi-mtk-nor.c:746:19: warning: result of comparison of constant -22 with expression of type 'u8' (aka 'unsigned char') is always false [-Wtautological-constant-out-of-range-compare]
-     746 |         if (!cnt || (cnt == -EINVAL)) {
-         |                      ~~~ ^  ~~~~~~~
-   14 warnings generated.
-
-
-vim +746 drivers/spi/spi-mtk-nor.c
-
-   737	
-   738	static int mtk_nor_parse_clk(struct device *dev, struct mtk_nor *sp)
-   739	{
-   740		struct device_node *np = dev->of_node;
-   741		int ret;
-   742		const char *name;
-   743		u8 cnt, i;
-   744	
-   745		cnt = of_property_count_strings(np, "clock-names");
- > 746		if (!cnt || (cnt == -EINVAL)) {
-   747			dev_err(dev, "Unable to find clocks\n");
-   748			ret = -EINVAL;
-   749			goto out;
-   750		} else if (cnt < 0) {
-   751			dev_err(dev, "Count clock strings failed, err %d\n", cnt);
-   752			ret = cnt;
-   753			goto out;
-   754		} else if (cnt > MAX_CLOCK_CNT) {
-   755			ret = -EINVAL;
-   756			goto out;
-   757		}
-   758	
-   759		sp->clock_cnt = cnt;
-   760	
-   761		for (i = 0; i < cnt; i++) {
-   762			ret = of_property_read_string_index(np, "clock-names", i,
-   763					       &name);
-   764			if (ret) {
-   765				dev_err(dev, "failed to get clock string\n");
-   766				return ret;
-   767			}
-   768	
-   769			sp->clocks[i].name = name;
-   770			sp->clocks[i].clki = devm_clk_get(dev, sp->clocks[i].name);
-   771			if (IS_ERR(sp->clocks[i].clki)) {
-   772				dev_err(dev, "get clock %s fail\n", sp->clocks[i].name);
-   773				return PTR_ERR(sp->clocks[i].clki);
-   774			}
-   775		}
-   776	
-   777	out:
-   778		return ret;
-   779	}
-   780	
+Sure. For ordinary memory hotplug I'll also convert it to start with 
+refcount=0 soonish, so there we're also simply pass 0 to __init_single_page.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Cheers,
+
+David / dhildenb
+
 
