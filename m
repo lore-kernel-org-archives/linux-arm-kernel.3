@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA191E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 12:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC1CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 12:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7c+9If8W7Xl+w31iRvENBg3VUkO/76wew21FGkaNGXY=; b=lMiRhUzzUdLZLm9mops8Vj6kKN
-	r1u2MMmTvc+785P7SyRWwdFMgwPFZgQL24MrksZJkzhmp3S7guMt5k7SDxy+bzE4vAnmF11fUdQVF
-	RYWNHUgCdw8LQLc5470m9DWAx0kWcreEqi405o+cXEnBinfY0qSvg8QXHGzUMzjRTGG7xeO6VoXs4
-	QvDP+TJvAhn6VaD23qfuTjkmYDZ38gfi0T1gQaOuP9bOieuDCnfVDy7XpF0r2rsf3Yo8IAWpKjPf4
-	kfjtyQ38rNchKw380LLOORMZDwJd9ai3VcxKUHjjb4kwIDXqGbG50PQOv3+SiwpSEgarjN43XhWdN
-	DlekEjbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dEji9Lk/pLdeX2iw8xpCZ0zV1uqpSfb5ZgA2NAx2XR8=; b=lLqRaRk3Obg0rhnAKjEE+PgLjI
+	rd0+EttdHjfEE4Pz+IU8sXjQ7zBl0wxWu3pp1UlzBqnWz7+2qi8iDqmGl70t+QJ7afJWM3fqfxQoL
+	zhQccuLlccAAnjw6D3rO0Mp8D6P15HEXyTH5+7XNz0N00naehYVamLgQzggx4xJSl7iZjr9BhNHEk
+	xY6QQRgLZM3gk5Okk/F7zu54viE0h0HA3r6BvjaWSoUaQkAFK/lKm/DXguERbu4QKnZ19SJlXoX/k
+	O2MCIXm4dvSLnxlYrwyhagMw3T0lo50e+N5rVJnhqOIvl/v6/unKpWjOJt85j7mR9w4FqtdItNt2w
+	rZhtWY3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObjq-00000004qls-08cM;
-	Fri, 20 Dec 2024 12:04:14 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tObmu-00000004rC5-1z3F;
+	Fri, 20 Dec 2024 12:07:24 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tObgS-00000004qHQ-1dVP
+	id 1tObll-00000004r6n-1KN4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 12:00:45 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-385e0e224cbso1036081f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 04:00:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734696043; x=1735300843; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7c+9If8W7Xl+w31iRvENBg3VUkO/76wew21FGkaNGXY=;
-        b=F2nw+VzEtvjJPEcOw93kIuZbkuQf38yuGsj3UQfkNooFLksuZPiKcn/r+iCyQOFUX+
-         ziLQ843Svi9ZWQqxG3LOmyWoAq6h9E4Eka6GoIw5freUSqnDxO1J03Vi1bYXzjdhOrFf
-         usinVy8+IeQAEp+yDNntIzp70fRNL5/qjBKtQ3IFo1ZqoTp2+rEQmupJ6HJhgCMzSOhV
-         eBwVEgu0AkdAwUyw3biGuG+nYGWNk4qfCYnCTQ7gTqYSA0BZgMJyE+Rx/7PKZo+wM9gQ
-         BTccRiq22NgO+Lmo1jnqjTKpKV842LNuY3u3a2eemFHQ3DTRx6X8QaQyQEX5soZ1Migo
-         d7Ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734696043; x=1735300843;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7c+9If8W7Xl+w31iRvENBg3VUkO/76wew21FGkaNGXY=;
-        b=RyOu+cFPJNiqzKIhBKSCqQWJwIt2eK26yZ5yC0VAjT5UsGZQ37fvseIiwT0CSGjlGG
-         BGEIBqHNRdhnUZ8QzCSO1Cz3tC+oajKv2fZ93+XnCS7UIhvD68MpotxG9xmxrM4GCq7V
-         cKw2eFNTDXpjOxKOtRrOvbtq+sj0dLStRTgeFcvRjfw0lT2c9DcchG2IY6KpA3DgChcZ
-         WCoM1MiyX3pWKPOeVgO7/zQbdfsXyrL70pVrmvl1ycx19Se/VPx7spOjoNx50yB3JbQl
-         P+s8sl6zuuGvpDAa1MYek30Ftmosndsm0/lgDbvjuhjGsWLtPVBZG83mLfgFyPGA84kt
-         8eXg==
-X-Forwarded-Encrypted: i=1; AJvYcCUwkt1xJ28XTdj0ttr8BclEU4vseyERyR70lkIpwLJWucJlpvYyHJl+MSUPxBIcK8YE86nUO0sffbC+x8HGBgXe@lists.infradead.org
-X-Gm-Message-State: AOJu0YylNxyQx7Zo/o3dU8wNX2yfTqOyfnEUrJal83IrnxuElDC8DiZI
-	EaKGq+pqKVRT/nihiZb3WLhWlHhtO1bDtRIPvmT6jYM68opZItDS
-X-Gm-Gg: ASbGnctPXVXj3MRdTyi3pHpvgKCU1uzX+gjIwaYKVNo8wf9EKazWK/u+dmmz3G4uKlc
-	cqIORR4/vOpf8Wscx5Oswa4yE4S6Qmi0nfEoSvUfe464kmtvkNa93aEnh2fyZJqrXhkmZLGvPUI
-	NkOGGxrDR4aB//cJFzq0ax5pYQ23Zd5mJSradaXTCjFdaPgS2Ud68xOzsyHajBMC0XOwBxtmZdC
-	S0XBelBjN48SnYsk8AwqXCrfEwiDJ5QLx1tpHqrfjf+3j4zoTyXwu51XuLEdZ0QpUfdDBhJ9ThZ
-	H4l4YmWfnygF7dfgkdGnD2dOXrgyLOORN0sJ1so+dPB6hX/HCfSqBhoty7F9mA==
-X-Google-Smtp-Source: AGHT+IE2c5XLJyzNR1zhyXkJ+darIKZUZG1iPFBT6zdD9tb9k+0R145WUAU3upIKBqOszM+jPqMnSg==
-X-Received: by 2002:a5d:59ac:0:b0:386:2fc8:ef86 with SMTP id ffacd0b85a97d-38a221fac08mr2551293f8f.14.1734696042701;
-        Fri, 20 Dec 2024 04:00:42 -0800 (PST)
-Received: from cypher.localdomain (e.b.8.0.0.0.0.0.0.0.0.0.0.0.0.0.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681::8be])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c8b830csm3921038f8f.108.2024.12.20.04.00.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 04:00:42 -0800 (PST)
-From: Peter Robinson <pbrobinson@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Cc: Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH v2 2/2] arm64: dts: allwinner: a64: Add WiFi/BT header on SoPine
-Date: Fri, 20 Dec 2024 12:00:31 +0000
-Message-ID: <20241220120038.3137248-3-pbrobinson@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241220120038.3137248-1-pbrobinson@gmail.com>
-References: <20241220120038.3137248-1-pbrobinson@gmail.com>
+	Fri, 20 Dec 2024 12:06:14 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tObli-0008UH-Kf; Fri, 20 Dec 2024 13:06:10 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tOblg-004Mzd-0v;
+	Fri, 20 Dec 2024 13:06:09 +0100
+Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 2E122392EF0;
+	Fri, 20 Dec 2024 12:06:06 +0000 (UTC)
+Date: Fri, 20 Dec 2024 13:06:01 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, heiko@sntech.de, 
+	cl@rock-chips.com, kever.yang@rock-chips.com, linux-can@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] net: can: rockchip: add can for RK3576 Soc
+Message-ID: <20241219-sapphire-vicugna-of-opposition-be748f-mkl@pengutronix.de>
+References: <20241219011159.3357530-1-zhangqing@rock-chips.com>
+ <20241219011159.3357530-2-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eudui3nm55akuurq"
+Content-Disposition: inline
+In-Reply-To: <20241219011159.3357530-2-zhangqing@rock-chips.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_040044_424744_CA76ABDA 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20241220_040613_355561_23B1EFED 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +82,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds all the pin mappings on the WiFi/BT header on
-the SoPine baseboard/A64-LTS. They're disabled by default
-as the modules don't ship by default. This includes, where
-they haven't been already, UART1 for BT and mmc1 for WiFi.
 
-Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
----
- .../allwinner/sun50i-a64-sopine-baseboard.dts | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+--eudui3nm55akuurq
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/2] net: can: rockchip: add can for RK3576 Soc
+MIME-Version: 1.0
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
-index be2347c8f267..752d2aae8465 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
-@@ -42,6 +42,11 @@ reg_vcc1v8: vcc1v8 {
- 		regulator-min-microvolt = <1800000>;
- 		regulator-max-microvolt = <1800000>;
- 	};
-+
-+	wifi_pwrseq: pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&r_pio 0 2 GPIO_ACTIVE_LOW>; /* PL2 */
-+	};
- };
- 
- &ac_power_supply {
-@@ -103,6 +108,17 @@ ext_rgmii_phy: ethernet-phy@1 {
- 	};
- };
- 
-+/* On Wifi/BT connector */
-+&mmc1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mmc1_pins>;
-+	vmmc-supply = <&reg_dldo4>;
-+	vqmmc-supply = <&reg_eldo1>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	bus-width = <4>;
-+	non-removable;
-+};
-+
- &mmc2 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mmc2_pins>;
-@@ -175,6 +191,14 @@ &uart0 {
- 	status = "okay";
- };
- 
-+/* On Wifi/BT connector, with RTS/CTS */
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
-+	uart-has-rtscts;
-+	status = "disabled";
-+};
-+
- /* On Pi-2 connector */
- &uart2 {
- 	pinctrl-names = "default";
--- 
-2.47.1
+On 19.12.2024 09:11:58, Elaine Zhang wrote:
+> Is new controller:
+> Support CAN and CANFD protocol.
+>=20
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 
+Thanks for porting the rk3576 to the mainline driver. Looking at subtle
+differences between the IP cores I'm not sure if you want to add it to
+the existing driver or have a dedicated driver. But we can decide on
+this later. At least the mainline driver has a better structure than
+your original downstream driver.
+
+Why was the timestamp register removed from the registers? Previously
+the driver supported hardware timestamping. :(
+
+Some general comments here, a more detailed review will follow.
+
+Why have bits been removed from several registers and the remaining ones
+moved? That doesn't make it easier for driver developers to cover new IP
+cores. :(
+
+Please use FIELD_GET(), FIELD_PREP() macros instead of open coding shift
+and mask operations. See rest of the driver.
+
+Have you actually tested this code in both RX and TX direction? I don't
+see rkcanfd_handle_tx_int() being called?
+
+What's the purpose of "rockchip,rx-max-data"?
+
+Why do you add "rx_fifo_depth" to "struct rkcanfd_priv"? It's not used
+outside of rkcanfd_probe().
+
+Can you configure the IP core for CAN-2.0 only mode, so that it only
+receives CAN-2.0 frames only?
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--eudui3nm55akuurq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdlXZAACgkQKDiiPnot
+vG83mQf/f6DaBGVIT5WusxNppsrY5LvjB2UCWh8j3u0AGBRxOL5ktwa/cZna9O4L
+BH0KOBH+K6mUQ6ssME6tH0EYz17DUbaaFnhPjVTRDGAQu0qktLXoFf0cRjiTo4vV
+xLLVVPn9++OTYFUQmN+SxWih0MHBK5+HhIUd+HZTw5GGWdt5V+Wh5kkS048slc9E
+mP2tspwcyzJaOAXz9zsdxOc540tcT4cfgI8GgzSIFiVtZWoliAEvgHFzNcp6ZZts
+GWRSK2Lf/sf6+mmbHNpa0GhG7M6zqu+nC6oVgVuWY23RO6laQvUTSktw0Ek9nq2f
+EtgEcqjYtJiSK62wZQ8ijhtgtX6D+Q==
+=AKwc
+-----END PGP SIGNATURE-----
+
+--eudui3nm55akuurq--
 
