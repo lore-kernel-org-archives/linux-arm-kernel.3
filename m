@@ -4,93 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5286EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E893FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWkEtC1JATIn6qXREPnlwjqS9TBnknDlIdxobBNl7k8=; b=Ro7kG37BlO7VrY3/Bd8SyjzzMW
-	pOYIp2lFMWCe+jiutILkA83Ecoy1Fw8Xoz+TW8H1Z40r0ZrouIZxNBt6oBS1BOY20HFn8jHKFFzEE
-	FnRWwVd+dPwLWiCAyHGlulB14NMh3GBnp2DnHGEQkubQ2KnFkpiRHYCDeu7VeQmJtkI08FVooebGw
-	RuqzZMVrjn32nPBMZiAgm69upTuZg3CW3HRxYOmdnaW5/7OI4d7hNLZkWOL+Es0bH2/BF7M7Bt7Js
-	KCjUeEHzCFrZkcLlltq1YCP+WBTrjPtwcaYYCOj0yy+L+HntVGREwa+EAgkBQi9N0/aEL6MKP/7lp
-	lGnmkuqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RdbZD6VJJqkFEO21ymFS5qOiPFzyVaYTPvnIpLlMFG8=; b=jj+rZhHGjD1RRz
+	LgvEQLnOFMJDuXdQbCWXrdvXuJY+OfUAWp74Rb3+p8GrglK8ptUW5Ap1qXK44Z/bF1Gn7L0mkITNt
+	bZQ559fBf5n6J8mHauuDBnyTo2JELE5yTZb7Vm/hd9W0yfv4/4xTKoEmKnqgwLAdgfg4XfmrUutZ+
+	E8COx6zzImcV3Di9vk0L/vTRGFWfz5UgVCDYJs579XVWZCMDCses+ZQ/sKOsoyEZt1SGxnQAciHFH
+	cO0xANC21Ki6zGL4J/a5l815h+5/yTLaxguPHyBhR43KgDj3ONIMhjDKdiQc8q3b+ducQwhiEDoWu
+	URAZXL1d9ENPPoadl0rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOguP-00000005etP-0Oyj;
-	Fri, 20 Dec 2024 17:35:29 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tOgvW-00000005f5I-3Cpm;
+	Fri, 20 Dec 2024 17:36:38 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgbw-00000005bHZ-2ywr
+	id 1tOgdM-00000005bVM-0hE4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 17:16:26 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4363dc916ceso20610235e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 09:16:24 -0800 (PST)
+	Fri, 20 Dec 2024 17:17:54 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43624b2d453so23332725e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 09:17:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734714983; x=1735319783; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aWkEtC1JATIn6qXREPnlwjqS9TBnknDlIdxobBNl7k8=;
-        b=R29Fj8al4grcJYcIw3pSlLa4X52ECWUKXpHDShJuPbfx7V/2ugnAdA58p4/Fi2U8MQ
-         1+NqXUtBhaqxcFyEbBmii7Sz1nbQhA7h3pPtfiQ0roE4DWWmZ+hhTJAkqKVx3nciatnW
-         EfhTLWsNKohepig2wYfS6a82S/XCqf0vvsgXzfvLbflIbShKEq7yUxTAkjGJBbUcCGcE
-         CFtkqY+OuZYB6GTl/Y2BpitfJfLHG9jxQUT/qzWV9cnmjPngvtcFa/UdOf7rvNo8Jus3
-         itXDCMK6V3EVBDPLwZ01j7X0EZxkhdkbMFp1nXgAzjYdse14Dwco/vs3W8nn1671Q8Ig
-         NObw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1734715071; x=1735319871; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RdbZD6VJJqkFEO21ymFS5qOiPFzyVaYTPvnIpLlMFG8=;
+        b=lZdjOBFBc1e7ZXJQYEEaOI8bOM1yXT4xu9uDmelV19IBzkNTEkN0RaiXGBB+1wWeU3
+         7JyRR0G+KkjS91lnA4sYc9Z4GVUOOh5eyfghJjGzUhZWI9rJNS99vQQBnSEu90AgGzDI
+         nBU66SBggvu/Cp1ohpwSTGwBf+Al34rEC0nF14bYCDCBkLhpOD9oTDJYcSFp4pNwsHeM
+         vKu6Jg+iSL/rHcikgVE/KFuwEJsnv35om2W3QFqidtFfzlzGuNfI77NvQ6DmNAPVusvl
+         8+gbWBORbZ+aP5aJamcu8aws9wRIoYzCUC17aHujAuIQO1qOO3i/Ci3mY6b3qW2GfClh
+         1FGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734714983; x=1735319783;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aWkEtC1JATIn6qXREPnlwjqS9TBnknDlIdxobBNl7k8=;
-        b=JpQ+saQt+1Q23jnzt86RRXOSuiFFFM9DLDTLtRbzHkAOvEfdv9TP4d+Zm8jpYpr5us
-         JWItOmWEFv6Q36S2CSjHxQS67uZd4bgc6AZ1btJ56TBfpEokr7xUPMv/lhQuw4v+HwNq
-         S3TbFa00Jm/Sm9QHYyp113R4xXZ7yDLhl9qvF7/aA40Ea+GFnUCErwIhuvLmymfQ9XPX
-         LAqoQMrswUgM+ftcFe2mAx70tqlljRMQPRwaimfjzQYBt7sVTWJFI7Swh9iJVObPhdYG
-         eXwPe2jVGhCFVGJCN00tcbMO8GeuJMp1FyhT1Sntvn3KeIMIVpdfFOk8gJKBop4xg692
-         LSIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXVFmfMo+MwZgggDcGEFk+EhLJtSH6SEQ+enz8XG9RYJRUSL2+hOyjwjUAd7YMjTXeBOjAdg54bOnhVTuvHX/Ld@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzxVTmQHip+EfdZ4+vdPWALa4LSY4C2zP1Kv5zH6vJ73ModPcv
-	L/zAAR7xiWq3GZYpWYkS2QBZh5Q6TMFSG0GAKBQZ0vFtijWgM8bZouKGEb8PUv0=
-X-Gm-Gg: ASbGncuxNpnDyJ/x6PXmVU/fmi5GV8pDEFxu4mZHEovtZOrfgdhOJb3tyZQpBMuujcy
-	cu1otbgvH5af5UWL59NzgCK5H75UtyvGdrmiPuObF3OPKOWBIr4hNp2QKnPnZcJEZbzM6dPNwWB
-	8Aa0wsXEjWep+9M95nR+MSaEVBww6s0oml1mjI8+mogBhEh0MHd70hTf2PJGtIfGw+LuFhNSbtt
-	dkaLk9iSo+D5m6fmm6nlLa3Fc+FwyT7CRZO4rFb2QnCGeXVXoYEGjgGgyA3wBx6CGY=
-X-Google-Smtp-Source: AGHT+IGn2bSuOD+eQ1Kw77ReARBTW+Z43faAGpGgYHNzLywWOzDLSMMRJx0svPo2NgeJxp9j9ds7vQ==
-X-Received: by 2002:a05:600c:746:b0:436:185f:dfae with SMTP id 5b1f17b1804b1-4365c770940mr76361555e9.6.1734714983179;
-        Fri, 20 Dec 2024 09:16:23 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.65.105])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c4bbsm50677985e9.32.2024.12.20.09.16.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 09:16:22 -0800 (PST)
-Message-ID: <c98e8399-1471-4d38-b314-4fbcb8dcb27d@linaro.org>
-Date: Fri, 20 Dec 2024 17:16:21 +0000
+        d=1e100.net; s=20230601; t=1734715071; x=1735319871;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RdbZD6VJJqkFEO21ymFS5qOiPFzyVaYTPvnIpLlMFG8=;
+        b=DrcaJmGOgrASvl9GgzuEzcklfV0UkZh54NDrDrDpXFYSHkYbGTA4+6OHN3AQprN02g
+         6zqQFxzKU3pTJ4LSpyGdOnZZsyyRzwjdSWNLTPXAeFvVRlcmOckcqT5S+g+ENjYgW9vF
+         ow696yJEVVXF8UveJwn+wBmNpJnA6vK6vgdmhcjGyZ3K9c+bx9+Va+2DvK8eFt8MfU2v
+         pRc3+pNHxeXaN5AWU936Pki/N8h0ravk6n5s83+7YgDxVBeh9xYdRlG4BXNykrR5/iAE
+         IrslCBdi+ZL7zXx8M/KspyHe1JFLTFJsWtzQYEn4fQaqQ0MYfrWwuf73FCIaCfPbdc+E
+         9DMw==
+X-Forwarded-Encrypted: i=1; AJvYcCUCCSDqxy9yRw9E8hOnM3umQy7+Hq/W5FYI06VaIE4lflHqQWwSqfbl9t8FQT4MD0nej6wEQXiF0dq28/SFbQnR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKyT+Vpqf3XkxkfU3nz0Qd+694eE58uRA8kifqSANYRFVtT2Vi
+	Bcxm9WtO6yr4K5mQ6Y9Zf3WD6RTrWUG4+i56n6daV+YrEpjL5zT0rhvSn/x949WVaLJuEbTwen3
+	4
+X-Gm-Gg: ASbGncvibJhWmEjjev4lYdK0qJGQBGTDKjxGB9LZf6wsscsYlXMy9MEgltisLv8yUO9
+	eg3DUYlmL+i4HXtTNDTK6das02f4Es/TATtBkdkf6H8z4cKvslaS19K8u4egwuSFSII3uNoYGS4
+	9FHr7vrGJpY4Mn7mqKcaknFtZ0WoGvLL4vrv+zDfcwFSVfrHtsjMUj6Ja2kVbqVY8x0WJE2Qrlz
+	84X8ZmsYOZdX86Q2fi3slQoet+LTh7/4zzzndI4egXWDuV7Z8omcDijEyhV8r6Dqm4N8DI=
+X-Google-Smtp-Source: AGHT+IF9f/T14X1AvJnEvREcpdS8/52lUJw/ZwFZojh7k/RDOYI+PqbwwQJ/BIYRcYtgDvOajktM8w==
+X-Received: by 2002:a05:600c:3b13:b0:436:488f:4f5 with SMTP id 5b1f17b1804b1-4366864420bmr36545735e9.19.1734715070689;
+        Fri, 20 Dec 2024 09:17:50 -0800 (PST)
+Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:c000:46df:1e3e:983f])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38a1c8add5asm4432847f8f.107.2024.12.20.09.17.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 09:17:50 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH 0/3] clk: amlogic: drop clk_regmap tables
+Date: Fri, 20 Dec 2024 18:17:41 +0100
+Message-Id: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf: arm-spe: Fix null-ptr-deref in
- arm_spe__alloc_metadata()
-To: Nihar Chaithanya <niharchaithanya@gmail.com>, Leo Yan <leo.yan@arm.com>
-Cc: skhan@linuxfoundation.org, john.g.garry@oracle.com, will@kernel.org,
- mike.leach@linaro.org, leo.yan@linux.dev, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- irogers@google.com, adrian.hunter@intel.com, kan.liang@linux.intel.com,
- graham.woodward@arm.com, bwicaksono@nvidia.com,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241220145659.66066-1-niharchaithanya@gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20241220145659.66066-1-niharchaithanya@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALWmZWcC/x2NQQqDMBAAvyJ77oLZNlb8SukhxjUujSZsShHEv
+ zd4m7nMHFBYhQsMzQHKPymStirm1oBf3BYYZaoO1NLDELXo1piCePTxg5OmfIFyWF3GrxsjFzQ
+ 9Wz/bJ91tBzWUlWfZr8nrfZ5/bBey9XQAAAA=
+X-Change-ID: 20241220-amlogic-clk-drop-clk-regmap-tables-18e5cf572356
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2325; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=0/1MgQhSTo4SZ2txed9gv05z9rFjmcWl6hwe7WthPg8=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnZaa6K8PagUSRbBXNIVgWlwByGMO32kVHibKpo
+ b8WCFcc5WuJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ2WmugAKCRDm/A8cN/La
+ hRnnD/9f3l83yXUjaKaPT3xakf3kCxkgRh9K6gtDX+UCd3ss7AQ48yYzWirHLZeG5I72h1v7rg4
+ +kscCCA+mueRs2+syySFdvGCU1P5EYPn16fO38x5L6n1X7DyDHJtKvpOrireORtgu/WzTETV4Vx
+ 2uVGKKW9kJNkVGci9iTGNDkEjfKnILkArM5Ogobc/IRnkMgj/ePaQtwzxhRD5SISWa+qChE+Z8u
+ cfRfqluWWkN4DTFoG7plqgTBDWLxVIOAHFSxQbvh4pZwsfcqIp5W+LqYkHUzIyvfnQcHWacZOnL
+ fVvkWLFh85YYdUKEqq2dhvjqybkiB95jK4wgtqjwnRRSoK/MfmvH6NhFYFPxMWpzke2B/kY0d62
+ ai+kR6LbuavihtRF0beq1zJBQ61K0dwsze/Z+M7IDuZ3oCELF5dGgwJatOmqdrC8TJ3jYXO2Szm
+ POUns4BVhVQrle6Knpfxz7fZ8eUsrGNdx1dUEkoff0M53YCWvWQ28Xledd8petrrUguM6qiRm+y
+ m6/9d6A29thmvYHki1E7HVz4BKO+VDM5GXB3Ao1G/6z2AZZS9iM2YKQlbQuZOn/WTvCxDm0uPVA
+ 8o0n5uwNq1xGZvI8siNMytDCiq50lIIMkuJ7hls9TbtPhyQPu/awUrQclDEYo81D7w28OdxNyFC
+ 44cpl3+jhYGv6+w==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_091624_783265_95517AA5 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20241220_091752_477225_FDCCE230 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +120,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patchset removes the needs for clk_regmap tables in each clock
+controller driver. Those were used to populate regmap with in the regmap
+based clocks.
 
+This saves a some memory and ease maintenance a bit.
 
-On 20/12/2024 2:57 pm, Nihar Chaithanya wrote:
-> When metadata is allocated using arm_spe__alloc_metadata(), if the
-> metadata version is 1, metadata is returned as NULL. This value
-> is dereferenced later in arm_spe__free_metadata() and it can cause
-> null-ptr-deref.
-> 
-> Modify the NULL check for metadata to return -EINVAL even when
-> metadata_ver == 1.
-> 
+This is the 1st step in a series of rework of Amlogic clocks, to clean-up,
+increase code re-use and ease future maintenance.
 
-Hi Nihar,
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+Jerome Brunet (3):
+      clk: add a clk_hw helper to get the associate device structure
+      clk: amlogic: drop clk_regmap tables
+      clk: amlogic: s4: remove unused data
 
-I don't think this is the right fix. Doesn't that mean we can't open 
-files with V1 anymore? Did you test opening an old SPE file on a new 
-version of Perf? I actually thought I tested this before but maybe not 
-if there's a NULL deref.
+ drivers/clk/clk.c                  |   6 +
+ drivers/clk/meson/a1-peripherals.c | 165 +-------------
+ drivers/clk/meson/a1-pll.c         |  18 +-
+ drivers/clk/meson/axg-aoclk.c      |  22 --
+ drivers/clk/meson/axg-audio.c      | 435 +------------------------------------
+ drivers/clk/meson/axg.c            | 131 -----------
+ drivers/clk/meson/c3-peripherals.c | 212 +-----------------
+ drivers/clk/meson/c3-pll.c         |  34 +--
+ drivers/clk/meson/clk-cpu-dyndiv.c |   1 +
+ drivers/clk/meson/clk-dualdiv.c    |   2 +
+ drivers/clk/meson/clk-mpll.c       |   6 +
+ drivers/clk/meson/clk-phase.c      |  11 +
+ drivers/clk/meson/clk-pll.c        |   7 +
+ drivers/clk/meson/clk-regmap.c     |  88 ++++++++
+ drivers/clk/meson/clk-regmap.h     |   7 +
+ drivers/clk/meson/g12a-aoclk.c     |  34 ---
+ drivers/clk/meson/g12a.c           | 261 ----------------------
+ drivers/clk/meson/gxbb-aoclk.c     |  19 --
+ drivers/clk/meson/gxbb.c           | 393 ---------------------------------
+ drivers/clk/meson/meson-aoclk.c    |   7 +-
+ drivers/clk/meson/meson-aoclk.h    |   2 -
+ drivers/clk/meson/meson-eeclk.c    |   6 +-
+ drivers/clk/meson/meson-eeclk.h    |   2 -
+ drivers/clk/meson/meson8-ddr.c     |  11 +-
+ drivers/clk/meson/s4-peripherals.c | 343 +----------------------------
+ drivers/clk/meson/s4-pll.c         |  33 +--
+ drivers/clk/meson/sclk-div.c       |   5 +
+ drivers/clk/meson/vclk.c           |   2 +
+ drivers/clk/meson/vid-pll-div.c    |   1 +
+ include/linux/clk-provider.h       |   1 +
+ 30 files changed, 172 insertions(+), 2093 deletions(-)
+---
+base-commit: 1909d0d351ed98fdb9f5cbe377213ba0154bf2e0
+change-id: 20241220-amlogic-clk-drop-clk-regmap-tables-18e5cf572356
 
-Seems like the correct fix is to not dereference anything if metadata is 
-NULL, or make a fake placeholder one.
-
-
-> This issue was reported by Coverity scan [1].
-> [1] https://scan5.scan.coverity.com/#/project-view/63616/10063?selectedIssue=1636359
-> 
-
-Is this supposed to be publicly accessible? It goes to a login page for me.
-
-> Closes: https://scan5.scan.coverity.com/#/project-view/63616/10063?selectedIssue=1636359
-> Signed-off-by: Nihar Chaithanya <niharchaithanya@gmail.com>
-
-Probably needs a fixes: tag too for the commit that introduced the issue.
-
-Thanks
-James
-
-> ---
->   tools/perf/util/arm-spe.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index dbf13f47879c..55827d8ce133 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -1497,7 +1497,7 @@ int arm_spe_process_auxtrace_info(union perf_event *event,
->   
->   	metadata = arm_spe__alloc_metadata(auxtrace_info, &metadata_ver,
->   					   &nr_cpu);
-> -	if (!metadata && metadata_ver != 1) {
-> +	if (!metadata) {
->   		pr_err("Failed to parse Arm SPE metadata.\n");
->   		return -EINVAL;
->   	}
+Best regards,
+-- 
+Jerome
 
 
