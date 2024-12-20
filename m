@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0D1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 10:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8A3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 10:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yj7wk1ojqsG5cEsvMY/9dT7A7BOoz8ul/MspVsxUvtg=; b=g78CPyMTEX2TUH+KPFKuwBk1n9
-	/TCS6xa8W+3cKpUrsYv+gcoy/ew8RlBE8AO2AdWwNxqrZXcpb+oPe0ShqcLJkibJZ5QN3+wQlZzoV
-	RnRtpVGVg1bROszHleDUENvI5X8ZXae7oPiCLFmzE4YQQOKgzvUpSQ5SrJO5nzt77Bbal7ykuup7o
-	O/rVCmr75puUJPhSfVIz/QtuWG7kroxPPr56eXBQTR4dqkGkmmyloHSucIt/GScde8kBDJIUqjW6M
-	9nZ918c11HYKVxnkX3301p0Jnb1Zfm5PFWtVCmCJFC0TZE+iDRTvDQSBZuxecqXE4CSTZlaC8jchj
-	AH4gXgIA==;
+	bh=1MaBBJNf/sdZSZeruGQA/2P1aMgv7qEMWaVMx6hnBCQ=; b=GOJRZM+qgj4Q5nBUo3pMhlwLCm
+	d0649ON6mN2lraGILjTv0c/0meBrosL/QkxUXC5mH1/e+DUSfigW3aM9yHadv8XE67CsyoRa/a7Kc
+	uIsuHUeIUrpEOg47xwm5lw3+4WRB2VyG94vfmGc7vH7sH8chOrHBHXgf8kthbnNZ9M3n6XVeo0uvL
+	ITnh+DxTXm/QvbFSnF0GqAQxFQSUGfELvTmCwYPe7nYbiefBFa6w3sYUUvzLelU8tvuO2dxHf+Eo5
+	bLmXBuo8xePas3BG/8DBTu2XMw2foAYfgKoXXO5IXesehu6MSgUu8xJJ6FxNOWJm0FsZY7aRvQFNN
+	GQiDgAuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOa18-00000004YCe-1gbi;
-	Fri, 20 Dec 2024 10:13:58 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tOa2G-00000004YKh-00G8;
+	Fri, 20 Dec 2024 10:15:08 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOZqC-00000004Vmr-1j5t
+	id 1tOZss-00000004WLf-0v2G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 10:02:41 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK89FbG009138;
-	Fri, 20 Dec 2024 11:02:33 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Yj7wk1ojqsG5cEsvMY/9dT7A7BOoz8ul/MspVsxUvtg=; b=NJ05+U37UbN1DKnl
-	sIE5J2/4MKEBPJxJDISCmi4tjdPAeO5uHlV3w0YKonK3ajpLymfg9lWHPmO2cIHS
-	i7fRvUzFQUTMcnUgEnRlSHm9CMuJ/mGuNd8TK7liA/n5FLqcxXsb+IclVmZfloH+
-	oP58Yd5wp+wIOV5Oai1F7xR1vZoUCyar/y8fiQoGkw9Riwc5hqqV/Y3C8kA9W0uP
-	MsWBn89tmhv9NYUucBR7T1ft/sR3SizvFuo2QI5uJRZ7O1h972Jpo05325ucGNaj
-	rBm4Sl85YiMOKjDlzxXRGbW+ki5WlcIz+mdSEieJ8T1SGq8qw/Yzr6Yzm83nMXCi
-	nDcT6Q==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43n2q9914h-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Dec 2024 11:02:33 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 080FD40061;
-	Fri, 20 Dec 2024 11:01:13 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B9C2D262167;
-	Fri, 20 Dec 2024 11:00:10 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 20 Dec
- 2024 11:00:10 +0100
-Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Fri, 20 Dec
- 2024 11:00:10 +0100
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <wbg@kernel.org>, <jic23@kernel.org>, <ukleinek@kernel.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>
-Subject: [PATCH v2 5/9] pwm: stm32: add support for stm32mp25
-Date: Fri, 20 Dec 2024 10:59:23 +0100
-Message-ID: <20241220095927.1122782-6-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241220095927.1122782-1-fabrice.gasnier@foss.st.com>
-References: <20241220095927.1122782-1-fabrice.gasnier@foss.st.com>
+	Fri, 20 Dec 2024 10:05:27 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BKA5EFH098155;
+	Fri, 20 Dec 2024 04:05:14 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1734689114;
+	bh=1MaBBJNf/sdZSZeruGQA/2P1aMgv7qEMWaVMx6hnBCQ=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=nkqWva0vNkFsK0YuQp7moCif7/fCmG4UTYEevso06WixZIGmX86EJFchweWk9CeuQ
+	 ecVJdnL+ypyGfSHrXtUT6P1NKEOSHwvqfLoyDp15WyxQZ5wwBLEb5y+Q8+NweQdMrE
+	 lnuMUrVko6yCeALISyM6Xmwmh3qR3aaKfCu1VbeQ=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BKA5EKH042719
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 20 Dec 2024 04:05:14 -0600
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 20
+ Dec 2024 04:05:13 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 20 Dec 2024 04:05:13 -0600
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BKA5DBL039580;
+	Fri, 20 Dec 2024 04:05:13 -0600
+Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4BKA5DxU003722;
+	Fri, 20 Dec 2024 04:05:13 -0600
+From: MD Danish Anwar <danishanwar@ti.com>
+To: <tony@atomide.com>, <s-anna@ti.com>, <horms@kernel.org>,
+        <danishanwar@ti.com>, <ssantosh@kernel.org>, <nm@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>
+Subject: [PATCH v2 1/2] soc: ti: pruss: Fix pruss APIs
+Date: Fri, 20 Dec 2024 15:35:07 +0530
+Message-ID: <20241220100508.1554309-2-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241220100508.1554309-1-danishanwar@ti.com>
+References: <20241220100508.1554309-1-danishanwar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.48.86.222]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_020240_744148_FB87E775 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20241220_020526_344327_DAF2C98A 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,127 +89,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for STM32MP25 SoC. Use newly introduced compatible to handle
-new features along with registers and bits diversity.
-The MFD part of the driver fills in ipidr, so it is used to check the
-hardware configuration register, when available to gather the number
-of PWM channels and complementary outputs.
+PRUSS APIs in pruss_driver.h produce lots of compilation errors when
+CONFIG_TI_PRUSS is not set.
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
-Changes in v2:
-Address Uwe review comments:
-- Make MAX_PWM_OUTPUT definition less generic: STM32_PWM_MAX_OUTPUT
-- No need to initialize 'npwm'
-- refactor code, for *num_enabled to use same code path
----
- drivers/pwm/pwm-stm32.c | 42 ++++++++++++++++++++++++++++++++++-------
- 1 file changed, 35 insertions(+), 7 deletions(-)
+The errors and warnings,
+warning: returning 'void *' from a function with return type 'int' makes
+	integer from pointer without a cast [-Wint-conversion]
+error: expected identifier or '(' before '{' token
 
-diff --git a/drivers/pwm/pwm-stm32.c b/drivers/pwm/pwm-stm32.c
-index 17e591f61efb..b9aadc473280 100644
---- a/drivers/pwm/pwm-stm32.c
-+++ b/drivers/pwm/pwm-stm32.c
-@@ -19,6 +19,7 @@
- #define CCMR_CHANNEL_SHIFT 8
- #define CCMR_CHANNEL_MASK  0xFF
- #define MAX_BREAKINPUT 2
-+#define STM32_MAX_PWM_OUTPUT 4
- 
- struct stm32_breakinput {
- 	u32 index;
-@@ -775,10 +776,19 @@ static int stm32_pwm_probe_breakinputs(struct stm32_pwm *priv,
- 	return stm32_pwm_apply_breakinputs(priv);
- }
- 
--static void stm32_pwm_detect_complementary(struct stm32_pwm *priv)
-+static void stm32_pwm_detect_complementary(struct stm32_pwm *priv, struct stm32_timers *ddata)
+Fix these warnings and errors by fixing the return type of pruss APIs as
+well as removing the misplaced semicolon from pruss_cfg_xfr_enable()
+
+Fixes: 0211cc1e4fbb ("soc: ti: pruss: Add helper functions to set GPI mode, MII_RT_event and XFR")
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+Reviewed-by: Roger Quadros <rogerq@kernel.org>
+---
+ include/linux/pruss_driver.h | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/include/linux/pruss_driver.h b/include/linux/pruss_driver.h
+index c9a31c567e85..2e18fef1a2e1 100644
+--- a/include/linux/pruss_driver.h
++++ b/include/linux/pruss_driver.h
+@@ -144,32 +144,32 @@ static inline int pruss_release_mem_region(struct pruss *pruss,
+ static inline int pruss_cfg_get_gpmux(struct pruss *pruss,
+ 				      enum pruss_pru_id pru_id, u8 *mux)
  {
- 	u32 ccer;
- 
-+	if (ddata->ipidr) {
-+		u32 val;
-+
-+		/* Simply read from HWCFGR the number of complementary outputs (MP25). */
-+		regmap_read(priv->regmap, TIM_HWCFGR1, &val);
-+		priv->have_complementary_output = !!FIELD_GET(TIM_HWCFGR1_NB_OF_DT, val);
-+		return;
-+	}
-+
- 	/*
- 	 * If complementary bit doesn't exist writing 1 will have no
- 	 * effect so we can detect it.
-@@ -790,22 +800,39 @@ static void stm32_pwm_detect_complementary(struct stm32_pwm *priv)
- 	priv->have_complementary_output = (ccer != 0);
+-	return ERR_PTR(-EOPNOTSUPP);
++	return -EOPNOTSUPP;
  }
  
--static unsigned int stm32_pwm_detect_channels(struct regmap *regmap,
-+static unsigned int stm32_pwm_detect_channels(struct stm32_timers *ddata,
- 					      unsigned int *num_enabled)
+ static inline int pruss_cfg_set_gpmux(struct pruss *pruss,
+ 				      enum pruss_pru_id pru_id, u8 mux)
  {
-+	struct regmap *regmap = ddata->regmap;
- 	u32 ccer, ccer_backup;
- 
-+	regmap_read(regmap, TIM_CCER, &ccer_backup);
-+	*num_enabled = hweight32(ccer_backup & TIM_CCER_CCXE);
-+
-+	if (ddata->ipidr) {
-+		u32 hwcfgr;
-+		unsigned int npwm;
-+
-+		/* Deduce from HWCFGR the number of outputs (MP25). */
-+		regmap_read(regmap, TIM_HWCFGR1, &hwcfgr);
-+
-+		/*
-+		 * Timers may have more capture/compare channels than the
-+		 * actual number of PWM channel outputs (e.g. TIM_CH[1..4]).
-+		 */
-+		npwm = FIELD_GET(TIM_HWCFGR1_NB_OF_CC, hwcfgr);
-+
-+		return npwm < STM32_MAX_PWM_OUTPUT ? npwm : STM32_MAX_PWM_OUTPUT;
-+	}
-+
- 	/*
- 	 * If channels enable bits don't exist writing 1 will have no
- 	 * effect so we can detect and count them.
- 	 */
--	regmap_read(regmap, TIM_CCER, &ccer_backup);
- 	regmap_set_bits(regmap, TIM_CCER, TIM_CCER_CCXE);
- 	regmap_read(regmap, TIM_CCER, &ccer);
- 	regmap_write(regmap, TIM_CCER, ccer_backup);
- 
--	*num_enabled = hweight32(ccer_backup & TIM_CCER_CCXE);
--
- 	return hweight32(ccer & TIM_CCER_CCXE);
+-	return ERR_PTR(-EOPNOTSUPP);
++	return -EOPNOTSUPP;
  }
  
-@@ -820,7 +847,7 @@ static int stm32_pwm_probe(struct platform_device *pdev)
- 	unsigned int i;
- 	int ret;
+ static inline int pruss_cfg_gpimode(struct pruss *pruss,
+ 				    enum pruss_pru_id pru_id,
+ 				    enum pruss_gpi_mode mode)
+ {
+-	return ERR_PTR(-EOPNOTSUPP);
++	return -EOPNOTSUPP;
+ }
  
--	npwm = stm32_pwm_detect_channels(ddata->regmap, &num_enabled);
-+	npwm = stm32_pwm_detect_channels(ddata, &num_enabled);
+ static inline int pruss_cfg_miirt_enable(struct pruss *pruss, bool enable)
+ {
+-	return ERR_PTR(-EOPNOTSUPP);
++	return -EOPNOTSUPP;
+ }
  
- 	chip = devm_pwmchip_alloc(dev, npwm, sizeof(*priv));
- 	if (IS_ERR(chip))
-@@ -841,7 +868,7 @@ static int stm32_pwm_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, ret,
- 				     "Failed to configure breakinputs\n");
+ static inline int pruss_cfg_xfr_enable(struct pruss *pruss,
+ 				       enum pru_type pru_type,
+-				       bool enable);
++				       bool enable)
+ {
+-	return ERR_PTR(-EOPNOTSUPP);
++	return -EOPNOTSUPP;
+ }
  
--	stm32_pwm_detect_complementary(priv);
-+	stm32_pwm_detect_complementary(priv, ddata);
- 
- 	ret = devm_clk_rate_exclusive_get(dev, priv->clk);
- 	if (ret)
-@@ -911,6 +938,7 @@ static DEFINE_SIMPLE_DEV_PM_OPS(stm32_pwm_pm_ops, stm32_pwm_suspend, stm32_pwm_r
- 
- static const struct of_device_id stm32_pwm_of_match[] = {
- 	{ .compatible = "st,stm32-pwm",	},
-+	{ .compatible = "st,stm32mp25-pwm", },
- 	{ /* end node */ },
- };
- MODULE_DEVICE_TABLE(of, stm32_pwm_of_match);
+ #endif /* CONFIG_TI_PRUSS */
 -- 
-2.25.1
+2.34.1
 
 
