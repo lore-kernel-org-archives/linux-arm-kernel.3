@@ -4,124 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8982AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F85E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 15:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnmgaMOYWLULeQHqhFGATty08VdlG+W/lq0TDKnDRoU=; b=uOzD2BamQvQ0/Mrrwg74SARPnL
-	VaGYCuCMdCLxL9ZGfVfFPvq0/wJ8o7hQ7771snhu2hMCsx15ERZuGja3d21M6DfxtlmHJMISXWT5j
-	O26X4j7BLYMMGV3OWyRuwC42doHUn1QAAS6Ujewf6gRPwOQ+g/CJzFyV71XH0eBY5wuntmMfZQtb+
-	IUqQR8L43AfyqR8hfmsBpNyE82injkMCrEr2WH8JT7BGyl/L1I8fuzCCdQBRogfZ4UzjNPQcy+PEY
-	25C37CdkurBDMsgLhDxXzXq0x+ybB4OQxw+iplyd69KzZ1ykCVwr+WLQamIDE9jqx1Hp3FDsKKs7Q
-	FDutnitw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HWhUurpsh9uykRZLd2NRHB96G5i8cYPTkYob/the7LY=; b=KzbyW9ezVeeeMeMeeoGX7Q6Aam
+	kXiLkQ7bXKj+AkAF+gHODYbDPc2gKOi4H2oqUvAkGR74aA8juonYIqXOiTvpZHjC5W8E9q0pbLlai
+	Lv9F2+DDHxuW2JlRmh4lnZBnOj6QDq5F0UNAuCrAJEhyb53X176RPqX8BCT6SyTQsGcfNLx6c+kLU
+	yAlAh+4F3bDEeCAW4hIr0f+8FO+X/OP326Y/99qi+i4q8dXe5AmbJxUlOWhtRHzcVUxSBOOYSNLil
+	2B6OREbPudbMLQrsdYNvay5MVXlzT4xjY3qJsA11+tF3zdXpZFOl1v2RU/vWSE+l7OAm5LI/5ldmS
+	Q+KwiWkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOeT6-00000005Fe8-39GL;
-	Fri, 20 Dec 2024 14:59:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tOeVU-00000005GOs-3eCx;
+	Fri, 20 Dec 2024 15:01:36 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOeRu-00000005FGb-3oXo
+	id 1tOeUL-00000005G6u-29dI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 14:57:57 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BKE99ch024608
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 14:57:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XnmgaMOYWLULeQHqhFGATty08VdlG+W/lq0TDKnDRoU=; b=KlG+v7xmVqecfoHN
-	r/rKN6f8moNovc64PHLtNqjXkVPk9HV529JWYlSsxHWyczUTshqXaAkUlZiCIO8w
-	zI/CPXjwaHa+Jx+MH/psmJ3l+7KdK+DfE7sH6QvqgMnREiIn/zGNkxxY89getx2H
-	gP43WJFvZ04fbtL/ULak0n6Mpbqb/DEtDWSEsF5L+k1/djvWGPdENGvIYHJQurLK
-	f8HG5dZRoDk8x0b80Urr756ZiRznJ2BIDOWdDVATp1Q6mS8O9hmyT868SYwhdkey
-	damiLV3N68gwYsGac1RpoX8FAb9MDO3oiRfPtxE+FAEwZRFvRIg8Bmhz9iCBye8k
-	I0Sx6A==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43n1hx1hvb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 14:57:53 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4679af4d6b7so5115051cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 06:57:53 -0800 (PST)
+	Fri, 20 Dec 2024 15:00:26 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-725eff44ba5so188724b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 07:00:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734706824; x=1735311624; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HWhUurpsh9uykRZLd2NRHB96G5i8cYPTkYob/the7LY=;
+        b=TxbemTOLnvbk9si4hereleRPpqkN11OZpQKc/VeKF4O9sWFxdYSGqUPDkh19EfAYsQ
+         GqelzS5EdeMojGC1t8U9+TNIp2jPwUge7osO5EsStzakUtXUH+8mIPAXYqscPsOIp6DY
+         M9gTH8uiyClXDG080f/9cNeCqGyYhR/ItPjqo3A6KTBQvS0usAEO6sKt4KIu3WQTsTlp
+         /VxQ/BOwTa9HcAN7OpobgEQnzs3oprG0PHOwumhi8lFG6HxMoL7rWPmbY3/T1pnu2mPt
+         QeTE/eXOxKsWg/zBDsRZD3esZ9QY/mzjO5d3kjujMi+g4IysXOiCas+W+KQMOH3WM+9m
+         QZeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734706672; x=1735311472;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XnmgaMOYWLULeQHqhFGATty08VdlG+W/lq0TDKnDRoU=;
-        b=WcaXYbh3QjvXCi/3hQgdZXYYcOdvC6/TOxdXQ1Im+zKlrcWYHpJPL9ED5XX+EuxqTv
-         Mgar1eYdaiKxkP02b1oYCDd0waoMkL+G7zLulXpMVSPP7egSjWFbSvAuPjNb8mPgSsQF
-         YVKAPXjQc4e7WVxnm1aw6thMk3tVzhKrr76TpKz+XVGNVx1MsQHd1+wul/VZ2d9aPY9l
-         nrqDuQ0HIsR1bGsF7/7VHwpT6IPKmuspJ+1xZ44bJuXVO+VlH/dwsRJV7XVCAdbHLoF0
-         7k3rbQCbL4Txj03fwtjR8ISj5QLGcP1h7uPYVDSaGKnzNjoarEj5PdY074u7sFnchjcC
-         zQZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXD2N0Fua+UcjMrPyTDytXqDNJWyI2HjGBDYkGJVI7bvMXkMUoZaEsPihRsy/bzckWGT4HIstkyW3s7RdDF25q8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyamlQUyPVCJSzsPMfK4s3YyFAO2L517FpC9Duux+FI6u9xfyvB
-	Pv+X/AMY2QDtdkmAV8+JLwD3iY7wI493QmyQ7x6BzbZAtpovvx7c47cPmkuzGm2pixJ5MazqEkq
-	bieYUmO/SfMPmVyqjKoPDQSOZG9iGHmzoWcSahO0/HH3oGkPd34l47WoNAArM5Fq3nktNnTm3TA
-	==
-X-Gm-Gg: ASbGncvm9YnWX+iiwG9G0IgNJdhjRh3tQQAVLRKV4f/ey6NDJrYZWbCwNgZen2FRBqa
-	+ZvPVQ37oAG9fvt5gI1CpiGX/qHKLJbjVjMGU3HhP6a3KhXXL3BsZ9Ta3YMknffDAG9VldY5W42
-	gGP76R4LShUw6RisY8QfeDpEGsk6Zf3YH7fevcJ+phTtShnoWQFq7g7Xw/uACbr44CuF5IUIbL9
-	zZoQbAP43NLUmDsLw7CWIX/I000xP0Pz4iByPMWW+myBbDYxPr3loL2WxSE0mtRHoadt+Eel8VH
-	uz1dFmm5Lm6AjWaP0fK/NgXglKhVFo9rptA=
-X-Received: by 2002:a05:622a:13c9:b0:467:5462:4a18 with SMTP id d75a77b69052e-46a4a689a11mr19646521cf.0.1734706672459;
-        Fri, 20 Dec 2024 06:57:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEu3+VYOVDSPEPrh0c4+R4v5VJv/O9KFRtBxy8bN31SJszHdaNc8IVwgkQZ+PhUv2t29gwVvQ==
-X-Received: by 2002:a05:622a:13c9:b0:467:5462:4a18 with SMTP id d75a77b69052e-46a4a689a11mr19646291cf.0.1734706672064;
-        Fri, 20 Dec 2024 06:57:52 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f06629esm184361866b.189.2024.12.20.06.57.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 06:57:51 -0800 (PST)
-Message-ID: <db755bda-8464-4882-a72b-1d860abcb2fe@oss.qualcomm.com>
-Date: Fri, 20 Dec 2024 15:57:48 +0100
+        d=1e100.net; s=20230601; t=1734706824; x=1735311624;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HWhUurpsh9uykRZLd2NRHB96G5i8cYPTkYob/the7LY=;
+        b=bBpJamyRs7l+wuJQvaRzm4PN5Dz9+lWSEZKEh1wbvDWOGZs0a2DCDpbrABVMBQn8xM
+         7TEOgYaDMBLU2i7hsCJF/OjEuH70jc4TtTBEaXKPeCyaxbF9nL0GiHyGTeNKYpS2EwEo
+         upS7OXTGz9ihdAUgz1WAjcx0RctsELhLS/usodoT+bQYhBg3VCvzQlApE1re5gW4HLKr
+         DH9hUT+IgY8Jg/37XMX/OZu+hk2vwruPJNl4NQ6nv5CJoTT0JqKXMqwHgckVUvd1Yzwd
+         gJvK8Q+i0vylpq+sHcQ0C1b4N8EGMSBe5RgFncar6OFQbc4Foaq/7SroPWg9rSVSwYfc
+         csCA==
+X-Forwarded-Encrypted: i=1; AJvYcCVPgSgC9r/L+A3idsZoB1NkwNpTDbQiNR+E8PCKBFBkY+x/Uo7poQCOPY7x/yiTlLHE7k5w5FiszOQKIAIUGn4w@lists.infradead.org
+X-Gm-Message-State: AOJu0YxY9bIEjIxhROMSAMRocQSn000GOf05V8FLbXp2+G9rTZyJL7VG
+	Q1TW51MOjAtdHG0+49uq2JUZFHE2yY6QgEoUDiWA0WI6t5oh77mm
+X-Gm-Gg: ASbGncsMO9iWbQur/GzJ2nuJiEFoU47GpsypHEgf+wgn2UNx9ac1NK+pRkDgHiRU1Lt
+	dAjjfpXsIDzAWi7xpGIBaTNZ2TMO/Mh3xidmmlxArH5ou799LdibcQDnaT+Rd2ci13sdyrsYf+n
+	98YRsF53rGnwjfpZhduucbWPpVxUWDV+1KsbfhIOLh2katqtYuviayq04SRVaRR1HFUtUw4qSdz
+	dzrswn8jF0mR/ppAa5oowWWdgOqaURxuTrKkuXm1CPXJmBaEWfeRis=
+X-Google-Smtp-Source: AGHT+IF2bFfXBTew+MKhtzu1z+iCeSZfs9wm26pm1urA+Sm+6+rFKbOnmFLphfdDobDOOpSxh2Y2tQ==
+X-Received: by 2002:a05:6a21:3283:b0:1cf:4dae:224e with SMTP id adf61e73a8af0-1e5e04503f3mr2084651637.1.1734706823742;
+        Fri, 20 Dec 2024 07:00:23 -0800 (PST)
+Received: from ice.. ([171.76.86.134])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842b8e867d7sm2957152a12.46.2024.12.20.07.00.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 07:00:23 -0800 (PST)
+From: Nihar Chaithanya <niharchaithanya@gmail.com>
+To: john.g.garry@oracle.com,
+	will@kernel.org,
+	james.clark@linaro.org,
+	mike.leach@linaro.org,
+	leo.yan@linux.dev,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com,
+	graham.woodward@arm.com,
+	bwicaksono@nvidia.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: skhan@linuxfoundation.org,
+	Nihar Chaithanya <niharchaithanya@gmail.com>
+Subject: [PATCH] perf: arm-spe: Fix null-ptr-deref in arm_spe__alloc_metadata()
+Date: Fri, 20 Dec 2024 20:27:02 +0530
+Message-Id: <20241220145659.66066-1-niharchaithanya@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on pre-SYSTEM_SUSPEND
- PSCI impls
-To: Sudeep Holla <sudeep.holla@arm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Elliot Berman <quic_eberman@quicinc.com>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241113165329590-0800.eberman@hu-eberman-lv.qualcomm.com>
- <e4509104-c809-4d45-bdbb-a2d754a816db@oss.qualcomm.com>
- <Z2VXgkJ4x5TJTKJ_@bogus>
- <765bb1c8-31de-4aec-b8ef-f141a3e25c56@oss.qualcomm.com>
- <Z2V4IblZNgnS4T2Z@bogus>
- <875342b7-3825-47bf-810a-effdbeacab46@oss.qualcomm.com>
- <Z2WA0o0QJS64ftVh@bogus>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <Z2WA0o0QJS64ftVh@bogus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: VcxiKbUfI3ZnBwpcA_pzPY1QqGyH4tvu
-X-Proofpoint-ORIG-GUID: VcxiKbUfI3ZnBwpcA_pzPY1QqGyH4tvu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 suspectscore=0
- phishscore=0 adultscore=0 bulkscore=0 mlxlogscore=999 impostorscore=0
- malwarescore=0 priorityscore=1501 spamscore=0 lowpriorityscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412200122
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_065754_968118_9B1BCC28 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20241220_070025_569729_1F73EBD3 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,56 +112,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.12.2024 3:36 PM, Sudeep Holla wrote:
-> On Fri, Dec 20, 2024 at 03:20:37PM +0100, Konrad Dybcio wrote:
->>
->> I would happen to think that, yes. Especially since the reference firmware
->> implementation does *exactly this*:
->>
->> https://github.com/ARM-software/arm-trusted-firmware/blob/master/lib/psci/psci_main.c#L179-L221
->>
->> PSCI_SYSTEM_SUSPEND seems to be simply meant as a wrapper around a specific
->> CPU_SUSPEND state (which may or may not be only callable from inside the
->> firmware when SYSTEM_SUSPEND specifically is requested, for reasons),
->> in a platform-agnostic way, so that the OS can enter suspend without
->> providing that magic StateID on all supported platforms.
-> 
-> Exactly, that's how it can be OS and platform agnostic. Yet this platform
-> considered to optimise by not just providing it as a wrapper(if it was
-> that simple on your platform too) without running any tests and leaving
-> it to interested parties like you to mess around to get it working.
-> That practice needs to be fixed and this change won't help and once we
-> fix this, more such special treatment fixes are needed on newer platforms.
-> So lets stop and ensure things are fixed properly.
+When metadata is allocated using arm_spe__alloc_metadata(), if the
+metadata version is 1, metadata is returned as NULL. This value
+is dereferenced later in arm_spe__free_metadata() and it can cause
+null-ptr-deref.
 
-And then remove CPU_SUSPEND support if CPU_SUSPEND2 comes in a spec update
-because it's not generic enough? Sorry, this is not acceptable.
+Modify the NULL check for metadata to return -EINVAL even when
+metadata_ver == 1.
 
-If you enforce PSCI as the only way of doing SMP/cpuidle/platform suspend
-upstream on arm64, you should not gatekeep existing implementations that are
-actually in line with the written spec, just because you don't happen to
-like them.
+This issue was reported by Coverity scan [1].
+[1] https://scan5.scan.coverity.com/#/project-view/63616/10063?selectedIssue=1636359
 
-If you want to start the process of getting rid of those, amend the spec
-to deprecate and/or forbid system-level suspend in CPU_SUSPEND in future
-PSCI versions. But you can't retroactively change your decisions like that.
+Closes: https://scan5.scan.coverity.com/#/project-view/63616/10063?selectedIssue=1636359
+Signed-off-by: Nihar Chaithanya <niharchaithanya@gmail.com>
+---
+ tools/perf/util/arm-spe.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->> But since it already requires more elbow grease on the peripheral IP side,
->> I'm not really convinced it's that much useful.
->>
->> Plus, the optional bit of doing more work behind the scenes doesn't seem
->> to be very wildly used across TF-A supported platforms.
->>
->> So please, stop making the argument that it's any different. The firmware
->> I'm dealing with simply didn't expose the same thing twice, in perfect
->> accordance with the spec.
->>
-> 
-> So that it can continue to do so in the future ?
-> Thanks but no thanks. NACK with no arguments as requested.
+diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+index dbf13f47879c..55827d8ce133 100644
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -1497,7 +1497,7 @@ int arm_spe_process_auxtrace_info(union perf_event *event,
+ 
+ 	metadata = arm_spe__alloc_metadata(auxtrace_info, &metadata_ver,
+ 					   &nr_cpu);
+-	if (!metadata && metadata_ver != 1) {
++	if (!metadata) {
+ 		pr_err("Failed to parse Arm SPE metadata.\n");
+ 		return -EINVAL;
+ 	}
+-- 
+2.34.1
 
-That's already been "fixed" on QC platforms starting around 2022, as
-mentioned in this series.
-
-Konrad
 
