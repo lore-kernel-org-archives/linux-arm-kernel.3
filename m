@@ -4,98 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BD1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 07:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953CCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 07:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1yDNEjeOXhSBQxVpqQzt29i9g5xlvEhh8lAhoI+DC6A=; b=S9BB1Od9/NUuoCJbeQh+DDKLp6
-	yGrhtggkDKZMha2XlOnRU8TQWJ4oTGlArgnaN3lZlk6bciuiCBr2C2OKBZIoIRabBXyPBiAcctcpi
-	J1/qRgPCGfW0JSmZP8QsN+AGbHVqAy7m8z74/Vj/m33RiJjIt+n5QAAUGqJD9eeYcwwk18oTt1TXV
-	veBKFcfXPWDIehjHjOYFrEwiFTeLtkEImTGe5eBh5fzzW6n5GQWtXxQJ2DpKfRiN4yjO9ogUBscW6
-	s0otU1lnewX8ITvPpIA4947fQtNb+pDKTfWnfSFcVndZoSavsNjYwJy9VhVLAv7NW5nDZVWXgqdzn
-	bqswiQBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0tnCPwFZ3WiTP7DrO0gTHfg2Tu1AbyF+GwbKC/7PC1E=; b=X/UPaIDP4dUH3zpDxsSBcVMHX5
+	35Jgv/w8ucH3PgsP8spVgIAl2aJU+fj66s0cKbHIyRc2wQKrMEVkF8E/UjmAOFOZsHe7hYwmaYBc7
+	a+8f5KoSdUqLDot751usR61YX+H2JdfCr/1eJiUhIZP+bFDDKn7gzyryx6IGqvICl+mO4cJSqtAo5
+	JI4qwGJ2hGA3L1XDK25l90x+nbEKOX4Xt7VwVLHx7NoFQHkMHd6WX10P3WaL/LT9F1VNIoPcedDCA
+	hFxYqeiZCtXsb/j+Dnpx1V2yl26vAablgCvnnd8hMfojSq6fgCq/lqKn/IjoxgeUYRXkWgb/wW7Qc
+	J0tdrvLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOXoV-00000004D1o-2G5a;
-	Fri, 20 Dec 2024 07:52:47 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tOXrI-00000004DTT-1AAU;
+	Fri, 20 Dec 2024 07:55:40 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOXnM-00000004Cwt-1qPM
+	id 1tOXq7-00000004D8m-283f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 07:51:38 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5d0f6fa6f8bso2480174a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 23:51:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734681095; x=1735285895; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1yDNEjeOXhSBQxVpqQzt29i9g5xlvEhh8lAhoI+DC6A=;
-        b=i5D7jnTadEOdQi+4S89fItfBl3SoA7a01Q8BHn2jTuPEuxdsuao22cdlvb+YvyIs7B
-         wYZGZdV2Hrfs4Idd/PYqISLVTOMN5g55Bo4nXkbCMURpXemzFnCwoTK6q09q0nVFlQn6
-         tX8iDB2n8T89FcL9ll+5US+jbWqjFYvbJ7HuCYm8YwsQQn0cwDdQV9attZZLZ8VpFjVn
-         3JVdgeTl/V1c7nSf45OQPMiwEi9A7dC10mcFotaBSMbD/kHD2XkYTR69K+V7uRsUZ/zO
-         TCaWQvRZhtiOW+vT1YwS9o9sPq+R2IwCHiFPAA+TMfmZ0CHWYKLeftqHm/qQPLMN04Sc
-         A7IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734681095; x=1735285895;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1yDNEjeOXhSBQxVpqQzt29i9g5xlvEhh8lAhoI+DC6A=;
-        b=xDh5LNvEwDyMKCgawMiTlPDDIX699J5n+La7a0N+TRP+1reO8GW4iQwj6eiscK4s5K
-         kybKyQ0qMrP3K8ht/u29Pp9sarbkb0X8kNhb2JffwTRuFd5uAJ3aBu0h0MYIUJkiXsxg
-         BYmBqUuD+Ved1H6n18XP5qMO5Jpd/rL/MV2gOYffV4QtOUtW9gG7U7ar6kWYF35Nwyr8
-         9SGeyMyrMGSSC/JOqihy5H/7PI6xbNNjg5SzUbtg71gp48iPZ5a7x1F2fHCNRF0wDVt+
-         ooMP8KB8Psg7P/7VbRoCprtHKi1/Cb8xz7Mjlzg4OBc58xdWLI9Aa1XhpWPOA4dO30+U
-         2LSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWF6vE+kcqZlpulblj6TyG45/WoRwFKICrS6dkWdjfy+OpSokIVf4RqbgbVgD8qzuwYaSL+U76k8tMbFtaHlTsN@lists.infradead.org
-X-Gm-Message-State: AOJu0YylRAidV7zp8cwaDledMkl3xIlIDsgIR+lbtoHKZb6SmORtf1QV
-	Nq/97gF5hNXm5RsauF83TId2NxQcjuNjjQkqeQ+WUFwDjKb4ibfO086SEG+s7/g=
-X-Gm-Gg: ASbGnctqWPwvFAgfEeqATK9gJ8/5qygtijUjQImsgsXLx5DRz4m2XqLCIg0oxCXTF9e
-	4AvOpPK7R/wM7Lmhkq0mUgXkI4nLVIzQdxPLGQv2qrEGT/TgeaXnAFmdz+4P9s1dfkWZOMYxZqm
-	4BofsbmrUAIymdlXfLAIghq081Ag390JifzMu1oBjP8mP2+jQ73t+Kdwy3XtMVFQsUX+fbBJZAy
-	8kYZ3VKBku5xIWZKA8LZ2Hxf7BdU+pPPo8SIFnIc2eStxQ6tySDvBEChxvtJnja
-X-Google-Smtp-Source: AGHT+IEI1vajsERhxoY7nkjgpoa5z0LmbYvw4+7EEXmu89uOcdENi+jRRpqlKSn6v1OKOHvsdYTmuw==
-X-Received: by 2002:a05:6402:518f:b0:5d0:b51c:8478 with SMTP id 4fb4d7f45d1cf-5d81dd7f300mr1334456a12.12.1734681094719;
-        Thu, 19 Dec 2024 23:51:34 -0800 (PST)
-Received: from [192.168.0.14] ([188.26.61.92])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80675a41esm1450399a12.1.2024.12.19.23.51.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2024 23:51:34 -0800 (PST)
-Message-ID: <463d5955-a056-40e1-a46e-f89ac0dadccf@linaro.org>
-Date: Fri, 20 Dec 2024 07:51:32 +0000
+	Fri, 20 Dec 2024 07:54:29 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YF04l1PqYz21nqZ;
+	Fri, 20 Dec 2024 15:52:23 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9B9BA1A0188;
+	Fri, 20 Dec 2024 15:54:17 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Fri, 20 Dec 2024 15:54:16 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>
+CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
+	<guohanjun@huawei.com>
+Subject: [PATCH v10 0/4] Support SMT control on arm64
+Date: Fri, 20 Dec 2024 15:53:09 +0800
+Message-ID: <20241220075313.51502-1-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: mailbox: add support for referencing
- controllers solely by node
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241219-mbox_request_channel_by_args-v1-0-617a6910f842@linaro.org>
- <20241219-mbox_request_channel_by_args-v1-1-617a6910f842@linaro.org>
- <20241219-recent-everyone-865b19864693@wendy>
- <d9e635c8-de05-4812-bf2b-11651f6da5c1@linaro.org>
- <20241219-strum-cheese-89e5e60d22c3@spud>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20241219-strum-cheese-89e5e60d22c3@spud>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_235136_499203_918CA4CA 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20241219_235427_876471_A40F253D 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,48 +76,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Yicong Yang <yangyicong@hisilicon.com>
 
+The core CPU control framework supports runtime SMT control which
+is not yet supported on arm64. Besides the general vulnerabilities
+concerns we want this runtime control on our arm64 server for:
 
-On 12/19/24 6:58 PM, Conor Dooley wrote:
-> On Thu, Dec 19, 2024 at 03:42:11PM +0000, Tudor Ambarus wrote:
->> Hi, Conor,
->>
->> On 12/19/24 2:11 PM, Conor Dooley wrote:
->>>> There are mailbox clients that can discover the mailbox channel ID at
->>>> run-time. For such cases passing the channel identifier via DT is
->>>> redundant. Add support for referencing controllers solely by node.
->>> I don't really get your implementation, why not just allow #mbox-cells = 0?
->>> That's what's done for things like fixed frequency clocks that only have
->>> a single output.
->>
->> Ah, indeed!
->>
->> instead of:
->> 	of_parse_phandle(dev->of_node, "mbox", 0);
->> I can do a:
->> 	of_parse_phandle_with_args(dev->of_node, "mboxes",
->>                                    "#mbox-cells", 0, &of_args)
->> where #mbox-cells = 0;
->>
->> Or ... can I pass NULL for cells_name and make the #mbox-cells property
->> optional and still keeping its requirement of being at least 1?
-> 
-> I think the mbox-cells = 0 approach is preferred, that property is what
-> marks it as a mailbox controller after all. Perhaps Rob or Krzysztof can
-> comment?
+- better single CPU performance in some cases
+- saving overall power consumption
 
-I think using mbox-cells = 0 is better indeed. In my proposal I
-considered the list to always have a single phandle, thus a reference to
-a single mailbox controller, whereas it may be possible that clients to
-reference multiple mailbox controllers. If so, #mbox-cells needs to be
-defined in all the controllers, for consistency reasons, similar to what
-happens with fixed clocks, as you already mentioned.
+This patchset implements it in the following aspects:
 
-Thus I'll change the method to:
-struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
-                       int index, const struct mbox_xlate_args *spec);
-and use of_parse_phandle_with_args() in it.
+- Provides a default topology_is_primary_thread()
+- support retrieve SMT thread number on OF based system
+- support retrieve SMT thread number on ACPI based system
+- select HOTPLUG_SMT for arm64
 
-Thanks, Conor!
-ta
+Tests has been done on our ACPI based arm64 server and on ACPI/OF\
+based QEMU VMs.
+
+Change since v9:
+- Refine the comment of topology_is_primary_thread(). Tested with LoongArch
+  to prove it also works on architecture's not using CONFIG_GENERIC_ARCH_TOPOLOGY
+- always call cpu_smt_set_num_threads() to make the smt/control shows correct
+  status on non-SMT system
+Link: https://lore.kernel.org/linux-arm-kernel/20241114141127.23232-1-yangyicong@huawei.com/
+
+Change since v8:
+- Fix WARN on ACPI based non-SMT platform noticed in v7, per Pierre.
+Link: https://lore.kernel.org/all/20241105093237.63565-1-yangyicong@huawei.com/
+
+Change since v7:
+Address the comments from Thomas:
+- Add a newline between the glue define and function of topology_is_primary_thread
+- Explicitly mention the sibling mask won't be empty in the comment
+Link: https://lore.kernel.org/lkml/20241030125415.18994-1-yangyicong@huawei.com/
+
+Change since v6:
+- Fix unused variable if !CONFIG_ARM64 || !CONFIG_RISV found by lkp-test
+- Fix max_smt_thread_num updating in OF path pointed by Pierre
+- Drop unused variable and refine the comments/commit per Pierre
+Link: https://lore.kernel.org/linux-arm-kernel/20241015021841.35713-1-yangyicong@huawei.com/
+
+Change since v5:
+- Drop the dependency on CONFIG_SMP since it's always on on arm64, per Pierre
+- Avoid potential multiple calls of cpu_smt_set_num_threads() on asymmetric system, per Dietmar
+- Detect heterogenous SMT topology and issue a warning for partly support, per Pierre
+- Thanks Dietmar for testing, didn't pickup the tag due to code changes. Thanks testing by Pierre
+Link: https://lore.kernel.org/linux-arm-kernel/20240806085320.63514-1-yangyicong@huawei.com/
+
+Change since v4:
+- Provide a default topology_is_primary_thread() in the framework, Per Will
+Link: https://lore.kernel.org/linux-arm-kernel/20231121092602.47792-1-yangyicong@huawei.com/
+
+Change since v3:
+- Fix some build and kconfig error reported by kernel test robot <lkp@intel.com>
+Link: https://lore.kernel.org/linux-arm-kernel/20231114040110.54590-1-yangyicong@huawei.com/
+
+Change since v2:
+- Detect SMT thread number at topology build from ACPI/DT, avoid looping CPUs
+- Split patches into ACPI/OF/arch_topology path and enable the kconfig for arm64
+Link: https://lore.kernel.org/linux-arm-kernel/20231010115335.13862-1-yangyicong@huawei.com/
+
+Yicong Yang (4):
+  cpu/SMT: Provide a default topology_is_primary_thread()
+  arch_topology: Support SMT control for OF based system
+  arm64: topology: Support SMT control on ACPI based system
+  arm64: Kconfig: Enable HOTPLUG_SMT
+
+ arch/arm64/Kconfig                  |  1 +
+ arch/arm64/kernel/topology.c        | 66 +++++++++++++++++++++++++++++
+ arch/powerpc/include/asm/topology.h |  1 +
+ arch/x86/include/asm/topology.h     |  2 +-
+ drivers/base/arch_topology.c        | 26 ++++++++++++
+ include/linux/topology.h            | 22 ++++++++++
+ 6 files changed, 117 insertions(+), 1 deletion(-)
+
+-- 
+2.24.0
+
 
