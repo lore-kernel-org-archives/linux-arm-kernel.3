@@ -4,120 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E3CE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 12:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939B9E7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 12:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iB/a/gc86K3BsjbroIIz+CtH1X16E19brSWVHdGP1dw=; b=eu68XZU9jMD1LQOy0wFm5q+Oe7
-	2c91ZxWmgnMELgEse7B0kqnnBzGErWgqseYHypR91e15ATx0fDJsixst+8UlZmOKeq4spELV9v/qc
-	HBlqA9LmeDMmcAZdxjep2aH+dSKPdOnSJVEaT8hp5v0bcr1gro3rDIVyNF3zx2+N91STVLUY4pqI1
-	8Rsuj2q2WcDzRpeJsXpuFZk6G2ILT/1C4/s6LwBMvAzbdDPhF1UsLLB51SEh4cIYgULlnDkQW1FiP
-	b4UfxyiJdrZHQLgKQ6lMpRZ8hT9T87W0L7GyGNhAuMaLM311ZBeg3E3ldrl6vvCatZR2COHEbgz/r
-	BmkkJhkA==;
+	bh=23yyLAUmU38oAd1esFZmS79hTf3OpT0gcNBA6YL/4Qk=; b=vZG1XdofJB4tgqleTnbC8G6YdW
+	k+gOgQt424EgLBf6LUYopFjNL6hng7UwDV6JkPVvW1iuz8rosWNSZyyp3jgtKB1B1rnilWV44BxQR
+	xx6/wf3pIUGau8lTXqqsZUdM7gdGzTkiZyhfoq7pkB3m113sQErwdOU8IYBZlMNda8bErOhUuOw/p
+	s96hcNs/0+8JwnxMSmYLPs5y1x/ZJailmydws1DwsiYSCnCd0lLjWT3Tg79YJSnAKqb98CwmyNWhw
+	6KTurjrFMWdFpHQsjOMuop7EvzVGVOvf4C9C0ja8al0njGmoiqhPtpSFZq7a/48VBjLEiy1zJznYi
+	DtPMYTRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOcOe-00000004vVk-3tPt;
-	Fri, 20 Dec 2024 12:46:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tOcTk-00000004w8p-09SO;
+	Fri, 20 Dec 2024 12:51:40 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOcKY-00000004v0h-15Ep
+	id 1tOcSZ-00000004vz5-3kt9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 12:42:12 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BK8fuvc026602
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 12:42:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iB/a/gc86K3BsjbroIIz+CtH1X16E19brSWVHdGP1dw=; b=YZj++l0eyBB9rUE0
-	wMa4E6/EPr9R7OMvgBhNI16/uGP2oy1C6UDJxWjna70DdUj4TvR7V+DZ8N4exDZZ
-	09jGJdWfUHgG22INZyZ1Kx8WzfwjDf5vRjnBI9Ev7UOUip5WLs5p1SDimrs6nNrN
-	ZsvsJaGys1OU/DYJLEyu2Fw0tpNTxbTluRZnqEphxiZMIYwkl5c+B71WzTHRyN8V
-	71h+eeMTNxKY0hOCxZkKN9uTbKIhzChCXwZTGv/nGEQdrt5dgIsTTvLAbEwvGryf
-	7NUOqUAynFfNagl2r5apXQr3zsLiODhPbWxCOYqcFcRxzLBTyrTC/wEcN0yonmyS
-	zp4JzA==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43n59x8kdf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 12:42:08 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7b6fec2de27so45211585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 04:42:08 -0800 (PST)
+	Fri, 20 Dec 2024 12:50:29 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-53e3a227b82so1626955e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 04:50:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734699026; x=1735303826; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=23yyLAUmU38oAd1esFZmS79hTf3OpT0gcNBA6YL/4Qk=;
+        b=K3JWgqI5KUAWwWB9f/GatKguUFmd6/pK3matqvEG9lZznkJWCrbbGkOpS02DJpD7Sg
+         AGJASSNpk7JhzmZp9VBRV9j6Ro/ejPP4lOdUkgRarmRGc8f98N26HiI+1iYFxbj4cW1D
+         xA0FmrSYl+fqldnfyTgG1oKTJri2RWhOjYeBMUGyAXyiCzklUPrjwCyfHALpTIOqUNDu
+         K0uxXkN9s6PktmJPgYqrILlTfavaYJ2K4uofLgnWqJSfllB5gm3BeTwwTZHZWRGmETVU
+         +TBmTcFUImxafO6NmS0Gs9lJwqptnHqWDdu5sk7AYJxcsFTYJ7Oe+3MbUU+YKP+vQw8X
+         30dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734698528; x=1735303328;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iB/a/gc86K3BsjbroIIz+CtH1X16E19brSWVHdGP1dw=;
-        b=LhuN5tkwy4myQhrxSrR5eBRDsOZbT4tdgu3TPrXWRb7DPNGc5oIDFeF+TjDNk/0WJi
-         eZixFuA9Ounj+Zd2mTDsVhOx1BgZEjGF9n34/rxQ1lWzIFTg9+LvDPjMva6o0kDZkp8Q
-         yHXgKuyBGHaaM5aXdZ0wTlQFcSuPGW9xbinTnwoRzLmO3d5hR+bvwACmDT1PdupmqrtT
-         xiwx6jFEZODSrb+NFUPpzqycUWyqoTl1VGcVb4F1IwRjXn+Hx+crzJ/m+Vsb2pHLjHw3
-         5q2U7SpTMPwFjygDGPQrV/g31DPRIVU/vK8OlCGGvQQscAcl64gl9z3G8M+0PwF0CrOJ
-         adqw==
-X-Forwarded-Encrypted: i=1; AJvYcCXNvDLO4A05vKpAPpP9VZEfjej3DIYQAbGyGKk3cCeEIicBPdtRX4Fr7qqvBn8UYQh++tdaOu+OHywI1s07fyyK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZijf7tkgseK/KtpZz4KDG//A5IT6KvFJDdmtO+4KJSLYPqeo0
-	x4U6VsLQqa6JeV0KLX34VlUasfWUSq3Ns0JUQC3R5QZkw54cuZ0xR8NfwC9ai/0SXv7Eq9aDxvq
-	tG8DYyH3ShI2bqv5iqNxyEFsXgcKIl9ZMbZ+/h7QKCL3zrChPyCgl4zd3tG3LtyOI+vNUU29E3w
-	==
-X-Gm-Gg: ASbGncttGqVzCPHtDa8p0Fxo2SeO82rWCKASFLXpyMjjUerCB6S5yRNjUpga+DnMhJK
-	GidEt00IzWx2086LmcjxbZP6Aw1xS95eWxtf96/GgpvnCInkz29XH1hP5hbvgw/JXviWlVzN5k8
-	hsFcQ9Y8ajFo0pesyDPDhXrX7myX4S5/xYfGVEOw8xlfvGUS0jfujlHY23pr1OQ3f66xs7L4kXf
-	k5m2jtuqjWmjliqH7fLdL+WA+u6Il9MR0gmrpNtZhFbE26YDQMriot9h8tAIcjsVOvxu7d5tvbc
-	hK+Ghf83qnymUqZzsEVwik6ev9cPaI3OAGc=
-X-Received: by 2002:ac8:5f0b:0:b0:46a:312a:54c1 with SMTP id d75a77b69052e-46a4a8b7fddmr18404111cf.3.1734698527673;
-        Fri, 20 Dec 2024 04:42:07 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEI5i4/Tq3kmnb/29naeiMFtta6fn+qPtx1Dicaj7zfgUjyHxh3Byyw1oqQ93vAaJmKHk7iDw==
-X-Received: by 2002:ac8:5f0b:0:b0:46a:312a:54c1 with SMTP id d75a77b69052e-46a4a8b7fddmr18403781cf.3.1734698527185;
-        Fri, 20 Dec 2024 04:42:07 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d806fedc68sm1774455a12.66.2024.12.20.04.42.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 04:42:06 -0800 (PST)
-Message-ID: <765bb1c8-31de-4aec-b8ef-f141a3e25c56@oss.qualcomm.com>
-Date: Fri, 20 Dec 2024 13:42:04 +0100
+        d=1e100.net; s=20230601; t=1734699026; x=1735303826;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=23yyLAUmU38oAd1esFZmS79hTf3OpT0gcNBA6YL/4Qk=;
+        b=hH3d+TVtzJF+BNiBX5eVJp6ydVDvTRTExJxmP9zkAx2HIt7yO7sksSVZAg1EuqRFte
+         NyALpS+wtnQGoOJ5Ib6X0voWQTDqG23t6/UVA4bMSosjQbzdghiic7eyBFb1FafXuHa6
+         RVjiIPxHAboQ/pne0hsDBk11SRQj+RkooiM7D2NavDdrQZfc918oli93v97ZjnoAqbGW
+         K/y5JU7Hy0vCbJnz4IbUoVXd+AbGYH9uvGI5GKoDcDQdViIDgixFnEF3HAW3BSgAE5h7
+         AL/iSLL8fiYleMW8T1KGlWcSETv/CPtyAt3xCFm9jXX+MKcg0vE4rznhebrA4uRK2Bkp
+         ACLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtChWVavsptut2BShFgoFo0WAYYFaloHlbC4moVf8ZakZxUDctxOo1NrcFKVzvoyux+xhytqG+wRW32lFdaQLz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2xIWvMYFK8BnMCER6jqkPWwS1j34QsO0UEEEQPpdao7Ts4NCn
+	eblFKVw9nu8pTlSvr0JO3KkYgXRgh7NlanK3vs2RwylLf5eCfyTeBSa0K6S5Ci0sNxKcqjFfEPa
+	m8ld3TdHWudL4vYRfVnjamzD2pm/C3PW2t51CUg==
+X-Gm-Gg: ASbGncspJJptkC/jKgXPGubftnRYQWGLmSTJeQxLtIWMuaLezBS+uaiHLmJRFjcGDyx
+	ivPVdE3nNk3+Ix4nmJ4Y8eVLzvihEOKmQ2xJuEw==
+X-Google-Smtp-Source: AGHT+IEq0umBuo+QunFadHysq7OsYI2Y7tvIXeWw5zlZVNnR52GFnztmzdoIaD2+Oknhcicnm0deL9Ked/qTjsh4Vwo=
+X-Received: by 2002:a05:6512:3a91:b0:540:2a6e:3882 with SMTP id
+ 2adb3069b0e04-5422953c3a4mr859365e87.29.1734699025929; Fri, 20 Dec 2024
+ 04:50:25 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Allow specifying an S2RAM sleep on pre-SYSTEM_SUSPEND
- PSCI impls
-To: Sudeep Holla <sudeep.holla@arm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Elliot Berman <quic_eberman@quicinc.com>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
- <20241113165329590-0800.eberman@hu-eberman-lv.qualcomm.com>
- <e4509104-c809-4d45-bdbb-a2d754a816db@oss.qualcomm.com>
- <Z2VXgkJ4x5TJTKJ_@bogus>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <Z2VXgkJ4x5TJTKJ_@bogus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: -IHeij2G5T-7hyKoFKDpCVmJAJSqqRGa
-X-Proofpoint-GUID: -IHeij2G5T-7hyKoFKDpCVmJAJSqqRGa
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- malwarescore=0 clxscore=1015 suspectscore=0 bulkscore=0 mlxscore=0
- adultscore=0 phishscore=0 mlxlogscore=999 lowpriorityscore=0 spamscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412200105
+References: <20241212-dt-bcm2712-fixes-v3-0-44a7f3390331@raspberrypi.com> <20241212-dt-bcm2712-fixes-v3-3-44a7f3390331@raspberrypi.com>
+In-Reply-To: <20241212-dt-bcm2712-fixes-v3-3-44a7f3390331@raspberrypi.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 20 Dec 2024 13:50:14 +0100
+Message-ID: <CACRpkdaB9kqcjmhaXd5RxpYvqdSVMZkj0wHAtEgdqDs03+wzJg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/7] dt-bindings: gpio: brcmstb: permit gpio-line-names property
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
+	=?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Doug Berger <opendmb@gmail.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, Stefan Wahren <wahrenst@gmx.net>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
+	linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_044210_439234_B4B233E2 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20241220_045027_984097_5376D968 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,72 +103,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.12.2024 12:39 PM, Sudeep Holla wrote:
-> On Thu, Dec 19, 2024 at 08:26:51PM +0100, Konrad Dybcio wrote:
->> On 14.11.2024 2:10 AM, Elliot Berman wrote:
->>
->>> I'm not sure why you'd like to support s2ram. Is it *only* that you'd
->>> like to be able to set pm_set_supend/resume_via_firmware()? I hope this
->>> doesn't sound silly: what if you register a platform_s2idle_ops for the
->>> relevant SoCs which calls pm_set_suspend/resume_via_firwmare()?
->>
->> S2RAM is what you get after entering a certain state, but currently
->> it's presented as just another (s2idle) idle state.
->>
-> 
-> Just to be clear, I assume you mean CPU_SUSPEND idle state. There is
-> no special or different s2idle idle states IIUC.
+On Thu, Dec 12, 2024 at 7:36=E2=80=AFPM Dave Stevenson
+<dave.stevenson@raspberrypi.com> wrote:
 
-Yeah, right.
+> gpio-line-names is a generic property that can be supported by any
+> GPIO controller, so permit it through the binding.
+>
+> It is permitted to have a variable number of GPIOs per node based
+> on brcm,gpio-bank-widths, so define an arbitrary maximum number of
+> items based on current users.
+>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 
->> That means some hardware that may need to be reinitialized, isn't as
->> Linux has no clue it might have lost power.
->>
-> 
-> Interesting, so this means firmware doesn't automatically save and restore
-> states yet exposes it as CPU_SUSPEND idle state.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Reading the spec, I'm pretty sure PSCI calls should only mess with the
-power state of the cores, core-adjacent peripherals and GIC.
+Perhaps Bartosz can just apply this one patch separately?
 
-Reading section 5.20.1 (SYSTEM_SUSPEND / Intended use) I think it says
-mostly what I'm trying to convey:
-
-
-"In a typical implementation, the semantics are equivalent to a
-CPU_SUSPEND to the deepest low-power state. However, it is possible that
-an implementation might reserve a deeper state for SYSTEM_SUSPEND than
-those used with CPU_SUSPEND."
-
-- this is the situation on QC platforms, with the case of not reserving a
-deeper state for SYSTEM_SUSPEND
-
->> One of such cases is the PCIe block, with storage drivers specifically
->> looking for pm_suspend_via_firmware, but that's unfortunately not the
->> whole list.
->>
-> 
-> Well I can now imagine and I understand what's wrong here. An idle state
-> is exposed to OS with an expectation that OS saves and restores certain
-> state. Unless you tie it some other power domains that theses devices
-> share, it is hard for OS to know the state is being lost and it needs
-> to save and restore them. It is simple wrong to assume that OS needs
-> to take care of them even though the power domain hierarchy doesn't
-> represent this dependency to enter such a state. cpuidle-psci-domain.c
-> takes care of this IIUC. Ulf can provide details if you are interested.
-
-The spec disagrees:
-
-"Note that entering the system into S2 or S3 carries with it several
-preconditions. For example, all devices in the system must be in a state
-that is compatible with entry into the system state"
-
-- this also happens to be relevant here, given PSCI is not supposed to
-power-govern the entire SoC, but only the CPU block. We have specialty
-hardware that does power management for non-CPU IPs, but to request
-a system power rail disablement, it must be done in conjunction with the
-CPU requesting such CPU_SUSPEND state. And only after the required hardware
-is de-initialized.
-
-Konrad
+Yours,
+Linus Walleij
 
