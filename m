@@ -4,155 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9CBE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 02:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3A8E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 02:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tfdx6dGS/5Q1+ycHgaryilGRCpL638tP4TIpSXzD3o=; b=JZa0C27Qp/pwtdgFtgj5M8tsTp
-	dRMrkQsph2qoFM7j91b0mot9CglR8vh5N6SWxEpXbaIjR9Tq4YAWWKDbvTV+/JhDSkqJZMAopUfhf
-	cqR1oKJG/3Ak/oge2juhBTj/CPG6wDEbAXBP2A1qwKXqkHhy9VE9m80tHT9x6IZIrgBTy0bmERz5X
-	6CByndmqRj4CL5o7mTZYVxg/4JnD/MkZrQS2WC3AvqjVk2Wzn5DTkak7TghsZiaConRCjXiy6H3Gv
-	btMmNIEvPpTEwrgsrhEKe0cbD/qM/D2KBFBaUNAr4N5BU/eEkWVNov6WXpVIykC9cHm03QCSz4znQ
-	cCISvz8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BnTG/sbpkXhlifAr32NESdvTHkU0t98XHfRuC7OuuwQ=; b=igAtCR8WWeDgUG43d0A8pp7Zet
+	51oaRnyxyBlIJY5aKVjV6bkfi+v7VEdu/NvtRI3CuhWdqitziOcHnQjqZnL21rdJBoU1LPvC56eVH
+	6tv+OSru7b2MDbcq4Rba/VKxfHzucy7BLDAG4cmcKMAXcXQGm9xAKAZ5ZmUMl9Vg3F+YgCmx4m6o2
+	e9YfT7D0ag8o73ThtHTaDmPvUg8Um4OkOE6UClshiWnn94/1a9PMiMq7nKosB1c4Amdj3mhbdDL3L
+	65eudhcTYTGrggcXpSbMFu/RUz+rzTpqymhSwgvwWibgZbUNhjC3VXPGXA88cSoWuki93RGnIPeL/
+	l54O3byA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOT1y-00000003jp2-25VZ;
-	Fri, 20 Dec 2024 02:46:22 +0000
-Received: from mail-am0eur02on2060c.outbound.protection.outlook.com ([2a01:111:f403:2606::60c] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tOT5l-00000003kBV-0uNn;
+	Fri, 20 Dec 2024 02:50:17 +0000
+Received: from mail-m3274.qiye.163.com ([220.197.32.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOT0r-00000003jk3-29kO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 02:45:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DY9VBJj1w2RwOdGkT7kQPm5/wjfXW8e/plTxw2XnxXZ9IMXSQpNzP1WX/1LO8WVLvKyJ2VlVYcCd7xErpOLoq8kSUkgHM+XishOaOHl994IiEEY18hClsRUIVAM1IOrxu4Rh6qafQ25Xpb5/ypHwdjvNLZerBgeJOivxUpthcQEWJj9QAzCzpF5j3OVE6T2M5LmmEszi4WSsvf5LZxhfr8TXL/LMuqm/scbCOw8dXg9Sf4WOUDNjDTMGAp5IMgd1K27WO0G7UmF7D1FN/ThlRcVMxwBG8QvWyFyMCsI/1EIuitHtNrJjqWK5dcxJC4492y+FOW46o2sdsPCvakazOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7tfdx6dGS/5Q1+ycHgaryilGRCpL638tP4TIpSXzD3o=;
- b=Ncbnm18sOGXuqOSJ4/h38Vrxr0ir0yy/qEtq9tKJhXUvw5oh7bbm16J1mbTVGoPzsjLENZ++6ArIWkEHKtUYxT5QDrRzeXyqyQe8pP2itNFt8Y4GlTY0ybN2aNL8G5jvwvUDgjsV970VX0gK5Uh8yXgpTtWaX5ScKslQdo7QaX+HUTxMVqzkrBjXBFIQMlTDvijhQySMj0JU+9MmLG9vTRdCZYLCxeoPotha6WS+N/t2tBfUSFgxkInXYXgy3szjqYa/t7mQ18Sm1AhK4iuuKlOHaue+ffOZzhdQIgtBXVJrUQB2GilQOgLwhygdKKsfXxLdYYbAJxIwMRTYGyuSyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7tfdx6dGS/5Q1+ycHgaryilGRCpL638tP4TIpSXzD3o=;
- b=oCEj8MilzlNElZjjHF6OXtQF8nFJCZeBIhaIehx3zYBZd86fAYhfi6WYiuqs5JGj3lwEtvoHtNt7yl3QhJs7JJgKD/v0iuJNHtY5TbWpzKxDO4mW8OybPEFbzxLICOV/ZVAMywhsZfJ4l7+ZQyC7Yrbg5yDtD/QAWt9jmGn0mVwl/YZL3fpp3ghqWCpyCDbCu2S9ncoJwGh8cA2/TA4kMePrKVY6g8UR+R/lJ033EhDYAUs+rysM3NWNr7wnOFGM7i9WBPGfKM2mOST8x1Nq737vQ94/TyDsqOa2K0QRi9qphSWS3Zb8QPZF4+kCDRnhEBacUDmHQfWY8FKlOkNPtg==
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by VI2PR04MB10666.eurprd04.prod.outlook.com (2603:10a6:800:27f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.14; Fri, 20 Dec
- 2024 02:45:09 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.005; Fri, 20 Dec 2024
- 02:45:09 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>, Andi Shyti
-	<andi.shyti@kernel.org>
-CC: Frank Li <frank.li@nxp.com>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Clark Wang <xiaoning.wang@nxp.com>, Ahmad
- Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-Thread-Topic: [PATCH v5] i2c: imx: support DMA defer probing
-Thread-Index: AQHbUokvFkUV6RKhsU+/99LW49W+fQ==
-Date: Fri, 20 Dec 2024 02:45:09 +0000
-Message-ID: <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-References: <20241218043541.143194-1-carlos.song@nxp.com>
- <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
- <Z2QQI2gJNLjI-fam@pengutronix.de>
-In-Reply-To: <Z2QQI2gJNLjI-fam@pengutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|VI2PR04MB10666:EE_
-x-ms-office365-filtering-correlation-id: e2af1676-c8d6-4b36-a7c9-08dd20a051de
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?7aueyRK7Q25ES9p3EIbzjkb0Hv5Vs+jddYswnQcDMRkiUVfCaM211Ql5RPwS?=
- =?us-ascii?Q?Cto3zg6gk8KVVWj/xjd/bixuCKabS3F4hZKeYTRjJ56WsgitAt48Zkqny5rM?=
- =?us-ascii?Q?HX6Tp4HHME5wMmlt4S6AtUyKNsXFY9zo2mW+g/kI4NY42BqNptrRqwOC/+fj?=
- =?us-ascii?Q?8l3H7vC3SxXZNqLG0ctmzHye1f7zvlrpK8oCW8Pdevimpkq1lv/JlIxPY4kP?=
- =?us-ascii?Q?9d3m340Af7eEtSYJcUNwtiJv0stFX/97zRNpr/Wp6weDMdH4jYiRNhK6qYAO?=
- =?us-ascii?Q?7cMAtg8qMAm7vG2YCwG9WfsOKjqyeBp9yxS1I+cd5d5SDPNARQdY2zVP/fX+?=
- =?us-ascii?Q?AWPbOqTKasPtTiCwSG+MbTwCdI6CPCJ/qv/JetGVnIhuFFejsc6yM9ByMD3D?=
- =?us-ascii?Q?gp6TFX+M9b55sRPa4UL0UoW4RU6kmWXuz/KTcsPlt6slH6UN1eXMMAStKSJr?=
- =?us-ascii?Q?O5l5IjgebhJYb8DVfOtKOIe/SBbMVw5HYqH2k8DH/XrdbKYAcbcn2PrtjaoA?=
- =?us-ascii?Q?kCcPixVG1lIEcHS0ZvXtnmar+R4L9O+vae42A0ngAvd0/vwZJhH8KuOtFyBR?=
- =?us-ascii?Q?OFe7FhvtCmVeZ9RD0SepZeZvGcDo7uRciVoIvaHWwSE7+BIgyIkmvViOJ8+n?=
- =?us-ascii?Q?3+izMxtOkAa91O4/5i0lGuX+zBhbNCzIfktEWEmcYsX27G0VGadqMoHppibD?=
- =?us-ascii?Q?+9JMtpbR6pZqb0JVIE4We4c90IQUMLG/Y5rnFowcZgBMuF9Mk6J11buWoLhi?=
- =?us-ascii?Q?FjFFljhWMvzxF0cVcHJrAhsxnhxzea0r4YqQqkjfjZZh+EmKm/os1nfmr1so?=
- =?us-ascii?Q?VuDzhY5GXNK/13EpNoINb8Es/U+cNE5AZ2a1leonSXy1SY4xSfxCp7TuEl/h?=
- =?us-ascii?Q?T4L5GXBRzZF8hHsBfLDv1/gA6FIC7q4pihQSucWyACdNHhLIz1e/DZv9TJTt?=
- =?us-ascii?Q?5RxdxidHxAuTWxPPmSLSxjP9rvxLQf41Kt5vQuUXP3Khkxy6lIWzuKDi/96p?=
- =?us-ascii?Q?UL7h4RF+k1JKB312yf6Rx7MAwDkFQV6w09aXchUWenNnIH+bO4kKUZO6EyYP?=
- =?us-ascii?Q?zHFURmxE0zhDNDX7J2Mqr8LBzedG9YyCSw1RYGAxl9DrrZ+XiNytlZAAyfR8?=
- =?us-ascii?Q?jTwK3e2gLgSWRgBOVeu0w69BWC4xmfYd9edRAffhgcmucUHL8epnLe+LxkkB?=
- =?us-ascii?Q?5GW/j1vnKu8XR0KMF5lh47olBbgN9p2Cwc2D2KAyYQFW4cKCZpMww6vDVuHU?=
- =?us-ascii?Q?PonbHikOKB99dMLZfN2CvBqI/O3NiXqlfzcqZ+pQYDHI4ExnGT7fGzCGWJQk?=
- =?us-ascii?Q?92+yqt2PS5jRThYhYzKqRTPGnXkEQH6w/JbDk9wm7v9VGoay6ZR/HQfGPK2a?=
- =?us-ascii?Q?bM2eRqhvqyjgiJ3/HU1ijMuAQnL98X0Y08YDeds8MvJlC8VFDg=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?AwYGiEy8VQT4vEFFHBg3HEHGUck0meeHU3hXR7C7zN+PpKLDaBYBbOjyIoop?=
- =?us-ascii?Q?nqseu9PJEb5wosFrdCJokwsiQ7jDySulDI4uPsLerr61LSbPCJVJYLkmtkfI?=
- =?us-ascii?Q?lFjk72MY/37kDl2pC0qpn0VSnSFBq4LtG30MD/sFsBZnYgqIWS+w9oQo6hul?=
- =?us-ascii?Q?1BmAV1Z1f873Itc8cA51HzGUYpuLRBjNg3HjcHZxiWekfwNNTYOllAc1PcIO?=
- =?us-ascii?Q?6zpVeOlQ8IfEYNShz5jRi9XKEywBZCa1D1DC3dGP7149/cIzSZHvd+f/D8wi?=
- =?us-ascii?Q?4+D4C8o4J6aQIiSBbDfS5uoWl7O5HtXXIE/hDvQO3Ezo5yxhVOZJSgLqsUO2?=
- =?us-ascii?Q?L6ZpMG2+vh/DJalfjlZ1dnAPQPF+4kFSOGrdnMa3DvqOhUgFSPAEd/n09WbC?=
- =?us-ascii?Q?qWHEi78xEGTiYpUKRfW+sOxkP3VaDx3meHaaeJMiwPjVCBf+jc9HY/Kay+05?=
- =?us-ascii?Q?4Z2XdZrMocDAdlobSG/a7O4WEIsTIMCQ7FAHqUlON88uaDONBUDaPwcMPrJT?=
- =?us-ascii?Q?pMwfou+UTiFSfUY77iMpYe96WrodChC4BAGooo6Lhv/f+gqI8PfHHNGh70oB?=
- =?us-ascii?Q?v03o/CUpZOMu8xGz6QW44/4QJewRjkbg1pdc9Drjr0AIFWGdTStIxP2oY7RR?=
- =?us-ascii?Q?Gzs3R0sBv9QL1BNwQXyPWrowwveC4VsWcV84zDWYJSTPsOoseOg3qjCLCsLU?=
- =?us-ascii?Q?Xd3aJn75hBpaPpR2tVGmCJrZXK77y6olB5NNdZx69ucB1/O8sfO8eadQc/JP?=
- =?us-ascii?Q?KM3rKKhrAuJyy5QQlWhdbA8E+PhmujK6E1HRbF3z7q0dNJjdkOjM9XlhyL/T?=
- =?us-ascii?Q?qXMBFmaz3bqd7uLI2LhCpagZIsZqw36BcD/yRTDHX9/taaUv6SRFIX21UljS?=
- =?us-ascii?Q?wNRASnzitU8cjL4HFhEMxWPvoPl0qMfauqKGCn0A05qg9chjLpGVjpdwc8cq?=
- =?us-ascii?Q?QRwgKMDYTxwPlRyhB2gYVBK+Ujz40dmBnzkG+OO6mLjms++pXiR3Y0a4KXjI?=
- =?us-ascii?Q?4jiyu55gPKMSuPUtQp2BNI1qB223etAilnp0up/6FHFl7zQsfOUU63vfLpRH?=
- =?us-ascii?Q?rEgxg21odVyrCfJknkhY1jLzU0sF3NhP8XpHTOKy8hl2EFKTnDbVGuizb0fB?=
- =?us-ascii?Q?ewo+d4ocZ5ETIYPxdfiWnAgJMoYivGVncNnLRqhFJLbblnNXORZCKxypMgtF?=
- =?us-ascii?Q?dscWRmxq93AZdU7zWwEXtl3B+cVumhqXa4BoMQgRqrA3VKkVOW5Y44JzSZcZ?=
- =?us-ascii?Q?DWTfxmJ99s2g0dNnrQVd3baBvtOjWXZhwFCVv5Yfn91B4E6Ga3UOvv73hKiO?=
- =?us-ascii?Q?2xBwzmwRSslaYhQ23Xa9Wcu25jzGNbkRO2GqVN9nYNAX5aZml4Zp89pJJNHr?=
- =?us-ascii?Q?lXYO1EzrZa9+/DlmVRG1vPjOa8hydRiXNhiZ4nJDMXU+gxAFDN1+VLzdNh8H?=
- =?us-ascii?Q?jiXBuv7x1KYZFgSQvEThBaLmo0ANOh/aXorBlP6xaccrKD677Lkl2bvWgnVs?=
- =?us-ascii?Q?kDSdLGfO+ffoXS/mjFcGAzRadoFxkdYM0Wz+vNyvYKaAEyD4l3PkMQeRmrx7?=
- =?us-ascii?Q?pgTuiosHTHtxDwso/Nk=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tOT4Z-00000003k2W-32Mn;
+	Fri, 20 Dec 2024 02:49:05 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 64782b86;
+	Fri, 20 Dec 2024 10:48:57 +0800 (GMT+08:00)
+Message-ID: <c06381b7-1e38-4af4-9873-15862e91937d@rock-chips.com>
+Date: Fri, 20 Dec 2024 10:48:58 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2af1676-c8d6-4b36-a7c9-08dd20a051de
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 02:45:09.6663
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3FMJZQrjoVBFH3CN2yWlUIIlegmhMtQ2oNRuI1AZWpOfLAN3AED8QOWRHWdzCmTQb1McVylyi4TkKb8n+SEcMg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10666
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 10/15] dt-bindings: display: rockchip: analogix-dp: Add
+ support to get panel from the DP AUX bus
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
+ <20241219080604.1423600-11-damon.ding@rock-chips.com>
+ <bjkcue3dfgaf5i66cqbiczifo7r3xngupghklxgevwqpwfeeix@i2jfd477igri>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <bjkcue3dfgaf5i66cqbiczifo7r3xngupghklxgevwqpwfeeix@i2jfd477igri>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhlNSFZIGR8fTklCTR1CQx1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93e1f7db9703a3kunm64782b86
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NFE6Szo5QjIOEAo1SjlCL0IM
+	Mw5PCxpVSlVKTEhPTU1JQkhCSUtOVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKSUlINwY+
+DKIM-Signature: a=rsa-sha256;
+	b=deB0Jb94udSAo7ZPYkOoiDXrtBIRVqu0+kLEM19169DFiIFcei1LSpKufWBIrzG6vYJv5PNC9OwrY6G8JVKp9RAHMygxg6l2KSWfpJn8SbqdhLiwpx2+U5psTdmjjWKAY+wR/edr5OSCkURTbAKVIwCMiFIC2KPVTL/z0ZaZ9oo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=BnTG/sbpkXhlifAr32NESdvTHkU0t98XHfRuC7OuuwQ=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_184513_564324_6590E939 
-X-CRM114-Status: GOOD (  30.80  )
+X-CRM114-CacheID: sfid-20241219_184904_326157_E47873B1 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,91 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dmitry,
 
+On 2024/12/20 8:18, Dmitry Baryshkov wrote:
+> On Thu, Dec 19, 2024 at 04:05:59PM +0800, Damon Ding wrote:
+>> According to Documentation/devicetree/bindings/display/dp-aux-bus.yaml,
+>> it is a good way to get panel through the DP AUX bus.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> ---
+>>   .../bindings/display/rockchip/rockchip,analogix-dp.yaml        | 3 +++
+>>   1 file changed, 3 insertions(+)
+> 
+> Business before pleasure.^W^W^W Bindings before the driver.
 
-> -----Original Message-----
-> From: Oleksij Rempel <o.rempel@pengutronix.de>
-> Sent: Thursday, December 19, 2024 8:23 PM
-> To: Andi Shyti <andi.shyti@kernel.org>
-> Cc: Carlos Song <carlos.song@nxp.com>; Frank Li <frank.li@nxp.com>;
-> kernel@pengutronix.de; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Clark=
- Wang
-> <xiaoning.wang@nxp.com>; Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Subject: [EXT] Re: [PATCH v5] i2c: imx: support DMA defer probing
->
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->
->
-> On Thu, Dec 19, 2024 at 01:02:29PM +0100, Andi Shyti wrote:
-> > Hi Carlos,
-> >
-> > > +   /*
-> > > +    * Init DMA config if supported, -ENODEV means DMA not enabled at
-> > > +    * this platform, that is not a real error, so just remind "only
-> > > +    * PIO mode is used". If DMA is enabled, but meet error when requ=
-est
-> > > +    * DMA channel, error should be showed in probe error log. PIO mo=
-de
-> > > +    * should be available regardless of DMA.
-> > > +    */
-> > > +   ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > +   if (ret) {
-> > > +           if (ret =3D=3D -EPROBE_DEFER)
-> > > +                   goto clk_notifier_unregister;
-> > > +           else if (ret =3D=3D -ENODEV)
-> > > +                   dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> > > +           else
-> > > +                   dev_err_probe(&pdev->dev, ret, "Failed to setup
-> > > + DMA, only use PIO mode\n");
-> >
-> > Just for understanding, should we quit in this last case, as well?
-> >
-> > Before we were ignoring ENODEV and EPROBE_DEFER, but now you are
-> > making it clear that other failures like ENOMEM might happen.
->
-> Good point, dev_err_probe() would not print an error in case of EPROBE_DE=
-FER,
-> but in this case we should only print error and continue with PIO.
->
-Hi,
+I couldn't agree more. ;-)
 
-Thank you all very much! As I comment at previous mail:
-DMA mode should be optional for i2c-imx, because i2c-imx can accept DMA mod=
-e not enabled, because it still can work in CPU mode.[1]
-[1]https://lore.kernel.org/imx/AM0PR0402MB39374E34FD6133B5E3D414D7E82F2@AM0=
-PR0402MB3937.eurprd04.prod.outlook.com/
+> 
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+>> index 4f84e8849876..c45d92a2d901 100644
+>> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+>> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+>> @@ -49,6 +49,9 @@ properties:
+>>       description:
+>>         This SoC makes use of GRF regs.
+>>   
+>> +  aux-bus:
+>> +    $ref: /schemas/display/dp-aux-bus.yaml#
+>> +
+>>   required:
+>>     - compatible
+>>     - clocks
+>> -- 
+>> 2.34.1
+>>
+> 
 
-Also we don't want to annoy current user without DMA[2]
-[2] https://lore.kernel.org/imx/20241127-analytic-azure-hamster-727fd8-mkl@=
-pengutronix.de/
-
-So we make this logic. Anyway we let the I2C controller registered whether =
-DMA is available or not(except defer probe).
-Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing happened if DM=
-A is defer probed or not enabled(This is an expected).
-However we still need i2c DMA status is known when meet an unexpected error=
-, so we use dev_err_probe() to print error.
-
-> --
-> Pengutronix e.K.                           |
-> |
-> Steuerwalder Str. 21                       |
-> http://www.pen/
-> gutronix.de%2F&data=3D05%7C02%7Ccarlos.song%40nxp.com%7Cf0f2b14d05e4
-> 4bb9581408dd2027ef82%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%
-> 7C638702078063818207%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiO
-> nRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%
-> 3D%3D%7C0%7C%7C%7C&sdata=3Dq355QWfiCHuoREtM4pkuovpn%2F6MeXynD
-> hrpSEpWeCXk%3D&reserved=3D0  |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
-> |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:
-> +49-5121-206917-5555 |
-
+Best regards,
+Damon
 
