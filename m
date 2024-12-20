@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E2CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF4BE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Od24o/cE3dtNorFseNwnS40GUx5zkUNJ9JRmngZ+A8=; b=4r+Bk2fOV+qKnVwbeYCvXrA91w
-	kVSUhqAkWvGKY9EvMfCCHqa9iT9HBjoAiNDDV1w5BSlfUhYrjP0tL64pTeku0hLS7sdiJ5gYT6CtE
-	NJDZnYccSN0HnhOpO0sDOONi6xn6eSlQWiJ6Vb4+xneu309sGv1bldCYKGyvcok8h5SVNRb22XJuE
-	PvsZOvQwVKmt6aBppSC1I7HuDNZmoE6ZnlgdzzuQ2Aw6w72eSNttQfOBHB9OaohK3fhKqMhTtS3GA
-	4Cr59lEbhwGi2fMPALhkZxPqx5gwUwRIVpreKulZSz9dwAlsGTB8T6JXD7+5i2IwwevQVifvkan1h
-	OSBKXgng==;
+	bh=qWEsp5BvIe6CA4RUmFb4+DVu3DON3o6oRx2mtrhNBjk=; b=zOflYKI+nbVcarNlCi3B1sBNEX
+	HNrT5HChm0b+sf//zzXRaCNby261g3AUHBHj+1ORurDxHCml5AaOq6yMZ6h0gmhTp4qyOSzna6fn6
+	ThVEqPScjtCrYTIpILCiKqbg9XdnBDg3ZXZrhi38niiB93DlYvfgoDTba2AHPdAMit6Ce5FHuTSVB
+	r3VNBwyZOVFiE/TUCBw32zciyds1821AyZ8YbCzro8orfyCoAYfemrxx7r9iUFvBKHgzb1K7KCekL
+	3z7IAf7jtX62epAyBo1pfvU3QZlmj3oX17AD2ApoMcJ7xgP/dVUd2HEfNjhOhxO8DtNsikqvFQN6M
+	SJpWT2uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOaxG-00000004iAL-0vUA;
-	Fri, 20 Dec 2024 11:14:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOaZq-00000004djy-4404;
-	Fri, 20 Dec 2024 10:49:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D0A81480;
-	Fri, 20 Dec 2024 02:50:18 -0800 (PST)
-Received: from [10.57.72.191] (unknown [10.57.72.191])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8254C3F58B;
-	Fri, 20 Dec 2024 02:49:44 -0800 (PST)
-Message-ID: <75cb4ff8-eb0c-4519-a30a-f8be717ba278@arm.com>
-Date: Fri, 20 Dec 2024 11:49:38 +0100
+	id 1tOaxP-00000004iK2-02hz;
+	Fri, 20 Dec 2024 11:14:11 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOabb-00000004e6Z-420V
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Dec 2024 10:51:41 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tOabQ-0002KC-Lb; Fri, 20 Dec 2024 11:51:28 +0100
+Message-ID: <f2690b83-b907-4ade-bb9d-daa0636c6786@pengutronix.de>
+Date: Fri, 20 Dec 2024 11:51:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/10] mm: Move common parts of pagetable_*_[cd]tor to
- helpers
-To: Peter Zijlstra <peterz@infradead.org>,
- Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>, Ryan Roberts
- <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Will Deacon <will@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- linux-alpha@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- loongarch@lists.linux.dev, x86@kernel.org,
- Alexander Gordeev <agordeev@linux.ibm.com>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <20241219164425.2277022-2-kevin.brodsky@arm.com>
- <20241219171920.GB26279@noisy.programming.kicks-ass.net>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <20241219171920.GB26279@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
+To: Carlos Song <carlos.song@nxp.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Clark Wang <xiaoning.wang@nxp.com>
+References: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
+ <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UBfcq6pE-JMUrb@pengutronix.de>
+ <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UK4rMxrtNsPw5V@pengutronix.de>
+ <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
+ <Z2UeKZcpeRUt2OQ4@pengutronix.de>
+ <AM0PR0402MB393739E1D91ED2A539B5A2C7E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2Ugt8NVued0_4c4@pengutronix.de>
+ <AM0PR0402MB3937419BBB58B75FB8F8DE2DE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <89a3b1c9-2be2-4e7f-a0c6-abbf8b88957b@pengutronix.de>
+ <AM0PR0402MB39374CFFA66D8121DB218334E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <451e8c12-7b45-4b12-af10-63f60ba6e92e@pengutronix.de>
+ <AM0PR0402MB3937E87BBDC5CEA1C51E4E3AE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <AM0PR0402MB3937E87BBDC5CEA1C51E4E3AE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_024951_055240_4F7713C6 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20241220_025140_016959_7DCC03E5 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +90,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter, Qi,
+Hi Carlos,
 
-On 19/12/2024 18:19, Peter Zijlstra wrote:
-> On Thu, Dec 19, 2024 at 04:44:16PM +0000, Kevin Brodsky wrote:
->> Besides the ptlock management at PTE/PMD level, all the
->> pagetable_*_[cd]tor have the same implementation. Introduce common
->> helpers for all levels to reduce the duplication.
-> Uff, I forgot to Cc you on the discussion here, sorry!:
->
->   https://lkml.kernel.org/r/cover.1734526570.git.zhengqi.arch@bytedance.com
->
-> we now have two series doing more or less overlapping things :/
->
-> You can in fact trivially merge the all the implementations -- the
-> apparent non-common bit (ptlock_free) is a no-op for all those other
-> levels because they'll be having ptdesc->lock == NULL.
+On 20.12.24 11:46, Carlos Song wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+>> Sent: Friday, December 20, 2024 5:32 PM
+>> To: Carlos Song <carlos.song@nxp.com>; Oleksij Rempel
 
-Ah that is good to know, thanks for letting me know about that and Qi's
-series! Fortunately there isn't that much overlap between our series - I
-think we can easily sort this out.
+>> I know -110, but -12 I need to look up :) Both are cryptic to end users, which is
+>> why %pe was added on top of the existing %p:
+>>
+>> If CONFIG_SYMBOLIC_ERRNAME is enabled %pe expands to an error string, e.g.
+>> "ENOMEM" or "ETIMEDOUT". If it's disabled, you get the same error number
+>> that was printed raw before.
+>>
+>> Cheers,
+>> Ahmad
+>>
+> 
+> Wow! Looks so cool.
+> Thank you very much for your patient explanation! I agree it.
+> 
+> Also I will change the comment from your suggestion[1]:
+> 
+> "
+>   /*
+>    * As we can always fall back to PIO, let's ignore the error setting up
+>    * DMA and see if we run into errors while setting up PIO mode.
+>    */
+> "
+> In fact, other errors are also from DMA setting not from setting PIO mode.
+> So can I comment simply like this?
+> 
+>         /* As we can always fall back to PIO, let's ignore the error setting up DMA. */
+>         ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+>         if (ret) {
+>                 if (ret == -EPROBE_DEFER)
+>                         goto clk_notifier_unregister;
+>                 else if (ret == -ENODEV)
+>                         dev_dbg(&pdev->dev, "Only use PIO mode\n");
+>                 else
+>                         dev_err(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n", ERR_PTR(ret));
+>         }
+> 
+> [1]https://lore.kernel.org/imx/89a3b1c9-2be2-4e7f-a0c6-abbf8b88957b@pengutronix.de/
 
-Qi, shall we collaborate to make our series complementary? I believe my
-series covers patch 2 and 4 of your series, but it goes further by
-covering all levels and all architectures, and patches introducing
-ctor/dtor are already split as Alexander suggested on your series. So my
-suggestion would be:
-
-* Remove patch 1 in my series - I'd just introduce
-pagetable_{p4d,pgd}_[cd]tor with the same implementation as
-pagetable_pud_[cd]tor.
-* Remove patch 2 and 4 from your series and rebase it on mine.
-
-Let me know if that makes sense, if so I'll post a v2.
+Sure, looks good to me. @Oleksij?
 
 Cheers,
-- Kevin
+Ahmad
+
+> 
+> BR
+> Carlos
+>>>
+>>> i2c_imx_dma_request is using PTR_ERR to convert pointer to error value[1].
+>>> I don't know why need to use ERR_PTR to reconvert the value to pointer:
+>>>
+>>> dev_err(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n",
+>>> ERR_PTR(ret));
+>>>
+>>> Is there some strong reason?
+>>>
+>>> [1]
+>>> https://lore/
+>>> .kernel.org%2Fimx%2FAM0PR0402MB3937419BBB58B75FB8F8DE2DE8072%
+>> 40AM0PR04
+>>>
+>> 02MB3937.eurprd04.prod.outlook.com%2F&data=05%7C02%7Ccarlos.song%4
+>> 0nxp
+>>> .com%7C13a8e6532dd7435c302008dd20d92819%7C686ea1d3bc2b4c6fa92c
+>> d99c5c30
+>>>
+>> 1635%7C0%7C0%7C638702839227618754%7CUnknown%7CTWFpbGZsb3d8eyJ
+>> FbXB0eU1h
+>>>
+>> cGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIj
+>>>
+>> oyfQ%3D%3D%7C0%7C%7C%7C&sdata=2A6qPlFEuW1SmlvOZ7OhtfO7VwqysM
+>> cGhFL2G%2F
+>>> ECNek%3D&reserved=0
+>>>>
+>>>> --
+>>>> Pengutronix e.K.                           |
+>>>> |
+>>>> Steuerwalder Str. 21                       |
+>>>> http://www/.
+>>>>
+>> pen%2F&data=05%7C02%7Ccarlos.song%40nxp.com%7C13a8e6532dd7435c30
+>> 2008d
+>>>>
+>> d20d92819%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0%7C63870283
+>> 922763
+>>>>
+>> 8077%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjA
+>> uMDAw
+>>>>
+>> MCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&s
+>> da
+>>>>
+>> ta=LasLtpe7GjsG5qVUKG%2FOmVro2JueGLfwUPALw7%2FB2fg%3D&reserved=
+>> 0
+>>>>
+>> gutronix.de%2F&data=05%7C02%7Ccarlos.song%40nxp.com%7C594497db1b5
+>>>>
+>> 44e479a8f08dd20d1e88e%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
+>>>> %7C638702808104903131%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hc
+>> Gki
+>>>>
+>> OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyf
+>>>>
+>> Q %3D%3D%7C0%7C%7C%7C&sdata=EnhsIFlBooqjB%2FSRWF7uAqRHE3yN6rbd
+>> D
+>>>> 1yQueTrRus%3D&reserved=0  |
+>>>> 31137 Hildesheim, Germany                  | Phone:
+>> +49-5121-206917-0
+>>>> |
+>>>> Amtsgericht Hildesheim, HRA 2686           | Fax:
+>>>> +49-5121-206917-5555 |
+>>
+>>
+>> --
+>> Pengutronix e.K.                           |
+>> |
+>> Steuerwalder Str. 21                       |
+>> http://www.pen/
+>> gutronix.de%2F&data=05%7C02%7Ccarlos.song%40nxp.com%7C13a8e6532dd
+>> 7435c302008dd20d92819%7C686ea1d3bc2b4c6fa92cd99c5c301635%7C0%7C0
+>> %7C638702839227652725%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGki
+>> OnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ
+>> %3D%3D%7C0%7C%7C%7C&sdata=Hm60QL5dJ2h3OCesOXK871ASnK7s0L4SPiY
+>> bK0jtSOo%3D&reserved=0  |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0
+>> |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:
+>> +49-5121-206917-5555 |
+
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
