@@ -4,108 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4AA1E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 00:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEDB7E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 01:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GtphmJJvd2huuYFzKRkVf45xsccE6Ms1jkEdDHx6d2E=; b=whcyJzdyhCXNN1i4rwjk+TQaox
-	zQkC/SQX1qS7L1YMH+yIH4Zl3WUOXcT+CFFn/PVj8FK5zOCg1rRf8t1XEpGxb6lSwaSXsl6Dht8Zj
-	yrae3LQ/AbaH3laKZ/f3qVrXEZgQoRc91PsGjmzGIMrvOo9iNG45OUJi/ILqewM6WYPsBolo/d76A
-	Q5IpR1PhAVVxdbQuz6qtJDMpD27HvNrVWG+8GaUfBSV2ZCy6JlYMa5Lqx9FBxvjjoSGICB7akgrlZ
-	DhXjTw4lUzGTUvuqvLKIHOIHASMEAsbHba4GdkRbbKpj7Px00zOQawgB3A2ew96rlfSNdU3Gp3OYN
-	0EnAC8ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cRDKUGnjPxUGgjTzF3qCkNkq62oEn2vSDO7JvD7Kppc=; b=DYwlfE3QAVmTsWA79pSFcIzdW0
+	4ECW7nUYTYJ8siUBE6uNi3uwdiQ8fqikKdzDSieM1uUxZWD1XTdzKmQU6NwAA01Po7yNJ1lRQYsfz
+	fwfR4MLozdNmuHOfbuW0ZjQ67iF6II+C5hm3iAu46V12amIqk5Jy3Fj1HHMFscD5VADqJssLFKDQx
+	vlFJM6r6BhjhGUY/+TbxjV+4qvoT08R7Swd9/F8o05y9KWH9UAduFiGXeKJH2nysNimzOGZ+gZdEI
+	N0CF2IBAPTmXZKJT4isfkgPdsXHYtqkVxt5ZyauTIjx/4apLeEc6IT99xD7WcRLupMbLayuxGGc17
+	zzizELSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOR9s-00000003VhU-2Uiw;
-	Fri, 20 Dec 2024 00:46:24 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1tOS06-00000003dN5-36HW;
+	Fri, 20 Dec 2024 01:40:22 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOR8k-00000003VSB-2hXQ
+	id 1tORyw-00000003cu9-172W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 00:45:16 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3003c0c43c0so15626441fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 16:45:14 -0800 (PST)
+	Fri, 20 Dec 2024 01:39:11 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-728e4bdd69eso2045178b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 17:39:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734655513; x=1735260313; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GtphmJJvd2huuYFzKRkVf45xsccE6Ms1jkEdDHx6d2E=;
-        b=RCieHnyuDf1pSqt4/RJIC2/kk5hT965/tLbrYr/DJhdoh5P85H1Iz1Oy6nvc9Zir6g
-         3kcV7UHtKuGhAUczcBAieewEb1RVxTvmpRUf2+VDnPyg2yltnlsAI5YaY4WNG3dxqObz
-         YQG/Mng+oifGbzrTmoKhwG5ysywjU6MwmwN9NtCBjcl9SDAJ58OcH0aKbr80MVjiMSh8
-         JrRFzfne4X5yVblv5T+P8yYbCNCiSkVsLE7TOnC73JdNOvVqnYO0zfSPfCGpdMQeiDL0
-         lBv7PxZoQGTeRhTTSfgV+DQEMOVu2Ml4K9q6zAu5dtUnw7bv+OTK45PdRadGZfWJoBcM
-         TjLw==
+        d=google.com; s=20230601; t=1734658748; x=1735263548; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cRDKUGnjPxUGgjTzF3qCkNkq62oEn2vSDO7JvD7Kppc=;
+        b=qk/Sq3DiZSqeXGi7Z5fuEGD6Q3ZERX8u1jmp77w6gBOmEv5uQwxdiDXl0rz0q5a7oC
+         95Q9VUp2qe7O7fglWC+7QOJ7ASFVCGVYsj8bw6HXkWbyNtHnOVPuMeG8k66y4pzxROIK
+         QkqHpKIVXcjTAVU2FZ7DuVp0+xm5vSp8e4WZqYoS8nFqOd/Bv9rYQbancoX7yXC5m+9D
+         BjfBWQ0EZkVtTXW1VgUwFkWRhuK/GFUpYD88Fx/VnxuVTSKdyM0cXgSX58wHmk6Ddfu9
+         ZWtEspSCsaZilTDEjNwn8/2ah5x/x+6cuLvW0hE/WLf+gXKxvc4KI/mLYTTxlajO0cpj
+         jPmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734655513; x=1735260313;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GtphmJJvd2huuYFzKRkVf45xsccE6Ms1jkEdDHx6d2E=;
-        b=qEbb33JbZ6eiRj4eFVWT278chDaNlKhcm1KMhYTC0OiXLEaWhp6uqapiKLnh7HfbPd
-         h+HtGfZGImIBdGtQmt/v5O7CttymXj3et4yovzlAfNC/PED7lTV2YTytvtriUcB7j538
-         oNR7z9MQZxaxhdiMZ9AWx+GZjuiuTxQ1CWekzumgD3edL6JQATM3VEKizIPGzSBNk6aH
-         2jiQuOI6BcPjVUlWJL4/iwaBgDMjysrTrbFjcI8P9q3snawggEanYVttWyzHeHxaAkhW
-         E8tv5Gwbnre/h2DrOuC77/ww8jbD1wmjLWxLLC8HWz2ZjF9VurlQ2fiRRO82V15A31ed
-         zhHg==
-X-Forwarded-Encrypted: i=1; AJvYcCXERpmkc9eANvbH+ykjN2epV4+5BTmvnsGA+A0GWg/Gh9t5XKTQpn+ixYqgXJt0KBvlGCQXiYL6xrwkjj7lmolL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGqEQXIuG6Ymn3oo3/51A0z8fUDr1rSN0sSaHU0lvAVX+xjsdO
-	vsFPYis5OLhUV6Gqj13HSuHfVxWSRx9L3QiLm3jOynKmYD3VRz9RWVg5VeT/R9I=
-X-Gm-Gg: ASbGncsNbMdlZ55I0xGjlNuYDegtQsu1biqqxqy2LdzZrpfXWLsHCRoEFFKEiVoY7ob
-	Opn/N9ut9c14bkLFlHz5zyTEtvE34sHlUwAF8oU3Xm8lYzGXUxvkth71/G7Sc5roLCP+zDuMNR5
-	6mYoG2Ci8enaZcQEcwscYO4JSiYClGs59RdWnee9aj7NG2wJQcYefZcd3pq2ise8erTh5lZHRK5
-	KHjL1H4Tl/RLM18KvWzZzSpmrewTlWEb49ieV4wsmdBuGss7FgsCeFw3Y8X6BRWzlW+/YIqV1Pu
-	9+OiTqu/PZHIIVx9d/bumSqToOLjbkcqA1si
-X-Google-Smtp-Source: AGHT+IH6uB6hHFdhZ8g1M8LwKBeApp5BdicV5eI/Ca91+dWC9LroL7URt+wK91yNOSkMF1+1W94jDw==
-X-Received: by 2002:a05:6512:1329:b0:540:1dca:52bb with SMTP id 2adb3069b0e04-5422953c126mr191526e87.28.1734655512484;
-        Thu, 19 Dec 2024 16:45:12 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5422382156dsm315960e87.186.2024.12.19.16.45.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 16:45:11 -0800 (PST)
-Date: Fri, 20 Dec 2024 02:45:09 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Maxime Ripard <mripard@kernel.org>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Phong LE <ple@baylibre.com>, 
-	Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Raphael Gallais-Pou <rgallaispou@gmail.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 00/10] drm: add DRM HDMI Codec framework
-Message-ID: <c7qyka3hsrggqevdwdlfcanzps3z63s4joryskijlbuztacmly@tadqjm2vkj24>
-References: <20241217-drm-bridge-hdmi-connector-v7-0-cb9df2b6a515@linaro.org>
- <20241217-vivacious-chameleon-of-swiftness-f1edc4@houat>
- <CAA8EJprjCyWBNkRrc4W24uCwPtf_kxZLqNeNP8EJffbutYQ21w@mail.gmail.com>
- <20241218-wild-red-manatee-bb2a34@houat>
- <CAPY8ntDdcOXuWVgx6+cbgX5ct_-MXcE7CWDKgGP57EX6bvBLaw@mail.gmail.com>
- <CAPY8ntAnJ1YDQee=pFSDY3+EXHj4_RZ-M1NMp2C3ZDdD5DsCKA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPY8ntAnJ1YDQee=pFSDY3+EXHj4_RZ-M1NMp2C3ZDdD5DsCKA@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1734658748; x=1735263548;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cRDKUGnjPxUGgjTzF3qCkNkq62oEn2vSDO7JvD7Kppc=;
+        b=EcGRKb+Z/vEMUNXATTzWcj+2TjALOe9fIX16tGuPV2EzLG0yceLA7TgmmratP6nogP
+         dK2FAe4w6+6X3swirbVFojV6q34bl5MP5At0KbXjnIGUzYHWeEaeyp/yDAw7Bo4ZlSw3
+         gt0pTX04Eg7GX/4A8DLM2cJEG84fC6fnA5B0NPFUI+C3aTiBOMyhdfXej9Sgnep6qABx
+         Twq2yGuDcvxWhmKjsEFQZaaAOl3Y9xpNPlhnytja+2Mvh66904D08P2nAmStZpRYP0wV
+         EypHYAVyNAzWsIexUXZ6lB6QZG+hTuVjIYfCxBFtUgK6GaA4T5ed/2QmtiYe7bqifLO7
+         E5hA==
+X-Gm-Message-State: AOJu0YzQMhF4JjPahMGOTCNDdTut6ncFusfAxPYRGxdNHHxp2JyrNDiU
+	TQWAZY0PL6XWC1MiwZX+//l0Sv/iMMZzAwjgfUfKEwQzfqOqTiRpuXD5QSRKEUPAiEfUwAZvzWY
+	dOw==
+X-Google-Smtp-Source: AGHT+IGKk1u1qooE3KT9EvHF6/wnmuA9XWAa8TXLf9DPPdKposqbF1SIF5jz7mHb6qxYFc6rf04T8dQlWu4=
+X-Received: from pgbda1.prod.google.com ([2002:a05:6a02:2381:b0:7fd:4bf0:25fa])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7fa6:b0:1e3:c763:74d4
+ with SMTP id adf61e73a8af0-1e5c6d6b62dmr8239281637.0.1734658748516; Thu, 19
+ Dec 2024 17:39:08 -0800 (PST)
+Date: Thu, 19 Dec 2024 17:38:58 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20241220013906.3518334-1-seanjc@google.com>
+Subject: [PATCH 0/8] KVM: selftests: Binary stats fixes and infra updates
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_164514_683427_E49804AE 
-X-CRM114-Status: GOOD (  46.94  )
+X-CRM114-CacheID: sfid-20241219_173910_330323_EAA6BCD8 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,127 +89,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 04:16:37PM +0000, Dave Stevenson wrote:
-> On Wed, 18 Dec 2024 at 14:52, Dave Stevenson
-> <dave.stevenson@raspberrypi.com> wrote:
-> >
-> > Hi Maxime & Dmitry
-> >
-> > On Wed, 18 Dec 2024 at 07:59, Maxime Ripard <mripard@kernel.org> wrote:
-> > >
-> > > On Wed, Dec 18, 2024 at 07:24:23AM +0200, Dmitry Baryshkov wrote:
-> > > > On Tue, 17 Dec 2024 at 19:21, Maxime Ripard <mripard@kernel.org> wrote:
-> > > > > On Tue, Dec 17, 2024 at 02:40:22AM +0200, Dmitry Baryshkov wrote:
-> > > > > > While porting lt9611 DSI-to-HDMI bridge driver to use HDMI Connector
-> > > > > > framework, I stumbled upon an issue while handling the Audio InfoFrames.
-> > > > > > The HDMI codec callbacks weren't receiving the drm_atomic_state, so
-> > > > > > there was no simple way to get the drm_connector that stayed at the end
-> > > > > > of the bridge chain. At the same point the drm_hdmi_connector functions
-> > > > > > expected to get drm_connector instance.
-> > > > > >
-> > > > > > While looking for a way to solve the issue, I stumbled upon several
-> > > > > > deficiencies in existing hdmi_codec_ops implementations. Only few of the
-> > > > > > implementations were able to handle codec's 'plugged' callback. One
-> > > > > > third of the drivers didn't implement the get_eld() callback.
-> > > > > >
-> > > > > > Most of the issues can be solved if drm_connector handles
-> > > > > > hdmi-audio-codec on its own, delegating functionality to the actual
-> > > > > > implementation, be it a driver that implements drm_connector or
-> > > > > > drm_bridge.
-> > > > > >
-> > > > > > Implement such high-level framework, adding proper support for Audio
-> > > > > > InfoFrame generation to the LT9611 driver.
-> > > > > >
-> > > > > > Several design decisions to be kept in mind:
-> > > > > >
-> > > > > > - drm_connector_hdmi_codec is kept as simple as possible. It implements
-> > > > > >   generic functionality (ELD, hotplug, registration).
-> > > > > >
-> > > > > > - drm_hdmi_connector sets up HDMI codec device if the connector
-> > > > > >   is setup correspondingly (either I2S or S/PDIF is marked as
-> > > > > >   supported).
-> > > > > >
-> > > > > > - drm_bridge_connector provides a way to link HDMI audio codec
-> > > > > >   funcionality in the drm_bridge with the drm_connector_hdmi_codec
-> > > > > >   framework.
-> > > > > >
-> > > > > > - It might be worth reverting the no_i2s_capture / no_spdif_capture
-> > > > > >   bits. Only TDA889x driver sets them, while it's safe to assume that
-> > > > > >   most of HDMI / DP devices do not support ARC / capture. I think the
-> > > > > >   drivers should opt-in capture support rather than having to opt-out of
-> > > > > >   it.
-> > > > >
-> > > > > Sorry if this isn't clear to me and I'm quite late to the party, but did
-> > > > > you test this on vc4 with both a pi3 and pi4, or was it just compile
-> > > > > tested?
-> > > >
-> > > > LT9611 is actually tested, VC4 is only compile-tested. Should I put an RFT tag?
-> > >
-> > > Yeah, we definitely need to test it on the pi3 (polling-based) and the
-> > > pi4 (irq-based) at least.
-> > >
-> > > Dave, Maira, could you give it a try?
-> >
-> > I'm on it.
-> 
-> Basic checks look OK.
-> Pi3 and Pi4 tested, including 4k60 on Pi4 (enables scrambling). Audio
-> works, and all the EDID parsing seems to be correct.
-> 
-> Ideally I would like to do a couple more tests though as I had a
-> couple of spontaneous reboots on Pi4 whilst hotplugging.
-> Most likely it was just grounding issues, as I can't think of an
-> obvious way for the kernel to be triggering an automatic reboot. They
-> seemed to go away when I had enabled drm.debug=0x14, but more likely
-> I'd connected the serial port and therefore provided another ground.
-> Please don't hold the patches waiting on me though - I don't know when
-> I'll have time to do them.
+Fix a handful of bugs in the binary stats infrastructure, expand support
+to vCPU-scoped stats, enumerate all KVM stats in selftests, and use the
+enumerated stats to assert at compile-time that {vm,vcpu}_get_stat() is
+getting a stat that actually exists.
 
-Tested-by?
+Most of the bugs are benign, and AFAICT, none actually cause problems in
+the current code base.  The worst of the bugs is lack of validation that
+the requested stat actually exists, which is quite annoying if someone
+fat fingers a stat name, tries to get a vCPU stat on a VM FD, etc.
 
-> 
-> 
-> Also unrelated to this patch set, I have noted I'm getting
-> [   60.780897] WARNING: CPU: 3 PID: 501 at
-> drivers/gpu/drm/vc4/vc4_hvs.c:743 __vc4_hvs_stop_channel+0x148/0x164
-> [vc4]
-> ...
-> [   60.781192]  __vc4_hvs_stop_channel+0x148/0x164 [vc4] (P)
-> [   60.781212]  __vc4_hvs_stop_channel+0x40/0x164 [vc4] (L)
-> [   60.781230]  vc4_hvs_stop_channel+0x30/0x3c [vc4]
-> [   60.781248]  vc4_crtc_disable+0x140/0x1e8 [vc4]
-> [   60.781266]  vc4_crtc_atomic_disable+0x98/0xb8 [vc4]
-> [   60.781284]  disable_outputs+0x22c/0x33c [drm_kms_helper]
-> [   60.781326]  drm_atomic_helper_commit_modeset_disables+0x1c/0x4c
-> [drm_kms_helper]
-> [   60.781347]  vc4_atomic_commit_tail+0x10c/0x8e4 [vc4]
-> [   60.781364]  commit_tail+0xa0/0x188 [drm_kms_helper]
-> [   60.781385]  drm_atomic_helper_commit+0x16c/0x180 [drm_kms_helper]
-> [   60.781406]  drm_atomic_commit+0x88/0xc4 [drm]
-> [   60.781500]  drm_client_modeset_commit_atomic+0x204/0x264 [drm]
-> [   60.781553]  drm_client_modeset_commit_locked+0x5c/0x198 [drm]
-> [   60.781603]  drm_client_modeset_commit+0x30/0x58 [drm]
-> [   60.781652]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0xe8
-> [drm_kms_helper]
-> [   60.781674]  drm_fb_helper_hotplug_event+0x108/0x12c [drm_kms_helper]
-> [   60.781695]  drm_fbdev_client_hotplug+0x28/0xd4 [drm_client_lib]
-> [   60.781700]  drm_client_dev_hotplug+0xc8/0x12c [drm]
-> [   60.781750]  drm_connector_helper_hpd_irq_event+0x70/0xb0 [drm_kms_helper]
-> [   60.781771]  vc4_hdmi_hpd_irq_thread+0x2c/0x3c [vc4]
-> [   60.781790]  irq_thread_fn+0x2c/0xa8
-> [   60.781799]  irq_thread+0x16c/0x2f4
-> [   60.781805]  kthread+0x118/0x11c
-> [   60.781813]  ret_from_fork+0x10/0x20
-> On first plugging or unplugging a second monitor. I suspect that is
-> spurious though and I'll look into it, but probably not this side of
-> the Christmas break.
-> 
->   Dave
+FWIW, I'm not entirely convinced enumerating all stats is worth doing in
+selftests.  It seems nice to have?  But I don't know that it'll be worth
+the maintenance cost.  It was easy enough to implement, so here it is...
 
+Sean Christopherson (8):
+  KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
+  KVM: selftests: Close VM's binary stats FD when releasing VM
+  KVM: selftests: Assert that __vm_get_stat() actually finds a stat
+  KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name
+    string
+  KVM: selftests: Add struct and helpers to wrap binary stats cache
+  KVM: selftests: Get VM's binary stats FD when opening VM
+  KVM: selftests: Add infrastructure for getting vCPU binary stats
+  KVM: selftests: Add compile-time assertions to guard against stats
+    typos
+
+Sean Christopherson (8):
+  KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
+  KVM: selftests: Close VM's binary stats FD when releasing VM
+  KVM: selftests: Assert that __vm_get_stat() actually finds a stat
+  KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name
+    string
+  KVM: selftests: Add struct and helpers to wrap binary stats cache
+  KVM: selftests: Get VM's binary stats FD when opening VM
+  KVM: selftests: Add infrastructure for getting vCPU binary stats
+  KVM: selftests: Add compile-time assertions to guard against stats
+    typos
+
+ .../kvm/include/arm64/kvm_util_arch.h         |  12 ++
+ .../testing/selftests/kvm/include/kvm_util.h  |  49 ++++++--
+ .../selftests/kvm/include/kvm_util_types.h    |   6 +
+ .../kvm/include/riscv/kvm_util_arch.h         |  14 +++
+ .../kvm/include/s390/kvm_util_arch.h          | 113 ++++++++++++++++++
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  52 ++++++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  79 ++++++------
+ .../kvm/x86/dirty_log_page_splitting_test.c   |   6 +-
+ .../selftests/kvm/x86/nx_huge_pages_test.c    |   4 +-
+ .../selftests/kvm/x86/xapic_ipi_test.c        |   2 +
+ 10 files changed, 286 insertions(+), 51 deletions(-)
+
+
+base-commit: dcab55cef6f247a71a75a239d4063018dc83a671
 -- 
-With best wishes
-Dmitry
+2.47.1.613.gc27f4b7a9f-goog
+
 
