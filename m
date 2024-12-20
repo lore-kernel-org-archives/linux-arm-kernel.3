@@ -4,59 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F4CE7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:14:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 464FAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D5MczDksDZq4YCKde73RveEbrWPRJVuWovx272mx1Q0=; b=ya1ON12DNsltqcsqS+R/P+cBqz
-	eSqd+BT44jiA4qEyKTGoBe1mR1zO00+PpuHHzxjReH1iCJP/1NePlB5Z/FcHan/ab6BjU0vuLD8kL
-	Ne1dZE7TfBdhs/M3RUv6DxGXWVzUdOnznC/4RvKfmWMWqq10zRoY+kAHGKMlPWcDFyoQNkWmUhcWt
-	YlZ5ta7OQ5jXLkFoUgwHEzRi2BAIY1Yt6y9zhnQ2257p/92PJRdTkShmu/1cedcgWSIObHrRSmONi
-	CUZ86lFO7no9YJgImWDx0l1asHeQFGMY4mnTKGxkjqliib5XJI8wfC5ce6pHme2J6LL/M+eZtx+R3
-	iVjn26UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uGgNCULGT/n64p+sbNnAzVraTfjjydrxlSbigYC4JPQ=; b=LhQzh9PlZBH333W7TKssV7N4v+
+	rC9p+OagWGIzrdUmy1i6ehOeK6uuloD8eVsEHKR5BY9zKrjybCXVDVv2KpAvJ0IEWqPgannUbKytn
+	kbMfeuKKCa/3Emb2L7lnhsi/c8FIz26k1gt/EwXUINxri21tL0QAyHlf4FGxkwrMVohAwc3FHiEu2
+	/2JHpSt1mhnvkgVjwGEL2pMQsHXFBJM2XFoZ3DHcJtEcRdtxLWyECUGyM0bmHBpJY2IIUk3oUqeZ/
+	7kfwWFE0GXdlUvWTCy8NjJr/9t8GZrSIPsflQFjpAhU9evJ8UDEBz5rNAJVTfiRPH9gX44aqJdTe0
+	m+qB05Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOaww-00000004hoA-0E6w;
-	Fri, 20 Dec 2024 11:13:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOaVv-00000004d8O-2rME
+	id 1tOaxB-00000004i4z-03oT;
+	Fri, 20 Dec 2024 11:13:57 +0000
+Received: from mail-dbaeur03on2062c.outbound.protection.outlook.com ([2a01:111:f403:260d::62c] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOaWU-00000004dHC-2rg1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 10:45:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E2BF1480;
-	Fri, 20 Dec 2024 02:46:15 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3CD7C3F720;
-	Fri, 20 Dec 2024 02:45:45 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	mike.leach@linaro.org
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 8/9] coresight-tmc: change tmc_drvdata spinlock's type to raw_spinlock_t
-Date: Fri, 20 Dec 2024 10:45:20 +0000
-Message-Id: <20241220104521.809071-10-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241220104521.809071-1-yeoreum.yun@arm.com>
-References: <20241220104521.809071-1-yeoreum.yun@arm.com>
+	Fri, 20 Dec 2024 10:46:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A2/I/bqVWK2MtGnk9OBfIKGCNXXO+HiDxktHcgP1U8SBZE4NvZO7a67h+Q83CyK6eEwdpkB5U3TLvrBYsMjzgyijBSJhYo5nkghqO+bRguCGbJQR9HOdVV+b3NcwXFOKr9ygDZwp/cH8FXWlvQ8f7V1GJxJU24ywet0iYHPTmGmZVhm9w9ADQ76HT0aMsICksUIzIfrsnnOcqBaPPUYTpynwOOP2cKoWFmj98DRKFakAxgEZVV5B7qCSQe+AhOlmsSDgCgUIZ7syxpU/0MiUOWeut/s0ZIZDTCYntMa22Y9qlO3lVGMFvYAWStf0e6//0EwR04As/z6v7DVGKBFDAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uGgNCULGT/n64p+sbNnAzVraTfjjydrxlSbigYC4JPQ=;
+ b=RfUtOwd0DZFToGTVbndNtLl8ySusqcr4zQC0hyvW1xsWdIhpXfD1+bv+TF4wuE/gcksleBLOoCgXLasGCCCNeIgrBTf+4Hrk5H9OXzERS0KBPtuBVqTj6vvQ2RJdZoWOrkyaZ+xExp6+SpwxXDXT6eCdObFxsL/o6lRE9IL0lsvttx8JSFpizZdNEh6Rt5XwoJolOSjMv2736rFJehF22d12zGCgdYfEOhglTy5gBTBILht6cEfJRI/7dEHUuZBmgmLv2NW8oETS4WzZo3WoE1SAl3lkBkZXYQmQOeS42/5c6oL24h9uVI1U/Wq16n+nWlcko3b0ZBU4Yz+3klhckw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uGgNCULGT/n64p+sbNnAzVraTfjjydrxlSbigYC4JPQ=;
+ b=fagzBFJUMT1tgPtdF4Tf/Rxfxvb9TtELGOoud6CJw2lFBiNk7rjEKY1nRP3cPKqWyHOHRW5h5JL1nJMn1H3FtZprSBdLPmb0rW8q+IObU2n271A92TnxAb+oakH8fC0bRlSkd3768G1Fll1h3L64Djg+tnXwErFeBYAD3xGEheuQ+wcXPD8EjI4ZSwc1fmEImDgXh1g9eWDOuyIb/xLB6R/d8wL6l7pNrqsdab9Y+gWwAJBtZof4Mu4vNU2OMWK+c6Vl9wWlSCZ/n8zBvcjQ4VYgoM68dV+8pR5KOUABtq1DbPshSEJPUJYYw50rS4qQUZKB5fiZUeqQbDWUgx+YSg==
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
+ by PAXPR04MB9375.eurprd04.prod.outlook.com (2603:10a6:102:2b3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.14; Fri, 20 Dec
+ 2024 10:46:17 +0000
+Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
+ ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.005; Fri, 20 Dec 2024
+ 10:46:17 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>, Oleksij Rempel
+	<o.rempel@pengutronix.de>
+CC: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Clark Wang <xiaoning.wang@nxp.com>
+Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
+Thread-Topic: [PATCH v5] i2c: imx: support DMA defer probing
+Thread-Index: AQHbUsxlU5GOLiZkO0OSdObwWi6h0Q==
+Date: Fri, 20 Dec 2024 10:46:17 +0000
+Message-ID: <AM0PR0402MB3937E87BBDC5CEA1C51E4E3AE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+References: <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
+ <Z2QQI2gJNLjI-fam@pengutronix.de>
+ <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UBfcq6pE-JMUrb@pengutronix.de>
+ <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2UK4rMxrtNsPw5V@pengutronix.de>
+ <AM0PR0402MB393781D3109B1B3FF3C2529FE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <b919e252-6ff4-4e55-9bd6-4d610dda5348@pengutronix.de>
+ <Z2UeKZcpeRUt2OQ4@pengutronix.de>
+ <AM0PR0402MB393739E1D91ED2A539B5A2C7E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <Z2Ugt8NVued0_4c4@pengutronix.de>
+ <AM0PR0402MB3937419BBB58B75FB8F8DE2DE8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <89a3b1c9-2be2-4e7f-a0c6-abbf8b88957b@pengutronix.de>
+ <AM0PR0402MB39374CFFA66D8121DB218334E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <451e8c12-7b45-4b12-af10-63f60ba6e92e@pengutronix.de>
+In-Reply-To: <451e8c12-7b45-4b12-af10-63f60ba6e92e@pengutronix.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|PAXPR04MB9375:EE_
+x-ms-office365-filtering-correlation-id: 8aa1ef22-0097-4269-287d-08dd20e38873
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?MGhvNDc2RjlMeHlzSGlRWFVjUFh6YWFZQk1oSHVlY2FhbERjQUgwNDREUkU0?=
+ =?utf-8?B?blF6WkdOcnptY2ltMDNJQ29sZE1BZVZScGYyKzlUOCthbG1KZWg0ZXBkeVFG?=
+ =?utf-8?B?SG5HZUpKZzJ3S3hzQUIwNUtOaXBaa1h0U1NaTXNUZlV3Y2VBRjlnZ1hlQ2xx?=
+ =?utf-8?B?Q25Sd1pveXV0WnRMQXd6VWFxYzZVS1lxNG1KWWFQNStDVUVyVDlkR3ZmdlBQ?=
+ =?utf-8?B?TUIwcUwxVUNwRlRLQ2lRWDV2UFJ6bkFkZXQ3RkJ0S1dnUVdTNGRRQmpLa1FI?=
+ =?utf-8?B?QVE4MlYzbERFcUxKYTRzcTBtcTg5U0ZnYy9SV0FBUi8rcDFQWXpkUkMrZzlx?=
+ =?utf-8?B?SVhrUjVFUTNVbFhDV01NLzlZSitsaDM3OXN4d1ZvNHN1MTU3VnRtNm0zWDc4?=
+ =?utf-8?B?WCtybjBMSXU1NytqT1dMdnh5M0tZYitsSk04WFRpQ1ZFK0R2ekFmN0hXcTRu?=
+ =?utf-8?B?dlAwMm5IbTltRFRyUEt0d0NmajhhYkFaVDZONGp2d3JYSngwdDJlSTF3bU9l?=
+ =?utf-8?B?WEdqTmJiSXZTdmxsWjdUUEZENnl3VkZDVDN1YWFIR2wxZndLS0F2bmtLbU9r?=
+ =?utf-8?B?ejZXZXdiUUg0bFl1OFg0OEJhYnF1K2ljQnNFZ0JLVW05bGlSUC82K2IwaU1k?=
+ =?utf-8?B?VjN3RU83dnVNRzkrSGgzZEZ3SUhyZHNjcDhHYzVuak5JTk9nVmMyRWsrbFBJ?=
+ =?utf-8?B?TjVQYU84NUJYOVJacHhqb211WjNUNFJKaTNyR1N0SWRiaks4VFdtYzk1QUU3?=
+ =?utf-8?B?Q1N4d2srN3dhNFJyVTcxVmlHQUdvY3FqSXJnaXZJajB6cEZ6bjBnRnJDMWx1?=
+ =?utf-8?B?SHh6QnpZNG1NWHJHMFJodTNVV3pSbzdBU0dIUHl6N3JLT1VmVlZLbUNqNzdq?=
+ =?utf-8?B?L1VtaEU1Ry9rejhKZkQzNEEwRmsvNVN3dVgrQmpVRDE3WUc1Nno3em5Tc2c0?=
+ =?utf-8?B?Vkx5dEtZbXpETlVrTDhFUFQySUZEeUdLTHZDQ0JWZVp2VndaSHlXbkR3czd1?=
+ =?utf-8?B?SjUyU2NZQWRHUUdhSTZFTkJESmNVeFZ0UVRobTVTM0JYYmtabGJSRFNjZVJi?=
+ =?utf-8?B?SGM1Z1pENVNmenFMTU9yaEFnbWV5bnBCTVRXTUlzQlErakhoaExaUVVtZ0l1?=
+ =?utf-8?B?OVZqNjRpSHFQN050cFJ4UzhpQVJHREhDVVhkZld5dTNaMmEzSm84NjlwZ2w5?=
+ =?utf-8?B?c0tWVUZJZzFmSkprcEJrcGQ1cnBoWmVVM2VCL3VjK1BQUzEwakZEKzlBTndS?=
+ =?utf-8?B?YVZIcDNDUjVvTGxCaDVDcXhub2VSSGpzQjlDK0VlejJWWVRvczdDNGwxcWlj?=
+ =?utf-8?B?VUdmKzJIcTBvaHB1bS9UL2RBaTBQNWtZVFJzMHJZREp2MTR0K0ZhZll6OTZm?=
+ =?utf-8?B?YmV6NzNRZ3J1SllxYWhxYW44SGl6Um1CVDhLYUo4MC9UZFFmdy9sV2Y3QWlQ?=
+ =?utf-8?B?UmNGeUNpMFc5RFZBZ1pNbHBvTFZwSFRmZS82NVArV1FtdzB1T0hUTlYrQjhU?=
+ =?utf-8?B?akZSY3p6U1J4SUhHclV5K1l1WXhxYjdHbnlQTkRML0tDekFqSjRtNTdXRkVV?=
+ =?utf-8?B?MUt1NmhJd1pHZTRDb1lOSEJNSWl1eFNMUkZac3R5OUdrK0hrYnNwTHAxcFI1?=
+ =?utf-8?B?amZnTmRJQTZ4aWpTVndNS1FFaDZkNDB4TTQzOWx6ejVESmRyWGp4dHlCSkZq?=
+ =?utf-8?B?cldFcU5scEFQSlM2T3FvT2pSWU1UWHlWN0c2dFlpNlJhL0lOeUtYZ2dySGY5?=
+ =?utf-8?B?UzNLMWF3b0llZzd0ZUhQK1J3WDE0ZkpwaWlpdXhTcGRDMGlPcnFROEJJaCt0?=
+ =?utf-8?B?Sis4UndhaGl6OHNLSEIzYkk0RUVmYjFENEdMTWtZN09qMkdTeU1KRndnUSto?=
+ =?utf-8?Q?utR1aNpTeIahZ?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VVAxbzYvUG80NWFhRnFid1R6a08xd1JOUCtqNWxoRnhLcUd3TjExTG9OUWRt?=
+ =?utf-8?B?OUtESVJZak1XOFNwVldNajF6S1B4dFBGZVhuTVI2NVJ2V1owQ2Q0OFlCWVdl?=
+ =?utf-8?B?Q2ZMSE83anNpQ3NQRVV5TUk5NjQ3T2lHeWNNVWI1ZVQzZERXbFliN0toMzB5?=
+ =?utf-8?B?M2lEOW9lVGJiUDFBcjZ6OWwxWFVwMVllZEJ3UlNDNmxxb1F6ektldFR5WExO?=
+ =?utf-8?B?V0hLLzlqc1N5RXorNHUxQ3hpVkVQV2VRUlJsa0xTZEE1c2lHUnZMZ0JodG5X?=
+ =?utf-8?B?YVV0VW52RmlRanZDd0FpcTBQeTFSdHg2VXQrTWR2RFdxcDY0akRLRzZocHZn?=
+ =?utf-8?B?Y3dNSldONkErc2xRS1ZNWVpwT3c3cjBxNGdWdmNudjlZNkdDeVRxeFpNZGQx?=
+ =?utf-8?B?eHZMYUlsMitxSmxza3JtbEFzT2JCYzcxclA4cHNwdUp6dktWTVR2TzIwUlBm?=
+ =?utf-8?B?VlIxZktkWm9DRXE2UWhBVS9SMDJIY3ZYQm5DTDdmVTIvbnh1TWNlT21jY0dz?=
+ =?utf-8?B?MDRuK0RNSVJIa3dQdU8yT01Od3FOcTMwMXhtZjRBQlk0NFl6ZzFESElWbGxk?=
+ =?utf-8?B?ZVdYUURhem02QkY3ZFFHWEQzTE9BWHptTjVjNzlZRERpTThUWnRlZ2E5MExr?=
+ =?utf-8?B?a3BtVlZ3WXBpMkNkaGY3RlNhNkd2bFhObjd4M3RhMDZOcGJ6TGNqcGRxLy9M?=
+ =?utf-8?B?NUpKQ24vdXBkai9wVUw0MzN6ZDdVMkk3RUpkdml2N3BlcjdEQTB5MFgxMFlx?=
+ =?utf-8?B?Wjh4RUsveWhTNTU2RXlpUVEwOHZybGlnTnJPSUlXRWhPSzlvRWFHc0hRMmNV?=
+ =?utf-8?B?cWxZZmFDZG9tZWtqM2Y0NFNhdXF4ckx2eGI4ejlFZ3ZtU3JrNTNQV251Qzcz?=
+ =?utf-8?B?OHRWaEJiRThGVkduUm5vYU1KeUUxbVpKK0Vld2pIV1ozMlpheFNjZk8rUlla?=
+ =?utf-8?B?Qnh6aE5JTStYazcvT0h2eENBSWVGLzA4M2hPN1QwTm5oeXl4c1Q0RnJxMjEv?=
+ =?utf-8?B?QlRaSUxqTThOQjJxbUFXZS9lUEgvQWsrZ3M2YWxKQ3lNTUFDcU05ZFNQVFNp?=
+ =?utf-8?B?OXVYbXMzOVdPQ1BVN2kwTEYrNVdnNVVuSFg2clBwVS9sZnY3ZWNIVURleGZR?=
+ =?utf-8?B?OWNnbk0vY08rcTllYVN5YitIU01hZTgveU8rd1NjSUVHSEdaazdONUsxM2c4?=
+ =?utf-8?B?bG52QmpXUHY5VnovWFliTHNCem9FWWhZbml6V1A2Ym1lcHl3bmJRTUZ4SHhE?=
+ =?utf-8?B?SVpmTElha0dqWE1PbWNxYk9HbHdFb205Q001YXVyR28wellrdzNXYmFQTHhn?=
+ =?utf-8?B?dkd4bUY0SzAzL1M1aDZEVjd4UzJaMFY2dWJZK0Jwb1p3WFVMMFhEdHAzK2xh?=
+ =?utf-8?B?RXNIQUQ3M2tjVXJBT2l4L1I1aDJ0OFY1bElUaEUxM2JvTElXQVhqZzExa2hr?=
+ =?utf-8?B?RXZnY1ZRVG93eHNmRXZ2VktHNDBidWlBV0xsajFTaUNrbG1rR0NYRWJZYytm?=
+ =?utf-8?B?MEhnWHJiVEVNMm5xeEx0emZsbFdaQnZDNmwzSHBHeWdjWVNYdVZqakpJSjJx?=
+ =?utf-8?B?RHJRTzVBekp5QktXRXBCZDFUM2hZSWhTYlNkUDA0MGRQM3lneWhyeFkrRDZO?=
+ =?utf-8?B?VlNYOEE3L3RMTjduMDh0ZTdrNVc4SFdyUU8vUUNlMy9VOExvK2FtdVdTczAy?=
+ =?utf-8?B?aVhJcnhtT1RsSXlyVGtUSWhhb2ZFdTUySy9UMHdVMW81VW9FUVB6OEJwMXlB?=
+ =?utf-8?B?RnVHMVdtUE14Vk81WGF2SEFIc0ptT3ZBekNHK0JvNGRtMG5XR0s5SWUxcS90?=
+ =?utf-8?B?cUtOWVdZcGt0NU1oOHhmUUpMU3JKN2s0RGYvVjNCVTFHOGw1bEQ2NWoxa2Ew?=
+ =?utf-8?B?VDRsZVVoalBEWDcrbEczLzhGL1dIZ2IxZzdZelFremN2NEp3OUtRWlEyS3JJ?=
+ =?utf-8?B?TTJLWVNKdGFrY3VMOWYzckRoVHphcHNBbGozdENiR3VPanJicnlmZHYvOVVF?=
+ =?utf-8?B?UVBTbWxwZXZKVU13Vko3NHppMGtNdm5mRENSSU04SGpRZFQwVFR0cEtsNmU1?=
+ =?utf-8?B?emxlK2FTRm1DbzRmcFBpM0RLZVVGeGZpWGZvRWE3YlhMYVNnbmltaDh2WTRV?=
+ =?utf-8?Q?REPRnDsgPlpR60wMys3399y2B?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8aa1ef22-0097-4269-287d-08dd20e38873
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2024 10:46:17.4979
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dOU+i01s6JFuLRHnOPOwvJxUDLJvXjbi4DtmDkqOBO24E0mdOT22bpsQQ1HzxMZi3/XGknJ+I97Fh5Mf4p5G2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9375
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_024547_823427_354D60DC 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20241220_024622_865721_76E24B07 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,433 +195,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In coresight-tmc drivers, tmc_drvdata->spinlock can be held
-during __schedule() by perf_event_task_sched_out()/in().
-
-Since tmc_drvdata->spinlock type is spinlock_t and
-perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-which is raw_spinlock_t (an unsleepable lock),
-this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
-
-To address this, change type tmc_drvdata->spinlock in coresight-tmc drivers,
-which can be called by perf_event_task_sched_out()/in(),
-from spinlock_t to raw_spinlock_t.
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- .../hwtracing/coresight/coresight-tmc-core.c  |  6 +--
- .../hwtracing/coresight/coresight-tmc-etf.c   | 48 +++++++++----------
- .../hwtracing/coresight/coresight-tmc-etr.c   | 40 ++++++++--------
- drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
- 4 files changed, 48 insertions(+), 48 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index e9876252a789..4e9925300931 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -492,7 +492,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 	drvdata->base = base;
- 	desc.access = CSDEV_ACCESS_IOMEM(base);
- 
--	spin_lock_init(&drvdata->spinlock);
-+	raw_spin_lock_init(&drvdata->spinlock);
- 
- 	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
- 	drvdata->config_type = BMVAL(devid, 6, 7);
-@@ -596,7 +596,7 @@ static void tmc_shutdown(struct amba_device *adev)
- 	unsigned long flags;
- 	struct tmc_drvdata *drvdata = amba_get_drvdata(adev);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_DISABLED)
- 		goto out;
-@@ -610,7 +610,7 @@ static void tmc_shutdown(struct amba_device *adev)
- 	 * the system is going down after this.
- 	 */
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- }
- 
- static void __tmc_remove(struct device *dev)
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-index d4f641cd9de6..fca8e9ffb3cf 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
-@@ -182,9 +182,9 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
- 	 * If we don't have a buffer release the lock and allocate memory.
- 	 * Otherwise keep the lock and move along.
- 	 */
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (!drvdata->buf) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 		/* Allocating the memory here while outside of the spinlock */
- 		buf = kzalloc(drvdata->size, GFP_KERNEL);
-@@ -192,7 +192,7 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
- 			return -ENOMEM;
- 
- 		/* Let's try again */
--		spin_lock_irqsave(&drvdata->spinlock, flags);
-+		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	}
- 
- 	if (drvdata->reading) {
-@@ -235,7 +235,7 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
- 		used = false;
- 	}
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/* Free memory outside the spinlock if need be */
- 	if (!used)
-@@ -253,7 +253,7 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
- 	struct perf_output_handle *handle = data;
- 	struct cs_buffers *buf = etm_perf_sink_config(handle);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	do {
- 		ret = -EINVAL;
- 		if (drvdata->reading)
-@@ -296,7 +296,7 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
- 			csdev->refcnt++;
- 		}
- 	} while (0);
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	return ret;
- }
-@@ -331,16 +331,16 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
- 	unsigned long flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	if (drvdata->reading) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
- 
- 	csdev->refcnt--;
- 	if (csdev->refcnt) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
- 
-@@ -351,7 +351,7 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
- 	drvdata->pid = -1;
- 	coresight_set_mode(csdev, CS_MODE_DISABLED);
- 
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	dev_dbg(&csdev->dev, "TMC-ETB/ETF disabled\n");
- 	return 0;
-@@ -366,9 +366,9 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	bool first_enable = false;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (drvdata->reading) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
- 
-@@ -381,7 +381,7 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
- 	}
- 	if (!ret)
- 		csdev->refcnt++;
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (first_enable)
- 		dev_dbg(&csdev->dev, "TMC-ETF enabled\n");
-@@ -396,9 +396,9 @@ static void tmc_disable_etf_link(struct coresight_device *csdev,
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	bool last_disable = false;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (drvdata->reading) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return;
- 	}
- 
-@@ -408,7 +408,7 @@ static void tmc_disable_etf_link(struct coresight_device *csdev,
- 		coresight_set_mode(csdev, CS_MODE_DISABLED);
- 		last_disable = true;
- 	}
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (last_disable)
- 		dev_dbg(&csdev->dev, "TMC-ETF disabled\n");
-@@ -488,7 +488,7 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
- 	if (WARN_ON_ONCE(coresight_get_mode(csdev) != CS_MODE_PERF))
- 		return 0;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	/* Don't do anything if another tracer is using this sink */
- 	if (csdev->refcnt != 1)
-@@ -585,7 +585,7 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
- 	 */
- 	CS_LOCK(drvdata->base);
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	return to_read;
- }
-@@ -623,7 +623,7 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
- 			 drvdata->config_type != TMC_CONFIG_TYPE_ETF))
- 		return -EINVAL;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	if (drvdata->reading) {
- 		ret = -EBUSY;
-@@ -655,7 +655,7 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
- 
- 	drvdata->reading = true;
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	return ret;
- }
-@@ -672,14 +672,14 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
- 			 drvdata->config_type != TMC_CONFIG_TYPE_ETF))
- 		return -EINVAL;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	/* Re-enable the TMC if need be */
- 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
- 		/* There is no point in reading a TMC in HW FIFO mode */
- 		mode = readl_relaxed(drvdata->base + TMC_MODE);
- 		if (mode != TMC_MODE_CIRCULAR_BUFFER) {
--			spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+			raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 			return -EINVAL;
- 		}
- 		/*
-@@ -693,7 +693,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
- 		memset(drvdata->buf, 0, drvdata->size);
- 		rc = __tmc_etb_enable_hw(drvdata);
- 		if (rc) {
--			spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+			raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 			return rc;
- 		}
- 	} else {
-@@ -706,7 +706,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
- 	}
- 
- 	drvdata->reading = false;
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/*
- 	 * Free allocated memory outside of the spinlock.  There is no need
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index a48bb85d0e7f..a0a90ce7333e 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1176,10 +1176,10 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 	 * buffer, provided the size matches. Any allocation has to be done
- 	 * with the lock released.
- 	 */
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
- 	if (!sysfs_buf || (sysfs_buf->size != drvdata->size)) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 		/* Allocate memory with the locks released */
- 		free_buf = new_buf = tmc_etr_setup_sysfs_buf(drvdata);
-@@ -1187,7 +1187,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 			return new_buf;
- 
- 		/* Let's try again */
--		spin_lock_irqsave(&drvdata->spinlock, flags);
-+		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	}
- 
- 	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
-@@ -1206,7 +1206,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 	}
- 
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/* Free memory outside the spinlock if need be */
- 	if (free_buf)
-@@ -1224,7 +1224,7 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
- 	if (IS_ERR(sysfs_buf))
- 		return PTR_ERR(sysfs_buf);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	/*
- 	 * In sysFS mode we can have multiple writers per sink.  Since this
-@@ -1243,7 +1243,7 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
- 	}
- 
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (!ret)
- 		dev_dbg(&csdev->dev, "TMC-ETR enabled\n");
-@@ -1562,17 +1562,17 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
- 	struct etr_perf_buffer *etr_perf = config;
- 	struct etr_buf *etr_buf = etr_perf->etr_buf;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	/* Don't do anything if another tracer is using this sink */
- 	if (csdev->refcnt != 1) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		goto out;
- 	}
- 
- 	if (WARN_ON(drvdata->perf_buf != etr_buf)) {
- 		lost = true;
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		goto out;
- 	}
- 
-@@ -1582,7 +1582,7 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
- 	tmc_sync_etr_buf(drvdata);
- 
- 	CS_LOCK(drvdata->base);
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	lost = etr_buf->full;
- 	offset = etr_buf->offset;
-@@ -1651,7 +1651,7 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	struct perf_output_handle *handle = data;
- 	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	 /* Don't use this sink if it is already claimed by sysFS */
- 	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
- 		rc = -EBUSY;
-@@ -1691,7 +1691,7 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	}
- 
- unlock_out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 	return rc;
- }
- 
-@@ -1713,16 +1713,16 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
- 	unsigned long flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	if (drvdata->reading) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
- 
- 	csdev->refcnt--;
- 	if (csdev->refcnt) {
--		spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 		return -EBUSY;
- 	}
- 
-@@ -1735,7 +1735,7 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
- 	/* Reset perf specific data */
- 	drvdata->perf_buf = NULL;
- 
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	dev_dbg(&csdev->dev, "TMC-ETR disabled\n");
- 	return 0;
-@@ -1762,7 +1762,7 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
- 	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETR))
- 		return -EINVAL;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	if (drvdata->reading) {
- 		ret = -EBUSY;
- 		goto out;
-@@ -1784,7 +1784,7 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
- 
- 	drvdata->reading = true;
- out:
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	return ret;
- }
-@@ -1798,7 +1798,7 @@ int tmc_read_unprepare_etr(struct tmc_drvdata *drvdata)
- 	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETR))
- 		return -EINVAL;
- 
--	spin_lock_irqsave(&drvdata->spinlock, flags);
-+	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 
- 	/* RE-enable the TMC if need be */
- 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
-@@ -1818,7 +1818,7 @@ int tmc_read_unprepare_etr(struct tmc_drvdata *drvdata)
- 	}
- 
- 	drvdata->reading = false;
--	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	/* Free allocated memory out side of the spinlock */
- 	if (sysfs_buf)
-diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-index 2671926be62a..60b395025bc4 100644
---- a/drivers/hwtracing/coresight/coresight-tmc.h
-+++ b/drivers/hwtracing/coresight/coresight-tmc.h
-@@ -195,7 +195,7 @@ struct tmc_drvdata {
- 	void __iomem		*base;
- 	struct coresight_device	*csdev;
- 	struct miscdevice	miscdev;
--	spinlock_t		spinlock;
-+	raw_spinlock_t		spinlock;
- 	pid_t			pid;
- 	bool			reading;
- 	union {
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQWhtYWQgRmF0b3VtIDxh
+LmZhdG91bUBwZW5ndXRyb25peC5kZT4NCj4gU2VudDogRnJpZGF5LCBEZWNlbWJlciAyMCwgMjAy
+NCA1OjMyIFBNDQo+IFRvOiBDYXJsb3MgU29uZyA8Y2FybG9zLnNvbmdAbnhwLmNvbT47IE9sZWtz
+aWogUmVtcGVsDQo+IDxvLnJlbXBlbEBwZW5ndXRyb25peC5kZT4NCj4gQ2M6IEFuZGkgU2h5dGkg
+PGFuZGkuc2h5dGlAa2VybmVsLm9yZz47IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsNCj4g
+a2VybmVsQHBlbmd1dHJvbml4LmRlOyBzaGF3bmd1b0BrZXJuZWwub3JnOyBzLmhhdWVyQHBlbmd1
+dHJvbml4LmRlOw0KPiBmZXN0ZXZhbUBnbWFpbC5jb207IGxpbnV4LWkyY0B2Z2VyLmtlcm5lbC5v
+cmc7IGlteEBsaXN0cy5saW51eC5kZXY7DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFk
+ZWFkLm9yZzsgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZzsgQ2xhcmsgV2FuZw0KPiA8eGlh
+b25pbmcud2FuZ0BueHAuY29tPg0KPiBTdWJqZWN0OiBbRVhUXSBSZTogW1BBVENIIHY1XSBpMmM6
+IGlteDogc3VwcG9ydCBETUEgZGVmZXIgcHJvYmluZw0KPg0KPiBDYXV0aW9uOiBUaGlzIGlzIGFu
+IGV4dGVybmFsIGVtYWlsLiBQbGVhc2UgdGFrZSBjYXJlIHdoZW4gY2xpY2tpbmcgbGlua3Mgb3IN
+Cj4gb3BlbmluZyBhdHRhY2htZW50cy4gV2hlbiBpbiBkb3VidCwgcmVwb3J0IHRoZSBtZXNzYWdl
+IHVzaW5nIHRoZSAnUmVwb3J0IHRoaXMNCj4gZW1haWwnIGJ1dHRvbg0KPg0KPg0KPiBIaSBDYXJs
+b3MsDQo+DQo+IE9uIDIwLjEyLjI0IDEwOjIzLCBDYXJsb3MgU29uZyB3cm90ZToNCj4gPj4+IEhp
+LCB0aGUgcmV0IGlzIGZyb20gaTJjX2lteF9kbWFfcmVxdWVzdCgpIGFuZCBsb29rIGxpa2UgdGhh
+dCByZXQgaGFzDQo+ID4+PiBiZWVuIGNvbnZlcnRlZCBieSBQVFJfRVJSLCBTbyB0aGUgcmV0IGVy
+cm9yIGhhcyBiZWVuIGh1bWFuIHJlYWRhYmxlDQo+ID4+IHZlcnNpb24/DQo+ID4+DQo+ID4+IEkg
+YW0gbm90IHN1cmUgSSB1bmRlcnN0YW5kIHRoZSBxdWVzdGlvbi4gRVJSX1BUUigpIG1ha2VzIGFu
+IGVycm9yDQo+ID4+IHBvaW50ZXIgYW5kICVwZSBmb3JtYXRzIHRoYXQgcG9pbnRlciBhcyBlcnJv
+ciBtZXNzYWdlLiBTbyB5b3UgZG9uJ3QNCj4gPj4gbmVlZCB0byBjaGFuZ2UgYW55IGZ1bmN0aW9u
+IHJldHVybiB0eXBlcyB1bmxlc3MgbmVlZGVkLCBqdXN0IGF0IHRoZQ0KPiA+PiBlbmQgcHJpbnQg
+aXQgd2l0aCAlcGUgaW5zdGVhZCBvZiAlZCAoYW5kIGFmdGVyIGVycm9yIHBvaW50ZXIgY29udmVy
+c2lvbiBpZg0KPiBuZWVkZWQpLg0KPiA+DQo+ID4gU29ycnksIEkgZG9uJ3Qga25vdyBpZiBJIHVu
+ZGVyc3RhbmQgaXQgaW5jb3JyZWN0bHkuDQo+ID4gSSByZXZpZXcgb3RoZXIgZHJpdmVyIGNvZGUs
+IG1vc3QgY2hvb3NlIHRvIHJldHVybiBlcnJvciB2YWx1ZSBidXQgbm90IGFuIGVycm9yDQo+IHBv
+aW50ZXIuDQo+ID4gU2hvdWxkbid0IGVycm9yIHZhbHVlIOKAi2JlIG1vcmUgcmVhZGFibGUgdGhh
+biBlcnJvciBwb2ludGVycz8NCj4gPiBXaGVuIHdlIHNlZSAtMTEwIHdlIGtub3cgVElNRU9VVCBh
+bmQgd2Ugc2VlIC0xMiB3ZSBrbm93IE5PIE1FTS4NCj4NCj4gSSBrbm93IC0xMTAsIGJ1dCAtMTIg
+SSBuZWVkIHRvIGxvb2sgdXAgOikgQm90aCBhcmUgY3J5cHRpYyB0byBlbmQgdXNlcnMsIHdoaWNo
+IGlzDQo+IHdoeSAlcGUgd2FzIGFkZGVkIG9uIHRvcCBvZiB0aGUgZXhpc3RpbmcgJXA6DQo+DQo+
+IElmIENPTkZJR19TWU1CT0xJQ19FUlJOQU1FIGlzIGVuYWJsZWQgJXBlIGV4cGFuZHMgdG8gYW4g
+ZXJyb3Igc3RyaW5nLCBlLmcuDQo+ICJFTk9NRU0iIG9yICJFVElNRURPVVQiLiBJZiBpdCdzIGRp
+c2FibGVkLCB5b3UgZ2V0IHRoZSBzYW1lIGVycm9yIG51bWJlcg0KPiB0aGF0IHdhcyBwcmludGVk
+IHJhdyBiZWZvcmUuDQo+DQo+IENoZWVycywNCj4gQWhtYWQNCj4NCg0KV293ISBMb29rcyBzbyBj
+b29sLg0KVGhhbmsgeW91IHZlcnkgbXVjaCBmb3IgeW91ciBwYXRpZW50IGV4cGxhbmF0aW9uISBJ
+IGFncmVlIGl0Lg0KDQpBbHNvIEkgd2lsbCBjaGFuZ2UgdGhlIGNvbW1lbnQgZnJvbSB5b3VyIHN1
+Z2dlc3Rpb25bMV06DQoNCiINCiAgLyoNCiAgICogQXMgd2UgY2FuIGFsd2F5cyBmYWxsIGJhY2sg
+dG8gUElPLCBsZXQncyBpZ25vcmUgdGhlIGVycm9yIHNldHRpbmcgdXANCiAgICogRE1BIGFuZCBz
+ZWUgaWYgd2UgcnVuIGludG8gZXJyb3JzIHdoaWxlIHNldHRpbmcgdXAgUElPIG1vZGUuDQogICAq
+Lw0KIg0KSW4gZmFjdCwgb3RoZXIgZXJyb3JzIGFyZSBhbHNvIGZyb20gRE1BIHNldHRpbmcgbm90
+IGZyb20gc2V0dGluZyBQSU8gbW9kZS4NClNvIGNhbiBJIGNvbW1lbnQgc2ltcGx5IGxpa2UgdGhp
+cz8NCg0KICAgICAgICAvKiBBcyB3ZSBjYW4gYWx3YXlzIGZhbGwgYmFjayB0byBQSU8sIGxldCdz
+IGlnbm9yZSB0aGUgZXJyb3Igc2V0dGluZyB1cCBETUEuICovDQogICAgICAgIHJldCA9IGkyY19p
+bXhfZG1hX3JlcXVlc3QoaTJjX2lteCwgcGh5X2FkZHIpOw0KICAgICAgICBpZiAocmV0KSB7DQog
+ICAgICAgICAgICAgICAgaWYgKHJldCA9PSAtRVBST0JFX0RFRkVSKQ0KICAgICAgICAgICAgICAg
+ICAgICAgICAgZ290byBjbGtfbm90aWZpZXJfdW5yZWdpc3RlcjsNCiAgICAgICAgICAgICAgICBl
+bHNlIGlmIChyZXQgPT0gLUVOT0RFVikNCiAgICAgICAgICAgICAgICAgICAgICAgIGRldl9kYmco
+JnBkZXYtPmRldiwgIk9ubHkgdXNlIFBJTyBtb2RlXG4iKTsNCiAgICAgICAgICAgICAgICBlbHNl
+DQogICAgICAgICAgICAgICAgICAgICAgICBkZXZfZXJyKCZwZGV2LT5kZXYsICJGYWlsZWQgdG8g
+c2V0dXAgRE1BICglcGUpLCBvbmx5IHVzZSBQSU8gbW9kZVxuIiwgRVJSX1BUUihyZXQpKTsNCiAg
+ICAgICAgfQ0KDQpbMV1odHRwczovL2xvcmUua2VybmVsLm9yZy9pbXgvODlhM2IxYzktMmJlMi00
+ZTdmLWEwYzYtYWJiZjhiODg5NTdiQHBlbmd1dHJvbml4LmRlLw0KDQpCUg0KQ2FybG9zDQo+ID4N
+Cj4gPiBpMmNfaW14X2RtYV9yZXF1ZXN0IGlzIHVzaW5nIFBUUl9FUlIgdG8gY29udmVydCBwb2lu
+dGVyIHRvIGVycm9yIHZhbHVlWzFdLg0KPiA+IEkgZG9uJ3Qga25vdyB3aHkgbmVlZCB0byB1c2Ug
+RVJSX1BUUiB0byByZWNvbnZlcnQgdGhlIHZhbHVlIHRvIHBvaW50ZXI6DQo+ID4NCj4gPiBkZXZf
+ZXJyKCZwZGV2LT5kZXYsICJGYWlsZWQgdG8gc2V0dXAgRE1BICglcGUpLCBvbmx5IHVzZSBQSU8g
+bW9kZVxuIiwNCj4gPiBFUlJfUFRSKHJldCkpOw0KPiA+DQo+ID4gSXMgdGhlcmUgc29tZSBzdHJv
+bmcgcmVhc29uPw0KPiA+DQo+ID4gWzFdDQo+ID4gaHR0cHM6Ly9sb3JlLw0KPiA+IC5rZXJuZWwu
+b3JnJTJGaW14JTJGQU0wUFIwNDAyTUIzOTM3NDE5QkJCNThCNzVGQjhGOERFMkRFODA3MiUNCj4g
+NDBBTTBQUjA0DQo+ID4NCj4gMDJNQjM5MzcuZXVycHJkMDQucHJvZC5vdXRsb29rLmNvbSUyRiZk
+YXRhPTA1JTdDMDIlN0NjYXJsb3Muc29uZyU0DQo+IDBueHANCj4gPiAuY29tJTdDMTNhOGU2NTMy
+ZGQ3NDM1YzMwMjAwOGRkMjBkOTI4MTklN0M2ODZlYTFkM2JjMmI0YzZmYTkyYw0KPiBkOTljNWMz
+MA0KPiA+DQo+IDE2MzUlN0MwJTdDMCU3QzYzODcwMjgzOTIyNzYxODc1NCU3Q1Vua25vd24lN0NU
+V0ZwYkdac2IzZDhleUoNCj4gRmJYQjBlVTFoDQo+ID4NCj4gY0draU9uUnlkV1VzSWxZaU9pSXdM
+akF1TURBd01DSXNJbEFpT2lKWGFXNHpNaUlzSWtGT0lqb2lUV0ZwYkNJc0lsZFVJag0KPiA+DQo+
+IG95ZlElM0QlM0QlN0MwJTdDJTdDJTdDJnNkYXRhPTJBNnFQbEZFdVcxU21sdk9aN09odGZPN1Z3
+cXlzTQ0KPiBjR2hGTDJHJTJGDQo+ID4gRUNOZWslM0QmcmVzZXJ2ZWQ9MA0KPiA+Pg0KPiA+PiAt
+LQ0KPiA+PiBQZW5ndXRyb25peCBlLksuICAgICAgICAgICAgICAgICAgICAgICAgICAgfA0KPiA+
+PiB8DQo+ID4+IFN0ZXVlcndhbGRlciBTdHIuIDIxICAgICAgICAgICAgICAgICAgICAgICB8DQo+
+ID4+IGh0dHA6Ly93d3cvLg0KPiA+Pg0KPiBwZW4lMkYmZGF0YT0wNSU3QzAyJTdDY2FybG9zLnNv
+bmclNDBueHAuY29tJTdDMTNhOGU2NTMyZGQ3NDM1YzMwDQo+IDIwMDhkDQo+ID4+DQo+IGQyMGQ5
+MjgxOSU3QzY4NmVhMWQzYmMyYjRjNmZhOTJjZDk5YzVjMzAxNjM1JTdDMCU3QzAlN0M2Mzg3MDI4
+Mw0KPiA5MjI3NjMNCj4gPj4NCj4gODA3NyU3Q1Vua25vd24lN0NUV0ZwYkdac2IzZDhleUpGYlhC
+MGVVMWhjR2tpT25SeWRXVXNJbFlpT2lJd0xqQQ0KPiB1TURBdw0KPiA+Pg0KPiBNQ0lzSWxBaU9p
+SlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJbGRVSWpveWZRJTNEJTNEJTdDMCU3QyU3QyU3QyZz
+DQo+IGRhDQo+ID4+DQo+IHRhPUxhc0x0cGU3R2pzRzVxVlVLRyUyRk9tVnJvMkp1ZUdMZndVUEFM
+dzclMkZCMmZnJTNEJnJlc2VydmVkPQ0KPiAwDQo+ID4+DQo+IGd1dHJvbml4LmRlJTJGJmRhdGE9
+MDUlN0MwMiU3Q2Nhcmxvcy5zb25nJTQwbnhwLmNvbSU3QzU5NDQ5N2RiMWI1DQo+ID4+DQo+IDQ0
+ZTQ3OWE4ZjA4ZGQyMGQxZTg4ZSU3QzY4NmVhMWQzYmMyYjRjNmZhOTJjZDk5YzVjMzAxNjM1JTdD
+MCU3QzANCj4gPj4gJTdDNjM4NzAyODA4MTA0OTAzMTMxJTdDVW5rbm93biU3Q1RXRnBiR1pzYjNk
+OGV5SkZiWEIwZVUxaGMNCj4gR2tpDQo+ID4+DQo+IE9uUnlkV1VzSWxZaU9pSXdMakF1TURBd01D
+SXNJbEFpT2lKWGFXNHpNaUlzSWtGT0lqb2lUV0ZwYkNJc0lsZFVJam95Zg0KPiA+Pg0KPiBRICUz
+RCUzRCU3QzAlN0MlN0MlN0Mmc2RhdGE9RW5oc0lGbEJvb3FqQiUyRlNSV0Y3dUFxUkhFM3lONnJi
+ZA0KPiBEDQo+ID4+IDF5UXVlVHJSdXMlM0QmcmVzZXJ2ZWQ9MCAgfA0KPiA+PiAzMTEzNyBIaWxk
+ZXNoZWltLCBHZXJtYW55ICAgICAgICAgICAgICAgICAgfCBQaG9uZToNCj4gKzQ5LTUxMjEtMjA2
+OTE3LTANCj4gPj4gfA0KPiA+PiBBbXRzZ2VyaWNodCBIaWxkZXNoZWltLCBIUkEgMjY4NiAgICAg
+ICAgICAgfCBGYXg6DQo+ID4+ICs0OS01MTIxLTIwNjkxNy01NTU1IHwNCj4NCj4NCj4gLS0NCj4g
+UGVuZ3V0cm9uaXggZS5LLiAgICAgICAgICAgICAgICAgICAgICAgICAgIHwNCj4gfA0KPiBTdGV1
+ZXJ3YWxkZXIgU3RyLiAyMSAgICAgICAgICAgICAgICAgICAgICAgfA0KPiBodHRwOi8vd3d3LnBl
+bi8NCj4gZ3V0cm9uaXguZGUlMkYmZGF0YT0wNSU3QzAyJTdDY2FybG9zLnNvbmclNDBueHAuY29t
+JTdDMTNhOGU2NTMyZGQNCj4gNzQzNWMzMDIwMDhkZDIwZDkyODE5JTdDNjg2ZWExZDNiYzJiNGM2
+ZmE5MmNkOTljNWMzMDE2MzUlN0MwJTdDMA0KPiAlN0M2Mzg3MDI4MzkyMjc2NTI3MjUlN0NVbmtu
+b3duJTdDVFdGcGJHWnNiM2Q4ZXlKRmJYQjBlVTFoY0draQ0KPiBPblJ5ZFdVc0lsWWlPaUl3TGpB
+dU1EQXdNQ0lzSWxBaU9pSlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJbGRVSWpveWZRDQo+ICUz
+RCUzRCU3QzAlN0MlN0MlN0Mmc2RhdGE9SG02MFFMNWRKMmgzT0Nlc09YSzg3MUFTbks3czBMNFNQ
+aVkNCj4gYkswanRTT28lM0QmcmVzZXJ2ZWQ9MCAgfA0KPiAzMTEzNyBIaWxkZXNoZWltLCBHZXJt
+YW55ICAgICAgICAgICAgICAgICAgfCBQaG9uZTogKzQ5LTUxMjEtMjA2OTE3LTANCj4gfA0KPiBB
+bXRzZ2VyaWNodCBIaWxkZXNoZWltLCBIUkEgMjY4NiAgICAgICAgICAgfCBGYXg6DQo+ICs0OS01
+MTIxLTIwNjkxNy01NTU1IHwNCg==
 
