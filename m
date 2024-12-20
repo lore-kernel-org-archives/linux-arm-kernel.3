@@ -4,130 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2F2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F74E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 14:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+TvdBfWvVPAcsK8VbC159CKm8RgkJY+V79Gv5r8DN4=; b=jFutwKVX0wIve1gm2jAOJid589
-	6inh2mQrc0DpZH2Ttj89wfjtkzbsO54YbtkTF+VfTIemyVKEMsZZR4Kg4OHyfqHJvPi/fvacG9fvq
-	aP+CKsfkyjjyhB58L2mW0G/o1TXL8FQRTwoGmHUWbvaWfS5wdMOnoCREFoxhgkWS6QrG4byNEmEAB
-	u1euMRR9dhAogtdPzFMzt81mQtmGM+L7jD56WKRy6SnsoUSdcYutPVDAjvgvWOWq0z4zyRyqtSehM
-	YfEF5cpbuU+lSv+zzzujIrj6Ey8fjafSnNttVhe55c9pcL07UjEVXJjgWcC0+5RAnBUrGkc8wqCt5
-	duoXCO2Q==;
+	bh=lRqWQ9kuH5smVaJB9GZ9PXPUlnPdZKZchIBVzev3PSQ=; b=3lrvcicQ4XGFY2oKVX0/WK5BeZ
+	4n8KITsd2GBKX4hreVEK180T4P7UWx150rhegrGoigeHDZZ2Cpdm6O6o6kav6I9As4plFeTNw75IY
+	NwyL0tiudN3as5Jgj3bblD/WvV1/vIfDQoE5tCdVhiPc4pAPGe1+iQCg11OX7ahzwXWp+w0tIgmr8
+	znRCBdPxHPkR9oVXKFoQ51JRx5/N95gnrQ1fy7VVdBppWPxm+zln3pmSNYhbzJN2t4hlRjbrH4oNL
+	NWb4juYwEjc7MuCctRj+x9wwDZuICQWf/Pj5P5M+U/KlPryvMOOlW891vcnzpb3EtpU5vX4TTZBWS
+	K0zcJwWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOeM1-00000005DUi-0rad;
-	Fri, 20 Dec 2024 14:51:49 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tOeN9-00000005E0g-1sEO;
+	Fri, 20 Dec 2024 14:52:59 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOeGO-00000005BhV-11qU;
-	Fri, 20 Dec 2024 14:46:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734705961; x=1766241961;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=l+TvdBfWvVPAcsK8VbC159CKm8RgkJY+V79Gv5r8DN4=;
-  b=exy/5OI+yMjH1vFR0l7G55wy6iz0Pg4b/WbN0wlMJ394M75aH4EusQft
-   kv6kPrxcAD96oVKLyZpkMaO3DcqaLsU+Sfj+ZKajHYiYim54WLZilgzby
-   2GZoFZPNrFeseARzkPttZf0Qa0CZedoxQT5b4gejEw2u34cw137UWUKim
-   LMA8YbPuoZ0ZZN66NBMPejH1l0LBVHN/fVO+t1z12LJK0r9jqvKsHaVFG
-   R4McrBbWlamUUcqeELx0Tfv6eLt8fySi4VlsmC8xYwyXhg8dSEgjHlnTe
-   j+U9zHbtbXiyY9sAIyctYT6QNSH+sozu5DRHtS8gAM25f9wBcfyI3roOy
-   w==;
-X-CSE-ConnectionGUID: Xkot/9HtQo+gOToW470nVA==
-X-CSE-MsgGUID: aZ0jmKsATPWkwrdqIjW/sw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="39040671"
-X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="39040671"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 06:45:59 -0800
-X-CSE-ConnectionGUID: hdInxSi0Qf+/UQqd7LkLGQ==
-X-CSE-MsgGUID: OYmUDywbTrqpRN47tHU7cw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="98311222"
-Received: from jairdeje-mobl1.amr.corp.intel.com (HELO [10.124.221.219]) ([10.124.221.219])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 06:45:56 -0800
-Message-ID: <719c5aa7-63ad-43f1-a2e8-644ef220db4f@intel.com>
-Date: Fri, 20 Dec 2024 06:45:55 -0800
+	id 1tOeGP-00000005BiY-3j8h
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Dec 2024 14:46:03 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-385e1fcb0e1so1168605f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 06:46:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734705960; x=1735310760; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lRqWQ9kuH5smVaJB9GZ9PXPUlnPdZKZchIBVzev3PSQ=;
+        b=y0ZNZ05SwhPedgix9mUNwvxu4RjThmgBmuLug5LEGWyV7Ar9tlMVab/mBxtMSEOgYz
+         7qj9JyVbj7lt46SpSK+5IlTgx6md+EOc0yXG1RtFvjsMJBNhutXRv516zPLH+KdeqgZH
+         3V69mIVKeK8iH3VmrMK7UTlVgFJ5TDJ2s6K0ydMcIsEvnO/Ep6JXzqmT4YbMgW6eri5l
+         xB3xM5DuUk+rhp1ZZbHnSR2fNtd74sPApaKEz4eJWg6H02tkYx/fWMDBB0Bk4tuiUjxA
+         nTmq7gsmVxAraFZy7im/18GRCYCrPxjI57fCivvGq4PuUkfRNPJUidVZxUANnq4liDP/
+         72vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734705960; x=1735310760;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lRqWQ9kuH5smVaJB9GZ9PXPUlnPdZKZchIBVzev3PSQ=;
+        b=NO/4S3M3Nh9C7M7dvEycKzyVYHCz9fvocvcjR1F+FO8csMxb6bNNf20GjuiaeoxC8+
+         Y1PvSQ1A5zMomiJIrcnqsxOXkCLVZ4iguKSOet3WGm68BUMP5jurDxjYtoKoceCqA/ym
+         vduu4NkFg87LnzjuNZqJ+djM1kjLhHVTIT2b2QAmJQ70fHsRoXe1fhjjksF5+Dv2Ls4X
+         77oq6YlXJXYtqZS3jXD3O91b4PvwnNKb3Z4umkxt05ABGpr5Kc2Y6B0L/pR4rFK3Qbfp
+         RY58QQsLq2Zb6l2ll+1+rXF85AE+Uk4eIsOMPS+Z26K8SjuPlSLGDkSTqZV+viEVCSps
+         xHcg==
+X-Gm-Message-State: AOJu0YzYSz6Y/0B8IfCamsEdx+2IrUPW6ubV52XDoAIU47U5pR0VT8Jj
+	LjJyqLwQekme/Wvt3fQcJeFLpFlZ8p1B8q69qXXRjj0e6wAi9Hlv1SLM2A8c55c=
+X-Gm-Gg: ASbGncvadRZN5JDyQEIFhZJz0OKHHsAQ64X2A0oT1PbFVpzmH8HIRWEmiXqhz+0yW9k
+	dlQDfcGyl2WL2MsIR10wLKnJacSw9wHX/30pfWS33y6cjDfRR2EWoeaMOcjyWxURPdXch1OO1tc
+	m3GpCgHOAupY4OjfRsnwO6bRY7cQQuAg3yQTPTLrDjm8N6o+jYTG/eno6qjslNZ/IrVXdw03w8O
+	jydVjBTB3PHXmanELbd/hTLgiq89Vuc7BTNFtxqLQMjH5htLMUUQlgDTj8+/C6bLf8DPER0Hj1V
+	UKajJVrTLaeJBrygJJrDdTbvHHoCcvFhkiJF
+X-Google-Smtp-Source: AGHT+IGTa4AymaocDQHTU1ovTmqG12Q6/ra0E3vms/hl6zSMw0VKvp/iKmrVp1auYP0DQmQ0Vh1dsw==
+X-Received: by 2002:a05:6000:2a1:b0:385:f060:b7fc with SMTP id ffacd0b85a97d-38a221fee1amr3215271f8f.25.1734705960152;
+        Fri, 20 Dec 2024 06:46:00 -0800 (PST)
+Received: from ta2.c.googlers.com (130.173.34.34.bc.googleusercontent.com. [34.34.173.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c84705esm4227874f8f.44.2024.12.20.06.45.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Dec 2024 06:45:59 -0800 (PST)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Fri, 20 Dec 2024 14:45:47 +0000
+Subject: [PATCH v3 4/4] arm64: defconfig: enable ACPM protocol and Exynos
+ mailbox
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Account page tables at all levels
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <a7398426-56d1-40b4-a1c9-40ae8c8a4b4b@intel.com>
- <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20241220-gs101-acpm-dt-v3-4-642d64daa5d1@linaro.org>
+References: <20241220-gs101-acpm-dt-v3-0-642d64daa5d1@linaro.org>
+In-Reply-To: <20241220-gs101-acpm-dt-v3-0-642d64daa5d1@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com, 
+ peter.griffin@linaro.org, daniel.lezcano@linaro.org, 
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de, 
+ Jassi Brar <jassisinghbrar@gmail.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1734705955; l=1030;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=QNflK95J1oyB5GCiuNhKyRcaPvjpw4cTQ+4gOGCRcP0=;
+ b=vMDlLV8zkiu0QyCRA1oLZkqsQZqt82J/23WzoFyTba2TkjJ/xdmEoZm0WpCiRzh9wxG2vYg40
+ X/OKV9w9QumBwzhDsMK2KNl0vJ1zLENtCaQz3xOvrcCmH9So5edlr+z
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_064600_339893_11359CB3 
-X-CRM114-Status: UNSURE (   5.48  )
+X-CRM114-CacheID: sfid-20241220_064601_944011_170B0F1E 
+X-CRM114-Status: UNSURE (   9.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -143,10 +114,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/20/24 02:58, Kevin Brodsky wrote:
->> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
-> Just to double-check, are your ack'ing the x86 changes specifically? If
-> so I'll add your Acked-by on patch 6, 7 and 9.
+Enable the Samsung Exynos ACPM protocol and its transport layer, the
+Exynos mailbox driver. Samsung Exynos platforms implement ACPM to
+provide support for PMIC, clock frequency scaling, clock configuration
+and temperature sensors.
 
-Feel free to add it to each patch in the series.
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index c62831e61586..91139b1cf813 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -262,6 +262,7 @@ CONFIG_IMX_SCU=y
+ CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
+ CONFIG_QCOM_QSEECOM=y
+ CONFIG_QCOM_QSEECOM_UEFISECAPP=y
++CONFIG_EXYNOS_ACPM_PROTOCOL=m
+ CONFIG_GNSS=m
+ CONFIG_GNSS_MTK_SERIAL=m
+ CONFIG_MTD=y
+@@ -1378,6 +1379,7 @@ CONFIG_HWSPINLOCK_QCOM=y
+ CONFIG_TEGRA186_TIMER=y
+ CONFIG_RENESAS_OSTM=y
+ CONFIG_ARM_MHU=y
++CONFIG_EXYNOS_MBOX=m
+ CONFIG_IMX_MBOX=y
+ CONFIG_OMAP2PLUS_MBOX=m
+ CONFIG_PLATFORM_MHU=y
+
+-- 
+2.47.1.613.gc27f4b7a9f-goog
+
 
