@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148B8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E531E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jE0qfDouJvhWVjaQJwUlqqQeA1+Dv+drOhv3IRpZtAU=; b=Op9VR4HvfFJHCfi6VIDGk6l+KR
-	GYKnPuUOThUzpYjhRnmiMGjJJEx/HisdRFrCNf8QNizdTH7bcIp2MbpXp3i8DIvl5WroShH4hn5IW
-	ka6izvAWTxNwLRLGLgYuvxqskfcajE6WJY35FxHC/UbCHu9OW/0HTQjicU60Oiu6EFsoO3zE3Efd3
-	6VWJVNfsA+Ibp0QQutIwXectyLO6dTbDqGYQljChiqGSFH/7fmOeCkTwFWC5TC6GMmx+9FjzTyqYg
-	hGai8Lsk8/6wJ4BndSt952/PDNYfzvmSXZHLoWvfQ1COpuAArVX8ep+281ScVE25oq0ZUwtfTf0D9
-	v9DPZ9EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GC/DrlLoSA87gsyjAs/dvGkNKg7ZjWHgVvyPR97og+Y=; b=RcV86B/X1dyLdNAtT1FYzZXYqs
+	F6E3WoPF+hpIsNGn/HBFjIL5kee6XzW6PH6VvvwA5xPgaioJxAAryXbTLEOhl37DQ/Ltkc8X5mPAh
+	oJzMSpBCFFOj0ouU+Wht3TF2asp0iVWzM8Z3xuI5NGoPx0iI5L4Fn3t7p7RXh/asc7aPgqv3YI7LZ
+	gvlNLUaePk2fhZ6ttB/FgGau6EMU/GErJJ+BVrgD3l40WClYlLfMrZgthphW5IdlT60Oms1bC6Jaf
+	kUpQKAS6l3GTXu8j9pUgVJmalmbg10OgBl5/gIUIzwaDCGxonUTKVfSehNdz4EE1TpGUIoSwrr+/W
+	PsFwx1Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWH2-000000043iD-1Kuu;
-	Fri, 20 Dec 2024 06:14:08 +0000
+	id 1tOWPk-000000044xE-3lKc;
+	Fri, 20 Dec 2024 06:23:08 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWFt-000000043Ty-108w
+	id 1tOWOb-000000044l0-44w2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 06:12:58 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tOWFn-0000a5-09; Fri, 20 Dec 2024 07:12:51 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tOWFl-004KXK-2y;
-	Fri, 20 Dec 2024 07:12:50 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tOWFm-00AMqK-1s;
-	Fri, 20 Dec 2024 07:12:50 +0100
-Date: Fri, 20 Dec 2024 07:12:50 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v5] i2c: imx: support DMA defer probing
-Message-ID: <Z2UK4rMxrtNsPw5V@pengutronix.de>
-References: <20241218043541.143194-1-carlos.song@nxp.com>
- <dhn3f2xpdpu757pizdhcksqiqo53szeh65gtmddfxfhotimh2z@dfxfpl3int53>
- <Z2QQI2gJNLjI-fam@pengutronix.de>
- <AM0PR0402MB3937C9A79C55BF4C279F8099E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <Z2UBfcq6pE-JMUrb@pengutronix.de>
- <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+	Fri, 20 Dec 2024 06:21:59 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tOWOI-0001i8-15; Fri, 20 Dec 2024 07:21:38 +0100
+Message-ID: <44278a64-7578-4109-aef3-4888627166d1@pengutronix.de>
+Date: Fri, 20 Dec 2024 07:21:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <AM0PR0402MB3937347200BF1967EB677123E8072@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] arm64: dts: freescale: imx8mp-skov: switch to nominal
+ drive mode
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
+ Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
+ <20241220061613.GB8295@localhost.localdomain>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20241220061613.GB8295@localhost.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_221257_275732_5AE7815D 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20241219_222158_014763_837CE56A 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,33 +77,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 05:59:38AM +0000, Carlos Song wrote:
-> > > So we make this logic. Anyway we let the I2C controller registered whether
-> > DMA is available or not(except defer probe).
-> > > Ignoring ENODEV and EPROBE_DEFER makes it looks like nothing happened if
-> > DMA is defer probed or not enabled(This is an expected).
-> > > However we still need i2c DMA status is known when meet an unexpected
-> > error, so we use dev_err_probe() to print error.
-> >
-> > Why dev_err_probe() instead of dev_err()?
-> >
-> Hi,
-> In patch V2 discussion, Marc suggested just return dev_err_probe(), but I don't accept it so I choose to use dev_err_probe() to print error in V3.[1]
-> In this case, the two APIs have the same function, do you mean dev_err() is more suitable?
+Hello Peng,
 
-Yes, dev_err_probe() should be used in combination with return. For
-example:
-  return dev_err_probe(...);
+On 20.12.24 07:16, Peng Fan wrote:
+> On Thu, Dec 19, 2024 at 08:27:31AM +0100, Ahmad Fatoum wrote:
+>> Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the imx8mp.dtsi
+>> configures some clocks at frequencies that are only validated for
+>> overdrive mode, i.e., when VDD_SOC is 950 mV.
+>>
+>> For the Skov i.MX8MP board, we want to run the SoC at the lower voltage of
+>> 850 mV though to reduce heat generation and power usage. For this to work,
+>> clock rates need to adhere to the limits of the nominal drive mode.
+>>
+>> This is done by this series: A new imx8mp-nominal.dtsi reconfigures
+>> the imx8mp.dtsi clock tree to be compatible with nominal mode, an adaptation
+>> to the Linux clock driver makes it sanity check the actual clock rates against
+>> the SoC operating mode's constraints and finally the Skov DT makes use
+>> of it.
+>>
+>> Actual configuration of the VDD_SOC rail continues to happen prior to Linux
+>> as well as PLL configuration that needs to happen earlier than the kernel
+>> running. See the corresponding barebox patch series[1] for details.
+>> Note that the barebox series didn't yet include VDD_SOC reconfiguration
+>> to 850mV, that would follow once the kernel changes have been merged.
+> 
+> Good to see this. I had same plan to support i.MX9.
+> 
+> I see you introduce a new property, how about using a boot pararmeter,
+> saying "mode=nominal" or "mode=overdrive". Then drivers could
+> act accordingly.
 
-It will pass the return value on exit of the function and optionally
-print of the error message if it is not EPROBE_DEFER. Practically it
-replace commonly used coding pattern:
-  if (ret == -EPROBE_DEFER) {
-    return ret;
-  } else if (ret) {
-    dev_err(..);
-    return ret;
-  }
+I assume you would place that parameter in drivers/soc/imx/soc-imx8m.c?
+
+That's certainly possible as well, but I think for such a hardware property,
+the device tree is the natural place.
+
+Thanks,
+Ahmad
+
+> 
+> Regards,
+> Peng
+> 
+>>
+>> [1]: https://lore.kernel.org/barebox/20240503103717.1370636-1-a.fatoum@pengutronix.de/
+>>
+>> ---
+>> Ahmad Fatoum (6):
+>>      dt-bindings: clock: imx8m: document nominal/overdrive properties
+>>      arm64: dts: imx8mp: Add optional nominal drive mode DTSI
+>>      arm64: dts: imx8mp: add fsl,nominal-mode property into nominal.dtsi
+>>      arm64: dts: freescale: imx8mp-skov: fix LDB clock rate configuration
+>>      arm64: dts: freescale: imx8mp-skov: operate SoC in nominal mode
+>>      clk: imx8mp: inform CCF of maximum frequency of clocks
+>>
+>> .../devicetree/bindings/clock/imx8m-clock.yaml     |  14 ++
+>> arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi  |  64 +++++++++
+>> .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi |   5 +-
+>> .../freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts  |  19 +--
+>> drivers/clk/imx/clk-imx8mp.c                       | 147 +++++++++++++++++++++
+>> 5 files changed, 233 insertions(+), 16 deletions(-)
+>> ---
+>> base-commit: 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
+>> change-id: 20241217-imx8m-clk-9467763dfcd8
+>>
+>> Best regards,
+>> -- 
+>> Ahmad Fatoum <a.fatoum@pengutronix.de>
+>>
+> 
+
 
 -- 
 Pengutronix e.K.                           |                             |
