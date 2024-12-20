@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D43E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F2BE7718A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 06:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVYlmQM6KaWb9WlkvSlzxKChXx349SGeJ0+LKwbE7Ps=; b=FJ9pFWsBCdVxtcIk3RrSK+mIPb
-	o/pkxaWKHJA0RI/m/rIf/UwOeFZ0PRhrs9ZgC4y42YW1c4x/loFzoGqNl7JaLvSrUcCSzHEVR8nFp
-	Xr978GCh81XkrErii4zpyEojhTa9TXsEVm/m0emdg2N5/eeHZLURIe3uwYQ6T8fjhy83fu0weoXQd
-	69ZyAB3CwQ0sVdvvBUATJnIVcHXQDWMJPO9+nsPVtzOTFsa5HHD8TcdqVUO+pILLMFUI6iQ/zta8w
-	x5KE2ACFQEUM6uv6063mpEJbGmaECXdgrFUXDMmXFZUOUPp3KiESeth8BOePQ9EohvmcrOQoC4S8h
-	eLp+7PXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DX+s8SYjoLyT8V5e9PoQro4jGwH4zJksKdm1dnt49Ms=; b=YRSCA1nFLqOj5u2V6MoHRN1i+z
+	nr2zzkjmSo+ep3XOyQvj+gmUC9/Y2fuqpuYEfpo9+UrfK4D0qrKlRPb17zjS8ZHHqaldChkuXfoID
+	cXIny7yvGeQEdnWzp+CWUJTLuaD3v8Cyqsl0W1kY+Q/rotT61Kb16lwD7ZKY1TuwzbHE/Jf7LQkNZ
+	YTjhHx8eBsJMHwmjpNIl8wHf4znvn+Jz/K3ykrwscd1lYuPjKc5n/vaurlw9XpCfEZE1qn3P4xnxP
+	R0IiXzvJpz6LuM6DcwybBrchJtcrGeOmpaCFJqaT7cA4FaSsqmHwR7npFXbgz1fjY65AZkR+gaPNr
+	Nhn4OzWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWYG-00000004604-0Dp4;
-	Fri, 20 Dec 2024 06:31:56 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tOWgS-000000046n9-0w8S;
+	Fri, 20 Dec 2024 06:40:24 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOWX7-000000045u1-0157
+	id 1tOWfJ-000000046hO-1iqL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 06:30:46 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tOWWs-0002z3-6O; Fri, 20 Dec 2024 07:30:30 +0100
-Message-ID: <22faf38d-3e64-40b8-9896-dcccefcc181a@pengutronix.de>
-Date: Fri, 20 Dec 2024 07:30:28 +0100
+	Fri, 20 Dec 2024 06:39:14 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ef6c56032eso1036865a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 22:39:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734676752; x=1735281552; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DX+s8SYjoLyT8V5e9PoQro4jGwH4zJksKdm1dnt49Ms=;
+        b=Xt1llWn08f/ML1LWKA9iBsh7pXqaGC4dGN4FBBaAHaSz8YLS1sUV9sP6U1GzE0MIGH
+         RZDWAvyqk+f/+0bTaoJdwtwsWGE16SHgDqMsZ61hwtnwsWvXxRZUPjg5Pag2AhtXjzgV
+         T80hytpj04cCMs8sAAE4aisK1OOujOwilJCEP7x7QSxtdSjTn5mUWrWhM9A4xuKPvPDv
+         UqowDr0ou0royhb5qJa//bclwhxPz0ZNqRCP3iCArsqvCZY4Q448OSMQCXUIo+VHL+rw
+         HYvQp5qMhhK1r8DLQOezjKhwSks5YZUESHuh92JoICLwzLMm2q87R2ME77dVxVwUc2cq
+         kgCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734676752; x=1735281552;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DX+s8SYjoLyT8V5e9PoQro4jGwH4zJksKdm1dnt49Ms=;
+        b=veF8dgWITDIQAjAEOp3R01b+1sXAQ1z77ifp7d6PXvSEl7ZX6YW9Af3a6jjy/6Lm90
+         Zzu93yBZxCH7N4WgmT9K0Hx5G1tf+QU3reQoh5z6PdNx1jlwc78F0vt3AQ4cfJrCYrji
+         SnTMSZDN9Vf23sG3PV5+7l3T2hrFQd6vyoudBZVe1yH7SbpbBtTvirxIckWIVcqUikMj
+         hwFDhqGZgOHa0jSXvkILidlK/MJVVG6LbHQqAYjqJHWhKMsjjJkfeIgcECuyigZHzqQi
+         DoIer9TuGzdb2WAMFVgMtew9Mvwz59dHz1J5O6r6yymatJMyQS4c5fD/OTWXlxH0ZpJn
+         bdFg==
+X-Forwarded-Encrypted: i=1; AJvYcCX9JxrEko8fB5coIUo3YzzeDB1UcQ39hqCvC/6BFd5/rjhBmyi8+DAO2wkQR36caEVqfD//izw+0FIAKAqDTxE4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5D/so2g1Bg7Bc2sjRuwC0DQs5JQbMEDgjKaRS16vAfoQ7FCf0
+	q27ZGt+UppOdZz4wqeIst+TdRuXS/jSOdhd/z5pfmelSBDzUeN6CeNt7OGQZY54=
+X-Gm-Gg: ASbGnctbWpLzpaR/FLzQp/75IvfVzMLzao2wHloLSadUGa4azUWq3szthlAmlBoQbXO
+	CvjywF8oh1/QTrG4lV1GRxKd7FgtpfwdKps0xi5YWPzYJKdAfQ+YAbQ5RqUdM0zHSoenUcsiUDm
+	7IbLBCKRQmQ5bpynxgx4jp/S4cZ5iQctgoHgDk6u7xBa9ttQ044YUhMp+o0ktGP4yUVVa3owYIK
+	yNhnjMRdu+hkr4/KALUnANRXw7IID08lySInoPZTbvXZGUvwmHV+MG9LQg=
+X-Google-Smtp-Source: AGHT+IHmdLCLVNBWI5BWwKKNhNvlrQ7mUVMYbsTuM9iwdeWGmXMlPqQG8bCfHySO5m70NUB4661tpQ==
+X-Received: by 2002:a17:90b:4ec6:b0:2ee:cdea:ad91 with SMTP id 98e67ed59e1d1-2f452e2e460mr3213467a91.15.1734676751857;
+        Thu, 19 Dec 2024 22:39:11 -0800 (PST)
+Received: from localhost ([122.172.83.132])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed52cf35sm4432536a91.11.2024.12.19.22.39.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Dec 2024 22:39:11 -0800 (PST)
+Date: Fri, 20 Dec 2024 12:09:09 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Asahi Linux <asahi@lists.linux.dev>,
+	Linux ARM Kernel Architecture <linux-arm-kernel@lists.infradead.org>,
+	Linux power management <linux-pm@vger.kernel.org>,
+	Devicetree <devicetree@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/7] Apple A7-A11, T2 SoC cpufreq support
+Message-ID: <20241220063909.hrqrch5fy44nywl2@vireshk-i7>
+References: <20241218182834.22334-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] clk: imx8mp: inform CCF of maximum frequency of
- clocks
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
- Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
- <20241219-imx8m-clk-v1-6-cfaffa087da6@pengutronix.de>
- <20241220061805.GC8295@localhost.localdomain>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20241220061805.GC8295@localhost.localdomain>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241218182834.22334-1-towinchenmi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_223045_045091_836106A8 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20241219_223913_507973_69312A7D 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +105,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
-
-On 20.12.24 07:18, Peng Fan wrote:
-> On Thu, Dec 19, 2024 at 08:27:37AM +0100, Ahmad Fatoum wrote:
->> The IMX8MPCEC datasheet lists maximum frequencies allowed for different
->> modules. Some of these limits are universal, but some depend on
->> whether the SoC is operating in nominal or in overdrive mode.
->>
->> The imx8mp.dtsi currently assumes overdrive mode and configures some
->> clocks in accordance with this. Boards wishing to make use of nominal
->> mode will need to override some of the clock rates manually.
->>
->> As operating the clocks outside of their allowed range can lead to
->> difficult to debug issues, it makes sense to register the maximum rates
->> allowed in the driver, so the CCF can take them into account.
->>
->> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-
->> +	imx8mp_clocks_apply_constraints(imx8mp_clock_common_constraints);
->> +
->> +	if (of_property_read_bool(np, "fsl,nominal-mode"))
->> +		imx8mp_clocks_apply_constraints(imx8mp_clock_nominal_constraints);
->> +	else if (of_property_read_bool(np, "fsl,overdrive-mode"))
->> +		imx8mp_clocks_apply_constraints(imx8mp_clock_overdrive_constraints);
+On 19-12-24, 02:25, Nick Chan wrote:
+> This series add driver support for cpufreq Apple A7-A11, T2 SoCs.
+> Device Tree nodes will be included in another series.
 > 
-> As I replied, a boot parameter should be better? the mode is a soc level mode,
-> not just clock controller.
-
-I think it's counterproductive for a sanity check to be enforced via kernel
-command-line.
-
-The Skov board shouldn't run with overdrive frequencies and I prefer to encode
-that in the same device tree, where I define the permissible VDD_SOC range
-and configure the initial clock rates.
-
-The mode is selected by the VDD_SOC voltage, but affects AFAICS only the clock
-tree. IMO, the clock controller module is thus a natural place for the property.
-
-Cheers,
-Ahmad
-
+> Changes since v2:
+> - Use NSEC_PER_USEC instead of 1000 as multplier.
 > 
-> Thanks,
-> Peng
-> 
->> +
->> 	err = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, clk_hw_data);
->> 	if (err < 0) {
->> 		dev_err(dev, "failed to register hws for i.MX8MP\n");
->>
->> -- 
->> 2.39.5
->>
-> 
+> v2: https://lore.kernel.org/asahi/20241212070344.3858-1-towinchenmi@gmail.com/T
 
+Applied. Thanks.
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+viresh
 
