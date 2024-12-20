@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52351E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D51CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 11:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zdAwKPlnfFt/8DKR//zlRXLf6j14H8YfJ+26rU1ESko=; b=vM5yloofyWywEB8RMPg91LmTzx
-	6oe9Sna3E7RYJtdzUbGPizesAJJNxrYOrIoISipG5MGskGQs3K7aD+9FmZ4N27UEsapgRNLSAvuj/
-	0Pm6wZXrdrrrZlBvNaCY0dyzFhAywDhcWumqkLSF1eNiClb5bVQ7Qf5tVIfNG9w4P407iU9lGmfuZ
-	i5UBtiX4D7wNz9FA/hODTnyesojqZp2qLVX4RfHn7vFQbBmIRJl3gsDCqziUmFt/9+9e2/j2BbUIv
-	GmcNKLq4uqB0QjZCaILg5EEl+yEYJc0bKj36ib2MS8dgkWkvW0fXfOIsMa7PBjkamWqp/Jn9FQOaH
-	2X+e/Z7w==;
+	bh=3lvWSXUpWgpwlqcJap0Ctxg3A9lUnCqq72k4C5g1cWk=; b=yc9eVvn4Wij4sycr7oEtWGaUGq
+	w+SJpP26gS7wMmwB9iRZfssrvsdNm088aF9EGqIC7e3laqvpoy5ZfbqJkQkh58Kf4pdX0gK7mITFk
+	uHPlGmJyVY/imbcvIzIva4HXThNt/iX7ux+hXfPnQyYJPRpfqx4SbfFwHfpukQYJLb7Es8zurMlm8
+	iJz8VxOvdTzqY3y/sS5mVlQe1nIrthwMgKgQT806YfDSVoL1kQ4zPvXYM/PBWbt0GRePTJwyrwY66
+	c404isPHrLssmSoYIi/BjeF7bBRUPVRw9WdgDvtJDTDeZKM2RP3fQ3k/IuTGLM90dTPSQqFaegmPt
+	BZshvKHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOb1L-00000004kRy-1MDT;
-	Fri, 20 Dec 2024 11:18:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOb0C-00000004kPp-3xEq
+	id 1tObB9-00000004ljo-2hgR;
+	Fri, 20 Dec 2024 11:28:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tOb9z-00000004lX4-2Av1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 11:17:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A6D7BA41A2B;
-	Fri, 20 Dec 2024 11:15:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC4C7C4CED4;
-	Fri, 20 Dec 2024 11:17:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734693423;
-	bh=GNSiQOlVVh4t42W4baERM9m5qIWhn14nqFaGFOc0eJg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uj0Dt//dGVeJsURaAhcxXN0MwZJrJA7xRV8LD4ZQFcdqOVMWMajmjKTajikcHncjT
-	 9hkdbHI+9zvkng7g6weMMjbd0Sq69BkYNWFbwu5jLuo/Khr8YpM+itFkhIE7WioIBy
-	 VK4srGnqwLMy+VLqxGxUUg8ofN5w0GLjtaty3C6GK3UdH+dMPgwHIWqv5FUwrSLDqA
-	 6J5t96vvZa9eZumvZG7AYm0wXRuTO4Cqc/WeHNKKNuKQhBHXGKw9y+w4BqxfcKDsPF
-	 0mPxkiDD+CEAQN6vseekr2KTpZS0AYV6J0xieZv6gImjEQqpVgTlJ39uLxfLqJnsno
-	 MDVJCEupljFig==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tOb09-005cZe-Ey;
-	Fri, 20 Dec 2024 11:17:01 +0000
-Date: Fri, 20 Dec 2024 11:17:00 +0000
-Message-ID: <86v7veppsj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	cohuck@redhat.com,
-	eric.auger@redhat.com,
-	sebott@redhat.com,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	jiangkunkun@huawei.com,
-	jonathan.cameron@huawei.com,
-	anthony.jebson@huawei.com,
+	Fri, 20 Dec 2024 11:27:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFB221480;
+	Fri, 20 Dec 2024 03:27:36 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D60593F58B;
+	Fri, 20 Dec 2024 03:27:06 -0800 (PST)
+Date: Fri, 20 Dec 2024 11:27:04 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linuxarm@huawei.com
-Subject: Re: [PATCH v4 3/3] arm64: paravirt: Enable errata based on implementation CPUs
-In-Reply-To: <Z2RapzikZQGgeE_6@linux.dev>
-References: <20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com>
-	<20241218105345.73472-4-shameerali.kolothum.thodi@huawei.com>
-	<86bjx8q995.wl-maz@kernel.org>
-	<Z2RapzikZQGgeE_6@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Subject: Re: [PATCH 1/3] dt-bindings: arm,psci: Allow S2RAM power_state
+ parameter description
+Message-ID: <Z2VUiHWHgbWowdal@bogus>
+References: <20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com>
+ <20241028-topic-cpu_suspend_s2ram-v1-1-9fdd9a04b75c@oss.qualcomm.com>
+ <Z1LQOmEfFy640PjG@bogus>
+ <54cc4221-ba5f-4741-9033-20874265ca01@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <54cc4221-ba5f-4741-9033-20874265ca01@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_031705_223700_135DD3D3 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20241220_032711_652873_CDBE9408 
+X-CRM114-Status: GOOD (  32.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +74,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Dec 2024 17:40:55 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
+On Thu, Dec 19, 2024 at 08:43:27PM +0100, Konrad Dybcio wrote:
+> On 6.12.2024 11:21 AM, Sudeep Holla wrote:
+> > On Mon, Oct 28, 2024 at 03:22:57PM +0100, Konrad Dybcio wrote:
+> >> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> >>
+> >> Certain firmware implementations (such as the ones found on Qualcomm
+> >> SoCs between roughly 2015 and 2023) expose an S3-like S2RAM state
+> >> through the CPU_SUSPEND call, as opposed to exposing PSCIv1.0's
+> >> optional PSCI_SYSTEM_SUSPEND.
+> >>
+> > 
+> > If so, can you elaborate why s2idle doesn't work as an alternative to what
+> > you are hacking up here.
 > 
-> > Independent of this, I wonder what we should output in sysfs
-> > (/sys/devices/system/cpu/cpu*/regs/identification/*).
+> Please see other branches of this thread
 > 
-> It's a bit crap, but maybe implementation index 0 gets reported through
-> the 'main' midr/revidr files, otherwise have a directory per
-> implementation index of midr/revidr.
+> > 
+> >> This really doesn't work well with the model where we associate all
+> >> calls to CPU_SUSPEND with cpuidle. Allow specifying a single special
+> >> CPU_SUSPEND suspend parameter value that is to be treated just like
+> >> SYSTEM_SUSPEND from the OS's point of view.
+> >>
+> >> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> >> ---
+> >>  Documentation/devicetree/bindings/arm/psci.yaml | 6 ++++++
+> >>  1 file changed, 6 insertions(+)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
+> >> index cbb012e217ab80c1ca88e611e7acc06c6d56fad0..a6901878697c8e1ec1cbfed62298ae3bc58f2501 100644
+> >> --- a/Documentation/devicetree/bindings/arm/psci.yaml
+> >> +++ b/Documentation/devicetree/bindings/arm/psci.yaml
+> >> @@ -98,6 +98,12 @@ properties:
+> >>        [1] Kernel documentation - ARM idle states bindings
+> >>          Documentation/devicetree/bindings/cpu/idle-states.yaml
+> >>  
+> >> +  arm,psci-s2ram-param:
+> >> +    $ref: /schemas/types.yaml#/definitions/uint32
+> >> +    description:
+> >> +      power_state parameter denoting the S2RAM/S3-like system suspend state
+> > 
+> > Yet another NACK as this corresponds to PSCI SYSTEM_SUSPEND and as per
+> > specification it takes no such parameter. This is just misleading.
+> > 
+> 
+> Yeah PSCI_SYSTEM_SUSPEND takes care of this on platforms that expose it.
+>
 
-Having slept on that one, I'm starting to think that we should keep
-the status-quo of reporting what the kernel snapshot at boot time.
-There is no good reason to force the VMM to report the potential
-implementations in any specific order.
+And those that don't advertise/expose don't get to use, simple.
 
-The "alternative-implementations" is interesting, but we don't keep it
-per-CPU, so I don't  think it fits the current scheme. But maybe
-something in /sys/devices/system/cpu, outside of the cpu* hierarchy?
+> DEN0022F.b Section 6.5. recommends that CPU_SUSPEND StateID includes
+> a field for system-level power down states. This binding change only
+> adds a way for DT-based platforms to associate such state with S2RAM
+> suspend.
+>
 
-Either way, this isn't something we should worry too much right now.
+Sure, just use the CPU_SUSPEND bindings that already exist. No need to
+define this as some special case if it is exposed as CPU_SUSPEND idle
+state. Not sure why you want to do it differently. I understand the
+need to handle it different in the kernel, but I don't understand to
+define the new bindings for that. Just use the existing bindings for the
+idle states. Again I see no exception for this case.
 
-Thanks,
+> That may be a bit Linux-specific whereas bindings are supposed to be
+> OS-agnostic, but since we effectively want one PSCI state for deep
+> suspend regardless of the OS, I would think this kind of hint is fine.
+>
 
-	M.
+Exactly, that's the reason for not changing this into special case and
+special binding for that special case created.
 
--- 
-Without deviation from the norm, progress is not possible.
+--
+Regards,
+Sudeep
 
