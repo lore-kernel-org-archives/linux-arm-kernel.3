@@ -4,131 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98763E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 19:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19FA6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 19:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cWsdyve87/ahvL1Kdn+WU4yfF9lwFtfjevTBD3q3a5I=; b=sTzRAIJAqna9hH+coU1jV/zVL0
-	iIwP4nfSVpWVPmWOkd4DZpZm0Tyux0Q4xwSI544To0QEdG05K8GNFrz8VgupudrDvdgPFVocra4Qt
-	DgaChI+GZD10ExtCAu23R8dUDeYT8/y+wSAMn27QznuvTuX4jRlCyLPYrjKzU93B5OES4ADM2St8j
-	h/HMnbBs7OZCt+D7MrNtEFNLdRwyCIg5hRaURjXe591bvXVLLfeNi1IhNIRhB6JTl0Ix1iQ01R4v4
-	B90XEApdtY2FBOho4aWXr17L+d80+WuAumGqHPME6XN+CA/ZI+AxhGgUzsxCdXJ70PoNGF41g2FXj
-	nvbQpCYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ECbYktccaIa1QdXtSBa1Z1RFkYlF/wIkrmasp+itWD4=; b=yIiZhlaTW8qB6b//UZ1jkcLBDF
+	Eblfd7QUCxLgTxwNwncXWpkjtETHVYNZKjNJXAkvV6S7/FqflVgbopF5hD6+22SIZ+NlAPUK4RAzR
+	H+6LXwBJyXJKI6acDk6F5qZP7U1wzmt/1cI2dDbjQAPOl/UpaH+OerTm9QawN+P+/EwjDPgoJizPY
+	H+Vbar0IehPiR/beCj3mR6Lrp+CX5118PzJ1tioXWDy5ad/IC6P8KkUv5CE6YYc1gTvKGq92UGLfK
+	wqf/xDGb+ydXEyzkDBCjbSPU9unD+9kOQXf2I8VdKn+swkuDxEJJmIXGg/Tp4R5KDJj+DPYcN5rly
+	rqKt1sSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOilj-00000005xSj-0pLU;
-	Fri, 20 Dec 2024 19:34:39 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1tOiu5-00000005yBc-0GTl;
+	Fri, 20 Dec 2024 19:43:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOij4-00000005x6N-28X8;
-	Fri, 20 Dec 2024 19:31:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734723114; x=1766259114;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=cWsdyve87/ahvL1Kdn+WU4yfF9lwFtfjevTBD3q3a5I=;
-  b=e9gK+DBQbzyFGMPNrPj3wscI69IjJgli/MEudo4Xcz+40+EOpWPt2+9Z
-   z7TSmgmecmJGt2J1McQhGgZ7otX5FLTBcNLXhIsQ0RlRdGzOCX5/jqnPr
-   F6KlK1eFG6/Ee9WwL9GUsIW2AqwFAuzyYzV14thuv6hqhZTi99La0RQAz
-   KQVuvkSULdr4pXM4FSk56+uCVbVfkXqUoMen4lz16TYM4dv0TnwvhM8+k
-   OIfFCGZsjFH8/HNsSK9z8H0etS7ap0bz4TnCyZxttywLzWwu6raAeAmKN
-   ynDpuq3DUKWv46Fhnqk5lwA58sXfRoR1FX/YRgp3F6g6S89mxrWCmJqic
-   w==;
-X-CSE-ConnectionGUID: K5zYjgiYQDSlX76qKKe9hA==
-X-CSE-MsgGUID: YV5JXQOESRWErs2B4UU10A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="35498891"
-X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="35498891"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 11:31:53 -0800
-X-CSE-ConnectionGUID: puhYWLhrTxCkddI44a7G2Q==
-X-CSE-MsgGUID: ZOvVbemkRy6XjG3xptTdtg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="98986706"
-Received: from jairdeje-mobl1.amr.corp.intel.com (HELO [10.124.221.219]) ([10.124.221.219])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 11:31:52 -0800
-Message-ID: <989b55cf-1f9e-4b73-b3dd-d8b6a62be3f2@intel.com>
-Date: Fri, 20 Dec 2024 11:31:51 -0800
+	id 1tOisu-00000005y0z-3CXF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 20 Dec 2024 19:42:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DA1B9A41FF8;
+	Fri, 20 Dec 2024 19:40:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4AB6C4CECD;
+	Fri, 20 Dec 2024 19:41:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734723723;
+	bh=CxGn7Klj0NZdQ41qkc+OiHDFz7q57MzEMRCe/qwiymU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lt5IWLQ1xcngwDOu5pq0XeOMh232j0L6VZGYBxEJTWjGu8/lfocZhtaJO9X9DJQfL
+	 4PS/FBtvRLEl8KACH0uhdhlZ6ZC3tyTIlyP57RkYMDLJeuE6oqiYyY8eFgrhYq0E+j
+	 gKWgr7ke+r2lq/CucEnF3dDuKeUcjdOwIEze4K/b2N9jV1Br26dJYOGEjEhQ+Jl1li
+	 2+3U0lezZq/4FzoThBnVuGb3hJ7TwtTIbDlEwWhNfx6wZP0Q1ffBSGs2y5R2IuCd7M
+	 TlbGQc33qLdjwYi7hyP/g1rXaLmJdQ9yPfaNq3eWXSCmX8THkEzfM8ahSf3620wceo
+	 7hYgFfFGd4N7Q==
+Date: Fri, 20 Dec 2024 19:41:57 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
+	peter.griffin@linaro.org, kernel-team@android.com,
+	willmcvicker@google.com, daniel.lezcano@linaro.org,
+	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+Subject: Re: [PATCH 1/2] dt-bindings: mailbox: add support for referencing
+ controllers solely by node
+Message-ID: <20241220-carving-diagram-a27c04aafb10@spud>
+References: <20241219-mbox_request_channel_by_args-v1-0-617a6910f842@linaro.org>
+ <20241219-mbox_request_channel_by_args-v1-1-617a6910f842@linaro.org>
+ <20241219-recent-everyone-865b19864693@wendy>
+ <d9e635c8-de05-4812-bf2b-11651f6da5c1@linaro.org>
+ <20241219-strum-cheese-89e5e60d22c3@spud>
+ <463d5955-a056-40e1-a46e-f89ac0dadccf@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Account page tables at all levels
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org,
- Joerg Roedel <jroedel@suse.de>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <a7398426-56d1-40b4-a1c9-40ae8c8a4b4b@intel.com>
- <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Xx+aca69A1IHgTcv"
+Content-Disposition: inline
+In-Reply-To: <463d5955-a056-40e1-a46e-f89ac0dadccf@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_113154_568963_85509504 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20241220_114204_936587_2882B102 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,31 +86,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/20/24 02:58, Kevin Brodsky wrote:
->> One super tiny nit is that the PAE pgd _can_ be allocated using
->> __get_free_pages(). It was originally there for Xen, but I think it's
->> being used for PTI only at this point and the comments are wrong-ish.
->>
->> I kinda think we should just get rid of the 32-bit kmem_cache entirely.
-> That would certainly simplify things on the x86 side! I'm not at all
-> familiar with that code though, would you be happy with providing a
-> patch? I could add it to this series if that's convenient.
 
-I hacked this together yesterday:
+--Xx+aca69A1IHgTcv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/daveh/devel.git/log/?h=simplify-pae-20241220
-It definitely needs some more work. I'm particularly still puzzling
-about why SHARED_KERNEL_PMD is used both as a trigger for 32b vs.
-PAGE_SIZE PAE pgd allocations _and_ for the actual PMD sharing.
+On Fri, Dec 20, 2024 at 07:51:32AM +0000, Tudor Ambarus wrote:
+>=20
+>=20
+> On 12/19/24 6:58 PM, Conor Dooley wrote:
+> > On Thu, Dec 19, 2024 at 03:42:11PM +0000, Tudor Ambarus wrote:
+> >> Hi, Conor,
+> >>
+> >> On 12/19/24 2:11 PM, Conor Dooley wrote:
+> >>>> There are mailbox clients that can discover the mailbox channel ID at
+> >>>> run-time. For such cases passing the channel identifier via DT is
+> >>>> redundant. Add support for referencing controllers solely by node.
+> >>> I don't really get your implementation, why not just allow #mbox-cell=
+s =3D 0?
+> >>> That's what's done for things like fixed frequency clocks that only h=
+ave
+> >>> a single output.
+> >>
+> >> Ah, indeed!
+> >>
+> >> instead of:
+> >> 	of_parse_phandle(dev->of_node, "mbox", 0);
+> >> I can do a:
+> >> 	of_parse_phandle_with_args(dev->of_node, "mboxes",
+> >>                                    "#mbox-cells", 0, &of_args)
+> >> where #mbox-cells =3D 0;
+> >>
+> >> Or ... can I pass NULL for cells_name and make the #mbox-cells property
+> >> optional and still keeping its requirement of being at least 1?
+> >=20
+> > I think the mbox-cells =3D 0 approach is preferred, that property is wh=
+at
+> > marks it as a mailbox controller after all. Perhaps Rob or Krzysztof can
+> > comment?
+>=20
+> I think using mbox-cells =3D 0 is better indeed. In my proposal I
+> considered the list to always have a single phandle, thus a reference to
+> a single mailbox controller, whereas it may be possible that clients to
+> reference multiple mailbox controllers. If so, #mbox-cells needs to be
+> defined in all the controllers, for consistency reasons, similar to what
+> happens with fixed clocks, as you already mentioned.
 
-Xen definitely needed the whole page behavior but I'm not sure why PTI did.
+Oh right, I had totally forgotten about that, that's a solid argument
+for the mbox-cells =3D 0 approach for sure.
 
-Either way, that series should make the PAE PGDs a _bit_ less weird at
-the cost of an extra ~2 pages per process for folks who are running
-32-bit PAE kernels with PTI disabled.
+--Xx+aca69A1IHgTcv
+Content-Type: application/pgp-signature; name="signature.asc"
 
-But I think the diffstat is worth it:
+-----BEGIN PGP SIGNATURE-----
 
- 5 files changed, 16 insertions(+), 96 deletions(-)
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2XIhQAKCRB4tDGHoIJi
+0sK+AQDCcx/lgCTv+Omz3fHAepr8BVUseHHBs+4WzmyKpR3V4AEAqX3itqXBhmyZ
+9veirorpUjlotYZvKUMvTmoTRZswTgA=
+=SG7R
+-----END PGP SIGNATURE-----
 
+--Xx+aca69A1IHgTcv--
 
