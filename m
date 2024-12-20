@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13809E7718A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 00:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B8DE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 00:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88ypJKEjfY/PQxYw2dDvihxL+GlYw4/eG83FW6BzWoY=; b=B38IYkLopJ5tvA/J+7SYafI9X6
-	J4Baeb/cfIxEljrXDmd6d3LJ9kOk4nkrvll+SY0AQ8jtcoGuv/uVYYKZHN0bQBv86jpECmMpESRBL
-	pdNqY6zGFsdh01YN09NctMQTWQAo1wzprvs+pd200F5+RsvKiG4iryDAZc9ZQZGWkSjiEZ6JUmWJ6
-	/CAHk0OyMJM9vC+4vrdm67INNPeOZpUYV5Qqbs9ZpZdfWPTdTrMlGSZKswhnuHVGFXwbKzEoe5Oo5
-	u3P9vcblJEn9/rz6qsq5xwcZVi4ro8IgzkvxC4dbk7oAVlnpGDH33pXL+B4NKR9CXmMm4Ujc+49t4
-	HOys50dA==;
+	bh=S/RK+iCwMDOjsz6qGHyrgosuNTC74b/O0wp4fma2qaQ=; b=26dHHKXXW54O8NsvxYrL/o48nz
+	c9F4ER10zFQqbA0R2LhJ8ux+P3r0mxbVejaY8zalyvW2ddP+VDikVQO0afiz6u6sawFzhz/vd04xu
+	t/0TCSUjF+ddc0BF6bbj14+duAeZUh6NMmrNZ8VYDfD02T/MthSJVnQwUFpcALRbp8unc1kzJNmEL
+	qjYlK6YdQqy+FLcVtNzUAqCj8S4MhuWPV2ab0tM+UhiU9qGn/XM/cDDlB21LLtYXsjb4IapQtwgzk
+	A49q/8qF3YFBRxa5JRZnfBm9kklQ1aCF+acMReNT2EMR2sgkZyvioqFMtE/viGCLZYbxhNx+GuyWK
+	yI0n+n7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOQjU-00000003RkD-0PFK;
-	Fri, 20 Dec 2024 00:19:08 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1tOQkZ-00000003S3I-2ebf;
+	Fri, 20 Dec 2024 00:20:15 +0000
+Received: from out-170.mta0.migadu.com ([91.218.175.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOQiJ-00000003RPF-3yYK
+	id 1tOQiP-00000003RRC-1sMG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 00:17:57 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-3003d7ca01cso15023941fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 19 Dec 2024 16:17:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734653874; x=1735258674; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=88ypJKEjfY/PQxYw2dDvihxL+GlYw4/eG83FW6BzWoY=;
-        b=m7pYb+4AgH95gguwnzkz6byWUlEhVz7J8e0VsCGuoel8sG38IUzvjuTgBKdiUxsh4K
-         Gvqd5VDb97ta55VaXmH+qL0eM99epNu424QCHBcrJLpdWAM7yr3h8Wr9P8s/7MMQGhzT
-         hhFp91T0lOxEHKJjA6njlfBFh9jKFLUAFESv/Dpyi0SyJTP/v0/bZNAWO3sxIG0Is+OG
-         aXxjuDLOJqF7hzRRzXU3oKkNEG2TwhCJ8J+csY00dEuVYAu9Md4Ic01YsqgcsPMQcNFl
-         goLPR275+3CIZFpR/6k14gNU3jPY4LFdqmOUusrMRW1Njf3rhc3HhZWzdfhgrO8veUPt
-         VdXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734653874; x=1735258674;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=88ypJKEjfY/PQxYw2dDvihxL+GlYw4/eG83FW6BzWoY=;
-        b=oOoNWlN0ev3N26ftWKQbQnIlbSjD1VzwfZ6gzTtp5xRpvOSJxUOUmRY72TqJyT5JRa
-         X1JLdbrRweseJ8I8L8Ygt3afv7qi5a3HICy0hVF98psUf63/UwuESMjHsicubtD+wnEn
-         c/IgueOaoy+fg+z/T5Csw9XvSn0jjecZpKqIUCZfICznKxTKvOvYlETLP8G6U4zKNq7w
-         UDH/MZwOBfIp0b5XR0ZOcnAIhNP6UscgiH7A2lahOpU33vPOoXimN2xP9JrcthoVCNKi
-         Zn2GxsZnqMtTF/eqWk/Mt/ScaRukqPvRHYzd2apRhyQ0RccRuC7YESdAu3QXDB7FleeX
-         bGuA==
-X-Forwarded-Encrypted: i=1; AJvYcCXfAGvune0/ic0p3z3fccO89LayryxQkXaMNTznD9zi8E1Xko8dPrmJP50tAapxhbFxHFPNIa1xMD+FZOGb7/lT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDfkiFM8qWei0PDlz/jT8QgOLlCaHsjWR0q9zZS/hMkLlwNW/4
-	Z5+daYaDjGptOJI3okkfZ639RHVEXO0ZMUaRSutjKQG3re6VA6thb17/aMUDFvw=
-X-Gm-Gg: ASbGnct6zCrTzFU5NPadQA28iArtIPY4l7CZ5R3WOLGqBYL2MxfuqL+AYGhycTVgSda
-	OWa9+2n5+uZryBv3Mi1gGdHVuJMtG6bey7Iy77T7tY446LZWlKBJwLfkkRix9aewLcB4J0y/bOD
-	zK3Dp1mtL2m3jSgo0IAO+jZ8VStLErbZkmsJyCTcw2+kQ4HCvGtJ4JhZkh3vyzZsZUK4YhtKLoL
-	My0ags0PlNRjSu8YsQSUL5SDkODZi50Ez5N+jrVCvE7d2WhNZy1+9EH83i3tM/ykCWD9WE+y2ii
-	LLO9wAy3tKiolZi7AwegeM9h9bKo58kbz1p/
-X-Google-Smtp-Source: AGHT+IFB2i5vKnWXGFFd2MWZqu6ISfQEn6gsPEZ+iz0AquMdjU/HdGNzEaZYfYTM6DlCEi0nsU27SA==
-X-Received: by 2002:a05:651c:4ca:b0:302:4130:e19c with SMTP id 38308e7fff4ca-30468571039mr2038491fa.19.1734653874050;
-        Thu, 19 Dec 2024 16:17:54 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad6cb8asm3815281fa.18.2024.12.19.16.17.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Dec 2024 16:17:52 -0800 (PST)
-Date: Fri, 20 Dec 2024 02:17:50 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
-	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
-	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
-	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 09/15] drm/bridge: analogix_dp: Add support to get
- panel from the DP AUX bus
-Message-ID: <irh3rei7to7gevrr5dqwa3qr3nl2lunenyvvvlqnpiyplbk2vj@ooedydnvl4df>
+	Fri, 20 Dec 2024 00:18:03 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1734653876;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S/RK+iCwMDOjsz6qGHyrgosuNTC74b/O0wp4fma2qaQ=;
+	b=RL++tx/GUnwLN9G3bQCBvzqbyINV1kneBL1xXtIsv/Kn9nBODpK6zMbUJIcvfASm1ZlFc5
+	VtM3aR/JJkN+2RW1IuI1KnbudmdXs1kQjcyecZDgGytPV6s9wQqfKwITLly7LHBEqZulKj
+	rD5AX57YauDEvqdc/SRum3I1y1KgTt0gTDDEqitA+iUXkalBDAGN7m5Fcc9ZLAScwTy39Z
+	msnxadguluUjlinKAd4BwJ3oylD4gCTvIjnoyLQO6p2pVdKbW3ijZB1I0BG2AYZgWFTMSL
+	P4nN9CSajxcslzBNFzmXXQWRUJUZerOLj4Lv1/25v0OJcTABH9Ccs825K0KveA==
+Content-Type: multipart/signed;
+ boundary=011e6b374dd8cc6329fed8e851dfa8c3e80f3228d231932c98a778791d9f;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Fri, 20 Dec 2024 01:17:42 +0100
+Message-Id: <D6G3H3AXXVAJ.3F1WMBTWLX2KV@cknow.org>
+Cc: <robh@kernel.org>, <conor+dt@kernel.org>, <algea.cao@rock-chips.com>,
+ <rfoss@kernel.org>, <heiko@sntech.de>, <devicetree@vger.kernel.org>,
+ <linux-phy@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <sebastian.reichel@collabora.com>, <dri-devel@lists.freedesktop.org>,
+ <hjc@rock-chips.com>, <kever.yang@rock-chips.com>,
+ <linux-rockchip@lists.infradead.org>, <vkoul@kernel.org>,
+ <andy.yan@rock-chips.com>, <krzk+dt@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <l.stach@pengutronix.de>
+Subject: Re: [PATCH v3 07/15] drm/bridge: analogix_dp: Add support for phy
+ configuration.
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>, "Damon Ding"
+ <damon.ding@rock-chips.com>
 References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
- <20241219080604.1423600-10-damon.ding@rock-chips.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241219080604.1423600-10-damon.ding@rock-chips.com>
+ <20241219080604.1423600-8-damon.ding@rock-chips.com>
+ <a6vvydjbx3hbckoy74iiyzguyyacwvdh6iirqydjfvhwgocw3a@knecggjcbcid>
+In-Reply-To: <a6vvydjbx3hbckoy74iiyzguyyacwvdh6iirqydjfvhwgocw3a@knecggjcbcid>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_161755_979253_F8733F90 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20241219_161801_848199_D7F30418 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +80,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 04:05:58PM +0800, Damon Ding wrote:
-> If the panel can not be found in the beginning of rockchip_dp_probe()
-> using the platform bus, we can still try to find it in analogix_dp_bind()
-> through the DP AUX bus after the &analogix_dp_device.aux has been
-> initialized.
-> 
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> ---
->  .../drm/bridge/analogix/analogix_dp_core.c    | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> index 9429c50cc1bc..eae02819e3bb 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> @@ -19,12 +19,14 @@
->  #include <linux/platform_device.h>
->  
->  #include <drm/bridge/analogix_dp.h>
-> +#include <drm/display/drm_dp_aux_bus.h>
->  #include <drm/drm_atomic.h>
->  #include <drm/drm_atomic_helper.h>
->  #include <drm/drm_bridge.h>
->  #include <drm/drm_crtc.h>
->  #include <drm/drm_device.h>
->  #include <drm/drm_edid.h>
-> +#include <drm/drm_of.h>
->  #include <drm/drm_panel.h>
->  #include <drm/drm_print.h>
->  #include <drm/drm_probe_helper.h>
-> @@ -1733,6 +1735,23 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
->  		goto err_disable_pm_runtime;
->  	}
->  
-> +	if (!dp->plat_data->panel) {
-> +		/*
-> +		 * If the edp-panel module has not yet been initialized, the
-> +		 * devm_of_dp_aux_populate_bus() function will return 0 and
-> +		 * the done_probing() callback will not be called either.
-> +		 * Consequently, the panel will never be found.
-> +		 *
-> +		 * This is the reason why we do not use the done_probing()
-> +		 * callback and do not check the reture value here.
+--011e6b374dd8cc6329fed8e851dfa8c3e80f3228d231932c98a778791d9f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-NAK. It is there for exactly this reason, to account for the panel
-driver being not present yet. Please make a use of the done_probing()
-callback.
+On Fri Dec 20, 2024 at 1:13 AM CET, Dmitry Baryshkov wrote:
+> On Thu, Dec 19, 2024 at 04:05:56PM +0800, Damon Ding wrote:
+> >  void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *co=
+unt)
+> > @@ -546,10 +575,37 @@ void analogix_dp_get_lane_count(struct analogix_d=
+p_device *dp, u32 *count)
+> >  void analogix_dp_set_lane_link_training(struct analogix_dp_device *dp)
+> >  {
+> >  	u8 lane;
+> > +	int ret;
+> > =20
+> >  	for (lane =3D 0; lane < dp->link_train.lane_count; lane++)
+> >  		writel(dp->link_train.training_lane[lane],
+> >  		       dp->reg_base + ANALOGIX_DP_LN0_LINK_TRAINING_CTL + 4 * lane);
+> > +
+> > +	if (dp->phy) {
+> > +		union phy_configure_opts phy_cfg =3D {0};
+> > +
+> > +		for (lane =3D 0; lane < dp->link_train.lane_count; lane++) {
+> > +			u8 training_lane =3D dp->link_train.training_lane[lane];
+> > +			u8 vs, pe;
+> > +
+> > +			vs =3D (training_lane & DP_TRAIN_VOLTAGE_SWING_MASK) >>
+> > +			     DP_TRAIN_VOLTAGE_SWING_SHIFT;
+> > +			pe =3D (training_lane & DP_TRAIN_PRE_EMPHASIS_MASK) >>
+> > +			     DP_TRAIN_PRE_EMPHASIS_SHIFT;
+> > +			phy_cfg.dp.voltage[lane] =3D vs;
+> > +			phy_cfg.dp.pre[lane] =3D pe;
+> > +		}
+> > +
+> > +		phy_cfg.dp.lanes =3D dp->link_train.lane_count;
+> > +		phy_cfg.dp.link_rate =3D
+> > +			drm_dp_bw_code_to_link_rate(dp->link_train.link_rate) / 100;
+>
+> This two should not be necessary, please drop them.
 
-> +		 */
-> +		devm_of_dp_aux_populate_bus(&dp->aux, NULL);
-> +		ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0,
-> +						  &dp->plat_data->panel, NULL);
-> +		if (ret)
-> +			goto err_unregister_aux;
-> +	}
-> +
->  	ret = analogix_dp_create_bridge(drm_dev, dp);
->  	if (ret) {
->  		DRM_ERROR("failed to create bridge (%d)\n", ret);
-> -- 
-> 2.34.1
-> 
+This too or These two (statements)?
 
--- 
-With best wishes
-Dmitry
+> > +		phy_cfg.dp.set_voltages =3D true;
+> > +		ret =3D phy_configure(dp->phy, &phy_cfg);
+> > +		if (ret && ret !=3D -EOPNOTSUPP) {
+> > +			dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret)=
+;
+> > +			return;
+> > +		}
+> > +	}
+> >  }
+> > =20
+> >  u32 analogix_dp_get_lane_link_training(struct analogix_dp_device *dp, =
+u8 lane)
+> > --=20
+> > 2.34.1
+> >=20
+
+
+--011e6b374dd8cc6329fed8e851dfa8c3e80f3228d231932c98a778791d9f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ2S3qwAKCRDXblvOeH7b
+brvoAP9rdY+F/m1jGw+mxL5qmV8ze/WQGLInbKNxmBNiT7RnnAEAmpHkct6n5nur
+t6M6q47PJP6EzzpfIfsmJOaAH0THJwM=
+=RI0b
+-----END PGP SIGNATURE-----
+
+--011e6b374dd8cc6329fed8e851dfa8c3e80f3228d231932c98a778791d9f--
 
