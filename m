@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A945E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9FEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 17:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gKbh784gSKI3i+Xb8BoJ8RM+wuGg+Udul1q+E+iU8Fc=; b=GiQ6L412nPycJbgf4pf9CK8AOo
-	oICpyMLpHW4v+Yi6ler8IQNqufz0YjrQkPJpzcGajVGmCiMilyQEnAgDsTt72LZZvjr0MRCcc5HmK
-	JUbvnDHrftRJ5w4+cbVJqv+yHAWPOtTvv9kcolIWBBIHmkCDNcMYotf+OtoHSzZRPWQQR9/P5fmNk
-	kUw6A2goJDdW6HF3MCXlcE1Qgic7/XDGaghVZN4/cVYVjhJjf/DLKSoSOutd4R8Is0uvK2gQfVyzX
-	29bLlGRPFj07a91Z7VyAPx1cd3ozkdwI8h+saa2pVBelaO/JC7NaX9aUyW7Ia1cb7aP0g8twnk30f
-	OtxfqseA==;
+	bh=j9X0qkclU5mbquP6ylYtzaM4fEOUHkCHYMmtnsUqTWw=; b=wXT29jon2DDzNP4ypkvJlfAV7F
+	tExK2YT5FQ0TMwOZPFP6TP+b1MaZEtT/NDd7S3x1SxwhlJyHZRkiJRrewJiHiqN+f5uKqjOVH0lRt
+	iWMSz4NURy6Ku5QLSP/k/9AlSwKrPyIOF0sJjTkh3eWkDmMg2zyNj/ex18y7bZuSRATwZUdFaRlhC
+	c9bo85JHxuI2ODX5McwUssg05vBUE4vEBbkw7U/fL0L2Y5wHMme+3AuCLz7cXC18xXQzuY/aOrXCa
+	98jJTF28HQd4wdKS62G5/BYtto88kkcXN/0we2jUpgxHcahEFQK6IMsNodNT5ZoeAGQOjm1HV2IWZ
+	YKO79U/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOglO-00000005dMd-4AM4;
-	Fri, 20 Dec 2024 17:26:10 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1tOgmX-00000005dc1-2ZUB;
+	Fri, 20 Dec 2024 17:27:22 +0000
+Received: from smtp.forwardemail.net ([207.246.76.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOgSx-00000005ZHM-1EDS
+	id 1tOgV3-00000005ZbM-2Wrh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 17:07:08 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id D0B412540140;
-	Fri, 20 Dec 2024 12:07:05 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 20 Dec 2024 12:07:06 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1734714425;
-	 x=1734800825; bh=gKbh784gSKI3i+Xb8BoJ8RM+wuGg+Udul1q+E+iU8Fc=; b=
-	cVwnjnieistFLbwIZ2ck2NZjatfgBOiKFR/kAQQ4K+FKRlL8KQQbjhZhOWU069zs
-	+zgIU3AbXP9+gkyt95dE3SIBNNA3kvw4E6UfF6OherufYWAvX0YKfApKCxp2i6zQ
-	77g1yeVh0zAyGNG0wE9mzRntgkKspASoDW22pp6IITndzi2lTJ4HKwNs5nqoii3w
-	4+HCH21yGGTdbQnKhCQRJ8uTM84A67EBk6bF2z8ez9dzxMBOu+tSLlYPfnH3AMRd
-	YFaO1Joe4dFYu/kUD9v5QjDF3u4hCIvbGv8Ior03+1p2/LvTO+X2ZwJGkdDw3QD0
-	lNjjkbwJvjrkXka7ONY9IQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734714425; x=
-	1734800825; bh=gKbh784gSKI3i+Xb8BoJ8RM+wuGg+Udul1q+E+iU8Fc=; b=d
-	CQGlbiemfZDolaPsSx6dIh3Zy2pEsHaBs/FZwjo7AmR7XFj4fZqn3BZLQdNw1iJT
-	17ecwD/VcWs3jAAGF/y28KdkqdfS4RvC91W+gHU+NxdA07uf0Jy1dTliDTv2nve9
-	uIN7IaraXNbD84wpTAQ3BQJ6F1LxqG79Bbx/yyD4aTv6AAzTy5aClB4clbt5FO2P
-	bNAyX/j7Lb8biFooKHhqg6Y0ij1PqAFSytVswDMlf4cy7sk1Ilc7uzBMTfsTA/H2
-	IUCSKaTPdpIAUeqgmK189ibMDmyW7sZqRv3FHL7xXnUDc4+A64Hmfa+y7OiZoAn+
-	hI4XcznclYJ9zInqBynoQ==
-X-ME-Sender: <xms:OaRlZ84R-kzFHFhkxsWwmtvoGpFX4liL6es0xQYwIJnB1iBIbzOgzg>
-    <xme:OaRlZ97EVsjrhU7qvxO6iZHcXvuiYymsnzpAg2IH0XFadKew3I4Osk_NFfVU8vMWX
-    Y7ShD4EnHxq3ihh1a8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtvddgleegucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddu
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugi
-    drohhrghdruhhkpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhs
-    shdrshhtrdgtohhmpdhrtghpthhtohepphgrthhrihgtvgdrtghhohhtrghrugesfhhosh
-    hsrdhsthdrtghomhdprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgr
-    ihhlrdgtohhmpdhrtghpthhtohepshhotgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    eplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdho
-    rhhgpdhrtghpthhtohepohhlohhfsehlihigohhmrdhnvghtpdhrtghpthhtohephihorg
-    hnnhdrtghonhhgrghlsehsmhhilhgvrdhfrhdprhgtphhtthhopehlihhnuhigqdhsthhm
-    fedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomh
-X-ME-Proxy: <xmx:OaRlZ7ee2TnH3FQ-LBboFcEmjH5NZAZmDHibOgB9dxwBhty6GDqMuw>
-    <xmx:OaRlZxJq2G0x78tz8ranjIqb-HRx0z0Sc6uSXruoYjFja-nwQBHW3g>
-    <xmx:OaRlZwIaTdUokn6guHcSSJk27WlOZv8Gly2XG0BNutc7tLGd2upGwQ>
-    <xmx:OaRlZyx78E0kyHNq3r1UCyOgvVimBZkit4uOjMFCSjSgFHOvsIbixA>
-    <xmx:OaRlZ9AwFtxX37i_8NvGG0tbPEz9bSRIyR74VdXQgqSEXJjnaCvnOuU3>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 15B872220073; Fri, 20 Dec 2024 12:07:05 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 20 Dec 2024 17:09:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1734714547;
+ bh=j9X0qkclU5mbquP6ylYtzaM4fEOUHkCHYMmtnsUqTWw=;
+ b=ERV/reus+X0XsltDz8CpJlVjJA4t0KqOdNI644uR6odjG6Z4GpqMc8OD/TPlt+7DhXslfUrOR
+ jDWF1WXvYbGJYbtg1YzvfOkQU7xaG1n4nY0vifSGh9iPM1BvhCqkj6t+W/qWVIZUf1cJCprJOJo
+ qAu2uhO0hG6elmJ/w4COShFRidj7awH7BbmrKALWTI1yqZT5ROLFXVAhBklUy++zuTbQ6/bIYE6
+ 1KIZgu+PFAHjBsRxBpFRBOEl/YYXJOkan9RHVI2tbSZlhLTjHqgsCxiCmV8j48xs2bz0SsskWFH
+ eSYZefiFmU3S+YJ4MNYCCqFzv4QyE0PBYpNJU6IYFiBw==
+Message-ID: <17251add-40b7-4d18-8626-2d74b29532fc@kwiboo.se>
+Date: Fri, 20 Dec 2024 18:09:01 +0100
 MIME-Version: 1.0
-Date: Fri, 20 Dec 2024 18:06:44 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Patrice Chotard" <patrice.chotard@foss.st.com>,
- "Olof Johansson" <olof@lixom.net>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Russell King" <linux@armlinux.org.uk>,
- "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
- "Petr Mladek" <pmladek@suse.com>, "Yoann Congal" <yoann.congal@smile.fr>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, soc@kernel.org
-Message-Id: <c48b7e84-5287-4da0-84a0-7747581f49d0@app.fastmail.com>
-In-Reply-To: <20241220125506.3157268-5-patrice.chotard@foss.st.com>
-References: <20241220125506.3157268-1-patrice.chotard@foss.st.com>
- <20241220125506.3157268-5-patrice.chotard@foss.st.com>
-Subject: Re: [PATCH v2 4/4] ARM: configs: stm32: Remove useless flags in STM32
- defconfig
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: ROCK3B: Correct clock rates for
+ Ethernet PHYs
+To: Alicja Michalska <alicja.michalska@9elements.com>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241220163227.1501912-1-alicja.michalska@9elements.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20241220163227.1501912-1-alicja.michalska@9elements.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Report-Abuse-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-ForwardEmail-Version: 0.4.40
+X-ForwardEmail-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 207.246.76.47
+X-ForwardEmail-ID: 6765a4b2b8c9120276e3dca1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_090707_647643_72F77816 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241220_090917_790832_2B770F99 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,22 +76,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024, at 13:55, patrice.chotard@foss.st.com wrote:
-> From: Patrice Chotard <patrice.chotard@foss.st.com>
->
-> As stm32_defconfig is dedicated to STM32 MCUs, disable
-> CONFIG_COMMON_CLK_STM32MP flag which is only used by STM32 MPUs.
->
-> Disable CONFIG_SUSPEND, CONFIG_ADVISE_SYSCALLS, CONFIG_IO_URING
-> CONFIG_POSIX_TIMERS, CONFIG_GCC_PLUGINS, it will reduce the kernel
-> image size for these platforms which embed a low amount of memory.
->
-> Tested on STM32F746-DISCO board which embeds 8MB of memory.
+Hi Alicja,
 
-Out of curiosity, what is the smallest memory configuration that
-you see people using on stm32f7/h7 these days? I know we had
-configs that kind-of worked on 2MB in the past, but I assume there
-has been a lot of bloat since.
+On 2024-12-20 17:32, Alicja Michalska wrote:
+> Built-in ethernet PHYs did not work on mainline kernel:
+> 
+> fe010000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+> fe010000.ethernet eth0: __stmmac_open: Cannot attach to PHY
 
-       Arnd
+Have you used mainline or vendor u-boot when testing?
+
+There is an existing issue with RTL8211F PHYs that they must be reset
+before Linux can identify them, see [1] for more details on the issue.
+
+Mainline U-Boot will reset the Ethernet PHYs on this board and that
+should allow for Linux to identify and use the Ethernet PHYs.
+
+[1] https://lore.kernel.org/r/47d55aca-bee6-810f-379f-9431649fefa6@kwiboo.se/
+
+> 
+> According to the board design, they need to be configured as output with
+> static TX/RX delay. This patch sets it accordingly.
+> 
+> Signed-off-by: Alicja Michalska <alicja.michalska@9elements.com>
+> ---
+>  .../boot/dts/rockchip/rk3568-rock-3b.dts      | 68 +++++++++++--------
+>  1 file changed, 38 insertions(+), 30 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> index 3d0c1ccfaa79..5350158302e4 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+> @@ -183,37 +183,65 @@ &cpu3 {
+>  &gmac0 {
+>  	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
+>  	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>, <&cru CLK_MAC0_2TOP>;
+> -	clock_in_out = "input";
+> -	phy-handle = <&rgmii_phy0>;
+> -	phy-mode = "rgmii-id";
+> +	assigned-clock-rates = <0>, <125000000>;
+> +	clock_in_out = "output";
+>  	phy-supply = <&vcc_3v3>;
+> +	phy-mode = "rgmii";
+> +	phy-handle = <&rgmii_phy0>;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&gmac0_miim
+>  		     &gmac0_tx_bus2
+>  		     &gmac0_rx_bus2
+>  		     &gmac0_rgmii_clk
+> -		     &gmac0_rgmii_bus
+> -		     &gmac0_clkinout>;
+> +		     &gmac0_rgmii_bus>;
+> +	snps,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
+> +	snps,reset-active-low;
+> +	snps,reset-delays-us = <0 20000 100000>;
+
+The snps,reset props is deprecated and reset- props should be used in
+the PHY node.
+
+This also changes to use 20/100 ms delay instead of current 20/50ms
+delay. If anything it could be changed to 20/80ms, I have only seen
+datasheets for rtl8211f mention minimum 10 ms and minimum 30-76 ms.
+
+> +
+> +	tx_delay = <0x36>;
+> +	rx_delay = <0x2d>;
+
+Are you having issue with use of rgmii-id on your board?
+
+> +
+>  	status = "okay";
+>  };
+>  
+>  &gmac1 {
+>  	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
+>  	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>, <&cru CLK_MAC1_2TOP>;
+> -	clock_in_out = "input";
+> -	phy-handle = <&rgmii_phy1>;
+> -	phy-mode = "rgmii-id";
+> +	assigned-clock-rates = <0>, <125000000>;
+> +	clock_in_out = "output";
+>  	phy-supply = <&vcc_3v3>;
+> +	phy-mode = "rgmii";
+> +	phy-handle = <&rgmii_phy1>;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&gmac1m1_miim
+>  		     &gmac1m1_tx_bus2
+>  		     &gmac1m1_rx_bus2
+>  		     &gmac1m1_rgmii_clk
+> -		     &gmac1m1_rgmii_bus
+> -		     &gmac1m1_clkinout>;
+> +		     &gmac1m1_rgmii_bus>;
+> +	snps,reset-gpio = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
+> +	snps,reset-active-low;
+> +	snps,reset-delays-us = <0 50000 150000>;
+
+Same here, but now this is 50/150 ms?
+
+> +
+> +	tx_delay = <0x47>;
+> +	rx_delay = <0x28>;
+
+Same here, is use of rgmii-id causing issues on your boards?
+
+> +
+>  	status = "okay";
+>  };
+>  
+> +&mdio0 {
+> +	rgmii_phy0: ethernet-phy@0 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0>;
+
+The phy addr used for these boards is 0x1.
+
+> +	};
+> +};
+> +
+> +&mdio1 {
+> +	rgmii_phy1: ethernet-phy@0 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0>;
+
+Same here.
+
+> +	};
+> +};
+
+There should be no need to move these nodes, they should already be in
+alphabetical order?
+
+> +
+>  &gpu {
+>  	mali-supply = <&vdd_gpu>;
+>  	status = "okay";
+> @@ -512,26 +540,6 @@ &i2s1m0_sdi0
+>  	status = "okay";
+>  };
+>  
+> -&mdio0 {
+> -	rgmii_phy0: ethernet-phy@1 {
+> -		compatible = "ethernet-phy-ieee802.3-c22";
+
+If you want to use vendor u-boot you can probably change this to
+"ethernet-phy-id001c.c916".
+
+> -		reg = <1>;
+> -		reset-assert-us = <20000>;
+> -		reset-deassert-us = <50000>;
+> -		reset-gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
+> -	};
+> -};
+> -
+> -&mdio1 {
+> -	rgmii_phy1: ethernet-phy@1 {
+> -		compatible = "ethernet-phy-ieee802.3-c22";
+
+Same here.
+
+Regards,
+Jonas
+
+> -		reg = <1>;
+> -		reset-assert-us = <20000>;
+> -		reset-deassert-us = <50000>;
+> -		reset-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_LOW>;
+> -	};
+> -};
+> -
+>  &pcie2x1 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pcie20m1_pins>;
+
 
