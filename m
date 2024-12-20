@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CD3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 21:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E7CE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 20 Dec 2024 21:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NP2tg5M5BstwrE4rb5+QBH+28CpybiGjlFefOr7WAdI=; b=K4mB1lVf5STpUnX6fBJP7GFFdz
-	CNSdjymUBhLdO6fEB0n8oR4oLvYTBGDap8I0/ueKGy/DCxnmkT5HEl0GLBnetILv86yZg2rH7Ftxi
-	//7LOaLotaTHFbqMjUQR7yWvv8n/6bNb6Sc8/hlLpqNSucY8l5DJ7sHKlZggUsDZ7+ScYeVGsqseb
-	2kszRUVbeQjDvMw+CoFX9I3NpA+yjFEe5wbjjc/vVoH5Xq06awK4KxMlTJb0GPV4TSl3Y/paTwOo7
-	i/POc3Gvd0ybbvAdzM9G2UdMdyv4Tj/vCJ8hHPGfYIk1jb4EdLBAS8xe3wdaaiHu+M7LoHA0eDosd
-	v0Z7VblA==;
+	bh=YUwgk2QWNYfTNp+c+xOEwodp3qlLu80/3AXtVWc9kvc=; b=d6im9s5OoK1VOANlp071bdMSW2
+	joKtjXyXI64yUGfGU64ZfuoTGzbX1uzpJqF17pFtWgj18uZA5l/SMqKurvC8f+fUykw1MBjWPFXOV
+	jvh/J2CUgMqe5OSU06TNK7hMldKMUBosEW5q25ToRdMBAYBOAjpFdWhDyuMDHJh24so0/AXNSxTil
+	YfkyVAW1ob05IzM+jd+MZnjQJTf3g6ngpc0nsgKb4vXo7aTDSpXEm+gdkWvP+rTdWj7mrDOAIsE5h
+	EU+SeDH9/AOIDeMyISGrokcMhXhwyXrVY5xqaFyMl7RvyJJf3K/83OXCVzJIF4kWq5dvKpVUgMp9G
+	Kk/qZjqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOkKr-000000065Nv-3NfU;
-	Fri, 20 Dec 2024 21:15:01 +0000
+	id 1tOkLz-000000065YE-2Jzm;
+	Fri, 20 Dec 2024 21:16:11 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOkFE-000000064Q5-48jz
+	id 1tOkFG-000000064PS-02gl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 20 Dec 2024 21:09:14 +0000
+	Fri, 20 Dec 2024 21:09:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1734728952; x=1766264952;
+  t=1734728953; x=1766264953;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=T+l6OVVT45tzMYV8TY6DeZg93MwIQ0gaakx3sxA0rT0=;
-  b=awv8btrPELhfskj24s/PfnM7DnZXWAKH0GmeJkyrE3EGxTaD2JSM8B3/
-   TJJ/zJhxGWrkS7lKnyG/mtoId1nzmYLFT6P0eeOkfjn+96NDm68VsRKGE
-   ZqtyZQC0IlJxax/syS6WjOUQmoh113OQQ3pxSrJksYuQIoTkbkzII0pYZ
-   zAgX/m2IhbDoaEv1eTD3GTRfdRQAEj1C7c7cv9eJJJWfrvrFMqcs2aUzi
-   +RCr85miSnRh1dJ1Sn1BxSHBLpWrGfgAY2SVnsJ2nq7QNiYho8cLi0Gr4
-   V/3nsw17h1wmhv2KsXt7+ADiT4nE9pqwJnMmAjeH9B0pNnaYArq2oITrG
-   g==;
+  bh=+pQbU9KrAaqj8DThvbCwesXrXr/EK9f9JQYXh+Yd3Hk=;
+  b=AX+321o2cYbEU+CgNU3vmRmiL+fpNWFyJUszOFkVwSU7461eEklQR8Aq
+   QSLZ2cC1ialqzcjnsJ661Z6hU8CA6HHqzrwhIMltjY2ix12qvBwzYisKl
+   hD1AD4y2pFEp2vqVJkLnm6DXvy4lvGJuANMO5AKbpckuNURZXDehW7HPH
+   2hDlYp5qz2Mr2eGO2dA7KM5XuJ165PotjUhDBV6WBn5CJ/NpkV04VB32T
+   EX1OlmyDR89Dn+dLJiCQw0BmKlXuwu0krawbV5NyK2dl+FI5oy3ZQCYCQ
+   smOuxl1kHq8/dolbBRWse57BLHHA00YKlJcmHgENbztAvzJ48BajckuxP
+   w==;
 X-CSE-ConnectionGUID: 6Xn2bQedQHqhtDmL7ky2MQ==
-X-CSE-MsgGUID: Ox9v++T5QtWfQ8w6Q+5SwA==
+X-CSE-MsgGUID: I/MC5/adRJa8THr6LZiYTw==
 X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
-   d="scan'208";a="203274643"
+   d="scan'208";a="203274644"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Dec 2024 14:09:08 -0700
@@ -65,9 +65,9 @@ CC: <dharma.b@microchip.com>, <mihai.sain@microchip.com>,
 	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
 	<linux-mmc@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
 	<linux-spi@vger.kernel.org>, <linux-serial@vger.kernel.org>
-Subject: [PATCH v4 04/13] dt-bindings: serial: atmel,at91-usart: add microchip,sama7d65-usart
-Date: Fri, 20 Dec 2024 14:07:05 -0700
-Message-ID: <7d2bf43095dd5b8784ec53a45d5f07f3f0481b0a.1734723585.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v4 05/13] dt-bindings: pinctrl: at91-pio4: add microchip,sama7d65-pinctrl
+Date: Fri, 20 Dec 2024 14:07:06 -0700
+Message-ID: <6ec5d56d36c64b7a29e043cee0b5a6c035c0d85c.1734723585.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1734723585.git.Ryan.Wanner@microchip.com>
 References: <cover.1734723585.git.Ryan.Wanner@microchip.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_130913_086903_2EEDAE4F 
-X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-CacheID: sfid-20241220_130914_127979_C057F1BF 
+X-CRM114-Status: UNSURE (   8.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,27 +94,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-Add SAMA7D65 USART compatible to DT bindings documentation.
+Add pinctrl bindings for microchip sama7d65 SoC.
 
 Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml | 1 +
+ .../devicetree/bindings/pinctrl/atmel,at91-pio4-pinctrl.txt      | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
-index f466c38518c4..087a8926f8b4 100644
---- a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
-+++ b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
-@@ -26,6 +26,7 @@ properties:
-           - enum:
-               - microchip,sam9x60-usart
-               - microchip,sam9x7-usart
-+              - microchip,sama7d65-usart
-           - const: atmel,at91sam9260-usart
-       - items:
-           - const: microchip,sam9x60-dbgu
+diff --git a/Documentation/devicetree/bindings/pinctrl/atmel,at91-pio4-pinctrl.txt b/Documentation/devicetree/bindings/pinctrl/atmel,at91-pio4-pinctrl.txt
+index 774c3c269c40..a7d7d2eaf10f 100644
+--- a/Documentation/devicetree/bindings/pinctrl/atmel,at91-pio4-pinctrl.txt
++++ b/Documentation/devicetree/bindings/pinctrl/atmel,at91-pio4-pinctrl.txt
+@@ -6,6 +6,7 @@ configure it.
+ Required properties:
+ - compatible:
+ 	"atmel,sama5d2-pinctrl"
++	"microchip,sama7d65-pinctrl"
+ 	"microchip,sama7g5-pinctrl"
+ - reg: base address and length of the PIO controller.
+ - interrupts: interrupt outputs from the controller, one for each bank.
 -- 
 2.43.0
 
