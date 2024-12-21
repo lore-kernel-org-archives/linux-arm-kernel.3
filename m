@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D9BE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 12:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0262CE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 12:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/97G2qyjoswRRMUZIK+JcpWv+RMUAVgoKftZuJiNDM=; b=LZJBKrobuijRsTeBsatxsYuJYs
-	j6PybX282/4EjNdWLv8LnrJxaiPSQFHGh8Y4umojznCnR78NTF8a/HuzOc1FXUbdFNUW6aXk7+E+L
-	wxgtfmRG3WkgGZJKeqAmHFszxzt0MLhqfjSahV+yKNzUmZ3EfFGVEXpVe2WQQQ0Pgbi+7/yHjli3M
-	Ge6JNNcCTgipLi06dxg3ADEWNNj4iHG8fL1SxpO7u7PhWvUsCdI2lVDJpV+00vcQ9k4L/+9QY9eaK
-	rCgGWAKipD4at52WsF6bjn6+UGit9RIC6g6v32irD0mLwWamUMLm9bxD9xqJ5RBqETmLlqPUE3WSv
-	uY0pB3/w==;
+	bh=xSNYOsA7KtH1dZ5GBxGfInAcRMsmtiVMUv9letwlj5g=; b=hdKn5erVm/x8/L7TwXIrQ6SgiB
+	QFvqR5BVzGYy0G7tx0xC9yoHbEW6BytQd5QwE/ga7q/V9N6l4guxl/vJpKqxSPHyxvK9X3YWI/J+p
+	WrC6kdW4xcCGVhgIzbTeTNXi+Opo3p632dIcJavekTZQpgdxHJiLmHfl7WI+dsSZVOo/qyNCIBroX
+	0U1mReu5fmY+3MVEeJTz1lh3XCN9rf+fWg2VNxpAcMfMpZLm66+MDNYnp6UeeT/mjekuTLzRBucgY
+	qejUv0yePrRNiMynRw30+tevOIbBIpTYLuKb7Vs/HtUpFb7UH1d7eNXz6X58DKG9r+RCy+biRguKa
+	XpedJ19g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOyLD-00000006ww9-2Ss6;
-	Sat, 21 Dec 2024 12:12:19 +0000
+	id 1tOyiI-00000006yIJ-41Ld;
+	Sat, 21 Dec 2024 12:36:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOyJz-00000006wrL-27jq
+	id 1tOyh5-00000006yDC-1FA1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 12:11:08 +0000
+	Sat, 21 Dec 2024 12:34:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D02F35C4547;
-	Sat, 21 Dec 2024 12:10:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50311C4CECE;
-	Sat, 21 Dec 2024 12:10:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 48E985C4A04;
+	Sat, 21 Dec 2024 12:34:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A087C4CECE;
+	Sat, 21 Dec 2024 12:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734783061;
-	bh=vqc1kqawWAiOMTPciBmIBIKH7ausH1SR0W1ohLeHgas=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lwhmiFW0wnyKUMx6NCsX/bVGcYBg9BiZrsK6xalHQcMR3j5rdvh6fYd0DQCURwutz
-	 ArjOjqLLPZV5ik5XWsmf9vTO64Ufvo0fnhOPlYgcS50GPNWXNwZtcFLAAvdYuhjZQ7
-	 lIbk5yBwVDP4/KTxxBUXaAyLIviJVajWct5Uxc84V8sJXKdsSuFQeQWX1MEZzqy4dk
-	 yjpkyURGlAEiJK3bKNNTD08tpIZit9FdUUE0ua25Nsw5Pm+ZQShsyt5vF+NvsB8NQ1
-	 jTGeFhn2DOJskE4Via6gWntJ1PaGgkRMW92kTA9huy2P+mCr6zmre/AHoJ57mYKMqM
-	 UriVmfJvOz6Kw==
-Date: Sat, 21 Dec 2024 12:10:55 +0000
-From: Will Deacon <will@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
+	s=k20201202; t=1734784492;
+	bh=mJh65cE8FpJnhcgX4NYekYpaa0p+s7y+XkLuWQvx+YY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Er7xCeD9KIZUg6+fdQRcrAsfzMhj8fh9cjF3x83fWt8QglmFFHpKCmFhPjhF+fxQy
+	 Ys+3Fm2Gh2Uz19PlsrF8AMWFHmN+XRIj4oDkJGR8fk3Ils/c9eiQLOhIOCu+84LBcA
+	 T0qs2VHHg//aP16oq1G4fUsmRkcmxM2W9Pbfpo14Q0nRt86OIzv2veB2Z7s0f+R7Yg
+	 le4zFjvwK0IoCWmZKEzWLjm/Ri4XhybuUH/DJH7BHb50t4PMWo/pUsJJWKITk8f2Qy
+	 DyI02tlAco34X19KI+kaoe7t3T8D9fZQVchzyMDvK3aw8uEyTqXwY4WpQHNv9hdehJ
+	 Jvf4jJWXprrlQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tOyh0-005vOL-95;
+	Sat, 21 Dec 2024 12:34:50 +0000
+Date: Sat, 21 Dec 2024 12:34:48 +0000
+Message-ID: <86r061p63b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Brown <broonie@kernel.org>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Quentin Perret <qperret@google.com>
-Subject: Re: [PATCH v3 6/6] arm64/mm: Drop configurable 48-bit physical
- address space limit
-Message-ID: <20241221121054.GA27495@willie-the-truck>
-References: <20241212081841.2168124-8-ardb+git@google.com>
- <20241212081841.2168124-14-ardb+git@google.com>
- <20241221002906.GA2558963@ax162>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241221002906.GA2558963@ax162>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	James Morse <james.morse@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 7/8] KVM: arm64: Support trace filtering for guests
+In-Reply-To: <20241127100130.1162639-8-james.clark@linaro.org>
+References: <20241127100130.1162639-1-james.clark@linaro.org>
+	<20241127100130.1162639-8-james.clark@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, broonie@kernel.org, anshuman.khandual@arm.com, james.morse@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_041103_595783_8F54074D 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20241221_043455_459054_6D31AA69 
+X-CRM114-Status: GOOD (  27.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,29 +101,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 05:29:06PM -0700, Nathan Chancellor wrote:
-> On Thu, Dec 12, 2024 at 09:18:48AM +0100, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> > 
-> > Currently, the maximum supported physical address space can be
-> > configured as either 48 bits or 52 bits. The only remaining difference
-> > between these in practice is that the former omits the masking and
-> > shifting required to construct TTBR and PTE values, which carry bits #48
-> > and higher disjoint from the rest of the physical address.
-> > 
-> > The overhead of performing these additional calculations is negligible,
-> > and so there is little reason to retain support for two different
-> > configurations, and we can simply support whatever the hardware
-> > supports.
+On Wed, 27 Nov 2024 10:01:24 +0000,
+James Clark <james.clark@linaro.org> wrote:
 > 
-> I am seeing a boot failure after this change as commit 32d053d6f5e9
-> ("arm64/mm: Drop configurable 48-bit physical address space limit") in
-> next-20241220 with several distribution configurations that all set
-> ARM64_VA_BITS_48. I can reproduce it on bare metal and in QEMU. Simply:
+> For nVHE, switch the filter value in and out if the Coresight driver
+> asks for it. This will support filters for guests when sinks other than
+> TRBE are used.
+> 
+> For VHE, just write the filter directly to TRFCR_EL1 where trace can be
+> used even with TRBE sinks.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  arch/arm64/include/asm/kvm_host.h  |  5 +++++
+>  arch/arm64/kvm/debug.c             | 28 ++++++++++++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/debug-sr.c |  1 +
+>  3 files changed, 34 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index ba251caa593b..cce07887551b 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -613,6 +613,7 @@ struct kvm_host_data {
+>  #define KVM_HOST_DATA_FLAG_HAS_SPE	0
+>  #define KVM_HOST_DATA_FLAG_HAS_TRF	1
+>  #define KVM_HOST_DATA_FLAG_TRBE_ENABLED	2
+> +#define KVM_HOST_DATA_FLAG_GUEST_FILTER	3
 
-We dropped the patch yesterday, so hopefully things are better today.
+Guest filter what? This is meaningless.
 
-Sorry for the bother and thanks for the report,
+>  	unsigned long flags;
+>  
+>  	struct kvm_cpu_context host_ctxt;
+> @@ -1387,6 +1388,8 @@ void kvm_clr_pmu_events(u64 clr);
+>  bool kvm_set_pmuserenr(u64 val);
+>  void kvm_enable_trbe(void);
+>  void kvm_disable_trbe(void);
+> +void kvm_set_trfcr(u64 guest_trfcr);
+> +void kvm_clear_trfcr(void);
+>  #else
+>  static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+>  static inline void kvm_clr_pmu_events(u64 clr) {}
+> @@ -1396,6 +1399,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
+>  }
+>  static inline void kvm_enable_trbe(void) {}
+>  static inline void kvm_disable_trbe(void) {}
+> +static inline void kvm_set_trfcr(u64 guest_trfcr) {}
+> +static inline void kvm_clear_trfcr(void) {}
+>  #endif
+>  
+>  void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> index 0c340ae7b5d1..9266f2776991 100644
+> --- a/arch/arm64/kvm/debug.c
+> +++ b/arch/arm64/kvm/debug.c
+> @@ -337,3 +337,31 @@ void kvm_disable_trbe(void)
+>  	host_data_clear_flag(TRBE_ENABLED);
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+> +
+> +void kvm_set_trfcr(u64 guest_trfcr)
 
-Will
+Again. Is this the guest's view? or the host view while running the
+guest? I asked the question on the previous patch, and you didn't
+reply.
+
+> +{
+> +	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
+> +		return;
+> +
+> +	if (has_vhe())
+> +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
+> +	else {
+> +		*host_data_ptr(guest_trfcr_el1) = guest_trfcr;
+> +		host_data_set_flag(GUEST_FILTER);
+> +	}
+
+Oh come on. This is basic coding style, see section 3 in
+Documentation/process/coding-style.rst.
+
+> +}
+> +EXPORT_SYMBOL_GPL(kvm_set_trfcr);
+> +
+> +void kvm_clear_trfcr(void)
+> +{
+> +	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
+> +		return;
+> +
+> +	if (has_vhe())
+> +		write_sysreg_s(0, SYS_TRFCR_EL12);
+> +	else {
+> +		*host_data_ptr(guest_trfcr_el1) = 0;
+> +		host_data_clear_flag(GUEST_FILTER);
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(kvm_clear_trfcr);
+
+Why do we have two helpers? Clearly, calling kvm_set_trfcr() with
+E{1,0}TRE=={0,0} should result in *disabling* things.  Except it
+doesn't, and you should fix it. Once that is fixed, it becomes obvious
+that kvm_clear_trfcr() serves no purpose.
+
+To sum it up, KVM's API should reflect the architecture instead of
+making things up.
+
+> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> index 9479bee41801..7edee7ace433 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> @@ -67,6 +67,7 @@ static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+>  static bool __trace_needs_switch(void)
+>  {
+>  	return host_data_test_flag(TRBE_ENABLED) ||
+> +	       host_data_test_flag(GUEST_FILTER) ||
+>  	       (is_protected_kvm_enabled() && host_data_test_flag(HAS_TRF));
+
+Wouldn't it make more sense to just force the "GUEST_FILTER" flag in
+the pKVM case, and drop the 3rd term altogether?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
