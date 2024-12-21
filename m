@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C687E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 20:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3429DE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 20:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3w8p59Rajwv6PtjcNjdpADbCNSUkBm9coKCDEJpG1t8=; b=uu2tfcRgF/J6AIYxrxXsI6OSxg
-	Q/Ni+Ubdhj/36belNnE4ASPVYHuy09tCCA0bJ/l+R+Lx54P8YPDvVp/ZhacAasZt5LNOKSmkphvqI
-	HKoyRabmiBQNUFTPvusxW6FHXLG41ZqG8gf6NptYaHrZiYKXBCH6UWcaX1zqvLU8yB6ROScQ5JZbK
-	PxB3+vRW2o7MiNTITidgqDGsdrDYxEE23sUHvjVv0Q+JkQETalQV1HnHHA3VWhiBY1DnPt9Y6tPmJ
-	l60m457JTs3fhMHr0oq/WUvG/SzksVAsZC9KbzWA6/NkUlDiItsJ1QY2qoLhW3J7OBtaVu0XIXXf8
-	YwG44+ng==;
+	bh=ZevQ1ggzvotoipo74my+MRD3GioFQX9lM8JMHWVVSRU=; b=CAOybK1o0etSN+xwc40LQ0vAn5
+	THvIGmPfhEPbh7rNaGevhPyh/afw3xsMTamCAY6p2lTJEIx47Gtq6IIMCdxD4rOBIBXX/BlNd8GoI
+	0LIshm7wOOVdWvXrO78yeuTW421yF7jsd/AmvuiqMlRT8KJFBsnjQCySEVoaldPGHrjEBpzq4dBPH
+	rrVa77EtYBvnVPEYcb7TLFRRL7lYq8CN97+WT9EDjesEAIInE17wdrJ7yo04R9ByEiUrnmU8qSqil
+	yFQVmeFcfKuPHpWEqBT8BYsC9HH6h7wVEvJyr8uScNdOpz0qCKC9bekL6Zhjbe9bHSq39gjuoO483
+	BXZmEkWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP5qB-00000007Nxl-0cK2;
-	Sat, 21 Dec 2024 20:12:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tP60w-00000007Ohc-0XMg;
+	Sat, 21 Dec 2024 20:23:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP5ou-00000007Not-2Xgx
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 20:11:31 +0000
+	id 1tP5zi-00000007OcE-1ixM;
+	Sat, 21 Dec 2024 20:22:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 55CD6A40320;
-	Sat, 21 Dec 2024 20:09:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD9BAC4CED4;
-	Sat, 21 Dec 2024 20:11:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA7F55C4ACA;
+	Sat, 21 Dec 2024 20:21:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B47F7C4CECE;
+	Sat, 21 Dec 2024 20:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734811887;
-	bh=AoiVOptiYVf3sXc6Wc3zef23U6V9pmhLL3rDLQSzFWw=;
+	s=k20201202; t=1734812557;
+	bh=ILdwy3p/h97ayVK8LVcOGCXBCe2aHYbodyIEirbROQE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ccnf6px3FpX6+kFq3Vh6WPLH8zAYR7lEH7uaMC+3FEdIBzGV2KFo/huiEqb2EfZWN
-	 oxvT9qTxj4HcIWefa7nJIvK/g5AllWUviOKlpXtUOUfXn0WqKntWQGhbiea7ZHATA1
-	 zakO01K6x8DX5sDxsvaBWbbPupksbyopwyphZGgUv5w3+KsDRYgtDJeUIyDgI05sOT
-	 OMIeSwVvzBQdhvW01l9ydyEyTYSskjWZr4V814uMDXEOTNcJvPVsEIpbo3UUxPtPxu
-	 0lxuTgRjrLIkF/LTbeGkO6rPT2xUriGwRiQ9c5aMUWqPUAwWQUdsQFreYT1asz7We0
-	 SuWHfxqK41SOA==
-Message-ID: <0af81029-0f68-4034-899f-4294d249f6a4@kernel.org>
-Date: Sat, 21 Dec 2024 21:11:21 +0100
+	b=ssVTEa6K9JjjYPmiUr2SB9rYvkiEVA7B1kLLLIt3/Oj2DPWL0L9FGcim6Pptfvfvl
+	 Lq94mmOIrCrJAhrEBxEHP8gHwp+5+Gmck07HPsKRpKNzLALt+pocHvHBLJ9qUIhmOn
+	 2H+eButXQlwoGL6Foe7Lg8CqjXo6m/IjBgcTGwybGkcqOeLgiLgjVuDZSLjn221LrF
+	 696DI0c1vawO42yYb4TWaa3DOueOWzgFk6GJTsFqS+j4/I2IHzB6B7l0VtyqCxpkLj
+	 2gFOwXkwkdgYU04bM6jvPtCFwWRnIsROyZBLkB5Tu2moF6onw9dNXi+CZzPxsYy+jK
+	 iwau4KTZhKEqA==
+Message-ID: <425fd1b0-fcba-4547-81f6-84acee5ce7f4@kernel.org>
+Date: Sat, 21 Dec 2024 21:22:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] arm64: defconfig: enable cpu idle injection and
- cpu idle cooling device
-To: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>,
- Wasim Nazir <quic_wasimn@quicinc.com>, Bjorn Andersson
- <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@quicinc.com
-References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
- <20241217064856.2772305-7-quic_wasimn@quicinc.com>
- <59e96784-9efc-4958-baf0-a51e766e47e8@kernel.org>
- <b98cc6ea-d215-2200-1537-1a53c2587c81@quicinc.com>
-Content-Language: en-US
+Subject: Re: [PATCH v3 07/33] dt-bindings: display: mediatek: Add binding for
+ MT8195 HDMI-TX v2
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
+ jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ dmitry.baryshkov@linaro.org
+References: <20241217154345.276919-1-angelogioacchino.delregno@collabora.com>
+ <20241217154345.276919-8-angelogioacchino.delregno@collabora.com>
+ <rsnyljmkdf7i74bkrlf5nesp2sa3n6xcnzsqao4znmczjpfyq2@dsakz56s4ypt>
+ <9a75e88c-d90d-4ea8-b5c3-6d056d4f0498@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -106,12 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <b98cc6ea-d215-2200-1537-1a53c2587c81@quicinc.com>
+In-Reply-To: <9a75e88c-d90d-4ea8-b5c3-6d056d4f0498@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_121130_715880_FE83AB76 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20241221_122238_564522_46828F84 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,41 +127,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2024 12:38, Manaf Meethalavalappu Pallikunhi wrote:
+On 19/12/2024 11:54, AngeloGioacchino Del Regno wrote:
+>> hdmi@
+>>
+>> Best regards,
+>> Krzysztof
+>>
 > 
-> Hi Krzysztof,
+> Thanks for the great review krzk.
 > 
-> Thank you for reviewing this patch.
+> I was wondering if it'd be more straightforward to just send the bindings in a
+> different series, instead of sending another batch of 33 (actually, 34, because
+> I forgot one commit adding the DDC binding, ugh!) patches...
 > 
-> On 12/18/2024 1:32 PM, Krzysztof Kozlowski wrote:
->> On 17/12/2024 07:48, Wasim Nazir wrote:
->>> From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
->>>
->>> Enable cpu idle injection framework and thermal cpu idle cooling device
->>> to throttle the cpu by injecting idle cycle during high thermal condition.
->> I know what they do, but why do we need it in the defconfig? This is not
->> a product defconfig, just in case you mirrored downstream patches.
-> 
-> We believe these defconfigs serve as a generic framework rather than 
-
-No...
-
-> being tied to specific product features. Therefore, we have enabled them 
-
-They are tied to specific products.
-
-> in the defconfig to ensure the end-to-end feature is available in the 
-> pristine upstream build. However, if you think this would introduce 
-
-Why would we care about this end-to-end feature?
-
-> overhead for other products, we will exclude this patch in the next 
-> revision.
-
-I just did not see here any explanation why this should be added. I
-don't need to come with extensive disagreement, because by default we do
-not enable everything. We enable only some things because of some
-reason. And that's why you have commit msg...
+> CK, any objections?
+Maybe just wait few more days for other people's review and then send v4
+of everything? You can split the bindings separately, although there is
+a risk we will get confused or we will forgot why they got separated.
 
 Best regards,
 Krzysztof
