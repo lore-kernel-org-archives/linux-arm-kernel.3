@@ -4,95 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865E7E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 06:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF908E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 08:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FPQisv984Skp38aX3x/aVAIVLxylAjAYHdHkoJQnBu0=; b=B+SocYUNzLL2yDJTXDxbddz/qo
-	IhoDWS8Vc94G0s3Zy+JFOvf8cPcI+RTseU2xJazdLLQvOuU8J8s25LPyZn50BMRHxbIsxAzGKtdlJ
-	gD3tDJhTrWihSHdI9PyHvCMUtC50wDKcnU6pgZDk9toNyVAcSRTGp4SVAM2d2QsCNuZ/cZy3jBuAj
-	Z2EKLiv57/Nat+G+OvlpUiQHI5MjanzhPTKmM5wiLkvrB8wmgLkvy11TA76GSDOYcsUR9cY3UCKkH
-	KW08qbc5vlobEfOvO098f5XRfLa6YVMmU1/49t/nUBmjkssRRoBHsGSvD8b0hfOziGtddxULJzqJw
-	9Ls8k5BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w/3d9Q642GfC/rCsT5ID8I8taOBoiNByOhbIEJTngM8=; b=UzALoKo0EiB2uVVGY6q0HrFKH/
+	tYgh7IfrOOgVksZaXa8C8C/NHJliQajMz7CWL1e0aZp7xqUaypJgjOdPcN3FcO2D3HU25+LTKpMBI
+	2SThT7bJhv4hMoJzODBt3QCBEVXRrp78A1X5adzY++kWebIc0j9yQB+Xn3jLVAqh/wPefj4dAf+5z
+	KcLmtozaGa1BpqakJ7CRZoLSVe6z49zr1gCv/FhXi/YshFk8Tekdx5SjUeqqRd48mp1YbGJG2hDcW
+	FXJhKpcxoNOW8lfEDpVgPGxFdQxOb6NxuisvyVe6VQ1Lt9j+2ECpYGlnOYe7GqhiOhZ2q8SBdV+wG
+	HKxIrd9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOtGD-00000006ecD-0TIV;
-	Sat, 21 Dec 2024 06:46:49 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tOuri-00000006jdQ-197s;
+	Sat, 21 Dec 2024 08:29:38 +0000
+Received: from [198.175.65.19] (helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOtEy-00000006eYL-0qAg
+	id 1tOuqV-00000006jZ3-2Zme
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 06:45:33 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43618283d48so19169995e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 20 Dec 2024 22:45:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734763530; x=1735368330; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FPQisv984Skp38aX3x/aVAIVLxylAjAYHdHkoJQnBu0=;
-        b=Rf9DdjKlT53StLN4yWeSeWdYiyRB8QW9H/GJdmcUl7mmMHVRwQEqyiw2Q1E34VwmV3
-         RHD99re+5KYCuGv9o6VncLfT5j6lIST9kBLpOMzQvNgbS+uahLsf+ZiDmqVUs0FmK2TH
-         TRWBw+XJ8iWhIy4Zas6tKz7ALAcVvryUZ37qPXDRJ8qgLj+zv43M79UyPFII8gfdKkT3
-         4gl7kCWaL5xuFurXGKivvNKIchlI3/jQBk8UG/kWnOmkA2cgGYGldTQfPgrXUAWU3nYZ
-         KeOk6nDZJmcMZ/J+lugRYjWol8NRmFKkNQrhTMoXE5AxWWaJtCDfSh4drhOajVdHzhSl
-         aKkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734763530; x=1735368330;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FPQisv984Skp38aX3x/aVAIVLxylAjAYHdHkoJQnBu0=;
-        b=n7QL4ndZTrs3kkHTAe4lWqHmhb4ts2iFX1/unzIKmZIk1VcyOw7hZt4Etq8A40ykjl
-         Hl8WYGr2aPPQgMDdih5Z5mqmR4wDKdFh8AeiouOmsE5MU/l9LoUMstmVjQJiwqJF99xg
-         QFnUJjpeBqogebbdolGfC81z6GGlsXzb8ZTgjojqh6+qpvTNC1T0tabeLqak6sTQ4uw0
-         HhjLp/X04si1SEqy9VRqtWzzRPm97xIGGkX53/rUiQgYVnGBnNE/Hcf83GlOpc9kUl8J
-         RRsuE0S8CZjDat+imWl9/rWZLsMdV3qx9qRJw9XHKLY0O6dkQFdPuEQdC5VkpFB07Ltw
-         Tc0g==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ8zQSzF+nqXxGTNVMRNhw1se6ftSGXvlVORiHsSDUjScRBG6zCrcK+ZzfkOcUyoq3+iZ5sVqYPuHmFh2AaRyY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya1/5xm4RgXsz6rN9Ym4qmyVMJDgFQmEC72Jq0u9doyK1dktwb
-	1CM0JxAmmu5UFCPcZ3LRmCjrgM0SiuXp5kZB15cHhpVoZm2a5pNI1Q5ojU2BZIw=
-X-Gm-Gg: ASbGncthZ+LvTq6onPMNyzDg7gPXiZm1tVm/gmNLgrMOaFiuXC98OdiieHV8pX3HiQC
-	Wt2gad1mhe/V2hdDMXfkFgUXsJoCU4EIUvW0MbwH17EWuztXvnoh0BPd+xHLPc+FpT4ywLyUA6b
-	lwL6t14lEAU7CCDDqqw9QjRf2qUYMHhPj6lNxmE+whZK8xVeVi/rgYmNN8REl2R9K/6FY9ZBnYS
-	tmZWsCyYDkO8Wk2CUdgQXDbvczFryMdw822aaDpd8CkvidDxBrDQzlU7IFLVjjU
-X-Google-Smtp-Source: AGHT+IHd7PMiz4uKlhm1NQRKgVjjpCH4CEyjHfmUTjmofAVFid+yDl4ahHk+jtqJk3h5IK5+ah+FCw==
-X-Received: by 2002:a05:600c:1c21:b0:435:194:3cdf with SMTP id 5b1f17b1804b1-436686463ecmr47004425e9.19.1734763529975;
-        Fri, 20 Dec 2024 22:45:29 -0800 (PST)
-Received: from [10.11.12.107] ([188.26.61.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c4bbsm66468295e9.32.2024.12.20.22.45.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2024 22:45:29 -0800 (PST)
-Message-ID: <eaab647a-f6f4-4562-89fa-e64daa80bdf4@linaro.org>
-Date: Sat, 21 Dec 2024 06:45:27 +0000
+	Sat, 21 Dec 2024 08:28:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734769703; x=1766305703;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=T78QzclBUAPQSNOb3TrxqRm+umAyg/4pAny0vdSt1Q8=;
+  b=WhPleZVFpf+41UM71v24pOGagGpR4tc1DBgObI0wyeqe1mzI83zNHqYu
+   F7ZOScbSYo4aIWyC38gIIjXttJFL8zYOt+0qHyBDAWH7hqOHl9yITNyDp
+   6bmCGnLI1lTlpvDJ5JztbvAIhVhrjTcDccwie8oEuHNBY5zD6wsCU1SBG
+   cbSgQHNpwJaLD8oJoq0Jq7zFZpHnIRt5A+9diDghREBEMA8nFHCgmfu0f
+   UrSDrAqzQV4hNTjrSh1oEURXQ24H9WhC6xWqLKfut4HnDQX7l66z/82I8
+   iRp1azvS2p9JgV9HP4/ZTe/YhdEPx0XHkbw6OmRsNqep9PEEwP6KwGnQR
+   g==;
+X-CSE-ConnectionGUID: AEPBXd70T8m5sCWIU2/Mhw==
+X-CSE-MsgGUID: TC68ahnSSI6qRte9S5ombg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="35194605"
+X-IronPort-AV: E=Sophos;i="6.12,253,1728975600"; 
+   d="scan'208";a="35194605"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2024 00:28:17 -0800
+X-CSE-ConnectionGUID: QNFIDEbZRVajtDEnqen2qw==
+X-CSE-MsgGUID: ZpkBAbhIQBCR3Io65oR+LQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="103722115"
+Received: from lkp-server01.sh.intel.com (HELO a46f226878e0) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 21 Dec 2024 00:28:14 -0800
+Received: from kbuild by a46f226878e0 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tOuqI-000255-2Y;
+	Sat, 21 Dec 2024 08:28:10 +0000
+Date: Sat, 21 Dec 2024 16:27:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
+	peter.griffin@linaro.org, kernel-team@android.com,
+	willmcvicker@google.com, daniel.lezcano@linaro.org,
+	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de,
+	Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: Re: [PATCH v6 3/5] mailbox: add support for clients to request
+ channels by args
+Message-ID: <202412211604.qPMHGnk0-lkp@intel.com>
+References: <20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: mailbox: add google,gs101-mbox
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
- peter.griffin@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org, arnd@arndb.de
-References: <20241217-acpm-v4-upstream-mbox-v5-0-cd1d3951fe84@linaro.org>
- <20241217-acpm-v4-upstream-mbox-v5-1-cd1d3951fe84@linaro.org>
- <ec3cdfd1-df7a-466c-8581-c9546ca6b089@linaro.org>
- <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <CABb+yY0rBzP8JPAik5aaXp6GivQKEf++sgiMM9fTPgd_5YXT1w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_224532_284417_FAA8D463 
-X-CRM114-Status: GOOD (  24.35  )
+X-CRM114-CacheID: sfid-20241221_002823_736448_E760F5EA 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,94 +98,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Jassi,
+Hi Tudor,
 
-Thanks for the review!
+kernel test robot noticed the following build warnings:
 
-On 12/21/24 2:19 AM, Jassi Brar wrote:
-> On Thu, Dec 19, 2024 at 4:51 AM Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
->>
->> Hi, Krzysztof, Jassi,
->>
->> On 12/17/24 9:40 AM, Tudor Ambarus wrote:
->>
->>> diff --git a/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
->>
->> cut
->>
->>> +
->>> +  '#mbox-cells':
->>> +    description: |
->>> +      <&phandle type channel>
->>> +      phandle : label name of controller.
->>> +      type    : channel type, doorbell or data-transfer.
->>> +      channel : channel number.
->>> +
->>> +      Here is how a client can reference them:
->>> +      mboxes = <&ap2apm_mailbox DOORBELL 2>;
->>> +      mboxes = <&ap2apm_mailbox DATA 3>;
->>> +    const: 2
->>> +
->>
->> Revisiting this, I think that for the ACPM interface mailbox client use
->> case, it would be better to introduce a mbox property where I reference
->> just the phandle to the controller:
->>         mbox = <&ap2apm_mailbox>;
->>
->> The ACPM interface discovers the mailbox channel IDs at runtime by
->> parsing SRAM. And all ACPM's channels are of type DOORBELL, thus
->> specifying the type and channel in DT is redundant.
->>
->> It would require to extend a bit the mailbox core to provide a
->> mbox_request_channel_by_args() method. I already wrote a draft and
->> tested it.
->>
->> Do you find the idea fine?
->>
-> Looking at v6, I prefer this version... maybe modify it a bit.
+[auto build test WARNING on 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8]
 
-Just to summarize for the readers, in the end I chose for the
-controllers to allow #mbox-cells = <0>; and for the clients to still use
-the mboxes property, but just to reference the phandle to the controller:
-	mboxes = <&ap2apm_mailbox>;
-Then I updated the mailbox core to allow clients to request channels by
-passing some args containing channel identifiers to the controllers,
-that the controllers xlate() using their own method.
-> 
-> Even if you get the channel number at runtime, the type (Data vs
-> Doorbell) is static and needs to be passed via DT. You may have
->   mbox = <&ap2apm_mailbox DOORBELL>;
+url:    https://github.com/intel-lab-lkp/linux/commits/Tudor-Ambarus/dt-bindings-mailbox-allow-mbox-cells-0/20241220-215938
+base:   78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
+patch link:    https://lore.kernel.org/r/20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a%40linaro.org
+patch subject: [PATCH v6 3/5] mailbox: add support for clients to request channels by args
+config: x86_64-buildonly-randconfig-001-20241221 (https://download.01.org/0day-ci/archive/20241221/202412211604.qPMHGnk0-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241221/202412211604.qPMHGnk0-lkp@intel.com/reproduce)
 
-The ACPM interface uses mailbox always in DOORBELL mode. If it has some
-data to send, it will always send it via SRAM. Do I still need to
-specify the channel type in DT?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412211604.qPMHGnk0-lkp@intel.com/
 
-For all the other mailbox clients than ACPM, that will reference the
-same mailbox controller (same compatible if you want), I'm thinking that
-we'll update the #mbox-cells to have an maxItems of 2, where they'll be
-able to pass the channel ID and type via DT.
+All warnings (new ones prefixed by >>):
 
-ACPM has its own dedicated mailbox controller ap2apm_mailbox, thus it uses:
-	#mbox-cells = <0>;
-channels IDs are from SRAM and type is always DOORBELL.
+>> drivers/mailbox/mailbox.c:486: warning: Function parameter or struct member 'mbox_spec' not described in 'mbox_request_channel_by_args'
+>> drivers/mailbox/mailbox.c:486: warning: Excess function parameter 'spec' description in 'mbox_request_channel_by_args'
 
-All the other mailbox controllers using the same compatible will use
-	#mbox-cells = <2>;
 
-> and in your custom of_xlate implementation return any available
-> "virtual" channel. You could use 'void *data' in
+vim +486 drivers/mailbox/mailbox.c
 
-Would you please extend this idea a little bit? What is a virtual channel?
+   469	
+   470	/**
+   471	 * mbox_request_channel_by_args - request a mailbox channel using client's
+   472	 * channel identifiers.
+   473	 * @cl: identity of the client requesting the channel.
+   474	 * @index: index of mailbox specifier in 'mboxes' property.
+   475	 * @spec: arguments that describe the channel.
+   476	 *
+   477	 * Used by clients that can discover the channel identifiers at runtime (by
+   478	 * parsing a shared memory for example). The description of
+   479	 * mbox_request_channel() applies here as well.
+   480	 *
+   481	 * Return: Pointer to the channel assigned to the client if successful.
+   482	 *         ERR_PTR for request failure.
+   483	 */
+   484	struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
+   485				int index, const struct mbox_xlate_args *mbox_spec)
+ > 486	{
+   487		struct of_phandle_args of_args;
+   488		struct device *dev = cl->dev;
+   489		struct mbox_controller *mbox;
+   490		struct mbox_chan *chan;
+   491		int ret;
+   492	
+   493		if (!dev || !dev->of_node) {
+   494			pr_debug("%s: No owner device node\n", __func__);
+   495			return ERR_PTR(-ENODEV);
+   496		}
+   497	
+   498		if (of_parse_phandle_with_args(dev->of_node, "mboxes",
+   499					       "#mbox-cells", index, &of_args)) {
+   500			dev_dbg(dev, "%s: can't parse \"mboxes\" property\n", __func__);
+   501			return ERR_PTR(-ENODEV);
+   502		}
+   503	
+   504		mutex_lock(&con_mutex);
+   505	
+   506		chan = ERR_PTR(-EPROBE_DEFER);
+   507		list_for_each_entry(mbox, &mbox_cons, node)
+   508			if (mbox->dev->of_node == of_args.np && mbox->xlate) {
+   509				chan = mbox->xlate(mbox, mbox_spec);
+   510				if (!IS_ERR(chan))
+   511					break;
+   512			}
+   513	
+   514		of_node_put(of_args.np);
+   515	
+   516		if (IS_ERR(chan)) {
+   517			mutex_unlock(&con_mutex);
+   518			return chan;
+   519		}
+   520	
+   521		ret = __mbox_bind_client(chan, cl);
+   522		if (ret)
+   523			chan = ERR_PTR(ret);
+   524	
+   525		mutex_unlock(&con_mutex);
+   526		return chan;
+   527	}
+   528	EXPORT_SYMBOL_GPL(mbox_request_channel_by_args);
+   529	
 
-In the ACPM interface mailbox client I request all the channels that are
-advertised in SRAM, each mailbox channel has a 1 to 1 relation with a
-h/w channel ID.
-
-Cheers,
-ta
-
-> exynos_mbox_send_data() to pass the h/w channel-id, instead of the
-> index of the virtual channel.
-> 
-> Thanks.
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
