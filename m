@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5EE9E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 18:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4179E7718C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 18:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nKm+2jLJzQjlOVIXUnYb838tD02sd/ViHbfbQJoph58=; b=3cOygIJAeN6+NT6eTZhWqXxg4s
-	zCN7DikzyLjAe0uffUrS5wMu4WBIC+pOaSiVndhTESmXqkrdTVVFU82DZaFXw3W4tDC59Nl30VVnH
-	kYfwRldUfc2tUtcgyacSLtcX2DYJkcn4Jrfsp8Q0vvkMM2V/EnlsPa+iit4F38bI93+y0NJfgU3UZ
-	yE3UB90Sn/7qjOi3efUIVzY38EsxHkQ2DBzOAsQVDVt/U9z59jxHWNTUTUMZdWCPKqGd8YBoPL5k3
-	BceCTR6bW55hEq19WZ/8kfiJNCTH4VvZPSEg5nBoS8O9N8nZZXHJY1NC0mDIQirU95G9VzMxC5TYL
-	f5ZDfjpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M8dHtJlf8tItSQ/7DyV52Ix8ukF9j6um/mZiGlFEv5E=; b=nJ6jjeTSGZpCwO8dRYzMq7WvYT
+	cU2wG7f2OjxdUYIpxdOxHvW6/XZbELlIpBeAY7Bf0DjswyxNKzmbJCwAZxEU8y9M44yiTBmKlpicf
+	4pWKPxeV3BmdvVAAdcC6ncT9waYZ3gutOQKzXVWX2kKk/pgQRhrRwdQqQ1CyhKD7BwuTq2eTZDVnB
+	D4dsMpdHzD3bTKi+mQVjT++wcqs+5B7ur0Uh77MwJfQfQoxVjLenfzVO976F76Niz+OuHMkRejImX
+	Nkn2aHu//VNUtp302JSG2JKbtDBzmxP3sG8yOT6kOBuSIZSK26MEseoOBbrE/PkhibhOAbTXBr7Hr
+	DbiGxSyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP49E-00000007HWF-3AAC;
-	Sat, 21 Dec 2024 18:24:20 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1tP4LL-00000007IQk-3HH7;
+	Sat, 21 Dec 2024 18:36:51 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP46V-00000007H8x-0c4m
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 18:21:32 +0000
+	id 1tP4K9-00000007ILW-2L7r;
+	Sat, 21 Dec 2024 18:35:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734805291; x=1766341291;
-  h=date:from:to:cc:subject:message-id;
-  bh=R70Omeeu5rJbgB7oyB/GXxztXx9pijKD8US33KhnsGw=;
-  b=ZaE1RRozDze21yTZ+Rv5Y0tzRy7J6XkAemYLtN8EbU+y/+vu6c3uephL
-   xNLTFQ4y2m0bExv/oXUH8MB4aeGBK8Vy/n4rK5OMYgLUmJZIfIvkICwpe
-   nnKbL5uvgY3bxPmbPd49h8ynHyjmciWA12K5tylzzOtSPG7k3zs8P1TcJ
-   ajElrIjlu9ar+/3FNO3iWur8HUU/oXyiOxZxVjRN5FTNTTmwMICdTBll6
-   OdclWXX/4n8mIUqYI7ltHgi0wGrLSdoNw8ZF5uSJzud3xNeg+E2bQSz28
-   h4sfDGMnU2g9Vqoc5GWAvA5g74d/cOlZ89PFtVI5MtrSfOQy7XGf/pPiG
-   Q==;
-X-CSE-ConnectionGUID: DWAeZLL2Q/OwE9jdgxn7MA==
-X-CSE-MsgGUID: W0WI2D5BQyqk6nvfVnJl8g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11293"; a="45933726"
+  t=1734806137; x=1766342137;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lVYKjo+Ke4pwz0cUb6epoQIlzNlbQZRTf/k4pJY3ekM=;
+  b=az5kz1AmpdxN7SWZOAYvfDFdZXKurNTTt36R0Ly4JU7D22kwyy+imA3/
+   uKyJoUyXeGc/Ev5I+BMP/JlpgGwfkfk+CvmZs4x1MNTewirIwzi97zIYG
+   /O1OITzDRffElEljVx7kd99nDYLEfV0iaacv9xlVroTxwkv0jb0X4Lqbv
+   2AxN+aYx7m6RVb34nBzewfdWnPZvc3A4UH+MdWhQqAUmjiWAup7nlpTaD
+   76DCbMqp9N7bVDddNOWP1vunQpG/u5Dp+49aegkRauuHJDLhsPvwVN2+h
+   dFMoUJFMbMqpGfoXoq3t4k4bkzpN3Bb1WeRCvolGHKey65RLdDJ7SHE9A
+   A==;
+X-CSE-ConnectionGUID: uzXavMVrTg6Ds/2Bxmhy1A==
+X-CSE-MsgGUID: Uf79tYfXTfaatGt0WIVApw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11293"; a="35474188"
 X-IronPort-AV: E=Sophos;i="6.12,254,1728975600"; 
-   d="scan'208";a="45933726"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2024 10:21:31 -0800
-X-CSE-ConnectionGUID: 99Kx+XviQ8urqrYBAFdBFw==
-X-CSE-MsgGUID: fA5YS30BTDi0FjUNnWcycw==
+   d="scan'208";a="35474188"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2024 10:35:35 -0800
+X-CSE-ConnectionGUID: ju9GWxSmQFuS6iK0ViHFTw==
+X-CSE-MsgGUID: pTo69KGOQMmY3VC50P42PQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,254,1728975600"; 
-   d="scan'208";a="98873951"
+   d="scan'208";a="98627611"
 Received: from lkp-server01.sh.intel.com (HELO a46f226878e0) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 21 Dec 2024 10:21:30 -0800
+  by fmviesa007.fm.intel.com with ESMTP; 21 Dec 2024 10:35:31 -0800
 Received: from kbuild by a46f226878e0 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1tP46R-0002O0-1C;
-	Sat, 21 Dec 2024 18:21:27 +0000
-Date: Sun, 22 Dec 2024 02:20:27 +0800
+	id 1tP4K0-0002Ox-30;
+	Sat, 21 Dec 2024 18:35:28 +0000
+Date: Sun, 22 Dec 2024 02:34:45 +0800
 From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- b5d57dcb214665c17dbd8606797a36a2048ae345
-Message-ID: <202412220221.VOgu1nPI-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	John Cox <john.cox@raspberrypi.com>,
+	Dom Cobley <dom@raspberrypi.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH 5/7] media: platform: Add Raspberry Pi HEVC decoder driver
+Message-ID: <202412220238.0kZEBbMb-lkp@intel.com>
+References: <20241220-media-rpi-hevc-dec-v1-5-0ebcc04ed42e@raspberrypi.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241220-media-rpi-hevc-dec-v1-5-0ebcc04ed42e@raspberrypi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_102131_203763_E960868C 
-X-CRM114-Status: UNSURE (   4.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241221_103537_695435_3C9EC2A5 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,124 +100,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: b5d57dcb214665c17dbd8606797a36a2048ae345  soc: document merges
+Hi Dave,
 
-elapsed time: 1447m
+kernel test robot noticed the following build errors:
 
-configs tested: 104
-configs skipped: 3
+[auto build test ERROR on e90c9612ac3969cb8206029a26bcd2b6f5d4a942]
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+url:    https://github.com/intel-lab-lkp/linux/commits/Dave-Stevenson/RFC-media-Add-media_request_-pin-unpin-API/20241221-002633
+base:   e90c9612ac3969cb8206029a26bcd2b6f5d4a942
+patch link:    https://lore.kernel.org/r/20241220-media-rpi-hevc-dec-v1-5-0ebcc04ed42e%40raspberrypi.com
+patch subject: [PATCH 5/7] media: platform: Add Raspberry Pi HEVC decoder driver
+config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20241222/202412220238.0kZEBbMb-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241222/202412220238.0kZEBbMb-lkp@intel.com/reproduce)
 
-tested configs:
-alpha                            alldefconfig    gcc-14.2.0
-alpha                             allnoconfig    gcc-14.2.0
-alpha                               defconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-13.2.0
-arc                               allnoconfig    gcc-13.2.0
-arc                              allyesconfig    gcc-13.2.0
-arc                                 defconfig    gcc-13.2.0
-arc                   randconfig-001-20241221    gcc-13.2.0
-arc                   randconfig-002-20241221    gcc-13.2.0
-arm                              alldefconfig    gcc-14.2.0
-arm                               allnoconfig    clang-17
-arm                              allyesconfig    gcc-14.2.0
-arm                   randconfig-001-20241221    gcc-14.2.0
-arm                   randconfig-002-20241221    gcc-14.2.0
-arm                   randconfig-003-20241221    gcc-14.2.0
-arm                   randconfig-004-20241221    clang-18
-arm                          sp7021_defconfig    gcc-14.2.0
-arm64                            allmodconfig    clang-18
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20241221    clang-18
-arm64                 randconfig-002-20241221    clang-16
-arm64                 randconfig-003-20241221    clang-20
-arm64                 randconfig-004-20241221    gcc-14.2.0
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20241221    gcc-14.2.0
-csky                  randconfig-002-20241221    gcc-14.2.0
-hexagon                           allnoconfig    clang-20
-hexagon               randconfig-002-20241221    clang-20
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20241221    gcc-12
-i386        buildonly-randconfig-002-20241221    gcc-12
-i386        buildonly-randconfig-003-20241221    clang-19
-i386        buildonly-randconfig-004-20241221    clang-19
-i386        buildonly-randconfig-005-20241221    clang-19
-i386        buildonly-randconfig-006-20241221    clang-19
-i386                                defconfig    clang-19
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20241221    gcc-14.2.0
-loongarch             randconfig-002-20241221    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20241221    gcc-14.2.0
-nios2                 randconfig-002-20241221    gcc-14.2.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                randconfig-001-20241221    gcc-14.2.0
-parisc                randconfig-002-20241221    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                      mgcoge_defconfig    clang-20
-powerpc               randconfig-001-20241221    gcc-14.2.0
-powerpc               randconfig-002-20241221    gcc-14.2.0
-powerpc               randconfig-003-20241221    gcc-14.2.0
-powerpc                    socrates_defconfig    gcc-14.2.0
-powerpc                     tqm5200_defconfig    gcc-14.2.0
-powerpc64             randconfig-001-20241221    gcc-14.2.0
-powerpc64             randconfig-002-20241221    gcc-14.2.0
-powerpc64             randconfig-003-20241221    clang-18
-riscv                             allnoconfig    gcc-14.2.0
-riscv                 randconfig-001-20241221    gcc-14.2.0
-riscv                 randconfig-002-20241221    gcc-14.2.0
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-20
-s390                             allyesconfig    gcc-14.2.0
-s390                  randconfig-001-20241221    gcc-14.2.0
-s390                  randconfig-002-20241221    gcc-14.2.0
-s390                       zfcpdump_defconfig    clang-19
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                     magicpanelr2_defconfig    gcc-14.2.0
-sh                    randconfig-001-20241221    gcc-14.2.0
-sh                    randconfig-002-20241221    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20241221    gcc-14.2.0
-sparc                 randconfig-002-20241221    gcc-14.2.0
-sparc64               randconfig-001-20241221    gcc-14.2.0
-sparc64               randconfig-002-20241221    gcc-14.2.0
-um                                allnoconfig    clang-18
-um                    randconfig-001-20241221    clang-18
-um                    randconfig-002-20241221    gcc-12
-x86_64                            allnoconfig    clang-19
-x86_64                           allyesconfig    clang-19
-x86_64      buildonly-randconfig-001-20241221    gcc-12
-x86_64      buildonly-randconfig-002-20241221    gcc-12
-x86_64      buildonly-randconfig-003-20241221    gcc-12
-x86_64      buildonly-randconfig-004-20241221    gcc-12
-x86_64      buildonly-randconfig-005-20241221    gcc-11
-x86_64      buildonly-randconfig-006-20241221    gcc-12
-x86_64                              defconfig    gcc-11
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20241221    gcc-14.2.0
-xtensa                randconfig-002-20241221    gcc-14.2.0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412220238.0kZEBbMb-lkp@intel.com/
 
+All errors (new ones prefixed by >>):
+
+>> drivers/media/platform/raspberrypi/hevc_dec/hevc_d.c:24:10: fatal error: hevc_d_h265.h: No such file or directory
+      24 | #include "hevc_d_h265.h"
+         |          ^~~~~~~~~~~~~~~
+   compilation terminated.
 --
+>> drivers/media/platform/raspberrypi/hevc_dec/hevc_d_video.c:21:10: fatal error: hevc_d_h265.h: No such file or directory
+      21 | #include "hevc_d_h265.h"
+         |          ^~~~~~~~~~~~~~~
+   compilation terminated.
+--
+>> drivers/media/platform/raspberrypi/hevc_dec/hevc_d_h265.c:20:10: fatal error: hevc_d_h265.h: No such file or directory
+      20 | #include "hevc_d_h265.h"
+         |          ^~~~~~~~~~~~~~~
+   compilation terminated.
+
+
+vim +24 drivers/media/platform/raspberrypi/hevc_dec/hevc_d.c
+
+    22	
+    23	#include "hevc_d.h"
+  > 24	#include "hevc_d_h265.h"
+    25	#include "hevc_d_video.h"
+    26	#include "hevc_d_hw.h"
+    27	
+
+-- 
 0-DAY CI Kernel Test Service
 https://github.com/intel/lkp-tests/wiki
 
