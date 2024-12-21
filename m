@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 412E6E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 20:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C687E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 20:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3EapxNTk591D/UKmWJMKnm2jRTdChxlN4lZS6VQOvY=; b=eMCBEu7uwDCAi/Pz6VxNbHMrMx
-	VlYcJlTv37toVzp+dGy8P730oBS3c0xn+fDKmF73m113m28Korkvl3TH4/welesLJRRXoEs7PWGJb
-	38izHov/Uif+YEyPLBL9uaVidWr5/f3AaACGA9ThR8TIjC/4dTsLlJprMOvfPYZS4Ciuo7xLfv0Bz
-	GxHNGor1dhSdbsiEXF+iXB1b3Zv7wHYFAS8O3qE7R+AqAse5gPiF3O4xkCZ9jnmOCpzOfrD8TKOW7
-	vrcnMnFOq7JMsqAyWibcjmYtBv0DBUvDDkLDw9DolVYwseYBPhD5/EPiDgLz3cmrwI9+yvYy84FBH
-	4yBNlKzw==;
+	bh=3w8p59Rajwv6PtjcNjdpADbCNSUkBm9coKCDEJpG1t8=; b=uu2tfcRgF/J6AIYxrxXsI6OSxg
+	Q/Ni+Ubdhj/36belNnE4ASPVYHuy09tCCA0bJ/l+R+Lx54P8YPDvVp/ZhacAasZt5LNOKSmkphvqI
+	HKoyRabmiBQNUFTPvusxW6FHXLG41ZqG8gf6NptYaHrZiYKXBCH6UWcaX1zqvLU8yB6ROScQ5JZbK
+	PxB3+vRW2o7MiNTITidgqDGsdrDYxEE23sUHvjVv0Q+JkQETalQV1HnHHA3VWhiBY1DnPt9Y6tPmJ
+	l60m457JTs3fhMHr0oq/WUvG/SzksVAsZC9KbzWA6/NkUlDiItsJ1QY2qoLhW3J7OBtaVu0XIXXf8
+	YwG44+ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP5jA-00000007NWb-3lmd;
-	Sat, 21 Dec 2024 20:05:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tP5qB-00000007Nxl-0cK2;
+	Sat, 21 Dec 2024 20:12:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP5hx-00000007NQs-2LPs
+	id 1tP5ou-00000007Not-2Xgx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 20:04:18 +0000
+	Sat, 21 Dec 2024 20:11:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9B4465C3F2F;
-	Sat, 21 Dec 2024 20:03:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA73C4CECE;
-	Sat, 21 Dec 2024 20:04:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 55CD6A40320;
+	Sat, 21 Dec 2024 20:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD9BAC4CED4;
+	Sat, 21 Dec 2024 20:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734811454;
-	bh=ikxOUIOTw9eoWm2o64mcT0oXtU7uwV+VTnKNQ4dtHW4=;
+	s=k20201202; t=1734811887;
+	bh=AoiVOptiYVf3sXc6Wc3zef23U6V9pmhLL3rDLQSzFWw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T4azDL64V+kylXHaClVhdTSzV2m1Y+u77wOTDXogL19Qw69EZNIiZF7HUhMZ5JReA
-	 8eAFhoDA6HopiwIs3SXeZCpYqBz7pGsw8GZDuvjE/X8FKTFo72E0RAKZKBZjEAr8iE
-	 jpCHWb5gSGTe9ZO5KveUHZP7Nb2hCY6hcnps83Z/5+I10XVmm0gfqrXL5uSaUobA6L
-	 YxSbBIFILR7DOL8NiL21/Hh5MFWyiuNvLhV/2VR5iok/15CeNLoxluHdWflrDSgaMn
-	 y3ku6+35Z7cVqFfyoYkpwYaAXLac3kdNBFOXUlgWqu+q/LmH5ific1ssceOHL8UwLD
-	 k7ckbMHas/IdA==
-Message-ID: <a92ff542-6534-4e2e-bef9-6f10c8362d86@kernel.org>
-Date: Sat, 21 Dec 2024 21:04:09 +0100
+	b=ccnf6px3FpX6+kFq3Vh6WPLH8zAYR7lEH7uaMC+3FEdIBzGV2KFo/huiEqb2EfZWN
+	 oxvT9qTxj4HcIWefa7nJIvK/g5AllWUviOKlpXtUOUfXn0WqKntWQGhbiea7ZHATA1
+	 zakO01K6x8DX5sDxsvaBWbbPupksbyopwyphZGgUv5w3+KsDRYgtDJeUIyDgI05sOT
+	 OMIeSwVvzBQdhvW01l9ydyEyTYSskjWZr4V814uMDXEOTNcJvPVsEIpbo3UUxPtPxu
+	 0lxuTgRjrLIkF/LTbeGkO6rPT2xUriGwRiQ9c5aMUWqPUAwWQUdsQFreYT1asz7We0
+	 SuWHfxqK41SOA==
+Message-ID: <0af81029-0f68-4034-899f-4294d249f6a4@kernel.org>
+Date: Sat, 21 Dec 2024 21:11:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5
- compatible
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>
-References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
- <20241217194439.929040-2-florian.fainelli@broadcom.com>
- <2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi>
- <93a1333d-442f-4cec-b823-9b1a5ff6dc6b@broadcom.com>
- <wxq5zzfh5jesucbbste2j6x2jtj45wjfc5xzjkqbqqta7cprda@oaf5arr3z6pt>
- <f906a056-3c6b-4115-9fd0-e50da8fc049b@broadcom.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 6/7] arm64: defconfig: enable cpu idle injection and
+ cpu idle cooling device
+To: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>,
+ Wasim Nazir <quic_wasimn@quicinc.com>, Bjorn Andersson
+ <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kernel@quicinc.com
+References: <20241217064856.2772305-1-quic_wasimn@quicinc.com>
+ <20241217064856.2772305-7-quic_wasimn@quicinc.com>
+ <59e96784-9efc-4958-baf0-a51e766e47e8@kernel.org>
+ <b98cc6ea-d215-2200-1537-1a53c2587c81@quicinc.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -107,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <f906a056-3c6b-4115-9fd0-e50da8fc049b@broadcom.com>
+In-Reply-To: <b98cc6ea-d215-2200-1537-1a53c2587c81@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_120417_702760_5D135C53 
-X-CRM114-Status: GOOD (  31.10  )
+X-CRM114-CacheID: sfid-20241221_121130_715880_FE83AB76 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,97 +126,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2024 00:43, Florian Fainelli wrote:
-> On 12/19/24 00:58, Krzysztof Kozlowski wrote:
->> On Wed, Dec 18, 2024 at 09:15:08AM -0800, Florian Fainelli wrote:
->>> On 12/18/24 03:37, Krzysztof Kozlowski wrote:
->>>> On Tue, Dec 17, 2024 at 11:44:38AM -0800, Florian Fainelli wrote:
->>>>> Document the revision c.1.5 compatible string that is present on newer
->>>>> Broadcom STB memory controllers (74165 and onwards).
->>>>>
->>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->>>>> ---
->>>>>    .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
->>>>>    1 file changed, 1 insertion(+)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>>> index 4b072c879b02..99d79ccd1036 100644
->>>>> --- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>>> +++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
->>>>> @@ -29,6 +29,7 @@ properties:
->>>>>              - brcm,brcmstb-memc-ddr-rev-c.1.2
->>>>>              - brcm,brcmstb-memc-ddr-rev-c.1.3
->>>>>              - brcm,brcmstb-memc-ddr-rev-c.1.4
->>>>> +          - brcm,brcmstb-memc-ddr-rev-c.1.5
->>>>
->>>> You should use v2.1 fallback and drop driver patch. Or explain in
->>>> commit briefly why different approach is suitable.
+On 20/12/2024 12:38, Manaf Meethalavalappu Pallikunhi wrote:
+> 
+> Hi Krzysztof,
+> 
+> Thank you for reviewing this patch.
+> 
+> On 12/18/2024 1:32 PM, Krzysztof Kozlowski wrote:
+>> On 17/12/2024 07:48, Wasim Nazir wrote:
+>>> From: Manaf Meethalavalappu Pallikunhi <quic_manafm@quicinc.com>
 >>>
->>> Are you suggesting that we should have fallback compatible strings, such
->>> that we have something like this:
->>>
->>> compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5",
->>> "brcm,brcmstb-memc-ddr-rev-c", "brcm,brcmstb-memc-ddr"
->>>
->>> and the driver only needs to match on "brcm,brcmstb-memc-ddr-rev-c" and
->>> apply the adequate register offset table?
->>
->> Almost, fallback should be brcm,brcmstb-memc-ddr-rev-b.2.1 or whatever
->> was in the driver first or whatever is the oldest known common
->> interface.
->>
->> brcm,brcmstb-memc-ddr-rev-c is not a specific compatible.
->>
->>> If so, that is not how the current binding, and therefore DTBs are being
->>> deployed, so that will introduce a breakage until we update all DTBs in the
->>> field...
->>
->> No. First, I thought about new comaptible so the one you add here. No
->> breakage, it's new compatible. This saves you these pointless updates of
->> driver everytime you add new compatible.
+>>> Enable cpu idle injection framework and thermal cpu idle cooling device
+>>> to throttle the cpu by injecting idle cycle during high thermal condition.
+>> I know what they do, but why do we need it in the defconfig? This is not
+>> a product defconfig, just in case you mirrored downstream patches.
 > 
-> Yes, but that is not how the binding has been defined until now, so all 
-> of the DTBs out there have:
-> 
-> compatible = "brcm,brcmstb-memc-ddr-rev-b.2.x", "brcm,brcmstb-memc-ddr"
+> We believe these defconfigs serve as a generic framework rather than 
 
-I don't understand the problem. We talk about new devices here, it does
-not matter what existing/old devices have in binding in that matter.
+No...
 
-> 
-> (where X is in range [1..5])
-> 
-> and there is no fallback defined to "brcm,brcmstb-memc-ddr-rev-b.2.1", 
-> so it is not like we can retrofit that easily by adding one now.
-> 
->  > > Second, you can introduce fallbacks to older compatibles as well - 
-> there
->> will be no breakage, because you add one more compatible. The old
->> compatibles (covered by fallback) of course stays in the driver, so
->> there is no breakage at all. We did it multiple times for several
->> different bindings in Qualcomm. People were doing exactly the same:
->> adding compatible for new device to binding and driver, without
->> considering the compatibility at all.
->>
->> Except being logically correct choice - using fallbacks - this really
->> has huge benefits when later upstreaming complete, big SoCs, like we do
->> for latest Qualcomm SoCs: several changes will be only bindings updates.
-> 
-> Yes, there are advantages to using fallbacks and we (ab)use that 
-> whenever practical.
-> 
-> The driver only uses a very limited subset of registers (for now), the 
-> registers change between minor revisions as well in a way that using a 
-> fallback like "brcm,brcmstb-memc-ddr-rev-b.2.1" is not accurate enough 
-> not practical. In particular for some of the changes that I am thinking 
-> of adding later on, we would need the precise minor version because the 
-> behavior and/or register interface is subtly different that this matters.
+> being tied to specific product features. Therefore, we have enabled them 
 
-Devices work fine now with the same driver data, so they are compatible.
-Just because you have some differences or new features does not
-invalidate that this is exactly the point for what compatibility was
-created.
+They are tied to specific products.
 
+> in the defconfig to ensure the end-to-end feature is available in the 
+> pristine upstream build. However, if you think this would introduce 
+
+Why would we care about this end-to-end feature?
+
+> overhead for other products, we will exclude this patch in the next 
+> revision.
+
+I just did not see here any explanation why this should be added. I
+don't need to come with extensive disagreement, because by default we do
+not enable everything. We enable only some things because of some
+reason. And that's why you have commit msg...
 
 Best regards,
 Krzysztof
