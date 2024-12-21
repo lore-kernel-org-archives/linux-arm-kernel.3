@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E06E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 17:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E87E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 17:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAhcRMPStGRqCLofBjWI9q2BlqenCQBHYgu7i35fXPo=; b=DOIuc8ZrFEuyQ2S7Uq/0VdHfh8
-	QGjzWoeujXtvsznPhc6IGlx59KX9t8A9ye7Otf4sUSHGdGvexlzfCS14+j89GAjoKLTtGV78FwIwb
-	JH5X0GLN4VfkDPC1H/iCShvAosnLbq8fwKbSOfRD0R2CJ9zbQnT9rtkzrsYkJ5f4VXsPyUbmnAPa0
-	qK/ux5aI3hVURRCZrY3ODjOjyXxPO/D8PaC0cK9BzlVeUN7n139sPVee1i9XwVjC3h5K/d9DX5S6M
-	CHt8j5+ndggX1LRFVaDDOMHeD/2KC8HJnB14BlWHh1PnpQkIFMXCDLj6GcPIOAzftEaaQTwqVjPdL
-	xBP5UMIw==;
+	bh=o6TcaudDF9JPpLHodACMoPL+4kTGdc0BENzqpQfyDts=; b=WWgAOwMvmp8msIkTIXH5DxrXOm
+	Eg+dYcwaWT9qNCjphCLdNArF+OwM69dVctMmqlrzB3aetelnTvM5k48+CEJMr+XLvme2hp7UaoDag
+	WAYjI9cb9BA64/VEzt9vfao1M09bFZi0VFa8eZjoJSstTqxjO2Qec43hf3DRP4hLUbQ7p2oC1sFdA
+	IFQH4TdzMBiaCswsNcXmpLcsHGz4N/YRv1U6bz+6LMLvcVVkwHEgYE8SmFtFerRUywyYZSQll7AN0
+	RqJZm14ic9PlFne5tsuO1zLjiTOSLvgHPXRGvMYoKYmYh+d4E8rVlJ+Wj8NDFRoS1tzY7HIiAhLEd
+	7CEzOi/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP2rp-00000007D05-3DmN;
-	Sat, 21 Dec 2024 17:02:17 +0000
+	id 1tP2sz-00000007D8X-1x3o;
+	Sat, 21 Dec 2024 17:03:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP2pJ-00000007Cgb-2rJa
+	id 1tP2pK-00000007Cgc-32Tw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 16:59:54 +0000
+	Sat, 21 Dec 2024 16:59:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 279021477;
-	Sat, 21 Dec 2024 09:00:07 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A772B168F;
+	Sat, 21 Dec 2024 09:00:08 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C53ED3F528;
-	Sat, 21 Dec 2024 08:59:37 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5105D3F528;
+	Sat, 21 Dec 2024 08:59:39 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: suzuki.poulose@arm.com,
 	mike.leach@linaro.org,
@@ -42,17 +42,17 @@ Cc: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 1/4] coresight/etm4x: disallow altering config via sysfs while enabled
-Date: Sat, 21 Dec 2024 16:59:31 +0000
-Message-Id: <20241221165934.1161856-2-yeoreum.yun@arm.com>
+Subject: [PATCH 2/4] coresight/etm4x: remove redundant usage of drvdata->spinlock
+Date: Sat, 21 Dec 2024 16:59:32 +0000
+Message-Id: <20241221165934.1161856-3-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241221165934.1161856-1-yeoreum.yun@arm.com>
 References: <20241221165934.1161856-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_085941_816485_6DB9F780 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20241221_085942_855062_78F80FED 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,465 +67,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When etm4x configuration is modified via sysfs while etm4x is being
-enabled via perf, enabled etm4x could run with different configuration
-from perf_event.
-
-To address this, disallow altering config via sysfs while csdev is enabled.
+Remove redundant usage of drvdata->spinlock in  etm4_starting/dying_cpu()
+by preventing cpu hotplug while enabling etm4x via sysfs since
+ - perf and sysfs enable method are serialized by csdev->mode
+ - etm4_starting/dying_cpu() aren't called concurrently with
+   etm4_enable_perf/sysfs() because they're called in cpu offline status.
+ - while etm4x_enable_sysfs(), config isn't altered since csdev->mode
+   isn't DISABLED.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- .../coresight/coresight-etm4x-sysfs.c         | 132 +++++++++++++++++-
- 1 file changed, 128 insertions(+), 4 deletions(-)
+ .../coresight/coresight-etm4x-core.c          | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-index 11e865b8e824..cc1f112921d7 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-@@ -174,6 +174,9 @@ static ssize_t reset_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 86893115df17..5c9475b44194 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -799,16 +799,21 @@ static int etm4_enable_sysfs(struct coresight_device *csdev)
+ 	unsigned long cfg_hash;
+ 	int ret, preset;
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
++	cpus_read_lock();
 +
- 	raw_spin_lock(&drvdata->spinlock);
- 	if (val)
- 		config->mode = 0x0;
-@@ -300,6 +303,9 @@ static ssize_t mode_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
++	if (cpu_is_offline(drvdata->cpu)) {
++		ret = -EPERM;
++		goto unlock_sysfs_enable;
++	}
 +
- 	raw_spin_lock(&drvdata->spinlock);
- 	config->mode = val & ETMv4_MODE_ALL;
- 
-@@ -466,6 +472,9 @@ static ssize_t pe_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	if (val > drvdata->nr_pe) {
- 		raw_spin_unlock(&drvdata->spinlock);
-@@ -501,6 +510,9 @@ static ssize_t event_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	switch (drvdata->nr_event) {
- 	case 0x0:
-@@ -550,6 +562,9 @@ static ssize_t event_instren_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	/* start by clearing all instruction event enable bits */
- 	config->eventctrl1 &= ~TRCEVENTCTL1R_INSTEN_MASK;
-@@ -608,6 +623,9 @@ static ssize_t event_ts_store(struct device *dev,
- 	if (!drvdata->ts_size)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	config->ts_ctrl = val & ETMv4_EVENT_MASK;
- 	return size;
- }
-@@ -638,6 +656,9 @@ static ssize_t syncfreq_store(struct device *dev,
- 	if (drvdata->syncpr == true)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	config->syncfreq = val & ETMv4_SYNC_MASK;
- 	return size;
- }
-@@ -666,6 +687,9 @@ static ssize_t cyc_threshold_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/* mask off max threshold before checking min value */
- 	val &= ETM_CYC_THRESHOLD_MASK;
- 	if (val < drvdata->ccitmin)
-@@ -703,6 +727,9 @@ static ssize_t bb_ctrl_store(struct device *dev,
- 	if (!drvdata->nr_addr_cmp)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Bit[8] controls include(1) / exclude(0), bits[0-7] select
- 	 * individual range comparators. If include then at least 1
-@@ -739,6 +766,9 @@ static ssize_t event_vinst_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	val &= TRCVICTLR_EVENT_MASK >> __bf_shf(TRCVICTLR_EVENT_MASK);
- 	config->vinst_ctrl &= ~TRCVICTLR_EVENT_MASK;
-@@ -771,6 +801,9 @@ static ssize_t s_exlevel_vinst_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	/* clear all EXLEVEL_S bits  */
- 	config->vinst_ctrl &= ~TRCVICTLR_EXLEVEL_S_MASK;
-@@ -806,6 +839,9 @@ static ssize_t ns_exlevel_vinst_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	/* clear EXLEVEL_NS bits  */
- 	config->vinst_ctrl &= ~TRCVICTLR_EXLEVEL_NS_MASK;
-@@ -842,6 +878,9 @@ static ssize_t addr_idx_store(struct device *dev,
- 	if (val >= drvdata->nr_addr_cmp * 2)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
- 	 * dereferenced multiple times within a spinlock block elsewhere.
-@@ -888,6 +927,9 @@ static ssize_t addr_instdatatype_store(struct device *dev,
- 	if (sscanf(buf, "%s", str) != 1)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	if (!strcmp(str, "instr"))
-@@ -913,7 +955,7 @@ static ssize_t addr_single_show(struct device *dev,
- 	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
- 	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE)) {
- 		raw_spin_unlock(&drvdata->spinlock);
--		return -EPERM;
-+		return -EBUSY;
- 	}
- 	val = (unsigned long)config->addr_val[idx];
- 	raw_spin_unlock(&drvdata->spinlock);
-@@ -932,12 +974,15 @@ static ssize_t addr_single_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	if (!(config->addr_type[idx] == ETM_ADDR_TYPE_NONE ||
- 	      config->addr_type[idx] == ETM_ADDR_TYPE_SINGLE)) {
- 		raw_spin_unlock(&drvdata->spinlock);
--		return -EPERM;
-+		return -EBUSY;
+ 	/* enable any config activated by configfs */
+ 	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+ 	if (cfg_hash) {
+ 		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+ 		if (ret)
+-			return ret;
++			goto unlock_sysfs_enable;
  	}
  
- 	config->addr_val[idx] = (u64)val;
-@@ -960,14 +1005,14 @@ static ssize_t addr_range_show(struct device *dev,
- 	idx = config->addr_idx;
- 	if (idx % 2 != 0) {
- 		raw_spin_unlock(&drvdata->spinlock);
--		return -EPERM;
-+		return -EBUSY;
- 	}
- 	if (!((config->addr_type[idx] == ETM_ADDR_TYPE_NONE &&
- 	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_NONE) ||
- 	      (config->addr_type[idx] == ETM_ADDR_TYPE_RANGE &&
- 	       config->addr_type[idx + 1] == ETM_ADDR_TYPE_RANGE))) {
- 		raw_spin_unlock(&drvdata->spinlock);
--		return -EPERM;
-+		return -EBUSY;
- 	}
+-	raw_spin_lock(&drvdata->spinlock);
+-
+ 	/* sysfs needs to read and allocate a trace ID */
+ 	ret = etm4_read_alloc_trace_id(drvdata);
+ 	if (ret < 0)
+@@ -830,10 +835,11 @@ static int etm4_enable_sysfs(struct coresight_device *csdev)
+ 		etm4_release_trace_id(drvdata);
  
- 	val1 = (unsigned long)config->addr_val[idx];
-@@ -995,6 +1040,9 @@ static ssize_t addr_range_store(struct device *dev,
- 	if (val1 > val2)
- 		return -EINVAL;
+ unlock_sysfs_enable:
+-	raw_spin_unlock(&drvdata->spinlock);
++	cpus_read_unlock();
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
+ 	if (!ret)
+ 		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
 +
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	if (idx % 2 != 0) {
-@@ -1063,6 +1111,9 @@ static ssize_t addr_start_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	if (!drvdata->nr_addr_cmp) {
-@@ -1118,6 +1169,9 @@ static ssize_t addr_stop_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	if (!drvdata->nr_addr_cmp) {
-@@ -1172,6 +1226,9 @@ static ssize_t addr_ctxtype_store(struct device *dev,
- 	if (sscanf(buf, "%s", str) != 1)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	if (!strcmp(str, "none"))
-@@ -1238,6 +1295,9 @@ static ssize_t addr_context_store(struct device *dev,
- 		     drvdata->numcidc : drvdata->numvmidc))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->addr_idx;
- 	/* clear context ID comparator bits[6:4] */
-@@ -1276,6 +1336,9 @@ static ssize_t addr_exlevel_s_ns_store(struct device *dev,
- 	if (kstrtoul(buf, 0, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	if (val & ~(TRCACATRn_EXLEVEL_MASK >> __bf_shf(TRCACATRn_EXLEVEL_MASK)))
- 		return -EINVAL;
- 
-@@ -1366,6 +1429,9 @@ static ssize_t vinst_pe_cmp_start_stop_store(struct device *dev,
- 	if (!drvdata->nr_pe_cmp)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	config->vipcssctlr = val;
- 	raw_spin_unlock(&drvdata->spinlock);
-@@ -1398,6 +1464,9 @@ static ssize_t seq_idx_store(struct device *dev,
- 	if (val >= drvdata->nrseqstate - 1)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
- 	 * dereferenced multiple times within a spinlock block elsewhere.
-@@ -1434,6 +1503,9 @@ static ssize_t seq_state_store(struct device *dev,
- 	if (val >= drvdata->nrseqstate)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	config->seq_state = val;
- 	return size;
+ 	return ret;
  }
-@@ -1467,6 +1539,9 @@ static ssize_t seq_event_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->seq_idx;
- 	/* Seq control has two masks B[15:8] F[7:0] */
-@@ -1501,6 +1576,9 @@ static ssize_t seq_reset_event_store(struct device *dev,
- 	if (!(drvdata->nrseqstate))
- 		return -EINVAL;
+@@ -977,7 +983,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ 	 * DYING hotplug callback is serviced by the ETM driver.
+ 	 */
+ 	cpus_read_lock();
+-	raw_spin_lock(&drvdata->spinlock);
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	config->seq_rst = val & ETMv4_EVENT_MASK;
- 	return size;
+ 	/*
+ 	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+@@ -985,7 +990,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ 	 */
+ 	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+ 
+-	raw_spin_unlock(&drvdata->spinlock);
+ 	cpus_read_unlock();
+ 
+ 	/*
+@@ -1663,13 +1667,11 @@ static int etm4_starting_cpu(unsigned int cpu)
+ 	if (!etmdrvdata[cpu])
+ 		return 0;
+ 
+-	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+ 	if (!etmdrvdata[cpu]->os_unlock)
+ 		etm4_os_unlock(etmdrvdata[cpu]);
+ 
+ 	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+ 		etm4_enable_hw(etmdrvdata[cpu]);
+-	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+ 	return 0;
  }
-@@ -1531,6 +1609,9 @@ static ssize_t cntr_idx_store(struct device *dev,
- 	if (val >= drvdata->nr_cntr)
- 		return -EINVAL;
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
- 	 * dereferenced multiple times within a spinlock block elsewhere.
-@@ -1572,6 +1653,9 @@ static ssize_t cntrldvr_store(struct device *dev,
- 	if (val > ETM_CNTR_MAX_VAL)
- 		return -EINVAL;
+@@ -1678,10 +1680,8 @@ static int etm4_dying_cpu(unsigned int cpu)
+ 	if (!etmdrvdata[cpu])
+ 		return 0;
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->cntr_idx;
- 	config->cntrldvr[idx] = val;
-@@ -1610,6 +1694,9 @@ static ssize_t cntr_val_store(struct device *dev,
- 	if (val > ETM_CNTR_MAX_VAL)
- 		return -EINVAL;
+-	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+ 	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+ 		etm4_disable_hw(etmdrvdata[cpu]);
+-	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+ 	return 0;
+ }
  
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->cntr_idx;
- 	config->cntr_val[idx] = val;
-@@ -1646,6 +1733,9 @@ static ssize_t cntr_ctrl_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->cntr_idx;
- 	config->cntr_ctrl[idx] = val;
-@@ -1676,6 +1766,10 @@ static ssize_t res_idx_store(struct device *dev,
- 
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
-+
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Resource selector pair 0 is always implemented and reserved,
- 	 * namely an idx with 0 and 1 is illegal.
-@@ -1722,6 +1816,9 @@ static ssize_t res_ctrl_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->res_idx;
- 	/* For odd idx pair inversal bit is RES0 */
-@@ -1761,6 +1858,9 @@ static ssize_t sshot_idx_store(struct device *dev,
- 	if (val >= drvdata->nr_ss_cmp)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	config->ss_idx = val;
- 	raw_spin_unlock(&drvdata->spinlock);
-@@ -1794,6 +1894,9 @@ static ssize_t sshot_ctrl_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->ss_idx;
- 	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
-@@ -1844,6 +1947,9 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->ss_idx;
- 	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
-@@ -1879,6 +1985,9 @@ static ssize_t ctxid_idx_store(struct device *dev,
- 	if (val >= drvdata->numcidc)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
- 	 * dereferenced multiple times within a spinlock block elsewhere.
-@@ -1944,6 +2053,9 @@ static ssize_t ctxid_pid_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &pid))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	idx = config->ctxid_idx;
- 	config->ctxid_pid[idx] = (u64)pid;
-@@ -2003,6 +2115,9 @@ static ssize_t ctxid_masks_store(struct device *dev,
- 	if ((drvdata->numcidc > 4) && (nr_inputs != 2))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	/*
- 	 * each byte[0..3] controls mask value applied to ctxid
-@@ -2105,6 +2220,9 @@ static ssize_t vmid_idx_store(struct device *dev,
- 	if (val >= drvdata->numvmidc)
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
- 	 * dereferenced multiple times within a spinlock block elsewhere.
-@@ -2161,6 +2279,9 @@ static ssize_t vmid_val_store(struct device *dev,
- 	if (kstrtoul(buf, 16, &val))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 	config->vmid_val[config->vmid_idx] = (u64)val;
- 	raw_spin_unlock(&drvdata->spinlock);
-@@ -2217,6 +2338,9 @@ static ssize_t vmid_masks_store(struct device *dev,
- 	if ((drvdata->numvmidc > 4) && (nr_inputs != 2))
- 		return -EINVAL;
- 
-+	if (coresight_get_mode(drvdata->csdev))
-+		return -EBUSY;
-+
- 	raw_spin_lock(&drvdata->spinlock);
- 
- 	/*
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
