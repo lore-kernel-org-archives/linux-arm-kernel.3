@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FAEE77184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 11:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D08BE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 11:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQUIhxAkFMv4zgOFr0fbELlHZb6jERTJ/olL7lHSpiQ=; b=HjzSF0Mgt0Rt5JOsdurLO82dGW
-	5vVxtsyLzA3Me6aLGsyQySQFz3uYte6tB8gspK0vsMyAEHKCow2LN6rfPXEkHhuqxn7EkRgQcXLFg
-	DV4o/sW6XNGzSTEqVQly8jZcEJWE8TrPKoEV0XlBl2lzGQOqDfsFDREwFMhD2raF4Awk2Pjbb8Jfh
-	PS6NwkKf9ZRdUxSuGo2bYqL4ggRQlBlgrFuOhwfYSNyrEP9rvedzcH5MnwLZa5Rkpeni5+wWY6kYd
-	+SlE5mPvRSVOBGp/ZdEtAsjJfIhxu3nOrm7G66LFzFZPO+FL+tLUQAd1SOjGItF34Edd5s2F/k2/d
-	547cHIuA==;
+	bh=+E7upHYgzDZjR44g53qkaEY6MXYemHf4bX8uFPVIk+0=; b=oBZyVQ1QsSrt3pRaZ9rvap4T+s
+	BvIOrctlkGSYf3O+fWphKkyT58Kg9sOD5rppgXgwvQmNKqTObYiOEiTB+Qe9ScL9fEWnS/2Wyfxds
+	WFUdmwt0x76hZL5hC6Lr/R8H8D2XMZYC8V/ffh1ETpqT07UmG8S2WlTM2V30kW6RUGYoQ4VkDndOb
+	NgTn2n5rPfSy3opzZ99dWJdDRE7KROb3lgeXy96miCvSd8Oh/TfWbeoizuQD2lX5Iwkrm7lJx6+Cz
+	IhMdY5JLB5LweCbxKOjOOTsY86gvzo9TbRTkGCzsgvLethGCpxs2EHkiDbSaZ4Jg7UE7YFsIvJjn+
+	G/d/uNoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOxrd-00000006vPo-3FfY;
-	Sat, 21 Dec 2024 11:41:45 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1tOy5J-00000006vzh-1VBZ;
+	Sat, 21 Dec 2024 11:55:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOxqQ-00000006vFc-1wDY;
-	Sat, 21 Dec 2024 11:40:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=bQUIhxAkFMv4zgOFr0fbELlHZb6jERTJ/olL7lHSpiQ=; b=pZ8VGzYvFkFvpp/zbDpbS10vDs
-	WiHBsDzQgCU/VvUvyq4x32+tFiQkzcGc+GKbBJ2vFB1YPj5LTYeN1irBapdglqedGMiD5LUXHAqYB
-	Zqgu0KRvd++o6i1Sj/aDB4z8pPM8+xXktrOPWho1rro+2VPnVfrYEHb7OengIYcOl8TelXQLCd+5q
-	/M+DA23z5DAfesBZntdMeEIZ1DIzKSqskfgBs4Z2jfaJboDiiB784OF0GwyacMIFHjXlYR97xLNOC
-	0xoxYZE3tB+ccktlAxsEi+VV26w85hUW6yWoMOl8jqvw6mqf6VIs9vZodTq7DVYvT53MEqAKjfYY/
-	R8rOuAiA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1tOxb0-002QbR-28;
-	Sat, 21 Dec 2024 19:37:56 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 21 Dec 2024 19:37:55 +0800
-Date: Sat, 21 Dec 2024 19:37:55 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Alexey Romanov <avromanov@salutedevices.com>
-Cc: neil.armstrong@linaro.org, clabbe@baylibre.com, davem@davemloft.net,
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, khilman@baylibre.com,
-	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
-	vadim.fedorenko@linux.dev, linux-crypto@vger.kernel.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@salutedevices.com
-Subject: Re: [PATCH v11 11/22] crypto: amlogic - Introduce hasher
-Message-ID: <Z2aokzSrAHpJE_PG@gondor.apana.org.au>
-References: <20241213140755.1298323-1-avromanov@salutedevices.com>
- <20241213140755.1298323-12-avromanov@salutedevices.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241213140755.1298323-12-avromanov@salutedevices.com>
+	id 1tOy48-00000006vvD-2CC7
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 21 Dec 2024 11:54:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 80A7E5C48FF;
+	Sat, 21 Dec 2024 11:53:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEBBDC4CECE;
+	Sat, 21 Dec 2024 11:54:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734782076;
+	bh=q7uq/JtiziK9m+oCyIhkRWaYt/+eaxpP5L0cM24iWfs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ujtI1LH7HC2rDsP7roTEr4uyMS4PxtBEeM10FL1m7cnLKQDsM5FNhsZfK6GCMvltW
+	 By06D1ra3BSEvVyEmz9kdKhe8WGPc+ylXIkBn88BF3LHS3r8Kc4VKCLqMzusDOx/+/
+	 NSzy/Chr9+tnpu/Cc0DvD/ZMgnlLjMi0fUHpYt1afTIlVIKMG+mAi3UKuK6t3l0C9C
+	 +w/D90VoloceWZAwMDiuIIdLhwJJ0Q9UNe/ueJzBtWqQcBuiOHXqkLWzKzISJJylt6
+	 SrZ3LaNxPuYKdoW72VAPozzd6n2bwtdsQ23fULbT6nwt/AsiRccaFteR1NKoyB7Tl4
+	 41VXeADvLgsvA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tOy41-005v4Q-9G;
+	Sat, 21 Dec 2024 11:54:33 +0000
+Date: Sat, 21 Dec 2024 11:54:31 +0000
+Message-ID: <86seqhp7yg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas
+ <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Brown <broonie@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 6/8] KVM: arm64: coresight: Give TRBE enabled state to KVM
+In-Reply-To: <e6b46080-b9ae-4aad-b06d-81407c195e28@linaro.org>
+References: <20241127100130.1162639-1-james.clark@linaro.org>
+	<20241127100130.1162639-7-james.clark@linaro.org>
+	<86ttayp9n9.wl-maz@kernel.org>
+	<e6b46080-b9ae-4aad-b06d-81407c195e28@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, broonie@kernel.org, anshuman.khandual@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, tabba@google.com, james.morse@arm.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_034030_508308_239ACC9D 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241221_035440_658432_4E07C417 
+X-CRM114-Status: GOOD (  47.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,27 +104,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 05:07:44PM +0300, Alexey Romanov wrote:
+On Fri, 20 Dec 2024 17:32:17 +0000,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> 
+> 
+> On 20/12/2024 5:05 pm, Marc Zyngier wrote:
+> > On Wed, 27 Nov 2024 10:01:23 +0000,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> Currently in nVHE, KVM has to check if TRBE is enabled on every guest
+> >> switch even if it was never used. Because it's a debug feature and is
+> >> more likely to not be used than used, give KVM the TRBE buffer status to
+> >> allow a much simpler and faster do-nothing path in the hyp.
+> >> 
+> >> This is always called with preemption disabled except for probe/hotplug
+> >> which gets wrapped with preempt_disable().
+> >> 
+> >> Protected mode disables trace regardless of TRBE (because
+> >> guest_trfcr_el1 is always 0), which was not previously done. HAS_TRBE
+> >> becomes redundant, but HAS_TRF is now required for this.
+> >> 
+> >> Signed-off-by: James Clark <james.clark@linaro.org>
+> >> ---
+> >>   arch/arm64/include/asm/kvm_host.h            | 10 +++-
+> >>   arch/arm64/kvm/debug.c                       | 25 ++++++++--
+> >>   arch/arm64/kvm/hyp/nvhe/debug-sr.c           | 51 +++++++++++---------
+> >>   drivers/hwtracing/coresight/coresight-trbe.c |  5 ++
+> >>   4 files changed, 65 insertions(+), 26 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> >> index 7e3478386351..ba251caa593b 100644
+> >> --- a/arch/arm64/include/asm/kvm_host.h
+> >> +++ b/arch/arm64/include/asm/kvm_host.h
+> >> @@ -611,7 +611,8 @@ struct cpu_sve_state {
+> >>    */
+> >>   struct kvm_host_data {
+> >>   #define KVM_HOST_DATA_FLAG_HAS_SPE	0
+> >> -#define KVM_HOST_DATA_FLAG_HAS_TRBE	1
+> >> +#define KVM_HOST_DATA_FLAG_HAS_TRF	1
+> >> +#define KVM_HOST_DATA_FLAG_TRBE_ENABLED	2
+> >>   	unsigned long flags;
+> >>     	struct kvm_cpu_context host_ctxt;
+> >> @@ -657,6 +658,9 @@ struct kvm_host_data {
+> >>   		u64 mdcr_el2;
+> >>   	} host_debug_state;
+> >>   +	/* Guest trace filter value */
+> >> +	u64 guest_trfcr_el1;
+> > 
+> > Guest value? Or host state while running the guest? If the former,
+> > then this has nothing to do here. If the latter, this should be
+> > spelled out (trfcr_in_guest?), and the comment amended.
+> > 
+> >> +
+> >>   	/* Number of programmable event counters (PMCR_EL0.N) for this CPU */
+> >>   	unsigned int nr_event_counters;
+> >>   };
+> >> @@ -1381,6 +1385,8 @@ static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+> >>   void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+> >>   void kvm_clr_pmu_events(u64 clr);
+> >>   bool kvm_set_pmuserenr(u64 val);
+> >> +void kvm_enable_trbe(void);
+> >> +void kvm_disable_trbe(void);
+> >>   #else
+> >>   static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+> >>   static inline void kvm_clr_pmu_events(u64 clr) {}
+> >> @@ -1388,6 +1394,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
+> >>   {
+> >>   	return false;
+> >>   }
+> >> +static inline void kvm_enable_trbe(void) {}
+> >> +static inline void kvm_disable_trbe(void) {}
+> >>   #endif
+> >>     void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+> >> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> >> index dd9e139dfd13..0c340ae7b5d1 100644
+> >> --- a/arch/arm64/kvm/debug.c
+> >> +++ b/arch/arm64/kvm/debug.c
+> >> @@ -314,7 +314,26 @@ void kvm_init_host_debug_data(void)
+> >>   	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+> >>   		host_data_set_flag(HAS_SPE);
+> >>   -	if (cpuid_feature_extract_unsigned_field(dfr0,
+> >> ID_AA64DFR0_EL1_TraceBuffer_SHIFT) &&
+> >> -	    !(read_sysreg_s(SYS_TRBIDR_EL1) & TRBIDR_EL1_P))
+> >> -		host_data_set_flag(HAS_TRBE);
+> >> +	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceFilt_SHIFT))
+> >> +		host_data_set_flag(HAS_TRF);
+> >>   }
+> >> +
+> >> +void kvm_enable_trbe(void)
+> >> +{
+> >> +	if (has_vhe() || is_protected_kvm_enabled() ||
+> >> +	    WARN_ON_ONCE(preemptible()))
+> >> +		return;
+> >> +
+> >> +	host_data_set_flag(TRBE_ENABLED);
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(kvm_enable_trbe);
+> >> +
+> >> +void kvm_disable_trbe(void)
+> >> +{
+> >> +	if (has_vhe() || is_protected_kvm_enabled() ||
+> >> +	    WARN_ON_ONCE(preemptible()))
+> >> +		return;
+> >> +
+> >> +	host_data_clear_flag(TRBE_ENABLED);
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+> >> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >> index 858bb38e273f..9479bee41801 100644
+> >> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+> >> @@ -51,32 +51,39 @@ static void __debug_restore_spe(u64 pmscr_el1)
+> >>   	write_sysreg_el1(pmscr_el1, SYS_PMSCR);
+> >>   }
+> >>   -static void __debug_save_trace(u64 *trfcr_el1)
+> >> +static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+> >>   {
+> >> -	*trfcr_el1 = 0;
+> >> +	*saved_trfcr = read_sysreg_el1(SYS_TRFCR);
+> >> +	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+> >>   -	/* Check if the TRBE is enabled */
+> >> -	if (!(read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E))
+> >> +	/* No need to drain if going to an enabled state or from disabled state */
+> >> +	if (new_trfcr || !*saved_trfcr)
+> > 
+> > What if TRFCR_EL1.TS is set to something non-zero? I'd rather you
+> > check for the E*TRE bits instead of assuming things.
+> > 
+> 
+> Yeah it's probably better that way. TS is actually always set when any
+> tracing session starts and then never cleared, so doing it the simpler
+> way made it always flush even after tracing finished, which probably
+> wasn't great.
+
+Quite. Can you please *test* these things?
+
+[...]
+
+> >> @@ -253,8 +256,10 @@ static void trbe_drain_and_disable_local(struct trbe_cpudata *cpudata)
+> >>     static void trbe_reset_local(struct trbe_cpudata *cpudata)
+> >>   {
+> >> +	preempt_disable();
+> >>   	trbe_drain_and_disable_local(cpudata);
+> >>   	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+> >> +	preempt_enable();
+> > 
+> > This looks terribly wrong. If you need to disable preemption here, why
+> > doesn't the critical section cover all register accesses? Surely you
+> > don't want to nuke another CPU's context?
+> > 
+> > But looking at the calling sites, this makes even less sense. The two
+> > callers of this thing mess with *per-CPU* interrupts. Dealing with
+> > per-CPU interrupts in preemptible context is a big no-no (hint: they
+> > start with a call to smp_processor_id()).
+> > 
+> > So what is this supposed to ensure?
+> > 
+> > 	M.
+> > 
+> 
+> These ones are only intended to silence the
+> WARN_ON_ONCE(preemptible()) in kvm_enable_trbe() when this is called
+> from boot/hotplug (arm_trbe_enable_cpu()). Preemption isn't disabled,
+> but a guest can't run at that point either.
 >
-> +static int meson_sha_digest(struct ahash_request *req)
-> +{
-> +	struct crypto_wait wait;
-> +	int ret;
-> +
-> +	crypto_init_wait(&wait);
-> +	ahash_request_set_callback(req, CRYPTO_TFM_REQ_MAY_SLEEP |
-> +					CRYPTO_TFM_REQ_MAY_BACKLOG,
-> +					crypto_req_done, &wait);
-> +
-> +	meson_sha_init(req);
-> +
-> +	ret = crypto_wait_req(meson_sha_update(req), &wait);
+> The "real" calls to kvm_enable_trbe() _are_ called from an atomic
+> context. I think there was a previous review comment about when it was
+> safe to call the KVM parts of this change, which is why I added the
+> warning making sure it was always called with preemption disabled. But
+> actually I could remove the warning and these preempt_disables() and
+> replace them with a comment.
 
-You cannot sleep in the digest function.
+You should keep the WARN_ON(), and either *never* end-up calling this
+stuff during a CPUHP event, or handle the fact that preemption isn't
+initialised yet. For example by checking whether the current CPU is
+online.
 
-Cheers,
+But this sort of random spreading of preemption disabling is not an
+acceptable outcome.
+
+	M.
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Without deviation from the norm, progress is not possible.
 
