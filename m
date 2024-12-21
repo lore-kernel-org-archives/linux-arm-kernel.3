@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF908E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 08:29:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086A0E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 08:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w/3d9Q642GfC/rCsT5ID8I8taOBoiNByOhbIEJTngM8=; b=UzALoKo0EiB2uVVGY6q0HrFKH/
-	tYgh7IfrOOgVksZaXa8C8C/NHJliQajMz7CWL1e0aZp7xqUaypJgjOdPcN3FcO2D3HU25+LTKpMBI
-	2SThT7bJhv4hMoJzODBt3QCBEVXRrp78A1X5adzY++kWebIc0j9yQB+Xn3jLVAqh/wPefj4dAf+5z
-	KcLmtozaGa1BpqakJ7CRZoLSVe6z49zr1gCv/FhXi/YshFk8Tekdx5SjUeqqRd48mp1YbGJG2hDcW
-	FXJhKpcxoNOW8lfEDpVgPGxFdQxOb6NxuisvyVe6VQ1Lt9j+2ECpYGlnOYe7GqhiOhZ2q8SBdV+wG
-	HKxIrd9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fnBq5UdWjuuBlpowQiwx5qA4PzZ64zop97k6Ctp9STM=; b=VxZUlsR6dS9VwE5JQwpZ2WaMZg
+	URtsS/mxuFLtjoyZh7Cx+JU4KoMJnHdUdE1O+otTv+JC9feIfC4dyKZQVDkKAKQZTy2ennaIRnNmw
+	aVSSayvYRoDJRCvHwbJNJZqHLvrN5Q8dbE0HbvFa1YfX42aA4uqQAP6krVjk2zxQs+cBNQgn8dIi5
+	Fu5DRHt2pQGd3PT6mAXdAP2TjbpFK/H+mkBmYxmoT9sSstFJ2OIXV0CoaDq1tC02d11JNmoco6gNt
+	Hb2uBGAcrg/AoiA27HlWk7qV2RhOf+dfvPrkIn/OeAxkDB9Q3FuD96comO4F+EL8KKP59Kdezbc63
+	GbY9DeCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOuri-00000006jdQ-197s;
-	Sat, 21 Dec 2024 08:29:38 +0000
-Received: from [198.175.65.19] (helo=mgamail.intel.com)
+	id 1tOv75-00000006kGS-0JKf;
+	Sat, 21 Dec 2024 08:45:31 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOuqV-00000006jZ3-2Zme
+	id 1tOv5s-00000006kDP-3vdV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 08:28:25 +0000
+	Sat, 21 Dec 2024 08:44:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1734769703; x=1766305703;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=T78QzclBUAPQSNOb3TrxqRm+umAyg/4pAny0vdSt1Q8=;
-  b=WhPleZVFpf+41UM71v24pOGagGpR4tc1DBgObI0wyeqe1mzI83zNHqYu
-   F7ZOScbSYo4aIWyC38gIIjXttJFL8zYOt+0qHyBDAWH7hqOHl9yITNyDp
-   6bmCGnLI1lTlpvDJ5JztbvAIhVhrjTcDccwie8oEuHNBY5zD6wsCU1SBG
-   cbSgQHNpwJaLD8oJoq0Jq7zFZpHnIRt5A+9diDghREBEMA8nFHCgmfu0f
-   UrSDrAqzQV4hNTjrSh1oEURXQ24H9WhC6xWqLKfut4HnDQX7l66z/82I8
-   iRp1azvS2p9JgV9HP4/ZTe/YhdEPx0XHkbw6OmRsNqep9PEEwP6KwGnQR
-   g==;
-X-CSE-ConnectionGUID: AEPBXd70T8m5sCWIU2/Mhw==
-X-CSE-MsgGUID: TC68ahnSSI6qRte9S5ombg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="35194605"
+  t=1734770657; x=1766306657;
+  h=date:from:to:cc:subject:message-id;
+  bh=heuiHPVEvVIQwwWk3rRZIufsDWjtNz1o+9oT0ZRucbg=;
+  b=Frc1SuR4URkOdf/XHPVEiWIsTVYoiLVcXXoJXFO3YOpMaxdEUttisMON
+   Fj44hNENoCtUdLNbhJxBPw0r1yhbVHsh5oRs4HbC2SYXNdEArVtPZExrv
+   EcUgGQ9datUBfmMY6HOXYNIpm0gSaxJekZm0/1FLsmtQQyfyNBFWpSuGu
+   5TjQYOlzHpkzGgHK1aVjjhXwAuWJEkFXcucWUPPuqeM2PKxHjGFfPF4SY
+   wSq0V/IS1QlN/d39gcJCbrGxSouI/xQGaMgH8HwMre41PiaDgZUZQP4XC
+   RCzAHazCwqQslPj0CBvFwxJbhYUMPvZtXiGlR4Chv7Hsi1nOyFS21s2ip
+   w==;
+X-CSE-ConnectionGUID: k7Wv0RehTFW2jOMTYNnUCQ==
+X-CSE-MsgGUID: SPEU6znQQ7+We/K6k4fZPg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="35195148"
 X-IronPort-AV: E=Sophos;i="6.12,253,1728975600"; 
-   d="scan'208";a="35194605"
+   d="scan'208";a="35195148"
 Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2024 00:28:17 -0800
-X-CSE-ConnectionGUID: QNFIDEbZRVajtDEnqen2qw==
-X-CSE-MsgGUID: ZpkBAbhIQBCR3Io65oR+LQ==
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2024 00:44:16 -0800
+X-CSE-ConnectionGUID: HRlTYeybTaqmsgU5Tz5K1g==
+X-CSE-MsgGUID: zsQcaJZkRrqXBkoTt/lGMQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="103722115"
+   d="scan'208";a="103724114"
 Received: from lkp-server01.sh.intel.com (HELO a46f226878e0) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 21 Dec 2024 00:28:14 -0800
+  by orviesa005.jf.intel.com with ESMTP; 21 Dec 2024 00:44:14 -0800
 Received: from kbuild by a46f226878e0 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1tOuqI-000255-2Y;
-	Sat, 21 Dec 2024 08:28:10 +0000
-Date: Sat, 21 Dec 2024 16:27:12 +0800
+	id 1tOv5n-00025n-38;
+	Sat, 21 Dec 2024 08:44:11 +0000
+Date: Sat, 21 Dec 2024 16:43:21 +0800
 From: kernel test robot <lkp@intel.com>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org,
-	peter.griffin@linaro.org, kernel-team@android.com,
-	willmcvicker@google.com, daniel.lezcano@linaro.org,
-	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: Re: [PATCH v6 3/5] mailbox: add support for clients to request
- channels by args
-Message-ID: <202412211604.qPMHGnk0-lkp@intel.com>
-References: <20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a@linaro.org>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:stm32/dt] BUILD SUCCESS
+ 8df9bff2788973e16263ca86df7574d527c84405
+Message-ID: <202412211614.6WYu3H2H-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_002823_736448_E760F5EA 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20241221_004417_085334_5A0D85DE 
+X-CRM114-Status: UNSURE (   4.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +83,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tudor,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git stm32/dt
+branch HEAD: 8df9bff2788973e16263ca86df7574d527c84405  arm64: dts: st: enable imx335/csi/dcmipp pipeline on stm32mp257f-ev1
 
-kernel test robot noticed the following build warnings:
+elapsed time: 1449m
 
-[auto build test WARNING on 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8]
+configs tested: 206
+configs skipped: 5
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Tudor-Ambarus/dt-bindings-mailbox-allow-mbox-cells-0/20241220-215938
-base:   78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
-patch link:    https://lore.kernel.org/r/20241220-acpm-v4-upstream-mbox-v6-3-a6942806e52a%40linaro.org
-patch subject: [PATCH v6 3/5] mailbox: add support for clients to request channels by args
-config: x86_64-buildonly-randconfig-001-20241221 (https://download.01.org/0day-ci/archive/20241221/202412211604.qPMHGnk0-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241221/202412211604.qPMHGnk0-lkp@intel.com/reproduce)
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412211604.qPMHGnk0-lkp@intel.com/
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+alpha                            allyesconfig    clang-20
+alpha                               defconfig    gcc-14.2.0
+arc                              allmodconfig    clang-18
+arc                               allnoconfig    gcc-14.2.0
+arc                              allyesconfig    clang-18
+arc                                 defconfig    gcc-14.2.0
+arc                   randconfig-001-20241221    gcc-13.2.0
+arc                   randconfig-002-20241221    gcc-13.2.0
+arm                              allmodconfig    clang-18
+arm                               allnoconfig    gcc-14.2.0
+arm                              allyesconfig    clang-18
+arm                                 defconfig    gcc-14.2.0
+arm                   randconfig-001-20241221    gcc-13.2.0
+arm                   randconfig-001-20241221    gcc-14.2.0
+arm                   randconfig-002-20241221    gcc-13.2.0
+arm                   randconfig-002-20241221    gcc-14.2.0
+arm                   randconfig-003-20241221    gcc-13.2.0
+arm                   randconfig-003-20241221    gcc-14.2.0
+arm                   randconfig-004-20241221    clang-18
+arm                   randconfig-004-20241221    gcc-13.2.0
+arm64                            allmodconfig    clang-18
+arm64                             allnoconfig    gcc-14.2.0
+arm64                               defconfig    gcc-14.2.0
+arm64                 randconfig-001-20241221    clang-18
+arm64                 randconfig-001-20241221    gcc-13.2.0
+arm64                 randconfig-002-20241221    clang-16
+arm64                 randconfig-002-20241221    gcc-13.2.0
+arm64                 randconfig-003-20241221    clang-20
+arm64                 randconfig-003-20241221    gcc-13.2.0
+arm64                 randconfig-004-20241221    gcc-13.2.0
+arm64                 randconfig-004-20241221    gcc-14.2.0
+csky                             alldefconfig    gcc-14.2.0
+csky                              allnoconfig    gcc-14.2.0
+csky                                defconfig    gcc-14.2.0
+csky                  randconfig-001-20241221    gcc-14.2.0
+csky                  randconfig-002-20241221    gcc-14.2.0
+hexagon                          allmodconfig    clang-20
+hexagon                           allnoconfig    gcc-14.2.0
+hexagon                          allyesconfig    clang-20
+hexagon                             defconfig    gcc-14.2.0
+hexagon               randconfig-001-20241221    gcc-14.2.0
+hexagon               randconfig-002-20241221    clang-20
+hexagon               randconfig-002-20241221    gcc-14.2.0
+i386                             allmodconfig    clang-19
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    clang-19
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    clang-19
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20241221    clang-19
+i386        buildonly-randconfig-001-20241221    gcc-12
+i386        buildonly-randconfig-002-20241221    clang-19
+i386        buildonly-randconfig-002-20241221    gcc-12
+i386        buildonly-randconfig-003-20241221    clang-19
+i386        buildonly-randconfig-004-20241221    clang-19
+i386        buildonly-randconfig-005-20241221    clang-19
+i386        buildonly-randconfig-006-20241221    clang-19
+i386                                defconfig    clang-19
+i386                  randconfig-001-20241221    gcc-12
+i386                  randconfig-002-20241221    gcc-12
+i386                  randconfig-003-20241221    gcc-12
+i386                  randconfig-004-20241221    gcc-12
+i386                  randconfig-005-20241221    gcc-12
+i386                  randconfig-006-20241221    gcc-12
+i386                  randconfig-007-20241221    gcc-12
+i386                  randconfig-011-20241221    gcc-12
+i386                  randconfig-012-20241221    gcc-12
+i386                  randconfig-013-20241221    gcc-12
+i386                  randconfig-014-20241221    gcc-12
+i386                  randconfig-015-20241221    gcc-12
+i386                  randconfig-016-20241221    gcc-12
+i386                  randconfig-017-20241221    gcc-12
+loongarch                         allnoconfig    gcc-14.2.0
+loongarch                           defconfig    gcc-14.2.0
+loongarch             randconfig-001-20241221    gcc-14.2.0
+loongarch             randconfig-002-20241221    gcc-14.2.0
+m68k                             alldefconfig    clang-15
+m68k                              allnoconfig    gcc-14.2.0
+m68k                                defconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+microblaze                          defconfig    gcc-14.2.0
+microblaze                      mmu_defconfig    clang-15
+mips                              allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                               defconfig    gcc-14.2.0
+nios2                 randconfig-001-20241221    gcc-14.2.0
+nios2                 randconfig-002-20241221    gcc-14.2.0
+openrisc                          allnoconfig    clang-20
+openrisc                         allyesconfig    gcc-14.2.0
+openrisc                            defconfig    gcc-12
+parisc                           allmodconfig    gcc-14.2.0
+parisc                            allnoconfig    clang-20
+parisc                           allyesconfig    gcc-14.2.0
+parisc                              defconfig    gcc-12
+parisc                randconfig-001-20241221    gcc-14.2.0
+parisc                randconfig-002-20241221    gcc-14.2.0
+parisc64                            defconfig    gcc-14.2.0
+powerpc                          allmodconfig    gcc-14.2.0
+powerpc                           allnoconfig    clang-20
+powerpc                          allyesconfig    clang-16
+powerpc                          allyesconfig    gcc-14.2.0
+powerpc                      arches_defconfig    clang-15
+powerpc                      katmai_defconfig    gcc-14.2.0
+powerpc                   lite5200b_defconfig    gcc-14.2.0
+powerpc                 mpc8315_rdb_defconfig    gcc-14.2.0
+powerpc                      pcm030_defconfig    clang-15
+powerpc                     ppa8548_defconfig    gcc-14.2.0
+powerpc               randconfig-001-20241221    gcc-14.2.0
+powerpc               randconfig-002-20241221    gcc-14.2.0
+powerpc               randconfig-003-20241221    gcc-14.2.0
+powerpc64             randconfig-001-20241221    gcc-14.2.0
+powerpc64             randconfig-002-20241221    gcc-14.2.0
+powerpc64             randconfig-003-20241221    clang-18
+powerpc64             randconfig-003-20241221    gcc-14.2.0
+riscv                            allmodconfig    clang-20
+riscv                            allmodconfig    gcc-14.2.0
+riscv                             allnoconfig    clang-20
+riscv                            allyesconfig    clang-20
+riscv                            allyesconfig    gcc-14.2.0
+riscv                               defconfig    gcc-12
+riscv                    nommu_k210_defconfig    clang-15
+riscv                 randconfig-001-20241221    clang-18
+riscv                 randconfig-001-20241221    gcc-14.2.0
+riscv                 randconfig-002-20241221    clang-18
+riscv                 randconfig-002-20241221    gcc-14.2.0
+s390                             allmodconfig    clang-19
+s390                             allmodconfig    gcc-14.2.0
+s390                              allnoconfig    clang-20
+s390                             allyesconfig    gcc-14.2.0
+s390                                defconfig    gcc-12
+s390                  randconfig-001-20241221    clang-18
+s390                  randconfig-001-20241221    gcc-14.2.0
+s390                  randconfig-002-20241221    clang-18
+s390                  randconfig-002-20241221    gcc-14.2.0
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                         apsh4a3a_defconfig    gcc-14.2.0
+sh                                  defconfig    gcc-12
+sh                ecovec24-romimage_defconfig    clang-15
+sh                    randconfig-001-20241221    clang-18
+sh                    randconfig-001-20241221    gcc-14.2.0
+sh                    randconfig-002-20241221    clang-18
+sh                    randconfig-002-20241221    gcc-14.2.0
+sh                   secureedge5410_defconfig    clang-15
+sh                   sh7724_generic_defconfig    clang-15
+sh                   sh7724_generic_defconfig    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20241221    clang-18
+sparc                 randconfig-001-20241221    gcc-14.2.0
+sparc                 randconfig-002-20241221    clang-18
+sparc                 randconfig-002-20241221    gcc-14.2.0
+sparc64                             defconfig    gcc-12
+sparc64               randconfig-001-20241221    clang-18
+sparc64               randconfig-001-20241221    gcc-14.2.0
+sparc64               randconfig-002-20241221    clang-18
+sparc64               randconfig-002-20241221    gcc-14.2.0
+um                               allmodconfig    clang-20
+um                                allnoconfig    clang-20
+um                               allyesconfig    clang-20
+um                                  defconfig    gcc-12
+um                             i386_defconfig    gcc-12
+um                    randconfig-001-20241221    clang-18
+um                    randconfig-002-20241221    clang-18
+um                    randconfig-002-20241221    gcc-12
+um                           x86_64_defconfig    gcc-12
+x86_64                            allnoconfig    clang-19
+x86_64                           allyesconfig    clang-19
+x86_64      buildonly-randconfig-001-20241221    gcc-12
+x86_64      buildonly-randconfig-002-20241221    gcc-12
+x86_64      buildonly-randconfig-003-20241221    gcc-12
+x86_64      buildonly-randconfig-004-20241221    gcc-12
+x86_64      buildonly-randconfig-005-20241221    gcc-11
+x86_64      buildonly-randconfig-005-20241221    gcc-12
+x86_64      buildonly-randconfig-006-20241221    gcc-12
+x86_64                              defconfig    clang-19
+x86_64                              defconfig    gcc-11
+x86_64                                  kexec    clang-19
+x86_64                randconfig-001-20241221    gcc-11
+x86_64                randconfig-002-20241221    gcc-11
+x86_64                randconfig-003-20241221    gcc-11
+x86_64                randconfig-004-20241221    gcc-11
+x86_64                randconfig-005-20241221    gcc-11
+x86_64                randconfig-006-20241221    gcc-11
+x86_64                randconfig-007-20241221    gcc-11
+x86_64                randconfig-008-20241221    gcc-11
+x86_64                randconfig-071-20241221    gcc-12
+x86_64                randconfig-072-20241221    gcc-12
+x86_64                randconfig-073-20241221    gcc-12
+x86_64                randconfig-074-20241221    gcc-12
+x86_64                randconfig-075-20241221    gcc-12
+x86_64                randconfig-076-20241221    gcc-12
+x86_64                randconfig-077-20241221    gcc-12
+x86_64                randconfig-078-20241221    gcc-12
+x86_64                               rhel-9.4    clang-19
+x86_64                           rhel-9.4-bpf    clang-19
+x86_64                         rhel-9.4-kunit    clang-19
+x86_64                           rhel-9.4-ltp    clang-19
+x86_64                          rhel-9.4-rust    clang-19
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                randconfig-001-20241221    clang-18
+xtensa                randconfig-001-20241221    gcc-14.2.0
+xtensa                randconfig-002-20241221    clang-18
+xtensa                randconfig-002-20241221    gcc-14.2.0
 
-All warnings (new ones prefixed by >>):
-
->> drivers/mailbox/mailbox.c:486: warning: Function parameter or struct member 'mbox_spec' not described in 'mbox_request_channel_by_args'
->> drivers/mailbox/mailbox.c:486: warning: Excess function parameter 'spec' description in 'mbox_request_channel_by_args'
-
-
-vim +486 drivers/mailbox/mailbox.c
-
-   469	
-   470	/**
-   471	 * mbox_request_channel_by_args - request a mailbox channel using client's
-   472	 * channel identifiers.
-   473	 * @cl: identity of the client requesting the channel.
-   474	 * @index: index of mailbox specifier in 'mboxes' property.
-   475	 * @spec: arguments that describe the channel.
-   476	 *
-   477	 * Used by clients that can discover the channel identifiers at runtime (by
-   478	 * parsing a shared memory for example). The description of
-   479	 * mbox_request_channel() applies here as well.
-   480	 *
-   481	 * Return: Pointer to the channel assigned to the client if successful.
-   482	 *         ERR_PTR for request failure.
-   483	 */
-   484	struct mbox_chan *mbox_request_channel_by_args(struct mbox_client *cl,
-   485				int index, const struct mbox_xlate_args *mbox_spec)
- > 486	{
-   487		struct of_phandle_args of_args;
-   488		struct device *dev = cl->dev;
-   489		struct mbox_controller *mbox;
-   490		struct mbox_chan *chan;
-   491		int ret;
-   492	
-   493		if (!dev || !dev->of_node) {
-   494			pr_debug("%s: No owner device node\n", __func__);
-   495			return ERR_PTR(-ENODEV);
-   496		}
-   497	
-   498		if (of_parse_phandle_with_args(dev->of_node, "mboxes",
-   499					       "#mbox-cells", index, &of_args)) {
-   500			dev_dbg(dev, "%s: can't parse \"mboxes\" property\n", __func__);
-   501			return ERR_PTR(-ENODEV);
-   502		}
-   503	
-   504		mutex_lock(&con_mutex);
-   505	
-   506		chan = ERR_PTR(-EPROBE_DEFER);
-   507		list_for_each_entry(mbox, &mbox_cons, node)
-   508			if (mbox->dev->of_node == of_args.np && mbox->xlate) {
-   509				chan = mbox->xlate(mbox, mbox_spec);
-   510				if (!IS_ERR(chan))
-   511					break;
-   512			}
-   513	
-   514		of_node_put(of_args.np);
-   515	
-   516		if (IS_ERR(chan)) {
-   517			mutex_unlock(&con_mutex);
-   518			return chan;
-   519		}
-   520	
-   521		ret = __mbox_bind_client(chan, cl);
-   522		if (ret)
-   523			chan = ERR_PTR(ret);
-   524	
-   525		mutex_unlock(&con_mutex);
-   526		return chan;
-   527	}
-   528	EXPORT_SYMBOL_GPL(mbox_request_channel_by_args);
-   529	
-
--- 
+--
 0-DAY CI Kernel Test Service
 https://github.com/intel/lkp-tests/wiki
 
