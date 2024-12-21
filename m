@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EED0E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 09:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59187E77184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 10:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNa+9mUTZ21T5RIdfkG+6WjD6oCziY1Q0wwL3T6quhE=; b=JHjoBHse9EffiZ1lpOQZfZUnd+
-	/UQTKiCVcBlqv52HaEkqXUfWC1LWkmldfmNFjBl2r0m3MtRvXMaumEhp2O1qbSyMv7UCY8tpEru8V
-	3XHvgky/Q9bz9Urf1/KsVLcY138ys0dZaUraEHwxDERBgT4Jo6De7N3DEo5t75Pyh/2easc0eFjuo
-	DHywE4cDey4XLQ1WSsgqESZondAX7zadV+Mk3C5hn0VreWGMk1Ef5yhivQ1k5Y/13HWABay98kewD
-	SqEeP6FFKI3iZdSTNBPJXe0OoQhhOUp/xwrm0YFHGj4/50zteHKK9iNTlkew8LlfDINkBEl0YhVKz
-	wwyLSTyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mbfWvIV/gNsyI4jXGAbrdS99lq+1T4mdZ96KkmFYBEY=; b=LAJvcQqbnA8YgaCJwOxJU/RqwQ
+	yFiE563TJ9Bje34MmQiJE//CbPwnJoUr8ugc0iHqEB3YwjvXym5iiZaD5GlRJUQ0KUseWmQcKBHLe
+	z6pt41QbnS8t/4bNk52rPriOanVkSyyFj9ciFsoouZhHcjG5/NwCV70vHG+nDnkesyiMnDUZgEqZn
+	hE716v3Cf3Jmm+e3GWKiJn5/AT6+JMtIjYc95cwjeqjNET0cH+7tUgJ41seZoJ3g53hFxu7VmjEkX
+	2MIjWE7YIUD6ehV2VGYWaBriFQJTIEiyKpqt6pw7R2U/M3xK9+7vFs/kRik2U8nW+LE4nK2zI0but
+	jEP4kq7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOwGF-00000006pjP-07AP;
-	Sat, 21 Dec 2024 09:59:03 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tOwTg-00000006qfe-1XCw;
+	Sat, 21 Dec 2024 10:12:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOwF3-00000006pfD-1AfK
+	id 1tOwSV-00000006qdu-31qw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 09:57:50 +0000
+	Sat, 21 Dec 2024 10:11:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CC0EFA4038D;
-	Sat, 21 Dec 2024 09:55:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB42DC4CECE;
-	Sat, 21 Dec 2024 09:57:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 939205C482B;
+	Sat, 21 Dec 2024 10:11:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38644C4CECE;
+	Sat, 21 Dec 2024 10:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734775067;
-	bh=cA6hokD0aqM2pcntllYiH12JP8LjCCMtE3OBF6ZIU2E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DXIavt0ctCzoRX6EWaFKlPy82zEACQJDe+Dy1mSS0OhpFN+1N4KNG+FFMTl1+ADv3
-	 OhxofaFzqqou8Osw/eOxOX/YcfWtMpQe/+LoVXJLj1nRvvB2BYf/m0YzPXFMKytp1Y
-	 P1OmYOcAMAuxK/W0ypddKUw2tgSuv923hTIx0HYOb+BZJIMUHmaYgXlaspkPCG4RjW
-	 NqNKzvVNGRRdRRqIY1o6Yt7dG9upzA+w8nVJ4qiKTA4S2Pa/TDfgkl97xE1T7lfwp2
-	 POWK/P3oLwsWUn+iC5uA36EXyJ7oEIbSnMM2QJus3XD5+WWvhfKx7qvTHl4bQ8VrlV
-	 YyJLgGqsldSkQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	s=k20201202; t=1734775902;
+	bh=xzpT8hoPYLrSd2qWAi+MnXMlOGItQbvM/3WULduMWHo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rklfxOqJLniLvs7bV2uYS3s05Gt39wdZXU0u2bT1aR5YumutIjxvEnDa/PMUc1ppy
+	 qO+9ZI6jog5UmiMvnRFCXQuqfSyvQwZbc9S6timb91xZ7meQ+tiM3bUKvNoYgZpm5o
+	 PPn9Vs6o4i4j4XmGA8+o0PZspf5iP9gyReJuiZ1qUrmg2Iwz57jngbSAcOYFcV8cPB
+	 OVfXboo5KSBGdqcImoBUymZpSWcccbFhPA7C+IRB4Os+6/kr739laz2P+WHcEhdYSB
+	 I7OqbG0/ZxDEQdiD+esPmqKxabekiXfmCNZRYxsN6A347BhTKk9k+RfHSd06nuiX87
+	 wzpEOhbe5fxiw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tOwEz-005u3E-7c;
-	Sat, 21 Dec 2024 09:57:45 +0000
-Date: Sat, 21 Dec 2024 09:57:44 +0000
-Message-ID: <874j2xs6hz.wl-maz@kernel.org>
+	id 1tOwSR-005uEf-S6;
+	Sat, 21 Dec 2024 10:11:39 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Chase Conklin <chase.conklin@arm.com>,
-	Eric Auger <eauger@redhat.com>
-Subject: Re: [PATCH v2 01/12] KVM: arm64: nv: Add handling of EL2-specific timer registers
-In-Reply-To: <Z2Yb8BWnqpt441V-@linux.dev>
-References: <20241217142321.763801-1-maz@kernel.org>
-	<20241217142321.763801-2-maz@kernel.org>
-	<Z2Yb8BWnqpt441V-@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: nv: Advertise the lack of AArch32 EL0 support
+Date: Sat, 21 Dec 2024 10:11:37 +0000
+Message-Id: <20241221101137.1405271-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com, gankulkarni@os.amperecomputing.com, chase.conklin@arm.com, eauger@redhat.com
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_015749_458115_23552259 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20241221_021143_817065_85B38CC1 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 21 Dec 2024 01:38:28 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> On Tue, Dec 17, 2024 at 02:23:09PM +0000, Marc Zyngier wrote:
-> > @@ -3879,9 +4020,11 @@ static const struct sys_reg_desc cp15_64_regs[] = {
-> >  	{ SYS_DESC(SYS_AARCH32_CNTPCT),	      access_arch_timer },
-> >  	{ Op1( 1), CRn( 0), CRm( 2), Op2( 0), access_vm_reg, NULL, TTBR1_EL1 },
-> >  	{ Op1( 1), CRn( 0), CRm(12), Op2( 0), access_gic_sgi }, /* ICC_ASGI1R */
-> > +	{ SYS_DESC(SYS_AARCH32_CNTVCT),	      access_arch_timer },
-> >  	{ Op1( 2), CRn( 0), CRm(12), Op2( 0), access_gic_sgi }, /* ICC_SGI0R */
-> >  	{ SYS_DESC(SYS_AARCH32_CNTP_CVAL),    access_arch_timer },
-> >  	{ SYS_DESC(SYS_AARCH32_CNTPCTSS),     access_arch_timer },
-> > +	{ SYS_DESC(SYS_AARCH32_CNTVCTSS),     access_arch_timer },
-> >  };
-> 
-> Huh. You know, I had always thought we hid 32-bit EL0 from nested
-> guests, but I now realize that isn't the case. Of course, we don't have
-> the necessary trap reflection for exits that came out of a 32-bit EL0,
-> nor should we bother.
-> 
-> Of the 4 NV2 implementations I'm aware of (Neoverse-V1, Neoverse-V2,
-> AmpereOne, M2) only Neoverse-V1 supports 32-bit userspace. And even
-> then, a lot of deployments of V1 have a broken NV2 implementation.
-> 
-> What do you think about advertising a 64-bit only EL0 for nested VMs?
+Although we never supported 32bit anywhere in NV, we fail to
+advertise so for EL0, probably owing to the relative lack of
+hardware supporting both NV2 and 32bit EL0.
 
-I'm completely OK with that.
+Add some sanitising to ID_AA64PFR0_EL1.EL0, and reaffirm that
+"in 64bit-only we trust".
 
-Actually, we already nuke the guest if exiting from 32bit context, no
-matter the EL (vcpu_mode_is_bad_32bit() is where this happens).  But
-we're missing the ID_AA64PFR0_EL1.EL0 sanitising, which is a bug. I'll
-send a patch shortly.
+Reported-by: Oliver Upton <oliver.upton@linux.dev>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/nested.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Now, for this particular patch, I still think we should gracefully
-handle access to the EL1 timer from a 32bit capable, non-NV guest.
-Just in case we end-up with a CPU with a broken CNTVOFF_EL2 *and*
-32bit capability.
-
-In the end, it doesn't cost us much to support this case, and it helps
-that we can verify that we handle all registers without exception.
-
-Thoughts?
-
-	M.
-
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 9b36218b48def..9e74f7b38e056 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -830,8 +830,10 @@ static void limit_nv_id_regs(struct kvm *kvm)
+ 		 NV_FTR(PFR0, RAS)	|
+ 		 NV_FTR(PFR0, EL3)	|
+ 		 NV_FTR(PFR0, EL2)	|
+-		 NV_FTR(PFR0, EL1));
+-	/* 64bit EL1/EL2/EL3 only */
++		 NV_FTR(PFR0, EL1)	|
++		 NV_FTR(PFR0, EL0));
++	/* 64bit only at any EL */
++	val |= FIELD_PREP(NV_FTR(PFR0, EL0), 0b0001);
+ 	val |= FIELD_PREP(NV_FTR(PFR0, EL1), 0b0001);
+ 	val |= FIELD_PREP(NV_FTR(PFR0, EL2), 0b0001);
+ 	val |= FIELD_PREP(NV_FTR(PFR0, EL3), 0b0001);
 -- 
-Without deviation from the norm, progress is not possible.
+2.39.2
+
 
