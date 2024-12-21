@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE89E77184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 09:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A75FE77184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 09:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktgkOKk/4MreY3cyjWCANXcTqGH2vZ5XorZkiep5peg=; b=h+1ID/NAX2VaSjDrpC+PmqFMfc
-	0yjpJDLUWlYJb8V5wIM1FWVthjQ8tmtrPyitOQDxDuvI7GxgCZ+Be3R7jsZLgr/LTm8yP3QGqAzpx
-	p4PC4epd540Ff6vxbEIEu0PJZW5cjEtxYq1bAhWfDOMjciu0aid2DA/dSvEOkOV8l6U/x+nQOxFfR
-	/2qaIY61qlgOLFC63TvzoYOSe+fLedz6h7yBCwsBgytACI25h3B8M7vV/TxnhKQz8IWG3Ay8FcJzk
-	F0o7Lrer5dObchOReBAjqy5FAbiyrWE9/0JH3WnbPcUqUY9g+fiGr71z5ePVvF2l1araKgpinkpvw
-	wOCtiAJQ==;
+	bh=ic+OZ7nYn48w9tiM8ZxAJ9YbDge6f3PVBtso/XTbadU=; b=wBUy/DEc9437xe9mA+2V5BsMXs
+	hS2AJS60wvOX9eJRQ+3ISGPARtHAsvkPxRh7QFxVKjxsJRTF4ndALAu1DqpU+M1wJHCNnTBQLJBxZ
+	qQdNJbDA/nek8oUVYb9kCQ5c0wktC+M7SODYOODcEoTmMB0TIABk1HXBUDgRh1L4Yle4MVjgkrNvC
+	UmTpVs0MiaI4T3nrQfTL9jZ0E71bVJYmV8kXAUTV+yn6C6Qu5X/b174Coj4LbRa7UbsKezyWi2BR3
+	VfWvAx0ZTP8rSWGqGCZ2QHFpiHZ24/tU4meHX/s1PxMcCPN46/DCdcAdZk6lHzF8sR4ml+QgLkIGZ
+	qeZWcLxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOw2g-00000006ntv-3nO6;
-	Sat, 21 Dec 2024 09:45:02 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1tOw3p-00000006o0V-3iJH;
+	Sat, 21 Dec 2024 09:46:13 +0000
+Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOvzT-00000006nJZ-2Vqi
+	id 1tOvzX-00000006nLL-1wot
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 09:41:45 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 595A4138012B;
-	Sat, 21 Dec 2024 04:41:42 -0500 (EST)
+	Sat, 21 Dec 2024 09:41:48 +0000
+Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D9D071140157;
+	Sat, 21 Dec 2024 04:41:46 -0500 (EST)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Sat, 21 Dec 2024 04:41:42 -0500
+  by phl-compute-12.internal (MEProxy); Sat, 21 Dec 2024 04:41:46 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1734774102; x=
-	1734860502; bh=ktgkOKk/4MreY3cyjWCANXcTqGH2vZ5XorZkiep5peg=; b=M
-	hpx/LR09UiuhX/iWlvujHHjIko6U19/Z4xAzhEVteiK9jZa24JeqzRQdlalPaiIm
-	oOn1jNZT7shr6aBjNGvVYDKSs5Mok0CIi5RrCo1bLxBtlOE3M3J7j7PFwaO6ufs/
-	MaGJqlGS5ZBMh9W/LRp0FcwoR2DH/oL88Ech98EhMN0O7ZqIAceGVh4dk4G67aoj
-	Gzf7Ntv2EKs92+PsLxSTl9X8DraSq8w+HXhvyUeoY20lUyufJEEI2f/WYUQIZA04
-	qz1n0AQcJVVTxRpVRlKOrkAOgLaNRGBSgGz3ieIwlfL9PKiBxaC6wqHXb64gO77N
-	TqrKJTcees4pICQNvSYqQ==
+	:reply-to:subject:subject:to:to; s=fm2; t=1734774106; x=
+	1734860506; bh=ic+OZ7nYn48w9tiM8ZxAJ9YbDge6f3PVBtso/XTbadU=; b=e
+	bgzXI655/AIg2Jj1OWoYkYKVJYJhN/tLS5q7DRj8xYoNfyqCTw46HMYUvle3dVIG
+	5VD825ytUSYqk0jgESSUB1nJH2Skt8yeNvzyXe82DSPh01+gB065l73ziahiC4r8
+	UY+qpbSpoa1IdgsOcS9HvKUFnHOCZHbX/sF44BirGqMG+W4W8UbQm6PUQgtP8DlQ
+	7uH0hb/A5F8LkPZO0hLXisWf7kJKVcltd3sdZx4dcXsc8sg1JNwiQxNq3+rNkyy2
+	aPPVkfZmFj1pn4RyjGD+cqNmhgQ9ezNj2LtWBOj+Le8M84ntEJtLQucBbuvWTVqf
+	PH9OOI+EYkutNo7Xr9JeQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1734774102; x=1734860502; bh=k
-	tgkOKk/4MreY3cyjWCANXcTqGH2vZ5XorZkiep5peg=; b=sSh9lzRmbPvvIbUlJ
-	VKUg0dBHunGRdqXY9HipfhSINqwGAfc7DU1KnNRGgee8AGdk1WoqiwlEEn4rsXEs
-	aH6fFlzT0LNQzc1ZA3ssoKnA48rsds0dfoWKEC3Vd4PZ3TIPirWWfs/QFgGWgKEr
-	8yp2HV+xnsdrQqji0YLM/Ahpfr0uAjQibkZShZE80sK/3CblO/g5DQr/RWpGjNuK
-	KzqdzogSEXEdTn5UxfGBR4mN27RT/dLrHEzKFbjZi71GPlOijlM33SpP7Dh6EvY1
-	ZxE0V0P6sBnbWt6C6LXtGlFCfDx4n64uvVBkXOrzCmaT2g7bbrsU3ymmppXLFD9S
-	1vBEg==
-X-ME-Sender: <xms:VY1mZx6bkb5GpI4J59srVcL11B-ZERQoLBUzGnJjS66Yx4-1bL3QtA>
-    <xme:VY1mZ-4b-kAus49puadYkiFDOLkRYzBkbK0c0abZBE-nE_N_sAqQncHYkAt_XJPP3
-    hx965PSLEYi37SYtQ>
-X-ME-Received: <xmr:VY1mZ4cQXnqQwlQkTLkBEFD-ZES9D5PpyHHOQeE94QyoBYRGr-6y0dqGciaRjfoDLvW9eskHkE_9qXPnHBDs3scWSkeFxhfEX6O8w7zSENGY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtgedgtdejucetufdoteggodetrfdotf
+	:x-me-sender:x-sasl-enc; s=fm2; t=1734774106; x=1734860506; bh=i
+	c+OZ7nYn48w9tiM8ZxAJ9YbDge6f3PVBtso/XTbadU=; b=XuI+IoOqTm6F4rpY3
+	Frbl3nUg/U3+1dYsAxgpcrr8xtyLWhPoT+3lDPJYKHPkmdVTth5l3eP1PufKaHqb
+	vYrn0+qPEEWJxXs71CaCTTLuNGOKXoJ/1D1cPV9ej1DiwmnQazUwbE3sLa+wlV45
+	qCCDHH5oOb/xnsYTCoVN3O2J/Q9msbH/C2ZGAcsp9C+WmaSbS1fzTaS/k1HIAeOf
+	CM5OS4a+0mMlvSA4FLsTXWJ1PzPT1Qq0P/DvTMhAE6a+XPOGhZyKuVF7YWPGGEVo
+	ilEBAdNsuYoZrCWluALHdNmhpb/j9diCcTW4LK4gBoGCiwnGiQc6WLKti+BfGer2
+	cNi3Q==
+X-ME-Sender: <xms:Wo1mZ2otyArIGcDI5Y5UBzZUsbO67VodGoviawyDZvCgIVaiK7hKyA>
+    <xme:Wo1mZ0qutoEfQ-WkMfaufRjKyw24i7HNj8auluGKa4Rr0bEiLQsGBq28moWQSX2gT
+    -b1Ivy9BN2987ELkA>
+X-ME-Received: <xmr:Wo1mZ7MJ9yrIHqzuLlL3ETx_5ItlTc7POcFHfK97RX2fhka35eUxR4vPbDAtIYDalZftCr9RVNJdgSh6CY3udhBoyKOOAR5vD0ui7hlqTnYn>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtgedgtdeiucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
     rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
     htshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttden
@@ -76,14 +76,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtgedgtdejucetufdoteggod
     hopehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgpdhrtghpthhtoheplhhinhhugidq
     shhouhhnugesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqd
     grrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:VY1mZ6K_PTC_TpnClRqxD93-7UcGvmtCy1ic8jEEAr-yaCy6eupF2w>
-    <xmx:VY1mZ1LoEWaaHjm1XoSVTCWDarEwRskvxwJOY-Ir4c6g4GR3WlaM2Q>
-    <xmx:VY1mZzwz2FQZTNhRo4WmZSIyyeyfVETd7--2RxMWH9j_eoMvFtRkXw>
-    <xmx:VY1mZxJKAxSVl2YLbFgzfOXUXbSEOV2hEG8COUDtDb-LtIpk34fzvA>
-    <xmx:Vo1mZ8aLRezZLQaSCkvJvfHqAs_YwjZ17SWplEPpVzOG_JMtZ81S1sgE>
+X-ME-Proxy: <xmx:Wo1mZ15fza1ppsM5jiIETjo0059YNfAWcQnMxC7DQTozyIXTtP89QA>
+    <xmx:Wo1mZ17TCy_bsLaL30NQhkS4XNP2CPUSVMZkuGLdat3-2TJLab_qDg>
+    <xmx:Wo1mZ1gPfofqUGNcRaMTP5MYPl705swq-9fXe3btuu2WaN7mVNyrGw>
+    <xmx:Wo1mZ_4pM9pxX4BxPwMjU6hyigft7sRBQk0QECWqcknNoFSmNi2zEA>
+    <xmx:Wo1mZ0LCbDQrv1x8BRuuSj1PLbyPgWoEuhXbopbXJJJE-jLj3xPR5--x>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 21 Dec 2024 04:41:37 -0500 (EST)
+ 21 Dec 2024 04:41:42 -0500 (EST)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
@@ -98,18 +98,17 @@ Cc: linux-sound@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	Chris Morgan <macromorgan@hotmail.com>,
 	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH 1/3] ASoC: dt-bindings: sun4i-a10-codec: add hp-det-gpios
-Date: Sat, 21 Dec 2024 22:26:32 +1300
-Message-ID: <20241221094122.27325-2-ryan@testtoast.com>
+Subject: [PATCH 2/3] ASoC: sun4i-codec: support hp-det-gpios property
+Date: Sat, 21 Dec 2024 22:26:33 +1300
+Message-ID: <20241221094122.27325-3-ryan@testtoast.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241221094122.27325-1-ryan@testtoast.com>
 References: <20241221094122.27325-1-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_014143_709476_A8F4E370 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241221_014147_576615_9FC50177 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,46 +125,133 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chris Morgan <macromorgan@hotmail.com>
 
-Devices integrating Allwinner SoCs may use line-out or headphone jacks
-with jack detection circuits attached to a GPIO. Support defining these
-in DTs.
-
-A number of Anbernic devices featuring the H700 SoC use this mechanism
-to switch between a headphone jack and an internal speaker, so add these
-to the allowed routing items.
+Add support for GPIO headphone detection with the hp-det-gpios
+property. In order for this to properly disable the path upon
+removal of headphones, the output must be labelled Headphone which
+is a common sink in the driver. Note this patch also adds the output
+of Headphone for the H616 codec.
 
 Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
 Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 ---
- .../bindings/sound/allwinner,sun4i-a10-codec.yaml           | 6 ++++++
- 1 file changed, 6 insertions(+)
+ sound/soc/sunxi/sun4i-codec.c | 59 +++++++++++++++++++++++++++++++++--
+ 1 file changed, 57 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-index ebc9097f936ad..b4b711e80b65a 100644
---- a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-+++ b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
-@@ -98,6 +98,10 @@ properties:
-     maxItems: 1
-     description: GPIO to enable the external amplifier
+diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
+index 933a0913237c8..5f718dd3fcf0a 100644
+--- a/sound/soc/sunxi/sun4i-codec.c
++++ b/sound/soc/sunxi/sun4i-codec.c
+@@ -21,6 +21,7 @@
+ #include <linux/gpio/consumer.h>
  
-+  allwinner,hp-det-gpios:
-+    maxItems: 1
-+    description: GPIO for headphone/line-out detection
+ #include <sound/core.h>
++#include <sound/jack.h>
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+@@ -272,6 +273,7 @@ struct sun4i_codec {
+ 	struct clk	*clk_module;
+ 	struct reset_control *rst;
+ 	struct gpio_desc *gpio_pa;
++	struct gpio_desc *gpio_hp;
+ 
+ 	/* ADC_FIFOC register is at different offset on different SoCs */
+ 	struct regmap_field *reg_adc_fifoc;
+@@ -1302,6 +1304,49 @@ static struct snd_soc_dai_driver dummy_cpu_dai = {
+ 	.ops = &dummy_dai_ops,
+ };
+ 
++static struct snd_soc_jack sun4i_headphone_jack;
 +
- required:
-   - "#sound-dai-cells"
-   - compatible
-@@ -247,8 +251,10 @@ allOf:
-         allwinner,audio-routing:
-           items:
-             enum:
-+              - Headphone
-               - LINEOUT
-               - Line Out
-+              - Speaker
++static struct snd_soc_jack_pin sun4i_headphone_jack_pins[] = {
++	{ .pin = "Headphone", .mask = SND_JACK_HEADPHONE},
++};
++
++static struct snd_soc_jack_gpio sun4i_headphone_jack_gpio = {
++	.name = "hp-det",
++	.report = SND_JACK_HEADPHONE,
++	.debounce_time = 150,
++};
++
++static int sun4i_codec_machine_init(struct snd_soc_pcm_runtime *rtd)
++{
++	struct snd_soc_card *card = rtd->card;
++	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
++	int ret;
++
++	if (scodec->gpio_hp) {
++		ret = snd_soc_card_jack_new_pins(card, "Headphone Jack",
++						 SND_JACK_HEADPHONE,
++						 &sun4i_headphone_jack,
++						 sun4i_headphone_jack_pins,
++						 ARRAY_SIZE(sun4i_headphone_jack_pins));
++		if (ret) {
++			dev_err(rtd->dev,
++			        "Headphone jack creation failed: %d\n", ret);
++			return ret;
++		}
++
++		sun4i_headphone_jack_gpio.desc = scodec->gpio_hp;
++		ret = snd_soc_jack_add_gpios(&sun4i_headphone_jack, 1,
++					     &sun4i_headphone_jack_gpio);
++
++		if (ret) {
++			dev_err(rtd->dev, "Headphone GPIO not added: %d\n", ret);
++			return ret;
++		}
++	}
++
++	return 0;
++}
++
+ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
+ 							int *num_links)
+ {
+@@ -1327,6 +1372,7 @@ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
+ 	link->codecs->name	= dev_name(dev);
+ 	link->platforms->name	= dev_name(dev);
+ 	link->dai_fmt		= SND_SOC_DAIFMT_I2S;
++	link->init		= sun4i_codec_machine_init;
  
-         dmas:
-           items:
+ 	*num_links = 1;
+ 
+@@ -1635,10 +1681,11 @@ static const struct snd_soc_component_driver sun50i_h616_codec_codec = {
+ };
+ 
+ static const struct snd_kcontrol_new sun50i_h616_card_controls[] = {
+-	SOC_DAPM_PIN_SWITCH("LINEOUT"),
++	SOC_DAPM_PIN_SWITCH("Speaker"),
+ };
+ 
+ static const struct snd_soc_dapm_widget sun50i_h616_codec_card_dapm_widgets[] = {
++	SND_SOC_DAPM_HP("Headphone", NULL),
+ 	SND_SOC_DAPM_LINE("Line Out", NULL),
+ 	SND_SOC_DAPM_SPK("Speaker", sun4i_codec_spk_event),
+ };
+@@ -1684,7 +1731,7 @@ static struct snd_soc_card *sun50i_h616_codec_create_card(struct device *dev)
+ 
+ 	card->dev		= dev;
+ 	card->owner		= THIS_MODULE;
+-	card->name		= "H616 Audio Codec";
++	card->name		= "h616-audio-codec";
+ 	card->driver_name	= "sun4i-codec";
+ 	card->controls		= sun50i_h616_card_controls;
+ 	card->num_controls	= ARRAY_SIZE(sun50i_h616_card_controls);
+@@ -1940,6 +1987,14 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	scodec->gpio_hp = devm_gpiod_get_optional(&pdev->dev, "allwinner,hp-det",
++	                                          GPIOD_IN);
++	if (IS_ERR(scodec->gpio_hp)) {
++		ret = PTR_ERR(scodec->gpio_hp);
++		dev_err_probe(&pdev->dev, ret, "Failed to get hp-det gpio\n");
++		return ret;
++	}
++
+ 	/* reg_field setup */
+ 	scodec->reg_adc_fifoc = devm_regmap_field_alloc(&pdev->dev,
+ 							scodec->regmap,
 -- 
 2.47.1
 
