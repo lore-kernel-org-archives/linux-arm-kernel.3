@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F37C2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEE9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxuwlLLWDtn/YhfBKS2Bv4fFKyFeDWuJUQEzuY6g11I=; b=EnUBTejH6IE9nbnHh3tVY2XrVw
-	T6bjhyAXlLfH9c+G7wulvd73Oo4WWdwnzu+G+96wX8n55Hex/Q62LU7gZQ2JjhirK+8xf3c/HeWeH
-	R35usKDSXeA+KoH7UzM1rc2wQtXmZyXr+nOEv4cepBtqcwbt7o0wTYxtduGW9xWeoficDx4ubcPgO
-	4f/zSk2bYc/XOe/93ha6ma/8ddiIg60vrGOBctDlJa44O22Jy3TR7yJ5U4QylSvdQzNR964WbkaAZ
-	2j3tDe38V9o5xBg5Pogchx0I1TXTQ3TLScqiNg5+/mviKKG2hSyjk5aQGP6JChi1P5WeLde2N7QtX
-	8LcPrLgQ==;
+	bh=TlAGquTu8QOjuJ4uOL9oXc9iql10aak0NbjztT3JDFw=; b=FGQw5GW+jXR3C1vynaFTaGQW3Y
+	qS4CBaIeTc6yXkcq1r4+rd61fXP/hx2Aa4mN9w5vYJEcEYTkFF1rRA7hQdy4RrfgmcNhyYQWps0Vg
+	V9cHF9njYb0eCxBH9pysxRePKpM+7aAxuVmfwTH4MR9wZ9mazGidsz//381X47zCxLCftLjLY4Zdg
+	aeVn5BuU+e/Qlqposjvh0vzGWMTg2hhid+dTMWcqvUOZVYCQLrfNyipEixWLyc98lIZS/fH41yI0O
+	SzuTYJtaK2OnIcd7ZmRZKfDFVYW5rIi5R+0XPgsiJV+9JmF2yelZCIRWy1iAUTJp+7aOZHAI47FVS
+	uVdOrY6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMvc-00000008Nhw-0BuU;
-	Sun, 22 Dec 2024 14:27:32 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tPMwk-00000008Nq6-3KfU;
+	Sun, 22 Dec 2024 14:28:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMsB-00000008N33-2MYX
+	id 1tPMsG-00000008N3m-2CIL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 14:24:00 +0000
+	Sun, 22 Dec 2024 14:24:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5B6F2A4084F;
-	Sun, 22 Dec 2024 14:22:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A78AC4CECD;
-	Sun, 22 Dec 2024 14:23:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C98FF5C4A0E;
+	Sun, 22 Dec 2024 14:23:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B14C4CED3;
+	Sun, 22 Dec 2024 14:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734877438;
-	bh=PBQcFKLRbP9xJzentd083//P7cBnHOCpEd8ds4ykyoc=;
+	s=k20201202; t=1734877443;
+	bh=+RfQuaWAbggzfl6hhCqxUia8Uq6x6a4Y6LK2Ftl1J9E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Yh1SwkDcQJCjsOhh2X1+0/aLqIYEu0cjvDrq18FtmSbg51XjvCBGI9v5/VLKE8Db0
-	 Zm6gWrHdsDpFDOyblCMM6tHPM61dJry3dhLhOQ/5TpJlldW+VAmgntBqGwEdiPuaiw
-	 StVMmf+vB0zYfnPBiItEo/MHHxCqzs40jSFCVh4ZbaTznEcQUcudIPI83hvkb+0HYF
-	 2BvLknTKM4TGURn8lwTI+7z3CayLso82nm28sbOAJ/zq2m/KcMJ/ZWFcSq4iWqi8lt
-	 b3QrVxmI3Xi0cqwF0vNDioeK49pQeiilK+s6WI5nKy5Cxy7dNPjIr0Yf/1vH6CvQlb
-	 l6Bpreh6SGWbg==
-Message-ID: <dbeb28be-1aac-400b-87c1-9764aca3a799@kernel.org>
-Date: Sun, 22 Dec 2024 12:43:33 +0100
+	b=EjnHDGRhlf7agy6qxA8x0En11gyfFSKwDtxxeKxeHlmLl7JAGi4xWuyXCh+qr49dB
+	 vkAGvW1/pyjukJ15CA+GyCaQAOQWT/Wv/hh83OXtF2div/Nk2j5UCBSNYBfsrSvxB1
+	 MR8FJ3ZHiwoXtl3Ora+RZ25MqQjWDXIvwAV+NOHtgrqnwSfuYlOc5dKdPXjbeQbsle
+	 3H5IBCMjKXP7snEzuQIkJUn0m27HkqIAfFKbIrF79aMf4AtBo9AQ8mY3/VBDsZEZ0S
+	 96RiysvonNH/FPxX2awOIOeiGQN/QMlUE9otYFMbnf85WlLScltCGLscvc8TCAheMi
+	 6+Jk8nVN0n2gQ==
+Message-ID: <f5e3d00e-8f98-46c6-8f1a-85a2169324ee@kernel.org>
+Date: Sun, 22 Dec 2024 12:47:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: dts: exynos: gs101-raven: add new board
- file
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+Subject: Re: [PATCH v3 2/4] arm64: dts: exynos: gs101: add AP to APM mailbox
+ node
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
- <20241220-gs101-simplefb-v2-3-c10a8f9e490b@linaro.org>
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
+ daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
+ ulf.hansson@linaro.org, arnd@arndb.de, Jassi Brar <jassisinghbrar@gmail.com>
+References: <20241220-gs101-acpm-dt-v3-0-642d64daa5d1@linaro.org>
+ <20241220-gs101-acpm-dt-v3-2-642d64daa5d1@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241220-gs101-simplefb-v2-3-c10a8f9e490b@linaro.org>
+In-Reply-To: <20241220-gs101-acpm-dt-v3-2-642d64daa5d1@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_062359_783855_FD166827 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20241222_062404_656491_9D2F34D9 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +125,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2024 12:27, André Draszik wrote:
-> Raven is Google's code name for Pixel 6 Pro. Similar to Pixel 6
-> (Oriole), this is also based around its Tensor gs101 SoC.
+On 20/12/2024 15:45, Tudor Ambarus wrote:
+> GS101 has 14 mailbox controllers. Add the AP to APM mailbox node.
 > 
-> For now, the relevant difference here is the display resolution:
-> 1440 x 3120 instead of 1080 x 2400.
+> Mailbox controllers have a shared register that can be used for passing
+> the mailbox messages. The AP to APM mailbox controller is used just as a
+> doorbell mechanism. It raises interrupt to the firmware after the mailbox
+> message has been written to SRAM where the TX/RX rings are defined.
 > 
-> Create a new board file to reflect this difference.
-
-There is no board file here, I see only overlay.
-
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
-> Note: MAINTAINERS doesn't need updating, it covers this whole directory
-> ---
->  arch/arm64/boot/dts/exynos/google/Makefile         |  3 ++
->  arch/arm64/boot/dts/exynos/google/gs101-raven.dtso | 33 ++++++++++++++++++++++
+>  arch/arm64/boot/dts/exynos/google/gs101.dtsi | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+> index 1441e9a252c2..6947dd081a0e 100644
+> --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+> @@ -1445,6 +1445,15 @@ wakeup-interrupt-controller {
+>  			};
+>  		};
+>  
+> +		ap2apm_mailbox: mailbox@17610000 {
+> +			compatible = "google,gs101-mbox";
 
-Nope, boards are not overlays. Boards are DTB.
 
-
+I don't think I have this in my tree and cover letter does not explain
+where I can find bindings. Nothing in next from few days ago. Always
+document in DTS patchset where are the bindings, unless it's obvious.
 
 Best regards,
 Krzysztof
