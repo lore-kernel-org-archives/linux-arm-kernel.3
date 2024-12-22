@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626DAE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71EDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2EAvvGaGQe4GZOyf1+O7bXahYdeX6C577uneV/yQI8=; b=kc9r99cadUkf/yr7oTKQqOUzoY
-	mHU917KZLXlCuOujHxq9jmRP1uLysePEOf/ScXAmPYN1yv1VF6EjwOCZq1ZAhV2lyRTDxxf+7LKR2
-	Ry0spgaswF2V0QCk/G/ElA4dwqdvJUEZ/eF+OQ2myVZjX6LkqMy5pS1SeZZ4+Xcdi8mSZl6EKkwhN
-	NRAhlgn76hVcMO0C2PS18YSqZ0hVCoykntPLXoSVIUwzsYkbMEApIDJhUUN9QG0Mx67GtWuIeYaKN
-	QQO3qeS3gG4f1MRUYjnwmnLykChTzpndRhfBgAklZjTVD7b/jZgFn2sBow3rTMyDrdgSv6wQGokDt
-	9odoy4mg==;
+	bh=ySFOKP2T6SSvf2783MptIdxQD1iRTp1mDG8rIDy1B2I=; b=WMd3xl8fTSY+h8zWSd+PfCpvDV
+	+mh76+zrLfSPomuOmySmOwkPjjgh0kIbyAMwHxe9xO44HCX+Viaiebr5MQjdxes3M8OIiMhIh7Hkm
+	oCxTeg1eI+DYocLX45FU2j+S/M3Lj1XVLs2lDDv7r22fQd/C7g5v/8G1Cqijs3NWFzqTEYRpuMAl/
+	/aUxtceapkZ+o3xtSXfq/PWMC/FBVEtOr51xZmU+p4voLXD1kBxdwEGDgJutd9d0jgkjgiRl1OFAT
+	LoO3FFRhX4ZnEuALVZqfXHlbnqfK2kN5jruRsJJ2Lo26YnDhgEw9+bhtgh8KfvyoAw58J1tGad0qr
+	WWFf8x1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPTJE-00000008qhS-3Lki;
-	Sun, 22 Dec 2024 21:16:20 +0000
-Received: from mail-pl1-f173.google.com ([209.85.214.173])
+	id 1tPTM6-00000008qu8-0NQ9;
+	Sun, 22 Dec 2024 21:19:18 +0000
+Received: from mail-pf1-f180.google.com ([209.85.210.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPTI3-00000008qcn-0p13;
-	Sun, 22 Dec 2024 21:15:08 +0000
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2167141dfa1so31497025ad.1;
-        Sun, 22 Dec 2024 13:15:06 -0800 (PST)
+	id 1tPTKt-00000008qpQ-1ALu;
+	Sun, 22 Dec 2024 21:18:04 +0000
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-72909c459c4so2797051b3a.1;
+        Sun, 22 Dec 2024 13:18:02 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734902106; x=1735506906;
+        d=1e100.net; s=20230601; t=1734902282; x=1735507082;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m2EAvvGaGQe4GZOyf1+O7bXahYdeX6C577uneV/yQI8=;
-        b=oC2ZS2X9l5s5q7EbLQRuBMTaQvXyK/bFJyrz5yThMo9Xd5PmXuY82olZdYace6EXg5
-         ZCOtwDxRqyLfbbyUGf2xlbgT1qN+IBTfTAdwDY1n+WtAjUKp5JQ/QTyR+lcDNO2i2GnX
-         0J6EPpCOSkWb7P0CRu8UUu17TN94sHsBSEYX7RQK8LLSUc20KKljeBc/A9d10mozTSVO
-         N3lyZe2NiE7vtC89rRWFVZhSKE2lJoI2UUFd8Q7vP7oUYXAKq1P7uThTmNyApLiG19S+
-         yvvJzy4bzIwTLE74f6f+VJO4Ws7Hj/edZimKlGIrVRuDAanmMQD8mvhkrzKbSh5Xw2ZA
-         KZJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUEfvI8ugdz9oX8rLrotKxe2yE9CcK4UooUrlHB5H8X1regGQTdG0SD5WuHmKM49+aIowxJMKOIoNrz8HdxM8Q=@lists.infradead.org, AJvYcCWREOEsYvXAh6/KqIro8ucsJE4c3P+wnNqAZlhoUK3swgTteYtHmtLMqLxDn/WjP2FMIBreZvl2P1tjGE7wvQA2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi1ZDeG97pUQIeW8QsNGuAGwLMGVTqiuPdrdslAScRRtNqpQsw
-	SB0Gf6SPYxHFKv751MmnNr/LrhB4+7YQgqOBdfH76bgQbecbXqOG
-X-Gm-Gg: ASbGncv0a/Y84XYHMr4VnWR5WsL98bHEbhCEmzh4TXByjeNhUDgkOllXkL7l8NwH/KG
-	G/B1idHEqajhh5dNyjAsqLHbF/bhVJZvXw3TKn02BfO8dgI2JqtCT3e7ZMWelzIXeAOGOg5A0wZ
-	JFarp/FTRQ1RnJSLPXziZ6ckrTY1o8UiduQhSU0MAsgHfIlAT+bKD+DF0piKhrrYJZzZRWtUdme
-	u9HomRfAzTn20df3uRWjxQn00SazD+A+qwO4F3Mu0pT6ETS/d+iFC3ChJ3lV0/w4gWuscTMAlvD
-	LadA+F+7FXLRTxs=
-X-Google-Smtp-Source: AGHT+IFnh8/2jH1K2C8laRyf+QSqdgxXTyVDB6IlMXv9COCrJqawDYFQvRtiTT9LwezuAyZuQTniUg==
-X-Received: by 2002:a17:902:c402:b0:215:a034:3bae with SMTP id d9443c01a7336-219e6d59abemr151928855ad.18.1734902106227;
-        Sun, 22 Dec 2024 13:15:06 -0800 (PST)
+        bh=ySFOKP2T6SSvf2783MptIdxQD1iRTp1mDG8rIDy1B2I=;
+        b=H0xmyiQMfBiLdVnBfqapOIH5MWOiwBCX7JQ1wUiamiy2RE/qWs5TsNlDZ6KLSBFcr2
+         ZNkaS2ce6gDO4n4y3ANTDxretbMnuMHYq0DD70Bzaw7YlyjgFx7QZBV3q77EwO4MB+fL
+         z3YenzNy7cTZTtU3gn5hIpHnIoRK144oyKdRGIV4wyNjDnHbX/HnvYRCzbmv7/lkxPjD
+         NojEj4mYciCIetReT+XEv1sRwEPDMrF3wRkWQYjkRGlOjzL730lwNBx4OHmWW97uENfp
+         XTtnbeXn6RBVb+bxq3XrO7r8gHACepm829GZi42Cw1yPSXW9Pt3MMNj1pGGNJ5z8K3dh
+         ObEA==
+X-Forwarded-Encrypted: i=1; AJvYcCUIJKSwIlDFZrBsamL72WCdAB2pKwUu8dgJknl5LwDzxFTPHM7tyjnxw3ftMs5mI0N98XeCrgkz4Bs4jIFk8sw/@lists.infradead.org, AJvYcCWPa8F3xN5aVN9Y9MlUWHvVDAEpGeA2qn6x1EG4S3RyTXA3DBtrGzlcC3FARKdPCN9v8NifgxraPeFg6iwrgU0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAPIuJHu8UoCWzd9H98Tys+FT7dVZRKszXs+FZpZNu7rG9EMi7
+	df7P6v/xlIGphUy4tBqm/ASaux2e41OgBDJyIJhEq9CTAD/NqlcG
+X-Gm-Gg: ASbGncs6xQZs14xOSpxFQRA+1qzMG3iWeTIb49hY/lLD8JkzT/baGxp5jU54B0WO3Oy
+	3A8vGon+jzz31MG+IW4s+mSLeh0JjCYHT1EH553flnynKOOskQXrhJkWHT8d0MynVliN4YEf3AI
+	UM88up7DlIa17eMmSRL6ovQRipsjVB1PgybwZr1pmgVGNQpwDXALzG4LNeB2CicfzeTjL+sq1Pd
+	GJ1/KIZZuNkH7LMQw//KxRHCx9Nx3CwU0/wVx4JrjMCo3lQIEPWE5NWR4fx1pM/8PF2A57agb/J
+	iRiPUvIys+22dOc=
+X-Google-Smtp-Source: AGHT+IFThwQq8fk2Aa5r1r9/KyCTguIoXFq3omelBgI+dXM6jILXlipwMI/2/TJlCG5GvLarF8F9Hw==
+X-Received: by 2002:a05:6a00:330b:b0:728:e382:5f14 with SMTP id d2e1a72fcca58-72abdd7bae3mr12566717b3a.9.1734902282291;
+        Sun, 22 Dec 2024 13:18:02 -0800 (PST)
 Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca0194bsm61117915ad.248.2024.12.22.13.15.05
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8fb957sm6746272b3a.140.2024.12.22.13.18.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 13:15:05 -0800 (PST)
-Date: Mon, 23 Dec 2024 06:15:03 +0900
+        Sun, 22 Dec 2024 13:18:01 -0800 (PST)
+Date: Mon, 23 Dec 2024 06:17:59 +0900
 From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
 To: Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: Ryder Lee <ryder.lee@mediatek.com>,
 	Jianjun Wang <jianjun.wang@mediatek.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
 	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 0/6] PCI: mediatek-gen3: mtk_pcie_en7581_power_up()
- code refactoring
-Message-ID: <20241222211503.GE3111282@rocinante>
-References: <20241130-pcie-en7581-fixes-v5-0-dbffe41566b3@kernel.org>
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+	Hui Ma <hui.ma@airoha.com>
+Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
+ PCIE_RSTB for Airoha EN7581 SoC
+Message-ID: <20241222211759.GF3111282@rocinante>
+References: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241130-pcie-en7581-fixes-v5-0-dbffe41566b3@kernel.org>
+In-Reply-To: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_131507_243167_78BDB045 
-X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-CacheID: sfid-20241222_131803_324367_7C26DABE 
+X-CRM114-Status: UNSURE (   8.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,22 +97,20 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello,
 
-> Minor fixes and code refactoring in mtk_pcie_en7581_power_up() routine
+> Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> causing occasional PCIe link down issues. In order to overcome the
+> problem, PCIE_RSTB signals are not asserted/released during device probe or
+> suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+> (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
+> module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+> 
+> Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+> specify per-SoC capabilities.
 
 Applied to controller/mediatek, thank you!
 
-[01/06] PCI: mediatek-gen3: Add missing reset_control_deassert() for mac_rst in mtk_pcie_en7581_power_up()
-        https://git.kernel.org/pci/pci/c/3b2ea2d9a669
-[02/06] PCI: mediatek-gen3: Use clk_bulk_prepare_enable() in mtk_pcie_en7581_power_up()
-        https://git.kernel.org/pci/pci/c/a28adc4d00b7
-[03/06] PCI: mediatek-gen3: Move reset/assert callbacks in .power_up()
-        https://git.kernel.org/pci/pci/c/599e5a6bc452
-[04/06] PCI: mediatek-gen3: Add comment about initialization order in mtk_pcie_en7581_power_up()
-        https://git.kernel.org/pci/pci/c/cdd822338f1b
-[05/06] PCI: mediatek-gen3: Add reset delay in mtk_pcie_en7581_power_up()
-        https://git.kernel.org/pci/pci/c/6c042f72a930
-[06/06] PCI: mediatek-gen3: Use msleep() in mtk_pcie_en7581_power_up()
-        https://git.kernel.org/pci/pci/c/90fcb3d015ef
+[01/01] PCI: mediatek-gen3: Avoid PCIe resetting via PCIE_RSTB for Airoha EN7581 SoC
+        https://git.kernel.org/pci/pci/c/0d0a2b74dc08
 
 	Krzysztof
 
