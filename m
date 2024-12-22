@@ -4,65 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D464E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 21 Dec 2024 23:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E64E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 03:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u5m6jAFeo2oh1KidhkGFat++xkt3Ln1RadWAapj/rI4=; b=aygbpelZthQxb5xSHsF3DUDxil
-	TiPKo+N8vRboUOC71U4gaytgEnwCsSlQ924xop8MElQtIzyvrAreBcYCrjUPqeasK9Ajv+vGgA+6o
-	qfbmuEqI95Xbx1JuTcyB+StW7Rqb8AL86EpWd9CX1koVpRVLje3LCRPpQMZtzB29bc18RTdNqvf44
-	6zKAmiIV9Z8Lp4Yf5Ni99dy2n9XXfi0kG2lSlPdc212zlfJ9aPyK/vR9IuWBpvMmiLFxx+E+9PXPb
-	Fqw7cVkRezf5WQGxllgDUAMql6S8NAoSglZsf6LqIiBF5QUujVxD9vA7nLe3jvvFjwVFF1qdl4nZE
-	sFErq4gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qjbp4cBC2uXMHpTsRQRHtViTfdm9+Fp7YQkNlwi9Ec0=; b=p3Tq9oDONcBRnFhKeGHeKlFzDD
+	hgzDWL2R5EcKmnHlEy0QIGAWr+yxBPNShlxQLlmhBD0jEUOgXAwnWl6XKY7vNSJeV30BHPuR6iFdV
+	nSjBKE4ztbic57DIWekmlN3tAcUFl9XMYCdrGYFE+8mtWroqxCgs7xWzU0iGtbBWwu/rWUqhJjS3p
+	VmDpoq/aJ9x97T8WqnnRJByIBMqGfqWurIr1VxCO602/HMtkKHUelHClyIuUEDSZxEuT574j1bG8K
+	SA5a8XUcZKuOqbaIcwc0e93rnl3wbpiihiHuKAse+mcQnE2Bm/yUYdioL/VUpWc5Eo0UFMn/CP+46
+	ZlixOsAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP9EO-00000007Z3I-3kEV;
-	Sat, 21 Dec 2024 23:50:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tPCIF-00000007iyz-2zY5;
+	Sun, 22 Dec 2024 03:06:11 +0000
+Received: from sakura.naobsd.org ([160.16.200.221] helo=mail.naobsd.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tP9D9-00000007YvR-0ExU
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 21 Dec 2024 23:48:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EC6C55C4821;
-	Sat, 21 Dec 2024 23:47:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9CFC4CEDD;
-	Sat, 21 Dec 2024 23:48:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734824921;
-	bh=wmjD+hnEhQ8Zf8Qy1dbiQdFtZbeySQ9bgsTylbG5IIE=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=sJOelDTWjCJSz0Bd8jjlaqpG6f0fLhfcCCCMX0CdlKJi5v0c+0l/cHzkwE0GRED/a
-	 3175yj5WzbXObWegk9gZS+lQaTZ+8cKlaWA6q9YOxrCRXTiKE9v2uU3ALznqIVvYpB
-	 poEPBWJwdcWy6ZYGR4YLAZd2I3Azlrl7F4WYZ2/p997cuJRHQf8LZ8UGlpDJz8f0zF
-	 zS5ZfE/cIPAiSCN+7ziLnq2RUUB8wITlHF2LLvoHcAwGWRy2DXjIfIWxu3rsZEiTo+
-	 jd21wMQgrhEQXdvBJOxrxiZ4MIqEUljUMGcXdZEFPENVUyO6Bp+IKFNyxL4nDEwCAk
-	 MaqXD3lWtsPTA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE803806656;
-	Sat, 21 Dec 2024 23:49:00 +0000 (UTC)
-Subject: Re: [GIT PULL] soc: fixes for 6.13, part 2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <a54c5c66-5255-4177-a616-a4f39a83d2af@app.fastmail.com>
-References: <a54c5c66-5255-4177-a616-a4f39a83d2af@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <a54c5c66-5255-4177-a616-a4f39a83d2af@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13-2
-X-PR-Tracked-Commit-Id: a31ffd6ed5ee994e1c04dc794499a0c04618dc55
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 48f506ad0b683d3e7e794efa60c5785c4fdc86fa
-Message-Id: <173482493956.3244160.10724298707654952402.pr-tracker-bot@kernel.org>
-Date: Sat, 21 Dec 2024 23:48:59 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+	id 1tPCH0-00000007inZ-0d4G;
+	Sun, 22 Dec 2024 03:04:56 +0000
+Received: from secure.fukaumi.org ([10.0.0.2])
+	by mail.naobsd.org (8.14.4/8.14.4/Debian-4.1ubuntu1.1) with ESMTP id 4BM342BS020894;
+	Sun, 22 Dec 2024 12:04:06 +0900
+From: FUKAUMI Naoki <naoki@radxa.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, maz@kernel.org,
+        tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com,
+        andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com,
+        dsimic@manjaro.org, tim@feathertop.org, marcin.juszkiewicz@linaro.org,
+        michael.riesch@wolfvision.net, alchark@gmail.com,
+        sebastian.reichel@collabora.com, jbx6244@gmail.com,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, FUKAUMI Naoki <naoki@radxa.com>
+Subject: [PATCH 1/3] irqchip/gic-v3: Enable Rockchip 3588001 erratum workaround for RK3582
+Date: Sun, 22 Dec 2024 03:03:53 +0000
+Message-ID: <20241222030355.2246-2-naoki@radxa.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241222030355.2246-1-naoki@radxa.com>
+References: <20241222030355.2246-1-naoki@radxa.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241221_154843_197404_CCE5AC13 
-X-CRM114-Status: UNSURE (   4.04  )
+X-CRM114-CacheID: sfid-20241221_190454_427630_1E03A4A3 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,16 +65,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 21 Dec 2024 23:50:23 +0100:
+Rockchip RK3582 is a scaled down version of Rockchip RK3588(S). Apply
+Rockchip 3588001 erratum workaround to RK3582.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.13-2
+Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
+---
+ drivers/irqchip/irq-gic-v3-its.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/48f506ad0b683d3e7e794efa60c5785c4fdc86fa
-
-Thank you!
-
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 92244cfa0464..c59ce9332dc0 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -4861,7 +4861,8 @@ static bool __maybe_unused its_enable_rk3588001(void *data)
+ {
+ 	struct its_node *its = data;
+ 
+-	if (!of_machine_is_compatible("rockchip,rk3588") &&
++	if (!of_machine_is_compatible("rockchip,rk3582") &&
++	    !of_machine_is_compatible("rockchip,rk3588") &&
+ 	    !of_machine_is_compatible("rockchip,rk3588s"))
+ 		return false;
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.43.0
+
 
