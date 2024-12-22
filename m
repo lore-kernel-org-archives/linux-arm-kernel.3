@@ -4,72 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B723BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 08:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E868E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 08:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KsutAYQoGxcBjg96b9PzdyECOm4X+pRU+TfDvaqhhE=; b=zOkFza82wKuuoTCvm0FDgu0NR8
-	w2/T8YqrBy7hTgHP+90Jx4mTBDRqavqXzjKVfJsSOUtTL1SLHs0kNfCjFJfe9bdyFlcVZ/762FFQN
-	DgkxYrl64JinSQsvKjuFl+iIQW8IbIvfyjmVrzbo2hKcXlPIQRrx4stn2ZxL0WOU8IHFQgqZde5jc
-	jNCShUkj9JBSTImNZ1+kWPLDEg2Rgy78S7MFRa2R0eZml/cVZLvWQCC+2RjXimPu+XCEh4Cb4fhi5
-	seRS1SrpAHPwxe7FpoVcO3MrNgsoZDyunhS6Gx5dVpxHoV2waz4gDxg4kFu1CxyqGs5dbM3wl4Ghu
-	SQ42fc2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f1kN4m7MBd3q1Arsqzhxth2RYGc/v7LVnRf9GvCWFGc=; b=lbSE0D3RgPfLEci8qDHVMrAj4O
+	WrUcDAG8o9syrZT0IHch0efXLTplLRLiSkfNIWM8l/Ui6zrtKeEdZR67r5WdmZ8ZP1XHw0LVUmF6i
+	cqyWDZy/+v+WkI6BwcYJtKPeevrRwFkcfn7w7yF/KzFI4834zV/C0FTBhcEkDn8wfM2ZSSYms9DAN
+	4fjga7E9jTRNFo1dQJQKuuysSy9kMq/vxIurF5Jx352vM1JRmFty1IikDGzOOpnO6yic+6IDQXYW4
+	+s2UE44Yp+CWnypxlik6Yv6HJdQPyelX/7ZpLD7Jiq4OzFJG0QHZkqU88bEqlbQb30Et8ttM/rmtE
+	I5knMvZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPHQj-000000081Yq-2IUV;
-	Sun, 22 Dec 2024 08:35:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tPHVy-000000081zK-3UHO;
+	Sun, 22 Dec 2024 08:40:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPHPY-000000081SZ-3kiD;
-	Sun, 22 Dec 2024 08:34:06 +0000
+	id 1tPHUn-000000081sW-2RRc;
+	Sun, 22 Dec 2024 08:39:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3F214A40568;
-	Sun, 22 Dec 2024 08:32:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFE59C4CECD;
-	Sun, 22 Dec 2024 08:34:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E74985C46FB;
+	Sun, 22 Dec 2024 08:38:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE39C4CECD;
+	Sun, 22 Dec 2024 08:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734856442;
-	bh=yDbyvGBdhFbBbtYL7NrJkhEr0MAnlnSnZYd3unoDI28=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M7rl/SuXPGhlaYVxYM+DrLi8GTmYNY3vwGUg+9HhvSx9IM0OeHyxZsGtHTyCQDg1+
-	 tuP0TfHKSs36Blj+KVVhGrRkMXosOhVS4THMA/9gwh2pWI7rv1oQKbQpWYjybyyE2T
-	 dfCREPG4BscrsRk55zDGHn4AvOFMdIzE+W6Q8aCKwlm8EyIWFo2yE63g01xyc1Hbbg
-	 lkaOJSLAFLksulbrhlZgprKvrCvcXi6zEZpFjczSrkmNBZ7jrX+mfULRSDHkaUZsfG
-	 oTftkjd6nNbCt2ghgVP7OOrAiVkGFHQFm1KcqJxea+KsuwUFVTE1Ii9UQ/1QkD0h2I
-	 B01KqEA/BAJtw==
-Date: Sun, 22 Dec 2024 09:33:59 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, 
-	Stefan Wahren <wahrenst@gmx.net>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v5 1/3] dt-bindings: display: bcm2711-hdmi: Add interrupt
- details for BCM2712
-Message-ID: <mnvl24bydpajn7dyumq7cqt6dl6iyrzk6e7rksojt3ig2f7qbc@uytpnoa4t76o>
-References: <20241220-dt-bcm2712-fixes-v5-0-cbbf13d2e97a@raspberrypi.com>
- <20241220-dt-bcm2712-fixes-v5-1-cbbf13d2e97a@raspberrypi.com>
+	s=k20201202; t=1734856768;
+	bh=MiEvhIstcYnJtdRUJCYNRrH9mQy76V7NADTyz5aUv1o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QiBDc4peffQWhld9lLZr7Hcq/YUZQnKtWFvEL4CWhiGLRmOj6QNqlGDW+bzvrSxFE
+	 BuRaSpjSNBle7vgTw+PbhQDztNuglQYAMdVaCwmm/akVTAk7cbL7jx2FPOvQv7Ep6+
+	 DyGJGhPDH387JBfwbqrPilsoYUgHUFahRoE6URvNu2mDlWaXu69MBDl14qAd/GOcKQ
+	 E1kmYb4PPueCe/aMS29bpXp2WrKFscVP5xstbGB9JrZT4gejliX6fpcD3UX6Uqmzuj
+	 NVInig78Wzu2sCF0pqk5Mgll+TdjFox5AAEXoUgv058De+UmBvWutiRxE/svRTDQZD
+	 GZAqnLSAcjPcw==
+Message-ID: <874d26cf-af3d-4d24-860e-72573920da27@kernel.org>
+Date: Sun, 22 Dec 2024 09:39:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241220-dt-bcm2712-fixes-v5-1-cbbf13d2e97a@raspberrypi.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] dt-bindings: display: Fix brcm,bcm2835-hvs
+ bindings for BCM2712
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Doug Berger <opendmb@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>,
+ Stefan Wahren <wahrenst@gmx.net>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ linux-gpio@vger.kernel.org
+References: <20241220-dt-bcm2712-fixes-v5-0-cbbf13d2e97a@raspberrypi.com>
+ <20241220-dt-bcm2712-fixes-v5-2-cbbf13d2e97a@raspberrypi.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20241220-dt-bcm2712-fixes-v5-2-cbbf13d2e97a@raspberrypi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_003405_008283_C44F51FB 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20241222_003929_719724_7C802905 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +133,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 06:11:11PM +0000, Dave Stevenson wrote:
-> Commit 62948c62abca ("dt-bindings: display: Add BCM2712 HDMI bindings")
-> added the compatible strings for BCM2712, but missed out that the
-> number of interrupts changed, and for BCM2712 the driver changes[1]
-> required that the interrupts are named.
-
-I dopn't get what "interrupts are named" means here and I kept asking
-about it, so the explanation is supposed to be in commit msg. Do you
-mean that driver requires it? If so, then "the driver requires
-interrupt-names since commit foo ("bar")" (and use Linux commit style of
-referencing commits).
-
-
->  
-> Update the schema to correct the interrupt requirements for BCM2712.
-> (Requirements for BCM2711 should be unchanged).
+On 20/12/2024 19:11, Dave Stevenson wrote:
+> Commit 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+> added the compatible string for BCM2712, but missed out that
+> the number of interrupts and clocks changed too.
 > 
-> [1] Commit 0b1dbe82e051 ("drm/vc4: hdmi: Add support for BCM2712 HDMI
-> controllers")
+> The driver commit adding support for BCM2712 [1] also requires that
 
-I cannot find in this commit requirement of interrupt names. There is no
-call to anything requiring names. Maybe I miss some context, like other
-function introduced that? Can you point me to specific line of that
-patch?
+The driver commit foo ("bar") ... BCM2712 also requires...
 
-Because if you refer to external_irq_controller than I fail to see how
-2711 works without the names.
+
+
+> both interrupts and clocks are named, so the relevant -names
+> properties are also added to "required" for BCM2712.
+> 
+> Update to validate clock, interrupts, and their names for the BCM2712
+> variant. (There should be no change in the binding requirements for
+> the other variants).
+> 
+> [1] Commit 7687a12153d3 ("drm/vc4: hvs: Add support for BCM2712 HVS")
+
+And drop this.
+
+> 
+> Fixes: 6cfcbe548a3a ("dt-bindings: display: Add BCM2712 HVS bindings")
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+>  .../bindings/display/brcm,bcm2835-hvs.yaml         | 88 ++++++++++++++++++----
+>  1 file changed, 74 insertions(+), 14 deletions(-)
+> 
+
+
+...
+
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2711-hvs
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Core Clock
+> +        interrupts:
+> +          maxItems: 1
+> +        clock-names: false
+> +        interrupt-names: false
+> +
+> +      required:
+> +        - clocks
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2712-hvs
+> +
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+> +        clock-names:
+> +          items:
+> +            - const: core
+> +            - const: disp
+> +        interrupts:
+> +          items:
+> +            - description: Channel 0 End of frame
+> +            - description: Channel 1 End of frame
+> +            - description: Channel 2 End of frame
+> +        interrupt-names:
+> +          items:
+> +            - const: ch0-eof
+> +            - const: ch1-eof
+> +            - const: ch2-eof
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +        - interrupt-names
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2835-hvs
+> +
+> +    then:
+> +      properties:
+
+What about clocks here? Why isn't this a part of block with bcm2711 (as
+enum)?
+
+> +        interrupts:
+> +          maxItems: 1
+> +        clock-names: false
+> +        interrupt-names: false
+>  
+>  examples:
+>    - |
+> 
+
 
 Best regards,
 Krzysztof
-
 
