@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02207E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27AF4E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mr8rvSiMKhhr7+g2wBjSbr4ZapMlTY5YRIRH4XPzpek=; b=egsj8di8lDUkTNAFwfRtD9t3OR
-	2uDS1GtO1Br0QU10jWh0q99H6q2tQJq5kyQ84OEtpgop6FyeJpuScYtbdYj+CeecxxlfRec6ykt8t
-	5Gc4BkECfm8ZgQEglCuH9TCvAZv89zQ0cDtxKHkD22EB1wFOKxfwaR4A+quwFjha7YeHjSPJlIzdo
-	Qu3QqhD/E1xUhEplCHkyxB2TeU4KgNXVvReW4nzaqeDVd5xi2VNepy08QbPDEsw27v3Cdvx4asOJ3
-	wD0hHhSN0H0Ou8AQE+x8sQeqHqoFq5eTmPcevumBk8NCagRilRpt4Z1Kt8v9Ynep1iCSD5F33UGHV
-	UYw9sZTg==;
+	bh=JTseU8DWKtdHNNseUc2PJ1vcygpii+LlAX++fbmk+pc=; b=XJ+RHno09aImqZLx6bkkeyGXce
+	xGuaQteyg5UlrwX01eVBThYXZiNHjmKri0F1w4tJPXbUUOzGJ3LbVItFvrULxqv/wTkM4Ngi8Mvxu
+	gPmo2KM9fbtdGPBj42mBrLlQDAoofSCFlL2IgTkrkAbVvomyD22n/vVhArcrPFkCLrVyNZ66ts0iW
+	0JO0vYmNxy2gbrNnhN027gOZ4f5d0sBHVG1ahK6pD0fJBK02yF7AuFT/3JuRwajHSiNf9K9HCc1Vi
+	F9MNCUPkjHHtfyUH4eRYjsqvlUeV9koqj2uiQ4KpcSy4LEDEiUBbV1T/N944y43Qo1cDpEu11Jcv0
+	EX4J+TSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPXq-00000008ZJk-1Tbm;
-	Sun, 22 Dec 2024 17:15:10 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1tPPYz-00000008ZTl-0IXl;
+	Sun, 22 Dec 2024 17:16:21 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPOq-00000008XqG-2UN3
+	id 1tPPOr-00000008Xqm-2mj5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 17:05:53 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5d3e9f60bf4so5658469a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:05:52 -0800 (PST)
+	Sun, 22 Dec 2024 17:05:55 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aaecf50578eso65272066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:05:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1734887151; x=1735491951; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1734887152; x=1735491952; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Mr8rvSiMKhhr7+g2wBjSbr4ZapMlTY5YRIRH4XPzpek=;
-        b=ardpfX/+VCF5ORhL/rhCi/JiHOMUlCgZiP+iJd6n6KR1SfdvZTMfIl2qmeaa6hXvnj
-         QQe27MRD9AoLJrJdYmKg+SWrfPj9TmlXQfhtfYJeGhzcVcPQc6M1X3FpJwDbwvq/vS8u
-         TgO9KzDX3R3epWwHgifpkXySiDAZKJ+JHe+Q8=
+        bh=JTseU8DWKtdHNNseUc2PJ1vcygpii+LlAX++fbmk+pc=;
+        b=VdI8bYSPz2AUdsKSqpZmEjOd/QfgZHQB7FKGnpV2zSCjCGDjfjdeN/uVvp6HxSgSjs
+         UqEH8EnJvQdc75hXSDXZK90f1OIaYpMbVyZCZYeHO2IFI6goJa9bNQIgEOLZYcfS/Yms
+         oK2OocKwizuYIJ4CsSjF6ZvLXcxShEKw4znLM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734887151; x=1735491951;
+        d=1e100.net; s=20230601; t=1734887152; x=1735491952;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Mr8rvSiMKhhr7+g2wBjSbr4ZapMlTY5YRIRH4XPzpek=;
-        b=Ihy+c4cf1Jo91slyXUp6NmEM8wQyR7OgOFf5rDrk/LkXGGBL5/cw/G0Qai/CIqB+m3
-         +e0wSjxHoWQ2yan6AWwrp8ibNAk0pRNw19F3ctU7Wd9+gj0z3F8pdxa3GHjVw2F2dXww
-         qdKNAeFV516xA5DUKWnS1Dt9MLBQwXHNZCkz0ate9BaD5y3A8PUHcqkDm98syiycv3Pw
-         JdP9DZPqlM9BdyxUlBnAhbvGcJaC8rX+0YI+/rvcH7ACt78YirhBgCpyJ1LU+PbkDUuB
-         y5rM4bSWsOGmw8wXh2hiNmy0YzYaa+QgOVerjw5WiaAjPlfKtaZHkT7VIyhdX2vSRuQc
-         nqfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW4uAncN9KW73NjwHnFcIKS+fYVJSKv0k+a3wYqNQx+z9EeVhWf/C+NZu55exZpYfvYQCcZ51uXNdkiP0mDN2mX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4NlLmydG0JEr7cZ65KA1fgWGQr1NC3eY65r/+ie7C3KAqEpZ5
-	pPJ3BvQ2Z3e4zvA2+R30/KJ4A7bawmjvQQrPJJooUF5HgLCeM0tYNBs7i9xFuT8=
-X-Gm-Gg: ASbGncujiR4P4Ptgg1N0lCXhOZ4NtdOtxCJ/wVd0YYw0THeGxbGQW0T2zd45J+u2aRf
-	MayZKMSvVBW6/esPluXzHlwa3aLAyoC/2XGmkflzdBZBH6PtERodx0blmfRwKWY3cgsqREV1P0I
-	kLpO0EBHHuJrEfdmfy7jUPjNvIKVTXuhmUDFBXUi4YKBfhX3fuNXMCQXsRtOOBQ6d7AXHl3VoFy
-	bUvw9K+ItMXOpgX86/65AQ5ly+1jgY2VWLjdU8M3Tp3cODwtPzIE0b5dkeMspjCXBR01jvGKimR
-	lx8XZdXKov9sQj5Vy+msmVftvTljxsqbbBpzfaJ0VQJNZA==
-X-Google-Smtp-Source: AGHT+IE7qlrIBo/sacNeaS4a8N/VEhyD3V5TtGsjcDWXgBSetS3Ohl7c0tUQC6AZfXDecI4twS+cow==
-X-Received: by 2002:a17:907:97d2:b0:aa6:ac19:b579 with SMTP id a640c23a62f3a-aac334b5806mr974631766b.26.1734887150752;
-        Sun, 22 Dec 2024 09:05:50 -0800 (PST)
+        bh=JTseU8DWKtdHNNseUc2PJ1vcygpii+LlAX++fbmk+pc=;
+        b=Rls+lpt8Yorcn7PQm+jqzp5ctSAHfKlwOIzQXvH+rgkAmRrCF/bKJNp5t4RYqSXUgu
+         cG8d1vrzV+sc0Ygfi+6KO6B95yEa/FgbGLlmDX0jGFapzdGmkWyn6OKS0N3wFPDDE7VO
+         iKWnxWCisg/+ERjaBdTqmSDMbJpDvgD94s8m1YCRa5rVbsRvPHYqK0tI+z0BRISj+3xD
+         5tgGm1hZoX0UdVJzEe4LNBCzPTORvDVbnJXTL1Pyk/91bwrUV0ZiknBBl+XEEkhH1PRG
+         mVP+qR8Pv8O7YSXEhDEmir5wRUL6zs5qS+mpIMQ68Yn4XRoY9pqYAGQyUuG398Ph5Tx2
+         4WCw==
+X-Forwarded-Encrypted: i=1; AJvYcCU5K015+Ux1TnUOh6dE+eAoKH0CiCCE4Cx3qpfw34QjgzCrTRQ41QuiUEDlghoM5Xj+TlGs0R2ZHlh7G7Sk5jAG@lists.infradead.org
+X-Gm-Message-State: AOJu0YweJP8Zjx+3oWau5KbIYq5QgEuCxUJ4595mWeYJLAjl5k0oThCf
+	VnX4/lpYU1BLDKq7LuIjL2zgB5DdQxNgOQSc2Ghe5Cnsg0RJlFZn98WnuII5rLk=
+X-Gm-Gg: ASbGncvqWa18gQOQFUyANCbJzoZUVZMjPU+YE4y8HgeRa19El3IvVEHagRClXdwGsFC
+	jgPFn95oM0bap53Hc9qD6LNTBeAzLQ8E+y1Yl9X+3ewxxg1k9MNRLJhELQEhJHlQkfbgAVykyWp
+	JyrdGWuG/p/YoeeDcbw3dVK7JUoprIY078IFaz6ZygCx1YSWY0+MoqTDkEFJtl72lYBJrV/lund
+	heM+o5YctpUi+ery3gUfw5XYF2MLBybxDReVVBjBBksWF5wHq+JnYUdIVL6pFNRAGtknQhVtJWp
+	fk2SE1eFJltGnYyxqlCZlXVs4mo/IM1D8VHXCbxPEcjrmA==
+X-Google-Smtp-Source: AGHT+IHe6GuNdSRh18PC5HeAp0opqofzD4zpseD3AeO4DfZzjVRdMz+HjPJqAg5sE4NR302TdU0qlA==
+X-Received: by 2002:a17:907:2d1e:b0:aa6:aedb:6030 with SMTP id a640c23a62f3a-aac33666079mr825550966b.52.1734887152318;
+        Sun, 22 Dec 2024 09:05:52 -0800 (PST)
 Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2.196.41.87])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe48d6sm414056566b.127.2024.12.22.09.05.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe48d6sm414056566b.127.2024.12.22.09.05.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 09:05:50 -0800 (PST)
+        Sun, 22 Dec 2024 09:05:52 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
@@ -79,17 +79,17 @@ Cc: linux-amarula@amarulasolutions.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 07/18] arm64: dts: imx8mn: add anatop clocks
-Date: Sun, 22 Dec 2024 18:04:22 +0100
-Message-ID: <20241222170534.3621453-8-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v6 08/18] arm64: dts: imx8mp: add anatop clocks
+Date: Sun, 22 Dec 2024 18:04:23 +0100
+Message-ID: <20241222170534.3621453-9-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241222170534.3621453-1-dario.binacchi@amarulasolutions.com>
 References: <20241222170534.3621453-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_090552_749168_F6CA1194 
-X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-CacheID: sfid-20241222_090553_755547_FAAF72BB 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,15 +116,15 @@ Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 Changes in v4:
 - New
 
- arch/arm64/boot/dts/freescale/imx8mn.dtsi | 2 ++
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-index a5f9cfb46e5d..49be492b5687 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
-@@ -606,6 +606,8 @@ anatop: clock-controller@30360000 {
- 				compatible = "fsl,imx8mn-anatop", "fsl,imx8mm-anatop";
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index e0d3b8cba221..0b928e173f29 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -709,6 +709,8 @@ anatop: clock-controller@30360000 {
+ 				compatible = "fsl,imx8mp-anatop", "fsl,imx8mm-anatop";
  				reg = <0x30360000 0x10000>;
  				#clock-cells = <1>;
 +				clocks = <&osc_32k>, <&osc_24m>;
