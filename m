@@ -4,90 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A9FE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964CEE7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qtqb2q9SZdIxrsGX5zFz/zmOaa7ahdn4J/z+KWdZJM=; b=0jvF/k/n4bLBjMNsCap0dC+RYz
-	pVxtfF4WOmmwiEsblxrgOYFTCFlzOZNOW+30ae2HQZ83BVC0f9oMOCYcRxU/s7RTRmG7ujgJ3j+i8
-	08RZf7+MSJSXMlZmUlVc2srlqASQrrmWj593X40zrtVVVy7MF/a2LoDq4gEHMoWHrSsBOGmd3Cnu3
-	a9WUmAL59KDeMGwyzogyqrMDMeWBfzermCPI4oGT+vLDnv2ny9FF0jld945h+TsTvHZKWQM0EfEBB
-	e/OB4Dd577L829mHvQ8nUF+GAK6G4la/FldWGUh9HRGnyzqjFEX4qKdNZ5fPNnqc++eVE73f/kw1m
-	02pEeQZg==;
+	bh=pQzHVT1G+n5hPpCXn/8HdLdDBGDS8anU45ahC0yzBCg=; b=AZK8nVL5EqKQEMGLML2Zzw71zH
+	Xx1uEbzki9PZdBUGg2WNcvkLpZigeGmuVxFVkq72w2QnQY+nkwmcDPdXp3R1POfYX5gDIMA5KYKO4
+	9lgKM4w2xS7Gg4S+fKq0+ZX9noQOyg5ijnn8Z8xGx7X8rL+BHp2ADg99guD09vG9tl+tA0tVwA0NN
+	V1etQbT6xQEgB0Oa9KTPK1HTp/1ntlCVL5B1ao424SPHYrlmrI5iXCcpzZEUDPB0HpNQqXUlbng9o
+	04rQkdNTYoL1ElZFm7VaOPyQ71+Y2wKatsqIN0SAV3Wmxr2Xfh4HfVel5bJINpNWBcY7eswpOCeBm
+	pLrD7KUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPN3d-00000008Oeb-27cu;
-	Sun, 22 Dec 2024 14:35:50 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tPNFe-00000008PJO-3y21;
+	Sun, 22 Dec 2024 14:48:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMuI-00000008NTf-3ADw
+	id 1tPNET-00000008PBr-0fe7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 14:26:12 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aa6647a7556so72280366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 06:26:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734877569; x=1735482369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8qtqb2q9SZdIxrsGX5zFz/zmOaa7ahdn4J/z+KWdZJM=;
-        b=Oq9fyimubT4Cqo0xPbuh/3aR9rY9Ty+Qk9ye/ok+jE2oq9BmlE8glBLn4lZDFXvOfh
-         W7muHa07ZBEwxj+TJfw4eOGrmAgYkPuoXAFjNpd2Le18QjjP2mVxQNnMddQp1gR06Qen
-         k4GKP3qSv1fAm2VI1+9YU/N6JQ2F741C2D/l7gembZWJ5qm+7uaqx1JQrDoo8pd5ZEeK
-         cckZ702tRr/uv6u7X2YqZbyclTAMeLijCT1gtv2gWGTJIEFCkyHtHKvHDcKQpazo2wVg
-         2peQQ5pj8nQrJg6kMZ/sfbIa6/eO5+b3Y30ZQ5Fa4NDF7bz7Bcr2r3v4UeRzL25opFsK
-         KAsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734877569; x=1735482369;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8qtqb2q9SZdIxrsGX5zFz/zmOaa7ahdn4J/z+KWdZJM=;
-        b=RaAiFLR1NR8LI5bp7y65DxDnQap9t1lOyyM4vi/Rqi8d6h7B9EWnUjT2BCNt9+VSaP
-         h25m4nOo3y8LSmGyhoUB8LPKqw/141rNj6Zh6/oUfNaBBbDOYB8y6q/uTk1GO69TqGqS
-         OdUwldO7CHtpmCGqkvo9TYIuaRBywdcmOUU2DbdZDLa5lcX3sohzZIrE//x8Ttp+91+Q
-         AtJ+cjbCVcAPEiK2VTjLnXzIuORbfbmOv9YkbeRXGp8mb0exLcd3YKYayZhhB25IGBG1
-         hNHuhoZMBdaWYd0hqu2VGkOlXZXCvHbseIaaJZp1+QXOQmTcEQL+myRKRXLdQEsuRhNO
-         /T+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWeAEARb6jKrNc6+Hwn4zcJXAoGQNDAL1eKbqXS0+Wx830xUX4Ppz89MzC1tlqo9K/S3I+U4azvOs/UGS9gJIbr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbjPGNm4qR2OmQ5dwAFqKQ3K1wNYB9/fjDCplvz4FCq0D99pN9
-	N1pDC2Is1OfUyAnocCEMvbWMbQ9xW3NhscIgL4DRzemFqD5DDYKShoek+QM/Zl8=
-X-Gm-Gg: ASbGnctKzHu+kF/Fu3obk3d4DLgF2l2mJtWnkSJXiSvuio2Q6k4nzeUzU90z1mkcwSj
-	0ROXQ9QycRL8PgYjMiFxER8W/7z4Vh0TKoHDoKa/z97ZJqVYOK4fEu8TfAwH/AlPzSvRbQ1jIuR
-	tbm+rCqD2+vHQjaAFD8EreB6/SNxHRJTS7DSUf3adAHgHe1JYXHtiI87R7UOD+B5c/eFWG1ptHm
-	zl1muFvTOxqTiViw6LkpZCZpIprf2G+/l4G8D7Zs48C/IouXGJT9jYJrLpN2rUnnaaBpw+3Go4g
-	NJqSYd7glDhsQ4uS0KSLgzKgOnVeJPg=
-X-Google-Smtp-Source: AGHT+IGJEflLR7LUL0jWhIG8if351byh4oOU18ryBTE4nHXQMghZCSJJMazHqwq4sLeRDspVGmm4qg==
-X-Received: by 2002:a17:907:3faa:b0:aac:619:6411 with SMTP id a640c23a62f3a-aac3352c94amr296886666b.11.1734877569000;
-        Sun, 22 Dec 2024 06:26:09 -0800 (PST)
-Received: from [127.0.1.1] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e82f577sm392716066b.18.2024.12.22.06.26.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 06:26:08 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
- Sam Protsenko <semen.protsenko@linaro.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20241211033027.12985-1-semen.protsenko@linaro.org>
-References: <20241211033027.12985-1-semen.protsenko@linaro.org>
-Subject: Re: [PATCH] arm64: dts: exynos: Specify reserved secure memory
- explicitly
-Message-Id: <173487756773.3738.7711760267747537170.b4-ty@linaro.org>
-Date: Sun, 22 Dec 2024 15:26:07 +0100
+	Sun, 22 Dec 2024 14:47:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EBEEE5C42B5;
+	Sun, 22 Dec 2024 14:46:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B20C4CECD;
+	Sun, 22 Dec 2024 14:46:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734878819;
+	bh=4+ISzXwrnznFHaTZ7D9DX0cu/mjxk9RF1t63bLKCH00=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nu3A9On6qfxZpOWWoA0swQddvI0iOzRuYBJCCWedSUYP4FJ3HN8RXTzHwGxQrsSyB
+	 RPjZvsr6Dk1Cr1w6mfHiPHoUKtjE3R272ZFQvbvli9cPN6alMJGn197QS91S6fk0rq
+	 rc1gI218OCSLL2UYr1EvoLpudvvhN1YUfflE4JF1XRhoUiKlf3fIxwnMIlaMnLDfb4
+	 8fVKaZkHEaPgwxAUmlkuFWTmRc5aJc40QyiQaGX+2XNozAGl3HmMkNonuPw0GI2sRX
+	 ys/gcK5p1CbGIbThcJRDdkPpYbJaKAqS+HZNf6WXOguhcyyKkwRS3eLFUy0+SVQ+0M
+	 W0s72U8j6Ppmg==
+Message-ID: <d1c6d2f2-f733-4cbe-8108-c9c9aaa417cc@kernel.org>
+Date: Sun, 22 Dec 2024 15:46:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v4 1/2] arm64: dts: exynos: Add Exynos9810 SoC
+ support
+To: Markuss Broks <markuss.broks@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Tomasz Figa
+ <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Maksym Holovach <nergzd@nergzd723.xyz>
+References: <20241214-exynos9810-v4-0-4e91fbbc2133@gmail.com>
+ <20241214-exynos9810-v4-1-4e91fbbc2133@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241214-exynos9810-v4-1-4e91fbbc2133@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_062610_804556_C0802E5E 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20241222_064701_302401_F6F0E9A9 
+X-CRM114-Status: UNSURE (   7.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,25 +128,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 14/12/2024 15:56, Markuss Broks wrote:
 
-On Tue, 10 Dec 2024 21:30:27 -0600, Sam Protsenko wrote:
-> Instead of carving out the secure area in 'memory' node, let's describe
-> it in 'reserved-memory'. That makes it easier to understand both RAM
-> regions and particular secure world memory region. Originally the device
-> tree was created in a way to make sure it was well aligned with the way
-> LittleKernel bootloader modified it. But later it was found the
-> LittleKernel works fine with properly described reserved regions, so
-> it's possible now to define those in a cleaner way.
-> 
-> [...]
+> +		pinctrl0 = &pinctrl_alive;
+> +		pinctrl1 = &pinctrl_aud;
+> +		pinctrl2 = &pinctrl_chub;
+> +		pinctrl3 = &pinctrl_cmgp;
+> +		pinctrl4 = &pinctrl_fsys0;
+> +		pinctrl5 = &pinctrl_fsys1;
+> +		pinctrl6 = &pinctrl_peric0;
+> +		pinctrl7 = &pinctrl_peric1;
+> +		pinctrl8 = &pinctrl_vts;
+> +	};
+> +
+> +	arm-a55-pmu {
+> +		compatible = "arm,cortex-a55-pmu";
+> +		interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 145 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-affinity = <&cpu0>,
+> +				     <&cpu1>,
+> +				     <&cpu2>,
+> +				     <&cpu3>;
+> +	};
+> +
+> +	mongoose-m3-pmu {
+So the name chosen by previous people some time ago for arm PMU is
+obviously not the best - forces either messed sorting or having PMU
+nodes in different places. That's why people should almost always go
+with prefix, no suffix. See regulators and clocks.
 
-Applied, thanks!
-
-[1/1] arm64: dts: exynos: Specify reserved secure memory explicitly
-      https://git.kernel.org/krzk/linux/c/11fd6c9b047c30c72dcea3f79c0acb7deb69c822
+Fixed and applied.
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Krzysztof
 
