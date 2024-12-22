@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71EDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1AAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ySFOKP2T6SSvf2783MptIdxQD1iRTp1mDG8rIDy1B2I=; b=WMd3xl8fTSY+h8zWSd+PfCpvDV
-	+mh76+zrLfSPomuOmySmOwkPjjgh0kIbyAMwHxe9xO44HCX+Viaiebr5MQjdxes3M8OIiMhIh7Hkm
-	oCxTeg1eI+DYocLX45FU2j+S/M3Lj1XVLs2lDDv7r22fQd/C7g5v/8G1Cqijs3NWFzqTEYRpuMAl/
-	/aUxtceapkZ+o3xtSXfq/PWMC/FBVEtOr51xZmU+p4voLXD1kBxdwEGDgJutd9d0jgkjgiRl1OFAT
-	LoO3FFRhX4ZnEuALVZqfXHlbnqfK2kN5jruRsJJ2Lo26YnDhgEw9+bhtgh8KfvyoAw58J1tGad0qr
-	WWFf8x1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ONFj4qGyvB5Vc06y2mU0omsDA8ywA9LqYdH+Ls8UtDc=; b=l6+CSJmC6l/3neoETNQyItjCch
+	E19PGeisV9m1sLwEns4yPtiPtOiBfXS3OJgWWgykp+9VoM726Eq5x2IqG7UV2AcNHjxhyJ1T7ywgo
+	v2384mku/3erTpcmPFidaUrmVDzKNDMRM2xDxoMVpgLiZaW7hgpT5pY0pk+mgl1FvxtxrrLNo9R2A
+	xuKcycska1w5JFS//F3OksithnrwD4jvCQzS7iwao/n6vU3bD5o58mePoLx7g/zZsa7k6E55UNQyL
+	8eBZVoiOr/eqEa0Q2kzM8BN7NYXOnq3Fbb0pUPQV7B4Cx5zmD4TrZpE+52A2yOIfHyieOk7JPAdP1
+	c3Akj9WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPTM6-00000008qu8-0NQ9;
-	Sun, 22 Dec 2024 21:19:18 +0000
-Received: from mail-pf1-f180.google.com ([209.85.210.180])
+	id 1tPTOY-00000008r9V-3kPQ;
+	Sun, 22 Dec 2024 21:21:50 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPTKt-00000008qpQ-1ALu;
-	Sun, 22 Dec 2024 21:18:04 +0000
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-72909c459c4so2797051b3a.1;
-        Sun, 22 Dec 2024 13:18:02 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734902282; x=1735507082;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ySFOKP2T6SSvf2783MptIdxQD1iRTp1mDG8rIDy1B2I=;
-        b=H0xmyiQMfBiLdVnBfqapOIH5MWOiwBCX7JQ1wUiamiy2RE/qWs5TsNlDZ6KLSBFcr2
-         ZNkaS2ce6gDO4n4y3ANTDxretbMnuMHYq0DD70Bzaw7YlyjgFx7QZBV3q77EwO4MB+fL
-         z3YenzNy7cTZTtU3gn5hIpHnIoRK144oyKdRGIV4wyNjDnHbX/HnvYRCzbmv7/lkxPjD
-         NojEj4mYciCIetReT+XEv1sRwEPDMrF3wRkWQYjkRGlOjzL730lwNBx4OHmWW97uENfp
-         XTtnbeXn6RBVb+bxq3XrO7r8gHACepm829GZi42Cw1yPSXW9Pt3MMNj1pGGNJ5z8K3dh
-         ObEA==
-X-Forwarded-Encrypted: i=1; AJvYcCUIJKSwIlDFZrBsamL72WCdAB2pKwUu8dgJknl5LwDzxFTPHM7tyjnxw3ftMs5mI0N98XeCrgkz4Bs4jIFk8sw/@lists.infradead.org, AJvYcCWPa8F3xN5aVN9Y9MlUWHvVDAEpGeA2qn6x1EG4S3RyTXA3DBtrGzlcC3FARKdPCN9v8NifgxraPeFg6iwrgU0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAPIuJHu8UoCWzd9H98Tys+FT7dVZRKszXs+FZpZNu7rG9EMi7
-	df7P6v/xlIGphUy4tBqm/ASaux2e41OgBDJyIJhEq9CTAD/NqlcG
-X-Gm-Gg: ASbGncs6xQZs14xOSpxFQRA+1qzMG3iWeTIb49hY/lLD8JkzT/baGxp5jU54B0WO3Oy
-	3A8vGon+jzz31MG+IW4s+mSLeh0JjCYHT1EH553flnynKOOskQXrhJkWHT8d0MynVliN4YEf3AI
-	UM88up7DlIa17eMmSRL6ovQRipsjVB1PgybwZr1pmgVGNQpwDXALzG4LNeB2CicfzeTjL+sq1Pd
-	GJ1/KIZZuNkH7LMQw//KxRHCx9Nx3CwU0/wVx4JrjMCo3lQIEPWE5NWR4fx1pM/8PF2A57agb/J
-	iRiPUvIys+22dOc=
-X-Google-Smtp-Source: AGHT+IFThwQq8fk2Aa5r1r9/KyCTguIoXFq3omelBgI+dXM6jILXlipwMI/2/TJlCG5GvLarF8F9Hw==
-X-Received: by 2002:a05:6a00:330b:b0:728:e382:5f14 with SMTP id d2e1a72fcca58-72abdd7bae3mr12566717b3a.9.1734902282291;
-        Sun, 22 Dec 2024 13:18:02 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8fb957sm6746272b3a.140.2024.12.22.13.18.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 13:18:01 -0800 (PST)
-Date: Mon, 23 Dec 2024 06:17:59 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
-	Hui Ma <hui.ma@airoha.com>
-Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
- PCIE_RSTB for Airoha EN7581 SoC
-Message-ID: <20241222211759.GF3111282@rocinante>
-References: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
+	id 1tPTNL-00000008r4a-3IYG
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Dec 2024 21:20:37 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 984E013801B6;
+	Sun, 22 Dec 2024 16:20:32 -0500 (EST)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-04.internal (MEProxy); Sun, 22 Dec 2024 16:20:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
+	 t=1734902432; x=1734988832; bh=ONFj4qGyvB5Vc06y2mU0omsDA8ywA9Lq
+	YdH+Ls8UtDc=; b=NEfqJ7zSpS/vln3CGIJ/0kJAP41tUliKx4fCh0YaJd9J0h6E
+	kIjeRdkAX9ozv+C44ol9xUvQqICqLbIAKDjccqpRc6zajfjIHUtzFSyErTq3biSd
+	BGzcWaoVrrlgTn0FkRPnLoPTu8md1KoogGclhDrxs9Vi/TqKSH6fdhfjC2hubiZK
+	p71A2F46K7dV0JUH+tGAlpbHaSD6hjpUmctTSelgFMAghzAfrnVnHXHxkTrZSKwa
+	q6lAJDols5jN7FqoClUFMqDRxqu2LXl2nvZDFSizvSgqd3y9KIlYQitNlLq4pFxn
+	Uw6kyH9h1d9/5yiAJamX7BgSGn6qCh1cAvGwpw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1734902432; x=
+	1734988832; bh=ONFj4qGyvB5Vc06y2mU0omsDA8ywA9LqYdH+Ls8UtDc=; b=Z
+	34rux4HRMFYIw32tR8VoPZUHpvvHAglQm0iNa+HtqoEIXLv7c0PHbqJUQqt7+/u9
+	ys1w7iV97GPVr2MeSFBm7OyX5augZQyvTqB+PwMglBdxRDztHPGfO54iAqW2EgAT
+	4sH+YOc+gW4vuPsKT4pORoFltd/k/Yp6hoLd+uveX/a/dReFQpAt7XqMOXFZOrpa
+	U2Vu9GZl4Vitgunkw/vx3z07EbRtcflYnchymUwIPSBEKfaSWj0W9vIlswzIBnfD
+	3seFVlvfuyPt+ectXZGul85Cd4+IKL/WL2c4iiLNeqIav2kYigAF/EJeWStlh+OY
+	Rxl1R3zcT9EUH470ilYLg==
+X-ME-Sender: <xms:n4JoZzWjFCJ-UcjF7U-Wa5OQjl6l3pSgawqD47_zWbLPcZRjpRChJA>
+    <xme:n4JoZ7k3PcBuFp9s6QgajWnPUKdduJ33iiC9UBvuh78aQSsooRUTv4aW-m4KWiblS
+    KIjbl4puSzEHew33A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtkedgudegiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
+    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
+    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeethfffjefggfeuheekjefguefhhfef
+    leduvdehgfetueegfeffiefhtdejheeuudenucffohhmrghinhepghhithhhuhgsrdgtoh
+    hmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhih
+    rghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgtphhtthhopeduvddpmhhouggvpe
+    hsmhhtphhouhhtpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrghdprhgtphhtthho
+    pehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehlgh
+    hirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrtghrohhmohhrghgr
+    nheshhhothhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlh
+    drohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
+    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhsuhhngihisehlih
+    hsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepphgvrhgvgiesphgvrhgvgidrtgii
+    pdhrtghpthhtohepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:n4JoZ_ZHDZ4llpd1wTBJ_mBsQDuxUmyp8G6NR2PfrZDmTsxR0nZ_vA>
+    <xmx:n4JoZ-UT-il-LNasM-S-CLxuOok7hZGZINXFp6e9jhCtiwYSozEy3w>
+    <xmx:n4JoZ9n6ubaNIzxv_yvMWsI9SpePzo7i8i95lioDViyn-oGg0hXWPw>
+    <xmx:n4JoZ7dggdNQby1s5jNXsQTec3a33b7gZlXgWiMLQOXcR3ORC-ANTg>
+    <xmx:oIJoZzcPHWhc4dfF6ysQ2d6rFCFzvPohVdB7AFBSgWRa5qPcvh95N0yY>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 7BD18BA006F; Sun, 22 Dec 2024 16:20:31 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
+Date: Mon, 23 Dec 2024 10:20:11 +1300
+From: "Ryan Walklin" <ryan@testtoast.com>
+To: "Chen-Yu Tsai" <wens@csie.org>
+Cc: "Liam Girdwood" <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>,
+ "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Samuel Holland" <samuel@sholland.org>, linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, "Chris Morgan" <macromorgan@hotmail.com>
+Message-Id: <982a7d32-ab58-434e-a125-4f7143928caf@app.fastmail.com>
+In-Reply-To: <CAGb2v64qf0jNv72uHUK+aSj0Xt-bf+DW0NCnsZmLf-6xHZF_ew@mail.gmail.com>
+References: <20241221094122.27325-1-ryan@testtoast.com>
+ <20241221094122.27325-3-ryan@testtoast.com>
+ <CAGb2v64qf0jNv72uHUK+aSj0Xt-bf+DW0NCnsZmLf-6xHZF_ew@mail.gmail.com>
+Subject: Re: [PATCH 2/3] ASoC: sun4i-codec: support hp-det-gpios property
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_131803_324367_7C26DABE 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_132036_042200_4C4CA5AF 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,22 +120,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Chen-Yu,
 
-> Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
-> causing occasional PCIe link down issues. In order to overcome the
-> problem, PCIE_RSTB signals are not asserted/released during device probe or
-> suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
-> (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
-> module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
-> 
-> Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
-> specify per-SoC capabilities.
+Thanks for the review!
 
-Applied to controller/mediatek, thank you!
+On Mon, 23 Dec 2024, at 6:15 AM, Chen-Yu Tsai wrote:
+> On Sat, Dec 21, 2024 at 5:41=E2=80=AFPM Ryan Walklin <ryan@testtoast.c=
+om> wrote:
 
-[01/01] PCI: mediatek-gen3: Avoid PCIe resetting via PCIE_RSTB for Airoha EN7581 SoC
-        https://git.kernel.org/pci/pci/c/0d0a2b74dc08
+>> @@ -1635,10 +1681,11 @@ static const struct snd_soc_component_driver =
+sun50i_h616_codec_codec =3D {
+>>  };
+>>
+>>  static const struct snd_kcontrol_new sun50i_h616_card_controls[] =3D=
+ {
+>> -       SOC_DAPM_PIN_SWITCH("LINEOUT"),
+>> +       SOC_DAPM_PIN_SWITCH("Speaker"),
+>
+> Why?
 
-	Krzysztof
+The speaker amp is controlled by a GPIO, this needs a specific card cont=
+rol to toggle on and off, discrete from the line-out volume. Muting the =
+output entirely is not what is required, hence the separate control. I a=
+lso understand (although it is IMO not well documented on the user-space=
+ side) that "Speaker" has a specific meaning to the user-space routing. =
+Can add this to the merge message.
+
+>> @@ -1684,7 +1731,7 @@ static struct snd_soc_card *sun50i_h616_codec_c=
+reate_card(struct device *dev)
+>>
+>>         card->dev               =3D dev;
+>>         card->owner             =3D THIS_MODULE;
+>> -       card->name              =3D "H616 Audio Codec";
+>> +       card->name              =3D "h616-audio-codec";
+>
+> Why?
+
+As mentioned in the cover letter, ALSA UCM in user space uses the card n=
+ame to detect and apply the relevant configuration, by loading /usr/shar=
+e/alsa/ucm2/conf.d/<driver_name>/<card_name>.conf. Spaces are therefore =
+removed in the card name to make this easier to manage. Happy to add thi=
+s to the commit message too, and this could be changed to card->long_nam=
+e if it is desired to maintain a human-readable card->name.
+
+See https://github.com/alsa-project/alsa-ucm-conf/pull/491/files for the=
+ UCM patch.
+
+>> @@ -1940,6 +1987,14 @@ static int sun4i_codec_probe(struct platform_d=
+evice *pdev)
+>>                 return ret;
+>>         }
+>>
+>> +       scodec->gpio_hp =3D devm_gpiod_get_optional(&pdev->dev, "allw=
+inner,hp-det",
+>> +                                                 GPIOD_IN);
+>
+> Just put it on the same line. Lines can go up to 100 characters.
+
+Thanks, will do.
+
+Regards,
+
+Ryan
 
