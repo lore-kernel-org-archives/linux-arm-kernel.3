@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DA0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CA6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KOQ/XEh+IEpTSwG/pPspXvcZX55H6TJ74NlDqWEG6xw=; b=eDeCcZps/CnV4942kjzGCEoAfj
-	MH+aQtmFLW1EhPV3gdgLM/qxBx6EcnamWX/ponftwpPP/UBwCjmF6+tIHqxOsqrvCGffgXJoj+lZs
-	w8hE3EZSzwkTph2PJk9anHzualLPXpj0zqcR9NUbLXqn4vLW44aLT1Ur0117Swy7ocaxpEuIMmMss
-	xMHhWHl7NRtleS3lcpumbA8ksX+9mYWY/NGJ94N/Yt9cVIAInLU+TH0PTbjlS+62+DZjMt8SYqj88
-	l7mj0vTCKvhQL44msr6437/jkyUAZX65u0diWJYmkQCxeAT173vEspXikKHNslCRmYvHDhIotB+2v
-	uwoq5XNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KEBCki9ayMbV6Qed2l65ek3aCSGWyzF7EZ3e2n1c7SE=; b=fmL+6e06goe86GLtAhasgNfsOP
+	yQ4qH52ROoFPww0XTfMDuo/lHhBnPGn+WvjMQGZxXzf29BWVizqCjvbVxGVjjMLOtceINzYJzF7jg
+	imRjAgJ/osbokcrEm+HbxgUJHDx6hbV4DM7lR1uoVeN7XH6k1GAvr39zgp4AmQMULFmjNfKSnOkwz
+	u9VCjLTMpI7u+RHIC+ClwhUjrJYiXPmpwQuugW/XzeCXTFeAX5rGikCvlh3LntxV4Rd6bxXsOAGrK
+	iEbfu4OXGW+4jbux7y85YmkDWpJ5E19I7sfPXb5XuTCcHNwfOoN+Gk2jfIBDox93JKQUt5k11Utxe
+	0OVs8iVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPNGn-00000008PUt-2kdi;
-	Sun, 22 Dec 2024 14:49:25 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1tPNHv-00000008Pby-1bpv;
+	Sun, 22 Dec 2024 14:50:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPNEl-00000008PCm-16RN
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 14:47:20 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5d0ac3be718so514278a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 06:47:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734878837; x=1735483637; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KOQ/XEh+IEpTSwG/pPspXvcZX55H6TJ74NlDqWEG6xw=;
-        b=ERb4WXht68tNGZp/sDaOdcAbTCGs1BIRcA386pwhq+FPgsLtP5e5zUSIRgEWcLkPcW
-         jn1I0bGSNImv+4o7ej3ZjBOFav3TR0hqYYdmXLA1UdCAZ0cm3VzWaxD9XzghWpaxZ4QR
-         fE9c869S8DbPPVz18ppK5V6qLnHRj3llGWhlcu5V5mOvkcAuyVl3pYA5+h0kNXePDm8A
-         obMnm1vCdCAkAY314AByYqTTfurkj+ZwCs2xrgT0sUuYWQSm+H7w7JCMG/5s6QbBrrbg
-         Jhez3J3li6xmJS7LbyfobY9nJCwkMtQn4whRTwIC18sPIUnyaDoJrKv5MBjLQOIC/xbp
-         zT8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734878837; x=1735483637;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KOQ/XEh+IEpTSwG/pPspXvcZX55H6TJ74NlDqWEG6xw=;
-        b=jA7v2liJF25n3gcQDq4qLh4UFUeALGUo4bGgite64GpVq+w27RBH94QTv4lz8sC3xs
-         sVuJfHwdIODHco6gcptgm+o69VKGn4jhOv3w2v51qoMKpOTdwCsiII0Euwh9kP5mI1LR
-         pY4j6xGaAYWbHZcz31y31chW4lfmF7SBI0yHUuc1+xRrZ8Ukj3PEneciiO0F0+Bp0+rb
-         yAsNC+0ohH+XSqU5n2i+RL26DTCYmQ/u+bvQ5/Swj8xjrmj+Rvl3qV7YOwRh8IXOldck
-         LW85WMY6WJjRuRneK6H62SVbekRUTqUZM/vA6HfNoeazez98zx1KL8nInG/dh8t9eAtK
-         PKRA==
-X-Forwarded-Encrypted: i=1; AJvYcCW5AFZvdaqBD5E5gm3hMgrJ3VK5nZ19zUP5E7ni3gsqQh9Bx/0TgJkR+fkSlThnyItQKYUU2l96ou6zgW1XY97d@lists.infradead.org
-X-Gm-Message-State: AOJu0YywUVX3ECSeAGxppSUpTeymgOL0tVZtDpaa1f5CJUDY1lUFYfxx
-	ZBzYavFh8Xt5wLfb6jLwrD/HGPLjIDbJcQUD1NmsMjPFM2jSue/ph4aGTskckpA=
-X-Gm-Gg: ASbGnctuvS3puc/M0cPoMaZp8BBVu/2iCDA5ODVb6jOJxYVezuAWrsZsgyzWMMjFyW9
-	ggC0HlNyZQ7bz6b2igrDBdnvuAxzx1xrZI6M0ujGR7QseZXuzOEmWIjidK3g++fvBxyw26SWPpa
-	cquQq1CETxHxrj+z9+tHpQTQBHfNiTm7xlKVMuB+SKNV6mKsL8i+NMTXBFb+7PSL2Iz5n5gL7F3
-	BbH280GA7MnxEgYUJgGl5Iywf7lw0ZVBNKBdRbPvlXPWLDt9wzIJTPIRhbCutwk4m+oYxp+q8ju
-	XZNcSveBq1dJy4t72gWsqDHT30VxRs0=
-X-Google-Smtp-Source: AGHT+IHtQGYsCivCQdxdxbhIMcr1C6rTSuDeTm2poJaxHYzRC9Hx9uYNv/i6n4uQrNAoTdj6lsN2iQ==
-X-Received: by 2002:a05:6402:3596:b0:5d0:8e70:cf86 with SMTP id 4fb4d7f45d1cf-5d81de05c1emr3525793a12.7.1734878837303;
-        Sun, 22 Dec 2024 06:47:17 -0800 (PST)
-Received: from [127.0.1.1] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0eae3b3dsm396496866b.82.2024.12.22.06.47.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 06:47:16 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Tomasz Figa <tomasz.figa@gmail.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Markuss Broks <markuss.broks@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Maksym Holovach <nergzd@nergzd723.xyz>
-In-Reply-To: <20241214-exynos9810-v4-0-4e91fbbc2133@gmail.com>
-References: <20241214-exynos9810-v4-0-4e91fbbc2133@gmail.com>
-Subject: Re: [PATCH RESEND v4 0/2] Add support for Exynos9810 SoC and
- Samsung Galaxy S9 (SM-G960F)
-Message-Id: <173487883501.18913.4157239259617984127.b4-ty@linaro.org>
-Date: Sun, 22 Dec 2024 15:47:15 +0100
+	id 1tPNGP-00000008PQW-2eYz;
+	Sun, 22 Dec 2024 14:49:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 410C45C4C02;
+	Sun, 22 Dec 2024 14:48:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BDFC4CECD;
+	Sun, 22 Dec 2024 14:48:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734878940;
+	bh=+0JuRS1+pxAE7ViJS52geGKtFuPTzF7INi/AI1l7fkg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CwOLa0NHJg75u0bw8qHidkLoSBn5jKkmZC1XT8plBAgmnxG/sNYZiGlOccGTI5au4
+	 R5DZYXI8LnEul7stQRXMANXJTpszvPGv1tgzUoI05NzCWx/NdKT6YcqwqU2rMDXYOT
+	 SYJrVHIkcPWgafe0I9yxj+9V6OFG8/aGMMXC8xLBWx9kQZ2CEwSB66o7jMle9QuO35
+	 PMTBxpTonZtnvnVSjp107MUWp13uevi4ycI+cuMYYDiHkBpk6AIbPWB1iCoPHOafbw
+	 FKrCr2E/WL5Oa1B0/4/i/AGfxjRTAKq2wZgzClIo7/e440NCKW2b/rs9lmQGX9XD3C
+	 z9IBxv7un4sEg==
+Date: Sun, 22 Dec 2024 14:48:56 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 04/38] dt-bindings: pinctrl: Add rk3562 pinctrl support
+Message-ID: <20241222-moonscape-humongous-65531a3f1f3d@spud>
+References: <20241220103825.3509421-1-kever.yang@rock-chips.com>
+ <20241220103825.3509421-5-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ALomkr6kdjlU1kTz"
+Content-Disposition: inline
+In-Reply-To: <20241220103825.3509421-5-kever.yang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_064719_354444_D5726308 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20241222_064901_722690_55FB63A4 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,27 +78,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 14 Dec 2024 16:56:45 +0200, Markuss Broks wrote:
-> This series adds initial SoC support for the Samsung Exynos 9810
-> SoC and initial board support for Samsung Galaxy S9 phone (SM-G960F),
-> codenamed starlte.
-> 
-> The Exynos 9810 SoC is also used in S9 Plus (star2lte), Note 9 (crownlte),
-> and perhaps more devices. Currently only Galaxy S9 DTS file is added but it
-> should be fairly simple to add support for other devices based on this SoC,
-> considering they're quite similar.
-> 
-> [...]
+--ALomkr6kdjlU1kTz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thanks!
+On Fri, Dec 20, 2024 at 06:37:50PM +0800, Kever Yang wrote:
+> Add the compatible string for the rk3562 SoC.
+>=20
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 
-[1/2] arm64: dts: exynos: Add Exynos9810 SoC support
-      https://git.kernel.org/krzk/linux/c/698be6fe8f89b5edf533a85fba7258339c8b72d6
-[2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy S9 (SM-G960F)
-      https://git.kernel.org/krzk/linux/c/63da297f0303c39025172cccafca7b55b169ec3c
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>=20
+>  Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.y=
+aml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+> index 6a23d845f1f2..80a2b1934849 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+> @@ -44,6 +44,7 @@ properties:
+>        - rockchip,rk3328-pinctrl
+>        - rockchip,rk3368-pinctrl
+>        - rockchip,rk3399-pinctrl
+> +      - rockchip,rk3562-pinctrl
+>        - rockchip,rk3568-pinctrl
+>        - rockchip,rk3576-pinctrl
+>        - rockchip,rk3588-pinctrl
+> --=20
+> 2.25.1
+>=20
 
+--ALomkr6kdjlU1kTz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2gm2AAKCRB4tDGHoIJi
+0rJ+AP9jKt+goJkQoANa5w9EFvOUIPEWZxBmo2FrqduMEy2E+wD/Xk92XG4/tpD1
+TvQLAzDCEXwa95oanEMJEx9Ov5WmpQg=
+=cZw4
+-----END PGP SIGNATURE-----
+
+--ALomkr6kdjlU1kTz--
 
