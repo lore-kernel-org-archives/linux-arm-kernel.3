@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE28E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 18:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7364BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 18:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8quqDbvIzDjRV3soAXIobPs9f6LGdQx6F8kthQIS+s=; b=23WKDuk73/t7fjxeO5ddHFdo9N
-	MxgXnBFfD1Wyq8oBAIOC9z61ztVLryZOo5Ut6mQJqkLZauw6RY/qI5So+fIc4qnCh5/e+IX2LqyOo
-	a5Car+pdhz9V+VudI6UBs0MNn/hJ8AkLl4rTR3KlpbD0asnhyfgh5gyTtLeIb7kfRovK2SxI1vBtk
-	ca3gmrFGavUpaiALO2O4FBAU3G4pDsCYE0gm8ANNMqCKn/Mo8SgX9GlMoz6QX8rZ6N4mIfNQSeWda
-	BQNGQLCsiP0ocncLhzHpUYdx29XT5FthRh9jE8pLQ+PnODobtJnxwloc87wtiHbuVNcGqLW43wuFN
-	NXGri+ag==;
+	bh=z/KAd6ZG61rvLfDgYI7Mlxb/svbdRtzyfwFEiO6AV1E=; b=tQcAdSy3EhifQAabZE3UdNcaAC
+	jlBuZPlRuRPU24bBiiSlFmlw13WjI1g1Bb6cuxhVl7yh5cp5/fqIp/9JcvsceF4aFV9BZK7pwjcQj
+	v4PHRJb4dd0FnoT4VtKl7JjGXhvG9UxqiH7l4INAMv2HiZUXNZ4RiVCn8zNwJO06TpJZjopQl5Xm6
+	8RnkO8Vfy61QdxLEsJMU9LqSo5H/Q2/SKJeL61Eknvsqo2qW3OzDIbJIINRM6L0uIeKJ4uxmsPqsR
+	aDnEFvBb9lYizIgHsWsf1dMT+bIdRES+19HzeBRosybYHZZfaUBHffijg1JFiwnsQPfLxhXxQmcwL
+	4Bn2KMDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPQHU-00000008erK-47zR;
-	Sun, 22 Dec 2024 18:02:20 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tPQIc-00000008ex5-2yIy;
+	Sun, 22 Dec 2024 18:03:30 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPQ9A-00000008dof-0puY
+	id 1tPQ9C-00000008dpi-2hWT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 17:53:45 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21631789fcdso29805585ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:53:43 -0800 (PST)
+	Sun, 22 Dec 2024 17:53:48 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ee76befe58so3134774a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:53:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734890023; x=1735494823; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734890026; x=1735494826; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=M8quqDbvIzDjRV3soAXIobPs9f6LGdQx6F8kthQIS+s=;
-        b=ibJppf5/eB1zxM+0gWVIhCl3Csn2t+aNe0s+lJP1iFv0t12fctt8a0te0gDNyWNlG/
-         7kfvTyFncFiKluJOeXaUDYgDEHfqzVE52SOgTQNKpSEUw6zofDpCKvFKbljUwLyGdNEc
-         sVXzrQKMEM+9Iz0hKvmHM1Nj8NyXwT9s5le50SFNFO2WFrUuNGYTMxW9qbYrGYssIfCG
-         9kkl9TYjdVVX0K2w27cqiWgjAi5d7ZhFAIRO2flWX6u45fi2/VfYI15vmT17GeEc7TmC
-         99OI9MNSUXQzvTzegeLMkaCYY0sR3Ze0FeHzm9qsDUYHWw6+hlTbrXK1v66BJXOmkayN
-         W9pg==
+        bh=z/KAd6ZG61rvLfDgYI7Mlxb/svbdRtzyfwFEiO6AV1E=;
+        b=TPMjCaCd7v2MNYHN1LKaTuKMv4iNAeAVH+tw3rB6CU6dRHy5nk8KkOmmQUXEhhNX31
+         fkU/WEkpF/nIC38kHwHFcxAKeIDvt4bUleVazXmaoVyYCo2nFQC4BWYKmN7A4UOE+7zY
+         gzNUELRvG32gyVK3mH9SO/r+kZ248S8PMkVu+D4KmgaGhRCJOFQrVN0Byqj5s8yy7tnN
+         6mFcblwPOopQ2oSugf74c3eL6Co7RAqYNWlzkI1yOxyDVuCQQrbmZ4pmuMkRw8g8QHFu
+         L/uuwKoSa3wIPCP3Uw9JekkBgmNsK7iYxfhijLV4bxM9SjCSI8hSfrFmzmZdn7Fo8pg8
+         0zDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734890023; x=1735494823;
+        d=1e100.net; s=20230601; t=1734890026; x=1735494826;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=M8quqDbvIzDjRV3soAXIobPs9f6LGdQx6F8kthQIS+s=;
-        b=V7mZ1AAu84eaSbKUmzP3nTXauqkmhVrM5ENJWvdMgwiGh+XQ4Pzew4eXoMhsdSc1j6
-         cuCFGZvD0js/hksfrBeLnXgzhmDjk4PKM7r5pNPGd9qXXdwWD2DoPPNTZuzF7tKKZ+3j
-         zINOi0ESMq7N7Cthf+y6CfeiNsptjyQBBAx1vX7vibJ4pf0wEx7HQapkrxSoQLX593wR
-         FxVxh8w15UNAhFmCK+/Y8khGouimKnv1BJ3c07XbXhJeHne0AgKPuIrbeImJpKlImAm4
-         m+ckMI7sHQ3Brv+/8lK1cTFpBJWdIycI1mbpW5OFN/NO3XCLw+67vbtDpB7Y9EV2xpzJ
-         yDuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVDXZ6YBMiHlz40fVa5IL+Z9qsNmfTmDvu1JzO91Mcx3aHZEksrxPLU2/aivf+NCr2RCMouS5f4rNXozC/0W2lY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcltFLCa2Y2iShG9x6BELujVyfQQo5jnEla/0Pd8i1f3lcEIBd
-	lVDroiCoVSYi41mVEbuUXuWy/wFIkfOb2BCWCUFmQuvgVrmFUpwM
-X-Gm-Gg: ASbGnctm0am+hkAUmBi/o3+9py1ZUiA0vzXCuW4qJPa3jH4xLuq75jd0J64ifmsJI7I
-	llxW1U6UTQ41n+z9PhQ6UgIi7Kla/8qUCUQcYxecsqRQrnTPlhy12n7J3vJ14p7xTJN9ooSV0AM
-	yzW0VU5jzvhi3m+GEOHlKaSF0bVVR18lCiJoLICp4/zQ7SlY+pCa1NjQiqskCDhss1+30hMBySK
-	61brkBHrAFQtSu7ODS7wwoVUTASJ1wKyB+RXDfNiUrOsgikedRThPQ9PA==
-X-Google-Smtp-Source: AGHT+IGpgvTOHhq2hImZ/rSPNRXBsdgUbRBZyxdR2JAx10GDpZz4KoEJX4OK0tyh8MQs0GsB982i4g==
-X-Received: by 2002:a17:902:d50c:b0:215:9c06:272a with SMTP id d9443c01a7336-219da7ff40bmr204906785ad.24.1734890023267;
-        Sun, 22 Dec 2024 09:53:43 -0800 (PST)
+        bh=z/KAd6ZG61rvLfDgYI7Mlxb/svbdRtzyfwFEiO6AV1E=;
+        b=ZjO5gitQV4E6OXamfGHQut9UgnubuVYsqU35T/wAQl0EAwpUpVN/nPrDLopX+qIOos
+         dEBip5lEtDmxMQhOto7WevOFby/TZOJPCN6ELPzmhWskFNXq0VdQKrOmC99bVLmK14rI
+         Ndo/Hfp5hPEHWhduiIUrav7DgjvTcpFIb/z3fotdrIxZtaNMOI8CZTwjgSeOAoGu7KH1
+         BeDKBzV/3/L7ULYJjeFBRd0IX8IcqL2G84BuPXyklIzPAw5o2Mhojp4Bc+xULfxt9Kpb
+         VQOD7PqHJ6GH/po7LcM8mDlCfNQ6Bb/gKxmzF/fQE2v9RJ94zZ/k5VYlFKFsu3yh8Ndc
+         CG3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW50ycdRML2YrtmKaUt9ZvRC53vyXb3mTr1S5Xs2ojkEAkDOFxc3CQuzysuMMJFKsSBuGtgeYj+MbmM0NArtMSH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2aKXN5DyzHYO95YSplMQl+LSzOFPXA1w+Au/6qUGtNe7DDHu5
+	SZGpuIUgvGj1u2gJsQIfgmoHQ5jiNtzh0iXof3lJm8CYKT3lUSQu
+X-Gm-Gg: ASbGncu6YmlBMyu10nVvPjMZ4d+9qligHn+gqzd8pfwpa5HvJxMj+D0DwDOAp7qVDZ6
+	7CCVkicR2Av//ZYz/33ntSrdr5BzJlEZ9sDz9mX+nJmLTAHh0AY5LJLVSUWHUHZsvHGCbyaXcUl
+	qgmh4yazdLJB+5d0nFn5eVepJZ12+4ngoiLD/OzeCck8He/yL0xLM/fNrXgHoeODMT1X9/cr/v7
+	3Bs6iXDJqasp9A7RLkORhIJ9ZdmVooEmHSQbVI2sI/q+Z1LSugmNH2pzA==
+X-Google-Smtp-Source: AGHT+IH9tlB/rmfezrDSl76YkabU54LtEQtOU5kl6hHg06X9hhNLuJNfsi6jeaPgR5oNfIdZXyn2Bg==
+X-Received: by 2002:a17:90a:f94d:b0:2ea:4a6b:79d1 with SMTP id 98e67ed59e1d1-2f452e149bbmr15214572a91.11.1734890025758;
+        Sun, 22 Dec 2024 09:53:45 -0800 (PST)
 Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dca04c33sm59503685ad.247.2024.12.22.09.53.41
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dca04c33sm59503685ad.247.2024.12.22.09.53.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 09:53:42 -0800 (PST)
+        Sun, 22 Dec 2024 09:53:45 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
 To: Hector Martin <marcan@marcan.st>,
 	Sven Peter <sven@svenpeter.dev>,
@@ -79,17 +79,17 @@ To: Hector Martin <marcan@marcan.st>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH 6/9] arm64: dts: apple: t8010: Add cpufreq nodes
-Date: Mon, 23 Dec 2024 01:52:06 +0800
-Message-ID: <20241222175314.151437-7-towinchenmi@gmail.com>
+Subject: [PATCH 7/9] arm64: dts: apple: t8011: Add cpufreq nodes
+Date: Mon, 23 Dec 2024 01:52:07 +0800
+Message-ID: <20241222175314.151437-8-towinchenmi@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241222175314.151437-1-towinchenmi@gmail.com>
 References: <20241222175314.151437-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_095344_241068_1F10E98D 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20241222_095346_682160_71B9CCAA 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,47 +111,13 @@ types.
 
 Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t8010-7.dtsi     |  8 ++
- arch/arm64/boot/dts/apple/t8010-ipad6.dtsi |  8 ++
- arch/arm64/boot/dts/apple/t8010.dtsi       | 86 ++++++++++++++++++++++
- 3 files changed, 102 insertions(+)
+ arch/arm64/boot/dts/apple/t8011.dtsi | 79 ++++++++++++++++++++++++++++
+ 1 file changed, 79 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8010-7.dtsi b/arch/arm64/boot/dts/apple/t8010-7.dtsi
-index 1332fd73f50f..919e067ef073 100644
---- a/arch/arm64/boot/dts/apple/t8010-7.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8010-7.dtsi
-@@ -41,3 +41,11 @@ switch-mute {
- 		};
- 	};
- };
-+
-+&hurricane_opp09 {
-+	status = "okay";
-+};
-+
-+&hurricane_opp10 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8010-ipad6.dtsi b/arch/arm64/boot/dts/apple/t8010-ipad6.dtsi
-index 81696c6e302c..4ea8cf12e430 100644
---- a/arch/arm64/boot/dts/apple/t8010-ipad6.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8010-ipad6.dtsi
-@@ -42,3 +42,11 @@ button-volup {
- 		};
- 	};
- };
-+
-+&hurricane_opp09 {
-+	status = "okay";
-+};
-+
-+&hurricane_opp10 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8010.dtsi b/arch/arm64/boot/dts/apple/t8010.dtsi
-index e3d6a8354103..2547e8c60cad 100644
---- a/arch/arm64/boot/dts/apple/t8010.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8010.dtsi
+diff --git a/arch/arm64/boot/dts/apple/t8011.dtsi b/arch/arm64/boot/dts/apple/t8011.dtsi
+index 6c4ed9dc4a50..3a3d5b615a6a 100644
+--- a/arch/arm64/boot/dts/apple/t8011.dtsi
++++ b/arch/arm64/boot/dts/apple/t8011.dtsi
 @@ -32,6 +32,8 @@ cpu0: cpu@0 {
  			compatible = "apple,hurricane-zephyr";
  			reg = <0x0 0x0>;
@@ -161,9 +127,18 @@ index e3d6a8354103..2547e8c60cad 100644
  			enable-method = "spin-table";
  			device_type = "cpu";
  		};
-@@ -40,11 +42,89 @@ cpu1: cpu@1 {
+@@ -40,6 +42,8 @@ cpu1: cpu@1 {
  			compatible = "apple,hurricane-zephyr";
  			reg = <0x0 0x1>;
+ 			cpu-release-addr = <0 0>; /* To be filled by loader */
++			operating-points-v2 = <&fusion_opp>;
++			performance-domains = <&cpufreq>;
+ 			enable-method = "spin-table";
+ 			device_type = "cpu";
+ 		};
+@@ -48,11 +52,80 @@ cpu2: cpu@2 {
+ 			compatible = "apple,hurricane-zephyr";
+ 			reg = <0x0 0x2>;
  			cpu-release-addr = <0 0>; /* To be filled by loader */
 +			operating-points-v2 = <&fusion_opp>;
 +			performance-domains = <&cpufreq>;
@@ -176,9 +151,8 @@ index e3d6a8354103..2547e8c60cad 100644
 +		compatible = "operating-points-v2";
 +
 +		/*
-+		 * Apple Fusion Architecture: Hardware big.LITTLE switcher
++		 * Apple Fusion Architecture: Hardwired big.LITTLE switcher
 +		 * that use p-state transitions to switch between cores.
-+		 * Only one type of core can be active at a given time.
 +		 *
 +		 * The E-core frequencies are adjusted so performance scales
 +		 * linearly with reported clock speed.
@@ -187,63 +161,55 @@ index e3d6a8354103..2547e8c60cad 100644
 +		opp01 {
 +			opp-hz = /bits/ 64 <172000000>; /* 300 MHz, E-core */
 +			opp-level = <1>;
-+			clock-latency-ns = <11000>;
++			clock-latency-ns = <12000>;
 +		};
 +		opp02 {
 +			opp-hz = /bits/ 64 <230000000>; /* 396 MHz, E-core */
 +			opp-level = <2>;
-+			clock-latency-ns = <49000>;
++			clock-latency-ns = <135000>;
 +		};
 +		opp03 {
-+			opp-hz = /bits/ 64 <425000000>; /* 732 MHz, E-core */
++			opp-hz = /bits/ 64 <448000000>; /* 768 MHz, E-core */
 +			opp-level = <3>;
-+			clock-latency-ns = <13000>;
++			clock-latency-ns = <105000>;
 +		};
 +		opp04 {
-+			opp-hz = /bits/ 64 <637000000>; /* 1092 MHz, E-core */
++			opp-hz = /bits/ 64 <662000000>; /* 1152 MHz, E-core */
 +			opp-level = <4>;
-+			clock-latency-ns = <18000>;
++			clock-latency-ns = <115000>;
 +		};
 +		opp05 {
-+			opp-hz = /bits/ 64 <756000000>;
++			opp-hz = /bits/ 64 <804000000>;
 +			opp-level = <5>;
-+			clock-latency-ns = <35000>;
++			clock-latency-ns = <122000>;
 +		};
 +		opp06 {
-+			opp-hz = /bits/ 64 <1056000000>;
++			opp-hz = /bits/ 64 <1140000000>;
 +			opp-level = <6>;
-+			clock-latency-ns = <31000>;
++			clock-latency-ns = <120000>;
 +		};
 +		opp07 {
-+			opp-hz = /bits/ 64 <1356000000>;
++			opp-hz = /bits/ 64 <1548000000>;
 +			opp-level = <7>;
-+			clock-latency-ns = <37000>;
++			clock-latency-ns = <125000>;
 +		};
 +		opp08 {
-+			opp-hz = /bits/ 64 <1644000000>;
++			opp-hz = /bits/ 64 <1956000000>;
 +			opp-level = <8>;
-+			clock-latency-ns = <39500>;
++			clock-latency-ns = <135000>;
 +		};
-+		hurricane_opp09: opp09 {
-+			opp-hz = /bits/ 64 <1944000000>;
++		opp09 {
++			opp-hz = /bits/ 64 <2316000000>;
 +			opp-level = <9>;
-+			clock-latency-ns = <46000>;
-+			status = "disabled"; /* Not available on N112 */
-+		};
-+		hurricane_opp10: opp10 {
-+			opp-hz = /bits/ 64 <2244000000>;
-+			opp-level = <10>;
-+			clock-latency-ns = <56000>;
-+			status = "disabled"; /* Not available on N112 */
++			clock-latency-ns = <140000>;
 +		};
 +#if 0
 +		/* Not available until CPU deep sleep is implemented */
-+		hurricane_opp11: opp11 {
-+			opp-hz = /bits/ 64 <2340000000>;
-+			opp-level = <11>;
-+			clock-latency-ns = <56000>;
++		opp10 {
++			opp-hz = /bits/ 64 <2400000000>;
++			opp-level = <10>;
++			clock-latency-ns = <140000>;
 +			turbo-mode;
-+			status = "disabled"; /* Not available on N112 */
 +		};
 +#endif
 +	};
@@ -251,7 +217,7 @@ index e3d6a8354103..2547e8c60cad 100644
  	soc {
  		compatible = "simple-bus";
  		#address-cells = <2>;
-@@ -52,6 +132,12 @@ soc {
+@@ -60,6 +133,12 @@ soc {
  		nonposted-mmio;
  		ranges;
  
