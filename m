@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EC2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A57FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dlz2LOWxC4ZL1ezJ/U8+YOy1mneK8Pcrb6gV8siPKTc=; b=n6YuCrJApZig6o
-	L7Bn03aOhIA14E/hVZN74KwsLrTc3JIYRhS/THRH0JcsGXJCqF6UfiIJhE42FAJZI9BvINkoKAPLh
-	mipPGXfp9MqN5I5GTOqduK2k3hRe9rroUf8cgXsGHtuCFvCQZz+5MV2FZjTj75f6Lv6jDRTnserlH
-	/9p3wMNUKMxDoW65LHxSVpLHUwfYQ4BQhGsRwFRJ80xf2Q05nzRyRd5lXLiZgsebwxQja7O4Vj0aw
-	nP5Ns9HB+RozBuQzRtJCqrGhuQgGie7Co2DFGU+xZWzYyOde7nkPeF8Rl/J0iNSo/99RMvUaZx39W
-	kkz3RdgWJu+jXdDtu5ew==;
+	List-Owner; bh=lhKfBgVLzd53/xf8WYhlbf471gUVHM73ZZMecnUo5fI=; b=AHlJKOKTok0Kmd
+	WmOHcLnGJ3Aeh0CeLx0ujDrZxBBQhOUabtUym5rTKa6B2qSy1aM8DCSUjTwg82N5ak/XUrJwQ+j8V
+	78udnxJrrsj7fJnv54P38qdWs8geAYZAYLQnt4aZRgViTRXXf/ziaPNlN69yCfR3fD7skXl2qtfZb
+	N1xFHUsCx4lDRRKH+tZWYw4kWkODuFLXpoNY/1bc1c5i7eBky/oggJYjz7lsBU0l8sr5bGLU5CBaN
+	Z7qlGivTrl+AtdS+RZXK7C/MjQuB5zMiRfO4EXRyRPm8+JJy+jAbadxT41ogpRFYnLnF7ntpam9rL
+	pyM90DGHHBjZ5TB02mEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPlZ-00000008b1X-1XK6;
-	Sun, 22 Dec 2024 17:29:21 +0000
-Received: from mail-lj1-f172.google.com ([209.85.208.172])
+	id 1tPPmi-00000008b7x-0d5r;
+	Sun, 22 Dec 2024 17:30:32 +0000
+Received: from mail-io1-f45.google.com ([209.85.166.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPYC-00000008ZNz-0cHE
+	id 1tPPbD-00000008Zg5-2PC4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 17:15:33 +0000
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-2ffd6b7d77aso44620121fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:15:31 -0800 (PST)
+	Sun, 22 Dec 2024 17:18:40 +0000
+Received: by mail-io1-f45.google.com with SMTP id ca18e2360f4ac-844e161a8b4so105506039f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:18:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734887728; x=1735492528;
+        d=1e100.net; s=20230601; t=1734887915; x=1735492715;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=dlz2LOWxC4ZL1ezJ/U8+YOy1mneK8Pcrb6gV8siPKTc=;
-        b=S4ZyS9JQs+sRDxV+MbE/4ReaHpD9gfVBX4M4/ri9WyWy4l1Ndl4mVNIh6YP/cvmtlV
-         xinF5D69Zd/4MaRVg68zz11yup/R4Fr4VdBSCVpceaja4PmdC43RG+mAPl3bwWf6j9/b
-         xQNF2xqRqHEwbtEyhCusAyv2wBUUUN3MHRRYRGvtxMGVlCYLCPt1qu7mkK6zc5Lm1hRf
-         H5Ucy27O4Bv/8PHA9xjo2iAPYZiRdoKyZZwOSZD0dIFDDi3KFHUWFSKCRLEQ6TDwwUQM
-         w4ur6m9e0Fg5r0VX95EeMNSWMpw5Q6VfnOyXERPlOHZ56ffshMWEBRStiQhwRs2zmKLT
-         KRKw==
-X-Forwarded-Encrypted: i=1; AJvYcCUnYqTaDId76hVX8rm+LAuJj4FbFDeSXrR3a9RySYChSb9LzGEUGLePcMyCVMkGXch1Lzharyo7H5zGsAfSRLC5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzETpc5TwFE0Voa8SqHVTriP7w7vFXPodaXhPF6fnHlgl8WE7pq
-	VzXd41vaHuA8H8oSdxvQYqUYWLyS0TDF4NIeQ2BGuIy2rECYn1soOcEh84dX
-X-Gm-Gg: ASbGncvdr7aNH5ch6+MKb903u+aT2l+/2cOkR5xholIh7BtKT0CgdRYd60LTpNDFHGS
-	SSEmhgW36U2KjbNreSnyeyR4FRl5zDYgIj49XHOYclzuGa1RdmD7uaNQ+qVGQVS9yXaEVgAJljY
-	vtJ+aXNdcS7voY2viznoM6ZHZ/I6AjqXpcBomXimFDXL+wOj2fDTU5TwR74Uf9h1F9UchfgIpGQ
-	J0Hp1i4Ja8qIM+VaeiCUp81QIcseicJr0041Jo+sYZgvsqSHGWKFrKjTP8USJs18fGK6mbjITUU
-	q8Xt4L0aTSuZNA==
-X-Google-Smtp-Source: AGHT+IEoS1nMP+RiS67DNfFiu4VPSId1bwo6/6qW46pAyVf1YAUXHHCTkT990YmtgutjiD12XU5qmw==
-X-Received: by 2002:a05:6512:1094:b0:542:2930:4377 with SMTP id 2adb3069b0e04-54229586738mr3053513e87.56.1734887727867;
-        Sun, 22 Dec 2024 09:15:27 -0800 (PST)
-Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com. [209.85.208.176])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f782csm1000634e87.38.2024.12.22.09.15.26
+        bh=lhKfBgVLzd53/xf8WYhlbf471gUVHM73ZZMecnUo5fI=;
+        b=ovy0sp22nFt/5QalGEwQmdqSAFTUTXvSUZz3lfSh+c7fFF0zef+/7c6RS9x+uHlPU0
+         flZhYQ5BT5EFf7Ix0EOoq130fa6k6zGByZgdTSadpr1pD8oEyrSf4SKKtuP7ZaBvWtjo
+         GsLNI+Bt8MRYX21UsUxbyK+TwA8VPABjXrMjy8jwn8cKFpbqYk4/t/cjy9/Ao37rPQm5
+         Sa1RGSgmpoITZuFvqrlAJUq4n1eSr+dJMHcyqQNJjUNEecAqXWyhGeJj9RLNvho6iYAT
+         1h6HxtZ8rYXA2ayOJeyf1yhqh/0cyifccw/RoU6/DIw0k9NB5kH1mAGFR844F8OKdxjX
+         cy4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU6UUxuMpo95S9Q2kocR3VSlbfP0qRJcI+ZtLWzNRtTFaSn03UyzspakxWag+Hff2IMJLN0h3Kw7gEOEfUmN0wX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1/aUbFy4r8GVvtGEnD7Qs2uEgE/Eo0nWG5KZww8pM6XGvqKX8
+	DXrtmDZdBZBxJBB0LtjZXCmYRGlFS2vP7/ZMG6VUQAk6V2vDPCqJxB+pb/dfkao=
+X-Gm-Gg: ASbGncsDy5uZbAoCrG+hAp42Ptc6GcHckhW9UGEi80KCRzdu501kVFEqxqqS06fePCx
+	qJIwej6Vrq59WZvtUCV4ByHTZZjkdZ5yhQC1HXKEAf+bZgkotGPU16tWiaNq7X5Gs1sAGDtEtUo
+	ZhulhsFXtMu72DGnXi8vk9IPUnmCWZ2dzdCWW18w0bekbZGyOwcEylqRqK1stW9MqXsbvsnb2CL
+	2rpYu8f0YLmUUraeoE7V3EtjdUJrtIHA4pyhrREMmBgxaf0J58bsSh/rcskp6dzyqk299w7OEx1
+	a43rx6OE/TRDUA==
+X-Google-Smtp-Source: AGHT+IGJO4A27HsetD51KVU/F0ZoBLaFjm0+mqW1sMhBcHi17nAP3WhvBCShfpZsj5xAPvZ5/lrEkQ==
+X-Received: by 2002:a05:6e02:1d0c:b0:3ab:a274:d73 with SMTP id e9e14a558f8ab-3c2d2276f0bmr70572505ab.7.1734887914879;
+        Sun, 22 Dec 2024 09:18:34 -0800 (PST)
+Received: from mail-il1-f182.google.com (mail-il1-f182.google.com. [209.85.166.182])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e68bf66f52sm1793757173.34.2024.12.22.09.18.34
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Dec 2024 09:15:27 -0800 (PST)
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-2ffd6b7d77aso44619711fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:15:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV4oSbW1+jJDKu7AQnD578D1kDd37OVOopXIPzPShPi1E0BlkQl5kDdyO1gQHp7LLn2v1CDRumurnYWQs23JV0N@lists.infradead.org
-X-Received: by 2002:a05:6512:31d3:b0:540:1e5e:3876 with SMTP id
- 2adb3069b0e04-5422957ace2mr3418251e87.52.1734887726415; Sun, 22 Dec 2024
- 09:15:26 -0800 (PST)
+        Sun, 22 Dec 2024 09:18:34 -0800 (PST)
+Received: by mail-il1-f182.google.com with SMTP id e9e14a558f8ab-3a8f1c97ef1so11081475ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:18:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVrnHQlWcd73/g1cN60t6SpMdFCXO50Jgli1IJtvn8QGI/L/bLkCOFG7NM+1MrzMr4bfpOTFqJD6licIpBuhbzI@lists.infradead.org
+X-Received: by 2002:a92:c56e:0:b0:3a7:1dcb:d44b with SMTP id
+ e9e14a558f8ab-3c2d2975b28mr69446075ab.11.1734887914006; Sun, 22 Dec 2024
+ 09:18:34 -0800 (PST)
 MIME-Version: 1.0
-References: <20241221094122.27325-1-ryan@testtoast.com> <20241221094122.27325-3-ryan@testtoast.com>
-In-Reply-To: <20241221094122.27325-3-ryan@testtoast.com>
+References: <20241213195433.GA1568@lemon.iwr.uni-heidelberg.de>
+ <20241214011612.4fd9e4bf@minigeek.lan> <e61c927a4dfe909f4ede4a07dffd9dcd762875be.camel@icenowy.me>
+ <20241220172134.GA9899@lemon.iwr.uni-heidelberg.de>
+In-Reply-To: <20241220172134.GA9899@lemon.iwr.uni-heidelberg.de>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 23 Dec 2024 01:15:13 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64qf0jNv72uHUK+aSj0Xt-bf+DW0NCnsZmLf-6xHZF_ew@mail.gmail.com>
-Message-ID: <CAGb2v64qf0jNv72uHUK+aSj0Xt-bf+DW0NCnsZmLf-6xHZF_ew@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ASoC: sun4i-codec: support hp-det-gpios property
-To: Ryan Walklin <ryan@testtoast.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+Date: Mon, 23 Dec 2024 01:18:18 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64ovacuS+G+k3zBvQR+rW2_TSYh4p5frj7fLxz81K9Kmg@mail.gmail.com>
+Message-ID: <CAGb2v64ovacuS+G+k3zBvQR+rW2_TSYh4p5frj7fLxz81K9Kmg@mail.gmail.com>
+Subject: Re: Re: [PATCH v2] ARM: dts: sun8i-r40: remove unused GPIO regulator
+To: Hermann Lauer <Hermann.Lauer@iwr.uni-heidelberg.de>
+Cc: Icenowy Zheng <uwu@icenowy.me>, Andre Przywara <andre.przywara@arm.com>, 
+	Hermann.Lauer@uni-heidelberg.de, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
-	Chris Morgan <macromorgan@hotmail.com>
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_091532_190931_4F1E4BE9 
-X-CRM114-Status: GOOD (  27.42  )
+X-CRM114-CacheID: sfid-20241222_091839_614072_DAA177E9 
+X-CRM114-Status: GOOD (  23.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,165 +100,56 @@ Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 21, 2024 at 5:41=E2=80=AFPM Ryan Walklin <ryan@testtoast.com> w=
-rote:
+On Sat, Dec 21, 2024 at 1:21=E2=80=AFAM Hermann Lauer
+<Hermann.Lauer@iwr.uni-heidelberg.de> wrote:
 >
-> From: Chris Morgan <macromorgan@hotmail.com>
+> Hi,
 >
-> Add support for GPIO headphone detection with the hp-det-gpios
-> property. In order for this to properly disable the path upon
-> removal of headphones, the output must be labelled Headphone which
-> is a common sink in the driver. Note this patch also adds the output
-> of Headphone for the H616 codec.
+> On Sat, Dec 14, 2024 at 03:13:23PM +0800, Icenowy Zheng wrote:
+> > > CC:ing Icenowy, who added the regulator originally, with commit
+> > > 0ca12c1ee43c ("ARM: sun8i: r40: add 5V regulator for Banana Pi M2
+> > > Ultra").
+> ...
+> > > Icenowy: can you clarify what "newer" version this was referring to
+> > > in
+> > > that commit message? That commit in itself doesn't seem to do
+> > > anything,
+> > > as the regulator isn't referenced, and it's not always-on. It's only
+> > > later when the USB nodes were added that it got used?
+> > > So was PH23 really necessary? As Hermann reports, setting PH23 on a
+> > > v1.1
+> > > makes it reboot.
 >
-> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
-> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> ---
->  sound/soc/sunxi/sun4i-codec.c | 59 +++++++++++++++++++++++++++++++++--
->  1 file changed, 57 insertions(+), 2 deletions(-)
+> diagnosed that futher now: PH23 is indeed powering the USB-Ports. Whats
+> happens ist that I powered the board through the micro USB port which tur=
+ned
+> out to be limited to 900mA in axp221s. So the setting of reg 0x30 is
+> the real culprit: Setting the two lowest bits in this register allows
+> unlimited power over micro usb.
 >
-> diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.=
-c
-> index 933a0913237c8..5f718dd3fcf0a 100644
-> --- a/sound/soc/sunxi/sun4i-codec.c
-> +++ b/sound/soc/sunxi/sun4i-codec.c
-> @@ -21,6 +21,7 @@
->  #include <linux/gpio/consumer.h>
+> In U-Boot:
+>  i2c dev 0
+>  i2c mw 34 30 63
 >
->  #include <sound/core.h>
-> +#include <sound/jack.h>
->  #include <sound/pcm.h>
->  #include <sound/pcm_params.h>
->  #include <sound/soc.h>
-> @@ -272,6 +273,7 @@ struct sun4i_codec {
->         struct clk      *clk_module;
->         struct reset_control *rst;
->         struct gpio_desc *gpio_pa;
-> +       struct gpio_desc *gpio_hp;
+> Or power the board through the barrel connector.
 >
->         /* ADC_FIFOC register is at different offset on different SoCs */
->         struct regmap_field *reg_adc_fifoc;
-> @@ -1302,6 +1304,49 @@ static struct snd_soc_dai_driver dummy_cpu_dai =3D=
- {
->         .ops =3D &dummy_dai_ops,
->  };
+> In all cases the kernel turns on USB-A power and boots.
 >
-> +static struct snd_soc_jack sun4i_headphone_jack;
-> +
-> +static struct snd_soc_jack_pin sun4i_headphone_jack_pins[] =3D {
-> +       { .pin =3D "Headphone", .mask =3D SND_JACK_HEADPHONE},
-> +};
-> +
-> +static struct snd_soc_jack_gpio sun4i_headphone_jack_gpio =3D {
-> +       .name =3D "hp-det",
-> +       .report =3D SND_JACK_HEADPHONE,
-> +       .debounce_time =3D 150,
-> +};
-> +
-> +static int sun4i_codec_machine_init(struct snd_soc_pcm_runtime *rtd)
-> +{
-> +       struct snd_soc_card *card =3D rtd->card;
-> +       struct sun4i_codec *scodec =3D snd_soc_card_get_drvdata(card);
-> +       int ret;
-> +
-> +       if (scodec->gpio_hp) {
-> +               ret =3D snd_soc_card_jack_new_pins(card, "Headphone Jack"=
-,
-> +                                                SND_JACK_HEADPHONE,
-> +                                                &sun4i_headphone_jack,
-> +                                                sun4i_headphone_jack_pin=
-s,
-> +                                                ARRAY_SIZE(sun4i_headpho=
-ne_jack_pins));
-> +               if (ret) {
-> +                       dev_err(rtd->dev,
-> +                               "Headphone jack creation failed: %d\n", r=
-et);
-> +                       return ret;
-> +               }
-> +
-> +               sun4i_headphone_jack_gpio.desc =3D scodec->gpio_hp;
-> +               ret =3D snd_soc_jack_add_gpios(&sun4i_headphone_jack, 1,
-> +                                            &sun4i_headphone_jack_gpio);
-> +
-> +               if (ret) {
-> +                       dev_err(rtd->dev, "Headphone GPIO not added: %d\n=
-", ret);
-> +                       return ret;
-> +               }
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *d=
-ev,
->                                                         int *num_links)
->  {
-> @@ -1327,6 +1372,7 @@ static struct snd_soc_dai_link *sun4i_codec_create_=
-link(struct device *dev,
->         link->codecs->name      =3D dev_name(dev);
->         link->platforms->name   =3D dev_name(dev);
->         link->dai_fmt           =3D SND_SOC_DAIFMT_I2S;
-> +       link->init              =3D sun4i_codec_machine_init;
+> > I am not sure, the schematics I have here (which says V1.0) have PH23
+> > as NC... Well, the M2 Berry schematics have PH23 as 5V EN, maybe I
+> > messed up M2U and M2B when developing?
 >
->         *num_links =3D 1;
->
-> @@ -1635,10 +1681,11 @@ static const struct snd_soc_component_driver sun5=
-0i_h616_codec_codec =3D {
->  };
->
->  static const struct snd_kcontrol_new sun50i_h616_card_controls[] =3D {
-> -       SOC_DAPM_PIN_SWITCH("LINEOUT"),
-> +       SOC_DAPM_PIN_SWITCH("Speaker"),
+> While V1.0 didn't need the PH23 setup due to nc, V1.1 needs it. Maybe V1.=
+1
+> was already on the horizon...
 
-Why?
+It seems this patch isn't needed then?
 
->  };
->
->  static const struct snd_soc_dapm_widget sun50i_h616_codec_card_dapm_widg=
-ets[] =3D {
-> +       SND_SOC_DAPM_HP("Headphone", NULL),
->         SND_SOC_DAPM_LINE("Line Out", NULL),
->         SND_SOC_DAPM_SPK("Speaker", sun4i_codec_spk_event),
->  };
-> @@ -1684,7 +1731,7 @@ static struct snd_soc_card *sun50i_h616_codec_creat=
-e_card(struct device *dev)
->
->         card->dev               =3D dev;
->         card->owner             =3D THIS_MODULE;
-> -       card->name              =3D "H616 Audio Codec";
-> +       card->name              =3D "h616-audio-codec";
 
-Why?
+ChenYu
 
->         card->driver_name       =3D "sun4i-codec";
->         card->controls          =3D sun50i_h616_card_controls;
->         card->num_controls      =3D ARRAY_SIZE(sun50i_h616_card_controls)=
-;
-> @@ -1940,6 +1987,14 @@ static int sun4i_codec_probe(struct platform_devic=
-e *pdev)
->                 return ret;
->         }
+> Thanks for the insights and your support, guys.
 >
-> +       scodec->gpio_hp =3D devm_gpiod_get_optional(&pdev->dev, "allwinne=
-r,hp-det",
-> +                                                 GPIOD_IN);
-
-Just put it on the same line. Lines can go up to 100 characters.
-
-> +       if (IS_ERR(scodec->gpio_hp)) {
-> +               ret =3D PTR_ERR(scodec->gpio_hp);
-> +               dev_err_probe(&pdev->dev, ret, "Failed to get hp-det gpio=
-\n");
-> +               return ret;
-> +       }
-> +
->         /* reg_field setup */
->         scodec->reg_adc_fifoc =3D devm_regmap_field_alloc(&pdev->dev,
->                                                         scodec->regmap,
-> --
-> 2.47.1
->
->
+> With seasons greetings
+>   Hermann
 
