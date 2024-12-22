@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B36AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 10:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE029E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 10:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vKBsYFS9v4iubTvWXqou78ADw4DmyfMOcWadZXgDRNA=; b=lHkRCXsQmM3zEftxChKByNsKbT
-	xJrj4O/1KZ1cSqReT7fx+r7zpb5WA9twvE0rWiZoo3MkxNdUyKMAf0hq8bfRCwjZOhT0kfwKrsXgl
-	+VPEBlT+uCxgYqzmYAV3AMBB8i5Wi1rFphSlROPymxddB3S86Ox3+zqu0TQQB+MefI8Qm6CXJa6xF
-	Cao7zvZ2R7rJ8b0mP6q3OZcosOrkg3AqnY0IlvBOh9krajHwrwo8LBjl+9S9nUvKo+aMzSoty8YqH
-	eKdgVsX2Z3IpgQMsBZ36OSwnoHJd9sF5oz6QG3VRHYnALxxnLH+dWjjfmuFn0FOV2zxd9o8JZ3znr
-	bT3G4KyA==;
+	bh=U7bWVFZ2ocZx/i+mr3Fjw04VK06XaWuS30/5YDXiDlM=; b=OCUCNOAxlh9j8OMwFFSVZZxXre
+	kgCPEhOqnb+dyLKqAouflMRpgBML18135PCMKStFp9uQIGpMEkonZDa9MuUP5jFAWZFXwr9EAXuTN
+	C1xFN1iz5zq4xnQfvfJqT4b2HWKaE9uiO4hnomrvImxmRirxKOhgo6zqzSzfVAxp0TJou4FdPQfwH
+	Q4zJ8Nl5Ykj29C9IYYEkKlfYtJb6nreLQLRYUfgE+GGoXYJXkcp+qeSlsVXXLPomkmjrCZIFMa8Be
+	nOM1fVxK5UZ426E95Q7ndlzkUId4efXp+OSkpiijGFDR/VJJS586XlP2Q5nKl0y+gMC1oK87QPh97
+	QZfYoiJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPItz-0000000884q-2z8x;
-	Sun, 22 Dec 2024 10:09:35 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tPJ2x-000000088dC-37jG;
+	Sun, 22 Dec 2024 10:18:51 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPIsm-000000087wr-366a
+	id 1tPJ1l-000000088YK-42Ph
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 10:08:22 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3c0bd1cc4so480096a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 02:08:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734862099; x=1735466899; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vKBsYFS9v4iubTvWXqou78ADw4DmyfMOcWadZXgDRNA=;
-        b=zv5W16Qze2f2oWw1NTXi2SkDzatRTfzpgEFtg1AGgcuaNagmfNEu4OK6tvhpVcYaqP
-         vzHgWmMhDhsoJ808owYw5o8zxQsGno2fYzyuGvP3IqXawBbH1hVvQn/Pyg/uiyDj95le
-         JwBFesIm/GRF9aYjXBcR9B2u+95KiyN02M+rFTuBKp1R1LXouCwGAzDRJs65kiXQFUd+
-         Zou3042ruJ3bydVnPhFssLmP8+2fYgDVpYpmTErprRFYFCfJxCZNNKKTrBiRFwsNCN3D
-         TQZ+k21NENyQNSQIF0MF2GQpzKu83CaAnc7WqofmS6cEeV2cQLYdxpHh5aAudASKbELE
-         ndfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734862099; x=1735466899;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vKBsYFS9v4iubTvWXqou78ADw4DmyfMOcWadZXgDRNA=;
-        b=CcERTxoQMNFe7izpMbpHuaRx6SsJyZKsRs45PqIgKDvihQWBZL49FfvIaMcdsYG3Od
-         X+yseSp168se68QSO5HBcH27fBmBMekR2d6h2FUdT2t1z33IGRg1X5JQWVNL+zVqSBwv
-         yJxPRFltz5pmINt7r716/1iengP73virURKjyR6pHcOfJDcyEKPxfTDOdEf1MD9SbjO3
-         5H4BS77dhzYqlBo5LRWc78ddEUw+jbZy8ylDP/eSu3Z2V6dc8Kk/mzYDNGmT+CI566t/
-         jEo6NXy7AMx04cS9s4aqAkba4y3GqhQsCXRfwU5pSz3+xIOGz4Z2AMBfSORFTNV7DTyO
-         M3Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+fZ5Ypsa+Z5zAkHFpxtGHYXEj5mDY52mrzcmuUpOrX6cimk52CC+jnpdyGL42kUn5bP2MdAoIPg8QG2L5K+Uo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG0gL3EBGs2L8SJJBJgqoRlzmPuolWt3MJzelUce4QGpStGxhD
-	pwATY+l9zDuz6bLgfSzh5PyonPkaPvZLJY2Q9QmlbKRW8ZeG6HIXoPZybbyw/bo=
-X-Gm-Gg: ASbGncvNtsPu9zOTSIEf9khgDfORR6vJuehyldySE3p2mHKmu8hnC1fX1H/Z7ZpnCtE
-	5dieFbWZ5Fg2RLgIFilJM2d3WZR8Vxo3WpgZ8nMXiUX1AXP/AzV23PQDkKz6jkcOgO+p09bXCmd
-	e1BSKznHPekAlyeSamTPk4doH6+zGfsJgRSQyWB0x5lzmKwVWqNjxMOPnNWJ/QPKY9TT/+hulCT
-	RNgsIskwqdKqjXhMa2kCHZCvZC/LCTZzW5PLI1DWb8Rv72diKc8FRjMFKiKIpGAGYOER4CvAlAu
-	qlMFMXPxJqxl0PycdfjSj3ssxrnoGw==
-X-Google-Smtp-Source: AGHT+IE54OW7NxT5X1sBmLNd/D0kS8uVGSQ68xoYttBlaJ2oUwzQEa9S1NxTmY5pBfaOMmcVqyxeVA==
-X-Received: by 2002:a17:907:1c22:b0:aa6:8dd8:8152 with SMTP id a640c23a62f3a-aac33559ff6mr278592066b.10.1734862098635;
-        Sun, 22 Dec 2024 02:08:18 -0800 (PST)
-Received: from [127.0.1.1] (46-253-189-43.dynamic.monzoon.net. [46.253.189.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f015b53sm372279266b.163.2024.12.22.02.08.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 02:08:17 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20241220-gs101-simplefb-oriole-v2-1-df60e566932a@linaro.org>
-References: <20241220-gs101-simplefb-oriole-v2-1-df60e566932a@linaro.org>
-Subject: Re: [PATCH v2] arm64: dts: exynos: gs101-oriole: configure
- simple-framebuffer
-Message-Id: <173486209717.9271.11039463162908346528.b4-ty@linaro.org>
-Date: Sun, 22 Dec 2024 11:08:17 +0100
+	Sun, 22 Dec 2024 10:17:39 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4YGHCC0pywz9sr2;
+	Sun, 22 Dec 2024 11:17:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oltmanns.dev;
+	s=MBO0001; t=1734862647;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U7bWVFZ2ocZx/i+mr3Fjw04VK06XaWuS30/5YDXiDlM=;
+	b=jz7MWse3HHVYSkcgb0cSihd2gV9xa6ibXhjO1V9QeYrJiJUvZnDK80sDTpixYf2oeQvDsf
+	xyJjXrn3FRCcZUiooF2NQgpQMot0YDYQEkG5OeepMa+cFhUjntBAJJz0dyGq4yYfrdju4g
+	etDa9LQoVLzc/tJGH4uQRFU0nZfGqp7yw2uQ5QrLz9aIKUL6nWbQxdaqXzmFORMHlFLgZR
+	FaO11Nz4qW3KzkSoX8D8h5tsjngWqloMwcND/DrD0C14fAVnbZ/Rm9TOKcnSYiKgN71HUq
+	wZdbH32Y35uV/rH2lTq9SKIXKVY+Z2joaDQ885Es6hS13ITTG9iDbKXLIy0vPA==
+From: Frank Oltmanns <frank@oltmanns.dev>
+To: Vasily Khoruzhick <anarsoul@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
+ <wens@csie.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
+ Holland <samuel@sholland.org>,  Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Maxime
+ Ripard <mripard@kernel.org>,  Roman Beranek <me@crly.cz>,
+  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org,
+  linux-clk@vger.kernel.org, Ondrej Jirman <megi@xff.cz>
+Subject: Re: [PATCH 0/3] arm64: allwinner: a64: fix video output on Pinebook
+In-Reply-To: <20241215053639.738890-1-anarsoul@gmail.com> (Vasily Khoruzhick's
+	message of "Sat, 14 Dec 2024 21:34:56 -0800")
+References: <20241215053639.738890-1-anarsoul@gmail.com>
+Date: Sun, 22 Dec 2024 11:17:09 +0100
+Message-ID: <87pllk58ey.fsf@oltmanns.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Rspamd-Queue-Id: 4YGHCC0pywz9sr2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_020820_849525_9877B5D7 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_021738_310974_7FD7AC6E 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,28 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vasily,
 
-On Fri, 20 Dec 2024 10:32:50 +0000, André Draszik wrote:
-> The bootloader configures the display hardware for a framebuffer at the
-> given address, let's add a simple-framebuffer node here until we get a
-> proper DRM driver.
-> 
-> This has several benefits since it's an OLED display:
-> * energy consumption goes down significantly, as it changes from white
->   (as left by bootloader) to black (linux console), and we generally
->   don't run out of battery anymore when plugged into a USB port
-> * less of a burn-in effect I assume
-> * phone stays cooler due to reduced energy consumption by display
-> 
-> [...]
+On 2024-12-14 at 21:34:56 -0800, Vasily Khoruzhick <anarsoul@gmail.com> wro=
+te:
+> Since commit ca1170b69968 ("clk: sunxi-ng: a64: force select PLL_MIPI in =
+TCON0 mux"),
+> TCON0 clock parent is always set to PLL_MIPI, but unfortunately it breaks
+> video output on Pinebook.
+>
+> I did an experiment: I manually configured PLL_MIPI and PLL_VIDEO0_2X
+> to the same clock rate and flipped the switch with devmem. Experiment cle=
+arly
+> showed that whenever PLL_MIPI is selected as TCON0 clock parent, the video
+> output stops working.
+>
+> To fix the issue, I partially reverted mentioned commit and added explicit
+> TCON0 clock parent assignment to device tree. By default, it will be
+> PLL_MIPI, and the only users with RGB output - Pinebook and Teres-I will
+> override it in their dts.
 
-Applied, thanks!
+I've successfully tested this series on my pinephone where it still
+correctly selects PLL_MIPI.
 
-[1/1] arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
-      https://git.kernel.org/krzk/linux/c/e32a7fc0b14564f9094f90053c74f500809ddf3c
+Hence,
+Tested-by: Frank Oltmanns <frank@oltmanns.dev> # on pinephone
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I've also tested it on Ond=C5=99ej's downstream kernel (added him to cc),
+where also the HDMI output continues to work.
 
+Thank you and best regards,
+  Frank
+
+> Vasily Khoruzhick (3):
+>   dt-bindings: clock: sunxi: Export PLL_VIDEO_2X and PLL_MIPI
+>   arm64: dts: allwinner: a64: explicitly assign clock parent for TCON0
+>   clk: sunxi-ng: a64: stop force-selecting PLL-MIPI as TCON0 parent
+>
+>  arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts |  2 ++
+>  arch/arm64/boot/dts/allwinner/sun50i-a64-teres-i.dts  |  2 ++
+>  arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi         |  2 ++
+>  drivers/clk/sunxi-ng/ccu-sun50i-a64.c                 | 11 -----------
+>  drivers/clk/sunxi-ng/ccu-sun50i-a64.h                 |  2 --
+>  include/dt-bindings/clock/sun50i-a64-ccu.h            |  2 ++
+>  6 files changed, 8 insertions(+), 13 deletions(-)
 
