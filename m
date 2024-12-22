@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B15E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4785CE7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/nXnlQtOmchiHWxgqltIo7xB2C2SeSqWXAWQxFGDNxI=; b=QrCWyezI5d+ZmdgffWayMZIVSZ
-	01YH1xcQOD/WU1F7HRrywIEGsx5os77VQoar1T+5CvL3Wkcb7J/KZvQJkKDHkk8IRI+w46tF/fnON
-	DKfrfyERQfM0rMUZFmAm2bmBZH/O6e76I4CcJgnUd9v2sZr88jF849VHI6XmSS+zA+Trgx9iYln4L
-	0ldlDWGuRV/in7CSwODGNUJY8U/5mK+TVUcP+/okzqLdEusUvQavJ04+lhZQ82WEaia2zFgfHFmO7
-	K/5XF4+Ugfg/mYYhdXS9E/n94hEl2pUiFr1NkZaUFpcC5TFQynzH3gN8+GP47jVCoqegKvbLCgfZB
-	xGgd2MeQ==;
+	bh=pFjZeJvgmiHlnkV6YgFWg/GAvjlq8cfufVKS98+8n/s=; b=Y6ihdYG1de4dvnuvbrEqfgR0Ux
+	cmucqRsE6Eczi0K/gJt3QKB6Uju90qRy5RVJhv0JzJpFTE19GNis/e6UdumhYSydkV57+rTMP4buf
+	YBMYFt/Hm9fScL6tuLYMfsBJ11Xd8WzJAwYhHA2SbMRFjwKJwDZLn4dbm7m6BWQf6jiz3blW8J+d9
+	JWc1OZOwxNHhQH1b10+a9seZE+4Zq4vTUlvBIttOVyaW9ZWvVnI1kFTADWC6Bfe2tzGv6V/0RBtN2
+	rwEEeiNQpPebIJkx1pbKEdNXFIM+MO9Tm6119gIZYbXq5wLpZVdkomSeSIDAF0kN3EYaqSQ4XQ5CS
+	Frc/fNbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMxt-00000008NwE-2LV0;
-	Sun, 22 Dec 2024 14:29:53 +0000
+	id 1tPMz2-00000008O76-1c80;
+	Sun, 22 Dec 2024 14:31:04 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMsJ-00000008N4l-2YTG
+	id 1tPMsM-00000008N5b-1ZXF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 14:24:08 +0000
+	Sun, 22 Dec 2024 14:24:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A83DAA40765;
-	Sun, 22 Dec 2024 14:22:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E432EC4CEDC;
-	Sun, 22 Dec 2024 14:24:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 63996A40855;
+	Sun, 22 Dec 2024 14:22:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B2DDC4CECD;
+	Sun, 22 Dec 2024 14:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734877446;
-	bh=WmqZgBi2dOhVI2I6axRyu/MA940Or9KtvPbp9JK8dbk=;
+	s=k20201202; t=1734877449;
+	bh=l9r4OjNhGaVuOH98ReJV0qFhKCU28LrldC7d8PEUEoM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WhNfi6szaP2uGgu8V+PuliGMYv7iSASs9zuaRxU9jlUqGonqJkf+Z5jqtwNk8xmjc
-	 M1ywuZg4dOYXvoxIxAuraooB60tcWMM0senpNyyLH/VlWAsopZr0HYY0NvIFErdrvP
-	 Er3Z66YWXQnnELpvRcK5mPmv9b25RK1smpYj4QV0DBg8wfqvWbL7FbamyCjIO1kluL
-	 DLxs82W8O+Dy2UNtIw3dnFwGgK8FJ90vY7Uoq2ppvnCFh0+EFUz9hKiynIKvMADX7z
-	 zpGlKDo3UanQXJWQ669FQqdbJODI/qsYe910ui23KUEAFkvd/2tQoN2iIzurHJniA/
-	 psl9jAIn/JtMw==
-Message-ID: <017c4a8a-4b18-4f7a-b10d-2596dadca8c1@kernel.org>
-Date: Sun, 22 Dec 2024 12:48:43 +0100
+	b=t1Y9WF6yPU16Y83okfcy1FRycLdXKnrV3cjcnUCLmlWMa3nEiL4+ZuNMqm1UhA4jR
+	 DU8fsHEs809CNUDehjqK+nwgkBgjv4JFFejppW/vmkAzZd14F77i3xHIglBBXRxXLX
+	 q5KLXPERWI51rQ+f7C8hkAuhyeCoPCTVgCJr1BhRBj/VkpsHvb/Ge0yA5ccPcvIe2g
+	 csEl+T+20BnrwcFn935aEl5LddOe9KQJezHI2x7C0JRlemjANaDRYSCPQejq51A5Ql
+	 RyJksp7HI/6zJagRqyMqA/4VeoqL6YVdBnYOnDQiZvB6Hsh3x04+1u/LejgqAhMmGT
+	 626EGE322kOXA==
+Message-ID: <9e69c21a-3d97-41e4-addd-d1ebd80f47ff@kernel.org>
+Date: Sun, 22 Dec 2024 12:51:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: exynos5: Add
- samsung,exynos8895-hsi2c compatible
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20241221151937.1659139-1-ivo.ivanov.ivanov1@gmail.com>
- <20241221151937.1659139-2-ivo.ivanov.ivanov1@gmail.com>
+Subject: Re: [PATCH v2 1/1] arm64: dts: exynos990: Add clock management unit
+ nodes
+To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20241215170803.1756850-1-igor.belwon@mentallysanemainliners.org>
+ <20241215170803.1756850-2-igor.belwon@mentallysanemainliners.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241221151937.1659139-2-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20241215170803.1756850-2-igor.belwon@mentallysanemainliners.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_062407_783930_A2C850A0 
-X-CRM114-Status: UNSURE (   5.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_062410_588034_10A70AED 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,16 +120,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/12/2024 16:19, Ivaylo Ivanov wrote:
-> Add samsung,exynos8895-hsi2c dedicated compatible for representing
-> I2C of Exynos8895 SoC. I2C buses may be implemented both as a part
-> of USIv1 and separately.
+On 15/12/2024 18:08, Igor Belwon wrote:
+> Add CMU nodes for:
+> - cmu_top: provides clocks for other blocks
+> - cmu_hsi0: provides clocks for usb31
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 > ---
+>  arch/arm64/boot/dts/exynos/exynos990.dtsi | 28 +++++++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> index 2619f821bc7c..d6a8c04e6602 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> @@ -5,6 +5,7 @@
+>   * Copyright (c) 2024, Igor Belwon <igor.belwon@mentallysanemainliners.org>
+>   */
+>  
+> +#include <dt-bindings/clock/samsung,exynos990.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  
+>  / {
+> @@ -199,6 +200,24 @@ pinctrl_peric1: pinctrl@10730000 {
+>  			interrupts = <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
+>  
+> +		cmu_hsi0: clock-controller@10a00000 {
+> +			compatible = "samsung,exynos990-cmu-hsi0";
 
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+Does it depend on anything? Cover letter is quiet here, but it should
+explain any dependencies.
 
+> +			reg = <0x10a00000 0x8000>;
+> +			#clock-cells = <1>;
+> +
+> +			clocks = <&oscclk>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_BUS>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_USB31DRD>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_USBDP_DEBUG>,
+> +				 <&cmu_top CLK_DOUT_CMU_HSI0_DPGTC>;
+> +			clock-names = "oscclk",
+> +				      "bus",
+> +				      "usb31drd",
+> +				      "usbdp_debug",
+> +				      "dpgtc";
+> +
+
+Not much improved. Still stray blank line.
+
+> +		};
 Best regards,
 Krzysztof
 
