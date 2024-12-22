@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9118E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 09:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B36AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 10:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+SzVktxDB05WNZgU2bzgDj3qvGv7E/lndUr61NmRhc=; b=vtkXV1A3QDAnacbPP34QH/JmEI
-	4ciSdfSbfKECQ5NlvwSq648sU/6lke1rvVC5PnyU6uxtaOWLKG6ucv4zsqFaZLnVL9R7hhRVIw9fB
-	PH7ELoLvcdCVvFKI7O4vnJTtDowpuaqCqEREOu9XGI7NDUqVgtXW50N7xtlAlQnwWRasn32gIejXP
-	P/g2T8Ec7uzBCoHf134Fd4tIh+6SjYuIDiraxvhN/aY3V0K5xKowySQaotlUicVwAn7Hgf8/KJmES
-	V89rYjOM2KU6/tOivHU4uz/IMPvM3NctdLj8hJjQHfz2HBKowMMcAXc4hqcknbW1oC+rRienf7BnH
-	5zZpvy6Q==;
+	bh=vKBsYFS9v4iubTvWXqou78ADw4DmyfMOcWadZXgDRNA=; b=lHkRCXsQmM3zEftxChKByNsKbT
+	xJrj4O/1KZ1cSqReT7fx+r7zpb5WA9twvE0rWiZoo3MkxNdUyKMAf0hq8bfRCwjZOhT0kfwKrsXgl
+	+VPEBlT+uCxgYqzmYAV3AMBB8i5Wi1rFphSlROPymxddB3S86Ox3+zqu0TQQB+MefI8Qm6CXJa6xF
+	Cao7zvZ2R7rJ8b0mP6q3OZcosOrkg3AqnY0IlvBOh9krajHwrwo8LBjl+9S9nUvKo+aMzSoty8YqH
+	eKdgVsX2Z3IpgQMsBZ36OSwnoHJd9sF5oz6QG3VRHYnALxxnLH+dWjjfmuFn0FOV2zxd9o8JZ3znr
+	bT3G4KyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPHyc-000000084Bn-1vPw;
-	Sun, 22 Dec 2024 09:10:18 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1tPItz-0000000884q-2z8x;
+	Sun, 22 Dec 2024 10:09:35 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPHxQ-0000000844A-0Naq
+	id 1tPIsm-000000087wr-366a
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 09:09:06 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-2ffd6af012eso43802291fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 01:09:03 -0800 (PST)
+	Sun, 22 Dec 2024 10:08:22 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5d3c0bd1cc4so480096a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 02:08:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734858541; x=1735463341; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1734862099; x=1735466899; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=g+SzVktxDB05WNZgU2bzgDj3qvGv7E/lndUr61NmRhc=;
-        b=DWuf5vhXw7luB1fMlhyKugRwK3jSjUPpts/3WhGkIllFk9ornoIPRxxgxrrNHAGEUq
-         CaC0ZkCHtNedYqaQzS3YDv+pm4iAeISU8kBhyrOrH09BLyysVfjzXGhsOGuhJTR79b7J
-         PV7Li99+LXRdGSJpW8mcJXEGglChazW7ixQkRPUM9FLXabo1t/MTqKZb8RFfjQGj07r5
-         h2c3v3StwphHUkjM2D4cIvr/ptv2grMuG/ZQf0QixqaiUIkrtLUKrDPnclhx3SJgME+k
-         0ZQLeGz8+zHlLQY2KYdQ3vu6jXNaHQdFnJGt+V2Tu3KVvEgJXtjt2xFWvl1qV1kGjwHa
-         WGzg==
+        bh=vKBsYFS9v4iubTvWXqou78ADw4DmyfMOcWadZXgDRNA=;
+        b=zv5W16Qze2f2oWw1NTXi2SkDzatRTfzpgEFtg1AGgcuaNagmfNEu4OK6tvhpVcYaqP
+         vzHgWmMhDhsoJ808owYw5o8zxQsGno2fYzyuGvP3IqXawBbH1hVvQn/Pyg/uiyDj95le
+         JwBFesIm/GRF9aYjXBcR9B2u+95KiyN02M+rFTuBKp1R1LXouCwGAzDRJs65kiXQFUd+
+         Zou3042ruJ3bydVnPhFssLmP8+2fYgDVpYpmTErprRFYFCfJxCZNNKKTrBiRFwsNCN3D
+         TQZ+k21NENyQNSQIF0MF2GQpzKu83CaAnc7WqofmS6cEeV2cQLYdxpHh5aAudASKbELE
+         ndfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734858541; x=1735463341;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1734862099; x=1735466899;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=g+SzVktxDB05WNZgU2bzgDj3qvGv7E/lndUr61NmRhc=;
-        b=LgGgoLWR+BEBMzgBlchn06QN/hYsDjiykrRZBTnOmLVgFuvXxWiban4uGsnqEbZhHd
-         XpV+snQpdBPkj1+9xCOeZnSkOhSkzRUrVqH2CeYogERCL/0TaDra6WlWa9zmX61QHVPD
-         2/pZAuQOd+M7iEFdOFwpUJPwVpKSjsmk+DV8wWQteCTr4Vecf6DywbF8eGDChBfrRYQL
-         Dm3nYZLQqpRZVOOcWLxM10Rg8XD6qtvl34zkqhsG+sa50lVBsWFjKMxor+9eOGtzHMVC
-         OF1jfe3OsSEP7jNErLh7u6A3OOekUt1Lf+msy2fS2eMI99D3NZsaqWZxrctDCKpz4sc1
-         VPbA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdeDGpP5otllxRrW5LYUUnHYLh1P0/UEC6XMO0HAZ/zYLfXh5K3umZoIPZ/u271tXDqLLvS9QrxaUpyGiqaC4K@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5c1D45iMdsrH0tw58nm5UOViXKLbzJ8kGAUEUZ8vle9AC/++F
-	cki2KOn0FaKXPDCrp/gaXOFphqrVgWMXTDJ+AbLfU6334zggRMvrgSsSVzMwoRGlHPYQz7lCa10
-	JWWp26nQB4UXixTE3ldjhJoY9nKVTo2Wy6vPpLg==
-X-Gm-Gg: ASbGncuAsaF+/e/Y8mxr3Jsmmhgu9g+sdyFlFn3swth/e9+G904IUZp4Qr3BQYcALjQ
-	Xt6DL1KFJFnq9mv6I0Tzt6VKd6L+kx+tUQQrJ
-X-Google-Smtp-Source: AGHT+IH187CUQCnfRfnFev/oxx361vRPpnGwZKGEC40JgvkudCId/KMDE/KgqulM/xdtkLXQpR7G1mShXSPT7tAyjMQ=
-X-Received: by 2002:a05:6512:104c:b0:541:1c48:8bf6 with SMTP id
- 2adb3069b0e04-5422956c531mr2677617e87.53.1734858541379; Sun, 22 Dec 2024
- 01:09:01 -0800 (PST)
+        bh=vKBsYFS9v4iubTvWXqou78ADw4DmyfMOcWadZXgDRNA=;
+        b=CcERTxoQMNFe7izpMbpHuaRx6SsJyZKsRs45PqIgKDvihQWBZL49FfvIaMcdsYG3Od
+         X+yseSp168se68QSO5HBcH27fBmBMekR2d6h2FUdT2t1z33IGRg1X5JQWVNL+zVqSBwv
+         yJxPRFltz5pmINt7r716/1iengP73virURKjyR6pHcOfJDcyEKPxfTDOdEf1MD9SbjO3
+         5H4BS77dhzYqlBo5LRWc78ddEUw+jbZy8ylDP/eSu3Z2V6dc8Kk/mzYDNGmT+CI566t/
+         jEo6NXy7AMx04cS9s4aqAkba4y3GqhQsCXRfwU5pSz3+xIOGz4Z2AMBfSORFTNV7DTyO
+         M3Lg==
+X-Forwarded-Encrypted: i=1; AJvYcCU+fZ5Ypsa+Z5zAkHFpxtGHYXEj5mDY52mrzcmuUpOrX6cimk52CC+jnpdyGL42kUn5bP2MdAoIPg8QG2L5K+Uo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG0gL3EBGs2L8SJJBJgqoRlzmPuolWt3MJzelUce4QGpStGxhD
+	pwATY+l9zDuz6bLgfSzh5PyonPkaPvZLJY2Q9QmlbKRW8ZeG6HIXoPZybbyw/bo=
+X-Gm-Gg: ASbGncvNtsPu9zOTSIEf9khgDfORR6vJuehyldySE3p2mHKmu8hnC1fX1H/Z7ZpnCtE
+	5dieFbWZ5Fg2RLgIFilJM2d3WZR8Vxo3WpgZ8nMXiUX1AXP/AzV23PQDkKz6jkcOgO+p09bXCmd
+	e1BSKznHPekAlyeSamTPk4doH6+zGfsJgRSQyWB0x5lzmKwVWqNjxMOPnNWJ/QPKY9TT/+hulCT
+	RNgsIskwqdKqjXhMa2kCHZCvZC/LCTZzW5PLI1DWb8Rv72diKc8FRjMFKiKIpGAGYOER4CvAlAu
+	qlMFMXPxJqxl0PycdfjSj3ssxrnoGw==
+X-Google-Smtp-Source: AGHT+IE54OW7NxT5X1sBmLNd/D0kS8uVGSQ68xoYttBlaJ2oUwzQEa9S1NxTmY5pBfaOMmcVqyxeVA==
+X-Received: by 2002:a17:907:1c22:b0:aa6:8dd8:8152 with SMTP id a640c23a62f3a-aac33559ff6mr278592066b.10.1734862098635;
+        Sun, 22 Dec 2024 02:08:18 -0800 (PST)
+Received: from [127.0.1.1] (46-253-189-43.dynamic.monzoon.net. [46.253.189.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0f015b53sm372279266b.163.2024.12.22.02.08.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Dec 2024 02:08:17 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241220-gs101-simplefb-oriole-v2-1-df60e566932a@linaro.org>
+References: <20241220-gs101-simplefb-oriole-v2-1-df60e566932a@linaro.org>
+Subject: Re: [PATCH v2] arm64: dts: exynos: gs101-oriole: configure
+ simple-framebuffer
+Message-Id: <173486209717.9271.11039463162908346528.b4-ty@linaro.org>
+Date: Sun, 22 Dec 2024 11:08:17 +0100
 MIME-Version: 1.0
-References: <20241211-amlogic-pinctrl-v1-0-410727335119@amlogic.com>
- <20241211-amlogic-pinctrl-v1-2-410727335119@amlogic.com> <CACRpkdbuj-_sPpdfcyg3_QNtzt9r7n-0HBGBKgy-rKUMhvGo4w@mail.gmail.com>
- <23899c54-14ad-4724-9336-2df6fb485fd6@amlogic.com>
-In-Reply-To: <23899c54-14ad-4724-9336-2df6fb485fd6@amlogic.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Sun, 22 Dec 2024 10:08:50 +0100
-Message-ID: <CACRpkdZn75ks4Gc7rm8jzkKM6y0JeQmUF3qmbJA+O+cEA9r--Q@mail.gmail.com>
-Subject: Re: [PATCH RFC 2/3] pinctrl: Add driver support for Amlogic SoCs
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_010904_974845_1E1EE1C9 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20241222_020820_849525_9877B5D7 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,93 +105,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei!
 
-On Wed, Dec 18, 2024 at 10:37=E2=80=AFAM Xianwei Zhao <xianwei.zhao@amlogic=
-.com> wrote:
+On Fri, 20 Dec 2024 10:32:50 +0000, André Draszik wrote:
+> The bootloader configures the display hardware for a framebuffer at the
+> given address, let's add a simple-framebuffer node here until we get a
+> proper DRM driver.
+> 
+> This has several benefits since it's an OLED display:
+> * energy consumption goes down significantly, as it changes from white
+>   (as left by bootloader) to black (linux console), and we generally
+>   don't run out of battery anymore when plugged into a USB port
+> * less of a burn-in effect I assume
+> * phone stays cooler due to reduced energy consumption by display
+> 
+> [...]
 
-> [Me]
-> > In any way I recommend:
-> >
-> > - Renaming drivers/pinctrl/sunxi to drivers/pinctrl/amlogic
-> >    so we keep this sorted by actual vendor, sunxi is apparently
-> >    yours (AMlogic:s) isn't it?
-> >
->
-> It isn't. Sunxi is Allwinner SoCs.
+Applied, thanks!
 
-My apologies. I mixed it up completely. :(
+[1/1] arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
+      https://git.kernel.org/krzk/linux/c/e32a7fc0b14564f9094f90053c74f500809ddf3c
 
-What do you think of the idea of a separate drivers/pinctrl/amlogic directo=
-ry
-though? I think there are already quite a few amlogic SoCs that need
-to be supported and more will come.
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> >> +       ret =3D pinconf_generic_parse_dt_config(np, info->pctl, &grp->=
-configs,
-> >> +                                             &grp->num_configs);
-> >
-> > But can't you just move this code around? grp->num_configs give the
-> > number of configs, so why do you have to go and look up pinmux
-> > above, can't you just use grp->num_configs instead of of_pins
-> > and npins above?
-> >
-> They are different.
-> The of_pins(grp->npins) specifies the mux values for pin-mux register
-> and pin index in pinctrl. It can include multiple pins in groups.
->
-> The grp->configs and grp->num_configs specify the configuration
-> information for all pins of this groups(such as bias-pull-up,
-> drive-strength-microamp)
->
-> uart-d-pins2{
->         pinmux=3D <AML_PINMUX(AMLOGIC_GPIO_T, 7, AF2)>,
->                 <AML_PINMUX(AMLOGIC_GPIO_T, 8, AF2)>,
->                 <AML_PINMUX(AMLOGIC_GPIO_T, 9, AF2)>,
->                 <AML_PINMUX(AMLOGIC_GPIO_T, 10, AF2)>;
->         bias-pull-up;
->         drive-strength-microamp =3D <4000>;
-> };
-
-OK I get it ... I think. It's nice that you combine muxing and pin config
-into the same node like this, it's very readable.
-
-Think about if you even want to add generic helpers for this in
-the generic code.
-
-> >> +static void aml_pctl_dt_child_count(struct aml_pinctrl *info,
-> >> +                                   struct device_node *np)
-> >> +{
-> >> +       struct device_node *child;
-> >> +
-> >> +       for_each_child_of_node(np, child) {
-> >> +               if (of_property_read_bool(child, "gpio-controller")) {
-> >> +                       info->nbanks++;
-> >> +               } else {
-> >> +                       info->nfunctions++;
-> >> +                       info->ngroups +=3D of_get_child_count(child);
-> >> +               }
-> >> +       }
-> >> +}
-> >
-> > This looks like a weird dependency between gpio chips and
-> > pins that I don't quite understand. Some comments and
-> > references to the bindings will be needed so it is clear
-> > what is going on.
-> >
->
-> A pinctrl device contains two types of nodes. The one named GPIO bank
-> which includes "gpio-controller" property. The other one named function
-> which includes one or more pin groups.
-> The pin group include pinmux property(pin index in pinctrl dev,and mux
-> vlaue in mux reg) and pin configuration properties.
-
-OK I  guess the binding patch explains why you need several
-separate gpio controller "bank" nodes instead of just the base
-node being one for all of the pins (which is the most
-common). In a way I like it because it often helps to divide
-up GPIOs by bank.
-
-Yours,
-Linus Walleij
 
