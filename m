@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3172FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 08:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC742E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 09:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MT40bLRnxx/RElUv5Sd2W2ft8Q6UMHBanswGWUleWBc=; b=gHWJIGJ9qQEpnlW60xfjSEN8nC
-	ztQrIoA0acgzjhj7r78Zyu6Twm+MRYi3TekmAwaLi2qclxBeNyzcb2Vo8ZB6rImMRr1uPN3e2BZky
-	CX4hgBiNyWa/oCmFVxt77PHURVtfvCnuAjlkSHGzW6I5DbEwset2HOVBmRq1qaqOoQWyI8igno1LE
-	o0siTn46wFUdwoG28WUAXQVR6txD+IxRjSZ3AHmmzK7q6IwfhQEctY8w4mcOmixV5CiwFbiS1s49Y
-	KUhAekaubA9KPzBgxJvcNqrYkp5+6VxO63DbGltLkSek/YNH8KdqfErU5UswXkoW/56fsQY31A+fb
-	FWVVdjsQ==;
+	bh=r5DCR0bKA8hkw6RyOxzxcuHxwaJ4XEwMprrMNwQz0qg=; b=L5SslTgGy/USl9wF4TMrDiLlgB
+	aAnBEoVSDWCFULJuudLFaFEQeDEE2xLI6UoTfchqdN8rLL5qqke5zVIUHhiqZA3IGJa42eeVvD8t+
+	wbiqei/JWO5Y2icJ7lpipGcqFctayLVQF2iy7TRbiFxtFuKaHIdnTV+VbSMYgvvzdTYSwXoOvYitc
+	sOjX2h9ODdh2cjuCeU0yIs0ZZDQgNnts7kJ/o5yq/cDyYqM5P3MhZ3rDI9Qsq5VeQG4blYmb2LG+d
+	BGe3WFpSxEZEblNuw3L9IRhfWzMHF9xsGmMoFHu6O9/5vzFxc+iq3R7RM3keF/2a4UxvOcAC31Y1G
+	cx8hJG6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPHfI-000000082uK-13Ql;
-	Sun, 22 Dec 2024 08:50:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tPHuG-000000083qt-2PRl;
+	Sun, 22 Dec 2024 09:05:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPHd8-000000082cu-21Ox
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 08:48:07 +0000
+	id 1tPHt4-000000083nE-3d9n;
+	Sun, 22 Dec 2024 09:04:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5EC83A406EB;
-	Sun, 22 Dec 2024 08:46:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69CBEC4CECD;
-	Sun, 22 Dec 2024 08:48:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 16BE95C401D;
+	Sun, 22 Dec 2024 09:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 983A4C4CECD;
+	Sun, 22 Dec 2024 09:04:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734857285;
-	bh=QiorQma68E6gCuJ+xks+0bz4YOMbtbMbQiLIWs8dXkc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ByUiXJ0eCep3AWjx57Q4i43W/YdXCykCwND9QYUzphczBPvD8AheXgC7yZWLSj+Rc
-	 ZI6Oyrc0//YGJ2U4cJSocRmt6n0vA8aw2oOFu9JkGdawpoEQu7IN22gT4J76LhDQTY
-	 cX7KO37xFtOoe+ZzKCR/JPydrj41vd63A0uycz6gQruIVuuvbqGD+We50hMkIPq+9M
-	 jhDRwIYeYL9WvUG+2Fq/Qv07KeJIMVaV41hpHuLVqkmUNvL3DU+2ntdhyM3+IEQNC2
-	 b+rW3pfwqzslOANOwqGJQ1BtAsOo0otn3O18oEpQJN9/EXMbzAfz4qF/gwkDZp0MeN
-	 Qg7ZWxHhVys3Q==
-Date: Sun, 22 Dec 2024 09:48:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, andre.draszik@linaro.org, kernel-team@android.com, 
-	willmcvicker@google.com, peter.griffin@linaro.org, daniel.lezcano@linaro.org, 
-	vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
-Subject: Re: [PATCH v5 1/3] dt-bindings: firmware: add google,gs101-acpm-ipc
-Message-ID: <edoc2enbb4ch3r7nb5b5jykm6f7aqbktqnj5ytke2b5fa5bcgv@ceinrartc3gn>
-References: <20241220-gs101-acpm-v5-0-4f26b7fb3f5f@linaro.org>
- <20241220-gs101-acpm-v5-1-4f26b7fb3f5f@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241220-gs101-acpm-v5-1-4f26b7fb3f5f@linaro.org>
+	s=k20201202; t=1734858273;
+	bh=YREXXVGelktufefaexDX5YisyWqh+kibqX1uCmkxZjY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Yx5iqp74ji8DZMvo5j9hE0gLbm1Dlv8qjoGduuD7q8GsNS3vyZlPFXXLzgtDaRzl9
+	 CAEHxHrtX+H/l778kvyNdh60piKmC8XNdiV0BGuukdxkdkxP5RboeGlIGcZYzsaWJk
+	 t/sc0AqUZy9jJxFWk5d1COKY+DrcXtCMiHloJxNFyGzYWXYbWjz2mMK+FoPlRopyeE
+	 jPG1pCvv8VYajRihhkMCMavKoOUX/5ZfjBW+JzOQcrOszoIj191OvfblmPqHnc6RZ7
+	 qOI/eOR14mcFE4t1HzvDQNABVv2ctGv4+BPbe2vQ19DkywKaZHZ9MezaBDl95CUC7/
+	 wKcMrDyqmHZRw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tPHt0-0067Ay-SY;
+	Sun, 22 Dec 2024 09:04:31 +0000
+Date: Sun, 22 Dec 2024 09:04:29 +0000
+Message-ID: <86msgoozqa.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: FUKAUMI Naoki <naoki@radxa.com>
+Cc: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tglx@linutronix.de,
+	jonas@kwiboo.se,
+	macromorgan@hotmail.com,
+	andyshrk@163.com,
+	liujianfeng1994@gmail.com,
+	dmt.yashin@gmail.com,
+	dsimic@manjaro.org,
+	tim@feathertop.org,
+	marcin.juszkiewicz@linaro.org,
+	michael.riesch@wolfvision.net,
+	alchark@gmail.com,
+	sebastian.reichel@collabora.com,
+	jbx6244@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/3] irqchip/gic-v3: Enable Rockchip 3588001 erratum workaround for RK3582
+In-Reply-To: <20241222030355.2246-2-naoki@radxa.com>
+References: <20241222030355.2246-1-naoki@radxa.com>
+	<20241222030355.2246-2-naoki@radxa.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: naoki@radxa.com, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com, dsimic@manjaro.org, tim@feathertop.org, marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net, alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_004806_586934_722F6D9B 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_010435_006264_3EFE0100 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 02:32:51PM +0000, Tudor Ambarus wrote:
-> Add bindings for the Samsung Exynos ACPM mailbox protocol.
+On Sun, 22 Dec 2024 03:03:53 +0000,
+FUKAUMI Naoki <naoki@radxa.com> wrote:
 > 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Rockchip RK3582 is a scaled down version of Rockchip RK3588(S). Apply
+> Rockchip 3588001 erratum workaround to RK3582.
+> 
+> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
 > ---
->  .../bindings/firmware/google,gs101-acpm-ipc.yaml   | 50 ++++++++++++++++++++++
->  1 file changed, 50 insertions(+)
+>  drivers/irqchip/irq-gic-v3-its.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 92244cfa0464..c59ce9332dc0 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -4861,7 +4861,8 @@ static bool __maybe_unused its_enable_rk3588001(void *data)
+>  {
+>  	struct its_node *its = data;
+>  
+> -	if (!of_machine_is_compatible("rockchip,rk3588") &&
+> +	if (!of_machine_is_compatible("rockchip,rk3582") &&
+> +	    !of_machine_is_compatible("rockchip,rk3588") &&
+>  	    !of_machine_is_compatible("rockchip,rk3588s"))
+>  		return false;
+>  
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Please use the relevant property for that purpose ("dma-noncoherent")
+at the distributor and ITS levels. We're not adding extra compatibles
+for this anymore, and you might as well fix the core dtsi to expose
+such property.
 
-Best regards,
-Krzysztof
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
