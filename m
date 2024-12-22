@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4785CE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62807E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFjZeJvgmiHlnkV6YgFWg/GAvjlq8cfufVKS98+8n/s=; b=Y6ihdYG1de4dvnuvbrEqfgR0Ux
-	cmucqRsE6Eczi0K/gJt3QKB6Uju90qRy5RVJhv0JzJpFTE19GNis/e6UdumhYSydkV57+rTMP4buf
-	YBMYFt/Hm9fScL6tuLYMfsBJ11Xd8WzJAwYhHA2SbMRFjwKJwDZLn4dbm7m6BWQf6jiz3blW8J+d9
-	JWc1OZOwxNHhQH1b10+a9seZE+4Zq4vTUlvBIttOVyaW9ZWvVnI1kFTADWC6Bfe2tzGv6V/0RBtN2
-	rwEEeiNQpPebIJkx1pbKEdNXFIM+MO9Tm6119gIZYbXq5wLpZVdkomSeSIDAF0kN3EYaqSQ4XQ5CS
-	Frc/fNbg==;
+	bh=8kbvJ6ZTNkSZSonOhNg6QkvoM4QzFt01LqXm2URDBqI=; b=cMROqigZoXihaE5l/37haFI1rS
+	8KKcUwOeTHRauCb3MQhLfqb5hZt9l7dXyTwd1X7wYZpIg1DIhf0XZs2AlJhfk4YsQK8wBrvPtvHCr
+	4+j3uSGmOnWvzJcFYDKGOjPxLthPlpjatJ34mBgCvUJpaMKQ0+EnhRyW3dYIqdMB58J4M9qAs2DEf
+	+DlxSqBEtZ2B3+cyqM0B+9+PtbrK+iOcbYsKDu990BAUzjWhkVAgAAkeYXfcCR42VPOSq+btX2Vtl
+	+IkWWX32AAVOA/tr3/goy6U1+BDf3hWl/1soFOX/v3nA5HacRylHiFnl22U/0AebAt4HTyf+1Qm+U
+	SQSLCW0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMz2-00000008O76-1c80;
-	Sun, 22 Dec 2024 14:31:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tPN0B-00000008OFI-0WmH;
+	Sun, 22 Dec 2024 14:32:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMsM-00000008N5b-1ZXF
+	id 1tPMsQ-00000008N6e-1YR5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 14:24:11 +0000
+	Sun, 22 Dec 2024 14:24:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 63996A40855;
-	Sun, 22 Dec 2024 14:22:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B2DDC4CECD;
-	Sun, 22 Dec 2024 14:24:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DEC435C4B62;
+	Sun, 22 Dec 2024 14:23:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 150F0C4CECD;
+	Sun, 22 Dec 2024 14:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734877449;
-	bh=l9r4OjNhGaVuOH98ReJV0qFhKCU28LrldC7d8PEUEoM=;
+	s=k20201202; t=1734877453;
+	bh=67IEaV0C+lWBiuzQ7UAzgDZN3qTO+38r3vuerIM8WaY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t1Y9WF6yPU16Y83okfcy1FRycLdXKnrV3cjcnUCLmlWMa3nEiL4+ZuNMqm1UhA4jR
-	 DU8fsHEs809CNUDehjqK+nwgkBgjv4JFFejppW/vmkAzZd14F77i3xHIglBBXRxXLX
-	 q5KLXPERWI51rQ+f7C8hkAuhyeCoPCTVgCJr1BhRBj/VkpsHvb/Ge0yA5ccPcvIe2g
-	 csEl+T+20BnrwcFn935aEl5LddOe9KQJezHI2x7C0JRlemjANaDRYSCPQejq51A5Ql
-	 RyJksp7HI/6zJagRqyMqA/4VeoqL6YVdBnYOnDQiZvB6Hsh3x04+1u/LejgqAhMmGT
-	 626EGE322kOXA==
-Message-ID: <9e69c21a-3d97-41e4-addd-d1ebd80f47ff@kernel.org>
-Date: Sun, 22 Dec 2024 12:51:58 +0100
+	b=qiSINspBpvnPlbrgzX/PAKHq6RIm0LMmBvyEVHua7a7jD/WiI97JK86ZykgXzUmIq
+	 sPki6z0cIPnOrSe3e+yimDf3qvd3tMCXFh3Eu4EYLFWhKrb2+yX55M0RONvBvSJipP
+	 IGriAeu5EJiGPSgyzXTfOFBOM8Bjnes6euVBtM0CM28EE5HPobT6cKp79Mktn3GcTb
+	 +1J1vSxcQSDyr9ENtNhKnD/i5rKilUakopvaVpGiKaKNWLMfSvZnXtXn9umFSa4rZJ
+	 hGjLlHdswxoy69dcq4hlD1LV0TVKpz0Qw2ECPxlWy1SLBewAF2Yvue/ITMM/OmB9Jj
+	 xYUbdQj8/z1aA==
+Message-ID: <1408dcd1-9a46-4cb9-8443-5aa51d61ed56@kernel.org>
+Date: Sun, 22 Dec 2024 13:06:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] arm64: dts: exynos990: Add clock management unit
- nodes
-To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Subject: Re: [PATCH 2/4] dt-bindings: mfd: syscon: allow two reg regions for
+ gs101-pmu
+To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20241215170803.1756850-1-igor.belwon@mentallysanemainliners.org>
- <20241215170803.1756850-2-igor.belwon@mentallysanemainliners.org>
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com
+References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
+ <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241215170803.1756850-2-igor.belwon@mentallysanemainliners.org>
+In-Reply-To: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_062410_588034_10A70AED 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20241222_062414_505869_97DE2AEE 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,56 +122,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/12/2024 18:08, Igor Belwon wrote:
-> Add CMU nodes for:
-> - cmu_top: provides clocks for other blocks
-> - cmu_hsi0: provides clocks for usb31
+On 13/12/2024 17:44, Peter Griffin wrote:
+> To avoid dtschema warnings allow google,gs101-pmu to have
+> two reg regions.
 > 
-> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 > ---
->  arch/arm64/boot/dts/exynos/exynos990.dtsi | 28 +++++++++++++++++++++++
->  1 file changed, 28 insertions(+)
+> I don't really like this patch, but also didn't want to submit the series
+> with a dtschema warning ;-)
 > 
-> diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-> index 2619f821bc7c..d6a8c04e6602 100644
-> --- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-> @@ -5,6 +5,7 @@
->   * Copyright (c) 2024, Igor Belwon <igor.belwon@mentallysanemainliners.org>
->   */
->  
-> +#include <dt-bindings/clock/samsung,exynos990.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  
->  / {
-> @@ -199,6 +200,24 @@ pinctrl_peric1: pinctrl@10730000 {
->  			interrupts = <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
->  		};
->  
-> +		cmu_hsi0: clock-controller@10a00000 {
-> +			compatible = "samsung,exynos990-cmu-hsi0";
+> Possibly a better solution is when Robs patch
+> `mfd: syscon: Allow syscon nodes without a "syscon" compatible` [1]
 
-Does it depend on anything? Cover letter is quiet here, but it should
-explain any dependencies.
+PMU which spans over two blocks is not a simple syscon. These would be
+two syscon devices.
 
-> +			reg = <0x10a00000 0x8000>;
-> +			#clock-cells = <1>;
-> +
-> +			clocks = <&oscclk>,
-> +				 <&cmu_top CLK_DOUT_CMU_HSI0_BUS>,
-> +				 <&cmu_top CLK_DOUT_CMU_HSI0_USB31DRD>,
-> +				 <&cmu_top CLK_DOUT_CMU_HSI0_USBDP_DEBUG>,
-> +				 <&cmu_top CLK_DOUT_CMU_HSI0_DPGTC>;
-> +			clock-names = "oscclk",
-> +				      "bus",
-> +				      "usb31drd",
-> +				      "usbdp_debug",
-> +				      "dpgtc";
-> +
+If you request regmap from such syscon, which regmap you get?
 
-Not much improved. Still stray blank line.
+I am not sure whether the PMU is really split here. Usually the main PMU
+was only one and additional blocks called PMU were somehow specialized
+per each IP block.
 
-> +		};
+Maybe you have here two devices, maybe only one. If it is only one, then
+it is not a syscon anymore, IMO.
+
+
+
 Best regards,
 Krzysztof
 
