@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1108E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B0CE7718E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w1oye4z15+lr2o1w+EQ1x0Cmk8LMpN4hRUXuCC9sKgc=; b=hz4r+qp8eeIS1NeOl5vV1sf4ip
-	HJmt6AzV0N38cF8xIwTalvfb1krRKf7lcU2pCAWWktUwVXM54j01/g2rqwf+nbZaWoFUWppKYFKQa
-	N98WCxJzMjGUzjGut0ggla3KUeFg0efa4Q9K3ZSet/g3G2+BZe7aR2Hjt9y2KqCzzZDX3CRbv6k9W
-	XGdTIP9IOfzaoZceYeGVpu5pFfM2tiNn6gNLgUlCGg+84Fq8eGzUXcGyJZQfbT73g5Al5Df2FA1lC
-	KEitrJCxVrX58zE2CT5WrUX+40iGSLK5Q4CthijvaP07hPEUfJyG1iiY8M3/pe2QhLWmleZ8PhmE+
-	kV+ysBmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4k38+bC4o4JY/nExyesCKw1Oyf/W4W8hN/wgHfx4tKk=; b=uUSP87rxWBuVMmTINYoBHE1USH
+	b/llBvA6kbBKMjUbt41G9b4ct/I0Kgl6JxZlQV3mTdR10v0pheZ1GWG3j0VjE4oF7+XwrwR1SUArv
+	lDgcgE/uKp+DuFGO0n+wJ5f5AUSF2+vQVFx7AcR93aZxsV++C63jiMRYdCuD61OKtsd2o3ExgE3F7
+	z3s6KOKkmBmx1SChFGmt62JhkJl/wJeZHB/Fib59JUdvVOAYT7itOUxmRGmG+/rcktyzulYuVW8CY
+	SztnezS+FGfslDkuGc+tl2FDaxp3tywKv5lcg3RWjEWJy3tosOk9P03FyrD87Hz8VEwIOiNHEfgrW
+	wpGmiUeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPT9S-00000008puc-3Kej;
-	Sun, 22 Dec 2024 21:06:14 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tPTGL-00000008qSp-2wA9;
+	Sun, 22 Dec 2024 21:13:21 +0000
+Received: from mail-pl1-f174.google.com ([209.85.214.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPT8F-00000008pnk-0SZR;
-	Sun, 22 Dec 2024 21:05:00 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43675b1155bso13209945e9.2;
-        Sun, 22 Dec 2024 13:04:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734901497; x=1735506297; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=w1oye4z15+lr2o1w+EQ1x0Cmk8LMpN4hRUXuCC9sKgc=;
-        b=c863JUd4HC18ygJXKerZdYioLzNr7Pa/hLa0WgCtrvHGAn0zHlFlANcbK9kpl+pFya
-         +bIHjAuwhvvCReqWpCeFCaSO1T1vKv3MNYsNwjVR08PCTNcA1GNdrg7P72h+f26ehRFz
-         +PzP8o71FpKGDNlF66mA5/jetFceLjPx/q8YjCqNI8OMlZ9idnMOd04DKrO5nKWP7GO3
-         /0XrLcKv9BFBsK6Vpg2IFs4I72gNw6MKbC+pO4j+DomL9Or34Q5vlyDUhIJOyfkfelni
-         9m2m/vGGb9oiH/HmjeMmVZYsOYlUDU/BWP9aY8tH0mS34pYw3CMMU7MVuGFMP3DACh0U
-         3h6g==
+	id 1tPTF9-00000008qPH-2RHb;
+	Sun, 22 Dec 2024 21:12:08 +0000
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-21644aca3a0so37988805ad.3;
+        Sun, 22 Dec 2024 13:12:06 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734901497; x=1735506297;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=w1oye4z15+lr2o1w+EQ1x0Cmk8LMpN4hRUXuCC9sKgc=;
-        b=ggua+An1NyoEXOXDuHLCmHfWD2ao8qSDz+J3Iib5fw7MyPC8DyunV5L5/D+J7yhOCj
-         2QvdCkLVebLuwktiLTLtHrl/RYchRR7FSeYKh5PfUQ7sS5nrms/vSLuZHUYtOV2mjKBV
-         Ru7hHXBGiwuvWRQMnP7boy8NMZc94h8jhQZohdyhGK9ZVVwwidrlm0vFWRetNfvi60gO
-         19t4AVzSn5YK7qnzkBt/fgaVpGrB7vLITcgr+ZQsCngCU+eq1yggaTdHlg3Y+Q7io/cI
-         670XBbu8WyOq0kZkXgVPXkVtBVLM9xYxnP7eK5T6/FxAmstIxTPzLzffg1bg5xL9VqkJ
-         NSjw==
-X-Forwarded-Encrypted: i=1; AJvYcCUEVIPZVlxtGmWxA49oj09ml7C7mkpT4wo1Bn0GJ16kGwp1aZboOiUS8rRf3FBtptZk0unR+dYXkMcMCfCWuTVy@lists.infradead.org, AJvYcCXx4ukhdbOKjumL5NMmSBh+Ej6NUjdpxuSfALUfxkhZhBgdEiFW43bIds4rQNNyZgNO9j7vMVPb+JxZrDZL8Ro=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMRXw7Vlq6alxlOYA2uZmv5PCiLqPy1JXyotskmsg60rRJm9wj
-	gRJhJvP158907j+YiKFe47VbPhTVJcO/KYMXLAU5JzZi8pRfFWyk
-X-Gm-Gg: ASbGncuR45qsA4Gr9ueAUsgCKPRj+efN3nAON36MGI4nG/c9fhQCifiuESdrdi72J2B
-	R1yTmoWVOpjzdaP4FLguonGAUd9RZvv+a681ABaiBcbSDV5/oo/lykbfEmgH9Ii4Ks52hte3rO5
-	pKAKwyW/NrK5MgHSPGUSt0sQsIPZ7X2RUwEHPXaqfKOkNwBTAE5p9psOtnUcccgyQ//32C+JmhI
-	zg3hfpI2j/1c02PuEG7+5425eZETjRslbcg4rxkQ/9Jq6MeSrkDem6LAg==
-X-Google-Smtp-Source: AGHT+IHrVNOxvatH0wJahcvx8K9R6UCZia3C2mnXBs1VmInWx4bVumdXRL/+jSSx4T8TnEac1wlEhg==
-X-Received: by 2002:a05:600c:1c12:b0:434:f9e1:5cf8 with SMTP id 5b1f17b1804b1-4366aabbed2mr92183945e9.31.1734901496299;
-        Sun, 22 Dec 2024 13:04:56 -0800 (PST)
-Received: from [192.168.0.2] ([69.6.8.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c508sm114539775e9.33.2024.12.22.13.04.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Dec 2024 13:04:55 -0800 (PST)
-Message-ID: <6d839f1a-9c38-46a9-aa3b-62afbd75cea7@gmail.com>
-Date: Sun, 22 Dec 2024 23:04:51 +0200
+        d=1e100.net; s=20230601; t=1734901926; x=1735506726;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4k38+bC4o4JY/nExyesCKw1Oyf/W4W8hN/wgHfx4tKk=;
+        b=lUm361Tqx4fGZSYA5jmF5DgpJ4ULbbOKUwACY4qF5vHF/pf71E/f5tEgztwljElIdh
+         H1kZr3I8DFeQ+iRq3E6CVOfC7oRwSfbzpPcJuiDCAmciq1iw9Iu/r9PyiSoGbeT7LK6G
+         a5On073Ds+Q3N1k5hXxgxENIUQDvVkZ6q6d8wyKtR50lw6hvZhGsCJpsdxwj1uuJ8gCU
+         YRrWzYSyT2169m1CqtJhJikwYhq/vGXinvQZ8K1WteZKP3M60MpjsY3KKCxI09LH+TFu
+         XkudH7GQtjqa97S1LHSK0QhgK09dxTWzFjYIR9l9y0vk50gac32/doiRQy4AFYTRuTtn
+         JTZA==
+X-Forwarded-Encrypted: i=1; AJvYcCXT3cY3loy9dzt6tyP89iZpxF1fV/q8baiaAg8IspJLEOu16F5Bc4mTOGskNe/tfNLKNPE0zTuawDtvCe+2yVI=@lists.infradead.org, AJvYcCXdZ6A2Tl944azING6kL54TueiA7oc2QFSOMtIX3QpMuGHfuS9FhIc1Uom8318Euq2qkKpJ79LZ0X4v02hWXIUa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYHj0nXll+X6EAAegNHXHOyeDgJBz+6+XnKmtCEGYdOu2jdBcW
+	wgKLfsMfcIesGAg1AdbRE922nOnPxu9bycCRbG5As6zKlBlyIYPc
+X-Gm-Gg: ASbGncu25pIniC+yYFXt5bfP+K5PhxNje4UDiB665qVzBus01Dr8KRNFcj2ajVIpi/T
+	uakF6UsAXDHqu2FKMXfVIA+fzQEoxEF7cytQxEbgur2tudQGIb6dwD+NDnsJaxuTrnYYPsdZtyT
+	qD/eC2ZBa9wHocoOGKfxURtwHcfApiyOA+5UC8JwPTa4sALZ/3PVpXPouOf07vsbDPYT4e07I3a
+	E5Jp3cs7UM+Os9HGkDOzxE21DGwXoLOj4pf3kE1+tOLGujBiYQaGW5m0JLmqtfAezh01WXgMz6D
+	fxzd48TtWHZs57o=
+X-Google-Smtp-Source: AGHT+IHvYfdLxwvSBegIAr+l+/j6AuDpyaWscN+dBbMElcNGPAGpUwZZ++vm4K3x0zJBaL3mmLcrHg==
+X-Received: by 2002:a17:902:f644:b0:215:7421:262 with SMTP id d9443c01a7336-219e6e89283mr175922225ad.12.1734901926177;
+        Sun, 22 Dec 2024 13:12:06 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9d444csm60664785ad.137.2024.12.22.13.12.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Dec 2024 13:12:05 -0800 (PST)
+Date: Mon, 23 Dec 2024 06:12:03 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Damien Le Moal <dlemoal@kernel.org>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] PCI: dw-rockchip: Enumerate endpoints based on
+ dll_link_up irq in the combined sys irq
+Message-ID: <20241222211203.GC3111282@rocinante>
+References: <20241127145041.3531400-2-cassel@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net v2] net: wwan: t7xx: Fix FSM command timeout issue
-To: Jinjian Song <jinjian.song@fibocom.com>
-Cc: chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
- haijun.liu@mediatek.com, ricardo.martinez@linux.intel.com,
- loic.poulain@linaro.org, andrew+netdev@lunn.ch,
- angelogioacchino.delregno@collabora.com, corbet@lwn.net,
- danielwinkler@google.com, helgaas@kernel.org, horms@kernel.org,
- korneld@google.com, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
- netdev@vger.kernel.org, johannes@sipsolutions.net, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
-References: <20241213064720.122615-1-jinjian.song@fibocom.com>
- <20241220085027.7692-1-jinjian.song@fibocom.com>
-Content-Language: en-US
-From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
-In-Reply-To: <20241220085027.7692-1-jinjian.song@fibocom.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241127145041.3531400-2-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_130459_180272_D03A3034 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_131207_644710_5CA3CF6B 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjian,
+Hello,
 
-On 20.12.2024 10:50, Jinjian Song wrote:
-> From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+> Most boards using the pcie-dw-rockchip PCIe controller lack standard
+> hotplug support.
 > 
->>> Fixes: d785ed945de6 ("net: wwan: t7xx: PCIe reset rescan")
->>
->> The completion waiting was introduced in a different commit. I 
->> believe, the fix tag should be 13e920d93e37 ("net: wwan: t7xx: Add 
->> core components")
->>
+> Thus, when an endpoint is attached to the SoC, users have to rescan the bus
+> manually to enumerate the device. This can be avoided by using the
+> 'dll_link_up' interrupt in the combined system interrupt 'sys'.
 > 
-> Got it.
+> Once the 'dll_link_up' irq is received, the bus underneath the host bridge
+> is scanned to enumerate PCIe endpoint devices.
+> 
+> This commit implements the same functionality that was implemented in the
+> DWC based pcie-qcom driver in commit 4581403f6792 ("PCI: qcom: Enumerate
+> endpoints based on Link up event in 'global_irq' interrupt").
+> 
+> The Root Complex specific device tree binding for pcie-dw-rockchip already
+> has the 'sys' interrupt marked as required, so there is no need to update
+> the device tree binding. This also means that we can request the 'sys' IRQ
+> unconditionally.
 
-[...]
+Applied to controller/rockchip, thank you!
 
-> Yes, the patch works fine, needs some minor modifications, could we 
-> feedback to the driver author to merge these changes.
+[01/01] PCI: dw-rockchip: Enumerate endpoints based on dll_link_up IRQ in the combined sys IRQ
+        https://git.kernel.org/pci/pci/c/191b732176e7
 
-Looks like the drivers authors haven't enough time to maintain it. You 
-are the most active developer at the moment. Could formally resend the 
-updated patch with refcounter as V3? And, I believe, we can apply it.
-
---
-Sergey
+	Krzysztof
 
