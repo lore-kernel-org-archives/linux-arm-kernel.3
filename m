@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40E7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CCDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 15:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aMZe3KIsDQb+Ch5185jS18YCIZb5/VxUA7wsA3ESW1g=; b=grI4DOsdKJSolj/a1NbMM3PJOe
-	1LnoalIzzuSME4ehrBEnsADF2kUi0kPiMFaRZlG5+aTcnOXhQEIKkpC6bS+KbCgpTPjUcE0c35j5V
-	JiMrlgkObzp3XkewcqCXuNTEbru6X+cwG0RE//XoYW6ZBruML5c9crlSbgsPTvtF5bu/I+IHfckK7
-	6jO2IKPbm9Mgkj6Cq1RNpq2KboRcHgK4ew9rOnu7Yn7DASjQJGK6W3/FmdLr0OOgMY6ZqyHpgB5ho
-	9pPl8nX97IuVHHtgD27kMnWsfYgeSdNyqZvlsnPbz708DBbTmkcsIhV4+YGU/2hPrphUZrpE1F7Sx
-	HJg8LNfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9GjqyJMg09DCuYPoAHgqnPAHj4DLiCTnwq4yWavSIlA=; b=cf5cRvej1Qf2TlayZeMlGQTY6x
+	NZd1hk2S5PEkZIanx1s3W+2wRYJILCa0uNABs345Di6YuaBgy5qmdluYEhcRmsHNSjxP9iKJ94B7E
+	rIC3GOEVhAREhz2jIJI8zLZpJSk7d1oJWjOYDPU9ahjfUAvajdEMd5TZaZJQ0kicwALC6RvezRYy7
+	35cl6Tuz3EzLCB08QbEuxVD/cheRhT5hlCDEHUNnpi9U5xTuejw0nDuXonXPq4ArRdxLYCikKIafR
+	anTcTl7IBgc+PTVJwSWbiqW1rPq7Ro7jDWGMY4/krGgHQVC5uhCzvmgT6/r8HTC5tcSWvLguTxO0G
+	6n+PkdBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPNLS-00000008Q4Q-28wE;
-	Sun, 22 Dec 2024 14:54:14 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tPO0R-00000008SRo-04IJ;
+	Sun, 22 Dec 2024 15:36:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPNKI-00000008PxK-0Qwi
+	id 1tPNzF-00000008SNB-0VXF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 14:53:03 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aab73e995b5so65022666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 06:53:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734879180; x=1735483980; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aMZe3KIsDQb+Ch5185jS18YCIZb5/VxUA7wsA3ESW1g=;
-        b=UdGiraVBiKZplgFbAQG+0+EzHFilJLV5srsM8JGCKv2I5/DJmYzLJl6VSSaefqzY7I
-         Rv0dxxuBaf24nfo7jw49eI5zi3j7qclNixa2URT0EZa3X4DanIxxOAvWDICLy/2cC1P8
-         jdUl4X7gbtJClNFn8VxRA5VjG/LKdvrP1Lm1MHH1ElJKpHS3JA/NwKwfNSgGdTCNA4eE
-         /QI/mr6qNfv1XCUF7BRgRaWhIPEWkXBCE+IVtt7pESPi4Z/tkodcCPiwDlC7DrAAgZJ8
-         8rbLgN/v4o3rFL486elX53Vz4GPIMF5QGdpvZkdYiUk1PTyo1dcpA/SW0fUBHgRzLOZK
-         DZQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734879180; x=1735483980;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aMZe3KIsDQb+Ch5185jS18YCIZb5/VxUA7wsA3ESW1g=;
-        b=rZTLcVUceagZmAzUfMojl0VWtBdgOZropkEBzFMBG/isjiFjDIII+qNHViYjXuLCDY
-         HzFWJlYpUYhuJve3AuyQ/7b5/HVOTsqR5PJYdN1m6OWGRSpcC0MPFOdKibXZdiwpqP6W
-         dlP+EKKgY/LZ/a4aODHN75Tt2t47lXUGyWG6hPU4Zvf1PZ4gQlpTrpfRu8jqOd5AQoL+
-         xW5PRFMjszOdoL7snJzTStLzgr0FnslMnZF56kbeLvaH2pM27VUUBRQzazVMeieCKD3H
-         mplVugKEbE3thR6IJhKoBQDnS1sBZpZ0qLAXfVmL3aYT7rUScFUdOZJO0x0gCwC4Euvf
-         QDBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCmkCslxA/NdBG27hEsiUxwC3V74TTq+xdIGkbxs5nQyDei3sKCyRS7ZYge5VlkhtLmAaruiWPxw/9FpVoifNF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYkMHV8yjA9W4TRMP5MR4+Ncdo5+vuKoQ/mI7LJNIQNsm8bslY
-	d1F0je7yKqBflz05gQAi8dj4zR0ObFObdONkfYPyTr6bGLHzeOui/yRmBfPI2bw=
-X-Gm-Gg: ASbGncsNt1cYh3PDKiDicuRRHohiFNnXEb10SbFCL9kkOwBaU7lMt9vm4yVmSL27AGL
-	ADeJLvVJJ20ve2PD/nISUgPSgfgpbAuh/NlMgCVoIbZx+yM67s4gkCqWiWtPFjq36Koer0dwilo
-	Y3Al886oMpdsvW8p+P7cmhc0vqCnj+k3oFZhFM4zJ2ijsewQmZpTAzbXE97ZcYEDGDQwdRe55NL
-	oXx4qdlAaJ/y18fPdQYTSeI2RKobCKgNyIbrIHEraOuraxsCatYLAh44dT5n2iUskJi4HGQPhQM
-	/lGN6xokTQsat6EtBxjmr11ZJhA3PA==
-X-Google-Smtp-Source: AGHT+IHjZBO20DhCS6VWRIkYCvaJqzjKDPYq8fCPXpEgvr/Ih/lPcG98CqFloHsurYEW0cVqBYl2ww==
-X-Received: by 2002:a17:906:dc95:b0:aa6:75db:c34e with SMTP id a640c23a62f3a-aac3444a235mr315630266b.14.1734879179038;
-        Sun, 22 Dec 2024 06:52:59 -0800 (PST)
-Received: from krzk-bin.. (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe46f6sm395237866b.111.2024.12.22.06.52.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 06:52:58 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] arm64: dts: exynos8895: Rename PMU nodes to fixup sorting
-Date: Sun, 22 Dec 2024 15:52:57 +0100
-Message-ID: <20241222145257.31451-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Sun, 22 Dec 2024 15:35:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 708BCA406BF
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 15:33:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BA4CC4CEDD
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 15:35:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734881719;
+	bh=9GjqyJMg09DCuYPoAHgqnPAHj4DLiCTnwq4yWavSIlA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=LNW03+ZMpvcE0AQBTB3thE14MW0eFCAdRakozESjslppOZQMEd9uDwydvmqf6y8G1
+	 Zr4+kOW4eIPiq3aCYbGQKVReHmbgMT36omu393jsyMiLom1CsY+VYbgoPVNxL/iM4w
+	 zQDcMYiyo6/BzQ42E8BcodXQlmI7dRUESYRkve6LgIm4+inet2TnLzLYONYwLhWO0l
+	 2v/kaCMukFIh6LIOuh7Q8eIPdq6jp0GeepbIxiR8S4rtAJr40FBqLq2gMYHkbYbvXL
+	 9lbNkIK4vSdGCppuBKtKyiAIRCa/V9DnG/ZRxI1EPL27UvzmD6IyNjlSvNzrTWzDBi
+	 xFk6QNDchoisQ==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so3589007e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 07:35:19 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXljVnXJuNmi4AZB//ObXCWZ70PPirXjSmtAXxrp8DqGks4c6NkbsfZWSJo7bxb1lVxZVG6htxR9JkYZ4SLkX3V@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJetwLGn6yZgVHaqbPc9Es7yXZ5JUZKv5o6i65U3zGhqqOmfKo
+	JNSspBMgUYo+fk+UD+MASHE+eny7PyxYuxyAEH5QhNKjkgYDeSHI/W6zFIb5HRKsbJA1S/u+SPz
+	K+rZT+DU3msHi0o6LM1ZMzytNCKU=
+X-Google-Smtp-Source: AGHT+IGX0ge+oIG+OVUU9qdGOK5bBf8+T98POZAqy0/yqeJA7FZF28K0qTWuu83caIz3ApeSC9IJtu4UY0yOQ4BjUNY=
+X-Received: by 2002:a05:6512:4007:b0:540:5253:966a with SMTP id
+ 2adb3069b0e04-5422954b39fmr3358159e87.34.1734881717617; Sun, 22 Dec 2024
+ 07:35:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241212081841.2168124-8-ardb+git@google.com> <20241212081841.2168124-14-ardb+git@google.com>
+ <bf93c563-f331-43c0-a145-1abf143bd0eb@gmail.com>
+In-Reply-To: <bf93c563-f331-43c0-a145-1abf143bd0eb@gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sun, 22 Dec 2024 16:35:06 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXH8W=o7yqZjL1QHud8sfA5=-aJ9HGO1opPhwihdi_28pw@mail.gmail.com>
+Message-ID: <CAMj1kXH8W=o7yqZjL1QHud8sfA5=-aJ9HGO1opPhwihdi_28pw@mail.gmail.com>
+Subject: Re: [PATCH v3 6/6] arm64/mm: Drop configurable 48-bit physical
+ address space limit
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Kees Cook <keescook@chromium.org>, Quentin Perret <qperret@google.com>, asahi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_065302_156567_0A1AC632 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20241222_073521_363647_B92E9AF2 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,88 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Nodes should be sorted by name but it is also nice to have same class of
-devices together, so rename both PMU nodes (A53 and M2) to use "pmu"
-prefix, instead of suffix.
+On Sun, 22 Dec 2024 at 13:05, Nick Chan <towinchenmi@gmail.com> wrote:
+>
+> Hi Ard,
+>
+> On 12/12/2024 16:18, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > Currently, the maximum supported physical address space can be
+> > configured as either 48 bits or 52 bits. The only remaining difference
+> > between these in practice is that the former omits the masking and
+> > shifting required to construct TTBR and PTE values, which carry bits #48
+> > and higher disjoint from the rest of the physical address.
+> >
+> > The overhead of performing these additional calculations is negligible,
+> > and so there is little reason to retain support for two different
+> > configurations, and we can simply support whatever the hardware
+> > supports.
+>
+> I am seeing a boot failure on Apple iPad 7 which uses
+> CONFIG_ARM64_16K=y after this change in linux-next as commit
+> 32d053d6f5e9, with nothing appearing on serial console with
+> earlycon enabled unless I set CONFIG_ARM64_VA_BITS_52=y. Reverting
+> this patch makes the kernel work again.
+>
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Thanks for the report.
 
----
+This is a known issue and has been fixed already in the arm64 tree a
+couple of days ago.
 
-I know we have everywhere else in pure-ARM designs nodes "arm-xxx-pmu",
-but this is too trivial and unimportant to change.  I however want to
-avoid copying unsorted-style code to new patches.
----
- arch/arm64/boot/dts/exynos/exynos8895.dtsi | 48 +++++++++++-----------
- 1 file changed, 24 insertions(+), 24 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-index 90b318b2f08a..d31d74cc4580 100644
---- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
-@@ -26,30 +26,6 @@ aliases {
- 		pinctrl7 = &pinctrl_peric1;
- 	};
- 
--	arm-a53-pmu {
--		compatible = "arm,cortex-a53-pmu";
--		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
--		interrupt-affinity = <&cpu0>,
--				     <&cpu1>,
--				     <&cpu2>,
--				     <&cpu3>;
--	};
--
--	mongoose-m2-pmu {
--		compatible = "samsung,mongoose-pmu";
--		interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
--		interrupt-affinity = <&cpu4>,
--				     <&cpu5>,
--				     <&cpu6>,
--				     <&cpu7>;
--	};
--
- 	cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
-@@ -149,6 +125,30 @@ oscclk: osc-clock {
- 		clock-output-names = "oscclk";
- 	};
- 
-+	pmu-a53 {
-+		compatible = "arm,cortex-a53-pmu";
-+		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-affinity = <&cpu0>,
-+				     <&cpu1>,
-+				     <&cpu2>,
-+				     <&cpu3>;
-+	};
-+
-+	pmu-mongoose-m2 {
-+		compatible = "samsung,mongoose-pmu";
-+		interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-affinity = <&cpu4>,
-+				     <&cpu5>,
-+				     <&cpu6>,
-+				     <&cpu7>;
-+	};
-+
- 	psci {
- 		compatible = "arm,psci";
- 		method = "smc";
--- 
-2.43.0
-
+Once linux-next is regenerated, things should start working again.
 
