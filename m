@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465F8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077E0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jn4oJG4kk9AZGnKXQKwGIPd246ZQVSmkzpo6s8kUSt8=; b=GEJkHqOlA/qlRI
-	8vkdoltxQofxpjUwq93nCGxSRCN5uFz5g9iaH+Z1MYCn5gcT6GBh9hcxWw6hMPaBdM3p6lMUhIKn0
-	1p5Dn2oOd68505t/G78Cgtuc70SXVuDWk7RVgHuGVy3u763J+O49vBSg6yVh5IlQEqoyFRYtHJYZd
-	K0TnBA9QZWIyzfRaaXwQnIqXqlDBGgYQ1ACLh3DY+CA81qziIyf5aQ9YU4JzS0br/Dv9QWSE8wnZK
-	H1H72uf+Uhb/K13N4hHEFrCLUibuTzLEBIcp8YO8PXRJL0okbZ8xImfDDUjez5wFI5Q/K/Oazx51x
-	NemX/JDTWgooxBxeRO1w==;
+	List-Owner; bh=qFhKn5TumItblZr+eQzLDEEKMdJqIvr95GEz6QTXuVk=; b=yFtGvvNa4S+1df
+	6aPGzaw3dYsBimBjwYUtFVkwmi0iF6LmLoZ8IeQ1E9zVYg3FKnCtzE6kzKJDz5+ENCM/jIfMF7SZ1
+	uND3zWUfS7BoPGmChpoGFVj9y4Lg6/fDr5XXSx4q8zj1Ep3t08Fa1OjsjFyJ92vj1X7Ce9/+YPLE+
+	9FjPKDvSoHl0QhTLpgOkG1VjhfUc8YhfZKfbCWZwXORS61n2MUn3BgPJksXBChefBFOmHDZlbkbXM
+	YEp66uda87ZqhTxmdyQKNANoaUiBGf/ZwCQjWZurPFb+MJwCQuApmDMMcc41FrL52qvu+502o2fqV
+	QsPq4ddBele4EYN4hksg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPnq-00000008bEB-3zcW;
-	Sun, 22 Dec 2024 17:31:42 +0000
-Received: from mail-il1-f169.google.com ([209.85.166.169])
+	id 1tPPoz-00000008bKR-2trZ;
+	Sun, 22 Dec 2024 17:32:53 +0000
+Received: from mail-io1-f50.google.com ([209.85.166.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPbx-00000008ZmQ-3FVD
+	id 1tPPcg-00000008Zzu-43sM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 17:19:26 +0000
-Received: by mail-il1-f169.google.com with SMTP id e9e14a558f8ab-3a7d690479eso27449255ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:19:25 -0800 (PST)
+	Sun, 22 Dec 2024 17:20:12 +0000
+Received: by mail-io1-f50.google.com with SMTP id ca18e2360f4ac-844e7bc6d84so131924639f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:20:10 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734887963; x=1735492763;
+        d=1e100.net; s=20230601; t=1734888007; x=1735492807;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Jn4oJG4kk9AZGnKXQKwGIPd246ZQVSmkzpo6s8kUSt8=;
-        b=IMHgyo4osTgEQdx89bxmmAETxd63mVuVqBZbHrhRT9ZxBIyGi7QOMadrTuGFRzRfjZ
-         +LAbluK5HfgB+fg+4fpnBtTwS5oTuuUcdQ9MURvlwLp3b4E37Mkdg4s8FaZ+JmlZf+SS
-         UnPIr1HfjTdCOAR4GdD5lPR6hpzgNOP6pZwsGK92Ja0YyZXkQPpswi55a5HPA+FGStSx
-         Ht4YRvs3oayYNDl2GSi2UfKPFjSvvkWNiuHFFsCNtKXgiuaj3vbfxPvQK3waRwCKVb3z
-         +gkzUeAtW2VP0v1gAN4URE1U4Fem/86c3f7FitoYt5PaHFYfWIEzSPAJ9gPJTFcvL8Jm
-         I6QQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWg+AdIXnEEd4dbwTdK6qlNKFkveAI5a3ho3Mc4ZxtubBWxjEu6SMz7XCMFaG6ktF3RFfcl48xvIW0Jbw9bEYd+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIlwRhUDN6HJFXvVOI/hEzQtwmLrfVlOZezJZiFO3tes0415XW
-	VlK7jvhmtnw+AymA18DerfVPEZnDESAfPZfU21LOm+YggTdJnv4rvi29qL0jxxA=
-X-Gm-Gg: ASbGncv9/iDgfn4+DgDeazI30QmDlah+N6MFTqw4kPUJSKIDTvksHdo7jPsVzXrpv4z
-	+9f6lXb0d1h56NY97M9AXhAn7PAwRqEQJmNqzA0d7aLCPQuj9/yArIzpIWgrRw0m0Gvqve99UIF
-	6ZuG+3qmzHAmJZRTOFi98m+uF9+8R87ajuUnI5fQPpvlH9cvEkKzFNM2eDDC++beZeqSOY914pt
-	ZehrCLlt5rLuCjryO2CCEo786lNTtY1p66hGMaBOEA/9ptsMbWeCXa7AJrIN6g6XtRnRZKEO8j1
-	f8HzvOal6A==
-X-Google-Smtp-Source: AGHT+IHoSuxJhX/l21cdSK/ax03xZ6ZMNZaQzc2nNMWPoyXWTLfngk54mRrhwFWXwTERFrmIs2Rtwg==
-X-Received: by 2002:a92:cdaa:0:b0:3a7:44d9:c7dd with SMTP id e9e14a558f8ab-3c2d2780fbbmr110151035ab.6.1734887962775;
-        Sun, 22 Dec 2024 09:19:22 -0800 (PST)
-Received: from mail-io1-f41.google.com (mail-io1-f41.google.com. [209.85.166.41])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3c0e47d6d85sm20109085ab.68.2024.12.22.09.19.22
+        bh=qFhKn5TumItblZr+eQzLDEEKMdJqIvr95GEz6QTXuVk=;
+        b=kQgg8d5zg47c9LCWSQer3PbDEyL8lyMNSFPndagFge7I5KHixVW+gcdofHvmSYMkA3
+         1O9/ZES6tN9oRK0OVHt3LwL5YzjMUjPZ+VrdNO39aC7Z/tEWU4U+oAhKLxy7jIxJcYGk
+         3ni7O7LGfz+DA1OFnnmPr1X1K321G/9B8TRzjoj7Ttr/K+kJ+eT/5iPh64CWjpwQK7QL
+         12gnQLHmSewtqBvzfEDWEm06tKjClpMeeOZHCsQEXWyRSGmKwNX/FocBhNbXCqdkiN2G
+         kseHZqS9JTYD8A+ixtmW+iR+cDT4Zc6WgNr7gNGyQZb8/D1KcQyysU01poJck8m0Vvja
+         blIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKEvfElRIaMfI17WYjoG31pxtfrKyhH1IMwvoNxihVRWsZJ+My3QCcM2h+X8A94xBntWxWq0J/dVhZqTGS0U1c@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt/C5txMGfpIEOR0hNEsCVpnyk+h8fetuYG/VkZAi2bvUrHJ4x
+	JlFrmGVZcnjLf4dTEtmqyJZu5OAw3HSUn7iNjb+35fiDThXnmcBvSd7KS6NZ1MM=
+X-Gm-Gg: ASbGncul7aZ8MYI8s/JTKeUzWScUO7bcwYHZo7L+Cj8SIgHgRQCRgyRpupUTBMwNHXO
+	2IVbcwWO3hsOqpR5vEE17UqytuwHm1rHtBGqDWHIzTIU7SE5AsfSJItC8j3xtOW+Ty2kIBIWLX9
+	2OrtvUTzynBWpSHQaUxniFGjg3K+Qqp0EuV1pfRB1GXsyN+NPSZ1npK0u+BAFl+c7FWITaMeg5w
+	7eYIh0oqN3v943qBmzizbGZqSgky9xYZ3yfM4xfRPSEoWsYjBRgYcxlvodRbA+ETNdum2g6qkLX
+	JWuEOrkbiQ==
+X-Google-Smtp-Source: AGHT+IEvI5C3NnC24DEnlrv875qyBwqTnwVrBIaNJeMb49lLoEaO4Ji0LA58KJ9d/r9snuLKelkIeQ==
+X-Received: by 2002:a05:6602:3a86:b0:844:2ef3:a95a with SMTP id ca18e2360f4ac-84988d25967mr1536751439f.7.1734888007126;
+        Sun, 22 Dec 2024 09:20:07 -0800 (PST)
+Received: from mail-io1-f48.google.com (mail-io1-f48.google.com. [209.85.166.48])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e68c1deed2sm1775942173.135.2024.12.22.09.20.05
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Dec 2024 09:19:22 -0800 (PST)
-Received: by mail-io1-f41.google.com with SMTP id ca18e2360f4ac-844de072603so332491839f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:19:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW53Ruc0f2CmD87fwGj0CW2JLa0eaUE4m9CfXpngOoHT+bOMEdrGwi8I/zSgqGhSeMydP0vecohblYd3Dt7SfQl@lists.infradead.org
-X-Received: by 2002:a05:6602:2dc6:b0:844:dfcd:8de3 with SMTP id
- ca18e2360f4ac-8499e4f2fd1mr899114039f.1.1734887962153; Sun, 22 Dec 2024
- 09:19:22 -0800 (PST)
+        Sun, 22 Dec 2024 09:20:06 -0800 (PST)
+Received: by mail-io1-f48.google.com with SMTP id ca18e2360f4ac-84435dbda4bso161791439f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:20:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXCyncDpYUxKjyivtdmO/VCNK2DjCftTayas2BUh5W4ohkd3woyFQIaIiqk0M/4eKa9IybK6HTYwWxeHs/8swTH@lists.infradead.org
+X-Received: by 2002:a6b:7f0b:0:b0:841:9225:1f56 with SMTP id
+ ca18e2360f4ac-849887107d6mr1158827839f.3.1734888005725; Sun, 22 Dec 2024
+ 09:20:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20241220120038.3137248-1-pbrobinson@gmail.com> <20241220120038.3137248-2-pbrobinson@gmail.com>
-In-Reply-To: <20241220120038.3137248-2-pbrobinson@gmail.com>
+References: <20241220120038.3137248-1-pbrobinson@gmail.com> <20241220120038.3137248-3-pbrobinson@gmail.com>
+In-Reply-To: <20241220120038.3137248-3-pbrobinson@gmail.com>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 23 Dec 2024 01:19:08 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66enf0ybbyW3tW_YRdJB0=aOsXidm_bNHh=wdmm+HPBuw@mail.gmail.com>
-Message-ID: <CAGb2v66enf0ybbyW3tW_YRdJB0=aOsXidm_bNHh=wdmm+HPBuw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] arm64: dts: allwinner: a64: Add WiFi/BT header on Pine64
+Date: Mon, 23 Dec 2024 01:19:50 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67re8kjHzmPQ1z6Jrvz4x5TBK+hD=DOxtGNTOFOJKAhvg@mail.gmail.com>
+Message-ID: <CAGb2v67re8kjHzmPQ1z6Jrvz4x5TBK+hD=DOxtGNTOFOJKAhvg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: allwinner: a64: Add WiFi/BT header on SoPine
 To: Peter Robinson <pbrobinson@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
@@ -79,8 +79,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_091925_879759_239DC1F4 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20241222_092011_013266_203872BC 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,23 +100,23 @@ On Fri, Dec 20, 2024 at 8:00=E2=80=AFPM Peter Robinson <pbrobinson@gmail.co=
 m> wrote:
 >
 > This adds all the pin mappings on the WiFi/BT header on
-> the original Pine64. They're disabled by default as the
-> modules don't ship by default. This includes, where they
-> haven't been already, UART1 for BT and mmc1 for WiFi.
+> the SoPine baseboard/A64-LTS. They're disabled by default
+> as the modules don't ship by default. This includes, where
+> they haven't been already, UART1 for BT and mmc1 for WiFi.
 >
 > Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
 > ---
->  .../boot/dts/allwinner/sun50i-a64-pine64.dts    | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
+>  .../allwinner/sun50i-a64-sopine-baseboard.dts | 24 +++++++++++++++++++
+>  1 file changed, 24 insertions(+)
 >
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts b/arch/a=
-rm64/boot/dts/allwinner/sun50i-a64-pine64.dts
-> index 09e71fd60785..f04f0f1badc4 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-pine64.dts
-> @@ -35,6 +35,11 @@ hdmi_con_in: endpoint {
->                         };
->                 };
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dt=
+s b/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
+> index be2347c8f267..752d2aae8465 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-sopine-baseboard.dts
+> @@ -42,6 +42,11 @@ reg_vcc1v8: vcc1v8 {
+>                 regulator-min-microvolt =3D <1800000>;
+>                 regulator-max-microvolt =3D <1800000>;
 >         };
 > +
 > +       wifi_pwrseq: pwrseq {
@@ -125,9 +125,9 @@ rm64/boot/dts/allwinner/sun50i-a64-pine64.dts
 > +       };
 >  };
 >
->  &codec {
-> @@ -124,6 +129,17 @@ &mmc0 {
->         status =3D "okay";
+>  &ac_power_supply {
+> @@ -103,6 +108,17 @@ ext_rgmii_phy: ethernet-phy@1 {
+>         };
 >  };
 >
 > +/* On Wifi/BT connector */
@@ -140,24 +140,31 @@ rm64/boot/dts/allwinner/sun50i-a64-pine64.dts
 > +       bus-width =3D <4>;
 > +       non-removable;
 
-Please also add an explicit 'status =3D "disabled"', like what is done
-for the uart below.
+Same here, please explicitly set 'status =3D "disabled"' like what
+you are doing with uart1 below.
 
 ChenYu
 
 > +};
 > +
->  &ohci0 {
+>  &mmc2 {
+>         pinctrl-names =3D "default";
+>         pinctrl-0 =3D <&mmc2_pins>;
+> @@ -175,6 +191,14 @@ &uart0 {
 >         status =3D "okay";
 >  };
-> @@ -286,6 +302,7 @@ &uart0 {
->  &uart1 {
->         pinctrl-names =3D "default";
->         pinctrl-0 =3D <&uart1_pins>, <&uart1_rts_cts_pins>;
-> +       uart-has-rtscts;
->         status =3D "disabled";
->  };
 >
+> +/* On Wifi/BT connector, with RTS/CTS */
+> +&uart1 {
+> +       pinctrl-names =3D "default";
+> +       pinctrl-0 =3D <&uart1_pins>, <&uart1_rts_cts_pins>;
+> +       uart-has-rtscts;
+> +       status =3D "disabled";
+> +};
+> +
+>  /* On Pi-2 connector */
+>  &uart2 {
+>         pinctrl-names =3D "default";
 > --
 > 2.47.1
 >
