@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54490E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 18:04:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE36BE7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 18:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXwxIenSzuIpC+GwkdjqUR2DofzaS4fQGLg3IB5+muY=; b=irFJY/C7XFDNxd4vPOskHFEZcN
-	kmWyKY+aw9BFddn0GYIyePZ9VcjHS/4aF9If5Kvw4aoJxBCEu8nz6ALiancBMUjsIRW+eByJ48/t6
-	4RX+DLyLV71GCpn7Okx1U2duRnGcaSBSzZ9ZOacgAvmVSxbSWpMaqOkd/A+eSI/GpQiCa6TDp1/Qw
-	h5yJ8ciYK6Bt+PKC+ReAFC1ZWoKecER1C5ScV+S5Kalt79FAjnGY7Sq+kNwFt4EpuaPi2jQADQYxy
-	PlQBefaQK37vetUEq9a5mpE+Ie9tvvVwmqYiXuwsp1NvF2pk5eTcbEkv2DTpL8lDNzla4/37ojavo
-	I8ZAV12w==;
+	bh=z/0ozbwgqLpSEC7BNfh+14HxpMViab/4nt5SwTR3z10=; b=IVJTDWsHr3j77bmawoDwMCYMeO
+	NPURoEeeWbx36LauuUl0x2BMiCz2fxpQ8wx3Ge/9tk6sXPhuQDiw/1LT5JRYYcTh2MuBReY6ronbC
+	G44XuBUa5cgIEegHwq9SAib4LzgHRkuyiZcPHWBBslSU079LkHbcn+D37zFpEyRmDHHV92QfHICKq
+	IlMUqVtuJC1HKpy9Jq+oI9s22g5+QU2k9W0t5OJ8tIMIfCj2xGLj4QhtNrNv/Z240HTy8Vzx2gV5X
+	OHVYYJOazn78skLTHds8fZgNKxHq6osm27NWVJf884x7zSjnFt4pm3eYt0j0gpjeJrZg3NeocI3ET
+	iYM6aDmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPQJl-00000008f2t-25lT;
-	Sun, 22 Dec 2024 18:04:41 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tPQKu-00000008f8l-0tS3;
+	Sun, 22 Dec 2024 18:05:52 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPQ9E-00000008dr2-3gTk
+	id 1tPQ9H-00000008drf-1nIn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 17:53:49 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2165cb60719so32469975ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:53:48 -0800 (PST)
+	Sun, 22 Dec 2024 17:53:52 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-21675fd60feso41300255ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:53:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734890028; x=1735494828; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734890031; x=1735494831; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wXwxIenSzuIpC+GwkdjqUR2DofzaS4fQGLg3IB5+muY=;
-        b=A1EALRKBDR8t8vbANFc9DA6fEdHymTb965i5N/vDn9kn3VdGeEivVlsDEJBAZPM28t
-         1pT11P8jZabF9t+Dce7t5fkF8SuqQwr9zENZcr8NZ+O9Uh9AiSAtN0m482/iotinCt1A
-         nuq9WX3YJyP4OjFxAQwK1YCardwf565dwJSxKk+ysZT/Z8ch/5l1iVFY+/lpCEpbmkbA
-         DfOGYRMueaO7iyY0y6PDoHbVQVjF8rwXNfIM70qEweFehVs+/Nz/HC7ti8Pbo84syclF
-         QzXv4YfsqAnqGF9KmcULDPV1dmwLnix/jH/rMEzG5m4kRggp60N+4IVDX4qemC3RoI5s
-         mZlw==
+        bh=z/0ozbwgqLpSEC7BNfh+14HxpMViab/4nt5SwTR3z10=;
+        b=np4lvUqu6isf/LfOk7FrlNDWeLSNhal8SzGPcEU+y9UAPVLjz2B3nG1NuKfGw5B4Ea
+         opHys+f9DdZbsBzOQMlg8B6jYiDFa0RgnzIBVRAU4lPAv0vdE6w77zJqwjIVydCeqcy2
+         mkNqG5updS1J2OK8BCw5X84NLD4jfFxjQMC3pS4Ofrp6U+2/m3YObkpi86cUjICn9m4u
+         pa76/cyiPk7pH9K/34iv9bZ3VvkNc3eBWeudjMqljUNOeh7GfGw6f7mp99UXzvvIEboH
+         v/x3DfcNTUAOoiXS+JOPhOvHwfDHY7/3GvMUXPgDlyWa4U5VR5GeFxAVt7plIVm6PZol
+         HMBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734890028; x=1735494828;
+        d=1e100.net; s=20230601; t=1734890031; x=1735494831;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wXwxIenSzuIpC+GwkdjqUR2DofzaS4fQGLg3IB5+muY=;
-        b=I7fgWFlVPReBGO0Qu5NNXbTt06D/zrZcYC06uyqUVihpZIEDOT5+95ATYbkPD0coPp
-         T12NQduU1iNloK49lNVey4WfR6NgqHZY692LtX4gUObedp6OSrkcGl55GOCuflNk+vze
-         s6SDWrxA7hhdkdPKg21jU57iaJbRZDh6TAubN2QnuaD19LbJkdEOuCYBuAWyRVll6LRK
-         UptxwoIMrcqjL8gJC4WFkZHDSdBfx5lYVeBkWsd3jcg1eRnX9eoKUtitp6cc7BSeVvVW
-         fJWCsYpgKFGOVIVW7djVjKyUjaS7VHT2sJxfjC7Cd/MH5scTPxR2ngO6aZ/vEH7/VjuB
-         uFvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUdpG/w4cd0kyyiNlXMsJ9GM0l+1kzhIH0aaJT94m/SCYXH8ipekj0hPCKHPdFHMJruAnPrM/7UuKwuRsG52fBo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ2wMYTzJEd/wSfJnDaaN03HP10IllL/OA6X54tGVihBan/Pwo
-	vPz5YhinuQqHbjxH9BwTNt03WLJHV+Es2haTNyxwVF/kKo1YA9VX
-X-Gm-Gg: ASbGncv3pMcS7tSn8Qb1/HZ7YNI73dgulJdLlpr6g7/a9zh3LfQMJlh+ROu+7EgXW77
-	ZF+nhTVKnYMsEh6GYfpJ8kJ+2Z+2QGk/O/LPg3Uq0iuglBVBIIIT/VVfAdNIWXwin+jZmQ3LXft
-	UJEZ/kRMs7/k7sdU+Z5R1GamkFw6hIZuAUwCh6R3gfH4/J1ZkLVuRt5VFos0dehTE3kQS/aMYPr
-	Xi9hHsKcyE4QKnBTVgj1dVBu7KYh3SEiArFhOi/L4QNY0x+hkAC4+d3rA==
-X-Google-Smtp-Source: AGHT+IHSDfGeiVEQElB/fENv7ebMVITS5qMf817Q635jJxGYv5q8M2DnvFHYEvP8UOy+HWtj+qGhtw==
-X-Received: by 2002:a17:90a:dfcd:b0:2ee:964e:67ce with SMTP id 98e67ed59e1d1-2f452dee953mr13986009a91.3.1734890028231;
-        Sun, 22 Dec 2024 09:53:48 -0800 (PST)
+        bh=z/0ozbwgqLpSEC7BNfh+14HxpMViab/4nt5SwTR3z10=;
+        b=HKMcKCupjni4ceGC4b1ReriDp/zhcOu43X50bDrCm1ZQIgwu4BNZKJwNowGXFTzc7Z
+         TM9Bx9r5IwOLkcxtrbDVOnaK9H6JtcLFSLAb2fSCCvf920HzToYEapaekmCl1LUHSb+Z
+         lw2SKTW9V3G1/ZjVbtJE85Ay1KwdM+KN0e4Zr2QbZo21FGR3dgnjF6gGBD0lOwftTYhm
+         anE2opa8MMRh1NUxCf7Qn8e5GfM9u4/l2PIpQqccfDdzVYZATlfLbVi6MCt1JuNgigQz
+         Q4s4HVj8U7L5zrgdBASLSiFa2fG/qf2+oBH/f7YyHtjqpiqdh5QnkIItGI4upMecmlKx
+         XyKA==
+X-Forwarded-Encrypted: i=1; AJvYcCVopbJemdkpoaGn57GZVybchVdOeudW+6xdHBQY768KbhZTEfbijXDNd1QlHeWGBtFhB6XJ3iph9A9ATzXuMWLf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6xJvgvzuRLR981x/LsfAuEh0VdGM54d7gPsgUP7HUn0Slqc3+
+	vfJNdlmj4/BxH/0piEQ12yoJJZxZr218IIUwi/XMsoKkDnC+UsKN
+X-Gm-Gg: ASbGncuQKeSehD9eG2+P/QZaWLrtkxmqqpAdjUnOdMKncGvHgR/CakXAVf7idMBSVdH
+	9w8au6ZK4DbsdGhzFuidJ76Ew5+xKeuaMLTDvt4wVm3Jh/uLj8CJ9YE/7cPaV/9x7u/3bqfWzjL
+	2CMcnZnhvyc+48AQ+SqQ+G659+ql6R9ZGGWp9X7ZTQwO3VZ2r0i9HtbjoKSH0U6fkEvuR8d7C6H
+	IQwMGQUUPkd6l2SGoSWlyOGsgA/7ykwZZOePYMPwnp2R7hnXlHbCgXxJA==
+X-Google-Smtp-Source: AGHT+IH9Z25ox7c01rsb5rHxjzRde+7TgfHUfkTa1aO2FEH4mP2CeHiSwbC1+asK4GfWKXt5+iT0qg==
+X-Received: by 2002:a17:902:da81:b0:216:61d2:46b8 with SMTP id d9443c01a7336-219e6ea1c0cmr148322515ad.23.1734890030784;
+        Sun, 22 Dec 2024 09:53:50 -0800 (PST)
 Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dca04c33sm59503685ad.247.2024.12.22.09.53.45
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dca04c33sm59503685ad.247.2024.12.22.09.53.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 09:53:47 -0800 (PST)
+        Sun, 22 Dec 2024 09:53:50 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
 To: Hector Martin <marcan@marcan.st>,
 	Sven Peter <sven@svenpeter.dev>,
@@ -79,17 +79,17 @@ To: Hector Martin <marcan@marcan.st>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH 8/9] arm64: dts: apple: t8012: Add cpufreq nodes
-Date: Mon, 23 Dec 2024 01:52:08 +0800
-Message-ID: <20241222175314.151437-9-towinchenmi@gmail.com>
+Subject: [PATCH 9/9] arm64: dts: apple: t8015: Add cpufreq nodes
+Date: Mon, 23 Dec 2024 01:52:09 +0800
+Message-ID: <20241222175314.151437-10-towinchenmi@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241222175314.151437-1-towinchenmi@gmail.com>
 References: <20241222175314.151437-1-towinchenmi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_095348_920012_94A0C63F 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20241222_095351_476251_668C8D89 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,108 +104,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cpufreq nodes for Apple A10 SoC. There is a transparent hardware
-big.LITTLE switcher in this SoC. Spoof E-core p-state frequencies such
-that CPU capacity does not appear to change when switching between core
-types.
+Add cpufreq nodes for Apple A11 SoC.
 
 Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t8012.dtsi | 83 ++++++++++++++++++++++++++++
- 1 file changed, 83 insertions(+)
+ arch/arm64/boot/dts/apple/t8015.dtsi | 123 +++++++++++++++++++++++++++
+ 1 file changed, 123 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8012.dtsi b/arch/arm64/boot/dts/apple/t8012.dtsi
-index 45d24ca091b0..0a3d5a6bd047 100644
---- a/arch/arm64/boot/dts/apple/t8012.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8012.dtsi
-@@ -32,6 +32,8 @@ cpu0: cpu@10000 {
- 			compatible = "apple,hurricane-zephyr";
- 			reg = <0x0 0x10000>;
+diff --git a/arch/arm64/boot/dts/apple/t8015.dtsi b/arch/arm64/boot/dts/apple/t8015.dtsi
+index 8828d830e5be..f93ce2c8b251 100644
+--- a/arch/arm64/boot/dts/apple/t8015.dtsi
++++ b/arch/arm64/boot/dts/apple/t8015.dtsi
+@@ -58,6 +58,9 @@ cpu_e0: cpu@0 {
+ 			compatible = "apple,mistral";
+ 			reg = <0x0 0x0>;
  			cpu-release-addr = <0 0>; /* To be filled by loader */
-+			operating-points-v2 = <&fusion_opp>;
-+			performance-domains = <&cpufreq>;
++			performance-domains = <&cpufreq_e>;
++			operating-points-v2 = <&mistral_opp>;
++			capacity-dmips-mhz = <633>;
  			enable-method = "spin-table";
  			device_type = "cpu";
  		};
-@@ -40,11 +42,86 @@ cpu1: cpu@10001 {
- 			compatible = "apple,hurricane-zephyr";
- 			reg = <0x0 0x10001>;
+@@ -66,6 +69,9 @@ cpu_e1: cpu@1 {
+ 			compatible = "apple,mistral";
+ 			reg = <0x0 0x1>;
  			cpu-release-addr = <0 0>; /* To be filled by loader */
-+			operating-points-v2 = <&fusion_opp>;
-+			performance-domains = <&cpufreq>;
++			performance-domains = <&cpufreq_e>;
++			operating-points-v2 = <&mistral_opp>;
++			capacity-dmips-mhz = <633>;
+ 			enable-method = "spin-table";
+ 			device_type = "cpu";
+ 		};
+@@ -74,6 +80,9 @@ cpu_e2: cpu@2 {
+ 			compatible = "apple,mistral";
+ 			reg = <0x0 0x2>;
+ 			cpu-release-addr = <0 0>; /* To be filled by loader */
++			performance-domains = <&cpufreq_e>;
++			operating-points-v2 = <&mistral_opp>;
++			capacity-dmips-mhz = <633>;
+ 			enable-method = "spin-table";
+ 			device_type = "cpu";
+ 		};
+@@ -82,6 +91,9 @@ cpu_e3: cpu@3 {
+ 			compatible = "apple,mistral";
+ 			reg = <0x0 0x3>;
+ 			cpu-release-addr = <0 0>; /* To be filled by loader */
++			performance-domains = <&cpufreq_e>;
++			operating-points-v2 = <&mistral_opp>;
++			capacity-dmips-mhz = <633>;
+ 			enable-method = "spin-table";
+ 			device_type = "cpu";
+ 		};
+@@ -90,6 +102,9 @@ cpu_p0: cpu@10004 {
+ 			compatible = "apple,monsoon";
+ 			reg = <0x0 0x10004>;
+ 			cpu-release-addr = <0 0>; /* To be filled by loader */
++			performance-domains = <&cpufreq_p>;
++			operating-points-v2 = <&monsoon_opp>;
++			capacity-dmips-mhz = <1024>;
+ 			enable-method = "spin-table";
+ 			device_type = "cpu";
+ 		};
+@@ -98,11 +113,107 @@ cpu_p1: cpu@10005 {
+ 			compatible = "apple,monsoon";
+ 			reg = <0x0 0x10005>;
+ 			cpu-release-addr = <0 0>; /* To be filled by loader */
++			performance-domains = <&cpufreq_p>;
++			operating-points-v2 = <&monsoon_opp>;
++			capacity-dmips-mhz = <1024>;
  			enable-method = "spin-table";
  			device_type = "cpu";
  		};
  	};
  
-+	fusion_opp: opp-table {
++	mistral_opp: opp-table-0 {
 +		compatible = "operating-points-v2";
 +
-+		/*
-+		 * Apple Fusion Architecture: Hardware big.LITTLE switcher
-+		 * that use p-state transitions to switch between cores.
-+		 * Only one type of core can be active at a given time.
-+		 *
-+		 * The E-core frequencies are adjusted so performance scales
-+		 * linearly with reported clock speed.
-+		 */
-+
 +		opp01 {
-+			opp-hz = /bits/ 64 <172000000>; /* 300 MHz, E-core */
++			opp-hz = /bits/ 64 <300000000>;
 +			opp-level = <1>;
-+			clock-latency-ns = <11000>;
++			clock-latency-ns = <1800>;
 +		};
 +		opp02 {
-+			opp-hz = /bits/ 64 <230000000>; /* 396 MHz, E-core */
++			opp-hz = /bits/ 64 <453000000>;
 +			opp-level = <2>;
 +			clock-latency-ns = <140000>;
 +		};
 +		opp03 {
-+			opp-hz = /bits/ 64 <425000000>; /* 732 MHz, E-core */
++			opp-hz = /bits/ 64 <672000000>;
++			opp-level = <3>;
++			clock-latency-ns = <105000>;
++		};
++		opp04 {
++			opp-hz = /bits/ 64 <972000000>;
++			opp-level = <4>;
++			clock-latency-ns = <115000>;
++		};
++		opp05 {
++			opp-hz = /bits/ 64 <1272000000>;
++			opp-level = <5>;
++			clock-latency-ns = <125000>;
++		};
++		opp06 {
++			opp-hz = /bits/ 64 <1572000000>;
++			opp-level = <6>;
++			clock-latency-ns = <135000>;
++		};
++#if 0
++		/* Not available until CPU deep sleep is implemented */
++		opp07 {
++			opp-hz = /bits/ 64 <1680000000>;
++			opp-level = <7>;
++			clock-latency-ns = <135000>;
++			turbo-mode;
++		};
++#endif
++	};
++
++	monsoon_opp: opp-table-1 {
++		compatible = "operating-points-v2";
++
++		opp01 {
++			opp-hz = /bits/ 64 <300000000>;
++			opp-level = <1>;
++			clock-latency-ns = <1400>;
++		};
++		opp02 {
++			opp-hz = /bits/ 64 <453000000>;
++			opp-level = <2>;
++			clock-latency-ns = <140000>;
++		};
++		opp03 {
++			opp-hz = /bits/ 64 <853000000>;
 +			opp-level = <3>;
 +			clock-latency-ns = <110000>;
 +		};
 +		opp04 {
-+			opp-hz = /bits/ 64 <637000000>; /* 1092 MHz, E-core */
++			opp-hz = /bits/ 64 <1332000000>;
 +			opp-level = <4>;
-+			clock-latency-ns = <130000>;
++			clock-latency-ns = <110000>;
 +		};
 +		opp05 {
-+			opp-hz = /bits/ 64 <756000000>;
++			opp-hz = /bits/ 64 <1812000000>;
 +			opp-level = <5>;
-+			clock-latency-ns = <130000>;
++			clock-latency-ns = <125000>;
 +		};
 +		opp06 {
-+			opp-hz = /bits/ 64 <1056000000>;
++			opp-hz = /bits/ 64 <2064000000>;
 +			opp-level = <6>;
 +			clock-latency-ns = <130000>;
 +		};
 +		opp07 {
-+			opp-hz = /bits/ 64 <1356000000>;
++			opp-hz = /bits/ 64 <2304000000>;
 +			opp-level = <7>;
-+			clock-latency-ns = <130000>;
-+		};
-+		opp08 {
-+			opp-hz = /bits/ 64 <1644000000>;
-+			opp-level = <8>;
-+			clock-latency-ns = <135000>;
-+		};
-+		opp09 {
-+			opp-hz = /bits/ 64 <1944000000>;
-+			opp-level = <9>;
 +			clock-latency-ns = <140000>;
-+		};
-+		opp10 {
-+			opp-hz = /bits/ 64 <2244000000>;
-+			opp-level = <10>;
-+			clock-latency-ns = <150000>;
 +		};
 +#if 0
 +		/* Not available until CPU deep sleep is implemented */
-+		opp11 {
-+			opp-hz = /bits/ 64 <2340000000>;
-+			opp-level = <11>;
-+			clock-latency-ns = <150000>;
++		opp08 {
++			opp-hz = /bits/ 64 <2376000000>;
++			opp-level = <8>;
++			clock-latency-ns = <140000>;
 +			turbo-mode;
 +		};
 +#endif
@@ -214,19 +273,25 @@ index 45d24ca091b0..0a3d5a6bd047 100644
  	soc {
  		compatible = "simple-bus";
  		#address-cells = <2>;
-@@ -52,6 +129,12 @@ soc {
+@@ -110,6 +221,18 @@ soc {
  		nonposted-mmio;
  		ranges;
  
-+		cpufreq: performance-controller@202f20000 {
-+			compatible = "apple,t8010-cluster-cpufreq", "apple,t8103-cluster-cpufreq", "apple,cluster-cpufreq";
-+			reg = <0x2 0x02f20000 0 0x1000>;
++		cpufreq_e: performance-controller@208e20000 {
++			compatible = "apple,t8015-cluster-cpufreq", "apple,t8103-cluster-cpufreq", "apple,cluster-cpufreq";
++			reg = <0x2 0x08e20000 0 0x1000>;
 +			#performance-domain-cells = <0>;
 +		};
 +
- 		serial0: serial@20a600000 {
++		cpufreq_p: performance-controller@208ea0000 {
++			compatible = "apple,t8015-cluster-cpufreq", "apple,t8103-cluster-cpufreq", "apple,cluster-cpufreq";
++			reg = <0x2 0x08ea0000 0 0x1000>;
++			#performance-domain-cells = <0>;
++		};
++
+ 		serial0: serial@22e600000 {
  			compatible = "apple,s5l-uart";
- 			reg = <0x2 0x0a600000 0x0 0x4000>;
+ 			reg = <0x2 0x2e600000 0x0 0x4000>;
 -- 
 2.47.1
 
