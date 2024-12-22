@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C29E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40E7E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7ce5pBvr6DsloRCXtJFS0AwnP0Nix/1kInWz+i4/P4=; b=P7dA3D4U9lK9LYZPSYaDFpKjFK
-	cQgzPCBCV5nTdVdJV959Bqi71JUl+qUqNbPDgDfO9jRBXHE2Tg4lbbinbUVizKcLqd1UBClJvAnSI
-	9nbmHX7WLt4MqAuvHNAChRqXLR07cGKus3t144W3RZdaliC561DjugFACQ1CypvI4oWbiie3Rwk9h
-	+sgbPDOx11dRtXUr000basYnFJgnf87b7436QSTY42xTNow2jhS+B7x1xO2gjDmxLtFROmJnn2+Yf
-	z7FCkiIk4Xp3gD1Wc1TH/kP/gJVyL3jgZvqLc376rYZhQiAixPITYMGqJZUb5zSg55w+r9kLStpRc
-	BY6I0s9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aMZe3KIsDQb+Ch5185jS18YCIZb5/VxUA7wsA3ESW1g=; b=grI4DOsdKJSolj/a1NbMM3PJOe
+	1LnoalIzzuSME4ehrBEnsADF2kUi0kPiMFaRZlG5+aTcnOXhQEIKkpC6bS+KbCgpTPjUcE0c35j5V
+	JiMrlgkObzp3XkewcqCXuNTEbru6X+cwG0RE//XoYW6ZBruML5c9crlSbgsPTvtF5bu/I+IHfckK7
+	6jO2IKPbm9Mgkj6Cq1RNpq2KboRcHgK4ew9rOnu7Yn7DASjQJGK6W3/FmdLr0OOgMY6ZqyHpgB5ho
+	9pPl8nX97IuVHHtgD27kMnWsfYgeSdNyqZvlsnPbz708DBbTmkcsIhV4+YGU/2hPrphUZrpE1F7Sx
+	HJg8LNfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPNJv-00000008PpJ-2ZCr;
-	Sun, 22 Dec 2024 14:52:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tPNLS-00000008Q4Q-28wE;
+	Sun, 22 Dec 2024 14:54:14 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPNIk-00000008Pi9-2pbO;
-	Sun, 22 Dec 2024 14:51:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4FDDEA406E9;
-	Sun, 22 Dec 2024 14:49:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6D0C4CECD;
-	Sun, 22 Dec 2024 14:51:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734879085;
-	bh=usjZ2ZTH34TQ1C1N/Wpm4Rx7OSioMF26Mal38rPNRY8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J2wvSQGfuB/AjjrxeUvDs8Yw4zPVyKUgOou1CNiG1/v+jlnQ3UjtBYc/f9ppxoVcA
-	 CWIuXD2VAnJcsO3SSNOgRkGxVNgaK57pSRvjZiArCb15XaOyGcx4Zdg+bp7UJ7iryT
-	 jC4TdJcMRLQ2MaVwpbzw3X1xWxW7xN162/4S1tTBVA+wtrbV7fK8DnbTD7eVAQUYFr
-	 Hlb3iGPZrNdDkH04XefuM7TvB6cY0W1iT+c5AT6yc09NdG0EuEoarzH1gLNilRGXUQ
-	 8k1kUPvdi0j/8nMip6BH6qQ6CZ1QG7GJ2tvzO61C8z2C59St55geuR+PltnzKkuKds
-	 CeOt0sS6Ekxzg==
-Date: Sun, 22 Dec 2024 14:51:20 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	linux-kernel@vger.kernel.org,
+	id 1tPNKI-00000008PxK-0Qwi
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 22 Dec 2024 14:53:03 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aab73e995b5so65022666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 06:53:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734879180; x=1735483980; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aMZe3KIsDQb+Ch5185jS18YCIZb5/VxUA7wsA3ESW1g=;
+        b=UdGiraVBiKZplgFbAQG+0+EzHFilJLV5srsM8JGCKv2I5/DJmYzLJl6VSSaefqzY7I
+         Rv0dxxuBaf24nfo7jw49eI5zi3j7qclNixa2URT0EZa3X4DanIxxOAvWDICLy/2cC1P8
+         jdUl4X7gbtJClNFn8VxRA5VjG/LKdvrP1Lm1MHH1ElJKpHS3JA/NwKwfNSgGdTCNA4eE
+         /QI/mr6qNfv1XCUF7BRgRaWhIPEWkXBCE+IVtt7pESPi4Z/tkodcCPiwDlC7DrAAgZJ8
+         8rbLgN/v4o3rFL486elX53Vz4GPIMF5QGdpvZkdYiUk1PTyo1dcpA/SW0fUBHgRzLOZK
+         DZQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734879180; x=1735483980;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aMZe3KIsDQb+Ch5185jS18YCIZb5/VxUA7wsA3ESW1g=;
+        b=rZTLcVUceagZmAzUfMojl0VWtBdgOZropkEBzFMBG/isjiFjDIII+qNHViYjXuLCDY
+         HzFWJlYpUYhuJve3AuyQ/7b5/HVOTsqR5PJYdN1m6OWGRSpcC0MPFOdKibXZdiwpqP6W
+         dlP+EKKgY/LZ/a4aODHN75Tt2t47lXUGyWG6hPU4Zvf1PZ4gQlpTrpfRu8jqOd5AQoL+
+         xW5PRFMjszOdoL7snJzTStLzgr0FnslMnZF56kbeLvaH2pM27VUUBRQzazVMeieCKD3H
+         mplVugKEbE3thR6IJhKoBQDnS1sBZpZ0qLAXfVmL3aYT7rUScFUdOZJO0x0gCwC4Euvf
+         QDBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCmkCslxA/NdBG27hEsiUxwC3V74TTq+xdIGkbxs5nQyDei3sKCyRS7ZYge5VlkhtLmAaruiWPxw/9FpVoifNF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYkMHV8yjA9W4TRMP5MR4+Ncdo5+vuKoQ/mI7LJNIQNsm8bslY
+	d1F0je7yKqBflz05gQAi8dj4zR0ObFObdONkfYPyTr6bGLHzeOui/yRmBfPI2bw=
+X-Gm-Gg: ASbGncsNt1cYh3PDKiDicuRRHohiFNnXEb10SbFCL9kkOwBaU7lMt9vm4yVmSL27AGL
+	ADeJLvVJJ20ve2PD/nISUgPSgfgpbAuh/NlMgCVoIbZx+yM67s4gkCqWiWtPFjq36Koer0dwilo
+	Y3Al886oMpdsvW8p+P7cmhc0vqCnj+k3oFZhFM4zJ2ijsewQmZpTAzbXE97ZcYEDGDQwdRe55NL
+	oXx4qdlAaJ/y18fPdQYTSeI2RKobCKgNyIbrIHEraOuraxsCatYLAh44dT5n2iUskJi4HGQPhQM
+	/lGN6xokTQsat6EtBxjmr11ZJhA3PA==
+X-Google-Smtp-Source: AGHT+IHjZBO20DhCS6VWRIkYCvaJqzjKDPYq8fCPXpEgvr/Ih/lPcG98CqFloHsurYEW0cVqBYl2ww==
+X-Received: by 2002:a17:906:dc95:b0:aa6:75db:c34e with SMTP id a640c23a62f3a-aac3444a235mr315630266b.14.1734879179038;
+        Sun, 22 Dec 2024 06:52:59 -0800 (PST)
+Received: from krzk-bin.. (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe46f6sm395237866b.111.2024.12.22.06.52.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Dec 2024 06:52:58 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 01/38] dt-bindings: clock: add rk3562 cru bindings
-Message-ID: <20241222-grandpa-vessel-66e9ca9cde75@spud>
-References: <20241220103825.3509421-1-kever.yang@rock-chips.com>
- <20241220103825.3509421-2-kever.yang@rock-chips.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] arm64: dts: exynos8895: Rename PMU nodes to fixup sorting
+Date: Sun, 22 Dec 2024 15:52:57 +0100
+Message-ID: <20241222145257.31451-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="WwHE6zSlu1Iv1ITo"
-Content-Disposition: inline
-In-Reply-To: <20241220103825.3509421-2-kever.yang@rock-chips.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_065126_859364_794AE025 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20241222_065302_156567_0A1AC632 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,119 +100,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Nodes should be sorted by name but it is also nice to have same class of
+devices together, so rename both PMU nodes (A53 and M2) to use "pmu"
+prefix, instead of suffix.
 
---WwHE6zSlu1Iv1ITo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-On Fri, Dec 20, 2024 at 06:37:47PM +0800, Kever Yang wrote:
-> Document the device tree bindings of the rockchip rk3562 SoC
-> clock and reset unit.
->=20
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> ---
->=20
->  .../bindings/clock/rockchip,rk3562-cru.yaml   | 62 +++++++++++++++++++
->  1 file changed, 62 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk35=
-62-cru.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3562-cru.=
-yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3562-cru.yaml
-> new file mode 100644
-> index 000000000000..aa8dedf2bfce
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3562-cru.yaml
-> @@ -0,0 +1,62 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/rockchip,rk3562-cru.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip rk3562 Clock and Reset Control Module
-> +
-> +maintainers:
-> +  - Elaine Zhang <zhangqing@rock-chips.com>
-> +  - Heiko Stuebner <heiko@sntech.de>
-> +
-> +description:
-> +  The RK3562 clock controller generates the clock and also implements a =
-reset
-> +  controller for SoC peripherals. For example it provides SCLK_UART2 and
-> +  PCLK_UART2, as well as SRST_P_UART2 and SRST_S_UART2 for the second UA=
-RT
-> +  module.
-> +
-> +properties:
-> +  compatible:
-> +    const: rockchip,rk3562-cru
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +  clocks:
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    items:
-> +      - const: xin24m
-> +      - const: xin32k
-> +
-> +  rockchip,grf:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the syscon managing the "general register files" (GRF),
-> +      if missing pll rates are not changeable, due to the missing pll
-> +      lock status.
+---
 
-Two questions:
-- Why would it ever be missing? Seems like you should make it required.
-- Why is it not possible to look the grf up by compatible rather than
-  phandle?
+I know we have everywhere else in pure-ARM designs nodes "arm-xxx-pmu",
+but this is too trivial and unimportant to change.  I however want to
+avoid copying unsorted-style code to new patches.
+---
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi | 48 +++++++++++-----------
+ 1 file changed, 24 insertions(+), 24 deletions(-)
 
-Cheers,
-Conor.
+diff --git a/arch/arm64/boot/dts/exynos/exynos8895.dtsi b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+index 90b318b2f08a..d31d74cc4580 100644
+--- a/arch/arm64/boot/dts/exynos/exynos8895.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos8895.dtsi
+@@ -26,30 +26,6 @@ aliases {
+ 		pinctrl7 = &pinctrl_peric1;
+ 	};
+ 
+-	arm-a53-pmu {
+-		compatible = "arm,cortex-a53-pmu";
+-		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-affinity = <&cpu0>,
+-				     <&cpu1>,
+-				     <&cpu2>,
+-				     <&cpu3>;
+-	};
+-
+-	mongoose-m2-pmu {
+-		compatible = "samsung,mongoose-pmu";
+-		interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-affinity = <&cpu4>,
+-				     <&cpu5>,
+-				     <&cpu6>,
+-				     <&cpu7>;
+-	};
+-
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -149,6 +125,30 @@ oscclk: osc-clock {
+ 		clock-output-names = "oscclk";
+ 	};
+ 
++	pmu-a53 {
++		compatible = "arm,cortex-a53-pmu";
++		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-affinity = <&cpu0>,
++				     <&cpu1>,
++				     <&cpu2>,
++				     <&cpu3>;
++	};
++
++	pmu-mongoose-m2 {
++		compatible = "samsung,mongoose-pmu";
++		interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-affinity = <&cpu4>,
++				     <&cpu5>,
++				     <&cpu6>,
++				     <&cpu7>;
++	};
++
+ 	psci {
+ 		compatible = "arm,psci";
+ 		method = "smc";
+-- 
+2.43.0
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@ff100000 {
-> +      compatible =3D "rockchip,rk3562-cru";
-> +      reg =3D <0xff100000 0x40000>;
-> +      #clock-cells =3D <1>;
-> +      #reset-cells =3D <1>;
-> +    };
-> --=20
-> 2.25.1
->=20
->=20
-
---WwHE6zSlu1Iv1ITo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2gnaAAKCRB4tDGHoIJi
-0iI5AP9UIw3hr7XnZEKTMekdzNbzE8jdl/gywdcNsXRR8649PAD+J3EGtf7uIB8X
-Xkt+VkIy6zUhiBUZdP3KF3OCqcEkgQE=
-=PnXt
------END PGP SIGNATURE-----
-
---WwHE6zSlu1Iv1ITo--
 
