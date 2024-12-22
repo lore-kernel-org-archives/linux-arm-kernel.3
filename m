@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86CA3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 18:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1108E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0iBQ2C/yy3N4qyUcRep2kLno1voOeDy/O3HvjHsB9U=; b=rbNQXkQNeBiKP7L33hWnISFB7e
-	UiyeVfyPC20DB6xtaUbSbFimHBIU83CXRJU11DZHW0J+ONBHv6Xx3g6Acyf1fu/hqhoqX0PYrD4xa
-	jVfFG+UJrTS6U73mbS7wI4uu6lwKHqwCJq5MMQ1AJuq4uLcYEtS2BHFIjWzLQhhREEAsaQ73Z+1um
-	4eYyidsWrPG8fBC11sZPUnNPkMJ+6Rpbq0wcgJ04SphaA4ZhVE47A0VxJUhVcBTOEQtdRxVFK2y/s
-	JVT9zG04LIA8yIw3w+Ov6AC5bZ/QcaOYmGkCRfNo5mAdKO5UhFWxdqrXXLg0fQEYJWfLHT6si3jgX
-	Pnnz862A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w1oye4z15+lr2o1w+EQ1x0Cmk8LMpN4hRUXuCC9sKgc=; b=hz4r+qp8eeIS1NeOl5vV1sf4ip
+	HJmt6AzV0N38cF8xIwTalvfb1krRKf7lcU2pCAWWktUwVXM54j01/g2rqwf+nbZaWoFUWppKYFKQa
+	N98WCxJzMjGUzjGut0ggla3KUeFg0efa4Q9K3ZSet/g3G2+BZe7aR2Hjt9y2KqCzzZDX3CRbv6k9W
+	XGdTIP9IOfzaoZceYeGVpu5pFfM2tiNn6gNLgUlCGg+84Fq8eGzUXcGyJZQfbT73g5Al5Df2FA1lC
+	KEitrJCxVrX58zE2CT5WrUX+40iGSLK5Q4CthijvaP07hPEUfJyG1iiY8M3/pe2QhLWmleZ8PhmE+
+	kV+ysBmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPR7X-00000008inq-3FWy;
-	Sun, 22 Dec 2024 18:56:07 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tPT9S-00000008puc-3Kej;
+	Sun, 22 Dec 2024 21:06:14 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPR6L-00000008igJ-2fb8
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 18:54:55 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tPR6A-0004rL-4k; Sun, 22 Dec 2024 19:54:42 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tPR64-004k5l-1z;
-	Sun, 22 Dec 2024 19:54:37 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tPR65-00ENlm-0r;
-	Sun, 22 Dec 2024 19:54:37 +0100
-Date: Sun, 22 Dec 2024 19:54:37 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?utf-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <Z2hgbdeTXjqWKa14@pengutronix.de>
-References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
- <Z2g3b_t3KwMFozR8@pengutronix.de>
+	id 1tPT8F-00000008pnk-0SZR;
+	Sun, 22 Dec 2024 21:05:00 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43675b1155bso13209945e9.2;
+        Sun, 22 Dec 2024 13:04:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734901497; x=1735506297; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=w1oye4z15+lr2o1w+EQ1x0Cmk8LMpN4hRUXuCC9sKgc=;
+        b=c863JUd4HC18ygJXKerZdYioLzNr7Pa/hLa0WgCtrvHGAn0zHlFlANcbK9kpl+pFya
+         +bIHjAuwhvvCReqWpCeFCaSO1T1vKv3MNYsNwjVR08PCTNcA1GNdrg7P72h+f26ehRFz
+         +PzP8o71FpKGDNlF66mA5/jetFceLjPx/q8YjCqNI8OMlZ9idnMOd04DKrO5nKWP7GO3
+         /0XrLcKv9BFBsK6Vpg2IFs4I72gNw6MKbC+pO4j+DomL9Or34Q5vlyDUhIJOyfkfelni
+         9m2m/vGGb9oiH/HmjeMmVZYsOYlUDU/BWP9aY8tH0mS34pYw3CMMU7MVuGFMP3DACh0U
+         3h6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734901497; x=1735506297;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=w1oye4z15+lr2o1w+EQ1x0Cmk8LMpN4hRUXuCC9sKgc=;
+        b=ggua+An1NyoEXOXDuHLCmHfWD2ao8qSDz+J3Iib5fw7MyPC8DyunV5L5/D+J7yhOCj
+         2QvdCkLVebLuwktiLTLtHrl/RYchRR7FSeYKh5PfUQ7sS5nrms/vSLuZHUYtOV2mjKBV
+         Ru7hHXBGiwuvWRQMnP7boy8NMZc94h8jhQZohdyhGK9ZVVwwidrlm0vFWRetNfvi60gO
+         19t4AVzSn5YK7qnzkBt/fgaVpGrB7vLITcgr+ZQsCngCU+eq1yggaTdHlg3Y+Q7io/cI
+         670XBbu8WyOq0kZkXgVPXkVtBVLM9xYxnP7eK5T6/FxAmstIxTPzLzffg1bg5xL9VqkJ
+         NSjw==
+X-Forwarded-Encrypted: i=1; AJvYcCUEVIPZVlxtGmWxA49oj09ml7C7mkpT4wo1Bn0GJ16kGwp1aZboOiUS8rRf3FBtptZk0unR+dYXkMcMCfCWuTVy@lists.infradead.org, AJvYcCXx4ukhdbOKjumL5NMmSBh+Ej6NUjdpxuSfALUfxkhZhBgdEiFW43bIds4rQNNyZgNO9j7vMVPb+JxZrDZL8Ro=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMRXw7Vlq6alxlOYA2uZmv5PCiLqPy1JXyotskmsg60rRJm9wj
+	gRJhJvP158907j+YiKFe47VbPhTVJcO/KYMXLAU5JzZi8pRfFWyk
+X-Gm-Gg: ASbGncuR45qsA4Gr9ueAUsgCKPRj+efN3nAON36MGI4nG/c9fhQCifiuESdrdi72J2B
+	R1yTmoWVOpjzdaP4FLguonGAUd9RZvv+a681ABaiBcbSDV5/oo/lykbfEmgH9Ii4Ks52hte3rO5
+	pKAKwyW/NrK5MgHSPGUSt0sQsIPZ7X2RUwEHPXaqfKOkNwBTAE5p9psOtnUcccgyQ//32C+JmhI
+	zg3hfpI2j/1c02PuEG7+5425eZETjRslbcg4rxkQ/9Jq6MeSrkDem6LAg==
+X-Google-Smtp-Source: AGHT+IHrVNOxvatH0wJahcvx8K9R6UCZia3C2mnXBs1VmInWx4bVumdXRL/+jSSx4T8TnEac1wlEhg==
+X-Received: by 2002:a05:600c:1c12:b0:434:f9e1:5cf8 with SMTP id 5b1f17b1804b1-4366aabbed2mr92183945e9.31.1734901496299;
+        Sun, 22 Dec 2024 13:04:56 -0800 (PST)
+Received: from [192.168.0.2] ([69.6.8.124])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c508sm114539775e9.33.2024.12.22.13.04.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Dec 2024 13:04:55 -0800 (PST)
+Message-ID: <6d839f1a-9c38-46a9-aa3b-62afbd75cea7@gmail.com>
+Date: Sun, 22 Dec 2024 23:04:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z2g3b_t3KwMFozR8@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net v2] net: wwan: t7xx: Fix FSM command timeout issue
+To: Jinjian Song <jinjian.song@fibocom.com>
+Cc: chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
+ haijun.liu@mediatek.com, ricardo.martinez@linux.intel.com,
+ loic.poulain@linaro.org, andrew+netdev@lunn.ch,
+ angelogioacchino.delregno@collabora.com, corbet@lwn.net,
+ danielwinkler@google.com, helgaas@kernel.org, horms@kernel.org,
+ korneld@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
+ netdev@vger.kernel.org, johannes@sipsolutions.net, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
+References: <20241213064720.122615-1-jinjian.song@fibocom.com>
+ <20241220085027.7692-1-jinjian.song@fibocom.com>
+Content-Language: en-US
+From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
+In-Reply-To: <20241220085027.7692-1-jinjian.song@fibocom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_105453_840887_A973F6FC 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20241222_130459_180272_D03A3034 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,218 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 22, 2024 at 04:59:43PM +0100, Oleksij Rempel wrote:
-> ### Proposed Port Description Schema
+Hi Jinjian,
+
+On 20.12.2024 10:50, Jinjian Song wrote:
+> From: Sergey Ryazanov <ryazanov.s.a@gmail.com>
 > 
-> Here’s how I imagine the port description could look to address these issues:
+>>> Fixes: d785ed945de6 ("net: wwan: t7xx: PCIe reset rescan")
+>>
+>> The completion waiting was introduced in a different commit. I 
+>> believe, the fix tag should be 13e920d93e37 ("net: wwan: t7xx: Add 
+>> core components")
+>>
 > 
-> #### **Device Tree Example**
-> /* Ports should be in the root of DT */
-> ports {
->     /* Twisted-Pair Example */
->     port0: ethernet-port@0 {
->         reg = <0>; /* Port index */
->         label = "ETH0"; /* Physical label on the device */
->         connector = "RJ45"; /* Connector type */
->         supported-modes = <10BaseT 100BaseTX>; /* Supported modes */
-> 
->         pairs {
->             pair@0 {
->                 name = "A"; /* Pair A */
->                 pins = <1 2>; /* Connector pins */
->                 phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin mapping */
->                 pse-mapping = <PSE_OUT0_P PSE_OUT0_N>; /* PSE pin mapping */
->             };
->             pair@1 {
->                 name = "B"; /* Pair B */
->                 pins = <3 6>;
->                 phy-mapping = <PHY_RX0_P PHY_RX0_N>;
->                 pse-mapping = <PSE_OUT1_P PSE_OUT1_N>;
->             };
->         };
-> 
->         pse = <&pse1>; /* Reference to attached PSE controller */
-> 
->         leds {
->             link = <&led0>; /* Link status LED */
->             activity = <&led1>; /* Activity LED */
->         };
->     };
+> Got it.
 
-Here is updated version:
+[...]
 
-ports {
-    /* 1000BaseT Port with Ethernet and simple PoE */
-    port0: ethernet-port@0 {
-        reg = <0>; /* Port index */
-        label = "ETH0"; /* Physical label on the device */
-        connector = "RJ45"; /* Connector type */
-        supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
+> Yes, the patch works fine, needs some minor modifications, could we 
+> feedback to the driver author to merge these changes.
 
-        transformer {
-            model = "ABC123"; /* Transformer model number */
-            manufacturer = "TransformerCo"; /* Manufacturer name */
+Looks like the drivers authors haven't enough time to maintain it. You 
+are the most active developer at the moment. Could formally resend the 
+updated patch with refcounter as V3? And, I believe, we can apply it.
 
-            pairs {
-                pair@0 {
-                    name = "A"; /* Pair A */
-                    pins = <1 2>; /* Connector pins */
-                    phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin mapping */
-                    center-tap = "CT0"; /* Central tap identifier */
-                    pse-negative = <PSE_GND>; /* CT0 connected to GND */
-                };
-                pair@1 {
-                    name = "B"; /* Pair B */
-                    pins = <3 6>; /* Connector pins */
-                    phy-mapping = <PHY_RX0_P PHY_RX0_N>;
-                    center-tap = "CT1"; /* Central tap identifier */
-                    pse-positive = <PSE_OUT0>; /* CT1 connected to PSE_OUT0 */
-                };
-                pair@2 {
-                    name = "C"; /* Pair C */
-                    pins = <4 5>; /* Connector pins */
-                    phy-mapping = <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY connection only */
-                    center-tap = "CT2"; /* Central tap identifier */
-                    /* No power connection to CT2 */
-                };
-                pair@3 {
-                    name = "D"; /* Pair D */
-                    pins = <7 8>; /* Connector pins */
-                    phy-mapping = <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY connection only */
-                    center-tap = "CT3"; /* Central tap identifier */
-                    /* No power connection to CT3 */
-                };
-            };
-        };
-
-        pse = <&pse1>; /* Reference to the attached PSE controller */
-
-        leds {
-            ethernet-leds {
-                link = <&eth_led0>; /* Link status LED */
-                activity = <&eth_led1>; /* Activity LED */
-                speed = <&eth_led2>; /* Speed indication LED */
-            };
-
-            poe-leds {
-                power = <&poe_led0>; /* PoE power status LED */
-                fault = <&poe_led1>; /* PoE fault indication LED */
-                budget = <&poe_led2>; /* PoE budget usage LED */
-            };
-        };
-    };
-};
-
-A port with fully configurable PoE support:
-
-ports {
-    /* 1000BaseT Port with Fully Configurable PoE */
-    port0: ethernet-port@0 {
-        reg = <0>; /* Port index */
-        label = "ETH0"; /* Physical label on the device */
-        connector = "RJ45"; /* Connector type */
-        supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
-        shielding = "grounded"; /* Indicates the connector is shielded */
-	/* 
-	  grounded: Shield is connected to chassis or earth ground.
-	  floating: Shield is not electrically connected.
-	  capacitive: Shield is connected to ground via a capacitor.
-	  signal: Shield is connected to the signal ground.
-         */
-
-
-        transformer {
-            model = "ABC123"; /* Transformer model number */
-            manufacturer = "TransformerCo"; /* Manufacturer name */
-
-            pairs {
-                pair@0 {
-                    name = "A"; /* Pair A */
-                    pins = <1 2>; /* Connector pins */
-                    phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin mapping */
-                    center-tap = "CT0"; /* Central tap identifier */
-                    /* if pse-positive and pse-negative are present - polarity is configurable */
-                    pse-positive = <PSE_OUT0_0>; /* PSE-controlled positive pin -> CT0 */
-                    pse-negative = <PSE_OUT0_1>; /* PSE-controlled negative pin -> CT0 */
-                };
-                pair@1 {
-                    name = "B"; /* Pair B */
-                    pins = <3 6>; /* Connector pins */
-                    phy-mapping = <PHY_RX0_P PHY_RX0_N>;
-                    center-tap = "CT1"; /* Central tap identifier */
-                    pse-positive = <PSE_OUT1_0>;
-                    pse-negative = <PSE_OUT1_1>;
-                };
-                pair@2 {
-                    name = "C"; /* Pair C */
-                    pins = <4 5>; /* Connector pins */
-                    phy-mapping = <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY connection only */
-                    center-tap = "CT2"; /* Central tap identifier */
-                    pse-positive = <PSE_OUT2_0>;
-                    pse-negative = <PSE_OUT2_1>;
-                };
-                pair@3 {
-                    name = "D"; /* Pair D */
-                    pins = <7 8>; /* Connector pins */
-                    phy-mapping = <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY connection only */
-                    center-tap = "CT3"; /* Central tap identifier */
-                    pse-positive = <PSE_OUT3_0>;
-                    pse-negative = <PSE_OUT3_1>;
-                };
-            };
-        };
-
-        pse = <&pse1>; /* Reference to the attached PSE controller */
-
-        thermal {
-            temp-sensor = <&tsensor0>; /* Reference to temperature sensor */
-            /* or */
-            thermal-zone = <&thermal_zone0>; /* Reference to thermal zone */
-        }
-
-	fuses {
-	    overcurrent-fuse {
-	        type = "resettable"; /* Resettable polyfuse */
-	        max-current = <1000>; /* Maximum current in milliamps */
-	        location = "data-pairs"; /* Fuse protects data pairs */
-	    };
-
-	    overvoltage-fuse {
-	        type = "tvs-diode"; /* TVS diode for surge protection */
-	        clamp-voltage = <60>; /* Clamping voltage in volts */
-	        location = "poe-pairs"; /* Fuse protects PoE pairs */
-	    };
-	};
-
-        leds {
-            ethernet-leds {
-                link = <&eth_led0>; /* Link status LED */
-                activity = <&eth_led1>; /* Activity LED */
-                speed = <&eth_led2>; /* Speed indication LED */
-            };
-
-            poe-leds {
-                power = <&poe_led0>; /* PoE power status LED */
-                fault = <&poe_led1>; /* PoE fault indication LED */
-                budget = <&poe_led2>; /* PoE budget usage LED */
-            };
-        };
-    };
-};
-
-In case of PoDL, we will have something like this:
-
-pair@0 {
-    name = "A"; /* Single pair for 10BaseT1L */
-    pins = <1 2>; /* Connector pins */
-    phy-mapping = <PHY_TXRX0_P PHY_TXRX0_N>; /* PHY pin mapping */
-    podl-mapping = <PODL_OUT0_P PODL_OUT0_N>; /* PoDL mapping: Positive and negative outputs */
-};
-
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+--
+Sergey
 
