@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AF2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD12E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 17:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yu601tyY4epLjb/tQTUlTVuTNbfmOtzSi3U6eJFzPzo=; b=dOxgb9FlLb7w8Ubm0JV5iruFRL
-	fXeXFoY3Bdx+9MXk7BKsSshfJ7Y5368FobbkZzLOcF/wHHm/nMeWYwTZixO+OJp+StlsQ2nfzd78j
-	Rm5ITRz/mwQ4BhJr7p81uGCoxYZK4hKsnGg77T+43uG0K6lcREbN7cgznfZGtSyJgYT5yaL0Zhz95
-	OIepX0BKsjRl+mOIGy7X98jG8F0beiPZ4SNU4Qn05sE2bQPhC7CyTTAahle5aOYyT92QA0Ic4nBeW
-	1UhJlRLNZMWEpj4SsvaduZTfLgE9HGZejE4RpnrB8/KxIfb5CeBgDcE9DOtaQMBM2JH2khSgAggn2
-	bNo4ROHQ==;
+	bh=gPPjd3s39nBr3krlLS6DkSRw+C8geW511O7IiYKzB+A=; b=pZnvu0Qjb+W5NiSjmf6qTcZV73
+	7w/zp9GE6MC9evv3l5fa/93kopsAj1r2lCTA7fwftQOA+LQvBr2F2oBgj4oroZQIfWnxV50jUfvbI
+	t/tgjF35eUsxdJOOHfau9D12/QrPqbJS8cduDwyoeAY6J1YzRezTc+UpdckBs36YhO7nWICrivfOt
+	lGq8lTqS+Clao8WpQPQQoJYzS7IIgZEs+O142hmvvgGP3mm3dxWUAaNsCX8M4EOd6aztzbHepIwtG
+	vIfP9eNPc8Te1Um+op8j+y2r69DWLtJdTc+CglG5TmCRjzW+bYPjkbiDbKeYc2/Ij/yGy+JL2VwdW
+	xgxHKXkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPq8-00000008bWj-1eXs;
-	Sun, 22 Dec 2024 17:34:04 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1tPPrG-00000008bg1-3LQy;
+	Sun, 22 Dec 2024 17:35:14 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPPkW-00000008auJ-3Uqz
+	id 1tPPpF-00000008bNE-2kl0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 17:28:18 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-725ee6f56b4so2980369b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:28:16 -0800 (PST)
+	Sun, 22 Dec 2024 17:33:10 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-7fc99fc2b16so2119095a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 09:33:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734888496; x=1735493296; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1734888789; x=1735493589; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yu601tyY4epLjb/tQTUlTVuTNbfmOtzSi3U6eJFzPzo=;
-        b=Jvjy6gjAyt8m1y4rIL+lr0EyUFE8ZBusEh5bS6noqfjNm65mjwUDppkhJmyAN5OM7R
-         I9GdAYQT9B7HKnc2jbvVnFC7IjAzisJa0OFhr8vo7i6iJHsOpUIo1fWr3IBf9kZFOLos
-         /uqjIUauuasNTGKBoCqq8p5hIDFTCUbc0LQwJNz2NNkwur2awsBhVA78LXAo1aKXz0JO
-         VRhhIQorCGWamc7eCpiIHeDQCj3QmIXMZUmJ7eAKqfd35iWF/gkz8QfrvC704qs/2gYq
-         M1aL35xMD2GtbczZtM11b/9Yjv7rdkJOCFOIAuuLnL7SWo7omAnIf3z7bhh8SEpxKtl2
-         yPWQ==
+        bh=gPPjd3s39nBr3krlLS6DkSRw+C8geW511O7IiYKzB+A=;
+        b=hl0TsB4ekcrXthLDiGWybMYsJmxx9Rry/4K5s5u33zDDeM9ySjwOZgMpQaQsFivb1M
+         AkdUH+pavnruXfsFUghwlHuoVD94fT5a1087em/6YFChVTG1XH2j3W1iQ5ze3lWUi2JJ
+         ZGusZYJuCSdZ2s8evhX+XcGwNplPb/4elkqcwNlAoNsFNQMPHU//huavReMSk55HqAcI
+         iIkCQcEv3d2lJqNY7ouX8QzegW62BezuQ8QYs8fr9gG1JXwXjg3+gK/Wl7XJQFZ4cqcL
+         41iqTH5UQAu8mB0Kv8Lm/doL/Z8vaJaxtsksz42vXg8Ns0AmgFCoxL8Pc7Xeh4EqxUUO
+         P/Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734888496; x=1735493296;
+        d=1e100.net; s=20230601; t=1734888789; x=1735493589;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Yu601tyY4epLjb/tQTUlTVuTNbfmOtzSi3U6eJFzPzo=;
-        b=kj9OIrqTMl8OQ7/OzEZSJ3mgCC8VA+ktAKAHvIfqNWhEAbviWOjav3rdrUH1wgBzi/
-         4/4cnI75UkvC0skXtYC9iKbwkO12fBMZZnsDWVyEgwrdSyNUbczkRpX3QRW77fCAbuLX
-         YpQzTL8BcefnEvQcBqlBf76e4R+ug+pvCtkeUBwJVDWL7LRjPWV8W/n7QfYx6KaR4NuH
-         759jyyKcs/wWimiLrueGjBKBcsaGoqGuXbOzSwIC3nGtGMIEObtUzPUDuarnxJ7CrIFB
-         /3kepflFF7KN4fN8jfuooZ8B8jrgfJ4WUrzddUs9MFNAX6lmu38kmFfMo+4CLmTXsla3
-         uU3g==
-X-Forwarded-Encrypted: i=1; AJvYcCW8DSEq7Ofek4enFWWQjFmTubny3ySoRX/Wd8Lm7+D5gQtVlp27rwOCpLHlsq4FSsQw1WrmHxbHWMt6+xF67txP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWenzTCKLG48gJM/Caa5eI0vVPxw2DFyU5LA71h7InjYqSWQaP
-	1eWn8bX8MjnlggleWdOcx9ivB2dsnYqtRwHBb33jaJ5QQjhtWHJtR+b+3gun
-X-Gm-Gg: ASbGncsRdqxGVNK9XsImrlwYmR4Y/OofRWZByIeKWd4O+QCiOvStlXwg1fZBPKFI6QF
-	rx1Br0/imqSI0xNMxj17tWxqI9vA63x//DSoKsGlS8f++1mwtrFHADF+JVOhdFZckRcBT8vMJnv
-	QQo2leswPMlNCh57He6fp6aHOFp6Wr56gXS1fTpEYVpLtml/T4wHZZpuvGKHnoCd8TH6Jv7N0o1
-	WN1CQq3EFJMe/VsBbcg5h0ndst5thrpr14cnlpjjDft2Yg8jvfCnBkcFQ==
-X-Google-Smtp-Source: AGHT+IH1Z39YXP8Pu3o3xRuuV9/Pd7ax39fhbC54Q7wq7X45elUygQIrzJo2YY5Botik9QCb/Tsx5A==
-X-Received: by 2002:a05:6a20:8428:b0:1d9:3957:8a14 with SMTP id adf61e73a8af0-1e5e04584ccmr16452790637.1.1734888495765;
-        Sun, 22 Dec 2024 09:28:15 -0800 (PST)
+        bh=gPPjd3s39nBr3krlLS6DkSRw+C8geW511O7IiYKzB+A=;
+        b=VB2qrmsYc2/tTpiSgcSyax8SH40a+YXgPKPjKUTeDC5NCAaS3/Ovvps4O5hunnSemc
+         snxc+hPqc7VD/wVQZY+In1DVgtEeBWyw+PnMwqIBxF48Fzjkrx73dZiG2BLZUE5fyLTF
+         57TkUe2Zf1ED8xQGOvI+kTjmgNDsI+GhDhczZzcYU7EKbNhhD3HhwE3JK4O29nBhk9BX
+         J1R64zXTlNn51R9rezaaeacXXV1Bs2J7dq9DvSfbe8lfF5Nbe9GygOzObhtkUjzuinaM
+         xorzzn1fkl1oeFuYrM5FjjJdQXu6TwjEjkyu9M4uxHCYETHENzvUig+6ceOB5ZeNQsnf
+         oL4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUuvpEkMmwxZ0vg5SVxcJ9lX6J6D0Z+q0RV64iOnhE1DvA0+Y2ooj6RHINCKJllal3MVgOI3+5shUBAsap8Ve5D@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpHVaRRShn84EBE9umd42hf46NBzt2W/h81b4l+J19JMcVQyAX
+	9X9hQfaZs4la1UKlD6flEdfBUnGZmpAemY7of9W6L6/Nfofp+2Yu
+X-Gm-Gg: ASbGncsXhiy9D9+mPdK84QE4YuHc+JxVlqVPMnTDEaP+3rn+w+Oe55MWyfBb7YL5kzO
+	KI45eMxog0eP0u8VWmfu73UHbLBfRQwR4wCoT07UyFyHuOOkCWc15rqMBB96xb85ivBkQsMFHuv
+	dsUq6PNNz2ef90CrduXky1KG009IAPZbJrj54l+/zKWixUOUQvpWeP7QindbEjRx/rBWTJJadn6
+	Gto1lEyMI4Wnq/H0YICG/8ab2gFtvIAyA/sy7dJoLMCzphGmCmVi/vFdA==
+X-Google-Smtp-Source: AGHT+IFZKtlmUdh5emhOPXWQQU+C9eJT7EuMyhwCWbhtjsp/XYx8q3zWVUTywWzBdiJQT20JGLxHTA==
+X-Received: by 2002:a17:90b:2e4a:b0:2ee:fa0c:cebc with SMTP id 98e67ed59e1d1-2f452e38d0emr15732309a91.20.1734888788739;
+        Sun, 22 Dec 2024 09:33:08 -0800 (PST)
 Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-72aad836192sm6585404b3a.68.2024.12.22.09.28.13
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-2f4477987f4sm7567552a91.2.2024.12.22.09.33.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 09:28:15 -0800 (PST)
+        Sun, 22 Dec 2024 09:33:07 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
 To: Hector Martin <marcan@marcan.st>,
 	Sven Peter <sven@svenpeter.dev>,
@@ -77,16 +77,18 @@ To: Hector Martin <marcan@marcan.st>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Cc: Nick Chan <towinchenmi@gmail.com>
-Subject: [PATCH v2] arm64: dts: apple: Split s8000/s8003 SoC DTS files
-Date: Mon, 23 Dec 2024 01:26:08 +0800
-Message-ID: <20241222172735.145764-1-towinchenmi@gmail.com>
+Cc: Nick Chan <towinchenmi@gmail.com>,
+	Aun-Ali Zaidi <admin@kodeit.net>
+Subject: [PATCH v3 0/2] Device Tree for Apple T2 (T8012) SoC devices
+Date: Mon, 23 Dec 2024 01:31:46 +0800
+Message-ID: <20241222173240.147675-1-towinchenmi@gmail.com>
 X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_092816_886511_EB15779C 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20241222_093309_703854_D376F86E 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,341 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Despite what the code comments said, the DTS files were not split properly.
-Since these two SoCs are now known to have minor differences like in
-latencies for cpufreq state transistions, split the DTS files now.
+This series adds device trees for the Apple T2 Security Chip found on
+some Intel Macs released after 2017. This SoC is based on Apple A10
+(T8010) SoC and, for many hardware blocks, can share the A10 compatibles.
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
+Changes since v2:
+- Drop PMGR nodes, moved to PMGR nodes for A7-A11, T2 SoC series.
+
+Link to v2: https://lore.kernel.org/asahi/20241203051147.110980-1-towinchenmi@gmail.com/T
+
 Changes since v1:
-- Drop PMGR nodes file rename. This is now the first patch and other series
-that modifies Apple A9 DTS files now depend on this series.
+- Use imperative mood in commit messages
 
-Link to v1: https://lore.kernel.org/asahi/20241206135051.56049-1-towinchenmi@gmail.com/T
+Link to v1: https://lore.kernel.org/asahi/20241201161942.36027-1-towinchenmi@gmail.com/T
 
-Nick Chan
+[1]: https://lore.kernel.org/asahi/20241203050640.109378-1-towinchenmi@gmail.com/T
 
- arch/arm64/boot/dts/apple/s800-0-3.dtsi | 140 ++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/s8000.dtsi    | 133 +---------------------
- arch/arm64/boot/dts/apple/s8003.dtsi    |  10 +-
- 3 files changed, 146 insertions(+), 137 deletions(-)
- create mode 100644 arch/arm64/boot/dts/apple/s800-0-3.dtsi
+Cc: Aun-Ali Zaidi <admin@kodeit.net>
+---
 
-diff --git a/arch/arm64/boot/dts/apple/s800-0-3.dtsi b/arch/arm64/boot/dts/apple/s800-0-3.dtsi
-new file mode 100644
-index 000000000000..082e5b1733d0
---- /dev/null
-+++ b/arch/arm64/boot/dts/apple/s800-0-3.dtsi
-@@ -0,0 +1,140 @@
-+// SPDX-License-Identifier: GPL-2.0+ OR MIT
-+/*
-+ * Apple S8000/S8003 "A9" SoC
-+ *
-+ * This file contains parts common to both variants of A9
-+ *
-+ * Copyright (c) 2022, Konrad Dybcio <konradybcio@kernel.org>
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/apple-aic.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pinctrl/apple.h>
-+
-+/ {
-+	interrupt-parent = <&aic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	clkref: clock-ref {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "clkref";
-+	};
-+
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "apple,twister";
-+			reg = <0x0 0x0>;
-+			cpu-release-addr = <0 0>; /* To be filled in by loader */
-+			enable-method = "spin-table";
-+			device_type = "cpu";
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "apple,twister";
-+			reg = <0x0 0x1>;
-+			cpu-release-addr = <0 0>; /* To be filled in by loader */
-+			enable-method = "spin-table";
-+			device_type = "cpu";
-+		};
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		nonposted-mmio;
-+		ranges;
-+
-+		serial0: serial@20a0c0000 {
-+			compatible = "apple,s5l-uart";
-+			reg = <0x2 0x0a0c0000 0x0 0x4000>;
-+			reg-io-width = <4>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 192 IRQ_TYPE_LEVEL_HIGH>;
-+			/* Use the bootloader-enabled clocks for now. */
-+			clocks = <&clkref>, <&clkref>;
-+			clock-names = "uart", "clk_uart_baud0";
-+			status = "disabled";
-+		};
-+
-+		aic: interrupt-controller@20e100000 {
-+			compatible = "apple,s8000-aic", "apple,aic";
-+			reg = <0x2 0x0e100000 0x0 0x100000>;
-+			#interrupt-cells = <3>;
-+			interrupt-controller;
-+		};
-+
-+		pinctrl_ap: pinctrl@20f100000 {
-+			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
-+			reg = <0x2 0x0f100000 0x0 0x100000>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&pinctrl_ap 0 0 208>;
-+			apple,npins = <208>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 42 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 43 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 44 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 45 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 46 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		pinctrl_aop: pinctrl@2100f0000 {
-+			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
-+			reg = <0x2 0x100f0000 0x0 0x100000>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&pinctrl_aop 0 0 42>;
-+			apple,npins = <42>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 113 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 114 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 115 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 116 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 117 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 118 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 119 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		wdt: watchdog@2102b0000 {
-+			compatible = "apple,s8000-wdt", "apple,wdt";
-+			reg = <0x2 0x102b0000 0x0 0x4000>;
-+			clocks = <&clkref>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 4 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupt-parent = <&aic>;
-+		interrupt-names = "phys", "virt";
-+		/* Note that A9 doesn't actually have a hypervisor (EL2 is not implemented). */
-+		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+};
-+
-+/*
-+ * The A9 was made by two separate fabs on two different process
-+ * nodes: Samsung made the S8000 (APL0898) on 14nm and TSMC made
-+ * the S8003 (APL1022) on 16nm. There are some minor differences
-+ * such as timing in cpufreq state transistions.
-+ */
-diff --git a/arch/arm64/boot/dts/apple/s8000.dtsi b/arch/arm64/boot/dts/apple/s8000.dtsi
-index 6e9046ea106c..c7e39abda7e1 100644
---- a/arch/arm64/boot/dts/apple/s8000.dtsi
-+++ b/arch/arm64/boot/dts/apple/s8000.dtsi
-@@ -7,138 +7,11 @@
-  * Copyright (c) 2022, Konrad Dybcio <konradybcio@kernel.org>
-  */
- 
--#include <dt-bindings/gpio/gpio.h>
--#include <dt-bindings/interrupt-controller/apple-aic.h>
--#include <dt-bindings/interrupt-controller/irq.h>
--#include <dt-bindings/pinctrl/apple.h>
--
--/ {
--	interrupt-parent = <&aic>;
--	#address-cells = <2>;
--	#size-cells = <2>;
--
--	clkref: clock-ref {
--		compatible = "fixed-clock";
--		#clock-cells = <0>;
--		clock-frequency = <24000000>;
--		clock-output-names = "clkref";
--	};
--
--	cpus {
--		#address-cells = <2>;
--		#size-cells = <0>;
--
--		cpu0: cpu@0 {
--			compatible = "apple,twister";
--			reg = <0x0 0x0>;
--			cpu-release-addr = <0 0>; /* To be filled in by loader */
--			enable-method = "spin-table";
--			device_type = "cpu";
--		};
--
--		cpu1: cpu@1 {
--			compatible = "apple,twister";
--			reg = <0x0 0x1>;
--			cpu-release-addr = <0 0>; /* To be filled in by loader */
--			enable-method = "spin-table";
--			device_type = "cpu";
--		};
--	};
--
--	soc {
--		compatible = "simple-bus";
--		#address-cells = <2>;
--		#size-cells = <2>;
--		nonposted-mmio;
--		ranges;
--
--		serial0: serial@20a0c0000 {
--			compatible = "apple,s5l-uart";
--			reg = <0x2 0x0a0c0000 0x0 0x4000>;
--			reg-io-width = <4>;
--			interrupt-parent = <&aic>;
--			interrupts = <AIC_IRQ 192 IRQ_TYPE_LEVEL_HIGH>;
--			/* Use the bootloader-enabled clocks for now. */
--			clocks = <&clkref>, <&clkref>;
--			clock-names = "uart", "clk_uart_baud0";
--			status = "disabled";
--		};
--
--		aic: interrupt-controller@20e100000 {
--			compatible = "apple,s8000-aic", "apple,aic";
--			reg = <0x2 0x0e100000 0x0 0x100000>;
--			#interrupt-cells = <3>;
--			interrupt-controller;
--		};
--
--		pinctrl_ap: pinctrl@20f100000 {
--			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
--			reg = <0x2 0x0f100000 0x0 0x100000>;
--
--			gpio-controller;
--			#gpio-cells = <2>;
--			gpio-ranges = <&pinctrl_ap 0 0 208>;
--			apple,npins = <208>;
--
--			interrupt-controller;
--			#interrupt-cells = <2>;
--			interrupt-parent = <&aic>;
--			interrupts = <AIC_IRQ 42 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 43 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 44 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 45 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 46 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
--		};
--
--		pinctrl_aop: pinctrl@2100f0000 {
--			compatible = "apple,s8000-pinctrl", "apple,pinctrl";
--			reg = <0x2 0x100f0000 0x0 0x100000>;
--
--			gpio-controller;
--			#gpio-cells = <2>;
--			gpio-ranges = <&pinctrl_aop 0 0 42>;
--			apple,npins = <42>;
--
--			interrupt-controller;
--			#interrupt-cells = <2>;
--			interrupt-parent = <&aic>;
--			interrupts = <AIC_IRQ 113 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 114 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 115 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 116 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 117 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 118 IRQ_TYPE_LEVEL_HIGH>,
--				     <AIC_IRQ 119 IRQ_TYPE_LEVEL_HIGH>;
--		};
--
--		wdt: watchdog@2102b0000 {
--			compatible = "apple,s8000-wdt", "apple,wdt";
--			reg = <0x2 0x102b0000 0x0 0x4000>;
--			clocks = <&clkref>;
--			interrupt-parent = <&aic>;
--			interrupts = <AIC_IRQ 4 IRQ_TYPE_LEVEL_HIGH>;
--		};
--	};
--
--	timer {
--		compatible = "arm,armv8-timer";
--		interrupt-parent = <&aic>;
--		interrupt-names = "phys", "virt";
--		/* Note that A9 doesn't actually have a hypervisor (EL2 is not implemented). */
--		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
--			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
--	};
--};
-+#include "s800-0-3.dtsi"
- 
- /*
-  * The A9 was made by two separate fabs on two different process
-  * nodes: Samsung made the S8000 (APL0898) on 14nm and TSMC made
-- * the S8003 (APL1022) on 16nm. While they are seemingly the same,
-- * they do have distinct part numbers and devices using them have
-- * distinct model names. There are currently no known differences
-- * between these as far as Linux is concerned, but let's keep things
-- * structured properly to make it easier to alter the behaviour of
-- * one of the chips if need be.
-+ * the S8003 (APL1022) on 16nm. There are some minor differences
-+ * such as timing in cpufreq state transistions.
-  */
-diff --git a/arch/arm64/boot/dts/apple/s8003.dtsi b/arch/arm64/boot/dts/apple/s8003.dtsi
-index 7e4ad4f7e499..807e3452f8a7 100644
---- a/arch/arm64/boot/dts/apple/s8003.dtsi
-+++ b/arch/arm64/boot/dts/apple/s8003.dtsi
-@@ -7,15 +7,11 @@
-  * Copyright (c) 2022, Konrad Dybcio <konradybcio@kernel.org>
-  */
- 
--#include "s8000.dtsi"
-+#include "s800-0-3.dtsi"
- 
- /*
-  * The A9 was made by two separate fabs on two different process
-  * nodes: Samsung made the S8000 (APL0898) on 14nm and TSMC made
-- * the S8003 (APL1022) on 16nm. While they are seemingly the same,
-- * they do have distinct part numbers and devices using them have
-- * distinct model names. There are currently no known differences
-- * between these as far as Linux is concerned, but let's keep things
-- * structured properly to make it easier to alter the behaviour of
-- * one of the chips if need be.
-+ * the S8003 (APL1022) on 16nm. There are some minor differences
-+ * such as timing in cpufreq state transistions.
-  */
+Nick Chan (2):
+  dt-bindings: arm: apple: Add T2 devices
+  arm64: dts: apple: Add T2 devices
+
+ .../devicetree/bindings/arm/apple.yaml        |  41 ++++
+ arch/arm64/boot/dts/apple/Makefile            |  16 ++
+ arch/arm64/boot/dts/apple/t8012-j132.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j137.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j140a.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j140k.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j152f.dts     |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j160.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j174.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j185.dts      |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j185f.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j213.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j214k.dts     |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j215.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j223.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j230k.dts     |  14 ++
+ arch/arm64/boot/dts/apple/t8012-j680.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-j780.dts      |  15 ++
+ arch/arm64/boot/dts/apple/t8012-jxxx.dtsi     |  44 +++++
+ arch/arm64/boot/dts/apple/t8012-touchbar.dtsi |  19 ++
+ arch/arm64/boot/dts/apple/t8012.dtsi          | 176 ++++++++++++++++++
+ 21 files changed, 527 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j132.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j137.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j140a.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j140k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j152f.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j160.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j174.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j185.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j185f.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j213.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j214k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j215.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j223.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j230k.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j680.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-j780.dts
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-jxxx.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012-touchbar.dtsi
+ create mode 100644 arch/arm64/boot/dts/apple/t8012.dtsi
+
 
 base-commit: 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
 -- 
