@@ -4,108 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5774E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 21:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBA6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 23:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=360wG8yLe4tWjbNpiUFYMyVJ9AzyCTGtU8xrSTR8xcY=; b=U86mZ54Sk01ekvfk9DIrRxSv0B
-	4QdpsiXYVkSjud4FWowK8FhNXNSDWO4vTuJn0NPdMCqw5EA1zKuC13ouLE5K5PPoPb3kSmP70bVFh
-	ri96g16cnd00w39wdhUotArKdE5g8KlCmjb0BZY1GdsBVKehgYL2Jam/gqbrbeAz23L2sjoajdhzT
-	x2g6omyhevaZCfifj5QIL5VZv3TVypnw+C1AfLnucemk62/SyHspV8NRUHP3kc7iNi3G2Li1M+hqH
-	w5AtXCIomHFcNqZpxv2XZqTv3ua5th3GF5C64xUEQP6t/wn6oF5rSApEayYr94FeQIGYyN59pTP8z
-	LrPT7Rtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DMuwLd2Ta6DDLuN1PSqd6OKV1VtwaFM23MNkJJMqke8=; b=b3Lnv1Tsd5bfdRjWLyA4gcRKjx
+	yt7gmQJPg8zcUJyZ6oW36vHqV9nw/DODORH+xRy+0Rf6c0CAaSoQdzy61/PrkKdMARbRZVJufucQw
+	pnQjklYs45N7AVWFExR8dximqJ5+aHwPCkZ8JtefWo7BXljXAke7zlMDM8jKviJVpoCtZe5M4bR2d
+	oCJMuQDkiFopcdN1Iy7BddNPbUsg7iNouOWY4RvL+NQph8xYNtARwxOjLPfmi5NKdoLHOZ/Q8j1I1
+	TFQQgxtjaIoaLyIIlYOe24ZT39oLPSmxWteJJyw4jaezJymzh515KvrizA/548eImPgyHeMvtVQy9
+	4GsXSXZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPTRd-00000008rPt-4516;
-	Sun, 22 Dec 2024 21:25:01 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1tPVCn-00000008xNS-0jh9;
+	Sun, 22 Dec 2024 23:17:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPTQS-00000008rLD-2Lki
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 22 Dec 2024 21:23:49 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 69CD21140138;
-	Sun, 22 Dec 2024 16:23:47 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-04.internal (MEProxy); Sun, 22 Dec 2024 16:23:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1734902627; x=1734989027; bh=360wG8yLe4tWjbNpiUFYMyVJ9AzyCTGt
-	U8xrSTR8xcY=; b=QhFatHfznEgV3fSaqD6hA0gkLh96yk91mWff20gxvUiXPLsn
-	x9ycXWKNKbhwn+qcYPIuGcREHaqhtY25dzxaHQWWAyLb+O7meZtRPTh8df/J52CF
-	2gjgFJPqME5h2vcRlbUI/Z9lk+4xtjDEZhfccEIZoOI4UIA4fVFkVHKgVlhqSySp
-	RrwtNRmd4am2/zla2I7KwsHJ/tQV0F2Itcwdqvrm18P2dkZcPx1DzWfJXc2r/b28
-	b5vBCdYtJLaXVvxiAiNanzBlF+LKBv9nnN4o3ElRX5E7BHJQs2lrZXsUVvUt7ACW
-	lks77DrYD0cE6dykzTsVZXRi0aLYJL897aH7cA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1734902627; x=
-	1734989027; bh=360wG8yLe4tWjbNpiUFYMyVJ9AzyCTGtU8xrSTR8xcY=; b=s
-	IXvwhNcgICYheYdYbSAyBmnTZTpHnttkVgaMfR1KDyaF5zztGR9w24B8TpmWbL6g
-	CNiPIlG5lduA7+NpOZ+CanruWSrVagi5KGPJrOlXQnb/oi6J4GQh46kIQIyrJPLY
-	bkNUBYpSaZTI0tJapG5RCkcI0PrK7wYGXQvkFZjroY+TV+tfzMNJ9ddci1cYptD1
-	9N0wzggEYN3T4xBn74pwyjoSCVHP2SltWl/WdfK8VTPOi4gHL95qnDdq1Aca/m/t
-	GOcdr8O0rJRDP8kvMGGVaDds/02g07naTUKxMbW7Rstnm1jJ1O4EdeFB5Cn2YhAA
-	fTE8ITmqGN5WwfZJm/1Iw==
-X-ME-Sender: <xms:YoNoZ3b7BPxOcomS74ZvhUL-xSi_t-0VLcq3CmVY__AQR5XSA-vEpA>
-    <xme:YoNoZ2YxyTTQzmG5m3NwAcQmo-yW2g7m7Y2tCS5Ve8p_oJxcw2kL807bp409ACum3
-    dP_WXEIy4yaKCwV3A>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddruddtkedgudegjecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
-    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeejhfeukeejjefguddvffehveevjefh
-    tddutdfhudduvdevfeejfffgvdelfeeugfenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
-    pghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopeifvghnsh
-    estghsihgvrdhorhhgpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgr
-    ihhlrdgtohhmpdhrtghpthhtoheplhhgihhrugifohhougesghhmrghilhdrtghomhdprh
-    gtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghilhdrtghomhdprhgtphhtthho
-    pehmrggtrhhomhhorhhgrghnsehhohhtmhgrihhlrdgtohhmpdhrtghpthhtohepsghroh
-    honhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgv
-    rhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinh
-    hugidqshhunhigiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehpvghr
-    vgigsehpvghrvgigrdgtii
-X-ME-Proxy: <xmx:YoNoZ58EdDFXg4bdLiJU-GuGUGcv4J0sXDqj9DC1lqL6MR7VQIEebg>
-    <xmx:YoNoZ9o9BLRdYNDHKOMPKGx-TO4kP-igDVtXOEBMGnGaA8QUEOrKAQ>
-    <xmx:YoNoZyr2m8L6N8JSUVB0LkCOPaEPiTxr2wAbparg7TxLYSOtB6ZTHw>
-    <xmx:YoNoZzQoMNeCouX9hYVoEwHTmjgGnHyJ8cB9Zf-yh-3QBWr-TgZW9A>
-    <xmx:Y4NoZ4imCsQYY7E9Oza0H3wcr4XbmCHibE2_MsY5VGC6nd9wLcAr4Oa3>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C6449BA006F; Sun, 22 Dec 2024 16:23:46 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Mon, 23 Dec 2024 10:23:25 +1300
-From: "Ryan Walklin" <ryan@testtoast.com>
-To: "Chris Morgan" <macroalpha82@gmail.com>
-Cc: "Liam Girdwood" <lgirdwood@gmail.com>, "Mark Brown" <broonie@kernel.org>,
- "Jaroslav Kysela" <perex@perex.cz>, "Takashi Iwai" <tiwai@suse.com>,
- "Chen-Yu Tsai" <wens@csie.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- devicetree@vger.kernel.org, "Chris Morgan" <macromorgan@hotmail.com>
-Message-Id: <c64563ac-ef6e-4d87-a634-9a5edde86a53@app.fastmail.com>
-In-Reply-To: <6768438d.4a0a0220.399c57.89b6@mx.google.com>
-References: <20241221094122.27325-1-ryan@testtoast.com>
- <20241221094122.27325-2-ryan@testtoast.com>
- <6768438d.4a0a0220.399c57.89b6@mx.google.com>
-Subject: Re: [PATCH 1/3] ASoC: dt-bindings: sun4i-a10-codec: add hp-det-gpios
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	id 1tPVBb-00000008xKZ-2QdD;
+	Sun, 22 Dec 2024 23:16:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF3995C544C;
+	Sun, 22 Dec 2024 23:15:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59779C4CECD;
+	Sun, 22 Dec 2024 23:16:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734909393;
+	bh=sPExyfB5xDKjo6+h/9m7CJfp/uLSnGqHu8pchYo7G5U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=naNCs+EuFAAcALfm760+rvgwFrB97BCO1EEIuTqdvBQYxdpX1QlUc1wbjNd15qTwO
+	 glBx7TpMrYqx/u7gZowjCzKV9BJAAHA4j3BXwuoOkd9CFkK2PnC3rEsygbab1UMgZw
+	 T0Ibarav9ZcPF0itvvs9q4NCZOfO5RWiGoS66uYzz+E+70wSdKtg7DCqFxNBz47f7v
+	 EqieAlVspcYmKYT+JJ1nY+Jqq4FKQjI1yNGg8tbMh/KQTbfKDYh8TiC+3yy9Wg9gpt
+	 Ke4Zs+mpI3BPWR8LdZVcI9VZ1CUOXLMrHIObG6soTJ0ZESXTsSt8MtYCsvAuLgbF+d
+	 sUAYa3ylCDU1Q==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tPVBW-006FHJ-Me;
+	Sun, 22 Dec 2024 23:16:30 +0000
+Date: Sun, 22 Dec 2024 23:16:30 +0000
+Message-ID: <8734ifs3zl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: FUKAUMI Naoki <naoki@radxa.com>,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tglx@linutronix.de,
+	jonas@kwiboo.se,
+	macromorgan@hotmail.com,
+	andyshrk@163.com,
+	liujianfeng1994@gmail.com,
+	dmt.yashin@gmail.com,
+	tim@feathertop.org,
+	marcin.juszkiewicz@linaro.org,
+	michael.riesch@wolfvision.net,
+	alchark@gmail.com,
+	sebastian.reichel@collabora.com,
+	jbx6244@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/3] irqchip/gic-v3: Enable Rockchip 3588001 erratum workaround for RK3582
+In-Reply-To: <f93b3bfb5151e4b617b1c99c91b4956f@manjaro.org>
+References: <20241222030355.2246-1-naoki@radxa.com>
+	<20241222030355.2246-2-naoki@radxa.com>
+	<86msgoozqa.wl-maz@kernel.org>
+	<f93b3bfb5151e4b617b1c99c91b4956f@manjaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: dsimic@manjaro.org, naoki@radxa.com, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com, tim@feathertop.org, marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net, alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_132348_697648_E58AB8E5 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20241222_151635_714574_1D6FF185 
+X-CRM114-Status: GOOD (  33.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +103,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Dec 2024, at 5:51 AM, Chris Morgan wrote:
-> On Sat, Dec 21, 2024 at 10:26:32PM +1300, Ryan Walklin wrote:
->>  
->> +  allwinner,hp-det-gpios:
->> +    maxItems: 1
->> +    description: GPIO for headphone/line-out detection
->> +
+Dragan,
+
+On Sun, 22 Dec 2024 18:25:02 +0000,
+Dragan Simic <dsimic@manjaro.org> wrote:
+> 
+> Hello Marc,
+> 
+> On 2024-12-22 10:04, Marc Zyngier wrote:
+> > On Sun, 22 Dec 2024 03:03:53 +0000,
+> > FUKAUMI Naoki <naoki@radxa.com> wrote:
+> >> 
+> >> Rockchip RK3582 is a scaled down version of Rockchip RK3588(S). Apply
+> >> Rockchip 3588001 erratum workaround to RK3582.
+> >> 
+> >> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
+> >> ---
+> >>  drivers/irqchip/irq-gic-v3-its.c | 3 ++-
+> >>  1 file changed, 2 insertions(+), 1 deletion(-)
+> >> 
+> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c
+> >> b/drivers/irqchip/irq-gic-v3-its.c
+> >> index 92244cfa0464..c59ce9332dc0 100644
+> >> --- a/drivers/irqchip/irq-gic-v3-its.c
+> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> >> @@ -4861,7 +4861,8 @@ static bool __maybe_unused
+> >> its_enable_rk3588001(void *data)
+> >>  {
+> >>  	struct its_node *its = data;
+> >> 
+> >> -	if (!of_machine_is_compatible("rockchip,rk3588") &&
+> >> +	if (!of_machine_is_compatible("rockchip,rk3582") &&
+> >> +	    !of_machine_is_compatible("rockchip,rk3588") &&
+> >>  	    !of_machine_is_compatible("rockchip,rk3588s"))
+> >>  		return false;
+> >> 
+> > 
+> > Please use the relevant property for that purpose ("dma-noncoherent")
+> > at the distributor and ITS levels. We're not adding extra compatibles
+> > for this anymore, and you might as well fix the core dtsi to expose
+> > such property.
+> 
+> Thanks for your response.
+> 
+> After a more detailed look into drivers/irqchip/irq-gic-v3-its.c,
+> it seems that relying on the "dma-noncoherent" DT property may not
+> be equivalent to adding another compatible check.
+
+It is. My email makes it plain what needs doing.
+
+> Here are a few
+> quotations from irq-gic-v3-its.c, to illustrate this better:
+> 
+> 4746 static bool __maybe_unused its_enable_rk3588001(void *data)
+> 4747 {
+> 4748         struct its_node *its = data;
+> 4749
+> 4750         if (!of_machine_is_compatible("rockchip,rk3588") &&
+> 4751             !of_machine_is_compatible("rockchip,rk3588s"))
+> 4752                 return false;
+> 4753
+> 4754         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
+> 4755         gic_rdists->flags |= RDIST_FLAGS_FORCE_NON_SHAREABLE;
+> 4756
+> 4757         return true;
+> 4758 }
+> 4759
+> 4760 static bool its_set_non_coherent(void *data)
+> 4761 {
+> 4762         struct its_node *its = data;
+> 4763
+> 4764         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
+> 4765         return true;
+> 4766 }
+> 
+> 4814 #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+> 4815         {
+> 4816                 .desc   = "ITS: Rockchip erratum RK3588001",
+> 4817                 .iidr   = 0x0201743b,
+> 4818                 .mask   = 0xffffffff,
+> 4819                 .init   = its_enable_rk3588001,
+> 4820         },
+> 4821 #endif
+> 4822         {
+> 4823                 .desc   = "ITS: non-coherent attribute",
+> 4824                 .property = "dma-noncoherent",
+> 4825                 .init   = its_set_non_coherent,
+> 4826         },
+
+Nothing tickles me more than having my own work being thrown back at
+me.
+
+> 
+> As visible above, using the "dma-noncoherent" DT property results
+> in not setting the RDIST_FLAGS_FORCE_NON_SHAREABLE flag, which the
+> its_enable_rk3588001() function does.  In other words, it doesn't
+> seem that "dma-noncoherent" is a "drop-in" replacement for adding
+> yet another compatible for the RK3582.
+
+You clearly haven't read what I wrote. Or rather, you read what you
+wanted to read, and ignored half of it.
+
 >
-> If possible, I wonder if we can keep this without the vendor prefix?
-> It looks like for now Nvidia and some Rockchip codecs have the vendor
-> prefix, but audio-graph bindings and Freescale codec bindings have this
-> as a non-specific property (and it looks like simple-audio-card does it
-> either as "hp-det-gpios" or "simple-audio-card,hp-det-gpios" depending
-> upon the circumstances).
+> Modifying the current behavior of the "dma-noncoherent" DT property
+> doesn't seem like an option, because it's already used in a couple
+> of board dts(i) files.  Should we introduce another DT property,
+> perhaps "dma-noncoherent-rdist" or something similar?
 
-I'm relaxed about either approach, it does work with the vendor prefix but agree just "hp-det-gpios" is probably appropriate given the intent is the same across vendors and devices.
+No. We have everything we need. Believe it or not, I actually know
+what I'm talking about. I know, this is surprising. I surprise myself
+sometimes.
 
-> Also, the behavior of this is very specific to just the Headphone sink,
-> so we should drop the line-out text from the description. If someone
-> sets the routing as `"Headphone", "LINEOUT"` the state of the GPIO will
-> affect the audio path, but `"Line Out", "LINEOUT"` will not be impacted
-> by the state of the GPIO.
+> Could you, please, advise on how to move forward with this?  I'm
 
-Agreed for this device, but this is a more generic description for the H616 generally, so I'm not sure we should remove the "Line Out" given that it may make sense for other H616 boards (Orange Pi etc) where someone may be using a 3.5mm jack as a line-level output rather than via an amp to headphones.
+I already have.
 
->
-> Thank you,
-> Chris
->
-Regards,
+> willing to implement the required patches, but I'd prefer to reduce
+> the possible back-and-forth on them, to save everyone's time.
 
-Ryan
+May I suggest that you read my email again? How about grepping through
+the upstream DT collection and (shock, horror) look at the imx95.dtsi
+file, which suffers from the same braindead behaviour as the RK stuff?
+
+For clarity, let me paste it here again, and add some emphasis for
+extra clarity:
+
+> > Please use the relevant property for that purpose ("dma-noncoherent")
+> > at the distributor and ITS levels. We're not adding extra compatibles
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now, please go look at the code for real this time, appreciate how the
+"dma-noncoherent" property placed at the distributor *AND* ITS levels
+combine to give you the effects the hardware requires.
+
+To sum it up: the standard properties and the Rockchip hacks are
+strictly equivalent, there is no need for anything extra, and I stand
+by my NAK on this very patch.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
