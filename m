@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE19E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A9FE7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 22 Dec 2024 14:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5fv2CUS7ZbxpkqmLJHrcp6kZwBl6Wt3zoIFWY+Ye6cE=; b=26S5uIy8cLJbrvWNzX/Nm7feDN
-	2qNsfjm3u+LPTI/Q4Sq7mEh62Fl77x3MH5DiyPhGEMSU5wylXIrLu7BdZ4KUYvwj7iNOexIl0vuF8
-	wBMcB/3ktijDQwL/zxwtcEFKszKXznn5tbkmdH9WAn1TlFgfzxqPTpUOXgBwm3IFTkoIXSWjp/J+1
-	1NzE0qfFivAt0MHxKMYL0geq09f/0OJfkfzQk43Zp90sVld0bb8IK4UvmZyFXZP7dqlC5KnKzwH6s
-	jHNrliX29QGYfIpUq4fUYMEwkPsqZOE2QbXQmfwp1hzQhOCHzMmr6kgkzHNxfugcRwHM4qUWmQQck
-	Kh6Twi5w==;
+	bh=8qtqb2q9SZdIxrsGX5zFz/zmOaa7ahdn4J/z+KWdZJM=; b=0jvF/k/n4bLBjMNsCap0dC+RYz
+	pVxtfF4WOmmwiEsblxrgOYFTCFlzOZNOW+30ae2HQZ83BVC0f9oMOCYcRxU/s7RTRmG7ujgJ3j+i8
+	08RZf7+MSJSXMlZmUlVc2srlqASQrrmWj593X40zrtVVVy7MF/a2LoDq4gEHMoWHrSsBOGmd3Cnu3
+	a9WUmAL59KDeMGwyzogyqrMDMeWBfzermCPI4oGT+vLDnv2ny9FF0jld945h+TsTvHZKWQM0EfEBB
+	e/OB4Dd577L829mHvQ8nUF+GAK6G4la/FldWGUh9HRGnyzqjFEX4qKdNZ5fPNnqc++eVE73f/kw1m
+	02pEeQZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPN2T-00000008OSz-39rg;
-	Sun, 22 Dec 2024 14:34:37 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tPN3d-00000008Oeb-27cu;
+	Sun, 22 Dec 2024 14:35:50 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPMuH-00000008NTA-1cYs
+	id 1tPMuI-00000008NTf-3ADw
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 22 Dec 2024 14:26:12 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa680fafb3eso53589466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 06:26:08 -0800 (PST)
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aa6647a7556so72280366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 06:26:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734877567; x=1735482367; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734877569; x=1735482369; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5fv2CUS7ZbxpkqmLJHrcp6kZwBl6Wt3zoIFWY+Ye6cE=;
-        b=L19veCqHwH9XWjpjZT4SxmEafLFlKk+b3cWLFdpNQPngQAdrXs2FJShbevlBUiNA9V
-         e2vXdiRX165E7VgYi9WqBnZVTil0coC/PO2NIZoWsJot+9HO2q76cAop2ixQSEPm1d11
-         mipt1Fg+fCeP16tHFwqD/5LPJinCcrBrhiwWJoDVvKpfAvflkJBdMaSJ1eYnN4XzSrks
-         zkW8ZGwCjwKg0PMpeXRtA+knKfBx6yvNv3he4Nd9AoEZGZJmoCrsEE1e58qYcgEDWOJu
-         /XnyLXtxg5AQYNZlmEZU0ImC2u7tde9N0i2mjo+brLUZh/qSh9YiD+GUydUXwueybf/z
-         0eJg==
+        bh=8qtqb2q9SZdIxrsGX5zFz/zmOaa7ahdn4J/z+KWdZJM=;
+        b=Oq9fyimubT4Cqo0xPbuh/3aR9rY9Ty+Qk9ye/ok+jE2oq9BmlE8glBLn4lZDFXvOfh
+         W7muHa07ZBEwxj+TJfw4eOGrmAgYkPuoXAFjNpd2Le18QjjP2mVxQNnMddQp1gR06Qen
+         k4GKP3qSv1fAm2VI1+9YU/N6JQ2F741C2D/l7gembZWJ5qm+7uaqx1JQrDoo8pd5ZEeK
+         cckZ702tRr/uv6u7X2YqZbyclTAMeLijCT1gtv2gWGTJIEFCkyHtHKvHDcKQpazo2wVg
+         2peQQ5pj8nQrJg6kMZ/sfbIa6/eO5+b3Y30ZQ5Fa4NDF7bz7Bcr2r3v4UeRzL25opFsK
+         KAsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734877567; x=1735482367;
+        d=1e100.net; s=20230601; t=1734877569; x=1735482369;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5fv2CUS7ZbxpkqmLJHrcp6kZwBl6Wt3zoIFWY+Ye6cE=;
-        b=tCM8cV/EI1KcBxl2qOFhh2w/+BWxtr3R24NPb5hC8MYq+JALpxHHz7nix7UCj69u1k
-         d9a8zcQNu/7Lm5Kiecx+74GgpLZf3bM+UPhCMnC60EN4U1TL/5J1j0g8M+dwII9OwtVg
-         7FXzcj/VQTjGnEYXG/2eJ7MRrdkkUMsVwERAHcIodmY4Bw7FAKNa7DuX0seDSMawPndG
-         iNTIGqsSQ/9fqqZ6FlHOIyq1t6b100BFtpLfxM1PCS+Mm50aXPu8c+oYit5MVfSClj8A
-         77OrLB/s7GFhstqyAnWSMPPhDhJrK3wls4njIAcTo+SW/DgGXxlWWwM92W3Xa+o4QRDU
-         aqxg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1wIubszyLorR6ULYQinXByBFZeRqG5eeVet/lrwJemKYtF+7+uZiofzjzaNcMe/TZFqlzkM8eaSv4VrU1iPsH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIjBwbyTKJjEbzKhFeVJlId01SWr7eQGjd6mlBO7gK4ckWROgx
-	6yFzDq2PHplAzEb206Jzoj7idv2KLze+cVP4j4oTjRnn76hgbx0GwHRVesrAth0=
-X-Gm-Gg: ASbGncvFOX0uNsldIDN5dOnnwXgR7lznoBoTednEK1CdzhbrePihrvsggReYsDLMZya
-	I1W07NKpZv+Rvdzft6RsU2nmtGzRZj9963UVqJF2NduaoGwI6qrxlhPsFOmRka29zAbyMo7po0f
-	lTR08dcO7uvr+JGkndJrag/BoJcNjme93RNLM3Xhwq0FPXC/Cu+5u1iYcMMfH/pnlUjHTh2ioQu
-	l0+XVIvq+ATCveray77l6vufeVQpO0Uk/hv6iX3DDj349fHhWNkfY3/nNmFcWFEGR+tQZqjljSv
-	5wV3zkQDLAsgfhTQt+Q9lRIcdtRldzM=
-X-Google-Smtp-Source: AGHT+IF6cnIbn11yHwZazziFYqCjkPi3z318Kw+gMS01o7Ckh/xs17Fg9qz8u39nDgfnBnEA00iHqQ==
-X-Received: by 2002:a17:907:6d1f:b0:aa5:a60:ad6a with SMTP id a640c23a62f3a-aac2d4472c8mr325314866b.8.1734877567625;
-        Sun, 22 Dec 2024 06:26:07 -0800 (PST)
+        bh=8qtqb2q9SZdIxrsGX5zFz/zmOaa7ahdn4J/z+KWdZJM=;
+        b=RaAiFLR1NR8LI5bp7y65DxDnQap9t1lOyyM4vi/Rqi8d6h7B9EWnUjT2BCNt9+VSaP
+         h25m4nOo3y8LSmGyhoUB8LPKqw/141rNj6Zh6/oUfNaBBbDOYB8y6q/uTk1GO69TqGqS
+         OdUwldO7CHtpmCGqkvo9TYIuaRBywdcmOUU2DbdZDLa5lcX3sohzZIrE//x8Ttp+91+Q
+         AtJ+cjbCVcAPEiK2VTjLnXzIuORbfbmOv9YkbeRXGp8mb0exLcd3YKYayZhhB25IGBG1
+         hNHuhoZMBdaWYd0hqu2VGkOlXZXCvHbseIaaJZp1+QXOQmTcEQL+myRKRXLdQEsuRhNO
+         /T+A==
+X-Forwarded-Encrypted: i=1; AJvYcCWeAEARb6jKrNc6+Hwn4zcJXAoGQNDAL1eKbqXS0+Wx830xUX4Ppz89MzC1tlqo9K/S3I+U4azvOs/UGS9gJIbr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbjPGNm4qR2OmQ5dwAFqKQ3K1wNYB9/fjDCplvz4FCq0D99pN9
+	N1pDC2Is1OfUyAnocCEMvbWMbQ9xW3NhscIgL4DRzemFqD5DDYKShoek+QM/Zl8=
+X-Gm-Gg: ASbGnctKzHu+kF/Fu3obk3d4DLgF2l2mJtWnkSJXiSvuio2Q6k4nzeUzU90z1mkcwSj
+	0ROXQ9QycRL8PgYjMiFxER8W/7z4Vh0TKoHDoKa/z97ZJqVYOK4fEu8TfAwH/AlPzSvRbQ1jIuR
+	tbm+rCqD2+vHQjaAFD8EreB6/SNxHRJTS7DSUf3adAHgHe1JYXHtiI87R7UOD+B5c/eFWG1ptHm
+	zl1muFvTOxqTiViw6LkpZCZpIprf2G+/l4G8D7Zs48C/IouXGJT9jYJrLpN2rUnnaaBpw+3Go4g
+	NJqSYd7glDhsQ4uS0KSLgzKgOnVeJPg=
+X-Google-Smtp-Source: AGHT+IGJEflLR7LUL0jWhIG8if351byh4oOU18ryBTE4nHXQMghZCSJJMazHqwq4sLeRDspVGmm4qg==
+X-Received: by 2002:a17:907:3faa:b0:aac:619:6411 with SMTP id a640c23a62f3a-aac3352c94amr296886666b.11.1734877569000;
+        Sun, 22 Dec 2024 06:26:09 -0800 (PST)
 Received: from [127.0.1.1] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e82f577sm392716066b.18.2024.12.22.06.26.05
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e82f577sm392716066b.18.2024.12.22.06.26.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 06:26:06 -0800 (PST)
+        Sun, 22 Dec 2024 06:26:08 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Umer Uddin <umer.uddin@mentallysanemainliners.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- igor.belwon@mentallysanemainliners.org
-In-Reply-To: <20241214115855.49138-2-umer.uddin@mentallysanemainliners.org>
-References: <20241214115855.49138-1-umer.uddin@mentallysanemainliners.org>
- <20241214115855.49138-2-umer.uddin@mentallysanemainliners.org>
-Subject: Re: [PATCH v1 1/1] arm64: dts: exynos990: Add a PMU node for the
- third cluster
-Message-Id: <173487756559.3738.15589488923856918285.b4-ty@linaro.org>
-Date: Sun, 22 Dec 2024 15:26:05 +0100
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Sam Protsenko <semen.protsenko@linaro.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20241211033027.12985-1-semen.protsenko@linaro.org>
+References: <20241211033027.12985-1-semen.protsenko@linaro.org>
+Subject: Re: [PATCH] arm64: dts: exynos: Specify reserved secure memory
+ explicitly
+Message-Id: <173487756773.3738.7711760267747537170.b4-ty@linaro.org>
+Date: Sun, 22 Dec 2024 15:26:07 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_062609_472756_A6EB7C20 
-X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-CacheID: sfid-20241222_062610_804556_C0802E5E 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,16 +104,21 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 14 Dec 2024 11:58:55 +0000, Umer Uddin wrote:
-> Since we have a PMU compatiable for Samsung's Mongoose cores now, drop
-> the comment that explains the lack of it and define the node.
+On Tue, 10 Dec 2024 21:30:27 -0600, Sam Protsenko wrote:
+> Instead of carving out the secure area in 'memory' node, let's describe
+> it in 'reserved-memory'. That makes it easier to understand both RAM
+> regions and particular secure world memory region. Originally the device
+> tree was created in a way to make sure it was well aligned with the way
+> LittleKernel bootloader modified it. But later it was found the
+> LittleKernel works fine with properly described reserved regions, so
+> it's possible now to define those in a cleaner way.
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: exynos990: Add a PMU node for the third cluster
-      https://git.kernel.org/krzk/linux/c/86c0d7f230fe71952cddac9905e4c090e09ecf3c
+[1/1] arm64: dts: exynos: Specify reserved secure memory explicitly
+      https://git.kernel.org/krzk/linux/c/11fd6c9b047c30c72dcea3f79c0acb7deb69c822
 
 Best regards,
 -- 
