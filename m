@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF73DE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 02:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F4BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 02:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOnYduIPidHN4q1NxdzXcanIW9dcGY5ZZeJ/6KuPgGo=; b=yXyquYpjPhghMxuCxuGr4QzA7q
-	YpURl0bssfuJL/H4iJsNd4MdAgVQIyskFxLrvwYHte9hx4PytP1NkVFikhv+S85ycC9vDVxnhM+Sf
-	L98n1DsMhly+jtmmtRaNd6aZEe4eFU/eQZilmEl2aYr99Hco1AC9LKhDNw/KJfQNFLSvECoxk3Off
-	ytRTIsjXZFzx5RcAfqeXTyhIvHqAhNBS4ZXdlJFRpaUqumnnU9e2oLjD9xnUYmJK7YAg5xUbxuRS2
-	yntI9jm8rW5erSi3RlG1r+P6/+wANGyfKUdW84PIcvzFPm/2phmYOUgUpBA6p72S5ZIo8rzUX9zRc
-	2vYjPQAQ==;
+	bh=mzTaQw0I4DCqNdV3XbT1uU84Y8+BcPXmBxbBNcSW7I0=; b=HMkwtp4XGZhnc4rP0zYy/OuIVP
+	XCt2vJ0eis9c/332vGxQ+nQuYQzggf9CMSzzJ2vDLwd+1lwokErIoKsrdJKp9id/Fc/a3jJK//Gg6
+	WMLalxqrlvwwfH4Nbnb/RIneNpzcnJ5904n4orLCDtmQjjaBgn3nEAdsiLfCOErG0+UTiC8Ocoh55
+	t6106Q4JXz/3qaCg48GPBDkZK1PT9KrENhxKNwC2CMscaAoPTpdraeUVDGQzn3hMWLI8KmKgwmfE2
+	fVVwbmjjtswF1CwkOpU9gCYK+bBOAYWfb60G92A27phPMXlb5uWZiKG6s9M9/yF4q4L9UoNbQiwPP
+	kjPrPrYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPY3A-000000099CG-2Cvm;
-	Mon, 23 Dec 2024 02:20:04 +0000
-Received: from smtpbg150.qq.com ([18.132.163.193])
+	id 1tPY87-000000099eu-0BqH;
+	Mon, 23 Dec 2024 02:25:11 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPY1x-000000098rS-3eCu;
-	Mon, 23 Dec 2024 02:18:51 +0000
-X-QQ-mid: bizesmtpip2t1734920304tea5qv3
-X-QQ-Originating-IP: ezt7iJeIOhFwRGcZt6RvbLLr7yMoO95fCZuILLkjiHk=
-Received: from [IPV6:240f:10b:7440:1:5968:fbf4 ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 23 Dec 2024 10:18:19 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 2941970314100960228
-Message-ID: <4D8217DF36191C3E+be8bbb4f-ea52-4f81-8501-ff551f54621c@radxa.com>
-Date: Mon, 23 Dec 2024 11:18:19 +0900
+	id 1tPY6v-000000099Yj-1CV5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Dec 2024 02:23:58 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5d7e3f1fc01so7012031a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 18:23:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734920635; x=1735525435; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mzTaQw0I4DCqNdV3XbT1uU84Y8+BcPXmBxbBNcSW7I0=;
+        b=bf5TxOXOQseE9anlbnlbsqUD8ReCeaTPipjui9maorBK+M9POG6MvA1FS1pO3OOzKD
+         lWBFzeNlscVisMW8cGGcWoAfe/n8GfBVfjOpsiCG4rBXnw3umBhXC8hWGeDF3+NTgaOw
+         L6REsa4rMrl18UbDtQzkGxMeNRZpwxzoevA5ElEnTp8T77W0GooLX/h8hnqeKn9u+vgw
+         x/6s5iaQQ+xOnEjKqUjFa/9qj+snjfaIw51pSD2jsVj62T+XHEC7w3b0TJ2r7rIbehhs
+         dNz+QvFR5zXWMLsPLW6mNkuAiD9NWMTDlWjqnY0vZeyQi2cQLN9//eySKQiQTdf2adgZ
+         UHzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734920635; x=1735525435;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mzTaQw0I4DCqNdV3XbT1uU84Y8+BcPXmBxbBNcSW7I0=;
+        b=UQRhoolJ8xKqTNHSrKQHfPHfaakSrhG60z+1zVKTNoUs+khBV5qjp0stX5uJZqVS4E
+         p4Bn0GAhg98a+sIDK0DPDVcK90xZz7A/lCZky+NlPfv7Z8r9We4QL1WahUrJE3T7Uo6d
+         KVlzw1Q8eDL0vAtNhXL6cpa8PrKZcEBGpRAhl2egXeqwlPhw3RTwgFNeNhs9l342Xy/v
+         sZJVJuU7xPfXaJNywgLr6HdBzc2mKY2NlRcDnTAeuQ/W8XinlrT0liAsOjMjniMjBLfo
+         m7+CUnYWeF+e9+hZQGS7JlA0uhO/i+NROzGVStftPQKVrLoWGG8bYpSTe8ZNEypmKowe
+         Q57A==
+X-Forwarded-Encrypted: i=1; AJvYcCUvIpDkoapI76zZQ8bSSIusDOhIfuGBeYHgjGEmFSCRHfpWG4woC+eyF36GqKKrdbVym8pNL+VaBm7Eytr+VzDD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIHw88CyWsbfg/YdbDIiuTlfuwtAU6sZFnvSJWdtMcVciqGJog
+	ev4Eja0asGmynVpClhjt9LNTk4RqhyEo/Vwj4ruMgglYsRrA2lBOTMKtvIRfuPzOpjSRFq1WY7k
+	e791R7RBWlOKYE7GqNbJrKFB0eg4=
+X-Gm-Gg: ASbGncsQWOvZfqo2HgQLd5RUJAq40lZ0AqlUz75XIAP4DSIpuWhD8UsjZDu3N33N2El
+	pDtoLwXpmS3WYJXDz0sYpx38sm9y9MB0qOo51uJiuGPDWAK+ju4pFwzIOgl5OczKyp+JdAh0=
+X-Google-Smtp-Source: AGHT+IFOQ+YJJjZ98YVVZNwOrG0qsOM9r08CSwciPXEClz4vbTeokWJahyw8uhtMV2WnJ1NN+6tN5a7MOjvOSmVwcIw=
+X-Received: by 2002:a05:6402:5251:b0:5cf:43c1:6ba7 with SMTP id
+ 4fb4d7f45d1cf-5d81de162acmr11181357a12.30.1734920635218; Sun, 22 Dec 2024
+ 18:23:55 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: default to host mode for USB on
- Radxa E25
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <6EFDC4E74A617E25+ed534e8a-fef0-4f09-a24b-a536b7f2f13b@radxa.com>
- <20241222043027.265865-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-Organization: Radxa Computer (Shenzhen) Co., Ltd.
-In-Reply-To: <20241222043027.265865-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: Mc2Lb5E8Dw57IpQAYMCTMkZySUR0dtV7t7Zlbho6KTZnT/o9Naw1qD62
-	jlXcihawLwY5N0XA613U/hkcov42RA4/2miqlKZ9kRssAFYHg6Al8+f6VMmqgLMk7bzhc8I
-	3oh6s94hHAIQSWAhAgVw16WBOR36EC3ulcinikhwq91kKXUgTqhzv2l87Lr2p6ykUWBNhjb
-	EZMiL6pcXwku0Bv65fR1aQWCAUHCXd7ED3x31IIF2oOL3zv1VPktyRm3nxFT2pNf/w4g/5I
-	INd7lioXYvhdiNlm4MlQNW/IVL3BVVjtczDP9BVOB3wDPzS074CeaPlPu1t3finnGXzlRZJ
-	71bI5ff0F9A+NI7+73gd2Ksy5GtTG/B/hgMqxm+TClM83u9ZpNS+atoNaass/W0LMjgA0fj
-	n+90EWN5hpnoXAZmzryU6A1pCNtXF4nT06IPHGVrl9KajcDXJV67En/XGQHDO9Y+zw60tcy
-	cXBn26KIZQc67pJDJ+Fxr+K1RnAzcj4/GxKpCSpPo/bQ+gt/6Ri5a2Y+PDYMUnrU5AP7ZVL
-	v1z6Eesw3cuhRq1AHQBLIJGNTBQN6xMgoZB6Pzl2KVyWRZlfffuY1rKU3Z/CRQ/FN74ZnS/
-	gaETeZaKIp8MpR6GLvlGY6b4jV9bQQs0WSIfkWtlAEBhPALqqp2dMrt2ry0KP/Lzo+GBV9R
-	m+DqcMGlByA6lgKW6I+SYIivpHfoVlxCEsygu8vifDDCVNoVPxJqUnXXVYjF24JqQKaweG0
-	Op01XyZhEkkhAhqnjx1X2sIdGSmuplHvEa5YREeSqHKG0f8jN4HBdOrGzEKk6+fHeNh0MIY
-	g41on44f6c7LKs9NH6jW2tZPNCAVYOWNHDHOq77IE3hmUzWmZOyYuscUN9rTg9dfot4tfJa
-	dIKnuFyxuvHJdufSCTtDU83NGwoqGRjas/hZDksQAh1jiGW9EgTwAehSmlpyalIn7uG8rL4
-	/UBwBlLdGyO8NM1nh7ww4K2ZJ
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+References: <20241215204014.4076659-1-zmw12306@gmail.com> <9745b3ee-ae89-4edb-8ff7-b20096dbe1de@denx.de>
+In-Reply-To: <9745b3ee-ae89-4edb-8ff7-b20096dbe1de@denx.de>
+From: Mingwei Zheng <zmw12306@gmail.com>
+Date: Sun, 22 Dec 2024 21:23:43 -0500
+X-Gm-Features: AbW1kvZUUzJKKpkCx1FgWYjvLlCb7cV9If9o4mEuNky8MJMq5ODnIq-nWEKhIdY
+Message-ID: <CAN4iqtRuj9M=GzFbY-hY4Ks3ktSKfA2W5yLT19vkJ2CSe1it9Q@mail.gmail.com>
+Subject: Re: [PATCH v5] pinctrl: stm32: Add check for clk_enable()
+To: Marek Vasut <marex@denx.de>
+Cc: antonio.borneo@foss.st.com, linus.walleij@linaro.org, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, make24@iscas.ac.cn, 
+	peng.fan@nxp.com, fabien.dessenne@foss.st.com, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_181850_457130_504FC149 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20241222_182357_336021_E0833204 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +97,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+Hi Marek,
 
-On 12/22/24 13:30, Chukun Pan wrote:
-> Hi,
->> Could you check Product Brief P.4?
->>
->>   https://dl.radxa.com/cm3i/e25/radxa_e25_product_brief.pdf
->>
->> There is "USB3.0 OTG Switch".
->>
->> Best regards,
-> 
-> Oh, sorry, it was covered by the shell so I didn't notice it.
-> BTW do you see any issues in the sd-uhs-sdr104 mode?
+On Sun, Dec 15, 2024 at 6:54=E2=80=AFPM Marek Vasut <marex@denx.de> wrote:
+>
+> On 12/15/24 9:40 PM, Mingwei Zheng wrote:
+>
+> [...]
+>
+> > @@ -1617,10 +1602,18 @@ int stm32_pctl_probe(struct platform_device *pd=
+ev)
+> >               return -EINVAL;
+> >       }
+> >       pctl->banks =3D devm_kcalloc(dev, banks, sizeof(*pctl->banks),
+> > -                     GFP_KERNEL);
+> > +                                GFP_KERNEL);
+>
+> Please drop this one change.
 
-I've been using the uSD card for a long time as a bootloader only, so I 
-don't know what the problem is.
+Fixed in PATCH v6.
 
-Do you have any information on how to reproduce the problem?
+>
+> >       if (!pctl->banks)
+> >               return -ENOMEM;
+> >
+> > +     pctl->clks =3D devm_kcalloc(dev, banks, sizeof(*pctl->clks),
+> > +                               GFP_KERNEL);
+> > +     if (!pctl->clks)
+> > +             return -ENOMEM;
+> > +
+> > +     for (i =3D 0; i < banks; ++i)
+> > +             pctl->clks[i].id =3D "";
+>
+> Is this ^ assignment necessary ? If so, why ?
+>
+> [...]
 
-Best regards,
+Thanks for pointing this out. We call devm_clk_bulk_get_all in
+stm32_pctl_probe() to handle get clk in PATCH v6.
 
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> Thanks,
-> Chukun
-> 
-
+Best,
+Mingwei
 
