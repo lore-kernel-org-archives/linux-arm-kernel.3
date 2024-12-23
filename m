@@ -4,81 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40EAE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE96AE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 16:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kHNh6xaotAcDhMoavkjLsKkfYgn6RRMW6uLTCVB7138=; b=Cvm2IQylo3BamdIni83B3VqUcS
-	qhTqXU/ohjyGTOzcTwmMRcp+K3TPq+59QGDuJF8PPrXRkhUkcBKgto8MnD04/QnaMySQp9xmHI8Uk
-	eRh8fT2zsKuRpOJFPnxROMrfeDJPVYb/Z5l023IZ/O+vpJX6/yOwRAO2zf0fkMkkIoyHWgv78mw/M
-	dniGV8yEwDOeZzfI5ZTbWUDEMyav2j7Ec/4zkGsyBUgsvZSyB48nfSh/RUtgXLqyQNsdPUuHowUJI
-	lfq1Luz5WljCN/SUWeKGY4MOp1xVfGSG5mWGQ0d82ZEReq8SIUIvFdhOIS8Wony1QSn/xrYZkPNHq
-	MH/puBbA==;
+	bh=f8+wYUtCx+RgpqeVK/OdeRJxw7zVp89tL31pl20TXVA=; b=E78pfMEAP3bu61I6yqvve6iWxw
+	W9SwA9b4R1J6s3rnCJWPaOQtPhUKwH/QEJnMMax2+U884zF0rvueO+GEUL7SHElMkFvwlEd9tmgm8
+	NDRuIYOm0zQscNKKL791RFI0uP8HzlMrcSOyWwcFViD2vzr1GUr3fHf3eD0OK5fHCdYaP6YcGHoyH
+	duWBRtRC3rphPo98oGR7s7IpMYqkPuIn7mbGWNeA2gkw86haS15XbuKabm8IwDdMF8EtDR5XsrcOQ
+	0NqEYkv2t+KfZWuP2pJ8iPqX2ihglNWPT34PDT7tUTmIKkABZvqXNNzAJeKcpmyji8k0TdQiKmzEI
+	1NTiS/4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPkpJ-0000000AKB0-4BJK;
-	Mon, 23 Dec 2024 15:58:38 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tPkqu-0000000AKNc-182j;
+	Mon, 23 Dec 2024 16:00:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPko8-0000000AK5D-03sN
+	id 1tPkpi-0000000AKDp-2ta9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 15:57:25 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so4559015e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 07:57:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734969442; x=1735574242; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kHNh6xaotAcDhMoavkjLsKkfYgn6RRMW6uLTCVB7138=;
-        b=mVtMx8v2bemdLFYtsEvWWkm2ieBnAy7Tqp+qDdxMIASOsvQ7XSU5BXgVRzfIDD/h/y
-         Iwn+OOTno+GTgb1zJ45UgUfWmJ6V0PBtB4qy3W84pGC24fCgxis8Q2x0hWXyz4nhk/5M
-         y8/gUxjoR7u15kTnhBvOzkHatiToigRC/FuGo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734969442; x=1735574242;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kHNh6xaotAcDhMoavkjLsKkfYgn6RRMW6uLTCVB7138=;
-        b=LjlU0R2/iCY7CZEJu9WQ0tzpSSHB13tCb9KksFB/dqYMZ8aO5ooDrFcVCdW373Zk7i
-         rOBYftz/GAJrTU0+ZpK8pPxph3uHl0WkzdmU8bpVz8hmuW7+vEYs5O6rMrZc/L5vbz4e
-         /EAJJWAhKRwMXQG/+26G6GNzkOppnDLv3gxXOffRjHVKbMK5lm9v1Vef+ZTpFY5e/MNE
-         N0rd6ix59AMQ8IuvTdhoeuPUL2CIsnUQ6oPhlBezsHtEEPE8onOKsb6trS25YIBIyVVL
-         8VEqVLscW48FarXfS/1O6QSgIZGqqHWTxXtTiKFsuC7zlhUw9ZCV2VpRuC0sh5mAs65w
-         VxvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWyMHp9gPeNr5xMma4CjNvw6wAW0agF6yp6QfEJQhbgoun+deDz26n8PCy6ApJFr2xipzBEOnWHI9mo1WZeG+CA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRkpbdXQdjWKXBN0z65MnFhGAfRR6Nl2VhmJn5mkMHQy6AMrpu
-	aNIqxj7ysH389tXVvALjOnqxZg6U6ld6fWIFMoOhSvpSG3FvMX0vXZWBOaAf7gNJA+GCxVjH018
-	KqpPh2M0b+U/dE2YCB++NsqCUtVMSnH5Y+/WLuwt94dGLfTI=
-X-Gm-Gg: ASbGncvleqvh2YHRFfaocU3JRKdmFzX8LvM5gim+ahKB6mmUAQedeGyKf9d+980eQvu
-	9i+u08HKFJy0ksjewmRBI9setKC5xaYxvigQ7k+BGhSPBzP0yQWi8zZQeREpBoNRyHmil
-X-Google-Smtp-Source: AGHT+IHTk73CF3J9qpxOzp/CqtNyBOpJFRPOv7NC03ghiS4H+MWUanEiEeuA9ExDqorhspKiS3iAgAIzB0xD0pfy6TY=
-X-Received: by 2002:a05:6512:33cd:b0:540:358d:d9b7 with SMTP id
- 2adb3069b0e04-5422957ac6cmr4243801e87.52.1734969442045; Mon, 23 Dec 2024
- 07:57:22 -0800 (PST)
+	Mon, 23 Dec 2024 15:59:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7FB6A40FCC;
+	Mon, 23 Dec 2024 15:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D6E5C4CED3;
+	Mon, 23 Dec 2024 15:58:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734969540;
+	bh=IMhhqcikriEhghtj/Hx/wU1Ar/3/aaUENB36dKe9Uac=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Hc5WpQ6VAEQeB9w1r6KhyAWUOBNua6t529xu+9j4wBbp0jXGjBLRfxAG/Ot4nTkDh
+	 +tHsMsvG7JIjBFslmScvZKLzd5jW24S274uyf6KeGEyGPnsLBiKEWxaTZiixJrYS01
+	 AbnrgAgqSENEDEBrIm70L1j3aVQ3sU1t0uYivDnvs3CtcKUek47IXPRAMwcpxsRjmO
+	 BKWVfUNpmd/uGSu7ahd1+flb+1jyxfoQRt0aUZlpOyUpUgkceWrBuTRySHxm3iqKNn
+	 DvnrTFVcerpP3gnpIKf/y6P0dGCHLd3Z7qKnIWtebrVS6ccZKRVyRO6Vr7NmdG6Alp
+	 M9wT0gYXU5DYw==
+Message-ID: <45ef0069-5414-49a2-b7e4-4b0c70c0d1a4@kernel.org>
+Date: Mon, 23 Dec 2024 16:58:55 +0100
 MIME-Version: 1.0
-References: <20241223100648.2166754-1-wenst@chromium.org> <481a6eec-c428-45cd-98a6-5a91f3ceb187@collabora.com>
- <CAGXv+5Fj5s9FUyaxmEkGimxjEcS6OEfm4_5Zso+YocSi+Vt4pg@mail.gmail.com> <bbc6aa2a-fe48-4e06-b070-fd66dbd00e15@collabora.com>
-In-Reply-To: <bbc6aa2a-fe48-4e06-b070-fd66dbd00e15@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 23 Dec 2024 23:57:10 +0800
-Message-ID: <CAGXv+5FoOM=ZUCWigdCaPbc4FCBtLVX2xnUJnVnVsBH=7yoZ=Q@mail.gmail.com>
-Subject: Re: [PATCH] nvmem: mtk-efuse: Enable GPU speed bin post-processing
- for MT8188
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: arm: google: add gs101-raven and
+ generic gs101-pixel
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
+ <20241220-gs101-simplefb-v2-1-c10a8f9e490b@linaro.org>
+ <d0c1511f-b052-4690-aefb-3fb41e1e5875@kernel.org>
+ <cfdc5b1b03140e3d2ce3fb58e8b342dc2ac06d04.camel@linaro.org>
+ <d960e22e-01ad-406d-9616-d45edbef0232@kernel.org>
+ <9507951f9ce4ee9d8c553d8964f00ef217f8ed1d.camel@linaro.org>
+ <c2efb6c7-4a0b-4078-b0df-6e646eb88906@kernel.org>
+ <34f62a976e4dd2d56eb34e4efa987ddc3e2f31ca.camel@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <34f62a976e4dd2d56eb34e4efa987ddc3e2f31ca.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_075724_083926_1CD227FC 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20241223_075902_860013_8C203516 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,91 +129,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 23, 2024 at 7:43=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> Il 23/12/24 12:24, Chen-Yu Tsai ha scritto:
-> > On Mon, Dec 23, 2024 at 7:11=E2=80=AFPM AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com> wrote:
-> >>
-> >> Il 23/12/24 11:06, Chen-Yu Tsai ha scritto:
-> >>> Like the MT8186, the MT8188 stores GPU speed binning data in its efus=
-e.
-> >>> The data needs post-processing into a format that the OPP framework c=
-an
-> >>> use.
-> >>>
-> >>> Add a compatible match for MT8188 efuse with post-processing enabled.
-> >>>
-> >>
-> >> Let's just change the MT8188 compatible list to
-> >>
-> >> compatible =3D "mediatek,mt8188-efuse", "mediatek,mt8186-efuse";
-> >
-> > That would be "mediatek,mt8188-efuse", "mediatek,mt8186-efuse", "mediat=
-ek,efuse"
-> > then?
-> >
->
-> No, we're dropping the generic "mediatek,efuse".
+On 23/12/2024 16:54, André Draszik wrote:
+> On Mon, 2024-12-23 at 16:39 +0100, Krzysztof Kozlowski wrote:
+>> On 23/12/2024 16:31, André Draszik wrote:
+>>> On Mon, 2024-12-23 at 15:14 +0100, Krzysztof Kozlowski wrote:
+>>>
+>>>>
+>>>> You now say that these are valid boards:
+>>>>
+>>>> compatible = "google,gs101", "google,gs101";
+>>>
+>>> Sorry, I don't see how (apart from the fact that dtbs_check flags
+>>> non-unique elements anyway). The result of the patch is:
+>>>
+>>>         minItems: 2
+>>>         maxItems: 3
+>>>         items:
+>>>           enum:
+>>>             - google,gs101-oriole
+>>>             - google,gs101-raven
+>>>             - google,gs101-pixel
+>>>             - google,gs101
+>>
+>> The problem is this line. Although entire concept of flexible list is
+>> neither need nor ever recommended.
+> 
+> All of this was inspired by Documentation/devicetree/bindings/soc/xilinx/xilinx.yaml
+> I guess not a good example in this case...
 
-That means we also drop it for MT8186?
+These are SoMs with multiple revisions, so quite a different case. Plus
+there is actual reason from Michal for doing that explained in commit msg.
 
-Thinking about it more, I think it's stretching things a bit. The hardware
-is clearly backwards compatible, or we wouldn't even be reading values
-out correctly. The only difference now with MT8186 and MT8188 is that
-they have a speed-bin field with a value that we want passed to the OPP
-framework, and the interpretation of that value is not really part of
-the efuse's hardware. We chose to do the conversion in the efuse driver,
-but we could also have done it in the GPU driver.
+> 
+>>
+>>>         allOf:
+>>>           - contains:
+>>>               const: google,gs101-pixel
+>>>           - contains:
+>>>               const: google,gs101
+>>>
+>>> So one can not have 'google,gs101' twice. And if I only add
+>>
+>> Still can be, but indeed not with my example but:
+>>
+>> "google,gs101", "google,gs101", "google,gs101-pixel";
+> 
+> This example doesn't pass irrespective of binding, because
+> dtbs_check will complain about non-unique elements.
 
-What I'm saying is that we should not need to change the compatible strings
-to make this work.
+Ah, cool, I wasn't really sure. I checked only dt_binding_check on some
+example and there it was not spotted.
 
 
-ChenYu
-
-> Cheers!
->
-> > Fine by me. :D
-> >
-> > ChenYu
-> >
-> >> instead :-)
-> >>
-> >> Cheers,
-> >> Angelo
-> >>
-> >>> Cc: <stable@vger.kernel.org>
-> >>> Fixes: ff1df1886f43 ("dt-bindings: nvmem: mediatek: efuse: Add suppor=
-t for MT8188")
-> >>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> >>> ---
-> >>>
-> >>> I'm not exactly sure about pointing to the dt bindings commit for the
-> >>> fixes tag.
-> >>> ---
-> >>>    drivers/nvmem/mtk-efuse.c | 1 +
-> >>>    1 file changed, 1 insertion(+)
-> >>>
-> >>> diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-> >>> index af953e1d9230..e8409e1e7fac 100644
-> >>> --- a/drivers/nvmem/mtk-efuse.c
-> >>> +++ b/drivers/nvmem/mtk-efuse.c
-> >>> @@ -112,6 +112,7 @@ static const struct mtk_efuse_pdata mtk_efuse_pda=
-ta =3D {
-> >>>    static const struct of_device_id mtk_efuse_of_match[] =3D {
-> >>>        { .compatible =3D "mediatek,mt8173-efuse", .data =3D &mtk_efus=
-e_pdata },
-> >>>        { .compatible =3D "mediatek,mt8186-efuse", .data =3D &mtk_mt81=
-86_efuse_pdata },
-> >>> +     { .compatible =3D "mediatek,mt8188-efuse", .data =3D &mtk_mt818=
-6_efuse_pdata },
-> >>>        { .compatible =3D "mediatek,efuse", .data =3D &mtk_efuse_pdata=
- },
-> >>>        {/* sentinel */},
-> >>>    };
-> >>
->
->
+Best regards,
+Krzysztof
 
