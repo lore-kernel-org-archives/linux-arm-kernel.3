@@ -4,92 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A20BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 02:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A42E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 02:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0xSJsjcj6qOEXUjJ0CVtQMVpNqANaTh2TojnrhfBJYw=; b=P60HbHSKSUFQRxUnFe4ehRj0s1
-	sUzev1gAfzDZH+PGZ78NO4xfDnZcT6ewNX5QAzjndQ2Z81wy+UIAuvmUHKLVRHADqFum6/wsUfiBk
-	zk1jio8W97SnxDKNVApJnZ+LGPJPu0E0TlFCQCYM39p7NwaZt1rk2VSjGLfM2+fgJhV7nAfwORb62
-	Pb4zIZgtUda7SW/aJcWuGXztZFdeu2HZ6Is3NB/AwG8ge9zSJ6YCoQq/2SGShTulUwVSKFr87hjc1
-	sTMtnGy1PPD7AdLCD6XehzfvS1LxNXKjzbznh1JXbzDYPMhNwmp+fexARPaa5KdGWmV/dsYiVnkhQ
-	3K3kz2sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUTC71RmbQUz5XOQf0rxtfhjofBR1Y8T7JtGTYAqVMg=; b=Q3yEMdtox3zYMpoBguz7CrAL6x
+	oKXMlDOYKEVHtYJA8BEdyEXEnWx6UkQZ2wTsnrpMhk4W1SVYfWHba3W8oGbuFgq2Nca2/YmUEZPFD
+	XIR4l33TRhin+jgKmxAQ4QHqAiwkdUohYWWFfV0gcyre9lNvwj2fu1bSLDKSIq420gFFzIF7W5kcc
+	/UFL4uMZtsv87NXS/LQ0WtvcChEjXD5JGxqRSz/RtfulipaPzNKNU5+TYs/FesSiebHEt/MhwRU7e
+	iqU5k4dOum43ab13rKUaFjJEqKc9WDZ+0it/IoC6Q3dTNIaC0+IsP8eC9HDUjb0IOzSzEluj8lRlB
+	qM9QHtIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPXoG-000000097Q5-10TV;
-	Mon, 23 Dec 2024 02:04:40 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1tPXvw-000000097wi-2F35;
+	Mon, 23 Dec 2024 02:12:36 +0000
+Received: from [203.254.224.33] (helo=mailout3.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPXn3-000000097M9-2khL
+	id 1tPXuj-000000097tz-3aee
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 02:03:26 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-844eac51429so304929339f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 18:03:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734919404; x=1735524204; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0xSJsjcj6qOEXUjJ0CVtQMVpNqANaTh2TojnrhfBJYw=;
-        b=aeoCV2lrGSZFLGjbow4/ijGg6IPZSCWpb3yPtp9ABAG7TcDQmBCcg3U4/guZHTAZpU
-         YW0NcUKDVNYPEK6Xa+iQcCOOsSBNYAODx1i2zaidZdPzI6HF0ehqmh0emCsUqAc73fV9
-         9/yANK/cS67NdjRmUwXRNQIuD8ldYxHbVkrQImhvL1frm5aoKTcGgw8elofZRWvdzFJl
-         reBot/AP1aH4PpCSeiHqrljO2g+2ySfNNulDAvuCEpOIGnF+LXfatCp2qAWVi09tHS2X
-         BPeGcVDRxpyV706gUQleS3kNxCJYCFSfQQvP2xQYmHpwlygEHt+XH4t8aNSdGpvoAwpI
-         j7VQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734919404; x=1735524204;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0xSJsjcj6qOEXUjJ0CVtQMVpNqANaTh2TojnrhfBJYw=;
-        b=II6UAYgBaBFb/S/uArh21A+o5DaxzmnxvKTvYosJWQtROt1lDF0cRw3ftVYyYXKa2y
-         o6ob6G7N+M4siXEUTXIzSLyVZTgm97Ah/TOcARWTrHuN75m34TWMpP4sYTTo1t9IdY9P
-         tiReaPnjOYFa4YIbHns9exIKTuAVcFFlO00XrnY2CuCVe4di3A6ymifbo1e6PqrbLgfu
-         RFoI0Qtadg1D+y5JQeliIKA1n9yOG4ocgqcaa8fVok5No6OGaPfiTchHc4rPoYVLcQjX
-         /8XqMLd1sqtoyUNedf8x8jGHUV0LdDQHo9TRgv/c50aCklOrux2gNWPuNKKjrvkqpCdc
-         PXfw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZJQOzCSkDpEdBJAxZaYRyfrD3XDP1ICzGk1HQp6nprisUkwjE04MrqNbrhS9O/fCI6Q475Zsmwk35arcWLXWD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbTfJbf9KIrT51Yv26+NCZTry2bUnhQjHqkuLLs5n5VskXgN1j
-	XUvi2hJPwk5sREUr6U4PsE7xNaR1ik7A+a7+C5ty2T9pOmukuluD
-X-Gm-Gg: ASbGnctXFc0CMe8NxlipwNp0D5B34F2L1ZSfYcptDD5XqS+is+tQ3cWmwLKaxhsajAk
-	IMqwM0JUInlrFRMqXF5tUteQ1V47ECMBb7P+ky5f75PzIWmrdjm8r4n+QGsd4n0Bfo6+fRwGx2t
-	epVJ2WuqonS7z3tlp2vtF0b55v7+gmp+oYn7xWmf75PWzMSpdvngBI8OHcer8JEPRmFiSwlpt0P
-	5eUZ7m72l9G/Mvh6+vdsduMHBOVT0FfQWkrWMBZ/5T74yqRAEzTJUNUSetJAQ62HyDD
-X-Google-Smtp-Source: AGHT+IFXSVIikuC4zfcUFG8mWYTfJ/hx7F+IP5PDPNnajsE2n+NPTRarFFKK4WonDsGoyc/2WmmPRQ==
-X-Received: by 2002:a05:6602:3f92:b0:843:ebf1:16df with SMTP id ca18e2360f4ac-8499e65898emr881040539f.10.1734919403923;
-        Sun, 22 Dec 2024 18:03:23 -0800 (PST)
-Received: from localhost.localdomain ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8498d8eb2c8sm198806439f.47.2024.12.22.18.03.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 18:03:22 -0800 (PST)
-From: Mingwei Zheng <zmw12306@gmail.com>
-To: marex@denx.de
-Cc: antonio.borneo@foss.st.com,
-	linus.walleij@linaro.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	make24@iscas.ac.cn,
-	peng.fan@nxp.com,
-	fabien.dessenne@foss.st.com,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mingwei Zheng <zmw12306@gmail.com>,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v6] pinctrl: stm32: Add check for clk_enable()
-Date: Sun, 22 Dec 2024 21:06:29 -0500
-Message-Id: <20241223020629.3471182-1-zmw12306@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 23 Dec 2024 02:11:24 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20241223021114epoutp034b8e8fd74bdecb34ed7505395d20b08e~TrG792rLN0995909959epoutp03P
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:11:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20241223021114epoutp034b8e8fd74bdecb34ed7505395d20b08e~TrG792rLN0995909959epoutp03P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1734919874;
+	bh=AUTC71RmbQUz5XOQf0rxtfhjofBR1Y8T7JtGTYAqVMg=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=BxbwTNTuqCfQAlQF/Ffr7puHLdg4CB06eXIoqm6cPygVfQ2I0E3s1DGspRePK11jk
+	 enWptixNt4wNCmtne8kdUOJFb9t8xYStusL81Q15vq0EHA/96sonp9Nmc04Bo2IfF6
+	 V6S+zYsppLROzzIDlYJajbt6+bTYUYoW8whJDE5o=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20241223021113epcas5p430ceb5f3bf2e9ac8ab5b0d655f3209e1~TrG7d9X3N3115731157epcas5p4P;
+	Mon, 23 Dec 2024 02:11:13 +0000 (GMT)
+Received: from epsmges5p3new.samsung.com (unknown [182.195.38.176]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4YGhMg6M60z4x9Q7; Mon, 23 Dec
+	2024 02:11:11 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	68.81.19956.FB6C8676; Mon, 23 Dec 2024 11:11:11 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20241223021111epcas5p148011ea277570c5090bada9d06a24575~TrG5K0RcW0946509465epcas5p1M;
+	Mon, 23 Dec 2024 02:11:11 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20241223021111epsmtrp15bb1429cb6cea8730ddb151eada5c801~TrG5J1lUw1551215512epsmtrp1P;
+	Mon, 23 Dec 2024 02:11:11 +0000 (GMT)
+X-AuditID: b6c32a4b-fe9f470000004df4-71-6768c6bf9c1f
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	00.B0.33707.EB6C8676; Mon, 23 Dec 2024 11:11:11 +0900 (KST)
+Received: from INBRO001561 (unknown [107.122.12.6]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20241223021109epsmtip2288959e1d86621ed67ae589f52c7aed4~TrG3VuOQC1881118811epsmtip25;
+	Mon, 23 Dec 2024 02:11:09 +0000 (GMT)
+From: "Pankaj Dubey" <pankaj.dubey@samsung.com>
+To: "'Rob Herring \(Arm\)'" <robh@kernel.org>, "'Lee Jones'"
+	<lee@kernel.org>, "'Arnd Bergmann'" <arnd@arndb.de>, "'Heiko Stuebner'"
+	<heiko@sntech.de>, "'Liviu Dudau'" <liviu.dudau@arm.com>, "'Sudeep Holla'"
+	<sudeep.holla@arm.com>, "'Lorenzo	Pieralisi'" <lpieralisi@kernel.org>
+Cc: "'Peter Griffin'" <peter.griffin@linaro.org>, "'Will McVicker'"
+	<willmcvicker@google.com>, "'John Madieu'" <john.madieu.xa@bp.renesas.com>,
+	"'Krzysztof Kozlowski'" <krzysztof.kozlowski@linaro.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <20241217-syscon-fixes-v2-1-4f56d750541d@kernel.org>
+Subject: RE: [PATCH v2 1/3] mfd: syscon: Fix race in
+ device_node_get_regmap()
+Date: Mon, 23 Dec 2024 07:41:07 +0530
+Message-ID: <000001db54df$ef602f60$ce208e20$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQEZrw4XBTjqISieS499QzyO27eqOgIlhVXbAn6f76O0UT+aQA==
+Content-Language: en-us
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrBJsWRmVeSWpSXmKPExsWy7bCmhu7+YxnpBrOe6Fr8nXSM3eL/o9es
+	Fms21lnsfb2V3WJH20IWi02Pr7FaXN41h83iwNJ2FouWPy0sFhtm/GOx+L9nB7vF8lM7WCxW
+	ffrP6MDrsWbeGkaP378mMXqsfDGb3WPBplKPTas62TzuXNvD5rF5Sb3H9mvzmD0+b5IL4IzK
+	tslITUxJLVJIzUvOT8nMS7dV8g6Od443NTMw1DW0tDBXUshLzE21VXLxCdB1y8wBulpJoSwx
+	pxQoFJBYXKykb2dTlF9akqqQkV9cYquUWpCSU2BSoFecmFtcmpeul5daYmVoYGBkClSYkJ3R
+	unIjc8Fqvorbp/4wNzBO5eli5OSQEDCRuPnmJ2MXIxeHkMBuRomPXWuhnE+MElN+fmaCc9re
+	LmPuYuQAa5n+pQYivpNR4vTjg6wgo4QEXjBKHNlTAGKzCehLnPsxjxWkSERgNpPE78uTwRxm
+	gWlMEge3LwTr4BRwlPh4ay0TiC0s4C9x9NFZsA0sAqoSZ05UgIR5BSwlXv3fyA5hC0qcnPmE
+	BcRmFtCWWLbwNTPEDwoSP58uAxspIuAkce5xAzNEjbjEy6NH2EH2Sgjc4JDYt7yPDaLBReLB
+	y+nsELawxKvjW6BsKYmX/W3sEF/6SCzd7QERLpHY0LOUBcK2lzhwZQ4LSAmzgKbE+l36EKv4
+	JHp/P2GC6OSV6GgTgqhWk/j+/AzUlTISD5uXMkHYHhL/9+1nn8CoOAvJY7OQPDYLyQOzEJYt
+	YGRZxSiZWlCcm55abFpgnJdaDo/u5PzcTYzgJK3lvYPx0YMPeocYmTgYDzFKcDArifDyyKWm
+	C/GmJFZWpRblxxeV5qQWH2I0BQb2RGYp0eR8YJ7IK4k3NLE0MDEzMzOxNDYzVBLnfd06N0VI
+	ID2xJDU7NbUgtQimj4mDU6qBaZ9oT5I/w1LBq/M7Vkda5DWkuMQ+W+Z5xvzuu0vf7iiKlgXO
+	t0sPS3dbMfMJd0bL87W7nO58Z1oWbWh6V/a4xP5jpyyqBHcyr+m7c6Q7Nv6aQcSRxXe2nj5x
+	3CvkfR6XyeEtZ0+mdMft22KhxRdwau6Gx0XZISn8N/ftWVHpp9zy801cuZMif2hBblpd4bNN
+	kYURMieUFHL1Yy2Zf96s02RoMI+Z3dH7dcMM02qOkPWMAbwzFZYIL3w6dc083WRp6bSpz1+Z
+	r7s08fF8IU3lD0bpR5yy77wV0dafs1Kz2FdGMuDNvvs6ri9vpHCoBK/ge3Tj+AZlu79fQ7N8
+	NA9nNa1f+PB3/batJ0oyFglHK7EUZyQaajEXFScCAJtZ1W5bBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrPIsWRmVeSWpSXmKPExsWy7bCSvO7+YxnpBnu2MVv8nXSM3eL/o9es
+	Fms21lnsfb2V3WJH20IWi02Pr7FaXN41h83iwNJ2FouWPy0sFhtm/GOx+L9nB7vF8lM7WCxW
+	ffrP6MDrsWbeGkaP378mMXqsfDGb3WPBplKPTas62TzuXNvD5rF5Sb3H9mvzmD0+b5IL4Izi
+	sklJzcksSy3St0vgypj25CF7QRNfxcMHO5gbGF9xdzFycEgImEhM/1LTxcjFISSwnVGid8cS
+	5i5GTqC4jMTk1StYIWxhiZX/nrNDFD1jlFh34QkLSIJNQF/i3I95rCAJEYGFTBJvTswHc5gF
+	ZjFJfN+ylhWi5TijxMTfuxlBWjgFHCU+3lrLBGILC/hK3Hs8gQXkDhYBVYkzJypAwrwClhKv
+	/m9kh7AFJU7OhNjGLKAt8fTmUzh72cLXUKcqSPx8ugzsVBEBJ4lzjxuYIWrEJV4ePcI+gVF4
+	FpJRs5CMmoVk1CwkLQsYWVYxiqYWFOem5yYXGOoVJ+YWl+al6yXn525iBMepVtAOxmXr/+od
+	YmTiYDzEKMHBrCTCyyOXmi7Em5JYWZValB9fVJqTWnyIUZqDRUmcVzmnM0VIID2xJDU7NbUg
+	tQgmy8TBKdXAtNLt2accU6/Yu6G+v2bZznRkf//wiYejYbzJy/WSTkb3FsTnnhTW6bF+vuPP
+	g7LPOhrdM1+rfDrf+ju0yvm9LKPKYq36uR3bLV9tLJW4x3h1YtBX56P6hfvfMJ6qVV2SyP28
+	56fpY/4m39BKFb3O/1x7nijHim6zYjwbc1KxbZtOSuydwLveGTsdgoS+eR9udPHZ+0hFMbnv
+	yO1Lh4ydK5VyHQVybk/8LJfhyvzSZZ94hBTf3uCH6ZvSjk7bpW9btDXmw4F1EfcimnhPmGdv
+	f1Ten8Ykm+l/f/rNs7uUv8Q9fDWfpXBnzozNqenXJL0mP7WVORDMJ9gk0lGZwaM1e45qYtwq
+	lnVi7n8OmxQqsRRnJBpqMRcVJwIAwQiJpkIDAAA=
+X-CMS-MailID: 20241223021111epcas5p148011ea277570c5090bada9d06a24575
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20241217181202epcas5p3dfeeea922cd1a71840ac126ddf20c644
+References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
+	<CGME20241217181202epcas5p3dfeeea922cd1a71840ac126ddf20c644@epcas5p3.samsung.com>
+	<20241217-syscon-fixes-v2-1-4f56d750541d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_180325_727091_D8345831 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20241222_181122_634904_35AF711A 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,199 +144,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the driver to clk_bulk*() API.
-Add check for the return value of clk_bulk_enable() to catch
-the potential error.
 
-Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
-Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
----
-Changelog:
-v5 -> v6:
-1. Call devm_clk_bulk_get_all in stm32_pctl_probe().
 
-v4 -> v5:
-1. Move the clock handling from stm32_gpiolib_register_bank()
-and moving it to its caller.
-2. Call clk_bulk_prepare_enable() in stm32_pctl_probe() 
-and clk_bulk_disable_unprepare() for error.
+> -----Original Message-----
+> From: Rob Herring (Arm) <robh=40kernel.org>
+> Sent: Tuesday, December 17, 2024 11:42 PM
+> To: Lee Jones <lee=40kernel.org>; Arnd Bergmann <arnd=40arndb.de>; Pankaj
+> Dubey <pankaj.dubey=40samsung.com>; Heiko Stuebner <heiko=40sntech.de>;
+> Liviu Dudau <liviu.dudau=40arm.com>; Sudeep Holla <sudeep.holla=40arm.com=
+>;
+> Lorenzo Pieralisi <lpieralisi=40kernel.org>
+> Cc: Peter Griffin <peter.griffin=40linaro.org>; Will McVicker
+> <willmcvicker=40google.com>; John Madieu <john.madieu.xa=40bp.renesas.com=
+>;
+> Krzysztof Kozlowski <krzysztof.kozlowski=40linaro.org>; linux-
+> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org
+> Subject: =5BPATCH v2 1/3=5D mfd: syscon: Fix race in device_node_get_regm=
+ap()
+>=20
+> It is possible for multiple, simultaneous callers calling
+> device_node_get_regmap() with the same node to fail to find an entry in t=
+he
+> syscon_list. There is a period of time while the first caller is calling
+> of_syscon_register() that subsequent callers also fail to find an entry i=
+n the
+> syscon_list and then call of_syscon_register() a second time.
+>=20
+> Fix this by keeping the lock held until after of_syscon_register() comple=
+tes and
+> adds the node to syscon_list. Convert the spinlock to a mutex as many of =
+the
+> functions called in of_syscon_register() such as
+> kzalloc() and of_clk_get() may sleep.
+>=20
+> Fixes: bdb0066df96e (=22mfd: syscon: Decouple syscon interface from platf=
+orm
+> devices=22)
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski=40linaro.org>
+> Tested-by: Krzysztof Kozlowski <krzysztof.kozlowski=40linaro.org>
+> Signed-off-by: Rob Herring (Arm) <robh=40kernel.org>
+> ---
 
-v3 -> v4:
-1. Add initialization for pctl->clks.
-2. Adjust alignment.
+Tested on arm64: Tesla FSD=20
 
-v2 -> v3:
+Tested-by: Pankaj Dubey <pankaj.dubey=40samsung.com>
 
-1. Convert clk_disable_unprepare to clk_bulk_disable
-and clk_bulk_unprepare.
-
-v1 -> v2:
-
-1. Move int ret declaration into if block.
----
- drivers/pinctrl/stm32/pinctrl-stm32.c | 64 ++++++++++-----------------
- 1 file changed, 24 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index 5b7fa77c1184..3efe976adf84 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
- 
- struct stm32_gpio_bank {
- 	void __iomem *base;
--	struct clk *clk;
- 	struct reset_control *rstc;
- 	spinlock_t lock;
- 	struct gpio_chip gpio_chip;
-@@ -108,6 +107,7 @@ struct stm32_pinctrl {
- 	unsigned ngroups;
- 	const char **grp_names;
- 	struct stm32_gpio_bank *banks;
-+	struct clk_bulk_data *clks;
- 	unsigned nbanks;
- 	const struct stm32_pinctrl_match_data *match_data;
- 	struct irq_domain	*domain;
-@@ -1308,12 +1308,6 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
- 	if (IS_ERR(bank->base))
- 		return PTR_ERR(bank->base);
- 
--	err = clk_prepare_enable(bank->clk);
--	if (err) {
--		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
--		return err;
--	}
--
- 	bank->gpio_chip = stm32_gpio_template;
- 
- 	fwnode_property_read_string(fwnode, "st,bank-name", &bank->gpio_chip.label);
-@@ -1360,26 +1354,21 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
- 							   bank->fwnode, &stm32_gpio_domain_ops,
- 							   bank);
- 
--		if (!bank->domain) {
--			err = -ENODEV;
--			goto err_clk;
--		}
-+		if (!bank->domain)
-+			return -ENODEV;
- 	}
- 
- 	names = devm_kcalloc(dev, npins, sizeof(char *), GFP_KERNEL);
--	if (!names) {
--		err = -ENOMEM;
--		goto err_clk;
--	}
-+	if (!names)
-+		return -ENOMEM;
- 
- 	for (i = 0; i < npins; i++) {
- 		stm32_pin = stm32_pctrl_get_desc_pin_from_gpio(pctl, bank, i);
- 		if (stm32_pin && stm32_pin->pin.name) {
- 			names[i] = devm_kasprintf(dev, GFP_KERNEL, "%s", stm32_pin->pin.name);
--			if (!names[i]) {
--				err = -ENOMEM;
--				goto err_clk;
--			}
-+			if (!names[i])
-+				return -ENOMEM;
-+
- 		} else {
- 			names[i] = NULL;
- 		}
-@@ -1390,15 +1379,11 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
- 	err = gpiochip_add_data(&bank->gpio_chip, bank);
- 	if (err) {
- 		dev_err(dev, "Failed to add gpiochip(%d)!\n", bank_nr);
--		goto err_clk;
-+		return err;
- 	}
- 
- 	dev_info(dev, "%s bank added\n", bank->gpio_chip.label);
- 	return 0;
--
--err_clk:
--	clk_disable_unprepare(bank->clk);
--	return err;
- }
- 
- static struct irq_domain *stm32_pctrl_get_irq_domain(struct platform_device *pdev)
-@@ -1621,6 +1606,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 	if (!pctl->banks)
- 		return -ENOMEM;
- 
-+	ret = devm_clk_bulk_get_all(dev, &pctl->clks);
-+	if (ret < 0)
-+		return ret;
-+
- 	i = 0;
- 	for_each_gpiochip_node(dev, child) {
- 		struct stm32_gpio_bank *bank = &pctl->banks[i];
-@@ -1631,13 +1620,6 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 			fwnode_handle_put(child);
- 			return -EPROBE_DEFER;
- 		}
--
--		bank->clk = of_clk_get_by_name(np, NULL);
--		if (IS_ERR(bank->clk)) {
--			fwnode_handle_put(child);
--			return dev_err_probe(dev, PTR_ERR(bank->clk),
--					     "failed to get clk\n");
--		}
- 		i++;
- 	}
- 
-@@ -1646,15 +1628,18 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 		if (ret) {
- 			fwnode_handle_put(child);
- 
--			for (i = 0; i < pctl->nbanks; i++)
--				clk_disable_unprepare(pctl->banks[i].clk);
--
- 			return ret;
- 		}
- 
- 		pctl->nbanks++;
- 	}
- 
-+	ret = clk_bulk_prepare_enable(pctl->nbanks, pctl->clks);
-+	if (ret) {
-+		dev_err(dev, "failed to prepare_enable clk (%d)\n", ret);
-+		return ret;
-+	}
-+
- 	dev_info(dev, "Pinctrl STM32 initialized\n");
- 
- 	return 0;
-@@ -1726,10 +1711,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
- int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
- {
- 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
--	int i;
- 
--	for (i = 0; i < pctl->nbanks; i++)
--		clk_disable(pctl->banks[i].clk);
-+	clk_bulk_disable(pctl->nbanks, pctl->clks);
- 
- 	return 0;
- }
-@@ -1738,10 +1721,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
- {
- 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
- 	struct stm32_pinctrl_group *g = pctl->groups;
--	int i;
-+	int i, ret;
- 
--	for (i = 0; i < pctl->nbanks; i++)
--		clk_enable(pctl->banks[i].clk);
-+	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
-+	if (ret)
-+		return ret;
- 
- 	for (i = 0; i < pctl->ngroups; i++, g++)
- 		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
--- 
-2.34.1
+Thanks.
+Pankaj Dubey
 
 
