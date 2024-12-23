@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8084E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870C8E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rKJMfhcCNoXTKKqxRI259jRf70U4iL4YiCuA5Aw9wgs=; b=RdVwRKglBfuiLM8iu2t6lZwyDz
-	4eRk9U6NXNFhFHHoFzvvw2sEAY2yF5AZyqiZSHdGts1k4fJO6bFwpFJXUGdH7yZ1uYZqzfk40jWSz
-	YNWYVJOubn4Urh09OUkqlEWykRG2SuBXM4rz3xH1c16yOOVlLAkYzeqrwn0ybOgxN9TjTO0SGiaFA
-	5VRQRrIjzSAd6Q4qN0U9y5BNXje36h2T0ft0zQiyB5Ty8WkfBxpm05z/9Flz0ItC6rDuKc7ds4xw4
-	GWF07fUOXh2kFUFejR44hr8rWXWzQiTgZotckqVYl+2mNp7NQyjy3cp2nG4OWmMPkrnE3HaZ09n9N
-	pRTw2Jzw==;
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=msg5fBDnvA5A5aMJjXE3flrPRKktl7CdeY8acKw/CG0=; b=mKwlsabdLeG3s+yImU+gqfvfol
+	MqdNetTXICb60Kt8nb8CaZY47kbiY/3yDJZTXDmfu5il8ZLgdn6OlAQlQoSTigFxOPRg/+CI3+UKQ
+	MDDDzgLTwXWGHeIzU9V71M7w63+c93AfZ6Rbwk4V4BeEBT0izlPd/J/mRxabkSLMmC9UxWN2TveD3
+	29KktG3RdYWjINJTzstUaC2fHLsIzfIpraJCOr7c/lcnR6AY6nEVKsUw1d3j7OeGyWVLlY7Uoyfmv
+	dxm8/ATkUbfAFxnf8wjTVi0LoGrEMBwLLuFtDgxPrYeBeLlhHa1VzrdTA+g2uA0h6o5t6C08Br3ym
+	4xqnrhYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfMI-00000009lIY-2JhQ;
-	Mon, 23 Dec 2024 10:08:18 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1tPfQE-00000009lcr-1jgI;
+	Mon, 23 Dec 2024 10:12:22 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfKv-00000009lAN-2dSt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 10:06:54 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-725dbdf380aso3151732b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:06:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734948412; x=1735553212; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rKJMfhcCNoXTKKqxRI259jRf70U4iL4YiCuA5Aw9wgs=;
-        b=QpvBwFJYSyyVQvuPxkXYPgq8kGxGk63L6CObSiJ7SsBHOY42kv19XStaPXYmmREon7
-         MZdV7ZYRVxGRlXf09J9Z/3GEnrdgh0jG1nwnBlJqqYKIqwgSERhbxb+dp3k/eK/rRC55
-         gDjNtOn89081W8Uv1g+1ChPLpM/BSdgKAXe+0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734948412; x=1735553212;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rKJMfhcCNoXTKKqxRI259jRf70U4iL4YiCuA5Aw9wgs=;
-        b=PgQvzFJvl4KOAsDg4+f4Dy9FOljzHfVoHlsvpakEz8bZ/S/wnQCIG5wO2lWa6jlnmI
-         VL/oLJLtKEzKSsdnhHl61BkNcNoWktPfMdtecfJ7pxYOFpj0iL2ERWflgJ4qa2Vcih3p
-         fMPU3mvkUTXmziChk/e8NdokIEQMSSE1ALcVdNA2n/wNTzY5dU0LFtlQ4rr5wqmmKeH3
-         g1Clg2ZOKGtuxHRR6cc5IMyhK2RuuJ1XvUT0b6eB5G9ENDHcUAmyyLMLB67WZYU9i4H5
-         peN0csee+WtbXRjMJPhJgHi+3PCYqriUmPWYtzTiZ5tksoJVPTtCCsVHkp2Y8H4vEvu1
-         wPQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHfXqmHvcAmqmUNXfqMgstloYOe+zNh9EB4Ca3b+3NP5ijzzOzmMh6T7Ochg2AKQ1e8HGDau0cC25hsjuQWihh@lists.infradead.org
-X-Gm-Message-State: AOJu0YystVjmkE8dJK2KAWFW5MR1govPA3FVmEbBFZusgo5G2KGP5Pyi
-	xuGcsz0raaCx/Hb/TkUAx7t2OxYkK6esCzYmzP4wXy8dZ9toEooK+85JC506Zg==
-X-Gm-Gg: ASbGncuK7cIGDolPQhizMEwouHppImPoKcutzSUDUdH+PNrGZh7X6+lke/657RV84SX
-	lnjjPbIAC6AHyExvoP5Dmn/syDawHS4sQ5MUZ/FlkghE+TWHBpRlSJoT8wKnV1OhTsj39uAJDPR
-	L9BJlHb00Sf35foSoy85dUUoNoo2l7y46qn9qwdjvF1Wf8q7axHGmhqkKtb8wI40qrEAficVl+c
-	II/P2sC142Qy4r0ld3EeLRMxfzFnzhyYDK8EOgYNXj7K/SMDXjJU2InzyaD7whJHQQey8FWwP4=
-X-Google-Smtp-Source: AGHT+IEC6g3dUwbOwegr0/4cBA+q8wZywCWC8uKKvs5wuQPerkiACHzmCx3kFeGTvXXS9OP5fvFOwQ==
-X-Received: by 2002:a05:6a20:e68e:b0:1e1:becc:1c81 with SMTP id adf61e73a8af0-1e5e0801191mr22582243637.32.1734948412492;
-        Mon, 23 Dec 2024 02:06:52 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:4fc4:9ee5:ceb8:cb2e])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842aba72e61sm6939475a12.3.2024.12.23.02.06.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 02:06:52 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: [PATCH] nvmem: mtk-efuse: Enable GPU speed bin post-processing for MT8188
-Date: Mon, 23 Dec 2024 18:06:47 +0800
-Message-ID: <20241223100648.2166754-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+	id 1tPfP2-00000009lYM-0Qrt;
+	Mon, 23 Dec 2024 10:11:11 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1734948664;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=msg5fBDnvA5A5aMJjXE3flrPRKktl7CdeY8acKw/CG0=;
+	b=MZiQWl3tHRj4qFxgPuKj4evBjkB6Bg+thjSP4v2GN+xwMO1uydBc90L0CPa7r4qPLme4CB
+	DGhy1ICtlQqZba59RPyB0yUNMEazxI3vZXo+ifjifFrCZZJk7jMCFLTxm/HJVMgynwjwnI
+	HejW81XMaXOcTmXBQvt8phKf17/oAB+8sAPKFE8CwqmeM3u6bavPOU5Q63zvwADvsje+0i
+	+XIj1hg/+4ZtyMEhy4faoFWYfAyxh5T8whEcYlmsy0k30mTXHNSSxf3I5MbEOhWBsLcQAw
+	lh2CYnusld9w5koro71jsFN7R31hwWdW2OlmEEmXl2K07QCEq/YPNPlISJUifw==
+Date: Mon, 23 Dec 2024 11:11:03 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: FUKAUMI Naoki <naoki@radxa.com>, heiko@sntech.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de,
+ jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com,
+ liujianfeng1994@gmail.com, dmt.yashin@gmail.com, tim@feathertop.org,
+ marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net,
+ alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/3] irqchip/gic-v3: Enable Rockchip 3588001 erratum
+ workaround for RK3582
+In-Reply-To: <871pxysq76.wl-maz@kernel.org>
+References: <20241222030355.2246-1-naoki@radxa.com>
+ <20241222030355.2246-2-naoki@radxa.com> <86msgoozqa.wl-maz@kernel.org>
+ <f93b3bfb5151e4b617b1c99c91b4956f@manjaro.org>
+ <8734ifs3zl.wl-maz@kernel.org>
+ <e3498590dd81b150670e36561d99b6f4@manjaro.org>
+ <871pxysq76.wl-maz@kernel.org>
+Message-ID: <d9919917c5d518608a7d4e3cac8faf53@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_020653_700941_525C23D8 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20241223_021108_447566_E7567E6F 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +83,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like the MT8186, the MT8188 stores GPU speed binning data in its efuse.
-The data needs post-processing into a format that the OPP framework can
-use.
+On 2024-12-23 10:29, Marc Zyngier wrote:
+> On Mon, 23 Dec 2024 06:10:21 +0000,
+> Dragan Simic <dsimic@manjaro.org> wrote:
+>> On 2024-12-23 00:16, Marc Zyngier wrote:
+>> > On Sun, 22 Dec 2024 18:25:02 +0000,
+>> > Dragan Simic <dsimic@manjaro.org> wrote:
+>> >> On 2024-12-22 10:04, Marc Zyngier wrote:
+>> >> > On Sun, 22 Dec 2024 03:03:53 +0000,
+>> >> > FUKAUMI Naoki <naoki@radxa.com> wrote:
+>> >> >>
+>> >> >> Rockchip RK3582 is a scaled down version of Rockchip RK3588(S). Apply
+>> >> >> Rockchip 3588001 erratum workaround to RK3582.
+>> >> >>
+>> >> >> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
+>> >> >> ---
+>> >> >>  drivers/irqchip/irq-gic-v3-its.c | 3 ++-
+>> >> >>  1 file changed, 2 insertions(+), 1 deletion(-)
+>> >> >>
+>> >> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c
+>> >> >> b/drivers/irqchip/irq-gic-v3-its.c
+>> >> >> index 92244cfa0464..c59ce9332dc0 100644
+>> >> >> --- a/drivers/irqchip/irq-gic-v3-its.c
+>> >> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
+>> >> >> @@ -4861,7 +4861,8 @@ static bool __maybe_unused
+>> >> >> its_enable_rk3588001(void *data)
+>> >> >>  {
+>> >> >>  	struct its_node *its = data;
+>> >> >>
+>> >> >> -	if (!of_machine_is_compatible("rockchip,rk3588") &&
+>> >> >> +	if (!of_machine_is_compatible("rockchip,rk3582") &&
+>> >> >> +	    !of_machine_is_compatible("rockchip,rk3588") &&
+>> >> >>  	    !of_machine_is_compatible("rockchip,rk3588s"))
+>> >> >>  		return false;
+>> >> >>
+>> >> >
+>> >> > Please use the relevant property for that purpose ("dma-noncoherent")
+>> >> > at the distributor and ITS levels. We're not adding extra compatibles
+>> >> > for this anymore, and you might as well fix the core dtsi to expose
+>> >> > such property.
+>> >>
+>> >> Thanks for your response.
+>> >>
+>> >> After a more detailed look into drivers/irqchip/irq-gic-v3-its.c,
+>> >> it seems that relying on the "dma-noncoherent" DT property may not
+>> >> be equivalent to adding another compatible check.
+>> >
+>> > It is. My email makes it plain what needs doing.
+>> >
+>> >> Here are a few
+>> >> quotations from irq-gic-v3-its.c, to illustrate this better:
+>> >>
+>> >> 4746 static bool __maybe_unused its_enable_rk3588001(void *data)
+>> >> 4747 {
+>> >> 4748         struct its_node *its = data;
+>> >> 4749
+>> >> 4750         if (!of_machine_is_compatible("rockchip,rk3588") &&
+>> >> 4751             !of_machine_is_compatible("rockchip,rk3588s"))
+>> >> 4752                 return false;
+>> >> 4753
+>> >> 4754         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
+>> >> 4755         gic_rdists->flags |= RDIST_FLAGS_FORCE_NON_SHAREABLE;
+>> >> 4756
+>> >> 4757         return true;
+>> >> 4758 }
+>> >> 4759
+>> >> 4760 static bool its_set_non_coherent(void *data)
+>> >> 4761 {
+>> >> 4762         struct its_node *its = data;
+>> >> 4763
+>> >> 4764         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
+>> >> 4765         return true;
+>> >> 4766 }
+>> >>
+>> >> 4814 #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+>> >> 4815         {
+>> >> 4816                 .desc   = "ITS: Rockchip erratum RK3588001",
+>> >> 4817                 .iidr   = 0x0201743b,
+>> >> 4818                 .mask   = 0xffffffff,
+>> >> 4819                 .init   = its_enable_rk3588001,
+>> >> 4820         },
+>> >> 4821 #endif
+>> >> 4822         {
+>> >> 4823                 .desc   = "ITS: non-coherent attribute",
+>> >> 4824                 .property = "dma-noncoherent",
+>> >> 4825                 .init   = its_set_non_coherent,
+>> >> 4826         },
+>> >
+>> > Nothing tickles me more than having my own work being thrown back at
+>> > me.
+>> 
+>> I'm sorry, that wasn't my intention.  I just wanted to make
+>> referencing to what I was talking about a bit easier.  Though,
+>> I now see that I was wrong, and I apologize for the noise.
+> 
+> No need to apologise. Just understand that the way you approached the
+> discussion was suboptimal. Next time, just ask how the proposed
+> solution works, rather than asserting that it doesn't.
 
-Add a compatible match for MT8188 efuse with post-processing enabled.
+Thanks.  Indeed, the way I approached it was waaay suboptimal.
+I just wanted to clarify that it was an honest mistake resulting
+from not looking at the code carefully enough, nothing else.
 
-Cc: <stable@vger.kernel.org>
-Fixes: ff1df1886f43 ("dt-bindings: nvmem: mediatek: efuse: Add support for MT8188")
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
+> Hopefully we can move on and you and Naoki can come up with a set of
+> patches that does the right thing.
 
-I'm not exactly sure about pointing to the dt bindings commit for the
-fixes tag.
----
- drivers/nvmem/mtk-efuse.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-index af953e1d9230..e8409e1e7fac 100644
---- a/drivers/nvmem/mtk-efuse.c
-+++ b/drivers/nvmem/mtk-efuse.c
-@@ -112,6 +112,7 @@ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
- static const struct of_device_id mtk_efuse_of_match[] = {
- 	{ .compatible = "mediatek,mt8173-efuse", .data = &mtk_efuse_pdata },
- 	{ .compatible = "mediatek,mt8186-efuse", .data = &mtk_mt8186_efuse_pdata },
-+	{ .compatible = "mediatek,mt8188-efuse", .data = &mtk_mt8186_efuse_pdata },
- 	{ .compatible = "mediatek,efuse", .data = &mtk_efuse_pdata },
- 	{/* sentinel */},
- };
--- 
-2.47.1.613.gc27f4b7a9f-goog
-
+Of course.  I've already prepared a small patch series that,
+hopefully, does the right thing when it comes to the Rockchip
+3588001 errata.  I'll submit it soon, after I check the patches
+a bit further.
 
