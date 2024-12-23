@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E95BE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19EEE7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmzIfX5M4nWXT0OGtIvRXIhRj4X+KiyCehm2n5HGgW8=; b=4GF9kP6fAGNVZTEkRXmL6cXbnC
-	MU40eHiEQv6HUUPjFImfDG+4L4ctyDpxFFUbtOySW3bR74oVkRtmQMx93Qr2ImiWAek8UwkSQd4Ej
-	9i0RaJxT2j2DvuA6Z6vzuyV4bNCqzYuMlp/I34R10to42MXcltk3NGOU4U9xqe0KiL/Ek1ksSOght
-	XRvvgtE+eTsoJVEvBiSJDIEaAX0FqoYuwOC4KPY/r0gRKQz7Lm0d7phKZHIwZvX2NSpyLCYwmTy0S
-	bjjRZMpgmdqId7yp1OWbyEXGNFNAsa5j6Ys82OIQReT22JBNppvzadjPr43tLAdnNKQXrvMhZeG4W
-	OiOlIAzw==;
+	bh=cVLRF1G8E3YEmj9of3/GfL8931l13Aic+yt4Npwisy8=; b=4nOTx8iwVwO3I+apz/XUVlUf6C
+	d/mpreygnkb//qP1iTMO/k2JkkCPAgdJMCQf+IktwNUZfsBFwOc3QNUj4rvJtaF23Ggn9QBJyo+Ak
+	VzERBaEh4zvIDVOxjLPaCVlHaP4qVAn5FFpAWTv6v3gwykaXWGevu6BXfUrfteh4fL0yndVWah006
+	dIyuFjRpbkRsKafSZIz1CspfaCIJm+RHmO8pXufkjnPZ9m9VdaELEgZzuoZ3jvsVV+IOnYk292Tz8
+	zS/skcnZb4Slq6YKe0WkBoWe8LpIAirsCKNinYZFakiWFtpcKeflE6h0G8VEhY8IsLVxb92NWzgP5
+	6avcjs/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfUs-00000009m0t-3xiO;
-	Mon, 23 Dec 2024 10:17:10 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tPfW3-00000009mFM-18tb;
+	Mon, 23 Dec 2024 10:18:23 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfSZ-00000009lmw-1fuF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 10:14:48 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2166360285dso36313835ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:14:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1734948887; x=1735553687; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XmzIfX5M4nWXT0OGtIvRXIhRj4X+KiyCehm2n5HGgW8=;
-        b=iZbSCCli46iHF0vnl7KFZN7qsriUupfVwxiWoGdKsiH2VWMhKOXnv6Pk7/fdRRsiz2
-         ZqAsyvxA2Khd1UCbsgqj9ypAOruxsZCYu8pu86mV1OOjbdPDpGMiWurELj4HyQ7H+QLt
-         8DzxBImq2hSea0MssIdWyQ1z5BnBcwFPwzxgw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734948887; x=1735553687;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XmzIfX5M4nWXT0OGtIvRXIhRj4X+KiyCehm2n5HGgW8=;
-        b=svERmgzv/OoAaSQueNNh5oNs5eXkF2PMpnmxb5Gn1ZJJek9arXHEd/CFhq7nOKXVBx
-         fYA8sEk3wyCCp7+rOXLcsAORKTWgRIUzNlnu/QkLu+EkBvXCeNQJ63h3rfbSd8bGUmC2
-         nVE0gylrloixY7FB+3rboa9jXVaidfzGuBhXEuJqYYbueOmSmszX0/+LUQF7U2gyhdf8
-         OalOe2VMx6Qae8KNyClJdIiUOiyo0IT4KHHuc0oTL70XrlOWkVR+K4MkaKmFs/UfQFmk
-         2k+MCFqb9JsayQ900Kg9o6G5dMhCzrt9xzPOUzb/of+kOVgrTxyctoVdoRRRnOqGWNcB
-         zMLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVDrXAy/jXqkgudaJ8QoFcVEu3NIzIfLG6lpu/1jbX32YbtZrRK0NHOkivaetDhCiddVCbW4bIYRhDWMjHLrroV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYxOQoPSp8xdhr/Uc39xGOH8I/p/6RMO23kS9sHUybXpMxkPXm
-	zSc6lx2jUuJQTPpN0COhBmqnLPFSB1M1+YVoj+DaGyaqiAzYnpE9Si7dUXKBiQ==
-X-Gm-Gg: ASbGncs/LBQSewtx1PdDWqNUK65PWcmHskp1eLMgOji/6SNy1H44fpZRcpJ7+HaP/Ke
-	aleEgVq29QHptk/izz+0Y7qUzqd4CcCFCqRMS8mRaHBRmlYHzVDjC/Xx39LmOY35iFi4n9YOn7s
-	gW5DHnUou5YpRRIvCIwVRyCsH10WnDYecQSKAkUg4ir+DMGHxaQExTvjWla4uUkDVOY02M6qqfV
-	ZUxzdM97m7jn7781BIuPQi4qhjERBgHI+9HiR42jCz85L1arOJy1dwyEu6ydu5adKIbi4pVsSE=
-X-Google-Smtp-Source: AGHT+IGvn7LuflVagKwm3SfC0fRZuTKrAtTyakRZsoDywNt46ZDX54DNX8UbIKHJ4q6LUbIN1z/62A==
-X-Received: by 2002:a17:903:41c4:b0:216:1367:7e3d with SMTP id d9443c01a7336-219e6eb45a7mr133755795ad.31.1734948886866;
-        Mon, 23 Dec 2024 02:14:46 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:4fc4:9ee5:ceb8:cb2e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9cdde7sm70193325ad.149.2024.12.23.02.14.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 02:14:46 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 2/2] arm64: dts: mediatek: mt8192: Drop Chromebook variants that never shipped
-Date: Mon, 23 Dec 2024 18:14:32 +0800
-Message-ID: <20241223101434.2170166-2-wenst@chromium.org>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-In-Reply-To: <20241223101434.2170166-1-wenst@chromium.org>
-References: <20241223101434.2170166-1-wenst@chromium.org>
+	id 1tPfUh-00000009lyz-1t0C;
+	Mon, 23 Dec 2024 10:17:02 +0000
+X-QQ-mid: bizesmtpip3t1734948976t5gkrex
+X-QQ-Originating-IP: ZxDPKnbKuj2Qa08eDRwWnduxaDxo448WGeNSucLk2qA=
+Received: from [IPV6:240f:10b:7440:1:5968:fbf4 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 23 Dec 2024 18:16:06 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9580999618302068927
+Message-ID: <5EDFB980DF778743+9f26c8cc-d86d-46ed-9642-cdca10fe7e91@radxa.com>
+Date: Mon, 23 Dec 2024 19:16:04 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E52C
+To: Marc Zyngier <maz@kernel.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se,
+ macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com,
+ dmt.yashin@gmail.com, dsimic@manjaro.org, tim@feathertop.org,
+ marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net,
+ alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20241222030355.2246-1-naoki@radxa.com>
+ <20241222030355.2246-4-naoki@radxa.com> <87zfkmrb4u.wl-maz@kernel.org>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+Organization: Radxa Computer (Shenzhen) Co., Ltd.
+In-Reply-To: <87zfkmrb4u.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: MrfJYRspGRl/8N2fDQkbayoTMxQuPn4cDgFhRSzEilfisYXS+w3lAdv3
+	Q3m0/Y+9yAKfUb6LgU82PDp5GoV2bjUdXYM58nhIAyDkaKV6ofzGyzAK0MRKdqtBpdpdyP6
+	ZbAwM7NT1hAdymntz7nEqpAQOVD+Ssti3Vz+5Okm7skH5/zwjUS9Ons4I65mluNHmQTDhDT
+	gJJ/SwlrroKHNH6Yjs/3PRR3ShH1nv3BKIzaLlgbzM0HRy4i8j/w3RwLdgb6YIOnmUXZo1k
+	9xyD/Zk7THU9c3MX/7uXguoPV0PthiS5Q/1PcY2f93sVMemriUScpi/yg0wmh1LHTWi/lDx
+	bhO0r/Z5WW/GcDCxgWVaFRNaS6WXe8Y6T9lDDOGmIr+vVyOVriSaEoNv+EhATB0HLxj+a1j
+	vVGPuw+Ba4swFRZwciRY50CNXtSGQ2CScQftz/4vQX4xbpADqKrvkDZqOR7ihqWLpEJCpWF
+	c+6hl05wXZJjTvwTPQ4II6R1DYzYZQAX5QKmYbeHOPY0Kzx22bGNdTBfavRgcFNp5orrbiw
+	09d14SH65Psph2r4CkBusDdwmlziQgVHMUXpWIVL2kkE3EObt2tx9LKHNqHlg7H/pnu47jL
+	DjylDnejLeFbgtDFPCQpFAlmbuR9ebFlgO6HrafIUOi0wwyAfy4Wic8QVH7SAFgHLq62Qey
+	C/S2xo00O1CHUsssIQqx6wQhaRkCz4TaHRS/TmRfhO7fmefE576lSKkXqIVcqLd4xagRR6r
+	+dJ8fzZjh97Tfe/lyKBOdGC3YjEDkLKW8PUYKLKFu07lunNbBLCfd4e3YbAHHG53vUbRtR+
+	yMH65cZvvWky0ImcJP6M47krCqd1si2CLi4RMhWduk4bVJcJvqV+MSHLlmmp9zrNf3TXODH
+	r0Zn8zWmEeCtsXx8cgK4d8pAfl+D3tOSdJ0DSMmLVPyi/V7Rs8pbMBBMYfmaafRucPvyU/Z
+	4VZC5bjiAJsvcEA==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_021447_441880_6F04606B 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20241223_021659_918749_3A54B6A2 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,177 +92,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Hayato rev5 sku2 and Spherion rev4 variants were designed in
-anticipation of shortages of the headphone codec. This never happened.
-As far as our records show: the variants were never produced or
-shipped, and no such devices were deployed to any lab.
+Hi Marc,
 
-Drop them.
+On 12/23/24 18:39, Marc Zyngier wrote:
+> On Sun, 22 Dec 2024 03:03:55 +0000,
+> FUKAUMI Naoki <naoki@radxa.com> wrote:
+>>
+>> Radxa E52C is a compact network computer[1] based on the Rockchip
+>> RK3582 SoC:
+>>
+>> - Dual Cortex-A76 and quad Cortex-A55 CPU
+> 
+> So you have *two* big cores.
+> 
+>> - 5TOPS NPU
+>> - 2GB/4GB/8GB LPDDR4 RAM
+>> - 16GB/32GB/64GB on-board eMMC
+>> - microSD card slot
+>> - USB 3.0 Type-A HOST port
+>> - USB Type-C debug port
+>> - USB Type-C power port (5V only)
+>> - 2x 2.5GbE ports
+>>
+>> [1] https://radxa.com/products/network-computer/e52c
+>>
+>> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>>   .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 729 ++++++++++++++++++
+>>   2 files changed, 730 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+> 
+> [...]
+> 
+>> +&cpu_b0 {
+>> +	cpu-supply = <&vdd_cpu_big0_s0>;
+>> +};
+>> +
+>> +&cpu_b1 {
+>> +	cpu-supply = <&vdd_cpu_big0_s0>;
+>> +};
+>> +
+>> +&cpu_b2 {
+>> +	cpu-supply = <&vdd_cpu_big1_s0>;
+>> +};
+>> +
+>> +&cpu_b3 {
+>> +	cpu-supply = <&vdd_cpu_big1_s0>;
+>> +};
+> 
+> And yet you configure 4. If your HW only has 2 A76s, surely something
+> should remove these cores for this platform rather than keep them
+> around.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- .../mt8192-asurada-hayato-r5-sku2.dts         | 65 ----------------
- .../mediatek/mt8192-asurada-spherion-r4.dts   | 78 -------------------
- 2 files changed, 143 deletions(-)
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts
+One of the four cores may be defective. This information is stored in 
+the OTP, so we need to run our software to detect which core is 
+defective. Then we disable the cluster that contains the defective core.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts
-deleted file mode 100644
-index cd86ad9ba28a..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts
-+++ /dev/null
-@@ -1,65 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2022 Google LLC
-- */
--/dts-v1/;
--#include "mt8192-asurada.dtsi"
--
--/ {
--	model = "Google Hayato rev5";
--	chassis-type = "convertible";
--	compatible = "google,hayato-rev5-sku2", "google,hayato-sku2",
--		     "google,hayato", "mediatek,mt8192";
--};
--
--&keyboard_controller {
--	function-row-physmap = <
--		MATRIX_KEY(0x00, 0x02, 0)	/* T1 */
--		MATRIX_KEY(0x03, 0x02, 0)	/* T2 */
--		MATRIX_KEY(0x02, 0x02, 0)	/* T3 */
--		MATRIX_KEY(0x01, 0x02, 0)	/* T4 */
--		MATRIX_KEY(0x03, 0x04, 0)	/* T5 */
--		MATRIX_KEY(0x02, 0x04, 0)	/* T6 */
--		MATRIX_KEY(0x01, 0x04, 0)	/* T7 */
--		MATRIX_KEY(0x02, 0x09, 0)	/* T8 */
--		MATRIX_KEY(0x01, 0x09, 0)	/* T9 */
--		MATRIX_KEY(0x00, 0x04, 0)	/* T10 */
--	>;
--	linux,keymap = <
--		MATRIX_KEY(0x00, 0x02, KEY_BACK)
--		MATRIX_KEY(0x03, 0x02, KEY_FORWARD)
--		MATRIX_KEY(0x02, 0x02, KEY_REFRESH)
--		MATRIX_KEY(0x01, 0x02, KEY_FULL_SCREEN)
--		MATRIX_KEY(0x03, 0x04, KEY_SCALE)
--		MATRIX_KEY(0x02, 0x04, KEY_BRIGHTNESSDOWN)
--		MATRIX_KEY(0x01, 0x04, KEY_BRIGHTNESSUP)
--		MATRIX_KEY(0x02, 0x09, KEY_MUTE)
--		MATRIX_KEY(0x01, 0x09, KEY_VOLUMEDOWN)
--		MATRIX_KEY(0x00, 0x04, KEY_VOLUMEUP)
--
--		CROS_STD_MAIN_KEYMAP
--	>;
--};
--
--&rt5682 {
--	compatible = "realtek,rt5682s";
--};
--
--&sound {
--	compatible = "mediatek,mt8192_mt6359_rt1015p_rt5682s";
--
--	speaker-codecs {
--		sound-dai = <&rt1015p>;
--	};
--
--	headset-codec {
--		sound-dai = <&rt5682 0>;
--	};
--};
--
--&touchscreen {
--	compatible = "hid-over-i2c";
--	post-power-on-delay-ms = <10>;
--	hid-descr-addr = <0x0001>;
--	vdd-supply = <&pp3300_u>;
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts
-deleted file mode 100644
-index 5e9e598bab90..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts
-+++ /dev/null
-@@ -1,78 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2022 Google LLC
-- */
--/dts-v1/;
--#include "mt8192-asurada.dtsi"
--#include <dt-bindings/leds/common.h>
--
--/ {
--	model = "Google Spherion (rev4)";
--	chassis-type = "laptop";
--	compatible = "google,spherion-rev4", "google,spherion",
--		     "mediatek,mt8192";
--
--	pwmleds {
--		compatible = "pwm-leds";
--
--		led {
--			function = LED_FUNCTION_KBD_BACKLIGHT;
--			color = <LED_COLOR_ID_WHITE>;
--			pwms = <&cros_ec_pwm 0>;
--			max-brightness = <1023>;
--		};
--	};
--};
--
--&cros_ec_pwm {
--	status = "okay";
--};
--
--&keyboard_controller {
--	function-row-physmap = <
--		MATRIX_KEY(0x00, 0x02, 0)	/* T1 */
--		MATRIX_KEY(0x03, 0x02, 0)	/* T2 */
--		MATRIX_KEY(0x02, 0x02, 0)	/* T3 */
--		MATRIX_KEY(0x01, 0x02, 0)	/* T4 */
--		MATRIX_KEY(0x03, 0x04, 0)	/* T5 */
--		MATRIX_KEY(0x02, 0x04, 0)	/* T6 */
--		MATRIX_KEY(0x01, 0x04, 0)	/* T7 */
--		MATRIX_KEY(0x02, 0x09, 0)	/* T8 */
--		MATRIX_KEY(0x01, 0x09, 0)	/* T9 */
--		MATRIX_KEY(0x00, 0x04, 0)	/* T10 */
--	>;
--	linux,keymap = <
--		MATRIX_KEY(0x00, 0x02, KEY_BACK)
--		MATRIX_KEY(0x03, 0x02, KEY_REFRESH)
--		MATRIX_KEY(0x02, 0x02, KEY_FULL_SCREEN)
--		MATRIX_KEY(0x01, 0x02, KEY_SCALE)
--		MATRIX_KEY(0x03, 0x04, KEY_SYSRQ)
--		MATRIX_KEY(0x02, 0x04, KEY_BRIGHTNESSDOWN)
--		MATRIX_KEY(0x01, 0x04, KEY_BRIGHTNESSUP)
--		MATRIX_KEY(0x02, 0x09, KEY_MUTE)
--		MATRIX_KEY(0x01, 0x09, KEY_VOLUMEDOWN)
--		MATRIX_KEY(0x00, 0x04, KEY_VOLUMEUP)
--
--		CROS_STD_MAIN_KEYMAP
--	>;
--};
--
--&rt5682 {
--	compatible = "realtek,rt5682s";
--};
--
--&sound {
--	compatible = "mediatek,mt8192_mt6359_rt1015p_rt5682s";
--
--	speaker-codecs {
--		sound-dai = <&rt1015p>;
--	};
--
--	headset-codec {
--		sound-dai = <&rt5682 0>;
--	};
--};
--
--&touchscreen {
--	compatible = "elan,ekth3500";
--};
--- 
-2.47.1.613.gc27f4b7a9f-goog
+please refer
+  https://patchwork.ozlabs.org/project/uboot/patch/20241210222341.3537543-2-jonas@kwiboo.se/
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> Thanks,
+> 
+> 	M.
+> 
 
 
