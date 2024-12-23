@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6CBE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6912E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 11:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PysGQXFhFIaY82I36Y7kVr5DOhB1P1lEm8vqt8odrR0=; b=xfqj7auETMeMEHVpgb98wVW5yY
-	5oKpMLhvGWZkAIzGEu3gJl3GmVZ2Ae+oQZy3WqY92Vye05ALJh6mStFT8YqNf+6iVzG4GMtGbbA16
-	rmLYCCcryD/KNLvETFfbYmuVgccSSJAo8NLW9m053uehThYi0jw/LpN2GZL8jEPPhvFA+N+I7tCnU
-	ABy/5l24cRTGQDMfcwTGLaRY9d4y1itAn6oA+PgHBH7VzLOGF8RFmOjiFYjThnOdMNGQY/VepS1hH
-	LKhAuLf+KhjgJZI3DdeBULpRoX5asJYn9MA3O+XRaJb8gRRCYRgQvxQa96CYcLD6Kk+HGJv9vKfDL
-	6EVGxduA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0/yhLy0x2RPN2n+KfN3/CV+wY/86FBphCXJ0uI9cdtY=; b=To0/FDgZgb+8BqT2wRpH2UCznl
+	YFeDgaYVESCsQOk8597ZWpgmBZAjqtN/PlGKvznWPSWSTqKNtmMfMPNfRvWeuQ75kuGyjPXKLFE/4
+	uw/kj60AzysQd5si2N+1JSejru6XwgAk3imDhNpNPR3CMIiISYGzYpKdEdMHdqZhSE5bgIFXRkwls
+	4qII09MT4y25gPRsmzHuLePghY93CdYuddP6GW6BDGW+8QMi6FNab51L27l3P33Eu+G+RB9QFrOFy
+	KZo3BKYoxOEkWIyIAFa6E/XaVJmQFkW7uIGaTlzJEhFaIZcAa3vE73PFymyPm0kf2kVGqCc3FnWjQ
+	3w7KeuGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPg3k-00000009p0n-1g6c;
-	Mon, 23 Dec 2024 10:53:12 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tPgCV-00000009ptt-2vy1;
+	Mon, 23 Dec 2024 11:02:15 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPg2L-00000009on2-0MyU
+	id 1tPgBJ-00000009pkZ-1vHQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 10:51:46 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53e399e3310so4810287e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:51:44 -0800 (PST)
+	Mon, 23 Dec 2024 11:01:02 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5401c68b89eso4792630e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 03:01:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734951103; x=1735555903; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PysGQXFhFIaY82I36Y7kVr5DOhB1P1lEm8vqt8odrR0=;
-        b=fhOHO3jOOu+BCaIaTd0QFloO0NsvVlqkUDqOrw1DH2EC1qg8fdj2OPVDUu9kr3pFUx
-         gPQH2ojEhqkwIFqIXS6MhMUdCUglUC/3ecRvu3NqPA6xIjt87hLFPmiA2zbxsbcwGCOr
-         1sxockiU3x0jMr7kqSTbStFr4Grz1ws09FDEKh9zK60iHwBktJZ6YWWCsmyEQTQEOzty
-         yZzW6VQidCpxdXgQgap8J5cmAVtqoesQtz7Do+NKFyUJjWdmXFiFjHoTYwTL7U1Tz6+9
-         lSa+S63rEk/XB825Tty4P/84yp5os1JM8WTibUsaZlmCk+zUzyQufdpCZSrVXfMJCniV
-         qDJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734951103; x=1735555903;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1734951659; x=1735556459; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PysGQXFhFIaY82I36Y7kVr5DOhB1P1lEm8vqt8odrR0=;
-        b=QP+J6n0tV3XHuDX9V2CRsVr5xnRUz8j7UQ3uS+loDK1WZeo/hYDsBM/Ad4bu7p/4dF
-         Z0omLkYSBFcSjERS4SAn9yIS5YD1Br1CO7ck8VNULvrbitEXTvDnGzdrFDnkVWrHgAxQ
-         F/957Po0c7tMIYkQ4oFozNkZqDI+lHLZs6FRDmJiSBT1Go8Mme8z9hP7h9P7RM4ELHDJ
-         FvjHu2oL+yfduOmHqLiFsJH1xh9Gfg7IBQhpJd/n8RAyzTAbMomqOoKOuptrVlG0gncb
-         FB4fG92kSued2IR07KZ5i4qtg1kSGHcBsNK5ov8/APS/DwGP7hwNLefqGiVDJsj9hu+s
-         pqtg==
-X-Forwarded-Encrypted: i=1; AJvYcCU1lIVovh08exMODDpHaUwYPTQKk2uB4fxTG8I3rXFjq4i+ZU0c9HmKB6jij+e2FI3x0OnVBozZpgNBNyrHw3Wc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLNA6hnxxfdVeQ02tjOGDrSgEXKsNZOK2ZWvrfRQnk6VNlHOfG
-	S8SJ9e/LZwX6szdShsbkg7/MVlJ3ujLE9yVyGECOHwYha3ljTXBnPAhPEHDLsdQ=
-X-Gm-Gg: ASbGnctAakEHd58I/EVMvudxiOvwRhzfLO+0KnRnQKiGCQCrWtnc1dMByPw98FBWFUF
-	XBYJzHD025B1OxM5F/QjO8j8pxYwy0f9DCOWhpg9nFSnbuh0Qd4MeNeS4odRLxi5JomJPfJY1rQ
-	HeuooKOriCt9GsnnFkyvs/rlFhnTpVVGjI0HkKeRH2nfC8KOwgZhgwuhuVFgdHMS5+wl9uxeopY
-	YYRjXkI+2llLewhA8aYaOBDiZzIi43eLsIg0mnpVwYaXBO5W024c5e91hrn9fs2m7eYygmid6UQ
-	jAJa9FOJFrMAOXfvmTA6MisNjXdbaueg9Ubd
-X-Google-Smtp-Source: AGHT+IG+15flgGLqsMrZ5BL4gMnDHWQG9KiSz+F4gPV4kBjlj5dHbyvd5yf8E3fFs/QR/3iviG06Bg==
-X-Received: by 2002:a05:6512:1150:b0:541:cdef:7ca3 with SMTP id 2adb3069b0e04-5422953c1a8mr3075505e87.27.1734951102906;
-        Mon, 23 Dec 2024 02:51:42 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238216c0sm1231593e87.218.2024.12.23.02.51.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 02:51:42 -0800 (PST)
-Date: Mon, 23 Dec 2024 12:51:40 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
-	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
-	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, 
-	u.kleine-koenig@baylibre.com, francesco@dolcini.it, frank.li@nxp.com
-Subject: Re: [PATCH v7 09/19] drm/imx: Add i.MX8qxp Display Controller
- display engine
-Message-ID: <6mhlb26vdfc7v3jmb7y3tlcuo336x7vkblbkzd5sosd6urirou@bbfalnfisdij>
-References: <20241223064147.3961652-1-victor.liu@nxp.com>
- <20241223064147.3961652-10-victor.liu@nxp.com>
+        bh=0/yhLy0x2RPN2n+KfN3/CV+wY/86FBphCXJ0uI9cdtY=;
+        b=KDxGTSq6/5mqAo+Mvju91BBBAmeDRvkZQiWLjgHV5s4HH/KuU0U/WJbytibpHSfX0r
+         OFeRSGSWqvMKWy42jLYUbHC0Hs7/On/Ku0/BagL+81fbOS0iuJ5Yc13CHnxZkX4gl2hK
+         U+6tm7lDoL9ZsTUfO9kEgr0XFPTn4sP2nrnZ0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734951659; x=1735556459;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0/yhLy0x2RPN2n+KfN3/CV+wY/86FBphCXJ0uI9cdtY=;
+        b=jRRmgqg3daP76pmeK4j7ruJWpAVLmHLgDUVEtkfNRS9bUmS+1uau85JH9tO85TbABu
+         qyh6o/XmO09bzhHDPfzTc6PcUPZXINAHt8YWTRHpjl2tm/U9L9utBsXlXVQI0gKBXdEh
+         SKi05aUiAWOunbeV3J7q9Tq4W9Nm12yWhtHGLEXQUBsSo6lIjvDdt0ttj4kzT8d8AFoh
+         fLG+afGRKK8iKIzCOqGCYpcJAhmE3TB8t3MizpAF11oTCv2PkPl71+lInxv2B2Mqqriy
+         UlVXsDnQvv8TBuSRmXQFz8LvyRo6UPyYSyvDA6jEtcAXety0xSyx2oo0SY58xNW6nWYA
+         rl2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUwA1oqqyCC6MpP2zuN6wSJPwmzxH+QBLYcv/rlL0hj2L+JiFBOPv3Udv3YT3qjtkhW1iUnYD/L9szTV8wBgaCi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7h8VaEJB+g4c3YrLG49m91EGZAHWvMTj0cNOX8Yw+kgKKkYrZ
+	HNy80rvPDD750KLihrWMKtGolbTm4LF5vc8yAYnSLy0fJvurorwoZhkQRLpUOTygTfSATeC2P1F
+	wZLbE2bFSvnsn6a9AgBNoeWoSGKJa5u4r4eJp
+X-Gm-Gg: ASbGncuLPBrWvgrI/BMN4EY2Qf67agwezmg29rIEvJdlY/OoKqiQrtIP0gPyFSYVXUT
+	HYehkxxjkLWDNHiD+HKh/rRbAnM3SEQHzQU0oFkGvXxokDlJXQyTJKVYwawqsJ7rCXg==
+X-Google-Smtp-Source: AGHT+IEeGxR1/A7YAIaQNwuIN8M3ispQzQz/1XgsBv21yWEtwbRwNLgwt8VDFiTZY3VyE4P157VtOboXyGxNebyt2WE=
+X-Received: by 2002:a05:6512:4010:b0:542:2e05:313b with SMTP id
+ 2adb3069b0e04-5422e053206mr2012579e87.21.1734951659121; Mon, 23 Dec 2024
+ 03:00:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241223064147.3961652-10-victor.liu@nxp.com>
+References: <20241223101434.2170166-1-wenst@chromium.org> <20241223101434.2170166-2-wenst@chromium.org>
+In-Reply-To: <20241223101434.2170166-2-wenst@chromium.org>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 23 Dec 2024 19:00:47 +0800
+Message-ID: <CAGXv+5FvhaqvsApufntBABFGRRtGbr_sUjqieWfy-d3K2x+drg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: mediatek: mt8192: Drop Chromebook
+ variants that never shipped
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_025145_190607_15AAE4A6 
-X-CRM114-Status: GOOD (  29.94  )
+X-CRM114-CacheID: sfid-20241223_030101_522865_C270EC76 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,200 +93,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 23, 2024 at 02:41:37PM +0800, Liu Ying wrote:
-> i.MX8qxp Display Controller display engine consists of all processing
-> units that operate in a display clock domain.  Add minimal feature
-> support with FrameGen and TCon so that the engine can output display
-> timings.  The FrameGen driver, TCon driver and display engine driver
-> are components to be aggregated by a master registered in the upcoming
-> DRM driver.
-> 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+On Mon, Dec 23, 2024 at 6:14=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
+>
+> The Hayato rev5 sku2 and Spherion rev4 variants were designed in
+> anticipation of shortages of the headphone codec. This never happened.
+> As far as our records show: the variants were never produced or
+> shipped, and no such devices were deployed to any lab.
+>
+> Drop them.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 > ---
-> v7:
-> * Add kernel doc for struct dc_drm_device. (Dmitry)
-> * Fix regmap_config definitions by correcting name field, correcting read
->   ranges and setting max_register field.
-> * Get instance numbers from device data(compatible strings) instead of OF
->   aliases.
+>  .../mt8192-asurada-hayato-r5-sku2.dts         | 65 ----------------
+>  .../mediatek/mt8192-asurada-spherion-r4.dts   | 78 -------------------
 
-Unfortunately no. Your instances are compatible on the hardware level
-(at least they were with the previous versions, I don't think that
-there was a silicon change).
+Please ignore this version. I forgot to remove them from the Makefile.
 
-> * Collect Maxime's R-b tag.
-> * Trivial tweaks.
-> 
-> v6:
-> * No change.
-> 
-> v5:
-> * Replace .remove_new with .remove in dc-{de,fg,tc}.c. (Uwe)
-> * Select REGMAP and REGMAP_MMIO Kconfig options.
-> * Fix commit message to state that display engine driver is a component driver
->   instead of a master/aggregate driver.
-> 
-> v4:
-> * Use regmap to define register map for all registers. (Dmitry)
-> * Use regmap APIs to access registers. (Dmitry)
-> * Inline some small functions. (Dmitry)
-> * Move dc_fg_displaymode() and dc_fg_panic_displaymode() function calls from
->   KMS routine to initialization stage. (Dmitry)
-> * Use devm_kzalloc() to drmm_kzalloc() to allocate dc_* data strutures.
-> * Drop unnecessary private struct dc_*_priv.
-> * Set suppress_bind_attrs driver flag to true to avoid unnecessary sys
->   interfaces to bind/unbind the drivers.
-> 
-> v3:
-> * No change.
-> 
-> v2:
-> * Use OF alias id to get instance id.
-> * Add dev member to struct dc_tc.
-> 
->  drivers/gpu/drm/imx/Kconfig     |   1 +
->  drivers/gpu/drm/imx/Makefile    |   1 +
->  drivers/gpu/drm/imx/dc/Kconfig  |   7 +
->  drivers/gpu/drm/imx/dc/Makefile |   5 +
->  drivers/gpu/drm/imx/dc/dc-de.c  | 153 +++++++++++++
->  drivers/gpu/drm/imx/dc/dc-de.h  |  62 ++++++
->  drivers/gpu/drm/imx/dc/dc-drv.c |  32 +++
->  drivers/gpu/drm/imx/dc/dc-drv.h |  29 +++
->  drivers/gpu/drm/imx/dc/dc-fg.c  | 378 ++++++++++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-tc.c  | 142 ++++++++++++
->  10 files changed, 810 insertions(+)
->  create mode 100644 drivers/gpu/drm/imx/dc/Kconfig
->  create mode 100644 drivers/gpu/drm/imx/dc/Makefile
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fg.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-tc.c
-> 
+I will send a v2 tomorrow.
 
-[...]
+ChenYu
 
-> +
-> +static int dc_de_bind(struct device *dev, struct device *master, void *data)
-> +{
-> +	struct platform_device *pdev = to_platform_device(dev);
-> +	struct dc_drm_device *dc_drm = data;
-> +	void __iomem *base_top;
-> +	struct dc_de *de;
-> +	int ret;
-> +
-> +	de = devm_kzalloc(dev, sizeof(*de), GFP_KERNEL);
-> +	if (!de)
-> +		return -ENOMEM;
-> +
-> +	de->id = (enum dc_de_id)(uintptr_t)device_get_match_data(dev);
-> +
-> +	base_top = devm_platform_ioremap_resource_byname(pdev, "top");
-> +	if (IS_ERR(base_top))
-> +		return PTR_ERR(base_top);
-> +
-> +	de->reg_top = devm_regmap_init_mmio(dev, base_top,
-> +					    &dc_de_top_regmap_config);
-> +	if (IS_ERR(de->reg_top))
-> +		return PTR_ERR(de->reg_top);
-> +
-> +	de->irq_shdld = platform_get_irq_byname(pdev, "shdload");
-
-Nit: shdload or shdld? Which one is used in the documentation?
-
-> +	if (de->irq_shdld < 0)
-> +		return de->irq_shdld;
-> +
-> +	de->irq_framecomplete = platform_get_irq_byname(pdev, "framecomplete");
-> +	if (de->irq_framecomplete < 0)
-> +		return de->irq_framecomplete;
-> +
-> +	de->irq_seqcomplete = platform_get_irq_byname(pdev, "seqcomplete");
-> +	if (de->irq_seqcomplete < 0)
-> +		return de->irq_seqcomplete;
-> +
-> +	de->dev = dev;
-> +
-> +	dev_set_drvdata(dev, de);
-> +
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	dc_drm->de[de->id] = de;
-> +
-> +	return 0;
-> +}
-> +
-
-[...]
-
-> +
-> +struct dc_de {
-> +	struct device *dev;
-> +	struct regmap *reg_top;
-> +	struct dc_fg *fg;
-> +	struct dc_tc *tc;
-> +	int irq_shdld;
-> +	int irq_framecomplete;
-> +	int irq_seqcomplete;
-> +	enum dc_de_id id;
-
-Why do you need to store it? This patch makes use of it just for the
-registration.
-
-> +};
-> +
-
-[...]
-
-> +static int dc_fg_bind(struct device *dev, struct device *master, void *data)
-> +{
-> +	struct platform_device *pdev = to_platform_device(dev);
-> +	struct dc_drm_device *dc_drm = data;
-> +	void __iomem *base;
-> +	enum dc_fg_id id;
-> +	struct dc_fg *fg;
-> +	struct dc_de *de;
-> +
-> +	fg = devm_kzalloc(dev, sizeof(*fg), GFP_KERNEL);
-> +	if (!fg)
-> +		return -ENOMEM;
-> +
-> +	id = (enum dc_fg_id)(uintptr_t)device_get_match_data(dev);
-> +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	fg->reg = devm_regmap_init_mmio(dev, base, &dc_fg_regmap_config);
-> +	if (IS_ERR(fg->reg))
-> +		return PTR_ERR(fg->reg);
-> +
-> +	fg->clk_disp = devm_clk_get(dev, NULL);
-> +	if (IS_ERR(fg->clk_disp))
-> +		return dev_err_probe(dev, PTR_ERR(fg->clk_disp),
-> +				     "failed to get display clock\n");
-> +
-> +	fg->dev = dev;
-> +
-> +	de = dc_drm->de[id];
-
-This depends on a particular order of component's being bound. If the
-order changes for whatever reason (e.g. due to component.c
-implementation being changed) then your driver might crash here.
-
-This applies to several other places in the driver.
-
-> +	de->fg = fg;
-> +
-> +	return 0;
-> +}
-> +
-
--- 
-With best wishes
-Dmitry
+>  2 files changed, 143 deletions(-)
+>  delete mode 100644 arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5=
+-sku2.dts
+>  delete mode 100644 arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-=
+r4.dts
+>
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.d=
+ts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts
+> deleted file mode 100644
+> index cd86ad9ba28a..000000000000
+> --- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-hayato-r5-sku2.dts
+> +++ /dev/null
+> @@ -1,65 +0,0 @@
+> -// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> -/*
+> - * Copyright 2022 Google LLC
+> - */
+> -/dts-v1/;
+> -#include "mt8192-asurada.dtsi"
+> -
+> -/ {
+> -       model =3D "Google Hayato rev5";
+> -       chassis-type =3D "convertible";
+> -       compatible =3D "google,hayato-rev5-sku2", "google,hayato-sku2",
+> -                    "google,hayato", "mediatek,mt8192";
+> -};
+> -
+> -&keyboard_controller {
+> -       function-row-physmap =3D <
+> -               MATRIX_KEY(0x00, 0x02, 0)       /* T1 */
+> -               MATRIX_KEY(0x03, 0x02, 0)       /* T2 */
+> -               MATRIX_KEY(0x02, 0x02, 0)       /* T3 */
+> -               MATRIX_KEY(0x01, 0x02, 0)       /* T4 */
+> -               MATRIX_KEY(0x03, 0x04, 0)       /* T5 */
+> -               MATRIX_KEY(0x02, 0x04, 0)       /* T6 */
+> -               MATRIX_KEY(0x01, 0x04, 0)       /* T7 */
+> -               MATRIX_KEY(0x02, 0x09, 0)       /* T8 */
+> -               MATRIX_KEY(0x01, 0x09, 0)       /* T9 */
+> -               MATRIX_KEY(0x00, 0x04, 0)       /* T10 */
+> -       >;
+> -       linux,keymap =3D <
+> -               MATRIX_KEY(0x00, 0x02, KEY_BACK)
+> -               MATRIX_KEY(0x03, 0x02, KEY_FORWARD)
+> -               MATRIX_KEY(0x02, 0x02, KEY_REFRESH)
+> -               MATRIX_KEY(0x01, 0x02, KEY_FULL_SCREEN)
+> -               MATRIX_KEY(0x03, 0x04, KEY_SCALE)
+> -               MATRIX_KEY(0x02, 0x04, KEY_BRIGHTNESSDOWN)
+> -               MATRIX_KEY(0x01, 0x04, KEY_BRIGHTNESSUP)
+> -               MATRIX_KEY(0x02, 0x09, KEY_MUTE)
+> -               MATRIX_KEY(0x01, 0x09, KEY_VOLUMEDOWN)
+> -               MATRIX_KEY(0x00, 0x04, KEY_VOLUMEUP)
+> -
+> -               CROS_STD_MAIN_KEYMAP
+> -       >;
+> -};
+> -
+> -&rt5682 {
+> -       compatible =3D "realtek,rt5682s";
+> -};
+> -
+> -&sound {
+> -       compatible =3D "mediatek,mt8192_mt6359_rt1015p_rt5682s";
+> -
+> -       speaker-codecs {
+> -               sound-dai =3D <&rt1015p>;
+> -       };
+> -
+> -       headset-codec {
+> -               sound-dai =3D <&rt5682 0>;
+> -       };
+> -};
+> -
+> -&touchscreen {
+> -       compatible =3D "hid-over-i2c";
+> -       post-power-on-delay-ms =3D <10>;
+> -       hid-descr-addr =3D <0x0001>;
+> -       vdd-supply =3D <&pp3300_u>;
+> -};
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts =
+b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts
+> deleted file mode 100644
+> index 5e9e598bab90..000000000000
+> --- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r4.dts
+> +++ /dev/null
+> @@ -1,78 +0,0 @@
+> -// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> -/*
+> - * Copyright 2022 Google LLC
+> - */
+> -/dts-v1/;
+> -#include "mt8192-asurada.dtsi"
+> -#include <dt-bindings/leds/common.h>
+> -
+> -/ {
+> -       model =3D "Google Spherion (rev4)";
+> -       chassis-type =3D "laptop";
+> -       compatible =3D "google,spherion-rev4", "google,spherion",
+> -                    "mediatek,mt8192";
+> -
+> -       pwmleds {
+> -               compatible =3D "pwm-leds";
+> -
+> -               led {
+> -                       function =3D LED_FUNCTION_KBD_BACKLIGHT;
+> -                       color =3D <LED_COLOR_ID_WHITE>;
+> -                       pwms =3D <&cros_ec_pwm 0>;
+> -                       max-brightness =3D <1023>;
+> -               };
+> -       };
+> -};
+> -
+> -&cros_ec_pwm {
+> -       status =3D "okay";
+> -};
+> -
+> -&keyboard_controller {
+> -       function-row-physmap =3D <
+> -               MATRIX_KEY(0x00, 0x02, 0)       /* T1 */
+> -               MATRIX_KEY(0x03, 0x02, 0)       /* T2 */
+> -               MATRIX_KEY(0x02, 0x02, 0)       /* T3 */
+> -               MATRIX_KEY(0x01, 0x02, 0)       /* T4 */
+> -               MATRIX_KEY(0x03, 0x04, 0)       /* T5 */
+> -               MATRIX_KEY(0x02, 0x04, 0)       /* T6 */
+> -               MATRIX_KEY(0x01, 0x04, 0)       /* T7 */
+> -               MATRIX_KEY(0x02, 0x09, 0)       /* T8 */
+> -               MATRIX_KEY(0x01, 0x09, 0)       /* T9 */
+> -               MATRIX_KEY(0x00, 0x04, 0)       /* T10 */
+> -       >;
+> -       linux,keymap =3D <
+> -               MATRIX_KEY(0x00, 0x02, KEY_BACK)
+> -               MATRIX_KEY(0x03, 0x02, KEY_REFRESH)
+> -               MATRIX_KEY(0x02, 0x02, KEY_FULL_SCREEN)
+> -               MATRIX_KEY(0x01, 0x02, KEY_SCALE)
+> -               MATRIX_KEY(0x03, 0x04, KEY_SYSRQ)
+> -               MATRIX_KEY(0x02, 0x04, KEY_BRIGHTNESSDOWN)
+> -               MATRIX_KEY(0x01, 0x04, KEY_BRIGHTNESSUP)
+> -               MATRIX_KEY(0x02, 0x09, KEY_MUTE)
+> -               MATRIX_KEY(0x01, 0x09, KEY_VOLUMEDOWN)
+> -               MATRIX_KEY(0x00, 0x04, KEY_VOLUMEUP)
+> -
+> -               CROS_STD_MAIN_KEYMAP
+> -       >;
+> -};
+> -
+> -&rt5682 {
+> -       compatible =3D "realtek,rt5682s";
+> -};
+> -
+> -&sound {
+> -       compatible =3D "mediatek,mt8192_mt6359_rt1015p_rt5682s";
+> -
+> -       speaker-codecs {
+> -               sound-dai =3D <&rt1015p>;
+> -       };
+> -
+> -       headset-codec {
+> -               sound-dai =3D <&rt5682 0>;
+> -       };
+> -};
+> -
+> -&touchscreen {
+> -       compatible =3D "elan,ekth3500";
+> -};
+> --
+> 2.47.1.613.gc27f4b7a9f-goog
+>
 
