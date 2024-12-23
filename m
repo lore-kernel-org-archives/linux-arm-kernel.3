@@ -4,115 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EE3E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987C5E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oO75zzClOedMIyyFqnWR3wbQVdx/KvUDQvjyRdguY58=; b=rcSkObZnElRrH561GFmAFu8Wd+
-	UO2NcjuUmY0ff1SDE8WIuAM4NzuCKUkmqutN+mKBCrr5IJXRsM1cNq/HCptrX/pPR6f+GLucrBgxl
-	b+5sIihdZ+BoHnBPNwri3dHaJfZ9F9TcE9IHTDio50PSNyUEbcwVp4OkmOVuWnfLGKttv0LQdDaVg
-	6hJkiuSVi2tFITpeZ7A+P7s02PpRrjJ160w7iiw9gXJEAFcx0EbLQCVWuMivDRV68quhn+hXqs7Vt
-	Aj7h8wy6PRyFW+FrwhO2Zyht8q1eCO+LY5AfEppdX185VhDCau2CQqOnI9kSbyFlGly5ahzvtlGkv
-	kVSnJIMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WqluWNRDE4YKKh+6ZVJkRynFpO3XhtHHTARHI3/wG/M=; b=Zs8cvqJe+F+uwCOvlqgI3S/lwU
+	0XsP4OUFrjKZpXb3C125LEDN4zBSnrF93dc7zVTFJKReCOrj6ix50lPU6Mi65zbxIy2+T7Uxz5C0n
+	A+jWnV9Pg0vzAE8guoD44Ybk6wn7isRePzgL6tLKtbRsu6n0JG5aBoRY5OQzQdrW7pjfKyEaLSr7t
+	il5Fu91FKmv84JP5wt/I1vS5YiT1IW1OQfSdxy9Hitdg6Ud8u4D0+SA4yBFPKvV5BjKx5/AkL5rZx
+	lQzXmgYyRVeYsdkb8K+OiQdxSv4Emf9sGwyZ3oiJW+MXYQ2ClTV4l5/0vg/xfzvrElo1tRKOLKMiI
+	lGmfbO1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPkXj-0000000AJ59-24PJ;
-	Mon, 23 Dec 2024 15:40:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tPkmM-0000000AJxh-3ZT3;
+	Mon, 23 Dec 2024 15:55:34 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPkWX-0000000AIw1-1fsM
+	id 1tPklA-0000000AJtD-3Dmy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 15:39:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3DF12A40FA1;
-	Mon, 23 Dec 2024 15:37:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A46BC4CED3;
-	Mon, 23 Dec 2024 15:39:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734968352;
-	bh=0Taij8MIxZuV8S4fYto05hx2QPubdpKJ5+ANOqpbJEg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NU0KU4v5ehZPFxeFFzUVVFoYEuoxA/XZ+Neiv5QSp59O00MxrFbSzThJDdiafdAGr
-	 lzGrNtnUabYVSPhHLlsZkX5GAAdadYhyaevaAQyAFOI/D+MbIRm8EbHzZAg5MgAvCG
-	 4XdinBxLTM1xxuhP/gmOdm5SGL1qEe5GtOwGGwgO7W2rQwtbjgaCcZKEWZRJ855Ff/
-	 zNPCi7bTtIXnhnGrB9yBhsRtzjiiTA2EKy59o2ZcEU1RZLcag735u15EpkDjkgKaoO
-	 gecr79rLtER0SaEFzbie6wpwMLrqee3/KrvtdZnEC0vceaNOye9pB5N2TWU4YLRJWv
-	 aWb+nx0u+8+EQ==
-Message-ID: <c2efb6c7-4a0b-4078-b0df-6e646eb88906@kernel.org>
-Date: Mon, 23 Dec 2024 16:39:06 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Mon, 23 Dec 2024 15:54:22 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43618283d48so32089655e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 07:54:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734969259; x=1735574059; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WqluWNRDE4YKKh+6ZVJkRynFpO3XhtHHTARHI3/wG/M=;
+        b=czxJe/9iRt7SNyKaiu5njpoerfkmDEl8Ze/uqGAohd3NxcX2Tu0SFmsNMzP8OXBhkl
+         8YmnpEkYo0y21oS70f6BShpy/ReaaYXhTYXPuUbgrtqqemG0tYMUJ4p6VxjIB+JZuFXg
+         dHumY+Sj79aMihref7HQbUqNwsvWw9mtubTBpowXxSERLJXvu5upxLHSuAgtGPx4onqg
+         jr4sU2d2QPQldpUiztrScFsSTcSJ2TLOIXbRrbEpqW7iPAL45kU1vMlQ+qOt1vbRq5ET
+         ofEZV3ZbtoMgd0bQV1o1bBzVO3IFR3iBoUU038ga1CZwZ6SzGGqn9q9q6G274YHletbu
+         US1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734969259; x=1735574059;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WqluWNRDE4YKKh+6ZVJkRynFpO3XhtHHTARHI3/wG/M=;
+        b=C/9O3K59zEjD62lYJJFTadXKKZFPf4g1EWBDGMQDV4Yhvd6LFSNFyTLpSSWJaOp+d9
+         UFeczc8NS0XJwe2TjI/8oHHR27JJZUrY+EnLI2XMGVsZUWx3xS2HLfgGi0dEkBOr8uqo
+         UsCRmXT8AapJIF/PzzSlMWXZda2ilWaLSmfTqWpRMn3hFrFCmkjvmniNpv671unfWM57
+         V26W/D3wKkOciV/SZwrvfR+UbCxKc0R5svEfXvhuFA7SR3iMerAOQKNsCqhyW2al6QcP
+         P9eoirt0/NCHwDwEjc+vxXFuOgEPOkuq20CvYy3cj7GVVDgqWmsewI+dx3Me8yG/vWvO
+         t0yA==
+X-Forwarded-Encrypted: i=1; AJvYcCWoPc1Kg6lGIWvctdAqCzAKXFyMq6iFz+x9Jz9RWb6b+6mxLI+uvy7mDZHa4E9j2MAZImcm+ZL3vJlFwB5mgjAa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6H1P7bU/wqfRbGrUAjCc1VaKlXndO2RFzuKXTN4i4eiB3Zn5f
+	tggsHB6glNeWZcCjOPcUSdSQjz56/pVIsIQJrD4ryiGjDW8ssyWokh1mdwCdSEI=
+X-Gm-Gg: ASbGncs2oyTdBatzh6kJgOchA6MsWLl1yG5Z+193u9UTJiGSofLVLI2TmdD9mVL84Sp
+	rJt5mEdQ636+4WKj+Lr6/yzdjgwwGrysT4JqGYaJQ2QhsYQVYplOagQZ0WlAGpm9fS20gjSjO32
+	LCmJKmDe+7tRJop2eHvIHs0xUKcJmnbxIQ0lxujO8fXKt4uTHTAnetv6BX1g+37nPOeDRkZs1Ze
+	9AkOln5Amlh7YQaueu3r7M7EmCMxfL6unXj5Dc5XGFnEz8fTDubgcILD7D4Jw==
+X-Google-Smtp-Source: AGHT+IGXa0TrQOSZFAUYuStWX/JYX94Y0VcFf0tq0paQl66u9Om48mfMnJ2qgjLAvuQBzCBhXSshNg==
+X-Received: by 2002:a05:6000:490e:b0:385:fc97:9c63 with SMTP id ffacd0b85a97d-38a221f16d6mr12153008f8f.9.1734969258675;
+        Mon, 23 Dec 2024 07:54:18 -0800 (PST)
+Received: from [10.1.1.109] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b00cf6sm176394475e9.10.2024.12.23.07.54.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Dec 2024 07:54:18 -0800 (PST)
+Message-ID: <34f62a976e4dd2d56eb34e4efa987ddc3e2f31ca.camel@linaro.org>
 Subject: Re: [PATCH v2 1/3] dt-bindings: arm: google: add gs101-raven and
  generic gs101-pixel
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+	 <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Date: Mon, 23 Dec 2024 15:54:17 +0000
+In-Reply-To: <c2efb6c7-4a0b-4078-b0df-6e646eb88906@kernel.org>
 References: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
- <20241220-gs101-simplefb-v2-1-c10a8f9e490b@linaro.org>
- <d0c1511f-b052-4690-aefb-3fb41e1e5875@kernel.org>
- <cfdc5b1b03140e3d2ce3fb58e8b342dc2ac06d04.camel@linaro.org>
- <d960e22e-01ad-406d-9616-d45edbef0232@kernel.org>
- <9507951f9ce4ee9d8c553d8964f00ef217f8ed1d.camel@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <9507951f9ce4ee9d8c553d8964f00ef217f8ed1d.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	 <20241220-gs101-simplefb-v2-1-c10a8f9e490b@linaro.org>
+	 <d0c1511f-b052-4690-aefb-3fb41e1e5875@kernel.org>
+	 <cfdc5b1b03140e3d2ce3fb58e8b342dc2ac06d04.camel@linaro.org>
+	 <d960e22e-01ad-406d-9616-d45edbef0232@kernel.org>
+	 <9507951f9ce4ee9d8c553d8964f00ef217f8ed1d.camel@linaro.org>
+	 <c2efb6c7-4a0b-4078-b0df-6e646eb88906@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.1-4 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_073913_569682_29FCE870 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20241223_075420_886509_73A83FA9 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,147 +109,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2024 16:31, André Draszik wrote:
-> On Mon, 2024-12-23 at 15:14 +0100, Krzysztof Kozlowski wrote:
->> On 23/12/2024 08:45, André Draszik wrote:
->>> Hi Krzysztof,
->>>
->>> On Sun, 2024-12-22 at 12:38 +0100, Krzysztof Kozlowski wrote:
->>>> On 20/12/2024 12:27, André Draszik wrote:
->>>>> Raven is Google's code name for Pixel 6 Pro. Since there are
->>>>> differences compared to Pixel 6 (Oriole), we need to add a separate
->>>>> compatible for it.
->>>>>
->>>>> We also want to support a generic DT, which can work on any type of
->>>>
->>>> There are no such generic DT devices upstream, so we cannot add bindings
->>>> for them.
->>>
->>> Do you have a better suggestion for the wording?
->>> How about 'gs101-based Pixel base board'?
->>
->> It's not exactly about the wording but the concept. We don't have
->> generic devices, thus no generic DT (DTS). Period. Thus you cannot have
->> such schema.
-> 
-> There is a Pixel base board, with different additions to it, e.g.
-> different displays. The boot loader can pick the right one.
-> 
-> Let's discuss that in the other thread to have things in one place :-)
->>
-> 
->>>>> gs101-based Pixel device, e.g. Pixel 6, or Pixel 6 Pro, or Pixel 6a (as
->>>>> a future addition). Such a DT will have certain nodes disabled / not
->>>>> added. To facilitate such a generic gs101-based Pixel device, also add
->>>>> a more generic gs101-pixel compatible. We can not just use the existing
->>>>> google,gs101 for that, as it refers to the SoC, not a board.
->>>>>
->>>>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
->>>>> ---
->>>>>  Documentation/devicetree/bindings/arm/google.yaml | 18 ++++++++++++++----
->>>>>  1 file changed, 14 insertions(+), 4 deletions(-)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/arm/google.yaml b/Documentation/devicetree/bindings/arm/google.yaml
->>>>> index e20b5c9b16bc..a8faf2256242 100644
->>>>> --- a/Documentation/devicetree/bindings/arm/google.yaml
->>>>> +++ b/Documentation/devicetree/bindings/arm/google.yaml
->>>>> @@ -34,11 +34,21 @@ properties:
->>>>>      const: '/'
->>>>>    compatible:
->>>>>      oneOf:
->>>>> -      - description: Google Pixel 6 / Oriole
->>>>> +      - description: Google GS101 Pixel devices, as generic Pixel, or Pixel 6
->>>>> +          (Oriole), or 6 Pro (Raven)
->>>>> +        minItems: 2
->>>>> +        maxItems: 3
->>>>>          items:
->>>>> -          - enum:
->>>>> -              - google,gs101-oriole
->>>>> -          - const: google,gs101
->>>>> +          enum:
->>>>> +            - google,gs101-oriole
->>>>> +            - google,gs101-raven
->>>>> +            - google,gs101-pixel
->>>>> +            - google,gs101
->>>>
->>>> SoC cannot be a board in the same time.
->>>
->>> Can you please expand? google,gs101 is the SoC, the other ones are boards.
->>> Is the commit message unclear?
->>
->> You now say that these are valid boards:
->>
->> compatible = "google,gs101", "google,gs101";
-> 
-> Sorry, I don't see how (apart from the fact that dtbs_check flags
-> non-unique elements anyway). The result of the patch is:
-> 
->         minItems: 2
->         maxItems: 3
->         items:
->           enum:
->             - google,gs101-oriole
->             - google,gs101-raven
->             - google,gs101-pixel
->             - google,gs101
+On Mon, 2024-12-23 at 16:39 +0100, Krzysztof Kozlowski wrote:
+> On 23/12/2024 16:31, Andr=C3=A9 Draszik wrote:
+> > On Mon, 2024-12-23 at 15:14 +0100, Krzysztof Kozlowski wrote:
+> >=20
+> > >=20
+> > > You now say that these are valid boards:
+> > >=20
+> > > compatible =3D "google,gs101", "google,gs101";
+> >=20
+> > Sorry, I don't see how (apart from the fact that dtbs_check flags
+> > non-unique elements anyway). The result of the patch is:
+> >=20
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 2
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - go=
+ogle,gs101-oriole
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - go=
+ogle,gs101-raven
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - go=
+ogle,gs101-pixel
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - go=
+ogle,gs101
+>=20
+> The problem is this line. Although entire concept of flexible list is
+> neither need nor ever recommended.
 
-The problem is this line. Although entire concept of flexible list is
-neither need nor ever recommended.
+All of this was inspired by Documentation/devicetree/bindings/soc/xilinx/xi=
+linx.yaml
+I guess not a good example in this case...
 
->         allOf:
->           - contains:
->               const: google,gs101-pixel
->           - contains:
->               const: google,gs101
-> 
-> So one can not have 'google,gs101' twice. And if I only add
+>=20
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 allOf:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - contains:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 const: google,gs101-pixel
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - contains:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 const: google,gs101
+> >=20
+> > So one can not have 'google,gs101' twice. And if I only add
+>=20
+> Still can be, but indeed not with my example but:
+>=20
+> "google,gs101", "google,gs101", "google,gs101-pixel";
 
-Still can be, but indeed not with my example but:
+This example doesn't pass irrespective of binding, because
+dtbs_check will complain about non-unique elements.
 
-"google,gs101", "google,gs101", "google,gs101-pixel";
-
->     compatible = "google,gs101", "google,gs101";
-> to the .dts, then dtbs_check complains indeed.
-> 
->> (although compatibles
->>
->> compatible = "google,gs101", "google,gs101-pixel";
-> 
-> OK, the schema doesn't flag incorrect ordering indeed.
-> 
->> Both are wrong. SoC should not be before the board and SoC cannot be
->> used alone. Your schema allows that and that's not good.
->>
->> I did not get what you want to achieve here, so tricky to advice.
-> 
-> The intention is to enforce either of the following three:
-> 
->     compatible = "google,gs101-raven", "google,gs101-pixel", "google,gs101";
->     compatible = "google,gs101-oriole", "google,gs101-pixel", "google,gs101";
-
-These two are standard - list of three: enum + const + const
-
->     compatible = "google,gs101-pixel", "google,gs101";
-
-And that's a separate entry.
-
-> 
-> I think this works (but I was aiming for something shorter,
-> possibly involving minItems):
-> 
->   compatible:
->     oneOf:
->       - description: Google GS101 Pixel base board
-
-What is a base board in terms of phone? This can be only final product,
-you cannot use/have a baseboard. This is not an evalkit.
-
->         items:
->           - const: google,gs101-pixel
->           - const: google,gs101
+Anyway, will use separate entries.
 
 
+Thanks Krzysztof,
+Cheers,
+Andre'
 
-Best regards,
-Krzysztof
+>=20
 
