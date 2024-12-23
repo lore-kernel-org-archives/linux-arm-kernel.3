@@ -4,112 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A87E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 14:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA24E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 14:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/cRqASxcjJoQ2A51flm6hDAcAOKMnB8+B6EQPHB7SA=; b=m5o5XdTcnaBYF848icV/F1cTDG
-	OhVFlf2eLTDhCiWgcSc85SW7xU10HQ755BcNxmNxHcpIDGuorFb+3R+g2KVS49+tBL4itr0CpiH6C
-	wfpZauY+TPaf8sRev51svxfGjYZ0JceZkllSAZu5dKxxRnx+HkJG/a0bGoO1864bVr4RnnYi3GOQU
-	/xJviZK9lVusTH322BzSAv2DH+bPkVf1NlA14zpkjYvUsecEVjvYywrAVknswSnxxgqOpRysyZ83S
-	eXFZ70uuq7Lhfi//Pcr5EnxGr+npGoznVPQvSGX2V74snWXXdvpr0H3Z+9AOKVayZoLsRTxhrMpaf
-	emyVUdiA==;
+	bh=7RjM6ERBvISGQ1IQt6KETo4WzD6bO69AoSLgMrMjCjk=; b=Sk6tl5WyPFHMOYNWIWAnq4pVBI
+	Cloc0FY3rVcATxshNirROeEfDms5tC5B7OUT26+VP+V+MYZqE+9RJx4inX6hfmE7D4mQe1/t/GkkH
+	Htjek3E/Hd2rICamsm36VkvHmb4l8iQ/UU0jc2Se1R7Eqrl1OitT9r+ET8/dEqPd/oJVirUEsiq1s
+	RNl5T0+S5AB1YjavI28l2CB6lWoa9wzngndtJHeQQysDYrZ3WM5cLHZefQT4Jm1PH6bbLMNkkv/ZM
+	KBbdcAnUdX1hMFdRIgGiQjW/gx/iytQz9IxpUAWoSPjPL0auXYuO3SYjKQu2KE8tJmjYmVGCRs+Ao
+	ee1eCAgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPjEt-0000000A8YZ-0E90;
-	Mon, 23 Dec 2024 14:16:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tPjHF-0000000A8tu-3hcL;
+	Mon, 23 Dec 2024 14:19:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPjCw-0000000A8Sk-1A6s
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Dec 2024 14:14:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=T/cRqASxcjJoQ2A51flm6hDAcAOKMnB8+B6EQPHB7SA=; b=n0D7qKpk/YvZhR3W9HPKTXwPos
-	Nt8ksCxeNwFlCaRue2UGkoX6EioSW5PMcme562CaN7w/wJWJKgbpqJeWMHvRETXl5gFGx77eNjOdr
-	eGwzoPbMzlpR+EHTD8AHGUF6QWFdbC4Ex41n53X6R6V8h3VUCiS1l6ujvJDVAQdZ7t/6WedWPJlEY
-	VUj0K8g3h4SDYA7g+R0O25cWAyIrOT+TdtS+mfCubyZ9Yf5L+m9ypXoD5k6vpdfrcORLeihg4qO/m
-	kIUYim5kseRlShMQQ7OicPavxmefBANCDZdaBGtB+GgwjMd9qVjl5ka05tSAUuETrX+dPObEa0qAT
-	Fn5UjLKg==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPjCt-00000006NJ7-04EV
+	id 1tPjG3-0000000A8jf-18Ut
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 14:14:53 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BNBvgaJ018208;
-	Mon, 23 Dec 2024 14:14:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	T/cRqASxcjJoQ2A51flm6hDAcAOKMnB8+B6EQPHB7SA=; b=X0TkPPIuLzasWhM3
-	k52ZveVmv5iVJR4Xr5Kny/VR35ixbVyFlaxVfXmPFvuXGvYuMe5Qhrh9o3s/tC7F
-	v0kTu6eu3I5WKbLuhSCGKXJ98XNmIc4JnEEIbLFXNbKttNQ3TGKXHtW4f2cHqPid
-	EcczrGl5Wq5r3zty49aUUxlT3eEutORCkgXKB8veEvo5ioHIB8LgRidx/Nnck5cp
-	RAUb0UBRFNAaT2sRbAgrAw/1R1rw+D1q+Ac2C0iXNxINPltRlKr61ZSOkVVBN2b0
-	Jn7tDRG7u7wc6vplhUyilu5S8MKoXNI/cD4uJSHEnbUWZ/QRKqMlML74UWHENI+q
-	DmR4DA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43q7ev09s4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Dec 2024 14:14:40 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BNEEdSq020736
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Dec 2024 14:14:39 GMT
-Received: from [10.190.163.187] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 23 Dec
- 2024 06:14:35 -0800
-Message-ID: <05ecd064-4677-2f39-e6c4-9dfa51ec9052@quicinc.com>
-Date: Mon, 23 Dec 2024 19:27:32 +0530
+	Mon, 23 Dec 2024 14:18:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 36FBCA40E2B;
+	Mon, 23 Dec 2024 14:16:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78D96C4CED3;
+	Mon, 23 Dec 2024 14:18:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734963486;
+	bh=Dnx5jq8dk5gccywgJ8I1S6xTsLN9qwfE/Enn2jq1nSY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E/R+imZt5bguB8G1UuKlY9bV0MshcchxOe7IWOxHoZHmL9l2teeuLZbBav5xbUDjj
+	 RBLEaatHYNdu3KT8aAPhhBUOBhaWDN9dh9MWcVTsCOv2n7V8GXPkaXIBSPfxtd7HxM
+	 w3jXIhEp41wSk3K1r2kiYJ5sPU/WvRKZdN05dIJPXjns81NzraJaWZbcPVlaLVTQq4
+	 FVS+G7FWN7fOscbsb5T4TfCmvW2rxtj88tF5C4pKOBknxW0wJQpJ+0jQjzv6X+rGol
+	 RmbLTUA6Py2PsPvRTXz26+mSZbLo3v1igqRQMRDwXmJ2JQlwn0oDNBEXApPvOwYr2D
+	 1wgiarhGV5dwg==
+Message-ID: <57d5cb47-5c4b-4334-98af-4fb842995366@kernel.org>
+Date: Mon, 23 Dec 2024 15:18:00 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH V4 4/5] soc: qcom: Introduce SCMI based Memlat (Memory
- Latency) governor
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: exynos: gs101-pixel: add generic
+ gs101-based Pixel support
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
+ <20241220-gs101-simplefb-v2-2-c10a8f9e490b@linaro.org>
+ <33c7a520-dda9-4d3c-aa27-2f48786996a9@kernel.org>
+ <e85505c808661bedf2cca2433ef4c06038505a5f.camel@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: Shivnandan Kumar <quic_kshivnan@quicinc.com>, <sudeep.holla@arm.com>,
-        <andersson@kernel.org>, <konrad.dybcio@linaro.org>,
-        <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_rgottimu@quicinc.com>, <conor+dt@kernel.org>,
-        <arm-scmi@vger.kernel.org>, Amir Vajid
-	<avajid@quicinc.com>
-References: <20241007061023.1978380-1-quic_sibis@quicinc.com>
- <20241007061023.1978380-5-quic_sibis@quicinc.com>
- <2e9614de-1a93-4e17-a10c-945c50fb3f1a@quicinc.com>
- <61ce8618-cb08-06bc-9159-4ca26d703b14@quicinc.com> <Z1GfGk0yQAVQKEVL@pluto>
-From: Sibi Sankar <quic_sibis@quicinc.com>
-In-Reply-To: <Z1GfGk0yQAVQKEVL@pluto>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <e85505c808661bedf2cca2433ef4c06038505a5f.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: AgKPedOUANGR430uzfoYmignMbCIv5Sz
-X-Proofpoint-GUID: AgKPedOUANGR430uzfoYmignMbCIv5Sz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 mlxscore=0
- spamscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0
- mlxlogscore=999 malwarescore=0 adultscore=0 suspectscore=0 bulkscore=0
- clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412230128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_141451_363023_2464002C 
-X-CRM114-Status: GOOD (  35.83  )
+X-CRM114-CacheID: sfid-20241223_061807_460618_56B9FA81 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,136 +125,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/5/24 18:09, Cristian Marussi wrote:
-> On Thu, Dec 05, 2024 at 04:33:05PM +0530, Sibi Sankar wrote:
->>
->>
->> On 11/29/24 15:27, Shivnandan Kumar wrote:
+On 23/12/2024 08:59, André Draszik wrote:
+> Hi Krzysztof,
+> 
+> On Sun, 2024-12-22 at 12:42 +0100, Krzysztof Kozlowski wrote:
+>> On 20/12/2024 12:27, André Draszik wrote:
+>>> In order to support Pixel 6 (Oriole), Pixel 6 Pro (Raven), and Pixel 6a
+>>> (Bluejay) correctly, we have to be able to distinguish them properly as
+>>> we add support for more features.
 >>>
+>>> For example, Raven has a larger display. There are other differences,
+>>> like battery design capacity, etc.
 >>>
+>>> To facilitate this, we create a generic gs101-based Pixel DT that can
+>>> work on any such gs101-based device. At the same time, we move the
+>>
+>> No, whatever insanity Android has there, please don't populate it to
+>> upstream.
+>>
+>> There is no such thing as "generic board" thus cannot be a
+>> "generic DTS".
 > 
-> Hi Sibi,
+> I'll rephrase to gs101-based Pixel base board. Unless you have a better
+> suggestion.
 > 
-> some rants down below :P
-
-Hey Cristian,
-
-Thanks for taking time to put out your thoughts!
-
->   
->>> On 10/7/2024 11:40 AM, Sibi Sankar wrote:
->>>> Introduce a client driver that uses the memlat algorithm string
->>>> hosted on QCOM SCMI Generic Extension Protocol to detect memory
->>>> latency workloads and control frequency/level of the various
->>>> memory buses (DDR/LLCC/DDR_QOS).
->>>>
-> 
-> [snip]
-> 
->>>> +    /* Set the effective cpu frequency calculation method */
->>>> +    ret = ops->set_param(ph, &cpucp_freq_method,
->>>> sizeof(cpucp_freq_method), MEMLAT_ALGO_STR,
->>>> +                 MEMLAT_SET_EFFECTIVE_FREQ_METHOD);
->>>> +    if (ret < 0)
->>>> +        return dev_err_probe(&sdev->dev, ret,
->>>> +                     "failed to set effective frequency calc method\n");
->>>> +
+>>
+>>> Oriole specific parts that we have at the moment (display) into an
+>>> overlay, making it easy to add support for Raven and Bluejay in a
+>>> similar way.
 >>>
->>> Hi Sibi,
+>>> Note1:
+>>> Despite being an overlay, we instruct kbuild to create a merged
+>>> gs101-oriole.dtb and a gs101-oriole.dtbo. This way existing scripts can
+>>> keep working, but it also gives the option to just apply the overlay
+>>> before boot (e.g. by the bootloader).
+>>>
+>>> Note2:
+>>> I've changed the simple-framebuffer node to specify the memory via
+>>> memory-region instead of reg, as that avoids unnecessary duplication
+>>> (of the size), and it avoids having to specify #address-cells
+>>> and #size-cells in the chosen node (and duplicating this in the DTSO),
+>>> which is otherwise necessary to keep dt_binding_check happy and DT
+>>> validation working in general.
+>>>
+>>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+>>> ---
+>>> Note: MAINTAINERS doesn't need updating, it covers this whole directory
+>>> ---
+>>>  arch/arm64/boot/dts/exynos/google/Makefile         |  6 ++--
+>>>  .../arm64/boot/dts/exynos/google/gs101-oriole.dtso | 33 ++++++++++++++++++++++
+>>>  .../{gs101-oriole.dts => gs101-pixel-generic.dts}  | 24 +++++++---------
+>>>  3 files changed, 47 insertions(+), 16 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/exynos/google/Makefile b/arch/arm64/boot/dts/exynos/google/Makefile
+>>> index 0a6d5e1fe4ee..6e6b5319212a 100644
+>>> --- a/arch/arm64/boot/dts/exynos/google/Makefile
+>>> +++ b/arch/arm64/boot/dts/exynos/google/Makefile
+>>> @@ -1,4 +1,6 @@
+>>>  # SPDX-License-Identifier: GPL-2.0
+>>>  
+>>> -dtb-$(CONFIG_ARCH_EXYNOS) += \
+>>> -	gs101-oriole.dtb \
+>>> +dtb-$(CONFIG_ARCH_EXYNOS) += gs101-pixel-generic.dtb
+>>> +
+>>> +gs101-oriole-dtbs := gs101-pixel-generic.dtb gs101-oriole.dtbo
+>>> +dtb-$(CONFIG_ARCH_EXYNOS) += gs101-oriole.dtb
+>>> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dtso b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dtso
+>>> new file mode 100644
+>>> index 000000000000..43572039cd07
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dtso
+>>> @@ -0,0 +1,33 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-only
+>>> +/*
+>>> + * Oriole Device Tree
+>>> + *
+>>> + * Copyright 2021-2023 Google LLC
+>>> + * Copyright 2023-2024 Linaro Ltd
+>>> + */
+>>> +
+>>> +/dts-v1/;
+>>> +/plugin/;
+>>> +
+>>> +&{/} {
+>>> +	model = "Oriole";
+>>> +	compatible = "google,gs101-oriole", "google,gs101-pixel", "google,gs101";
 >>
->> Hey Shiv,
->>
->> Thanks for taking time to review the series!
->>
->>> Since the MEMLAT_SET_EFFECTIVE_FREQ_METHOD command is not supported in
->>> the legacy CPUCP firmware, it should be kept optional. This way, if the
->>> legacy firmware is used, the driver will not return an error when the
->>> CPUCP firmware returns -EOPNOTSUPP.
->>
->> The vendor protocol with the current major/minor version is
->> expected to work as is on x1e platforms. What legacy firmware
->> are you referring to? All future SoCs that plan to adhere to
->> it are expected to maintain this abi and can decide to make
->> use of alternate mechanisms to calculating frequency based
->> on additional dt properties set.
->>
+>> Boards are not overlays. Board equals DTB.
 > 
-> Normally in the SCMI world you could leverage protocol versioning and
-> the standard PROTOCOL_MESSAGE_ATTRIBUTES(0x2) command to let the agent
-> investigate if the SCMI server it is speaking to implements or NOT a
-> specific command and which specific version of that command is understood
-> (with possibly varying size and fields)...
-> 
-> ...BUT since your vendor protocol is 'Generic' and, as it stands, it
-> basically piggybacks any kind of binary payload (i.e. subcommands of
-> some kind of subprotocols of yours) into the same 4 get/set/start/stop
-> 'Generic' ops, without even specifying the transmitted/received payload
-> sizes into the message itself....all of the possible SCMI versioning
-> autodiscovery and backward-compatibility capabilities happily go out of
-> the window because:
-> 
-> - your versioning refers to the generic protocol and you cannot possibly
->    describe all the possible future subcommands (opaque payloads) variations
->    and/or subcommands addition/removals purely on the major/minor version, AND
->    even if you did that, NONE of such future variations will be documented
->    anywhere since you are hiding all of this inside a bunch of binary blobs
-> 
-> - you dont even specify the payload sizes of the tx/rx 'Generic' payload
->    subcommands so it becomes even difficult for both the server and the
->    client to safely handle your 'Generic' subcommand message payloads
-> 
-> - you cannot issue a PROTOCOL_MESSAGE_ATTRIBUTE() to see if a specific
->    subcommand is supported, because your subcommand is NOT really a protocol
->    command but it is just one of the payloads of one of the 'Generic' protocol:
->    you commmands are only set/get/start/stop (maybe some sort of hack
->    could be doen around these...bit all will be even more flaky...)
-> 
-> - you dont implement NEGOTIATE_PROTOCOL_VERSION and so you cannot even
->    check if the SCMI server that you are speaking to will agree to
->    downgrade and 'speak' your Kernel SCMI agent (possibly older) 'Generic'
->    protocol version
-> 
-> All of this basically defeats all of the SCMI general capabilities
-> around versioning and auto-discovery when it comes to your 'Generic' vendor
-> protocol, with the end result that you will have to be EXTREMELY confident
-> to perfectly match and keep in sync at all times your SCMI Server(FW) and
-> Client(Kernel) sides, without any possibility of coping with a such a mismatch
-> on the field by using some of the fallback/downgrade mechanism that you
-> threw out of the window...
+> You're saying this should move into a dts instead of dtso?
+> There are numerous boards upstream which use this same dtso
+> approach.
 
-Even though we listed some of the background behind the generic
-you have to understand it was done in a vacuum where QCOM might
-have assumed that the entire vendor ID space was to be shared
-across all vendors.
-
-But your suggestions for adding another messages like NEGOTIATE
-PROTOCOL_VERSION in a future major version upgrade would help
-solve some of the problems you are listing out here.
-
-Since there are devices that are out in the wild already running this
-firmware, the first version of the generic vendor protocol is limited in
-what it can accommodate. But like we already said we are open to changes
-that will help review/maintain this for future SoCs without breakage.
-
-> (...and sorry but looking at the above xchange about 'legacy firmware' I am
->   a bit skeptic about this as of now :D)
-
-Some people within just used the wrong terminology here. There
-are no "legacy" firmware since this is the first version of it
-landing upstream and future versions have the options to implement
-additional messages and ensure they do things in a way that is
-easily reviewable/maintainable.
-
--Sibi
+Numerous? My quick look found zero. There are for specific
+configurations, but not for boards. Look at something which could
+support your case: imx8mm-kontron-dl.dtso
+In first glance this is a board... but no! This is only about board with
+display panel, because panel is detachable.
 
 > 
-> ...as I said initially when reviewing this series, you can do whatever
-> you want within your Vendor protocol, but abusing the SCMI Vendor extensions
-> capabilities in such a way could end up bringing to the table more cons
-> (the above) than pros (some supposed 'simplification')
-> 
-> Thanks,
-> Cristian
+> There is a base board, and also different versions of it,
+> oriole being one of them.
+
+Well, I did not see here baseboard - you renamed it.
+
+
+
+Best regards,
+Krzysztof
 
