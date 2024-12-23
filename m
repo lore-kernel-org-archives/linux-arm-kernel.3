@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ADF5E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 16:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25569E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 16:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=io057bIA1RUjGfxGquNULf6S18LI4Q4i5+vh/VQlANg=; b=id3W0r3bbZOmYN+zyccTN3VxoM
-	Y4Iz8xdChvM46vJbcSJ4coU9DiaEZapE99vNggNrg86Shre4VpFAITBzvY8n04pdVOpZjTYfftcF0
-	yYNwJJVz4KPlJrWWTIuRNNvP2MUbySRzuKOgLHIX79Mm9eHahRjYVqFw0dsU6UXl+rq53XfK+8Xlt
-	YMziSL+RCXArAQPxXX579p4V5854Wh8j1keJPPLqdxLzKnZQI7jjf/d+UJX6s00c50QyuCu9z1OCl
-	l0KlLWzOaulRvohCrVBvyeA1hxSv+Q2AwhzP0Z5ysrfkzX6EO6q3fY51VOf4/VBWiUZ7PAxwTnUqb
-	d5JJ1tIg==;
+	bh=4IhY/z/XL4X4dKVdbKYWND5osDmcaKQYkj7eqVRwK/I=; b=E8QY3KHhD6bM1G3sCK1Y720edA
+	fN3tSsU31cJPkAbFsGCij7MUoE1hGBbxNr+rO0vCf0n+DaAsIBMVemnjxC8HtJ5V0RJK/Yipj7xnU
+	fNqfEDaTf02/TpqqH1USoyw7w1tt+KzpeCCsEfHMEjLZq0oBFOo3LM/dpREkVic9Gln8F8/rS+b8n
+	LMslHCQv3nRS2bYNZjAYdvlzcvGwrDjALyMKcmrOM5oaZIJuf6XqamGBl2hF8uQQqUpUQpgDgTDrg
+	HxlsX37G5RMRZ7ddO6lBEm8zQl9wm7kJoEdtKai5QMurbmV8qAndZEBw3ZaC0qWH4C2DtxLER4f7j
+	MvhFnjbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlV4-0000000AQ4d-0Thn;
-	Mon, 23 Dec 2024 16:41:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlTo-0000000APsV-2YAr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Dec 2024 16:40:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=io057bIA1RUjGfxGquNULf6S18LI4Q4i5+vh/VQlANg=; b=nSB12XINu8Z3eOfDMF8rCbvrKH
-	EpDUHemO62/Bgya8gqDBXTA3IIpk0wtVQPGuzhnw/cXNLKMdnmeTTIh6C4Q7YDgo2xt8kG0RUdj8/
-	qxttFoS5EsdZxC1miuAsDexQx1h7MI6zJly9F3hoJ2txWgybxoXVF+WazWW6qK4sweejVdCLg9gr5
-	rI8/CzkWJNAe/eZyrLmbZrIedU8sugnh48q6YH11Jt5lItmGDpoj5zs6+Dx5uvYbeQxPI6RG4kPnv
-	aK11p7YGGhnp4Szeb0goo/Qw/pQ1t3vnimPy0uEC9Y3iumLMHlsGcor1ojVTqUQRIDd/fsRdMF+0D
-	9UdGx4mQ==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlTj-00000006QGX-3MgD
+	id 1tPlXM-0000000AQOS-41za;
+	Mon, 23 Dec 2024 16:44:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tPlVC-0000000AQ5v-0CZV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 16:40:25 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YH3Z33SpPz6K5pZ;
-	Tue, 24 Dec 2024 00:36:27 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id F2DD3140B2F;
-	Tue, 24 Dec 2024 00:40:17 +0800 (CST)
-Received: from localhost (10.47.75.118) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 23 Dec
- 2024 17:40:16 +0100
-Date: Mon, 23 Dec 2024 16:40:14 +0000
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Yicong Yang <yangyicong@huawei.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
-	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
-	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
-	<dietmar.eggemann@arm.com>, <linuxppc-dev@lists.ozlabs.org>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
-	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
-	<yangyicong@hisilicon.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>
-Subject: Re: [PATCH v10 3/4] arm64: topology: Support SMT control on ACPI
- based system
-Message-ID: <20241223164014.000032cc@huawei.com>
-In-Reply-To: <20241220075313.51502-4-yangyicong@huawei.com>
-References: <20241220075313.51502-1-yangyicong@huawei.com>
-	<20241220075313.51502-4-yangyicong@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 23 Dec 2024 16:41:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 987BA1424;
+	Mon, 23 Dec 2024 08:42:21 -0800 (PST)
+Received: from [10.57.74.39] (unknown [10.57.74.39])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A99343F694;
+	Mon, 23 Dec 2024 08:41:51 -0800 (PST)
+Message-ID: <342b3c31-7e82-41d1-a9f0-9f3973f99486@arm.com>
+Date: Mon, 23 Dec 2024 16:41:49 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: Add Morello compatibility
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Russell King <linux@armlinux.org.uk>
+References: <20241223162029.326997-1-vincenzo.frascino@arm.com>
+ <20241223162029.326997-2-vincenzo.frascino@arm.com>
+ <fc83ab3f-99fe-4566-9a33-670956dd76a4@kernel.org>
+Content-Language: en-GB
+From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+In-Reply-To: <fc83ab3f-99fe-4566-9a33-670956dd76a4@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.47.75.118]
-X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
- frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_164024_102673_D679A530 
-X-CRM114-Status: GOOD (  34.59  )
+X-CRM114-CacheID: sfid-20241223_084154_145941_69FDAF91 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,168 +72,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Dec 2024 15:53:12 +0800
-Yicong Yang <yangyicong@huawei.com> wrote:
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
+
+On 23/12/2024 16:32, Krzysztof Kozlowski wrote:
+> On 23/12/2024 17:20, Vincenzo Frascino wrote:
+>> Add compatibility to Arm Morello System Development Platform.
+>>
+>> Note: Morello is at the same time the name of an Architecture [1], an SoC
+>> [2] and a Board [2].
+>> To distinguish in between Architecture/SoC and Board we refer to the first
+>> as arm,morello and to the second as arm,morello-sdp.
+>>
+>> [1] https://developer.arm.com/Architectures/Morello
+>> [2] https://www.morello-project.org/
+>>
+>> Cc: Linus Walleij <linus.walleij@linaro.org>
+>> Cc: Rob Herring <robh@kernel.org>
+>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>> Cc: Conor Dooley <conor+dt@kernel.org>
+>> Cc: Liviu Dudau <liviu.dudau@arm.com>
+>> Cc: Sudeep Holla <sudeep.holla@arm.com>
+>> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>> Cc: Russell King <linux@armlinux.org.uk>
+>> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+>> ---
+>>  Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml | 3 +++
+>>  1 file changed, 3 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
+>> index 8dd6b6446394..7934d2c4cba0 100644
+>> --- a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
+>> @@ -118,6 +118,9 @@ properties:
+>>          items:
+>>            - const: arm,foundation-aarch64
+>>            - const: arm,vexpress
+>> +      - description: Arm Morello System Development Platform
+>> +        items:
+>> +          - const: arm,morello-sdp
+> Also:
+> const: arm,morello
 > 
-> For ACPI we'll build the topology from PPTT and we cannot directly
-> get the SMT number of each core. Instead using a temporary xarray
-> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
-> and SMT information of the first core in its heterogeneous CPU cluster
-> when building the topology. Then we can know the largest SMT number
-> in the system. If a homogeneous system's using ACPI 6.2 or later,
-> all the CPUs should be under the root node of PPTT. There'll be
-> only one entry in the xarray and all the CPUs in the system will
-> be assumed identical.
-> 
-> The core's SMT control provides two interface to the users [1]:
-> 1) enable/disable SMT by writing on/off
-> 2) enable/disable SMT by writing thread number 1/max_thread_number
-> 
-> If a system have more than one SMT thread number the 2) may
-> not handle it well, since there're multiple thread numbers in the
-> system and 2) only accept 1/max_thread_number. So issue a warning
-> to notify the users if such system detected.
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Unless you claim that this cannot be used in any other product than SDP,
+> but this then needs explanation in commit msg.
+>
 
-A few trivial things inline.  Either way it's fine as really just my style
-preferences
+Morello is a Prototype architecture and there are no plans to use it outside of
+SDP hence I did not add arm,morello.
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+I thought it was clear since the note states that Architecture, SoC and Board
+have the same name, if not, happy do address it in v3.
 
-> ---
->  arch/arm64/kernel/topology.c | 66 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 66 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 1a2c72f3e7f8..85cb18d72a29 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -15,8 +15,10 @@
->  #include <linux/arch_topology.h>
->  #include <linux/cacheinfo.h>
->  #include <linux/cpufreq.h>
-> +#include <linux/cpu_smt.h>
->  #include <linux/init.h>
->  #include <linux/percpu.h>
-> +#include <linux/xarray.h>
->  
->  #include <asm/cpu.h>
->  #include <asm/cputype.h>
-> @@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
->  	return !!is_threaded;
->  }
->  
-> +struct cpu_smt_info {
-> +	int thread_num;
-> +	int core_id;
-> +};
-> +
->  /*
->   * Propagate the topology information of the processor_topology_node tree to the
->   * cpu_topology array.
->   */
->  int __init parse_acpi_topology(void)
->  {
-> +	int max_smt_thread_num = 0;
-> +	struct cpu_smt_info *entry;
-> +	struct xarray hetero_cpu;
-> +	unsigned long hetero_id;
->  	int cpu, topology_id;
->  
->  	if (acpi_disabled)
->  		return 0;
->  
-> +	xa_init(&hetero_cpu);
-> +
->  	for_each_possible_cpu(cpu) {
->  		topology_id = find_acpi_cpu_topology(cpu, 0);
->  		if (topology_id < 0)
-> @@ -57,6 +70,32 @@ int __init parse_acpi_topology(void)
->  			cpu_topology[cpu].thread_id = topology_id;
->  			topology_id = find_acpi_cpu_topology(cpu, 1);
->  			cpu_topology[cpu].core_id   = topology_id;
-> +
-> +			/*
-> +			 * In the PPTT, CPUs below a node with the 'identical
-> +			 * implementation' flag have the same number of threads.
-> +			 * Count the number of threads for only one CPU (i.e.
-> +			 * one core_id) among those with the same hetero_id.
-> +			 * See the comment of find_acpi_cpu_topology_hetero_id()
-> +			 * for more details.
-> +			 *
-> +			 * One entry is created for each node having:
-> +			 * - the 'identical implementation' flag
-> +			 * - its parent not having the flag
-> +			 */
-> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
-> +			entry = (struct cpu_smt_info *)xa_load(&hetero_cpu, hetero_id);
+> Best regards,
+> Krzysztof
 
-Given xa_load returns a void *,
-
-			entry = xa_load(&hetero_cpu, hetero_id);
-
-should be fine (I haven't checked local style, so feel free to ignore if
-local style is to cast anyway).  Maybe drag the definition of entry into
-a more local scope as well.
-
-
-> +			if (!entry) {
-> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-> +				WARN_ON(!entry);
-> +
-> +				entry->core_id = topology_id;
-> +				entry->thread_num = 1;
-> +				xa_store(&hetero_cpu, hetero_id,
-> +					 entry, GFP_KERNEL);
-> +			} else if (entry->core_id == topology_id) {
-> +				entry->thread_num++;
-> +			}
->  		} else {
->  			cpu_topology[cpu].thread_id  = -1;
->  			cpu_topology[cpu].core_id    = topology_id;
-> @@ -67,6 +106,33 @@ int __init parse_acpi_topology(void)
->  		cpu_topology[cpu].package_id = topology_id;
->  	}
->  
-> +	/*
-> +	 * This should be a short loop depending on the number of heterogeneous
-> +	 * CPU clusters. Typically on a homogeneous system there's only one
-> +	 * entry in the XArray.
-> +	 */
-> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
-> +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
-> +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
-> +
-> +		if (entry->thread_num > max_smt_thread_num)
-> +			max_smt_thread_num = entry->thread_num;
-
-As with DT, maybe min is more informative?
-
-		max_smt_thread_num = min(max_smt_thread_num, entry->thread_num);
-
-I don't care strongly about it though.
-> +
-> +		xa_erase(&hetero_cpu, hetero_id);
-> +		kfree(entry);
-> +	}
-> +
-> +	/*
-> +	 * Notify the CPU framework of the SMT support. Initialize the
-> +	 * max_smt_thread_num to 1 if no SMT support detected. A thread
-> +	 * number of 1 can be handled by the framework so we don't need
-> +	 * to check max_smt_thread_num to see we support SMT or not.
-> +	 */
-> +	if (!max_smt_thread_num)
-> +		max_smt_thread_num = 1;
-> +
-> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-> +	xa_destroy(&hetero_cpu);
->  	return 0;
->  }
->  #endif
+-- 
+Regards,
+Vincenzo
 
 
