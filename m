@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FE62E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 01:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A20BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 02:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSgmUq6fWDAYGhUiI+1p1Nvpascpw09NerCf1YnBrAA=; b=T1TGYVGQpyISLcX6Zd4WziFCPz
-	kxl2e2ZEMFXTPysnvNY9aNu56PzkwdwQq9t42xdg694mghV2a0cTo4in7MfcBb+19ez4gnFPXHFQC
-	7W51sZfycVZgrU/76lDbQk1hsOBxiGVPGBdhvzKheDZo4MAQB1P5jwAAt7csGNkbwodMgARf6U9cj
-	ktT/WZHWyQAF+LvecsPP4CCg1vdFT6Wil1Yi79ATLPGX0p5e9x85yYrCopO+S+Nv1i2xuaQsuxdZu
-	l1iSAEZ1u49jRpoHRNaPJOige7iOltOgGTHdH2w9Up+bWXVXcpu0GiOGhsSc5sCuDjoEbj/SHueuE
-	dlvq4QSA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0xSJsjcj6qOEXUjJ0CVtQMVpNqANaTh2TojnrhfBJYw=; b=P60HbHSKSUFQRxUnFe4ehRj0s1
+	sUzev1gAfzDZH+PGZ78NO4xfDnZcT6ewNX5QAzjndQ2Z81wy+UIAuvmUHKLVRHADqFum6/wsUfiBk
+	zk1jio8W97SnxDKNVApJnZ+LGPJPu0E0TlFCQCYM39p7NwaZt1rk2VSjGLfM2+fgJhV7nAfwORb62
+	Pb4zIZgtUda7SW/aJcWuGXztZFdeu2HZ6Is3NB/AwG8ge9zSJ6YCoQq/2SGShTulUwVSKFr87hjc1
+	sTMtnGy1PPD7AdLCD6XehzfvS1LxNXKjzbznh1JXbzDYPMhNwmp+fexARPaa5KdGWmV/dsYiVnkhQ
+	3K3kz2sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPWrm-000000093Od-3Igw;
-	Mon, 23 Dec 2024 01:04:14 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1tPXoG-000000097Q5-10TV;
+	Mon, 23 Dec 2024 02:04:40 +0000
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPWnF-000000092bX-3mZQ;
-	Mon, 23 Dec 2024 00:59:35 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-467b955e288so35790251cf.1;
-        Sun, 22 Dec 2024 16:59:33 -0800 (PST)
+	id 1tPXn3-000000097M9-2khL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Dec 2024 02:03:26 +0000
+Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-844eac51429so304929339f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 18:03:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734915572; x=1735520372; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dSgmUq6fWDAYGhUiI+1p1Nvpascpw09NerCf1YnBrAA=;
-        b=Mpcek3lblnjQiIxTt22BTNL3uebBwHOzZ0Xop5Q7es9NTsMlNIu3jLG8v1hNf6ULOL
-         2Sj258CGfX6FeCbj+Ui9FMBf9xzmsQxiORgaqBTEgrM65+DpOhePnToF91LC2U7RcKAB
-         Bj3OmdQRdD4RC3uBA7+y4zbVJKYkXrTL7VD4GrhxHqneYCQLHmCwd0yBOqTxj7pEZXOe
-         g07a8pyplpsR++kKvINqQ9k8RN/jyj4oG8+RFaxgokh2U2Ot3h5IGGIIitlzuj7h11+2
-         O4RmV8Br503EpKa4vKxJ4kDUPcpRSk+3kO8w9uSihCVhXv8R8NNWODrbxGY01qlEQom6
-         ZGqg==
+        d=gmail.com; s=20230601; t=1734919404; x=1735524204; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0xSJsjcj6qOEXUjJ0CVtQMVpNqANaTh2TojnrhfBJYw=;
+        b=aeoCV2lrGSZFLGjbow4/ijGg6IPZSCWpb3yPtp9ABAG7TcDQmBCcg3U4/guZHTAZpU
+         YW0NcUKDVNYPEK6Xa+iQcCOOsSBNYAODx1i2zaidZdPzI6HF0ehqmh0emCsUqAc73fV9
+         9/yANK/cS67NdjRmUwXRNQIuD8ldYxHbVkrQImhvL1frm5aoKTcGgw8elofZRWvdzFJl
+         reBot/AP1aH4PpCSeiHqrljO2g+2ySfNNulDAvuCEpOIGnF+LXfatCp2qAWVi09tHS2X
+         BPeGcVDRxpyV706gUQleS3kNxCJYCFSfQQvP2xQYmHpwlygEHt+XH4t8aNSdGpvoAwpI
+         j7VQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734915572; x=1735520372;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dSgmUq6fWDAYGhUiI+1p1Nvpascpw09NerCf1YnBrAA=;
-        b=FMOK8gx0E7NLjkslZKSHsANJitA70tqPOEDywBNAvN+TxVIClhte4LeBCk/t4V/R0v
-         h3TKZO7Kx7bL625AwgjTDeRvn8mNQCJ5DrFrM4cS2ezBvXhJ291hKXktun3zI/qpcS/0
-         huFGlso3PXwLXYyZWygJh34f/xkTDfL00hrMaSM8m5ISKJTRRKbHeyadYCMK0dD5B3f1
-         n5i5XSTcixCg94mIrkxgH29U00kRdvVgsQh6jJeJl0Cxx0wlUu0+RN3aJrnaEa6lc6TI
-         C4HF0WZ8KT2Y98ORAWak9nRODCuizoRCorxRcu84gnbqC9A2wATmDvg77sRNS8bvj+Qb
-         SI+A==
-X-Forwarded-Encrypted: i=1; AJvYcCVUgYKdunGdyN6jxk6Hlt/0zh1SsGtGqqCNmSy2GwOGxcVFQx6SWt2TW24W500ZMwwiIymIYsnQVpro887x7f8Y@lists.infradead.org, AJvYcCW6+qZXcIwxYe1XgibTgQatIdhh0NunDEycYNhmNOYUbjIWuESvYbRpW6hCo3uH9o0tZMw/Ys+8jk/J2tU=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr7YAn3vJGMTGXslTx6hHFuxQ2hwN4kaKyBo1a2N9stDPKHJnI
-	+cknEZGiBG/bZatIluJhYTc9rahN2TTywbPdyyF73FTi4E/tHxj6
-X-Gm-Gg: ASbGncsjcoJL89ZWt+p74LvbZ8gzIq5lHi2lGRhkCdHVEA+YwwDOzN4dtZEoEtOHU71
-	M4hEZ5mKYmV+ku6L2EZbkhDMCEaib9V0oBqGiWxEJOs4EUtQU3MIt77mnIUjej5kdEqpVWh9AUR
-	uif29afACNwIkPsW5Z/u4GYtYbCc8VERyi+tywwEWPVx16uW9793xX5FqWmUhFbAkd9C0UBySs1
-	MUogvkviIMumaQcQqpuDMfhgbU8toqR
-X-Google-Smtp-Source: AGHT+IHjz7WDJXZngk0HiOawE5i+rAuNn2t3oiKW5rDk4l39S/7Vt67KkTJKlnank9Y1jvPWV5vKBA==
-X-Received: by 2002:ac8:59cf:0:b0:466:9824:16ef with SMTP id d75a77b69052e-46a4a8b5f64mr181259011cf.3.1734915571686;
-        Sun, 22 Dec 2024 16:59:31 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46a3eb33b11sm39454091cf.72.2024.12.22.16.59.30
+        d=1e100.net; s=20230601; t=1734919404; x=1735524204;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0xSJsjcj6qOEXUjJ0CVtQMVpNqANaTh2TojnrhfBJYw=;
+        b=II6UAYgBaBFb/S/uArh21A+o5DaxzmnxvKTvYosJWQtROt1lDF0cRw3ftVYyYXKa2y
+         o6ob6G7N+M4siXEUTXIzSLyVZTgm97Ah/TOcARWTrHuN75m34TWMpP4sYTTo1t9IdY9P
+         tiReaPnjOYFa4YIbHns9exIKTuAVcFFlO00XrnY2CuCVe4di3A6ymifbo1e6PqrbLgfu
+         RFoI0Qtadg1D+y5JQeliIKA1n9yOG4ocgqcaa8fVok5No6OGaPfiTchHc4rPoYVLcQjX
+         /8XqMLd1sqtoyUNedf8x8jGHUV0LdDQHo9TRgv/c50aCklOrux2gNWPuNKKjrvkqpCdc
+         PXfw==
+X-Forwarded-Encrypted: i=1; AJvYcCWZJQOzCSkDpEdBJAxZaYRyfrD3XDP1ICzGk1HQp6nprisUkwjE04MrqNbrhS9O/fCI6Q475Zsmwk35arcWLXWD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbTfJbf9KIrT51Yv26+NCZTry2bUnhQjHqkuLLs5n5VskXgN1j
+	XUvi2hJPwk5sREUr6U4PsE7xNaR1ik7A+a7+C5ty2T9pOmukuluD
+X-Gm-Gg: ASbGnctXFc0CMe8NxlipwNp0D5B34F2L1ZSfYcptDD5XqS+is+tQ3cWmwLKaxhsajAk
+	IMqwM0JUInlrFRMqXF5tUteQ1V47ECMBb7P+ky5f75PzIWmrdjm8r4n+QGsd4n0Bfo6+fRwGx2t
+	epVJ2WuqonS7z3tlp2vtF0b55v7+gmp+oYn7xWmf75PWzMSpdvngBI8OHcer8JEPRmFiSwlpt0P
+	5eUZ7m72l9G/Mvh6+vdsduMHBOVT0FfQWkrWMBZ/5T74yqRAEzTJUNUSetJAQ62HyDD
+X-Google-Smtp-Source: AGHT+IFXSVIikuC4zfcUFG8mWYTfJ/hx7F+IP5PDPNnajsE2n+NPTRarFFKK4WonDsGoyc/2WmmPRQ==
+X-Received: by 2002:a05:6602:3f92:b0:843:ebf1:16df with SMTP id ca18e2360f4ac-8499e65898emr881040539f.10.1734919403923;
+        Sun, 22 Dec 2024 18:03:23 -0800 (PST)
+Received: from localhost.localdomain ([128.10.127.250])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8498d8eb2c8sm198806439f.47.2024.12.22.18.03.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 16:59:30 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+        Sun, 22 Dec 2024 18:03:22 -0800 (PST)
+From: Mingwei Zheng <zmw12306@gmail.com>
+To: marex@denx.de
+Cc: antonio.borneo@foss.st.com,
+	linus.walleij@linaro.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	make24@iscas.ac.cn,
+	peng.fan@nxp.com,
+	fabien.dessenne@foss.st.com,
+	linux-gpio@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v3 3/3] net: stmmac: Add glue layer for Sophgo SG2044 SoC
-Date: Mon, 23 Dec 2024 08:58:39 +0800
-Message-ID: <20241223005843.483805-4-inochiama@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241223005843.483805-1-inochiama@gmail.com>
-References: <20241223005843.483805-1-inochiama@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Mingwei Zheng <zmw12306@gmail.com>,
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>
+Subject: [PATCH v6] pinctrl: stm32: Add check for clk_enable()
+Date: Sun, 22 Dec 2024 21:06:29 -0500
+Message-Id: <20241223020629.3471182-1-zmw12306@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_165933_945573_CA72E8B4 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20241222_180325_727091_D8345831 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,162 +104,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
+Convert the driver to clk_bulk*() API.
+Add check for the return value of clk_bulk_enable() to catch
+the potential error.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Fixes: 05d8af449d93 ("pinctrl: stm32: Keep pinctrl block clock enabled when LEVEL IRQ requested")
+Signed-off-by: Mingwei Zheng <zmw12306@gmail.com>
+Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 105 ++++++++++++++++++
- 3 files changed, 117 insertions(+)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+Changelog:
+v5 -> v6:
+1. Call devm_clk_bulk_get_all in stm32_pctl_probe().
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 6658536a4e17..23085d27ace6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -169,6 +169,17 @@ config DWMAC_SOCFPGA
- 	  for the stmmac device driver. This driver is used for
- 	  arria5 and cyclone5 FPGA SoCs.
+v4 -> v5:
+1. Move the clock handling from stm32_gpiolib_register_bank()
+and moving it to its caller.
+2. Call clk_bulk_prepare_enable() in stm32_pctl_probe() 
+and clk_bulk_disable_unprepare() for error.
+
+v3 -> v4:
+1. Add initialization for pctl->clks.
+2. Adjust alignment.
+
+v2 -> v3:
+
+1. Convert clk_disable_unprepare to clk_bulk_disable
+and clk_bulk_unprepare.
+
+v1 -> v2:
+
+1. Move int ret declaration into if block.
+---
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 64 ++++++++++-----------------
+ 1 file changed, 24 insertions(+), 40 deletions(-)
+
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 5b7fa77c1184..3efe976adf84 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -86,7 +86,6 @@ struct stm32_pinctrl_group {
  
-+config DWMAC_SOPHGO
-+	tristate "Sophgo dwmac support"
-+	depends on OF && (ARCH_SOPHGO || COMPILE_TEST)
-+	default m if ARCH_SOPHGO
-+	help
-+	  Support for ethernet controllers on Sophgo RISC-V SoCs
-+
-+	  This selects the Sophgo SoC specific glue layer support
-+	  for the stmmac device driver. This driver is used for the
-+	  ethernet controllers on various Sophgo SoCs.
-+
- config DWMAC_STARFIVE
- 	tristate "StarFive dwmac support"
- 	depends on OF && (ARCH_STARFIVE || COMPILE_TEST)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
-index 2389fd261344..36f21c86568d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Makefile
-+++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_DWMAC_QCOM_ETHQOS)	+= dwmac-qcom-ethqos.o
- obj-$(CONFIG_DWMAC_ROCKCHIP)	+= dwmac-rk.o
- obj-$(CONFIG_DWMAC_RZN1)	+= dwmac-rzn1.o
- obj-$(CONFIG_DWMAC_SOCFPGA)	+= dwmac-altr-socfpga.o
-+obj-$(CONFIG_DWMAC_SOPHGO)	+= dwmac-sophgo.o
- obj-$(CONFIG_DWMAC_STARFIVE)	+= dwmac-starfive.o
- obj-$(CONFIG_DWMAC_STI)		+= dwmac-sti.o
- obj-$(CONFIG_DWMAC_STM32)	+= dwmac-stm32.o
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-new file mode 100644
-index 000000000000..a4997cc0294a
---- /dev/null
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-@@ -0,0 +1,105 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Sophgo DWMAC platform driver
-+ *
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/phy.h>
-+#include <linux/platform_device.h>
-+
-+#include "stmmac_platform.h"
-+
-+struct sophgo_dwmac {
-+	struct device *dev;
-+	struct clk *clk_tx;
-+};
-+
-+static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-+{
-+	struct sophgo_dwmac *dwmac = priv;
-+	long rate;
-+	int ret;
-+
-+	rate = rgmii_clock(speed);
-+	if (rate < 0) {
-+		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-+		return;
-+	}
-+
-+	ret = clk_set_rate(dwmac->clk_tx, rate);
-+	if (ret)
-+		dev_err(dwmac->dev, "failed to set tx rate %lu: %pe\n",
-+			rate, ERR_PTR(ret));
-+}
-+
-+static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
-+				    struct plat_stmmacenet_data *plat_dat,
-+				    struct stmmac_resources *stmmac_res)
-+{
-+	struct sophgo_dwmac *dwmac;
-+
-+	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
-+	if (!dwmac)
+ struct stm32_gpio_bank {
+ 	void __iomem *base;
+-	struct clk *clk;
+ 	struct reset_control *rstc;
+ 	spinlock_t lock;
+ 	struct gpio_chip gpio_chip;
+@@ -108,6 +107,7 @@ struct stm32_pinctrl {
+ 	unsigned ngroups;
+ 	const char **grp_names;
+ 	struct stm32_gpio_bank *banks;
++	struct clk_bulk_data *clks;
+ 	unsigned nbanks;
+ 	const struct stm32_pinctrl_match_data *match_data;
+ 	struct irq_domain	*domain;
+@@ -1308,12 +1308,6 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	if (IS_ERR(bank->base))
+ 		return PTR_ERR(bank->base);
+ 
+-	err = clk_prepare_enable(bank->clk);
+-	if (err) {
+-		dev_err(dev, "failed to prepare_enable clk (%d)\n", err);
+-		return err;
+-	}
+-
+ 	bank->gpio_chip = stm32_gpio_template;
+ 
+ 	fwnode_property_read_string(fwnode, "st,bank-name", &bank->gpio_chip.label);
+@@ -1360,26 +1354,21 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 							   bank->fwnode, &stm32_gpio_domain_ops,
+ 							   bank);
+ 
+-		if (!bank->domain) {
+-			err = -ENODEV;
+-			goto err_clk;
+-		}
++		if (!bank->domain)
++			return -ENODEV;
+ 	}
+ 
+ 	names = devm_kcalloc(dev, npins, sizeof(char *), GFP_KERNEL);
+-	if (!names) {
+-		err = -ENOMEM;
+-		goto err_clk;
+-	}
++	if (!names)
 +		return -ENOMEM;
+ 
+ 	for (i = 0; i < npins; i++) {
+ 		stm32_pin = stm32_pctrl_get_desc_pin_from_gpio(pctl, bank, i);
+ 		if (stm32_pin && stm32_pin->pin.name) {
+ 			names[i] = devm_kasprintf(dev, GFP_KERNEL, "%s", stm32_pin->pin.name);
+-			if (!names[i]) {
+-				err = -ENOMEM;
+-				goto err_clk;
+-			}
++			if (!names[i])
++				return -ENOMEM;
 +
-+	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
-+	if (IS_ERR(dwmac->clk_tx))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-+				     "failed to get tx clock\n");
-+
-+	dwmac->dev = &pdev->dev;
-+	plat_dat->bsp_priv = dwmac;
-+	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+	plat_dat->fix_mac_speed = sophgo_dwmac_fix_mac_speed;
-+	plat_dat->multicast_filter_bins = 0;
-+	plat_dat->unicast_filter_entries = 1;
-+
-+	return 0;
-+}
-+
-+static int sophgo_dwmac_probe(struct platform_device *pdev)
-+{
-+	struct plat_stmmacenet_data *plat_dat;
-+	struct stmmac_resources stmmac_res;
-+	int ret;
-+
-+	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to get resources\n");
-+
-+	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
-+	if (IS_ERR(plat_dat))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
-+				     "dt configuration failed\n");
-+
-+	ret = sophgo_sg2044_dwmac_init(pdev, plat_dat, &stmmac_res);
-+	if (ret)
+ 		} else {
+ 			names[i] = NULL;
+ 		}
+@@ -1390,15 +1379,11 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
+ 	err = gpiochip_add_data(&bank->gpio_chip, bank);
+ 	if (err) {
+ 		dev_err(dev, "Failed to add gpiochip(%d)!\n", bank_nr);
+-		goto err_clk;
++		return err;
+ 	}
+ 
+ 	dev_info(dev, "%s bank added\n", bank->gpio_chip.label);
+ 	return 0;
+-
+-err_clk:
+-	clk_disable_unprepare(bank->clk);
+-	return err;
+ }
+ 
+ static struct irq_domain *stm32_pctrl_get_irq_domain(struct platform_device *pdev)
+@@ -1621,6 +1606,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 	if (!pctl->banks)
+ 		return -ENOMEM;
+ 
++	ret = devm_clk_bulk_get_all(dev, &pctl->clks);
++	if (ret < 0)
 +		return ret;
 +
-+	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
-+}
+ 	i = 0;
+ 	for_each_gpiochip_node(dev, child) {
+ 		struct stm32_gpio_bank *bank = &pctl->banks[i];
+@@ -1631,13 +1620,6 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 			fwnode_handle_put(child);
+ 			return -EPROBE_DEFER;
+ 		}
+-
+-		bank->clk = of_clk_get_by_name(np, NULL);
+-		if (IS_ERR(bank->clk)) {
+-			fwnode_handle_put(child);
+-			return dev_err_probe(dev, PTR_ERR(bank->clk),
+-					     "failed to get clk\n");
+-		}
+ 		i++;
+ 	}
+ 
+@@ -1646,15 +1628,18 @@ int stm32_pctl_probe(struct platform_device *pdev)
+ 		if (ret) {
+ 			fwnode_handle_put(child);
+ 
+-			for (i = 0; i < pctl->nbanks; i++)
+-				clk_disable_unprepare(pctl->banks[i].clk);
+-
+ 			return ret;
+ 		}
+ 
+ 		pctl->nbanks++;
+ 	}
+ 
++	ret = clk_bulk_prepare_enable(pctl->nbanks, pctl->clks);
++	if (ret) {
++		dev_err(dev, "failed to prepare_enable clk (%d)\n", ret);
++		return ret;
++	}
 +
-+static const struct of_device_id sophgo_dwmac_match[] = {
-+	{ .compatible = "sophgo,sg2044-dwmac" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, sophgo_dwmac_match);
-+
-+static struct platform_driver sophgo_dwmac_driver = {
-+	.probe  = sophgo_dwmac_probe,
-+	.remove = stmmac_pltfr_remove,
-+	.driver = {
-+		.name = "sophgo-dwmac",
-+		.pm = &stmmac_pltfr_pm_ops,
-+		.of_match_table = sophgo_dwmac_match,
-+	},
-+};
-+module_platform_driver(sophgo_dwmac_driver);
-+
-+MODULE_AUTHOR("Inochi Amaoto <inochiama@gmail.com>");
-+MODULE_DESCRIPTION("Sophgo DWMAC platform driver");
-+MODULE_LICENSE("GPL");
+ 	dev_info(dev, "Pinctrl STM32 initialized\n");
+ 
+ 	return 0;
+@@ -1726,10 +1711,8 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
+ int __maybe_unused stm32_pinctrl_suspend(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+-	int i;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_disable(pctl->banks[i].clk);
++	clk_bulk_disable(pctl->nbanks, pctl->clks);
+ 
+ 	return 0;
+ }
+@@ -1738,10 +1721,11 @@ int __maybe_unused stm32_pinctrl_resume(struct device *dev)
+ {
+ 	struct stm32_pinctrl *pctl = dev_get_drvdata(dev);
+ 	struct stm32_pinctrl_group *g = pctl->groups;
+-	int i;
++	int i, ret;
+ 
+-	for (i = 0; i < pctl->nbanks; i++)
+-		clk_enable(pctl->banks[i].clk);
++	ret = clk_bulk_enable(pctl->nbanks, pctl->clks);
++	if (ret)
++		return ret;
+ 
+ 	for (i = 0; i < pctl->ngroups; i++, g++)
+ 		stm32_pinctrl_restore_gpio_regs(pctl, g->pin);
 -- 
-2.47.1
+2.34.1
 
 
