@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB12E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 03:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE8CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 03:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1M6HwiDjtz6MVhwJBxGtnK97LOfqJCVvtnZY32TOfk0=; b=GqDLeRmp/xRXfPcbx0DhB76NkM
-	Fyyu3sEdoGtSsDzAXswW1oYuWwJR90rWb61CjXkXvgIRkVvDChw1CctfS+fdkzhFcqbEafVyZ10UV
-	NmKq3fQr3tpMRdeQGDeaMR/eRl8rUCL3XVu883fzV0Mw7kqkAwFCy/sERRYWI95rm1x1gnOMLw1JV
-	1M+kqjnMc7h8HVzngGJoT7BtMEm0fVEuYqI+3R6E5HW32xjjcwd424uf+er89W0QXT/wUVYcm1aIA
-	rj/X+tjbFaszx6LCdRh9kHh0pCjL0u1pYlLeYAtm3+DHPaOu4+Hcmac24w1EyZBxQV9QWvrFyXPwq
-	cFOjtCyg==;
+	bh=+6v2ksJ04CWu1mQJ1yZzlo4VCCiYvzQqRtU1InzFo7k=; b=QxP5I/+VfVb7iJIwYhLW2n22Yk
+	j4I8J4xO+BkAfzqiwxXxh3jqkARfYkINWKlZEn84iqaS4a7rLnQlLFnatXasqA+53qufTPH0kriWe
+	IuAVhq4GzQNTi9agAH6oiTQrMQ4JOOm4DiPUEaCPKt4C0UO9+xgZs5chKgvjkdhJ+SKLqvA4wyXCB
+	/UYFEpOTmpzeWSNSFDSyGUO1nIeRNvsj9bMKao2ggoCRYhCrvGeEgR8BJKVKcyItPiVPk45/xYfaD
+	f/eeb0arlFQVBcuP++aAFDufDSr2bBJN5/d2qotnyOfula4q7MmGAC4s+RnKm33qUMq8GX0o1wGzf
+	+IaUpzcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPYqe-00000009EoO-2oZ9;
-	Mon, 23 Dec 2024 03:11:12 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tPYrq-00000009F1Z-2XT4;
+	Mon, 23 Dec 2024 03:12:26 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPYfE-00000009C1U-0bCv
+	id 1tPYfG-00000009C3g-1lMy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 02:59:25 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53e3c47434eso4112489e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 18:59:23 -0800 (PST)
+	Mon, 23 Dec 2024 02:59:28 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5401bd6cdb4so4216644e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 18:59:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734922762; x=1735527562; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734922765; x=1735527565; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1M6HwiDjtz6MVhwJBxGtnK97LOfqJCVvtnZY32TOfk0=;
-        b=OM2ktskLenmHZL2kJ/aIi0TM7ptjszCNZ9JKcInRlKmuCV0XduzgfbONhhgYBGSDoK
-         3ZXmSzY3yvNSqsbaRzrXvH/laXFTazrz10XEOLtir82fYhmFBC0cS+CGk8ZufJNJwDjx
-         SMNKM88kmMytpDx/GSMNTN+s7VnSCv7FhzMwEUOOQ0N11DGNunehUzVkf0PK+qtizPKS
-         +d65m4DVqHb6ZY/p6ikhip4WGu2U7V5NbCbIIWOetuomogTKWQfJFDR5AIni5X3TdZlE
-         bOISLPB9hzTYr3R6ir2XZkbOGfP/O2FIUqvRgpHJ0D9NYNsLBia/VDC8pzu8XrYwfmvV
-         bLfg==
+        bh=+6v2ksJ04CWu1mQJ1yZzlo4VCCiYvzQqRtU1InzFo7k=;
+        b=lho+ngpCW2JkEfWy3IHDtQtkok/RIAJe3IXq2dEBObyf1l9y69zBoXDciE3Tc4bxhv
+         6AWdAmzXPSk/mnZMMlhOuY0KZj5TWmBW1S38UI6gw99gUmz3qDymru0Om/3Q9g6YxZ1C
+         n9/jZvd0KXEQi+4/ofD9+5MJ5R5MAJRcfksaK0U2RcCKxRHUNjMS4gaySTsusx+I80jY
+         qj/pzjCihL6MiGFpto7pFgeJG3JudhEA3oMCvvWj+YAke5Wb+PsHP4KIYohCHq7/Vdwk
+         7hPX5MndMwhmTWipuzF94/ahNBmUiPi2fqGuqFMSqoxU1AEfdCROYw9VkQk56Oq8ZnoK
+         4Pxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734922762; x=1735527562;
+        d=1e100.net; s=20230601; t=1734922765; x=1735527565;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1M6HwiDjtz6MVhwJBxGtnK97LOfqJCVvtnZY32TOfk0=;
-        b=MLXKcR2ol2ClaTJCWEHQQwMIQVjWgOpGK0NX4nl2onU+Y3k9IdiJGgLSxgteSUe86z
-         +D0sTikK9KhhttftBVpecsB9oe2YSaXNsgxD82eOJqgG/8ibWxOYNiwxiq7Ka44Kxr3i
-         X075BJlV7FulI4Omcla8VPYKSh16We+YeJdrR5u8sEJjFMqG8x2Cx6VUyXfz7peHJzfi
-         xcby4N2ME2gBxLf0ytwaHEzOO3pG04qc6UYXgB52L4yRKySDKxBXaqTm5zf738uWnCGX
-         NN5FtTgCk6EcVBiyE8z21g7RURM33KULWFpNxX5vs+rZulUXiHyMN7T8VSguMNwdNsTy
-         23vg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwaoSUw/o+y6AxocNwAOdhGAeXvWwuzV8loP9sWkJ2hWrywVnPsdMhM1IxaT4tD+Q43KmdXUeXcTE0g0jgSK0c@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxuo5hvrrGihciNtNDQztOv3z2V0BOTSNTPoKgiB1uafB1nNnf+
-	23G3NoSEs86BIBNy5+QaRDeoHFUZOInkBKb7Hs2u+BRqezdD4yk+ZI3FGT1b38k=
-X-Gm-Gg: ASbGncsBFKiGVn0/PNRokZ+pCeAaJxWWCbYt7qNZ8WnLXFfiyFkjd5zomCpRCoc47DP
-	Xfbw5hEmLe6GLOUriM9If/YLz5CiPI1m1nfjdv7EFUIhUrRW2de2YZZ6cHE2hOFTWE460vppXNU
-	oSVdVxZ+DWKvsHfRSle6O99Qn0ejFjWTMgBPiJeS6kKPwfbSkHaL6wJIjmSLWXol+CCb6t239Ng
-	EDOhFoqwmkw4mVYn7+AtfwbrLPYew7nexPLU8Ya4bILMLDl6lHY8nUAgKhDX4cY
-X-Google-Smtp-Source: AGHT+IGXP4rXvq7W3fLpzfisWqyUJAOUer76ywuuwhoE5fp8LHSToAxEcbOqHJy2piepiuWIG7rxUA==
-X-Received: by 2002:ac2:4e07:0:b0:540:25a6:c342 with SMTP id 2adb3069b0e04-54229525435mr3832068e87.4.1734922762189;
-        Sun, 22 Dec 2024 18:59:22 -0800 (PST)
+        bh=+6v2ksJ04CWu1mQJ1yZzlo4VCCiYvzQqRtU1InzFo7k=;
+        b=Bqb0Cx2D3K95bRWj+6Dq9Ge0ri14WYKJEfHXXgl9wEc1NhjAKo61bShMrqPao+YWud
+         992wOcpoDewECzzAbsZ3L5IUHH7An58dOd+kqvv+UHiUtaIzDV4P/7ziDn/3sb0z/tql
+         /RUK9CyIr821Kswz+f2XdYU24U27RrSP8QIxwNvwZnTEI8LjU0U1SBU0OW9DKMJJD/6L
+         M/ZuxgRGZ/0Lh5owqBigquVFCMqNJu4absGTm4xQ9Ar7lJaIm8IO0twsXnj6SnRLxRGC
+         etjdpwFXv2Y6SVZ2Kccwpy6c8hBmGCRx3CJr+AWto/+R9bHfaNwXjLDmx+wgiNxhx6IU
+         Amog==
+X-Forwarded-Encrypted: i=1; AJvYcCVZovCP+DsqqCS0KySNtVHLJlrV7ZA8KzUvmjGCvuuMMzxDAw415GtpCpvkxd8j/Yr0U9r2Tv2qI12RqnBHth7S@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuCK3LPcgq9uX0hnO6yV+3xE0CW9kH46xQpwpDHuf5WqDwkj+M
+	ix2DoXGRJ9szqM5EdxGrWVhrsuizuksQZT5YhMhSyYylLWH3KV2hnVgqlKneiH0=
+X-Gm-Gg: ASbGncs0dvL3H07RMeaSKy7Q2w01v+P0dK1ZE+wBCA2SvkD97NwkVj+tp42QJt133y8
+	6vKilLeChu8kctvkrqs4kh87ozu99UB73eD/e2pUA2MMAy6zogMmUrUQCyh90PyaGvrwmkXcuPo
+	0e4xK7/N6hlhtk/4EyIyMd+d5sLiUDAFiI/SCYhXYMOMGVimnT/i1ULyH2ZMizJPKE2q3J9x7g6
+	K8Qa1EfE0ue0qtX6FIuP5zUGTJRICiadTWd95mcXYPQoxpVHXAsZKksgNSY5aTn
+X-Google-Smtp-Source: AGHT+IELf7Q9dKbwaApXTdiac6rXIdbml/bGXuPDMlX/oPVs9y7YxdDq3vkjKfSAR1daoK1hDBNZTw==
+X-Received: by 2002:a05:6512:e8c:b0:542:2905:ae52 with SMTP id 2adb3069b0e04-54229582562mr3253920e87.45.1734922764852;
+        Sun, 22 Dec 2024 18:59:24 -0800 (PST)
 Received: from umbar.lan ([192.130.178.90])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f658csm1124639e87.44.2024.12.22.18.59.19
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f658csm1124639e87.44.2024.12.22.18.59.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 18:59:21 -0800 (PST)
+        Sun, 22 Dec 2024 18:59:23 -0800 (PST)
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Mon, 23 Dec 2024 04:59:00 +0200
-Subject: [PATCH v9 09/10] drm/vc4: hdmi: stop rereading EDID in get_modes()
+Date: Mon, 23 Dec 2024 04:59:01 +0200
+Subject: [PATCH v9 10/10] drm/vc4: hdmi: use
+ drm_atomic_helper_connector_hdmi_hotplug()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241223-drm-bridge-hdmi-connector-v9-9-6ce16bcedb8b@linaro.org>
+Message-Id: <20241223-drm-bridge-hdmi-connector-v9-10-6ce16bcedb8b@linaro.org>
 References: <20241223-drm-bridge-hdmi-connector-v9-0-6ce16bcedb8b@linaro.org>
 In-Reply-To: <20241223-drm-bridge-hdmi-connector-v9-0-6ce16bcedb8b@linaro.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -107,21 +108,21 @@ Cc: Jani Nikula <jani.nikula@linux.intel.com>,
  linux-samsung-soc@vger.kernel.org, linux-mediatek@lists.infradead.org, 
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1990;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1974;
  i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=zd/Y8mBxMdBApDi5CzqJHH1RW7mj7RyJYMvyUl/+gqU=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnaNHxS+CfU4MvBlw2osJl83QA+wZ5kGncYgdoc
- JR2tU6eRoKJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ2jR8QAKCRCLPIo+Aiko
- 1TOJCACrRFuRB+oY+c98sRz7Ma4pmcP9hkSpViEb1HhcqhQ+wSNrwsLQ11Regmd4mJBK79nOzwT
- Nfpri3HXgX0HS3qFYrZcUzi+B68x6wvwU60GwKMd/PZvyFIX8OxvcXzgOk2EQ/3yygWo8fFGThO
- X2MGTJqbpeegKvCKA3d3otC6Eu9/QitcjoKBNIh5HDbkAMlRMwzWQ2lriSa9FMiZYkSuA8vpt76
- bPSe/sIipmve9fE5crzyrvzklzHGaOofu5vsyHZI8cgf3TMNtOEi0MelWz3Xs3r09Ix2sCQ34be
- pLuk4G41OLEBneTNS266BoRuUdJI0xxWKkNROz1buEXtKh/I
+ bh=XEE5uVlLO0AwRnx9UbXjwAPIkR4mEqLYJ4bDyDXWCRU=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnaNHx7x+4SbLumBUmOEkbtu6Fr6hU1V56PPenf
+ rTlgrJow96JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ2jR8QAKCRCLPIo+Aiko
+ 1evYB/9rPAzB3kkXRyr5OKaHMHSiShXf4rybV/gUkj3QflXjD9f8CPYW/cyNWoJQtSWoK8S9WTG
+ Hfj6UgBsGVxS2w97497ZGuAlKy/qxgFdBiXqhOUD7TcjvPJwX/QX57ZzOuDajdo8WqeLrDtYU0s
+ nxyhgsO1hqWEZ6EhXrJJQrwsgZWJyArs3jqtvSNURojm1mh3pntNVs0ZPYtB0DZvAeVNN+F3Iqu
+ ftO2or9x4WGL8Bi2fIxxRaweVXdxK7nLNQH6PvvOeJnKAC1cD0oBV896Z9tP2SAFpG3WmCD4Pzd
+ f/F/DTBdG0+u6dDWeil9xt7qN2QO/kPVNagQ1xbmxphKStOP
 X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_185924_192378_046C2A41 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20241222_185926_475039_2661CB3C 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,54 +137,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vc4_hdmi_connector_detect_ctx() via vc4_hdmi_handle_hotplug()
-already reads EDID and propagates it to the drm_connector. Stop
-rereading EDID as a part of the .get_modes() callback and just update
-the list of modes. This matches the behaviour of the i915 driver.
+Use the helper function to update the connector's information. This
+makes sure that HDMI-related events are handled in a generic way.
+Currently it is limited to the HDMI state reporting to the sound system.
 
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Tested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
- drivers/gpu/drm/vc4/vc4_hdmi.c | 21 ---------------------
- 1 file changed, 21 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 24199b511f2ee1bc3aa5f4a30e9d3d928d556ff1..5282dd765cc9478361a705dca85f615015b12e8e 100644
+index 5282dd765cc9478361a705dca85f615015b12e8e..82eeb08c183420b000b351da1e05f9a47baeda90 100644
 --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
 +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -470,31 +470,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
- 
- static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
+@@ -383,7 +383,6 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+ 				    enum drm_connector_status status)
  {
--	struct vc4_hdmi *vc4_hdmi = connector_to_vc4_hdmi(connector);
- 	struct vc4_dev *vc4 = to_vc4_dev(connector->dev);
+ 	struct drm_connector *connector = &vc4_hdmi->connector;
 -	const struct drm_edid *drm_edid;
- 	int ret = 0;
+ 	int ret;
  
--	/*
--	 * NOTE: This function should really take vc4_hdmi->mutex, but doing so
--	 * results in reentrancy issues since cec_s_phys_addr() might call
--	 * .adap_enable, which leads to that funtion being called with our mutex
--	 * held.
--	 *
--	 * Concurrency isn't an issue at the moment since we don't share
--	 * any state with any of the other frameworks so we can ignore
--	 * the lock for now.
--	 */
--
+ 	/*
+@@ -405,17 +404,14 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+ 		return;
+ 	}
+ 
 -	drm_edid = drm_edid_read_ddc(connector, vc4_hdmi->ddc);
--	drm_edid_connector_update(connector, drm_edid);
--	cec_s_phys_addr(vc4_hdmi->cec_adap,
--			connector->display_info.source_physical_address, false);
--	if (!drm_edid)
--		return 0;
--
- 	ret = drm_edid_connector_add_modes(connector);
--	drm_edid_free(drm_edid);
++	drm_atomic_helper_connector_hdmi_hotplug(connector, status);
  
- 	if (!vc4->hvs->vc5_hdmi_enable_hdmi_20) {
- 		struct drm_device *drm = connector->dev;
+-	drm_edid_connector_update(connector, drm_edid);
+ 	cec_s_phys_addr(vc4_hdmi->cec_adap,
+ 			connector->display_info.source_physical_address, false);
+ 
+-	if (!drm_edid)
++	if (status != connector_status_connected)
+ 		return;
+ 
+-	drm_edid_free(drm_edid);
+-
+ 	for (;;) {
+ 		ret = vc4_hdmi_reset_link(connector, ctx);
+ 		if (ret == -EDEADLK) {
+@@ -549,6 +545,7 @@ static void vc4_hdmi_connector_reset(struct drm_connector *connector)
+ }
+ 
+ static const struct drm_connector_funcs vc4_hdmi_connector_funcs = {
++	.force = drm_atomic_helper_connector_hdmi_force,
+ 	.fill_modes = drm_helper_probe_single_connector_modes,
+ 	.reset = vc4_hdmi_connector_reset,
+ 	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
 
 -- 
 2.39.5
