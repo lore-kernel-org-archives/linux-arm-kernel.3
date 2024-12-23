@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA5AE77190
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFC6E7718E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 17:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FfjYepypZYTfiRM34ig1UKi7DUAcuobsV2RU102Y2d8=; b=QLNcJ6BxlVFAuNhCKu4k4xJZ4X
-	E0ERqujfHIdIaw4ZgcXzTY6o5S1cittfNsLUO3LZL3oqcYqAN/5MedzxcqUilmgyJ65K6ereW15w3
-	XxFyHaufbTLb/KUN1TwdQ57tJ8Z7A9Tp3re+cfIFjo+j0+iEksXwFq3SQ3Lr7lr9OfxKNVaJ0MKMZ
-	sSvyS3ONW+xc3ALTIbvPGnUjDEVWGQn4tFE47xQh2rY9FIRfFk7vxof5KKaGNsRBvdIlAiiJr+Uw+
-	0PXuzjs28I5dcg/diwZD9Tw1CxbuKKIK5aYmOFerIf6FjziL4YldgbCKoMVZnF32lBfJy/Bps4ZEA
-	ounpUNAw==;
+	bh=5693z/3J4PGDMLqeiaRqi2dq4QupPlz84CuitauxQ8A=; b=4DmLF9SMKckb7VkONiqnnNndRo
+	uwpOnxicUaLjMenu4vipY+Y+LBuE89w0Q6eZZdb2k7MyOux9hoFSZh+UvQ9eFn6KHRA/jjXKurqx8
+	Nwh7pn5Gy2oZniBoagCS9pxsWnjKCknJVZEBxi+C6dsrYAeGMqPjS2xrEdhMs/cvqDVWxGwX5GaPQ
+	c00r/KB9kSbLy8N0MVEeOotRTEnTr0L2wDad/IX+/tZdJRhA2LRQY0GoI7nlRmoifIlwOMtPLuk8E
+	wyJXWfS3VU97VnJQqqZKWZQR8iRc5BsDoQLcz/vS71U8liJvjkXYzsrBXkq2UTo535e/4kTreHDnq
+	yGucVEwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPmaI-0000000AV6F-1CWe;
-	Mon, 23 Dec 2024 17:51:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tPmaH-0000000AV5N-06kh;
+	Mon, 23 Dec 2024 17:51:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlWQ-0000000AQHY-3xLq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Dec 2024 16:43:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=FfjYepypZYTfiRM34ig1UKi7DUAcuobsV2RU102Y2d8=; b=UJVbW3XDOOc/85mvt7vWCNPvCT
-	m+8xT8aWIqyeBP05Q2DVFx5Dpb8wI5cZJA9E50zcP2MXkbp2YO/v/O3e5qj3Zihzn5UsaRyKfBj8z
-	Sw/qGiO+BDIRJLNFdl8O8objAfnG3Tb93Uf4Zn1iFqxLdXbEX/q/fPSF+Co8XWLyhX2kllcHA4H04
-	AIhxUcn1+K0nuu5dQWsk3GrUmsuagmz+hUfm6rpTx8iOGdT9ngpmAPqfu3T2vq0grj9fKCH1xM4h8
-	CnqOyIqWj9q+t87X67GjRjPrjst0fZhaqIhF0u280SUX0/Ht/vk4eO5zNR7AK4AxPS5YjGo4pO8E+
-	CIQSoG3w==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlWN-00000006QUI-2Qet
+	id 1tPlSd-0000000APkJ-0sLH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 16:43:09 +0000
+	Mon, 23 Dec 2024 16:39:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 010BFA41076;
-	Mon, 23 Dec 2024 16:41:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F7BAC4CED3;
-	Mon, 23 Dec 2024 16:43:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0099AA4107E;
+	Mon, 23 Dec 2024 16:37:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D57CC4CED3;
+	Mon, 23 Dec 2024 16:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734972185;
-	bh=6reF2PZJUXaD4YUbmoRpNLyFTMbqR8aQXS3G3j070ws=;
+	s=k20201202; t=1734971953;
+	bh=35KQeJOKwdFepWTkT6JRbqFbbopLPhFHAchljzxBXLE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FnHiyfKYbQ00IoZ9nWxDSs8IpwjgGw6nFLxbwjRMuyaDh8FAU/9Ty9LI6sIcKqpAc
-	 yKdb1lTrutZX2VnQdXUZ0v/0H2uNDiHj9lgKJXRxuEqs244ezT2roxRPiaTEipDuuS
-	 EUOzLhjOofFqQrVgSQloJn8VpC0SvPHoTGTYTgF8DTYVuaTDyOkh2WuXYemd9X5Yo5
-	 k/hr+8DKNAEaYAIzo6w9qEEkzSnzO/vfRC/EeWbIwSM1FRYRIhikUO3lQSOeGB8coC
-	 bZONJAjGLYLjsFb76ygW839pBXNLB0wat6DLUsT1BdITDSW1rl7Ap4DjIAFLkGsyVL
-	 rIod+teEy8Zbg==
-Message-ID: <62bf3b33-e2d1-43ef-91b0-ef12abef2132@kernel.org>
-Date: Mon, 23 Dec 2024 17:43:00 +0100
+	b=N8HcjNGvtkZHL3tc8H4WTvFtrp+IEautC8kZG9BQ6Vi1keEJUAooKZQLBsKhGR2xe
+	 x4r0tZrRgcA75GVecYI3vIXVfRB9S9xltBeUwXkrctyekjMVWvLxQA+i8hlFdbJoVt
+	 EvVHe3uSYel9lyqc6fDE8Dov2WWPBoZIY8aLceKw3TjaVj9lG1Zg+8hfGdA829tPC3
+	 RFTWfyvCC6yAOaAuTG+johEI9HrSHzSu2vsiCVPmJWpGuILMwAfjV8Da/O3qvaXn52
+	 NVGHaLoXPtACwYyw+OfmsnFU9rJBDi25vDPehWODJ6sqcLmgoAeTbiduR2u93lP3py
+	 yLqFmfkHMY3QQ==
+Message-ID: <854c8108-261c-4585-be2e-d50758f3a777@kernel.org>
+Date: Mon, 23 Dec 2024 17:39:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arm64: dts: morello: Add support for soc dts
+Subject: Re: [PATCH v2 2/4] arm64: dts: morello: Add support for common
+ functionalities
 To: Vincenzo Frascino <vincenzo.frascino@arm.com>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
@@ -72,7 +58,7 @@ Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>,
  Russell King <linux@armlinux.org.uk>
 References: <20241223162029.326997-1-vincenzo.frascino@arm.com>
- <20241223162029.326997-4-vincenzo.frascino@arm.com>
+ <20241223162029.326997-3-vincenzo.frascino@arm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -118,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223162029.326997-4-vincenzo.frascino@arm.com>
+In-Reply-To: <20241223162029.326997-3-vincenzo.frascino@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_164308_002602_0A59FF25 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20241223_083915_390861_BBE32A3B 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,34 +130,17 @@ On 23/12/2024 17:20, Vincenzo Frascino wrote:
 > version 7 of the Capability Hardware Enhanced RISC Instructions
 > (CHERI) ISA.
 > 
-> Introduce Morello SoC dts.
+> The Morello Platform (soc) and the Fixed Virtual Platfom (fvp) share
+> some functionalities that have conveniently been included in
+> morello.dtsi to avoid duplication.
 > 
-> Note: Morello is at the same time the name of an Architecture [1], an SoC
-> [2] and a Board [2].
-> To distinguish in between Architecture/SoC and Board we refer to the first
-> as arm,morello and to the second as arm,morello-sdp.
+> Introduce morello.dtsi.
 > 
-> [1] https://developer.arm.com/Architectures/Morello
-> [2] https://www.morello-project.org/
-
-Drop both above paragraphs, you already said this in previous commit.
-This still does not help me (See further questions).
+> Note: Morello fvp will be introduced with a future patch series.
 > 
 > Cc: Linus Walleij <linus.walleij@linaro.org>
 > Cc: Rob Herring <robh@kernel.org>
 > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-
-Please drop the autogenerated scripts/get_maintainer.pl CC-entries from
-commit msg. There is no single need to store automated output of
-get_maintainers.pl in the git log. It can be easily re-created at any
-given time, thus its presence in the git history is redundant and
-obfuscates the log.
-
-If you need it for your own patch management purposes, keep it under the
---- separator.
-
-Or just use b4 and none of these are needed.
-
 > Cc: Conor Dooley <conor+dt@kernel.org>
 > Cc: Liviu Dudau <liviu.dudau@arm.com>
 > Cc: Sudeep Holla <sudeep.holla@arm.com>
@@ -179,165 +148,331 @@ Or just use b4 and none of these are needed.
 > Cc: Russell King <linux@armlinux.org.uk>
 > Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 > ---
->  arch/arm64/boot/dts/arm/Makefile        |   1 +
->  arch/arm64/boot/dts/arm/morello-sdp.dts | 116 ++++++++++++++++++++++++
->  2 files changed, 117 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/arm/morello-sdp.dts
+>  arch/arm64/boot/dts/arm/morello.dtsi | 271 +++++++++++++++++++++++++++
+>  1 file changed, 271 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/arm/morello.dtsi
 > 
-> diff --git a/arch/arm64/boot/dts/arm/Makefile b/arch/arm64/boot/dts/arm/Makefile
-> index d908e96d7ddc..869667bef7c0 100644
-> --- a/arch/arm64/boot/dts/arm/Makefile
-> +++ b/arch/arm64/boot/dts/arm/Makefile
-> @@ -7,3 +7,4 @@ dtb-$(CONFIG_ARCH_VEXPRESS) += rtsm_ve-aemv8a.dtb
->  dtb-$(CONFIG_ARCH_VEXPRESS) += vexpress-v2f-1xv7-ca53x2.dtb
->  dtb-$(CONFIG_ARCH_VEXPRESS) += fvp-base-revc.dtb
->  dtb-$(CONFIG_ARCH_VEXPRESS) += corstone1000-fvp.dtb corstone1000-mps3.dtb
-> +dtb-$(CONFIG_ARCH_VEXPRESS) += morello-sdp.dtb
-> diff --git a/arch/arm64/boot/dts/arm/morello-sdp.dts b/arch/arm64/boot/dts/arm/morello-sdp.dts
+> diff --git a/arch/arm64/boot/dts/arm/morello.dtsi b/arch/arm64/boot/dts/arm/morello.dtsi
 > new file mode 100644
-> index 000000000000..143e644361e4
+> index 000000000000..b9030007d9e6
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/arm/morello-sdp.dts
-> @@ -0,0 +1,116 @@
+> +++ b/arch/arm64/boot/dts/arm/morello.dtsi
+> @@ -0,0 +1,271 @@
 > +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
 > +/*
-> + * Copyright (c) 2021-2024, Arm Limited. All rights reserved.
-> +
+> + * Copyright (c) 2020-2024, Arm Limited. All rights reserved.
 > + */
 > +
-> +/dts-v1/;
-> +#include "morello.dtsi"
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
 > +
 > +/ {
-> +	model = "Arm Morello System Development Platform";
-> +	compatible = "arm,morello-sdp";
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +	interrupt-parent = <&gic>;
 > +
-> +	smmu_dp: iommu@2ce00000 {
+> +	aliases {
+> +		serial0 = &uart0;
 
-Well, this is confusing. Boards are almost never adding things to the
-soc node, where this belongs to.
+This belongs to DTS file.
 
-Your commit msg should explain this.
-
-> +		compatible = "arm,smmu-v3";
-> +		reg = <0 0x2ce00000 0 0x40000>;
-> +		interrupts = <GIC_SPI 76 IRQ_TYPE_EDGE_RISING>,
-> +				<GIC_SPI 80 IRQ_TYPE_EDGE_RISING>,
-> +				<GIC_SPI 78 IRQ_TYPE_EDGE_RISING>;
-> +		interrupt-names = "eventq", "gerror", "cmdq-sync";
-> +		#iommu-cells = <1>;
 > +	};
 > +
-> +	dp0: display@2cc00000 {
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
 
-display/GPU is outside of SoC? Really? Please explain the hardware in
-the commit msg.
+As well.
 
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		compatible = "arm,mali-d32", "arm,mali-d71";
-> +		reg = <0 0x2cc00000 0 0x20000>;
-> +		interrupts = <0 69 4>;
-> +		clocks = <&dpu_aclk>;
-> +		clock-names = "aclk";
-> +		iommus = <&smmu_dp 0>, <&smmu_dp 1>, <&smmu_dp 2>, <&smmu_dp 3>,
-> +			<&smmu_dp 8>;
+> +	};
 > +
-> +		pl0: pipeline@0 {
-> +			reg = <0>;
-> +			clocks = <&dpu_pixel_clk>;
-> +			clock-names = "pxclk";
-> +			port {
-> +				dp_pl0_out0: endpoint {
-> +					remote-endpoint = <&tda998x_0_input>;
-> +				};
-> +			};
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		secure-firmware@ff000000 {
+> +			reg = <0 0xff000000 0 0x01000000>;
+> +			no-map;
 > +		};
 > +	};
 > +
-> +	i2c@1c0f0000 {
-> +		compatible = "cdns,i2c-r1p14";
-
-I really doubt that you can package cdns IP block outside of SoC.
-
-> +		reg = <0x0 0x1c0f0000 0x0 0x1000>;
-> +		#address-cells = <1>;
+> +	cpus {
+> +		#address-cells = <2>;
 > +		#size-cells = <0>;
-> +		clock-frequency = <100000>;
-> +		interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-> +		clocks = <&dpu_aclk>;
-> +
-> +		hdmi_tx: hdmi-transmitter@70 {
-> +			compatible = "nxp,tda998x";
-> +			reg = <0x70>;
-> +			video-ports = <0x234501>;
-> +			port {
-> +				tda998x_0_input: endpoint {
-> +					remote-endpoint = <&dp_pl0_out0>;
-> +				};
-> +			};
+
+Blank line
+
+> +		cpu0: cpu0@0 {
+> +			compatible = "arm,neoverse-n1";
+> +			reg = <0x0 0x0>;
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			clocks = <&scmi_dvfs 0>;
+> +		};
+
+Blank line between each device node.
+
+> +		cpu1: cpu1@100 {
+> +			compatible = "arm,neoverse-n1";
+> +			reg = <0x0 0x100>;
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			clocks = <&scmi_dvfs 0>;
+> +		};
+> +		cpu2: cpu2@10000 {
+> +			compatible = "arm,neoverse-n1";
+> +			reg = <0x0 0x10000>;
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			clocks = <&scmi_dvfs 1>;
+> +		};
+> +		cpu3: cpu3@10100 {
+> +			compatible = "arm,neoverse-n1";
+> +			reg = <0x0 0x10100>;
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			clocks = <&scmi_dvfs 1>;
 > +		};
 > +	};
 > +
-> +	dpu_aclk: dpu_aclk {
+> +	/* The first bank of memory, memory map is actually provided by UEFI. */
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		/* [0x80000000-0xffffffff] */
+> +		reg = <0x00000000 0x80000000 0x0 0x7F000000>;
+> +	};
+> +
+> +	memory@8080000000 {
+> +		device_type = "memory";
+> +		/* [0x8080000000-0x83f7ffffff] */
+> +		reg = <0x00000080 0x80000000 0x3 0x78000000>;
+> +	};
+> +
+> +	gic: interrupt-controller@2c010000 {
 
-Use consistent names
+You need 'soc' node. ARM DTS files have this unusual, I don't understand
+why these were done like that. Don't use them as example. Take some
+latest qcom (sm8650.dtsi) as an example.
 
-> +		/* 77.1 MHz derived from 24 MHz reference clock */
 
-77.1 or 35?
+> +		compatible = "arm,gic-v3";
+> +		#address-cells = <2>;
+> +		#interrupt-cells = <3>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +		interrupt-controller;
+> +	};
+> +
+> +	pmu {
+> +		compatible = "arm,armv8-pmuv3";
+> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +	};
+> +
+> +	spe-pmu {
+> +		compatible = "arm,statistical-profiling-extension-v1";
+> +		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH>;
+> +	};
+> +
+> +	psci {
+> +		compatible = "arm,psci-0.2";
+> +		method = "smc";
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+> +	};
+> +
+> +	soc_refclk50mhz: clock-50000000 {
+
+Keep nodes ordered by name.
 
 > +		compatible = "fixed-clock";
 > +		#clock-cells = <0>;
-> +		clock-frequency = <350000000>;
-> +		clock-output-names = "aclk";
-
-aclk? Sounds like something belonging to the clock controller.
-
+> +		clock-frequency = <50000000>;
+> +		clock-output-names = "apb_pclk";
 > +	};
 > +
-> +	dpu_pixel_clk: dpu-pixel-clk {
-
-Same comment
-
+> +	soc_refclk85mhz: clock-85000000 {
 > +		compatible = "fixed-clock";
 > +		#clock-cells = <0>;
-> +		clock-frequency = <148500000>;
-> +		clock-output-names = "pxclk";
-> +	};
-> +};
-> +
-> +&gic {
-> +	reg = <0x0 0x30000000 0 0x10000>,	/* GICD */
-> +	      <0x0 0x300c0000 0 0x80000>;	/* GICR */
-> +	interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +	its1: msi-controller@30040000 {
-> +		compatible = "arm,gic-v3-its";
-> +		msi-controller;
-> +		#msi-cells = <1>;
-> +		reg = <0x0 0x30040000 0x0 0x20000>;
+> +		clock-frequency = <85000000>;
+> +		clock-output-names = "iofpga:aclk";
 > +	};
 > +
-> +	its2: msi-controller@30060000 {
-> +		compatible = "arm,gic-v3-its";
-> +		msi-controller;
-> +		#msi-cells = <1>;
-> +		reg = <0x0 0x30060000 0x0 0x20000>;
+> +	soc_uartclk: clock-50000000-uart {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <50000000>;
+> +		clock-output-names = "uartclk";
 > +	};
 > +
-> +	its_ccix: msi-controller@30080000 {
-> +		compatible = "arm,gic-v3-its";
-> +		msi-controller;
-> +		#msi-cells = <1>;
-> +		reg = <0x0 0x30080000 0x0 0x20000>;
-> +	};
+> +	soc: soc {
+
+Ah, so here is the soc. GIC should be inside.
+
+> +		compatible = "simple-bus";
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		interrupt-parent = <&gic>;
+> +		ranges;
 > +
-> +	its_pcie: msi-controller@300a0000 {
-> +		compatible = "arm,gic-v3-its";
-> +		msi-controller;
-> +		#msi-cells = <1>;
-> +		reg = <0x0 0x300a0000 0x0 0x20000>;
+> +		mailbox: mhu@45000000 {
+> +			compatible = "arm,mhu-doorbell", "arm,primecell";
+> +			reg = <0x0 0x45000000 0x0 0x1000>;
+> +			interrupts = <GIC_SPI 318 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
+
+Misaligned. It should be aligned to previous <
+
+> +			#mbox-cells = <2>;
+> +			clocks = <&soc_refclk50mhz>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+> +		sram: sram@45200000 {
+> +			compatible = "mmio-sram";
+> +			reg = <0x0 0x06000000 0x0 0x8000>;
+> +
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0 0x0 0x06000000 0x8000>;
+
+Ranges go immediately after reg (see DTS coding style)
+
+> +
+> +			cpu_scp_hpri0: scp-sram@0 {
+> +				compatible = "arm,scmi-shmem";
+> +				reg = <0x0 0x80>;
+> +			};
+> +
+> +			cpu_scp_hpri1: scp-sram@80 {
+> +				compatible = "arm,scmi-shmem";
+> +				reg = <0x80 0x80>;
+> +			};
+> +		};
+> +
+> +		uart0: serial@2a400000 {
+> +			compatible = "arm,pl011", "arm,primecell";
+> +			reg = <0x0 0x2a400000 0x0 0x1000>;
+> +			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&soc_uartclk>, <&soc_refclk50mhz>;
+> +			clock-names = "uartclk", "apb_pclk";
+
+This should be disabled and board should enable it.
+
+> +		};
+> +
+> +		smmu_pcie: iommu@4f400000 {
+> +			compatible = "arm,smmu-v3";
+> +			reg = <0 0x4f400000 0 0x40000>;
+> +			interrupts = <GIC_SPI 235 IRQ_TYPE_EDGE_RISING>,
+> +					<GIC_SPI 237 IRQ_TYPE_EDGE_RISING>,
+> +					<GIC_SPI 40 IRQ_TYPE_EDGE_RISING>,
+> +					<GIC_SPI 236 IRQ_TYPE_EDGE_RISING>;
+> +			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
+> +			msi-parent = <&its2 0>;
+> +			#iommu-cells = <1>;
+> +			dma-coherent;
+> +		};
+> +
+> +		pcie_ctlr: pcie@28c0000000 {
+> +			compatible = "pci-host-ecam-generic";
+> +			device_type = "pci";
+> +			reg = <0x28 0xC0000000 0 0x10000000>;
+> +			bus-range = <0 255>;
+> +			linux,pci-domain = <0>;
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+> +			dma-coherent;
+> +			ranges = <0x01000000 0x00 0x00000000 0x00 0x6F000000 0x00 0x00800000>,
+> +				 <0x02000000 0x00 0x60000000 0x00 0x60000000 0x00 0x0F000000>,
+> +				 <0x42000000 0x09 0x00000000 0x09 0x00000000 0x1F 0xC0000000>;
+> +			#interrupt-cells = <1>;
+> +			interrupt-map-mask = <0 0 0 7>;
+> +			interrupt-map = <0 0 0 1 &gic 0 0 0 169 IRQ_TYPE_LEVEL_HIGH>,
+> +					<0 0 0 2 &gic 0 0 0 170 IRQ_TYPE_LEVEL_HIGH>,
+> +					<0 0 0 3 &gic 0 0 0 171 IRQ_TYPE_LEVEL_HIGH>,
+> +					<0 0 0 4 &gic 0 0 0 172 IRQ_TYPE_LEVEL_HIGH>;
+> +			msi-map = <0 &its_pcie 0 0x10000>;
+> +			iommu-map = <0 &smmu_pcie 0 0x10000>;
+> +			status = "okay";
+> +		};
+> +
+> +		smmu_ccix: iommu@4f000000 {
+> +			compatible = "arm,smmu-v3";
+> +			reg = <0 0x4f000000 0 0x40000>;
+> +			interrupts = <GIC_SPI 228 IRQ_TYPE_EDGE_RISING>,
+> +					<GIC_SPI 230 IRQ_TYPE_EDGE_RISING>,
+> +					<GIC_SPI 41 IRQ_TYPE_EDGE_RISING>,
+> +					<GIC_SPI 229 IRQ_TYPE_EDGE_RISING>;
+> +			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
+> +			msi-parent = <&its1 0>;
+> +			#iommu-cells = <1>;
+> +			dma-coherent;
+> +		};
+> +
+> +		ccix_pcie_ctlr: pcie@4fc0000000 {
+> +			compatible = "pci-host-ecam-generic";
+> +			device_type = "pci";
+> +			reg = <0x4F 0xC0000000 0 0x10000000>;
+> +			bus-range = <0 255>;
+> +			linux,pci-domain = <1>;
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
+> +			dma-coherent;
+> +			ranges = <0x01000000 0x00 0x00000000 0x00 0x7F000000 0x00 0x00800000>,
+> +				 <0x02000000 0x00 0x70000000 0x00 0x70000000 0x00 0x0F000000>,
+> +				 <0x42000000 0x30 0x00000000 0x30 0x00000000 0x1F 0xC0000000>;
+> +			#interrupt-cells = <1>;
+> +			interrupt-map-mask = <0 0 0 7>;
+> +			interrupt-map = <0 0 0 1 &gic 0 0 0 201 IRQ_TYPE_LEVEL_HIGH>,
+> +					<0 0 0 2 &gic 0 0 0 202 IRQ_TYPE_LEVEL_HIGH>,
+> +					<0 0 0 3 &gic 0 0 0 203 IRQ_TYPE_LEVEL_HIGH>,
+> +					<0 0 0 4 &gic 0 0 0 204 IRQ_TYPE_LEVEL_HIGH>;
+> +			msi-map = <0 &its_ccix 0 0x10000>;
+> +			iommu-map = <0 &smmu_ccix 0 0x10000>;
+> +			status = "okay";
+
+Drop, everywhere
+
+> +		};
+> +
+> +		firmware {
+
+firmware is not part of soc.
+
+
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+
+Drop both
+
+> +			interrupt-parent = <&gic>;
+> +			ranges;
+
+Drop ranges, this is all odd.
+
+> +
+> +			scmi {
+> +				compatible = "arm,scmi";
+> +				mbox-names = "tx", "rx";
+> +				mboxes = <&mailbox 1 0>, <&mailbox 1 1>;
+> +				shmem = <&cpu_scp_hpri0>, <&cpu_scp_hpri1>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				scmi_dvfs: protocol@13 {
+> +					reg = <0x13>;
+> +					#clock-cells = <1>;
+> +				};
+> +				scmi_clk: protocol@14 {
+> +					reg = <0x14>;
+> +					#clock-cells = <1>;
+> +				};
+> +			};
+> +		};
 > +	};
 > +};
 
