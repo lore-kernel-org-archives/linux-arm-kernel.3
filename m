@@ -4,85 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F76CE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 09:31:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33F0E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 09:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBhfzVNPoQY702/fU5BRMtzSyvCNkOs9LmubC0XHVK4=; b=PFgFHn3ir8vtRM2/+HcV5qSXk2
-	yZPOgxtL72nIanf6bMV1NMq7kHiXNtoDLO+imKeaOb2bs7qyG1JtKMxC8LjQMN/wQmobtGqHwE6Wa
-	ZLAPIPCMwQ/lA8yATTdkPWlYqFBETH6pDbrUOf8IyysriNSx+3E4R+s1MhZMNwHPYqaGyYdKre4gW
-	Walfb+nF3zKP4jpkjeQEioa+Hjd6u40dQH4NueWYABa1QslTqGPITpJRQv8aBqG6G6WCjOh4Zg3rO
-	athDyZLDt6uwPUAzDy6My8cTXzw9P4HhmQkGxRRRlobhzkfpwDscMjKrQglhfCuqP3OubjgwFL55+
-	ns1zu7Rg==;
+	bh=7JvyzST6fT2xMf3ranPUUdjTRcgXeD+mnvB9d/18a9U=; b=Vhp7zPAJlXPmRo8vIxwJpWEqZl
+	y41wlZTqIyYt7E6q8gspB0+HofuIhCL5KHKhbHlTKFjPONXoszwd3PhwuHekqSvIC8IFzIVJgVitU
+	YrFmVWm9SWq1gUttWjBiLyVuyb+XLOuZZrLf2iToIPsCsGshMcg5S8bjSeYz6kFp+1ALO5N8T9+yW
+	6gzn6guviG1e9cIPz147qZ8NnAHo0ezqoy1I59abdIHIWRnryS+liPh+AbYZqbzORFdVKwtAO2JH8
+	z6pY+rH7dOp3XxETwwz8hjFdQDysRuSld0kKCSmzGMsAILO9r7GbQEXFr1gstLHLiltu0clZsXtOx
+	OhdV26zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPemU-00000009ecv-2zqG;
-	Mon, 23 Dec 2024 09:31:18 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tPend-00000009elx-1lxw;
+	Mon, 23 Dec 2024 09:32:29 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPehj-00000009e7f-0BAF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 09:26:24 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BN9Q3JU856692
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Dec 2024 03:26:03 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1734945963;
-	bh=dBhfzVNPoQY702/fU5BRMtzSyvCNkOs9LmubC0XHVK4=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ggFw+YUHA4/1UqxcqEz4De3AINXPz9ThEZQiJIZ10a7RgZ47cebK/S+YX/718L32V
-	 BXrrKpzEhVwSk39NjfS2299vZvC4Xi7YhyKXKFZ969X7QjoRy97x7LU2WcIZ3i/C8c
-	 r22MA//4mTmY3LdzmzEzQ0BZ9CQM4Ccge1fE2A54=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BN9Q3Yn013531
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 23 Dec 2024 03:26:03 -0600
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 23
- Dec 2024 03:26:02 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 23 Dec 2024 03:26:02 -0600
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BN9Q2vB127941;
-	Mon, 23 Dec 2024 03:26:02 -0600
-Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 4BN9Q1Jq006694;
-	Mon, 23 Dec 2024 03:26:02 -0600
-From: MD Danish Anwar <danishanwar@ti.com>
-To: <wojciech.drewek@intel.com>, <n.zhandarovich@fintech.ru>,
-        <aleksander.lobakin@intel.com>, <lukma@denx.de>, <m-malladi@ti.com>,
-        <diogo.ivo@siemens.com>, <horms@kernel.org>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
-        Larysa Zaremba <larysa.zaremba@intel.com>,
-        Michal Swiatkowski
-	<michal.swiatkowski@linux.intel.com>
-Subject: [PATCH net-next v2 1/3] net: ti: icssg-prueth: Add VLAN support in EMAC mode
-Date: Mon, 23 Dec 2024 14:55:55 +0530
-Message-ID: <20241223092557.2077526-2-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241223092557.2077526-1-danishanwar@ti.com>
-References: <20241223092557.2077526-1-danishanwar@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	id 1tPekL-00000009eT0-3H4v;
+	Mon, 23 Dec 2024 09:29:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 34C12A40CB7;
+	Mon, 23 Dec 2024 09:27:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 096FBC4CED3;
+	Mon, 23 Dec 2024 09:29:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734946144;
+	bh=N/umG6hkbDvFZTfuU7dZaG2b4mcblT58EocGnnvjib8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HsszrnNyhNuu2fR3ncen4NNgnjCXnK1sBHA5zocVAQdgLvkK64Ug4OQwrtNDpVDhN
+	 fHECy4zVX8EuTZZ+ncWcvmDXL3CrwOrEdQ9kJe4nryS29RN/0VykWDRotMms1cm8l7
+	 X670PBv5P9i8mbMAz1kaMqNZ7gw6Xkq1DK01HvKCfMyJnLo7wmuilwNY83aadirqyz
+	 CkY9QH4ubhbN5MQU+XrJM30NWR4bNOytUOJ2bblwv2g/0lQqcRDXW0iIyxp9AkXECy
+	 2hd0eem+OAAzEFUEsta0ffo0+AM3AuSWfH/JELECp7czHBUjQ3adZqR6O7+02Dnitw
+	 dZ9GSN8SAB3ww==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tPekH-006L1R-B9;
+	Mon, 23 Dec 2024 09:29:01 +0000
+Date: Mon, 23 Dec 2024 09:29:01 +0000
+Message-ID: <871pxysq76.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: FUKAUMI Naoki <naoki@radxa.com>,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tglx@linutronix.de,
+	jonas@kwiboo.se,
+	macromorgan@hotmail.com,
+	andyshrk@163.com,
+	liujianfeng1994@gmail.com,
+	dmt.yashin@gmail.com,
+	tim@feathertop.org,
+	marcin.juszkiewicz@linaro.org,
+	michael.riesch@wolfvision.net,
+	alchark@gmail.com,
+	sebastian.reichel@collabora.com,
+	jbx6244@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/3] irqchip/gic-v3: Enable Rockchip 3588001 erratum workaround for RK3582
+In-Reply-To: <e3498590dd81b150670e36561d99b6f4@manjaro.org>
+References: <20241222030355.2246-1-naoki@radxa.com>
+	<20241222030355.2246-2-naoki@radxa.com>
+	<86msgoozqa.wl-maz@kernel.org>
+	<f93b3bfb5151e4b617b1c99c91b4956f@manjaro.org>
+	<8734ifs3zl.wl-maz@kernel.org>
+	<e3498590dd81b150670e36561d99b6f4@manjaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: dsimic@manjaro.org, naoki@radxa.com, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com, tim@feathertop.org, marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net, alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_012623_194284_24CA3351 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20241223_012905_957205_7EF75075 
+X-CRM114-Status: GOOD (  29.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,70 +105,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for vlan filtering in dual EMAC mode.
+On Mon, 23 Dec 2024 06:10:21 +0000,
+Dragan Simic <dsimic@manjaro.org> wrote:
+> 
+> Hello Marc,
+> 
+> On 2024-12-23 00:16, Marc Zyngier wrote:
+> > On Sun, 22 Dec 2024 18:25:02 +0000,
+> > Dragan Simic <dsimic@manjaro.org> wrote:
+> >> On 2024-12-22 10:04, Marc Zyngier wrote:
+> >> > On Sun, 22 Dec 2024 03:03:53 +0000,
+> >> > FUKAUMI Naoki <naoki@radxa.com> wrote:
+> >> >>
+> >> >> Rockchip RK3582 is a scaled down version of Rockchip RK3588(S). Apply
+> >> >> Rockchip 3588001 erratum workaround to RK3582.
+> >> >>
+> >> >> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
+> >> >> ---
+> >> >>  drivers/irqchip/irq-gic-v3-its.c | 3 ++-
+> >> >>  1 file changed, 2 insertions(+), 1 deletion(-)
+> >> >>
+> >> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c
+> >> >> b/drivers/irqchip/irq-gic-v3-its.c
+> >> >> index 92244cfa0464..c59ce9332dc0 100644
+> >> >> --- a/drivers/irqchip/irq-gic-v3-its.c
+> >> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> >> >> @@ -4861,7 +4861,8 @@ static bool __maybe_unused
+> >> >> its_enable_rk3588001(void *data)
+> >> >>  {
+> >> >>  	struct its_node *its = data;
+> >> >>
+> >> >> -	if (!of_machine_is_compatible("rockchip,rk3588") &&
+> >> >> +	if (!of_machine_is_compatible("rockchip,rk3582") &&
+> >> >> +	    !of_machine_is_compatible("rockchip,rk3588") &&
+> >> >>  	    !of_machine_is_compatible("rockchip,rk3588s"))
+> >> >>  		return false;
+> >> >>
+> >> >
+> >> > Please use the relevant property for that purpose ("dma-noncoherent")
+> >> > at the distributor and ITS levels. We're not adding extra compatibles
+> >> > for this anymore, and you might as well fix the core dtsi to expose
+> >> > such property.
+> >> 
+> >> Thanks for your response.
+> >> 
+> >> After a more detailed look into drivers/irqchip/irq-gic-v3-its.c,
+> >> it seems that relying on the "dma-noncoherent" DT property may not
+> >> be equivalent to adding another compatible check.
+> > 
+> > It is. My email makes it plain what needs doing.
+> > 
+> >> Here are a few
+> >> quotations from irq-gic-v3-its.c, to illustrate this better:
+> >> 
+> >> 4746 static bool __maybe_unused its_enable_rk3588001(void *data)
+> >> 4747 {
+> >> 4748         struct its_node *its = data;
+> >> 4749
+> >> 4750         if (!of_machine_is_compatible("rockchip,rk3588") &&
+> >> 4751             !of_machine_is_compatible("rockchip,rk3588s"))
+> >> 4752                 return false;
+> >> 4753
+> >> 4754         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
+> >> 4755         gic_rdists->flags |= RDIST_FLAGS_FORCE_NON_SHAREABLE;
+> >> 4756
+> >> 4757         return true;
+> >> 4758 }
+> >> 4759
+> >> 4760 static bool its_set_non_coherent(void *data)
+> >> 4761 {
+> >> 4762         struct its_node *its = data;
+> >> 4763
+> >> 4764         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
+> >> 4765         return true;
+> >> 4766 }
+> >> 
+> >> 4814 #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
+> >> 4815         {
+> >> 4816                 .desc   = "ITS: Rockchip erratum RK3588001",
+> >> 4817                 .iidr   = 0x0201743b,
+> >> 4818                 .mask   = 0xffffffff,
+> >> 4819                 .init   = its_enable_rk3588001,
+> >> 4820         },
+> >> 4821 #endif
+> >> 4822         {
+> >> 4823                 .desc   = "ITS: non-coherent attribute",
+> >> 4824                 .property = "dma-noncoherent",
+> >> 4825                 .init   = its_set_non_coherent,
+> >> 4826         },
+> > 
+> > Nothing tickles me more than having my own work being thrown back at
+> > me.
+> 
+> I'm sorry, that wasn't my intention.  I just wanted to make
+> referencing to what I was talking about a bit easier.  Though,
+> I now see that I was wrong, and I apologize for the noise.
 
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 29 +++++++++-----------
- 1 file changed, 13 insertions(+), 16 deletions(-)
+No need to apologise. Just understand that the way you approached the
+discussion was suboptimal. Next time, just ask how the proposed
+solution works, rather than asserting that it doesn't.
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index c568c84a032b..1663941e59e3 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -822,19 +822,18 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
- {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct prueth *prueth = emac->prueth;
-+	int port_mask = BIT(emac->port_id);
- 	int untag_mask = 0;
--	int port_mask;
- 
--	if (prueth->is_hsr_offload_mode) {
--		port_mask = BIT(PRUETH_PORT_HOST) | BIT(emac->port_id);
--		untag_mask = 0;
-+	if (prueth->is_hsr_offload_mode)
-+		port_mask |= BIT(PRUETH_PORT_HOST);
- 
--		netdev_dbg(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
--			   vid, port_mask, untag_mask);
-+	netdev_dbg(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
-+		   vid, port_mask, untag_mask);
-+
-+	icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
-+	icssg_set_pvid(emac->prueth, vid, emac->port_id);
- 
--		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
--		icssg_set_pvid(emac->prueth, vid, emac->port_id);
--	}
- 	return 0;
- }
- 
-@@ -843,18 +842,16 @@ static int emac_ndo_vlan_rx_del_vid(struct net_device *ndev,
- {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct prueth *prueth = emac->prueth;
-+	int port_mask = BIT(emac->port_id);
- 	int untag_mask = 0;
--	int port_mask;
- 
--	if (prueth->is_hsr_offload_mode) {
-+	if (prueth->is_hsr_offload_mode)
- 		port_mask = BIT(PRUETH_PORT_HOST);
--		untag_mask = 0;
- 
--		netdev_dbg(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
--			   vid, port_mask, untag_mask);
-+	netdev_dbg(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
-+		   vid, port_mask, untag_mask);
-+	icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
- 
--		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
--	}
- 	return 0;
- }
- 
+Hopefully we can move on and you and Naoki can come up with a set of
+patches that does the right thing.
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
