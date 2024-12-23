@@ -4,89 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8514DE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 09:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD9CE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 09:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=phrs9YJqa8lpnJ8Sdgez3E8c1Y72AEGjb5E6Nz8zqL0=; b=dHJcRFAFVtuIjcYgNAD++ROzlh
-	NbkCFJmPY8uygX9to7X0cr5DEA3Vnf0C2GDsHlVzCP0JxBUG2ATBz07BFFJd00njRjQDzQqXK/0bV
-	i9RC3VJO0I3JoBndIehF0T7hk07Am4oL0F6JOoX3e9nIe9pDx7hplmuNXxCM9t5mumRzQ8ANWDhgN
-	vNeRsO7KGe28U3qX2Mfv3JnLmtRqtxmwJzeXTK/iNGBpbRkKu/C54iK3hfAa0IEUSCVoryllg16zF
-	LlHsI6lUR/wtiXl1cpV6NYkSV2CAY5rT55eOP4vV7/uvImA0ArBu/yLe7HjVDX+hE8i0pxPhUZVIY
-	hVKd+k6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hW6jy85GFxw1rlbhA2IQSgcMmC6SEwxIAu1eEJQsQ+g=; b=bOdkZ3xzcXV6hvQV946skutp7F
+	0p7jMhvNV6huM826ppi8kl5jrurs6YZDe23LYOdDY2yqAUXVv0l519LY5RI8Uo8M6wYc//IN2RBg6
+	P7kjouSoG2KUWpdl+hgcFp80v+MQm+cPK+Zz2FiNlZtdWsTwZ8OS5y37oUybY1Z52kOkrfczjo0Ju
+	oTvTNqcXb1S1UqMn6u4WdHmaIjUqKWxMZGaCGP3COABF9j8REDqh3dyadjFoxJZ9vBj/rE8tvMbxv
+	ONZ8AsDNF0P2OViF1ERRcDDICNOd7SEs/BvxN/qFo+Rd25fHCKZpTdnhPgNCZP5ebDIirVFPCcg7Z
+	Uv1H0FMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPevw-00000009foh-3AqD;
-	Mon, 23 Dec 2024 09:41:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tPez8-00000009gYS-0K2T;
+	Mon, 23 Dec 2024 09:44:22 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPeuk-00000009feB-1Lc0;
-	Mon, 23 Dec 2024 09:39:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C27DD5C0501;
-	Mon, 23 Dec 2024 09:39:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46BD6C4CED3;
-	Mon, 23 Dec 2024 09:39:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734946789;
-	bh=Euy4sMJkEwz5VdTY+bm3x+j/aIo7YZtp5N9LHcz3ZRE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=T6KpVZF3DpZMaE9Vcnxi3b8d9Jox8AA/xKQ4sHL9WgIrrXkeOH4+ooG0/jtNSTSoZ
-	 hF+HGYgoyASpUnQTRHJM5EFbeCmiw3is876ObPoNy9e39xUwjUX8j8czyacN8YJg3Z
-	 tcVLRGboyuvPaoqI8W2rtvzXcMZVNprWjhUtWARh6JoGZd/9m49HLGa58vDXx5ifz2
-	 Mv7fZbv9V/kseMdqI/dnyg0heOy7zEuRx3th5au03IhsdP62lWAXPzA/kAJ3viVOP7
-	 ZlNHOKfi/o87VxtDNwsr0uIadKfdg2gnM8+G+dEX+dNLV/TAMROtJqkGstWoSgxaN2
-	 lq+34ROUfDeEA==
-Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tPeug-006LBL-GG;
-	Mon, 23 Dec 2024 09:39:46 +0000
-Date: Mon, 23 Dec 2024 09:39:45 +0000
-Message-ID: <87zfkmrb4u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: FUKAUMI Naoki <naoki@radxa.com>
-Cc: heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
+	id 1tPexs-00000009fwp-3v3U
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Dec 2024 09:43:07 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-725ee6f56b4so3376111b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 01:43:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1734946983; x=1735551783; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=hW6jy85GFxw1rlbhA2IQSgcMmC6SEwxIAu1eEJQsQ+g=;
+        b=iZBR0PIK8KaVLcYjJi2f9BpsCmm/hq/JDENN+EhksPmSIW/KR+W2SzUrRU1eIqC4w1
+         07ghI/b14H/kEErfovrhPcbTRsu809AuWhDO389Skolf6do0pUDwr64RfX6zUmcG8uU9
+         DEc0sr9yDWizA/6F0FLTSLdEXqexZo+IGY4zZnlNmUbYsrk7oR9ikooXAJn2uRkThN6P
+         JsGJDrTk6tEF1ewU7yB/D8Us5EXbNMukAUQrlGc1Q6yu24O+hlq4fh5DmkHmbDLWcRDC
+         iDkQumao8jHNtQJg20oqsWLt9U1N7dpbcrpDESd+/672ed57XAf1gUUkG2bYqACOWLJS
+         fwoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734946983; x=1735551783;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hW6jy85GFxw1rlbhA2IQSgcMmC6SEwxIAu1eEJQsQ+g=;
+        b=wtRvqybdX0b8W7O5qULNqPNZ0yys8vSvi2GMhK+wNCfBMKM2R9lgr9GNXrtsIoeKkw
+         5JDd70sScLOmgreQJOew7WjCrfxq7nKuBvK4Cwxr196lA9Qqv8K+El9wslh112k7MTEK
+         LomP7jN7Hb1CPqOgf1JTiK0v7LlkPe393dPatT1+4UNWzCjJTTf8r6Ccl8+a/5p8PCfl
+         VpaFIgDzGp8AQKazGd6E6KZXnYRngOf52yxIE0F6d0DlFoMrWCieI9ErGQ+PLNjNwFKe
+         SAlZSahO4TDrarsqIt3wbNR7vWbF9PuOht5SFXGzjMNeI3SUmha59l4OAMI7QRFbe45H
+         aVTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQwCEh/4UWXmjR+HjeSWHFvE16HiRtDebs1TdSNKsvU2f7lHNBuclOhlnS902QdL/HQ4LfMYpqZIbEb99KIgnU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYl7W/vP/X1SnI+LVOCeio045l/fOJgSPNEnbNe30iiox234Vr
+	n3pPuCf/1x8tZDA2vV+roV4VetgmsbPy6gobb6Av/FeMgDuMK8oPf5frcKBjTBI=
+X-Gm-Gg: ASbGncuB/Z40+8mStWQGd1LPTeEG8IgOIAy0mJtIBE4P5P+0qOUaAnZDeqxicziQhDk
+	B1QcB03MWaR4GGJioVEr6FFgZibzS2T3B/2d6JomD+5RyWcnM4Y5bOm7Bm+SlM07bKKX9Amx1Jf
+	TWulEUIvdNCTANVRXd9n4m8Q1Q2RebutRpUYkSFC72eiCyrs2sNGMIs+iO0W0DFgJ2f2mUFbI7Q
+	ohxAVqaaFVlfi9+urYSkGd1KDgMR9BO1wTE7NG6UEUmO0I3QHXHXiScnE+AzS5aCWH5V2EpMbCy
+	o0Xde97d4uxh2SFCuTlVlw==
+X-Google-Smtp-Source: AGHT+IFRta8/SfQvcBY4OAtIB9mripqs4z6X28qqGG6H0nQGOiKq9bgrNZS2epuvDdaQMCTGZ3ooIw==
+X-Received: by 2002:a05:6a21:4986:b0:1e1:b1bb:87a0 with SMTP id adf61e73a8af0-1e606dfe60fmr3973055637.34.1734946982984;
+        Mon, 23 Dec 2024 01:43:02 -0800 (PST)
+Received: from C02DW0BEMD6R.bytedance.net ([203.208.167.150])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8486c6sm7468309b3a.85.2024.12.23.01.42.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Dec 2024 01:43:02 -0800 (PST)
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+To: peterz@infradead.org,
+	agordeev@linux.ibm.com,
+	kevin.brodsky@arm.com,
 	tglx@linutronix.de,
-	jonas@kwiboo.se,
-	macromorgan@hotmail.com,
-	andyshrk@163.com,
-	liujianfeng1994@gmail.com,
-	dmt.yashin@gmail.com,
-	dsimic@manjaro.org,
-	tim@feathertop.org,
-	marcin.juszkiewicz@linaro.org,
-	michael.riesch@wolfvision.net,
-	alchark@gmail.com,
-	sebastian.reichel@collabora.com,
-	jbx6244@gmail.com,
-	devicetree@vger.kernel.org,
+	david@redhat.com,
+	jannh@google.com,
+	hughd@google.com,
+	yuzhao@google.com,
+	willy@infradead.org,
+	muchun.song@linux.dev,
+	vbabka@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	akpm@linux-foundation.org,
+	rientjes@google.com,
+	vishal.moola@gmail.com,
+	arnd@arndb.de,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	npiggin@gmail.com,
+	dave.hansen@linux.intel.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com
+Cc: linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E52C
-In-Reply-To: <20241222030355.2246-4-naoki@radxa.com>
-References: <20241222030355.2246-1-naoki@radxa.com>
-	<20241222030355.2246-4-naoki@radxa.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 91.161.240.24
-X-SA-Exim-Rcpt-To: naoki@radxa.com, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com, dsimic@manjaro.org, tim@feathertop.org, marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net, alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	Qi Zheng <zhengqi.arch@bytedance.com>
+Subject: [PATCH v3 00/17] move pagetable_*_dtor() to __tlb_remove_table()
+Date: Mon, 23 Dec 2024 17:40:46 +0800
+Message-Id: <cover.1734945104.git.zhengqi.arch@bytedance.com>
+X-Mailer: git-send-email 2.24.3 (Apple Git-128)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_013950_448688_AA17B544 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20241223_014305_176622_1B857FF7 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +131,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 22 Dec 2024 03:03:55 +0000,
-FUKAUMI Naoki <naoki@radxa.com> wrote:
-> 
-> Radxa E52C is a compact network computer[1] based on the Rockchip
-> RK3582 SoC:
-> 
-> - Dual Cortex-A76 and quad Cortex-A55 CPU
+Changes in v3:
+ - take patch #5 and #6 from Kevin Brodsky's patch series below.
+   Link: https://lore.kernel.org/lkml/20241219164425.2277022-1-kevin.brodsky@arm.com/
+ - separate the statistics part from [PATCH v2 02/15] as [PATCH v3 04/17], and
+   replace the rest part with Kevin Brodsky's patch #6
+   (Alexander Gordeev and Kevin Brodsky)
+ - change the commit message of [PATCH v2 10/15] and [PATCH v2 11/15]
+   (Alexander Gordeev)
+ - fix the bug introduced by [PATCH v2 11/15]
+   (Peter Zijlstra)
+ - rebase onto the next-20241220
 
-So you have *two* big cores.
+Changes in v2:
+ - add [PATCH v2 13|14|15/15] (suggested by Peter Zijlstra)
+ - add Originally-bys and Suggested-bys
+ - rebase onto the next-20241218
 
-> - 5TOPS NPU
-> - 2GB/4GB/8GB LPDDR4 RAM
-> - 16GB/32GB/64GB on-board eMMC
-> - microSD card slot
-> - USB 3.0 Type-A HOST port
-> - USB Type-C debug port
-> - USB Type-C power port (5V only)
-> - 2x 2.5GbE ports
-> 
-> [1] https://radxa.com/products/network-computer/e52c
-> 
-> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 729 ++++++++++++++++++
->  2 files changed, 730 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+Hi all,
 
-[...]
+As proposed [1] by Peter Zijlstra below, this patch series aims to move
+pagetable_*_dtor() into __tlb_remove_table(). This will cleanup pagetable_*_dtor()
+a bit and more gracefully fix the UAF issue [2] reported by syzbot.
 
-> +&cpu_b0 {
-> +	cpu-supply = <&vdd_cpu_big0_s0>;
-> +};
-> +
-> +&cpu_b1 {
-> +	cpu-supply = <&vdd_cpu_big0_s0>;
-> +};
-> +
-> +&cpu_b2 {
-> +	cpu-supply = <&vdd_cpu_big1_s0>;
-> +};
-> +
-> +&cpu_b3 {
-> +	cpu-supply = <&vdd_cpu_big1_s0>;
-> +};
+```
+Notably:
 
-And yet you configure 4. If your HW only has 2 A76s, surely something
-should remove these cores for this platform rather than keep them
-around.
+ - s390 pud isn't calling the existing pagetable_pud_[cd]tor()
+ - none of the p4d things have pagetable_p4d_[cd]tor() (x86,arm64,s390,riscv)
+   and they have inconsistent accounting
+ - while much of the _ctor calls are in generic code, many of the _dtor
+   calls are in arch code for hysterial raisins, this could easily be
+   fixed
+ - if we fix ptlock_free() to handle NULL, then all the _dtor()
+   functions can use it, and we can observe they're all identical
+   and can be folded
+
+after all that cleanup, you can move the _dtor from *_free_tlb() into
+tlb_remove_table() -- which for the above case, would then have it
+called from __tlb_remove_table_free().
+```
+
+And hi Andrew, I developed the code based on the latest linux-next, so I reverted
+the "mm: pgtable: make ptlock be freed by RCU" first. Once the review of this
+patch series is completed, the "mm: pgtable: make ptlock be freed by RCU" can be
+dropped directly from mm tree, and this revert patch will not be needed.
+
+This series is based on next-20241220. And I tested this patch series on x86 and
+only cross-compiled it on arm, arm64, powerpc, riscv, s390 and sparc.
+
+Comments and suggestions are welcome!
 
 Thanks,
+Qi
 
-	M.
+[1]. https://lore.kernel.org/all/20241211133433.GC12500@noisy.programming.kicks-ass.net/
+[2]. https://lore.kernel.org/all/67548279.050a0220.a30f1.015b.GAE@google.com/
+
+Kevin Brodsky (2):
+  riscv: mm: Skip pgtable level check in {pud,p4d}_alloc_one
+  asm-generic: pgalloc: Provide generic p4d_{alloc_one,free}
+
+Qi Zheng (15):
+  Revert "mm: pgtable: make ptlock be freed by RCU"
+  mm: pgtable: add statistics for P4D level page table
+  arm64: pgtable: use mmu gather to free p4d level page table
+  s390: pgtable: add statistics for PUD and P4D level page table
+  mm: pgtable: introduce pagetable_dtor()
+  arm: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  arm64: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  riscv: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  x86: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  s390: pgtable: also move pagetable_dtor() of PxD to
+    __tlb_remove_table()
+  mm: pgtable: introduce generic __tlb_remove_table()
+  mm: pgtable: move __tlb_remove_table_one() in x86 to generic file
+  mm: pgtable: remove tlb_remove_page_ptdesc()
+  mm: pgtable: remove tlb_remove_ptdesc()
+  mm: pgtable: introduce generic pagetable_dtor_free()
+
+ Documentation/mm/split_page_table_lock.rst |  4 +-
+ arch/arm/include/asm/tlb.h                 | 18 +-----
+ arch/arm64/include/asm/pgalloc.h           | 18 ------
+ arch/arm64/include/asm/tlb.h               | 31 ++++-----
+ arch/csky/include/asm/pgalloc.h            |  4 +-
+ arch/hexagon/include/asm/pgalloc.h         |  4 +-
+ arch/loongarch/include/asm/pgalloc.h       |  4 +-
+ arch/m68k/include/asm/mcf_pgalloc.h        |  4 +-
+ arch/m68k/include/asm/sun3_pgalloc.h       |  4 +-
+ arch/m68k/mm/motorola.c                    |  2 +-
+ arch/mips/include/asm/pgalloc.h            |  4 +-
+ arch/nios2/include/asm/pgalloc.h           |  4 +-
+ arch/openrisc/include/asm/pgalloc.h        |  4 +-
+ arch/powerpc/include/asm/tlb.h             |  1 +
+ arch/powerpc/mm/book3s64/mmu_context.c     |  2 +-
+ arch/powerpc/mm/book3s64/pgtable.c         |  2 +-
+ arch/powerpc/mm/pgtable-frag.c             |  4 +-
+ arch/riscv/include/asm/pgalloc.h           | 75 ++++++----------------
+ arch/riscv/include/asm/tlb.h               | 18 ------
+ arch/riscv/mm/init.c                       |  4 +-
+ arch/s390/include/asm/pgalloc.h            | 31 ++++++---
+ arch/s390/include/asm/tlb.h                | 43 ++++++-------
+ arch/s390/mm/pgalloc.c                     | 31 ++-------
+ arch/sh/include/asm/pgalloc.h              |  4 +-
+ arch/sparc/include/asm/tlb_32.h            |  1 +
+ arch/sparc/include/asm/tlb_64.h            |  1 +
+ arch/sparc/mm/init_64.c                    |  2 +-
+ arch/sparc/mm/srmmu.c                      |  2 +-
+ arch/um/include/asm/pgalloc.h              | 12 ++--
+ arch/x86/include/asm/pgalloc.h             | 18 ------
+ arch/x86/include/asm/tlb.h                 | 33 ----------
+ arch/x86/kernel/paravirt.c                 |  1 +
+ arch/x86/mm/pgtable.c                      | 13 ++--
+ include/asm-generic/pgalloc.h              | 60 +++++++++++++----
+ include/asm-generic/tlb.h                  | 23 +++----
+ include/linux/mm.h                         | 52 ++++++---------
+ include/linux/mm_types.h                   |  9 +--
+ mm/memory.c                                | 23 ++-----
+ mm/mmu_gather.c                            | 19 +++++-
+ 39 files changed, 228 insertions(+), 361 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.20.1
+
 
