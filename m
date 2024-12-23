@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8415FE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F16E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1uRu5nQyrLyd024c4GgxWgq+XB9/FTQF5GXDspXFMIg=; b=H+0nlQgNJ0yzsA6cHIEBAdV+Qm
-	89x4Q8UPcXr+iPfqBoQBjSFeoHPTnE5sBHLq1hCRbhlNmyDEbzCS1EaqEt2XWtFHjevyI501dNgjy
-	n2IEQ9BLerfHEEFXEQF7G4PE3Z7HeBVnplrOWabd6P7YRvTm7nUff5hyrxK3gSh1zbGv0pwrdirin
-	tUsqhpOlRQWwN6POQKBmxVjUJyPPXFW7nB6wZisF8Hco50xnjXNPWf04WndfoiEZCskYlHP76p/qc
-	39uVRYA18Zjuq5q8eJFiSpKUYkSgo/hfAnSm/vpbJKVa5vmNRyMpZSXoxfKIAs307o26RodwkwBwo
-	7nDvzetQ==;
+	bh=uwnSFgDadgTc3T1TLFoBCCrNqUGPpUfqlwWEQstuxE0=; b=4f4Ws8RBG5xAgQI2AUhR1AjBgk
+	o5VSKKwHJfHV9i/O74U9R2Iw4a6g2cqoHdOdRHt4J0FhgEsoGMBLhSjPNQUP+W16OciwR1glVCuIH
+	d/EKOA5gM/cAQzkDuuFS2s6UZwEw+hrvxa1Wahx5Ph7ormoGnoAw9quBvE151UARA+M9cmcpa8eaz
+	260MjNSS4gfOm+bws9RGXI4KteYqu+Rg5GvYEqdHgtjTf5FJbjJoN7xLc+XfQ1jU8oqurIn8hDGdt
+	SqwX3DaE0XAWkWZW/BIsYAHb8fUDVeOYx7MYBumDzvTet44N1qngB2gXiWZG81mYH2EHNVRvKtiSj
+	qzpwnLlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPjvR-0000000AF42-1d5n;
-	Mon, 23 Dec 2024 15:00:53 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1tPjxu-0000000AFK2-0s15;
+	Mon, 23 Dec 2024 15:03:26 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPjuF-0000000AEst-10zs
+	id 1tPjwi-0000000AFC2-2g9J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 14:59:40 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-aa69599b4b0so72736266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 06:59:38 -0800 (PST)
+	Mon, 23 Dec 2024 15:02:13 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d0d6087ca3so732275a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 07:02:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734965977; x=1735570777; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1734966131; x=1735570931; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=1uRu5nQyrLyd024c4GgxWgq+XB9/FTQF5GXDspXFMIg=;
-        b=qzSX35qtjSYzOzOCV3CPIpVVAFQOnLocyioHuaGGgeee2/5eFzDqsDPRCiLVKl7S/g
-         nWLvzR+9tin9dw++xSIeR4gODAo5S6JImjCyI5khvAoFpk03R4ZL2LOH+FXtleaI8hjy
-         a88x8sSqEmBY1W00amvpZgv7w3e54P7eq/vkp3SlzrZHzcshjGyFrkSXtE1eY7DuZ+no
-         dkUc7pNbjKKd9NtqqtFK8ghYAivnK7yUvTcMNqt18duXSACu4a6NXQ8gVcFvHaUPY3ka
-         P/KAJ9ROOw7eoT9bjCUGMmqAsanCro8cw5fD3d45HU8uPhjA89aTZedNi8HNDYpjj+fc
-         8Wcw==
+        bh=uwnSFgDadgTc3T1TLFoBCCrNqUGPpUfqlwWEQstuxE0=;
+        b=c3T3EbZI04E1I2S8figPa2uzIXA1Ebe4WeY/32i0rjdqu+YskAr2Ft3NVVHvgrAJbP
+         7Vld9Z81LppeTB1xY7J9SXEbdeSr187NmUE2eLPGvwsmY0dt+28cnOep+14pi8xFU5s1
+         1wegXY6ZxDZDFBSuHyT511+12zucVRrPubg/N0nqNyT0TkGIHU3Mw+jTRiMPf1heOGDq
+         hzcgqVF4z8OmiX6sVQk6ugcUhQ/a4E1UTf0DkfXyg0uZcLpLOMkEYtLC7n8Y4YmTH55Z
+         +QqZZYKAYdeXOXFMPxBc2vAmJD8GnxfX3Go2EJ5aH5gJd9bKP2f3FrHPJ8kU7ZtdEcUR
+         jY7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734965977; x=1735570777;
+        d=1e100.net; s=20230601; t=1734966131; x=1735570931;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=1uRu5nQyrLyd024c4GgxWgq+XB9/FTQF5GXDspXFMIg=;
-        b=U1wtBvcEkDWX1ykbGWHd0NesQ3FIgHRSyT+JU4aaSIzFL4JCcuX5Oo3M5U3n3SH6cb
-         W95/vZI2JLYHLzbb8SQoKdJSNLHj+3u6sXFhMsz7JiEPAgAcjU3l2jzEnwu8TG8xWE6e
-         9i9ulO4doFdzykmYiecukj6I1JE3igUTdMSOd9uf4y47UwGPsq4a/HYHNqjabh4J12Ne
-         plgO1+1BW5xtoB8YMmV7T87NrLwxCW1LlOrfxo43/DryrA0eectkKQH+bV6xZPugcsZ5
-         BXnqRil45YNuDrZmGOJpDtInLL/l4DsMYet6WaXXY4DwnX07egKB9A9JpBoEuVuyE5b2
-         PiFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkv5SOYrcvI0MVkpRKBNJPpFiD0xrJU7Lynu6ztKXgMDH7iQxQ/dh4nx/gqIJaRJULUZXd9Jjo/5c+6JSSyLip@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0u3kaIqDUZkdFHOTaXVHBWXYx7xz8kQV1c/W+vv5dTxqlPI1k
-	+TjEzXLILCO99oWotbhTtZxHgMFIwYpy0XKWyrCFRE2osMl0sFTT2rAIU1ELk9c=
-X-Gm-Gg: ASbGncsQ6VPq2rXRJ1GXHJAStmN7zq7wioQpM701NEVeBGwlGe4Y3NGgbVMY/5pQrPm
-	OraBtW5i0uRcka1wmFGuYM7kspSb+MSHcgDQ/p8EA8u3ztrtKUGVa6AFclQS/zjDsJEESa2CF5O
-	uvA+dHEpUur9eIq389G/KhFccbyzYvK0RZXO7aL1PwC/rRZLeSIW/nLbLr3uK7KvNTrlZLV5LUg
-	BtmscS/EzlI7Iyuq899QOpz8ZQRLbW885U+LIQ0VbyHvcAqw9uqogoUweY6ecEW4BDg3LMu2DuR
-	G2No7gEZrLKm8vPOFYKC2/JHCBF78JkxaaM=
-X-Google-Smtp-Source: AGHT+IFzTKVs742D0LiKhM41fuwbaKkjbYRbYUxkAFc2TI8QrEw8k83NVADsJYQCjRcyVfMKqUJZVw==
-X-Received: by 2002:a17:906:3099:b0:aae:83c7:fd4e with SMTP id a640c23a62f3a-aae83c80390mr313891466b.13.1734965977062;
-        Mon, 23 Dec 2024 06:59:37 -0800 (PST)
+        bh=uwnSFgDadgTc3T1TLFoBCCrNqUGPpUfqlwWEQstuxE0=;
+        b=VsOdjfTDnSN9tX2/NqyvRqHEZ72bUC+jcznqsFe6CXf/w0X3Mysuqdq0QRotHPss6a
+         cFUdaPZ71sCWgG7Ee0J3Er+LvR1aYHCqNswS8uLU+4Npzto5YF0YB4lyXx9eh/fnCMU/
+         AwJ54Im0Jr2OjSvFAB65dnn4xV6Owzn4Rx0b5Mt0l4dup4qo4GDC7ZnbgZ8vR08RHw8D
+         7yMHt+um5k1wz1QlkQFnR4sVts24vMV9xluF/zf2hIbhWyWPJjCSHD5nVSuY+O9Jw1Ro
+         H1c5DjcflJq53KvWptqyt8eHR72LOtr4AIx0cMhbxB05g0cjLumA9T0A3EU5s00ZNv7v
+         guRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJ1zYcb0/p5npPRlbEnItZC2tNGEv5v1jnbGgc0JQ/RvEKx/KvU7698f0QuTCrEHOhVbHWEcA5f4uEpXsgWwz+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj7VBzVBvWtLd0Ud6VEofqaAAzTfbG5u6D/RDRe6p4ALKnkoCC
+	TVuo2g5i2PdpC0qw6BKNpuw/abnZGDGd1RzTB6YJ8gc5gx/whY4y4IDks2vqmBw=
+X-Gm-Gg: ASbGncvgHEVzy9y55E0Qr1KtcKXmMDrkUa6b+yyFLxuxjcfdHvR2KSmkFG4AlkEd+dW
+	lBGFKGyfEKFYzNgxmFduxBZq8+0pYv4zhmEpr8m9/zhYK3dP0WGUwOcM/rCeHpUG3WXu1LumP0o
+	UNokH0Pd4dDEA5Klh1mqMJLR2Cndtsq3/a7raV6cMxLY/F7dGotouW38NcJMRW+QjdYs1y6TZDv
+	BQeBcYcnrIvGdUP94i1CqjAZ2u1YTVpAcv9CQ/hNpdw8uF7DpWyoCva1jYm1wZVb3xJQG4uLvIz
+	i0nI9gVeR6BV5e9Szy7chvQC4DeYPz1XICs=
+X-Google-Smtp-Source: AGHT+IFI1AwhHGpeMdbhrWdDQ8Jqv51uktzLfhqIF7Cfg7yHWuYfd7IvvrsZFd9atccoGpd7CvrwRQ==
+X-Received: by 2002:a05:6402:51cc:b0:5cf:cc32:82f2 with SMTP id 4fb4d7f45d1cf-5d81ddaf985mr3671235a12.5.1734966129863;
+        Mon, 23 Dec 2024 07:02:09 -0800 (PST)
 Received: from [192.168.0.18] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0eadcd88sm519889566b.81.2024.12.23.06.59.35
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80676f3f9sm5002281a12.23.2024.12.23.07.02.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Dec 2024 06:59:36 -0800 (PST)
-Message-ID: <3c52d18c-e4df-4879-86ba-0c7e4fdc13d1@linaro.org>
-Date: Mon, 23 Dec 2024 15:59:35 +0100
+        Mon, 23 Dec 2024 07:02:08 -0800 (PST)
+Message-ID: <bb0b12fe-af1f-4ad5-9466-7aaccc3d986e@linaro.org>
+Date: Mon, 23 Dec 2024 16:02:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] mfd: syscon: Remove the platform driver support
+Subject: Re: [PATCH v2 3/3] mfd: syscon: Allow syscon nodes without a "syscon"
+ compatible
 To: "Rob Herring (Arm)" <robh@kernel.org>, Lee Jones <lee@kernel.org>,
  Arnd Bergmann <arnd@arndb.de>, Pankaj Dubey <pankaj.dubey@samsung.com>,
  Heiko Stuebner <heiko@sntech.de>, Liviu Dudau <liviu.dudau@arm.com>,
@@ -84,7 +85,7 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  John Madieu <john.madieu.xa@bp.renesas.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
- <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
+ <20241217-syscon-fixes-v2-3-4f56d750541d@kernel.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -131,12 +132,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
+In-Reply-To: <20241217-syscon-fixes-v2-3-4f56d750541d@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_065939_325147_9A67A446 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20241223_070212_698864_0891DFDB 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,24 +153,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 17/12/2024 19:11, Rob Herring (Arm) wrote:
-> The platform driver is dead code. It is not used by DT platforms since
-> commit bdb0066df96e ("mfd: syscon: Decouple syscon interface from
-> platform devices") which said:
+> of_syscon_register_regmap() was added for nodes which need a custom
+> regmap setup. It's not really correct for those nodes to claim they are
+> compatible with "syscon" as the default handling likely doesn't work in
+> those cases. If device_node_get_regmap() happens to be called first,
+> then of_syscon_register() will be called and an incorrect regmap will be
+> created (barring some other error). That may lead to unknown results in
+> the worst case. In the best case, of_syscon_register_regmap() will fail
+> with -EEXIST. This problem remains unless these cases drop "syscon" (an
+> ABI issue) or we exclude them using their specific compatible. ATM,
+> there is only one user: "google,gs101-pmu"
 > 
->     For non-DT based platforms, this patch keeps syscon platform driver
->     structure so that syscon can be probed and such non-DT based drivers
->     can use syscon_regmap_lookup_by_pdev API and access regmap handles.
->     Once all users of "syscon_regmap_lookup_by_pdev" migrated to DT based,
->     we can completely remove platform driver of syscon, and keep only helper
->     functions to get regmap handles.
-> 
-> The last user of syscon_regmap_lookup_by_pdevname() was removed in 2018.
-> syscon_regmap_lookup_by_pdevname() was then removed in 2019, but that
-> commit failed to remove the rest of the platform driver.
-> 
-> Tested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
 
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
