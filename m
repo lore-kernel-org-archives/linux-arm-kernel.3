@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 304BDE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 16:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C262DE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 16:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dbPeToH2Vhax+WM6g3teXm2wd58Gu6lphi5fthmfoOY=; b=OA39ln1Y4R/rHCDVUoYJROVnAz
-	OMtcJ7fSImqfEkmS8ns+xeoZCamDu9ruadJSOSmxz6Ec/XHhkiXmgrpR9lEmDWNgrlriMDaDXJhz0
-	nYQ0vW1pDjuXble6xmcLp4q5R7yLDV/Q6Pqr74SZLO89GUPFrw7QfNXmjXpkz/exmFxXna4GhetTJ
-	yq5iZuofX0iL51TmpSxR5NJV/eaLH5PqllblS7pHXz+pLSSSNxvf8P2Q9RYYHfMHFnyO4CRTdipza
-	zq8N8pbD8zrUzJAa5/dOvMOei5QdKDsTPRA1AW4fhsYtYgmAv915WAAp3Q3dT91DzPpUkJn3jUww0
-	hwuokQqg==;
+	bh=dH/iAAlOMovvvgWO1/zre7ZHtU9HmcXP3t/7WgOZyuc=; b=qyJcwx84d0KaAJdzIvgc6y574n
+	79S+k9f6NUfa6Krd/toTWvXtxt/pQJkHoLlZoITsA5ZSZ4/WeGDACU/ys08Ebwsgcc/HUMS8KWTs6
+	GoPSTbTR9nJSutcMw/j3TpDCCnu2KGaoJqr+AwERtAzrPVe+d2c/caszFq/zOhObarkv5OSmBuFK7
+	SF+Fht8+w3pFD4GeM7aSQ+mvUEzU1eRE1eoz3GhfS9687K5sioq2ONpcjuYk368RM24GRLuUjZ7/4
+	keHDnO36xsuWWv+x0cwNPm4ppysh26ZAv9fy+yFfF0XmB/2Mc8PvRCiOvoDXbAg5sn7prQshJch7I
+	SCj9aapQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlCz-0000000ANib-3UUn;
-	Mon, 23 Dec 2024 16:23:05 +0000
+	id 1tPlE9-0000000ANxT-2B2c;
+	Mon, 23 Dec 2024 16:24:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlAe-0000000ANBZ-17QP
+	id 1tPlAe-0000000ANCj-41vz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 16:20:41 +0000
+	Mon, 23 Dec 2024 16:20:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E727C150C;
-	Mon, 23 Dec 2024 08:21:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6308B1BA8;
+	Mon, 23 Dec 2024 08:21:08 -0800 (PST)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB8EE3F694;
-	Mon, 23 Dec 2024 08:20:35 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 273AE3F694;
+	Mon, 23 Dec 2024 08:20:38 -0800 (PST)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
@@ -46,18 +46,17 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Sudeep Holla <sudeep.holla@arm.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH v2 1/4] dt-bindings: arm: Add Morello compatibility
-Date: Mon, 23 Dec 2024 16:20:26 +0000
-Message-ID: <20241223162029.326997-2-vincenzo.frascino@arm.com>
+Subject: [PATCH v2 2/4] arm64: dts: morello: Add support for common functionalities
+Date: Mon, 23 Dec 2024 16:20:27 +0000
+Message-ID: <20241223162029.326997-3-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241223162029.326997-1-vincenzo.frascino@arm.com>
 References: <20241223162029.326997-1-vincenzo.frascino@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_082040_349398_F250B86E 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241223_082041_111260_DA45EA62 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,15 +71,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatibility to Arm Morello System Development Platform.
+The Morello architecture is an experimental extension to Armv8.2-A,
+which extends the AArch64 state with the principles proposed in
+version 7 of the Capability Hardware Enhanced RISC Instructions
+(CHERI) ISA.
 
-Note: Morello is at the same time the name of an Architecture [1], an SoC
-[2] and a Board [2].
-To distinguish in between Architecture/SoC and Board we refer to the first
-as arm,morello and to the second as arm,morello-sdp.
+The Morello Platform (soc) and the Fixed Virtual Platfom (fvp) share
+some functionalities that have conveniently been included in
+morello.dtsi to avoid duplication.
 
-[1] https://developer.arm.com/Architectures/Morello
-[2] https://www.morello-project.org/
+Introduce morello.dtsi.
+
+Note: Morello fvp will be introduced with a future patch series.
 
 Cc: Linus Walleij <linus.walleij@linaro.org>
 Cc: Rob Herring <robh@kernel.org>
@@ -92,23 +94,287 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Russell King <linux@armlinux.org.uk>
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/arm/morello.dtsi | 271 +++++++++++++++++++++++++++
+ 1 file changed, 271 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/arm/morello.dtsi
 
-diff --git a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-index 8dd6b6446394..7934d2c4cba0 100644
---- a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-@@ -118,6 +118,9 @@ properties:
-         items:
-           - const: arm,foundation-aarch64
-           - const: arm,vexpress
-+      - description: Arm Morello System Development Platform
-+        items:
-+          - const: arm,morello-sdp
- 
-   arm,vexpress,position:
-     description: When daughterboards are stacked on one site, their position
+diff --git a/arch/arm64/boot/dts/arm/morello.dtsi b/arch/arm64/boot/dts/arm/morello.dtsi
+new file mode 100644
+index 000000000000..b9030007d9e6
+--- /dev/null
++++ b/arch/arm64/boot/dts/arm/morello.dtsi
+@@ -0,0 +1,271 @@
++// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
++/*
++ * Copyright (c) 2020-2024, Arm Limited. All rights reserved.
++ */
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++/ {
++	#address-cells = <2>;
++	#size-cells = <2>;
++	interrupt-parent = <&gic>;
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		secure-firmware@ff000000 {
++			reg = <0 0xff000000 0 0x01000000>;
++			no-map;
++		};
++	};
++
++	cpus {
++		#address-cells = <2>;
++		#size-cells = <0>;
++		cpu0: cpu0@0 {
++			compatible = "arm,neoverse-n1";
++			reg = <0x0 0x0>;
++			device_type = "cpu";
++			enable-method = "psci";
++			clocks = <&scmi_dvfs 0>;
++		};
++		cpu1: cpu1@100 {
++			compatible = "arm,neoverse-n1";
++			reg = <0x0 0x100>;
++			device_type = "cpu";
++			enable-method = "psci";
++			clocks = <&scmi_dvfs 0>;
++		};
++		cpu2: cpu2@10000 {
++			compatible = "arm,neoverse-n1";
++			reg = <0x0 0x10000>;
++			device_type = "cpu";
++			enable-method = "psci";
++			clocks = <&scmi_dvfs 1>;
++		};
++		cpu3: cpu3@10100 {
++			compatible = "arm,neoverse-n1";
++			reg = <0x0 0x10100>;
++			device_type = "cpu";
++			enable-method = "psci";
++			clocks = <&scmi_dvfs 1>;
++		};
++	};
++
++	/* The first bank of memory, memory map is actually provided by UEFI. */
++	memory@80000000 {
++		device_type = "memory";
++		/* [0x80000000-0xffffffff] */
++		reg = <0x00000000 0x80000000 0x0 0x7F000000>;
++	};
++
++	memory@8080000000 {
++		device_type = "memory";
++		/* [0x8080000000-0x83f7ffffff] */
++		reg = <0x00000080 0x80000000 0x3 0x78000000>;
++	};
++
++	gic: interrupt-controller@2c010000 {
++		compatible = "arm,gic-v3";
++		#address-cells = <2>;
++		#interrupt-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++		interrupt-controller;
++	};
++
++	pmu {
++		compatible = "arm,armv8-pmuv3";
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
++	};
++
++	spe-pmu {
++		compatible = "arm,statistical-profiling-extension-v1";
++		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH>;
++	};
++
++	psci {
++		compatible = "arm,psci-0.2";
++		method = "smc";
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++	};
++
++	soc_refclk50mhz: clock-50000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <50000000>;
++		clock-output-names = "apb_pclk";
++	};
++
++	soc_refclk85mhz: clock-85000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <85000000>;
++		clock-output-names = "iofpga:aclk";
++	};
++
++	soc_uartclk: clock-50000000-uart {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <50000000>;
++		clock-output-names = "uartclk";
++	};
++
++	soc: soc {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		interrupt-parent = <&gic>;
++		ranges;
++
++		mailbox: mhu@45000000 {
++			compatible = "arm,mhu-doorbell", "arm,primecell";
++			reg = <0x0 0x45000000 0x0 0x1000>;
++			interrupts = <GIC_SPI 318 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
++			#mbox-cells = <2>;
++			clocks = <&soc_refclk50mhz>;
++			clock-names = "apb_pclk";
++		};
++
++		sram: sram@45200000 {
++			compatible = "mmio-sram";
++			reg = <0x0 0x06000000 0x0 0x8000>;
++
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0 0x0 0x06000000 0x8000>;
++
++			cpu_scp_hpri0: scp-sram@0 {
++				compatible = "arm,scmi-shmem";
++				reg = <0x0 0x80>;
++			};
++
++			cpu_scp_hpri1: scp-sram@80 {
++				compatible = "arm,scmi-shmem";
++				reg = <0x80 0x80>;
++			};
++		};
++
++		uart0: serial@2a400000 {
++			compatible = "arm,pl011", "arm,primecell";
++			reg = <0x0 0x2a400000 0x0 0x1000>;
++			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&soc_uartclk>, <&soc_refclk50mhz>;
++			clock-names = "uartclk", "apb_pclk";
++		};
++
++		smmu_pcie: iommu@4f400000 {
++			compatible = "arm,smmu-v3";
++			reg = <0 0x4f400000 0 0x40000>;
++			interrupts = <GIC_SPI 235 IRQ_TYPE_EDGE_RISING>,
++					<GIC_SPI 237 IRQ_TYPE_EDGE_RISING>,
++					<GIC_SPI 40 IRQ_TYPE_EDGE_RISING>,
++					<GIC_SPI 236 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
++			msi-parent = <&its2 0>;
++			#iommu-cells = <1>;
++			dma-coherent;
++		};
++
++		pcie_ctlr: pcie@28c0000000 {
++			compatible = "pci-host-ecam-generic";
++			device_type = "pci";
++			reg = <0x28 0xC0000000 0 0x10000000>;
++			bus-range = <0 255>;
++			linux,pci-domain = <0>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			dma-coherent;
++			ranges = <0x01000000 0x00 0x00000000 0x00 0x6F000000 0x00 0x00800000>,
++				 <0x02000000 0x00 0x60000000 0x00 0x60000000 0x00 0x0F000000>,
++				 <0x42000000 0x09 0x00000000 0x09 0x00000000 0x1F 0xC0000000>;
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &gic 0 0 0 169 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic 0 0 0 170 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic 0 0 0 171 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic 0 0 0 172 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0 &its_pcie 0 0x10000>;
++			iommu-map = <0 &smmu_pcie 0 0x10000>;
++			status = "okay";
++		};
++
++		smmu_ccix: iommu@4f000000 {
++			compatible = "arm,smmu-v3";
++			reg = <0 0x4f000000 0 0x40000>;
++			interrupts = <GIC_SPI 228 IRQ_TYPE_EDGE_RISING>,
++					<GIC_SPI 230 IRQ_TYPE_EDGE_RISING>,
++					<GIC_SPI 41 IRQ_TYPE_EDGE_RISING>,
++					<GIC_SPI 229 IRQ_TYPE_EDGE_RISING>;
++			interrupt-names = "eventq", "gerror", "priq", "cmdq-sync";
++			msi-parent = <&its1 0>;
++			#iommu-cells = <1>;
++			dma-coherent;
++		};
++
++		ccix_pcie_ctlr: pcie@4fc0000000 {
++			compatible = "pci-host-ecam-generic";
++			device_type = "pci";
++			reg = <0x4F 0xC0000000 0 0x10000000>;
++			bus-range = <0 255>;
++			linux,pci-domain = <1>;
++			#address-cells = <3>;
++			#size-cells = <2>;
++			dma-coherent;
++			ranges = <0x01000000 0x00 0x00000000 0x00 0x7F000000 0x00 0x00800000>,
++				 <0x02000000 0x00 0x70000000 0x00 0x70000000 0x00 0x0F000000>,
++				 <0x42000000 0x30 0x00000000 0x30 0x00000000 0x1F 0xC0000000>;
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &gic 0 0 0 201 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic 0 0 0 202 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic 0 0 0 203 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic 0 0 0 204 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0 &its_ccix 0 0x10000>;
++			iommu-map = <0 &smmu_ccix 0 0x10000>;
++			status = "okay";
++		};
++
++		firmware {
++			#address-cells = <2>;
++			#size-cells = <2>;
++			interrupt-parent = <&gic>;
++			ranges;
++
++			scmi {
++				compatible = "arm,scmi";
++				mbox-names = "tx", "rx";
++				mboxes = <&mailbox 1 0>, <&mailbox 1 1>;
++				shmem = <&cpu_scp_hpri0>, <&cpu_scp_hpri1>;
++				#address-cells = <1>;
++				#size-cells = <0>;
++				scmi_dvfs: protocol@13 {
++					reg = <0x13>;
++					#clock-cells = <1>;
++				};
++				scmi_clk: protocol@14 {
++					reg = <0x14>;
++					#clock-cells = <1>;
++				};
++			};
++		};
++	};
++};
 -- 
 2.43.0
 
