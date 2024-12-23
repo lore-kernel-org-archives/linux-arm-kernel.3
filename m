@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4925E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 07:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1751CE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 07:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gwqYXc5fhw6NY5r2Dv0HjcYeOweeHaAPoP9ki29LAYE=; b=SsV2Q4iaogixpqbtOzuA8mT6Yk
-	oJRjjcIMViimJIBJnpIZJwNDrc+GS1HSU8NndvhjDHHHsAZMkfjYR/gPaxLK6+pv0hGm4q/IedMQ5
-	m5GRzkTo1lSdsljtpKjYtkXOWGd07ImZhYvGR6yN0/gchk0UARvruxIogWOATPzptnE3U6DFyPhYL
-	PnfWD7EpPVxOdRZhN0HIArToJBz580cC6ntEDInvnzjVa7bS/tNTAZbZJAi+b/eMp9deSbdKLAoBW
-	yGz6d218KgFuTdecBXccI5EcuGGI4vN4xY0acIfc58xArv3gkXBYI2pN6M2rgJQ1qiCYd27QyhSll
-	d7CZep0A==;
+	bh=73Onn1whePBmj1SG0z8hWLhajsqB/8dP9WVA+INVoxM=; b=R8coYnsJ+dLOsMXu90hZeLtZqW
+	EuGyKGP3fz50ZyxO7il8sxLjmGvP+6XtaCVT0C1dJQoOjn4MfzjRNlzBlymSmZHA70hztt3C2s+An
+	rZ/HvqsrJwa9Q8RT7L3Z5h4X282Xc62ZI4/5w7hpBbkSI93sMas/g+e2Q4BBRTojmLEE6eQb2eVDR
+	YzAs1wwFzUQV6jhjSDXGk4XyY3CmoG3e+rSe1C/80SSL9Sz7j6EEDYO8dUxwXSc0feI7JPFNiAn3a
+	D9aRau4aiJhPy5umwl3gRHzy+5xAbAjypRuR0cfB0AWebhmkTKd3XI3YcQSOZnNC5TWHkIuOQmWFQ
+	DzVXls/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPcRJ-00000009Tls-3vV6;
-	Mon, 23 Dec 2024 07:01:17 +0000
-Received: from mail-vi1eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2613::61d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tPcST-00000009TtG-0Huk;
+	Mon, 23 Dec 2024 07:02:29 +0000
+Received: from mail-am6eur05on2062d.outbound.protection.outlook.com ([2a01:111:f403:2612::62d] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPcAM-00000009R5S-2Sji;
-	Mon, 23 Dec 2024 06:43:47 +0000
+	id 1tPcAV-00000009R8f-3sAc;
+	Mon, 23 Dec 2024 06:43:57 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vv/3ZsehJDtl7N4ygYjOEEe1oWCT82snBdaPvJoR3A0nPQDXr3svRCSxgZBtPtgY3EPoOOzLKesPsDfhV0w9lJHt1hApGsMkihG5V3OoVk3HbMq6sx+MPPthKBAJmQPXdzuXbeh73inOjRfam94mRXo6JSlK8OyM866dJYkuWJM76ehwwwEgZ71j0uc0X4rBSBJGUYQIMHKag6ZJrCNPFm81eT68bYCOHOSTcytODXEndvbGbaq7h7kEM5vrVXYCK41LC4l0Vx3zJVYiRps3dIqA9ITP6P6hMpo9+eeJZ2mtPRYKARp+5p7rYL66kJl83DWAVlkhVtrsqBN/U4NGJg==
+ b=nqc3+SfCMKxUbEVe27Z7fPNx9ZbQsLKtZioOoWyzv2JRK+VRHAebp4lqsydqcgftU2PDshtLGoA4o2WCwOXCfR0jqwH19ZBpk0wcLdsR8Md1L6p1t51IMwkXuZ1C+F7Fs/nWS/uiQXavV4NfoQw0j7cLExeDTidTtmg9EMd9jzemR/fgKtlXUzRe81AR3i1cfr1Df4DwHrM7zGlF0zXnMqppccjQA3qrVEJ3mVgtFPlEfXx5XBEv586dYcedIEcclQg6xwJveQfdzCRsrpooKTAXUGVFKVUxzRCYIUJvbnsXpkNdW0uMJBuAQo3o2uphJsl54f5lHUo5EP1fHL0yTw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gwqYXc5fhw6NY5r2Dv0HjcYeOweeHaAPoP9ki29LAYE=;
- b=nQ8LhBCU/OzvXcT9PXxE1O3/xWP/ZmPFxhI71EWhvqFYwdxSTP6o/t22Hk1nMW8qgZyHjXUe/KOMtETJxSWGDv6nsDepc210dc4tUSeWg1VxWOTpbc5tPC0Rwm4bzOa1F3gdJ1RJZEGLWbywk8yrvzd6Rw/vlEKrXmDwUhZlGGlbPlwNMdPlsNOFfOdqaBqnsoA3chjY36ZKur8zC3NenNIQ8l3zA9t2PUFDXfKqtB0tZsd8ZlBXTnThJ7LhdTjGyjqZAjYjc4cUSZjC16QShkjBfMYEQEmxMy0YyQYO42ngJWmWGz61/neuEAc0nlDMRQHkMUT7ca427smyebSNtA==
+ bh=73Onn1whePBmj1SG0z8hWLhajsqB/8dP9WVA+INVoxM=;
+ b=NDRzew1/wKd9fKK3JEmhLsnDaVTR7y3/J9Km573AHtnoTkB6+ADna1XIUFLxW/jw1VZO4DdmEhgaw6bWNPsEC+6Y0+BK2e/n27bod8jrcxBuf+fRqMfi3ho2tr7b38NgZyPrpDts4JizFA9m3fmXleR2OqGcRnUuNo7vn/mtvOvdlDwaby33VKBld/aQfP9Y1i17sUQO04CuGKVJurFJG2NCm81zfCHXWF2k56tHH4wM5z63DfF1zPQh7orOY5lxf3b8JHajQVS0n79pgLhCtCihi/JQy1KTkU+QJtinFno75U6jmnDZJs0zoRkfLanz7VWSQuL69V1jTsuREjsIGw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gwqYXc5fhw6NY5r2Dv0HjcYeOweeHaAPoP9ki29LAYE=;
- b=I2BinXruYMeuWQJlqMakqG5GQ0w671kMt64iAxKariU1UUXFS2RW60UVizeT7sWNf98BRyPt4sHc5k2RMnTR7V9nU30MEeVTznKaswppCuyJIZVAjHFWv27f8/jId08X/F/S/2eN3LSfZWhEY35apvp7fFdZxpWxxEAOgryAPXTGWFUVK1eNycilA3m16Yaupln1FF4UREszt/U6nKHdR4L2wTSAefliIUOFuWtDzC0ulOPu4WQ+UWguBIHv0ZRM8hnTJJcKsx2XpjezheIeAPCLEvtmV+hnffqfvWbmzdjvH08WIsWF3vivwBbsxzl0XUtYFSKwgobGhmbxlNHsRQ==
+ bh=73Onn1whePBmj1SG0z8hWLhajsqB/8dP9WVA+INVoxM=;
+ b=WyUNTAcU8yS+YKJOo8WUwj2Ih1kSI+LeWb+aQY2jp+K2sqEuUGOUS1nWfVzlrtwzVzUqmfeYs5C7Mpgq5FvxIyEVGA3DGgnJyYCmVx4t3/RxU5S28UmTLMt6uUqk8duDJgB4XJCPq/vWCV8q5bs4N+MwEZ2QWVuTq/BeswTcKWZMVNnDrZddSmLk3Ow75iGdqr2zdbxTRzgrZBk0CW9NeNZZDzxqMGHFN+q5Fh6DCU6vlnZEClyQAw60fgBIqespe9TSDlnJtY3mADhWKGsbCbSgkEdn3MiiWL9/pLsATaJemP0ljRIygM+wuCw+AdkgTKUhqkc5miSpoglEcqLSUQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
  by AS8PR04MB7941.eurprd04.prod.outlook.com (2603:10a6:20b:2a6::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.20; Mon, 23 Dec
- 2024 06:43:40 +0000
+ 2024 06:43:48 +0000
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90%3]) with mapi id 15.20.8272.013; Mon, 23 Dec 2024
- 06:43:40 +0000
+ 06:43:48 +0000
 From: Liu Ying <victor.liu@nxp.com>
 To: dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
@@ -80,9 +80,9 @@ Cc: p.zabel@pengutronix.de,
 	francesco@dolcini.it,
 	frank.li@nxp.com,
 	dmitry.baryshkov@linaro.org
-Subject: [DO NOT MERGE PATCH v7 15/19] dt-bindings: firmware: imx: Add SCU controlled display pixel link nodes
-Date: Mon, 23 Dec 2024 14:41:43 +0800
-Message-Id: <20241223064147.3961652-16-victor.liu@nxp.com>
+Subject: [DO NOT MERGE PATCH v7 16/19] arm64: dts: imx8qxp: Add display controller subsystem
+Date: Mon, 23 Dec 2024 14:41:44 +0800
+Message-Id: <20241223064147.3961652-17-victor.liu@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241223064147.3961652-1-victor.liu@nxp.com>
 References: <20241223064147.3961652-1-victor.liu@nxp.com>
@@ -94,79 +94,78 @@ X-ClientProxiedBy: SI2P153CA0008.APCP153.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB7941:EE_
-X-MS-Office365-Filtering-Correlation-Id: 249638e8-e412-4347-616d-08dd231d22cd
+X-MS-Office365-Filtering-Correlation-Id: 468d1024-56d3-41fc-ff57-08dd231d2744
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vhVLLFYh8gmyqak5yTrlZukeduDmjMIRF5MEcrxqt1xkFtAL0Xm5YGOLCunY?=
- =?us-ascii?Q?yfqTTiT2p9wrYSmFRF+kL0v02h+P81EijdaWn8lkKYIKzRpyb5OfmUgBXaCw?=
- =?us-ascii?Q?wmje2zdoupiv3H34H0nyVwyuSLpbo18YmwEqKuWO0Vo365Zu/bN+L4sW0wzg?=
- =?us-ascii?Q?LU4wicKl39bANcrkrFOgTo3nsSkEI6QCG0dWuJzWQ4E7IyTMuzyotGs2Cmog?=
- =?us-ascii?Q?PYCGFGh2Kn+YxWMxFwQ8BBGbcI9N8VVutkpXaQVuyook400Rv9+1etL0uAwn?=
- =?us-ascii?Q?wDgft7XfzI45XMJwxjasJvQ539A6sudorItd3X0Q6mFBYjaF+V8u+jY/k25O?=
- =?us-ascii?Q?HQQQ5GWGM4kEE0s3B4GEe3FgaEHojCPHxy5FIwsetgAolZt5KH7SIjkBng6N?=
- =?us-ascii?Q?xCHpnSC4p0NFqnG+yre3l5Pag/65kGRQFJNOEZ+a9pkNbyJqDjRw7H8zmzjA?=
- =?us-ascii?Q?qRnyNqPUP16pX5xOsW8BHm1Z1DMLBdGDqcDetCRPqWkZ/CIBBV086ykW5xbk?=
- =?us-ascii?Q?UC3og/JceULE7Pg8iri4jxlnTtjTvfVJM2sZGDMGmuhhufNm4rWjvii8xAM8?=
- =?us-ascii?Q?/FOtZE3E0q/ExFUG5mW/pqw2dnMaYsKiIK8s6eFN0uayrjROh54anpeyumSM?=
- =?us-ascii?Q?N+Dgi0kFp49UxOU8JG1+mgqwJPF6JKyyeqz2S0roMjSGOpO+hvRhVzhDdqbJ?=
- =?us-ascii?Q?snMmzTGLPjEaTP+sUYMpsOEhHOO5sKlRkvYQp7OzKhxG/hkqTvn4fhrh7YW8?=
- =?us-ascii?Q?2ao6rAb2opo4vLS6daGAKUBEI82MQpMd+0s8BfF05u7KrdAdfKHAWCXtA9Ua?=
- =?us-ascii?Q?OBaTyu+W3zutQvmfL6JJpIOfY4trh74sYbtsznOTT3oY32EzTN8DflUzd98d?=
- =?us-ascii?Q?zN2frCIh9jlsEHr8Y2HMjAAqLrClJRV7t0k3Y0hPwF3gma6O+37ALO15wszT?=
- =?us-ascii?Q?bCsg1Psq+lPGH+bx/Szehz8B24TEjLbpl5RVtEDmem7xmljwNNlJsXeBbMAo?=
- =?us-ascii?Q?J+UuZzE7GNaapVrF7IM3xkU1CtkZ6Jakr3bLeCd++o2sm1rPx2spXpTcvodS?=
- =?us-ascii?Q?KZepilW89nF8XgiM6f2aD+PkXr5SvwiAdzKlff4++OVRzomiJPnHDeLDeb+W?=
- =?us-ascii?Q?bGu037dc5LFw4cZ9d5eG08f02QnL0ILUV6HZXsQbo6oXvpBaYABuorS1tbb6?=
- =?us-ascii?Q?B4X9PdKENHzODUjGGJlThvuoE3Hf1z7BkNqZ5VXjaoCkmfhOznPgQ++nm821?=
- =?us-ascii?Q?uUHrEO3H4zrLjN/5zVhUpwNceY5Sa1ofa3hm0RfmO8zHe0fC68fjQKJ9MrLM?=
- =?us-ascii?Q?cmMAKhvXh9sdl0dcKvyGvaNnFBD2D5BqlCOb2Jnz2to1k491zCPc0N0wJDLq?=
- =?us-ascii?Q?NvlhqXIOwPOEvOi5z73jtBYqxsQuTHPOpb6SVHxy+qk86rt1b1R3CY/YxUan?=
- =?us-ascii?Q?5AN1kp9vDT9KDZYxdFH/GyeklmCWaBpV?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?O4Wz0BY24u/NHZ9CT7iun47xJL+DUKhTsyee7HUvIuQGdB/48Du3ulQKzqzY?=
+ =?us-ascii?Q?qGiA3ucCcBmx5XLpnjwirUwKnn4zb3I6rbgRoMyZPoZvZKf0KsGZCYbzYROE?=
+ =?us-ascii?Q?0mocwHKBkAWixnaw9VBuRd5gd2wiw1dDcX6YR0KKsBSgaMf/0N0yG1UrB/kv?=
+ =?us-ascii?Q?rCv8pq0XlluzTTEtV4X5zycaAU7AUcAmbslkDhOzQYHiBR7M1n3iL4RL1xbi?=
+ =?us-ascii?Q?aPmX6d6dFZtUAapLahkcUv5oUyU714mKOZsgP7kH0XIYjw46bkJwjIavTJdt?=
+ =?us-ascii?Q?ger7sI6KJqIb9VXiQMhvxmit8H64BTk9ZpguBiSCgS1vfkbq2LHJPMVyHqmq?=
+ =?us-ascii?Q?z5IZ9/vq5eqD1XikCp4v2qesYXal5Z8mDL8KIhjZv6Rt+I6l67G9h4x+Wqan?=
+ =?us-ascii?Q?+NCj96sjKOIo7h9lPQ9Iz1fozYGf/ei1YRkRP8m8QwVcIP7XW9KEbPVbY0ZD?=
+ =?us-ascii?Q?Vsx5/f3D9l7fONgCP6t6yHp2YkeZYLjy76BshtSM/d/QpkoKqZsPJ98o0hkW?=
+ =?us-ascii?Q?i8mK6rq9GU7/qbmsFN8I0f7Rx2ULMx82UlbnRmUz/4gkM0QpB9xJHYuaZaCi?=
+ =?us-ascii?Q?gZQu1XWcsyEZdM12lChDFwgD9JbOhQk7JNbr6/59vD3bAetN4A65wFDcq9r3?=
+ =?us-ascii?Q?jR+C8n1lFIv+U9p/4cDVPS2OtIaLhpJqRlfLwvtiliOolAb6rtPkmFBCJSLw?=
+ =?us-ascii?Q?OLt/t1UemZFonJDFZzbNi1V7+nGIBICttLLddcHSGSphiAmXsUVqZfwQ/rYo?=
+ =?us-ascii?Q?KVYVdqnDiZNrias48g3z7tPf0jx7Dpp3szdg4dYNFyJXRQEwrkSvTMTJHbAG?=
+ =?us-ascii?Q?/FDEjOk4sF6J+vhfxMYI0p20iY8fuBKD7hSpFO4PST75kJAnzjFZeJOt4dXC?=
+ =?us-ascii?Q?+eUEo27unTglX3cEvvbCsscfMWA1EogT7FmVUCpPgIgdnxGON0S/O1W+ufdp?=
+ =?us-ascii?Q?1ua1EedRdULDmErovcgFDbw5KRIUGCrarQGRR8MqgkZGm1SzZ6Owl788N/kz?=
+ =?us-ascii?Q?ZqOLaOQCSslC5Uah7uSIq4ztGchlFjhN0tBDuMSvWbix8G5Y8oWQEwhQ4ZGz?=
+ =?us-ascii?Q?vdYO9dIKEo1IxXJV+jQ7+z2FLpXx0nad6odIxQbzcIhPyLniynL0wF5QWivT?=
+ =?us-ascii?Q?n0FXDDCquAoUBaTMwu/DiLN1Hc8Qs+KEuhpl/sWjdde+Qeqy+zvafJ+e3Zz5?=
+ =?us-ascii?Q?o/5tR5+eUpD0njHqnDUGM12pNY92bo2s+I+VYxR8s9Zzz2/FuIF+OqAQ+OnP?=
+ =?us-ascii?Q?dDJLJZH1vzYFEvlFJ1q5NV0Yho/MGhNcDzOGQrz8dQiOiqPB808A+SmWimsB?=
+ =?us-ascii?Q?SwFb4ThVrXvkQKRZIXwQ1rxczu9C5Ty81R+sCIOPFJ+UsqMV9B6f0ZK3U6aT?=
+ =?us-ascii?Q?ANU48YCaMI4xycDJPkgHCk6xn3wFBaMLGOyiDztp6Doe2GLRkAAiZV0zxNXa?=
+ =?us-ascii?Q?zxafC0cTpK4=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/TZai4iVXmSOgiFl44zRoGoIR9ZkP1Res41w4FCRlYJLyk+E8GHRT9W/wk0W?=
- =?us-ascii?Q?CWfIiZ5o1t7OOYtOaqXZce4x6xY4+nmQJ+0d8D0tNndHiGcoLO5fiy5i2kGT?=
- =?us-ascii?Q?0uJrF+u6xuVxO3dt59bYLVCdRG08J2BtT/39qO7aJmu9JVFHUfaHevrE3DrC?=
- =?us-ascii?Q?oYn04mZiSGcsABbF3XjGm+1RxwGOK8OU6UlhNy3grWKDLisN26ilc3ZFW/2A?=
- =?us-ascii?Q?IPiIUB1Uuu5QRN/DFTXsTJfzhiS3vwlGvjjGUARREEBumxNVsktYq0ZUurwk?=
- =?us-ascii?Q?jw/iEZvpwp9O6rlA7vFoQoxNFKhzlO7Rnj/HqaRxjdoexCrSm3PQN4L1GsqK?=
- =?us-ascii?Q?aVoG2mjfircjipPG0bmUspR4y9KLHvBFCOa33ooCXntJNO3dq5POYTov9ukJ?=
- =?us-ascii?Q?gim2lTuxt8K8eRuoMee3qhKAPSa8HWZsoSR6UnNv+rSz6k7KGCnNcYEQcMZA?=
- =?us-ascii?Q?NxKVE/4QdmkY27WjtuPFhGNRtp8e6OwdzIwT9a1k6hmXApANYsk7AIRmpz6D?=
- =?us-ascii?Q?k5CoidKnoKBCDP2N1hn/jQWslsqu1xhkY3pNE3XGUqwm5xHBGCG18c1ex3vo?=
- =?us-ascii?Q?mxBk3YUrC6Wp5LFqVyL84F6HqBXRQRhDsz29wjIsJGdcyQ/znVJDJf1SVcB/?=
- =?us-ascii?Q?kwdYf/jl0jQ1eqJl62PPDgLK5jNQw9Mo1t/G7Twzd3CRQ134giStjELnquNl?=
- =?us-ascii?Q?0Uc5WQYYrmMHsvMZgvzFrzo/IaH53up+dB+E+I5CtJ7KshM0cNj+4POshSSR?=
- =?us-ascii?Q?J0HtzCEP6I601gR2yxs/Bm4kSmKqJPopHonAmZWY6a7iigdNnChK21WuB5fL?=
- =?us-ascii?Q?AfDSS49g2JZQxtu/rsXqMFtRhtkPO0HYzJcuYDh+Fc8z4/3xC/3zh4am2rwK?=
- =?us-ascii?Q?2nt7lDeaoRApY5ABQlLI+OYgmJNWGq4ctRenRnfKo2ljRr6yDO3WVkxNMiAe?=
- =?us-ascii?Q?963HPEjxlVlewzcpq9H5bzwz41J8Bl0sgWKkMuLlbn9nyifdIG8e7Msv4Fgq?=
- =?us-ascii?Q?A4HlqXa1ucRj7fmC8vkek+E++Sjss3k93GqKLN/ufQt1zWpFiV00u58I1UJF?=
- =?us-ascii?Q?jfoKc+ETDYGnR0xGipv0XZMc0dd1d5L1Ax8lvtomLGcWwxYpkuC5k9CCQ/wT?=
- =?us-ascii?Q?kjhRqs2/VR0Q18oz9QWCFJ/qQjWw5gq2ZSOWVV4q9nQQzdrVxRk1CyDEODVi?=
- =?us-ascii?Q?psZTSOppUjp6mLzV0pMVo7JAHcL3EmiSptQ4/g2npgTWLgCcDPcQ/4EzSkwv?=
- =?us-ascii?Q?ashyeIif2Q8PCpSMdSPRWbA1u+dMO7mbcgETsXl7n22yAuPmhgJ0gEs8TGse?=
- =?us-ascii?Q?6ftU1nkgnI7p5NOpdfW59rAVi3kByIiI42ZfpsQguHUuc3tqHoPurRBsZNJ7?=
- =?us-ascii?Q?bilEeJFnu8Et9luKJpiuzBk1K5076So0AzKDx6aewJ8XDxLwcujevuVtzzNb?=
- =?us-ascii?Q?h3VQuqWqTiXVACZ0kBMp3SyHT+vGPBQaok7VEAMpxeyJR5htch25TMKhwGDQ?=
- =?us-ascii?Q?FM3+7NlbGhf21J4pkpHfLBrkbIK6MAkJhgoahd58QpkTd1t/3V3FmolKNCn+?=
- =?us-ascii?Q?2BVx9+K0lYAcIxc5p0japnz476T6TihyN3Q7QEoZ?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XbtNfOFlJumlBEBEB9/tmhus6UnSmfjC4Re23qyy4JwnuG3aeUFsMAv76eWz?=
+ =?us-ascii?Q?LIK/5A7QnDKJuSKPaMke0KVlYB3nugj+VMCwxSVjKhDFwk99X2JfP+AHatb6?=
+ =?us-ascii?Q?OGJKK14PszHsRg0dvRnPtWpJOOeQ5q/sky6EUSPFxp+sPZ4D8RHRn9GRFhRT?=
+ =?us-ascii?Q?Uo2aWzhM5WZNwrUl9jHaSf2Iyt2UdoVj/TG2+zPx1iNmVRgfnLEcWvMj6hSh?=
+ =?us-ascii?Q?R8k8xEvnp/DBIfLUIt1kYouJFBpgzbu9X7qhLa2HPxbfzUfUFY7haj4qgqph?=
+ =?us-ascii?Q?P2qrxfkJiSaQ/Xo0cvz9LeRIoLkphwl+I26zmIXqbeWsq/ACvl186cw2Q4Iq?=
+ =?us-ascii?Q?ExtDsNAl4txSJVonEXYKOK92th/NYgY6+ud+yicwV/HoYM0NxajSvNEp/0If?=
+ =?us-ascii?Q?ho8WXx1I1D5LLowumhCWO3cEHAPPw+uQ4DBhFVxtlDupO5BHb7mFexdh4oAq?=
+ =?us-ascii?Q?gJOZW3H5segYA2EgoTuNVb/eArSZ/NLVjn9feREmtQWQPmSa0Rj+Pb88cuLg?=
+ =?us-ascii?Q?iqKAoF67/fHjZJwTC2j9AoqnBUJDIrG/F36P82BU7h02IN0F7bZhMcCBrD/X?=
+ =?us-ascii?Q?wx6xarr+hZXkoqjLgytlnbvm/4jHfZww105tYAx9Yl+jU0hqpXVmVlA/EqcN?=
+ =?us-ascii?Q?Ing63D0f3rJ8MFSUOzwOrCnfy63RTtIWcJeUIjOsF1b2VlP5o8QMRSJYp93d?=
+ =?us-ascii?Q?f3WbJUUL0JOIFmjGmrR8mrbGThe2zJ3PNA33Jw4BbXavCyV41Udv8df2sbPK?=
+ =?us-ascii?Q?wv4dCBoVFJuSf61RyTplwud9LPSouLFpFSZLXQAj7f0HeJgcgRjbFIHV5t7b?=
+ =?us-ascii?Q?HKMA8po+yXJ1BN3m85C2q7TEryvGllgQyieg2CxsnDV+Qv454g0zmTf/F1iu?=
+ =?us-ascii?Q?ds9CHV8yQS2phJ721DFLDceJvU+Tq3MU7ch7r+T4uQej7kUUwG7hZIcqB1m5?=
+ =?us-ascii?Q?0pl4BcRUjc+7PDEpEItOq2q2Ch0VTFTujOoLqvyPQo3NXMbk3aKtoOFm3Nd8?=
+ =?us-ascii?Q?vAG5T5I+A5FMy4WwWc4Sq1DFPndjrBZRirraRPLbv9dBeVgj5/6luErrtHEO?=
+ =?us-ascii?Q?YQh2Yu4o44Et/5j2d01aqueVR/DpAZptz/mtwSJnPP/Ax1cRDlWKmDv+UhMd?=
+ =?us-ascii?Q?OmNwiYY2ZPj5B8TsOgALZfIeyh2vv+xHlVtrgFl3/+vbbS59j0Tu7j8UKDCu?=
+ =?us-ascii?Q?ima9n9DO5UaU8TQ3psSb81XLOHqjEf+50o/+iVnmOrdktPDMW1Yf6kpJ+xhB?=
+ =?us-ascii?Q?kA6mLMYHBg4K4aSgHCFkHi2wM0IqcAmgoU4cghsJGxZapWrGASYyfc5PC1rH?=
+ =?us-ascii?Q?1aFZQgHXZZ31v3gZl8FpuKhiMYyHA7rkvElfnLO91Ct1D2qJNJ0snT0eBa1T?=
+ =?us-ascii?Q?BjKk+LlSkj+dYzb9c/brN2lsd1L32LBGGJzgSgJbBjZRe+mcNWVWYhz8q+vV?=
+ =?us-ascii?Q?qbxf2mNNs/s9cFspOCwGEduicIZstALUcOVDymdvGN8PEXie0UZR9ZqxaUbi?=
+ =?us-ascii?Q?KkaOih9/yFUqhvXI1BcvzvyV+eYdEmIGKJj+QLYp6jYDXKxwltlwEsAL5GlZ?=
+ =?us-ascii?Q?W3P8V3OsZaY92pPD8x+0WKB5iZ8+ToVpeUyA/IcD?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 249638e8-e412-4347-616d-08dd231d22cd
+X-MS-Exchange-CrossTenant-Network-Message-Id: 468d1024-56d3-41fc-ff57-08dd231d2744
 X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 06:43:40.2611
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 06:43:47.9508
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K7YBs4q7pQqU6P1e8EOlvUkl3dNV63t0esnFEnP+NGcU3kstSm41fDdecJayB8t23qbrJZH8GgTkw2bamhgrVg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: rPw9bDJqS9PmZiyiEo8mqNybGN7+7cAW0A/q7D+gRM+5PgnH0gHHvwBs/qPciZ+rO9kdv6vsz5PF8LWuX0IicA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7941
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_224346_647469_70313AA8 
-X-CRM114-Status: UNSURE (   7.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_224356_171140_18A26D28 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,12 +180,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document SCU controlled display pixel link child nodes.
+Add display controller subsystem in i.MX8qxp SoC.
 
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
 v7:
-* No change.
+* Add instance numbers to display controller internel devices' compatible
+  strings.
+* Drop aliases.
 
 v6:
 * No change.
@@ -201,42 +202,700 @@ v3:
 * No change.
 
 v2:
-* New patch as needed by display controller subsystem device tree.
+* New patch. (Krzysztof)
 
- .../devicetree/bindings/firmware/fsl,scu.yaml | 20 +++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ .../arm64/boot/dts/freescale/imx8-ss-dc0.dtsi | 408 ++++++++++++++++++
+ .../boot/dts/freescale/imx8qxp-ss-dc.dtsi     | 236 ++++++++++
+ arch/arm64/boot/dts/freescale/imx8qxp.dtsi    |   4 +-
+ 3 files changed, 647 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
 
-diff --git a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-index 557e524786c2..1a920f013ad2 100644
---- a/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-+++ b/Documentation/devicetree/bindings/firmware/fsl,scu.yaml
-@@ -30,6 +30,26 @@ properties:
-       Clock controller node that provides the clocks controlled by the SCU
-     $ref: /schemas/clock/fsl,scu-clk.yaml
+diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+new file mode 100644
+index 000000000000..0db345204b89
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8-ss-dc0.dtsi
+@@ -0,0 +1,408 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2024 NXP
++ */
++
++#include <dt-bindings/clock/imx8-lpcg.h>
++#include <dt-bindings/firmware/imx/rsrc.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++dc0_axi_ext_clk: clock-dc0-axi-ext {
++	compatible = "fixed-clock";
++	#clock-cells = <0>;
++	clock-frequency = <800000000>;
++	clock-output-names = "dc0_axi_ext_clk";
++};
++
++dc0_axi_int_clk: clock-dc0-axi-int {
++	compatible = "fixed-clock";
++	#clock-cells = <0>;
++	clock-frequency = <400000000>;
++	clock-output-names = "dc0_axi_int_clk";
++};
++
++dc0_cfg_clk: clock-dc0-cfg {
++	compatible = "fixed-clock";
++	#clock-cells = <0>;
++	clock-frequency = <100000000>;
++	clock-output-names = "dc0_cfg_clk";
++};
++
++dc0_subsys: bus@56000000 {
++	compatible = "simple-bus";
++	#address-cells = <1>;
++	#size-cells = <1>;
++	ranges = <0x56000000 0x0 0x56000000 0x1000000>;
++
++	dc0_irqsteer: interrupt-controller@56000000 {
++		compatible = "fsl,imx-irqsteer";
++		reg = <0x56000000 0x1000>;
++		interrupt-controller;
++		interrupt-parent = <&gic>;
++		#interrupt-cells = <1>;
++		interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&dc0_lis_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "ipg";
++		fsl,channel = <0>;
++		fsl,num-irqs = <512>;
++	};
++
++	dc0_disp_lpcg: clock-controller@56010000 {
++		reg = <0x56010000 0x4>;
++		#clock-cells = <1>;
++		clocks = <&clk IMX_SC_R_DC_0 IMX_SC_PM_CLK_MISC0>,
++			 <&clk IMX_SC_R_DC_0 IMX_SC_PM_CLK_MISC1>;
++		clock-indices = <IMX_LPCG_CLK_0>, <IMX_LPCG_CLK_1>;
++		clock-output-names = "dc0_disp0_lpcg_clk", "dc0_disp1_lpcg_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_lis_lpcg: clock-controller@56010004 {
++		reg = <0x56010004 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "dc0_lis_lpcg_ipg_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_disp_ctrl_link_mst0_lpcg: clock-controller@56010008 {
++		reg = <0x56010008 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "dc0_disp_ctrl_link_mst0_lpcg_msi_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_pixel_combiner_lpcg: clock-controller@56010010 {
++		reg = <0x56010010 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>;
++		clock-output-names = "dc0_pixel_combiner_lpcg_apb_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_lpcg: clock-controller@56010014 {
++		reg = <0x56010014 0x4>;
++		#clock-cells = <1>;
++		clocks = <&dc0_cfg_clk>, <&dc0_axi_int_clk>;
++		clock-indices = <IMX_LPCG_CLK_4>, <IMX_LPCG_CLK_5>;
++		clock-output-names = "dc0_lpcg_cfg_clk",
++				     "dc0_lpcg_axi_clk";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++
++	dc0_pc: pixel-combiner@56020000 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x56020000 0x10000>;
++		clocks = <&dc0_pixel_combiner_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "apb";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++		status = "disabled";
++
++		channel@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++			status = "disabled";
++
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_combiner_ch0_dc0_disp0: endpoint {
++					remote-endpoint = <&dc0_disp0_dc0_pixel_combiner_ch0>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				dc0_pixel_combiner_ch0_dc0_pixel_link0: endpoint {
++					remote-endpoint = <&dc0_pixel_link0_dc0_pixel_combiner_ch0>;
++				};
++			};
++		};
++
++		channel@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++			status = "disabled";
++
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_combiner_ch1_dc0_disp1: endpoint {
++					remote-endpoint = <&dc0_disp1_dc0_pixel_combiner_ch1>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				dc0_pixel_combiner_ch1_dc0_pixel_link1: endpoint {
++					remote-endpoint = <&dc0_pixel_link1_dc0_pixel_combiner_ch1>;
++				};
++			};
++		};
++	};
++
++	dc0: display-controller@56180000 {
++		reg = <0x56180000 0x40000>;
++		clocks = <&dc0_lpcg IMX_LPCG_CLK_4>;
++		power-domains = <&pd IMX_SC_R_DC_0>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++		status = "disabled";
++
++		dc0_intc: interrupt-controller@56180040 {
++			reg = <0x56180040 0x60>;
++			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
++			interrupt-controller;
++			interrupt-parent = <&dc0_irqsteer>;
++			#interrupt-cells = <1>;
++			interrupts = <448>, <449>, <450>,  <64>,
++				      <65>,  <66>,  <67>,  <68>,
++				      <69>,  <70>, <193>, <194>,
++				     <195>, <196>, <197>,  <72>,
++				      <73>,  <74>,  <75>,  <76>,
++				      <77>,  <78>,  <79>,  <80>,
++				      <81>, <199>, <200>, <201>,
++				     <202>, <203>, <204>, <205>,
++				     <206>, <207>, <208>,   <5>,
++				       <0>,   <1>,   <2>,   <3>,
++				       <4>,  <82>,  <83>,  <84>,
++				      <85>, <209>, <210>, <211>,
++				     <212>;
++			interrupt-names = "store9_shdload",
++					  "store9_framecomplete",
++					  "store9_seqcomplete",
++					  "extdst0_shdload",
++					  "extdst0_framecomplete",
++					  "extdst0_seqcomplete",
++					  "extdst4_shdload",
++					  "extdst4_framecomplete",
++					  "extdst4_seqcomplete",
++					  "extdst1_shdload",
++					  "extdst1_framecomplete",
++					  "extdst1_seqcomplete",
++					  "extdst5_shdload",
++					  "extdst5_framecomplete",
++					  "extdst5_seqcomplete",
++					  "disengcfg_shdload0",
++					  "disengcfg_framecomplete0",
++					  "disengcfg_seqcomplete0",
++					  "framegen0_int0",
++					  "framegen0_int1",
++					  "framegen0_int2",
++					  "framegen0_int3",
++					  "sig0_shdload",
++					  "sig0_valid",
++					  "sig0_error",
++					  "disengcfg_shdload1",
++					  "disengcfg_framecomplete1",
++					  "disengcfg_seqcomplete1",
++					  "framegen1_int0",
++					  "framegen1_int1",
++					  "framegen1_int2",
++					  "framegen1_int3",
++					  "sig1_shdload",
++					  "sig1_valid",
++					  "sig1_error",
++					  "reserved",
++					  "cmdseq_error",
++					  "comctrl_sw0",
++					  "comctrl_sw1",
++					  "comctrl_sw2",
++					  "comctrl_sw3",
++					  "framegen0_primsync_on",
++					  "framegen0_primsync_off",
++					  "framegen0_secsync_on",
++					  "framegen0_secsync_off",
++					  "framegen1_primsync_on",
++					  "framegen1_primsync_off",
++					  "framegen1_secsync_on",
++					  "framegen1_secsync_off";
++		};
++
++		dc0_pixel_engine: pixel-engine@56180800 {
++			reg = <0x56180800 0xac00>;
++			clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges;
++
++			dc0_constframe0: constframe@56180960 {
++				reg = <0x56180960 0xc>, <0x56184400 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst0: extdst@56180980 {
++				reg = <0x56180980 0x1c>, <0x56184800 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <3>, <4>, <5>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_constframe4: constframe@561809a0 {
++				reg = <0x561809a0 0xc>, <0x56184c00 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst4: extdst@561809c0 {
++				reg = <0x561809c0 0x1c>, <0x56185000 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <6>, <7>, <8>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_constframe1: constframe@561809e0 {
++				reg = <0x561809e0 0xc>, <0x56185400 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst1: extdst@56180a00 {
++				reg = <0x56180a00 0x1c>, <0x56185800 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <9>, <10>, <11>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_constframe5: constframe@56180a20 {
++				reg = <0x56180a20 0xc>, <0x56185c00 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_extdst5: extdst@56180a40 {
++				reg = <0x56180a40 0x1c>, <0x56186000 0x28>;
++				reg-names = "pec", "cfg";
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <12>, <13>, <14>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			};
++
++			dc0_fetchwarp2: fetchwarp@56180a60 {
++				reg = <0x56180a60 0x10>, <0x56186400 0x190>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_fetchlayer0: fetchlayer@56180ac0 {
++				reg = <0x56180ac0 0xc>, <0x56188400 0x404>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend0: layerblend@56180ba0 {
++				reg = <0x56180ba0 0x10>, <0x5618a400 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend1: layerblend@56180bc0 {
++				reg = <0x56180bc0 0x10>, <0x5618a800 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend2: layerblend@56180be0 {
++				reg = <0x56180be0 0x10>, <0x5618ac00 0x20>;
++				reg-names = "pec", "cfg";
++			};
++
++			dc0_layerblend3: layerblend@56180c00 {
++				reg = <0x56180c00 0x10>, <0x5618b000 0x20>;
++				reg-names = "pec", "cfg";
++			};
++		};
++
++		dc0_display_engine0: display-engine@5618b400 {
++			reg = <0x5618b400 0x14>, <0x5618b800 0x1c00>;
++			reg-names = "top", "cfg";
++			interrupt-parent = <&dc0_intc>;
++			interrupts = <15>, <16>, <17>;
++			interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			power-domains = <&pd IMX_SC_R_DC_0_PLL_0>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges;
++
++			dc0_framegen0: framegen@5618b800 {
++				reg = <0x5618b800 0x98>;
++				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_0>;
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <18>, <19>, <20>, <21>,
++					     <41>, <42>, <43>, <44>;
++				interrupt-names = "int0", "int1", "int2", "int3",
++						  "primsync_on", "primsync_off",
++						  "secsync_on", "secsync_off";
++			};
++
++			dc0_tcon0: tcon@5618c800 {
++				reg = <0x5618c800 0x588>;
++
++				port {
++					dc0_disp0_dc0_pixel_combiner_ch0: endpoint {
++						remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_disp0>;
++					};
++				};
++			};
++		};
++
++		dc0_display_engine1: display-engine@5618b420 {
++			reg = <0x5618b420 0x14>, <0x5618d400 0x1c00>;
++			reg-names = "top", "cfg";
++			interrupt-parent = <&dc0_intc>;
++			interrupts = <25>, <26>, <27>;
++			interrupt-names = "shdload", "framecomplete", "seqcomplete";
++			power-domains = <&pd IMX_SC_R_DC_0_PLL_1>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges;
++
++			dc0_framegen1: framegen@5618d400 {
++				reg = <0x5618d400 0x98>;
++				clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_1>;
++				interrupt-parent = <&dc0_intc>;
++				interrupts = <28>, <29>, <30>, <31>,
++					     <45>, <46>, <47>, <48>;
++				interrupt-names = "int0", "int1", "int2", "int3",
++						  "primsync_on", "primsync_off",
++						  "secsync_on", "secsync_off";
++			};
++
++			dc0_tcon1: tcon@5618e400 {
++				reg = <0x5618e400 0x588>;
++
++				port {
++					dc0_disp1_dc0_pixel_combiner_ch1: endpoint {
++						remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_disp1>;
++					};
++				};
++			};
++		};
++	};
++
++	dc0_pl_msi_bus: bus@56200000 {
++		reg = <0x56200000 0x100000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++		interrupt-parent = <&dc0_irqsteer>;
++		interrupts = <320>;
++		ranges;
++		clocks = <&dc0_disp_ctrl_link_mst0_lpcg IMX_LPCG_CLK_4>,
++			 <&dc0_disp_ctrl_link_mst0_lpcg IMX_LPCG_CLK_4>;
++		clock-names = "msi", "ahb";
++		power-domains = <&pd IMX_SC_R_DC_0>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+new file mode 100644
+index 000000000000..ab84ae3198c8
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8qxp-ss-dc.dtsi
+@@ -0,0 +1,236 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2024 NXP
++ */
++
++&dc0 {
++	compatible = "fsl,imx8qxp-dc";
++};
++
++&dc0_constframe0 {
++	compatible = "fsl,imx8qxp-dc-constframe0";
++};
++
++&dc0_constframe1 {
++	compatible = "fsl,imx8qxp-dc-constframe1";
++};
++
++&dc0_constframe4 {
++	compatible = "fsl,imx8qxp-dc-constframe4";
++};
++
++&dc0_constframe5 {
++	compatible = "fsl,imx8qxp-dc-constframe5";
++};
++
++&dc0_disp_ctrl_link_mst0_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_disp_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_display_engine0 {
++	compatible = "fsl,imx8qxp-dc-display-engine0";
++};
++
++&dc0_display_engine1 {
++	compatible = "fsl,imx8qxp-dc-display-engine1";
++};
++
++&dc0_extdst0 {
++	compatible = "fsl,imx8qxp-dc-extdst0";
++};
++
++&dc0_extdst1 {
++	compatible = "fsl,imx8qxp-dc-extdst1";
++};
++
++&dc0_extdst4 {
++	compatible = "fsl,imx8qxp-dc-extdst4";
++};
++
++&dc0_extdst5 {
++	compatible = "fsl,imx8qxp-dc-extdst5";
++};
++
++&dc0_fetchlayer0 {
++	compatible = "fsl,imx8qxp-dc-fetchlayer0";
++};
++
++&dc0_fetchwarp2 {
++	compatible = "fsl,imx8qxp-dc-fetchwarp2";
++};
++
++&dc0_framegen0 {
++	compatible = "fsl,imx8qxp-dc-framegen0";
++};
++
++&dc0_framegen1 {
++	compatible = "fsl,imx8qxp-dc-framegen1";
++};
++
++&dc0_intc {
++	compatible = "fsl,imx8qxp-dc-intc";
++};
++
++&dc0_layerblend0 {
++	compatible = "fsl,imx8qxp-dc-layerblend0";
++};
++
++&dc0_layerblend1 {
++	compatible = "fsl,imx8qxp-dc-layerblend1";
++};
++
++&dc0_layerblend2 {
++	compatible = "fsl,imx8qxp-dc-layerblend2";
++};
++
++&dc0_layerblend3 {
++	compatible = "fsl,imx8qxp-dc-layerblend3";
++};
++
++&dc0_lis_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_pc {
++	compatible = "fsl,imx8qxp-pixel-combiner";
++};
++
++&dc0_pixel_combiner_lpcg {
++	compatible = "fsl,imx8qxp-lpcg";
++};
++
++&dc0_pixel_engine {
++	compatible = "fsl,imx8qxp-dc-pixel-engine";
++};
++
++&dc0_pl_msi_bus {
++	compatible = "fsl,imx8qxp-display-pixel-link-msi-bus", "simple-pm-bus";
++};
++
++&dc0_tcon0 {
++	compatible = "fsl,imx8qxp-dc-tcon0";
++};
++
++&dc0_tcon1 {
++	compatible = "fsl,imx8qxp-dc-tcon1";
++};
++
++&scu {
++	dc0_pixel_link0: dc0-pixel-link0 {
++		compatible = "fsl,imx8qxp-dc-pixel-link";
++		fsl,dc-id = /bits/ 8 <0>;
++		fsl,dc-stream-id = /bits/ 8 <0>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			/* from dc0 pixel combiner channel0 */
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_link0_dc0_pixel_combiner_ch0: endpoint {
++					remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_pixel_link0>;
++				};
++			};
++
++			/* to PXL2DPIs in MIPI/LVDS combo subsystems */
++			port@1 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <1>;
++				status = "disabled";
++
++				dc0_pixel_link0_mipi_lvds_0_pxl2dpi: endpoint@0 {
++					reg = <0>;
++				};
++
++				dc0_pixel_link0_mipi_lvds_1_pxl2dpi: endpoint@1 {
++					reg = <1>;
++				};
++			};
++
++			/* unused */
++			port@2 {
++				reg = <2>;
++				status = "disabled";
++			};
++
++			/* unused */
++			port@3 {
++				reg = <3>;
++				status = "disabled";
++			};
++
++			/* to imaging subsystem */
++			port@4 {
++				reg = <4>;
++				status = "disabled";
++			};
++		};
++	};
++
++	dc0_pixel_link1: dc0-pixel-link1 {
++		compatible = "fsl,imx8qxp-dc-pixel-link";
++		fsl,dc-id = /bits/ 8 <0>;
++		fsl,dc-stream-id = /bits/ 8 <1>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			/* from dc0 pixel combiner channel1 */
++			port@0 {
++				reg = <0>;
++
++				dc0_pixel_link1_dc0_pixel_combiner_ch1: endpoint {
++					remote-endpoint = <&dc0_pixel_combiner_ch1_dc0_pixel_link1>;
++				};
++			};
++
++			/* to PXL2DPIs in MIPI/LVDS combo subsystems */
++			port@1 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <1>;
++				status = "disabled";
++
++				dc0_pixel_link1_mipi_lvds_1_pxl2dpi: endpoint@0 {
++					reg = <0>;
++				};
++
++				dc0_pixel_link1_mipi_lvds_0_pxl2dpi: endpoint@1 {
++					reg = <1>;
++				};
++			};
++
++			/* to parallel display interface in ADMA subsystem */
++			port@2 {
++				reg = <2>;
++				status = "disabled";
++			};
++
++			/* unused */
++			port@3 {
++				reg = <3>;
++				status = "disabled";
++			};
++
++			/* unused */
++			port@4 {
++				reg = <4>;
++				status = "disabled";
++			};
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+index 05138326f0a5..9fb4bac708a0 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+@@ -206,7 +206,7 @@ psci {
+ 		method = "smc";
+ 	};
  
-+  dc0-pixel-link0:
-+    description:
-+      Display pixel link0 in display controller subsystem0 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc0-pixel-link1:
-+    description:
-+      Display pixel link1 in display controller subsystem0 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc1-pixel-link0:
-+    description:
-+      Display pixel link0 in display controller subsystem1 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-+  dc1-pixel-link1:
-+    description:
-+      Display pixel link1 in display controller subsystem1 controlled by the SCU
-+    $ref: /schemas/display/bridge/fsl,imx8qxp-pixel-link.yaml
-+
-   gpio:
-     description:
-       Control the GPIO PINs on SCU domain over the firmware APIs
+-	system-controller {
++	scu: system-controller {
+ 		compatible = "fsl,imx-scu";
+ 		mbox-names = "tx0",
+ 			     "rx0",
+@@ -323,6 +323,7 @@ map0 {
+ 	#include "imx8-ss-vpu.dtsi"
+ 	#include "imx8-ss-cm40.dtsi"
+ 	#include "imx8-ss-gpu0.dtsi"
++	#include "imx8-ss-dc0.dtsi"
+ 	#include "imx8-ss-adma.dtsi"
+ 	#include "imx8-ss-conn.dtsi"
+ 	#include "imx8-ss-ddr.dtsi"
+@@ -332,6 +333,7 @@ map0 {
+ 
+ #include "imx8qxp-ss-img.dtsi"
+ #include "imx8qxp-ss-vpu.dtsi"
++#include "imx8qxp-ss-dc.dtsi"
+ #include "imx8qxp-ss-adma.dtsi"
+ #include "imx8qxp-ss-conn.dtsi"
+ #include "imx8qxp-ss-lsio.dtsi"
 -- 
 2.34.1
 
