@@ -4,122 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB67CE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6CBE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hi4+N7L/R07Fq6g8WRpMxop4cD3t01a1BHl7awbkQjI=; b=2jyg7AFVgyj8cNCLoWsYVbxE0N
-	5KA6e2hsSRSIVC5iHtyPIAfgSrK0DiRku7jInYWh7vhzkX+MOUyUkToCTECyYGe92TUBzqO8ThMnR
-	DFBtq/Ym0/YcpTCUk3ffGNl3HrwE+NVhusnEa3IhbXrLjIIe43gVGm5EfPjLJvDCziq7nPBubTd90
-	Gi0N9WbEmGkWl6a+RsAtFZUD/8UPAcAppMMNKyI2TYrgs2NP3Qtl/z4JuclYH4I0+1lya3HvnrxbI
-	Xc6v6tiwQgur1Oej0kB/c/S2wM2xPq2e2YGTIcBnPpvS3CUrcntJdiU1Rw9AIlKzAz8wJQuX84daH
-	ynp99BCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PysGQXFhFIaY82I36Y7kVr5DOhB1P1lEm8vqt8odrR0=; b=xfqj7auETMeMEHVpgb98wVW5yY
+	5oKpMLhvGWZkAIzGEu3gJl3GmVZ2Ae+oQZy3WqY92Vye05ALJh6mStFT8YqNf+6iVzG4GMtGbbA16
+	rmLYCCcryD/KNLvETFfbYmuVgccSSJAo8NLW9m053uehThYi0jw/LpN2GZL8jEPPhvFA+N+I7tCnU
+	ABy/5l24cRTGQDMfcwTGLaRY9d4y1itAn6oA+PgHBH7VzLOGF8RFmOjiFYjThnOdMNGQY/VepS1hH
+	LKhAuLf+KhjgJZI3DdeBULpRoX5asJYn9MA3O+XRaJb8gRRCYRgQvxQa96CYcLD6Kk+HGJv9vKfDL
+	6EVGxduA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPg1j-00000009odd-0ivi;
-	Mon, 23 Dec 2024 10:51:07 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1tPg3k-00000009p0n-1g6c;
+	Mon, 23 Dec 2024 10:53:12 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPeyU-00000009gFj-00mJ
+	id 1tPg2L-00000009on2-0MyU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 09:43:44 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-728f28744c5so3822246b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 01:43:41 -0800 (PST)
+	Mon, 23 Dec 2024 10:51:46 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-53e399e3310so4810287e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:51:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1734947021; x=1735551821; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Hi4+N7L/R07Fq6g8WRpMxop4cD3t01a1BHl7awbkQjI=;
-        b=Xn6BxD2tNy7iPiUKE57yvu7O+G6khuCm5ERyB2wOZDOLAwFHlmE8/+8lfblcv1aHXc
-         iIZgLtuxxgnHt1b4apM9Aaw6jxzqWQc3OVgcBa7sxWQnH+zrBl94g7RmVwci0HjpVANN
-         jaA4dBcvsUea0c6GvTw+4yLs2+a21QvEGY3gw4gNwAkuWg7csUXvHhXvxcb/goOTin0n
-         o+w7bTrb39jWk2C03VgHv6ozH2T3OctYiIHIu9IuzO079Pbi6J8Xlu0+GKIhjpFNtG3C
-         SxGuMEVO+UrYeF2KNaTMMeKk7wQcDyoaSM+NRt/OqIeJNVG2bR3UxfJvRxUnPfo03ZPq
-         dWuA==
+        d=linaro.org; s=google; t=1734951103; x=1735555903; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PysGQXFhFIaY82I36Y7kVr5DOhB1P1lEm8vqt8odrR0=;
+        b=fhOHO3jOOu+BCaIaTd0QFloO0NsvVlqkUDqOrw1DH2EC1qg8fdj2OPVDUu9kr3pFUx
+         gPQH2ojEhqkwIFqIXS6MhMUdCUglUC/3ecRvu3NqPA6xIjt87hLFPmiA2zbxsbcwGCOr
+         1sxockiU3x0jMr7kqSTbStFr4Grz1ws09FDEKh9zK60iHwBktJZ6YWWCsmyEQTQEOzty
+         yZzW6VQidCpxdXgQgap8J5cmAVtqoesQtz7Do+NKFyUJjWdmXFiFjHoTYwTL7U1Tz6+9
+         lSa+S63rEk/XB825Tty4P/84yp5os1JM8WTibUsaZlmCk+zUzyQufdpCZSrVXfMJCniV
+         qDJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734947021; x=1735551821;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Hi4+N7L/R07Fq6g8WRpMxop4cD3t01a1BHl7awbkQjI=;
-        b=INOI/rySEMbUlSJhWN1ep61b0mu4PGgHahAig9D2mZKf0rpOYRXlBcokxiTltnXolj
-         CbbPJ2ZpE+jdWSQvQ8Srr/agQBcgCauBgxqeFAgjZeejjaVrIcE2Ook9xIPpjZGGP5p9
-         skI+e81Jh8pa1xlYjDnJIGUs0fCRy/YCT4Q1JorQ9OQmOXrzEzQZwR6frvfYrSKoWDfD
-         5HqOdcpTYmVq+EBaneWKphc/xshEpXYCIKljSGVxC3LM5GQkJKVgHKha4Pu+3miX6FAm
-         hj3Ap2zv7MEUz1/D3hELfSeeLStd95AVUoMUluP4mn+Ms2kiUZZeIgghBa7LBkhq+3Tb
-         /qJA==
-X-Forwarded-Encrypted: i=1; AJvYcCUipObk1ekkkEvusgzyC55CYvlTP/5+9bcUUI5MwcK6NCBDfCeR+ebyDS5vvFwGU685+Yc+idDkhyzVntW7j/WN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFxD86C2KQlZC2n09HpZ/3eDKubPtpPhUjCP4zeKI7S4lKd/7L
-	BL8vge1FD7U8VHGx70dxtV2zvJsGePBGsIzToAEWiig1d9aC50YnPz94+BBJtsM=
-X-Gm-Gg: ASbGncv0t3ek6rhswC2TCymdl+EeVoa67JKxe75T200rxwtrXhVfklYpimEpqR8n1MN
-	HYQec7XrYzhbKP9RwugrbMIS9XTTFZSIV4k8DvVT1Tm4Bio+8OdCtUrTSlxSiM2JJ0hxE0znxL0
-	UQO14ilFDeTUNBZN/ghGy8Dg7KggW+L27P2Xl3AxFONm5ODKf5Q9VsbUgXwltFgld5GDfUL4nvk
-	sqXitFAvY1SNwT5OX27dmOpl+gRN7tQi6uOnQq6uHDlfjrjtqh+4Olz6NGTk7kGzZBfeIEbJJKl
-	Q0+dkFlcF2vvJC+YSCaokw==
-X-Google-Smtp-Source: AGHT+IHP/sWNqLjbiRRokya3RRzP3A7lT6GiLvDE2E3HVCuxopdI/+yKYyLcU7/i5H4uYS+gGEKb/A==
-X-Received: by 2002:a05:6a21:9017:b0:1e5:ddac:1eff with SMTP id adf61e73a8af0-1e5e04a0c7cmr19747203637.20.1734947021430;
-        Mon, 23 Dec 2024 01:43:41 -0800 (PST)
-Received: from C02DW0BEMD6R.bytedance.net ([203.208.167.150])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8486c6sm7468309b3a.85.2024.12.23.01.43.29
+        d=1e100.net; s=20230601; t=1734951103; x=1735555903;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PysGQXFhFIaY82I36Y7kVr5DOhB1P1lEm8vqt8odrR0=;
+        b=QP+J6n0tV3XHuDX9V2CRsVr5xnRUz8j7UQ3uS+loDK1WZeo/hYDsBM/Ad4bu7p/4dF
+         Z0omLkYSBFcSjERS4SAn9yIS5YD1Br1CO7ck8VNULvrbitEXTvDnGzdrFDnkVWrHgAxQ
+         F/957Po0c7tMIYkQ4oFozNkZqDI+lHLZs6FRDmJiSBT1Go8Mme8z9hP7h9P7RM4ELHDJ
+         FvjHu2oL+yfduOmHqLiFsJH1xh9Gfg7IBQhpJd/n8RAyzTAbMomqOoKOuptrVlG0gncb
+         FB4fG92kSued2IR07KZ5i4qtg1kSGHcBsNK5ov8/APS/DwGP7hwNLefqGiVDJsj9hu+s
+         pqtg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1lIVovh08exMODDpHaUwYPTQKk2uB4fxTG8I3rXFjq4i+ZU0c9HmKB6jij+e2FI3x0OnVBozZpgNBNyrHw3Wc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLNA6hnxxfdVeQ02tjOGDrSgEXKsNZOK2ZWvrfRQnk6VNlHOfG
+	S8SJ9e/LZwX6szdShsbkg7/MVlJ3ujLE9yVyGECOHwYha3ljTXBnPAhPEHDLsdQ=
+X-Gm-Gg: ASbGnctAakEHd58I/EVMvudxiOvwRhzfLO+0KnRnQKiGCQCrWtnc1dMByPw98FBWFUF
+	XBYJzHD025B1OxM5F/QjO8j8pxYwy0f9DCOWhpg9nFSnbuh0Qd4MeNeS4odRLxi5JomJPfJY1rQ
+	HeuooKOriCt9GsnnFkyvs/rlFhnTpVVGjI0HkKeRH2nfC8KOwgZhgwuhuVFgdHMS5+wl9uxeopY
+	YYRjXkI+2llLewhA8aYaOBDiZzIi43eLsIg0mnpVwYaXBO5W024c5e91hrn9fs2m7eYygmid6UQ
+	jAJa9FOJFrMAOXfvmTA6MisNjXdbaueg9Ubd
+X-Google-Smtp-Source: AGHT+IG+15flgGLqsMrZ5BL4gMnDHWQG9KiSz+F4gPV4kBjlj5dHbyvd5yf8E3fFs/QR/3iviG06Bg==
+X-Received: by 2002:a05:6512:1150:b0:541:cdef:7ca3 with SMTP id 2adb3069b0e04-5422953c1a8mr3075505e87.27.1734951102906;
+        Mon, 23 Dec 2024 02:51:42 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238216c0sm1231593e87.218.2024.12.23.02.51.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 01:43:40 -0800 (PST)
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-To: peterz@infradead.org,
-	agordeev@linux.ibm.com,
-	kevin.brodsky@arm.com,
-	tglx@linutronix.de,
-	david@redhat.com,
-	jannh@google.com,
-	hughd@google.com,
-	yuzhao@google.com,
-	willy@infradead.org,
-	muchun.song@linux.dev,
-	vbabka@kernel.org,
-	lorenzo.stoakes@oracle.com,
-	akpm@linux-foundation.org,
-	rientjes@google.com,
-	vishal.moola@gmail.com,
-	arnd@arndb.de,
-	will@kernel.org,
-	aneesh.kumar@kernel.org,
-	npiggin@gmail.com,
-	dave.hansen@linux.intel.com,
-	rppt@kernel.org,
-	ryan.roberts@arm.com
-Cc: linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	Qi Zheng <zhengqi.arch@bytedance.com>
-Subject: [PATCH v3 03/17] asm-generic: pgalloc: Provide generic p4d_{alloc_one,free}
-Date: Mon, 23 Dec 2024 17:40:49 +0800
-Message-Id: <4c4bcc1aa565c6252183553aecd5e5cbd1a0f6ea.1734945104.git.zhengqi.arch@bytedance.com>
-X-Mailer: git-send-email 2.24.3 (Apple Git-128)
-In-Reply-To: <cover.1734945104.git.zhengqi.arch@bytedance.com>
-References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
+        Mon, 23 Dec 2024 02:51:42 -0800 (PST)
+Date: Mon, 23 Dec 2024 12:51:40 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
+	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
+	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, 
+	u.kleine-koenig@baylibre.com, francesco@dolcini.it, frank.li@nxp.com
+Subject: Re: [PATCH v7 09/19] drm/imx: Add i.MX8qxp Display Controller
+ display engine
+Message-ID: <6mhlb26vdfc7v3jmb7y3tlcuo336x7vkblbkzd5sosd6urirou@bbfalnfisdij>
+References: <20241223064147.3961652-1-victor.liu@nxp.com>
+ <20241223064147.3961652-10-victor.liu@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241223064147.3961652-10-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_014342_069169_03D8E77E 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20241223_025145_190607_15AAE4A6 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,182 +105,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kevin Brodsky <kevin.brodsky@arm.com>
+On Mon, Dec 23, 2024 at 02:41:37PM +0800, Liu Ying wrote:
+> i.MX8qxp Display Controller display engine consists of all processing
+> units that operate in a display clock domain.  Add minimal feature
+> support with FrameGen and TCon so that the engine can output display
+> timings.  The FrameGen driver, TCon driver and display engine driver
+> are components to be aggregated by a master registered in the upcoming
+> DRM driver.
+> 
+> Reviewed-by: Maxime Ripard <mripard@kernel.org>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> v7:
+> * Add kernel doc for struct dc_drm_device. (Dmitry)
+> * Fix regmap_config definitions by correcting name field, correcting read
+>   ranges and setting max_register field.
+> * Get instance numbers from device data(compatible strings) instead of OF
+>   aliases.
 
-Four architectures currently implement 5-level pgtables: arm64,
-riscv, x86 and s390. The first three have essentially the same
-implementation for p4d_alloc_one() and p4d_free(), so we've got an
-opportunity to reduce duplication like at the lower levels.
+Unfortunately no. Your instances are compatible on the hardware level
+(at least they were with the previous versions, I don't think that
+there was a silicon change).
 
-Provide a generic version of p4d_alloc_one() and p4d_free(), and
-make use of it on those architectures.
+> * Collect Maxime's R-b tag.
+> * Trivial tweaks.
+> 
+> v6:
+> * No change.
+> 
+> v5:
+> * Replace .remove_new with .remove in dc-{de,fg,tc}.c. (Uwe)
+> * Select REGMAP and REGMAP_MMIO Kconfig options.
+> * Fix commit message to state that display engine driver is a component driver
+>   instead of a master/aggregate driver.
+> 
+> v4:
+> * Use regmap to define register map for all registers. (Dmitry)
+> * Use regmap APIs to access registers. (Dmitry)
+> * Inline some small functions. (Dmitry)
+> * Move dc_fg_displaymode() and dc_fg_panic_displaymode() function calls from
+>   KMS routine to initialization stage. (Dmitry)
+> * Use devm_kzalloc() to drmm_kzalloc() to allocate dc_* data strutures.
+> * Drop unnecessary private struct dc_*_priv.
+> * Set suppress_bind_attrs driver flag to true to avoid unnecessary sys
+>   interfaces to bind/unbind the drivers.
+> 
+> v3:
+> * No change.
+> 
+> v2:
+> * Use OF alias id to get instance id.
+> * Add dev member to struct dc_tc.
+> 
+>  drivers/gpu/drm/imx/Kconfig     |   1 +
+>  drivers/gpu/drm/imx/Makefile    |   1 +
+>  drivers/gpu/drm/imx/dc/Kconfig  |   7 +
+>  drivers/gpu/drm/imx/dc/Makefile |   5 +
+>  drivers/gpu/drm/imx/dc/dc-de.c  | 153 +++++++++++++
+>  drivers/gpu/drm/imx/dc/dc-de.h  |  62 ++++++
+>  drivers/gpu/drm/imx/dc/dc-drv.c |  32 +++
+>  drivers/gpu/drm/imx/dc/dc-drv.h |  29 +++
+>  drivers/gpu/drm/imx/dc/dc-fg.c  | 378 ++++++++++++++++++++++++++++++++
+>  drivers/gpu/drm/imx/dc/dc-tc.c  | 142 ++++++++++++
+>  10 files changed, 810 insertions(+)
+>  create mode 100644 drivers/gpu/drm/imx/dc/Kconfig
+>  create mode 100644 drivers/gpu/drm/imx/dc/Makefile
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.c
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.h
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.c
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.h
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-fg.c
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-tc.c
+> 
 
-Their implementation is the same as at PUD level, except that
-p4d_free() performs a runtime check by calling mm_p4d_folded().
-5-level pgtables depend on a runtime-detected hardware feature on
-all supported architectures, so we might as well include this check
-in the generic implementation. No runtime check is required in
-p4d_alloc_one() as the top-level p4d_alloc() already does the
-required check.
+[...]
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
-Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
----
- arch/arm64/include/asm/pgalloc.h | 17 ------------
- arch/riscv/include/asm/pgalloc.h | 23 ----------------
- arch/x86/include/asm/pgalloc.h   | 18 -------------
- include/asm-generic/pgalloc.h    | 45 ++++++++++++++++++++++++++++++++
- 4 files changed, 45 insertions(+), 58 deletions(-)
+> +
+> +static int dc_de_bind(struct device *dev, struct device *master, void *data)
+> +{
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	struct dc_drm_device *dc_drm = data;
+> +	void __iomem *base_top;
+> +	struct dc_de *de;
+> +	int ret;
+> +
+> +	de = devm_kzalloc(dev, sizeof(*de), GFP_KERNEL);
+> +	if (!de)
+> +		return -ENOMEM;
+> +
+> +	de->id = (enum dc_de_id)(uintptr_t)device_get_match_data(dev);
+> +
+> +	base_top = devm_platform_ioremap_resource_byname(pdev, "top");
+> +	if (IS_ERR(base_top))
+> +		return PTR_ERR(base_top);
+> +
+> +	de->reg_top = devm_regmap_init_mmio(dev, base_top,
+> +					    &dc_de_top_regmap_config);
+> +	if (IS_ERR(de->reg_top))
+> +		return PTR_ERR(de->reg_top);
+> +
+> +	de->irq_shdld = platform_get_irq_byname(pdev, "shdload");
 
-diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
-index e75422864d1bd..2965f5a7e39e3 100644
---- a/arch/arm64/include/asm/pgalloc.h
-+++ b/arch/arm64/include/asm/pgalloc.h
-@@ -85,23 +85,6 @@ static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgdp, p4d_t *p4dp)
- 	__pgd_populate(pgdp, __pa(p4dp), pgdval);
- }
- 
--static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
--{
--	gfp_t gfp = GFP_PGTABLE_USER;
--
--	if (mm == &init_mm)
--		gfp = GFP_PGTABLE_KERNEL;
--	return (p4d_t *)get_zeroed_page(gfp);
--}
--
--static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
--{
--	if (!pgtable_l5_enabled())
--		return;
--	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
--	free_page((unsigned long)p4d);
--}
--
- #define __p4d_free_tlb(tlb, p4d, addr)  p4d_free((tlb)->mm, p4d)
- #else
- static inline void __pgd_populate(pgd_t *pgdp, phys_addr_t p4dp, pgdval_t prot)
-diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-index 8ad0bbe838a24..551d614d3369c 100644
---- a/arch/riscv/include/asm/pgalloc.h
-+++ b/arch/riscv/include/asm/pgalloc.h
-@@ -105,29 +105,6 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
- 	}
- }
- 
--#define p4d_alloc_one p4d_alloc_one
--static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
--{
--	gfp_t gfp = GFP_PGTABLE_USER;
--
--	if (mm == &init_mm)
--		gfp = GFP_PGTABLE_KERNEL;
--	return (p4d_t *)get_zeroed_page(gfp);
--}
--
--static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
--{
--	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
--	free_page((unsigned long)p4d);
--}
--
--#define p4d_free p4d_free
--static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
--{
--	if (pgtable_l5_enabled)
--		__p4d_free(mm, p4d);
--}
--
- static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
- 				  unsigned long addr)
- {
-diff --git a/arch/x86/include/asm/pgalloc.h b/arch/x86/include/asm/pgalloc.h
-index dcd836b59bebd..dd4841231bb9f 100644
---- a/arch/x86/include/asm/pgalloc.h
-+++ b/arch/x86/include/asm/pgalloc.h
-@@ -147,24 +147,6 @@ static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd, p4d_t *p4
- 	set_pgd_safe(pgd, __pgd(_PAGE_TABLE | __pa(p4d)));
- }
- 
--static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
--{
--	gfp_t gfp = GFP_KERNEL_ACCOUNT;
--
--	if (mm == &init_mm)
--		gfp &= ~__GFP_ACCOUNT;
--	return (p4d_t *)get_zeroed_page(gfp);
--}
--
--static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
--{
--	if (!pgtable_l5_enabled())
--		return;
--
--	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
--	free_page((unsigned long)p4d);
--}
--
- extern void ___p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d);
- 
- static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
-diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-index 7c48f5fbf8aa7..59131629ac9cc 100644
---- a/include/asm-generic/pgalloc.h
-+++ b/include/asm-generic/pgalloc.h
-@@ -215,6 +215,51 @@ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
- 
- #endif /* CONFIG_PGTABLE_LEVELS > 3 */
- 
-+#if CONFIG_PGTABLE_LEVELS > 4
-+
-+static inline p4d_t *__p4d_alloc_one_noprof(struct mm_struct *mm, unsigned long addr)
-+{
-+	gfp_t gfp = GFP_PGTABLE_USER;
-+	struct ptdesc *ptdesc;
-+
-+	if (mm == &init_mm)
-+		gfp = GFP_PGTABLE_KERNEL;
-+	gfp &= ~__GFP_HIGHMEM;
-+
-+	ptdesc = pagetable_alloc_noprof(gfp, 0);
-+	if (!ptdesc)
-+		return NULL;
-+
-+	return ptdesc_address(ptdesc);
-+}
-+#define __p4d_alloc_one(...)	alloc_hooks(__p4d_alloc_one_noprof(__VA_ARGS__))
-+
-+#ifndef __HAVE_ARCH_P4D_ALLOC_ONE
-+static inline p4d_t *p4d_alloc_one_noprof(struct mm_struct *mm, unsigned long addr)
-+{
-+	return __p4d_alloc_one_noprof(mm, addr);
-+}
-+#define p4d_alloc_one(...)	alloc_hooks(p4d_alloc_one_noprof(__VA_ARGS__))
-+#endif
-+
-+static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
-+{
-+	struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
-+
-+	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
-+	pagetable_free(ptdesc);
-+}
-+
-+#ifndef __HAVE_ARCH_P4D_FREE
-+static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
-+{
-+	if (!mm_p4d_folded(mm))
-+		__p4d_free(mm, p4d);
-+}
-+#endif
-+
-+#endif /* CONFIG_PGTABLE_LEVELS > 4 */
-+
- #ifndef __HAVE_ARCH_PGD_FREE
- static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
+Nit: shdload or shdld? Which one is used in the documentation?
+
+> +	if (de->irq_shdld < 0)
+> +		return de->irq_shdld;
+> +
+> +	de->irq_framecomplete = platform_get_irq_byname(pdev, "framecomplete");
+> +	if (de->irq_framecomplete < 0)
+> +		return de->irq_framecomplete;
+> +
+> +	de->irq_seqcomplete = platform_get_irq_byname(pdev, "seqcomplete");
+> +	if (de->irq_seqcomplete < 0)
+> +		return de->irq_seqcomplete;
+> +
+> +	de->dev = dev;
+> +
+> +	dev_set_drvdata(dev, de);
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dc_drm->de[de->id] = de;
+> +
+> +	return 0;
+> +}
+> +
+
+[...]
+
+> +
+> +struct dc_de {
+> +	struct device *dev;
+> +	struct regmap *reg_top;
+> +	struct dc_fg *fg;
+> +	struct dc_tc *tc;
+> +	int irq_shdld;
+> +	int irq_framecomplete;
+> +	int irq_seqcomplete;
+> +	enum dc_de_id id;
+
+Why do you need to store it? This patch makes use of it just for the
+registration.
+
+> +};
+> +
+
+[...]
+
+> +static int dc_fg_bind(struct device *dev, struct device *master, void *data)
+> +{
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	struct dc_drm_device *dc_drm = data;
+> +	void __iomem *base;
+> +	enum dc_fg_id id;
+> +	struct dc_fg *fg;
+> +	struct dc_de *de;
+> +
+> +	fg = devm_kzalloc(dev, sizeof(*fg), GFP_KERNEL);
+> +	if (!fg)
+> +		return -ENOMEM;
+> +
+> +	id = (enum dc_fg_id)(uintptr_t)device_get_match_data(dev);
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	fg->reg = devm_regmap_init_mmio(dev, base, &dc_fg_regmap_config);
+> +	if (IS_ERR(fg->reg))
+> +		return PTR_ERR(fg->reg);
+> +
+> +	fg->clk_disp = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(fg->clk_disp))
+> +		return dev_err_probe(dev, PTR_ERR(fg->clk_disp),
+> +				     "failed to get display clock\n");
+> +
+> +	fg->dev = dev;
+> +
+> +	de = dc_drm->de[id];
+
+This depends on a particular order of component's being bound. If the
+order changes for whatever reason (e.g. due to component.c
+implementation being changed) then your driver might crash here.
+
+This applies to several other places in the driver.
+
+> +	de->fg = fg;
+> +
+> +	return 0;
+> +}
+> +
+
 -- 
-2.20.1
-
+With best wishes
+Dmitry
 
