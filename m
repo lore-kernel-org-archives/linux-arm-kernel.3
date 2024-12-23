@@ -4,100 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1525CE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8084E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwroZ5ftifLjf2sYQGLnTg3BTauvYFKzYd2jyBf2Tpc=; b=F7F0yVVO2olLpIfBSIwn+PWVA1
-	+3XR+yiq5AAS1gAGGNjXLAJak1wC8i+aBd0NpseYhvyn3hOpGhGQs0dIWP6N8MKZ7Shpu82IbTCnM
-	gjTXOxUqoJwvD9tcRaN1B7K4f25Tz+TYAoFoSWk1ff//iDrb9mH1MFmiDesp8mAXQbIRek77Fhyey
-	Lp6yY+fy/FAngc0oa7lGvkF42iGTpq3ZSp1ITuscfuKOzqHPmFcS4xWF2BZeoPkX+vzeTHaiYSq+N
-	SXWUlbvYZJ2MaC5rccKK0H65MWOFLpb5P3ce1gGxpawhuqQrTqlUMcnjAfdYCOJxXnLRjXPJNF8Wk
-	EWV2Ouow==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rKJMfhcCNoXTKKqxRI259jRf70U4iL4YiCuA5Aw9wgs=; b=RdVwRKglBfuiLM8iu2t6lZwyDz
+	4eRk9U6NXNFhFHHoFzvvw2sEAY2yF5AZyqiZSHdGts1k4fJO6bFwpFJXUGdH7yZ1uYZqzfk40jWSz
+	YNWYVJOubn4Urh09OUkqlEWykRG2SuBXM4rz3xH1c16yOOVlLAkYzeqrwn0ybOgxN9TjTO0SGiaFA
+	5VRQRrIjzSAd6Q4qN0U9y5BNXje36h2T0ft0zQiyB5Ty8WkfBxpm05z/9Flz0ItC6rDuKc7ds4xw4
+	GWF07fUOXh2kFUFejR44hr8rWXWzQiTgZotckqVYl+2mNp7NQyjy3cp2nG4OWmMPkrnE3HaZ09n9N
+	pRTw2Jzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfKl-00000009l8j-37mu;
-	Mon, 23 Dec 2024 10:06:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tPfMI-00000009lIY-2JhQ;
+	Mon, 23 Dec 2024 10:08:18 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfHl-00000009kqx-0x40
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 23 Dec 2024 10:03:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HwroZ5ftifLjf2sYQGLnTg3BTauvYFKzYd2jyBf2Tpc=; b=pHApdTCTt1Wx9RzYnx0SM+qi24
-	3bmLmNOQwnDXOZGevspMeOXU/87xRlRSGIQQUYR9/z6ke4IYeNi2jJ1Hwjyr4rS+8HUb/kKZlZhQD
-	NJHT6vxp+tuZDzZTJq8HT1b6CeHa+d9xRKQdw8DTheHPuL7jk2mVcDC64uvuX9XG0DsBKiQhhuIfY
-	rJU3HCapd7GErcJwkJdb05fzj8kHxvRL9DbmqFOt3qVNYaTDlaozeUVzmH95uULg3KyBToI2NY/R/
-	LTV4WYNZKVFEvBDVXrTr5OfNIar8dw7krXAPe+21RWACU8kk+o+mdq+Y2ovbqyNuP7dUlYdEz2VoH
-	WeIebFRw==;
-Received: from mail-vs1-f45.google.com ([209.85.217.45])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfHi-00000006JRT-0psS
+	id 1tPfKv-00000009lAN-2dSt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 10:03:36 +0000
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-4afe70b41a8so1124470137.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:03:32 -0800 (PST)
+	Mon, 23 Dec 2024 10:06:54 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-725dbdf380aso3151732b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:06:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1734948412; x=1735553212; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rKJMfhcCNoXTKKqxRI259jRf70U4iL4YiCuA5Aw9wgs=;
+        b=QpvBwFJYSyyVQvuPxkXYPgq8kGxGk63L6CObSiJ7SsBHOY42kv19XStaPXYmmREon7
+         MZdV7ZYRVxGRlXf09J9Z/3GEnrdgh0jG1nwnBlJqqYKIqwgSERhbxb+dp3k/eK/rRC55
+         gDjNtOn89081W8Uv1g+1ChPLpM/BSdgKAXe+0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734948210; x=1735553010;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HwroZ5ftifLjf2sYQGLnTg3BTauvYFKzYd2jyBf2Tpc=;
-        b=Ni9pojdEIWg6qNFVGmUehc5k0tSjHmDFGt1vKpg9YjhFtRbhLhVFJKAWzegd4WCa6j
-         etKuct0N5vWhmmf6J6MU58fMC5yxJnP3XYqiYXLB96VdZvl59PbftNL76+uLopr8uOGb
-         xXoYMkDEeP9dGUXPbHZIhx07RSqLM7/MyceOnGIEZrWs6puccPX9czmNDN/HTjwvbtr6
-         kwgS+k/rsnMk+C41Pfh2ENrBeeSRro4vZfiRyu6jCK/tNVYzr0wOEh1bJxqfCz6NfXV4
-         L8f6LvlR8zcecIrS/3eiu67/HFgpX4dI6tqLXeXiFrr+Y3Yo/SjMTBe2TKoGhSZaFYCv
-         vp5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU8quNYOD7wTBzot9lkb2x01pZS0Xgq5yFI+k6jeU0yZ4pgeaQNGKNznEGAAWLBN7s2D8161FGVtA65SFXzzLNN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5urNp6X+gHdmbn2+zbSVayMh4gkcRhffJjfti9bQYuiW/ZYxt
-	exAHtvMBljYgY8O9VM8rFyqkDt3mxxy/8xULv1SXk1ByH5yMb1Y6gyu5dFqk
-X-Gm-Gg: ASbGncvb7sgW+o6YyXIhw+d040rtk6hywD2qD8le/Wxrq6vYPCPBny3qdQoTKIADQ05
-	8Vw8DwD9JHjdcdcVYPN9XmtZDU/uKjyvOo6dACiH/YS6Yjd+sDk1cg1KXHTn3lGizdEpRULcRsU
-	j54MbDc+uQVXcZv9q+g3Tzn65CWNLECdPXAQxTq87mhqsBCEg55ak78+d3yfNm7cb/ELDEHo2CQ
-	IDAA/xTpqxSN8GUTrQ+a2pDbaR3wwBt33k8wlqHe7k4I7qSqmcRhCCIto6t2RGcwgdjaxyyR2yY
-	tRqQI3e7XVnze4pla+4=
-X-Google-Smtp-Source: AGHT+IELgCyE4FSZT0QtcFFVkACUpAL+1nqmOtldsYr8Wn4R5Ns3y7BNIRVzg73SQY6rnvordSHYFg==
-X-Received: by 2002:a05:6102:c02:b0:4b2:5c72:cd55 with SMTP id ada2fe7eead31-4b2cc31f256mr10921032137.5.1734948209959;
-        Mon, 23 Dec 2024 02:03:29 -0800 (PST)
-Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b2ffcdbd26sm75319137.6.2024.12.23.02.03.29
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Dec 2024 02:03:29 -0800 (PST)
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4afe70b41a8so1124446137.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:03:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUyEOiEyhfyXZde94GkXXYfUSfdEMJVGJ+rPoiZ459ZdeTMZXs6tyWP6cAS/Vp2PaL5CRjgWbHbU4HnXLVKsWSZ@lists.infradead.org
-X-Received: by 2002:a05:6102:32c5:b0:4b2:bceb:1ac6 with SMTP id
- ada2fe7eead31-4b2cc45eaf6mr11513750137.17.1734948209264; Mon, 23 Dec 2024
- 02:03:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734948412; x=1735553212;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rKJMfhcCNoXTKKqxRI259jRf70U4iL4YiCuA5Aw9wgs=;
+        b=PgQvzFJvl4KOAsDg4+f4Dy9FOljzHfVoHlsvpakEz8bZ/S/wnQCIG5wO2lWa6jlnmI
+         VL/oLJLtKEzKSsdnhHl61BkNcNoWktPfMdtecfJ7pxYOFpj0iL2ERWflgJ4qa2Vcih3p
+         fMPU3mvkUTXmziChk/e8NdokIEQMSSE1ALcVdNA2n/wNTzY5dU0LFtlQ4rr5wqmmKeH3
+         g1Clg2ZOKGtuxHRR6cc5IMyhK2RuuJ1XvUT0b6eB5G9ENDHcUAmyyLMLB67WZYU9i4H5
+         peN0csee+WtbXRjMJPhJgHi+3PCYqriUmPWYtzTiZ5tksoJVPTtCCsVHkp2Y8H4vEvu1
+         wPQA==
+X-Forwarded-Encrypted: i=1; AJvYcCWHfXqmHvcAmqmUNXfqMgstloYOe+zNh9EB4Ca3b+3NP5ijzzOzmMh6T7Ochg2AKQ1e8HGDau0cC25hsjuQWihh@lists.infradead.org
+X-Gm-Message-State: AOJu0YystVjmkE8dJK2KAWFW5MR1govPA3FVmEbBFZusgo5G2KGP5Pyi
+	xuGcsz0raaCx/Hb/TkUAx7t2OxYkK6esCzYmzP4wXy8dZ9toEooK+85JC506Zg==
+X-Gm-Gg: ASbGncuK7cIGDolPQhizMEwouHppImPoKcutzSUDUdH+PNrGZh7X6+lke/657RV84SX
+	lnjjPbIAC6AHyExvoP5Dmn/syDawHS4sQ5MUZ/FlkghE+TWHBpRlSJoT8wKnV1OhTsj39uAJDPR
+	L9BJlHb00Sf35foSoy85dUUoNoo2l7y46qn9qwdjvF1Wf8q7axHGmhqkKtb8wI40qrEAficVl+c
+	II/P2sC142Qy4r0ld3EeLRMxfzFnzhyYDK8EOgYNXj7K/SMDXjJU2InzyaD7whJHQQey8FWwP4=
+X-Google-Smtp-Source: AGHT+IEC6g3dUwbOwegr0/4cBA+q8wZywCWC8uKKvs5wuQPerkiACHzmCx3kFeGTvXXS9OP5fvFOwQ==
+X-Received: by 2002:a05:6a20:e68e:b0:1e1:becc:1c81 with SMTP id adf61e73a8af0-1e5e0801191mr22582243637.32.1734948412492;
+        Mon, 23 Dec 2024 02:06:52 -0800 (PST)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:4fc4:9ee5:ceb8:cb2e])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842aba72e61sm6939475a12.3.2024.12.23.02.06.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Dec 2024 02:06:52 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH] nvmem: mtk-efuse: Enable GPU speed bin post-processing for MT8188
+Date: Mon, 23 Dec 2024 18:06:47 +0800
+Message-ID: <20241223100648.2166754-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
 MIME-Version: 1.0
-References: <28f88e536cab0abd5712787350b012bb0f1eacb5.1734445715.git.geert+renesas@glider.be>
-In-Reply-To: <28f88e536cab0abd5712787350b012bb0f1eacb5.1734445715.git.geert+renesas@glider.be>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 23 Dec 2024 11:03:17 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVSPVcOYyDBsoHOVZP9RO4=RryefeH7nGUaTUZRL1OtNw@mail.gmail.com>
-Message-ID: <CAMuHMdVSPVcOYyDBsoHOVZP9RO4=RryefeH7nGUaTUZRL1OtNw@mail.gmail.com>
-Subject: Re: [PATCH] firmware: imx: IMX_SCMI_MISC_DRV should depend on ARCH_MXC
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Mark Brown <broonie@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Shengjiu Wang <shengjiu.wang@gmail.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_100334_557721_91A47DC6 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20241223_020653_700941_525C23D8 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +95,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Like the MT8186, the MT8188 stores GPU speed binning data in its efuse.
+The data needs post-processing into a format that the OPP framework can
+use.
 
-On Tue, Dec 17, 2024 at 3:37=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
-> The i.MX System Controller Management Interface firmware is only present
-> on Freescale i.MX SoCs.  Hence add a dependency on ARCH_MXC, to prevent
-> asking the user about this driver when configuring a kernel without
-> Freescale i.MX platform support.
->
-> Fixes: 514b2262ade48a05 ("firmware: arm_scmi: Fix i.MX build dependency")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Add a compatible match for MT8188 efuse with post-processing enabled.
 
-The issue this fixes ("the whole world is exposed to i.MX SCMI firmware
-questions") is now in v6.13-rc4.
+Cc: <stable@vger.kernel.org>
+Fixes: ff1df1886f43 ("dt-bindings: nvmem: mediatek: efuse: Add support for MT8188")
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
 
-> --- a/drivers/firmware/imx/Kconfig
-> +++ b/drivers/firmware/imx/Kconfig
-> @@ -25,6 +25,7 @@ config IMX_SCU
->
->  config IMX_SCMI_MISC_DRV
->         tristate "IMX SCMI MISC Protocol driver"
-> +       depends on ARCH_MXC || COMPILE_TEST
->         default y if ARCH_MXC
->         help
->           The System Controller Management Interface firmware (SCMI FW) i=
-s
+I'm not exactly sure about pointing to the dt bindings commit for the
+fixes tag.
+---
+ drivers/nvmem/mtk-efuse.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Gr{oetje,eeting}s,
+diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
+index af953e1d9230..e8409e1e7fac 100644
+--- a/drivers/nvmem/mtk-efuse.c
++++ b/drivers/nvmem/mtk-efuse.c
+@@ -112,6 +112,7 @@ static const struct mtk_efuse_pdata mtk_efuse_pdata = {
+ static const struct of_device_id mtk_efuse_of_match[] = {
+ 	{ .compatible = "mediatek,mt8173-efuse", .data = &mtk_efuse_pdata },
+ 	{ .compatible = "mediatek,mt8186-efuse", .data = &mtk_mt8186_efuse_pdata },
++	{ .compatible = "mediatek,mt8188-efuse", .data = &mtk_mt8186_efuse_pdata },
+ 	{ .compatible = "mediatek,efuse", .data = &mtk_efuse_pdata },
+ 	{/* sentinel */},
+ };
+-- 
+2.47.1.613.gc27f4b7a9f-goog
 
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
