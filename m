@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5731AE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F74E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 10:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enmGRB08NO3QtmnFWnrY/j35Ct4goMW51ko1m6ZxXIE=; b=JYsG1hKgxqaY40DL17RTig72j4
-	UzZR7scnntfcURLpakgqB2Pv8Dz4y7fvWTA6EpYtcvLhhD/4p5eMdhxJubXgwwU14Sb4IF+Ko+9sw
-	HkN2O5PjjdaWKm3z7e2R2YMSaos1bWgESGP+HF6sdhonYyXnl3G558ZlHi4nVLnw33KC5FuNceyS3
-	MPtwHcZ038Qp2JGF/7AWoWKCWRnDJvV3EoWPzWc33x7EZ/voFt1qkxnl29dO0s08FMfvSBX6lIhQG
-	a8lnD1pKQapA+26i7qD+NA8rzJyxd32ujpfsc2fu9S0bV/EMGXpSYrcDLag/1JLDoWmpe1xni6r7W
-	uwYdoGkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LpcAPRrti2Mspwvvh0HkUfdkgM+x6sKmtKugtmBINFQ=; b=hgMEVeIE9l1vEHtOAHnTFrSZHH
+	b3eGRIe9zDM6e+5vH5fAgn42wPpHXkH4Wnb17hVczOL84XmrvyA5Su3Og6NyZWtBP1AFniHF2ZePu
+	hbNvCabeA4eZDdRTqrz9hV9EkX72r16iNcvRzp6axnB/YV44L61eROQfhqVyyYq+A1VhlmRZcyDh1
+	EO6gldO6SoJI9YMsSJQuLWiiEy9Z4yJNPuM5OVLnQjuazC8VTMgMMApb/TbeYwSWp66Zkqu9Tbgtz
+	ZMQD5kbE+X9vblTeMrfd4d6zmSnoLpHzKabYIDf/lz1S7wWQ99QP9Z2wuiqKL7Adn+YsZADMcuUDC
+	2qt4I6Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfXC-00000009mTN-19aQ;
-	Mon, 23 Dec 2024 10:19:34 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tPff9-00000009n8Y-0693;
+	Mon, 23 Dec 2024 10:27:47 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPfVQ-00000009m7d-2JOX;
-	Mon, 23 Dec 2024 10:17:45 +0000
+	id 1tPfdw-00000009mzx-14zs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Dec 2024 10:26:34 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5401bd6ccadso4475327e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 02:26:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1734949590; x=1735554390; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LpcAPRrti2Mspwvvh0HkUfdkgM+x6sKmtKugtmBINFQ=;
+        b=lzgFCarX3QkfsAbcX/dxESO4I2dV/RXxVxtOuOdkQCZglb5X9yoNSXkw/V9rxkGw+q
+         5O7yOqDg+wsXddQa4Rwe8XMoLQY51CgPmitpqBKwYxdi/pUhekIq7W1j5sCHCyjyzjED
+         wwCJe61pQ5hLMAV6oBZJwh29iJkp1pFWlRAf8bszkwd6yxYMeO9OpIGrSkK84g7R6nz9
+         O9IFuY1qwpOavz6+nPPbOHdt1ypQZAzOV6jj6Vg5XZYFBbww+EwEASCYONQCXQ2hjaof
+         Sv6Yk/zwOAmX+bPGQasuu1WwtABgYDz7o/xgCJCDSrkYXc5AUAk/E+U/tYID/U9p89u3
+         iyow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734949590; x=1735554390;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LpcAPRrti2Mspwvvh0HkUfdkgM+x6sKmtKugtmBINFQ=;
+        b=gUlFMJEU2lFmtTlCzkvqSmZ4Omr3iSxZ1gpJWhB+4jGlLD8YdtHuLPNaMsPI5ejhof
+         ps819pIDeGGjYaGzNjONKsI34Jf/b0zW/gGFGRFF0XFupA5hHWhS335KV5nLC1SM6nZP
+         DdYatg6OkPfunjQeYKaav55W+iieXeNznasvd3e33XFNE52dK7eJlf+FHTCxOFT1/q4w
+         HsMbCUxukIu5ffbwedKFO1WuwE1RdypMPEk0R+bIxEd5qFDSN8nZ5gZAfg8LKb4XBHK4
+         QHoUyYM0OTP9hI+tpuPgUImcYJkSs0J9acTecn0wXj93gtVShq8cfWVEVSmnwalVi9go
+         x4HQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUW+OwKjA2HjMFmFN5z84sakrEMC8iGKVrxyMO90Y0ICMN2TBxfeK9cz7MYBdf1fi6WG7Idl6L273H99VtxHAFx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyromkiQ6ohnsP5hpq3c0ZxBwGjV7UYSu2lLB40Ow3Bj3CGb2xv
+	10AGM/tph9eGGGWlm/osEozFWcF/E7d7KEdmEgxtMgquK/HvdFhwL/Q4gaJLpQI=
+X-Gm-Gg: ASbGncsNfA+poviGEh0AncG+N/wgA8kGmHIquUKeTXBmFj7EBPti7zFgXzzQ/YGhPev
+	Xnv133HXrKZDMBgxkVSVVoFMFRNJCFACBKBk1WwXKz5PQQgqOAFjz0gkiEhB3MJzadklsbbrIuO
+	U4G8bPoKrI7VkRTRc3XIz6G4o4+1rMxj5u7QcxwqRwhsjrFnU6Ygn1yaHVoxRaY81mcVQsVi/3H
+	HGtl53Uqm/VVtFyJ7PE41tmpcP44OZiBF9CoWMY73sZxG4ak3M8fdWczPsBNeSaQpJ8zxYUpxof
+	c7D3hL33PtOCm1EBbStBSy8U4W9mHdBTvR3z
+X-Google-Smtp-Source: AGHT+IFbBpruzFpAgIIU0n0/jwU07GmTaDXBwkrAj3El2zSPjw4bqzUyTtJuARVLHLA0cBnGaJX8lw==
+X-Received: by 2002:a05:6512:1044:b0:542:218a:71a with SMTP id 2adb3069b0e04-5422953ac6bmr3140370e87.26.1734949589912;
+        Mon, 23 Dec 2024 02:26:29 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f5efbsm1241435e87.39.2024.12.23.02.26.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Dec 2024 02:26:29 -0800 (PST)
+Date: Mon, 23 Dec 2024 12:26:27 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
+	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
+	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, 
+	u.kleine-koenig@baylibre.com, francesco@dolcini.it, frank.li@nxp.com
+Subject: Re: [PATCH v7 03/19] dt-bindings: display: imx: Add i.MX8qxp Display
+ Controller display engine
+Message-ID: <kpem2w4wu7ywc5pvbk3ls5hsyttrwcylomzfh567ejlxkymeqd@cujrbfxgrntc>
+References: <20241223064147.3961652-1-victor.liu@nxp.com>
+ <20241223064147.3961652-4-victor.liu@nxp.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1734949062;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=enmGRB08NO3QtmnFWnrY/j35Ct4goMW51ko1m6ZxXIE=;
-	b=OS6lF9DA3Qk56GSVsHBoA4h/fjqlpxfSN90yeEsrNDQqipZ75LyawXRLUOupkoFB+jtvSQ
-	8e+hh/d3Fy895oHRhXzAw9fB5oDpvosl8xHP/CTroTzSlfqv9wdmuHBt50Pfx9ACjmNNhR
-	5cC76hhTuFWsL2crVeHQGFxlxhkBhKkVEodCtkfKf3N9AoCA5UgWLrV6jSz4TZSCbGiEC3
-	/+4T+wN4YSi96It+UCRalHnGu2eKDdbz5cZUM3DalRXJ0kTwWbWUlQTLQKu1ePrLehqHec
-	EYH53Xpm9QvXi9urcH18XEc26NhOocnLusK7BXwy67QomvFsHkBta2N5OAKYgQ==
-Date: Mon, 23 Dec 2024 11:17:42 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: FUKAUMI Naoki <naoki@radxa.com>, heiko@sntech.de, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de,
- jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com,
- liujianfeng1994@gmail.com, dmt.yashin@gmail.com, tim@feathertop.org,
- marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net,
- alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E52C
-In-Reply-To: <87zfkmrb4u.wl-maz@kernel.org>
-References: <20241222030355.2246-1-naoki@radxa.com>
- <20241222030355.2246-4-naoki@radxa.com> <87zfkmrb4u.wl-maz@kernel.org>
-Message-ID: <2a00f25b95cca5f43631188c996d98b9@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241223064147.3961652-4-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_021744_751353_031F9FBF 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20241223_022632_311212_12188B9B 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +105,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marc,
+On Mon, Dec 23, 2024 at 02:41:31PM +0800, Liu Ying wrote:
+> i.MX8qxp Display Controller display engine consists of all processing units
+> that operate in a display clock domain.
+> 
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> v7:
+> * Drop DT alias documentations and add instance numbers to compatible strings.
+>   (Rob)
+> 
+> v6:
+> * No change.
+> 
+> v5:
+> * Document aliases.  Drop Rob's previous R-b tag. (Maxime)
+> 
+> v4:
+> * Collect Rob's R-b tag.
+> 
+> v3:
+> * No change.
+> 
+> v2:
+> * Drop fsl,dc-*-id DT properties. (Krzysztof)
+> * Drop port property. (Krzysztof)
+> * Fix register range sizes in example.
+> 
+>  .../imx/fsl,imx8qxp-dc-display-engine0.yaml   | 235 ++++++++++++++++++
+>  1 file changed, 235 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-display-engine0.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-display-engine0.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-display-engine0.yaml
+> new file mode 100644
+> index 000000000000..60d1e0a4a5dd
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-display-engine0.yaml
+> @@ -0,0 +1,235 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/imx/fsl,imx8qxp-dc-display-engine0.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Freescale i.MX8qxp Display Controller Display Engine
+> +
+> +description:
+> +  All Processing Units that operate in a display clock domain. Pixel pipeline
+> +  is driven by a video timing and cannot be stalled. Implements all display
+> +  specific processing.
+> +
+> +maintainers:
+> +  - Liu Ying <victor.liu@nxp.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - fsl,imx8qxp-dc-display-engine0
+> +      - fsl,imx8qxp-dc-display-engine1
 
-On 2024-12-23 10:39, Marc Zyngier wrote:
-> On Sun, 22 Dec 2024 03:03:55 +0000,
-> FUKAUMI Naoki <naoki@radxa.com> wrote:
->> 
->> Radxa E52C is a compact network computer[1] based on the Rockchip
->> RK3582 SoC:
->> 
->> - Dual Cortex-A76 and quad Cortex-A55 CPU
-> 
-> So you have *two* big cores.
-> 
->> - 5TOPS NPU
->> - 2GB/4GB/8GB LPDDR4 RAM
->> - 16GB/32GB/64GB on-board eMMC
->> - microSD card slot
->> - USB 3.0 Type-A HOST port
->> - USB Type-C debug port
->> - USB Type-C power port (5V only)
->> - 2x 2.5GbE ports
->> 
->> [1] https://radxa.com/products/network-computer/e52c
->> 
->> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
->> ---
->>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->>  .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 729 
->> ++++++++++++++++++
->>  2 files changed, 730 insertions(+)
->>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-> 
-> [...]
-> 
->> +&cpu_b0 {
->> +	cpu-supply = <&vdd_cpu_big0_s0>;
->> +};
->> +
->> +&cpu_b1 {
->> +	cpu-supply = <&vdd_cpu_big0_s0>;
->> +};
->> +
->> +&cpu_b2 {
->> +	cpu-supply = <&vdd_cpu_big1_s0>;
->> +};
->> +
->> +&cpu_b3 {
->> +	cpu-supply = <&vdd_cpu_big1_s0>;
->> +};
-> 
-> And yet you configure 4. If your HW only has 2 A76s, surely something
-> should remove these cores for this platform rather than keep them
-> around.
+Is there actual difference between engines 0 and 1? If there is none,
+why are you artificially adding one here?
 
-Indeed, U-Boot will do that, based on the efuses that contain the
-data required to determine which CPU cores (and/or clusters) are
-defective and need to be marked as disabled.
+> +
+> +  reg:
+> +    maxItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: top
+> +      - const: cfg
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 3
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: shdload
+> +      - const: framecomplete
+> +      - const: seqcomplete
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+> +
+> +  ranges: true
+> +
+> +patternProperties:
+> +  "^dither@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: true
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - fsl,imx8qxp-dc-dither0
+> +          - fsl,imx8qxp-dc-dither1
+> +
+> +  "^framegen@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: true
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - fsl,imx8qxp-dc-framegen0
+> +          - fsl,imx8qxp-dc-framegen1
+> +
+> +  "^gammacor@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: true
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - fsl,imx8qxp-dc-gammacor0
+> +          - fsl,imx8qxp-dc-gammacor1
+> +
+> +  "^matrix@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: true
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - fsl,imx8qxp-dc-matrix0
+> +          - fsl,imx8qxp-dc-matrix1
+> +
+> +  "^signature@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: true
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - fsl,imx8qxp-dc-signature0
+> +          - fsl,imx8qxp-dc-signature1
+> +
+> +  "^tcon@[0-9a-f]+$":
+> +    type: object
+> +    additionalProperties: true
+> +
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - fsl,imx8qxp-dc-tcon0
+> +          - fsl,imx8qxp-dc-tcon1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - power-domains
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - ranges
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx8qxp-dc-display-engine0
+> +    then:
+> +      patternProperties:
+> +        "^dither@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-dither0
+> +
+> +        "^framegen@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-framegen0
+> +
+> +        "^gammacor@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-gammacor0
+> +
+> +        "^matrix@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-matrix0
+> +
+> +        "^signature@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-signature0
+> +
+> +        "^tcon@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-tcon0
+> +    else:
+> +      patternProperties:
+> +        "^dither@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-dither1
+> +
+> +        "^framegen@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-framegen1
+> +
+> +        "^gammacor@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-gammacor1
+> +
+> +        "^matrix@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-matrix1
+> +
+> +        "^signature@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-signature1
+> +
+> +        "^tcon@[0-9a-f]+$":
+> +          properties:
+> +            compatible:
+> +              const: fsl,imx8qxp-dc-tcon1
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/imx8-lpcg.h>
+> +    #include <dt-bindings/firmware/imx/rsrc.h>
+> +
+> +    display-engine@5618b400 {
+> +        compatible = "fsl,imx8qxp-dc-display-engine0";
+> +        reg = <0x5618b400 0x14>, <0x5618b800 0x1c00>;
+> +        reg-names = "top", "cfg";
+> +        interrupt-parent = <&dc0_intc>;
+> +        interrupts = <15>, <16>, <17>;
+> +        interrupt-names = "shdload", "framecomplete", "seqcomplete";
+> +        power-domains = <&pd IMX_SC_R_DC_0_PLL_0>;
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        ranges;
+> +
+> +        framegen@5618b800 {
+> +            compatible = "fsl,imx8qxp-dc-framegen0";
+> +            reg = <0x5618b800 0x98>;
+> +            clocks = <&dc0_disp_lpcg IMX_LPCG_CLK_0>;
+> +            interrupt-parent = <&dc0_intc>;
+> +            interrupts = <18>, <19>, <20>, <21>, <41>, <42>, <43>, <44>;
+> +            interrupt-names = "int0", "int1", "int2", "int3",
+> +                              "primsync_on", "primsync_off",
+> +                              "secsync_on", "secsync_off";
+> +        };
+> +
+> +        tcon@5618c800 {
+> +            compatible = "fsl,imx8qxp-dc-tcon0";
+> +            reg = <0x5618c800 0x588>;
+> +
+> +            port {
+> +                dc0_disp0_dc0_pixel_combiner_ch0: endpoint {
+> +                    remote-endpoint = <&dc0_pixel_combiner_ch0_dc0_disp0>;
+> +                };
+> +            };
+> +        };
+> +    };
+> -- 
+> 2.34.1
+> 
 
-Maybe we should add a comment block above the "cpu_b0" node, to
-describe that a bit better.  Perhaps something like this:
-
-   /*
-    * In the Rockchip RK3582 SoC, some CPU cores end up disabled
-    * and unused because they're marked in the efuses as defective.
-    * The disabling in the DT is performed by the boot loader.
-    */
+-- 
+With best wishes
+Dmitry
 
