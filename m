@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2000DE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 12:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94406E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 12:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TWZpIghZm4WCnhsm3I2lUfVTYlScU6SNLBl37JCT7DY=; b=2qEGQKgnT+V/3tsOh64g1wfMTz
-	h3xKIr9mUv2chkfupe8PSllxvLXV+FwTL1iLkLjKVSmSUtXT8zUzQnRmVup0sDShICx9jE/RgGNMq
-	WXISq9zcKXUyc2WTAAG3SCgOPrZdtOldOjQ4kcJtpazctafj2QX6EUMMoXUaSi2OpEvQPj7Ft0TkX
-	9KWinx4I6ds+2WlI3E9U37qZK5rqD4ayZNY7MwlfhUF5vQtAzn4VRkPgna+KiSvPcc4mkRFwJGZbU
-	fXZipf/73EkyXv/tMvL6awkg7RqmsjpS2EYy6pwXYbE+5W87o1Ugfz5kZIZ2vgpOMuQvwvCACRyBN
-	/SeeD0og==;
+	bh=2Qf+YUbeuu52wL7kxC7BWmvVxng96hjAHpT9Pitq6Kw=; b=HfC0H2mBu6Z9m+OARbZVaWeuWA
+	M30RHVx0F2n/ZAf0n8y8qYb3j/Av5oyAiHdTTyDT66XGKi6gUxUoHksTwFGsp2Fpx5A2IWkh5rndN
+	59fPi8hjVdGyDBgXemWzK1iwKqkxc7jFTvz3IF07kMpru/wv8mDNOzPG1627kEEVCUsAk0QjSC9y3
+	vi/mCsMK+AJ6GbCr8V8+Uq4NjZEGCvLqRCwMKWuBkwVY9wZPc44wr7OBlu3yYAxE1RlT0DCu1Kl/m
+	e0D/dvDdKKZsSluL31q7KP2o9tkrXaBabBDYfGi+VMtc/wxdz5dpnw95qIpRw2RN8f54/kdiyc1CG
+	yv2VVSag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPhws-0000000A15t-0kZC;
-	Mon, 23 Dec 2024 12:54:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tPhy0-0000000A1Bw-3c7A;
+	Mon, 23 Dec 2024 12:55:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPhv2-0000000A0nD-2SwS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 12:52:22 +0000
+	id 1tPhv6-0000000A0nZ-140H;
+	Mon, 23 Dec 2024 12:52:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7D6F4A40D40;
-	Mon, 23 Dec 2024 12:50:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F0CC4CED3;
-	Mon, 23 Dec 2024 12:52:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7CA105C58E0;
+	Mon, 23 Dec 2024 12:51:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3E48C4CED3;
+	Mon, 23 Dec 2024 12:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734958339;
-	bh=fQyGfMP5G3QnK19cBAbhAuvSiPllcK5M+M1hagDsJVI=;
+	s=k20201202; t=1734958343;
+	bh=DZLOOBiciJyhBDbKsGMbSYPglw0YxTgZsF13HIoYz+M=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=pUk0LFZD0skjMWCJv5O0KqgwEl0vHpncV4dG1B3QFK3VSx42qeUapsXD7z1afywWL
-	 KCv0NgRFk9nibiRVG3TKJoDr/f75kz+2uu+z4T+HB7mHr6IDuXPzwEBzrETEaAOokh
-	 taBo1RaTUSYUoIDEJ6o/SlrWbK2kE6bMmNBCOpJ0beqezETeRmdcTbaW2xyl9SptSz
-	 xLvu8okNYiMTjIH8T8fnVV8glsNcPjGVMwX+QkMxz6KehC0JEJd9fZjUkYnPvAz/el
-	 fqnb7ZricTL1Dc2eOVY/P40dzx8EIdmxcSSJ9EVZvbq/B86K6wJ0q0z9aUgYbUKI7M
-	 m1ZJm2EWg9wlQ==
-Date: Mon, 23 Dec 2024 06:52:17 -0600
+	b=nbcVR4s6J3hbdtJ9pz2NUcqJSVhM2pStEpJ0Pwzw1QiQvpS9Jz63F0VCghs0zpkjS
+	 UQg5VIhMx+Ck8WYPRy97+PfuwVCCm/onNwk1kWnSw08v2koP7NHThRg+xfssOgZ2WV
+	 Zjex9HxkPbwqQPT4T7V6y4jRjd0MrxvGE6GB/yybVzC5AZ1V9tQvJh1e4tEEL+/E/Y
+	 U4gI3+Huui1A7SSwOCj6/RST2iURB/SHYhNnAsvJ5Ym4Yt3LMkRykum3dVs3R0so2J
+	 MUkkFKTkodryU/Z8Aj/I1PdDGbmRg5nYRNNEQ2vT/DyiAg0QJS1b/WGazZ/r9RQogB
+	 PVrtDFaZQ1Qeg==
+Date: Mon, 23 Dec 2024 06:52:21 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Kevin Hilman <khilman@baylibre.com>, Nishanth Menon <nm@ti.com>, 
- Santosh Shilimkar <ssantosh@kernel.org>, Tero Kristo <kristo@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Dhruva Gole <d-gole@ti.com>, 
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Vishal Mahaveer <vishalm@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
- devicetree@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>, 
- Anand Gadiyar <gadiyar@ti.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>
-In-Reply-To: <20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com>
-References: <20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com>
-Message-Id: <173495824633.503645.15056603146383126846.robh@kernel.org>
-Subject: Re: [PATCH v4 0/4] firmware: ti_sci: Partial-IO support
+Cc: tglx@linutronix.de, liujianfeng1994@gmail.com, heiko@sntech.de, 
+ marcin.juszkiewicz@linaro.org, krzk+dt@kernel.org, tim@feathertop.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ macromorgan@hotmail.com, conor+dt@kernel.org, jonas@kwiboo.se, 
+ sebastian.reichel@collabora.com, andyshrk@163.com, dmt.yashin@gmail.com, 
+ jbx6244@gmail.com, maz@kernel.org, alchark@gmail.com, dsimic@manjaro.org, 
+ linux-rockchip@lists.infradead.org, michael.riesch@wolfvision.net
+To: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20241222030355.2246-1-naoki@radxa.com>
+References: <20241222030355.2246-1-naoki@radxa.com>
+Message-Id: <173495825045.503766.3208217124829960779.robh@kernel.org>
+Subject: Re: [PATCH 0/3] rockchip: Add support for RK3582
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_045220_769237_B0A39E43 
-X-CRM114-Status: GOOD (  34.31  )
+X-CRM114-CacheID: sfid-20241223_045224_382885_E1E13546 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,128 +76,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 19 Dec 2024 21:02:11 +0100, Markus Schneider-Pargmann wrote:
-> Hi,
+On Sun, 22 Dec 2024 03:03:52 +0000, FUKAUMI Naoki wrote:
+> Rockchip RK3582 is a scaled down version of Rockchip RK3588(S).
 > 
-> Series
-> ------
-> Partial-IO is a poweroff SoC state with a few pingroups active for
-> wakeup. This state can be entered by sending a TI_SCI PREPARE_SLEEP
-> message.
+> - Dual Cortex-A76 and quad Cortex-A55 CPU
+> - No GPU
+> - 5TOPS NPU
+> - H.264/H.265 video encoder up to 4K@60fps
 > 
-> The message is sent on poweroff if one of the potential wakeup sources
-> for this power state are wakeup enabled. The potential wakeup sources
-> are found by looking for devices that list "poweroff" in the
-> wakeup-source property in the devicetree. The wakeup sources can be
-> individually enabled/disabled by the user in the running system.
+> This patch series adds RK3582 support to the GIC and the Radxa E52C
+> compact network computer.
 > 
-> The series is based on v6.13-rc1.
+> FUKAUMI Naoki (3):
+>   irqchip/gic-v3: Enable Rockchip 3588001 erratum workaround for RK3582
+>   dt-bindings: arm: rockchip: Add Radxa E52C
+>   arm64: dts: rockchip: Add Radxa E52C
 > 
-> Partial-IO
-> ----------
-> This series is part of a bigger topic to support Partial-IO on am62,
-> am62a and am62p. Partial-IO is a poweroff state in which some pins are
-> able to wakeup the SoC. In detail MCU m_can and two serial port pins can
-> trigger the wakeup.
-> A documentation can also be found in section 6.2.4 in the TRM:
->   https://www.ti.com/lit/pdf/spruiv7
+>  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 729 ++++++++++++++++++
+>  drivers/irqchip/irq-gic-v3-its.c              |   3 +-
+>  4 files changed, 737 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
 > 
-> This other series is relevant for the support of Partial-IO:
-> 
->  - can: m_can: Add am62 wakeup support
->    https://lore.kernel.org/r/20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com
->    https://gitlab.baylibre.com/msp8/linux/-/tree/topic/mcan-wakeup-source/v6.13?ref_type=heads
-> 
-> Testing
-> -------
-> 
-> A test branch is available here that includes all patches required to
-> test Partial-IO:
-> 
-> https://gitlab.baylibre.com/msp8/linux/-/tree/integration/am62-partialio/v6.13?ref_type=heads
-> 
-> After enabling Wake-on-LAN the system can be powered off and will enter
-> the Partial-IO state in which it can be woken up by activity on the
-> specific pins:
->     ethtool -s can0 wol p
->     ethtool -s can1 wol p
->     poweroff
-> 
-> I tested these patches on am62-lp-sk.
-> 
-> Best,
-> Markus
-> 
-> Previous versions:
->  v1: https://lore.kernel.org/lkml/20240523080225.1288617-1-msp@baylibre.com/
->  v2: https://lore.kernel.org/lkml/20240729080101.3859701-1-msp@baylibre.com/
->  v3: https://lore.kernel.org/r/20241012-topic-am62-partialio-v6-13-b4-v3-0-f7c6c2739681@baylibre.com
-> 
-> Changes in v4:
->  - Rebased to v6.13-rc1
->  - Removed all regulator related structures from patches and implemented
->    the wakeup-source property use instead.
-> 
-> Changes in v3:
->  - Remove other modes declared for PREPARE_SLEEP as they probably won't
->    ever be used in upstream.
->  - Replace the wait loop after sending PREPARE_SLEEP with msleep and do
->    an emergency_restart if it exits
->  - Remove uarts from DT wakeup sources
->  - Split no response handling in ti_sci_do_xfer() into a separate patch
->    and use goto instead of if ()
->  - Remove DT binding parital-io-wakeup-sources. Instead I am modeling
->    the devices that are in the relevant group that are powered during
->    Partial-IO with the power supplies that are externally provided to
->    the SoC. In this case they are provided through 'vddshv_canuart'. All
->    devices using this regulator can be considered a potential wakeup
->    source if they are wakeup capable and wakeup enabled.
->  - Added devicetree patches adding vcc_3v3_sys regulator and
->    vddshv_canuart for am62-lp-sk
->  - Add pinctrl entries for am62-lp-sk to add WKUP_EN for mcu_mcan0 and
->    mcu_mcan1
-> 
-> Changes in v2:
->  - Rebase to v6.11-rc1
->  - dt-binding:
->     - Update commit message
->     - Add more verbose description of the new binding for a better
->       explanation.
->  - ti_sci driver:
->     - Combine ti_sci_do_send() into ti_sci_do_xfer and only wait on a
->       response if a flag is set.
->     - On failure to enter Partial-IO, do emergency_restart()
->     - Add comments
->     - Fix small things
-> 
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
-> ---
-> Markus Schneider-Pargmann (4):
->       firmware: ti_sci: Support transfers without response
->       firmware: ti_sci: Partial-IO support
->       arm64: dts: ti: k3-pinctrl: Add WKUP_EN flag
->       arm64: dts: ti: am62-lp-sk: Add wakeup mcu_mcan0/1 pinctrl
-> 
->  arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts |  52 +++++++++++++
->  arch/arm64/boot/dts/ti/k3-pinctrl.h      |   3 +
->  drivers/firmware/ti_sci.c                | 122 ++++++++++++++++++++++++++++++-
->  drivers/firmware/ti_sci.h                |   5 ++
->  4 files changed, 181 insertions(+), 1 deletion(-)
-> ---
-> base-commit: cbc4912199deab59fdbd830b115d81941d0add46
-> change-id: 20241008-topic-am62-partialio-v6-12-b4-c273fbac4447
-> prerequisite-change-id: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8:6
-> prerequisite-patch-id: eba4f2096c69d9c734a4a4491e062bd8b01d26fd
-> prerequisite-patch-id: 830b339ea452edd750b04f719da91e721be630cb
-> prerequisite-patch-id: 56fd0aae20e82eb2dfb48f1b7088d62311a11f05
-> prerequisite-patch-id: 41f55b96c0428240d74d488e3c788c09842a1753
-> prerequisite-patch-id: 4ab7269193dbcfd449349ccd41b23914bbbdaa6b
-> prerequisite-patch-id: 24a735db927cbe2b1e0c6c5f3985b6676ce5528c
-> prerequisite-patch-id: 52dbbf390d3f7e4a3859e60e4f660bfe39b92cd9
-> 
-> Best regards,
 > --
-> Markus Schneider-Pargmann <msp@baylibre.com>
+> 2.43.0
 > 
 > 
 > 
@@ -218,24 +120,28 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y ti/k3-am62-lp-sk.dtb' for 20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com:
+New warnings running 'make CHECK_DTBS=y rockchip/rk3582-radxa-e52c.dtb' for 20241222030355.2246-1-naoki@radxa.com:
 
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: can@4e08000: wakeup-source: 'oneOf' conditional failed, one must be fixed:
-	['suspend', 'poweroff'] is not of type 'boolean'
-	['suspend', 'poweroff'] is too long
-	from schema $id: http://devicetree.org/schemas/net/can/bosch,m_can.yaml#
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: can@4e08000: Unevaluated properties are not allowed ('wakeup-source' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/can/bosch,m_can.yaml#
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: can@4e08000: wakeup-source: ['suspend', 'poweroff'] is not of type 'boolean'
-	from schema $id: http://devicetree.org/schemas/wakeup-source.yaml#
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: can@4e18000: wakeup-source: 'oneOf' conditional failed, one must be fixed:
-	['suspend', 'poweroff'] is not of type 'boolean'
-	['suspend', 'poweroff'] is too long
-	from schema $id: http://devicetree.org/schemas/net/can/bosch,m_can.yaml#
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: can@4e18000: Unevaluated properties are not allowed ('wakeup-source' was unexpected)
-	from schema $id: http://devicetree.org/schemas/net/can/bosch,m_can.yaml#
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: can@4e18000: wakeup-source: ['suspend', 'poweroff'] is not of type 'boolean'
-	from schema $id: http://devicetree.org/schemas/wakeup-source.yaml#
+arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: adc-keys: 'key-vendor' does not match any of the regexes: '^button-', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/input/adc-keys.yaml#
+arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: pwm-leds: led-1:linux,default-trigger: 'oneOf' conditional failed, one must be fixed:
+	'r8169-4-4100:00:link' is not one of ['backlight', 'default-on', 'heartbeat', 'disk-activity', 'disk-read', 'disk-write', 'timer', 'pattern', 'audio-micmute', 'audio-mute', 'bluetooth-power', 'flash', 'kbd-capslock', 'mtd', 'nand-disk', 'netdev', 'none', 'rc-feedback', 'torch', 'usb-gadget', 'usb-host', 'usbport']
+	'r8169-4-4100:00:link' does not match '^cpu[0-9]*$'
+	'r8169-4-4100:00:link' does not match '^hci[0-9]+-power$'
+	'r8169-4-4100:00:link' does not match '^mmc[0-9]+$'
+	'r8169-4-4100:00:link' does not match '^phy[0-9]+tx$'
+	from schema $id: http://devicetree.org/schemas/leds/leds-pwm.yaml#
+arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: pwm-leds: led-1: Unevaluated properties are not allowed ('linux,default-trigger' was unexpected)
+	from schema $id: http://devicetree.org/schemas/leds/leds-pwm.yaml#
+arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: pwm-leds: led-2:linux,default-trigger: 'oneOf' conditional failed, one must be fixed:
+	'r8169-3-3100:00:link' is not one of ['backlight', 'default-on', 'heartbeat', 'disk-activity', 'disk-read', 'disk-write', 'timer', 'pattern', 'audio-micmute', 'audio-mute', 'bluetooth-power', 'flash', 'kbd-capslock', 'mtd', 'nand-disk', 'netdev', 'none', 'rc-feedback', 'torch', 'usb-gadget', 'usb-host', 'usbport']
+	'r8169-3-3100:00:link' does not match '^cpu[0-9]*$'
+	'r8169-3-3100:00:link' does not match '^hci[0-9]+-power$'
+	'r8169-3-3100:00:link' does not match '^mmc[0-9]+$'
+	'r8169-3-3100:00:link' does not match '^phy[0-9]+tx$'
+	from schema $id: http://devicetree.org/schemas/leds/leds-pwm.yaml#
+arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: pwm-leds: led-2: Unevaluated properties are not allowed ('linux,default-trigger' was unexpected)
+	from schema $id: http://devicetree.org/schemas/leds/leds-pwm.yaml#
 
 
 
