@@ -4,68 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1352E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 18:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34CEE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 18:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4t2rLeJPPFsjEvkjlVgNQs2piwJ6laYNqFlFrxfMDY=; b=b7Av5QKTGNMp4mOEWhWc03F1HV
-	JVZ6EYiRlZvV2PLW+azkx6bE/zjybkK1ErEvUmveyUQCrWdHDJcoxeYNeQnSFoJ6QQ0y4uLY0A6+u
-	XZnjBLqs2jSB2aegHRj4LoM2iR1oCNrk16Aqo+J3n3Sj8gMYU8k0H95lCEoGK5mXwGoavuIbS70/O
-	hRmOA/KgAOsqFuY4+4mDZBwB605KVuh4PhNNECZUuGAKQO4mSgg8At7yxSvu4tJhUd3PEogozIKZt
-	nARpoieqQM78M9nX+1LX60c2jJkM8w2zDQe0fzUK77IjT1f8BI7k+UxURImgshD87Gb27Ht9L/lWN
-	zPpEhkGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lkVriRzY6jEkSOkT+b80vjxIvV8qyrRQFQxaAKrgBN8=; b=r+fvh9ZRNo0+gBGrD2cuYIVPWc
+	bgf2c/9DLOyaktoj3p+UXxTNgOPSfjco0XhGO+PLktg0pJ7UHUxo3SdAB/O2j83u5jHHbU/mr1BxS
+	dv6xLBD9yPRPTLkLPWmlgIiSVmzCDHL4bo4iUWoH7E5j8IaoRh0jGt5pTNLGdk9v4Kf2OrJtm3cLp
+	gpEOG/6TzAlofDwie0OeQRZ+TwCMgAVCS85D5QjoMdw/DqVfNpd/UWuReT1DCJwFIfgxD5d36zeic
+	zyoCPJwLQD0jLY6UMmOArTva0tyGyr7TQFMc0W0/4nTdqb88Gg7iHvPVA7kfaniE07b+j0IwNMd2x
+	h08dkiTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPnWa-0000000Aa74-3VgR;
-	Mon, 23 Dec 2024 18:51:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPnVO-0000000AZvb-2cj4
+	id 1tPnZp-0000000AaMV-2nmT;
+	Mon, 23 Dec 2024 18:54:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tPnYd-0000000AaI4-1qxp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 18:50:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 07F9A5C5A9F;
-	Mon, 23 Dec 2024 18:49:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 835EBC4CED3;
-	Mon, 23 Dec 2024 18:50:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734979812;
-	bh=NH8cm01y4TohlhDTWom0A4FVC6Z/AeDlJSvGBZtizHU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=O6hg/C1rQmNnnOdlQxObtBNox0FSgSDz/mczHP0yGc91C/yAFHIovtQMcMVGMKjbN
-	 sCOkuPfzp6+Hr3DSKNQEvI9hpC8mp2mcQ7BOCdv+uHRkO70a2S+iQwoFeQ8obnwv9S
-	 9ku0ATubmIMEussYDgadNHGOi735WT9sHqLLouMhlxzMtnSig/IvA2YEmK1mR7BYXC
-	 aunRSgznwyKdMr7oF0uZBlIYr3APU8zgd5s5SIghPzAeO/sl07y6tlEKfirzOzw0wV
-	 ycvCC/s+AOs+huoUBVYy7g32uDzofx5ZKjIwc9B9CJ0nfpBY8Otc8pm4OAN4ipPxi7
-	 5+RvO/z1w9Egg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C973805DB2;
-	Mon, 23 Dec 2024 18:50:32 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 23 Dec 2024 18:53:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5939E1424;
+	Mon, 23 Dec 2024 10:54:00 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BAAA83F59E;
+	Mon, 23 Dec 2024 10:53:30 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v2] coresight: prevent deactivate active config while enable the config
+Date: Mon, 23 Dec 2024 18:53:28 +0000
+Message-Id: <20241223185328.1339616-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw: default to round-robin for
- host port receive
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173497983102.3929264.4619401793020862332.git-patchwork-notify@kernel.org>
-Date: Mon, 23 Dec 2024 18:50:31 +0000
-References: <20241220075618.228202-1-s-vadapalli@ti.com>
-In-Reply-To: <20241220075618.228202-1-s-vadapalli@ti.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, rogerq@kernel.org, horms@kernel.org,
- dan.carpenter@linaro.org, c-vankar@ti.com, jpanis@baylibre.com,
- npitre@baylibre.com, stable@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- vigneshr@ti.com, srk@ti.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_105014_715237_F74DCFE0 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241223_105335_576689_6D0B7DF2 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +65,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+While enable active config via cscfg_csdev_enable_active_config(),
+active config could be deactivated via configfs' sysfs interface.
+This could make UAF issue in below scenario:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+CPU0                                          CPU1
+(sysfs enable)                                load module
+                                              cscfg_load_config_sets()
+                                              activate config. // sysfs
+                                              (sys_active_cnt == 1)
+...
+cscfg_csdev_enable_active_config()
+  lock(csdev->cscfg_csdev_lock)
+  // here load config activate by CPU1
+  unlock(csdev->cscfg_csdev_lock)
 
-On Fri, 20 Dec 2024 13:26:14 +0530 you wrote:
-> The Host Port (i.e. CPU facing port) of CPSW receives traffic from Linux
-> via TX DMA Channels which are Hardware Queues consisting of traffic
-> categorized according to their priority. The Host Port is configured to
-> dequeue traffic from these Hardware Queues on the basis of priority i.e.
-> as long as traffic exists on a Hardware Queue of a higher priority, the
-> traffic on Hardware Queues of lower priority isn't dequeued. An alternate
-> operation is also supported wherein traffic can be dequeued by the Host
-> Port in a Round-Robin manner.
-> 
-> [...]
+                                              deactivate config // sysfs
+                                              (sys_activec_cnt == 0)
+                                              cscfg_unload_config_sets()
+                                              unload module
 
-Here is the summary with links:
-  - [net] net: ethernet: ti: am65-cpsw: default to round-robin for host port receive
-    https://git.kernel.org/netdev/net/c/4a4d38ace1fb
+  // access to config_desc which freed
+  // while unloading module.
+  cfs_csdev_enable_config
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+To address this, introduce sys_enable_cnt in cscfg_mgr to prevent
+deactivate while there is enabled configuration.
 
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+from v1 to v2:
+    - modify commit message.
+---
+ .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++
+ drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--
+ drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
+ 3 files changed, 21 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 86893115df17..6218ef40acbc 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ 	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+
+ 	raw_spin_unlock(&drvdata->spinlock);
++
++	cscfg_csdev_disable_active_config(csdev);
++
+ 	cpus_read_unlock();
+
+ 	/*
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index a70c1454b410..dfa7dcbaf25d 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -953,7 +953,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
+ 			cscfg_mgr->sysfs_active_config = cfg_hash;
+ 	} else {
+ 		/* disable if matching current value */
+-		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
++		if (cscfg_mgr->sysfs_active_config == cfg_hash &&
++		    !atomic_read(&cscfg_mgr->sys_enable_cnt)) {
+ 			_cscfg_deactivate_config(cfg_hash);
+ 			cscfg_mgr->sysfs_active_config = 0;
+ 		} else
+@@ -1055,6 +1056,12 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+ 	if (!atomic_read(&cscfg_mgr->sys_active_cnt))
+ 		return 0;
+
++	/*
++	 * increment sys_enable_cnt first to prevent deactivate the config
++	 * while enable active config.
++	 */
++	atomic_inc(&cscfg_mgr->sys_enable_cnt);
++
+ 	/*
+ 	 * Look for matching configuration - set the active configuration
+ 	 * context if found.
+@@ -1098,6 +1105,10 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+ 			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ 		}
+ 	}
++
++	if (!config_csdev_active || err)
++		atomic_dec(&cscfg_mgr->sys_enable_cnt);
++
+ 	return err;
+ }
+ EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
+@@ -1129,8 +1140,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+ 	if (config_csdev) {
+ 		if (!config_csdev->enabled)
+ 			config_csdev = NULL;
+-		else
++		else {
+ 			config_csdev->enabled = false;
++			atomic_dec(&cscfg_mgr->sys_enable_cnt);
++		}
+ 	}
+ 	csdev->active_cscfg_ctxt = NULL;
+ 	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+@@ -1179,6 +1192,7 @@ static int cscfg_create_device(void)
+ 	INIT_LIST_HEAD(&cscfg_mgr->config_desc_list);
+ 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
+ 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
++	atomic_set(&cscfg_mgr->sys_enable_cnt, 0);
+ 	cscfg_mgr->load_state = CSCFG_NONE;
+
+ 	/* setup the device */
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
+index 66e2db890d82..2fc397919985 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.h
++++ b/drivers/hwtracing/coresight/coresight-syscfg.h
+@@ -38,6 +38,7 @@ enum cscfg_load_ops {
+  * @config_desc_list:	List of system configuration descriptors to load into registered devices.
+  * @load_order_list:    Ordered list of owners for dynamically loaded configurations.
+  * @sys_active_cnt:	Total number of active config descriptor references.
++ * @sys_enable_cnt:	Total number of enable of active config descriptor references.
+  * @cfgfs_subsys:	configfs subsystem used to manage configurations.
+  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
+  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
+@@ -50,6 +51,7 @@ struct cscfg_manager {
+ 	struct list_head config_desc_list;
+ 	struct list_head load_order_list;
+ 	atomic_t sys_active_cnt;
++	atomic_t sys_enable_cnt;
+ 	struct configfs_subsystem cfgfs_subsys;
+ 	u32 sysfs_active_config;
+ 	int sysfs_active_preset;
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
