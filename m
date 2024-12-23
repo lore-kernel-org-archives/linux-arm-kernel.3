@@ -4,92 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0493FE7718B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A615E7718E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 11:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Io0aFnNNwQiWHsIlYK7BZZBTMpe4hxTbSGJahPhqnd0=; b=zNtBs90jBJiiqfAZItdsEXCIQT
-	9E1XLjPUrTUYsoRHGhAv2ig220erJrRPB2yA0ZgZoG6yo0/dgI17XcpflBLuI7pdc8F1p+F67e2Z1
-	s0Oi0FsmN8FVdwyFlJvrg+TWtLOhoBJLD928tpQouwWI30NCCvMoNmQAl0bltoHO4i4pfRDUnIUda
-	CnC5OkIlcb98KWGOgjw8vpn/yy8OvXvh/ZHUyWdRAbQr62iWj0pOvTKHNj1vPuh2Au93lj3SmuZB3
-	qEf96IGF1JnqNsTC68GTKask0AZqh8R9PkPqMQdQEtyUT59I70+j+7G8ziZy4ShVcLAhCHyD34Ned
-	0gGpF7fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pfAEnN47k2yUPyXkehPRQB5Var7XNNy5tr8DW7zJULQ=; b=v80sqWeMdbMwIAKEcKQih1gft7
+	H2iJW8GSKFaYM0otghm9xskTlM1UU/Ff3fxTtFDPy17SKjv/t3n9RhoWUayrCjn7J/FUxKy93NXr7
+	NEC5RJ97Dzb9TlvbWb3l3pEg+jWGEK/UVGGSkm1GSQyetkKMVvLrg+fUeGm0ME1TOve69NaIC8P9O
+	epqIYV1toaOd37GbzV7FSHpD+MBZunQEl0WmmCGV5nzqiz+8CNUZdnxDn0Cj9CdvWSZfDU5E6OKd9
+	cmy2uJlgmwie3xS12/D1OXOPWpG0fda4NJbUmrz/D0GUT5TYKSN58PkzytU821wOfq3TNJKMT2eqW
+	qz/Gz36Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPgnm-00000009vCH-2E8b;
-	Mon, 23 Dec 2024 11:40:46 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tPgno-00000009vEA-3N3U;
+	Mon, 23 Dec 2024 11:40:48 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPgfY-00000009uW1-01T9
+	id 1tPgjt-00000009uvr-1u6r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 11:32:17 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54020b0dcd2so5428116e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 03:32:15 -0800 (PST)
+	Mon, 23 Dec 2024 11:36:46 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43622354a3eso27784105e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 03:36:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734953534; x=1735558334; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Io0aFnNNwQiWHsIlYK7BZZBTMpe4hxTbSGJahPhqnd0=;
-        b=Cdl7joJus4SBwtlxsnalpeK89BIW4gh1WJq6UQjQ8TICjwdwGdjbzzBBdR4+dXv41s
-         OXNJv6HNdub/T+eI519Kkk/Ugla9RXg2qn3IAjjGCz+xLvh536thTN13sCwoFoVm9u9k
-         KL5BEDPaDO1aNGeoMVTZxvGZGqJKXv1pQr2Arabz/3FhMaLW2TG0n+FNsi0ikNb/Pwx0
-         bb6eYlKk2g2fJriKQnNIkn7Sii9s5QJOVy6WUuE8DLbVAdnb8FVs5Yttgf6r+j0oWH0A
-         YlHws89+pwmbY1XXoSCL3z4JhI8fJ7mfq0y+09bnXGrG25cR2yFvTqlHpkyTEqF+BImy
-         TBJw==
+        d=linaro.org; s=google; t=1734953804; x=1735558604; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pfAEnN47k2yUPyXkehPRQB5Var7XNNy5tr8DW7zJULQ=;
+        b=fiMlmLbPhE0haeYj99tPKbWjY6+YvVz3TyMuOAzA2m13SFsPX61Uv0Ch/RBxtsMb27
+         tu7om2hbWm7fwhI9HZIoCn7WKlhj7SPonKCn905E4KnpPBwmWO1gqdjGOd1kpcxdqE66
+         6Ewu81YEwIG7/L5fcCgYhKjdTOPJM9z5lxF/QHU549zfF6NgmMtg6loYSEoWYFX3nLP8
+         f+ti2A+lJF31PDApELTolXremFbc4VIxcTysGdsQ3iyuH3/joGUTDIDo7c9F578iHvbq
+         Dd4jmxB4ZPC+ey4/qIRPbGG8AvcL5r12dfsOXmT4PhjkhPVbYq0KDZPFa+x7AOZRD7QU
+         7RQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734953534; x=1735558334;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Io0aFnNNwQiWHsIlYK7BZZBTMpe4hxTbSGJahPhqnd0=;
-        b=vYq++KHGTW4vwjpgF4kwMEv8Ik6Fv5doa6sRWNEeYG5K79Q0KEOgjk8prGqKVb3qyd
-         Ie7EbJzoqSIfQL1IVGhGbGOhH+X5RlchCU45rQM7ynQQyYhxtcrIUhDYKaTcuT6tra9S
-         yzm0d/F5t+SZjjYXWdVYTAMTn7RhWXaKuQCo6wAdqq8cXcq3QmVjMUnksbHOoecQjYbD
-         5ABQ0bFOd65MvX+WjS0LSmlMlTSsNQdfXraXg2riVxkwDpxWEMzwQFsM/hegpO4r7NsX
-         E+wMaPh+LafRKp9DzpIyMd2j9pq/urvc0Bg04a8bqrxpIutKPhWIA7qVScFhV0hJH3r8
-         6O9g==
-X-Forwarded-Encrypted: i=1; AJvYcCUUq4BDYCdX/qfv/pastUFmPJusYPKzmkgqwxvqJWAaduLsBUSnd1S56o0dyhQotjgXMdLkmBFd6uPB4LI/brZ/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbiG+AVHVxpome/vabdDE9xLHD9RkYiqp1VNS716Kaptp5K755
-	SF3m02T+dUipESvZgJti64JtCKlwUaPDD2+bOJdRXMEhqPBvDtCrp+MB1FIGjE8=
-X-Gm-Gg: ASbGncs7t3x0bJtvke6aqbje+fCZnujOpWIe3O064VXhcmwefK6FuledU6AdxRk9gt8
-	LsqiAx2WPhV2EHfakwisB6is9YWOIL+DwpN7CHd4WbIeJvBfXWGv+GpSlnLaiZJ7LXWgWb5OCpt
-	+Y0AwoemnVYGS0bVLWMuyiKHro6iwQB61b+XIgo3gmR37uD3XHmknIzmkAbX93m4g6gX96i4pqs
-	BV5jT8mRNnjrR+DqDXvjBCO9JyJMTQMk332oWAfQJUy+pPlo/ZGX6223mU8QUBJTtoLDqa+5+ts
-	5+kTgo3tMLBxOeWnzUUjx1MbZwrcGnRP8GDP
-X-Google-Smtp-Source: AGHT+IFQAVVka8tfhQQLypKSuFFeZTfbXIdbwFKArHWMlABaOq9wX6sZw2Zp8LWAHfr0uv4tXZ5d1Q==
-X-Received: by 2002:a05:6512:23a2:b0:542:1bdb:9a61 with SMTP id 2adb3069b0e04-5422946f053mr3666830e87.19.1734953533962;
-        Mon, 23 Dec 2024 03:32:13 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54223831fdesm1270675e87.241.2024.12.23.03.32.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 03:32:12 -0800 (PST)
-Date: Mon, 23 Dec 2024 13:32:10 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
-	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
-	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, 
-	u.kleine-koenig@baylibre.com, francesco@dolcini.it, frank.li@nxp.com
-Subject: Re: [PATCH v7 12/19] drm/imx: Add i.MX8qxp Display Controller KMS
-Message-ID: <wpxxedxabgo2kxf5wuosu76i5ud3ce2tywm2imhvad4nyy5u2d@qgfhev2hndba>
-References: <20241223064147.3961652-1-victor.liu@nxp.com>
- <20241223064147.3961652-13-victor.liu@nxp.com>
+        d=1e100.net; s=20230601; t=1734953804; x=1735558604;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pfAEnN47k2yUPyXkehPRQB5Var7XNNy5tr8DW7zJULQ=;
+        b=X+fCjnoOV9jY4P4GvMb0c3UyCBnT10vl/6XbjEk02o3krBs/I3gHfhXz/gjyxnlDz1
+         ANYjJAlunaUzGyoy7dqaQPXHzet40XyWOpQZ6eofE1dknA1Fl0EW3aSltFyf3ZVDSu+Z
+         bRhYxPcL6SO4FX6U7RwLLOOE0w3JFqu3uMAgmei8DH6M/LElo9pkoFQdTwf5uL/QLKG0
+         cOzgTCG6DEjsmZE5Ygf29AmWsuZSyCys/OcVxvfrluFL+ziXQpUlUyf0GfjD3HKe/9Tq
+         aiothE52+8fn2L4591YhFGF4mgLc9bn4pzhr0Kgi+mpWjsMPo73xKZ2xCyy4vGvoo/ES
+         Eq6w==
+X-Forwarded-Encrypted: i=1; AJvYcCUVnEuf2TEf9VDrxG/mf4H9a7m0DlV6lDCn7My0D2lOu5CnmmouKz06NFhuXSZURMLJdxIWXlAGT4BFEXsXO8Xt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9cdL/MZC+zw3GSs2j1E9QgkxXMwI4nLm+98ayoYsjQjHXjkUf
+	+mDybvA7FAhb26IetXVjpaqo7CfpiZ2Ue0n/P9ZTV6Ds6TdaD7ao89eQa1+8TEk=
+X-Gm-Gg: ASbGncs4ux5ufiiZgOuOoPLNecHZJ6VqndU1LSm3gwmB1Sf5hogmJYvqVAhGXvVYWpz
+	MPDcdIg7Aa5Q4Nq2i0l0bHiVaalL798f/bfoy3pT4jkt4r38rT1KcIxabkdBweGpmF15Zsq0ur8
+	NdP/d+PXO5P/ZVgJtJczvVVIBKzTO0I8xnoLkUhcbVY5nYC5B7zrvpPpoTb5n5W3TDNgEuQLlEQ
+	1KnfMkV3o5s3uqzxoFNoZX0ZrHMjEBiwPep/b+TLtjVcT6O15FmYpPux3VKrSILZA==
+X-Google-Smtp-Source: AGHT+IH1xux9sPKNWQ/qyA/QpYj6eYBI9DgnVKcK7PP07rrtLIZQhCaDtbBqQzfpAVwh4XJhK9q1vw==
+X-Received: by 2002:a5d:5f4a:0:b0:385:f19f:5a8f with SMTP id ffacd0b85a97d-38a221f2d90mr10269118f8f.4.1734953803802;
+        Mon, 23 Dec 2024 03:36:43 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.66.70])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8ace0esm10999383f8f.106.2024.12.23.03.36.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Dec 2024 03:36:43 -0800 (PST)
+Message-ID: <b1cc3ea5-e1d4-494e-9110-dd7b6d5e95e7@linaro.org>
+Date: Mon, 23 Dec 2024 11:36:41 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241223064147.3961652-13-victor.liu@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 6/8] KVM: arm64: coresight: Give TRBE enabled state to
+ KVM
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, oliver.upton@linux.dev, suzuki.poulose@arm.com,
+ coresight@lists.linaro.org, Joey Gouly <joey.gouly@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Mark Brown <broonie@kernel.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ "Rob Herring (Arm)" <robh@kernel.org>, Shiqi Liu <shiqiliu@hust.edu.cn>,
+ Fuad Tabba <tabba@google.com>, James Morse <james.morse@arm.com>,
+ Raghavendra Rao Ananta <rananta@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241127100130.1162639-1-james.clark@linaro.org>
+ <20241127100130.1162639-7-james.clark@linaro.org>
+ <86ttayp9n9.wl-maz@kernel.org>
+ <e6b46080-b9ae-4aad-b06d-81407c195e28@linaro.org>
+ <86seqhp7yg.wl-maz@kernel.org>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <86seqhp7yg.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_033216_864784_76890595 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20241223_033645_534156_B5DE9500 
+X-CRM114-Status: GOOD (  34.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,107 +113,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 23, 2024 at 02:41:40PM +0800, Liu Ying wrote:
-> i.MX8qxp Display Controller(DC) is comprised of three main components that
-> include a blit engine for 2D graphics accelerations, display controller for
-> display output processing, as well as a command sequencer.  Add kernel
-> mode setting support for the display controller part with two CRTCs and
-> two primary planes(backed by FetchLayer and FetchWarp respectively).  The
-> registers of the display controller are accessed without command sequencer
-> involved, instead just by using CPU.  The command sequencer is supposed to
-> be used by the blit engine.
-> 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> ---
-> v7:
-> * Drop using typeof in macros and explicitly define variable types. (Dmitry)
-> * Add a comment for disable_irq_nosync() to explain why _nosync. (Dmitry)
-> * Inline dc_crtc_check_clock(). (Dmitry)
-> * Use global drm_dc->pe. (Dmitry)
-> * Drop dc_crtc_disable_at_unbind(). (Dmitry)
-> * Add kernel doc for struct dc_{crtc,drm_device,plane}. (Dmitry)
-> * Define common IRQ handlers separately for each IRQs. (Dmitry)
-> * Rebase this patch upon next-20241220, so drop date entry from drm_driver
->   and correctly include drm/clients/drm_client_setup.h.
-> * Collect Maxime's R-b tag.
-> 
-> v6:
-> * No change.
-> 
-> v5:
-> * Replace .remove_new with .remove in dc-drv.c. (Uwe)
-> 
-> v4:
-> * Move dc_fg_displaymode(), dc_fg_panic_displaymode() and dc_lb_blendcontrol()
->   function calls from KMS routine to initialization stage. (Dmitry)
-> * Drop dc-crtc.h and dc-plane.h header files and move relevant defines to
->   appropriate .h header files or .c source files. (Dmitry)
-> * Drop futile "else" clause from dc_crtc_common_irq_handler(). (Dmitry)
-> * Drop dc_drm->pe_rpm_count. (Dmitry)
-> * Drop DC_{CRTCS,ENCODERS,PRIMARYS} macros and only use DC_DISPLAYS. (Dmitry)
-> * Drop drmm_kcalloc() function call to allocate an array for storing IRQs.
->   Instead, put it in struct dc_crtc.  (Dmitry)
-> * Call devm_request_irq() to request IRQs, instead of using drmm action.
->   (Dmitry)
-> * Call devm_drm_of_get_bridge() to find the next bridge. (Dmitry)
-> * Select DRM_CLIENT_SELECTION due to rebase.
-> * Select the missing DRM_DISPLAY_HELPER and DRM_BRIDGE_CONNECTOR.
-> * Use DRM_FBDEV_DMA_DRIVER_OPS due to rebase.
-> * Replace drm_fbdev_dma_setup() with drm_client_setup_with_fourcc() due to
->   rebase.
-> * Replace drmm_add_action_or_reset() with devm_add_action_or_reset() to
->   register dc_drm_component_unbind_all() action.
-> * Request interrupts in dc_crtc_post_init() after encoder initialization to
->   make sure next bridge is found first.
-> 
-> v3:
-> * No change.
-> 
-> v2:
-> * Find next bridge from TCon's port.
-> * Drop drm/drm_module.h include from dc-drv.c.
-> 
->  drivers/gpu/drm/imx/dc/Kconfig    |   5 +
->  drivers/gpu/drm/imx/dc/Makefile   |   5 +-
->  drivers/gpu/drm/imx/dc/dc-crtc.c  | 556 ++++++++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-de.h    |   3 +
->  drivers/gpu/drm/imx/dc/dc-drv.c   | 238 +++++++++++++
->  drivers/gpu/drm/imx/dc/dc-drv.h   |  22 ++
->  drivers/gpu/drm/imx/dc/dc-kms.c   | 143 ++++++++
->  drivers/gpu/drm/imx/dc/dc-kms.h   | 131 +++++++
->  drivers/gpu/drm/imx/dc/dc-plane.c | 241 +++++++++++++
->  9 files changed, 1342 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-crtc.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-kms.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-plane.c
-> 
 
 
-> +
-> +static int dc_plane_check_no_off_screen(struct drm_plane_state *state,
-> +					struct drm_crtc_state *crtc_state)
-> +{
-> +	if (state->dst.x1 < 0 || state->dst.y1 < 0 ||
-> +	    state->dst.x2 > crtc_state->adjusted_mode.hdisplay ||
-> +	    state->dst.y2 > crtc_state->adjusted_mode.vdisplay) {
-> +		dc_plane_dbg(state->plane, "no off screen\n");
-> +		return -EINVAL;
-> +	}
+On 21/12/2024 11:54 am, Marc Zyngier wrote:
+> On Fri, 20 Dec 2024 17:32:17 +0000,
+> James Clark <james.clark@linaro.org> wrote:
+>>
+>>
+>>
+>> On 20/12/2024 5:05 pm, Marc Zyngier wrote:
+>>> On Wed, 27 Nov 2024 10:01:23 +0000,
+>>> James Clark <james.clark@linaro.org> wrote:
+>>>>
+>>>> Currently in nVHE, KVM has to check if TRBE is enabled on every guest
+>>>> switch even if it was never used. Because it's a debug feature and is
+>>>> more likely to not be used than used, give KVM the TRBE buffer status to
+>>>> allow a much simpler and faster do-nothing path in the hyp.
+>>>>
+>>>> This is always called with preemption disabled except for probe/hotplug
+>>>> which gets wrapped with preempt_disable().
+>>>>
+>>>> Protected mode disables trace regardless of TRBE (because
+>>>> guest_trfcr_el1 is always 0), which was not previously done. HAS_TRBE
+>>>> becomes redundant, but HAS_TRF is now required for this.
+>>>>
+>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>> ---
+>>>>    arch/arm64/include/asm/kvm_host.h            | 10 +++-
+>>>>    arch/arm64/kvm/debug.c                       | 25 ++++++++--
+>>>>    arch/arm64/kvm/hyp/nvhe/debug-sr.c           | 51 +++++++++++---------
+>>>>    drivers/hwtracing/coresight/coresight-trbe.c |  5 ++
+>>>>    4 files changed, 65 insertions(+), 26 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>>>> index 7e3478386351..ba251caa593b 100644
+>>>> --- a/arch/arm64/include/asm/kvm_host.h
+>>>> +++ b/arch/arm64/include/asm/kvm_host.h
+>>>> @@ -611,7 +611,8 @@ struct cpu_sve_state {
+>>>>     */
+>>>>    struct kvm_host_data {
+>>>>    #define KVM_HOST_DATA_FLAG_HAS_SPE	0
+>>>> -#define KVM_HOST_DATA_FLAG_HAS_TRBE	1
+>>>> +#define KVM_HOST_DATA_FLAG_HAS_TRF	1
+>>>> +#define KVM_HOST_DATA_FLAG_TRBE_ENABLED	2
+>>>>    	unsigned long flags;
+>>>>      	struct kvm_cpu_context host_ctxt;
+>>>> @@ -657,6 +658,9 @@ struct kvm_host_data {
+>>>>    		u64 mdcr_el2;
+>>>>    	} host_debug_state;
+>>>>    +	/* Guest trace filter value */
+>>>> +	u64 guest_trfcr_el1;
+>>>
+>>> Guest value? Or host state while running the guest? If the former,
+>>> then this has nothing to do here. If the latter, this should be
+>>> spelled out (trfcr_in_guest?), and the comment amended.
+>>>
+>>>> +
+>>>>    	/* Number of programmable event counters (PMCR_EL0.N) for this CPU */
+>>>>    	unsigned int nr_event_counters;
+>>>>    };
+>>>> @@ -1381,6 +1385,8 @@ static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
+>>>>    void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr);
+>>>>    void kvm_clr_pmu_events(u64 clr);
+>>>>    bool kvm_set_pmuserenr(u64 val);
+>>>> +void kvm_enable_trbe(void);
+>>>> +void kvm_disable_trbe(void);
+>>>>    #else
+>>>>    static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+>>>>    static inline void kvm_clr_pmu_events(u64 clr) {}
+>>>> @@ -1388,6 +1394,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
+>>>>    {
+>>>>    	return false;
+>>>>    }
+>>>> +static inline void kvm_enable_trbe(void) {}
+>>>> +static inline void kvm_disable_trbe(void) {}
+>>>>    #endif
+>>>>      void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+>>>> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+>>>> index dd9e139dfd13..0c340ae7b5d1 100644
+>>>> --- a/arch/arm64/kvm/debug.c
+>>>> +++ b/arch/arm64/kvm/debug.c
+>>>> @@ -314,7 +314,26 @@ void kvm_init_host_debug_data(void)
+>>>>    	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
+>>>>    		host_data_set_flag(HAS_SPE);
+>>>>    -	if (cpuid_feature_extract_unsigned_field(dfr0,
+>>>> ID_AA64DFR0_EL1_TraceBuffer_SHIFT) &&
+>>>> -	    !(read_sysreg_s(SYS_TRBIDR_EL1) & TRBIDR_EL1_P))
+>>>> -		host_data_set_flag(HAS_TRBE);
+>>>> +	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_TraceFilt_SHIFT))
+>>>> +		host_data_set_flag(HAS_TRF);
+>>>>    }
+>>>> +
+>>>> +void kvm_enable_trbe(void)
+>>>> +{
+>>>> +	if (has_vhe() || is_protected_kvm_enabled() ||
+>>>> +	    WARN_ON_ONCE(preemptible()))
+>>>> +		return;
+>>>> +
+>>>> +	host_data_set_flag(TRBE_ENABLED);
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(kvm_enable_trbe);
+>>>> +
+>>>> +void kvm_disable_trbe(void)
+>>>> +{
+>>>> +	if (has_vhe() || is_protected_kvm_enabled() ||
+>>>> +	    WARN_ON_ONCE(preemptible()))
+>>>> +		return;
+>>>> +
+>>>> +	host_data_clear_flag(TRBE_ENABLED);
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+>>>> diff --git a/arch/arm64/kvm/hyp/nvhe/debug-sr.c b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>>> index 858bb38e273f..9479bee41801 100644
+>>>> --- a/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>>> +++ b/arch/arm64/kvm/hyp/nvhe/debug-sr.c
+>>>> @@ -51,32 +51,39 @@ static void __debug_restore_spe(u64 pmscr_el1)
+>>>>    	write_sysreg_el1(pmscr_el1, SYS_PMSCR);
+>>>>    }
+>>>>    -static void __debug_save_trace(u64 *trfcr_el1)
+>>>> +static void __trace_do_switch(u64 *saved_trfcr, u64 new_trfcr)
+>>>>    {
+>>>> -	*trfcr_el1 = 0;
+>>>> +	*saved_trfcr = read_sysreg_el1(SYS_TRFCR);
+>>>> +	write_sysreg_el1(new_trfcr, SYS_TRFCR);
+>>>>    -	/* Check if the TRBE is enabled */
+>>>> -	if (!(read_sysreg_s(SYS_TRBLIMITR_EL1) & TRBLIMITR_EL1_E))
+>>>> +	/* No need to drain if going to an enabled state or from disabled state */
+>>>> +	if (new_trfcr || !*saved_trfcr)
+>>>
+>>> What if TRFCR_EL1.TS is set to something non-zero? I'd rather you
+>>> check for the E*TRE bits instead of assuming things.
+>>>
+>>
+>> Yeah it's probably better that way. TS is actually always set when any
+>> tracing session starts and then never cleared, so doing it the simpler
+>> way made it always flush even after tracing finished, which probably
+>> wasn't great.
+> 
+> Quite. Can you please *test* these things?
+> 
+> [...]
+> 
 
-Nit: doesn't drm_atomic_helper_check_plane_state() ensure in this already?
+Sorry to confuse things I wasn't 100% accurate here, yes it's tested and 
+working. It works because of the split set/clear_trfcr() API. The 
+Coresight driver specifically calls clear at the end of the session 
+rather than a set of 0. That signals this function not to be called so 
+there's no excessive swapping.
 
-With that in mind
+Secondly, the buffer flushing case is triggered by TRBE_ENABLED, which 
+forces TRFCR to 0, so "if (new_trfcr)" is an OK way to gate the flush.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+>>>> @@ -253,8 +256,10 @@ static void trbe_drain_and_disable_local(struct trbe_cpudata *cpudata)
+>>>>      static void trbe_reset_local(struct trbe_cpudata *cpudata)
+>>>>    {
+>>>> +	preempt_disable();
+>>>>    	trbe_drain_and_disable_local(cpudata);
+>>>>    	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
+>>>> +	preempt_enable();
+>>>
+>>> This looks terribly wrong. If you need to disable preemption here, why
+>>> doesn't the critical section cover all register accesses? Surely you
+>>> don't want to nuke another CPU's context?
+>>>
+>>> But looking at the calling sites, this makes even less sense. The two
+>>> callers of this thing mess with *per-CPU* interrupts. Dealing with
+>>> per-CPU interrupts in preemptible context is a big no-no (hint: they
+>>> start with a call to smp_processor_id()).
+>>>
+>>> So what is this supposed to ensure?
+>>>
+>>> 	M.
+>>>
+>>
+>> These ones are only intended to silence the
+>> WARN_ON_ONCE(preemptible()) in kvm_enable_trbe() when this is called
+>> from boot/hotplug (arm_trbe_enable_cpu()). Preemption isn't disabled,
+>> but a guest can't run at that point either.
+>>
+>> The "real" calls to kvm_enable_trbe() _are_ called from an atomic
+>> context. I think there was a previous review comment about when it was
+>> safe to call the KVM parts of this change, which is why I added the
+>> warning making sure it was always called with preemption disabled. But
+>> actually I could remove the warning and these preempt_disables() and
+>> replace them with a comment.
+> 
+> You should keep the WARN_ON(), and either *never* end-up calling this
+> stuff during a CPUHP event, or handle the fact that preemption isn't
+> initialised yet. For example by checking whether the current CPU is
+> online.
+> 
+> But this sort of random spreading of preemption disabling is not an
+> acceptable outcome.
+> 
+> 	M.
+> 
+
+I'll look into this again. This was my initial attempt but couldn't find 
+any easily accessible state that allowed to to be done this way. Maybe I 
+missed something, but the obvious cpu_online() etc were already true at 
+this point.
+
+Thanks
+James
 
 
-> +
-> +	return 0;
-> +}
-> +
--- 
-With best wishes
-Dmitry
 
