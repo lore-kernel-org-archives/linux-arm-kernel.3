@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3B8E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 06:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C498DE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 06:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZkeD2TziSnLiWIku6IEI0ox9ta1hXeA9u5BiRvqefGM=; b=2w3YsKuySsITqE+Ad/V4Fq3MNs
-	+uRgYQo5EGAnusZ1R8saRxsxKWt0ly/ZkJdU6vvR7AG8NO7yDFmUMuC8PTEIF5BW1MRw7pmI08Qmp
-	5qD9VUM20kNMpoaqYifOKF8oxfIRS97snZzZXoAyqAffuxm8YzLrzq9rhScTdhDDQfandU0esxc7F
-	bUHOUIA/IbKy15NYYOVGeegSa8TqkYVIhnOzc28BDJJHlS+Ik8taI2T83qi3iWbWi6yDdp0xvI/bt
-	gwzN0DkCtJFtAtDTaXfYwPEg7iqPjEfNghpjcOTYw+kNEWxwxVlWC5rrsPcksCHrMvRqrXcH8pvoP
-	7v6LD4rw==;
+	bh=XpDq32NOFHlSPy8giRuBRv8NGKpEy0FQgEjalPq5eSM=; b=m5HpFsfA0M68tgx0y0pz/0+JXe
+	921iZ2vLU+x1YbPJ/KWzcrx3q5Z2U3i8svvx93+l73wUJTrnXF94SlEMYm1S5KVjEkUphsLmxssxu
+	NBq0RMrbGEkVnXSJLcm021jduGccXIKbtbkf25TDpFAAa33D7HqLfTM2h55qovNANY7MC73BdWf7m
+	hvzPUi4nj5LaPx/mtpqTJdWe5D0fNcShhW8GRLartb6wFhIpPuRyhN2HWp/Yg3HxWObbzpPXwqT7D
+	BgUNDPcYeIBvL5aEoh7M32rl5wCdozEtJjswQCuY/0v/8FCgyeiSpMjb/x/2x4NqPg/kM/LQWjEPG
+	Wt/+WJsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPcLZ-00000009T34-00lN;
-	Mon, 23 Dec 2024 06:55:21 +0000
-Received: from mail-vi1eur05on2062a.outbound.protection.outlook.com ([2a01:111:f403:2613::62a] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tPcMi-00000009TBX-0EN4;
+	Mon, 23 Dec 2024 06:56:32 +0000
+Received: from mail-vi1eur05on20610.outbound.protection.outlook.com ([2a01:111:f403:2613::610] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPc90-00000009Qce-2unE;
-	Mon, 23 Dec 2024 06:42:24 +0000
+	id 1tPc9s-00000009QtU-39Bw;
+	Mon, 23 Dec 2024 06:43:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YIx/izUbFCNyBXHA2sRy4A8PeIorE4CKsTE0CSETT0eSQlfciAVkZW+jFVz4on+nitYpxvewecK5XFSx38zEOXZlKlmUmESEhzxXKsAVaQF+lxrkN1/qI7yBJQxzQzYEb2vveyQZVjSbHBP9WJxVRTib8zuxEQVdo6NivLaUtgpHt78BEgRQf3buVv3Aw3PjONm44V7DZVw81sZIKBboF++9uNiIangBsNWm46GnrYYNf1yT8xjUBVisOYWHE9Uilt7+Ryo9X63UCcPFpjsWDV3i4q8RBpAe/XzefqYaVx0u/e6b0QYdIhUvzew5A/4xVIVlPvK1/Fs+fsHYmSzT4Q==
+ b=thQ6obuY2PW40wz8SmaHmEOLIruL69V86N4hKBmFig0Bqd0V0YsEYPeJJFt6KrIi6ohZlny4rOsY5ECWpj2LgCUK/zUX2bPiLOYlvJWu+rgNgHh/DKO9AAAEdbSjOne5hydRUwdrp1Echhjky8F5swVkDwchvOjO8MTZYv3O6gJ5FZrxVq5zTXpLKKw+4Ef+osvDPmkSr88fj/fgqowsUZLYXBLKYLg4JdE+Y5v69bvVoyQ540DjAxuWqgL89Y2CmMpJ09GrSiIJPAHvEL3QfAOoNQVGjyjK66snMXlwOFY/tQ/FOdUoCHHxa+aydBG2nc3fS3T4cewx8KM3RyL3Bw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZkeD2TziSnLiWIku6IEI0ox9ta1hXeA9u5BiRvqefGM=;
- b=tOIh6RfI1Mmk0HylW88V/1uhgo+JwIbP+5RWyVsaZHvNpIJHaDKpzjAM3Wbg9JHbKkJpf5muEJiXDvCmMsXCCzkYYpH9xDos+FGbCG5ReHuWXxo7z31f2upi3CV+pbpJK597iF+0x5UHkbcBFOwCkqi1pmok/sDY9a6AbHUD0zgfNTFBspJCD2vYb/8mjGyWlMjgi9A1uZNVexzVemGf1y1Mdmt/zjUCJXqrgvhlxLLt6pTVNhPu3LchricAWhvtyXh69WOnKheRExbRlhwqfWH1oDlR0OAk4+3mXepqs0Cj8hfm7B8uAi1mQeRAZXEiOUS4fboKcveYCGZPMlhmGQ==
+ bh=XpDq32NOFHlSPy8giRuBRv8NGKpEy0FQgEjalPq5eSM=;
+ b=SinVlgS9RcRUWEWowmxRogNmXXSDRV7r63D93HeC4iOkwBdK1YRlwb+3Ou7A/0DoD99q5lITMBtFTmiOjqBvfnMavMf0Xqey63dmt/NsPogGGDd9vhX3E5pXtIoyOLea2T+5MnIOFjEocG7bWqDTDHL9E3oP0gAGI+iTbxzkgInAsfF7CJ7FHvgjv8VD2eZYMPEkQ13aT+4Jl2JMuhHZzjAeJICGtThHPb2lYo/CgIvQqvGEw5zpt6ACZlRETbpEqouaI+50APlliTGebFmPJ/n1x+KaQEUKjvTVz21SuHKJhgwioG1ob10iYqmXL+SpUQdGQKj2j8DgI867QuqkKQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZkeD2TziSnLiWIku6IEI0ox9ta1hXeA9u5BiRvqefGM=;
- b=MrXge4mqkOuXFSIa7/4XFmOPHdCBLK4+OMmIXwmiKVURqADZVbyBlOjC+bUIYlcJNS0p+0Iy5w8SILj/AVs53Xxstb5gQs1UZ6o+DjwuEqwN3rE/qdp40Iy1tAe8LTvZGp9zUd73y6zV9ET2xU7aK20JonfJ4hsB/LP4fypEx0hzP1mIcokkoGBPXTIR2ZClWaRXoGKWiVPPBASCoSnsjx+GEzGDGV1K6bzw675NBiynnmNeKz5TDrPMZQ34aqoSvl88U8aKOLLBPTmAwPYqt/id2c2XedHXbRdQlmpMqdCpPcRhnvdGPqjazDzCsl6g0qvRNCtAJl2Z2jaJJ3ozdw==
+ bh=XpDq32NOFHlSPy8giRuBRv8NGKpEy0FQgEjalPq5eSM=;
+ b=hfs1vx2I/gh71f7eDbIC1i+g1aEjdl6nuiA5RChQ8hGWgqZU8YPV/fbba7VARHkGXi0jzNC9lPFYKiUxrwf8DxC+Ew7Z2Z/ZLYmrcs9sUCRT7CbRpzqIjjTHrDsnJq12YM+sF9Y+byXpWOhdi2DUZdRUiHL113idV7Z4mpObrEd9aCOruDh5Ckdztcn505roEYrVGgynoon+wtWuLwdg2dvcprkO6cntL+IfiYGzTR9LNYAXDl1c9APC4gqLiJkJXkiTUJ+IgG6uJRz8ymOSGdXl43r///8/KKYR9i0zO1hoHp9iPKFqsvgqrTs5+BumSlUfd8xm3jsnUwmnNE7kKg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AM9PR04MB8986.eurprd04.prod.outlook.com (2603:10a6:20b:409::13) with
+ by AS8PR04MB7941.eurprd04.prod.outlook.com (2603:10a6:20b:2a6::23) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.19; Mon, 23 Dec
- 2024 06:42:16 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.20; Mon, 23 Dec
+ 2024 06:43:09 +0000
 Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
  ([fe80::d1ce:ea15:6648:6f90%3]) with mapi id 15.20.8272.013; Mon, 23 Dec 2024
- 06:42:16 +0000
+ 06:43:09 +0000
 From: Liu Ying <victor.liu@nxp.com>
 To: dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
@@ -80,9 +80,9 @@ Cc: p.zabel@pengutronix.de,
 	francesco@dolcini.it,
 	frank.li@nxp.com,
 	dmitry.baryshkov@linaro.org
-Subject: [PATCH v7 04/19] dt-bindings: display: imx: Add i.MX8qxp Display Controller pixel engine
-Date: Mon, 23 Dec 2024 14:41:32 +0800
-Message-Id: <20241223064147.3961652-5-victor.liu@nxp.com>
+Subject: [PATCH v7 11/19] drm/imx: Add i.MX8qxp Display Controller interrupt controller
+Date: Mon, 23 Dec 2024 14:41:39 +0800
+Message-Id: <20241223064147.3961652-12-victor.liu@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241223064147.3961652-1-victor.liu@nxp.com>
 References: <20241223064147.3961652-1-victor.liu@nxp.com>
@@ -93,78 +93,79 @@ X-ClientProxiedBy: SI2P153CA0008.APCP153.PROD.OUTLOOK.COM
  (2603:10a6:20b:113::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AM9PR04MB8986:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd53824c-0d1a-4af6-5184-08dd231cf09b
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB7941:EE_
+X-MS-Office365-Filtering-Correlation-Id: 42fe73f0-fcf1-4ba9-4a5e-08dd231d1076
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?//kRZaXgS5w/KMJXuyN/D0Y5owr3OaWuhqZVeJjVQmtBoNJF81fkl2TLF0xF?=
- =?us-ascii?Q?FWAd8FpieREgzK/UZuLS+CxnqgeDt1TKmARrOgQu/UR02t/eHPANwU0Lxyht?=
- =?us-ascii?Q?8gdeF48L+RWsQu6/k+/BK+7D7/aTrKOOhkusdinZvrUdLDevmyYagwW5HJop?=
- =?us-ascii?Q?y32aVBdbVIWOxI17A+vqu3Ynx5IxQcn8Ob2zpS6tF7/UW1WluLCBrnNurYB2?=
- =?us-ascii?Q?FCrFYomDu2YaIj8JVCnfda6joD7bTq54MhzLVx98TDeQ3ewNI320D4pIsfox?=
- =?us-ascii?Q?nQG+STXz5pilfewYD0yzAAf3au4+ktETHRNrPycDopyIt6ifSWyCRUVCJt7m?=
- =?us-ascii?Q?fY2HU8AoNPTudKNjs5tuhOFY35GxkHD4drFzLc1KicXfVMJmB3EnIyI5gfK4?=
- =?us-ascii?Q?EDy9XmAsN2LPSSZ8qWGVac54ILoYnHdDnFSn93yCfg9L3HGPVmRqxyBx87to?=
- =?us-ascii?Q?iZLXfIOssK0vjZsGPm2PqDOTOAbDm7EeXKzk4uE9o+FaKHi3sWmsgi71v9TR?=
- =?us-ascii?Q?OHmzVTTzPj8MB7OaU5IKT5VhTXEbGmdAYVPc2wmafc2iGhJCCvOjFf8qnvqr?=
- =?us-ascii?Q?SWi+dmXv9CTdD22VE8n5nSaeMotTPpKafbBzk2DvgtZbePmGAUBL118ynqmo?=
- =?us-ascii?Q?78fh3Bu5wX16GPWSwmnlpl6j2HBA7cgvRUsI6IQ6BmOG+k7OQptS1LD9rpqr?=
- =?us-ascii?Q?tM3a6FZJoG5o2icAGQQKZMTjWWsZrD8jJfCYLJySJ+SbuMD2uy4uR7F145Z0?=
- =?us-ascii?Q?wajPzUVYz25DbcGjLKCGxFr1EJlE8gaDueESlvwyVnTcuQJkvhAZoNI6S/GN?=
- =?us-ascii?Q?Ghwm1TjwyVaBXz+zUTQ5VpknqgD/W7r1v4WFSzDdPwIf4glANXkBIU8ials3?=
- =?us-ascii?Q?ql5DZbFS3kS5YEQPgUScmpzl3k850UlFMO9Rh6TecrRo1xqpPOy7BEnI7oN+?=
- =?us-ascii?Q?Mh82OAQ9r498vNKj94qn5t6fO3QJALnmSFaXtiB/7mijJL/5D2z51DqiZLVo?=
- =?us-ascii?Q?MHAfVsxod4Mz3AEmX4kY/2nZm4R/p6w+switY6L0Bp1GqfJuDfK9wz1X3VwW?=
- =?us-ascii?Q?czyYHaoqGggVwXzvwTHFoMjIcXavSG7MTJp9WdQD28OWHjPAuSJXm4XPYrkS?=
- =?us-ascii?Q?sP7I/TqqXqiUcoh/hZORDB6FZIp+nXgb4sO682TcDN5RDaCI6ebrbadItNQl?=
- =?us-ascii?Q?uFUA+7C6QdNOJumA8yXgNr4BrIQRGK/Z0vcOIlB0/Gb50Y8VbrnUpFlVLIn8?=
- =?us-ascii?Q?0dqug3yB3wenPv2O9xW2L61T3VaX8qULqSi51bkFfMvH8zOuMLz1KOnt3u1z?=
- =?us-ascii?Q?qx8Wr7aO6GUhZD5S3z/yGiDR8MJljC5SUZbi82+C58lPwSAyZGCSO+K+uKSK?=
- =?us-ascii?Q?IKKBwWa9J8ealq5vShsSENsaMd4s?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wq9Ig29AnfVeNsUS7PFdfg8cp/fMIf0k5v1QI8tyHYAUUtodrnESl/hkX0vs?=
+ =?us-ascii?Q?m35GtL2Znpo5wcE6kLgpmYgogP+QrYGIHhEoLkNwv8r6be6Ze8aF9j6uFxHd?=
+ =?us-ascii?Q?Tsv+TSUyOl/Q7MeSRKE0zqSb5bwPHL8lu/mkwqRCSJmVKE2eVlEt5i087bsd?=
+ =?us-ascii?Q?ZcYFm/w8baC2eFNjOKMxQBULl83pvwrcpBscxXQs2LJh3guya7djKfGJon9I?=
+ =?us-ascii?Q?YBKylDWnQq/r9PhSKEE8LESd1Z8OyD8HgRgP/1jJHAN80HB2VlwivozNokmL?=
+ =?us-ascii?Q?oGn6nlzEWCmstkdRQ906qL29s9looM38GjWb62KhqNdrx+x33ji74KTL7zmS?=
+ =?us-ascii?Q?/N4cDfznVhDEhWoIpDMxIlg8m1hoofj2You/vMoTOMofw9hMMS6DTypP5Njm?=
+ =?us-ascii?Q?sPvH2S5XQme34uXk/+3CKi24Rx9SIXyoYG4BQuV7ctfbWPzPspw/ApQ5C2xa?=
+ =?us-ascii?Q?d7WmBWL+gVo1ndJJeTL4VhAWc9vHHkWidKNm2ZoCNIlQRgq0zSxKSvgEQuJz?=
+ =?us-ascii?Q?hxrH65CIkKwgQPuJvbYEPGsfd55sCVQsNwSaUtqLaK/nsO2Hqra2Yf2mBK/g?=
+ =?us-ascii?Q?WFV07XkH/B8crg4TTdi4jmYwEvhzs7fRSQXJIMzjsdaA/oO+eMN9QRCqSaV3?=
+ =?us-ascii?Q?9P4S4j9UCH78e5y52Lhnp4aCtGq3O3Ab/UtNt7ewRx5gyE51B92pXq38P4wC?=
+ =?us-ascii?Q?Nmuv0BSVVLczyslpwJFw+qTE5x33ZlEfXCbhtzG1g/hQjVr/N3YxJACyvn55?=
+ =?us-ascii?Q?1iaEWOiJOw8oM2wYh/UmtvG2R2CAtvaVjU75XEbmVytPbrh/E/DxjvFbtZ+o?=
+ =?us-ascii?Q?24MTKweTLhyKqgFEGsP05IFj9QHIAGqhXTY3++cFZtOJ9vfLU2NzeISbUR3G?=
+ =?us-ascii?Q?7pE3lkpwDvPZy9XNbngwcdBTd5kRNu5C+kFX8RenHg4LR6PKwOAGh0a3CTkf?=
+ =?us-ascii?Q?/ynRfGCSdGSWIw2Hjhc7MJxamczTGNUIRwgfyLTsweGN3qLG9AfqnCea1EG9?=
+ =?us-ascii?Q?o/ZKc9Qz8EvTbRJbni8FpfZsWnKVP4YzjBXUeykb8RsMWK8MlaMEzKSuwFyj?=
+ =?us-ascii?Q?3DUZt5b38R1z/eFQtllCGX1NRk6p/LN63W7IMflRaYWAUyxf2uQG/bNY8Jqp?=
+ =?us-ascii?Q?+vy1B0+klLMyNp7LM2wc/1MYOyDakyJBjsnlYUe8wmo5UqUlv1L4muFzTQNq?=
+ =?us-ascii?Q?93fc78x5SIv+WIMgaEMXKBsM+uN5lICWSzMuxI9pHzglbtiWbwe3OZjwiKXa?=
+ =?us-ascii?Q?FT1XGd++l7cyT5VD8Vdp8UiIDdxcTQAc7wbwBOnTII3rKVLBCKFvcTLgXXVU?=
+ =?us-ascii?Q?JAg081lfA3qUlu5PDgqlaJZUkMumUUfkNRW07HWXx4YsjS1Vi/isuimoNZ4h?=
+ =?us-ascii?Q?jVNHO/95kF487Y4AhqGdb4LpG+HNeMYksVsPWHA/NW9N0UsQ5KBnhK5v4Q4i?=
+ =?us-ascii?Q?XLOMk6hemqJEtdYCXnnBbl3kzr5/rhHP?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aGFbNNepzEmzCFiWLxF4WrE18fcw+wj0n62x4c7bI5yJONHkmPzGEREXEFLq?=
- =?us-ascii?Q?QtUYnZ1rfDwRHwZUnbJe+uAsoqo7HaiEBUjF3SK3Fc3MKLnhxaoKOvuEfz+w?=
- =?us-ascii?Q?lNrs1u6MRO996/D5n2bHm/0zm4z+79T0ZRIeTP0ZISI+j1Igg4M5O+LkVTmG?=
- =?us-ascii?Q?3sMTXmrvJsbammQg1HkRZUp+kfOx0APMjereA1GEzCFGIMyAjBuSfl36OeYI?=
- =?us-ascii?Q?HdmCQpz/FZo8zBhrfreTB0pxj6DlUHyevDrfrYNblIgUSadss855JUHoUVHL?=
- =?us-ascii?Q?VFpXh1doADd9CQXbKubQIQuzS2+d/Bk4sdwTC66JxN/n6BtqQ+UYu9HjIP95?=
- =?us-ascii?Q?dzAzK0Rh7/GBGlMJ0tgCunn+NPJddDNAjgHxbgnYCEfq+higzqTp5gPvvM/6?=
- =?us-ascii?Q?aqELtBEWTDeTiZeC1ZrtLbjARbPDPldiMlB2J3qeDy18IJNVz/i9WKzTCiWp?=
- =?us-ascii?Q?o06CHwvh+NnJYrtq9nM/a9sFOfkOIBChuBdCWTdT3XbN769E0TKOMbcwpdLp?=
- =?us-ascii?Q?AihXTAoUcSialb7QkTzQAtuiMZacIBFv3QooEH1552iEuKjAxdofLjhR8kta?=
- =?us-ascii?Q?NALuPIiMC0S1qZKHxXgbUrTtg4w1EiqB/mEpobTH3Ols5b/QUBLoQOD8O92v?=
- =?us-ascii?Q?TmlrYCWtbVO8H+E/Ma9ND3x5JhEZgUhJLgtOZFfy3xjQJ99wDS2/u0M/DkM9?=
- =?us-ascii?Q?c8HVNYNbElkMx6Uz4cS6z9GL/7CB1Z7DC7yXUjlHOY3bWeDLgP/yZQFEnHhq?=
- =?us-ascii?Q?heAo4Kd1geCgLC1Ka5nNQpIcuhYUJPsatboUB/BVslLQgaeTcQBwozvsyVxD?=
- =?us-ascii?Q?1w2fKs3OxlFwB1+DIYUC/JJ5XHF4jFY+p/D2a1eyfOckxjGS6vtLa8me2Xc8?=
- =?us-ascii?Q?+orCNTThdMOFoU6L4rDCSb0jN7b+Nni/bOaY311MWZQTTJCH7TB5GCwsakDt?=
- =?us-ascii?Q?ZsPpgKMA0jidYgRDN6bffg3N+z1yqkwMO+kQ140WBLOmeI6Es4w7KqACDv6w?=
- =?us-ascii?Q?2tkm8AWZkktgWf1CIiV8R6yJ9dCcf2TL7dIX1TZ62f97LEXOBMjUGfWKsgwi?=
- =?us-ascii?Q?9wwYgiHuytGosuCJnn4UuKHnJxcKgPN9e94oqBlQDo6C126dLRsz9bjQFVe0?=
- =?us-ascii?Q?lLuxatG9EE1hL78XUpSYwW7ToN2ZVl45zM9l9hoNYLv3StiLLJ9B4Ln+qc7T?=
- =?us-ascii?Q?9ykp6VWZhyj3vyz4nZlQPUlS5pD5SCDIW1xn4tggM/T8cYZXHT8fy2QYBaW7?=
- =?us-ascii?Q?hX0qpQjsStyLkpKK8gbkU96JEHBawFEKjFJrc386ITurmVrOCDrNxwBL8y12?=
- =?us-ascii?Q?pmUAQyhnNCg9bA1MXq7o9VvT8WiQxhGehG8zi6jAbczHwiWmEOUS6qUQJJxf?=
- =?us-ascii?Q?Y9QA309d4h5oe+U3J/Z/KrlEGjPeL0DOjK9sEamr9ruAxNEgeThJ3Y7DRNOc?=
- =?us-ascii?Q?3sZQvEvRAB1/Bs1/BbbwCaRUucEwvTMMdWQijA6ebny7cStRnn2jz9Tv/vjh?=
- =?us-ascii?Q?71CXyXPIOcwY1LPT+FjlyYB00nSVl3k09Njc1mXVDjWjb67xIfw5TmUXDY+O?=
- =?us-ascii?Q?GkFKGKwzbteGqiM6whR+nWQKlAgUm5vPjDNhVBHd?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mi2ECMR0MVKoMNpm7CKxIu5TvxSirmHhY1tLhd8YsfWElv6d5kKan+8ezZQw?=
+ =?us-ascii?Q?VwG1+rN5Wmb8RQDwikeGOLYrNIgkdfJSBEJ/ik2X9sfuJFpKpHmKal2sF85b?=
+ =?us-ascii?Q?VPDnGaIHl9y0b+u5CYR7gJ+ev8rLNLAP1L36yF4Z/P9jNYWmV/1tyVmiIgCQ?=
+ =?us-ascii?Q?H3DXiGWIeE39OvhDS/LX5NderVGVTrp5lgmoO/zRk8XBUy2sI06C3rvx1Kkp?=
+ =?us-ascii?Q?8kimiMUJteesnnf/j0FuToNR6oN/xwwSW7DXLb+av8Gj249/rtbfMOXmASlS?=
+ =?us-ascii?Q?Dmeqe63u68UOM4PDdYKPkPeR78L4mgfFOgPvHM98uW3Ibm1d1TF/ZvzdzjAD?=
+ =?us-ascii?Q?lzFa1OXhLM3Vvhe20cprnYQZJLfYiVtZTEXfs0A3EuR1/XUXbqSueoeXBHno?=
+ =?us-ascii?Q?69UrXZjBOJBcAvGa3qUZ0v12eNEbJplbJ00HHMZ8sbM5yVPxi/0y6TbFpLNr?=
+ =?us-ascii?Q?hRn4/6Mx/F3o9Uc15QTwy/L27epNUWpc+zzDt6HZDfE0u9LchPvpMHv/+IXL?=
+ =?us-ascii?Q?+JoOU0a+SIr4LPB8SIunIo/yFUZR1mq2Pc1FmKBiSQ41yF1Tr2horsCi7s+/?=
+ =?us-ascii?Q?TkyIgaY1HyxQfXnSElTQd8D01QMUzweLPrSFr5ER9ujvmaDZE7GrwgNKfcdJ?=
+ =?us-ascii?Q?j4XkbdF1TllG8O6V+2lwZkOtyr/9mS8/fDQphISPO+2r1Uo77xa6fn/jZJlh?=
+ =?us-ascii?Q?z+x+rRANc5o021CdMO+ohvEEDpZKapcaP+uiyaOq9/SbF8KEdKM4b7ckGUnr?=
+ =?us-ascii?Q?3Dl+VUSR7gcA/zdgd9whIwtbU/TNEJEYA44LlfziL6yUsZy/97z5YjAbZckK?=
+ =?us-ascii?Q?yJaZTE+ZSjMldfzDv7PCiuKzqXtBjF6L7Qoc/TSZW9zOxpq2m1qrXSeH9mKT?=
+ =?us-ascii?Q?TJyszbZs5EKSYdFKRbojKZjYX9a7OTi+8rUEV03cFT6kfsjDWPBGPGcJWv3H?=
+ =?us-ascii?Q?C6qqFTvbsAQPy0TfTRpPP9oU6kZpzqRQElCjIhpCUS1Vke4qNLF5s0/lB3qN?=
+ =?us-ascii?Q?ro/bTY8gk6RZdSYAnty0Um31M1q4Xk+HE7MDlqAHy1StVIY0ci41SZpaVVau?=
+ =?us-ascii?Q?edfbgFyZBBBycsfo668b/kI4x0t6QsATyzz0Soeksf04rvHlOdBGY9gkKjMD?=
+ =?us-ascii?Q?HPefJjNVZDYG1CJvngBOKn5LYLzAlHADHpEHG14dGupE7y+1pTtg+teIQGky?=
+ =?us-ascii?Q?a6twS1eoO3P/INs76EWF9fhV4Okq24lIQbhJnnknIjje4iXaxeRQILz8qxRP?=
+ =?us-ascii?Q?SxCYKV1U1u8fFGkQcvoubtECO8ooylraOFCtcm/MYlzPUvgrgk9wL5AIQYkd?=
+ =?us-ascii?Q?uTZt8zIF1FrMjv8VaNW4iikdWjJ7nX5bnVjMxYTXqJDBlFYPwNgY5mbaBXAY?=
+ =?us-ascii?Q?3/2dI0wGWgMiG2QxLmYds1nohzOPo8RV2gT+IcjuBKC1HzhCmSGg76ZMNgWW?=
+ =?us-ascii?Q?BT/a7PTmbgqQ0coF+oKkCI9/5lF/bj++uOdJ/K0n8f/6HU5bFOmXvcmdPdI9?=
+ =?us-ascii?Q?Y9KqakRFqhsU+96P4kQHNW5EdRwdsWFv5n/QxrDd/Ir+9MfiRFZiuczmsiG6?=
+ =?us-ascii?Q?AwtqxrGCMZUqqFTU7r45NCRFafnG8PBeUUdeg6kO?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd53824c-0d1a-4af6-5184-08dd231cf09b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 42fe73f0-fcf1-4ba9-4a5e-08dd231d1076
 X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 06:42:16.1094
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 06:43:09.5812
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SJUvjoRTXmLJJ5mCkLosPdXFcyBiPIzBUuLVbqiKUjgoU9DKMgbWaf0Vt9wD3Nt5VSOjEMiycXzvQw5SwcSunw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8986
+X-MS-Exchange-CrossTenant-UserPrincipalName: qI5v2vYpC8Nh3IZ940Ao25Syl0Qt/xVCmSHxW6d8/TslVB/kHqdrDwn6lA4b/2ESQ1UBUhI4kSogFD67PzXLBg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7941
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_224222_748420_39291142 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20241222_224316_967510_9206B166 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,317 +180,386 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX8qxp Display Controller pixel engine consists of all processing units
-that operate in the AXI bus clock domain.  Command sequencer and interrupt
-controller of the Display Controller work with AXI bus clock, but they are
-not in pixel engine.
+i.MX8qxp Display Controller has a built-in interrupt controller to support
+Enable/Status/Preset/Clear interrupt bit.  Add driver for it.
 
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Liu Ying <victor.liu@nxp.com>
 ---
 v7:
-* Add instance numbers to pixel engine internel devices' compatible strings.
-  (Rob)
-* Drop some Rob's R-b tag.
+* Fix regmap_config definition by removing name field, correcting read ranges
+  and setting max_register field.
+* Collect Maxime's R-b tag.
 
 v6:
 * No change.
 
 v5:
-* No change.
+* Replace .remove_new with .remove in dc-ic.c. (Uwe)
 
 v4:
-* Collect Rob's R-b tag.
+* Use regmap to define register map for all registers. (Dmitry)
+* Use regmap APIs to access registers. (Dmitry)
+* Use devm_kzalloc() to drmm_kzalloc() to allocate dc_ic_data data strutures.
+* Set suppress_bind_attrs driver flag to true to avoid unnecessary sys
+  interfaces to bind/unbind the driver.
+* Take DC interrupt controller driver as a standalone driver instead of a
+  component driver.
+* Replace drmm_kcalloc() with devm_kcalloc() to allocate an array for
+  struct dc_ic_entry.
+* Call platform_get_irq() from DC interrupt controller driver to make sure
+  parent interrupt controller driver is probed first.
 
 v3:
 * No change.
 
 v2:
-* Drop fsl,dc-*-id DT properties from example. (Krzysztof)
-* Fix register range sizes in example.
+* No change.
 
- .../imx/fsl,imx8qxp-dc-pixel-engine.yaml      | 273 ++++++++++++++++++
- 1 file changed, 273 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
+ drivers/gpu/drm/imx/dc/Kconfig  |   1 +
+ drivers/gpu/drm/imx/dc/Makefile |   2 +-
+ drivers/gpu/drm/imx/dc/dc-drv.c |   1 +
+ drivers/gpu/drm/imx/dc/dc-drv.h |   1 +
+ drivers/gpu/drm/imx/dc/dc-ic.c  | 282 ++++++++++++++++++++++++++++++++
+ 5 files changed, 286 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/gpu/drm/imx/dc/dc-ic.c
 
-diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
+diff --git a/drivers/gpu/drm/imx/dc/Kconfig b/drivers/gpu/drm/imx/dc/Kconfig
+index e1ef76d82830..1fc84c7475de 100644
+--- a/drivers/gpu/drm/imx/dc/Kconfig
++++ b/drivers/gpu/drm/imx/dc/Kconfig
+@@ -1,6 +1,7 @@
+ config DRM_IMX8_DC
+ 	tristate "Freescale i.MX8 Display Controller Graphics"
+ 	depends on DRM && COMMON_CLK && OF && (ARCH_MXC || COMPILE_TEST)
++	select GENERIC_IRQ_CHIP
+ 	select REGMAP
+ 	select REGMAP_MMIO
+ 	help
+diff --git a/drivers/gpu/drm/imx/dc/Makefile b/drivers/gpu/drm/imx/dc/Makefile
+index 2942ae6fd5bd..1ce3e8a8db22 100644
+--- a/drivers/gpu/drm/imx/dc/Makefile
++++ b/drivers/gpu/drm/imx/dc/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ imx8-dc-drm-objs := dc-cf.o dc-de.o dc-drv.o dc-ed.o dc-fg.o dc-fl.o dc-fu.o \
+-		    dc-fw.o dc-lb.o dc-pe.o dc-tc.o
++		    dc-fw.o dc-ic.o dc-lb.o dc-pe.o dc-tc.o
+ 
+ obj-$(CONFIG_DRM_IMX8_DC) += imx8-dc-drm.o
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
+index 7c64acc863ad..fd68861f770a 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.c
++++ b/drivers/gpu/drm/imx/dc/dc-drv.c
+@@ -15,6 +15,7 @@ static struct platform_driver * const dc_drivers[] = {
+ 	&dc_fg_driver,
+ 	&dc_fl_driver,
+ 	&dc_fw_driver,
++	&dc_ic_driver,
+ 	&dc_lb_driver,
+ 	&dc_pe_driver,
+ 	&dc_tc_driver,
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
+index e618a4228590..01f3c355beba 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.h
++++ b/drivers/gpu/drm/imx/dc/dc-drv.h
+@@ -31,6 +31,7 @@ extern struct platform_driver dc_de_driver;
+ extern struct platform_driver dc_fg_driver;
+ extern struct platform_driver dc_fl_driver;
+ extern struct platform_driver dc_fw_driver;
++extern struct platform_driver dc_ic_driver;
+ extern struct platform_driver dc_lb_driver;
+ extern struct platform_driver dc_pe_driver;
+ extern struct platform_driver dc_tc_driver;
+diff --git a/drivers/gpu/drm/imx/dc/dc-ic.c b/drivers/gpu/drm/imx/dc/dc-ic.c
 new file mode 100644
-index 000000000000..668c9c9eccb5
+index 000000000000..66884ce72b5b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
-@@ -0,0 +1,273 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/gpu/drm/imx/dc/dc-ic.c
+@@ -0,0 +1,282 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2024 NXP
++ */
 +
-+title: Freescale i.MX8qxp Display Controller Pixel Engine
++#include <linux/clk.h>
++#include <linux/interrupt.h>
++#include <linux/irq.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
++#include <linux/of.h>
++#include <linux/of_irq.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
 +
-+description:
-+  All Processing Units that operate in the AXI bus clock domain. Pixel
-+  pipelines have the ability to stall when a destination is busy. Implements
-+  all communication to memory resources and most of the image processing
-+  functions. Interconnection of Processing Units is re-configurable.
++#define USERINTERRUPTMASK(n)	(0x8 + 4 * (n))
++#define INTERRUPTENABLE(n)	(0x10 + 4 * (n))
++#define INTERRUPTPRESET(n)	(0x18 + 4 * (n))
++#define INTERRUPTCLEAR(n)	(0x20 + 4 * (n))
++#define INTERRUPTSTATUS(n)	(0x28 + 4 * (n))
++#define USERINTERRUPTENABLE(n)	(0x40 + 4 * (n))
++#define USERINTERRUPTPRESET(n)	(0x48 + 4 * (n))
++#define USERINTERRUPTCLEAR(n)	(0x50 + 4 * (n))
++#define USERINTERRUPTSTATUS(n)	(0x58 + 4 * (n))
 +
-+maintainers:
-+  - Liu Ying <victor.liu@nxp.com>
++#define IRQ_COUNT	49
++#define IRQ_RESERVED	35
++#define REG_NUM		2
 +
-+properties:
-+  compatible:
-+    const: fsl,imx8qxp-dc-pixel-engine
++struct dc_ic_data {
++	struct regmap		*regs;
++	struct clk		*clk_axi;
++	int			irq[IRQ_COUNT];
++	struct irq_domain	*domain;
++};
 +
-+  reg:
-+    maxItems: 1
++struct dc_ic_entry {
++	struct dc_ic_data *data;
++	int irq;
++};
 +
-+  clocks:
-+    maxItems: 1
++static const struct regmap_range dc_ic_regmap_write_ranges[] = {
++	regmap_reg_range(USERINTERRUPTMASK(0), INTERRUPTCLEAR(1)),
++	regmap_reg_range(USERINTERRUPTENABLE(0), USERINTERRUPTCLEAR(1)),
++};
 +
-+  "#address-cells":
-+    const: 1
++static const struct regmap_access_table dc_ic_regmap_write_table = {
++	.yes_ranges = dc_ic_regmap_write_ranges,
++	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_write_ranges),
++};
 +
-+  "#size-cells":
-+    const: 1
++static const struct regmap_range dc_ic_regmap_read_ranges[] = {
++	regmap_reg_range(USERINTERRUPTMASK(0), INTERRUPTENABLE(1)),
++	regmap_reg_range(INTERRUPTSTATUS(0), INTERRUPTSTATUS(1)),
++	regmap_reg_range(USERINTERRUPTENABLE(0), USERINTERRUPTENABLE(1)),
++	regmap_reg_range(USERINTERRUPTSTATUS(0), USERINTERRUPTSTATUS(1)),
++};
 +
-+  ranges: true
++static const struct regmap_access_table dc_ic_regmap_read_table = {
++	.yes_ranges = dc_ic_regmap_read_ranges,
++	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_read_ranges),
++};
 +
-+patternProperties:
-+  "^blit-engine@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++static const struct regmap_range dc_ic_regmap_volatile_ranges[] = {
++	regmap_reg_range(INTERRUPTPRESET(0), INTERRUPTCLEAR(1)),
++	regmap_reg_range(USERINTERRUPTPRESET(0), USERINTERRUPTCLEAR(1)),
++};
 +
-+    properties:
-+      compatible:
-+        const: fsl,imx8qxp-dc-blit-engine
++static const struct regmap_access_table dc_ic_regmap_volatile_table = {
++	.yes_ranges = dc_ic_regmap_volatile_ranges,
++	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_volatile_ranges),
++};
 +
-+  "^constframe@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++static const struct regmap_config dc_ic_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.fast_io = true,
++	.wr_table = &dc_ic_regmap_write_table,
++	.rd_table = &dc_ic_regmap_read_table,
++	.volatile_table = &dc_ic_regmap_volatile_table,
++	.max_register = USERINTERRUPTSTATUS(1),
++};
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-constframe0
-+          - fsl,imx8qxp-dc-constframe1
-+          - fsl,imx8qxp-dc-constframe4
-+          - fsl,imx8qxp-dc-constframe5
++static void dc_ic_irq_handler(struct irq_desc *desc)
++{
++	struct dc_ic_entry *entry = irq_desc_get_handler_data(desc);
++	struct dc_ic_data *data = entry->data;
++	unsigned int status, enable;
++	unsigned int virq;
 +
-+  "^extdst@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	chained_irq_enter(irq_desc_get_chip(desc), desc);
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-extdst0
-+          - fsl,imx8qxp-dc-extdst1
-+          - fsl,imx8qxp-dc-extdst4
-+          - fsl,imx8qxp-dc-extdst5
++	regmap_read(data->regs, USERINTERRUPTSTATUS(entry->irq / 32), &status);
++	regmap_read(data->regs, USERINTERRUPTENABLE(entry->irq / 32), &enable);
 +
-+  "^fetchdecode@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	status &= enable;
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-fetchdecode0
-+          - fsl,imx8qxp-dc-fetchdecode1
++	if (status & BIT(entry->irq % 32)) {
++		virq = irq_linear_revmap(data->domain, entry->irq);
++		if (virq)
++			generic_handle_irq(virq);
++	}
 +
-+  "^fetcheco@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	chained_irq_exit(irq_desc_get_chip(desc), desc);
++}
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-fetcheco0
-+          - fsl,imx8qxp-dc-fetcheco1
-+          - fsl,imx8qxp-dc-fetcheco2
++static const unsigned long unused_irq[REG_NUM] = {0x00000000, 0xfffe0008};
 +
-+  "^fetchlayer@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++static int dc_ic_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct irq_chip_generic *gc;
++	struct dc_ic_entry *entry;
++	struct irq_chip_type *ct;
++	struct dc_ic_data *data;
++	void __iomem *base;
++	int i, ret;
 +
-+    properties:
-+      compatible:
-+        const: fsl,imx8qxp-dc-fetchlayer0
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
 +
-+  "^fetchwarp@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	entry = devm_kcalloc(dev, IRQ_COUNT, sizeof(*entry), GFP_KERNEL);
++	if (!entry)
++		return -ENOMEM;
 +
-+    properties:
-+      compatible:
-+        const: fsl,imx8qxp-dc-fetchwarp2
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base)) {
++		dev_err(dev, "failed to initialize reg\n");
++		return PTR_ERR(base);
++	}
 +
-+  "^hscaler@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	data->regs = devm_regmap_init_mmio(dev, base, &dc_ic_regmap_config);
++	if (IS_ERR(data->regs))
++		return PTR_ERR(data->regs);
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-hscaler4
-+          - fsl,imx8qxp-dc-hscaler5
++	data->clk_axi = devm_clk_get(dev, NULL);
++	if (IS_ERR(data->clk_axi))
++		return dev_err_probe(dev, PTR_ERR(data->clk_axi),
++				     "failed to get AXI clock\n");
 +
-+  "^layerblend@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	for (i = 0; i < IRQ_COUNT; i++) {
++		/* skip the reserved IRQ */
++		if (i == IRQ_RESERVED)
++			continue;
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-layerblend0
-+          - fsl,imx8qxp-dc-layerblend1
-+          - fsl,imx8qxp-dc-layerblend2
-+          - fsl,imx8qxp-dc-layerblend3
++		ret = platform_get_irq(pdev, i);
++		if (ret < 0)
++			return ret;
++	}
 +
-+  "^matrix@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	dev_set_drvdata(dev, data);
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-matrix4
-+          - fsl,imx8qxp-dc-matrix5
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
 +
-+  "^safety@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret < 0) {
++		dev_err(dev, "failed to get runtime PM sync: %d\n", ret);
++		return ret;
++	}
 +
-+    properties:
-+      compatible:
-+        const: fsl,imx8qxp-dc-safety
++	for (i = 0; i < REG_NUM; i++) {
++		/* mask and clear all interrupts */
++		regmap_write(data->regs, USERINTERRUPTENABLE(i), 0x0);
++		regmap_write(data->regs, INTERRUPTENABLE(i), 0x0);
++		regmap_write(data->regs, USERINTERRUPTCLEAR(i), 0xffffffff);
++		regmap_write(data->regs, INTERRUPTCLEAR(i), 0xffffffff);
 +
-+  "^vscaler@[0-9a-f]+$":
-+    type: object
-+    additionalProperties: true
++		/* set all interrupts to user mode */
++		regmap_write(data->regs, USERINTERRUPTMASK(i), 0xffffffff);
++	}
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - fsl,imx8qxp-dc-vscaler4
-+          - fsl,imx8qxp-dc-vscaler5
++	data->domain = irq_domain_add_linear(dev->of_node, IRQ_COUNT,
++					     &irq_generic_chip_ops, data);
++	if (!data->domain) {
++		dev_err(dev, "failed to create IRQ domain\n");
++		pm_runtime_put(dev);
++		return -ENOMEM;
++	}
++	irq_domain_set_pm_device(data->domain, dev);
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - "#address-cells"
-+  - "#size-cells"
-+  - ranges
++	ret = irq_alloc_domain_generic_chips(data->domain, 32, 1, "DC",
++					     handle_level_irq, 0, 0, 0);
++	if (ret) {
++		dev_err(dev, "failed to alloc generic IRQ chips: %d\n", ret);
++		irq_domain_remove(data->domain);
++		pm_runtime_put(dev);
++		return ret;
++	}
 +
-+additionalProperties: false
++	for (i = 0; i < IRQ_COUNT; i += 32) {
++		gc = irq_get_domain_generic_chip(data->domain, i);
++		gc->reg_base = base;
++		gc->unused = unused_irq[i / 32];
++		ct = gc->chip_types;
++		ct->chip.irq_ack = irq_gc_ack_set_bit;
++		ct->chip.irq_mask = irq_gc_mask_clr_bit;
++		ct->chip.irq_unmask = irq_gc_mask_set_bit;
++		ct->regs.ack = USERINTERRUPTCLEAR(i / 32);
++		ct->regs.mask = USERINTERRUPTENABLE(i / 32);
++	}
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/imx8-lpcg.h>
++	for (i = 0; i < IRQ_COUNT; i++) {
++		/* skip the reserved IRQ */
++		if (i == IRQ_RESERVED)
++			continue;
 +
-+    pixel-engine@56180800 {
-+        compatible = "fsl,imx8qxp-dc-pixel-engine";
-+        reg = <0x56180800 0xac00>;
-+        clocks = <&dc0_lpcg IMX_LPCG_CLK_5>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges;
++		data->irq[i] = irq_of_parse_and_map(dev->of_node, i);
 +
-+        constframe@56180960 {
-+            compatible = "fsl,imx8qxp-dc-constframe0";
-+            reg = <0x56180960 0xc>, <0x56184400 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++		entry[i].data = data;
++		entry[i].irq = i;
 +
-+        extdst@56180980 {
-+            compatible = "fsl,imx8qxp-dc-extdst0";
-+            reg = <0x56180980 0x1c>, <0x56184800 0x28>;
-+            reg-names = "pec", "cfg";
-+            interrupt-parent = <&dc0_intc>;
-+            interrupts = <3>, <4>, <5>;
-+            interrupt-names = "shdload", "framecomplete", "seqcomplete";
-+        };
++		irq_set_chained_handler_and_data(data->irq[i],
++						 dc_ic_irq_handler, &entry[i]);
++	}
 +
-+        constframe@561809a0 {
-+            compatible = "fsl,imx8qxp-dc-constframe4";
-+            reg = <0x561809a0 0xc>, <0x56184c00 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++	return 0;
++}
 +
-+        extdst@561809c0 {
-+            compatible = "fsl,imx8qxp-dc-extdst4";
-+            reg = <0x561809c0 0x1c>, <0x56185000 0x28>;
-+            reg-names = "pec", "cfg";
-+            interrupt-parent = <&dc0_intc>;
-+            interrupts = <6>, <7>, <8>;
-+            interrupt-names = "shdload", "framecomplete", "seqcomplete";
-+        };
++static void dc_ic_remove(struct platform_device *pdev)
++{
++	struct dc_ic_data *data = dev_get_drvdata(&pdev->dev);
++	int i;
 +
-+        constframe@561809e0 {
-+            compatible = "fsl,imx8qxp-dc-constframe1";
-+            reg = <0x561809e0 0xc>, <0x56185400 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++	for (i = 0; i < IRQ_COUNT; i++) {
++		if (i == IRQ_RESERVED)
++			continue;
 +
-+        extdst@56180a00 {
-+            compatible = "fsl,imx8qxp-dc-extdst1";
-+            reg = <0x56180a00 0x1c>, <0x56185800 0x28>;
-+            reg-names = "pec", "cfg";
-+            interrupt-parent = <&dc0_intc>;
-+            interrupts = <9>, <10>, <11>;
-+            interrupt-names = "shdload", "framecomplete", "seqcomplete";
-+        };
++		irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
++	}
 +
-+        constframe@56180a20 {
-+            compatible = "fsl,imx8qxp-dc-constframe5";
-+            reg = <0x56180a20 0xc>, <0x56185c00 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++	irq_domain_remove(data->domain);
 +
-+        extdst@56180a40 {
-+            compatible = "fsl,imx8qxp-dc-extdst5";
-+            reg = <0x56180a40 0x1c>, <0x56186000 0x28>;
-+            reg-names = "pec", "cfg";
-+            interrupt-parent = <&dc0_intc>;
-+            interrupts = <12>, <13>, <14>;
-+            interrupt-names = "shdload", "framecomplete", "seqcomplete";
-+        };
++	pm_runtime_put_sync(&pdev->dev);
++}
 +
-+        fetchwarp@56180a60 {
-+            compatible = "fsl,imx8qxp-dc-fetchwarp2";
-+            reg = <0x56180a60 0x10>, <0x56186400 0x190>;
-+            reg-names = "pec", "cfg";
-+        };
++static int dc_ic_runtime_suspend(struct device *dev)
++{
++	struct dc_ic_data *data = dev_get_drvdata(dev);
 +
-+        fetchlayer@56180ac0 {
-+            compatible = "fsl,imx8qxp-dc-fetchlayer0";
-+            reg = <0x56180ac0 0xc>, <0x56188400 0x404>;
-+            reg-names = "pec", "cfg";
-+        };
++	clk_disable_unprepare(data->clk_axi);
 +
-+        layerblend@56180ba0 {
-+            compatible = "fsl,imx8qxp-dc-layerblend0";
-+            reg = <0x56180ba0 0x10>, <0x5618a400 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++	return 0;
++}
 +
-+        layerblend@56180bc0 {
-+            compatible = "fsl,imx8qxp-dc-layerblend1";
-+            reg = <0x56180bc0 0x10>, <0x5618a800 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++static int dc_ic_runtime_resume(struct device *dev)
++{
++	struct dc_ic_data *data = dev_get_drvdata(dev);
++	int ret;
 +
-+        layerblend@56180be0 {
-+            compatible = "fsl,imx8qxp-dc-layerblend2";
-+            reg = <0x56180be0 0x10>, <0x5618ac00 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
++	ret = clk_prepare_enable(data->clk_axi);
++	if (ret)
++		dev_err(dev, "failed to enable AXI clock: %d\n", ret);
 +
-+        layerblend@56180c00 {
-+            compatible = "fsl,imx8qxp-dc-layerblend3";
-+            reg = <0x56180c00 0x10>, <0x5618b000 0x20>;
-+            reg-names = "pec", "cfg";
-+        };
-+    };
++	return ret;
++}
++
++static const struct dev_pm_ops dc_ic_pm_ops = {
++	SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
++				      pm_runtime_force_resume)
++	RUNTIME_PM_OPS(dc_ic_runtime_suspend, dc_ic_runtime_resume, NULL)
++};
++
++static const struct of_device_id dc_ic_dt_ids[] = {
++	{ .compatible = "fsl,imx8qxp-dc-intc", },
++	{ /* sentinel */ }
++};
++
++struct platform_driver dc_ic_driver = {
++	.probe = dc_ic_probe,
++	.remove = dc_ic_remove,
++	.driver = {
++		.name = "imx8-dc-intc",
++		.suppress_bind_attrs = true,
++		.of_match_table	= dc_ic_dt_ids,
++		.pm = pm_sleep_ptr(&dc_ic_pm_ops),
++	},
++};
 -- 
 2.34.1
 
