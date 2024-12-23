@@ -4,93 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33F0E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 09:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4486BE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 09:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7JvyzST6fT2xMf3ranPUUdjTRcgXeD+mnvB9d/18a9U=; b=Vhp7zPAJlXPmRo8vIxwJpWEqZl
-	y41wlZTqIyYt7E6q8gspB0+HofuIhCL5KHKhbHlTKFjPONXoszwd3PhwuHekqSvIC8IFzIVJgVitU
-	YrFmVWm9SWq1gUttWjBiLyVuyb+XLOuZZrLf2iToIPsCsGshMcg5S8bjSeYz6kFp+1ALO5N8T9+yW
-	6gzn6guviG1e9cIPz147qZ8NnAHo0ezqoy1I59abdIHIWRnryS+liPh+AbYZqbzORFdVKwtAO2JH8
-	z6pY+rH7dOp3XxETwwz8hjFdQDysRuSld0kKCSmzGMsAILO9r7GbQEXFr1gstLHLiltu0clZsXtOx
-	OhdV26zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C0F7zyJB4b8yItQzSUAX65nMyecwbU22+Duo3nFLB4Y=; b=0GnGqGuFxmFgfHcVIdzZ6QMmxU
+	pojLBfj/6jmvTafCA0FrGoDw4scQ1I7Zy698gJLkn2nx6KTVCCn1sf9fNQbfZSSz8NDTCHKNeVuYg
+	NLJNzmwUpCgE1pyV1xzv5yPVrmCFwir3jR45SNzfqqX6ISckUjwi35SlbEghgEdnQeS8mr8na2tH4
+	MOilXXg5LVdyZbDpOoiIrLb912RrsJSK6yBgEUPCZRMkoawsqPy/PHH799ZGaX3DhD6Qc8kR1Nr4i
+	7+iesMMufTQcQiu8rmdDXAxuQHPOURSKKcMQqXXtLsvZrIGvO0t9h2zUb8qX9rTr6tFoFDh5HpF4A
+	r9XVPMTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPend-00000009elx-1lxw;
-	Mon, 23 Dec 2024 09:32:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPekL-00000009eT0-3H4v;
-	Mon, 23 Dec 2024 09:29:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 34C12A40CB7;
-	Mon, 23 Dec 2024 09:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 096FBC4CED3;
-	Mon, 23 Dec 2024 09:29:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734946144;
-	bh=N/umG6hkbDvFZTfuU7dZaG2b4mcblT58EocGnnvjib8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HsszrnNyhNuu2fR3ncen4NNgnjCXnK1sBHA5zocVAQdgLvkK64Ug4OQwrtNDpVDhN
-	 fHECy4zVX8EuTZZ+ncWcvmDXL3CrwOrEdQ9kJe4nryS29RN/0VykWDRotMms1cm8l7
-	 X670PBv5P9i8mbMAz1kaMqNZ7gw6Xkq1DK01HvKCfMyJnLo7wmuilwNY83aadirqyz
-	 CkY9QH4ubhbN5MQU+XrJM30NWR4bNOytUOJ2bblwv2g/0lQqcRDXW0iIyxp9AkXECy
-	 2hd0eem+OAAzEFUEsta0ffo0+AM3AuSWfH/JELECp7czHBUjQ3adZqR6O7+02Dnitw
-	 dZ9GSN8SAB3ww==
-Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tPekH-006L1R-B9;
-	Mon, 23 Dec 2024 09:29:01 +0000
-Date: Mon, 23 Dec 2024 09:29:01 +0000
-Message-ID: <871pxysq76.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: FUKAUMI Naoki <naoki@radxa.com>,
-	heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	tglx@linutronix.de,
-	jonas@kwiboo.se,
-	macromorgan@hotmail.com,
-	andyshrk@163.com,
-	liujianfeng1994@gmail.com,
-	dmt.yashin@gmail.com,
-	tim@feathertop.org,
-	marcin.juszkiewicz@linaro.org,
-	michael.riesch@wolfvision.net,
-	alchark@gmail.com,
-	sebastian.reichel@collabora.com,
-	jbx6244@gmail.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/3] irqchip/gic-v3: Enable Rockchip 3588001 erratum workaround for RK3582
-In-Reply-To: <e3498590dd81b150670e36561d99b6f4@manjaro.org>
-References: <20241222030355.2246-1-naoki@radxa.com>
-	<20241222030355.2246-2-naoki@radxa.com>
-	<86msgoozqa.wl-maz@kernel.org>
-	<f93b3bfb5151e4b617b1c99c91b4956f@manjaro.org>
-	<8734ifs3zl.wl-maz@kernel.org>
-	<e3498590dd81b150670e36561d99b6f4@manjaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 91.161.240.24
-X-SA-Exim-Rcpt-To: dsimic@manjaro.org, naoki@radxa.com, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com, tim@feathertop.org, marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net, alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1tPeow-00000009f3X-1P3Y;
+	Mon, 23 Dec 2024 09:33:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tPenj-00000009enb-1P6l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Dec 2024 09:32:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E1D3152B;
+	Mon, 23 Dec 2024 01:33:00 -0800 (PST)
+Received: from [10.57.73.219] (unknown [10.57.73.219])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 692B23F58B;
+	Mon, 23 Dec 2024 01:32:30 -0800 (PST)
+Message-ID: <ea47035e-c834-4028-b98f-8b88caff929b@arm.com>
+Date: Mon, 23 Dec 2024 09:32:28 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/1] arm64: rsi: Add automatic arm-cca-guest module
+ loading
+To: Jeremy Linton <jeremy.linton@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: suzuki.poulose@arm.com, gshan@redhat.com, sami.mujawar@arm.com,
+ itaru.kitayama@linux.dev, catalin.marinas@arm.com, will@kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20241220181236.172060-1-jeremy.linton@arm.com>
+ <20241220181236.172060-2-jeremy.linton@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241220181236.172060-2-jeremy.linton@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_012905_957205_7EF75075 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20241223_013235_472700_06DF126B 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,111 +68,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Dec 2024 06:10:21 +0000,
-Dragan Simic <dsimic@manjaro.org> wrote:
+On 20/12/2024 18:12, Jeremy Linton wrote:
+> The TSM module provides guest identification and attestation when a
+> guest runs in CCA realm mode. By creating a dummy platform device,
+> let's ensure the module is automatically loaded. The udev daemon loads
+> the TSM module after it receives a device addition event. Once that
+> happens, it can be used earlier in the boot process to decrypt the
+> rootfs.
 > 
-> Hello Marc,
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+
+LGTM
+
+Reviewed-by: Steven Price <steven.price@arm.com>
+
+Thanks,
+Steve
+
+> ---
+>  arch/arm64/include/asm/rsi.h                    |  2 ++
+>  arch/arm64/kernel/rsi.c                         | 15 +++++++++++++++
+>  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c |  8 ++++++++
+>  3 files changed, 25 insertions(+)
 > 
-> On 2024-12-23 00:16, Marc Zyngier wrote:
-> > On Sun, 22 Dec 2024 18:25:02 +0000,
-> > Dragan Simic <dsimic@manjaro.org> wrote:
-> >> On 2024-12-22 10:04, Marc Zyngier wrote:
-> >> > On Sun, 22 Dec 2024 03:03:53 +0000,
-> >> > FUKAUMI Naoki <naoki@radxa.com> wrote:
-> >> >>
-> >> >> Rockchip RK3582 is a scaled down version of Rockchip RK3588(S). Apply
-> >> >> Rockchip 3588001 erratum workaround to RK3582.
-> >> >>
-> >> >> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
-> >> >> ---
-> >> >>  drivers/irqchip/irq-gic-v3-its.c | 3 ++-
-> >> >>  1 file changed, 2 insertions(+), 1 deletion(-)
-> >> >>
-> >> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c
-> >> >> b/drivers/irqchip/irq-gic-v3-its.c
-> >> >> index 92244cfa0464..c59ce9332dc0 100644
-> >> >> --- a/drivers/irqchip/irq-gic-v3-its.c
-> >> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> >> >> @@ -4861,7 +4861,8 @@ static bool __maybe_unused
-> >> >> its_enable_rk3588001(void *data)
-> >> >>  {
-> >> >>  	struct its_node *its = data;
-> >> >>
-> >> >> -	if (!of_machine_is_compatible("rockchip,rk3588") &&
-> >> >> +	if (!of_machine_is_compatible("rockchip,rk3582") &&
-> >> >> +	    !of_machine_is_compatible("rockchip,rk3588") &&
-> >> >>  	    !of_machine_is_compatible("rockchip,rk3588s"))
-> >> >>  		return false;
-> >> >>
-> >> >
-> >> > Please use the relevant property for that purpose ("dma-noncoherent")
-> >> > at the distributor and ITS levels. We're not adding extra compatibles
-> >> > for this anymore, and you might as well fix the core dtsi to expose
-> >> > such property.
-> >> 
-> >> Thanks for your response.
-> >> 
-> >> After a more detailed look into drivers/irqchip/irq-gic-v3-its.c,
-> >> it seems that relying on the "dma-noncoherent" DT property may not
-> >> be equivalent to adding another compatible check.
-> > 
-> > It is. My email makes it plain what needs doing.
-> > 
-> >> Here are a few
-> >> quotations from irq-gic-v3-its.c, to illustrate this better:
-> >> 
-> >> 4746 static bool __maybe_unused its_enable_rk3588001(void *data)
-> >> 4747 {
-> >> 4748         struct its_node *its = data;
-> >> 4749
-> >> 4750         if (!of_machine_is_compatible("rockchip,rk3588") &&
-> >> 4751             !of_machine_is_compatible("rockchip,rk3588s"))
-> >> 4752                 return false;
-> >> 4753
-> >> 4754         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
-> >> 4755         gic_rdists->flags |= RDIST_FLAGS_FORCE_NON_SHAREABLE;
-> >> 4756
-> >> 4757         return true;
-> >> 4758 }
-> >> 4759
-> >> 4760 static bool its_set_non_coherent(void *data)
-> >> 4761 {
-> >> 4762         struct its_node *its = data;
-> >> 4763
-> >> 4764         its->flags |= ITS_FLAGS_FORCE_NON_SHAREABLE;
-> >> 4765         return true;
-> >> 4766 }
-> >> 
-> >> 4814 #ifdef CONFIG_ROCKCHIP_ERRATUM_3588001
-> >> 4815         {
-> >> 4816                 .desc   = "ITS: Rockchip erratum RK3588001",
-> >> 4817                 .iidr   = 0x0201743b,
-> >> 4818                 .mask   = 0xffffffff,
-> >> 4819                 .init   = its_enable_rk3588001,
-> >> 4820         },
-> >> 4821 #endif
-> >> 4822         {
-> >> 4823                 .desc   = "ITS: non-coherent attribute",
-> >> 4824                 .property = "dma-noncoherent",
-> >> 4825                 .init   = its_set_non_coherent,
-> >> 4826         },
-> > 
-> > Nothing tickles me more than having my own work being thrown back at
-> > me.
-> 
-> I'm sorry, that wasn't my intention.  I just wanted to make
-> referencing to what I was talking about a bit easier.  Though,
-> I now see that I was wrong, and I apologize for the noise.
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 188cbb9b23f5..b42aeac05340 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -10,6 +10,8 @@
+>  #include <linux/jump_label.h>
+>  #include <asm/rsi_cmds.h>
+>  
+> +#define RSI_PDEV_NAME "arm-cca-dev"
+> +
+>  DECLARE_STATIC_KEY_FALSE(rsi_present);
+>  
+>  void __init arm64_rsi_init(void);
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 3031f25c32ef..ce4778141ec7 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/psci.h>
+>  #include <linux/swiotlb.h>
+>  #include <linux/cc_platform.h>
+> +#include <linux/platform_device.h>
+>  
+>  #include <asm/io.h>
+>  #include <asm/mem_encrypt.h>
+> @@ -140,3 +141,17 @@ void __init arm64_rsi_init(void)
+>  	static_branch_enable(&rsi_present);
+>  }
+>  
+> +static struct platform_device rsi_dev = {
+> +	.name = RSI_PDEV_NAME,
+> +	.id = PLATFORM_DEVID_NONE
+> +};
+> +
+> +static int __init arm64_create_dummy_rsi_dev(void)
+> +{
+> +	if (is_realm_world() &&
+> +	    platform_device_register(&rsi_dev))
+> +		pr_err("failed to register rsi platform device\n");
+> +	return 0;
+> +}
+> +
+> +arch_initcall(arm64_create_dummy_rsi_dev)
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> index 488153879ec9..87f162736b2e 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/arm-smccc.h>
+>  #include <linux/cc_platform.h>
+>  #include <linux/kernel.h>
+> +#include <linux/mod_devicetable.h>
+>  #include <linux/module.h>
+>  #include <linux/smp.h>
+>  #include <linux/tsm.h>
+> @@ -219,6 +220,13 @@ static void __exit arm_cca_guest_exit(void)
+>  }
+>  module_exit(arm_cca_guest_exit);
+>  
+> +/* modalias, so userspace can autoload this module when RSI is available */
+> +static const struct platform_device_id arm_cca_match[] __maybe_unused = {
+> +	{ RSI_PDEV_NAME, 0},
+> +	{ }
+> +};
+> +
+> +MODULE_DEVICE_TABLE(platform, arm_cca_match);
+>  MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
+>  MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
+>  MODULE_LICENSE("GPL");
 
-No need to apologise. Just understand that the way you approached the
-discussion was suboptimal. Next time, just ask how the proposed
-solution works, rather than asserting that it doesn't.
-
-Hopefully we can move on and you and Naoki can come up with a set of
-patches that does the right thing.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
