@@ -4,53 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34CEE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 18:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FD8E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 19:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lkVriRzY6jEkSOkT+b80vjxIvV8qyrRQFQxaAKrgBN8=; b=r+fvh9ZRNo0+gBGrD2cuYIVPWc
-	bgf2c/9DLOyaktoj3p+UXxTNgOPSfjco0XhGO+PLktg0pJ7UHUxo3SdAB/O2j83u5jHHbU/mr1BxS
-	dv6xLBD9yPRPTLkLPWmlgIiSVmzCDHL4bo4iUWoH7E5j8IaoRh0jGt5pTNLGdk9v4Kf2OrJtm3cLp
-	gpEOG/6TzAlofDwie0OeQRZ+TwCMgAVCS85D5QjoMdw/DqVfNpd/UWuReT1DCJwFIfgxD5d36zeic
-	zyoCPJwLQD0jLY6UMmOArTva0tyGyr7TQFMc0W0/4nTdqb88Gg7iHvPVA7kfaniE07b+j0IwNMd2x
-	h08dkiTA==;
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TdiuPB9bq/4aCMg4E3kNucse6Zv0E07gnxdpcuBtioU=; b=ghV18PoXgZpl9xme3wsNH5MczC
+	QOc4K+suxiQLV5JwOaCo01VknWYCoiKO2mfQpW4xkTz6VkODA5Mu0XC2bX3UsO20fXtbrZp0XWuhd
+	tQqmpPrynE7CE2A/XndWCS7D1wxnDt2F5T/5qYMreEXuo8CPN3+rf4hEgiT552g9uRJ6A8KKo+ziY
+	gFgjYw5Y11xDvQtbgVM7HoT+z8bakpemPt18SUjPR+Bkh72wb1tBUn5oAgkufaQY6MQCd/SZUHTx2
+	U60D85zjzyCvgcCAbsXwJcVhmqa3H5+g0GVcqZk0C0QBKyEJkyE6dUfYYoh48Kq5GmmE9Ak2fsX9U
+	tCg6aonw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPnZp-0000000AaMV-2nmT;
-	Mon, 23 Dec 2024 18:54:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPnYd-0000000AaI4-1qxp
+	id 1tPnfE-0000000Aaou-3YsO;
+	Mon, 23 Dec 2024 19:00:24 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tPne1-0000000Aahh-2b5X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 18:53:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5939E1424;
-	Mon, 23 Dec 2024 10:54:00 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BAAA83F59E;
-	Mon, 23 Dec 2024 10:53:30 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v2] coresight: prevent deactivate active config while enable the config
-Date: Mon, 23 Dec 2024 18:53:28 +0000
-Message-Id: <20241223185328.1339616-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 23 Dec 2024 18:59:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id EC58E1C0004;
+	Mon, 23 Dec 2024 18:59:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1734980344;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TdiuPB9bq/4aCMg4E3kNucse6Zv0E07gnxdpcuBtioU=;
+	b=XD/YazfUbfpgmMWjNw6rFagb9g92PQuspY4BKzYOQ1avsLOpHM33iXbbsDnLtFQmXWgrZ1
+	J8+blL7J4mzXdyiPeH+Dyo3W3bZaYzS1v6lyNrlg3t7mngDfdPgqpBHI1xKZ5tSAUyTafb
+	J6MWzArSxY1XzYtkSHVgtTnLnY6psF9xcXEBQaSF/USLQOKV9hG7oz6/rae3XGvejIWZ9m
+	+N5z3+Y7ck24CfYSzYEWQhfvMgA/Tjs7wnP7Qbn3M/yz5RCZeX4rEB/f7l8hl+uq93xEg5
+	/l7i2STzkE+pbgnI1omFtYsrqBDP1vizVR7kheE/ba/RZr+r5vHVcbXYuNZNtA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Maxime Ripard <mripard@redhat.com>
+Cc: Liu Ying <victor.liu@nxp.com>,  Abel Vesa <abelvesa@kernel.org>,  Peng
+ Fan <peng.fan@nxp.com>,  Michael Turquette <mturquette@baylibre.com>,
+  Stephen Boyd <sboyd@kernel.org>,  Shawn Guo <shawnguo@kernel.org>,
+  Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
+ <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,  Marek Vasut
+ <marex@denx.de>,  Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+  linux-clk@vger.kernel.org,  imx@lists.linux.dev,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  dri-devel@lists.freedesktop.org,  Abel Vesa <abel.vesa@linaro.org>,
+  Herve Codina <herve.codina@bootlin.com>,  Luca Ceresoli
+ <luca.ceresoli@bootlin.com>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Ian Ray <ian.ray@ge.com>,
+  stable@vger.kernel.org
+Subject: Re: [PATCH 0/5] clk: Fix simple video pipelines on i.MX8
+In-Reply-To: <20241217-didactic-hedgehog-from-heaven-004c37@houat> (Maxime
+	Ripard's message of "Tue, 17 Dec 2024 13:54:07 +0100")
+References: <20241121-ge-ian-debug-imx8-clk-tree-v1-0-0f1b722588fe@bootlin.com>
+	<b98fdf46-3d09-4693-86fe-954fc723e3a6@nxp.com>
+	<87zflrpp8w.fsf@bootlin.com>
+	<20241217-didactic-hedgehog-from-heaven-004c37@houat>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Mon, 23 Dec 2024 19:59:02 +0100
+Message-ID: <87ttaurzt5.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_105335_576689_6D0B7DF2 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20241223_105909_941857_8B65FB20 
+X-CRM114-Status: GOOD (  33.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,136 +87,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While enable active config via cscfg_csdev_enable_active_config(),
-active config could be deactivated via configfs' sysfs interface.
-This could make UAF issue in below scenario:
+Hello,
 
-CPU0                                          CPU1
-(sysfs enable)                                load module
-                                              cscfg_load_config_sets()
-                                              activate config. // sysfs
-                                              (sys_active_cnt == 1)
-...
-cscfg_csdev_enable_active_config()
-  lock(csdev->cscfg_csdev_lock)
-  // here load config activate by CPU1
-  unlock(csdev->cscfg_csdev_lock)
+>> >> [After applying PATCH "clk: imx: clk-imx8mp: Allow LDB serializer clo=
+ck reconfigure parent rate"]
+>> >>=20
+>> >> This is a commit from Marek, which is, I believe going in the right
+>> >> direction, so I am including it. Just with this change, the situation=
+ is
+>> >> slightly different, but the result is the same:
+>> >> - media_disp[12]_pix is set to freq A by using a divisor of 1 and
+>> >>   setting video_pll1 to freq A.
+>> >> - media_ldb is set to 7*A by using a divisor of 1 and setting video_p=
+ll1
+>> >>   to freq 7*A.
+>> >>   /!\ This as the side effect of changing media_disp[12]_pix from fre=
+q A
+>> >>   to freq 7*A.
+>> >
+>> > Although I'm not of a fan of setting CLK_SET_RATE_PARENT flag to the
+>> > LDB clock and pixel clocks,
+>>=20
+>> I haven't commented much on this. For me, inaccurate pixel clocks mostly
+>> work fine (if not too inaccurate), but it is true that having very
+>> powerful PLL like the PLL1443, it is a pity not to use them at their
+>> highest capabilities. However, I consider "not breaking users" more
+>> important than having "perfect clock rates".
+>
+> Whether an inaccurate clock "works" depends on the context. A .5%
+> deviation will be out of spec for HDMI for example. An inaccurate VBLANK
+> frequency might also break some use cases.
+>
+> So that your display still works is not enough to prove it works.
 
-                                              deactivate config // sysfs
-                                              (sys_activec_cnt == 0)
-                                              cscfg_unload_config_sets()
-                                              unload module
+Well, my display used to work. And now it no longer does. The perfect
+has become the enemy of the good.
 
-  // access to config_desc which freed
-  // while unloading module.
-  cfs_csdev_enable_config
+>> This series has one unique goal: accepting more accurate frequencies
+>> *and* not breaking users in the most simplest cases.
+>>=20
+>> > would it work if the pixel clock rate is
+>> > set after the LDB clock rate is set in fsl_ldb_atomic_enable()?
+>>=20
+>> The situation would be:
+>> - media_ldb is set to 7*A by using a divisor of 1 and setting video_pll1
+>>   to freq 7*A.
+>> - media_disp[12]_pix is set to freq A by using a divisor of 7.
+>>=20
+>> So yes, and the explanation of why is there:
+>> https://elixir.bootlin.com/linux/v6.11.8/source/drivers/clk/clk-divider.=
+c#L322
+>>=20
+>> > The
+>> > pixel clock can be got from LDB's remote input LCDIF DT node by
+>> > calling of_clk_get_by_name() in fsl_ldb_probe() like the below patch
+>> > does. Similar to setting pixel clock rate, I think a chance is that
+>> > pixel clock enablement can be moved from LCDIF driver to
+>> > fsl_ldb_atomic_enable() to avoid on-the-fly division ratio change.
+>>=20
+>> TBH, this sounds like a hack and is no longer required with this series.
+>>=20
+>> You are just trying to circumvent the fact that until now, applying a
+>> rate in an upper clock would unconfigure the downstream rates, and I
+>> think this is our first real problem.
+>>=20
+>> > https://patchwork.kernel.org/project/linux-clk/patch/20241114065759.33=
+41908-6-victor.liu@nxp.com/
+>> >
+>> > Actually, one sibling patch of the above patch reverts ff06ea04e4cf
+>> > because I thought "fixed PLL rate" is the only solution, though I'm
+>> > discussing any alternative solution of "dynamically changeable PLL
+>> > rate" with Marek in the thread of the sibling patch.
+>>=20
+>> I don't think we want fixed PLL rates. Especially if you start using
+>> external (hot-pluggable) displays with different needs: it just does not
+>> fly. There is one situation that cannot yet be handled and needs
+>> manual reparenting: using 3 displays with a non-divisible pixel
+>> frequency.
+>
+> Funnily, external interfaces (ie, HDMI, DP) tend to be easier to work
+> with than panels. HDMI for example works with roughly three frequencies:
+> 148.5MHz, 297MHz and 594MHz. If you set the PLL to 594MHz and the
+> downstream clock has a basic divider, it works just fine.
+>
+>> FYI we managed this specific "advanced" case with assigned-clock-parents
+>> using an audio PLL as hinted by Marek. It mostly works, event though the
+>> PLL1416 are less precise and offer less accurate pixel clocks.
+>
+> Note that assigned-clock-parents doesn't provide any guarantee on
+> whether the parent will change in the future or not. It's strictly
+> equivalent to calling clk_set_parent in the driver's probe.
 
-To address this, introduce sys_enable_cnt in cscfg_mgr to prevent
-deactivate while there is enabled configuration.
+Oh yeah, but here I'm mentioning en even more complex case where we
+connect three panels with pixel clocks that cannot be all three derived
+from the same parent. There has never been any upstream support for
+that and I doubt we will have any anytime soon because we need a central
+(drm) place to be aware of the clock limitations and make these
+decisions.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
-from v1 to v2:
-    - modify commit message.
----
- .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++
- drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--
- drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++
- 3 files changed, 21 insertions(+), 2 deletions(-)
+[...]
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 86893115df17..6218ef40acbc 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
- 	smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1);
+>> +       /*
+>> +        * Dual cases require a 3.5 rate division on the pixel clocks, w=
+hich
+>> +        * cannot be achieved with regular single divisors. Instead, dou=
+ble the
+>> +        * parent PLL rate in the first place. In order to do that, we f=
+irst
+>> +        * require twice the target clock rate, which will program the u=
+pper
+>> +        * PLL. Then, we ask for the actual targeted rate, which can be =
+achieved
+>> +        * by dividing by 2 the already configured upper PLL rate, witho=
+ut
+>> +        * making further changes to it.
+>> +        */
+>> +       if (fsl_ldb_is_dual(fsl_ldb))
+>> +               clk_set_rate(fsl_ldb->clk, requested_link_freq * 2);
+>>         clk_set_rate(fsl_ldb->clk, requested_link_freq);
+>
+> This has nothing to do in a DRM driver. The clock driver logic needs
+> to handle it.
 
- 	raw_spin_unlock(&drvdata->spinlock);
-+
-+	cscfg_csdev_disable_active_config(csdev);
-+
- 	cpus_read_unlock();
+The approach I am proposing in this series can sadly not work, because
+it is not possible to slightly modify a clock after the crtc has been
+set up without getting back into drm for further tuning. I observed
+that my series was dependent on the probe order, because the exact same
+clock tree would work and not work depending on the order.
 
- 	/*
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index a70c1454b410..dfa7dcbaf25d 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -953,7 +953,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
- 			cscfg_mgr->sysfs_active_config = cfg_hash;
- 	} else {
- 		/* disable if matching current value */
--		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
-+		if (cscfg_mgr->sysfs_active_config == cfg_hash &&
-+		    !atomic_read(&cscfg_mgr->sys_enable_cnt)) {
- 			_cscfg_deactivate_config(cfg_hash);
- 			cscfg_mgr->sysfs_active_config = 0;
- 		} else
-@@ -1055,6 +1056,12 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 	if (!atomic_read(&cscfg_mgr->sys_active_cnt))
- 		return 0;
+To get back to your comment, unfortunately, there will be no other
+choice than having drm drivers being aware of clock limitations, just
+because the clock subsystem alone, even if it would do the right thing
+behind the hood, would still sometimes break displays. This means drm
+drivers will have to care about clock constraints.
 
-+	/*
-+	 * increment sys_enable_cnt first to prevent deactivate the config
-+	 * while enable active config.
-+	 */
-+	atomic_inc(&cscfg_mgr->sys_enable_cnt);
-+
- 	/*
- 	 * Look for matching configuration - set the active configuration
- 	 * context if found.
-@@ -1098,6 +1105,10 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
- 			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
- 		}
- 	}
-+
-+	if (!config_csdev_active || err)
-+		atomic_dec(&cscfg_mgr->sys_enable_cnt);
-+
- 	return err;
- }
- EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);
-@@ -1129,8 +1140,10 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
- 	if (config_csdev) {
- 		if (!config_csdev->enabled)
- 			config_csdev = NULL;
--		else
-+		else {
- 			config_csdev->enabled = false;
-+			atomic_dec(&cscfg_mgr->sys_enable_cnt);
-+		}
- 	}
- 	csdev->active_cscfg_ctxt = NULL;
- 	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
-@@ -1179,6 +1192,7 @@ static int cscfg_create_device(void)
- 	INIT_LIST_HEAD(&cscfg_mgr->config_desc_list);
- 	INIT_LIST_HEAD(&cscfg_mgr->load_order_list);
- 	atomic_set(&cscfg_mgr->sys_active_cnt, 0);
-+	atomic_set(&cscfg_mgr->sys_enable_cnt, 0);
- 	cscfg_mgr->load_state = CSCFG_NONE;
+As an example here, I am fine arguing about the way (calling
+clk_set_rate twice on the same clock), but the fact that the parent
+clock must be multiplied: this is drm business, because it is a drm
+requirement.
 
- 	/* setup the device */
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtracing/coresight/coresight-syscfg.h
-index 66e2db890d82..2fc397919985 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.h
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.h
-@@ -38,6 +38,7 @@ enum cscfg_load_ops {
-  * @config_desc_list:	List of system configuration descriptors to load into registered devices.
-  * @load_order_list:    Ordered list of owners for dynamically loaded configurations.
-  * @sys_active_cnt:	Total number of active config descriptor references.
-+ * @sys_enable_cnt:	Total number of enable of active config descriptor references.
-  * @cfgfs_subsys:	configfs subsystem used to manage configurations.
-  * @sysfs_active_config:Active config hash used if CoreSight controlled from sysfs.
-  * @sysfs_active_preset:Active preset index used if CoreSight controlled from sysfs.
-@@ -50,6 +51,7 @@ struct cscfg_manager {
- 	struct list_head config_desc_list;
- 	struct list_head load_order_list;
- 	atomic_t sys_active_cnt;
-+	atomic_t sys_enable_cnt;
- 	struct configfs_subsystem cfgfs_subsys;
- 	u32 sysfs_active_config;
- 	int sysfs_active_preset;
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+Thanks,
+Miqu=C3=A8l
 
