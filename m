@@ -4,93 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DD4E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 08:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3546DE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 08:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fp1YxkvsR/8CN00+dpyPmbcZfQP2ZBedcDMsnGRxi5U=; b=EuGT9lG0X4kMC3+rFTihHSPOhD
-	JEwRfboUsXAcZjiPfbMXr7dtXdT+x+ncK84gi5/+DKFO5RkxynRQLBzP7KwpIDe6AfWxVpNCZyNxM
-	IwWnRv7DtnqtGNY26sp4aoMEpLbSWBkfQkZJIK6FAbfiZLogY53Ef+rou0hTQOaL/BXpzTzO+32nR
-	k2qavI3RrS6M1LGYSkXzkOZ8UQS06UYVE1d5MdjldmZCSOrs5+CKhVChF7q1iia+uXMHFZAKSpwBo
-	l5C/1fHkBY1jcQhh0Ep/5MDUOUmxeI+MxQTeWCnUq1u7reTCi9u2B0d9pNzVUCSULTFT7eHlbFh7s
-	WOlzVC7A==;
+	bh=6ZXwcuUBQ3bh1pv4AVYZNLlD5eZdY6S+sUjguPgR7/Q=; b=exm2Un/uyGOHjxAocsqJyvZTCd
+	zLzHUxCDpouc3oXsOs3S1Y3RF+W/YYAWl071h/vNo5F/JuD+KS2vQqI9s0g0USDxGMskwttcDlDXg
+	L19s7AwO6WGGnL+842DM5q6mbvBJi2N7gUCv0Yt00MMTFkpvXo/iXyqIXibe5RhRIuOC6WV6QJfML
+	201yTe8n7/R/wIk7v0WkRT964rHionbKmN7g0bgARQSZFlvzJ3Cj5jW3v+QohDVHD8uuwbmrtzqki
+	kcJMeyLZdlxR4ylfqA1vw0w/YFGNKpGNqdNzGKH69iv9g2yS6/sqdkbBEOKdJ19y2/aLuzVG/gZxW
+	OYbwJjjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPdMj-00000009Yiy-49EH;
-	Mon, 23 Dec 2024 08:00:38 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tPdNy-00000009YrQ-2b9u;
+	Mon, 23 Dec 2024 08:01:54 +0000
+Received: from mail-tyzapc01on2072d.outbound.protection.outlook.com ([2a01:111:f403:2011::72d] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPdLW-00000009YYx-1X9t
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 07:59:23 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-436202dd7f6so44267205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 22 Dec 2024 23:59:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1734940760; x=1735545560; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Fp1YxkvsR/8CN00+dpyPmbcZfQP2ZBedcDMsnGRxi5U=;
-        b=oH4jQrjAbjtSmZIKoz05iCUeAoaIOAM4Fb9q63tTFFonlrJo04Txp1q2JgbNc56f+7
-         AEZb+GDq1sD8s3MqEIWOkrCQPKXuCryTsXXoNfoOwLdEw3Lm8rFhvrZ8Fx4v229VeK1s
-         MwmSMOKBUQPf0oMwl6rUzZJJc6qBoIylwCDLFIxxsIGGgdw1EjziB2lnIj2RDpJnil11
-         BZPONzRT/dPAL9d6nq8ATdRujHBzufOsjm3ZmmXlW64OnPasE7oQSoXon66yS2JXNufe
-         JRgN1pm1l24z2lqZtbhWs/e3TA8Lu23rl1mRzNr2ZYUWvKDn/pot0Zt+PGMlfINnVO0l
-         BXZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734940760; x=1735545560;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Fp1YxkvsR/8CN00+dpyPmbcZfQP2ZBedcDMsnGRxi5U=;
-        b=vKWaXRWO7niVqQkfDGurP23F2BRTNUQU1UNMiGvb+P60RSF1xk9ahZXxg940KjGNbs
-         6w7Qbixp3ahRharTjvLnxGr8lyyukdREdX+vDZbMJX8R8xuY8T/jS2SGuV6RRO1Xay2R
-         Ux256Y8YUQWu2FTXusSVnKJVDs+eNbIu6ye1DvZYXj2seLxTUSz9eZ6U7XJr9cSI2AXz
-         /uJRE7n4GUbW35yWnfA+ly8HU5ZkqVP8S4zneIRlUPjADvN7KWYtBKusVityVebYhMNS
-         Lqr315hehYMIwjRZ/md8SrmQzb0Dt5+Hj2p8o0I1F70aflYzxAxM5zwePkqCr67C4Ioo
-         Waqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUynsvQJ/kGmdxyJ44Q1SobiRxuvpUxawmx5fXLKx7hCNG6bKHbP1PIH6EEsLZxA4QsdJFphGzB438AwEtc0e3L@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAiuHrcTTNHBJ9woSt3aBFC5MUjAmiRZDpZXVWi7keRxEyhlUE
-	E/Kk+cyRRfx56/VtlIcHWYGXGrPKapuulIjGQaFNW0I3nLPcYL3TvfYdm2GtHKY=
-X-Gm-Gg: ASbGncueZoIN8KYKWMO+AmQ81tkDRXnTRErx4ExAIJM+m9RIuR1Qd5DjfTN3EbyH+b1
-	k4hHf3+H1ytpt0dBtycvrx+/ZcmiOaXH/GYaBgROO/c4qw2+sIOAy+4XLZ7NFxdjwuSNE7zueAi
-	XGUSgJ/oGUUBWgd0BXruu443TOFdeXyDK4ht+Px31ExRR2R1hyZGmPK2/0X83lWl80mDViVIOjJ
-	3EasoK0+Ds8GBmXXYEkJGDzcbJyje4u07/ityU6YiodVItxb+UugVM2XkWNcw==
-X-Google-Smtp-Source: AGHT+IG+7q2Pk6kjCGK7xP+YYvFm+gtX/raK0+U2VnVE+LPf0nz5Qeq7UKxPj3BRYbDVBrwjQeR9hQ==
-X-Received: by 2002:a05:600c:1c99:b0:434:f218:e1a8 with SMTP id 5b1f17b1804b1-436686476eamr98549695e9.19.1734940760198;
-        Sun, 22 Dec 2024 23:59:20 -0800 (PST)
-Received: from [10.1.1.109] ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c488sm126855745e9.27.2024.12.22.23.59.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Dec 2024 23:59:19 -0800 (PST)
-Message-ID: <e85505c808661bedf2cca2433ef4c06038505a5f.camel@linaro.org>
-Subject: Re: [PATCH v2 2/3] arm64: dts: exynos: gs101-pixel: add generic
- gs101-based Pixel support
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Griffin
-	 <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Date: Mon, 23 Dec 2024 07:59:18 +0000
-In-Reply-To: <33c7a520-dda9-4d3c-aa27-2f48786996a9@kernel.org>
-References: <20241220-gs101-simplefb-v2-0-c10a8f9e490b@linaro.org>
-	 <20241220-gs101-simplefb-v2-2-c10a8f9e490b@linaro.org>
-	 <33c7a520-dda9-4d3c-aa27-2f48786996a9@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.1-4 
+	id 1tPdLk-00000009YZO-2CMq;
+	Mon, 23 Dec 2024 07:59:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZibOs7rMgO4hRA+HqtnSrroTZqmIhDLLk+yBqiu5MrtenU3WnR9pYpgQKzZCZSc4pBn3qRONriB+EUCM8xXyGy/5rma+49Vjq3T7GTMtl5yaNvZn2R3IxGOAgHNleiGccYRxfZjkDH3zmFU4h4rT0kqbX7cUU+If1e6tskzEaFkvREK7K52bAwYCo84L02kv6QMFN4JpmS7mcfRl9PRSpfXGl9+8BtJ8Q+zvLByNRGHo9FXRzC6+CJ2pZQZ1z3amvvls3n7HHts/cuEMvCf8yYhFPy3Z6FYK3OzFINAyDG2MHfv1/xQfTq1pS8kEzeUKYiZ25AVUU9keFZ0Tovb5Tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6ZXwcuUBQ3bh1pv4AVYZNLlD5eZdY6S+sUjguPgR7/Q=;
+ b=RyjSOSkiliGaFXPCtVcLeifc13jNhtcACms2X5yK87+JklmR+vyqkt43t5b3ZZZwCrhV0Xl2aBkh+tz461ZYgtmYHyqFblSlMkpi5DrtpJiur1Kwy9J7L83s824E1DspZTFCUETp0v2SzEcmsFdP5MOn/DELFep0Gv5Cl3imUHVCp1EephA2QMvHqgZjHbh4lgox6Dd6mFzYWdXthygbuYfsYlpFgTqflbVoFKkMc+wk0AWe5x5DNOZmDP8yzb4Ly/Gg+yOq2XOubTaSJzHez3Z4VOKrsTzR5m7Pto4+XN2wLr5YEHj7hwKZpShJQu4wEZULCKzNp5zRVRIN85BgMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6ZXwcuUBQ3bh1pv4AVYZNLlD5eZdY6S+sUjguPgR7/Q=;
+ b=c7/JZKBvYIMaDnE+qYCMC0OlZAMf4NDDJftu8lPajYksePLoWWQoqZU54xpZIfsR52lr1bSt1+9USxq7NNVxOGX7Pf2EbELXTtdH7Lm/Daa1mkvHTGm1+9/4BfOglj7C1YBC74fGzmPqRi4KXv7GehnhITfU8YIz6jRPbjTqhRYUexKSnnM3dKNoeQRYI4kMZhMDL4Ja/7p9H5FZh4+7OFuR34XxF83xzhhMRW1rtr1Fa9wAf3BUm7kK73FSOu0BXf0pHk+xdeM7/gFiAVb83UBrwgRNYyynN3JXb8z3WfKi0n7zkUwVkx1C5SCZYUZpm7ZKXKhmjNYA2QubJByKkw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by TYSPR03MB7330.apcprd03.prod.outlook.com (2603:1096:400:42e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.17; Mon, 23 Dec
+ 2024 07:59:16 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::9d11:d1f6:1097:22ca%7]) with mapi id 15.20.8272.013; Mon, 23 Dec 2024
+ 07:59:15 +0000
+Message-ID: <3ce97435-71c6-4a7c-8d6c-fa387f68494d@amlogic.com>
+Date: Mon, 23 Dec 2024 15:59:07 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] clk: amlogic: s4: remove unused data
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
+ <20241220-amlogic-clk-drop-clk-regmap-tables-v1-3-96dd657cbfbd@baylibre.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-3-96dd657cbfbd@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2P153CA0035.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::22)
+ To KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|TYSPR03MB7330:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ab1b156-10b7-4fe3-9e92-08dd2327b1fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXRoRFVlbU9FSW5YNVNpMGhCVHdMa3drWFlGTGhzb3lYbldaRHB2bkZnTXVB?=
+ =?utf-8?B?RGszZWwra1Q2dXlYbWc4dlloeFJFRlY1SDR5a1cxUVBZTkdJdlByblo5U3VH?=
+ =?utf-8?B?SFFYMktTblNDdVFMczlPZGxGcnpobEp0NXYrVVhwMkZUS3g4eCt3MmdiN3Qx?=
+ =?utf-8?B?cCt0WVhGanBBZHM5RWFLY004Q1p5d25DekZvbEhXT2ROL0xpYTI4dCtqelFE?=
+ =?utf-8?B?NEN2U1NlZEhjUDVKc1RQcGk4eGYyNDdYeHppcExONm0yTDN4YThEc0g0TGIw?=
+ =?utf-8?B?KzVZK1NReEpBYzF4N3ZRNGU3ZFo3T0VHL1hxRU1TQU1vVWhvUWFqKzFBb2xE?=
+ =?utf-8?B?V2FLcVVZc25haTJLT1d6cm9PMDV1WjBWM2NvVG9mSkN1V3NxM3dFaU9XN2tY?=
+ =?utf-8?B?ZTRMVWZ4L0NIQll6eGxYSlRMRzFBNWZ5b1N1Rjhwc3E1QVdWeDN4TXVFWE1u?=
+ =?utf-8?B?TnMwUWpaNmRZNDdhTmlHRWk5TXE1UENJTjhrdStBaFJUb3ZFUmZGNERkUENT?=
+ =?utf-8?B?VmdXU3hVS2VHeGkyVkQ3UldRd2JzYTVvNmtqZG5YNDBZeTFVZWpsU3pIVEhu?=
+ =?utf-8?B?cGhMTzRMQ2ZBczlrYUs3MEp1OTVOTDhVb09qZHc2b042V0NsWGpIS1VlWU5h?=
+ =?utf-8?B?eGxOZ1NNWVBwR2JFM0UxekZTam5VLzRlY3gydkRORVJnWVFEbEgySXdHN0ly?=
+ =?utf-8?B?cW82VHhSOUF0SE9TeWpzc2VISjhhUTg2VXdjakRNSERLRjlDWkp1dkhDZUlN?=
+ =?utf-8?B?QXdoaVd5QVBOM1NJcXNIZUNXOUdOdlZHenIybG92dEJWdXFaZGVNQkpabys5?=
+ =?utf-8?B?bGhaNnc3Q3hCQTZHeGxtUm1ycHB4eklhNVFDRmdRN1luVU90eUR4M1YrblB3?=
+ =?utf-8?B?OGNNelBNNnBxZThoU2xxUzExTDJyMWZWZUo1RGFrVlEweXA4Vy80aURlNXhh?=
+ =?utf-8?B?d3A1Rm5NWXBWSFhCK2RPNGV3cFJaemZsNE1TQWp3YlM5aFhjTjJ3VFVpZTJJ?=
+ =?utf-8?B?WUZOYlFtcHNoMWRiT0d0dWcyMWxaaW1PVDBDN1hJc3NWUGozZWo5YWY3ZGpV?=
+ =?utf-8?B?S280MXBVWncrRW9SSngvUUZxYXBwTzhnQXBDSnFoRFVwZDJDT2JNY3lwR3Z1?=
+ =?utf-8?B?V0Vpa2ZhY3B2bTByeEI2VzNZaTg4SWJQQjdWU3BFWHloQy9wUW9meWFvK2tK?=
+ =?utf-8?B?RjM0NDFnSDkxNzdOVFgyYkpScFlnMi9FTHhCU3lHTHNNeGc5YldXUmpqVzkz?=
+ =?utf-8?B?b0crMVh0UlF5SkZSTWJ5V1VwTmpuVmZ3SzZPRmUwZkY5VUFEOThXbCtCUURE?=
+ =?utf-8?B?LzRXSitYUGRvMExaUFQ4L01yakcxdENucHZwVGRwZlgvZmE5YnZRLzZyYzlZ?=
+ =?utf-8?B?N0tXTytyZ0Vjc2xZZnFvdzZYbk5pcjlUSkNOcUhHblM2WVR2YjYzTHlxWjZh?=
+ =?utf-8?B?OFl3b2t4eEkyT05sQWZtaFNubjl2RE5HWEVKVmMyVEhpTmxkdjZTRG5uTTlP?=
+ =?utf-8?B?QlU1ZU9hTUVqQjEvKzd5Q3M2b3B0ODhLVWRvbWxpKzBYM2FqMmpLWTh1Njcz?=
+ =?utf-8?B?RTFVSVNnOEJsUk0ybG9MNHJKQnU2aVdqMXk0ZjZ5ZFVFVU8vS3k2bS9SZUZy?=
+ =?utf-8?B?eWo0VUt1bU5kMFJSNDZPMEtOc3MzcGtERXRDZEF1MGVkdlB3RXQrQy9kVTRY?=
+ =?utf-8?B?TWdqVnQ5WUhMdW5wZEYveG9BazRXWUZyMkxqcDNoakszOE54Rmk4UkdiejRh?=
+ =?utf-8?B?S2dyOFhuY1puYjA5Wm9ZQ0xBSGVITEhWTzhyY3RKMDVROGNBNlE0RTRFbzFQ?=
+ =?utf-8?B?clIyMGxvVmd3QXVQVnRPN05rUEdyR1VFZUZZaERaZ3BudXVvMlFBZTNQVU9U?=
+ =?utf-8?Q?ntSSgZOHidebL?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFM2VUtHTXZKWHM1MzUrUUM5MW5yN2FaZGFkZjVmd1prTkxmR2tESFZSTVlM?=
+ =?utf-8?B?bmN6bURtc1RPRjV3MTEzMlNEVFB4R3p4NGwxVG9tMVBUcDN5dEk1RytxRlcy?=
+ =?utf-8?B?VC81Z2pWZGcydUdNaDNIRVoxK1pGTlN2OTNIMldSSCtram8zMEd5cFdnVW5M?=
+ =?utf-8?B?SFBHeGF0Y3lYZ3F1UExkWW0ySURGeWRWUEtqRDlHZTBFL1JybjIwUlZwQk5V?=
+ =?utf-8?B?MDVRSkZjVnR4dFJGL1JkenBqNlMzMDlwZnh4TnhHZi9NbDJ5UE14REw1WG9j?=
+ =?utf-8?B?aVErWWZucEEyYUVRdUhIYmk4OXBuemNBVVdnNWlRd09MVEFUOEgrSHA0MlNB?=
+ =?utf-8?B?bWx2M05hZHJmRjhhbzV3ZWxLSjZORUdMVkt2Z29KWTlaRTI0dzVsc2RkSGFB?=
+ =?utf-8?B?VnQ3RjhueXZhQXZ1by9xU1lJZTNrM3llNGZ5MUo2bloxMFlFTkN2dm5jWnlD?=
+ =?utf-8?B?LzhJM0RRUHVRL2NtOXlvYU1KeU8wMXNNSytuTDgzamxyRGsxYnVNVGM5OXhj?=
+ =?utf-8?B?NUJDZWR1QytFVFRyM2wvb3pTUlJkVHNzVkoyTU9yQVlyZ3VWcHVXUkhTT2Z1?=
+ =?utf-8?B?dTd0K1BWdVRhbjBzNWVSbStOVWFxYkRFSTdYYXNtSEFMUTY2QVEvT2ZweVAr?=
+ =?utf-8?B?Uk81MDU1bUVmcENhWksrZ1BIQlg0bis1YnNpZmJXWDRzbVR2WVlEUGVSMmpX?=
+ =?utf-8?B?b0JuNytPaCt4Nktxc3o2Vkp5WHhiTEdJY1FHbTNrWFhsalJzVG1tK3dwWmJG?=
+ =?utf-8?B?ZDZ2dk1HdVdCN1RIbnZUQUFPZSs1RFZTdHBWM08wZ3FENGVpRjJuNEdDN0s5?=
+ =?utf-8?B?Qmg1cGUyZnVCeXZlL2ZGSDdReXpPVDIyQjZST0VRZnRwWUZuTGw1Vk5BeEda?=
+ =?utf-8?B?REN5ZFlHd1NTNXBrbCs1VWJQTUVKeVVNdXlGZmYrNUplWkN5dENVZllFdldy?=
+ =?utf-8?B?U3RzVzJjK3NKY0o2VVBoZ2JrY01CV1FDTVVxRUh5ckY0K2pOcWFSU3lRWkk5?=
+ =?utf-8?B?S1VraXF2YXpYTjQ3K3pUVlhPcWRnUHBKTEYrOFhWVHJXelB0dVlGNzFCbTBT?=
+ =?utf-8?B?ZVBIbGthb2hHaUxrR2dEanF4bi9QaUgrdjRhdDc1RHpiVkZyVU5VYTNSU0Za?=
+ =?utf-8?B?ZGJHNVVXRWRNUHorWWpkNHVLR2QwZDJxMFZ3MFVrcHh5Z00zdUFCbktvOWJq?=
+ =?utf-8?B?dGs1VzBDZFNQc0RHM3ZuM0k0Y2hJZHVIbXlYaGV2N293QkF3czk5aEhuaXlo?=
+ =?utf-8?B?Rm5lT2t3dVRRdkdKSytZbUlyS0h0ckI2R01VOTBXeXJlT1YvUmJiYUk1UE51?=
+ =?utf-8?B?d3FXVkV5d3E4VHMyc2ZLeDRoRkZ1VTlwN2VaNGJCUnZQRmFybjc2K2Zza2dN?=
+ =?utf-8?B?aWxWYk9ncWtuNC8rT3psekRtSGpFUndSYmxjQjBQbStodkszVUhlRjQwOWhS?=
+ =?utf-8?B?ekJKdFhIcEpyRXFpYThmZFNnVTJCSTJFZDlWY2p4UWdXTWZlblpwN0s2VVg1?=
+ =?utf-8?B?Vkw3VVZlVDZGdFVaYXB4c2gvWGdEN1Fpb1YwRno1eTdvb2ZQbHE4dlNDY3pm?=
+ =?utf-8?B?Um5nZGRUZ2lKVkZwREtIUkFSSENhNDhOcncwYnc0QWNVZ09NcHRqRW4xemNV?=
+ =?utf-8?B?UG5KbjFuQ0JiOW1naVFGTkliVWZwMWw1M1pmZUduK29LZzNVenBlWnc3RTV4?=
+ =?utf-8?B?QUV6OHJGNjFlMlI0ZURNK2dQMGlwbjlOOWxHOTZVeXJnOVhMdi8xNS9mV2hl?=
+ =?utf-8?B?bUpZTVRmbFNZN05DQXpvZ3A3L3lldmVUK05ENFliU1VmWGlVV0M4WHhDU2dW?=
+ =?utf-8?B?MkRoV3RzWnhBVkFOMTEwRDdSZGp1c1czMkQxUmZQdG1FM28yd0N1WDE5ZUJa?=
+ =?utf-8?B?ZUI5REdiWHBmTjlKMm1HY3UxOEprZUExRm1LSzFDUEFidHZ5aWZ6OW9MQUIr?=
+ =?utf-8?B?dENKYjFtOFFONXo4eWtQbm85NGVQaXRKdXJtdHRoTndLTm05MHRBYm1jdHlC?=
+ =?utf-8?B?WjNUbHE1QjhpaVlXTFA1M1ZtYlhZUm9ZcldqY0syUXZpS1gyRFZJa3RleUQz?=
+ =?utf-8?B?WEgyZjMzaDNBSzZlZHFvNElpWENZUzVDVEUxZDk4Q1JVMkhJdVE3MUdmdm5a?=
+ =?utf-8?Q?JU6rKuBq1o59m823gbPY/RjFO?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ab1b156-10b7-4fe3-9e92-08dd2327b1fd
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 07:59:15.5228
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OYJbwGU21NWcGEuIjQJpQ9u5Z0Tcym2p9y5PpMadi5K7XIN7A0Zi44MTYyxewsY5fbdbzR+7pFS3GzkzQI5YKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_235922_418368_41100CE2 
-X-CRM114-Status: GOOD (  36.15  )
+X-CRM114-CacheID: sfid-20241222_235936_699081_4657390A 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,137 +176,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Jerome:
 
-On Sun, 2024-12-22 at 12:42 +0100, Krzysztof Kozlowski wrote:
-> On 20/12/2024 12:27, Andr=C3=A9 Draszik wrote:
-> > In order to support Pixel 6 (Oriole), Pixel 6 Pro (Raven), and Pixel 6a
-> > (Bluejay) correctly, we have to be able to distinguish them properly as
-> > we add support for more features.
-> >=20
-> > For example, Raven has a larger display. There are other differences,
-> > like battery design capacity, etc.
-> >=20
-> > To facilitate this, we create a generic gs101-based Pixel DT that can
-> > work on any such gs101-based device. At the same time, we move the
->=20
-> No, whatever insanity Android has there, please don't populate it to
-> upstream.
->=20
-> There is no such thing as "generic board" thus cannot be a
-> "generic DTS".
+Thank you for pointing out.
 
-I'll rephrase to gs101-based Pixel base board. Unless you have a better
-suggestion.
 
->=20
-> > Oriole specific parts that we have at the moment (display) into an
-> > overlay, making it easy to add support for Raven and Bluejay in a
-> > similar way.
-> >=20
-> > Note1:
-> > Despite being an overlay, we instruct kbuild to create a merged
-> > gs101-oriole.dtb and a gs101-oriole.dtbo. This way existing scripts can
-> > keep working, but it also gives the option to just apply the overlay
-> > before boot (e.g. by the bootloader).
-> >=20
-> > Note2:
-> > I've changed the simple-framebuffer node to specify the memory via
-> > memory-region instead of reg, as that avoids unnecessary duplication
-> > (of the size), and it avoids having to specify #address-cells
-> > and #size-cells in the chosen node (and duplicating this in the DTSO),
-> > which is otherwise necessary to keep dt_binding_check happy and DT
-> > validation working in general.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > ---
-> > Note: MAINTAINERS doesn't need updating, it covers this whole directory
-> > ---
-> > =C2=A0arch/arm64/boot/dts/exynos/google/Makefile=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 6 ++--
-> > =C2=A0.../arm64/boot/dts/exynos/google/gs101-oriole.dtso | 33 +++++++++=
-+++++++++++++
-> > =C2=A0.../{gs101-oriole.dts =3D> gs101-pixel-generic.dts}=C2=A0 | 24 ++=
-+++++---------
-> > =C2=A03 files changed, 47 insertions(+), 16 deletions(-)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/exynos/google/Makefile b/arch/arm64/bo=
-ot/dts/exynos/google/Makefile
-> > index 0a6d5e1fe4ee..6e6b5319212a 100644
-> > --- a/arch/arm64/boot/dts/exynos/google/Makefile
-> > +++ b/arch/arm64/boot/dts/exynos/google/Makefile
-> > @@ -1,4 +1,6 @@
-> > =C2=A0# SPDX-License-Identifier: GPL-2.0
-> > =C2=A0
-> > -dtb-$(CONFIG_ARCH_EXYNOS) +=3D \
-> > -	gs101-oriole.dtb \
-> > +dtb-$(CONFIG_ARCH_EXYNOS) +=3D gs101-pixel-generic.dtb
-> > +
-> > +gs101-oriole-dtbs :=3D gs101-pixel-generic.dtb gs101-oriole.dtbo
-> > +dtb-$(CONFIG_ARCH_EXYNOS) +=3D gs101-oriole.dtb
-> > diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dtso b/arch=
-/arm64/boot/dts/exynos/google/gs101-oriole.dtso
-> > new file mode 100644
-> > index 000000000000..43572039cd07
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dtso
-> > @@ -0,0 +1,33 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Oriole Device Tree
-> > + *
-> > + * Copyright 2021-2023 Google LLC
-> > + * Copyright 2023-2024 Linaro Ltd
-> > + */
-> > +
-> > +/dts-v1/;
-> > +/plugin/;
-> > +
-> > +&{/} {
-> > +	model =3D "Oriole";
-> > +	compatible =3D "google,gs101-oriole", "google,gs101-pixel", "google,g=
-s101";
->=20
-> Boards are not overlays. Board equals DTB.
+On 12/21/2024 1:17 AM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> Following the removal of the big clk_regmap clock table from the
+> s4-peripherals clock controller driver, it appears some clocks are unused,
+> which means these are not exported or even registered.
 
-You're saying this should move into a dts instead of dtso?
-There are numerous boards upstream which use this same dtso
-approach.
 
-There is a base board, and also different versions of it,
-oriole being one of them.
+I have confirmed here that these clocks are used for the demodulator
+of DTV (Digital Television). The DTV-related driver will use these
+clocks.
 
-[...]
 
-> > 	};
-> > =C2=A0
-> > =C2=A0	chosen {
-> > -		#address-cells =3D <2>;
-> > -		#size-cells =3D <1>;
-> > -		ranges;
-> > -
-> > =C2=A0		/* Bootloader expects bootargs specified otherwise it crashes *=
-/
-> > =C2=A0		bootargs =3D "";
-> > =C2=A0		stdout-path =3D &serial_0;
-> > =C2=A0
-> > =C2=A0		/* Use display framebuffer as setup by bootloader */
-> > -		framebuffer0: framebuffer@fac00000 {
->=20
-> I don't think this exists in current source. It does exist in thing I
-> was applying, but then this does not make much sense: add a framebuffer
-> which has to be changed, because it is not correct.
->=20
-> I'll drop the framebuffer patch.
+>
+> In all likelihood, these clocks have not been tested. Remove the unused
+> clocks for now. These can added back later when they have been properly
+> tested.
 
-The framebuffer makes sense for the oriole version. I can fully remove this
-node from this base board here, and just leave it in the versions.
-That said, can you please expand how having a 'status=3Ddisabled' framebuff=
-er
-node is different from any other nodes that are enabled or modified by
-overlays?
 
-Cheers,
-Andre'
+I will complete these clocks later after testing.
 
+
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+>   drivers/clk/meson/s4-peripherals.c | 112 -------------------------------------
+>   1 file changed, 112 deletions(-)
+>
+> diff --git a/drivers/clk/meson/s4-peripherals.c b/drivers/clk/meson/s4-peripherals.c
+> index 91c7b10c2b68c626dd1d6164ea855370aae71485..72b990fc0de8e4e2c83d0fc3b4c6e3fc1fc96367 100644
+> --- a/drivers/clk/meson/s4-peripherals.c
+> +++ b/drivers/clk/meson/s4-peripherals.c
+> @@ -3129,118 +3129,6 @@ static struct clk_regmap s4_gen_clk = {
+>          },
+>   };
+>
+> -static const struct clk_parent_data s4_adc_extclk_in_parent_data[]  = {
+> -       { .fw_name = "xtal", },
+> -       { .fw_name = "fclk_div4", },
+> -       { .fw_name = "fclk_div3", },
+> -       { .fw_name = "fclk_div5", },
+> -       { .fw_name = "fclk_div7", },
+> -       { .fw_name = "mpll2", },
+> -       { .fw_name = "gp0_pll", },
+> -       { .fw_name = "hifi_pll", },
+> -};
+> -
+> -static struct clk_regmap s4_adc_extclk_in_mux = {
+> -       .data = &(struct clk_regmap_mux_data) {
+> -               .offset = CLKCTRL_DEMOD_CLK_CTRL,
+> -               .mask = 0x7,
+> -               .shift = 25,
+> -       },
+> -       .hw.init = &(struct clk_init_data){
+> -               .name = "adc_extclk_in_mux",
+> -               .ops = &clk_regmap_mux_ops,
+> -               .parent_data = s4_adc_extclk_in_parent_data,
+> -               .num_parents = ARRAY_SIZE(s4_adc_extclk_in_parent_data),
+> -               .flags = 0,
+> -       },
+> -};
+> -
+> -static struct clk_regmap s4_adc_extclk_in_div = {
+> -       .data = &(struct clk_regmap_div_data) {
+> -               .offset = CLKCTRL_DEMOD_CLK_CTRL,
+> -               .shift = 16,
+> -               .width = 7,
+> -       },
+> -       .hw.init = &(struct clk_init_data){
+> -               .name = "adc_extclk_in_div",
+> -               .ops = &clk_regmap_divider_ops,
+> -               .parent_hws = (const struct clk_hw *[]) {
+> -                       &s4_adc_extclk_in_mux.hw
+> -               },
+> -               .num_parents = 1,
+> -               .flags = CLK_SET_RATE_PARENT,
+> -       },
+> -};
+> -
+> -static struct clk_regmap s4_adc_extclk_in_gate = {
+> -       .data = &(struct clk_regmap_gate_data) {
+> -               .offset = CLKCTRL_DEMOD_CLK_CTRL,
+> -               .bit_idx = 24,
+> -       },
+> -       .hw.init = &(struct clk_init_data){
+> -               .name = "adc_extclk_in",
+> -               .ops = &clk_regmap_gate_ops,
+> -               .parent_hws = (const struct clk_hw *[]) {
+> -                       &s4_adc_extclk_in_div.hw
+> -               },
+> -               .num_parents = 1,
+> -               .flags = CLK_SET_RATE_PARENT,
+> -       },
+> -};
+> -
+> -static struct clk_regmap s4_demod_core_clk_mux = {
+> -       .data = &(struct clk_regmap_mux_data) {
+> -               .offset = CLKCTRL_DEMOD_CLK_CTRL,
+> -               .mask = 0x3,
+> -               .shift = 9,
+> -       },
+> -       .hw.init = &(struct clk_init_data){
+> -               .name = "demod_core_clk_mux",
+> -               .ops = &clk_regmap_mux_ops,
+> -               .parent_data = (const struct clk_parent_data []) {
+> -                       { .fw_name = "xtal", },
+> -                       { .fw_name = "fclk_div7", },
+> -                       { .fw_name = "fclk_div4", },
+> -                       { .hw = &s4_adc_extclk_in_gate.hw }
+> -               },
+> -               .num_parents = 4,
+> -               .flags = CLK_SET_RATE_PARENT,
+> -       },
+> -};
+> -
+> -static struct clk_regmap s4_demod_core_clk_div = {
+> -       .data = &(struct clk_regmap_div_data) {
+> -               .offset = CLKCTRL_DEMOD_CLK_CTRL,
+> -               .shift = 0,
+> -               .width = 7,
+> -       },
+> -       .hw.init = &(struct clk_init_data){
+> -               .name = "demod_core_clk_div",
+> -               .ops = &clk_regmap_divider_ops,
+> -               .parent_hws = (const struct clk_hw *[]) {
+> -                       &s4_demod_core_clk_mux.hw
+> -               },
+> -               .num_parents = 1,
+> -               .flags = CLK_SET_RATE_PARENT,
+> -       },
+> -};
+> -
+> -static struct clk_regmap s4_demod_core_clk_gate = {
+> -       .data = &(struct clk_regmap_gate_data) {
+> -               .offset = CLKCTRL_DEMOD_CLK_CTRL,
+> -               .bit_idx = 8,
+> -       },
+> -       .hw.init = &(struct clk_init_data){
+> -               .name = "demod_core_clk",
+> -               .ops = &clk_regmap_gate_ops,
+> -               .parent_hws = (const struct clk_hw *[]) {
+> -                       &s4_demod_core_clk_div.hw
+> -               },
+> -               .num_parents = 1,
+> -               .flags = CLK_SET_RATE_PARENT,
+> -       },
+> -};
+> -
+>   #define MESON_GATE(_name, _reg, _bit) \
+>          MESON_PCLK(_name, _reg, _bit, &s4_sys_clk.hw)
+>
+>
+> --
+> 2.45.2
+>
+>
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
