@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0B4E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75EB3E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 15:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5v/oiowpogDGRlN7aLw9L9PluDLjTqX6GkTr9UAVa8=; b=A+op4iCpk6FD7saRGgMf/Kv4MP
-	AljoNvAjaGtR80jM+9GkBriFW2ignsU9mJ7KukmGxFkY0cCQSzORR61X/SROPS+Mup5Pn/6IOVkyO
-	HaGgzCBVo64pEWb+S11sr5IzIcY40zpTUVxExHGh4Vks+WaL3FPO0CXvfwhZvNQbMCNtJgRYkaHsu
-	ZBeeHB7ssbteoP97kbxaO+9N/G9XrnpKxtoJf22bGf/QJ/+iVFK9uOrr9X8/qs8rqBPiqINwVXPUy
-	tt402zy8Y8rPGC14lPwQI3KasOznQVz6q4wQWmGcniw0pnE9lEIuDHFdsXSMpNNAWuJEj4pa38SRe
-	ymflS1ug==;
+	bh=ItwwoQS2DypATRkFBHij4Vjb0IiXALL7RICbuUvRstY=; b=gXbVaDRyLwAKXfQVXj3ZH4wd/O
+	6gzYFuA8Fq+MeVYA6HVRfsnOtV19yjZtdp0UQ27WCCnv82i3SwE26L/7mdr2yMIcqGbk/LaErdR64
+	Kn502xyf/qJf4GqHOaUCyPgSASwJ0e5yVl6v3FibtO1ETjQowCC4CmF9I6MFMDCECsBV4KWteVeh5
+	jGhHqG2jlSSXSs5F4aO4pQa7rA7ipWz6zbw38QPIh+kT9E+2neoac+f7VR0UUMQmxG/kHUTPZaBJl
+	IwwBKjl/5Xos7PFCllWSArDxg1tEKN5v6mZcs9FIQgaCRD9nPUCN9R0xmaciSnDvIzuCmZz3Ep+MI
+	61fZSfxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPk0s-0000000AFhc-424b;
-	Mon, 23 Dec 2024 15:06:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tPk22-0000000AFuy-2fGe;
+	Mon, 23 Dec 2024 15:07:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPjzh-0000000AFYO-1198
+	id 1tPk0m-0000000AFgj-1OM4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 15:05:18 +0000
+	Mon, 23 Dec 2024 15:06:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 65E885C5756;
-	Mon, 23 Dec 2024 15:04:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44250C4CED3;
-	Mon, 23 Dec 2024 15:05:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0120F5C594A;
+	Mon, 23 Dec 2024 15:05:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0253C4CED3;
+	Mon, 23 Dec 2024 15:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734966315;
-	bh=ZSFSwUdh17PN8qMjBCNnNMp0UkGdSy9sZ8jzplMgCQw=;
+	s=k20201202; t=1734966383;
+	bh=A679kTlYojo7x9OfNYdFDbtrZYj0+xWlOjYQiM02wnY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AycW+0EqnqWDzlGESOVYSlQ+ZtaDgzzSFgvuEUFZyg37B4/fZ7MpaJE+gEcLbdqX/
-	 2LpYBzxFt/oGXl6tf2BL0eXQHXgcf7GAbcydecaIuyTRO91nYUCsAn2/cjKlYMONPS
-	 CX9zioBfB6F7I+rzgxCF4xplmupmq6vfYJGp/PjpO31/27JgPnh80LH0AJcy4phs2D
-	 2aMpCl1JdWOzUGYyuQanmKVIg57dmuQpX8Re/ZSs9wAmIz+DRq0nUibpEyLZdKHwfY
-	 IMUS1sI+5WsuDA6dgcl/gP02SW2JgICDlBT6x3HJ3R2rkvwGVs3hj0I/U70YGGrR6u
-	 jrMjDFrt3hPFg==
-Date: Mon, 23 Dec 2024 16:05:13 +0100
+	b=es/OwD+d92Hyd2m9/Z2qlYS9V1p6fm0dQprrym0TrJjQalkXVFIxdOeF4Do5VAVI5
+	 Wchm/OMUMv0hSJZHcxXBByn3ARMVP1H8F3YsSwo0Zxfk2nfaw59yMhHvWKkckf+iUN
+	 MOp5xT6SYzm5TDhwm2wUzO1fE3mNPUBzO575MYyxQZrHthTgR8Hofi7+3gnFx0MACH
+	 OovxctEdq3pgc/GDxWD6HnfYXIklQb07SLnjwDTma9ITChUhQFDe7dv6ktmJRVFlLa
+	 NRwv2Q8Bfp8T4Zntoup+4d2+zZk7WSXqP+LLTsN4EsndUTUR/emrFwVZp+jklY3ggj
+	 0fFzWYtQzgxNg==
+Date: Mon, 23 Dec 2024 16:06:20 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
@@ -53,18 +53,18 @@ Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
 	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
 	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v6 16/18] dt-bindings: clock: imx8m-clock: support spread
- spectrum clocking
-Message-ID: <mne4dgxr2yl2gpzk2mzf7gcqynqupmqa6q6ibb6pa5xtao47sl@ylv2mhwboyzn>
+Subject: Re: [PATCH v6 05/18] dt-bindings: clock: imx8m-anatop: add
+ oscillators and PLLs
+Message-ID: <n5v5y2mhsqrpirw6ceck22vi2xnawk6k67j4tdotu24iqk5j4v@bcvmmuqkuvib>
 References: <20241222170534.3621453-1-dario.binacchi@amarulasolutions.com>
- <20241222170534.3621453-17-dario.binacchi@amarulasolutions.com>
+ <20241222170534.3621453-6-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241222170534.3621453-17-dario.binacchi@amarulasolutions.com>
+In-Reply-To: <20241222170534.3621453-6-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_070517_373306_CDF3806D 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20241223_070624_417276_43CAC0CF 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,100 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 22, 2024 at 06:04:31PM +0100, Dario Binacchi wrote:
-> The addition of DT bindings for enabling and tuning spread spectrum
-> clocking generation can be applied specifically to the PLLs.
+On Sun, Dec 22, 2024 at 06:04:20PM +0100, Dario Binacchi wrote:
+> Though adding clocks and clock-names properties will break the ABI,
+> it is required to accurately describe the hardware. Indeed, the anatop
+> module uses the input oscillators to generate various PLLs. In turn,
+> the Clock Control Module (CCM) receives clocks from the PLLs and
+> oscillators and generates clocks for on-chip peripherals.
 > 
-> The "" value for the fsl,ssc-method property is specifically intended to
-> specify a "no SSC" case, as in the example, when you don't want to
-> configure spread spectrum for one of the PLLs, thus avoiding the use of
-> a method that would only make sense if SSC were being set.
+> Furthermore, as agreed in [1], this change represents the first step
+> toward the implementation of the anatop driver. Currently, in fact,
+> there is no dedicated anatop driver, but the CCM driver parses the
+> anatop node and registers the PLLs it produces.
 > 
+> [1] https://lore.kernel.org/imx/20241106090549.3684963-1-dario.binacchi@amarulasolutions.com/
 > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 > 
 > ---
-> 
-> Changes in v6:
-> - Improve the commit message
-> - change minItems from 7 to 1 for all the ssc properties added
-> - change maxItems from 10 to 4 for alle the ssc properties added
-> - update the DTS example
-> 
-> Changes in v4:
-> - Drop "fsl,ssc-clocks" property. The other added properties now refer
->   to the clock list.
-> - Updated minItems and maxItems of
->   - clocks
->   - clock-names
->   - fsl,ssc-modfreq-hz
->   - fsl,ssc-modrate-percent
->   - fsl,ssc-modmethod
-> - Updated the dts examples
-> 
-> Changes in v3:
-> - Added in v3
-> - The dt-bindings have been moved from fsl,imx8m-anatop.yaml to
->   imx8m-clock.yaml. The anatop device (fsl,imx8m-anatop.yaml) is
->   indeed more or less a syscon, so it represents a memory area
->   accessible by ccm (imx8m-clock.yaml) to setup the PLLs.
-> 
-> Changes in v2:
-> - Add "allOf:" and place it after "required:" block, like in the
->   example schema.
-> - Move the properties definition to the top-level.
-> - Drop unit types as requested by the "make dt_binding_check" command.
-> 
->  .../bindings/clock/imx8m-clock.yaml           | 38 +++++++++++++++++++
->  1 file changed, 38 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> index 05bc01960045..37cc6a6e89d4 100644
-> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> @@ -43,6 +43,37 @@ properties:
->        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
->        for the full list of i.MX8M clock IDs.
->  
-> +  fsl,ssc-modfreq-hz:
-> +    description:
-> +      The values of modulation frequency (Hz unit) for each clock
-> +      supporting spread spectrum (i. e. audio_pll1, audio_pll2,
-> +      dram_pll and video_pll).
-> +    minItems: 1
-> +    maxItems: 4
-
-Please list the items. You rely here on this being in strict order, so
-this should be explicit, instead of just "in example" in the
-description.
-
-items:
-  - description: audio_pll1
-
-> +
-> +  fsl,ssc-modrate-percent:
-> +    description:
-> +      The percentage values of modulation rate for each clock
-> +      supporting spread spectrum (i. e. audio_pll1, audio_pll2,
-> +      dram_pll and video_pll).
-> +    minItems: 1
-> +    maxItems: 4
-
-Ditto
-
-> +
-> +  fsl,ssc-modmethod:
-> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
-> +    description:
-> +      The modulation techniques for each clock supporting spread
-> +      spectrum (i. e. audio_pll1, audio_pll2, dram_pll and
-> +      video_pll).
-
-I guess here listing items might not work, so:
-
-  The modulation techniques for each clock supporting spread
-  spectrum, in this order: audio_pll1, audio_pll2, dram_pll and video_pll
-
-Everything looks good for me, so with above changes:
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
