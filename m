@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD29E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 11:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9401E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 11:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGo+dPok4UfA7M1NJuAjmTmN9yG4EJPFtq8KKJyD0vw=; b=eYcjghqG8zaR7SIYBSzjza3Xpd
-	BHsqM6nWSE+UXXR4Fj1W0oB70DfEEXMjX7pzGLpNYCQwTlil2OewuR/Q/v8Pivq/QX4SFOR81ayYI
-	j09wk7s0ELU88mgVJG4YOXjKv4O69w8sYZke0w9tCGZt7LQ4fTpH5Na31ww1lksybZP3Ct+IUui5N
-	BCLHfN+Zsnn4SuuiS1eRMTYH0M6uIbwqJmTJWw9rpvY/BGx/8wSNyuBODgJ8xQn16ENYKzFQI+X4J
-	pdzeHG3iRRSkJo0vM8J0HpF29TrajjMg6XXy1pixflCrrqcX/4z0bijKpN5e4fTSsBEtFHbWd5oEu
-	Sugz3Erg==;
+	bh=8z+qM2UaZpfQYU8OXlGGQ0dNHXnG1EZpSBAp7HIZ+Ps=; b=GLtDAYJHl9Hxkf21O0ERhJgOmt
+	1ku4p+rMUJvcX6wAp7N+5kl01zEHFjsc4gDvzBVEKXwF2I5B5RprpPKgJtyoHoLQE+4ObNC2KrLQS
+	AsAbi3tpFlsFjH/T3iYhX5kdubm8qOp1AcJSYFemaZ/BxwLqbJXXqSbZ4CdYp3tEXCb/7srw+QnG9
+	FcgrNvB3yfh0dgjSlJFkR9BHES8a1Dxuh/1Dm9W3ty8QWgEyXcOI97Otlebcf846K7oq+Apm3FmSq
+	/XDSZhn+nLtz11bd9TjHXyK/kbykSSkYVn8qKtWf+nLDNOGrxc3llEX/sQr9otq194dkxI94VkcPx
+	080CPqrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPgLV-00000009rVn-3F1v;
-	Mon, 23 Dec 2024 11:11:33 +0000
-Received: from mail-m49237.qiye.163.com ([45.254.49.237])
+	id 1tPgMf-00000009rp5-2LnW;
+	Mon, 23 Dec 2024 11:12:45 +0000
+Received: from mail-m49248.qiye.163.com ([45.254.49.248])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPgGt-00000009qX2-3Qiq;
-	Mon, 23 Dec 2024 11:06:49 +0000
+	id 1tPgGu-00000009qXh-3zgq;
+	Mon, 23 Dec 2024 11:06:50 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 68ea0146;
-	Mon, 23 Dec 2024 19:06:43 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 68ea014b;
+	Mon, 23 Dec 2024 19:06:45 +0800 (GMT+08:00)
 From: Kever Yang <kever.yang@rock-chips.com>
 To: heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org,
+	Frank Wang <frank.wang@rock-chips.com>,
 	Kever Yang <kever.yang@rock-chips.com>,
 	devicetree@vger.kernel.org,
 	Conor Dooley <conor+dt@kernel.org>,
 	Finley Xiao <finley.xiao@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
 	Rob Herring <robh@kernel.org>,
-	Liang Chen <cl@rock-chips.com>,
 	Detlev Casanova <detlev.casanova@collabora.com>,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
+	Yifeng Zhao <yifeng.zhao@rock-chips.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 3/7] arm64: dts: rockchip: Add rk3576 pcie nodes
-Date: Mon, 23 Dec 2024 19:06:33 +0800
-Message-Id: <20241223110637.3697974-4-kever.yang@rock-chips.com>
+Subject: [PATCH v3 4/7] arm64: dts: rockchip: add usb related nodes for rk3576
+Date: Mon, 23 Dec 2024 19:06:34 +0800
+Message-Id: <20241223110637.3697974-5-kever.yang@rock-chips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20241223110637.3697974-1-kever.yang@rock-chips.com>
 References: <20241223110637.3697974-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ09JT1YZGRhCGU5IShlPGB1WFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh0ZS1YdH0hCHklDTExPQk1WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
 	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93f332a95103afkunm68ea0146
+X-HM-Tid: 0a93f332aef603afkunm68ea014b
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MDo6FSo*IjIWGAEMGUktGRQf
-	CiJPCjZVSlVKTEhPQk5JS0tOSkJCVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPQ0xKNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OQw6SAw4NTIQMgFRN0gcGRwx
+	DDdPCxxVSlVKTEhPQk5JS0tNTUJMVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFOTE1INwY+
 DKIM-Signature: a=rsa-sha256;
-	b=jiVcQ/hnaP8R694VJKjKSnWyl8OgIBJPG5VGpoUy8CucRb0HRzhDAmEGSohFd5pxOU8fTZHPjHTyj5dA3XtQ3wGELDTgCFhpMC7PYFgaeh+N28bxVYorNi1Y2gqfcI+skPsQWLp1IJQhZ4bR2sKicAaOfX79IQFMSLGcwgqG0uA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=oGo+dPok4UfA7M1NJuAjmTmN9yG4EJPFtq8KKJyD0vw=;
+	b=kutyRA+u8TjYUZapCieMthkzDJ+InCRcIyLE82dlC787ec2z+mnzw319LBT+SJzWA4/fBPmrKcS6+qfET5cJ8BpnSdFKjFzR1/JPrBQN6Hizd6rQ33EmlhduBgKvBVERaSa2/hn5T+KzUgJt8mPNA91oNXlsq54aU0ax+l1q8ag=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=8z+qM2UaZpfQYU8OXlGGQ0dNHXnG1EZpSBAp7HIZ+Ps=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_030648_096546_8F4DC7BF 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20241223_030649_257150_BE40AC79 
+X-CRM114-Status: UNSURE (   7.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,141 +82,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk3576 has two pcie controllers, both are pcie2x1 work with
-naneng-combphy.
+From: Frank Wang <frank.wang@rock-chips.com>
 
+This adds USB and USB-PHY related nodes for RK3576 SoC.
+
+Signed-off-by: Frank Wang <frank.wang@rock-chips.com>
 Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 ---
 
-Changes in v3:
-- Update the subject
+Changes in v3: None
+Changes in v2: None
 
-Changes in v2:
-- Update clock and reset names and sequence to pass DTB check
-
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 109 +++++++++++++++++++++++
- 1 file changed, 109 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 133 +++++++++++++++++++++++
+ 1 file changed, 133 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index a147879da501..0486525fe596 100644
+index 0486525fe596..b4f396421686 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1016,6 +1016,115 @@ qos_npu_m1ro: qos@27f22100 {
- 			reg = <0x0 0x27f22100 0x0 0x20>;
+@@ -445,6 +445,58 @@ soc {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
++		usb_drd0_dwc3: usb@23000000 {
++			compatible = "rockchip,rk3576-dwc3", "snps,dwc3";
++			reg = <0x0 0x23000000 0x0 0x400000>;
++			clocks = <&cru CLK_REF_USB3OTG0>,
++				 <&cru CLK_SUSPEND_USB3OTG0>,
++				 <&cru ACLK_USB3OTG0>;
++			clock-names = "ref_clk", "suspend_clk", "bus_clk";
++			interrupts = <GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3576_PD_USB>;
++			resets = <&cru SRST_A_USB3OTG0>;
++			dr_mode = "otg";
++			phys = <&u2phy0_otg>, <&usbdp_phy PHY_TYPE_USB3>;
++			phy-names = "usb2-phy", "usb3-phy";
++			phy_type = "utmi_wide";
++			snps,dis_enblslpm_quirk;
++			snps,dis-u1-entry-quirk;
++			snps,dis-u2-entry-quirk;
++			snps,dis-u2-freeclk-exists-quirk;
++			snps,dis-del-phy-power-chg-quirk;
++			snps,dis-tx-ipgap-linecheck-quirk;
++			snps,parkmode-disable-hs-quirk;
++			snps,parkmode-disable-ss-quirk;
++			status = "disabled";
++		};
++
++		usb_drd1_dwc3: usb@23400000 {
++			compatible = "rockchip,rk3576-dwc3", "snps,dwc3";
++			reg = <0x0 0x23400000 0x0 0x400000>;
++			clocks = <&cru CLK_REF_USB3OTG1>,
++				 <&cru CLK_SUSPEND_USB3OTG1>,
++				 <&cru ACLK_USB3OTG1>;
++			clock-names = "ref_clk", "suspend_clk", "bus_clk";
++			interrupts = <GIC_SPI 260 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3576_PD_PHP>;
++			resets = <&cru SRST_A_USB3OTG1>;
++			dr_mode = "otg";
++			phys = <&u2phy1_otg>, <&combphy1_psu PHY_TYPE_USB3>;
++			phy-names = "usb2-phy", "usb3-phy";
++			phy_type = "utmi_wide";
++			snps,dis_enblslpm_quirk;
++			snps,dis-u1-entry-quirk;
++			snps,dis-u2-entry-quirk;
++			snps,dis-u2-freeclk-exists-quirk;
++			snps,dis-del-phy-power-chg-quirk;
++			snps,dis-tx-ipgap-linecheck-quirk;
++			snps,dis_rxdet_inp3_quirk;
++			snps,parkmode-disable-hs-quirk;
++			snps,parkmode-disable-ss-quirk;
++			dma-coherent;
++			status = "disabled";
++		};
++
+ 		sys_grf: syscon@2600a000 {
+ 			compatible = "rockchip,rk3576-sys-grf", "syscon";
+ 			reg = <0x0 0x2600a000 0x0 0x2000>;
+@@ -515,6 +567,65 @@ usbdpphy_grf: syscon@2602c000 {
+ 			reg = <0x0 0x2602c000 0x0 0x2000>;
  		};
  
-+		pcie0: pcie@2a200000 {
-+			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			bus-range = <0x0 0xf>;
-+			clocks = <&cru ACLK_PCIE0_MST>, <&cru ACLK_PCIE0_SLV>,
-+				 <&cru ACLK_PCIE0_DBI>, <&cru PCLK_PCIE0>,
-+				 <&cru CLK_PCIE0_AUX>;
++		usb2phy_grf: syscon@2602e000 {
++			compatible = "rockchip,rk3576-usb2phy-grf", "syscon", "simple-mfd";
++			reg = <0x0 0x2602e000 0x0 0x4000>;
++			#address-cells = <1>;
++			#size-cells = <1>;
 +
-+			clock-names = "aclk_mst", "aclk_slv",
-+				      "aclk_dbi", "pclk",
-+				      "aux";
-+			device_type = "pci";
-+			interrupts = <GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-+			#interrupt-cells = <1>;
-+			interrupt-map-mask = <0 0 0 7>;
-+			interrupt-map = <0 0 0 1 &pcie0_intc 0>,
-+					<0 0 0 2 &pcie0_intc 1>,
-+					<0 0 0 3 &pcie0_intc 2>,
-+					<0 0 0 4 &pcie0_intc 3>;
-+			linux,pci-domain = <0>;
-+			num-ib-windows = <8>;
-+			num-viewport = <8>;
-+			num-ob-windows = <2>;
-+			max-link-speed = <2>;
-+			num-lanes = <1>;
-+			phys = <&combphy0_ps PHY_TYPE_PCIE>;
-+			phy-names = "pcie-phy";
-+			power-domains = <&power RK3576_PD_PHP>;
-+			ranges = <0x01000000 0x0 0x20100000 0x0 0x20100000 0x0 0x00100000
-+				  0x02000000 0x0 0x20200000 0x0 0x20200000 0x0 0x00e00000
-+				  0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x80000000>;
-+			reg = <0x0 0x22000000 0x0 0x00400000>,
-+			      <0x0 0x2a200000 0x0 0x00010000>,
-+			      <0x0 0x20000000 0x0 0x00100000>;
-+			reg-names = "dbi", "apb", "config";
-+			resets = <&cru SRST_PCIE0_POWER_UP>, <&cru SRST_P_PCIE0>;
-+			reset-names = "pwr", "pipe";
-+			status = "disabled";
++			u2phy0: usb2-phy@0 {
++				compatible = "rockchip,rk3576-usb2phy";
++				reg = <0x0 0x10>;
++				resets = <&cru SRST_OTGPHY_0>, <&cru SRST_P_USBPHY_GRF_0>;
++				reset-names = "phy", "apb";
++				clocks = <&cru CLK_PHY_REF_SRC>,
++					 <&cru ACLK_MMU2>,
++					 <&cru ACLK_SLV_MMU2>;
++				clock-names = "phyclk", "aclk", "aclk_slv";
++				clock-output-names = "usb480m_phy0";
++				#clock-cells = <0>;
++				status = "disabled";
 +
-+			pcie0_intc: legacy-interrupt-controller {
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>;
++				u2phy0_otg: otg-port {
++					#phy-cells = <0>;
++					interrupts = <GIC_SPI 350 IRQ_TYPE_LEVEL_HIGH>,
++						     <GIC_SPI 351 IRQ_TYPE_LEVEL_HIGH>,
++						     <GIC_SPI 352 IRQ_TYPE_LEVEL_HIGH>;
++					interrupt-names = "otg-bvalid", "otg-id", "linestate";
++					status = "disabled";
++				};
++			};
++
++			u2phy1: usb2-phy@2000 {
++				compatible = "rockchip,rk3576-usb2phy";
++				reg = <0x2000 0x10>;
++				resets = <&cru SRST_OTGPHY_1>, <&cru SRST_P_USBPHY_GRF_1>;
++				reset-names = "phy", "apb";
++				clocks = <&cru CLK_PHY_REF_SRC>,
++					 <&cru ACLK_MMU1>,
++					 <&cru ACLK_SLV_MMU1>;
++				clock-names = "phyclk", "aclk", "aclk_slv";
++				clock-output-names = "usb480m_phy1";
++				#clock-cells = <0>;
++				status = "disabled";
++
++				u2phy1_otg: otg-port {
++					#phy-cells = <0>;
++					interrupts = <GIC_SPI 354 IRQ_TYPE_LEVEL_HIGH>,
++						     <GIC_SPI 355 IRQ_TYPE_LEVEL_HIGH>,
++						     <GIC_SPI 356 IRQ_TYPE_LEVEL_HIGH>;
++					interrupt-names = "otg-bvalid", "otg-id", "linestate";
++					status = "disabled";
++				};
 +			};
 +		};
 +
-+		pcie1: pcie@2a210000 {
-+			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			bus-range = <0x20 0x2f>;
-+			clocks = <&cru ACLK_PCIE1_MST>, <&cru ACLK_PCIE1_SLV>,
-+				 <&cru ACLK_PCIE1_DBI>, <&cru PCLK_PCIE1>,
-+				 <&cru CLK_PCIE1_AUX>;
-+			clock-names = "aclk_mst", "aclk_slv",
-+				      "aclk_dbi", "pclk",
-+				      "aux";
-+			device_type = "pci";
-+			interrupts = <GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-+			#interrupt-cells = <1>;
-+			interrupt-map-mask = <0 0 0 7>;
-+			interrupt-map = <0 0 0 1 &pcie1_intc 0>,
-+					<0 0 0 2 &pcie1_intc 1>,
-+					<0 0 0 3 &pcie1_intc 2>,
-+					<0 0 0 4 &pcie1_intc 3>;
-+			linux,pci-domain = <0>;
-+			num-ib-windows = <8>;
-+			num-viewport = <8>;
-+			num-ob-windows = <2>;
-+			max-link-speed = <2>;
-+			num-lanes = <1>;
-+			phys = <&combphy1_psu PHY_TYPE_PCIE>;
-+			phy-names = "pcie-phy";
-+			power-domains = <&power RK3576_PD_SUBPHP>;
-+			ranges = <0x01000000 0x0 0x21100000 0x0 0x21100000 0x0 0x00100000
-+				  0x02000000 0x0 0x21200000 0x0 0x21200000 0x0 0x00e00000
-+				  0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x80000000>;
-+			reg = <0x0 0x22400000 0x0 0x00400000>,
-+			      <0x0 0x2a210000 0x0 0x00010000>,
-+			      <0x0 0x21000000 0x0 0x00100000>;
-+			reg-names = "dbi", "apb", "config";
-+			resets = <&cru SRST_PCIE1_POWER_UP>, <&cru SRST_P_PCIE1>;
-+			reset-names = "pwr", "pipe";
-+			status = "disabled";
-+
-+			pcie1_intc: legacy-interrupt-controller {
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>;
-+			};
++		vo1_grf: syscon@26036000 {
++			compatible = "rockchip,rk3576-vo1-grf", "syscon";
++			reg = <0x0 0x26036000 0x0 0x100>;
++			clocks = <&cru PCLK_VO1_ROOT>;
 +		};
 +
- 		gmac0: ethernet@2a220000 {
- 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
- 			reg = <0x0 0x2a220000 0x0 0x10000>;
+ 		sdgmac_grf: syscon@26038000 {
+ 			compatible = "rockchip,rk3576-sdgmac-grf", "syscon";
+ 			reg = <0x0 0x26038000 0x0 0x1000>;
+@@ -1732,6 +1843,28 @@ combphy1_psu: phy@2b060000 {
+ 			status = "disabled";
+ 		};
+ 
++		usbdp_phy: phy@2b010000 {
++			compatible = "rockchip,rk3576-usbdp-phy";
++			reg = <0x0 0x2b010000 0x0 0x10000>;
++			#phy-cells = <1>;
++			clocks = <&cru CLK_PHY_REF_SRC >,
++				 <&cru CLK_USBDP_COMBO_PHY_IMMORTAL>,
++				 <&cru PCLK_USBDPPHY>,
++				 <&u2phy0>;
++			clock-names = "refclk", "immortal", "pclk", "utmi";
++			resets = <&cru SRST_USBDP_COMBO_PHY_INIT>,
++				 <&cru SRST_USBDP_COMBO_PHY_CMN>,
++				 <&cru SRST_USBDP_COMBO_PHY_LANE>,
++				 <&cru SRST_USBDP_COMBO_PHY_PCS>,
++				 <&cru SRST_P_USBDPPHY>;
++			reset-names = "init", "cmn", "lane", "pcs_apb", "pma_apb";
++			rockchip,u2phy-grf = <&usb2phy_grf>;
++			rockchip,usb-grf = <&usb_grf>;
++			rockchip,usbdpphy-grf = <&usbdpphy_grf>;
++			rockchip,vo-grf = <&vo1_grf>;
++			status = "disabled";
++		};
++
+ 		sram: sram@3ff88000 {
+ 			compatible = "mmio-sram";
+ 			reg = <0x0 0x3ff88000 0x0 0x78000>;
 -- 
 2.25.1
 
