@@ -4,169 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1BAE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 07:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE18E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 07:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/64GOZVZ7UPD/71DFazdO8NfU6O/0A3dnPczvkP/Js=; b=OFE3kCzRZgeVD34iFve0KmJqIq
-	vW8hcB2zvzRKivkMZvDs2oUxz30DTeeKsaxr7UN/x2qfjJDgZ9pHFQVRq9z8mRrPVI/CPWcqZAKIo
-	PFPv9CAoZHsOZCJiNg2BW3c2CO6QiFMOVrWuqLUncD79kXRSz5SeBawoCwCulxOp1SN8irDqEEvD2
-	Qk1fuVG0Ltu22Moe3jsHNNOSrCiWZ0uRkHVP1gL6aDFcKZsNtULRweIDUF6cgNWE4O/AmsCNyCQbO
-	jP2zpfku649tQj8njJ/BZyPIvhF1e3GVTgdHfDNkjka5Hmt4ZCtCWb4o0VqlVOOcnd8NnywhzVBco
-	rrUyMYRg==;
+	bh=K88x3fI3CsLn3vewgCfqMzxPVwMd0WM8t4Sv/PJIdwI=; b=dxii6sQwDcnaIfyjFIHHl9gOuD
+	E5CHcBETfBm+r2GR8CTleNAdaZ8MV4MhDXjW9mGmxCTYC114/hfFwXaXNje6IFsV4mhsidp+kpTgP
+	qdk7Vz/pjhCxNG1gRyugZhLZxqUXIl1NANNDEIxQZsmhL0UAtOT3lPkRG0uWpyOhy1Rmru6qntdzo
+	lp1gkBAsiK5rQcGHqn8TIXMiPVaXro02wR8acVLGUkyoEIWHMlo9iSK6AditvjnnwFCRBuAs5n754
+	+ffwKiRfL6NQtzl54kLmWhOidA4CpoPPUZEB7z82K0zUiT+6Q1t3BTT6AtCLKrLVRr3RKYJ+/0xTR
+	EI+pxc4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPcUl-00000009U6P-1cMt;
-	Mon, 23 Dec 2024 07:04:51 +0000
-Received: from mail-vi1eur05on20627.outbound.protection.outlook.com ([2a01:111:f403:2613::627] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tPcWn-00000009ULt-4C83;
+	Mon, 23 Dec 2024 07:06:58 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPcAk-00000009RDV-1Azy;
-	Mon, 23 Dec 2024 06:44:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ogegclShzF91xFi/atK3lBROJ3kP2pPc1fgN5GquevdjK1kWDiWC1wEQBPQz7gCkFgYSro9rvcfut8R5w+WgTiF+aP8FO0pP6Jxe/96zcZ6/VB6TEASgZs1/l9Jcm5/zwCkdTrrU3lzIX8jcEFQkspXd2dng1ubchZBGEKtrYTwwJKGeQpe50VG3GFfUOVU/egObw7Ar8boANHtVmfoAFJ2T2n1Hz2PMT2RwSImp+iYHiPS05JUtfm0hFwjwKHdm0e9eW1f8W22USEv86dyqUdnLeDqrYw47S6BUTt+bJ11I0CnvyuNz37PEVuFso9am0/NkriqP3nxdZr3A/+sVQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2/64GOZVZ7UPD/71DFazdO8NfU6O/0A3dnPczvkP/Js=;
- b=n0O8AtdLSSiJJl18eWDOfIYgR286cRMEps2NjVEVat01GHtZTObv2Qf6vXsVbzP+gehvURktNDwsTwzQEk97DWoJkEMFhldDKnrixKy9CkJoCqXaomGcj5G4+yGDI4P6JLDJsZAECu+oUqyAHOnp8/cWzqmo93lva2IbhhhLQgBgCLDZQvs2oOPFokiBHLAdzqPcZY4RUYxvqfY2afJWs7cWV+s2PpPLO8HDtzVZbDFPWSzwAriMqZTCN94GgINC6ZvPNPTbR70gUEMu3mxEW7EvrjU4NV7GYp6KcUvz7KtXH+MZUvWFcvtnBMCpk4yXY5MmrsYqTY8yqgpDZZHa8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2/64GOZVZ7UPD/71DFazdO8NfU6O/0A3dnPczvkP/Js=;
- b=ST2xhELrW76vyqbZXEaDm+1dbYVE9spMcnc6QO8VipcKZBsHhpV5jgUaOE+TPO9bgbAyNZtXHih5uPCYLv0HUunjkDnafuKFeRLM37aev32fAYsafKGqi4x9OzKVwx7Hhpm1dLHXBUUjPibTNaVXI4tLr9ZP91p9+ULwsaE82kGcSqkzQc5y4dxjPlRH2ZBiM3s6JkkV3g1jdvSs4jCIQKaUDd5Qz322dS2X8Olm7EKyWWPlYoSpKvmVuv1NQRx/9Fp9rmH5Dh6BLSU9NjCATkW5jbUC9EeXpBf/qmp8rgHi6nb4f7lBwo38ARsPh7hKl1ib5s8qSPQ9wYdU3iUSDg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS8PR04MB7941.eurprd04.prod.outlook.com (2603:10a6:20b:2a6::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.20; Mon, 23 Dec
- 2024 06:44:03 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%3]) with mapi id 15.20.8272.013; Mon, 23 Dec 2024
- 06:44:03 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
+	id 1tPcO2-00000009TJG-2A3z
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 23 Dec 2024 06:57:56 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4YGpk22kPVz4f3jqw
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 14:57:30 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id EB9691A07BD
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 14:57:44 +0800 (CST)
+Received: from huaweicloud.com (unknown [10.67.174.193])
+	by APP4 (Coremail) with SMTP id gCh0CgC33oLoCWlnoBWSFQ--.8658S5;
+	Mon, 23 Dec 2024 14:57:44 +0800 (CST)
+From: Luo Gengkun <luogengkun@huaweicloud.com>
+To: peterz@infradead.org
+Cc: mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com,
 	tglx@linutronix.de,
-	vkoul@kernel.org,
-	kishon@kernel.org,
-	aisheng.dong@nxp.com,
-	agx@sigxcpu.org,
-	u.kleine-koenig@baylibre.com,
-	francesco@dolcini.it,
-	frank.li@nxp.com,
-	dmitry.baryshkov@linaro.org
-Subject: [DO NOT MERGE PATCH v7 18/19] arm64: dts: imx8qxp-mek: Enable display controller
-Date: Mon, 23 Dec 2024 14:41:46 +0800
-Message-Id: <20241223064147.3961652-19-victor.liu@nxp.com>
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	will@kernel.org,
+	paul@paul-moore.com,
+	jmorris@namei.org,
+	serge@hallyn.com,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	stephen.smalley.work@gmail.com,
+	omosnace@redhat.com,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-security-module@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	selinux@vger.kernel.org,
+	luogengkun@huaweicloud.com
+Subject: [PATCH linux-next 1/2] perf: Remove unnecessary parameter of security check
+Date: Mon, 23 Dec 2024 07:06:49 +0000
+Message-Id: <20241223070650.2810747-2-luogengkun@huaweicloud.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241223064147.3961652-1-victor.liu@nxp.com>
-References: <20241223064147.3961652-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2P153CA0008.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::19) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+In-Reply-To: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
+References: <20241223070650.2810747-1-luogengkun@huaweicloud.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS8PR04MB7941:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8d5d608-ed7a-4971-68bd-08dd231d30a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5NNv8Gdqe9OcplE7lui5uWM0z5wAQGYBnrr85VtTu+D+7fldUqT2fS7y9fN6?=
- =?us-ascii?Q?zKuPK9g/XK/Bq38KxO7UZZQ6b/xBqY1iGi7eaJZWuHDxud8HRbjKelEQYb0q?=
- =?us-ascii?Q?fKIqeK24d0LwbYieJTBxXvMr5bRswU/uRq/XXW/eSXNKgaig3e/fcABtPPMZ?=
- =?us-ascii?Q?9ie+AisMLVoMoY8frQVDKf/kfyP54KCm2hfui3qfkvCnyBMhZ89bIaRYkImi?=
- =?us-ascii?Q?1pclK86wDch50ZmWf+xeHH3E/e/aAugijRBq/hGLG5msrn3B+XoabITDHqKq?=
- =?us-ascii?Q?a4p0c4IPHz0rqu8pV/uxVtG+U7fzWeACX41H8M0o6BZ/qduYt1swRTZuvrYm?=
- =?us-ascii?Q?AevxcxTOSCQ6EoK3au8bJGBsKfv/Y8lddjHwO1PijkBppJTj/br6w21jJlzp?=
- =?us-ascii?Q?YNjouLJRJ2bW7s57ikKhBe6iL4mSXpaziVn1TwElsJYGitruE97fj7yOkldY?=
- =?us-ascii?Q?HSydhkG1MsFYB02S13AzQzrMdIi78mrqc1y61USVEG383XeaDnaz5sC1B6rD?=
- =?us-ascii?Q?X746XZKLWpM2sar6WWXaVW1vE92LNoYnU9YrFoUE4a0/22U3xRaW+b9dHPnG?=
- =?us-ascii?Q?DTk+0vgf7aLT+SqwtjmTRAP90JRpGEK/q1WmfVkypSplGtqgRVeJlUbheQko?=
- =?us-ascii?Q?UwGnBLtsSsq1Frl1o5e/sJgyVJKuUpord8VsDB+cmkGQfzSDYKADNRXJlMio?=
- =?us-ascii?Q?ECrnX7jZi6V+MlZm4j5Tf8fvSO+eOa9v/61WG+8uVS8KRAbTLI4HaYPPCa2a?=
- =?us-ascii?Q?DqqwbhrySK9HjNq59mDMO8zbBs5ZJApeAS752oupmMtRcRi4lOya22rRAFfJ?=
- =?us-ascii?Q?xnuyP8ZOrlASnfy8atdFk1i2CEW8Zw0Byiyon1yiq2itUwsT5T7tQ/8hj0aG?=
- =?us-ascii?Q?Nixi4adXUD7zCX0n+kLl1F/Spii1C+OKwuuyMIFSc/CQpwYp2lEd0sNh421R?=
- =?us-ascii?Q?LgR/0l0krlkkMZQXJE1gAlaS3hGguNlz31PVFNMtEkX9ONLqp+pjFcwotU8Y?=
- =?us-ascii?Q?EcJFtH+32WE/16y3ABntq2wawCdd7zhFy4fHwNDhoFETw2TQF6irWGFXmL0+?=
- =?us-ascii?Q?MHJbq4vimMQhhs9/XF+fkCs8NjoDtre/PaE8M2I4dALhqDTX55xFTp2ZFsKb?=
- =?us-ascii?Q?waSjLSiJH/BihiSj1qjM9WORGNcvCo/skFGtzPh6pfLNS8xHo1nVLopEE5SW?=
- =?us-ascii?Q?XAuHoXyxt0x0W+A5ISMffYxs1UV6uzecJnEcU1q3w2Xj0mM0xQ00FhisHnYE?=
- =?us-ascii?Q?gEoyDuYWFwq0S/WiDkpB+lwGHKEpg5SqWV03kKLtttDwrUN7Ln/5CjrjTZeH?=
- =?us-ascii?Q?BEB1BzZXT2vGkS3f5w63xM6c5IOa92Y4HxGWfHhtcFJUmjQXx/3tXuTiNO6I?=
- =?us-ascii?Q?stWUFUNTG3fNKzhtlF0IpCAN1AOlxQcja1pwf/HfVCGBurWargnuGJ7B8ywL?=
- =?us-ascii?Q?QEDbOhDijSE6y0YsDlRYWex/k8CpCtQ7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HAlKjBKsfloIZaB14HAmPEDVZ4j+Tdx2INf18dlrYAyrZfPtA+cOfaIi7iu4?=
- =?us-ascii?Q?PMyfAzdEof7RmABo5rUMj3nMcW8zGwIJQSnl1DyIyNbsrvCJxHk+ZuAsnZ2X?=
- =?us-ascii?Q?AB1ILwlBg69wYCmFkFwI56hfr3VfVY5aZyzeHEFTTO75HyA/hAtys9XHJSPu?=
- =?us-ascii?Q?ot6juiiStxE9u/Dk4YxPe4yDp4F6U/GgfEreC5V2Qfw+rpZf1MvqCEAH2QcA?=
- =?us-ascii?Q?AacfKIVjRhuhOOZkxpr0a4F4Yf3Wv7ag/mYCtpM28F01+RgvxwwtGWeYqWUK?=
- =?us-ascii?Q?XzFz9+cN0VxPeSOtxSECQogrsl0GlsID+kH0/mfqa+37Qr43Wg9l27N57dgJ?=
- =?us-ascii?Q?E5Nk539+b4CEHdr/ohincORW5DnqY54ar4bcj+JIDNC+vowCyzzVr3BwU5v6?=
- =?us-ascii?Q?Ec/1suEuZ8S4MsQ3nf4OLHLBJ4qVeSyvefc5p4eh9A7qMDCMIkgGiBdVp/9n?=
- =?us-ascii?Q?4XUNfv+SvJrHqyN0YOqdZA3kpgYvLUbFtzMFQCDTiu/y5wmgd3Rt9pNq5WCr?=
- =?us-ascii?Q?scLKI3I7CjINdi2A8OD1MyZPHKknOTAEAp9m1FDkF4/WZOKADrXc5admpluF?=
- =?us-ascii?Q?P7vn/xCkfsuQa8Ycns+jemuMzSCVhRkSyO0SVGFGQXeg/PtTjPvGfhHcprdU?=
- =?us-ascii?Q?DY2DMa4h8uMaYZPzulAzLeG4dThuoQSHvAv+OhxA1mBafjekJQDHVVV7zO/l?=
- =?us-ascii?Q?A1JkfTC5yc7Jup0d+Q3S7GjYhVGePMhrlhtgtN5cXAJfpIzJYv3fLf5GQWvR?=
- =?us-ascii?Q?J2pKHqDbpgGAuBm4V1NWbuJvwG4mO4MEZcx7nTtAqa1M41CjUkWNSACAwd/0?=
- =?us-ascii?Q?xKQveJlTZMa5Km2KaviErEA7NkHbeGOLiR+fahkxzXEjhw5fmB39RkNcF7OA?=
- =?us-ascii?Q?AKMqM+H+nhWYwyDvwGbrB4xKT4ZQ8AaHDAR45xcW1qo+E6IDGsaIiSl0szA6?=
- =?us-ascii?Q?BEOTppQ4ltmNY4VQQ2s2s1WAmuphNpl6APPAuxBBu/WMrGmLAc4+hW85/60u?=
- =?us-ascii?Q?cl0WfsyBBytP6O7dKiTb10O0xeyLB7wHoAL1pXtblTcdPxnEUdyIJHMEo8sE?=
- =?us-ascii?Q?JD8tF0jj2yCLAE650YLoHsP1Nrvvk14rIUG6IpxyXtEM7aUEB1KqMj7dm3jW?=
- =?us-ascii?Q?IJzVrIAKP6T6mVVJAHxUw2+3DZ2gwk6DOQ66xy4Z5CEE0OEOkkexolMaUvqU?=
- =?us-ascii?Q?fe1KlRstlj1bemvHHRhAZf3yiuDS0XfPdvL1x8phlM0bpyVX6EczECD3K6uB?=
- =?us-ascii?Q?AVf02W2o52AzTrESW3xpo4BM/jYdFQ2mTqqoU5QUXDF603ywDKFk9e3IggSa?=
- =?us-ascii?Q?PtWPyO3Xxs6om4RPmAc/7tfXR8LD5z905qjE4dy55n6QbM3Q9oe/bBrnYkXA?=
- =?us-ascii?Q?FfgKITT0g+NllZGtg6UATD+Ni9IXZWr2Vn0QV9zObZLPhhA+5yD1UNEp47Z0?=
- =?us-ascii?Q?DnMjf46lbzOy4NaGyASGnJjfQZBe0hrStjhDeQO6mjPaxgKTJhmiJvx6ivOy?=
- =?us-ascii?Q?f7/n3YIQqjdLu5dKcsUbaHF6BzocuSkPcDljuyXzwywwnwa+3zpWUnNPCEy7?=
- =?us-ascii?Q?gHXmrBcmxyMxBgCDOaGZBtLXrhmBrFbmJiko5bhm?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8d5d608-ed7a-4971-68bd-08dd231d30a1
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2024 06:44:03.6529
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e0n8bjO5Q1/eW0HVxaZ+41q8oCgmwsz5x0r3HK3gu3yGDlwGk/GmohvY/Q4ObDb2sZSMyHwqcUHgkYpy5StjXg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7941
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgC33oLoCWlnoBWSFQ--.8658S5
+X-Coremail-Antispam: 1UD129KBjvJXoWxuw1UtFy5JFykXFWkXFW5KFg_yoWDJr43pr
+	srCFn8KFyUKFZrW3s8AF1DC3W7W3yFgrZxWr90gw4rAF4jq39rXF42qr1Yyr1FkryUAayI
+	yw4qyrWak34DXa7anT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJw
+	A2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS
+	0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2
+	IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0
+	Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
+	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
+	kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY
+	6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42
+	IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2
+	KfnxnUUI43ZEXa7sRiQ6pPUUUUU==
+X-CM-SenderInfo: 5oxrwvpqjn3046kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_224410_321912_0240EB6C 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241222_225754_878790_3935EC27 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,46 +112,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable display controller for i.MX8qxp MEK.
+It seems that the attr parameter was never been used in security
+checks since it was first introduced by:
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
+commit da97e18458fb ("perf_event: Add support for LSM and SELinux checks")
+
+so remove it.
+
+Signed-off-by: Luo Gengkun <luogengkun@huaweicloud.com>
 ---
-v7:
-* No change.
+ arch/x86/events/intel/bts.c     |  2 +-
+ arch/x86/events/intel/core.c    |  2 +-
+ arch/x86/events/intel/p4.c      |  2 +-
+ drivers/perf/arm_spe_pmu.c      |  4 ++--
+ include/linux/lsm_hook_defs.h   |  2 +-
+ include/linux/perf_event.h      | 10 +++++-----
+ include/linux/security.h        |  5 ++---
+ kernel/events/core.c            | 14 +++++++-------
+ kernel/trace/trace_event_perf.c |  4 ++--
+ security/security.c             |  5 ++---
+ security/selinux/hooks.c        |  2 +-
+ 11 files changed, 25 insertions(+), 27 deletions(-)
 
-v6:
-* No change.
-
-v5:
-* No change.
-
-v4:
-* No change.
-
-v3:
-* No change.
-
-v2:
-* New patch. (Francesco)
-
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index be79c793213a..c7b4015c7bf7 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -234,6 +234,10 @@ &asrc0 {
- 	status = "okay";
+diff --git a/arch/x86/events/intel/bts.c b/arch/x86/events/intel/bts.c
+index 8f78b0c900ef..485a09d61adf 100644
+--- a/arch/x86/events/intel/bts.c
++++ b/arch/x86/events/intel/bts.c
+@@ -559,7 +559,7 @@ static int bts_event_init(struct perf_event *event)
+ 	 * to the user in a zero-copy fashion.
+ 	 */
+ 	if (event->attr.exclude_kernel) {
+-		ret = perf_allow_kernel(&event->attr);
++		ret = perf_allow_kernel();
+ 		if (ret)
+ 			return ret;
+ 	}
+diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
+index 103ee41907c7..3b65df32daee 100644
+--- a/arch/x86/events/intel/core.c
++++ b/arch/x86/events/intel/core.c
+@@ -4150,7 +4150,7 @@ static int intel_pmu_hw_config(struct perf_event *event)
+ 	if (x86_pmu.version < 3)
+ 		return -EINVAL;
+ 
+-	ret = perf_allow_cpu(&event->attr);
++	ret = perf_allow_cpu();
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/arch/x86/events/intel/p4.c b/arch/x86/events/intel/p4.c
+index 844bc4fc4724..78d78b8a1530 100644
+--- a/arch/x86/events/intel/p4.c
++++ b/arch/x86/events/intel/p4.c
+@@ -776,7 +776,7 @@ static int p4_validate_raw_event(struct perf_event *event)
+ 	 * the user needs special permissions to be able to use it
+ 	 */
+ 	if (p4_ht_active() && p4_event_bind_map[v].shared) {
+-		v = perf_allow_cpu(&event->attr);
++		v = perf_allow_cpu();
+ 		if (v)
+ 			return v;
+ 	}
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index fd5b78732603..a55d10956ff6 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -50,7 +50,7 @@ static_assert((PERF_EVENT_FLAG_ARCH & SPE_PMU_HW_FLAGS_CX) == SPE_PMU_HW_FLAGS_C
+ 
+ static void set_spe_event_has_cx(struct perf_event *event)
+ {
+-	if (IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR) && !perf_allow_kernel(&event->attr))
++	if (IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR) && !perf_allow_kernel())
+ 		event->hw.flags |= SPE_PMU_HW_FLAGS_CX;
+ }
+ 
+@@ -746,7 +746,7 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
+ 	set_spe_event_has_cx(event);
+ 	reg = arm_spe_event_to_pmscr(event);
+ 	if (reg & (PMSCR_EL1_PA | PMSCR_EL1_PCT))
+-		return perf_allow_kernel(&event->attr);
++		return perf_allow_kernel();
+ 
+ 	return 0;
+ }
+diff --git a/include/linux/lsm_hook_defs.h b/include/linux/lsm_hook_defs.h
+index e2f1ce37c41e..e349e585cc07 100644
+--- a/include/linux/lsm_hook_defs.h
++++ b/include/linux/lsm_hook_defs.h
+@@ -445,7 +445,7 @@ LSM_HOOK(int, 0, bpf_token_capable, const struct bpf_token *token, int cap)
+ LSM_HOOK(int, 0, locked_down, enum lockdown_reason what)
+ 
+ #ifdef CONFIG_PERF_EVENTS
+-LSM_HOOK(int, 0, perf_event_open, struct perf_event_attr *attr, int type)
++LSM_HOOK(int, 0, perf_event_open, int type)
+ LSM_HOOK(int, 0, perf_event_alloc, struct perf_event *event)
+ LSM_HOOK(int, 0, perf_event_read, struct perf_event *event)
+ LSM_HOOK(int, 0, perf_event_write, struct perf_event *event)
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 8333f132f4a9..5d2ec4283ebf 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1672,22 +1672,22 @@ static inline int perf_is_paranoid(void)
+ 	return sysctl_perf_event_paranoid > -1;
+ }
+ 
+-int perf_allow_kernel(struct perf_event_attr *attr);
++int perf_allow_kernel(void);
+ 
+-static inline int perf_allow_cpu(struct perf_event_attr *attr)
++static inline int perf_allow_cpu(void)
+ {
+ 	if (sysctl_perf_event_paranoid > 0 && !perfmon_capable())
+ 		return -EACCES;
+ 
+-	return security_perf_event_open(attr, PERF_SECURITY_CPU);
++	return security_perf_event_open(PERF_SECURITY_CPU);
+ }
+ 
+-static inline int perf_allow_tracepoint(struct perf_event_attr *attr)
++static inline int perf_allow_tracepoint(void)
+ {
+ 	if (sysctl_perf_event_paranoid > -1 && !perfmon_capable())
+ 		return -EPERM;
+ 
+-	return security_perf_event_open(attr, PERF_SECURITY_TRACEPOINT);
++	return security_perf_event_open(PERF_SECURITY_TRACEPOINT);
+ }
+ 
+ extern int perf_exclude_event(struct perf_event *event, struct pt_regs *regs);
+diff --git a/include/linux/security.h b/include/linux/security.h
+index 980b6c207cad..a3b35a699256 100644
+--- a/include/linux/security.h
++++ b/include/linux/security.h
+@@ -2324,14 +2324,13 @@ struct perf_event_attr;
+ struct perf_event;
+ 
+ #ifdef CONFIG_SECURITY
+-extern int security_perf_event_open(struct perf_event_attr *attr, int type);
++extern int security_perf_event_open(int type);
+ extern int security_perf_event_alloc(struct perf_event *event);
+ extern void security_perf_event_free(struct perf_event *event);
+ extern int security_perf_event_read(struct perf_event *event);
+ extern int security_perf_event_write(struct perf_event *event);
+ #else
+-static inline int security_perf_event_open(struct perf_event_attr *attr,
+-					   int type)
++static inline int security_perf_event_open(int type)
+ {
+ 	return 0;
+ }
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index b2bc67791f84..f2cb450eb134 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -4883,7 +4883,7 @@ find_get_context(struct task_struct *task, struct perf_event *event)
+ 
+ 	if (!task) {
+ 		/* Must be root to operate on a CPU event: */
+-		err = perf_allow_cpu(&event->attr);
++		err = perf_allow_cpu();
+ 		if (err)
+ 			return ERR_PTR(err);
+ 
+@@ -12488,7 +12488,7 @@ static int perf_copy_attr(struct perf_event_attr __user *uattr,
+ 		}
+ 		/* privileged levels capture (kernel, hv): check permissions */
+ 		if (mask & PERF_SAMPLE_BRANCH_PERM_PLM) {
+-			ret = perf_allow_kernel(attr);
++			ret = perf_allow_kernel();
+ 			if (ret)
+ 				return ret;
+ 		}
+@@ -12745,12 +12745,12 @@ SYSCALL_DEFINE5(perf_event_open,
+ 		return err;
+ 
+ 	/* Do we allow access to perf_event_open(2) ? */
+-	err = security_perf_event_open(&attr, PERF_SECURITY_OPEN);
++	err = security_perf_event_open(PERF_SECURITY_OPEN);
+ 	if (err)
+ 		return err;
+ 
+ 	if (!attr.exclude_kernel) {
+-		err = perf_allow_kernel(&attr);
++		err = perf_allow_kernel();
+ 		if (err)
+ 			return err;
+ 	}
+@@ -12770,7 +12770,7 @@ SYSCALL_DEFINE5(perf_event_open,
+ 
+ 	/* Only privileged users can get physical addresses */
+ 	if ((attr.sample_type & PERF_SAMPLE_PHYS_ADDR)) {
+-		err = perf_allow_kernel(&attr);
++		err = perf_allow_kernel();
+ 		if (err)
+ 			return err;
+ 	}
+@@ -13603,12 +13603,12 @@ const struct perf_event_attr *perf_event_attrs(struct perf_event *event)
+ 	return &event->attr;
+ }
+ 
+-int perf_allow_kernel(struct perf_event_attr *attr)
++int perf_allow_kernel(void)
+ {
+ 	if (sysctl_perf_event_paranoid > 1 && !perfmon_capable())
+ 		return -EACCES;
+ 
+-	return security_perf_event_open(attr, PERF_SECURITY_KERNEL);
++	return security_perf_event_open(PERF_SECURITY_KERNEL);
+ }
+ EXPORT_SYMBOL_GPL(perf_allow_kernel);
+ 
+diff --git a/kernel/trace/trace_event_perf.c b/kernel/trace/trace_event_perf.c
+index 3ff9caa4a71b..a6bb7577e8c5 100644
+--- a/kernel/trace/trace_event_perf.c
++++ b/kernel/trace/trace_event_perf.c
+@@ -49,7 +49,7 @@ static int perf_trace_event_perm(struct trace_event_call *tp_event,
+ 
+ 	/* The ftrace function trace is allowed only for root. */
+ 	if (ftrace_event_is_function(tp_event)) {
+-		ret = perf_allow_tracepoint(&p_event->attr);
++		ret = perf_allow_tracepoint();
+ 		if (ret)
+ 			return ret;
+ 
+@@ -86,7 +86,7 @@ static int perf_trace_event_perm(struct trace_event_call *tp_event,
+ 	 * ...otherwise raw tracepoint data can be a severe data leak,
+ 	 * only allow root to have these.
+ 	 */
+-	ret = perf_allow_tracepoint(&p_event->attr);
++	ret = perf_allow_tracepoint();
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/security/security.c b/security/security.c
+index 1db835c05a78..ad9655aa1322 100644
+--- a/security/security.c
++++ b/security/security.c
+@@ -5885,16 +5885,15 @@ EXPORT_SYMBOL(security_bdev_setintegrity);
+ #ifdef CONFIG_PERF_EVENTS
+ /**
+  * security_perf_event_open() - Check if a perf event open is allowed
+- * @attr: perf event attribute
+  * @type: type of event
+  *
+  * Check whether the @type of perf_event_open syscall is allowed.
+  *
+  * Return: Returns 0 if permission is granted.
+  */
+-int security_perf_event_open(struct perf_event_attr *attr, int type)
++int security_perf_event_open(int type)
+ {
+-	return call_int_hook(perf_event_open, attr, type);
++	return call_int_hook(perf_event_open, type);
+ }
+ 
+ /**
+diff --git a/security/selinux/hooks.c b/security/selinux/hooks.c
+index a503b8fd6611..14c7d331c3b6 100644
+--- a/security/selinux/hooks.c
++++ b/security/selinux/hooks.c
+@@ -7040,7 +7040,7 @@ struct lsm_blob_sizes selinux_blob_sizes __ro_after_init = {
  };
  
-+&dc0 {
-+	status = "okay";
-+};
-+
- &dsp {
- 	memory-region = <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
- 			<&dsp_vdev0vring1>, <&dsp_reserved>;
+ #ifdef CONFIG_PERF_EVENTS
+-static int selinux_perf_event_open(struct perf_event_attr *attr, int type)
++static int selinux_perf_event_open(int type)
+ {
+ 	u32 requested, sid = current_sid();
+ 
 -- 
 2.34.1
 
