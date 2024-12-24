@@ -4,103 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30893E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 10:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CD0E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 11:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwyNoR0SnuVGySQmrh3vEyVb1ET66P1aG6x3YnivKGw=; b=BQlz8NqfA/QMyZynxvU1YqTlw0
-	3crfGq5J9qbAn6/Eqz0efb/5IuptWFuACdCP7JeNQUADTPP8roJOh/g+cNLE+eHFEQpu6TFWh9QVa
-	wTnFvI8o8nJl/DGm++FxUctsh3OVN2UsuxTz4yqcdtQpJjVF6pYfTO8jVzRbTfTxdmJIpoTr5XTNd
-	BBz3yxoQ2m2Neh12uqI8qY8i+f9WJVG2i0QX0NXnadPRXtrSf3+fSoeKSqMTZrMxQ1gjeyeCkW0m5
-	S1IRK8FqjryyVU2FT7Zzc0o34cVz4aj0w8e5XWEUo3wYlYm/y5Fh30RhOr7DFln1FLScfYxut8HeT
-	8IiwqStQ==;
+	bh=03ARuXNN1LYC6Y56lO4Z0KutZ2KDzQyEBAbl6atBMq4=; b=xnVuUE6mG3cDxYw9VwpJTM/fab
+	IAr5HrbQ+bmIa6LXNGlMl278lSw4o/lE+Ee9PnQvi19L7wL9hlhdiaLAGK1JlRjuWdEFtERsC5Plk
+	kWxilcDp6nqQ2Fp71ERTBT+bEkUgDg1MBqhee8RjPkZ75hs6iK7+z8izO0rw+NvRkMXCbXpTXGD4a
+	gSML33UMIuoIKW5+hWQ9b9HLszHIsUulBtNPYaio6pxDogO1FtGKMIF9jJIZ8DS9pGDZ1rmXIbFRi
+	ROQOvaqGeYVVRPot51liefiwEFXxzZfEr3IKglpw09bSz5IgEI5b6hgMp1FbApFpHY6iH+JtuUoJv
+	7YQSZKRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ2X9-0000000BonR-2j6n;
-	Tue, 24 Dec 2024 10:53:03 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tQ39n-0000000Bs0J-061q;
+	Tue, 24 Dec 2024 11:32:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ2PF-0000000BnG8-47QE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 10:44:55 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385f07cd1a4so3176013f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 02:44:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735037093; x=1735641893; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BwyNoR0SnuVGySQmrh3vEyVb1ET66P1aG6x3YnivKGw=;
-        b=XfWBDBgoHeFfHAdMData8VXzmFPiUXWEEFeQ+e3+nVd79Q5fSVE22jUKYYBDZKE5Eg
-         s51WNXVQlgtriwEKphuFcf4fnwm+Qb/H3ycMXIOsU1wwwMNuh/vSaaRJgiR46WwFJXGS
-         sHw59oNGzVMT6mVGq2Iknq7rxQ/OuZz++zB0iRaqoc224n45brdXk7mSg+o0aohFOLle
-         k/kF9YSay2yeBSTQ8QjEW/8NVzi968Pf7bmyYkK32x+P2Mq+ouHy2kiPxMSjljLQOIx9
-         siWPjNTTD1YzlcSPfPt/gRyxnOtdtjafuuBb3UQp/FmipDFI+4zi6GgR4NP5ML6At41d
-         b36Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735037093; x=1735641893;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BwyNoR0SnuVGySQmrh3vEyVb1ET66P1aG6x3YnivKGw=;
-        b=DleCEYGo0Un6KYbCu4HsNBEY767eFvPtiBtsbdD82oQcXZQgB8J3W0aYcSuFi/PaDL
-         xDH6SbRMbGMNqm4EFCu720a0zWd4xA6r3k5RJzUinVE9/XeJNUKLnfbydoz3o3tnefE0
-         fkTlCqCiI9zmeobZtcTBztA5mwZ3j5b2rpW82jtIIfJfLzxKwgeFiiGnfVlNbmjV2Wlt
-         OfJUl96nGpJVEhM6oMn9JDG8vOng30PCZSEiBqjOhbZHudgIEhbk5b3vZE6mkOOSjHwT
-         hq8d+dQQh50IRP0VzIWDf/O+vWhgo/NLWjyORnsMpBs6/hggODG/SyoeI9Pim2bOQGGH
-         gEbg==
-X-Gm-Message-State: AOJu0Yyq7CLoauYmqiCGucwn8NbbEdU30/YsuyjXR6ZRKIontuzvNf+E
-	zRh6itZGotTVazRntqW8I2I3P4ePme9lURqfD8qM5KwqKsmvUFSPI+BqqvLf6b7ZgTHnAWcpIAv
-	0
-X-Gm-Gg: ASbGncsqTmGzGFemg890mv7dDDSz52vrlyF0+MYlVMBAYQw3YLqs/7MxiwQosCLTu0N
-	wHXq3NRNiEoIMGd0o2Mu9a+L7jbeu+WfifDp3RrByeaVNU8tt90aJNJ4cM2xuijoFaq39D20GYC
-	3gFNZrwo3QcnTi/19c3N3oKDC2EaE1F4ecYO8j8E9KCHQn7LOCG2qb8AoD3CBzreA7qj8Orl24u
-	HOirM1aoFf63bFkuZhx0L3E6QlwP1UMVdmYWknUIaaSNGHzmTYCxCA=
-X-Google-Smtp-Source: AGHT+IEHX62hM4cRXueG3YQu6eg84405e7WqgYcT9lFPGrHLB17v7HhSKT3GSKfbXrWS+gmH7kk2Dw==
-X-Received: by 2002:a05:6000:794:b0:385:e013:b842 with SMTP id ffacd0b85a97d-38a221ea331mr12569563f8f.14.1735037092689;
-        Tue, 24 Dec 2024 02:44:52 -0800 (PST)
-Received: from pop-os.. ([145.224.66.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c847714sm13938184f8f.54.2024.12.24.02.44.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Dec 2024 02:44:52 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	irogers@google.com,
-	yeoreum.yun@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com
-Cc: robh@kernel.org,
-	James Clark <james.clark@linaro.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Graham Woodward <graham.woodward@arm.com>,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: [PATCH v2 5/5] perf docs: arm_spe: Document new discard mode
-Date: Tue, 24 Dec 2024 10:44:12 +0000
-Message-Id: <20241224104414.179365-6-james.clark@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241224104414.179365-1-james.clark@linaro.org>
-References: <20241224104414.179365-1-james.clark@linaro.org>
+	id 1tQ38b-0000000Brs4-18QR;
+	Tue, 24 Dec 2024 11:31:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D76885C5EA1;
+	Tue, 24 Dec 2024 11:31:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 587BDC4CEDC;
+	Tue, 24 Dec 2024 11:31:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735039904;
+	bh=03ARuXNN1LYC6Y56lO4Z0KutZ2KDzQyEBAbl6atBMq4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VhSxux5OjALWeX9mJiVMA1KmH3gKWvY+37UDf0WLo2/An4aMSHs12zWW9u5uYHdtC
+	 xsOMmh3QAC8HKxB0/zvHtlZILXhAhsEmzJGJceH9eczG1gLGXemamg6GBdW2OyrXcb
+	 P4JhHTHiuOcsma/8QJXTgqdMPbt3qeQYlwFD/WNt/MMUiNio4iYcVOUX9KhW5CN7wf
+	 AY8SyTfbZw35bw6LkY07y0CGwVaHljO9XtZwYjtbzqwckaG+cx3OXSWAVma3yXNV5p
+	 jvg9dPkTLOtjHIXpAoTNO4sLNJSKupH/um9bt7bQxbmG+NqCnZU7+LwB1+JoIevYhj
+	 HYtzM5wwESR/w==
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-218c8aca5f1so59556535ad.0;
+        Tue, 24 Dec 2024 03:31:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUMAv6PI9T0KArfFsm/OAkDQ+gZnQF8yMw7INYlDAWOXsgmpfQxl7oSo+MqhxkF0rr0kCUAsUDVmTKq49C/z2k=@lists.infradead.org, AJvYcCVi63L61yxqP+tV3Chekh/a55CdTD0+zDsksXUHZ/8oygYQ+wtSZHSDGaQ0PsmawJHfseEMMD8Ejm77jyCVbCbp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqBXgOSnlab46lFhjhdtHetRlWSUrpEItF4bhzzZ+xs7wt24MO
+	e1tSqp5pdjRpT9my2RIdnpTS2D22812M9fXjbHYd7EaDYN/C4TxCabmhR/GQJEBD/M1P7BdZp9Y
+	/z32UYmLV+cZVH06uuScfURp+Tw==
+X-Google-Smtp-Source: AGHT+IF0Z2A1ZpCpDpYV0wej1AcD2Tjd35Ya5woNBEnskBD/S7v7TPAd15rnS+ywO0yVT1bM1GTtN5IF4uyo/ZC9CPI=
+X-Received: by 2002:a17:903:234e:b0:216:46f4:7e3d with SMTP id
+ d9443c01a7336-219e6e9fa68mr217969135ad.15.1735039903928; Tue, 24 Dec 2024
+ 03:31:43 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241219181531.4282-1-jason-jh.lin@mediatek.com>
+ <20241219181531.4282-2-jason-jh.lin@mediatek.com> <6cbe2f57-a63e-4993-938c-7696a869dc2f@collabora.com>
+In-Reply-To: <6cbe2f57-a63e-4993-938c-7696a869dc2f@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Tue, 24 Dec 2024 19:32:16 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_8mUutkz+q4-JggbmQRpNn6tukM_GuQ-0rwVRCoOd0mGw@mail.gmail.com>
+Message-ID: <CAAOTY_8mUutkz+q4-JggbmQRpNn6tukM_GuQ-0rwVRCoOd0mGw@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: display: mediatek: ovl: Add
+ compatible strings for MT8188 MDP3
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Singo Chang <singo.chang@mediatek.com>, 
+	Nancy Lin <nancy.lin@mediatek.com>, Shawn Sung <shawn.sung@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	Fei Shao <fshao@chromium.org>, Pin-yen Lin <treapking@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_024454_022123_67811033 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20241224_033145_356737_5CC55486 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,60 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the flag along with PMU events to hint what it's used for and
-give an example with other useful options to get minimal output.
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2024=E5=B9=B412=E6=9C=8823=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=887:=
+12=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Il 19/12/24 19:15, Jason-JH.Lin ha scritto:
+> > Add compatible strings for the MDP3 OVL hardware components in
+> > MediaTek's MT8188 SoC and it is compatible with the existing
+> > MT8195 MDP OVL components.
+> >
+> > Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+> > Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@col=
+labora.com>
+>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+>
+> Waiting for an ack to take everything through the mediatek tree :-)
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/Documentation/perf-arm-spe.txt | 26 +++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Acked-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 
-diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
-index de2b0b479249..37afade4f1b2 100644
---- a/tools/perf/Documentation/perf-arm-spe.txt
-+++ b/tools/perf/Documentation/perf-arm-spe.txt
-@@ -150,6 +150,7 @@ arm_spe/load_filter=1,min_latency=10/'
-   pct_enable=1        - collect physical timestamp instead of virtual timestamp (PMSCR.PCT) - requires privilege
-   store_filter=1      - collect stores only (PMSFCR.ST)
-   ts_enable=1         - enable timestamping with value of generic timer (PMSCR.TS)
-+  discard=1           - enable SPE PMU events but don't collect sample data - see 'Discard mode' (PMBLIMITR.FM = DISCARD)
- 
- +++*+++ Latency is the total latency from the point at which sampling started on that instruction, rather
- than only the execution latency.
-@@ -220,6 +221,31 @@ Common errors
- 
-    Increase sampling interval (see above)
- 
-+PMU events
-+~~~~~~~~~~
-+
-+SPE has events that can be counted on core PMUs. These are prefixed with
-+SAMPLE_, for example SAMPLE_POP, SAMPLE_FEED, SAMPLE_COLLISION and
-+SAMPLE_FEED_BR.
-+
-+These events will only count when an SPE event is running on the same core that
-+the PMU event is opened on, otherwise they read as 0. There are various ways to
-+ensure that the PMU event and SPE event are scheduled together depending on the
-+way the event is opened. For example opening both events as per-process events
-+on the same process, although it's not guaranteed that the PMU event is enabled
-+first when context switching. For that reason it may be better to open the PMU
-+event as a systemwide event and then open SPE on the process of interest.
-+
-+Discard mode
-+~~~~~~~~~~~~
-+
-+SPE related (SAMPLE_* etc) core PMU events can be used without the overhead of
-+collecting sample data if discard mode is supported (optional from Armv8.6).
-+First run a system wide SPE session (or on the core of interest) using options
-+to minimize output. Then run perf stat:
-+
-+  perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
-+  perf stat -e SAMPLE_FEED_LD
- 
- SEE ALSO
- --------
--- 
-2.34.1
-
+>
+> Cheers,
+> Angelo
+>
 
