@@ -4,65 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73609E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 08:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593A2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wyqwc7HehOUOtN2cXaWdNN18Gq9dJAMpclN4XS6gydo=; b=s/jz3VrWzdalQi36TfjJpdMRBX
-	jf1hFVqDABe8cfB6loQwKQSIDxr2mJE7OPqBQZjiXgYQyjIQWrZ9a6i8IOVU9DQp5iUquJi9IyUQW
-	ArceOib68Tdsuldo/57TwdRDUEE5NhtF8gsPIlCTUza0rsju0DEqr2UvaBpwmWSRVQFGZtBBQ8oD5
-	qJRP73ip6v71kVzahMOc+gkXQwPqxnHcKoKYJDFhOkJBpQqAEdiVXbB9a14o6YIB+m8mMsQ6kDWRa
-	1vjpqFRwR9k31gY6x2i4/xYpuXFCEQymHIEudyyhivevGCigxedETitaIv2FaAWz8fG8VMdgNsYUM
-	U0aJm8rQ==;
+	bh=rqjl308OuNRMbWugA4jzjOfqs1qN28qDlrGRi1lmlOA=; b=cr/FynV2HTJQTfwAKHQQfj47mA
+	wMnGFUjSF8asCdFQzDj6Mkf2H1rYV3O9X7x2DU6F528ZauTRLHCl3/g7Xxy8QlFaBg/CH1gedS44G
+	08F3UGNVWLj6+hY5+HYJaY3R3QsSPaHzDrWteTIuwtkMamATSQlHJ9gfHnI//QKWIRAs3MRKATcAa
+	6vONkbG6g5Cvxy7bLzPv9ZKxq6umpEwn9jHFw92/eiuUucFOLbviojxqu5lPjveM9Xtm9+azZ9wT/
+	tU5DhivRDF1mjHE4VvOKlasVmgRpPkdjGLxCYqTOKCoxriM5J6NkCbEiO49XAt4BAMHVAEt57xhT7
+	nekQ4ShA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ0fx-0000000BXV5-1ASO;
-	Tue, 24 Dec 2024 08:54:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tQ0pF-0000000BYHR-1gTc;
+	Tue, 24 Dec 2024 09:03:37 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ0el-0000000BXLk-3CeR
+	id 1tQ0o3-0000000BYCG-3mts
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 08:52:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D55E5C5D9A;
-	Tue, 24 Dec 2024 08:52:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C69DC4CED0;
-	Tue, 24 Dec 2024 08:52:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735030366;
-	bh=wsWYp7QfCmIW8xUSh5qe3ysDgOzJV8vy7SqdMnk84CA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VT4xLm7tJnv1ZBQhaeklQtG5dCsigiU404W9fMDUSamAFTL2VbXfpRUZKicS16vk8
-	 NF0mjM7Emmb1tSIZJY9xFs/8o1rzgRDsQdTPrq9E1Ogv8lqzKW4xKZohoAo41rh2am
-	 02F6ynaqJsJUtlAgIK87QqKAxTb6Sjp1JcCSn4BUVIbWX30Qn2QBQtD5feE52Rhv3l
-	 71zmcE9hmxy6G9HIGF5EbboK9u73m5L95/RSrH+B3zRg5yzgGmmExCJSLqLZdBhSD2
-	 r83014oGsyVTk9jpRAe9/MDyRxtXsyHqF3UwRhI99kdfqsiUD4e4QavuZXbRoYDHi8
-	 +/VuAeWLU0gXA==
-Message-ID: <d8fbc040-070e-4dfd-b634-e1b7fb42d67c@kernel.org>
-Date: Tue, 24 Dec 2024 09:52:41 +0100
+	Tue, 24 Dec 2024 09:02:25 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aab73e995b5so96025266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 01:02:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735030942; x=1735635742; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=rqjl308OuNRMbWugA4jzjOfqs1qN28qDlrGRi1lmlOA=;
+        b=lD7RAGBsqzHiXT7rME93K46XkFWYfAwvw8O/PDqTb++KuWCkV4/vpVl7PzAbn9iQ2V
+         r/fG0IUxN7WtGIXEbbxUqsFIbLjYxCWQnIJw7EVkkb0ZYqYsHVAC5ShEUlu0V/f9KHnN
+         qEC2FhHkSaey8seLYTyO2HVsBWMkAyhFR963/uxyrhnt0gKtSSBC8lpQxnq7m53slPSj
+         kH7kGE3qfKljRFWvjOOE+9cEezEZzEmAG2rvmew1YROGsPsrTH4o4FIlA5PGHNogot8S
+         JV2rLMqG3K4z72g87LPmIyI3YqGiqhQrJjXJG7X694Mw/RlpmJgyGg4LZu2vjJJQ2EeY
+         j9XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735030942; x=1735635742;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rqjl308OuNRMbWugA4jzjOfqs1qN28qDlrGRi1lmlOA=;
+        b=Ef0ru6WmxwPtYQ/poEF7V1wCfPTHv8mhfPecfRQ7UxhtFznLHl0qUnote2uhp/uRL0
+         wru4fSLC3vXCFGYYQW5A8tcFrt2s541HsAzssr6tuL6O9bct2w+/UcfoSsD+UCGh3aFA
+         iUcEhwk8ZzEXnth01EantwErghu84bTymjYDNZWk436pD2Tre+kg28X+VsXC8kxVC9rD
+         QVm4UaWLuFe+bmaFOpil2AU1yhz5XGLyBHdwynRBPlK/mQzNyHYSbVuPeFO95ea88n2m
+         14vRzYiZSYjFoozKGEal9OWlfvs2Cwl/ftPFiwqbfywBr7P+vhqgQi6jl0fAkcK+A6xn
+         rv9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXfVorM6a0wZ4RNUPo4+tvxafWqSxGW9d2pFVr2Eg/ETtNgPaqx3y1JzrGkaRLvLe5bjU7dpTWn2SBGznsPmpPT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+DWNFX8Q23eUmIxHTtUXgyD1RVgNLWYQa0xddzj07G0SapKce
+	gGYo5k/m0BZBCW2ttPiGld90ZJP3rhUxQjNg4zNOTNMafbTlG39yJRHq2QvDw3E=
+X-Gm-Gg: ASbGnctEp93doHUkEak4NcNn8CEuzsc3/RTA6PoY/mvN1YUnUptrB8XCLZmoSl9zoJ3
+	Ga3GHSg9MQQnG07UKqf7p3shLFPuyikQJuEZdYlXiHrM++C540wJEPvfL7/nBqHa3YFMsQDP3hc
+	UUHDn8tw2NNDzEsqzquOItbfaz+5HWy7KsHxV5BN6fDcVO2w8DGwK0x7NU/WxGxwRVFXx5A1vGg
+	V1jRC4qgiwe8nCU1is7lLp5EoRrK6FajL2sFILWPNJlAsgSiJNRTFFhrSUE3wk21e4dbqfQlEdY
+	Gm4wqPZo8NvghD4oe0xp/d+m1Vmclur677s=
+X-Google-Smtp-Source: AGHT+IGykTi7JHcE7u3RIbhw9nHMoGJBAN6VL/xBiSZ3UlC0+Pn4XzS4kF3dFtZfJ0nP0IfLmC2iOA==
+X-Received: by 2002:a17:907:2683:b0:a9a:8216:2f4d with SMTP id a640c23a62f3a-aac2714a5ecmr510447666b.3.1735030941539;
+        Tue, 24 Dec 2024 01:02:21 -0800 (PST)
+Received: from [192.168.0.18] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe4b6bsm630137966b.93.2024.12.24.01.02.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Dec 2024 01:02:19 -0800 (PST)
+Message-ID: <7813f2b0-e76a-463c-91f9-c0bd50da1f0a@linaro.org>
+Date: Tue, 24 Dec 2024 10:02:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: arm: Add Morello compatibility
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Russell King <linux@armlinux.org.uk>
-References: <20241223162029.326997-1-vincenzo.frascino@arm.com>
- <20241223162029.326997-2-vincenzo.frascino@arm.com>
- <fc83ab3f-99fe-4566-9a33-670956dd76a4@kernel.org>
- <342b3c31-7e82-41d1-a9f0-9f3973f99486@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: net: qcom,ethqos: Drop fallback
+ compatible for qcom,qcs615-ethqos
+To: Yijie Yang <quic_yijiyang@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Bhupesh Sharma <bhupesh.sharma@linaro.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
+ <20241224-schema-v2-1-000ea9044c49@quicinc.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
  JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
@@ -72,45 +104,46 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  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
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <342b3c31-7e82-41d1-a9f0-9f3973f99486@arm.com>
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <20241224-schema-v2-1-000ea9044c49@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_005247_906049_7EDF2466 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20241224_010223_963335_71C87D1B 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,61 +158,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2024 17:41, Vincenzo Frascino wrote:
-> 
-> 
-> On 23/12/2024 16:32, Krzysztof Kozlowski wrote:
->> On 23/12/2024 17:20, Vincenzo Frascino wrote:
->>> Add compatibility to Arm Morello System Development Platform.
->>>
->>> Note: Morello is at the same time the name of an Architecture [1], an SoC
->>> [2] and a Board [2].
->>> To distinguish in between Architecture/SoC and Board we refer to the first
->>> as arm,morello and to the second as arm,morello-sdp.
->>>
->>> [1] https://developer.arm.com/Architectures/Morello
->>> [2] https://www.morello-project.org/
->>>
->>> Cc: Linus Walleij <linus.walleij@linaro.org>
->>> Cc: Rob Herring <robh@kernel.org>
->>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->>> Cc: Conor Dooley <conor+dt@kernel.org>
->>> Cc: Liviu Dudau <liviu.dudau@arm.com>
->>> Cc: Sudeep Holla <sudeep.holla@arm.com>
->>> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
->>> Cc: Russell King <linux@armlinux.org.uk>
->>> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
->>> ---
->>>  Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml | 3 +++
->>>  1 file changed, 3 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
->>> index 8dd6b6446394..7934d2c4cba0 100644
->>> --- a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
->>> @@ -118,6 +118,9 @@ properties:
->>>          items:
->>>            - const: arm,foundation-aarch64
->>>            - const: arm,vexpress
->>> +      - description: Arm Morello System Development Platform
->>> +        items:
->>> +          - const: arm,morello-sdp
->> Also:
->> const: arm,morello
->>
->> Unless you claim that this cannot be used in any other product than SDP,
->> but this then needs explanation in commit msg.
->>
-> 
-> Morello is a Prototype architecture and there are no plans to use it outside of
-> SDP hence I did not add arm,morello.
-> 
-> I thought it was clear since the note states that Architecture, SoC and Board
-> have the same name, if not, happy do address it in v3.
-No, it's not clear because that statement still does not close
-possibility of creating "Morello SDP v2" board. You should have two
-compatibles, even if there are no plans to add new boards.
+On 24/12/2024 04:07, Yijie Yang wrote:
+> The core version of EMAC on qcs615 has minor differences compared to that
+> on sm8150. During the bring-up routine, the loopback bit needs to be set,
+> and the Power-On Reset (POR) status of the registers isn't entirely
+> consistent with sm8150 either.
+> Therefore, it should be treated as a separate entity rather than a
+> fallback option.
 
+... and explanation of ABI impact? You were asked about this last time,
+so this is supposed to end up here.
+
+> 
+> Fixes: 32535b9410b8 ("dt-bindings: net: qcom,ethqos: add description for qcs615")
+> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+> ---
+>  Documentation/devicetree/bindings/net/qcom,ethqos.yaml | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
 Best regards,
 Krzysztof
 
