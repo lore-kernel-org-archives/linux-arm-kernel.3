@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CB6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 14:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CA2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 14:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRs4WTrcA/32gwo1mHGGXML8D3UUaekXuWxvDGF4HP0=; b=gUbEgg33aZBa3Nkp0bZmdo6zvo
-	LoGoySdPEbJHL1zYoQz1kbHN2XzNZEVWelumRbjKJFXV07Jj18aV+YD7K1VWvbBlMLlBRySVdTLQE
-	Js6gG7DR4o7wr7UGkOI/mZN/Bxks3Xe2H60HyM16JIdclSKEcvftkPJus64EHXQV1egF2b/F/Yq7n
-	yGb3837aREPAeKyia6bNELlDEopcaiEBvlYwD6hkhcqbqk8Yjd4nEyNQrBCNVoQM2aMvm5ibkS8Xt
-	26nw0nDN/UGCzRe/ZshOzYymlqcuj1bi+IALzii//8k8av9UJX9YIS8F24YekiN/Xnky6UUkuH7i9
-	aZXrjfDA==;
+	bh=/orwcOB1E1HvYxa1BXAp9gPRRBwgzc5weqloOohUHPE=; b=czxUAhb60/iAQO8hxgexEtZmtf
+	5lUcPENdxOO46XO9grYAMoO68XgA9egqTIQTLBFp8cc/r5BS810BTe+uMBEOdPAFlyW1gum5JImk1
+	NQlPoz3Pe88ZtpovGLSaODkm7GNzm0c+2ODGXLbFfNi3ydY7+0kgPNXlZXc55iCaFFBy1XRxkm1mb
+	+J3AuRF6m2VQadYXyB0qAPCJtvSb99BTyR3RsZcx/dvt7pQ29MKwxp+bVICrjVk/Cq6gLj3OD1nEJ
+	jpfaTfW9CJwiM6yiUFhT8Pe9FcTMD/i3uJNpcXQXdWuqoRHC8sHPLCr0FwtuM4Fa5eTnDYlSMDj8O
+	wa25w4FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ5in-0000000C7vh-3sM0;
-	Tue, 24 Dec 2024 14:17:17 +0000
+	id 1tQ5jx-0000000C823-2od8;
+	Tue, 24 Dec 2024 14:18:29 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ5hZ-0000000C7mM-3QpK
+	id 1tQ5iP-0000000C7s8-1NNG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 14:16:03 +0000
+	Tue, 24 Dec 2024 14:16:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 04EAB5C4C96;
-	Tue, 24 Dec 2024 14:15:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B84FC4CED0;
-	Tue, 24 Dec 2024 14:15:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 142395C2722;
+	Tue, 24 Dec 2024 14:16:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADF0C4CED0;
+	Tue, 24 Dec 2024 14:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735049758;
-	bh=/ysaRB4Vs2PBs5uEOotndvm/ii6ZE5lzSJc7Rc6NbV4=;
+	s=k20201202; t=1735049812;
+	bh=nTU/BdSBgAVCv4Dh2x2LodKDjoS/hWzg4rkX6ehbQQc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B5e+lP2MbcdhxoHhtS2ZL9w29KyjK+U3+EsUOV7MRNK7n3jrgAi1ymuRn8GwCQRxz
-	 hG6ZA5RJH9zhIjqoy/mdFNla/f8+Mos543U/DVenfesHSd4vfYp6mYrhzqk/nmG6Vm
-	 EU8q3ZOrq1CwggdtvqLgiZ3rPQOsv9G0eRwaSkONzyRS1xbFPo+XZC/N9po96Ky9NJ
-	 MwwUYHkFJO+oUHBYpE7PAgiXV4UrMzWCoQ8IDLRYorwzWSSTlH5zOLrjDPxQudNI5y
-	 zP5o0/rMubtnCYjrAAPpqHs3ALhRu65j9AiRznH3GzcawJVFi5NZ0CXZUVV2wPbb2K
-	 li6qMzerPNqLQ==
-Message-ID: <421edb68-fd7f-4136-8c98-88f745dde5aa@kernel.org>
-Date: Tue, 24 Dec 2024 15:15:50 +0100
+	b=PRG9s4N7SiHVRD+Ff8nhfSm4jwjXgqQxP0UD4QbDKHnoCT/KgqW+5iAFm5SLo+OvX
+	 qMcc7w+D6bF0nq2l+Aknm9yYa7fd7wg4B2KPAwd4YRiPteyS+39EZinIaGj+mzj3Bl
+	 XEovDUXzB1y0iKfbo6VPl60A+9/iiAG5AGPHioMV650lStWt70yBrKcrHPL2UIKIs9
+	 dQDphDxQ2TGLiltKVr8703Etp+G3Vmo4gbvCX74F7yRsIZyPhDHRkKKeBdQqgDwTPy
+	 L6T82n+PDFMpHOAIL6xmGlppzoOo1zTPzQze2QjFe3V6jghldusNMBTnhHB7K9XwFk
+	 sbVBuH6ereZHQ==
+Message-ID: <fa68df6a-f8dc-4701-8e02-fc90e3561544@kernel.org>
+Date: Tue, 24 Dec 2024 15:16:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] power: supply: max17042: make interrupt shared
+Subject: Re: [PATCH v5 2/2] power: supply: max17042: add platform driver
+ variant
 To: Dzmitry Sankouski <dsankouski@gmail.com>,
  Hans de Goede <hdegoede@redhat.com>,
  Marek Szyprowski <m.szyprowski@samsung.com>,
@@ -63,7 +64,7 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-msm@vger.kernel.org
 References: <20241223-b4-max17042-v5-0-e4e409723bce@gmail.com>
- <20241223-b4-max17042-v5-1-e4e409723bce@gmail.com>
+ <20241223-b4-max17042-v5-2-e4e409723bce@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223-b4-max17042-v5-1-e4e409723bce@gmail.com>
+In-Reply-To: <20241223-b4-max17042-v5-2-e4e409723bce@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_061601_971437_D2F1C460 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241224_061653_474083_1EC9DF5B 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,23 +131,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 23/12/2024 14:30, Dzmitry Sankouski wrote:
-> Fuelgauge blocks often are incorporated in bigger chip,
-> which may use only 1 line for interrupts. Make interrupt
-> shared.
-
-If there is going to be a resend:
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
+> Maxim PMICs may include fuel gauge with additional features, which is
+> out of single Linux power supply driver scope.
 > 
-> Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
-> ---
->  drivers/power/supply/max17042_battery.c | 9 +--------
+> For example, in max77705 PMIC fuelgauge has additional registers,
+> like IIN_REG, VSYS_REG, ISYS_REG. Those needed to measure PMIC input
+> current, system voltage and current respectively. Those measurements
+> cannot be bound to any of fuelgauge properties.
+> 
+> The solution here add and option to use max17042 driver as a MFD
+> sub device, thus allowing any additional functionality be implemented as
+> another sub device. This will help to reduce code duplication in MFD
+> fuel gauge drivers.
+> 
 
 
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
+I did not perform a thorough review, but skimmed through the code. Looks
+fine.
+
+
+Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
 
 Best regards,
 Krzysztof
