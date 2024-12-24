@@ -4,86 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE81E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 15:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC54BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 16:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUthszcY7WUoYLW/EhDuHucO4Lic/IF30bEB9ypkHzU=; b=M8iYRGZECCtC29uMGwFjiGaSKJ
-	GSgVdO6n7eHiWxlrsP/m0QMah0vLc53HV2jxTvFPckDcZwquPTQwdCVciQcxl/DawiBx01DzIXq+R
-	jx+c6PnUeif9vERR39v3p0C8QUZ4//vufeSFAzA6Mq0ZSnbO8YXbIabmKylwczYH8tyt5vU/evQXo
-	TuLfeWjS1RF3gS6mDWRLq9VnW9rb1oaaPydGy2URvZsIv4yjmf4kFwoi79ombSHWiVeLrhIyNzZNa
-	SGMXe5p8BJydAWXGa5dBU7xNDDMJ3L1dvlj7US7h4AgdyO9ow3QHlN5MRxyENmjK59ATzRMwb2d73
-	kB4rqFpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SikwrvqepocarqAtdheTF7sn+Pq16j1X3OGUSKnRGzQ=; b=KZmfXQjggKDbW22mn21ySKc1DV
+	G7sFwEwR6kOKCGJG+P8iF28hgqX2A78qn34zdd5tLIOKURA2ILQ4ub7h5+ZDyN3rh8MB3hphGY/sm
+	h6xUfRqD/4qjEdGsxm2wAfO59Bw+T1ErjuBbr6BMsvriqFW+oNnL7y4YizQx9KVdUkLMTFkV4XBip
+	z0zrc1glZHizOhqJfChfjkJID0WUWBg8zISzRSfTf/jqZe2TAXO5VhZVgWfINqX5+BjxD8lRI7i++
+	eTJc8K0BVIbQTj5z0iU6VtDg8Iv8tYa5V59onkQxImtxtaVaorpXSujShQcHBUux7Qb7k2mYESGdM
+	LWiixrpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ76i-0000000CEra-48LG;
-	Tue, 24 Dec 2024 15:46:04 +0000
-Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+	id 1tQ7VD-0000000CGsP-3Rs0;
+	Tue, 24 Dec 2024 16:11:23 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ75X-0000000CEie-13V4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 15:44:52 +0000
-Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e3a1cfeb711so4049121276.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 07:44:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735055089; x=1735659889; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IUthszcY7WUoYLW/EhDuHucO4Lic/IF30bEB9ypkHzU=;
-        b=NVze5hdMv9jf/f5h1UYDgw0qAinwYp+lLT+V7GvDy0AKvL7fpeEsdL7PD4vcWyGwX5
-         JQTNmVIPsvJJBfPVhBSNydMhEMH8my0g6w1XGhFpx6YyiVZerTXZHwcdQRrg5NjxM8UJ
-         USIQ9VR2FWxhE4xjDHCMDekdoHJYU2wxVE4U6uee/bUO5WxJwIGY5kVRAC0GhkH2SXyB
-         q1/clbIsXRBtWsCb192oVTboZ8YgGVjo8Kqq66CaGqvgRIJX7l0+QTk3hfLcU2b662Qw
-         0w/lmA0d8eC7iswIQ/QkmnZtibgGkRodGWzxYxGxgvqMACkOdRgTM7CrPS2BLx7saw7v
-         /AWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735055089; x=1735659889;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IUthszcY7WUoYLW/EhDuHucO4Lic/IF30bEB9ypkHzU=;
-        b=BIvzvl8H3+KUTiNyYTmMdI/a+IJsfTc/1VxSYRsb4XZ3vnABvxLijYFgQ/FXwEZX/3
-         VymTOA4z1Gn4wXGkxelnWvbb5F1UIuEvKmfuQ916t89BWv14vZlL9yxM1IvGUcP7E76y
-         VVulB3dMPh+63FiraA2Wf8/LBSxOvup1EMyTDSmQiUHWCtvBWfGUn/Ja9/p0ps6LTbSz
-         AuLmH7cMxBeNrqlM8Osz8Dyf+95vRlX7+9N2yrSfy6PJ6B4s4Da3raOpoi6pNE+fWC/b
-         k8FvSr2uNrxGhJkwRJ3BbUi5xmntTtGFlAQXhvIcn+lfNbKnEM7+Df7Li3wWzFSWjPfd
-         8Hvg==
-X-Forwarded-Encrypted: i=1; AJvYcCWqtpCx2n1FlozcPQsUQ627Apy1bA0xKX89bo3dAflM7p5b8/3+FxYRiaU0rLFhBYJ+kf/ScXz1JW+nE5zbCWpo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVJN80eihqGD2AXaa4A78ILAvu1L8EDTHvanE2IjtMMVuBsXY/
-	ad04Aa/yCbPi3WOy6/fNKtA3OFU91JCYygUDPLYLadA8zvnbzKON0efRUQjz
-X-Gm-Gg: ASbGncsZHT393YslWm+07loA4SPGnE23BjPMfwg3x2ZRkgYWo1siqNNwKbFIO5pvT63
-	OpLU+C1VmUgjbOYsehdyK6RTEaYZvowWKj5SF6yTpRxngIPIbO1r9sLT6GStA3Ya0cZ/IN3ZHUU
-	rwNVEGKk2ZNHT3L7kfxxrueMHOaiwCc5BjwXcfloOOdb3zdY404GtYrJ/cpekTpFjO86zk+XhC7
-	s3zWkacYdi5sbhQwLLCXmVETWqUyHlcf4ZCMJej26ClQmk=
-X-Google-Smtp-Source: AGHT+IGS01EhQzLkGSG5QTs8kVJO38w9bONzDU7GkpYvQ0IQiouZvmnxnTA/0j1IS6e2jMjLsjqvdA==
-X-Received: by 2002:a05:690c:4d01:b0:6ef:529e:6049 with SMTP id 00721157ae682-6f3f80d5c86mr110219607b3.4.1735055089247;
-        Tue, 24 Dec 2024 07:44:49 -0800 (PST)
-Received: from halaneyt14s.local ([2600:1700:1ff0:d0e0::37])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f3e7836ee2sm28920277b3.98.2024.12.24.07.44.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Dec 2024 07:44:48 -0800 (PST)
-Date: Tue, 24 Dec 2024 09:44:46 -0600
-From: Andrew Halaney <ajhalaney@gmail.com>
-To: Enric Balletbo i Serra <eballetb@redhat.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Andrew Halaney <ahalaney@redhat.com>, Udit Kumar <u-kumar1@ti.com>, Beleswar Padhi <b-padhi@ti.com>
-Subject: Re: [PATCH v4 0/2] arm64: dts: ti: k3-j784s4: Mark tps659413
-Message-ID: <bamrgf5yiksx6rgxljgw5r3y4nkno2el7qigynynubehullurd@q2xptf5wndcx>
-References: <20241113-b4-j784s4-tps6594-bootph-v4-0-102ddaa1bdc6@redhat.com>
+	id 1tQ7U1-0000000CGka-0uAx;
+	Tue, 24 Dec 2024 16:10:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1735056604; x=1735661404; i=markus.elfring@web.de;
+	bh=SikwrvqepocarqAtdheTF7sn+Pq16j1X3OGUSKnRGzQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=R20YAwIaRdB4cybp0l67mnA9MrhENVTIo6Q63X8ej2LJmLm8DpT0ijJh5rUhyOel
+	 pxElDgDU1+PQaH+FarcPFGDY2JPYFlEn7dv7s2xwUaMFG1+dm0+kQyaYITNH/DXTR
+	 IcWa9VOmBtxqFVbJaKcgJ0tZe5483ghz1tcsme+g3STZOGOQ7mzaJfdoJYe2FYhGx
+	 DEW7DUwmeoVfAhrX2T5FK3tgDdf3+is8Fwwqjk0TInDzuXEdguKXTPTnZDC4GVToa
+	 lWKcPoNRYAoAFMAUGM26WkHaYDbMY4Wb2Q7YmEarcQZ4/FsKvK+xn786oxqfEXSrP
+	 aqGF9ybNybbB1mvJiw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.21] ([94.31.70.78]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MgiXQ-1u2Rto1sFg-00fKeB; Tue, 24
+ Dec 2024 17:10:04 +0100
+Message-ID: <8a5bdda5-5e2a-4b73-91a5-849b6060e7df@web.de>
+Date: Tue, 24 Dec 2024 17:09:54 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241113-b4-j784s4-tps6594-bootph-v4-0-102ddaa1bdc6@redhat.com>
+User-Agent: Mozilla Thunderbird
+To: Karan Sanghavi <karansanghvi98@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Alexandre Mergnat <amergnat@baylibre.com>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, David Airlie <airlied@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Shuah Khan <skhan@linuxfoundation.org>, Simona Vetter <simona@ffwll.ch>,
+ Sui Jingfeng <sui.jingfeng@linux.dev>
+Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?=
+ <ck.hu@mediatek.com>
+References: <20241111-uninitializedpointer1601557-v1-1-7d03668e8141@gmail.com>
+Subject: Re: [PATCH] drm/mediatek: Initialize pointer before use to avoid
+ undefiend behaviour
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20241111-uninitializedpointer1601557-v1-1-7d03668e8141@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:wwXFHOL+rndON19bU3EG1IfLGvHbJBJd7inIjYIugf2NhmMqb6U
+ R1R/rBD0UHK6pwy8zk/7+GIdiHvkKvjOModfkb8guBPJRxivUtwnYcmZa1F52pt2rKs4Azo
+ Yi2DjvLpUxcdCUxxZBA3iUnW7f9QPiIPeN1+1cPzc0FURyi1o+iSu4nYhFKkjpA6p/jviB4
+ kfZJbrzroQ0B+VkBQ64xw==
+UI-OutboundReport: notjunk:1;M01:P0:S5pLRWNHLTE=;HrTXFPU0JfRlQkwFTtq5Qx0G2G2
+ CgQITP+3XJiTSrnPMN2AlRwj2LqbNwD5JcJCPMKzIS/obzPrOI5k0aHDcTgfjdu0FvJa+RIr+
+ Yur4nIMJn4cobWbh56rVUPSrbs4KkYD3cOyg7EMcxZkyDZZVlCe662fUGE1s7rdtxnPQMVL2q
+ tts9CRn98fVYT3ptoGG6yT6mc7LsXaFtEzl4i0yfnvsQ4XA7wVVQ/ntl0pMZXQKZHCA3wI6MP
+ IyXCZTaVGA5qZc8ANSsv6GIC1YLEtLttG8CyRLrWoHTGoztdRFlVRdLUZloAzKxlZFHR298FZ
+ 4E+irVczPijupiXScpqUs+Bh26Hr4RPrKD7edmWh3JdwHsadOgrV8o75SZS2SVD8bxRkLaLoV
+ zkEtmSDWXHv3gWq44xUvC4HQEh8FkVJ6jIQ29CXZGz+coyBlIy09RxN/UGZQ87esiuAMKfqKR
+ oSiwuuSjxXC7js+MnT5bILFMGPPJC7A1/aBPveJLHYbnp0VfgBLPovHx47SqjZbtXiKSdWQkD
+ R5Bp22OR45mDuE70xFpmrApS5IWSUlEoxRZ1642c9qXoD0i+RAfr6Wdc2t//Trs6IocFh+WUk
+ dcerWb4i3X1lgEe1XVrhW0FgPloaEBwrcKvS6jpnWtAdkPs7KY7aTNAuMgMNqUjhgNrBWsU1O
+ 4gpNJ1y1xuqGOUkAFFTIdLi6SRh1Byqvj9LgyfBFk2FUC0J4IMFTN99d85wMK1AyjH0r98b09
+ xb3x/VX/hnnbgUE1Oxcsg91m0QLtkR+pagUxaZ/Cqw89fv3qNzyi130hQA2x/8q2zdsQG7Xwg
+ 4edJU93UOJQnMHYKIGH1VaMlS+127uQfsNeHCoYZOANymM1oOUWjDTv3MF3dyU62ODNSR6q3A
+ 0oYSVFfqSz3aPfvCV3hQ3frllZmNjiR5VD91WC8UeHrq8GaeyfGl5o6R+tfhNkKJuqG8a5ST8
+ BqVJXrQ4+wfdEkgJWQ+871Ok9G6nE+oKnb7Wh98NDjsVUwqKp81zMkBnpwzDmzIqqvBRx5duK
+ t24gcuhVSL6BtEqOKgcL8/dkRVhFCn22sMsEehyrhlo2qRhNpmcqvTsuB17U141wVmo/uP9c3
+ RZ7PUS6xc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_074451_309057_D560D3DD 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20241224_081009_621622_473BC6EF 
+X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,15 +106,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 13, 2024 at 10:15:15AM +0100, Enric Balletbo i Serra wrote:
-> This series marks tps659413's regulators as bootph-all in order for
-> the nodes (and parent nodes) to be accessible during MCU's u-boot SPL.
-> 
+> Initialize the pointer with NULL as mtk_drm_of_get_ddp_ep_cid
+> function might return before assigning value to next pointer
+> but yet further dereference to next can lead to some undefined
+> behavior as it may point to some invalid location.
 
-Merry xmas eve, going through my queue and thought
-this could use a gentle ping :)
+* You may occasionally put more than 62 characters into text lines
+  of such a change description.
 
-Seems to apply fine on next still and it would be
-nice to land the associated u-boot changes eventually
-to get the watchdog working!
+* Please avoid a typo the summary phrase.
+
+
+=E2=80=A6
+> ---
+> Coverity Message:
+> CID 1601557: (#1 of 1): Uninitialized pointer read (UNINIT)
+> 3. uninit_use: Using uninitialized value next.
+
+May such information become a part for the final change description?
+
+Regards,
+Markus
 
