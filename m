@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A05E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04C0E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=; b=lbj/jc/+cNTBT2U7ruQxJePL65
-	+03STJeGbMGHGFPecI9Rbr8tw6CHC6pUEqThbKoF+c7Dx1sBEUi9VnYSueRJ1MZeDNGaL+kG/SAku
-	h5MMKi35dckBLGGCM1GzcQZRwOPhgIUwmscT0I4NtjQ4Mi86XtGy6QrriM9iETmE2Hy3zJJVBd/Tj
-	5cgPBpM/4dZ1DNwvlIxRHf8FUD13hLsFiyfYg/MTXjcmXFdMd9HsBqXMb2h85MmOia/qSHQizRAFI
-	V6exEFHyfiTyWtCvU/WGx3Z1QjBz/j0CysnqQKMHcCOpoWKNeNE89fFeG8Bvnzye52jkRcF1cwgaK
-	92CK8xng==;
+	bh=JrcFdkL7v8hevVCz++URbVmucpyX6fBOW8nqTnbI9/s=; b=dZAzO0Pcu+XSjhowaiVaqaVcz1
+	csSg+2wZBGlTHOT04wnd1oRC1XINo+YV0aEam9Fk3ZDsS0TBfyC/CtOqCleTiUh/nSR4SC0zBqrbK
+	4Pupj+aVm+s9BjchK/UL1wMK6BGJ4jr5lYr1nx1Q2Mpv8x1QKNBZeZYL80HIZXBbOopRdwtQ5mH1H
+	VCCQT2LngT8MoETw1Na7JNq5ECCMBe46Gc9ythV66irO01D2lo5SqXWAtyl66TPo8seFkIMj4c2CK
+	JSzJ6BqDmIivB0GSnRLBa/1iiKq29cGjrXz1Kkn1kQdpUHCmrbLp+u/wjELrRbz61f3i9SFsw4G2u
+	qRPduxoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8sz-0000000CXWb-07Qr;
-	Tue, 24 Dec 2024 17:40:01 +0000
+	id 1tQ8u8-0000000CXd6-2wT3;
+	Tue, 24 Dec 2024 17:41:12 +0000
 Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8Mz-0000000CMgb-3p0f;
-	Tue, 24 Dec 2024 17:06:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D128B40004;
-	Tue, 24 Dec 2024 17:06:51 +0000 (UTC)
+	id 1tQ8N4-0000000CMhj-1GeF;
+	Tue, 24 Dec 2024 17:07:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3470140003;
+	Tue, 24 Dec 2024 17:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1735060016;
+	t=1735060020;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=;
-	b=QeYyN/uiGZhXmqNymhnTAPygPndx1LCwsdLVoUS6KOTxlzVQMSRpzYfmYr3CrafD+soidn
-	GIFyL0trjNaPFws7xI5aAPBy0Y/zMKXrmOIzv9d1VR0mL2vKg0ZddGcsjeueZDvzMoURGP
-	oOYbbCU545L9qVCcaj/DcSBnJaLoYwHv/9hryJgHcdsemDEXyVABHcXRPOcWf+9I7swFyC
-	6b3ovrOap/L/hY7pZFExCeayq8xfEmL0e9Nl5AogDbfsR90nwFDXq9TtZzEzRj7hc8+lyx
-	THWAp7i77m4tFwQw9n6KSkAyAgmvJjh/wfZiOMqrwcwjMh1GStlLFjU2e1nMeg==
+	bh=JrcFdkL7v8hevVCz++URbVmucpyX6fBOW8nqTnbI9/s=;
+	b=kTWXaOPzzt1n8GnCYOS5frwghRr0Z8Y3UTN7TxOoJ8Baz1n++H+4bZPUQ1zsGguKewtTZa
+	vnDdnIpGFK+Gb7t9YpYjxhWzBP1K0pa+Ps6j4BIfmJZnTZvd5n6T+TjdHxw//N0Cr6SwOp
+	dsfRL6xiEk8Xy/g9dUzcRjirgLX/ujrzp3uQ+l7Tl+OVPt+H8fkRBywAUnvbJAU80IjTN+
+	nG19PCo2IOI9eoLW3VxY1rinXDX88gnXej2E7tAACk2UC0EY3Y/X6OfGyApXl1xXXWU9c9
+	xTHgAxgg9xIgjAsuV3Qo13B6tsVSmX3hO9hpAmhffZFCkfzdHz+GhzLv9SRWSg==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Tue, 24 Dec 2024 18:05:52 +0100
-Subject: [PATCH v2 07/27] spi: dw: Support per spi-mem operation frequency
- switches
+Date: Tue, 24 Dec 2024 18:05:53 +0100
+Subject: [PATCH v2 08/27] spi: fsl-qspi: Support per spi-mem operation
+ frequency switches
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-7-ad218dbc406f@bootlin.com>
+Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-8-ad218dbc406f@bootlin.com>
 References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
@@ -80,8 +80,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_090658_217073_B8022F4B 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20241224_090702_607674_932F0E78 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +106,57 @@ device value will be given anyway.
 The per-operation frequency capability is thus advertised to the spi-mem
 core.
 
+Cc: Han Xu <han.xu@nxp.com>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-dw-core.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/spi/spi-fsl-qspi.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
-index 431788dd848cea1d854affe0d1fb971f680824a1..3d49b1dbaed4d491c0df659c061582e71f2c514d 100644
---- a/drivers/spi/spi-dw-core.c
-+++ b/drivers/spi/spi-dw-core.c
-@@ -677,7 +677,7 @@ static int dw_spi_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op *op)
- 	 * operation. Transmit-only mode is suitable for the rest of them.
- 	 */
- 	cfg.dfs = 8;
--	cfg.freq = clamp(mem->spi->max_speed_hz, 0U, dws->max_mem_freq);
-+	cfg.freq = clamp(op->max_freq, 0U, dws->max_mem_freq);
- 	if (op->data.dir == SPI_MEM_DATA_IN) {
- 		cfg.tmode = DW_SPI_CTRLR0_TMOD_EPROMREAD;
- 		cfg.ndf = op->data.nbytes;
-@@ -894,6 +894,10 @@ static void dw_spi_hw_init(struct device *dev, struct dw_spi *dws)
- 		dw_writel(dws, DW_SPI_CS_OVERRIDE, 0xF);
+diff --git a/drivers/spi/spi-fsl-qspi.c b/drivers/spi/spi-fsl-qspi.c
+index 9ec53bf0dda8ead27bc7a11a9bb09a08efe2ea05..355e6a39fb41896f460e2474a90b8f0b42068ff3 100644
+--- a/drivers/spi/spi-fsl-qspi.c
++++ b/drivers/spi/spi-fsl-qspi.c
+@@ -522,9 +522,10 @@ static void fsl_qspi_invalidate(struct fsl_qspi *q)
+ 	qspi_writel(q, reg, q->iobase + QUADSPI_MCR);
  }
  
-+static const struct spi_controller_mem_caps dw_spi_mem_caps = {
+-static void fsl_qspi_select_mem(struct fsl_qspi *q, struct spi_device *spi)
++static void fsl_qspi_select_mem(struct fsl_qspi *q, struct spi_device *spi,
++				const struct spi_mem_op *op)
+ {
+-	unsigned long rate = spi->max_speed_hz;
++	unsigned long rate = op->max_freq;
+ 	int ret;
+ 
+ 	if (q->selected == spi_get_chipselect(spi, 0))
+@@ -652,7 +653,7 @@ static int fsl_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ 	fsl_qspi_readl_poll_tout(q, base + QUADSPI_SR, (QUADSPI_SR_IP_ACC_MASK |
+ 				 QUADSPI_SR_AHB_ACC_MASK), 10, 1000);
+ 
+-	fsl_qspi_select_mem(q, mem->spi);
++	fsl_qspi_select_mem(q, mem->spi, op);
+ 
+ 	if (needs_amba_base_offset(q))
+ 		addr_offset = q->memmap_phy;
+@@ -839,6 +840,10 @@ static const struct spi_controller_mem_ops fsl_qspi_mem_ops = {
+ 	.get_name = fsl_qspi_get_name,
+ };
+ 
++static const struct spi_controller_mem_caps fsl_qspi_mem_caps = {
 +	.per_op_freq = true,
 +};
 +
- int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+ static int fsl_qspi_probe(struct platform_device *pdev)
  {
- 	struct spi_controller *host;
-@@ -941,8 +945,10 @@ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
- 		host->set_cs = dw_spi_set_cs;
- 	host->transfer_one = dw_spi_transfer_one;
- 	host->handle_err = dw_spi_handle_err;
--	if (dws->mem_ops.exec_op)
-+	if (dws->mem_ops.exec_op) {
- 		host->mem_ops = &dws->mem_ops;
-+		host->mem_caps = &dw_spi_mem_caps;
-+	}
- 	host->max_speed_hz = dws->max_freq;
- 	host->flags = SPI_CONTROLLER_GPIO_SS;
- 	host->auto_runtime_pm = true;
+ 	struct spi_controller *ctlr;
+@@ -923,6 +928,7 @@ static int fsl_qspi_probe(struct platform_device *pdev)
+ 	ctlr->bus_num = -1;
+ 	ctlr->num_chipselect = 4;
+ 	ctlr->mem_ops = &fsl_qspi_mem_ops;
++	ctlr->mem_caps = &fsl_qspi_mem_caps;
+ 
+ 	fsl_qspi_default_setup(q);
+ 
 
 -- 
 2.47.0
