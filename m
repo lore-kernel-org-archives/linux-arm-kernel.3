@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC168E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 07:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB55E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 08:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KMHf22f47mnupZ5Z5sbHHAzvVBhWDSW7Bp1Wxhnt058=; b=uhq4ZLXkjHopRwM7IZQ3SbPDtK
-	Gw6DVsggW4Z4EzCRseHwl49ku18U8Axdqkq9lW0/U9d+OgQzcp03X5nY0dnh+6B6c3kdqU6nlJs6c
-	nAOOAlBYN8U/W4OGpIq0xXtrRYhM9TWzOv7hOL7PRuF4Aic9qg3o5hpO6HX4Ipzadx9CHUt7QmD41
-	0WEDNXV8Zj8yX17gHVZGK+iirV9uUyc2qEJ24J5bJifZL2d9hGwWAyUTxg9FBYp+7prW7GW1mqXqE
-	9boELE3mnMIQaAT+78TyJvAQO+3P1LOUWxSlEazdW+2CAXE+nH0BpOtdB1+qDw/WBrFmIF/G/VA3e
-	zAbl11/g==;
+	bh=4e1obV0cPgwgcDo8hxgun6VysOTGhY7lznRi05MbxUo=; b=N3md0M3YMcCUX5YjTzFEYTPNnN
+	6GtVcV5RovQZ4dY1uvsq6rpL1487zzHGUl5ib5bDWREyDJGITocIktqc1ju4+26Z70lBDq/jn9eDV
+	ckO/aRX821maWEV4WQ5JtM94XNklFbPy2P+FvFrF1DiWtnbey/erDJ6loc9n3MYTrFq8i88T17qDQ
+	IcKYLc4zPgWU3/RWpqQnCRgjmcZ5xGERDr96fIg5JPU6apcXMYpKyuKc+YBwR0PGrsF5bJrS0njoX
+	x6Q9mNeTG60hPtpE/GlRK00CFeCN4lxJ1GVS0pS/l2QG8kDSJl4jSLRTS23T7Rxvx5z9gUZ66ImlY
+	CZPByigQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPzoI-0000000BSj2-37J9;
-	Tue, 24 Dec 2024 07:58:34 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPzmx-0000000BSa0-08sV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 07:57:12 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5d3e9a88793so8467372a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 23:57:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735027029; x=1735631829; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KMHf22f47mnupZ5Z5sbHHAzvVBhWDSW7Bp1Wxhnt058=;
-        b=iCdeC34cT+4oChxfvmWrZMsQ6wudrwANwq/luhNcwVD5wy9zOqa2r8yHWDlnGbAbpL
-         eJMS/XXINSlIOai8Rs/lsQSQaAzGBbHyp/HtZtVNeWO2Atq9PhyZvfu6LlamXZIzpe2j
-         r254gd/KvWWEO09grxVXlht/lzb3MrTBPFAUoHbQFtI3QIwGmZgLikYt6tIc4QDRuouD
-         UeIp9ZKADRc22Sx8FWJm3+vErmanwlMf/22VcfJyAo9HjEUCoyG/aShrvWJvQRQNo1x3
-         EC3nGywwCepyL3BdApiiLMBBIKMYadcfY5mxMuHvgspXzXrKL7acwYEKtlA5ttFwPE2b
-         Xtkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735027029; x=1735631829;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KMHf22f47mnupZ5Z5sbHHAzvVBhWDSW7Bp1Wxhnt058=;
-        b=vNRUiZh2ZBcGQhyHXisUFneLfQMNZSzw2d/pESUqr1ggd1BA7EtKu6vGrmGx2D1LB1
-         m/8UsmLKoo+OexLJAyMYYCUv8EbhJZ/8rRF5v8jXBx7zEyAAc2lkW8MFRVFt1qVJj/Jw
-         lHRlmOZmNiizA7k20jfhOsZWNKIkEfJUtlgHAvLSHIeERZ2bHxUchkozD0134GZviEAQ
-         7RJqFOpSbicm92akCrW4vqMD6N7QvP8l5DdXMAgXctmRpyGGC0vSMulbZVWAlakz3y/J
-         /giiJgv0iaPynN0oEVG+2IaC57HOrahL1LxZ5RXUMkbFGI9koNyYSH0v2vtPOEcNdXo5
-         KMlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIOyu9QZgzz26SlNbzI5hdJjhrhFkZ37ysLw+2VkmNAweYiByCSoAYxvNkEXWqeWzej1dCaQzDaoQ0XpEswgC5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH4Q5/MtGrcA6cAtFKsyK+Wp8TFA8yCFiSnb/L1oDCMd0x2ygV
-	qHPkb0WnjycY4dyWTetMa3i4gF+hx8KKkZdoBHfgy+e2JDhG++u1
-X-Gm-Gg: ASbGncsauHBo7L9rDJUQReMJtZ8VX09OLnxuXjxvoIi0kBv53znzJFNreoBZNsaNvmH
-	l7E+wIzf6iFKBdcc0W1C9SOJmyJOfq0f1pjZQSNDFP0B9/sJQ8PMk6/pMh/iNkkVWX1iCxvqB8/
-	YHcAQSIuJf0uSNEAyQBWa02zkD9C5enh0j98W9KLhkGw4vVI/EK6Z4NMJEuuCOpBKy+eWjrq3hM
-	ITUreuEu9Aw3XrxhwIdlmmQJKYCrFF43HA3Vt7l8nsNtWBnuunFmvIwLEXyIpzZxYtZVGF+OAvY
-	5Y/IWw==
-X-Google-Smtp-Source: AGHT+IF0IsFB1olkgqlPZT89YXr7zJlXoISs3puCJLGzwYjyZTiwq5K2mzmoRf4eNKq8Wooc/NavtA==
-X-Received: by 2002:a05:6402:26c5:b0:5d1:f009:925e with SMTP id 4fb4d7f45d1cf-5d81ddad8edmr14607338a12.16.1735027028563;
-        Mon, 23 Dec 2024 23:57:08 -0800 (PST)
-Received: from MBC02GN1V4Q05P ([151.189.136.18])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d806fed752sm6099054a12.54.2024.12.23.23.57.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 23:57:08 -0800 (PST)
-Date: Tue, 24 Dec 2024 15:57:03 +0800
-From: Richard Clark <richard.xnu.clark@gmail.com>
-To: tglx@linutronix.de
-Cc: anna-maria@linutronix.de, frederic@kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] hrtimers: Update the return type of enqueue_hrtimer()
-Message-ID: <Z2ppT7me13dtxm1a@MBC02GN1V4Q05P>
+	id 1tQ0Dq-0000000BUNG-1wsI;
+	Tue, 24 Dec 2024 08:24:58 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tQ0Cd-0000000BUIc-4Awe;
+	Tue, 24 Dec 2024 08:23:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=4e1ob
+	V0cPgwgcDo8hxgun6VysOTGhY7lznRi05MbxUo=; b=XFOUyotvyRIhch8RN2oEj
+	a6coWCFhfprvFsF2HxT78buQS8B2Y9ZwSBBk2fp2+PEGq33VPGLBady9lOWLeaMT
+	cKXmEgstp/orNNB9cXPHCebNIJq8CHTuE+Ic5SyVw2hzjKZD6J7ZoudWAh0JMJT8
+	dVLALRjGWfE9OQFc2ya5PE=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3R1F0b2pnfyNbBQ--.5317S2;
+	Tue, 24 Dec 2024 16:23:20 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: cristian.ciocaltea@collabora.com,
+	detlev.casanova@collabora.com,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH] dt-bindings: soc: rockchip: add rk3576 hdptxphy grf syscon
+Date: Tue, 24 Dec 2024 16:23:09 +0800
+Message-ID: <20241224082315.264091-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3R1F0b2pnfyNbBQ--.5317S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Gr1rGw13Ww4UJr43CF45KFg_yoWfJFgEya
+	4xZw1UZFs5tr1Fgw1DAayI9Fn8Aas7Kr95CF4UAF48CayqkFZ5KF95Xw1akr18W3WxuFyf
+	ua1IqrWUGanxGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1yrW7UUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMx2-XmdqaMi32AAAsN
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_235711_076050_0D8BE5D9 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20241224_002344_877332_87C0A3BC 
+X-CRM114-Status: UNSURE (   6.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The return type should be 'bool' instead of 'int' according to the calling context
-in the kernel, and its internal implementaion - return timerqueue_add() which
-is a bool-return function.
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Signed-off-by: Richard Clark <richard.xnu.clark@gmail.com>
+Add hdptxphy grf syscon compatibles for rk3576.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 ---
- kernel/time/hrtimer.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/time/hrtimer.c b/kernel/time/hrtimer.c
-index 80fe3749d2db..bda3ffbd444e 100644
---- a/kernel/time/hrtimer.c
-+++ b/kernel/time/hrtimer.c
-@@ -1067,9 +1067,9 @@ EXPORT_SYMBOL_GPL(hrtimer_forward);
-  * The timer is inserted in expiry order. Insertion into the
-  * red black tree is O(log(n)). Must hold the base lock.
-  *
-- * Returns 1 when the new timer is the leftmost timer in the tree.
-+ * Returns true when the new timer is the leftmost timer in the tree.
-  */
--static int enqueue_hrtimer(struct hrtimer *timer,
-+static bool enqueue_hrtimer(struct hrtimer *timer,
- 			   struct hrtimer_clock_base *base,
- 			   enum hrtimer_mode mode)
- {
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index 7eca9e1ad6a3..61f38b68a4a3 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -23,6 +23,7 @@ properties:
+               - rockchip,rk3576-bigcore-grf
+               - rockchip,rk3576-cci-grf
+               - rockchip,rk3576-gpu-grf
++              - rockchip,rk3576-hdptxphy-grf
+               - rockchip,rk3576-litcore-grf
+               - rockchip,rk3576-npu-grf
+               - rockchip,rk3576-php-grf
 -- 
 2.34.1
 
