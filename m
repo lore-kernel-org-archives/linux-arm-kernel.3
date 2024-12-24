@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879B4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 08:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8376BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 08:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uH1UtMVsZnSOWKqeKUzGnkqnDz2bFx5aeG1TzGDSIyg=; b=HXPvcfo3Kje0MBQSk3Z+e2C0Zv
-	9UV7cIxIrUGManlGaphRhEaU+b2zfkM7WKPHgfJnF8oTwVeOeto33tbLbtt1JmqFS08rsJsX0lZcF
-	nUVfgcTrZFxXBA7JB1cLMifemwBOAb73/wk0Xb0gfPbwVIxFQUGZs1Hp2BiPgHwks1XqiJGXEE+g4
-	MemfhRaGbce1l85TCI55zThzKMo8gmzFvX0IAuKKxPGBqKqzwVv8tlqq1uW8VP5rEWMdgvgPTvjCE
-	p9G9A0hteWIURZtrGj6g4vyS/C4/+TS0qSbUnyZKr6T8QLKE+IB+Xe/ENvxfTIuW68ZZk/lL7WpSK
-	G7KRds6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GRUKLt/ukaXX+B0nlvMjln9crr9KcOSia8ySxMWOrSk=; b=BpaoBo4IzkqUC0L0TrnX6fiEY/
+	k6V3HeWNpPZjp0f+KtdKN7FJ3axUC807nAru8XBm/h/tPbCxyMtBDx4ZCfz4/K9r8II/1MLH0CHzZ
+	vQGMidbY03cIdr71AyWlJZpHcXLku6bmjWTLyumQwMNdLRz2dpwSpsKygBScuyp/lut+rkynJQmLU
+	h3pEWQMqwTGMWnF+050zL1m13nWxM/gujklSK7AR95v+HwAR4M4368JG0f8Sj/v9rlv6egtHLy4Sx
+	TtrLxzdTCcfsXGfQ+cNHxBhb4HOA7Rh0LavPSEM0BRNA0cgUmngOQLzpzj0jTXJx08NzXn5AZjki/
+	Z1LZ1gtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ0IS-0000000BUot-2heG;
-	Tue, 24 Dec 2024 08:29:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tQ0MW-0000000BVHy-3Zb1;
+	Tue, 24 Dec 2024 08:33:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ0HG-0000000BUjZ-11s6;
-	Tue, 24 Dec 2024 08:28:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1735028907;
-	bh=fPGKAEkjoUjrC502U/b/HN2G0sg/qsDBymW6yNgB+ck=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WISWNJ/lhUmpjM1wYwTclzaudCxnRtYimqrKbsFuEF5fdb/P2TMXcr87jjoiLc8vZ
-	 IACiLKiXZ99QCSoN6zkuhxAcJszWodDMVKIDoa0fXDYqKQYX9+D3tZ7XJDa86S8km8
-	 PnqmP9YOfY/VASeZG+vfIypmaQ1XQim7qWUtK68uBlFkBJGPg2r0JNBHsJ+FMLdXcG
-	 SMjAAdZfymI0OjlM91etpiGgkLSu+bK563wlKAu2BO0fCodkKFBKlQB6pTPYSNi9n7
-	 OuzvZvf8q8km9RkouF/v/arJX8kh3nlhjOPSX7CuFLrXPynWKnAOx5OtzuIuIhUUcb
-	 Zz3tp3dDRMdyQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AEC8517E137F;
-	Tue, 24 Dec 2024 09:28:26 +0100 (CET)
-Message-ID: <8ea0e19a-88dd-4c9a-a2a2-6322b6b529df@collabora.com>
-Date: Tue, 24 Dec 2024 09:28:25 +0100
+	id 1tQ0LL-0000000BVCB-20hN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Dec 2024 08:32:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 98EECA41427;
+	Tue, 24 Dec 2024 08:30:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F4D6C4CED0;
+	Tue, 24 Dec 2024 08:32:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735029162;
+	bh=FC+OB8lfeiAk9A4BKbHuLRMjp7BLRrFmmM83lyJOKQI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jrBYHCjJS3HPFIa3KUtGyuuFnbB/ezOv4VNSvOB6wjXRrrbLws38eyocGijRvduPD
+	 JhMnM8J4rqEzyToLuzhj6datxr3T9wpfJMSX45WSKHcyazl8dw7ydsntwBnE4IyRPX
+	 g+KEX0GCzsDHvqwXjE2RPTdZwXceQKLtcKoGwoZTEYSZcVYTxhizsLDFkHvvkAqPQZ
+	 xPvN2tqtznhVkPL+Xqyx3iPHjbIDc/NNo12DqCMF7idiQLEK08eOlV69jYILTdWgT0
+	 dY+3YNCk35IMg6yPCpjv8QJfnbT11CLoA1SdzidV5C+cV8kdDiyiS3p9hkT2I7+I8j
+	 YOlWvHAkLKFoA==
+Date: Tue, 24 Dec 2024 09:32:38 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Clark Wang <xiaoning.wang@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH v6] i2c: imx: support DMA defer probing
+Message-ID: <ltb3ywaz2req4yqdqmtq4ejbzh4esjszbx4x6ab3k5zmqxhdpg@qqjetty6fs3q>
+References: <20241223034416.544022-1-carlos.song@nxp.com>
+ <gfjir4qyyptxjizkc2k5r2elwn74fndia644evv6acwyuj3fr5@3pl3xt7rqntw>
+ <AM0PR0402MB3937905A3108833DD8F52982E8032@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: Add registers to pdata to fix
- MT8186/MT8188
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "simona@ffwll.ch" <simona@ffwll.ch>,
- =?UTF-8?B?WGlubGVpIExlZSAo5p2O5piV56OKKQ==?= <xinlei.lee@mediatek.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- =?UTF-8?B?U2h1aWppbmcgTGkgKOadjuawtOmdmSk=?= <Shuijing.Li@mediatek.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- =?UTF-8?B?UmV4LUJDIENoZW4gKOmZs+afj+i+sCk=?= <Rex-BC.Chen@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>
-References: <20241219112733.47907-1-angelogioacchino.delregno@collabora.com>
- <fa6e2d5eb434915006f56055634b5f22d9766e56.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <fa6e2d5eb434915006f56055634b5f22d9766e56.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <AM0PR0402MB3937905A3108833DD8F52982E8032@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_002830_589632_D69FD0BD 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20241224_003243_596884_905E8E8F 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,136 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 24/12/24 06:36, CK Hu (胡俊光) ha scritto:
-> Hi, Angelo:
+> > > @@ -1802,6 +1803,18 @@ static int i2c_imx_probe(struct platform_device
+> > *pdev)
+> > >       if (ret == -EPROBE_DEFER)
+> > >               goto clk_notifier_unregister;
+> > >
+> > > +     /* As we can always fall back to PIO, let's ignore the error setting up
+> > DMA. */
+> > > +     ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+> > > +     if (ret) {
+> > > +             if (ret == -EPROBE_DEFER)
+> > > +                     goto clk_notifier_unregister;
+> > > +             else if (ret == -ENODEV)
+> > > +                     dev_dbg(&pdev->dev, "Only use PIO mode\n");
+> > > +             else
+> > > +                     dev_err(&pdev->dev, "Failed to setup DMA (%pe),
+> > only use PIO mode\n",
+> > > +                             ERR_PTR(ret));
+> > 
+> > My question here is not just about the use of dev_err vs dev_err_probe, but why
+> > don't we exit the probe if we get an error.
+> > 
+> > We should use PIO only in case of ENODEV, in all the other cases I think we
+> > should just leave. E.g. why don't we exit if we meet ret == -ENOMEM?
 > 
-> On Thu, 2024-12-19 at 12:27 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> Registers DSI_VM_CMD and DSI_SHADOW_DEBUG start at different
->> addresses in both MT8186 and MT8188 compared to the older IPs.
->>
->> Add two members in struct mtk_dsi_driver_data to specify the
->> offsets for these two registers on a per-SoC basis, then do
->> specify those in all of the currently present SoC driver data.
->>
->> This fixes writes to the Video Mode Command Packet Control
->> register, fixing enablement of command packet transmission
->> (VM_CMD_EN) and allowance of this transmission during the
->> VFP period (TS_VFP_EN) on both MT8186 and MT8188.
+> Hi, Andi
 > 
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> 
-> I'm curious that only some panel has problem without this patch?
-> I think the fixed-patch sender has test on their panel.
-> 
+> Thank you! From my point, I2C is critical bus so it should be available as much as possible.
+> -ENOMEM or other unknown errors all are from i2c_imx_dma_request(). So error happened in enable DMA mode process.
 
-I think that depends on how the bootloader leaves the DSI registers before
-booting Linux... but anyway, this was tested on the Startek panel found on the
-latest HW revision of the Genio 700 EVK :-)
+OK, makes sense, it's the idea of "let things fail on their own,
+I'll move forward as much as I can"; we need to be aware of
+the choice. Please add a comment above.
 
-Cheers,
-Angelo
+But then it's not an error, but a warning. With errors we bail
+out, with warnings we tell users that something went wrong.
 
-> Regards,
-> CK
-> 
->>
->> Fixes: 03d7adc41027 ("drm/mediatek: Add mt8186 dsi compatible to mtk_dsi.c")
->> Fixes: 814d5341f314 ("drm/mediatek: Add mt8188 dsi compatible to mtk_dsi.c")
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_dsi.c | 22 +++++++++++++++++-----
->>   1 file changed, 17 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
->> index e61b9bc68e9a..978332cd52f5 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
->> @@ -139,11 +139,11 @@
->>   #define CLK_HS_POST                    GENMASK(15, 8)
->>   #define CLK_HS_EXIT                    GENMASK(23, 16)
->>
->> -#define DSI_VM_CMD_CON         0x130
->> +/* DSI_VM_CMD_CON */
->>   #define VM_CMD_EN                      BIT(0)
->>   #define TS_VFP_EN                      BIT(5)
->>
->> -#define DSI_SHADOW_DEBUG       0x190U
->> +/* DSI_SHADOW_DEBUG */
->>   #define FORCE_COMMIT                   BIT(0)
->>   #define BYPASS_SHADOW                  BIT(1)
->>
->> @@ -187,6 +187,8 @@ struct phy;
->>
->>   struct mtk_dsi_driver_data {
->>          const u32 reg_cmdq_off;
->> +       const u32 reg_vm_cmd_off;
->> +       const u32 reg_shadow_dbg_off;
->>          bool has_shadow_ctl;
->>          bool has_size_ctl;
->>          bool cmdq_long_packet_ctl;
->> @@ -367,8 +369,8 @@ static void mtk_dsi_set_mode(struct mtk_dsi *dsi)
->>
->>   static void mtk_dsi_set_vm_cmd(struct mtk_dsi *dsi)
->>   {
->> -       mtk_dsi_mask(dsi, DSI_VM_CMD_CON, VM_CMD_EN, VM_CMD_EN);
->> -       mtk_dsi_mask(dsi, DSI_VM_CMD_CON, TS_VFP_EN, TS_VFP_EN);
->> +       mtk_dsi_mask(dsi, dsi->driver_data->reg_vm_cmd_off, VM_CMD_EN, VM_CMD_EN);
->> +       mtk_dsi_mask(dsi, dsi->driver_data->reg_vm_cmd_off, TS_VFP_EN, TS_VFP_EN);
->>   }
->>
->>   static void mtk_dsi_rxtx_control(struct mtk_dsi *dsi)
->> @@ -714,7 +716,7 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
->>
->>          if (dsi->driver_data->has_shadow_ctl)
->>                  writel(FORCE_COMMIT | BYPASS_SHADOW,
->> -                      dsi->regs + DSI_SHADOW_DEBUG);
->> +                      dsi->regs + dsi->driver_data->reg_shadow_dbg_off);
->>
->>          mtk_dsi_reset_engine(dsi);
->>          mtk_dsi_phy_timconfig(dsi);
->> @@ -1263,26 +1265,36 @@ static void mtk_dsi_remove(struct platform_device *pdev)
->>
->>   static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
->>          .reg_cmdq_off = 0x200,
->> +       .reg_vm_cmd_off = 0x130,
->> +       .reg_shadow_dbg_off = 0x190
->>   };
->>
->>   static const struct mtk_dsi_driver_data mt2701_dsi_driver_data = {
->>          .reg_cmdq_off = 0x180,
->> +       .reg_vm_cmd_off = 0x130,
->> +       .reg_shadow_dbg_off = 0x190
->>   };
->>
->>   static const struct mtk_dsi_driver_data mt8183_dsi_driver_data = {
->>          .reg_cmdq_off = 0x200,
->> +       .reg_vm_cmd_off = 0x130,
->> +       .reg_shadow_dbg_off = 0x190,
->>          .has_shadow_ctl = true,
->>          .has_size_ctl = true,
->>   };
->>
->>   static const struct mtk_dsi_driver_data mt8186_dsi_driver_data = {
->>          .reg_cmdq_off = 0xd00,
->> +       .reg_vm_cmd_off = 0x200,
->> +       .reg_shadow_dbg_off = 0xc00,
->>          .has_shadow_ctl = true,
->>          .has_size_ctl = true,
->>   };
->>
->>   static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
->>          .reg_cmdq_off = 0xd00,
->> +       .reg_vm_cmd_off = 0x200,
->> +       .reg_shadow_dbg_off = 0xc00,
->>          .has_shadow_ctl = true,
->>          .has_size_ctl = true,
->>          .cmdq_long_packet_ctl = true,
->> --
->> 2.47.0
->>
-> 
+Sorry for keeping you on this point for so long, but do you mind
+swapping this dev_err in dev_warn, with a comment explaining the
+reason we decided not to leave?
 
+Thanks,
+Andi
 
