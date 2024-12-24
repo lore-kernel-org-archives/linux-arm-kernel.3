@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602F4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEF4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k0RstxGE+dkzSp2zA8ApLiaRzH2i9b1fO1PhirYb4ws=; b=2OvnX7d7TvikxMrKgambUGUcGr
-	qqY/IXb8iYptlii6DjiNPFbOk1BNoGkjtGtdScafLHtaoVra4Z6OgmW0+nNJ4vk11p03CWeaLydv+
-	0U/1hhQ4cSU/gluEaHEUsC/xIzKse7d4vrFbTS63WQhZz0LiQrXuFQNR+J4JcSl3kC7OlFwatKX40
-	aDZ7/ajW+wJhLaSbpt9MK4SjMaLd+QY7E+cPdpMIyj5Or6y07opFkERQ+DL7PRib++/zjkxhChXtY
-	+wXES4tt/3s6HsOTiXSqOw3EUzHOrWnLCUxj9uyPYJZBkzUronEMjmA0kViWCwM2RAYS1sIF1j2aH
-	oy63OSbw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l4sS4jdc6mI0+Llv9QtpAg8NbLOEBMveI73kPmorKsY=; b=gtjp1tDnT35PzkpLHlbQnYBOza
+	IoY1SlNQlomS/MgfpmIXTbdnTBtTxqlAG13xF1jT2lMvkv9iCNjunMnlEBwQkzU5OWf7bT6TYlkjF
+	MFMzOdHqOxaDn7VWksRpyMgT8f3fBqW7P+nDw/Ahx6mpTPOvoByrjxpsxqu0o+F+LTFw8HlBsJNAy
+	WMAaxvNsAYJj39x7wijzSLvzTFUYOUvJplrFiYTcIb7dCOABAgngttHwyAS2L0Dy2xvCV0lIp1oB1
+	qFLMBpBUAFzoPkAAmywJs9bZS4BPqHbAjICnhCTFIpCSZLvN6E/kSWHYyGFY2TMoyb0mkm9j1Y9Mu
+	dxWZNYPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ1do-0000000BfEn-3xn9;
-	Tue, 24 Dec 2024 09:55:52 +0000
-Received: from mail-m11879.qiye.163.com ([115.236.118.79])
+	id 1tQ1ey-0000000BfPW-1D7F;
+	Tue, 24 Dec 2024 09:57:04 +0000
+Received: from mail-m127208.xmail.ntesmail.com ([115.236.127.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ1Qn-0000000Bcmz-1VpO;
-	Tue, 24 Dec 2024 09:42:26 +0000
+	id 1tQ1R7-0000000Bcqo-28YZ;
+	Tue, 24 Dec 2024 09:42:46 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 6aaa2cb5;
-	Tue, 24 Dec 2024 17:42:20 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 6aaa2d19;
+	Tue, 24 Dec 2024 17:42:41 +0800 (GMT+08:00)
 From: Kever Yang <kever.yang@rock-chips.com>
 To: heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org,
-	Jon Lin <jon.lin@rock-chips.com>,
 	Kever Yang <kever.yang@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Vinod Koul <vkoul@kernel.org>,
 	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-phy@lists.infradead.org,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] phy: rockchip-naneng-combo: Support rk3562
-Date: Tue, 24 Dec 2024 17:42:16 +0800
-Message-Id: <20241224094217.3817100-2-kever.yang@rock-chips.com>
+Subject: [PATCH 1/2] dt-bindings: phy: rockchip,inno-usb2phy: add rk3562
+Date: Tue, 24 Dec 2024 17:42:39 +0800
+Message-Id: <20241224094240.3817261-1-kever.yang@rock-chips.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241224094217.3817100-1-kever.yang@rock-chips.com>
-References: <20241224094217.3817100-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkJMSlZMSUsYHx1OSE4aQxlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93f80bc42703afkunm6aaa2cb5
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0gZH1ZJTU9PSh1CTBoeTUxWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93f80c153603afkunm6aaa2d19
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MlE6OAw*FzIXTUoWFigIEx8U
-	AhdPCzJVSlVKTEhOS0hISE9JSUlDVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFNTk5CNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nyo6Ezo*CzIINkozPCpCExFD
+	TioaCilVSlVKTEhOS0hISE1IS0hPVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKSExPNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=FIFqB5bqfaTKBCAl/vXCavoo2PEHByryXwW26RyxQmMotyYNegu7dkh6/A2esY3ur65Xg/zoxtDnICsok00WepiDocNdNg9drRJNX4VA5lS+G7cb2kvMifOsHOriOsIk1ZoZ4vaCas9OlRXiWxpHpRGAZJMKIYoWRHAiijCP/N4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=k0RstxGE+dkzSp2zA8ApLiaRzH2i9b1fO1PhirYb4ws=;
+	b=Ol9pehjQY5ZO9Hb1Je/xHCCbv7adtbAUQlDUYe3f6o3uNDmh5K/jYQYjz90jmlmCwAw7yYd1fVmnEDOR1QpalOlEJaB+H0JTrcKVXgEhmF6VA4hEzU8xYzjjvBG9uX2dGJlPS/VqytqcTOATwsYjqqSCFMV2Z8E+x6rgriHJ5CE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=l4sS4jdc6mI0+Llv9QtpAg8NbLOEBMveI73kPmorKsY=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_014225_630595_6785CBC6 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20241224_014245_716443_F490D863 
+X-CRM114-Status: UNSURE (   6.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,187 +79,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jon Lin <jon.lin@rock-chips.com>
+Add compatible for the USB2 phy in the Rockchip RK3562 SoC.
 
-rk3562 has 1 naneng comboPHY used for PCIe and USB3.
-
-Signed-off-by: Jon Lin <jon.lin@rock-chips.com>
 Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 ---
 
- .../rockchip/phy-rockchip-naneng-combphy.c    | 152 ++++++++++++++++++
- 1 file changed, 152 insertions(+)
+ .../devicetree/bindings/phy/rockchip,inno-usb2phy.yaml         | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index eceb79856785..2c921b69b45e 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -393,6 +393,154 @@ static int rockchip_combphy_probe(struct platform_device *pdev)
- 	return PTR_ERR_OR_ZERO(phy_provider);
- }
- 
-+static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
-+{
-+	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-+	unsigned long rate;
-+	u32 val;
-+
-+	switch (priv->type) {
-+	case PHY_TYPE_PCIE:
-+		/* Set SSC downward spread spectrum */
-+		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
-+					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
-+					 PHYREG32);
-+
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con2_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con3_for_pcie, true);
-+		break;
-+	case PHY_TYPE_USB3:
-+		/* Set SSC downward spread spectrum */
-+		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
-+					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
-+					 PHYREG32);
-+
-+		/* Enable adaptive CTLE for USB3.0 Rx */
-+		rockchip_combphy_updatel(priv, PHYREG15_CTLE_EN,
-+					 PHYREG15_CTLE_EN, PHYREG15);
-+
-+		/* Set PLL KVCO fine tuning signals */
-+		rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK, BIT(3), PHYREG33);
-+
-+		/* Set PLL LPF R1 to su_trim[10:7]=1001 */
-+		writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
-+
-+		/* Set PLL input clock divider 1/2 */
-+		val = FIELD_PREP(PHYREG6_PLL_DIV_MASK, PHYREG6_PLL_DIV_2);
-+		rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK, val, PHYREG6);
-+
-+		/* Set PLL loop divider */
-+		writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
-+
-+		/* Set PLL KVCO to min and set PLL charge pump current to max */
-+		writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
-+
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_usb, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txelec_sel, false);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->usb_mode_set, true);
-+		break;
-+	default:
-+		dev_err(priv->dev, "incompatible PHY type\n");
-+		return -EINVAL;
-+	}
-+
-+	rate = clk_get_rate(priv->refclk);
-+
-+	switch (rate) {
-+	case REF_CLOCK_24MHz:
-+		if (priv->type == PHY_TYPE_USB3) {
-+			/* Set ssc_cnt[9:0]=0101111101 & 31.5KHz */
-+			val = FIELD_PREP(PHYREG15_SSC_CNT_MASK, PHYREG15_SSC_CNT_VALUE);
-+			rockchip_combphy_updatel(priv, PHYREG15_SSC_CNT_MASK,
-+						 val, PHYREG15);
-+
-+			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
-+		}
-+		break;
-+	case REF_CLOCK_25MHz:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_25m, true);
-+		break;
-+	case REF_CLOCK_100MHz:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
-+		if (priv->type == PHY_TYPE_PCIE) {
-+			/* PLL KVCO tuning fine */
-+			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE);
-+			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
-+						 val, PHYREG33);
-+
-+			/* Enable controlling random jitter, aka RMJ */
-+			writel(0x4, priv->mmio + PHYREG12);
-+
-+			val = PHYREG6_PLL_DIV_2 << PHYREG6_PLL_DIV_SHIFT;
-+			rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK,
-+						 val, PHYREG6);
-+
-+			writel(0x32, priv->mmio + PHYREG18);
-+			writel(0xf0, priv->mmio + PHYREG11);
-+		}
-+		break;
-+	default:
-+		dev_err(priv->dev, "Unsupported rate: %lu\n", rate);
-+		return -EINVAL;
-+	}
-+
-+	if (priv->ext_refclk) {
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
-+		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
-+			val = PHYREG13_RESISTER_HIGH_Z << PHYREG13_RESISTER_SHIFT;
-+			val |= PHYREG13_CKRCV_AMP0;
-+			rockchip_combphy_updatel(priv, PHYREG13_RESISTER_MASK, val, PHYREG13);
-+
-+			val = readl(priv->mmio + PHYREG14);
-+			val |= PHYREG14_CKRCV_AMP1;
-+			writel(val, priv->mmio + PHYREG14);
-+		}
-+	}
-+
-+	if (priv->enable_ssc) {
-+		val = readl(priv->mmio + PHYREG8);
-+		val |= PHYREG8_SSC_EN;
-+		writel(val, priv->mmio + PHYREG8);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct rockchip_combphy_grfcfg rk3562_combphy_grfcfgs = {
-+	/* pipe-phy-grf */
-+	.pcie_mode_set		= { 0x0000, 5, 0, 0x00, 0x11 },
-+	.usb_mode_set		= { 0x0000, 5, 0, 0x00, 0x04 },
-+	.pipe_rxterm_set	= { 0x0000, 12, 12, 0x00, 0x01 },
-+	.pipe_txelec_set	= { 0x0004, 1, 1, 0x00, 0x01 },
-+	.pipe_txcomp_set	= { 0x0004, 4, 4, 0x00, 0x01 },
-+	.pipe_clk_25m		= { 0x0004, 14, 13, 0x00, 0x01 },
-+	.pipe_clk_100m		= { 0x0004, 14, 13, 0x00, 0x02 },
-+	.pipe_phymode_sel	= { 0x0008, 1, 1, 0x00, 0x01 },
-+	.pipe_rate_sel		= { 0x0008, 2, 2, 0x00, 0x01 },
-+	.pipe_rxterm_sel	= { 0x0008, 8, 8, 0x00, 0x01 },
-+	.pipe_txelec_sel	= { 0x0008, 12, 12, 0x00, 0x01 },
-+	.pipe_txcomp_sel	= { 0x0008, 15, 15, 0x00, 0x01 },
-+	.pipe_clk_ext		= { 0x000c, 9, 8, 0x02, 0x01 },
-+	.pipe_sel_usb		= { 0x000c, 14, 13, 0x00, 0x01 },
-+	.pipe_phy_status	= { 0x0034, 6, 6, 0x01, 0x00 },
-+	.con0_for_pcie		= { 0x0000, 15, 0, 0x00, 0x1000 },
-+	.con1_for_pcie		= { 0x0004, 15, 0, 0x00, 0x0000 },
-+	.con2_for_pcie		= { 0x0008, 15, 0, 0x00, 0x0101 },
-+	.con3_for_pcie		= { 0x000c, 15, 0, 0x00, 0x0200 },
-+};
-+
-+static const struct rockchip_combphy_cfg rk3562_combphy_cfgs = {
-+	.num_phys = 1,
-+	.phy_ids = {
-+		0xff750000
-+	},
-+	.grfcfg		= &rk3562_combphy_grfcfgs,
-+	.combphy_cfg	= rk3562_combphy_cfg,
-+};
-+
- static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
- {
- 	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-@@ -1046,6 +1194,10 @@ static const struct rockchip_combphy_cfg rk3588_combphy_cfgs = {
- };
- 
- static const struct of_device_id rockchip_combphy_of_match[] = {
-+	{
-+		.compatible = "rockchip,rk3562-naneng-combphy",
-+		.data = &rk3562_combphy_cfgs,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-naneng-combphy",
- 		.data = &rk3568_combphy_cfgs,
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+index 6a7ef556414c..367297f6f8b5 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+@@ -19,6 +19,7 @@ properties:
+       - rockchip,rk3328-usb2phy
+       - rockchip,rk3366-usb2phy
+       - rockchip,rk3399-usb2phy
++      - rockchip,rk3562-usb2phy
+       - rockchip,rk3568-usb2phy
+       - rockchip,rk3576-usb2phy
+       - rockchip,rk3588-usb2phy
+@@ -150,7 +151,6 @@ allOf:
+             enum:
+               - rockchip,rk3568-usb2phy
+               - rockchip,rk3588-usb2phy
+-
+     then:
+       properties:
+         host-port:
+@@ -190,6 +190,7 @@ allOf:
+               - rockchip,rk3328-usb2phy
+               - rockchip,rk3366-usb2phy
+               - rockchip,rk3399-usb2phy
++              - rockchip,rk3562-usb2phy
+               - rockchip,rk3568-usb2phy
+               - rockchip,rk3588-usb2phy
+               - rockchip,rv1108-usb2phy
 -- 
 2.25.1
 
