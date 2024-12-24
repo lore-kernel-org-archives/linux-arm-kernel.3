@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200AEE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B714E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PWTpV5unBG06xQWRz5c8PNc7qqWDa9gYmL9khDtzsDU=; b=3twdk8hAMWZmOqRhL44H968LJM
-	QgkY5EMPuyLIrPTvOaHZt8A6pwHxM7amKuZMgnGrsrRX7e3R1bjSHRwzYYJ0ok7grA+yIIJcqiId8
-	Q2Uru5ORJVwnGqU5em02yr3fX4SWVpIWRNVSkpie8fybQFLfFv9ffA7d+VdYxclqlD7iM3T7sc6wx
-	ioR6OkfPjYinTnf2XElTXDfa3V8CmyDKomEVB4/qzLuYuAfybl1xgJbElEvH8tscKGterd/H1cqox
-	oGh8gAxPmaIEUBRto64hdHI4IPSx39VtcOmnEPyuRWiQStLewNBYUK7oDqUmHVPfMq1AhZEyJucJP
-	4cztDnCA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q6BdkQMdj09o03ihlV4EVZ1rDVGa/oO7ynJUc37C9ZI=; b=eF1gASAhszk+KA/cUdQWhIk3jm
+	G4CrBm1GEszOfhBoRAx8l564RNsOuenRyi1F6i8v+eQM6Tdpm0ystyJQJnqmMYatpgFBsbkr+EM5Y
+	9c4bg5W2ih043e3xKpL7vhbCPsSaH3qMeH5BSME1a6q9ypBuhrlVWCJwfB7fP5kDc0QdHA/9vPxEa
+	P9zylAqD6XBWPWsbG9ORMZBR7XVkLdm3EXV0Echp5POLAM234FB5LY+IVG2iBYN8FwGKAo35OoNfm
+	YbLuHor1I+Lg17EMDn2mI4libw/Jipnh8RM5Uf5sSyRcjxGJ4+yXDZOeHaS/hrooGsTEmz/JRdGMM
+	9XHd6z/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ1UZ-0000000BdMD-0rkd;
-	Tue, 24 Dec 2024 09:46:19 +0000
-Received: from mail-m127102.qiye.163.com ([115.236.127.102])
+	id 1tQ1Vj-0000000BdZd-1FP4;
+	Tue, 24 Dec 2024 09:47:31 +0000
+Received: from mail-m49245.qiye.163.com ([45.254.49.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ1PE-0000000BcTe-3uDW;
-	Tue, 24 Dec 2024 09:40:50 +0000
+	id 1tQ1Pu-0000000BcYt-2tfU;
+	Tue, 24 Dec 2024 09:41:31 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 6aa905c9;
-	Tue, 24 Dec 2024 17:40:45 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 6aaa2b8d;
+	Tue, 24 Dec 2024 17:41:26 +0800 (GMT+08:00)
 From: Kever Yang <kever.yang@rock-chips.com>
 To: heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org,
-	Simon Xue <xxm@rock-chips.com>,
 	Kever Yang <kever.yang@rock-chips.com>,
-	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jonathan Cameron <jic23@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] iio: adc: rockchip_saradc: add rk3562
-Date: Tue, 24 Dec 2024 17:40:42 +0800
-Message-Id: <20241224094042.3816483-2-kever.yang@rock-chips.com>
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	David Wu <david.wu@rock-chips.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Eric Dumazet <edumazet@google.com>
+Subject: [PATCH 1/3] dt-bindings: net: Add support for rk3562 dwmac
+Date: Tue, 24 Dec 2024 17:41:22 +0800
+Message-Id: <20241224094124.3816698-1-kever.yang@rock-chips.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241224094042.3816483-1-kever.yang@rock-chips.com>
-References: <20241224094042.3816483-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkpCSlZMQ04dSRoaGBkdQklWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhhNGVZOS0JMQhgZShlOS0pWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
 	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93f80a4f9d03afkunm6aa905c9
+X-HM-Tid: 0a93f80af00403afkunm6aaa2b8d
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pgw6SAw6MDIPDEo9LDosMQxD
-	SwkKCxVVSlVKTEhOS0hISU9NTUlNVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJS0NLNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OjY6Vio5CjIUHEpCSzEwNyoT
+	PDMaCgtVSlVKTEhOS0hISUNDSElCVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKT09JNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=SIs43kcIBQ30JV3HyXMPTAWyOMs6KfJjb+mkdOCVarF0/E8XQiVPn6gccY36DEBc+mLUjzEqQP6U+A5yZfWXJwj7iPh8TzLlX8kvcg6XYYO3yMX8Bnlsh/mUlAtqO8osdzALlliB1jwaMoY/0Dgv8atw0OMs1DQZCcq575C5hsU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=PWTpV5unBG06xQWRz5c8PNc7qqWDa9gYmL9khDtzsDU=;
+	b=XY/0N3M5A6L7642T0X1zwP6OTOLoD6VvWemimNXCabm7r4P44RY7mOp0LvHRdplIG9giWyaP95yNkvkJcgKLd04CD0e5/ueCTZsVS5J5MUspKt9LE+gAlEGfXdtfyc4tlYrXy/ZT1/YDS22uzpuB6kxcDTxOl69V4QnTECVmjFE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=q6BdkQMdj09o03ihlV4EVZ1rDVGa/oO7ynJUc37C9ZI=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_014049_147249_F8F4762E 
-X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-CacheID: sfid-20241224_014130_888026_ECDC9D0E 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,66 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Simon Xue <xxm@rock-chips.com>
+Add a rockchip,rk3562-gmac compatible for supporting the 2 gmac
+devices on the rk3562.
 
-rk3562 is using v2 saradc with 8 channels.
-
-Signed-off-by: Simon Xue <xxm@rock-chips.com>
 Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 ---
 
- drivers/iio/adc/rockchip_saradc.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iio/adc/rockchip_saradc.c b/drivers/iio/adc/rockchip_saradc.c
-index 240cfa391674..7c8a9d37d245 100644
---- a/drivers/iio/adc/rockchip_saradc.c
-+++ b/drivers/iio/adc/rockchip_saradc.c
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-  * Rockchip Successive Approximation Register (SAR) A/D Converter
-- * Copyright (C) 2014 ROCKCHIP, Inc.
-+ * Copyright (C) 2014 Rockchip Electronics Co., Ltd.
-  */
+diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+index f8a576611d6c..02b7d9e78c40 100644
+--- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+@@ -24,6 +24,7 @@ select:
+           - rockchip,rk3366-gmac
+           - rockchip,rk3368-gmac
+           - rockchip,rk3399-gmac
++          - rockchip,rk3562-gmac
+           - rockchip,rk3568-gmac
+           - rockchip,rk3576-gmac
+           - rockchip,rk3588-gmac
+@@ -49,9 +50,11 @@ properties:
+               - rockchip,rk3366-gmac
+               - rockchip,rk3368-gmac
+               - rockchip,rk3399-gmac
++              - rockchip,rk3562-gmac
+               - rockchip,rv1108-gmac
+       - items:
+           - enum:
++              - rockchip,rk3562-gmac
+               - rockchip,rk3568-gmac
+               - rockchip,rk3576-gmac
+               - rockchip,rk3588-gmac
+@@ -59,7 +62,7 @@ properties:
+           - const: snps,dwmac-4.20a
  
- #include <linux/bitfield.h>
-@@ -275,6 +275,25 @@ static const struct rockchip_saradc_data rk3399_saradc_data = {
- 	.power_down = rockchip_saradc_power_down_v1,
- };
+   clocks:
+-    minItems: 5
++    minItems: 4
+     maxItems: 8
  
-+static const struct iio_chan_spec rockchip_rk3562_saradc_iio_channels[] = {
-+	SARADC_CHANNEL(0, "adc0", 10),
-+	SARADC_CHANNEL(1, "adc1", 10),
-+	SARADC_CHANNEL(2, "adc2", 10),
-+	SARADC_CHANNEL(3, "adc3", 10),
-+	SARADC_CHANNEL(4, "adc4", 10),
-+	SARADC_CHANNEL(5, "adc5", 10),
-+	SARADC_CHANNEL(6, "adc6", 10),
-+	SARADC_CHANNEL(7, "adc7", 10),
-+};
-+
-+static const struct rockchip_saradc_data rk3562_saradc_data = {
-+	.channels = rockchip_rk3562_saradc_iio_channels,
-+	.num_channels = ARRAY_SIZE(rockchip_rk3562_saradc_iio_channels),
-+	.clk_rate = 1000000,
-+	.start = rockchip_saradc_start_v2,
-+	.read = rockchip_saradc_read_v2,
-+};
-+
- static const struct iio_chan_spec rockchip_rk3568_saradc_iio_channels[] = {
- 	SARADC_CHANNEL(0, "adc0", 10),
- 	SARADC_CHANNEL(1, "adc1", 10),
-@@ -324,6 +343,9 @@ static const struct of_device_id rockchip_saradc_match[] = {
- 	}, {
- 		.compatible = "rockchip,rk3399-saradc",
- 		.data = &rk3399_saradc_data,
-+	}, {
-+		.compatible = "rockchip,rk3562-saradc",
-+		.data = &rk3562_saradc_data,
- 	}, {
- 		.compatible = "rockchip,rk3568-saradc",
- 		.data = &rk3568_saradc_data,
+   clock-names:
 -- 
 2.25.1
 
