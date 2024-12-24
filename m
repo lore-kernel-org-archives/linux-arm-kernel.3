@@ -4,116 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1395E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 03:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 207DCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 04:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tIuhqDedNNE+RKLFjY7UPz+oQyiGEu+Qqb7U8Kyo+Bc=; b=znHxhWd/lb/J+2QLrbEWLruu16
-	q8QDGJvf6dEPDVmiOkrGSFJLp7XsEsUAN4MiGrSY7aZ2s0kn58Fqd/vClW0wq3Af0B9pqPdLjqnUh
-	xrWT9lTbXHV8vF6j++IOee0NkVlrLcldiXK1K0Xz5XKu5WMvNGx4/h72Nta5WN2ZG/PiINJGopqRD
-	YEX0xHPo/WWNBp0aeCIQAOYb5GJqSZMYu9971qGYpf3EaTKJEdtXaLdrtVO9wjSay2zOMISRVwMou
-	7XEXt1aPm+YMSuqw4QrSyiiFm5lT0F1FI0GadAO8c5vtlDoe5TdcqMLdfM+HxyHSk0dT+G6yund90
-	DXdC7ZOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8on0ZbRPpfYPOhsA0CTtKSQk3XChh59DoR/C8XX6ZpQ=; b=A/wmQcRVRkyjLV4PixZptQ87cb
+	OHcH+llJJkUsgocMm1mHDXsjF93ZACtHpK/Bpgl8ZB+2fMwDwdcs4Qepydtxqq2vczUUzKAvu//Nc
+	4ZbQOkQJZ4MAAmZPCxFRNW9cbSP9ibL6KvgWEi1ZYi0q7E8/VM0sqnxd42UaszADyUpqXKdpXeOR2
+	qHxjuW99La0uwPt+qt/i4p+MswfJTcpclx2Wt8g8zP+j5+gua1gjY+4+mVoN7mkRrZXO68Kbalb/F
+	QyVtwnKn47W1t+we/fV6ysp2X7dXqwEpTZFtsy4ohm5iPiWHebG/Em0PfIVXl938k0L8bHO/lCWwi
+	U4e9weOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPvLe-0000000BAVF-3vRU;
-	Tue, 24 Dec 2024 03:12:42 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tPwFx-0000000BDuu-06Yj;
+	Tue, 24 Dec 2024 04:10:53 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPvHF-0000000B9rH-3J10
+	id 1tPwEj-0000000BDrP-3SfK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 03:08:11 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BNNU9fg013669;
-	Tue, 24 Dec 2024 03:08:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tIuhqDedNNE+RKLFjY7UPz+oQyiGEu+Qqb7U8Kyo+Bc=; b=ACktODu10Z4pDB75
-	Q9oRTf24VGYw0jakS5ZiBFaXGhAQJQLh1fam7tvqSbjMQRyoWG/P0oE5mLf1ra6N
-	eZZVvU0B25tmDan7nh5axSC/7TYlrg1Q7G5QMUp9O/pNknla+IhVKWS/d9WJJBd5
-	kVqiPpFeYY/DR9lTlibaJ44Fd+LHVeu9Uihb41mu1e5xnQYJhyHJZEbqOz22qeJC
-	hFV31VhvNXSnvL+UqyloXsCp+CmfYn5gcykjtBIi7b8o0Kb4pGXSap5MgSWNw2RV
-	osHTjlh1QzBs+dSOWJpKfFwZy4PBkiKsjRGSIT2eiyQuIsCo7N+Qzy0gidNPrxUZ
-	14PCXg==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43qhk60fkp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Dec 2024 03:08:00 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BO37xiR010699
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Dec 2024 03:07:59 GMT
-Received: from yijiyang-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 23 Dec 2024 19:07:53 -0800
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-Date: Tue, 24 Dec 2024 11:07:03 +0800
-Subject: [PATCH v2 3/3] net: stmmac: dwmac-qcom-ethqos: add support for
- EMAC on qcs615 platforms
+	Tue, 24 Dec 2024 04:09:39 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54025432becso5020334e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 20:09:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735013375; x=1735618175; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8on0ZbRPpfYPOhsA0CTtKSQk3XChh59DoR/C8XX6ZpQ=;
+        b=k2aU2tqUSsZ77YbDYyXMOgK/xMdqsSzByjg3YbFe5EFA2Nx/oJXtPaCqCTWfvrIGBZ
+         ouAeU4fu4B4WNvgXyLmXAi4ODkByBigJtZBpDP5OZ6eBda+C+T5nltRInYg0DSYHBSlO
+         /edTBHKm/cS15sNbAz7mQYPQ/g5/W5pMgpxtp39iF4rTPxnEfpB1RhM3ucyZqCKofcj7
+         SzLTzsGQaaEvSb2P55qlbh+6DhsS/RauaEtDSps9C9+8W9pTQIdwd8A4nDX9ywAhIOnP
+         TxK/UcMdvVSzxRS5nzAitX9sRFKiOqXfSVHX37i7Pt7A41N2hxp8Ju3Bq4sbApzNGNWv
+         P4BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735013375; x=1735618175;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8on0ZbRPpfYPOhsA0CTtKSQk3XChh59DoR/C8XX6ZpQ=;
+        b=AaukJsB1DBwJIfC4ahqXMyK0I1KTK6KyuvXbvA2DpIA0LGsr+EP7/ruwDafXde4ZOW
+         pjRDY0SLf5IvYtZXKwS/7yaV0OIXNy6RtWf2O+JnJkohxAqh2qxhisFa1S7KMnegy9X1
+         lOyINY8wz3WkaoEEASORp3EFChGX1mQDAgCHgMVly2vJj7UPyfYXrOKyIAZxeuikdKq3
+         zLcI/GXzBilRNL/vEIzHq2oVJvxGbGMX6QCOScxS7T5yw9+FqTLLC2ea+scoUAEW3hom
+         IOZLGK4Sor18lRkPBofp5ggDioK54NLYTSM+zqLmo/w0g9QQGkY/nRfvtYRKFFWvCMM8
+         OwDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWt9UwJu4rknM5PEJ5Em2Ujqwzjzi1oNNQqcqnz0491Bdbp3iDsQcNUttrc9uE5t/j5Rd1537NEHh6OqujaR+uV@lists.infradead.org
+X-Gm-Message-State: AOJu0YygDSuFXpdWNC8J4mZMkR4Fb3kDG6SO48qHiEDDevcisVFAp/LK
+	OdjYsnlY6CP51A1EjlOFcVZZ9mF3YloynFAOeKwphqAqjRNP7cGLTKeLJEcnUsc=
+X-Gm-Gg: ASbGncvJfGpVhFdX6ufhfx8jNhFYvXsvxCNPpZUQHooYg8Dm6v2KKbNK7sUbuwP2OIh
+	PySAFvtmJ/YtDK260VuVWCIelQo+6O7BeX9y2KwH0h02Jp+Ic4pJdKPExc+eAuorEZ7QZTXqlT7
+	JREmyc++QLDD+66w23ZQSGB//3XOcaYdtT6glxUdf/+P+OAwqi6VN58Eyhxx0LGuKtg5pHqRtz7
+	457b22xa1WiVz/bK8YpAxvJOdayrBq/6nto5cPXmXbYKBvH88w2TQ1cg2zqr2hoBadR2t2bUSqU
+	NbrkGIhQOacvy80o6zZpZswVj33PUwRgsom4
+X-Google-Smtp-Source: AGHT+IFywzjt+YUMxB9ndT32dpSascSP1hmk767MuEP9vd7WzaJ7hUJym7qgGXttXA0sSFsZgZdAmw==
+X-Received: by 2002:a05:6512:318e:b0:540:1fb5:3f9f with SMTP id 2adb3069b0e04-54229597f4dmr4305510e87.47.1735013375119;
+        Mon, 23 Dec 2024 20:09:35 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5422382faa1sm1450458e87.238.2024.12.23.20.09.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Dec 2024 20:09:33 -0800 (PST)
+Date: Tue, 24 Dec 2024 06:09:31 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Marek Vasut <marex@denx.de>
+Cc: dri-devel@lists.freedesktop.org, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Liu Ying <victor.liu@nxp.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] drm/mxsfb: add DRM_BRIDGE_ATTACH_NO_CONNECTOR
+ flag to drm_bridge_attach
+Message-ID: <qqd3xztq2drkdbjrybzwa5an37lpb236ur4iqjaaydncwewltx@o3zjqaat22tw>
+References: <20241224014701.253490-1-marex@denx.de>
+ <20241224014701.253490-3-marex@denx.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241224-schema-v2-3-000ea9044c49@quicinc.com>
-References: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
-In-Reply-To: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
-To: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David
- S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>,
-        "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Bhupesh Sharma <bhupesh.sharma@linaro.org>,
-        "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>,
-        Giuseppe Cavallaro
-	<peppe.cavallaro@st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>
-CC: <quic_yijiyang@quicinc.com>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735009654; l=2068;
- i=quic_yijiyang@quicinc.com; s=20240408; h=from:subject:message-id;
- bh=V7lalbixoBGJlxP3pf4NJMaXZaZuAQMqMIc+vgd+3BI=;
- b=/PcuxJDv44ngfb0NCh2hUJrxMhlHV2nGZecD0Mo6JagRjHC7h5siDtAVSLzQTi1Ss+MM5r4f1
- 6Fp6PFa1WtZD+7qhygEim3XOkb6FyHsQ/oQz4KfgP846x8rU4HdpzlA
-X-Developer-Key: i=quic_yijiyang@quicinc.com; a=ed25519;
- pk=XvMv0rxjrXLYFdBXoFjTdOdAwDT5SPbQ5uAKGESDihk=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: b9eCqun4IQgnbx5uL1MRRdjY8sp8VVgm
-X-Proofpoint-GUID: b9eCqun4IQgnbx5uL1MRRdjY8sp8VVgm
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxscore=0
- impostorscore=0 suspectscore=0 lowpriorityscore=0 spamscore=0
- clxscore=1015 adultscore=0 mlxlogscore=999 priorityscore=1501
- malwarescore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412240024
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241224014701.253490-3-marex@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_190809_987708_2C16A156 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20241223_200937_881213_47A690E5 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,51 +106,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-qcs615 uses EMAC version 2.3.1, add the relevant defines and add the new
-compatible.
+On Tue, Dec 24, 2024 at 02:46:16AM +0100, Marek Vasut wrote:
+> Commit a25b988ff83f ("drm/bridge: Extend bridge API to disable connector creation")
+> added DRM_BRIDGE_ATTACH_NO_CONNECTOR bridge flag and all bridges handle
+> this flag in some way since then.
+> Newly added bridge drivers must no longer contain the connector creation and
+> will fail probing if this flag isn't set.
+> 
+> In order to be able to connect to those newly added bridges as well,
+> make use of drm_bridge_connector API and have the connector initialized
+> by the display controller.
+> 
+> Based on 2e87bf389e13 ("drm/rockchip: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag to drm_bridge_attach")
+> 
+> This makes LT9611 work with i.MX8M Mini.
+> 
+> Signed-off-by: Marek Vasut <marex@denx.de>
+> ---
+> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+> Cc: Jonas Karlman <jonas@kwiboo.se>
+> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> Cc: Liu Ying <victor.liu@nxp.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Robert Foss <rfoss@kernel.org>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Stefan Agner <stefan@agner.ch>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+> V2: Cache connector from drm_bridge_connector_init()
+> ---
+>  drivers/gpu/drm/mxsfb/Kconfig     |  1 +
+>  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 37 ++++++++++++++++++++++---------
+>  2 files changed, 27 insertions(+), 11 deletions(-)
+> 
 
-Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index 901a3c1959fa57efb078da795ad4f92a8b6f71e1..8c76beaee48821eb2853f4e3f8bfd37db8cadf78 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -249,6 +249,22 @@ static const struct ethqos_emac_driver_data emac_v2_1_0_data = {
- 	.has_emac_ge_3 = false,
- };
- 
-+static const struct ethqos_emac_por emac_v2_3_1_por[] = {
-+	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x00C01343 },
-+	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642C },
-+	{ .offset = SDCC_HC_REG_DDR_CONFIG,	.value = 0x00000000 },
-+	{ .offset = SDCC_HC_REG_DLL_CONFIG2,	.value = 0x00200000 },
-+	{ .offset = SDCC_USR_CTL,		.value = 0x00010800 },
-+	{ .offset = RGMII_IO_MACRO_CONFIG2,	.value = 0x00002060 },
-+};
-+
-+static const struct ethqos_emac_driver_data emac_v2_3_1_data = {
-+	.por = emac_v2_3_1_por,
-+	.num_por = ARRAY_SIZE(emac_v2_3_1_por),
-+	.rgmii_config_loopback_en = true,
-+	.has_emac_ge_3 = false,
-+};
-+
- static const struct ethqos_emac_por emac_v3_0_0_por[] = {
- 	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x40c01343 },
- 	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642c },
-@@ -898,6 +914,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 
- static const struct of_device_id qcom_ethqos_match[] = {
- 	{ .compatible = "qcom,qcs404-ethqos", .data = &emac_v2_3_0_data},
-+	{ .compatible = "qcom,qcs615-ethqos", .data = &emac_v2_3_1_data},
- 	{ .compatible = "qcom,sa8775p-ethqos", .data = &emac_v4_0_0_data},
- 	{ .compatible = "qcom,sc8280xp-ethqos", .data = &emac_v3_0_0_data},
- 	{ .compatible = "qcom,sm8150-ethqos", .data = &emac_v2_1_0_data},
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 -- 
-2.34.1
-
+With best wishes
+Dmitry
 
