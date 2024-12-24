@@ -4,96 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C498E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 05:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DE4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 05:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bZ29pl5gSJS83jt8Fiaphk1nrkU0+AOu6uXYR7j7EA=; b=WYMR+JRjL05Cg5T6+IFtr12csV
-	21mCqJ3h4n5GYJyuNLOOshoVXLLEJRlRKWkqTANN/srH9FKD+0A8Tbz6KNNSGaGBan5BItGw0mr+X
-	uZYcHzmgdgo+1RnuZvjMGzaf1gkXDudoSoTTTwr2PXC/kwDN6TGsoQ9eIrnPnkWJoK1ozEn160DN8
-	hrPfDqXP9YJ7xfDqhhXMxC+d8kSSS3C9EYHGYvjCx+/839bvdP/MT0MjvnrnUfHHhWakGX6SHGmkp
-	Ak0jhuAD7S0S1mj08qqMlvOfz9q4xeU/cnPLyYPhEGOAoqvTValb50f4EuT5IgEls4CHT5eJnfSBa
-	WdNzzqoA==;
+	bh=UcDy/Z9QefWQVV2I2Qdq5h4XgghQkao+OJlwCT8a/FQ=; b=F1O4WXxAdZDbyb5ee/c4nKzOWg
+	MSyE1fYMLmI4Ruag2O83H1ZIt8/At4sxXNrTrD0HzXpvMgmCNGJhH1xKVteY4DYCNZ1lTq5bznRyw
+	ResGqh27SuCiS00LDEO+go8IvrLDB+r4kBFSsGWDAmkuiqv1HyX1uIwC/3is0rYeLsmJkzpKaOpdf
+	XpzA/LE+U6DMCG9XyCTlk7h1SZcLTxqeNRpWh/Ty1hXO6gVn3UaN/wfgSvASOwvvC7WdD1yMp/3P6
+	61u3Xhp/TVC/gM7+Rx1IlnErBoPxjt3FjsNlZv7RqXGE3uBUjN/RK6uk0rbR3JMy3OdcRvws2u972
+	VSfpUvKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPx8b-0000000BHDL-2pxc;
-	Tue, 24 Dec 2024 05:07:21 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tPxMy-0000000BI9A-232f;
+	Tue, 24 Dec 2024 05:22:12 +0000
+Received: from mail-eastasiaazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c400::] helo=HK2PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPx7E-0000000BH7I-0lfM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 05:06:07 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5401bd6cdb4so5293314e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 23 Dec 2024 21:05:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735016754; x=1735621554; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6bZ29pl5gSJS83jt8Fiaphk1nrkU0+AOu6uXYR7j7EA=;
-        b=w66y0LEK/TFlb/QM06qm4uVVyykwTHZcnUEmxft4OwNR97Y2jR3KNpchhbNlOFc+Wp
-         c/lruVA05/zxG5OzZeQuRBKocX/eX+HZMoFAaO4X5YFZfYHU0M7UzIOUlfVSOWDMxdan
-         oR9xJTL+TDR9Uzg8eih5JavtuDsxfloGk0Vo9d+e1zb667Oq6r7R4NiNIb9FxSuExhfq
-         Kms44SgunEgL8Bn58GlVsl2v8/Tb/fU0TdkGn8zpxG4O6tGjAMu0g5e1QvWqpGOyxKmR
-         gGMyrSmbdXqmPEmilF/Y327NeryCzDyZSJahZgTYG3b7OhPamw84MhFNhqlWPykkfpJ2
-         4R+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735016754; x=1735621554;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6bZ29pl5gSJS83jt8Fiaphk1nrkU0+AOu6uXYR7j7EA=;
-        b=u125FMYpP+GwlF+Gui9LE8t14AyBdPEPURjsVRcijNY8cAhkEZr0MJIpA95Xcx+ITn
-         BZBznta62ZPwrBubAUUo9x8JTYGhzeacdMKqRbAsixXA1+E8nnL7xXRqztbM27TyIt+z
-         7iNhiQh+QElikSCzk49OQLSVLAUG88/njKh6mXqsmjxLzm6rnZDFJbztR8QwChccg1gv
-         Dkt6dtlmlBtWLOEHhXLTAwajq/V9tQmoc3d8ZeCZANH0zt1vS0Lb8balKT4kqXWOfzw4
-         MOPR3UU5ij6aaOyv53kZXi6Abh8Z9WwO9KPpv7I8AQWbqiT6vdq80B8ZxkrmlGK9Nved
-         x5Qg==
-X-Forwarded-Encrypted: i=1; AJvYcCWfjkpKRmZqGv1ohbNyTzeL4MCtseHJPK1KwhHJ6eXszXhnjm3fic7LOziV5Y/AgmRZD4+jaXv6Re62awDyKALO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/pA0aiJDTe2vDMKS2aJ8kM6EQHMvNrf/b0uMfxxTHrmluRwYL
-	5VsswjEgIEuyBPA+5ihIxts8LEqa0XfIJOde+J6LdsAAoQO6EkPBG+3BQ2ZJmt0=
-X-Gm-Gg: ASbGncsyZ2YmCxjatPQdhfdc8V/t+zEu02ojay3CSJf9vliYghNh7rnZAK8sqhWfkFA
-	GHF29cT2tKDglhps/u1Vpr++izciEmDSgA8PCLMxE7MhiyhUV7iAi6S7kOToLRl429OSNW77x62
-	QaC299+xhfV6KArGrr7K6cTUtceGAtA5vC9yW28Wxy/l70h06tSRpk4XRdmUwYGDeOagf2fhqyA
-	vNr6nCCmKKk1wGxe+uCv9fGf5LbNU9/pH8mH8mmpXWeBWprbRlfoHkbF3evqmuSz+RwxmpfuGsy
-	dpMNomyKNCHI2HCSfizygTwulrGpLDcsSe8b
-X-Google-Smtp-Source: AGHT+IFEQbqTtUHwKKMk91ZNCPcChoIwDJTCy518t9r4AD4nY9+X1Uvz8CG9rXE+5M9RXLCgiSKkQA==
-X-Received: by 2002:a05:6512:3b08:b0:542:23b3:d82c with SMTP id 2adb3069b0e04-542295244aamr5324092e87.3.1735016752385;
-        Mon, 23 Dec 2024 21:05:52 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238216cbsm1486707e87.216.2024.12.23.21.05.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Dec 2024 21:05:51 -0800 (PST)
-Date: Tue, 24 Dec 2024 07:05:48 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Yijie Yang <quic_yijiyang@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bhupesh Sharma <bhupesh.sharma@linaro.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-qcom-ethqos: add support for
- EMAC on qcs615 platforms
-Message-ID: <htnq5jjxwbsn3fjc3m6tzvyqrwzckipd3z63j2dotkliiwnqgk@lifzh4q35dqg>
-References: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
- <20241224-schema-v2-3-000ea9044c49@quicinc.com>
- <62wm4samob5bzsk2br75fmllkrgptxxj2pgo7hztnhkhvwt54v@zz7edyq6ys77>
- <bc143292-24e0-4887-bc56-ecaceebf3d82@quicinc.com>
+	id 1tPxLk-0000000BI0c-2CY8;
+	Tue, 24 Dec 2024 05:20:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Eh2vwIPbFgNHXPXQsmEzx1Z/dh3VKxaUzD9jjFj8dmF2jCQ+MdlXADnWF8VDzDFHu/JEN/Xb11XB4wfuP+4ZDd0QkXgsf/QqvQhTU8gMeXwuydBFWkbxFY6uuzYzXs/HpdNJ8sDwheBfQnLzwEdRXAMfMTLD0zNzRKz26lM4AkBjbHw9XtIEHIZruK7f1FOlIbYK8xCGM0VjHx8CfUev/x3/gC0Brx1xBcsvD26JBFw35LBjt5bS7dRIzU0JQW3SytHDG80nPMGWtf5u+/Bxdeyz4rH1hm3TnQmIWuuMNDnSfzkFrqslTys2fHqzKbSmYp7hw1W9a0mfP0LEy7k/2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UcDy/Z9QefWQVV2I2Qdq5h4XgghQkao+OJlwCT8a/FQ=;
+ b=TFy4wGcWVQDMUjpwOIQuRKJj45lKuz4EsFLWyBUmIdQ13R1Ze25c/r5IVCmCY5kVP4XHK4nhGjrI9ZhGUni5pahmPKdPDHxZ3OZ8Uidw5nZpmMbhz6B8lcl78o0/+5qApmJxM/qkEgyMZy+FyCmDK8NauYcKRgEnmhLqp/2LLJUQ5GY5Oc1B8shbz02uRBTSV4kcT38q6Cfk9Qvcoie3twvqlpEEMqKG7BC+j3OoMc3+MCy/2pzTVXb04qsbsF6gmvW8s/IyRaMNnoG9sp3AncRz4L3QmIdkf9HYEgVMdFl6JCz6n54DECMO7OIlKq1YJADq/AvHlYBg1mVMoorytQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UcDy/Z9QefWQVV2I2Qdq5h4XgghQkao+OJlwCT8a/FQ=;
+ b=gFcquQocHLetKCy7ity4VWJwniH/tDE1bEHMVlvCEG6dBElv9VLql5r1o9+YWS2n/X4KN5DXGOHaIUPjgQVgHiyQhbmtOVDg0tvkCW3TDl/TFMQP9Z2eElAolZRGfNoYPr+lig/RC81/dRMKXzRVX2FQ7w80gmP7tOjEohcSfp3h8XxJvvK1Wiem96mG3xMtFIINr5YkTuGfwMeA5PsaHBs/tdLQuR/vu9ROChAB9DkeYBiW+9SX3LlZ/3VYaAQ7aOY5JHx/jtQC/xHAFjTpxkXk02AQNJ71TnId58EX1Y6uwuDV55kT478+PEa88oyQW/aLJUGKJniD8suybKhGZA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by SEZPR03MB8140.apcprd03.prod.outlook.com (2603:1096:101:17f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.17; Tue, 24 Dec
+ 2024 05:20:24 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::9d11:d1f6:1097:22ca%7]) with mapi id 15.20.8272.013; Tue, 24 Dec 2024
+ 05:20:24 +0000
+Message-ID: <4e4808ee-07f2-43db-b7f8-e9362c9898e4@amlogic.com>
+Date: Tue, 24 Dec 2024 13:20:14 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [DMARC error][DKIM error]Re: [PATCH 3/3] clk: amlogic: s4: remove
+ unused data
+To: Dmitry Rokosov <ddrokosov@salutedevices.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com>
+ <20241220-amlogic-clk-drop-clk-regmap-tables-v1-3-96dd657cbfbd@baylibre.com>
+ <3ce97435-71c6-4a7c-8d6c-fa387f68494d@amlogic.com>
+ <20241223090137.jbzwrlazhkumatfx@CAB-WSD-L081021>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <20241223090137.jbzwrlazhkumatfx@CAB-WSD-L081021>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR01CA0007.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::11) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bc143292-24e0-4887-bc56-ecaceebf3d82@quicinc.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEZPR03MB8140:EE_
+X-MS-Office365-Filtering-Correlation-Id: a95d9717-1d28-4080-8798-08dd23daab56
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TmFiZWF1cDU3YlJncFpsM3JtcWk1OFpCc0lFdVovTnhDVFMxejkwYUo2aXA4?=
+ =?utf-8?B?N1l2SzR3S0RHbW41OE8raGdNbDRtaHZ6d2lHcGNhN3JyL1ROejVBMEZnOVZx?=
+ =?utf-8?B?eG9lYkdiL2Rwb0tTb1A1Q3MzWFllNENCUk9OdWxIZWdQaUd5Z0o3Z3hDSmZM?=
+ =?utf-8?B?L25WQ0M0SFl4TjdxKzFNWWN1dVBoYWhmRGJSbFJEUU5VU1lvazcxbkJSdmRT?=
+ =?utf-8?B?cWlwU3J5L2ZjbytqOVlSaUdFS3dRZGtkVDZ5SEFKQlI0SDNIa1JONXVzQzhB?=
+ =?utf-8?B?VG1pczVqK2NWQVdCRjlOeVpMYVN5ZWtla2JaM0d1Qk1QZXAxK1R1ZTZWZU12?=
+ =?utf-8?B?NUdPR01LK3VBaDdOZC9nRjFkYUpVZkszd1ZQa25ETFhOTFQzOUFlRHYvdjRP?=
+ =?utf-8?B?eUtjMlJ6ZEN3YlliZWdhZ1BsLzA3NTFHUjFDY2hOa2d0dnZTM05IeXM5N3RM?=
+ =?utf-8?B?RXF0dlNibjJLNUpRMlhuT2pMTUNyZDdDSDNCUStTdjV3QmRSa2grdi83eElH?=
+ =?utf-8?B?VTlNOGc5VUh3RVh4OUpsU1FwU0Y3ZnFyMVhXVk5NaHpMaWx1MjJiMjBrc0Z4?=
+ =?utf-8?B?VFdEbVpDSUJSejREN3czSWNraldmckFBd2FkaStqZVJjbC8yZ1Urcm90bFA2?=
+ =?utf-8?B?WGFOUWJXNDVOaE5IcDZaRU1neWYzNC9KQy9jRUdQcjJhTUszWHFPWFBVZi9G?=
+ =?utf-8?B?L0RnOE90dXlZWGMwWUZVRFZwcW5VanNUdHF1NW5DdVpGQ0dJbzZ4UFZJUHVK?=
+ =?utf-8?B?aWp2dEE0ejlneWp3c0N2dzk4U1p3RzgvSFRGN05VdXlGMzMrckhkWWlmNzFI?=
+ =?utf-8?B?WG1md0QrRTZIMU1VWElwcTFFNkNJTEEvREc2dUlEK2RxNjA1T1ZlVUhaYmpk?=
+ =?utf-8?B?Q0JEMm0yTXVJK3Q3dmRNMCtoWlVQTmU1cFpFdTd1dDVlOEhoNi9VR1M5WU81?=
+ =?utf-8?B?bW1HbEVibmNtMnRWU2NIYTNRZmhMTWlQQmtIMEVJS0lMOXcvK3JSOHBzZHRt?=
+ =?utf-8?B?cnpnb1NDMkNjSGd6OVFNMExhYVpKc2s5MG4xcmxsZnFZaWZNL3I4S3hWUmpz?=
+ =?utf-8?B?ZXovV0dma0tucmdUb3pCalpFbjk4cW93QnIvU2ZsNGZiQUpiRFlSeDdHTmJv?=
+ =?utf-8?B?aWVnUzBFMittR2dCaFVHRUQvaHlrQWJnY1pMVlAzdHlpQUlJcWpDM0lVYXZk?=
+ =?utf-8?B?YWNQTXN2YzFSRnhteExjcXRDQy9odWd1aU5uckJQMUxFRWxQcERXejBNOU9I?=
+ =?utf-8?B?NWNmZVp3ZlQrc3BtNExFbmYrZ25UMnY1SUpGMGFzcTFYTHBNZXJvZ1Bhb3Qx?=
+ =?utf-8?B?ZmVvc2ZlclN1UmFmVktGVHBvTWJlYTk2bTc3MUNOTCtSdmlRY2VrQ3VCeDEy?=
+ =?utf-8?B?MElvOFRScENweUdQR3FKZUVtUGEvSVRDZThlTGVXN3pPd0Y0d0M1aUR0QW9P?=
+ =?utf-8?B?eFZKTFgwWW9GRGdMY3FmOHYxZ1F5RytCUVFLajVHREF5NkNOa2tLd0Rtb2l6?=
+ =?utf-8?B?Uzk0L0MwaXR5ZW5hQit6OHBldWtxZG42WmV0UUE4TjdsYTNLS1ZDR093K0x6?=
+ =?utf-8?B?Mnd3VWJXUWNoVVkzeGpFTnExeHpIVENHTWtPdGZ2WnlhUC9RbWlIQTYwdXcw?=
+ =?utf-8?B?azJ4eXZmc1hpandGbmpXMnRZYzZGRytNdlVIY0p4aXYyQnpRbTNEYTgyR25r?=
+ =?utf-8?B?U0lHdlJ0bjBHb0JtQU90bGxvai9QQ3RLcHV0dVZCMURlSVVPdnV4V3dpTWxT?=
+ =?utf-8?B?VXZuak93RVpvWmpSNnhDRG0yWS9MVXRKZlEzKzFzL2t0VXBYUVl0eGRjc1hI?=
+ =?utf-8?B?ek5heEE3cStIOWNaU0V0NEt1azNzeHE4RkhuVis2U2tDMVNsWkVkY0VSOWlz?=
+ =?utf-8?Q?70LI/y5RvGlGZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cHR4Rmc0VVNNa3pFeG0zTWx3bGtEVEUrZlZCcDB6WnlkWkIzaFFILzNDQTdi?=
+ =?utf-8?B?Tjc4WHBHZGNpY3pHeVc1ZUdWckRRS01qc1ZwYWJ2MS9hL2YrbmZ1dGY2dERz?=
+ =?utf-8?B?aGVHY1NjTFh2QzBwRW41TXdoZGhoTXJzVTN0YlNsdTg5Y1gyU1lUNnNLZ3p0?=
+ =?utf-8?B?LzRsbkJqWnI0RlFuQmw4QVFzazg4bjR4Nk1QRFlRTGJaTlN0T250dExJRDhX?=
+ =?utf-8?B?Ni9nUGlMbkdiRUx5YmhrbmZNVHJieXF4TkFYaDVETjlDN2h5T1FmT09qdG5I?=
+ =?utf-8?B?ak1wNEwrVW1iQW43UHE5N0NzRHA2OVd4dGF2STdWY0ZOd2JuNk9mbERzUWFh?=
+ =?utf-8?B?dXU3Sy82UFBJVkhQZWtMZlNLVE1oOW0xb0lPRGVwMU5GY3ZQeDB6MDA0V3RJ?=
+ =?utf-8?B?NHl4TEFHaFN4SEduZysyTkZiWUMrNG5QbTN4aFJIMFJ0VDV0aW9aUzVjZEow?=
+ =?utf-8?B?eXV2K0t2cUZGb1VkdXBKay82TDZGU0VZZ1Q5bmFYNGRnRTV5NytIYUFXMmV6?=
+ =?utf-8?B?VWE2ZVA3bzBHYVdDYWtxU0JFZFJFUWUvZlM4SFhtaWxwZXVtUzRZcnBoaFVH?=
+ =?utf-8?B?WXh3aGtRVDNoZTUzU01jaWg2OEVpZmduZENOY3ZKWlZHQThpOUdwNkp5NVA0?=
+ =?utf-8?B?QWF4WGxtWlFVVTN2K1d0YlV2TFFva2VIL2dOeXRZTkpWL0VLUTlQR2tJWU8y?=
+ =?utf-8?B?ajUyTUI3VWpwOWUwZjM0OVBBaDNmV0V6MVlQZjJqV1U1eHhGM2txOXNyaVdE?=
+ =?utf-8?B?ZTlDeVNXWEYyTEhheVdOU1JuTVVEd0V3M3A3Y1JXQ3VsS2NoMmFueW14SXZt?=
+ =?utf-8?B?TXVWNnJQYWtUb0ZJMjFPNiszTzkyUE5WdlRmNmtzNTF1cm5KbHNjZDA5Tm1v?=
+ =?utf-8?B?MW1sN085NUZqUzl1R05CVkxHcmd1UHZISUdMdTNNeG5JY3lHOUp0R0xsWHB0?=
+ =?utf-8?B?dUgxTTVMb1JSMVh0c2FsRUErY1E3U250OUlyTFZDTXlkSE5tbW1idk9FNHhC?=
+ =?utf-8?B?Q3IrUG5WWUxCaWpFeDB2ZTh5MzN1dVF2VFVHUnBpMjNGNHJGcnlxRmFwRVVR?=
+ =?utf-8?B?UGQzaEZPaXNyUDVtV0FmYWFMWC9wZnBlbldpOWZrazgwcjlwN3QySkcrOVFs?=
+ =?utf-8?B?OFFhaDNZQ2Nuc3NsNVdBcmlRRjFjUnAraFQ4aGNNU29TQzRaM3RrKzl1aS9i?=
+ =?utf-8?B?alZYc3BLTjNqWFlwU1ZMZDBQL2laUkIrTjJkUWV2N09VbVdnYjJkRURxckM4?=
+ =?utf-8?B?NkIxdnZoYVRYcmY3MENHbDlrRE15UHhGZTRyWlVvcCs0ZzFITlJpemY0UWVB?=
+ =?utf-8?B?S1crQTUrbnFTNzlqQU5hejgvTk9TcDYrbWltTFQrRnl0cmFuc3JPa3pORUNW?=
+ =?utf-8?B?dWJyZzZiM083RjZtd0tpOTlSYk0vNDRvaHBaUUw4SzViWDB0RnUrSjhsM2kv?=
+ =?utf-8?B?UnZRT2s0V3NxcU02TVBYblp2VXlnQmNST25vVThwSUsweW9wbFp5U29nMFBq?=
+ =?utf-8?B?SkxGM0tObUx4VXdQVzlaN2Z2YzZBQ0RyWVp0a0hLNmpVckNHQjNxWFpOQ2E3?=
+ =?utf-8?B?c1ljMnozWTFraVlVa0owb01mUzdkRGFudWRQaFRycFNnUHVlSlYwVWJ5Vldp?=
+ =?utf-8?B?WXdkZjZGcjlZNzJRWXUzTEROdWEvR1lQVi9TMnlGa3VJN1JKUUR0eTVtUlVq?=
+ =?utf-8?B?d01uTC9oWUdZT05EYXNhWVBWL2R1eXlESkFyU0E4eHB6azdoaGVEQVRNQlZx?=
+ =?utf-8?B?TnpqTjVucExRUVRPM1N3YUQrTGcvWGxrb0NIUjJ5U3JNR0tVSGMyanNYdXdI?=
+ =?utf-8?B?UHFQQStQYnVaN2I5ZUl6WmFtSzlabzB6TktGN1dXZ1hZUm1kdUJCMTNSbG5C?=
+ =?utf-8?B?MG5ubUFQV0N0M3M1WWQrK1RhbTVoWkZ5QVFSMU5XSWN2N0dkV0k3MHlUMzU0?=
+ =?utf-8?B?UHpKaUMyMnR2aVJQemkyamFJQTZINU0yUnhVQTg0bzBFaDZUR29FYzl0SGFK?=
+ =?utf-8?B?WTNVOXZHdVErV285QlAxMTV5OTBZRDlnL1BhczM3TFBWRDR4Q0tBT3NYNFZG?=
+ =?utf-8?B?eFIrajh4QkpRSnlrNXQ5YkxVMnJkQ0hpUG9CRVZ3QlFad0J4eWt1QkNNcER0?=
+ =?utf-8?Q?V7l69TBp68tJBZvLKewXdr9W2?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a95d9717-1d28-4080-8798-08dd23daab56
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Dec 2024 05:20:24.2529
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4RrLYdF8r62qAGZubAoRU5lIBd3s9Kk96IirjEI86UG7ckXGFQt6S0Sr36997wpHmewFVlAiLQXHtY25+9kkdw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_210556_251409_649065CF 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20241223_212056_569659_FF72BB76 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,87 +181,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 24, 2024 at 12:36:29PM +0800, Yijie Yang wrote:
-> 
-> 
-> On 2024-12-24 12:18, Dmitry Baryshkov wrote:
-> > On Tue, Dec 24, 2024 at 11:07:03AM +0800, Yijie Yang wrote:
-> > > qcs615 uses EMAC version 2.3.1, add the relevant defines and add the new
-> > > compatible.
-> > > 
-> > > Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
-> > > ---
-> > >   drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 17 +++++++++++++++++
-> > >   1 file changed, 17 insertions(+)
-> > > 
-> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> > > index 901a3c1959fa57efb078da795ad4f92a8b6f71e1..8c76beaee48821eb2853f4e3f8bfd37db8cadf78 100644
-> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> > > @@ -249,6 +249,22 @@ static const struct ethqos_emac_driver_data emac_v2_1_0_data = {
-> > >   	.has_emac_ge_3 = false,
-> > >   };
-> > > +static const struct ethqos_emac_por emac_v2_3_1_por[] = {
-> > > +	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x00C01343 },
-> > > +	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642C },
-> > 
-> > lowercase the hex, please.
-> 
-> I will take care of it.
-> 
-> > 
-> > > +	{ .offset = SDCC_HC_REG_DDR_CONFIG,	.value = 0x00000000 },
-> > > +	{ .offset = SDCC_HC_REG_DLL_CONFIG2,	.value = 0x00200000 },
-> > > +	{ .offset = SDCC_USR_CTL,		.value = 0x00010800 },
-> > > +	{ .offset = RGMII_IO_MACRO_CONFIG2,	.value = 0x00002060 },
-> > > +};
-> > > +
-> > > +static const struct ethqos_emac_driver_data emac_v2_3_1_data = {
-> > > +	.por = emac_v2_3_1_por,
-> > > +	.num_por = ARRAY_SIZE(emac_v2_3_1_por),
-> > > +	.rgmii_config_loopback_en = true,
-> > > +	.has_emac_ge_3 = false,
-> > > +};
-> > 
-> > Modulo emac_v2_3_1_por vs emac_v2_3_0_por, this is the same as
-> > emac_v2_3_0_data. Which means that bindings for qcs615-ethqos should be
-> > corrected to use qcom,qcs404-ethqos as as fallback entry, making this
-> > patch unused. Please correct the bindings instead.
-> 
-> Although they currently share the same data, they are actually two different
-> versions. Their differences are not apparent now but will become evident
-> once new features are uploaded. If I revert to qcom,qcs404-ethqos now, it
-> will be challenging to distinguish between them in the future.
+hi Dmitry:
 
-Which features? Moreover, note, the use of the fallback doesn't preclude
-you from addign a new compat entry later on. By having a fallback you
-simply declare that the device A is also compatible with the device B.
 
-> 
-> > 
-> > > +
-> > >   static const struct ethqos_emac_por emac_v3_0_0_por[] = {
-> > >   	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x40c01343 },
-> > >   	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642c },
-> > > @@ -898,6 +914,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
-> > >   static const struct of_device_id qcom_ethqos_match[] = {
-> > >   	{ .compatible = "qcom,qcs404-ethqos", .data = &emac_v2_3_0_data},
-> > > +	{ .compatible = "qcom,qcs615-ethqos", .data = &emac_v2_3_1_data},
-> > >   	{ .compatible = "qcom,sa8775p-ethqos", .data = &emac_v4_0_0_data},
-> > >   	{ .compatible = "qcom,sc8280xp-ethqos", .data = &emac_v3_0_0_data},
-> > >   	{ .compatible = "qcom,sm8150-ethqos", .data = &emac_v2_1_0_data},
-> > > 
-> > > -- 
-> > > 2.34.1
-> > > 
-> > 
-> 
-> -- 
-> Best Regards,
-> Yijie
-> 
+On 12/23/2024 5:01 PM, Dmitry Rokosov wrote:
+> [You don't often get email from ddrokosov@salutedevices.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> [ EXTERNAL EMAIL ]
+>
+> Hello Chuan!
+>
+> On Mon, Dec 23, 2024 at 03:59:07PM +0800, Chuan Liu wrote:
+>> Hi Jerome:
+>>
+>> Thank you for pointing out.
+>>
+>>
+>> On 12/21/2024 1:17 AM, Jerome Brunet wrote:
+>>> [ EXTERNAL EMAIL ]
+>>>
+>>> Following the removal of the big clk_regmap clock table from the
+>>> s4-peripherals clock controller driver, it appears some clocks are unused,
+>>> which means these are not exported or even registered.
+>>
+>> I have confirmed here that these clocks are used for the demodulator
+>> of DTV (Digital Television). The DTV-related driver will use these
+>> clocks.
+>>
+>>
+>>> In all likelihood, these clocks have not been tested. Remove the unused
+>>> clocks for now. These can added back later when they have been properly
+>>> tested.
+>>
+>> I will complete these clocks later after testing.
+> Are you planning to submit the DTV drivers that will utilize these
+> clocks to the upstream?
 
--- 
-With best wishes
-Dmitry
+
+I have learned that there is no plan for now. It is uncertain whether
+it will be submitted upstream in the later stage.
+
+
+>
+> If I correctly interpret Jerome's patch series, it appears that these
+> clocks will not be applied to the upstream kernel unless there are
+> clients present in the future.
+
+
+Jerome deleted these clocks because they were defined in the driver
+but were not referenced and registered.
+
+These clocks should be added to "s4d_hw_onecell_data" to be registered.
+They were omitted when the driver was submitted previously.
+
+
+> Please correct me if I'm wrong.
+>
+> [...]
+>
+> --
+> Thank you,
+> Dmitry
 
