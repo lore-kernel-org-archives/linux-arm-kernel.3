@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC54BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 16:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE3CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SikwrvqepocarqAtdheTF7sn+Pq16j1X3OGUSKnRGzQ=; b=KZmfXQjggKDbW22mn21ySKc1DV
-	G7sFwEwR6kOKCGJG+P8iF28hgqX2A78qn34zdd5tLIOKURA2ILQ4ub7h5+ZDyN3rh8MB3hphGY/sm
-	h6xUfRqD/4qjEdGsxm2wAfO59Bw+T1ErjuBbr6BMsvriqFW+oNnL7y4YizQx9KVdUkLMTFkV4XBip
-	z0zrc1glZHizOhqJfChfjkJID0WUWBg8zISzRSfTf/jqZe2TAXO5VhZVgWfINqX5+BjxD8lRI7i++
-	eTJc8K0BVIbQTj5z0iU6VtDg8Iv8tYa5V59onkQxImtxtaVaorpXSujShQcHBUux7Qb7k2mYESGdM
-	LWiixrpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=r/Gn3c6Z2+oOxsTlq15aX44iSBF2ngtpY5A8qzg8rVM=; b=s3qn5+IDoefmhw
+	M5ZlWMSp6V+7QGwbUTrKqEcBhwA/3hUvprn4342dqZRVRHEZPTd/ZheWdJZlWBPng81mjNufycuYi
+	ej1e9FBAWGUwSVT4ymieLoJyOrg/brw0EF+2s9tSa2dNzqtqiBKrC9ISDvcB9l7of/B49308mNjDl
+	OmLbtOBhsodo+NmVzmgPI2ApJPdjWr1/JgUZ5u0TCWTvJI5rKjOgQz6q4x4QuAZwPgQ7nLlFbtKvG
+	n4iEsoc0J7WsOjgY9MDcqAa3LDF2MnAwVD/pCz8pgfTNmCkPfn4wdbcF+NKPdWJgK5P8w9FSv0hPT
+	l5GnBDge/JM70eOCeMwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ7VD-0000000CGsP-3Rs0;
-	Tue, 24 Dec 2024 16:11:23 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1tQ8Nu-0000000CMvi-0tRa;
+	Tue, 24 Dec 2024 17:07:54 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ7U1-0000000CGka-0uAx;
-	Tue, 24 Dec 2024 16:10:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1735056604; x=1735661404; i=markus.elfring@web.de;
-	bh=SikwrvqepocarqAtdheTF7sn+Pq16j1X3OGUSKnRGzQ=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=R20YAwIaRdB4cybp0l67mnA9MrhENVTIo6Q63X8ej2LJmLm8DpT0ijJh5rUhyOel
-	 pxElDgDU1+PQaH+FarcPFGDY2JPYFlEn7dv7s2xwUaMFG1+dm0+kQyaYITNH/DXTR
-	 IcWa9VOmBtxqFVbJaKcgJ0tZe5483ghz1tcsme+g3STZOGOQ7mzaJfdoJYe2FYhGx
-	 DEW7DUwmeoVfAhrX2T5FK3tgDdf3+is8Fwwqjk0TInDzuXEdguKXTPTnZDC4GVToa
-	 lWKcPoNRYAoAFMAUGM26WkHaYDbMY4Wb2Q7YmEarcQZ4/FsKvK+xn786oxqfEXSrP
-	 aqGF9ybNybbB1mvJiw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.70.78]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MgiXQ-1u2Rto1sFg-00fKeB; Tue, 24
- Dec 2024 17:10:04 +0100
-Message-ID: <8a5bdda5-5e2a-4b73-91a5-849b6060e7df@web.de>
-Date: Tue, 24 Dec 2024 17:09:54 +0100
+	id 1tQ8MW-0000000CMZo-2iHo;
+	Tue, 24 Dec 2024 17:06:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7712C40004;
+	Tue, 24 Dec 2024 17:06:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1735059983;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=r/Gn3c6Z2+oOxsTlq15aX44iSBF2ngtpY5A8qzg8rVM=;
+	b=ji12gTaveVn1lCP9UvPR+lkewDUv8CjCn0LOn5zGo0v79llUFWB6v2y+102nr1zl6n9jBC
+	0clzBYCG3ZysNzwaHVFSlmYUHUiVmLTmNEocUe48zTa0Vz5JtEW8Pf44pvyi7zbtozvv2r
+	LzXmlzO4kxANnZVsIvaWHRuRro9pdTSe3WVI7xKA/gaJHGhedzr0uVbu+2qROKMI4a7sNz
+	ADkmUKNe+kuhpOajUlCu0MaTzP+u+fssGUgj80ySYyhqmKQYNQnF0BYJiEkzRX8EaQS0AP
+	vW8Yiwy5rO5E+wjkrkXA3jg7McS1I4rk4AsLkRIAv6CgT6vbd7JEjJeycg4/Wg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v2 00/27] spi-nand/spi-mem DTR support
+Date: Tue, 24 Dec 2024 18:05:45 +0100
+Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Karan Sanghavi <karansanghvi98@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- Alexandre Mergnat <amergnat@baylibre.com>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, David Airlie <airlied@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Shuah Khan <skhan@linuxfoundation.org>, Simona Vetter <simona@ffwll.ch>,
- Sui Jingfeng <sui.jingfeng@linux.dev>
-Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?=
- <ck.hu@mediatek.com>
-References: <20241111-uninitializedpointer1601557-v1-1-7d03668e8141@gmail.com>
-Subject: Re: [PATCH] drm/mediatek: Initialize pointer before use to avoid
- undefiend behaviour
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20241111-uninitializedpointer1601557-v1-1-7d03668e8141@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:wwXFHOL+rndON19bU3EG1IfLGvHbJBJd7inIjYIugf2NhmMqb6U
- R1R/rBD0UHK6pwy8zk/7+GIdiHvkKvjOModfkb8guBPJRxivUtwnYcmZa1F52pt2rKs4Azo
- Yi2DjvLpUxcdCUxxZBA3iUnW7f9QPiIPeN1+1cPzc0FURyi1o+iSu4nYhFKkjpA6p/jviB4
- kfZJbrzroQ0B+VkBQ64xw==
-UI-OutboundReport: notjunk:1;M01:P0:S5pLRWNHLTE=;HrTXFPU0JfRlQkwFTtq5Qx0G2G2
- CgQITP+3XJiTSrnPMN2AlRwj2LqbNwD5JcJCPMKzIS/obzPrOI5k0aHDcTgfjdu0FvJa+RIr+
- Yur4nIMJn4cobWbh56rVUPSrbs4KkYD3cOyg7EMcxZkyDZZVlCe662fUGE1s7rdtxnPQMVL2q
- tts9CRn98fVYT3ptoGG6yT6mc7LsXaFtEzl4i0yfnvsQ4XA7wVVQ/ntl0pMZXQKZHCA3wI6MP
- IyXCZTaVGA5qZc8ANSsv6GIC1YLEtLttG8CyRLrWoHTGoztdRFlVRdLUZloAzKxlZFHR298FZ
- 4E+irVczPijupiXScpqUs+Bh26Hr4RPrKD7edmWh3JdwHsadOgrV8o75SZS2SVD8bxRkLaLoV
- zkEtmSDWXHv3gWq44xUvC4HQEh8FkVJ6jIQ29CXZGz+coyBlIy09RxN/UGZQ87esiuAMKfqKR
- oSiwuuSjxXC7js+MnT5bILFMGPPJC7A1/aBPveJLHYbnp0VfgBLPovHx47SqjZbtXiKSdWQkD
- R5Bp22OR45mDuE70xFpmrApS5IWSUlEoxRZ1642c9qXoD0i+RAfr6Wdc2t//Trs6IocFh+WUk
- dcerWb4i3X1lgEe1XVrhW0FgPloaEBwrcKvS6jpnWtAdkPs7KY7aTNAuMgMNqUjhgNrBWsU1O
- 4gpNJ1y1xuqGOUkAFFTIdLi6SRh1Byqvj9LgyfBFk2FUC0J4IMFTN99d85wMK1AyjH0r98b09
- xb3x/VX/hnnbgUE1Oxcsg91m0QLtkR+pagUxaZ/Cqw89fv3qNzyi130hQA2x/8q2zdsQG7Xwg
- 4edJU93UOJQnMHYKIGH1VaMlS+127uQfsNeHCoYZOANymM1oOUWjDTv3MF3dyU62ODNSR6q3A
- 0oYSVFfqSz3aPfvCV3hQ3frllZmNjiR5VD91WC8UeHrq8GaeyfGl5o6R+tfhNkKJuqG8a5ST8
- BqVJXrQ4+wfdEkgJWQ+871Ok9G6nE+oKnb7Wh98NDjsVUwqKp81zMkBnpwzDmzIqqvBRx5duK
- t24gcuhVSL6BtEqOKgcL8/dkRVhFCn22sMsEehyrhlo2qRhNpmcqvTsuB17U141wVmo/uP9c3
- RZ7PUS6xc=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOnpamcC/yXNyw6DIBCF4VcxrDuGmYAxXfU9GheotE6ioOClx
+ vjupXb5ncV/DhFtYBvFPTtEsCtH9i6BbploOuPeFrhNFiRJIaGEjV3tXQsFIEJoEKbFtBCXcfR
+ hBomqJKkNoSGRGmOwL/5c/WeV3HGcfdivuxV/678sSWOBWmKuSl2UChAGnhbb58HszvSP2vu5Z
+ 5c3fhDVeZ5f4IGW6LkAAAA=
+X-Change-ID: 20241210-winbond-6-11-rc1-quad-support-0148205a21a2
+To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
+ Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
+ =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Raju Rangoju <Raju.Rangoju@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Pratyush Yadav <pratyush@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, stable+noautosel@kernel.org
+X-Mailer: b4 0.15-dev
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_081009_621622_473BC6EF 
-X-CRM114-Status: UNSURE (   5.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241224_090628_996331_9AF8F4E2 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,25 +99,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Initialize the pointer with NULL as mtk_drm_of_get_ddp_ep_cid
-> function might return before assigning value to next pointer
-> but yet further dereference to next can lead to some undefined
-> behavior as it may point to some invalid location.
+Hello Mark, hello MTD folks,
 
-* You may occasionally put more than 62 characters into text lines
-  of such a change description.
+Here is a (big) series supposed to bring DTR support in SPI-NAND.
 
-* Please avoid a typo the summary phrase.
+I could have split this into two but I eventually preferred showing the
+big picture. Once v1 will be over, I can make it two. However when we'll
+discuss merging, we'll have to share an immutable tag among the two
+subsystems.
 
+Here is the logic:
+* patches 1 & 2 add support for spi-mem operations with a specific
+  frequency limitation. This is not only related to DTR support, because
+  as you can see I could use this to support basic features in the
+  Winbond driver.
+* patches 3-17 are going through all the easy controller drivers, where
+  effectively supporting these per-operation limitation was easy to
+  do. In practice, I believe all controllers can, but software is
+  sometimes the limiting factor. All controllers without spi-mem support
+  will gracefully handle the request (provided that they already care
+  about the maximum speed of course), and all the updated controllers in
+  this series will also handle the situation correctly. For the others,
+  it's an opt-in parameter, so they will simply refuse the operation
+  during the checks_op/supports_op() phase.
+* patches 18-20 add DTR support in spi-mem.
+* patches 21-24 add DTR support in SPI-NAND.
+* patches 25-27 add DTR support to Winbon chips.
 
-=E2=80=A6
-> ---
-> Coverity Message:
-> CID 1601557: (#1 of 1): Uninitialized pointer read (UNINIT)
-> 3. uninit_use: Using uninitialized value next.
+---
+Changes in v2:
+- Fixed breakage reported by Mark.
+- Created an "adjust_op_freq" helper in the core and used it from
+  spi_mem_exec_op(). This way it is called only once. The main parameter
+  must still be casted otherwise we would need to do the call outside of
+  spi_mem_exec_op() which would imply about 40 different changes in the
+  core and drivers and also the assurance that we would get it wrong
+  again later.
+- Reworked the logic for picking the best variant to include all
+  subtleties due to maximum/supported frequencies. The choice takes
+  slightly longer now but should return the truly fastest variant for
+  each case.
+- Removed unique parenthesis in some kdoc comment.
+- Fixed the inconsistency when handling the maximum per operation
+  frequencies between spi-mem and non spi-mem controllers.
+- Fixed many typos.
+- Added a core check to validate the per op frequency against the minimum
+  supported frequencies by controller drivers.
+- Removed a useless check from the amd driver and turned a function
+  void. Also used the controller parameters in this driver rather than
+  the top-level definitions.
+- Clarified some of the commit logs.
+- Collected tags.
+- Prevented a patch from being picked-up automatically by the stable
+  team.
+- Reordered some terms in macros in the spi-mem core.
+- Rebased on top of v6.13-rc1.
+- Link to v1: https://lore.kernel.org/r/20241025161501.485684-1-miquel.raynal@bootlin.com
 
-May such information become a part for the final change description?
+---
+Miquel Raynal (27):
+      spi: spi-mem: Extend spi-mem operations with a per-operation maximum frequency
+      spi: spi-mem: Add a new controller capability
+      spi: amd: Support per spi-mem operation frequency switches
+      spi: amd: Drop redundant check
+      spi: amlogic-spifc-a1: Support per spi-mem operation frequency switches
+      spi: cadence-qspi: Support per spi-mem operation frequency switches
+      spi: dw: Support per spi-mem operation frequency switches
+      spi: fsl-qspi: Support per spi-mem operation frequency switches
+      spi: microchip-core-qspi: Support per spi-mem operation frequency switches
+      spi: mt65xx: Support per spi-mem operation frequency switches
+      spi: mxic: Support per spi-mem operation frequency switches
+      spi: nxp-fspi: Support per spi-mem operation frequency switches
+      spi: rockchip-sfc: Support per spi-mem operation frequency switches
+      spi: spi-sn-f-ospi: Support per spi-mem operation frequency switches
+      spi: spi-ti-qspi: Support per spi-mem operation frequency switches
+      spi: zynq-qspi: Support per spi-mem operation frequency switches
+      spi: zynqmp-gqspi: Support per spi-mem operation frequency switches
+      spi: spi-mem: Reorder spi-mem macro assignments
+      spi: spi-mem: Create macros for DTR operation
+      spi: spi-mem: Estimate the time taken by operations
+      mtd: spinand: Create distinct fast and slow read from cache variants
+      mtd: spinand: Add an optional frequency to read from cache macros
+      mtd: spinand: Enhance the logic when picking a variant
+      mtd: spinand: Add support for read DTR operations
+      mtd: spinand: winbond: Update the *JW chip definitions
+      mtd: spinand: winbond: Add comment about naming
+      mtd: spinand: winbond: Add support for DTR operations
 
-Regards,
-Markus
+ drivers/mtd/nand/spi/alliancememory.c |  4 +--
+ drivers/mtd/nand/spi/ato.c            |  4 +--
+ drivers/mtd/nand/spi/core.c           | 15 ++++++--
+ drivers/mtd/nand/spi/esmt.c           |  4 +--
+ drivers/mtd/nand/spi/foresee.c        |  4 +--
+ drivers/mtd/nand/spi/gigadevice.c     | 16 ++++-----
+ drivers/mtd/nand/spi/macronix.c       |  4 +--
+ drivers/mtd/nand/spi/micron.c         |  8 ++---
+ drivers/mtd/nand/spi/paragon.c        |  4 +--
+ drivers/mtd/nand/spi/toshiba.c        |  4 +--
+ drivers/mtd/nand/spi/winbond.c        | 27 ++++++++++++---
+ drivers/mtd/nand/spi/xtx.c            |  4 +--
+ drivers/spi/spi-amd.c                 | 21 ++++++------
+ drivers/spi/spi-amlogic-spifc-a1.c    |  7 +++-
+ drivers/spi/spi-cadence-quadspi.c     |  3 +-
+ drivers/spi/spi-dw-core.c             | 10 ++++--
+ drivers/spi/spi-fsl-qspi.c            | 12 +++++--
+ drivers/spi/spi-mem.c                 | 64 +++++++++++++++++++++++++++++++++++
+ drivers/spi/spi-microchip-core-qspi.c | 26 +++++++++++---
+ drivers/spi/spi-mt65xx.c              |  7 +++-
+ drivers/spi/spi-mxic.c                |  3 +-
+ drivers/spi/spi-nxp-fspi.c            | 12 +++++--
+ drivers/spi/spi-rockchip-sfc.c        | 11 ++++--
+ drivers/spi/spi-sn-f-ospi.c           |  8 +++--
+ drivers/spi/spi-ti-qspi.c             |  7 +++-
+ drivers/spi/spi-zynq-qspi.c           | 13 +++++--
+ drivers/spi/spi-zynqmp-gqspi.c        | 13 ++++---
+ include/linux/mtd/spinand.h           | 58 ++++++++++++++++++++++++++++---
+ include/linux/spi/spi-mem.h           | 56 +++++++++++++++++++++++++++++-
+ 29 files changed, 349 insertions(+), 80 deletions(-)
+---
+base-commit: 9100187b36091e5cc046d1f415f50a04ec31c25f
+change-id: 20241210-winbond-6-11-rc1-quad-support-0148205a21a2
+
+Best regards,
+-- 
+Miquel Raynal <miquel.raynal@bootlin.com>
+
 
