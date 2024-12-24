@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62A0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 19:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2424E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 19:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0SqEo1aNWDrC5Ttbs/Jo6cIUBSX63aHeSqn5BsDyKIY=; b=JWEO6Vc7eRG74ivt7Rg2ySJtHT
-	kt0ow4VnRj8KpIBoI3Tb1uOL1IVQ0fcVaQRDB4WpgleqV1lvgNdvkmhXll1VgvmbRynEazjQx1v9b
-	bmigWYRH0Qhrapl+XoZKRkBqFHq+bqtvLOnTHWwLfZFZlmdjBbdVsKjY458hWoHrtRu/9MSA5Upao
-	IpyahhqwRRMZTRf7++euXOnjscJ8rBWa7n0xqEkc3SAtxSdK0gctyggSui3pAspRMlLFIZaNGP4Tn
-	SH5nk5UDXsfwPH2MBQjNE5XmifDu0/+Gi2pFeBj5BfeVwv6aGWWcfcU2sAjt0uM6hBpttJI8wUIt/
-	BPPgSiQw==;
+	bh=6AhTF16+4GHJDcmn7BNcQctD3GIASyb4i+W0iJLxljo=; b=zZXvLxTo0dSmY3ENKdYqKn0Q4u
+	DdT+jiDyG6zG4qAOEUM4kkkbJxuNrFBJ+5dJR5jhYSqj8IuZK7by7g7KrnzAYHaNawGJ+VT7abIrI
+	hFLnMqddrcRucKP5+Y3nWkuMHXOvyCENgL0PsfL8rjsrRkrnXmoty+bcx/xfI5mAGCjraMvnHnYIc
+	HuHrp5DE74s3bwsvSW9xl2xw9YLdOtplYTxdkE8glIiL9PTWc011urUYhrJPJaDqEDsa6zikGUw4/
+	bZiw4QxokZN0xpPg5DAvx6zNouLOqfN5QmSOMZBXVZoS75u/YYTigzd9YMiHTaluTkFQ28C6QEImi
+	cLf3Y4fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQAYK-0000000CfI6-14tR;
-	Tue, 24 Dec 2024 19:26:48 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tQAjU-0000000Cg5Q-0FNv;
+	Tue, 24 Dec 2024 19:38:20 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQAX8-0000000Cf9T-0H3C
+	id 1tQAiH-0000000Cfur-1P4n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 19:25:35 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-3022598e213so57289821fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 11:25:32 -0800 (PST)
+	Tue, 24 Dec 2024 19:37:06 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-385d7f19f20so2550429f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 11:37:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735068331; x=1735673131; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0SqEo1aNWDrC5Ttbs/Jo6cIUBSX63aHeSqn5BsDyKIY=;
-        b=gurF+VdvdMuD/Zq5nV9227d62lpeHNgHmzWs052YkYPCVsf+004nGtyhzYrR5zBQZb
-         CPTbFSveub83pCxtskOiAMm+x+NDWD2pmsRCgbDLiHIU6hzIqlhAEqmuiaxHbzvG0pXs
-         +zx7lA8qrHvqDPc3Xz9n3z2b+wxNcetcKjm8Mf7GavGQ5YFxewIM+c1Wynf9acwEZGK7
-         fgjH996tPGrg1d/vzfXjV2cdPTolfIzH6DoIvMdbVwvsujVG7s8/KYKqIEKkk0I0n7dt
-         iI+lzM6B+Xj2Ki7aHClBKJOEFhwerHgwEyrPh/wBV/aA+QscG1DkFGmJWK2EOaQKHJ3Z
-         Ywog==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1735069023; x=1735673823; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6AhTF16+4GHJDcmn7BNcQctD3GIASyb4i+W0iJLxljo=;
+        b=Z49O2XUURnErs2dEhRsgmhdKUQaFGwQmgKbKK0Sf3/VkCd5PbNfzG0NDnVV/s/7adJ
+         0nRVtuT+uWZ5NIaskP+YEvvrauUC1fPWZk4juUYFMx+MCejP0stKJt00e8G+nfQiaqpj
+         8bEFIdp8cAAC04gOx+a+AmYT5ZEIVjO2JwpIPQSHBPORwU3VZP70guCVf4m89qXFcIjX
+         dp3fftNIEJoy10R/BMWqrb6g/YruoimGX6bGac8pJypL+sQ4U0v7nCJHura6WTQ+QHbS
+         j1KLZW/BxjJffpvGgDwM1bP6CTzg7sghPYoundRugyg81egwA4WGjhEmWDxtQ9F5AdXh
+         D4nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735068331; x=1735673131;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1735069023; x=1735673823;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0SqEo1aNWDrC5Ttbs/Jo6cIUBSX63aHeSqn5BsDyKIY=;
-        b=QBFDCIAyYVN1v1ASOPqkxKWwdcWjSjB8/++SOPMUNnXv38ZdBVYGW95Iigr4q2ufo9
-         HOo9cm/ngumtuGnDNQSkNiL22Kb/24thGk44cMeJpMWJadTTf9Kc94OxSJkHwLf3zytm
-         CLSc7J/MdE64bPQgIVF9h9LZVWbsp+JnxX/uHloSOts0v+CptiwWZjWegbrARMBC/+E4
-         wump1FJ2eEPrT47e3VxRAQp+FJBTl0hKLd2N2FDRmFIvSGqNCd6vfopJ2JdXHYtixS2g
-         ih8Z4Fwsjw4AKrs32/P4JFg5Bn73lkoBCQLH530QfUb1+zpwrL4S3qpFnf1NbyU1LNWx
-         nNqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUhw/SUOEZdoyA1TNnvAADBWwpSGN6KSr+lK6st6YnRHL3qXbWjNPH+tLd8es6OS+1ODFw2eag82D0LeyEIHb9p@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHArVIYx9a7pVkXAHNa3wCPzoXyfVTc0OKVBDLKaxfMoBiFv1p
-	IJF4EuqtUQeLtfSr9SOh9CcUWu5jq0QBO23C/s8MDbo/pBW8ohCYIv5nwC203WS7MFgFlxt7gqZ
-	lebjuFIYeRSzmPZ6zzb+uvm/RjPsL6aEY2lacMQ==
-X-Gm-Gg: ASbGncvakPa8mkoDbsv0tT/dfxUYGS8sL9q/9zNkuBQdjbcp0dufC4vLxMpml+s2QvL
-	3WJlY2EIRigGiFm05J2P8Fwc63qpbxRxOgSpK
-X-Google-Smtp-Source: AGHT+IG/8JqtB0M6AxWpHXOtz7rwR0de4QYIM5YnHHPVPKpBrtBcn3OBIgsu0A45P3fz13gnMOy91DF+DSqQUZfUxcc=
-X-Received: by 2002:a05:651c:1a0c:b0:302:3534:1fba with SMTP id
- 38308e7fff4ca-30468547e32mr59744411fa.17.1735068331233; Tue, 24 Dec 2024
- 11:25:31 -0800 (PST)
+        bh=6AhTF16+4GHJDcmn7BNcQctD3GIASyb4i+W0iJLxljo=;
+        b=uqzoRMfg44JljT+NDUAiibLwoWYRP8k+OntIVhRzfVVFX1yINpBF04EHpNR99ERuDh
+         ewhDXY3MSlzIvU16A4HHnSrrfd3ajDusbV/CGHHzyx07ad+xxQ8zD0zdxDdfREUSKl9s
+         +jIyFnl7aLpTfSq9XbhU/kBqX8dnB2yHSAtE95/fz+e4hSSKDvtpqtuLbfHEmRHcgD4+
+         ptMsF7Cgrggub5j87RmSuRvcQ1PHt2fb/t30pBIocpXlPodHYILUa8LbNAsTkaif6TwI
+         RGpr2gAw7/kxkBcPgUb6T+QsHdfgvfy3DUftXaA4zzSml0I3ZVuNFqjRILOJV5L8O7n/
+         /mnw==
+X-Gm-Message-State: AOJu0Yzv7weuXONzKBH1oVOIWCJiQVpxHjAMJgbIr3Qo+oHmydKU/fgG
+	Kq6vPVzhvE1gxgPCTOuwDqxS1TibnrX+fyCw7Cterz/8v7RZh/WQj3VF7JzMTUc=
+X-Gm-Gg: ASbGnctLx3YeBX27fmaYAfkaU23+gYPdvCebVcsl2HMd4FCrjnBHA91wYwzHTh4ti5Y
+	n5vpU6kTF5t7IsUHT+mJNweBKaR2H9Hps/WtdebUxtfhVdDS62ZK+k805jAy6izEgtMP2Tdu0Pi
+	2HO5z+MhjTGAjXKiAAIMbTNhwVn0q/oO73vxjaMj1njJgs6EeHlZUvLUd1Qhps9BVnopOltUizH
+	5Bhaaf8oPowwExSdjN4Dr3Ef2Hd5VmDctZW0qsICHUK6+xrCaiVygu4nvj3
+X-Google-Smtp-Source: AGHT+IEt0LJOQXRwGbvhcle4dDMlKJ6orsA2KJRSaLZN9Bii2DRSRLvn0wQ3gl/SeJ8Wdz74pHSfKQ==
+X-Received: by 2002:a05:6000:1fad:b0:385:ec89:2f07 with SMTP id ffacd0b85a97d-38a222001b1mr12297303f8f.32.1735069023273;
+        Tue, 24 Dec 2024 11:37:03 -0800 (PST)
+Received: from [127.0.1.1] ([2001:861:d40:ed60:c48a:f4b0:6773:1823])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436611ea4a7sm175691355e9.3.2024.12.24.11.37.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Dec 2024 11:37:02 -0800 (PST)
+From: Guillaume La Roque <glaroque@baylibre.com>
+Date: Tue, 24 Dec 2024 20:36:42 +0100
+Subject: [PATCH v4 1/2] irqchip/ti-sci-intr: add module build support
 MIME-Version: 1.0
-References: <2200295.irdbgypaU6@devpool47.emlix.com> <1811814.VLH7GnMWUR@devpool47.emlix.com>
-In-Reply-To: <1811814.VLH7GnMWUR@devpool47.emlix.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 24 Dec 2024 20:25:19 +0100
-Message-ID: <CACRpkdaAMu9WtD3a_XXGEwMfyFx6F-a263COna13eUWB0vqbcQ@mail.gmail.com>
-Subject: Re: [PATCH] arm32: simplify ARM_MMU_KEEP usage
-To: Rolf Eike Beer <eb@emlix.com>
-Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
-	Yuntao Liu <liuyuntao12@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20241224-timodules-v4-1-c5e010f58e2c@baylibre.com>
+References: <20241224-timodules-v4-0-c5e010f58e2c@baylibre.com>
+In-Reply-To: <20241224-timodules-v4-0-c5e010f58e2c@baylibre.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ vishalm@ti.com, Mattijs Korpershoek <mkorpershoek@baylibre.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Guillaume La Roque <glaroque@baylibre.com>, 
+ Nicolas Frayer <nfrayer@baylibre.com>
+X-Mailer: b4 0.14.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_112534_131583_7867E7EC 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20241224_113705_384701_B4C518F3 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +102,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024 at 1:13=E2=80=AFPM Rolf Eike Beer <eb@emlix.com> wrote=
-:
-> On Montag, 7. Oktober 2024 15:11:40 Mitteleurop=C3=A4ische Normalzeit Rol=
-f Eike
-> Beer wrote:
-> > All current users need to add a KEEP() around the argument so the value=
- is
-> > actually kept, which doesn't feel very natural and is prone to upcoming=
- bugs
-> > as the name suggests that this macro alone already keeps things. Move t=
-hat
-> > directly into the definition.
-> >
-> > Signed-off-by: Rolf Eike Beer <eb@emlix.com>
-> > ---
->
-> Ping?
+From: Nicolas Frayer <nfrayer@baylibre.com>
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Add module build support in Kconfig for the TI SCI interrupt router
+driver.This driver depends on TI sci firmware driver which are aready
+support module build.
 
-Please put the patch into Russell's patch tracker so he can apply it.
+Add MODULE_LICENSE which is mandatory to support module build.
 
-Yours,
-Linus Walleij
+Signed-off-by: Nicolas Frayer <nfrayer@baylibre.com>
+Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+---
+ arch/arm64/Kconfig.platforms      | 1 -
+ drivers/irqchip/Kconfig           | 3 ++-
+ drivers/irqchip/irq-ti-sci-intr.c | 1 +
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 370a9d2b6919..eda592ac9c8d 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -135,7 +135,6 @@ config ARCH_K3
+ 	select SOC_TI
+ 	select TI_MESSAGE_MANAGER
+ 	select TI_SCI_PROTOCOL
+-	select TI_SCI_INTR_IRQCHIP
+ 	select TI_SCI_INTA_IRQCHIP
+ 	select TI_K3_SOCINFO
+ 	help
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 9bee02db1643..1099691c45d5 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -534,8 +534,9 @@ config LS1X_IRQ
+ 	  Support for the Loongson-1 platform Interrupt Controller.
+ 
+ config TI_SCI_INTR_IRQCHIP
+-	bool
++	tristate "TI SCI INTR Interrupt Controller"
+ 	depends on TI_SCI_PROTOCOL
++	depends on ARCH_K3 || COMPILE_TEST
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	help
+ 	  This enables the irqchip driver support for K3 Interrupt router
+diff --git a/drivers/irqchip/irq-ti-sci-intr.c b/drivers/irqchip/irq-ti-sci-intr.c
+index c027cd9e4a69..b49a73106c69 100644
+--- a/drivers/irqchip/irq-ti-sci-intr.c
++++ b/drivers/irqchip/irq-ti-sci-intr.c
+@@ -303,3 +303,4 @@ module_platform_driver(ti_sci_intr_irq_domain_driver);
+ 
+ MODULE_AUTHOR("Lokesh Vutla <lokeshvutla@ticom>");
+ MODULE_DESCRIPTION("K3 Interrupt Router driver over TI SCI protocol");
++MODULE_LICENSE("GPL");
+
+-- 
+2.34.1
+
 
