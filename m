@@ -4,118 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CA2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 14:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC21E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 14:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/orwcOB1E1HvYxa1BXAp9gPRRBwgzc5weqloOohUHPE=; b=czxUAhb60/iAQO8hxgexEtZmtf
-	5lUcPENdxOO46XO9grYAMoO68XgA9egqTIQTLBFp8cc/r5BS810BTe+uMBEOdPAFlyW1gum5JImk1
-	NQlPoz3Pe88ZtpovGLSaODkm7GNzm0c+2ODGXLbFfNi3ydY7+0kgPNXlZXc55iCaFFBy1XRxkm1mb
-	+J3AuRF6m2VQadYXyB0qAPCJtvSb99BTyR3RsZcx/dvt7pQ29MKwxp+bVICrjVk/Cq6gLj3OD1nEJ
-	jpfaTfW9CJwiM6yiUFhT8Pe9FcTMD/i3uJNpcXQXdWuqoRHC8sHPLCr0FwtuM4Fa5eTnDYlSMDj8O
-	wa25w4FA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fJqXDK7LRZXJlrA7vQMLZbR9wNv56Gv8NF82RjcZv4Y=; b=1XlUdobrIg0GwSWog4EdjkWlx0
+	wkwZDXlbYHbEc9zBQNJ0eT0U40iqsKNjrxUp+O//8Z0tPPP2ag/+Y6CSHRESoIHe+ZoxLvfhuIElU
+	G3v2UxL3nN6VY2Sj827WcZlam1nQu+lz/WXsiWAs8SXS2on3xXyyT0K4IIXsoBDDgMtV4zmTvPdUJ
+	qh2ejX+9ZWNLZUOfGzl8aNl91RZNTzHTCG+vYO5tYvOD3Q4DyGEb/XBEary8j7ZO/VFJDaRvXH6mz
+	3rotItIEbHJabjdsnhdhxf5a5jR6W7M8X1tc2YzwlcRle3ZOUSBZ8igDxzR3YRtXMozIs+9fYh57h
+	8A4th/8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ5jx-0000000C823-2od8;
-	Tue, 24 Dec 2024 14:18:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tQ5wt-0000000C8xy-3XPf;
+	Tue, 24 Dec 2024 14:31:51 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ5iP-0000000C7s8-1NNG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 14:16:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 142395C2722;
-	Tue, 24 Dec 2024 14:16:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADF0C4CED0;
-	Tue, 24 Dec 2024 14:16:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735049812;
-	bh=nTU/BdSBgAVCv4Dh2x2LodKDjoS/hWzg4rkX6ehbQQc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PRG9s4N7SiHVRD+Ff8nhfSm4jwjXgqQxP0UD4QbDKHnoCT/KgqW+5iAFm5SLo+OvX
-	 qMcc7w+D6bF0nq2l+Aknm9yYa7fd7wg4B2KPAwd4YRiPteyS+39EZinIaGj+mzj3Bl
-	 XEovDUXzB1y0iKfbo6VPl60A+9/iiAG5AGPHioMV650lStWt70yBrKcrHPL2UIKIs9
-	 dQDphDxQ2TGLiltKVr8703Etp+G3Vmo4gbvCX74F7yRsIZyPhDHRkKKeBdQqgDwTPy
-	 L6T82n+PDFMpHOAIL6xmGlppzoOo1zTPzQze2QjFe3V6jghldusNMBTnhHB7K9XwFk
-	 sbVBuH6ereZHQ==
-Message-ID: <fa68df6a-f8dc-4701-8e02-fc90e3561544@kernel.org>
-Date: Tue, 24 Dec 2024 15:16:44 +0100
+	id 1tQ5vg-0000000C8l1-2L5E;
+	Tue, 24 Dec 2024 14:30:38 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aa6c0d1833eso1077287866b.1;
+        Tue, 24 Dec 2024 06:30:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1735050634; x=1735655434; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fJqXDK7LRZXJlrA7vQMLZbR9wNv56Gv8NF82RjcZv4Y=;
+        b=OigUigJgypopPhg2RATC7yktMMgt41ScSTt4cUD1Gc89JoCt55w7fSlsi66BdrrnOe
+         /Dk5LejJdwejW32a2Pktrf5wC8+SJjMB4Lm/LNEEtzUga7nTD7KPLEKJkrhwm9MNDZ9N
+         CY1gs7wI7iDMs1wjQ4NpaXGVj8/v5vypYitLke7K5ATZaic+VsR9K3C/0eDxEJuoyQ8J
+         MTzwOhg50GE9fHU5ex3InMig3zdmi09oSKhuPqefsDjlKJYp2aQ2/8pLDcRFSNS0Y6mz
+         Lxeh9O6/Fu3g5JU8QEVszAH70in0LIvbVzmhI6cwp7RIVrviZT7PXmHr650IFfuQX+xL
+         c1Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735050634; x=1735655434;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fJqXDK7LRZXJlrA7vQMLZbR9wNv56Gv8NF82RjcZv4Y=;
+        b=lG/B2YMrYuQEUOBEtG8W6in8NJ7uRcCiPdPjDFw6cXuWCnG7luQCLrFkkmpupwRlCt
+         BQvLDuCXub1Jr2ImKzqwFIzxRU03f/nTzEGRGMqRjoMEb4l23PAl+TEsBeNyTfyQsR+x
+         8poDPbJyOVt/s/Hw+HpHpM9sjO4EiynIS7uUvjSnOoPsPeqodXfZ/rhvpl6jf/tNu30W
+         y418OJXX9+jldEHtn3uI51yEsV5SqAFxv1tlSk468qbWFxlbHcHcysNgPvRjlqC744M4
+         7gRHsyeSQSHIRSpiqn3VyqO/aItK+k517nUdzq5FfQw01jY7yHXu16CWBNaS+glfRk2R
+         Nkig==
+X-Forwarded-Encrypted: i=1; AJvYcCUcItIYRkvGX9R0kjchR/DbZ1VRwza89vOF8Q1O6vJLbg/NGtCpFpRPcD5jcxKrhegqdO2TMMz76ua269df@lists.infradead.org, AJvYcCV7Kr9V8QmuzOM1AhYOoPeHecVK09jrejLN65yXuI9+rZAfLpP9DiWzIsZxGLxnHJr+JIXmbhnPLL0KbwYgIZ/09w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6nf+BPT0b0ELClFkqorqgD/b3zO/8DnsmDeZYYLFFzv5SNvbF
+	MyaY9OBEoXZFN5M/AcJY22YyTLRymDNT5+l5aOAF89gP5HwbHnPB
+X-Gm-Gg: ASbGncva+cZb9nMRk0ds//jwCl61A7NpFvmz/BAmQSxswYX7L6ZsYsbGGirLMVfvvFm
+	c0ovekoKQ2Wc38w1DMP6uh61uh1KEbdYqNkwHjEv+Gpk6/UZE/NvV8BAK4lgytZDjLHpg/Wg7iR
+	8nfCVFachxZebwDA539AJiM3zC1I6f+GnMPrTsZ1Ss1G8lkJjY8xWPk1GoUIeaorn9MmAYkm0wb
+	ui9W19Yx5dkDPEsGJa01rPuv0bZnOjv9YVYH3Y8X0rDckXpaogQE4Qe7+FWzpOc6UPY/7VtFpfm
+	6Hu9r+hB6uZujoxXpFwbtJxrzuq2SRCWMYLva3/81x2b6UXucYNRi/Roqv+UY775CZP5sUgKLV8
+	OjlxS/eU=
+X-Google-Smtp-Source: AGHT+IFNUBSWIPUOtbRSHMETUJeoCqYnm9NCyL9rlebTFDHnHcgX7dU4xV3LQ/s9gviB2dcq3z30jQ==
+X-Received: by 2002:a17:907:6091:b0:aab:ee4a:6788 with SMTP id a640c23a62f3a-aac34218829mr1934689166b.57.1735050633572;
+        Tue, 24 Dec 2024 06:30:33 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-a5d7-4700-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:a5d7:4700::e63])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aac0eae74e4sm658827166b.91.2024.12.24.06.30.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Dec 2024 06:30:32 -0800 (PST)
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: linux-iio@vger.kernel.org,
+	linux-amlogic@lists.infradead.org
+Cc: jic23@kernel.org,
+	lars@metafoo.de,
+	gnstark@salutedevices.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	neil.armstrong@linaro.org,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH v2 0/3] iio: adc: meson: a few improvements
+Date: Tue, 24 Dec 2024 15:29:38 +0100
+Message-ID: <20241224142941.97759-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] power: supply: max17042: add platform driver
- variant
-To: Dzmitry Sankouski <dsankouski@gmail.com>,
- Hans de Goede <hdegoede@redhat.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
- Purism Kernel Team <kernel@puri.sm>, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-msm@vger.kernel.org
-References: <20241223-b4-max17042-v5-0-e4e409723bce@gmail.com>
- <20241223-b4-max17042-v5-2-e4e409723bce@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20241223-b4-max17042-v5-2-e4e409723bce@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_061653_474083_1EC9DF5B 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20241224_063036_603737_D893A4DF 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,28 +100,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2024 14:30, Dzmitry Sankouski wrote:
-> Maxim PMICs may include fuel gauge with additional features, which is
-> out of single Linux power supply driver scope.
-> 
-> For example, in max77705 PMIC fuelgauge has additional registers,
-> like IIN_REG, VSYS_REG, ISYS_REG. Those needed to measure PMIC input
-> current, system voltage and current respectively. Those measurements
-> cannot be bound to any of fuelgauge properties.
-> 
-> The solution here add and option to use max17042 driver as a MFD
-> sub device, thus allowing any additional functionality be implemented as
-> another sub device. This will help to reduce code duplication in MFD
-> fuel gauge drivers.
-> 
+This series contains three improvements to the meson SAR ADC driver.
+None of them are meant to change the existing behavior. The goal is
+to make the driver code easier to read and understand.
+
+Changes since v1 at [0]:
+- drop the patch 2 "iio: adc: meson: consistently use bool/enum in
+  struct meson_sar_adc_param" for now as the purpose of the fields is
+  unfortunately still not clarified
+- add space to tab conversion from former patch 2 as a separate patch
+- Cc linux-iio (which was forgotton in v1)
 
 
-I did not perform a thorough review, but skimmed through the code. Looks
-fine.
+[0] https://lore.kernel.org/linux-arm-kernel/20240324140429.5484eb54@jic23-huawei/T/#m81d92c2192de1936646543543501d8a62527da8d
 
 
-Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
+Martin Blumenstingl (3):
+  iio: adc: meson: fix voltage reference selection field name typo
+  iio: adc: meson: use tabs instead of spaces for some REG11 bit fields
+  iio: adc: meson: simplify MESON_SAR_ADC_REG11 register access
 
-Best regards,
-Krzysztof
+ drivers/iio/adc/meson_saradc.c | 47 ++++++++++++----------------------
+ 1 file changed, 17 insertions(+), 30 deletions(-)
+
+-- 
+2.47.1
+
 
