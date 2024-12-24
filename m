@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7733CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 15:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE81E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 15:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lf6gcnM3g8lkBnLKp4mgwxo/DiXFRE58WlvSLJBWyqs=; b=CfMSgcNiIt50+krvX0ryk0RBu5
-	C9eKd9ben0Z8MxsQLGiN/P9cHCkShAxJ0XXypiuuDYiHayubGptyQiseyCbD3nkCmLpeoGNnRs8lN
-	MsHFyIOBbbIbWHXCASUpEmn0vK+D3EzMt5CYxpGfTJ4Xjzu2XEk8Brth/V2BchxlVdIm5UWlf9EJz
-	DmI2Rr+PAthnn7+Sci9UMcdthxTR4/PA5W5YEVT9OCA8+BrjTGEnMIEEIe6XZKvTfIQBnoTP17Mlm
-	1ZaDxSoijV39R5ElhxMOLcoi1/sQnYF1rEnPBxSPaHkNQa7hs+GhRrsGEbttje375vV/d7HnLh4NG
-	khIf2mdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IUthszcY7WUoYLW/EhDuHucO4Lic/IF30bEB9ypkHzU=; b=M8iYRGZECCtC29uMGwFjiGaSKJ
+	GSgVdO6n7eHiWxlrsP/m0QMah0vLc53HV2jxTvFPckDcZwquPTQwdCVciQcxl/DawiBx01DzIXq+R
+	jx+c6PnUeif9vERR39v3p0C8QUZ4//vufeSFAzA6Mq0ZSnbO8YXbIabmKylwczYH8tyt5vU/evQXo
+	TuLfeWjS1RF3gS6mDWRLq9VnW9rb1oaaPydGy2URvZsIv4yjmf4kFwoi79ombSHWiVeLrhIyNzZNa
+	SGMXe5p8BJydAWXGa5dBU7xNDDMJ3L1dvlj7US7h4AgdyO9ow3QHlN5MRxyENmjK59ATzRMwb2d73
+	kB4rqFpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ6kW-0000000CCn4-2RSL;
-	Tue, 24 Dec 2024 15:23:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tQ76i-0000000CEra-48LG;
+	Tue, 24 Dec 2024 15:46:04 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ6jJ-0000000CCf4-1O8t;
-	Tue, 24 Dec 2024 15:21:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 535B7A4136F;
-	Tue, 24 Dec 2024 15:20:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF058C4CED4;
-	Tue, 24 Dec 2024 15:21:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735053712;
-	bh=yvTwjcPFCXziWoCEwTpDuRjia4TlhnWYZlHomyZyD3U=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=syy2uPPSD382zy5qOsps++x06T4mrQH7DQIBBO/sJcSiGIwYwl0LX4FG4Jk4NRRuq
-	 5stayDWxJrqpP+rwCKcqsNS302Jgsb05Iez/tT6NFqwaffH8zXyLBjERgyGNmx+FYw
-	 SE0y2+eGeWwfUcLKMYk6hrEpZ7OiUJmz+0MoZHrJ9FXeVDBBpOTK1QBUspqxHWBYsO
-	 IPR3EgDaMDvZ1dtOMIMD3H89Br8eFfH6bLgCnR3Jd4VCU9htvgZ1TWcIR+D7+3Vb1S
-	 kSy9m13ctPRLD1a8OiATUublr0OaZDT31ofxM9aYheTeEb3UaMsbOjEJErMcXNAazo
-	 SOVNoCzMoteNQ==
-From: Vinod Koul <vkoul@kernel.org>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Phi-bang Nguyen <pnguyen@baylibre.com>, 
- Jacob Keller <jacob.e.keller@intel.com>, 
- Daniel Golle <daniel@makrotopia.org>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20241213083056.2596499-1-arnd@kernel.org>
-References: <20241213083056.2596499-1-arnd@kernel.org>
-Subject: Re: [PATCH] phy: mediatek: phy-mtk-hdmi: add regulator dependency
-Message-Id: <173505370834.939749.17404501549961037412.b4-ty@kernel.org>
-Date: Tue, 24 Dec 2024 20:51:48 +0530
+	id 1tQ75X-0000000CEie-13V4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Dec 2024 15:44:52 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e3a1cfeb711so4049121276.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 07:44:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735055089; x=1735659889; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=IUthszcY7WUoYLW/EhDuHucO4Lic/IF30bEB9ypkHzU=;
+        b=NVze5hdMv9jf/f5h1UYDgw0qAinwYp+lLT+V7GvDy0AKvL7fpeEsdL7PD4vcWyGwX5
+         JQTNmVIPsvJJBfPVhBSNydMhEMH8my0g6w1XGhFpx6YyiVZerTXZHwcdQRrg5NjxM8UJ
+         USIQ9VR2FWxhE4xjDHCMDekdoHJYU2wxVE4U6uee/bUO5WxJwIGY5kVRAC0GhkH2SXyB
+         q1/clbIsXRBtWsCb192oVTboZ8YgGVjo8Kqq66CaGqvgRIJX7l0+QTk3hfLcU2b662Qw
+         0w/lmA0d8eC7iswIQ/QkmnZtibgGkRodGWzxYxGxgvqMACkOdRgTM7CrPS2BLx7saw7v
+         /AWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735055089; x=1735659889;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IUthszcY7WUoYLW/EhDuHucO4Lic/IF30bEB9ypkHzU=;
+        b=BIvzvl8H3+KUTiNyYTmMdI/a+IJsfTc/1VxSYRsb4XZ3vnABvxLijYFgQ/FXwEZX/3
+         VymTOA4z1Gn4wXGkxelnWvbb5F1UIuEvKmfuQ916t89BWv14vZlL9yxM1IvGUcP7E76y
+         VVulB3dMPh+63FiraA2Wf8/LBSxOvup1EMyTDSmQiUHWCtvBWfGUn/Ja9/p0ps6LTbSz
+         AuLmH7cMxBeNrqlM8Osz8Dyf+95vRlX7+9N2yrSfy6PJ6B4s4Da3raOpoi6pNE+fWC/b
+         k8FvSr2uNrxGhJkwRJ3BbUi5xmntTtGFlAQXhvIcn+lfNbKnEM7+Df7Li3wWzFSWjPfd
+         8Hvg==
+X-Forwarded-Encrypted: i=1; AJvYcCWqtpCx2n1FlozcPQsUQ627Apy1bA0xKX89bo3dAflM7p5b8/3+FxYRiaU0rLFhBYJ+kf/ScXz1JW+nE5zbCWpo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVJN80eihqGD2AXaa4A78ILAvu1L8EDTHvanE2IjtMMVuBsXY/
+	ad04Aa/yCbPi3WOy6/fNKtA3OFU91JCYygUDPLYLadA8zvnbzKON0efRUQjz
+X-Gm-Gg: ASbGncsZHT393YslWm+07loA4SPGnE23BjPMfwg3x2ZRkgYWo1siqNNwKbFIO5pvT63
+	OpLU+C1VmUgjbOYsehdyK6RTEaYZvowWKj5SF6yTpRxngIPIbO1r9sLT6GStA3Ya0cZ/IN3ZHUU
+	rwNVEGKk2ZNHT3L7kfxxrueMHOaiwCc5BjwXcfloOOdb3zdY404GtYrJ/cpekTpFjO86zk+XhC7
+	s3zWkacYdi5sbhQwLLCXmVETWqUyHlcf4ZCMJej26ClQmk=
+X-Google-Smtp-Source: AGHT+IGS01EhQzLkGSG5QTs8kVJO38w9bONzDU7GkpYvQ0IQiouZvmnxnTA/0j1IS6e2jMjLsjqvdA==
+X-Received: by 2002:a05:690c:4d01:b0:6ef:529e:6049 with SMTP id 00721157ae682-6f3f80d5c86mr110219607b3.4.1735055089247;
+        Tue, 24 Dec 2024 07:44:49 -0800 (PST)
+Received: from halaneyt14s.local ([2600:1700:1ff0:d0e0::37])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f3e7836ee2sm28920277b3.98.2024.12.24.07.44.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Dec 2024 07:44:48 -0800 (PST)
+Date: Tue, 24 Dec 2024 09:44:46 -0600
+From: Andrew Halaney <ajhalaney@gmail.com>
+To: Enric Balletbo i Serra <eballetb@redhat.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Andrew Halaney <ahalaney@redhat.com>, Udit Kumar <u-kumar1@ti.com>, Beleswar Padhi <b-padhi@ti.com>
+Subject: Re: [PATCH v4 0/2] arm64: dts: ti: k3-j784s4: Mark tps659413
+Message-ID: <bamrgf5yiksx6rgxljgw5r3y4nkno2el7qigynynubehullurd@q2xptf5wndcx>
+References: <20241113-b4-j784s4-tps6594-bootph-v4-0-102ddaa1bdc6@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241113-b4-j784s4-tps6594-bootph-v4-0-102ddaa1bdc6@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_072153_446947_4F105F06 
-X-CRM114-Status: UNSURE (   5.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241224_074451_309057_D560D3DD 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +98,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 13 Dec 2024 09:30:51 +0100, Arnd Bergmann wrote:
-> The driver no longer builds when regulator support is unavailable:
+On Wed, Nov 13, 2024 at 10:15:15AM +0100, Enric Balletbo i Serra wrote:
+> This series marks tps659413's regulators as bootph-all in order for
+> the nodes (and parent nodes) to be accessible during MCU's u-boot SPL.
 > 
-> arm-linux-gnueabi-ld: drivers/phy/mediatek/phy-mtk-hdmi.o: in function `mtk_hdmi_phy_register_regulators':
-> phy-mtk-hdmi.c:(.text.unlikely+0x3e): undefined reference to `devm_regulator_register'
-> arm-linux-gnueabi-ld: drivers/phy/mediatek/phy-mtk-hdmi-mt8195.o: in function `mtk_hdmi_phy_pwr5v_is_enabled':
-> phy-mtk-hdmi-mt8195.c:(.text+0x326): undefined reference to `rdev_get_drvdata'
-> arm-linux-gnueabi-ld: drivers/phy/mediatek/phy-mtk-hdmi-mt8195.o: in function `mtk_hdmi_phy_pwr5v_disable':
-> phy-mtk-hdmi-mt8195.c:(.text+0x346): undefined reference to `rdev_get_drvdata'
-> arm-linux-gnueabi-ld: drivers/phy/mediatek/phy-mtk-hdmi-mt8195.o: in function `mtk_hdmi_phy_pwr5v_enable':
-> 
-> [...]
 
-Applied, thanks!
+Merry xmas eve, going through my queue and thought
+this could use a gentle ping :)
 
-[1/1] phy: mediatek: phy-mtk-hdmi: add regulator dependency
-      commit: 17194c2998d39ab366a2ecbc4d1f3281e00d6a05
-
-Best regards,
--- 
-~Vinod
-
-
+Seems to apply fine on next still and it would be
+nice to land the associated u-boot changes eventually
+to get the watchdog working!
 
