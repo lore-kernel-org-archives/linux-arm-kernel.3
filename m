@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CD0E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 11:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1904E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 11:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=03ARuXNN1LYC6Y56lO4Z0KutZ2KDzQyEBAbl6atBMq4=; b=xnVuUE6mG3cDxYw9VwpJTM/fab
-	IAr5HrbQ+bmIa6LXNGlMl278lSw4o/lE+Ee9PnQvi19L7wL9hlhdiaLAGK1JlRjuWdEFtERsC5Plk
-	kWxilcDp6nqQ2Fp71ERTBT+bEkUgDg1MBqhee8RjPkZ75hs6iK7+z8izO0rw+NvRkMXCbXpTXGD4a
-	gSML33UMIuoIKW5+hWQ9b9HLszHIsUulBtNPYaio6pxDogO1FtGKMIF9jJIZ8DS9pGDZ1rmXIbFRi
-	ROQOvaqGeYVVRPot51liefiwEFXxzZfEr3IKglpw09bSz5IgEI5b6hgMp1FbApFpHY6iH+JtuUoJv
-	7YQSZKRA==;
+	bh=t4dlcaH2CKa+SEeb9mNt7wLgohLESub7EKOQ+sS7kcQ=; b=re3X+Ydnlx822bWWIB4W9HG1Rn
+	BYRDbziVCVRONwqJbaf0CUBCnlCIgJCfGcvq5QOU2zPpVj0gf/33cdSrnv+wAlR1GjRddx3cIt1K9
+	Ou17N9jAaxZ930W/6H2Y6aCEYCrY9ZFgOfKLPAQsc6b2laCQ3xcVnt8M09EHeosxwlCefOjul3q8O
+	8SnUvj3lZyX/QdqqCjfE5eWCsXVMo1glpkKcbMu79ibuq298ATF6N5ikzUiJjeFBLsU63Fif5bfcf
+	/80peia7FXu+Usjh609cdAUI8oGann4V0NOOl3JZKQXaa0MPgTDmFTqijhehqrNZTm8O+BN6j4Zd/
+	nU3Nrf+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ39n-0000000Bs0J-061q;
-	Tue, 24 Dec 2024 11:32:59 +0000
+	id 1tQ3B4-0000000BsEw-2rlV;
+	Tue, 24 Dec 2024 11:34:18 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ38b-0000000Brs4-18QR;
-	Tue, 24 Dec 2024 11:31:46 +0000
+	id 1tQ39s-0000000Bs2J-2NNe;
+	Tue, 24 Dec 2024 11:33:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D76885C5EA1;
-	Tue, 24 Dec 2024 11:31:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 587BDC4CEDC;
-	Tue, 24 Dec 2024 11:31:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 471D15C5EB8;
+	Tue, 24 Dec 2024 11:32:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D94C4CEDE;
+	Tue, 24 Dec 2024 11:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735039904;
-	bh=03ARuXNN1LYC6Y56lO4Z0KutZ2KDzQyEBAbl6atBMq4=;
+	s=k20201202; t=1735039983;
+	bh=RDQAjNOAdC8KLqZh7kvEfTA7Zk449zVSYCNgtWtHXMk=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VhSxux5OjALWeX9mJiVMA1KmH3gKWvY+37UDf0WLo2/An4aMSHs12zWW9u5uYHdtC
-	 xsOMmh3QAC8HKxB0/zvHtlZILXhAhsEmzJGJceH9eczG1gLGXemamg6GBdW2OyrXcb
-	 P4JhHTHiuOcsma/8QJXTgqdMPbt3qeQYlwFD/WNt/MMUiNio4iYcVOUX9KhW5CN7wf
-	 AY8SyTfbZw35bw6LkY07y0CGwVaHljO9XtZwYjtbzqwckaG+cx3OXSWAVma3yXNV5p
-	 jvg9dPkTLOtjHIXpAoTNO4sLNJSKupH/um9bt7bQxbmG+NqCnZU7+LwB1+JoIevYhj
-	 HYtzM5wwESR/w==
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-218c8aca5f1so59556535ad.0;
-        Tue, 24 Dec 2024 03:31:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUMAv6PI9T0KArfFsm/OAkDQ+gZnQF8yMw7INYlDAWOXsgmpfQxl7oSo+MqhxkF0rr0kCUAsUDVmTKq49C/z2k=@lists.infradead.org, AJvYcCVi63L61yxqP+tV3Chekh/a55CdTD0+zDsksXUHZ/8oygYQ+wtSZHSDGaQ0PsmawJHfseEMMD8Ejm77jyCVbCbp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqBXgOSnlab46lFhjhdtHetRlWSUrpEItF4bhzzZ+xs7wt24MO
-	e1tSqp5pdjRpT9my2RIdnpTS2D22812M9fXjbHYd7EaDYN/C4TxCabmhR/GQJEBD/M1P7BdZp9Y
-	/z32UYmLV+cZVH06uuScfURp+Tw==
-X-Google-Smtp-Source: AGHT+IF0Z2A1ZpCpDpYV0wej1AcD2Tjd35Ya5woNBEnskBD/S7v7TPAd15rnS+ywO0yVT1bM1GTtN5IF4uyo/ZC9CPI=
-X-Received: by 2002:a17:903:234e:b0:216:46f4:7e3d with SMTP id
- d9443c01a7336-219e6e9fa68mr217969135ad.15.1735039903928; Tue, 24 Dec 2024
- 03:31:43 -0800 (PST)
+	b=OiLxFpAiR56DYABPtJKsbmozRm+7qCsdT+CsY94qwJ/LPZoK7rAcobBkuwSUPyENn
+	 eWPaliTjS9rjywxLZR/Ksss7Jb7IRyk9SmdRirifHnI5O72xs/OVJhaZWsCMEsYSdP
+	 5m3gcB3iFkLHR7v9yUxwArzoiYSUhIaDCjXlS9fTPPpIY3oFY3uJo9LgWbI/E00Vo3
+	 rBLKoXmVo92L5C0eyJUL2WF6Vmsx4eoS9cjY9ktCdXSVvWXPiewtCca60GT1Bnr7Y0
+	 k0CRRbLive4FS26PtlGoODE8I+FsHwrlAaXekMSlFTTZHpwHZ90vVBw+XXYwcdYu5m
+	 sf9St7Bk1ZXVw==
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-2f43da61ba9so4443110a91.2;
+        Tue, 24 Dec 2024 03:33:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVUvGMDM7K4iselEaFHWNuuMxwMrz8aQHnAT/OntwEoUFIGvqm1zDqVaGL4Lk2q87OyweACjllUPo0KH96iki8=@lists.infradead.org, AJvYcCXn4XZd0hgmtWXegR3oaZKRlbr9y9pYurqqu8rvXlaam3E1LR/5hVThFfxtDybZXk6VEVdNm1fDkT0EXJZqV3aG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrAvSFxino4tZckudpoj8cu9IRt/gip2lrhK1L/uZfI4A9VqRS
+	+ZViss4t45GlEXXeTnaWr6Lcz72xETYAP1elEU+a3C/7SJROVj1FVUbnWa97NnjppOqWCIVzxiv
+	y20whxx2QSJsjjwUYEjevgLwWWg==
+X-Google-Smtp-Source: AGHT+IGjk5EjNkRdP4/egK3HpkP0kg9EvE0XRDFf66/0s82KLvsrvKxQ79Fnquu0pdesdRpeuQ8UYTFz1+bWSm5jFBI=
+X-Received: by 2002:a17:90a:d64e:b0:2ee:a4f2:b311 with SMTP id
+ 98e67ed59e1d1-2f452dfae72mr26965676a91.8.1735039983380; Tue, 24 Dec 2024
+ 03:33:03 -0800 (PST)
 MIME-Version: 1.0
-References: <20241219181531.4282-1-jason-jh.lin@mediatek.com>
- <20241219181531.4282-2-jason-jh.lin@mediatek.com> <6cbe2f57-a63e-4993-938c-7696a869dc2f@collabora.com>
-In-Reply-To: <6cbe2f57-a63e-4993-938c-7696a869dc2f@collabora.com>
+References: <20241219181531.4282-1-jason-jh.lin@mediatek.com> <20241219181531.4282-3-jason-jh.lin@mediatek.com>
+In-Reply-To: <20241219181531.4282-3-jason-jh.lin@mediatek.com>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Tue, 24 Dec 2024 19:32:16 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_8mUutkz+q4-JggbmQRpNn6tukM_GuQ-0rwVRCoOd0mGw@mail.gmail.com>
-Message-ID: <CAAOTY_8mUutkz+q4-JggbmQRpNn6tukM_GuQ-0rwVRCoOd0mGw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] dt-bindings: display: mediatek: ovl: Add
- compatible strings for MT8188 MDP3
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Singo Chang <singo.chang@mediatek.com>, 
-	Nancy Lin <nancy.lin@mediatek.com>, Shawn Sung <shawn.sung@mediatek.com>, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
+Date: Tue, 24 Dec 2024 19:33:35 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_9dApKQ2C_rYBQ8eH7b17dmZntvAND+BYfgkRms1gEbmw@mail.gmail.com>
+Message-ID: <CAAOTY_9dApKQ2C_rYBQ8eH7b17dmZntvAND+BYfgkRms1gEbmw@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] dt-bindings: display: mediatek: ovl: Modify rules
+ for MT8195/MT8188
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Singo Chang <singo.chang@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, 
+	Shawn Sung <shawn.sung@mediatek.com>, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	Project_Global_Chrome_Upstream_Group@mediatek.com, 
 	Fei Shao <fshao@chromium.org>, Pin-yen Lin <treapking@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_033145_356737_5CC55486 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241224_033304_695369_FE25A7B6 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +90,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
-=BC
-2024=E5=B9=B412=E6=9C=8823=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=887:=
-12=E5=AF=AB=E9=81=93=EF=BC=9A
+Jason-JH.Lin <jason-jh.lin@mediatek.com> =E6=96=BC 2024=E5=B9=B412=E6=9C=88=
+20=E6=97=A5 =E9=80=B1=E4=BA=94 =E4=B8=8A=E5=8D=882:15=E5=AF=AB=E9=81=93=EF=
+=BC=9A
 >
-> Il 19/12/24 19:15, Jason-JH.Lin ha scritto:
-> > Add compatible strings for the MDP3 OVL hardware components in
-> > MediaTek's MT8188 SoC and it is compatible with the existing
-> > MT8195 MDP OVL components.
-> >
-> > Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
-> > Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@col=
-labora.com>
+> From: Hsiao Chien Sung <shawn.sung@mediatek.com>
 >
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
->
-> Waiting for an ack to take everything through the mediatek tree :-)
+> Modify rules for both MT8195 and MT8188.
+> Hardware capabilities include color formats and AFBC are
+> changed since MT8195, stop using the settings of MT8183.
 
 Acked-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
 
 >
-> Cheers,
-> Angelo
+> Acked-by: Rob Herring <robh@kernel.org>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: Hsiao Chien Sung <shawn.sung@mediatek.com>
+> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+> ---
+>  .../bindings/display/mediatek/mediatek,ovl.yaml          | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.=
+yaml
+> index 33542211507f..4f110635afb6 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yam=
+l
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yam=
+l
+> @@ -26,6 +26,7 @@ properties:
+>            - mediatek,mt8173-disp-ovl
+>            - mediatek,mt8183-disp-ovl
+>            - mediatek,mt8192-disp-ovl
+> +          - mediatek,mt8195-disp-ovl
+>            - mediatek,mt8195-mdp3-ovl
+>        - items:
+>            - enum:
+> @@ -36,16 +37,14 @@ properties:
+>            - enum:
+>                - mediatek,mt6795-disp-ovl
+>            - const: mediatek,mt8173-disp-ovl
+> -      - items:
+> -          - enum:
+> -              - mediatek,mt8188-disp-ovl
+> -              - mediatek,mt8195-disp-ovl
+> -          - const: mediatek,mt8183-disp-ovl
+>        - items:
+>            - enum:
+>                - mediatek,mt8186-disp-ovl
+>                - mediatek,mt8365-disp-ovl
+>            - const: mediatek,mt8192-disp-ovl
+> +      - items:
+> +          - const: mediatek,mt8188-disp-ovl
+> +          - const: mediatek,mt8195-disp-ovl
+>        - items:
+>            - const: mediatek,mt8188-mdp3-ovl
+>            - const: mediatek,mt8195-mdp3-ovl
+> --
+> 2.43.0
 >
 
