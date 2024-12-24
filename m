@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C36E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 11:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56580E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 12:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26RXT7+kDrUKYJZdXzBZ/W6d+4HGXX7y6cw0oURm71o=; b=bh0D7AoJqk4IZGYyIm2M3NNK9V
-	zkqMERypzDE7U1pgBf7CTR2bHxPzijMub/tlS+B1UWAe/9V6cr/vk+unnbLe4J+Oz6KjXTp4JjWFZ
-	ZZvQsnBvXzvZbB0ojmOCWMhw9ute+m6IJy6yFQPNTCdC15r8Kh8ENUPvGz5Vbr9BnO3/5QHoIdSj8
-	nWs2nuw9xLXVJdeU39iLoJJ/EehVtlLJHoei+WGdbRUAz1PNDhq93JikFH/Mkl1rhbyxzTeh2Wpzk
-	YOmU67J4SB7codDzXmuoAe9Zup6tFpdH6UZd7gDHRoLQ9NwyOk6/tjQvnTpjL84qmLkTgNySNJJWu
-	vRspLd5w==;
+	bh=ExatVwjz/cALIX/NY3zMC3cZmTKBL1fAABq9aj/0jns=; b=zVC4s9cN6+BcAMmlRgo3CMxVlg
+	qJghuDL2iaMcCTKODU49PwqQMUVrmO4jC4dFm4zINkn8LM4JGVCKnWJ0mWrWtc6XcsXp49kZRdFzc
+	O+z68e5z3x+8kfYO81p+ZVF4qE/Rb2zS9+z0TEEcipO7ky3uwT2GlNOh8x0g6Tq2WJuqvRjvRjVwt
+	KLn+bJbGFV3x53zg9e2pnPJVSyoZ1xeu5O5B0AFQOGur2iydU5PyONgfi8r8XxIwZAiJd5lkKmFRN
+	C7dk2yZZQsJl17PUuE944n9bpjZdhnW0X87ppFsh3270HhUF9ZwLxN3jeLBcXNHWs9aVFuqyOLzAm
+	ZVszjqmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ3JW-0000000Bt3S-0ShX;
-	Tue, 24 Dec 2024 11:43:02 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tQ3qU-0000000BviE-49kK;
+	Tue, 24 Dec 2024 12:17:06 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ3IJ-0000000BsyT-3swy
+	id 1tQ3pI-0000000BvYR-21PN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 11:41:49 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436249df846so34679455e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 03:41:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735040505; x=1735645305; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=26RXT7+kDrUKYJZdXzBZ/W6d+4HGXX7y6cw0oURm71o=;
-        b=rN3FZ9WzunArT6tkveQvX8Ox9OiUgeKlfl/5EMmpPVDhjSYgYhQgm7jtSyPSnlxxhB
-         86tkRoicazdw9clFzjC6f14yvkMxtgvUhvL4zQhYFvPZYiGPcNGy74dRthi3enKmwp7k
-         pBOqOeDLVurW/gepUma0c2bMyMMwyzeQH2j7PTqYTuFLGPNYJZxwzUMoRDGG+fWTjDfu
-         vlJnaLGdoU8A61dR1VMPRIxd4F3+wPlk/MescrnnBeN7iAIcTSBJZPwnJIXEYbQ5EwuR
-         wsW3bcn1TIdPTt8saYOXkblsbnQwEoaxm5wsoUGti9yvOrBPD+jA7vJQ7WEDgCRb+k8L
-         vDzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735040505; x=1735645305;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=26RXT7+kDrUKYJZdXzBZ/W6d+4HGXX7y6cw0oURm71o=;
-        b=eXk27aD8PC/eQh6VUoGu+spfT9XodwVd8tZIfEVlP96Cn6IeCfNVav9wzcUTRaIpgW
-         G4DqmLI8nUppQqkMX0+DWC9MxPFWpbURoA3eZD7RbQ+rKekrXpdqezujofylZXdjTTt8
-         dgqi1ESZ+aMmaw0PRanjR4Y1Tfq5opCi6/ARKjdtebjqT4XQcZdFfRB6auEzDSJOm0Z2
-         97YGAKnk3zpMBJB+z9NtWXyn/IGV1SitSeF6XR+/6h80IzEfykhgFHzUIpaFAbB5nVYH
-         oc2fJzRJT+mMHXSGVkUQcTL9Lnw3vq2VTnz9Vy0wT4X/Q2IQCScwaIXDSo35b4nSwn1a
-         epxg==
-X-Forwarded-Encrypted: i=1; AJvYcCVl023t+SXaWX0ocDcmtqzfFiEAHuECpbZ6/rKdYjH0d+hKXR/5aKifuajMacNLYUALC3yt6LcvqY/fTmJruR+P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjcrPhQAibmGUavV4yuGC8u1CPWbY8z0WVyA6BxTVsCM95cLfo
-	yOkawVdneFNC/s4OoyaIW84oLzytsoATIeuVaSOrXzT23E+8vXDMvAghCcOlh7M=
-X-Gm-Gg: ASbGncsdHrZVkGuB2G0A67D7NqFrbbMNIjT6IGhlvTWXshBTNoGaXCXYTGUmco4KIba
-	mUw+5RtFq99CbSihYNQuejOFNTxy5g28/MIuNc3x2iTcDtFfc1fBpMgITGHuC7XUe4JzNlL+Oda
-	X4kUKr3mCdfBQswjxXhXcOjZNlAqB9sue3tswVVHZdCI/xaC5wuaa3RbqQrwUM5Uadf6W5RViaX
-	iFBM3TYg51x1HzX4yW8VXBQNSj0Z8oYPPUAHlKkipQwyv0PFmxaNY0Oc8i4i+2Z4g==
-X-Google-Smtp-Source: AGHT+IHwyztgKd0z2u3jgbXnkAOo1ZLdfstQSQyPw5AjgaWpasVuihPk3mudTcZsXf30mhvcn9Eo+A==
-X-Received: by 2002:adf:8902:0:b0:38a:36a3:fec3 with SMTP id ffacd0b85a97d-38a36a3ff3fmr2368166f8f.0.1735040505005;
-        Tue, 24 Dec 2024 03:41:45 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.66.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c828a8dsm14055725f8f.2.2024.12.24.03.41.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Dec 2024 03:41:44 -0800 (PST)
-Message-ID: <79e11033-181a-418a-a56f-068b9ca62f56@linaro.org>
-Date: Tue, 24 Dec 2024 11:41:43 +0000
+	Tue, 24 Dec 2024 12:15:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YHYhR3MgXz22jdR;
+	Tue, 24 Dec 2024 20:13:43 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 65F061A0188;
+	Tue, 24 Dec 2024 20:15:42 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 24 Dec 2024 20:15:41 +0800
+CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<sudeep.holla@arm.com>, <tglx@linutronix.de>, <peterz@infradead.org>,
+	<mpe@ellerman.id.au>, <linux-arm-kernel@lists.infradead.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<pierre.gondois@arm.com>, <dietmar.eggemann@arm.com>,
+	<linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>, <xuwei5@huawei.com>,
+	<guohanjun@huawei.com>
+Subject: Re: [PATCH v10 1/4] cpu/SMT: Provide a default
+ topology_is_primary_thread()
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+References: <20241220075313.51502-1-yangyicong@huawei.com>
+ <20241220075313.51502-2-yangyicong@huawei.com>
+ <a5690fee-3019-f26c-8bad-1d95e388e877@huawei.com>
+ <20241223163448.00004354@huawei.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <0f487c7e-0a03-e0b8-8bf6-0eebfe582bad@huawei.com>
+Date: Tue, 24 Dec 2024 20:15:40 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] coresight: prevent deactivate active config while
- enable the config
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Mike Leach <mike.leach@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, nd@arm.com, suzuki.poulose@arm.com,
- alexander.shishkin@linux.intel.com
-References: <20241218084833.609876-1-yeoreum.yun@arm.com>
- <0efe4ef1-30f5-47f8-b818-79b4cfa0891f@linaro.org>
- <Z2qJMGPD8x2npFaX@e129823.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <Z2qJMGPD8x2npFaX@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20241223163448.00004354@huawei.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_034148_838245_70FD24D4 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20241224_041552_870453_970B0FB7 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +83,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 24/12/2024 10:13 am, Yeoreum Yun wrote:
-> Hi James.
->>> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
->>> index a70c1454b410..dfa7dcbaf25d 100644
->>> --- a/drivers/hwtracing/coresight/coresight-syscfg.c
->>> +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
->>> @@ -953,7 +953,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_desc *config_desc, bool acti
->>>    			cscfg_mgr->sysfs_active_config = cfg_hash;
->>>    	} else {
->>>    		/* disable if matching current value */
->>> -		if (cscfg_mgr->sysfs_active_config == cfg_hash) {
->>> +		if (cscfg_mgr->sysfs_active_config == cfg_hash &&
->>> +		    !atomic_read(&cscfg_mgr->sys_enable_cnt)) {
->>>    			_cscfg_deactivate_config(cfg_hash);
+On 2024/12/24 0:34, Jonathan Cameron wrote:
+> On Fri, 20 Dec 2024 15:59:27 +0800
+> Yicong Yang <yangyicong@huawei.com> wrote:
+> 
+>> On 2024/12/20 15:53, Yicong Yang wrote:
+>>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>
+>>> Currently if architectures want to support HOTPLUG_SMT they need to
+>>> provide a topology_is_primary_thread() telling the framework which
+>>> thread in the SMT cannot offline. However arm64 doesn't have a
+>>> restriction on which thread in the SMT cannot offline, a simplest
+>>> choice is that just make 1st thread as the "primary" thread. So
+>>> just make this as the default implementation in the framework and
+>>> let architectures like x86 that have special primary thread to
+>>> override this function (which they've already done).
+>>>
+>>> There's no need to provide a stub function if !CONFIG_SMP or
+>>> !CONFIG_HOTPLUG_SMP. In such case the testing CPU is already
+>>> the 1st CPU in the SMT so it's always the primary thread.
+>>>
+>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>>> ---
+>>> As questioned in v9 [1] whether this works on architectures not using
+>>> CONFIG_GENERIC_ARCH_TOPOLOGY, hacked on LoongArch VM and this also works.
+>>> Architectures should use this on their own situation.
+>>> [1] https://lore.kernel.org/linux-arm-kernel/427bd639-33c3-47e4-9e83-68c428eb1a7d@arm.com/
+>>>
+>>> [root@localhost smt]# uname -m
+>>> loongarch64
+>>> [root@localhost smt]# pwd
+>>> /sys/devices/system/cpu/smt
+>>> [root@localhost smt]# cat ../possible 
+>>> 0-3
+>>> [root@localhost smt]# cat ../online 
+>>> 0-3
+>>> [root@localhost smt]# cat control 
+>>> on
+>>> [root@localhost smt]# echo off > control 
+>>> [root@localhost smt]# cat control 
+>>> off
+>>> [root@localhost smt]# cat ../online 
+>>> 0,2
+>>> [root@localhost smt]# echo on > control 
+>>> [root@localhost smt]# cat control 
+>>> on
+>>> [root@localhost smt]# cat ../online 
+>>> 0-3  
 >>
->> So is sys_enable_cnt a global value? If a fix is needed doesn't it need to
->> be a per-config refcount?
+>> Tested with below code using the topology_is_primary_thread() introduced
+>> in this patch. Tested on an ACPI-based QEMU VM emulating SMT2.
+> Nice bit of testing.
+> 
+> Given it all seems fine. FWIW
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> (for original patch, not the longarch one!)
+
+thanks. certainly :)
+
+> 
 >>
->> Say you have two active configs, sys_enable_cnt is now 2, how do you disable
->> one without it always skipping here when the other config is enabled?
+>> Subject: [PATCH] LoongArch: Support HOTPLUG_SMT on ACPI-based system
+>>
+>> Support HOTPLUG_SMT on ACPI-based system using generic
+>> topology_is_primary_thread().
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  arch/loongarch/Kconfig       |  1 +
+>>  arch/loongarch/kernel/acpi.c | 26 ++++++++++++++++++++++++--
+>>  2 files changed, 25 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+>> index dae3a9104ca6..bed1b0640b97 100644
+>> --- a/arch/loongarch/Kconfig
+>> +++ b/arch/loongarch/Kconfig
+>> @@ -172,6 +172,7 @@ config LOONGARCH
+>>  	select HAVE_SYSCALL_TRACEPOINTS
+>>  	select HAVE_TIF_NOHZ
+>>  	select HAVE_VIRT_CPU_ACCOUNTING_GEN if !SMP
+>> +	select HOTPLUG_SMT if HOTPLUG_CPU
+>>  	select IRQ_FORCED_THREADING
+>>  	select IRQ_LOONGARCH_CPU
+>>  	select LOCK_MM_AND_FIND_VMA
+>> diff --git a/arch/loongarch/kernel/acpi.c b/arch/loongarch/kernel/acpi.c
+>> index 382a09a7152c..e642b0de57e7 100644
+>> --- a/arch/loongarch/kernel/acpi.c
+>> +++ b/arch/loongarch/kernel/acpi.c
+>> @@ -15,9 +15,11 @@
+>>  #include <linux/memblock.h>
+>>  #include <linux/of_fdt.h>
+>>  #include <linux/serial_core.h>
+>> +#include <linux/xarray.h>
+>>  #include <asm/io.h>
+>>  #include <asm/numa.h>
+>>  #include <asm/loongson.h>
+>> +#include <linux/cpu_smt.h>
+>>
+>>  int acpi_disabled;
+>>  EXPORT_SYMBOL(acpi_disabled);
+>> @@ -175,8 +177,12 @@ int pptt_enabled;
+>>
+>>  int __init parse_acpi_topology(void)
+>>  {
+>> +	int thread_num, max_smt_thread_num = 1;
+>> +	struct xarray core_threads;
+>>  	int cpu, topology_id;
+>> +	void *entry;
+>>
+>> +	xa_init(&core_threads);
+>>  	for_each_possible_cpu(cpu) {
+>>  		topology_id = find_acpi_cpu_topology(cpu, 0);
+>>  		if (topology_id < 0) {
+>> @@ -184,19 +190,35 @@ int __init parse_acpi_topology(void)
+>>  			return -ENOENT;
+>>  		}
+>>
+>> -		if (acpi_pptt_cpu_is_thread(cpu) <= 0)
+>> +		if (acpi_pptt_cpu_is_thread(cpu) <= 0) {
+>>  			cpu_data[cpu].core = topology_id;
+>> -		else {
+>> +		} else {
+>>  			topology_id = find_acpi_cpu_topology(cpu, 1);
+>>  			if (topology_id < 0)
+>>  				return -ENOENT;
+>>
+>>  			cpu_data[cpu].core = topology_id;
+>> +
+>> +			entry = xa_load(&core_threads, topology_id);
+>> +			if (!entry) {
+>> +				xa_store(&core_threads, topology_id,
+>> +					 xa_mk_value(1), GFP_KERNEL);
+>> +			} else {
+>> +				thread_num = xa_to_value(entry);
+>> +				thread_num++;
+>> +				xa_store(&core_threads, topology_id,
+>> +					 xa_mk_value(thread_num), GFP_KERNEL);
+>> +
+>> +				if (thread_num > max_smt_thread_num)
+>> +					max_smt_thread_num = thread_num;
+>> +			}
+>>  		}
+>>  	}
+>>
+>>  	pptt_enabled = 1;
+>>
+>> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+>> +	xa_destroy(&core_threads);
+>>  	return 0;
+>>  }
+>>
 > 
-> Sorry to miss this one!.
-> Because when one configuration is enabled,
-> cscfg_mgr->sysfs_active_config becomes !NULL, so it wouldn't happen
-> there is no two activate configurations. so sys_enable_cnt wouldn't be
-> 2.
+> .
 > 
-> 
-> 
-
-Maybe "sys_enabled" is a better name then. Count implies that it can be 
-more than one. And the doc could be updated to say it's only ever 0 or 1.
-
-But what about my other point about enabled always being a subset of 
-active? Can we not change "sys_active_cnt" to a more generic "refcount", 
-then both activation and enabling steps increment that same refcount, 
-because they are both technically users of the config. Then you can 
-solve the problem without adding another separate counter. I think 
-that's potentially easier to understand.
-
-Although the easiest is just locking every function with the mutex (or a 
-spinlock if it also needs to be used from Perf). Obviously all these 
-atomics are harder to get right than that, and this isn't performance 
-sensitive in any way.
-
-
-
 
