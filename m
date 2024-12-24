@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77491E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 10:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5402E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 10:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmWclsqjoRWfqPrE0WD8+jPpX9G+TTRqhb+EOtWuV1I=; b=Gdin0PRK9pmBL/BQXv7jLfedla
-	StJN1ZgdkqmEc0P6WL8Td12Gk1hfHpkl11MdoviGtzJy9b8K9cuD2xzcWRQDMmvdxEAIdwrwQhN6J
-	TVutO5WgTvn5ZUSwqmN5O+nRFoMUrVhEN7c9l6DEJ4kwIrbozGuFViUnwXgnAAwQUA6e48y0jIXI8
-	irDCi6shKOov57ezqjUtNkiYlK4BdiDqsCVZY1o4qINPbB4WkQS8pGW+phXwu95E2QCrBkEF4XGGf
-	FfxoL9Wj52CQNHV/haklsBGaD51IzHPiptCK72eDjV8AD7RtRXvGkbSmbxjLbygM+UmGJYLO4Jsde
-	QHCnD7tg==;
+	bh=r1j+BIbB70BfH6p+H3D0C/f2KwCH22I9fsAuqIEouAI=; b=DCtVGmB6qKiIeHtwIXvw9RG9TW
+	ZT9whbOyvtwY9rRKOwnT/c+/q4qQ2ZQTNnoY4wE5EjrOyJx+snPvTtKf9z4yqtJf7lJsN2JCFieD4
+	4LjIkehJb47tgALILdaPo9BElumRC1N+N2JWqRsqqnitD9o8EdrATMbSKQUI6HpdTcZVbaYQK0/zQ
+	B3lSKFgzR+PX19+BOUhnObbCepnr2obSPPQTMzbD2MTLMj+DEcBuji+3pg9L7p/h5wtV2tlHWZ4UU
+	I2CzjSG4hZ0lAavldEROF/Md6dajSMh3LiC3TPll02VOcAaX2MdgeD9uoPT5gU9OSYTKHstqQ5F8o
+	iEnR1tMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ2Ur-0000000BoLC-1ERz;
-	Tue, 24 Dec 2024 10:50:41 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tQ2W0-0000000BobG-3qTW;
+	Tue, 24 Dec 2024 10:51:52 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ2P8-0000000BnCb-39xX
+	id 1tQ2PC-0000000BnEa-3QnI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 10:44:47 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-385dece873cso1929637f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 02:44:46 -0800 (PST)
+	Tue, 24 Dec 2024 10:44:52 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-385d7f19f20so2383326f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 02:44:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735037085; x=1735641885; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735037089; x=1735641889; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wmWclsqjoRWfqPrE0WD8+jPpX9G+TTRqhb+EOtWuV1I=;
-        b=OBN9a6f3s+BOMrUs3Q4xATvxC5HIGeJq7ECprL3X68//eBroUo0LZ7i3uq2AnkWL9D
-         JZFbUBnF662bP4hU5K2aj4PFm0BxjxbHysfQ48mKEuAnDRwuTvf7gDdlUClbxcvEkJrx
-         Bi8zxOHAeZQEsJKmMMr6tfcRTrDBVN+g7tRpkKa6Q182o4+UlMiK3KD8+GjKQhDt1Uvh
-         jHy8I18zcDxRIpdZ7TX0dJUQLP076Mq1Vlfl6HXM95nNGbhNI+rTN+UiAwJhnyQc0D2z
-         A4JMPxcCNibvhqH4fotDvMZzSoEgpgrspikfdTpZWgGhnHS93vsY1CpqtsP15BJWOFpj
-         0OWQ==
+        bh=r1j+BIbB70BfH6p+H3D0C/f2KwCH22I9fsAuqIEouAI=;
+        b=rzztVL5A5LQ4RFlKbPgOffcretxYTbblJmisyg1Iq0GK/IIGi/zcSKenr4V8a7y7N4
+         Jn+Zz8joxrPJ2vBNhYvbWas0K31Zaov1XPn+bM6TJxLekyA7NJiFP2iRr5gI6e1/4Scu
+         dlGK1FhGkhGnZa1Z9GVn08jH8qnTlMxeSp+vvbZsd+32XbZ0xvBC5IEBo98Ze3+ZBKdL
+         srxicBgx+GTyFl0oy4kChSEqhHPHE6HGqjRefNpriXLy2D4SrKJs0lC0qJs6SVIH+vAi
+         j4hZJfId2TPqUzVXxbkxK1+dY9zqS/iqAF2/xzJoXhTyzDJKXPJFWPcB2ODy9vekdfu7
+         9Muw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735037085; x=1735641885;
+        d=1e100.net; s=20230601; t=1735037089; x=1735641889;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wmWclsqjoRWfqPrE0WD8+jPpX9G+TTRqhb+EOtWuV1I=;
-        b=mllMqS4TwbyjmKN4SliN+21L1xfyGBtK4RxloXWQkhQA9IAkD498xhtFhLu0+RWTq+
-         nY6EurGVht3H5dJ0WGa1dhbMjAeyParBAOOGTjX01Vou2Pe3g+RPb/wZm/keLThPNSY2
-         QQOwIHxN9PSK1XjOG0chIi8qZtPXDSDegpYtd02i9AijkBxu29qVJK3ip8cKsmA45qHf
-         n0YwiM4hYPrNAh+L7/3WfS6E/QbtqDrxSKki8JvSd/0to308CfE/+aJHoxIJO18/VUmu
-         tHUxl2UdyHS0wua1ljPJmJoGuAMdMQNDpe1gkdFAQ+V42kyWrLe0jZYxZZLxNQnV2pnP
-         MbVg==
-X-Gm-Message-State: AOJu0Yydnt1267l6hJn22KXzqZUmYQOlFftigd9vnARIeE2r9tto2Hu9
-	qZsgqkCtySGaMzupfzztJ2GQVx09l0e9ouMvKKPCoajbbtYXmVQAM+b2T+RQfjLG0tE879pG7uM
-	v
-X-Gm-Gg: ASbGncuY9L3Xc8ELmD7PYUrzhySoR8B2EpzSCljSRy4UbGl7NhbW0H+WvdIQl8XiJNY
-	qKn07nlIYgonYe8lV9Hrpifyy6rNzJqTVDCUGF1KIkpwHi8jwUsggfhYrxIfLdU6FXFA3fXBT7b
-	/ozK2wzFOLQqdThpgf2pn40vsrny67qUJAkep7G++c84ARl7UPWbPPaHP/JWouspNEjHSa6h16z
-	meAH2IZStDfpbysD6/JeW8Rwn9vFSaoXbs4Gtm4G2OWAqLBhMSwV6Q=
-X-Google-Smtp-Source: AGHT+IHaBv3kwmR23DfMiPkW/ULQn6dCN6owu8F2AwgaW5A6C+1/Tsu2gsMP3xZT9UiCfrjTvu25qA==
-X-Received: by 2002:a05:6000:490e:b0:385:fc97:9c63 with SMTP id ffacd0b85a97d-38a221f16d6mr14526536f8f.9.1735037085301;
-        Tue, 24 Dec 2024 02:44:45 -0800 (PST)
+        bh=r1j+BIbB70BfH6p+H3D0C/f2KwCH22I9fsAuqIEouAI=;
+        b=rQWunSDJZ1yy4oQPJNougxajvqyA2Nz1LVs6yHZpV2dn+b5AxkcpNPTDPTil0Rv0/N
+         gmPZKV/cJ+DpQY3KKaCAA7KVkinSZeuaNAEomkXvcE8nz+AdVTgKhcsriqXMBd9fIU5g
+         IG2fUs3g2LqtF0Hol4PuQ8sj7JIiX8yKPO28ZL5yYfcZbN352h3mEBrvnff32+W+hfBc
+         k1pKVAeQeuQ1AAeSpWkdWuKKM7buO+m2LVdwOcmvCYvUYlczhgNYoI79fvrh5hcJ2CqZ
+         ThgxfufMsA+n+37akHDWn/D54jn6O6/E7/f7U5jTfsEYDeCMnPyuFho8WLLP61IyS7G6
+         7pDQ==
+X-Gm-Message-State: AOJu0Yw2J8zajj9EfYZZ7iBRBsbrp489PnyUSSBf/rhlRUIwwPLhX6VP
+	oaKO1cYuBcktJdI49zDO+Wi93rGpMy8ftNta/YBdqsADYKamNqTV8QU02QDrYz77wG5RUVHrDZe
+	q
+X-Gm-Gg: ASbGncs4XjZxupo4IG7sBH0e5MrPc21ercAY2GN/V3PtGXL4E8AeGRPW3xdPP7+vzhD
+	PQgOU828J6LgkNwP61wcM2tI2/3ZtNZFALC7YK5eGo+bc1GMl5RSTaVxKXYSaz4m1/DCNavJ4fI
+	Kmdz+/+rjRrIQXVrPEjPYaitwsDJ/ZhXYoAG803FOcJPCj4zZ+oCIvCZjPqxRiV7z03jU375S/P
+	6D/53IyIZQnzTeCk+Bw33fN/gYIBhClx3z5WiD7ACV0Pw7PLIFEoJk=
+X-Google-Smtp-Source: AGHT+IH+dfpgTuFz+C7tBaq/J7Dc+pyrOC6X4KjPHRcroZadLExb0vNcsLRnA0H4zbAjsKClBUrHAA==
+X-Received: by 2002:a5d:64ad:0:b0:385:e67d:9e0 with SMTP id ffacd0b85a97d-38a221ffe1bmr13551020f8f.29.1735037089043;
+        Tue, 24 Dec 2024 02:44:49 -0800 (PST)
 Received: from pop-os.. ([145.224.66.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c847714sm13938184f8f.54.2024.12.24.02.44.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c847714sm13938184f8f.54.2024.12.24.02.44.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Dec 2024 02:44:44 -0800 (PST)
+        Tue, 24 Dec 2024 02:44:48 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
@@ -90,17 +90,17 @@ Cc: robh@kernel.org,
 	Graham Woodward <graham.woodward@arm.com>,
 	linux-kernel@vger.kernel.org,
 	bpf@vger.kernel.org
-Subject: [PATCH v2 3/5] perf tool: arm-spe: Don't allocate buffer or tracking event in discard mode
-Date: Tue, 24 Dec 2024 10:44:10 +0000
-Message-Id: <20241224104414.179365-4-james.clark@linaro.org>
+Subject: [PATCH v2 4/5] perf test: arm_spe: Add test for discard mode
+Date: Tue, 24 Dec 2024 10:44:11 +0000
+Message-Id: <20241224104414.179365-5-james.clark@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241224104414.179365-1-james.clark@linaro.org>
 References: <20241224104414.179365-1-james.clark@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_024446_803833_0D826A98 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20241224_024450_867271_13F882AC 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,47 +115,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The buffer will never be written to so don't bother allocating it. The
-tracking event is also not required.
+Add a test that checks that there were no AUX or AUXTRACE events
+recorded when discard mode is used.
 
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm64/util/arm-spe.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ tools/perf/tests/shell/test_arm_spe.sh | 30 ++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-index 1b543855f206..4301181b8e45 100644
---- a/tools/perf/arch/arm64/util/arm-spe.c
-+++ b/tools/perf/arch/arm64/util/arm-spe.c
-@@ -376,7 +376,7 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
- 			container_of(itr, struct arm_spe_recording, itr);
- 	struct evsel *evsel, *tmp;
- 	struct perf_cpu_map *cpus = evlist->core.user_requested_cpus;
--
-+	bool discard = false;
- 	int err;
+diff --git a/tools/perf/tests/shell/test_arm_spe.sh b/tools/perf/tests/shell/test_arm_spe.sh
+index 3258368634f7..a69aab70dd8a 100755
+--- a/tools/perf/tests/shell/test_arm_spe.sh
++++ b/tools/perf/tests/shell/test_arm_spe.sh
+@@ -107,7 +107,37 @@ arm_spe_system_wide_test() {
+ 	arm_spe_report "SPE system-wide testing" $err
+ }
  
- 	sper->evlist = evlist;
-@@ -396,10 +396,17 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
- 		return 0;
- 
- 	evlist__for_each_entry_safe(evlist, tmp, evsel) {
--		if (evsel__is_aux_event(evsel))
-+		if (evsel__is_aux_event(evsel)) {
- 			arm_spe_setup_evsel(evsel, cpus);
-+			if (evsel->core.attr.config &
-+			    perf_pmu__format_bits(evsel->pmu, "discard"))
-+				discard = true;
-+		}
- 	}
- 
-+	if (discard)
-+		return 0;
++arm_spe_discard_test() {
++	echo "SPE discard mode"
 +
- 	err = arm_spe_setup_aux_buffer(opts);
- 	if (err)
- 		return err;
++	for f in /sys/bus/event_source/devices/arm_spe_*; do
++		if [ -e "$f/format/discard" ]; then
++			cpu=$(cut -c -1 "$f/cpumask")
++			break
++		fi
++	done
++
++	if [ -z $cpu ]; then
++		arm_spe_report "SPE discard mode not present" 2
++		return
++	fi
++
++	# Test can use wildcard SPE instance and Perf will only open the event
++	# on instances that have that format flag. But make sure the target
++	# runs on an instance with discard mode otherwise we're not testing
++	# anything.
++	perf record -o ${perfdata} -e arm_spe/discard/ -N -B --no-bpf-event \
++		-- taskset --cpu-list $cpu true
++
++	if perf report -i ${perfdata} --stats | grep 'AUX events\|AUXTRACE events'; then
++		arm_spe_report "SPE discard mode found unexpected data" 1
++	else
++		arm_spe_report "SPE discard mode" 0
++	fi
++}
++
+ arm_spe_snapshot_test
+ arm_spe_system_wide_test
++arm_spe_discard_test
+ 
+ exit $glb_err
 -- 
 2.34.1
 
