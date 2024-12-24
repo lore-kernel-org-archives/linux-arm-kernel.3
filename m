@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593A2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A619E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rqjl308OuNRMbWugA4jzjOfqs1qN28qDlrGRi1lmlOA=; b=cr/FynV2HTJQTfwAKHQQfj47mA
-	wMnGFUjSF8asCdFQzDj6Mkf2H1rYV3O9X7x2DU6F528ZauTRLHCl3/g7Xxy8QlFaBg/CH1gedS44G
-	08F3UGNVWLj6+hY5+HYJaY3R3QsSPaHzDrWteTIuwtkMamATSQlHJ9gfHnI//QKWIRAs3MRKATcAa
-	6vONkbG6g5Cvxy7bLzPv9ZKxq6umpEwn9jHFw92/eiuUucFOLbviojxqu5lPjveM9Xtm9+azZ9wT/
-	tU5DhivRDF1mjHE4VvOKlasVmgRpPkdjGLxCYqTOKCoxriM5J6NkCbEiO49XAt4BAMHVAEt57xhT7
-	nekQ4ShA==;
+	bh=z0IZpYux0PQ21H1xi7uGwUCeGViaLFCCBjvWm749ZIg=; b=Cfxj9Irmm9tYHn6jEE4kpTIGAK
+	gDB68KKEruInkZzWX8vuZrviuMMtp4EIZ7jeShoNZCBoqLrufFnc3DQ4x6sj1POVK6ECYWyTf014v
+	ZcksscxjaK3b8SoL91K5hKCRHvFKEHAJT7T2xRqWawPz1BhCA5abgm2xFvVcBLaftbgMuoZ6hDtJM
+	EVIluvhSxdEhTLtxBvv247IEkAUJodnhQDjCnBpoGwMpAlopiLcimRPinR1H0zIZ2fH9uCXgN5c2N
+	UU9lm7SdIGj7L6C8nWUtjDKL6Ryd86Hy3LU4KLZkzJL853OiTONNj4TYSnpP/peaNJTGtkapRA0Qm
+	PNbQsj/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ0pF-0000000BYHR-1gTc;
-	Tue, 24 Dec 2024 09:03:37 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1tQ0qi-0000000BYVW-1ipA;
+	Tue, 24 Dec 2024 09:05:08 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ0o3-0000000BYCG-3mts
+	id 1tQ0pW-0000000BYLS-3kMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 24 Dec 2024 09:02:25 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aab73e995b5so96025266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 01:02:23 -0800 (PST)
+	Tue, 24 Dec 2024 09:03:56 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aa6647a7556so99161466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 01:03:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735030942; x=1735635742; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735031033; x=1735635833; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=rqjl308OuNRMbWugA4jzjOfqs1qN28qDlrGRi1lmlOA=;
-        b=lD7RAGBsqzHiXT7rME93K46XkFWYfAwvw8O/PDqTb++KuWCkV4/vpVl7PzAbn9iQ2V
-         r/fG0IUxN7WtGIXEbbxUqsFIbLjYxCWQnIJw7EVkkb0ZYqYsHVAC5ShEUlu0V/f9KHnN
-         qEC2FhHkSaey8seLYTyO2HVsBWMkAyhFR963/uxyrhnt0gKtSSBC8lpQxnq7m53slPSj
-         kH7kGE3qfKljRFWvjOOE+9cEezEZzEmAG2rvmew1YROGsPsrTH4o4FIlA5PGHNogot8S
-         JV2rLMqG3K4z72g87LPmIyI3YqGiqhQrJjXJG7X694Mw/RlpmJgyGg4LZu2vjJJQ2EeY
-         j9XA==
+        bh=z0IZpYux0PQ21H1xi7uGwUCeGViaLFCCBjvWm749ZIg=;
+        b=CCFI+i6iT7/QZHIB873SN7JOeTzu57Sgs+vQYaKLWPOeUgH5itOE/IR/+/2ptUTXmi
+         apxqdh6ngMle4At/d7Tx7iIHahpitfyBE47WBtXRCznjHzqg0OPEClP9U8Vle6VKAScc
+         xNGdHQTi6YUv5mFe2PN5puYGbPRqzrvMRursJ5T6h88e6PdsJXt9Vcl9wBqEXivYSWu/
+         b27sqQ3ZqB/XYUWqsKT9eo9VC889h1TxPgOJjo0x6yzCJnpeKdIUkDuK6mqsdotSilui
+         Snb4VozpxhBopLmGq4uDtdBG0GVd3ibjKjkaAPnAMGm/RGCc3ROg55X1PA74ettxKeU5
+         SAcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735030942; x=1735635742;
+        d=1e100.net; s=20230601; t=1735031033; x=1735635833;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rqjl308OuNRMbWugA4jzjOfqs1qN28qDlrGRi1lmlOA=;
-        b=Ef0ru6WmxwPtYQ/poEF7V1wCfPTHv8mhfPecfRQ7UxhtFznLHl0qUnote2uhp/uRL0
-         wru4fSLC3vXCFGYYQW5A8tcFrt2s541HsAzssr6tuL6O9bct2w+/UcfoSsD+UCGh3aFA
-         iUcEhwk8ZzEXnth01EantwErghu84bTymjYDNZWk436pD2Tre+kg28X+VsXC8kxVC9rD
-         QVm4UaWLuFe+bmaFOpil2AU1yhz5XGLyBHdwynRBPlK/mQzNyHYSbVuPeFO95ea88n2m
-         14vRzYiZSYjFoozKGEal9OWlfvs2Cwl/ftPFiwqbfywBr7P+vhqgQi6jl0fAkcK+A6xn
-         rv9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXfVorM6a0wZ4RNUPo4+tvxafWqSxGW9d2pFVr2Eg/ETtNgPaqx3y1JzrGkaRLvLe5bjU7dpTWn2SBGznsPmpPT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+DWNFX8Q23eUmIxHTtUXgyD1RVgNLWYQa0xddzj07G0SapKce
-	gGYo5k/m0BZBCW2ttPiGld90ZJP3rhUxQjNg4zNOTNMafbTlG39yJRHq2QvDw3E=
-X-Gm-Gg: ASbGnctEp93doHUkEak4NcNn8CEuzsc3/RTA6PoY/mvN1YUnUptrB8XCLZmoSl9zoJ3
-	Ga3GHSg9MQQnG07UKqf7p3shLFPuyikQJuEZdYlXiHrM++C540wJEPvfL7/nBqHa3YFMsQDP3hc
-	UUHDn8tw2NNDzEsqzquOItbfaz+5HWy7KsHxV5BN6fDcVO2w8DGwK0x7NU/WxGxwRVFXx5A1vGg
-	V1jRC4qgiwe8nCU1is7lLp5EoRrK6FajL2sFILWPNJlAsgSiJNRTFFhrSUE3wk21e4dbqfQlEdY
-	Gm4wqPZo8NvghD4oe0xp/d+m1Vmclur677s=
-X-Google-Smtp-Source: AGHT+IGykTi7JHcE7u3RIbhw9nHMoGJBAN6VL/xBiSZ3UlC0+Pn4XzS4kF3dFtZfJ0nP0IfLmC2iOA==
-X-Received: by 2002:a17:907:2683:b0:a9a:8216:2f4d with SMTP id a640c23a62f3a-aac2714a5ecmr510447666b.3.1735030941539;
-        Tue, 24 Dec 2024 01:02:21 -0800 (PST)
+        bh=z0IZpYux0PQ21H1xi7uGwUCeGViaLFCCBjvWm749ZIg=;
+        b=b6h6h1GwV8YHcpqadYaXWC3GYhjjoH8RZhJF6i/f7EKUH2Znrs86py6cg9ALRwckSR
+         6NsmCpV7+wCQrJKItnQvSnkOHjSGo37tCmgA2SQyhHbd+vBRkxkFBn1N+YivuWiUHso0
+         WtfqW0EC+mJd1SEoyDPQRawszcEU0Q0gSVTOsncVUe8SDr0oxhC/cAtfBvUx5H4XKJWE
+         w/pOZaIQpft7bhZkV3vMxNQzZNFM/aWw0vSjlCMmpvf3LnbpXCxDNtgt01FnupwVkNCK
+         embxKoDNX5L1UfMFYT8IY1vjsG8tPbX/jfk41jO1DSrsqf5RkAIJBLnbDobbaHVbvoUQ
+         la6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWMIST1wtXkfv/vzbO+FeznXLs+Nh9AkR3Jh8nmD4NfNMPUxAu9pika9+PgWUqVwv1sdwJKYC9puEktQV8Bdndk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT3jBe9ZWP1rcV+2JVCWl3x8t+B54XPDy7a8QEZnLFwEIk96Ss
+	r3vLyKBKBAPsbRNdIfBuaoWaKADCEP6D3hUQpz9pcxXT4qS1DESr2M50ap+6sxY=
+X-Gm-Gg: ASbGncsM3sCDAmFIhtpgCrKO2kUM1nvmJ7XhU2Qp0XJgDZ2In+2EJgpcEpcrG1MtMTU
+	ogZzI+cw0APuP+y/F6zIuJIIKbUA2H/67sUII0AJw9SF7Y0Zee6soK61N+tm0JZxXntkW/9jydp
+	mosGGqUcSw5P98jPclOEIMvbtTwb+S0E6wXmwbacVskErnLlU94jCgzjvbHcY3bVxxIknoj3l09
+	thhUHDekec2EWwyQ8htiIy3ho71CEX0p2HJyMBo8hkWxHYAJhJIeSRkrug8B632mlCyzJohEKGS
+	9voZyBAslqSBRtc1mULuUyAypRTxx+7FRmA=
+X-Google-Smtp-Source: AGHT+IGww99qrBBuovvVWKdRBOFSplKcqorPH8QQi3151rHPzuzT+tIstiqWmsZPCGiK7Ga5fpjAnw==
+X-Received: by 2002:a17:907:9621:b0:aa6:a9a4:7bd6 with SMTP id a640c23a62f3a-aac2adb6962mr589868266b.6.1735031033293;
+        Tue, 24 Dec 2024 01:03:53 -0800 (PST)
 Received: from [192.168.0.18] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe4b6bsm630137966b.93.2024.12.24.01.02.19
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0efe4c55sm624557866b.130.2024.12.24.01.03.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Dec 2024 01:02:19 -0800 (PST)
-Message-ID: <7813f2b0-e76a-463c-91f9-c0bd50da1f0a@linaro.org>
-Date: Tue, 24 Dec 2024 10:02:18 +0100
+        Tue, 24 Dec 2024 01:03:52 -0800 (PST)
+Message-ID: <b0e8a58f-530b-485a-81fb-208fa7840980@linaro.org>
+Date: Tue, 24 Dec 2024 10:03:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: net: qcom,ethqos: Drop fallback
- compatible for qcom,qcs615-ethqos
+Subject: Re: [PATCH v2 2/3] dt-bindings: net: snps,dwmac: add description for
+ qcs615
 To: Yijie Yang <quic_yijiyang@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
@@ -91,7 +91,7 @@ Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org
 References: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
- <20241224-schema-v2-1-000ea9044c49@quicinc.com>
+ <20241224-schema-v2-2-000ea9044c49@quicinc.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -138,12 +138,13 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20241224-schema-v2-1-000ea9044c49@quicinc.com>
+In-Reply-To: <20241224-schema-v2-2-000ea9044c49@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_010223_963335_71C87D1B 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20241224_010354_940526_7F004842 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,22 +160,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/12/2024 04:07, Yijie Yang wrote:
-> The core version of EMAC on qcs615 has minor differences compared to that
-> on sm8150. During the bring-up routine, the loopback bit needs to be set,
-> and the Power-On Reset (POR) status of the registers isn't entirely
-> consistent with sm8150 either.
-> Therefore, it should be treated as a separate entity rather than a
-> fallback option.
-
-... and explanation of ABI impact? You were asked about this last time,
-so this is supposed to end up here.
-
+> Add the necessary compatible entries for qcs615 to ensure its validation.
 > 
-> Fixes: 32535b9410b8 ("dt-bindings: net: qcom,ethqos: add description for qcs615")
 > Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
 > ---
->  Documentation/devicetree/bindings/net/qcom,ethqos.yaml | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+>  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+This should be squashed with previous, otherwise patchset is not bisectable.
+
 Best regards,
 Krzysztof
 
