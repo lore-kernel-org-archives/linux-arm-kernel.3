@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63479E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 23 Dec 2024 23:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2584E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 00:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXCrln5Y8P76LFnw/leQdo5B6lVUcRETyacb/SFNe88=; b=BYyhG267OSfap0gruuDhiQTM3t
-	qjOYew9bReyhFi3VwXCafL5FY4HVLbccrkRwc+j8C1AG6s1g5Hs2wZJIiWBFLH2ANfVNxHjoS48Ew
-	CwKV8/F3roJxy7hvlWZ7OFfFA+EP9gTJYLs/tujfVKgKmDTRR4yIMUcWcL7E51wdHb+mCyRwXFTMu
-	l/FdVrXUKn/NjuL9jimK+7L3Ie9a8gR3seJXEnIHqrPlc7TS4y/0gJcjs5hQd/QGp4aebJHqYqKH+
-	WTNT2Q5jz2yC4ExBWDpplKSSoZiwkWhYkXQww7WmqCc8EpQp/g5tlaF82Ugrg1c6mCUa2nfSRCowF
-	m/qS9Ufg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SkuAahAf8W+lppm/Zglud67b2SqLzah4TgosvvOEGfc=; b=LY3I0WOGEoqT54VYKiWfz3SdMq
+	t4SIJG46Wd906yoeHdLVHgs3EUdabnbiDXzUfGCYujTOAsF/OUmyJtfv+k6B+cZkRQyyY59brw9Py
+	W3l5piS7qozVtuZaDQ7efKW4J3GmL41uxzHK2zC3G7ah0ZNPtkQyNgmlTnPj02tUcVd+K4f1YTFg6
+	b8W1+XgqkJSz3Cj/1fcEAo1LHpJx+yibRs+bbPXefudmZTB7HpJewGWcJrqiDq8IV+LAl6eSbsuz3
+	RG8cq4nLlla4YSNQo2PLjDXU+IxfYi3UbZwL/pgDH0GjoaOk5pnwoNpb7OarhXuHNDn4hM9lTFWtT
+	JAPkYSxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPrdp-0000000At1M-3wxn;
-	Mon, 23 Dec 2024 23:15:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tPsdM-0000000AvtM-2leN;
+	Tue, 24 Dec 2024 00:18:48 +0000
+Received: from mx.treblig.org ([2a00:1098:5b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPrcd-0000000Assq-1mY6
+	id 1tPscA-0000000AvmQ-2rof
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 23 Dec 2024 23:14:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0BAB2A41323;
-	Mon, 23 Dec 2024 23:12:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D6FBC4CED3;
-	Mon, 23 Dec 2024 23:13:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734995637;
-	bh=TyP4QDcgBbaAubuB18SKIbFnVadU5zHJDCj3I5P7s6c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PP8/Q4/8w4MlzOjBBL3S6JzQe3Ynx+KYDgPpO7IzVsTucrULhWBfBjHdJSso4MzqB
-	 1R43DiKvwXLo4b9FPzG5ivowUMogbK/4ciF/jjcM0rZzG3Ppgjm9PYjp1r7sulinTD
-	 AYnfPBUaJz2Dcmsw1M+ZosQxsFOmsqTxGU0dR+H5VirpeGi6xnxp17cLpkVr9YuVii
-	 l+vvCw3T/fmtYFVp6sM7XkRuBTW0mxXIMBBa9wStnPeW5Sg82jtMutgKm+Ctf0iAII
-	 UXhp85GF9DUIWG4ZKS9w1PKixscwsZTlfbeYbCLGsYKBwDR3ndIa8v/yFyVynYG3xW
-	 1iGQNbRmfdskA==
-Date: Tue, 24 Dec 2024 00:13:52 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, festevam@gmail.com, linux-i2c@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Clark Wang <xiaoning.wang@nxp.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v6] i2c: imx: support DMA defer probing
-Message-ID: <gfjir4qyyptxjizkc2k5r2elwn74fndia644evv6acwyuj3fr5@3pl3xt7rqntw>
-References: <20241223034416.544022-1-carlos.song@nxp.com>
+	Tue, 24 Dec 2024 00:17:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
+	; s=bytemarkmx; h=MIME-Version:Message-ID:Date:Subject:From:Content-Type:From
+	:Subject; bh=SkuAahAf8W+lppm/Zglud67b2SqLzah4TgosvvOEGfc=; b=SeoanKNlTVXq29FJ
+	Se633hZabWsrg+MaHfYYZ9NpwVqWvZ4Sud1lcMt7DH306m6HIBcRk2OIgGjCiEYLg7AsiPsHK6jKU
+	CK90YgXlpIxMsWK5sbzcXTrG5Q4bdi1NnGjcX1WSgpBijK2Z8GMpFHCBbuFiKORDvGtY8kSur8kh6
+	UV2bBhdQhsK/OfAUqVsA7UgvnhhMCJdwf5SR7KIZszhm9CqS6jb9pOY3+UaTY86Vx3W5izzSiaast
+	KlRlSWTyQAtHiKFqg6ud0DmNtGDHADveHGWlb1cOWzTRxHSbzKldfPToRmCqnxJr2Ey9ekcSkZXns
+	8d/+hakImSfq3X/5Kw==;
+Received: from localhost ([127.0.0.1] helo=dalek.home.treblig.org)
+	by mx.treblig.org with esmtp (Exim 4.96)
+	(envelope-from <linux@treblig.org>)
+	id 1tPsc3-006vtl-2U;
+	Tue, 24 Dec 2024 00:17:27 +0000
+From: linux@treblig.org
+To: florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	tglx@linutronix.de
+Cc: linux-mips@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"Dr. David Alan Gilbert" <linux@treblig.org>
+Subject: [PATCH] irqchip/irq-brcmstb-l2: Replace brcmstb_l2_mask_and_ack by generic
+Date: Tue, 24 Dec 2024 00:17:27 +0000
+Message-ID: <20241224001727.149337-1-linux@treblig.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241223034416.544022-1-carlos.song@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_151359_527845_A31CED6D 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20241223_161734_816866_3E9E1D40 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +71,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+From: "Dr. David Alan Gilbert" <linux@treblig.org>
 
-...
+Replace brcmstb_l2_mask_and_ack() by the generic
+irq_gc_mask_disable_and_ack_set().
 
-> @@ -1802,6 +1803,18 @@ static int i2c_imx_probe(struct platform_device *pdev)
->  	if (ret == -EPROBE_DEFER)
->  		goto clk_notifier_unregister;
->  
-> +	/* As we can always fall back to PIO, let's ignore the error setting up DMA. */
-> +	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-> +	if (ret) {
-> +		if (ret == -EPROBE_DEFER)
-> +			goto clk_notifier_unregister;
-> +		else if (ret == -ENODEV)
-> +			dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> +		else
-> +			dev_err(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n",
-> +				ERR_PTR(ret));
+brcmstb_l2_mask_and_ack() was added by
+commit 49aa6ef0b439 ("irqchip/brcmstb-l2: Remove some processing from the
+handler") in September 2017 with a comment saying it was actually
+generic and someone should add it to the generic code.
 
-My question here is not just about the use of dev_err vs
-dev_err_probe, but why don't we exit the probe if we get an
-error.
+commit 20608924cc2e ("genirq: generic chip: Add
+irq_gc_mask_disable_and_ack_set()") did that a few weeks later,
+however no one went back and took the original out.
 
-We should use PIO only in case of ENODEV, in all the other cases
-I think we should just leave. E.g. why don't we exit if we meet
-ret == -ENOMEM?
+Build tested only.
 
-Andi
+Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
+---
+ drivers/irqchip/irq-brcmstb-l2.c | 28 +---------------------------
+ 1 file changed, 1 insertion(+), 27 deletions(-)
+
+diff --git a/drivers/irqchip/irq-brcmstb-l2.c b/drivers/irqchip/irq-brcmstb-l2.c
+index c988886917f7..db4c9721fcf2 100644
+--- a/drivers/irqchip/irq-brcmstb-l2.c
++++ b/drivers/irqchip/irq-brcmstb-l2.c
+@@ -61,32 +61,6 @@ struct brcmstb_l2_intc_data {
+ 	u32 saved_mask; /* for suspend/resume */
+ };
+ 
+-/**
+- * brcmstb_l2_mask_and_ack - Mask and ack pending interrupt
+- * @d: irq_data
+- *
+- * Chip has separate enable/disable registers instead of a single mask
+- * register and pending interrupt is acknowledged by setting a bit.
+- *
+- * Note: This function is generic and could easily be added to the
+- * generic irqchip implementation if there ever becomes a will to do so.
+- * Perhaps with a name like irq_gc_mask_disable_and_ack_set().
+- *
+- * e.g.: https://patchwork.kernel.org/patch/9831047/
+- */
+-static void brcmstb_l2_mask_and_ack(struct irq_data *d)
+-{
+-	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
+-	struct irq_chip_type *ct = irq_data_get_chip_type(d);
+-	u32 mask = d->mask;
+-
+-	irq_gc_lock(gc);
+-	irq_reg_writel(gc, mask, ct->regs.disable);
+-	*ct->mask_cache &= ~mask;
+-	irq_reg_writel(gc, mask, ct->regs.ack);
+-	irq_gc_unlock(gc);
+-}
+-
+ static void brcmstb_l2_intc_irq_handle(struct irq_desc *desc)
+ {
+ 	struct brcmstb_l2_intc_data *b = irq_desc_get_handler_data(desc);
+@@ -248,7 +222,7 @@ static int __init brcmstb_l2_intc_of_init(struct device_node *np,
+ 	if (init_params->cpu_clear >= 0) {
+ 		ct->regs.ack = init_params->cpu_clear;
+ 		ct->chip.irq_ack = irq_gc_ack_set_bit;
+-		ct->chip.irq_mask_ack = brcmstb_l2_mask_and_ack;
++		ct->chip.irq_mask_ack = irq_gc_mask_disable_and_ack_set;
+ 	} else {
+ 		/* No Ack - but still slightly more efficient to define this */
+ 		ct->chip.irq_mask_ack = irq_gc_mask_disable_reg;
+-- 
+2.47.1
+
 
