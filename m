@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDC8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A46AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 09:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XleyPgZ/9CM1PcFef+OPgtrYNksdCSgQk5pDrBsSbTY=; b=nRdKbOTGPocBbv16avU90Q9BMY
-	CVDZ3pEtJI17DIuvRaNpNjSod4/u1IV78YotAtv2zSvPne6LY/YsUBcy96Nx2t0mYWXuxd6z4GBU9
-	yxnTc/K8gk5m925h3TUyPHnTWNQZMjnFpKRFfKwcl4CvGl4+ih4z5qzwiUUIODWdS2TjO2541vbvu
-	n14UoItdO0kJdsjCbviymYLx2s7flxrVbILBy7PVs6Ubt040e0lp7o/Q7kl6LNdaG1ebL5yRdnX3q
-	YwF/ITIhj6JYi7oU7ne3m7n1Jnpmpc8WXXuQQWaQ7tB/XMlKRI2gf9eHFlz/ygzrNNTX7kYB6uI0m
-	7pORtIwg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GsM3e7XTMaEdnzl6LqqgFbWzKt5lpe2maRUf73VkOp4=; b=jQ5JStcl2NSMa/CDOCJHuV2Wgc
+	9S41iIVjw0O0LyN9TkGYI4FOMAHQyiJmraC2CETofejDtnaL3RHjageeuUYb/cdEfYgu3DCXnSCnq
+	QjCE9586QCT76txsOjjx5UiBFnKZvavfsinmxG2P33VVro1c+/jNzAddtIDvWT1+oikbLRX9L8zuo
+	y7dRLTie/KTtfXA9Zfy6KW58HkW+GnS8yDE8XvgY6v8/DVLTo9tKoQXK7AHljMkOc30pqHffwzBJh
+	neemFDKQcHgzjGE5N2/3BroO0DABICV2qqXD7qfxcoqDRoL/YVY2/32fntCbkxCB3IiioaBUnbRla
+	6KNinD2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ1R6-0000000BcrJ-1tvj;
-	Tue, 24 Dec 2024 09:42:44 +0000
-Received: from mail-m12770.qiye.163.com ([115.236.127.70])
+	id 1tQ1SF-0000000Bd50-2cSJ;
+	Tue, 24 Dec 2024 09:43:55 +0000
+Received: from mail-m3287.qiye.163.com ([220.197.32.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ1Nu-0000000BcG3-3FJz;
-	Tue, 24 Dec 2024 09:39:28 +0000
+	id 1tQ1Op-0000000BcP7-11Fw;
+	Tue, 24 Dec 2024 09:40:24 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 6aa9032d;
-	Tue, 24 Dec 2024 17:39:22 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 6aa9051a;
+	Tue, 24 Dec 2024 17:40:18 +0800 (GMT+08:00)
 From: Kever Yang <kever.yang@rock-chips.com>
 To: heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org,
 	Kever Yang <kever.yang@rock-chips.com>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
 	linux-pm@vger.kernel.org,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
 	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH v2 2/2] soc: rockchip: power-domain: add power domain support for rk3562
-Date: Tue, 24 Dec 2024 17:39:20 +0800
-Message-Id: <20241224093920.3816071-2-kever.yang@rock-chips.com>
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Subject: [PATCH 1/2] dt-bindings: rockchip-thermal: Support the RK3562 SoC compatible
+Date: Tue, 24 Dec 2024 17:40:14 +0800
+Message-Id: <20241224094015.3816301-1-kever.yang@rock-chips.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241224093920.3816071-1-kever.yang@rock-chips.com>
-References: <20241224093920.3816071-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUkZHlZDGRlJHRhMHx0dH09WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93f8090cd403afkunm6aa9032d
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkNDH1YdH0NLSh9IQxoeHU5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93f809e51703afkunm6aa9051a
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6My46Tgw6MzIOSUooF0hJECMf
-	DkJPCRBVSlVKTEhOS0hISk1PS0JIVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPT0pPNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pwg6HAw5DjIQGEoWFjlJMRAe
+	DE4aCgxVSlVKTEhOS0hISUlLSklJVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFDSk03Bg++
 DKIM-Signature: a=rsa-sha256;
-	b=AcT/noO30omhJSUYcdP+9+GskAYRxWwkTLmAJrQMt44QQUL/QrtHSIi0fupc03iQhfKLxi0oxg9u9NG0loj4/FFAmdlUJjc6iveCFxE3SEPrgH788VyTtG9Hvk3+I4OOxiX22XBhJzdXuAsvhuzZf/VeILYYPOFXmFlkf2qce2c=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=XleyPgZ/9CM1PcFef+OPgtrYNksdCSgQk5pDrBsSbTY=;
+	b=imNGrpl13fG1lpaN9pIzz3zYhTcgYxiySLeNX6PewZQwVSViJ6pK2/nwCngARHQbd90xbB9Cwn5TA6km2VCx/cbDwfjtAlfJtBHgL72AeHqiH1iIN5gur3bHENW7WeTJiFc37d01tZFD2KMZZPV8Fkayd42yi+a/cbo/9nPoFZA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=GsM3e7XTMaEdnzl6LqqgFbWzKt5lpe2maRUf73VkOp4=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_013927_236839_9D87C26C 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20241224_014023_470048_F71F772F 
+X-CRM114-Status: UNSURE (   5.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,121 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver is modified to support RK3562 SoC.
-Add support to ungate clk.
-Add support to shut down memory for rk3562.
+Add a new compatible for tsadc on RK3562 SoCs.
 
-Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
 Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 ---
 
-Changes in v2:
-- update the header after rename
+ Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- drivers/pmdomain/rockchip/pm-domains.c | 48 +++++++++++++++++++++++++-
- 1 file changed, 47 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index cb0f93800138..d05ec0a009a0 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -2,7 +2,7 @@
- /*
-  * Rockchip Generic power domain support.
-  *
-- * Copyright (c) 2015 ROCKCHIP, Co. Ltd.
-+ * Copyright (c) 2015 Rockchip Electronics Co., Ltd.
-  */
- 
- #include <linux/io.h>
-@@ -32,6 +32,7 @@
- #include <dt-bindings/power/rk3366-power.h>
- #include <dt-bindings/power/rk3368-power.h>
- #include <dt-bindings/power/rk3399-power.h>
-+#include <dt-bindings/power/rockchip,rk3562-power.h>
- #include <dt-bindings/power/rk3568-power.h>
- #include <dt-bindings/power/rockchip,rk3576-power.h>
- #include <dt-bindings/power/rk3588-power.h>
-@@ -129,6 +130,20 @@ struct rockchip_pmu {
- 	.active_wakeup = wakeup,			\
- }
- 
-+#define DOMAIN_M_G_SD(_name, pwr, status, req, idle, ack, g_mask, mem, wakeup, keepon)	\
-+{							\
-+	.name = _name,					\
-+	.pwr_w_mask = (pwr) << 16,			\
-+	.pwr_mask = (pwr),				\
-+	.status_mask = (status),			\
-+	.req_w_mask = (req) << 16,			\
-+	.req_mask = (req),				\
-+	.idle_mask = (idle),				\
-+	.ack_mask = (ack),				\
-+	.clk_ungate_mask = (g_mask),			\
-+	.active_wakeup = wakeup,			\
-+}
-+
- #define DOMAIN_M_O_R(_name, p_offset, pwr, status, m_offset, m_status, r_status, r_offset, req, idle, ack, wakeup)	\
- {							\
- 	.name = _name,					\
-@@ -194,6 +209,9 @@ struct rockchip_pmu {
- #define DOMAIN_RK3399(name, pwr, status, req, wakeup)		\
- 	DOMAIN(name, pwr, status, req, req, req, wakeup)
- 
-+#define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)		\
-+	DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeup, false)
-+
- #define DOMAIN_RK3568(name, pwr, req, wakeup)		\
- 	DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
- 
-@@ -1130,6 +1148,18 @@ static const struct rockchip_domain_info rk3399_pm_domains[] = {
- 	[RK3399_PD_SDIOAUDIO]	= DOMAIN_RK3399("sdioaudio", BIT(31), BIT(31), BIT(29), true),
- };
- 
-+static const struct rockchip_domain_info rk3562_pm_domains[] = {
-+					     /* name           pwr     req     g_mask  mem wakeup */
-+	[RK3562_PD_GPU]		= DOMAIN_RK3562("gpu",         BIT(0), BIT(1), BIT(1), 0, false),
-+	[RK3562_PD_NPU]		= DOMAIN_RK3562("npu",         BIT(1), BIT(2), BIT(2), 0, false),
-+	[RK3562_PD_VDPU]	= DOMAIN_RK3562("vdpu",        BIT(2), BIT(6), BIT(6), 0, false),
-+	[RK3562_PD_VEPU]	= DOMAIN_RK3562("vepu",        BIT(3), BIT(7), BIT(7) | BIT(3), 0, false),
-+	[RK3562_PD_RGA]		= DOMAIN_RK3562("rga",         BIT(4), BIT(5), BIT(5) | BIT(4), 0, false),
-+	[RK3562_PD_VI]		= DOMAIN_RK3562("vi",          BIT(5), BIT(3), BIT(3), 0, false),
-+	[RK3562_PD_VO]		= DOMAIN_RK3562("vo",  BIT(6), BIT(4), BIT(4), 16, false),
-+	[RK3562_PD_PHP]		= DOMAIN_RK3562("php",         BIT(7), BIT(8), BIT(8), 0, false),
-+};
-+
- static const struct rockchip_domain_info rk3568_pm_domains[] = {
- 	[RK3568_PD_NPU]		= DOMAIN_RK3568("npu",  BIT(1), BIT(2),  false),
- 	[RK3568_PD_GPU]		= DOMAIN_RK3568("gpu",  BIT(0), BIT(1),  false),
-@@ -1331,6 +1361,18 @@ static const struct rockchip_pmu_info rk3399_pmu = {
- 	.domain_info = rk3399_pm_domains,
- };
- 
-+static const struct rockchip_pmu_info rk3562_pmu = {
-+	.pwr_offset = 0x210,
-+	.status_offset = 0x230,
-+	.req_offset = 0x110,
-+	.idle_offset = 0x128,
-+	.ack_offset = 0x120,
-+	.clk_ungate_offset = 0x140,
-+
-+	.num_domains = ARRAY_SIZE(rk3562_pm_domains),
-+	.domain_info = rk3562_pm_domains,
-+};
-+
- static const struct rockchip_pmu_info rk3568_pmu = {
- 	.pwr_offset = 0xa0,
- 	.status_offset = 0x98,
-@@ -1429,6 +1471,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
- 		.compatible = "rockchip,rk3399-power-controller",
- 		.data = (void *)&rk3399_pmu,
- 	},
-+	{
-+		.compatible = "rockchip,rk3562-power-controller",
-+		.data = (void *)&rk3562_pmu,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-power-controller",
- 		.data = (void *)&rk3568_pmu,
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index b717ea8261ca..f55f2045fc84 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -20,6 +20,7 @@ properties:
+       - rockchip,rk3328-tsadc
+       - rockchip,rk3368-tsadc
+       - rockchip,rk3399-tsadc
++      - rockchip,rk3562-tsadc
+       - rockchip,rk3568-tsadc
+       - rockchip,rk3588-tsadc
+       - rockchip,rv1108-tsadc
 -- 
 2.25.1
 
