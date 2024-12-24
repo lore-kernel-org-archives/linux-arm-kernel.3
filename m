@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A800E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D48E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i9S+oPEuCyhLEGvNj6fnjb+ZIh78/rEM10hMcWWJezk=; b=W0Q9zTgXpK8wKShcNDrKJE1eQ3
-	59fNhCRw5To2zD7A0DLRke0qqskl/zLnSHp4y/AfaF/5+VGTXW4zT9Ki7l8XXFYi9m5OF7TmSMcmk
-	+FaYVzbd70vpPQ0IWe3PRGevZyehG1OTJQX0gq9JfwJ/6Sz55GY/BdYYhs1RL3vCULFUn8rSHKWHY
-	GwKYaKoqc90u6WF0I/0YkLyARSnkVA7f/Bho/yeMe8Ka7dup6s62EcDFhr8wtfg2YCfoWvofWVT6C
-	BQWZpzMrttZwwk0L3ot/K7/VtcWSX9zcAWcrT4CkhU/doC9p8IYKkIljdFvyRv1yYlgE7Ytkexpto
-	jhG9J7Xw==;
+	bh=bezjIfKOhlEJE79cO6ZVpXOH6/T+183qkN81Q6qLp7w=; b=0G+WFcBPGXpKfYsS2obeBGtYpp
+	i4jPq9ASnGqVSw0UQdkl2Yd3yYTzIuBymZF942Jy+mqPiQ+ZHVKCH0Pq2PW1G1prRJ7JB+ABlelUV
+	s5Nkf/UcrpWgb5O4KsMkqwRPOpRC3ySMskttqH8TNrshYm3zEW/OfuCuVoppgYEod/hJl9gyqCD76
+	qm8N8+qq4XEekeV2POyP6ZC6fZhNp7+/j0sN0GAuMNP5KeLqXYKhgE7YeW6hfLrJFZqhdEGHp0HdZ
+	EXB7TsQ1/sgCyTDqROQmgZEAl3SnuHz0p0Ed18833OL4A0JrdDIi0mJ0Tn1Sf/wtjOp2etEpURhJX
+	BKVJWXJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8QH-0000000CNwL-1gCB;
-	Tue, 24 Dec 2024 17:10:21 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tQ8RR-0000000CODk-0Uzo;
+	Tue, 24 Dec 2024 17:11:33 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8Mc-0000000CMar-1vi6;
+	id 1tQ8Mh-0000000CMbB-1eRx;
 	Tue, 24 Dec 2024 17:06:42 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 56B8040006;
-	Tue, 24 Dec 2024 17:06:28 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 96C0A40005;
+	Tue, 24 Dec 2024 17:06:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1735059992;
+	t=1735059997;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=i9S+oPEuCyhLEGvNj6fnjb+ZIh78/rEM10hMcWWJezk=;
-	b=Z0HzeJSkWJBJAnnLOcrKAORNX+qzBkEihH4Jjz4/IRUc5pm0xpbkE/vtiZKpldy1mV+nsp
-	2I1pMlURXp1r/JLH9yot2K48XCGltGgAZpOwbUeQ2wEtDXftm6vf/rBwnsy+7UOZRpVwxR
-	tve89iHTqUyJ7Fwt8+3BqNLFEF8rit2S7Ve2mPwKIscx6MWemW1AHDJWrxHRdrbmg5RAGW
-	oitqIZA1V2ELYhiNYnEhnoLxcMQftgvGzorm6CHdBriJF80BixVMMVDw+PJwwUL0MCeEgm
-	rjDmH6frum0L+Rmx3Zy2UbqsiboJf3myDxaU5ECJEAHuN02NyHSP6zSGzaFR3w==
+	bh=bezjIfKOhlEJE79cO6ZVpXOH6/T+183qkN81Q6qLp7w=;
+	b=Ddus1nDN/HV/efnFoKVhCO0lsAHr8YlxE7Qs0TAFIPUKc+XDRY/DDNiP54CK9Q2DZzyP51
+	3rtnCqtA7FMeilhKd4LG5q/DghuhJXAfAlOrQWxTJifHTW5zCK1Lma6/rDImIwDUX2ZDoq
+	hizT5/JJTAXhUrwwbQTM1wuoB7++JEwtipQrPbZq50E8/gcSkMp/GAhtTLT+rP6xKZ0I7Z
+	NbouR9QM/tmEhqj0a680boj66RzleG9Y22Hx4ebPQ3OCGOHBajByxGcRrjka3HBYjfXMOK
+	p8G+ZBMljP7KIFdhLZ5zAqsuHsXYVIuR5IbGmEcJht+kAzE1FPOMcmyWyR8m/g==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Tue, 24 Dec 2024 18:05:47 +0100
-Subject: [PATCH v2 02/27] spi: spi-mem: Add a new controller capability
+Date: Tue, 24 Dec 2024 18:05:48 +0100
+Subject: [PATCH v2 03/27] spi: amd: Support per spi-mem operation frequency
+ switches
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-2-ad218dbc406f@bootlin.com>
+Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-3-ad218dbc406f@bootlin.com>
 References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
@@ -75,13 +76,12 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_090634_802898_0445AF6C 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20241224_090639_699357_25FFBA37 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +96,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are spi devices with multiple frequency limitations depending on
-the invoked command. We probably do not want to afford running at the
-lowest supported frequency all the time, so if we want to get the most
-of our hardware, we need to allow per-operation frequency limitations.
+Every ->exec_op() call correctly configures the spi bus speed to the
+maximum allowed frequency for the memory using the constant spi default
+parameter. Since we can now have per-operation constraints, let's use
+the value that comes from the spi-mem operation structure instead. In
+case there is no specific limitation for this operation, the default spi
+device value will be given anyway.
 
-Among all the SPI memory controllers, I believe all are capable of
-changing the spi frequency on the fly. Some of the drivers do not make
-any frequency setup though. And some others will derive a per chip
-prescaler value which will be used forever.
+This controller however performed a frequency check, which is also
+observed during the ->check_op() phase.
 
-Actually changing the frequency on the fly is something new in Linux, so
-we need to carefully flag the drivers which do and do not support it. A
-controller capability is created for that, and the presence for this
-capability will always be checked before accepting such pattern.
+The per-operation frequency capability is thus advertised to the spi-mem
+core.
 
+Cc: Sanjay R Mehta <sanju.mehta@amd.com>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- drivers/spi/spi-mem.c       | 6 ++++++
- include/linux/spi/spi-mem.h | 2 ++
- 2 files changed, 8 insertions(+)
+ drivers/spi/spi-amd.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-mem.c b/drivers/spi/spi-mem.c
-index 12299ce89a1cc80495858dbbbaa822f2968bb7ab..96374afd0193ca2cf4f50004f66c36dce32894e8 100644
---- a/drivers/spi/spi-mem.c
-+++ b/drivers/spi/spi-mem.c
-@@ -191,6 +191,12 @@ bool spi_mem_default_supports_op(struct spi_mem *mem,
- 	    op->max_freq < mem->spi->controller->min_speed_hz)
+diff --git a/drivers/spi/spi-amd.c b/drivers/spi/spi-amd.c
+index d30a21b0b05f96fe5361d16a1fca3467260e0a08..485ae1e382e3eb8f4d72ebb0fb15c51b9a118d3b 100644
+--- a/drivers/spi/spi-amd.c
++++ b/drivers/spi/spi-amd.c
+@@ -479,6 +479,9 @@ static bool amd_spi_supports_op(struct spi_mem *mem,
  		return false;
+ 	}
  
-+	if (op->max_freq &&
-+	    op->max_freq < mem->spi->max_speed_hz) {
-+		if (!spi_mem_controller_is_capable(ctlr, per_op_freq))
-+			return false;
-+	}
++	if (op->max_freq < mem->spi->controller->min_speed_hz)
++		return false;
 +
- 	return spi_mem_check_buswidth(mem, op);
+ 	return spi_mem_default_supports_op(mem, op);
  }
- EXPORT_SYMBOL_GPL(spi_mem_default_supports_op);
-diff --git a/include/linux/spi/spi-mem.h b/include/linux/spi/spi-mem.h
-index 84ec524987921a95963235de4b6f728ef2fc5987..c7a7719c264846ad9fce613ba96d9284ad7893e7 100644
---- a/include/linux/spi/spi-mem.h
-+++ b/include/linux/spi/spi-mem.h
-@@ -311,11 +311,13 @@ struct spi_controller_mem_ops {
-  * @ecc: Supports operations with error correction
-  * @swap16: Supports swapping bytes on a 16 bit boundary when configured in
-  *	    Octal DTR
-+ * @per_op_freq: Supports per operation frequency switching
-  */
- struct spi_controller_mem_caps {
- 	bool dtr;
- 	bool ecc;
- 	bool swap16;
-+	bool per_op_freq;
+ 
+@@ -676,7 +679,7 @@ static int amd_spi_exec_mem_op(struct spi_mem *mem,
+ 
+ 	amd_spi = spi_controller_get_devdata(mem->spi->controller);
+ 
+-	ret = amd_set_spi_freq(amd_spi, mem->spi->max_speed_hz);
++	ret = amd_set_spi_freq(amd_spi, op->max_freq);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -705,6 +708,10 @@ static const struct spi_controller_mem_ops amd_spi_mem_ops = {
+ 	.supports_op = amd_spi_supports_op,
  };
  
- #define spi_mem_controller_is_capable(ctlr, cap)	\
++static const struct spi_controller_mem_caps amd_spi_mem_caps = {
++	.per_op_freq = true,
++};
++
+ static int amd_spi_host_transfer(struct spi_controller *host,
+ 				   struct spi_message *msg)
+ {
+@@ -782,6 +789,7 @@ static int amd_spi_probe(struct platform_device *pdev)
+ 	host->setup = amd_spi_host_setup;
+ 	host->transfer_one_message = amd_spi_host_transfer;
+ 	host->mem_ops = &amd_spi_mem_ops;
++	host->mem_caps = &amd_spi_mem_caps;
+ 	host->max_transfer_size = amd_spi_max_transfer_size;
+ 	host->max_message_size = amd_spi_max_transfer_size;
+ 
 
 -- 
 2.47.0
