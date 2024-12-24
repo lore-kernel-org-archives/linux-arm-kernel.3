@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04C0E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62A0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 19:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrcFdkL7v8hevVCz++URbVmucpyX6fBOW8nqTnbI9/s=; b=dZAzO0Pcu+XSjhowaiVaqaVcz1
-	csSg+2wZBGlTHOT04wnd1oRC1XINo+YV0aEam9Fk3ZDsS0TBfyC/CtOqCleTiUh/nSR4SC0zBqrbK
-	4Pupj+aVm+s9BjchK/UL1wMK6BGJ4jr5lYr1nx1Q2Mpv8x1QKNBZeZYL80HIZXBbOopRdwtQ5mH1H
-	VCCQT2LngT8MoETw1Na7JNq5ECCMBe46Gc9ythV66irO01D2lo5SqXWAtyl66TPo8seFkIMj4c2CK
-	JSzJ6BqDmIivB0GSnRLBa/1iiKq29cGjrXz1Kkn1kQdpUHCmrbLp+u/wjELrRbz61f3i9SFsw4G2u
-	qRPduxoA==;
+	bh=0SqEo1aNWDrC5Ttbs/Jo6cIUBSX63aHeSqn5BsDyKIY=; b=JWEO6Vc7eRG74ivt7Rg2ySJtHT
+	kt0ow4VnRj8KpIBoI3Tb1uOL1IVQ0fcVaQRDB4WpgleqV1lvgNdvkmhXll1VgvmbRynEazjQx1v9b
+	bmigWYRH0Qhrapl+XoZKRkBqFHq+bqtvLOnTHWwLfZFZlmdjBbdVsKjY458hWoHrtRu/9MSA5Upao
+	IpyahhqwRRMZTRf7++euXOnjscJ8rBWa7n0xqEkc3SAtxSdK0gctyggSui3pAspRMlLFIZaNGP4Tn
+	SH5nk5UDXsfwPH2MBQjNE5XmifDu0/+Gi2pFeBj5BfeVwv6aGWWcfcU2sAjt0uM6hBpttJI8wUIt/
+	BPPgSiQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8u8-0000000CXd6-2wT3;
-	Tue, 24 Dec 2024 17:41:12 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1tQAYK-0000000CfI6-14tR;
+	Tue, 24 Dec 2024 19:26:48 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8N4-0000000CMhj-1GeF;
-	Tue, 24 Dec 2024 17:07:03 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3470140003;
-	Tue, 24 Dec 2024 17:06:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1735060020;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JrcFdkL7v8hevVCz++URbVmucpyX6fBOW8nqTnbI9/s=;
-	b=kTWXaOPzzt1n8GnCYOS5frwghRr0Z8Y3UTN7TxOoJ8Baz1n++H+4bZPUQ1zsGguKewtTZa
-	vnDdnIpGFK+Gb7t9YpYjxhWzBP1K0pa+Ps6j4BIfmJZnTZvd5n6T+TjdHxw//N0Cr6SwOp
-	dsfRL6xiEk8Xy/g9dUzcRjirgLX/ujrzp3uQ+l7Tl+OVPt+H8fkRBywAUnvbJAU80IjTN+
-	nG19PCo2IOI9eoLW3VxY1rinXDX88gnXej2E7tAACk2UC0EY3Y/X6OfGyApXl1xXXWU9c9
-	xTHgAxgg9xIgjAsuV3Qo13B6tsVSmX3hO9hpAmhffZFCkfzdHz+GhzLv9SRWSg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Tue, 24 Dec 2024 18:05:53 +0100
-Subject: [PATCH v2 08/27] spi: fsl-qspi: Support per spi-mem operation
- frequency switches
+	id 1tQAX8-0000000Cf9T-0H3C
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 24 Dec 2024 19:25:35 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-3022598e213so57289821fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 24 Dec 2024 11:25:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735068331; x=1735673131; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0SqEo1aNWDrC5Ttbs/Jo6cIUBSX63aHeSqn5BsDyKIY=;
+        b=gurF+VdvdMuD/Zq5nV9227d62lpeHNgHmzWs052YkYPCVsf+004nGtyhzYrR5zBQZb
+         CPTbFSveub83pCxtskOiAMm+x+NDWD2pmsRCgbDLiHIU6hzIqlhAEqmuiaxHbzvG0pXs
+         +zx7lA8qrHvqDPc3Xz9n3z2b+wxNcetcKjm8Mf7GavGQ5YFxewIM+c1Wynf9acwEZGK7
+         fgjH996tPGrg1d/vzfXjV2cdPTolfIzH6DoIvMdbVwvsujVG7s8/KYKqIEKkk0I0n7dt
+         iI+lzM6B+Xj2Ki7aHClBKJOEFhwerHgwEyrPh/wBV/aA+QscG1DkFGmJWK2EOaQKHJ3Z
+         Ywog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735068331; x=1735673131;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0SqEo1aNWDrC5Ttbs/Jo6cIUBSX63aHeSqn5BsDyKIY=;
+        b=QBFDCIAyYVN1v1ASOPqkxKWwdcWjSjB8/++SOPMUNnXv38ZdBVYGW95Iigr4q2ufo9
+         HOo9cm/ngumtuGnDNQSkNiL22Kb/24thGk44cMeJpMWJadTTf9Kc94OxSJkHwLf3zytm
+         CLSc7J/MdE64bPQgIVF9h9LZVWbsp+JnxX/uHloSOts0v+CptiwWZjWegbrARMBC/+E4
+         wump1FJ2eEPrT47e3VxRAQp+FJBTl0hKLd2N2FDRmFIvSGqNCd6vfopJ2JdXHYtixS2g
+         ih8Z4Fwsjw4AKrs32/P4JFg5Bn73lkoBCQLH530QfUb1+zpwrL4S3qpFnf1NbyU1LNWx
+         nNqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUhw/SUOEZdoyA1TNnvAADBWwpSGN6KSr+lK6st6YnRHL3qXbWjNPH+tLd8es6OS+1ODFw2eag82D0LeyEIHb9p@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHArVIYx9a7pVkXAHNa3wCPzoXyfVTc0OKVBDLKaxfMoBiFv1p
+	IJF4EuqtUQeLtfSr9SOh9CcUWu5jq0QBO23C/s8MDbo/pBW8ohCYIv5nwC203WS7MFgFlxt7gqZ
+	lebjuFIYeRSzmPZ6zzb+uvm/RjPsL6aEY2lacMQ==
+X-Gm-Gg: ASbGncvakPa8mkoDbsv0tT/dfxUYGS8sL9q/9zNkuBQdjbcp0dufC4vLxMpml+s2QvL
+	3WJlY2EIRigGiFm05J2P8Fwc63qpbxRxOgSpK
+X-Google-Smtp-Source: AGHT+IG/8JqtB0M6AxWpHXOtz7rwR0de4QYIM5YnHHPVPKpBrtBcn3OBIgsu0A45P3fz13gnMOy91DF+DSqQUZfUxcc=
+X-Received: by 2002:a05:651c:1a0c:b0:302:3534:1fba with SMTP id
+ 38308e7fff4ca-30468547e32mr59744411fa.17.1735068331233; Tue, 24 Dec 2024
+ 11:25:31 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-8-ad218dbc406f@bootlin.com>
-References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
-In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
- Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
- Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
- Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
- =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Raju Rangoju <Raju.Rangoju@amd.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.15-dev
-X-GND-Sasl: miquel.raynal@bootlin.com
+References: <2200295.irdbgypaU6@devpool47.emlix.com> <1811814.VLH7GnMWUR@devpool47.emlix.com>
+In-Reply-To: <1811814.VLH7GnMWUR@devpool47.emlix.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 24 Dec 2024 20:25:19 +0100
+Message-ID: <CACRpkdaAMu9WtD3a_XXGEwMfyFx6F-a263COna13eUWB0vqbcQ@mail.gmail.com>
+Subject: Re: [PATCH] arm32: simplify ARM_MMU_KEEP usage
+To: Rolf Eike Beer <eb@emlix.com>
+Cc: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+	Yuntao Liu <liuyuntao12@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_090702_607674_932F0E78 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20241224_112534_131583_7867E7EC 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,69 +93,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Every ->exec_op() call correctly configures the spi bus speed to the
-maximum allowed frequency for the memory using the constant spi default
-parameter. Since we can now have per-operation constraints, let's use
-the value that comes from the spi-mem operation structure instead. In
-case there is no specific limitation for this operation, the default spi
-device value will be given anyway.
+On Wed, Dec 18, 2024 at 1:13=E2=80=AFPM Rolf Eike Beer <eb@emlix.com> wrote=
+:
+> On Montag, 7. Oktober 2024 15:11:40 Mitteleurop=C3=A4ische Normalzeit Rol=
+f Eike
+> Beer wrote:
+> > All current users need to add a KEEP() around the argument so the value=
+ is
+> > actually kept, which doesn't feel very natural and is prone to upcoming=
+ bugs
+> > as the name suggests that this macro alone already keeps things. Move t=
+hat
+> > directly into the definition.
+> >
+> > Signed-off-by: Rolf Eike Beer <eb@emlix.com>
+> > ---
+>
+> Ping?
 
-The per-operation frequency capability is thus advertised to the spi-mem
-core.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Cc: Han Xu <han.xu@nxp.com>
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/spi/spi-fsl-qspi.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+Please put the patch into Russell's patch tracker so he can apply it.
 
-diff --git a/drivers/spi/spi-fsl-qspi.c b/drivers/spi/spi-fsl-qspi.c
-index 9ec53bf0dda8ead27bc7a11a9bb09a08efe2ea05..355e6a39fb41896f460e2474a90b8f0b42068ff3 100644
---- a/drivers/spi/spi-fsl-qspi.c
-+++ b/drivers/spi/spi-fsl-qspi.c
-@@ -522,9 +522,10 @@ static void fsl_qspi_invalidate(struct fsl_qspi *q)
- 	qspi_writel(q, reg, q->iobase + QUADSPI_MCR);
- }
- 
--static void fsl_qspi_select_mem(struct fsl_qspi *q, struct spi_device *spi)
-+static void fsl_qspi_select_mem(struct fsl_qspi *q, struct spi_device *spi,
-+				const struct spi_mem_op *op)
- {
--	unsigned long rate = spi->max_speed_hz;
-+	unsigned long rate = op->max_freq;
- 	int ret;
- 
- 	if (q->selected == spi_get_chipselect(spi, 0))
-@@ -652,7 +653,7 @@ static int fsl_qspi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
- 	fsl_qspi_readl_poll_tout(q, base + QUADSPI_SR, (QUADSPI_SR_IP_ACC_MASK |
- 				 QUADSPI_SR_AHB_ACC_MASK), 10, 1000);
- 
--	fsl_qspi_select_mem(q, mem->spi);
-+	fsl_qspi_select_mem(q, mem->spi, op);
- 
- 	if (needs_amba_base_offset(q))
- 		addr_offset = q->memmap_phy;
-@@ -839,6 +840,10 @@ static const struct spi_controller_mem_ops fsl_qspi_mem_ops = {
- 	.get_name = fsl_qspi_get_name,
- };
- 
-+static const struct spi_controller_mem_caps fsl_qspi_mem_caps = {
-+	.per_op_freq = true,
-+};
-+
- static int fsl_qspi_probe(struct platform_device *pdev)
- {
- 	struct spi_controller *ctlr;
-@@ -923,6 +928,7 @@ static int fsl_qspi_probe(struct platform_device *pdev)
- 	ctlr->bus_num = -1;
- 	ctlr->num_chipselect = 4;
- 	ctlr->mem_ops = &fsl_qspi_mem_ops;
-+	ctlr->mem_caps = &fsl_qspi_mem_caps;
- 
- 	fsl_qspi_default_setup(q);
- 
-
--- 
-2.47.0
-
+Yours,
+Linus Walleij
 
