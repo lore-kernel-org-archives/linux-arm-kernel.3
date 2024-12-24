@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D17E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A05E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 24 Dec 2024 17:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=st7iZmfts2tp/8JHKFXB7UyuKEKOlhrYdKjKeGEcYRI=; b=fG1/QH+EmmOp5xub/gJ1joFXbK
-	3a0apQj4FbpSmCDVvtjgHAebtevil0yEUShMLcbPRqiFdF70/Ud3WjOfN/NiM7wNS9KvA4tDg9D5R
-	AWZuQNDBEMCvQbOWDsjXjt1sPsP8LBTS0owowHKmA/GEBaxIsaI7BHkN1A/XkzUJNDxVF90mJPx7V
-	HGNOyn1Jwh7Adz/Mh+uLqRJcFoNOWGMC5MiKFGv52eYyypWE3YYgij9O9ua3BK26h92OSHWorai70
-	ls9YjzhIo02srOL32PJtbMkLvUFy/vRbpVzqsvrZInCt8HbvFk1pm6pZHmLPdFW3/LgyKuRVzi/eB
-	WAWihdMw==;
+	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=; b=lbj/jc/+cNTBT2U7ruQxJePL65
+	+03STJeGbMGHGFPecI9Rbr8tw6CHC6pUEqThbKoF+c7Dx1sBEUi9VnYSueRJ1MZeDNGaL+kG/SAku
+	h5MMKi35dckBLGGCM1GzcQZRwOPhgIUwmscT0I4NtjQ4Mi86XtGy6QrriM9iETmE2Hy3zJJVBd/Tj
+	5cgPBpM/4dZ1DNwvlIxRHf8FUD13hLsFiyfYg/MTXjcmXFdMd9HsBqXMb2h85MmOia/qSHQizRAFI
+	V6exEFHyfiTyWtCvU/WGx3Z1QjBz/j0CysnqQKMHcCOpoWKNeNE89fFeG8Bvnzye52jkRcF1cwgaK
+	92CK8xng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8rp-0000000CXC8-1KAi;
-	Tue, 24 Dec 2024 17:38:49 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tQ8sz-0000000CXWb-07Qr;
+	Tue, 24 Dec 2024 17:40:01 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQ8OV-0000000CNC0-12BT;
-	Tue, 24 Dec 2024 17:08:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6BD5240004;
-	Tue, 24 Dec 2024 17:08:24 +0000 (UTC)
+	id 1tQ8Mz-0000000CMgb-3p0f;
+	Tue, 24 Dec 2024 17:06:59 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D128B40004;
+	Tue, 24 Dec 2024 17:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1735060109;
+	t=1735060016;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=st7iZmfts2tp/8JHKFXB7UyuKEKOlhrYdKjKeGEcYRI=;
-	b=C6PU0+1oRp15Veqp9zxnzsWiEF4EXFnjn/8rqCWVdcYin0pJ2xwfhRPvZRHBNh0jF+5OK2
-	ybueriz7GuiSPXhebd+kw8TvM3Np469mC+/RmPtvvOULmkxUcLApE+gZhr0NAeUtYc1HY4
-	0bBususlDBpKDw5EHbp5TH5AQ4qGppu4b7AtWUNqdiU3dFi7kevDTJ4tvv5m27FYwj8r5K
-	vGW6SjZOKYr9SFdM8I2QDjP1wwpUF1MbDQmQVPfOvQP93eBhPxxV31sh2SCJyt9BRQv6+/
-	fCiLuztwNjULwAHbXZVaUw+WenD6DT1nMBqCN5356EYSnmpCgCS4nxil91kYFw==
+	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=;
+	b=QeYyN/uiGZhXmqNymhnTAPygPndx1LCwsdLVoUS6KOTxlzVQMSRpzYfmYr3CrafD+soidn
+	GIFyL0trjNaPFws7xI5aAPBy0Y/zMKXrmOIzv9d1VR0mL2vKg0ZddGcsjeueZDvzMoURGP
+	oOYbbCU545L9qVCcaj/DcSBnJaLoYwHv/9hryJgHcdsemDEXyVABHcXRPOcWf+9I7swFyC
+	6b3ovrOap/L/hY7pZFExCeayq8xfEmL0e9Nl5AogDbfsR90nwFDXq9TtZzEzRj7hc8+lyx
+	THWAp7i77m4tFwQw9n6KSkAyAgmvJjh/wfZiOMqrwcwjMh1GStlLFjU2e1nMeg==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Tue, 24 Dec 2024 18:06:12 +0100
-Subject: [PATCH v2 27/27] mtd: spinand: winbond: Add support for DTR
- operations
+Date: Tue, 24 Dec 2024 18:05:52 +0100
+Subject: [PATCH v2 07/27] spi: dw: Support per spi-mem operation frequency
+ switches
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-27-ad218dbc406f@bootlin.com>
+Message-Id: <20241224-winbond-6-11-rc1-quad-support-v2-7-ad218dbc406f@bootlin.com>
 References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
@@ -80,9 +80,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_090831_579257_88924AC5 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241224_090658_217073_B8022F4B 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,37 +96,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-W25N01JW and W25N02JW support many DTR read modes in single, dual and
-quad configurations.
+Every ->exec_op() call correctly configures the spi bus speed to the
+maximum allowed frequency for the memory using the constant spi default
+parameter. Since we can now have per-operation constraints, let's use
+the value that comes from the spi-mem operation structure instead. In
+case there is no specific limitation for this operation, the default spi
+device value will be given anyway.
 
-DTR modes however cannot be used at 166MHz, as the bus frequency in
-this case must be lowered to 80MHz.
+The per-operation frequency capability is thus advertised to the spi-mem
+core.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/spi/winbond.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/spi/spi-dw-core.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/spi/winbond.c b/drivers/mtd/nand/spi/winbond.c
-index 51972ba0f193c7b27ece0296c1590ddfed0ac813..8394a1b1fb0c125ddb614269069d107463e905a3 100644
---- a/drivers/mtd/nand/spi/winbond.c
-+++ b/drivers/mtd/nand/spi/winbond.c
-@@ -24,10 +24,15 @@
-  */
+diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
+index 431788dd848cea1d854affe0d1fb971f680824a1..3d49b1dbaed4d491c0df659c061582e71f2c514d 100644
+--- a/drivers/spi/spi-dw-core.c
++++ b/drivers/spi/spi-dw-core.c
+@@ -677,7 +677,7 @@ static int dw_spi_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op *op)
+ 	 * operation. Transmit-only mode is suitable for the rest of them.
+ 	 */
+ 	cfg.dfs = 8;
+-	cfg.freq = clamp(mem->spi->max_speed_hz, 0U, dws->max_mem_freq);
++	cfg.freq = clamp(op->max_freq, 0U, dws->max_mem_freq);
+ 	if (op->data.dir == SPI_MEM_DATA_IN) {
+ 		cfg.tmode = DW_SPI_CTRLR0_TMOD_EPROMREAD;
+ 		cfg.ndf = op->data.nbytes;
+@@ -894,6 +894,10 @@ static void dw_spi_hw_init(struct device *dev, struct dw_spi *dws)
+ 		dw_writel(dws, DW_SPI_CS_OVERRIDE, 0xF);
+ }
  
- static SPINAND_OP_VARIANTS(read_cache_dtr_variants,
-+		SPINAND_PAGE_READ_FROM_CACHE_QUADIO_DTR_OP(0, 8, NULL, 0, 80 * HZ_PER_MHZ),
-+		SPINAND_PAGE_READ_FROM_CACHE_X4_DTR_OP(0, 2, NULL, 0, 80 * HZ_PER_MHZ),
- 		SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP(0, 2, NULL, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_X4_OP(0, 1, NULL, 0),
-+		SPINAND_PAGE_READ_FROM_CACHE_DUALIO_DTR_OP(0, 4, NULL, 0, 80 * HZ_PER_MHZ),
-+		SPINAND_PAGE_READ_FROM_CACHE_X2_DTR_OP(0, 2, NULL, 0, 80 * HZ_PER_MHZ),
- 		SPINAND_PAGE_READ_FROM_CACHE_DUALIO_OP(0, 1, NULL, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_X2_OP(0, 1, NULL, 0),
-+		SPINAND_PAGE_READ_FROM_CACHE_DTR_OP(0, 2, NULL, 0, 80 * HZ_PER_MHZ),
- 		SPINAND_PAGE_READ_FROM_CACHE_FAST_OP(0, 1, NULL, 0),
- 		SPINAND_PAGE_READ_FROM_CACHE_OP(0, 1, NULL, 0, 54 * HZ_PER_MHZ));
- 
++static const struct spi_controller_mem_caps dw_spi_mem_caps = {
++	.per_op_freq = true,
++};
++
+ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+ {
+ 	struct spi_controller *host;
+@@ -941,8 +945,10 @@ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
+ 		host->set_cs = dw_spi_set_cs;
+ 	host->transfer_one = dw_spi_transfer_one;
+ 	host->handle_err = dw_spi_handle_err;
+-	if (dws->mem_ops.exec_op)
++	if (dws->mem_ops.exec_op) {
+ 		host->mem_ops = &dws->mem_ops;
++		host->mem_caps = &dw_spi_mem_caps;
++	}
+ 	host->max_speed_hz = dws->max_freq;
+ 	host->flags = SPI_CONTROLLER_GPIO_SS;
+ 	host->auto_runtime_pm = true;
 
 -- 
 2.47.0
