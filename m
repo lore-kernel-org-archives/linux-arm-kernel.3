@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF7FE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 14:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A4AE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 15:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=34mKcnYG3l4eTjM+8SIu4khpPgGPlig8uP/Rl4YzVG0=; b=p/d2P7YixkmUdLYvUqvYsKj56l
-	jOtP0VzaGhfGfN0jAIF+xKc8LBEFbNpG+VWfBG7uEXVlDvbmwb3TZA73vkCXp7nyWZE/X3L+4Ub4D
-	NKzlE2CSDTwDm/4gG0PwMbe4AnJB5GlqJdLg/zm+6cGNnHTVuRkV/She3VG2mXN1ZeXgV98+CTQVS
-	EhC4WcQ7EZAe27fjNxnzmS0QdLn6na304k3Zo/jJ1Va2K84Qq+GblNPjPS8b04Fdv4xpFwBXuq8Wc
-	6WwzWCKAih4Dxipda8GBnZcxRraT1Aedx2WZDZV03BreLsgYOoXfx7ra+ST11RmtRjin9wjX58wrS
-	Uhn+t7Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pk4s0qCyjEO8XOZ4Bt2JdqZhzAMwJb6j/s2chqx6dRU=; b=ezgVI3h0uTa/jiAtS39vYHLSI9
+	2dfKwLIQPtazawEHSEyKfb5We3OzfuvMv1sfYPyoGctYsxti2DsmkuzRRZTwJpMtrebmx8iRlb+Jv
+	nwmGTe1j0kRhr0kx7EjNricsVR5u+W54s4fGGlRnqOFYwDRVkJxdrW+8WcojX6XcOZxoJReBpubUl
+	/dHOEpcdTq7602zj0P7CnaggJhmmq7Q/f/e1aBPCUeOwzDnhf9ZCIpvL5dSXVY6N6CmKVwnFE+aPv
+	+QZtTLw7JWQV0BgIicc8VEOHSA/QhToSN0LFc7eX+EQgi3cB1+uN7HGVO6+vVYPRqi/dYMSpDDVuQ
+	aFH1JzUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQSGh-0000000Dvlc-1U6N;
-	Wed, 25 Dec 2024 14:21:47 +0000
+	id 1tQSuL-0000000DyDo-0Ez4;
+	Wed, 25 Dec 2024 15:02:45 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQSFV-0000000Dvd6-1mDw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 14:20:34 +0000
+	id 1tQSt9-0000000Dy9M-0qed;
+	Wed, 25 Dec 2024 15:01:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96942A40404;
-	Wed, 25 Dec 2024 14:18:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1FABC4CECD;
-	Wed, 25 Dec 2024 14:20:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8638FA40444;
+	Wed, 25 Dec 2024 14:59:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B0C5C4CEDC;
+	Wed, 25 Dec 2024 15:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735136432;
-	bh=UgQVZjB1pmffoGVrWrpjv7ck7OetayH/qC7/X1DRQMo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B+JeCAvLMaNI8JrFYoFuro5tKwLF+o3ItGz5d/FRNm+WAvtky/4qVqqe1xjRKHqHf
-	 78c1Wt4MRTsoyBqoKv3hvaPSF8oZBAB3+1azgFdRL55x+F37tE0HfQs6Fz0xbwIeH8
-	 gGgdwQHNKB0cTr5Z0a2oCLngmnCQ3T4cQWhiN0D5RCKf8PripojoIiRf4H2h1zewBW
-	 83NCSB+kaWSEdchLk+FP3Lq6hBagMR96/2srtyLuWf87GNYMgSHYnDvCGTz+WKDruX
-	 djnCmdb74XqyhH4C/dEGLxR7OLkLYwlNzsAR+PAqdd6J3fm0L3nmGwuNrTJbTzAaqQ
-	 EjSmGBhyJVXxQ==
-Date: Wed, 25 Dec 2024 14:20:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Abel Vesa <abel.vesa@linaro.org>, Marek Vasut <marex@denx.de>,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
-Message-ID: <20241225-untapped-flyover-47254d06d418@spud>
-References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
- <20241219-imx8m-clk-v1-1-cfaffa087da6@pengutronix.de>
- <20241219-lash-lather-31443ced0e0c@spud>
- <4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de>
+	s=k20201202; t=1735138889;
+	bh=4bBE8LbFUYcZ10/kvs+K0KUMEg1oift8keSWrmc1IWM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Qwf4uo7v3vQwlFcBS5TpFevok2CrBVmP/NGdwq+P5lGGhBtQRz7RnpPF3PN+VBqwz
+	 X8qFMfqPUeaespfHTxJiwTiHxaxKe/j4soflcxZtUCXmEGz4bJpAu2uy4SrDZhLhyS
+	 u+72EBBqmmSejAKXs5F8G5CEJWqoWx50Wb2o5CJmge53rRfw2tuoBZdCnp81wAQ4mm
+	 NRtwJomQq9yA4jTkhBhoEO4v3iQYFb6LICeFbvv8nnhAB3sFAemAYTKdTbXlhWYUDr
+	 uEaRW87x5nSLad/xVB5NSq+GscuUEuJ44KJPT7VN8v5wgulge3TNsCGXSYqY/xvWAC
+	 7LRMBNhNdiVLA==
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-2ee989553c1so6270363a91.3;
+        Wed, 25 Dec 2024 07:01:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUH08pLOoDDMDmtOvJnMV2NuUqukeY844tny2EpeqL6H9E7Owm1O1yn029drdMi5HO7dmVZomgrMiOUzvytVzU=@lists.infradead.org, AJvYcCX+WVZuqBXamPSaxyfGRYv3RNs/AiciM/JougE8i8ywP9++tefdSHH0e+B/cw/QhaUqQ6lwf3Esvw65pggCVvoY@lists.infradead.org
+X-Gm-Message-State: AOJu0YysyWAXSke+D/7xs+chKCDpJBhXOu6v++Er9j4llYzBF05Mhus+
+	ctvwOGLA/MPXAdhc2B1VcWWDmyAUYLihJPO6QvOmJ3rJil2yMzuT4tE57GH7ehgJB+at1GBJKTe
+	ZGE6gv8vhVo1k4XWduOb8nXVivw==
+X-Google-Smtp-Source: AGHT+IF9xqr0MB+CeYvcLBK3vTLIYnlZnLybva/SWf50PuDmdoY6PLKbqt076UUPF0Wsld6o+8QicufgIRbtnqCK+ak=
+X-Received: by 2002:a17:90a:e187:b0:2ee:8430:b847 with SMTP id
+ 98e67ed59e1d1-2f452dfcd26mr28539700a91.6.1735138889113; Wed, 25 Dec 2024
+ 07:01:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="24USIZEjsi+7fMqF"
-Content-Disposition: inline
-In-Reply-To: <4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de>
+References: <20241223023227.1258112-1-guoqing.jiang@canonical.com>
+In-Reply-To: <20241223023227.1258112-1-guoqing.jiang@canonical.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Wed, 25 Dec 2024 23:02:01 +0800
+X-Gmail-Original-Message-ID: <CAAOTY__No2VrkivsH3=6jvPGkPTXZ22vbGGKAcB3MMcA-+QeEw@mail.gmail.com>
+Message-ID: <CAAOTY__No2VrkivsH3=6jvPGkPTXZ22vbGGKAcB3MMcA-+QeEw@mail.gmail.com>
+Subject: Re: [PATCH V2] drm/mediatek: Set private->all_drm_private[i]->drm to
+ NULL if mtk_drm_bind returns err
+To: Guoqing Jiang <guoqing.jiang@canonical.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, nancy.lin@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_062033_608150_7B62DD56 
-X-CRM114-Status: GOOD (  39.77  )
+X-CRM114-CacheID: sfid-20241225_070131_377169_A2A8CEA0 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +85,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Guoqing:
 
---24USIZEjsi+7fMqF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Guoqing Jiang <guoqing.jiang@canonical.com> =E6=96=BC 2024=E5=B9=B412=E6=9C=
+=8823=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8A=E5=8D=8810:32=E5=AF=AB=E9=81=93=
+=EF=BC=9A
+>
+> The pointer need to be set to NULL, otherwise KASAN complains about
+> use-after-free. Because in mtk_drm_bind, all private's drm are set
+> as follows.
+>
+> private->all_drm_private[i]->drm =3D drm;
+>
+> And drm will be released by drm_dev_put in case mtk_drm_kms_init returns
+> failure. However, the shutdown path still accesses the previous allocated
+> memory in drm_atomic_helper_shutdown.
+>
+> [   84.874820] watchdog: watchdog0: watchdog did not stop!
+> [   86.512054] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> [   86.513162] BUG: KASAN: use-after-free in drm_atomic_helper_shutdown+0=
+x33c/0x378
+> [   86.514258] Read of size 8 at addr ffff0000d46fc068 by task shutdown/1
+> [   86.515213]
+> [   86.515455] CPU: 1 UID: 0 PID: 1 Comm: shutdown Not tainted 6.13.0-rc1=
+-mtk+gfa1a78e5d24b-dirty #55
+> [   86.516752] Hardware name: Unknown Unknown Product/Unknown Product, BI=
+OS 2022.10 10/01/2022
+> [   86.517960] Call trace:
+> [   86.518333]  show_stack+0x20/0x38 (C)
+> [   86.518891]  dump_stack_lvl+0x90/0xd0
+> [   86.519443]  print_report+0xf8/0x5b0
+> [   86.519985]  kasan_report+0xb4/0x100
+> [   86.520526]  __asan_report_load8_noabort+0x20/0x30
+> [   86.521240]  drm_atomic_helper_shutdown+0x33c/0x378
+> [   86.521966]  mtk_drm_shutdown+0x54/0x80
+> [   86.522546]  platform_shutdown+0x64/0x90
+> [   86.523137]  device_shutdown+0x260/0x5b8
+> [   86.523728]  kernel_restart+0x78/0xf0
+> [   86.524282]  __do_sys_reboot+0x258/0x2f0
+> [   86.524871]  __arm64_sys_reboot+0x90/0xd8
+> [   86.525473]  invoke_syscall+0x74/0x268
+> [   86.526041]  el0_svc_common.constprop.0+0xb0/0x240
+> [   86.526751]  do_el0_svc+0x4c/0x70
+> [   86.527251]  el0_svc+0x4c/0xc0
+> [   86.527719]  el0t_64_sync_handler+0x144/0x168
+> [   86.528367]  el0t_64_sync+0x198/0x1a0
+> [   86.528920]
+> [   86.529157] The buggy address belongs to the physical page:
+> [   86.529972] page: refcount:0 mapcount:0 mapping:0000000000000000 index=
+:0xffff0000d46fd4d0 pfn:0x1146fc
+> [   86.531319] flags: 0xbfffc0000000000(node=3D0|zone=3D2|lastcpupid=3D0x=
+ffff)
+> [   86.532267] raw: 0bfffc0000000000 0000000000000000 dead000000000122 00=
+00000000000000
+> [   86.533390] raw: ffff0000d46fd4d0 0000000000000000 00000000ffffffff 00=
+00000000000000
+> [   86.534511] page dumped because: kasan: bad access detected
+> [   86.535323]
+> [   86.535559] Memory state around the buggy address:
+> [   86.536265]  ffff0000d46fbf00: ff ff ff ff ff ff ff ff ff ff ff ff ff =
+ff ff ff
+> [   86.537314]  ffff0000d46fbf80: ff ff ff ff ff ff ff ff ff ff ff ff ff =
+ff ff ff
+> [   86.538363] >ffff0000d46fc000: ff ff ff ff ff ff ff ff ff ff ff ff ff =
+ff ff ff
+> [   86.544733]                                                           =
+^
+> [   86.551057]  ffff0000d46fc080: ff ff ff ff ff ff ff ff ff ff ff ff ff =
+ff ff ff
+> [   86.557510]  ffff0000d46fc100: ff ff ff ff ff ff ff ff ff ff ff ff ff =
+ff ff ff
+> [   86.563928] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> [   86.571093] Disabling lock debugging due to kernel taint
+> [   86.577642] Unable to handle kernel paging request at virtual address =
+e0e9c0920000000b
+> [   86.581834] KASAN: maybe wild-memory-access in range [0x07520490000000=
+58-0x075204900000005f]
+> ...
+>
 
-On Thu, Dec 19, 2024 at 09:14:10PM +0100, Ahmad Fatoum wrote:
-> Hello Conor,
->=20
-> On 19.12.24 20:49, Conor Dooley wrote:
-> > On Thu, Dec 19, 2024 at 08:27:32AM +0100, Ahmad Fatoum wrote:
-> >> The imx8m-clock.yaml binding covers the clock controller inside all
-> >> of the i.MX8M Q/M/N/P SoCs. All of them have in common that they
-> >> support two operating modes: nominal and overdrive mode.
-> >=20
-> > This implies that only the two modes you mention are possible, but you
-> > leave the option open to a dts author to use either. How come?
-> >=20
-> > Makes it seem like we only need one of these, for whatever the
-> > non-default option is?
->=20
-> There is no real default. The mode is configured implicitly by the
-> bootloader setting VDD_SOC and then kernel needs to adhere to the
-> limits that imposes.
->=20
-> For i.MX8M Mini and Nano, the kernel SoC DTSIs has assigned-clock-rates
-> that are all achievable in nominal mode. For i.MX8MP, there are some
-> rates only validated for overdrive mode.
->=20
-> But even for the i.MX8M Mini/Nano boards, we don't know what rates they
-> may configure at runtime, so it's not possible to infer from just the
-> device tree what the mode is, which is why I need to allow for absence
-> of either property. I can make it a single property with two possible
-> values though if that's preferable.
->=20
-> Theoretically, we could infer mode at runtime from VDD_SOC voltage,
-> but we need to set up clocks to read out the PMIC and I want to
-> apply the constraints as early as possible as I don't want the SoC
-> to run outside of spec even for a short while.
+Applied to mediatek-drm-fixes [1], thanks.
 
-Apologies for the delay responding to you, doing it today cos I feel
-guilty! I think what you've explained here is fine, but could you add a
-bit more of that info to the commit message, explaining why one cannot
-be default? With that,
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
-Cheers,
-Conor.
+Regards,
+Chun-Kuang.
 
->=20
-> Thanks,
-> Ahmad
->=20
-> >=20
-> >>
-> >> While the overdrive mode allows for higher frequencies for many IPs,
-> >> the nominal mode needs a lower SoC voltage, thereby reducing
-> >> heat generation and power usage.
-> >>
-> >> In any case, software should respect the maximum clock rate limits
-> >> described in the datasheet for each of the two operating modes.
-> >>
-> >> To allow device tree consumers to enforce these limits, document two n=
-ew
-> >> optional properties that can be used to sanity check the clock tree.
-> >>
-> >> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> >> ---
-> >>  Documentation/devicetree/bindings/clock/imx8m-clock.yaml | 14 +++++++=
-+++++++
-> >>  1 file changed, 14 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml =
-b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> >> index c643d4a81478..a6ae5257ef53 100644
-> >> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> >> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> >> @@ -43,6 +43,14 @@ properties:
-> >>        ID in its "clocks" phandle cell. See include/dt-bindings/clock/=
-imx8m-clock.h
-> >>        for the full list of i.MX8M clock IDs.
-> >> =20
-> >> +  fsl,nominal-mode:
-> >> +    description: Set if SoC is operated in nominal mode
-> >> +    $ref: /schemas/types.yaml#/definitions/flag
-> >> +
-> >> +  fsl,overdrive-mode:
-> >> +    description: Set if SoC is operated in overdrive mode
-> >> +    $ref: /schemas/types.yaml#/definitions/flag
-> >> +
-> >>  required:
-> >>    - compatible
-> >>    - reg
-> >> @@ -95,6 +103,12 @@ allOf:
-> >>              - const: clk_ext2
-> >>              - const: clk_ext3
-> >>              - const: clk_ext4
-> >> +  - if:
-> >> +      required:
-> >> +        - fsl,overdrive-mode
-> >> +    then:
-> >> +      properties:
-> >> +        fsl,nominal-mode: false
-> >> =20
-> >>  additionalProperties: false
-> >> =20
-> >>
-> >> --=20
-> >> 2.39.5
-> >>
->=20
->=20
-> --=20
-> Pengutronix e.K.                           |                             |
-> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-
---24USIZEjsi+7fMqF
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2wUqgAKCRB4tDGHoIJi
-0hbzAQC65sEK2UR7g/h59lMD//eMqtEkiciZ/1hCYAlQJ3x5gwD/T+rnKe1r/9c6
-nZAZoSKGnW67n9Nso3RjpYTwQfyYQwI=
-=s/GH
------END PGP SIGNATURE-----
-
---24USIZEjsi+7fMqF--
+> Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi =
+mmsys support")
+> Signed-off-by: Guoqing Jiang <guoqing.jiang@canonical.com>
+> ---
+> V2 changes:
+> 1. add Fixes tag per CK's comment
+>
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
+iatek/mtk_drm_drv.c
+> index 9a8ef8558da9..0062374f75d5 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> @@ -673,6 +673,8 @@ static int mtk_drm_bind(struct device *dev)
+>  err_free:
+>         private->drm =3D NULL;
+>         drm_dev_put(drm);
+> +       for (i =3D 0; i < private->data->mmsys_dev_num; i++)
+> +               private->all_drm_private[i]->drm =3D NULL;
+>         return ret;
+>  }
+>
+> --
+> 2.35.3
+>
 
