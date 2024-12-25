@@ -4,156 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00A5E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3795BE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DukUi20ribtoY0zuPUunG62SHCrXAH2H0r6BkF99hRA=; b=gxvgZPURR3mU7O8Jr/5sGR/A9T
-	zHA3zDcy3Zw/aOFe6dBgTBJl8c0WLcG/UmI3Uos4PTj3yfeFn/JkHfkaDnxOqOGV+CYolM+Jq/Qmy
-	0Vx6ivAnKYxZd+3oCN81ryVKl3ix4S75cp6rgcZBmO49YlyhECOg1f4yhNx6EiYIQju/CrDz5mhLY
-	58DtohkDJnA4NoqrbJdrHLfwwoHJ5tZ5x+Wn5IuvFfk6TMMDNYYrf4PCY/E4i6v2rWSTlsWENIhtK
-	nv2ZKo1I1LDJVUS4Usou2FOWwooJkUR7ztyZCnBI1alujV02H8c5X7m9ls16KXKhnmQefytvgl41h
-	nAeiXpQg==;
+	bh=uNLnVR9vGF1ncRzwJjWhsdEqfpo2sCMhV9fziN1rC3U=; b=Pgf8m94a+OPtI/3tqANHH0iAE+
+	oZrrHMaoRIxsbwUwcA0PsiAGgeEQ+bGY7FlwZLnvPPy0Puu41D2PtHAWgx4VCWbJLsdjpSYPUqCH6
+	Y7yb5xSUm0oqeqjR5+3sIIVruHoZjNoQOeJdc+SHGL2BastHR4NfYDkVxFOx5CWjygxw1++Q7DZin
+	0U+iwy+sUiyE/vA9z+mObOw7u4yJINTFKOQ/mnaCuzJ9d7HNM/HwANw8wcD5nePGIcqowLklCba2s
+	T9fePiOhdVpl+mWFcgx6MCYKFcS0WhgmVFBQaGz9IurDZD57cYra79xVqOtHV7F6FtUq2cUyOCSA+
+	dgyQl8kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQP5Y-0000000Dg9W-0h5s;
-	Wed, 25 Dec 2024 10:58:04 +0000
-Received: from mail-am7eur03on20612.outbound.protection.outlook.com ([2a01:111:f403:260e::612] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tQP6h-0000000DgIe-0shU;
+	Wed, 25 Dec 2024 10:59:15 +0000
+Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQP4L-0000000Dfwf-11ll
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 10:56:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nvXZfESqsYb8fgSlHdovnWpcKndo1Fq3SdMaWOL4o2LChGwKrFN4orhZb4PXQBtR+wfxRE+Kj0Bc80ALiF68z2VEuW34olMrSl11i6YPcNayTF+Z2LqxX+x3DdnNdTjI/IwjdeVXn/2LBRT1SbQlHDNS4ZKju3/vIogNs7cguunpqpLEcolkuOBB1xbBRfcTV4mN5xdBt6vpn7W8UEzbJ920VGDXwn4PpWwRqcujNcpwC1SrkQ+Hb4UUi2IBkIZHgTPO9ndPFDNt9PnjSZIt5EXAOX//ihb2Qk+m2+kHnxXl1u9JpuoUOX/F6q2zimaixoUNiAA1jvBVifeNCX5vbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DukUi20ribtoY0zuPUunG62SHCrXAH2H0r6BkF99hRA=;
- b=pcoaqZzdV+U7z0K2Sj6tBsn5jFUZco5xcImBQYpXT2zEXiGEnzqXGTYKPUYhtZM2C5lu1M0eI11CYdHjR2fhrpdSs7TDsIeBGu1Ci2uKjHXCPXVdi71P8mE7bU1bLCE1KVmEGzRBJnYC3vM2Ena5rDvjB1v36hQrua1Q7eBh9wn1LdDTHOgj9zVCP5u4vJH63ItwMnYUPUY4CuYdgDZJEKJTMUlNeP4Riq/MVU3q9UhnnxwPNz+NmdrMBDo8ZsldXdpzcK7vF0H/s8NQpzsFHU9pYBGUnIL1SWPyCGeOUDLfiwdyK/+77oPqNm/0qpci34zwRLjHqjeFEaTEIy2dkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DukUi20ribtoY0zuPUunG62SHCrXAH2H0r6BkF99hRA=;
- b=N3cUDAtaayPXx60PZ/dBNubea2ffDGMy3hG3kg5LFkrxxsG+SPXJ+1gkV+B6SiO+Uxvtyjdj47xezmm9Y1BarymNG10zlehkdJRorANvreGaoUb5aP5gol0Kmx7uFXRqyeMOYPrkV5PApVy53nhY2BEbDiDcHsxukOvhgwGOxqLom58rL+DZhdvIizdxhOUomo67ApNny9AODRDxCuXDQKtrvE4lML6kLjuzMJcpsYbsTt2H7JdyIUSTX/IuT7L6EHeIV3S0PBgn0DSJi7Bku4PBAC9+IoSKU3fb7WZs1p7Z09ujGzFhhxhcdAAL2cPtMeaebWqKG4HsTU5Y9tfLYw==
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by GVXPR04MB9760.eurprd04.prod.outlook.com (2603:10a6:150:114::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.21; Wed, 25 Dec
- 2024 10:56:34 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.013; Wed, 25 Dec 2024
- 10:56:34 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-CC: "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Clark Wang <xiaoning.wang@nxp.com>, Ahmad
- Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v6] i2c: imx: support DMA defer probing
-Thread-Topic: [PATCH v6] i2c: imx: support DMA defer probing
-Thread-Index: AQHbVrup5nlogFqAQUSHF44KCSSX2A==
-Date: Wed, 25 Dec 2024 10:56:34 +0000
-Message-ID: <AM0PR0402MB3937C3087A22A1DB8FAE91ECE80C2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
-References: <20241223034416.544022-1-carlos.song@nxp.com>
- <gfjir4qyyptxjizkc2k5r2elwn74fndia644evv6acwyuj3fr5@3pl3xt7rqntw>
- <AM0PR0402MB3937905A3108833DD8F52982E8032@AM0PR0402MB3937.eurprd04.prod.outlook.com>
- <ltb3ywaz2req4yqdqmtq4ejbzh4esjszbx4x6ab3k5zmqxhdpg@qqjetty6fs3q>
-In-Reply-To: <ltb3ywaz2req4yqdqmtq4ejbzh4esjszbx4x6ab3k5zmqxhdpg@qqjetty6fs3q>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR0402MB3937:EE_|GVXPR04MB9760:EE_
-x-ms-office365-filtering-correlation-id: 02ad3d95-e2b0-4c03-5a7b-08dd24d2cc0f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?JFlpuhiOkH8UUsi2OquhlObSpjby6mvWaWFFxusi4wHkfjhB2duAuOmJzFKe?=
- =?us-ascii?Q?Buqy4JZjq2pU8vQXgdQ4VEGWcPexBF+rPPS36TLL7dvtCJmahIZv/2Hwqxsk?=
- =?us-ascii?Q?nnhBumsXpLco7xN/bwvNc19+lZQBVyr9J4BKRn4O8hdPihgwFqWS0zwXk+2G?=
- =?us-ascii?Q?oqOk5bKeaCiH2qKrqhCwtW9OfISGloAYfABGPS0WBhx00R8/gVAI3+dv2l4M?=
- =?us-ascii?Q?3r7BrVfYYtETI8F/frw8kY1EAWavjAvzHAznY24CCZkDimUATjl2mjhtuF2P?=
- =?us-ascii?Q?UZ8+Mpa23hIQFp7ko0omSVKw6iIrAk8K9UJOj4FQIe6+UE/xNYI3uxX9+b92?=
- =?us-ascii?Q?rCxkMZ5nC5AGMAeHtk53VZcFiGQoxB3bzeMLIfDMAPZbUhmRVV+4/OH9smdq?=
- =?us-ascii?Q?R38WjfTUTXDf8ZpzBG9hdJqahexTeUKfqDCcT6f9k7ycEMMu8tV6u5rBiPHG?=
- =?us-ascii?Q?ilSs61ZoLw7M8kpTjJrqUH34O5fdc9BJ/myNs7LKBI9SU9IcYaHJFXLZVVcX?=
- =?us-ascii?Q?7zIH1DY2SWWt0jW5qUEdf4coprEmeaPIRG6HrnYOGQFcqjgvgmpVGHZ7mtwE?=
- =?us-ascii?Q?Drq3oE6pkRege1Esx79/VkSbTxdX22S+QqV7hmLmlyKF28eH46u2UF4aUwzS?=
- =?us-ascii?Q?hbB4S5lmPA2++pPKuVRFvxJx23PIdTYe429wnXd4m7OKbxyPQDOYxbPZM1T7?=
- =?us-ascii?Q?toqLHl35TAx1SIm3jp0xL4sqTaygd2y0bPLPQOCRvEtLmzArsnxtoTRVPEXH?=
- =?us-ascii?Q?FByWrFoWBu6wJ+JDWpJf6z5k7U8G5c94tkfHKYSCca09v3vvm3Mq0sJpHD5v?=
- =?us-ascii?Q?VL8fXa76WAYS7uAqr7mfbS8EAJc7ejXcTGw/cAYJUedC2NvO0t5fG6Bsc4Ix?=
- =?us-ascii?Q?e8WBcF0rZgk6hx7BoCa6o/axCYD/vZfp13lM+gF3G6GNoPMckKkc40wJyrRW?=
- =?us-ascii?Q?Ch3J3Y+SntzOrKSbF9EiprXajdBaDThodZ+TjToz/JYRj27fqlDe5keg084d?=
- =?us-ascii?Q?WpOsA9VELhjUFMU6/87vNM1a6Q61i9sgytiWxH4xpXC/taFWCKYpJ3yzzGKi?=
- =?us-ascii?Q?Z93iWCkIO/Lk2YeLIc6jKpkJkAeX8RRR8PJYUd9OiiplA0ABn0b6UJNdCp77?=
- =?us-ascii?Q?YfOGhk+X4znkk1FYT7ThcN5JADhKWn7TAUGXKXLXjRdpyHBWRwN3RwRpHcdL?=
- =?us-ascii?Q?bUOFydZATmB9A5XjFU6EvxaziS/4P6E+tt4mRjH6LPvF6qMoEHuXtUFLw9Hk?=
- =?us-ascii?Q?yRFBGvVuVgftT2DdV5asdkX6AhjaCmfVa6+DpKrpEga6thzGK48Q9qy8Rhe3?=
- =?us-ascii?Q?n91DtwIE9ec1VVj7uNh0+Amc4TfePoxRUB3JI7lM9sqUzf9vNHAQ/PeN/uIg?=
- =?us-ascii?Q?EQm6YKfaK1LyljX5O9xU6123czQ892XF34AuVam8dkYYAv6PB+Pp1e4UOJlM?=
- =?us-ascii?Q?Uzv9HM80Cob7n4KE4gSpr1WeNLwwWIUq?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9DYG0DkjMzdnZzY989MZlngAHjjFSf4AXRSOYe2nudoCH3DQN2v7jiA1OsHL?=
- =?us-ascii?Q?0A89/AZOhGMUB+QBQtOlcNLR/kKULwnFUnaW/14LihJVA2v14JUUwrI/9qZW?=
- =?us-ascii?Q?iT5YctHb1ohYt4mtXhpqepU1qfQMV0ZNc6SA8tH4O+L8fBIDddV8lVYwhSr5?=
- =?us-ascii?Q?mAaUbWY5gv/zIA4uZqazHXu5v9RH3Qn0WZkaDG/0kM1p5KKQYICEAp4FroE4?=
- =?us-ascii?Q?kqv1Rv/p+7oNCv4srt06UL2ASY/JrKxk6Hk6cP5DitSoqveeYsK9wcqJZKGG?=
- =?us-ascii?Q?fT3PVuLZL57xniDEbMYrmav9z7+dgy9ZFzeV8j+pL0SvhNDIInUoSrNzuajQ?=
- =?us-ascii?Q?x0xxrT3SG0DLPiTaWwRfq4aNGIsUjIrVALKJZHzr3rn55EeTz5Mtf9aVvdho?=
- =?us-ascii?Q?Nkpte+SEjaWglYixJD04zFP0WE2aZxh6Yb+xOvGHb5I7fqWBW8pPfWy3xtyA?=
- =?us-ascii?Q?7cwjHgEr7xHqEsI0lk9v2asUjv5ZMgMPWMr2a3KDccsXFmSoliheyT2JdckM?=
- =?us-ascii?Q?UTRYNCMzzDhzG9llMbzy3M7vKPgm+B9RPj3l82NOF6V6xy5rHs99nAChyQxA?=
- =?us-ascii?Q?pgHj87QJbvdk9UDuT7Ki9WmfJLtyqL+qkVaKxPR3Cgeecn9hYnEJp4hrrH4t?=
- =?us-ascii?Q?QRqINNNgYkLzTzNRAsOAwVXY2dLQbf65TDPzy9VF2HIL4KO+NnXZdAnETiOP?=
- =?us-ascii?Q?1Nnju8Yh6gnA6W5A4tL64va8pGZUmdEf1oBJArU2Uib87+RBat60BKln+Zqv?=
- =?us-ascii?Q?x5CqVF632KJM58KNyfGVpK0MUjEVDijo3+j0Ppl9zR6UdQMOVe9YiXLAEj6I?=
- =?us-ascii?Q?eQfwAaEnNkRCOdoCArVn+8AfzGbPta5bn2Y5I1+DRLzgHH/Z7Oc5Xr9YAmd7?=
- =?us-ascii?Q?FyovIQiuK16cN4zYDjPVuN47yGJe+9QJxtOJ+LNpoFBZog4wb6/DdFdLVkSl?=
- =?us-ascii?Q?Q1DrgsVnznIDGLQpk6NbH1ToJ2VNUjiSK0LzD/62Y3Zfjz+SLYv3kAbAbT7S?=
- =?us-ascii?Q?AMbLcRLCr21HZEaA1bj4KjdTpoxwYP6RJOrHw+aPYnUlgMEuh0t0iunrUY3D?=
- =?us-ascii?Q?PHL0iNbpZe2ZK2MpHyNQbfIzCACTIfqv7kFo+uxhArptjPzqVnFEqoEXD+2k?=
- =?us-ascii?Q?7mQY+EjMdw4dnpiYMqn6PAO5CGMjUzXHybxBq8rSlem2mXn/ezjcmX9FPHeR?=
- =?us-ascii?Q?IFX5FRGZGdkkLjEmpcokqxA4vGue3ZHjHBHncRYdY4vdOKJUKE1hSFNnSJ5o?=
- =?us-ascii?Q?qQq4aTVBtzp5yJzfJJ7hVolTYYpjs8r2Gz5bugGeXeIVixo7+DP713yZ3CfY?=
- =?us-ascii?Q?tkRlpUfj/SRdOqf3cTludur/cbeDYQQmfTI6qeLdPC64DZ+XLQ7vQ8aZfipb?=
- =?us-ascii?Q?6GmTdr8LfU20V5juum6VWYKexCKK5XMHL8wYgQjmYIuevBIec2WBaukvR/4d?=
- =?us-ascii?Q?hJ3iZgbWxSUYZa29wsvUgm1Jc3rcU31XN34ivV0WfcG02wqAc1U5pLrbWoc4?=
- =?us-ascii?Q?XRHv6/ZDz2jBZ3j1gwqbTQzIyIHQqRKRvuO/4ocnQw7lP2G73Cd75UPA2oyQ?=
- =?us-ascii?Q?4KyPr6ROC4dxUTfuyRw=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tQP4Z-0000000DfxG-1Hun;
+	Wed, 25 Dec 2024 10:57:07 +0000
+Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 6A0CF12002A;
+	Wed, 25 Dec 2024 13:56:52 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 6A0CF12002A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
+	s=mail; t=1735124212;
+	bh=uNLnVR9vGF1ncRzwJjWhsdEqfpo2sCMhV9fziN1rC3U=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+	b=Tw+qhIqhtXZKVdYg+E3R4KbFilIeYTsn0Jn83YP9bKnGS7GQM6/BHzX5e64dVGSm2
+	 qUvtu43CMTcl6b3FDC/GMPpdKiWQGpAggLtStgtoLCtbLjz01xOToNJ8DZzf/VAAdI
+	 ItkXS8orYrEaYPzeq32SWCwMCsgx3+AfWfOf4NU1bTGfa6MOnGvuwtuBMp6k4SBg/P
+	 HLlGB5l/uuDqVNMJn+A1JPnMN9ZsHhSPwacGqyv/zr4/H1X9Hpm9TyomehbSNRyLup
+	 cuCDH6Q8XTiU1wGfuGzobRJRliuHiA1GY5t89IBVb0PJMmF78Pcf5YyPRtrf7gSGSV
+	 E2ICJbVVv2UhA==
+Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.sberdevices.ru (Postfix) with ESMTPS;
+	Wed, 25 Dec 2024 13:56:52 +0300 (MSK)
+From: George Stark <gnstark@salutedevices.com>
+To: <ukleinek@kernel.org>, <neil.armstrong@linaro.org>,
+	<khilman@baylibre.com>, <jbrunet@baylibre.com>,
+	<martin.blumenstingl@googlemail.com>
+CC: <linux-pwm@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel@salutedevices.com>, George Stark <gnstark@salutedevices.com>
+Subject: [PATCH 1/2] pwm: meson: Simplify meson_pwm_cnt_to_ns()
+Date: Wed, 25 Dec 2024 13:56:38 +0300
+Message-ID: <20241225105639.1787237-2-gnstark@salutedevices.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20241225105639.1787237-1-gnstark@salutedevices.com>
+References: <20241225105639.1787237-1-gnstark@salutedevices.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02ad3d95-e2b0-4c03-5a7b-08dd24d2cc0f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Dec 2024 10:56:34.1726
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iEr+dwX3iupeb/G3PUuyVxrNpiiFXNy0z47VARYQA/Te7CkoqHBJOJShmWZYqCVsMD4oPPS2TnvWi22WsjSDxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9760
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [176.57.76.93]
+X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
+ p-i-exch-sc-m01.sberdevices.ru (172.16.192.107)
+X-KSMG-Rule-ID: 10
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 190053 [Dec 25 2024]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: gnstark@salutedevices.com
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49 28b3b64a43732373258a371bd1554adb2caa23cb, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2;smtp.sberdevices.ru:7.1.1,5.0.1;salutedevices.com:7.1.1, FromAlignment: s
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean
+X-KSMG-LinksScanning: Clean
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/12/25 07:56:00 #26914998
+X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_025649_323082_D566B4B6 
-X-CRM114-Status: GOOD (  31.05  )
+X-CRM114-CacheID: sfid-20241225_025704_179481_9163BD8B 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,91 +97,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+meson_pwm_cnt_to_ns() uses clock rate got from clk_get_rate(). clk object
+is getting from driver's private data thru several steps. Since
+meson_pwm_cnt_to_ns() is called several times from a single scope it's
+easier to get clock rate once and pass it as parameter.
 
+Signed-off-by: George Stark <gnstark@salutedevices.com>
+---
+ drivers/pwm/pwm-meson.c | 22 ++++++----------------
+ 1 file changed, 6 insertions(+), 16 deletions(-)
 
-> -----Original Message-----
-> From: Andi Shyti <andi.shyti@kernel.org>
-> Sent: Tuesday, December 24, 2024 4:33 PM
-> To: Carlos Song <carlos.song@nxp.com>
-> Cc: o.rempel@pengutronix.de; kernel@pengutronix.de; shawnguo@kernel.org;
-> s.hauer@pengutronix.de; festevam@gmail.com; linux-i2c@vger.kernel.org;
-> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
-> linux-kernel@vger.kernel.org; Clark Wang <xiaoning.wang@nxp.com>; Ahmad
-> Fatoum <a.fatoum@pengutronix.de>
-> Subject: [EXT] Re: [PATCH v6] i2c: imx: support DMA defer probing
->=20
-> Caution: This is an external email. Please take care when clicking links =
-or
-> opening attachments. When in doubt, report the message using the 'Report =
-this
-> email' button
->=20
->=20
-> > > > @@ -1802,6 +1803,18 @@ static int i2c_imx_probe(struct
-> > > > platform_device
-> > > *pdev)
-> > > >       if (ret =3D=3D -EPROBE_DEFER)
-> > > >               goto clk_notifier_unregister;
-> > > >
-> > > > +     /* As we can always fall back to PIO, let's ignore the error
-> > > > + setting up
-> > > DMA. */
-> > > > +     ret =3D i2c_imx_dma_request(i2c_imx, phy_addr);
-> > > > +     if (ret) {
-> > > > +             if (ret =3D=3D -EPROBE_DEFER)
-> > > > +                     goto clk_notifier_unregister;
-> > > > +             else if (ret =3D=3D -ENODEV)
-> > > > +                     dev_dbg(&pdev->dev, "Only use PIO mode\n");
-> > > > +             else
-> > > > +                     dev_err(&pdev->dev, "Failed to setup DMA
-> > > > + (%pe),
-> > > only use PIO mode\n",
-> > > > +                             ERR_PTR(ret));
-> > >
-> > > My question here is not just about the use of dev_err vs
-> > > dev_err_probe, but why don't we exit the probe if we get an error.
-> > >
-> > > We should use PIO only in case of ENODEV, in all the other cases I
-> > > think we should just leave. E.g. why don't we exit if we meet ret =3D=
-=3D
-> -ENOMEM?
-> >
-> > Hi, Andi
-> >
-> > Thank you! From my point, I2C is critical bus so it should be available=
- as much
-> as possible.
-> > -ENOMEM or other unknown errors all are from i2c_imx_dma_request(). So
-> error happened in enable DMA mode process.
->=20
-> OK, makes sense, it's the idea of "let things fail on their own, I'll mov=
-e forward as
-> much as I can"; we need to be aware of the choice. Please add a comment
-> above.
->=20
-> But then it's not an error, but a warning. With errors we bail out, with =
-warnings
-> we tell users that something went wrong.
->=20
-> Sorry for keeping you on this point for so long, but do you mind swapping=
- this
-> dev_err in dev_warn, with a comment explaining the reason we decided not =
-to
-> leave?
->=20
+diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+index 806e06c2b92e..8c6bf3d49753 100644
+--- a/drivers/pwm/pwm-meson.c
++++ b/drivers/pwm/pwm-meson.c
+@@ -331,21 +331,9 @@ static int meson_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	return 0;
+ }
+ 
+-static u64 meson_pwm_cnt_to_ns(struct pwm_chip *chip, struct pwm_device *pwm,
+-			       u32 cnt)
++static u64 meson_pwm_cnt_to_ns(unsigned long fin_freq, u32 cnt)
+ {
+-	struct meson_pwm *meson = to_meson_pwm(chip);
+-	struct meson_pwm_channel *channel;
+-	unsigned long fin_freq;
+-
+-	/* to_meson_pwm() can only be used after .get_state() is called */
+-	channel = &meson->channels[pwm->hwpwm];
+-
+-	fin_freq = clk_get_rate(channel->clk);
+-	if (fin_freq == 0)
+-		return 0;
+-
+-	return div64_ul(NSEC_PER_SEC * (u64)cnt, fin_freq);
++	return fin_freq ? div64_ul(NSEC_PER_SEC * (u64)cnt, fin_freq) : 0;
+ }
+ 
+ static int meson_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+@@ -353,10 +341,12 @@ static int meson_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ {
+ 	struct meson_pwm *meson = to_meson_pwm(chip);
+ 	struct meson_pwm_channel_data *channel_data;
++	unsigned long fin_freq;
+ 	unsigned int hi, lo;
+ 	u32 value;
+ 
+ 	channel_data = &meson_pwm_per_channel_data[pwm->hwpwm];
++	fin_freq = clk_get_rate(meson->channels[pwm->hwpwm].clk);
+ 
+ 	value = readl(meson->base + REG_MISC_AB);
+ 	state->enabled = value & channel_data->pwm_en_mask;
+@@ -370,8 +360,8 @@ static int meson_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	lo = FIELD_GET(PWM_LOW_MASK, value);
+ 	hi = FIELD_GET(PWM_HIGH_MASK, value);
+ 
+-	state->period = meson_pwm_cnt_to_ns(chip, pwm, lo + hi);
+-	state->duty_cycle = meson_pwm_cnt_to_ns(chip, pwm, hi);
++	state->period = meson_pwm_cnt_to_ns(fin_freq, lo + hi);
++	state->duty_cycle = meson_pwm_cnt_to_ns(fin_freq, hi);
+ 
+ 	return 0;
+ }
+-- 
+2.25.1
 
-Hi, Andi
-
-It doesn't matter! I am very happy to receive so many suggestions to help e=
-nhance the patch.
-I will do following things at V7:
-1. Change dev_err to dev_warn
-2. Use a more detailed comment to explain why we decided not to leave when =
-meet DMA error.
-
-Thank you.
-Carlos
-
-> Thanks,
-> Andi
 
