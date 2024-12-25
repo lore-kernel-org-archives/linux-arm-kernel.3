@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14554E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 09:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8813E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWriVfSDH2sEpg8pcOmkXvybXUKi737yhk7CRzVorzU=; b=3ku/OvOoct8IrwwJzOsDhgTBLy
-	uOTY9u7rnWLa4ptLVfBqMiHFwte/GPxJtO0Xdqj9elMAM6JhLKN00G5C0L6xNy05JFik7HHgOVRH7
-	FYqd3w5XFsWXqiKfTxWKmVrUAr1dTZerHVVa+yfqe0QBVmIt1O8lNQVqB9sJjCkUqtNHruJDAzpFR
-	60SDQ5JL8rpH5q0ITUFFgy5tKuR6qGRAAYrKVZeISicQmLJkBXpj+3pRKkHsIcotecbDU7/6wR0vM
-	qaz/JqTX6ZFQVNGES4DBjLcg6Xkkhjo6zBT+u5PGu9gnHsHdsvvTIri/+aXZ7+omkmpuC7JcpKJHm
-	cFeFLqWQ==;
+	bh=JaVSkWKpP5B4CziKH+iVS73s8XWZ5XSk/s+7bHULCNw=; b=PUHeKBBlak5Zik3wAWR8eRP9uv
+	kiKiZnYS5HMs7a5nEb0loYFewRD7aq9BBCYvjXU2tMO/flJodRiATct1SBsPEuCbArMkFK4/8GpvW
+	25bI6cif7MgLEbiLXNRjk4b9aL/FBKAexE4PauF7WH7mLInt9zVd7k0jUu7KKpVtfa+2vpbOvpbiA
+	4Zzc/1MAFSQWDogErKRVtkOX/7eQQq1IPohEswR8F/1RQY0cxFeXJdfAuBnj9NCHSnfN/Zh4gMvP2
+	7gzoJvKinhRitQaj0e5E6KE1RHkQRHz4ZMw31scEry4uKifOorTUepwXzrITZQhmXQxHxcdxqsLWc
+	p4zM8f7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQNnq-0000000DYyw-1q2G;
-	Wed, 25 Dec 2024 09:35:42 +0000
-Received: from mail-m21471.qiye.163.com ([117.135.214.71])
+	id 1tQOCK-0000000DauN-3jn3;
+	Wed, 25 Dec 2024 10:01:00 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQNmc-0000000DYoT-3cOy;
-	Wed, 25 Dec 2024 09:34:28 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 6c6e1666;
-	Wed, 25 Dec 2024 17:34:17 +0800 (GMT+08:00)
-Message-ID: <32c7ef0a-8da6-449a-8f2d-59965aa622ec@rock-chips.com>
-Date: Wed, 25 Dec 2024 17:34:17 +0800
+	id 1tQOB8-0000000DamW-0jLL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Dec 2024 09:59:47 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP3hkUh031265;
+	Wed, 25 Dec 2024 09:59:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	JaVSkWKpP5B4CziKH+iVS73s8XWZ5XSk/s+7bHULCNw=; b=TDQ4jjiGxWTigkXf
+	e03BKSacyQGnfRErQ5RmWdTkNdys9nml+jgJT689SvjU/udeR9zbZx4225kRw9DY
+	1NEQ9FN71L4DubhiMJ/DApvH05+hyE7+U8hiwcbgG1j9QYAMJZ/2pOKaqNrYTIxC
+	kPVMdCOgzZbiKqLRV+gl10Ylw0q9PdaYh6MEGX560rbaFr5yGGl00HvoV0q1ms1c
+	biFhES/P4Qb/gSACjrHgWGtYdSMEU1Q98xGvcEktyrzo9LtwGjQ9nD/+znLPzyK1
+	3a/SZf1NC87+v7JIs5lc8FbtgZuxCBEfJfacRske6VF1o6DvRdo8sAS6RwVnUBAm
+	gzWUfQ==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rad81jrk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Dec 2024 09:59:32 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BP9xUCP024401
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Dec 2024 09:59:30 GMT
+Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 25 Dec
+ 2024 01:59:27 -0800
+Message-ID: <04de1444-b28b-4c16-aafa-2b04f0a59304@quicinc.com>
+Date: Wed, 25 Dec 2024 17:59:25 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/15] arm64: dts: rockchip: Enable eDP0 display on
- RK3588S EVB1 board
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
- algea.cao@rock-chips.com, kever.yang@rock-chips.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
- <20241219080604.1423600-15-damon.ding@rock-chips.com>
- <cg7bnhol4gvzji7agxazas7nkxy7zammzy67rjvhp35yqyraju@73daepsbmuae>
- <d2b47813-45fa-4148-8a4a-6cf4a18ee7ca@rock-chips.com>
- <CAA8EJpp0Smtqx7VQ5zdg9x3EhuLpk4u4vGv=rv8DHJ0rhei18w@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
+ section aligned
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        Anshuman Khandual <anshuman.khandual@arm.com>,
+        Tingwei Zhang
+	<quic_tingweiz@quicinc.com>
+References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
+ <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
+ <Z2W3qA7wbBTaq6DQ@arm.com> <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
+ <Z2rAr9APkgpkwOl8@arm.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <CAA8EJpp0Smtqx7VQ5zdg9x3EhuLpk4u4vGv=rv8DHJ0rhei18w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUweGVYeQk1KSx1MHR9OTEhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93fd2abf9b03a3kunm6c6e1666
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODY6Ehw4NjIcNk4LOEswEgEB
-	KDhPCxJVSlVKTEhOSkpCSU5CSUhKVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPSk1INwY+
-DKIM-Signature: a=rsa-sha256;
-	b=kaQs319TgZLgE3daBx/HJEGlYlzgtVyLFOX29FOzekUTHT2VO0cM3Rtl3ZVhJA+lzlxZk0zUL2BKuKKG4P8vmv29QCBtfzvhrskZJiATdGo4/HQ9nqRotKayLndUOxQ8Dww+D7xUD3qnxGbJptgP0wpZI0e4HT7SiKdehVWUlMg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=pWriVfSDH2sEpg8pcOmkXvybXUKi737yhk7CRzVorzU=;
-	h=date:mime-version:subject:message-id:from;
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+In-Reply-To: <Z2rAr9APkgpkwOl8@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 3_1_jcqzwtTTdVsDy7yyv22gtFZOm1mn
+X-Proofpoint-ORIG-GUID: 3_1_jcqzwtTTdVsDy7yyv22gtFZOm1mn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 adultscore=0
+ mlxlogscore=999 suspectscore=0 impostorscore=0 clxscore=1015 mlxscore=0
+ spamscore=0 phishscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412250087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_013427_568208_A51D22C6 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20241225_015946_344318_0654BCBE 
+X-CRM114-Status: GOOD (  28.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,146 +109,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
 
-On 2024/12/20 13:38, Dmitry Baryshkov wrote:
-> On Fri, 20 Dec 2024 at 04:38, Damon Ding <damon.ding@rock-chips.com> wrote:
->>
->> Hi Dmitry,
->>
->> On 2024/12/20 8:20, Dmitry Baryshkov wrote:
->>> On Thu, Dec 19, 2024 at 04:06:03PM +0800, Damon Ding wrote:
->>>> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
->>>> - Add edp-panel node
->>>> - Set pinctrl of pwm12 for backlight
->>>> - Enable edp0/hdptxphy0/vp2
->>>>
->>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>>>
->>>> ---
->>>>
->>>> Changes in v2:
->>>> - Remove brightness-levels and default-brightness-level properties in
->>>>     backlight node.
->>>> - Add the detail DT changes to commit message.
->>>>
->>>> Changes in v3:
->>>> - Use aux-bus instead of platform bus for edp-panel.
->>>> ---
->>>>    .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 52 +++++++++++++++++++
->>>>    1 file changed, 52 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
->>>> index bc4077575beb..9547ab18e596 100644
->>>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
->>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
->>>> @@ -9,6 +9,7 @@
->>>>    #include <dt-bindings/gpio/gpio.h>
->>>>    #include <dt-bindings/input/input.h>
->>>>    #include <dt-bindings/pinctrl/rockchip.h>
->>>> +#include <dt-bindings/soc/rockchip,vop2.h>
->>>>    #include <dt-bindings/usb/pd.h>
->>>>    #include "rk3588s.dtsi"
->>>>
->>>> @@ -238,6 +239,41 @@ &combphy2_psu {
->>>>       status = "okay";
->>>>    };
->>>>
->>>> +&edp0 {
->>>> +    force-hpd;
->>>> +    status = "okay";
->>>> +
->>>> +    aux-bus {
->>>> +            panel {
->>>> +                    compatible = "lg,lp079qx1-sp0v";
->>>
->>> Why do you need the particular compat string here? Can you use the
->>> generic "edp-panel" instead? What if the user swaps the panel?
->>>
->>
->> The eDP panels used in conjunction with the RK3588S EVB1 have broken
->> identification, which is one of the valid reasons for using a particular
->> compat string. So the generic_edp_panel_probe() can not return success
->> when using the "edp-panel".
+
+On 2024/12/24 22:09, Catalin Marinas wrote:
+> On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
+>> Thanks Catalin for review!
+>> Merry Christmas.
 > 
-> Broken how? I don't see such info in the commit message.
+> Merry Christmas to you too!
+> 
+>> On 2024/12/21 2:30, Catalin Marinas wrote:
+>>> On Mon, Dec 09, 2024 at 05:42:26PM +0800, Zhenhua Huang wrote:
+>>>> Fixes: c1cc1552616d ("arm64: MMU initialisation")
+>>>
+>>> I wouldn't add a fix for the first commit adding arm64 support, we did
+>>> not even have memory hotplug at the time (added later in 5.7 by commit
+>>> bbd6ec605c0f ("arm64/mm: Enable memory hot remove")). IIUC, this hasn't
+>>> been a problem until commit ba72b4c8cf60 ("mm/sparsemem: support
+>>> sub-section hotplug"). That commit broke some arm64 assumptions.
+>>
+>> Shall we add ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> because it broke arm64 assumptions ?
+> 
+> Yes, I think that would be better. And a cc stable to 5.4 (the above
+> commit appeared in 5.3).
+
+Got it, Thanks.
+
+> 
+>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>> index e2739b69e11b..fd59ee44960e 100644
+>>>> --- a/arch/arm64/mm/mmu.c
+>>>> +++ b/arch/arm64/mm/mmu.c
+>>>> @@ -1177,7 +1177,9 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>>>>    {
+>>>>    	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>>>> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>>>> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+>>>> +	!IS_ALIGNED(page_to_pfn((struct page *)start), PAGES_PER_SECTION) ||
+>>>> +	!IS_ALIGNED(page_to_pfn((struct page *)end), PAGES_PER_SECTION))
+>>>>    		return vmemmap_populate_basepages(start, end, node, altmap);
+>>>>    	else
+>>>>    		return vmemmap_populate_hugepages(start, end, node, altmap);
+>>>
+>>> An alternative would be to fix unmap_hotplug_pmd_range() etc. to avoid
+>>> nuking the whole vmemmap pmd section if it's not empty. Not sure how
+>>> easy that is, whether we have the necessary information (I haven't
+>>> looked in detail).
+>>>
+>>> A potential issue - can we hotplug 128MB of RAM and only unplug 2MB? If
+>>> that's possible, the problem isn't solved by this patch.
+>>
+>> Indeed, seems there is no guarantee that plug size must be equal to unplug
+>> size...
+>>
+>> I have two ideas:
+>> 1. Completely disable this PMD mapping optimization since there is no
+>> guarantee we must align 128M memory for hotplug ..
+> 
+> I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
+> I think the only advantage here is that we don't allocate a full 2MB
+> block for vmemmap when only plugging in a sub-section.
+
+Yeah..
+In my opinion, w/o subsection hotplugging support, it is definitely 
+beneficial. However, w/ subsection hotplugging support, it may lead to 
+memory overhead and necessitate special logic in codes since we always 
+use a full 2MB block..
+
+> 
+>> 2. If we want to take this optimization.
+>> I propose adding one argument to vmemmap_free to indicate if the entire
+>> section is freed(based on subsection map). Vmemmap_free is a common function
+>> and might affect other architectures... The process would be:
+>> vmemmap_free
+>> 	unmap_hotplug_range //In unmap_hotplug_pmd_range() as you mentioned：if
+>> whole section is freed, proceed as usual. Otherwise, *just clear out struct
+>> page content but do not free*.
+>> 	free_empty_tables // will be called only if entire section is freed
+>>
+>> On the populate side,
+>> else if (vmemmap_check_pmd(pmd, node, addr, next)) //implement this function
+>> 	continue;	//Buffer still exists, just abort..
+>>
+>> Could you please comment further whether #2 is feasible ?
+> 
+> vmemmap_free() already gets start/end, so it could at least check the
+> alignment and avoid freeing if it's not unplugging a full section. It
+> does leave a 2MB vmemmap block in place when freeing the last subsection
+> but it's safer than freeing valid struct page entries. In addition, it
+> could query the memory hotplug state with something like
+> find_memory_block() and figure out whether the section is empty.
 > 
 
-The log related to the broken identification may be like:
+Do you mean that we need not clear struct page entries of subsection 
+until the entire section fully unplugged ? That seems feasible.
 
-[    0.623793] panel-simple-dp-aux aux-fdec0000.edp: Unknown panel ETC 
-0x0000, using conservative timings
+BTW, You're right, I went through codes again, only export 
+is_subsection_map_empty() for query is another option..
+	page_to_pfn() to get pfn
+	__nr_to_section() to get mem_section
+	last call is_subsection_map_empty() we can get subsection hotplug 
+status per section
+w/ this approach, we need not to do changes for func vmemmap_free
 
-The eDP panel used in RK3588S EVB1 is indeed the LP079QX1_SP0V model, it 
-should be also reasonable to use the "lg,lp079qx1-sp0v".
+> Anyway, I'll be off until the new year, maybe I get other ideas by then.
+> 
 
-And I will mention all of the above in the commit message for the next 
-version.
-
->>
->>>> +                    backlight = <&backlight>;
->>>> +                    power-supply = <&vcc3v3_lcd_edp>;
->>>> +
->>>> +                    port {
->>>> +                            panel_in_edp: endpoint {
->>>> +                                    remote-endpoint = <&edp_out_panel>;
->>>> +                            };
->>>> +                    };
->>>> +            };
->>>> +    };
->>>> +};
->>>> +
->>>> +&edp0_in {
->>>> +    edp0_in_vp2: endpoint {
->>>> +            remote-endpoint = <&vp2_out_edp0>;
->>>> +    };
->>>> +};
->>>> +
->>>> +&edp0_out {
->>>> +    edp_out_panel: endpoint {
->>>> +            remote-endpoint = <&panel_in_edp>;
->>>> +    };
->>>> +};
->>>> +
->>>> +&hdptxphy0 {
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>>    &i2c3 {
->>>>       status = "okay";
->>>>
->>>> @@ -399,6 +435,7 @@ usbc0_int: usbc0-int {
->>>>    };
->>>>
->>>>    &pwm12 {
->>>> +    pinctrl-0 = <&pwm12m1_pins>;
->>>>       status = "okay";
->>>>    };
->>>>
->>>> @@ -1168,3 +1205,18 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
->>>>               };
->>>>       };
->>>>    };
->>>> +
->>>> +&vop_mmu {
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>> +&vop {
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>> +&vp2 {
->>>> +    vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
->>>> +            reg = <ROCKCHIP_VOP2_EP_EDP0>;
->>>> +            remote-endpoint = <&edp0_in_vp2>;
->>>> +    };
->>>> +};
->>>> --
->>>> 2.34.1
->>>>
-
-Best regards
-Damon
+Sure, Happy Holiday! I will prepare both of patches and wait for your 
+further comments :
 
 
