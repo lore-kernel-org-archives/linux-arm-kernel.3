@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C7FAE7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 13:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CED9E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 13:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VnYCjr5LIRB+CieS4m1jkYQ54cCCfEv2N3mZy9H8kOM=; b=HcybuVqZO9n2DLy7G5HOTnh0JD
-	wsQmpEEOG2I7dYdHgxQIIgIDuUzgjEO4hRE8p+i38RuqChQOG8/WoCr0ieVzIlgbqMhwtqqhrksmg
-	uDwVjLji1XhzBE7KSaidoV0wPVm0vjZlwzK+9lUCnuEKgoT2/3ZzhIL2XTsRby744fr9odMsEneTB
-	GOP+UqFl6rJ0BIYEYJVxyVw5dLvqZjXeBlhkrZU7T2Nfp1alg7YJV3fRbfqk5wbX8D2kxiQAwqAy1
-	o+JFOdQyrl3OI8jnmCIrEsKQ9vv2dq8ZqD/fzU7/FxrJth6cn8QI3qf4Rkjl+kEtjZ+JYiqILhsD/
-	nkZemRhQ==;
+	bh=zPpGlD5XWnggnt2MTyXziNmroDbM7UgJ5b+ZiUp3otQ=; b=FFNqapHFYnf5pwOLqtrWYvp+7Z
+	tF12+bsttURi5PNHAkm2Zu0V1+P1hd4swZTOIB7HQqnEDXjQRp4WIog3n9R+KY8OQGtz2YOJ5hibb
+	ESY1Yn8MllMil1BKJxguy/HIL3OZjEf/wCmENkWDUTeaZkLFpKK+dkBhgOG/3i1KvsNKp1gMUZaOG
+	VXkJf9exxdi3qRiv7lvioJDGWXsM07H3WWlW7g2kxojXecOdZ9emxbNl9fPi7kaWlCsdu2gr2CdMQ
+	grf8oa3Ty+1ySE53fsdV0EdH+qyR1LmgWc3v3f1vlBFDS76GdjgtM6hhbyzdbQjuqeZgqdseoo/AZ
+	6QFXjuFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQRFc-0000000DqTI-1tED;
-	Wed, 25 Dec 2024 13:16:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tQRVD-0000000DrLA-2be4;
+	Wed, 25 Dec 2024 13:32:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQREQ-0000000DqKG-1g85;
-	Wed, 25 Dec 2024 13:15:23 +0000
+	id 1tQRU1-0000000DrFX-2KQP;
+	Wed, 25 Dec 2024 13:31:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 20B015C5C19;
-	Wed, 25 Dec 2024 13:14:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BB98C4CEDF;
-	Wed, 25 Dec 2024 13:15:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5AB4A5C5C57;
+	Wed, 25 Dec 2024 13:30:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83EDAC4CED7;
+	Wed, 25 Dec 2024 13:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735132519;
-	bh=iHNXmu5hs74pFvfsdpshztzJ+D6rhXCuoqhaimsHvmY=;
+	s=k20201202; t=1735133488;
+	bh=OgqqX+lTvRboKaPgE6eQ6OjOpOsQrtzv/dr+HjHyqpQ=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NXBQvQJJLikx+b/hTw3s80MoGdqCU+PITzyGU/yke0hUnsW/RhnhHmX3iKvJUk41X
-	 G6KpomoVFGKR+i30srRJRE97BMMslh8kCcWVIqpMGTN8WbjXO5QTMIzhhOGtgTy3eI
-	 MCLQdgg3EZtXVHQ+PIzWBTtt5NyWqPiTcq0QHQtIqKNG4TQsgTjgWywFQM6lbVX3nL
-	 aE3Cu+ROEpOxgbrY/2JRuDqwBhMaQjbUkprCqZmHzEYnVq06Bao/Svd7Q68ezv4T1E
-	 vOn1O7m7mFjxN2ev5/Qy+Tq29CKtzHBLqf3eHQtOqAV6XtcPfEt3TlwfW1r9MEa2yi
-	 JiHCrnnAJe9Wg==
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-2f441791e40so5427284a91.3;
-        Wed, 25 Dec 2024 05:15:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVuFWbuxMqBCoAcV2EZarZVis5Pa7h6rNUeBLqxrr7QGferUHx8rdiNTH8Eqi0UrqFlymDGP4cjKHa10uC0sJ8=@lists.infradead.org, AJvYcCW9Sn67GgrLMLCqXx3IdXVHYatwc8axAME2IvZhKDuxhFi1IYbyshHDim7RfO785g1qMfJPHZHbvJdvXXujEZ83@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/2GwHTTWZHXZXRnzogqJCp0UUxOpActIm/UpLzWhuBbjxjDWR
-	0qPguMlMfsAQlLIDopKZYLk8M7fkhaKt8Jt0PJRcuNuE1f52t3BEAKwRSBMelpZLiW03BzMT/Jj
-	nK50GPNF3SGj+ADpU+QRbkgaO+w==
-X-Google-Smtp-Source: AGHT+IGvamxpRBkZPcG2USKxFycGzg9VcxRlTaAg4CDy0ih+TDctQVqL/wUXOKCLhbMvK94H0+QSz4jrQBTqKUvOH2k=
-X-Received: by 2002:a17:90a:da8e:b0:2ee:f80c:688d with SMTP id
- 98e67ed59e1d1-2f452ec37a0mr26874950a91.25.1735132518901; Wed, 25 Dec 2024
- 05:15:18 -0800 (PST)
+	b=lkiK3PMUVPIq/5GhJ011cFCXZr/DkzkF9G2hv1r+LRdxrZXKEPEJO8HN6bK3WTJOI
+	 i0zlTfUoJTBEIGWMVpvXGvNLkplpCddspt5wyBdCHJSfZrVTVZaV/D0aYVLhUndVeU
+	 HLZHQTSXm2XoDPcKK3DWSNHo+yYwt3YR/Ic+4x/Pt+Mlz0Gj+5RLwOfZucwVfCVEwS
+	 DT4Lpna4/fNXa25BsWb3mRn6LjAlUm9/XY8YqAL6K75PAAekkh0Ya3sG3taVrYWSJt
+	 pdaIVlW+Vn12wz5AgXMo7GIIRjP3MYdQeCQOf1nwkU+HF3frR6Yyltlxv7qi5VcA+p
+	 4F3VpihmPHqWA==
+Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-2ee67e9287fso6333640a91.0;
+        Wed, 25 Dec 2024 05:31:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWI0uZqAEApz0Zh1yU4xY7TbgRov4iceErC4BBCWxZeXRuj6fWfpc4pzgxZKo6lJAQKzRT5A3KQ2ebQCuq3qv4=@lists.infradead.org, AJvYcCWVxKPGB41CxpyPQ3wlHjdgY08txvqzg0TDhSHoRkdtGwAmJmbfR8JAgirPtY4qOYtD26MBO5xaq6uso/kxwqCW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGzJu7PxtaLqWm8MQL7wrthm57x3D2M9YIAKiBnIkSTjc1j3/y
+	quYgBrFXQ32uhG67/J5oLrOGO5dZu8krMN80uEzV6TlhKCzUVvbAaxonuuZx6snmVfp310unI9H
+	nPuDXuX+wPH2pfhUxytHm/JbDzA==
+X-Google-Smtp-Source: AGHT+IFjj5jLYnjM8STERl/xOhWv/K+zpDyfBlAfUpu18zlAIKlD62TX8OT29AP4UAQj6CvJ00PaXEonxrkWtDpMq5s=
+X-Received: by 2002:a17:90b:2f0e:b0:2f4:4003:f3d4 with SMTP id
+ 98e67ed59e1d1-2f452ee5e54mr31287625a91.30.1735133488062; Wed, 25 Dec 2024
+ 05:31:28 -0800 (PST)
 MIME-Version: 1.0
-References: <20241112105030.93337-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20241112105030.93337-1-angelogioacchino.delregno@collabora.com>
+References: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
+In-Reply-To: <20241118025126.30808-1-jason-jh.lin@mediatek.com>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 25 Dec 2024 21:15:51 +0800
-X-Gmail-Original-Message-ID: <CAAOTY__VcgTktusqpoNsx0JbwvKP=CPBc8M_YyQHa1cj+s_wrw@mail.gmail.com>
-Message-ID: <CAAOTY__VcgTktusqpoNsx0JbwvKP=CPBc8M_YyQHa1cj+s_wrw@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: Initialize pointer in mtk_drm_of_ddp_path_build_one()
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, matthias.bgg@gmail.com, sui.jingfeng@linux.dev, 
-	ck.hu@mediatek.com, amergnat@baylibre.com, dri-devel@lists.freedesktop.org, 
+Date: Wed, 25 Dec 2024 21:31:59 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_-GvQL7ROZ_P5kT0xCYB9iLnHe4L69ay_RDj4sjbGkwoQ@mail.gmail.com>
+Message-ID: <CAAOTY_-GvQL7ROZ_P5kT0xCYB9iLnHe4L69ay_RDj4sjbGkwoQ@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: Add support for 180-degree rotation in the
+ display driver
+To: "Jason-JH.Lin" <jason-jh.lin@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shawn Sung <shawn.sung@mediatek.com>, dri-devel@lists.freedesktop.org, 
 	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
-	dan.carpenter@linaro.org
+	linux-arm-kernel@lists.infradead.org, Singo Chang <singo.chang@mediatek.com>, 
+	Nancy Lin <nancy.lin@mediatek.com>, Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	Fei Shao <fshao@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_051522_540772_AD80B836 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20241225_053129_682679_BB8C33EE 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +87,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Angelo:
+Hi, Jason:
 
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
-=BC
-2024=E5=B9=B411=E6=9C=8812=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=886:=
-50=E5=AF=AB=E9=81=93=EF=BC=9A
+Jason-JH.Lin <jason-jh.lin@mediatek.com> =E6=96=BC 2024=E5=B9=B411=E6=9C=88=
+18=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8A=E5=8D=8810:51=E5=AF=AB=E9=81=93=EF=
+=BC=9A
 >
-> The struct device_node *next pointer is not initialized, and it is
-> used in an error path in which it may have never been modified by
-> function mtk_drm_of_get_ddp_ep_cid().
->
-> Since the error path is relying on that pointer being NULL for the
-> OVL Adaptor and/or invalid component check and since said pointer
-> is being used in prints for %pOF, in the case that it points to a
-> bogus address, the print may cause a KP.
->
-> To resolve that, initialize the *next pointer to NULL before usage.
->
-> Fixes: 4c932840db1d ("drm/mediatek: Implement OF graphs support for displ=
-ay paths")
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
+> mediatek-drm driver reported the capability of 180-degree rotation by
+> adding `DRM_MODE_ROTATE_180` to the plane property, as flip-x combined
+> with flip-y equals a 180-degree rotation. However, we did not handle
+> the rotation property in the driver and lead to rotation issues.
 
-I would like you to fix this warning.
+Applied to mediatek-drm-fixes [1], thanks.
 
-WARNING: Reported-by: should be immediately followed by Closes: with a
-URL to the report
-#19:
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Signed-off-by: AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com>
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
 
 Regards,
 Chun-Kuang.
 
-> ---
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
-iatek/mtk_drm_drv.c
-> index 9a8ef8558da9..bc06c664e80f 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -900,7 +900,7 @@ static int mtk_drm_of_ddp_path_build_one(struct devic=
-e *dev, enum mtk_crtc_path
->                                          const unsigned int **out_path,
->                                          unsigned int *out_path_len)
->  {
-> -       struct device_node *next, *prev, *vdo =3D dev->parent->of_node;
-> +       struct device_node *next =3D NULL, *prev, *vdo =3D dev->parent->o=
-f_node;
->         unsigned int temp_path[DDP_COMPONENT_DRM_ID_MAX] =3D { 0 };
->         unsigned int *final_ddp_path;
->         unsigned short int idx =3D 0;
+> Fixes: 74608d8feefd ("drm/mediatek: Add DRM_MODE_ROTATE_0 to rotation pro=
+perty")
+> Signed-off-by: Jason-JH.Lin <jason-jh.lin@mediatek.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/me=
+diatek/mtk_disp_ovl.c
+> index e0c0bb01f65a..cc825c4f2e09 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+> @@ -472,6 +472,7 @@ void mtk_ovl_layer_config(struct device *dev, unsigne=
+d int idx,
+>         unsigned int hdr_pitch =3D pending->hdr_pitch;
+>         unsigned int fmt =3D pending->format;
+>         unsigned int offset =3D (pending->y << 16) | pending->x;
+> +       unsigned int rotation =3D pending->rotation;
+>         unsigned int src_size =3D (pending->height << 16) | pending->widt=
+h;
+>         unsigned int blend_mode =3D state->base.pixel_blend_mode;
+>         unsigned int ignore_pixel_alpha =3D 0;
+> @@ -513,12 +514,19 @@ void mtk_ovl_layer_config(struct device *dev, unsig=
+ned int idx,
+>                         ignore_pixel_alpha =3D OVL_CONST_BLEND;
+>         }
+>
+> -       if (pending->rotation & DRM_MODE_REFLECT_Y) {
+> +       /*
+> +        * Treat rotate 180 as flip x + flip y, and XOR the original rota=
+tion value
+> +        * to flip x + flip y to support both in the same time.
+> +        */
+> +       if (rotation & DRM_MODE_ROTATE_180)
+> +               rotation ^=3D DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y;
+> +
+> +       if (rotation & DRM_MODE_REFLECT_Y) {
+>                 con |=3D OVL_CON_VIRT_FLIP;
+>                 addr +=3D (pending->height - 1) * pending->pitch;
+>         }
+>
+> -       if (pending->rotation & DRM_MODE_REFLECT_X) {
+> +       if (rotation & DRM_MODE_REFLECT_X) {
+>                 con |=3D OVL_CON_HORZ_FLIP;
+>                 addr +=3D pending->pitch - 1;
+>         }
 > --
-> 2.47.0
+> 2.43.0
 >
 
