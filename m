@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A872E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 11:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91987E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 11:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHd86CgFN+A0zZ482ESQ0Jwc5FHNViFNXh8Giwjs8PQ=; b=zu2FTNv8rSRnUPvau0mQw/VR2z
-	tYivBPodWSOFSOoxbgVTxoPA341Bt3KE8YsAZUIoBElKmCsOnddh/QoOTqTxtbgYRTymF54aKxPbk
-	mIQ0+0z5SrFOAgwVoCJlIe9xagIiPdUeUZZoDERH7h7zlf0pUR3JSyHOG/qyw2GkQZrDBpeAWu4oV
-	VsqTPEyyv0DxYr3yqaYFT2HuV++0qWeJIBiJq3Wskf1V+qrj375608d4/mZ8EBot9jDrUoO5kkhFA
-	OaII/SCVtM4OnO5aUsPoQSlmANcML+XRpfa4tMMhTRIO/2o55ufejwhxs6BwUfUwYQaYeFLQiqn6Z
-	52j5JSAA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aW6usGsOL7OyXjgNlUS/zBBhFNHbOhEYlvaEKoGU80c=; b=dh7E9RqcWmmW3eM3PGF7+miSP5
+	2FPte1H2mCVCUjjHhqDT1kUb+qyRYFp15TK9+Pt/QjJgqbbTSoPQCkkjcZXOqLqUbB47eJhHet38t
+	agkFrKarC2KgYXyyP69hTgTnH9FRkcscKf5zKDBVogwNl7kuUI5GM2t5Jlrrdsr2xZw5+VqqO+vty
+	FeK/RGA57ClsmruPart0DjmkPu5pJ31Ie5pcRElV7wk2naVEMgKtqiNZ6Nwf67xVsoG/hvxf0sn+n
+	Rtzg6SgoEVyQ4pYVc75JPm2xtWRuWgmKtkgNhnwDVcCtA1rJRmbqxLMgjCZK6T0oUGd6ygoYlZe/v
+	PgBLE9kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQP7r-0000000DgRe-18CZ;
-	Wed, 25 Dec 2024 11:00:27 +0000
+	id 1tQP91-0000000DgbS-1NRZ;
+	Wed, 25 Dec 2024 11:01:39 +0000
 Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQP4Z-0000000DfxH-1G72;
+	id 1tQP4Z-0000000DfxF-1Gln;
 	Wed, 25 Dec 2024 10:57:08 +0000
 Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 939BC12002B;
-	Wed, 25 Dec 2024 13:56:52 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 939BC12002B
+	by mx1.sberdevices.ru (Postfix) with ESMTP id EC96E120029;
+	Wed, 25 Dec 2024 13:56:51 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru EC96E120029
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1735124212;
-	bh=dHd86CgFN+A0zZ482ESQ0Jwc5FHNViFNXh8Giwjs8PQ=;
+	s=mail; t=1735124211;
+	bh=aW6usGsOL7OyXjgNlUS/zBBhFNHbOhEYlvaEKoGU80c=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=rVTEioeGm71YqPhpX6WvJeRaZD0VCWAfZyZQaGLovEYa72qV64beApDHYZHMkhFKK
-	 IJDIJML4sHbedxxuVXVRroGwCy9vMV5QHL55WGmAH4ojaQgQOKFoS4tzcicpAGy6ye
-	 PaxWVKrP6u3uq/D19yvylTSz7nMwJ+mbaoSPTgXFiBKaOMQYTZylPtdK2z34p5/WSl
-	 EzsynvzUnpiQyBOJ1B3pIeae+xIpukOalEZGFfpBsZZl+gB4mmTCo43BVXEAMg/qhd
-	 7iYFBAaVFbb95tf0y07OP4AJvApJOSBbENU/uDjhampMSBj0IEr3XZX1Bz4d1CBgct
-	 MwRLigBn2rIGg==
+	b=hqs9GlJo+qr77qbsabqXfzrRFlmeRg4ei9Y8pQHWTvGE+Vj14PS9PhPB4Ijx/Cf9g
+	 2dC7QP66eyU9561UsIUmSGutVVWOsAx20Rygvt5eEcQ70I7a6RS9J324xdoD8Bfag3
+	 KdyopbU7F38MkpWMYK64jRQ7dr4QmoYJ66ZVzQoVfY9HLRS7g2NkgBaTO+1opx2eBp
+	 LIWYdg10XQ4Yv3kLmst2/3FUA1/0oToYryM1JFWTHzpzHBZqjo6krHT4iw9rmsuVh3
+	 wIDZkffQKmA1IZmIAueGexg3LZ/MgogjUXHnNxgB871GMjK/CbHvLamTWknHub04r4
+	 Mb0LnDAUQNgzA==
 Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
 	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Wed, 25 Dec 2024 13:56:52 +0300 (MSK)
+	Wed, 25 Dec 2024 13:56:51 +0300 (MSK)
 From: George Stark <gnstark@salutedevices.com>
 To: <ukleinek@kernel.org>, <neil.armstrong@linaro.org>,
 	<khilman@baylibre.com>, <jbrunet@baylibre.com>,
@@ -52,12 +52,10 @@ To: <ukleinek@kernel.org>, <neil.armstrong@linaro.org>,
 CC: <linux-pwm@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<kernel@salutedevices.com>, George Stark <gnstark@salutedevices.com>
-Subject: [PATCH 2/2] pwm: meson: Fix computing counter register
-Date: Wed, 25 Dec 2024 13:56:39 +0300
-Message-ID: <20241225105639.1787237-3-gnstark@salutedevices.com>
+Subject: [PATCH 0/2] pwm: meson: fixes
+Date: Wed, 25 Dec 2024 13:56:37 +0300
+Message-ID: <20241225105639.1787237-1-gnstark@salutedevices.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20241225105639.1787237-1-gnstark@salutedevices.com>
-References: <20241225105639.1787237-1-gnstark@salutedevices.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -73,16 +71,16 @@ X-KSMG-AntiSpam-Rate: 0
 X-KSMG-AntiSpam-Status: not_detected
 X-KSMG-AntiSpam-Method: none
 X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49 28b3b64a43732373258a371bd1554adb2caa23cb, {Tracking_from_domain_doesnt_match_to}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2;smtp.sberdevices.ru:7.1.1,5.0.1;salutedevices.com:7.1.1, FromAlignment: s
+X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49 28b3b64a43732373258a371bd1554adb2caa23cb, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, 127.0.0.199:7.1.2;git.kernel.org:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1;smtp.sberdevices.ru:7.1.1,5.0.1;salutedevices.com:7.1.1, FromAlignment: s
 X-MS-Exchange-Organization-SCL: -1
 X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
+X-KSMG-AntiPhishing: Clean, bases: 2024/12/25 08:56:00
+X-KSMG-LinksScanning: Clean, bases: 2024/12/25 09:00:00
 X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/12/25 07:56:00 #26914998
 X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_025704_181078_0D14B0C1 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20241225_025704_187266_10A7A27D 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,59 +95,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-High and low values in the counter register are incremented by 1
-internally unless they a zero and constant bit is supported and set.
-So decrement by 1 calculated high and low PWM periods before applying.
+The 1st patch from the series is only intended to drop several unneeded code lines
+along with outdated comment. It's too simple to be sent alone.
 
-Signed-off-by: George Stark <gnstark@salutedevices.com>
----
- drivers/pwm/pwm-meson.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+The 2nd patch adjusts pwm frequency calculation. The patch depends on
+not-yet-accepted series:
+https://lore.kernel.org/linux-arm-kernel/20241119125318.3492261-1-gnstark@salutedevices.com/T/
 
-diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-index 8c6bf3d49753..51839936ec89 100644
---- a/drivers/pwm/pwm-meson.c
-+++ b/drivers/pwm/pwm-meson.c
-@@ -214,6 +214,15 @@ static int meson_pwm_calc(struct pwm_chip *chip, struct pwm_device *pwm,
- 		channel->hi = duty_cnt;
- 		channel->lo = cnt - duty_cnt;
- 		channel->constant = false;
-+
-+		/*
-+		 * hi and low reg values are incremented by 1 internally
-+		 * unless they are zero and constant bit is set
-+		 */
-+		if (channel->hi)
-+			channel->hi--;
-+		if (channel->lo)
-+			channel->lo--;
- 	}
+Below I researched several cases this patch will affect.
+One of the most frequent use of meson pwm in mainline dts files are:
+1) wifi clock source and 2) cpu power regulation.
 
- 	channel->rate = fin_freq;
-@@ -342,6 +351,7 @@ static int meson_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	struct meson_pwm *meson = to_meson_pwm(chip);
- 	struct meson_pwm_channel_data *channel_data;
- 	unsigned long fin_freq;
-+	bool const_enabled;
- 	unsigned int hi, lo;
- 	u32 value;
+1) wifi clock source with period 32768Hz and 50% dutycycle is configured in DTS like this:
+    pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
+Here is the calculated and measured frequency output with and without the patch on
+several boads/SoCs, where
+${CLK_RATE} - pwm clock source
+${COUNT_REG} - meson pwm regster with hi and lo values (e.g. PWMEF_PWM_E reg)
 
-@@ -356,10 +366,16 @@ static int meson_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	else
- 		state->polarity = PWM_POLARITY_NORMAL;
+*** khadas vim1 ***
+${CLK_RATE} -> 166666667
+w/o the patch:
+${COUNT_REG} -> 0x09EF09EF
+oscilloscope measure: 32.7564Khz
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32756.8134827 Hz
+with the patch:
+${COUNT_REG} -> 0x09EE09EE
+oscilloscope measure: 32.7693Khz
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32769.694652 Hz
 
-+	const_enabled = meson->data->has_constant &&
-+		(value & channel_data->const_en_mask);
-+
- 	value = readl(meson->base + channel_data->reg_offset);
- 	lo = FIELD_GET(PWM_LOW_MASK, value);
- 	hi = FIELD_GET(PWM_HIGH_MASK, value);
+*** khadas vim3 ***
+${CLK_RATE} -> 666666656
+w/o patch:
+${COUNT_REG} -> 0x27BC27BD
+oscilloscope measure: 32.7652Khz
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32764.8624367 Hz
+with the patch:
+${COUNT_REG} -> 0x27BB27BC
+oscilloscope measure: 32.7684Khz
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32768.083362 Hz
 
-+	lo += (const_enabled ? !!lo : 1);
-+	hi += (const_enabled ? !!hi : 1);
-+
- 	state->period = meson_pwm_cnt_to_ns(fin_freq, lo + hi);
- 	state->duty_cycle = meson_pwm_cnt_to_ns(fin_freq, hi);
+*** meson a1 board ***
+${CLK_RATE} -> 64000000
+w/o patch:
+${COUNT_REG} -> 0x03D003D1
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32736.57289 Hz
+with the patch:
+${COUNT_REG} -> 0x03CF03D0
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32770.0972862 Hz
+
+2) pwm power regulator. Power is regulated changing duty value with the constant period
+*** meson a1 board ***
+required: period 1500ns (667kHz), duty 70% for 0.8V
+${CLK_RATE} -> 307200000
+with the patch:
+${COUNT_REG} -> 0x01410089
+calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 667826.086957 Hz
+calculated duty: (${COUNT_REG}.hi + 1) / (${COUNT_REG}.hi + ${COUNT_REG}.lo + 2) = 0.7
+oscilloscope measure: 667.8Khz, 1498ns/1049ns, duty 70%
+w/o the patch:
+${COUNT_REG} -> 0x0142008A
+calculated duty: (${COUNT_REG}.hi + 1) / (${COUNT_REG}.hi + ${COUNT_REG}.lo + 2) = 0.69
+oscilloscope measure: 664.9Khz, 1504ns/1051ns, duty 69%
+
+*******************
+**** ATTENTION ****
+*******************
+There's a potential problem related to meson_pwm_get_state's change.
+When pwm-regulator is initialized before the kernel is loaded and incomplete
+voltage-table is used (meson a1 board vendor kernel)
+
+voltage table fragment from kernel dts:
+  compatible = "pwm-regulator";
+  voltage-table =
+  ...
+  <800000 70>,
+  <790000 73>,
+  <780000 76>,
+  ...
+
+pwm regulator is initialized in bootloader bl2/bl3.x
+${CLK_RATE} -> 24000000
+${COUNT_REG} -> 0x00190009
+oscilloscope measure: 666.67Khz, 1500ns/1083ns, duty 72%
+
+pwm_get_state w/o the patch returns:
+pwm period: (${COUNT_REG}.hi + ${COUNT_REG}.lo) / ${CLK_RATE} = 1416 ns
+pwm duty: ${COUNT_REG}.hi / ${CLK_RATE} = 1041 ns
+duty: 1041 / 1416 = 73%
+Value 73% is found in the voltage table and everything is ok
+
+pwm_get_state with the patch returns:
+pwm period: (${COUNT_REG}.hi + ${COUNT_REG}.lo + 2) / ${CLK_RATE} = 1500 ns
+pwm duty: (${COUNT_REG}.hi + 1) / ${CLK_RATE} = 1083 ns
+duty: 1083 / 1500 = 72%
+
+72% is not found in the voltage table.
+In that case pwm-regulator driver on its own sets the minimum voltage from the table.
+If this is the cpu power regulator then cpu may hang due to voltage is lowered
+w/o prior proper frequency lowering. In that situation voltage-table should be
+adjusted to have intermediate values.
+
+Just before sending the letter I've found the only mainline board that may be
+broken by this patch:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
+I can patch meson-s4-s805x2-aq222.dts' voltage table or propose patch to pwm-regulator
+to change the way pwm-regulator deals with out-of-table pwm values.
+
+George Stark (2):
+  pwm: meson: Simplify meson_pwm_cnt_to_ns()
+  pwm: meson: Fix computing counter register
+
+ drivers/pwm/pwm-meson.c | 38 ++++++++++++++++++++++----------------
+ 1 file changed, 22 insertions(+), 16 deletions(-)
 
 --
 2.25.1
