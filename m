@@ -4,72 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1214EE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 08:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B7CE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 08:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=txPoZjhS7WmZRPL5mk+VeO5MESw98jX31iKdCOFZ2WY=; b=rSFDqJotJwqkEtHp1ODO9AxAuV
-	/k4X0acNHLp6Q+eN2JL28sB8UfGHnQFQ4eZcuRQfBxbCdAeqTV32oyANzKMurHPTr/92rrfwwdsIh
-	o31zH5wgaYiKqTRlyh7w+65LFoCYBHUTuYqY2fSInOi3XCUNbh+HPzSf+aBMN3y4sJxxP1jvvvmBE
-	QqFkMeyLu8afPu0EayGyvrkwD85/3mK2HBk/YfPOQW5vnjmQDGu8jsShzW+TDOiNdQ5hgLpEEE56C
-	hOc422qyKIj9GHBJ5wsAqqdt97CNy/Ec0LAdmH/+SaeO7fUP/USE2r6cue65odgOtKy98ZyNSIrk7
-	DSgz8rLw==;
+	bh=2td9t4sfIhhiNuVIvJwjDuBHMbZHT4OKnAbzZuz6hjk=; b=mA7sl7/6BozC8un4d0qW5bBNjO
+	SFrYu7e/o5jRu5RGkpNDilAWh/9KnizAQ5lnjEmBvlBNF3um4QGb0oWoYVQw7Urfq/wqGQG3KmlAn
+	UK8QeGlns+BACUzdgtfQLZTBbjyZwAWmUjqnCFJDFUerRII3RzfXPub0U4BB1Y3NZL2X1GVgtvSRd
+	Sw/LHkdltuhHGFILYEk6DiPs5p2WoJa9XJJYOtD6Kh7aFjpo7nNiFD4K2PMJQSjFKsNGId6vakbss
+	gWyigAb+2zHDgN4sP41wMyO+KDPLjhljVwdMB0lPp0rNMspDSYNi2ibP5NKiF0cOmzXWJ3LEeOp8P
+	VCvbmtpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQMlN-0000000DRui-3cpa;
-	Wed, 25 Dec 2024 08:29:05 +0000
-Received: from mail-m49245.qiye.163.com ([45.254.49.245])
+	id 1tQN55-0000000DVSZ-1P3Z;
+	Wed, 25 Dec 2024 08:49:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQMju-0000000DRVi-1FQl;
-	Wed, 25 Dec 2024 08:27:36 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 6c497887;
-	Wed, 25 Dec 2024 16:27:23 +0800 (GMT+08:00)
-Message-ID: <affff5b9-95fb-4d0a-ab09-371545e8450b@rock-chips.com>
-Date: Wed, 25 Dec 2024 16:27:23 +0800
+	id 1tQN3r-0000000DVLS-12FZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Dec 2024 08:48:12 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP0xUh6006885;
+	Wed, 25 Dec 2024 08:48:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2td9t4sfIhhiNuVIvJwjDuBHMbZHT4OKnAbzZuz6hjk=; b=nk4u6hX0zh4QRYqI
+	3yimNKrxrtvFuY22barlktzg24lqHylki76coa8kqeYkzO0Kv160S17sTTuF6WDn
+	GzClWYof2aham6ePrq1atz+DktvvE1Q7bV5HD/B+En5G1UJyCM2Aeu2yRQogWc7R
+	XGGNevivuLNxiafdcXUkauXTpJL631+3pmbn9w2KIZp9sDDCrVqhHPpV4B5/tthA
+	7K2QjRhT0IJTJmrm1sSlfU+oUG4MOgu4GMTJrjYQg6JcIsj07vgiTrISahHLvrtp
+	5AYhScpclENPDjQnY1xL9XsaNBBpBe8sC7EgdvtN1sZEmk6vcHsS/mGWaWXU8ica
+	vqR+0Q==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43qyv7usa2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Dec 2024 08:47:59 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BP8lwLF006187
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Dec 2024 08:47:58 GMT
+Received: from [10.253.36.144] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 25 Dec
+ 2024 00:47:53 -0800
+Message-ID: <d7b78ab4-bc3d-41b0-ad74-28a8ed630070@quicinc.com>
+Date: Wed, 25 Dec 2024 16:47:50 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/15] drm/bridge: analogix_dp: Add support for phy
- configuration.
+Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-qcom-ethqos: add support for
+ EMAC on qcs615 platforms
 To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
- algea.cao@rock-chips.com, kever.yang@rock-chips.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
- <20241219080604.1423600-8-damon.ding@rock-chips.com>
- <a6vvydjbx3hbckoy74iiyzguyyacwvdh6iirqydjfvhwgocw3a@knecggjcbcid>
- <654c30ec-7d7e-4956-9a48-15bfcea34acc@rock-chips.com>
- <CAA8EJpqk-iim668ZTzQaROJmkTr2COBwA5G9Eg73uLE28XHYpg@mail.gmail.com>
+CC: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David
+ S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bhupesh Sharma <bhupesh.sharma@linaro.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro
+	<peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
+ <20241224-schema-v2-3-000ea9044c49@quicinc.com>
+ <62wm4samob5bzsk2br75fmllkrgptxxj2pgo7hztnhkhvwt54v@zz7edyq6ys77>
+ <bc143292-24e0-4887-bc56-ecaceebf3d82@quicinc.com>
+ <htnq5jjxwbsn3fjc3m6tzvyqrwzckipd3z63j2dotkliiwnqgk@lifzh4q35dqg>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <CAA8EJpqk-iim668ZTzQaROJmkTr2COBwA5G9Eg73uLE28XHYpg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <htnq5jjxwbsn3fjc3m6tzvyqrwzckipd3z63j2dotkliiwnqgk@lifzh4q35dqg>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ04YT1ZOGEIfTBlKSB8fSk5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
-	NVSktLVUpCS0tZBg++
-X-HM-Tid: 0a93fced818603a3kunm6c497887
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PS46Tjo5GjIcEE8YDys4KEMj
-	Kj0aFBBVSlVKTEhOSkpOSU9OTEtNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFNQk9LNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=UPC0f7qcrwZe5+4cW9Y0k24vj4hFwCwq07GzJZR1NrL6UI77q+ZweU392GftAMLQYVyu/1jerhQCLTGDsIal4GHLyxA42x6uoOCFIy7dxZQD+xAhAIDn9gWTzPeA6c3aqMnzyEPmEElCv3pN2qgse8lKl+SP0u9RYeUgWfwByXY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=txPoZjhS7WmZRPL5mk+VeO5MESw98jX31iKdCOFZ2WY=;
-	h=date:mime-version:subject:message-id:from;
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: Eutn9DNG8oTpUHbKArQu5mSd4FWJxpA_
+X-Proofpoint-ORIG-GUID: Eutn9DNG8oTpUHbKArQu5mSd4FWJxpA_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 spamscore=0
+ clxscore=1015 suspectscore=0 adultscore=0 bulkscore=0 priorityscore=1501
+ impostorscore=0 lowpriorityscore=0 mlxlogscore=999 malwarescore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412250076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_002734_882929_AA6C8DA5 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20241225_004811_332647_E387555C 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,175 +125,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
 
-On 2024/12/20 13:37, Dmitry Baryshkov wrote:
-> On Fri, 20 Dec 2024 at 05:37, Damon Ding <damon.ding@rock-chips.com> wrote:
+
+On 2024-12-24 13:05, Dmitry Baryshkov wrote:
+> On Tue, Dec 24, 2024 at 12:36:29PM +0800, Yijie Yang wrote:
 >>
->> Hi Dmitry,
 >>
->> On 2024/12/20 8:13, Dmitry Baryshkov wrote:
->>> On Thu, Dec 19, 2024 at 04:05:56PM +0800, Damon Ding wrote:
->>>> Add support to configurate link rate, lane count, voltage swing and
->>>> pre-emphasis with phy_configure(). It is helpful in application scenarios
->>>> where analogix controller is mixed with the phy of other vendors.
+>> On 2024-12-24 12:18, Dmitry Baryshkov wrote:
+>>> On Tue, Dec 24, 2024 at 11:07:03AM +0800, Yijie Yang wrote:
+>>>> qcs615 uses EMAC version 2.3.1, add the relevant defines and add the new
+>>>> compatible.
 >>>>
->>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>>>
+>>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
 >>>> ---
+>>>>    drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 17 +++++++++++++++++
+>>>>    1 file changed, 17 insertions(+)
 >>>>
->>>> Changes in v2:
->>>> - remove needless assignments for phy_configure()
->>>> - remove unnecessary changes for phy_power_on()/phy_power_off()
->>>> ---
->>>>    .../drm/bridge/analogix/analogix_dp_core.c    |  1 +
->>>>    .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 56 +++++++++++++++++++
->>>>    2 files changed, 57 insertions(+)
->>>>
->>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> index 6f10d88a34c5..9429c50cc1bc 100644
->>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>>> @@ -1696,6 +1696,7 @@ int analogix_dp_resume(struct analogix_dp_device *dp)
->>>>       if (dp->plat_data->power_on)
->>>>               dp->plat_data->power_on(dp->plat_data);
->>>>
->>>> +    phy_set_mode(dp->phy, PHY_MODE_DP);
->>>>       phy_power_on(dp->phy);
->>>>
->>>>       analogix_dp_init_dp(dp);
->>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
->>>> index 3afc73c858c4..613ce504bea6 100644
->>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
->>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
->>>> @@ -11,6 +11,7 @@
->>>>    #include <linux/gpio/consumer.h>
->>>>    #include <linux/io.h>
->>>>    #include <linux/iopoll.h>
->>>> +#include <linux/phy/phy.h>
->>>>
->>>>    #include <drm/bridge/analogix_dp.h>
->>>>
->>>> @@ -513,10 +514,25 @@ void analogix_dp_enable_sw_function(struct analogix_dp_device *dp)
->>>>    void analogix_dp_set_link_bandwidth(struct analogix_dp_device *dp, u32 bwtype)
->>>>    {
->>>>       u32 reg;
->>>> +    int ret;
->>>>
->>>>       reg = bwtype;
->>>>       if ((bwtype == DP_LINK_BW_2_7) || (bwtype == DP_LINK_BW_1_62))
->>>>               writel(reg, dp->reg_base + ANALOGIX_DP_LINK_BW_SET);
->>>> +
->>>> +    if (dp->phy) {
->>>> +            union phy_configure_opts phy_cfg = {0};
->>>> +
->>>> +            phy_cfg.dp.lanes = dp->link_train.lane_count;
+>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>>> index 901a3c1959fa57efb078da795ad4f92a8b6f71e1..8c76beaee48821eb2853f4e3f8bfd37db8cadf78 100644
+>>>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+>>>> @@ -249,6 +249,22 @@ static const struct ethqos_emac_driver_data emac_v2_1_0_data = {
+>>>>    	.has_emac_ge_3 = false,
+>>>>    };
+>>>> +static const struct ethqos_emac_por emac_v2_3_1_por[] = {
+>>>> +	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x00C01343 },
+>>>> +	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642C },
 >>>
->>> Should not be necessary, you are only setting the .set_rate.
+>>> lowercase the hex, please.
 >>
->> Indeed, this can be dropped.
+>> I will take care of it.
 >>
 >>>
->>>> +            phy_cfg.dp.link_rate =
->>>> +                    drm_dp_bw_code_to_link_rate(dp->link_train.link_rate) / 100;
->>>> +            phy_cfg.dp.set_rate = true;
->>>> +            ret = phy_configure(dp->phy, &phy_cfg);
->>>> +            if (ret && ret != -EOPNOTSUPP) {
->>>> +                    dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
->>>> +                    return;
->>>> +            }
->>>> +    }
->>>>    }
->>>>
->>>>    void analogix_dp_get_link_bandwidth(struct analogix_dp_device *dp, u32 *bwtype)
->>>> @@ -530,9 +546,22 @@ void analogix_dp_get_link_bandwidth(struct analogix_dp_device *dp, u32 *bwtype)
->>>>    void analogix_dp_set_lane_count(struct analogix_dp_device *dp, u32 count)
->>>>    {
->>>>       u32 reg;
->>>> +    int ret;
->>>>
->>>>       reg = count;
->>>>       writel(reg, dp->reg_base + ANALOGIX_DP_LANE_COUNT_SET);
+>>>> +	{ .offset = SDCC_HC_REG_DDR_CONFIG,	.value = 0x00000000 },
+>>>> +	{ .offset = SDCC_HC_REG_DLL_CONFIG2,	.value = 0x00200000 },
+>>>> +	{ .offset = SDCC_USR_CTL,		.value = 0x00010800 },
+>>>> +	{ .offset = RGMII_IO_MACRO_CONFIG2,	.value = 0x00002060 },
+>>>> +};
 >>>> +
->>>> +    if (dp->phy) {
->>>> +            union phy_configure_opts phy_cfg = {0};
->>>> +
->>>> +            phy_cfg.dp.lanes = dp->link_train.lane_count;
->>>> +            phy_cfg.dp.set_lanes = true;
->>>> +            ret = phy_configure(dp->phy, &phy_cfg);
->>>> +            if (ret && ret != -EOPNOTSUPP) {
->>>> +                    dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
->>>> +                    return;
->>>> +            }
->>>> +    }
->>>>    }
->>>>
->>>>    void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *count)
->>>> @@ -546,10 +575,37 @@ void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *count)
->>>>    void analogix_dp_set_lane_link_training(struct analogix_dp_device *dp)
->>>>    {
->>>>       u8 lane;
->>>> +    int ret;
->>>>
->>>>       for (lane = 0; lane < dp->link_train.lane_count; lane++)
->>>>               writel(dp->link_train.training_lane[lane],
->>>>                      dp->reg_base + ANALOGIX_DP_LN0_LINK_TRAINING_CTL + 4 * lane);
->>>> +
->>>> +    if (dp->phy) {
->>>> +            union phy_configure_opts phy_cfg = {0};
->>>> +
->>>> +            for (lane = 0; lane < dp->link_train.lane_count; lane++) {
->>>> +                    u8 training_lane = dp->link_train.training_lane[lane];
->>>> +                    u8 vs, pe;
->>>> +
->>>> +                    vs = (training_lane & DP_TRAIN_VOLTAGE_SWING_MASK) >>
->>>> +                         DP_TRAIN_VOLTAGE_SWING_SHIFT;
->>>> +                    pe = (training_lane & DP_TRAIN_PRE_EMPHASIS_MASK) >>
->>>> +                         DP_TRAIN_PRE_EMPHASIS_SHIFT;
->>>> +                    phy_cfg.dp.voltage[lane] = vs;
->>>> +                    phy_cfg.dp.pre[lane] = pe;
->>>> +            }
->>>> +
->>>> +            phy_cfg.dp.lanes = dp->link_train.lane_count;
->>>> +            phy_cfg.dp.link_rate =
->>>> +                    drm_dp_bw_code_to_link_rate(dp->link_train.link_rate) / 100;
+>>>> +static const struct ethqos_emac_driver_data emac_v2_3_1_data = {
+>>>> +	.por = emac_v2_3_1_por,
+>>>> +	.num_por = ARRAY_SIZE(emac_v2_3_1_por),
+>>>> +	.rgmii_config_loopback_en = true,
+>>>> +	.has_emac_ge_3 = false,
+>>>> +};
 >>>
->>> This two should not be necessary, please drop them.
+>>> Modulo emac_v2_3_1_por vs emac_v2_3_0_por, this is the same as
+>>> emac_v2_3_0_data. Which means that bindings for qcs615-ethqos should be
+>>> corrected to use qcom,qcs404-ethqos as as fallback entry, making this
+>>> patch unused. Please correct the bindings instead.
 >>
->> These two are necessary for rk_hdptx_phy_set_voltage(), so they cannot
->> be dropped.
+>> Although they currently share the same data, they are actually two different
+>> versions. Their differences are not apparent now but will become evident
+>> once new features are uploaded. If I revert to qcom,qcs404-ethqos now, it
+>> will be challenging to distinguish between them in the future.
 > 
-> Please review the documentation for struct phy_configure_opts_dp and
-> fix your PHY driver to skip the values for which the .set_foo isn't
-> set. Then you might have to change this part.
-> You are setting just .set_voltages. It means that the rate and .lanes
-> shouldn't be changed and can be used as they were set by the previous
-> calls to phy_configure().
+> Which features? Moreover, note, the use of the fallback doesn't preclude
+> you from addign a new compat entry later on. By having a fallback you
+> simply declare that the device A is also compatible with the device B.
 > 
 
-Indeed, I will store the previous &phy_configure_opts.dp.link_rate and 
-&phy_configure_opts.dp.lanes in the struct rk_hdptx_phy, and will not 
-use both of them during the configuration process of the 
-&phy_cfg.dp.voltage[] and &phy_cfg.dp.pre[] in next version.
+Yes, you're right. I confirmed with the hardware team that the EMAC of 
+qcs615-ride is the same as that of qcs404. I will fall back the 
+compatible of qcs615 to the latter and drop the unnecessary patches.
 
 >>
 >>>
->>>> +            phy_cfg.dp.set_voltages = true;
->>>> +            ret = phy_configure(dp->phy, &phy_cfg);
->>>> +            if (ret && ret != -EOPNOTSUPP) {
->>>> +                    dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
->>>> +                    return;
->>>> +            }
->>>> +    }
->>>>    }
+>>>> +
+>>>>    static const struct ethqos_emac_por emac_v3_0_0_por[] = {
+>>>>    	{ .offset = RGMII_IO_MACRO_CONFIG,	.value = 0x40c01343 },
+>>>>    	{ .offset = SDCC_HC_REG_DLL_CONFIG,	.value = 0x2004642c },
+>>>> @@ -898,6 +914,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>>>>    static const struct of_device_id qcom_ethqos_match[] = {
+>>>>    	{ .compatible = "qcom,qcs404-ethqos", .data = &emac_v2_3_0_data},
+>>>> +	{ .compatible = "qcom,qcs615-ethqos", .data = &emac_v2_3_1_data},
+>>>>    	{ .compatible = "qcom,sa8775p-ethqos", .data = &emac_v4_0_0_data},
+>>>>    	{ .compatible = "qcom,sc8280xp-ethqos", .data = &emac_v3_0_0_data},
+>>>>    	{ .compatible = "qcom,sm8150-ethqos", .data = &emac_v2_1_0_data},
 >>>>
->>>>    u32 analogix_dp_get_lane_link_training(struct analogix_dp_device *dp, u8 lane)
->>>> --
+>>>> -- 
 >>>> 2.34.1
 >>>>
 >>>
+>>
+>> -- 
+>> Best Regards,
+>> Yijie
+>>
+> 
 
-Best regards,
-Damon
+-- 
+Best Regards,
+Yijie
 
 
