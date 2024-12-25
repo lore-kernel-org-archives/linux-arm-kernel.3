@@ -4,182 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B16E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 08:27:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1214EE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 08:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhhg+l6MoCUoxwTXACUfTgJ9a/h9kDneVKWHJ+tjLsA=; b=YDEt4dwWGCPN/XBrBHJlp+y+g2
-	0E+jCzVls1ZVwT1oPYFDvCe1B8XGQIlpMpBmZauC/WC0hdgYZZWyJpC3QTZ/Zxt2lEcOrsCzyozgQ
-	25ZY2PKSHZhBwUL2FxZYfoQPnkw5SI5a/+z4+Imo5r7AkaL8quI+/MgmJRydwXf0qGqqBN1B18+g2
-	Ewgv3RQoXJ3vbtWcSCSzdnt3KoUiFPT6N2ijPw8kZpR4xpST74T0uaM1HYA4JeMUTF/C/5t0dNDg4
-	6+U+PU3slmWnjLPI34iYeTeEUmFN4T0XMpyjKhG5J72Y2qR+OvRIUF3YiOAq7S+EPQ66HpRtPPL4H
-	mMACJTzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=txPoZjhS7WmZRPL5mk+VeO5MESw98jX31iKdCOFZ2WY=; b=rSFDqJotJwqkEtHp1ODO9AxAuV
+	/k4X0acNHLp6Q+eN2JL28sB8UfGHnQFQ4eZcuRQfBxbCdAeqTV32oyANzKMurHPTr/92rrfwwdsIh
+	o31zH5wgaYiKqTRlyh7w+65LFoCYBHUTuYqY2fSInOi3XCUNbh+HPzSf+aBMN3y4sJxxP1jvvvmBE
+	QqFkMeyLu8afPu0EayGyvrkwD85/3mK2HBk/YfPOQW5vnjmQDGu8jsShzW+TDOiNdQ5hgLpEEE56C
+	hOc422qyKIj9GHBJ5wsAqqdt97CNy/Ec0LAdmH/+SaeO7fUP/USE2r6cue65odgOtKy98ZyNSIrk7
+	DSgz8rLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQMjr-0000000DRVk-1BVY;
-	Wed, 25 Dec 2024 08:27:31 +0000
-Received: from mail-db8eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2614::621] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tQMlN-0000000DRui-3cpa;
+	Wed, 25 Dec 2024 08:29:05 +0000
+Received: from mail-m49245.qiye.163.com ([45.254.49.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQMe3-0000000DQrV-2AlJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 08:21:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CU80dJob9T1eAHIZwXdFhxxaauWxN8zC1RhsuRFsZj0MBIzIveUS6qa+4UeCl+K7qKxg0znOyfP7zY65A2iYE283q9UZFpZgT/9ntnu1tjMgMWfjahmezl6RIQL6sEoGh725cBGR1/1wfQuvL2amyj8Z4BrzqneJiYMy3exp4MwJbQBCTUgkO0iGPkeQ0An0PKdYGCLdQQ/v2THNc1sr1SOWE3xeOF0SL6v7AghEClDpA/6XODgAkqiDnFVHLyQmMgRe22VReOk36BU3K0uOQg99t8JfmZv9wgK90obzkvkqvYwD/CwN2/MCVY8kiyCI2NUkobJeRKhgOAUJoibRmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fhhg+l6MoCUoxwTXACUfTgJ9a/h9kDneVKWHJ+tjLsA=;
- b=MHX3XCjiNfYVGkq/S4o1SVCStxz+i4NnuPXmGS6d2gIYFB1b7zXwMj+zGmz1vhCcnhFsHRH46S627ATrshgjXAEWKICjywY+8W8wUCaYF9c8EFQzVXhz8HNKD+XAvP2lVcV3i2wjVQgI37y7uznKZjNkMPz2I+BqRKZFVUgukKds5m04HR4j0zqUk4pLJqhOZo7tG7U+akSGjcLBeWPXWybPQ2GikvIG4lrADLqxqrj5RqciJ3RGayuZdsFttUT0WBhnovCeEZETKu34/dmgXIZ/+dI3UxCx5/qruXOGjdfWkyRWuBcXhNIX3sB8OGP8U2N463KSGLH9LWwjaOF/aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fhhg+l6MoCUoxwTXACUfTgJ9a/h9kDneVKWHJ+tjLsA=;
- b=E3SDPOIfKTldbAb8ObU2KGmyrvi/CVg4eJk/wKcR7SKW9zeJiAQJtwTkQERFC65qkKL/wMxi7WLFS8Aaj79VdbfCwOBWknWqGdQFXqlMvEbJZr2+Qqh5ealYjQjAz0JDwxhGJUEJr21ww6oqiAbwFs19HzIt0eKcCnMhLV27LjtBLuQh8/IAHhJQUVqXxfnx8HU7pu8aG5tMFhmIqkmKF7Zxv7WW6skFW95olfVu+5IwAHZkj7vYkdBKhUHXqRksm6LgO+z3RfBOUGx9g3B5Rz7SCZ0/7aGA59BySPYzn02DZiVusANDGOEgkfQL4pX0VV76c5ZqXZL2zxH5cof7tQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by DB8PR04MB6985.eurprd04.prod.outlook.com (2603:10a6:10:11e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.14; Wed, 25 Dec
- 2024 08:21:28 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.8293.000; Wed, 25 Dec 2024
- 08:21:28 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Wed, 25 Dec 2024 16:20:45 +0800
-Subject: [PATCH 2/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- pinctrl
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241225-scmi-fwdevlink-v1-2-e9a3a5341362@nxp.com>
-References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
-In-Reply-To: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Saravana Kannan <saravanak@google.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735114854; l=1673;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=5L5SVCOWRLjb9DcnHQJM5/G+cN8CxkyjHX/FcgJVNpM=;
- b=mUSvpY9QNF3HFPIL0zyrm19xgzMCePqlX96tV456LFxPxrki7GROAnhN5Xxj3e5gWnslDW4jy
- eg9ygHucmFmCLJCc26ZJbnzba84l9OngWW4ufrc5Ev0igfpplSAe6GV
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2P153CA0003.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::20) To DB9PR04MB8461.eurprd04.prod.outlook.com
- (2603:10a6:10:2cf::20)
+	id 1tQMju-0000000DRVi-1FQl;
+	Wed, 25 Dec 2024 08:27:36 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 6c497887;
+	Wed, 25 Dec 2024 16:27:23 +0800 (GMT+08:00)
+Message-ID: <affff5b9-95fb-4d0a-ab09-371545e8450b@rock-chips.com>
+Date: Wed, 25 Dec 2024 16:27:23 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|DB8PR04MB6985:EE_
-X-MS-Office365-Filtering-Correlation-Id: b691dbdc-7b5b-43e9-4512-08dd24bd2142
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?K295blY4WVlJeVArRHFubHQrYnB0YmN5YW1PclZIdVpEck12TjYxczFDcjQ3?=
- =?utf-8?B?R09zZ2UwWEptRkVBcVpVbkFzbi9wV3Vqb0g4eTllMVJGeXNSUnUxL3liTWx6?=
- =?utf-8?B?MWhRVUl1NlA5bDNOVkNFMERodTU3ODdENVdsTW8ybzhaM2NkOEZzVGp6dk81?=
- =?utf-8?B?ZWUyTjUwWS90REZRZXVWNUZJczRvZ3BObkY3Ym1TbGtVWDFkMG0zMzh1dmU5?=
- =?utf-8?B?c2Y0ZE0xcDN6NEtGUWN2ZFZYbGgzald4b1BlOXZYbmxOQkU4UHgwMzFxYUxI?=
- =?utf-8?B?VGdPbmNQQUh2M3d2K2hLQmRBN2hTdmJmOXgvQ2REMnZ0dUlvTWNmbDJLQkpD?=
- =?utf-8?B?dWkycUxqZWR6TTMvNno0ck5XaU9LN0w2b3UzVnBCUHQxMzVOZmJYd2hNR0lG?=
- =?utf-8?B?Tlk1aXlzQlpVY1Y0b0IxNXZJa292aVVCN3RNVVdQTzkrRXBmNXZ2Z0dqWjhN?=
- =?utf-8?B?SXFKSzByNzVQeEdGeXYvdHVaVnU1dEZ3d3hrZzVKb2RUNFlQVStyRVozeVpk?=
- =?utf-8?B?aXd5enQvTm5sdVpWZ2dwOURTSkhVOFhpYytmc0dHVWRhelZPSDBaa2VNenln?=
- =?utf-8?B?WTdKR1RLaEJGSEdZWUFiYkdWbDQ3b21ZRlNTOTgyYmFJSVBXMTZNQmh3a1JT?=
- =?utf-8?B?WWR5MUJqS3FEaCtSMGRhYTNONEpBeTV4QUpvcVJVcUgrNm5iaUU5UFlYNjA5?=
- =?utf-8?B?ckFCbFpsVTJMcEw5MDFPVldxeWx0dTZkRkRneDBpUHc4TU9jMUFqTDlUdXNr?=
- =?utf-8?B?bHF3andPL1VyTmtVUnZ2Ny93SGFsMEUvMzNvY3Z4VzBNK1ZjdUNwVGNtMWRj?=
- =?utf-8?B?dWcwY1dWemFtOEtIUlUvMGQxS0dmem9hKzR4VjI0Nk1PQlNQOC9tYjlWYTBa?=
- =?utf-8?B?M1JXTjM2UytRMEYzVFBpOEtUdjN1MlY3eVlqR2o1bXErOEZDSFA5dGt6UGpV?=
- =?utf-8?B?V0RTK2VYWFhOTFhDbCsyVFcvZ0UyNE55NHFJMnlBVm9zVmVMMkkyakdnaTN5?=
- =?utf-8?B?VUtadEI4U3hMVU9zRGQyY3dKdkV1aElHOHdYQmNaU09HME1NU2p6VXJBSmFV?=
- =?utf-8?B?NWc0MTZJV0NRUmlWYzJnUFZUWkNycUFrVDUxeEV3cjA3a1o5WTErNjIxaDMy?=
- =?utf-8?B?RVlxUmd2RWhFd1pqRWtxSkw1ei9LaFc1SG84aE5rcDZ2eW8zVVFSTnMwNDJV?=
- =?utf-8?B?clJnaERnb3VhK08xWUpPN1AwV2VhT2c4VUZwRnRwUHdYd1BMREl2TlZGMDRi?=
- =?utf-8?B?R094RFllRFpEM1o0b0QydFdJZkNIUnpCTkxYUXdzL05mb2dVWDV0ODVSV2xT?=
- =?utf-8?B?aDhrYWVvMmI3VjBzSzJycGk3OFFwZlZwSlpkWWw5S01RWTBIcnpMdEVBS0l4?=
- =?utf-8?B?VXhjbFltbkowb1RXRm9iY2FrcTFqRUM0aWR2bnhnRTZscGNCbEtXNWVjaC85?=
- =?utf-8?B?RDhROTdXYUt6Tmd1WEU1SkZiZVBpaG5jQ0UrMzY2SW53ZDM0dGEwN2s3Q3BJ?=
- =?utf-8?B?Wk5CU3dmcTU5RFRwdkt1VnJoR3VUdEYzVkNPUDljdWxPNlp5YTZZeWQvYXVq?=
- =?utf-8?B?ZmtqNXJKWXZqSjd6REVDQzI2cTJrRFc1c0E1R2lQYklaNkFlNTRGZDZBRGZt?=
- =?utf-8?B?aHZkTFVjaTFUdFFHWURmQXlNdUFaTFpjb1lpMTg1UTJHY2FaOCtYbmcwWlBC?=
- =?utf-8?B?UWVEdit3N1VMOVh3aVc5dUt3R1dteHl4RGNzV0NmeE13c0lkak5qMkovdjlG?=
- =?utf-8?B?L0NwTmVWdnBXcm5YUFduT3U2VGc4dGRTbHFyOGoxdTZHOERnTC9uRkUvak02?=
- =?utf-8?B?STZJcGpBc3N0TlRid2t3VnhSYWVtamVBMXpadjRqYUFVSUZDc01aV3dKbTNk?=
- =?utf-8?B?RGowZHdseXp6b25Gc2pxY0NsMmxtdVgrRW5SUU5HaHU4UWlPSExtZ3pvUHdo?=
- =?utf-8?B?NW5IdGdOU2Y5M05EdXptWGNERTlkbVNGeTI3YUNwaXFwcU92dlVOQ3MwTnY4?=
- =?utf-8?B?emFFejlTc2l3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MnZMY1ZLSlRyOXZaQmFiMm1Kb08wbzVaUkh1OVQ3S0RSWE1TZjVvYWhIbTE3?=
- =?utf-8?B?ZjVjdGw2THhucEhYK3NQbnN4T2hIRVpiZEhFVVpmYW1GVm1QZzEweGZ1c3Rl?=
- =?utf-8?B?bWFWVlM2OHN4dEowVjFYSXprdmVKbmlQeHhjZ3NWeUZFREN6QlorUmxzRUhD?=
- =?utf-8?B?aTRPRG4za21uWnFlT2p2K3VzZlZSQWE3UnFNUmhObndXSDEzWS9kUE1hNTN0?=
- =?utf-8?B?Z0lwZG1UWFdsNDRGTkJrWEx5a09XYm10T3JWMWJKVXZ6L211NVhnb2thSjkx?=
- =?utf-8?B?ZitHbGhiMnhPZmxEbmZQL3d5VHYyVDRnTSt2VmMzTkRpcEFzTW91cEFqdXVu?=
- =?utf-8?B?ZjBWbEltclZTcENhUlZ5bER0bEZqN3NoVjdZMzl1cVJCbUZiU3Z3SVVzSlVT?=
- =?utf-8?B?bkpzamNTbjFqSVNCbVptVUkwV0gzMkRFMG92UjltamlRL0FhbkE5ZmVqQ3VD?=
- =?utf-8?B?cWxRSFF4ZFpBdDU2bW5tcGVLcFQ3WjBYVitGbDkxVFliOEJOMjA3UjFYYzkv?=
- =?utf-8?B?b2FWcUd1eVJLb3NoSHF1Zmo0b3EzNFVKbXFJblhIN2JpbXJXQzB0d0JXZGVz?=
- =?utf-8?B?bjh1VGdxT2xsUTZ2OHZHT0lKSE4vVG9FUk00emcxVjdkdVlUS3lqMWpWeVY1?=
- =?utf-8?B?Ly8zWkRxcDJCKys1ajgwMm9oRXB4RmJxOGRmMHZlSDVXWndoaW05QmlkVVBK?=
- =?utf-8?B?RWNXdS9Na3RoSXZueWovWjdtTW8zdW44WFlmVllncDROSThxVElsVm1rY3cw?=
- =?utf-8?B?MVAvMytCbGV0eFJCSXBUZkc4WVltK1N1ZDMwK2MrTWlIVSt2U1NLdmZRRTM0?=
- =?utf-8?B?TjZvaTdNQnBGNy9VOEN1Y1BOZVdRMUU4MjNFT2lTdmFlMjFOV1BPd2l6NXhC?=
- =?utf-8?B?bCtneTVTb0MxUkQ3dFVBSXBzODh0S092RzYyVWdEYklqWGY5YUlLYUZPMklm?=
- =?utf-8?B?Y2hvQXZpOERnTC9ibWNDVExPZVhIeUlSVDVKYXpIbnFPZDAzeEpqeHAzbmk5?=
- =?utf-8?B?MVkxVjNkK3JIN29sYXJyRlZUZXdrMGRwb2JhVCtJcWhNOTdkMXhrT01TUm1X?=
- =?utf-8?B?TWpSYXhNRk5FUzBrOUNEeElrMTZEcUJqaWVIQWk1bGRVMjQ0SmpDVElnNkhw?=
- =?utf-8?B?ZmFqVklUVUpoNUJSbzgzZ3JhKzFDM0pNZlZqaWJObnpzeW1FOHdVNU9wUGlP?=
- =?utf-8?B?UU9hN2RybnNNeERVZnNOY2J1Tk5rVWJDTU5WSUc2Wjh4aEVnVnlteTYxV0lk?=
- =?utf-8?B?ZEFYN3hLMWp5S21NdHY0d3BiOTJ3T2IzSzJLL3F6QlJmSGtMd25TVTBaK055?=
- =?utf-8?B?RHFIRExFZXpVYzBvN1V6Q1VxZ2IwaEVpc3Y1K050UUkxMlZIUlM1YnpUS3k0?=
- =?utf-8?B?NG9zN1kvRnZVSTZVMEVjdUp2cXM2Vk0zRW9TUk1kVkhqRW9TdDdtMGFOZ2c0?=
- =?utf-8?B?QmRjR21uQ0M2Y1VDRlJURGZQdGx3cndkTW1ENiswcE82TWpTYmlnZTQwdE56?=
- =?utf-8?B?eTQwTmc1YTl0YW1Kc2xJTGRwTklzdVc4K212cDcvR04rVEU1cS95VXlmd08y?=
- =?utf-8?B?c3U4Y0Z3NHc3R2JKYUNOSHJlMWp6SU5sVThMZ2l2NWY5enVDeDcwZmZMaGJB?=
- =?utf-8?B?M3l0ZldrMmUrajJrUGR6cmErbVd2V3ZzZ0hVUXk0NkVNZmVvR0wyQlFnUWNF?=
- =?utf-8?B?L3ZoM3dvNzljUVBKQTF6NEJ1QzU5U0ZaODJMckEvR2FNNDBGam0ydFhaWmJs?=
- =?utf-8?B?OWZYTkxoblk1MWJwNEhCQ1h4SHB3UFpaNFBUa1NQMTJJVHJFdUJENTAwTmE2?=
- =?utf-8?B?aUp5emIxZzNKVnd5TjdXVWZTdmpsZFJ1ekNockNxNkN3ZmhxeHN1SzVmQlh0?=
- =?utf-8?B?cHdVTWw3REdHZkcxTExqY21Ec0VldlIrOGM2RERNd2JVM0xzbXhWUGRLSHlF?=
- =?utf-8?B?Qzl0Nm5sbHIvM0FzQkpCS3JQOTQ1ZkxNQk93VzRldHhCZm0xcFpaSnBZbnZa?=
- =?utf-8?B?M2h1QlpHbjVDUERZelpxOXBPeUQwekJFcmN2VWZmdDY1ZWxkdi9GOUJJZHpI?=
- =?utf-8?B?VHI4cXpDVWRzUDI3UG9JTmhzbndYaHNUeXdmSS9oMGlkN2pjeGc2ak1UWTYr?=
- =?utf-8?Q?Y9anB+8PRCfbmmzCXAii03HNa?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b691dbdc-7b5b-43e9-4512-08dd24bd2142
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Dec 2024 08:21:28.2773
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xZppLKP9pkpwI9ff/lm+ofeDJlAIMZbBjM0t1P9jlaWIqSEOH3J2ddUjUEJaj0exsPpZfMfdJv5Ap4l/YNqp9A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6985
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/15] drm/bridge: analogix_dp: Add support for phy
+ configuration.
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
+ <20241219080604.1423600-8-damon.ding@rock-chips.com>
+ <a6vvydjbx3hbckoy74iiyzguyyacwvdh6iirqydjfvhwgocw3a@knecggjcbcid>
+ <654c30ec-7d7e-4956-9a48-15bfcea34acc@rock-chips.com>
+ <CAA8EJpqk-iim668ZTzQaROJmkTr2COBwA5G9Eg73uLE28XHYpg@mail.gmail.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <CAA8EJpqk-iim668ZTzQaROJmkTr2COBwA5G9Eg73uLE28XHYpg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ04YT1ZOGEIfTBlKSB8fSk5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93fced818603a3kunm6c497887
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PS46Tjo5GjIcEE8YDys4KEMj
+	Kj0aFBBVSlVKTEhOSkpOSU9OTEtNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFNQk9LNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=UPC0f7qcrwZe5+4cW9Y0k24vj4hFwCwq07GzJZR1NrL6UI77q+ZweU392GftAMLQYVyu/1jerhQCLTGDsIal4GHLyxA42x6uoOCFIy7dxZQD+xAhAIDn9gWTzPeA6c3aqMnzyEPmEElCv3pN2qgse8lKl+SP0u9RYeUgWfwByXY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=txPoZjhS7WmZRPL5mk+VeO5MESw98jX31iKdCOFZ2WY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_002131_580944_9C30D9E3 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20241225_002734_882929_AA6C8DA5 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,55 +84,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Dmitry,
 
-pinctrl-scmi.c and pinctrl-imx-scmi.c, both use SCMI_PROTOCOL_PINCTRL.
-If both drivers are built in, and the scmi device with name "pinctrl-imx"
-is created earlier, and the fwnode device points to the scmi device,
-non-i.MX platforms will never have the pinctrl supplier ready.
+On 2024/12/20 13:37, Dmitry Baryshkov wrote:
+> On Fri, 20 Dec 2024 at 05:37, Damon Ding <damon.ding@rock-chips.com> wrote:
+>>
+>> Hi Dmitry,
+>>
+>> On 2024/12/20 8:13, Dmitry Baryshkov wrote:
+>>> On Thu, Dec 19, 2024 at 04:05:56PM +0800, Damon Ding wrote:
+>>>> Add support to configurate link rate, lane count, voltage swing and
+>>>> pre-emphasis with phy_configure(). It is helpful in application scenarios
+>>>> where analogix controller is mixed with the phy of other vendors.
+>>>>
+>>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>>>
+>>>> ---
+>>>>
+>>>> Changes in v2:
+>>>> - remove needless assignments for phy_configure()
+>>>> - remove unnecessary changes for phy_power_on()/phy_power_off()
+>>>> ---
+>>>>    .../drm/bridge/analogix/analogix_dp_core.c    |  1 +
+>>>>    .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 56 +++++++++++++++++++
+>>>>    2 files changed, 57 insertions(+)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>>> index 6f10d88a34c5..9429c50cc1bc 100644
+>>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>>>> @@ -1696,6 +1696,7 @@ int analogix_dp_resume(struct analogix_dp_device *dp)
+>>>>       if (dp->plat_data->power_on)
+>>>>               dp->plat_data->power_on(dp->plat_data);
+>>>>
+>>>> +    phy_set_mode(dp->phy, PHY_MODE_DP);
+>>>>       phy_power_on(dp->phy);
+>>>>
+>>>>       analogix_dp_init_dp(dp);
+>>>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+>>>> index 3afc73c858c4..613ce504bea6 100644
+>>>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+>>>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+>>>> @@ -11,6 +11,7 @@
+>>>>    #include <linux/gpio/consumer.h>
+>>>>    #include <linux/io.h>
+>>>>    #include <linux/iopoll.h>
+>>>> +#include <linux/phy/phy.h>
+>>>>
+>>>>    #include <drm/bridge/analogix_dp.h>
+>>>>
+>>>> @@ -513,10 +514,25 @@ void analogix_dp_enable_sw_function(struct analogix_dp_device *dp)
+>>>>    void analogix_dp_set_link_bandwidth(struct analogix_dp_device *dp, u32 bwtype)
+>>>>    {
+>>>>       u32 reg;
+>>>> +    int ret;
+>>>>
+>>>>       reg = bwtype;
+>>>>       if ((bwtype == DP_LINK_BW_2_7) || (bwtype == DP_LINK_BW_1_62))
+>>>>               writel(reg, dp->reg_base + ANALOGIX_DP_LINK_BW_SET);
+>>>> +
+>>>> +    if (dp->phy) {
+>>>> +            union phy_configure_opts phy_cfg = {0};
+>>>> +
+>>>> +            phy_cfg.dp.lanes = dp->link_train.lane_count;
+>>>
+>>> Should not be necessary, you are only setting the .set_rate.
+>>
+>> Indeed, this can be dropped.
+>>
+>>>
+>>>> +            phy_cfg.dp.link_rate =
+>>>> +                    drm_dp_bw_code_to_link_rate(dp->link_train.link_rate) / 100;
+>>>> +            phy_cfg.dp.set_rate = true;
+>>>> +            ret = phy_configure(dp->phy, &phy_cfg);
+>>>> +            if (ret && ret != -EOPNOTSUPP) {
+>>>> +                    dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
+>>>> +                    return;
+>>>> +            }
+>>>> +    }
+>>>>    }
+>>>>
+>>>>    void analogix_dp_get_link_bandwidth(struct analogix_dp_device *dp, u32 *bwtype)
+>>>> @@ -530,9 +546,22 @@ void analogix_dp_get_link_bandwidth(struct analogix_dp_device *dp, u32 *bwtype)
+>>>>    void analogix_dp_set_lane_count(struct analogix_dp_device *dp, u32 count)
+>>>>    {
+>>>>       u32 reg;
+>>>> +    int ret;
+>>>>
+>>>>       reg = count;
+>>>>       writel(reg, dp->reg_base + ANALOGIX_DP_LANE_COUNT_SET);
+>>>> +
+>>>> +    if (dp->phy) {
+>>>> +            union phy_configure_opts phy_cfg = {0};
+>>>> +
+>>>> +            phy_cfg.dp.lanes = dp->link_train.lane_count;
+>>>> +            phy_cfg.dp.set_lanes = true;
+>>>> +            ret = phy_configure(dp->phy, &phy_cfg);
+>>>> +            if (ret && ret != -EOPNOTSUPP) {
+>>>> +                    dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
+>>>> +                    return;
+>>>> +            }
+>>>> +    }
+>>>>    }
+>>>>
+>>>>    void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *count)
+>>>> @@ -546,10 +575,37 @@ void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *count)
+>>>>    void analogix_dp_set_lane_link_training(struct analogix_dp_device *dp)
+>>>>    {
+>>>>       u8 lane;
+>>>> +    int ret;
+>>>>
+>>>>       for (lane = 0; lane < dp->link_train.lane_count; lane++)
+>>>>               writel(dp->link_train.training_lane[lane],
+>>>>                      dp->reg_base + ANALOGIX_DP_LN0_LINK_TRAINING_CTL + 4 * lane);
+>>>> +
+>>>> +    if (dp->phy) {
+>>>> +            union phy_configure_opts phy_cfg = {0};
+>>>> +
+>>>> +            for (lane = 0; lane < dp->link_train.lane_count; lane++) {
+>>>> +                    u8 training_lane = dp->link_train.training_lane[lane];
+>>>> +                    u8 vs, pe;
+>>>> +
+>>>> +                    vs = (training_lane & DP_TRAIN_VOLTAGE_SWING_MASK) >>
+>>>> +                         DP_TRAIN_VOLTAGE_SWING_SHIFT;
+>>>> +                    pe = (training_lane & DP_TRAIN_PRE_EMPHASIS_MASK) >>
+>>>> +                         DP_TRAIN_PRE_EMPHASIS_SHIFT;
+>>>> +                    phy_cfg.dp.voltage[lane] = vs;
+>>>> +                    phy_cfg.dp.pre[lane] = pe;
+>>>> +            }
+>>>> +
+>>>> +            phy_cfg.dp.lanes = dp->link_train.lane_count;
+>>>> +            phy_cfg.dp.link_rate =
+>>>> +                    drm_dp_bw_code_to_link_rate(dp->link_train.link_rate) / 100;
+>>>
+>>> This two should not be necessary, please drop them.
+>>
+>> These two are necessary for rk_hdptx_phy_set_voltage(), so they cannot
+>> be dropped.
+> 
+> Please review the documentation for struct phy_configure_opts_dp and
+> fix your PHY driver to skip the values for which the .set_foo isn't
+> set. Then you might have to change this part.
+> You are setting just .set_voltages. It means that the rate and .lanes
+> shouldn't be changed and can be used as they were set by the previous
+> calls to phy_configure().
+> 
 
-So bypass setting fwnode for scmi pinctrl devices that non
-compatible with socs.
+Indeed, I will store the previous &phy_configure_opts.dp.link_rate and 
+&phy_configure_opts.dp.lanes in the struct rk_hdptx_phy, and will not 
+use both of them during the configuration process of the 
+&phy_cfg.dp.voltage[] and &phy_cfg.dp.pre[] in next version.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/firmware/arm_scmi/bus.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+>>
+>>>
+>>>> +            phy_cfg.dp.set_voltages = true;
+>>>> +            ret = phy_configure(dp->phy, &phy_cfg);
+>>>> +            if (ret && ret != -EOPNOTSUPP) {
+>>>> +                    dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
+>>>> +                    return;
+>>>> +            }
+>>>> +    }
+>>>>    }
+>>>>
+>>>>    u32 analogix_dp_get_lane_link_training(struct analogix_dp_device *dp, u8 lane)
+>>>> --
+>>>> 2.34.1
+>>>>
+>>>
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 12190d4dabb65484543044b4424fbe3b67245466..87665b09c8ff492953c8300f80ed73eab6cce4fd 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -345,6 +345,11 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
- 	device_unregister(&scmi_dev->dev);
- }
- 
-+static const char * const scmi_pinctrl_imx_lists[] = {
-+	"fsl,imx95",
-+	NULL
-+};
-+
- static int
- __scmi_device_set_node(struct scmi_device *scmi_dev, struct device_node *np,
- 		       int protocol, const char *name)
-@@ -353,6 +358,15 @@ __scmi_device_set_node(struct scmi_device *scmi_dev, struct device_node *np,
- 	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name, "cpufreq"))
- 		return 0;
- 
-+	if (protocol == SCMI_PROTOCOL_PINCTRL) {
-+		if (!strcmp(name, "pinctrl") &&
-+		    of_machine_compatible_match(scmi_pinctrl_imx_lists))
-+			return 0;
-+		if (!strcmp(name, "pinctrl-imx") &&
-+		    !of_machine_compatible_match(scmi_pinctrl_imx_lists))
-+			return 0;
-+	}
-+
- 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
- 
- 	return 0;
-
--- 
-2.37.1
+Best regards,
+Damon
 
 
