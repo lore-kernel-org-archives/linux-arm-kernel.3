@@ -4,83 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91987E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 11:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DA4E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 11:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aW6usGsOL7OyXjgNlUS/zBBhFNHbOhEYlvaEKoGU80c=; b=dh7E9RqcWmmW3eM3PGF7+miSP5
-	2FPte1H2mCVCUjjHhqDT1kUb+qyRYFp15TK9+Pt/QjJgqbbTSoPQCkkjcZXOqLqUbB47eJhHet38t
-	agkFrKarC2KgYXyyP69hTgTnH9FRkcscKf5zKDBVogwNl7kuUI5GM2t5Jlrrdsr2xZw5+VqqO+vty
-	FeK/RGA57ClsmruPart0DjmkPu5pJ31Ie5pcRElV7wk2naVEMgKtqiNZ6Nwf67xVsoG/hvxf0sn+n
-	Rtzg6SgoEVyQ4pYVc75JPm2xtWRuWgmKtkgNhnwDVcCtA1rJRmbqxLMgjCZK6T0oUGd6ygoYlZe/v
-	PgBLE9kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zqer6Ku4JTCmBnTU1aWiql4BUWaf9ozr/2uN0GvPZS0=; b=qIQC8YCz8Qe/ovOyz+1z1dZaJ8
+	4mG1A6fM21aYHGuZaf4uMJLCZopsoyhN2OggDes+0gLFjIHf60e5MBqncpsJLMlfTCey8kdus8bL4
+	aG9raOnREPkv0fVN5rtisw8XLBj7ymYUROTCz0DIDLHqSL7ODnali54AyF8NRdz+KQwe2lVel7CFn
+	lwrU5BpLmWZnOI003vF354DzhwCWD+saw9CxqxXUBdRg4fI4oc/YOj9lSGXxpV2dpDQCVLH/dkC6h
+	niHWNOKPPxP39+mcTssuNE3epW6Jj7jqZJAtBASCPB+gM/0+nJLU4BSjDEfVwoq8jJ3WnEWSFDi/Z
+	OcktBy5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQP91-0000000DgbS-1NRZ;
-	Wed, 25 Dec 2024 11:01:39 +0000
-Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
+	id 1tQPZs-0000000DjJ0-47qw;
+	Wed, 25 Dec 2024 11:29:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQP4Z-0000000DfxF-1Gln;
-	Wed, 25 Dec 2024 10:57:08 +0000
-Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id EC96E120029;
-	Wed, 25 Dec 2024 13:56:51 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru EC96E120029
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1735124211;
-	bh=aW6usGsOL7OyXjgNlUS/zBBhFNHbOhEYlvaEKoGU80c=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=hqs9GlJo+qr77qbsabqXfzrRFlmeRg4ei9Y8pQHWTvGE+Vj14PS9PhPB4Ijx/Cf9g
-	 2dC7QP66eyU9561UsIUmSGutVVWOsAx20Rygvt5eEcQ70I7a6RS9J324xdoD8Bfag3
-	 KdyopbU7F38MkpWMYK64jRQ7dr4QmoYJ66ZVzQoVfY9HLRS7g2NkgBaTO+1opx2eBp
-	 LIWYdg10XQ4Yv3kLmst2/3FUA1/0oToYryM1JFWTHzpzHBZqjo6krHT4iw9rmsuVh3
-	 wIDZkffQKmA1IZmIAueGexg3LZ/MgogjUXHnNxgB871GMjK/CbHvLamTWknHub04r4
-	 Mb0LnDAUQNgzA==
-Received: from smtp.sberdevices.ru (p-i-exch-sc-m01.sberdevices.ru [172.16.192.107])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Wed, 25 Dec 2024 13:56:51 +0300 (MSK)
-From: George Stark <gnstark@salutedevices.com>
-To: <ukleinek@kernel.org>, <neil.armstrong@linaro.org>,
-	<khilman@baylibre.com>, <jbrunet@baylibre.com>,
-	<martin.blumenstingl@googlemail.com>
-CC: <linux-pwm@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kernel@salutedevices.com>, George Stark <gnstark@salutedevices.com>
-Subject: [PATCH 0/2] pwm: meson: fixes
-Date: Wed, 25 Dec 2024 13:56:37 +0300
-Message-ID: <20241225105639.1787237-1-gnstark@salutedevices.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tQPYg-0000000DjC7-3Ftz;
+	Wed, 25 Dec 2024 11:28:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D5CE1A40321;
+	Wed, 25 Dec 2024 11:26:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C33BC4CECD;
+	Wed, 25 Dec 2024 11:28:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735126089;
+	bh=Q62zRfD0sLiKfZ4Jr4dFPX1tGNoHoZ6JpQKQvkbHKIs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=X5MWFsDL7rTMJxVNtIrlLie7h94DIYLbrRGSIcLZARRNWBBKPKx/MH7dao4QuNLWA
+	 FIAna9Nu6z5HeRaRqRINZ/EPk1cMnwojg6oejldaFsGqpinM8+5mkrpk3Sp6oNJhSt
+	 9tT+Ugt9+A3Xw/6j4LkcaU02PcLV+t1wR4R6Mvc9FcyV8pZ2Q2uUmF1uXWB8D6j7WD
+	 rDPtz3TAKMrqE0YT11nu9vtqzhW23ppbK4oaaMN5wbWtadSOl8W3gLNArUwph8YtNd
+	 SoztPHtUsLKIyGiygtNF82SwVseDjzkHp/BRRif1eW2m8d40/D3/6b6o1DNW95J8hU
+	 BfI3i1kGmALYA==
+Message-ID: <940b6518-dfe5-43f2-9295-1706e3f7b02d@kernel.org>
+Date: Wed, 25 Dec 2024 12:28:03 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [176.57.76.93]
-X-ClientProxiedBy: p-i-exch-a-m1.sberdevices.ru (172.24.196.116) To
- p-i-exch-sc-m01.sberdevices.ru (172.16.192.107)
-X-KSMG-Rule-ID: 10
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 190053 [Dec 25 2024]
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiSpam-Envelope-From: gnstark@salutedevices.com
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49 28b3b64a43732373258a371bd1554adb2caa23cb, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, 127.0.0.199:7.1.2;git.kernel.org:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1;smtp.sberdevices.ru:7.1.1,5.0.1;salutedevices.com:7.1.1, FromAlignment: s
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean, bases: 2024/12/25 08:56:00
-X-KSMG-LinksScanning: Clean, bases: 2024/12/25 09:00:00
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2024/12/25 07:56:00 #26914998
-X-KSMG-AntiVirus-Status: Clean, skipped
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] media: dt-bindings: add MT8188 AIE
+To: "bo.kong" <bo.kong@mediatek.com>, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org
+Cc: conor+dt@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20241225090113.17027-1-bo.kong@mediatek.com>
+ <20241225090113.17027-3-bo.kong@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241225090113.17027-3-bo.kong@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_025704_187266_10A7A27D 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20241225_032810_952573_F266BD62 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +121,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 1st patch from the series is only intended to drop several unneeded code lines
-along with outdated comment. It's too simple to be sent alone.
+On 25/12/2024 10:00, bo.kong wrote:
+> From: Bo Kong <Bo.Kong@mediatek.com>
+> 
+> Add YAML device tree bindings for MT8188 AIE.
+> 
+> Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+> ---
+> 
+> Changes in v3:
+> none
+> 
+> Changes in v2:
+> 1. Fix coding style
 
-The 2nd patch adjusts pwm frequency calculation. The patch depends on
-not-yet-accepted series:
-https://lore.kernel.org/linux-arm-kernel/20241119125318.3492261-1-gnstark@salutedevices.com/T/
+Coding style? So none of my specific comments were implemented? No
+improvements in compatibles, properties, all these things I pointed out?
 
-Below I researched several cases this patch will affect.
-One of the most frequent use of meson pwm in mainline dts files are:
-1) wifi clock source and 2) cpu power regulation.
+Please be more specific or just go back to previous email and implement
+all the comments.
 
-1) wifi clock source with period 32768Hz and 50% dutycycle is configured in DTS like this:
-    pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
-Here is the calculated and measured frequency output with and without the patch on
-several boads/SoCs, where
-${CLK_RATE} - pwm clock source
-${COUNT_REG} - meson pwm regster with hi and lo values (e.g. PWMEF_PWM_E reg)
 
-*** khadas vim1 ***
-${CLK_RATE} -> 166666667
-w/o the patch:
-${COUNT_REG} -> 0x09EF09EF
-oscilloscope measure: 32.7564Khz
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32756.8134827 Hz
-with the patch:
-${COUNT_REG} -> 0x09EE09EE
-oscilloscope measure: 32.7693Khz
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32769.694652 Hz
 
-*** khadas vim3 ***
-${CLK_RATE} -> 666666656
-w/o patch:
-${COUNT_REG} -> 0x27BC27BD
-oscilloscope measure: 32.7652Khz
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32764.8624367 Hz
-with the patch:
-${COUNT_REG} -> 0x27BB27BC
-oscilloscope measure: 32.7684Khz
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32768.083362 Hz
-
-*** meson a1 board ***
-${CLK_RATE} -> 64000000
-w/o patch:
-${COUNT_REG} -> 0x03D003D1
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32736.57289 Hz
-with the patch:
-${COUNT_REG} -> 0x03CF03D0
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 32770.0972862 Hz
-
-2) pwm power regulator. Power is regulated changing duty value with the constant period
-*** meson a1 board ***
-required: period 1500ns (667kHz), duty 70% for 0.8V
-${CLK_RATE} -> 307200000
-with the patch:
-${COUNT_REG} -> 0x01410089
-calculated period: ${CLK_RATE} / (${COUNT_REG}.lo + ${COUNT_REG}.hi + 2) = 667826.086957 Hz
-calculated duty: (${COUNT_REG}.hi + 1) / (${COUNT_REG}.hi + ${COUNT_REG}.lo + 2) = 0.7
-oscilloscope measure: 667.8Khz, 1498ns/1049ns, duty 70%
-w/o the patch:
-${COUNT_REG} -> 0x0142008A
-calculated duty: (${COUNT_REG}.hi + 1) / (${COUNT_REG}.hi + ${COUNT_REG}.lo + 2) = 0.69
-oscilloscope measure: 664.9Khz, 1504ns/1051ns, duty 69%
-
-*******************
-**** ATTENTION ****
-*******************
-There's a potential problem related to meson_pwm_get_state's change.
-When pwm-regulator is initialized before the kernel is loaded and incomplete
-voltage-table is used (meson a1 board vendor kernel)
-
-voltage table fragment from kernel dts:
-  compatible = "pwm-regulator";
-  voltage-table =
-  ...
-  <800000 70>,
-  <790000 73>,
-  <780000 76>,
-  ...
-
-pwm regulator is initialized in bootloader bl2/bl3.x
-${CLK_RATE} -> 24000000
-${COUNT_REG} -> 0x00190009
-oscilloscope measure: 666.67Khz, 1500ns/1083ns, duty 72%
-
-pwm_get_state w/o the patch returns:
-pwm period: (${COUNT_REG}.hi + ${COUNT_REG}.lo) / ${CLK_RATE} = 1416 ns
-pwm duty: ${COUNT_REG}.hi / ${CLK_RATE} = 1041 ns
-duty: 1041 / 1416 = 73%
-Value 73% is found in the voltage table and everything is ok
-
-pwm_get_state with the patch returns:
-pwm period: (${COUNT_REG}.hi + ${COUNT_REG}.lo + 2) / ${CLK_RATE} = 1500 ns
-pwm duty: (${COUNT_REG}.hi + 1) / ${CLK_RATE} = 1083 ns
-duty: 1083 / 1500 = 72%
-
-72% is not found in the voltage table.
-In that case pwm-regulator driver on its own sets the minimum voltage from the table.
-If this is the cpu power regulator then cpu may hang due to voltage is lowered
-w/o prior proper frequency lowering. In that situation voltage-table should be
-adjusted to have intermediate values.
-
-Just before sending the letter I've found the only mainline board that may be
-broken by this patch:
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dts
-I can patch meson-s4-s805x2-aq222.dts' voltage table or propose patch to pwm-regulator
-to change the way pwm-regulator deals with out-of-table pwm values.
-
-George Stark (2):
-  pwm: meson: Simplify meson_pwm_cnt_to_ns()
-  pwm: meson: Fix computing counter register
-
- drivers/pwm/pwm-meson.c | 38 ++++++++++++++++++++++----------------
- 1 file changed, 22 insertions(+), 16 deletions(-)
-
---
-2.25.1
-
+Best regards,
+Krzysztof
 
