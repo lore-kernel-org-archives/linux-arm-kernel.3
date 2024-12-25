@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2844E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 19:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17F3E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 19:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ooCP4AVj6ouf61L4l6iIgaeJr118tdjjjQYgYlz/msQ=; b=NZ6fwuQw+/pTVvopJNKqYr29K1
-	DME32maX4gxwQ8vU2mygTFa2lD9SK2Tx78cDacDcEP5WO3/L5R4FI3esCHB73Wn464fXw2URlMi2f
-	uztb9YoTOy854EvB01szya4kDBAkWP3E5KW07iMElnCPRxPbM43ra5uJphP5HowKsfvAHrD5qUrs7
-	IsX4PWRUtEn4T87vaCrfejO/tL6jLlOQUf/d42iMdG7bkqKF04KqVQHQJ3oxvh7JW4b1VgX6ZQNbB
-	Q0FeOgj/0z66uVROydGBNvfRJaUsleIAUZ+5Nk6FAIZLXWvLKQ4PwBITOJz0MFe6wkdUPzPcgz2Yq
-	6Au7bqiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EAra1qhdZK96AgGOf/EgteGRsVPCMYxtHK2qlwvZmbg=; b=cV1RiIsr+2kdb0xiUxYPZ0OFdN
+	iIH7t01YJye+f92pHMVVV6+079eSqhih2giWY2APhMFIpcYu0B4SnzfAnQobZaHObJjPlaR0Mim69
+	RfQ31rKM1cU6CDMLIV3f7uJ/NpWMNRmwvHBlt0UcKE7oAsRQ+QGmZQ7o31wQooOLyJexJnxLB0xQD
+	ZOL3J3qa9K6+vYZEQG1UDCtJSb8S6tj+k0rBqj6x9T/VEXLLH/Yzb+5j7qWlRn3SIdExSvJ8CGSgD
+	LsCIQflOPUSk60Iv/u2wZyMrcbbPoHbH/uO2eMNf3L0gcG8ORHYxykq+sIIEqCXeEd4Epg9eIvzCk
+	uYI3PXwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQX7J-0000000EF5V-28OO;
-	Wed, 25 Dec 2024 19:32:25 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1tQXRt-0000000EGEr-1gs6;
+	Wed, 25 Dec 2024 19:53:41 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQX2l-0000000EEXF-2CCJ
+	id 1tQXQe-0000000EG6Z-0dNe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 19:27:44 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=packett.cool;
-	s=key1; t=1735154861;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ooCP4AVj6ouf61L4l6iIgaeJr118tdjjjQYgYlz/msQ=;
-	b=CFDQeefpWl35qibFOJxQB19HfXzQTL64mOoGsi7vOLZF42pQl5WEawIFFoJ3l0FrigyMfL
-	mJJQcBRSTXtuaejIjQD3imFpqgTCeOMjhD0oglA5Ow5OqqHQNcGxydxB1KOPs1BSUe8rBt
-	TWzp024niCUAllC8aZ78AGYky2JISF+EXq8k4+7V1IR1fK3biNofQVd0Fb6qLobLLSP5Sx
-	A8OqTiojt7TxldJZLlTZFqKMSxbsVRG813n4RzL7/BAzfB06AWc9V96myFf4dsPjatJBV8
-	BSB7cNEjp+5MMiKyd1ZjIpAXRZl4cItIVXK7eeJanAmKdmvBTTeFGnQ89QRG5g==
-From: Val Packett <val@packett.cool>
-To: 
-Cc: Val Packett <val@packett.cool>,
-	Mattijs Korpershoek <mkorpershoek@baylibre.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Fabien Parent <fparent@baylibre.com>,
-	Amjad Ouled-Ameur <aouledameur@baylibre.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH 3/3] arm64: dts: mediatek: mt8516: add keypad node
-Date: Wed, 25 Dec 2024 16:26:21 -0300
-Message-ID: <20241225192631.25017-4-val@packett.cool>
-In-Reply-To: <20241225192631.25017-1-val@packett.cool>
-References: <20241225192631.25017-1-val@packett.cool>
+	Wed, 25 Dec 2024 19:52:26 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tQXQD-0000Jn-19; Wed, 25 Dec 2024 20:51:57 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tQXQ6-005EvM-35;
+	Wed, 25 Dec 2024 20:51:51 +0100
+Received: from pengutronix.de (2a02-8206-2430-9d00-8f68-253a-4589-f451.dynamic.ewe-ip-backbone.de [IPv6:2a02:8206:2430:9d00:8f68:253a:4589:f451])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 61711394F8A;
+	Wed, 25 Dec 2024 19:50:18 +0000 (UTC)
+Date: Wed, 25 Dec 2024 20:50:17 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Markus Schneider-Pargmann <msp@baylibre.com>
+Cc: Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, linux-can@vger.kernel.org, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, 
+	Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, 
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v6 1/7] dt-bindings: can: m_can: Add wakeup properties
+Message-ID: <20241225-singing-passionate-antelope-88e154-mkl@pengutronix.de>
+References: <20241219-topic-mcan-wakeup-source-v6-12-v6-0-1356c7f7cfda@baylibre.com>
+ <20241219-topic-mcan-wakeup-source-v6-12-v6-1-1356c7f7cfda@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="srwhw2v5uya67a3g"
+Content-Disposition: inline
+In-Reply-To: <20241219-topic-mcan-wakeup-source-v6-12-v6-1-1356c7f7cfda@baylibre.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_112743_706255_74B1E6A0 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241225_115224_203248_3E59252D 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a keypad matrix node for the MT8516/MT8167 SoC.
 
-Signed-off-by: Val Packett <val@packett.cool>
----
- arch/arm64/boot/dts/mediatek/mt8516.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+--srwhw2v5uya67a3g
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 1/7] dt-bindings: can: m_can: Add wakeup properties
+MIME-Version: 1.0
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8516.dtsi b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-index e30623ebac0e1..b5e753759465d 100644
---- a/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-@@ -220,6 +220,17 @@ timer: timer@10008000 {
- 			clock-names = "clk13m", "bus";
- 		};
- 
-+		keypad: keypad@10002000 {
-+			compatible = "mediatek,mt8516-keypad",
-+				     "mediatek,mt6779-keypad";
-+			reg = <0 0x10002000 0 0x1000>;
-+			wakeup-source;
-+			interrupts = <GIC_SPI 149 IRQ_TYPE_EDGE_FALLING>;
-+			clocks = <&clk26m>;
-+			clock-names = "kpd";
-+			status = "disabled";
-+		};
-+
- 		syscfg_pctl: syscfg-pctl@10005000 {
- 			compatible = "syscon";
- 			reg = <0 0x10005000 0 0x1000>;
--- 
-2.47.1
+On 19.12.2024 20:57:52, Markus Schneider-Pargmann wrote:
+> m_can can be a wakeup source on some devices. Especially on some of the
+> am62* SoCs pins, connected to m_can in the mcu, can be used to wakeup
+> the SoC.
+>=20
+> The wakeup-source property defines on which devices m_can can be used
+> for wakeup and in which power states.
+>=20
+> The pins associated with m_can have to have a special configuration to
+> be able to wakeup the SoC. This configuration is described in the wakeup
+> pinctrl state while the default state describes the default
+> configuration.
+>=20
+> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 
+The DTBS check fails:
+
+| $ make CHECK_DTBS=3Dy ti/k3-am625-beagleplay.dtb
+|   DTC [C] arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb
+| arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: can@4e08000: wakeup-sourc=
+e: 'oneOf' conditional failed, one must be fixed:
+|         ['suspend', 'poweroff'] is not of type 'boolean'
+|         ['suspend', 'poweroff'] is too long
+|         from schema $id: http://devicetree.org/schemas/net/can/bosch,m_ca=
+n.yaml#
+| arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: can@4e08000: wakeup-sourc=
+e: ['suspend', 'poweroff'] is not of type 'boolean'
+|         from schema $id: http://devicetree.org/schemas/wakeup-source.yaml#
+| arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: can@4e18000: wakeup-sourc=
+e: 'oneOf' conditional failed, one must be fixed:
+|         ['suspend', 'poweroff'] is not of type 'boolean'
+|         ['suspend', 'poweroff'] is too long
+|         from schema $id: http://devicetree.org/schemas/net/can/bosch,m_ca=
+n.yaml#
+| arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: can@4e18000: wakeup-sourc=
+e: ['suspend', 'poweroff'] is not of type 'boolean'
+|         from schema $id: http://devicetree.org/schemas/wakeup-source.yaml#
+
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--srwhw2v5uya67a3g
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEUEC6huC2BN0pvD5fKDiiPnotvG8FAmdsYfYACgkQKDiiPnot
+vG8yoQf/TvollExLSNWWJR9S7tKurNCmxmlPYket9IZbscYEr9zwGB4CG9v6q/K/
+ee5jRaJ7ck8hiUEkIQpHwz8Ek+jq84GAJEQYWDjIT5dZSLwkQsZS54/Nv4wPgrbH
+3BPxTlMdkDiFHqlxSX/yOTyTbGD8sc3VU2pXx7DfFBl6C4f7bhup19guLiLosUr1
+1Nh8jnttzV2pSiG/YzsMQCuj5SuiCYnFpJnJzgUMRPSm4+WEZHlecq5BnszfWeS3
+hqZII3Wg1aCdm+CstUvAw+jIfa1InbNjtS2drU5kOsiawKcK0gzdCzQ0cBvvylaf
+bpK/ypEN0QZZxuSAkpBmm6+xF1hAyQ==
+=WQRL
+-----END PGP SIGNATURE-----
+
+--srwhw2v5uya67a3g--
 
