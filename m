@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46637E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 09:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14554E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 09:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBWKK6ZjzSvH7LyonCX8Syja9oBgc2RQ52O9697Qzlc=; b=Ktc+PPkMqRM/ca3j1QTfDHQ2I/
-	LrAv29kNLD6YwWx9eLkeKv1Y3KVUdXAdmN6vji63NTjC2ieuYPXS6/9POhm/MmQOkBEoHeD6Ylin9
-	m74umayIlsdnSM42ArcFX2sVZyC7Mwq84VZ1nIF35gLxactU2O7lXO05Xf5pATASWmgqRiUnBSt/l
-	9mKZscXdPBeCj0MZG715mA7I8/bYIBcYgAgbZ3EQVsZwT4pKzIQj8v8E8Z2UngDRibqi4MzDaf3s1
-	Rysqw9mZ7P6Tn3driKR9JtbtQKZcQea//OvZTBr4dXA4c42tTVtGaCDUoait9XYgLnWN7k2uEcFWJ
-	HifZF30w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pWriVfSDH2sEpg8pcOmkXvybXUKi737yhk7CRzVorzU=; b=3ku/OvOoct8IrwwJzOsDhgTBLy
+	uOTY9u7rnWLa4ptLVfBqMiHFwte/GPxJtO0Xdqj9elMAM6JhLKN00G5C0L6xNy05JFik7HHgOVRH7
+	FYqd3w5XFsWXqiKfTxWKmVrUAr1dTZerHVVa+yfqe0QBVmIt1O8lNQVqB9sJjCkUqtNHruJDAzpFR
+	60SDQ5JL8rpH5q0ITUFFgy5tKuR6qGRAAYrKVZeISicQmLJkBXpj+3pRKkHsIcotecbDU7/6wR0vM
+	qaz/JqTX6ZFQVNGES4DBjLcg6Xkkhjo6zBT+u5PGu9gnHsHdsvvTIri/+aXZ7+omkmpuC7JcpKJHm
+	cFeFLqWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQNLM-0000000DXCf-3Anj;
-	Wed, 25 Dec 2024 09:06:16 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tQNnq-0000000DYyw-1q2G;
+	Wed, 25 Dec 2024 09:35:42 +0000
+Received: from mail-m21471.qiye.163.com ([117.135.214.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQNGg-0000000DWRx-0KHQ;
-	Wed, 25 Dec 2024 09:01:27 +0000
-X-UUID: cdecb646c29e11ef82ff63e91e7eb18c-20241225
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=aBWKK6ZjzSvH7LyonCX8Syja9oBgc2RQ52O9697Qzlc=;
-	b=lnFm3U4Knm5GkDtDR518EbfYQaXPlQH3vlzN4C2tKT5akWihbs2DonyX6E2W4HJD0o7KdnNhjxaYK14t0JVSLQAdRezn0U5G/k3RBFFhqoUoJvOsoZQ/SPWP8pmsSsYuIV3Ehcqa6my9C/OjvZRW0+jzFmzelwItMeo6y5jp87w=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:ea13fdb8-dcc9-4f30-b08a-4699e98dfe4e,IP:0,U
-	RL:25,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:f20ed818-ec44-4348-86ee-ebcff634972b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULN,TF_CID_SPAM_SNR
-X-UUID: cdecb646c29e11ef82ff63e91e7eb18c-20241225
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <bo.kong@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 806101611; Wed, 25 Dec 2024 02:01:18 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Wed, 25 Dec 2024 17:01:15 +0800
-Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Wed, 25 Dec 2024 17:01:15 +0800
-From: bo.kong <bo.kong@mediatek.com>
-To: <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>
-CC: <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <Bo.Kong@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v3 2/4] media: dt-bindings: add MT8188 AIE
-Date: Wed, 25 Dec 2024 17:00:21 +0800
-Message-ID: <20241225090113.17027-3-bo.kong@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20241225090113.17027-1-bo.kong@mediatek.com>
-References: <20241225090113.17027-1-bo.kong@mediatek.com>
+	id 1tQNmc-0000000DYoT-3cOy;
+	Wed, 25 Dec 2024 09:34:28 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 6c6e1666;
+	Wed, 25 Dec 2024 17:34:17 +0800 (GMT+08:00)
+Message-ID: <32c7ef0a-8da6-449a-8f2d-59965aa622ec@rock-chips.com>
+Date: Wed, 25 Dec 2024 17:34:17 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 14/15] arm64: dts: rockchip: Enable eDP0 display on
+ RK3588S EVB1 board
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ l.stach@pengutronix.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20241219080604.1423600-1-damon.ding@rock-chips.com>
+ <20241219080604.1423600-15-damon.ding@rock-chips.com>
+ <cg7bnhol4gvzji7agxazas7nkxy7zammzy67rjvhp35yqyraju@73daepsbmuae>
+ <d2b47813-45fa-4148-8a4a-6cf4a18ee7ca@rock-chips.com>
+ <CAA8EJpp0Smtqx7VQ5zdg9x3EhuLpk4u4vGv=rv8DHJ0rhei18w@mail.gmail.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <CAA8EJpp0Smtqx7VQ5zdg9x3EhuLpk4u4vGv=rv8DHJ0rhei18w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUweGVYeQk1KSx1MHR9OTEhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCSE
+	NVSktLVUpCS0tZBg++
+X-HM-Tid: 0a93fd2abf9b03a3kunm6c6e1666
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODY6Ehw4NjIcNk4LOEswEgEB
+	KDhPCxJVSlVKTEhOSkpCSU5CSUhKVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPSk1INwY+
+DKIM-Signature: a=rsa-sha256;
+	b=kaQs319TgZLgE3daBx/HJEGlYlzgtVyLFOX29FOzekUTHT2VO0cM3Rtl3ZVhJA+lzlxZk0zUL2BKuKKG4P8vmv29QCBtfzvhrskZJiATdGo4/HQ9nqRotKayLndUOxQ8Dww+D7xUD3qnxGbJptgP0wpZI0e4HT7SiKdehVWUlMg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=pWriVfSDH2sEpg8pcOmkXvybXUKi737yhk7CRzVorzU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_010126_183479_7DC3125D 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20241225_013427_568208_A51D22C6 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,127 +84,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bo Kong <Bo.Kong@mediatek.com>
+Hi Dmitry,
 
-Add YAML device tree bindings for MT8188 AIE.
+On 2024/12/20 13:38, Dmitry Baryshkov wrote:
+> On Fri, 20 Dec 2024 at 04:38, Damon Ding <damon.ding@rock-chips.com> wrote:
+>>
+>> Hi Dmitry,
+>>
+>> On 2024/12/20 8:20, Dmitry Baryshkov wrote:
+>>> On Thu, Dec 19, 2024 at 04:06:03PM +0800, Damon Ding wrote:
+>>>> Add the necessary DT changes to enable eDP0 on RK3588S EVB1 board:
+>>>> - Add edp-panel node
+>>>> - Set pinctrl of pwm12 for backlight
+>>>> - Enable edp0/hdptxphy0/vp2
+>>>>
+>>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>>>
+>>>> ---
+>>>>
+>>>> Changes in v2:
+>>>> - Remove brightness-levels and default-brightness-level properties in
+>>>>     backlight node.
+>>>> - Add the detail DT changes to commit message.
+>>>>
+>>>> Changes in v3:
+>>>> - Use aux-bus instead of platform bus for edp-panel.
+>>>> ---
+>>>>    .../boot/dts/rockchip/rk3588s-evb1-v10.dts    | 52 +++++++++++++++++++
+>>>>    1 file changed, 52 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+>>>> index bc4077575beb..9547ab18e596 100644
+>>>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts
+>>>> @@ -9,6 +9,7 @@
+>>>>    #include <dt-bindings/gpio/gpio.h>
+>>>>    #include <dt-bindings/input/input.h>
+>>>>    #include <dt-bindings/pinctrl/rockchip.h>
+>>>> +#include <dt-bindings/soc/rockchip,vop2.h>
+>>>>    #include <dt-bindings/usb/pd.h>
+>>>>    #include "rk3588s.dtsi"
+>>>>
+>>>> @@ -238,6 +239,41 @@ &combphy2_psu {
+>>>>       status = "okay";
+>>>>    };
+>>>>
+>>>> +&edp0 {
+>>>> +    force-hpd;
+>>>> +    status = "okay";
+>>>> +
+>>>> +    aux-bus {
+>>>> +            panel {
+>>>> +                    compatible = "lg,lp079qx1-sp0v";
+>>>
+>>> Why do you need the particular compat string here? Can you use the
+>>> generic "edp-panel" instead? What if the user swaps the panel?
+>>>
+>>
+>> The eDP panels used in conjunction with the RK3588S EVB1 have broken
+>> identification, which is one of the valid reasons for using a particular
+>> compat string. So the generic_edp_panel_probe() can not return success
+>> when using the "edp-panel".
+> 
+> Broken how? I don't see such info in the commit message.
+> 
 
-Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
----
+The log related to the broken identification may be like:
 
-Changes in v3:
-none
+[    0.623793] panel-simple-dp-aux aux-fdec0000.edp: Unknown panel ETC 
+0x0000, using conservative timings
 
-Changes in v2:
-1. Fix coding style
----
- .../bindings/media/mediatek,mt8188-aie.yaml   | 97 +++++++++++++++++++
- 1 file changed, 97 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
+The eDP panel used in RK3588S EVB1 is indeed the LP079QX1_SP0V model, it 
+should be also reasonable to use the "lg,lp079qx1-sp0v".
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
-new file mode 100644
-index 000000000000..63dd720ef6ec
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
-@@ -0,0 +1,97 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/mediatek-aie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: The AI Engine Unit of MediaTek Camera System
-+
-+maintainers:
-+  - Bo Kong <bo.kong@mediatek.com>
-+
-+description:
-+  AIE(AI Engine) is one of the units in mt8188 ISP which
-+  provides hardware accelerated face detection function,
-+  it can detect different sizes of faces in a raw image.
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: mediatek,mt8188-aie
-+
-+  reg:
-+    maxItems: 1
-+    description: Physical base address and length of the register space.
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  mediatek,larb:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Must contain the local arbiters in the current SoCs, see
-+      Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
-+      for details.
-+
-+  iommus:
-+    maxItems: 4
-+    description:
-+      Points to the respective IOMMU block with master port as argument, see
-+      Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
-+      Ports are according to the HW.
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: clock for imgsys main ipe
-+      - description: clock for ipe fdvt
-+      - description: clock for ipe smi larb12
-+      - description: clock for ipe top
-+
-+  clock-names:
-+    items:
-+      - const: img_ipe
-+      - const: ipe_fdvt
-+      - const: ipe_smi_larb12
-+      - const: ipe_top
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - iommus
-+  - power-domains
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/memory/mediatek,mt8188-memory-port.h>
-+    #include <dt-bindings/power/mediatek,mt8188-power.h>
-+    #include <dt-bindings/clock/mediatek,mt8188-clk.h>
-+    aie@15310000 {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+      compatible = "mediatek,mt8188-aie";
-+      reg = <0 0x15310000 0 0x1000>;
-+      interrupts = <GIC_SPI 787 IRQ_TYPE_LEVEL_HIGH 0>;
-+      mediatek,larb = <&larb12>;
-+      iommus = <&vpp_iommu M4U_PORT_L12_FDVT_RDA_0>,
-+               <&vpp_iommu M4U_PORT_L12_FDVT_RDB_0>,
-+               <&vpp_iommu M4U_PORT_L12_FDVT_WRA_0>,
-+               <&vpp_iommu M4U_PORT_L12_FDVT_WRB_0>;
-+      power-domains = <&spm MT8188_POWER_DOMAIN_IPE>;
-+      clocks = <&imgsys CLK_IMGSYS_MAIN_IPE>,
-+               <&ipesys CLK_IPE_FDVT>,
-+               <&ipesys CLK_IPE_SMI_LARB12>,
-+               <&ipesys CLK_IPESYS_TOP>;
-+      clock-names = "img_ipe",
-+                    "ipe_fdvt",
-+                    "ipe_smi_larb12",
-+                    "ipe_top";
-+    };
--- 
-2.45.2
+And I will mention all of the above in the commit message for the next 
+version.
+
+>>
+>>>> +                    backlight = <&backlight>;
+>>>> +                    power-supply = <&vcc3v3_lcd_edp>;
+>>>> +
+>>>> +                    port {
+>>>> +                            panel_in_edp: endpoint {
+>>>> +                                    remote-endpoint = <&edp_out_panel>;
+>>>> +                            };
+>>>> +                    };
+>>>> +            };
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&edp0_in {
+>>>> +    edp0_in_vp2: endpoint {
+>>>> +            remote-endpoint = <&vp2_out_edp0>;
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&edp0_out {
+>>>> +    edp_out_panel: endpoint {
+>>>> +            remote-endpoint = <&panel_in_edp>;
+>>>> +    };
+>>>> +};
+>>>> +
+>>>> +&hdptxphy0 {
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>>    &i2c3 {
+>>>>       status = "okay";
+>>>>
+>>>> @@ -399,6 +435,7 @@ usbc0_int: usbc0-int {
+>>>>    };
+>>>>
+>>>>    &pwm12 {
+>>>> +    pinctrl-0 = <&pwm12m1_pins>;
+>>>>       status = "okay";
+>>>>    };
+>>>>
+>>>> @@ -1168,3 +1205,18 @@ usbdp_phy0_dp_altmode_mux: endpoint@1 {
+>>>>               };
+>>>>       };
+>>>>    };
+>>>> +
+>>>> +&vop_mmu {
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>> +&vop {
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>> +&vp2 {
+>>>> +    vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
+>>>> +            reg = <ROCKCHIP_VOP2_EP_EDP0>;
+>>>> +            remote-endpoint = <&edp0_in_vp2>;
+>>>> +    };
+>>>> +};
+>>>> --
+>>>> 2.34.1
+>>>>
+
+Best regards
+Damon
 
 
