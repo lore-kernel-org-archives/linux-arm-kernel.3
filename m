@@ -4,114 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C964E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1EBE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BS0b+HMiePrCAfUAlHyLtR3Szgb+8xgLPznjz09vHvs=; b=t4lNb+mdAIVpKP7WLjE++Z00cW
-	Fvs9OjzLb7dgUZJUNWGdtlZxd/n6wsCQ+w3K+74FRL+kA9rG4leh+Rmw0j7HttIG8qTRimAl3dT8A
-	4lhHyDvyZzgqux/yjgk37VhNVNrZK6L+BKVZSpwnbexpeSsvCP8e/06i8hwsLiLblkhHTvNdrVVpP
-	c0qaRMMXxruxQswp7vTZjUzbdnft3cbsLVq7st1rlzRwzB1aIHUjU7cDBWPWIvqh9ltKVyorMu0Jv
-	m9JKiNlzPKI2Y3+e7lhGghMNSIh35J9n5Gcvx/ote9R7YOlwV1/rRikIvD8RqtR2KVONUPK0nwoU/
-	64YHbivw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d4vV6k2yMin3zxgst3cgpCfnKTd2xrj4cgMcOxVOF2U=; b=eOjUPRyaIwxM65TqbDZH700Zow
+	FuDKouUwHExrUsrzbXpOmeWWmkincuo3A7MxUOoFnGymsEQQnw3RG419qC3zsoryqKvsNdJMuhHnM
+	mtwnPIjCj459U4ltqOFgPmVgeEzJSWtWOraE2xXIiJeKeWJbx4sfiDDv7hIpQzSddEqqMvMeN1fU7
+	6Sn7lxiB5tCukj4yLeC13wUprKbOaltynuZC34vYyvAF99WLS09+yARLREV4PiOqOQ1gA7oUdoioC
+	NdBoRBuqmyC7z1Y8iS5MDtCok9SoHf/LJeUCuevgaYeB9OBehexxY4vT9UeSifolegPBzhJOu/Grp
+	r1sUpN+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOMQ-0000000DcEA-0fFr;
-	Wed, 25 Dec 2024 10:11:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tQOf5-0000000DdfA-41ue;
+	Wed, 25 Dec 2024 10:30:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOI0-0000000DbMv-289F
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 10:06:53 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BOMMS1i008690;
-	Wed, 25 Dec 2024 10:06:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BS0b+HMiePrCAfUAlHyLtR3Szgb+8xgLPznjz09vHvs=; b=VGhNGQTcxUru3b30
-	/sqNTuG/YZOhmLHFWvtYVE+Hgo2TKysAzzUTEsKeFh/t9CEosCgmzZTj1hKQyNMX
-	t2bcnIId8Pk9dUJi0zjrd0W7i0NCtJp+et3vL3r8cr+nzer5Rcx2FcnK3W0BCAcn
-	mNUxqgXcGfOJVLh9dBUPEIKOcmyQK7mRSnJHo8aV/b+poM6DLskKY2qOTnawCFwr
-	Z5+mD13rRV9QHTmIOIvAbPtKuJZ8UhPgeRSxb9ILWIXUMVmXmffzPQo6u9lXT0Xe
-	BNbSfVspgO29IGwDg0Mo1gYxRDzodR12/lApxBxDi/IKdkrOjOJwgdnFEz87Q5ph
-	oVEWig==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43qvngmwsu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 10:06:42 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BPA6fKE010946
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 10:06:41 GMT
-Received: from yijiyang-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 25 Dec 2024 02:06:35 -0800
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-Date: Wed, 25 Dec 2024 18:04:47 +0800
-Subject: [PATCH 3/3] arm64: dts: qcom: qcs615-ride: Enable RX programmable
- swap on qcs615-ride
-MIME-Version: 1.0
+	id 1tQOdt-0000000DdXP-2sf0;
+	Wed, 25 Dec 2024 10:29:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8E95EA4030A;
+	Wed, 25 Dec 2024 10:27:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4582C4CED6;
+	Wed, 25 Dec 2024 10:29:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735122568;
+	bh=BlZHZylE3rkpvbrheLcHA/p7NRcnz2PMtoKAQwhJgy8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Wm1+iNeMLPeEftMNySyryeQTAFkv13G5yNV7DFPagTpHSS0s15hTeIOQUpcWYvRd8
+	 XVgtT5RIagUjDlU//D3gj0LGvKKkCi/bU5b68/X9zn+Xd1bA17CLL+PVca7BG+CxyG
+	 uNFEo0zZjNwwzp1o9qKpuNgRZxr6mtt5fwStRulynhHeWYMRgORzbR0cCwtSzrxn2N
+	 9zgp8AxQKXkX7CJoiF1ljyB762/Zg4u/usZU8+vy/CI/+rR+kqIVAtJeFyzLZWFcKq
+	 v6S/CSSbkxzeLKnVzkVZag+Czd/L6Yve8gTtuO+YKFCX4/lFQmXge8qcuPl1yR8yiZ
+	 yMJfdiUdS1p4w==
+Date: Wed, 25 Dec 2024 04:29:26 -0600
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20241225-support_10m100m-v1-3-4b52ef48b488@quicinc.com>
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
-In-Reply-To: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
-To: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David
- S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>,
-        "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Yijie Yang
-	<quic_yijiyang@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735121177; l=773;
- i=quic_yijiyang@quicinc.com; s=20240408; h=from:subject:message-id;
- bh=aYUgZ35Qq8dOfct/sH6UGyo/Czo3JUICJUL+i9SmgFs=;
- b=lw5nfj4Ao7+oYrEoc3xSl2pt3EqEAtD7UhtVvU2lPWfKlb2Gd+nSmWbypiRLHshJgSbPydUNO
- uzevepW92LuDp+bGeV3/bAJl4TWOZwKgobNrQzV6cW9dKRKH+viXQ1V
-X-Developer-Key: i=quic_yijiyang@quicinc.com; a=ed25519;
- pk=XvMv0rxjrXLYFdBXoFjTdOdAwDT5SPbQ5uAKGESDihk=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: KXXRbR0iUyI-HWacRhQnBRXd4pPh7E_x
-X-Proofpoint-ORIG-GUID: KXXRbR0iUyI-HWacRhQnBRXd4pPh7E_x
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- suspectscore=0 adultscore=0 mlxlogscore=687 priorityscore=1501 mlxscore=0
- bulkscore=0 phishscore=0 spamscore=0 clxscore=1015 malwarescore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412250088
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Bo.Kong@mediatek.com, linux-media@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, krzk+dt@kernel.org, mchehab@kernel.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, matthias.bgg@gmail.com, 
+ linux-arm-kernel@lists.infradead.org
+To: "bo.kong" <bo.kong@mediatek.com>
+In-Reply-To: <20241225090113.17027-3-bo.kong@mediatek.com>
+References: <20241225090113.17027-1-bo.kong@mediatek.com>
+ <20241225090113.17027-3-bo.kong@mediatek.com>
+Message-Id: <173512256651.1988706.15570394656231888489.robh@kernel.org>
+Subject: Re: [PATCH v3 2/4] media: dt-bindings: add MT8188 AIE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_020652_558769_F11F61AD 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20241225_022929_803366_DC49124B 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,28 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The timing of sampling at the RX side for qcs615-ride needs adjustment.
-It varies from board to board.
 
-Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
----
- arch/arm64/boot/dts/qcom/qcs615-ride.dts | 1 +
- 1 file changed, 1 insertion(+)
+On Wed, 25 Dec 2024 17:00:21 +0800, bo.kong wrote:
+> From: Bo Kong <Bo.Kong@mediatek.com>
+> 
+> Add YAML device tree bindings for MT8188 AIE.
+> 
+> Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+> ---
+> 
+> Changes in v3:
+> none
+> 
+> Changes in v2:
+> 1. Fix coding style
+> ---
+>  .../bindings/media/mediatek,mt8188-aie.yaml   | 97 +++++++++++++++++++
+>  1 file changed, 97 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
+> 
 
-diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-index bfb5de4a0d440efece993dbf7a0001e001d5469b..f22a4a0b247a09bd1057b66203a34b666cd119a8 100644
---- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-+++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-@@ -206,6 +206,7 @@ &ethernet {
- 	phy-handle = <&rgmii_phy>;
- 	phy-mode = "rgmii";
- 	max-speed = <1000>;
-+	qcom,rx-prog-swap;
- 
- 	snps,mtl-rx-config = <&mtl_rx_setup>;
- 	snps,mtl-tx-config = <&mtl_tx_setup>;
+My bot found errors running 'make dt_binding_check' on your patch:
 
--- 
-2.34.1
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/media/mediatek-aie.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.example.dtb: aie@15310000: reg: [[0, 355532800], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/media/mediatek-aie.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.example.dtb: aie@15310000: '#address-cells', '#size-cells' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/media/mediatek-aie.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241225090113.17027-3-bo.kong@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
