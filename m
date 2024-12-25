@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6753DE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36BEE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HlOoiJCMGyMIEh0nKCSb1Xs96ze5Oz0wkDgGwqcYxas=; b=JmBSNLnVRqCWgzczdi/+JkhUN6
-	rcn4WyG7/LDO3iqEVbJcmxDy+2oxAn246oABdG+7msEyHJZoR8FqY3abdwY43oIJa3MIZLBxynb3h
-	oV82nIDhRzjknUFwn7aXAgE38OjcczqfZ878nn0P74gcN3tVQW3bMpl19bNoXXAmhWVQJLWJQleSg
-	zfE+H/FyJHWJfBBlKyswTtv8TKhxk3L9Cp5JRtt405j6HPp3H28IiNKrIOSap+ouyOVFf2tAp/s+Q
-	0lg7YJLCxzxs0g/kKt7Qr3C7jDbitzLUR/y91I6pez/aUP4/hPgIZBlVEp+DdCm/h959ooSSPokP8
-	yttnj2rQ==;
+	bh=xs07k9sBVuvh/SWXPPrrTz7GlQVJCBDuTKuCMZ2un6w=; b=ubMx1v7SoM5HINQ++tmfcfVmNo
+	UmdTX1GdFLTWZrFr/P9OErjo8GjdFfhVTWyFlGIRCndC3+iLzxdBDEjT/pG6SewaKLkDBUzZ1ntTf
+	xYuQ3n/EyUlCFlCb90A598efffmx1Bjfq5D/TEPM0BVFW/vJwn44FLEXFzqiaGhfzq2SWq1HdU5vJ
+	rlIkICoO52Ku1qtNczfIj7WLkWu089oCh4lViZo35Tfb+2V/j8xESl9pcNCE306CgQYo+56RcyGWK
+	GXxDMG38avXJe+njWK42jFA6kMSXdqV8qefQT9fSAgVzqANiPdHGOTGQpHSMhTe88w8SdRL6d2DnI
+	dVdNU4Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOtN-0000000Df8m-0QXx;
-	Wed, 25 Dec 2024 10:45:29 +0000
+	id 1tQOuW-0000000DfFr-3P7A;
+	Wed, 25 Dec 2024 10:46:40 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOpZ-0000000DebN-3D6V
+	id 1tQOpb-0000000Debn-1l4H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 10:41:35 +0000
+	Wed, 25 Dec 2024 10:41:36 +0000
 Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP3iU7i000530;
-	Wed, 25 Dec 2024 10:41:28 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP4RjEl009822;
+	Wed, 25 Dec 2024 10:41:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=HlOoiJCMGyMIEh0nKCSb1Xs9
-	6ze5Oz0wkDgGwqcYxas=; b=CIz/tSeVzNCNN9vdLxlOwXn/V0HIwagMNqV/sxJ9
-	enoSrpX13S6RlK2t7AjOmDkCxYO7SMMLSsAoWlFq6/nxp9K8eFsAmXIdqWseCc5W
-	bd81chdQbThabDNBEkKdsniTOo/uCsF6mVAgLtDnhjgqlOzSzMkOhAx0PnhNFXvi
-	veoeWisr5ko4U/kDYvpD3W912PDBDc2ddtVt7R12d78//yXVKMSgXpRN+VFN08O1
-	x3Q26tVlFnz+y6AISOk+gPPduzeJibitoHPSZ16AYGnRBmrOFiDY9oKAC3+lgtDQ
-	/yuBdC0DCU9sQxZn38Gw+ooQO03tTEcXTvNUhSg3xGhrxg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rad81p8y-1
+	:references:subject:to; s=qcppdkim1; bh=xs07k9sBVuvh/SWXPPrrTz7G
+	lQVJCBDuTKuCMZ2un6w=; b=SfqRyBPZomsbuhEu3vahUa4Q9ufSnrksj/IC0iRI
+	cw8Joddd7CfFq+nKrPZX3ktMCYb4jdNUwP9BuWRq9gLOyIMSGbMcAU7+ZPnkw0Ru
+	aj0ZnmAORsgPFdDNaoxvLpJohV8O/5PeJumjK4ruVRqYlpCe2M5hZviGIYA3dUPQ
+	I6OI2xCqfWKE8mmrFBjnUx7s5hWuK7yUqKWlcYAUE2Xl+isVR5O6R33GWL6ziHg1
+	6xOQoNk1I3WUOjCP24/Sicaqp0lVWskRe3SUv80tXcU+9Vca67gfix0101BEWJ4W
+	p7b1xXROG7LAChHlHQrdS0/vAZZB5/nrvanoaNIZxoTyzw==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rad81p93-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 10:41:27 +0000 (GMT)
+	Wed, 25 Dec 2024 10:41:30 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BPAfQOp013300
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BPAfTdX018034
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 10:41:26 GMT
+	Wed, 25 Dec 2024 10:41:29 GMT
 Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 25 Dec 2024 02:41:23 -0800
+ 15.2.1544.9; Wed, 25 Dec 2024 02:41:26 -0800
 From: Mao Jinlong <quic_jinlmao@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach
@@ -58,12 +58,13 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         James Clark <james.clark@linaro.org>,
         "Alexander
  Shishkin" <alexander.shishkin@linux.intel.com>
-CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+CC: Tao Zhang <quic_taozha@quicinc.com>, <coresight@lists.linaro.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, Tao Zhang <quic_taozha@quicinc.com>
-Subject: [PATCH v3 1/3] coresight-tpdm: Add MCMB dataset support
-Date: Wed, 25 Dec 2024 18:41:05 +0800
-Message-ID: <20241225104107.13425-2-quic_jinlmao@quicinc.com>
+        <linux-arm-msm@vger.kernel.org>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>
+Subject: [PATCH v3 2/3] coresight-tpdm: Add support to select lane
+Date: Wed, 25 Dec 2024 18:41:06 +0800
+Message-ID: <20241225104107.13425-3-quic_jinlmao@quicinc.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20241225104107.13425-1-quic_jinlmao@quicinc.com>
 References: <20241225104107.13425-1-quic_jinlmao@quicinc.com>
@@ -74,8 +75,8 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: Zxm-AwyLD1OUsrcyXJExgVmMyHStQcHI
-X-Proofpoint-ORIG-GUID: Zxm-AwyLD1OUsrcyXJExgVmMyHStQcHI
+X-Proofpoint-GUID: 7bSl9MWRezvuIT6iuURWcEb15WMLPR1o
+X-Proofpoint-ORIG-GUID: 7bSl9MWRezvuIT6iuURWcEb15WMLPR1o
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
@@ -85,8 +86,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malware
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
  definitions=main-2412250094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_024133_930413_3FD08459 
-X-CRM114-Status: GOOD (  23.52  )
+X-CRM114-CacheID: sfid-20241225_024135_581725_6980CE9D 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,227 +102,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MCMB (Multi-lane CMB) is a special form of CMB dataset type. MCMB
-subunit TPDM has the same number and usage of registers as CMB
-subunit TPDM. MCMB subunit can be enabled for data collection by
-writing 1 to the first bit of CMB_CR register. The difference is
-that MCMB subunit TPDM needs to select the lane and enable it in
-using it.
+From: Tao Zhang <quic_taozha@quicinc.com>
+
+TPDM MCMB subunits supports up to 8 lanes CMB. For MCMB
+configurations, the field "XTRIG_LNSEL" in CMB_CR register selects
+which lane participates in the output pattern mach cross trigger
+mechanism governed by the M_CMB_DXPR and M_CMB_XPMR regisers.
 
 Signed-off-by: Tao Zhang <quic_taozha@quicinc.com>
 Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
 ---
- drivers/hwtracing/coresight/coresight-tpda.c |  7 ++--
- drivers/hwtracing/coresight/coresight-tpdm.c | 40 +++++++++++++++++---
- drivers/hwtracing/coresight/coresight-tpdm.h | 27 +++++++------
- 3 files changed, 54 insertions(+), 20 deletions(-)
+ .../testing/sysfs-bus-coresight-devices-tpdm  |  8 +++
+ drivers/hwtracing/coresight/coresight-tpdm.c  | 51 +++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpdm.h  |  3 ++
+ 3 files changed, 62 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index bfca103f9f84..4b61b9840740 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
-  */
- 
- #include <linux/amba/bus.h>
-@@ -68,11 +68,12 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
- 	int rc = -EINVAL;
- 	struct tpdm_drvdata *tpdm_data = dev_get_drvdata(csdev->dev.parent);
- 
--	if (tpdm_has_dsb_dataset(tpdm_data)) {
-+	if (tpdm_data->dsb) {
- 		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
- 				"qcom,dsb-element-bits", &drvdata->dsb_esize);
- 	}
--	if (tpdm_has_cmb_dataset(tpdm_data)) {
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+index bf710ea6e0ef..6428d3ac22b0 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+@@ -257,3 +257,11 @@ Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_t
+ Description:
+ 		(RW) Set/Get the MSR(mux select register) for the CMB subunit
+ 		TPDM.
 +
-+	if (tpdm_data->cmb) {
- 		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
- 				"qcom,cmb-element-bits", &drvdata->cmb_esize);
- 	}
++What:		/sys/bus/coresight/devices/<tpdm-name>/mcmb_trig_lane
++Date:		Nov 2024
++KernelVersion	6.14
++Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
++Description:
++		(RW) Set/Get which lane participates in the output pattern
++		match cross trigger mechanism for the MCMB subunit TPDM.
 diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index b7d99e91ab84..525f671dd97d 100644
+index 525f671dd97d..d92667cab872 100644
 --- a/drivers/hwtracing/coresight/coresight-tpdm.c
 +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
-  */
- 
- #include <linux/amba/bus.h>
-@@ -21,6 +21,21 @@
- 
- DEFINE_CORESIGHT_DEVLIST(tpdm_devs, "tpdm");
- 
-+static bool tpdm_has_dsb_dataset(struct tpdm_drvdata *drvdata)
-+{
-+	return (drvdata->datasets & TPDM_PIDR0_DS_DSB);
-+}
-+
-+static bool tpdm_has_cmb_dataset(struct tpdm_drvdata *drvdata)
-+{
-+	return (drvdata->datasets & TPDM_PIDR0_DS_CMB);
-+}
-+
-+static bool tpdm_has_mcmb_dataset(struct tpdm_drvdata *drvdata)
-+{
-+	return (drvdata->datasets & TPDM_PIDR0_DS_MCMB);
-+}
-+
- /* Read dataset array member with the index number */
- static ssize_t tpdm_simple_dataset_show(struct device *dev,
- 					struct device_attribute *attr,
-@@ -198,7 +213,7 @@ static umode_t tpdm_cmb_is_visible(struct kobject *kobj,
- 	struct device *dev = kobj_to_dev(kobj);
- 	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
--	if (drvdata && tpdm_has_cmb_dataset(drvdata))
-+	if (drvdata && drvdata->cmb)
- 		return attr->mode;
- 
+@@ -252,6 +252,18 @@ static umode_t tpdm_cmb_msr_is_visible(struct kobject *kobj,
  	return 0;
-@@ -388,7 +403,7 @@ static void tpdm_enable_cmb(struct tpdm_drvdata *drvdata)
+ }
+ 
++static umode_t tpdm_mcmb_is_visible(struct kobject *kobj,
++				    struct attribute *attr, int n)
++{
++	struct device *dev = kobj_to_dev(kobj);
++	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	if (drvdata && tpdm_has_mcmb_dataset(drvdata))
++		return attr->mode;
++
++	return 0;
++}
++
+ static void tpdm_reset_datasets(struct tpdm_drvdata *drvdata)
  {
- 	u32 val, i;
+ 	if (tpdm_has_dsb_dataset(drvdata)) {
+@@ -1021,6 +1033,34 @@ static ssize_t cmb_trig_ts_store(struct device *dev,
+ }
+ static DEVICE_ATTR_RW(cmb_trig_ts);
  
--	if (!tpdm_has_cmb_dataset(drvdata))
-+	if (!drvdata->cmb)
- 		return;
- 
- 	/* Configure pattern registers */
-@@ -415,6 +430,19 @@ static void tpdm_enable_cmb(struct tpdm_drvdata *drvdata)
- 		val |= TPDM_CMB_CR_MODE;
- 	else
- 		val &= ~TPDM_CMB_CR_MODE;
++static ssize_t mcmb_trig_lane_show(struct device *dev,
++				   struct device_attribute *attr,
++				   char *buf)
++{
++	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
 +
-+	if (tpdm_has_mcmb_dataset(drvdata)) {
-+		val &= ~TPDM_CMB_CR_XTRIG_LNSEL;
-+		/* Set the lane participates in the output pattern */
-+		val |= FIELD_PREP(TPDM_CMB_CR_XTRIG_LNSEL,
-+			drvdata->cmb->mcmb.trig_lane);
++	return sysfs_emit(buf, "%u\n",
++			  (unsigned int)drvdata->cmb->mcmb.trig_lane);
++}
 +
-+		/* Set the enablement of the lane */
-+		val &= ~TPDM_CMB_CR_E_LN;
-+		val |= FIELD_PREP(TPDM_CMB_CR_E_LN,
-+			drvdata->cmb->mcmb.lane_select);
-+	}
++static ssize_t mcmb_trig_lane_store(struct device *dev,
++				    struct device_attribute *attr,
++				    const char *buf,
++				    size_t size)
++{
++	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
 +
- 	/* Set the enable bit of CMB control register to 1 */
- 	val |= TPDM_CMB_CR_ENA;
- 	writel_relaxed(val, drvdata->base + TPDM_CMB_CR);
-@@ -480,7 +508,7 @@ static void tpdm_disable_cmb(struct tpdm_drvdata *drvdata)
- {
- 	u32 val;
- 
--	if (!tpdm_has_cmb_dataset(drvdata))
-+	if (!drvdata->cmb)
- 		return;
- 
- 	val = readl_relaxed(drvdata->base + TPDM_CMB_CR);
-@@ -542,12 +570,14 @@ static int tpdm_datasets_setup(struct tpdm_drvdata *drvdata)
- 		if (!drvdata->dsb)
- 			return -ENOMEM;
- 	}
--	if (tpdm_has_cmb_dataset(drvdata) && (!drvdata->cmb)) {
-+	if ((tpdm_has_cmb_dataset(drvdata) || tpdm_has_mcmb_dataset(drvdata))
-+			&& (!drvdata->cmb)) {
- 		drvdata->cmb = devm_kzalloc(drvdata->dev,
- 						sizeof(*drvdata->cmb), GFP_KERNEL);
- 		if (!drvdata->cmb)
- 			return -ENOMEM;
- 	}
++	if ((kstrtoul(buf, 0, &val)) || (val >= TPDM_MCMB_MAX_LANES))
++		return -EINVAL;
 +
- 	tpdm_reset_datasets(drvdata);
++	guard(spinlock)(&drvdata->spinlock);
++	drvdata->cmb->mcmb.trig_lane = val;
++
++	return size;
++}
++static DEVICE_ATTR_RW(mcmb_trig_lane);
++
+ static struct attribute *tpdm_dsb_edge_attrs[] = {
+ 	&dev_attr_ctrl_idx.attr,
+ 	&dev_attr_ctrl_val.attr,
+@@ -1183,6 +1223,11 @@ static struct attribute *tpdm_cmb_msr_attrs[] = {
+ 	NULL,
+ };
  
- 	return 0;
++static struct attribute *tpdm_mcmb_attrs[] = {
++	&dev_attr_mcmb_trig_lane.attr,
++	NULL,
++};
++
+ static struct attribute *tpdm_dsb_attrs[] = {
+ 	&dev_attr_dsb_mode.attr,
+ 	&dev_attr_dsb_trig_ts.attr,
+@@ -1249,6 +1294,11 @@ static struct attribute_group tpdm_cmb_msr_grp = {
+ 	.name = "cmb_msr",
+ };
+ 
++static struct attribute_group tpdm_mcmb_attr_grp = {
++	.attrs = tpdm_mcmb_attrs,
++	.is_visible = tpdm_mcmb_is_visible,
++};
++
+ static const struct attribute_group *tpdm_attr_grps[] = {
+ 	&tpdm_attr_grp,
+ 	&tpdm_dsb_attr_grp,
+@@ -1260,6 +1310,7 @@ static const struct attribute_group *tpdm_attr_grps[] = {
+ 	&tpdm_cmb_trig_patt_grp,
+ 	&tpdm_cmb_patt_grp,
+ 	&tpdm_cmb_msr_grp,
++	&tpdm_mcmb_attr_grp,
+ 	NULL,
+ };
+ 
 diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/hwtracing/coresight/coresight-tpdm.h
-index e08d212642e3..0dac1a061ea4 100644
+index 0dac1a061ea4..6b8341e9f2d1 100644
 --- a/drivers/hwtracing/coresight/coresight-tpdm.h
 +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
-@@ -1,6 +1,6 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- /*
-- * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
-  */
+@@ -45,6 +45,9 @@
+ /* MAX number of DSB MSR */
+ #define TPDM_CMB_MAX_MSR 32
  
- #ifndef _CORESIGHT_CORESIGHT_TPDM_H
-@@ -9,7 +9,7 @@
- /* The max number of the datasets that TPDM supports */
- #define TPDM_DATASETS       7
- 
--/* CMB Subunit Registers */
-+/* CMB/MCMB Subunit Registers */
- #define TPDM_CMB_CR		(0xA00)
- /* CMB subunit timestamp insertion enable register */
- #define TPDM_CMB_TIER		(0xA04)
-@@ -28,6 +28,10 @@
- #define TPDM_CMB_CR_ENA		BIT(0)
- /* Trace collection mode for CMB subunit */
- #define TPDM_CMB_CR_MODE	BIT(1)
-+/* MCMB trigger lane select */
-+#define TPDM_CMB_CR_XTRIG_LNSEL		GENMASK(20, 18)
-+/* MCMB lane enablement */
-+#define TPDM_CMB_CR_E_LN		GENMASK(17, 10)
- /* Timestamp control for pattern match */
- #define TPDM_CMB_TIER_PATT_TSENAB	BIT(0)
- /* CMB CTI timestamp request */
-@@ -112,11 +116,13 @@
-  * PERIPHIDR0[0] : Fix to 1 if ImplDef subunit present, else 0
-  * PERIPHIDR0[1] : Fix to 1 if DSB subunit present, else 0
-  * PERIPHIDR0[2] : Fix to 1 if CMB subunit present, else 0
-+ * PERIPHIDR0[6] : Fix to 1 if MCMB subunit present, else 0
-  */
- 
- #define TPDM_PIDR0_DS_IMPDEF	BIT(0)
- #define TPDM_PIDR0_DS_DSB	BIT(1)
- #define TPDM_PIDR0_DS_CMB	BIT(2)
-+#define TPDM_PIDR0_DS_MCMB	BIT(6)
- 
- #define TPDM_DSB_MAX_LINES	256
- /* MAX number of EDCR registers */
-@@ -256,6 +262,9 @@ struct dsb_dataset {
-  * @patt_ts:          Indicates if pattern match for timestamp is enabled.
-  * @trig_ts:          Indicates if CTI trigger for timestamp is enabled.
-  * @ts_all:           Indicates if timestamp is enabled for all packets.
-+ * struct mcmb_dataset
-+ * @mcmb_trig_lane:       Save data for trigger lane
-+ * @mcmb_lane_select:     Save data for lane enablement
-  */
- struct cmb_dataset {
- 	u32			trace_mode;
-@@ -267,6 +276,10 @@ struct cmb_dataset {
- 	bool			patt_ts;
- 	bool			trig_ts;
- 	bool			ts_all;
-+	struct {
-+		u8		trig_lane;
-+		u8		lane_select;
-+	} mcmb;
- };
- 
- /**
-@@ -324,14 +337,4 @@ struct tpdm_dataset_attribute {
- 	enum dataset_mem mem;
- 	u32 idx;
- };
--
--static bool tpdm_has_dsb_dataset(struct tpdm_drvdata *drvdata)
--{
--	return (drvdata->datasets & TPDM_PIDR0_DS_DSB);
--}
--
--static bool tpdm_has_cmb_dataset(struct tpdm_drvdata *drvdata)
--{
--	return (drvdata->datasets & TPDM_PIDR0_DS_CMB);
--}
- #endif  /* _CORESIGHT_CORESIGHT_TPDM_H */
++/* MAX lanes in the output pattern for MCMB configurations*/
++#define TPDM_MCMB_MAX_LANES 8
++
+ /* DSB Subunit Registers */
+ #define TPDM_DSB_CR		(0x780)
+ #define TPDM_DSB_TIER		(0x784)
 -- 
 2.17.1
 
