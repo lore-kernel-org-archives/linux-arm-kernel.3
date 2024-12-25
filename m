@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B8EE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 20:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D7FE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 22:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1aKFcorootUYVtMFPW/mgDVu+jID0c/UKLZ3rEjMkg=; b=Jd5wUWz7afKSfWfMe43x5ozeB4
-	VdZxp5kxuXQ9L6QYpeExx9dzpZCk81ExmqvO+x8UPaxNA5JPeHTpsLJv2MO77/1u8pc0TeCXwt8YH
-	DdMPYx/sNtjM4Qk39C2xqo19JW9tW0hEcv+ZFdJBQsUbLtYxumdgAQGfl0atfbTD93n+r5oCer094
-	rUlcx6npSgv23z/Jg/J3E8b5zqsHSVPT7haRcN11aFzympqkfuFgfdNhLqDSOOdQjEhtMfYWm0A3+
-	JGAEB8bpDycIjO+DQ3b9icCg/9OWb2K4Ltc32LcZ0zWPiJSc6buqYKWflcBo79CCnTYsMafg7jCKn
-	2qBXeZWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UDBQjCefPfj8fB4jeRScZzmhIA+IeM1jHIl/EbpmxAw=; b=RWpWk7g3vvw6OcWNnTOxUVzouI
+	tblA86WB7S4Dh1A1tB5OPbQjn/k5TVzKz8ki4aVUo0MwAeofD2CyK6vKyRVajzQqdhATrWyemPcoB
+	g7eIUOf0RFFli7TgK1B9X7cQ8vZSPGk/p83DWWqIOXS8hVYkDDYFgVcg0l0PO+AqR+vzEr+EJ66GF
+	YzOxXMlO+TU7ymaZYKHVxZigFVaMb+xsIesgzQMRFqdWvOS/3VAZhJOgKHJpL3Pz05bTh4Q+WEkes
+	i1/CPN2KkgT0zgpFU20+D9KXBbjYjGlviI35zsVN8GkXajL/npnp5PdhFvOGY1GdcBA/v8bctxWAv
+	LjWTH+lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQYLm-0000000EJIS-0hiz;
-	Wed, 25 Dec 2024 20:51:26 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tQa6g-0000000EPyB-1H1e;
+	Wed, 25 Dec 2024 22:43:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQYKX-0000000EJD4-1JTI
+	id 1tQa5T-0000000EPr8-2lME
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 20:50:10 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 98BA8101ECBAB;
-	Wed, 25 Dec 2024 21:49:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1735159804;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=j1aKFcorootUYVtMFPW/mgDVu+jID0c/UKLZ3rEjMkg=;
-	b=XUtzIYseNKvVglNpfrWy4JZf5UDR0LygYVLIYjGMWIURe2VGSw9m0BROpIjFW2GcVwxZRT
-	oNwxXTpw+o6ZmvcOXTds7frgeDq7nNDDYth7iqUblMu674db0ZH7ePk0lzc5yj7NEbWQlP
-	3jtFBLB8O01UirBg9mgK4ogojhovYOFt9G+S9MO+qWXcS7fqhj6ELZH/zsXZkpoeCddi3m
-	VKHgyOGExi6RlKiCfKju+ViFFe9s55r6XyVnt/sb58M/QvOL7VbJ6o2QO72deVIDebzHgE
-	PhRUAwHy/97CxNBvsiTZ83BoJ5V0Wn3ExPJNKc9wbSlAMkXsaLP8Tk8WAiHRzQ==
-Message-ID: <75dc6f74-f828-49ac-8bf6-41fd4e197855@denx.de>
-Date: Wed, 25 Dec 2024 21:40:55 +0100
+	Wed, 25 Dec 2024 22:42:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B97C45C5E2A;
+	Wed, 25 Dec 2024 22:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D71FC4CECD;
+	Wed, 25 Dec 2024 22:42:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735166561;
+	bh=5xhMOfN6JmZsY8VJLgaVsuAnaodvP/oPFG7a++D5lRc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aznsHQOOjUX4nE5wfD/9Mg0RoVwnvNA+7kvv4EhqgxTlwQzFpF4ysOTgINbOCWvc5
+	 1tcsiWbaAGYVuTkRk4cUAinfjujyFQn69fgXlS1ZGUEN4DdXxgTEBA8xKmnae6ACdW
+	 aOGoY1q9ZFBawfu5Ot3kItNuIiERQEzy0QyAUCLbELGcI3ReVd55ul5BO6WP4yaOoj
+	 DQyKZk+0MKtJaMneuG12dGBax9HnGowBXj04+DoZtDEE5RK7CwREDcuiSVyQckfNWy
+	 DwyEMq3Zi+IBeqCfh5rCWq6eT1HxI86SbgaqhnMVLxITMo+pLRdyOGAbMYDzZhq6N1
+	 ymV37MbuR1N2g==
+Date: Wed, 25 Dec 2024 23:42:36 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Clark Wang <xiaoning.wang@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH v6] i2c: imx: support DMA defer probing
+Message-ID: <abyji6y7ytn7dhhdudslug6esglutwjausunl2nstvjxkveris@vz3jbu5iyhsb>
+References: <20241223034416.544022-1-carlos.song@nxp.com>
+ <gfjir4qyyptxjizkc2k5r2elwn74fndia644evv6acwyuj3fr5@3pl3xt7rqntw>
+ <AM0PR0402MB3937905A3108833DD8F52982E8032@AM0PR0402MB3937.eurprd04.prod.outlook.com>
+ <ltb3ywaz2req4yqdqmtq4ejbzh4esjszbx4x6ab3k5zmqxhdpg@qqjetty6fs3q>
+ <AM0PR0402MB3937C3087A22A1DB8FAE91ECE80C2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] drm/bridge: imx8mp-hdmi-tx: switch to bridge
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Liu Ying <victor.liu@nxp.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241224014701.253490-1-marex@denx.de>
- <nehmmkv22ortkw6ngzlhjqo7emxsptt2dzoulln5ili52uswfp@h3acrwrad2y5>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <nehmmkv22ortkw6ngzlhjqo7emxsptt2dzoulln5ili52uswfp@h3acrwrad2y5>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <AM0PR0402MB3937C3087A22A1DB8FAE91ECE80C2@AM0PR0402MB3937.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_125009_672737_CEF92930 
-X-CRM114-Status: GOOD (  23.75  )
+X-CRM114-CacheID: sfid-20241225_144243_798075_57AB254A 
+X-CRM114-Status: GOOD (  30.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,80 +79,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/24/24 5:21 AM, Dmitry Baryshkov wrote:
-> On Tue, Dec 24, 2024 at 02:46:14AM +0100, Marek Vasut wrote:
->> The dw-hdmi output_port is set to 1 in order to look for a connector
->> next bridge in order to get DRM_BRIDGE_ATTACH_NO_CONNECTOR working.
->> The output_port set to 1 makes the DW HDMI driver core look up the
->> next bridge in DT, where the next bridge is often the hdmi-connector .
->>
->> Similar to 0af5e0b41110 ("drm/meson: encoder_hdmi: switch to bridge DRM_BRIDGE_ATTACH_NO_CONNECTOR")
->>
->> Signed-off-by: Marek Vasut <marex@denx.de>
->> ---
->> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
->> Cc: David Airlie <airlied@gmail.com>
->> Cc: Fabio Estevam <festevam@gmail.com>
->> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
->> Cc: Jonas Karlman <jonas@kwiboo.se>
->> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
->> Cc: Liu Ying <victor.liu@nxp.com>
->> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
->> Cc: Maxime Ripard <mripard@kernel.org>
->> Cc: Neil Armstrong <neil.armstrong@linaro.org>
->> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
->> Cc: Robert Foss <rfoss@kernel.org>
->> Cc: Sascha Hauer <s.hauer@pengutronix.de>
->> Cc: Shawn Guo <shawnguo@kernel.org>
->> Cc: Simona Vetter <simona@ffwll.ch>
->> Cc: Stefan Agner <stefan@agner.ch>
->> Cc: Thomas Zimmermann <tzimmermann@suse.de>
->> Cc: dri-devel@lists.freedesktop.org
->> Cc: imx@lists.linux.dev
->> Cc: linux-arm-kernel@lists.infradead.org
->> ---
->> V2: No change
->> ---
->>   drivers/gpu/drm/bridge/imx/Kconfig          | 1 +
->>   drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c | 1 +
->>   2 files changed, 2 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
->> index 9a480c6abb856..d8e9fbf75edbb 100644
->> --- a/drivers/gpu/drm/bridge/imx/Kconfig
->> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
->> @@ -27,6 +27,7 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
->>   config DRM_IMX8MP_HDMI_PVI
->>   	tristate "Freescale i.MX8MP HDMI PVI bridge support"
->>   	depends on OF
->> +	select DRM_DISPLAY_CONNECTOR
->>   	help
->>   	  Choose this to enable support for the internal HDMI TX Parallel
->>   	  Video Interface found on the Freescale i.MX8MP SoC.
->> diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
->> index 1e7a789ec2890..4ebae5ad072ad 100644
->> --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
->> +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
->> @@ -101,6 +101,7 @@ static int imx8mp_dw_hdmi_probe(struct platform_device *pdev)
->>   	plat_data->phy_name = "SAMSUNG HDMI TX PHY";
->>   	plat_data->priv_data = hdmi;
->>   	plat_data->phy_force_vendor = true;
->> +	plat_data->output_port = 1;
-> 
-> Quoting my feedback to a similar Liu's patch:
-> 
-> This will break compatibility with older DT files, which don't have
-> output port. I think you need to add output_port_optional flag to
-> dw_hdmi_plat_data and still return 0 from dw_hdmi_parse_dt() if the flag
-> is set, but there is no remote node.
-Looking at the upstream imx8mp*dts , the oldest commit which adds HDMI 
-support is commit:
+Hi Carlos,
 
-3e67a1ddd56d ("arm64: dts: imx8mp: Enable HDMI on TQMa8MPxL/MBa8MPxL")
+On Wed, Dec 25, 2024 at 10:56:34AM +0000, Carlos Song wrote:
+> > > > > @@ -1802,6 +1803,18 @@ static int i2c_imx_probe(struct
+> > > > > platform_device
+> > > > *pdev)
+> > > > >       if (ret == -EPROBE_DEFER)
+> > > > >               goto clk_notifier_unregister;
+> > > > >
+> > > > > +     /* As we can always fall back to PIO, let's ignore the error
+> > > > > + setting up
+> > > > DMA. */
+> > > > > +     ret = i2c_imx_dma_request(i2c_imx, phy_addr);
+> > > > > +     if (ret) {
+> > > > > +             if (ret == -EPROBE_DEFER)
+> > > > > +                     goto clk_notifier_unregister;
+> > > > > +             else if (ret == -ENODEV)
+> > > > > +                     dev_dbg(&pdev->dev, "Only use PIO mode\n");
+> > > > > +             else
+> > > > > +                     dev_err(&pdev->dev, "Failed to setup DMA
+> > > > > + (%pe),
+> > > > only use PIO mode\n",
+> > > > > +                             ERR_PTR(ret));
+> > > >
+> > > > My question here is not just about the use of dev_err vs
+> > > > dev_err_probe, but why don't we exit the probe if we get an error.
+> > > >
+> > > > We should use PIO only in case of ENODEV, in all the other cases I
+> > > > think we should just leave. E.g. why don't we exit if we meet ret ==
+> > -ENOMEM?
+> > >
+> > > Hi, Andi
+> > >
+> > > Thank you! From my point, I2C is critical bus so it should be available as much
+> > as possible.
+> > > -ENOMEM or other unknown errors all are from i2c_imx_dma_request(). So
+> > error happened in enable DMA mode process.
+> > 
+> > OK, makes sense, it's the idea of "let things fail on their own, I'll move forward as
+> > much as I can"; we need to be aware of the choice. Please add a comment
+> > above.
+> > 
+> > But then it's not an error, but a warning. With errors we bail out, with warnings
+> > we tell users that something went wrong.
+> > 
+> > Sorry for keeping you on this point for so long, but do you mind swapping this
+> > dev_err in dev_warn, with a comment explaining the reason we decided not to
+> > leave?
+> > 
+> 
+> Hi, Andi
+> 
+> It doesn't matter! I am very happy to receive so many suggestions to help enhance the patch.
+> I will do following things at V7:
+> 1. Change dev_err to dev_warn
+> 2. Use a more detailed comment to explain why we decided not to leave when meet DMA error.
 
-That already contains the HDMI connector node. Every follow up addition 
-of HDMI to another device has been a copy of the same commit, with 
-connector, so I think it is safe to say, no upstream DT is going to be 
-broken by this change. Do we care about hypothetical downstream DTs 
-which may be missing the connector ?
+Thank you! I appreciate your responsiveness!
+
+Andi
 
