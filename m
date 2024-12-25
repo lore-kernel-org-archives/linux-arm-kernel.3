@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8692FE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCCDE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bpcK5Qjhe/tAh2DN8xdikTX3IMR0Jsw2fHaDKM8SIj4=; b=i/lNGBw7Jl3Y1e/3H0nbjCMhuO
-	hc2CvP0nQLn0AvdYKHw3gjGeJQD9HEoucoGrPDUXp68NxbYjT9g0XbSUx8nJd9maByQnkp2BpoLl0
-	kK8LyEBnoWK2As9IO4KAh5M8mI2wxer5nrTur9iW8g5E4drYPDzsJ05XT8ypkr8/cjkNNu031h8ZD
-	vZRUdFUmR38aNY1pDa2vU05bWCloUhBJuYBZiIS9Lb0YX16xBwZe8cHi2PB4SnpUwXaJk9HWTFIar
-	EeeKbrLO3w4qQaTAukLP7IEHs+gMwzVSz4NrKh4XTT3RzrYLivECzrPK0y6281ciNnNpuTIxcWxZV
-	g3vunepA==;
+	bh=4ccDKxYtB2BjCAgx7sUJFLkUp3I/k2NAnkNJaFwOBT4=; b=sLqCObsSCx7KHs4ISbOvOfsJNT
+	YZqZRNMHEY6vpMyTST6x95HltaUFWbmCE9kYYb8ei0+TBy5JHK13AghScOkSlPcqYQrSjQD8hMr8V
+	XR1ULcU0qfm0AGaYm9UJZCyvQ43zll6i1xtllWq3hPd+uilWn/uk6r1Kh1UVjav0gHzauZCVNm8J8
+	e1hpVjehQG6zoOX0iB+Wh/5xVKBEEkgMY/0e32p8Jzkl+bV/CSjo0qznWWs4clVG4NbU4Kc8TPXOV
+	K9w9QzM5HjhQaggUbFVeyT88E/nzS7GS6jVa6wjoHRTaIhfpy6H3eqsZ5UimJJ/YF0cTGim35weZt
+	i4h8C23g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOr4-0000000Desc-1AH7;
-	Wed, 25 Dec 2024 10:43:06 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOmQ-0000000De8r-3Pae;
-	Wed, 25 Dec 2024 10:38:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=bpcK5
-	Qjhe/tAh2DN8xdikTX3IMR0Jsw2fHaDKM8SIj4=; b=Ygryc+bElwnp9afz2vtH+
-	K/rojF15MCT8NvJP23Esa1af7s5AsNf0MpJ0rCL64g1vaRHzFV0vWKgypgIRzJKk
-	VIbswHTwIz++ACYkXyRYqRu94786OMUt4CH/3sAMY2ABqXdIcXvgrWkjC3R/ghjY
-	/dVf/wXX3cgWRVSDx31RM8=
-Received: from ProDesk.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgCnfIF24GtnkqkWCg--.3201S2;
-	Wed, 25 Dec 2024 18:37:46 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: cristian.ciocaltea@collabora.com,
-	krzk+dt@kernel.org,
-	mripard@kernel.org,
-	hjc@rock-chips.com,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH 0/3] Add HDMI support for rk3576
-Date: Wed, 25 Dec 2024 18:37:28 +0800
-Message-ID: <20241225103741.364597-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tQOsE-0000000Df1U-1NZ8;
+	Wed, 25 Dec 2024 10:44:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tQOpW-0000000DeaV-26Cg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 25 Dec 2024 10:41:31 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP2ZohA029012;
+	Wed, 25 Dec 2024 10:41:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:message-id:mime-version:subject:to; s=
+	qcppdkim1; bh=4ccDKxYtB2BjCAgx7sUJFLkUp3I/k2NAnkNJaFwOBT4=; b=bU
+	g9Nsl2EwtIyqhQobCuhTgeQsEQKNhkAkGRMudFLLBMCTpaXWTEcO9UbUU867pZ9v
+	sARDxs2sIJFXb8eOaK59wgPruV0VrzEQbBQLj4ThwSo4eTXR/txCC9XE3v9+FkDP
+	2TTq9IMNKcKJ4SlwqgNKuyGwYGUbP+pvid+FT8KDfSPGMhvya8/cLlkKUd6JTvF0
+	kEJQYeeLG+Mk2NELWIj+OGvts4h9PvoIvlOYYHTnqXzywIDcByuyNZJsHpp6VgR/
+	/fb6I6ZhbIS3DlQ9nxM3D+JOqL67/4Gcrct6U8gWvv1wsyy7rgTDzZuvrFEjYFtX
+	fVpUvoWr1lA5luXdq7EQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43r9dd9rdy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Dec 2024 10:41:24 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BPAfNGA018004
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Dec 2024 10:41:23 GMT
+Received: from jinlmao-gv.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 25 Dec 2024 02:41:20 -0800
+From: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+Subject: [PATCH v3 0/3] Add support to configure TPDM MCMB subunit 
+Date: Wed, 25 Dec 2024 18:41:04 +0800
+Message-ID: <20241225104107.13425-1-quic_jinlmao@quicinc.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgCnfIF24GtnkqkWCg--.3201S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7XFW3Kr4UZr1UWF4UKr13twb_yoWxKFX_Ka
-	4fW345uw18u3WYyasrtw4Iga93Jay2gFWrGF4jgFnrXFWkJr48Xrn3C3yYqa4UZF1Yyrnr
-	JF4FqFy8CFZxZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU1ZYFtUUUUU==
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMw7AXmdr1DmOeAADs3
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 41WGpP7Gh4S7aIzuC3lBmfXYD6DEzzdI
+X-Proofpoint-GUID: 41WGpP7Gh4S7aIzuC3lBmfXYD6DEzzdI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 malwarescore=0
+ lowpriorityscore=0 mlxlogscore=779 bulkscore=0 impostorscore=0
+ adultscore=0 mlxscore=0 clxscore=1015 phishscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412250094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_023819_207027_E839B748 
-X-CRM114-Status: UNSURE (   7.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241225_024130_551605_6E904FD1 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +99,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Introduction of TPDM MCMB(Multi-lane Continuous Multi Bit) subunit
+MCMB (Multi-lane CMB) is a special form of CMB dataset type. MCMB
+subunit has the same number and usage of registers as CMB subunit.
+Just like the CMB subunit, the MCMB subunit must be configured prior
+to enablement. This series adds support for TPDM to configure the
+MCMB subunit.
 
+Once this series patches are applied properly, the new tpdm nodes for
+should be observed at the tpdm path /sys/bus/coresight/devices/tpdm*
+which supports MCMB subunit. All sysfs files of CMB subunit TPDM are
+included in MCMB subunit TPDM. On this basis, MCMB subunit TPDM will
+have new sysfs files to select and enable the lane.
 
-RK3576 HDMI TX Controller is very similar to that of RK3588, but with
-some control bits for IO and interrupts status scattered across different
-GRF.
+Changes in V3:
+1. Update the date in ABI file.
+2. Remove the unrelated change.
+3. Correct typo.
+4. Move the CMB_CR related definitions together.
 
-PATCH 1/3 is add platform ctrl callback for IO setting and interrupts
-status handing.
-PATCH 2/3 ~ 3/3 are add support for rk3576
+Changes in V2:
+1. Use tdpm_data->cmb instead of (tpdm_has_cmb_dataset(tpdm_data) ||
+tpdm_has_mcmb_dataset(tpdm_data)) for cmb dataset support.
+2. Embed mcmb_dataset struct into cmb struct.
+3. Update the date and version in sysfs-bus-coresight-devices-tpdm
+Link: https://patchwork.kernel.org/project/linux-arm-msm/patch/20241105123940.39602-4-quic_jinlmao@quicinc.com/
 
+Mao Jinlong (1):
+  coresight-tpdm: Add MCMB dataset support
 
-Andy Yan (3):
-  drm/rockchip: dw_hdmi_qp: Add platform ctrl callback
-  dt-bindings: display: rockchip: Add support for RK3576 HDMI TX
-    Controller
-  drm/rockchip: Add basic RK3576 HDMI output support
+Tao Zhang (2):
+  coresight-tpdm: Add support to select lane
+  coresight-tpdm: Add support to enable the lane for MCMB TPDM
 
- .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   1 +
- .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 224 +++++++++++++++---
- 2 files changed, 196 insertions(+), 29 deletions(-)
+ .../testing/sysfs-bus-coresight-devices-tpdm  |  15 +++
+ drivers/hwtracing/coresight/coresight-tpda.c  |   7 +-
+ drivers/hwtracing/coresight/coresight-tpdm.c  | 120 +++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-tpdm.h  |  33 +++--
+ 4 files changed, 155 insertions(+), 20 deletions(-)
 
 -- 
-2.34.1
+2.17.1
 
 
