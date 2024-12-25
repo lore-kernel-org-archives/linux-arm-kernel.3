@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1EBE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D36AE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4vV6k2yMin3zxgst3cgpCfnKTd2xrj4cgMcOxVOF2U=; b=eOjUPRyaIwxM65TqbDZH700Zow
-	FuDKouUwHExrUsrzbXpOmeWWmkincuo3A7MxUOoFnGymsEQQnw3RG419qC3zsoryqKvsNdJMuhHnM
-	mtwnPIjCj459U4ltqOFgPmVgeEzJSWtWOraE2xXIiJeKeWJbx4sfiDDv7hIpQzSddEqqMvMeN1fU7
-	6Sn7lxiB5tCukj4yLeC13wUprKbOaltynuZC34vYyvAF99WLS09+yARLREV4PiOqOQ1gA7oUdoioC
-	NdBoRBuqmyC7z1Y8iS5MDtCok9SoHf/LJeUCuevgaYeB9OBehexxY4vT9UeSifolegPBzhJOu/Grp
-	r1sUpN+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tugzEF7vML8oQTl8NO/7KFIxtE1ZfMc6QALSfy9yPcY=; b=t0BucWYIzx3CO1MXGNaBjaiWoS
+	HGZ3eKYjy64v/VzgWGH/au5BU+FkFBO19XQsdUGNd5ZuaQX/SZx8KeDfpZ6YZ+FDtP+tNtVKyTmTm
+	kmQIDMyoTqtVFYRFJWmMicFFgqYePoXjHuFP2lRC91GOUftosu2ktDRUekjxUzLJF1MoNQNgKm0av
+	d98lOwSn9TTjEIMmGzFNyqGwyqwLNq7nVFHWlK9tQ8mAmZT1fRNXC1loGtZhD1qSeAyTomFgBUdkm
+	NfDAba5Y+brKwUefeEN9Ksymt5i7nWO7O/TNzgC/Fr+lV7d2OltHDKJHHjNh8ZCEIUr1RNafWOgTK
+	9lgBrVMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOf5-0000000DdfA-41ue;
-	Wed, 25 Dec 2024 10:30:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOdt-0000000DdXP-2sf0;
-	Wed, 25 Dec 2024 10:29:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8E95EA4030A;
-	Wed, 25 Dec 2024 10:27:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4582C4CED6;
-	Wed, 25 Dec 2024 10:29:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735122568;
-	bh=BlZHZylE3rkpvbrheLcHA/p7NRcnz2PMtoKAQwhJgy8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Wm1+iNeMLPeEftMNySyryeQTAFkv13G5yNV7DFPagTpHSS0s15hTeIOQUpcWYvRd8
-	 XVgtT5RIagUjDlU//D3gj0LGvKKkCi/bU5b68/X9zn+Xd1bA17CLL+PVca7BG+CxyG
-	 uNFEo0zZjNwwzp1o9qKpuNgRZxr6mtt5fwStRulynhHeWYMRgORzbR0cCwtSzrxn2N
-	 9zgp8AxQKXkX7CJoiF1ljyB762/Zg4u/usZU8+vy/CI/+rR+kqIVAtJeFyzLZWFcKq
-	 v6S/CSSbkxzeLKnVzkVZag+Czd/L6Yve8gTtuO+YKFCX4/lFQmXge8qcuPl1yR8yiZ
-	 yMJfdiUdS1p4w==
-Date: Wed, 25 Dec 2024 04:29:26 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tQOnb-0000000DeKn-2U55;
+	Wed, 25 Dec 2024 10:39:31 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tQOmP-0000000De8p-1oe6;
+	Wed, 25 Dec 2024 10:38:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=tugzE
+	F7vML8oQTl8NO/7KFIxtE1ZfMc6QALSfy9yPcY=; b=UDYk0o5eEkTdvDR08B460
+	I9bEc0mfe5vOelO1cl4WXXn0BT5uQdBTQL5QF/XL9PWM6o+YleUPJnzRdX11f3TG
+	73VfJqmi02/ZSSbmuDsTjk76sATNiTVtorV3ExZ3+1JiJTRqXslXbKzymygbDHaJ
+	AQc/urSEYgYlf4506mpTDE=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgCnfIF24GtnkqkWCg--.3201S4;
+	Wed, 25 Dec 2024 18:37:47 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: cristian.ciocaltea@collabora.com,
+	krzk+dt@kernel.org,
+	mripard@kernel.org,
+	hjc@rock-chips.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH 2/3] dt-bindings: display: rockchip: Add support for RK3576 HDMI TX Controller
+Date: Wed, 25 Dec 2024 18:37:30 +0800
+Message-ID: <20241225103741.364597-3-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241225103741.364597-1-andyshrk@163.com>
+References: <20241225103741.364597-1-andyshrk@163.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: angelogioacchino.delregno@collabora.com, conor+dt@kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Bo.Kong@mediatek.com, linux-media@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, krzk+dt@kernel.org, mchehab@kernel.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, matthias.bgg@gmail.com, 
- linux-arm-kernel@lists.infradead.org
-To: "bo.kong" <bo.kong@mediatek.com>
-In-Reply-To: <20241225090113.17027-3-bo.kong@mediatek.com>
-References: <20241225090113.17027-1-bo.kong@mediatek.com>
- <20241225090113.17027-3-bo.kong@mediatek.com>
-Message-Id: <173512256651.1988706.15570394656231888489.robh@kernel.org>
-Subject: Re: [PATCH v3 2/4] media: dt-bindings: add MT8188 AIE
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgCnfIF24GtnkqkWCg--.3201S4
+X-Coremail-Antispam: 1Uf129KBjvdXoW7XFW3Kr4UZr1UWF48GrW7urg_yoWDJrgEqa
+	4xZ3Z0vFs5Zr1Y9w1DJ397Wws8Ja17KF4kGa1UAF4kJa4kKrZYqr95G34akFykAF17uFWx
+	CFn5WrWUCFnxJjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8WGQDUUUUU==
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqR3AXmdr3gYzHgABsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_022929_803366_DC49124B 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20241225_023817_885998_A95DDC05 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
-On Wed, 25 Dec 2024 17:00:21 +0800, bo.kong wrote:
-> From: Bo Kong <Bo.Kong@mediatek.com>
-> 
-> Add YAML device tree bindings for MT8188 AIE.
-> 
-> Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
-> ---
-> 
-> Changes in v3:
-> none
-> 
-> Changes in v2:
-> 1. Fix coding style
-> ---
->  .../bindings/media/mediatek,mt8188-aie.yaml   | 97 +++++++++++++++++++
->  1 file changed, 97 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
-> 
+RK3576 HDMI TX Controller is very similar to that of RK3588, but with some
+control bits for IO and interrupts status scattered across different GRF.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
 
-yamllint warnings/errors:
+ .../bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml    | 1 +
+ 1 file changed, 1 insertion(+)
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
- 	 $id: http://devicetree.org/schemas/media/mediatek-aie.yaml
- 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.example.dtb: aie@15310000: reg: [[0, 355532800], [0, 4096]] is too long
-	from schema $id: http://devicetree.org/schemas/media/mediatek-aie.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/mediatek,mt8188-aie.example.dtb: aie@15310000: '#address-cells', '#size-cells' do not match any of the regexes: 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/media/mediatek-aie.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241225090113.17027-3-bo.kong@mediatek.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
+index d8e761865f27..b838b5ec2dca 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
+@@ -29,6 +29,7 @@ allOf:
+ properties:
+   compatible:
+     enum:
++      - rockchip,rk3576-dw-hdmi-qp
+       - rockchip,rk3588-dw-hdmi-qp
+ 
+   reg:
+-- 
+2.34.1
 
 
