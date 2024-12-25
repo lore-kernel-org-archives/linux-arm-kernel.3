@@ -4,110 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48A7E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 09:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0D3E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 09:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+84ak5BMOs6fQ03Y5n5T+59bI7OqN2ndVO++05hIb5Q=; b=DUiQcBhbSgyBZD2TUDpw07SRAL
-	7+1uAZazmUnOz0/JftAyo9jyQtB69whL2nQ0jQMDp5QpT2fubVYERIt2dX0PmnTlm46Vi8e+JhvN3
-	eSoefZ+eLuHgFa9vhCxKuJicyHSVTMUbt/rcPgZbCckDRmdjOP5VdUeQTSudDCNyqIpzH1voQl/1V
-	AMtjXlrszBsWWNx7PwO6ZFRvFvsScyWwlq106WFYMLle/iAaII9/hSwmh8fjnSthA9EGAAXn5Bq2Q
-	xDPB5Eh21SRlJlopyY/9j282vLUgI6dQCSNrUF879zycjUgDBGVvA0Mwhw1tEbXyjb/aYO+2b8X7L
-	2JUTTdRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iz0XRZ0xLu1hC/eI8JE2iMO+H+JnIO69DMkS8xGu5Pc=; b=wFD0Z8/1Rhg/1T0o8cJ6MPXKJd
+	FXvm3I951rpHTd+WKx5kiLFGxSCL1/OBX+nk9XzyixqAhcJ7HiKqH4GPqEIPbi9zIxF3a9nLAl2OY
+	T4a8Eas0g36XYczB1Q0HxiGtriKc41m0ezUVztFlid+PlX8nz5ya9eTXSkOhwrZ1fSFxcze7ANsHi
+	EGQrrxzywgNhdfFOeC/2bRaGPFsGDP6t8l6D9xYc+xy06KrjgkjMf12Nn401MuMJ0IU152sHpn2z/
+	dkID7XkF79yKjTVgl7hXuyacPzqL9gpSjlS7pM8xqQsgoY4CO+XzKuS9dbWK0wxI1jx1/aFDFi2cf
+	oTB8KRCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQNFD-0000000DWGS-09Ry;
-	Wed, 25 Dec 2024 08:59:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tQNHq-0000000DWi3-2Cwc;
+	Wed, 25 Dec 2024 09:02:38 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQNE0-0000000DW9G-1PpS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 08:58:41 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP3nK3V018158;
-	Wed, 25 Dec 2024 08:58:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+84ak5BMOs6fQ03Y5n5T+59bI7OqN2ndVO++05hIb5Q=; b=VsTdLU8E/qgPevzO
-	7IxPY04pADCwHxwJ+28ZkDJ2eHejXgc3wJeL6pBiXgRWETDqSWuOQCuKvoQldmww
-	NEPCakAR1jaQfHJsHRVExOB/4kSFs9AkPAlZm9qU40Ih6rav02FMPldacpOjutow
-	eNbrfzydSc952JlGXUVcltCTaHDlfQaTSdfXBo+qELzMSWp/QA+cKI5wixV7wZtu
-	bILYZBpojS7mpaEnKY5uDOiOacZ0gUhhjA0dPI5brWUhOzr6URA0+pOFY7qyyVqa
-	hOkwzuID/3oRFccY0mHPfvsxW29qfnA5+J5kHD7mz98hhbvhTJxlp/F3KOGB/Bj4
-	js5SBw==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rafqhep9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 08:58:29 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BP8wS50017673
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 08:58:28 GMT
-Received: from [10.253.36.144] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 25 Dec
- 2024 00:58:23 -0800
-Message-ID: <f68524de-7a56-4cc6-a9ab-13dbae0ee0e5@quicinc.com>
-Date: Wed, 25 Dec 2024 16:58:20 +0800
+	id 1tQNGc-0000000DWRJ-3cGQ;
+	Wed, 25 Dec 2024 09:01:24 +0000
+X-UUID: cd6273d2c29e11ef9048ed6ed365623b-20241225
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Iz0XRZ0xLu1hC/eI8JE2iMO+H+JnIO69DMkS8xGu5Pc=;
+	b=Y+E7zPLnlaaeIEC99fVe57gvixmberERkmQ1rOYPme4vEhlKdfJMLNQlwhtqVG9eulH3F/QIy7nofuHTAPY+bt+HrujT03wilOiP8Eoxl+eM3HRzE0g0/cgmAaNVvgBQmkRY5q1ZpR2O0nMm5PLxMnLGMd22r6M3/vi8snggnNw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:247ae138-7f15-49e6-97e5-de964d597091,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:14832b25-8650-4337-bf57-045b64170f0c,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: cd6273d2c29e11ef9048ed6ed365623b-20241225
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <bo.kong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1748085305; Wed, 25 Dec 2024 02:01:17 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Wed, 25 Dec 2024 17:01:16 +0800
+Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Wed, 25 Dec 2024 17:01:16 +0800
+From: bo.kong <bo.kong@mediatek.com>
+To: <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>
+CC: <conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <Bo.Kong@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v3 4/4] uapi: linux: add MT8188 AIE
+Date: Wed, 25 Dec 2024 17:00:23 +0800
+Message-ID: <20241225090113.17027-5-bo.kong@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241225090113.17027-1-bo.kong@mediatek.com>
+References: <20241225090113.17027-1-bo.kong@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: net: qcom,ethqos: Drop fallback
- compatible for qcom,qcs615-ethqos
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Vinod Koul
-	<vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Bhupesh Sharma <bhupesh.sharma@linaro.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Giuseppe Cavallaro
-	<peppe.cavallaro@st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20241224-schema-v2-0-000ea9044c49@quicinc.com>
- <20241224-schema-v2-1-000ea9044c49@quicinc.com>
- <7813f2b0-e76a-463c-91f9-c0bd50da1f0a@linaro.org>
-Content-Language: en-US
-From: Yijie Yang <quic_yijiyang@quicinc.com>
-In-Reply-To: <7813f2b0-e76a-463c-91f9-c0bd50da1f0a@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: IVHVoiiAqplRni58Im16n0lJMU1912ZT
-X-Proofpoint-GUID: IVHVoiiAqplRni58Im16n0lJMU1912ZT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 phishscore=0
- priorityscore=1501 clxscore=1015 bulkscore=0 mlxscore=0 suspectscore=0
- mlxlogscore=999 malwarescore=0 spamscore=0 impostorscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2412250078
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_005840_507930_7D25A5EA 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20241225_010122_919027_8CC548BE 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,37 +87,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Bo Kong <Bo.Kong@mediatek.com>
 
+Add AIE control related definitions.
 
-On 2024-12-24 17:02, Krzysztof Kozlowski wrote:
-> On 24/12/2024 04:07, Yijie Yang wrote:
->> The core version of EMAC on qcs615 has minor differences compared to that
->> on sm8150. During the bring-up routine, the loopback bit needs to be set,
->> and the Power-On Reset (POR) status of the registers isn't entirely
->> consistent with sm8150 either.
->> Therefore, it should be treated as a separate entity rather than a
->> fallback option.
-> 
-> ... and explanation of ABI impact? You were asked about this last time,
-> so this is supposed to end up here.
+Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+---
 
-I actually replied to this query last time, but maybe it wasn't clear. 
-Firstly, no one is using Ethernet on this platform yet. Secondly, the 
-previous fallback to sm8150 is incorrect and causes packet loss. 
-Instead, it should fall back to qcs404.
+Changes in v3:
+none
 
-> 
->>
->> Fixes: 32535b9410b8 ("dt-bindings: net: qcom,ethqos: add description for qcs615")
->> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->> ---
->>   Documentation/devicetree/bindings/net/qcom,ethqos.yaml | 5 +----
->>   1 file changed, 1 insertion(+), 4 deletions(-)
-> Best regards,
-> Krzysztof
+Changes in v2:
+1. Fix coding style
+---
+ include/uapi/linux/mtk_aie_v4l2_controls.h | 132 +++++++++++++++++++++
+ include/uapi/linux/videodev2.h             |   6 +
+ 2 files changed, 138 insertions(+)
+ create mode 100644 include/uapi/linux/mtk_aie_v4l2_controls.h
 
+diff --git a/include/uapi/linux/mtk_aie_v4l2_controls.h b/include/uapi/linux/mtk_aie_v4l2_controls.h
+new file mode 100644
+index 000000000000..e635548c2cdf
+--- /dev/null
++++ b/include/uapi/linux/mtk_aie_v4l2_controls.h
+@@ -0,0 +1,132 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * AIE Controls Header
++ *
++ * Copyright (c) 2020 MediaTek Inc.
++ * Author: Fish Wu <fish.wu@mediatek.com>
++ */
++
++#ifndef __MTK_AIE_V4L2_CONTROLS_H__
++#define __MTK_AIE_V4L2_CONTROLS_H__
++
++#include <linux/types.h>
++
++/*
++ * The base for the mediatek Face Detection driver controls.
++ * We reserve 16 controls for this driver.
++ * Each CID represents different stages of AIE, with different structures and functions
++ * and cannot be reused
++ */
++#define V4L2_CID_USER_MTK_FD_BASE (V4L2_CID_USER_BASE + 0x1fd0)
++
++#define V4L2_CID_MTK_AIE_INIT (V4L2_CID_USER_MTK_FD_BASE + 1)
++#define V4L2_CID_MTK_AIE_PARAM (V4L2_CID_USER_MTK_FD_BASE + 2)
++
++#define V4L2_FLD_MAX_FRAME 15
++
++/**
++ * struct v4l2_ctrl_aie_init - aie init parameters.
++ *
++ * @max_img_width: maximum width of the source image.
++ * @max_img_height: maximum height of the source image.
++ * @pyramid_width: maximum width of the base pyramid.
++ * @pyramid_height: maximum height of the base pyramid.
++ * @feature_threshold: feature threshold for hareware.
++ */
++struct v4l2_ctrl_aie_init {
++	__u32 max_img_width;
++	__u32 max_img_height;
++	__u32 pyramid_width;
++	__u32 pyramid_height;
++	__s32 feature_threshold;
++};
++
++/**
++ * struct v4l2_aie_roi - aie roi parameters.
++ *
++ * @x1: x1 of the roi coordinate.
++ * @y1: y1 of the roi coordinate.
++ * @x2: x2 of the roi coordinate.
++ * @y2: y2 of the roi coordinate.
++ */
++struct v4l2_aie_roi {
++	__u32 x1;
++	__u32 y1;
++	__u32 x2;
++	__u32 y2;
++};
++
++/**
++ * struct v4l2_aie_padding - aie padding parameters.
++ *
++ * @left: the size of padding left.
++ * @right: the size of padding right.
++ * @down: the size of padding below.
++ * @up: the size of padding above.
++ */
++struct v4l2_aie_padding {
++	__u32 left;
++	__u32 right;
++	__u32 down;
++	__u32 up;
++};
++
++/**
++ * struct v4l2_fld_crop_rip_rop - aie fld parameters.
++ *
++ * @fld_in_crop_x1: x1 of the crop coordinate.
++ * @fld_in_crop_y1: y1 of the crop coordinate.
++ * @fld_in_crop_x2: x2 of the crop coordinate.
++ * @fld_in_crop_y2: y2 of the crop coordinate.
++ * @fld_in_rip: fld in rip.
++ * @fld_in_rop: fld in rop.
++ */
++struct v4l2_fld_crop_rip_rop {
++	__u32 fld_in_crop_x1;
++	__u32 fld_in_crop_y1;
++	__u32 fld_in_crop_x2;
++	__u32 fld_in_crop_y2;
++	__u32 fld_in_rip;
++	__u32 fld_in_rop;
++};
++
++/**
++ * struct v4l2_fld_crop_rip_rop - aie fld parameters.
++ *
++ * @fd_mode: select a mode for current fd.
++ * @src_img_fmt: source image format.
++ * @src_img_width: the width of the source image.
++ * @src_img_height: the height of the source image.
++ * @src_img_stride: the stride of the source image.
++ * @pyramid_base_width: the width of the base pyramid.
++ * @pyramid_base_height: the width of the base pyramid.
++ * @number_of_pyramid: number of pyramid.
++ * @rotate_degree: the rotate degree of the image.
++ * @en_roi: enable roi.
++ * @src_roi: roi params.
++ * @en_padding: enable padding.
++ * @src_padding: padding params.
++ * @freq_level: frequency level.
++ * @fld_face_num: the number of faces in fld.
++ * @fld_input: fld input params.
++ */
++struct v4l2_ctrl_aie_param {
++	__u32 fd_mode;
++	__u32 src_img_fmt;
++	__u32 src_img_width;
++	__u32 src_img_height;
++	__u32 src_img_stride;
++	__u32 pyramid_base_width;
++	__u32 pyramid_base_height;
++	__u32 number_of_pyramid;
++	__u32 rotate_degree;
++	__s32 en_roi;
++	struct v4l2_aie_roi src_roi;
++	__s32 en_padding;
++	struct v4l2_aie_padding src_padding;
++	__u32 freq_level;
++	__u32 fld_face_num;
++	struct v4l2_fld_crop_rip_rop fld_input[V4L2_FLD_MAX_FRAME];
++};
++
++#endif /* __MTK_AIE_V4L2_CONTROLS_H__ */
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index e7c4dce39007..b23a9e99c835 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -877,6 +877,9 @@ struct v4l2_pix_format {
+ #define V4L2_META_FMT_GENERIC_CSI2_24	v4l2_fourcc('M', 'C', '1', 'O') /* 24-bit CSI-2 packed 8-bit metadata */
+ #endif
+ 
++/* Vendor-specific definition: used for the MediaTek camera subsystem's face detection results */
++#define V4L2_META_FMT_MTFD_RESULT v4l2_fourcc('M', 'T', 'f', 'd')
++
+ /* priv field value to indicates that subsequent fields are valid. */
+ #define V4L2_PIX_FMT_PRIV_MAGIC		0xfeedcafe
+ 
+@@ -1961,6 +1964,9 @@ enum v4l2_ctrl_type {
+ 	V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY = 0x281,
+ 	V4L2_CTRL_TYPE_AV1_FRAME	    = 0x282,
+ 	V4L2_CTRL_TYPE_AV1_FILM_GRAIN	    = 0x283,
++
++	V4L2_CTRL_TYPE_AIE_INIT		= 0x0290,
++	V4L2_CTRL_TYPE_AIE_PARAM	= 0x0291,
+ };
+ 
+ /*  Used in the VIDIOC_QUERYCTRL ioctl for querying controls */
 -- 
-Best Regards,
-Yijie
+2.45.2
 
 
