@@ -4,97 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8813E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A08EE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 25 Dec 2024 10:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JaVSkWKpP5B4CziKH+iVS73s8XWZ5XSk/s+7bHULCNw=; b=PUHeKBBlak5Zik3wAWR8eRP9uv
-	kiKiZnYS5HMs7a5nEb0loYFewRD7aq9BBCYvjXU2tMO/flJodRiATct1SBsPEuCbArMkFK4/8GpvW
-	25bI6cif7MgLEbiLXNRjk4b9aL/FBKAexE4PauF7WH7mLInt9zVd7k0jUu7KKpVtfa+2vpbOvpbiA
-	4Zzc/1MAFSQWDogErKRVtkOX/7eQQq1IPohEswR8F/1RQY0cxFeXJdfAuBnj9NCHSnfN/Zh4gMvP2
-	7gzoJvKinhRitQaj0e5E6KE1RHkQRHz4ZMw31scEry4uKifOorTUepwXzrITZQhmXQxHxcdxqsLWc
-	p4zM8f7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jCNY+zimnSJ7Ce2KOi5p8S48fxznVf5JS4dSLG7cL8w=; b=UuDyxPDgbmdrF9
+	0wlLUOalp+qRHlhS8g4/zbvYcO4KY46iOmD7uN8brKABDMWRoK+VegN3SS3SNql3S8CVCBDeZUrzR
+	gKPNwglYrxrYp/gXXo6cKG0Ly1foZbu/DJomrEmSLgmGn4SFAAz4YmS7pxKhwb9AeuTzFvySw3lAD
+	cVwfwO4dyJf3b6YQCAJZp8+sOgcSVxVg8B2oB5qY3o+zI/0Q0lvEHsoT/UNf7DeImyAOI4MMfFkP+
+	QVl6QfZ9EJV4OHhGZoTAGqVFcpPJAmo51eE/AVl2sDYqCa3bM9JZSP/tOs8LmSU2V8rFI6kwJx+jG
+	XXwer+LwU1/omUo5QxZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOCK-0000000DauN-3jn3;
-	Wed, 25 Dec 2024 10:01:00 +0000
+	id 1tQOIw-0000000DbWd-0CMJ;
+	Wed, 25 Dec 2024 10:07:50 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQOB8-0000000DamW-0jLL
+	id 1tQOHj-0000000DbKx-00Aq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 25 Dec 2024 09:59:47 +0000
+	Wed, 25 Dec 2024 10:06:36 +0000
 Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP3hkUh031265;
-	Wed, 25 Dec 2024 09:59:32 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BP3jmvv002072;
+	Wed, 25 Dec 2024 10:06:24 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	JaVSkWKpP5B4CziKH+iVS73s8XWZ5XSk/s+7bHULCNw=; b=TDQ4jjiGxWTigkXf
-	e03BKSacyQGnfRErQ5RmWdTkNdys9nml+jgJT689SvjU/udeR9zbZx4225kRw9DY
-	1NEQ9FN71L4DubhiMJ/DApvH05+hyE7+U8hiwcbgG1j9QYAMJZ/2pOKaqNrYTIxC
-	kPVMdCOgzZbiKqLRV+gl10Ylw0q9PdaYh6MEGX560rbaFr5yGGl00HvoV0q1ms1c
-	biFhES/P4Qb/gSACjrHgWGtYdSMEU1Q98xGvcEktyrzo9LtwGjQ9nD/+znLPzyK1
-	3a/SZf1NC87+v7JIs5lc8FbtgZuxCBEfJfacRske6VF1o6DvRdo8sAS6RwVnUBAm
-	gzWUfQ==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=jCNY+zimnSJ7Ce2KOi5p8S
+	48fxznVf5JS4dSLG7cL8w=; b=psZ3Q6BpUOz8QchhRK2pnFsPcqpN/QcnBBGd8J
+	8ptswlI1OGqm0BB6qMGC7G9WZ+cZjWJ9dz8rpFr5ZhopHW18+lZhaUuVcQb0dnrR
+	wh1zeSU4/zLxN/Dk0AtPHnuno8HVnu9H/lB51W74av3tY19AOlljAt+DH6pUP8H+
+	XeOijCm0e0KLtoCN2eQAZuuUcJcNwHwZR7GqRDUyVCxM/rzuT5w7+Ms2FgoE4gpl
+	fN4mlZg+3PkwioO4Sna9ptqUjwhGPFD9yhUuq+nPandZiLKM3T5gqbvCJIsqhaXG
+	MPOAhZIQrYw3jgxw2WZUpd46U+VRmD6pbiwhroe2C5ci4rAA==
 Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rad81jrk-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rad81kfd-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 09:59:32 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BP9xUCP024401
+	Wed, 25 Dec 2024 10:06:24 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BPA6NVK003065
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Dec 2024 09:59:30 GMT
-Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 25 Dec
- 2024 01:59:27 -0800
-Message-ID: <04de1444-b28b-4c16-aafa-2b04f0a59304@quicinc.com>
-Date: Wed, 25 Dec 2024 17:59:25 +0800
+	Wed, 25 Dec 2024 10:06:23 GMT
+Received: from yijiyang-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 25 Dec 2024 02:06:17 -0800
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+Subject: [PATCH 0/3] Support tuning the RX sampling swap of the MAC.
+Date: Wed, 25 Dec 2024 18:04:44 +0800
+Message-ID: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
- section aligned
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
-        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        Anshuman Khandual <anshuman.khandual@arm.com>,
-        Tingwei Zhang
-	<quic_tingweiz@quicinc.com>
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
- <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
- <Z2W3qA7wbBTaq6DQ@arm.com> <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
- <Z2rAr9APkgpkwOl8@arm.com>
-Content-Language: en-US
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-In-Reply-To: <Z2rAr9APkgpkwOl8@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL/Ya2cC/4XPTWrDMBAF4KsYrauikWRZCqX0AjlBKUHWT6OF7
+ URyTErI3Su7CXUQtMtheN+buaDkYnAJbaoLim4KKQx9HuCpQmav+0+Hg80zooRyoNDgdDochjj
+ ugHRASIdBUKYUCK+Bopw6ROfDeRHfP/Lc6uRwG3Vv9rPzG9/m+PaWiO54ytXjTwx1LiW9VG+ql
+ 6UZQGI7pt3RJAE1nigm2AnaKso1M619y3kTevNshu4V3Wvz0IVxU/XuPOL7B2i+ah/SOMSv5e2
+ JLaW3vSo+nNhcZrTW1oKQnK3L5q6/k55LkOAVAykekvMdE191U1YKPAtUKVsD9cwyWgr1WuClU
+ GehrXXbEK0AmC8FsRbqUhBZYPkEr7kQXpBSaP4RmixYLgU3qvFaNqUg/xFkFgRhrfLCUe3so3C
+ 9Xr8BUW/9XcoCAAA=
+X-Change-ID: 20241217-support_10m100m-16239916fa12
+To: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David
+ S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>,
+        "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Yijie Yang
+	<quic_yijiyang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735121177; l=1991;
+ i=quic_yijiyang@quicinc.com; s=20240408; h=from:subject:message-id;
+ bh=f4f7ARMlWhlpRFbU4x466pXEEjcg7byTRF8Uoa1RfNg=;
+ b=o6Tg2iuLPSZ6w+JpprK5l0oOkTcWrG9T4e205hRObgP5E+mLwnJ6QXXuu6mVGgiSLr4saWwlu
+ X+kTv0o/4ASDETOvKxLt4nWMraV6cUMssZF3r7jzxpE5NUIky2ZOZv0
+X-Developer-Key: i=quic_yijiyang@quicinc.com; a=ed25519;
+ pk=XvMv0rxjrXLYFdBXoFjTdOdAwDT5SPbQ5uAKGESDihk=
 X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 3_1_jcqzwtTTdVsDy7yyv22gtFZOm1mn
-X-Proofpoint-ORIG-GUID: 3_1_jcqzwtTTdVsDy7yyv22gtFZOm1mn
+X-Proofpoint-GUID: f9nbTWuatCW1y9Zwj7J-kJx9UympFpPb
+X-Proofpoint-ORIG-GUID: f9nbTWuatCW1y9Zwj7J-kJx9UympFpPb
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 adultscore=0
- mlxlogscore=999 suspectscore=0 impostorscore=0 clxscore=1015 mlxscore=0
+ mlxlogscore=449 suspectscore=0 impostorscore=0 clxscore=1015 mlxscore=0
  spamscore=0 phishscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412250087
+ definitions=main-2412250088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_015946_344318_0654BCBE 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20241225_020635_176719_4CAA03C0 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,114 +130,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Ethernet MAC requires precise sampling times at Rx, but signals on the
+Rx side after transmission on the board may vary due to different hardware
+layouts. The RGMII_CONFIG2_RX_PROG_SWAP can be used to switch the sampling
+occasion between the rising edge and falling edge of the clock to meet the
+sampling requirements. Consequently, the configuration of this bit in the
+Ethernet MAC can vary between boards, even if they are of the same version.
+It should be adjustable rather than simply determined by the version. For
+example, the MAC version is less than 3, but it needs to enable this bit.
+Therefore, this patch set introduces a new flag for each board to control
+whether to open it.
+The dependency patch set detailed below has introduced and enabled an
+Ethernet node that supports 1G speed on qcs615. The current patch set now
+allows tuning of the MAC's RX swap, thereby supporting 10M and 100M speeds.
 
+Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+---
+This patch series depends on below patch series:
+https://lore.kernel.org/all/20241118-dts_qcs615-v2-0-e62b924a3cbd@quicinc.com/
 
-On 2024/12/24 22:09, Catalin Marinas wrote:
-> On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
->> Thanks Catalin for review!
->> Merry Christmas.
-> 
-> Merry Christmas to you too!
-> 
->> On 2024/12/21 2:30, Catalin Marinas wrote:
->>> On Mon, Dec 09, 2024 at 05:42:26PM +0800, Zhenhua Huang wrote:
->>>> Fixes: c1cc1552616d ("arm64: MMU initialisation")
->>>
->>> I wouldn't add a fix for the first commit adding arm64 support, we did
->>> not even have memory hotplug at the time (added later in 5.7 by commit
->>> bbd6ec605c0f ("arm64/mm: Enable memory hot remove")). IIUC, this hasn't
->>> been a problem until commit ba72b4c8cf60 ("mm/sparsemem: support
->>> sub-section hotplug"). That commit broke some arm64 assumptions.
->>
->> Shall we add ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
->> because it broke arm64 assumptions ?
-> 
-> Yes, I think that would be better. And a cc stable to 5.4 (the above
-> commit appeared in 5.3).
+---
+Yijie Yang (3):
+      dt-bindings: net: stmmac: Tune rx sampling occasion
+      net: stmmac: qcom-ethqos: Enable RX programmable swap on qcs615
+      arm64: dts: qcom: qcs615-ride: Enable RX programmable swap on qcs615-ride
 
-Got it, Thanks.
+ .../devicetree/bindings/net/qcom,ethqos.yaml       |  6 ++++
+ arch/arm64/boot/dts/qcom/qcs615-ride.dts           |  1 +
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 36 ++++++++++++----------
+ 3 files changed, 27 insertions(+), 16 deletions(-)
+---
+base-commit: 532900dbb7c1be5c9e6aab322d9af3a583888f25
+change-id: 20241217-support_10m100m-16239916fa12
+prerequisite-message-id: <20241118-dts_qcs615-v2-0-e62b924a3cbd@quicinc.com>
+prerequisite-patch-id: ab55582f3bfce00f051fddd75bb66b2ef5e0677d
+prerequisite-patch-id: 514acd303f0ef816ff6e61e59ecbaaff7f1b06ec
 
-> 
->>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>> index e2739b69e11b..fd59ee44960e 100644
->>>> --- a/arch/arm64/mm/mmu.c
->>>> +++ b/arch/arm64/mm/mmu.c
->>>> @@ -1177,7 +1177,9 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>>>    {
->>>>    	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
->>>> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->>>> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
->>>> +	!IS_ALIGNED(page_to_pfn((struct page *)start), PAGES_PER_SECTION) ||
->>>> +	!IS_ALIGNED(page_to_pfn((struct page *)end), PAGES_PER_SECTION))
->>>>    		return vmemmap_populate_basepages(start, end, node, altmap);
->>>>    	else
->>>>    		return vmemmap_populate_hugepages(start, end, node, altmap);
->>>
->>> An alternative would be to fix unmap_hotplug_pmd_range() etc. to avoid
->>> nuking the whole vmemmap pmd section if it's not empty. Not sure how
->>> easy that is, whether we have the necessary information (I haven't
->>> looked in detail).
->>>
->>> A potential issue - can we hotplug 128MB of RAM and only unplug 2MB? If
->>> that's possible, the problem isn't solved by this patch.
->>
->> Indeed, seems there is no guarantee that plug size must be equal to unplug
->> size...
->>
->> I have two ideas:
->> 1. Completely disable this PMD mapping optimization since there is no
->> guarantee we must align 128M memory for hotplug ..
-> 
-> I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
-> I think the only advantage here is that we don't allocate a full 2MB
-> block for vmemmap when only plugging in a sub-section.
-
-Yeah..
-In my opinion, w/o subsection hotplugging support, it is definitely 
-beneficial. However, w/ subsection hotplugging support, it may lead to 
-memory overhead and necessitate special logic in codes since we always 
-use a full 2MB block..
-
-> 
->> 2. If we want to take this optimization.
->> I propose adding one argument to vmemmap_free to indicate if the entire
->> section is freed(based on subsection map). Vmemmap_free is a common function
->> and might affect other architectures... The process would be:
->> vmemmap_free
->> 	unmap_hotplug_range //In unmap_hotplug_pmd_range() as you mentioned：if
->> whole section is freed, proceed as usual. Otherwise, *just clear out struct
->> page content but do not free*.
->> 	free_empty_tables // will be called only if entire section is freed
->>
->> On the populate side,
->> else if (vmemmap_check_pmd(pmd, node, addr, next)) //implement this function
->> 	continue;	//Buffer still exists, just abort..
->>
->> Could you please comment further whether #2 is feasible ?
-> 
-> vmemmap_free() already gets start/end, so it could at least check the
-> alignment and avoid freeing if it's not unplugging a full section. It
-> does leave a 2MB vmemmap block in place when freeing the last subsection
-> but it's safer than freeing valid struct page entries. In addition, it
-> could query the memory hotplug state with something like
-> find_memory_block() and figure out whether the section is empty.
-> 
-
-Do you mean that we need not clear struct page entries of subsection 
-until the entire section fully unplugged ? That seems feasible.
-
-BTW, You're right, I went through codes again, only export 
-is_subsection_map_empty() for query is another option..
-	page_to_pfn() to get pfn
-	__nr_to_section() to get mem_section
-	last call is_subsection_map_empty() we can get subsection hotplug 
-status per section
-w/ this approach, we need not to do changes for func vmemmap_free
-
-> Anyway, I'll be off until the new year, maybe I get other ideas by then.
-> 
-
-Sure, Happy Holiday! I will prepare both of patches and wait for your 
-further comments :
+Best regards,
+-- 
+Yijie Yang <quic_yijiyang@quicinc.com>
 
 
