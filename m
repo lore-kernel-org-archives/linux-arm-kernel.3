@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E44FE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 02:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20926E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 02:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m4Osx6Hdy9KSW372q7wGp80UoBpNogxBOIxeaPz8X+M=; b=1Id0HaNMgCYQRyHCBLQlLN8Oa7
-	utG4caG7RCewaCTBW1VsQ2VaoXrp+e5qWoCZrK7u3zgniu7qbslXsG/N35lt28/+jlkDFq9dpbuZb
-	BfJGB/eLZAJEBwzWCZvYc0+de2duzidJ/whwuiR8AWJS/KERsg5UIMSDpLKe/awb7i4Xk3xNT6Jxm
-	Gx1paxblvjhx9Jk9bAqxZ565Y3p4WOKr1j8gHTUoZZuO+AttVkGEi2HuDnPFGVCDgHvbzLn1trcf3
-	T1d1MCbnelU2suyDSWaWYcFpyGc1/2lPiaoPPQFPS0Q9eU92e7EDpH+IfSvrWZ6joJ2xjAp3tWTxw
-	zlBMikYA==;
+	bh=pHpYoWcC3a1yibTmmSQIGYWTas0Sv+4pH8WU+FAozOM=; b=QgM1Lvq5SzBT4zzfJJJvU7QXlX
+	EssFy5+zOyzHwjI0ByqKQv8gqf+lhgdOXQ00s9QDweZ6iV99gyIncyer9h/NFU6K4TG6GrEUeXb2y
+	kEf5NvJAaJxwq0rQHIPjEio+w83GW4jx8qIu+cqSgwYUrEEkq134O+WJsFA4+r6p8Q6tsrXe4MQoM
+	F+vHwUjWJcDPWVy7Nw3I1n9XiXH6rahquCXNDep7iz+YVVlKXk1kbC/rfsBKTkIYxc6eyOwjJ3ToJ
+	HtxDYLftIYJ3Fzblfl+rp9lJIMErdqqdJME+2eJgLbpty1UK0AH0kr0VsXuur7v/QKoSjDa9lszPN
+	rsKwZDeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQdcx-0000000EyAc-1s1i;
-	Thu, 26 Dec 2024 02:29:31 +0000
+	id 1tQde7-0000000EySY-0XND;
+	Thu, 26 Dec 2024 02:30:43 +0000
 Received: from mx.treblig.org ([2a00:1098:5b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQdbl-0000000Exxz-23Di
+	id 1tQdbl-0000000Exy2-2371
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 02:28:18 +0000
+	Thu, 26 Dec 2024 02:28:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
 	; s=bytemarkmx; h=MIME-Version:Message-ID:Date:Subject:From:Content-Type:From
-	:Subject; bh=m4Osx6Hdy9KSW372q7wGp80UoBpNogxBOIxeaPz8X+M=; b=WYfQSZgV7n/+3+Pd
-	KmWCyewhwvPkrUihSLAvKQe6lvM5B+2jwmuShNU77PeeE0hgZSF3OeHuJ54E0apajjhoLnm7eiYHa
-	FkY9DIDWmnbx4OlniJqZzQl5xFAxI4G4cNiSq5duToEDjjuSJxlyKiBc2KDIpZkxb+SofwKJR29hl
-	E0l6PLzOvuyHHvCnEJZFphJ3LKWgA250kg//KiIvnZkRu/uTdNUazkWjDR8vJZM4p8AkWgLZtxo/o
-	Ue5eJeslQo3MHPwoXsQ6lSqq0QOIsJUBBangZzu+Yk/Q4EOgjg/9Q1lDLkuPhN2vFe9K1DsKb3Xzk
-	ISzCMPjbVwpE/PO5BQ==;
+	:Subject; bh=pHpYoWcC3a1yibTmmSQIGYWTas0Sv+4pH8WU+FAozOM=; b=B6Llc0TQLzww4Rky
+	/dbg4HPyp+UBtHIXR5WjD4HGbvJDFE+hF5DvZoCmGG6meYjfz1OwGYukGVk1XBBh3PSLPVdieLhEk
+	j4iUZDaO19Pl9D7Yp5AmRZ6JzB2AyMmU7z0QyMCmjPn2LU9xRX5Rl3tmcF8ZEZu/ymOa0r+6GznYn
+	SFdJ6TKExnFsQnLzF4weKJ3t0ROAzdisHOBvoXMHo/LPSNFuyLvGzd/2bO14RfO6q9k7PgYbO4DrM
+	OSB9Lm2hhNbuZth/24DIaECh74tb2F8qFsUzX3J145VVJA2oX/GDE6kK3XjneaFC0p0uJWgVx0TwS
+	cVut6VQakL5qkxo+Yw==;
 Received: from localhost ([127.0.0.1] helo=dalek.home.treblig.org)
 	by mx.treblig.org with esmtp (Exim 4.96)
 	(envelope-from <linux@treblig.org>)
-	id 1tQdbP-007F0L-0G;
-	Thu, 26 Dec 2024 02:27:55 +0000
+	id 1tQdbR-007F0L-0b;
+	Thu, 26 Dec 2024 02:27:57 +0000
 From: linux@treblig.org
 To: p.zabel@pengutronix.de,
 	airlied@gmail.com,
@@ -55,17 +55,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	"Dr. David Alan Gilbert" <linux@treblig.org>
-Subject: [PATCH 2/7] gpu: ipu-v3: Remove unused ipu_rot_mode_to_degrees
-Date: Thu, 26 Dec 2024 02:27:47 +0000
-Message-ID: <20241226022752.219399-3-linux@treblig.org>
+Subject: [PATCH 5/7] gpu: ipu-v3: Remove unused ipu_vdi_unsetup
+Date: Thu, 26 Dec 2024 02:27:50 +0000
+Message-ID: <20241226022752.219399-6-linux@treblig.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241226022752.219399-1-linux@treblig.org>
 References: <20241226022752.219399-1-linux@treblig.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_182817_617236_F58129B5 
-X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-CacheID: sfid-20241225_182817_617110_4EFA37D7 
+X-CRM114-Status: UNSURE (   7.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,74 +83,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Dr. David Alan Gilbert" <linux@treblig.org>
 
-ipu_rot_mode_to_degrees() was added in 2014 by
-commit f835f386a119 ("gpu: ipu-v3: Add rotation mode conversion utilities")
+ipu_vdi_unsetup() was added in 2016 by
+commit 2d2ead453077 ("gpu: ipu-v3: Add Video Deinterlacer unit")
 but has remained unused.
 
 Remove it.
 
 Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
 ---
- drivers/gpu/ipu-v3/ipu-common.c | 32 --------------------------------
- include/video/imx-ipu-v3.h      |  2 --
- 2 files changed, 34 deletions(-)
+ drivers/gpu/ipu-v3/ipu-vdi.c | 11 -----------
+ include/video/imx-ipu-v3.h   |  1 -
+ 2 files changed, 12 deletions(-)
 
-diff --git a/drivers/gpu/ipu-v3/ipu-common.c b/drivers/gpu/ipu-v3/ipu-common.c
-index 947323f4a234..a8570e1bdf28 100644
---- a/drivers/gpu/ipu-v3/ipu-common.c
-+++ b/drivers/gpu/ipu-v3/ipu-common.c
-@@ -165,38 +165,6 @@ int ipu_degrees_to_rot_mode(enum ipu_rotate_mode *mode, int degrees,
+diff --git a/drivers/gpu/ipu-v3/ipu-vdi.c b/drivers/gpu/ipu-v3/ipu-vdi.c
+index a593b232b6d3..af9631fd4256 100644
+--- a/drivers/gpu/ipu-v3/ipu-vdi.c
++++ b/drivers/gpu/ipu-v3/ipu-vdi.c
+@@ -150,17 +150,6 @@ void ipu_vdi_setup(struct ipu_vdi *vdi, u32 code, int xres, int yres)
  }
- EXPORT_SYMBOL_GPL(ipu_degrees_to_rot_mode);
+ EXPORT_SYMBOL_GPL(ipu_vdi_setup);
  
--int ipu_rot_mode_to_degrees(int *degrees, enum ipu_rotate_mode mode,
--			    bool hflip, bool vflip)
+-void ipu_vdi_unsetup(struct ipu_vdi *vdi)
 -{
--	u32 r90, vf, hf;
+-	unsigned long flags;
 -
--	r90 = ((u32)mode >> 2) & 0x1;
--	hf = ((u32)mode >> 1) & 0x1;
--	vf = ((u32)mode >> 0) & 0x1;
--	hf ^= (u32)hflip;
--	vf ^= (u32)vflip;
--
--	switch ((enum ipu_rotate_mode)((r90 << 2) | (hf << 1) | vf)) {
--	case IPU_ROTATE_NONE:
--		*degrees = 0;
--		break;
--	case IPU_ROTATE_90_RIGHT:
--		*degrees = 90;
--		break;
--	case IPU_ROTATE_180:
--		*degrees = 180;
--		break;
--	case IPU_ROTATE_90_LEFT:
--		*degrees = 270;
--		break;
--	default:
--		return -EINVAL;
--	}
--
--	return 0;
+-	spin_lock_irqsave(&vdi->lock, flags);
+-	ipu_vdi_write(vdi, 0, VDI_FSIZE);
+-	ipu_vdi_write(vdi, 0, VDI_C);
+-	spin_unlock_irqrestore(&vdi->lock, flags);
 -}
--EXPORT_SYMBOL_GPL(ipu_rot_mode_to_degrees);
+-EXPORT_SYMBOL_GPL(ipu_vdi_unsetup);
 -
- struct ipuv3_channel *ipu_idmac_get(struct ipu_soc *ipu, unsigned num)
+ int ipu_vdi_enable(struct ipu_vdi *vdi)
  {
- 	struct ipuv3_channel *channel;
+ 	unsigned long flags;
 diff --git a/include/video/imx-ipu-v3.h b/include/video/imx-ipu-v3.h
-index 0bb1d714cbf5..8870f65c9a8b 100644
+index 8870f65c9a8b..c9ed4b6a408b 100644
 --- a/include/video/imx-ipu-v3.h
 +++ b/include/video/imx-ipu-v3.h
-@@ -484,8 +484,6 @@ enum ipu_color_space ipu_drm_fourcc_to_colorspace(u32 drm_fourcc);
- enum ipu_color_space ipu_pixelformat_to_colorspace(u32 pixelformat);
- int ipu_degrees_to_rot_mode(enum ipu_rotate_mode *mode, int degrees,
- 			    bool hflip, bool vflip);
--int ipu_rot_mode_to_degrees(int *degrees, enum ipu_rotate_mode mode,
--			    bool hflip, bool vflip);
- 
- struct ipu_client_platformdata {
- 	int csi;
+@@ -463,7 +463,6 @@ struct ipu_vdi;
+ void ipu_vdi_set_field_order(struct ipu_vdi *vdi, v4l2_std_id std, u32 field);
+ void ipu_vdi_set_motion(struct ipu_vdi *vdi, enum ipu_motion_sel motion_sel);
+ void ipu_vdi_setup(struct ipu_vdi *vdi, u32 code, int xres, int yres);
+-void ipu_vdi_unsetup(struct ipu_vdi *vdi);
+ int ipu_vdi_enable(struct ipu_vdi *vdi);
+ int ipu_vdi_disable(struct ipu_vdi *vdi);
+ struct ipu_vdi *ipu_vdi_get(struct ipu_soc *ipu);
 -- 
 2.47.1
 
