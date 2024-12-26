@@ -4,64 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D53E7718D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 05:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD504E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 05:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpMfEto5+3te+gCSBz9qfHR+p3pGWYBXl/OboLJwT58=; b=zUWTgHSQK+4Av+TaMDOxLZJng5
-	j0s975fQ2nvyo7pwl1ZrJbwT8FhZxIRVH/HfsXp8gTwT3GcSkT4+OEev6/bVJ60372+fe4KzLB40C
-	EB8blprRHfPqhF66fW0hPjnD63QJTR7/0kmvesP1hmFpVGVgSQNpu84tP47E1N7rrxFsfRAT1gFOM
-	qNieNen6PwrJKaEracsSW7KOGf8lkKXa6Mb78sLy0G60PtPFuvPelWgzC7XoD+slqmfv+FrrTfHLg
-	oIjlIOY3Mas1A+fIulNB2W0uPjaEw6E6wnyKxqLnTwc3UtKc8ozRis1AybjFUhbmird8KRnpbWCk+
-	Namd1ZnA==;
+	bh=T+JDr1LaRapYlu+PHe/GJEFAnj4I7CbUPpdQPHNvTfI=; b=EwTzF42zv5mjnerJCF1dVzyhjO
+	b3VbzwWcEsKGGTO9oeIKW1aJhsMj+uiMv4JBM1hiLXepbxESOsKKCczAcWVU75lj96pUPqGZF7Is5
+	a01zoEMM754/gRndjjgYz3F6PnNhQbhUu1rembnkmkhp2aFWDz41+PolUUS3aT4Asbm7T5nX2SzTJ
+	k/pkZV5P/yiTqZ5YptAqicPYajunAt3D9aKWErLey/rEmBHU3ICAHNmI4Gh+Q8EPwIJV+oUiktkiR
+	HLojtt8N9oM/4wGq9blPpzKvup8w5ifhjwyT3sen9nALH1ORFPpIfZ8oo3uvzibruj0DuRoJ//RAD
+	+gXnGWlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQgPc-0000000FDJ9-21hE;
-	Thu, 26 Dec 2024 05:27:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tQgQn-0000000FDc6-2QMj;
+	Thu, 26 Dec 2024 05:29:09 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQgOO-0000000FD1I-194S
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 05:26:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E4288A408A8;
-	Thu, 26 Dec 2024 05:24:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DAFBC4CED3;
-	Thu, 26 Dec 2024 05:26:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735190798;
-	bh=5nciksXbY6I+wpamqPIm9wIAZ1D2dLP0lJ5ZcWwMWZM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lY8CYCQUVY0lOEuhBHwrYr2HD43OfHPiulIlQJI4Mo+ikX2vSRxeTUjZSBNFbrs85
-	 poI6d1c7eEoVaVBeTEsqM2ummgohUxQj2oZYl9/AvcMfkG+T4U7IoNtpWIwfwqT+zC
-	 V7skJPPJnXKKhFD1bn1dm22LYU7FrZ+mqK4F5nVLPNq3zweCD8fLjXG4pBIZMPuGwq
-	 wBAWJeB+HXtJK8uJckKcfs8CDhMDKxYGtBGYafdNskkox6KD+J0RK31Q7iz8AjMaTA
-	 Vi5fa97n/jItdFoVtHBaACzJqOQ8w6kH81PjWkMMZF9GIH/ksLy+62PXwJuf0g92Kp
-	 omMdnOJowqQ/w==
-Date: Wed, 25 Dec 2024 23:26:35 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: sm8450: Add coresight nodes
-Message-ID: <5nrjgp4drxgrqqu5e4yfnvnnnr34ffj4ielytmw2bvr5ewy7qe@bquvoxvxqmxg>
-References: <20240927095413.15278-1-quic_jinlmao@quicinc.com>
- <20240927095413.15278-3-quic_jinlmao@quicinc.com>
+	id 1tQgOV-0000000FD2e-1cda;
+	Thu, 26 Dec 2024 05:26:48 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5d27243ba8bso11969207a12.2;
+        Wed, 25 Dec 2024 21:26:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735190805; x=1735795605; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=T+JDr1LaRapYlu+PHe/GJEFAnj4I7CbUPpdQPHNvTfI=;
+        b=EouxycGVfXGlDLkV/FB+rKHvXE50Pe3d1KOH9jE1zEsB70AauQungEsRPuaC/8pBha
+         +UVS64+XDa6IcsGj/fyxcIO7ndeyHRfscRvkVscDRn9HwElze+lMmv1Q4Tlqiu+xwNJV
+         Jw80LDruAf27w0X+2ITMWLVMeWcAOGFy4iUYQZmWRFJNFIz4VnqESABJBh6KJUVsd/ah
+         +ZS1+lpuKAjPfhjcsxZNSql2mOSoUcHwMc680VHmxdqw6zGGWj9Pffl6VTtUx1r2bw/+
+         rqx22B9aIjZr2vrFnf8nG064IKnV9pKJpelLQjAvSQMxbKeOvxPb7ZnykC5CWqdHX2u1
+         AB2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735190805; x=1735795605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T+JDr1LaRapYlu+PHe/GJEFAnj4I7CbUPpdQPHNvTfI=;
+        b=AtccdH6dmocxxvfiSgZ6vKCwHueXseq8xuaSQZjE58tO3RtnDl9X1aZA7tMt+xTQJJ
+         Ouuij6lYRBwI/Yf2yy/L/yOGrseNwXZ8VlVx2J+L+jYO4CeLCjofSiL3qzP5dh73yazc
+         QgPMsw3nsnkxODOgxeheVtuuDM7UDefhe2nmEiRS5g4vZkpBIcyP/K3i3aZ3Y8tmorfJ
+         5NUu1x9P9sJ2cqZvSXfIsv3eCecuSI74uivoytxXUXHUZbEqRN9W1XOS4FEsYXjeUzng
+         tRMUkX2p2xdKDb6GQN+slP2H8HpyW868MktX9NUuGcMVIzCqE1bIP1SadiGKOgkvc4lv
+         jFaA==
+X-Forwarded-Encrypted: i=1; AJvYcCVjl7TLgmYr3lKoJ1eZ61o5ibvqMNMzbl02ruJ1wa2hZkAkY5H3zGIUNFyoM6L/mxROMj+IINtAGAdPrBG3gaAy@lists.infradead.org, AJvYcCWYj/ZpkOpLTmlSujDwFsKUgesVl/x+WDQPRR/opsqpW7CnQrwvgalkgewHLXk1Mgk4A0xvTLP9RwqtIwZolGg=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjYfVkMU0/DaijJK4lsECzVZ7xMUCZZlIcnCNiBGePNNxK04ZV
+	8CmeRxDDI5PQbFyGZihUPDG7sElNkwf27E52odsRXZs5GZa8cLbyEZLbZviqkvC1f1zBH/GU7jo
+	2nT8xstukHnro9QDVUtJLBAbQcRs=
+X-Gm-Gg: ASbGncvXJzNPDwF5hOifdOOBCdSP/gtBrKJHrsB/pfPGTbEy+32idfQoZMFrWIfByO9
+	cnrsQFYY+T8MMpdvTC4R1fShWkrvjhTGKtHjrng==
+X-Google-Smtp-Source: AGHT+IHQ7vKwTP1Zh5rdZtm6sAzdXA46Hbae0qn8v1s5EYWSFykwVcX3dLIMcWjb/pilCPy7xwAqCzbLwxMhQ5SdnJA=
+X-Received: by 2002:a05:6402:5255:b0:5d4:75b:8ced with SMTP id
+ 4fb4d7f45d1cf-5d81de39845mr18362948a12.32.1735190804649; Wed, 25 Dec 2024
+ 21:26:44 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240927095413.15278-3-quic_jinlmao@quicinc.com>
+References: <20241202151150.7393-1-linux.amoon@gmail.com> <20241202151150.7393-2-linux.amoon@gmail.com>
+In-Reply-To: <20241202151150.7393-2-linux.amoon@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Thu, 26 Dec 2024 10:56:28 +0530
+Message-ID: <CANAwSgRgnwszYSH4uS-u=52f0vQuB2_SGcfNak_Xipe4=gXPOg@mail.gmail.com>
+Subject: Re: [PATCH v11 1/3] PCI: rockchip: Simplify clock handling by using
+ clk_bulk*() function
+To: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_212640_480034_5F09101B 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20241225_212647_437330_E7656CE2 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,767 +94,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 27, 2024 at 02:54:11AM -0700, Mao Jinlong wrote:
-> Add coresight components on Qualcomm SM8450 Soc. The components include
-> TMC ETF/ETR, ETE, STM, TPDM, CTI.
-> 
-> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+Hi All,
 
-Please rebase to fix the &CPUn vs &cpun issue, and please fix the
-dtbs_check errors.
-
-Thanks,
-Bjorn
-
+On Mon, 2 Dec 2024 at 20:42, Anand Moon <linux.amoon@gmail.com> wrote:
+>
+> Currently, the driver acquires clks and prepare enable/disable unprepare
+> the clks individually thereby making the driver complex to read.
+> But this can be simplified by using the clk_bulk*() APIs.
+> Use devm_clk_bulk_get_all() API to acquire all the clks and use
+> clk_bulk_prepare_enable() to prepare enable clks
+> and clk_bulk_disable_unprepare() APIs disable unprepare them in bulk.
+>
+> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 > ---
->  arch/arm64/boot/dts/qcom/sm8450.dtsi | 726 +++++++++++++++++++++++++++
->  1 file changed, 726 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
-> index 9bafb3b350ff..6d90d6045628 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
-> @@ -287,6 +287,192 @@ CLUSTER_SLEEP_1: cluster-sleep-1 {
->  		};
->  	};
->  
-> +	ete-0 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU0>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete0_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete0>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-1 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU1>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete1_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete1>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-2 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU2>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete2_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete2>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-3 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU3>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete3_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete3>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-4 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU4>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete4_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete4>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-5 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU5>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete5_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete5>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-6 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU6>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete6_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete6>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	ete-7 {
-> +		compatible = "arm,embedded-trace-extension";
-> +		cpu = <&CPU7>;
-> +
-> +		out-ports {
-> +			port {
-> +				ete7_out_funnel_ete: endpoint {
-> +					remote-endpoint = <&funnel_ete_in_ete7>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	funnel-ete {
-> +		compatible = "arm,coresight-static-funnel";
-> +
-> +		out-ports {
-> +			port {
-> +				funnel_ete_out_funnel_apss: endpoint {
-> +					remote-endpoint =
-> +						<&funnel_apss_in_funnel_ete>;
-> +				};
-> +			};
-> +		};
-> +
-> +		in-ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +				funnel_ete_in_ete0: endpoint {
-> +					remote-endpoint =
-> +						<&ete0_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +				funnel_ete_in_ete1: endpoint {
-> +					remote-endpoint =
-> +						<&ete1_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@2 {
-> +				reg = <2>;
-> +				funnel_ete_in_ete2: endpoint {
-> +					remote-endpoint =
-> +						<&ete2_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@3 {
-> +				reg = <3>;
-> +				funnel_ete_in_ete3: endpoint {
-> +					remote-endpoint =
-> +						<&ete3_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@4 {
-> +				reg = <4>;
-> +				funnel_ete_in_ete4: endpoint {
-> +					remote-endpoint =
-> +						<&ete4_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@5 {
-> +				reg = <5>;
-> +				funnel_ete_in_ete5: endpoint {
-> +					remote-endpoint =
-> +						<&ete5_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@6 {
-> +				reg = <6>;
-> +				funnel_ete_in_ete6: endpoint {
-> +					remote-endpoint =
-> +						<&ete6_out_funnel_ete>;
-> +				};
-> +			};
-> +
-> +			port@7 {
-> +				reg = <7>;
-> +				funnel_ete_in_ete7: endpoint {
-> +					remote-endpoint =
-> +						<&ete7_out_funnel_ete>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
->  	firmware {
->  		scm: scm {
->  			compatible = "qcom,scm-sm8450", "qcom,scm";
-> @@ -4141,6 +4327,546 @@ data-pins {
->  			};
->  		};
->  
-> +		stm@10002000 {
-> +			compatible = "arm,coresight-stm", "arm,primecell";
-> +			reg = <0x0 0x10002000 0x0 0x1000>,
-> +				<0x0 0x16280000 0x0 0x180000>;
-> +			reg-names = "stm-base", "stm-stimulus-base";
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			out-ports {
-> +				port {
-> +					stm_out_funnel_in0: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_in0_in_stm>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		funnel@10041000 {
-> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-> +			reg = <0x0 0x10041000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@7 {
-> +					reg = <7>;
-> +					funnel_in0_in_stm: endpoint {
-> +						remote-endpoint =
-> +							<&stm_out_funnel_in0>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					funnel_in0_out_funnel_qdss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_qdss_in_funnel_in0>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		funnel@10042000 {
-> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-> +
-> +			reg = <0x0 0x10042000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@4 {
-> +					reg = <4>;
-> +					funnel_in1_in_funnel_apss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_apss_out_funnel_in1>;
-> +					};
-> +				};
-> +
-> +				port@6 {
-> +					reg = <6>;
-> +					funnel_in1_in_funnel_dl_center: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_dl_center_out_funnel_in1>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					funnel_in1_out_funnel_qdss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_qdss_in_funnel_in1>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		funnel@10045000 {
-> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-> +			reg = <0x0 0x10045000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +					funnel_qdss_in_funnel_in0: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_in0_out_funnel_qdss>;
-> +					};
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +					funnel_qdss_in_funnel_in1: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_in1_out_funnel_qdss>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					funnel_qdss_out_funnel_aoss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_aoss_in_funnel_qdss>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		replicator@10046000 {
-> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-> +			reg = <0x0 0x10046000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					replicator_qdss_in_replicator_swao: endpoint {
-> +						remote-endpoint =
-> +							<&replicator_swao_out_replicator_qdss>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +
-> +				port {
-> +					replicator_qdss_out_replicator_etr: endpoint {
-> +						remote-endpoint =
-> +							<&replicator_etr_in_replicator_qdss>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tmc_etr: tmc@10048000 {
-> +			compatible = "arm,coresight-tmc", "arm,primecell";
-> +			reg = <0x0 0x10048000 0x0 0x1000>;
-> +
-> +			iommus = <&apps_smmu 0x0600 0>;
-> +			arm,buffer-size = <0x10000>;
-> +
-> +			arm,scatter-gather;
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					tmc_etr_in_replicator_etr: endpoint {
-> +						remote-endpoint =
-> +							<&replicator_etr_out_tmc_etr>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		replicator@1004e000 {
-> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-> +			reg = <0x0 0x1004e000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					replicator_etr_in_replicator_qdss: endpoint {
-> +						remote-endpoint =
-> +							<&replicator_qdss_out_replicator_etr>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +
-> +				port {
-> +
-> +					replicator_etr_out_tmc_etr: endpoint {
-> +						remote-endpoint =
-> +							<&tmc_etr_in_replicator_etr>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		funnel@10b04000 {
-> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-> +
-> +			reg = <0x0 0x10b04000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@6 {
-> +					reg = <6>;
-> +					funnel_aoss_in_tpda_aoss: endpoint {
-> +						remote-endpoint =
-> +							<&tpda_aoss_out_funnel_aoss>;
-> +					};
-> +				};
-> +
-> +				port@7 {
-> +					reg = <7>;
-> +					funnel_aoss_in_funnel_qdss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_qdss_out_funnel_aoss>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					funnel_aoss_out_tmc_etf: endpoint {
-> +						remote-endpoint =
-> +							<&tmc_etf_in_funnel_aoss>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tmc@10b05000 {
-> +			compatible = "arm,coresight-tmc", "arm,primecell";
-> +			reg = <0x0 0x10b05000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					tmc_etf_in_funnel_aoss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_aoss_out_tmc_etf>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					tmc_etf_out_replicator_swao: endpoint {
-> +						remote-endpoint =
-> +							<&replicator_swao_in_tmc_etf>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		replicator@10b06000 {
-> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-> +			reg = <0x0 0x10b06000 0x0 0x1000>;
-> +
-> +			qcom,replicator-loses-context;
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +				port {
-> +					replicator_swao_in_tmc_etf: endpoint {
-> +						remote-endpoint =
-> +							<&tmc_etf_out_replicator_swao>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +
-> +				port {
-> +					replicator_swao_out_replicator_qdss: endpoint {
-> +						remote-endpoint =
-> +							<&replicator_qdss_in_replicator_swao>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tpda@10b08000 {
-> +			compatible = "qcom,coresight-tpda", "arm,primecell";
-> +
-> +			reg = <0x0 0x10b08000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +					tpda_aoss_in_tpdm_swao_prio_0: endpoint {
-> +						remote-endpoint =
-> +							<&tpdm_swao_prio_0_out_tpda_aoss>;
-> +					};
-> +				};
-> +
-> +				port@4 {
-> +					reg = <4>;
-> +					tpda_aoss_in_tpdm_swao: endpoint {
-> +						remote-endpoint =
-> +							<&tpdm_swao_out_tpda_aoss>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +
-> +				port {
-> +					tpda_aoss_out_funnel_aoss: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_aoss_in_tpda_aoss>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tpdm@10b09000 {
-> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
-> +			reg = <0x0 0x10b09000 0x0 0x1000>;
-> +
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			out-ports {
-> +				port {
-> +					tpdm_swao_prio_0_out_tpda_aoss: endpoint {
-> +						remote-endpoint =
-> +							<&tpda_aoss_in_tpdm_swao_prio_0>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tpdm@10b0d000 {
-> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
-> +			reg = <0x0 0x10b0d000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			out-ports {
-> +				port {
-> +					tpdm_swao_out_tpda_aoss: endpoint {
-> +						remote-endpoint =
-> +							<&tpda_aoss_in_tpdm_swao>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tpdm@10c28000 {
-> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
-> +			reg = <0x0 0x10c28000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			out-ports {
-> +				port {
-> +					tpdm_dlct_out_tpda_dl_center_26: endpoint {
-> +						remote-endpoint =
-> +							<&tpda_dl_center_26_in_tpdm_dlct>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		tpdm@10c29000 {
-> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
-> +			reg = <0x0 0x10c29000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			out-ports {
-> +				port {
-> +					tpdm_ipcc_out_tpda_dl_center_27: endpoint {
-> +						remote-endpoint =
-> +							<&tpda_dl_center_27_in_tpdm_ipcc>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		cti@10c2a000 {
-> +			compatible = "arm,coresight-cti", "arm,primecell";
-> +			reg = <0x0 0x10c2a000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-> +		cti@10c2b000 {
-> +			compatible = "arm,coresight-cti", "arm,primecell";
-> +			reg = <0x0 0x10c2b000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-> +		tpda@10c2e000 {
-> +			compatible = "qcom,coresight-tpda", "arm,primecell";
-> +			reg = <0x0 0x10c2e000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@1a {
-> +					reg = <26>;
-> +					tpda_dl_center_26_in_tpdm_dlct: endpoint {
-> +						remote-endpoint =
-> +							<&tpdm_dlct_out_tpda_dl_center_26>;
-> +					};
-> +				};
-> +
-> +				port@1b {
-> +					reg = <27>;
-> +					tpda_dl_center_27_in_tpdm_ipcc: endpoint {
-> +						remote-endpoint =
-> +							<&tpdm_ipcc_out_tpda_dl_center_27>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +
-> +				port {
-> +					tpda_dl_center_out_funnel_dl_center: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_dl_center_in_tpda_dl_center>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		funnel@10c2f000 {
-> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-> +			reg = <0x0 0x10c2f000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +
-> +				port {
-> +					funnel_dl_center_in_tpda_dl_center: endpoint {
-> +						remote-endpoint =
-> +							<&tpda_dl_center_out_funnel_dl_center>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					funnel_dl_center_out_funnel_in1: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_in1_in_funnel_dl_center>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		funnel@13810000 {
-> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
-> +
-> +			reg = <0x0 0x13810000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +
-> +			in-ports {
-> +
-> +				port {
-> +					funnel_apss_in_funnel_ete: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_ete_out_funnel_apss>;
-> +					};
-> +				};
-> +			};
-> +
-> +			out-ports {
-> +				port {
-> +					funnel_apss_out_funnel_in1: endpoint {
-> +						remote-endpoint =
-> +							<&funnel_in1_in_funnel_apss>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		cti@138e0000 {
-> +			compatible = "arm,coresight-cti", "arm,primecell";
-> +			reg = <0x0 0x138e0000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-> +		cti@138f0000 {
-> +			compatible = "arm,coresight-cti", "arm,primecell";
-> +			reg = <0x0 0x138f0000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
-> +		cti@13900000 {
-> +			compatible = "arm,coresight-cti", "arm,primecell";
-> +			reg = <0x0 0x13900000 0x0 0x1000>;
-> +
-> +			clocks = <&aoss_qmp>;
-> +			clock-names = "apb_pclk";
-> +		};
-> +
->  		sram@146aa000 {
->  			compatible = "qcom,sm8450-imem", "syscon", "simple-mfd";
->  			reg = <0 0x146aa000 0 0x1000>;
-> -- 
-> 2.46.0
-> 
+
+Gentle ping ?
+
+Thanks
+-Anand
+
+> V11: None
+> V10: None
+> v9: Re write the commmit message.
+> v8: Improve the description of the code changes in commit messagee.
+>     Add Rb: Manivannan
+> v7: Update the functional change in commmit message.
+> v6: None.
+> v5: switch to use use devm_clk_bulk_get_all()? gets rid of hardcoding the
+>        clock names in driver.
+> v4: use dev_err_probe for error patch.
+> v3: Fix typo in commit message, dropped reported by.
+> v2: Fix compilation error reported by Intel test robot.
+> ---
+>  drivers/pci/controller/pcie-rockchip.c | 65 +++-----------------------
+>  drivers/pci/controller/pcie-rockchip.h |  7 ++-
+>  2 files changed, 10 insertions(+), 62 deletions(-)
+>
+> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
+> index b9ade7632e11..53aaba03aca6 100644
+> --- a/drivers/pci/controller/pcie-rockchip.c
+> +++ b/drivers/pci/controller/pcie-rockchip.c
+> @@ -129,29 +129,9 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
+>                 return dev_err_probe(dev, PTR_ERR(rockchip->perst_gpio),
+>                                      "failed to get PERST# GPIO\n");
+>
+> -       rockchip->aclk_pcie = devm_clk_get(dev, "aclk");
+> -       if (IS_ERR(rockchip->aclk_pcie)) {
+> -               dev_err(dev, "aclk clock not found\n");
+> -               return PTR_ERR(rockchip->aclk_pcie);
+> -       }
+> -
+> -       rockchip->aclk_perf_pcie = devm_clk_get(dev, "aclk-perf");
+> -       if (IS_ERR(rockchip->aclk_perf_pcie)) {
+> -               dev_err(dev, "aclk_perf clock not found\n");
+> -               return PTR_ERR(rockchip->aclk_perf_pcie);
+> -       }
+> -
+> -       rockchip->hclk_pcie = devm_clk_get(dev, "hclk");
+> -       if (IS_ERR(rockchip->hclk_pcie)) {
+> -               dev_err(dev, "hclk clock not found\n");
+> -               return PTR_ERR(rockchip->hclk_pcie);
+> -       }
+> -
+> -       rockchip->clk_pcie_pm = devm_clk_get(dev, "pm");
+> -       if (IS_ERR(rockchip->clk_pcie_pm)) {
+> -               dev_err(dev, "pm clock not found\n");
+> -               return PTR_ERR(rockchip->clk_pcie_pm);
+> -       }
+> +       rockchip->num_clks = devm_clk_bulk_get_all(dev, &rockchip->clks);
+> +       if (rockchip->num_clks < 0)
+> +               return dev_err_probe(dev, err, "failed to get clocks\n");
+>
+>         return 0;
+>  }
+> @@ -375,39 +355,11 @@ int rockchip_pcie_enable_clocks(struct rockchip_pcie *rockchip)
+>         struct device *dev = rockchip->dev;
+>         int err;
+>
+> -       err = clk_prepare_enable(rockchip->aclk_pcie);
+> -       if (err) {
+> -               dev_err(dev, "unable to enable aclk_pcie clock\n");
+> -               return err;
+> -       }
+> -
+> -       err = clk_prepare_enable(rockchip->aclk_perf_pcie);
+> -       if (err) {
+> -               dev_err(dev, "unable to enable aclk_perf_pcie clock\n");
+> -               goto err_aclk_perf_pcie;
+> -       }
+> -
+> -       err = clk_prepare_enable(rockchip->hclk_pcie);
+> -       if (err) {
+> -               dev_err(dev, "unable to enable hclk_pcie clock\n");
+> -               goto err_hclk_pcie;
+> -       }
+> -
+> -       err = clk_prepare_enable(rockchip->clk_pcie_pm);
+> -       if (err) {
+> -               dev_err(dev, "unable to enable clk_pcie_pm clock\n");
+> -               goto err_clk_pcie_pm;
+> -       }
+> +       err = clk_bulk_prepare_enable(rockchip->num_clks, rockchip->clks);
+> +       if (err)
+> +               return dev_err_probe(dev, err, "failed to enable clocks\n");
+>
+>         return 0;
+> -
+> -err_clk_pcie_pm:
+> -       clk_disable_unprepare(rockchip->hclk_pcie);
+> -err_hclk_pcie:
+> -       clk_disable_unprepare(rockchip->aclk_perf_pcie);
+> -err_aclk_perf_pcie:
+> -       clk_disable_unprepare(rockchip->aclk_pcie);
+> -       return err;
+>  }
+>  EXPORT_SYMBOL_GPL(rockchip_pcie_enable_clocks);
+>
+> @@ -415,10 +367,7 @@ void rockchip_pcie_disable_clocks(void *data)
+>  {
+>         struct rockchip_pcie *rockchip = data;
+>
+> -       clk_disable_unprepare(rockchip->clk_pcie_pm);
+> -       clk_disable_unprepare(rockchip->hclk_pcie);
+> -       clk_disable_unprepare(rockchip->aclk_perf_pcie);
+> -       clk_disable_unprepare(rockchip->aclk_pcie);
+> +       clk_bulk_disable_unprepare(rockchip->num_clks, rockchip->clks);
+>  }
+>  EXPORT_SYMBOL_GPL(rockchip_pcie_disable_clocks);
+>
+> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
+> index a51b087ce878..f79c0a1cbbd0 100644
+> --- a/drivers/pci/controller/pcie-rockchip.h
+> +++ b/drivers/pci/controller/pcie-rockchip.h
+> @@ -11,6 +11,7 @@
+>  #ifndef _PCIE_ROCKCHIP_H
+>  #define _PCIE_ROCKCHIP_H
+>
+> +#include <linux/clk.h>
+>  #include <linux/kernel.h>
+>  #include <linux/pci.h>
+>  #include <linux/pci-ecam.h>
+> @@ -321,10 +322,8 @@ struct rockchip_pcie {
+>         struct  reset_control *pm_rst;
+>         struct  reset_control *aclk_rst;
+>         struct  reset_control *pclk_rst;
+> -       struct  clk *aclk_pcie;
+> -       struct  clk *aclk_perf_pcie;
+> -       struct  clk *hclk_pcie;
+> -       struct  clk *clk_pcie_pm;
+> +       struct  clk_bulk_data *clks;
+> +       int     num_clks;
+>         struct  regulator *vpcie12v; /* 12V power supply */
+>         struct  regulator *vpcie3v3; /* 3.3V power supply */
+>         struct  regulator *vpcie1v8; /* 1.8V power supply */
+> --
+> 2.47.0
+>
 
