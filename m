@@ -4,204 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D41E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 05:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D53E7718D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 05:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzUCr+voHfUR8IcKJLmGL/8fIBubrORbtDbTAz+rkHA=; b=q1Ls9XiieotEgDuGxql5tmdRb4
-	bxC1XcytxBwaVa+VNUf3PW9zczuILk4EybJsEJhZbeK0LouivBLaOxjuUSVy7+mwSHP3v5nI/tv6d
-	rBafrIRdRFFAxpiCqRF6H6iHkz+2rvWqz3B7aAGuv0L3MZ07X0qc6CYfmcBGi6JyU1ROYfVoK4aKo
-	wQS3Jk5ecbB2Gbg9ddzV6JuSz+8q0d35Rp7ZzF8st6ZAUxRN0MKRgFP7geCmMvsmC7UZk1eW82QTQ
-	RLm2i5xT3r2Fd+MNoQzLiamf05GMsJUDRyEOfqzPgJ5qN16o2icr524hW4uTb8QI4r8BPw7nMjQVh
-	gDGin+Cg==;
+	bh=mpMfEto5+3te+gCSBz9qfHR+p3pGWYBXl/OboLJwT58=; b=zUWTgHSQK+4Av+TaMDOxLZJng5
+	j0s975fQ2nvyo7pwl1ZrJbwT8FhZxIRVH/HfsXp8gTwT3GcSkT4+OEev6/bVJ60372+fe4KzLB40C
+	EB8blprRHfPqhF66fW0hPjnD63QJTR7/0kmvesP1hmFpVGVgSQNpu84tP47E1N7rrxFsfRAT1gFOM
+	qNieNen6PwrJKaEracsSW7KOGf8lkKXa6Mb78sLy0G60PtPFuvPelWgzC7XoD+slqmfv+FrrTfHLg
+	oIjlIOY3Mas1A+fIulNB2W0uPjaEw6E6wnyKxqLnTwc3UtKc8ozRis1AybjFUhbmird8KRnpbWCk+
+	Namd1ZnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQgKE-0000000FC5y-1hqO;
-	Thu, 26 Dec 2024 05:22:22 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tQgPc-0000000FDJ9-21hE;
+	Thu, 26 Dec 2024 05:27:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQgIs-0000000FBf2-03tV;
-	Thu, 26 Dec 2024 05:20:59 +0000
-X-UUID: 2e4d75a2c34911ef9048ed6ed365623b-20241225
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=ZzUCr+voHfUR8IcKJLmGL/8fIBubrORbtDbTAz+rkHA=;
-	b=WmGvXAqcmkj+PnzUHTLhkDL9qeX3W+T0ezdHPW0SSMeCm6Hj5jigs1i50byJr7UL005DJk8mAB6R/n2QB+1cw6nKoALefZgvFodR0cvDtjNz2UsGHzRqcmcNY4GHxBEd/pSoU+y6rNo9ud3rcuTToXY0nMDZql+uvZ6tBiVX/wI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:8b8785e5-9e45-485e-80bb-9686b196489b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:03c6e936-e11c-4c1a-89f7-e7a032832c40,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 2e4d75a2c34911ef9048ed6ed365623b-20241225
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1645617796; Wed, 25 Dec 2024 22:20:54 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 26 Dec 2024 13:20:52 +0800
-Received: from HK2PR02CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 26 Dec 2024 13:20:52 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rjIIbrJp8L4C3mls+OBSsKz47k1D9wgm1L3Wuu9sTtapaFon+lI/j87BKsrKYCWsXG+d7abLrZGJa/3B3jzSSg5hlxLUS2MVudgS3N00eFl4Hf+vHzHvLRPSXP8m71G/5U43h/4LuxediNVyhrkWL8JnqHjwlP0P2d4gil5OUalvSaor2gCjIdprse4EP6/COQc/2sGojt1AjYdl8MuoTIjmc4ozNajED0Cr5bOVeBrmKmO4j6T2UOSGoCEqCGWGA96JRJCEWKT81yWny/5P7ejvJaJR5vEf/zojA0Lu/tWvnyG1p0riIpGX3ojfPR06F6WWq/Ivt8V+MUnVokadlw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZzUCr+voHfUR8IcKJLmGL/8fIBubrORbtDbTAz+rkHA=;
- b=CMZ4vHMYmuT8lUf5H5du5vB6+xTBwikTTW1JAOe0lH0V0Qb6WhdvPxIPWC3/Umy/bcd9lNC0HdRk1IBPvYeG3A8m4c49NN6VwpzXNttNjQwpAdyWbelVDotDyoEAZVE6ccT7q0QscCDXQT8iybP9Sl8y6r0QQjBH8nci4IqvJ/oDuJ6df2o2Yn5a+DAo86bE0g40plSZUd57JvVvqypYtw4uRDPkrkLOoljfMQPhI1M6qVoqI8ekGsefpfUphTg+eMQ21Srd6tQbpSXhUDlEVA1J/lx7Oig5SP6ByWmCiW72pJircN9+NEGoi7ZFop6uUOxpJx0ELwPKMzFk3fvRFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZzUCr+voHfUR8IcKJLmGL/8fIBubrORbtDbTAz+rkHA=;
- b=qX/Bh7TsGyhSVZ4DY9GJOGOzBF7hyvbCNAspN8SB4bNynhdWgi9ueA5U1oC36N2Fr2W+MiwR3eZ0sAXd/qK8y4TpxWwo67jdveG3d1Hjma11uLG7ZzB991ERkK5CuKYxpkCKtOwGh7zDSxlgj32O45tRg4BJhe20IbKSoo5r8Fc=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by PUZPR03MB6853.apcprd03.prod.outlook.com (2603:1096:301:da::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.15; Thu, 26 Dec
- 2024 05:20:50 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8251.015; Thu, 26 Dec 2024
- 05:20:49 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	=?utf-8?B?Qm8gS29uZyAo5a2U5rOiKQ==?= <Bo.Kong@mediatek.com>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>
-Subject: Re: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
-Thread-Topic: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
-Thread-Index: AQHbVqv2E/LiiDV3F0q0O1OD05OMm7L3/n8A
-Date: Thu, 26 Dec 2024 05:20:49 +0000
-Message-ID: <6e0f28d07ab4c800db983c58ebc0f002061643cf.camel@mediatek.com>
-References: <20241225090113.17027-1-bo.kong@mediatek.com>
-	 <20241225090113.17027-4-bo.kong@mediatek.com>
-In-Reply-To: <20241225090113.17027-4-bo.kong@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|PUZPR03MB6853:EE_
-x-ms-office365-filtering-correlation-id: d7981b16-43ca-40f5-6518-08dd256d0f32
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?SWRqdTArcmhNOWkzSW1XRWxNZTN6VWR4UXBFZm1LZ3Q0bnR0U3JrUHJNWEY1?=
- =?utf-8?B?UDd1Y0FVTFl3VnFsL0pkekIyOHNIT0FabVhubVdrL2czdGh4eWwzWmZEajUr?=
- =?utf-8?B?WVQ5VWw5VStaVk5jekdCdGp6RC81cDRmajVEVFUvQzVDVEo0bGVSODQyMjc3?=
- =?utf-8?B?UDkvZEFobTZ5djFTdDZMdWNmZno2UnJjYjYzVXIzcmpKSnQyNWlzSXpYTTJk?=
- =?utf-8?B?d0FkOGM5NVhvYUhOMHVkdjJZZ0VJMXRhUDBNQUpZWXNBbUgyR3hkeldJMlBa?=
- =?utf-8?B?cFlFZm5MUlhlQ3BxTUlkcHBxQWVmcWtoVXlFVURieWxNMEZjL24ycEpKNk1K?=
- =?utf-8?B?VnVCbkQ0OGxrWThmRU1rMmttcnIxVURtKzNEclAva2tCT210Qk9hRjd2Yjg1?=
- =?utf-8?B?S3RPRndaSzJRWGh6V1UvcklmWko0cUFhYUpNTkdJVk1kY0piL1NPVGw2OHRs?=
- =?utf-8?B?VjJ2NXM3U0E1Y3R0bDlDYitBWTB1UjdqU2dNd0dRS2duZVpjcHd2dTJnNkZs?=
- =?utf-8?B?YmdacWFWTXM5L0tBb3ljd1hWckxFdk5RK0kxR1FKc3YxeUxKUkVNYjFYTkM2?=
- =?utf-8?B?dW1YM2xsZGRRbE1iRWNyMk5CanRhVDlXWndZVTZWS2JwL1gvUEQwbzR1RGl4?=
- =?utf-8?B?SE5yNjhsY2tVUXJTakdxZ0xISnFQM2FMaCt3dXVqOWhqdzlYUGVQUmlSN0VP?=
- =?utf-8?B?bHhXTkdSUEFNLzBIdms2dHpzWldlWTVqN0p1SVBoTWp5OEEwZmFhTlJZcFAx?=
- =?utf-8?B?dHJaNERGUkdsaEY4dnJQRW1LQ2JtUmlPaVE0bDA1WHRDSFh4MkdUTzdlTEZ0?=
- =?utf-8?B?bHdhUUpKRjRVMUUydVRsN3lHMUJtWWptS0tXWnFsa2xyRGtjakZmTFpNYWFL?=
- =?utf-8?B?OWllR1lrTUVwaDIrM1gyaGlVVXRTa1VtMTQ5YUt5S0pvQUFMUmRjYjh6TnM2?=
- =?utf-8?B?QXRVV0szOG5icnU3UTVkckc1M21ZT2FoSU1wa0tVRklQYXRzK3ZZUXAyNCtJ?=
- =?utf-8?B?UFVhaFh4UExjdjg1dzVlM3J6djZkU2ZLcmRXZnF5NTl1eWtsYzJianF3NHdv?=
- =?utf-8?B?UzZ5cHJaWExqbGhqWlF6V01FWWJnTlpnTTBkQzZ2R1BpeTlNWFcrUmlPVlc3?=
- =?utf-8?B?K29IeE9OcHFRaUQxM3JLM1ZGR2NNQ2F2TDJpdU9iRHVkdmMrV0U0eUxWU2FU?=
- =?utf-8?B?SzM0Z3NXckdzUlRoQmQxMWFIaXpJRWphelk3UnZqeWFpWVNlMGxYdVRZRVJU?=
- =?utf-8?B?c08rMEs4ODYxbVhmSmd5cnFqV0pIYzE3NlVKL21zay9UaTZTQjRwWmJDVGx4?=
- =?utf-8?B?dUVNOXBhYjB2YXNsRjV4K05MRmFqRmxlSDZRWjhaOFVON0hHSWN5bWtRL2RF?=
- =?utf-8?B?ZytjWW5LMHY3MlFJWWlNQllxT3prZThrL0VzMDlGL1YwRkVTbm1ZT1ZzYTNz?=
- =?utf-8?B?SnFRSW5MaXZJN3JrWUFmYlRmUDVZUm9WOURWU1RlUlJiRDFqNExsTlgrd3VM?=
- =?utf-8?B?VG8zRTBaOGd4c0Jaa05zVHA4aFluSGQ5UkExelN5ZkZ2Y1FpTTU2RXlsUlNH?=
- =?utf-8?B?UEpROU9PRWtrQTFaL2tEMzJJUWh5WWV3M0hvOUFwVlNVQ0xOS2JDMXN0Wisv?=
- =?utf-8?B?bDRXMWRaczJnR3JwbDBsMFV0K3k3alZQV0RzMnhYK1FnZVlZeDNYOXlMS3cz?=
- =?utf-8?B?SVJmdTBWNXNpTUlYUFg0QUUxOTYvSE8yeGpGLzZodDZqM1hFeHhTWm9EdEIr?=
- =?utf-8?B?TTBjdnlWQXplZ1UvZTZQRGhmbExHTjlFNFZFUTBWQUNxQVFlRGplQ1FjTElB?=
- =?utf-8?B?NjBrRjFRUGhmS0FyS3hXZnN4UW1ORVliQ0JmUng1T3ErU0FoTkN4TEJUWHEw?=
- =?utf-8?B?a0xuR1NUL0dQSFdaSVRWZFdpdTFCTTVaR1VGdEVqNnpwcnhxVStNME9EY1Bu?=
- =?utf-8?Q?fW+HcdCzsh8x2E+JJiHQDTOjj7MREiSH?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VmFGMzEvOXhOM1Q0U0FmRXIzNVNGYnpNSTQwdnBkNzIyZDNKUjR5emJ4UThm?=
- =?utf-8?B?S3BDRmRDbzZldXNHdUdmdE1hdkxMMDlITDhVVEYxSWIyN05oK1dma2hqZ08w?=
- =?utf-8?B?NnFCcHJWRUlMQ3JQWCtHYVVuU2huUE94TlM3bWF5aGQwcjlUTUVuWTlxVnZC?=
- =?utf-8?B?VmlEcStBVm9vdUlEWFl3bnUyd0JRTlpiclRGeVBWTHd6SzNNc01iOXRtb3Q0?=
- =?utf-8?B?V1N5ZUNUd1YrcEpJWnJDQVBCN3Y2MXpiZ3hOSHRERU13S1B5SC9KaGo1T1FP?=
- =?utf-8?B?U3FPemNMMnhTdTZTSmdUWnlodXNDTnV0aC9welpzK25sOTgwRDE1c3IxMUZr?=
- =?utf-8?B?ZmZyMzk0Q3piczJ3ZFcya1pBM24wNW1SVnpSaWtkaEhxQ0p5UUF1cnpXeENa?=
- =?utf-8?B?RzVVSGs4eGhIYTZsa2Q5bFFDeE1zY3lxbldrSTZQZm5tSnk0dlYvUWhLWlVz?=
- =?utf-8?B?NVZGZDgwWGpXNHh3NVIzUFdHNWwrMUdtZk1SS1M3QVpXNER6aHJlaHp1UUh3?=
- =?utf-8?B?Q3hVcDdlZ3BuenpIQ25Oc3BOZDliMzRnMy9zYnpKQWJycGdacUdKQWVubm5m?=
- =?utf-8?B?bnZsOWF0dkdoZ2o2SVBha3hLV1loUTd2cGFTOXNlaU9RRXZNbGhqMHVia3U3?=
- =?utf-8?B?YjdTZEVEOVpzUS9acWdWTWYxTnplTytRbVptUFZYUXMwTXBNdFN2Z2FsR1FF?=
- =?utf-8?B?VDY0SmpENHpWRGdqTmoxSCt0WmN0NXlrZXJzc2dDS0J2MWM5SGduNGMvZG04?=
- =?utf-8?B?b0pkUDRhbW5KaSthc2dCQS9QYUEvdkZic0FLQXZ0dnBCdmZMYk5WM2RJcnZF?=
- =?utf-8?B?ZmdlWVFPTXc5WHZzWnMrNWJZcEJITGRWK3pFeUtGOVFzUFJxcUtEY2U0RGpP?=
- =?utf-8?B?SE1VME1vbGdvRGxVSjRoNlgvcEs0OGw2RlIvMnZZZGpGWnRiNUxIb3JrYm9T?=
- =?utf-8?B?YzVKU25BcE9URkZ2YXE5aVFkdDk0ekRaNUh5WDl2UGVzRlM0VkYzVS9od3lE?=
- =?utf-8?B?OXNvUWYwWjBod0VmTWYzMDZVZHlQL1dpZ09WMDhFT05mUVN4V1M0VEdZTXBC?=
- =?utf-8?B?T0YzNFdyZUJaM0YwNGZNbEkva0djQ2FPUTlFd3lyc2cvOUZXcmNlYlhwSG0z?=
- =?utf-8?B?TWluQlZSR2JGeHpvbUVBeXY0encwRHlVUjlsRHd4UG15cnZySG52VVh1cU11?=
- =?utf-8?B?MGpReTVKYVlkTTExaDhFOE4yNkM4a3JZek9IU2UxYzlFN2o1c28yTG1DeUpY?=
- =?utf-8?B?V0NteVZTaW0vL01NaTJzQ0tUckF1YTBkR2dHY1JzQUFLRHdDK3JZM2tEMHZr?=
- =?utf-8?B?QWp6NThDZ0pKOHVIM3BQMHhrU0haWFhLMU4rOWg2cCt1RzRPbDZwMDZESjlw?=
- =?utf-8?B?NjQvNXA4bXRtWW8wTzJjMHFOZGVGNm5Gc3gvMm55cUYvNEUvN0RmVVRtdytL?=
- =?utf-8?B?ZUdhNlVxTHVHTEQ0aG16WDMxWDZkZXlBbERQRHRFUDNlcEZna3YvZ05lSFN6?=
- =?utf-8?B?SHlPZG5laDFuTUNIZFhMa1FBMUtKK1lQbWhIVStGN0kraTVMV3p0UnRkSHN3?=
- =?utf-8?B?R2MwZzFaU092MXJLdFpsM2RWOHlKQzRLVXNCYXFCV1VEbkFpUGxLYzdiNitV?=
- =?utf-8?B?YWFyUmd0cUdXbnFJTlJqd0U4eWQ3RWNRTTlxZHRPYVFNc0NycTV1bnpTV2w3?=
- =?utf-8?B?VnFNVjVlUTRGYXFrM3pUVXNtQ1U3bVdCbFpzTkl6WWlpSXd6d1pvOUhlNnFC?=
- =?utf-8?B?WFcrcHg0NXpoYVlPS0tFY1JnVlpML2NqRmsrRXVrZ2dSbUUxUHl0OEx0dnJN?=
- =?utf-8?B?TGJCWW4zSkFLMDdyTTlHRmR1SWxNSWg1a2tlYTE0bGRwYWFCWDRNeUFtQ1oy?=
- =?utf-8?B?TTRXVEY2Z3FkV0VRbWVTWlpOdXh6OTNYSVRXWmMyYndrZ0kyT0Y3Vmo2RW43?=
- =?utf-8?B?eG9YQS9Kb1pYYTJBb3FaSzJ2WkVjd2theHpjSUM3Y25ramZuOTZROW85OUY2?=
- =?utf-8?B?YmNEQ0pSb3gwNHNEN2NJL3Y5SGZFcTAvS2tCRUdRN3hSSTVHSUxwTEFHWkRM?=
- =?utf-8?B?d0Y1SURxRUdWQ2tGTDkwNnFsTTI3ZWRvUlR2ZW5UUFVpanhMaDl0dW9ZbjZE?=
- =?utf-8?Q?KN1qtnBK5LA4ISj0c3ElwXeO7?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <3EC03D054F1B584BAA69A247BEFB995B@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1tQgOO-0000000FD1I-194S
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Dec 2024 05:26:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E4288A408A8;
+	Thu, 26 Dec 2024 05:24:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DAFBC4CED3;
+	Thu, 26 Dec 2024 05:26:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735190798;
+	bh=5nciksXbY6I+wpamqPIm9wIAZ1D2dLP0lJ5ZcWwMWZM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lY8CYCQUVY0lOEuhBHwrYr2HD43OfHPiulIlQJI4Mo+ikX2vSRxeTUjZSBNFbrs85
+	 poI6d1c7eEoVaVBeTEsqM2ummgohUxQj2oZYl9/AvcMfkG+T4U7IoNtpWIwfwqT+zC
+	 V7skJPPJnXKKhFD1bn1dm22LYU7FrZ+mqK4F5nVLPNq3zweCD8fLjXG4pBIZMPuGwq
+	 wBAWJeB+HXtJK8uJckKcfs8CDhMDKxYGtBGYafdNskkox6KD+J0RK31Q7iz8AjMaTA
+	 Vi5fa97n/jItdFoVtHBaACzJqOQ8w6kH81PjWkMMZF9GIH/ksLy+62PXwJuf0g92Kp
+	 omMdnOJowqQ/w==
+Date: Wed, 25 Dec 2024 23:26:35 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] arm64: dts: qcom: sm8450: Add coresight nodes
+Message-ID: <5nrjgp4drxgrqqu5e4yfnvnnnr34ffj4ielytmw2bvr5ewy7qe@bquvoxvxqmxg>
+References: <20240927095413.15278-1-quic_jinlmao@quicinc.com>
+ <20240927095413.15278-3-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d7981b16-43ca-40f5-6518-08dd256d0f32
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Dec 2024 05:20:49.2905
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Cg2LfHfdMapG+ntdk/96GPOu/CsnL1FmbBoHfBvlqQ9oHug1irmYUqaaxpJMCAkaVe/oNrbpa28CoM991nnlCA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB6853
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20240927095413.15278-3-quic_jinlmao@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_212058_084402_C4EFBE43 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20241225_212640_480034_5F09101B 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,42 +76,767 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI0LTEyLTI1IGF0IDE3OjAwICswODAwLCBiby5rb25nIHdyb3RlOg0KPiBGcm9t
-OiBCbyBLb25nIDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEFkZCBhIFY0TDIgc3ViLWRl
-dmljZSBkcml2ZXIgZm9yIE1UODE4OCBBSUUuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBCbyBLb25n
-IDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gLS0tDQoNCltzbmlwXQ0KDQo+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2FpZS9LY29uZmlnIGIvZHJpdmVycy9t
-ZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9haWUvS2NvbmZpZw0KPiBuZXcgZmlsZSBtb2RlIDEwMDY0
-NA0KPiBpbmRleCAwMDAwMDAwMDAwMDAuLmI3OTI1Y2Q2OTMwOQ0KPiAtLS0gL2Rldi9udWxsDQo+
-ICsrKyBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvYWllL0tjb25maWcNCj4gQEAg
-LTAsMCArMSw0MSBAQA0KPiArY29uZmlnIFZJREVPX01US19BSUUNCj4gKwl0cmlzdGF0ZSAiTWVk
-aWFUZWsgQUkgZW5naW5lIGZ1bmN0aW9uIg0KPiArCWRlcGVuZHMgb24gT0YNCj4gKwlzZWxlY3Qg
-VjRMMl9NRU0yTUVNX0RFVg0KPiArCXNlbGVjdCBWSURFT0JVRjJfRE1BX0NPTlRJRw0KPiArCXNl
-bGVjdCBNRURJQV9DT05UUk9MTEVSX1JFUVVFU1RfQVBJDQo+ICsJaGVscA0KPiArCSAgU3VwcG9y
-dCB0aGUgQUkgZW5naW5lIChBSUUpIGZlYXR1cmUNCj4gKw0KPiArCSAgQUlFIGRyaXZlciBpcyBh
-IFY0TDIgbWVtb3J5LXRvLW1lbW9yeSBkZXZpY2UgZHJpdmVyIHdoaWNoDQo+ICsJICBwcm92aWRl
-cyBoYXJkd2FyZSBhY2NlbGVyYXRlZCBmYWNlIGRldGVjdGlvbiBmdW5jdGlvbiwNCj4gKwkgIGl0
-IGNhbiBkZXRlY3QgZGlmZmVyZW50IHNpemVzIG9mIGZhY2VzIGluIGEgcmF3IGltYWdlLg0KPiAr
-DQo+ICtjb25maWcgVklERU9fTVRLX0FJRV9SRVNVTFRfSU5fS0VSTkVMDQoNClRoaXMgY29uZmln
-IGlzIHVzZWxlc3MsIHNvIGRyb3AgaXQuDQoNCj4gKwlib29sICJPcGVyYXRlIEFJRSBpbiBrZXJu
-ZWwgbW9kZSINCj4gKwlkZXBlbmRzIG9uIFZJREVPX01US19BSUUNCj4gKwlkZWZhdWx0IHkNCj4g
-KwloZWxwDQo+ICsJICBXaGVuIHRoaXMgb3B0aW9uIGlzIGVuYWJsZWQsIHRoZSBNZWRpYVRlayAo
-TVRLKSBBSUUgZHJpdmVyIG9wZXJhdGVzIGluDQo+ICsJICBrZXJuZWwgbW9kZSwgd2hpY2ggaXMg
-dGhlIGRlZmF1bHQgbW9kZS4NCj4gKw0KPiArCSAgSW4ga2VybmVsIG1vZGUsIHRoZSBBSUUgZHJp
-dmVyJ3MgcmVzdWx0cyBhcmUgcHJvY2Vzc2VkIGRpcmVjdGx5IHdpdGhpbg0KPiArCSAgdGhlIGtl
-cm5lbCBzcGFjZSwgZW5oYW5jaW5nIHBlcmZvcm1hbmNlIGFuZCByZWxpYWJpbGl0eS4NCj4gKw0K
-PiArCSAgRGlzYWJsaW5nIHRoaXMgb3B0aW9uIG1pZ2h0IGNvbXByb21pc2UgdGhlIEFJRSBkcml2
-ZXIgcGVyZm9ybWFuY2UgYW5kIHN0YWJpbGl0eS4NCj4gKw0KPiArCSAgVW5sZXNzIHlvdSBoYXZl
-IHNwZWNpZmljIG5lZWRzIGZvciBvcGVyYXRpbmcgdGhlIGRyaXZlciBpbiB1c2VyIG1vZGUsDQo+
-ICsJICBmb3IgZXhhbXBsZTogdW5pdCB0ZXN0IChVVCksIHRoaXMgb3B0aW9uIHNob3VsZCByZW1h
-aW4gZW5hYmxlZC4NCj4gKw0KPiArY29uZmlnIFZJREVPX01US19BSUVfUkVTVUxUX0lOX1VTRVIN
-Cg0KRGl0dG8uDQoNClJlZ2FyZHMsDQpDSw0KDQo+ICsJYm9vbCAiT3BlcmF0ZSBBSUUgaW4gdXNl
-ciBtb2RlIg0KPiArCWRlcGVuZHMgb24gVklERU9fTVRLX0FJRQ0KPiArCWhlbHANCj4gKwkgIEVu
-YWJsaW5nIHRoaXMgb3B0aW9uIHNldHMgdGhlIE1lZGlhVGVrIChNVEspIEFJRSBkcml2ZXIgdG8g
-b3BlcmF0ZSBpbg0KPiArCSAgdXNlciBtb2RlLg0KPiArDQo+ICsJICBJbiB0aGlzIG1vZGUsIEFJ
-RSBkcml2ZXIgcmVzdWx0IHZhbHVlcyBhcmUgaGFuZGxlZCBhdCB1c2VyIGxldmVsLCBwcm92aWRp
-bmcgYW4NCj4gKwkgIG9yZ2FuaXplZCBtYW5uZXIgdG8gc3RvcmUgbXVsdGlwbGUgcmVzdWx0IHZh
-bHVlcy4NCj4gKw0KPiArCSAgVW5sZXNzIHlvdSB1bmRlcnN0YW5kIHRoZSBpbXBsaWNhdGlvbnMg
-b2Ygb3BlcmF0aW5nIGluIHVzZXIgbW9kZSwNCj4gKwkgIHRoaXMgb3B0aW9uIGlzIHVzdWFsbHkg
-cmVjb21tZW5kZWQgdG8gYmUgZGlzYWJsZWQuDQo+IA0KDQoNCg==
+On Fri, Sep 27, 2024 at 02:54:11AM -0700, Mao Jinlong wrote:
+> Add coresight components on Qualcomm SM8450 Soc. The components include
+> TMC ETF/ETR, ETE, STM, TPDM, CTI.
+> 
+> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+
+Please rebase to fix the &CPUn vs &cpun issue, and please fix the
+dtbs_check errors.
+
+Thanks,
+Bjorn
+
+> ---
+>  arch/arm64/boot/dts/qcom/sm8450.dtsi | 726 +++++++++++++++++++++++++++
+>  1 file changed, 726 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+> index 9bafb3b350ff..6d90d6045628 100644
+> --- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+> @@ -287,6 +287,192 @@ CLUSTER_SLEEP_1: cluster-sleep-1 {
+>  		};
+>  	};
+>  
+> +	ete-0 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU0>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete0_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete0>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-1 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU1>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete1_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete1>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-2 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU2>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete2_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete2>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-3 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU3>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete3_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete3>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-4 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU4>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete4_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete4>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-5 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU5>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete5_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete5>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-6 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU6>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete6_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete6>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	ete-7 {
+> +		compatible = "arm,embedded-trace-extension";
+> +		cpu = <&CPU7>;
+> +
+> +		out-ports {
+> +			port {
+> +				ete7_out_funnel_ete: endpoint {
+> +					remote-endpoint = <&funnel_ete_in_ete7>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	funnel-ete {
+> +		compatible = "arm,coresight-static-funnel";
+> +
+> +		out-ports {
+> +			port {
+> +				funnel_ete_out_funnel_apss: endpoint {
+> +					remote-endpoint =
+> +						<&funnel_apss_in_funnel_ete>;
+> +				};
+> +			};
+> +		};
+> +
+> +		in-ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			port@0 {
+> +				reg = <0>;
+> +				funnel_ete_in_ete0: endpoint {
+> +					remote-endpoint =
+> +						<&ete0_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@1 {
+> +				reg = <1>;
+> +				funnel_ete_in_ete1: endpoint {
+> +					remote-endpoint =
+> +						<&ete1_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@2 {
+> +				reg = <2>;
+> +				funnel_ete_in_ete2: endpoint {
+> +					remote-endpoint =
+> +						<&ete2_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@3 {
+> +				reg = <3>;
+> +				funnel_ete_in_ete3: endpoint {
+> +					remote-endpoint =
+> +						<&ete3_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@4 {
+> +				reg = <4>;
+> +				funnel_ete_in_ete4: endpoint {
+> +					remote-endpoint =
+> +						<&ete4_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@5 {
+> +				reg = <5>;
+> +				funnel_ete_in_ete5: endpoint {
+> +					remote-endpoint =
+> +						<&ete5_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@6 {
+> +				reg = <6>;
+> +				funnel_ete_in_ete6: endpoint {
+> +					remote-endpoint =
+> +						<&ete6_out_funnel_ete>;
+> +				};
+> +			};
+> +
+> +			port@7 {
+> +				reg = <7>;
+> +				funnel_ete_in_ete7: endpoint {
+> +					remote-endpoint =
+> +						<&ete7_out_funnel_ete>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+>  	firmware {
+>  		scm: scm {
+>  			compatible = "qcom,scm-sm8450", "qcom,scm";
+> @@ -4141,6 +4327,546 @@ data-pins {
+>  			};
+>  		};
+>  
+> +		stm@10002000 {
+> +			compatible = "arm,coresight-stm", "arm,primecell";
+> +			reg = <0x0 0x10002000 0x0 0x1000>,
+> +				<0x0 0x16280000 0x0 0x180000>;
+> +			reg-names = "stm-base", "stm-stimulus-base";
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			out-ports {
+> +				port {
+> +					stm_out_funnel_in0: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_in0_in_stm>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		funnel@10041000 {
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> +			reg = <0x0 0x10041000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@7 {
+> +					reg = <7>;
+> +					funnel_in0_in_stm: endpoint {
+> +						remote-endpoint =
+> +							<&stm_out_funnel_in0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					funnel_in0_out_funnel_qdss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_qdss_in_funnel_in0>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		funnel@10042000 {
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> +
+> +			reg = <0x0 0x10042000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@4 {
+> +					reg = <4>;
+> +					funnel_in1_in_funnel_apss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_apss_out_funnel_in1>;
+> +					};
+> +				};
+> +
+> +				port@6 {
+> +					reg = <6>;
+> +					funnel_in1_in_funnel_dl_center: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_dl_center_out_funnel_in1>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					funnel_in1_out_funnel_qdss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_qdss_in_funnel_in1>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		funnel@10045000 {
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> +			reg = <0x0 0x10045000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +					funnel_qdss_in_funnel_in0: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_in0_out_funnel_qdss>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +					funnel_qdss_in_funnel_in1: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_in1_out_funnel_qdss>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					funnel_qdss_out_funnel_aoss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_aoss_in_funnel_qdss>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		replicator@10046000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x10046000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					replicator_qdss_in_replicator_swao: endpoint {
+> +						remote-endpoint =
+> +							<&replicator_swao_out_replicator_qdss>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +
+> +				port {
+> +					replicator_qdss_out_replicator_etr: endpoint {
+> +						remote-endpoint =
+> +							<&replicator_etr_in_replicator_qdss>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tmc_etr: tmc@10048000 {
+> +			compatible = "arm,coresight-tmc", "arm,primecell";
+> +			reg = <0x0 0x10048000 0x0 0x1000>;
+> +
+> +			iommus = <&apps_smmu 0x0600 0>;
+> +			arm,buffer-size = <0x10000>;
+> +
+> +			arm,scatter-gather;
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					tmc_etr_in_replicator_etr: endpoint {
+> +						remote-endpoint =
+> +							<&replicator_etr_out_tmc_etr>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		replicator@1004e000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x1004e000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					replicator_etr_in_replicator_qdss: endpoint {
+> +						remote-endpoint =
+> +							<&replicator_qdss_out_replicator_etr>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +
+> +				port {
+> +
+> +					replicator_etr_out_tmc_etr: endpoint {
+> +						remote-endpoint =
+> +							<&tmc_etr_in_replicator_etr>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		funnel@10b04000 {
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> +
+> +			reg = <0x0 0x10b04000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@6 {
+> +					reg = <6>;
+> +					funnel_aoss_in_tpda_aoss: endpoint {
+> +						remote-endpoint =
+> +							<&tpda_aoss_out_funnel_aoss>;
+> +					};
+> +				};
+> +
+> +				port@7 {
+> +					reg = <7>;
+> +					funnel_aoss_in_funnel_qdss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_qdss_out_funnel_aoss>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					funnel_aoss_out_tmc_etf: endpoint {
+> +						remote-endpoint =
+> +							<&tmc_etf_in_funnel_aoss>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tmc@10b05000 {
+> +			compatible = "arm,coresight-tmc", "arm,primecell";
+> +			reg = <0x0 0x10b05000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					tmc_etf_in_funnel_aoss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_aoss_out_tmc_etf>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					tmc_etf_out_replicator_swao: endpoint {
+> +						remote-endpoint =
+> +							<&replicator_swao_in_tmc_etf>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		replicator@10b06000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x10b06000 0x0 0x1000>;
+> +
+> +			qcom,replicator-loses-context;
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					replicator_swao_in_tmc_etf: endpoint {
+> +						remote-endpoint =
+> +							<&tmc_etf_out_replicator_swao>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +
+> +				port {
+> +					replicator_swao_out_replicator_qdss: endpoint {
+> +						remote-endpoint =
+> +							<&replicator_qdss_in_replicator_swao>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tpda@10b08000 {
+> +			compatible = "qcom,coresight-tpda", "arm,primecell";
+> +
+> +			reg = <0x0 0x10b08000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +					tpda_aoss_in_tpdm_swao_prio_0: endpoint {
+> +						remote-endpoint =
+> +							<&tpdm_swao_prio_0_out_tpda_aoss>;
+> +					};
+> +				};
+> +
+> +				port@4 {
+> +					reg = <4>;
+> +					tpda_aoss_in_tpdm_swao: endpoint {
+> +						remote-endpoint =
+> +							<&tpdm_swao_out_tpda_aoss>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +
+> +				port {
+> +					tpda_aoss_out_funnel_aoss: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_aoss_in_tpda_aoss>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tpdm@10b09000 {
+> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
+> +			reg = <0x0 0x10b09000 0x0 0x1000>;
+> +
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			out-ports {
+> +				port {
+> +					tpdm_swao_prio_0_out_tpda_aoss: endpoint {
+> +						remote-endpoint =
+> +							<&tpda_aoss_in_tpdm_swao_prio_0>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tpdm@10b0d000 {
+> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
+> +			reg = <0x0 0x10b0d000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			out-ports {
+> +				port {
+> +					tpdm_swao_out_tpda_aoss: endpoint {
+> +						remote-endpoint =
+> +							<&tpda_aoss_in_tpdm_swao>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tpdm@10c28000 {
+> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
+> +			reg = <0x0 0x10c28000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			out-ports {
+> +				port {
+> +					tpdm_dlct_out_tpda_dl_center_26: endpoint {
+> +						remote-endpoint =
+> +							<&tpda_dl_center_26_in_tpdm_dlct>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tpdm@10c29000 {
+> +			compatible = "qcom,coresight-tpdm", "arm,primecell";
+> +			reg = <0x0 0x10c29000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			out-ports {
+> +				port {
+> +					tpdm_ipcc_out_tpda_dl_center_27: endpoint {
+> +						remote-endpoint =
+> +							<&tpda_dl_center_27_in_tpdm_ipcc>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		cti@10c2a000 {
+> +			compatible = "arm,coresight-cti", "arm,primecell";
+> +			reg = <0x0 0x10c2a000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+> +		cti@10c2b000 {
+> +			compatible = "arm,coresight-cti", "arm,primecell";
+> +			reg = <0x0 0x10c2b000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+> +		tpda@10c2e000 {
+> +			compatible = "qcom,coresight-tpda", "arm,primecell";
+> +			reg = <0x0 0x10c2e000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@1a {
+> +					reg = <26>;
+> +					tpda_dl_center_26_in_tpdm_dlct: endpoint {
+> +						remote-endpoint =
+> +							<&tpdm_dlct_out_tpda_dl_center_26>;
+> +					};
+> +				};
+> +
+> +				port@1b {
+> +					reg = <27>;
+> +					tpda_dl_center_27_in_tpdm_ipcc: endpoint {
+> +						remote-endpoint =
+> +							<&tpdm_ipcc_out_tpda_dl_center_27>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +
+> +				port {
+> +					tpda_dl_center_out_funnel_dl_center: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_dl_center_in_tpda_dl_center>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		funnel@10c2f000 {
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> +			reg = <0x0 0x10c2f000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +
+> +				port {
+> +					funnel_dl_center_in_tpda_dl_center: endpoint {
+> +						remote-endpoint =
+> +							<&tpda_dl_center_out_funnel_dl_center>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					funnel_dl_center_out_funnel_in1: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_in1_in_funnel_dl_center>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		funnel@13810000 {
+> +			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+> +
+> +			reg = <0x0 0x13810000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +
+> +				port {
+> +					funnel_apss_in_funnel_ete: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_ete_out_funnel_apss>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					funnel_apss_out_funnel_in1: endpoint {
+> +						remote-endpoint =
+> +							<&funnel_in1_in_funnel_apss>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		cti@138e0000 {
+> +			compatible = "arm,coresight-cti", "arm,primecell";
+> +			reg = <0x0 0x138e0000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+> +		cti@138f0000 {
+> +			compatible = "arm,coresight-cti", "arm,primecell";
+> +			reg = <0x0 0x138f0000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+> +		cti@13900000 {
+> +			compatible = "arm,coresight-cti", "arm,primecell";
+> +			reg = <0x0 0x13900000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +		};
+> +
+>  		sram@146aa000 {
+>  			compatible = "qcom,sm8450-imem", "syscon", "simple-mfd";
+>  			reg = <0 0x146aa000 0 0x1000>;
+> -- 
+> 2.46.0
+> 
 
