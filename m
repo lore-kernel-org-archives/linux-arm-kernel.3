@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DF8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 20:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07105E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 20:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=raQfA3pPirSU1q019TeBHo53NFrJian0RAtgq7ilfGM=; b=1AFRfB8XfKqWAnOvU3jdWDU5k0
-	aOHFP9DsJOo7sjpyxLF1NY/crdw5X21ZxZ0j2zy5VMnu3bOvUMNXsdCm5eQ+YtXnicZis9EBoQy2J
-	gD+JwxVDGzWLodhNYLUuvnZ09F/Q0oGi/6rdswrdiiaEPg8lcjSsqfjXbC+R9obvcUFTfiEhLN9Qg
-	VdWfpcdwdokxUUubq+X5iFXnDDZvz7O6DcZ52KU3O99fhzxlb2kaiUoX0EXdgTga5cLAlaqaVJn64
-	n0Fyqt8yJALfS43X6dDU608hjuDsrLSaNx9kTf4S+thZfQOwHvh5AZ8UE9qGLFQNKSXAG0MBia9z9
-	cfL9CcHQ==;
+	bh=siuaQT0FRAMt/zg3Cylz6Vorg3cK24DGRgN6rvZjLl4=; b=iSaEP+1lq+gIu2I316n6dUezPF
+	kyUlj+5snaMJ9y5WFArfvHnfe++2uuw8O5VLFsp1gPA8mHqDmlJJGr3t7dy6CGiqd4Ujcp38JCp5h
+	sBY1Uqx5GaMazn4ngKCNDUlv/OkJb50KloT2oYCe30nkr1jKzxNF3CzuZDY3Cwt4bKaZcUjpA8bSn
+	CylV7ZfERCt933h0BOuqnFOVqbs5hUfi5UUzI2Mg8B+PeQfadfCFb2vHuZZXmESVkm78JVfnk4IA1
+	byhehVqmMTN35TeJE9RYVqe0++oSLHfSNPjAai2SoXXvOW6CIIhy/OIx8Z74fmzgn8jfMB6qTEx6Y
+	XcpFtzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQuUl-0000000GNHJ-0McY;
-	Thu, 26 Dec 2024 20:30:11 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tQuVz-0000000GNa2-3NT1;
+	Thu, 26 Dec 2024 20:31:27 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQuTY-0000000GN96-34cJ
+	id 1tQuUj-0000000GNGx-1zHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 20:28:58 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKSlw31300706
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 26 Dec 2024 14:28:47 -0600
+	Thu, 26 Dec 2024 20:30:10 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKTvek027397;
+	Thu, 26 Dec 2024 14:29:57 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735244927;
-	bh=raQfA3pPirSU1q019TeBHo53NFrJian0RAtgq7ilfGM=;
+	s=ti-com-17Q1; t=1735244998;
+	bh=siuaQT0FRAMt/zg3Cylz6Vorg3cK24DGRgN6rvZjLl4=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=YNnmlQn4s/DCUmSTpBLq6bBhTSfg3HfAUuCBEbYg73OVBylyNWhYUVrWJCNN73hAB
-	 PLwvipur65Um7/wKxCVTdJBFpdBaMfnydqKu8j1AjRFwXpS6/svkUZ5B4YW4E8ylZV
-	 b5K57ptdX9t3kJNe2daQcylfnE3zvDnoqE6PJpKk=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKSlpH032426
+	b=Sd4FyHBp7M9z/Q5gUzSV+PT5IcOFgypK/J8ajpDlvDqJt3UokHOGNYaie7Dt5y3ZU
+	 3ty1doeYpRlJH7MlfYmYQpwDPQce/JKKZrr8zDcx5VmCbTA9OKKe+klCsEmT87/fc1
+	 CncUawdk6U266IFxj6mQFnd/TjcNvyvHLZKOUvLk=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKTvM5032432
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 26 Dec 2024 14:28:47 -0600
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 26 Dec 2024 14:29:57 -0600
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 26
- Dec 2024 14:28:47 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ Dec 2024 14:29:57 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 26 Dec 2024 14:28:47 -0600
+ Frontend Transport; Thu, 26 Dec 2024 14:29:57 -0600
 Received: from localhost ([10.249.33.38])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKSlbc104472;
-	Thu, 26 Dec 2024 14:28:47 -0600
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKTv5J105182;
+	Thu, 26 Dec 2024 14:29:57 -0600
 From: Nishanth Menon <nm@ti.com>
 To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
-        <j-keerthy@ti.com>, Anurag Dutta <a-dutta@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j784s4: Fix clock IDs for MCSPI instances
-Date: Thu, 26 Dec 2024 14:28:45 -0600
-Message-ID: <173524490004.82164.13189977088839437371.b4-ty@ti.com>
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>
+Subject: Re: [PATCH v2 0/2] Add Deep Sleep pinmux macros for TI's K3 SoCs
+Date: Thu, 26 Dec 2024 14:29:55 -0600
+Message-ID: <173524493391.82332.13942073781133579692.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241104121241.102027-1-a-dutta@ti.com>
-References: <20241104121241.102027-1-a-dutta@ti.com>
+In-Reply-To: <20241205120134.754664-1-s-vadapalli@ti.com>
+References: <20241205120134.754664-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_122856_912749_83C90D0C 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20241226_123009_609140_AB099C20 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Anurag Dutta,
+Hi Siddharth Vadapalli,
 
-On Mon, 04 Nov 2024 17:42:41 +0530, Anurag Dutta wrote:
-> The clock IDs for multiple MCSPI instances across wakeup domain
-> in J784s4 are incorrect when compared with documentation [1]. Fix
-> the clock IDs to their appropriate values.
+On Thu, 05 Dec 2024 17:31:27 +0530, Siddharth Vadapalli wrote:
+> This series introduces deep sleep macros which are common to TI's K3
+> SoCs and can be used to configure the behavior of SoC pins during Deep
+> Sleep mode. Additionally, support for SoC wakeup with USB1 on AM62x
+> based SoCs is added with the help of the newly introduced deep sleep
+> macros.
 > 
-> [1]https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j784s4/clocks.html
-> 
-> Fixes: e23d5a3d116d ("arm64: dts: ti: k3-j784s4: Add MCSPI nodes")
+> v1:
+> https://lore.kernel.org/r/20241112115650.988943-1-s-vadapalli@ti.com
+> Changes since v1:
+> - Rebased on next-20241204.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-j784s4: Fix clock IDs for MCSPI instances
-      commit: 94a7666e3eb9f52f0097c0ca6fb093f5f20d4462
+[1/2] arm64: dts: ti: k3-pinctrl: Introduce deep sleep macros
+      commit: 325aa0f6b36eab0fe7d7efdb49b55cf7d664424a
+[2/2] arm64: dts: ti: k3-am62x-sk-common: Support SoC wakeup using USB1 wakeup
+      commit: 527f884d2d94981016e181dcbd4c4b5bf597c0ad
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
