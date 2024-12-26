@@ -4,153 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DA4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 06:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4527BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 06:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EysI5icpJCamrUzklDSTcaAAt7p8sc65VdhLuFr3kV4=; b=VOdLb+1rjqBi2lePy0GpXVG/pu
-	EmdNFOVy76K7sQcG1ZETSqUkIa/RRKXO2DXnmTqvd2EMkjjXmO8UcWP+9Dm5guPHr/BYRY+szoIK7
-	0KoLIZXrdjQ3oE0XJmk4bm+LKXykJ3ibXCBJ/8Tsjvjn1t7uk9LLVs9TWzKrVrFcYsJukMGMPYSFS
-	XEoAEMLWVI214I6rwqk04CvQGWHSkjaSF5VNJ4shrNu6DaPn/ktcHetRHIMo5GaHHWGrx3+i7mSnu
-	GLTMSA3eUPMOGucjmApcVLa4vFmswZOcI+1Gc1X9OXVpZUL009UGVbFxNF3u3qmxUzDIi32r+oeVA
-	VoqxwOew==;
+	bh=WtDvYzoJBC9gaqFxvXZe9/0NcEOfevXaBFtnWX74jvo=; b=Nn5NBkNSNnIyi4bw3HZzMiJ61d
+	MUWMulI6+4EIQo37DrOf5T8Gy/wCVV7oEWQSqqDupmsWXiwqZ/EvcJYNTEajqqyfjZP8JfgQHdP8/
+	owLC+R5CW8SQD/76JRkrJWhFiea35P1qbTd98wFwbxF/dNJ9jQsdtVzExg57EZNYgJfvQWC9+xk0w
+	vCvUpxbvYPmG4SLwXhJgiCGacz459Xo5kJoU44WNj4NQ880Ox88tmqnpnI+nEJIZQKs061clo5tjD
+	bG8Y7WqrbpqMpCL/iauC2jw2J3fic7ihhhaBdwkzOhhl50ealbIk42NZDuZPGeiXePtJOGfE6U06A
+	bhkvH72w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQhA0-0000000FHWe-3orz;
-	Thu, 26 Dec 2024 06:15:52 +0000
-Received: from mail-am0eur02on20605.outbound.protection.outlook.com ([2a01:111:f403:2606::605] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tQhSN-0000000FJ3t-0FdH;
+	Thu, 26 Dec 2024 06:34:51 +0000
+Received: from mail-m49208.qiye.163.com ([45.254.49.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQh8o-0000000FHOu-0rgH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 06:14:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wT6BLRMfgVxC5AwZyf8cd1jJ5Cx9Jh1QLWOBRmsvFWOmFi/susL7D839tKgcjK5NEid4JbruxLHbw6W5KPHEkk5UDllyUktj+Q+7p/Je+hgshpAL3SG0gKfU5uIe1dfLgD3mZ6CjprJMfyjQv38t2UGGB0BmPrIIS3mwvKJFNeSJSmOwhUvr4uzX1yLu6857mGIwogVzLCIm12NRkjet5qChqOPh4ZeyILMGcAtaqCgguYOpI1CuswZCAp18FQSoWPeUFlkEOuXYxgOxbvYz7bGczOor5zL8cwegfSOzBOyCTAnQT7xANqk+sPhRlqlS8cFfgvvMQfh1FJ1x47aNHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EysI5icpJCamrUzklDSTcaAAt7p8sc65VdhLuFr3kV4=;
- b=kGRtDec6Jahx6tFSKU0EnY5O2ryKJRb2Qzc8pbrAHyRmEK806ANE3rhedOiT0TBnYadmkgo4Ay/4lF4G7kdmlIS2gZQbaRO9mpNx215DFrRJr7fT17BwBkioRWBy9HchcXx5+JUhiYiwyao9C6K9IPzOMs0OvUaSVMU0uiO0zBF17lFcG97V1oxMmEy26twf6jkOVLZ+c4IoIWaxl2Gon/GZQz7G/gXV2AaPBVYVyqBG0Fb4bgyrb06Qfr7kTH3hfAE2mIX6SN6Sl5wZRO0KEeGsI3uvpmMvY4PKSEWPJadU3eQ5siAZSKCHeMOiNUFpKrG+GFzrhRvWKnHqIWsZSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EysI5icpJCamrUzklDSTcaAAt7p8sc65VdhLuFr3kV4=;
- b=cjRHAvQz5yE6k0eAK7Nttjg2NgCddyEzfe6IQN75FQ0YFPv3V9XgzABJ7AR/zoLREP9CaP5lKQTYKz9KsMpGIFZ793nVQTFiMVeAkmg6HDrsLumTew1NkBeTNrvRDm3O6FKQN8pVgJf2plJ4rXXfydmOV274Udr/szexZknhfhurVuATQnuKLk/7wBouHfcBqmwrn7AKvh2kr8Z5nHoQeZtC0+BmZrPYETg9I7elu97fQZ8J8gx8w3AtXd+i+K1SZyBhbkn+7DqPWVcErZaZpniFbE+0mlaJwmYRUXWct8LAv2NY19XoZ78TzJ773vnifst4y0p+lyNXvVdOSSn6Mg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by AM8PR04MB7971.eurprd04.prod.outlook.com (2603:10a6:20b:234::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.14; Thu, 26 Dec
- 2024 06:14:27 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%5]) with mapi id 15.20.8272.013; Thu, 26 Dec 2024
- 06:14:25 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: andi.shyti@kernel.org,
-	frank.li@nxp.com,
-	o.rempel@pengutronix.de,
-	kernel@pengutronix.de,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1tQhR7-0000000FIWe-2Vlk;
+	Thu, 26 Dec 2024 06:33:35 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 6dc5110e;
+	Thu, 26 Dec 2024 14:33:26 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	rfoss@kernel.org,
+	vkoul@kernel.org,
+	sebastian.reichel@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	l.stach@pengutronix.de,
+	andy.yan@rock-chips.com,
+	hjc@rock-chips.com,
+	algea.cao@rock-chips.com,
+	kever.yang@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>,
-	Clark Wang <xiaoning.wang@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: [PATCH v7] i2c: imx: support DMA defer probing
-Date: Thu, 26 Dec 2024 14:25:21 +0800
-Message-Id: <20241226062521.1004809-1-carlos.song@nxp.com>
+	linux-phy@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v4 00/17] Add eDP support for RK3588
+Date: Thu, 26 Dec 2024 14:32:56 +0800
+Message-Id: <20241226063313.3267515-1-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0028.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::6) To AM0PR0402MB3937.eurprd04.prod.outlook.com
- (2603:10a6:208:5::22)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR0402MB3937:EE_|AM8PR04MB7971:EE_
-X-MS-Office365-Filtering-Correlation-Id: aef94913-295d-4467-0c9b-08dd25748c40
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hDk5SY9dzAjV3/8+3Wg6M6mE0uhf+OkBItQKUTKdVhibdl5QsYTGamV995yb?=
- =?us-ascii?Q?sLhEu30XHRBXkdTJqIKmB4wMnPov2KwgxvwsXUuGm81jexNVqTr5aN8Kyhp5?=
- =?us-ascii?Q?78YCcSe15VEG1wEMrGefPChLiRSE6Ay04fZ/pLndiSGGkWupqYuOFozPcGIS?=
- =?us-ascii?Q?Q3OycGGvBbPgvbCJadPOydFxdfFV5h+P9Dku0IjcxImVfr3vS/TbJtGxa8GU?=
- =?us-ascii?Q?jACRp7+fIT08KaCymBCTwpSgrslmNsRI33+5iNXUCxkI5ZUlBFaUteAGOjcG?=
- =?us-ascii?Q?xZbeGZ3qR+yZn9u1LBbSDsaUhJtsI2QlOSB4O8GtjNIiGHlZJjH+LvQTo6sh?=
- =?us-ascii?Q?I+x4IOtL+k/6bGotcCeoXogQj3WumlQEFadtCukwMp+WoZOLfIwL4ZG7r8z+?=
- =?us-ascii?Q?IjyGHWJ9Fa6Dxn+ryzrWjl6mta9eYTHMPRTuzwx3YlEq5fU0Ov2+DMEaJTT7?=
- =?us-ascii?Q?VmH3xbOer2/BWg3/S/j7KGLlBNsXOMqM8+xEiI2Lygt7h6miyhy0wSVt2dJW?=
- =?us-ascii?Q?ZWnNgNPn4w1wVaaObhBaVW9BvKXEI+fraZ3pl6lPSOaeFPEfST0qdq0C3GiJ?=
- =?us-ascii?Q?EOhhKq6z5XmRH/idUixVe15Tdt6PCyg9LBg6d8nf7WlS25Iqt+eI58aFTIKW?=
- =?us-ascii?Q?OSPLVtsdKO5Jpwyvf8eRi4x4tfo/jDc2FXBciUNblCCS2lW9pt4YWs12dYz1?=
- =?us-ascii?Q?rWe31/0s+LEgHKFUbgl/5NSxGGgxIKxO5zwlLIJMAMraD/jIWlyTyb64V+0J?=
- =?us-ascii?Q?sH5nuM8t9oP3/ajwgeYc0IQ5MfILsL+E2Oj+G0ynL/ceAdy016bgteUynW00?=
- =?us-ascii?Q?gLx7v+Rb4xWedUxmgcoS4rQ8F1lAzgY8T2thweE67atLc4Kdkm1G1DyF/ohA?=
- =?us-ascii?Q?s0DrNMC8vpLfSTE9t2qsrZVEceJlv7cSpmbU4gbASXYy5DfGjhEUyGlFZxEr?=
- =?us-ascii?Q?J1xQtfBop/6VwvSnB8+tivjN0r01rY8rSYa8lDUobqv17EaJkyXPKEiu8vwo?=
- =?us-ascii?Q?J5m++rQOzbacL3Ctym3gSSbtMqEOJ2mSw72wHmqBNz7xT/8Dn0FnwDS51buA?=
- =?us-ascii?Q?4DyKEhUo3+98xesRf0r0zTJmMiFX3QmwCqCtiDjl322/Xsx47n0jdVZ/KFL4?=
- =?us-ascii?Q?z7nzrzP5cBG3nUl8c2LpZgD/oeKgSQlh6+923DE5xcWuUvJUDs4zx1X1PweY?=
- =?us-ascii?Q?3zorv13vkd+lXC8wzVcdOu+KE0V8pyx3GZpba8FZNVFu/YoNV2FGwRyfadow?=
- =?us-ascii?Q?O5gb8TAKHopkvWGblNyXcae32u9L+ESpWz9IsJGW2HH6VVU89oOK+YNvBHSR?=
- =?us-ascii?Q?voIdhuAinJGkgZjk0FuSbvj5r/qWn/4gVWTqV9WAiwVTehnCadH5/qVMQ9Ca?=
- =?us-ascii?Q?YULDZqaHn4VoESPpPqlwDA9UjNmGXnXgzHMhBSfpelRKzuZJtIe1EP3wsUn4?=
- =?us-ascii?Q?7pR0PqN9jnCbXwYg6nYhP7eqcasjAEXX?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3pSRwQ5JFNXuCs4HYqLYrg6k84w6w68lt5YYpC9ISeOqOTjGHiKJL/zlTpEM?=
- =?us-ascii?Q?r6EXy7f/W7x65Lp94BsgJZWxhsNKy0OeNmWkb7MWPIss/ljdJzvurHaoMETC?=
- =?us-ascii?Q?rAU4R9WDIhjz/9DFDbw/xlWprcQOpC+N/JR/3nv5paG7NwBHHdkTLvyJoJ2t?=
- =?us-ascii?Q?+Yr3MMjB96pXh8lrH07ynYZhS7j8ZhcVTuggAHY43S5i4JWuSkUCJS3T8VgM?=
- =?us-ascii?Q?IoeEzCfDF7Z50Xd2D0PP4FUJp4gFcncf/o032nPeuFr+KDGTLnBIP4V7pzWr?=
- =?us-ascii?Q?RAZiJZqN8OAVLeABNvFnVqj41ExwgLY2X7kmUETuSsorPr/HZa3vqcdvdR2C?=
- =?us-ascii?Q?FQn1oExMYz56vU/qVsMjR5qxLi5yqrYFiFviQ2xW7YFFHTY91K9LPVqqImha?=
- =?us-ascii?Q?JOpa+jWReXXt17bckpDsgwaf3HDxb7KEwwP3A7ZK4n6Z1Ez/CrVVbojFyg+8?=
- =?us-ascii?Q?G4brBqazuWKf0oc63T3LKKd4/QHrX9R7TWYQU7lPxCk5GtkxouMJogsrLD/E?=
- =?us-ascii?Q?otlTH0rybzXAgKJ0L7tdtwv7Q0QCDA3V2W0nyoVjanOJc1Mb0OBH/6eEhgIP?=
- =?us-ascii?Q?QiyyQxTFlwwtQrp7d/1nSOXAx5+ki+ZmWWjZm5w4poFvFLvJXlq/1dv7dk6t?=
- =?us-ascii?Q?+GKrW0LHo6TZ5uL9y5YWfCedt0JFfi3vuYrApauepNBHFfM6JyRbBhJ2/00r?=
- =?us-ascii?Q?MkXsF1QO16gVvpy29T5VgfGcV7eT2VtJMzGWVV82ad1SHCrbvhAV5ytNl4Gy?=
- =?us-ascii?Q?TwC2faRkdJNakFEW12tNdak6HzB5B0jIXCVU52FGduPahnbKHd459Nm7pCGC?=
- =?us-ascii?Q?e7DEvVzRRwx/BXOsh1lc7Gb9QIxstPXv0t0HbcJqeQQaAVMrWP/OZy1Vjskb?=
- =?us-ascii?Q?v8pghILnm7EDprtEkLrvfpPy1LXR2CxLie9Kk/D5MqI0OhZtx/2hQyu6ffkD?=
- =?us-ascii?Q?0s2ipZU+BrlsHk668xbP08mXpIDP9IBYXrBo1c9k24ens7PomRy7Ws6O7u7F?=
- =?us-ascii?Q?0+yzS1KH4Mp7Ligi4y9YSvhZFvFWPMcGtq6M5hkTaeJd0eSvXJprpRQ+E4v8?=
- =?us-ascii?Q?CQkMngIN+ahgnNzjVFoD2swTqrh3AXeua7fAvv3ACR4ka8AnJf9MtlTcP2Ye?=
- =?us-ascii?Q?MaFAdcQeH4IwGPd2H4icj9Id+HAlndW7bjxnwdCPXXCw70NsgmCt6+aA1Gsy?=
- =?us-ascii?Q?QULkx00sWX/Tq4nVpsbaz2vp7gfHVGqkSvGDKDhZFaetoYhWzfWy0dm6IhnZ?=
- =?us-ascii?Q?GMCyHIh2ZHGmbqYrRi916jDSO+k8yvpiGhV+YHTXp7vm6bXD4SNRFsp8y60Q?=
- =?us-ascii?Q?w5zJ6sa8DPGrJUSKeSmvIQkOAV28g/j0zMJKXHpJsRqQXihqRty2G7rVn2H1?=
- =?us-ascii?Q?0vGK/uvi9uCJ6CS5VhRExHH2NoFlH3DZ0sQEtSq8CxzjH0ORF7Q3Q2Y8mkpH?=
- =?us-ascii?Q?o/HnDiOntWNo7ISeSebZOhgax2TU9p9QFRv+3XQUnFzmoYyD9Jg5vpMXCHND?=
- =?us-ascii?Q?gRcGkvAtzdcByWQrzB9G5HTHOVX1Mzip/xS+aZp3RWXpw1wQRcacYvNObMOb?=
- =?us-ascii?Q?DuPvnQNiHiIxLPKKv2f2/CGPAXyxpnwAFM7BUqJ1?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aef94913-295d-4467-0c9b-08dd25748c40
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Dec 2024 06:14:25.8397
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ntrD93eye02JiPuN7uE2Zo6y3+ajmzosGsf0p9av0C8UMDFhurwe4k+BL9pG5Em6BV1GKA80+kOtcaXIcDkFBg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7971
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkhIS1YYGk0dQ09MTEJOHUpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCS0
+	NVSktLVUpCWQY+
+X-HM-Tid: 0a9401ab8ab803a3kunm6dc5110e
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ODY6Tgw4DTIOCEwOGk49ETdO
+	MB4wFD5VSlVKTEhOSkJPQ0tDTU5MVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFITUJLNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=LS4C2XH5YX3jpuM0BRLyZjigaXN2JeKdAZASXp4dqcfoBypO3KrU2CkUuPKM7quHE4Rf4ZmcvUVmRJ3G7TwpQ/A6IaoLGRPnHarNgp32+to0CQ6dRmWDMUD/k3dAqbsE0TSV6s1VqPsYq9dhD6xmqzeI2FILScel/mDiHZDWv+Q=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=WtDvYzoJBC9gaqFxvXZe9/0NcEOfevXaBFtnWX74jvo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_221438_257501_8539291E 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20241225_223334_223622_500A7005 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,122 +87,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Return -EPROBE_DEFER when dma_request_slave_channel() because DMA driver
-have not ready yet.
+These patchs have been tested with a 1536x2048p60 eDP panel on
+RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
+on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
+on RK3399 sapphire excavator board.
 
-Move i2c_imx_dma_request() before registering I2C adapter to avoid
-infinite loop of .probe() calls to the same driver, see "e8c220fac415
-Revert "i2c: imx: improve the error handling in i2c_imx_dma_request()""
-and "Documentation/driver-api/driver-model/driver.rst".
+Patch 1~3   are the RK3588 eDP support of Rockchip analogix_dp driver.
+Patch 4~7   are the eDP mode support of samsung hdptx phy driver.
+Patch 8~9   are the RK3588 eDP support of Aanalogix DP driver. Add phy
+            interfaces is to configure the HDMI/eDP TX Combo PHY.
+Patch 10~13 are to support to get panel from the DP AUX bus.
+Patch 14~15 are the renaming of hdptxphy node. It is not only used by
+            HDMI display but also for the eDP display.
+Patch 16    is the addition of RK3588 eDP0 node.
+Patch 17    is to enable the eDP0 display on RK3588S EVB1 board.
 
-Use CPU mode to avoid stuck registering i2c adapter when DMA resources
-are unavailable.
+Damon Ding (17):
+  drm/rockchip: analogix_dp: Use formalized struct definition for grf
+    field
+  dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
+  drm/rockchip: analogix_dp: Add support for RK3588
+  phy: phy-rockchip-samsung-hdptx: Swap the definitions of LCPLL_REF and
+    ROPLL_REF
+  phy: phy-rockchip-samsung-hdptx: Supplement some register names with
+    their full version
+  phy: phy-rockchip-samsung-hdptx: Add the '_MASK' suffix to all
+    registers
+  phy: phy-rockchip-samsung-hdptx: Add support for eDP mode
+  drm/bridge: analogix_dp: Add support for RK3588
+  drm/bridge: analogix_dp: Add support for phy configuration.
+  dt-bindings: display: rockchip: analogix-dp: Add support to get panel
+    from the DP AUX bus
+  drm/bridge: analogix_dp: Add a new member aux to struct
+    analogix_dp_plat_data
+  drm/rockchip: analogix_dp: Add support to get panel from the DP AUX
+    bus
+  drm/bridge: analogix_dp: Convert &analogix_dp_device.aux into a
+    pointer
+  dt-bindings: display: rockchip: Fix label name of hdptxphy for RK3588
+    HDMI TX Controller
+  arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
+  arm64: dts: rockchip: Add eDP0 node for RK3588
+  arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-Acked-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
----
-Change for V7:
-- According to Andi's comment, use dev_warn to replace dev_err to print
-  warning log in failing setting up DMA path and use a more detailed
-  comment to explain why we decided not to leave when meet DMA error. 
-Change for V6:
-- According to Ahmad and Oleksij's comment, use dev_err to print error
-  log in failing setting up DMA path and simplify code comment.
-Change for V5:
-- Add Ahmad Acked-by. No code change.
-Change for V4:
-- Output "Only use PIO mode" log in debug level when no DMA configure.
-Change for V3:
-- According to Marc's comment, remove error print when defer probe.
-  Add info log when DMA has not been enabled and add error log when
-  DMA error, both won't stuck the i2c adapter register, just for reminding,
-  i2c adapter is working only in PIO mode.
-Change for V2:
-- According to Frank's comments, wrap at 75 char and Simplify fix code
-  at i2c_imx_dma_request().
-- Use strict patch check, fix alignment warning at i2c_imx_dma_request()
----
- drivers/i2c/busses/i2c-imx.c | 30 ++++++++++++++++++++++--------
- 1 file changed, 22 insertions(+), 8 deletions(-)
+ .../rockchip/rockchip,analogix-dp.yaml        |  12 +-
+ .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  32 +-
+ .../dts/rockchip/rk3588-coolpi-cm5-evb.dts    |   2 +-
+ .../rockchip/rk3588-coolpi-cm5-genbook.dts    |   2 +-
+ .../boot/dts/rockchip/rk3588-evb1-v10.dts     |   2 +-
+ .../rk3588-friendlyelec-cm3588-nas.dts        |   2 +-
+ .../arm64/boot/dts/rockchip/rk3588-jaguar.dts |   2 +-
+ .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   |   2 +-
+ .../dts/rockchip/rk3588-orangepi-5-plus.dts   |   2 +-
+ .../boot/dts/rockchip/rk3588-rock-5b.dts      |   2 +-
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts |   2 +-
+ .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   2 +-
+ .../boot/dts/rockchip/rk3588s-evb1-v10.dts    |  52 +
+ .../dts/rockchip/rk3588s-indiedroid-nova.dts  |   2 +-
+ .../boot/dts/rockchip/rk3588s-nanopi-r6.dtsi  |   2 +-
+ .../boot/dts/rockchip/rk3588s-odroid-m2.dts   |   2 +-
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi |   2 +-
+ .../boot/dts/rockchip/rk3588s-rock-5a.dts     |   2 +-
+ .../boot/dts/rockchip/rk3588s-rock-5c.dts     |   2 +-
+ .../drm/bridge/analogix/analogix_dp_core.c    |  97 +-
+ .../drm/bridge/analogix/analogix_dp_core.h    |   2 +-
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  54 +-
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 217 +++-
+ .../phy/rockchip/phy-rockchip-samsung-hdptx.c | 988 +++++++++++++++++-
+ include/drm/bridge/analogix_dp.h              |   5 +-
+ 26 files changed, 1326 insertions(+), 167 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 1f441227bfdc..ee0d25b498cb 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -397,17 +397,16 @@ static void i2c_imx_reset_regs(struct imx_i2c_struct *i2c_imx)
- }
- 
- /* Functions for DMA support */
--static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
--						dma_addr_t phy_addr)
-+static int i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx, dma_addr_t phy_addr)
- {
- 	struct imx_i2c_dma *dma;
- 	struct dma_slave_config dma_sconfig;
--	struct device *dev = &i2c_imx->adapter.dev;
-+	struct device *dev = i2c_imx->adapter.dev.parent;
- 	int ret;
- 
- 	dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
- 	if (!dma)
--		return;
-+		return -ENOMEM;
- 
- 	dma->chan_tx = dma_request_chan(dev, "tx");
- 	if (IS_ERR(dma->chan_tx)) {
-@@ -452,7 +451,7 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
- 	dev_info(dev, "using %s (tx) and %s (rx) for DMA transfers\n",
- 		dma_chan_name(dma->chan_tx), dma_chan_name(dma->chan_rx));
- 
--	return;
-+	return 0;
- 
- fail_rx:
- 	dma_release_channel(dma->chan_rx);
-@@ -460,6 +459,8 @@ static void i2c_imx_dma_request(struct imx_i2c_struct *i2c_imx,
- 	dma_release_channel(dma->chan_tx);
- fail_al:
- 	devm_kfree(dev, dma);
-+
-+	return ret;
- }
- 
- static void i2c_imx_dma_callback(void *arg)
-@@ -1802,6 +1803,22 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 	if (ret == -EPROBE_DEFER)
- 		goto clk_notifier_unregister;
- 
-+	/*
-+	 * DMA mode should be optional for I2C, when encountering DMA errors,
-+	 * no need to exit I2C probe. Only print warning to show DMA error and
-+	 * use PIO mode directly to ensure I2C bus available as much as possible.
-+	 */
-+	ret = i2c_imx_dma_request(i2c_imx, phy_addr);
-+	if (ret) {
-+		if (ret == -EPROBE_DEFER)
-+			goto clk_notifier_unregister;
-+		else if (ret == -ENODEV)
-+			dev_dbg(&pdev->dev, "Only use PIO mode\n");
-+		else
-+			dev_warn(&pdev->dev, "Failed to setup DMA (%pe), only use PIO mode\n",
-+				 ERR_PTR(ret));
-+	}
-+
- 	/* Add I2C adapter */
- 	ret = i2c_add_numbered_adapter(&i2c_imx->adapter);
- 	if (ret < 0)
-@@ -1816,9 +1833,6 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 		i2c_imx->adapter.name);
- 	dev_info(&i2c_imx->adapter.dev, "IMX I2C adapter registered\n");
- 
--	/* Init DMA config if supported */
--	i2c_imx_dma_request(i2c_imx, phy_addr);
--
- 	return 0;   /* Return OK */
- 
- clk_notifier_unregister:
 -- 
 2.34.1
 
