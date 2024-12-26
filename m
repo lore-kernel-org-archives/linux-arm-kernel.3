@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE097E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10582E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 18:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dx45m49A7rbyoDNzZ9IqzaqQc5ODntfqPsXgrpTfP7I=; b=FmS4aruXUFrE0nT1jjABbMEQIB
-	94Gm26lPjWxQEV4/YTLqp73m04G87P5vT0/Ij9jd0Ir61NBgS7koD1ZFsBI+GhNPnDzfVv0b13PQK
-	R/2a6HNWDCrFBWfFKopSToB4s6fj83CamheF+h1xq+fOwvfeCrXq9ExFuAr6iVSSAXNe7Fqy13AJy
-	jyfVz4rWZKXIHN8C1faj8Xxa6MBgaJEdxcYt5qMissmaUrgqygDo9oFJ5m+EJ32NHae5n6MlWrxNa
-	QMTexuL7jQl8XvcxfnfX/JesJ4AehfVZNoxHG6bA8l4RsjiBZHG4aNGiPJv2JA8DNM1RN06ao8R3K
-	69Tw8DCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mb676prD6vZfXlPCYO8bwgu4yZ+DojLMITMChJhintE=; b=Za3Vvk7wRcypLOxwOzJScC5ITp
+	MkN/xJtaQOBrYPIFPwN2XixTQN1LsZwj8zEQjyg0/w9cP94pqBsbZpC9B7bye4NIEg3MXArSNtxDO
+	LvwVZgnc5HWOHizGJfUeARyh+RuTvG21M+OSxdWXKOtZvQtvvGoA8CeFCx93tJXu0FoyYLqV4U3ew
+	bwst4nxaKB8qF5wAr0FS+X7uct0cNiDA0iD+Kfon+QmZTUpC2eTJO3LVNmNABpqV7shoIYtiWSl1M
+	Bice4xYd9FhR5tQoIaE2Wz6TpS9Y2U52LAkt5sS5VY/JzU31l6BxwH/hNSRnJXYnlsYDWxyxkctC0
+	0ahH0PUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrrt-0000000GAE5-1mtd;
-	Thu, 26 Dec 2024 17:41:53 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tQsbI-0000000GD1e-27mB;
+	Thu, 26 Dec 2024 18:28:48 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrmh-0000000G9bl-2FoL
+	id 1tQsa6-0000000GCm9-0nq6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 17:36:32 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BQHa5Sm007975;
-	Thu, 26 Dec 2024 11:36:05 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735234565;
-	bh=dx45m49A7rbyoDNzZ9IqzaqQc5ODntfqPsXgrpTfP7I=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=gqkbLQqWJJcNL4toy1hHZQ0RKhSDt+x218lryK14wGIr59q0ueCPV+89sOVFX4P2N
-	 bjDIStQwmUHsD1v2U5ZHCt+xwqmASS7GMwoznnTBuD4NjPLe5scDj9gxXFvCdD3nkg
-	 kGouUdr+t7sfusd959jzpgkZIi+EIfBcofPK9CzU=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQHa55p078363;
-	Thu, 26 Dec 2024 11:36:05 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 26
- Dec 2024 11:36:05 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 26 Dec 2024 11:36:05 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQHa5xr072158;
-	Thu, 26 Dec 2024 11:36:05 -0600
-Date: Thu, 26 Dec 2024 11:36:05 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        Kees Cook <kees@kernel.org>, Tony Luck
-	<tony.luck@intel.com>,
-        "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-        Felipe
- Balbi <balbi@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-hardening@vger.kernel.org>, Devarsh
- Thakkar <devarsht@ti.com>,
-        Hari Nagalla <hnagalla@ti.com>, <linux@ew.tq-group.com>,
-        Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: usb: dwc3: Allow connector in USB
- controller node
-Message-ID: <20241226173605.hcvybgbi5pmmeh2b@sweep>
-References: <cover.1733737487.git.matthias.schiffer@ew.tq-group.com>
- <06497b8aadc0b5becced274d0a5fbcd808d87a48.1733737487.git.matthias.schiffer@ew.tq-group.com>
+	Thu, 26 Dec 2024 18:27:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6BBDEA4032C;
+	Thu, 26 Dec 2024 18:25:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B741C4CED1;
+	Thu, 26 Dec 2024 18:27:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735237653;
+	bh=wiHAYMlaZnvLr1hgim1YMb7gxYlq1ThyIG0imbA+IAE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gvCcLmj31Wm5ySBZzq6kbWHqiVV577klPlktZu6UQ5SW+DOxuLmeJcjHfNbxRr1OH
+	 g/kPrkev66JBDDYKLU/pQDRCDLIdgqBrhdnEIQUPX91SeCfuoP0tVMF/yw7jzElrxa
+	 QYDeQFB0MkycCEtDdUQPtYLiHv3Shx6fIwNd6A/4w+yqYPWtifC+i1eWxxpjVt+rqG
+	 5LuRF0b6qxvS4mqFBA/qOR0a+qIJfWsgQVx/7UEUiEEeQuti7XdLeq634k/OprarlZ
+	 BiZLmTHFqMKGoIgQoJ6bxIxB1zcQKu8QnGTry1bvzIWbbJ6zd887aa1VaI3h4iPqF4
+	 BAnvLNtJKN9xw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Marek Vasut <marex@denx.de>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: qcom: msm8996-xiaomi-gemini: Fix LP5562 LED1 reg property
+Date: Thu, 26 Dec 2024 12:26:50 -0600
+Message-ID: <173523761382.1412574.17501027929471451345.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241006022012.366601-1-marex@denx.de>
+References: <20241006022012.366601-1-marex@denx.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <06497b8aadc0b5becced274d0a5fbcd808d87a48.1733737487.git.matthias.schiffer@ew.tq-group.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_093631_670028_294CB8F6 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20241226_102734_299584_214D3F44 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,39 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:51-20241209, Matthias Schiffer wrote:
-> Allow specifying the connector directly in the USB controller node, as
-> supported by other USB controller bindings.
-> 
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  Documentation/devicetree/bindings/usb/snps,dwc3.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-> index 1cd0ca90127d9..2976fb1a58061 100644
-> --- a/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-> +++ b/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-> @@ -68,6 +68,12 @@ properties:
->          - enum: [bus_early, ref, suspend]
->          - true
->  
-> +  connector:
-> +    $ref: /schemas/connector/usb-connector.yaml#
-> +    description: Connector for dual role switch
-> +    type: object
-> +    unevaluatedProperties: false
-> +
->    dma-coherent: true
->  
->    extcon:
 
-This needs to go via the USB subsystem team. The device tree changes can
-go once this is merged.
+On Sun, 06 Oct 2024 04:19:48 +0200, Marek Vasut wrote:
+> The LP5562 led@1 reg property should likely be set to 1 to match
+> the unit. Fix it.
+> 
+> 
 
+Applied, thanks!
+
+[1/1] arm64: dts: qcom: msm8996-xiaomi-gemini: Fix LP5562 LED1 reg property
+      commit: 02e784c5023232c48c6ec79b52ac8929d4e4db34
+
+Best regards,
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Bjorn Andersson <andersson@kernel.org>
 
