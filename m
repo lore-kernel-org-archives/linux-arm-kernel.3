@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07105E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 20:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 440C5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 20:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siuaQT0FRAMt/zg3Cylz6Vorg3cK24DGRgN6rvZjLl4=; b=iSaEP+1lq+gIu2I316n6dUezPF
-	kyUlj+5snaMJ9y5WFArfvHnfe++2uuw8O5VLFsp1gPA8mHqDmlJJGr3t7dy6CGiqd4Ujcp38JCp5h
-	sBY1Uqx5GaMazn4ngKCNDUlv/OkJb50KloT2oYCe30nkr1jKzxNF3CzuZDY3Cwt4bKaZcUjpA8bSn
-	CylV7ZfERCt933h0BOuqnFOVqbs5hUfi5UUzI2Mg8B+PeQfadfCFb2vHuZZXmESVkm78JVfnk4IA1
-	byhehVqmMTN35TeJE9RYVqe0++oSLHfSNPjAai2SoXXvOW6CIIhy/OIx8Z74fmzgn8jfMB6qTEx6Y
-	XcpFtzGQ==;
+	bh=KnffAqqNkYSR+PVRnd28Oue5M2tHObPXqo/C5IZdZks=; b=zobjHnOQB1ToJvhNW4gzunz5Mt
+	vi56FwNvyALWnkzoKGEhB5QCSrclKqoyZVKbqnc6nMWhjBz1VPFGargK99soU88Wp6v7/swtNn1CN
+	sbyxqVXTDBzA6bcCtoOayPsRvEOqXtSTde+X3uxRpQD9n3MbEEqRcYQv2LF4MAJwNEQFHsZOS5mKE
+	OfOfRsTEtq78iLW8kQ4EZap8sqccxtK4XxvoORxNOWfzVdRrRWI760WLP3tlBQMcRgk0lQpRj8g6e
+	wq8JCCaw7TDPMAvfcchIyzTCMmjOsz07JQaopX4DG10e+zNE40sR8DjRUYLIMEMW4lM5umKBRDM18
+	fMJLZ2Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQuVz-0000000GNa2-3NT1;
-	Thu, 26 Dec 2024 20:31:27 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1tQuX9-0000000GNqf-2Oez;
+	Thu, 26 Dec 2024 20:32:39 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQuUj-0000000GNGx-1zHJ
+	id 1tQuVE-0000000GNOa-20pj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 20:30:10 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKTvek027397;
-	Thu, 26 Dec 2024 14:29:57 -0600
+	Thu, 26 Dec 2024 20:30:41 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKUauw1338165
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 26 Dec 2024 14:30:36 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735244998;
-	bh=siuaQT0FRAMt/zg3Cylz6Vorg3cK24DGRgN6rvZjLl4=;
+	s=ti-com-17Q1; t=1735245036;
+	bh=KnffAqqNkYSR+PVRnd28Oue5M2tHObPXqo/C5IZdZks=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Sd4FyHBp7M9z/Q5gUzSV+PT5IcOFgypK/J8ajpDlvDqJt3UokHOGNYaie7Dt5y3ZU
-	 3ty1doeYpRlJH7MlfYmYQpwDPQce/JKKZrr8zDcx5VmCbTA9OKKe+klCsEmT87/fc1
-	 CncUawdk6U266IFxj6mQFnd/TjcNvyvHLZKOUvLk=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKTvM5032432
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 26 Dec 2024 14:29:57 -0600
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+	b=QVCqytvbHK3ItqG8OaOpCnU2+FFiP/L02I7s65zPgsR1vUjWeopE3Q9qhwwN7dchb
+	 qCTXQRpsJLH3Jz7qcNE6lZrpOoWigC6Bdv0x0vXAMMRnUk8vqD130a9IMioX7mEhoX
+	 bBrNDcZ0sg8iqNqlWILsteQFAiaEwBkJfLL/PtWg=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKUaAX042171;
+	Thu, 26 Dec 2024 14:30:36 -0600
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 26
- Dec 2024 14:29:57 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ Dec 2024 14:30:35 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 26 Dec 2024 14:29:57 -0600
+ Frontend Transport; Thu, 26 Dec 2024 14:30:36 -0600
 Received: from localhost ([10.249.33.38])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKTv5J105182;
-	Thu, 26 Dec 2024 14:29:57 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKUaYl120156;
+	Thu, 26 Dec 2024 14:30:36 -0600
 From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        Siddharth Vadapalli
-	<s-vadapalli@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>
-Subject: Re: [PATCH v2 0/2] Add Deep Sleep pinmux macros for TI's K3 SoCs
-Date: Thu, 26 Dec 2024 14:29:55 -0600
-Message-ID: <173524493391.82332.13942073781133579692.b4-ty@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Enric Balletbo i Serra
+	<eballetb@redhat.com>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Andrew Halaney
+	<ajhalaney@gmail.com>,
+        Andrew Halaney <ahalaney@redhat.com>, Udit Kumar
+	<u-kumar1@ti.com>,
+        Beleswar Padhi <b-padhi@ti.com>
+Subject: Re: [PATCH v4 0/2] arm64: dts: ti: k3-j784s4: Mark tps659413
+Date: Thu, 26 Dec 2024 14:30:34 -0600
+Message-ID: <173524500637.82584.659172810910949750.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241205120134.754664-1-s-vadapalli@ti.com>
-References: <20241205120134.754664-1-s-vadapalli@ti.com>
+In-Reply-To: <20241113-b4-j784s4-tps6594-bootph-v4-0-102ddaa1bdc6@redhat.com>
+References: <20241113-b4-j784s4-tps6594-bootph-v4-0-102ddaa1bdc6@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_123009_609140_AB099C20 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20241226_123040_610182_F61E30EE 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth Vadapalli,
+Hi Enric Balletbo i Serra,
 
-On Thu, 05 Dec 2024 17:31:27 +0530, Siddharth Vadapalli wrote:
-> This series introduces deep sleep macros which are common to TI's K3
-> SoCs and can be used to configure the behavior of SoC pins during Deep
-> Sleep mode. Additionally, support for SoC wakeup with USB1 on AM62x
-> based SoCs is added with the help of the newly introduced deep sleep
-> macros.
+On Wed, 13 Nov 2024 10:15:15 +0100, Enric Balletbo i Serra wrote:
+> This series marks tps659413's regulators as bootph-all in order for
+> the nodes (and parent nodes) to be accessible during MCU's u-boot SPL.
 > 
-> v1:
-> https://lore.kernel.org/r/20241112115650.988943-1-s-vadapalli@ti.com
-> Changes since v1:
-> - Rebased on next-20241204.
+> This in turn is desired since the tps659413 needs its MCU ESM
+> state machine setup in order for the watchdog to reset the board.
+> 
+> This took me a little while to track down, as enabling the ESM, TPS6594,
+> etc in u-boot would result in the below boot failure:
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/2] arm64: dts: ti: k3-pinctrl: Introduce deep sleep macros
-      commit: 325aa0f6b36eab0fe7d7efdb49b55cf7d664424a
-[2/2] arm64: dts: ti: k3-am62x-sk-common: Support SoC wakeup using USB1 wakeup
-      commit: 527f884d2d94981016e181dcbd4c4b5bf597c0ad
+[1/2] arm64: dts: ti: k3-j784s4-evm: Mark tps659413 regulators as bootph-all
+      commit: 0cd578054e7107cab921ff0c24f4ac6d14d3661b
+[2/2] arm64: dts: ti: k3-am69-sk: Mark tps659413 regulators as bootph-all
+      commit: 0a41157c5a988520debb656325722f401163eca3
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
