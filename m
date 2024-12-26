@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4381CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 20:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EA9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 20:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LlB21iHn0zF4Zu4uoulXyPPg+YVQpux/QZ5SdMlaSJE=; b=rH9sT1vQ/GI4fz
-	66TdcohWraIaT4uh+T/Nf3BDOafB5Gdh6+AjKsgWWwQo+2dwjWrpcxvzSiPmKY4QXm+qcU10INwbq
-	gZo4GUK2VAfyd1xRuVZOXS1z2csCW+Ux9ufHKeS+VSA0kjfTpPOgfvJ4nzAg/V7bQ8tfUYNw7B5Vn
-	3u8Mqml970Jo5hTXWHkmdFKik63f6otWqCs6kGdTq+U+nsgl9Y/+cE8oUspcttUwB/iIxmRMacTlK
-	F74hS0JiEwrTLR+fuW82izURKZxsbQdezkOP1b2o79Ru2EPDR5nuJ8DvaX1OZCrdOmbyfLEHvbbVo
-	j2BD20A7d4ta/Q+Eyfkg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=drifI6Dzuw8QKPIDFysHCxNkPZ8M7+X/soaT70FlxxI=; b=PUyvnJlgEWsBTkMokiwHo6yrEk
+	icS5eEMUVzy1ECxzSjLX14HNga5mMWWB6QJp9xnX7NoNSV3FgOhy7wAeKl5k/dWyKwvdH2DjewF/+
+	zkmm77g+KMmRW+T5movg8E483segRoGc1Xuxl9E7V64/0zDlCRpRj+LAqmEtEW9nJ5ILF+2FhVWhH
+	4sZDP77B7VT83FcIX6aYhPWKVaHoXkIhxybqL6zmB/dHtdXGc2uPkopMaiG3yXE6sJJd8IY6i5Gyp
+	weBZHZDPr95dsoNMYOBdhvsxkhazhnXma7RO2xtW3bFZhoDzQwt6SFAclTr75EPAEbGiB0XaaMEnt
+	cjGB6AhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQuYJ-0000000GNxR-1Cu9;
-	Thu, 26 Dec 2024 20:33:51 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1tQuZS-0000000GO5R-4AXk;
+	Thu, 26 Dec 2024 20:35:02 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQuWC-0000000GNec-3GAZ
+	id 1tQuWk-0000000GNl0-3KxO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 20:31:42 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKVbcS048587;
-	Thu, 26 Dec 2024 14:31:37 -0600
+	Thu, 26 Dec 2024 20:32:16 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKWCCW027960;
+	Thu, 26 Dec 2024 14:32:12 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735245097;
-	bh=LlB21iHn0zF4Zu4uoulXyPPg+YVQpux/QZ5SdMlaSJE=;
+	s=ti-com-17Q1; t=1735245132;
+	bh=drifI6Dzuw8QKPIDFysHCxNkPZ8M7+X/soaT70FlxxI=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=bS5KcFZC8fza5kNkkEA6Ms/kwuFjALDfRC0VaCkUDsZ14zIb8mm4NWCoObuGmRIyf
-	 omT4A2qJL5H31/pqY/RHh5K7JvQqIdQBivSn6oAfMmeo5BQ4CrJHCyGsUuK1xVTCO7
-	 +0h9ac9aTR9ko8QcEKrDNE1hhUl+0w8Ixi/FlZsc=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKVb1P002706
+	b=OzXz+k+AueJBBhq5JmdwmLSvGkimr5h96nFOnUoiwWaPg+9UizbQugfbpPlMfGACE
+	 VbPc3D/OYdk7+KVAc+14cMcdbx2jkkWmQeJDaHpTuRxC5rzDVVrWIidlSLgGgAWqBp
+	 MvgvFKYMmjGJ+SCu5+0GqNE/zgLD19cA7y2/FJoA=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQKWCZ6034636
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 26 Dec 2024 14:31:37 -0600
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 26 Dec 2024 14:32:12 -0600
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 26
- Dec 2024 14:31:37 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ Dec 2024 14:32:11 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 26 Dec 2024 14:31:37 -0600
+ Frontend Transport; Thu, 26 Dec 2024 14:32:11 -0600
 Received: from localhost ([10.249.33.38])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKVbSs108557;
-	Thu, 26 Dec 2024 14:31:37 -0600
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQKWBCI109106;
+	Thu, 26 Dec 2024 14:32:11 -0600
 From: Nishanth Menon <nm@ti.com>
-To: <conor+dt@kernel.org>, <krzk+dt@kernel.org>, <robh@kernel.org>,
-        <ssantosh@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
-        MD Danish Anwar
-	<danishanwar@ti.com>
-Subject: Re: [PATCH v3 0/2] Add Clocks for ICSSG
-Date: Thu, 26 Dec 2024 14:31:34 -0600
-Message-ID: <173524505989.82795.5328795902477533290.b4-ty@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Rob Herring (Arm)" <robh@kernel.org>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: Remove unused and undocumented "ti,(rx|tx)-fifo-depth" properties
+Date: Thu, 26 Dec 2024 14:32:09 -0600
+Message-ID: <173524512328.83015.18034967623969969325.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241113110955.3876045-1-danishanwar@ti.com>
-References: <20241113110955.3876045-1-danishanwar@ti.com>
+In-Reply-To: <20241115193359.3618020-1-robh@kernel.org>
+References: <20241115193359.3618020-1-robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_123140_915481_51FEC06B 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20241226_123214_952418_AA13A84B 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +83,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, devicetree@vger.kernel.org, kristo@kernel.org, linux-kernel@vger.kernel.org, Roger Quadros <rogerq@kernel.org>, srk@ti.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi MD Danish Anwar,
+Hi Rob Herring (Arm),
 
-On Wed, 13 Nov 2024 16:39:53 +0530, MD Danish Anwar wrote:
-> This series adds clocks for ICSSG for AM64x.
+On Fri, 15 Nov 2024 13:33:59 -0600, Rob Herring (Arm) wrote:
+> Remove "ti,(rx|tx)-fifo-depth" properties which are both unused in the
+> kernel and undocumented. Most likely they are leftovers from downstream.
 > 
-> PATCH 1/2 Adds the dt binding necessary to add clocks to the device tree.
-> It adds the `clocks` in the dt binding of ICSSG node. Each ICSSG instance
-> has 7 clocks available to them as per AM64x TRM [1] Section 6.4.3 Table
-> 6-398. They are not added in the dt bindings yet. This patch adds all
-> available clocks to ICSSG bindings.
+> There are similar properties, but DP83867_PHYCR_FIFO_DEPTH_4_B_NIB
+> represents the default value so adding them is not necessary.
+> 
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/2] dt-bindings: soc: ti: pruss: Add clocks for ICSSG
-      commit: f7ed5ae30cf395d92a3e1e3c843fa86ce96167b8
-[2/2] arm64: dts: ti: k3-am64-main: Switch ICSSG clock to core clock
-      commit: 25aadf5039fe8920835fb1452db08afa27a0edd9
+[1/1] arm64: dts: ti: Remove unused and undocumented "ti,(rx|tx)-fifo-depth" properties
+      commit: 09b428453219d470475d0d6447c954bf63b95705
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
