@@ -4,82 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD504E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 05:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3210E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 05:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+JDr1LaRapYlu+PHe/GJEFAnj4I7CbUPpdQPHNvTfI=; b=EwTzF42zv5mjnerJCF1dVzyhjO
-	b3VbzwWcEsKGGTO9oeIKW1aJhsMj+uiMv4JBM1hiLXepbxESOsKKCczAcWVU75lj96pUPqGZF7Is5
-	a01zoEMM754/gRndjjgYz3F6PnNhQbhUu1rembnkmkhp2aFWDz41+PolUUS3aT4Asbm7T5nX2SzTJ
-	k/pkZV5P/yiTqZ5YptAqicPYajunAt3D9aKWErLey/rEmBHU3ICAHNmI4Gh+Q8EPwIJV+oUiktkiR
-	HLojtt8N9oM/4wGq9blPpzKvup8w5ifhjwyT3sen9nALH1ORFPpIfZ8oo3uvzibruj0DuRoJ//RAD
-	+gXnGWlg==;
+	bh=kLT4LZzR3P4AQworLxZ9j8Au+nimLtsF+JX2MZeT/Yg=; b=MQ4qxpAbwOnSbYuemscPvjZvqb
+	xS3j5mRhRaRB+QmZuRR97Lt7GdkiF3MDW3T8+OuIGb/JfeCTOE4nmbuiA3JeBg2GSGuU//1cx3jNS
+	SCerF3w/pj9t9LKPtL4bFjrTUQylUOcK7Ke/dSvXgDrHQ5hr85VWhvfOV7GwRy4fhualoYUBPb5Kn
+	rno1hOrH2l2XFYe/Yxorwma6zV0qrWQfpPwnj+n9PrzbcwrG1oFPFxNSP4iZeFb2Aw9x7IAGdN3IH
+	62KH1L32gsw0gWOM/S7mb1hDBCUQvWTH02/fBYsTNx+847YwvCqRkWJZHX6ex08ibLlIvWXUFmXb1
+	eH0tbZtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQgQn-0000000FDc6-2QMj;
-	Thu, 26 Dec 2024 05:29:09 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tQgZ9-0000000FELX-13In;
+	Thu, 26 Dec 2024 05:37:47 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQgOV-0000000FD2e-1cda;
-	Thu, 26 Dec 2024 05:26:48 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5d27243ba8bso11969207a12.2;
-        Wed, 25 Dec 2024 21:26:46 -0800 (PST)
+	id 1tQgXu-0000000FEDC-2z8v;
+	Thu, 26 Dec 2024 05:36:31 +0000
+X-UUID: 59bad516c34b11ef82ff63e91e7eb18c-20241225
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=kLT4LZzR3P4AQworLxZ9j8Au+nimLtsF+JX2MZeT/Yg=;
+	b=pqO3sshAUUwIDEWOu7yAydD3+81+yFIaOFt064GwFrWTjTCO85Yrx/VlW/CfPK8HiVXBTVY7LQEGRlEBTNoAwRMFKYDvMIBNg73vnsK+gOD6/pcEE5YtOvekDknzYPTDKeGAzbRXbOe7E+Ar58oPzyp6X1wBeX5sexVN+ZGWwbk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:3ec5a0a2-ba4e-44ba-acf4-228cd4818ea1,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:10eae218-ec44-4348-86ee-ebcff634972b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 59bad516c34b11ef82ff63e91e7eb18c-20241225
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 679254922; Wed, 25 Dec 2024 22:36:26 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Thu, 26 Dec 2024 13:36:24 +0800
+Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Thu, 26 Dec 2024 13:36:23 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RSXLaUXczISyc2ASn0goLnmziPVZ6W6C9eSIXsxY2l1+ArGPfg420E69tDIhMYAfG2oIjAGf6mY68+Xgh1+HWg4mOaFj8zNGIJ86oMIzbMKWk9Q2MUlKZTPK5oL+S7XLKJWrEjkKK9R/IeKV++jNvMOnnIT24GedypDdNsMiaVBXqtiLL3B9Wfj9jaiNshIbPQ4zMdifWgab7aGwo9YUS9O/nmBkFx/B0ND4lTntianm5N9dzLiF0dOaF15pKycD5UPpgVkXCJIFel1GBGQtcqbcmMTdXbTstPB+Fa+XuBRfMF+RUzhyITLxQGc2uB3CBlRhHNXJ8U6A1ZfWih1hrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kLT4LZzR3P4AQworLxZ9j8Au+nimLtsF+JX2MZeT/Yg=;
+ b=VdxXNsI84TlP/fvMEyqqVlM+jmrP0BoTx56d0Vrb+Pf7Ys+gFeIdENUFXYOAZPtAqgHYAWDHUrQ8ForQvCMOQzzNlTvD/tUI5S9v1PynlGi+IsSxSgNBkivMM1XEcjG4rT0uOCh78GzQ0KJuJAB99B5BolrpKsEHDAgvkRyrVMYdCQ1eiLKh6FOtG4Xw6ZDcsFNvbOhaP+gYk/7m93VfbRr3wX69FXJ6l/VK9Iy/z+brZk6D7iw/TmNft98ohM4GW3MxA4Rjws5cIDajBr/+OLcY9MCNtW29VeIGoi1FnR8Vih3gGyPWMVW/w4rAWGUYbrLobnzmRBw1lpNewwBE2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735190805; x=1735795605; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=T+JDr1LaRapYlu+PHe/GJEFAnj4I7CbUPpdQPHNvTfI=;
-        b=EouxycGVfXGlDLkV/FB+rKHvXE50Pe3d1KOH9jE1zEsB70AauQungEsRPuaC/8pBha
-         +UVS64+XDa6IcsGj/fyxcIO7ndeyHRfscRvkVscDRn9HwElze+lMmv1Q4Tlqiu+xwNJV
-         Jw80LDruAf27w0X+2ITMWLVMeWcAOGFy4iUYQZmWRFJNFIz4VnqESABJBh6KJUVsd/ah
-         +ZS1+lpuKAjPfhjcsxZNSql2mOSoUcHwMc680VHmxdqw6zGGWj9Pffl6VTtUx1r2bw/+
-         rqx22B9aIjZr2vrFnf8nG064IKnV9pKJpelLQjAvSQMxbKeOvxPb7ZnykC5CWqdHX2u1
-         AB2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735190805; x=1735795605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T+JDr1LaRapYlu+PHe/GJEFAnj4I7CbUPpdQPHNvTfI=;
-        b=AtccdH6dmocxxvfiSgZ6vKCwHueXseq8xuaSQZjE58tO3RtnDl9X1aZA7tMt+xTQJJ
-         Ouuij6lYRBwI/Yf2yy/L/yOGrseNwXZ8VlVx2J+L+jYO4CeLCjofSiL3qzP5dh73yazc
-         QgPMsw3nsnkxODOgxeheVtuuDM7UDefhe2nmEiRS5g4vZkpBIcyP/K3i3aZ3Y8tmorfJ
-         5NUu1x9P9sJ2cqZvSXfIsv3eCecuSI74uivoytxXUXHUZbEqRN9W1XOS4FEsYXjeUzng
-         tRMUkX2p2xdKDb6GQN+slP2H8HpyW868MktX9NUuGcMVIzCqE1bIP1SadiGKOgkvc4lv
-         jFaA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjl7TLgmYr3lKoJ1eZ61o5ibvqMNMzbl02ruJ1wa2hZkAkY5H3zGIUNFyoM6L/mxROMj+IINtAGAdPrBG3gaAy@lists.infradead.org, AJvYcCWYj/ZpkOpLTmlSujDwFsKUgesVl/x+WDQPRR/opsqpW7CnQrwvgalkgewHLXk1Mgk4A0xvTLP9RwqtIwZolGg=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjYfVkMU0/DaijJK4lsECzVZ7xMUCZZlIcnCNiBGePNNxK04ZV
-	8CmeRxDDI5PQbFyGZihUPDG7sElNkwf27E52odsRXZs5GZa8cLbyEZLbZviqkvC1f1zBH/GU7jo
-	2nT8xstukHnro9QDVUtJLBAbQcRs=
-X-Gm-Gg: ASbGncvXJzNPDwF5hOifdOOBCdSP/gtBrKJHrsB/pfPGTbEy+32idfQoZMFrWIfByO9
-	cnrsQFYY+T8MMpdvTC4R1fShWkrvjhTGKtHjrng==
-X-Google-Smtp-Source: AGHT+IHQ7vKwTP1Zh5rdZtm6sAzdXA46Hbae0qn8v1s5EYWSFykwVcX3dLIMcWjb/pilCPy7xwAqCzbLwxMhQ5SdnJA=
-X-Received: by 2002:a05:6402:5255:b0:5d4:75b:8ced with SMTP id
- 4fb4d7f45d1cf-5d81de39845mr18362948a12.32.1735190804649; Wed, 25 Dec 2024
- 21:26:44 -0800 (PST)
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kLT4LZzR3P4AQworLxZ9j8Au+nimLtsF+JX2MZeT/Yg=;
+ b=r5+MMkVPAQi2IznQUF3Xr02IbGmjuy7fDCTmYySFR0PMcUcqRgN/IcW5su/X03aFK4hasQaGktzbL9VE3HuZ2OsH32E9J4ZziavWx0c7dnTKfyfRQbu2YkUvAyxT9ZtiUzdCSr3gW9ihSpUAe/uOlH5z4H2VzIbHE0g/QZDOWEE=
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
+ by TYSPR03MB7332.apcprd03.prod.outlook.com (2603:1096:400:431::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.17; Thu, 26 Dec
+ 2024 05:36:22 +0000
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8251.015; Thu, 26 Dec 2024
+ 05:36:21 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	=?utf-8?B?Qm8gS29uZyAo5a2U5rOiKQ==?= <Bo.Kong@mediatek.com>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "AngeloGioacchino Del
+ Regno" <angelogioacchino.delregno@collabora.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>
+Subject: Re: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
+Thread-Topic: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
+Thread-Index: AQHbVqv2E/LiiDV3F0q0O1OD05OMm7L4AtQA
+Date: Thu, 26 Dec 2024 05:36:21 +0000
+Message-ID: <e7db73ee79a2c6114ffb3d752ba741ee4230ddca.camel@mediatek.com>
+References: <20241225090113.17027-1-bo.kong@mediatek.com>
+	 <20241225090113.17027-4-bo.kong@mediatek.com>
+In-Reply-To: <20241225090113.17027-4-bo.kong@mediatek.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYSPR03MB7332:EE_
+x-ms-office365-filtering-correlation-id: 3c1bffc5-b00f-478d-bb2e-08dd256f3abc
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?Ykp3WlNNWTNUUStlNkdyMUYzS2FUQlVXdGQ5QmFMK1l3R2h2QVZuaXdreUp0?=
+ =?utf-8?B?QlloSDZNNENiSkpld1p6NUM0c3ZnRC9QZmxIRzQ1RWNHc2ttdkxySk5jM1Vn?=
+ =?utf-8?B?VmtmbFpyaU1US3BTNDFWeGptZ25uKy9GcFhsMFMwQ2g5VW9hTk0veHJqWlo5?=
+ =?utf-8?B?UFFsUU0yeVBoeDVkK3JTSi80WVRXQU5ZcUgyQ0FoY1ZjT0xlOFYxaXBtWUg4?=
+ =?utf-8?B?RlU4M05lNENEZXUwSWU1YmJjY0Q5emVLUGl4dnVsY2xaTmVibXN2b1UwMXlr?=
+ =?utf-8?B?SlhpYkNkY0JXR1NXZ2RCUTFPZ1ZzVEFLYk1RZEdtZ3dPOWhrZC9zVjFoMXBw?=
+ =?utf-8?B?aWdsZmNBTHZ6clh2M3g3SzFlR3M2eE1EVHZQbW1teUdudDZYNTg5VlFpQmZk?=
+ =?utf-8?B?V214ZlRQOURzb0xVVS9tTDBJSnhzVEJicVhULzlEOVphTXJKT2IzRUxGMm9z?=
+ =?utf-8?B?VEltMUFQMlBFdjJKdW54dk1lSWM0K1gxUnVJUXZQd0lSUWo3ZjEvLzc0djdw?=
+ =?utf-8?B?VFBneUwrMEk2cUFZbnEwNU52UVVKSVowRzN5UVV2THFZNmtlMzFQSnFkVXdY?=
+ =?utf-8?B?QXF5TTRVbjNOZ3lzQm12cmdTRmdESnZQSk5rc1ovUlBYQmhneDhPMHNoc1Np?=
+ =?utf-8?B?SjUzUklDcDZiOWt4M3oxenpweUJSMU5uelVBQjEzK1lGdWM3Y3VXL1M3UEhv?=
+ =?utf-8?B?K0EzckJiL0Ruc1RwMUsxWHVpZzhydTFlU3ZsN1JydmkxUGtrRk1tUUR6ZGk4?=
+ =?utf-8?B?bk9senpmbTFMakdPN2ZmLzF2Qm9uNmdpZkdoWGNtczgvNXZHTUFRUEZNcHEv?=
+ =?utf-8?B?OXNxUzd5ajRsN1l6SU5pVjV2UmF5Wk9BYkoyakNqNXZTcFFhb0U4WkYwU2pI?=
+ =?utf-8?B?OUJ2SnB5UnBPTExXZSszc2FUaStXUlVzaVp4Y09Rc0FUNURuYjNObTFjWUNR?=
+ =?utf-8?B?ZWh4aUg2MjB3bGMxeGlyOER0NmN6RVd6Y1ZaUUlFL1dQcGhUa0V0bWhQOFlo?=
+ =?utf-8?B?SEdlZWIxUm15UWE0V3A2cUNPM0RkSi9XTDBJWnc0eHhCMlhRanNIQkZvTXNZ?=
+ =?utf-8?B?ckFBWTMrd1JYaFM2bFVMNFZzdXBRZXVCSTg5MGpzRzVEclZFcG1MUjBYMDA3?=
+ =?utf-8?B?NitqV09WMVJEU2ZHM1hSVGR6T0JLS2NabFhuVXJXbzQ4K1Fxd3VHcEVTN0xj?=
+ =?utf-8?B?eFZuL052RUtPMXNIbXdmSy9relJZZERGOWxadjNnMnJpSlVmQWdGZFM2NVEw?=
+ =?utf-8?B?bFk3VUhUanRqMjZObS9nR3U0WUxtb1c4c2F4cmY1NlhOZnB5Q0ZHM2l2WVBM?=
+ =?utf-8?B?QWVhbW5RbURweCt4ZjQrcU9IOW5ud3Rjb1doaHdlaStjeVo4YlhtS2pTVHdn?=
+ =?utf-8?B?YVdXMXl0VzZSaytWUWVUSTdYOHR2RUNlM20xaFRWUjhySmU2VDd4Y2VSS3Fm?=
+ =?utf-8?B?MjR6TjJqa0ZRVmphOHA5STBmZEVXZ1p5ek9VdEtaajhFeUppTmZaeDAwSWht?=
+ =?utf-8?B?ay9CMFl5dzZhWHM1NU9QaUN1ZVhXbk5taGNtYW9pU1lNTUxFdjh5d0k5NjNs?=
+ =?utf-8?B?RFlyUzF5MkpxMzFLcEh4dU9rMEY1NU9DWk9SN0dpeU0zdTZzTmFoMHZwMnlx?=
+ =?utf-8?B?NlNVK2hkQ3ZJU1E5RlYwZmwyMnRaVUU3bmVBRGRxTngrOHFkY3VHeG9rU0RX?=
+ =?utf-8?B?WUV2REtqSEpRMXQ4bWdCbXdGZmxrTkR6ellEMy9zZ1FIQW5FaFhJdEdvQWg3?=
+ =?utf-8?B?cmtFNktOWjJQR0FkeVlCczVWUTd0RDNyRDBQN3dMUlN1Mk0rdzhEZXUxOTRa?=
+ =?utf-8?B?ZTc1OEE0b05YcnpIYTJZS3lqd1FwK1dKM1V2SXJ1MHEwaFQ1SE1MSDZmL2FV?=
+ =?utf-8?B?a01FV25HOENpZXpFeXZPNU5PUWU5YVdlcUliM1VGenpuSStZcEJoZUFrVElD?=
+ =?utf-8?Q?KRGy4gLevkblGCG4X+LvtiKNLvn0KthT?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VHFwMkxnT1BYOURzVTVKamFoL0dtcUZpM1JCTytrWGdJaDVTaHBLdU5uZG1l?=
+ =?utf-8?B?NTVidGJVZi9TRFpPWTZ2eHFUVUtsem94N3FPSmRzVWozMkcxTlZLNTFvMFZv?=
+ =?utf-8?B?OXlQNWV0OWhTOC83VEY5WlNDU0tjOWx3dTl2b29kSTNoZ3N5cEU1aTYwRGR4?=
+ =?utf-8?B?SFpSOWdETE04ci9TRVorRTJncnZMcWN4b2VsemZxWkkwRWdSczdyVVBpL3d0?=
+ =?utf-8?B?b1l3SisxbVdMWGJqVzdVaWQzL0ZRbkZYWlBQTHRsMHJqVy8xWXRsRC8xaTFw?=
+ =?utf-8?B?U3ZJUUl1SzJCT29ySUFubCs4R2l2SXFNdzFzZ3E5NWhaTHhoa1J2eTlKMndz?=
+ =?utf-8?B?MFl6eEMrMWtnOE02VjUyc28vUEd0UXNwbkFaNkpTY2dGci90bjM0TUx1M1B0?=
+ =?utf-8?B?NkxEdC9OQk4xa1pyWXZzcGxEY1dabkdKR0liRmJ0RFl0SUZtK0NTWEpzZkcr?=
+ =?utf-8?B?ZHFsWkR0TmNZQzAvb1RiOHYzM05aRFhBdmVIaHVXd2NWdExPK2VhNmFYc01H?=
+ =?utf-8?B?TWlhd0NVbDN6UktGdW1pdHU3ZUwzMmZsNTZTTGFlanc1WXplMi9GWVJRcExO?=
+ =?utf-8?B?a1h4M2VFSjIzSFhvR0REOUFvWVNGU0JpcHpMWnZ0VkhCR2lLRjQ1Vi9SM0U3?=
+ =?utf-8?B?YXo1dC82YzdFMTAxZDJoQ1JjSmY3V3QvRTJjVERJbDFRUWlaRzY5L3M5TmVx?=
+ =?utf-8?B?QkZPNGJpaThsUXFsVkhhOWI1aHVmYVc3dm9SRG9yZnd5NjNoZFhpZVJTSnVC?=
+ =?utf-8?B?b01yUjM3QjExdTR4SS80K3RJeXIyMW80OGJOM3JXclhRRFpiUW9remo5RXor?=
+ =?utf-8?B?QUFjYThZUW1Yb0UwWVpNN3k0TkdzU2JrbXMzTDFvUXhZdnRZaUlpTkxiQ3Ev?=
+ =?utf-8?B?VkR2WWtieGhqWGV0anRKVXhTTytPeWoyZU1iNG5jV0gvc08xREtxVFdCY1Ux?=
+ =?utf-8?B?aWlJNStyZHg4blNIZVFGNjZMWHBmR3c0TEZFbTJKbkJCTlpjeUlJZGRTeG9H?=
+ =?utf-8?B?TE5Oa3NhTTdYZUVCS1JtZVJzQVFqSzRzNWFmbThVZm05Q1lSQ3FEZHJZNnkr?=
+ =?utf-8?B?bkluMG41UVg1R3FBOFZzM1lRVlFITENHa3RxN3ZxaHdzd1Nnd1pxSnoxT0hY?=
+ =?utf-8?B?QVl2cUdsZzZuYmIzK1daM1h6bkNXMzlQd0FtWlo1VEdWRjV6c0g0Z1pmeHhN?=
+ =?utf-8?B?T3d2YkhvWFM5RGZmMTFjWEpKd0Iyd28zNTlPb1RVeXk5VWpQd0xRRUJ6a2VS?=
+ =?utf-8?B?Q0ZVc2UvbmV3RFZwZEtRdkwrdkx4aHRUSUlmcGx0V3NGaHVSTmhhVzI2Zmxv?=
+ =?utf-8?B?WE5ZZ1ZTOHlmNGJ0QTcrcmJsUi8xZEp2K1VaQzBOZnRUUlZQWmM1YkNwbzBp?=
+ =?utf-8?B?dHZIN3I5d1JTd3h1OU9zRWV3RG95VlBjWExScFBjVmswUU4zQzB4dURhQmJI?=
+ =?utf-8?B?OWw1N1JlSHNFRjB3QWpURkQ1ZTJ6UFlpQmxoZ2x6TDlqSWJrWk1yTmpwVlor?=
+ =?utf-8?B?SEhZZy9WRWdqTDZxcXlpVlRMTFNLYXNxQnhMMmc0bmFyUkorVmVMU1c4a1Bj?=
+ =?utf-8?B?VGZhcHllc0lpNFNHcnhIY2R4QVBDVnd1MkNPR01hK3hjdWVmTzlON3ZoSnFM?=
+ =?utf-8?B?RlFOM0NGUlBvVTRBTDVlWGpUTW9paWl5MG1LZDNSOTFaanRob1B3RWwwWEdy?=
+ =?utf-8?B?TVRMVldWN05NYytQbnlteXc5WXZ0VGNxNkFveHQ2aTBRZ21jWHorR29udU5K?=
+ =?utf-8?B?SXFvVnhVZ2xJUk9IWGdxYnUvaitZLzFicmNZQi9JNHJYU01SdTN2THNOeUpZ?=
+ =?utf-8?B?TzNCMnNUV2JzMUFCb3pMMkNnVjY5ek8raWk5NGQxalB3Q1ZoV09OdDEzaThO?=
+ =?utf-8?B?bzNyY0FRMVdhRlBPUkUrZlhpVlQzam5CQytoa2pkTUoxYjIwRkcxM25GZ1c1?=
+ =?utf-8?B?WDU4YzRocm5VVXFyNmxUakp6UXdybmNuc2Z5dE9jN25NQlkyUkF0Q0dYKzN2?=
+ =?utf-8?B?VVNZZ3F1bnN5VXJtOTVFSkEzYVhxblcrUlJUekl1SFI0ZUNpUmFvNkdSVGhk?=
+ =?utf-8?B?T0tPKzh4eThoaHJhUlVZMjdBUUV1aGZEU29DZlhnejdxR3RnYnRBd3BzT1NR?=
+ =?utf-8?Q?+5/Vd2zIfogwKx+KnSFZxHLLG?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <6E27D5FAF9625840B94E4F3F9D461B8D@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20241202151150.7393-1-linux.amoon@gmail.com> <20241202151150.7393-2-linux.amoon@gmail.com>
-In-Reply-To: <20241202151150.7393-2-linux.amoon@gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 26 Dec 2024 10:56:28 +0530
-Message-ID: <CANAwSgRgnwszYSH4uS-u=52f0vQuB2_SGcfNak_Xipe4=gXPOg@mail.gmail.com>
-Subject: Re: [PATCH v11 1/3] PCI: rockchip: Simplify clock handling by using
- clk_bulk*() function
-To: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c1bffc5-b00f-478d-bb2e-08dd256f3abc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Dec 2024 05:36:21.3095
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1QqjL8Ya8LMtv76gkMsmfg1UZuKeX6aTjv7RNg1/aairqukC1JuP/OFE8sDWAAo8b5lYwVb+HH3jYjzrGmuJYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_212647_437330_E7656CE2 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20241225_213630_768949_2226DE31 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,161 +217,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
-
-On Mon, 2 Dec 2024 at 20:42, Anand Moon <linux.amoon@gmail.com> wrote:
->
-> Currently, the driver acquires clks and prepare enable/disable unprepare
-> the clks individually thereby making the driver complex to read.
-> But this can be simplified by using the clk_bulk*() APIs.
-> Use devm_clk_bulk_get_all() API to acquire all the clks and use
-> clk_bulk_prepare_enable() to prepare enable clks
-> and clk_bulk_disable_unprepare() APIs disable unprepare them in bulk.
->
-> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
-
-Gentle ping ?
-
-Thanks
--Anand
-
-> V11: None
-> V10: None
-> v9: Re write the commmit message.
-> v8: Improve the description of the code changes in commit messagee.
->     Add Rb: Manivannan
-> v7: Update the functional change in commmit message.
-> v6: None.
-> v5: switch to use use devm_clk_bulk_get_all()? gets rid of hardcoding the
->        clock names in driver.
-> v4: use dev_err_probe for error patch.
-> v3: Fix typo in commit message, dropped reported by.
-> v2: Fix compilation error reported by Intel test robot.
-> ---
->  drivers/pci/controller/pcie-rockchip.c | 65 +++-----------------------
->  drivers/pci/controller/pcie-rockchip.h |  7 ++-
->  2 files changed, 10 insertions(+), 62 deletions(-)
->
-> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
-> index b9ade7632e11..53aaba03aca6 100644
-> --- a/drivers/pci/controller/pcie-rockchip.c
-> +++ b/drivers/pci/controller/pcie-rockchip.c
-> @@ -129,29 +129,9 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
->                 return dev_err_probe(dev, PTR_ERR(rockchip->perst_gpio),
->                                      "failed to get PERST# GPIO\n");
->
-> -       rockchip->aclk_pcie = devm_clk_get(dev, "aclk");
-> -       if (IS_ERR(rockchip->aclk_pcie)) {
-> -               dev_err(dev, "aclk clock not found\n");
-> -               return PTR_ERR(rockchip->aclk_pcie);
-> -       }
-> -
-> -       rockchip->aclk_perf_pcie = devm_clk_get(dev, "aclk-perf");
-> -       if (IS_ERR(rockchip->aclk_perf_pcie)) {
-> -               dev_err(dev, "aclk_perf clock not found\n");
-> -               return PTR_ERR(rockchip->aclk_perf_pcie);
-> -       }
-> -
-> -       rockchip->hclk_pcie = devm_clk_get(dev, "hclk");
-> -       if (IS_ERR(rockchip->hclk_pcie)) {
-> -               dev_err(dev, "hclk clock not found\n");
-> -               return PTR_ERR(rockchip->hclk_pcie);
-> -       }
-> -
-> -       rockchip->clk_pcie_pm = devm_clk_get(dev, "pm");
-> -       if (IS_ERR(rockchip->clk_pcie_pm)) {
-> -               dev_err(dev, "pm clock not found\n");
-> -               return PTR_ERR(rockchip->clk_pcie_pm);
-> -       }
-> +       rockchip->num_clks = devm_clk_bulk_get_all(dev, &rockchip->clks);
-> +       if (rockchip->num_clks < 0)
-> +               return dev_err_probe(dev, err, "failed to get clocks\n");
->
->         return 0;
->  }
-> @@ -375,39 +355,11 @@ int rockchip_pcie_enable_clocks(struct rockchip_pcie *rockchip)
->         struct device *dev = rockchip->dev;
->         int err;
->
-> -       err = clk_prepare_enable(rockchip->aclk_pcie);
-> -       if (err) {
-> -               dev_err(dev, "unable to enable aclk_pcie clock\n");
-> -               return err;
-> -       }
-> -
-> -       err = clk_prepare_enable(rockchip->aclk_perf_pcie);
-> -       if (err) {
-> -               dev_err(dev, "unable to enable aclk_perf_pcie clock\n");
-> -               goto err_aclk_perf_pcie;
-> -       }
-> -
-> -       err = clk_prepare_enable(rockchip->hclk_pcie);
-> -       if (err) {
-> -               dev_err(dev, "unable to enable hclk_pcie clock\n");
-> -               goto err_hclk_pcie;
-> -       }
-> -
-> -       err = clk_prepare_enable(rockchip->clk_pcie_pm);
-> -       if (err) {
-> -               dev_err(dev, "unable to enable clk_pcie_pm clock\n");
-> -               goto err_clk_pcie_pm;
-> -       }
-> +       err = clk_bulk_prepare_enable(rockchip->num_clks, rockchip->clks);
-> +       if (err)
-> +               return dev_err_probe(dev, err, "failed to enable clocks\n");
->
->         return 0;
-> -
-> -err_clk_pcie_pm:
-> -       clk_disable_unprepare(rockchip->hclk_pcie);
-> -err_hclk_pcie:
-> -       clk_disable_unprepare(rockchip->aclk_perf_pcie);
-> -err_aclk_perf_pcie:
-> -       clk_disable_unprepare(rockchip->aclk_pcie);
-> -       return err;
->  }
->  EXPORT_SYMBOL_GPL(rockchip_pcie_enable_clocks);
->
-> @@ -415,10 +367,7 @@ void rockchip_pcie_disable_clocks(void *data)
->  {
->         struct rockchip_pcie *rockchip = data;
->
-> -       clk_disable_unprepare(rockchip->clk_pcie_pm);
-> -       clk_disable_unprepare(rockchip->hclk_pcie);
-> -       clk_disable_unprepare(rockchip->aclk_perf_pcie);
-> -       clk_disable_unprepare(rockchip->aclk_pcie);
-> +       clk_bulk_disable_unprepare(rockchip->num_clks, rockchip->clks);
->  }
->  EXPORT_SYMBOL_GPL(rockchip_pcie_disable_clocks);
->
-> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-> index a51b087ce878..f79c0a1cbbd0 100644
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -11,6 +11,7 @@
->  #ifndef _PCIE_ROCKCHIP_H
->  #define _PCIE_ROCKCHIP_H
->
-> +#include <linux/clk.h>
->  #include <linux/kernel.h>
->  #include <linux/pci.h>
->  #include <linux/pci-ecam.h>
-> @@ -321,10 +322,8 @@ struct rockchip_pcie {
->         struct  reset_control *pm_rst;
->         struct  reset_control *aclk_rst;
->         struct  reset_control *pclk_rst;
-> -       struct  clk *aclk_pcie;
-> -       struct  clk *aclk_perf_pcie;
-> -       struct  clk *hclk_pcie;
-> -       struct  clk *clk_pcie_pm;
-> +       struct  clk_bulk_data *clks;
-> +       int     num_clks;
->         struct  regulator *vpcie12v; /* 12V power supply */
->         struct  regulator *vpcie3v3; /* 3.3V power supply */
->         struct  regulator *vpcie1v8; /* 1.8V power supply */
-> --
-> 2.47.0
->
+T24gV2VkLCAyMDI0LTEyLTI1IGF0IDE3OjAwICswODAwLCBiby5rb25nIHdyb3RlOg0KPiBGcm9t
+OiBCbyBLb25nIDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEFkZCBhIFY0TDIgc3ViLWRl
+dmljZSBkcml2ZXIgZm9yIE1UODE4OCBBSUUuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBCbyBLb25n
+IDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gLS0tDQoNCltzbmlwXQ0KDQo+ICtzdGF0aWMgY29u
+c3QgdW5zaWduZWQgaW50IGFuY2hvcl9lbl9udW1bRkRfTE9PUF9OVU1dID0gew0KPiArCTUsIDUs
+IDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUs
+IDUsDQo+ICsJNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwgNSwg
+NSwgNSwgNSwgNSwgNSwgNSwNCj4gKwk1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1
+LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LCA1LA0KPiArCTUsIDUsIDUsIDUsIDUsIDUsIDUs
+IDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUsIDUNCj4gK307DQo+ICsNCg0K
+QSBjb25zdGFudCBhcnJheSBmdWxsIG9mICc1Jz8NClVzZSBhIHN5bWJvbCB0byByZXBsYWNlIGl0
+Lg0KDQojZGVmaW5lIEFOQ0hPUl9FTl9OVU0gNQ0KDQpSZWdhcmRzLA0KQ0sNCg0KDQo=
 
