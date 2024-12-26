@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A61EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 16:17:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857F0E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 16:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Amv9DzalnxwHOgeORxwQnJAnW4+z6Fobr3p7qJnJIXY=; b=I6IIKXSNNjLQppMdhoS2Ia4ZZI
-	Zjpnb/YtRqujojKcTUrRZDNRbQ6Sxs5y0ZRGWcxF+Fgt6c8awjFSEJOX/PGWkhqTNgSuUBt96XOH5
-	I239RkEBvt+KR1c/kuBnNrcxDKjFJOoQSI7fNiTCZhaBHPDigy3uJxylOJUV4SRhNatH3/883xWuv
-	NqShF/bOnECOS3K6y3FQP0CL2ysAmYvCIYoWC8eqQk9kb3+3AGWRtFUBDdvP9tlvXSzj46gcdnboc
-	Df8mYApI8ugQRslyC+5oSX0QbMmXejgXho5NmWKSMEKdnNUAAwEsQW5XqAl8JfqfIutRE/qcxa0Ab
-	6X3+dAzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ODeyQNYpuMLMk/xFTLtSJeOOo84N/MeLNTUJ1IoxMuU=; b=nTj0x+97MkSz95da6u4rM22QY6
+	O400knd6b0N9ZSjGRewYFlUjk+ziK23+uOsu0n6gSb23SRGy7BTXrmjz7nyv6Y20RtsgrAeKfaUTn
+	1E6MBN9/rjaDy7CU5vCwVHpVP/gOTyTkhRIwdWVQZUUl32wFFqYRteUGlbvnnRooQrt9GUda1Qb2V
+	3xaWAPuCo4IasTobgfLTNImX2Aug4n1AvASRpWA0w3QNxy6lJ4nZPiGDIfrjcmzZpeEhwwaDsa3Kf
+	x+ULe5DRaSjXDkRYbGeHvNWXyeCGAPNraCMsvJi1I5IcuxkTiqGAgPGxtrXhPQ5msZ/rM9vfjsQkQ
+	vVxfwqRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQqXv-0000000G1ol-1dMY;
-	Thu, 26 Dec 2024 16:17:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tQr9Y-0000000G5Au-2hyr;
+	Thu, 26 Dec 2024 16:56:04 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQqWi-0000000G1hO-1mI8
+	id 1tQr8M-0000000G54p-1LNH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 16:15:57 +0000
-Received: from pendragon.ideasonboard.com (85-76-136-220-nat.elisa-mobile.fi [85.76.136.220])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 889ECC62;
-	Thu, 26 Dec 2024 17:15:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1735229707;
-	bh=06nc+tg/4UKFLfBYN5nBlZntSO6n2nOqTRR922L+9gQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vNuTWzpO+NV6jThFUEyFTevR8A7JtDlja0Gx5dRVeTlETjo07XJu3yGTZWW5HKq9w
-	 6NJ2VHN6AIoGBBH+QqPxDlKa+JrwSHVmYaKIxfQckW9EURh5bJo018KShjyNXnMK0j
-	 wnbE/uvP83eDqTeARSttnsfurIwNQ/WsLc4awxMw=
-Date: Thu, 26 Dec 2024 18:15:47 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: yuji2.ishikawa@toshiba.co.jp, mchehab@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	sakari.ailus@linux.intel.com, hverkuil-cisco@xs4all.nl,
-	nobuhiro1.iwamatsu@toshiba.co.jp, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v12 1/8] dt-bindings: media: platform: visconti: Add
- Toshiba Visconti MIPI CSI-2 Receiver
-Message-ID: <20241226161547.GB554@pendragon.ideasonboard.com>
-References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
- <20241125092146.1561901-2-yuji2.ishikawa@toshiba.co.jp>
- <07e0cc97-c0c4-42fd-b51d-87b0eaed4e4a@kernel.org>
- <TY3PR01MB9982FE7739FABB2275C79C0B923B2@TY3PR01MB9982.jpnprd01.prod.outlook.com>
- <cb6be804-1649-4d17-839c-fe58a39baa1d@kernel.org>
+	Thu, 26 Dec 2024 16:54:52 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1tQr7u-0001Lw-2X; Thu, 26 Dec 2024 17:54:22 +0100
+Message-ID: <8a8f315b-9e6b-4c18-985e-5df4ecbe34da@pengutronix.de>
+Date: Thu, 26 Dec 2024 17:54:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <cb6be804-1649-4d17-839c-fe58a39baa1d@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m: document nominal/overdrive
+ properties
+To: Conor Dooley <conor@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abel.vesa@linaro.org>,
+ Marek Vasut <marex@denx.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
+ <20241219-imx8m-clk-v1-1-cfaffa087da6@pengutronix.de>
+ <20241219-lash-lather-31443ced0e0c@spud>
+ <4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de>
+ <20241225-untapped-flyover-47254d06d418@spud>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20241225-untapped-flyover-47254d06d418@spud>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_081556_617391_87F293CF 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20241226_085450_373298_0A94D4BC 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,94 +80,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 06:44:58AM +0100, Krzysztof Kozlowski wrote:
-> On 17/12/2024 00:57, yuji2.ishikawa@toshiba.co.jp wrote:
-> >> On 25/11/2024 10:21, Yuji Ishikawa wrote:
-> >>> Adds the Device Tree binding documentation that allows to describe the
-> >>> MIPI CSI-2 Receiver found in Toshiba Visconti SoCs.
-> >>>
-> >>> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-> >>> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-> >>
-> >> How newly added patch can have already Rb tag? Was this review really, really
-> >> performed internally or you just satisfy some internal managers requirements
-> >> and fake the stats?
-> >>
-> > 
-> > I added this Reviewed-by tag because the patch was reviewed internally.
-> 
-> What issues were identified by internal review, especially in the
-> context of bindings?
-> 
-> >>> ---
-> >>>
-> >>> Changelog v12:
-> >>> - Newly add bindings for CSI2RX driver
-> >>>
-> >>>  .../media/toshiba,visconti5-csi2rx.yaml       | 104
-> >> ++++++++++++++++++
-> >>>  1 file changed, 104 insertions(+)
-> >>>  create mode 100644
-> >>> Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
-> >>>
-> >>> diff --git
-> >>> a/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yam
-> >>> l
-> >>> b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yam
-> >>> l
-> >>> new file mode 100644
-> >>> index 000000000000..5488072bc82a
-> >>> --- /dev/null
-> >>> +++ b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx
-> >>> +++ .yaml
-> >>> @@ -0,0 +1,104 @@
-> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
-> >>> +---
-> >>> +$id:
-> >>> +http://devicetree.org/schemas/media/toshiba,visconti5-csi2rx.yaml#
-> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>> +
-> >>> +title: Toshiba Visconti5 SoC MIPI CSI-2 receiver
-> >>> +
-> >>> +maintainers:
-> >>> +  - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-> >>> +
-> >>> +description: |-
-> >>
-> >> Drop |-
-> >>
-> > 
-> > I'll drop "|-"
-> > 
-> >>> +  Toshiba Visconti5 SoC MIPI CSI-2 receiver device receives MIPI
-> >>> + CSI-2 video  stream. Use with VIIF device. T.B.D
-> >>> +
-> >>> +properties:
-> >>> +  compatible:
-> >>> +    const: toshiba,visconti5-csi2rx
-> >>
-> >> Why this is called "RX"? Can you have a TX? I had impression that one cannot.
-> >>
-> > 
-> > VIIF has only MIPI CSI2 receiver (CSI2RX). There's no TX for it.
-> 
-> So this device cannot be anything else? Then drop rx.
+Hi Conor,
 
-It's a compatible string, it identifies the IP core. As the SoC also has
-a CSI-2 transmitter (as mentioned by Ishikawa-san), it makes sense to
-name the CSI-2 receiver csi2rx.
-
-> > Visconti also has VOIF (Video Output Interface) hardware which has
-> > MIPI CSI2 (not DSI) transmitter (CSI2TX).
+On 25.12.24 15:20, Conor Dooley wrote:
+> On Thu, Dec 19, 2024 at 09:14:10PM +0100, Ahmad Fatoum wrote:
+>> On 19.12.24 20:49, Conor Dooley wrote:
+>>> On Thu, Dec 19, 2024 at 08:27:32AM +0100, Ahmad Fatoum wrote:
+>> Theoretically, we could infer mode at runtime from VDD_SOC voltage,
+>> but we need to set up clocks to read out the PMIC and I want to
+>> apply the constraints as early as possible as I don't want the SoC
+>> to run outside of spec even for a short while.
 > 
-> Or this can be something else? Confusing.
+> Apologies for the delay responding to you, doing it today cos I feel
+> guilty!
 
-In a camera capture pipeline the CSI-2 interface of the SoC is a CSI-2
-receiver, but SoCs commonly have CSI-2 transmitters as well (even if
-that's less common than receivers).
+I am fully aware that I needn't expect prompt review feedback so late in
+December. Thanks a lot for taking the time still.
+
+> I think what you've explained here is fine, but could you add a
+> bit more of that info to the commit message, explaining why one cannot
+> be default? With that,
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks. I will await further review feedback and adjust this commit's
+message for v2 as requested.
+
+Wishing you nice holidays,
+Ahmad
+
+> 
+> Cheers,
+> Conor.
+> 
+>>
+>> Thanks,
+>> Ahmad
+>>
+>>>
+>>>>
+>>>> While the overdrive mode allows for higher frequencies for many IPs,
+>>>> the nominal mode needs a lower SoC voltage, thereby reducing
+>>>> heat generation and power usage.
+>>>>
+>>>> In any case, software should respect the maximum clock rate limits
+>>>> described in the datasheet for each of the two operating modes.
+>>>>
+>>>> To allow device tree consumers to enforce these limits, document two new
+>>>> optional properties that can be used to sanity check the clock tree.
+>>>>
+>>>> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+>>>> ---
+>>>>  Documentation/devicetree/bindings/clock/imx8m-clock.yaml | 14 ++++++++++++++
+>>>>  1 file changed, 14 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+>>>> index c643d4a81478..a6ae5257ef53 100644
+>>>> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+>>>> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+>>>> @@ -43,6 +43,14 @@ properties:
+>>>>        ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
+>>>>        for the full list of i.MX8M clock IDs.
+>>>>  
+>>>> +  fsl,nominal-mode:
+>>>> +    description: Set if SoC is operated in nominal mode
+>>>> +    $ref: /schemas/types.yaml#/definitions/flag
+>>>> +
+>>>> +  fsl,overdrive-mode:
+>>>> +    description: Set if SoC is operated in overdrive mode
+>>>> +    $ref: /schemas/types.yaml#/definitions/flag
+>>>> +
+>>>>  required:
+>>>>    - compatible
+>>>>    - reg
+>>>> @@ -95,6 +103,12 @@ allOf:
+>>>>              - const: clk_ext2
+>>>>              - const: clk_ext3
+>>>>              - const: clk_ext4
+>>>> +  - if:
+>>>> +      required:
+>>>> +        - fsl,overdrive-mode
+>>>> +    then:
+>>>> +      properties:
+>>>> +        fsl,nominal-mode: false
+>>>>  
+>>>>  additionalProperties: false
+>>>>  
+>>>>
+>>>> -- 
+>>>> 2.39.5
+>>>>
+>>
+>>
+>> -- 
+>> Pengutronix e.K.                           |                             |
+>> Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+>> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+>> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+
 
 -- 
-Regards,
-
-Laurent Pinchart
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
