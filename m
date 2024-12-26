@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D144E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 10:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DDEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 11:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2XfanComPwRY0vT1FVgzOC+d0ifACAfwIyZjIs75RQ=; b=WZNgHo/kMNLGjxENb1o8WA96Zk
-	EgGDnsNHgGhWftHYEgAGMz1aC8JxvCwZp9t8YdRBhM7twVV/1LeIxWeQs3wLg2gFLA3FRN08W/vlP
-	9T7xWW13dqLSnORMSLxAilofS6UJbfKoQYXlXiRTOg1/ONkNne6veIAoZ5/ko3+rfCOKe7yL64pxq
-	/nTTEgZrTZQvEkHqq1+Uk798rJwThl7fmgpXVBG6qbQmNkruqJwWvPNrHtIyu0SSNxldKwqGdJoAC
-	GIarwLsirOUASfFtjdzkrMoUirIT11IPOwhMKIAGQ2zydNkIDAKfhgkmmu4JEwBiMqHGuW/vS4gid
-	8t94fYcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OWLHf5xywEt1g+rMFiar0YPJspdWWxdbM4QLN2TCSew=; b=uVBJjFmcYWFkNmlTVtmzcBinKl
+	yPZHRMg6UEIGr4IqCjx2VYKUY+WLaTBPoFk3Hq6eqePypvLGnOsPT+j0P7SCu3HHt9p8YHCqTPl2m
+	Kav9LKsuoUlV6MSn1OTruRN9dWyXV9qpkHjmuZCggFQW1Pmyo+sAJgh3AKg3MUmizJPwK1Lp8tX2D
+	qCzT4zGfOXgTBTyla5M5Aj8SGeMyE6NrAPmBIdNcxNS2HDLr1s6gkbJwFIlzu6GQg2VTUzjX8+vKc
+	q0iGZtJlDy2GNoeqPWbwSTQ5/K8wLb7rFTdB+HKrK8beOZ1SoYN+r4zjDILsojP7ei9SB0nB1AeNS
+	c85utrWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQkvo-0000000Fant-1sIb;
-	Thu, 26 Dec 2024 10:17:28 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1tQmBq-0000000FhPg-2ZGz;
+	Thu, 26 Dec 2024 11:38:06 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQkuU-0000000FagH-3cye;
-	Thu, 26 Dec 2024 10:16:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735208167; x=1766744167;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PNysoKr4x3TzAEfHcmAw8WO9zljvb8duad9elAZ9Cfo=;
-  b=agrYOLAkKtT84qAthrkD/ZL+OEd1+2p9P7DW3fhLSTWRJVQdi1q/URJE
-   b+84ZmbIXmG7kyxHMZf66WUBQk7T3TIXBIvXmT8/Y2xNK9FmwAxRk9AKF
-   WQQ6ux6yuejjEjvOy+m8FuocFRYGj/Ii7rzZfji/oL1HMPEAPKgjuIdh1
-   4dsuJ1m5R5zCiqQJnk0eBFGNizeUY48LOnz0fuNGns2UHIfH3oUzzMrlk
-   sKexS1/oLp8P30WBkqI6Aj0c6MzYUAVrNPlYSE+TnQJN/texnh5lwXS7T
-   ZEoH8wxNBrEctN0geTJUJvr02xnlejSjN3x9vBl4Ces1gxvhO4nsgFJTh
-   A==;
-X-CSE-ConnectionGUID: KvFQlqgZTmioVE5k9k32Rw==
-X-CSE-MsgGUID: 8Yo+JHKsQ0mtdhve1N508Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11296"; a="35855079"
-X-IronPort-AV: E=Sophos;i="6.12,265,1728975600"; 
-   d="scan'208";a="35855079"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Dec 2024 02:16:02 -0800
-X-CSE-ConnectionGUID: YtWgRRzCSgS7Y0XstJNVKg==
-X-CSE-MsgGUID: SXJucXphRAa1naaBE0aT+w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="100716808"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 26 Dec 2024 02:15:58 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tQkuJ-0002TS-1u;
-	Thu, 26 Dec 2024 10:15:55 +0000
-Date: Thu, 26 Dec 2024 18:15:02 +0800
-From: kernel test robot <lkp@intel.com>
-To: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: oe-kbuild-all@lists.linux.dev, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>
-Subject: Re: [PATCH v2 2/5] pinctrl: pinconf-generic: Add API for pinmux
- propertity in DTS file
-Message-ID: <202412261752.6HK0iJXu-lkp@intel.com>
-References: <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
+	id 1tQmAb-0000000FhIE-3v3n
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Dec 2024 11:36:52 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4YJmhq16Y6zxWtd;
+	Thu, 26 Dec 2024 19:33:15 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 77EC414022E;
+	Thu, 26 Dec 2024 19:36:40 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Thu, 26 Dec 2024 19:36:39 +0800
+CC: <yangyicong@hisilicon.com>, <linuxppc-dev@lists.ozlabs.org>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>
+Subject: Re: [PATCH v10 1/4] cpu/SMT: Provide a default
+ topology_is_primary_thread()
+To: Shrikanth Hegde <sshegde@linux.ibm.com>
+References: <20241220075313.51502-1-yangyicong@huawei.com>
+ <20241220075313.51502-2-yangyicong@huawei.com>
+ <718d69e0-f145-4393-b571-80e8a0a372f6@linux.ibm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <297f999d-5c6f-1a6e-5df2-f4f14c283b46@huawei.com>
+Date: Thu, 26 Dec 2024 19:36:38 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241226-amlogic-pinctrl-v2-2-cdae42a67b76@amlogic.com>
+In-Reply-To: <718d69e0-f145-4393-b571-80e8a0a372f6@linux.ibm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_021606_964726_F86D0FFF 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20241226_033650_328905_C4CBCC46 
+X-CRM114-Status: GOOD (  28.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,97 +82,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei,
+On 2024/12/26 15:18, Shrikanth Hegde wrote:
+> 
+> 
+> On 12/20/24 13:23, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> Currently if architectures want to support HOTPLUG_SMT they need to
+>> provide a topology_is_primary_thread() telling the framework which
+>> thread in the SMT cannot offline. However arm64 doesn't have a
+>> restriction on which thread in the SMT cannot offline, a simplest
+>> choice is that just make 1st thread as the "primary" thread. So
+>> just make this as the default implementation in the framework and
+>> let architectures like x86 that have special primary thread to
+>> override this function (which they've already done).
+>>
+>> There's no need to provide a stub function if !CONFIG_SMP or
+>> !CONFIG_HOTPLUG_SMP. In such case the testing CPU is already
+> 
+> s/CONFIG_HOTPLUG_SMP/CONFIG_HOTPLUG_SMT
+> 
+>> the 1st CPU in the SMT so it's always the primary thread.
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>> As questioned in v9 [1] whether this works on architectures not using
+>> CONFIG_GENERIC_ARCH_TOPOLOGY, hacked on LoongArch VM and this also works.
+>> Architectures should use this on their own situation.
+>> [1] https://lore.kernel.org/linux-arm-kernel/427bd639-33c3-47e4-9e83-68c428eb1a7d@arm.com/
+>>
+> 
+> sorry to ask this question this late in the series.
+> 
+> I am curious to know why not just add the arch specific topology_is_primary_thread? current infra would handle that right?
 
-kernel test robot noticed the following build warnings:
+Yes, this also works. It was implemented like you said before v4. It's thought trival and was suggested to provide
+a default implementation for all and make archs that have special requirement to override it.[1]
 
-[auto build test WARNING on 4de5110762b94b9978fb8182a568572fb2194f8b]
+[1] https://lore.kernel.org/linux-arm-kernel/fe03425c-6b9a-f0eb-0e8d-e0f47404a7cb@huawei.com/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Xianwei-Zhao-via-B4-Relay/dt-bindings-pinctrl-Add-support-for-Amlogic-SoCs/20241226-155844
-base:   4de5110762b94b9978fb8182a568572fb2194f8b
-patch link:    https://lore.kernel.org/r/20241226-amlogic-pinctrl-v2-2-cdae42a67b76%40amlogic.com
-patch subject: [PATCH v2 2/5] pinctrl: pinconf-generic: Add API for pinmux propertity in DTS file
-config: arc-randconfig-001-20241226 (https://download.01.org/0day-ci/archive/20241226/202412261752.6HK0iJXu-lkp@intel.com/config)
-compiler: arceb-elf-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241226/202412261752.6HK0iJXu-lkp@intel.com/reproduce)
+> 
+> is there any other arch that is going to enable this soon? or the rationale is to add the generic function so that archs that use generic topology it is just a kconfig change in case they want to add the support?
+> 
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412261752.6HK0iJXu-lkp@intel.com/
+It depends on the arch and currently it's only going to be supported on arm64. If they don't have special requirement
+of the primary thread, they can use this function. It's still needed to call cpu_smt_set_num_threads() besides select
+the kconfig to notify the framework of the thread number since it maybe detected by arthitectural way or ACPI which is
+also from the arch codes (like arm64). If it's detected from device tree and using CONFIG_GENERIC_ARCH_TOPOLOGY,
+should work to only select kconfig.
 
-All warnings (new ones prefixed by >>):
+Thanks.
 
->> drivers/pinctrl/pinconf-generic.c:250: warning: Function parameter or struct member 'dev' not described in 'pinconf_generic_parse_dt_pinmux'
->> drivers/pinctrl/pinconf-generic.c:250: warning: Excess function parameter 'pctldev' description in 'pinconf_generic_parse_dt_pinmux'
-
-
-vim +250 drivers/pinctrl/pinconf-generic.c
-
-   235	
-   236	/**
-   237	 * pinconf_generic_parse_dt_pinmux()
-   238	 * parse the pinmux properties into generic pin mux values.
-   239	 * @np: node containing the pinmux properties
-   240	 * @pctldev: pincontrol device
-   241	 * @pid: array with pin identity entries
-   242	 * @pmux: array with pin mux value entries
-   243	 * @npins: number of pins
-   244	 *
-   245	 * pinmux propertity: mux value [0,7]bits and pin identity [8,31]bits.
-   246	 */
-   247	int pinconf_generic_parse_dt_pinmux(struct device_node *np, struct device *dev,
-   248					    unsigned int **pid, unsigned int **pmux,
-   249					    unsigned int *npins)
- > 250	{
-   251		unsigned int *pid_t;
-   252		unsigned int *pmux_t;
-   253		struct property *prop;
-   254		unsigned int npins_t, i;
-   255		u32 value;
-   256		int ret;
-   257	
-   258		prop = of_find_property(np, "pinmux", NULL);
-   259		if (!prop) {
-   260			dev_info(dev, "Missing pinmux property\n");
-   261			return -ENOENT;
-   262		}
-   263	
-   264		if (!pid || !pmux || !npins) {
-   265			dev_err(dev, "paramers error\n");
-   266			return -EINVAL;
-   267		}
-   268	
-   269		npins_t = prop->length / sizeof(u32);
-   270		pid_t = devm_kcalloc(dev, npins_t, sizeof(*pid_t), GFP_KERNEL);
-   271		pmux_t = devm_kcalloc(dev, npins_t, sizeof(*pmux_t), GFP_KERNEL);
-   272		if (!pid_t || !pmux_t) {
-   273			dev_err(dev, "kalloc memory fail\n");
-   274			return -ENOMEM;
-   275		}
-   276		for (i = 0; i < npins_t; i++) {
-   277			ret = of_property_read_u32_index(np, "pinmux", i, &value);
-   278			if (ret) {
-   279				dev_err(dev, "get pinmux value fail\n");
-   280				goto exit;
-   281			}
-   282			pmux_t[i] = value & 0xff;
-   283			pid_t[i] = (value >> 8) & 0xffffff;
-   284		}
-   285		*pid = pid_t;
-   286		*pmux = pmux_t;
-   287		*npins = npins_t;
-   288	
-   289		return 0;
-   290	exit:
-   291		devm_kfree(dev, pid_t);
-   292		devm_kfree(dev, pmux_t);
-   293		return ret;
-   294	}
-   295	EXPORT_SYMBOL_GPL(pinconf_generic_parse_dt_pinmux);
-   296	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>> [root@localhost smt]# uname -m
+>> loongarch64
+>> [root@localhost smt]# pwd
+>> /sys/devices/system/cpu/smt
+>> [root@localhost smt]# cat ../possible
+>> 0-3
+>> [root@localhost smt]# cat ../online
+>> 0-3
+>> [root@localhost smt]# cat control
+>> on
+>> [root@localhost smt]# echo off > control
+>> [root@localhost smt]# cat control
+>> off
+>> [root@localhost smt]# cat ../online
+>> 0,2
+>> [root@localhost smt]# echo on > control
+>> [root@localhost smt]# cat control
+>> on
+>> [root@localhost smt]# cat ../online
+>> 0-3
+>>
+>>   arch/powerpc/include/asm/topology.h |  1 +
+>>   arch/x86/include/asm/topology.h     |  2 +-
+>>   include/linux/topology.h            | 22 ++++++++++++++++++++++
+>>   3 files changed, 24 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
+>> index 16bacfe8c7a2..da15b5efe807 100644
+>> --- a/arch/powerpc/include/asm/topology.h
+>> +++ b/arch/powerpc/include/asm/topology.h
+>> @@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+>>   {
+>>       return cpu == cpu_first_thread_sibling(cpu);
+>>   }
+>> +#define topology_is_primary_thread topology_is_primary_thread
+>>     static inline bool topology_smt_thread_allowed(unsigned int cpu)
+>>   {
+>> diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
+>> index fd41103ad342..faa0d6334ea4 100644
+>> --- a/arch/x86/include/asm/topology.h
+>> +++ b/arch/x86/include/asm/topology.h
+>> @@ -228,11 +228,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+>>   {
+>>       return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
+>>   }
+>> +#define topology_is_primary_thread topology_is_primary_thread
+>>     #else /* CONFIG_SMP */
+>>   static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
+>>   static inline int topology_max_smt_threads(void) { return 1; }
+>> -static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
+>>   static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
+>>   #endif /* !CONFIG_SMP */
+>>   diff --git a/include/linux/topology.h b/include/linux/topology.h
+>> index 52f5850730b3..b3aba443c4eb 100644
+>> --- a/include/linux/topology.h
+>> +++ b/include/linux/topology.h
+>> @@ -240,6 +240,28 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
+>>   }
+>>   #endif
+>>   +#ifndef topology_is_primary_thread
+>> +
+>> +#define topology_is_primary_thread topology_is_primary_thread
+>> +
+>> +static inline bool topology_is_primary_thread(unsigned int cpu)
+>> +{
+>> +    /*
+>> +     * On SMT hotplug the primary thread of the SMT won't be disabled.
+>> +     * Architectures do have a special primary thread (e.g. x86) need
+>> +     * to override this function. Otherwise just make the first thread
+>> +     * in the SMT as the primary thread.
+>> +     *
+>> +     * The sibling cpumask of an offline CPU contains always the CPU
+>> +     * itself for architectures using CONFIG_GENERIC_ARCH_TOPOLOGY.
+>> +     * Other architectures should use this depend on their own
+>> +     * situation.
+>> +     */
+>> +    return cpu == cpumask_first(topology_sibling_cpumask(cpu));
+>> +}
+>> +
+>> +#endif
+>> +
+>>   static inline const struct cpumask *cpu_cpu_mask(int cpu)
+>>   {
+>>       return cpumask_of_node(cpu_to_node(cpu));
+> 
+> .
 
