@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619BAE7718E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 14:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A61EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 16:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A7rn19r4HgbPbGx9r0DQ1iakhx3qC0hkuGhdxpRpgMI=; b=y/ST81EAqObRtcEjNZXYzoH2gk
-	bSiR171gsef141Op6EsRlBt1DiJ54uiXt5VpGJdqDLyUqt4nsdiVIMeBbtxF2j5mLvdOguBNlkGcs
-	nYcB2Da+P1tSrGvK1rt2GLmBZjKrh0ikut5q2hwUjjU1H2RZMrVjDVxobsVXf8l4j3bxGjCE9RrHJ
-	Wh1XatYLaHPCUFv72U87alAAf53QPX1jpaHwnIOkD1Edvk/Blk+4fiIGcm5fHnC5rjOFuSk9a/qwA
-	GMTCQ0HAlnHsYmOOCJ2yiV3Swb7xEomLiSb+Asxor+CWWY+0Bu9T1ernk6+Uja1ewAEUgAMq8Dcs6
-	DxDiSUbQ==;
+	bh=Amv9DzalnxwHOgeORxwQnJAnW4+z6Fobr3p7qJnJIXY=; b=I6IIKXSNNjLQppMdhoS2Ia4ZZI
+	Zjpnb/YtRqujojKcTUrRZDNRbQ6Sxs5y0ZRGWcxF+Fgt6c8awjFSEJOX/PGWkhqTNgSuUBt96XOH5
+	I239RkEBvt+KR1c/kuBnNrcxDKjFJOoQSI7fNiTCZhaBHPDigy3uJxylOJUV4SRhNatH3/883xWuv
+	NqShF/bOnECOS3K6y3FQP0CL2ysAmYvCIYoWC8eqQk9kb3+3AGWRtFUBDdvP9tlvXSzj46gcdnboc
+	Df8mYApI8ugQRslyC+5oSX0QbMmXejgXho5NmWKSMEKdnNUAAwEsQW5XqAl8JfqfIutRE/qcxa0Ab
+	6X3+dAzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQp7T-0000000Fvt5-04bv;
-	Thu, 26 Dec 2024 14:45:47 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tQqXv-0000000G1ol-1dMY;
+	Thu, 26 Dec 2024 16:17:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQp6G-0000000Fvmj-3G1k
+	id 1tQqWi-0000000G1hO-1mI8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 14:44:34 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43634b570c1so47110305e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 06:44:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735224271; x=1735829071; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=A7rn19r4HgbPbGx9r0DQ1iakhx3qC0hkuGhdxpRpgMI=;
-        b=PH8AqvFSMiWIQXkPwJ1ULrED3YgEL7Z/bgsTHJCdMwdRje2j9cMIquCZUJZLnlcWXL
-         73Yzc0qEpe64sMMoF/mwQXMSFX+WjjzVtdnrNXq0QjMaAqjnyugYPK/MZGZRHaTgdr9J
-         fI9R2bFmHP2rVsq3bELCntzLlkX35DnAqHFLmFuzjef095xBE2ZdCQlN5yPWUmwSkEsT
-         P41mE3TKFGNz8kyG0jEetLll6aaZYlNiiwN0R9CcxJSwNesY64LA2+u13JKkCrJVPsqY
-         hc1lP71QP76bqNUX72tdTZptnGOfd8J/PU4Iu41qlTOwfUhUcWsIr+C3/0MiLu0UPZPt
-         8Q8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735224271; x=1735829071;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A7rn19r4HgbPbGx9r0DQ1iakhx3qC0hkuGhdxpRpgMI=;
-        b=v9s8DdCpDpmsoMkxMjDu22+9BH5ToDGEJ34D70pHulfsbPYtemmR+M74wy8i6twjBZ
-         46V7teORhqdQ5tYEo0Z3wnLJY5m1BJBwUyzqkDOaTOVHCnIdeqsbSdQ6a+m380wnbVhV
-         6zLEVmNDEAVtDha1ZLbYlEDReFIq+wOelMqS5WySCgNQXkGUEQ8ONK2seXnptxGPwgXr
-         szAUGig0rwUVDR/P0+RXje3ecsesSDPVCTCtvrIoQa4FunFj+z4eTu/MbEsPxIFP56wh
-         Izj106WEsl7PRRE9dh/vwueBqds1cTN+cdY5WFy0XXwCGZSlEmBno0hrDbjOppCAK3Kd
-         aLcw==
-X-Forwarded-Encrypted: i=1; AJvYcCVo0dNH/qC3rlyNXK/UXpMRYMBVX6PRY0OKE0Zau5IUfgAv6gDle7P//mQvz6zqKkPYprNOPtRaGL/kIirAUyHu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNh2DYmjOPifTdudROpGDfAPuTYJyIGHaZ1aKInjLdQ71N9qB9
-	cq8f3OcxYeUpZ01iPIgnKzpXw/KsIRCbxGVewCRTc6/Rb4wLGXkMydo3pkWSiu8=
-X-Gm-Gg: ASbGncsHOdpFzT/5/ODnlHe3l+uqnL3Rnp0VegYxZaVuYR9kysCEqYrjgZNXlcpSCXa
-	iTkZQn1W90RFpeI5E/Fq1Yg7aphyCPyE6CNAHx21DwSxJWQijG8qv8NOgqpNarVdYa2e4+orQKt
-	IuewMrPIKTIzrAMTFmQ1fZvEP6VNtC48CDWDmbkqtT4EsDrXAPODC+M3Q6gdqg31cbR0tngsyYo
-	Nn6VtnZkFU8azSDszPMiy2p9W3JlP5GSmQTdwLArNaqXYSR/iqIuCI=
-X-Google-Smtp-Source: AGHT+IEs46r2QTrphoxhnYAjoEZ26B+gzvCJ6J2PHOuEvEPqcIAkbr1HCYher+BV97nl0i4rzQRD/A==
-X-Received: by 2002:a05:600c:350c:b0:434:a91e:c709 with SMTP id 5b1f17b1804b1-43668b78c11mr157293045e9.28.1735224271050;
-        Thu, 26 Dec 2024 06:44:31 -0800 (PST)
-Received: from linaro.org ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436611ea47asm234453595e9.4.2024.12.26.06.44.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Dec 2024 06:44:30 -0800 (PST)
-Date: Thu, 26 Dec 2024 16:44:28 +0200
-From: Abel Vesa <abel.vesa@linaro.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengfei Li <pengfei.li_1@nxp.com>,
-	"open list:NXP i.MX CLOCK DRIVERS" <linux-clk@vger.kernel.org>,
-	"open list:NXP i.MX CLOCK DRIVERS" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V2] clk: imx: Apply some clks only for i.MX93
-Message-ID: <Z21rzK6Nejti6lsA@linaro.org>
-References: <20241225001443.883131-1-peng.fan@oss.nxp.com>
+	Thu, 26 Dec 2024 16:15:57 +0000
+Received: from pendragon.ideasonboard.com (85-76-136-220-nat.elisa-mobile.fi [85.76.136.220])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 889ECC62;
+	Thu, 26 Dec 2024 17:15:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1735229707;
+	bh=06nc+tg/4UKFLfBYN5nBlZntSO6n2nOqTRR922L+9gQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vNuTWzpO+NV6jThFUEyFTevR8A7JtDlja0Gx5dRVeTlETjo07XJu3yGTZWW5HKq9w
+	 6NJ2VHN6AIoGBBH+QqPxDlKa+JrwSHVmYaKIxfQckW9EURh5bJo018KShjyNXnMK0j
+	 wnbE/uvP83eDqTeARSttnsfurIwNQ/WsLc4awxMw=
+Date: Thu, 26 Dec 2024 18:15:47 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: yuji2.ishikawa@toshiba.co.jp, mchehab@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	sakari.ailus@linux.intel.com, hverkuil-cisco@xs4all.nl,
+	nobuhiro1.iwamatsu@toshiba.co.jp, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v12 1/8] dt-bindings: media: platform: visconti: Add
+ Toshiba Visconti MIPI CSI-2 Receiver
+Message-ID: <20241226161547.GB554@pendragon.ideasonboard.com>
+References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
+ <20241125092146.1561901-2-yuji2.ishikawa@toshiba.co.jp>
+ <07e0cc97-c0c4-42fd-b51d-87b0eaed4e4a@kernel.org>
+ <TY3PR01MB9982FE7739FABB2275C79C0B923B2@TY3PR01MB9982.jpnprd01.prod.outlook.com>
+ <cb6be804-1649-4d17-839c-fe58a39baa1d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241225001443.883131-1-peng.fan@oss.nxp.com>
+In-Reply-To: <cb6be804-1649-4d17-839c-fe58a39baa1d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_064432_869907_8168FA91 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20241226_081556_617391_87F293CF 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,95 +75,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-12-25 08:14:43, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Tue, Dec 17, 2024 at 06:44:58AM +0100, Krzysztof Kozlowski wrote:
+> On 17/12/2024 00:57, yuji2.ishikawa@toshiba.co.jp wrote:
+> >> On 25/11/2024 10:21, Yuji Ishikawa wrote:
+> >>> Adds the Device Tree binding documentation that allows to describe the
+> >>> MIPI CSI-2 Receiver found in Toshiba Visconti SoCs.
+> >>>
+> >>> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+> >>> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+> >>
+> >> How newly added patch can have already Rb tag? Was this review really, really
+> >> performed internally or you just satisfy some internal managers requirements
+> >> and fake the stats?
+> >>
+> > 
+> > I added this Reviewed-by tag because the patch was reviewed internally.
 > 
-> Enable the LVDS gate, MIPI DSI, PXP, FLEXIO and MU only for i.MX93,
-> because i.MX91 does not support them.
+> What issues were identified by internal review, especially in the
+> context of bindings?
 > 
-> Update enet clk entry format to align with others.
+> >>> ---
+> >>>
+> >>> Changelog v12:
+> >>> - Newly add bindings for CSI2RX driver
+> >>>
+> >>>  .../media/toshiba,visconti5-csi2rx.yaml       | 104
+> >> ++++++++++++++++++
+> >>>  1 file changed, 104 insertions(+)
+> >>>  create mode 100644
+> >>> Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yaml
+> >>>
+> >>> diff --git
+> >>> a/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yam
+> >>> l
+> >>> b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx.yam
+> >>> l
+> >>> new file mode 100644
+> >>> index 000000000000..5488072bc82a
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/media/toshiba,visconti5-csi2rx
+> >>> +++ .yaml
+> >>> @@ -0,0 +1,104 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> >>> +---
+> >>> +$id:
+> >>> +http://devicetree.org/schemas/media/toshiba,visconti5-csi2rx.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: Toshiba Visconti5 SoC MIPI CSI-2 receiver
+> >>> +
+> >>> +maintainers:
+> >>> +  - Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+> >>> +
+> >>> +description: |-
+> >>
+> >> Drop |-
+> >>
+> > 
+> > I'll drop "|-"
+> > 
+> >>> +  Toshiba Visconti5 SoC MIPI CSI-2 receiver device receives MIPI
+> >>> + CSI-2 video  stream. Use with VIIF device. T.B.D
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    const: toshiba,visconti5-csi2rx
+> >>
+> >> Why this is called "RX"? Can you have a TX? I had impression that one cannot.
+> >>
+> > 
+> > VIIF has only MIPI CSI2 receiver (CSI2RX). There's no TX for it.
 > 
-> Fixes: a27bfff88dd2 ("clk: imx: add i.MX91 clk")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> So this device cannot be anything else? Then drop rx.
 
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+It's a compatible string, it identifies the IP core. As the SoC also has
+a CSI-2 transmitter (as mentioned by Ishikawa-san), it makes sense to
+name the CSI-2 receiver csi2rx.
 
-> ---
+> > Visconti also has VOIF (Video Output Interface) hardware which has
+> > MIPI CSI2 (not DSI) transmitter (CSI2TX).
 > 
-> V2:
->  Update subject and commit log after phasing out more clks
->  https://lore.kernel.org/lkml/20241203130530.1206526-1-peng.fan@oss.nxp.com/
-> 
->  drivers/clk/imx/clk-imx93.c | 26 +++++++++++++-------------
->  1 file changed, 13 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/clk/imx/clk-imx93.c b/drivers/clk/imx/clk-imx93.c
-> index 58a516dd385b..5bdd2bdce46e 100644
-> --- a/drivers/clk/imx/clk-imx93.c
-> +++ b/drivers/clk/imx/clk-imx93.c
-> @@ -70,8 +70,8 @@ static const struct imx93_clk_root {
->  	{ IMX93_CLK_WAKEUP_AXI,		"wakeup_axi_root",	0x0380,	FAST_SEL, CLK_IS_CRITICAL },
->  	{ IMX93_CLK_SWO_TRACE,		"swo_trace_root",	0x0400,	LOW_SPEED_IO_SEL, },
->  	{ IMX93_CLK_M33_SYSTICK,	"m33_systick_root",	0x0480,	LOW_SPEED_IO_SEL, 0, PLAT_IMX93, },
-> -	{ IMX93_CLK_FLEXIO1,		"flexio1_root",		0x0500,	LOW_SPEED_IO_SEL, },
-> -	{ IMX93_CLK_FLEXIO2,		"flexio2_root",		0x0580,	LOW_SPEED_IO_SEL, },
-> +	{ IMX93_CLK_FLEXIO1,		"flexio1_root",		0x0500,	LOW_SPEED_IO_SEL, 0, PLAT_IMX93, },
-> +	{ IMX93_CLK_FLEXIO2,		"flexio2_root",		0x0580,	LOW_SPEED_IO_SEL, 0, PLAT_IMX93, },
->  	{ IMX93_CLK_LPTMR1,		"lptmr1_root",		0x0700,	LOW_SPEED_IO_SEL, },
->  	{ IMX93_CLK_LPTMR2,		"lptmr2_root",		0x0780,	LOW_SPEED_IO_SEL, },
->  	{ IMX93_CLK_TPM2,		"tpm2_root",		0x0880,	TPM_SEL, },
-> @@ -177,10 +177,10 @@ static const struct imx93_clk_ccgr {
->  	{ IMX93_CLK_WDOG5_GATE,		"wdog5",	"osc_24m",		0x8400, },
->  	{ IMX93_CLK_SEMA1_GATE,		"sema1",	"bus_aon_root",		0x8440, },
->  	{ IMX93_CLK_SEMA2_GATE,		"sema2",	"bus_wakeup_root",	0x8480, },
-> -	{ IMX93_CLK_MU1_A_GATE,		"mu1_a",	"bus_aon_root",		0x84c0, CLK_IGNORE_UNUSED },
-> -	{ IMX93_CLK_MU2_A_GATE,		"mu2_a",	"bus_wakeup_root",	0x84c0, CLK_IGNORE_UNUSED },
-> -	{ IMX93_CLK_MU1_B_GATE,		"mu1_b",	"bus_aon_root",		0x8500, 0, &share_count_mub },
-> -	{ IMX93_CLK_MU2_B_GATE,		"mu2_b",	"bus_wakeup_root",	0x8500, 0, &share_count_mub },
-> +	{ IMX93_CLK_MU1_A_GATE,		"mu1_a",	"bus_aon_root",		0x84c0, CLK_IGNORE_UNUSED, NULL, PLAT_IMX93 },
-> +	{ IMX93_CLK_MU2_A_GATE,		"mu2_a",	"bus_wakeup_root",	0x84c0, CLK_IGNORE_UNUSED, NULL, PLAT_IMX93 },
-> +	{ IMX93_CLK_MU1_B_GATE,		"mu1_b",	"bus_aon_root",		0x8500, 0, &share_count_mub, PLAT_IMX93 },
-> +	{ IMX93_CLK_MU2_B_GATE,		"mu2_b",	"bus_wakeup_root",	0x8500, 0, &share_count_mub, PLAT_IMX93 },
->  	{ IMX93_CLK_EDMA1_GATE,		"edma1",	"m33_root",		0x8540, },
->  	{ IMX93_CLK_EDMA2_GATE,		"edma2",	"wakeup_axi_root",	0x8580, },
->  	{ IMX93_CLK_FLEXSPI1_GATE,	"flexspi1",	"flexspi1_root",	0x8640, },
-> @@ -188,8 +188,8 @@ static const struct imx93_clk_ccgr {
->  	{ IMX93_CLK_GPIO2_GATE,		"gpio2",	"bus_wakeup_root",	0x88c0, },
->  	{ IMX93_CLK_GPIO3_GATE,		"gpio3",	"bus_wakeup_root",	0x8900, },
->  	{ IMX93_CLK_GPIO4_GATE,		"gpio4",	"bus_wakeup_root",	0x8940, },
-> -	{ IMX93_CLK_FLEXIO1_GATE,	"flexio1",	"flexio1_root",		0x8980, },
-> -	{ IMX93_CLK_FLEXIO2_GATE,	"flexio2",	"flexio2_root",		0x89c0, },
-> +	{ IMX93_CLK_FLEXIO1_GATE,	"flexio1",	"flexio1_root",		0x8980, 0, NULL, PLAT_IMX93},
-> +	{ IMX93_CLK_FLEXIO2_GATE,	"flexio2",	"flexio2_root",		0x89c0, 0, NULL, PLAT_IMX93},
->  	{ IMX93_CLK_LPIT1_GATE,		"lpit1",	"bus_aon_root",		0x8a00, },
->  	{ IMX93_CLK_LPIT2_GATE,		"lpit2",	"bus_wakeup_root",	0x8a40, },
->  	{ IMX93_CLK_LPTMR1_GATE,	"lptmr1",	"lptmr1_root",		0x8a80, },
-> @@ -238,10 +238,10 @@ static const struct imx93_clk_ccgr {
->  	{ IMX93_CLK_SAI3_GATE,          "sai3",         "sai3_root",            0x94c0, 0, &share_count_sai3},
->  	{ IMX93_CLK_SAI3_IPG,		"sai3_ipg_clk", "bus_wakeup_root",	0x94c0, 0, &share_count_sai3},
->  	{ IMX93_CLK_MIPI_CSI_GATE,	"mipi_csi",	"media_apb_root",	0x9580, },
-> -	{ IMX93_CLK_MIPI_DSI_GATE,	"mipi_dsi",	"media_apb_root",	0x95c0, },
-> -	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, },
-> +	{ IMX93_CLK_MIPI_DSI_GATE,	"mipi_dsi",	"media_apb_root",	0x95c0, 0, NULL, PLAT_IMX93 },
-> +	{ IMX93_CLK_LVDS_GATE,		"lvds",		"media_ldb_root",	0x9600, 0, NULL, PLAT_IMX93 },
->  	{ IMX93_CLK_LCDIF_GATE,		"lcdif",	"media_apb_root",	0x9640, },
-> -	{ IMX93_CLK_PXP_GATE,		"pxp",		"media_apb_root",	0x9680, },
-> +	{ IMX93_CLK_PXP_GATE,		"pxp",		"media_apb_root",	0x9680, 0, NULL, PLAT_IMX93 },
->  	{ IMX93_CLK_ISI_GATE,		"isi",		"media_apb_root",	0x96c0, },
->  	{ IMX93_CLK_NIC_MEDIA_GATE,	"nic_media",	"media_axi_root",	0x9700, },
->  	{ IMX93_CLK_USB_CONTROLLER_GATE, "usb_controller", "hsio_root",		0x9a00, },
-> @@ -256,8 +256,8 @@ static const struct imx93_clk_ccgr {
->  	{ IMX93_CLK_HSIO_32K_GATE,	"hsio_32k",	"osc_32k",		0x9dc0, },
->  	{ IMX93_CLK_ENET1_GATE,		"enet1",	"wakeup_axi_root",	0x9e00, 0, NULL, PLAT_IMX93, },
->  	{ IMX93_CLK_ENET_QOS_GATE,	"enet_qos",	"wakeup_axi_root",	0x9e40, 0, NULL, PLAT_IMX93, },
-> -	{ IMX91_CLK_ENET2_REGULAR_GATE, "enet2_regular",        "wakeup_axi_root",      0x9e00, 0, NULL, PLAT_IMX91, },
-> -	{ IMX91_CLK_ENET1_QOS_TSN_GATE,     "enet1_qos_tsn",        "wakeup_axi_root",      0x9e40, 0, NULL, PLAT_IMX91, },
-> +	{ IMX91_CLK_ENET2_REGULAR_GATE, "enet2_regular", "wakeup_axi_root",	0x9e00, 0, NULL, PLAT_IMX91, },
-> +	{ IMX91_CLK_ENET1_QOS_TSN_GATE, "enet1_qos_tsn", "wakeup_axi_root",	0x9e40, 0, NULL, PLAT_IMX91, },
->  	/* Critical because clk accessed during CPU idle */
->  	{ IMX93_CLK_SYS_CNT_GATE,	"sys_cnt",	"osc_24m",		0x9e80, CLK_IS_CRITICAL},
->  	{ IMX93_CLK_TSTMR1_GATE,	"tstmr1",	"bus_aon_root",		0x9ec0, },
-> -- 
-> 2.37.1
-> 
+> Or this can be something else? Confusing.
+
+In a camera capture pipeline the CSI-2 interface of the SoC is a CSI-2
+receiver, but SoCs commonly have CSI-2 transmitters as well (even if
+that's less common than receivers).
+
+-- 
+Regards,
+
+Laurent Pinchart
 
