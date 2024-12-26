@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F04E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 13:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0D4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 13:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cwjSRK3r/Hud4AZdAdsLSZywHfwIlBbaz7OhAgb8JlI=; b=nS9zDfeUMRtcn0i0FoTrzbMczZ
-	69TtVcJ8DqREfky9ME3UIIKKwbCZWiNH+Y03z03t6NU7FIavYthtGuFUwwpMF4lEMzcKAJKzqJW+X
-	nSYDI/a7gJOjt0QqovpGW755t20CZfhCa2ymDCPYXZgiRCdRxsvDHoFFUgT9OJ7FxbKOgf42UuWAU
-	9NRH9RNrK90qdST2UlHbHRLdP0jVJFZSdABosI/7X2/wSsVSSgXNXNTvnBJsnwo0w2p8xIDZm4EEG
-	syQl4dpNagm7akfRu1JVIMLhar50bPgk1Y9BXuQinpsLxceXAtZv5e89pQGSqofoNUUguZ7eeB5vV
-	17ZuFV7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dDdetpWl8Rx8zGrvo8k5g/rjchfr37Wq2r3vYm1xNTQ=; b=yTrDslHUCqur32wjan2JK59TtH
+	nrPABHpIoEd2Prg3ZkBZU+kgtttCrcqxwdmKmS7H6A5hBAmxdu1OwW9505GybJSUzH93fKik9VKvN
+	Xn6HwB5dNWvpd1/Fe9z99+Acxb1feXOKr9MFQnOmpFSn452bhaPJeOJgQb6BWPioaz0vhR6BJXzJY
+	kpGdNqnG6NqgX6rsGxc/jDu7g9zEDpsnY6Y6Sl7gUqn3Pr4Z7dJVG3au8PHOHmb79WWl4uUMMIU/e
+	fWP5MbKzi4h81kFOKNEKmYvfHyoAiHf8clMMGx4tfi8SRM4mL28CO8W9THms7ZVitJMCD5XkZHi9o
+	qHkasJfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQntq-0000000FpSa-3uaR;
-	Thu, 26 Dec 2024 13:27:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tQoMz-0000000FraW-3EZ1;
+	Thu, 26 Dec 2024 13:57:45 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQnsf-0000000FpJd-2PtK;
-	Thu, 26 Dec 2024 13:26:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cwjSRK3r/Hud4AZdAdsLSZywHfwIlBbaz7OhAgb8JlI=; b=2GacGl7w+C2PvwqEHEQPUaOGB3
-	A9PpZTXZbXoMrlzMOmM8dNpfNKODj6sPG5FbHISdLfgU1rqrBhjtLhS/RUK6LDEozo7aOKfrEmUFH
-	wzbOBr58fb3kCAVH4kvHi6c8nULzdgRWc6kqtpKEXlNki5RmN/fXjUTwR78Gtz1DLdwKst6bS77n+
-	znSTzAx6yMIMQ+36htyQUPc4jPx5DB/dFbKjmtjqigqj0bkRwujxdIvCzANET7XdB67GlTUWJAlhq
-	ZYMktfTfGnuulU3WXEirY8q32C33ntS5exFeM0z+Wkiumokor7SZ/TeqOtxJgMD+tIO+vJcG0DoIX
-	M3ckBmfg==;
-Received: from i5e860d12.versanet.de ([94.134.13.18] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tQnsL-00048C-RU; Thu, 26 Dec 2024 14:26:05 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org, David Wu <david.wu@rock-chips.com>,
- Kever Yang <kever.yang@rock-chips.com>, Jose Abreu <joabreu@synopsys.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-stm32@st-md-mailman.stormreply.com, Eric Dumazet <edumazet@google.com>,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] ethernet: stmmac: dwmac-rk: Add gmac support for rk3562
-Date: Thu, 26 Dec 2024 14:26:04 +0100
-Message-ID: <8703908.NyiUUSuA9g@phil>
-In-Reply-To: <20241224094124.3816698-2-kever.yang@rock-chips.com>
-References: <20241224094124.3816698-1-kever.yang@rock-chips.com>
- <20241224094124.3816698-2-kever.yang@rock-chips.com>
+	id 1tQoLo-0000000FrMD-0aJo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Dec 2024 13:56:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5204DA40E06
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 13:54:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D34BAC4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 13:56:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735221390;
+	bh=rQtPaps1uCjak1GsAb0T6MZ0Udcaw509a22ogoKvfQ0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=P7nrAxSEHTclguVe69cSAJOX7qxWjYMz6oYdGuCRzXZoNkH244tGbiRNdIW4cKoeT
+	 OYNrfv9Gh5ktqfWQXqHPCQ5vkUn4bRn0FK6QObrbJMufwNuK4lk+HTk8dbn8iz/zQw
+	 fp3CwoRQQlvnjK7V6ocQ1qx2Sn/PY1gB/NM2l0ukgu83bH7alDgif4oep7N7tWVVk1
+	 hCKIJ9s+CySulXLs/804n4zWcZNgbfCoQVv2FoiIR2jLufItODyBR9X6A9aSoa1Kya
+	 MuVMcPHijXwRPDAk4aJDJKBMEE78aQDNevb/QRnoNc/G9KWdZOf+ptE5GtLhz9j9kX
+	 nYZs0uTWzABCQ==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5401bd6cdb7so7230284e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 05:56:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUrcGQjwsODxVKA7YT4lpwTVrn+IhTUq89UVzRcQINppqdSguklW7SbETNIbSS4+YM3YFv7ZXqou7I7SNzS9dTI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoQmllZgHldnLYUghcRPPE5Jmp27baAjB0Srpf8ArR3lTzWQmj
+	ZrFLeovULZvkdpjXZAZSXOUuCw6M59/sjW/ib8f5OnGrfgvNxX2i+sUoCuSZbj/rvu2TDuerooA
+	gmdIT2hxylgxmsSd6OcsMhhTMtI8=
+X-Google-Smtp-Source: AGHT+IHKWIu7+TnvA5d8Khi9NI2HC0pclZ/WbzhtUzLIJ3LRSBAp+26TZgma/b8RIB5S6N7Ok5xldVAFNyYJuamFV8I=
+X-Received: by 2002:a05:6512:4014:b0:53e:2bb0:4942 with SMTP id
+ 2adb3069b0e04-5422956beb5mr7528070e87.57.1735221389529; Thu, 26 Dec 2024
+ 05:56:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="us-ascii"
+References: <20241225153343.134590-1-masahiroy@kernel.org> <20241225162656.26005-1-glaubitz@physik.fu-berlin.de>
+In-Reply-To: <20241225162656.26005-1-glaubitz@physik.fu-berlin.de>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Thu, 26 Dec 2024 22:55:52 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARRvax0ph2roGd9YmdaG-dKqj+JMHka4SDRwv0FdzKm6g@mail.gmail.com>
+Message-ID: <CAK7LNARRvax0ph2roGd9YmdaG-dKqj+JMHka4SDRwv0FdzKm6g@mail.gmail.com>
+Subject: Re: [PATCH 0/3] modpost: work around unaligned data access
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: gregkh@suse.de, linux-arm-kernel@lists.infradead.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, nathan@kernel.org, 
+	nicolas@fjasle.eu, rusty@rustcorp.com.au
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_052625_762536_E8EC5973 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20241226_055632_318740_088D3C27 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,264 +83,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 24. Dezember 2024, 10:41:23 CET schrieb Kever Yang:
-> From: David Wu <david.wu@rock-chips.com>
-> 
-> Add constants and callback functions for the dwmac on RK3562 soc.
-> As can be seen, the base structure is the same.
-> 
-> Signed-off-by: David Wu <david.wu@rock-chips.com>
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+On Thu, Dec 26, 2024 at 1:27=E2=80=AFAM John Paul Adrian Glaubitz
+<glaubitz@physik.fu-berlin.de> wrote:
+>
+> Hi Masahiro,
+>
+> > The latest binutils stopped aligning section data in relocatable ELF.
+> > It saves small number of bytes that were previously inserted between
+> > sections. However, modpost crashes due to unaligned access:
+> >   https://sourceware.org/bugzilla/show_bug.cgi?id=3D32435
+> >   https://sourceware.org/bugzilla/show_bug.cgi?id=3D32493
+> >
+> > Similar to kernel space, unaligned data access in userspace can be
+> > problematic on some architectures.
+> >
+> > Simple example on ARM:
+> >
+> >  $ CC=3Darm-linux-gnueabihf-gcc
+> >  $ echo 'int foo(int *p) { return *p + *(p + 1); }' | ${CC} -O2 -x c - =
+-c -o foo.o
+> >  $ echo 'int foo(int *p); int main(void) { char str[16] =3D "helloworld=
+"; return foo((int *)(str + 1)); }' | ${CC} -x c - -c -o main.o
+> >  $ ${CC} -static -o unalign-test main.o foo.o
+> >  $ qemu-armhf unalign-test
+> >  qemu: uncaught target signal 7 (Bus error) - core dumped
+> >  Bus error (core dumped)
+> >
+> > In this case, the 'ldrd' instruction causes a bus error due to an
+> > unaligned access. If the -O2 flag is omitted, this issue does not occur=
+.
+> >
+> > To avoid potential unaligned access, use the get_unaligned() approach
+> > as seen in the kernel space.
+>
+> I have just applied this series against Linus' tree and I can confirm tha=
+t it fixes the
+> unalignment access anymore on sparc64. There is no more "Bus error" and t=
+he build succeeds.
+>
+> Tested-by: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-> ---
-> 
->  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 207 +++++++++++++++++-
->  1 file changed, 205 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 8cb374668b74..2ce38bf205d4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -2,8 +2,7 @@
->  /**
->   * DOC: dwmac-rk.c - Rockchip RK3288 DWMAC specific glue layer
->   *
-> - * Copyright (C) 2014 Chen-Zhi (Roger Chen)
-> - *
-> + * Copyright (c) 2014 Rockchip Electronics Co., Ltd.
->   * Chen-Zhi (Roger Chen)  <roger.chen@rock-chips.com>
->   */
->  
-> @@ -91,6 +90,16 @@ struct rk_priv_data {
->  	(((tx) ? soc##_GMAC_TXCLK_DLY_ENABLE : soc##_GMAC_TXCLK_DLY_DISABLE) | \
->  	 ((rx) ? soc##_GMAC_RXCLK_DLY_ENABLE : soc##_GMAC_RXCLK_DLY_DISABLE))
->  
-> +#define DELAY_VALUE(soc, tx, rx) \
-> +	((((tx) >= 0) ? soc##_GMAC_CLK_TX_DL_CFG(tx) : 0) | \
-> +	 (((rx) >= 0) ? soc##_GMAC_CLK_RX_DL_CFG(rx) : 0))
-> +
-> +#define GMAC_RGMII_CLK_DIV_BY_ID(soc, id, div) \
-> +		(soc##_GMAC##id##_CLK_RGMII_DIV##div)
-> +
-> +#define GMAC_RMII_CLK_DIV_BY_ID(soc, id, div) \
-> +		(soc##_GMAC##id##_CLK_RMII_DIV##div)
-> +
->  #define PX30_GRF_GMAC_CON1		0x0904
->  
->  /* PX30_GRF_GMAC_CON1 */
-> @@ -1013,6 +1022,199 @@ static const struct rk_gmac_ops rk3399_ops = {
->  	.set_rmii_speed = rk3399_set_rmii_speed,
->  };
->  
-> +/* sys_grf */
-> +#define RK3562_GRF_SYS_SOC_CON0			0X0400
-> +#define RK3562_GRF_SYS_SOC_CON1			0X0404
-> +
-> +#define RK3562_GMAC0_CLK_RMII_MODE		GRF_BIT(5)
-> +#define RK3562_GMAC0_CLK_RGMII_MODE		GRF_CLR_BIT(5)
-> +
-> +#define RK3562_GMAC0_CLK_RMII_GATE		GRF_BIT(6)
-> +#define RK3562_GMAC0_CLK_RMII_NOGATE		GRF_CLR_BIT(6)
-> +
-> +#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
-> +#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
-> +
-> +#define RK3562_GMAC0_CLK_RGMII_DIV1		\
-> +				(GRF_CLR_BIT(7) | GRF_CLR_BIT(8))
-> +#define RK3562_GMAC0_CLK_RGMII_DIV5		\
-> +				(GRF_BIT(7) | GRF_BIT(8))
-> +#define RK3562_GMAC0_CLK_RGMII_DIV50		\
-> +				(GRF_CLR_BIT(7) | GRF_BIT(8))
-> +
-> +#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
-> +#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
-> +
-> +#define RK3562_GMAC0_CLK_SELET_CRU		GRF_CLR_BIT(9)
-> +#define RK3562_GMAC0_CLK_SELET_IO		GRF_BIT(9)
-> +
-> +#define RK3562_GMAC1_CLK_RMII_GATE		GRF_BIT(12)
-> +#define RK3562_GMAC1_CLK_RMII_NOGATE		GRF_CLR_BIT(12)
-> +
-> +#define RK3562_GMAC1_CLK_RMII_DIV2		GRF_BIT(13)
-> +#define RK3562_GMAC1_CLK_RMII_DIV20		GRF_CLR_BIT(13)
-> +
-> +#define RK3562_GMAC1_RMII_SPEED100		GRF_BIT(11)
-> +#define RK3562_GMAC1_RMII_SPEED10		GRF_CLR_BIT(11)
-> +
-> +#define RK3562_GMAC1_CLK_SELET_CRU		GRF_CLR_BIT(15)
-> +#define RK3562_GMAC1_CLK_SELET_IO		GRF_BIT(15)
-> +
-> +/* ioc_grf */
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON0	0X10400
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON1	0X10404
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON0	0X00400
-> +#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON1	0X00404
-> +
-> +#define RK3562_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
-> +#define RK3562_GMAC_RXCLK_DLY_DISABLE		GRF_CLR_BIT(1)
-> +#define RK3562_GMAC_TXCLK_DLY_ENABLE		GRF_BIT(0)
-> +#define RK3562_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(0)
-> +
-> +#define RK3562_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 8)
-> +#define RK3562_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 0)
-> +
-> +#define RK3562_GMAC0_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(2)
-> +#define RK3562_GMAC0_IO_EXTCLK_SELET_IO		GRF_BIT(2)
-> +
-> +#define RK3562_GMAC1_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(3)
-> +#define RK3562_GMAC1_IO_EXTCLK_SELET_IO		GRF_BIT(3)
-> +
-> +static void rk3562_set_to_rgmii(struct rk_priv_data *bsp_priv,
-> +				int tx_delay, int rx_delay)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +
-> +	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
-> +		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
-> +		return;
-> +	}
-> +
-> +	if (bsp_priv->id > 0)
-> +		return;
-> +
-> +	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +		     RK3562_GMAC0_CLK_RGMII_MODE);
-> +
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1,
-> +		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON0,
-> +		     DELAY_VALUE(RK3562, tx_delay, rx_delay));
-> +
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1,
-> +		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
-> +	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON0,
-> +		     DELAY_VALUE(RK3562, tx_delay, rx_delay));
-> +}
-> +
-> +static void rk3562_set_to_rmii(struct rk_priv_data *bsp_priv)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +
-> +	if (IS_ERR(bsp_priv->grf)) {
-> +		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
-> +		return;
-> +	}
-> +
-> +	if (!bsp_priv->id)
-> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +			     RK3562_GMAC0_CLK_RMII_MODE);
-> +}
-> +
-> +static void rk3562_set_gmac_speed(struct rk_priv_data *bsp_priv, int speed)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +	unsigned int val = 0, offset, id = bsp_priv->id;
-> +
-> +	switch (speed) {
-> +	case 10:
-> +		if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_RMII) {
-> +			if (id > 0) {
-> +				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 1, 20);
-> +				regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +					     RK3562_GMAC1_RMII_SPEED10);
-> +			} else {
-> +				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 0, 20);
-> +			}
-> +		} else {
-> +			val = GMAC_RGMII_CLK_DIV_BY_ID(RK3562, 0, 50);
-> +		}
-> +		break;
-> +	case 100:
-> +		if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_RMII) {
-> +			if (id > 0) {
-> +				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 1, 2);
-> +				regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-> +					     RK3562_GMAC1_RMII_SPEED100);
-> +			} else {
-> +				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 0, 2);
-> +			}
-> +		} else {
-> +			val = GMAC_RGMII_CLK_DIV_BY_ID(RK3562, 0, 5);
-> +		}
-> +		break;
-> +	case 1000:
-> +		if (bsp_priv->phy_iface != PHY_INTERFACE_MODE_RMII)
-> +			val = GMAC_RGMII_CLK_DIV_BY_ID(RK3562, 0, 1);
-> +		else
-> +			goto err;
-> +		break;
-> +	default:
-> +		goto err;
-> +	}
-> +
-> +	offset = (bsp_priv->id > 0) ? RK3562_GRF_SYS_SOC_CON1 :
-> +					  RK3562_GRF_SYS_SOC_CON0;
-> +	regmap_write(bsp_priv->grf, offset, val);
-> +
-> +	return;
-> +err:
-> +	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
-> +}
-> +
-> +static void rk3562_set_clock_selection(struct rk_priv_data *bsp_priv, bool input,
-> +				       bool enable)
-> +{
-> +	struct device *dev = &bsp_priv->pdev->dev;
-> +	unsigned int value;
-> +
-> +	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
-> +		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
-> +		return;
-> +	}
-> +
-> +	if (!bsp_priv->id) {
-> +		value = input ? RK3562_GMAC0_CLK_SELET_IO :
-> +				RK3562_GMAC0_CLK_SELET_CRU;
-> +		value |= enable ? RK3562_GMAC0_CLK_RMII_NOGATE :
-> +				  RK3562_GMAC0_CLK_RMII_GATE;
-> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, value);
-> +
-> +		value = input ? RK3562_GMAC0_IO_EXTCLK_SELET_IO :
-> +				RK3562_GMAC0_IO_EXTCLK_SELET_CRU;
-> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1, value);
-> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
-> +	} else {
-> +		value = input ? RK3562_GMAC1_CLK_SELET_IO :
-> +				RK3562_GMAC1_CLK_SELET_CRU;
-> +		value |= enable ? RK3562_GMAC1_CLK_RMII_NOGATE :
-> +				 RK3562_GMAC1_CLK_RMII_GATE;
-> +		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON1, value);
-> +
-> +		value = input ? RK3562_GMAC1_IO_EXTCLK_SELET_IO :
-> +				RK3562_GMAC1_IO_EXTCLK_SELET_CRU;
-> +		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
-> +	}
-> +}
-> +
-> +static const struct rk_gmac_ops rk3562_ops = {
-> +	.set_to_rgmii = rk3562_set_to_rgmii,
-> +	.set_to_rmii = rk3562_set_to_rmii,
-> +	.set_rgmii_speed = rk3562_set_gmac_speed,
-> +	.set_rmii_speed = rk3562_set_gmac_speed,
-> +	.set_clock_selection = rk3562_set_clock_selection,
-> +};
-> +
->  #define RK3568_GRF_GMAC0_CON0		0x0380
->  #define RK3568_GRF_GMAC0_CON1		0x0384
->  #define RK3568_GRF_GMAC1_CON0		0x0388
-> @@ -2062,6 +2264,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
->  	{ .compatible = "rockchip,rk3366-gmac", .data = &rk3366_ops },
->  	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
->  	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
-> +	{ .compatible = "rockchip,rk3562-gmac", .data = &rk3562_ops },
->  	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
->  	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
->  	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
-> 
+Thanks for the compile test.
+
+Loadable modules (*.ko files) are relocatable ELF.
+So, there is no alignment in *.ko files any more
+if the latest binutils is used.
+
+Just in case, I did run-tests for arm and arm64.
+Even if there is no alignment in *.ko files,
+I confirmed that the kernel can load modules.
+
+If you have time, please run-test and
+double-check loadable modules are working.
 
 
 
-
+--=20
+Best Regards
+Masahiro Yamada
 
