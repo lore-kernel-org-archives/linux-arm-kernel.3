@@ -4,69 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C524E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 02:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D68E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 02:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXPgWv/039w1DyrPkw5OOxKhH6440KjCye1nUeVurvk=; b=k6LYEbQ2tcKO2XEbyw4TU+faiC
-	B2XT03RH/68LaPwtXlHIixL7zYucUz8DmklGF4oEwECTPG7Yh22FHleZ2jBh6phkM9fBGteceMo6T
-	za+3ZlNAUSiN+FPba1NtwumaEAPsCh1V07y14iOGV5RPVApenjbx934KCpo6ilNPrxlE6Lqc0R3xn
-	p6/q7llGx/kDs1BtFtzyAdLTzNB3rEuBJG7O4/rtJj1NTOQgmKv7Gm0Hcsu+MJtE8vAhEcdIxrdVy
-	kKA0YH2gbPKIuc0+4BWqmcMVUguKEKIrvJ1bXJSiayuF3YowTPALM0BC7gIrJ3Z3VGTU5wA55fgNU
-	hv6al6Qw==;
+	bh=od/XFx58U98oR4tAvKQJ+3p2owZykZqJH532d7fHnEw=; b=wv3d2JNBJyq0FErXl24Wmt0GKC
+	smWd6om91Tqs2Web82LW1c5KwWhn6m8h19JS8UhveSQ9HJbeQzzEQVN/3wUsWh6HJ+WrywHaN1N3O
+	XUulxrgj0e6dJrZgJRTIZjRU2tGd0RfCLluSk3jV8T38E8qKBV6nxZAe4f6afQUMtFbqWO4ceuhvH
+	V8F/XPFHDCb8gtljnfsqAmsm9SHK1J6f52QPJw/TVApuOxXwaDxELiDGr9el0m/Kg99CLcRt3WX0B
+	5Da2yEAOI1aw2RMl23g73GlsFiKpUwkIW4nj5Sbix9wSQ/KTtWNZniPcrLY89VKGUT7NYzqSx0x9O
+	rkyTBT+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQdl3-0000000EzDc-2te1;
-	Thu, 26 Dec 2024 02:37:53 +0000
-Received: from mx.treblig.org ([2a00:1098:5b::1])
+	id 1tQdmD-0000000EzLb-1VVn;
+	Thu, 26 Dec 2024 02:39:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQdbu-0000000Ey0h-3ldZ
+	id 1tQddV-0000000EyGl-2XlX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 02:28:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
-	; s=bytemarkmx; h=MIME-Version:Message-ID:Date:Subject:From:Content-Type:From
-	:Subject; bh=yXPgWv/039w1DyrPkw5OOxKhH6440KjCye1nUeVurvk=; b=OWjTPVYFBHSCtQMs
-	8L78DLn9tCBaDou3Ky31EIG4UabrDzOUFYegaOp0IXEQSpBiUYDy/H/uSuWiU1NleRQg2jzFqyMbt
-	AssPaAXJy47TFNuFXaAyiA6aLn4Yw9GbFQN1KdVc7rQuS/5TcukA/Ih5LGmrJGsHs0f1BEssx5JfD
-	p5v3xFFui/5Bc/BivfJ90lClLt3vskDfhQZPmex16Ny0katC6ZqdOADSj7O3Zk2KqF6r+WwDqPa3R
-	FEU76F6ahoRcPC+1LqfMrlSNdu72IwTsjEma31ba+yIp4//bDnzFmdZ2TxRJavmKNgNJfA+xWKtJd
-	RiUDMxUtLrXmi9UkHg==;
-Received: from localhost ([127.0.0.1] helo=dalek.home.treblig.org)
-	by mx.treblig.org with esmtp (Exim 4.96)
-	(envelope-from <linux@treblig.org>)
-	id 1tQdbP-007F0L-2Z;
-	Thu, 26 Dec 2024 02:27:55 +0000
-From: linux@treblig.org
-To: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	deller@gmx.de,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Dr. David Alan Gilbert" <linux@treblig.org>
-Subject: [PATCH 3/7] gpu: ipu-v3: Remove unused ipu_idmac_channel_busy
-Date: Thu, 26 Dec 2024 02:27:48 +0000
-Message-ID: <20241226022752.219399-4-linux@treblig.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241226022752.219399-1-linux@treblig.org>
-References: <20241226022752.219399-1-linux@treblig.org>
+	Thu, 26 Dec 2024 02:30:06 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BQ139tf008317;
+	Thu, 26 Dec 2024 02:29:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	od/XFx58U98oR4tAvKQJ+3p2owZykZqJH532d7fHnEw=; b=HXSbTKb03N2O1w6q
+	Z+2g02aS/hdpMUiuB0D1D88cC+FTgZgL+TB9qYM2i2KRVKiSEqcIacxdO9pPlM4k
+	KvQa2BO6x3BgkPsF1BGZfd39jh0VqJuOUQ5hBQpb21Cs5nt5XQTwtEEA4d5zSh1U
+	NXQ7TaexlRreyF7CMqcuXB936lOAZ9CdHBKto/56P5d4gwj+VT9NWyif9InyxcH1
+	9E6XiDdbL9vuMRE3/HadzlR63hNY7EUTK59A2TvDlopm+05cupLlrK8uwZpyQFKz
+	ZmX08PiXkfRRXO7wJ8alYYqOoMMdn2x9xYOZWDAUDRuVbfRR4sITkwmTad2+NMF7
+	9Bvt2w==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43rhfksye2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Dec 2024 02:29:56 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BQ2TtDQ016070
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Dec 2024 02:29:55 GMT
+Received: from [10.253.74.39] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 25 Dec
+ 2024 18:29:49 -0800
+Message-ID: <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+Date: Thu, 26 Dec 2024 10:29:45 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
+ on qcs615
+To: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo
+ Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
+ <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
+ <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
+Content-Language: en-US
+From: Yijie Yang <quic_yijiyang@quicinc.com>
+In-Reply-To: <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: AOBlQU9L5TuDKSokIOpvw-RMG2nQrM7M
+X-Proofpoint-ORIG-GUID: AOBlQU9L5TuDKSokIOpvw-RMG2nQrM7M
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 adultscore=0
+ malwarescore=0 mlxlogscore=955 mlxscore=0 lowpriorityscore=0
+ priorityscore=1501 phishscore=0 impostorscore=0 spamscore=0 suspectscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412260019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_182826_937172_EB9794F3 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241225_183005_679692_578C2D7B 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +118,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Dr. David Alan Gilbert" <linux@treblig.org>
 
-The last use of ipu_idmac_channel_busy() was removed in 2017 by
-commit eb8c88808c83 ("drm/imx: add deferred plane disabling")
 
-Remove it.
+On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
+> On 25/12/2024 11:04, Yijie Yang wrote:
+> 
+>>   static int qcom_ethqos_probe(struct platform_device *pdev)
+>>   {
+>> -	struct device_node *np = pdev->dev.of_node;
+>> +	struct device_node *np = pdev->dev.of_node, *root;
+>>   	const struct ethqos_emac_driver_data *data;
+>>   	struct plat_stmmacenet_data *plat_dat;
+>>   	struct stmmac_resources stmmac_res;
+>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+>>   	ret = of_get_phy_mode(np, &ethqos->phy_mode);
+>>   	if (ret)
+>>   		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
+>> +
+>> +	root = of_find_node_by_path("/");
+>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
+> 
+> 
+> Nope, your drivers are not supposed to poke root compatibles. Drop and
+> fix your driver to behave correctly for all existing devices.
+> 
 
-Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
----
- drivers/gpu/ipu-v3/ipu-common.c | 6 ------
- drivers/gpu/ipu-v3/ipu-prv.h    | 2 --
- 2 files changed, 8 deletions(-)
+Since this change introduces a new flag in the DTS, we must maintain ABI 
+compatibility with the kernel. The new flag is specific to the board, so 
+I need to ensure root nodes are matched to allow older boards to 
+continue functioning as before. I'm happy to adopt that approach if 
+there are any more elegant solutions.
 
-diff --git a/drivers/gpu/ipu-v3/ipu-common.c b/drivers/gpu/ipu-v3/ipu-common.c
-index a8570e1bdf28..fa77e4e64f12 100644
---- a/drivers/gpu/ipu-v3/ipu-common.c
-+++ b/drivers/gpu/ipu-v3/ipu-common.c
-@@ -484,12 +484,6 @@ int ipu_idmac_enable_channel(struct ipuv3_channel *channel)
- }
- EXPORT_SYMBOL_GPL(ipu_idmac_enable_channel);
- 
--bool ipu_idmac_channel_busy(struct ipu_soc *ipu, unsigned int chno)
--{
--	return (ipu_idmac_read(ipu, IDMAC_CHA_BUSY(chno)) & idma_mask(chno));
--}
--EXPORT_SYMBOL_GPL(ipu_idmac_channel_busy);
--
- int ipu_idmac_wait_busy(struct ipuv3_channel *channel, int ms)
- {
- 	struct ipu_soc *ipu = channel->ipu;
-diff --git a/drivers/gpu/ipu-v3/ipu-prv.h b/drivers/gpu/ipu-v3/ipu-prv.h
-index 3884acb7995a..16322b2137f8 100644
---- a/drivers/gpu/ipu-v3/ipu-prv.h
-+++ b/drivers/gpu/ipu-v3/ipu-prv.h
-@@ -216,8 +216,6 @@ void ipu_srm_dp_update(struct ipu_soc *ipu, bool sync);
- int ipu_module_enable(struct ipu_soc *ipu, u32 mask);
- int ipu_module_disable(struct ipu_soc *ipu, u32 mask);
- 
--bool ipu_idmac_channel_busy(struct ipu_soc *ipu, unsigned int chno);
--
- int ipu_csi_init(struct ipu_soc *ipu, struct device *dev, int id,
- 		 unsigned long base, u32 module, struct clk *clk_ipu);
- void ipu_csi_exit(struct ipu_soc *ipu, int id);
+>> +		ethqos->needs_rx_prog_swap = true;
+>> +	else
+>> +		ethqos->needs_rx_prog_swap =
+> Best regards,
+> Krzysztof
+
 -- 
-2.47.1
+Best Regards,
+Yijie
 
 
