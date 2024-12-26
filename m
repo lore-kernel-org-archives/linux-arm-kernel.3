@@ -4,76 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43ABDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D868FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ioOSpy2q5tRAqXjjc30K+XBynOGb640df/7gxCK2eV4=; b=PFg5e37RKTVKxl6xao//v8rPG+
-	RsXboNrG09Shxg8IwQE3xB7T4M0c2RndpQONgXJ5iQQhVnm+Qv5JVrGy1dB6RftYAGjutFrWfqNzI
-	fleVbjXED+hS61AUeIPLquTcuS90Y+RujazIo4mkMJMff22ZxqUxjLtfxRXq5JLzMtiBDD2xeb7gU
-	yhJLZa1r1e5IN4hF4/SMbp94oAcPkZHHrCSdPVYhgl6qRTfArJhyuNf5QuBeFji6qZG9qnpDLTdxD
-	7XFSjMaLnyGjnc9UkCdAjP6xkVHFI3IT7McJP5JQjg/SokGAxTT/bJ81HdYTK/YI3XTBLu8CjIOCp
-	rETeUJ0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xcUZWE3ppguCfT0Ghk6RY8lNJANWnC8EbI6p5AXiKeg=; b=tNUcT5BVX4LpWKPy0dbzbmGoen
+	T93pPcGSyNuZQef42qe0bnGjI/FPcmReadLe/ifz3h5ucT65HtzNkF4AZ/SgFFTxhXR0GV2IrKal3
+	wqbM0rgxHOaAkD3OrtUXmD6OoyZr1zY6zkZVfprcS410MoPcUQmoAjsVEXaHyfmehwbJmTBCwnYyH
+	neIxSmqPV7XhHXgRDqoOR6fb7KSYj0vJdMipH3Wzvex0zF8YyflWbe6iAiJoqsLl1+I2d2g3oYYSy
+	rHeKwU1SQWbOH7NT4vUU2j1OeZQwy03pP43sHYcs7WZ/q1Ml9az9V9emGSLOMWs0VvAFQAtylykks
+	VD0OhPSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrjs-0000000G9C4-41tU;
-	Thu, 26 Dec 2024 17:33:36 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tQrl2-0000000G9Nj-2hse;
+	Thu, 26 Dec 2024 17:34:48 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrgh-0000000G8lt-0bk6
+	id 1tQrhQ-0000000G8r3-3xwd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 17:30:20 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQHU5hA1321602
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 26 Dec 2024 11:30:05 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735234205;
-	bh=ioOSpy2q5tRAqXjjc30K+XBynOGb640df/7gxCK2eV4=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=u0eeG/UQ9DBZVZwJZhaqOnyINPv0jlcDgBNd7csOOb6nCWgogs6WPi/uStSFwu2ot
-	 1PB/ak0m/5HudyIC/odVY66SvXGm8fkO26Dsj9CH1+gutToODkRGt9B6rP8f5E64gk
-	 YeukQsEPoTCvV50WiLEvjzlO8HQkdcnK7AfeY52Q=
-Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BQHU5L7062537
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 26 Dec 2024 11:30:05 -0600
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 26
- Dec 2024 11:30:03 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 26 Dec 2024 11:30:03 -0600
-Received: from localhost ([10.249.33.38])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BQHU3OL066075;
-	Thu, 26 Dec 2024 11:30:03 -0600
-From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        Wadim Egorov
-	<w.egorov@phytec.de>
-CC: Nishanth Menon <nm@ti.com>, <upstream@lists.phytec.de>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/4] arm64: dts: ti: k3-am62x-phyboard-lyra: Set RGB input to 16-bit for HDMI bridge
-Date: Thu, 26 Dec 2024 11:30:00 -0600
-Message-ID: <173523339473.39503.8596566004787069215.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241101131427.3815341-1-w.egorov@phytec.de>
-References: <20241101131427.3815341-1-w.egorov@phytec.de>
+	Thu, 26 Dec 2024 17:31:06 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-216401de828so74148485ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 09:31:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1735234264; x=1735839064; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=xcUZWE3ppguCfT0Ghk6RY8lNJANWnC8EbI6p5AXiKeg=;
+        b=XqBlI8icyNybVdvPRF8SXZFlCEVIckZSGoWKiM6Go430Pgs2uVZPEOP7wp9/LhSTRq
+         sd6KYVONYSm0IHCJd3Cb7Mu0HjUiY3uKiWgFy/F3rDkG7mCKY4OGpDiX/Q+ykZE5OLtO
+         JDRjOzVYcXweAt3/J/q+dglHq+x/MmRdlyiuvblS0X8uRGPhuuuoRgrFSeBSoVFgnzhU
+         ayxsmeHmFYqBYrNAVYd2u7cPRvXORE9g1WsUIZW5DN04keHOcn9lcMUxQdARp/lS+s8m
+         3KLtvXU21KZlN+CvggvDW3n5UYqQCNLI5h7zpIvNi88AFK6lflmPoCxMa7TzefdDsLke
+         yXtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735234264; x=1735839064;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xcUZWE3ppguCfT0Ghk6RY8lNJANWnC8EbI6p5AXiKeg=;
+        b=BNHVchcw+SjstUz+KcwhgsnOyRMcd/Ldv5gXrVCekFKaaMBc8ytuMm7cRyr3ZDb264
+         XV969JxmKzrHBI+9XsSHuEFQ8Nnhwq9oL6BGkjxd+QGB7Ww4l9KpBwiyohzbKKVFvLHO
+         VVDSYTkC9rM33X7XQKFdqQQZIOcWscSgLzfg7SESQCEyQsctZ+SX2uRyFtUMk/Mbi3RF
+         VSE/l73OImBzetWGVLcNQD9F2dxo0voZ/j/nuqzEpZ0udRlJlEUlNLoI4tsMDloBcmhC
+         5A57oe53B7GIoQkGdMf2/r9s1p9wDcULOfJWYP7/s298Qp6COTjlPEz9Z5MIByQGKdgd
+         Ahcg==
+X-Forwarded-Encrypted: i=1; AJvYcCWjYCN1Nd7UwlJYJk30MPh+yWRQqA4Z/UL2kCvlUdOyH5HBdtVmU+Qusklqba5Kz64K7QpN6lHdUublgSxG7s+x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPyBYwI4tkRJYGddbr/VL/U+3oWtqSWLOjrwrzwx8GJEktbhoV
+	y/Xsd/Caq8gBGIvCg7PHc/ttmB73pYU2Emq9B3gr2isiPow79GFUEJbN/NizTg==
+X-Gm-Gg: ASbGncvJNLpB+NEccRLZfvz36/w5Zmry0qEJEO/7SytO/gcECDFz1tHG4spBUjkgCH3
+	6vBCi98NXWcJPlld3EAQ1ewK8XJsyIerFjZAYWZswgJq/urBnbIUGlQwUj9qCMjGx9f1Z40P+R7
+	hHERvKcvayBGs7l2jVlhvyFBxQ7gaKZH12B+gz1KAnlNQpMLnheYk3CvgyIx6uH06F6Placxtvq
+	2j1NF5T1Gn+btAyXXyVqnEOPDaBoeeovNFhh+4SHuOQpSOcHezsrJtFHbmC7JAuZB5p8rb5DUiY
+	sE1xfGkpvzd6EZslzcXHi7PB
+X-Google-Smtp-Source: AGHT+IHAfn46MsITOFrPVZJ4vXZEH6EHEc/IQOmoCmQiapMunnWTNeZzpppaV467WwIqrvzfz6A1dA==
+X-Received: by 2002:a05:6a00:414a:b0:725:96b1:d217 with SMTP id d2e1a72fcca58-72abdd7e0e5mr28935333b3a.9.1735234264082;
+        Thu, 26 Dec 2024 09:31:04 -0800 (PST)
+Received: from google.com (123.65.230.35.bc.googleusercontent.com. [35.230.65.123])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8dbbf6sm13136269b3a.111.2024.12.26.09.31.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Dec 2024 09:31:03 -0800 (PST)
+Date: Thu, 26 Dec 2024 09:31:00 -0800
+From: William McVicker <willmcvicker@google.com>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Roy Luo <royluo@google.com>, kernel-team@android.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v4 4/7] phy: exynos5-usbdrd: fix EDS distribution tuning
+ (gs101)
+Message-ID: <Z22S1PPAQ4NKdrrY@google.com>
+References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
+ <20241206-gs101-phy-lanes-orientation-phy-v4-4-f5961268b149@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20241206-gs101-phy-lanes-orientation-phy-v4-4-f5961268b149@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_093019_317300_7D7A6EC4 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20241226_093104_987598_7AF92859 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +113,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wadim Egorov,
-
-On Fri, 01 Nov 2024 14:14:24 +0100, Wadim Egorov wrote:
-> The phyBOARD-Lyra connects only 16 pins to the SII902x HDMI bridge's RGB
-> input. The default 24-bit setting causes incorrect color output. Update
-> to 16-bit to match the hardware configuration.
+On 12/06/2024, André Draszik wrote:
+> This code's intention is to configure lane0 and lane2 tunings, but for
+> lane2 there is a typo and it ends up tuning something else.
 > 
+> Fix the typo, as it doesn't appear to make sense to apply different
+> tunings for lane0 vs lane2.
 > 
+> The same typo appears to exist in the bootloader, hence we restore the
+> original value in the typo'd registers as well. This can be removed
+> once / if the bootloader is updated.
+> 
+> Note that this is incorrect in the downstream driver as well - the
+> values had been copied from there.
+> 
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Tested-by: Peter Griffin <peter.griffin@linaro.org>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+Verified on my Pixel 6 Pro.
 
-[1/4] arm64: dts: ti: k3-am62x-phyboard-lyra: Set RGB input to 16-bit for HDMI bridge
-      commit: a4b422390be3c4147db6d97b016adecb3573635d
-[2/4] arm64: dts: ti: k3-am62x-phyboard-lyra: Add HDMI bridge regulators
-      commit: 2a0418ac48d3083e2b209242237abef84497d19f
-[3/4] arm64: dts: ti: k3-am62-phycore-som: Define vcc-supply for I2C EEPROM
-      commit: 4ffe12ccae4ab20e5dc41dc428f909467ed7cc4d
-[4/4] arm64: dts: ti: am62-phyboard-lyra: Provide a vcc-supply for the I2C EEPROM
-      commit: 80ad23c4032c6b2afe225c866b9496472965b9ed
+Tested-by: Will McVicker <willmcvicker@google.com>
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Thanks,
+Will
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+<snip>
 
