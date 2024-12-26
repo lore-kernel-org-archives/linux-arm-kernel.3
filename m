@@ -4,74 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B65DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A49E7718E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5N+wx0Qk5TqbeXwXzSz+Fa7T6lAtBAss99O2QCq8s3Q=; b=dhdaiqO2NMzrQxLE4bWwFkg2nV
-	WN7rlHHHtNikLOWl5On10PEH6jUcZmq7/18yvsXVqdz0gm39iMV4hq4P0vova7p/n37HqgyRtB6f7
-	kLVYBxCEpTurAgGAU0umg8RmaLQq9ta7KnqYNKn1ejYl+L78SuTtQ/7uy4p9cNi6IhBkxY5ojLdj1
-	1MaXaZ1e8vvW6zDBzUBx36YL2hjrPnF2MLzngp3Nt03vgprKX+Myk+YLie1mjsdZq7XomRLnccDig
-	KfMVxZO7XzvC2d/60f7OAduaiYsq1K6LMhGlHDMTuiBDFhTAWNH38yIlvso4/qGEnoeezsL7iTqLd
-	iNLdixRQ==;
+	bh=MZM4CEUh2HGYEJA81GK95AB62iIhj0se6/I95TBn3+Q=; b=EuZ8uK4mYYv7OaxmLO2j3vylcg
+	seIRkVoHUFvzfkBJEabijnlTW5mrb+uUhGO6gX6lhEq0WE/6lhxKO19ZDmKG2CYK/hktaRtxm3P0O
+	Dpt5Ml2nN05HINL7igA5DDNv5gbNQmPca0Fgp9RgczpF9XpmDPtaYTIJT7TOImUygB2He3H8Y2U27
+	p4QpMqfEoB+GmvElT5JbrQj1i+9S6ENTa2iTLLGGS/QMlJiLqrxP01WRwXN7HV8j3XEL7YTEp3w19
+	h0/nHFcWf7Dpr5/OXXYBT/+dp9DdQMi4yLlTh4o/6knOkPbGcKKyiJ9djlPepg5RIeK+2sPL5lzc3
+	Voaq2Xyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrZI-0000000G8Jq-0eON;
-	Thu, 26 Dec 2024 17:22:40 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tQrgT-0000000G8jH-1TNM;
+	Thu, 26 Dec 2024 17:30:05 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrY7-0000000G8E3-3Qh8
+	id 1tQrfI-0000000G8cZ-2ArM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 17:21:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=5N+wx0Qk5TqbeXwXzSz+Fa7T6lAtBAss99O2QCq8s3Q=; b=qAkkU0uXstPl9370wu/aPWwF6F
-	n7bPhHYuNGdw+aYgEPOqMZ6AUjgUqd41KmjtMYBxSJ1NNoQv5QKIy4f6qG2ZkzraAaL9zVwLBZY4B
-	CFhkBjr/xoKQ7gbEHQ6tOCXJ6ohc1T1CSOZOYA5ocqJNarZTb7di/ofgClcbRHAsxi9o=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tQrXk-00GQ7T-3M; Thu, 26 Dec 2024 18:21:04 +0100
-Date: Thu, 26 Dec 2024 18:21:04 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yijie Yang <quic_yijiyang@quicinc.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Thu, 26 Dec 2024 17:28:53 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-216281bc30fso90025985ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 09:28:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1735234131; x=1735838931; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MZM4CEUh2HGYEJA81GK95AB62iIhj0se6/I95TBn3+Q=;
+        b=RuhT1YhFBvswWkFtCTWVjLHlwuFVLR+fdfmCBkMJLgNAwupVAMwdcrGqceAeSxywYB
+         5YYMqPrkhzO7Yqpt/GfqSrwTyxkMOomEB2f0BgVBQldLsIqPiCCyOzshjdnq3rp6+fcT
+         84jK5847r1UXcuKCsTYHbU1nANK8R854WBfqP3lZqy2F9ZALx2bMUhx2o7Un9nx8Wxkq
+         7R17E+9IsN0V4CU83pKWynsX+hObMxetswrEmIvzd2wREnnl0pASh2bhnF/Ix5lorHbd
+         TKR8OdKvwBpjJ1BrukTjNd5ME1gYcXUUnEs7P5cngytGBXSbXZbO+S+mCrCIrfS991Fj
+         pd5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735234131; x=1735838931;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MZM4CEUh2HGYEJA81GK95AB62iIhj0se6/I95TBn3+Q=;
+        b=Ttizpgbhce8VL+P1xpCNaP7Uh5xAhntsg4vG6V//lOHgqG3FO3yT9zOJDByreztNh8
+         EonVJtmdjF9vp++y828LaGxw4cSG5XZeajCYAPF9BRbT0TnH7ZQQIUzvGmh5VJsvnQC1
+         B00AeU7X0PRd0y1LA2YurMsaoCinJaRE/152JqMpE293i/FlDl2/rh/JX3k5srxWEK24
+         x/HqkPnt73WGpvWDFgjT5TxApjsA5eYygo6MpcZ86XI6tvQ+sY91FOVEsf1EkIWoIC/c
+         2HSHQUcTKF3Rg4L/dftMAKcCi7ceJmP4V2X4scvj84U80YsNGKdlVzHOkT9wwe1WJFRF
+         Kc4w==
+X-Forwarded-Encrypted: i=1; AJvYcCWu77LMqJ5qKJ0YrLzmpcXsyFOJ0bCyw68kjagZXXmLaOpl4A2FTOf7QRoDNSIgZxkP5iDX/7HoEyhUNJgAO33Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtKHrGE/B1To9CcM2exTovCu4QOn5T9+3Jn5LRUryDOwEQTt7y
+	4UVkB+2VhpMq7krljE2sgzYq63HU6vdItiR9QJqwZeYi/vHoWjjqK5Da6sNAVQ==
+X-Gm-Gg: ASbGncvq254V7PabrC6x9UShQ2qBlD53G1q4j7f8oWJeHk1XRv81w+3pROYVxJMTl36
+	NXFJfxmpnnAAtB5kpZF/Km2roJtzSieMgCzrmfJb9pOphFcXRTwyjN4xYPidbuStih+quv2gFs4
+	mGUfXhB5vHnhP8Ycuuf/hSzqtC+T+G2akcQzkc+Kc2xdNTIJuSmGNeEO4/d5tfbIMlqVXWbnh4w
+	wjcvDUCc34/mKa534XMLdUXIYoaR06e5OwGYNluuH1zNUJ2Qd3uOP2D6kgoTQSpaDxMOv8HyzZJ
+	+CPJFZc9JUfaWNrVuQ32+ki1
+X-Google-Smtp-Source: AGHT+IFBYpPcdLPqV6zNyGAlMP+fcIVUdggCbxsnyGgouqIm8mTzus1DxDfWnUwkq2+QguJv2z5GcA==
+X-Received: by 2002:a17:902:d502:b0:215:94eb:adb6 with SMTP id d9443c01a7336-219e6f2605emr383250035ad.40.1735234130575;
+        Thu, 26 Dec 2024 09:28:50 -0800 (PST)
+Received: from google.com (123.65.230.35.bc.googleusercontent.com. [35.230.65.123])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc962c05sm122006295ad.43.2024.12.26.09.28.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Dec 2024 09:28:50 -0800 (PST)
+Date: Thu, 26 Dec 2024 09:28:46 -0800
+From: William McVicker <willmcvicker@google.com>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable
- swap on qcs615
-Message-ID: <e47f3b5c-9efa-4b71-b854-3a5124af06d7@lunn.ch>
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Roy Luo <royluo@google.com>, kernel-team@android.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v4 0/7] USB31DRD phy updates for Google Tensor gs101
+ (orientation & DWC3 rpm)
+Message-ID: <Z22STiGYnLdSkNnW@google.com>
+References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_092127_862079_E4D9F8C8 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20241226_092852_569050_ABA06B2D 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +113,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 26, 2024 at 10:29:45AM +0800, Yijie Yang wrote:
+On 12/06/2024, André Draszik wrote:
+> Hi,
 > 
+> This series enables USB3 Type-C lane orientation detection and
+> configuration on platforms that support this (Google gs101), and it
+> also allows the DWC3 core to enter runtime suspend even when UDC is
+> active.
 > 
-> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
-> > On 25/12/2024 11:04, Yijie Yang wrote:
-> > 
-> > >   static int qcom_ethqos_probe(struct platform_device *pdev)
-> > >   {
-> > > -	struct device_node *np = pdev->dev.of_node;
-> > > +	struct device_node *np = pdev->dev.of_node, *root;
-> > >   	const struct ethqos_emac_driver_data *data;
-> > >   	struct plat_stmmacenet_data *plat_dat;
-> > >   	struct stmmac_resources stmmac_res;
-> > > @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
-> > >   	ret = of_get_phy_mode(np, &ethqos->phy_mode);
-> > >   	if (ret)
-> > >   		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
-> > > +
-> > > +	root = of_find_node_by_path("/");
-> > > +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
-> > 
-> > 
-> > Nope, your drivers are not supposed to poke root compatibles. Drop and
-> > fix your driver to behave correctly for all existing devices.
-> > 
+> For lane orientation, this driver now optionally (based on DT)
+> subscribes to the TCPC's lane orientation notifier and remembers the
+> orientation to later be used during phy_init().
 > 
-> Since this change introduces a new flag in the DTS, we must maintain ABI
-> compatibility with the kernel. The new flag is specific to the board, so I
-> need to ensure root nodes are matched to allow older boards to continue
-> functioning as before. I'm happy to adopt that approach if there are any
-> more elegant solutions.
+> To enable DWC3 runtime suspend, the gadget needs to inform the core via
+> dwc3_gadget_interrupt() with event type == DWC3_DEVICE_EVENT_DISCONNECT
+> of a cable disconnect. For that to allow to happen, this driver
+> therefore needs to stop forcing the Vbus and bvalid signals to active
+> and instead change their state based on actual conditions. The same
+> TCPC notifier is used to detect this, and program the hardware
+> accordingly.
+> 
+> That signal state is based on advice given by Thinh in
+> https://lore.kernel.org/all/20240813230625.jgkatqstyhcmpezv@synopsys.com/
+> 
+> Both changes together now allow cable orientation detection to work, as
+> the DWC3 will now call phy_exit() on cable disconnect, and we can
+> reprogram the lane mux in phy_init().
+> 
+> On top of that, there are some small related cleanup patches.
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+> Changes in v4:
+> - separate out patch 5 'phy: exynos5-usbdrd: gs101: ensure power is
+>   gated to SS phy in phy_exit()' from this series, as a stable patch
+>   shouldn't be buried inside a series like this (Greg)
+>   Link: https://lore.kernel.org/all/20241205-gs101-usb-phy-fix-v4-1-0278809fb810@linaro.org/
+> - Link to v3: https://lore.kernel.org/r/20241205-gs101-phy-lanes-orientation-phy-v3-0-32f721bed219@linaro.org
+> 
+> Changes in v3:
+> - patches 1 & 2: update as per Rob's suggestions
+> - patch 7 & 8: drop init to -1 of phy_drd->orientation (Vinod)
+> - patch 7: avoid an #ifdef 
+> - Link to v2: https://lore.kernel.org/r/20241203-gs101-phy-lanes-orientation-phy-v2-0-40dcf1b7670d@linaro.org
+> 
+> Changes in v2:
+> - squash patches #2 and #3 from v1 to actually disallow
+>   orientation-switch on !gs101 (not just optional) (Conor)
+> - update bindings commit message to clarify that the intention for the
+>   driver is to work with old and new DTS (Conor)
+> - add cc-stable and fixes tags to power gating patch (Krzysztof)
+> - fix an #include and typo (Peter)
+> - Link to v1: https://lore.kernel.org/r/20241127-gs101-phy-lanes-orientation-phy-v1-0-1b7fce24960b@linaro.org
+> 
+> ---
+> André Draszik (7):
+>       dt-bindings: phy: samsung,usb3-drd-phy: add blank lines between DT properties
+>       dt-bindings: phy: samsung,usb3-drd-phy: gs101: require Type-C properties
+>       phy: exynos5-usbdrd: convert to dev_err_probe
+>       phy: exynos5-usbdrd: fix EDS distribution tuning (gs101)
+>       phy: exynos5-usbdrd: gs101: configure SS lanes based on orientation
+>       phy: exynos5-usbdrd: subscribe to orientation notifier if required
+>       phy: exynos5-usbdrd: allow DWC3 runtime suspend with UDC bound (E850+)
+> 
+>  .../bindings/phy/samsung,usb3-drd-phy.yaml         |  21 ++-
+>  drivers/phy/samsung/Kconfig                        |   1 +
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c           | 202 ++++++++++++++++-----
+>  3 files changed, 182 insertions(+), 42 deletions(-)
+> ---
+> base-commit: c245a7a79602ccbee780c004c1e4abcda66aec32
+> change-id: 20241127-gs101-phy-lanes-orientation-phy-29d20c6d84d2
+> 
+> Best regards,
+> -- 
+> André Draszik <andre.draszik@linaro.org>
+> 
 
-Why is it specific to this board? Does the board have a PHY which is
-broken and requires this property? What we are missing are the details
-needed to help you get to the correct way to solve the problem you are
-facing.
+Thanks Andre for getting this working! I've tested this on my Pixel 6 Pro.
+I was able to verify runtime PM works in both orientations with high-speed,
+super-speed, and super-speed-plus. Feel free to include:
 
-	Andrew
+Tested-by: Will McVicker <willmcvicker@google.com>
 
+Thanks,
+Will
 
