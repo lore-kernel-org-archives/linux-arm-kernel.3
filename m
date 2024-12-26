@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCD5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 14:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CC3E7718E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 14:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/jUxzKrgrjeJtNNwbquA1dYJU5IbDymlhmrUtlFTMyQ=; b=Zykxdiiitd9Rbmmn0aKeeMo7kR
-	DtxsOJKYIFU+9tdbBj++o+DjbImu8G4ybalj6j3kjaupb8hNnpVNSb9dW2hTRkZeQyVKig3uM0vmw
-	bCqjhD5MfMQOtvvRDO/EuM91dSS5QS+4j//diCSUaZpdzSobbP3uo3aKtrE8gKfIys/xrL2iZi7RP
-	sNuxoJ9Q6IO0DFUnKQ4zdkZYEugNCyzfI9q8x8RQqtunLiSHIEj6CV1+LfUwfgTNYtm0Bu0orHf7Q
-	YHITuP7z5DRwyBFfte/fRQSX8fT4MBPnYrBvXcEPfV8Co6CMakKFywBD3YFgVMZI850j3p2VihawR
-	flG40M9w==;
+	bh=ZWaMQHTniKNiKHMTp7F80RZe2wo6ZB4wndPYy3Gh4Fs=; b=2H96pOLQ+HQq1RTIvrRHjwb+81
+	Y+YnUqoH8D+YswXm42yJLjV25KELaQpgkmhoH4WOu3JurmzufNHQrvMZ4wgxPIe9dPeSU+SCJvwYn
+	RE48T6UUOEdg7fLYYSEOY+FB5LdjjrJmfD3UBNgEU+xLIe5G72XQXbtuyeFxQRwaz7rUkNE3aFA0J
+	WPIAM5APUzHTaE+6PeEqDvLxEBQlMsPuo1m2l4F1VBb8dJKP87oGnKb8wxxwVFjQJrDOML59JEYn2
+	iW4d89yTj3lbyx1y1Sxyez7/alO6pfH+TUU6D2allzFc4AY4/879INhwsfdB6X/y1wLCpCWex+j7T
+	h5cqeb1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQomJ-0000000Ftrl-2Nop;
-	Thu, 26 Dec 2024 14:23:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tQoxk-0000000FuZa-1qoZ;
+	Thu, 26 Dec 2024 14:35:44 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQol8-0000000Ftls-05Ai
+	id 1tQowZ-0000000FuT8-0eQE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 14:22:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 915765C5E14;
-	Thu, 26 Dec 2024 14:21:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 731C0C4CED1;
-	Thu, 26 Dec 2024 14:22:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735222960;
-	bh=FxKzkVloadueSLTJozS/cKJF/u7Mcxr8Wpq/HPmw1UA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lvzTYHscMfIOt9mMuShw9L09QtMMmzsfUJ85mskwkhcFz1L/aqSc2x00ktpPNb0Ks
-	 S8gDReMW0un8OopPQNlVsnt1ndc63FmrAYD27FW6HMDVV2451PPs6nnP9Z+Iw3nwjK
-	 JWQK3heUy2Rz9QTfo7OSNyrFDAssokhz724oFKPLnBlyEtcTge9nNtkQ2QxUMTY2Ha
-	 Oo91BvMCX6DfriMwc6ceV+Bh8ber7nLUI+0bjGx1ara2Hqe2RuY0tWwiid2jrCp18u
-	 bt1NOFeC1BC5OIGBAtIikA8EvAWetVoIEQFRbGQgGIQL4XUepvOd0AO3CS/i7tv061
-	 Zfrcd+vIhas/A==
-Received: from 82-132-222-168.dab.02.net ([82.132.222.168] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tQol3-0072lJ-Us;
-	Thu, 26 Dec 2024 14:22:38 +0000
-Date: Thu, 26 Dec 2024 14:22:32 +0000
-Message-ID: <87ttaqr0bb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	kvmarm@lists.linux.dev,
-	suzuki.poulose@arm.com,
-	coresight@lists.linaro.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas
- <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mark Brown <broonie@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	James Morse <james.morse@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 7/8] KVM: arm64: Support trace filtering for guests
-In-Reply-To: <0cfda877-7c3d-4e59-a1b1-fe245f7298f0@linaro.org>
-References: <20241127100130.1162639-1-james.clark@linaro.org>
-	<20241127100130.1162639-8-james.clark@linaro.org>
-	<86r061p63b.wl-maz@kernel.org>
-	<0cfda877-7c3d-4e59-a1b1-fe245f7298f0@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.222.168
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, oliver.upton@linux.dev, kvmarm@lists.linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, broonie@kernel.org, anshuman.khandual@arm.com, james.morse@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 26 Dec 2024 14:34:33 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38637614567so2879527f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 06:34:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735223669; x=1735828469; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZWaMQHTniKNiKHMTp7F80RZe2wo6ZB4wndPYy3Gh4Fs=;
+        b=A5yWcXiIzDPWEmdJxCvUg/2CT35pTWMEp98435dP3QCMnr6+UQ4DO0mhs6E4M2HtGR
+         cFOTQUs4WoPVnHLAeINXDG0zc31uCA509IA5k2495FCUVJAuWsiLf4QuCqL7z++3z5Gj
+         uSIaL0WV9iffMsC25rH2jOUhg1spPPoubZJImDkapXVnANlbsXZ2jKXwRCT3Eq7VS5T9
+         9YSmE9YHY0Llzb1gTIwPMilq0ZzLIu2+uzU9pcOiR1t8uaTAPRQEriHwMCOeXmzdQOGE
+         mB7Qbe/b1TuvnpxEYmlW2RfLEoQ2DM/oWPqZYuKm/+Le91+Zz0iQBVo5V+K65kf3zXtU
+         1iCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735223669; x=1735828469;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZWaMQHTniKNiKHMTp7F80RZe2wo6ZB4wndPYy3Gh4Fs=;
+        b=QpCgt4R3vcLX313Zu6Wi4FJvn3C1nDpFlJyGtSXWeQLsL6wEMZeLAlJnrNtj9ar+hq
+         5oT4SCvmqengoceSAFa+QkimBioeFIlql/E1HdmpSYuoHUSusyTAJ7q0QNvF1/wNqelC
+         NxmzWB3ZlO/mbdGQA1DldiKWThW7M2ZGtm8gv9LyQMt0cUj4b4L1u34kt1T7QS/60LBs
+         DkEmW2twuZ3H1j/x7txJwH/J522L4bB3IEViv+2sQhr1vrRFEXqZ5GvzfYmVZWp9ak0n
+         tlaBXwnSSMbGlILV7IZq8Y0Ktbu6aXW7TTQtyiZPn+5jk+S2WJAVx3B0CuMDdZ8UOzht
+         HW+g==
+X-Forwarded-Encrypted: i=1; AJvYcCX81GJxpEfUULOrfkw+R/tsNMtuss066HYhDAD2kkTT5lQxThPRLoaG7XqUsmwzcDl4gWae2F1cDE+DW19K+YZd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw3X+WWVl63zOlwW8/Oy8LhZZnS5iSnh6QOUFU9GGvTG3LyAIi
+	H9E64bGRA/Q99LCL7H2OZ4Xa5s0l2EB5e5xZyUWmQbBcDXfI6wUNX33BLH/0lCc=
+X-Gm-Gg: ASbGncvMuZD0/ScJxUJMbHo4HZsQVXGDxEYinFNhtOAjsShH0IYxWr/dIIiBPTGaGZ1
+	UYTkVR9FN5u/oaBm/I8ARhGlU/UW/CSJX21MeJiyTbVuDXl6JfamZXPIveQvDDuwC2ClJomjDiD
+	b5BHnZzCiNhnm5OoPs5kxc4NU2PFEpoUnl3C9xGEKZsl+Zni+xKzGETeG0oEIkHhijIOlKXI+wv
+	bHzaXII2RzwYE2Z3kmY+LOZ4vH6b4OeiWd/FtBEgOJcnZTHdnyH/kQ=
+X-Google-Smtp-Source: AGHT+IEpquj9mqHQrFXHSl5hzcnxKsnrxJ39lD9GV2mzs7t3fW0dHSS7dyN+P7J8ye5qxYUx0CveZA==
+X-Received: by 2002:a05:6000:1848:b0:386:459e:655d with SMTP id ffacd0b85a97d-38a221fa039mr22306469f8f.20.1735223668760;
+        Thu, 26 Dec 2024 06:34:28 -0800 (PST)
+Received: from linaro.org ([82.76.168.176])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8ac97fsm19364218f8f.92.2024.12.26.06.34.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Dec 2024 06:34:28 -0800 (PST)
+Date: Thu, 26 Dec 2024 16:34:26 +0200
+From: Abel Vesa <abel.vesa@linaro.org>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+	sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, akshay.bhat@timesys.com,
+	p.zabel@pengutronix.de, Ranjani.Vaidyanathan@nxp.com,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: imx6q: No need to repeatedly disable analog clk
+ during kdump
+Message-ID: <Z21pcg6ZGA7n0wXy@linaro.org>
+References: <20241107112750.3590720-1-xiaolei.wang@windriver.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241107112750.3590720-1-xiaolei.wang@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_062242_155324_C80EE3C4 
-X-CRM114-Status: GOOD (  52.63  )
+X-CRM114-CacheID: sfid-20241226_063431_261554_4D6CE600 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,204 +100,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 23 Dec 2024 11:28:06 +0000,
-James Clark <james.clark@linaro.org> wrote:
+On 24-11-07 19:27:50, Xiaolei Wang wrote:
+> During kdump, when the second kernel is started, the LDB parent
+> has already been switched and will not be switched again, so
+> there is no need to repeatedly disable PLL2_PFD2, PLL5, etc.
+> Repeatedly disabling PLL2_PFD2 causes the system to hang
 > 
+> LDB Clock Switch Procedure & i.MX6 Asynchronous Clock
+> Switching Guidelines[1]
 > 
+> [1]https://www.nxp.com/docs/en/engineering-bulletin/EB821.pdf
 > 
-> On 21/12/2024 12:34 pm, Marc Zyngier wrote:
-> > On Wed, 27 Nov 2024 10:01:24 +0000,
-> > James Clark <james.clark@linaro.org> wrote:
-> >> 
-> >> For nVHE, switch the filter value in and out if the Coresight driver
-> >> asks for it. This will support filters for guests when sinks other than
-> >> TRBE are used.
-> >> 
-> >> For VHE, just write the filter directly to TRFCR_EL1 where trace can be
-> >> used even with TRBE sinks.
-> >> 
-> >> Signed-off-by: James Clark <james.clark@linaro.org>
-> >> ---
-> >>   arch/arm64/include/asm/kvm_host.h  |  5 +++++
-> >>   arch/arm64/kvm/debug.c             | 28 ++++++++++++++++++++++++++++
-> >>   arch/arm64/kvm/hyp/nvhe/debug-sr.c |  1 +
-> >>   3 files changed, 34 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> >> index ba251caa593b..cce07887551b 100644
-> >> --- a/arch/arm64/include/asm/kvm_host.h
-> >> +++ b/arch/arm64/include/asm/kvm_host.h
-> >> @@ -613,6 +613,7 @@ struct kvm_host_data {
-> >>   #define KVM_HOST_DATA_FLAG_HAS_SPE	0
-> >>   #define KVM_HOST_DATA_FLAG_HAS_TRF	1
-> >>   #define KVM_HOST_DATA_FLAG_TRBE_ENABLED	2
-> >> +#define KVM_HOST_DATA_FLAG_GUEST_FILTER	3
-> > 
-> > Guest filter what? This is meaningless.
-> > 
+> Fixes: 5d283b083800 ("clk: imx6: Fix procedure to switch the parent of LDB_DI_CLK")
+> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+
+LGTM.
+
+Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+
+> ---
+>  drivers/clk/imx/clk-imx6q.c | 84 ++++++++++++++++++-------------------
+>  1 file changed, 42 insertions(+), 42 deletions(-)
 > 
-> KVM_HOST_DATA_FLAG_SWAP_TRFCR maybe?
-
-A flag indicates a state, just like a level interrupt. So in cannot be
-a verb that indicates an action, after which the flag should be
-dropped (just like an edge interrupt). Maybe if you explained what
-this is supposed to indicate, we could come up with a better name.
-
-I would have thought that something like EL1_TRACING_ENABLED would be
-adequate, but it is unusually hard to understand what this is supposed
-to be doing.
-
+> diff --git a/drivers/clk/imx/clk-imx6q.c b/drivers/clk/imx/clk-imx6q.c
+> index bf4c1d9c9928..edbdaeea68b3 100644
+> --- a/drivers/clk/imx/clk-imx6q.c
+> +++ b/drivers/clk/imx/clk-imx6q.c
+> @@ -291,6 +291,42 @@ static void mmdc_ch1_reenable(void __iomem *ccm_base)
+>  	writel_relaxed(reg, ccm_base + CCM_CCSR);
+>  }
+>  
+> +#define CCM_ANALOG_PLL_VIDEO    0xa0
+> +#define CCM_ANALOG_PFD_480      0xf0
+> +#define CCM_ANALOG_PFD_528      0x100
+> +
+> +#define PLL_ENABLE              BIT(13)
+> +
+> +#define PFD0_CLKGATE            BIT(7)
+> +#define PFD1_CLKGATE            BIT(15)
+> +#define PFD2_CLKGATE            BIT(23)
+> +#define PFD3_CLKGATE            BIT(31)
+> +
+> +static void disable_anatop_clocks(void __iomem *anatop_base)
+> +{
+> +	unsigned int reg;
+> +
+> +	/* Make sure PLL2 PFDs 0-2 are gated */
+> +	reg = readl_relaxed(anatop_base + CCM_ANALOG_PFD_528);
+> +	/* Cannot gate PFD2 if pll2_pfd2_396m is the parent of MMDC clock */
+> +	if (clk_get_parent(hws[IMX6QDL_CLK_PERIPH_PRE]->clk) ==
+> +	   hws[IMX6QDL_CLK_PLL2_PFD2_396M]->clk)
+> +		reg |= PFD0_CLKGATE | PFD1_CLKGATE;
+> +	else
+> +		reg |= PFD0_CLKGATE | PFD1_CLKGATE | PFD2_CLKGATE;
+> +	writel_relaxed(reg, anatop_base + CCM_ANALOG_PFD_528);
+> +
+> +	/* Make sure PLL3 PFDs 0-3 are gated */
+> +	reg = readl_relaxed(anatop_base + CCM_ANALOG_PFD_480);
+> +	reg |= PFD0_CLKGATE | PFD1_CLKGATE | PFD2_CLKGATE | PFD3_CLKGATE;
+> +	writel_relaxed(reg, anatop_base + CCM_ANALOG_PFD_480);
+> +
+> +	/* Make sure PLL5 is disabled */
+> +	reg = readl_relaxed(anatop_base + CCM_ANALOG_PLL_VIDEO);
+> +	reg &= ~PLL_ENABLE;
+> +	writel_relaxed(reg, anatop_base + CCM_ANALOG_PLL_VIDEO);
+> +}
+> +
+>  /*
+>   * We have to follow a strict procedure when changing the LDB clock source,
+>   * otherwise we risk introducing a glitch that can lock up the LDB divider.
+> @@ -320,7 +356,7 @@ static void mmdc_ch1_reenable(void __iomem *ccm_base)
+>   * switches the parent to the bottom mux first and then manipulates the top
+>   * mux to ensure that no glitch will enter the divider.
+>   */
+> -static void init_ldb_clks(struct device_node *np, void __iomem *ccm_base)
+> +static void init_ldb_clks(struct device_node *np, void __iomem *ccm_base, void __iomem *anatop_base)
+>  {
+>  	unsigned int reg;
+>  	unsigned int sel[2][4];
+> @@ -368,6 +404,10 @@ static void init_ldb_clks(struct device_node *np, void __iomem *ccm_base)
+>  	if (sel[0][0] == sel[0][3] && sel[1][0] == sel[1][3])
+>  		return;
+>  
+> +	disable_anatop_clocks(anatop_base);
+> +
+> +	imx_mmdc_mask_handshake(ccm_base, 1);
+> +
+>  	mmdc_ch1_disable(ccm_base);
+>  
+>  	for (i = 1; i < 4; i++) {
+> @@ -382,42 +422,6 @@ static void init_ldb_clks(struct device_node *np, void __iomem *ccm_base)
+>  	mmdc_ch1_reenable(ccm_base);
+>  }
+>  
+> -#define CCM_ANALOG_PLL_VIDEO	0xa0
+> -#define CCM_ANALOG_PFD_480	0xf0
+> -#define CCM_ANALOG_PFD_528	0x100
+> -
+> -#define PLL_ENABLE		BIT(13)
+> -
+> -#define PFD0_CLKGATE		BIT(7)
+> -#define PFD1_CLKGATE		BIT(15)
+> -#define PFD2_CLKGATE		BIT(23)
+> -#define PFD3_CLKGATE		BIT(31)
+> -
+> -static void disable_anatop_clocks(void __iomem *anatop_base)
+> -{
+> -	unsigned int reg;
+> -
+> -	/* Make sure PLL2 PFDs 0-2 are gated */
+> -	reg = readl_relaxed(anatop_base + CCM_ANALOG_PFD_528);
+> -	/* Cannot gate PFD2 if pll2_pfd2_396m is the parent of MMDC clock */
+> -	if (clk_get_parent(hws[IMX6QDL_CLK_PERIPH_PRE]->clk) ==
+> -	    hws[IMX6QDL_CLK_PLL2_PFD2_396M]->clk)
+> -		reg |= PFD0_CLKGATE | PFD1_CLKGATE;
+> -	else
+> -		reg |= PFD0_CLKGATE | PFD1_CLKGATE | PFD2_CLKGATE;
+> -	writel_relaxed(reg, anatop_base + CCM_ANALOG_PFD_528);
+> -
+> -	/* Make sure PLL3 PFDs 0-3 are gated */
+> -	reg = readl_relaxed(anatop_base + CCM_ANALOG_PFD_480);
+> -	reg |= PFD0_CLKGATE | PFD1_CLKGATE | PFD2_CLKGATE | PFD3_CLKGATE;
+> -	writel_relaxed(reg, anatop_base + CCM_ANALOG_PFD_480);
+> -
+> -	/* Make sure PLL5 is disabled */
+> -	reg = readl_relaxed(anatop_base + CCM_ANALOG_PLL_VIDEO);
+> -	reg &= ~PLL_ENABLE;
+> -	writel_relaxed(reg, anatop_base + CCM_ANALOG_PLL_VIDEO);
+> -}
+> -
+>  static struct clk_hw * __init imx6q_obtain_fixed_clk_hw(struct device_node *np,
+>  							const char *name,
+>  							unsigned long rate)
+> @@ -641,10 +645,6 @@ static void __init imx6q_clocks_init(struct device_node *ccm_node)
+>  	hws[IMX6QDL_CLK_IPU1_SEL]         = imx_clk_hw_mux("ipu1_sel",         base + 0x3c, 9,  2, ipu_sels,          ARRAY_SIZE(ipu_sels));
+>  	hws[IMX6QDL_CLK_IPU2_SEL]         = imx_clk_hw_mux("ipu2_sel",         base + 0x3c, 14, 2, ipu_sels,          ARRAY_SIZE(ipu_sels));
+>  
+> -	disable_anatop_clocks(anatop_base);
+> -
+> -	imx_mmdc_mask_handshake(base, 1);
+> -
+>  	if (clk_on_imx6qp()) {
+>  		hws[IMX6QDL_CLK_LDB_DI0_SEL]      = imx_clk_hw_mux_flags("ldb_di0_sel", base + 0x2c, 9,  3, ldb_di_sels,      ARRAY_SIZE(ldb_di_sels), CLK_SET_RATE_PARENT);
+>  		hws[IMX6QDL_CLK_LDB_DI1_SEL]      = imx_clk_hw_mux_flags("ldb_di1_sel", base + 0x2c, 12, 3, ldb_di_sels,      ARRAY_SIZE(ldb_di_sels), CLK_SET_RATE_PARENT);
+> @@ -654,7 +654,7 @@ static void __init imx6q_clocks_init(struct device_node *ccm_node)
+>  		 * bug. Set the muxes to the requested values before registering the
+>  		 * ldb_di_sel clocks.
+>  		 */
+> -		init_ldb_clks(np, base);
+> +		init_ldb_clks(np, base, anatop_base);
+>  
+>  		hws[IMX6QDL_CLK_LDB_DI0_SEL]      = imx_clk_hw_mux_ldb("ldb_di0_sel", base + 0x2c, 9,  3, ldb_di_sels,      ARRAY_SIZE(ldb_di_sels));
+>  		hws[IMX6QDL_CLK_LDB_DI1_SEL]      = imx_clk_hw_mux_ldb("ldb_di1_sel", base + 0x2c, 12, 3, ldb_di_sels,      ARRAY_SIZE(ldb_di_sels));
+> -- 
+> 2.25.1
 > 
-> >>   	unsigned long flags;
-> >>     	struct kvm_cpu_context host_ctxt;
-> >> @@ -1387,6 +1388,8 @@ void kvm_clr_pmu_events(u64 clr);
-> >>   bool kvm_set_pmuserenr(u64 val);
-> >>   void kvm_enable_trbe(void);
-> >>   void kvm_disable_trbe(void);
-> >> +void kvm_set_trfcr(u64 guest_trfcr);
-> >> +void kvm_clear_trfcr(void);
-> >>   #else
-> >>   static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
-> >>   static inline void kvm_clr_pmu_events(u64 clr) {}
-> >> @@ -1396,6 +1399,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
-> >>   }
-> >>   static inline void kvm_enable_trbe(void) {}
-> >>   static inline void kvm_disable_trbe(void) {}
-> >> +static inline void kvm_set_trfcr(u64 guest_trfcr) {}
-> >> +static inline void kvm_clear_trfcr(void) {}
-> >>   #endif
-> >>     void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
-> >> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-> >> index 0c340ae7b5d1..9266f2776991 100644
-> >> --- a/arch/arm64/kvm/debug.c
-> >> +++ b/arch/arm64/kvm/debug.c
-> >> @@ -337,3 +337,31 @@ void kvm_disable_trbe(void)
-> >>   	host_data_clear_flag(TRBE_ENABLED);
-> >>   }
-> >>   EXPORT_SYMBOL_GPL(kvm_disable_trbe);
-> >> +
-> >> +void kvm_set_trfcr(u64 guest_trfcr)
-> > 
-> > Again. Is this the guest's view? or the host view while running the
-> > guest? I asked the question on the previous patch, and you didn't
-> > reply.
-> > 
-> 
-> Ah sorry missed that one:
-> 
-> > Guest value? Or host state while running the guest? If the former,
-> > then this has nothing to do here. If the latter, this should be
-> > spelled out (trfcr_in_guest?), and the comment amended.
-> 
-> Yes, the latter, guest TRFCR reads are undef anyway. I can rename this
-> and the host_data variable to be trfcr_in_guest.
-> 
-> >> +{
-> >> +	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
-> >> +		return;
-> >> +
-> >> +	if (has_vhe())
-> >> +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
-> >> +	else {
-> >> +		*host_data_ptr(guest_trfcr_el1) = guest_trfcr;
-> >> +		host_data_set_flag(GUEST_FILTER);
-> >> +	}
-> > 
-> > Oh come on. This is basic coding style, see section 3 in
-> > Documentation/process/coding-style.rst.
-> > 
-> 
-> Oops, I'd have thought checkpatch could catch something like that. Will fix.
-
-Checkpatch serves little to no purpose, really, and relying on it is a
-very bad idea.
-
->
-> >> +}
-> >> +EXPORT_SYMBOL_GPL(kvm_set_trfcr);
-> >> +
-> >> +void kvm_clear_trfcr(void)
-> >> +{
-> >> +	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
-> >> +		return;
-> >> +
-> >> +	if (has_vhe())
-> >> +		write_sysreg_s(0, SYS_TRFCR_EL12);
-> >> +	else {
-> >> +		*host_data_ptr(guest_trfcr_el1) = 0;
-> >> +		host_data_clear_flag(GUEST_FILTER);
-> >> +	}
-> >> +}
-> >> +EXPORT_SYMBOL_GPL(kvm_clear_trfcr);
-> > 
-> > Why do we have two helpers? Clearly, calling kvm_set_trfcr() with
-> > E{1,0}TRE=={0,0} should result in *disabling* things.  Except it
-> > doesn't, and you should fix it. Once that is fixed, it becomes
-> obvious> that kvm_clear_trfcr() serves no purpose.
-> > 
-> 
-> With only one kvm_set_trfcr() there's no way to distinguish swapping
-> in a 0 value or stopping swapping altogether. I thought we wanted a
-> single flag that gated the register accesses so the hyp mostly does
-> nothing? With only kvm_set_trfcr() you first need to check FEAT_TRF
-> then you need to compare the real register with trfcr_in_guest to know
-> whether to swap or not every time.
-> 
-> Actually I think some of the previous versions had something like this
-> but it was a bit more complicated.
-> 
-> Maybe set/clear_trfcr() aren't great names. Perhaps
-> kvm_set_trfcr_in_guest() and kvm_disable_trfcr_in_guest()? With the
-> second one hinting that it stops the swapping regardless of what the
-> values are.
-
-I really think the way you name thing is getting in the way of simply
-*understanding* what you are doing.
-
-You don't disable or enable TRFCR. You enable or disable EL1 tracing
-while in guest context. TRFCR is the tool by which you are doing that,
-and the value you pass to these helpers is the tracing configuration.
-
-> 
-> I don't think calling kvm_set_trfcr() with E{1,0}TRE=={0,0} is
-> actually broken in this version, it means that the Coresight driver
-> wants that value to be installed for guests. So it should actually
-> _enable_ swapping in the value of 0, not disable anything.
-
-But you can decide whether there is need for "swapping" if the
-configuration is different than what's on the host, can't you?
-
-> 
-> > To sum it up, KVM's API should reflect the architecture instead of
-> > making things up.
-> > 
-> 
-> We had kvm_set_trfcr(u64 host_trfcr, u64 guest_trfcr) on the last
-> version, which also serves the same purpose I mentioned above because
-> you can check if they're the same or not and disable swapping. I don't
-> know if that counts as reflecting the architecture better. But Oliver
-> mentioned he preferred it more "intent" based which is why I added the
-> clear_trfcr().
-
-My personal take on this would be something like:
-
-void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest)
-{
-	[VHE stuff omitted]
-
-	*host_data_ptr(guest_trfcr_el1) = trfcr_while_in_guest;
-	if (read_sysreg_s(SYS_TRFCR_EL1) != trfcr_while_in_guest);
-		host_data_set_flag(EL1_TRACING_CONFIGURED);
-	else
-		host_data_clear_flag(EL1_TRACING_CONFIGURED);
-}
-
-and that'd about about it.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
