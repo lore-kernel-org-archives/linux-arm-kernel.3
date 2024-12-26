@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDD8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 22:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FF8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 23:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3TefGM+AnOaFsEdCrnZ8RzOkBu0WZlOZ3JcZFXOBkyk=; b=HQlraSeK/IZnx5dglUWaBiSmeL
-	4Th4H+rl7s/MsVUQ+8uiseEhvpQ3iFR4jhn/4T5vfuqci7mxjPQyt8N9cbkuWSaqeRk4dfk+keaTu
-	9vgCZzxrTC1oLA3F2vGO8GHXcT/vjkklAxaqeES0bAaCXtN62n7LBIFQuruX2hfDcQG8fwCYZiDcX
-	cL4yiLA/AqQ//648aN7Xcd8Vi01n35txqcSd3S1nJjpSDqlccvD+N+YOciOub5Vi3+kM74xRS8iuf
-	zYSRWF4HqIqBQrLpPjWcQsYZGFmdI6DuSJr2UabF5BSAvbz8oYs/eAM9zh8Qd0t2iWfF3VbiZFeAS
-	3m4lKCpw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=53XDtA867xd9JOVC6cDsgqiASKw81mcRiOr1i5b2wTA=; b=MFmDUPzgAW0gXJuKX9b4ozKBM8
+	dmMb8cfdN2bXZkQrdssEdFkK829Jrrllvr6kkSQTOLMzrErCZWy/PhsIkIFT0VanDSXulEYJ9O7wK
+	15YLO+J/HtiS2GNeBpw8Z1kSTiHBwCPPu8xJNLlLdNX/d5457ykweMNpBUjg7hKWcLvCVrGt7gswW
+	nUN5U2CaSKJ2/IZdQ09tL1Wmr8idLOTepbGAVxBwqNES4lHgTGZqa6NGA/oHs8/KROAbsUrJdb5lN
+	299s1gQuTuMS02ojS00YymRBkwHTu+tqeY312Y29Ho6qKM1Dc4lvANpXmGdoBwJc9r8mBFCEsAhF4
+	kzpdAeIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQwY8-0000000GZbw-3nBg;
-	Thu, 26 Dec 2024 22:41:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tQx2H-0000000Gck1-1CRX;
+	Thu, 26 Dec 2024 23:12:57 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQwVt-0000000GZ7U-0yws
+	id 1tQx15-0000000GceK-0Pzo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 22:39:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A4CB35C5D5B;
-	Thu, 26 Dec 2024 22:38:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41E21C4CED1;
-	Thu, 26 Dec 2024 22:39:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735252767;
-	bh=Qvt+JRi2cmq9zeXEcN2nuq+Pll/fyw7lZBjrwZqzSnc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A6V8iJyTp9Iv3AazXYuVamYSZMgtjZGx9U+o5dC8rHRI7aBkysBi5qk1jOVlPgjho
-	 MKq9sFZeOYEiHnvFDFNUqIJX1ZJODGCC36kXh57nm3WbUbFzTDTstRNPfI4EaI8Yxr
-	 3fCnmm69IBdIQxKJ0vwbfwnzuoGNkA9lkAu7CXfLihWafyO7DpmNsWX2887p9Lbgb2
-	 RcZFdM+SOERJ2Gs+yRk3ifxsxi0b6kM4vMLQQinnc/8TucWluTt8rTJ1g6udkArAOm
-	 gasvuHShSEUDuO3wvIBnGGkuBB33BPDdKsdEF8+eRIKouVdhNkzvUBY/1DkUfRx7eV
-	 b/kPZ8+zr9ADw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Ross Burton <ross.burton@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] arm64: defconfig: remove obsolete CONFIG_SM_DISPCC_8650
-Date: Thu, 26 Dec 2024 16:38:51 -0600
-Message-ID: <173525273242.1449028.12041677894641370182.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241213-clkmaster-v1-1-dcbf7fad37b1@arm.com>
-References: <20241213-clkmaster-v1-1-dcbf7fad37b1@arm.com>
+	Thu, 26 Dec 2024 23:11:44 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1735254694;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=53XDtA867xd9JOVC6cDsgqiASKw81mcRiOr1i5b2wTA=;
+	b=f7rTtqa+AqYRs0hNAMfoel3FJlEcahbOfQyQz6n6PmhiVKc4LCfr4/GdZbn0AIk/VvzM4B
+	Ruoc1zMwWXEAe56gG5BBrmsDwc6HR4NUXcbbNb5MudsASWnAgqIi3TKdSOOGuZz5nn5cYs
+	xXIT16LHnv4uRyvBMgT98qaBDYbhyAk=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: orion/gpio: Use str_hi_lo() and str_lo_hi() helpers
+Date: Fri, 27 Dec 2024 00:10:52 +0100
+Message-ID: <20241226231052.566363-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_143929_315703_DA7F1DD6 
-X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-CacheID: sfid-20241226_151143_516906_EE16F29F 
+X-CRM114-Status: UNSURE (   7.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,20 +69,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Remove hard-coded strings by using the str_hi_lo() and str_lo_hi()
+helper functions.
 
-On Fri, 13 Dec 2024 16:12:58 +0000, Ross Burton wrote:
-> This option was removed from the Kconfig in commit 802b83205519 ("clk:
-> qcom: fold dispcc-sm8650 info dispcc-sm8550") but it was not removed
-> from the defconfig.
-> 
-> 
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ arch/arm/plat-orion/gpio.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Applied, thanks!
-
-[1/1] arm64: defconfig: remove obsolete CONFIG_SM_DISPCC_8650
-      commit: 9be2923ff9641d6491b8ea43791382966505435f
-
-Best regards,
+diff --git a/arch/arm/plat-orion/gpio.c b/arch/arm/plat-orion/gpio.c
+index 595e9cb33c1d..31cc42345b82 100644
+--- a/arch/arm/plat-orion/gpio.c
++++ b/arch/arm/plat-orion/gpio.c
+@@ -466,14 +466,14 @@ static void orion_gpio_dbg_show(struct seq_file *s, struct gpio_chip *chip)
+ 
+ 		if (is_out) {
+ 			seq_printf(s, " out %s %s\n",
+-				   out & msk ? "hi" : "lo",
++				   str_hi_lo(out & msk),
+ 				   blink & msk ? "(blink )" : "");
+ 			continue;
+ 		}
+ 
+ 		seq_printf(s, " in  %s (act %s) - IRQ",
+-			   (data_in ^ in_pol) & msk  ? "hi" : "lo",
+-			   in_pol & msk ? "lo" : "hi");
++			   str_hi_lo((data_in ^ in_pol) & msk),
++			   str_lo_hi(in_pol & msk));
+ 		if (!((edg_msk | lvl_msk) & msk)) {
+ 			seq_puts(s, " disabled\n");
+ 			continue;
 -- 
-Bjorn Andersson <andersson@kernel.org>
+2.47.1
+
 
