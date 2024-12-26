@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0D4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 13:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCD5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 14:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dDdetpWl8Rx8zGrvo8k5g/rjchfr37Wq2r3vYm1xNTQ=; b=yTrDslHUCqur32wjan2JK59TtH
-	nrPABHpIoEd2Prg3ZkBZU+kgtttCrcqxwdmKmS7H6A5hBAmxdu1OwW9505GybJSUzH93fKik9VKvN
-	Xn6HwB5dNWvpd1/Fe9z99+Acxb1feXOKr9MFQnOmpFSn452bhaPJeOJgQb6BWPioaz0vhR6BJXzJY
-	kpGdNqnG6NqgX6rsGxc/jDu7g9zEDpsnY6Y6Sl7gUqn3Pr4Z7dJVG3au8PHOHmb79WWl4uUMMIU/e
-	fWP5MbKzi4h81kFOKNEKmYvfHyoAiHf8clMMGx4tfi8SRM4mL28CO8W9THms7ZVitJMCD5XkZHi9o
-	qHkasJfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/jUxzKrgrjeJtNNwbquA1dYJU5IbDymlhmrUtlFTMyQ=; b=Zykxdiiitd9Rbmmn0aKeeMo7kR
+	DtxsOJKYIFU+9tdbBj++o+DjbImu8G4ybalj6j3kjaupb8hNnpVNSb9dW2hTRkZeQyVKig3uM0vmw
+	bCqjhD5MfMQOtvvRDO/EuM91dSS5QS+4j//diCSUaZpdzSobbP3uo3aKtrE8gKfIys/xrL2iZi7RP
+	sNuxoJ9Q6IO0DFUnKQ4zdkZYEugNCyzfI9q8x8RQqtunLiSHIEj6CV1+LfUwfgTNYtm0Bu0orHf7Q
+	YHITuP7z5DRwyBFfte/fRQSX8fT4MBPnYrBvXcEPfV8Co6CMakKFywBD3YFgVMZI850j3p2VihawR
+	flG40M9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQoMz-0000000FraW-3EZ1;
-	Thu, 26 Dec 2024 13:57:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tQomJ-0000000Ftrl-2Nop;
+	Thu, 26 Dec 2024 14:23:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQoLo-0000000FrMD-0aJo
+	id 1tQol8-0000000Ftls-05Ai
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 13:56:33 +0000
+	Thu, 26 Dec 2024 14:22:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5204DA40E06
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 13:54:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D34BAC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 13:56:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 915765C5E14;
+	Thu, 26 Dec 2024 14:21:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 731C0C4CED1;
+	Thu, 26 Dec 2024 14:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735221390;
-	bh=rQtPaps1uCjak1GsAb0T6MZ0Udcaw509a22ogoKvfQ0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=P7nrAxSEHTclguVe69cSAJOX7qxWjYMz6oYdGuCRzXZoNkH244tGbiRNdIW4cKoeT
-	 OYNrfv9Gh5ktqfWQXqHPCQ5vkUn4bRn0FK6QObrbJMufwNuK4lk+HTk8dbn8iz/zQw
-	 fp3CwoRQQlvnjK7V6ocQ1qx2Sn/PY1gB/NM2l0ukgu83bH7alDgif4oep7N7tWVVk1
-	 hCKIJ9s+CySulXLs/804n4zWcZNgbfCoQVv2FoiIR2jLufItODyBR9X6A9aSoa1Kya
-	 MuVMcPHijXwRPDAk4aJDJKBMEE78aQDNevb/QRnoNc/G9KWdZOf+ptE5GtLhz9j9kX
-	 nYZs0uTWzABCQ==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5401bd6cdb7so7230284e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 05:56:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUrcGQjwsODxVKA7YT4lpwTVrn+IhTUq89UVzRcQINppqdSguklW7SbETNIbSS4+YM3YFv7ZXqou7I7SNzS9dTI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoQmllZgHldnLYUghcRPPE5Jmp27baAjB0Srpf8ArR3lTzWQmj
-	ZrFLeovULZvkdpjXZAZSXOUuCw6M59/sjW/ib8f5OnGrfgvNxX2i+sUoCuSZbj/rvu2TDuerooA
-	gmdIT2hxylgxmsSd6OcsMhhTMtI8=
-X-Google-Smtp-Source: AGHT+IHKWIu7+TnvA5d8Khi9NI2HC0pclZ/WbzhtUzLIJ3LRSBAp+26TZgma/b8RIB5S6N7Ok5xldVAFNyYJuamFV8I=
-X-Received: by 2002:a05:6512:4014:b0:53e:2bb0:4942 with SMTP id
- 2adb3069b0e04-5422956beb5mr7528070e87.57.1735221389529; Thu, 26 Dec 2024
- 05:56:29 -0800 (PST)
-MIME-Version: 1.0
-References: <20241225153343.134590-1-masahiroy@kernel.org> <20241225162656.26005-1-glaubitz@physik.fu-berlin.de>
-In-Reply-To: <20241225162656.26005-1-glaubitz@physik.fu-berlin.de>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 26 Dec 2024 22:55:52 +0900
-X-Gmail-Original-Message-ID: <CAK7LNARRvax0ph2roGd9YmdaG-dKqj+JMHka4SDRwv0FdzKm6g@mail.gmail.com>
-Message-ID: <CAK7LNARRvax0ph2roGd9YmdaG-dKqj+JMHka4SDRwv0FdzKm6g@mail.gmail.com>
-Subject: Re: [PATCH 0/3] modpost: work around unaligned data access
-To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Cc: gregkh@suse.de, linux-arm-kernel@lists.infradead.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, nathan@kernel.org, 
-	nicolas@fjasle.eu, rusty@rustcorp.com.au
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1735222960;
+	bh=FxKzkVloadueSLTJozS/cKJF/u7Mcxr8Wpq/HPmw1UA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lvzTYHscMfIOt9mMuShw9L09QtMMmzsfUJ85mskwkhcFz1L/aqSc2x00ktpPNb0Ks
+	 S8gDReMW0un8OopPQNlVsnt1ndc63FmrAYD27FW6HMDVV2451PPs6nnP9Z+Iw3nwjK
+	 JWQK3heUy2Rz9QTfo7OSNyrFDAssokhz724oFKPLnBlyEtcTge9nNtkQ2QxUMTY2Ha
+	 Oo91BvMCX6DfriMwc6ceV+Bh8ber7nLUI+0bjGx1ara2Hqe2RuY0tWwiid2jrCp18u
+	 bt1NOFeC1BC5OIGBAtIikA8EvAWetVoIEQFRbGQgGIQL4XUepvOd0AO3CS/i7tv061
+	 Zfrcd+vIhas/A==
+Received: from 82-132-222-168.dab.02.net ([82.132.222.168] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tQol3-0072lJ-Us;
+	Thu, 26 Dec 2024 14:22:38 +0000
+Date: Thu, 26 Dec 2024 14:22:32 +0000
+Message-ID: <87ttaqr0bb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	kvmarm@lists.linux.dev,
+	suzuki.poulose@arm.com,
+	coresight@lists.linaro.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas
+ <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Mark Brown <broonie@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Morse <james.morse@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 7/8] KVM: arm64: Support trace filtering for guests
+In-Reply-To: <0cfda877-7c3d-4e59-a1b1-fe245f7298f0@linaro.org>
+References: <20241127100130.1162639-1-james.clark@linaro.org>
+	<20241127100130.1162639-8-james.clark@linaro.org>
+	<86r061p63b.wl-maz@kernel.org>
+	<0cfda877-7c3d-4e59-a1b1-fe245f7298f0@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.222.168
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, oliver.upton@linux.dev, kvmarm@lists.linux.dev, suzuki.poulose@arm.com, coresight@lists.linaro.org, joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mike.leach@linaro.org, alexander.shishkin@linux.intel.com, broonie@kernel.org, anshuman.khandual@arm.com, james.morse@arm.com, robh@kernel.org, shiqiliu@hust.edu.cn, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_055632_318740_088D3C27 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20241226_062242_155324_C80EE3C4 
+X-CRM114-Status: GOOD (  52.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,63 +104,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 26, 2024 at 1:27=E2=80=AFAM John Paul Adrian Glaubitz
-<glaubitz@physik.fu-berlin.de> wrote:
+On Mon, 23 Dec 2024 11:28:06 +0000,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> 
+> 
+> On 21/12/2024 12:34 pm, Marc Zyngier wrote:
+> > On Wed, 27 Nov 2024 10:01:24 +0000,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> For nVHE, switch the filter value in and out if the Coresight driver
+> >> asks for it. This will support filters for guests when sinks other than
+> >> TRBE are used.
+> >> 
+> >> For VHE, just write the filter directly to TRFCR_EL1 where trace can be
+> >> used even with TRBE sinks.
+> >> 
+> >> Signed-off-by: James Clark <james.clark@linaro.org>
+> >> ---
+> >>   arch/arm64/include/asm/kvm_host.h  |  5 +++++
+> >>   arch/arm64/kvm/debug.c             | 28 ++++++++++++++++++++++++++++
+> >>   arch/arm64/kvm/hyp/nvhe/debug-sr.c |  1 +
+> >>   3 files changed, 34 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> >> index ba251caa593b..cce07887551b 100644
+> >> --- a/arch/arm64/include/asm/kvm_host.h
+> >> +++ b/arch/arm64/include/asm/kvm_host.h
+> >> @@ -613,6 +613,7 @@ struct kvm_host_data {
+> >>   #define KVM_HOST_DATA_FLAG_HAS_SPE	0
+> >>   #define KVM_HOST_DATA_FLAG_HAS_TRF	1
+> >>   #define KVM_HOST_DATA_FLAG_TRBE_ENABLED	2
+> >> +#define KVM_HOST_DATA_FLAG_GUEST_FILTER	3
+> > 
+> > Guest filter what? This is meaningless.
+> > 
+> 
+> KVM_HOST_DATA_FLAG_SWAP_TRFCR maybe?
+
+A flag indicates a state, just like a level interrupt. So in cannot be
+a verb that indicates an action, after which the flag should be
+dropped (just like an edge interrupt). Maybe if you explained what
+this is supposed to indicate, we could come up with a better name.
+
+I would have thought that something like EL1_TRACING_ENABLED would be
+adequate, but it is unusually hard to understand what this is supposed
+to be doing.
+
+> 
+> >>   	unsigned long flags;
+> >>     	struct kvm_cpu_context host_ctxt;
+> >> @@ -1387,6 +1388,8 @@ void kvm_clr_pmu_events(u64 clr);
+> >>   bool kvm_set_pmuserenr(u64 val);
+> >>   void kvm_enable_trbe(void);
+> >>   void kvm_disable_trbe(void);
+> >> +void kvm_set_trfcr(u64 guest_trfcr);
+> >> +void kvm_clear_trfcr(void);
+> >>   #else
+> >>   static inline void kvm_set_pmu_events(u64 set, struct perf_event_attr *attr) {}
+> >>   static inline void kvm_clr_pmu_events(u64 clr) {}
+> >> @@ -1396,6 +1399,8 @@ static inline bool kvm_set_pmuserenr(u64 val)
+> >>   }
+> >>   static inline void kvm_enable_trbe(void) {}
+> >>   static inline void kvm_disable_trbe(void) {}
+> >> +static inline void kvm_set_trfcr(u64 guest_trfcr) {}
+> >> +static inline void kvm_clear_trfcr(void) {}
+> >>   #endif
+> >>     void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu);
+> >> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> >> index 0c340ae7b5d1..9266f2776991 100644
+> >> --- a/arch/arm64/kvm/debug.c
+> >> +++ b/arch/arm64/kvm/debug.c
+> >> @@ -337,3 +337,31 @@ void kvm_disable_trbe(void)
+> >>   	host_data_clear_flag(TRBE_ENABLED);
+> >>   }
+> >>   EXPORT_SYMBOL_GPL(kvm_disable_trbe);
+> >> +
+> >> +void kvm_set_trfcr(u64 guest_trfcr)
+> > 
+> > Again. Is this the guest's view? or the host view while running the
+> > guest? I asked the question on the previous patch, and you didn't
+> > reply.
+> > 
+> 
+> Ah sorry missed that one:
+> 
+> > Guest value? Or host state while running the guest? If the former,
+> > then this has nothing to do here. If the latter, this should be
+> > spelled out (trfcr_in_guest?), and the comment amended.
+> 
+> Yes, the latter, guest TRFCR reads are undef anyway. I can rename this
+> and the host_data variable to be trfcr_in_guest.
+> 
+> >> +{
+> >> +	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
+> >> +		return;
+> >> +
+> >> +	if (has_vhe())
+> >> +		write_sysreg_s(guest_trfcr, SYS_TRFCR_EL12);
+> >> +	else {
+> >> +		*host_data_ptr(guest_trfcr_el1) = guest_trfcr;
+> >> +		host_data_set_flag(GUEST_FILTER);
+> >> +	}
+> > 
+> > Oh come on. This is basic coding style, see section 3 in
+> > Documentation/process/coding-style.rst.
+> > 
+> 
+> Oops, I'd have thought checkpatch could catch something like that. Will fix.
+
+Checkpatch serves little to no purpose, really, and relying on it is a
+very bad idea.
+
 >
-> Hi Masahiro,
->
-> > The latest binutils stopped aligning section data in relocatable ELF.
-> > It saves small number of bytes that were previously inserted between
-> > sections. However, modpost crashes due to unaligned access:
-> >   https://sourceware.org/bugzilla/show_bug.cgi?id=3D32435
-> >   https://sourceware.org/bugzilla/show_bug.cgi?id=3D32493
-> >
-> > Similar to kernel space, unaligned data access in userspace can be
-> > problematic on some architectures.
-> >
-> > Simple example on ARM:
-> >
-> >  $ CC=3Darm-linux-gnueabihf-gcc
-> >  $ echo 'int foo(int *p) { return *p + *(p + 1); }' | ${CC} -O2 -x c - =
--c -o foo.o
-> >  $ echo 'int foo(int *p); int main(void) { char str[16] =3D "helloworld=
-"; return foo((int *)(str + 1)); }' | ${CC} -x c - -c -o main.o
-> >  $ ${CC} -static -o unalign-test main.o foo.o
-> >  $ qemu-armhf unalign-test
-> >  qemu: uncaught target signal 7 (Bus error) - core dumped
-> >  Bus error (core dumped)
-> >
-> > In this case, the 'ldrd' instruction causes a bus error due to an
-> > unaligned access. If the -O2 flag is omitted, this issue does not occur=
-.
-> >
-> > To avoid potential unaligned access, use the get_unaligned() approach
-> > as seen in the kernel space.
->
-> I have just applied this series against Linus' tree and I can confirm tha=
-t it fixes the
-> unalignment access anymore on sparc64. There is no more "Bus error" and t=
-he build succeeds.
->
-> Tested-by: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(kvm_set_trfcr);
+> >> +
+> >> +void kvm_clear_trfcr(void)
+> >> +{
+> >> +	if (is_protected_kvm_enabled() || WARN_ON_ONCE(preemptible()))
+> >> +		return;
+> >> +
+> >> +	if (has_vhe())
+> >> +		write_sysreg_s(0, SYS_TRFCR_EL12);
+> >> +	else {
+> >> +		*host_data_ptr(guest_trfcr_el1) = 0;
+> >> +		host_data_clear_flag(GUEST_FILTER);
+> >> +	}
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(kvm_clear_trfcr);
+> > 
+> > Why do we have two helpers? Clearly, calling kvm_set_trfcr() with
+> > E{1,0}TRE=={0,0} should result in *disabling* things.  Except it
+> > doesn't, and you should fix it. Once that is fixed, it becomes
+> obvious> that kvm_clear_trfcr() serves no purpose.
+> > 
+> 
+> With only one kvm_set_trfcr() there's no way to distinguish swapping
+> in a 0 value or stopping swapping altogether. I thought we wanted a
+> single flag that gated the register accesses so the hyp mostly does
+> nothing? With only kvm_set_trfcr() you first need to check FEAT_TRF
+> then you need to compare the real register with trfcr_in_guest to know
+> whether to swap or not every time.
+> 
+> Actually I think some of the previous versions had something like this
+> but it was a bit more complicated.
+> 
+> Maybe set/clear_trfcr() aren't great names. Perhaps
+> kvm_set_trfcr_in_guest() and kvm_disable_trfcr_in_guest()? With the
+> second one hinting that it stops the swapping regardless of what the
+> values are.
 
+I really think the way you name thing is getting in the way of simply
+*understanding* what you are doing.
 
-Thanks for the compile test.
+You don't disable or enable TRFCR. You enable or disable EL1 tracing
+while in guest context. TRFCR is the tool by which you are doing that,
+and the value you pass to these helpers is the tracing configuration.
 
-Loadable modules (*.ko files) are relocatable ELF.
-So, there is no alignment in *.ko files any more
-if the latest binutils is used.
+> 
+> I don't think calling kvm_set_trfcr() with E{1,0}TRE=={0,0} is
+> actually broken in this version, it means that the Coresight driver
+> wants that value to be installed for guests. So it should actually
+> _enable_ swapping in the value of 0, not disable anything.
 
-Just in case, I did run-tests for arm and arm64.
-Even if there is no alignment in *.ko files,
-I confirmed that the kernel can load modules.
+But you can decide whether there is need for "swapping" if the
+configuration is different than what's on the host, can't you?
 
-If you have time, please run-test and
-double-check loadable modules are working.
+> 
+> > To sum it up, KVM's API should reflect the architecture instead of
+> > making things up.
+> > 
+> 
+> We had kvm_set_trfcr(u64 host_trfcr, u64 guest_trfcr) on the last
+> version, which also serves the same purpose I mentioned above because
+> you can check if they're the same or not and disable swapping. I don't
+> know if that counts as reflecting the architecture better. But Oliver
+> mentioned he preferred it more "intent" based which is why I added the
+> clear_trfcr().
 
+My personal take on this would be something like:
 
+void kvm_tracing_set_el1_configuration(u64 trfcr_while_in_guest)
+{
+	[VHE stuff omitted]
 
---=20
-Best Regards
-Masahiro Yamada
+	*host_data_ptr(guest_trfcr_el1) = trfcr_while_in_guest;
+	if (read_sysreg_s(SYS_TRFCR_EL1) != trfcr_while_in_guest);
+		host_data_set_flag(EL1_TRACING_CONFIGURED);
+	else
+		host_data_clear_flag(EL1_TRACING_CONFIGURED);
+}
+
+and that'd about about it.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
