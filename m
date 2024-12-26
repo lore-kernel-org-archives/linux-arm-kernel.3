@@ -4,101 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612ABE7718E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22634E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 17:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpfjO3nCfSKSU/F6ZQHVcOz1mCD2+D/yZzyTSXWn/XA=; b=yw+xs3J4dXdAMRxz8NvY9kEEeZ
-	5GkO3mqs5KjZdDsUutv85ADIMXdffTUQkmbcjeSGfgnwEzRKX9gQhdu7pVJ+725qQUEmZuKcQM3Cm
-	Yo6McnC5kRMu+4IP2xeBSKkRTXD1kB+gOAm1UK2swZG+ZruDztirJNQts/xescbdJYGHbGGi0oy03
-	vHtAkX+RaCEgilISAMmjImSsDUMWXgO8AqClmBZHqMSVDpF+ImT5FKtEPAAcpzt0SCeWZqBjkAgnF
-	J6/2bL9TDgi76a1ZIvMprqe66cSJrMMWXgneR+b/iDwRexeRWwtPzl9BrA1yLKF2uIGpvNkuwmzhc
-	0aELLSSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X1dTeAMm/wW0dtPQtk6JGdAaI2aq0m9euZXSH3QbeHI=; b=2uegsBAXBjXVkDT7EL4xYyXmRI
+	ggSxvZluvgIEamBmCwdYuRIcrGoWStJBs9JyQVo1M9XJgvZDEIN+ZMk2TRiSeG1BnspK1vQyXL9Zc
+	xdd/vLn7kyYA6+dg6279hRuDnPMVpTDDYt+Yfyts4zmIQccw6XZxNLoldM4iIyiQxSdJypCQgGzdW
+	YE26eFCwkI6l5HVbMpHbAQvq2iW6VIW1gRdxWgdrdu5QiktZAZ9cb2vXH2DY6XAPC8bsyzQOx4FUo
+	Dau1iLoGfx/XVAvARCpEj0mV4g4ltrPONmfcW/C6AMZncOsQ5gV/mGYoLa/u7Q5WVjdiEHF7ZDlOX
+	sd2aVSiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQroT-0000000G9pm-19fN;
-	Thu, 26 Dec 2024 17:38:21 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1tQrpc-0000000G9xR-0whR;
+	Thu, 26 Dec 2024 17:39:32 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQrkZ-0000000G9IP-1X1f
+	id 1tQrlx-0000000G9V2-2LS5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 17:34:20 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2ee786b3277so5707081a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 09:34:18 -0800 (PST)
+	Thu, 26 Dec 2024 17:35:46 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21636268e43so6859285ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 09:35:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1735234458; x=1735839258; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=UpfjO3nCfSKSU/F6ZQHVcOz1mCD2+D/yZzyTSXWn/XA=;
-        b=cGDeAdL6f0pDJR8HguzKjZ28LRIWt9Asub3VBozrlnMmX+sjTFGefBctvYXY8EDnIp
-         J1pfn2nOMjlRfGJJg0FRqp9Cr4a8ihcBDfNKZjFDxnpdglbau47I1RNp0o1czqD7Ysax
-         SHgbs0dDIVMWoPQ4hU6hrxMNjD4jr0lB1cnuu6+Mix7/DkSRaT44SyYRgv4NWbW2xQRk
-         a2P2v7wCPkJ5kBuhAESZVkgRC5tNY8if/QIQxv8xe0riL2F8/+iawy78EDYhOvlmw0gg
-         Pk2j9iV4/wn48Of1/darbFeeZayEFapiHAWrDZqb4pqkaPK2zbQLpKpXSHuhWuyrBkzo
-         OSXA==
+        d=edgeble-ai.20230601.gappssmtp.com; s=20230601; t=1735234545; x=1735839345; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=X1dTeAMm/wW0dtPQtk6JGdAaI2aq0m9euZXSH3QbeHI=;
+        b=VoqX5NDekfrLZNVxCVaIOojAYqS66iiLk0cSf3w6oap1nk4xSaiC/bNyHwtOi0583Q
+         Wd+LMkOpjO8ry7P9fCgqCRge9NxFfjmKYiPnBm6qQE6q2WvgUy5hz0bgqRPWg+wZV42P
+         Vfeex3Nl6vzRanesqTZyiZ30K0YshzFibcWllsgQDm0hcxY9qZjbvvfJ7jwBLOdZEnA2
+         t70K2fXsoB8r/uZfCpuY/dea8OCutm17xzaJ7uPLyR3o8EN0uhMNV50ghafWOlkV1hqJ
+         WvxbTIX774iwJVkMztSyu0TLV1Yuaij+EU0P26T7xPMyDiyuW9Hf2ZS+N3linjWBPBH2
+         bcBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735234458; x=1735839258;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UpfjO3nCfSKSU/F6ZQHVcOz1mCD2+D/yZzyTSXWn/XA=;
-        b=wcSLFSW9P0WBVlodcrAxSrkPMmyrvAq7hAvx3CYHVNNV1URn7pvaglLuQcL6IsaJXj
-         H9SAWwEcWkN6d0fDhg4SaVOMPBgxsxach7yRhmEAqEBrVOJCRy4cRqkgrPKLp1nHejIt
-         RpYWcZzioUHVNL7r9hlr8y199VOz5bZqcxCwMHl5J0tGl1nIzqk5cohZEXVC2STPJV87
-         kymzLcaq95H8sdPzkc2LtjQSD7tEFFzfCOT7iCWxlSQZOHx+322nVqljvf8ASUNyc4ng
-         X/9YW1gLjKYOxbXrCk7AxNMphgFUzIpVr/fhJVofP2lQVoR7AupEvP8aZlnvmzLFIFK1
-         TYHA==
-X-Forwarded-Encrypted: i=1; AJvYcCXGrXpt1j18F/WZiYHVjwt1YDk8pBhq86foHAqPbNOtLolQC/7Nt8TqWdzmwBsSGFqMAh5LAAdZnUaVbb4L1ba0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEmZb6oOnt+MIP22UkAr6snu/mWyVFO/psSXqWi3zUHVpe5Jw4
-	15btCPZIrqO4pNWHZxjTuE+ZyJJ4Avv9434hKFe2/GvZ7M3lH691c1mVE/chrg==
-X-Gm-Gg: ASbGncuD9/o9bDyJ9nmCs969MnP8UJhr6vSaEpH6D2hXNaXff/M5HoemgSamktp4LJC
-	goLh6Q53pQ5I8bVSEqoCmrZuUpejsLlpTbSFQdGg6w89MSiqHvoqxIOU123zwQIARVfRf7KK/PL
-	dGz45yFhqP5Xi68XpHN1A7elhMtvUFSpt6CtftOoePw9lqsuZIM7x1LuJ0sCAt+ZjB6bsDqNYn1
-	2LwnwMKgxCkjzEX+gZdvhj09Gy0RdveQy6mXB2xCWRO48MiudFg3aDJs9LRS3F8vGD9wxvPv+So
-	BcjyQ8IJOyjPlC6evgQX4bdk
-X-Google-Smtp-Source: AGHT+IEXR2tW0UBVoELj4Ujtb5xezOwJU19NdsTJFIlGuhV4cKpQboh3iQ1wj0Q6nDV1+6ZatyEKfA==
-X-Received: by 2002:a17:90a:c2c8:b0:2ee:b2be:f390 with SMTP id 98e67ed59e1d1-2f452ec3780mr32597910a91.28.1735234457983;
-        Thu, 26 Dec 2024 09:34:17 -0800 (PST)
-Received: from google.com (123.65.230.35.bc.googleusercontent.com. [35.230.65.123])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4477c8542sm14223370a91.17.2024.12.26.09.34.17
+        d=1e100.net; s=20230601; t=1735234545; x=1735839345;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=X1dTeAMm/wW0dtPQtk6JGdAaI2aq0m9euZXSH3QbeHI=;
+        b=KgcgOogKjS/+luAiN1hixVXje9nAqs2j9ZE1aMh23p0JSmE5l1uIAV9/XC/D3tfaEC
+         ZkLE0LFPVHd/s3SU+Cn8EXAhjMQFzzGIrNV5HzYpcZh8vofUCB4r3hOYpjbPKgYHRMOx
+         bV6mGnci5/34BkQxJOSXzyt2PYU4N1OtoOXr1E3PEDcNG180lV6nFkdfVAGjl2+QqwLg
+         hSX12Xa0bOWzhov0CQf7ByKQYvNzNd0iGiLvKlGDZYQeJ7X3DaQnYA9Rq8DyLXOl4fgU
+         G4YBawyzmzp84oOkh1GoZU4m4QqHt226N95Z/LpWAcqyPOAWwyPF58vQTbmtuGgjGfYa
+         gjVA==
+X-Forwarded-Encrypted: i=1; AJvYcCXepC8Ra6y4s6eObeYdIKKXCSF7b6OB5cwQMV+v7MZerKW90IqNtsvFQ5qVdJiI+BLmUZ/yTdnN0csbqyirA/qZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBoLv1sNyYTZWayuyTJkKcTSLTIY2NkaHP31p0c0S8bqcrp6ok
+	WLPJG/HcQwgHKzy//v/r2Ezgni0uhPBWizWzmFl4BkurhDeZ7FkhbIi+jKCvNrU=
+X-Gm-Gg: ASbGnctOQoi5qG467YzVkntbJxqcHpAP8kRsJML+Rt35jF7pdbUaMulekvLEd6pk6jS
+	6Cjy1UqxV7RWKFqGMKdonWUg0IOZotVKMjkyvSS4w0XDk5jMvjbZhquyWPGXVLKR5PiJUNguh1x
+	a2olcubEC8aWnYqpOZi6sh5F4vABzpzCU4DjiWoz7c6hsa6toQIzyiqEG0/00bXX0Ve7xY4Zsov
+	z0LCEf33XLuBgK0JElQbQXKr/lkzVURJDqPu+FCf9KCPT9NcgKMb6QQNgF3CCybc3AlFzf6
+X-Google-Smtp-Source: AGHT+IEIRjkv8xpdBRFHNmeOGEm+9+EQ5icIZIC9cV5XUaKkB1G4eZT7R8atLlQBaeefj8JDRZndLQ==
+X-Received: by 2002:a17:902:ef12:b0:216:52a5:dd41 with SMTP id d9443c01a7336-219e6ec13bcmr374141345ad.31.1735234544922;
+        Thu, 26 Dec 2024 09:35:44 -0800 (PST)
+Received: from tops-ThinkPad-E14-Gen-5.. ([2405:201:c00a:a918:ba33:f9a0:ac68:19f])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4477c8461sm14281147a91.13.2024.12.26.09.35.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Dec 2024 09:34:17 -0800 (PST)
-Date: Thu, 26 Dec 2024 09:34:14 -0800
-From: William McVicker <willmcvicker@google.com>
-To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+        Thu, 26 Dec 2024 09:35:44 -0800 (PST)
+From: Jagan Teki <jagan@edgeble.ai>
+To: Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Sam Protsenko <semen.protsenko@linaro.org>,
-	Roy Luo <royluo@google.com>, kernel-team@android.com,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v4 7/7] phy: exynos5-usbdrd: allow DWC3 runtime suspend
- with UDC bound (E850+)
-Message-ID: <Z22TljXrbBNazNwW@google.com>
-References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
- <20241206-gs101-phy-lanes-orientation-phy-v4-7-f5961268b149@linaro.org>
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jagan Teki <jagan@edgeble.ai>
+Subject: [PATCH 1/2] arm64: dts: rockchip: Add HDMI1 node to rk3588
+Date: Thu, 26 Dec 2024 23:05:29 +0530
+Message-Id: <20241226173530.37037-1-jagan@edgeble.ai>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241206-gs101-phy-lanes-orientation-phy-v4-7-f5961268b149@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_093419_409044_D0E8942B 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20241226_093545_606223_7C173E64 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,40 +98,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2024, André Draszik wrote:
-> To make USB runtime suspend work when a UDC has been bound, the phy
-> needs to inform the USBDRD controller (DWC3) that Vbus and bvalid are
-> gone, so that it can in turn raise the respective gadget interrupt with
-> event == DWC3_DEVICE_EVENT_DISCONNECT, which will cause the USB stack
-> to clean up, allowing DWC3 to enter runtime suspend.
-> 
-> On e850 and gs101 this isn't working, as the respective signals are not
-> directly connected, and instead this driver uses override bits in the
-> PHY IP to set those signals. It currently forcefully sets them to 'on',
-> so the above mentioned interrupt will not be raised, preventing runtime
-> suspend.
-> 
-> To detect that state, update this driver to act on the TCPC's
-> orientation signal - when orientation == NONE, Vbus is gone and we can
-> clear the respective bits. Similarly, for other orientation values we
-> re-enable them.
-> 
-> This makes runtime suspend work on platforms with a TCPC (like Pixel6),
-> while keeping compatibility with platforms without (e850-96).
-> 
-> With runtime suspend working, USB-C cable orientation detection now
-> also fully works on such platforms, and the link comes up as Superspeed
-> as expected irrespective of the cable orientation and whether UDC /
-> gadget are configured and active.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+HDMI1 Output is available RK3588 (not for RK3588S).
 
-Verified on my Pixel 6 Pro.
+Add support for it.
 
-Tested-by: Will McVicker <willmcvicker@google.com>
+Signed-off-by: Jagan Teki <jagan@edgeble.ai>
+---
+Note: As of 1080p display is working
 
-Thanks,
-Will
+ .../arm64/boot/dts/rockchip/rk3588-extra.dtsi | 62 +++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-<snip>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index ead151941e84..66bf5e780382 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -67,6 +67,11 @@ u2phy1_otg: otg-port {
+ 		};
+ 	};
+ 
++	hdptxphy1_grf: syscon@fd5e4000 {
++		compatible = "rockchip,rk3588-hdptxphy-grf", "syscon";
++		reg = <0x0 0xfd5e4000 0x0 0x100>;
++	};
++
+ 	i2s8_8ch: i2s@fddc8000 {
+ 		compatible = "rockchip,rk3588-i2s-tdm";
+ 		reg = <0x0 0xfddc8000 0x0 0x1000>;
+@@ -135,6 +140,47 @@ i2s10_8ch: i2s@fde00000 {
+ 		status = "disabled";
+ 	};
+ 
++	hdmi1: hdmi@fdea0000 {
++		compatible = "rockchip,rk3588-dw-hdmi-qp";
++		reg = <0x0 0xfdea0000 0x0 0x20000>;
++		clocks = <&cru PCLK_HDMITX1>,
++			 <&cru CLK_HDMITX1_EARC>,
++			 <&cru CLK_HDMITX1_REF>,
++			 <&cru MCLK_I2S6_8CH_TX>,
++			 <&cru CLK_HDMIHDP1>,
++			 <&cru HCLK_VO1>;
++		clock-names = "pclk", "earc", "ref", "aud", "hdp", "hclk_vo1";
++		interrupts = <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 175 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_SPI 361 IRQ_TYPE_LEVEL_HIGH 0>;
++		interrupt-names = "avp", "cec", "earc", "main", "hpd";
++		phys = <&hdptxphy_hdmi1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&hdmim2_tx1_cec &hdmim0_tx1_hpd
++			     &hdmim1_tx1_scl &hdmim1_tx1_sda>;
++		power-domains = <&power RK3588_PD_VO1>;
++		resets = <&cru SRST_HDMITX1_REF>, <&cru SRST_HDMIHDP1>;
++		reset-names = "ref", "hdp";
++		rockchip,grf = <&sys_grf>;
++		rockchip,vo-grf = <&vo1_grf>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			hdmi1_in: port@0 {
++				reg = <0>;
++			};
++
++			hdmi1_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	pcie3x4: pcie@fe150000 {
+ 		compatible = "rockchip,rk3588-pcie", "rockchip,rk3568-pcie";
+ 		#address-cells = <3>;
+@@ -400,6 +446,22 @@ sata-port@0 {
+ 		};
+ 	};
+ 
++	hdptxphy_hdmi1: phy@fed70000 {
++		compatible = "rockchip,rk3588-hdptx-phy";
++		reg = <0x0 0xfed70000 0x0 0x2000>;
++		clocks = <&cru CLK_USB2PHY_HDPTXRXPHY_REF>, <&cru PCLK_HDPTX1>;
++		clock-names = "ref", "apb";
++		#phy-cells = <0>;
++		resets = <&cru SRST_HDPTX1>, <&cru SRST_P_HDPTX1>,
++			 <&cru SRST_HDPTX1_INIT>, <&cru SRST_HDPTX1_CMN>,
++			 <&cru SRST_HDPTX1_LANE>, <&cru SRST_HDPTX1_ROPLL>,
++			 <&cru SRST_HDPTX1_LCPLL>;
++		reset-names = "phy", "apb", "init", "cmn", "lane", "ropll",
++			      "lcpll";
++		rockchip,grf = <&hdptxphy1_grf>;
++		status = "disabled";
++	};
++
+ 	usbdp_phy1: phy@fed90000 {
+ 		compatible = "rockchip,rk3588-usbdp-phy";
+ 		reg = <0x0 0xfed90000 0x0 0x10000>;
+-- 
+2.34.1
+
 
