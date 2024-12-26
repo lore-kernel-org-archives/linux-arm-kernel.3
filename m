@@ -4,82 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A51E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 08:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862DFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 09:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2S3PhJ8RakNFN2ZNGYVv9qnlRZ5AL3BC9CtYpxM3yU=; b=GitYebUEJnxS0J3Y7dMXC3uJph
-	VDy0NpKI5ayWqiBAcQlofKAe7NVL3KIx2urNid3iqNThpvEGWt+xJIvMv5ayJhQ4Zt189UoQ+YdmV
-	fAySpiZW63QCiElCaNormj4HcLnKU5ki6RKe+P1zLRQm23V0QMtSSyXQrGmcg0fOHWXwp92cm4kT0
-	8JfRNqHFmmQgkB2eOTS1UykP9glglukKob8ZUEZu9QZivSiHuM3s4s+3FMywzgVR6/+KwDuuQqFSj
-	rMD23N80lz9JyZeFoT7fjPPSZy0DivSRbxlopFM2L7XYX2awrjKEljngnS42CoyuR2+Xf7Eui57LD
-	yNDROSHg==;
+	bh=HG/2rLZ96lKXoOhm/FE0fLTX6r570qhTekaN5ef5EsQ=; b=WyDRopaXGk3IFkVjmsNlvF8k5Q
+	gce9wLPgkbFQrwLiKvON+UPl+Yk93FsOEKKoRKlqMAi3INsKG926NsZmgQrs8pv2fbGI7gjkTk/Sn
+	LNqv9xDc1bVqGyjjKDcdoJUJ2AOSnk2TgDci6qu63/E3iZvy0bK249Osie5uXP2cq3pOnMJ38MpLZ
+	FsBSb29MJSV6D9yiAyPeSOib/eRQsIgPol9nIm/+IPWdX3e31XHYNGeiJTbcynM/TziOvWGqo/PCJ
+	gSTYdZq5K5536VbQGouHttQR4deDhKnTJ8AQcaZ8oxrYM9QtCW33JP+ZT8d/+iSXN2gtlMRLNPrb4
+	YDo+WXqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQjHV-0000000FTSg-1mpQ;
-	Thu, 26 Dec 2024 08:31:45 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1tQk83-0000000FWlo-3esY;
+	Thu, 26 Dec 2024 09:26:03 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQjGI-0000000FTNM-3YoF
+	id 1tQk6n-0000000FWe5-2y5o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 08:30:32 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5401d3ea5a1so6570204e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 26 Dec 2024 00:30:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1735201828; x=1735806628; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v2S3PhJ8RakNFN2ZNGYVv9qnlRZ5AL3BC9CtYpxM3yU=;
-        b=P5POj0mrh1gusbuSYDwYBBZfn2KuL+o+wGpgJV0iiQEvzX8oXIPPD2h4y3kfWajwTq
-         /kVS2LHW+2I3nulOhrGLpJjrs7qkRjJDWLTuWluW3ALyoBSRuyr27Q9xXje9ZyquDtP/
-         LzqesfI47CFJig0PDykY//hp6QR6MLcOCDGPE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735201828; x=1735806628;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=v2S3PhJ8RakNFN2ZNGYVv9qnlRZ5AL3BC9CtYpxM3yU=;
-        b=xJP6wPMX2dOyTgkTZTGx47roBo5kAuRDS+z0vOWHBmA8zGQWvWSgJ+DOVc3AQtbPHv
-         lDU6kJhuJNMFo0S9/9VEyO8ux07iEhaOXmg59Rk68l7vvZ1aAd7QfZ0aQaotY1XiYJXL
-         CnHxKENqwNApv4Dn6nQW1tLx2wcKOPVB5boe+UMpSrQhXasfXcEBK8wes5miYg1aM+yw
-         b9Fjjt0pJdKeYQgT+za6QpEg6VvJENnmpcg5FRvngbWaXHbmV9vExVDZkc+fSLzaneVO
-         Tn9v2EIOcdwb38+MTY+65AQ0WrAlFRHguQNOE6I5ssk6cXs+DZd0fCxWHy84kt3Pvzl+
-         aylg==
-X-Forwarded-Encrypted: i=1; AJvYcCVl7Q/HZC+siHxh8mXvbN5qoj717fAAjBqR3jnv5iWwIetBRC7xH/a/f0SnjkIlOFFTAKzKSnI4TDUCCX5VAFvQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxl1iaSM0CDeJR3CL/ewK7TKtbIvnfZTe0Oe27h9QnzQRZGl5Y
-	vDEBKW5sj6Mv5MWRg456EF4uhiixsfusxzv5IOFUFDD0yfK6E3yyeAwbjGGL0bBue4S991BqWjR
-	vHqfmIjQ9Y7Rjat8j2MZsQfBGoKdFGnUJEcTS
-X-Gm-Gg: ASbGncuC9sE4dRGMZq2tNC2Tg3rz1Gja61pJLryS+xDg6Q1NB0IvG3LJuokGoyDa8Og
-	pl0tdN2L7hmts8N5A/amXLpTNros4jYG6eVj9n5C7ESKKNd28KmZvb+leCEgUUn7pvQ==
-X-Google-Smtp-Source: AGHT+IGrtTwpjhhwhEtLkMigzaaB7SQidO5BfU1GsTXFJn5f4BLy579qZREaSEycCfwK3L6T9pvM3RblbNdUBiHFoWI=
-X-Received: by 2002:a05:6512:4485:b0:542:2972:4e59 with SMTP id
- 2adb3069b0e04-54229724f79mr7301629e87.28.1735201828402; Thu, 26 Dec 2024
- 00:30:28 -0800 (PST)
+	Thu, 26 Dec 2024 09:24:46 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BQ3sI6M008911;
+	Thu, 26 Dec 2024 09:23:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=HG/2rL
+	Z96lKXoOhm/FE0fLTX6r570qhTekaN5ef5EsQ=; b=heiEhqAJF6PB/bM1AYVNla
+	qdsA/8GwzTX2cw241Vmn0g/Xkd3Nz33Q/Nx4b+0CkGOnut3swCeK9PSuTgJgb86M
+	czX4dF8uH+WiD3EHrQDjBDgBZHbhojwW0RxOLfzZCbU5MEMKiiaQReAP95Sm4LV4
+	K4wBjszYgltx/Ow1KF0vDz6GihRSof57or0r+3RWZKlltzjIDdsXqXYsox/gyte1
+	hkY6+4IrlQfv8x4bHHWt8Niapik1p1Kjbbl4wG8kfm0z20eVCQEusd6ZYMDbbgpR
+	7kmN0KiFA+4ASmHINbQx6gNYpHJ5eEcMw7XGjGwQzyZmUdKUnWwKpKxdVNm2nh1A
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43rymh12t5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Dec 2024 09:23:42 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BQ5VhGj010570;
+	Thu, 26 Dec 2024 09:23:41 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43p90n9eng-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Dec 2024 09:23:40 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BQ9NcB856689004
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Dec 2024 09:23:39 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DE0A52004B;
+	Thu, 26 Dec 2024 09:23:38 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C920320040;
+	Thu, 26 Dec 2024 09:23:33 +0000 (GMT)
+Received: from [9.124.219.96] (unknown [9.124.219.96])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 26 Dec 2024 09:23:33 +0000 (GMT)
+Message-ID: <d0e73e64-cdf7-443b-a8e3-7c1f25533000@linux.ibm.com>
+Date: Thu, 26 Dec 2024 14:53:32 +0530
 MIME-Version: 1.0
-References: <20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com>
-In-Reply-To: <20241203-mt8188-6359-unhardcode-dmic-v1-1-346e3e5cbe6d@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 26 Dec 2024 16:30:17 +0800
-Message-ID: <CAGXv+5EG8LbgaWc-Lp_KQc8Yf+m_4TRo8R7B0S7-rXYpnak+7g@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188-mt6359: Remove hardcoded dmic codec
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Trevor Wu <trevor.wu@mediatek.com>, kernel@collabora.com, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Fei Shao <fshao@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 0/4] Support SMT control on arm64
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+        linux-kernel@vger.kernel.org, morten.rasmussen@arm.com,
+        msuchanek@suse.de, gregkh@linuxfoundation.org, rafael@kernel.org,
+        jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+        linuxarm@huawei.com, yangyicong@hisilicon.com, xuwei5@huawei.com,
+        guohanjun@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+        sudeep.holla@arm.com, tglx@linutronix.de, peterz@infradead.org,
+        mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org,
+        mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+        pierre.gondois@arm.com, dietmar.eggemann@arm.com
+References: <20241220075313.51502-1-yangyicong@huawei.com>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <20241220075313.51502-1-yangyicong@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: TecHftRr10EKN3_ENZX2-3FGtFYZ8j2N
+X-Proofpoint-GUID: TecHftRr10EKN3_ENZX2-3FGtFYZ8j2N
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ bulkscore=0 spamscore=0 priorityscore=1501 malwarescore=0 phishscore=0
+ adultscore=0 mlxscore=0 suspectscore=0 impostorscore=0 clxscore=1015
+ mlxlogscore=904 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412260079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_003030_919067_1D293FDD 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20241226_012445_755473_9DC267F4 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +114,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Wed, Dec 4, 2024 at 3:22=E2=80=AFAM N=C3=ADcolas F. R. A. Prado
-<nfraprado@collabora.com> wrote:
->
-> Remove hardcoded dmic codec from the UL_SRC dai link to avoid requiring
-> a dmic codec to be present for the driver to probe, as not every
-> MT8188-based platform might need a dmic codec. The codec can be assigned
-> to the dai link through the dai-link property in Devicetree on the
-> platforms where it is needed.
-
-A followup question about this. The DMICs on the Chromebooks are attached
-to the PMIC codec's input side, which then converts the signals to standard
-I2S and passes them out to the SoC through its AIF1. So the original code
-was somewhat incorrect, though it works.
-
-How should we describe such a connection, given that the MediaTek sound
-bindings aren't a full graph?
-
-> No Devicetree currently relies on it so it is safe to remove without
-> worrying about backward compatibility.
-
-Removing it didn't seem to cause any issues for the Chromebooks that
-do actually have DMICs. I suspect the only difference would be that
-the wakeup-delays no longer apply correctly.
 
 
-Thanks
-ChenYu
+On 12/20/24 13:23, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> The core CPU control framework supports runtime SMT control which
+> is not yet supported on arm64. Besides the general vulnerabilities
+> concerns we want this runtime control on our arm64 server for:
+> 
+> - better single CPU performance in some cases
+> - saving overall power consumption
+> 
 
-> Fixes: 9f08dcbddeb3 ("ASoC: mediatek: mt8188-mt6359: support new board wi=
-th nau88255")
-> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> ---
->  sound/soc/mediatek/mt8188/mt8188-mt6359.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->
-> diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediat=
-ek/mt8188/mt8188-mt6359.c
-> index 08ae962afeb92965109b303439419bc6e7c2a896..1550e56ab57d54b179ebe5cbd=
-60db1660bb0bd2c 100644
-> --- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-> +++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-> @@ -188,9 +188,7 @@ SND_SOC_DAILINK_DEFS(pcm1,
->  SND_SOC_DAILINK_DEFS(ul_src,
->                      DAILINK_COMP_ARRAY(COMP_CPU("UL_SRC")),
->                      DAILINK_COMP_ARRAY(COMP_CODEC("mt6359-sound",
-> -                                                  "mt6359-snd-codec-aif1=
-"),
-> -                                       COMP_CODEC("dmic-codec",
-> -                                                  "dmic-hifi")),
-> +                                                  "mt6359-snd-codec-aif1=
-")),
->                      DAILINK_COMP_ARRAY(COMP_EMPTY()));
->
->  SND_SOC_DAILINK_DEFS(AFE_SOF_DL2,
->
-> ---
-> base-commit: b852e1e7a0389ed6168ef1d38eb0bad71a6b11e8
-> change-id: 20241203-mt8188-6359-unhardcode-dmic-ba7649f8a72b
->
-> Best regards,
-> --
-> N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
->
->
+EAS is disabled when SMT is present.
+I am curious to know how power saving happens here.
+
+> This patchset implements it in the following aspects:
+> 
+> - Provides a default topology_is_primary_thread()
+> - support retrieve SMT thread number on OF based system
+> - support retrieve SMT thread number on ACPI based system
+> - select HOTPLUG_SMT for arm64
+> 
+> Tests has been done on our ACPI based arm64 server and on ACPI/OF\
+> based QEMU VMs.
+> 
 
