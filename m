@@ -4,204 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E8B8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 06:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC58E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 07:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LX/e5SwGIAHer7RVic/YXLQUiFNJd+yw+mliYjoK0fc=; b=yBjulTnmLmsg7XLOULxNZ3n+c3
-	6P6t+gIavFbPoIu2xAYYM79n3SoJd897Y/fW179OL7PZLCY20qiJAsxDYRI8rok4xm3+z570WZDyb
-	7AMtuXq2d6P52AVhel65b3ZWXxt2bqBjs6QxxXxKkCrAy165o6D0cjy9SvL8F8iEg8SOwOmQRVsYc
-	zF9f5sKuYTZmkGCNjwtahJuijXc0EFM7dHV6R0MmLoOLUqX4csPf3tbgGH67ohTW9Kfyu70MkRtG3
-	StNSqTvPMZRfSbB4XxXYseIhLP0c54LpaSHNV5bhawA1EexP0Nq+5DEw/l1U7SOBLCov8vEdJmaCW
-	VAidysvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PsGmik0b3kAu5BJK4vHKPRzb/9fZM/R7E7deKoSUc4E=; b=BZgWyEpZabo9noQakIgGkwGsGp
+	cRp2j8ubcP9mehdtMh6qn1Ewrjds3IIicRRZZFPt5NuF7JAm0jRxD6jPOE+aABLM+0YSqmxMzv8PZ
+	U/VOW2s9jXtwCqzMwSF8hw0ZozkjLG/+L5VA7JGZ0cohkR6syfpPhrg7zzPAVzxpd9d12Co18/uxR
+	fS9VI3jdPde9KqcxT5MpYyw0/FmoLmaJiqQXNlTJDTqWcI34Al4Yu0dxPIDHrVgvPY0jMz+Kh49Za
+	ssiSYxClsU76RqEVaemOOqCn3Pnu+6GNuc2vxblBoobl4bM6eO0bYbMZQnOCoPZ8iW/1HWDF0OVQA
+	6vkTgwaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQhoQ-0000000FMOM-02hz;
-	Thu, 26 Dec 2024 06:57:38 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tQiB0-0000000FO5j-2mK8;
+	Thu, 26 Dec 2024 07:20:58 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQhhZ-0000000FLWW-1TP9;
-	Thu, 26 Dec 2024 06:50:34 +0000
-X-UUID: af5d34f0c35511ef9048ed6ed365623b-20241225
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=LX/e5SwGIAHer7RVic/YXLQUiFNJd+yw+mliYjoK0fc=;
-	b=ojcefN3jk18OV4S/YV+/GUYL30+gOCR8hThSB9AflXSrXXXlAmaMAZm7RcJuz5D5x1LZ1we4inCpNqzZf2BuneA9FfEljmNaBWX3k1ldTc9di8RjDgEnLmsO88i2WKgIB1doGIU+OB7X5XRuBaLzSB2CysGzG+JU1t7cel+K4+4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:56b15614-206f-43d8-bbb7-84030962a5a9,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:c412e418-ec44-4348-86ee-ebcff634972b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: af5d34f0c35511ef9048ed6ed365623b-20241225
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 108828994; Wed, 25 Dec 2024 23:50:25 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 26 Dec 2024 14:50:22 +0800
-Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 26 Dec 2024 14:50:22 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fvVEKOH9AUxidLueOk6U0Yxmr0FKRSvw5Ongm8jloLX/b5MldlJAwv/s+GRNTE6W8LY5AaU1TfH99ZG94NMWCZOZqgA2taayMn+UXjQ4CW66ba9ezgYORN7NCBESz5XxRf1xRV3Lw2Zoi4Aq0gDIfTkq13iHl2cVmnJHmEsSrQ/LxMmkM3mMRLyU9yizB2VZokIg/9mYw/XJvkLtmWlE9840cwa0rFq8maGEg1aoFA8PXAML43IFF6ZBFOmq6GVhwrTVxlnXlM5SK6314Kz5Rr9i81UtyTgkCNLMNJnTck22cBQvCWfSbLmmHrx3U+UD6OMy93TXWcBPDSogh84Jhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LX/e5SwGIAHer7RVic/YXLQUiFNJd+yw+mliYjoK0fc=;
- b=xRLjZ0PJAuA0KItw3oj198I5jY5vogzNx7259+DYsxT+UEqNR22f+JBz/haOXSMFM3v0RCF9FyqHDfN4lhEG6YROo4+qqEyZ3J4tfLoDyYbHREiZhNQiuxyA/uze5kjgU8ByhVQqwXmsTiqEFiGeRiCLhzbJgDj/5Uw7zJfcJdsfF3kmGbZEHN3ODHcr43/4O7p2irvnyt1pk0qil+7kWIwEUtxDO6fC/zF8f4GqqFOrmybKg+KXI9BNLjQuAxvF8xNxSw3zYJww/27XYOFilP/0D9LHZNIHVzg0NVSfAQZt/EQb/WjBVirOkeE51q/+c7SfY/fuC1eIooBT2a769A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LX/e5SwGIAHer7RVic/YXLQUiFNJd+yw+mliYjoK0fc=;
- b=WCKlrYEyuTuGq9X7IXMf2Y5XvUwsLBzsFVqhXVTTrcPFzEc2G437HsEACTtS31yID6hqf5HvCXrsD86ooieRLis5mnw7eHSS7MQi4bg+Ng20ki+Se/bA77hpq6XNgy8obvRSPqSLXNh1Qfi/3JVgDk2w4nhLtrerFPRb/gCHbZI=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SEZPR03MB7328.apcprd03.prod.outlook.com (2603:1096:101:123::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.21; Thu, 26 Dec
- 2024 06:50:20 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8251.015; Thu, 26 Dec 2024
- 06:50:20 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	=?utf-8?B?Qm8gS29uZyAo5a2U5rOiKQ==?= <Bo.Kong@mediatek.com>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>
-Subject: Re: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
-Thread-Topic: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
-Thread-Index: AQHbVqv2E/LiiDV3F0q0O1OD05OMm7L4F4KA
-Date: Thu, 26 Dec 2024 06:50:19 +0000
-Message-ID: <846d4676b106cdd6380b965cbde83d02f73f38c8.camel@mediatek.com>
-References: <20241225090113.17027-1-bo.kong@mediatek.com>
-	 <20241225090113.17027-4-bo.kong@mediatek.com>
-In-Reply-To: <20241225090113.17027-4-bo.kong@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SEZPR03MB7328:EE_
-x-ms-office365-filtering-correlation-id: 1459a912-da4e-4854-f83a-08dd25799064
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?dGNUelBpd1hwR1dOYnpydkpTSEtFU28xdkFPQmFtNEw1eGE0aHJCcmlBVGtC?=
- =?utf-8?B?MXN0SUFXdmNYaGlvak5IeEQwNzNNRXk0NjRqVm9JdWZ2dUVUUHpMODBpRXk5?=
- =?utf-8?B?ZjRkTGFIVHVHRmlJQ2lKcHhkbGdlSExTS1M4RXR5V251Z3l6L01ocHowQkxn?=
- =?utf-8?B?RSt6M1F1RnFwTjErMTg4eFpXYjlxeVIrMDhwYWNSOW05dENFUiszRHdsSzdj?=
- =?utf-8?B?aWFidlh4UUZNYVdNdlNsK016bkowN0gyclpmb3Y4djkwVWFMVVhuc3ZGMHV6?=
- =?utf-8?B?NmdtQ05WcktlVDBvU3lEVlIzMVUzTGd4WVA4RUFOaHkyc0V0NGVrcGhybENu?=
- =?utf-8?B?VE9JclI0SGtGOGtvOGZOUVdYMXZqRFpXbVd2ek4rd1hPU0lLSEg0eGIvT25X?=
- =?utf-8?B?ZlY2TnlIdFBUMmtWRXVkTTdVM1RCc3JybkFQUWF3U2Q0QzkvUlgvYmtDb3dl?=
- =?utf-8?B?L2FNYTFsaCsrQkttWkxmcDRibk5sN1NjTVcxQ1BaeHNpOXJ2c0R5TjIrL2JN?=
- =?utf-8?B?Yyt6ZUo1bjluUmNmNnc1WVJ3a01xNHYyYlZ6MlU0bGNXZHdCQXh0bnJlaVdP?=
- =?utf-8?B?R01RQ0VKQmJzTmE4bjZ3UzRMalVGRmJiUW9qUmVGbGsxaVVOT3FVMDl1QVJI?=
- =?utf-8?B?Ykw5RmwrUk53WXJZOGRxVWUyNmUydWVoaXhyTnRmK3pGcmZPaWRIQlBDeWNy?=
- =?utf-8?B?SE5wNEswdnRhZkNKWGhEcERydXdtNDBYMVUrRUxYclk4c3hCYU44bjl5Tk5m?=
- =?utf-8?B?LzRKMi9CclNGdEUyVklycGJOUmpyMkpCendNOHJ4Y1M0Yzk3U2Y4L3JHVmNU?=
- =?utf-8?B?cUQ4NkV1MFoxeGk4b2Vic0RhY3lwVGQwUUVKOXluTmxJYkUvcm1USXJaU1Jh?=
- =?utf-8?B?NHQwNFVFLzN3b0Y2VTYwZFp6b0FrNzkyY2VqQUVnZDhMRzdWN2tXaXFjaEN3?=
- =?utf-8?B?SmhaQUZKSXZwLzFQQVlha0JucXNQK0VnMTRqQkp5cENsZC9TVFNoY0tkQVVF?=
- =?utf-8?B?bE1YR3FwdmZ2Wm5PSE50bzJOZ0J3ZktnQm5QM2hTVFV0V214WHV3ZXYyNjlC?=
- =?utf-8?B?ZGQwa3Z2TXgyTHBwWGEzL0VBTVVDYVBZOGJZdHQyaEFDTzVJNGFIV3RLdFV3?=
- =?utf-8?B?WkQvZGJnb01ZZEFjU3o4S0ZTNGwwejdUWThyTWNpTXhYTzhBTjVFRGVJVStP?=
- =?utf-8?B?SzRpK21vWUZQdk1hZGVhUGxkZHhEakhkQk16NjI4ZjFvZjhKbGxxbkErK3Bv?=
- =?utf-8?B?YkdwMDJHRjU1ZFllcUd3WXBPeE9wSjlNVWhIZElkeEhrbVcrOFp4MDZGTy8x?=
- =?utf-8?B?ZHVOem56OFE0V211dllWTG0yS0x2Nmlod3B3ZmVMWlQxQ0I4WFJHdklvOHNE?=
- =?utf-8?B?RGkyOWtWNE5OMStJb001dm1EZ2huMVJKb1JHRTV6dHNlTU40aWVXZThUYXRl?=
- =?utf-8?B?TjYvQWhab0RpZ1d0UngxZDl1aDFmNVZrNUFmSXFmcmxZZ2ZWbjE5TFN3amtY?=
- =?utf-8?B?aG14V0FHUmpGb25Nc0ZZYktIYkFkTk9OUm9XYTc2Y0VnOCtZeFA1RTRPckZI?=
- =?utf-8?B?eUM1UnY4TTByVXNLcjFucmNyRndML2toSDNVNnlSWEg0Ykpoc2pLZVptdUdm?=
- =?utf-8?B?WG1XVTQ4Y1VYWUllRmJzc3hWVXRCL3MvYVlHVTRGcjY1TFVMaTE3YVE5Tmpn?=
- =?utf-8?B?NVI1Z2xPU3RoTysvTG5xa1cwTXFMNHBWUldSRWFudjJSc0F2MTBnamdlZ3RI?=
- =?utf-8?B?VkhaS0VReUkwVWhHNERrdFduWHRzTEg3VVMxTzlYanVCSE5Yemp0MElBblZw?=
- =?utf-8?B?TFhxa1M0TEgzaFhVaFhWRXI2eFFVL3h3OE1aZ2pydVladkRiamhLWEpBWmJ4?=
- =?utf-8?B?Q0VUQnlFRkszNEFiNXBucnBkZHFJb1FYZmZFaXpTcDl6bmZIUnhBWXZrR1FS?=
- =?utf-8?Q?0QbOert6zUMEY219DsE4fDRC6OdduA/M?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RU9LV0RTN0VtZXZMSmx6amJJaWZOcVBoMlFVeVVKN01sMUptRGJOOWx4VjRR?=
- =?utf-8?B?QVhFOWgwSmFJOFRqTUdUNWVPUndqcXdJR1ZNbnRsRDFMSjU4cDE1RzBjck4r?=
- =?utf-8?B?NVZKdTNBUXpwbUdqYkJMMGRkRDFOa3l0Q0ErUHNiNWtYMG5FbEpxQWJXVDJQ?=
- =?utf-8?B?SmlVZEFUb3BJVWRmU1ovYXpSYXM1bUY5RDhPdGgzRDZkSzBXM3F0WHVMMy9C?=
- =?utf-8?B?UkNsNjlpcTREc3hqZkdRZ2dUZ2kvcG9pRzZQanROcUpiRWVXM2svNitoZ0pj?=
- =?utf-8?B?bk9XZ0dpaTlrazB5SloyWCtSYjlBc2Q0SldRbkx6bUNUTkQ3RWg1TUxDN1d4?=
- =?utf-8?B?TUxJZC91aFVMQ05kT29VaUJldW1iT0xoclNYSXYzMzdsSE5mRmhzNk1FVjNN?=
- =?utf-8?B?RmF4VWYxN1VtRmR4T3NUaU1aR0ZGMXpJWkpTYmFZK2lpRjI0TkhoYld6Q1dK?=
- =?utf-8?B?U2hhKzhYai9lT1kwckVwV3VpSHpLR2N1OFBCc1RpSVZNa09ZTGcxaTMxZ2JP?=
- =?utf-8?B?MGhxTjZ6MFllQkMySElSSE9xRlJNNzRLMXpkY3Ryb1FkQlpnQk10Mko1OW9H?=
- =?utf-8?B?cFNpYjR4cWtvcGNMMVNleEtBWkdZRUtPNGtBekkvazdrd3laUi9tM2RVMmxq?=
- =?utf-8?B?T01XKys3MHlJUEVsYVdaQVROUk53eENLUG5XcWd6a2NjMkhEaS9sbVZTVThr?=
- =?utf-8?B?SmZWZFZvYk9NdnUxY2JRK1VYaUJrZFB3QjUyTEliK0YxSXovYjdzTXY4VWl6?=
- =?utf-8?B?OCszZzJUM3FNSWZwMU1RNXI0MHJVVk1QbUE0RUErTUxScXZsY2o1Ym9XU3I4?=
- =?utf-8?B?NEdhMGRQRm9NVk9BS203U0RqSEp6MW9maDlyNFUwL28wcW02dlFCWk1pSzYz?=
- =?utf-8?B?QmlqV0wwWjMxcGp6QnNCcm9zTmd2a3BXbjY1aDVhSElScXBvUFRzbFZpdnMy?=
- =?utf-8?B?bW5uWms5akJJUTRiVkZ4dDZlWnZhV2gyMHdXUHc4RjNTb2NWcUEwSDUrZDFI?=
- =?utf-8?B?bnd1NVlYTU84RmRydXE1TjJzalhXaU1MdDIwam04UXV1amdxQlhncmVFYWZx?=
- =?utf-8?B?NmFOalFXWmpvYVBiOWVBdTRGTUJFZjZTSHlVR3BpYjJ3RE9KZXY0aTM1ci9w?=
- =?utf-8?B?TlQxcFhGUkc0eVUwdk9OTFBpVnhCZlN5c1N2KzBnZVpOTmZGNnovdzFuYTht?=
- =?utf-8?B?SjFzQ1RsQ3YzS3JKLzhudFlaNDdWRFlUQzV2TGh1VXBtbFlReGdxZkM4L1lG?=
- =?utf-8?B?YXhwUU1JTnpOLzhSc2pDZjhwaDcwbEFFWHNZLzB1SVRXOW8xcjZlQnhJbXJC?=
- =?utf-8?B?SmxnWE9FS3FzNzF4MHpwZ0xyUVdZRzlTOFpVaEtNRmpHQmM4Y0FwV3NIcDNL?=
- =?utf-8?B?d1AxQURlQk9CZHZURTVhR3hwRitueDJuaWFVSmdhak1NcEJ2eEZqc3JUZndp?=
- =?utf-8?B?OS9LVnE3bGdWYXBxb3VRMThHd2tZMGdKamlaR2hwcnduQVNRZjVDUUZFdnFX?=
- =?utf-8?B?dTU1MEZ1V3hnY0hZajhBSXNVc0QyaUZnMmZFOHlEUld1VTVMVnF5bTRmT3lr?=
- =?utf-8?B?WWV3czJJWjFDM3RzRVJhUzE0K1FTSm5uNzFuVHNOOFNhT1FXblExOGV3OWVJ?=
- =?utf-8?B?RDZCeHlUMXVwMHQ2MEkzMGxaVG5CUFhBeUdhNGhRNUpYRmVnN04ySzFMR29n?=
- =?utf-8?B?NnExT0xhN3IremJKUERJTW1yRk4zUnZSSHpCbFErdjdRQy9UQkJ6UVNPSytI?=
- =?utf-8?B?SlBZRW5BcG5sZ085c1Vkb0xBN3hzY2NaY1p0UUI2S0lUL3ZYcUZDTkxiNURN?=
- =?utf-8?B?V3ZFMHFpdVJVaVpZck9zMVM2T0ljdm53Zlk1Z3ozQUFOY09VVFB0eWJmUTdi?=
- =?utf-8?B?Q1ZpL0N5elNzQmVTR054STZJYkRuTU10M0xuRTZzT2dCTVhLbWpTY3dCckJ3?=
- =?utf-8?B?WGVFV202ZjFId2lxSjduRHdjWE9QMVNDa2dFL0VROXNXSWIyYWxsTUp3Q25Z?=
- =?utf-8?B?YXdpbDVodW8xQzZNUkUvb1crQjFUYmNlaFIwaDliNDJ0ODFyQ0JNWFlZRWpa?=
- =?utf-8?B?b2p2YXJhMTdjdTdGVXBlQUR5MlhwWGMrN004YmtVUVVpZWt6K1RqRW1yZ0hy?=
- =?utf-8?Q?+X/tofVnPX9gx+yVuSwINEeTu?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <FA72F534CC350A4AAA1FD4762A88248F@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1tQi9n-0000000FNwn-48Cr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Dec 2024 07:19:45 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BPLHQrr028180;
+	Thu, 26 Dec 2024 07:18:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=PsGmik
+	0b3kAu5BJK4vHKPRzb/9fZM/R7E7deKoSUc4E=; b=GUeoftKsaDjs059dTxGviK
+	8J7A2DvjZzcQAQ0LSrGeptA8Q/BywaNR5qmqLB4lZor+O3Sr1m964ZHmaFfcMryI
+	41LJS6RiOIAI664s81tk+ceQyx69X72TDpNFhQ2JKVQppzcksVHAeZVAncD3S07j
+	O5rUfyURSRiP+Z/pjfR1OLE7/zzoVV4BPDqqdm27tgZFS7MW7gES3QpWpwwTTIQk
+	ntCuLm7uXG0ecNckLgHM9rzAe6Vyc8MnpqwnFQlEi0iNQN15nk3yfEjZ9+YuIRq5
+	KCqAunFjXLfouJ5ui1PctNg3I89+QCZIJQU34gLjmbzVjjNJkDKl8kJfQ9MbpCpw
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 43rkh4jdyp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Dec 2024 07:18:33 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 4BQ5xwku002065;
+	Thu, 26 Dec 2024 07:18:32 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 43pa7k0vrm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Dec 2024 07:18:32 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 4BQ7IUHV56754506
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Dec 2024 07:18:30 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BD6CC2004D;
+	Thu, 26 Dec 2024 07:18:30 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8046E20040;
+	Thu, 26 Dec 2024 07:18:25 +0000 (GMT)
+Received: from [9.124.219.96] (unknown [9.124.219.96])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 26 Dec 2024 07:18:25 +0000 (GMT)
+Message-ID: <718d69e0-f145-4393-b571-80e8a0a372f6@linux.ibm.com>
+Date: Thu, 26 Dec 2024 12:48:24 +0530
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1459a912-da4e-4854-f83a-08dd25799064
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Dec 2024 06:50:19.9738
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: oukQsR9nWx4pwNwsW43mo6hYPeT14H5KLJbSVc/+BjB7hFr9IgbE1NbK3RBbnvVMRtefpGmt8nznHMGlSLmhJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7328
+User-Agent: Mozilla Thunderbird
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Subject: Re: [PATCH v10 1/4] cpu/SMT: Provide a default
+ topology_is_primary_thread()
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+        linux-kernel@vger.kernel.org, morten.rasmussen@arm.com,
+        msuchanek@suse.de, gregkh@linuxfoundation.org, rafael@kernel.org,
+        jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+        linuxarm@huawei.com, yangyicong@hisilicon.com, xuwei5@huawei.com,
+        guohanjun@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+        sudeep.holla@arm.com, tglx@linutronix.de, peterz@infradead.org,
+        mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org,
+        mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+        pierre.gondois@arm.com, dietmar.eggemann@arm.com
+References: <20241220075313.51502-1-yangyicong@huawei.com>
+ <20241220075313.51502-2-yangyicong@huawei.com>
+Content-Language: en-US
+In-Reply-To: <20241220075313.51502-2-yangyicong@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 9d6E4UnUrTpmLuaA2EsuZsqPL4YakM-9
+X-Proofpoint-GUID: 9d6E4UnUrTpmLuaA2EsuZsqPL4YakM-9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 phishscore=0
+ priorityscore=1501 mlxscore=0 mlxlogscore=999 suspectscore=0
+ lowpriorityscore=0 clxscore=1011 spamscore=0 impostorscore=0 adultscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2412260060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_225033_408768_777BFD50 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20241225_231944_145238_A1FFE13F 
+X-CRM114-Status: GOOD (  33.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,16 +116,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI0LTEyLTI1IGF0IDE3OjAwICswODAwLCBiby5rb25nIHdyb3RlOg0KPiBGcm9t
-OiBCbyBLb25nIDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEFkZCBhIFY0TDIgc3ViLWRl
-dmljZSBkcml2ZXIgZm9yIE1UODE4OCBBSUUuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBCbyBLb25n
-IDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gLS0tDQoNCltzbmlwXQ0KDQo+ICtzdGF0aWMgY29u
-c3Qgc3RydWN0IG10a19haWVfdmFyaWFudCBhaWVfMzFfZHJ2ZGF0YSA9IHsNCj4gKwkuaHdfdmVy
-c2lvbiA9IDMxLA0KPiArCS5mbGRfZW5hYmxlID0gMSwNCj4gKwkueTJyX2NmZ19zaXplID0gMzQs
-DQo+ICsJLnJzX2NmZ19zaXplID0gMzAsDQo+ICsJLmZkX2NmZ19zaXplID0gNTYsDQo+ICt9Ow0K
-PiArDQoNClRoaXMgaXMgdGhlIGZpcnN0IHBhdGNoIHRvIGFkZCBBSUUgZHJpdmVyLg0KU28gaXQn
-cyBub3QgbmVjZXNzYXJ5IHRvIGNyZWF0ZSBTb0MgZGF0YS4NClNvIGRyb3AgaHdfdmVyc2lvbiBh
-bmQgZmxkX2VuYWJsZS4NCkRlZmluZSBzeW1ib2wgZm9yIG90aGVyczoNCg0KI2RlZmluZSBZMlJf
-Q0ZHX1NJWkUgMzQNCiNkZWZpbmUgUlNfQ0ZHX1NJWkUgMzANCiNkZWZpbmUgRkRfQ0ZHX1NJWkUg
-NTYNCg0KUmVnYXJkcywNCkNLDQoNCg0K
+
+
+On 12/20/24 13:23, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> Currently if architectures want to support HOTPLUG_SMT they need to
+> provide a topology_is_primary_thread() telling the framework which
+> thread in the SMT cannot offline. However arm64 doesn't have a
+> restriction on which thread in the SMT cannot offline, a simplest
+> choice is that just make 1st thread as the "primary" thread. So
+> just make this as the default implementation in the framework and
+> let architectures like x86 that have special primary thread to
+> override this function (which they've already done).
+> 
+> There's no need to provide a stub function if !CONFIG_SMP or
+> !CONFIG_HOTPLUG_SMP. In such case the testing CPU is already
+
+s/CONFIG_HOTPLUG_SMP/CONFIG_HOTPLUG_SMT
+
+> the 1st CPU in the SMT so it's always the primary thread.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+> As questioned in v9 [1] whether this works on architectures not using
+> CONFIG_GENERIC_ARCH_TOPOLOGY, hacked on LoongArch VM and this also works.
+> Architectures should use this on their own situation.
+> [1] https://lore.kernel.org/linux-arm-kernel/427bd639-33c3-47e4-9e83-68c428eb1a7d@arm.com/
+> 
+
+sorry to ask this question this late in the series.
+
+I am curious to know why not just add the arch specific 
+topology_is_primary_thread? current infra would handle that right?
+
+is there any other arch that is going to enable this soon? or the 
+rationale is to add the generic function so that archs that use generic 
+topology it is just a kconfig change in case they want to add the support?
+
+> [root@localhost smt]# uname -m
+> loongarch64
+> [root@localhost smt]# pwd
+> /sys/devices/system/cpu/smt
+> [root@localhost smt]# cat ../possible
+> 0-3
+> [root@localhost smt]# cat ../online
+> 0-3
+> [root@localhost smt]# cat control
+> on
+> [root@localhost smt]# echo off > control
+> [root@localhost smt]# cat control
+> off
+> [root@localhost smt]# cat ../online
+> 0,2
+> [root@localhost smt]# echo on > control
+> [root@localhost smt]# cat control
+> on
+> [root@localhost smt]# cat ../online
+> 0-3
+> 
+>   arch/powerpc/include/asm/topology.h |  1 +
+>   arch/x86/include/asm/topology.h     |  2 +-
+>   include/linux/topology.h            | 22 ++++++++++++++++++++++
+>   3 files changed, 24 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
+> index 16bacfe8c7a2..da15b5efe807 100644
+> --- a/arch/powerpc/include/asm/topology.h
+> +++ b/arch/powerpc/include/asm/topology.h
+> @@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+>   {
+>   	return cpu == cpu_first_thread_sibling(cpu);
+>   }
+> +#define topology_is_primary_thread topology_is_primary_thread
+>   
+>   static inline bool topology_smt_thread_allowed(unsigned int cpu)
+>   {
+> diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
+> index fd41103ad342..faa0d6334ea4 100644
+> --- a/arch/x86/include/asm/topology.h
+> +++ b/arch/x86/include/asm/topology.h
+> @@ -228,11 +228,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+>   {
+>   	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
+>   }
+> +#define topology_is_primary_thread topology_is_primary_thread
+>   
+>   #else /* CONFIG_SMP */
+>   static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
+>   static inline int topology_max_smt_threads(void) { return 1; }
+> -static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
+>   static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
+>   #endif /* !CONFIG_SMP */
+>   
+> diff --git a/include/linux/topology.h b/include/linux/topology.h
+> index 52f5850730b3..b3aba443c4eb 100644
+> --- a/include/linux/topology.h
+> +++ b/include/linux/topology.h
+> @@ -240,6 +240,28 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
+>   }
+>   #endif
+>   
+> +#ifndef topology_is_primary_thread
+> +
+> +#define topology_is_primary_thread topology_is_primary_thread
+> +
+> +static inline bool topology_is_primary_thread(unsigned int cpu)
+> +{
+> +	/*
+> +	 * On SMT hotplug the primary thread of the SMT won't be disabled.
+> +	 * Architectures do have a special primary thread (e.g. x86) need
+> +	 * to override this function. Otherwise just make the first thread
+> +	 * in the SMT as the primary thread.
+> +	 *
+> +	 * The sibling cpumask of an offline CPU contains always the CPU
+> +	 * itself for architectures using CONFIG_GENERIC_ARCH_TOPOLOGY.
+> +	 * Other architectures should use this depend on their own
+> +	 * situation.
+> +	 */
+> +	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
+> +}
+> +
+> +#endif
+> +
+>   static inline const struct cpumask *cpu_cpu_mask(int cpu)
+>   {
+>   	return cpumask_of_node(cpu_to_node(cpu));
+
 
