@@ -4,84 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44EF5E7718E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 22:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAF5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 22:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zCq4pgg3ghZQ5gyCQM0kq4IJL3Ban35pSeSFFuGXBL8=; b=pRLfrXfS490H1TH8VgKJcEIRO0
-	k4/74RKNgYyeE0Bf48YKlkyYnS+W4QwkabqaNMr7/D0/2APv92whJWiT8IayRu9rJ/EDNCSQlmclQ
-	RxEYCI7V00tq/VKpkBOIeuuoqtnJCb7aJY/fw4CD2e3/HiEuMMXoapIpuBTXbCe/ZGI7V8DiMYtuq
-	9zqOcnQW8FeLOQlTSKaqNWXO4JPHKJrQIKu1LxmQvoT6TyJv2tr0bSoN1B1g0RwyMeeoH4094+dgb
-	Cvsi0NBYp+xy2XeL26ixMOFaRpVQZCNIYomeFYmtkxYSXiwOjKwAOMASc3EwkQDbts/G1YEZePmdx
-	ZDs0cT7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lwV7aSIhmL1J4zqGd6QcK0kku1jHwWFZZp7wr11vEIE=; b=OPVWypOrwE2Rtx
+	xQGPuvK7O4ZHIbgcF2s3JtwcdjprBryMbF3x9oCsx2WhghVXYndhMxYpwzvwd8ufr5rSSkXX9cckS
+	q2Pqs9xrLPV/1s2LKYEy1Fywckq6rq/ISvARd8Dqv0aBXLkNKOt9GHRiUKeCaCnU5wSFVVrTBbOi+
+	mKs8vNHaCUwFd0Rd2YfPCWqxRfghFv8KgidsHsc2kUgDFDMJkYFaLWlzlMYcApp7Mm7MKFx+Eq9bu
+	lm5xGboyv51ibDnZV5mMsvWacFvTIEURgBo+cS3JbDmOYdlZnPadaFpeOZYSZb36tTwZzgtTYQ1o9
+	wnjZ4K+TkIm6xri1549A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQvzA-0000000GW4v-1Hhs;
-	Thu, 26 Dec 2024 22:05:40 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1tQwUb-0000000GYtH-2wzO;
+	Thu, 26 Dec 2024 22:38:09 +0000
+Received: from 217-110-162-10.ptr.prolan.de ([217.110.162.10] helo=smarthost-3.prolan-cloud.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQvxb-0000000GVvp-2GI9;
-	Thu, 26 Dec 2024 22:04:04 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aab925654d9so1217271566b.2;
-        Thu, 26 Dec 2024 14:04:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1735250641; x=1735855441; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=zCq4pgg3ghZQ5gyCQM0kq4IJL3Ban35pSeSFFuGXBL8=;
-        b=dy9sSkBeJghSX8YhBq3qMXae5HBYT7Cz5DsWBfkmEpB9hDaTniOME/2kdiDb2ahN08
-         xwVJqX8JjmagoiYfF99QLqQHKdy6bSq58S1cZ/Pu8+TgTyxMPmTYqF41/2x+e1gHYdzo
-         To4qNL5yKvbRjcahB12USJW9UHcj0SsRUYuIxyq1TDsTJEWNgU3krO57v2aij1PowzC4
-         ur6b3eBhlV5BvWDDln2VZKs1sO6Bk1qiSDHkaVSlU9Xrkmxip5lu9WDfs6S4ZyxwMPNQ
-         vAfd6DEeGAXT88Hh1RCL7xUn/VwddTpbda7BUMWn4lcT99F/tkNvNDLtAQAcX90ub9YT
-         QD+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735250641; x=1735855441;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zCq4pgg3ghZQ5gyCQM0kq4IJL3Ban35pSeSFFuGXBL8=;
-        b=ZX9gJEAbkJdY3RogiPDbqWhiexPkDXBt0Tq+Ki5F/Psb7Ww4Gnn78VqfMVM83/r0x2
-         RWGhKQB2h5+sGBSO/TsOGq08N2E6ZZYoz8ZSYC215QArI8rc72hptqEEes4qGHoY/Omc
-         1qpQnjUFhiYsGqqPksoko3hk66vebdq66LaB1LqJRs9+moJmEVliFNJAnbMycFVISF8w
-         PTeRbVoBN+wdT991b4lqQqPKe+c3pfnR3xrRZCjf7KUyzn2pTPkA2b3E9W8NQVBQEckG
-         GHiF9QsHT7rEBvfagPD3LGCfzxQcQyMYu1mHrk+ExNpvFSCNcgrgtVhsn6kGQXWjXgop
-         BYyA==
-X-Gm-Message-State: AOJu0YytMVlfiymVGMjnDH3yGO2bwxQXP89llyPb32/z31xFWJICj+Mi
-	rj72y5nVg2BqDnj89d32eZxQyVbCWm5NTt/Szwrno1v2iawpsMGg4kpPpg==
-X-Gm-Gg: ASbGncsbUdgUNtQYMZjv2J6mXNbH2/xwrlW59M3JxRIUqnyR+stnPNBaLg6SMzN90Lx
-	Jb6Tt5DNqfh8VoszbeTfdDVUTGYGFDaLgsE/uS0w8gWZ1I1ZLyZq1qp4FnYW3tHIVKYSOOP7n2U
-	1UM1Qpn7Koo4Oc8lf6l9PRsBjKmekohxYcM4swLTY5Nrer7YnsOuI3gddVrgSAozeV2myVcAYt+
-	NuDBD4zdx3+h3Q/emMWsP10eB3AKtUOfQi00MSo1heIbWMnfhEmKk/lPHg4MoYXSVanavUt7V2a
-	gahP/kQy5rnhRcBhEJnOTtF4YWYOR1oBvaUd796JDbSQHtXxMBCmZzB+QixcVn5+mc7MS5NXECm
-	WkpFkZ4k=
-X-Google-Smtp-Source: AGHT+IGuGLsLz0eg3XnX61A2VWimbSnHZ3HdwaSlpZ2eb6Tkhezt3kD08zYUbIsbh9VNY2rsmYs2HQ==
-X-Received: by 2002:a17:907:d9f:b0:aac:619:7ed8 with SMTP id a640c23a62f3a-aac28748b30mr2394212066b.7.1735250640729;
-        Thu, 26 Dec 2024 14:04:00 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a02-3100-9da0-ce00-0000-0000-0000-0e63.310.pool.telefonica.de. [2a02:3100:9da0:ce00::e63])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-aac0e82ede9sm1011815266b.2.2024.12.26.14.03.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Dec 2024 14:03:59 -0800 (PST)
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-To: linux-amlogic@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	neil.armstrong@linaro.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Subject: [PATCH] ARM: dts: amlogic: meson: remove size and address cells from USB nodes
-Date: Thu, 26 Dec 2024 23:03:52 +0100
-Message-ID: <20241226220352.965505-1-martin.blumenstingl@googlemail.com>
-X-Mailer: git-send-email 2.47.1
+	id 1tQwTO-0000000GYoQ-4Bdv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 26 Dec 2024 22:36:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tautiimagheraus.ro;
+	s=default; t=1735243276;
+	bh=lwV7aSIhmL1J4zqGd6QcK0kku1jHwWFZZp7wr11vEIE=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=QheFnIHQV1LcPeiNrw31Z/IxFgvbywDp9nGDSV5MqZwF37I6Yw/lTYlcG5DMtSP7Q
+	 Gn3/qgfPLaZz2YMQNqg+ACVgKoqMdx7BX1glyITsdt7MMfR0loxlAxlt2jTjMM8a3C
+	 DF3aX+bZXpvIx+aEEwaMdhqx4I0Rb9J+18/k/OW07u9MzsxELrJv0TIm4pmPk/zZTM
+	 VFEr2AfGk1zgqdL+qpyYotZfTWQX8L1uW9M7BPybWHnsEw9iGqSxrDZrBcBG5HqegX
+	 eRgRmoJQoeA8HTnJzxeBvtEsFeW5C7Z/c6DDAI9RcBksy13HGrEqKm9s5Nmr+EbR7i
+	 /5amlDzrbj5cQ==
+From: Kazi <proiecte@tautiimagheraus.ro>
+To: linux-arm-kernel@lists.infradead.org
+Subject: Business request
+Date: 26 Dec 2024 21:01:15 +0100
+Message-ID: <20241226210115.F4EA812D071EBF93@tautiimagheraus.ro>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_140403_587416_89D038E7 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20241226_143655_489659_96DC2FF4 
+X-CRM114-Status: UNSURE (   2.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +61,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: admin@bceao-tg.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The only board that actually requires these properties is
-meson8b-odroidc1.dts but that already sets it on it's own. Drop these
-properties from meson.dtsi because otherwise they can cause dtc
-warnings:
-  /soc/usb@c9040000: unnecessary #address-cells/#size-cells without
-  "ranges", "dma-ranges" or child "reg" property
+Compliment of the Seasons
 
-Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
----
- arch/arm/boot/dts/amlogic/meson.dtsi | 4 ----
- 1 file changed, 4 deletions(-)
+It is with great sincerity and concerns that I address this email to you.=
+=20
+I have contacted you in the past regarding this project partnership but you=
+ didn't reply the email.=20
+Did you get the chance to see the email?
 
-diff --git a/arch/arm/boot/dts/amlogic/meson.dtsi b/arch/arm/boot/dts/amlogic/meson.dtsi
-index 8cb0fc78b2af..28ec2c821cdc 100644
---- a/arch/arm/boot/dts/amlogic/meson.dtsi
-+++ b/arch/arm/boot/dts/amlogic/meson.dtsi
-@@ -255,8 +255,6 @@ rtc: rtc@740 {
- 
- 		usb0: usb@c9040000 {
- 			compatible = "snps,dwc2";
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			reg = <0xc9040000 0x40000>;
- 			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
- 			phys = <&usb0_phy>;
-@@ -270,8 +268,6 @@ usb0: usb@c9040000 {
- 
- 		usb1: usb@c90c0000 {
- 			compatible = "snps,dwc2";
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			reg = <0xc90c0000 0x40000>;
- 			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
- 			phys = <&usb1_phy>;
--- 
-2.47.1
+Looking forward to your positive response.=20=20
 
+Best Regards,=20
+Kazi
 
