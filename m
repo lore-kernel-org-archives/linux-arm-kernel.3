@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F43BE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 02:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C524E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 26 Dec 2024 02:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oqYD/B3UMlO69nH16a4qOpq5t9+uPPTLogH0zzGwks=; b=J3R2V/b2AUwX2ojwsbV5PqIiI1
-	78rsqJef8lqbsW17ayEeOncMco88ML5odbQ0O0TFbW9YuvoAZ9rlelqmr9Kdj6rTlGpHFeAAHiISj
-	YhpHoqeKyNphx+gPcjHmJ92S7VzapBObN6VSt0TrN0a1MzutkBLmyzt2QLbwXwVnYW6ck6TBWTQGT
-	3LBA4w6NcRoewkfcJpeDEmpAvsD+g4DTVtf+d+z/1XIbWubaZiVVGjxICWk/THKLohIwXtacn2Xua
-	+n2Q/dp6AQtTq7Yt/g4aCYPgAvKW9N2P5jkAJ9Rib/GW8zqMGFgwtgSx2bMZSt+Nx91eK4vHIdYSn
-	PWN1q69Q==;
+	bh=yXPgWv/039w1DyrPkw5OOxKhH6440KjCye1nUeVurvk=; b=k6LYEbQ2tcKO2XEbyw4TU+faiC
+	B2XT03RH/68LaPwtXlHIixL7zYucUz8DmklGF4oEwECTPG7Yh22FHleZ2jBh6phkM9fBGteceMo6T
+	za+3ZlNAUSiN+FPba1NtwumaEAPsCh1V07y14iOGV5RPVApenjbx934KCpo6ilNPrxlE6Lqc0R3xn
+	p6/q7llGx/kDs1BtFtzyAdLTzNB3rEuBJG7O4/rtJj1NTOQgmKv7Gm0Hcsu+MJtE8vAhEcdIxrdVy
+	kKA0YH2gbPKIuc0+4BWqmcMVUguKEKIrvJ1bXJSiayuF3YowTPALM0BC7gIrJ3Z3VGTU5wA55fgNU
+	hv6al6Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQdju-0000000Ez6Y-04ag;
-	Thu, 26 Dec 2024 02:36:42 +0000
+	id 1tQdl3-0000000EzDc-2te1;
+	Thu, 26 Dec 2024 02:37:53 +0000
 Received: from mx.treblig.org ([2a00:1098:5b::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQdbn-0000000ExzH-39BT
+	id 1tQdbu-0000000Ey0h-3ldZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 26 Dec 2024 02:28:20 +0000
+	Thu, 26 Dec 2024 02:28:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
 	; s=bytemarkmx; h=MIME-Version:Message-ID:Date:Subject:From:Content-Type:From
-	:Subject; bh=8oqYD/B3UMlO69nH16a4qOpq5t9+uPPTLogH0zzGwks=; b=Eevo40RWUifZuus8
-	s48V+jvzoplAN44z3+2xITvRxcWrZODQotuSNCN8wjQZybqro18vPFkZgTbEAYY235W6LwC57qM0D
-	dpOdCBNN7PDJKRu9/yia/r984fVZljCpIJLXNEbIa71EQfRv66ll2UPeFeYN6r0XcLzuJBuEFjcAA
-	Orxi5NXo7PFbANyaAqxZDDIkL70ou2H+gmTU/LBgBb6NSDiUE61Mf4r4ZqSijCM3VZLWZAHJngA5B
-	8p/Lx6Sm+y23DjoDBG5Lqwcc08wY5/4H6y/CDracxO4tbiTPnV4PXOIv2htKKk8EMyo0q2EH1hoj3
-	XQQRX5RXR+LOz2Lmog==;
+	:Subject; bh=yXPgWv/039w1DyrPkw5OOxKhH6440KjCye1nUeVurvk=; b=OWjTPVYFBHSCtQMs
+	8L78DLn9tCBaDou3Ky31EIG4UabrDzOUFYegaOp0IXEQSpBiUYDy/H/uSuWiU1NleRQg2jzFqyMbt
+	AssPaAXJy47TFNuFXaAyiA6aLn4Yw9GbFQN1KdVc7rQuS/5TcukA/Ih5LGmrJGsHs0f1BEssx5JfD
+	p5v3xFFui/5Bc/BivfJ90lClLt3vskDfhQZPmex16Ny0katC6ZqdOADSj7O3Zk2KqF6r+WwDqPa3R
+	FEU76F6ahoRcPC+1LqfMrlSNdu72IwTsjEma31ba+yIp4//bDnzFmdZ2TxRJavmKNgNJfA+xWKtJd
+	RiUDMxUtLrXmi9UkHg==;
 Received: from localhost ([127.0.0.1] helo=dalek.home.treblig.org)
 	by mx.treblig.org with esmtp (Exim 4.96)
 	(envelope-from <linux@treblig.org>)
-	id 1tQdbO-007F0L-17;
-	Thu, 26 Dec 2024 02:27:54 +0000
+	id 1tQdbP-007F0L-2Z;
+	Thu, 26 Dec 2024 02:27:55 +0000
 From: linux@treblig.org
 To: p.zabel@pengutronix.de,
 	airlied@gmail.com,
@@ -55,17 +55,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	"Dr. David Alan Gilbert" <linux@treblig.org>
-Subject: [PATCH 1/7] gpu: ipu-v3: ipu-ic: Remove unused ipu_ic_task_graphics_init
-Date: Thu, 26 Dec 2024 02:27:46 +0000
-Message-ID: <20241226022752.219399-2-linux@treblig.org>
+Subject: [PATCH 3/7] gpu: ipu-v3: Remove unused ipu_idmac_channel_busy
+Date: Thu, 26 Dec 2024 02:27:48 +0000
+Message-ID: <20241226022752.219399-4-linux@treblig.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241226022752.219399-1-linux@treblig.org>
 References: <20241226022752.219399-1-linux@treblig.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241225_182819_832131_A4B332B8 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20241225_182826_937172_EB9794F3 
+X-CRM114-Status: UNSURE (   7.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,117 +83,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Dr. David Alan Gilbert" <linux@treblig.org>
 
-ipu_ic_task_graphics_init() was added in 2014 by
-commit 1aa8ea0d2bd5 ("gpu: ipu-v3: Add Image Converter unit")
-but has been unused.
+The last use of ipu_idmac_channel_busy() was removed in 2017 by
+commit eb8c88808c83 ("drm/imx: add deferred plane disabling")
 
 Remove it.
 
 Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
 ---
- drivers/gpu/ipu-v3/ipu-ic.c | 73 -------------------------------------
- include/video/imx-ipu-v3.h  |  4 --
- 2 files changed, 77 deletions(-)
+ drivers/gpu/ipu-v3/ipu-common.c | 6 ------
+ drivers/gpu/ipu-v3/ipu-prv.h    | 2 --
+ 2 files changed, 8 deletions(-)
 
-diff --git a/drivers/gpu/ipu-v3/ipu-ic.c b/drivers/gpu/ipu-v3/ipu-ic.c
-index 846461bac70d..acd76ecc5221 100644
---- a/drivers/gpu/ipu-v3/ipu-ic.c
-+++ b/drivers/gpu/ipu-v3/ipu-ic.c
-@@ -321,79 +321,6 @@ void ipu_ic_task_disable(struct ipu_ic *ic)
+diff --git a/drivers/gpu/ipu-v3/ipu-common.c b/drivers/gpu/ipu-v3/ipu-common.c
+index a8570e1bdf28..fa77e4e64f12 100644
+--- a/drivers/gpu/ipu-v3/ipu-common.c
++++ b/drivers/gpu/ipu-v3/ipu-common.c
+@@ -484,12 +484,6 @@ int ipu_idmac_enable_channel(struct ipuv3_channel *channel)
  }
- EXPORT_SYMBOL_GPL(ipu_ic_task_disable);
+ EXPORT_SYMBOL_GPL(ipu_idmac_enable_channel);
  
--int ipu_ic_task_graphics_init(struct ipu_ic *ic,
--			      const struct ipu_ic_colorspace *g_in_cs,
--			      bool galpha_en, u32 galpha,
--			      bool colorkey_en, u32 colorkey)
+-bool ipu_idmac_channel_busy(struct ipu_soc *ipu, unsigned int chno)
 -{
--	struct ipu_ic_priv *priv = ic->priv;
--	struct ipu_ic_csc csc2;
--	unsigned long flags;
--	u32 reg, ic_conf;
--	int ret = 0;
--
--	if (ic->task == IC_TASK_ENCODER)
--		return -EINVAL;
--
--	spin_lock_irqsave(&priv->lock, flags);
--
--	ic_conf = ipu_ic_read(ic, IC_CONF);
--
--	if (!(ic_conf & ic->bit->ic_conf_csc1_en)) {
--		struct ipu_ic_csc csc1;
--
--		ret = ipu_ic_calc_csc(&csc1,
--				      V4L2_YCBCR_ENC_601,
--				      V4L2_QUANTIZATION_FULL_RANGE,
--				      IPUV3_COLORSPACE_RGB,
--				      V4L2_YCBCR_ENC_601,
--				      V4L2_QUANTIZATION_FULL_RANGE,
--				      IPUV3_COLORSPACE_RGB);
--		if (ret)
--			goto unlock;
--
--		/* need transparent CSC1 conversion */
--		ret = init_csc(ic, &csc1, 0);
--		if (ret)
--			goto unlock;
--	}
--
--	ic->g_in_cs = *g_in_cs;
--	csc2.in_cs = ic->g_in_cs;
--	csc2.out_cs = ic->out_cs;
--
--	ret = __ipu_ic_calc_csc(&csc2);
--	if (ret)
--		goto unlock;
--
--	ret = init_csc(ic, &csc2, 1);
--	if (ret)
--		goto unlock;
--
--	if (galpha_en) {
--		ic_conf |= IC_CONF_IC_GLB_LOC_A;
--		reg = ipu_ic_read(ic, IC_CMBP_1);
--		reg &= ~(0xff << ic->bit->ic_cmb_galpha_bit);
--		reg |= (galpha << ic->bit->ic_cmb_galpha_bit);
--		ipu_ic_write(ic, reg, IC_CMBP_1);
--	} else
--		ic_conf &= ~IC_CONF_IC_GLB_LOC_A;
--
--	if (colorkey_en) {
--		ic_conf |= IC_CONF_KEY_COLOR_EN;
--		ipu_ic_write(ic, colorkey, IC_CMBP_2);
--	} else
--		ic_conf &= ~IC_CONF_KEY_COLOR_EN;
--
--	ipu_ic_write(ic, ic_conf, IC_CONF);
--
--	ic->graphics = true;
--unlock:
--	spin_unlock_irqrestore(&priv->lock, flags);
--	return ret;
+-	return (ipu_idmac_read(ipu, IDMAC_CHA_BUSY(chno)) & idma_mask(chno));
 -}
--EXPORT_SYMBOL_GPL(ipu_ic_task_graphics_init);
+-EXPORT_SYMBOL_GPL(ipu_idmac_channel_busy);
 -
- int ipu_ic_task_init_rsc(struct ipu_ic *ic,
- 			 const struct ipu_ic_csc *csc,
- 			 int in_width, int in_height,
-diff --git a/include/video/imx-ipu-v3.h b/include/video/imx-ipu-v3.h
-index c422a403c099..0bb1d714cbf5 100644
---- a/include/video/imx-ipu-v3.h
-+++ b/include/video/imx-ipu-v3.h
-@@ -445,10 +445,6 @@ int ipu_ic_task_init_rsc(struct ipu_ic *ic,
- 			 int in_width, int in_height,
- 			 int out_width, int out_height,
- 			 u32 rsc);
--int ipu_ic_task_graphics_init(struct ipu_ic *ic,
--			      const struct ipu_ic_colorspace *g_in_cs,
--			      bool galpha_en, u32 galpha,
--			      bool colorkey_en, u32 colorkey);
- void ipu_ic_task_enable(struct ipu_ic *ic);
- void ipu_ic_task_disable(struct ipu_ic *ic);
- int ipu_ic_task_idma_init(struct ipu_ic *ic, struct ipuv3_channel *channel,
+ int ipu_idmac_wait_busy(struct ipuv3_channel *channel, int ms)
+ {
+ 	struct ipu_soc *ipu = channel->ipu;
+diff --git a/drivers/gpu/ipu-v3/ipu-prv.h b/drivers/gpu/ipu-v3/ipu-prv.h
+index 3884acb7995a..16322b2137f8 100644
+--- a/drivers/gpu/ipu-v3/ipu-prv.h
++++ b/drivers/gpu/ipu-v3/ipu-prv.h
+@@ -216,8 +216,6 @@ void ipu_srm_dp_update(struct ipu_soc *ipu, bool sync);
+ int ipu_module_enable(struct ipu_soc *ipu, u32 mask);
+ int ipu_module_disable(struct ipu_soc *ipu, u32 mask);
+ 
+-bool ipu_idmac_channel_busy(struct ipu_soc *ipu, unsigned int chno);
+-
+ int ipu_csi_init(struct ipu_soc *ipu, struct device *dev, int id,
+ 		 unsigned long base, u32 module, struct clk *clk_ipu);
+ void ipu_csi_exit(struct ipu_soc *ipu, int id);
 -- 
 2.47.1
 
