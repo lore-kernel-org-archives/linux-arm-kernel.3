@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5593E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57685E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LKZLDmgXnxDTvedApqeYbhb4pkfn3581HbM1Qj4Qke0=; b=AvBEvQggC/WLFxVChiJJC9vjG1
-	P0tVn7zC9rudpPj15vF2HqC4F+D9b39HRkir9LcX4HxPhvCMBmFHlJ5zcfKSRU1wllwQ2HQbaozdf
-	H0A9L0Gel8AjB/ZyvYQPzQsaefN1970waNMt4LbMAHUW0LJPZzYDGf/1kUeqDvkL0zvSzPoNJ9GGU
-	aFNQf5WIneEtxV4re9HLZZ4DJZzWL1gYP7/kATUp11ugwpq2tVJ1duVvjtmiy+2z9abp90l98X5og
-	mruqm3WApBI1GPop+UgHuo5NJuZieEiasDWK5x9hB3pyBTw6OxCnT7uIZRClgUXLjp3jajXD/VIh6
-	LJup+T/w==;
+	bh=UEnUZO9THp2QmJQH4wK4+VQx1HvXZnRH5UGZIBC6hS0=; b=NXWVZRu0cBrkq1bD+Dl3V0j5Qc
+	RVqbQD/V4dHVPDNzhuAmpeiWkRlwF/UubyzrI+5pnbe0WVxdBJoHAH2rnY92+uYgWLLtD094LfJpT
+	bHBfUf9e7z24j3/XON2RomoEb/43Y/xc+X6gVsagZlLM2T7zaTaD2E44AXrHjBKiEC6syjwidGsY2
+	Es0oX7mBAz5EGPKC09lTTz2BK5/tiFRKqs4KLNZeBKWciYf0r+BiZFxWxjFkto1ZWMN9zdsi9GANv
+	FlwAbqE9ypRaeku6eiXz/KQpXZrm9p9qGc2U3Qimu6FbwfoWlyZjCNGAf8e0Ad3dFGg/y//n/KvM6
+	NcCHTPzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9m9-00000000CQe-03P4;
-	Fri, 27 Dec 2024 12:49:09 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tR9nH-00000000CYL-2vwk;
+	Fri, 27 Dec 2024 12:50:19 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9jv-00000000C9o-0LY3
+	id 1tR9jy-00000000CAI-33n8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 12:46:52 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-385e1fcb0e1so3828552f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:50 -0800 (PST)
+	Fri, 27 Dec 2024 12:46:55 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-436202dd7f6so81992995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735303609; x=1735908409; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735303613; x=1735908413; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LKZLDmgXnxDTvedApqeYbhb4pkfn3581HbM1Qj4Qke0=;
-        b=ajADrmJQNJlrt+6MC4HJxkYwCui7rJXYfgT2k1IZs/m/6HQKUAGwBQrmlRaMq7WQUX
-         LyVVDC7ApRxVz9bWW2Bb8bf+iIrizVCsDP4ltJBRqX2USKT3DS0k7/u2/nG/5+EO5vDE
-         RLEIq0hNmqxsJTI9XSU//scR7kyfHylXzwbvqNaFeyOhiU8wCbd/bsWkcoPsKl+Ykbik
-         ablUPpfy0DQ3xLq6vxApx5cMVcx92RuhV4oYI3iXHLTcwUy4jnuDjr2vdRQiF5WgZrNq
-         JSF/RE6VYOvLEyBj4sw3mrYnp7Ev2EaHUjiT8DtmpO8sWiWF6F5MYu1L+D/dPZCI0R91
-         Iflw==
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UEnUZO9THp2QmJQH4wK4+VQx1HvXZnRH5UGZIBC6hS0=;
+        b=Vw3ioUmFRzMVn0bZ0wkQPCQqZw3MCb26HTs+Mzc+KqWfQzR7Wv2KARmAz85Lb0fjc+
+         /4T4B3EWRx/rSLXVudxNV3nh9QsSzN9wujHq+lLEc30UvYVrX/z1ih1txYfUQ2mHu7mQ
+         4uHMvdOK5rscy79KYGNB92enDgmB9bfmKH65lgo/1PtQcbtCEwjkHGX6DiqLUgyrNVLN
+         bMrKXKaFw7LKYoVDTVdcFTmkiTi/oqD+7cOFGsLIrSDWj0+SdcjNkb+NPN7w6qMZ/Zrf
+         1mh4hGILR3quDs7qga5U0BKK6u3ldlMYeIUqZRdYlGRyFuAMEkNri22407NGuaOA2tKw
+         2AEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735303609; x=1735908409;
+        d=1e100.net; s=20230601; t=1735303613; x=1735908413;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LKZLDmgXnxDTvedApqeYbhb4pkfn3581HbM1Qj4Qke0=;
-        b=in+g5XSmtUcpW86/YYB/BJd3bCZ39kX2NnxiQ8ysJpyryRF/IupnOGvgO5JODnom4f
-         wvf8+UVaewr+L66BQ+7MXI2gD1uo4ZQeiEEdkV4gEaAVVr/l7m2/oEqlgOvahVu03pWB
-         8N8ooL8Aqc0SBiVu+sQZF8wIhKweBY5uZ7fTXvO7HUD+Di7DSxzX2uJuc5+8NFNR2XwZ
-         zjoM0zv4Lx/gyJ+voxNt95kA/YTOpGFfzbGxG+FghzlT/OEGoFrmPC58YlbCIxchOkFB
-         CIY9eEjzrYAOVIfwarFp73p1cf+JbCFKNvkGcr3wqKuF/snzkPEu9IhNSyZHY1UTNYex
-         ymzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVoXPCbCMSOoG2EdKOVcKahIjqRxj8B3Vw7NPYXP9HHFAciLqJuJyrDcUqCjJS3V1zEyiEWh8/sZuxOnPqW9ImZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKFQeQEtyR0XZTkAlriOZrE3e4UelS98T93UjvTX014klFYoYF
-	AhMF0SXmL//g9jtDJl4O0WiNFrCVC0635sFfyJAMTT4ifLBZIo/v0Gjk52WZjsA=
-X-Gm-Gg: ASbGnctzcNMrohyWjA1Syam/xTrjh2e3AxLRsavLu0FnCWI9UaxYNXl68Qaw1WzMbSu
-	FaTOYffmocPy+PfT47/JDmRLg8e1/QFFn4ONM55CBuxMKY8mUiQQOmvyeb3s/da1aoJuwjFbGlE
-	BivOjkjrCSnzSFxBFUgpxjsjBgPTn0s5Bkjuv6cMSSNAzC9yJZqS7fKTv7xy38+4Llfcc+J3Hx+
-	E7TSQKq8c5M6EDz7vKcM7cgJKEe8nQSgYMf4SNtQh/Xl5Lfs/YvDxjl
-X-Google-Smtp-Source: AGHT+IHUGw1dRb20Q7tB744vdpiCFmHJR9m5A9wf0UJHlaCM5WPSJo762Y4NDRosAM8fszG7xNcx2g==
-X-Received: by 2002:adf:a3d9:0:b0:38a:39ad:3e31 with SMTP id ffacd0b85a97d-38a39ad4128mr6360300f8f.57.1735303609335;
-        Fri, 27 Dec 2024 04:46:49 -0800 (PST)
+        bh=UEnUZO9THp2QmJQH4wK4+VQx1HvXZnRH5UGZIBC6hS0=;
+        b=SAJ1EuNaL5T+apSPMqM+sSNhl67MgRuk0WS8TyShmZozz7HHLtIU3D12NEsDWtTAoc
+         SJfA6dapScUgFQstSVow15bogH207wSW23IPUfEbPurV7TlagUALsuMLXTGaSNq3WLnZ
+         opbtUrZ/B9lUQgs04doWnDAHGLZLk/8TVph9UgIdUk33cstLpAI84hMbxvQML1E3WprZ
+         rai8A9b7zciIWmlDruoBgQOEBs3gwI4/IZZLOVRNX8ooylrEe3cvAnGYKhy6dSQLc9Fd
+         8+2IhzKi2EtgLNPfiPAuzaFa1WCj6FczSHQ+E3WIEANBk1sk+4rMF+qd3e9e25Gm7hnS
+         B3vw==
+X-Forwarded-Encrypted: i=1; AJvYcCVFq6jGMxbYDiQEbEhk5gXFBz4rduIKnIhzfXFvxInrOf4LmL//QCPDKaPvCXzd+IeR3ZK3NXTGA1SJUkUfnJcm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjNcDnH9n55GMaRRTsKKuiYkSVrI1C2sHn+aDuTBMcinLErO80
+	0oy72CJq71iby+LFuNDLDZrddKqwnRNg4sma7KkEXRxB1chsoIdRskUOmvNFK70=
+X-Gm-Gg: ASbGncuid2/HDSwh8Hf5EZnQ4lDzuQuVgxSqrw0uy9ukXL3hFc9bqpo+Z5E7sPLQqQ7
+	BKgtj+YCL0lOcQW/NwE6H5R7cRQ12aGWWOGUKB+5i129RcrOt4ktM2yxZHwrH6eIrNWDvxJnxdC
+	8VS4OBbxoG1U1JbYZstDwYv543tgXJ6Lk8Z3dZzeJrVcH/qK2pmW6nisViasEkVfaM59HoyaZKg
+	hUklWJXMINNi1Ii/pbf8VIs/yM73NIiefUyzngv0n/1zi01nAIsySnd
+X-Google-Smtp-Source: AGHT+IGQZ8FD/ZdXOaKiLcZYnvRp9y+mIdk15+UQCdfKpIMmCj7iHw3rYG0INhv1ebbbbwyJxTknkA==
+X-Received: by 2002:a05:600c:468f:b0:434:a815:2b5d with SMTP id 5b1f17b1804b1-43668b785ddmr206211385e9.24.1735303612885;
+        Fri, 27 Dec 2024 04:46:52 -0800 (PST)
 Received: from hackbox.lan ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Dec 2024 04:46:48 -0800 (PST)
+        Fri, 27 Dec 2024 04:46:52 -0800 (PST)
 From: Abel Vesa <abel.vesa@linaro.org>
-To: linux-clk@vger.kernel.org,
-	Marek Vasut <marex@denx.de>
-Cc: Abel Vesa <abelvesa@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
+To: Abel Vesa <abelvesa@kernel.org>,
 	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengfei Li <pengfei.li_1@nxp.com>,
+	linux-clk@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries for PLL1416x
-Date: Fri, 27 Dec 2024 14:46:00 +0200
-Message-Id: <173530350108.4140483.17886635259126245579.b4-ty@linaro.org>
+	linux-kernel@vger.kernel.org,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: Re: [PATCH V2] clk: imx: Apply some clks only for i.MX93
+Date: Fri, 27 Dec 2024 14:46:01 +0200
+Message-Id: <173530350113.4140483.13428387054202142135.b4-ty@linaro.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241112013805.333798-1-marex@denx.de>
-References: <20241112013805.333798-1-marex@denx.de>
+In-Reply-To: <20241225001443.883131-1-peng.fan@oss.nxp.com>
+References: <20241225001443.883131-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_044651_126664_B1E59404 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20241227_044654_769055_56F7C858 
+X-CRM114-Status: UNSURE (   7.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,18 +110,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 12 Nov 2024 02:37:35 +0100, Marek Vasut wrote:
-> The PLL1416x is used to implement SYS_PLL3 on i.MX8MP and can be used
-> to drive CLKOUTn clock. Add 208 MHz and 416 MHz entries to the PLL so
-> they can be generated by the PLL and used to produce e.g. 13 MHz or
-> 26 MHz on CLKOUTn output.
+On Wed, 25 Dec 2024 08:14:43 +0800, Peng Fan (OSS) wrote:
+> Enable the LVDS gate, MIPI DSI, PXP, FLEXIO and MU only for i.MX93,
+> because i.MX91 does not support them.
+> 
+> Update enet clk entry format to align with others.
 > 
 > 
 
 Applied, thanks!
 
-[1/1] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries for PLL1416x
-      commit: b7f67545ca9fa13f6e12debd68a92c1c664e2e3b
+[1/1] clk: imx: Apply some clks only for i.MX93
+      commit: 48806be086360846bb308c5ee21fcab8405a3da7
 
 Best regards,
 -- 
