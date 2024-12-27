@@ -4,96 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57685E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6135EE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEnUZO9THp2QmJQH4wK4+VQx1HvXZnRH5UGZIBC6hS0=; b=NXWVZRu0cBrkq1bD+Dl3V0j5Qc
-	RVqbQD/V4dHVPDNzhuAmpeiWkRlwF/UubyzrI+5pnbe0WVxdBJoHAH2rnY92+uYgWLLtD094LfJpT
-	bHBfUf9e7z24j3/XON2RomoEb/43Y/xc+X6gVsagZlLM2T7zaTaD2E44AXrHjBKiEC6syjwidGsY2
-	Es0oX7mBAz5EGPKC09lTTz2BK5/tiFRKqs4KLNZeBKWciYf0r+BiZFxWxjFkto1ZWMN9zdsi9GANv
-	FlwAbqE9ypRaeku6eiXz/KQpXZrm9p9qGc2U3Qimu6FbwfoWlyZjCNGAf8e0Ad3dFGg/y//n/KvM6
-	NcCHTPzA==;
+	bh=3UN1PfYXNv5GA5EWcDyG0SuUKxMnngW7vBJ/To7wqj0=; b=ZcIj12ImBUUZyrhzFlf5p8fHEm
+	n8egSRUpmgucoOH5MNOBfZrDqG5JrJu7BCYc3BzkdrZpHusQittYbZSTxj9918HY6pUl1A0LzyjGP
+	f6INJFPJ4uiJFkJxGKYlizVCrhLHz4hXSmmmuHQMy/uekkR8ctc2Li8Fy2zLfw0uJbhmJjikkl2+O
+	JlkDkQmuiJuNGcz3xKCI6temX0DR6oMGYmodhSXSZrn0Qt7pgQY0vnZwE/yFCjBtJdQLSY8Llez7S
+	Qie8i31dYk57CyXcG/PL+rVm2KGkwzb6oKhlgYLgrhT3hjnt6vdvh4ctE3DbX2WpkSojIq3MNDyJ2
+	G8FYTOfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9nH-00000000CYL-2vwk;
-	Fri, 27 Dec 2024 12:50:19 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tR9oQ-00000000Cfi-2Dhp;
+	Fri, 27 Dec 2024 12:51:31 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9jy-00000000CAI-33n8
+	id 1tR9k2-00000000CAj-3NRS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 12:46:55 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-436202dd7f6so81992995e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:54 -0800 (PST)
+	Fri, 27 Dec 2024 12:46:59 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43635796b48so43698005e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735303613; x=1735908413; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735303617; x=1735908417; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UEnUZO9THp2QmJQH4wK4+VQx1HvXZnRH5UGZIBC6hS0=;
-        b=Vw3ioUmFRzMVn0bZ0wkQPCQqZw3MCb26HTs+Mzc+KqWfQzR7Wv2KARmAz85Lb0fjc+
-         /4T4B3EWRx/rSLXVudxNV3nh9QsSzN9wujHq+lLEc30UvYVrX/z1ih1txYfUQ2mHu7mQ
-         4uHMvdOK5rscy79KYGNB92enDgmB9bfmKH65lgo/1PtQcbtCEwjkHGX6DiqLUgyrNVLN
-         bMrKXKaFw7LKYoVDTVdcFTmkiTi/oqD+7cOFGsLIrSDWj0+SdcjNkb+NPN7w6qMZ/Zrf
-         1mh4hGILR3quDs7qga5U0BKK6u3ldlMYeIUqZRdYlGRyFuAMEkNri22407NGuaOA2tKw
-         2AEg==
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3UN1PfYXNv5GA5EWcDyG0SuUKxMnngW7vBJ/To7wqj0=;
+        b=GhxE/6ExcTeE+VsAsgk5s9emTx+waruuW0Gp7Zx6gtaRpmFr8isTtBCmwv7M4YCvui
+         V6eyf5E2TDADke1hYYIAagqWE8pn90aEsYTcILsPNzBAMIzie57raKZHeueXn/BmQARn
+         WjeuoxGVDzEllFv/2mLKspJ2EaVGdWlD9Zkljk91Lfg/ZPW0LT0yGVHrBeaCzwjCMh6H
+         yHwCVeexpqyycQEF6435aRsUYI22cMAxAKE0ojx9uZgZfMMkZi1faNyL5iU75mGNEnV1
+         laGT6j8yF1tRbuqMSnlB29rWqahV67n4rQKmBcLnW/TbdFrglEi7GtZelza8kB5fT9ZY
+         jg0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735303613; x=1735908413;
+        d=1e100.net; s=20230601; t=1735303617; x=1735908417;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UEnUZO9THp2QmJQH4wK4+VQx1HvXZnRH5UGZIBC6hS0=;
-        b=SAJ1EuNaL5T+apSPMqM+sSNhl67MgRuk0WS8TyShmZozz7HHLtIU3D12NEsDWtTAoc
-         SJfA6dapScUgFQstSVow15bogH207wSW23IPUfEbPurV7TlagUALsuMLXTGaSNq3WLnZ
-         opbtUrZ/B9lUQgs04doWnDAHGLZLk/8TVph9UgIdUk33cstLpAI84hMbxvQML1E3WprZ
-         rai8A9b7zciIWmlDruoBgQOEBs3gwI4/IZZLOVRNX8ooylrEe3cvAnGYKhy6dSQLc9Fd
-         8+2IhzKi2EtgLNPfiPAuzaFa1WCj6FczSHQ+E3WIEANBk1sk+4rMF+qd3e9e25Gm7hnS
-         B3vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVFq6jGMxbYDiQEbEhk5gXFBz4rduIKnIhzfXFvxInrOf4LmL//QCPDKaPvCXzd+IeR3ZK3NXTGA1SJUkUfnJcm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjNcDnH9n55GMaRRTsKKuiYkSVrI1C2sHn+aDuTBMcinLErO80
-	0oy72CJq71iby+LFuNDLDZrddKqwnRNg4sma7KkEXRxB1chsoIdRskUOmvNFK70=
-X-Gm-Gg: ASbGncuid2/HDSwh8Hf5EZnQ4lDzuQuVgxSqrw0uy9ukXL3hFc9bqpo+Z5E7sPLQqQ7
-	BKgtj+YCL0lOcQW/NwE6H5R7cRQ12aGWWOGUKB+5i129RcrOt4ktM2yxZHwrH6eIrNWDvxJnxdC
-	8VS4OBbxoG1U1JbYZstDwYv543tgXJ6Lk8Z3dZzeJrVcH/qK2pmW6nisViasEkVfaM59HoyaZKg
-	hUklWJXMINNi1Ii/pbf8VIs/yM73NIiefUyzngv0n/1zi01nAIsySnd
-X-Google-Smtp-Source: AGHT+IGQZ8FD/ZdXOaKiLcZYnvRp9y+mIdk15+UQCdfKpIMmCj7iHw3rYG0INhv1ebbbbwyJxTknkA==
-X-Received: by 2002:a05:600c:468f:b0:434:a815:2b5d with SMTP id 5b1f17b1804b1-43668b785ddmr206211385e9.24.1735303612885;
-        Fri, 27 Dec 2024 04:46:52 -0800 (PST)
+        bh=3UN1PfYXNv5GA5EWcDyG0SuUKxMnngW7vBJ/To7wqj0=;
+        b=COLw2qPDmHOliYDoUEw9dehU413bqWPm9hJltmVa+AR6XPxZLg7LA4uHigJtOHhB+s
+         wWYtVp3Vtoyie3LQayIiSRTqXr+QH64yohbcEpv5KWaOfumY30X5RsJyP1ddfFFeQw52
+         6Dv/sSz4gJO980wrJs9ShC9wmUKqFKjiwJxZKMmc4LN4WXGuWMuMQ6gMpj4WZkcYFcBg
+         IYrZlGh790K1H0/vzXn0JjtJAcwddtr53ROSe5KevhCrbgcasHQixUTuOUQvup4tcuME
+         /zn+RwUgecOXGJE7HjwzPxf61/uR0zp8u6HHRNlkLnlei8q3YWPc3jai848OgTSLhL1R
+         8BQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXAxACIbgA2Ak/W1TQTpDGFlBjUyz+mYQo+xaVZXpSixNV/1hRhCOEoO4CpaVVBWZcLP5aGXa6/GB1pU4SVuBbt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwgSMMfJYn4S6RgG9fduhg3q+a9Pw9JrOpwRybeqUZ+ntkLney
+	uIaozy6kTfBNxg+4LsjOK3dkWtFqsHQtJcr4Q8Zdu2nPJDI/Xx5H6ZLjSMRfxsI=
+X-Gm-Gg: ASbGnct6sNcKYWvOF8CpC7mVUySPjjKMLDfejSCm+3kHcCFfYR4UMJGBGDAt6beEW4e
+	qfqbJ6UF7PzqlFg40+QhFUUZA9w5i/p2oZrUimtMZUzgMrI4SmOrqKEamVh7JjB9S997fmcKSGt
+	Ukyah70+m2BxkQqkYBHfNldP4jYQ3rCCPzkxBM2TwD8QVUDPNG+1M4jSPZ0Xwcpa+eu/T+ZXnpM
+	gJxwSqJT2uRDMnnfSiOULRxXf4t7dl2wizqbRabidOVUMuytXQ2Wy2Z
+X-Google-Smtp-Source: AGHT+IGUz2NO9FEIpAO3AKn3yA2N+FizKlvW523dxOyulaD8vq0KUtWqJu6Qzescg3PJZW/KKP45Nw==
+X-Received: by 2002:a05:600c:585a:b0:42c:baf1:4c7 with SMTP id 5b1f17b1804b1-4365c770795mr216692485e9.4.1735303617020;
+        Fri, 27 Dec 2024 04:46:57 -0800 (PST)
 Received: from hackbox.lan ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Dec 2024 04:46:52 -0800 (PST)
+        Fri, 27 Dec 2024 04:46:56 -0800 (PST)
 From: Abel Vesa <abel.vesa@linaro.org>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengfei Li <pengfei.li_1@nxp.com>,
-	linux-clk@vger.kernel.org,
+To: abelvesa@kernel.org,
+	peng.fan@nxp.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
 	imx@lists.linux.dev,
+	shengjiu.wang@gmail.com,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: Re: [PATCH V2] clk: imx: Apply some clks only for i.MX93
-Date: Fri, 27 Dec 2024 14:46:01 +0200
-Message-Id: <173530350113.4140483.13428387054202142135.b4-ty@linaro.org>
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] clk: imx93: Add IMX93_CLK_SPDIF_IPG clock
+Date: Fri, 27 Dec 2024 14:46:02 +0200
+Message-Id: <173530350112.4140483.13164625485950770989.b4-ty@linaro.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241225001443.883131-1-peng.fan@oss.nxp.com>
-References: <20241225001443.883131-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20241119015805.3840606-1-shengjiu.wang@nxp.com>
+References: <20241119015805.3840606-1-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_044654_769055_56F7C858 
-X-CRM114-Status: UNSURE (   7.60  )
+X-CRM114-CacheID: sfid-20241227_044658_845254_353922D0 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,18 +114,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 25 Dec 2024 08:14:43 +0800, Peng Fan (OSS) wrote:
-> Enable the LVDS gate, MIPI DSI, PXP, FLEXIO and MU only for i.MX93,
-> because i.MX91 does not support them.
+On Tue, 19 Nov 2024 09:58:02 +0800, Shengjiu Wang wrote:
+> The IMX93_CLK_SPDIF_GATE also controls the gate of IPG clock
+> and root clock, need to define them separately.
+> Otherwise driver disable IMX93_CLK_SPDIF_GATE will cause
+> IPG clock is also disabled, then register accessing fail.
 > 
-> Update enet clk entry format to align with others.
+> changes in v3:
+> - add fixes tag for all 3 commits
 > 
-> 
+> [...]
 
 Applied, thanks!
 
-[1/1] clk: imx: Apply some clks only for i.MX93
-      commit: 48806be086360846bb308c5ee21fcab8405a3da7
+[1/3] dt-bindings: clock: imx93: Add SPDIF IPG clk
+      commit: 32e9dea2645fa10dfa08b4e333918affaf1e4de5
+[2/3] clk: imx93: Add IMX93_CLK_SPDIF_IPG clock
+      commit: 6a7853544482e2336b5b8bb9a4b964f9d687f290
+[3/3] arm64: dts: imx93: Use IMX93_CLK_SPDIF_IPG as SPDIF IPG clock
+      commit: 570b890e66334f283710af36feb2115f16c7a27c
 
 Best regards,
 -- 
