@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0815E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:45:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F137FE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZCd0ACy/nJ3aPlOXvjiIfdMWMqaxSbSsMDhebyaBS4=; b=fYoSGEC0o2uiTji3QJvZwan/sH
-	omejkEEuH0RVr9e+QsYHMHNn2mppk5hhK08pIB3zHd9wAnra+VLc8papEmiyJLgN7OABYUeIWeJAk
-	oE0WZbNGufFrMP4YZhRk+xhRyYds19GRfZteo6YILBjXQC7Y5BPeYsDH7r9R/B4xf5+AHnFTFqaEm
-	y3a1j0xoIlQhMastyL/NLpGoQcXxyMy3eLoJa+sc8pRlldijtdGS9gHdNMK4pafzoNT2VjfuubX5M
-	miW9vYnmskyfhS+Rk/Hp11i3PW/1z4tfjbD9Jw089JI6NXtYDTjIH4qNU0yyIdmNf8954rmYc62G1
-	xITNNhkg==;
+	bh=Taxkd1fzYnCoq6iB+7ASSYph4vaDdSZYJa18jegXyUQ=; b=c7cmR+EYxXZSm7HRuqv8zQNOxB
+	HR0T2vpAU6nUKaXf2qcuxOMU4Zi2+VAVSe5cY4wk4bpkgQcGKewf6lB1hscHFFs1SzejnKqwUgoHd
+	4/+2PIuBG1UuVUdyIemK4Bo9usNG6n0/FUgQk0FwZ6cUuNvNKyduUZ4osGoKYJBNm2/N0bsaGQPnB
+	CC0qjuKRWgfxFwrifFLrU2njdBubJ265YKEJTtEj/1k7EjEuS1j7qHCtOCjjGl7KZWdJMdxcZvQMe
+	OmOdiEA/zn61906D3Ve0Sl7rsbfqjrZhhoVjaCVzyY8X8AYpMtFm+UQvVvYOyLzQPf/w4oSr+sNju
+	0dVwazaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tREOg-00000000kKl-3qup;
-	Fri, 27 Dec 2024 17:45:14 +0000
+	id 1tRESE-00000000kaS-0VLN;
+	Fri, 27 Dec 2024 17:48:54 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRENW-00000000kE8-1kR3;
-	Fri, 27 Dec 2024 17:44:03 +0000
+	id 1tRER3-00000000kW5-0wCG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Dec 2024 17:47:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 48F655C337C;
-	Fri, 27 Dec 2024 17:43:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D0A1C4CED0;
-	Fri, 27 Dec 2024 17:43:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 17F765C59C8;
+	Fri, 27 Dec 2024 17:46:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE7EC4CED0;
+	Fri, 27 Dec 2024 17:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735321441;
-	bh=rVom9/ZZasClWq+RMKE/v1dwwP+Hq6n5W8W09rP7IWk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d/lIsLKIkBgXKQ34U15BY9lLur9y54xTZbPqCUrcmmK2ht5tdH6XqQTBo2iLHC8IT
-	 bUk77LLzfY/XK+BTYPxUmSv5IV+d7yhtyEWHZzthhrcE3Lzx08Sn/D+rQOaQFgfPkW
-	 IjCrvyFqLKyEDWzHv6y8jY4XcXEroGzvmNf7RSsK01wrFBESprsDn/GIcLt4RlEQEY
-	 UcT9GOtN6QD3rN/PaaiouEAqbPdDRkZaJbyPnaL/4/y6mDB2BpUrsrEnWz9946MTv/
-	 87rxQqBFe+U+WLGNikhg91j7MahXyIEO0XrFvFDYH7xGIEM5DZNLq0SRRg0dci09NS
-	 4z+1VI1TDGtNg==
-Date: Fri, 27 Dec 2024 17:43:54 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Parthiban Nallathambi <parthiban@linumiz.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH RESEND 03/22] dt-bindings: clock: sun8i de2 clock: Add
- PLL com clock
-Message-ID: <20241227-swept-seduce-d21e6537ddfc@spud>
-References: <20241227-a133-display-support-v1-0-abad35b3579c@linumiz.com>
- <20241227-a133-display-support-v1-3-abad35b3579c@linumiz.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0jjBOv89hldoMdhb"
-Content-Disposition: inline
-In-Reply-To: <20241227-a133-display-support-v1-3-abad35b3579c@linumiz.com>
+	s=k20201202; t=1735321660;
+	bh=5ybEnyvzb1jTkiqCHqAb4mfATDyONGwSfj6K7gcz2G0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S5ckq9ZJbaAQ+L3YSdtyVi49YcRv7EneyjkA5f1o39kQgevZCZ7BSni6MGbAplKOB
+	 sem9kV1kv15Srt1KF0IJnXLbMlSglbHj2TpdSYwlfjd147xclFspz1mve9h28hVdCO
+	 mD7so8BjfiY+59zy+69dan46Syfj4RuJ3y86M+CBJHRkaDTp4yWiHcc+HYPMpoalUW
+	 L/5QF5gcI9haNQDZyCl/sWFrKzFvlA5tlrEJqD+w29+pdNNM2AUwgvholWKaxVWqNI
+	 09CQshmL1AgOvNZkCyGe7qh8O5M1F8qGqO8a1qKoK1n70x7lERnGrJIyqxcurHiSjR
+	 2uff9X/t7MDsQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tRER0-007GkL-21;
+	Fri, 27 Dec 2024 17:47:38 +0000
+Date: Fri, 27 Dec 2024 17:47:37 +0000
+Message-ID: <878qs1ow5i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH] arm64: Add basic JSON register parser
+In-Reply-To: <20241225185711.582648-1-maz@kernel.org>
+References: <20241225185711.582648-1-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_094402_556971_C150C9AA 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20241227_094741_313921_CA902111 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,67 +85,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 25 Dec 2024 18:57:11 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> We currently populate the sysreg file by hand from the ARM ARM,
+> resulting in a bunch of errors being introduced on a regular basis.
+> While there is an XML dump of the architecture produced on a quarterly
+> basis, the license that comes attached to it excludes any sort of
+> open-source usage.
+> 
+> However, ARM has recently made available a JSON dump[1] that contains
+> a reduced set of information under a BSD license. This has enough
+> data to extract what is relevant to the sysreg file.
+> 
+> This is achieved using a JQ script that I cobbled together over
+> the holiday, and while it has a number of limitations, it already
+> works well enough to extract useful data.
+> 
+> As an example, here's what the script returns for TCR_EL1:
+> 
+> $ jq -r --arg REG TCR_EL1 -f arch/arm64/tools/dumpreg.jq ~/Work/XML/2024-12/AARCHMRS_BSD_A_profile/Registers.json
+> TCR_EL1	[3,0,0,2,2]	MRS
+> TCR_EL1	[3,0,0,2,2]	MSRregister
+> TCR_EL12	[3,5,0,2,2]	MRS
+> TCR_EL12	[3,5,0,2,2]	MSRregister
+> TCRALIAS_EL1	[3,0,7,2,6]	MRS
+> TCRALIAS_EL1	[3,0,7,2,6]	MSRregister
 
---0jjBOv89hldoMdhb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The eagle-eyed reviewers will have certainly noticed that the
+encodings have a couple of fields swapped. I've since fixed this
+locally, together with a bunch of other issues. I'll post v2 in the
+new year.
 
-On Fri, Dec 27, 2024 at 06:30:52PM +0530, Parthiban Nallathambi wrote:
-> Some platforms like A100/A133 also uses pll-com clock as additional
-> clock source for the display clock. This is not documents both in
-> user manual and DE 2.0 specification. These changes are mainly from
-> vendor BSP.
->=20
-> Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
+For those interested in the current of affairs, I've pushed out a
+branch at [1].
 
-Ditto here, the new clocks are only in the new IP you're adding so this
-patch needs to get merged. When you merge them, make 2 clocks all that's
-allowed for the existing devices and 3 clocks for your new one only
-please.
+	M.
 
-> ---
->  .../devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml         =
-| 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t=
--de2-clk.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83=
-t-de2-clk.yaml
-> index 70369bd633e4..3e00905b66ca 100644
-> --- a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-cl=
-k.yaml
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-cl=
-k.yaml
-> @@ -39,11 +39,13 @@ properties:
->      items:
->        - description: Bus Clock
->        - description: Module Clock
-> +      - description: PLL common clock
-> =20
->    clock-names:
->      items:
->        - const: bus
->        - const: mod
-> +      - const: pll-com
-> =20
->    resets:
->      maxItems: 1
->=20
-> --=20
-> 2.39.5
->=20
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=arm64/dumpreg.
 
---0jjBOv89hldoMdhb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ27nWgAKCRB4tDGHoIJi
-0laCAQC3f8JN+f/M1J2eeAFVurWF99YyrOoc11b9kgfjtf1thQEAtw4OLJJ4yje4
-qC320wF5zcGFYDEFFJjXa4TfgosTGww=
-=cfWT
------END PGP SIGNATURE-----
-
---0jjBOv89hldoMdhb--
+-- 
+Without deviation from the norm, progress is not possible.
 
