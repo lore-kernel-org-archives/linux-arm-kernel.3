@@ -4,62 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B78EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 00:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B750E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 02:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CsCNlLrArzJoccppkpv+1qIBDRyKFdeDCzOUv5xdZqI=; b=uGVNzknM7SuCz27goumQW+suqB
-	LpTKHM1do3xzZs7oXrEE4pbrHO3U9cMZ9JFBDugPEALMtGTbZEBHsf8YIS9NaAfFF2ZbbRXtvl6Nt
-	lXO0VUjfl6N4rma6c2KkXG+KuLMnDvU76nsUaK577PwyWan5prH13BehCt+OfNMupjHfZ6YK481Xg
-	hRSh3/l326IYpNo3DGjUOJc5iYtH+dAuht4vVPz/g1AvW8CMxlOdu4E7aOcOJS6oFR27txlofKQqu
-	/quZafzOis6W9swP4nztjcCQhHW3q3bdKfpd56TBSJ8z1JytJVcobHnVOAX4U60jYDe0RfkrPsne7
-	vJpVZrNQ==;
+	bh=K2kuRrH86kd3ehtlfsGCmQsndZNzt2N5y/NPYO5rsL0=; b=ThRfv/iHbBhBaq7B065tG78xY5
+	hk/VUyFZfhuWRcAp0/wCHLkIVoSuX7IrH9g8Bo/s31vb3RF3XzLq8UUpf9ppYZcfGhTtHlrwAKNUH
+	kyfay16Dd6Q6H+5mwGWmeqEejBEzl4rGH80FeDL+JyMDl0kZ2rTdIkLeJyrjAqAj+K6YIt6LDMrcP
+	Yzv9ssB7VWFHH8VmGoLFp5GxWcbvgTRyW937lDD2+L/44kmjzewHm7QjbTOYYlTiqJIgh2/8n06GF
+	xZ3k4lGd8Avovq5/yVizoWnzGl6WOXPFtkUuIcRuMW3MUV/SbWUY/R2J1qxXuYmRDehPFvb7jk6MD
+	Zi5evigA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQyOF-0000000Gl0n-2rcE;
-	Fri, 27 Dec 2024 00:39:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tQzyu-0000000GsXW-1RKs;
+	Fri, 27 Dec 2024 02:21:40 +0000
+Received: from mail-vi1eur03on20610.outbound.protection.outlook.com ([2a01:111:f403:260c::610] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQyN3-0000000GkrB-1mUe
+	id 1tQzxi-0000000GsRr-2boW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 00:38:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CCB975C5C43;
-	Fri, 27 Dec 2024 00:37:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E51CC4CED1;
-	Fri, 27 Dec 2024 00:38:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735259908;
-	bh=QYzQx3fJtxFf/kFN+hqMx+i8Lscl27dsjoLsccZaqxA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pdtl9TsNLp09G/nHT+TFIxQvhXeMRS++6sBC7JCR/0C8/v+HyAOrQcgY81ZoBwDuX
-	 sag9tS+bHXFqNyFeralGwBzFUBydtZgeuWhwlWFEbm5w3kOjovSZgsB5841zQ/OLwy
-	 TxNXfZM5QQajKBBMbAMBL0oRn0Sp7mQLjnG/oSzqYY0+xtnKcUBwVmBCvlO/IVLn8h
-	 /ubzetD/Qr5zLk9mKqGTiV3pATBkNVpIrzUsZo4ALAlrQg0L/me1Ra70pxi4cCXGeM
-	 M/NhEKZFFTeK2DMOCrB1bYkuf5jXgGdePvAx+PPHThgWm+S8mtj6WpM0JKNBs2EaTc
-	 VzbN8nxqJQA0Q==
-Date: Fri, 27 Dec 2024 01:38:23 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: carlos.song@nxp.com
-Cc: aisheng.dong@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, sumit.semwal@linaro.org, 
-	christian.koenig@amd.com, frank.li@nxp.com, linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v6] i2c: imx-lpi2c: add eDMA mode support for LPI2C
-Message-ID: <ly7mzakvws75xcjncm6x24rie4xewt6ll4dlkz2kl5cblihi6n@7kivy2uqdwvp>
-References: <20241125142909.1613245-1-carlos.song@nxp.com>
+	Fri, 27 Dec 2024 02:20:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tvxbvV6GcITmoynC8uv2Cz/B+BYW+DcTnIj3InDjdSL2D66L/lR4PZUDZGO1B8hdxzMvbUc55MDDvZvQLp3wAjXQF/BVlbeMnjjWyF91gy2XoysXx5vSvgw43Fcqdjy95Hd/dVYHSMyY+OlykorIH2TqjIbpIFfmdn6657p/V1ODlbiGVNU8yanj0xsJlNKpPDlMsU3N21SeqDGacBAWg1GzwiLBPnjqumYHzh2S3wIlkXAT9fzVVLvfQ0n1FycoNMWer/2ra5DFXGylaPUQ1k9CeAYjPBeuh3LcJxMhrk4fnGb+eyRp78q7/ogxdIKANDCQtml0l+NEQST7FW9bJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K2kuRrH86kd3ehtlfsGCmQsndZNzt2N5y/NPYO5rsL0=;
+ b=Fz/NOzHcF6/b/FDG8/qfIMcSI2Dfgytesw+GX0p8Yvmkzdj/G97EiUb/ADFV29sCs5C3nmfB5P3eIipOP8yDnedfXrx5UQQqCOKzF0I7scE6Vd//ty9+zBCRwxUYV+ZQf0B/5E4iPLwW92kh62IXy1ftN4XDOTjFQ1Qz2UnNmksJv7He35HWKmrohq01Y9SSqrecN1OyyJoRJTDVktAv/orEAAWzdlfN3QG1ArH2cuFdFfXtYxglUbfeiHoWHC/93APZUzuQNoK1u9htuIjBc27yDFZg35qDVdkkucJWWyjTkTxNBj+IXIxBJEM6LkzEGdPY82SAjutxHWXpDlLkWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K2kuRrH86kd3ehtlfsGCmQsndZNzt2N5y/NPYO5rsL0=;
+ b=T84lYoGb1LQyao/iYRQOq0AIvMKowvsGszV1Xkm3sOWvNzKlie3SFehCFRoIKHUw34YpX11+6bW7OURXq2VcbXdoq3fjwP0l5R0QDElozhbwnAsDX+E9se3sSvGeRM7e+wQWs0Sx1hZVDR22q6KuB81gEZdsi5wtyD34Yv2Wywr9qTqwOuDv30c9dv499bHsY4RG3Tsw8dcqkBia34QY4msfNbHa933+NoCSgcs+nUIGo+kTwUNqia6/RmRxraxqsn2vzhaLUPesW5XBb48sSouq+iLqAjqbTLtabX9ePf/Mxr3hzlXr5irmloX84scvgjuQ/bP/BcJ2iQq3CnpEvQ==
+Received: from AM6PR0402MB3944.eurprd04.prod.outlook.com
+ (2603:10a6:209:1c::19) by AS8PR04MB8166.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3fa::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.14; Fri, 27 Dec
+ 2024 02:20:13 +0000
+Received: from AM6PR0402MB3944.eurprd04.prod.outlook.com
+ ([fe80::4ff3:c2bb:2605:b72e]) by AM6PR0402MB3944.eurprd04.prod.outlook.com
+ ([fe80::4ff3:c2bb:2605:b72e%6]) with mapi id 15.20.8293.000; Fri, 27 Dec 2024
+ 02:20:13 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: Aisheng Dong <aisheng.dong@nxp.com>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5] i2c: imx-lpi2c: add target mode support
+Thread-Topic: [PATCH v5] i2c: imx-lpi2c: add target mode support
+Thread-Index: AQHbWAXcbn692cFIIU+5wUvSEOkwjQ==
+Date: Fri, 27 Dec 2024 02:20:13 +0000
+Message-ID: <AM6PR0402MB3944A4CA255230C2D62D7B5DE80E2@AM6PR0402MB3944.eurprd04.prod.outlook.com>
+References: <20241125143140.1613282-1-carlos.song@nxp.com>
+ <vfesmhe47tj5cwib4dl5zxxy7sn5g4swjg7tozcv2otcqgsjpd@sjj35a7c5fhu>
+In-Reply-To: <vfesmhe47tj5cwib4dl5zxxy7sn5g4swjg7tozcv2otcqgsjpd@sjj35a7c5fhu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM6PR0402MB3944:EE_|AS8PR04MB8166:EE_
+x-ms-office365-filtering-correlation-id: ad1bb9a6-e6b0-4b9f-c4c5-08dd261cfedb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?ryTVQ8v2afRgglU+lvOtBlb7M2ganWFSmkWf6OHoyns4ylKJUqMBZpfDi3SM?=
+ =?us-ascii?Q?vRRWJGSOnpEpxtKFAUWw+QEup/1iKbK3OiFWTHdrNvWoiBQfXnnoMX67/8JE?=
+ =?us-ascii?Q?EGuX3WG1p8rQZ4xN6VXnnGL3kCbCO7hWgxiJBmYUYHUrYNR55tXS1UWaknDd?=
+ =?us-ascii?Q?KuKI5ZRrNulvgF9v+up4J2TRFUc+B73a5uEfhkYLevdDehWG2vGolv+hN8WW?=
+ =?us-ascii?Q?X7wUVXvJGFEmn4MMzI/HGKy3lQ30pSN0D4B1cD7ajq2bUc604gwuLi+aZC2z?=
+ =?us-ascii?Q?yfiw+y02Fnu83rghz41LaB5nAVPtoPr3GtcbjGzqNv6RMx1wXoA80HCeHE+e?=
+ =?us-ascii?Q?kuIsnc+nq4MlEkSMBqbdPC61Ih8hN0Ebf0iXKkQUpJJnG6bbGomj9o45wBb1?=
+ =?us-ascii?Q?TKfpQSz0WWq15mMYlEy+I3YSfnJiziJyRSK7ObCD1UU6QvJ5teM/oz8qu3qd?=
+ =?us-ascii?Q?tx8mpKHJzh0iOLSUGFa0dutmuc0YSGyDJTUKnFEhl9ase4Olkp+SwPOCk+g4?=
+ =?us-ascii?Q?/PlTzeMKzGTot0bP8LJEAHMYzAxbXchdmHiQsu6ZSMxRTch48rN2nGGWZGsc?=
+ =?us-ascii?Q?xAhGlnt+M/KxAXI5cVkZQkTqqCh8dJVXwHwcbBalnO9H9HR5SFLMFMMQwwAG?=
+ =?us-ascii?Q?1QUCmULcKrkz59hq+aZyjUJgmrMSeCDDc7Y5qQy3VHA/0rwh96QE6ltPC90d?=
+ =?us-ascii?Q?E0AO8C/hXfyjHG36/7i4/R4rbgfOpm/ppwUDoDRDkMlUrTjGQfMVaQPLLbim?=
+ =?us-ascii?Q?SjpWup060K4V24vcu0GijvZDBmQfsu9DE1laYDwRaZVuHZCnA/vlfu+yAtiq?=
+ =?us-ascii?Q?f50e8BJ1P7Zp86FQvIPDbRDliZCi0aj5056ubKqWl0LckepKqqxuRaBYvdx1?=
+ =?us-ascii?Q?S/9k2EIhKMo/zJhYS+SVW9cf2kT30hZLTA1uvH8q1Kbe3p9zpm3J5ocR/hF4?=
+ =?us-ascii?Q?IvJyCb4jFx4y5aHd6pPc/Ya7oFd7fSiepyAE8gQTdTlTiGipdgpZSGTth0Jo?=
+ =?us-ascii?Q?JBQkhiH7ROjtk+IMp3Hc7fWu8yLDenXg7PW98K1ORRBgrfMjHdWAyx/zHF+F?=
+ =?us-ascii?Q?I2FCgTHZeKsXT/t7Sja0Ymb0ZK83Z4NZH27+TV2naUrzx+Se4kas0D8qySgO?=
+ =?us-ascii?Q?94uyohcx1Nn/NbnXjC0fxzoxrHrvGHMbdwn04lVQJMOBZ/VVb7GqoQwXSnUa?=
+ =?us-ascii?Q?WCyy+IIqgwit29PeG04d9sizs4Da5EziKPfkxV3WAKxREiMiHK4+Y/JZxW7m?=
+ =?us-ascii?Q?ljD9AwMXEvL/unVcslFUcjZLHjEI7+P5ExlNMBJaTsXtS+Ib7xv3Kwe7keI1?=
+ =?us-ascii?Q?dRWCDpXkms0HzEdSeY5yUKej5oNWaQ05DX2raPzmQUtj4DKekX+OdLhS+PYP?=
+ =?us-ascii?Q?Z5PMofYv4gBKGUUWzYuWLvFYWZ8WGuvf4yeFh+4OhlUmJotguA7GrqidYKCz?=
+ =?us-ascii?Q?qiyNdTu8nWE5TeYeYPbMdkyKplkPVehq?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR0402MB3944.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?FbCVSETlG1FqZler+KfcPK5x3T4QI72cavHXfdHzghhgXyQ3j93KR0lJ5FDX?=
+ =?us-ascii?Q?r+TQDMABinOKqJQMg0puexJ/BARyO8mARb4Tnayb8mjyNTAZ/ad2izfip/tr?=
+ =?us-ascii?Q?tcwnUncT703GUhrKjoHbOJWSd0pUMBuLhmmFJcoz0tH4KcIqRWATZsAgnWWJ?=
+ =?us-ascii?Q?UKpRipVC7hlarbB1lgn85iG4E4ACFD2XOg+k5B5rmr1T57ooezsWbLZ9//Wl?=
+ =?us-ascii?Q?Y+aPfRYKsZctPsBssYFgbHC6nbbL/+qoDmZOl/D7ePQRrMzKnP6FOFK62+VV?=
+ =?us-ascii?Q?gymXIdtyvikMMchl9CUXbTwO6dHxg6WXOHSklXrxCjFPkB+VqHPZT+n4I2R3?=
+ =?us-ascii?Q?rQIC0hrlv87w567bpeimHjd2u6QOvEQv43V+DmibwwVNi95HnzvTfc7vKDOm?=
+ =?us-ascii?Q?BAiqRJ3hE732IN1lFL54LRRGd4WxTeiPdyoFy4Dek94nmJkmiITtYDSMnpYI?=
+ =?us-ascii?Q?2spGhjgSWfyXWWhsYFZ7bAIDkuOH5Bs9kz+LkUSM6Hbkyq9XdoFe4/z4/8tl?=
+ =?us-ascii?Q?z8j0SidSXFVVS2N92DXfNCKoczi+37RqIU7VLUi2dJDey3AiZz5cepdhrWt0?=
+ =?us-ascii?Q?+7+pyP+3Yvr7vIi52ltbqZm9juwuJpXiUGtjuQ1X2B1xz8HekVubftk0cDyl?=
+ =?us-ascii?Q?382b6wxMTPwabQZAZK+0oQSXLPC7nieEH+4ujXb8XrVgOiCTuTbL/n0EqSZi?=
+ =?us-ascii?Q?6BpyDUvWoiOAwBCXm8os77Ol/7L6mZ9aNR/U7E5/TvGHJKMwP++/vXddq08v?=
+ =?us-ascii?Q?rnkvwvtb6sU3kF7xfa/ajpuR/RNnTOtXLoZTd55josquUzIdswRq22wXV2HG?=
+ =?us-ascii?Q?AN0ouzvYwFNG6HY2MjQNHkKsFmrHlGsKH26YHFrh5WZWK60Kqu3LfaPfTr/w?=
+ =?us-ascii?Q?m7Fdqn+L/hZRsvCZ3PGY9Ylt+jfY9WGjRmAB/EPo4/t/zj4Rh24zVFbHnSfR?=
+ =?us-ascii?Q?2JNEo3uco9yoFCV0AJqrQnSB9TA3Oq4Zsu006uOgXUeTH4fiNt3US8dmHicv?=
+ =?us-ascii?Q?jRXekIUU/BGAyDA6byyKbVmEU7D32v6miswgxkOsOdVI6ZVKqlZDrHlRadin?=
+ =?us-ascii?Q?zTWWjtJdsOEU+nWFst63PnJMWYC3Uu4UNW/9OxKgheYExmb99oN8jDJjyf2E?=
+ =?us-ascii?Q?bhP7UfAvoiB7hqnx0nMeQ4TExtphV5Z975mDNG/JSiGyUa/POhVC+75Vs5Ju?=
+ =?us-ascii?Q?k+OGk/yG1ic3L3t/+2heFz3SvU2p5NOyqoSATSvnF2MzHMwwV7oNCa6rhYng?=
+ =?us-ascii?Q?FM9pSJ1R5ZB6rM6veDaDGTwIKImZwJlw6NVipSnTDUB1ApMYZBpNgFDmoFQA?=
+ =?us-ascii?Q?FDVNmeN92oJ1meLhstMdezMhv4pb4OMF5cNwg1SHlUctPcnyWR7n32vCIx2F?=
+ =?us-ascii?Q?7ylWXxbWTlhLx/0lQLbRbjWj7AKFOrQSWvX4ju6Z56zfwxAV5bRxAcL0XI36?=
+ =?us-ascii?Q?RnHcwLL/mlurKLx0KKKb4qk9dy/lKZrpb1KD7hap26nVnogzdCYagWMccld9?=
+ =?us-ascii?Q?LZ9qTz5SNWZDK4ZyITxCc6UNOjC6TBy0AUyI/P4e6DDYmViFjoJRu1j83XsQ?=
+ =?us-ascii?Q?XSmz93m3juVkPgbU4ZM=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241125142909.1613245-1-carlos.song@nxp.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR0402MB3944.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad1bb9a6-e6b0-4b9f-c4c5-08dd261cfedb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Dec 2024 02:20:13.2617
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wz92DcaDXiLCYS0NTc6yRtUot2/neef0NAnyYe2nJ+yjntmaCZVFJyTut0dsuTqUO9h9kw0Z4XEyOlMbyoNZxQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8166
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_163829_511883_CC914116 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20241226_182026_701466_91A47FF6 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,68 +165,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
 
-On Mon, Nov 25, 2024 at 10:29:09PM +0800, carlos.song@nxp.com wrote:
-> From: Carlos Song <carlos.song@nxp.com>
-> 
-> Add eDMA mode support for LPI2C.
-> 
-> There are some differences between TX DMA mode and RX DMA mode.
-> LPI2C MTDR register is Controller Transmit Data Register.
-> When lpi2c send data, it is tx cmd register and tx data fifo.
-> When lpi2c receive data, it is just a rx cmd register. LPI2C MRDR
-> register is Controller Receive Data Register, received data are
-> stored in this.
-> 
-> MTDR[8:10] is CMD field and MTDR[0:7] is DATA filed.
-> +-----------+-------------------------------+
-> |  C  M  D  |          D  A  T  A           |
-> +---+---+---+---+---+---+---+---+---+---+---+
-> | 10| 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
-> +---+---+---+---+---+---+---+---+---+---+---+
-> 
-> MRDR is Controller Receive Data Register.
-> MRDR[0:7] is DATA filed.
-> +-------------------------------+
-> |          D  A  T  A           |
-> +---+---+---+---+---+---+---+---+
-> | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
-> +---+---+---+---+---+---+---+---+
-> 
-> When the LPI2C controller needs to send data, tx cmd and 8-bit data
-> should be written into MTDR:
-> CMD: 000b: Transmit the value in DATA[7:0].
-> DATA: 8-bit data.
-> 
-> If lpi2c controller needs to send N 8-bit data, just write N times
-> (CMD(W) + DATA(u8)) to MTDR.
-> 
-> When the LPI2C controller needs to receive data, rx cmd should be
-> written into MTDR, the received data will be stored in the MRDR.
-> 
-> MTDR(CMD): 001b: Receive (DATA[7:0] + 1) 8-bit data.
-> MTDR(DATA): byte counter.
-> MRDR(DATA): 8-bit data.
-> 
-> So when lpi2c controller needs to receive N 8-bit data,
-> 1. N <= 256:
-> Write 1 time (CMD(R) + BYTE COUNT(N-1)) into MTDR and receive data from
-> MRDR.
-> 2. N > 256:
-> Write N/256 times (CMD(R) + BYTE COUNT(255)) + 1 time (CMD(R) + BYTE
-> COUNT(N%256)) into MTDR and receive data from MRDR.
-> 
-> Due to these differences, when lpi2c is in DMA TX mode, only enable TX
-> channel to send data. But when lpi2c is in DMA RX mode, TX and RX channel
-> are both enabled, TX channel is used to send RX cmd and RX channel is
-> used to receive data.
-> 
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Frank Li <frank.li@nxp.com>
 
-merged to i2c/i2c-host.
-
-Thanks,
-Andi
+> -----Original Message-----
+> From: Andi Shyti <andi.shyti@kernel.org>
+> Sent: Friday, December 27, 2024 8:34 AM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: Aisheng Dong <aisheng.dong@nxp.com>; shawnguo@kernel.org;
+> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
+> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: [EXT] Re: [PATCH v5] i2c: imx-lpi2c: add target mode support
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report =
+this
+> email' button
+>=20
+>=20
+> Hi Carlos,
+>=20
+> ...
+>=20
+> > +static irqreturn_t lpi2c_imx_isr(int irq, void *dev_id) {
+> > +     struct lpi2c_imx_struct *lpi2c_imx =3D dev_id;
+> > +
+> > +     if (lpi2c_imx->target) {
+> > +             u32 scr =3D readl(lpi2c_imx->base + LPI2C_SCR);
+> > +             u32 ssr =3D readl(lpi2c_imx->base + LPI2C_SSR);
+> > +             u32 sier_filter =3D ssr & readl(lpi2c_imx->base +
+> > + LPI2C_SIER);
+> > +
+> > +             /*
+> > +              * The target is enabled and an interrupt has been
+> triggered.
+> > +              * Enter the target's irq handler.
+> > +              */
+> > +             if ((scr & SCR_SEN) && sier_filter)
+> > +                     return lpi2c_imx_target_isr(lpi2c_imx, ssr,
+> > + sier_filter);
+>=20
+> you have answered my question here and thanks for that.
+>=20
+> I was trying to apply this patch but it didn't apply. Do you mind resendi=
+ng it?
+>=20
+Thank you! I will resend it:).
+> Thanks,
+> Andi
 
