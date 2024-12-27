@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DD4E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 15:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D84FE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 15:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Obkpa8dleqHRpC2VnHwCwPofDUTKEsxEiAJ7QwLP5ew=; b=a+VEjki5EBIx110nVWF/3AKsT4
-	wIc/gjR0VYvB/30V9U7145c3/+8zkOMKf6/UArOzpAb1GwROCzPygbsWcF/HbDpFPpHmsyQ8neUqa
-	UPVBB8IApRa8CFZ40J9PyEydQMF6nl4WgkynIoXD8TWYX2kCA5v5EkzPWjKo6fSZEpvAPGIaUZoOZ
-	K6c1mHPST66JoQAmKfO015sQFjVHENUgJridJxhodvajbf9Rzzwvff8FZoIoy5uz8UC5Iz0ERU5L6
-	CkIGqc3a+twgKfUaYVt0BeZgn5wJ4E15cvRRJP/D3ore4Pr9O5URx5we9DeaRGxkPKiS1wayXxwUG
-	Rv549tuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ckPKI2CzNl8cXjKXbJSAVhCafvKRom8xvDMX56khao=; b=K6CYr5E/QJoJ/W55ApBfD3BEmI
+	Vr88bmNqPwK1EZvpozXhtCBT/+yt7/DsX+Yl5UEHS3xmiwUnNBFeCN2Yj6FG4jQpTrwQQG866wK0z
+	bczvG5wLSYxZcn4qaswSBt36K18rcFolCG5mJaSGVOo/gCSq/6ohTjD5mxb9API6dkJqy3MLRpBNu
+	tISo9ZdYobsb0LXIFYvqwND9rXNWNpb5gJsBulm2hbG9pRrMXALNV3w2UgFJOWcXpK8mdBnRtojgg
+	XkHIvbcFWj+DVvsU6AnIGmnkqkQjPMg+wo+hgKmGU9o23IeFFIJVx8n1+ibWrEE6vXZOuLQQyYqv+
+	hvSmSz7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRCJd-00000000XH9-4C4g;
-	Fri, 27 Dec 2024 15:31:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRCIU-00000000XB9-1wYk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 15:30:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E406D1E2F;
-	Fri, 27 Dec 2024 07:31:09 -0800 (PST)
-Received: from bogus (unknown [10.57.92.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E902B3F673;
-	Fri, 27 Dec 2024 07:30:37 -0800 (PST)
-Date: Fri, 27 Dec 2024 15:30:20 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/4] pinctrl: scmi: Check fwnode instead of machine
- compatible
-Message-ID: <20241227153020.hl6lysid75yquca7@bogus>
-References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
- <20241225-scmi-fwdevlink-v1-3-e9a3a5341362@nxp.com>
+	id 1tRCVF-00000000YOi-0TwS;
+	Fri, 27 Dec 2024 15:43:53 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tRCU3-00000000YCg-2T4B;
+	Fri, 27 Dec 2024 15:42:40 +0000
+From: Dragan Simic <dsimic@manjaro.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1735314157;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=0ckPKI2CzNl8cXjKXbJSAVhCafvKRom8xvDMX56khao=;
+	b=Dm6DgmM2IrUPa8Y/F0BZEcRPLmWcHzL45sjvfHuEtuK7JEZvSiUaHjBAvman5526ClumwU
+	lfK0BQISduryBcYuWfxXuFpU3InamGDnnkID1EMbTNpkX6U763CM7gyJ9w4avRwEvZZit2
+	ScpvM615aSSGFpmM0Pk6If6lx1Es1ifdfsN7A5sHhIpo2x9kF113K5hEkk1Gj0ci3umjIx
+	kCbrjOX+Qzr09IvYM3H0W+LKLC70GvyuG8Y8gw8psNYWO2tODCwjYYlfgsteAzRd9cCk99
+	GRDmpytFVF1hyOtIqcgINJQu/37QhfelAgIc1R5BT5RSmmAQ1bxgleRZfx9UMA==
+To: linux-rockchip@lists.infradead.org
+Cc: heiko@sntech.de,
+	maz@kernel.org,
+	tglx@linutronix.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	FUKAUMI Naoki <naoki@radxa.com>
+Subject: [PATCH 0/2] Use "dma-noncoherent" to handle Rockchip RK358x 3588001 errata
+Date: Fri, 27 Dec 2024 16:42:22 +0100
+Message-Id: <cover.1735313870.git.dsimic@manjaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241225-scmi-fwdevlink-v1-3-e9a3a5341362@nxp.com>
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_073042_558681_F533862C 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20241227_074239_788001_1060C9FF 
+X-CRM114-Status: UNSURE (   4.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +74,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 25, 2024 at 04:20:46PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> For the platform that not compatible with scmi pinctrl device, the
-> fwnode will not be set, so checking fwnode will make code simpler
-> and easy to maintain.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/pinctrl/pinctrl-scmi.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
-> index df4bbcd7d1d59ac2c8ddc320dc10d702ad1ed5b2..aade6df77dbb2c391741e77c0aac3f029991e4bb 100644
-> --- a/drivers/pinctrl/pinctrl-scmi.c
-> +++ b/drivers/pinctrl/pinctrl-scmi.c
-> @@ -505,11 +505,6 @@ static int pinctrl_scmi_get_pins(struct scmi_pinctrl *pmx,
->  	return 0;
->  }
->  
-> -static const char * const scmi_pinctrl_blocklist[] = {
-> -	"fsl,imx95",
-> -	NULL
-> -};
-> -
->  static int scmi_pinctrl_probe(struct scmi_device *sdev)
->  {
->  	int ret;
-> @@ -521,7 +516,7 @@ static int scmi_pinctrl_probe(struct scmi_device *sdev)
->  	if (!sdev->handle)
->  		return -EINVAL;
->  
-> -	if (of_machine_compatible_match(scmi_pinctrl_blocklist))
-> +	if (!dev->fwnode)
+This is a small series that makes the "dma-noncoherent" DT property used
+for handling the 3588001 errata for Rockchip RK3588, RK3588S and RK3582
+SoCs, which is the preferred way over checking the compatibles. [1]
 
-I would prefer to see the blocklist to be explicit here rather than
-implicitly hiding it away with this change set.
+Older versions of the Rockchip RK3588 and RK3588S SoC dts(i) files failed
+to specify the "dma-noncoherent" DT property, so checking the compatibles
+remains required for backward SoC dts(i) compatibility.
 
--- 
-Regards,
-Sudeep
+[1] https://lore.kernel.org/linux-rockchip/86msgoozqa.wl-maz@kernel.org/
+
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: FUKAUMI Naoki <naoki@radxa.com>
+
+Dragan Simic (2):
+  arm64: dts: rockchip: Use "dma-noncoherent" in base RK3588 SoC dtsi
+  irqchip/gic-v3-its: Make "dma-noncoherent" preferred for RK358x errata
+
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  3 +++
+ drivers/irqchip/irq-gic-v3-its.c              | 12 ++++++++++++
+ 2 files changed, 15 insertions(+)
+
 
