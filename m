@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F64E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 13:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE4AE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 13:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UDGgaqN+RyNFFUIhBmxwJa3uKb6CA586OOHT4HO6pCo=; b=ViYM5ydXvB03OzeT4vlYmFf1JX
-	kOIevtkj0DPHUtyN6/rg5EKLPIQKcF9vzsGJY/+SPgWf27glWlNV9pnOPCZz1z6vh5PMoH4e3FJit
-	quCgF9wCbKHITuEPiYBH1cC8BFWteTGsw2qs9lmjewkDGHHjGbRm7hWh65ZW12C48zHR+ggAP4Zlt
-	M2IFGeb/SXSuXlxuUwrJICA6aZP6Nm43KNk0hyY7+FXSQE5HXoBySuXnMCJvCP+JxebOIUB2Jblz4
-	SJ+IRy0PwrBSoFFsaUrOzU2xm/X1WICOjGtdyw2EJR0w+4dI6NZwbNyASq0Nyd9rpExpxx3gDk37u
-	80jgeH/Q==;
+	bh=RYjnhMa2oZ9Lj699gG71FsVduTz2eJUc4klb/tcF4uo=; b=3194tExTfeIS9wz7DE+2nvKo8q
+	+ghX0J7CnAl10Vq/16MBGpvwNg7lNIo1mhTkb0MCF9YQeSWsHGq9TxFEqo41WVE7bZPiOicv+s8fE
+	Svq1CWOBpZXgFaOv2RXUGsTqzBlBpsYzPTd08StThos+ZE6WNkljWEfsPkR25qk3aV9UA5fzbgDFI
+	YEs6ndckhs80i3KLqP0Hw+N/GBPajw6tfVN7VLDsjtEkO1pXQuZa4N4s2aQrtTR/ulghJ9bspYUqL
+	BajRywaVmFBam0WMb9APJo783HJxdAKK/87t9UP1IXDoY5gQunQ4YCKT61zjTBIPSAyiKzixZArtc
+	w7Ou6TcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRAWK-00000000Iz8-1Bjz;
-	Fri, 27 Dec 2024 13:36:52 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tRAXS-00000000J7m-1GO0;
+	Fri, 27 Dec 2024 13:38:02 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRAU4-00000000Ii8-2pds
+	id 1tRAU8-00000000Ik0-0lZg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 13:34:33 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2efb17478adso8720383a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 05:34:32 -0800 (PST)
+	Fri, 27 Dec 2024 13:34:37 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2ef714374c0so7522656a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 05:34:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=edgeble-ai.20230601.gappssmtp.com; s=20230601; t=1735306472; x=1735911272; darn=lists.infradead.org;
+        d=edgeble-ai.20230601.gappssmtp.com; s=20230601; t=1735306475; x=1735911275; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UDGgaqN+RyNFFUIhBmxwJa3uKb6CA586OOHT4HO6pCo=;
-        b=x00TyTpfDss8BX9kDLt0d1IbSV6yzKWNhwyls4+YJyGS/4hxKhvK20O4bIG7k4/hh1
-         4y2hMpE++1nPdAYCeuGSRRdvlEOXgmDfDirktHhwL8UWjn7F87MIDGrZzR6tCQIxsVTt
-         uaNHn+V53Zg8qDy6fxj1YHRsy4+1e+w9vND/v+dqZUbbFBPgzRZAzQCXoICD7f8ZP7cp
-         xgBCtzkyeMyOgfV/LLahLdOIYPrEKWL1mQhzGrwgUnfnodgF7+/uD1NMxBI1aqUM/H6T
-         hbTeIhuj058miVJ9gf5b9p7PoxMgs5raitkl8RkehBgFcgt0Rfo57dC9v5HamBQ77uPt
-         GtZQ==
+        bh=RYjnhMa2oZ9Lj699gG71FsVduTz2eJUc4klb/tcF4uo=;
+        b=2OtTZ/R5LMHjOlRToXA2e4msmnOY7iRy67l57ufFdSi/1bvXtgLH7I2wOPxCTIxXiN
+         9krUyEvN6bLkCjcIS0NS1qIgKjdCIuhUAsmp+XXAmIebSYtOK2PmWq803fY1Wsg/I8nr
+         TcpBvH79hB8hFVSGI5KmPJxa5SwoxeqhV9T0Y6FcoaezFiVHdCWb1mbl+JQNGSIDRJLc
+         XExrEPrHwSWJu4HdyCviR7rqRC/7AXBq3HUPQGp+h4hBeOgDf1EwKM87kRJYB5xqtHgz
+         L5/5i6Tr3UDDPMc4dqkTbV5rReX32T0v6By3BqJeVMZB64T5lok1yGR1j0qhT1iBRY8r
+         VFDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735306472; x=1735911272;
+        d=1e100.net; s=20230601; t=1735306475; x=1735911275;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UDGgaqN+RyNFFUIhBmxwJa3uKb6CA586OOHT4HO6pCo=;
-        b=xF+VeY1rW0l8h9LYwieDpW8+BINHpBXs2bggPcqjVTcMg/vKfgtcUMyQx0ZmlVj2S3
-         GJn6okOmimZ8LZp+cFPf8m9qJ44clBDyJ11IGm5Pp++La5Y/WQfRUZ1bboAeDh4BUEh7
-         TNtj8cvys7svEu9r2Jj5mzsnnlyEIYY9zPVh3y45bmTQxJeViZmPi1+OjIt1VKm0tc6g
-         ehXNs4F7kiEfmGZ7N6DGPVXzrVx+5SvtQ2odnh5OU0QIhUonbkXstt5ZtXsBQKHBslWH
-         E7UvndYRhSGUO5n2adpL1SO8MzUwIAefV+vtBJunMThoMP7Ag14o4zFMVepD8ACWLpt4
-         7LYw==
-X-Forwarded-Encrypted: i=1; AJvYcCUbaBppGrlpBVdIRp9O6ACYkjfT8vzUBIemHml1ArYO2DjdVM0rLm+52DBAMu0AVwq52iDVbv3V/EM46dwr39TF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPYcrgzHRnB0JXNrHmTe4RKOQP+e2Dl4Tsd/M+KAPGgWk+9n0v
-	5XVydNzXAZ+Wk0Da64PVO2zW8G2sWq1qPA83/nsFW0dOWPzhv2wbCkstbzIYgRM=
-X-Gm-Gg: ASbGncvssdnRpSXUiJoyPs3X6t8v8GJxivDsqiwNC8/LOpIPqpk9NPaf56ugWj5xb16
-	qirF/LPfdSubhv47FZlHd7CC/nWr3RJI5EdqAqhf0D9VQYBqhgSJu4H5BINi05Iz4yP+5nULtVS
-	2i7zLfqWA+nfQjtK1xqSjPsy3I8aqnb96L84aZBqo4++uY8yQDTn8m1RGWLGvopbpuB7aighKcl
-	Vitt72E7RCTccjALC+rNAS7qavJ3jjjga8MGjVMoAx0H083UIqnFudZu/sy6bNyIx1/MMY=
-X-Google-Smtp-Source: AGHT+IFo1pADb4rVMihXewKTUfgIpGRLw2CQ2m9p8MRM9fVgylT7CDtLc2bBkTGmWfrKx/vwilzdkw==
-X-Received: by 2002:a17:90b:6cb:b0:2ee:863e:9fff with SMTP id 98e67ed59e1d1-2f452e22560mr40951589a91.10.1735306471825;
-        Fri, 27 Dec 2024 05:34:31 -0800 (PST)
+        bh=RYjnhMa2oZ9Lj699gG71FsVduTz2eJUc4klb/tcF4uo=;
+        b=jdeDtMcbmMmcpgROdxQjcdW8UEzxQwO0UmbfyPxPVQtWczjeLb7oAsoxwxX7bbzvWm
+         W81LEv8DR3wMOYvc9rOjUttBrQ9qFNHZst9KQNh4zSBwJKx/M3dTdyjQv0/BrmgmSclU
+         6gqVX6tM+LceZ60En4qM6zqmgH5IfEuYPx6fsPwIu2H09AhVwdXcTWYUpY5/LVMa0ssT
+         JeAU9614rSRa4rp+QYi65cVQ0pSTHzo8ZG1MJKUa2rxuzXx21rP6PnOda9vU6Nz2u+O1
+         xn+OebYVcunMIBBmmkvBQ3YL7i1RlBeuIBPjla6LAJJMGrN8IZ93DksM/n/EJYe+HYdi
+         TBNw==
+X-Forwarded-Encrypted: i=1; AJvYcCWZdf++u3A0NrwumQwoqvD8thaoJcRPon3kq6hx219K6mNel6wZsrKZ+OsjIjvlETpvOGq1Mur8WGy1GH4wFUfE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3HYvdTCy/OHw4COFh7HxNWHwKPpNq6Wor3yZWdVwKGoxH5I5i
+	g7WfUIPHICd8ahsCRAklEqauMIiezHWiHBIQCCOVps4Q8waj/LmhveJEDS9mplI=
+X-Gm-Gg: ASbGnctjHr6E2oOQ5TmnT/W6n8REd1B82UzpsJ/CwEUKg+mRNzZK8u0s9fnEpnHs9Zs
+	2gqZHzc8khUt5M97RiiyiREFw7YgF8lolurX3KZN6qYGwGwl9m0vWKp1El89QKzAaPZZ0jxV1wX
+	cIkIqa7GZVSQKhIDbcxphsB1Fhd1hLL4SIAWKHTF+XGg1NipkceY2zV3L4cCcuCfG6yV//3Tqv6
+	/xlz27WliDzJO5pGIX1CdeuaMl1QZTZBQXE0s84BRw10IO/nr5nWE9FgJk/x/pNN6dyWrQ=
+X-Google-Smtp-Source: AGHT+IFo1AIU+xmd/BjroiPxEBcqjrSTp4da67TjD3QAhh8/9xojEWMz65v0ommdo8FpLZv3I8JTfw==
+X-Received: by 2002:a17:90b:2545:b0:2e2:c2b0:d03e with SMTP id 98e67ed59e1d1-2f453633e61mr35833720a91.5.1735306475305;
+        Fri, 27 Dec 2024 05:34:35 -0800 (PST)
 Received: from tops-ThinkPad-E14-Gen-5.. ([103.217.239.66])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4623dbfbfsm11808238a91.48.2024.12.27.05.34.28
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f4623dbfbfsm11808238a91.48.2024.12.27.05.34.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Dec 2024 05:34:31 -0800 (PST)
+        Fri, 27 Dec 2024 05:34:35 -0800 (PST)
 From: Jagan Teki <jagan@edgeble.ai>
 To: Heiko Stuebner <heiko@sntech.de>,
 	linux-rockchip@lists.infradead.org
@@ -76,17 +76,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Jagan Teki <jagan@edgeble.ai>
-Subject: [PATCH 2/4] dt-bindings: arm: rockchip: Add Edgeble 6TOPS Automotive Edge AI CM
-Date: Fri, 27 Dec 2024 19:04:18 +0530
-Message-Id: <20241227133420.169714-2-jagan@edgeble.ai>
+Subject: [PATCH 3/4] arm64: dts: rockchip: Add Edgeble 6TOPS Automotive Edge AI Compute Module
+Date: Fri, 27 Dec 2024 19:04:19 +0530
+Message-Id: <20241227133420.169714-3-jagan@edgeble.ai>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241227133420.169714-1-jagan@edgeble.ai>
 References: <20241227133420.169714-1-jagan@edgeble.ai>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_053432_722888_2B0FEC41 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20241227_053436_217445_076BCA1D 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Edgeble Edge AI CM6C is an Edge AI Accelerator module based on Rockchip
-RK3588M.
+Edgeble Edge AI CM6C is an Automotive Edge AI Accelerator module based
+on Rockchip RK3588M, operating with -40 °C to +85 °C temparature.
 
-Edgeble Edge AI CM6 Industrial IO board is an evaluation board that
-would compatible with Edge AI CM6.
-
-Add bindings for it.
+Add DTSI for it.
 
 Signed-off-by: Jagan Teki <jagan@edgeble.ai>
 ---
- Documentation/devicetree/bindings/arm/rockchip.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6c.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6c.dtsi
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 753199a12923..709a13835c9b 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -132,6 +132,7 @@ properties:
-           - enum:
-               - edgeble,neural-compute-module-6a        # Edgeble Neural Compute Module 6A SoM
-               - edgeble,neural-compute-module-6b        # Edgeble Neural Compute Module 6B SoM
-+              - edgeble,neural-compute-module-6c        # Edgeble Neural Compute Module 6C SoM
-           - const: rockchip,rk3588
- 
-       - description: Elgin RV1108 R1
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6c.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6c.dtsi
+new file mode 100644
+index 000000000000..92049540c20a
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6c.dtsi
+@@ -0,0 +1,10 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2022 Edgeble AI Technologies Pvt. Ltd.
++ */
++
++#include "rk3588-edgeble-neu6a-common.dtsi"
++
++/ {
++	compatible = "edgeble,neural-compute-module-6c", "rockchip,rk3588";
++};
 -- 
 2.34.1
 
