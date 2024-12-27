@@ -4,101 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6135EE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5790E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 13:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UN1PfYXNv5GA5EWcDyG0SuUKxMnngW7vBJ/To7wqj0=; b=ZcIj12ImBUUZyrhzFlf5p8fHEm
-	n8egSRUpmgucoOH5MNOBfZrDqG5JrJu7BCYc3BzkdrZpHusQittYbZSTxj9918HY6pUl1A0LzyjGP
-	f6INJFPJ4uiJFkJxGKYlizVCrhLHz4hXSmmmuHQMy/uekkR8ctc2Li8Fy2zLfw0uJbhmJjikkl2+O
-	JlkDkQmuiJuNGcz3xKCI6temX0DR6oMGYmodhSXSZrn0Qt7pgQY0vnZwE/yFCjBtJdQLSY8Llez7S
-	Qie8i31dYk57CyXcG/PL+rVm2KGkwzb6oKhlgYLgrhT3hjnt6vdvh4ctE3DbX2WpkSojIq3MNDyJ2
-	G8FYTOfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Qi3UoCUDEqcy6/oiO96EhEgtnu7BnyUeV/rid1HTKPw=; b=AFKITsyxa7huhj
+	msYJSp6p6AfO5SH5rGg63X2BAnP35yBwptt40ZpzgHMpcnqcmMR4Ll4z7uX52pzgQxyVMU3nzgjMY
+	A3Dz/T40UjsSw5/ZybXuO9dO3WhqMNZboix1+czNv/WaLKKj+duvxaOSbAn2i8Y8NFqYSrugkvqWP
+	SI1NQHQB3PnRaOnKj62kKfGTVF4roY8FYrID2GOlmrhHAGUocAiJPC08QdHZvAs9ImdaREgX+slKM
+	FbAK0Xubsaso40B6h/HjepDF9eDDWG0LGca5fCwWrbVZYZPWtHS0k2tZFCgmudByMocBmpoZ37e4P
+	AxILbCw0hxZkL5IsRF0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9oQ-00000000Cfi-2Dhp;
-	Fri, 27 Dec 2024 12:51:31 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tR9zB-00000000Dry-3RC4;
+	Fri, 27 Dec 2024 13:02:37 +0000
+Received: from omta40.uswest2.a.cloudfilter.net ([35.89.44.39])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9k2-00000000CAj-3NRS
+	id 1tR9xz-00000000DNu-2DGU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 12:46:59 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43635796b48so43698005e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735303617; x=1735908417; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3UN1PfYXNv5GA5EWcDyG0SuUKxMnngW7vBJ/To7wqj0=;
-        b=GhxE/6ExcTeE+VsAsgk5s9emTx+waruuW0Gp7Zx6gtaRpmFr8isTtBCmwv7M4YCvui
-         V6eyf5E2TDADke1hYYIAagqWE8pn90aEsYTcILsPNzBAMIzie57raKZHeueXn/BmQARn
-         WjeuoxGVDzEllFv/2mLKspJ2EaVGdWlD9Zkljk91Lfg/ZPW0LT0yGVHrBeaCzwjCMh6H
-         yHwCVeexpqyycQEF6435aRsUYI22cMAxAKE0ojx9uZgZfMMkZi1faNyL5iU75mGNEnV1
-         laGT6j8yF1tRbuqMSnlB29rWqahV67n4rQKmBcLnW/TbdFrglEi7GtZelza8kB5fT9ZY
-         jg0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735303617; x=1735908417;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3UN1PfYXNv5GA5EWcDyG0SuUKxMnngW7vBJ/To7wqj0=;
-        b=COLw2qPDmHOliYDoUEw9dehU413bqWPm9hJltmVa+AR6XPxZLg7LA4uHigJtOHhB+s
-         wWYtVp3Vtoyie3LQayIiSRTqXr+QH64yohbcEpv5KWaOfumY30X5RsJyP1ddfFFeQw52
-         6Dv/sSz4gJO980wrJs9ShC9wmUKqFKjiwJxZKMmc4LN4WXGuWMuMQ6gMpj4WZkcYFcBg
-         IYrZlGh790K1H0/vzXn0JjtJAcwddtr53ROSe5KevhCrbgcasHQixUTuOUQvup4tcuME
-         /zn+RwUgecOXGJE7HjwzPxf61/uR0zp8u6HHRNlkLnlei8q3YWPc3jai848OgTSLhL1R
-         8BQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXAxACIbgA2Ak/W1TQTpDGFlBjUyz+mYQo+xaVZXpSixNV/1hRhCOEoO4CpaVVBWZcLP5aGXa6/GB1pU4SVuBbt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwgSMMfJYn4S6RgG9fduhg3q+a9Pw9JrOpwRybeqUZ+ntkLney
-	uIaozy6kTfBNxg+4LsjOK3dkWtFqsHQtJcr4Q8Zdu2nPJDI/Xx5H6ZLjSMRfxsI=
-X-Gm-Gg: ASbGnct6sNcKYWvOF8CpC7mVUySPjjKMLDfejSCm+3kHcCFfYR4UMJGBGDAt6beEW4e
-	qfqbJ6UF7PzqlFg40+QhFUUZA9w5i/p2oZrUimtMZUzgMrI4SmOrqKEamVh7JjB9S997fmcKSGt
-	Ukyah70+m2BxkQqkYBHfNldP4jYQ3rCCPzkxBM2TwD8QVUDPNG+1M4jSPZ0Xwcpa+eu/T+ZXnpM
-	gJxwSqJT2uRDMnnfSiOULRxXf4t7dl2wizqbRabidOVUMuytXQ2Wy2Z
-X-Google-Smtp-Source: AGHT+IGUz2NO9FEIpAO3AKn3yA2N+FizKlvW523dxOyulaD8vq0KUtWqJu6Qzescg3PJZW/KKP45Nw==
-X-Received: by 2002:a05:600c:585a:b0:42c:baf1:4c7 with SMTP id 5b1f17b1804b1-4365c770795mr216692485e9.4.1735303617020;
-        Fri, 27 Dec 2024 04:46:57 -0800 (PST)
-Received: from hackbox.lan ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Dec 2024 04:46:56 -0800 (PST)
-From: Abel Vesa <abel.vesa@linaro.org>
-To: abelvesa@kernel.org,
-	peng.fan@nxp.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	shengjiu.wang@gmail.com,
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] clk: imx93: Add IMX93_CLK_SPDIF_IPG clock
-Date: Fri, 27 Dec 2024 14:46:02 +0200
-Message-Id: <173530350112.4140483.13164625485950770989.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241119015805.3840606-1-shengjiu.wang@nxp.com>
-References: <20241119015805.3840606-1-shengjiu.wang@nxp.com>
+	Fri, 27 Dec 2024 13:01:25 +0000
+Received: from eig-obgw-5005a.ext.cloudfilter.net ([10.0.29.234])
+	by cmsmtp with ESMTPS
+	id QzdztEQk7vH7lR9xxtJijS; Fri, 27 Dec 2024 13:01:21 +0000
+Received: from md-in-79.webhostbox.net ([43.225.55.182])
+	by cmsmtp with ESMTPS
+	id R9xutuCXnjcdmR9xvtN6eE; Fri, 27 Dec 2024 13:01:20 +0000
+X-Authority-Analysis: v=2.4 cv=DrWd+3/+ c=1 sm=1 tr=0 ts=676ea520
+ a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
+ a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=VwQbUJbxAAAA:8
+ a=vU9dKmh3AAAA:8 a=RKcyukLPUNyM5a_w4rQA:9 a=QEXdDO2ut3YA:10
+ a=rsP06fVo5MYu2ilr0aT5:22 a=ZCPYImcxYIQFgLOT52_G:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
+	; s=default; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=Qi3UoCUDEqcy6/oiO96EhEgtnu7BnyUeV/rid1HTKPw=; b=oiMun6aAJKc2QS/GfxGw3ZpAbo
+	eqt4pnCoOOcSOcaeI0P6kujVagUlispeJfo87tz4QroK92xHf66VXCikwKNVeRRM362Wq7OxeQoeh
+	E1yTCzQbqlNCXfqwKn42U7JkHmZ6L8OX8yGF9tvVz7DJi0D1oePsEPivLWatej12oSvjcE2D9TY3L
+	p260RycW0eU3fbz5AvZgfhR3/FedkFVYbVQXVm8DnYC11xpiJ293WKam4I6AtGakz9LXeMuFU3Rk8
+	5INQdz4uTivaF1TZ3eEW8hz/0OVnZszBiih27bwu+VVWDJ45H4d0OMHK5VDE143g5utDRMNzf7Ztq
+	rk5F7Umg==;
+Received: from [122.165.245.213] (port=58270 helo=[127.0.1.1])
+	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <parthiban@linumiz.com>)
+	id 1tR9xq-002EaQ-22;
+	Fri, 27 Dec 2024 18:31:14 +0530
+From: Parthiban Nallathambi <parthiban@linumiz.com>
+Subject: [PATCH RESEND 00/22] Add support for A100/A133 display
+Date: Fri, 27 Dec 2024 18:30:49 +0530
+Message-Id: <20241227-a133-display-support-v1-0-abad35b3579c@linumiz.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Linus Walleij <linus.walleij@linaro.org>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-phy@lists.infradead.org, 
+ Parthiban Nallathambi <parthiban@linumiz.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735304468; l=4037;
+ i=parthiban@linumiz.com; s=20241125; h=from:subject:message-id;
+ bh=s6pgeYhBovYKLxAfzogU3RAM9N8F/zvXTKruRhJeLms=;
+ b=rUdWVAf2EzUVnilFnmP394/5gRG3wuQ4qZKiArbTwORd7JREQHwjrpu+VM2LSswVY088RCvTX
+ WqUG9bY0lJXCf7KJwRg9jmbIdsLD9nBHg6tLQw1PtNvmCAY0Mhmq7SE
+X-Developer-Key: i=parthiban@linumiz.com; a=ed25519;
+ pk=PrcMZ/nwnHbeXNFUFUS833wF3DAX4hziDHEbBp1eNb8=
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - linumiz.com
+X-BWhitelist: no
+X-Source-IP: 122.165.245.213
+X-Source-L: No
+X-Exim-ID: 1tR9xq-002EaQ-22
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: ([127.0.1.1]) [122.165.245.213]:58270
+X-Source-Auth: parthiban@linumiz.com
+X-Email-Count: 29
+X-Org: HG=dishared_whb_net_legacy;ORG=directi;
+X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfMYrEOFg5h4sbiBGYfiRz6c57+b6IE04+QJlnfAR7RTbAWHCsYPVfdj/0Jb09PPjW76l8k9W2KBobZ2shst6Y1LbxLhSYVbBF57pMdfEg+1slp492/jQ
+ F08/mLCljKOpxgs3irXsRHaAyhKdN6yDP/wLmypN9wuuaSvvO1icgLq4X3sl0+eQtyr63MQ9fd9gSv7AUCogzWfdN367O3Vxp6pepf1W9NqiEl7+ACYLIMr7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_044658_845254_353922D0 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241227_050124_078198_AB94DB1D 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,28 +127,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series depends on [1] for the eMMC/MMC controller to work and
+[2] (lined up for 6.14) which adds support for the sram nodes and
+display engine extends it's usage. Idea of this series to get initial
+feedback and adjust, which will be rebased for 6.14 once [2] is merged.
 
-On Tue, 19 Nov 2024 09:58:02 +0800, Shengjiu Wang wrote:
-> The IMX93_CLK_SPDIF_GATE also controls the gate of IPG clock
-> and root clock, need to define them separately.
-> Otherwise driver disable IMX93_CLK_SPDIF_GATE will cause
-> IPG clock is also disabled, then register accessing fail.
-> 
-> changes in v3:
-> - add fixes tag for all 3 commits
-> 
-> [...]
+This patch series adds support for A133 display pipeline based on
+LVDS. dt-bindigs are organized in the start and later with code
+changes.
 
-Applied, thanks!
+PHY is shared between DSI and LVDS, so to control the PHY specific
+to DSI/LVDS, phy_ops set_mode is introduced. To enable the DSI
+using set_mode, analog control register MIPI Enable is used, which
+may not be available for A31 (shares the same driver).
 
-[1/3] dt-bindings: clock: imx93: Add SPDIF IPG clk
-      commit: 32e9dea2645fa10dfa08b4e333918affaf1e4de5
-[2/3] clk: imx93: Add IMX93_CLK_SPDIF_IPG clock
-      commit: 6a7853544482e2336b5b8bb9a4b964f9d687f290
-[3/3] arm64: dts: imx93: Use IMX93_CLK_SPDIF_IPG as SPDIF IPG clock
-      commit: 570b890e66334f283710af36feb2115f16c7a27c
+Otherwise, A133 also got hidden independent display engine i.e
+mixer + tcon top to handle parallel display. But this patch series
+adds only support for the 1 mixer which is documented.
+
+[1]: https://lore.kernel.org/linux-sunxi/20241109003739.3440904-1-masterr3c0rd@epochal.quest/
+[2]: https://lore.kernel.org/linux-sunxi/20241218-a100-syscon-v2-0-dae60b9ce192@epochal.quest/
+
+Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
+---
+Parthiban Nallathambi (22):
+      dt-bindings: iommu: sun50i: remove resets from required property
+      dt-bindings: display: sunxi: Add a100/a133 display engine compatibles
+      dt-bindings: clock: sun8i de2 clock: Add PLL com clock
+      dt-bindings: clock: sun8i de2 clock: Add a100/a133 compatible
+      dt-bindings: display: sun4i: add phy property
+      dt-bindings: display: sun4i: add a100/a133 tcon lcd
+      dt-bindings: vendor-prefixes: Shenzhen Baijie Technology
+      dt-bindings: arm: sunxi: document Szbaijie A133 helper board
+      iommu: sun50i: make reset control optional
+      pinctrl: sunxi: add missed lvds pins for a100/a133
+      drm/sun4i: Add support for a100/a133 display engine
+      drm/sun4i: Add support for a100/a133 mixer
+      drm/sun4i: make tcon top tv0 optional
+      drm/sun4i: add a100/a133 tcon top quirks
+      clk: sunxi-ng: sun8i-de2: add pll-com clock support
+      clk: sunxi-ng: sun8i-de2: Add support for a100/a133
+      phy: allwinner: phy-sun6i-mipi-dphy: add LVDS support
+      drm/sun4i: tcon: add a100/a133 lcd controller support
+      arm64: dts: allwinner: a100: add iommu
+      clk: sunxi-ng: add missing pll-com binding
+      arm64: dts: allwinner: a100: add display pipeline
+      arm64: dts: allwinner: a133: add szbaijie helper board
+
+ Documentation/devicetree/bindings/arm/sunxi.yaml   |   6 +
+ .../clock/allwinner,sun8i-a83t-de2-clk.yaml        |   6 +
+ .../allwinner,sun4i-a10-display-engine.yaml        |   2 +
+ .../bindings/display/allwinner,sun4i-a10-tcon.yaml |   7 +
+ .../display/allwinner,sun8i-a83t-de2-mixer.yaml    |   1 +
+ .../display/allwinner,sun8i-r40-tcon-top.yaml      |  17 ++
+ .../bindings/iommu/allwinner,sun50i-h6-iommu.yaml  |   1 -
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile             |   1 +
+ arch/arm64/boot/dts/allwinner/sun50i-a100.dtsi     | 165 ++++++++++++++++++
+ .../dts/allwinner/sun50i-a133-helper-board.dts     | 129 ++++++++++++++
+ .../dts/allwinner/sun50i-a133-helper-core.dtsi     | 190 +++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun8i-de2.c               |  23 ++-
+ drivers/gpu/drm/sun4i/sun4i_drv.c                  |   1 +
+ drivers/gpu/drm/sun4i/sun4i_tcon.c                 |  23 +++
+ drivers/gpu/drm/sun4i/sun8i_mixer.c                |  13 ++
+ drivers/gpu/drm/sun4i/sun8i_tcon_top.c             |  42 +++--
+ drivers/iommu/sun50i-iommu.c                       |   2 +-
+ drivers/phy/allwinner/phy-sun6i-mipi-dphy.c        |  23 ++-
+ drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c        |  12 ++
+ include/dt-bindings/clock/sun50i-a100-ccu.h        |   1 +
+ 21 files changed, 645 insertions(+), 22 deletions(-)
+---
+base-commit: 6c086b91df8c6619239c6d6d6cbf6ae50da6c110
+change-id: 20241126-a133-display-support-ab43af32180a
 
 Best regards,
 -- 
-Abel Vesa <abel.vesa@linaro.org>
+Parthiban Nallathambi <parthiban@linumiz.com>
+
 
