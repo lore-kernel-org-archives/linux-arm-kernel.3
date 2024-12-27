@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED76CE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 09:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BECE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 09:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9m0pK+sHBtnCL2Zja1nhK8WY0KqFF0of4phBzhsUBI=; b=AQ/AHqCRC4Sx6uXo5Kai/D/IzT
-	0Wdi98TqexoVyzxTMuD7OTe2G20u9jrgc9DeQA/kJiRmslmQUxKPkngo117ZFhFOL8Yd5WnZLQ+lU
-	B7XDxsql51SjJ+iuRZtYawoIeaEGXNEMM+v9UYk2uTZ9T6odR9mvZ3eewI7xrWzMWMXWb/PuNbsmq
-	TRBPrmuMKqhCRp5/HLHFd6gDvHDZ2Oy5Jus1yEZUUn6w4yYWpwkyxMoAKfwMCtonNvoPBcfyWZ83H
-	YEnZeLWYJbMvYQJ6PTLWMPzDzB9q/OS0zqP2VXvBkN0U+WM7RdVfuNuhNDW6yI6qPOMHwjE9I2SkW
-	Mj95LPtQ==;
+	bh=Z3kIYYav1PvSjIUXIDnTln9if7PNCtkeq4PzpUXJ76o=; b=PI03daKlDqNNcwOWU+XcT79fnz
+	Zp9Liy3SNGLqWOnxWOHRnKrOwIs7bwSC3mj2qYqShRZ8XS1uMowFhbXXhnSgymV9jpFy6E4PLl4FH
+	261ASg65T2ZPFHdkL8YwS/edNtQJkktI8wzxabveBaxlFIHP6789kCLqPWB6AYL6JXtolDiaZrvPM
+	sXd2rttrL6oXZkd4olWq/z+lfCQVn4CD4XYU+Fl0vxrubcrw4/ypFG4DdBo0lW9k50+np0jVh10jx
+	mfapJuSsoWtxgWOAif2COYeW66Tz7qoLbCyuWD8tDjjEG+Kv7QI9lNzTy3jVBJmKFvZ899cITttBs
+	s9BcwjWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR6Pm-0000000HT1S-3god;
-	Fri, 27 Dec 2024 09:13:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tR71U-0000000HW08-0ZMb;
+	Fri, 27 Dec 2024 09:52:48 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR6OK-0000000HSm3-0bxM;
-	Fri, 27 Dec 2024 09:12:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2BAE7A41415;
-	Fri, 27 Dec 2024 09:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ADF6C4CED0;
-	Fri, 27 Dec 2024 09:12:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735290738;
-	bh=C9m0pK+sHBtnCL2Zja1nhK8WY0KqFF0of4phBzhsUBI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aYCwX0B5jalzOdqKRrrXyTK2djttuPaYMO6me+VstDKTFZgaXEN3NHzkbxqyBh8dt
-	 u9NlpMcgGB5ui1YmYB6ZLq3f9Sv4W80QrmsijX5hPz2q+IQPX6v1UdtEEpRk3s8LDn
-	 +2yaURUvj6mEO2rFOhe6Agq89HqGcox6Bg18iLJHqHVPwfICYCr7l5IbG3ISOCFzgj
-	 ePBjXSGMTlGR6bVTHOUBOT4DsUweMfZ/ukCr16z4xWJUWrGW5WgJjuKujKYE7a377K
-	 +ECBlnqeehV0wYBLI710zq+opLt77y4/CW0wIeK5zPjUQQAwe3z0BlQCg1wnJ/tMxx
-	 +TZw075fxq5ug==
-Date: Fri, 27 Dec 2024 10:12:15 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Val Packett <val@packett.cool>
-Cc: Mattijs Korpershoek <mkorpershoek@baylibre.com>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Fabien Parent <fparent@baylibre.com>, 
-	Bernhard =?utf-8?Q?Rosenkr=C3=A4nzer?= <bero@baylibre.com>, Alexandre Mergnat <amergnat@baylibre.com>, 
-	Amjad Ouled-Ameur <aouledameur@baylibre.com>, linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: mediatek,mt6779-keypad: add more
- compatibles
-Message-ID: <2cikysv5mwmc4utckjg7iaqx66ncwu3nsxd4kqipj3gw4mymbf@3gipwanf44ji>
-References: <20241225192631.25017-1-val@packett.cool>
- <20241225192631.25017-2-val@packett.cool>
+	id 1tR70H-0000000HVqz-3yUK;
+	Fri, 27 Dec 2024 09:51:35 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2166651f752so96311005ad.3;
+        Fri, 27 Dec 2024 01:51:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735293092; x=1735897892; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Z3kIYYav1PvSjIUXIDnTln9if7PNCtkeq4PzpUXJ76o=;
+        b=Pl9CfdeoAdgm8sikRjtOybk3Tl4ngqlVmfbu+CRrq15EOIW4wv5dM1eGBVD8Ii04m1
+         v8nwCc07hd//jIP2g9pwkAGWccAow2nc/6P1X4Mp94iHUekjPsAW6NKgfK5tuB+/CRSs
+         aHwNxoQLZNPnPhsAc7LxMYurXKeExCHGstt7Ey7cZA4H7Y0P55OEs3ai+iWWM7TmnAQM
+         SZ0Jiop5s79YLdyIWvGlqegIo7NokLtg0W6j5LBuMVUwRTT14JKxEc2DJJ9aJesNZyOS
+         gOyZhtUk/cs7b675bCTj32adHQcexEUSJa/qbdfx4gw9XvJ/Urzi61mjdjj2rXlCqgMQ
+         XKHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735293092; x=1735897892;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z3kIYYav1PvSjIUXIDnTln9if7PNCtkeq4PzpUXJ76o=;
+        b=B50itdH/R5JeMXfiDdimxr9Wlby7jKhcRDPL3Rhcr1Kk2K95maqybdHyUMgYzqC9Ck
+         asE67SdU/btaOMd17yU738osMTXhWS2L13iWQ52VfUzaOJye5mKr/Cz/NeqDpi3XqxW/
+         bJRZ1QjzVVbJ/D/CPem1aGV/vl3Riorp/Ol/FRY8kL2SooR0wJqWN9OQm4kRhmjXDcw1
+         2qJpG4c9+HuNUZ6S7z/v/WF6//81mlwCoj3LV64nGjbZAMJkEKpZFSwheXowDXoZx+U/
+         6Xao8yzAGkRSbRXcK13/7q/9ldjK72CmO3usq9kPM8hRBDuiJnVyjVlu/KAEvSTSJJnn
+         Nacw==
+X-Forwarded-Encrypted: i=1; AJvYcCVIXybhMryiNXISLhE58j4yrMDVJQdV5seWsjT5IG5wvkj9g4xoy5BRUdAg8gRwS8hm3fm/wmBOyuuPVw9l0Ng=@lists.infradead.org, AJvYcCXwfhz2rsxIU1oHTONO3G1syy7agH0v5GDbdVPTMTYmAT52zrXDDj4jOUMM9KV7vFx7sGBMXIwNU6qaxgnyugtr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfbbHhF5coddnlSpnslnLh1iRss//2nGkPyxblckOdP9WGmd0v
+	SRI/GGjv/csPBESXu2h6GbA6LQqZWe4Jo3xFTRHiOpKsRTSCoXxy
+X-Gm-Gg: ASbGncsRcXWUriDn5pJoLjEbtiqTahXrx3s0lpyjNBEnShGP/gnGr/MaoftlhGsYXc5
+	NSsIrHZNIi9fqRLKcwEKxH8PwBgxx0UEdybSH0GC8EkBvON0tK9Dx4LwQjLF3hsXmhlPjkiYP/R
+	6e9lMaFMp/8C73gqOEXz81oS5gzEsIzVtEumr7/Gz9QVvVMbBTa8k/RyIl2yiKYqNxiQkuRMIt5
+	saZ3RjhI2wdN4kwXmsKTJvuX64s/fH0G385SKtbdvfoqa67PiTR0iE=
+X-Google-Smtp-Source: AGHT+IEVi84xuzWlTMjO2IGoIG2twBfofQsLs9LiHnpA4f3sHHWIHQkG8qFuCXh50GuernODq6lMuA==
+X-Received: by 2002:a17:902:d4d2:b0:216:31aa:12fc with SMTP id d9443c01a7336-219e6eb5bf4mr327982705ad.24.1735293092447;
+        Fri, 27 Dec 2024 01:51:32 -0800 (PST)
+Received: from Emma ([2401:4900:1c96:94e2:5054:ff:fe53:2787])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9f518asm132439505ad.198.2024.12.27.01.51.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Dec 2024 01:51:31 -0800 (PST)
+Date: Fri, 27 Dec 2024 09:51:25 +0000
+From: Karan Sanghavi <karansanghvi98@gmail.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Alexandre Mergnat <amergnat@baylibre.com>, 
+	Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Simona Vetter <simona@ffwll.ch>, Sui Jingfeng <sui.jingfeng@linux.dev>, 
+	LKML <linux-kernel@vger.kernel.org>, CK Hu =?utf-8?B?KOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+Subject: Re: [PATCH] drm/mediatek: Initialize pointer before use to avoid
+ undefiend behaviour
+Message-ID: <tte6ad3rxle52x3wndewyyrnszozghvpxktx2x55w26rdcea4n@rdbhzpx2wi3p>
+References: <20241111-uninitializedpointer1601557-v1-1-7d03668e8141@gmail.com>
+ <8a5bdda5-5e2a-4b73-91a5-849b6060e7df@web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241225192631.25017-2-val@packett.cool>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8a5bdda5-5e2a-4b73-91a5-849b6060e7df@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_011220_255446_E06FCA6B 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20241227_015133_993422_C3D2CD7B 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 25, 2024 at 04:26:19PM -0300, Val Packett wrote:
-> Add compatibles for SoCs using this device (mt8183, mt8365, mt8516).
+On Tue, Dec 24, 2024 at 05:09:54PM +0100, Markus Elfring wrote:
+> > Initialize the pointer with NULL as mtk_drm_of_get_ddp_ep_cid
+> > function might return before assigning value to next pointer
+> > but yet further dereference to next can lead to some undefined
+> > behavior as it may point to some invalid location.
+> 
+> * You may occasionally put more than 62 characters into text lines
+>   of such a change description.
+> 
+> * Please avoid a typo the summary phrase.
+> 
+yes sure. will keep that in mind for hte next patch. 
+> 
+> …
+> > ---
+> > Coverity Message:
+> > CID 1601557: (#1 of 1): Uninitialized pointer read (UNINIT)
+> > 3. uninit_use: Using uninitialized value next.
+> 
+> May such information become a part for the final change description?
+>
+Ofcourse, it shouldn't be the part of the change description. Thus i
+have added them after the '---' due to which it wouldn't be the part of
+the commit log (that's my uderstanding correct me if i am wrong). If it
+still adds in the commit log do let me know as it hasn't been added for
+other patches. 
 
-This we see from the diff. Say what is less visible, e.g. are they fully
-compatible with other variants? Partially?
+it is just for the reference to understand more about what the error message
+is generated by coverity scan.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
----
-
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here. However, there's no
-need to repost patches *only* to add the tags. The upstream maintainer
-will do that for tags received on the version they apply.
-
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
-
-Best regards,
-Krzysztof
-
+Thank you,
+karan.
+> Regards,
+> Markus
 
