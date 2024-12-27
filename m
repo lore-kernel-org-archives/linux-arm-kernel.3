@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B11E2E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 11:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37694E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 11:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NlbeabqHXI3xJyUbgyHJpY/hBcQISwAxP63/wwrSWEY=; b=sM8TJUGzQXLYimZtQM8YSCcXkY
-	lX+lxuqzK0adcV23jbklK6hccMD0wJREaVWJDBTHYteHB1dHUYxK26m7eDwuq4sAhewIK1qxnzhue
-	CG7DQI25cFudMF6Bk6xymqE4M1Wjg72HJDt6B4GAx6fQbNDWFZAduB/neB5N5nlL+lBC1o3x50umm
-	eK46LEJFSUQU4CsfDDyxmlvV6whx7QryE5BqpklQ+I9VCt5baBxsnQUDTtlxbMEREVezC6bnF6xfM
-	ARd28p6+0hZgulsQ3Qz5LsuYvozM3be69BVDE602f2RhfoGxSQ0QpoFwep5ybktm/N8wKCXAKp4tY
-	RQRnxB2g==;
+	bh=phv7iVVXVzjakNqDgdbYw7zx5GFmWGAQJh9j37w1dWc=; b=D4w1nzxU7gDGtdRF52Lt4LvAfm
+	xvZhGDYviLVg1hF4FR7jmdL9RR+/QjacpA5Odi3+CGI8Ok0bavNy0OvgY8vO/i7+X6C5B2kRqQd/j
+	GZ3tGcD2yIHACxdPlVSm+mcIUh97lYeO8u0Yup3KP5wnC/C/cQs/ffPRpik3jOgU8HSMA8rejy+tV
+	hMujukCfGCYbgy7DAlj/itZ+LfQE1vLHluJ2v1SKF80yEJYBP9cA4qzcQJiKJKCJLHHu5eK5gPgYd
+	aE5LRqvgorZa0e+4FNIdOZO1ssRLT1r75tWwD8scoyXmoiS8Y6ddKNCORyd3X9rebJnhFSuEUQ5UV
+	Db6rFLTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR8NZ-000000004tc-1wNS;
-	Fri, 27 Dec 2024 11:19:41 +0000
-Received: from omta40.uswest2.a.cloudfilter.net ([35.89.44.39])
+	id 1tR8Oi-0000000055J-2qLK;
+	Fri, 27 Dec 2024 11:20:52 +0000
+Received: from omta34.uswest2.a.cloudfilter.net ([35.89.44.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR8DZ-0000000032V-26IP
+	id 1tR8Dc-000000002v8-3SVQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 11:09:22 +0000
+	Fri, 27 Dec 2024 11:09:25 +0000
 Received: from eig-obgw-6002a.ext.cloudfilter.net ([10.0.30.222])
 	by cmsmtp with ESMTPS
-	id R0rjtEZ2DvH7lR8DYtJAYg; Fri, 27 Dec 2024 11:09:20 +0000
+	id R42htTcdo09RnR8Dctqgml; Fri, 27 Dec 2024 11:09:24 +0000
 Received: from md-in-79.webhostbox.net ([43.225.55.182])
 	by cmsmtp with ESMTPS
-	id R8DVtskWS65gFR8DXtfGD1; Fri, 27 Dec 2024 11:09:20 +0000
-X-Authority-Analysis: v=2.4 cv=Z58nH2RA c=1 sm=1 tr=0 ts=676e8ae0
+	id R8DZtskYT65gFR8DbtfGF4; Fri, 27 Dec 2024 11:09:24 +0000
+X-Authority-Analysis: v=2.4 cv=Z58nH2RA c=1 sm=1 tr=0 ts=676e8ae4
  a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
  a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=vU9dKmh3AAAA:8
- a=9cU--O3412mDuayuQzEA:9 a=QEXdDO2ut3YA:10 a=rsP06fVo5MYu2ilr0aT5:22
+ a=VANPn-21L8UGAxZ6yr4A:9 a=QEXdDO2ut3YA:10 a=rsP06fVo5MYu2ilr0aT5:22
  a=ZCPYImcxYIQFgLOT52_G:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
 	; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
@@ -44,25 +44,25 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NlbeabqHXI3xJyUbgyHJpY/hBcQISwAxP63/wwrSWEY=; b=EQ1S957nbN777vON3I8QTMMMFW
-	1uOLRCM0sOq+ABpPkeK17FyEUYh5iqUuS26JxwigRCx+nCGoQ+qxcYELTE6SS+7KMZ/IKgLcYwPKV
-	FmYCRln9U/ixt4dsnINtk6oVtkxuOgbW7ziKb3FRTyqSvq3bgK50atqdRjla6G7zJo7VMNb04VHjL
-	UhLuilOXwt9o/rlb1JNWWatD8IPi0PobuGbLW1Lr/1YTqRi1S7G2ohZuRbzzvq4v2hcL9hG5tOvMw
-	w9EbNuut4paHzhrWJYDr9Qwbtq2jQ8b/IcCWQEIJjsUrw0NNWxzAIpbu6sV9bfl6hf3aPe+XkTJoO
-	E/vHBJIg==;
+	bh=phv7iVVXVzjakNqDgdbYw7zx5GFmWGAQJh9j37w1dWc=; b=ThXseK5od/f2R25+PRsd43PiM4
+	cP8A/ZvhAybkT+LCINpqRQNduiMwq4RyglowjexUDqdJFJx/ekog1Jhz7eeULZJkNVNE/TtRu4lYR
+	74F4vqYVts/i07DvN56m80IeiZMWc4Isgo2a0ZT+PizZAb42ama6zJ4+y0xYDYRNHARh2eKQGj1A2
+	vkynkrdMtm3/vGrkvgiQlegBN+mbFKnL3r+uHkn0cDwoVsODlLiRtjrxJ8G/afYk2kcuR/vZ2ipnj
+	ttIcQJQFKCzvQ5strteptQJNHvFT9pV3SI92qMUA1GxuKfjmXU5MlkZNdFXqxMKgdzzGcCi/OdBJw
+	JWi0K/Sg==;
 Received: from [122.165.245.213] (port=50828 helo=[127.0.1.1])
 	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <parthiban@linumiz.com>)
-	id 1tR8DL-000bEK-1q;
-	Fri, 27 Dec 2024 16:39:07 +0530
+	id 1tR8DP-000bEK-2q;
+	Fri, 27 Dec 2024 16:39:11 +0530
 From: Parthiban Nallathambi <parthiban@linumiz.com>
-Date: Fri, 27 Dec 2024 16:37:57 +0530
-Subject: [PATCH 10/22] pinctrl: sunxi: add missed lvds pins for a100/a133
+Date: Fri, 27 Dec 2024 16:37:58 +0530
+Subject: [PATCH 11/22] drm/sun4i: Add support for a100/a133 display engine
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241227-a133-display-support-v1-10-13b52f71fb14@linumiz.com>
+Message-Id: <20241227-a133-display-support-v1-11-13b52f71fb14@linumiz.com>
 References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
 In-Reply-To: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -85,11 +85,11 @@ Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
  linux-phy@lists.infradead.org, 
  Parthiban Nallathambi <parthiban@linumiz.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735297689; l=4202;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735297689; l=915;
  i=parthiban@linumiz.com; s=20241125; h=from:subject:message-id;
- bh=CfKDzLVW2HjbFGzbatG7QU1ZUM6EVKr2pWjYtibsVk4=;
- b=w92t7AAtXU2zxZzSIWLpVoKxCoU0b+V1CAvgST0eKbfVPBunyhuYXv732riqMFfymg0JfvgjF
- mFkIQo7jCTgCY7CZCZ1tkYb7WKenMTLWY5GhJa/+YHWGCJYyna6m1eO
+ bh=OF2xEirt2I4TWCuMHqY/Rfu3fQsoGOZ+4waicM8FC9g=;
+ b=fGp7v4SGTK0k7oY1nfO7iOPyXtT+W0sH/qCeqn4yRfELAjBZ2AytoCH4bQp52XB14uVa69J0o
+ aCEINdrh3p7DQ9sPMwGkrEx6YufICcsAuyqeNObKpd1Q/R9jiYnQtO1
 X-Developer-Key: i=parthiban@linumiz.com; a=ed25519;
  pk=PrcMZ/nwnHbeXNFUFUS833wF3DAX4hziDHEbBp1eNb8=
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -100,21 +100,21 @@ X-AntiAbuse: Sender Address Domain - linumiz.com
 X-BWhitelist: no
 X-Source-IP: 122.165.245.213
 X-Source-L: No
-X-Exim-ID: 1tR8DL-000bEK-1q
+X-Exim-ID: 1tR8DP-000bEK-2q
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
 X-Source-Sender: ([127.0.1.1]) [122.165.245.213]:50828
 X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 296
+X-Email-Count: 325
 X-Org: HG=dishared_whb_net_legacy;ORG=directi;
 X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfMo7Hc1jNDlHdo4jTvtlBIrFOnYlNGJ0Yd8a04tb5v4Ko+ajHeHfGgFjrH9xCV1DBAl+Z6Af6aq8ed7z56lBTw0oAmu53qm5psD7b0TyukALRqguVYpD
- Qd5bjIklgozX4uHR0iofu8SAR4/iNY8SaaxkULsLiqZLn1Pz1zF8EUzbNlKQ89BPIkCqjOP1Ham2F1klSxKyiL14zsoJR6Piox9zrAWLTfQsv16MFlavbE8R
+X-CMAE-Envelope: MS4xfGJ7XlqAc0nllDA/mfDC36QGPuKR0rudExHI9a91w8cQPn2h0A0xbVE041qeHK2KJbTWUwd4hw8Vjk7FT+ubhXYGJX3ykD4DFCQLhsWzai+8yHUZX2dS
+ IWk6wFpSuUAL5lcPm+NC3+pwk4Ql+xCtAzUFyCG6a/g+Bx9IX/XQoXbEbJROApKNgPzvgNKWMROkzPvbUscAybKUyVW83/OH94waH5Pw9srFfolhU8VXBhAp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_030921_574797_256DD24D 
-X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-CacheID: sfid-20241227_030924_892384_A3A3B5C3 
+X-CRM114-Status: UNSURE (   7.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,103 +130,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-lvds, lcd, dsi all shares the same GPIO D bank and lvds0
-data 3 lines and lvds1 pins are missed, add them.
+Display Engine(DE2) in Allwinner A100/A133 has one mixers and tcon.
+The routing for mixer0 is through tcon0 and connected to
+LVDS/RGB/MIPI-DSI controller.
 
 Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
 ---
- drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/gpu/drm/sun4i/sun4i_drv.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c b/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
-index df90c75fb3c5..b97de80ae2f3 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sun50i-a100.c
-@@ -256,72 +256,84 @@ static const struct sunxi_desc_pin a100_pins[] = {
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D12 */
-+		  SUNXI_FUNCTION(0x3, "lvds0"),		/* D3P */
- 		  SUNXI_FUNCTION(0x4, "dsi0"),		/* DP3 */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 8)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 9),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D13 */
-+		  SUNXI_FUNCTION(0x3, "lvds0"),		/* D3N */
- 		  SUNXI_FUNCTION(0x4, "dsi0"),		/* DM3 */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 9)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 10),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D14 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D0P */
- 		  SUNXI_FUNCTION(0x4, "spi1"),		/* CS */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 10)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 11),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D15 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D0N */
- 		  SUNXI_FUNCTION(0x4, "spi1"),		/* CLK */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 11)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 12),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D18 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D1P */
- 		  SUNXI_FUNCTION(0x4, "spi1"),		/* MOSI */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 12)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 13),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D19 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D1N */
- 		  SUNXI_FUNCTION(0x4, "spi1"),		/* MISO */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 13)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 14),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D20 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D2P */
- 		  SUNXI_FUNCTION(0x4, "uart3"),		/* TX */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 14)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 15),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D21 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D2N */
- 		  SUNXI_FUNCTION(0x4, "uart3"),		/* RX */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 15)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 16),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D22 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* CKP */
- 		  SUNXI_FUNCTION(0x4, "uart3"),		/* RTS */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 16)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 17),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* D23 */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* CKN */
- 		  SUNXI_FUNCTION(0x4, "uart3"),		/* CTS */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 17)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 18),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* CLK */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D3P */
- 		  SUNXI_FUNCTION(0x4, "uart4"),		/* TX */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 18)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 19),
- 		  SUNXI_FUNCTION(0x0, "gpio_in"),
- 		  SUNXI_FUNCTION(0x1, "gpio_out"),
- 		  SUNXI_FUNCTION(0x2, "lcd0"),		/* DE */
-+		  SUNXI_FUNCTION(0x3, "lvds1"),		/* D3N */
- 		  SUNXI_FUNCTION(0x4, "uart4"),		/* RX */
- 		  SUNXI_FUNCTION_IRQ_BANK(0x6, 2, 19)),
- 	SUNXI_PIN(SUNXI_PINCTRL_PIN(D, 20),
+diff --git a/drivers/gpu/drm/sun4i/sun4i_drv.c b/drivers/gpu/drm/sun4i/sun4i_drv.c
+index 5eccf58f2e17..e012a6316bba 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_drv.c
++++ b/drivers/gpu/drm/sun4i/sun4i_drv.c
+@@ -436,6 +436,7 @@ static const struct of_device_id sun4i_drv_of_table[] = {
+ 	{ .compatible = "allwinner,sun9i-a80-display-engine" },
+ 	{ .compatible = "allwinner,sun20i-d1-display-engine" },
+ 	{ .compatible = "allwinner,sun50i-a64-display-engine" },
++	{ .compatible = "allwinner,sun50i-a100-display-engine" },
+ 	{ .compatible = "allwinner,sun50i-h6-display-engine" },
+ 	{ }
+ };
 
 -- 
 2.39.5
