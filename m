@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84EDE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:48:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5593E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 12:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qAr5MJyxW4tliQqtSvIibq4rtO0kf94wwATw2mUtoLU=; b=QZu7BlWV0B6YWfaRmb459o/9SI
-	T5uKRfJM33eAaXPItUGE6PjN9EOJxxL6+R/1w0JtsP7VhVYlc0mNzbV2OaDu7TaocPRLvfozkxMyZ
-	Aimgav5RusSN2MgpDxbW/LTICFo9OemTjqgmQY6mDs++OcP92wFZIMLOR6yd/wwMI/Iwze5Q6FD1j
-	Il/jkkb6/jQr553rLwyE4+DjoTqTCMS788vku/sFzdxxX9/pcLY4sHtEzUobL3Ipc/OSYjr8MhBh5
-	G1Ta1MCqSgD4kXk5wqK33osd4j9tK0x2phjcPuj8vSmiiDCj6zQb/oIuCo+UZHzIhIi+g1RFo5AiR
-	qPEjOaNg==;
+	bh=LKZLDmgXnxDTvedApqeYbhb4pkfn3581HbM1Qj4Qke0=; b=AvBEvQggC/WLFxVChiJJC9vjG1
+	P0tVn7zC9rudpPj15vF2HqC4F+D9b39HRkir9LcX4HxPhvCMBmFHlJ5zcfKSRU1wllwQ2HQbaozdf
+	H0A9L0Gel8AjB/ZyvYQPzQsaefN1970waNMt4LbMAHUW0LJPZzYDGf/1kUeqDvkL0zvSzPoNJ9GGU
+	aFNQf5WIneEtxV4re9HLZZ4DJZzWL1gYP7/kATUp11ugwpq2tVJ1duVvjtmiy+2z9abp90l98X5og
+	mruqm3WApBI1GPop+UgHuo5NJuZieEiasDWK5x9hB3pyBTw6OxCnT7uIZRClgUXLjp3jajXD/VIh6
+	LJup+T/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9l1-00000000CJp-1MmJ;
-	Fri, 27 Dec 2024 12:47:59 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tR9m9-00000000CQe-03P4;
+	Fri, 27 Dec 2024 12:49:09 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR9jo-00000000C94-3V4U
+	id 1tR9jv-00000000C9o-0LY3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 12:46:45 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-386329da1d9so3254984f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:44 -0800 (PST)
+	Fri, 27 Dec 2024 12:46:52 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-385e1fcb0e1so3828552f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 04:46:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735303603; x=1735908403; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735303609; x=1735908409; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qAr5MJyxW4tliQqtSvIibq4rtO0kf94wwATw2mUtoLU=;
-        b=JPBHqXRD470/UpYoROGXjXUV6+wWYdXcYUkcSNfHQ6+O6W4yZOyoEEIlT636JqbGQT
-         UO5iP0ss0hOeyysGdiiXMeJcIHkL6ZGVTzgcId5q7BXLVz4Qwg393WU6jykGGi7obtN2
-         O0U7uLAmb7lpQ48tfrrz9GB+RHlH/N+Nc65rlQ5uirURlg7HpckMY/8RU2TCTUJ1akMV
-         817MXipOIpoqoYVukGzwyCdvqUZK49MKKoTn0h6r8WYSqYB60tjHBAwctVTRP66+vmTH
-         QOQ2o7SWluDDqunuR6OPb4HAzIdXYVlRjBP3gPaXL+NAMVxn9qzv9KB9yAo3uuup9G4o
-         Hbyw==
+        bh=LKZLDmgXnxDTvedApqeYbhb4pkfn3581HbM1Qj4Qke0=;
+        b=ajADrmJQNJlrt+6MC4HJxkYwCui7rJXYfgT2k1IZs/m/6HQKUAGwBQrmlRaMq7WQUX
+         LyVVDC7ApRxVz9bWW2Bb8bf+iIrizVCsDP4ltJBRqX2USKT3DS0k7/u2/nG/5+EO5vDE
+         RLEIq0hNmqxsJTI9XSU//scR7kyfHylXzwbvqNaFeyOhiU8wCbd/bsWkcoPsKl+Ykbik
+         ablUPpfy0DQ3xLq6vxApx5cMVcx92RuhV4oYI3iXHLTcwUy4jnuDjr2vdRQiF5WgZrNq
+         JSF/RE6VYOvLEyBj4sw3mrYnp7Ev2EaHUjiT8DtmpO8sWiWF6F5MYu1L+D/dPZCI0R91
+         Iflw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735303603; x=1735908403;
+        d=1e100.net; s=20230601; t=1735303609; x=1735908409;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qAr5MJyxW4tliQqtSvIibq4rtO0kf94wwATw2mUtoLU=;
-        b=UI/vKG90cNHmUOSTb1WQb4YkKxYcA3bKdZKEkvnlXwCspIWfpeCm9nDJsAQsKglPjF
-         UXafLcOmQEi5VSi/oXWluayniV+QQeHVRYQVOvMDcI7TMAm3Ts0F//pZPj+es/7ueDkV
-         CMMVbO/Rk2w9iunwb90uaJ1g6qCe+95597iG9MJTF9/ziFLXdz/+6kDlWqKwoD07sD73
-         I/yypG9bvutZ2bBZVQAXIHlYa0rTK8RblO+HAKexQ6rEcZl/jU0wPacnFxpOKCfbf+F+
-         Ju56THdwhXzRmxEUI5wzctaLaf1hCE39dnRJY1jKUaQ7FagygvsHKCYRIPatcpzF4o34
-         jLWw==
-X-Forwarded-Encrypted: i=1; AJvYcCXAMqDpQcHZj4cvfZIXEbpX2pwAUSwYVMgOkACmp9ehtP/qSMX2qR9pj1EaSb/yiG9mYqMFezOSmHRDTvO2de9L@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV4r0qaT7Awu2TIOhblWN+QZm+U2ZrLc11yfBrn0sc+NmVaS8T
-	YbEPebpymykMK9ef9rG8Y5vg7wavtJQganLTcL/AQxWA0FqUeXtpedmmUkJHx48=
-X-Gm-Gg: ASbGncs7uFIV1bF3bzeLoZhwEozY658TEndcehtNalh4DMsrdjCthLK0aI/118CH6S9
-	5RSJp0iY06g+V1wAX0lXMR/JT5y46yPbGj04ul37Ps9fqvgum6ifuPIA9+OnF7N6n6+304TDa2s
-	0HhRR8iqbHWt7c9BiBEkjuGwI+xXoL/pag4oKhSNtEyz1/VOIOx1WhlIdYbykLY8Ps0Yf0aOnyc
-	gxg49HSL2f9SPqzeqHfkhsz1YhCIEKRALZY63E6YxDR1RNlRg+m59OA
-X-Google-Smtp-Source: AGHT+IFOSyN6MsRY52PNGIySqb8jJ3jiAJ8ipn+mH7OpC8pga8Vo0BdkKK7utvCX05gXYmLza6GGZg==
-X-Received: by 2002:a5d:584d:0:b0:385:e0d6:fb73 with SMTP id ffacd0b85a97d-38a221fa9cdmr21953130f8f.15.1735303603117;
-        Fri, 27 Dec 2024 04:46:43 -0800 (PST)
+        bh=LKZLDmgXnxDTvedApqeYbhb4pkfn3581HbM1Qj4Qke0=;
+        b=in+g5XSmtUcpW86/YYB/BJd3bCZ39kX2NnxiQ8ysJpyryRF/IupnOGvgO5JODnom4f
+         wvf8+UVaewr+L66BQ+7MXI2gD1uo4ZQeiEEdkV4gEaAVVr/l7m2/oEqlgOvahVu03pWB
+         8N8ooL8Aqc0SBiVu+sQZF8wIhKweBY5uZ7fTXvO7HUD+Di7DSxzX2uJuc5+8NFNR2XwZ
+         zjoM0zv4Lx/gyJ+voxNt95kA/YTOpGFfzbGxG+FghzlT/OEGoFrmPC58YlbCIxchOkFB
+         CIY9eEjzrYAOVIfwarFp73p1cf+JbCFKNvkGcr3wqKuF/snzkPEu9IhNSyZHY1UTNYex
+         ymzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoXPCbCMSOoG2EdKOVcKahIjqRxj8B3Vw7NPYXP9HHFAciLqJuJyrDcUqCjJS3V1zEyiEWh8/sZuxOnPqW9ImZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKFQeQEtyR0XZTkAlriOZrE3e4UelS98T93UjvTX014klFYoYF
+	AhMF0SXmL//g9jtDJl4O0WiNFrCVC0635sFfyJAMTT4ifLBZIo/v0Gjk52WZjsA=
+X-Gm-Gg: ASbGnctzcNMrohyWjA1Syam/xTrjh2e3AxLRsavLu0FnCWI9UaxYNXl68Qaw1WzMbSu
+	FaTOYffmocPy+PfT47/JDmRLg8e1/QFFn4ONM55CBuxMKY8mUiQQOmvyeb3s/da1aoJuwjFbGlE
+	BivOjkjrCSnzSFxBFUgpxjsjBgPTn0s5Bkjuv6cMSSNAzC9yJZqS7fKTv7xy38+4Llfcc+J3Hx+
+	E7TSQKq8c5M6EDz7vKcM7cgJKEe8nQSgYMf4SNtQh/Xl5Lfs/YvDxjl
+X-Google-Smtp-Source: AGHT+IHUGw1dRb20Q7tB744vdpiCFmHJR9m5A9wf0UJHlaCM5WPSJo762Y4NDRosAM8fszG7xNcx2g==
+X-Received: by 2002:adf:a3d9:0:b0:38a:39ad:3e31 with SMTP id ffacd0b85a97d-38a39ad4128mr6360300f8f.57.1735303609335;
+        Fri, 27 Dec 2024 04:46:49 -0800 (PST)
 Received: from hackbox.lan ([82.76.168.176])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.41
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b11495sm297172905e9.19.2024.12.27.04.46.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Dec 2024 04:46:42 -0800 (PST)
+        Fri, 27 Dec 2024 04:46:48 -0800 (PST)
 From: Abel Vesa <abel.vesa@linaro.org>
 To: linux-clk@vger.kernel.org,
 	Marek Vasut <marex@denx.de>
@@ -80,19 +80,20 @@ Cc: Abel Vesa <abelvesa@kernel.org>,
 	Stephen Boyd <sboyd@kernel.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] clk: imx8mp: Fix clkout1/2 support
-Date: Fri, 27 Dec 2024 14:45:59 +0200
-Message-Id: <173530350106.4140483.17403614068290152779.b4-ty@linaro.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries for PLL1416x
+Date: Fri, 27 Dec 2024 14:46:00 +0200
+Message-Id: <173530350108.4140483.17886635259126245579.b4-ty@linaro.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241112013718.333771-1-marex@denx.de>
-References: <20241112013718.333771-1-marex@denx.de>
+In-Reply-To: <20241112013805.333798-1-marex@denx.de>
+References: <20241112013805.333798-1-marex@denx.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_044644_880454_B717DBF5 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241227_044651_126664_B1E59404 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +109,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 12 Nov 2024 02:36:54 +0100, Marek Vasut wrote:
-> The CLKOUTn may be fed from PLL1/2/3, but the PLL1/2/3 has to be enabled
-> first by setting PLL_CLKE bit 11 in CCM_ANALOG_SYS_PLLn_GEN_CTRL register.
-> The CCM_ANALOG_SYS_PLLn_GEN_CTRL bit 11 is modeled by plln_out clock. Fix
-> the clock tree and place the clkout1/2 under plln_sel instead of plain plln
-> to let the clock subsystem correctly control the bit 11 and enable the PLL
-> in case the CLKOUTn is supplied by PLL1/2/3.
+On Tue, 12 Nov 2024 02:37:35 +0100, Marek Vasut wrote:
+> The PLL1416x is used to implement SYS_PLL3 on i.MX8MP and can be used
+> to drive CLKOUTn clock. Add 208 MHz and 416 MHz entries to the PLL so
+> they can be generated by the PLL and used to produce e.g. 13 MHz or
+> 26 MHz on CLKOUTn output.
 > 
-> [...]
+> 
 
 Applied, thanks!
 
-[1/1] clk: imx8mp: Fix clkout1/2 support
-      commit: a9b7c84d22fb1687d63ca2a386773015cf59436b
+[1/1] clk: imx: pll14xx: Add 208 MHz and 416 MHz entries for PLL1416x
+      commit: b7f67545ca9fa13f6e12debd68a92c1c664e2e3b
 
 Best regards,
 -- 
