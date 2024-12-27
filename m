@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762BBE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 16:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D24E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 16:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJo+5JHel6hiVP/etcE74btN7SbkcRIC+VRyvwYEsRI=; b=AGQRPAAvt96TiS1rWTnjlDOAkW
-	Bc3qASlDbBlmixC2R6B6MsrpPop8moQW2qR8rI87qxAF6lZnxuT/hQeezGnZtdXTQhvPjwWhXwOW3
-	D6NVHu4+LwLvv4YXXbzK8z8UwT5Rq8nUKQtqJtCCAr4j5+Q/w9UZDiDHjgamOHlsWBu5D1thfMg46
-	ks2+FfZbUSFWN54EADB04/MzC3I/Euqp3Q3jPqChXV8vKGX+D/NxovdBVjilaSFrPd8pokI7lJ3Pg
-	a6Q97NEFAlyWmr64yUmolpquFLlJy2T6cyg8Lv0/oZXQTqKUrUT+MaG5I+OvjtHSXOXJk4n92dG3k
-	jF48iDlQ==;
+	bh=b+kJ5GgJSY5BEnf36zP1cyukJtWFWW9cUstSD5JDgMI=; b=yfrtIzKfE8hctG37j0WM9DkirB
+	7AhCajjHnjTPyEm2pzLpgIUTlKe8PsGcDkeABc84RxL0s4jBYZgziLq+o20jgo0Z0cRKXuaz8GmGJ
+	ZY4/3eLACgm/kKXdd4Aw5xxXeCAXl+1jOXVho0+s9r67cmtJGEnzK5OZ//2Hit52x6nPynMEpVATv
+	poz53PO7UCHNhsPBKvD7ZunWAFXrAXiftsSx5QyNNlglDX48mTG8vU48ha0qhgKV7ZRluNX1Fxd9x
+	oQd0f3ke337BUt/sALNiVf2/N15tIQ0zHMwh0I4dRU4qqOdP+zXonlDXJ8HI50kIk7wNJIwt1L0rI
+	+ygbOaAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRDUu-00000000dkG-1X8G;
-	Fri, 27 Dec 2024 16:47:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tRDWB-00000000dvi-3mHH;
+	Fri, 27 Dec 2024 16:48:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRDTj-00000000dex-32MA;
-	Fri, 27 Dec 2024 16:46:25 +0000
+	id 1tRDV0-00000000dm9-2M81;
+	Fri, 27 Dec 2024 16:47:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D43CAA418BF;
-	Fri, 27 Dec 2024 16:44:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44AFDC4CED0;
-	Fri, 27 Dec 2024 16:46:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3F9815C62C1;
+	Fri, 27 Dec 2024 16:47:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84C5BC4CED3;
+	Fri, 27 Dec 2024 16:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735317982;
-	bh=NR72lyZThb08GVl0XXhuv/BqbDdMj0okVQpzzBcEtRA=;
+	s=k20201202; t=1735318061;
+	bh=RbTLJ3TCnphcYvnAzlzQ9woXDDQOo0U23BlvBss9hvI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CTQ/LYXjWiRbaQQXA64Zcxq1QSjQAXpvKLGMQrOegBRi6u24JpIQMKrWt9AnJXN98
-	 Z93AqzoO0zaMZcBND8q01tHQDwInC5CQNqvFus0xhyQsO+2CMbcKXoK1FX5jDjC1FT
-	 4JaudG+tEBQmn8ZWA/ESbbpVLFpuAQiDR2JIH/9cdHVndGqa8xYLvUPOtHp4SfFWdc
-	 FnCKMpLdOh3GWkP1E8HtbSipKayHT9XMy0RlKnojy8ahy1Sn6jRnW/sRWwrrlkGapx
-	 9WRi/kvya+iVYY5syMjNnaBW6nRkMDaIVbBKYaXrW3yMYhvH9wEex5tdDuRD9yLsO1
-	 +Cs645Qov3PYg==
+	b=EF8lxMU++oHFKL/9oY/5q1H3k0CcrTSZ4IWiDS3IxVA7eu/siHUcHk6ZduFsJfzPw
+	 ZX1roINHgeXBQONqI5rsiazqv4JBk3D/4NLGvUb7kScIwGCk5lVakNC5LjcfOoXCgs
+	 Zz5uoh3gFcJYjB9YjjkIyzrHLggufQUvVUCJt/4NVxNcCWjrHK+uA2UaWnkzCoAxq0
+	 KCnTLxmgWtw9pL+sCcWoexSPgx6UMq6YFWoWildsfwnv+PKU+Vio/pyC+k4plM6YSF
+	 2cz7GUUmS/sASXAVkq3HyX+K0aYXeRRq71dm93g9+sB3PvrOnNZ7fWG65jNc0nwbEL
+	 qrPZqYKGIwO1g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tRDTf-007FyL-Rc;
-	Fri, 27 Dec 2024 16:46:20 +0000
-Date: Fri, 27 Dec 2024 16:46:19 +0000
-Message-ID: <87bjwxoyzo.wl-maz@kernel.org>
+	id 1tRDUx-007Fyr-Ce;
+	Fri, 27 Dec 2024 16:47:39 +0000
+Date: Fri, 27 Dec 2024 16:47:39 +0000
+Message-ID: <87a5choyxg.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Dragan Simic <dsimic@manjaro.org>
 Cc: linux-rockchip@lists.infradead.org,
@@ -61,10 +61,10 @@ Cc: linux-rockchip@lists.infradead.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	FUKAUMI Naoki <naoki@radxa.com>
-Subject: Re: [PATCH 2/2] irqchip/gic-v3-its: Make "dma-noncoherent" preferred for RK358x errata
-In-Reply-To: <1382cd99ec213b5fb6f3b23d4e895f078f587b8f.1735313870.git.dsimic@manjaro.org>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Use "dma-noncoherent" in base RK3588 SoC dtsi
+In-Reply-To: <ecf3505af1a690ed8b975f60d095331778593339.1735313870.git.dsimic@manjaro.org>
 References: <cover.1735313870.git.dsimic@manjaro.org>
-	<1382cd99ec213b5fb6f3b23d4e895f078f587b8f.1735313870.git.dsimic@manjaro.org>
+	<ecf3505af1a690ed8b975f60d095331778593339.1735313870.git.dsimic@manjaro.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -75,8 +75,8 @@ X-SA-Exim-Rcpt-To: dsimic@manjaro.org, linux-rockchip@lists.infradead.org, heiko
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_084623_913425_E7656120 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20241227_084742_648598_02F7F142 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 Dec 2024 15:42:24 +0000,
+On Fri, 27 Dec 2024 15:42:23 +0000,
 Dragan Simic <dsimic@manjaro.org> wrote:
 > 
 > The preferred way to denote hardware with non-coherent DMA is to use the
-> "dma-noncoherent" DT property, [1] instead of relying on the compatibles. [2]
-> Alas, older versions of the Rockchip RK3588 and RK3588S SoC dts(i) files
-> failed to specify this DT property, which means that checking the compatibles
-> remains required for backward SoC dts(i) compatibility.
+> "dma-noncoherent" DT property, at both the GIC redistributor and the GIC ITS
+> levels, [1] instead of relying on the compatibles to handle hardware errata,
+> in this case the Rockchip 3588001 errata. [2]
 > 
-> Let's have the Rockchip 3588001 hardware errata handled the preferred way,
-> with newer versions of the Rockchip RK3588, RK3588S and RK3582 SoC dts(i)
-> files that properly specify the "dma-noncoherent" DT properties at both the
-> GIC redistributor and the GIC ITS levels, while falling back to checking the
-> compatibles for backward RK3588 and RK3588S SoC dts(i) compatibility.
+> Let's have the preferred way employed in the base Rockchip RK3588 SoC dtsi,
+> which also goes along with adding initial support for the Rockchip RK3582 SoC
+> variant, with its separate compatible. [2][3]
 > 
 > [1] Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
 > [2] https://lore.kernel.org/linux-rockchip/86msgoozqa.wl-maz@kernel.org/
+> [3] https://lore.kernel.org/linux-rockchip/20241222030355.2246-4-naoki@radxa.com/
 > 
 > Cc: Marc Zyngier <maz@kernel.org>
 > Cc: FUKAUMI Naoki <naoki@radxa.com>
 > Signed-off-by: Dragan Simic <dsimic@manjaro.org>
-> ---
->  drivers/irqchip/irq-gic-v3-its.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index fdec478ba5e7..982dcbb30f39 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -4747,6 +4747,18 @@ static bool __maybe_unused its_enable_rk3588001(void *data)
->  {
->  	struct its_node *its = data;
->  
-> +	/*
-> +	 * The preferred way to denote hardware with non-coherent DMA is to use
-> +	 * the "dma-noncoherent" DT property, which the older RK3588 SoC dts(i)
-> +	 * files failed to specify, relying on the compatibles instead.
-> +	 *
-> +	 * Thus, check for the presence of "dma-noncoherent" DT property first,
-> +	 * to let the hardware quirk be handled the preferred way, and fall back
-> +	 * to checking the compatibles for backward dts(i) compatibility.
-> +	 */
-> +	if (!of_dma_is_coherent(to_of_node(its->fwnode_handle)))
-> +		return false;
-> +
->  	if (!of_machine_is_compatible("rockchip,rk3588") &&
->  	    !of_machine_is_compatible("rockchip,rk3588s"))
->  		return false;
-> 
 
-I'm sorry, but this patch serves no purpose. We already have a
-workaround in place, and we don't need to handle it *twice*.
-
-Worse, it is actively harmful. A DT that would only advertise the
-property on the ITS would result in a broken system, while it would
-work correctly with the current code.
-
-Additionally, look at what of_dma_is_coherent() does, and how it will
-fetch a property that is potentially completely unrelated to the GIC
-node, or eventually return some random default. The binding documents
-the dma-noncoherent property as part of the relevant nodes, and not
-anywhere else.
-
-In the end, this is just dead code, and potentially worse. So while
-I'm rather supportive of your first patch in this series as it allows
-OSs other than Linux to *maybe* avoid this hack, the Linux driver
-doesn't need any change.
-
-Thanks,
+Acked-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
