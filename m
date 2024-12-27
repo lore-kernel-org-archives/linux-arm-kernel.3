@@ -4,58 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7DCE7718E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 02:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FCFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 03:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vJmZU4+9X9Eyx6SHrXnM4pFDoTIxCya9jlk41UP2guo=; b=s4Ket7d0CeFyh9Cg94yL57CMRE
-	ze6cOuxEqfv3ivOMABbJahuxmjZOi34fpDn5nS96p8J4oCnshkpywZ/xokJIHa44YwVcWXo34qf5a
-	9E/Qt8PN350kB371HaWJGP6RZxIBLxrSqWrL7cxxumicg47ITo4SXVQ7yBGeNU8n0m/2Kt8Z9IqVH
-	H9A6nybyi7r0/IDoqaa1Ip5GpqRQBhKnh4hoYr4jVyG256AJndOZwdBk7q8XMg/C/fHHgbUASE7hh
-	nvlyr4TtxNZYlrXgVU78RXturrmRmzfesAXqOlOyH0u0nysF73IA0Klw0w+AHJcZSdqYZf3RKKg6a
-	EwbVZKjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=u9GzOqSFTFut+M0trF5n5rtYW7iZuRD8VsII4Yb9qIs=; b=WWXC4ebtpQMwl9
+	oRyvbCIfS6Bml5btnwshbCHgQEkF7vTvlVm+X18etdA5qx5dF0B58Iqk1iGir4tzGZOrQ/l0tpp/w
+	0+hg4BZ9nP9UxGdN3UfBtdMmXaw2Mbmsvh1UZWH4yPo5I+mz6hTVoHd34zfkjCfeUOkzZSuIu16ys
+	U/oofT/vDas2b0W+1i8Wfe02OGa9f+CMUjf5A7JMSJEpVdmzf+Pp6yUtibunD3G9GiSQfd0YI1EbS
+	YwfYLebmEaNPNdQPLIn8vttoApz+YzNdYloPmyEXPCPE0gykrFSby5YUSsAQg0W7cHDI6rKmUBJa7
+	gWvAoxSDRl8+Af2KP8vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR0Yk-0000000Gulz-0jGq;
-	Fri, 27 Dec 2024 02:58:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR0XY-0000000GugG-0H46
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 02:57:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB6C71480;
-	Thu, 26 Dec 2024 18:57:52 -0800 (PST)
-Received: from [10.162.16.95] (a077893.blr.arm.com [10.162.16.95])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B2BA3F59E;
-	Thu, 26 Dec 2024 18:57:20 -0800 (PST)
-Message-ID: <39a85800-47c5-4529-906d-5a40e58ce136@arm.com>
-Date: Fri, 27 Dec 2024 08:27:18 +0530
+	id 1tR0lN-0000000Gvrr-1S2S;
+	Fri, 27 Dec 2024 03:11:45 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tR0kA-0000000GvcL-1YwW;
+	Fri, 27 Dec 2024 03:10:31 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-3011c7b39c7so81021811fa.1;
+        Thu, 26 Dec 2024 19:10:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735269028; x=1735873828; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=u9GzOqSFTFut+M0trF5n5rtYW7iZuRD8VsII4Yb9qIs=;
+        b=S/6RRsFJ9FTRGqnNKIaUICSfxQ0+FPiVx2zNN9gRVJC2Tl0eB07WWo/Ov9L7wcaQvw
+         1a4wBSGQZRpMn2/314g66mus7J40znVyEUEIyP9uZRK8gGYY5i3P/q0UW4AZQfGHKd8z
+         M74TShSS2IGhzE9kYUl1YZIhywluBy+OLFpfOkQ8cA+h23waEN3Dgfnbdt+8kIllVjRA
+         2U4MY1uZPdc+w7pMdg7zY1SCifHiQTuvJkcLszQ+3W7EPe0oHxuwx26ZMmMVRgKAoKSM
+         yOKeORJhzO0fHtZ8HHGHlF77tOEzYL2SJ8RcqWju7CxbuqpKDElEHKPcmQ5x3W15mzGs
+         GLdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735269028; x=1735873828;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u9GzOqSFTFut+M0trF5n5rtYW7iZuRD8VsII4Yb9qIs=;
+        b=ZmGkwW4qXJ7a7gnqm1YxBBC43cuqTY2UUOWWG93afoiT3q3pDaRMpnAMKRLj2bn1Zd
+         LthSQtBZhyiQ2N7u3Xz5xhkWhYH/gFfbLbkw5CdGDX6r9JJZYN60UvBzpvTV2v81b9AX
+         Koz22JcClxgw+1Vt2dAQ/oaqEDAI8WdEkn0SFBevhF4ycxRUMRWyJGF3ACxuFsk1WCbP
+         MLzb/fxTXv74UVOD8JAuugn3ONFWWjMfiMcr5HGqca+CxtZ/O+/leGgAU88XzMJhXado
+         n2ezqDIopEns8vxPItDZTNu1P83DXus1VROLGjBHg+fWh6UIQq75rj/q0vDaoX9pJTY7
+         ukqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVcVPDu7iccksU+INduqbc/YhLx1P5v/MZozJUEzPkSH0SOYNGG67i1HTibw8OU/GTRiQdiCEXFy/V61JQW3H3U@lists.infradead.org, AJvYcCVvgUuR6OIiGGBf4MoukWpSuMnmVNQQ6hWBkx+59GxwMIkKIdEwTyBuQr4nv/+ytvb56YxixntPTCUfk6/M3I0=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLFq5H2NwOUrwShADCNMw+xLCov4JZ7rm/fZWCvNM/SpSRAaDl
+	YRCqgmmA84Fjn+ZrPX4hoyolxJ5lozuyDk4pGI+SUi7zx8jYXGE=
+X-Gm-Gg: ASbGncveMAWnL207JYLcK91L7zbRMytDAp4Ad4zoGapsvFhGX/5y9O7rWLxrDeeJtf0
+	HmvAIZA1OcZGaG2NaxVuwrg5P8M8OJP/kaI9Tl4xjg2ZZwu7NYyQA0H5pttQQQVwWMi7N3dWpp1
+	DdoImnobVy1/IZVHQ/W5ZZ0P2qIN88cA6doyLAUyQhBEBGbs0xs7l8QOXisqXzixRF+iqzD6htU
+	W7xG6VPYhvhqIWiPA4Zr7+B5E4C5KnbBzJSVt4LTO17v+pnzSUPbM6lOPc=
+X-Google-Smtp-Source: AGHT+IExyyy4jgRB3UWLgHTsEeFRs0/I8P7gVGIIOS5qg76b9sHxaxSVCTtLynrzkX+OeGPg7e1UAg==
+X-Received: by 2002:a2e:a701:0:b0:302:3021:9b03 with SMTP id 38308e7fff4ca-30468567821mr64398891fa.17.1735269027581;
+        Thu, 26 Dec 2024 19:10:27 -0800 (PST)
+Received: from JetTurbine.homenetwork ([2a0e:e6c0:20d3:2100::1d])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad6cccasm24326141fa.1.2024.12.26.19.10.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Dec 2024 19:10:27 -0800 (PST)
+From: Ivan Sergeev <ivan8215145640@gmail.com>
+Subject: [PATCH v3 0/2] arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
+Date: Fri, 27 Dec 2024 06:10:12 +0300
+Message-Id: <20241227-bigtreetech-cb2-v3-0-91c556adcffe@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: mm: implement vmemmap_check_pmd for arm64
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
- mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
- akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
- <20241209094227.1529977-3-quic_zhenhuah@quicinc.com>
- <Z2W5Bs0bZANI6NKv@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z2W5Bs0bZANI6NKv@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJQabmcC/x3MQQqAIBBA0avIrBNyHCK7SrRIm2o2FSoRhHdPW
+ r7F/y8kjsIJBvVC5FuSnEeFbRSEfT421rJUA7ZIBpG0ly1H5sxh18GjNr0j8pacMx3U6oq8yvM
+ fx6mUD4afMxphAAAA
+X-Change-ID: 20241224-bigtreetech-cb2-18944b349916
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ivan Sergeev <ivan8215145640@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1789;
+ i=ivan8215145640@gmail.com; h=from:subject:message-id;
+ bh=eEZPMqnFAFZL6U2Nau2tHWImP2Mq85i2tQEbvcKc10U=;
+ b=owEBbQKS/ZANAwAIAbzfXRlQM5b9AcsmYgBnbhqid1wH5MSiCj96ZCeJnpipynuRqmr3gltID
+ HJ6JOMyTM6JAjMEAAEIAB0WIQROCZtApKFz1fvvsOS8310ZUDOW/QUCZ24aogAKCRC8310ZUDOW
+ /RA6EACokGH4AkfQnCDMNuE1ab9eqYd5OpqsM1kRnmTCckb+s/fhcf+zmlOvMz/6tY7keWDMOkI
+ h01pY2Oo7uf4yAa9DkqM9gw5NgZsFcPnXRMtlbwjWOIk2ZW0xiXp6MgiMhFf/Y0FwoGHX2zb7B+
+ pmoL0G6br4N1oL+wPkHHoiImXft9pJQeWp6p01Qq4tMwFMOBtrSLOXg6Ra98w1rmTdeLNrm6RYA
+ lpkA9WCDaZqIEoCjaUFmVN9ddDcIocLcWq4bDh8a2EOGpHjwX6Ean/WYf2hVslhG1IEnE++juJU
+ 9zjkH5F+ZINJ9wXDB9DxjgYu63JcnQCD31blP0+yQObyPsPM5X5QCN3LCiNHekjxYZWV6r2hqdA
+ Rx2MfOr/a93JqlhsNzyzx7SVzYe3CGQsiC3NqZYx4Ht72BffT04hMBVvGCorLFxcHQO4oZ6JpfR
+ wKs9rIMPzau5AK0AcgSo65OGpvtrsORexLBB/+2ntOPj2A15G7ebSmscaBs2gTMNH5JnpaVUcO3
+ koA82atd+/DBb5zrzxKntdLGS/WEJlXqfgKM3fNqpCNaRsh/X+EHyox4I4sWmBqucqekb/SZz6S
+ 0qsfZjyhWevc8lfDTWjqch9BHHURsohzC+4IDMlDjSoM9/zNgYOKdMw/IuQgHV8aZks39/LqcH7
+ DRfMuHpKCFcBp1w==
+X-Developer-Key: i=ivan8215145640@gmail.com; a=openpgp;
+ fpr=4E099B40A4A173D5FBEFB0E4BCDF5D19503396FD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_185728_159996_188AB904 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20241226_191030_437421_6CFDEAAC 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,61 +116,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+BigTreeTech CB2 and Pi2 are Rockchip RK3566 SoM and SBC boards made by
+BigTreeTech for the intent of using as a 3d printer control board.
+It is a successor to the Allwinner H616-based BigTreeTech CB1 and Pi, so
+the device trees for CB2 and Pi2 are also done in the same manner: the
+common nodes and properties are put into a dtsi file that the
+board-specific device trees include.
 
+Changes in v3:
+- Proper formatting and patch series sending (using b4)
+- Converted spaces to tab indentation in the dtsi file
+- Fixed empty line where the license identifier should be
 
-On 12/21/24 00:05, Catalin Marinas wrote:
-> On Mon, Dec 09, 2024 at 05:42:27PM +0800, Zhenhua Huang wrote:
->> vmemmap_check_pmd() is used to determine if needs to populate to base
->> pages. Implement it for arm64 arch.
->>
->> Fixes: 2045a3b8911b ("mm/sparse-vmemmap: generalise vmemmap_populate_hugepages()")
->> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
->> ---
->>  arch/arm64/mm/mmu.c | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index fd59ee44960e..41c7978a92be 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -1169,7 +1169,8 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
->>  				unsigned long addr, unsigned long next)
->>  {
->>  	vmemmap_verify((pte_t *)pmdp, node, addr, next);
->> -	return 1;
->> +
->> +	return pmd_sect(*pmdp);
+Changes in v2:
+- Added bigtreetech cb2 and pi2 boards to the list of platforms
+- Split BigTreeTech CB2 and Pi2 into two device trees using common dtsi
 
-Please change this as pmd_sect(READ_ONCE(*pmdp)) instead.
+Link to v2 1/2: https://lore.kernel.org/linux-rockchip/20241224135751.350379-2-ivan8215145640@gmail.com/
+Link to v2 2/2: https://lore.kernel.org/linux-rockchip/20241224140057.350667-2-ivan8215145640@gmail.com/
 
->>  }
->>  
->>  int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
-> 
-> Don't we need this patch only if we implement the first one? Please fold
-> it into the other patch.
+Link to v1: https://lore.kernel.org/linux-rockchip/20241222203952.84217-2-ivan8215145640@gmail.com/
 
-Seems like these patches might not be related.
+Signed-off-by: Ivan Sergeev <ivan8215145640@gmail.com>
+---
+Ivan Sergeev (2):
+      dt-bindings: arm: rockchip: Add BigTreeTech CB2 and Pi2
+      arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
 
-While creating huge page based vmemmap mapping during vmemmap_populate_hugepages(),
-vmemmap_check_pmd() validates if a populated (i.e pmd_none) PMD already represents
-a huge mapping and can be skipped there after.
+ .../devicetree/bindings/arm/rockchip.yaml          |  11 +
+ arch/arm64/boot/dts/rockchip/Makefile              |   2 +
+ .../dts/rockchip/rk3566-bigtreetech-cb2-manta.dts  |  10 +
+ .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  | 941 +++++++++++++++++++++
+ .../boot/dts/rockchip/rk3566-bigtreetech-pi2.dts   |  10 +
+ 5 files changed, 974 insertions(+)
+---
+base-commit: 4bbf9020becbfd8fc2c3da790855b7042fad455b
+change-id: 20241224-bigtreetech-cb2-18944b349916
 
-Current implementation for vmemmap_check_pmd() on arm64, unconditionally returns 1
-thus asserting that the given populated PMD entry is a huge one indeed, which will
-be the case unless something is wrong. vmemmap_verify() only ensures that the node
-where the pfn is allocated from is local.
+Best regards,
+-- 
+Ivan Sergeev <ivan8215145640@gmail.com>
 
-int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
-                                unsigned long addr, unsigned long next)
-{
-        vmemmap_verify((pte_t *)pmdp, node, addr, next);
-        return 1;
-}
-
-However it does not really check the entry to be a section mapping which it should.
-Returning pmd_sect(READ_ONCE(*pmdp)) is the right thing, which should have been the
-case from the beginning when vmemmap_check_pmd() was added. I guess because arm64's
-original vmemmap_populate() checked only for vmemmap_verify() as well. So probably
-this does not need a "Fixes: " tag.
 
