@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4221AE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 15:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F2AE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 15:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piU99QaqIRlepw2j3J6RWSNCiXNAfG7MBvklaCvgYco=; b=hSZvW27SjySuO/pUomD6UUsQO/
-	7TVZGXleUkLPtNLrjlXNN2dV8HDrJWRMV03ilxoxjiQ+I3XRWcf3SXRtHwNkAV6JJOoqkTahicYvK
-	Tl04tZ+rbIRcDZ9zQgKrE52jFizzKxqrJ1reGq0LmMzzHDplKd67xB0Fn1nkZ1Ex9hVvI77blYPuo
-	5KEVhP02eHNojqKCrIAuxifXyzoGdkp97IHWbq5Ki6BRGEIB61GS/gVh1/ULd4gf5konGCKKoHhYM
-	/3/c/LuHvB8UZfopIVDckyodAYOm0ft0iBRR2NNedIqIihTW1fvrQvZF6ro+n8m4laXgE6/t7jkwt
-	SPOPxgDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=L0eDlOw9p3DnVtbNe3F5E+YgQxPXK7eYD6omdeJR05k=; b=LXi9Dl3+9Q61N4
+	hDe59w+cY/dBNRqom9bAHg+/yUzZMXvdsCkaFr7spOfxm4UQUxpDbDAvjUEyOJcdIrsGY/1+usUCF
+	CYtpPsv2jbyYqvt7RDARUgPavX1jbEnixvbomanTK4M5hKNIcIgOAEnSTfbZGgmnMq9q0+X3pmXuH
+	begYzkacx57nS9fzqttdebJeUghrNJR/BYpR5s/R78IEofKFZSR1XfXBsZ4WAx//RbeUwa/voSyD9
+	aY5FHccUkdUqWq0EXsoZnFmRbl7SJ2FomwuWqnMF4Ah0B99cl1+sLixAkg3zDu5ckYelbqfU/UkkA
+	TO7mda9SoQ7LEmRlX3Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRC33-00000000Uvc-0bQ9;
-	Fri, 27 Dec 2024 15:14:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRC1r-00000000UgN-2S9U
+	id 1tRC7l-00000000Vu5-0Avb;
+	Fri, 27 Dec 2024 15:19:37 +0000
+Received: from mail-lf1-f46.google.com ([209.85.167.46])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tRC6b-00000000Vea-0fEZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 15:13:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E01BB15A1;
-	Fri, 27 Dec 2024 07:13:55 -0800 (PST)
-Received: from bogus (unknown [10.57.92.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2AC023F673;
-	Fri, 27 Dec 2024 07:13:23 -0800 (PST)
-Date: Fri, 27 Dec 2024 15:13:06 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- scmi cpufreq
-Message-ID: <20241227151306.jh2oabc64xd54dms@bogus>
-References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
- <20241225-scmi-fwdevlink-v1-1-e9a3a5341362@nxp.com>
+	Fri, 27 Dec 2024 15:18:26 +0000
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-54020b0dcd2so8960661e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 07:18:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735312702; x=1735917502;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=L0eDlOw9p3DnVtbNe3F5E+YgQxPXK7eYD6omdeJR05k=;
+        b=bCVqIWhybsrB5/3J5soOHzG8zudoKsK6q1leh+Viq2FvYWisrQYuQId5XdTEc/BKZs
+         ZoAsxTL/ErA8MA6Bq/8wLPT9EARs+m/CEv0QkiRvSYL5VU+W87+n6Lko20mHBy62yWcU
+         ZPD5YBotSqcdNtBO/QHx49rkjmZQS7C79resyl9EsuHcZ4pOYlI6SjuGUOcnIixBJpJR
+         GR4qDP0SBDNCrSC6mIz/K235OSCuMMAbVw5Nbu8wG1j2e2yVcYJy+wCWfLRbRCr+nw00
+         icc0HBaD0HCDw0NlXXQEal+X0oC4q+cPkd+C2usud0scTy/qiTBHFJe2iXgSjz1x15m9
+         liFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUFkf5bth+3h9V9IJUf358YvxHrPURxhMkWYMwzDX+rGoJUAeEdGeR/INXj+RWGPqJFMPzutDoaCFJuNpIcdK59@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAO5EtcXxdCqIYRb+WxtombdIvnMSLvOGDFE5dvdF1ouXMkAim
+	fXf9S1/61QMPuKstCKPCJzvBMDGYRuUkjq88zIPLLyWZ7DMk3FxKS8nvNrTn
+X-Gm-Gg: ASbGncv1VE97FC/n3zHMe8aJHiytEbTwEzwSQ8D/Sw/t+VrDVKOgQEt+NihWkpsp7O0
+	O+PVpfWBd0g9VBcQgvO0Evz8LaRlk62M1KDREdUixK/cDadz1iiqGa8lD69ybGTrAiGyhTLHg26
+	GAM34z4AZkKuRx/krh42m8BygXDcHgZQCKFW6T/OVENEKBFW/UbXjrPiCyozzu5QRoVrum8CVG/
+	QHqyE5Qm7Hs3TnbueVVN8RGxNKLgF/RIQIun3S3GI5HFjuKmdq3BStmbADQlKs9WOr06h17aFUA
+	oveC2ADvQkvqOw==
+X-Google-Smtp-Source: AGHT+IG31PKemB6gFi9Y5yZlEY9ntnanDwCGBOnqhM689UT1ot0kAE6B2NWXAL1ZRIwGle2FG0W13g==
+X-Received: by 2002:a05:6512:1247:b0:540:3550:b0ef with SMTP id 2adb3069b0e04-54229443501mr8450602e87.11.1735312701692;
+        Fri, 27 Dec 2024 07:18:21 -0800 (PST)
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com. [209.85.208.171])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235fecb7sm2400118e87.64.2024.12.27.07.18.20
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Dec 2024 07:18:20 -0800 (PST)
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-30225b2586cso90272151fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 07:18:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXrWFqkwFPY97AE6cQRPKFGo+5Ym5Tzf4Xg/GkDA30dDetL2+cbzlgS6BY3S8uJ6UKIR1no3yc0KZGV8kSVCjKH@lists.infradead.org
+X-Received: by 2002:a2e:a591:0:b0:302:1fce:393d with SMTP id
+ 38308e7fff4ca-3045833692cmr107500831fa.2.1735312700069; Fri, 27 Dec 2024
+ 07:18:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241225-scmi-fwdevlink-v1-1-e9a3a5341362@nxp.com>
+References: <20241109003739.3440904-1-masterr3c0rd@epochal.quest>
+ <173124139852.3585539.10704015898700065278.b4-ty@csie.org> <9415ca9c-f303-4507-8cd6-cb08ee09e988@linumiz.com>
+In-Reply-To: <9415ca9c-f303-4507-8cd6-cb08ee09e988@linumiz.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Fri, 27 Dec 2024 23:18:06 +0800
+X-Gmail-Original-Message-ID: <CAGb2v650sctP83mdoYtcws2zVzJzfBqq=AvAXYH-WaOoPBDx2Q@mail.gmail.com>
+Message-ID: <CAGb2v650sctP83mdoYtcws2zVzJzfBqq=AvAXYH-WaOoPBDx2Q@mail.gmail.com>
+Subject: Re: [PATCH] clk: sunxi-ng: a100: enable MMC clock reparenting
+To: Parthiban <parthiban@linumiz.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Yangtao Li <frank@allwinnertech.com>, Maxime Ripard <mripard@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Cody Eksal <masterr3c0rd@epochal.quest>, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_071331_672727_81B251B9 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20241227_071825_198300_98C2DE11 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +96,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 25, 2024 at 04:20:44PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Fri, Dec 27, 2024 at 4:45=E2=80=AFPM Parthiban <parthiban@linumiz.com> w=
+rote:
 >
-> Two drivers scmi_cpufreq.c and scmi_perf_domain.c both use
-> SCMI_PROTCOL_PERF protocol, but with different name, so two scmi devices
-> will be created. But the fwnode->dev could only point to one device.
->
-> If scmi cpufreq device created earlier, the fwnode->dev will point to
-> the scmi cpufreq device. Then the fw_devlink will link performance
-> domain user device(consumer) to the scmi cpufreq device(supplier).
-> But actually the performance domain user device, such as GPU, should use
-> the scmi perf device as supplier. Also if 'cpufreq.off=1' in bootargs,
-> the GPU driver will defer probe always, because of the scmi cpufreq
-> device not ready.
->
-> Because for cpufreq, no need use fw_devlink. So bypass setting fwnode
-> for scmi cpufreq device.
->
-> Fixes: 96da4a99ce50 ("firmware: arm_scmi: Set fwnode for the scmi_device")
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/firmware/arm_scmi/bus.c | 15 ++++++++++++++-
->  1 file changed, 14 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-> index 157172a5f2b577ce4f04425f967f548230c1ebed..12190d4dabb65484543044b4424fbe3b67245466 100644
-> --- a/drivers/firmware/arm_scmi/bus.c
-> +++ b/drivers/firmware/arm_scmi/bus.c
-> @@ -345,6 +345,19 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
->  	device_unregister(&scmi_dev->dev);
->  }
->
-> +static int
-> +__scmi_device_set_node(struct scmi_device *scmi_dev, struct device_node *np,
-> +		       int protocol, const char *name)
-> +{
-> +	/* cpufreq device does not need to be supplier from devlink perspective */
-> +	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name, "cpufreq"))
-> +		return 0;
->
+> On 11/10/24 5:53 PM, Chen-Yu Tsai wrote:
+> > On Fri, 08 Nov 2024 20:37:37 -0400, Cody Eksal wrote:
+> >> While testing the MMC nodes proposed in [1], it was noted that mmc0/1
+> >> would fail to initialize, with "mmc: fatal err update clk timeout" in
+> >> the kernel logs. A closer look at the clock definitions showed that th=
+e MMC
+> >> MPs had the "CLK_SET_RATE_NO_REPARENT" flag set. No reason was given f=
+or
+> >> adding this flag in the first place, and its original purpose is unkno=
+wn,
+> >> but it doesn't seem to make sense and results in severe limitations to=
+ MMC
+> >> speeds. Thus, remove this flag from the 3 MMC MPs.
+> >>
+> >> [...]
+> >
+> > Applied to clk-for-6.13 in git@github.com:linux-sunxi/linux-sunxi.git, =
+thanks!
+> >
+> > [1/1] clk: sunxi-ng: a100: enable MMC clock reparenting
+> >       commit: 3fd8177f0015c32fdb0af0feab0bcf344aa74832
+> This commit is missing in 6.13-rc4. Will it be merged in the next rcX?
 
-This is just a assumption based on current implementation. What happens
-if this is needed. Infact, it is used in the current implementation to
-create a dummy clock provider, so for sure with this change that will
-break IMO.
+It looks like I tagged the wrong commit when I sent the pull request.
 
---
-Regards,
-Sudeep
+I'll try to send a PR for it as a fix.
+
+ChenYu
 
