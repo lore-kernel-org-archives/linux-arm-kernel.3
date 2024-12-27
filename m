@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7621BE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 866E3E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YfE1uA9z/wnOoCflN1CWK91/mj7Glf8TAJeO4IAX/hg=; b=vdwIrahBnEhoi5FHzjVop9zdFX
-	QVq85DtjcuhIMO5OZjmLan7Ix1xacm2uXTzJ6R1tAjP9st0qhuIwzodj0k/5UEau7OGiKFNX+ZK2t
-	AjcuXgarjbiS9rMaIlg6UbDScQ8hAIu0p1sI4xu8IxEtH2H4+i5KABbH3fs3hk6w7MLHidYnJKSML
-	mbwnx2smV4eH5v4esKmNHBDR17NKgObIqzOtd8zyQBFupGQVmeg6+gyZENlb8TOfXoXMTZhi4Pq1I
-	aTynyuhKYO/+6kxCZLy4V8UdC9bikMEgyGQmtN5tq8j9eZo0uIWT3OOcPsjoENbvzIjjhc+xx4ESG
-	lVOdVATQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0ATrIW5UmsXjG0M+E3OY4XBnQlH/p5LBOiOgE9mP8w=; b=aBU112K4AYcTeOfevtcKi2KES1
+	CRaU9EwWa80eczSrUTwCQUqXvFmAbBIDZVDuAh263nUipFMfrrbxYoNvzV3E5j9NM02ZarB2iKYpZ
+	cPzA3SuBsA39yzVEfD6zSdrDK7P7e/7bhAo2JP0SbJB0OpB0NQoZ6r8HhbOToV2UdpEmuwkHAyUKD
+	nJKzUKNZkyBec6t8QkaRQuGXdW7q2jwfNiU5Wq1cMR26t5I0rAuTxTaHgOAMPNqwVvPOGEPdcZpbq
+	6HLrWD5NzfoKX50weDaH7ZPbcll1Ss1lDJFWTrquJh4NBMWS4IveSJcmfyrjEN4WWD/5jwPz7UzgZ
+	S3yV9bxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRE99-00000000iwh-0Zze;
-	Fri, 27 Dec 2024 17:29:11 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tREL9-00000000jvs-3RqM;
+	Fri, 27 Dec 2024 17:41:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRDzc-00000000hj0-31V4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 17:19:22 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54025432becso8039760e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 09:19:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735319958; x=1735924758; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YfE1uA9z/wnOoCflN1CWK91/mj7Glf8TAJeO4IAX/hg=;
-        b=DzZKboGiSl+4FUq1ztL0Eey0oxWQlc9kswBy5BPkg8JMtwndEZa+8Ek11egMNFPFx0
-         ZEJtxu3wKkB7YBSX1156lEhRwri7HW/lL5A0rcu0uyd5bER1vMB/GWzqIV8RSuhkxUTi
-         zPmv07EPUqTyO3vwFn53GBBFt2wFKETIqEWBffHllRkCzO8uCV8V06joL8KOVszSxDo6
-         mNjKyzVEoX3LngH6oFgjjIbi+NgFqvU/50nS9K/L8JJ02nL1B7a8g6h4b1lGyeXJGfjA
-         xlaZ0ycZ7C3wcTK4zAFlj+glb3590QTDP+L/eFYSGPdlLWplhZeWLat4tH6n/D6YIb/9
-         rtxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735319958; x=1735924758;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YfE1uA9z/wnOoCflN1CWK91/mj7Glf8TAJeO4IAX/hg=;
-        b=QbBwDCluAMqc/o9rlK1KN7qsxne1zZxvZsxFqHYhIczSlprwTbN+iVfhmYqg+xd66g
-         BhcZjFzd5rz3LPXRGJgtT9Qt9420VDWh0vBnEw7X1pGYsxbYeS4xhO0DpaIBYp/z3QSx
-         5cfXY6MHpbXwBVvpWYd6ykci0G7rubh3Lj84JbQHOMRlBah58dJ+IoN4oZyAqW6yLGuJ
-         2mVm2CEfQcSpzmeS3f7zddtG/izY1WsOwmq7BFPn+RyhVeD9ERH7SNrsZkM3pZYg7i+8
-         EpiWYKYdMGooxF1sBRYUIuwOfboxQN4u0v+u3LBh1py/MoEtOd1fA1BDQO4s/HjMnzoi
-         RP2g==
-X-Forwarded-Encrypted: i=1; AJvYcCU2qwcI3tE60LiQ358+uuinZDce/Jy5zxUyp7/n/EvfPN3zIn5YZd+vKz9PX2QEOATvNrT1lWhqJL9QF6lsUHmo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbcjZIqxFU4tJpCB7bI6aXb7SD7RzqEyNf8kZ87wfKSx6W37QR
-	XvSGLi9hF2Ro85zV1H8oqMK2DgnCqvBSyJSfBRkr3Rwmwa0V9qntKAgj7ti2oPDTsDEzUzYT3kl
-	GBlN0COSJd5YZYKq+nvO8vrtcyhyiVtVL29dgJg==
-X-Gm-Gg: ASbGncsp5kxAhW9cpgmToGKAadLUQ97nTzOfYE5Ekh0p9izW1FMSIRlc42xpC/8qSYJ
-	rmSKjGsZjeOna5gd0nLVEzB1oG48Jar1qz7N6
-X-Google-Smtp-Source: AGHT+IFzNcSWitAgqLSjOZTRtHRUbR1A89jwQ+VY2x1PRVkphXKNjTxz5Znr8iriDFxh86d6rMupXkeYXSvCWzdEP2Q=
-X-Received: by 2002:a05:6512:1246:b0:542:28a9:dcb1 with SMTP id
- 2adb3069b0e04-5422954b10fmr7658536e87.26.1735319958460; Fri, 27 Dec 2024
- 09:19:18 -0800 (PST)
+	id 1tREJz-00000000joO-2MqV;
+	Fri, 27 Dec 2024 17:40:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF6825C586D;
+	Fri, 27 Dec 2024 17:39:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88DC9C4CED0;
+	Fri, 27 Dec 2024 17:40:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735321222;
+	bh=J0ATrIW5UmsXjG0M+E3OY4XBnQlH/p5LBOiOgE9mP8w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G55cB9ZD43x64IkyWPMSD3L75JCZ0fYzOiZr+xEyYDf0vJHiwYTyeKO4dNRNYhUCq
+	 mqvrRP2oCQdUyDv4m2Lyacf9qb6ypjdeC2onHWErLX/wz01wmq8enpeNEofpHYWMJN
+	 VejPCEItnHHbTDCFynWmFNNmC4uy3R/PaizM4Ck58+gLjERb2Hr3woWSa3aqUsaFTz
+	 Ez2uLD1Lyrg7bre+ZJCVONe+VHLNNW6W7oPX2oFlXVdhcnm82ibi14wkXV9dHxOewF
+	 1mLLdZF409LVDyzUlazGmGyXegRS9ieTJb9gyKnU17ZvitYHeZe78XFEAmCDMBdTEM
+	 YJDgzda6Livog==
+Date: Fri, 27 Dec 2024 17:40:18 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jagan Teki <jagan@edgeble.ai>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/4] dt-bindings: arm: rockchip: Add Edgeble 6TOPS
+ Automotive Edge AI CM
+Message-ID: <20241227-tactile-recreate-9de95e933e49@spud>
+References: <20241227133420.169714-1-jagan@edgeble.ai>
+ <20241227133420.169714-2-jagan@edgeble.ai>
 MIME-Version: 1.0
-References: <20241211-amlogic-pinctrl-v1-0-410727335119@amlogic.com>
- <20241211-amlogic-pinctrl-v1-2-410727335119@amlogic.com> <CACRpkdbuj-_sPpdfcyg3_QNtzt9r7n-0HBGBKgy-rKUMhvGo4w@mail.gmail.com>
- <23899c54-14ad-4724-9336-2df6fb485fd6@amlogic.com> <CACRpkdZn75ks4Gc7rm8jzkKM6y0JeQmUF3qmbJA+O+cEA9r--Q@mail.gmail.com>
-In-Reply-To: <CACRpkdZn75ks4Gc7rm8jzkKM6y0JeQmUF3qmbJA+O+cEA9r--Q@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 27 Dec 2024 18:19:07 +0100
-Message-ID: <CACRpkdbd5HFzRhoC7qRAb-Kd89fa9sX67aqK9AAMoif3nw9qbQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 2/3] pinctrl: Add driver support for Amlogic SoCs
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>, Huqiang Qin <huqiang.qin@amlogic.com>, 
-	Qianggui Song <qianggui.song@amlogic.com>, Hyeonki Hong <hhk7734@gmail.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Beniamino Galvani <b.galvani@gmail.com>, Carlo Caione <carlo@endlessm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="V32klBqQoWD9BeHs"
+Content-Disposition: inline
+In-Reply-To: <20241227133420.169714-2-jagan@edgeble.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_091920_760233_DC80A2C1 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20241227_094023_654115_EF722361 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newcomers, latest patch set:
-https://lore.kernel.org/linux-gpio/20241226-amlogic-pinctrl-v2-0-cdae42a67b=
-76@amlogic.com/
 
-I included some of the prior meson authors on the to line to see if
-their mail addresses still work and if they have some feedback on this.
+--V32klBqQoWD9BeHs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Dec 22, 2024 at 10:08=E2=80=AFAM Linus Walleij <linus.walleij@linar=
-o.org> wrote:
+On Fri, Dec 27, 2024 at 07:04:18PM +0530, Jagan Teki wrote:
+> Edgeble Edge AI CM6C is an Edge AI Accelerator module based on Rockchip
+> RK3588M.
+>=20
+> Edgeble Edge AI CM6 Industrial IO board is an evaluation board that
+> would compatible with Edge AI CM6.
+>=20
+> Add bindings for it.
+>=20
+> Signed-off-by: Jagan Teki <jagan@edgeble.ai>
 
-> > > - Renaming drivers/pinctrl/sunxi to drivers/pinctrl/amlogic
-> > >    so we keep this sorted by actual vendor, sunxi is apparently
-> > >    yours (AMlogic:s) isn't it?
-> >
-> > It isn't. Sunxi is Allwinner SoCs.
->
-> My apologies. I mixed it up completely. :(
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-But wait a minute. I see there is meson. And in the "meson" subdirectory
-there is stuff named "amlogic" ...
+--V32klBqQoWD9BeHs
+Content-Type: application/pgp-signature; name="signature.asc"
 
-$ ls -1 drivers/pinctrl/meson/
-Kconfig
-Makefile
-pinctrl-amlogic-c3.c
-pinctrl-amlogic-t7.c
-pinctrl-meson8b.c
-pinctrl-meson8.c
-pinctrl-meson8-pmx.c
-pinctrl-meson8-pmx.h
-pinctrl-meson-a1.c
-pinctrl-meson-axg.c
-pinctrl-meson-axg-pmx.c
-pinctrl-meson-axg-pmx.h
-pinctrl-meson.c
-pinctrl-meson-g12a.c
-pinctrl-meson-gxbb.c
-pinctrl-meson-gxl.c
-pinctrl-meson.h
-pinctrl-meson-s4.c
+-----BEGIN PGP SIGNATURE-----
 
-> What do you think of the idea of a separate drivers/pinctrl/amlogic direc=
-tory
-> though? I think there are already quite a few amlogic SoCs that need
-> to be supported and more will come.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ27mggAKCRB4tDGHoIJi
+0mE3AQC+09x5ioHgVwKJcDofflS/irAVJwe6Q9jkSmmlbO33dwEAwU4/+49hOw+6
+ZN6DN17kLUxKDhF9diGKOEuJZM7ycQI=
+=vQ8D
+-----END PGP SIGNATURE-----
 
-So what about renaming the existing subdir "meson" to "amlogic"
-and put the driver there.
-
-Also I want to know if this driver and hardware shares anything with
-the existing drivers in that directory. It sometimes happen that
-developers start something from scratch despite the existence of
-prior art simply because of organizational issues, and we don't want
-that kind of situation to leak over to the kernel.
-
-Yours,
-Linus Walleij
+--V32klBqQoWD9BeHs--
 
