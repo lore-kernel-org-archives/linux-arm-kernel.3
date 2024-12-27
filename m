@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DEC2E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 11:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2B8E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 11:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iaG89kv/nDQri6+AUj/VvYcWX2dPo9unZTW0isixi4Q=; b=zBT1o2kcIzLRWKaBfc8jM97DfP
-	jHcYBRBEObV7rsMer79WlZDOzkbkatEk7O4d0mowRdS3yBfQ6Glu/Jyb6NSqdlUXRThNRWD0wn8hA
-	1LWFINIRTyVOfHLxVx2++UojxYjrXc1dBlpj4SUzWWwe/bY1JZycq/E++Nrbvaq8Oeex5yWkhsoFA
-	pjPnREDs9sZWHuRlWj13sDoQjCmr4sY1rNYxf+jdXPvqAnJiT7RiwVJYVY88ie6ZcScp79rNU2Xnp
-	FcfDl+pCflS2ErFPQb9B7yGVsPPCl8gQpdMUNV27ffTuWz8g4XhS8iZtH8kT8ncEXAHGelqCB+7ay
-	NCvop1Tg==;
+	bh=OzWNauLbiAQJEp1e2/czwTEEh3hDEGYbQXYIOeAFLNM=; b=yWG1D3+8xHjj8rNXhX+qfMtRHd
+	QhogCaDPWOfA99dO9UgJux1KUek2cXVhCnHcU0nNxDaEXxmQYeV/rVn2aOaAzczH/aEgIvM7epcp9
+	cbOfQrufDtbjDJet/xEimf0hjRNiEsGhE/OWT4/czOiT/DKREvdPBm4kGYxJD9ZAZkLYk9PFDeY3L
+	cGcdG4h59377wD186RnQOXF6Lob7Pt3Bm0PyD9onTMEotUnvuj9ljHCjxCgEDEpekLP4z2/chpIQA
+	ncCnxhBG0QYJqUzX75kJrmwDMa/8u6dcDVp0fmkpzG/b36etOzCUnIV6zH2XxBK8x/PKN6FfyL74b
+	j35HChqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR8GF-000000003ur-1xGF;
-	Fri, 27 Dec 2024 11:12:07 +0000
-Received: from omta36.uswest2.a.cloudfilter.net ([35.89.44.35])
+	id 1tR8HP-000000004AC-28os;
+	Fri, 27 Dec 2024 11:13:19 +0000
+Received: from omta034.useast.a.cloudfilter.net ([44.202.169.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR8Ct-000000002gK-3T9i
+	id 1tR8D2-000000002gI-1Vfb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 11:08:41 +0000
-Received: from eig-obgw-6006a.ext.cloudfilter.net ([10.0.30.182])
+	Fri, 27 Dec 2024 11:08:49 +0000
+Received: from eig-obgw-5007a.ext.cloudfilter.net ([10.0.29.141])
 	by cmsmtp with ESMTPS
-	id Qw1XtcAFCqvuoR8Cttxj8o; Fri, 27 Dec 2024 11:08:39 +0000
+	id R46jt0aiDrKrbR8D2tWljF; Fri, 27 Dec 2024 11:08:48 +0000
 Received: from md-in-79.webhostbox.net ([43.225.55.182])
 	by cmsmtp with ESMTPS
-	id R8CqtWR4RGAm4R8CstgpZP; Fri, 27 Dec 2024 11:08:39 +0000
-X-Authority-Analysis: v=2.4 cv=d5HzywjE c=1 sm=1 tr=0 ts=676e8ab7
+	id R8Cytdwxk8PtxR8D0tlNQq; Fri, 27 Dec 2024 11:08:47 +0000
+X-Authority-Analysis: v=2.4 cv=Fegxxo+6 c=1 sm=1 tr=0 ts=676e8abf
  a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
  a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=vU9dKmh3AAAA:8
- a=108W9xlQDzoLNeXj7ooA:9 a=QEXdDO2ut3YA:10 a=rsP06fVo5MYu2ilr0aT5:22
+ a=fsIbZEiDhnbgyVT8DcoA:9 a=QEXdDO2ut3YA:10 a=rsP06fVo5MYu2ilr0aT5:22
  a=ZCPYImcxYIQFgLOT52_G:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
 	; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
@@ -44,26 +44,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iaG89kv/nDQri6+AUj/VvYcWX2dPo9unZTW0isixi4Q=; b=dKHwIouw1A+LZ6vBeMsK53gexU
-	4EoZpenXJyapemVe6BFpR2uqs1R/HDUNA11e8yHDqmAksF33Hk/R+H8pgOtmMIetXaks7bW8djeDR
-	TM+tF6tdaJFTqkri2Bg/GXlYgXAcuBUxz++Rc+YeK79t131RLVok2Ed8LsRSGmIXYCD/fDV9n23Pt
-	N/ZjZUlPf+SMeCzwV7jLO/p7e25HBry6zKYqtUOuLNz3EFH0or324RJJVur/73mwc1ks4VQS28s9k
-	uoQ3b47aiwKrO3pxx1sGl2+5hHl/atp6EcNfD0g1zhyI78p8KSH47ujfDKyOVUBXszyMgP2zoTvi3
-	4NUaLgwQ==;
+	bh=OzWNauLbiAQJEp1e2/czwTEEh3hDEGYbQXYIOeAFLNM=; b=OTLfmGq2RQMMnqWoWjrMSSMtLp
+	GQOf4i+JPvIookaSjiJMFScKVJ4xkrnEESNBdVbXEnz62Lva04q+UV107Uo6j6SkF+6oo/S2aK4ZR
+	MKASbtnLwpHL+o8HeTwXb+dCMo/+UTuNSaaIYBzKa0/4wFMqjbA5kzpJ4L/CXJN70S3QcXxK9yQ1D
+	gRpqsFQbpL0RF43ZAf7c8j+CBLkwkt7WLoVRy0a83zshXnNtWV9xlJDjL6hmVOGiSPEB33TrFsXy1
+	ph3xCqNzGpV2sdZKKtP+6kvuIgZR3C7YlMaULMRrrrRycZppr71WxHIXxOUi51UNAmA7w3gHspS1G
+	kQ9qO5Qg==;
 Received: from [122.165.245.213] (port=50828 helo=[127.0.1.1])
 	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <parthiban@linumiz.com>)
-	id 1tR8Cf-000bEK-2b;
-	Fri, 27 Dec 2024 16:38:25 +0530
+	id 1tR8Cm-000bEK-0U;
+	Fri, 27 Dec 2024 16:38:32 +0530
 From: Parthiban Nallathambi <parthiban@linumiz.com>
-Date: Fri, 27 Dec 2024 16:37:49 +0530
-Subject: [PATCH 02/22] dt-bindings: display: sunxi: Add a100/a133 display
- engine compatibles
+Date: Fri, 27 Dec 2024 16:37:50 +0530
+Subject: [PATCH 03/22] dt-bindings: clock: sun8i de2 clock: Add PLL com
+ clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241227-a133-display-support-v1-2-13b52f71fb14@linumiz.com>
+Message-Id: <20241227-a133-display-support-v1-3-13b52f71fb14@linumiz.com>
 References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
 In-Reply-To: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -86,11 +86,11 @@ Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
  linux-phy@lists.infradead.org, 
  Parthiban Nallathambi <parthiban@linumiz.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735297689; l=3186;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735297689; l=1074;
  i=parthiban@linumiz.com; s=20241125; h=from:subject:message-id;
- bh=buj54CCUt17f1cf4Nx7HHyU6fji1O8F3QBNHBtjCt58=;
- b=7f+/2lyNtA9ClRxNFGVgsbDuLVrtbMyTSgWSUOLHllta6RR9vdbcWmnBbk8oYinrrI2Urjlxr
- dSK9Ulbi6HyCqoOLw6YMdLZf9yXIihNokZw4UP2j+Rk0IEKN+oZzglG
+ bh=sPElRYsF0jt44ZqeUcZ4OkMgH7YItvc9UU2klf48oOk=;
+ b=iYwmFT51XZcESh83cOKPv4w9+BXh77BqnSiRPMhS9ZBl1RhFKJt+zEKNXnIWnFH+wCrH5P8nX
+ rlRXcA+xSHkB8X5+pmuVByKYzx16HMBmTyYrMCNdsigCWoicrncViqd
 X-Developer-Key: i=parthiban@linumiz.com; a=ed25519;
  pk=PrcMZ/nwnHbeXNFUFUS833wF3DAX4hziDHEbBp1eNb8=
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -101,21 +101,21 @@ X-AntiAbuse: Sender Address Domain - linumiz.com
 X-BWhitelist: no
 X-Source-IP: 122.165.245.213
 X-Source-L: No
-X-Exim-ID: 1tR8Cf-000bEK-2b
+X-Exim-ID: 1tR8Cm-000bEK-0U
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
 X-Source-Sender: ([127.0.1.1]) [122.165.245.213]:50828
 X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 64
+X-Email-Count: 93
 X-Org: HG=dishared_whb_net_legacy;ORG=directi;
 X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfGSJdWDuc2T9bD+Ie8cDz1VeX19/gBUD2DFCYNKefMtoTGfTLJP7al3DudcYqA9H6cVymYPJC1jgZP1eyRGUmD18xNSfqvFxj4EzMnI65Xi9HGRC0OCS
- 67cbA9iaNlnUypwimFmVEdfT3BeaybdKd9moTdr/y7snldJWPH9EEhxmJZxRER5l0tQ8buwbPuQJ5R8+/hTOCEnDow0V5LRAz53H907GCt+vJL6HOZF9mtBH
+X-CMAE-Envelope: MS4xfOMoPipEp8musxMax5vnRm/G1Rp+N++C8ewt8fWxqDus53ALMQJg3Z3C4zsXkXKyD0HXMC1P0/ruj1EAOcfig1K6YZuuS5xMUQBEx6Ya6w1jzarmR4cI
+ GcEs6qCZgO1xt/omyI14eo7yX4FKccCjFCugkP5eKIjxTQ22RL4MCmuOtlc7cNHpqJxx7zzs1Dru/s4ZrRMKNGsHGyrw8v7pZ1RAHexWwcGX0Q0N26CHe1wI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_030839_910421_27BE09ED 
-X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-CacheID: sfid-20241227_030848_477493_56ABA1E8 
+X-CRM114-Status: UNSURE (   6.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,84 +131,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A100/A133 comes with display enginer 2.0 with 1 x Mixer with write
-back support and 1 tcon top. Mixer can be used with lcd/lvds/dsi,
-but shares the same GPIO bank.
+Some platforms like A100/A133 also uses pll-com clock as additional
+clock source for the display clock. This is not documents both in
+user manual and DE 2.0 specification. These changes are mainly from
+vendor BSP.
 
 Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
 ---
- .../display/allwinner,sun4i-a10-display-engine.yaml     |  2 ++
- .../display/allwinner,sun8i-a83t-de2-mixer.yaml         |  1 +
- .../bindings/display/allwinner,sun8i-r40-tcon-top.yaml  | 17 +++++++++++++++++
- 3 files changed, 20 insertions(+)
+ .../devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml         | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml
-index e6088f379f70..dc47c684fcb0 100644
---- a/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml
-+++ b/Documentation/devicetree/bindings/display/allwinner,sun4i-a10-display-engine.yaml
-@@ -64,6 +64,7 @@ properties:
-       - allwinner,sun9i-a80-display-engine
-       - allwinner,sun20i-d1-display-engine
-       - allwinner,sun50i-a64-display-engine
-+      - allwinner,sun50i-a100-display-engine
-       - allwinner,sun50i-h6-display-engine
+diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
+index 70369bd633e4..3e00905b66ca 100644
+--- a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
++++ b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
+@@ -39,11 +39,13 @@ properties:
+     items:
+       - description: Bus Clock
+       - description: Module Clock
++      - description: PLL common clock
  
-   allwinner,pipelines:
-@@ -96,6 +97,7 @@ if:
-           - allwinner,sun9i-a80-display-engine
-           - allwinner,sun20i-d1-display-engine
-           - allwinner,sun50i-a64-display-engine
-+          - allwinner,sun50i-a100-display-engine
+   clock-names:
+     items:
+       - const: bus
+       - const: mod
++      - const: pll-com
  
- then:
-   properties:
-diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-index b75c1ec686ad..ebcddca2efb3 100644
---- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-+++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-@@ -23,6 +23,7 @@ properties:
-       - allwinner,sun20i-d1-de2-mixer-1
-       - allwinner,sun50i-a64-de2-mixer-0
-       - allwinner,sun50i-a64-de2-mixer-1
-+      - allwinner,sun50i-a100-de2-mixer-0
-       - allwinner,sun50i-h6-de3-mixer-0
- 
-   reg:
-diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml
-index 7d849c4095a3..9b14b7fb2d2f 100644
---- a/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml
-+++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-r40-tcon-top.yaml
-@@ -42,6 +42,7 @@ properties:
-     enum:
-       - allwinner,sun8i-r40-tcon-top
-       - allwinner,sun20i-d1-tcon-top
-+      - allwinner,sun50i-a100-tcon-top
-       - allwinner,sun50i-h6-tcon-top
- 
-   reg:
-@@ -179,6 +180,22 @@ allOf:
-             - description: TCON TV0 output clock name
-             - description: DSI output clock name
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: allwinner,sun50i-a100-tcon-top
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: The TCON TOP interface clock
-+
-+        clock-names:
-+          items:
-+            - const: bus
-+
-   - if:
-       properties:
-         compatible:
+   resets:
+     maxItems: 1
 
 -- 
 2.39.5
