@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2F5E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 08:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A55E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 08:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dVcsrmKwkxIKz+eCCIw3WHKCv/X66XMcWh6vJ2SRqGw=; b=yVWTt/sUnpCtlCxA9zJZT5w/ln
-	Gjv1uXKldqzCsPIbG1+N++95mW0hA1Rn8u7j40Mwm+r4mo3itMSueeI6CJoslbjeKoLMYraMaJl/p
-	QYaDyb0XD3WXoPmBLN4w6i8FNNsthNbKhOf7GQZKsNXc+FrLA41ndLrjPqhgXMGoXhxJqn70Sb6+y
-	xMZWs2osEU1yn6TFp43uj8ncQX2w/S2wKzWnAf8jLwRsZX+3Kpzr5ILB5S4wlS5tNMTbcg40m8VBh
-	YLKxhk0FhFuxL2UnY+lmQhQfcnGozd5YFieWERBpa9ea9w6ZOEtod1/648MgangkJntPalDEQHuac
-	9ocBsPJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hct1xrFAGY1j5bYTonI9/rUlehgyJGR8CekrAOnf+hY=; b=ZWHdAzMoDJi8MCvyXZ9xD3bx/m
+	KM62wYE4OFl5wOfwC6e0przelyUxER2ao8TjBUxh1+9+icjj9OUb+OOk9a1+8AJk0qqwQL18hkARu
+	/dtMGtrKMJpIyRy+Cj3MbKYe/VUuVdC14x23pw30PO000o3anWSFBSH76JOmY5R72FJGJGGLfUx3k
+	FO2JJaIVCyjMXUJqOh3c9vtYs4fbriIoP4P5+BsXfRe+pjENpbeUNIqHJPgUJ4ybenCVD5CFIdK5M
+	DnOzhRKlsIovnk+OocstuK8US33S08QngT0kaIe6J55L54nu8KRnfaNN2amADabGCsGavt4t3Unh2
+	13UikC0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR5eD-0000000HMaB-0XU5;
-	Fri, 27 Dec 2024 08:24:41 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tR5ge-0000000HMpL-06Me;
+	Fri, 27 Dec 2024 08:27:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR5d1-0000000HMT2-08XM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 08:23:29 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so7589334e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 00:23:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735287805; x=1735892605; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dVcsrmKwkxIKz+eCCIw3WHKCv/X66XMcWh6vJ2SRqGw=;
-        b=bAFbxPpXRb0LF9laWfrIJnb9S/T5T2WRc7k6fm4b6RENrdLUbb6k+UnJy5dmrw8zw7
-         JpJVBgIxqC93V3FtJCfY7wME4dtR3psOd9y2A8YbwWzCDHGuFnCw9qT3D3992ws3H7on
-         BFVsOCWyfreezeu5pOPpBSeDZjwI37dvPi8KqPMzkocHRYMbHY4HQvxngDb0woOBuf3s
-         lgMnslu67Y+m5PntmcnJHw0nmWRzw78qA+BqPZGTDFT4mvhzKq0bVFgkXSpKcFGG0jFC
-         gEfa5hqf5b1P1XeW4jWhh3or2rHKp+xz6sI5dRNHm1eUSP30ZCyiqyqaKENdvevEU4R+
-         KdeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735287805; x=1735892605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dVcsrmKwkxIKz+eCCIw3WHKCv/X66XMcWh6vJ2SRqGw=;
-        b=sX2OfBsbCkbnR4mnsthUs/YqW5la5o2e8AVndLa7a2EbxzUYi16erwpZo+Zxejtz05
-         +OVOI+X3MF2GFlsfm3pyYgfKl73Lz+O7g/59QdjcOjqPdr8eShQt+zRXf8Nr7tFpzeEv
-         yVGsYkqNZjlTCtjX5DvtpiiH+xlCW1/If9wzqUvCqYmJmOA8ulN/NEo87bZmoMv+8IhH
-         JhTXG8tdPrS4dXwh73UffGI3pS7Md0LmNIk9YorhmcHjp/efrS9wBB2tXd+VKDazL6JD
-         BbFEtsB/+SppbSklrgNEtIGGHt7Qa3fLj0YOmrCcK53O2127m8KyGJNUGlLueKWOldEB
-         Fb7A==
-X-Forwarded-Encrypted: i=1; AJvYcCVTyto19dBfeX+UegroLDVpZh4d9JUKtvgoVf9MN0upYA4jZLlSGzfuDBcAOokZi/09lXjKSBdet7SymlNQBi+1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKfSvR6ZS6CMG9aK5VKzLvVPLElPsRl6T+wyvh9rrNIe/xC7aD
-	U/XTF9/2BRCogd5ZPN0+HMtl/LW0v+7CkTuWv86BdVaFN7+f9uenLJFN2iXir1HCdGjILZsoVGc
-	eam4M8X4XYhtlhkfI1jl9LahczxxKv/+8+IT6pg==
-X-Gm-Gg: ASbGncueCCx6RFeuwIdYCBT92cbHWjAul1w5jYBRmCBoGl9bNiijJpLMBM2L5Rloyyp
-	esJW+xxDndygBpAxRg5UqwY2eMeeOY6ukusKE
-X-Google-Smtp-Source: AGHT+IFYIOklSZ9sJMM5TQ3zMjDwQ23DBG0sFeGBh5tQkGSxcVbvZSf9AiFrryAVoUGw4Nv3w5+5ALeURj3MiEoam9I=
-X-Received: by 2002:a05:6512:1283:b0:53e:2f9d:6a7a with SMTP id
- 2adb3069b0e04-54229562a50mr6753089e87.46.1735287805076; Fri, 27 Dec 2024
- 00:23:25 -0800 (PST)
+	id 1tR5fR-0000000HMiL-3zDo;
+	Fri, 27 Dec 2024 08:25:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A49EB5C5A49;
+	Fri, 27 Dec 2024 08:25:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5452BC4CED0;
+	Fri, 27 Dec 2024 08:25:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735287957;
+	bh=kkic30YQ5TOo/SlO6pr1SQR1B+qz6Q+mjSYY2kIShSc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SBUIrJGgQbqqjn53lLUdo4Aacmg8K7pDiYaUlnE4TlAVywF6qPIRd+p2PfXu+HCXO
+	 qeLSULeJUxuqum/mCiKLzfCCO9Abwtrlbgcer1t+Eq52WUmVh7FBc7B9GJQWSE3kfz
+	 p9sZ6Ds1/tS6QVZU6vJJ3bWzARF7AbcdJugflc6cTXh/2CsM+vBqd8e4jhLj7OBp67
+	 7BXyfLa5Cg6ILP3Kz5DSb83cR9XnPiXurrLXZnnEPpEkIY7m70Bi2x+uO4LtPVMJki
+	 iu+1fHTUGBIF4bNf4+/0W/LKO0bP01LP+EjUMX2yYLKDp8dsdRI9WYgj7Co5OX92OX
+	 rvDDckw//yiMQ==
+Date: Fri, 27 Dec 2024 09:25:53 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Elaine Zhang <zhangqing@rock-chips.com>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: add rk3562 cru bindings
+Message-ID: <krrqtjllx6akrurefbtuhgxw6bwmkiro5rtvdexoevjyufm2uz@r5biw7kbttyr>
+References: <20241224092310.3814460-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-References: <20241217085435.9586-1-linux@fw-web.de>
-In-Reply-To: <20241217085435.9586-1-linux@fw-web.de>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 27 Dec 2024 09:23:13 +0100
-Message-ID: <CACRpkdakCrw3v=iEq_chxxhcEaUipqhyPA2GDZ9gp3tMTbuWBg@mail.gmail.com>
-Subject: Re: [PATCH v7 0/5] Add pinctrl support for mt7988
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
-	Frank Wunderlich <frank-w@public-files.de>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241224092310.3814460-1-kever.yang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_002327_086237_CB05F11D 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20241227_002558_039110_9E73C96A 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 17, 2024 at 9:54=E2=80=AFAM Frank Wunderlich <linux@fw-web.de> =
-wrote:
+On Tue, Dec 24, 2024 at 05:23:08PM +0800, Kever Yang wrote:
+> Document the device tree bindings of the rockchip rk3562 SoC
+> clock and reset unit.
+> 
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
 
-> This series adds pinctrl driver, dt-bindings and dts node for pinctrl
-> on mediatek mt7988 SoC.
-(...)
-> Daniel Golle (2):
->   pinctrl: mediatek: add support for MTK_PULL_PD_TYPE
->   pinctrl: mediatek: add MT7988 pinctrl driver
->
-> Frank Wunderlich (3):
->   dt-bindings: pinctrl: add binding for MT7988 SoC
+A nit, subject: drop second/last, redundant "bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-These three patches applied to the pin control tree,
-please funnel the last two patches through the SoC tree.
 
-Yours,
-Linus Walleij
+s/rk3562/Rocchip RK3562/
+or whatever your proper name is (and use proper capitalized parts of
+products)
+
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3562-cru
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +  clocks:
+> +    maxItems: 2
+
+
+Why clocks are not required?
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: xin24m
+> +      - const: xin32k
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@ff100000 {
+> +      compatible = "rockchip,rk3562-cru";
+> +      reg = <0xff100000 0x40000>;
+> +      #clock-cells = <1>;
+> +      #reset-cells = <1>;
+
+Why clocks are not here?
+
+Best regards,
+Krzysztof
+
 
