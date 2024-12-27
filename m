@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A8AE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 07:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76973E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 07:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yi3jZ/+f3EMk8I9lL+08u5LdDtd/ni9YqB/10MSV4GE=; b=4Z4MlUGzL2PsfdhQnCpnfyi61m
-	vZ9ySRfikq7MoRhw9rMWbiV2sqlEJz/l75g/IIZCQeYBaOWIcqAOOs4NsyNklJnC6yMhwTENFf18Y
-	3bhOGFH9slxticWh+gTA5abOMElmeMrdsqBfyII71AYDk32uHUWMmV8nf8eYDd6KBeY3pvxB9SMiX
-	ZPAEDjTgPPWE1z6b8yHXeUquf/2iJxzUuoW7bvofrR+QCzlSBa1g4PLOj1lcuWWuxcQU+2wlAapGm
-	1/lmot+hdhNMjzotvwFT8L86fRFC5uVnXKPSJcAUjj92b+gW3tOPFGruC4N1ATgHfwxpdf+8wgEeF
-	Lr5yLIIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbfo2wqf+igIas+soWYcJqNW0ndMAfy87n+6l2HV7/g=; b=GrwzcL6P2XcdAbMcHQc/BYCESM
+	Efe0inF+WPsZJpvDiRUw2N9esvSfrfPbpOEhPW8TYrkrNgdWMIDEBcsc7pbk3rSV0+SAFv+YcYxDD
+	qL1lNJE25WRKfpHpi7XvIbgG5CTLvoh1tUXpiSIh8kR4RALlEsU5+EocZczKzNp3MTUtGUG0s1R8G
+	Qf0+lM68tDZbD8cuCz44+PVeF0wRHih36FNjuWEA7+uphp5uiuNrJ8iyP2K9tWyEQBdtEYAqOz+N2
+	gxzCrKnSpF1BMft3uzBY7Of/3xL9A1jAeOzLD9rxCal6yS934bvFqo09n3NYT+AGKFFe0KCkRknPI
+	QWEg2X4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR567-0000000HJ2u-0aoZ;
-	Fri, 27 Dec 2024 07:49:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR54v-0000000HInT-0LfE;
-	Fri, 27 Dec 2024 07:48:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BF1B15C53C5;
-	Fri, 27 Dec 2024 07:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53BE1C4CED0;
-	Fri, 27 Dec 2024 07:48:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735285692;
-	bh=0qX+Xq7p6trQLZOKbCeFhjW+yBSId3LVR0sShRdPdnM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GDpM7o181v2HAQtbxH8lCmTLWg4Qyg8Rv3+SjfgXtcFF7Wr+dkrUQOkJZxTp/imH0
-	 EGxPapJfXLMr+Ui3My6HJKKZwSJShjBArMYxO5qN2pwDwRSpglCCQGDIokyp2TveND
-	 dpBDKKCBJvP7RLDNMt6piqnM7mRtd0CU1mPCeGafdoA6n7oL4JPSLl1ou4u9CFBPvU
-	 EwnfQqCXhKPI5+o1XHNjpRduordnPV/5w6aZrEwUCeB4MUW0h6H9sqGiKREKekrKOK
-	 kUX+6mnOJvbGK4iGtfXZGOPj6yggizE6iO4APr48lQZ9ZmQDi9o3HNc1Qqt51SFxxA
-	 O+u4rqmA2UM2g==
-Date: Fri, 27 Dec 2024 08:48:08 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org, 
-	Finley Xiao <finley.xiao@rock-chips.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
-	Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 16/17] arm64: dts: rockchip: add core dtsi for RK3562
- Soc
-Message-ID: <nfvn7agwci2ilcgmz6zhioelstk6wuzkj4ptwjxrrizfkrlq2a@tlnuluqtokt2>
-References: <20241224094920.3821861-1-kever.yang@rock-chips.com>
- <20241224094920.3821861-17-kever.yang@rock-chips.com>
+	id 1tR57U-0000000HJGi-1732;
+	Fri, 27 Dec 2024 07:50:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tR56H-0000000HJ6h-2vEl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Dec 2024 07:49:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6839C16F2;
+	Thu, 26 Dec 2024 23:50:04 -0800 (PST)
+Received: from [10.162.16.95] (a077893.blr.arm.com [10.162.16.95])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2BC53F673;
+	Thu, 26 Dec 2024 23:49:32 -0800 (PST)
+Message-ID: <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
+Date: Fri, 27 Dec 2024 13:19:30 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241224094920.3821861-17-kever.yang@rock-chips.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
+ section aligned
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
+ mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
+ akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
+ <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
+ <Z2W3qA7wbBTaq6DQ@arm.com> <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
+ <Z2rAr9APkgpkwOl8@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <Z2rAr9APkgpkwOl8@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_234813_223699_A08ACBEA 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241226_234937_823757_EAB79C4A 
+X-CRM114-Status: GOOD (  36.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,272 +72,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 24, 2024 at 05:49:19PM +0800, Kever Yang wrote:
-> +#include <dt-bindings/clock/rockchip,rk3562-cru.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/phy/phy.h>
-> +#include <dt-bindings/power/rockchip,rk3562-power.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include <dt-bindings/reset/rockchip,rk3562-cru.h>
-> +#include <dt-bindings/soc/rockchip,boot-mode.h>
-> +#include <dt-bindings/thermal/thermal.h>
-> +
-> +/ {
-> +	compatible = "rockchip,rk3562";
-> +
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	aliases {
-> +		ethernet0 = &gmac0;
-> +		ethernet1 = &gmac1;
-> +		gpio0 = &gpio0;
-> +		gpio1 = &gpio1;
-> +		gpio2 = &gpio2;
-> +		gpio3 = &gpio3;
-> +		gpio4 = &gpio4;
-> +		i2c0 = &i2c0;
-> +		i2c1 = &i2c1;
-> +		i2c2 = &i2c2;
-> +		i2c3 = &i2c3;
-> +		i2c4 = &i2c4;
-> +		i2c5 = &i2c5;
+On 12/24/24 19:39, Catalin Marinas wrote:
+> On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
+>> Thanks Catalin for review!
+>> Merry Christmas.
+> 
+> Merry Christmas to you too!
+> 
+>> On 2024/12/21 2:30, Catalin Marinas wrote:
+>>> On Mon, Dec 09, 2024 at 05:42:26PM +0800, Zhenhua Huang wrote:
+>>>> Fixes: c1cc1552616d ("arm64: MMU initialisation")
+>>>
+>>> I wouldn't add a fix for the first commit adding arm64 support, we did
+>>> not even have memory hotplug at the time (added later in 5.7 by commit
+>>> bbd6ec605c0f ("arm64/mm: Enable memory hot remove")). IIUC, this hasn't
+>>> been a problem until commit ba72b4c8cf60 ("mm/sparsemem: support
+>>> sub-section hotplug"). That commit broke some arm64 assumptions.
+>>
+>> Shall we add ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> because it broke arm64 assumptions ?
+> 
+> Yes, I think that would be better. And a cc stable to 5.4 (the above
+> commit appeared in 5.3).
 
-No, drop i2c aliases. Not SoC specific.
+Agreed. This is a problem which needs fixing but not sure if proposed patch
+here fixes that problem.
 
-> +		serial0 = &uart0;
-> +		serial1 = &uart1;
-> +		serial2 = &uart2;
-> +		serial3 = &uart3;
-> +		serial4 = &uart4;
-> +		serial5 = &uart5;
-> +		serial6 = &uart6;
-> +		serial7 = &uart7;
-> +		serial8 = &uart8;
-> +		serial9 = &uart9;
+> 
+>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>> index e2739b69e11b..fd59ee44960e 100644
+>>>> --- a/arch/arm64/mm/mmu.c
+>>>> +++ b/arch/arm64/mm/mmu.c
+>>>> @@ -1177,7 +1177,9 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>>>>   {
+>>>>   	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>>>> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>>>> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+>>>> +	!IS_ALIGNED(page_to_pfn((struct page *)start), PAGES_PER_SECTION) ||
+>>>> +	!IS_ALIGNED(page_to_pfn((struct page *)end), PAGES_PER_SECTION))
+>>>>   		return vmemmap_populate_basepages(start, end, node, altmap);
+>>>>   	else
+>>>>   		return vmemmap_populate_hugepages(start, end, node, altmap);
+>>>
+>>> An alternative would be to fix unmap_hotplug_pmd_range() etc. to avoid
+>>> nuking the whole vmemmap pmd section if it's not empty. Not sure how
+>>> easy that is, whether we have the necessary information (I haven't
+>>> looked in detail).
+>>>
+>>> A potential issue - can we hotplug 128MB of RAM and only unplug 2MB? If
+>>> that's possible, the problem isn't solved by this patch.
 
-No, drop all above.
+Believe this is possible after sub-section hotplug and hotremove support.
 
-> +		spi0 = &spi0;
-> +		spi1 = &spi1;
-> +		spi2 = &spi2;
-> +		spi3 = &sfc;
+>>
+>> Indeed, seems there is no guarantee that plug size must be equal to unplug
+>> size...
+>>
+>> I have two ideas:
+>> 1. Completely disable this PMD mapping optimization since there is no
+>> guarantee we must align 128M memory for hotplug ..
+> 
+> I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
+> I think the only advantage here is that we don't allocate a full 2MB
+> block for vmemmap when only plugging in a sub-section.
 
-Drop all above.
+Agreed, that will be the right fix for the problem which can be back ported.
+We will have to prevent PMD/PUD/CONT mappings for both linear and as well as
+vmemmap for all non-boot memory sections, that can be hot-unplugged.
 
-> +	};
+Something like the following ? [untested]
 
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 216519663961..56b9c6891f46 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1171,9 +1171,15 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+                struct vmem_altmap *altmap)
+ {
++       unsigned long start_pfn;
++       struct mem_section *ms;
++
+        WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+ 
+-       if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
++       start_pfn = page_to_pfn((struct page *)start);
++       ms = __pfn_to_section(start_pfn);
++
++       if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
+                return vmemmap_populate_basepages(start, end, node, altmap);
+        else
+                return vmemmap_populate_hugepages(start, end, node, altmap);
+@@ -1334,10 +1340,15 @@ struct range arch_get_mappable_range(void)
+ int arch_add_memory(int nid, u64 start, u64 size,
+                    struct mhp_params *params)
+ {
++       unsigned long start_pfn = page_to_pfn((struct page *)start);
++       struct mem_section *ms = __pfn_to_section(start_pfn);
+        int ret, flags = NO_EXEC_MAPPINGS;
+ 
+        VM_BUG_ON(!mhp_range_allowed(start, size, true));
+ 
++       if (!early_section(ms))
++               flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
++
+        if (can_set_direct_map())
+                flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+ 
 
-...
+> 
+>> 2. If we want to take this optimization.
+>> I propose adding one argument to vmemmap_free to indicate if the entire
+>> section is freed(based on subsection map). Vmemmap_free is a common function
+>> and might affect other architectures... The process would be:
+>> vmemmap_free
+>> 	unmap_hotplug_range //In unmap_hotplug_pmd_range() as you mentioned：if
+>> whole section is freed, proceed as usual. Otherwise, *just clear out struct
+>> page content but do not free*.
+>> 	free_empty_tables // will be called only if entire section is freed
+>>
+>> On the populate side,
+>> else if (vmemmap_check_pmd(pmd, node, addr, next)) //implement this function
+>> 	continue;	//Buffer still exists, just abort..
+>>
+>> Could you please comment further whether #2 is feasible ?
+> 
+> vmemmap_free() already gets start/end, so it could at least check the
+> alignment and avoid freeing if it's not unplugging a full section. It
 
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x0>;
-> +			enable-method = "psci";
-> +			clocks = <&scmi_clk ARMCLK>;
-> +			cpu-idle-states = <&CPU_SLEEP>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
-> +			#cooling-cells = <2>;
-> +			dynamic-power-coefficient = <138>;
-> +		};
+unmap_hotplug_pmd_range()
+{
+	do {
+		if (pmd_sect(pmd)) {
+			pmd_clear(pmdp);
+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+                        if (free_mapped)
+                                free_hotplug_page_range(pmd_page(pmd),
+                                                        PMD_SIZE, altmap);
+		}
+	} while ()
+}
 
-Keep consistent style. There is always line break between nodes.
+Do you mean clearing the PMD entry but not freeing the mapped page for vmemmap ?
+In that case should the hot-unplug fail or not ? If we free the pfns (successful
+hot-unplug), then leaving behind entire PMD entry for covering the remaining sub
+sections, is going to be problematic as it still maps the removed pfns as well !
 
+> does leave a 2MB vmemmap block in place when freeing the last subsection
+> but it's safer than freeing valid struct page entries. In addition, it
+> could query the memory hotplug state with something like
+> find_memory_block() and figure out whether the section is empty.
 
-> +		cpu1: cpu@1 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x1>;
-> +			enable-method = "psci";
-> +			clocks = <&scmi_clk ARMCLK>;
-> +			cpu-idle-states = <&CPU_SLEEP>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
-> +			#cooling-cells = <2>;
-> +			dynamic-power-coefficient = <138>;
-> +		};
-> +		cpu2: cpu@2 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x2>;
-> +			enable-method = "psci";
-> +			clocks = <&scmi_clk ARMCLK>;
-> +			cpu-idle-states = <&CPU_SLEEP>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
-> +			#cooling-cells = <2>;
-> +			dynamic-power-coefficient = <138>;
-> +		};
-> +		cpu3: cpu@3 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x3>;
-> +			enable-method = "psci";
-> +			clocks = <&scmi_clk ARMCLK>;
-> +			cpu-idle-states = <&CPU_SLEEP>;
-> +			operating-points-v2 = <&cpu0_opp_table>;
-> +			#cooling-cells = <2>;
-> +			dynamic-power-coefficient = <138>;
-> +		};
-> +
-> +		idle-states {
-> +			entry-method = "psci";
-> +			CPU_SLEEP: cpu-sleep {
-> +				compatible = "arm,idle-state";
-> +				local-timer-stop;
-> +				arm,psci-suspend-param = <0x0010000>;
-> +				entry-latency-us = <120>;
-> +				exit-latency-us = <250>;
-> +				min-residency-us = <900>;
-> +			};
-> +		};
-> +	};
-> +
-> +	cpu0_opp_table: opp-table-cpu0 {
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +
-> +		opp-408000000 {
-> +			opp-hz = /bits/ 64 <408000000>;
-> +			opp-microvolt = <825000 825000 1150000>;
-> +			clock-latency-ns = <40000>;
-> +			opp-suspend;
-> +		};
+I guess there are two potential solutions, if unmap_hotplug_pmd_range() were to
+handle sub-section removal.
 
-...
+1) Skip pmd_clear() when entire section is not covered
 
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +	};
-> +
-> +	scmi_shmem: scmi-shmem@10f000 {
+a. pmd_clear() only if all but the current subsection have been removed earlier
+   via is_subsection_map_empty() or something similar.
 
+b. Skip pmd_clear() if the entire section covering that PMD is not being removed
+   but that might be problematic, as it still maps potentially unavailable pfns,
+   which are now hot-unplugged out.
 
-Where is the soc node?
+2) Break PMD into base pages
 
-> +		compatible = "arm,scmi-shmem";
-> +		reg = <0x0 0x0010f000 0x0 0x100>;
-> +	};
-> +
-> +	usbdrd_dwc3: usb@fe500000 {
-> +		compatible = "rockchip,rk3562-dwc3", "snps,dwc3";
-> +		reg = <0x0 0xfe500000 0x0 0x400000>;
-> +		clocks = <&cru CLK_USB3OTG_REF>, <&cru CLK_USB3OTG_SUSPEND>,
-> +			 <&cru ACLK_USB3OTG>, <&cru PCLK_PHP>;
-> +		clock-names = "ref_clk", "suspend_clk", "bus_clk", "pipe";
-> +		interrupts = <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH>;
-> +		power-domains = <&power RK3562_PD_PHP>;
-> +		resets = <&cru SRST_USB3OTG>;
-> +		dr_mode = "otg";
-> +		phys = <&u2phy_otg>;
-> +		phy-names = "usb2-phy";
-> +		phy_type = "utmi_wide";
-> +		snps,dis_enblslpm_quirk;
-> +		snps,dis-u1-entry-quirk;
-> +		snps,dis-u2-entry-quirk;
-> +		snps,dis-u2-freeclk-exists-quirk;
-> +		snps,dis-del-phy-power-chg-quirk;
-> +		snps,dis-tx-ipgap-linecheck-quirk;
-> +		snps,dis_rxdet_inp3_quirk;
-> +		snps,parkmode-disable-hs-quirk;
-> +		snps,parkmode-disable-ss-quirk;
-> +		status = "disabled";
-> +	};
+a. pmd_clear() only if all but the current subsection have been removed earlier
+   via is_subsection_map_empty() or something similar.
 
-....
+b. Break entire PMD into base page mappings and remove entries corresponding to
+   the subsection being removed. Although the BBM sequence needs to be followed
+   while making sure that no other part of the kernel is accessing subsections,
+   that are mapped via the erstwhile PMD but currently not being removed.
 
-> +		snps,axi-config = <&gmac0_stmmac_axi_setup>;
-> +		snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-> +		snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-> +		status = "disabled";
-> +v
-> +		mdio0: mdio {
-> +			compatible = "snps,dwmac-mdio";
-> +			#address-cells = <0x1>;
-> +			#size-cells = <0x0>;
-> +		};
-> +
-> +		gmac0_stmmac_axi_setup: stmmac-axi-config {
-> +			snps,wr_osr_lmt = <4>;
-> +			snps,rd_osr_lmt = <8>;
-> +			snps,blen = <0 0 0 0 16 8 4>;
-> +		};
-> +
-> +		gmac0_mtl_rx_setup: rx-queues-config {
-> +			snps,rx-queues-to-use = <1>;
-> +			queue0 {};
-> +		};
-> +
-> +		gmac0_mtl_tx_setup: tx-queues-config {
-> +			snps,tx-queues-to-use = <1>;
-> +			queue0 {};
-> +		};
-> +	};
-> +
-> +	saradc1: saradc@ffaa0000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-> +		compatible = "rockchip,rk3562-saradc";
-> +		reg = <0x0 0xffaa0000 0x0 0x100>;
-> +		interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
-> +		#io-channel-cells = <1>;
-> +		clocks = <&cru CLK_SARADC_VCCIO156>, <&cru PCLK_SARADC_VCCIO156>;
-> +		clock-names = "saradc", "apb_pclk";
-> +		resets = <&cru SRST_P_SARADC_VCCIO156>;
-> +		reset-names = "saradc-apb";
-> +		status = "disabled";
-> +	};
-> +
-> +	gmac1: ethernet@ffb30000 {
-> +		compatible = "rockchip,rk3562-gmac", "snps,dwmac-4.20a";
-> +		reg = <0x0 0xffb30000 0x0 0x10000>;
-> +		interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
-> +		interrupt-names = "macirq", "eth_wake_irq";
-> +		rockchip,grf = <&sys_grf>;
-> +		rockchip,php-grf = <&ioc_grf>;
-> +		clocks = <&cru CLK_MAC100_50M_MATRIX>, <&cru CLK_MAC100_50M_MATRIX>,
-> +			 <&cru PCLK_MAC100>, <&cru ACLK_MAC100>;
-> +		clock-names = "stmmaceth", "clk_mac_ref",
-> +			      "pclk_mac", "aclk_mac";
-> +		resets = <&cru SRST_A_MAC100>;
-> +		reset-names = "stmmaceth";
-> +		status = "disabled";
-> +
-> +		mdio1: mdio {
-> +			compatible = "snps,dwmac-mdio";
-> +			#address-cells = <0x1>;
-> +			#size-cells = <0x0>;
-> +		};
-> +	};
-> +
-> +	pinctrl: pinctrl {
-
-
-MMIO devices are not outside of soc.
-
-> +		compatible = "rockchip,rk3562-pinctrl";
-> +		rockchip,grf = <&ioc_grf>;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		gpio0: gpio@ff260000 {
-
-
-Best regards,
-Krzysztof
-
+> 
+> Anyway, I'll be off until the new year, maybe I get other ideas by then.
+> 
 
