@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29DDE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 10:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEA8E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 10:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkQyK4GNG/JjeIgzaUsMotdNNFgS3F88pdlkp94G7iA=; b=uWpSkYfa4d+9hSbhVCqi+HnpHO
-	14uNwXnmE8c29deGedU2W6yDj3qnhZOW1ipbn4cuFWB2u+TXMBLi2m71dExOLTGPeZI+siU+Phi4v
-	Y8Eg4Jp9jWtq07x5N56PjVu+Cm7j38U3EWzFKAdnFsEkLAAqLNR1KrYT8JW556y/q14kIXJVWWL2O
-	pbVJesoSnIxtQrGAGYgp5W5iro1ddzlke9r39XZXf0Gz+EUUWUUr4GqyODd6IpLsRn0Ifeqo8gmDA
-	wwEB3wModnR4WsjrhqlCe4IVMQNp4ok4F3m8LGr4Vr0aXOHFrqk8uxwITSxuNUVD65tjGPaxk3fFI
-	HHcRHNrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qHHCIgd3OzdAE6PmFQ1ae0/GPESz42HeQGch81QAiso=; b=kL5pQ6QdmmuWil+K7UY9lErHlf
+	OmG8iETLDLRiczONtkgUf6wXph0aLUTWBQJr4hLdHynWMHh1UekMclR+5eHiGRNOPRlBgP/GQUggC
+	yi+/zypxk1Av/bm9F44lxjuF/tpMP0RiJ5SemdsvTRH4bYNc/3N3s1qd9bAXSJt1QIVnGnnUE9m2I
+	bREDhtTOBOpisUKdlAFFJpdxnyHXCLSBKOflnRKnYWqVbuJG3vl2nBAD2kDWGj5cZdaxd0yL15U9J
+	npW6BMl2kXkn0ogYZz3u5v2WkoXTirkSS99iBPhaVFaYgaThHQecf3HQLOj+384sXJfReUqXs0SbU
+	KjW3TuuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR7Xo-0000000HZBA-2vsc;
-	Fri, 27 Dec 2024 10:26:12 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1tR7Zy-0000000HZOh-2Nse;
+	Fri, 27 Dec 2024 10:28:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR7WZ-0000000HZ0G-3uf2;
-	Fri, 27 Dec 2024 10:24:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1735295066; x=1735899866; i=markus.elfring@web.de;
-	bh=TkQyK4GNG/JjeIgzaUsMotdNNFgS3F88pdlkp94G7iA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=DOfqfe1Y+vpfdWVnKjzqekKRWorJixKifUryWkJXx5KJQfolUYk15bt8iLLvoEuH
-	 151P30SVgJ37yLb+WyIC73wIVb6C8XId2TtUuDHJD9Xmkh0sYRD23QjPOru424HE3
-	 AFzMr/3ko3L7AytXcM6ToBSdeS6c2ucoZbkYJX1QjblzEIQDREf995IGkXsr69g8d
-	 I/ifsBvCtFZXPB6yJXC2XHz7V4KnMg3yeAIc2Hkgea1bbv4NoWB28c3+sXbi35keG
-	 Knys0ToSJVlTtfAY/yP3mpY142NUM+0lO2g+7/ApX8aqv6DTr6auQV25QIZ1Yr2PJ
-	 6Ts+8YvtSYTXjFD44A==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.93.31]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MBB3s-1tEWKy3B0Q-00CiAi; Fri, 27
- Dec 2024 11:24:26 +0100
-Message-ID: <3ab331db-363c-46c3-8e9f-0cbf4d142493@web.de>
-Date: Fri, 27 Dec 2024 11:24:13 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: drm/mediatek: Initialize pointer before use to avoid undefiend
- behaviour
-To: Karan Sanghavi <karansanghvi98@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Alexandre Mergnat <amergnat@baylibre.com>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, David Airlie <airlied@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Shuah Khan <skhan@linuxfoundation.org>, Simona Vetter <simona@ffwll.ch>,
- Sui Jingfeng <sui.jingfeng@linux.dev>, LKML <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-References: <20241111-uninitializedpointer1601557-v1-1-7d03668e8141@gmail.com>
- <8a5bdda5-5e2a-4b73-91a5-849b6060e7df@web.de>
- <tte6ad3rxle52x3wndewyyrnszozghvpxktx2x55w26rdcea4n@rdbhzpx2wi3p>
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <tte6ad3rxle52x3wndewyyrnszozghvpxktx2x55w26rdcea4n@rdbhzpx2wi3p>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:261YQXgSq9sf+X0DuUBswbH9bCF7TKLuW/b5gnQ2sxTMF+YlzMZ
- P4UcqtyiZoV3LySSmxpUmNBT5xKyXo0J3BT0oQFWAZCc0Sil2mCFlslgPUVwmOx5f+8EXs2
- JkUr2R8wPvL9xvXJ7DkkKtWkuhvPKVnSI/NuwGGiI9baVRQhjxz0/pvYgU+9YH2xXYdEzkW
- M6WlEmKrZ7ZRKpsvMEMCA==
-UI-OutboundReport: notjunk:1;M01:P0:NSVhTixYKaE=;U27C+P7a35hKymGudvjgiTZCUhF
- RPK8JsHHpOI/XYQhJJ4jF0KE+tmOmLvX7WP8jSfo50ld1iKlvyM4fIooDUGsbwHa/yrJ1fHWH
- 5JbkWTQVVLvIQ7Fp73Frf8cxvBzC9OpMhvlEeHYcVFCb/DgiPOYr+R+PbEBt1/nKZ7cxfmS5f
- 23S1YM2gkOiFFjqnZgnzpvCFtyp57N1amPafKrxxrxNLJJNnKGcKhLZrQuPAVKJ/lbuPO4Rme
- 3FYWlMgBhvGdNARuHQGI9kmAG8NmynCDo5wXdYiIzO0Y39Eub/DRB98FF3fuMYoMwqoqnbncs
- WyEShDs815Un0+4WoGqSh2vHKAc1M5Wu0ObDVvFsaSGoGrNzNFzuS8g2gHfwdwCV/FdCqJ5G3
- f7BT9QEVDgtY5XIar4iqEWC64XZVprnXdd/wXi+rdsAFkCp8HJ/ZiEZaTr+aOgljhpzt7xxK+
- ubuulB77CmDJ98yZiTje1nenUUcvDbwvEKsYUq5nRGs9R0amZECGlVq1Fl7rV/i5sVGxGCzPQ
- LwVczdSXTxfanvvj7n8+uYubuqB93+Drh4jpO3UJWLVxZWxbtrJYVro6PACRbOC+QKpgZwKf+
- l9tdiGC/edo9S+UjQKNAdvIBUsN0pZ/OMVjkx3NTNRnUllHY5UsgJFEPimIY5ju8oQ2Csy6vN
- P3b/5zzxakA5zlau6FZ0uGrN+vZm9UBPR5uum7T+/BaItiHlxNwHA5kIyzMo3TAFMGOGp9fRU
- hxS5pG2bxb81ARJjWyaDCeH5/2Jto6naUhawpu7pFsoiAYkxQA/8BEkSDCPVAy2WTdJRBEvsI
- io3Ay/+NUEVQ5YJl3ym3K+jF9UHwKBVkbVe0nj8og/mWIE3/JqzPyLoI+nyguo9w1up/mW7DR
- T0to59aSNehQ5u0XE6/baPgisBErVOdDP5NGiUm/sQ0XLX+IfJAkbgcVYVgZ4dp7b28pSWCB0
- MFPydf/t99tUA9FN1oL1ExqL1rQTdcG39ZQPcrklTC6W3clsnT9mhBbbdEvoi6EV7b7SGUvQ8
- vn3yw9HUhhGMVVdkJ282LNhBd617aCgoMkbPPylgMVdaaSkfD2NVqU3IGc1NTZp03hPjb/FdI
- SvRlkaNlY=
+	id 1tR7Ym-0000000HZHP-3aAa;
+	Fri, 27 Dec 2024 10:27:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 143785C55D0;
+	Fri, 27 Dec 2024 10:26:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA29C4CED0;
+	Fri, 27 Dec 2024 10:27:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735295231;
+	bh=fU2sdWBrQB2PnLL4rIYUz4+FG6O6X/h4b2VgDw5HNtE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=bcUiYQ56MdZSoZMlhWBuVuNaDbzwzUd1XqHWEPGV4DuHkTbAs8uc/0wF4uOYFkG73
+	 Bj9K/yyoR9BfvJTY+A/oMHvNjpFg0Cs/q2umEcfXgD7aq9Dj9h5KLTlsNBo2TnBZ9A
+	 HV/1UueVaEBTV5MBs9zINjS6F9vxzfWNGJeuYhrJBT8Ir4yqJsflIfwc7Lp37wRg8Q
+	 qkqaVH9zD+oMKfO9uKJ35AxGjS6SryFdoaIM/KagTnNilFCs1U2tobfQAIsvUVDvi6
+	 FN8pkpZz90uTJJH+2ghibilscbE1dJ2nVHQN60yrM7ozTgwFVLCMO/6CYR6SMpzHbs
+	 dfYyKSBIYJiJA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tR7Yi-007CZr-OZ;
+	Fri, 27 Dec 2024 10:27:08 +0000
+Date: Fri, 27 Dec 2024 10:27:07 +0000
+Message-ID: <86ldw1pgjo.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: FUKAUMI Naoki <naoki@radxa.com>
+Cc: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	tglx@linutronix.de,
+	jonas@kwiboo.se,
+	macromorgan@hotmail.com,
+	andyshrk@163.com,
+	liujianfeng1994@gmail.com,
+	dmt.yashin@gmail.com,
+	dsimic@manjaro.org,
+	tim@feathertop.org,
+	marcin.juszkiewicz@linaro.org,
+	michael.riesch@wolfvision.net,
+	alchark@gmail.com,
+	sebastian.reichel@collabora.com,
+	jbx6244@gmail.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E52C
+In-Reply-To: <5EDFB980DF778743+9f26c8cc-d86d-46ed-9642-cdca10fe7e91@radxa.com>
+References: <20241222030355.2246-1-naoki@radxa.com>
+	<20241222030355.2246-4-naoki@radxa.com>
+	<87zfkmrb4u.wl-maz@kernel.org>
+	<5EDFB980DF778743+9f26c8cc-d86d-46ed-9642-cdca10fe7e91@radxa.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: naoki@radxa.com, heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, tglx@linutronix.de, jonas@kwiboo.se, macromorgan@hotmail.com, andyshrk@163.com, liujianfeng1994@gmail.com, dmt.yashin@gmail.com, dsimic@manjaro.org, tim@feathertop.org, marcin.juszkiewicz@linaro.org, michael.riesch@wolfvision.net, alchark@gmail.com, sebastian.reichel@collabora.com, jbx6244@gmail.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_022456_259381_EBFE4436 
-X-CRM114-Status: UNSURE (   5.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241227_022712_988201_2246C74C 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +103,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> =E2=80=A6
->>> ---
->>> Coverity Message:
->>> CID 1601557: (#1 of 1): Uninitialized pointer read (UNINIT)
->>> 3. uninit_use: Using uninitialized value next.
->>
->> May such information become a part for the final change description?
->>
-> Ofcourse, it shouldn't be the part of the change description.
+On Mon, 23 Dec 2024 10:16:04 +0000,
+FUKAUMI Naoki <naoki@radxa.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 12/23/24 18:39, Marc Zyngier wrote:
+> > On Sun, 22 Dec 2024 03:03:55 +0000,
+> > FUKAUMI Naoki <naoki@radxa.com> wrote:
+> >> 
+> >> Radxa E52C is a compact network computer[1] based on the Rockchip
+> >> RK3582 SoC:
+> >> 
+> >> - Dual Cortex-A76 and quad Cortex-A55 CPU
+> > 
+> > So you have *two* big cores.
+> > 
+> >> - 5TOPS NPU
+> >> - 2GB/4GB/8GB LPDDR4 RAM
+> >> - 16GB/32GB/64GB on-board eMMC
+> >> - microSD card slot
+> >> - USB 3.0 Type-A HOST port
+> >> - USB Type-C debug port
+> >> - USB Type-C power port (5V only)
+> >> - 2x 2.5GbE ports
+> >> 
+> >> [1] https://radxa.com/products/network-computer/e52c
+> >> 
+> >> Signed-off-by: FUKAUMI Naoki <naoki@radxa.com>
+> >> ---
+> >>   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+> >>   .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 729 ++++++++++++++++++
+> >>   2 files changed, 730 insertions(+)
+> >>   create mode 100644 arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+> > 
+> > [...]
+> > 
+> >> +&cpu_b0 {
+> >> +	cpu-supply = <&vdd_cpu_big0_s0>;
+> >> +};
+> >> +
+> >> +&cpu_b1 {
+> >> +	cpu-supply = <&vdd_cpu_big0_s0>;
+> >> +};
+> >> +
+> >> +&cpu_b2 {
+> >> +	cpu-supply = <&vdd_cpu_big1_s0>;
+> >> +};
+> >> +
+> >> +&cpu_b3 {
+> >> +	cpu-supply = <&vdd_cpu_big1_s0>;
+> >> +};
+> > 
+> > And yet you configure 4. If your HW only has 2 A76s, surely something
+> > should remove these cores for this platform rather than keep them
+> > around.
+> 
+> One of the four cores may be defective. This information is stored in
+> the OTP, so we need to run our software to detect which core is
+> defective. Then we disable the cluster that contains the defective
+> core.
 
-I suggest to reconsider this view once more.
+Is it one? Is it two? If anything, this sort of binning information
+should be clearly explained in the cover letter, and a comment placed
+in the DTS file to explain that the DT needs to be further processed
+by the bootloader to be valid.
 
+	M.
 
-> it is just for the reference to understand more about what the error mes=
-sage
-> is generated by coverity scan.
-Please take another look at possibilities how other contributors indicated
-that some change opportunities were pointed out by advanced source code
-analysis tools.
-
-Regards,
-Markus
+-- 
+Without deviation from the norm, progress is not possible.
 
