@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C7FE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 13:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A369FE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 13:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=exIHxC6imgzvmqXQLKcNTUSHvq4EuZOKc14GzUjWSpc=; b=BtnTSXjEOYf9LP0eSBb+hSCiIb
-	0t5Plvv4JI0qHPMDOZ+sCWRj/PHxGs9Na6VCBBEM39RN3wRT5fJgzzpILcG36zcUPf2eP2OPmKqqH
-	/1Vqv9dVyWqDHYWRepbMEo07XUhKOPig72N9MG11G3Z6lGx9MJyyp51rCRknon/bPuMdaZtayLJm9
-	Fn8Y1PSP1NNyxD2s2AwzWSCeIBNyXHxaiEiLOfI8aFSFRFeZlE1EpTZ1crrtQ9MBOJqHd0E6geinK
-	Qs7Yukc/T/pwSFz60hAywS+5xn6IMU7pj9bsTpgkG8zY4gLjaf9r/X0JeSo6wRLJVW5/WXgSG82ck
-	vCpNUoiA==;
+	bh=iAXFsxzlonOLXIwCn7fwLxpEOxOZpKttSBYOZ0M8BhA=; b=nzdYIeohq1Wpk6r3V9xxtUIC7d
+	MjE98oXZepozURNdexVRIXFC51fTmOQmfnGitBqejGEeh7LtYx/TaiGQIQNDqleetnGd7WmK2bDR4
+	faDKV2egvTTCQq2xDP8tCnG3B1VZ6tQtmE/vl55P1U18KscrEO+2TPcNvmIgyJmYYanl0HmM9kGNH
+	vp8jvPXARh8OK0amLoimhOi2nXU+SHv/bGn+deej0fy0lnzwyLkcbxS9XrCKzUMm3fSDD6RyBSUKx
+	R5Q33pi0HSKIjIyiFQxcJ9pONyiDGlTrErQOahijX4qdJfStbbkHPy7eWB6gn6U2ekcWBjsqRXdAd
+	CZ8pNnwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRAIW-00000000HCj-20r5;
-	Fri, 27 Dec 2024 13:22:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tRAJg-00000000HWJ-09up;
+	Fri, 27 Dec 2024 13:23:48 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRACv-00000000GQT-16Tz;
-	Fri, 27 Dec 2024 13:16:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 14583A4189F;
-	Fri, 27 Dec 2024 13:14:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28A3BC4CEDD;
-	Fri, 27 Dec 2024 13:16:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735305407;
-	bh=Z7yi+afmx/uhCK7HF/9WlkjMbcxfvg7Jvqse7KgInuc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Y8P2gXOnGvjWSR7pppbIn9+uiy3Y9Z0vluLjkcnTQQIn84OguGqJjddlR0L88yLuL
-	 6V421rGIxpejqKE1L75webWki/DzFlCQVYLG2EEYZUu5aMg7m/bqDDZBCa+9e0gYRc
-	 GQvakfM4lr1cf5OTDgZLfuizLhngqWC04+vFgSChXzU7C2wkSRI+1Y6TOZu5bddOva
-	 HpnmhmiemPafHX9z1Btzexlk1nP9OWD4z8Am666h9i+Xn7O6XfbI8llWno+XkcbsLg
-	 ufOCrrp0ZZ6Vo/+/3GmhHKoAhS02PuJ3f8CVCDc+tmhHOxbt6Qx7e2+DPzz9eMQkOs
-	 OKmBdYqFoXs3w==
-Date: Fri, 27 Dec 2024 07:16:45 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tRADx-00000000Ga0-3pAA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Dec 2024 13:17:55 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2ef760a1001so8710653a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 05:17:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=edgeble-ai.20230601.gappssmtp.com; s=20230601; t=1735305473; x=1735910273; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=iAXFsxzlonOLXIwCn7fwLxpEOxOZpKttSBYOZ0M8BhA=;
+        b=qKNZinq8Aq4CYQ3U9ybnT6hLHULy1rzZXcwFrl7IKgvv2gD0pTdT3ujMuqTPkyaKl/
+         w7t8w7fGN8QlEntisLolhlDDS1qP/s76lMMTeH+VjyG1KRvbNQhEaWQSdKtiupKNKThB
+         g4FyZ8JlKfxUkrnp8J2zctbU4xyiHCLpagGvGUZNvSOyUJRXKrI86AQu5NvHP1bsEGvv
+         tru15Gbo5p8VYEOvyGIt/5ePq6461DmU1vR7h902vYRgfboqr/ZqXiufTnhbhPWiZ28Z
+         KVd+YM8kZkEetObFxW3pjscI5SaiTAHwfBztUl28Ryl6qiK3gYmt4ZJyn45y1V9dKCOD
+         tp6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735305473; x=1735910273;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iAXFsxzlonOLXIwCn7fwLxpEOxOZpKttSBYOZ0M8BhA=;
+        b=JTNn0IKhR4+MIOR3c3LyoEuupHYH0MCwvlMI6P1q6fLetmOfckXe3MSSQ64Axa8oaR
+         dStFXLtYRZoNWpgmraWTXNannQihPjCTlQgxtXyh351f5b1CdKHQ+oIAmaalvGfkX0wq
+         aqkBkHUm0znGfIfCdiQgdZM1W6chpnQTORPnYJcLOfug+tZNfm/jVF1XvC/KbNqw7ZHI
+         wjBJ/ahSinR33lmvS8o8RpO7b8cdT7SkkN4FUADdhDdj/rBPsF32V/Aqdl8eD+7FSX+5
+         3f0ShRZfY+lvNhbuIrVwEEYpxROuIiGRNf/ByEszVmeGJGqFjo8Zy6YewaW38j97+gTy
+         T5kA==
+X-Forwarded-Encrypted: i=1; AJvYcCV/L6GyX3cItmi0OzH6vXzyK8/fP05hhCfLOM5uFr+76MI+POldRW2utWDbU5wKvbgy5F8sWH51aYdBi+UwHpm+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwB8w88js6GOtgoro5lqD1KKenLckVvewQ5rIZW2skISwVwp3O2
+	daulI1w2fH6gV9aDYdsgiOkdh9v+MR+Iyy1knlgOcZCdIkMcC2P7SLOEzg8n9nR9kuHL87R2zfy
+	BrgmnuYMq+7CYyjIlrpnwWalZLPPU7UA2I1PSzg==
+X-Gm-Gg: ASbGncvJhlkxF1LU0cmNAK86m2q1m4HtGi2bsHd0bltteid2r+KTJuSln/QuMPK9XkQ
+	mmXACvXDjFixMtaw6bPp6mXO9wzA+CXztzOqU
+X-Google-Smtp-Source: AGHT+IGJXNWgYAZk4yTpptTSbNQn9IKrdlEA0Qzrr4v2C2qdF2+VE2NVca0nGnqFhl/5SkEJUK38o98Ip0n+fUXbfnQ=
+X-Received: by 2002:a17:90a:da8e:b0:2ea:712d:9a82 with SMTP id
+ 98e67ed59e1d1-2f452ec6fadmr40836147a91.29.1735305472878; Fri, 27 Dec 2024
+ 05:17:52 -0800 (PST)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-phy@lists.infradead.org, Robin Murphy <robin.murphy@arm.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, devicetree@vger.kernel.org, 
- Chen-Yu Tsai <wens@csie.org>, Joerg Roedel <joro@8bytes.org>, 
- linux-gpio@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, 
- iommu@lists.linux.dev, Linus Walleij <linus.walleij@linaro.org>, 
- Simona Vetter <simona@ffwll.ch>, Stephen Boyd <sboyd@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- David Airlie <airlied@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
- linux-sunxi@lists.linux.dev, Maxime Ripard <mripard@kernel.org>, 
- linux-clk@vger.kernel.org, Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, 
- linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>
-To: Parthiban Nallathambi <parthiban@linumiz.com>
-In-Reply-To: <20241227-a133-display-support-v1-3-13b52f71fb14@linumiz.com>
-References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
- <20241227-a133-display-support-v1-3-13b52f71fb14@linumiz.com>
-Message-Id: <173530540581.3097883.7476966654699325435.robh@kernel.org>
-Subject: Re: [PATCH 03/22] dt-bindings: clock: sun8i de2 clock: Add PLL com
- clock
+References: <20241211-rk3588-hdmi1-v2-0-02cdca22ff68@collabora.com> <20241211-rk3588-hdmi1-v2-2-02cdca22ff68@collabora.com>
+In-Reply-To: <20241211-rk3588-hdmi1-v2-2-02cdca22ff68@collabora.com>
+From: Jagan Teki <jagan@edgeble.ai>
+Date: Fri, 27 Dec 2024 18:47:41 +0530
+Message-ID: <CA+VMnFzJumtLmhFxNt8Mjzju7nC6wMWn2zDwpiRg3CEULRzDyA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] arm64: dts: rockchip: Add PHY node for HDMI1 TX
+ port on RK3588
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexandre ARNOUD <aarnoud@me.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_051649_439721_05D491B7 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20241227_051754_217401_9B7284AA 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +98,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 27 Dec 2024 16:37:50 +0530, Parthiban Nallathambi wrote:
-> Some platforms like A100/A133 also uses pll-com clock as additional
-> clock source for the display clock. This is not documents both in
-> user manual and DE 2.0 specification. These changes are mainly from
-> vendor BSP.
-> 
-> Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
+On Wed, 11 Dec 2024 at 04:37, Cristian Ciocaltea
+<cristian.ciocaltea@collabora.com> wrote:
+>
+> In preparation to enable the second HDMI output port found on RK3588
+> SoC, add the related PHY node.  This requires a GRF, hence add the
+> dependent node as well.
+>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  .../devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml         | 2 ++
->  1 file changed, 2 insertions(+)
-> 
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.example.dtb: clock@1000000: clocks: [[4294967295, 48], [4294967295, 101]] is too short
-	from schema $id: http://devicetree.org/schemas/clock/allwinner,sun8i-a83t-de2-clk.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.example.dtb: clock@1000000: clock-names: ['bus', 'mod'] is too short
-	from schema $id: http://devicetree.org/schemas/clock/allwinner,sun8i-a83t-de2-clk.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.example.dtb: clock@0: clocks: [[4294967295, 52], [4294967295, 99]] is too short
-	from schema $id: http://devicetree.org/schemas/clock/allwinner,sun8i-a83t-de2-clk.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.example.dtb: clock@0: clock-names: ['bus', 'mod'] is too short
-	from schema $id: http://devicetree.org/schemas/clock/allwinner,sun8i-a83t-de2-clk.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241227-a133-display-support-v1-3-13b52f71fb14@linumiz.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Tested-by: Jagan Teki <jagan@edgeble.ai> # edgeble-6tops-modules
 
