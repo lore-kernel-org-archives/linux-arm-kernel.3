@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70758E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7621BE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+aVcM9v3TNGbuFeqCMbEPfxEC3QzdL9gjWHd99xPEg=; b=dfjRxhRy+va5xXWe53AlaevsdK
-	i6c9hPkxo+IOHWRkwjI9CeQRTObUVdvcBWmNtB5gS5ejZpTj36QhFcVWniz/9FsaMTzRdoxGLAU8F
-	Mbvfkt/YrpAF3MTqG/wtAcPkjYnb7U0M+7O2SI19rliA/LrELEoPa10jWPPRH7/JHaHwVL2cniMRY
-	ffoCj1Vvaut6kG9TOWlQW5baXcmYhtImqXJAEfa8ik9ysG1/BRdqIkzFG1MmNkeAvaEtETm+bVcsE
-	Z8jr/YTCj+g4tpyhpzGMENuT6hqd3l6T4cHZHHIlGGdXyp9gSPkjlqV5fRptap5CI1kpuM4rhdFeE
-	1mLhVHmA==;
+	bh=YfE1uA9z/wnOoCflN1CWK91/mj7Glf8TAJeO4IAX/hg=; b=vdwIrahBnEhoi5FHzjVop9zdFX
+	QVq85DtjcuhIMO5OZjmLan7Ix1xacm2uXTzJ6R1tAjP9st0qhuIwzodj0k/5UEau7OGiKFNX+ZK2t
+	AjcuXgarjbiS9rMaIlg6UbDScQ8hAIu0p1sI4xu8IxEtH2H4+i5KABbH3fs3hk6w7MLHidYnJKSML
+	mbwnx2smV4eH5v4esKmNHBDR17NKgObIqzOtd8zyQBFupGQVmeg6+gyZENlb8TOfXoXMTZhi4Pq1I
+	aTynyuhKYO/+6kxCZLy4V8UdC9bikMEgyGQmtN5tq8j9eZo0uIWT3OOcPsjoENbvzIjjhc+xx4ESG
+	lVOdVATQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRE80-00000000ik7-2SqF;
-	Fri, 27 Dec 2024 17:28:00 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tRE99-00000000iwh-0Zze;
+	Fri, 27 Dec 2024 17:29:11 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRDpX-00000000gWf-2vky;
-	Fri, 27 Dec 2024 17:08:57 +0000
+	id 1tRDzc-00000000hj0-31V4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Dec 2024 17:19:22 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54025432becso8039760e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 09:19:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735319958; x=1735924758; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YfE1uA9z/wnOoCflN1CWK91/mj7Glf8TAJeO4IAX/hg=;
+        b=DzZKboGiSl+4FUq1ztL0Eey0oxWQlc9kswBy5BPkg8JMtwndEZa+8Ek11egMNFPFx0
+         ZEJtxu3wKkB7YBSX1156lEhRwri7HW/lL5A0rcu0uyd5bER1vMB/GWzqIV8RSuhkxUTi
+         zPmv07EPUqTyO3vwFn53GBBFt2wFKETIqEWBffHllRkCzO8uCV8V06joL8KOVszSxDo6
+         mNjKyzVEoX3LngH6oFgjjIbi+NgFqvU/50nS9K/L8JJ02nL1B7a8g6h4b1lGyeXJGfjA
+         xlaZ0ycZ7C3wcTK4zAFlj+glb3590QTDP+L/eFYSGPdlLWplhZeWLat4tH6n/D6YIb/9
+         rtxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735319958; x=1735924758;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YfE1uA9z/wnOoCflN1CWK91/mj7Glf8TAJeO4IAX/hg=;
+        b=QbBwDCluAMqc/o9rlK1KN7qsxne1zZxvZsxFqHYhIczSlprwTbN+iVfhmYqg+xd66g
+         BhcZjFzd5rz3LPXRGJgtT9Qt9420VDWh0vBnEw7X1pGYsxbYeS4xhO0DpaIBYp/z3QSx
+         5cfXY6MHpbXwBVvpWYd6ykci0G7rubh3Lj84JbQHOMRlBah58dJ+IoN4oZyAqW6yLGuJ
+         2mVm2CEfQcSpzmeS3f7zddtG/izY1WsOwmq7BFPn+RyhVeD9ERH7SNrsZkM3pZYg7i+8
+         EpiWYKYdMGooxF1sBRYUIuwOfboxQN4u0v+u3LBh1py/MoEtOd1fA1BDQO4s/HjMnzoi
+         RP2g==
+X-Forwarded-Encrypted: i=1; AJvYcCU2qwcI3tE60LiQ358+uuinZDce/Jy5zxUyp7/n/EvfPN3zIn5YZd+vKz9PX2QEOATvNrT1lWhqJL9QF6lsUHmo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbcjZIqxFU4tJpCB7bI6aXb7SD7RzqEyNf8kZ87wfKSx6W37QR
+	XvSGLi9hF2Ro85zV1H8oqMK2DgnCqvBSyJSfBRkr3Rwmwa0V9qntKAgj7ti2oPDTsDEzUzYT3kl
+	GBlN0COSJd5YZYKq+nvO8vrtcyhyiVtVL29dgJg==
+X-Gm-Gg: ASbGncsp5kxAhW9cpgmToGKAadLUQ97nTzOfYE5Ekh0p9izW1FMSIRlc42xpC/8qSYJ
+	rmSKjGsZjeOna5gd0nLVEzB1oG48Jar1qz7N6
+X-Google-Smtp-Source: AGHT+IFzNcSWitAgqLSjOZTRtHRUbR1A89jwQ+VY2x1PRVkphXKNjTxz5Znr8iriDFxh86d6rMupXkeYXSvCWzdEP2Q=
+X-Received: by 2002:a05:6512:1246:b0:542:28a9:dcb1 with SMTP id
+ 2adb3069b0e04-5422954b10fmr7658536e87.26.1735319958460; Fri, 27 Dec 2024
+ 09:19:18 -0800 (PST)
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1735319333;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V+aVcM9v3TNGbuFeqCMbEPfxEC3QzdL9gjWHd99xPEg=;
-	b=eKCauRBIFjWdhQRTKcWc34askPCgFz+/QKBbL9VFE3Xw9osf4GyHzpH6oZ+0TfW7tWmBHZ
-	LcLNZgo3NzmNalz+TyxcFPOSLN/OxRc1L82X8CaA+2tfOqT878hisB9g5f4tH8HhzKnQis
-	kx2LxlHV6EYSlHSC01/PNqeVRKtz/M6O+k6CEYa+UaYOftUJVGyDTzr2Y8kFHdLiSAkB+g
-	6uOJY8OC8vxwEn35a8jL+l9NHaztpL0b28LlD013SAedVySmi5yTIiEpImiBlhXu8ZWB56
-	/6lrON+YT/Xm0e2nARpCt8QIcr7L0D0DsiwEh7HhfoEDo00xFgQOKECMUAd0/A==
-Date: Fri, 27 Dec 2024 18:08:53 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de, tglx@linutronix.de,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, FUKAUMI Naoki <naoki@radxa.com>
-Subject: Re: [PATCH 2/2] irqchip/gic-v3-its: Make "dma-noncoherent" preferred
- for RK358x errata
-In-Reply-To: <87bjwxoyzo.wl-maz@kernel.org>
-References: <cover.1735313870.git.dsimic@manjaro.org>
- <1382cd99ec213b5fb6f3b23d4e895f078f587b8f.1735313870.git.dsimic@manjaro.org>
- <87bjwxoyzo.wl-maz@kernel.org>
-Message-ID: <f90c39e7637eebb6e021e3a9754eaa4b@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+References: <20241211-amlogic-pinctrl-v1-0-410727335119@amlogic.com>
+ <20241211-amlogic-pinctrl-v1-2-410727335119@amlogic.com> <CACRpkdbuj-_sPpdfcyg3_QNtzt9r7n-0HBGBKgy-rKUMhvGo4w@mail.gmail.com>
+ <23899c54-14ad-4724-9336-2df6fb485fd6@amlogic.com> <CACRpkdZn75ks4Gc7rm8jzkKM6y0JeQmUF3qmbJA+O+cEA9r--Q@mail.gmail.com>
+In-Reply-To: <CACRpkdZn75ks4Gc7rm8jzkKM6y0JeQmUF3qmbJA+O+cEA9r--Q@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 27 Dec 2024 18:19:07 +0100
+Message-ID: <CACRpkdbd5HFzRhoC7qRAb-Kd89fa9sX67aqK9AAMoif3nw9qbQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 2/3] pinctrl: Add driver support for Amlogic SoCs
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>, Huqiang Qin <huqiang.qin@amlogic.com>, 
+	Qianggui Song <qianggui.song@amlogic.com>, Hyeonki Hong <hhk7734@gmail.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Beniamino Galvani <b.galvani@gmail.com>, Carlo Caione <carlo@endlessm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_090856_044038_9DB49B92 
-X-CRM114-Status: GOOD (  25.05  )
+X-CRM114-CacheID: sfid-20241227_091920_760233_DC80A2C1 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,111 +100,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marc,
+Newcomers, latest patch set:
+https://lore.kernel.org/linux-gpio/20241226-amlogic-pinctrl-v2-0-cdae42a67b=
+76@amlogic.com/
 
-On 2024-12-27 17:46, Marc Zyngier wrote:
-> On Fri, 27 Dec 2024 15:42:24 +0000,
-> Dragan Simic <dsimic@manjaro.org> wrote:
->> 
->> The preferred way to denote hardware with non-coherent DMA is to use 
->> the
->> "dma-noncoherent" DT property, [1] instead of relying on the 
->> compatibles. [2]
->> Alas, older versions of the Rockchip RK3588 and RK3588S SoC dts(i) 
->> files
->> failed to specify this DT property, which means that checking the 
->> compatibles
->> remains required for backward SoC dts(i) compatibility.
->> 
->> Let's have the Rockchip 3588001 hardware errata handled the preferred 
->> way,
->> with newer versions of the Rockchip RK3588, RK3588S and RK3582 SoC 
->> dts(i)
->> files that properly specify the "dma-noncoherent" DT properties at 
->> both the
->> GIC redistributor and the GIC ITS levels, while falling back to 
->> checking the
->> compatibles for backward RK3588 and RK3588S SoC dts(i) compatibility.
->> 
->> [1] 
->> Documentation/devicetree/bindings/interrupt-controller/arm,gic-v3.yaml
->> [2] 
->> https://lore.kernel.org/linux-rockchip/86msgoozqa.wl-maz@kernel.org/
->> 
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: FUKAUMI Naoki <naoki@radxa.com>
->> Signed-off-by: Dragan Simic <dsimic@manjaro.org>
->> ---
->>  drivers/irqchip/irq-gic-v3-its.c | 12 ++++++++++++
->>  1 file changed, 12 insertions(+)
->> 
->> diff --git a/drivers/irqchip/irq-gic-v3-its.c 
->> b/drivers/irqchip/irq-gic-v3-its.c
->> index fdec478ba5e7..982dcbb30f39 100644
->> --- a/drivers/irqchip/irq-gic-v3-its.c
->> +++ b/drivers/irqchip/irq-gic-v3-its.c
->> @@ -4747,6 +4747,18 @@ static bool __maybe_unused 
->> its_enable_rk3588001(void *data)
->>  {
->>  	struct its_node *its = data;
->> 
->> +	/*
->> +	 * The preferred way to denote hardware with non-coherent DMA is to 
->> use
->> +	 * the "dma-noncoherent" DT property, which the older RK3588 SoC 
->> dts(i)
->> +	 * files failed to specify, relying on the compatibles instead.
->> +	 *
->> +	 * Thus, check for the presence of "dma-noncoherent" DT property 
->> first,
->> +	 * to let the hardware quirk be handled the preferred way, and fall 
->> back
->> +	 * to checking the compatibles for backward dts(i) compatibility.
->> +	 */
->> +	if (!of_dma_is_coherent(to_of_node(its->fwnode_handle)))
->> +		return false;
->> +
->>  	if (!of_machine_is_compatible("rockchip,rk3588") &&
->>  	    !of_machine_is_compatible("rockchip,rk3588s"))
->>  		return false;
->> 
-> 
-> I'm sorry, but this patch serves no purpose. We already have a
-> workaround in place, and we don't need to handle it *twice*.
+I included some of the prior meson authors on the to line to see if
+their mail addresses still work and if they have some feedback on this.
 
-Thanks for reviewing this series so quickly!
+On Sun, Dec 22, 2024 at 10:08=E2=80=AFAM Linus Walleij <linus.walleij@linar=
+o.org> wrote:
 
-Regarding handling the workaround twice, I agree that this patch
-is somewhat redundant, but without this patch and with the "dma-
-noncoherent" DT properties in the proper places we'll actually
-end up with some kind of double hanling.
+> > > - Renaming drivers/pinctrl/sunxi to drivers/pinctrl/amlogic
+> > >    so we keep this sorted by actual vendor, sunxi is apparently
+> > >    yours (AMlogic:s) isn't it?
+> >
+> > It isn't. Sunxi is Allwinner SoCs.
+>
+> My apologies. I mixed it up completely. :(
 
-More precisely, RDIST_FLAGS_FORCE_NON_SHAREABLE will be set twice,
-which doesn't do any harm, but it's something that made me twitch
-a bit and produce this patch.
+But wait a minute. I see there is meson. And in the "meson" subdirectory
+there is stuff named "amlogic" ...
 
-> Worse, it is actively harmful. A DT that would only advertise the
-> property on the ITS would result in a broken system, while it would
-> work correctly with the current code.
+$ ls -1 drivers/pinctrl/meson/
+Kconfig
+Makefile
+pinctrl-amlogic-c3.c
+pinctrl-amlogic-t7.c
+pinctrl-meson8b.c
+pinctrl-meson8.c
+pinctrl-meson8-pmx.c
+pinctrl-meson8-pmx.h
+pinctrl-meson-a1.c
+pinctrl-meson-axg.c
+pinctrl-meson-axg-pmx.c
+pinctrl-meson-axg-pmx.h
+pinctrl-meson.c
+pinctrl-meson-g12a.c
+pinctrl-meson-gxbb.c
+pinctrl-meson-gxl.c
+pinctrl-meson.h
+pinctrl-meson-s4.c
 
-Indeed, that possible issue bugged me as well.  Though, we can
-probably rest assured that the RK3588 dtsi files are changed to
-include the "dma-noncoherent" DT properties correctly.
+> What do you think of the idea of a separate drivers/pinctrl/amlogic direc=
+tory
+> though? I think there are already quite a few amlogic SoCs that need
+> to be supported and more will come.
 
-> Additionally, look at what of_dma_is_coherent() does, and how it will
-> fetch a property that is potentially completely unrelated to the GIC
-> node, or eventually return some random default. The binding documents
-> the dma-noncoherent property as part of the relevant nodes, and not
-> anywhere else.
+So what about renaming the existing subdir "meson" to "amlogic"
+and put the driver there.
 
-That's a possibility, but I think that the same argument about the
-RK3588 dtsi correctness may also apply here.
+Also I want to know if this driver and hardware shares anything with
+the existing drivers in that directory. It sometimes happen that
+developers start something from scratch despite the existence of
+prior art simply because of organizational issues, and we don't want
+that kind of situation to leak over to the kernel.
 
-> In the end, this is just dead code, and potentially worse. So while
-> I'm rather supportive of your first patch in this series as it allows
-> OSs other than Linux to *maybe* avoid this hack, the Linux driver
-> doesn't need any change.
-
-I'm happy to drop this patch, but I just wanted to describe the
-rationale behind it, as explained above.
+Yours,
+Linus Walleij
 
