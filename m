@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2082CE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 22:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAF2E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 23:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L823infgxoPboFK1hsbz+0QBq7B/x6XIBXkE7NZh1f8=; b=PjhGxMjDKS9cpNtSpw4CmrfG1K
-	dcGliU/az0Mg0Jomz3uOFdaEdwmbitwET2chwWUFCcNZIXngisMCpCGR4pt7CzGUN5/VVcOAev7mQ
-	5430SOH+tDUxuLcVkDit9HnHLWBeNwiXAdZgzqCzQVJ51/aCxgHeHB4wXns0nZ60Tt8/H0kR+tY5Y
-	5Ne10fyvgNtMdZ3rFhh/Lh9IyKHF+ETxhPsY1bsZH0yuo5V1hO+hkiCZiGDVVe0XXYaBdZFe1K2iR
-	9tAFyiR2WFklzY+IbUoGVD1tsrMTyk7YYkDoOAdPFkodR4u37AbFDvTjR3sUmVmcMluFe0bw1J3RF
-	GnCs/lnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U1cvaO69byw0nGHFeA9yilXkgu6gKVdyllDmswCVIx8=; b=pZpAWt12B94lcGKcLeqhIAWAhl
+	sW0+DXgLwHYa/J1SgzyLJd72mTpJZSwbqF3sZMC8IHgjJqulHf1DbTYiKW3/d9KEOZBSdrPxLIMyn
+	u5icpLYfHceLabHkBxNWS5gXRPwQTmC34HjgK/g9shnOY04z5/GxFZDOAPYRD5unOG9eue0A2PT4v
+	jmuTzFw8DgfetPOSJoXF1/3B7Z7Yz9eKO0WWSEnCDPWlYiSfShJtsaDXZVtbScsAVVQtuCzqE0+5N
+	bw/W+bUFLQUlAtq9rl1W4OEI8LL0L0QrvcLrA2bUZsWr24253Vb9nTS8lOw0Ws1k+n4rwV7BNbzgI
+	cQGV2mIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRJ7i-000000013bu-3Auh;
-	Fri, 27 Dec 2024 22:48:02 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tRJtV-000000016XE-0jRg;
+	Fri, 27 Dec 2024 23:37:25 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRJ5F-000000013ET-3cU7;
-	Fri, 27 Dec 2024 22:45:31 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1735339526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L823infgxoPboFK1hsbz+0QBq7B/x6XIBXkE7NZh1f8=;
-	b=YGbNTbzBTy66oo55AeF5o775D61asoChdnm8Biwh8koJlPtqF6aee12UoeuOc1Bl3BET7K
-	rl+TE1nVICwyB//mgl11pGUdHNpt4Q+uCHYvVXWN7tTkLpxfOOXpX85KZk4DKX8r7YbWfx
-	hSsEDYz23eZEVKy6Dmvuiwej7PxxLf5Pbs0lHaipHjX7jOhm79QgC8hjBtDqQz7WAYY92o
-	fvgZyQQANt7AWGgRXJbbw8NJo5fgQV2N69GzN3ox0uBUgbWV0FTzghta9cZV5urbNECuhQ
-	dYmtLF5NWFoRX51JHmcMPRB+lTQINVKAFts3//9viw/rzs4ijbgZeH1wcAKkmA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1735339526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L823infgxoPboFK1hsbz+0QBq7B/x6XIBXkE7NZh1f8=;
-	b=oWsyHpU7fUTd2Uyl0zR6i6Y1C96s5dNNwcaZBG/PLK2L4Wz7IUPWOsAAeYdvT9KDnhcfLM
-	Zh93w+x+ytHgv0BQ==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jiri Slaby <jirislaby@kernel.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Esben Haabendal <esben@geanix.com>,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Matt Turner <mattst88@gmail.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	Udit Kumar <u-kumar1@ti.com>,
-	Griffin Kroah-Hartman <griffin@kroah.com>,
-	Niklas Schnelle <schnelle@linux.ibm.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH tty-next v4 4/6] serial: 8250: Provide flag for IER toggling for RS485
-Date: Fri, 27 Dec 2024 23:51:20 +0106
-Message-Id: <20241227224523.28131-5-john.ogness@linutronix.de>
-In-Reply-To: <20241227224523.28131-1-john.ogness@linutronix.de>
-References: <20241227224523.28131-1-john.ogness@linutronix.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1tRJsI-000000016Pp-0LvQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Dec 2024 23:36:11 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ef9e38b0cfso9739234a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 15:36:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1735342569; x=1735947369; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=U1cvaO69byw0nGHFeA9yilXkgu6gKVdyllDmswCVIx8=;
+        b=MHyUrYh2E2gv6ygeqAabpNFUUrSpOakDpkxGvTwTK2qP7lEnO58pI0X952RNb72VZQ
+         hGRsR86ZdumBeeUkeBHmpXwBFlOI4VFKSpfg4yH8jpNSmUODAvvT72v93hEIfydmUofd
+         RtzSSqR05UProb01dmk+KMIkVtyJMwoKTwQ7OPwqEsCJv4aiwF40tdkwJTXJR/nUAJrO
+         vnr/mUGhIMvzadMOFnaj6A6yLbZ5LoTuUs08WTyJx189WP+dnsVSwNClHB5CzVElOepc
+         TayQ5CSx0BAl3ltDwpU03xREHUjcb5Oolq4cY2fOG8O+hT9Uk228G6YZ5SkiNMzjAYau
+         jR1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735342569; x=1735947369;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=U1cvaO69byw0nGHFeA9yilXkgu6gKVdyllDmswCVIx8=;
+        b=GwZCnL0E2FXiIxTHMbWjzZAomiiXAfvpYsJBWuZg1h05k8VuMWDb+f0Fy/LEt/lU1O
+         rhIov29XbMTqNthksC+g2Ds333u2uuNIHW/HX6lmjDeSbpP51FIfcTV42GEyOVcGbg0+
+         6ZkG1e0GJdcplLlOVdheRsTyFryiQLByaqNwdrBj9UmF0sN3/2FrZUvwvw1ufYu7rk9c
+         pMN97UrelBrU8VVXOrt6PkzbvayXsaAcO7Tyht7WpwXVAzPEn1enjRra85tchFE1zu6s
+         k88dJkC+4D3SFnZyaxxuHZ9DHK1b5NTuq38Ei4gBZbw9d9akEn+65788oAQlZ36Zr4Kl
+         2Zhg==
+X-Forwarded-Encrypted: i=1; AJvYcCWA+MAUib/MOmgzgwKCu0vCBAdwgK69cSRdeKUVr1v/pMCYf/t55sD6wLjuBl82VvE6Qx+tF12RbWqIKbbY6ZR5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIOjvE1Hnj0MYtkDdPRf06vOyEb79r0ToSHQN+bzVLHN2D+0dr
+	+NmTXj89gbK3xcH1YXJ6qhySE7Q/WDaB3qAspzRwnnOoYijIm9n5VrkOtTfNjYR1IG9MKjeqTzM
+	3a6sNp8zsUQ==
+X-Google-Smtp-Source: AGHT+IFuJUZ9jsTKQSDCXDTwgQyNyL9rJWt4gk6hZ4XtzDy2D3InD9OFNgdY2aj5V6x5Yf9TAhT2yfJZ4RY9nQ==
+X-Received: from pjbsw12.prod.google.com ([2002:a17:90b:2c8c:b0:2ef:82c0:cb8d])
+ (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:270d:b0:2ee:dd9b:e3e8 with SMTP id 98e67ed59e1d1-2f452dfd3b6mr46753319a91.8.1735342568743;
+ Fri, 27 Dec 2024 15:36:08 -0800 (PST)
+Date: Fri, 27 Dec 2024 23:35:46 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <3b84fa17ab72f3f69e09e0032452d17eb13b80db.1735342016.git.yepeilin@google.com>
+Subject: [PATCH bpf-next 1/2] bpf, arm64: Simplify if logic in emit_lse_atomic()
+From: Peilin Ye <yepeilin@google.com>
+To: bpf@vger.kernel.org
+Cc: Peilin Ye <yepeilin@google.com>, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Josh Don <joshdon@google.com>, 
+	Barret Rhoden <brho@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_144530_189920_59C273AF 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20241227_153610_146620_F4A85FC9 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,211 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For RS485 mode, if SER_RS485_RX_DURING_TX is not available, the
-console ->write() callback needs to enable/disable Tx. It does
-this by calling the ->rs485_start_tx() and ->rs485_stop_tx()
-callbacks. However, some of these callbacks also disable/enable
-interrupts and makes power management calls. This causes 2
-problems for console writing:
+Delete that unnecessary outer if clause.  No functional changes.
 
-1. A console write can occur in contexts that are illegal for
-   pm_runtime_*(). It is not even necessary for console writing
-   to use pm_runtime_*() because a console already does this in
-   serial8250_console_setup() and serial8250_console_exit().
-
-2. The console ->write() callback already handles
-   disabling/enabling the interrupts by properly restoring the
-   previous IER value.
-
-Add an argument @toggle_ier to the ->rs485_start_tx() and
-->rs485_stop_tx() callbacks to specify if they may disable/enable
-receive interrupts while using pm_runtime_*(). Console writing
-will not allow the toggling.
-
-For all call sites other than console writing there is no
-functional change.
-
-Signed-off-by: John Ogness <john.ogness@linutronix.de>
+Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- drivers/tty/serial/8250/8250.h            |  4 ++--
- drivers/tty/serial/8250/8250_bcm2835aux.c |  4 ++--
- drivers/tty/serial/8250/8250_omap.c       |  2 +-
- drivers/tty/serial/8250/8250_port.c       | 26 +++++++++++++----------
- include/linux/serial_8250.h               |  4 ++--
- 5 files changed, 22 insertions(+), 18 deletions(-)
+ arch/arm64/net/bpf_jit_comp.c | 18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/tty/serial/8250/8250.h b/drivers/tty/serial/8250/8250.h
-index e5310c65cf52..11e05aa014e5 100644
---- a/drivers/tty/serial/8250/8250.h
-+++ b/drivers/tty/serial/8250/8250.h
-@@ -231,8 +231,8 @@ void serial8250_rpm_put_tx(struct uart_8250_port *p);
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 66708b95493a..9040033eb1ea 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -648,16 +648,14 @@ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ 	const s16 off = insn->off;
+ 	u8 reg = dst;
  
- int serial8250_em485_config(struct uart_port *port, struct ktermios *termios,
- 			    struct serial_rs485 *rs485);
--void serial8250_em485_start_tx(struct uart_8250_port *p);
--void serial8250_em485_stop_tx(struct uart_8250_port *p);
-+void serial8250_em485_start_tx(struct uart_8250_port *p, bool toggle_ier);
-+void serial8250_em485_stop_tx(struct uart_8250_port *p, bool toggle_ier);
- void serial8250_em485_destroy(struct uart_8250_port *p);
- extern struct serial_rs485 serial8250_em485_supported;
- 
-diff --git a/drivers/tty/serial/8250/8250_bcm2835aux.c b/drivers/tty/serial/8250/8250_bcm2835aux.c
-index fdb53b54e99e..0609582a62f7 100644
---- a/drivers/tty/serial/8250/8250_bcm2835aux.c
-+++ b/drivers/tty/serial/8250/8250_bcm2835aux.c
-@@ -46,7 +46,7 @@ struct bcm2835aux_data {
- 	u32 cntl;
- };
- 
--static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up)
-+static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up, bool toggle_ier)
- {
- 	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
- 		struct bcm2835aux_data *data = dev_get_drvdata(up->port.dev);
-@@ -65,7 +65,7 @@ static void bcm2835aux_rs485_start_tx(struct uart_8250_port *up)
- 		serial8250_out_MCR(up, UART_MCR_RTS);
- }
- 
--static void bcm2835aux_rs485_stop_tx(struct uart_8250_port *up)
-+static void bcm2835aux_rs485_stop_tx(struct uart_8250_port *up, bool toggle_ier)
- {
- 	if (up->port.rs485.flags & SER_RS485_RTS_AFTER_SEND)
- 		serial8250_out_MCR(up, 0);
-diff --git a/drivers/tty/serial/8250/8250_omap.c b/drivers/tty/serial/8250/8250_omap.c
-index 42b4aa56b902..c2b75e3f106d 100644
---- a/drivers/tty/serial/8250/8250_omap.c
-+++ b/drivers/tty/serial/8250/8250_omap.c
-@@ -365,7 +365,7 @@ static void omap8250_restore_regs(struct uart_8250_port *up)
- 
- 	if (up->port.rs485.flags & SER_RS485_ENABLED &&
- 	    up->port.rs485_config == serial8250_em485_config)
--		serial8250_em485_stop_tx(up);
-+		serial8250_em485_stop_tx(up, true);
- }
- 
- /*
-diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-index 812f003c252d..e38271f477d1 100644
---- a/drivers/tty/serial/8250/8250_port.c
-+++ b/drivers/tty/serial/8250/8250_port.c
-@@ -578,7 +578,7 @@ static int serial8250_em485_init(struct uart_8250_port *p)
- 
- deassert_rts:
- 	if (p->em485->tx_stopped)
--		p->rs485_stop_tx(p);
-+		p->rs485_stop_tx(p, true);
- 
- 	return 0;
- }
-@@ -1398,10 +1398,11 @@ static void serial8250_stop_rx(struct uart_port *port)
- /**
-  * serial8250_em485_stop_tx() - generic ->rs485_stop_tx() callback
-  * @p: uart 8250 port
-+ * @toggle_ier: true to allow enabling receive interrupts
-  *
-  * Generic callback usable by 8250 uart drivers to stop rs485 transmission.
-  */
--void serial8250_em485_stop_tx(struct uart_8250_port *p)
-+void serial8250_em485_stop_tx(struct uart_8250_port *p, bool toggle_ier)
- {
- 	unsigned char mcr = serial8250_in_MCR(p);
- 
-@@ -1422,8 +1423,10 @@ void serial8250_em485_stop_tx(struct uart_8250_port *p)
- 	if (!(p->port.rs485.flags & SER_RS485_RX_DURING_TX)) {
- 		serial8250_clear_and_reinit_fifos(p);
- 
--		p->ier |= UART_IER_RLSI | UART_IER_RDI;
--		serial_port_out(&p->port, UART_IER, p->ier);
-+		if (toggle_ier) {
-+			p->ier |= UART_IER_RLSI | UART_IER_RDI;
-+			serial_port_out(&p->port, UART_IER, p->ier);
-+		}
- 	}
- }
- EXPORT_SYMBOL_GPL(serial8250_em485_stop_tx);
-@@ -1438,7 +1441,7 @@ static enum hrtimer_restart serial8250_em485_handle_stop_tx(struct hrtimer *t)
- 	serial8250_rpm_get(p);
- 	uart_port_lock_irqsave(&p->port, &flags);
- 	if (em485->active_timer == &em485->stop_tx_timer) {
--		p->rs485_stop_tx(p);
-+		p->rs485_stop_tx(p, true);
- 		em485->active_timer = NULL;
- 		em485->tx_stopped = true;
- 	}
-@@ -1470,7 +1473,7 @@ static void __stop_tx_rs485(struct uart_8250_port *p, u64 stop_delay)
- 		em485->active_timer = &em485->stop_tx_timer;
- 		hrtimer_start(&em485->stop_tx_timer, ns_to_ktime(stop_delay), HRTIMER_MODE_REL);
- 	} else {
--		p->rs485_stop_tx(p);
-+		p->rs485_stop_tx(p, true);
- 		em485->active_timer = NULL;
- 		em485->tx_stopped = true;
- 	}
-@@ -1559,6 +1562,7 @@ static inline void __start_tx(struct uart_port *port)
- /**
-  * serial8250_em485_start_tx() - generic ->rs485_start_tx() callback
-  * @up: uart 8250 port
-+ * @toggle_ier: true to allow disabling receive interrupts
-  *
-  * Generic callback usable by 8250 uart drivers to start rs485 transmission.
-  * Assumes that setting the RTS bit in the MCR register means RTS is high.
-@@ -1566,11 +1570,11 @@ static inline void __start_tx(struct uart_port *port)
-  * stoppable by disabling the UART_IER_RDI interrupt.  (Some chips set the
-  * UART_LSR_DR bit even when UART_IER_RDI is disabled, foiling this approach.)
-  */
--void serial8250_em485_start_tx(struct uart_8250_port *up)
-+void serial8250_em485_start_tx(struct uart_8250_port *up, bool toggle_ier)
- {
- 	unsigned char mcr = serial8250_in_MCR(up);
- 
--	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX))
-+	if (!(up->port.rs485.flags & SER_RS485_RX_DURING_TX) && toggle_ier)
- 		serial8250_stop_rx(&up->port);
- 
- 	if (up->port.rs485.flags & SER_RS485_RTS_ON_SEND)
-@@ -1604,7 +1608,7 @@ static bool start_tx_rs485(struct uart_port *port)
- 	if (em485->tx_stopped) {
- 		em485->tx_stopped = false;
- 
--		up->rs485_start_tx(up);
-+		up->rs485_start_tx(up, true);
- 
- 		if (up->port.rs485.delay_rts_before_send > 0) {
- 			em485->active_timer = &em485->start_tx_timer;
-@@ -3423,7 +3427,7 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
- 
- 	if (em485) {
- 		if (em485->tx_stopped)
--			up->rs485_start_tx(up);
-+			up->rs485_start_tx(up, false);
- 		mdelay(port->rs485.delay_rts_before_send);
+-	if (off || arena) {
+-		if (off) {
+-			emit_a64_mov_i(1, tmp, off, ctx);
+-			emit(A64_ADD(1, tmp, tmp, dst), ctx);
+-			reg = tmp;
+-		}
+-		if (arena) {
+-			emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
+-			reg = tmp;
+-		}
++	if (off) {
++		emit_a64_mov_i(1, tmp, off, ctx);
++		emit(A64_ADD(1, tmp, tmp, dst), ctx);
++		reg = tmp;
++	}
++	if (arena) {
++		emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
++		reg = tmp;
  	}
  
-@@ -3461,7 +3465,7 @@ void serial8250_console_write(struct uart_8250_port *up, const char *s,
- 	if (em485) {
- 		mdelay(port->rs485.delay_rts_after_send);
- 		if (em485->tx_stopped)
--			up->rs485_stop_tx(up);
-+			up->rs485_stop_tx(up, false);
- 	}
- 
- 	serial_port_out(port, UART_IER, ier);
-diff --git a/include/linux/serial_8250.h b/include/linux/serial_8250.h
-index e0717c8393d7..144de7a7948d 100644
---- a/include/linux/serial_8250.h
-+++ b/include/linux/serial_8250.h
-@@ -161,8 +161,8 @@ struct uart_8250_port {
- 	void			(*dl_write)(struct uart_8250_port *up, u32 value);
- 
- 	struct uart_8250_em485 *em485;
--	void			(*rs485_start_tx)(struct uart_8250_port *);
--	void			(*rs485_stop_tx)(struct uart_8250_port *);
-+	void			(*rs485_start_tx)(struct uart_8250_port *up, bool toggle_ier);
-+	void			(*rs485_stop_tx)(struct uart_8250_port *up, bool toggle_ier);
- 
- 	/* Serial port overrun backoff */
- 	struct delayed_work overrun_backoff;
+ 	switch (insn->imm) {
 -- 
-2.39.5
+2.47.1.613.gc27f4b7a9f-goog
 
 
