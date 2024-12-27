@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77482E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 17:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38BAE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 20:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gpp/+IUBDLZ9HXWJtheRXr3yudwHj26ifQkhR6iljgU=; b=t2xL1KJgeVcoAkN7igCN6nlf3f
-	QcEoTZdIy7TH2M0uGvJE+26VGUDrWB3SOxBXjBx4Vs1AZ3olB8JH1LoE7wOKdEWzrJPCfHvq2/4L4
-	DXPkk5zaQxc1MtW2TssF6sJ9LLNYNvVIH8jPIerc1GpINHoEJ7li4zmTUR5lhY7GN2SvxeibwVKkU
-	66HgCFYyEghI2J0NaNNc1m0tKpQe5g4H31GolV8mNRWse9bSLsZyov6uHhQlp8DeM9vamaFaSYC8E
-	EYG5BQQc7iSYXfZbeHoSOAuwpWpE3Ft/aCOO/6Aixabu8X9CyGMQwzEVz8SnR3AmuPDdwt5wuy7vI
-	Ctyh1B7A==;
+	bh=rTpmM+N9yTb8Q9bJONsWhH4t0UI7Y+ya/IYjpiMz6Cg=; b=UBwQz7LEU+wAO4hB1lLGNzYtzS
+	cdM/Vd8iuPuYRYRcwt9iRfaANUN/JI2o0VQ11tg5Pg59NsY41X1sxTfQtOQcmS20BspaQbfCPlDEZ
+	1cp/TMv8f2X+/2rQtcZCdquV99fVB6YLHwxbihbSBWmAaiE/SfQJ6O/zQ7eq466xzTyOjo2/sE6X2
+	VXMxuCHVprZerE7peJcFUu0ZJZaVza+x8QBwKGOm9kCg/9kU9hmxDzj7nV5RzRPWlCcWriYHw92JN
+	r8uflQDrTLcQEMqUJRBu+JhJzNQVaWXxTUgfQkpt5jiVuaI9jckOBJnleJv2+AW0f2QqzhF4AaZ7R
+	sVIrmWOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRETR-00000000kjQ-3bVZ;
-	Fri, 27 Dec 2024 17:50:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tRGf0-00000000t7N-1ORH;
+	Fri, 27 Dec 2024 20:10:14 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRESD-00000000ka6-08ZL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 17:48:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85BC0A41975;
-	Fri, 27 Dec 2024 17:47:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABBC8C4CED0;
-	Fri, 27 Dec 2024 17:48:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735321732;
-	bh=Gpp/+IUBDLZ9HXWJtheRXr3yudwHj26ifQkhR6iljgU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sj140oDFk5GBWYm4hwua6PH61Rd69ZHuoSOyRg5MQUXIvx6HRE2kVa7/nN0jZMK9g
-	 Dne0GlXVAvK9Fc0akjfWv6Z3nIkrYHUMzFP/E3/+rRHQGtwuymbldVy7XZ5sPuaBeG
-	 OlMSL9Q7qaRFrWw3p8vq7sjHE3gyye34C3Hb684joqacPWkQ3SaDZ0t71B2/hUIUgo
-	 HReete7V2ZrwI6ksUwg5dfhAzdlKMwtvprnuGOjgnK4avH9uIdalDdD0Oo/R96M9pZ
-	 WCJ1CN0pBfWyuEY5jxtg4cukVX2BrdMRbZAZX6kEauIlZdho/7JdL+joiZZlw69XoJ
-	 16RMSVb4WWaLg==
-Date: Fri, 27 Dec 2024 17:48:46 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Abel Vesa <abel.vesa@linaro.org>, Marek Vasut <marex@denx.de>,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: clock: imx8m: document
- nominal/overdrive properties
-Message-ID: <20241227-scenic-haziness-3806c50177cb@spud>
-References: <20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de>
- <20241219-imx8m-clk-v1-1-cfaffa087da6@pengutronix.de>
- <20241219-lash-lather-31443ced0e0c@spud>
- <4e2250b3-5170-4e88-aa0a-dd796b81e78b@pengutronix.de>
- <20241225-untapped-flyover-47254d06d418@spud>
- <8a8f315b-9e6b-4c18-985e-5df4ecbe34da@pengutronix.de>
+	id 1tRGdo-00000000szg-0R0i;
+	Fri, 27 Dec 2024 20:09:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rTpmM+N9yTb8Q9bJONsWhH4t0UI7Y+ya/IYjpiMz6Cg=; b=j6E/9czHO7e5hBXHB6GqUWeYO2
+	z7aTYMKv1Qgq4Dm3MKG/qG7+b4el3bPiBfDrVTm81uYq1sdKdwM5Wv3XXMFsgVpNC4Hcb/smYIBii
+	syYK5lxbtVxSq+V81T0QLB8QH06P3gm2+FIqIjkD/bHBgS4mSziaJ5hU9tZa19D7LCBQAgFXK098Y
+	BO96XvGk5zw9olS9eMGKRy0V6hodSgXwuaaJLDiX9R+MdsQPkpV1rxkAJBiF6Lh8sOh0Tl66a7E7p
+	PmJpcwCoUaBOabFVDltoSJkH5sx6c1mtZZbbXOtSnmapGGyPSOGEUpcMUpCDjEkTsP6knM9PjK04Z
+	0f75DO4w==;
+Received: from i5e860d12.versanet.de ([94.134.13.18] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tRGdX-00037B-1A; Fri, 27 Dec 2024 21:08:43 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: cristian.ciocaltea@collabora.com, detlev.casanova@collabora.com,
+ krzk+dt@kernel.org, vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+ sebastian.reichel@collabora.com, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] dt-bindings: phy: add rk3576 hdptx phy
+Date: Fri, 27 Dec 2024 21:08:41 +0100
+Message-ID: <3255768.PYKUYFuaPT@diego>
+In-Reply-To: <hh3zowf257dwwp3uo7al5l5ql7hewy7j5rzjqdt3eqvd653mdj@4tgjm6zdsuyi>
+References: <20241224091919.267698-1-andyshrk@163.com>
+ <hh3zowf257dwwp3uo7al5l5ql7hewy7j5rzjqdt3eqvd653mdj@4tgjm6zdsuyi>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ftb44cQFhFFMb4XF"
-Content-Disposition: inline
-In-Reply-To: <8a8f315b-9e6b-4c18-985e-5df4ecbe34da@pengutronix.de>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_094853_214930_E1938A55 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20241227_120900_168602_AD6DFEF7 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof, Andy,
 
---ftb44cQFhFFMb4XF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Am Freitag, 27. Dezember 2024, 09:55:59 CET schrieb Krzysztof Kozlowski:
+> On Tue, Dec 24, 2024 at 05:19:13PM +0800, Andy Yan wrote:
+> > From: Andy Yan <andy.yan@rock-chips.com>
+> > 
+> > The HDPTX PHY on rk3576 is compatible with it on
+> > rk3588.
+> > 
+> > Add compatible for it.
+> > 
+> > Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> > ---
+> > 
+> >  .../devicetree/bindings/phy/rockchip,rk3588-hdptx-phy.yaml | 7 +++++--
+> >  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> Also: where are any users of this binding?
+> 
+> We don't take bindings without *UPSTREAM* users.
 
-On Thu, Dec 26, 2024 at 05:54:15PM +0100, Ahmad Fatoum wrote:
-> Hi Conor,
->=20
-> On 25.12.24 15:20, Conor Dooley wrote:
-> > On Thu, Dec 19, 2024 at 09:14:10PM +0100, Ahmad Fatoum wrote:
-> >> On 19.12.24 20:49, Conor Dooley wrote:
-> >>> On Thu, Dec 19, 2024 at 08:27:32AM +0100, Ahmad Fatoum wrote:
-> >> Theoretically, we could infer mode at runtime from VDD_SOC voltage,
-> >> but we need to set up clocks to read out the PMIC and I want to
-> >> apply the constraints as early as possible as I don't want the SoC
-> >> to run outside of spec even for a short while.
-> >=20
-> > Apologies for the delay responding to you, doing it today cos I feel
-> > guilty!
->=20
-> I am fully aware that I needn't expect prompt review feedback so late in
-> December. Thanks a lot for taking the time still.
+Andy, can you do a (separate) DTS series that binds all the display stuff
+together on one rk3576 board? (iommu, hdptxphy, vop, hdmi)
 
-I guess, but I /had/ replied to other things that came in after your
-mail, which is where my guilt comes from!
+Depending on how the driver sides go, this may be need to be revised at
+the end, but should hopefully satisfy that "show a user" thing.
 
-> > I think what you've explained here is fine, but could you add a
-> > bit more of that info to the commit message, explaining why one cannot
-> > be default? With that,
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
->=20
-> Thanks. I will await further review feedback and adjust this commit's
-> message for v2 as requested.
->=20
-> Wishing you nice holidays,
+I guess Kever's EVB-series [0] might be a good base to build upon, with it
+being a Rockchip EVB?
 
-You too (or what's left of em at least).
 
---ftb44cQFhFFMb4XF
-Content-Type: application/pgp-signature; name="signature.asc"
+For people reading along, that whole display chain consists of:
+- iommu [1]
+- core display-controller additions for the rk3576 [2]
+- this hdptxphy binding
+- additions for the dw-hdmi-qp glue [3]
 
------BEGIN PGP SIGNATURE-----
+Heiko
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ27ofgAKCRB4tDGHoIJi
-0sQ/AQDOR3WXvsSsQFz+lLhiYbrYkjtuZAWDaLhBmi9uJKNtVQD/YB2Vbo249Q2C
-KhJBej2Wm204JRHpcFQv2oe1TtQx8wA=
-=pjOU
------END PGP SIGNATURE-----
 
---ftb44cQFhFFMb4XF--
+[0] https://lore.kernel.org/lkml/20241220101551.3505917-1-kever.yang@rock-chips.com/
+[1] https://lore.kernel.org/lkml/20240920094947.7566-1-andyshrk@163.com/
+[2] https://lore.kernel.org/lkml/20241214081831.3330714-1-andyshrk@163.com/
+[3} https://lore.kernel.org/lkml/20241225103741.364597-1-andyshrk@163.com/
+
+
+
 
