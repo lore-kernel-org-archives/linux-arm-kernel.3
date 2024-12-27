@@ -4,204 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE00E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 06:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F1BE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 07:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9yh0byNiSQIRdmP7TbjYJSPcBzx7myDTUsepCSk7ruI=; b=XQuuqnpCne4NfWugz7JXS20moU
-	QVJ8YvkgjPU+oiRZuKatNmx4SlLPLEBWX+0TB0sXE/xC/S3ioC/rTNnoA5qgFL5I80PXaexbCHGNj
-	1/TqEDhwKXI2BRafEvXn8cRbxjYxdQhBkj3/UJQZp3GH12eSoXSEE9tc6lHtiHP8fHivJ3KE04epQ
-	ggJH985ACnmxmUuqTxyvXwTOqfzrcTtuYZ2+TqLLONZEGveFLMEnRZJlhZaZRQkZF3P7SajGnyXzH
-	nCA7OjbYezcuS8nj0W23Ut/WYpVLhCg4jZwfN7Yb8M9WWGXnUA5HeTyE5ZYSO+alccBlVpDjW1WN6
-	4qybEDIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8CeCv0ODzD7sQaeqNXL6035hFJRgChjWQuvUn4v2CWI=; b=hdQL/pmIYv3tVCJfSmh44oGfB/
+	xD7qBE8j+7BPgW8y1UZciUox5fVFGg9HpEB+sO9uke9m17eyspous+swSprJBlUh1LK37pX3xfRuR
+	ls2aScD3wtAah6+7KLR4X8cANrhivd40dYd+plc/YLLOvKL6XxHKnLYW7EwPRBr2Jwv9kLSnyzVa2
+	U2RXcz9fsrmeWgQ1kP4F1LY9qxv5IVpSmh6FquRp3c/olVqX+XW7hWBz29UWeDez+hqfs4vPT75Ve
+	JSmgWcAmQR93LFjGl4URga8N4dOJ+m+0KapTJnTuudMawcOyijlFIIIyKuB7kEEFczTYr3Nf9gjGW
+	HVkEf3Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR3Ul-0000000H8fh-0aRp;
-	Fri, 27 Dec 2024 06:06:47 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tR4KP-0000000HC7l-36FX;
+	Fri, 27 Dec 2024 07:00:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR3TZ-0000000H8X4-2f1W;
-	Fri, 27 Dec 2024 06:05:35 +0000
-X-UUID: 92f4780ac41811ef9048ed6ed365623b-20241226
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=9yh0byNiSQIRdmP7TbjYJSPcBzx7myDTUsepCSk7ruI=;
-	b=cXQf0Cu5q0DE7hu/1Eidajcuyd+QMu5FBqy0sYVRhDnhlEcZYYWwN0woiiRriJiV+mF6Z4Oqli88bSJP1xLjFiYe71GsE6nwc4ZseFGef5PI/+sZ4kq267IUfFNeIE/FEbIZ1sCW7JIkP1JGd5hTYrTKToVsTgBnPyGc87KiUN8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:a6512f63-6908-4b27-8946-77472ffb89bc,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:000cf936-e11c-4c1a-89f7-e7a032832c40,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 92f4780ac41811ef9048ed6ed365623b-20241226
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 660750102; Thu, 26 Dec 2024 23:05:29 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 27 Dec 2024 14:05:26 +0800
-Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 27 Dec 2024 14:05:26 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n8R9qJGgXKTDDuUJbgDW/Bu8b5v0npTIZbIM3wQEd/IjW9dkkwn/ozS6UBov0vfnTMUbHPqsaYTmI+AzBwWKzfpONl8AB3vlHpo0+dzJfXsNrK5NrXEb5RqZZwcE2PK+0gR6bAcj87PRV7pj50dDhPT45CwwJN0EHK9y5c5NMChAssmYrPrkCIcgqjCzrhOsgjF3Csa8BVT2wVH/XOh49CS6VnfdJp4EspbOpssrzovbWAnXBkVHBh6LaZoktcSORZyGpaI3yxjEvhIXM2P+IEA4k055vinSNJL/U8/9rELizr/WQormq4Tnk0TlnPB+S9TPCLotbYRT4nDzOlcJhA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9yh0byNiSQIRdmP7TbjYJSPcBzx7myDTUsepCSk7ruI=;
- b=A62Iq3wxjtKeIcToo8z/bN7Qc2RwSFseZupizigNFBZLkHAl70GyNtRXNrZjVBqIlFfccQc6oaqanGGLplMambTgzmlHBnzF3+k+qWzUnZAk+BSQNJHUTrvFHmTCSXGFg/8xBkL1rK0xgOEmUKb1U2i7afPFgvyvsJ3ywt+djNmq/2YSybClku/gzrrKC3Ij1wnf7DZzjtLU4qjltOwcg92JqrCuzD/BHFp3t2ioeHOEaAPC6jKFVb3i3ir55FAVDqDq3wzSra4PcXEUZ4yQU5hXeDZgT1ccO8h6+o11battoQ9Df77K+vuuKC5lABGcaKI+I25DhQNdYpGfT6CdhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9yh0byNiSQIRdmP7TbjYJSPcBzx7myDTUsepCSk7ruI=;
- b=b0igMdE4wtVefL2XT8Q7UUA3DGhinZO9NDVHFneUgNou/pqggmQAK5LoSVUM4qRPkLzJxADRpW5mP2chbuf9QGAk7Nb4wAN4PLZDRoqeQQNrwfjW0AOgSZuKBnc9f7w0x+JlQ3GLdMoXJyMN7FeXTZ4yte1xiJUtTry6zjivROQ=
-Received: from SEYPR03MB6626.apcprd03.prod.outlook.com (2603:1096:101:83::7)
- by SEYPR03MB8379.apcprd03.prod.outlook.com (2603:1096:101:20f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.14; Fri, 27 Dec
- 2024 06:05:24 +0000
-Received: from SEYPR03MB6626.apcprd03.prod.outlook.com
- ([fe80::9fa0:ee98:d5ed:beba]) by SEYPR03MB6626.apcprd03.prod.outlook.com
- ([fe80::9fa0:ee98:d5ed:beba%5]) with mapi id 15.20.8272.013; Fri, 27 Dec 2024
- 06:05:24 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	=?utf-8?B?Qm8gS29uZyAo5a2U5rOiKQ==?= <Bo.Kong@mediatek.com>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>
-Subject: Re: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
-Thread-Topic: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
-Thread-Index: AQHbVqv2E/LiiDV3F0q0O1OD05OMm7L5nUmA
-Date: Fri, 27 Dec 2024 06:05:24 +0000
-Message-ID: <351287f9e8a118babd225fb0e484976bef3db6c0.camel@mediatek.com>
-References: <20241225090113.17027-1-bo.kong@mediatek.com>
-	 <20241225090113.17027-4-bo.kong@mediatek.com>
-In-Reply-To: <20241225090113.17027-4-bo.kong@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR03MB6626:EE_|SEYPR03MB8379:EE_
-x-ms-office365-filtering-correlation-id: d9897d34-02f8-4fa1-8283-08dd263c7409
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?Z3NVSnAvT1J1bGNlUzBmN2pHYU5DQm9URXpPWWxmVkdWVVVHM0ZtVFJKTVho?=
- =?utf-8?B?ZEV4ckI4OFlERFM1R3Rib3ZpN0Y3TU9IOFlzZFNSVzFtdU1HcVJXV0VRT2NB?=
- =?utf-8?B?b3ZOLzBPWWtTZ0RWRFY3cytLYUtHTzR5YVJab3h4T1hvdCsvNnZjcUlCOEhV?=
- =?utf-8?B?Y3dESmZnYzdudTlnQjVQV215K2FBR1U0dXpIMGtCcGhiaUY2dis1NEtva3BB?=
- =?utf-8?B?NEd0NCtWMTBaaVRIcUd0QkpvcloreU9ncEl2VzBIN1UyblNwdVordUliNjNv?=
- =?utf-8?B?M3ZwMXhqOEE5dkdJTCt0ekdIVEl4c1ZtYmd6ZktmUlUycFFpdWhydUxpS05T?=
- =?utf-8?B?UDlQTEZXMWlHd1U0YXVMMlFHYVJOSkJiVC9uRGl0SkE4VmNQZFZ1TWNwTzNV?=
- =?utf-8?B?d0lvWnJvbXh1elVBcmFZYXNQeFdCZEtic1ZudjVrV0kzTVNPdjlrcHA5c3VK?=
- =?utf-8?B?azh6TjNnUGhaQUxkQVlVVHZSUGhJRVhEOGg5MTJWNXNNOEZKdWJNK1FkVkw2?=
- =?utf-8?B?Y0dsZUgydHdlSW5uWFZnaFVxVzhYbjN1RTI2Y1ZQdUYyUUxxaHJuTFY1WEd1?=
- =?utf-8?B?bDVpdGhMNjlKMzJTdmlhalZMSG10M090VFJoVlk4ait4YTk5ZEpFWUhvNGlX?=
- =?utf-8?B?MmJ3OUtWRlN2czdsV25pTVczbmhJMFVuT3p0eW5IUG5HMDN2RUptdzdmRjdD?=
- =?utf-8?B?Y0VFbitQWnJ4aEdyYnlOejVydGFpWGRoVlViQjdmc3p1aW1wTHpISnJHQ3Rx?=
- =?utf-8?B?a3ozclRnT2lsQUpCWnNvaTkwZ2VyakRlREJkT2hsYkhEY2craUI1TVJBUlln?=
- =?utf-8?B?bGtUSFhjOWtIVWNzaFZiaVc1NlExZmtvV1RINEVBUFAvQ2t0UXBXUm1tMDFJ?=
- =?utf-8?B?eEpheFB2Q0ZMOG9EaS8rQUg2S3IzNWNQRnZ1Wm9kVXpFZUZ2ZU5ySEM2bldi?=
- =?utf-8?B?N0owUFlxd2pHZHdDUUU4Y3pYVHRrczM3TFY4YXlkS0FqQisxRm4vaC95L2dy?=
- =?utf-8?B?MTlzd0hqdksxbUg3V0pzSktVTUJlRFpvbHNYQXBCMnJ3SURMZzhpWWxQRy9y?=
- =?utf-8?B?cHV6eWc3ZlVvVCtWakUwcmg4bEZvMXJCL3hTZjU3VWZoUXp1NTBtZk9pSDdC?=
- =?utf-8?B?a0ozbjRZRUpSVDVGelNNK21aTVY5VXliTmtBc29RKzVkWGZiUGJjc3FkbDR0?=
- =?utf-8?B?cDEvLzQxbzJPK2UxQTdZcHIyaWVaV0lkbU9DUStpMnQ1VEpwWUJsU0prLzd6?=
- =?utf-8?B?TlY4SUY4bTJNakpBUTlkRHZlelJWWElSVWtQdjloS0VkdVJmcVQ1ZCtVSXpw?=
- =?utf-8?B?aGhmSVByU1ZNOWtHQWxiWENBYlMwbmlrVEpiQlJvKzNyTWJsU1lISmFlM3h3?=
- =?utf-8?B?RXl3dG01a1lvWWdwZVQxdXovbkc5ZVFUb0VoRG4vNnpvbVo2ckZlZ2toU1Rx?=
- =?utf-8?B?VE0yMFpDNlVuYlRVTjhBWXIrOWtuTC9rL3ptRzRKOGJqSlFpUGM2d0wrZyt4?=
- =?utf-8?B?eFdwYmFKVThQTnhOVEQrZWdEWUJTSWV4L05VK1ovMEVkQ3FIT0dFeU90cGln?=
- =?utf-8?B?dU13UUFyZlM5am1mWUkzWkFhempNL2JHdVZianF0blZkWjd6Zyt2QVV2dVV5?=
- =?utf-8?B?VWFhamFCeGdkVThPTlNhUkhvYXFtaEkzSlhXRDhSandXK25KaTZhcjN6UFI3?=
- =?utf-8?B?cXI2eHdEeFdueldWMXpmdThjTTdSRUxLaUdoMlllS0FsMnhyWmFqZGwzMG5L?=
- =?utf-8?B?N205R3phT3dCWC9SaVo0M1JVTmcyN3pYcFMwcXBMMy9YNEUyOUhIUHl1Y24z?=
- =?utf-8?B?N2ErU2k1Q2JLdzVKSTVCZ3dTNGdYZWxMcFU3SUtLSW44dmlYbWp5VllQL2FO?=
- =?utf-8?B?V1huNytqcSt4Z2tPNTVFcXVrVjNGUnV0anFCUXdZclFjMVZtcEJsbEVkeUo2?=
- =?utf-8?Q?6HSNdKfKV0JGoVKo+5rBDlwG4ZPV3Grf?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB6626.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MXgyRDRPMUg0dC9IOXJSelM4S1FYRkM2RWVieHpYSlFtTHF5MmdFTW1XdVVE?=
- =?utf-8?B?dWxMZHBVQ1UreUJIcnoyR3VtOEVJNnZ2OTdvdFUydUNxS3RnaUVhSnNLb2lx?=
- =?utf-8?B?U3NpNzEwdGsrV0w2a3d3VzBodWhJRUZ0U1RDeVlhRG8zTkZEZ1RpWU9TMGdG?=
- =?utf-8?B?OWlmazNLY25nNDNFenpKOTFJdnZ3a3E3anFzOGsvSWJkVFBYdjAyQnlOZ2FB?=
- =?utf-8?B?YUVqbFlmWEFhaWxEYko5UzdrMERwWHZlWkw4OXZZRnR3TW0rZXN0T3ppU1FJ?=
- =?utf-8?B?cFZlN1dvbkg4MzdQa05hZGQzdHd2ODNWZzNRTmFtR2Rva2h2bkdLUGN2STVp?=
- =?utf-8?B?d2lYUXpoMnlBL1ptUVFCS0VTNi94RUpUQkFkUzJidmVhQmdxTXdBSVFWV01G?=
- =?utf-8?B?bnhzWjJYMGdFdFBMV3NqcXptTFRocERBc2xHMkh4YkJGRHRyQzJ4aU4vUzNp?=
- =?utf-8?B?Q0IrakRBdUttVG1vZldTS0RRV21qWFVSU0phdi9ML0dNV284THUyYVhmN1JX?=
- =?utf-8?B?RjBGcmxKSGxCRm15VEQxVncvUDdPVTlZZ3lNclZNc3g1UThFSDhDWi9ZUjI1?=
- =?utf-8?B?N3VqVUlWd0E2SGlrV0ZVanZWWExYZ25IL0JPVVBjZytTMlhVV3dSbmI0b01P?=
- =?utf-8?B?bDdqYmVIZ0NqTGovWHZYbGlyOUFHbHdXcUUvZCt3VWJCQzhaMk81MUJEcW9E?=
- =?utf-8?B?eHVHT0Y1V21tTjl1T1pBVHhzSHFmYzJnakVPZDExbTlYcmtmWmFOckNMS04x?=
- =?utf-8?B?am5yZW5kVkJLam9VZlJpU3lHVjNzdGdDV1hqdnRXZVZ3aWFjTGlyYk5ZM1ls?=
- =?utf-8?B?dzJod21sYlBUQzZRbXpkZXROT3BOU2k4UFNCbURsODJuVlU4WFltdnhwNExi?=
- =?utf-8?B?czFnNjF6UjZTbWE1bU9MMjY0OUtkOVBrNHhodWFmd0hzRjVhVWs4dzNLaEw5?=
- =?utf-8?B?UGFUVnFjMWVsZFduMXBFUXpRSEhZdGVEeEczdHc4ejVpWFJnRnZBQkJqRlVz?=
- =?utf-8?B?SmVrdlYyTmI5ZDJqd3pqL2NTV3BTTm5sY3BNRnNTdVV3RXFvS2h2dVc1aDRE?=
- =?utf-8?B?THhjaWNRNWhOQkZMRmhxV1hyQ3hWcUVOK1RsOG14Z3E2TGIrWlR5Q1FIMERl?=
- =?utf-8?B?VXdPVU5BTlhvLzJCK0xKVU1CREdNSjVCQWF2RjR0aVlOR2dkZWJ3MjJUNWE5?=
- =?utf-8?B?NERkZEoyYjFYcEVOZXFCQ0VSUkVvUHQ2ODB3dis3cW12NG1BOVJ3d0xQaHdm?=
- =?utf-8?B?ZDFKdjRYNXBBRDQ4MlUwbjgybXpWRTlzMkUyOURkejdmUHVCc1hkZXY2WHJ0?=
- =?utf-8?B?Z3hEWkxKRWErZmRTYzNpUEN0VlpnbHc2NEhaaWlVRUpWcG1OajhiSDBSZHI5?=
- =?utf-8?B?VWJYK1h0RTF0TERlSUREbC9RQjh2OUtIUk9VV0syUU9lSmp4NFN1cmlGUGtF?=
- =?utf-8?B?ditBVHZlZUFnR1hkdXlJek5ML1lqa0xsQjRlVDZwTmd6dVp6bGtITjFrNnVY?=
- =?utf-8?B?SXBDZUNKSXpzdWVTaUVTSkRjQlNuZ2pmalFlWmV5RGRZeSt6TXVaU2hNRjl2?=
- =?utf-8?B?c0dKbzZNUU1FdEZvbDdxR1g4YmF0c2MzRm5xcHhWTEZYdnhGQytka0EvMmhD?=
- =?utf-8?B?Z1ZUN0JxU2tYb1FoSnZwdzZQclFETEUvWnNEajJwMEFIQVpZT1RWMGR0cjNv?=
- =?utf-8?B?aEFVbElVbU9FWXJyUWpUUitSOUFtUEJnWTB6MDk0aExvK3dielRwcTE1OU9N?=
- =?utf-8?B?TWd0K2FyV3lkamo2UzlCcHFkb0ZtWURXdVZ6Tm8zWVVxNVp3QTVpTHpKTVRX?=
- =?utf-8?B?bFNPRytKYkYzeXBJQittWkdwV2Job2lrcGJDL3RycTdCUEVqWW5kenQzVjFW?=
- =?utf-8?B?a1pnS2wyeE5LVmJmTDJNTk16Ym56T0pPTjRwdW5zUHQ1YmxjdkZmSzlLNEVZ?=
- =?utf-8?B?MUxKazBLL1dkdHF2eDFueFZLcDE1QWNEZ2hRUURiZWpCVzhpMUI3NnhWamtG?=
- =?utf-8?B?UXlSZ3JONGJXdVVuWGhVN0Q1M0VwY01PTWVjbDU5U0RBbVhoeGhhNGxFcWtt?=
- =?utf-8?B?RGlFZ3k5bmV1cDFBNXRFLzV5M0FWRHBuZ28raTgrQmIzWHFkMk9lU2ZJd1Ro?=
- =?utf-8?Q?7hQ+XXm/thwXAvF5AY99my2vn?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <D5F14453DD82C444A8C083BBA06B036F@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1tR4JD-0000000HC1F-1bgL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 27 Dec 2024 06:58:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3A32F5C5679;
+	Fri, 27 Dec 2024 06:58:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B251BC4CED0;
+	Fri, 27 Dec 2024 06:58:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735282732;
+	bh=+skvMVjctMEII6DZeZwfBJwzd1xJJNkCvXSJBQAr5Zo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hc3WyDRpBjcD5b/rjtkjC4N7c47DrEa0dvFx77AbUcOGqHSn05nOV6Y56DjHXyDg0
+	 R0Du6g/ve/9hUfJWF2PaiUXsWXrmGg+ywTpqOhHomau7eYLCThULxEb7ps7fIUE778
+	 ioDBlZ5ZNIJzDT0zqaXfua9Q+oSO5l7CdczrFpHbX60mIhiGLIvYq9rBh5UaE+O7wD
+	 gN9JwbPADKf0uuVznNpvscwzbvIHRGqJ/y9qbxYc86b3BUorSwwEjQ5H52L1vCLdnT
+	 vQP0YoRoHf5JcDdupS3/nFrmlme0agH89kbzkRAtRqpWIK4aE5o036PdpDSIyZx3/q
+	 /JGPTBWCAkYjQ==
+Message-ID: <1357f0ff-3493-491b-b06f-976c16a81681@kernel.org>
+Date: Fri, 27 Dec 2024 07:58:47 +0100
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB6626.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9897d34-02f8-4fa1-8283-08dd263c7409
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Dec 2024 06:05:24.2887
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: UF5K41gdKn4zhEBIOrk6jooM7wnoZW3NVKOhGJ/By4xdX9nm80tre9WHB1C2aQVd237tZ4+h5ciHhwq5NCG6Kg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB8379
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: memory-controller: Document rev c.1.5
+ compatible
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "open list:MEMORY CONTROLLER DRIVERS" <linux-kernel@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>
+References: <20241217194439.929040-1-florian.fainelli@broadcom.com>
+ <20241217194439.929040-2-florian.fainelli@broadcom.com>
+ <2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi>
+ <93a1333d-442f-4cec-b823-9b1a5ff6dc6b@broadcom.com>
+ <wxq5zzfh5jesucbbste2j6x2jtj45wjfc5xzjkqbqqta7cprda@oaf5arr3z6pt>
+ <f906a056-3c6b-4115-9fd0-e50da8fc049b@broadcom.com>
+ <a92ff542-6534-4e2e-bef9-6f10c8362d86@kernel.org>
+ <0058c37b-9e7c-4af8-b7c0-c48b5b046d6a@broadcom.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <0058c37b-9e7c-4af8-b7c0-c48b5b046d6a@broadcom.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_220533_697436_10064BF9 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20241226_225855_526989_89B4AEFE 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,29 +129,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI0LTEyLTI1IGF0IDE3OjAwICswODAwLCBiby5rb25nIHdyb3RlOg0KPiBGcm9t
-OiBCbyBLb25nIDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEFkZCBhIFY0TDIgc3ViLWRl
-dmljZSBkcml2ZXIgZm9yIE1UODE4OCBBSUUuDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBCbyBLb25n
-IDxCby5Lb25nQG1lZGlhdGVrLmNvbT4NCj4gLS0tDQoNCltzbmlwXQ0KDQo+ICtzdGF0aWMgdm9p
-ZCBhaWVfcmVzZXRfb3V0cHV0X2J1ZihzdHJ1Y3QgbXRrX2FpZV9kZXYgKmZkLA0KPiArCQkJCSBz
-dHJ1Y3QgYWllX2VucV9pbmZvICphaWVfY2ZnKQ0KPiArew0KDQpXaHkgY2xlYXIgb3V0cHV0IGJ1
-ZmZlcj8NCkNvdWxkIHlvdSBwb2ludCBvdXQgd2hpY2ggcGxhY2UgaW4gdGhlIG91dHB1dCBidWZm
-ZXIgdGhhdCBoYXJkd2FyZSBkb2VzIG5vdCB3cml0ZSBkYXRhIGludG8gYnV0IHNvZnR3YXJlIHdv
-dWxkIHJlYWQgaXQ/DQoNClJlZ2FyZHMsDQpDSw0KDQo+ICsJaWYgKGFpZV9jZmctPnNlbF9tb2Rl
-ID09IEZETU9ERSkgew0KPiArCQltZW1zZXQoZmQtPnJzX291dHB1dF9ody52YSwgMCwgZmQtPnJz
-X291dHB1dF9ody5zaXplKTsNCj4gKwkJbWVtc2V0KGZkLT5kbWFfcGFyYS0+ZmRfb3V0X2h3X3Zh
-W1JQTjBfTE9PUF9OVU1dWzBdLCAwLA0KPiArCQkgICAgICAgUkVTVUxUX1NJWkUpOw0KPiArCQlt
-ZW1zZXQoZmQtPmRtYV9wYXJhLT5mZF9vdXRfaHdfdmFbUlBOMV9MT09QX05VTV1bMF0sIDAsDQo+
-ICsJCSAgICAgICBSRVNVTFRfU0laRSk7DQo+ICsJCW1lbXNldChmZC0+ZG1hX3BhcmEtPmZkX291
-dF9od192YVtSUE4yX0xPT1BfTlVNXVswXSwgMCwNCj4gKwkJICAgICAgIFJFU1VMVF9TSVpFKTsN
-Cj4gKwl9IGVsc2UgaWYgKGFpZV9jZmctPnNlbF9tb2RlID09IEFUVFJJQlVURU1PREUpIHsNCj4g
-KwkJbWVtc2V0KGZkLT5iYXNlX3BhcmEtPnJzX3B5bV9yc3RfdmFbMF1bMF0sIDAsDQo+ICsJCSAg
-ICAgICBmZC0+cnNfcHltX291dF9zaXplWzBdKTsNCj4gKwkJbWVtc2V0KGZkLT5iYXNlX3BhcmEt
-PnJzX3B5bV9yc3RfdmFbMF1bMV0sIDAsDQo+ICsJCSAgICAgICBmZC0+cnNfcHltX291dF9zaXpl
-WzBdKTsNCj4gKwkJbWVtc2V0KGZkLT5iYXNlX3BhcmEtPnJzX3B5bV9yc3RfdmFbMF1bMl0sIDAs
-DQo+ICsJCSAgICAgICBmZC0+cnNfcHltX291dF9zaXplWzBdKTsNCj4gKwl9IGVsc2UgaWYgKGFp
-ZV9jZmctPnNlbF9tb2RlID09IEZMRE1PREUpIHsNCj4gKwkJaWYgKGZkLT52YXJpYW50LT5mbGRf
-ZW5hYmxlKQ0KPiArCQkJbWVtc2V0KGZkLT5mbGRfcGFyYS0+ZmxkX291dHB1dF92YVswXSwgMCwN
-Cj4gKwkJCSAgICAgICBGTERfTUFYX0ZSQU1FICogRkxEX09VVFBVVF9TSVpFKTsNCj4gKwl9DQo+
-ICt9DQo+ICsNCg==
+On 26/12/2024 19:50, Florian Fainelli wrote:
+> 
+> 
+> On 12/21/2024 12:04 PM, Krzysztof Kozlowski wrote:
+>> On 20/12/2024 00:43, Florian Fainelli wrote:
+>>> On 12/19/24 00:58, Krzysztof Kozlowski wrote:
+>>>> On Wed, Dec 18, 2024 at 09:15:08AM -0800, Florian Fainelli wrote:
+>>>>> On 12/18/24 03:37, Krzysztof Kozlowski wrote:
+>>>>>> On Tue, Dec 17, 2024 at 11:44:38AM -0800, Florian Fainelli wrote:
+>>>>>>> Document the revision c.1.5 compatible string that is present on newer
+>>>>>>> Broadcom STB memory controllers (74165 and onwards).
+>>>>>>>
+>>>>>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>>>>>>> ---
+>>>>>>>     .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml       | 1 +
+>>>>>>>     1 file changed, 1 insertion(+)
+>>>>>>>
+>>>>>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+>>>>>>> index 4b072c879b02..99d79ccd1036 100644
+>>>>>>> --- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+>>>>>>> +++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
+>>>>>>> @@ -29,6 +29,7 @@ properties:
+>>>>>>>               - brcm,brcmstb-memc-ddr-rev-c.1.2
+>>>>>>>               - brcm,brcmstb-memc-ddr-rev-c.1.3
+>>>>>>>               - brcm,brcmstb-memc-ddr-rev-c.1.4
+>>>>>>> +          - brcm,brcmstb-memc-ddr-rev-c.1.5
+>>>>>>
+>>>>>> You should use v2.1 fallback and drop driver patch. Or explain in
+>>>>>> commit briefly why different approach is suitable.
+>>>>>
+>>>>> Are you suggesting that we should have fallback compatible strings, such
+>>>>> that we have something like this:
+>>>>>
+>>>>> compatible = "brcm,brcmstb-memc-ddr-rev-c.1.5",
+>>>>> "brcm,brcmstb-memc-ddr-rev-c", "brcm,brcmstb-memc-ddr"
+>>>>>
+>>>>> and the driver only needs to match on "brcm,brcmstb-memc-ddr-rev-c" and
+>>>>> apply the adequate register offset table?
+>>>>
+>>>> Almost, fallback should be brcm,brcmstb-memc-ddr-rev-b.2.1 or whatever
+>>>> was in the driver first or whatever is the oldest known common
+>>>> interface.
+>>>>
+>>>> brcm,brcmstb-memc-ddr-rev-c is not a specific compatible.
+>>>>
+>>>>> If so, that is not how the current binding, and therefore DTBs are being
+>>>>> deployed, so that will introduce a breakage until we update all DTBs in the
+>>>>> field...
+>>>>
+>>>> No. First, I thought about new comaptible so the one you add here. No
+>>>> breakage, it's new compatible. This saves you these pointless updates of
+>>>> driver everytime you add new compatible.
+>>>
+>>> Yes, but that is not how the binding has been defined until now, so all
+>>> of the DTBs out there have:
+>>>
+>>> compatible = "brcm,brcmstb-memc-ddr-rev-b.2.x", "brcm,brcmstb-memc-ddr"
+>>
+>> I don't understand the problem. We talk about new devices here, it does
+>> not matter what existing/old devices have in binding in that matter.
+> 
+> It does matter, because the DTBs that contain this compatible string are 
+> already in the field, we cannot retrofit them overnight with an 
+> additional compatible string in order to provide a fallback. Because 
+
+Then they run downstream and it does not matter whether you change here
+something or not. And anyway downstream choices do not shape choices
+here. We never accept bindings just because downstream already shipped
+something.
+
+> this is submitted now does not mean it is a new device, this was part of 
+> my backlog to get submitted earlier on.
+
+Well, that's great yet is not an argument in the bindings.
+
+> 
+>>
+>>>
+>>> (where X is in range [1..5])
+>>>
+>>> and there is no fallback defined to "brcm,brcmstb-memc-ddr-rev-b.2.1",
+>>> so it is not like we can retrofit that easily by adding one now.
+>>>
+>>>   > > Second, you can introduce fallbacks to older compatibles as well -
+>>> there
+>>>> will be no breakage, because you add one more compatible. The old
+>>>> compatibles (covered by fallback) of course stays in the driver, so
+>>>> there is no breakage at all. We did it multiple times for several
+>>>> different bindings in Qualcomm. People were doing exactly the same:
+>>>> adding compatible for new device to binding and driver, without
+>>>> considering the compatibility at all.
+>>>>
+>>>> Except being logically correct choice - using fallbacks - this really
+>>>> has huge benefits when later upstreaming complete, big SoCs, like we do
+>>>> for latest Qualcomm SoCs: several changes will be only bindings updates.
+>>>
+>>> Yes, there are advantages to using fallbacks and we (ab)use that
+>>> whenever practical.
+>>>
+>>> The driver only uses a very limited subset of registers (for now), the
+>>> registers change between minor revisions as well in a way that using a
+>>> fallback like "brcm,brcmstb-memc-ddr-rev-b.2.1" is not accurate enough
+>>> not practical. In particular for some of the changes that I am thinking
+>>> of adding later on, we would need the precise minor version because the
+>>> behavior and/or register interface is subtly different that this matters.
+>>
+>> Devices work fine now with the same driver data, so they are compatible.
+> 
+> For now they do, but not for other features that will be submitted 
+> later, they will not be, and at that point we will need to know that 
+> this is a rev C.1.5 controller versus say a rev C.1.4 controller.
+
+Which is exactly what compatibility is for.
+
+
+
+Best regards,
+Krzysztof
 
