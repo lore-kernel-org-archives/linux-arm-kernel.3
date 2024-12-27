@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99340E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 07:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75368E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 07:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J68gDl38N29G8uNijERTQQCEPOzExBjQsakQ3sJMw6M=; b=YEocJNI5uBsETcfZ6fqhsERi88
-	aiDinEC21OTIYs2+GTtjEm7XRXIaLn/fE+BLt+YCBIyYw+traVjfnx2XCsn3WMAh4+C64Rfa9Nair
-	5+Zge5ouF0FNcHD7tQ7pDaTKqA5EdaDWS9HmxunW4Omk0Fnm8Ocn5Cvl9b30Yw9fh8CzUKkt0zJ2z
-	3PjVfjBNEBDvVHTxUq6Fq0aGpf8sgwDOyLv/wIM/VT97NTFlT5BixHuMNDV57aq5JJ+EV0dsSTgVC
-	BvdLsj6jByoV+W8i5Tq55U9FvlKbhr1NhhTOa6yrGoMhVyuIwWY/iJxgf3KljTKn76MynzdT3gpBz
-	gyb4mGoA==;
+	bh=N1N5qrc+3m4dXi9nGaNDEx9YrugU1o9rKmRYQWqrahM=; b=dzh3R1+eqZWx7jK6DnslLl1Ax5
+	FrcJZHmdPkuwpiYDSg4wB7Hjq6Q819GwFEz3Ihy56uEZJaPiiz69l0YfDOySOR9DFbH/V3yBrXLz2
+	3pw4Enm8R7GaRQCFKhZUVCioDrJRZNOimBirRxaTVWPGmZBqWmjyVlJChzuFy+q6f66VGAUvA3gsj
+	/3V4GvS0/NTb96lxpPFRURyS8tGOTxKLhG8n5VjIG8WscEgUCVz3o60sNG1GG5q/UPhScJkfy407d
+	K1pBs5bHnZaPoihYFSoy7OQqOXTo7CDrC9wyQB0M+lwMc4Vs09o5t6xH2mPTtCWLiQsKrNd/IBIYY
+	ZiMB8Dhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR4Ok-0000000HCUH-4Brw;
-	Fri, 27 Dec 2024 07:04:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tR4YJ-0000000HDf8-1ZjE;
+	Fri, 27 Dec 2024 07:14:31 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR4NZ-0000000HCNP-427U
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 07:03:27 +0000
+	id 1tR4X7-0000000HDUz-3BW2;
+	Fri, 27 Dec 2024 07:13:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9D07CA410F7;
-	Fri, 27 Dec 2024 07:01:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C9DBC4CED0;
-	Fri, 27 Dec 2024 07:03:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 388CDA41176;
+	Fri, 27 Dec 2024 07:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6399DC4CED0;
+	Fri, 27 Dec 2024 07:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735283003;
-	bh=+7ck8eAbEdbMq4FfV8jX2AlQfAJ1DVeuk+4RvANLiyw=;
+	s=k20201202; t=1735283596;
+	bh=Hneaj+fwxQFh+es62rDaOqjmykKHnrlun6IE40T9xlY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r6KvYNQJk2bTM+Lwx3TNBJUSgFN7bCJfYRhow8KY3L4fvo5mTd81stGiWryv4UxU7
-	 mQEvICFXIPeiyI3BKWoMS/AbdxyM08xZBi2XQrnucorQCdY2cy+Lzr/pIvHWbcoiPA
-	 tuWj0Vj2GHqKzYBgm7t4WQEJq4XLJNN1OeNkn5gt1oMAOIJjiVpV6kaeAj1ufhNb7w
-	 bfrzhAKq1mqfm5kYCrQv7llX7LFRcskyYgeh7qCHfaTmqsrlRdNoRqHxFpqZ0tkrC/
-	 t7+yt8cNiRZZxNGuiFKbAw6CQ/vEi2LUV+hmoimfGZknma1dTzQXYek6RHyiolamb0
-	 dg/w9deH6ulvQ==
-Message-ID: <df1e2fbd-7fae-4910-9908-10fdb78e4299@kernel.org>
-Date: Fri, 27 Dec 2024 08:03:15 +0100
+	b=nhK9BLFvJ1kS96sUqIWR03McIgbI4ZhEaR44uoyPfJEd7Qg5FELaggRVCpOvDiOhE
+	 K07gDp6rnkAhLSsYR6ii31kuErM0WbtnqY2gCAvDIBMqbUAYcZXEsQufmB9kjixWZj
+	 GHn0angf3ewbzXCRHDM0C7uBKyfSz6gvHEtk9ev3pYPMQTYZnHuNYpMn2ykpGUnidW
+	 gxQKWyvIu+9kN1CYnKLCfQm2+Ya6vKbLz7W2Zqij/cIjSvg0w40YZnAWLG0zckOEPr
+	 Xeep/pgASDQu9AbVQUduWi5bN3c/BrgdYVONxZbmKYS8rgvLy1G8UsIrisJSx0GyD2
+	 0beqmLol0CqFQ==
+Message-ID: <63c14ff2-d3c2-4bbb-8d54-376b75c62fd4@kernel.org>
+Date: Fri, 27 Dec 2024 08:13:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] net: stmmac: qcom-ethqos: Enable RX programmable swap
- on qcs615
-To: Yijie Yang <quic_yijiyang@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20241225-support_10m100m-v1-0-4b52ef48b488@quicinc.com>
- <20241225-support_10m100m-v1-2-4b52ef48b488@quicinc.com>
- <4b4ef1c1-a20b-4b65-ad37-b9aabe074ae1@kernel.org>
- <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+Subject: Re: [PATCH v4 02/17] dt-bindings: display: rockchip: analogix-dp: Add
+ support for RK3588
+To: Damon Ding <damon.ding@rock-chips.com>, heiko@sntech.de
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
+ kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+References: <20241226063313.3267515-1-damon.ding@rock-chips.com>
+ <20241226063313.3267515-3-damon.ding@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <278de6e8-de8f-458a-a4b9-92b3eb81fa77@quicinc.com>
+In-Reply-To: <20241226063313.3267515-3-damon.ding@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_230326_161601_B86E9EBC 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20241226_231317_941160_5549EF68 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,44 +123,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/12/2024 03:29, Yijie Yang wrote:
+On 26/12/2024 07:32, Damon Ding wrote:
+> Compared with RK3288/RK3399, the HBR2 link rate support is the main
+> improvement of RK3588 eDP TX controller, and there are also two
+> independent eDP display interfaces on RK3588 Soc.
 > 
+> The newly added 'apb' reset is to ensure the APB bus of eDP controller
+> works well on the RK3588 SoC.
 > 
-> On 2024-12-25 19:37, Krzysztof Kozlowski wrote:
->> On 25/12/2024 11:04, Yijie Yang wrote:
->>
->>>   static int qcom_ethqos_probe(struct platform_device *pdev)
->>>   {
->>> -	struct device_node *np = pdev->dev.of_node;
->>> +	struct device_node *np = pdev->dev.of_node, *root;
->>>   	const struct ethqos_emac_driver_data *data;
->>>   	struct plat_stmmacenet_data *plat_dat;
->>>   	struct stmmac_resources stmmac_res;
->>> @@ -810,6 +805,15 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
->>>   	ret = of_get_phy_mode(np, &ethqos->phy_mode);
->>>   	if (ret)
->>>   		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
->>> +
->>> +	root = of_find_node_by_path("/");
->>> +	if (root && of_device_is_compatible(root, "qcom,sa8540p-ride"))
->>
->>
->> Nope, your drivers are not supposed to poke root compatibles. Drop and
->> fix your driver to behave correctly for all existing devices.
->>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > 
-> Since this change introduces a new flag in the DTS, we must maintain ABI 
-> compatibility with the kernel. The new flag is specific to the board, so 
+> ---
+> 
+> Changes in v2:
+> - Add the main defferences of the RK3588 eDP and the previous versions
+>   in commit message
+> 
+> Changes in v3:
+> - Expand the property clock-names, resets and reset-names
+> 
+> Changes in v4:
+> - Remove 'spdif' clock which added in v3
+> - Add the comment of newly added 'apb' reset in commit message
+> ---
+>  .../bindings/display/rockchip/rockchip,analogix-dp.yaml  | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+> index 60dedf9b2be7..200703905b29 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+> @@ -15,6 +15,7 @@ properties:
+>      enum:
+>        - rockchip,rk3288-dp
+>        - rockchip,rk3399-edp
+> +      - rockchip,rk3588-edp
+>  
+>    clocks:
+>      minItems: 2
+> @@ -31,10 +32,14 @@ properties:
+>      maxItems: 1
+>  
+>    resets:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 2
+>  
+>    reset-names:
+> -    const: dp
+> +    minItems: 1
+> +    items:
+> +      - const: dp
+> +      - const: apb
 
-It's not, I don't see it specific to the board in the bindings.
-
-> I need to ensure root nodes are matched to allow older boards to 
-> continue functioning as before. I'm happy to adopt that approach if 
-> there are any more elegant solutions.
-
-I don't think you understood the problem. Why you are not handling this
-for my board, sa8775p-rideX and sa8225-pre-ride-yellow-shrimp?
-
+I asked why existing variants get this new reset. This is not supposed
+to be flexible (which I wrote as well), but constrained per variant. Or
+explain why not.
 
 Best regards,
 Krzysztof
