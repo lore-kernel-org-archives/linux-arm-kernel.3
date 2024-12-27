@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9CEE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 11:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3A7E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 27 Dec 2024 11:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZTlzpcY9Nrn1bF4NErKmO8JMU6UkWIH2f9/tcnoXh0=; b=cxvdJTjU6+KUnk1WoV2PJ91Ld6
-	S6MIuwZ9EFoBjrO2yLDRG7iF1pR+3y65yrPUpnpj3itsLghUFITyhc0nnP1DAX32M4Kbzf7fk2xCk
-	K4vHyifsNxgbpmETNg6PgquEqoOnVK2RJ3ykTa6DYSyH4wk9fjYboE4gjhC9jKHkX1BZcEs/mEzG/
-	6AACf+bky6AtEyVG1HyEARt/I4TYEgE5EBC49oP122T3vBlXhg2BiBu2Wet4lvlEn5aYRt+amo+Vk
-	PLhNdQk+iMQ+aL7l0sLNnKkcVln0T3Ra+B4W6yAupAkF30AJm40pGGRK/u+oJ+ZSAjuscfAlqLzfA
-	0fzQNkAg==;
+	bh=VrQzcpsEZrRxzYneklGMKbZSVevXccoK1hLw4KZeU8Y=; b=hy9aHI6FDDLHSNTEi4+RqE4jnd
+	O2dmO6KDuwkkO5BmShNYAQvtCn5VmDMjRFbmNpZyFy7wzdcaWRte2//00+DBzhXWmNjy7qX2iHLPW
+	PL3ckbW7VuviKqKzUNxX1AvE2YY54oMcgT+1D/fR32ZthcUzMwBth8MZn6BTkUdcWUR87jmevPpWE
+	AFjCXYUycRIuQ4aQkIZ8wTnCuj/Uvgs8zT1zeFKNjLxXOnpgVkoiCGHfo0G5AuZteUoBjcsfHo1VC
+	qDvTxl4mnSWunq3ay/C2PhVSwHb+DOW1Fv9NWhTHdQsFrhjf8nfkgEQgXqRyAEa+9/GqEHxr/juAf
+	w+dHi8oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR8SA-000000005So-31jH;
-	Fri, 27 Dec 2024 11:24:26 +0000
+	id 1tR8TJ-000000005d9-3son;
+	Fri, 27 Dec 2024 11:25:37 +0000
 Received: from omta036.useast.a.cloudfilter.net ([44.202.169.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tR8Dt-000000002m8-15BG
+	id 1tR8DL-000000002m8-1Fci
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 27 Dec 2024 11:09:42 +0000
+	Fri, 27 Dec 2024 11:09:08 +0000
 Received: from eig-obgw-5008a.ext.cloudfilter.net ([10.0.29.246])
 	by cmsmtp with ESMTPS
-	id R46etX9A9xoE1R8Dttkj10; Fri, 27 Dec 2024 11:09:41 +0000
+	id R46ftX9ANxoE1R8DLtkirH; Fri, 27 Dec 2024 11:09:07 +0000
 Received: from md-in-79.webhostbox.net ([43.225.55.182])
 	by cmsmtp with ESMTPS
-	id R8DptwsF3N0LRR8Drtphpu; Fri, 27 Dec 2024 11:09:40 +0000
-X-Authority-Analysis: v=2.4 cv=erfZzJpX c=1 sm=1 tr=0 ts=676e8af4
+	id R8DItwrwUN0LRR8DJtphZe; Fri, 27 Dec 2024 11:09:06 +0000
+X-Authority-Analysis: v=2.4 cv=erfZzJpX c=1 sm=1 tr=0 ts=676e8ad2
  a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=vU9dKmh3AAAA:8
- a=zUiwhsQguGSo42tcF88A:9 a=QEXdDO2ut3YA:10 a=rsP06fVo5MYu2ilr0aT5:22
- a=ZCPYImcxYIQFgLOT52_G:22
+ a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=YmDlHjd7AAAA:8
+ a=vU9dKmh3AAAA:8 a=L4MHaItcyTsGJ2lxC4sA:9 a=QEXdDO2ut3YA:10
+ a=jsfG_yEu7aiiUYXEnMLs:22 a=rsP06fVo5MYu2ilr0aT5:22 a=ZCPYImcxYIQFgLOT52_G:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
 	; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=2ZTlzpcY9Nrn1bF4NErKmO8JMU6UkWIH2f9/tcnoXh0=; b=N1YLZNk36kXkdZeCip1ee2uVXF
-	a+VooNL6VWwd9Lqk3zXfttZKyP2YUmBLrtJT73QkxkXhu283hxj+CxOLIY6vtinrm/SfpkQQH3OdT
-	kbRQBhyoeiLH1WUIhiNf9poj45SGlZr1YxbBM0hItqXqUAh8RO8/FGF/EHmSizO4f+xQY4t8SEpVa
-	9j8PTh9hr9L6zeVXq/s2CYKEKYKe6MW/zO+uaLIl69PcoMWC49a3MYVqfgxILsh6AfLuC6+nBmbr7
-	gRVSYtkepbMi0JuX7r/KURseuSbOVnt2BvH9KphngQJ9aHClHUzSxLwXsLhbPe5iKbwKkG+qZowZq
-	r7/tPI6g==;
+	bh=VrQzcpsEZrRxzYneklGMKbZSVevXccoK1hLw4KZeU8Y=; b=MmADfID++vJZInjAxO+ke3ncQv
+	k6lDqXSc4xRJRQohMx7+LLBZKxvH1xCViQfbOqiPtcZEsw6Xc2KDYaIIzyHbR7By5EjVCFAC5UA1I
+	GpyA2pMYVBexWEIKqbqEVyiEl2F6JQh528r3RGK8C2FoewaEE8/LLPoh/E/l6/OlYAwRlQWKXHq4y
+	DgvNtopjCF4ciuHzdjwNUN8lLJJ3MOedR5+iGqItg7ho6Yud07Ym5sIckOxvdIiI/9DiATpbVFIHF
+	EWpx8Xw1xRpsZMFzOsMBCbgB1MubFm6SeBYmKggJ31teQEqgTZLmlUAuChhch3yFYtloavFK2U2N3
+	/9ykVKRQ==;
 Received: from [122.165.245.213] (port=50828 helo=[127.0.1.1])
 	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <parthiban@linumiz.com>)
-	id 1tR8Dd-000bEK-1y;
-	Fri, 27 Dec 2024 16:39:25 +0530
+	id 1tR8D5-000bEK-2z;
+	Fri, 27 Dec 2024 16:38:51 +0530
 From: Parthiban Nallathambi <parthiban@linumiz.com>
-Date: Fri, 27 Dec 2024 16:38:01 +0530
-Subject: [PATCH 14/22] drm/sun4i: add a100/a133 tcon top quirks
+Date: Fri, 27 Dec 2024 16:37:54 +0530
+Subject: [PATCH 07/22] dt-bindings: vendor-prefixes: Shenzhen Baijie
+ Technology
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20241227-a133-display-support-v1-14-13b52f71fb14@linumiz.com>
+Message-Id: <20241227-a133-display-support-v1-7-13b52f71fb14@linumiz.com>
 References: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
 In-Reply-To: <20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -85,11 +86,11 @@ Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
  linux-phy@lists.infradead.org, 
  Parthiban Nallathambi <parthiban@linumiz.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735297689; l=1225;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735297689; l=835;
  i=parthiban@linumiz.com; s=20241125; h=from:subject:message-id;
- bh=sSqsAP7aI8LtOIYP4k3+cQUQommzJizcH73kj4wGkh0=;
- b=hKJUyEpYKYvGHwRhQmFQa8Mwv3Cpy612ASRC6nttQ+FM99Uud7cdJpw1tWBbS1cN/LG285qLm
- ag3/LaFKqb0B9yXmvGuOeU6wrLqNXswhPmc5JVbrrSMD0tmc3V4ETmN
+ bh=jfPsPwWKRhhV21IwFSRmL+uw8EZXVaV/9179PemDy/M=;
+ b=CJOVx2TC4fLDcjQ6xgq4N4Mi1niTuzwwERJ6yiEMANOEwpSEoLqBhfJmD+PDB56mjpO3si6jf
+ jx7xLttFSJpD3tHngJF3gIva/96uOpoEpuitCdS8Sqx1ZgpvNpSt7UF
 X-Developer-Key: i=parthiban@linumiz.com; a=ed25519;
  pk=PrcMZ/nwnHbeXNFUFUS833wF3DAX4hziDHEbBp1eNb8=
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -100,21 +101,21 @@ X-AntiAbuse: Sender Address Domain - linumiz.com
 X-BWhitelist: no
 X-Source-IP: 122.165.245.213
 X-Source-L: No
-X-Exim-ID: 1tR8Dd-000bEK-1y
+X-Exim-ID: 1tR8D5-000bEK-2z
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
 X-Source-Sender: ([127.0.1.1]) [122.165.245.213]:50828
 X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 412
+X-Email-Count: 209
 X-Org: HG=dishared_whb_net_legacy;ORG=directi;
 X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfAOxp7OmQtIWW9rfs7jQPVuICqFHRejtb0P7j9JwDV374i+I3CiPccFov4WqDWD+lLCiI+RNdclGvZ0gRsIOuJ5Cb9n3EgGbGo3QHZbKZ0KN/xnLBTyk
- WU/rMBlUOy8H4kR0tme3RtfVvfGy/KykuSOvfFLcEnae3npiDzaAkNKxYpMo94lr72slQ2uPV30VWt7DrTNN2gBMqS82RLmGJGmx3dXDJpG4Zkmsf82x3Z8v
+X-CMAE-Envelope: MS4xfHlDUiQ3dT+0EAgjEAVGQDMUrSaA9Lx3Q5kxa4+JuEit3j57L1R0t42BiKehl1j93P4JjB8uWBDnKIvrkj7Hz+/H58Ou9RXaofX0VowSx6T/uSRLavmD
+ Ws9XkDPQt5vEQjB1rtPj9PrI6U4Psuz7sYjOZtewGIEcYOwsrbN7zQOz6wECT3msluzdjdK+H8yJqZEI7U7y9khDgZlC7ybywk/4L9Hn5GPfhz2N6i+0pl2a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_030941_396403_A5480E41 
-X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-CacheID: sfid-20241227_030907_425076_E960C82A 
+X-CRM114-Status: UNSURE (   5.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,40 +131,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A100/A133 comes with 2 x LVDS, 1 x DSI without TV support. Add
-quirks with tv0 disabled. DSI support is not added.
+Add entry for Shenzhen Baijie Technology (https://szbaijie.com)
 
 Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>
 ---
- drivers/gpu/drm/sun4i/sun8i_tcon_top.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/sun4i/sun8i_tcon_top.c b/drivers/gpu/drm/sun4i/sun8i_tcon_top.c
-index bd9d0840ead7..a777b30ecea0 100644
---- a/drivers/gpu/drm/sun4i/sun8i_tcon_top.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_tcon_top.c
-@@ -280,6 +280,10 @@ static const struct sun8i_tcon_top_quirks sun20i_d1_tcon_top_quirks = {
- 	.has_dsi	= true,
- };
- 
-+static const struct sun8i_tcon_top_quirks sun50i_a100_tcon_top_quirks = {
-+	/* TODO DSI support */
-+};
-+
- static const struct sun8i_tcon_top_quirks sun50i_h6_tcon_top_quirks = {
- 	.has_tcon_tv0	= true,
- };
-@@ -294,6 +298,10 @@ const struct of_device_id sun8i_tcon_top_of_table[] = {
- 		.compatible = "allwinner,sun20i-d1-tcon-top",
- 		.data = &sun20i_d1_tcon_top_quirks
- 	},
-+	{
-+		.compatible = "allwinner,sun50i-a100-tcon-top",
-+		.data = &sun50i_a100_tcon_top_quirks
-+	},
- 	{
- 		.compatible = "allwinner,sun50i-h6-tcon-top",
- 		.data = &sun50i_h6_tcon_top_quirks
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index da01616802c7..81cbc8b6b195 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1466,6 +1466,8 @@ patternProperties:
+   "^synopsys,.*":
+     description: Synopsys, Inc. (deprecated, use snps)
+     deprecated: true
++  "^szbaijie,.*":
++    description: Shenzhen Baijie Technology Co., Ltd.
+   "^tbs,.*":
+     description: TBS Technologies
+   "^tbs-biometrics,.*":
 
 -- 
 2.39.5
