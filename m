@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBFEE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 12:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04A9E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 12:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tWjTAOLgd9HkbIXFzlj06PfRlzkvfWEKiYD/XWeq8os=; b=yp4rrZQb/5Jimct3CiGhEto+I6
-	IGgtansulruTo+IzAdP7yd4A0UAEx/uYNK9tjP9XW1+zv3c7JLZ6EF+oCR11p/8GVDCpVyUGoBRQE
-	eVny4hghuvnWCdSoVzkuTJxdTEjGjk98PgaNBN6UQeTlokV74KfVVqzDd33RCEsNqsYRf1xFjxkmN
-	jiNx9ptAIjnifQlsoxKajNeBFfKQPaLE7G9lE1fu4hTXwMdhr4UUUiNMPtuUdPIcLoscpaUuEq4xK
-	sxUFm8jRb6vJ+5tQUzBdOoFN8VnyX5sDDpn2EpfNhWUu5wBuh1z/CUB4MFz6d4aeUg6WdtL4thWw1
-	wMFyzOEw==;
+	bh=bhOPVk7Vqm2NJKMlmrYXdJYomM5xUIUvFVc3xFQAy60=; b=govqXAA72fB/OAch/XiJzaEOM9
+	wkMEpm16pB7SwGl3CrEBaj75fHcNXNIeKp17LOw+O9cSQ+fRQL26q4IDfcie6ft9E8gw8sa+hfxq+
+	qM+oWTFdVwM68hAAOUEhu5O7NekaD58SvavP7rVolWJ9VCzzGMk2yj94Ma0lNNwHTfB9cUAMw5BmS
+	sPuq8QJJn3mIUVE01SmKSH5vBQEjOEoWF/VTOCSTc/4p7Jfi869hC/grPc0wr1zY2KtTJPGBovsNM
+	nXAfFi3YwoItwvO453BHwmgBbEAaFR4LSjMC+OrPdV+eE4Abh0sADl//2Pi+n0Qop9HIOtGqxfXhN
+	lWw+Zf8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRVyQ-00000001s2w-0jGH;
-	Sat, 28 Dec 2024 12:31:18 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1tRVza-00000001sCe-0Ces;
+	Sat, 28 Dec 2024 12:32:30 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRVq2-00000001qbt-1iel;
-	Sat, 28 Dec 2024 12:22:39 +0000
+	id 1tRVq4-00000001qbC-3O5P;
+	Sat, 28 Dec 2024 12:22:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=tWjTA
-	OLgd9HkbIXFzlj06PfRlzkvfWEKiYD/XWeq8os=; b=LXGi/i2CbK8w97uz6lNmS
-	fevRKfb7w9vg03qEzbeuO6Xpdrs7vlVFmDxID48ZcUnJBWw7PR3F+AfIQ0bh1vXG
-	8ErwPmIwr0Z8g7evJjVT4J+hRPLDrXzSjtXAW88tYMlsWZMmXOR01riv5dahx1yV
-	gpXGS/fByXPWdZjDRJK4iU=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=bhOPV
+	k7Vqm2NJKMlmrYXdJYomM5xUIUvFVc3xFQAy60=; b=WtK6hEZGPNPUa1cDv++4K
+	YhvVzr0WIfR2a9UbzogKbhS0CorgWXWc8AZD3m4gcUJYZvkjUb7qW1l+cY9Iv28r
+	73gH9ToxTDxjAg6O/tMj+efdDYOLZ7G70jQpR00rTJ5RXGM1GlLjZBHKBLnklDZa
+	Us2bXlj+Tn9HYT60153eU0=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3t0tl7W9nUxdCCQ--.1009S7;
-	Sat, 28 Dec 2024 20:22:07 +0800 (CST)
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3t0tl7W9nUxdCCQ--.1009S9;
+	Sat, 28 Dec 2024 20:22:09 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de,
 	krzk+dt@kernel.org,
@@ -53,24 +53,24 @@ Cc: cl@rock-chips.com,
 	linux-phy@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v2 5/8] dt-bindings: display: vop2: Add rk3576 support
-Date: Sat, 28 Dec 2024 20:21:48 +0800
-Message-ID: <20241228122155.646957-6-andyshrk@163.com>
+Subject: [PATCH v2 7/8] arm64: dts: rockchip: Add hdmi for rk3576
+Date: Sat, 28 Dec 2024 20:21:50 +0800
+Message-ID: <20241228122155.646957-8-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241228122155.646957-1-andyshrk@163.com>
 References: <20241228122155.646957-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3t0tl7W9nUxdCCQ--.1009S7
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWr1kWFWxArW5XFyUKr4xXrb_yoW5XF13pa
-	93CFyDXrWxGF1UXw4ktFn5Can5tF9Yyw4Ykrn7ta17KrsIgF4kWw4agr1DJr13WF17ZayY
-	9FsYk347G39avr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j7L05UUUUU=
+X-CM-TRANSID: _____wD3t0tl7W9nUxdCCQ--.1009S9
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAFW3uFWUJFWUKr43CFy8Krg_yoW5Wr4rp3
+	ZrCrWrXr4kWF12qasIkr1kJrZ5J395CFs5Kr1xAFyUtryagryakFWxXrn2yasFqr4UXanr
+	tFsrCry8KFs2qw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jgCztUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqA-DXmdv62k-HQAAsS
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqArDXmdv62k-WwAAsR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_042238_852709_47784BE2 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20241228_042241_282079_2D75ABE1 
+X-CRM114-Status: UNSURE (   7.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,135 +88,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-Add vop found on rk3576, the main difference between rk3576 and the
-previous vop is that each VP has its own interrupt line.
+Add hdmi and it's phy dt node for rk3576.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-
 ---
 
-Changes in v2:
-- describe constraint SOC by SOC, as interrupts of rk3576 is very
-  different from others
-- Drop Krzysztof's Reviewed-by, as this version changed a lot.
+(no changes since v1)
 
-Changes in v1:
-- ordered by soc name
-- Add description for newly added interrupt
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 58 ++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
- .../display/rockchip/rockchip-vop2.yaml       | 70 +++++++++++++++----
- 1 file changed, 56 insertions(+), 14 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index 2531726af306..f28cea4a6d82 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-@@ -20,6 +20,7 @@ properties:
-     enum:
-       - rockchip,rk3566-vop
-       - rockchip,rk3568-vop
-+      - rockchip,rk3576-vop
-       - rockchip,rk3588-vop
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 130d11a2cc89..b83f421dc11d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -450,6 +450,11 @@ soc {
+ 		#size-cells = <2>;
+ 		ranges;
  
-   reg:
-@@ -37,10 +38,22 @@ properties:
-       - const: gamma-lut
- 
-   interrupts:
--    maxItems: 1
--    description:
--      The VOP interrupt is shared by several interrupt sources, such as
--      frame start (VSYNC), line flag and other status interrupts.
-+    minItems: 1
-+    maxItems: 4
-+    items:
-+      - description:
-+          vop system interrupt, such as bus error, and vsync for vop version under
-+          rk3576.
-+      - description:
-+          independent interrupts for each video port, such as vsync and other video
-+          port related error interrupts.
++		hdptxphy_grf: syscon@26032000 {
++			compatible = "rockchip,rk3576-hdptxphy-grf", "syscon";
++			reg = <0x0 0x26032000 0x0 0x100>;
++		};
 +
-+  interrupt-names:
-+    items:
-+      - const: vop-sys
-+      - const: vop-vp0
-+      - const: vop-vp1
-+      - const: vop-vp2
+ 		sys_grf: syscon@2600a000 {
+ 			compatible = "rockchip,rk3576-sys-grf", "syscon";
+ 			reg = <0x0 0x2600a000 0x0 0x2000>;
+@@ -894,6 +899,46 @@ vop_mmu: iommu@27d07e00 {
+ 			status = "disabled";
+ 		};
  
-   # See compatible-specific constraints below.
-   clocks:
-@@ -127,31 +140,60 @@ allOf:
-           minItems: 7
-         clock-names:
-           minItems: 7
--
-         ports:
-           required:
-             - port@0
-             - port@1
-             - port@2
-             - port@3
--
-       required:
-         - rockchip,grf
-         - rockchip,vo1-grf
-         - rockchip,vop-grf
-         - rockchip,pmu
++		hdmi: hdmi@27da0000 {
++			compatible = "rockchip,rk3576-dw-hdmi-qp";
++			reg = <0x0 0x27da0000 0x0 0x20000>;
++			clocks = <&cru PCLK_HDMITX0>,
++				 <&cru CLK_HDMITX0_EARC>,
++				 <&cru CLK_HDMITX0_REF>,
++				 <&cru MCLK_SAI6_8CH>,
++				 <&cru CLK_HDMITXHDP>,
++				 <&cru HCLK_VO0_ROOT>;
++			clock-names = "pclk", "earc", "ref", "aud", "hdp", "hclk_vo1";
++			interrupts = <GIC_SPI 338 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 339 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 340 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 341 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 367 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "avp", "cec", "earc", "main", "hpd";
++			phys = <&hdptxphy>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&hdmi_txm0_pins &hdmi_tx_scl &hdmi_tx_sda>;
++			power-domains = <&power RK3576_PD_VO0>;
++			resets = <&cru SRST_HDMITX0_REF>, <&cru SRST_HDMITXHDP>;
++			reset-names = "ref", "hdp";
++			rockchip,grf = <&ioc_grf>;
++			rockchip,vo-grf = <&vo0_grf>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				hdmi_in: port@0 {
++					reg = <0>;
++				};
++
++				hdmi_out: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
+ 		qos_hdcp1: qos@27f02000 {
+ 			compatible = "rockchip,rk3576-qos", "syscon";
+ 			reg = <0x0 0x27f02000 0x0 0x20>;
+@@ -1655,6 +1700,19 @@ uart11: serial@2afd0000 {
+ 			status = "disabled";
+ 		};
  
--    else:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3576-vop
-+    then:
-       properties:
--        rockchip,vo1-grf: false
--        rockchip,vop-grf: false
--        rockchip,pmu: false
--
-         clocks:
--          maxItems: 5
-+          minItems: 5
-         clock-names:
--          maxItems: 5
--
-+          minItems: 5
-+        ports:
-+          required:
-+            - port@0
-+            - port@1
-+            - port@2
-+        interrupts:
-+          minItems: 4
-+          maxItems: 4
-+        interrupt-names:
-+          items:
-+            - const: vop-sys
-+            - const: vop-vp0
-+            - const: vop-vp1
-+            - const: vop-vp2
-+      required:
-+        - rockchip,grf
-+        - rockchip,pmu
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3568-vop
-+              - rockchip,rk3566-vop
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 5
-+        clock-names:
-+          minItems: 5
-         ports:
-           required:
-             - port@0
++		hdptxphy: hdmiphy@2b000000 {
++			compatible = "rockchip,rk3576-hdptx-phy", "rockchip,rk3588-hdptx-phy";
++			reg = <0x0 0x2b000000 0x0 0x2000>;
++			clocks = <&cru CLK_PHY_REF_SRC>, <&cru PCLK_HDPTX_APB>;
++			clock-names = "ref", "apb";
++			resets = <&cru SRST_P_HDPTX_APB>, <&cru SRST_HDPTX_INIT>,
++				 <&cru SRST_HDPTX_CMN>, <&cru SRST_HDPTX_LANE>;
++			reset-names = "apb", "init", "cmn", "lane";
++			rockchip,grf = <&hdptxphy_grf>;
++			#phy-cells = <0>;
++			status = "disabled";
++		};
++
+ 		sram: sram@3ff88000 {
+ 			compatible = "mmio-sram";
+ 			reg = <0x0 0x3ff88000 0x0 0x78000>;
 -- 
 2.34.1
 
