@@ -4,152 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937DDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 08:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F08FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 09:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AEGwca3WB93A+Nfg5ocz9VfG22vlSz4Jvrnj1jN0YI4=; b=Lm2aFRP+fGhSWZFk9G4f/j78Rd
-	fJfiG+UZTlhWk8YlXKS06L2CgyTGugyi8f6AZz6WtteocUTb+u0kFSOyMMBohDEEDn3zKm1/kCRSR
-	24Sl0AkGIKRvvOdzLwgQbhIVbFiUPQFs6fvGm6wUcyPOxM0YVI0YP1cL0lhheb9yIOPxUBdZjF5Dr
-	58t2xbNdiivFeUN8j5r5tcf1NQMYMLLgXceJRr1K5Gt7+qAlvucMzA1PMp+dYEEnfQHNt+U6Bjvgw
-	cLYudb5U2mDRb85N0Wat6FtTKv15EsgQWvIxBn6aqjtwtqGyPrmpd1L+vM9Ri7LuJ6WJO/CKhrRRh
-	FabwolUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g1hOoSrM1vHosGS8bxpd2FJw40ZfFsf3ZvVnMUcMWsY=; b=WxClThnueDunjUmQwzu9PBecv/
+	qIxn/AkwTcTOZrm1gZbp1xKHOOi2hm2vwzhq+FNqsZbSvjOMFb3iKTfLprDEayZpc14sPcxtjS/0H
+	z8FIMxTNNDva25ysJ28Xk95JQD1GEtQP2IfDLFeLCZEMrneHMvWFTGhoPpVCPJrRpASHyfTZr3bDc
+	tfmqMZAZMxOLcRvK98h+HloTXvZkKvtIpUltLYateKKEq0MQoBUMM0/LRmQY2/pmg2rU1mAUymN2V
+	FlULCKmZtJ5Up3rw+bfdisxc1xDjMvFChpfR3RwGRuZ3nTy9lkz/E9f+1stiK14HZTTT5yCSAdSuQ
+	7Hyxym+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRSfW-00000001dH8-0PTj;
-	Sat, 28 Dec 2024 08:59:34 +0000
-Received: from mail-vi1eur05on2062c.outbound.protection.outlook.com ([2a01:111:f403:2613::62c] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tRT73-00000001evT-2dyi;
+	Sat, 28 Dec 2024 09:28:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRSeI-00000001dB9-37en
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Dec 2024 08:58:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VA4UyY4rW82iKMNbA38cClCxxLgxTDY4xAGabYEITLqyEI9p4gj8omvymaKJMGtENef8FAJlbLl1cPHTmjE4rbDSfwYrux0gEA7w/XKH3wZrwYqrtqUdVYIm/81GTCtvpHUbWxC2AylImVnic2eQM4Vw0rSd6UYx98LcrFP3aXt9F9V8E3X0bjIGCaeykALkZsp3fSpJabS6OTikYhkLgJhqspKIHqvnN5260WA5d71PffYggUTBeFTBqy4NLkwwhQQaBvLdfAdKNNqKDeh5B0RynHJpzn17EzDNPUTBboWiXGjtlbQpTEnSWcWHW+5wo5MuvygX/h6nyCcX9wbcNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AEGwca3WB93A+Nfg5ocz9VfG22vlSz4Jvrnj1jN0YI4=;
- b=y+0Zv7cHhKKerWDNtzaL/3SIrX2DqwHeGB4ooatWj0Iwltx6gB+9cjDmsLdVThgJaAqW+GnqBq7DLOdcfqD6Wk/l9sHAtaCdTHwzMW4CNYQZD2jDcClHvyLxG90WXSY4lJe85plz9rHWsoh7FBlGcrjcJjrmnzw2VYspaoaxX51JnlTNZ4jU7BL5cla1wHAkSUd5w5GdvVXqZEjylfQNJacFjvwWkC3zv/IJQoUezvv9J4lc94QqixktMgXyRHQEp3pPW9JQPoKB1Q2VCls2QMOKwNuz3IrOJigRr6G19a5M8EwqYXOAnVoWwgTW5qiyZhTU/OHjilvN6tZ8gxhr5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AEGwca3WB93A+Nfg5ocz9VfG22vlSz4Jvrnj1jN0YI4=;
- b=OcPk9vQz2tSTmztua2aHlK47cdGUkgKxiax5bv1e2YoZsCKcP8K5FfhQSsv2XRm0M3GrREYiH6mOUHfb+gmXFkZivWW1fYLKW5S5TxxDwt9e2B65ere5DEozuhCYpYLrQ6uZRA6Fk6pLPwWgMvns0sZcILUINQOamNzDdWUQC5jZqr+FAa/XLXhh7Z/bZAhCm4iv8T0xST88WEH4sKRNkgQUCnkdO8XLJHtGyMngrIG0Ns/Lta+E9noEkJhgnAC4bxi3P4iKGDVm9hKPbptjcW+ugDiphpVMkrne+S6gPihF2lYUTI4kcKswN3PZ1iTk0NS5HfU9sRss6iWxbr44jQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com (2603:10a6:208:5::22)
- by DU2PR04MB8709.eurprd04.prod.outlook.com (2603:10a6:10:2dc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.16; Sat, 28 Dec
- 2024 08:57:57 +0000
-Received: from AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0]) by AM0PR0402MB3937.eurprd04.prod.outlook.com
- ([fe80::4e37:f56b:8a3e:bff0%4]) with mapi id 15.20.8293.000; Sat, 28 Dec 2024
- 08:57:57 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: frank.li@nxp.com,
-	aisheng.dong@nxp.com,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] i2c: imx-lpi2c: fix build warning "function defined but not used"
-Date: Sat, 28 Dec 2024 17:08:52 +0800
-Message-Id: <20241228090852.2049321-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0018.apcprd02.prod.outlook.com
- (2603:1096:4:194::18) To AM0PR0402MB3937.eurprd04.prod.outlook.com
- (2603:10a6:208:5::22)
+	id 1tRT5q-00000001en5-2UO3;
+	Sat, 28 Dec 2024 09:26:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21325A40285;
+	Sat, 28 Dec 2024 09:24:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCB08C4CECD;
+	Sat, 28 Dec 2024 09:26:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735378004;
+	bh=NdwGWxzQ61Bdlc2yCI55C25+yHdt7Yebulv/gpuFIvQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eGvbYYbXUkvEKK0od8pJgtkaFObAeB0+9Pm8rAB7Sa4zFKTc1py1H/zjuAAR99wb0
+	 K2Gw4UfTuwgCfiJ43rGkjewBuPg2hWVlt8XFZiRX9g9/A1kgAj+TlRMWmCbsHDIDXM
+	 k/LOdIIcUnaNI2hZ2bByD4wmHFb5M+WaPqL9kcpiFrmnQ7KVbzpyl7hRLwOugzqchJ
+	 IqoKyVRRs3BYeTS4GX9BC3Agltc61xGFBJbqqpZ48YhMwv+4cuA7xkdOK8D/YoEOh4
+	 82496kSUIGrDQcgNOe4nEvKMCkaq8IcToemFiXbVbl6NSFSNYLOi0XW+B5pq+H8WZH
+	 ELopyF5Rw4YZA==
+Date: Sat, 28 Dec 2024 11:26:22 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, agordeev@linux.ibm.com, kevin.brodsky@arm.com,
+	tglx@linutronix.de, david@redhat.com, jannh@google.com,
+	hughd@google.com, yuzhao@google.com, willy@infradead.org,
+	muchun.song@linux.dev, vbabka@kernel.org,
+	lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
+	rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de,
+	will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
+	dave.hansen@linux.intel.com, ryan.roberts@arm.com,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, x86@kernel.org,
+	linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-um@lists.infradead.org
+Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
+Message-ID: <Z2_EPmOTUHhcBegW@kernel.org>
+References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
+ <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR0402MB3937:EE_|DU2PR04MB8709:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5e3a26e-06ec-4e9b-52c3-08dd271db8e6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LDb7Ga4KGiXyVaJ9ADm56MkUZTIDH8IDQDNBznaJbcFZ7MCViZzuUypmAChA?=
- =?us-ascii?Q?OvSn6NzDB+cZNew1fZ2Kg8GI8ixiCrvtwUZUmEqafjJboFdJy0mOwrEtm4oP?=
- =?us-ascii?Q?1GFijSr56vAYgWZ69BeGssatg91/plql7dWsltheKVb9NltGeZR7P67ktrIa?=
- =?us-ascii?Q?tM7C4+IRvE9idToxxQpBB1joYCDuxgV9zt6Eu9FLsEFnMinRXV2JQn5GAxRj?=
- =?us-ascii?Q?omu2QGb2ne3nem9+NBMmYpk2wmOCxLRvUrc1jXxzzqr7yDGrm2PgY7l8Q4/q?=
- =?us-ascii?Q?LHaCpMZ/tPlL1tNWaCAyrqZ+Ekhm6fcxGYLUqlTKDEFotPj7n76T2O9d25+6?=
- =?us-ascii?Q?FRMOS6wl01XqLvEPHraUiWWY45yNWMycPrEGXwVQIoz7zlDNSwblkeGHcHkF?=
- =?us-ascii?Q?Yfixu9wnU1sNpZjbQzi9S7r2UqiVaKftjo/MLMjbN3qHSOJwuP0YsnKUbFqs?=
- =?us-ascii?Q?MJCC1KNROdSuANww27v0XXDnTUAuh5MCcfvmUn0Bj1texu0NVfXHTSq0fcXe?=
- =?us-ascii?Q?gJGmTSYv1hVnysI3lwLDfcvYaAoutZtipccg9XZovECRRbaMHvtaGHoXx9ij?=
- =?us-ascii?Q?kDfJ7svIXe2u6r+q3Fc4Cv/yzcvh2pXqPyrBveBjac5sHHv74GTNN4oq/G0t?=
- =?us-ascii?Q?rIdD/AH0vdJO0wXBYDSc4ldWlsmOlGpHOOTgIt8R6s2/DM46zMsKxsjWm6wh?=
- =?us-ascii?Q?kpPGi8xtB4vf8PMvQbFIr/fDEmrf1KQw4r9iMfB3D6c21VQEUzjP9jAxggO+?=
- =?us-ascii?Q?iR3K5/T99RpcqPk0oj1SlhNZgeNeZqk/uvGcse74UuiCMH0+rVie1huMEOMS?=
- =?us-ascii?Q?yNF3S11cd066+9Ffm/9c4Z+tGSxZsiUCvhJZq6AqbE4T4KARCX5WBGOFKnvn?=
- =?us-ascii?Q?8Tp1MQO9TSdKgAdb1U/Jaa2CmNEINK7Jd+9Sp9WMgzk1YqSL2blujkiQGBj2?=
- =?us-ascii?Q?hPl9Y6KTJ0O+S9zjRoiKfx/X6QCKrvKDc+FXcuIhk4jXjDL7tfDoujj2BJW2?=
- =?us-ascii?Q?SILaCRkDRC4PSdadi3qaw07rOmHSzas3IELaeK2F7b4xxG1LIGtdQSbMVLRU?=
- =?us-ascii?Q?jqhrFUtQA2aVPo48D1IxPWLIhTp1PC06f3uXpsv/AY3Vzq7H0YqVgyG7eFjX?=
- =?us-ascii?Q?+B657d9MPat2MD/AjnvBjtlP4TkAMJ9GjirZpPKlgkVeKWH5N5zKN0ZpgFIC?=
- =?us-ascii?Q?2DFvBQjVVV/zw/xEMG+TQnfZXpHQDklk3euaM3rV1TO4SAcH0pEPFeHCY6Gj?=
- =?us-ascii?Q?0b1IvAMENBzHX/WA3JUUC8sHtSgY2mGE91UV+/eZO0eXAW3TPkTWa7uMZC/0?=
- =?us-ascii?Q?RaRwiPJD7rlCJPLVA6LNTfGjNV2dH028M82uKDr1RA4roOnCPiNSOXww7OmA?=
- =?us-ascii?Q?WvlWTKK4KCOfCOchZsyOIXshpqMdlywGpoLV+yIn5jcjvnC/TX2haroAjqBH?=
- =?us-ascii?Q?01SAdTvToLiTG1DyLqmxIj20WG3/yj+u?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR0402MB3937.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wogPxPczrapMkTSksSC51+BHnkT6Jyl3V7MkTVzsckfuMuMr3lSPo0Oq9NvA?=
- =?us-ascii?Q?8scj5UPnsIq7Z9M+TWDt5/X7L7tvvSBT5TnC83HWobPSmqKnxsCghEP+AdJs?=
- =?us-ascii?Q?BJa2rK1wO56shuWmL4Jvu2m/czY2VcQakz69/pzJgRfoRO8Pxgz3Ry/SLccj?=
- =?us-ascii?Q?TjTgXMOgCX8t6rf1mopJJZpbgVrDeCn8DApHTj6hLyNwqXa8Wl38wpyr8hAK?=
- =?us-ascii?Q?utDxFwn2cKtvSug0EjoP73KA449T8x6QTX4e+KwOTFaMffjr5P4BbmfWIYMt?=
- =?us-ascii?Q?elfX5jh2EyevfYOxxyrXE2dfAh3OthzbPKqdFAsMzW3EfcEEV0irht2xlciZ?=
- =?us-ascii?Q?HMPKuBpMnQ9w+QhblilPxDnToBQardCv5KpHBgt+KKwz2ZRuMRR0lRSpaBF3?=
- =?us-ascii?Q?VcpcRN8CDR7376HkAohoaHbGr+B+KEqhvHNDBEonPUtbAVks+xAOWVO7dAvd?=
- =?us-ascii?Q?au9OYoJQ18Oxso5YOhOwrUvv+FbhQwcoQl+MtD3fztkysMN0MPU9AQFjBJzM?=
- =?us-ascii?Q?tT8AtGO2VMVQTo0qIcJF3Sy04fhU4pzOBh/vBRBwKa8RWJBuw05FCQOkaUEu?=
- =?us-ascii?Q?kah4V7Var3spSLjtzO4Bj0XcH2pM6hKnw6+m/3NkNlXtlXjFe4jSPRmMWgmT?=
- =?us-ascii?Q?fcjnwiJpIDp8za7bfXfHO7+ghOFFmYWcM28F3iZkea1JygNsWuc6hK5aARos?=
- =?us-ascii?Q?AgFs2RPQlRWUomEmZHUuHrPeOu3XGThmdIqQxvdC673x9HpEKyKx63yse0Nz?=
- =?us-ascii?Q?v6qJHp/YF8WKVFsKNuC6qlNvkZLaS1SFrijR4F9tGJhknFYUTuo94OoqU8dl?=
- =?us-ascii?Q?5RFqRyk0Wr+5P94mh2fH6Gy1i91stXUml8fFWcWFS4sIM8qYVXPRE4bdXC8/?=
- =?us-ascii?Q?HXFVNRaIZL5ypbC64QCXja6Cb/++MmZFM60QFoPwlIhNiPo2LF/hrzGL30oP?=
- =?us-ascii?Q?TMaSkF3x0WV8LVI8xOgUBtFpk/0yykrGZsvWMpgZ4q7va9Crdl7g1ImKzE0H?=
- =?us-ascii?Q?woXKHPt0Ff1KA7XYnbQOrNd7BrKCK/Fn/+fpGUbLWS4jWGRkNuTJo6MtJL6O?=
- =?us-ascii?Q?kzyCGVEivqQzwpJuwCRWG8CH76lIEXNoZT4fFbczcuzVUU25Mcs25XQ2vgK3?=
- =?us-ascii?Q?Y4WoXHUzj+o2yhiJZyX2A/Mr11X+d8Aa51mDEol9m5cUWlF4zFQYi4Ic+QDr?=
- =?us-ascii?Q?2QdSorJuLs1eg3JZ2f1RuS4SCV50/btXR3G9sZudhti7BG2M/TRLJDWBjZjl?=
- =?us-ascii?Q?9wQ9JQdxNQByaJEVy2aoMU2XCCNBKloCchdlj2ghgtz31bWr9uFq9lud3Wng?=
- =?us-ascii?Q?tWriX9wfy5+AtcD2Z7271tIk6e2zgtYxkMnavap3jTfUqfEtcUJz0mXkzwgQ?=
- =?us-ascii?Q?8ZywmhmDb2YYFuuJjKkan8tRsJ1CgL0u1JAeNQYy7UEEFm/Rq4rwBzuk7FBw?=
- =?us-ascii?Q?067tRjn2sJIiW1/mRKUS0Z20vIoqCRo1RXQmIsrrwBamL/Hc8H9KZ6LM3WJ4?=
- =?us-ascii?Q?yvnlUeBuJ4fTq5eypJ4nvdD9Dklw4zyyL8TSYUOO8k24/3GlV91THWh9clvr?=
- =?us-ascii?Q?uW2MfVyLZ6ojhLw7ScUuIxjqQUG7LDqrprICiTyp?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5e3a26e-06ec-4e9b-52c3-08dd271db8e6
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR0402MB3937.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Dec 2024 08:57:57.0141
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cWip2bMe5Ri7OSYjTngE+cn0SffrTslNBx4fOwV4Py2zhcnTmPr5PVn4e8aI7yMtbt51SRK7Tjj5yjZPIyb/Hw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8709
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_005818_813480_FF368AF2 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20241228_012646_777354_284AC958 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,38 +86,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-lpi2c_resume_noirq() and lpi2c_suspend_noirq() are defined but it maybe
-unused, so should add __maybe_unused to both functions to avoid build
-warning.
+On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
+> Here we are explicitly dealing with struct page, and the following logic
+> semms strange:
+> 
+> tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
+> 
+> tlb_remove_page_ptdesc
+> --> tlb_remove_page(tlb, ptdesc_page(pt));
+> 
+> So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
+> directly.
 
-Fixes: fa89723f7a78 ("i2c: imx-lpi2c: add target mode support")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202412280835.LRAV3z0g-lkp@intel.com/
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Please don't. The ptdesc wrappers are there as a part of reducing the size
+of struct page project [1]. 
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 02361274fcaa..dc25d7dfe1ab 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -1422,12 +1422,12 @@ static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
- 	return 0;
- }
+For now struct ptdesc overlaps struct page, but the goal is to have them
+separate and always operate on struct ptdesc when working with page tables.
+
+[1] https://kernelnewbies.org/MatthewWilcox/Memdescs
  
--static int lpi2c_suspend_noirq(struct device *dev)
-+static int __maybe_unused lpi2c_suspend_noirq(struct device *dev)
- {
- 	return pm_runtime_force_suspend(dev);
- }
- 
--static int lpi2c_resume_noirq(struct device *dev)
-+static int __maybe_unused lpi2c_resume_noirq(struct device *dev)
- {
- 	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
- 	int ret;
+> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+> Originally-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> ---
+>  arch/csky/include/asm/pgalloc.h      | 2 +-
+>  arch/hexagon/include/asm/pgalloc.h   | 2 +-
+>  arch/loongarch/include/asm/pgalloc.h | 2 +-
+>  arch/m68k/include/asm/sun3_pgalloc.h | 2 +-
+>  arch/mips/include/asm/pgalloc.h      | 2 +-
+>  arch/nios2/include/asm/pgalloc.h     | 2 +-
+>  arch/openrisc/include/asm/pgalloc.h  | 2 +-
+>  arch/riscv/include/asm/pgalloc.h     | 2 +-
+>  arch/sh/include/asm/pgalloc.h        | 2 +-
+>  arch/um/include/asm/pgalloc.h        | 8 ++++----
+>  include/asm-generic/tlb.h            | 6 ------
+>  11 files changed, 13 insertions(+), 19 deletions(-)
+> 
+> diff --git a/arch/csky/include/asm/pgalloc.h b/arch/csky/include/asm/pgalloc.h
+> index f1ce5b7b28f22..936a43a49e704 100644
+> --- a/arch/csky/include/asm/pgalloc.h
+> +++ b/arch/csky/include/asm/pgalloc.h
+> @@ -64,7 +64,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+>  #define __pte_free_tlb(tlb, pte, address)		\
+>  do {							\
+>  	pagetable_dtor(page_ptdesc(pte));		\
+> -	tlb_remove_page_ptdesc(tlb, page_ptdesc(pte));	\
+> +	tlb_remove_page(tlb, (pte));			\
+>  } while (0)
+>  
+>  extern void pagetable_init(void);
+> diff --git a/arch/hexagon/include/asm/pgalloc.h b/arch/hexagon/include/asm/pgalloc.h
+> index 40e42a0e71673..8b1550498f1bf 100644
+> --- a/arch/hexagon/include/asm/pgalloc.h
+> +++ b/arch/hexagon/include/asm/pgalloc.h
+> @@ -90,7 +90,7 @@ static inline void pmd_populate_kernel(struct mm_struct *mm, pmd_t *pmd,
+>  #define __pte_free_tlb(tlb, pte, addr)				\
+>  do {								\
+>  	pagetable_dtor((page_ptdesc(pte)));			\
+> -	tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  #endif
+> diff --git a/arch/loongarch/include/asm/pgalloc.h b/arch/loongarch/include/asm/pgalloc.h
+> index 7211dff8c969e..5a4f22aeb6189 100644
+> --- a/arch/loongarch/include/asm/pgalloc.h
+> +++ b/arch/loongarch/include/asm/pgalloc.h
+> @@ -58,7 +58,7 @@ static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+>  #define __pte_free_tlb(tlb, pte, address)			\
+>  do {								\
+>  	pagetable_dtor(page_ptdesc(pte));			\
+> -	tlb_remove_page_ptdesc((tlb), page_ptdesc(pte));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  #ifndef __PAGETABLE_PMD_FOLDED
+> diff --git a/arch/m68k/include/asm/sun3_pgalloc.h b/arch/m68k/include/asm/sun3_pgalloc.h
+> index 2b626cb3ad0ae..63d9f95f5e3dd 100644
+> --- a/arch/m68k/include/asm/sun3_pgalloc.h
+> +++ b/arch/m68k/include/asm/sun3_pgalloc.h
+> @@ -20,7 +20,7 @@ extern const char bad_pmd_string[];
+>  #define __pte_free_tlb(tlb, pte, addr)				\
+>  do {								\
+>  	pagetable_dtor(page_ptdesc(pte));			\
+> -	tlb_remove_page_ptdesc((tlb), page_ptdesc(pte));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  static inline void pmd_populate_kernel(struct mm_struct *mm, pmd_t *pmd, pte_t *pte)
+> diff --git a/arch/mips/include/asm/pgalloc.h b/arch/mips/include/asm/pgalloc.h
+> index 36d9805033c4b..bbee21345154b 100644
+> --- a/arch/mips/include/asm/pgalloc.h
+> +++ b/arch/mips/include/asm/pgalloc.h
+> @@ -57,7 +57,7 @@ static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
+>  #define __pte_free_tlb(tlb, pte, address)			\
+>  do {								\
+>  	pagetable_dtor(page_ptdesc(pte));			\
+> -	tlb_remove_page_ptdesc((tlb), page_ptdesc(pte));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  #ifndef __PAGETABLE_PMD_FOLDED
+> diff --git a/arch/nios2/include/asm/pgalloc.h b/arch/nios2/include/asm/pgalloc.h
+> index 12a536b7bfbd4..641cec8fb2a22 100644
+> --- a/arch/nios2/include/asm/pgalloc.h
+> +++ b/arch/nios2/include/asm/pgalloc.h
+> @@ -31,7 +31,7 @@ extern pgd_t *pgd_alloc(struct mm_struct *mm);
+>  #define __pte_free_tlb(tlb, pte, addr)					\
+>  	do {								\
+>  		pagetable_dtor(page_ptdesc(pte));			\
+> -		tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
+> +		tlb_remove_page((tlb), (pte));				\
+>  	} while (0)
+>  
+>  #endif /* _ASM_NIOS2_PGALLOC_H */
+> diff --git a/arch/openrisc/include/asm/pgalloc.h b/arch/openrisc/include/asm/pgalloc.h
+> index 596e2355824e3..e9b9bc53ece0b 100644
+> --- a/arch/openrisc/include/asm/pgalloc.h
+> +++ b/arch/openrisc/include/asm/pgalloc.h
+> @@ -69,7 +69,7 @@ extern pte_t *pte_alloc_one_kernel(struct mm_struct *mm);
+>  #define __pte_free_tlb(tlb, pte, addr)				\
+>  do {								\
+>  	pagetable_dtor(page_ptdesc(pte));			\
+> -	tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  #endif
+> diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+> index c8907b8317115..ab4f9b2cf9e11 100644
+> --- a/arch/riscv/include/asm/pgalloc.h
+> +++ b/arch/riscv/include/asm/pgalloc.h
+> @@ -29,7 +29,7 @@ static inline void riscv_tlb_remove_ptdesc(struct mmu_gather *tlb, void *pt)
+>  		tlb_remove_ptdesc(tlb, pt);
+>  	} else {
+>  		pagetable_dtor(pt);
+> -		tlb_remove_page_ptdesc(tlb, pt);
+> +		tlb_remove_page(tlb, ptdesc_page((struct ptdesc *)pt));
+>  	}
+>  }
+>  
+> diff --git a/arch/sh/include/asm/pgalloc.h b/arch/sh/include/asm/pgalloc.h
+> index 96d938fdf2244..43812b2363efd 100644
+> --- a/arch/sh/include/asm/pgalloc.h
+> +++ b/arch/sh/include/asm/pgalloc.h
+> @@ -35,7 +35,7 @@ static inline void pmd_populate(struct mm_struct *mm, pmd_t *pmd,
+>  #define __pte_free_tlb(tlb, pte, addr)				\
+>  do {								\
+>  	pagetable_dtor(page_ptdesc(pte));			\
+> -	tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  #endif /* __ASM_SH_PGALLOC_H */
+> diff --git a/arch/um/include/asm/pgalloc.h b/arch/um/include/asm/pgalloc.h
+> index f0af23c3aeb2b..98190c318a8e9 100644
+> --- a/arch/um/include/asm/pgalloc.h
+> +++ b/arch/um/include/asm/pgalloc.h
+> @@ -28,7 +28,7 @@ extern pgd_t *pgd_alloc(struct mm_struct *);
+>  #define __pte_free_tlb(tlb, pte, address)			\
+>  do {								\
+>  	pagetable_dtor(page_ptdesc(pte));			\
+> -	tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));	\
+> +	tlb_remove_page((tlb), (pte));				\
+>  } while (0)
+>  
+>  #if CONFIG_PGTABLE_LEVELS > 2
+> @@ -36,15 +36,15 @@ do {								\
+>  #define __pmd_free_tlb(tlb, pmd, address)			\
+>  do {								\
+>  	pagetable_dtor(virt_to_ptdesc(pmd));			\
+> -	tlb_remove_page_ptdesc((tlb), virt_to_ptdesc(pmd));	\
+> +	tlb_remove_page((tlb), virt_to_page(pmd));		\
+>  } while (0)
+>  
+>  #if CONFIG_PGTABLE_LEVELS > 3
+>  
+>  #define __pud_free_tlb(tlb, pud, address)			\
+>  do {								\
+> -	pagetable_dtor(virt_to_ptdesc(pud));		\
+> -	tlb_remove_page_ptdesc((tlb), virt_to_ptdesc(pud));	\
+> +	pagetable_dtor(virt_to_ptdesc(pud));			\
+> +	tlb_remove_page((tlb), virt_to_page(pud));		\
+>  } while (0)
+>  
+>  #endif
+> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+> index 69de47c7ef3c5..8d6cfe5058543 100644
+> --- a/include/asm-generic/tlb.h
+> +++ b/include/asm-generic/tlb.h
+> @@ -504,12 +504,6 @@ static inline void tlb_remove_ptdesc(struct mmu_gather *tlb, void *pt)
+>  	tlb_remove_table(tlb, pt);
+>  }
+>  
+> -/* Like tlb_remove_ptdesc, but for page-like page directories. */
+> -static inline void tlb_remove_page_ptdesc(struct mmu_gather *tlb, struct ptdesc *pt)
+> -{
+> -	tlb_remove_page(tlb, ptdesc_page(pt));
+> -}
+> -
+>  static inline void tlb_change_page_size(struct mmu_gather *tlb,
+>  						     unsigned int page_size)
+>  {
+> -- 
+> 2.20.1
+> 
+
 -- 
-2.34.1
-
+Sincerely yours,
+Mike.
 
