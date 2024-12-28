@@ -4,63 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F49E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 21:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F2AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 22:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4OWef3x6DsiVzZ/U11tT+QhzrK2en4wqsgahODBy9g=; b=ErvZXj8Ifi24JsZEuRwkNTgpS4
-	vfNrUCU+sZd7dVbaOtbM6yLU6VSGOfCfemtOU38xjgDN7qdrTxCx3cWhYk90Y9ycqQvDICt0IG3dT
-	wD7CnjUmRM5qJguNaCkjiebK9o4adiVGV4wwpEJtVBH2ycFfwn5vlQ2TzKYGlNhCXsBKWcQ2AMijL
-	E5iodJhFpJCVNjItc+PybWRrGMcvqVRnHhWcyDn27Qj4vQTaFoON0cpCjcpX4ABaRmKUSaYHHmsEe
-	hwYmw7BZ3TS9JGHdfZRc0t2O5bhOeRUDYvrdhz4mIb8363jOAhqlrQg+eKsJZzRtO5aMPKe2J3Kct
-	DGMafGAQ==;
+	bh=bVUOio+y/QGB2n1WUG2sBLncltD5aD46s8bDjD5CEwc=; b=DYEv3halQlLOSun4EBJdL4PCTY
+	CEE0bG/M9MNLowUjlJK9ZDFZFyE5c7oO+HXgLDHj23NAefy1K1DLOi6AcUZDi8J9xFLAUYNcuootV
+	RCPjW5b4UGycCGkWFX7Wl8eNKaxk76JfwizsgdkgS0kZgRr46PorRFSTbnru29MKGx21fbyn0MnVz
+	DykB56LA9U/gjgghzPleCyLv8hD2AuE1XsEzL5bocwcLa/ebibMTmwSfnYjn9T2mIrw6x68W+pXUl
+	ZR3Ey5wk5uuSsuIG4B7nVljYpC670Og1bRwaDfJZrCsMvPW+HfxO83ZPUssNAmX6sonP71Y7K49vu
+	S3vbqnrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRdxg-00000002NEO-36x3;
-	Sat, 28 Dec 2024 21:03:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tRfAe-00000002SdO-3Jsz;
+	Sat, 28 Dec 2024 22:20:32 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRdw2-00000002N8E-2Eif
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Dec 2024 21:01:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3D2C35C4924;
-	Sat, 28 Dec 2024 21:00:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78CD7C4CECD;
-	Sat, 28 Dec 2024 21:01:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735419681;
-	bh=JSy7kKq7vvXln6X37mx3NLcerk0ooPQdIqGHyzb0PMU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bbFiLOuA0eQ9ejBBfHrFyL7mSreqjiOeJrMmtw0Zuu+93uRaUSdR55Upta+G551/8
-	 x38gTjEkC9+NKvr4kH6egRYEXPXhVFCSsNSmIyfxiA5NsFLH0VcNG+j29E122Ii/LZ
-	 RkXVWMit7LVjKDkMMgwPg8Gz+j8sGjJeOq85aSATw0z9K4y4aDca3J79eIIbHCGwEf
-	 ojBwJi4NFyGc6Vq/JKdqPEls0vOliOD8orYtjPj4sk4vSsLsa7pL8lV3xcvOwgJ1pY
-	 QfAX2O9Ta9f8HkYxwG7Q6nsQLmbzZGfhXv3Zt0OPUy3m8BYgUE4j0xrVERqquOtI0a
-	 iAzFdPAugk31g==
-Date: Sat, 28 Dec 2024 22:01:13 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: frank.li@nxp.com, aisheng.dong@nxp.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] i2c: imx-lpi2c: fix build warning "function defined but
- not used"
-Message-ID: <lv7cliatuynamsimld546tjr7uhn3r7dqq5d7uhype2wh3au45@mdiv4asd33ti>
-References: <20241228090852.2049321-1-carlos.song@nxp.com>
- <o4hxr2redr6dp4ot35pbc5vyjldiec6sxy72xesharhphsvdsm@mnufmvmpd2dm>
+	id 1tRf9M-00000002STm-1IuL;
+	Sat, 28 Dec 2024 22:19:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1735424353; x=1766960353;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CYotyYWSmunaz27IymD9YuqOxnVhzREjrXIxHRrlV+0=;
+  b=WPOKUHyC5qV61oZ4dpUIZZpTGSKLxGQTvabyumOiph9gda5ziQOOKGCL
+   X3z94UWfVCA2PQ5bfFkKm8wd0Q06QoxF2SG+EZd+ACGG/ATFjB3nXKivc
+   0AvFiHwkHeWCy3I1iHaLMR7mTdy9zEouJP3m1icPRG6734xeCa5BOzG+K
+   muxWLPpmiNLoq0DmkfPcA08WPZ25Qqr5Iz5HWYk4pQXtEz7EebuD/RRBX
+   u2Gz4bF8proi+c3OBRxOBMKLIYLvpQXldrLxp7xmwspNDoyfpiO5SezOn
+   witYE+6l1qH0urp9jdNOKsz8ZfCYQ1HxhEM7fdfpdcfjOZ2iLW4vEcM1z
+   g==;
+X-CSE-ConnectionGUID: bYfVDLkYRxKnoPBMie07RQ==
+X-CSE-MsgGUID: NTh21NN+QlOusMkKnfQfng==
+X-IronPort-AV: E=McAfee;i="6700,10204,11299"; a="35481723"
+X-IronPort-AV: E=Sophos;i="6.12,273,1728975600"; 
+   d="scan'208";a="35481723"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Dec 2024 14:19:05 -0800
+X-CSE-ConnectionGUID: KcCQ2g4yQRC8OcKGelMC2w==
+X-CSE-MsgGUID: pmsZWc/URWybCdhcsqflbQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="105434107"
+Received: from smile.fi.intel.com ([10.237.72.154])
+  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Dec 2024 14:18:58 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tRf93-0000000DV4W-2WLW;
+	Sun, 29 Dec 2024 00:18:53 +0200
+Date: Sun, 29 Dec 2024 00:18:53 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Esben Haabendal <esben@geanix.com>, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Rengarajan S <rengarajan.s@microchip.com>,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Wander Lairson Costa <wander@redhat.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Matt Turner <mattst88@gmail.com>, Stefan Wahren <wahrenst@gmx.net>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	Udit Kumar <u-kumar1@ti.com>,
+	Griffin Kroah-Hartman <griffin@kroah.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Tony Lindgren <tony@atomide.com>
+Subject: Re: [PATCH tty-next v4 0/6] convert 8250 to nbcon
+Message-ID: <Z3B5TQkz1S-C1wro@smile.fi.intel.com>
+References: <20241227224523.28131-1-john.ogness@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <o4hxr2redr6dp4ot35pbc5vyjldiec6sxy72xesharhphsvdsm@mnufmvmpd2dm>
+In-Reply-To: <20241227224523.28131-1-john.ogness@linutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_130122_626597_BB648579 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20241228_141912_410992_D59015D5 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +109,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+On Fri, Dec 27, 2024 at 11:51:16PM +0106, John Ogness wrote:
+> This is v4 of a series to convert the 8250 driver to an NBCON
+> console, providing both threaded and atomic printing
+> implementations. v3 of this series is here [0]. Additional
+> background information about NBCON consoles in general is
+> available in the cover letter of v2 [1].
 
-On Sat, Dec 28, 2024 at 09:53:22PM +0100, Andi Shyti wrote:
-> On Sat, Dec 28, 2024 at 05:08:52PM +0800, Carlos Song wrote:
-> > lpi2c_resume_noirq() and lpi2c_suspend_noirq() are defined but it maybe
-> > unused, so should add __maybe_unused to both functions to avoid build
-> > warning.
-> > 
-> > Fixes: fa89723f7a78 ("i2c: imx-lpi2c: add target mode support")
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202412280835.LRAV3z0g-lkp@intel.com/
-> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> 
-> yeah, I have different PM configuration to catch these kind of
-> error and I missed this.
-> 
-> Rather than applying a fix over a recent patch, I am going to
-> remove your original patch and ask you to send a v7 of your
-> "imx-lpi2c: add target mode support".
-> 
-> Is it OK with you?
+Just to be sure I understand the side effect of this series, i.e.
+the
 
-I removed the patch and updated patchwork. I will be waiting for
-your v7.
+https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/tty/serial/8250/8250_port.c#L44
+https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/tty/serial/8250/8250_pci.c#L9
 
-Thanks,
-Andi
+are not needed anymore (the first one can be replaced to something like
+dev_dbg() or analogue)?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
