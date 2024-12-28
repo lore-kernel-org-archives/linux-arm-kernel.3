@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 163BDE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 14:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1B1E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 15:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uQUr6CdBfkevt6FQxfyqbLFqBaSK95LKCyrCZKO06l4=; b=aAITD7C9FmPXxhthiU58Rfh+Cm
-	EjxetVs7gTTXiUgc6d6eVv/TXYSdWY75fyVDqbHJ6lm56ocZ10T5ycDN4r2FxRCwYqACW6LgVIvFI
-	pIBOFAElN9CzLhBsJQgRdq5os24KP8ivafvxoXnU7qiODLVRD/KFq/eEggQjfC66s8cAaX3fUsJ0K
-	oNIlJCkJStMmsCpFby8+QroCC47xXn+jRe1hVT16WsC9Tz0pZQ99Upd3nSZo7ycPhWS0OsyvPYu7d
-	7L1Ln7LFtoXn0PzJU+Z4pvp0YDEFqMhRZX/76LcwSD3wDdJ7KqNfBqQZx0rIizteg7TSgwMMmWB4E
-	0yt7YAEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zGjy0+pcVkOcyNsRikjnUlsDE+kBpL3hB1hR4GAE8IQ=; b=C0CNxWtI2r7dtAiSvHS8cFJ6Cm
+	GgIFMhZ7UfK0j8dHsAc9kSM25OPiM55DgNY9nGBQV0vKengxLJUOAKo+HR6IoGqP0FJWKl+bapvkg
+	bqBP/UA8OAsBX5Y9LckuWgona5tm+ufoi5DzghMlKY85mh4ccwwcoV0e12Da5wRupGxGImTwbx4aj
+	0rAwl/TcWe5jl9Wu2RZIJgjH2gZcXiXs9AVHZzfV5cVyFVUP6wVyARqcZSzv9m78372Y+nYAGgvlS
+	01py61zsyTrB/LMJQ0gFXW0LlmiJht9Tez7wms02MJObGLopdx+hjUPaAV53KwNJ14Ui7Hzm4lpSk
+	qp78rGEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRXWJ-00000001ybL-1A5k;
-	Sat, 28 Dec 2024 14:10:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tRYKJ-000000021uI-4Asw;
+	Sat, 28 Dec 2024 15:02:03 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRXV6-00000001yTx-2Uot;
-	Sat, 28 Dec 2024 14:09:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 97B08A401AC;
-	Sat, 28 Dec 2024 14:07:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99235C4CECD;
-	Sat, 28 Dec 2024 14:09:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735394947;
-	bh=Dkf6FNbmvczR6fwjr8TMuN/izWdItAgYtjp2h3zBUiU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=NkUtz/tztIW/PhXP2LF3lMOFGClVFeWa5CrOwlzULAlP5973gEksD+7QteiFALTfX
-	 VSrG2ZV1ClfYJDpFKZ/XSzsPFm2GjtPLNXHsKUVmZkcoWAnQBhLqH4L1djr6ivwuzQ
-	 CC6JmtEo318beq4yK6HdKuaJ9UuwZpRwaEa96mxruNafNt1TqwFjEW/m7G75atqVpD
-	 TnbkkQCn+Sx7zNmI/vIDziT47eiZN+iW/fsCXv6NlpeB2jmRfGWJyA9Ktj38jF2evD
-	 aG0lOQ5LaKRaEoQT2DEchPI/mGcC+gG6q7Ee9tX+OGlrm9jeH73dwV2T65TrWBCRmL
-	 ICN4mGxILIv4Q==
-Date: Sat, 28 Dec 2024 08:09:05 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tRYJ7-000000021dy-0N8F
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Dec 2024 15:00:50 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-aa66e4d1d5aso1284053366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Dec 2024 07:00:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1735398047; x=1736002847; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zGjy0+pcVkOcyNsRikjnUlsDE+kBpL3hB1hR4GAE8IQ=;
+        b=U09rvsZY7WJOJX2SR/daOx6qDEbvxy4El0ub5MIKfCNY97lNV9/ezCTeuQjKG2c3v2
+         B0UVGXr65yLqu79lfbiZfbzmgGBR26Trv+IRe2l1ujIROgnGIA+DSH9778KqoyhsdiZ2
+         rYHQAbIerSOqja/9UkQ8yVFQciW5vWX5UxXCs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735398047; x=1736002847;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zGjy0+pcVkOcyNsRikjnUlsDE+kBpL3hB1hR4GAE8IQ=;
+        b=U14AIYkI8U+TQhtSGiGC2CFaaAEg38i052ZSanGKoYKcSh2hZ4LzRwpPn5ZtgZlJsf
+         EOTAMvFRHYIA1Et3AhlgtRh+5YlhOmBEIYBmxgnDBo9tLyUOYF+yKVEBZrxLS0YychIj
+         G9Rp7LMtyU9E1+awBvwMRKZCYPeKS5XW9Xnhmh6ONkfqFH4nnRxO3X4/AGT3YnFgl3hW
+         6GCsk9heHjl4x4L2y+Hl+tfSRn7tBXp4+jzLS4sOLxV2fQV+gHgO5XZRPJ7q6V936VrB
+         JEtvOZyt0Q1PHjSaiYBcmkntFihOvE4NYK4XCJl6tVhu6mwDcbQEBVAt4a1fuH6rLtgt
+         ebrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWybqFs1Q/yjYY0zc7p/fegV+gNhY69WsAf9WjYfRfY1P+hDqAKPgadsmT1jfU6KC6Fl+GjFqcmY6XStSljVeml@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrLbIlJYUersNFkNMT92+aPxm5q0qo5J+v6gdt8X7oPXEhIkIQ
+	w8JYfqttFOjjuTl48aywmPLNZrezHyyAnUOgEkpViJvWPzjlWbryv/RQSxVutSc=
+X-Gm-Gg: ASbGncuZFSFa1XaeGYGsurDUnlmd+z4cvNcVysO7j9zcvrKnWHYLvYHsMF62TOH1pid
+	COUztCXxRSi6bdODA4fL8cnDk+hhHQVN7aoSIdKl/2AQzMeTX9aDW3W/r9ejEgcZEB+0xK5R9nE
+	b05Eq0H5cW8eFMq5PcsIlk4p2GynLlPjqCVtGjfZy9XZkj0MeEiukYsG/GdGuzDmXMlnD9a8Y1u
+	ngxMAgnznqGDyZ2B5UuJ/WbRjeL1+K5/c2AZO7IV+yW/UYS3quQnUfBDD7yjAB3LlAly/i300Kf
+	faU+3V0IO/KRGAQ9Aaxb9Q==
+X-Google-Smtp-Source: AGHT+IGn+STomeh91UKdY7nI+qTGSbWPadCuY71lDdmY/fsFuuR1EUm5XjU/DazYxX+1lVKGryxiiw==
+X-Received: by 2002:a17:907:9621:b0:aa6:6f92:74b1 with SMTP id a640c23a62f3a-aac2ad7fa01mr2850887066b.13.1735398046567;
+        Sat, 28 Dec 2024 07:00:46 -0800 (PST)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.175])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e89514esm1258974666b.74.2024.12.28.07.00.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Dec 2024 07:00:46 -0800 (PST)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-can@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] dt-bindings: can: st,stm32-bxcan: fix st,gcan property type
+Date: Sat, 28 Dec 2024 16:00:30 +0100
+Message-ID: <20241228150043.3926696-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: vkoul@kernel.org, linux-phy@lists.infradead.org, 
- cristian.ciocaltea@collabora.com, Andy Yan <andy.yan@rock-chips.com>, 
- joro@8bytes.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, heiko@sntech.de, 
- dri-devel@lists.freedesktop.org, cl@rock-chips.com, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- detlev.casanova@collabora.com, hjc@rock-chips.com, krzk+dt@kernel.org
-To: Andy Yan <andyshrk@163.com>
-In-Reply-To: <20241228122155.646957-6-andyshrk@163.com>
-References: <20241228122155.646957-1-andyshrk@163.com>
- <20241228122155.646957-6-andyshrk@163.com>
-Message-Id: <173539494517.1967895.2732995549466236200.robh@kernel.org>
-Subject: Re: [PATCH v2 5/8] dt-bindings: display: vop2: Add rk3576 support
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_060908_705501_97C4A5E9 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20241228_070049_181904_61642C44 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The SRAM memory shared pointed to by the st,gcan property is unique, so
+we don't need an array of phandles.
 
-On Sat, 28 Dec 2024 20:21:48 +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> Add vop found on rk3576, the main difference between rk3576 and the
-> previous vop is that each VP has its own interrupt line.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
-> Changes in v2:
-> - describe constraint SOC by SOC, as interrupts of rk3576 is very
->   different from others
-> - Drop Krzysztof's Reviewed-by, as this version changed a lot.
-> 
-> Changes in v1:
-> - ordered by soc name
-> - Add description for newly added interrupt
-> 
->  .../display/rockchip/rockchip-vop2.yaml       | 70 +++++++++++++++----
->  1 file changed, 56 insertions(+), 14 deletions(-)
-> 
+Fixes: e43250c0ac81 ("dt-bindings: net: can: add STM32 bxcan DT bindings")
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-My bot found errors running 'make dt_binding_check' on your patch:
+---
 
-yamllint warnings/errors:
+ Documentation/devicetree/bindings/net/can/st,stm32-bxcan.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml: properties:interrupts: {'minItems': 1, 'maxItems': 4, 'items': [{'description': 'vop system interrupt, such as bus error, and vsync for vop version under rk3576.'}, {'description': 'independent interrupts for each video port, such as vsync and other video port related error interrupts.'}]} should not be valid under {'required': ['maxItems']}
-	hint: "maxItems" is not needed with an "items" list
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241228122155.646957-6-andyshrk@163.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/Documentation/devicetree/bindings/net/can/st,stm32-bxcan.yaml b/Documentation/devicetree/bindings/net/can/st,stm32-bxcan.yaml
+index de1d4298893b..c7510b00954a 100644
+--- a/Documentation/devicetree/bindings/net/can/st,stm32-bxcan.yaml
++++ b/Documentation/devicetree/bindings/net/can/st,stm32-bxcan.yaml
+@@ -63,7 +63,7 @@ properties:
+     maxItems: 1
+ 
+   st,gcan:
+-    $ref: /schemas/types.yaml#/definitions/phandle-array
++    $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+       The phandle to the gcan node which allows to access the 512-bytes
+       SRAM memory shared by the two bxCAN cells (CAN1 primary and CAN2
+-- 
+2.43.0
 
 
