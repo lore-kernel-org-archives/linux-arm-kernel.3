@@ -4,89 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B27E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 05:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3840CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 06:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19zLUJniSMt2LNOd05dk7idqQfxFGWeilURd4+JjHAQ=; b=r/lwO/MYaDJWAk4eocJ7utF1jQ
-	3JEFiQxVTSRb5ANtczk8YSuCs+3R72oXIBY5DfupULU+17DFQcHgIsttLO0sQu3wNi5Tfaw+padCP
-	fwOMjEAzirSczu5TvMV0ziDqgBasnRgtGQIjMRi/T9ST3C5Mc8tU0e1uU1DXssVNY8D3LXIv1OpFH
-	pkcIp0wh6psHdbLt8LDlXLRnz5F3ZitCX8/802/wPdRvqsnGzAkKuf0vWVhBF+CX27yqJZNH9NPcU
-	eeqtI6xptYp1jyIioKCbSWjXaPwucgrpvBcamBlXKA34PuzasTUB4qSvfPq2sKK1vHE2288OmYA5l
-	U3wcrmkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xz9+aZKFL34BZ+QKJapn5mhTQ8zZC8UnFG8XP+zHLMo=; b=MKoToDvj20tQL1aRQoo3ybN0dP
+	Qe4w1V9lJslQf4jpjf9upSi4vgqHgonSmwg3/IoxL8MwqO6WoZWE4KrtNuVmr+bk5QwdlHA3Ury36
+	FrV1kGaaOeQ5XoaVw8ORLXfLqRoNwB2YIyuhEBR2dc+ZU34V5DLyHgdjJGolQusYrERDQargGYVLf
+	0je7vIZ3ksKSr835YoDo6O892xLTi3BDGbpqigWBr5KOY24HBihXBySfsQNJMuuAFstcr3Ar4xf1x
+	VMOHKulkz3UJ9PKwYMxSJdyilbv8PBYnSCshkhUd3uceT0pTC7KN4vvq/3b5jdVnO5K8GU6xVDyfX
+	V9aWQ6hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRPe8-00000001RFw-2FXx;
-	Sat, 28 Dec 2024 05:45:56 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1tRQSN-00000001Ufj-0qDR;
+	Sat, 28 Dec 2024 06:37:51 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRPcu-00000001RA2-4BOQ;
-	Sat, 28 Dec 2024 05:44:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735364681; x=1766900681;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=7+MJqD3C48EXjWCp0o71PXcfiXhqzoReRXFzpsHCzo0=;
-  b=N77EwN1gnb2zMIZ0/r7QHBCxMR9dgzaOlAVNuFusPQhuWcv6LtJHYsU7
-   e9tmI2RUkhv4X7so4IrHnE0JEZ638XkmexQIhsatGIsMBZeT4l7N4r4Ik
-   /wSjqxZUG+FgXNLtFftjn7y9a/CY4FNDlUye1Q3oGu0kR45zzEJrYGYMV
-   OSuOPyo/qV4Fv6lKMvkXfqGoi4YFzl1Uaf8jn4OG4wHc+xd12VZriokll
-   ZyL2IJAOD+QdeU8uYI0y65qmEIeW6oAgXik4N393XjNp88j1VNzHECsHg
-   QbqgmDy6zex8j4mrpMBYqIjYbG9/Ualh4CfHwr7V6fJ8SkySEaEFBhFNm
-   A==;
-X-CSE-ConnectionGUID: qrDfo4bCRv6S3wr4p0suUA==
-X-CSE-MsgGUID: X/XqDeQESvynSH8r2t6bZA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11298"; a="35864193"
-X-IronPort-AV: E=Sophos;i="6.12,271,1728975600"; 
-   d="scan'208";a="35864193"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Dec 2024 21:44:40 -0800
-X-CSE-ConnectionGUID: BbyMppGaSKywwZy7sbq9gg==
-X-CSE-MsgGUID: XIGLvPlGQVWDxl/TReHwHg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,271,1728975600"; 
-   d="scan'208";a="100492194"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 27 Dec 2024 21:44:35 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tRPcm-0003tE-25;
-	Sat, 28 Dec 2024 05:44:32 +0000
-Date: Sat, 28 Dec 2024 13:43:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 06/12] rtc: stm32: Use resource managed API to simplify
- code
-Message-ID: <202412281302.N1Bd2W48-lkp@intel.com>
-References: <20241228-wake_irq-v1-6-09cfca77cd47@nxp.com>
+	id 1tRQRA-00000001UVH-0mHh
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Dec 2024 06:36:37 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2165448243fso115095995ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 27 Dec 2024 22:36:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1735367791; x=1735972591; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xz9+aZKFL34BZ+QKJapn5mhTQ8zZC8UnFG8XP+zHLMo=;
+        b=hkwicBqicDZLILKL8fAFrt0HtnX7eDgJe/87hs4QaBfvjX88BuYu8cNfYb8egmFVJy
+         JDxjpqMbz+adCItTBQ2eUUp5vxliJHsUnD4+2690clzyKUUHpyKVKFxkl9HkJ46/s7XH
+         AUotsDf08kIu9EgE1mpM+UqAv13iVuB+pY0BxylHh7u5utCCk29kEPartkXgMyQDe1Bu
+         ORduJ4bqLDMtjR8bnxjUOYzIN7MwcgnjygrCcvJ31xLX+w6+sv+GtRis0hyMSmdyfQ4e
+         80weXbavWhf9q8RQZz4uZMOc4D5iRUQe/QO/kVTS+wnz3714KopjhFBXxwxNTFr6orql
+         NNsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735367791; x=1735972591;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xz9+aZKFL34BZ+QKJapn5mhTQ8zZC8UnFG8XP+zHLMo=;
+        b=sWgFTD24yKlIDhqg/+Y8e9hSacE5/cPRe4+0wyRLNz1ptbk9F18b13hJgjJZKBGbZc
+         P5rQSBINkketdoilh2lJvw/ARnzM0ppNolvO87j1s3foh49Iz/KI0fIu37etxJu2oTQA
+         EIQweo4APYQOXAaFddGIehaEsGJ/omDRjnSdEPmoOR90dtrUMW1/JlCimeNTmZ7+9pnh
+         r5Kr0PNGgbTY9oJrvA1t+OFdDFkWl4cPxKUcudy2DxVhIV4eVuoxdypklUCRfV4WXdYO
+         sr/aWidgyecvdtFI57XYjnGwcTejwkP8AwDxqn8zuRFiFmsx4QwMPlGgxZ+wSkE7DfUW
+         bYzA==
+X-Forwarded-Encrypted: i=1; AJvYcCU+lFg0Ks3kJdLaBQ2H5MQ/xvHZQfUMBAUY5+EAPZ2shVx8ikWYuzlaBeqXKYrmvIj2TbimEKj58QPQkq84/dK/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMFIytSz0kuVqi6Tm9I58oKjfbDTLNPT6Sk5aR9owQRUigiXKM
+	hpCrAqrAIY0xjTu7tKC7iTdZjCoZZebmPy5l43DNykHJhBIasAwwEVVknLAG/XM=
+X-Gm-Gg: ASbGncsq/KhYD7/PfNpFfa2GTDFkxm4wF/z7GvA/eVYUeHcOgNFN0r7zjconTs/3CYk
+	8VKUKaodtBB2NTwR/O1qUfhmTfAUcYDanS3Evxjp/Zxdi8COPZHAc6+CXb3Nh9Ktmopq8OoEM3O
+	ajQamnKOMEa78rvmaziLd5gI+sAqUhuZ8MsyW9Za9qLTaor3K0OGsblykl8y7WkfUWnmi/baq5q
+	aQNa9ixDgLcjYci4PMpC/7s5fCd/wlSPclazdY5L67VLMpvzPvZh7w1rSAOUl+7KrEjedaXKjWf
+	sILW5f1wkqLdvqzZ0QpDxtR9jfLzqIM7Yca4wcbbKZZi0fnTOrYo3A4=
+X-Google-Smtp-Source: AGHT+IHJr5/cBm7VE4sKmfeyqyU+nR3KXMBrwpgTBQUiz/94ds3IGaVh/bhouU9p0WQ7mj1Jxu9Qtg==
+X-Received: by 2002:a17:902:f682:b0:215:f1c2:fcc4 with SMTP id d9443c01a7336-219e6f1480cmr399252455ad.41.1735367791634;
+        Fri, 27 Dec 2024 22:36:31 -0800 (PST)
+Received: from ?IPV6:2409:8a28:f44:d7c4:e49d:ee0a:5f86:d7bd? ([2409:8a28:f44:d7c4:e49d:ee0a:5f86:d7bd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc97182dsm144536075ad.82.2024.12.27.22.36.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Dec 2024 22:36:31 -0800 (PST)
+Message-ID: <2434dfdf-d4a0-4f81-9b65-51be86487fd2@bytedance.com>
+Date: Sat, 28 Dec 2024 14:36:06 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241228-wake_irq-v1-6-09cfca77cd47@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/17] riscv: mm: Skip pgtable level check in
+ {pud,p4d}_alloc_one
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: peterz@infradead.org, agordeev@linux.ibm.com, kevin.brodsky@arm.com,
+ tglx@linutronix.de, david@redhat.com, jannh@google.com, hughd@google.com,
+ yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
+ vbabka@kernel.org, lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
+ rientjes@google.com, vishal.moola@gmail.com, Arnd Bergmann <arnd@arndb.de>,
+ Will Deacon <will@kernel.org>, aneesh.kumar@kernel.org, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-um@lists.infradead.org
+References: <mhng-3d6d3e65-b264-4033-b985-fa7763cacf9e@palmer-ri-x1c9a>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+Content-Language: en-US
+In-Reply-To: <mhng-3d6d3e65-b264-4033-b985-fa7763cacf9e@palmer-ri-x1c9a>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_214441_120229_250634FF 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241227_223636_484351_F7531357 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +113,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+Hi Palmer,
 
-kernel test robot noticed the following build errors:
+On 2024/12/28 00:40, Palmer Dabbelt wrote:
+> On Mon, 23 Dec 2024 01:40:48 PST (-0800), zhengqi.arch@bytedance.com wrote:
+>> From: Kevin Brodsky <kevin.brodsky@arm.com>
+>>
+>> {pmd,pud,p4d}_alloc_one() is never called if the corresponding page
+>> table level is folded, as {pmd,pud,p4d}_alloc() already does the
+>> required check. We can therefore remove the runtime page table level
+>> checks in {pud,p4d}_alloc_one. The PUD helper becomes equivalent to
+>> the generic version, so we remove it altogether.
+>>
+>> This is consistent with the way arm64 and x86 handle this situation
+>> (runtime check in p4d_free() only).
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
+>> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+>> ---
+>>  arch/riscv/include/asm/pgalloc.h | 22 ++++------------------
+>>  1 file changed, 4 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/pgalloc.h 
+>> b/arch/riscv/include/asm/pgalloc.h
+>> index f52264304f772..8ad0bbe838a24 100644
+>> --- a/arch/riscv/include/asm/pgalloc.h
+>> +++ b/arch/riscv/include/asm/pgalloc.h
+>> @@ -12,7 +12,6 @@
+>>  #include <asm/tlb.h>
+>>
+>>  #ifdef CONFIG_MMU
+>> -#define __HAVE_ARCH_PUD_ALLOC_ONE
+>>  #define __HAVE_ARCH_PUD_FREE
+>>  #include <asm-generic/pgalloc.h>
+>>
+>> @@ -88,15 +87,6 @@ static inline void pgd_populate_safe(struct 
+>> mm_struct *mm, pgd_t *pgd,
+>>      }
+>>  }
+>>
+>> -#define pud_alloc_one pud_alloc_one
+>> -static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned 
+>> long addr)
+>> -{
+>> -    if (pgtable_l4_enabled)
+>> -        return __pud_alloc_one(mm, addr);
+>> -
+>> -    return NULL;
+>> -}
+>> -
+>>  #define pud_free pud_free
+>>  static inline void pud_free(struct mm_struct *mm, pud_t *pud)
+>>  {
+>> @@ -118,15 +108,11 @@ static inline void __pud_free_tlb(struct 
+>> mmu_gather *tlb, pud_t *pud,
+>>  #define p4d_alloc_one p4d_alloc_one
+>>  static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned 
+>> long addr)
+>>  {
+>> -    if (pgtable_l5_enabled) {
+>> -        gfp_t gfp = GFP_PGTABLE_USER;
+>> -
+>> -        if (mm == &init_mm)
+>> -            gfp = GFP_PGTABLE_KERNEL;
+>> -        return (p4d_t *)get_zeroed_page(gfp);
+>> -    }
+>> +    gfp_t gfp = GFP_PGTABLE_USER;
+>>
+>> -    return NULL;
+>> +    if (mm == &init_mm)
+>> +        gfp = GFP_PGTABLE_KERNEL;
+>> +    return (p4d_t *)get_zeroed_page(gfp);
+>>  }
+>>
+>>  static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
+> 
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-[auto build test ERROR on 8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2]
+Thank you for reviewing the patch!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/PM-sleep-wakeirq-Introduce-device-managed-variant-of-dev_pm_set_wake_irq/20241228-091859
-base:   8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2
-patch link:    https://lore.kernel.org/r/20241228-wake_irq-v1-6-09cfca77cd47%40nxp.com
-patch subject: [PATCH 06/12] rtc: stm32: Use resource managed API to simplify code
-config: arm64-randconfig-003-20241228 (https://download.01.org/0day-ci/archive/20241228/202412281302.N1Bd2W48-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241228/202412281302.N1Bd2W48-lkp@intel.com/reproduce)
+> 
+> Are you trying to keep these together, or do you want me to try and pick 
+> up the RISC-V bits on their own?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412281302.N1Bd2W48-lkp@intel.com/
+I prefer to keep them together because later patches depend on this one.
+And this patch series has been merged into mm-unstable branch.
 
-All errors (new ones prefixed by >>, old ones prefixed by <<):
+Thanks!
 
-WARNING: modpost: missing MODULE_DESCRIPTION() in mm/kasan/kasan_test.o
-ERROR: modpost: "devm_pm_set_wake_irq" [drivers/input/touchscreen/ti_am335x_tsc.ko] undefined!
->> ERROR: modpost: "devm_pm_set_wake_irq" [drivers/rtc/rtc-stm32.ko] undefined!
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
