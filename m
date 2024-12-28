@@ -4,183 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB67E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 02:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7362E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 05:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukcfnak6rASj1mOqRwYrxQ2oQzH5Bwejo3Xly8lLTrQ=; b=kOnNsdCh6Q98eBYeffLeJQJfMN
-	lQSFIbTgBwpZuH0snhqXu06N++O8BeVNUTOpR/u+XSeHSJJjaAkUQ3Oi0/72SoCgOYSavMEbgnv8/
-	UXoZPi+9Bx3+KksOWarsGf0yeWnmW7sDNBfjOY0vt/hfanuRzeFesBA69LS3U1kMuauCQkUpRRrrb
-	mPtbZLaI+ulyATxDPZsqe7X67N9fvy5L3GqDddetG+kuvkqmOgk8Lxf8Iq8R0D0yjSZPdQuLry2vp
-	459gX4uo4O6i9z2B7b2cH05VIO6VmSeWgmcVyhUdHYc0DQ08pE9godyT2bZTm3XYtRKeArr94BElh
-	caCUPjHA==;
+	bh=oEZtiqj94vqTkyD0aNnVoV6+qzpRn2cgCci9mxRlk6Y=; b=vh0WlhvU5qIe+Z+VUD48cyZDmy
+	nV9GglrwzjVLq/GG66BoOJfhnoSfM8bEPQ0QCRDmhkr78BHRM+69sk+56axMV1pHadYCDDrgprLRu
+	FD3kwgNBV0KXJhPhUgazh0yRD9+atoRZkBnHldauhr59MrId2tM7GFmT10seYbR50+BbtUTjL5W8q
+	KsIeB6mdJiyU7XyEwvEo91ISYhtE0ZId8dloltaXf39iX4FvuacUM4UQnFmxlm897QwgTUbx/FOmJ
+	NR1/Wogyh8z6HVpcvLrwzw4Pmuoyxz+Hn6d/7ImaNJFKGKGYgfb4gYuq7eGWtlNjx+5AWNoOcnnDj
+	JEenuoFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRMh3-00000001H9P-0ItQ;
-	Sat, 28 Dec 2024 02:36:45 +0000
-Received: from mail-vi1eur05on20628.outbound.protection.outlook.com ([2a01:111:f403:2613::628] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tRP9B-00000001PRi-1RUH;
+	Sat, 28 Dec 2024 05:13:57 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRLR1-00000001BFi-2IJB;
-	Sat, 28 Dec 2024 01:16:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TW73kT5SM2qg5sm99Xy7PevMYBjQmCodm7XlAhgWBDpCUxxz1/k5Rpo37/EgD4o5CAADs90yk5vsyGQ747pzPFBGGFYWSomG61TuPRI1Ula4WdZ9Zeerx3ltqT7kPlRS8EfQ2TqTgZYDpYI53g8nmrL6aUfxYohIlMnpHbupJGOskTFaK40Ui9WnulI10E154X/Zrz6VSL8wpE6QqoMK+dDq0YgBstmgH4sXDJq8FNMI64jT6gT5qW30WaNiYwM/Ql2qzsZyQQtVYADpWyX2cjkaB+1UBeEIrBIvSljaCNeyn7pZYqiIkDK3accHSOcWH1gRtNel48ldtowgkxCVfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ukcfnak6rASj1mOqRwYrxQ2oQzH5Bwejo3Xly8lLTrQ=;
- b=qcOAbfADEE3yCiHYIZ7hnRXsplmajjCKkWDVMtSkoj+NAXsDe+lLJQl/iQ3f0VvaWHLJjAVpLdxiv512Q9dtd1o2Io3vWO+o59c4HEWMyUqcWg9NrTFUHaPJbVclW65+Svrhi7T1+/5lYPgfKrNHgEX9iwX1KhtlIM7tXunenFkOGJZ8XyZ/Ce6ACOEmtD7iqx3KFpQkC+etaXi9O3B5WIOP7yW5dZx0Vr9IMUFm0ElARv8aJAHOwVAydcl3eVzuvLzD7dr7PlTc4jAUt8PykdYqVs8Ca2FQz8VIdomnY761ymzc3Bj2GU3OLFvypmotGUyyZMlim2T5KaBWiP0B9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ukcfnak6rASj1mOqRwYrxQ2oQzH5Bwejo3Xly8lLTrQ=;
- b=C/tf/3lcOThIwmHuUfWQZrYwl3CVThLUQMhCZ9IOzbKddcmYgsdUGK3BuFrXXj00A1E+OOsCOWrjcM9F8RHf+RUiY8/bz0zyAmo/G85apfMwQu/CdCnqW1xd4eVIM+/voXR+Pas7JESQZOuNygFUoFRui5xCDixH1rlUHg91hBiTGqqMkSHz7LIkqxRAbKUj2ZNPjxslLPKwc3CzuzZPtkCZlO/tuLlq88aiIBc4ceQBo7Vp0CGgKzyj4aY46b+usIQf4LPLi1xsQltgpxQk9WVvuXK64On5Lfp2VVJ7Ypm7sy4+ltqcsdvFpVVZnju23wJ2kQKshYn5zBCWgMzeJA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM0PR04MB7140.eurprd04.prod.outlook.com (2603:10a6:208:192::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.15; Sat, 28 Dec
- 2024 01:16:00 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8293.000; Sat, 28 Dec 2024
- 01:16:00 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Sat, 28 Dec 2024 09:14:45 +0800
-Subject: [PATCH 09/12] rtc: pm8xxx: Use devm_pm_set_wake_irq
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20241228-wake_irq-v1-9-09cfca77cd47@nxp.com>
-References: <20241228-wake_irq-v1-0-09cfca77cd47@nxp.com>
-In-Reply-To: <20241228-wake_irq-v1-0-09cfca77cd47@nxp.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-input@vger.kernel.org, linux-rtc@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735348488; l=1049;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=GvTygPs23OU+WJ4Ssa5ar7+WSYAkUwf2a/2JL3pAL9Y=;
- b=fuTuUxBpzA72Kp21pez+zNIQrc7GeIb80GQ6AoCih6Kuf6w5GU3tFr4HYAL2bco0pS2GFVYAx
- lQXFpAX3Yb9BFXbDZCsQZuX/uNEfUOyCxP+nzE5dENo4Aq3m1j79BLI
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2PR02CA0099.apcprd02.prod.outlook.com
- (2603:1096:4:92::15) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1tRP7w-00000001PLd-3muX;
+	Sat, 28 Dec 2024 05:12:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1735362762; x=1766898762;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ioBF6btaLkebkM4HUjVJqFMRdhQwf4/nTJIficbpk6U=;
+  b=GKMGtEZTbzpRyRGr5dTyb1MIEfxfhoft/xKMmwjA5mNtd8uMJRtGt/5f
+   3OJUtbNALr5PBKaNEUgTBaq5v+ypT1T+48sWwGhyOHGMzsY/AwaE8amw+
+   N2jaWuwlBd9hiOEHaez6ojs8BqRWiqktWLak7pJ2Sc7CZjU7JuPxs30+S
+   zQOAwUDrEynN78LBycSnWolVdhApivKcUH6xj93e6KictnplqkWBtgDV+
+   cp2HAy7O+il+PJKdY80fc8geSW6LEdNdX4dYzv0Bbj1+QgNBKSAqzY4U2
+   Dtj97sD+Efb80ZY85H5ihJDArtnJiv2kqaYnCXEMnfDLC0RLuAF8pdW4l
+   w==;
+X-CSE-ConnectionGUID: a4uGGLRPRPqEGPCIysr0aw==
+X-CSE-MsgGUID: 5gamfRA+T9OgXFBCbhGOMQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11298"; a="35886908"
+X-IronPort-AV: E=Sophos;i="6.12,271,1728975600"; 
+   d="scan'208";a="35886908"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Dec 2024 21:12:38 -0800
+X-CSE-ConnectionGUID: h4uyA0ddSTuuZ4tzLd9DvQ==
+X-CSE-MsgGUID: Go8sLyvHTGyzRo44j8EaKw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="131267180"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 27 Dec 2024 21:12:32 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tRP7m-0003rw-0r;
+	Sat, 28 Dec 2024 05:12:30 +0000
+Date: Sat, 28 Dec 2024 13:11:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-input@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 03/12] input: keyboard: omap4_keypad: Use
+ devm_pm_set_wake_irq
+Message-ID: <202412281211.h6tPLOqJ-lkp@intel.com>
+References: <20241228-wake_irq-v1-3-09cfca77cd47@nxp.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB7140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c455295-9197-4e68-5b11-08dd26dd3092
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bmFST0IvV2hGalljUFdLcVd6V0hqS25EaitTNWlFYmR1WlF3Y240aGlTaURh?=
- =?utf-8?B?TkpXMk0ydTdpZXpzN3FDTXMvcUIzajd3cGpFUUZNZXNOYS9zWTNXZldJS3F4?=
- =?utf-8?B?Z0xkRnJ4dXdCTGpxYmliVnFMOWd3ZlYxd2ZmZ1FxZzdraldiKzNQem9ZRCt4?=
- =?utf-8?B?YkpBVnRTR0d1bWwzVkdYS2JTbElOUUtENGNtY2lhUlkwQ3BpZTJZeW5QdVlP?=
- =?utf-8?B?NG5CbWw1WDA1S2d5KzhKbTNkR2R2K21neGFBWldmOUFYYkZiMExvRGVKeDNU?=
- =?utf-8?B?NzZRQzhWU2dKYWVSWVk1QWlqWTFCcCsxQ2lHbEp3QjZuWDV6UmhyK2xocTdD?=
- =?utf-8?B?VnEvWGFLWUpiek1tWXFoMVhhWjdUQTJvZC90U25XQTcwbW1reTVwZytZb2ww?=
- =?utf-8?B?Wnk2V0hkc3NVVzdzMHNWTDF5cnkwT05TMThIRCtIcGpXbDNpVWJpV2NWYTRw?=
- =?utf-8?B?R0h2djJpdDZ5L2J6N2Z2UUxJVGQzWW1RcDRqRGtycis0RmdJNlp1azNWSHpJ?=
- =?utf-8?B?K0dBZlNDUmxIV2Z4Z1FQaHJabkEwTXRuc3YvQmN0RmNZL1JLTm5LNHZGRXJ0?=
- =?utf-8?B?bmE5VG4wZU9tY1YrQkYvUy9SOGYwUHgwRXluTTY3YkVKSVo2UnIwdlFTYWpt?=
- =?utf-8?B?MXArQjI2bnRoV1ZKcGF5bVFIY2cyR0pSc1BrQm9KcmNFWngwNG1YU01DbVdL?=
- =?utf-8?B?UWxra0FadFFNcGd5RTAzNU9CcDVmVnlDTE9CTFZFYVBpbkpyTVVLckIvamlD?=
- =?utf-8?B?NE9tZnpNUS9BdnhSK1pHSUk1dVEwejV1S1FwR01EL1FoQk54MUdIcFU5U0ht?=
- =?utf-8?B?L0Q1eXl6ZEhmS0lkK2NVVXEzK3JqRU0ySHFSYk9TaVQrTHVFYzIwb1BsY3FR?=
- =?utf-8?B?cVZCcml5NzA4WnptemJoZmxzb3pISnBIUHVZOWtNQTNxSk0xWDBMNFJzNGhr?=
- =?utf-8?B?L1kyVDlRYjB0NjkvaGdoN1ZjUzdhNWt5NmZ2TzNWeEZzNHIwSWEyS2s1ekda?=
- =?utf-8?B?WnhIS29EVmhYZ2dJWDZ2U2dsOEJyc2YzWEUvczZOMjZDdGpZNkJ5bGI2Qkpl?=
- =?utf-8?B?TmZqRzNkRVRUTmZzN3RYeFhxcm5DZHRhQXNkbTNuSWJMVU9hbXRCSkFLZSt3?=
- =?utf-8?B?SnRHcmIrY0ZQUDB2N3h2eDJOV2ppcHp5NWpUZnU1MHVra1NkZVVSeVJIRm0w?=
- =?utf-8?B?cFRRUEJ6YWdZZ3A1WVljbDRUUXhkYVVnc0FybFFFOWNHNllUY3VuOE1RbHp4?=
- =?utf-8?B?ZnJXS3BnNENHMXVyWUNHRTUyS2V3aHNnVnltSVRMWU5XS1MvUnlLTGVDS1NT?=
- =?utf-8?B?dFQzUVJqVkVLbVdMMExha1kzelo1TTBHZEF1VnBHM2IrS1YvNFVqNGpDZ0Vt?=
- =?utf-8?B?cGVlQzlGZ2hBSmIvcnpuQ3lvOU1IeWVQNEh6YmRSZUp3YTRjTlpCcFJYNDRR?=
- =?utf-8?B?V1FuNkdJV2NmU2xIMEZBalFSczZ6bFZXeHduNmZnZFhQSXptYm94TU53eFBC?=
- =?utf-8?B?YllCcDd4RUNGb2szcVBOS1hEZnNJTUlFbXBnd0Z5eCt4d3ZNL29PMmUrT3Yy?=
- =?utf-8?B?MGQwNENHc0dVRXV4OWJ2WXMvbnFKb2lVSkpONWIxM0Q5M2tDRG1nODlhay9k?=
- =?utf-8?B?ci9qdTdZdWcvRThUazRiS29MUkJhTmR6L3BTbDV6SUNJTHpPbFdZTldHaUxJ?=
- =?utf-8?B?UjVkU0FXclIxM0dLS2FFUFpHNnB5Vk1tYTNWSWZpUlh2UldBQ20ycVZJZ3FS?=
- =?utf-8?B?RjVrL0MydSs4NTNCbDJ2WlhJanpOQXVNelEyVDJCVitPemVJaUxWdGhJRHdR?=
- =?utf-8?B?d3VHMHBRZW5PV0NuRFl5YW5XTkN0ZnBBeklnQ1RHNTB0aHYrUi9JZ2k2MjJH?=
- =?utf-8?B?NzYyYXBOV1NLYzNGL2EwS2FJZHVQcVcwdVNzc0tSU09US1NxcW9hYm5QQjVy?=
- =?utf-8?B?TTVJVjNXS281Nk9MWXJwUmgzM0dZVTJ1M2NvbVEvYXNBZWo2V1Fwajd3SkhF?=
- =?utf-8?B?dXBWTlVjRWhBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UHp2cW9PemZCbno4RktGUEJQTitBUjhJOXBtL1FYeEZsbWc3ejdFWVcwYllN?=
- =?utf-8?B?ME0xRUpEZTI4WDBkcGFqeFlRYUFHQ3JMNFh2NmVPUStUbGsvcy9VQXE5WXpo?=
- =?utf-8?B?Y2JiY1Y2VWdZQ2xhb0hwVVVLT3RSdTV5dDhJOWFHczE5N0wyd1BiWTd4MmpE?=
- =?utf-8?B?SWRoSWJ5MUI0TlNJb09lcUFtRXF0RHJ5ZS9kTENUZFEzbnRncGp1SE50ZlI3?=
- =?utf-8?B?TS82cjFudXJveGwyazN4TElna003WkVEWXZNOUw4bDhHcmFNdlM5RXNMcTJp?=
- =?utf-8?B?RnZJbFVpOXJuVkZ6aEQ1SkRNNmtjanJlWEl4R0tjQXdGTWdjQnhQNUF4a2JH?=
- =?utf-8?B?Mkc5WGZwRnViY2xqSGZMU0VEQWo4cmxOeUlTbmtHcVF6WDVPQjFaU0RuUHAw?=
- =?utf-8?B?bDR6clpMMjFNWjJqV0w0M1U2NkhJMnBHRDlrUFpieUcwa1RudUw1aHR4WXpu?=
- =?utf-8?B?cG9XeCszSXpUQjRqMGZtaUVGL1ZNYldDZ0UzT1VOMVRiNUFZTWZGbE5RS0h2?=
- =?utf-8?B?VVkwbXpuOERMQXRqREM0cFR2UmVJREhXUmZRS3R3cVhWRW94TVdYcWZwTTlQ?=
- =?utf-8?B?dFVvblduVzJSTVV2WkZoekRMR0lSN0ZBUHVNR2QzbGl0RlA0VUx1Uk1EaFhJ?=
- =?utf-8?B?Skl2VFZSK1pDOHdyYzVUSlpIdjUwL21mVjViUjA2bGtqQWpsWklVbEV6WHFr?=
- =?utf-8?B?aDNabnJZcXl5Q2ZQZzlNaDc2NGo3NFk0RlhBakhhRXN4U051UXZCQjF3STZk?=
- =?utf-8?B?YWgxTkt1bVYxbGhPQmMwLytieStXcjMwbUdMeFFEK01SLy9tRk1XV3ZCaG9m?=
- =?utf-8?B?NlRFT09oMG5ZOTdtS0o5NlY2aktUOFNZQUdhbS9GcVNWNzJ3SHJDT21hU0JG?=
- =?utf-8?B?d3VSajBTZG1MVWhkTSt6UWpQcnVwMXc5V3RYeTJaZ091VGlGVkhYQnZiMjdZ?=
- =?utf-8?B?YjQzbGZPaEFTdE1Jc2RJYTFDc2dzOEdBdDlBL09icktXbThsc2JodXNjcE9w?=
- =?utf-8?B?dU9mbnhMUy84QzJjWHQ4NytFTGZsS2xkNHNBNVBWRUx5VG5xdEV0VW9Lbytu?=
- =?utf-8?B?M0NjclA1VHcrbVg2SDNOM1h3WTR5N0lESzV4akY3dFN4aUxDUVJRcjdxNGZI?=
- =?utf-8?B?bGxCRmdud3RvVXJQakUrWUlWKzM1TjY4eDJlNGVBUjBmWFhNUG56WTM4MXhY?=
- =?utf-8?B?Y0Z6Ni9peUs0Nlc3RjVsUjNqMmsrMTF6bWRlc0NoK05hOWNiUi9MTHhBMHNv?=
- =?utf-8?B?enBLYnBiaUdsb3M5NGdZM2N5RXFZb3Fvblh5Zm40bU1PRHI2WjcyYzllVnBS?=
- =?utf-8?B?SUNhS3BvUjBZTmx1Y25NYWUya1dLVk55eWU5bXdFY2tHbGFrRERoSVB4Vzcy?=
- =?utf-8?B?ckppVTNCTmNKL2tnaXpEVGR4S3RWOGxuYzI3RHRuVWdiVWJiOGhleW0yd2lV?=
- =?utf-8?B?Tk92TXBvVTM1TElKRWpHblgxY2k1QWE3eTM0WE5WMm9BRWNPNWpPRzNjZ1U5?=
- =?utf-8?B?ZnZQajZzOXRUbTdZOUlTQWdQSUR4SnZaMVJSbXFLUHVWYUtlaS9iRStnRGM5?=
- =?utf-8?B?MSs3SDQ0czVOKzlLZHZUZG90ZFA2ZmxLakhrSXpRM2dVcXlzWkw5aTJsczRw?=
- =?utf-8?B?TURkNExLcEJzdlo0V01DTnpLZ00vMmR1dnRSSks4THFIZ0NRQnpTUTRsS0ly?=
- =?utf-8?B?OE1ZRWJMRVJRNmsvRUdpTDVoaUxFemNQdXRJMWF6dk8yRUk3MmMrcFdWS1Zn?=
- =?utf-8?B?OWx2ZWtmTFljUSt3Z3FldTBkVVFSTVJrNFZhZTZ5TWgrVTN2eWRqQXMwTy9y?=
- =?utf-8?B?dlNvVDNMMm8zU1NUekg0QmFrbUVjUFpGejEzeHhYanVuWUhyMzdSRk4xWm10?=
- =?utf-8?B?NDZxVHQ2bXYwSGdJbEp3Q0lSUSt0SDFnT0ozeE1QcFBRRjk5SkdHeTZBaWk5?=
- =?utf-8?B?UXF0bThRTnlEMEJ5TXRJWUhMYjVGank3OUpvMVB1MW1yS2hqMWRSZ1ZDck12?=
- =?utf-8?B?NzBVN3V5U3lmbXBVK3BnU2Zob3BRZzFYOVl3YW41Tjl3a1k5NzZ6WTBCK1d1?=
- =?utf-8?B?SWEzaXMxV3UxeW9GWkRGMUJnd2dMb0phNVNQRVh0YVg0ZjhqZ1FWbk83b1NB?=
- =?utf-8?Q?cg/h5FEdxTGgdKFrYzVyp1rDv?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c455295-9197-4e68-5b11-08dd26dd3092
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Dec 2024 01:16:00.1862
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eyY8PCxEPmljJos9fmkXDE7ay/AXbvO3S/dSe9oHFq23WNU4jI7bbcKJv2IUy3Ml6BGmWmYN3Rh+bC9u3a/InQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7140
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241228-wake_irq-v1-3-09cfca77cd47@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_171607_596244_8EDF091A 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20241227_211241_043673_37F8CCA2 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,44 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Peng,
 
-Use devm_pm_set_wake_irq, then the 'driver.remove()' could be cleaned up.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/rtc/rtc-pm8xxx.c | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+[auto build test ERROR on 8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2]
 
-diff --git a/drivers/rtc/rtc-pm8xxx.c b/drivers/rtc/rtc-pm8xxx.c
-index 2f32187ecc8d3276a451a317ab83446b7b04ecc8..f1b620b168fcca8c640e4beaaf7e8c17776c5ed9 100644
---- a/drivers/rtc/rtc-pm8xxx.c
-+++ b/drivers/rtc/rtc-pm8xxx.c
-@@ -523,21 +523,11 @@ static int pm8xxx_rtc_probe(struct platform_device *pdev)
- 	if (rc)
- 		return rc;
- 
--	rc = dev_pm_set_wake_irq(&pdev->dev, rtc_dd->alarm_irq);
--	if (rc)
--		return rc;
--
--	return 0;
--}
--
--static void pm8xxx_remove(struct platform_device *pdev)
--{
--	dev_pm_clear_wake_irq(&pdev->dev);
-+	return devm_pm_set_wake_irq(&pdev->dev, rtc_dd->alarm_irq);
- }
- 
- static struct platform_driver pm8xxx_rtc_driver = {
- 	.probe		= pm8xxx_rtc_probe,
--	.remove		= pm8xxx_remove,
- 	.driver	= {
- 		.name		= "rtc-pm8xxx",
- 		.of_match_table	= pm8xxx_id_table,
+url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/PM-sleep-wakeirq-Introduce-device-managed-variant-of-dev_pm_set_wake_irq/20241228-091859
+base:   8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2
+patch link:    https://lore.kernel.org/r/20241228-wake_irq-v1-3-09cfca77cd47%40nxp.com
+patch subject: [PATCH 03/12] input: keyboard: omap4_keypad: Use devm_pm_set_wake_irq
+config: i386-buildonly-randconfig-002-20241228 (https://download.01.org/0day-ci/archive/20241228/202412281211.h6tPLOqJ-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241228/202412281211.h6tPLOqJ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412281211.h6tPLOqJ-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+WARNING: modpost: missing MODULE_DESCRIPTION() in lib/zlib_inflate/zlib_inflate.o
+>> ERROR: modpost: "devm_pm_set_wake_irq" [drivers/input/keyboard/omap4-keypad.ko] undefined!
+WARNING: modpost: module snd-compress uses symbol dma_buf_fd from namespace DMA_BUF, but does not import it.
+WARNING: modpost: module snd-compress uses symbol dma_buf_get from namespace DMA_BUF, but does not import it.
+WARNING: modpost: module snd-compress uses symbol dma_buf_put from namespace DMA_BUF, but does not import it.
 
 -- 
-2.37.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
