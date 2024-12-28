@@ -4,97 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F2AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 22:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DD3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 22:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bVUOio+y/QGB2n1WUG2sBLncltD5aD46s8bDjD5CEwc=; b=DYEv3halQlLOSun4EBJdL4PCTY
-	CEE0bG/M9MNLowUjlJK9ZDFZFyE5c7oO+HXgLDHj23NAefy1K1DLOi6AcUZDi8J9xFLAUYNcuootV
-	RCPjW5b4UGycCGkWFX7Wl8eNKaxk76JfwizsgdkgS0kZgRr46PorRFSTbnru29MKGx21fbyn0MnVz
-	DykB56LA9U/gjgghzPleCyLv8hD2AuE1XsEzL5bocwcLa/ebibMTmwSfnYjn9T2mIrw6x68W+pXUl
-	ZR3Ey5wk5uuSsuIG4B7nVljYpC670Og1bRwaDfJZrCsMvPW+HfxO83ZPUssNAmX6sonP71Y7K49vu
-	S3vbqnrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ma5+6x4L6RmgRS3yZ8s305V7iJUxY/Vzh6XEkM9c4sU=; b=KswC6yJ5k0yVe/RM52IpvO9k1b
+	9tg0melcF56LHrPyXEMFapIPPwZbbeVK5lfA5jitU25CAJ22vk/5OfywGpGye4+DHYWIcB6n4cU3A
+	tAuZAiTMAPpzWrqiLeZamktBK67rPKnMTV5vfq0VvH9sged+V2RL8TZP531PXtObQRFzzqGvqvEKE
+	gE3FvjbT4zBujeMXf52+x2StQVyozRIrZJCcRhWcAPaRhmkymQCp4liUNogIlO2U7+dgcBGkIBD9J
+	v89aQaR+6lzOXNwDCdb3sxqrhmzLmJ1tWo59uHDBg3xBZTK0/8KL6OVVeCtS+WVumGnAcuzKtOQnU
+	RHWQLyfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRfAe-00000002SdO-3Jsz;
-	Sat, 28 Dec 2024 22:20:32 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1tRfja-00000002VQf-0GUL;
+	Sat, 28 Dec 2024 22:56:38 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRf9M-00000002STm-1IuL;
-	Sat, 28 Dec 2024 22:19:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735424353; x=1766960353;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CYotyYWSmunaz27IymD9YuqOxnVhzREjrXIxHRrlV+0=;
-  b=WPOKUHyC5qV61oZ4dpUIZZpTGSKLxGQTvabyumOiph9gda5ziQOOKGCL
-   X3z94UWfVCA2PQ5bfFkKm8wd0Q06QoxF2SG+EZd+ACGG/ATFjB3nXKivc
-   0AvFiHwkHeWCy3I1iHaLMR7mTdy9zEouJP3m1icPRG6734xeCa5BOzG+K
-   muxWLPpmiNLoq0DmkfPcA08WPZ25Qqr5Iz5HWYk4pQXtEz7EebuD/RRBX
-   u2Gz4bF8proi+c3OBRxOBMKLIYLvpQXldrLxp7xmwspNDoyfpiO5SezOn
-   witYE+6l1qH0urp9jdNOKsz8ZfCYQ1HxhEM7fdfpdcfjOZ2iLW4vEcM1z
-   g==;
-X-CSE-ConnectionGUID: bYfVDLkYRxKnoPBMie07RQ==
-X-CSE-MsgGUID: NTh21NN+QlOusMkKnfQfng==
-X-IronPort-AV: E=McAfee;i="6700,10204,11299"; a="35481723"
-X-IronPort-AV: E=Sophos;i="6.12,273,1728975600"; 
-   d="scan'208";a="35481723"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Dec 2024 14:19:05 -0800
-X-CSE-ConnectionGUID: KcCQ2g4yQRC8OcKGelMC2w==
-X-CSE-MsgGUID: pmsZWc/URWybCdhcsqflbQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="105434107"
-Received: from smile.fi.intel.com ([10.237.72.154])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Dec 2024 14:18:58 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tRf93-0000000DV4W-2WLW;
-	Sun, 29 Dec 2024 00:18:53 +0200
-Date: Sun, 29 Dec 2024 00:18:53 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Esben Haabendal <esben@geanix.com>, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Rengarajan S <rengarajan.s@microchip.com>,
-	Niklas Schnelle <schnelle@linux.ibm.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Wander Lairson Costa <wander@redhat.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Matt Turner <mattst88@gmail.com>, Stefan Wahren <wahrenst@gmx.net>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	Udit Kumar <u-kumar1@ti.com>,
-	Griffin Kroah-Hartman <griffin@kroah.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Tony Lindgren <tony@atomide.com>
-Subject: Re: [PATCH tty-next v4 0/6] convert 8250 to nbcon
-Message-ID: <Z3B5TQkz1S-C1wro@smile.fi.intel.com>
-References: <20241227224523.28131-1-john.ogness@linutronix.de>
+	id 1tRfiO-00000002VHu-022H
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 28 Dec 2024 22:55:25 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-53e399e3310so9972322e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Dec 2024 14:55:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735426521; x=1736031321; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ma5+6x4L6RmgRS3yZ8s305V7iJUxY/Vzh6XEkM9c4sU=;
+        b=taVdMpreIowOn9rP+LLzCfFQRF3k6nQ86UD2mrPe4FUPLR02QNosTajQmE8YWGgYwt
+         5j98K3WIX5TqDUAcsEounGzk4n0/JO4WcVEXcZXa7q0dX4sXTWtFjG+9RJS1t+bKwwuL
+         wteN22QJMz2lvqBzU/IVWvxcK1Q2BC+V2UTXI6BHRnybGDjNV1ty/U483Ab0VQ6QHUCX
+         pm1/1/oWl7MoUNYmupEPUeyvXv0SwmaweY6xzcXA4O+qR8HK7+moXIa6fbOXJZS8GZPo
+         /jXVqjwRwnRLdSYN7ptnhPdldMTvEJe6Ilf1AxY9O960lBFu728YVZw6pUE/YkmdbCkM
+         ap/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735426521; x=1736031321;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ma5+6x4L6RmgRS3yZ8s305V7iJUxY/Vzh6XEkM9c4sU=;
+        b=Nllu3VfyNPHNSfsIHk3Ovg+eMP9xCuCKrp2UGWaeODF2eaUQHHIt/EcnOGdkZRrzVQ
+         fSjd0xo02ZTJNfkJv4IM4wBKrzpLhihX+rCBjW1BGFT/BsocY8xbnyWyku0PcecWfbdA
+         K00FQzh4idI/CtwJlwO3hiW46LsiZUQ+ImkS2dj0yGyfFHrvL5jlMzr2wHHgg6lu6jdX
+         GTXGmDTCiFn9C0/3jY8FsGQ3J2YFNYUnRu7cMhJlRiZyZ/Yu95IaPzvTedC7/U720kt8
+         ObEyxZcjatZQUfsUx5m7aGDw4M30jEiR0l/71wavRmjz82h1n3x2Y5sVayYzKlTG1cOU
+         I+QQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwrRGylSzThUnCEV9ZLpx/tHwiVzdHg3Vc1x1RkuRPZUHktync3F7zayzkxZ7MxW5TMczGPNbTsMMmESbDQzQf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0nSNAzjpxgoGYXQtl9Sj5nHWuCi4OwmUxrqrX3iVSfg26P5a7
+	1ygLf2nueW/7pr7qcI5HlsJE8CcP282mhqV8W6INwpaF2oD+2cOc1TrR3ix6LZbam6LaRk5c1rX
+	ePsoNtOqNPgZRihOXW+Pogr/FTjEXzjjE/LeNUw==
+X-Gm-Gg: ASbGncstNd4I3ZEiJUvcoyg/dcPA+VXgMVGUBq7E2/4bY4DpRZGADnuhtDsHqr89fuH
+	Y66Emxo28wFCXjrO2/I527sN7E+6kiAgLDGew
+X-Google-Smtp-Source: AGHT+IEeHS7qBCOkGJkLci2K1l4MO3cQjjPsp4mJA4mp2Fct0kochwX6HgM8ASkaZLPLeUe5QHN30KZL6jeoExuit3I=
+X-Received: by 2002:a05:6512:ba6:b0:540:2160:ade3 with SMTP id
+ 2adb3069b0e04-5422953c19cmr7875781e87.25.1735426521162; Sat, 28 Dec 2024
+ 14:55:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241227224523.28131-1-john.ogness@linutronix.de>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20241228-wake_irq-v1-0-09cfca77cd47@nxp.com> <20241228-wake_irq-v1-10-09cfca77cd47@nxp.com>
+In-Reply-To: <20241228-wake_irq-v1-10-09cfca77cd47@nxp.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Sat, 28 Dec 2024 23:55:10 +0100
+Message-ID: <CACRpkdYaWTdOoLXcpWG92+OyRwsPMxMbhQ6djdzO07x0sPz4oQ@mail.gmail.com>
+Subject: Re: [PATCH 10/12] rtc: ab8500: Use resource managed API to simplify code
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_141912_410992_D59015D5 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20241228_145524_047760_1433ABF8 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,25 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 27, 2024 at 11:51:16PM +0106, John Ogness wrote:
-> This is v4 of a series to convert the 8250 driver to an NBCON
-> console, providing both threaded and atomic printing
-> implementations. v3 of this series is here [0]. Additional
-> background information about NBCON consoles in general is
-> available in the cover letter of v2 [1].
+On Sat, Dec 28, 2024 at 2:16=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+m> wrote:
 
-Just to be sure I understand the side effect of this series, i.e.
-the
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Use devm_pm_set_wake_irq and devm_device_init_wakeup to cleanup the
+> error handling code and 'driver.remove()' hook.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/tty/serial/8250/8250_port.c#L44
-https://elixir.bootlin.com/linux/v6.13-rc3/source/drivers/tty/serial/8250/8250_pci.c#L9
+This looks very nice provided the core code is merged.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-are not needed anymore (the first one can be replaced to something like
-dev_dbg() or analogue)?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Yours,
+Linus Walleij
 
