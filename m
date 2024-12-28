@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926FCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 20:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17F49E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 28 Dec 2024 21:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0k7sZDMcERXk2eLaHDDLcfOeTicjPUtLMWJcbz4osSQ=; b=i0W47JJrXCkwrIdgjWqYosoVRy
-	I4tHVvFZSJgf+w3rWW+koXhqrKsXPIhsdtw1KarkCeImoAQg79OIzUeg5Urp8U80fGlDaeGzw8NNq
-	FLjTcgcA39dErwzls7S28o3pTh4NWx3FGPOObExVznAOxO+hhiXi/ZiHQYOgjGrzo6HbQfW3a8ppo
-	Vwcq9DSQJakaucekliuZy22wE1s4V0RHc1B/mkW+9gCqLlJWJIBnMAKooUds8DLWfbLbY9bCjuCha
-	ZBHqCRne2xzFuQKHtosdR7QglWURTjt5aXbotL3n8IAl3fpigQl4yujwsomVs/8yvnXYJhX1gLadU
-	sSkoaBiA==;
+	bh=n4OWef3x6DsiVzZ/U11tT+QhzrK2en4wqsgahODBy9g=; b=ErvZXj8Ifi24JsZEuRwkNTgpS4
+	vfNrUCU+sZd7dVbaOtbM6yLU6VSGOfCfemtOU38xjgDN7qdrTxCx3cWhYk90Y9ycqQvDICt0IG3dT
+	wD7CnjUmRM5qJguNaCkjiebK9o4adiVGV4wwpEJtVBH2ycFfwn5vlQ2TzKYGlNhCXsBKWcQ2AMijL
+	E5iodJhFpJCVNjItc+PybWRrGMcvqVRnHhWcyDn27Qj4vQTaFoON0cpCjcpX4ABaRmKUSaYHHmsEe
+	hwYmw7BZ3TS9JGHdfZRc0t2O5bhOeRUDYvrdhz4mIb8363jOAhqlrQg+eKsJZzRtO5aMPKe2J3Kct
+	DGMafGAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRdpm-00000002Mi3-2IAt;
-	Sat, 28 Dec 2024 20:54:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tRdxg-00000002NEO-36x3;
+	Sat, 28 Dec 2024 21:03:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRdoY-00000002Mcv-3DGI
+	id 1tRdw2-00000002N8E-2Eif
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 28 Dec 2024 20:53:40 +0000
+	Sat, 28 Dec 2024 21:01:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 052BF5C55AF;
-	Sat, 28 Dec 2024 20:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BB45C4CECD;
-	Sat, 28 Dec 2024 20:53:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D2C35C4924;
+	Sat, 28 Dec 2024 21:00:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78CD7C4CECD;
+	Sat, 28 Dec 2024 21:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735419217;
-	bh=YiQg+tSMTFVqdZrE2vLVBv2x7p3A1peNxFFdIKqfqGg=;
+	s=k20201202; t=1735419681;
+	bh=JSy7kKq7vvXln6X37mx3NLcerk0ooPQdIqGHyzb0PMU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j4HxeW0euO8plHUTonaif3pvstPZLW6W9fGDBaRWhEhQiTGrYQ5MFLgMoQBMJnPB7
-	 uTwQRX0ilutRJFnSnhhbkkgRFwUlYD2f8SpEKkWp9WcKGFJiiudXCBehA5XPoCqBW3
-	 gfPKkDQAMk7k3ethnGnooWzqTLQav60xINXzoNESr2dW8JtfdLvf/BT4qCa5OITqfr
-	 yJffHW6WvHfPxzN3bZDKPa942v/PEhaogNpDepZMQml44ofTAYLDJFYw5bYtHLgaqx
-	 DipexVUlwgqQjUf1na2LddDYdxtDJ8/3PaeuFeRg15Hop9NuVMKzp/sJnytyQv7JMQ
-	 LKZfe7mdq4CwQ==
-Date: Sat, 28 Dec 2024 21:53:22 +0100
+	b=bbFiLOuA0eQ9ejBBfHrFyL7mSreqjiOeJrMmtw0Zuu+93uRaUSdR55Upta+G551/8
+	 x38gTjEkC9+NKvr4kH6egRYEXPXhVFCSsNSmIyfxiA5NsFLH0VcNG+j29E122Ii/LZ
+	 RkXVWMit7LVjKDkMMgwPg8Gz+j8sGjJeOq85aSATw0z9K4y4aDca3J79eIIbHCGwEf
+	 ojBwJi4NFyGc6Vq/JKdqPEls0vOliOD8orYtjPj4sk4vSsLsa7pL8lV3xcvOwgJ1pY
+	 QfAX2O9Ta9f8HkYxwG7Q6nsQLmbzZGfhXv3Zt0OPUy3m8BYgUE4j0xrVERqquOtI0a
+	 iAzFdPAugk31g==
+Date: Sat, 28 Dec 2024 22:01:13 +0100
 From: Andi Shyti <andi.shyti@kernel.org>
 To: Carlos Song <carlos.song@nxp.com>
 Cc: frank.li@nxp.com, aisheng.dong@nxp.com, shawnguo@kernel.org, 
@@ -51,15 +51,16 @@ Cc: frank.li@nxp.com, aisheng.dong@nxp.com, shawnguo@kernel.org,
 	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
 Subject: Re: [PATCH] i2c: imx-lpi2c: fix build warning "function defined but
  not used"
-Message-ID: <o4hxr2redr6dp4ot35pbc5vyjldiec6sxy72xesharhphsvdsm@mnufmvmpd2dm>
+Message-ID: <lv7cliatuynamsimld546tjr7uhn3r7dqq5d7uhype2wh3au45@mdiv4asd33ti>
 References: <20241228090852.2049321-1-carlos.song@nxp.com>
+ <o4hxr2redr6dp4ot35pbc5vyjldiec6sxy72xesharhphsvdsm@mnufmvmpd2dm>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241228090852.2049321-1-carlos.song@nxp.com>
+In-Reply-To: <o4hxr2redr6dp4ot35pbc5vyjldiec6sxy72xesharhphsvdsm@mnufmvmpd2dm>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_125338_848919_19B026D3 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20241228_130122_626597_BB648579 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +77,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Carlos,
 
-On Sat, Dec 28, 2024 at 05:08:52PM +0800, Carlos Song wrote:
-> lpi2c_resume_noirq() and lpi2c_suspend_noirq() are defined but it maybe
-> unused, so should add __maybe_unused to both functions to avoid build
-> warning.
+On Sat, Dec 28, 2024 at 09:53:22PM +0100, Andi Shyti wrote:
+> On Sat, Dec 28, 2024 at 05:08:52PM +0800, Carlos Song wrote:
+> > lpi2c_resume_noirq() and lpi2c_suspend_noirq() are defined but it maybe
+> > unused, so should add __maybe_unused to both functions to avoid build
+> > warning.
+> > 
+> > Fixes: fa89723f7a78 ("i2c: imx-lpi2c: add target mode support")
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202412280835.LRAV3z0g-lkp@intel.com/
+> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
 > 
-> Fixes: fa89723f7a78 ("i2c: imx-lpi2c: add target mode support")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202412280835.LRAV3z0g-lkp@intel.com/
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> yeah, I have different PM configuration to catch these kind of
+> error and I missed this.
+> 
+> Rather than applying a fix over a recent patch, I am going to
+> remove your original patch and ask you to send a v7 of your
+> "imx-lpi2c: add target mode support".
+> 
+> Is it OK with you?
 
-yeah, I have different PM configuration to catch these kind of
-error and I missed this.
+I removed the patch and updated patchwork. I will be waiting for
+your v7.
 
-Rather than applying a fix over a recent patch, I am going to
-remove your original patch and ask you to send a v7 of your
-"imx-lpi2c: add target mode support".
-
-Is it OK with you?
-
+Thanks,
 Andi
 
