@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A56E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68D9E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8ZtXjafmOGy3nacypNXgK5AHGRR55SbBLiKcode2NQ=; b=4fWkC0Vct+VhLNiKhAeF4jytPL
-	BIRpl5V0EOyyh/lDrjwfDRdbYgkpz49bXXfHlEH+9zvLlxATjO3PVWx5WO58WGvZGXhgORGzyXa0S
-	O1Fnc9gSxizGQVrLIpXHevm3slcmPI3St32peRkAZdryBfBnS7g/LktRZ9E05qiDya9f6mZFMuciO
-	tn2ZXgrAEJpfSJ2K9Fb+iLr+J6JnukJpGE0kELpz5j5tRbqtlcwGtP1V0aR9D+NMq1CHFqe5bYV3d
-	OY58WLTCemb6IdCL63aZb3GfRKsIE6Zren9XJxTk5EXsSu0nuaeYdgIVIe72fwt2UK2ygfBQxA9eJ
-	zzrIo9bg==;
+	bh=EpPe55GV4KguQ6z1sfDWthWJb0uo1qR0ymV3XUNGZaI=; b=kiiY9TFUDtPUHHxNPgp/Xk82eV
+	dANhduDhYBiU0uhOh7Xtvr9kg+2PZDMIbMK3gJ97cXD+YlDglisR5pe9A1bT5GesvP79rwXO51P8M
+	yoChSLgCkRCS3pfF9nP0tWW9K2wY6nVeexR5Q+t7LD7UDU7cVwmm9OiyWETkzBeM/AuwdIdq1u7qZ
+	GbWpBNulP3Lgw5d8D6gRM+y2eKiNnmb7dW6fAbk6RVBb4Cj38LhfpaoXeg5W9JS8PO2nO0lRnzbRf
+	lg1C7QFuaJhbvBYDYB17Us4gt6CN9/j7+av0JEiF+45k+tDavIaKoBCccysALXzlB4AKI/k78btSi
+	A+EpEqEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRq8A-00000003DqD-0ua1;
-	Sun, 29 Dec 2024 10:02:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tRqDG-00000003EBQ-3YUp;
+	Sun, 29 Dec 2024 10:07:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRq6N-00000003Ddr-2GqK
+	id 1tRqC5-00000003E5q-3pqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 10:01:00 +0000
+	Sun, 29 Dec 2024 10:06:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 15606A40B5E;
-	Sun, 29 Dec 2024 09:59:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B57DC4CED1;
-	Sun, 29 Dec 2024 10:00:46 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 62EF0A40AB6;
+	Sun, 29 Dec 2024 10:04:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A053C4CED1;
+	Sun, 29 Dec 2024 10:06:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735466450;
-	bh=Pj+RQZSRqYMDWyt+4XA8+yxTqQepkTRFJblBQnMIek4=;
+	s=k20201202; t=1735466804;
+	bh=eOZG26qpKovgOTXc7wfLmShQIAF4R1/NkjuWDvSSFto=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=njfE9pBsR5r1yogtqTUH36CBEx0d63IzoZIHuXTFQthAtmGKmS4JyZVkXaSdvQZkH
-	 WtlDxHD0U9bc8xfuNl1mJstZShcd076cW7VdO5gazoR9Q6F8hggcwo6xRWt28Ydrda
-	 uXtbTP8/pHArmQrAYBWUHEaeCXIeuxY+BQE9diV1RXBnhMytiWIV64fOXMVptFAMa5
-	 MykGcEJKAES70Tj9jKpLkLpVtBs4OmWwy4EEiAKR7fj3ZTS8MIcdcNhBs3K3kqZLrR
-	 XhEYb6AWoElOCwqKqXgtbWA/FV1ukoASgn/SSpBBG7do3s7fyTEPKAVJcq0dUUS5sf
-	 W89LvXLVvOlDg==
-Message-ID: <013abaea-f690-4cb6-9d2f-934429a9b22d@kernel.org>
-Date: Sun, 29 Dec 2024 11:00:44 +0100
+	b=H5lva9yYe4D88JWeUj5G7COCMbr0j2jF8bzPI2Hy/M0YIyoEHRm6WkEyZRwXPfgtd
+	 4I6MWDZMOh9EQee6yNouHWhI7mowcSFyyguxwX8sHtcm/oVdorveS5xsY3POZ8lYvt
+	 gdZAjMSVey/wtFj0Nx2jBK/vIYjkEAx6hOxGKc6bxOmZuDWIQgY4/7/yDION80dj5R
+	 8w8t+UR998Faal9VYWozlgGS2R8KNz//9wwTwwgGDP/nVMvmvz3L6IJ67JoNCqNgHx
+	 b3Tjb62waNF/66h/4DCYEWKLMEwzm0Qx9ZGBSm9A3+TN5BddqTunUY3GVehfyo3s/K
+	 Mm0ZoGRWZ64/A==
+Message-ID: <6cd26d64-4e9d-4c5a-a335-591a1cfb914e@kernel.org>
+Date: Sun, 29 Dec 2024 11:06:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: exynos8895: Add camera hsi2c nodes
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20241221152803.1663820-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: Re: [PATCH RESEND v2 6/6] ARM: dts: samsung: exynos4212-tab3: Drop
+ dummy mic bias regulators
+To: Artur Weber <aweber.kernel@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht
+References: <20240816-midas-audio-tab3-v2-0-48ee7f2293b3@gmail.com>
+ <20240816-midas-audio-tab3-v2-6-48ee7f2293b3@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241221152803.1663820-1-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20240816-midas-audio-tab3-v2-6-48ee7f2293b3@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_020059_325164_2FF53111 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20241229_020646_102148_7A10E05E 
+X-CRM114-Status: UNSURE (   7.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,19 +122,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/12/2024 16:28, Ivaylo Ivanov wrote:
-> Add nodes for hsi2c1-4 (CAM0-3), which allows using them.
-> 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
-> Bindings are in another patchset [1].
-> 
-> Changes in v2:
->   - Mention the bindings this patch depends on.
-> 
-> [1] https://lore.kernel.org/all/20241221151937.1659139-1-ivo.ivanov.ivanov1@gmail.com/
+On 16/08/2024 09:51, Artur Weber wrote:
+> -
+> -	earmic_bias_reg: voltage-regulator-6 {
+> +	earmic_bias_reg: voltage-regulator-4 {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "EAR_MICBIAS_LDO_2.8V";
+>  		regulator-min-microvolt = <2800000>;
+> @@ -310,10 +296,8 @@ earmic_bias_reg: voltage-regulator-6 {
+>  	};
+>  
+>  	sound: sound {
+> -		compatible = "samsung,midas-audio";
+> +		compatible = "samsung,tab3-audio", "samsung,midas-audio";
+>  		model = "TAB3";
 
-Still in my queue, please ping me when the driver bindings get accepted.
+This looks still undocumented. Please resend when bindings get accepted
+by Mark. Dropping from my queue.
 
 Best regards,
 Krzysztof
