@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622D6E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BA1E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IL/khryOY618fuPYLIWJhXwZCcvoPJMIqjkg4oXBPz8=; b=U6o787Om7dIi3/p9CQ/RwQ3umW
-	l+QrCAOm+NsV9l9puQYHcFMN49r6vft8leJ8pWU3FBwpR4x2oQCjHB5pqZaPpCDi6hPviVMBtchnw
-	cG0wUsGVK5bsKr+pJzqVoVL71iNVRr1ih743O71N867GHQIuYFWQiyGFNA9PqQXgjE6PH80iwSkcZ
-	0fDmu83amo3/iGTi8lJcDiimAP38+ANfKIZqk5zTthpFtOwcxyB+/urhYx2v6Y/KDMRvk4YKOk7qK
-	9dMbO0+jJ3gdV1kOGjYFoRm9c0M9gqGf5b+uhtduhUXcQFgSzkSq8oz9hfkHvPI2uoRUBKWWGojSB
-	1inchxMg==;
+	bh=B1e4Zcdd64n/Uq8SZYq9uZiFwUddDGBarfIwN7jA5P8=; b=Np22wgIn4eqOwUjorAdSPxu8Qj
+	CZIBrI0p8ffw1Noml/lspNtLQt4OLMVaRrNmaKoOV11EgMbM6cSAepxkYdhtw9fpjC4nPpacTHQUk
+	xgrm4hKa72a39WMkXomqsRGOeX3efyiu/9g/qPm8CuVdIyVvwEGRH6Kj21iJ6VtxsB2wAvzZfSGu3
+	Fn99+lmNpJdT0MNiL5n3HoiYzoRti6CvMxbGPB93rH3PrHXHPtlmFJ/x+3oaYkJZofNhcE8pRF/iC
+	yI1zBphrsT5r0iqrQ9H29TjfUCCviSoImZDiyl3hYmBV1244UxCZbCy1cJK/mdMPMKHyGs4QQrM9C
+	T/Kx7BwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRqGF-00000003Eca-2tMI;
-	Sun, 29 Dec 2024 10:11:03 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tRqHP-00000003EkE-1ttt;
+	Sun, 29 Dec 2024 10:12:15 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRqF3-00000003EMf-0VHO
+	id 1tRqF5-00000003EMz-04mX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 10:09:50 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43616bf3358so12774225e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 02:09:48 -0800 (PST)
+	Sun, 29 Dec 2024 10:09:52 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3862e570832so1030556f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 02:09:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735466987; x=1736071787; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735466989; x=1736071789; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IL/khryOY618fuPYLIWJhXwZCcvoPJMIqjkg4oXBPz8=;
-        b=c+5U5nnH/8JWH+t5OhMuMJg3jeFGcyonfmAKBydOm/76nP/jGf2lmAn+Yf/bfaJ4EO
-         aASCtZCAZTi4NI9JdyF3U2vG250fO8wS/nWah8uXkKnUMDeTj+peS8DEEjB8qVxxzj8J
-         scQUUwnosxMRA8bvMa9lJmOktiC45xmBnUMoWGxZ4I18T19aI4gGAwO6lcejZ4fJ/bYQ
-         C7K95ksdRfBolsRg2nnTkpziXwaJsRCdSALTzxo0ugTLTbO2uRd5TS9mfVY5ar7HWWZO
-         AQEBe/GrHgIxFKNXys6TlcEllxywdF1UR3F6uhIpJ8TPOVutfW9nyoRzvC6jemcTBicP
-         fhjg==
+        bh=B1e4Zcdd64n/Uq8SZYq9uZiFwUddDGBarfIwN7jA5P8=;
+        b=J6X9PHTjlR3U/vaR/Vv0+OM3EdBLYhaJSAAPEDAiT39OBELe5Sq30AYw2nb/ixPafW
+         e9KO4hiOX4n6qeb7a9DNAiC0jq4vuN490GRvs6dZ8l7L01WUQ7Ukw6Ga+50Q9lHGBmqn
+         laD5OPJh6+f7ZbLvtDXZDHKXMu6hLYA8K8CT1RP+SqCcnRPlzVbJxLqQ6UyrqmKyQDoK
+         /8XAprIa0taZMYTpp9aaQLkfKMLHkETmx4q8Wk/Q6h/Sa4p7VvK6MetN9SxlvlXbBz3c
+         6Tc/84ipuIYBQg2GQgqLX/8iT5lIWuw4qNhpuQjVMCzyVep0nkm2Dy2ejH1Upo6e4F37
+         YgDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735466987; x=1736071787;
+        d=1e100.net; s=20230601; t=1735466989; x=1736071789;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IL/khryOY618fuPYLIWJhXwZCcvoPJMIqjkg4oXBPz8=;
-        b=mV5DFHa4Bpa2YINALQHfzkT0nJxQPiyEMjV6ljJLjL9iSqfQ/LZxcixGc2YBFbImCj
-         gg6GSv+yGCL9Q+wjr2izkDfvtaN78i4MkUAMh5pH8pvBSlb1hROgFhMZW1zbL2LxpCO6
-         kulN3250roieGtP72xNcpsm3mplBTnDavLo4/s8/X99ih9EFjT2rFhlpkEE7om7rj75B
-         pTy2lqm5D+GZsfHX6pG2Ttmw0TxHa2jtE9P3QC9ixsVlgUUy4kXI5SojUyTD/stH8NSw
-         lPoyNoVaGKGnV/vR/zAO/wsGShYPc7zDhuJ65n0+oTL3im9iBVDvridiWbcaf3kJEtUR
-         b2gg==
-X-Forwarded-Encrypted: i=1; AJvYcCW7b8WrXxoOnPQgK5JddiqvfpBckvTomHBp7zwOWNxfpNO9qZbXg11tHWJx60cpL9rIGMaXAV77HThCod1vgqCC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP6Bv9uX0zcSWff59lyZpjZJDEy2wtm8iR1pDON/aTELEReRIu
-	aKr3Qyc79Rbg3OaoIWPtYDazK+aV+uVOW3cxOTnMUy+0/HLzQPDeuL56GF4Phrc=
-X-Gm-Gg: ASbGncvXBX0WsGzGjMaSkejRyPDqIa3DaV4cgKv2fXw4N69/aV5618MaJy70sLQDm2G
-	h3IyqQb9sjHlASWCyaD1SGMCuxgWvN+g7eBsqG5gmx4oNUtXCHOf2Z0XFMumOLsCRW/7jLSxUDY
-	GiTQZ4nRV7uOGLMIXUeaGA1U5auNZO/qc5fLfgB4vXNfPEQK2Fc3gvv9wVUTRIa8zonA4GeMbjz
-	L4O6JlmeNtWOu/TjjHKrZPkSXjQuGtgJiFamWaAxdFdP8X4ev/+40KB004nYlBa3K8Mm+NR
-X-Google-Smtp-Source: AGHT+IG4cLGqiI6g6J7zatXOGtwFy+9Y2s3YmPVDRuKkDTEQDgLgnySobqp+r3yXYCUk+Z9YqGqDAQ==
-X-Received: by 2002:a05:6000:1f8c:b0:385:e10a:4d9f with SMTP id ffacd0b85a97d-38a2213e1f5mr10814535f8f.0.1735466986988;
-        Sun, 29 Dec 2024 02:09:46 -0800 (PST)
+        bh=B1e4Zcdd64n/Uq8SZYq9uZiFwUddDGBarfIwN7jA5P8=;
+        b=AFbpFx/o8DNFM1PrfNuWZJtYaUDZLxxi7sovcSpDdKj6s+ETeuWyfwTKxnjtZC837b
+         h231jmz/XnNc+qcNqG5ZGRsyTo6U10TjtRRroBDVJZbLFPjZXVVQ/ePGj0Vk+9QnU4GN
+         btwPj9PV3/PAX2I4EfI6gtEXKvItNOHt26CETdfiH+LolmESBdx8V6YTL0PczxyijSIz
+         JrrTrYHluPpiEwVKjFlSqBXdjxDxHUrqMRKFYAEmqt/VF+s5QLgtPLmlYUtZRJJTf/aN
+         1QDrtemab2Tt0P2OyUCbVlBGqJuE0Zw0+w6qYGOnPBuKTqZ6zPQnxpXuuu2W2IsK6weI
+         g8ZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWeETBeW7XvElqBea41TckZnGgT2IJCAwI9o2p1m5dfcPdUoLAtTrlh6dP2k9Q2NwnuwOyFgyGyNOBzz7ghLVBm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwiqK43rOVattWZOWaiwrRP46sKePrFs4R2p7uAco13PyLQVyg
+	wLlI2BsKJr811l7i2+wzdd3oFp9G7XCxPMr7OuvQ91JxiWwd27Nf/8xFA0iuQCo=
+X-Gm-Gg: ASbGncvoQe+TLojuBxVyN1g8slUkglH/cG8TweEQap+yBYWutsWktBt9TWlDBsmbfY1
+	bSPDjdWgfiz77+Glp3hJd027VjnyExadMY5ft0d9Ncr4BFyquAerY3xvkznk3a97ujpJ9P7ramx
+	yKL9Ry+fzATO9X8ZbnR+6z2k04cIz1t1ye0NDGaCOZ+d+mCmp5G/v2nfkhfUrv04jCKkZt07jv8
+	aivuPAeNd6j423sKzO2MRqSJtLp4KhRRKS7I+NfRf2tQGjBqSUlLuLjCNWhmTTEAgvn9ALb
+X-Google-Smtp-Source: AGHT+IFqkvxQps+KrzRziDHQFsICEA+v2gm37Qee519mhPRQQR4sbGLqJY626OMpwV6K23g0gpxUnA==
+X-Received: by 2002:a05:600c:1d07:b0:434:f335:aa0d with SMTP id 5b1f17b1804b1-43668547269mr115138885e9.2.1735466989158;
+        Sun, 29 Dec 2024 02:09:49 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c493sm318174575e9.28.2024.12.29.02.09.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c493sm318174575e9.28.2024.12.29.02.09.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Dec 2024 02:09:46 -0800 (PST)
+        Sun, 29 Dec 2024 02:09:48 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Sam Protsenko <semen.protsenko@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>, 
- kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org
-In-Reply-To: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
-References: <20241203-gs101-phy-lanes-orientation-dts-v2-0-1412783a6b01@linaro.org>
-Subject: Re: (subset) [PATCH v2 0/5] Google Pixel 6 (oriole): TCPCI
- enablement & USB updates
-Message-Id: <173546698425.10457.12735336354134436171.b4-ty@linaro.org>
-Date: Sun, 29 Dec 2024 11:09:44 +0100
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20241224-cmu-v3-1-33ca24b2413c@mentallysanemainliners.org>
+References: <20241224-cmu-v3-1-33ca24b2413c@mentallysanemainliners.org>
+Subject: Re: [PATCH v3] arm64: dts: exynos990: Add clock management unit
+ nodes
+Message-Id: <173546698710.10457.3695234536331992206.b4-ty@linaro.org>
+Date: Sun, 29 Dec 2024 11:09:47 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_020949_226789_9390271F 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20241229_020951_063893_830387D8 
+X-CRM114-Status: UNSURE (   6.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,23 +102,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 03 Dec 2024 12:40:23 +0000, André Draszik wrote:
-> This series adds and enables the Maxim MAX77759 TCPCI for Google Pixel
-> 6 (Oriole).
+On Tue, 24 Dec 2024 04:33:36 +0100, Igor Belwon wrote:
+> Add CMU nodes for:
+> - cmu_top: provides clocks for other blocks
+> - cmu_hsi0: provides clocks for usb31
 > 
-> It relies on the bindings updates proposed as part of
-> https://lore.kernel.org/all/20241203-dtbinding-max77759-v3-1-e1a1d86aca8e@linaro.org/
-> and
-> https://lore.kernel.org/all/20241203-gs101-phy-lanes-orientation-phy-v2-2-40dcf1b7670d@linaro.org/
 > 
-> [...]
 
 Applied, thanks!
 
-[4/5] arm64: dts: exynos: gs101-oriole: enable Maxim max77759 TCPCi
-      https://git.kernel.org/krzk/linux/c/ddbf40d8ce4a6b35821d0a0453370ec1422d915b
-[5/5] arm64: dts: exynos: gs101-oriole: add pd-disable and typec-power-opmode
-      https://git.kernel.org/krzk/linux/c/817473b6ddaf9eb5f2bc7d6dce9fa13a921477a0
+[1/1] arm64: dts: exynos990: Add clock management unit nodes
+      https://git.kernel.org/krzk/linux/c/f21231ac28f44cd5daf50bc8fdae381f451b46c9
 
 Best regards,
 -- 
