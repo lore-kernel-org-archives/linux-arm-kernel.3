@@ -4,97 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A704E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 01:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33377E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 04:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3WVLyaW7tbkTdkvAc7fLc/iU7mB3GngX29w9tDnpiw=; b=RltuwuMK7et/lpF71ZB88kVS0z
-	bgkANlhQlkhdaq8wRxWeBBCcIbOjbimrwkPGDbW59ASf0aWDdBcX10O430RsiKwuLIr8wCNT7cmkq
-	felntLS4hMVTtAG8VeFW40klm2a2ltbqYwdYu+mEoTBU1Ii1v60R7ymekBXU4nOxNRQdq3Yn5Hmz+
-	7iJlAmS5D2F9dfPg3bZk/MfBiVvELYrAsZTlA9SWez9KCerklNZ/o/9a3ZapZ6K+FQ0Qj2SzU28tV
-	3/a+uBZcBSQWAP0Wgsl1jA2+7JOcbQOsF5mnuD6/RLT1cFlmrVs10C2isvnvFVoDFtCR/50TFqOcT
-	wul/YyCg==;
+	bh=kmRmow4ij1wj8NxR26ZZrxr/RgEq3MZKXl2c41wGPBg=; b=JbwmvQciWk5NPxHs83PTMlAKRg
+	BWU79OsTvoCGwZ5yIs03HH4dX5JMid8EXpkj7rbAWzloJFdGccNgyB2PQUNCu1ty08RE8Yi86Rd8Q
+	JROUDxPOn8pjNV/H7bnOsFxu7P5W9NfFlSkDZcYiDemZ7uxTW4GQIcKA6ujPfcJ1mNhQjvaGqyKEl
+	djMzej+agn9KJaTum7RP6kom0T8QdJNElHa7dPDoq6fnob+fVSwX99vm1dSjOc1t7Budl0RB0XsdW
+	1yixOFK+o84e7nk5Vhu4/Zm0zBA8PsCKA6RM/Wh5GPP3q2DAZ4OqcCPq9UEQJAHkM52U7OJQUsmYF
+	s/DpQnwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRiIW-00000002h6H-0x0z;
-	Sun, 29 Dec 2024 01:40:52 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1tRlFJ-00000002qXE-1cyk;
+	Sun, 29 Dec 2024 04:49:45 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRiHJ-00000002gyB-3niS;
-	Sun, 29 Dec 2024 01:39:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735436378; x=1766972378;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rFQfnH8g9qnvAm/orX7H7+JRj5OpvCxqGxR6Qhq2ETY=;
-  b=YrHqigENiRZFKFNdf/eyVKM6sZLYSgeadY5sfAlQL2fs9T9/XmOpLaKd
-   ywgM/fVAo8a3bGNGuGdDZLjG6OSJRe9wQ8bdnvskoIh7id9Gd2e+Pu/Jh
-   mOdhNYOfiv3iaBnb9uVVCtP3DG9B78oLa0Gm/RGRSL5TjImxTnONG5JjB
-   VVlsinm/4ed/XkRy7qm5Qnh23nI0Ovq+XI/L8yfzHb+2QAZY0eMrGXDX/
-   x4J/WykliuqVrIbB8q6l6dsWCT7eLL9qAsuR3tobDcCEfxt84AT/xweKu
-   9Bx/M2Y/7502cShz4K4QGYKqVMBVK+MNIQ2wFsK6wj9a9zScdBuyHY708
-   Q==;
-X-CSE-ConnectionGUID: 9vl8e+jwQ6OfsONcjM40Ag==
-X-CSE-MsgGUID: /0OQ8fUWQqSKky7PXTqafw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11299"; a="35802059"
-X-IronPort-AV: E=Sophos;i="6.12,273,1728975600"; 
-   d="scan'208";a="35802059"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Dec 2024 17:39:37 -0800
-X-CSE-ConnectionGUID: Oy4svG45T4qIdA2Vlwx06g==
-X-CSE-MsgGUID: xNOqO8z6T+WhcD2uqXjGIg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="100302592"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 28 Dec 2024 17:39:31 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tRiHA-0004QO-0J;
-	Sun, 29 Dec 2024 01:39:28 +0000
-Date: Sun, 29 Dec 2024 09:39:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Raphael Gallais-Pou <rgallaispou@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
-	linux-ide@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-spi@vger.kernel.org
-Subject: Re: [PATCH 2/6] mmc: sdhci-st: Switch from CONFIG_PM_SLEEP guards to
- pm_sleep_ptr()
-Message-ID: <202412290939.43oNt9t6-lkp@intel.com>
-References: <20241229-update_pm_macro-v1-2-c7d4c4856336@gmail.com>
+	id 1tRlE7-00000002qPV-23xc
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Dec 2024 04:48:32 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30229d5b229so87625811fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 28 Dec 2024 20:48:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735447709; x=1736052509; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kmRmow4ij1wj8NxR26ZZrxr/RgEq3MZKXl2c41wGPBg=;
+        b=df5sXKv5EdBX0Wm49waYUMeoAbPe+IezdV6BWlbD7OX6I0BT5IdKdnUD522SXkH12t
+         MEVaZFE3LCLEMHEKaX2lEcKXqg9ZsovEg1V6ULI3Y+a1LgxKK7D0q4RuIusoN9DbF3eC
+         tf3GMfYdG2FoBV295MHS/VzHSuGPItGDQfss9P1rKOfC8nlA5AyjnNFFZDqtnaz8y71e
+         cFcs8AQEBh9UR+tUqGoGSZ67MTZfKj/UfeIjWB1j5JPHsB238PIJdVKDYYA3FTNX+U9E
+         bDlIDXO8QUg4J+Ja6ZjN9ycTCCkPlqYTIrs3NneqRTd3U2bu4eWEjMrQ6IZFz6mlxlS6
+         Az8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735447709; x=1736052509;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kmRmow4ij1wj8NxR26ZZrxr/RgEq3MZKXl2c41wGPBg=;
+        b=qPRpjNNxZgWM3uJ2jkBwkrpHXP0EU4Zt7fKj0qQJj48uPNpkCgbU61cJCH0jZSz6Wz
+         4MGeqVYP64qu8F7Lja3KOIeAxaplLU3x01daFvWUcsOqjPrOz9HQEdAQimChSNB2BdWz
+         EiviuYyMYdsVDLd0yhrxOM+EuzbumKg8qR6eSldRm3n8A+eLG8ipUVGPPvbXHOFnSLMc
+         IxHGaPBMb/adq33/SjpAfUykTp7IUbygIPjXxDkQEY7ihvphJg6+e+ljXjQVjK6TZQS6
+         fitBtnKXYgoBKkDg44D7jJJqaMZQflZmKAKO1vgOGtSayvlnBKrqgAdTxu0IhpER2v5o
+         qjOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+E7Mvm0Cbbi1FzKRrnKawTTdhFxPqixgzw/2DmawIUs8Qq0rIsupz7HwSXeB/C5KE+ouJsfUrKcUlDf30Tnju@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8cAFRAOnPeOCT1bxuksJliuL13zG3g78oVBC/b+lO7y/U7Ze6
+	qwuVnC1TqqOtoGMbUkhwHM+H7zm23fk28iwUrOY4vB8BA39tNqVl5oYi4W6RVsY=
+X-Gm-Gg: ASbGncs/Edz8NSGmj6mBu9weJ3dCHYmTzGL22P0McRkAnvB5ircBoTnmYFvViery5jc
+	MqJrmdfXnWmBg3GCBBTezSCPWaLL2lFzCrsXRZDUAwWHuaBY3P1L11IT9CXn1Xn7fIwF9G+IXlz
+	YbyCIPfKLD8bntpGT9ghDNohhn6lFxVIpZcM700WqCNcuIyJRmZXgGY8OfZ5K1XpI5aG5WVHfhr
+	HQ0DeGYyYgIlw8/Gsz/IRMzom7N85ZKB7auxEznjS5QTqhf8Fb42YZnFHPxmBQaYg4hieGDm9T1
+	vWNiZZl9q3khMnJP0fMmLAtphNj5YaNvD6MO
+X-Google-Smtp-Source: AGHT+IFLdOShLFUrgmFocbWkVBhAX2agF1zyEDdRzkJIIIUTfHxFHK7o41L90uicbnh2u3edwxhOVQ==
+X-Received: by 2002:a05:651c:50a:b0:300:3a15:8f2a with SMTP id 38308e7fff4ca-30468503587mr106112501fa.2.1735447709482;
+        Sat, 28 Dec 2024 20:48:29 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045adac821sm30924381fa.59.2024.12.28.20.48.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 28 Dec 2024 20:48:28 -0800 (PST)
+Date: Sun, 29 Dec 2024 06:48:26 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
+	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
+	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v4 09/17] drm/bridge: analogix_dp: Add support for phy
+ configuration.
+Message-ID: <nqbcp4wwvzxh7qpvlobt3mw7clj22bmq72xsaw7sbzfj3dpyll@u5mq5ciijse2>
+References: <20241226063313.3267515-1-damon.ding@rock-chips.com>
+ <20241226063313.3267515-10-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241229-update_pm_macro-v1-2-c7d4c4856336@gmail.com>
+In-Reply-To: <20241226063313.3267515-10-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_173938_006222_94194738 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20241228_204831_526783_EF9235EC 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,92 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raphael,
+On Thu, Dec 26, 2024 at 02:33:05PM +0800, Damon Ding wrote:
+> Add support to configurate link rate, lane count, voltage swing and
+> pre-emphasis with phy_configure(). It is helpful in application scenarios
+> where analogix controller is mixed with the phy of other vendors.
+> 
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> 
+> ---
+> 
+> Changes in v2:
+> - remove needless assignments for phy_configure()
+> - remove unnecessary changes for phy_power_on()/phy_power_off()
+> 
+> Changes in v4:
+> - remove unnecessary &phy_configure_opts_dp.lanes assignments in
+>   analogix_dp_set_link_bandwidth()
+> - remove needless &phy_configure_opts_dp.lanes and
+>   &phy_configure_opts_dp.link_rate assignments in
+>   analogix_dp_set_lane_link_training()
+> ---
+>  .../drm/bridge/analogix/analogix_dp_core.c    |  1 +
+>  .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 52 +++++++++++++++++++
+>  2 files changed, 53 insertions(+)
+> 
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Raphael-Gallais-Pou/usb-dwc3-st-Switch-from-CONFIG_PM_SLEEP-guards-to-pm_sleep_ptr/20241229-073700
-base:   8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2
-patch link:    https://lore.kernel.org/r/20241229-update_pm_macro-v1-2-c7d4c4856336%40gmail.com
-patch subject: [PATCH 2/6] mmc: sdhci-st: Switch from CONFIG_PM_SLEEP guards to pm_sleep_ptr()
-config: hexagon-randconfig-001-20241229 (https://download.01.org/0day-ci/archive/20241229/202412290939.43oNt9t6-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 319b89197348b7cad1215e235bdc7b5ec8f9b72c)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241229/202412290939.43oNt9t6-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412290939.43oNt9t6-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/mmc/host/sdhci-st.c:460:8: error: call to undeclared function 'sdhci_suspend_host'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     460 |         ret = sdhci_suspend_host(host);
-         |               ^
->> drivers/mmc/host/sdhci-st.c:494:9: error: call to undeclared function 'sdhci_resume_host'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     494 |         return sdhci_resume_host(host);
-         |                ^
-   drivers/mmc/host/sdhci-st.c:494:9: note: did you mean 'sdhci_remove_host'?
-   drivers/mmc/host/sdhci.h:827:6: note: 'sdhci_remove_host' declared here
-     827 | void sdhci_remove_host(struct sdhci_host *host, int dead);
-         |      ^
-   2 errors generated.
-
-
-vim +/sdhci_suspend_host +460 drivers/mmc/host/sdhci-st.c
-
-f52d9c4f459bda Peter Griffin 2014-07-09  449  
-f52d9c4f459bda Peter Griffin 2014-07-09  450  static int sdhci_st_suspend(struct device *dev)
-f52d9c4f459bda Peter Griffin 2014-07-09  451  {
-f52d9c4f459bda Peter Griffin 2014-07-09  452  	struct sdhci_host *host = dev_get_drvdata(dev);
-f52d9c4f459bda Peter Griffin 2014-07-09  453  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-1531675269c833 Jisheng Zhang 2016-02-16  454  	struct st_mmc_platform_data *pdata = sdhci_pltfm_priv(pltfm_host);
-d38dcad4e7b48f Adrian Hunter 2017-03-20  455  	int ret;
-d38dcad4e7b48f Adrian Hunter 2017-03-20  456  
-d38dcad4e7b48f Adrian Hunter 2017-03-20  457  	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
-d38dcad4e7b48f Adrian Hunter 2017-03-20  458  		mmc_retune_needed(host->mmc);
-f52d9c4f459bda Peter Griffin 2014-07-09  459  
-d38dcad4e7b48f Adrian Hunter 2017-03-20 @460  	ret = sdhci_suspend_host(host);
-f52d9c4f459bda Peter Griffin 2014-07-09  461  	if (ret)
-f52d9c4f459bda Peter Griffin 2014-07-09  462  		goto out;
-f52d9c4f459bda Peter Griffin 2014-07-09  463  
-406c24310a7bd7 Peter Griffin 2015-04-10  464  	reset_control_assert(pdata->rstc);
-406c24310a7bd7 Peter Griffin 2015-04-10  465  
-3ae50f4512ce83 Lee Jones     2016-09-08  466  	clk_disable_unprepare(pdata->icnclk);
-f52d9c4f459bda Peter Griffin 2014-07-09  467  	clk_disable_unprepare(pltfm_host->clk);
-f52d9c4f459bda Peter Griffin 2014-07-09  468  out:
-f52d9c4f459bda Peter Griffin 2014-07-09  469  	return ret;
-f52d9c4f459bda Peter Griffin 2014-07-09  470  }
-f52d9c4f459bda Peter Griffin 2014-07-09  471  
-f52d9c4f459bda Peter Griffin 2014-07-09  472  static int sdhci_st_resume(struct device *dev)
-f52d9c4f459bda Peter Griffin 2014-07-09  473  {
-f52d9c4f459bda Peter Griffin 2014-07-09  474  	struct sdhci_host *host = dev_get_drvdata(dev);
-f52d9c4f459bda Peter Griffin 2014-07-09  475  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-1531675269c833 Jisheng Zhang 2016-02-16  476  	struct st_mmc_platform_data *pdata = sdhci_pltfm_priv(pltfm_host);
-2053812f6e1af0 Peter Griffin 2015-04-10  477  	struct device_node *np = dev->of_node;
-7f55eb101d4a75 Arvind Yadav  2017-06-20  478  	int ret;
-f52d9c4f459bda Peter Griffin 2014-07-09  479  
-7f55eb101d4a75 Arvind Yadav  2017-06-20  480  	ret = clk_prepare_enable(pltfm_host->clk);
-7f55eb101d4a75 Arvind Yadav  2017-06-20  481  	if (ret)
-7f55eb101d4a75 Arvind Yadav  2017-06-20  482  		return ret;
-7f55eb101d4a75 Arvind Yadav  2017-06-20  483  
-7f55eb101d4a75 Arvind Yadav  2017-06-20  484  	ret = clk_prepare_enable(pdata->icnclk);
-7f55eb101d4a75 Arvind Yadav  2017-06-20  485  	if (ret) {
-7f55eb101d4a75 Arvind Yadav  2017-06-20  486  		clk_disable_unprepare(pltfm_host->clk);
-7f55eb101d4a75 Arvind Yadav  2017-06-20  487  		return ret;
-7f55eb101d4a75 Arvind Yadav  2017-06-20  488  	}
-f52d9c4f459bda Peter Griffin 2014-07-09  489  
-406c24310a7bd7 Peter Griffin 2015-04-10  490  	reset_control_deassert(pdata->rstc);
-406c24310a7bd7 Peter Griffin 2015-04-10  491  
-2053812f6e1af0 Peter Griffin 2015-04-10  492  	st_mmcss_cconfig(np, host);
-2053812f6e1af0 Peter Griffin 2015-04-10  493  
-f52d9c4f459bda Peter Griffin 2014-07-09 @494  	return sdhci_resume_host(host);
-f52d9c4f459bda Peter Griffin 2014-07-09  495  }
-f52d9c4f459bda Peter Griffin 2014-07-09  496  
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+With best wishes
+Dmitry
 
