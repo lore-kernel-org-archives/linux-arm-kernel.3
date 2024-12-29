@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A33E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 11:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A57E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 14:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9J38BNMU1Uzv4f7FCoN1Yfwc75lF73CELPPui56iYw=; b=Uax7cMRBn07rB3xdixmq/Khc1D
-	pwIEpv7d3WXtMVJThMVjylPySP/LpP5/nWsxcSrTif+k7roayZGQsx4S5KgIoby1xym0smQm+Qcrl
-	rbw4+PoRNGw0RxRHmsk/Jg1KhjTv8n87ogM8qRrbpbmz7coTOxktQIqKfZBSAbvUR/Fm2gpJ9W+Ru
-	sO8QHI5CdDxluku+qXI4o7DdaSa0lzX9b1U/TJjPK80eoS/fSyYKbVTTTCKL6bzdOB1RgRpidoTxP
-	0W5OSaZvDdr9oJEWNRsOc7UjQaHKgRTWZUQ3SrCwtFJkI+7I0rM1vw2BKuXF9c9LwT8NTqo2pGrAW
-	mH5ZxqJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xIeTXK2tT8GiOrGH1G6rXzh8bEX4/s2CJjW9ca6ycWY=; b=0aYyTGuWZ+H15nOFEEeqEuAwDe
+	hHLV+HU3OwfNSOgG5P1QJ8iMZRMJmlp9eN/9xDIEkyo73uXMo1PTYdiANwTTsoQJE1w5k29sTYTUr
+	ahqHGys/XVKEdd+1WpCrUB2FlDWtlsrV/XKIm4EeOJcb+wQA+zGY+48pDir4tevMRQ4QOEj2rvHIq
+	l2rzcaYT7wu1xker8JTqTREfqLuL8yAWyL4BaC/w+aZwcVvihmBHweg15fN4tO9LK2ZCASZWBYO1H
+	vVdfsbsOjVIm0c8mQ+1/B/t24pKOWbG1uppbi6ELhelqItyl55pca4sSlhQ6lus4MvYd1mkBqD3hd
+	w3SGOwlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRrJw-00000003Jxh-0m7I;
-	Sun, 29 Dec 2024 11:18:56 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tRuQ4-00000003V9V-2KiW;
+	Sun, 29 Dec 2024 14:37:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRrFR-00000003JQ4-3pau
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 11:14:20 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21669fd5c7cso107668105ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 03:14:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735470857; x=1736075657; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=a9J38BNMU1Uzv4f7FCoN1Yfwc75lF73CELPPui56iYw=;
-        b=e59aRWI3cLf5nT225Uws/B7FUQDBA4x8lvFEiCmUIuhEHQBZBLg4XckdIArVzmFpH8
-         Atzbat7q1lf4bDKxS24sLFMN23pguQAvkGfT9LmbZzCqmQpbYUYcN4NBIookSyjbo/VZ
-         OsEihCTdt3ICgat28kbRTa3RcQ5UoJNWF1tLWlUxcDHR+hB0F3vrFvnXKDlR04lsReN0
-         MC1H61FMhH2TjiJeiZc25ydIjCT7C0Eawc3bUbgRnvALg5xoDASAaUYSNeYplB+oLSCz
-         P7cxITXAjuG2eLbuK4SLrAX8PfjJoNktJ3sOzbzEULngGirfSjvchyKUzlS2HZsDPx42
-         q8Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735470857; x=1736075657;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a9J38BNMU1Uzv4f7FCoN1Yfwc75lF73CELPPui56iYw=;
-        b=jvqhE/JzUgbO88E/COe4YRNcLDYwJm7kenS46q6SqCsNY0eRtdMEobtdvYr5KYvzQk
-         JDbS7ZZxXDO/fXxZ2Pvr4dFaQdfrvlwBlBuAI4WBbgCAZDzW4Ec5e4ABFJlqin5ExjUu
-         s3jsF+FTCo3FctssfufPPIfpu214AV5IU5ybaV3IdhD4ElfiZy7WSWmjaSiRSWq09NDt
-         teHpjqy3+aiGffHmtdrKSuQ5YNxjFQZpl22onb74mdBAmy4OELDNhD6Zda4W9E3Yw4t+
-         Qf0EY1dh66d0hDoN9KCG2V7ToTfjqarG6og1L7Wb9Z8VbNSdj46EgMhG0FPxeK5VJ4zO
-         2WhA==
-X-Forwarded-Encrypted: i=1; AJvYcCVeif0lSZZDR98AfwxUIuRAMrdZw2/kdzBiqIviqFVDKkQxiYjD44PaIW+2PRnHsxvYqNUatudqvJT0X0ZGWzB2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzD3A0L3f+J/0302OSmgJFgl0SD/yr1GsDg3jqGqPj6uWW8lKJ6
-	Bh45ygfGh3H4Mh87kUE/x87xGbmyTmg1+5JOO8O+/q66tYuynoxZ
-X-Gm-Gg: ASbGnctbY8Fb8LpGmtC1U2of6zGMUG/SEIrHnwH1tY/kTuOTtw8tFtD1vJiJHp5cwjt
-	dFAhTPfM+oJopmbqDw9aqbXGtNU2MRVN5Pzqx8EGGeTZhdLhd/CS0BKpsnLEKLDrFcSz3wfP7uB
-	Ix+oAlhHEN3agkwYIjGDyTI7eDDIL9xA1ZeI7g7YQeo+9TCrNSRP34ufRgx2wRgUmhvLYv0DKrO
-	SMaMYER3jshvJz6R11FK217Zs3MrK+WnadMu+bca2twUbS27E1qlMT5dg==
-X-Google-Smtp-Source: AGHT+IHj1y3F1X3HGHzS3Px3LuQKUEyT2NVI7IfSKzHwkiIrQ3sJyJpJf3UtrIia+cnNqjNTX6LRiw==
-X-Received: by 2002:a17:902:c412:b0:216:4972:f8e0 with SMTP id d9443c01a7336-219e6f2ffb4mr459732985ad.44.1735470857377;
-        Sun, 29 Dec 2024 03:14:17 -0800 (PST)
-Received: from nick-mbp.. ([59.188.211.160])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dca02544sm161655895ad.255.2024.12.29.03.14.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Dec 2024 03:14:16 -0800 (PST)
-From: Nick Chan <towinchenmi@gmail.com>
-To: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Lee Jones <lee@kernel.org>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Pavel Machek <pavel@ucw.cz>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Nick Chan <towinchenmi@gmail.com>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org
-Subject: [PATCH v4 RESEND 3/3] MAINTAINERS: Add entries for Apple DWI backlight controller
-Date: Sun, 29 Dec 2024 19:11:19 +0800
-Message-ID: <20241229111322.4139-4-towinchenmi@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20241229111322.4139-1-towinchenmi@gmail.com>
-References: <20241229111322.4139-1-towinchenmi@gmail.com>
+	id 1tRuOr-00000003V2X-3EwN;
+	Sun, 29 Dec 2024 14:36:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xIeTXK2tT8GiOrGH1G6rXzh8bEX4/s2CJjW9ca6ycWY=; b=qKVQP+UHNn1KBZzCZwhZEP+dv5
+	JVeHDMjBlFKGne6r2oerhTUo6xr4REMBXAj9Zsp4HrkIFIH5fyvmXDwITnbI0H/wSNZbUu0eqMw3c
+	Dlsclx1C5/gKngjj6XIB9hEGZxmX9opOFL0VFztQb7U5WYy5CugnVJb/Nrbzfpr2PQK/oxLm6Jbi3
+	mjAx2Wa0FQUFS/0TalNBcMOrAuR6U6AZUmIWyVNCY9QMr04kjj4w5QUesj3v/IrLWQulot4XZvRux
+	11daSIUyDraGOB0TtUfHnyo3S9yEeS+FAJfmZuQnI1bVcDSXWVjO8uHj/cGJ6j3s5jRvCXE3GKU0b
+	XJD9GaZw==;
+Received: from i5e860d12.versanet.de ([94.134.13.18] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tRuOY-000400-7W; Sun, 29 Dec 2024 15:35:54 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: krzk+dt@kernel.org, joro@8bytes.org, cl@rock-chips.com, robh@kernel.org,
+ hjc@rock-chips.com, vkoul@kernel.org, devicetree@vger.kernel.org,
+ detlev.casanova@collabora.com, cristian.ciocaltea@collabora.com,
+ dri-devel@lists.freedesktop.org, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v2 0/8] Add display subsystem dt node on rk3576
+Date: Sun, 29 Dec 2024 15:35:53 +0100
+Message-ID: <3330586.aeNJFYEL58@diego>
+In-Reply-To: <6ff7470.1060.194112c804a.Coremail.andyshrk@163.com>
+References: <20241228122155.646957-1-andyshrk@163.com> <4950097.GXAFRqVoOG@diego>
+ <6ff7470.1060.194112c804a.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_031417_961985_380A60F5 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20241229_063613_836887_026361BA 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +78,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MAINTAINERS entries for the driver.
+Hi Andy,
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- MAINTAINERS | 2 ++
- 1 file changed, 2 insertions(+)
+Am Sonntag, 29. Dezember 2024, 07:48:36 CET schrieb Andy Yan:
+>=20
+> Hi Heiko,
+>=20
+> At 2024-12-29 02:36:36, "Heiko St=FCbner" <heiko@sntech.de> wrote:
+> >Hi Andy,
+> >
+> >Am Samstag, 28. Dezember 2024, 13:21:43 CET schrieb Andy Yan:
+> >> From: Andy Yan <andy.yan@rock-chips.com>
+> >>=20
+> >>=20
+> >> As the VOP[0] and HDMI[1] driver have already been submitted for revie=
+w.
+> >> This series send all display related device tree part together.
+> >> [0] https://lore.kernel.org/linux-rockchip/20241219073931.3997788-1-an=
+dyshrk@163.com/T/#t
+> >> [1] https://lore.kernel.org/linux-rockchip/20241225103741.364597-1-and=
+yshrk@163.com/T/#t
+> >
+> >not to confuse you too much, I mainly meant that we were missing the
+> >"arm64: dts: rockchip:" patches from this series.
+>=20
+> Sorry, I misunderstood it in V2 . Before go to the next step, I would lik=
+e to confirm it again:
+> Does that mean I should:
+> 1.  the dts patches(6/8, 7/8 8/8) should be sent as a separate series.
+> 2. PATCH 5/8 should still go with the rk3576 vop driver[0]
+> 3. PATCH 3/8 should still go with the rk3576 hdmi dirver[1]
+> 4. PATCH 1/8, 2/8 4/8  should still be sent separate  ?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 910305c11e8a..54a6c8ca7017 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2196,6 +2196,7 @@ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
- F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
- F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
- F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
-+F:	Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
- F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
- F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
- F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
-@@ -2221,6 +2222,7 @@ F:	drivers/nvmem/apple-efuses.c
- F:	drivers/pinctrl/pinctrl-apple-gpio.c
- F:	drivers/pwm/pwm-apple.c
- F:	drivers/soc/apple/*
-+F:	drivers/video/backlight/dwi_bl.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
- F:	include/dt-bindings/pinctrl/apple.h
--- 
-2.47.1
+exactly. The reason behind this is to prevent confusion about who is
+expected to apply a patch.
+
+The dt-binding goes together with driver-changes into that subsystem-tree.
+This normally also includes single bindings. So the "normal" expectation is
+that the iommu-binding patch goes through the iommu tree, the phy-binding
+patch goes through the phy tree and so on.
+
+And of course the hdmi-binding patch goes together with the hdmi-driver
+change.
+
+
+Heiko
+
+
+> >The dt-binding patches are (already) part of the driver changes and
+> >should stay part of those series, to prevent confusion of what part goes
+> >where :-) .
+> >
+> >
+> >Heiko
+> >
+> >
+> >> Changes in v2:
+> >> - Wrap commit message according to Linux coding style
+> >> - Make "rockchip,rk3588-hdptx-phy" const for "rockchip,rk3576-hdptx-ph=
+y"
+> >> - Make declare phy/ropll/lcpll reset line are not exit on rk3576
+> >> - describe constraint SOC by SOC for vop2 binding, as interrupts of rk=
+3576
+> >>   is very different from others
+> >> - Drop Krzysztof's Reviewed-by for vopp2 bindings, as this version cha=
+nged a lot.
+> >>=20
+> >> Changes in v1:
+> >> - ordered by soc name
+> >> - Add description for newly added interrupt
+> >>=20
+> >> Andy Yan (8):
+> >>   dt-bindings: soc: rockchip: add rk3576 hdptxphy grf syscon
+> >>   dt-bindings: phy: Add rk3576 hdptx phy
+> >>   dt-bindings: display: rockchip: Add rk3576 hdmi controller
+> >>   dt-bindings: iommu: rockchip: Add Rockchip RK3576
+> >>   dt-bindings: display: vop2: Add rk3576 support
+> >>   arm64: dts: rockchip: Add vop for rk3576
+> >>   arm64: dts: rockchip: Add hdmi for rk3576
+> >>   arm64: dts: rockchip: Enable hdmi display on sige5
+> >>=20
+> >>  .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   1 +
+> >>  .../display/rockchip/rockchip-vop2.yaml       |  70 ++++++++--
+> >>  .../bindings/iommu/rockchip,iommu.yaml        |   1 +
+> >>  .../phy/rockchip,rk3588-hdptx-phy.yaml        |  62 ++++++---
+> >>  .../devicetree/bindings/soc/rockchip/grf.yaml |   1 +
+> >>  .../boot/dts/rockchip/rk3576-armsom-sige5.dts |  47 +++++++
+> >>  arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 126 ++++++++++++++++++
+> >>  7 files changed, 276 insertions(+), 32 deletions(-)
+> >>=20
+> >>=20
+> >
+> >
+> >
+> >
+>=20
+
+
+
 
 
