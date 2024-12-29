@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D41E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 15:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF5CFE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 15:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzsVBhjhlmiF36sGbiHfZNPUdaBOg5gbMlUQSL+IAZc=; b=Aroj28XpXTcRAfYIeafnle0PbS
-	Zk0PR7PKKYuqjvcCgu7nieYpd+EcorVSJ+62vp8zoQ4ldb1xDxerA0u+Hf6vAbBFwlXKSXh+PZIlf
-	j1ZD3eCtvceMGRMhWz6mRTd8dOcVVm7wYGuufUAdORyyTd2he0DOigbNsHDhc9E0Nakm9K70E11Ap
-	b6ugWJOvWvcAD7MVjgFWyZUDyMCm4btfPqaw+rG+LvA9/fdo/wcCfHQ3ETS2GfljCznWHmwSoX88E
-	kP6pbi/AYV0QLmGySQE70e1k01qhn9MZMC3hty43wSEYbkHc1i0nQ8J7G8m39J5pHnXfpkzvxvPP+
-	LU6tR5rg==;
+	bh=6wKU7hDbBAEhh5ugFEv8c2E//GwNCMwODyh4qXAxbC4=; b=KiPq3wjV6SvB1GKRrAnTgiSCsX
+	R5y5E61wJyd7CZ/aJku2D+4/Ey7+DK32JGUl6zKFsKfNbmvlVOeOUglO1/sCDumcp6umOz9Jv4VjN
+	A0pq1PgHvTITvZnKHuIU5UyTQ/StNPGdA6Ndjz/cem2kl5yil77niHgK7sDDzh+z43ESfQiqDqjPU
+	Nrg1wau+eStobwQWyS5tu4+dsQ7euCqjPTw4TQ2Tgd+PBdt/e56PlC3Lp+M6pTLLgKMf/1xZElxsg
+	UIqGaGsE3WYZqq10xo0t4CmOIY5Yy4jRlK/iga/csduUeiFxQcKPDOQLz63sSNhqmzCftuoadHnnX
+	MLUw8N4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRuxw-00000003YpS-0Y1X;
-	Sun, 29 Dec 2024 15:12:28 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tRuz6-00000003Yxp-3gRD;
+	Sun, 29 Dec 2024 15:13:40 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRudB-00000003W3y-0w6B
+	id 1tRudE-00000003W5L-1L5e
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 14:51:02 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5d7e3f1fdafso17216551a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 06:51:00 -0800 (PST)
+	Sun, 29 Dec 2024 14:51:05 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa689a37dd4so1278923966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 06:51:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1735483859; x=1736088659; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1735483863; x=1736088663; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jzsVBhjhlmiF36sGbiHfZNPUdaBOg5gbMlUQSL+IAZc=;
-        b=hzfThL4sejViwpkpuDJn0UeE9eMHWVj/p1QCvlZVNKJA9Vl3fUXBfnMgd2d51On+NI
-         i8ghvrHvVFr/8JBW9dtEyh6VYAnzf1yIiyf2B+nvtyI1ZMP8XUxaqu6RbK5Ir2Xto4Yd
-         AT6p80eIqNrKhVAmWJWkMy9ZhD6dvBy5CwgRM=
+        bh=6wKU7hDbBAEhh5ugFEv8c2E//GwNCMwODyh4qXAxbC4=;
+        b=LFKirBnNKSpia68wxtle4GXF753rOxyG3xLLycoy4ZMkeiMQW8Ujblw0ud36EvZkd6
+         Gpp/gi7/BB7/wSxS1LiECMprTCHgImZO8y7NrlM8nsAbKgNuUBzN3jqBi/iw+yR1g5wW
+         LSPnOKJagY6XHmNHCboxZcC0PripTbuhva4s0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735483859; x=1736088659;
+        d=1e100.net; s=20230601; t=1735483863; x=1736088663;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jzsVBhjhlmiF36sGbiHfZNPUdaBOg5gbMlUQSL+IAZc=;
-        b=QkjUNVMgGfHMr0O3YJE4qYCqvgJRLb9ULpZZgKy2yTwwGj0ewSw5Bn63YJvqm1KeFW
-         NPP+h16yAXkg6lHDlcWDtZ3e3BPzCoRupoz63jaVHnQB4AUzmcoj/OLowEccN+8rr2SH
-         cmM9OpFjWk53sje5Fo4msu7wR2abm6hmHEhXlCS8T9erSCeklNeE1/gc0rMdH9JQnBXR
-         ymIlo0yTiNeTH8hI2zh4+rURCXO5kx9bv1DPJl4bjvW8Oa0mNoUM/9ad6NCk7+7riKno
-         k4YeQMW7iKci2e7OGDWO8BQCg3BRMTZS0T791aCehporYwnhv+zX9s2YBb5pT+tzfQ6O
-         b0og==
-X-Forwarded-Encrypted: i=1; AJvYcCU8RySr0F7LjvLh5l/5nDEeVHcwnfkUwqiKc8zwMGNkk5oG/DW4RouydG/4H6jD1WAm+cmHw3yMhWf9I8y+qu77@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdcKoxv/rGV9TIjWxdzX3udsSAVOBxnz3dleny22xfEy82+Ybi
-	Eaa3IYm1bU8nUdckyfuPk+OUoWeRJXUWAtigOU+jTXGGo95Q+MvntSPCWg7OrXA=
-X-Gm-Gg: ASbGncub/A9veXm6fO+RIZ4iroci/G2E5E38l24hJQn68vXX81f+GPySpaytYma/b78
-	SqHt6VMIp5l153hfCdbRv3WY9lsk97Ru2Xwos9ZSON7B7+xEAsE3dGnP1YqcVZss7ZtzzEth4vV
-	UqSOO3/VuWcMbT+ddgsJD/1J2EMrZ/qReXDYaJqbRVPPHynVPzi9QwHGWNMNffl0cxJppFoAdK7
-	niNW0U6yp601UHXk7ozE5Jk1yYG9Uo8MilSms/Zu4axY/dys8uE24CZU8veX6oyUubFL6kDfrYg
-	qmliuaxzgPG/551dvKm0Qw==
-X-Google-Smtp-Source: AGHT+IGonlEnl0JiDrA5A72iBC8cUxm0T3+II8EAxliL06cYdXrClqNNSpQCBZm7+nUKIwPGFzUbWQ==
-X-Received: by 2002:a17:906:f598:b0:aae:c3c1:1361 with SMTP id a640c23a62f3a-aaec3c1186fmr2529063966b.44.1735483859533;
-        Sun, 29 Dec 2024 06:50:59 -0800 (PST)
+        bh=6wKU7hDbBAEhh5ugFEv8c2E//GwNCMwODyh4qXAxbC4=;
+        b=Tw611unsplQ/5XFAvy2oB2K4sWaSS2uNwUShz2KplyvTOXOiYVqQbVi8ZfjX0C62W/
+         fb9q8WG0oQkmcJaW8t0jXFHESYueUn5MLz9fBlreY/7TPej962Nwf65OqgLapVGT6tmI
+         r0nBM4FEefaFqRlTrtuRp5JIoL+pkvyPQPpBVv039z02gvwO3qrw96uN4GmIoZcswR1a
+         qRAxN7K4f1GkOgarGvMueZJEVoDojke5gxpgT480fOsyEd6nxjJ4knZ2MQfyVH7BU1+Q
+         VHFSFuwLl+XnNLsPjTJfg3Ar7yp4C/nYuURqLc745Q7vcZNFgSPumjZyrSef1A2wdu/e
+         B3tA==
+X-Forwarded-Encrypted: i=1; AJvYcCU28NWA7KnkMIl4H58e30K2E/uSZReYXIotrDilmOJsWeJkC1vGMap3CHsUEuoOxOOakWGSoIAU7YR5D8jQ62V3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3twrHkJhN4z9u/drEkEG+lBY9J0tVdEeGsWDAMX7VhuzzPM4q
+	c3X44yl2/nAs8nXhEv+RNS9HHrUhni3IL7J3qgxpHonkutMbbkphuMjlf1r1Tyc=
+X-Gm-Gg: ASbGncti8CzIhdQ+spPpmTPmiHTs9gyELSfw8SzRraY3KPkfd+nidWjjBmo5WD4zUKq
+	NH3lfyG6sPlpA2Zy/4GJa22aApnCGxO391csxb+dgKtWjw4RvhodnUBd8FmUMfzisITbXLW0Q3M
+	IKnPk19MH5ZHOccbzK8zkUFEBNDtou+ehmFYuar436JpKY5pmd76d4oP6pdKafT8xYw2H/bg3ea
+	NJ0Z0BifTYYMmpKlrl8bMdxLebGdBZkL5j0KJqwWAX0+sxBepwfOLSASeLYyLijhMhqJ086fRU2
+	mNk/TFO+LJGNskDBHUgTHQ==
+X-Google-Smtp-Source: AGHT+IGuXfjaRQPAunk4u+eEYZZYA62lhB0xm8g69aCXAJE2Mnda7O4OIdrZd531BTzMeroRuU5qFw==
+X-Received: by 2002:a17:907:2d2c:b0:aa6:8b38:52a3 with SMTP id a640c23a62f3a-aac33787557mr2382898066b.50.1735483861073;
+        Sun, 29 Dec 2024 06:51:01 -0800 (PST)
 Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e895080sm1362084466b.47.2024.12.29.06.50.58
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e895080sm1362084466b.47.2024.12.29.06.50.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Dec 2024 06:50:59 -0800 (PST)
+        Sun, 29 Dec 2024 06:51:00 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Peng Fan <peng.fan@nxp.com>,
 	Abel Vesa <abelvesa@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Michael Turquette <mturquette@baylibre.com>,
+	Peng Fan <peng.fan@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
@@ -80,17 +80,17 @@ Cc: linux-amarula@amarulasolutions.com,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH v8 17/18] clk: imx: pll14xx: support spread spectrum clock generation
-Date: Sun, 29 Dec 2024 15:49:41 +0100
-Message-ID: <20241229145027.3984542-18-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v8 18/18] clk: imx8mn: support spread spectrum clock generation
+Date: Sun, 29 Dec 2024 15:49:42 +0100
+Message-ID: <20241229145027.3984542-19-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241229145027.3984542-1-dario.binacchi@amarulasolutions.com>
 References: <20241229145027.3984542-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_065101_273091_7CBF2982 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20241229_065104_359680_ACDCC260 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,242 +105,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for spread spectrum clock (SSC) generation to the pll14xxx
-driver.
+Add support for spread spectrum clock generation for the audio, video,
+and DRAM PLLs.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
 ---
 
-(no changes since v7)
+Changes in v8:
+- Drop the patches added in version 7:
+  - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+  - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+  - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+  - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+  - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
 
 Changes in v7:
-- Add 'Reviewed-by' tag of Peng Fan
+- Add and manage fsl,anatop property as phandle to the anatop node with
+  the new patches:
+  - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+  - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+  - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+  - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+  - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
 
 Changes in v6:
-- Update the code based on the changes made to the DT bindings
+- Merge patches:
+  10/20 dt-bindings: clock: imx8mm: add binding definitions for anatop
+  11/20 dt-bindings: clock: imx8mn: add binding definitions for anatop
+  12/20 dt-bindings: clock: imx8mp: add binding definitions for anatop
+  to
+  05/20 dt-bindings: clock: imx8m-anatop: define clocks/clock-names
+  now renamed
+  05/18 dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+- Split the patch
+  15/20 dt-bindings-clock-imx8m-clock-support-spread-spectru.patch
+  into
+  12/18 dt-bindings: clock: imx8m-clock: add PLLs
+  16/18 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
 
- drivers/clk/imx/clk-pll14xx.c | 134 ++++++++++++++++++++++++++++++++++
- drivers/clk/imx/clk.h         |  16 ++++
- 2 files changed, 150 insertions(+)
+Changes in v5:
+- Fix compilation errors.
+- Separate driver code from dt-bindings
 
-diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
-index d63564dbb12c..c20f1ade9dff 100644
---- a/drivers/clk/imx/clk-pll14xx.c
-+++ b/drivers/clk/imx/clk-pll14xx.c
-@@ -20,6 +20,8 @@
- #define GNRL_CTL	0x0
- #define DIV_CTL0	0x4
- #define DIV_CTL1	0x8
-+#define SSCG_CTRL	0xc
-+
- #define LOCK_STATUS	BIT(31)
- #define LOCK_SEL_MASK	BIT(29)
- #define CLKE_MASK	BIT(11)
-@@ -31,6 +33,10 @@
- #define KDIV_MASK	GENMASK(15, 0)
- #define KDIV_MIN	SHRT_MIN
- #define KDIV_MAX	SHRT_MAX
-+#define SSCG_ENABLE	BIT(31)
-+#define MFREQ_CTL_MASK	GENMASK(19, 12)
-+#define MRAT_CTL_MASK	GENMASK(9, 4)
-+#define SEL_PF_MASK	GENMASK(1, 0)
+Changes in v4:
+- Add dt-bindings for anatop
+- Add anatop driver
+- Drop fsl,ssc-clocks from spread spectrum dt-bindings
+
+Changes in v3:
+- Patches 1/8 has been added in version 3. The dt-bindings have
+  been moved from fsl,imx8m-anatop.yaml to imx8m-clock.yaml. The
+  anatop device (fsl,imx8m-anatop.yaml) is indeed more or less a
+  syscon, so it represents a memory area accessible by ccm
+  (imx8m-clock.yaml) to setup the PLLs.
+- Patches {3,5}/8 have been added in version 3.
+- Patches {4,6,8}/8 use ccm device node instead of the anatop one.
+
+Changes in v2:
+- Add "allOf:" and place it after "required:" block, like in the
+  example schema.
+- Move the properties definition to the top-level.
+- Drop unit types as requested by the "make dt_binding_check" command.
+
+ drivers/clk/imx/clk-imx8mn.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/drivers/clk/imx/clk-imx8mn.c b/drivers/clk/imx/clk-imx8mn.c
+index c3a3d063d58e..090b5924fa01 100644
+--- a/drivers/clk/imx/clk-imx8mn.c
++++ b/drivers/clk/imx/clk-imx8mn.c
+@@ -306,6 +306,7 @@ static int imx8mn_clocks_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node, *anp;
+ 	void __iomem *base;
++	struct imx_pll14xx_ssc ssc_conf;
+ 	int ret;
  
- #define LOCK_TIMEOUT_US		10000
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+@@ -344,9 +345,21 @@ static int imx8mn_clocks_probe(struct platform_device *pdev)
+ 	hws[IMX8MN_SYS_PLL3_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_SYS_PLL3_REF_SEL);
  
-@@ -40,6 +46,8 @@ struct clk_pll14xx {
- 	enum imx_pll14xx_type		type;
- 	const struct imx_pll14xx_rate_table *rate_table;
- 	int rate_count;
-+	bool                            ssc_enable;
-+	struct imx_pll14xx_ssc		ssc_conf;
- };
- 
- #define to_clk_pll14xx(_hw) container_of(_hw, struct clk_pll14xx, hw)
-@@ -347,6 +355,27 @@ static int clk_pll1416x_set_rate(struct clk_hw *hw, unsigned long drate,
- 	return 0;
- }
- 
-+static void clk_pll1443x_enable_ssc(struct clk_hw *hw, unsigned long parent_rate,
-+				    unsigned int pdiv, unsigned int mdiv)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
-+	struct imx_pll14xx_ssc *conf = &pll->ssc_conf;
-+	u32 sscg_ctrl, mfr, mrr;
+ 	hws[IMX8MN_AUDIO_PLL1] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_AUDIO_PLL1);
++	if (!imx_clk_pll14xx_ssc_parse_dt(np, "audio_pll1", &ssc_conf))
++		imx_clk_pll14xx_enable_ssc(hws[IMX8MN_AUDIO_PLL1], &ssc_conf);
 +
-+	sscg_ctrl = readl_relaxed(pll->base + SSCG_CTRL);
-+	sscg_ctrl &=
-+		~(SSCG_ENABLE | MFREQ_CTL_MASK | MRAT_CTL_MASK | SEL_PF_MASK);
+ 	hws[IMX8MN_AUDIO_PLL2] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_AUDIO_PLL2);
++	if (!imx_clk_pll14xx_ssc_parse_dt(np, "audio_pll2", &ssc_conf))
++		imx_clk_pll14xx_enable_ssc(hws[IMX8MN_AUDIO_PLL2], &ssc_conf);
 +
-+	mfr = parent_rate / (conf->mod_freq * pdiv * (1 << 5));
-+	mrr = (conf->mod_rate * mdiv * (1 << 6)) / (100 * mfr);
+ 	hws[IMX8MN_VIDEO_PLL] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_VIDEO_PLL);
++	if (!imx_clk_pll14xx_ssc_parse_dt(np, "video_pll", &ssc_conf))
++		imx_clk_pll14xx_enable_ssc(hws[IMX8MN_VIDEO_PLL], &ssc_conf);
 +
-+	sscg_ctrl |= SSCG_ENABLE | FIELD_PREP(MFREQ_CTL_MASK, mfr) |
-+		FIELD_PREP(MRAT_CTL_MASK, mrr) |
-+		FIELD_PREP(SEL_PF_MASK, conf->mod_type);
+ 	hws[IMX8MN_DRAM_PLL] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_DRAM_PLL);
++	if (!imx_clk_pll14xx_ssc_parse_dt(np, "dram_pll", &ssc_conf))
++		imx_clk_pll14xx_enable_ssc(hws[IMX8MN_DRAM_PLL], &ssc_conf);
 +
-+	writel_relaxed(sscg_ctrl, pll->base + SSCG_CTRL);
-+}
-+
- static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 				 unsigned long prate)
- {
-@@ -368,6 +397,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 		writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv),
- 			       pll->base + DIV_CTL1);
- 
-+		if (pll->ssc_enable)
-+			clk_pll1443x_enable_ssc(hw, prate, rate.pdiv, rate.mdiv);
-+
- 		return 0;
- 	}
- 
-@@ -408,6 +440,9 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 	gnrl_ctl &= ~BYPASS_MASK;
- 	writel_relaxed(gnrl_ctl, pll->base + GNRL_CTL);
- 
-+	if (pll->ssc_enable)
-+		clk_pll1443x_enable_ssc(hw, prate, rate.pdiv, rate.mdiv);
-+
- 	return 0;
- }
- 
-@@ -542,3 +577,102 @@ struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
- 	return hw;
- }
- EXPORT_SYMBOL_GPL(imx_dev_clk_hw_pll14xx);
-+
-+void imx_clk_pll14xx_enable_ssc(struct clk_hw *hw, struct imx_pll14xx_ssc *conf)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
-+
-+	pll->ssc_enable = true;
-+	memcpy(&pll->ssc_conf, conf, sizeof(pll->ssc_conf));
-+}
-+EXPORT_SYMBOL_GPL(imx_clk_pll14xx_enable_ssc);
-+
-+static int clk_pll14xx_ssc_mod_type(const char *name,
-+				    enum imx_pll14xx_ssc_mod_type *mod_type)
-+{
-+	int i;
-+	struct {
-+		const char *name;
-+		enum imx_pll14xx_ssc_mod_type id;
-+	} mod_types[] = {
-+		{ .name = "down-spread", .id = IMX_PLL14XX_SSC_DOWN_SPREAD },
-+		{ .name = "up-spread", .id = IMX_PLL14XX_SSC_UP_SPREAD },
-+		{ .name = "center-spread", .id = IMX_PLL14XX_SSC_CENTER_SPREAD }
-+	};
-+
-+	for (i = 0; i < ARRAY_SIZE(mod_types); i++) {
-+		if (!strcmp(name, mod_types[i].name)) {
-+			*mod_type = mod_types[i].id;
-+			return 0;
-+		}
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int clk_pll14xx_ssc_index(const char *pll_name)
-+{
-+	static const char *const pll_names[] = {
-+		"audio_pll1",
-+		"audio_pll2",
-+		"dram_pll",
-+		"video_pll"
-+	};
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(pll_names); i++) {
-+		if (!strcmp(pll_names[i], pll_name))
-+			return i;
-+	}
-+
-+	return -ENODEV;
-+}
-+
-+int imx_clk_pll14xx_ssc_parse_dt(struct device_node *np, const char *pll_name,
-+				 struct imx_pll14xx_ssc *conf)
-+{
-+	int index, ret;
-+	const char *s;
-+
-+	if (!conf)
-+		return -EINVAL;
-+
-+	index = clk_pll14xx_ssc_index(pll_name);
-+	if (index < 0)
-+		return index;
-+
-+	ret = of_property_read_u32_index(np, "fsl,ssc-modfreq-hz", index,
-+					 &conf->mod_freq);
-+	if (ret)
-+		return ret;
-+
-+	ret = of_property_read_u32_index(np, "fsl,ssc-modrate-percent", index,
-+					 &conf->mod_rate);
-+	if (ret) {
-+		pr_err("missing fsl,ssc-modrate-percent property for %pOFn\n",
-+		       np);
-+		return ret;
-+	}
-+
-+	ret = of_property_read_string_index(np, "fsl,ssc-modmethod", index, &s);
-+	if (ret) {
-+		pr_err("failed to get fsl,ssc-modmethod property for %pOFn\n",
-+		       np);
-+		return ret;
-+	}
-+
-+	if (strlen(s) == 0)
-+		return -ENODEV;
-+
-+	ret = clk_pll14xx_ssc_mod_type(s, &conf->mod_type);
-+	if (ret) {
-+		pr_err("wrong fsl,ssc-modmethod property for %pOFn\n", np);
-+		return ret;
-+	}
-+
-+	pr_debug("%s: SSC %s settings: mod_freq: %d, mod_rate: %d: mod_method: %s [%d]\n",
-+		__func__, pll_name, conf->mod_freq, conf->mod_rate, s, conf->mod_type);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(imx_clk_pll14xx_ssc_parse_dt);
-diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
-index 50e407cf48d9..38e4a4cf253d 100644
---- a/drivers/clk/imx/clk.h
-+++ b/drivers/clk/imx/clk.h
-@@ -69,6 +69,18 @@ struct imx_pll14xx_clk {
- 	int flags;
- };
- 
-+enum imx_pll14xx_ssc_mod_type {
-+	IMX_PLL14XX_SSC_DOWN_SPREAD,
-+	IMX_PLL14XX_SSC_UP_SPREAD,
-+	IMX_PLL14XX_SSC_CENTER_SPREAD,
-+};
-+
-+struct imx_pll14xx_ssc {
-+	unsigned int mod_freq;
-+	unsigned int mod_rate;
-+	enum imx_pll14xx_ssc_mod_type mod_type;
-+};
-+
- extern struct imx_pll14xx_clk imx_1416x_pll;
- extern struct imx_pll14xx_clk imx_1443x_pll;
- extern struct imx_pll14xx_clk imx_1443x_dram_pll;
-@@ -489,4 +501,8 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
- 
- struct clk_hw *imx_anatop_get_clk_hw(struct device_node *np, int id);
- 
-+void imx_clk_pll14xx_enable_ssc(struct clk_hw *hw, struct imx_pll14xx_ssc *conf);
-+int imx_clk_pll14xx_ssc_parse_dt(struct device_node *np, const char *pll_name,
-+				 struct imx_pll14xx_ssc *conf);
-+
- #endif
+ 	hws[IMX8MN_GPU_PLL] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_GPU_PLL);
+ 	hws[IMX8MN_M7_ALT_PLL] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_M7_ALT_PLL);
+ 	hws[IMX8MN_ARM_PLL] = imx_anatop_get_clk_hw(anp, IMX8MN_ANATOP_ARM_PLL);
 -- 
 2.43.0
 
