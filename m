@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4CBE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 17:39:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4873E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 18:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FfwoFskvac32DMGJaG2VVgg3dFe4kwMlCOX61uyPLDE=; b=uxi/FUbLOQDrc94T0XUaq+t2le
-	OlujkJkf34SGjMOooHKXWRz4Dy2Z4Z4xAoEfxyl+VjaO5miyfTtxhp+Bzp7Iaq4Zl2rAZHcdzoyRd
-	ek0zZ+AedU+ietd/feCyM8KQY0LpAmGbjBVBIbrN/eMwm/61AUaWf6KNKd9e28fqBfaR+Z7Nj9kME
-	1Nno6ZSjw1oEl9XSwb3psNmmHXgo0wkt7azwQtY8zzFPuziFg4k5mlMmlYO2H637XOggZuVZa+Ey0
-	U1JS4JFLnPNvJRTDZeubPjK5Ahke/kdH+ACF6DQNkscQJdWgkvbHETDf5jbER4cJwLfJDM+Ru4dzk
-	Axl7Zp8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=u+EdG5AVyHNwIiF9DcSDNXkkUaDpmSGr2w5UNQ4/SUQ=; b=ZZVOG5ti8DdyNYBs2qyaGEFTTg
+	79aODIWzLEA7sGrvrLOsoZWh2myYvLo9iv4OeH/5S4ZUYO1tCYFm8NeecJQcvZLnS0wa17MWT0bCf
+	/UHFXpoFq+66jIWBjxYs7dZzzo8UaxWJBSCP1YC/15UQCM2Up1I6j4EGUi2EoBUJguiaRHdITuVMH
+	MR3WsdGH9vCAFKLAUdYBQ1f5vo1uyO77UAFnou4a4fIWQp75zDM/RYcOx+IUJZsjTsUptTbIxHvSA
+	fzPjjU7ulrvGMpRvhNxtjnA+JYUDpSgqPsvQQ2bIWnV6CK9vbjySRl2ezUblJBPwxmV0ifFpSReb/
+	1Cad3Sqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRxFt-00000003hmy-1sZT;
-	Sun, 29 Dec 2024 17:39:09 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tRyHk-00000003lBU-05Cp;
+	Sun, 29 Dec 2024 18:45:08 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRxEb-00000003hgh-3pZa
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 17:37:51 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E4757104811E4;
-	Sun, 29 Dec 2024 18:37:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1735493865;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FfwoFskvac32DMGJaG2VVgg3dFe4kwMlCOX61uyPLDE=;
-	b=KSVapUJBrd09Vwg/G5+Osz47EjxrzwoxxD5bJljCnJ4m92W0MeUuf1j+hai1P7q0slT5GP
-	RUjHqtEWsRcmOt1I4s9LjHm5zamXHQRDFRQGMikQWFBE0dlNkAgIN0Knp5A6sphx2WPdCe
-	cD9FYRmBHKO+wftSdPT05Nl+L0y4hH5DoGcg4DHucURTM2Fnsl1QJJ4G47V3o4FjZrhfWL
-	OtkpJdAJh3wsPiDcyA9QWTmQWdneCSg5xlS7am2yVWQ0LBuSbVPmMtFCVV1whF7YvGZwTY
-	M4EWyP0bUsES0SioAUSu2CVz/1iUdlVavxMwoRJiy/NWH+GJBp1WoObhj9xkYg==
-Message-ID: <b2f2f1e6-a539-4d1b-876f-6715c126ac3e@denx.de>
-Date: Sun, 29 Dec 2024 18:11:43 +0100
+	id 1tRyGY-00000003l4u-3P7a;
+	Sun, 29 Dec 2024 18:43:56 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-71e3284f963so4662888a34.1;
+        Sun, 29 Dec 2024 10:43:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735497833; x=1736102633; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=u+EdG5AVyHNwIiF9DcSDNXkkUaDpmSGr2w5UNQ4/SUQ=;
+        b=GdmdnASGnQ1YH8Tw7obPwfsFDxE5JfUWDDwI8MYj4n/r1AmrSlFn4zCepjEjVM8cyg
+         fNd1P7EP7HAvzg8Ic4c7NfkOa9YrX6jbdgfS+6X16eELP3JGuChK+acexMS2FXjMtO1X
+         eZlKQkuVYunxXdsn6Ix35bymG36gzqS7XqKM5n70Vox48UjhSUo8pqQ9ijL6C8IMZerq
+         Yqv29e+a0kHRML46omQp2unUxcsVH7wcs/tQ5wmHemsJUYGR6UFcgoS5PMoImZF4Azdy
+         D/UT388y8BK2Xg4uDDIhedoPoSUnUMS4bHxm6iImAin3OBcN8G5inv1xqdBXQL4qzwqb
+         KcEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735497833; x=1736102633;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=u+EdG5AVyHNwIiF9DcSDNXkkUaDpmSGr2w5UNQ4/SUQ=;
+        b=LlP96zoz6PMx3dqvsuQkEH4xQScQ63iSts8iapK4ZQK8OI8eAFZ7ZkXD97sfvaQ1sB
+         NcufNv3iInWFAWULI1MWquXzeL3TuDGikZhRN6a5IIuo8LpS9dFDUoDvZlgn8z4t21dg
+         RT8i89EU2x4JcaD4NY0DYJJMLrXidp9+3r/sMjyji1bwwzXEQtbL7PvWORgVUKimEbOH
+         oZyLfEzUwMtD+fIZl58yarjDsQoSwX4vXjdx5/j/rUtoeLJFzClW33X4ueskGnt3TMJq
+         ODzkxIvKDqqRx+IVuWraxWPG1h6D29ayn8UklGH5EcMA8DF8IU19rr2UemoAvdKaP0kE
+         ZtOA==
+X-Forwarded-Encrypted: i=1; AJvYcCW2TF8UzEUXU/EKQc0twop3dYXQ/a35PuIj6QVtc/1g70T/r2Av1esidJmnvO+fIlaieZbmvVNi8XSJvECbzVs=@lists.infradead.org, AJvYcCWHnP8F7A3UAHGtOBcSNKl4CC00SoqK59QhsJiwVCGo7EVMpbsG7QNij9cFew7+Oi0yTTOkoWmGVD+h4dMcknEW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpfgt1CC6J3mMCIgDc8fxti1cO5qdsf51LNEKVl8TcLIh7AbWx
+	O/rpP7meUjPIqWbneNCPgya8U1TJtoAWnG/5UvC6au5dFFrl0egH
+X-Gm-Gg: ASbGncub2z9DVBacRgiJqGVjUn224zQlE5xQj00K2OphZivw836uCgx2KrZgEMcP/N+
+	RyK9R7K1J96DtoX5VS7mXgx/BkPoGvrNKBnUlNS2vk4bpEgPm28KdtVJD0RHGSMHh8YpYMKpBha
+	HduGZDSQGtqPIvQXu7Qfl880Qt2v6DhYKu9tns87/YxTHVAmdx36d6DnN2286sj/0mrJThZFFnd
+	SywIYoYdTc3NNuyZ3H3BsKHHEN9xM6jKUU47SNa+pe4MTLC3E/eSMBWeLjLOfpp
+X-Google-Smtp-Source: AGHT+IFX5tXXeMQ27jrDhnaZ0ipObtd0vNMPgxqr9NK5Gmo3CLw+ebz1oX7nKY0qSeKGYla2nBbMeQ==
+X-Received: by 2002:a05:6830:6f0b:b0:71d:4b55:ae20 with SMTP id 46e09a7af769-720ff7fdde6mr22770855a34.6.1735497833186;
+        Sun, 29 Dec 2024 10:43:53 -0800 (PST)
+Received: from tower.cjhon.com ([2603:8081:ad00:4a:e765:a49c:5c4:1103])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71fc97d6fafsm5515645a34.31.2024.12.29.10.43.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Dec 2024 10:43:51 -0800 (PST)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v4 0/7] arm64: dts: rockchip: Orange Pi 5 Max board
+Date: Sun, 29 Dec 2024 12:41:25 -0600
+Message-ID: <20241229184256.1870-2-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v7] pinctrl: stm32: Add check for clk_enable()
-To: Mingwei Zheng <zmw12306@gmail.com>
-Cc: antonio.borneo@foss.st.com, linus.walleij@linaro.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, make24@iscas.ac.cn,
- peng.fan@nxp.com, fabien.dessenne@foss.st.com, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jiasheng Jiang <jiashengjiangcool@gmail.com>
-References: <20241224200608.84923-1-zmw12306@gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20241224200608.84923-1-zmw12306@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_093750_105007_1DD47EDC 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20241229_104354_846695_221774D8 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +98,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/24/24 9:06 PM, Mingwei Zheng wrote:
+Changes in v4:
+- Orange Pi 5 Ultra was released and does not use VP0 to HDMI0
+- Move HDMI0 from common to the board level
+- Make DTSI to be shared by the credit card sized 5 Max and 5 Ultra
+- Updates for the newly submitted HDMI1 support
+- Add Ack for dt-binding
 
-[...]
+Changes in v3:
+- Refactor to share common include with Orange Pi 5 Plus
 
-> @@ -1390,15 +1379,11 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
->   	err = gpiochip_add_data(&bank->gpio_chip, bank);
+Changes in v2:
+- squashed commits together for initial board file
 
-There is one other nasty problem here -- this gpiochip_add_data() needs 
-to be undone (*) below, otherwise ...
-...
-
-> +	ret = clk_bulk_prepare_enable(banks, pctl->clks);
-> +	if (ret) {
-> +		dev_err(dev, "failed to prepare_enable clk (%d)\n", ret);
-> +		return ret;
-> +	}
-> +
->   	for_each_gpiochip_node(dev, child) {
->   		ret = stm32_gpiolib_register_bank(pctl, child);
-
-... if this stm32_gpiolib_register_bank() fails for second or later bank 
-, then ...
-
->   		if (ret) {
->   			fwnode_handle_put(child);
-> -
-> -			for (i = 0; i < pctl->nbanks; i++)
-> -				clk_disable_unprepare(pctl->banks[i].clk);
-> -
-> -			return ret;
-> +			goto err_clk;
->   		}
->   
->   		pctl->nbanks++;
-> @@ -1658,6 +1642,10 @@ int stm32_pctl_probe(struct platform_device *pdev)
->   	dev_info(dev, "Pinctrl STM32 initialized\n");
->   
->   	return 0;
-> +
-> +err_clk:
-> +	clk_bulk_disable_unprepare(banks, pctl->clks);
-
-... this clk_bulk_disable_unprepare() will disable all bank clocks, 
-including the clocks for the banks which got successfully registered.
-
-Before calling clk_bulk_disable_unprepare(), it is necessary to 
-unregister the GPIO chips again, i.e.:
-
-i = 0;
-for_each_gpiochip_node(dev, child) {
-   struct stm32_gpio_bank *bank = &pctl->banks[i];
-   gpiochip_remove(*bank->gpio_chip);
-}
-clk_bulk_disable_unprepare(banks, pctl->clks);
-
-Otherwise I think the patch is pretty good, thank you !
+Link to v1: https://lore.kernel.org/linux-rockchip/20241026100310.52679-1-honyuenkwun@gmail.com/
 
