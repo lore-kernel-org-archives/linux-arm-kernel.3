@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABE8E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60620E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSpF+CuRXyTaTI6CZu8ly254OOzIlOn2pYHOVoIJa0M=; b=1Obpw0DEd+/x3LbeaknX/NtWJB
-	VsIHYlXlqhWbZ/OjP8XVaqLYf/M8b0EKkp3u0FvFaMT9OwsYDzkOqkkVXNVhE1ooE49//7NEFb1Aw
-	NpzfnqRG1f4rnUfj7IMEVGmxI3JDze3aVP19DGc59EUF7wD4Dybc1Q34NkIViR4V9UqH4OezCDJNi
-	TGhDtsXOG82UZ6Urq/Ido1+zbKF13G8VOouTH7+9N429J30AUOzqGSZeZBt6ScNJhW1Be8lTHbd22
-	tjQzLDdpfcAZNFsY59F9wFRUS5g+A7HlsYbYzUvwH4mDGD3Y7jckOPuBCPzeGkCbj+E8kFOAlzqRE
-	/gesbftA==;
+	bh=Jo0lFH0D7L1OyRrRi/rC2RixuHioaZMR/O4UKhCo6m0=; b=wQptt++lyUuaf9qjpnlQp4ma3T
+	qZTqinUgPPIKc4ys1EAD5S4vUqy4xo/Nxt4mrfG/1GLE+lezuptu7FyRB+2M/ARo9kAK1Werwb7X7
+	OEqfuf805aVAIKsC1jPiqf2FFXa5Gu+6gYrBj9shJu8fJHWEWH1PDgUpokhel1eUfECe8vvUHq8Sj
+	X3XcCa2ibNloHxc6XSbpZ0ew8+dN9v9kEAMFOzVEEfWt/GLMTcJoNq0sWurGk9AyzdZ+BGYbzAsxA
+	K3aOB8yxYo9uubtY1COqGJr9yyY4t3Aqkq+9/wK+mNm9CpJzWewRJL9m9oxxYgM89q0tfffuZ0WeX
+	T237Fj9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRqJj-00000003FIN-1N6N;
-	Sun, 29 Dec 2024 10:14:40 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tRqKt-00000003FPx-3VxE;
+	Sun, 29 Dec 2024 10:15:51 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRqFP-00000003ERq-37qS
+	id 1tRqFQ-00000003ESY-3uPk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 10:10:13 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43658c452f5so12065885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 02:10:11 -0800 (PST)
+	Sun, 29 Dec 2024 10:10:14 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4361f09be37so12784105e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 02:10:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735467010; x=1736071810; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735467011; x=1736071811; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tSpF+CuRXyTaTI6CZu8ly254OOzIlOn2pYHOVoIJa0M=;
-        b=fXpfNCE8fQAOxgQe7/S1dPKEK2oiudtNZI4kdWtGsn271nVEXhYj/5V61oDlkowrLr
-         55D7L4hGuSHf6FG3Xw61vVXTu+JkdJ9ltXFtXxGf3oZsURnbCqhhjta/Q6POusDXQUrj
-         oVLlEbKWHl9T0RbA4HpBnvmL/X95NF7iVLX/DOf0VodBYVZ9Twp7JZdTrGkPHLRbZ0ly
-         jdS1L8w8A0OVHEysQSPIowYiL6I/PVwKYfxkL8ZC7itcrT41A84KfMzRxCe5BpKE+36P
-         nJ3xp/JxLXxHnRoyS5DJoAZgGzr80jYU3/VNPEAiEvjX6MVNkFLkNYVFT1AoHFLnpvn8
-         IXeA==
+        bh=Jo0lFH0D7L1OyRrRi/rC2RixuHioaZMR/O4UKhCo6m0=;
+        b=q5EFlYrnPwbl4Y4h0QjXyJLptKYycUHv/GKUQaSQ4kvErZ0zxmIikCYfByYHqC4yRf
+         8iDbeQGRmv7jDpb15rlfAThk/xhr48pvuSJ+BRZftgEWSH2Xa2MFk77zS77fO+5iufyw
+         piiwts6ZHLQBqYtwMtjvs35XXNgeOV7ISYijy9xbaBwlslKafzt5vhv6mmH9UEKS/I0a
+         Fn1HRcZMz1YYXBkrKl8k1FXyOGh7JY/5xzgtsp24QudCsw3QkcHGVfIKUhyDliz0N0RP
+         U0WCPnT/Y4CZUVQHBHYLN/v2OAzngedv2isuC/cSdqxaZTri0T3SdNPHPrJJzSUmcuqG
+         g1ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735467010; x=1736071810;
+        d=1e100.net; s=20230601; t=1735467011; x=1736071811;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tSpF+CuRXyTaTI6CZu8ly254OOzIlOn2pYHOVoIJa0M=;
-        b=l9RmL7uPAJ7KUxWkviTllrjVswgb7au2ViZU6HXsQcfTnsvWc3PL4CG93lb5vQfQaj
-         OMdrVHSNhBxtf79Og7JsZ5ZdzJM8y7vjwTHMn1tliruWnA0jRufBCbxODbFNUbE/adYZ
-         iHfaYULy3yw2MgsnmXqUp0i7glppbicgru/yo+7OykuAA2D1hVCvy/U7lSq+TLH6ZJs2
-         vDh/AnG+wf9RmmmJL8PB9EQ+Le8OnR0l/3S696nIirZ+BGQ1r+ftA39pz1qSV6p2jsda
-         bD8AuV9k+E53fYcCWakYezeXo19/JJMvg+Ec50Ds4Q9JRBzoGbx9HhL2X8tZhlwB4K+3
-         4FZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWM9UEK6VW3oQ8PvividAmoeiWVeuSHpR5AK3A0mKdu7Uu5FBAPPH3+XKOIU+sqhRHIFsAmbdjgdiSQbksAg8tv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5Jp1r7rPJXYtTxpCVFg3UaqlYY0Yrrgcu0HUIB6KNT0++4hvU
-	knz3mGdyOc6zpoPAS8qGwUKuMGp3n//0wNQxDMJ/ioz28jwko3fNqCMRjIFUJBc=
-X-Gm-Gg: ASbGncvOhIkIwgmhoYJfoPFswbpH9Gf4KmfGQ7vjM4/ZhPHL5Q7Dydw2QdKccygFTL/
-	yyTK9B1Dsd8p4Iu9MVRohLVp9uC8H3MqPJ1AHUStBW00StG50OqOJg1DLqYfdUDz4afwFJP5N2k
-	EhRsoPMLUYE5X/JQ+YlFYXRmEGz79iItQuuhm4y8+h9a5kAOqRWod267tx8iUFadYTgOzfwwj7y
-	8R6Sq865rfUvTrhNb20l8itP4v9fWafNQHITvrJRRSVCI+qp18qjTS5TeciWVIxirsrysAZ
-X-Google-Smtp-Source: AGHT+IGW0d/YHpnyePRkpp9wXq4qyqr1+YfE7APJGg58iLxynoeEjadgGXZSm4ML0xt0Ba0edpBXNw==
-X-Received: by 2002:a05:600c:3481:b0:434:a30b:5433 with SMTP id 5b1f17b1804b1-43668b601eemr102007365e9.5.1735467010008;
-        Sun, 29 Dec 2024 02:10:10 -0800 (PST)
+        bh=Jo0lFH0D7L1OyRrRi/rC2RixuHioaZMR/O4UKhCo6m0=;
+        b=cLhn57aH0pvddCZedUdnxi7zPIphfPZc1Qq2Qg8/IGSD/Gz0K6RheEE52K+7keSLcz
+         ZPz5jbf10a5SvNenedw8Tm8vAOLXFRbhuD1tZJZtWR4m0RNNHSxOv9Fc55cERWvels0V
+         7nAbWd1WtO0JJowX6C1MrImW+BU6PXpV+qPJSuqN7DVBVTbU5atV1IxYBhA8qrH91NMA
+         6sjm9zIoBppFwVvlrx/gCmcIxth4pAP3bRehKLbmMCRKhgq1USpLAQzqgzvjnkxbUV+B
+         suxL4vn8zvxL8Gl+BMETTTJU/EYGYV+7mN9K5hhUdl46LhaGLrv666V4mCbbVRaGA25U
+         UfLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJu/bOEhgT/GzvbHuIanwC10gUrgf1BrD0M/1/ai5ypm8TLNwXae4d6NIDA+JtiOD1vBKWLWDOkY2la0jopiHd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvrEnM/9Y3tbNjnVPxSQxYSesfhAx415+ZJQrAmPcTA0KP0kDq
+	a6QFEnpJ0SpsjJE67d5q2lcObSVK0wCiEGV/G0cMB3oZ6oI0kBuj5AFAILrFvbv4JbW0g4RnAG0
+	h
+X-Gm-Gg: ASbGncv1wxnAwOUn99frnYJnfGirCR7744XA0MCYAsT5bwFLZ45heei7R3U60XtfQmv
+	qN06nq8UWO642SK3D3+6nLxtMJhzF/ltZxewdNirNnrQ6GAVw1PeVcyoIEZmT1Ek+hFwA88jqUI
+	U/8TGjlB11mRGum0DH+LK6UYPygp0fr7chYCuY4iUFLyR3a0Vp0txNZpV0RCucKRh3pJXeSsw8x
+	GYNnT6pae0WhT91pafEeLmAmCH6FOp1INI/JAe2G/wwXBRa/y1FihvixvUGQ4eAwcuE/DDJ
+X-Google-Smtp-Source: AGHT+IHP1vNO4pX8rCVSoOO8ZA/PKbzvByEOcpImjWXAjaOwj9hxfLF/KNxyi+EPgVTvKCoXvpRUbw==
+X-Received: by 2002:a05:600c:1e23:b0:434:f335:85c with SMTP id 5b1f17b1804b1-43668b7b619mr106181145e9.6.1735467011606;
+        Sun, 29 Dec 2024 02:10:11 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436611ea40csm320505375e9.1.2024.12.29.02.10.07
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436611ea40csm320505375e9.1.2024.12.29.02.10.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Dec 2024 02:10:08 -0800 (PST)
+        Sun, 29 Dec 2024 02:10:11 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
  Artur Weber <aweber.kernel@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, alsa-devel@alsa-project.org, 
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht
-In-Reply-To: <20240525-midas-wm1811-gpio-jack-v4-0-f488e03bd8c7@gmail.com>
-References: <20240525-midas-wm1811-gpio-jack-v4-0-f488e03bd8c7@gmail.com>
-Subject: Re: (subset) [PATCH v4 0/9] ASoC: samsung: midas-audio: Add
- GPIO-based headset jack detection
-Message-Id: <173546700767.10606.15963860254937329872.b4-ty@linaro.org>
-Date: Sun, 29 Dec 2024 11:10:07 +0100
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-sound@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht
+In-Reply-To: <20240816-midas-audio-tab3-v2-0-48ee7f2293b3@gmail.com>
+References: <20240816-midas-audio-tab3-v2-0-48ee7f2293b3@gmail.com>
+Subject: Re: (subset) [PATCH RESEND v2 0/6] ASoC: samsung: midas_wm1811:
+ Separate compatible for tab3 + fixes
+Message-Id: <173546701025.10606.6645019448209371865.b4-ty@linaro.org>
+Date: Sun, 29 Dec 2024 11:10:10 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_021011_806883_026EE90A 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241229_021012_976686_BC83C768 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +103,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 25 May 2024 15:28:04 +0200, Artur Weber wrote:
-> Many of Samsung's Exynos 4 devices share the same midas-audio driver
-> to handle the codec setup. While most of these devices, including the
-> Midas itself, use the jack detection provided by the WM8994 driver,
-> other devices such as the Samsung Galaxy Tab 3 8.0 (lt01) use two GPIOs
-> and an ADC channel to determine jack insertion, the jack's type, and
-> button presses (for headsets with volume up/down/play buttons).
+On Fri, 16 Aug 2024 09:50:57 +0200, Artur Weber wrote:
+> This is a follow-up to "ASoC: samsung: midas-audio: Add GPIO-based
+> headset jack detection"[1]; it appears to have been silently merged
+> except for the DTS parts, this patchset is a resend of the DTS patches.
+> 
+> Besides the DTS changes necessary to enable headset jack detection
+> for the Samsung Galaxy Tab 3 8.0, it also adds a new compatible for
+> the Tab 3 (samsung,tab3-audio). This is done so that we can set up
+> different requirements in DT binding (Tab 3 does not have main/sub
+> bias regulators), and drop the main/sub mic bias dummy regulators
+> from the Tab 3 DTSI.
 > 
 > [...]
 
 Applied, thanks!
 
-[7/9] ARM: dts: samsung: exynos4212-tab3: Fix headset mic, add jack detection
+[3/6] ARM: dts: samsung: exynos4212-tab3: Fix headset mic, add jack detection
       https://git.kernel.org/krzk/linux/c/2c3c373555460b79a6a201c87230d32b211f8323
-[8/9] ARM: dts: samsung: exynos4212-tab3: Add MCLK2 clock to WM1811 codec config
+[4/6] ARM: dts: samsung: exynos4212-tab3: Add MCLK2 clock to WM1811 codec config
       https://git.kernel.org/krzk/linux/c/d15cc681ba79fdc722d4aa7a83e572850cf5f64a
-[9/9] ARM: dts: samsung: exynos4212-tab3: Drop interrupt from WM1811 codec
+[5/6] ARM: dts: samsung: exynos4212-tab3: Drop interrupt from WM1811 codec
       https://git.kernel.org/krzk/linux/c/acd33b48ce663c7e293b11cd77df7ea702ca34f6
+[6/6] ARM: dts: samsung: exynos4212-tab3: Drop dummy mic bias regulators
+      (no commit info)
 
 Best regards,
 -- 
