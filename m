@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31819E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6535FE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 11:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1gEjD3TbD0ubPGJ6ySk4Sa58uaIyggiR94fEg1DvNk=; b=nF6CUlTDpD1PJhWVTYv6kFEJeo
-	qN3bPszsbk5mEly/7pZbK5DsAaKNiPHxTUG0oJPpILqHw3hAN7a9S1QV4setySByiBVZiuO6iDcKo
-	cAzUX0eLM7aV4gJIyv0noCCjt0UvVPOgWfZjnran4MxJMA6SilT1pCX/PzZTzNRIjBZHxEZ6QveKj
-	z8w27r/yUUNl2lgq19g1zubOjCxRqNRnHVFuW6L20R+69iGb+3Jp6igL0hUlVky2KjbSO2JJhgy4t
-	jeE7LGbQ/rLpdScUk0bUJQaMb1FENTcHr0lKd3LjGnjSXmmg+ycZvtFScwzPQPxSNgPXGT/KR5KYy
-	SmRBBdCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TQ2IkiBTPwiZJOx3g0L64WXeGUqnnVHn4KyvGu674w8=; b=5Gtl9yT+BssbaqP0RZWFcHNVWG
+	MC9JquLkEAbxvzmXjHnEb88yAzYNStCeqqgo2G2eorvtgIAG39Vnj1djzxH4937OIzzxPiOZtX1D2
+	BEMzt6bLADpC3w8AplpbgH4qYKRbwKY2SSQcBzuBo/3SVHcafR6iyRTkmiaS/FNB4fK8qTKTp786l
+	Ud1qeud6Fu2x7PAs96CzM3rJluwzMSlBzHllZaZrPUpVM8PgDQ4KFHzoQF3o6qVpYZCuwPFiOM4IK
+	1JcA11jhoasjXy2b5fy06UY8xFShT3q5N6LIJNlBSChd0DmT3ZaeYOX5th5OpJyF8wi/PqlVh7UTR
+	OKyaRIEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRqtO-00000003Hya-33aV;
-	Sun, 29 Dec 2024 10:51:30 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRqsB-00000003Hl7-2gER;
-	Sun, 29 Dec 2024 10:50:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=6x6DDz8OXltjHQDY/Nb8O3LQiGK4ytUH+XsVeWN6k7M=; b=F
-	/q3zeels/yRCPMpYd0L8TenzEk7sD6Vblu5Ibux4tuxUHO9aqIIbXK62SZ7UXFpQ
-	UtKXMoDsR4tNc6BEa6nlKMmPgeHPOXE04XMCAD6iQKyw+/o/lHgpDkiNdlUrrb7w
-	FbKIqiCd9+nnT3uoW9AXKEOcjKbPNq+G590TSWi/Bs=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-135 (Coremail) ; Sun, 29 Dec 2024 18:49:38 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Sun, 29 Dec 2024 18:49:38 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: robh@kernel.org, iommu@lists.linux.dev, heiko@sntech.de, 
-	devicetree@vger.kernel.org, joro@8bytes.org, hjc@rock-chips.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, vkoul@kernel.org, 
-	detlev.casanova@collabora.com, linux-arm-kernel@lists.infradead.org, 
-	"Andy Yan" <andy.yan@rock-chips.com>, 
-	linux-rockchip@lists.infradead.org, krzk+dt@kernel.org, 
-	cl@rock-chips.com
-Subject: Re:Re: [PATCH v2 5/8] dt-bindings: display: vop2: Add rk3576
- support
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2024 www.mailtech.cn 163com
-In-Reply-To: <ihvrdnntfuvvycnlhysnm43wylotovvnivu4wxcne3bwc6etpj@n2rq6n77lmma>
-References: <20241228122155.646957-1-andyshrk@163.com>
- <20241228122155.646957-6-andyshrk@163.com>
- <ihvrdnntfuvvycnlhysnm43wylotovvnivu4wxcne3bwc6etpj@n2rq6n77lmma>
-X-NTES-SC: AL_Qu2YB/idtkss7iGeYOlS3TJ694VEL57u+a5GusA2ecAsnATi4iQeZGRsL2rN79jltAEHsN6nekZl9Y1BVSkd
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tRrGT-00000003Jeb-0Hbn;
+	Sun, 29 Dec 2024 11:15:21 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tRrFG-00000003JNd-3ywp
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 29 Dec 2024 11:14:08 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-215770613dbso77271805ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 03:14:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735470845; x=1736075645; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TQ2IkiBTPwiZJOx3g0L64WXeGUqnnVHn4KyvGu674w8=;
+        b=jBwNYKvQ3Q5vZvSbsmYBtXIussS8ZSrLRjl8QCgfLXMwFUWTPCJdIYFgdxEhfp4Lw+
+         2toX3Ltszu3btta+r4h/PUDK3Sj97Nj/YiZMS5OIHBHkubapek1JKwv65dORF5n87flO
+         ggnCkHjLjw30015P68oU/MgBKW+573clahi/bvAyZWjGNsxEuCYpnFQ2b+9UXeqd/u5g
+         D24tjfDkb/RZbrouD2CSh9iTqkq4O5nP+qYlUf8GsUp2lL754FXrWXwA7zbfhFmR1Mdl
+         JdfkzTHzjeRczkGFLsxRj/R2HnCxuTB4I536Cg5G1N/KCa1MkHB2H7jyRA/qJHxMMXvJ
+         0nfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735470845; x=1736075645;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TQ2IkiBTPwiZJOx3g0L64WXeGUqnnVHn4KyvGu674w8=;
+        b=Qkd5sGz6xPlaEtua/c2wUbiogzOMOzjVIeqKgx/RHinxucaE8C9QyQe3dk6CUOm5X/
+         awQlv8rqlR3gq1P1zAFnfRV2Qv93Wp6LHCNv0ZMXn255qhyLj7jvNET7cMZn2+cJZ0TZ
+         foYGxL29cQksVSk0lp/2u/gFXcERCJMqW0shgCtapBQHhhHr+TRC1qzZiGAuPOUuTXvM
+         6BZgtqjOhDWO9KgNl1Xp1rO3Ylw8ARGB1VpgiJFvDEKNh2uWh+wMtsF+Lh12B4Yh5hWV
+         PdU5vdSlOCY11nXEPAWARXYm7FLqorIglP9IVjff+URAHl4igkX2ChQjg+F3DuTP5lHI
+         F67g==
+X-Forwarded-Encrypted: i=1; AJvYcCXi1piDQsaKKjfLCED/SR+xzT0zOXtL3KbYzHcpyMADiDYyYRpvTcfZqyhc4ZfPGp7b+22+vOccbJ0pkRGpWzRd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLwL4ZCmmzuWQnU/6CaAAIEnlIbdtXdoJLP1VeemiJEQR7nPok
+	zAc9DxOlz19yRedGlDuF5rC5XCrEJFeqBk/vPdX5sx6k46+Lwc0b
+X-Gm-Gg: ASbGncvabmADnWPDkAlFhYE7efO7RZ66KI9ryWXqKFwxV2R1NSryZSTmNaczmDMGNS6
+	8RDfBcv0f+RRNWh7teklzh86ezoX9xq/d3iS2M1Okxqb2MpmXgx3MwOFbK+bcvqlpFIdaOCX+Yw
+	iIhPYgb+xAMq58oSYgzZYsCYGey+h94qw3iJhw9ZrUjfyN0hngAxoBn3WDCxRLWq+ueZF1iYdM9
+	Ck54+j/nNenRyVSIqvg7BfqIJBAXuUJf0x7CKAnq0PeOGFXWq/ArUpGNQ==
+X-Google-Smtp-Source: AGHT+IFC1QZJfqXlyjwwxcIAnkfum3t6MQ+L3yuYAABJDnspWgtVfFsqagRUXkgAgDc1Jy7GWtwr8g==
+X-Received: by 2002:a17:902:d48f:b0:212:4aec:f646 with SMTP id d9443c01a7336-219e6ec1340mr390222995ad.33.1735470845437;
+        Sun, 29 Dec 2024 03:14:05 -0800 (PST)
+Received: from nick-mbp.. ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-219dca02544sm161655895ad.255.2024.12.29.03.14.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Dec 2024 03:14:05 -0800 (PST)
+From: Nick Chan <towinchenmi@gmail.com>
+To: Hector Martin <marcan@marcan.st>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Lee Jones <lee@kernel.org>,
+	Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Pavel Machek <pavel@ucw.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Nick Chan <towinchenmi@gmail.com>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org
+Subject: [PATCH v4 RESEND 0/3] Apple DWI backlight driver
+Date: Sun, 29 Dec 2024 19:11:16 +0800
+Message-ID: <20241229111322.4139-1-towinchenmi@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Message-ID: <4847f6b1.1c60.19412092a7a.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: hygvCgDn76xCKXFnKw9LAA--.48082W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQTEXmdxJJEE4wADsw
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_025016_095980_52347409 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20241229_031407_005782_DCF1E491 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +108,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpIaSBLcnp5c3p0b2YsCgpBdCAyMDI0LTEyLTI5IDE4OjEzOjM5LCAiS3J6eXN6dG9mIEtvemxv
-d3NraSIgPGtyemtAa2VybmVsLm9yZz4gd3JvdGU6Cj5PbiBTYXQsIERlYyAyOCwgMjAyNCBhdCAw
-ODoyMTo0OFBNICswODAwLCBBbmR5IFlhbiB3cm90ZToKPj4gRnJvbTogQW5keSBZYW4gPGFuZHku
-eWFuQHJvY2stY2hpcHMuY29tPgo+PiAKPj4gQWRkIHZvcCBmb3VuZCBvbiByazM1NzYsIHRoZSBt
-YWluIGRpZmZlcmVuY2UgYmV0d2VlbiByazM1NzYgYW5kIHRoZQo+PiBwcmV2aW91cyB2b3AgaXMg
-dGhhdCBlYWNoIFZQIGhhcyBpdHMgb3duIGludGVycnVwdCBsaW5lLgo+PiAKPj4gU2lnbmVkLW9m
-Zi1ieTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAKPj4gLS0tCj4+IAo+
-PiBDaGFuZ2VzIGluIHYyOgo+PiAtIGRlc2NyaWJlIGNvbnN0cmFpbnQgU09DIGJ5IFNPQywgYXMg
-aW50ZXJydXB0cyBvZiByazM1NzYgaXMgdmVyeQo+PiAgIGRpZmZlcmVudCBmcm9tIG90aGVycwo+
-PiAtIERyb3AgS3J6eXN6dG9mJ3MgUmV2aWV3ZWQtYnksIGFzIHRoaXMgdmVyc2lvbiBjaGFuZ2Vk
-IGEgbG90Lgo+PiAKPj4gQ2hhbmdlcyBpbiB2MToKPj4gLSBvcmRlcmVkIGJ5IHNvYyBuYW1lCj4+
-IC0gQWRkIGRlc2NyaXB0aW9uIGZvciBuZXdseSBhZGRlZCBpbnRlcnJ1cHQKPj4gCj4+ICAuLi4v
-ZGlzcGxheS9yb2NrY2hpcC9yb2NrY2hpcC12b3AyLnlhbWwgICAgICAgfCA3MCArKysrKysrKysr
-KysrKystLS0tCj4+ICAxIGZpbGUgY2hhbmdlZCwgNTYgaW5zZXJ0aW9ucygrKSwgMTQgZGVsZXRp
-b25zKC0pCj4+IAo+PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
-bmdzL2Rpc3BsYXkvcm9ja2NoaXAvcm9ja2NoaXAtdm9wMi55YW1sIGIvRG9jdW1lbnRhdGlvbi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvcm9ja2NoaXAvcm9ja2NoaXAtdm9wMi55YW1sCj4+
-IGluZGV4IDI1MzE3MjZhZjMwNi4uZjI4Y2VhNGE2ZDgyIDEwMDY0NAo+PiAtLS0gYS9Eb2N1bWVu
-dGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS9yb2NrY2hpcC9yb2NrY2hpcC12b3Ay
-LnlhbWwKPj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkv
-cm9ja2NoaXAvcm9ja2NoaXAtdm9wMi55YW1sCj4+IEBAIC0yMCw2ICsyMCw3IEBAIHByb3BlcnRp
-ZXM6Cj4+ICAgICAgZW51bToKPj4gICAgICAgIC0gcm9ja2NoaXAscmszNTY2LXZvcAo+PiAgICAg
-ICAgLSByb2NrY2hpcCxyazM1Njgtdm9wCj4+ICsgICAgICAtIHJvY2tjaGlwLHJrMzU3Ni12b3AK
-Pj4gICAgICAgIC0gcm9ja2NoaXAscmszNTg4LXZvcAo+PiAgCj4+ICAgIHJlZzoKPj4gQEAgLTM3
-LDEwICszOCwyMiBAQCBwcm9wZXJ0aWVzOgo+PiAgICAgICAgLSBjb25zdDogZ2FtbWEtbHV0Cj4+
-ICAKPj4gICAgaW50ZXJydXB0czoKPj4gLSAgICBtYXhJdGVtczogMQo+PiAtICAgIGRlc2NyaXB0
-aW9uOgo+PiAtICAgICAgVGhlIFZPUCBpbnRlcnJ1cHQgaXMgc2hhcmVkIGJ5IHNldmVyYWwgaW50
-ZXJydXB0IHNvdXJjZXMsIHN1Y2ggYXMKPj4gLSAgICAgIGZyYW1lIHN0YXJ0IChWU1lOQyksIGxp
-bmUgZmxhZyBhbmQgb3RoZXIgc3RhdHVzIGludGVycnVwdHMuCj4+ICsgICAgbWluSXRlbXM6IDEK
-Pj4gKyAgICBtYXhJdGVtczogNAo+PiArICAgIGl0ZW1zOgo+PiArICAgICAgLSBkZXNjcmlwdGlv
-bjoKPgo+VGhhdCdzIGNvbnRyYWRpY3RvcnkuIG1pbi9tYXggc2F5IDEtNCwgYnV0IGhlcmUgeW91
-IGxpc3QgdHdvIGludGVycnVwdHMuCgpUaGVyZSBhcmUgNCBpbnRlcnJ1cHRzIG9uIHJrMzU3Niwg
-YW5kIHRoZSBvdGhlciBTT0Mgb25seSBoYXZlIG9uZS4KSSBhbSBzb3JyeSB0aGF0IEkgYW0gbm90
-IGZhbWlsaWFyIHdpdGggdGhpcyBzY2hlbWEgbGFuZ3VhZ2U7IEkgaGF2ZSByZWFkIG1hbnkKb3Ro
-ZXIgWUFNTCBiaW5kaW5ncyB0aGVzZSBkYXlzIGFuZCB0cnkgdG8gd3JpdGUgaXQgY29ycmVjdGx5
-LgoKTWF5YmUgSSBzaG91bGQgbm90IGxpc3QgdGhlIGludGVycnVwdHMtbmFtZXMgaGVyZSh0aGVu
-IGxpc3QgdGhlIGludGVycnVwdC1uYW1lIGJ5IHNvYyBhdCBhbGxPZjogIHBhcnQpLAogbGlrZSB0
-aGUgY2xvY2tzIGhhbmRsZXMgaW4gc2Ftc3VuZyx1c2IzLWRyZC1waHkueWFtbCAgPwoKPgo+PiAr
-ICAgICAgICAgIHZvcCBzeXN0ZW0gaW50ZXJydXB0LCBzdWNoIGFzIGJ1cyBlcnJvciwgYW5kIHZz
-eW5jIGZvciB2b3AgdmVyc2lvbiB1bmRlcgo+PiArICAgICAgICAgIHJrMzU3Ni4KPj4gKyAgICAg
-IC0gZGVzY3JpcHRpb246Cj4+ICsgICAgICAgICAgaW5kZXBlbmRlbnQgaW50ZXJydXB0cyBmb3Ig
-ZWFjaCB2aWRlbyBwb3J0LCBzdWNoIGFzIHZzeW5jIGFuZCBvdGhlciB2aWRlbwo+PiArICAgICAg
-ICAgIHBvcnQgcmVsYXRlZCBlcnJvciBpbnRlcnJ1cHRzLgo+PiArCj4+ICsgIGludGVycnVwdC1u
-YW1lczoKPj4gKyAgICBpdGVtczoKPj4gKyAgICAgIC0gY29uc3Q6IHZvcC1zeXMKPj4gKyAgICAg
-IC0gY29uc3Q6IHZvcC12cDAKPj4gKyAgICAgIC0gY29uc3Q6IHZvcC12cDEKPj4gKyAgICAgIC0g
-Y29uc3Q6IHZvcC12cDIKPgo+QW5kIHRoaXMgc2F5cyBleGFjdGx5IDQuCj4KPkJlc3QgcmVnYXJk
-cywKPktyenlzenRvZgo+Cj4KPl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCj5MaW51eC1yb2NrY2hpcCBtYWlsaW5nIGxpc3QKPkxpbnV4LXJvY2tjaGlwQGxp
-c3RzLmluZnJhZGVhZC5vcmcKPmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcm9ja2NoaXAK
+Apple SoCs come with a 2-wire interface named DWI. On some iPhones, iPads
+and iPod touches the backlight controller is connected via this interface.
+This series adds a backlight driver for backlight controllers connected
+this way.
+
+Changes since v3:
+- $ref to common.yaml in bindings
+- (and then additionalProperties is changed to unevaluatedProperties)
+- Use hex everywhere in bindings example
+- Use sizeof(*dwi_bl) instead of the type of the struct when doing
+devm_kzalloc()
+- Use devm_platform_get_and_ioremap_resource() in driver
+- Fix sorting in drivers/video/backlight/Makefile
+- In drivers/video/backlight/Kconfig, move config to right after
+BACKLIGHT_APPLE
+- Explain this driver being completely different from apple_bl
+
+v3: https://lore.kernel.org/asahi/20241209075908.140014-1-towinchenmi@gmail.com/T
+
+Changes since v2:
+- Add missing includes in driver
+- Fix file path in MAINTAINERS
+
+v2: https://lore.kernel.org/asahi/20241207130433.30351-1-towinchenmi@gmail.com/T
+
+Changes since v1:
+- Fixed dt-bindings $id.
+- Make power-domains an optional property in dt-bindings.
+- Added missing error checking after devm_ioremap_resource() in
+dwi_bl_probe().
+
+v1: https://lore.kernel.org/asahi/20241206172735.4310-1-towinchenmi@gmail.com/T
+
+Nick Chan
+---
+
+Nick Chan (3):
+  dt-bindings: leds: backlight: apple,dwi-bl: Add Apple DWI backlight
+  backlight: dwi_bl: Add Apple DWI backlight driver
+  MAINTAINERS: Add entries for Apple DWI backlight controller
+
+ .../bindings/leds/backlight/apple,dwi-bl.yaml |  57 ++++++++
+ MAINTAINERS                                   |   2 +
+ drivers/video/backlight/Kconfig               |  12 ++
+ drivers/video/backlight/Makefile              |   1 +
+ drivers/video/backlight/dwi_bl.c              | 122 ++++++++++++++++++
+ 5 files changed, 194 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
+ create mode 100644 drivers/video/backlight/dwi_bl.c
+
+
+base-commit: 4bbf9020becbfd8fc2c3da790855b7042fad455b
+-- 
+2.47.1
+
 
