@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5199BE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 15:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C650E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 15:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KTPitaOd10kqEMh4mWJPB1Bs0wTX2XDIfABV6gUcV0=; b=buJFj8tpseR+CKpeLCCAd0puCo
-	4z73h23/Z8AF/0zwYcYCja7UNmifqqJGNtzTNNbSnGWY2/4IzDVfCMjbjx15qTrrNyF94TdeYp+jp
-	0kEV4BxdHkX/q/MSARnAz9vqgU1FMatZ9qSvNh9eBNKTlFFoUKJ2f+SXSA6zarGhB53FFy2UhxyRS
-	q77ckp48SiHc0s+E02//S3l33aaJXOjzladMp+PHKsokECBIcrKKUvX4a4yb6tbFbiw+ITHPNhurh
-	DWnbQcZGLBEvZcTqt3rrJeSqKb6B0TdwKyeQR/6Bk7gpjNGthFzdE6vFMqGNST7wVjmbAb8s5HzP2
-	dEoVYffg==;
+	bh=aXOt2DStfgxzjFuE8T9ZB+qgm2XwGSAXjcE/H4FasAs=; b=0waUe229b9QW3UztuRMzvDYED0
+	MjgwlddMuaSJmGysL5d5tUPAqMwwmjlL7vJnzrEwaogkN6GUvFum8yu+BYcNZRstXgs+7fxh+0hBv
+	3WXH4Uzkqk9laGsWGvSQ9UlQ5fTMdWIepE45rZbipQbXtcJpPIQwAvvY4whp7TChA0mPJhVdileUe
+	R8CTSTJOTf4GDsxr/r7aHeLKTSFW069VNtHptiNhfxvMgH5zz3ic+G++fQZNQmlqPmyLV/DucavOS
+	7G4JCMOtKieYEH47hCzM0kvE31U8pNdY4+D5KKL1MV08zRsSJ4XV+NCwj8a5nZ8cpybyTXNRJ8w+Y
+	0A2vxOdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRuva-00000003YbS-2xy0;
-	Sun, 29 Dec 2024 15:10:02 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tRuwm-00000003YiZ-1gCP;
+	Sun, 29 Dec 2024 15:11:16 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRud7-00000003W2b-2L5x
+	id 1tRud9-00000003W3Q-33De
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 14:50:58 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aab6fa3e20eso1416051866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 06:50:57 -0800 (PST)
+	Sun, 29 Dec 2024 14:51:00 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5d34030ebb2so8049914a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 06:50:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1735483856; x=1736088656; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1735483858; x=1736088658; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7KTPitaOd10kqEMh4mWJPB1Bs0wTX2XDIfABV6gUcV0=;
-        b=mxS5kztY+e+1Kj2GNzr45Wh9Y78MS7cZzfYZj1Nr/Q/y3U87TRasc/pPSHuTWNWHbL
-         kMNz7mx85mKdeyz9ozIZvHtsEVdFb2PDFAWhzjXSMlXQvu1HoC6K4fwboRrcpSUfhZTA
-         UWpRSkv+sPeGBu2p2sA+NhGOjscFiaHLjsVFM=
+        bh=aXOt2DStfgxzjFuE8T9ZB+qgm2XwGSAXjcE/H4FasAs=;
+        b=Cv8MJrFyzYPzpEpW8DQ3hrhWF+lN7lTOkn/IAWjPegE3NMEG3WzuTpE6HftLENDBCB
+         Yucr7nUjyPUSuktb2qOpedVtJ6cFKcrWXSQ25oZNxmQ7s2FEX2LkKb+E9F3nb1+Pxja7
+         3YG9c4EddNE9u9z6y/DiT6IwAPXrW+D7ciEvU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735483856; x=1736088656;
+        d=1e100.net; s=20230601; t=1735483858; x=1736088658;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7KTPitaOd10kqEMh4mWJPB1Bs0wTX2XDIfABV6gUcV0=;
-        b=UD+QW0u56AzpY12/nqwmTT7g/TQSvLDDFZz9Z5j06/roJENZgfCL2V9Ky6dKvtZpBz
-         /a7DxFQRgNSYHKX979JFL7YiHayvRiE3k/E8MXZPC976rp7ntXDNvpqX2SJWWTCRB6TQ
-         Y/EdKg+kbhFcU0P134KjIRDfhwZfA25m2tFrSitQqqna0LBKNisCdJyDIHaFKMYbP5dI
-         DngHptkp11WAE97Q7uOql9d/GaKW6Gj+aVSgU4Qh0vaZ26hXShI3L5hkEWPpGwiiYDZp
-         BS+3MRc7dxQ5kiWQiREtvI1Sb28qTnbbrLEdKlDFShJXZGSe7SYP4+r0R/Q7MCBhRu89
-         yJpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqTcwczhNkxrGbCj+uQd9NTd39Dug3Wg8neEIOgSer8axhewK0UyQDvEesGqjkYeTYGooeeO08oZKt2CXbBHFO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgNda8H9OOsZABUC84kNtteqjgwLh9Y4jSuzoIREldxhsMjPCr
-	d9yXTPmh6S89njrqqWIPI4B4gWAjop09PN4PGSqLvurOiICP39ybBDTzQmW71pE=
-X-Gm-Gg: ASbGncsmGR5xLKoZsgkY5FlHU9yHCyvgiTds6zYqjtZSiI96OEXY1Y8p3ocGxRZT78S
-	NCnaQx1Tsu1lnHmx89BBkRF/ZfY3e6m3sVb/AuFVEYOGEXdkUCp2rqd+BUfYB+e9rIhN/DIX39Y
-	dnp5bJHleGlDyqAaapeagPcvO7t4OtMwQJz4HbtgxPY+whgPLdTQYsw5ymtS+VKGxOJlalEZlvs
-	LOJzh/Xu4nQVqPRJVUbvUg5q7FIqm59Xd/8PMcxZHpnV6F7HwNPFDKftrlLQC1BGzTQDc+uY+VV
-	ewp57TrewUgchBVY7p71HA==
-X-Google-Smtp-Source: AGHT+IHvQXTsCcZJ8CU1KhAq/G5BDJIBlqOMAEAV9YW5qQI6LW38CUK2eUxP4LJJg+eZZRtCwN8OPg==
-X-Received: by 2002:a17:907:c1d:b0:aae:ccbe:993d with SMTP id a640c23a62f3a-aaeccbe9ac9mr2338346966b.35.1735483856193;
-        Sun, 29 Dec 2024 06:50:56 -0800 (PST)
+        bh=aXOt2DStfgxzjFuE8T9ZB+qgm2XwGSAXjcE/H4FasAs=;
+        b=m4YkKAOQaOHMdr+Sxg1JO85n1fNwmXaN20Rrjel1/WfLQPK9l5++x69ZY5zz45Fh+o
+         rvdoZjQOGg1HZmN8qv441kHAU3F2rv8MlcdQRUlbDKY1jgkC8yeTngaKEQx9im4IJHAX
+         VnBKgCaHmOdAJCuzmOJU5mU0ziPuzdI28LFbuV8HF50YinkIeeprr4miU+WRMrjAdvxl
+         wzLMvOPo0jzP6+tB3fmxw3om9E0dTGawo2c+PSczqreIcP/U+YqWkyigneZboaPzu6dE
+         bXdgIlC1FuAvdF5qjFignRbeT4oAqditWfDr695521W+BnT9jH2YNkcDoAlFKR5nnjX5
+         Gp/w==
+X-Forwarded-Encrypted: i=1; AJvYcCUTB/IOqoIAwScN9vytMBzx/wAzMcmgKjN8MewgREj0N9YsGOEOelQ5idvno+wjrQSgaPQr80QAHouxOcmE30oX@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx0stu4IEQWLkWOPLSnB1HT8cLd7IMS5aIYyxQN28uM2ru7V4S
+	wK7hOeQYwvZWwyG8cUK9akttj3UmKegrV8WfixG9bPry82U/7KnBIc2uXKnyWco=
+X-Gm-Gg: ASbGncvoLZXtSIHUQym/z5ec1oyALYtcyDVQdXhUYrfpRhFir/r55EevC8uO3O1weS4
+	I5WoxtSqqfdJAvulI6qKAmRsTafTgpCXEw6R6RioUBg8RQRpHl0c5/DA3s1pxnUVVGGpa1r7SfZ
+	+CQaDaIJxUgPAF0jTiD/1jQqG/06dqFYEY+69wCWNolPku8emzdXnpQGB7MZrBsEg7iyScGlznu
+	qyYHZOqV0W9yTgA6o1RARfeuZt2/cBwdLiVVjXE8Ro7yeaczhnVKms9I9fZ5eAXRSQUAOWz5B2b
+	kulVpG1ssUIwpTqnyw2S3g==
+X-Google-Smtp-Source: AGHT+IFUZKKdB0iUzGRoX60NeZj/L8H0CgHBD5QlmlsHW+jn/bxgVOxw8oTNEA264fbFGQVGlo990A==
+X-Received: by 2002:a17:907:9621:b0:aa6:6f92:74b1 with SMTP id a640c23a62f3a-aac2ad7fa01mr3093170366b.13.1735483857971;
+        Sun, 29 Dec 2024 06:50:57 -0800 (PST)
 Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e895080sm1362084466b.47.2024.12.29.06.50.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e895080sm1362084466b.47.2024.12.29.06.50.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Dec 2024 06:50:55 -0800 (PST)
+        Sun, 29 Dec 2024 06:50:57 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Abel Vesa <abelvesa@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Peng Fan <peng.fan@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v8 15/18] arm64: dts: imx8mp: add PLLs to clock controller module (CCM)
-Date: Sun, 29 Dec 2024 15:49:39 +0100
-Message-ID: <20241229145027.3984542-16-dario.binacchi@amarulasolutions.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v8 16/18] dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+Date: Sun, 29 Dec 2024 15:49:40 +0100
+Message-ID: <20241229145027.3984542-17-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241229145027.3984542-1-dario.binacchi@amarulasolutions.com>
 References: <20241229145027.3984542-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_065057_600330_FC36B2F5 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20241229_065059_768413_410D7D93 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +110,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the PLLs generated by anatop to the clock list of the Clock
-Controller Module (CCM) node.
+The addition of DT bindings for enabling and tuning spread spectrum
+clocking generation can be applied specifically to the PLLs.
+
+The "" value for the fsl,ssc-method property is specifically intended to
+specify a "no SSC" case, as in the example, when you don't want to
+configure spread spectrum for one of the PLLs, thus avoiding the use of
+a method that would only make sense if SSC were being set.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 ---
 
-(no changes since v4)
+(no changes since v7)
+
+Changes in v7:
+- List the PLLs to strictly define the setup order for each of the
+  added properties
+- Drop maxItems from "fsl,ssc-modfreq-hz" and "fsl,ssc-modrate-percent"
+  properties
+- Add 'Reviewed-by' tag of Krzysztof Kozlowski
+
+Changes in v6:
+- Improve the commit message
+- change minItems from 7 to 1 for all the ssc properties added
+- change maxItems from 10 to 4 for alle the ssc properties added
+- update the DTS example
 
 Changes in v4:
-- New
+- Drop "fsl,ssc-clocks" property. The other added properties now refer
+  to the clock list.
+- Updated minItems and maxItems of
+  - clocks
+  - clock-names
+  - fsl,ssc-modfreq-hz
+  - fsl,ssc-modrate-percent
+  - fsl,ssc-modmethod
+- Updated the dts examples
 
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Changes in v3:
+- Added in v3
+- The dt-bindings have been moved from fsl,imx8m-anatop.yaml to
+  imx8m-clock.yaml. The anatop device (fsl,imx8m-anatop.yaml) is
+  indeed more or less a syscon, so it represents a memory area
+  accessible by ccm (imx8m-clock.yaml) to setup the PLLs.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index 0b928e173f29..eab05170442d 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -751,9 +751,14 @@ clk: clock-controller@30380000 {
- 					     <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
- 				#clock-cells = <1>;
- 				clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
--					 <&clk_ext3>, <&clk_ext4>;
-+					 <&clk_ext3>, <&clk_ext4>,
-+					 <&anatop IMX8MP_ANATOP_AUDIO_PLL1>,
-+					 <&anatop IMX8MP_ANATOP_AUDIO_PLL2>,
-+					 <&anatop IMX8MP_ANATOP_DRAM_PLL>,
-+					 <&anatop IMX8MP_ANATOP_VIDEO_PLL>;
- 				clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
--					      "clk_ext3", "clk_ext4";
-+					      "clk_ext3", "clk_ext4", "audio_pll1", "audio_pll2",
-+					      "dram_pll", "video_pll";
- 				assigned-clocks = <&clk IMX8MP_CLK_A53_SRC>,
- 						  <&clk IMX8MP_CLK_A53_CORE>,
- 						  <&clk IMX8MP_CLK_NOC>,
+Changes in v2:
+- Add "allOf:" and place it after "required:" block, like in the
+  example schema.
+- Move the properties definition to the top-level.
+- Drop unit types as requested by the "make dt_binding_check" command.
+
+ .../bindings/clock/imx8m-clock.yaml           | 47 +++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+index d96570bf60dc..d347d630764a 100644
+--- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
+@@ -43,6 +43,46 @@ properties:
+       ID in its "clocks" phandle cell. See include/dt-bindings/clock/imx8m-clock.h
+       for the full list of i.MX8M clock IDs.
+ 
++  fsl,ssc-modfreq-hz:
++    description:
++      The values of modulation frequency (Hz unit) for each clock
++      supporting spread spectrum.
++    minItems: 1
++    items:
++      - description: audio_pll1
++      - description: audio_pll2
++      - description: dram_pll
++      - description: video_pll
++
++  fsl,ssc-modrate-percent:
++    description:
++      The percentage values of modulation rate for each clock
++      supporting spread spectrum.
++    minItems: 1
++    items:
++      - description: audio_pll1
++      - description: audio_pll2
++      - description: dram_pll
++      - description: video_pll
++
++  fsl,ssc-modmethod:
++    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
++    description: |
++      The modulation techniques for each clock supporting spread
++      spectrum in this order::
++      - audio_pll1
++      - audio_pll2
++      - dram_pll
++      - video_pll
++    minItems: 1
++    maxItems: 4
++    items:
++      enum:
++        - ""
++        - down-spread
++        - up-spread
++        - center-spread
++
+ required:
+   - compatible
+   - reg
+@@ -76,6 +116,10 @@ allOf:
+             - const: clk_ext2
+             - const: clk_ext3
+             - const: clk_ext4
++        fsl,ssc-modfreq-hz: false
++        fsl,ssc-modrate-percent: false
++        fsl,ssc-modmethod: false
++
+     else:
+       properties:
+         clocks:
+@@ -124,6 +168,9 @@ examples:
+         clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
+                       "clk_ext3", "clk_ext4", "audio_pll1", "audio_pll2",
+                       "dram_pll", "video_pll";
++        fsl,ssc-modfreq-hz = <6818>, <0>, <0>, <2419>;
++        fsl,ssc-modrate-percent = <3>, <0>, <0>, <7>;
++        fsl,ssc-modmethod = "down-spread", "", "", "center-spread";
+     };
+ 
+   - |
 -- 
 2.43.0
 
