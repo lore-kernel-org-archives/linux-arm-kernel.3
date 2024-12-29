@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6DEE77191
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 18:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C7BE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 18:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKu1TS5Psj7hTyzCNbm0iN4cOOpfVFcu5dCXNycI6ow=; b=TvKDgSwkyLPOBxlk8yigDO9GgQ
-	v9PG1HGVG3wO5yBf6Cyp4k/r7dbO7zfkxfennLSh7XA2AJAw4dBU1VMlq1CIcIQegcLVq75LZoZGE
-	5+EdEHo6FOYrhCTU3b2HuGSbfj//2L6Qq3m9iRlnjTPFeINpgpyaGX++GMifaQnwP/r7r9S5S67Wx
-	dTIHYGfsx1jSKinvEAvF7bpp+rRzH0pfsEhbSZI+LEciTNiLOCtofH++tKgEMJ82H9s6NZvPBVhRn
-	ETzCj/e1LhJJhd7fdWsMfiYgVNvbBkVg1Z6a7DVLE/lYOEUJoI4d8wiki9D70rkXfDEh45YArvI1O
-	6tB6spmw==;
+	bh=xhbPOgs5hdCM6+iNzYizeI0jRjlgIwhloeZJA197DFE=; b=sfjTffNRjWikk6KhBzAwSQpJdm
+	Aiq8nXSYICy4roUW7m8O7zXvYPPZMMwHF/uQ42WjvdEZgqENaTCsWrJxRTi5158/6QozjSRd9U2hQ
+	dZh8bwOAAD0ZtIp63FJlH+C2KStj4eU1DhocHC+PVi7HDLh8fY8CUxwoCipTxHmPab7HPUdmwV/B7
+	ja6NDRwYNGGltQN93t/cjnymuocv895F8fA/xz1J/lFSNaXZte+QTMiU90HFVyi2OxjZGGoOuFhnq
+	4H32d8IkpM8Sm963l+6Gq64n5ljjpEF3NDa9R1Xy1vVPUbJCKpymUzikEY6q/4KOIiH29WVxqH0r5
+	9aC94yTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRyNQ-00000003lvz-1nyu;
-	Sun, 29 Dec 2024 18:51:00 +0000
-Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
+	id 1tRyOw-00000003m9y-41pf;
+	Sun, 29 Dec 2024 18:52:35 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRyHo-00000003lCy-3U60;
-	Sun, 29 Dec 2024 18:45:13 +0000
-Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-71e15d9629bso2193579a34.1;
-        Sun, 29 Dec 2024 10:45:12 -0800 (PST)
+	id 1tRyHw-00000003lEF-0JH3;
+	Sun, 29 Dec 2024 18:45:21 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3eb9ba53f90so2139815b6e.1;
+        Sun, 29 Dec 2024 10:45:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735497912; x=1736102712; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1735497919; x=1736102719; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KKu1TS5Psj7hTyzCNbm0iN4cOOpfVFcu5dCXNycI6ow=;
-        b=cWcROaASCHvxoTkgBDB3wNbC7xNgEf9X/3DmcV9e9cXWi1zaYr/X7Hf38KSKq3PAha
-         7+a2OVEKXGq3Ie7V0VzG+J4G+8a+JChR6w3tKZ1DVOT5z7FoNO/Fe2IzE4V25fjSJEiO
-         RfLzaT7iQk8dFbZUrCrmf8XUHhm/BzaBMwV4wkBnrJ7zpHLHCiaCJXjYqRvG9wjVvlBy
-         AHP/3KdsxUg5Uvycl56eHlgiuGPH4JWfGFUNK1dJpMYPOr3bsriBef0KqmJmcwhZcQ6m
-         d1dYSCIcdg7x0TlDuUKVFLvv4qDylTNLGGfEEJUCN5FDtCLg2B9NXrGh1qvi3cfy7esz
-         Vxyw==
+        bh=xhbPOgs5hdCM6+iNzYizeI0jRjlgIwhloeZJA197DFE=;
+        b=f+1XxlK69wWRo30vpZ2a21t4VSqHUm1gkt2MED3JJQytI7ASyDAx1wWO8YVLjmUHbW
+         2DLwulgG9fVIMaVzeKdWl1YDmyjRxbtEj0nviV0BuwfpGey8iugVxWwaJtS12U4PTuXL
+         YKriPphB/puDCJ/2Zaxy8aaG14OaHnmUUcpg/XUoFHDE7h8b/7pi9jJ6yyGQjPIMYi5l
+         8fP3XGeBC9Dg2MUXPMDr1Xi7g4SbYgqFIlZslhcwJpV57QAr/1OxCL6XtZRfJRTK+RiN
+         fwfU4bvrUOOISnJuG2XknJukm2b6dkgSbv3QDBOBMjgpE3gbnNWkLV32M7icx3CDlns2
+         68VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735497912; x=1736102712;
+        d=1e100.net; s=20230601; t=1735497919; x=1736102719;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KKu1TS5Psj7hTyzCNbm0iN4cOOpfVFcu5dCXNycI6ow=;
-        b=W0bbZQ4MKPQ88515RpMlMm0HQR0tSJqolMA4L2HdUcPhJfgcdOMRR4Pt/bMPhd8veJ
-         Bj792nTLy+d8tZVUUWnLx0aa6kCvpVINZ85+vx0YIpPFrKoOacea2hvOxLTkUfJ2ETTh
-         Nz/0nfsIltvDibNxv1EGmdZNLPOn9hbJceKa4sfCxVJ/XdeXhD1p4YTGVgSjaXak/iQB
-         2aVNXHplpqn+G7demoKUQiOSzJImebHZKYri+5+HzFwMgqcKLbc2EzEri2Pg1Nztunxi
-         /Gq3vPgaz2lG2je3f0XkMfXYeiy3s0HsEm6ZMlDmNREVOFqYOI02JgNDAoVbviaxQ0w8
-         dMGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUje92UaN5zc8c260FNxs/CVzC6P59yIaT9flk44SvacRJ877sv5wSJnVKL+nBe+gsIYtRjzyAjT3umEMYCgeo=@lists.infradead.org, AJvYcCV6nLyCqLpghp/Np/WJ7Eu4/wjTOpBhJx4V89MFi+qZMej0sRNhJPhG86KKlnhWarjzGTiwS4g6q2gPKqjvAUTH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxXhYnDWYQ5e78EFnrwaqzFD4r3bTAkyq2NkLiI4eL22ZtPZuH
-	ZL6KhjnaAMkD0gWGevm9FMhTRY7eiDCQWCRucTP9ZUaRoB9mn7iU88qYCknk
-X-Gm-Gg: ASbGncsjPztz+28gKf4xarE/nUlBIUUsuFCoEY264/FOK9i/UJRN0eVHt1ahAbo8uf9
-	UfmNOrs6kIB4ZJ0sNcEfjsQ7QBvez/7EyVnOC1SrPk1TgP9lpnKwo15CqinIqSqEhK0pSvJEbtM
-	rq8+89p83kFWEu34hLzEZZdErmNcmhmu7rUK6rhmNjsBLDEBifX2B2k2VJG6l2ITuYlmoUUHGSr
-	E8Kl/FwBd6FINb0hy3etTyKW73xd2W65jRNPZ3MTJcx3TXc4/3Qh4nP8xBGG2yF
-X-Google-Smtp-Source: AGHT+IETOyubIpNaewSb5YWblmDG49HSLncL7ygLwmf7mXu2oV9Tarb4CVAUQOoSuZ0xPYYC/d9Emw==
-X-Received: by 2002:a05:6830:718c:b0:71e:223c:1789 with SMTP id 46e09a7af769-720ff894f99mr22567508a34.16.1735497912149;
-        Sun, 29 Dec 2024 10:45:12 -0800 (PST)
+        bh=xhbPOgs5hdCM6+iNzYizeI0jRjlgIwhloeZJA197DFE=;
+        b=S2VmdrqAa93ril75pKVlhzSAckNdtXph5uleA33+V/swlnsQFCs2UhsiujiBNd6s4t
+         pUBMPlNaPV812gK21gt/51G6qKyUqJ1x+rKprcSqMP92cdinbuHvah/OAznWaEmCckyy
+         JeO04b9TnOTe/4isFjHa7CmHgtDFyH0U6hX/nk9VCk4MhHbZNmjo9WET5Fjn+L35vfdL
+         bhWs2RI/TwB3DpJBAvT7XgcrrXhEKmKOS6FHdCROAWcnEGgT0QxPWyOTtaDURlbem4E9
+         ASJa33WXMe5AlX9pV2f70TRQkj8iYKNn2r6fnP62DcqB66UGvcgEkP4j3xjJrQtWgAzW
+         Xk3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUwzdSij4berI2XPmzrDhh7NWe8xYVZujvboQkTSZ+WJef0OGeUch7Q5+NUo0zUK3vR3u9J16nuitCPGzJMgs7H@lists.infradead.org, AJvYcCWXdEW3JEEZ61o/YX9P0fCxVTbFSU6mFThZ/4HmKV3TXQn+fvJEV8Mp06oWEpxg7Rrh+K5QfaVrlz+9D+xXfdI=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2IRnEL9Nm5FfFTTnzR/1RWnnSn8/3MuCvgTVdHg36K5KNQKW1
+	n4m1r64TbGpTMnLqGL9LgsvXCWSrM9MxuiBt84Psr75zmccxPMiJitMNf0/R
+X-Gm-Gg: ASbGncvqsQ/NzvrJZEuT0Rq0yDu3HtBrIw71ccQXaSpecEIjvMxM5gE2C/61MTpvzDv
+	Mb0gDXyjHLES5fN/wBK+LEBxyQCX10hIwFAM+XptVmBUbPBY1eIT5XZW9+O0oN+inub8GPdnjSV
+	cVYlHWWl6SfB2mzJiUUheDehR2fx20Aw2l9sFS4WpX5kzKZs88czVR15UEe1MsqnPBgyxmfTTnL
+	CzuWU/WV/BgVr3CeL7OJnj7X/teexmutT31RMImg7nOJW/BYiRowkWW0ZezMQNY
+X-Google-Smtp-Source: AGHT+IG5Dz6PKTeZW52qvpIKHumr7L106ymsa0PWmwxEz12ib8r4giLp1CEwxs+6Mx00o60XZ9fD4Q==
+X-Received: by 2002:a05:6808:1903:b0:3eb:62d4:7098 with SMTP id 5614622812f47-3ed890b15f0mr18259001b6e.37.1735497919043;
+        Sun, 29 Dec 2024 10:45:19 -0800 (PST)
 Received: from tower.cjhon.com ([2603:8081:ad00:4a:e765:a49c:5c4:1103])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71fc97d6fafsm5515645a34.31.2024.12.29.10.45.10
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71fc97d6fafsm5515645a34.31.2024.12.29.10.45.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 29 Dec 2024 10:45:11 -0800 (PST)
+        Sun, 29 Dec 2024 10:45:17 -0800 (PST)
 From: Jimmy Hon <honyuenkwun@gmail.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Ondrej Jirman <megi@xff.cz>,
@@ -76,17 +76,18 @@ Cc: Ondrej Jirman <megi@xff.cz>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Jimmy Hon <honyuenkwun@gmail.com>
-Subject: [RFC 5/7] arm64: dts: rockchip: Add Orange Pi 5 Ultra board
-Date: Sun, 29 Dec 2024 12:41:33 -0600
-Message-ID: <20241229184256.1870-10-honyuenkwun@gmail.com>
+Subject: [PATCH 6/7] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
+Date: Sun, 29 Dec 2024 12:41:34 -0600
+Message-ID: <20241229184256.1870-11-honyuenkwun@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20241229184256.1870-2-honyuenkwun@gmail.com>
 References: <20241229184256.1870-2-honyuenkwun@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_104512_887979_4781D7E6 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20241229_104520_129568_85E936A2 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +102,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3588 Single Board Computer includes
-- eMMC
-- microSD
-- UART
-- 2 PWM LEDs
-- RTC
-- RTL8125 network controller on PCIe 2.0x1.
-- M.2 M-key connector routed to PCIe 3.0x4
-- PWM controlled heat sink fan.
-- 2 USB2 ports
-- lower USB3 port
-- upper USB3 port with OTG capability
-- Mali GPU
-- SPI NOR flash
-- Mask Rom button
-- Analog audio using es8388 codec via the headset jack and onboard mic
-- HDMI1
-- HDMI IN
-
-the vcc5v0_usb30 regulator shares the same enable gpio pin as the
-vcc5v0_usb20 regulator.
+Enable the second HDMI output port on the Orange Pi 5 Max
 
 Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile         |  1 +
- .../dts/rockchip/rk3588-orangepi-5-ultra.dts  | 21 +++++++++++++++++++
- 2 files changed, 22 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
+ .../dts/rockchip/rk3588-orangepi-5-max.dts    | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 83ad11650f0b..7c7560b8fda3 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -144,6 +144,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-max.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-plus.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-ultra.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-quartzpro64.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5-itx.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
-new file mode 100644
-index 000000000000..41d8d297ce4b
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+index ce44549babf4..ecfbed2d0059 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+@@ -21,6 +21,17 @@ hdmi0_con_in: endpoint {
+ 			};
+ 		};
+ 	};
 +
-+/dts-v1/;
++	hdmi1-con {
++		compatible = "hdmi-connector";
++		type = "a";
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include "rk3588-orangepi-5-compact.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi 5 Ultra";
-+	compatible = "xunlong,orangepi-5-ultra", "rockchip,rk3588";
++		port {
++			hdmi1_con_in: endpoint {
++				remote-endpoint = <&hdmi1_out_con>;
++			};
++		};
++	};
+ };
+ 
+ &hdmi0 {
+@@ -39,10 +50,33 @@ hdmi0_out_con: endpoint {
+ 	};
+ };
+ 
++&hdmi1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&hdmim0_tx1_cec &hdmim0_tx1_hpd
++			     &hdmim1_tx1_scl &hdmim1_tx1_sda>;
++	status = "okay";
 +};
 +
-+&pinctrl {
++&hdmi1_in {
++	hdmi1_in_vp1: endpoint {
++		remote-endpoint = <&vp1_out_hdmi1>;
++	};
++};
 +
-+	usb {
-+		usb_otg_pwren: usb-otg-pwren {
-+			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
++&hdmi1_out {
++	hdmi1_out_con: endpoint {
++		remote-endpoint = <&hdmi1_con_in>;
++	};
++};
++
+ &hdptxphy_hdmi0 {
+ 	status = "okay";
+ };
+ 
++&hdptxphy1 {
++	status = "okay";
++};
++
+ &pinctrl {
+ 
+ 	usb {
+@@ -58,3 +92,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi0_in_vp0>;
+ 	};
+ };
++
++&vp1 {
++	vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
++		reg = <ROCKCHIP_VOP2_EP_HDMI1>;
++		remote-endpoint = <&hdmi1_in_vp1>;
 +	};
 +};
 -- 
