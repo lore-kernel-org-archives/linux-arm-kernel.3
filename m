@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEB2E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18A56E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 29 Dec 2024 10:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4O0bxLg5mkmdeGyMcXVKLwMSaVOP3QQPcmP3Zho9YnI=; b=u/37Zn1uopEQkFtSsyluK5OLUe
-	bvbpqYFcBO1BpHxytAhE0L3DhFySca0simgti70ZefFl9/08sdn0hsaWaUCxTIONI18P9GRIZZrd5
-	gI4hZiPCr+4tE9ErnAxL8ZJneEf3SuvUkc9x06WoMhN9RndJW8yo3mYfkjClKMEUHenkcInrt1gSs
-	abpZ/TYRrMfWNrpxRxsbNN2yTCQW/iDcAa0SivIRZcVCTwUIWwx5eLzdmN5rE0wPzO4ieidZyGOCJ
-	+RoQMMQez0jZJuN9kXGB7qHBh8xl/Mc3J/53YqBns1Itxg7C5yK/lQMLWEpxQzV+qQHlQw6OeMSQ2
-	lJKAFxXQ==;
+	bh=k8ZtXjafmOGy3nacypNXgK5AHGRR55SbBLiKcode2NQ=; b=4fWkC0Vct+VhLNiKhAeF4jytPL
+	BIRpl5V0EOyyh/lDrjwfDRdbYgkpz49bXXfHlEH+9zvLlxATjO3PVWx5WO58WGvZGXhgORGzyXa0S
+	O1Fnc9gSxizGQVrLIpXHevm3slcmPI3St32peRkAZdryBfBnS7g/LktRZ9E05qiDya9f6mZFMuciO
+	tn2ZXgrAEJpfSJ2K9Fb+iLr+J6JnukJpGE0kELpz5j5tRbqtlcwGtP1V0aR9D+NMq1CHFqe5bYV3d
+	OY58WLTCemb6IdCL63aZb3GfRKsIE6Zren9XJxTk5EXsSu0nuaeYdgIVIe72fwt2UK2ygfBQxA9eJ
+	zzrIo9bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRq6z-00000003DjY-1wc6;
-	Sun, 29 Dec 2024 10:01:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tRq8A-00000003DqD-0ua1;
+	Sun, 29 Dec 2024 10:02:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRq5n-00000003DZq-2Sqo
+	id 1tRq6N-00000003Ddr-2GqK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 29 Dec 2024 10:00:16 +0000
+	Sun, 29 Dec 2024 10:01:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85198A40390;
-	Sun, 29 Dec 2024 09:58:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3404C4CED1;
-	Sun, 29 Dec 2024 10:00:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 15606A40B5E;
+	Sun, 29 Dec 2024 09:59:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B57DC4CED1;
+	Sun, 29 Dec 2024 10:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735466413;
-	bh=bmlzr0tMJNjj+ypn5BvAPIHyLI5ap+gnTPOeqPjJoME=;
+	s=k20201202; t=1735466450;
+	bh=Pj+RQZSRqYMDWyt+4XA8+yxTqQepkTRFJblBQnMIek4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gHikihcSYQRFmPWPc8Aob2u/THHuEmoNlTDJ/rlDsrdUZyOo2BtDQC8z1eUl++rHa
-	 c3Jup8SLnPw1/ghv+RRXjWkvOb+LUue9gbEgVXpFX5Gt8hpqxdWtATd+b7MOB+j3bH
-	 JAuPjPzjqbmn1SeJUERGGf5kjthzaHXAg+gpUcJQbOfN6juSeZqzG0+I+eOJuyTMVN
-	 qV4UmJu1iw9YEhtK0ZqLNGAwyqjGu4Yx3tG5G/RLIhVhs/JqvRgejJY8LljoitLDV2
-	 xm9T5ubcD1EOacd7c5bmYLM5m8C78wqqBwpTK5qHo/giRLqjRpu1DJexjv7BxPTE4P
-	 TLB2uSnkZp3aA==
-Message-ID: <4c21b4bb-c3dd-436b-a25d-0808289911e1@kernel.org>
-Date: Sun, 29 Dec 2024 11:00:05 +0100
+	b=njfE9pBsR5r1yogtqTUH36CBEx0d63IzoZIHuXTFQthAtmGKmS4JyZVkXaSdvQZkH
+	 WtlDxHD0U9bc8xfuNl1mJstZShcd076cW7VdO5gazoR9Q6F8hggcwo6xRWt28Ydrda
+	 uXtbTP8/pHArmQrAYBWUHEaeCXIeuxY+BQE9diV1RXBnhMytiWIV64fOXMVptFAMa5
+	 MykGcEJKAES70Tj9jKpLkLpVtBs4OmWwy4EEiAKR7fj3ZTS8MIcdcNhBs3K3kqZLrR
+	 XhEYb6AWoElOCwqKqXgtbWA/FV1ukoASgn/SSpBBG7do3s7fyTEPKAVJcq0dUUS5sf
+	 W89LvXLVvOlDg==
+Message-ID: <013abaea-f690-4cb6-9d2f-934429a9b22d@kernel.org>
+Date: Sun, 29 Dec 2024 11:00:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] arm64: exynos: gs101: add ACPM related nodes
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
- daniel.lezcano@linaro.org, vincent.guittot@linaro.org,
- ulf.hansson@linaro.org, arnd@arndb.de, Jassi Brar <jassisinghbrar@gmail.com>
-References: <20241220-gs101-acpm-dt-v3-0-642d64daa5d1@linaro.org>
+Subject: Re: [PATCH v2] arm64: dts: exynos8895: Add camera hsi2c nodes
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20241221152803.1663820-1-ivo.ivanov.ivanov1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +98,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241220-gs101-acpm-dt-v3-0-642d64daa5d1@linaro.org>
+In-Reply-To: <20241221152803.1663820-1-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_020015_767700_C0A46E3C 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20241229_020059_325164_2FF53111 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,34 +119,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2024 15:45, Tudor Ambarus wrote:
-> Define SRAM, mailbox and ACPM protocol in device tree.
-> Enable the mailbox and ACPM protocol in defconfig.
+On 21/12/2024 16:28, Ivaylo Ivanov wrote:
+> Add nodes for hsi2c1-4 (CAM0-3), which allows using them.
 > 
-> Changes in v3:
-> - ACPM: don't specify the channel ID and type in DT: the channel ID is
->   discovered at runtime and the channel type is always DOORBELL for the
->   ACPM interface.
-> - mbox: update #mbox-cells = <0>;
-> - rebase on top of v6.13-rc3
-> - Link to v2: https://lore.kernel.org/r/20241212-b4-acpm-v4-upstream-dts-v2-0-91b7a6f6d0b0@linaro.org
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+> Bindings are in another patchset [1].
 > 
 > Changes in v2:
-> - update nodes based on the bindings updates
-> - update mailbox and power-management (mailbox client) nodes to specify
->   channel type (doorbell or data) and channel ID.
+>   - Mention the bindings this patch depends on.
 > 
-> v1:
-> Link: https://lore.kernel.org/linux-arm-kernel/20241205180200.203146-1-tudor.ambarus@linaro.org/
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
-> Tudor Ambarus (4):
->       arm64: dts: exynos: gs101: add SRAM node
->       arm64: dts: exynos: gs101: add AP to APM mailbox node
+> [1] https://lore.kernel.org/all/20241221151937.1659139-1-ivo.ivanov.ivanov1@gmail.com/
 
-
-Please ping me when the mailbox driver bindings get accepted.
+Still in my queue, please ping me when the driver bindings get accepted.
 
 Best regards,
 Krzysztof
