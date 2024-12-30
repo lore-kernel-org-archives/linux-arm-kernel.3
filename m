@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F4D9E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 12:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88000E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 12:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XC7aFoxrHSDbAWGEa4JymcLKu3NlXqEnFCSTzXWk0ZE=; b=ujlqIQr4CXD0L3qfPTHUwCaA43
-	zrdV465gWd5D1RtP+mIFuzToKoaRbQenHn9hsB59XiZ32BuP0Q/3XbGdAiNlL9ViB/eyK+WA9uC6l
-	0JmC03IhbDj5RdBPLYRH/nLpaxruXftSeT656Ay3jzZKcmCpXNztRt/rdsmtIUYtu6hw8COa05qzl
-	U9C4wFMLN9RxW4gaA361sn4BoNh8JJnP1KLAItB2CgO5JWAvKAkUjV1IamD6sKFYmTh/0m+/96iFl
-	t/u6V50S9fT52KuMw0QtMVeNj3+HimRYZU7RHCBgSHhK28j6ME3sIdmpwRdG29zAK4T6CxaizRR5H
-	tlAptnBw==;
+	bh=Sk7KZ64g3QjSKBcPqpBugYd5y4zZQVTOsSnxLt9QvEM=; b=kXYz/ALxzjJhH38OZncSuvjYwo
+	T3wAdfov/ASMIbyo9ZuacjO07g0tiTBjiHjhL+v6f3WZCFbMLCAkM7vEgFRkUfe0BNTtsyTV/Wxoh
+	lSOfizJh4ak+9B7C5awgGLAgaoGj34pUXQzOj9sEohAxmpE010uAUmZXYLBU75mnpEHKdp4q6A8ID
+	acheE/KpU5EmMNBz1kUZhkFfl/t8760n+j6cKVVghQeKY9ObOaHImaqAs6o8BwAjbq04pj4RfErMX
+	jQamTqJ1mF2n6z2WBTSo/z2QmiYucquGNHbH5pOQVS+ULxKVWdiBvtTn9etLs0YGuAuWkp1YBH792
+	GiX10CJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSExI-00000005BIW-0Gkl;
-	Mon, 30 Dec 2024 12:33:08 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1tSEyb-00000005BYu-0zmk;
+	Mon, 30 Dec 2024 12:34:29 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSEvF-00000005B6E-1SL4
+	id 1tSExK-00000005BJK-44Bu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 12:31:02 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-3003d7ca01cso99202371fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 04:31:00 -0800 (PST)
+	Mon, 30 Dec 2024 12:33:13 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5401c52000dso10465676e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 04:33:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735561859; x=1736166659; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735561989; x=1736166789; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XC7aFoxrHSDbAWGEa4JymcLKu3NlXqEnFCSTzXWk0ZE=;
-        b=bcJvuEpKhE2XNm9k9RDbQeXygCpW4Pl/AUAHlOd7E6gxvG24oawiNbJ2M3nNk3chNl
-         i1JWcoDcDGiKWzD6JZwlzI9dLYckCX0BKNDmLdDpLK8sg04xdb9rt2YoEtATnBnUFK0N
-         R0aIIVHrWQ2EAHYXv8jSKBz1Wk+wEtLHfa4GS7PPg4RpS/j1i+P7wsOYC3Sf3nPtbPbD
-         YutHqxHw/CbZS9A4xs3t8ctq3evkj8pmtsl+V8PWjQ8BqLhPCyNDJ2SmJ36KdTHCm9V3
-         2zy2dum5/z9iSm2IuU3KoHl8mL/SsKLs6tRW9665L2oPnmWA10W2AaxwLD6e81Yhi281
-         DKTA==
+        bh=Sk7KZ64g3QjSKBcPqpBugYd5y4zZQVTOsSnxLt9QvEM=;
+        b=Cc5Jh/N3SWbXyKBdWoQUA2dEt4jcbPRoJRfSZZXp7nV6LhYr506JBvEVztLahhvtvg
+         FWeaJDmEryxeURr0oHVsmgKNF9Vgq6ek7E0pP8pdnZbEqwk8NxDuhXY7zxA3ny47XRj1
+         Lim7K0o60Gn+bTxG/FHrsVxBWrlJYkefLIFCgVFMPI5wWT5tCxIgimWaBRLUzbPAF7TU
+         0RwODM0hb2tTN9oJwlmrUfdi4PCkWzOgp8lpR5nFnkEQIlr6Mv+xrTp02af2cS3HarNH
+         moMird7dBWTLzx/waWA86gBeh3zq08K5H4roeHLqXbdVwknAX1OJhKFhWchAVGKqN/jO
+         7Isw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735561859; x=1736166659;
+        d=1e100.net; s=20230601; t=1735561989; x=1736166789;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XC7aFoxrHSDbAWGEa4JymcLKu3NlXqEnFCSTzXWk0ZE=;
-        b=bH8rhJe7myJHifZtdxzqUDgJWQcNQPB2Gwzbb+BcfXevjTbxjeant/bSQm247/Uu2r
-         Xj3tKawEnY9UO45Uj7u6A7MZqzGPq/8j/ocE0M21T9woJEexX6z2Uc4RZqWSU6csOmpG
-         5YJHEWOBZlotzx+xNz1k/w+DWQ4wac7ukjTFqk666aD7UCu8DubbIRlYb2H6gvwJQCP0
-         UOq3edrlLdjdKyZ7aEzTGu9uUq7owCAYvCAeU/Q4fvtNedST9wLE7o2bVEJzcy+uSvtz
-         Y1x9CF4gsvQh1gh4FjAkrv/I7v3XpK3Dtxcpii0bS5tIhK1KxUxKQduUPowRzIv/qgFe
-         HPTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV8LbnCugZiGSKcjIW0pFXwF7BRSMIrzo4H43YWONqkgwRez/XrvIrwgEAr0W4HyCxkjLh+V1Qr/zH92dDop99N@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYqlxF2GFombxwOp2G6ogE3BsH6/qXK3/P8MXzA/7k1iHXU2zX
-	FYE722xurSder5Yp9ae2AekYGRb7nx2cZ55/3SEhAq7JtmTSzWagiINf0EqHgcs=
-X-Gm-Gg: ASbGncsJ7gg8PaMPeYLHlmY2m/ULuV2UBJGjzO5K9+Xev6vmbKEdiE4UNTtw/4XJIy1
-	SmKYF0uG9oqFYb/WdLaBszwooiCrM518VIXmbCQFIczb8EBaZwbOyTX0dsb4SUYsmB/YTJBXmxB
-	/YHCIVtzSfi4/fxxvyNb8OYeBvetQrxFHpt4oObrrJj1wC4CY51Lr/MMvxx6lk7bZhspKKKa6Sl
-	gks74K0UE2wTLaYKUnRwUJhrf1xXEjkj2c5O0IJ22dI7kAltiEZkITD5ABwhhlN0rRQgk4G8cvh
-	P+8QL1jI3AhEC0S/4t+1QmowlShGAETVGpaQ
-X-Google-Smtp-Source: AGHT+IHnMCZF1zu8nJTtjEUT7Ed/kcm++NEx7SYSKZGed7mcIjxQVIqgMQ+VgW8ijFMQzuCRlvCpHQ==
-X-Received: by 2002:a05:651c:2229:b0:2ff:a7c1:8c55 with SMTP id 38308e7fff4ca-304685f51f9mr159543341fa.28.1735561859482;
-        Mon, 30 Dec 2024 04:30:59 -0800 (PST)
+        bh=Sk7KZ64g3QjSKBcPqpBugYd5y4zZQVTOsSnxLt9QvEM=;
+        b=V5eg0W3MCyrFuu4msvTZMtvw088ByOqAYtbUn6Kk5MBGEVJogMsRYdmGVg88E7DTxt
+         v0C5UR7ZK0PTjgAfFwJqH4Q/PX0FzYrCnHXGvX4yb3sf6kyXPJ+jH67dSRuZhCtKX3CF
+         Wq+NzNCZGvNf4bm4K6uhMAvmLMLsZweQRQAMB+FFxb1qYyBGiMdLTENzwghv891h9q86
+         ZHbAFbIGMNxI7jpnq8jvX7mWmIyDIdrUw6PStKtmPu+I+OJvA4xt18pkh5Yfy895YbPP
+         0UYqn8XIjYhx7vgJzbWon27muydLOiN+GxYenCNGppsfOeSv52GvXOAR5q473VWswI5o
+         lgIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXENSU73wHfOJMTn0X2erhsyDJS4Af/vpWB06Dhs7G/TvaXRsxfRkhYVoYmdBJWuYD562IWymzq/YyMcIP09RrD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq4xBev2hsoZ5DYRftqYyGq91DQa892HUyHuQSdncd7r3dnPUc
+	XXi3IkOmlFRRskUDE8SEOYFe66whnCNM7rbDFlueyArCe/5sEJlaNZq0hEjIKRw=
+X-Gm-Gg: ASbGncurt4YLEHXWmTn5gOWHSomOY20Fv/D1pa6NycEYI4g6Rx4DJKVPaPbw3m0yw8B
+	oT8fCG1aI+wfN+nOXuVX5sKvIkKDgyXJnkuXQcL+3xeD6EBSU3pcfQb/mvMIW0F+PmK2Co/IHL7
+	wtG6OHNs4XVxWsYT6K09zMNVe1CCzbTugX5PXyuK1zkQ60/C7AvhMT+8FrgQsAdmD3C5aiZoTap
+	Tvt95YxE4QJskJHclfsM1b2vrHRFUFXmfQyuQCtZJjrF7wZnxYhRVppJp1kzqQkoOhTLJf+9m4O
+	SU58MMpH+FSFtXcx2TLvsmrF2e+QN94BWAzV
+X-Google-Smtp-Source: AGHT+IGzkRgSziPMi+OuvqqF5BpICe3Uj4EKlYJrSjSIBpngZHhFVUrx0eOYogAtQxS8zwZb6NLAVg==
+X-Received: by 2002:a05:6512:2246:b0:542:2e04:edd1 with SMTP id 2adb3069b0e04-5422e04f073mr7912458e87.42.1735561988824;
+        Mon, 30 Dec 2024 04:33:08 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045b069ef9sm34662771fa.91.2024.12.30.04.30.58
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238135basm3125829e87.130.2024.12.30.04.33.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Dec 2024 04:30:59 -0800 (PST)
-Date: Mon, 30 Dec 2024 14:30:56 +0200
+        Mon, 30 Dec 2024 04:33:08 -0800 (PST)
+Date: Mon, 30 Dec 2024 14:33:06 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
-	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
-	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, 
-	u.kleine-koenig@baylibre.com, francesco@dolcini.it, frank.li@nxp.com
-Subject: Re: [PATCH v8 10/19] drm/imx: Add i.MX8qxp Display Controller pixel
- engine
-Message-ID: <ircgfhci3wmpahpxflmsbsxpahafqj6y5v56llezazaarbzppf@njzxhahie7xx>
-References: <20241230021207.220144-1-victor.liu@nxp.com>
- <20241230021207.220144-11-victor.liu@nxp.com>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, rfoss@kernel.org, vkoul@kernel.org, 
+	sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com, l.stach@pengutronix.de, 
+	andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com, 
+	kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v4 04/17] phy: phy-rockchip-samsung-hdptx: Swap the
+ definitions of LCPLL_REF and ROPLL_REF
+Message-ID: <ru3xpse4mg62gcxemut3zro6qw6v6firjnefo57k74n2ti66ym@l3pe2hpz5csl>
+References: <20241226063313.3267515-1-damon.ding@rock-chips.com>
+ <20241226063313.3267515-5-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241230021207.220144-11-victor.liu@nxp.com>
+In-Reply-To: <20241226063313.3267515-5-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_043101_501213_C78EBCB8 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20241230_043311_049848_945586B0 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,85 +103,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 30, 2024 at 10:11:58AM +0800, Liu Ying wrote:
-> i.MX8qxp Display Controller pixel engine consists of all processing
-> units that operate in the AXI bus clock domain.  Add drivers for
-> ConstFrame, ExtDst, FetchLayer, FetchWarp and LayerBlend units, as
-> well as a pixel engine driver, so that two displays with primary
-> planes can be supported.  The pixel engine driver and those unit
-> drivers are components to be aggregated by a master registered in
-> the upcoming DRM driver.
+On Thu, Dec 26, 2024 at 02:33:00PM +0800, Damon Ding wrote:
+> According to the datasheet, setting the dig_clk_sel bit of CMN_REG(0097)
+> to 1'b1 selects LCPLL as the reference clock, while setting it to 1'b0
+> selects the ROPLL.
 > 
-> Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > ---
-> v8:
-> * Get CF/ED/FL/FW/LB device instance numbers through register start addresses
->   of the devices, instead of compatible strings. (Dmitry)
-> * s/shdld/shdload/ for ED IRQs. (Dmitry)
-> * Add dc_pe_post_bind(), to avoid dependency on the component helper's way of
->   implementing component binding order. (Dmitry)
-> * Add dev_warn() to dc_lb_pec_dynamic_{prim,sec}_sel(). (Dmitry)
-> * Drop lb_links[] and dc_fetchunit_all_fracs[] arrays. (Dmitry)
-> 
-> v7:
-> * Add kernel doc for struct dc_drm_device. (Dmitry)
-> * Fix regmap_config definitions by correcting name field, correcting read
->   ranges and setting max_register field.
-> * Get instance numbers from device data(compatible strings) instead of OF
->   aliases.
-> * Collect Maxime's R-b tag.
-> * Trivial tweaks.
-> 
-> v6:
-> * Fix build warning by expanding sizeof(fu->name) from 13 to 21.
->   (kernel test robot)
-> 
-> v5:
-> * Replace .remove_new with .remove in dc-{cf,de,fl,fw,lb,pe}.c. (Uwe)
-> * Fix commit message to state that pixel engine driver is a component driver
->   instead of a master/aggregate driver.
-> 
-> v4:
-> * Use regmap to define register map for all registers. (Dmitry)
-> * Use regmap APIs to access registers. (Dmitry)
-> * Inline some small functions. (Dmitry)
-> * Move dc_lb_blendcontrol() function call from KMS routine to initialization
->   stage. (Dmitry)
-> * Use devm_kzalloc() to drmm_kzalloc() to allocate dc_* data strutures.
-> * Drop unnecessary private struct dc_*_priv.
-> * Set suppress_bind_attrs driver flag to true to avoid unnecessary sys
->   interfaces to bind/unbind the drivers.
-> * Make some fetch unit operations be aware of fractional fetch unit index(0-7).
-> 
-> v3:
-> * No change.
-> 
-> v2:
-> * Use OF alias id to get instance id.
-> 
->  drivers/gpu/drm/imx/dc/Makefile |   3 +-
->  drivers/gpu/drm/imx/dc/dc-cf.c  | 172 +++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-drv.c |   6 +
->  drivers/gpu/drm/imx/dc/dc-drv.h |  22 +++
->  drivers/gpu/drm/imx/dc/dc-ed.c  | 288 ++++++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-fl.c  | 185 ++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-fu.c  | 258 +++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-fu.h  | 129 +++++++++++++
->  drivers/gpu/drm/imx/dc/dc-fw.c  | 222 ++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-lb.c  | 325 ++++++++++++++++++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-pe.c  | 158 ++++++++++++++++
->  drivers/gpu/drm/imx/dc/dc-pe.h  | 101 ++++++++++
->  12 files changed, 1868 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-cf.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-ed.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fl.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fu.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fu.h
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-fw.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-lb.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-pe.c
->  create mode 100644 drivers/gpu/drm/imx/dc/dc-pe.h
+>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
 
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
