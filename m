@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFF3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 14:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F96CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 15:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GoaoLq361UaAebRj2ohl7Uye7+ll8RqNIDvB3jVhJOU=; b=i3tWshvyUncHVm
-	rqxPmOWNR0ms7qS+b65Myn0L/jTHwfTGb1a0bJis5ay0fL8pjYvv1xw4nrruJz8Y/09EHHL7wAtuB
-	L3ICAW6VpL3PlmwlpmEoZHEuejLlaegQMdWtWYB4hayVR42bYo70CNVLNWnV+Q5fBV1QJjphR/IBz
-	QA6nQKEvul1HdIHY4lvhh6nnY4TXE+gVvM8niLvCnEGtAE6vgpxO0FV8o8VbG79Pf82SlOEAj4jg8
-	Y0dUP5fibvq1Vaa9UmcLH/fcY61kqLj5FJjdVFW2IsOSfm/hHyX9SN+K09VxTDLIONZeap+0LXUYe
-	W1O/ij8UN5LGdpJ6y3rw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CcUs5V3NaAvho7+pyHks8hnj2f07Xk/qrLoafEl76mI=; b=og6jpIYGl4FsCkav9r/DP5mal+
+	miLO010I/wu8H1Sa7KRuFg/rYRvIbTalMk/JnFsxrkOis6gEZGs8Jj5oH+u8WLMd4ta/FTUme3nnk
+	ljCjBHiF4T7ErqoqSaaJaWy2drTXx2v+JBuzckZMwV1qRucphMhvxOqGENMyVch8yQe2HAloCnSB+
+	LiFvHeL3GrBKgT3GztA0t7BbOkfjrhTLSzAKZGqAbuB0IszndKw0MI+hRSDFhAI+VVGQYDRlR3UBw
+	QM4mxZ0JFFG/lV51cVM1rL5sXw04x89wehAUaEaVqsXkzY4+Ec8GTD1f0h6dHQn2qCGZYeMwLO6b0
+	VuDGgmvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSHFB-00000005Ox5-2yPv;
-	Mon, 30 Dec 2024 14:59:45 +0000
+	id 1tSHGL-00000005P3l-1iCf;
+	Mon, 30 Dec 2024 15:00:57 +0000
 Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSHDz-00000005Ohm-473t;
+	id 1tSHE0-00000005Ohr-1PVn;
 	Mon, 30 Dec 2024 14:58:33 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-30033e07ef3so61354051fa.0;
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-30037784fceso101000131fa.2;
         Mon, 30 Dec 2024 06:58:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20230601; t=1735570710; x=1736175510; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GoaoLq361UaAebRj2ohl7Uye7+ll8RqNIDvB3jVhJOU=;
-        b=fq2GLV7eie14TgeevO1UCfeN+AblMGKoSLEhmSxtTMu5wGyY+JpOtiV7/nOGWJUyyY
-         PVKO5iCt8sJBnnVG7105E1Wusthryrlqw22hlG9wYnwx3cdnALlwog7g5Es36aoFmT3f
-         HUzBJWNxFEn5Ka2vJ0TEDAqgrEcdhez8dtQ8xFH/rWXPn4GX2jXIq/AdnXcbyxioVS5Q
-         sSUyHe/PnwtZ5ZbRtZkVT8xK8fMGeVMIxS/mn0AsqEXPTfzpUYVVdF9Ks7dWtr3mKKGn
-         cTNn5AELIdq/5bJF4Gg1kdE7JbtvT3cLX7brOekkLVYxGeEN2WlCJGS/Jz3L1UbfOnz/
-         DNKg==
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CcUs5V3NaAvho7+pyHks8hnj2f07Xk/qrLoafEl76mI=;
+        b=VjF7O2c/9w6cVi07LySCEBDgcrPXHoNyBVQ8C66Zjp+xlMYkqJnHUenNYjLwmokAKo
+         juUvSQq3bIlqQVPAMbEl8+Yr7U808YZ+HnekQbIUKjGTFDCuAILlHVpJVLFm9mM61rYW
+         +bgxE9+3TXjS22hqhoHX0OKPDcUTTByWXOrPlp1L+F+PlvqsrdCzCkBV0Xyxus5zH0Al
+         dlZr+Z3GTgG6vCxiyGXbJ9wV3dnVZJDLAOrb6a90/8vrHi77p/EueQM0IpxDqnPA5KJT
+         5jy+bzwt9dsQ2hy5gHWkR3oRC5ZLIHlLXGYbb+s/2yiZn3o5Rd3uEEvcc3MEQ3aCBqyK
+         4MRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1735570710; x=1736175510;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GoaoLq361UaAebRj2ohl7Uye7+ll8RqNIDvB3jVhJOU=;
-        b=m1ZB6jn/CJicyhFiD0hC8zmOt3jyaLqY9aP4jsa0ttC9vA/4ZeBggV+4Eb6zWmxg24
-         xuj/NYTx6i+bigiHQ6g2gP77sTUu/dJPC8gZa83WjmCLI8YL4PvnBTi7POvf/IGUUJEl
-         lPzATVaCajEyGh92/TDMwq9qzo64WKkcTLNuOEXBumiEHM3MSSZqcC8U6uFYm83tBmCQ
-         UrPScxKK2BIeIGxQ0kQ30HPK+ACmE6o9lYmt/1cEOPyDyaFJUy9gK/Jk70SZuMxWTo2A
-         JNRNGqA033NrldktuL6X64b6qm8c2ukzenmQzouGfOqobosocEODfG4vNitSzE0wF6zn
-         UKVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUSS+jjd7BZc8IX5WOzP6a4Tm/kl63JHDIGmDmVm7v+wDpV8VpOXvJCddX6NXU4Fzqse30ZJ+VF3DeRjihpkIA=@lists.infradead.org, AJvYcCXihusLE2YSf6BlxE0tWVJSn78uGKb0ZbDUH9QXx6lirFC/OXqqmjJNcCFA8eH9DMrdw2qO9RRGo0oyLmvYz66m@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnb3CXQ4MygE3J+IBT2Kf2tsKeEnDRmKxFHqeMjErWXNIw25YW
-	oZ55hJEdqd8zKDfeZOqDT81SrJUvLWHEi2sPkqxqeyto76PLRko=
-X-Gm-Gg: ASbGncs/nVb7kTYvzYxgQYW08BdCXiX85WtqcFFfCWNrtaLgoAv9zrIKavx708kVIGv
-	v5RJ1rgC3sMChXOsV9ymeiHOv+2zW/uVjG2OwR7ftsJa0gh/ZL9r1Dtxq8Oy9RL33TDAxLA3yIN
-	hwnnC/WQiZWTiTfvIDHwUlgPbh4tLiHkN6EpgFJrFUlW198DEkimtrHUGqh7Jk/SSu3CM60QHJw
-	TAJxsXq16MtZ3o0+t5uOPQVc/yGhbuCq9MAU54fBVN8SYMNPxdXsdvz234=
-X-Google-Smtp-Source: AGHT+IGisD41W8JWQL0CRagYb+y8h32KJubs/kv1Im6KAp/oPQgc5CVL6cwTewm1uromHqSrkCtayQ==
-X-Received: by 2002:a2e:a9aa:0:b0:300:3307:389f with SMTP id 38308e7fff4ca-3046992f1admr99464301fa.0.1735570709482;
-        Mon, 30 Dec 2024 06:58:29 -0800 (PST)
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CcUs5V3NaAvho7+pyHks8hnj2f07Xk/qrLoafEl76mI=;
+        b=MwWsNwM2L0QSQncDND4SEWWzWbh6xQE/dA7+h5GdXs0492oIS3FcnxLEpF2OsDwnsi
+         rGqlMgvSL0fm99cxusZUC19lDvnMt/Kpr1jYXSqvMCCRWSBmfT+PjH5R86fgFppyVtDt
+         imVDW2EQQ5kEv36GA1tXDZQWOTklubdYWnQTjv5llwASnH/wo6ifqQoMrXhSM+yZSvP5
+         lnFvSFqDwcSHL8mRnGF3czQNQ7EGnpFz31e/dmQ4adoUKbjDWsOWnhoDQpAz0aOEwijS
+         hBFSqUCexmHFlibMDF5rHAiZ3BsVQ9ZdLcZd0cUKqL5fFmVsee4rwaEj1w4qyviDu/9D
+         5IAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWTFZDO8NV5JhoSHP7/bS+uoSUzZ89l+6xZtjJAPXS1xY/J9nZ4HziHd3nma+PmILWtiRgF4KdaqrgauT5eqnvL@lists.infradead.org, AJvYcCXRGo6PtkOhLYpgHC22RMILzPyWwqlWD5e5ZQ6N4kMIbL7SACbOZ4Iccpmr08MILDdc+bvmvZ1QwNseBV6Yjbw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZoHpDF9jUURGoqxqujD5vEnIqKXIl+hc6cr0Zsy3ANfT0Vxvm
+	1ZRhygDpyjBCPU/H6fOP+9GRSD9m6qm2rgfJ6d66RBJSNKfylrBLQYykmNk=
+X-Gm-Gg: ASbGncv0HbIqj4OH3s1m5hs0pauIofPLV7VxxDEifSqzJm+FbYY1RltVytUHBlb4VLq
+	FJN+1svhWeQoX748aMO7qykhLOoAT50VewCAFCG9nt5lrd7gqaaYApFwM+A1YvpZiTV/htoe5Id
+	jRsi9f+DoJ0kIeAh7VNj2V/59kJ2ikczSVUoAN4L5uXAuDBBL8Re0PmI6m4tU6+Rg8QiK8T1S/m
+	QZTUD+lLC63HsBQMqFx57Ok8F0WWFRRSvkOHQ5rpzjbioquS8LlNZ7cOTg=
+X-Google-Smtp-Source: AGHT+IGGle7L3Pgw7YylhfihahGvyOEaP7KbJQB691xKUVzMelucw7pM0g381qkKyOpyxUJSbMnafQ==
+X-Received: by 2002:a05:651c:50b:b0:300:1f2c:e3cf with SMTP id 38308e7fff4ca-30468556638mr121726901fa.13.1735570710108;
+        Mon, 30 Dec 2024 06:58:30 -0800 (PST)
 Received: from JetTurbine.homenetwork ([2a0e:e6c0:20d3:2100::1d])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045b096026sm34385111fa.118.2024.12.30.06.58.28
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045b096026sm34385111fa.118.2024.12.30.06.58.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Mon, 30 Dec 2024 06:58:29 -0800 (PST)
 From: Ivan Sergeev <ivan8215145640@gmail.com>
-Subject: [PATCH v4 0/2] arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
-Date: Mon, 30 Dec 2024 17:58:17 +0300
-Message-Id: <20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com>
+Date: Mon, 30 Dec 2024 17:58:18 +0300
+Subject: [PATCH v4 1/2] dt-bindings: arm: rockchip: Add BigTreeTech CB2 and
+ Pi2
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAm1cmcC/2WNywrCMBBFf6XM2kjzaDWu/A/pokkn6YB9kISgl
- P67seDK5Tlwz90gYiCMcKs2CJgp0jIXUKcK7NjPHhkNhUHUQnEhFDPkU0BMaEdmjWD8qpUyUmn
- NWyirNaCj11F8dIVHimkJ7+Mgy6/9tS5/rSxZzTS3TdP2g3UO737q6Xm2ywTdvu8fRpaJLK4AA
- AA=
-X-Change-ID: 20241224-bigtreetech-cb2-18944b349916
+Message-Id: <20241230-bigtreetech-cb2-v4-1-26d2d30e07ce@gmail.com>
+References: <20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com>
+In-Reply-To: <20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -84,26 +83,27 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Ivan Sergeev <ivan8215145640@gmail.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2054;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1174;
  i=ivan8215145640@gmail.com; h=from:subject:message-id;
- bh=Py96Wx48lY3hRsIyqeH2EhpYqRG2BTz9NWChJmCaiTw=;
- b=owEBbQKS/ZANAwAIAbzfXRlQM5b9AcsmYgBncrUUjViQ8YeoRGDVrpipb2cirggY3zHBYXfq1
- F1YqXzgGB+JAjMEAAEIAB0WIQROCZtApKFz1fvvsOS8310ZUDOW/QUCZ3K1FAAKCRC8310ZUDOW
- /Zh0EACqWeR9kBxbCloxRP0afh3Pza+g+dUcWrZ1L/EHmNo5XgPb1ZQT+04ziChglPu4vq4Jzuv
- BjxfxJVerl9KLj7oMSFj+MJJIWHe0a59tGZG8D+uiIPkFO+OmaYeGVrEROEl+miwAyh6ndIKLhi
- TMy/1f4cJEo3LnBcELpv/ixS3POM2rmEStqCruhTkmmTmpwjk/Ia5gvzGAQTHAJvH7FAAw3zm7H
- cprsp1gj+K8QSB+0UBr+eo+Ui3hMvlJdLTTe+ZetIIFXfjda/ubZkd5TCnRPBJO1wXlzbZ2k6JB
- 5mLe9PhLk6MWgc+ateTySzGxEp2BBb8p4y/OJMvXdG9BDFRbMHE9bt3fpNof0RulkFHWZ5EWzDK
- 3W72ki7ugASlsHDNvGkRaxLtnFzjh9DVzHyBcKN4GV/jtWrLbFanviLGw/QU/pDpMKZWQb+8m6v
- nQ8YozhPAsw0skXXUYkfvxtqCuf83aMGktYyDA4ieskviJ/8duJqklC/CllcGitUCRJ/el6d9ZS
- /hVRvIrUHBEcm4i2oNveCftLIPB5+dE17BZREKAypEOKjdhLG/DwrAb20jRBfqAsAhTULAcOHra
- 7GfqJQAuBK/4t3xfWn4e0EIe87aAHNZXsY3TVTglovzhpGcEhoJ3RFKUsUCWY5GTL0n0MUpF4Y9
- 2E9WHi8t+wwnCkQ==
+ bh=p5DkTJDu5QlNVWl35gjaVUthknkZBv6iZeP84hntyqE=;
+ b=owEBbQKS/ZANAwAIAbzfXRlQM5b9AcsmYgBncrUUA3PrmBoOQc7ZK6KuFz3wKh25H4s2Ks4/y
+ ZkZpGqK4jGJAjMEAAEIAB0WIQROCZtApKFz1fvvsOS8310ZUDOW/QUCZ3K1FAAKCRC8310ZUDOW
+ /UB5D/0UqZVTLfo9t+CZwDH2325WVdLwSnj4si0Dt3/1sDivld5EZu2i/ygHdEHQQjL+rbQb33g
+ JhZ4VjkWj02or1/DxwriZMD8lTPai8vi7FA4+r+rytYFAwn9V3VA/xhBVw9muFCUFgsBvLUCNt6
+ PhG4Ey94ehyjyJyk2QhvSQR/dx7tKp4twzUfH1ewHb1M+CPOatsPKX0p40L78FNm/UoFlh3FYuZ
+ pDJ0ZHbo7Dic4kfvcbikF2pnjO4qhlxlvzjAmXiKgxz1kyWy4ylJZmZGHmZo6riNCgfv2Kt7Nkf
+ +2cSgiVcJftrvwM8YUSKxia/vPn35aRxpeBBiZtp8b10Ole3XL2A9oPi/A1f+T9N1/NyOpqkbWz
+ HBdv5rBRkATd7L9iVpX1BipqMHhO+v248a0xt4PSe5ScihVPq0HSmsMGV2pxF+1IbPsTfG4iUtk
+ DkyCNy7KyHk7FBufRZfN4kd3+kP23XRuIImQfX5ReTgpPOkSVv6SRQGELXfTFLzaOsLR+V0fKig
+ 2Xhhdd19vGuFh/g2B4dDCTmlmPxz5BYlyMgO4rdjNfcKP5FRIZRiMV7RsmB/XsFcv4P6QEEDhQd
+ HNpcr62xDuk+9qNiqgp8K/JJPpnjAPAeLtCpu37WQ0gH7Tw4nNJ4ZDxGhz/GYwNd+FOujTK9q3+
+ jXUo0ykFOopWMzQ==
 X-Developer-Key: i=ivan8215145640@gmail.com; a=openpgp;
  fpr=4E099B40A4A173D5FBEFB0E4BCDF5D19503396FD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_065832_023745_91ABCC31 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20241230_065832_377421_CC6BE694 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,49 +118,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BigTreeTech CB2 and Pi2 are Rockchip RK3566 SoM and SBC boards made by
-BigTreeTech for the intent of using as a 3d printer control board.
-It is a successor to the Allwinner H616-based BigTreeTech CB1 and Pi, so
-the device trees for CB2 and Pi2 are also done in the same manner: the
-common nodes and properties are put into a dtsi file that the
-board-specific device trees include.
+BigTreeTech CB2 and Pi2 are Rockchip RK3566 based boards
 
-Changes in v4:
-- Removed invalid `i2c,ignore-nak` properties
-- Set `#address-cells` and `size-cells` on `sdmmc1`
-- Fixed `phy-supply` properties of usb host nodes
-- Link to v3: https://lore.kernel.org/r/20241227-bigtreetech-cb2-v3-0-91c556adcffe@gmail.com
-
-Changes in v3:
-- Proper formatting and patch series sending (using b4)
-- Converted spaces to tab indentation in the dtsi file
-- Fixed empty line where the license identifier should be
-- Link to v2 1/2: https://lore.kernel.org/linux-rockchip/20241224135751.350379-2-ivan8215145640@gmail.com/
-- Link to v2 2/2: https://lore.kernel.org/linux-rockchip/20241224140057.350667-2-ivan8215145640@gmail.com/
-
-Changes in v2:
-- Added bigtreetech cb2 and pi2 boards to the list of platforms
-- Split BigTreeTech CB2 and Pi2 into two device trees using common dtsi
-- Link to v1: https://lore.kernel.org/linux-rockchip/20241222203952.84217-2-ivan8215145640@gmail.com/
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Ivan Sergeev <ivan8215145640@gmail.com>
 ---
-Ivan Sergeev (2):
-      dt-bindings: arm: rockchip: Add BigTreeTech CB2 and Pi2
-      arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
- .../devicetree/bindings/arm/rockchip.yaml          |  11 +
- arch/arm64/boot/dts/rockchip/Makefile              |   2 +
- .../dts/rockchip/rk3566-bigtreetech-cb2-manta.dts  |  10 +
- .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  | 943 +++++++++++++++++++++
- .../boot/dts/rockchip/rk3566-bigtreetech-pi2.dts   |  10 +
- 5 files changed, 976 insertions(+)
----
-base-commit: d6ef8b40d075c425f548002d2f35ae3f06e9cf96
-change-id: 20241224-bigtreetech-cb2-18944b349916
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 753199a12923fadaa48c407a8e55e7854db7203e..349453b1676bfac45abf5cd49d6bd9f847281213 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -81,6 +81,17 @@ properties:
+           - const: azw,beelink-a1
+           - const: rockchip,rk3328
+ 
++      - description: BigTreeTech CB2 Manta M4/8P
++        items:
++          - const: bigtreetech,cb2-manta
++          - const: bigtreetech,cb2
++          - const: rockchip,rk3566
++
++      - description: BigTreeTech Pi 2
++        items:
++          - const: bigtreetech,pi2
++          - const: rockchip,rk3566
++
+       - description: bq Curie 2 tablet
+         items:
+           - const: mundoreader,bq-curie2
 
-Best regards,
 -- 
-Ivan Sergeev <ivan8215145640@gmail.com>
+2.45.2
 
 
