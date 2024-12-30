@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9014EE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 04:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F1FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 04:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T730CnmYeW1A7reDzp3gdGNzgsA+p2z7bTHc+UQZJGY=; b=FNAI73+g/EnEr3wuhTaRehHyJy
-	GnuzbsKD6pErh1nwV46rYLxsYlokTTj/gkIghQc+ey9eITgt1VGyzsLdMNkSunYGU1im3SoWHvVw/
-	2ElTHmeyqDCczSlzk53ixAM+ce+QkmOkmQZJ8wd3Zy4KMImzH8ncw0hVvqIDaD+F8wVIanfjyz6EH
-	2uWXOOL7LIxjF6mZ1lftp+wWJ2thovkjLbngA+n80ED1DG0B+zsGOpCxXeiyYrT36aVdbuQLp1iv6
-	88RInq1pdFET9c+2pjNqSI/1zGCo2UZ9HVucoVMqNzK0cKjayhHaRJK5e3yTr4LM9js8liFeAORoN
-	g7xFWfmA==;
+	bh=VbAGOV1h5XzJc+x6qKEPvwu+pAupe3fETtmFrAGVrxA=; b=jIUeLT9Lt2n7nwa9+6uA7LLbqH
+	hlmE8sNC6/zMNX/v7WKn+sdEJktyipDXC/0sIk93K00pr1HMAZ1Rxw08jHQ+wEnh9QD43XFsmqCIZ
+	Xrp1mWhUww2xqm6w74KzaRoHAx8a+MZnhaQ84HIqw8mht3gItSu6GjMdQHLkKPz+3UQUd2GOxhEl3
+	9fTd4Puo+zJ85wKvIu6+MDHvHSGbuU2VhMkgYR68bl2LTFquMyoNcXWRmFw6YGhXb9Y+cA95HN55T
+	WHQ+ES6uRnB1H9OmKQZ/gvkRofTvZheGY6xtfMgCwWh/upIooDWXnLPviLS3GnsinB9vi5CGrplXK
+	4At1ZVbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS7Im-00000004VJA-15iz;
-	Mon, 30 Dec 2024 04:22:48 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1tS7S4-00000004VxK-3Jm7;
+	Mon, 30 Dec 2024 04:32:24 +0000
+Received: from mail-m16.yeah.net ([220.197.32.16])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS7Hb-00000004VFP-3p1R
+	id 1tS7Qw-00000004VrW-2Q5f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 04:21:37 +0000
+	Mon, 30 Dec 2024 04:31:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=T730CnmYeW1A7reDzp3gdGNzgsA+p2z7bTHc+UQZJGY=;
-	b=DoGSUBpmsxOfocmQZw8r5Q2bS3t12yhstNh1LSyXF9IMzWL6jTki1IRdIaF3BL
-	ue8dvBDRmse4whppRGswL4IaWCCkZJ8zgUld0VUPcZUn9pw1/uA1w3GKYcPtcBUD
-	VHv6FPUmP11Z3fRUSoUmAoxr2AMEOqmxSCTfPDSTVWFak=
+	Content-Type; bh=VbAGOV1h5XzJc+x6qKEPvwu+pAupe3fETtmFrAGVrxA=;
+	b=RjAJ31d78vZcDdlRrRgjQf+2wiTSfxVUxoUic1o4ISibgs3x9si75KTsJDrpsn
+	Wnn3aKWpFDJfVbPUlzfs/Dzoq2qTEc4eQkis5XXMo6jquTXuOSNm2mNeFlS4WwiL
+	nuOYY7BsXIRq6aPQY5WcWTBnxGGn8ldUhtM9nenFJg9pk=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgB3vXy8H3Jn7u_1BQ--.60295S3;
-	Mon, 30 Dec 2024 12:21:17 +0800 (CST)
-Date: Mon, 30 Dec 2024 12:21:15 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgBnjrn2IXJn8c4DBg--.60875S3;
+	Mon, 30 Dec 2024 12:30:48 +0800 (CST)
+Date: Mon, 30 Dec 2024 12:30:45 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	francesco.dolcini@toradex.com, Fabio Estevam <festevam@denx.de>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH RESEND v2] ARM: dts: imx6qdl-apalis: Change to
- "adi,force-bt656-4"
-Message-ID: <Z3Ifu23f/Zb/azGb@dragon>
-References: <20241202131423.586743-1-festevam@gmail.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	linux@ew.tq-group.com, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] arm64: dt: imx93-tqma9352-mba93xxca: enable Open
+ Drain for MDIO
+Message-ID: <Z3Ih9eG7TqKGonkx@dragon>
+References: <20241205150730.3132807-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241202131423.586743-1-festevam@gmail.com>
-X-CM-TRANSID: M88vCgB3vXy8H3Jn7u_1BQ--.60295S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU2HGQDUUUU
+In-Reply-To: <20241205150730.3132807-1-alexander.stein@ew.tq-group.com>
+X-CM-TRANSID: Mc8vCgBnjrn2IXJn8c4DBg--.60875S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUsmFCUUUUU
 X-Originating-IP: [114.216.146.204]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEQ-FZWdyDppGaQAAsQ
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEQ-FZWdyDppGaQABsR
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_202136_306490_5ED82385 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20241229_203114_921265_A1B7E9C8 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,23 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 02, 2024 at 10:14:23AM -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
+On Thu, Dec 05, 2024 at 04:07:28PM +0100, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 > 
-> According to adv7180.yaml, the correct property name is
-> "adi,force-bt656-4".
+> The board has a pull-up resistor for MDIO pin per PHY design guide.
+> When MDIO is idle, it needs to be high and open drain is better
+> to be used here for power saving.
 > 
-> Update it accordingly to fix several dt-schema warnings:
-> 
-> adv7280@21: 'adv,force-bt656-4' does not match any of the regexes: ...
-> 
-> imx6qdl-apalis.dtsi is the only in-tree kernel user of this property.
-> 
-> BSD does have a adv7180 driver, so should not be impacted.
-> 
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Applied, thanks!
+Applied both, with s/dt/dts in subject.
 
 
