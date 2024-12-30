@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB5BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 14:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7780AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 14:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0X+s/45KTRTqmsGeRQypC3YA/qsxI+0yvVaz+yHtKvA=; b=SlVYoVsq3BQtQd7JLQEup6fjfG
-	amtsaB9U0zH7fe3gYhhCi6KMcX1wrA9ws1M5o8H2CqcT94RYcvsdcFHCqiLZUsFoYeW7GcI4GOQyc
-	c9O5mZIaMbBcY7sd10kxbR6ARiLKu0Wt0RUQA1MK6N2hjUozHFDJmL+b68wDu9FYCn7YyKFHb+HPn
-	lVOnH6KvH/lNcz/mYDRIdFM2lku0rV7T5bAORUzDKIXmSN9ZlECZqx4iixNhjZ8Y4vXh7qwmqAIST
-	ylO1wHClOvRfHG0BsClr6de4PiWYUJC9r+kprcDK7U/QhFcXUABQTAnMthbZKbyRBNIvfdJAsDLEh
-	KXBDozmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ScJPFuTNgq1MCC/V1WCnuB/jLgHf4NdRVV/PtrD1U20=; b=ZyifHA5c73AfZiJEoz4mVSq1c4
+	7VdbacBphIiPeBZhtyNc05bFmpOp4RbcweJ3chqaOqx3Kg4g+c0eqIS2ubO5LpA3KEKH6HKz6uJKE
+	2wlj4GIM/hcubaVAdtXdhwNKvkzJBvtZ1vpeODGRMm/G7J8PErmL/ZU0EeKqgRBnxI6RN9ihOlRUS
+	RIb8QRtg8+t++aeFrqZ5e7y5YxVTlry2wT/HCKb99lxn8gVJgNLvNEHZwRJlGKwBeoOfltDBnE9r7
+	Mi9ZEXIUqNOCuTGST9QhECTIt0UXACj/vftarERYf8FfPf3odN1CHGfAKXdNABtzYzUzTgYLbnbdp
+	zyuqc5HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSGak-00000005Ktb-1yCj;
-	Mon, 30 Dec 2024 14:17:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tSGlr-00000005M2C-2u7S;
+	Mon, 30 Dec 2024 14:29:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSGZc-00000005Km6-0tug;
-	Mon, 30 Dec 2024 14:16:49 +0000
+	id 1tSGki-00000005Lwj-1kH3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Dec 2024 14:28:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 192EF5C5B13;
-	Mon, 30 Dec 2024 14:16:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 281EFC4CEE1;
-	Mon, 30 Dec 2024 14:16:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B1A45C5A49;
+	Mon, 30 Dec 2024 14:27:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54663C4CED0;
+	Mon, 30 Dec 2024 14:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735568207;
-	bh=zMel9og/teRYkYQgE3auw7VYAfFToz8pv8OyAdYM6Vc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=couHbG+cc12NySKm/DaR6Ywy17VZbuufrot3nS4vCPMLMdiz05h8XQ9G0GERyJbnP
-	 QiW3K9ouiUDlSjUw9nskMeLbqS4UqCF3WPei9G+qLIafd6nwmTlT92R0Zv5IQwXaVo
-	 /5KXJQ//6A/rX8DABtFB4DRxkh09AcQYtXUsKYHv3MeIVotjCf0XIIvSOscQVAfUYm
-	 pcUYVKGrGynfo0termfhTXwwTDh74C+EQKkLbQx+ggr0MdGrzr4PtwVOVasv4l2ZA2
-	 xN3+mqq5cUzW744HtbFEOzM6TZp+iUxZZDNFDqSIsnmR71fqKgGo/CWRuHgywoDEV5
-	 2CdB31gFLkNqQ==
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-2ef8c012913so9335951a91.3;
-        Mon, 30 Dec 2024 06:16:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVhuKGMZrY0XrB3Y1IS9+8oSDFWHEUlw6pnwd8AtA8543vR82U7Sztk0fIk2oJNR8jyaBjgke0gimqOXRhdStw=@lists.infradead.org, AJvYcCWkYpLEXIbhfXtJ7M3sExfLIvWo8pm/8LQl7yAfMlrxJNqG/LZcQyDp9LqosVWrwHg5/k4F6xlzDABSv5m2xu0F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9GTdTlQLt5sDHaoCBfv1EvUGE/qTB0VyQp65q1iu93t/4b38j
-	6Do4sBgQW/DkMbG77JYmEooq/ApJODf81oceU1DXMx3Z8CPJ3IUIqB0Is6fND7C6qlKcKR6bGI4
-	YumelNN9K0gzh6NebgQyT3pMi0w==
-X-Google-Smtp-Source: AGHT+IHowbYDO6MzZoxKYBdpJQizCGbMvec0FMWr41jNazuXAPv1UNUBAqhQ7YhM003grWBzgeCVH3eRmuQNBazSRto=
-X-Received: by 2002:a17:90b:270d:b0:2ee:48bf:7dc3 with SMTP id
- 98e67ed59e1d1-2f452e1606amr56816645a91.15.1735568206567; Mon, 30 Dec 2024
- 06:16:46 -0800 (PST)
-MIME-Version: 1.0
-References: <20241025083036.8829-1-liankun.yang@mediatek.com> <20241025083036.8829-2-liankun.yang@mediatek.com>
-In-Reply-To: <20241025083036.8829-2-liankun.yang@mediatek.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 30 Dec 2024 22:17:18 +0800
-X-Gmail-Original-Message-ID: <CAAOTY__iZiyCpaKO-P6EHxg8GaJxmN-xguQ4Ny+HO7SiK6EaBg@mail.gmail.com>
-Message-ID: <CAAOTY__iZiyCpaKO-P6EHxg8GaJxmN-xguQ4Ny+HO7SiK6EaBg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] drm/mediatek: Fix YCbCr422 color format issue for DP
-To: Liankun Yang <liankun.yang@mediatek.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, ck.hu@mediatek.com, 
-	dmitry.osipenko@collabora.com, msp@baylibre.com, rex-bc.chen@mediatek.com, 
-	granquet@baylibre.com, peng.liu@mediatek.com, jitao.shi@mediatek.com, 
-	mac.shen@mediatek.com, Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1735568895;
+	bh=bJfVi+BMiEEb7eekd/qq5JTHVPBWFbUY4Q+gpgU7aFM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Viy8qfRIvvPF1VKPbk3riNaxxvw5IwfUr6hIYBEvlO+l4XrVXjnl2k9TNOogBS/NG
+	 fF5sAnudFONxlQNbMDsumyyMSjuz5cQWGS/zDdJudELVz46kdAGBa+cJBChkO5Wzpn
+	 6gpbquUqOwDRk32Gjy+LI2ByJyrAyYmX45ZZxptItLVidevwiLIevy84p/6P5VFk70
+	 nyJ35PLAZugtVoKDeh0l3Hfxj9xYyFZq3CO+W9S7asnuwvAlhZFqvJZPp6oomUOX+Q
+	 A5dq8v1JWCbyAyMqcGYBf/bXGPCjCnQ2526n9GNiacgzOSuEr49w2UPQ9mvo1D/Ytr
+	 y/zAbtUXxi7yQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tSGkf-007pr0-0X;
+	Mon, 30 Dec 2024 14:28:13 +0000
+Date: Mon, 30 Dec 2024 14:28:12 +0000
+Message-ID: <86h66lp7nn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Tomas Krcka <tomas.krcka@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	nh-open-source@amazon.com,
+	Tomas Krcka <krckatom@amazon.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Hagar Hemdan <hagarhem@amazon.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3-its: fix raw_local_irq_restore() called with IRQs enabled
+In-Reply-To: <20241230134903.84613-1-krckatom@amazon.de>
+References: <20241230134903.84613-1-krckatom@amazon.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tomas.krcka@gmail.com, linux-arm-kernel@lists.infradead.org, nh-open-source@amazon.com, krckatom@amazon.de, tglx@linutronix.de, hagarhem@amazon.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_061648_340606_2D01629D 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20241230_062816_541735_05D8354A 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +87,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Liankun:
+Hi Tomas,
 
-Liankun Yang <liankun.yang@mediatek.com> =E6=96=BC 2024=E5=B9=B410=E6=9C=88=
-25=E6=97=A5 =E9=80=B1=E4=BA=94 =E4=B8=8B=E5=8D=884:32=E5=AF=AB=E9=81=93=EF=
-=BC=9A
->
-> Setting up misc0 for Pixel Encoding Format.
->
-> According to the definition of YCbCr in spec 1.2a Table 2-96,
-> 0x1 << 1 should be written to the register.
->
-> Use switch case to distinguish RGB, YCbCr422,
-> and unsupported color formats.
+On Mon, 30 Dec 2024 13:49:03 +0000,
+Tomas Krcka <tomas.krcka@gmail.com> wrote:
+> 
+> The following call-chain leads to misuse of spinlock_irq
+> when spinlock_irqsave was hold.
+> 
+> irq_set_vcpu_affinity
+>   -> irq_get_desc_lock (spinlock_irqsave)
+>    -> its_irq_set_vcpu_affinity
+>     -> guard(raw_spin_lock_irq) <--- this enables interrupts
+>   -> irq_put_desc_unlock // <--- WARN IRQs enabled
 
-Applied to mediatek-drm-fixes [1], thanks.
+Urgh. Nice catch. It really should have been either raw_spin_lock or
+the _irqsave variant, but not the _irq variant which should really
+never be used outside of the core code. I guess this was never really
+tested when rewritten at commit time...
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+> Fix the issue by using guard(raw_spinlock), since the function is
+> already called with irqsave and raw_spin_lock was used before the commit
+> b97e8a2f7130 ("irqchip/gic-v3-its: Fix potential race condition in its_vlpi_prop_update()")
+> introducing the guard as well.
+> 
+> This was discovered through the lock debugging, and the corresponding
+> log is as follows:
+> 
+> raw_local_irq_restore() called with IRQs enabled
+> WARNING: CPU: 38 PID: 444 at kernel/locking/irqflag-debug.c:10 warn_bogus_irq_restore+0x2c/0x38
+>  Call trace:
+>   warn_bogus_irq_restore+0x2c/0x38
+>    _raw_spin_unlock_irqrestore+0x68/0x88
+>    __irq_put_desc_unlock+0x1c/0x48
+>    irq_set_vcpu_affinity+0x74/0xc0
+>    its_map_vlpi+0x44/0x88
+>    kvm_vgic_v4_set_forwarding+0x148/0x230
+>    kvm_arch_irq_bypass_add_producer+0x20/0x28
+>    __connect+0x98/0xb8
+>    irq_bypass_register_consumer+0x150/0x178
+>    kvm_irqfd+0x6dc/0x744
+>    kvm_vm_ioctl+0xe44/0x16b0
+> 
+> Fixes: b97e8a2f7130 ("irqchip/gic-v3-its: Fix potential race condition in its_vlpi_prop_update()")
+> Signed-off-by: Tomas Krcka <krckatom@amazon.de>
 
-Regards,
-Chun-Kuang.
+Two problems here:
 
->
-> Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort drive=
-r")
-> Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
+- there is no "From Tomas Krcka <krckatom@amazon.de>" at the beginning
+  of the patch, which is needed since you are posting from a gmail.com
+  address
+
+- there is no SoB using your gmail.com address, which is needed since
+  this patch appears to be from your Amazon doppelganger.
+
+So either you post this patch from your amazon.de email, or you add
+the two missing pieces of information that are required.
+
 > ---
-> Change in V2
-> - Modify the value written to the register
-> Per suggestion from the previous thread:
-> https://patchwork.kernel.org/project/linux-mediatek/patch/20240510021810.=
-19302-1-liankun.yang@mediatek.com/
-> ---
->  drivers/gpu/drm/mediatek/mtk_dp.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek=
-/mtk_dp.c
-> index f0f6f402994a..613e1c842478 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dp.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-> @@ -460,18 +460,16 @@ static int mtk_dp_set_color_format(struct mtk_dp *m=
-tk_dp,
->                                    enum dp_pixelformat color_format)
->  {
->         u32 val;
-> -
-> -       /* update MISC0 */
-> -       mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3034,
-> -                          color_format << DP_TEST_COLOR_FORMAT_SHIFT,
-> -                          DP_TEST_COLOR_FORMAT_MASK);
-> +       u32 misc0_color;
->
->         switch (color_format) {
->         case DP_PIXELFORMAT_YUV422:
->                 val =3D PIXEL_ENCODE_FORMAT_DP_ENC0_P0_YCBCR422;
-> +               misc0_color =3D DP_COLOR_FORMAT_YCbCr422;
->                 break;
->         case DP_PIXELFORMAT_RGB:
->                 val =3D PIXEL_ENCODE_FORMAT_DP_ENC0_P0_RGB;
-> +               misc0_color =3D DP_COLOR_FORMAT_RGB;
->                 break;
->         default:
->                 drm_warn(mtk_dp->drm_dev, "Unsupported color format: %d\n=
-",
-> @@ -479,6 +477,11 @@ static int mtk_dp_set_color_format(struct mtk_dp *mt=
-k_dp,
->                 return -EINVAL;
->         }
->
-> +       /* update MISC0 */
-> +       mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_3034,
-> +                          misc0_color,
-> +                          DP_TEST_COLOR_FORMAT_MASK);
-> +
->         mtk_dp_update_bits(mtk_dp, MTK_DP_ENC0_P0_303C,
->                            val, PIXEL_ENCODE_FORMAT_DP_ENC0_P0_MASK);
->         return 0;
-> --
-> 2.45.2
->
+>  drivers/irqchip/irq-gic-v3-its.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 92244cfa0464..8c3ec5734f1e 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -2045,7 +2045,7 @@ static int its_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu_info)
+>  	if (!is_v4(its_dev->its))
+>  		return -EINVAL;
+>  
+> -	guard(raw_spinlock_irq)(&its_dev->event_map.vlpi_lock);
+> +	guard(raw_spinlock)(&its_dev->event_map.vlpi_lock);
+
+This otherwise looks good to me. Please repost this with the above
+issues fixed, and the following tags:
+
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
