@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7263BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 22:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B40FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 22:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0RN6NFic1SJk4BcW3RydaV5Qx5yppE2e75Iroc0II4=; b=scEMi0uMC8Rt/OY/tu3Wev6s0E
-	cWng39fputPVFQDs00qmwIyBD/X44PvwAG2iERc4moL7zcVay6LGoAx6wHn/Lo9MeAc/rpBT8PMe/
-	2m3mpczmgzYto9HwqsYMmEpw4grGxYgVnQQwlxlbOJp99O2KiBzhEX7/KHp455tadr6ucN6ANcp+w
-	gC31TOdpTgjLhVqo15HUB1Tx8WosddjR8H3o0NFOurrD1/pqUXCahsV7H71fCMkLyfWJGu2l18mah
-	3AqIEOrf8Hu9eukZIYzGfFXUeMj3t+NClAexYdySuhtjDTvm0DRBkijF3bp+uPBWThl9YiW6Etw4n
-	rIHZ6uEw==;
+	bh=+1aqRMHNMzLaQa6vxtrEZIq/gKd1oypuSqRY/qdQISU=; b=mmMzK+kCO5WcbGf8+hxDXP162o
+	MCfb6mmoUb20tXsXJSymDLLgtgn6/DOmBssM8rf6B/62Nzv0qxfPsEdQqM/QCEel9BdSxWPtC+a1S
+	8fknTpiGllEUiujCMOFWDR5xsYkcmLCw6QmW0/s3i63ocBrnAfGUDbkJlbORHRv+dKCt7rmaH9A1s
+	Wr/2b+TZNJ2g5tFIU4tgBs8E8s9ZcbuEWnLz6cT87TiNp4aHuEeh5CjhpNwy7bJoLouh1FpDahpBm
+	snZ6Dzq+1Sfu2I7aRbqkch6TZ+fHfyALKXM3WA2cN5pLvPBLtz9UjBD7WIb4ZmhQKt+cQmclIe++K
+	lL6NUdQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSOBS-00000005xB5-3Ws5;
-	Mon, 30 Dec 2024 22:24:22 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tSOCd-00000005xQb-1zld;
+	Mon, 30 Dec 2024 22:25:35 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSO7x-00000005wfl-2lQ2
+	id 1tSO81-00000005wgc-2nI3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 22:20:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 02A65104855A2;
-	Mon, 30 Dec 2024 23:20:40 +0100 (CET)
+	Mon, 30 Dec 2024 22:20:50 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB676104855A5;
+	Mon, 30 Dec 2024 23:20:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1735597243;
+	t=1735597247;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=W0RN6NFic1SJk4BcW3RydaV5Qx5yppE2e75Iroc0II4=;
-	b=YRVsLB4zoSRwpZ+/TbKt7LHkMVX7UexGNe1JYwsG6QOqBDN5gnh64f1ZwZp8b0o6ne/+94
-	r7wuSjv6EQ6x1TTMSk76VSCPgqGZdGBN67H73nn8Qw4xG3FpvGcn/0SbiiLj0ZOATeyUm0
-	gTRf+MC2iQf/gFTHVEIKUR2x1CNhCyPm2l4DC3o6G2z51+weRDnbpBx3sBrUu0vCPaV3Iw
-	VP8311XQjM8/0ahL8WxudHySrjeM+/1/qVW2yvN7Ban+crr0xiANc3NtmFbHNcfrflkv7q
-	OvNwpks+fIDwWksNvjOyxCALtY+lvi8N9xU2/NfgPJok+lazwti3L4ACU1LFnQ==
-Message-ID: <828f28ce-007b-43c1-9ea4-98be5c14078e@denx.de>
-Date: Mon, 30 Dec 2024 22:50:16 +0100
+	bh=+1aqRMHNMzLaQa6vxtrEZIq/gKd1oypuSqRY/qdQISU=;
+	b=MQ8jQUC02Vi9tztaW6KMyrHmVikWXRPJCkNuOVO4p0MVDOBDA4BmRU0abBaUgXMLWYLQNe
+	vgU3noAgdyo252spI9eoH2iWEoCPdiFyn39HYCwhDoP2KpEdMIS01r+JNscauPmHNTJuRm
+	ye69UcjGudnOLbLXoJ9uwywMf4zN00A72tUWfEO4tdj3Rr5lVZfVDgqE8+kkQCSbaoTCo4
+	fSoHdmOXrVy0XKVeNLEQ1djn0YFfHODWpTTuTR0iOcHELvuQ3714PP82hU5AYav/chKedE
+	zXa1jpmoNIRm3g45ldfaQoKbCzHpAhRyM30Ikm661QTEDklXwYgJpyfuzplxMA==
+Message-ID: <59523b40-dfdd-4293-9b02-e16be632d1d2@denx.de>
+Date: Mon, 30 Dec 2024 23:11:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] drm/mxsfb: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag
+Subject: Re: [PATCH v2 2/3] drm/lcdif: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag
  to drm_bridge_attach
 To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie
- <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
+Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>,
@@ -61,17 +62,17 @@ Cc: Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie
  Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 References: <20241224014701.253490-1-marex@denx.de>
- <20241224014701.253490-3-marex@denx.de>
- <20f33e1e-b531-4755-b414-02ab897e16af@nxp.com>
+ <20241224014701.253490-2-marex@denx.de>
+ <a543e24a-1333-42ef-b940-fec01353db5b@nxp.com>
 Content-Language: en-US
 From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20f33e1e-b531-4755-b414-02ab897e16af@nxp.com>
+In-Reply-To: <a543e24a-1333-42ef-b940-fec01353db5b@nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_142045_843657_8F92469F 
-X-CRM114-Status: UNSURE (   6.61  )
+X-CRM114-CacheID: sfid-20241230_142049_852829_AA060B2E 
+X-CRM114-Status: UNSURE (   5.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,23 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/30/24 8:29 AM, Liu Ying wrote:
+On 12/30/24 8:18 AM, Liu Ying wrote:
 
 [...]
 
->> @@ -139,21 +140,35 @@ static int mxsfb_attach_bridge(struct mxsfb_drm_private *mxsfb)
->>   	if (!bridge)
->>   		return -ENODEV;
->>   
->> -	ret = drm_bridge_attach(&mxsfb->encoder, bridge, NULL, 0);
->> +	ret = drm_bridge_attach(&mxsfb->encoder, bridge, NULL,
->> +				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->>   	if (ret)
->>   		return dev_err_probe(drm->dev, ret, "Failed to attach bridge\n");
->>   
->> -	mxsfb->bridge = bridge;
->> +	connector = drm_bridge_connector_init(drm, &mxsfb->encoder);
+>> diff --git a/drivers/gpu/drm/mxsfb/Kconfig b/drivers/gpu/drm/mxsfb/Kconfig
+>> index 264e74f455547..07fb6901996ae 100644
+>> --- a/drivers/gpu/drm/mxsfb/Kconfig
+>> +++ b/drivers/gpu/drm/mxsfb/Kconfig
+>> @@ -30,6 +30,7 @@ config DRM_IMX_LCDIF
+>>   	select DRM_CLIENT_SELECTION
+>>   	select DRM_MXS
+>>   	select DRM_KMS_HELPER
+>> +	select DRM_BRIDGE_CONNECTOR
 > 
-> Nit: Drop connector and use mxsfb->connector?
-The code becomes too wide. The rest is fixed in V3.
+> Select DRM_DISPLAY_HELPER.
+Without select DRM_BRIDGE_CONNECTOR, the drm_bridge_connector_init() is 
+not defined .
 
