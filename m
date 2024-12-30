@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA71E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 13:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B39E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 13:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1mVeNrsz4JYHJ9P+OodijYNnFFvqhMvZ+GAyZwBS8A=; b=GUUYSGD7uhrayCi8RFcOpnh/jM
-	NcHhK7JvYlJtfB7vHt5LVfRViZCbp1oBatwTjHs8VZDe9gb0KihE/ihGLBJuK87gGbTTr6JswVthU
-	6yfTuzfKzrgQl9xToB9IU9+A9/5qb6z8zD9ac4KGbxnteOBnUNQSJAKC7Tv1xjEqVOgQi4HxB03WP
-	tO9XWKArNDUCT73FcQokKIHIaJZ/aXiAji1H20HX/gTQFJ/4yYL3m9XmRr5MTuxUbt6zBtc2dt+kr
-	RWraO7ZwtGFI/8WX0r1VnpCax16IiFRwbHfRArg3f6k+4dC/71H9xVT7wYWrpnEYJpzExbcPN4OR8
-	C1toWfzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4DgF2SA/IyRcgaWoHJqrd5kIkePaeZQ5QyDTWY7U+Yc=; b=Af7JHszimBf95nVbfRLOSwWOcy
+	UXD8yVbreHaugR1JRAjg/7Kpf4pLUFWGkQWxaDW2OSLwfFsYOiA8M+LQvbqpc52Ec/fISANlJcy5Z
+	cC+Ky/9dA24X5XR4ZOUTPRwZL4MUJaBSbO3nBowB1XSdHBKP0QgA+LNFN+fZ3V6KUL+r9l8BCO3yY
+	pQLj1R46Ij8d6SMpwBxFHjMakqJdvPc8koWJkU8XfMKDT2geNyOveXR304u3JBD0brpMzVkDhW6yR
+	NYA9DKpVMoUyGbHb3Q0UJ7JCDNUvipzlC1kaLH9Hh5cochd3VUx4zUQ9HxVB8IeZmNvyMLmOWedUk
+	o1OnTJEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSG9j-00000005IXE-1Nf1;
-	Mon, 30 Dec 2024 13:50:03 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tSGBU-00000005IjJ-40PK;
+	Mon, 30 Dec 2024 13:51:52 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSG8Y-00000005ITS-2LTZ
+	id 1tSGAM-00000005IbO-3Bgk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 13:48:52 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-53ffaaeeb76so10011028e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 05:48:50 -0800 (PST)
+	Mon, 30 Dec 2024 13:50:43 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43623f0c574so62061425e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 05:50:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735566529; x=1736171329; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y1mVeNrsz4JYHJ9P+OodijYNnFFvqhMvZ+GAyZwBS8A=;
-        b=FhFO5/oeCVlG7lFO9l5H1QnM74G+mjRRSQb207aHh+k3iWjZBIGAVn7p+KTeZh6EIC
-         22MonEkaW0m81xYMyVt49hKngVQAoj2n10Y1NRWzTrVd4vwyPPzWFKIcht5gZpNvzOdz
-         qKmPedSazVIfZzdzEThRYxb3ytDHrO9zioKZtqoEJJi5UFMNc0COLhrjmARmhTptLbgN
-         hfAMCDmwHWDUnHTgv8JthYX1IgHbMvqqE2PS/Hn/oKX1rV0UPCi9i61zDzwqfarRJBTs
-         UUzf+tTyAsli1LfiI1GKM8zXYjhO9KV20bFvQeCMLqheAG/uPpUQMhNWkq4sLXJGGL1m
-         4FaQ==
+        d=gmail.com; s=20230601; t=1735566640; x=1736171440; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4DgF2SA/IyRcgaWoHJqrd5kIkePaeZQ5QyDTWY7U+Yc=;
+        b=iV1Xrg4SKtJAK5vlCDA99Wmqa0W4FDYFghLx5A9XO/2AWIxtiFRSKrpnu5eqJRPgsr
+         nl9R2in+R0TGmV/S51KQIiXqmbHA0Da7YNkoC/5Nu6lvz9DUBvUyO3N5PhcUz7TQ5mGb
+         gcK6B+mD13PTqc2cJnndNkOymFvEe9cy2MXNDqU8ODy4MfezVgjj+A3f0Qs+3jeRsxIg
+         aoG8zy3ndHToKTS8F5Ei9+SYB36JOblQK7SP8xlgpf4qsjzwDOhN5rrfyfpZZBQdl2zP
+         hKRE00rZcCIKjswGfKdWKdmuyWjTGvGdAkf3ODzj+HUSsKyAfJreCAt0U6NW1ti7RPxN
+         SVJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735566529; x=1736171329;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y1mVeNrsz4JYHJ9P+OodijYNnFFvqhMvZ+GAyZwBS8A=;
-        b=xDXKFd0CjZSaCVN5Fi23OMdwNZNwMQjibJQVb/lxBJBtwYLqn+svUI0tipeogpRHdf
-         +iD8YeuRFoeox1X7REgaDZxwvQZcmjI/n7rPd7qBQYtR/IiGXazyXWAFvoeej+lfNSLa
-         HdM3CG+BLuP8nR8Aa0HY4GxRKqwN81HhE+LcNw2MI+Uuo+ZNdYh3Znhi75R9KvT8L60+
-         gYcTRZM4Pr2NLRmgWc2Qn/nPNyPZ4y5zTrz7jZDv46QJDwr4ezRp5aibh1Tz6+nJM5LR
-         wTEs8olfSl49TWjFyYVyN7X/7EC1uxNPN5nKHPWEsgUP64wN3/zN7Awn4y4dGN4jI7O3
-         MfUA==
-X-Forwarded-Encrypted: i=1; AJvYcCVIk7Eki0zKCKjhZPKW2hPdmqp1RX+8pFbtiQABsgFcHYF3i+X36RbqYrwPg4PO8V3DbNBITkVPBFt8c6tPCQG9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhUfUeP/vPeodBTNhojG1/9918Cz1ayeJXU2gzaMGNrcdfT8xe
-	97W60TBxDvPV0m/e8oXr+7f+Y2+jvLilCR7sLUhOd8ENjNMa9XrXfA798iM0hCI=
-X-Gm-Gg: ASbGncuFNtl/IV3166q9uswQw/Cy21JwR3n3KU4fphA+YmQkiRhBZy7Ev3JK7sx3bn7
-	2PEDp5zVOdV3sQeqRYLYbG3aJ1Q22yOQ4qFTnxYXC67ShlV9nqJ8k5ESBkM2R5sQLT1SGmvvSp1
-	+2ZOUw30iRPSr7vU2yMcpkpIRGHzv/cxMDnodhn0svXPvVCQRItVO3glwwiUMyfrnoiTcUYQOYb
-	O/cfeb5ZjBbyThalloxYvovl+zGNQIEvrawsl9e8pR+kVI/k/+9YTQl3KiujUy7UhGtTnZeN07B
-	SifLOGTXri5LwVRpYjuAZafl/zpKx7+jt2n4
-X-Google-Smtp-Source: AGHT+IFz6vnKDsjYSCj71qMJRlNWygcgRvbZvMXcj/k0biLU+n2vHyB+qTqUo+a6PyxFg6r3rse+Tg==
-X-Received: by 2002:a05:6512:ba5:b0:540:1ec7:ef57 with SMTP id 2adb3069b0e04-54229586f9emr9237438e87.56.1735566528611;
-        Mon, 30 Dec 2024 05:48:48 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238137cesm3129503e87.148.2024.12.30.05.48.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Dec 2024 05:48:48 -0800 (PST)
-Date: Mon, 30 Dec 2024 15:48:45 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Ying Liu <victor.liu@nxp.com>
-Cc: Marek Vasut <marex@denx.de>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/3] drm/bridge: imx8mp-hdmi-tx: switch to bridge
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-Message-ID: <dc5apgdlj7ybujm7spadpxhilwdb3266x3xwok7blno4y6sp5m@4iwa7wiwkaof>
-References: <20241224014701.253490-1-marex@denx.de>
- <nehmmkv22ortkw6ngzlhjqo7emxsptt2dzoulln5ili52uswfp@h3acrwrad2y5>
- <75dc6f74-f828-49ac-8bf6-41fd4e197855@denx.de>
- <AM7PR04MB704688150ACD5D209290246A98092@AM7PR04MB7046.eurprd04.prod.outlook.com>
+        d=1e100.net; s=20230601; t=1735566640; x=1736171440;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4DgF2SA/IyRcgaWoHJqrd5kIkePaeZQ5QyDTWY7U+Yc=;
+        b=X/EdVqP2iof/Q6/tlm7Au2osQtbP0DCXYokJAle1ZPIDio79XteWokf8MlFPLD8xsQ
+         EHhYN8iqQGBBxmI+c7Ly1tUvu5VYAp5zSWmHHREomZl46wntvW6lL7TxzA+SYSTh1zR+
+         4tlst+k96zppk++DZ+hWvuiQ3dykEAa3nxFKuNIXyK38xkBIaPlYFGRVbTgeQxoxHYpX
+         pjrU6102lbkMPz0Y72cyCZTewa39dwMpyye+SI65tOdnK6RG6b3AWFGs2sU4fTp2PAi+
+         2XJwdEEAF+v/PZmp8s69x7JRY/dKTWLEENHoxI37qd1/Z7TG/Aq/G4hy5XSn4Ws9CySC
+         CYWQ==
+X-Gm-Message-State: AOJu0Yzh2tClxeUTGdEy3QXxwnwGQ9fayM8ztqMmRIUX5/W3xE0Rai4d
+	hRiJnuo8KAhSEpKhT4ftI7lF9RWV3OoHGTwIOT9eoKrYssRgOZhCgXzO1s8fe3ykJg==
+X-Gm-Gg: ASbGnctS1iw9F0Mlc9hN+j57pmAL/gQsBIW8b8ZwvaEGXKDReAKSEheUQuvdRAVlJNj
+	098lHaFeNcNdJH0f1TtH3W/LtdU1qpbMraBJEpZlev9SSSyshiGuLjvGn6KK3wRVqaGsWdX9KCd
+	Vy8IC9OJ9c04RLjUOwH4UhacdR5dxcgYtnCT0YT0hHktPGPEjudUZC2zIlb7UmnBjuvgRgFxs1Y
+	JgAOz0avpRpVSQ8dZOoLpKoAUkSz5cT/ACWav+uHSqYDmXFpG9q4E61tvixFpi7aIWMWXm0f93A
+	JgS826efjD/WAL3zGqqRlaratC6pO5IE/rlpslqHi6wuhz1KJZy3VKlUtzg3RMQ=
+X-Google-Smtp-Source: AGHT+IEyU/tmo4WZi2HkdrDtS62hRQGtVv28tjC6+vv4I/+FRAFbKJOyN/CKEVOY08inn7tKBUBGpg==
+X-Received: by 2002:a05:600c:1f85:b0:434:9936:c823 with SMTP id 5b1f17b1804b1-43668646741mr324023365e9.18.1735566639836;
+        Mon, 30 Dec 2024 05:50:39 -0800 (PST)
+Received: from dev-dsk-krckatom-1b-7b393aa4.eu-west-1.amazon.com (54-240-197-239.amazon.com. [54.240.197.239])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b417afsm394190875e9.36.2024.12.30.05.50.39
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 30 Dec 2024 05:50:39 -0800 (PST)
+From: Tomas Krcka <tomas.krcka@gmail.com>
+X-Google-Original-From: Tomas Krcka <krckatom@amazon.de>
+To: linux-arm-kernel@lists.infradead.org
+Cc: nh-open-source@amazon.com,
+	Tomas Krcka <krckatom@amazon.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Hagar Hemdan <hagarhem@amazon.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] irqchip/gic-v3-its: fix raw_local_irq_restore() called with IRQs enabled
+Date: Mon, 30 Dec 2024 13:49:03 +0000
+Message-Id: <20241230134903.84613-1-krckatom@amazon.de>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM7PR04MB704688150ACD5D209290246A98092@AM7PR04MB7046.eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_054850_617178_5D5715A7 
-X-CRM114-Status: GOOD (  36.25  )
+X-CRM114-CacheID: sfid-20241230_055042_797298_FD908102 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,102 +98,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 30, 2024 at 07:04:51AM +0000, Ying Liu wrote:
-> On 12/26/2024, Marek Vasut wrote:
-> > On 12/24/24 5:21 AM, Dmitry Baryshkov wrote:
-> > > On Tue, Dec 24, 2024 at 02:46:14AM +0100, Marek Vasut wrote:
-> > >> The dw-hdmi output_port is set to 1 in order to look for a connector
-> > >> next bridge in order to get DRM_BRIDGE_ATTACH_NO_CONNECTOR
-> > working.
-> > >> The output_port set to 1 makes the DW HDMI driver core look up the
-> > >> next bridge in DT, where the next bridge is often the hdmi-connector .
-> > >>
-> > >> Similar to 0af5e0b41110 ("drm/meson: encoder_hdmi: switch to bridge
-> > DRM_BRIDGE_ATTACH_NO_CONNECTOR")
-> > >>
-> > >> Signed-off-by: Marek Vasut <marex@denx.de>
-> > >> ---
-> > >> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> > >> Cc: David Airlie <airlied@gmail.com>
-> > >> Cc: Fabio Estevam <festevam@gmail.com>
-> > >> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > >> Cc: Jonas Karlman <jonas@kwiboo.se>
-> > >> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> > >> Cc: Liu Ying <victor.liu@nxp.com>
-> > >> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > >> Cc: Maxime Ripard <mripard@kernel.org>
-> > >> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> > >> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> > >> Cc: Robert Foss <rfoss@kernel.org>
-> > >> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> > >> Cc: Shawn Guo <shawnguo@kernel.org>
-> > >> Cc: Simona Vetter <simona@ffwll.ch>
-> > >> Cc: Stefan Agner <stefan@agner.ch>
-> > >> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > >> Cc: dri-devel@lists.freedesktop.org
-> > >> Cc: imx@lists.linux.dev
-> > >> Cc: linux-arm-kernel@lists.infradead.org
-> > >> ---
-> > >> V2: No change
-> > >> ---
-> > >>   drivers/gpu/drm/bridge/imx/Kconfig          | 1 +
-> > >>   drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c | 1 +
-> > >>   2 files changed, 2 insertions(+)
-> > >>
-> > >> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig
-> > b/drivers/gpu/drm/bridge/imx/Kconfig
-> > >> index 9a480c6abb856..d8e9fbf75edbb 100644
-> > >> --- a/drivers/gpu/drm/bridge/imx/Kconfig
-> > >> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
-> > >> @@ -27,6 +27,7 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
-> > >>   config DRM_IMX8MP_HDMI_PVI
-> > >>   	tristate "Freescale i.MX8MP HDMI PVI bridge support"
-> > >>   	depends on OF
-> > >> +	select DRM_DISPLAY_CONNECTOR
-> > >>   	help
-> > >>   	  Choose this to enable support for the internal HDMI TX Parallel
-> > >>   	  Video Interface found on the Freescale i.MX8MP SoC.
-> > >> diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> > b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> > >> index 1e7a789ec2890..4ebae5ad072ad 100644
-> > >> --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> > >> +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> > >> @@ -101,6 +101,7 @@ static int imx8mp_dw_hdmi_probe(struct
-> > platform_device *pdev)
-> > >>   	plat_data->phy_name = "SAMSUNG HDMI TX PHY";
-> > >>   	plat_data->priv_data = hdmi;
-> > >>   	plat_data->phy_force_vendor = true;
-> > >> +	plat_data->output_port = 1;
-> > >
-> > > Quoting my feedback to a similar Liu's patch:
-> > >
-> > > This will break compatibility with older DT files, which don't have
-> > > output port. I think you need to add output_port_optional flag to
-> > > dw_hdmi_plat_data and still return 0 from dw_hdmi_parse_dt() if the flag
-> > > is set, but there is no remote node.
-> > Looking at the upstream imx8mp*dts , the oldest commit which adds HDMI
-> > support is commit:
-> > 
-> > 3e67a1ddd56d ("arm64: dts: imx8mp: Enable HDMI on
-> > TQMa8MPxL/MBa8MPxL")
-> > 
-> > That already contains the HDMI connector node. Every follow up addition
-> > of HDMI to another device has been a copy of the same commit, with
-> > connector, so I think it is safe to say, no upstream DT is going to be
-> > broken by this change. Do we care about hypothetical downstream DTs
-> > which may be missing the connector ?
-> 
-> These have no HDMI connector nodes:
-> arch/arm64/boot/dts/freescale/imx8mp-aristainetos3a-som-v1.dtsi
-> arch/arm64/boot/dts/freescale/imx8mp-kontron-bl-osm-s.dts
-> arch/arm64/boot/dts/freescale/imx8mp-kontron-smarc-eval-carrier.dts
-> arch/arm64/boot/dts/freescale/imx8mp-msc-sm2s-ep1.dts
+The following call-chain leads to misuse of spinlock_irq
+when spinlock_irqsave was hold.
 
-Indeed. I should be less trustful.
+irq_set_vcpu_affinity
+  -> irq_get_desc_lock (spinlock_irqsave)
+   -> its_irq_set_vcpu_affinity
+    -> guard(raw_spin_lock_irq) <--- this enables interrupts
+  -> irq_put_desc_unlock // <--- WARN IRQs enabled
 
-Unreviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Fix the issue by using guard(raw_spinlock), since the function is
+already called with irqsave and raw_spin_lock was used before the commit
+b97e8a2f7130 ("irqchip/gic-v3-its: Fix potential race condition in its_vlpi_prop_update()")
+introducing the guard as well.
 
+This was discovered through the lock debugging, and the corresponding
+log is as follows:
+
+raw_local_irq_restore() called with IRQs enabled
+WARNING: CPU: 38 PID: 444 at kernel/locking/irqflag-debug.c:10 warn_bogus_irq_restore+0x2c/0x38
+ Call trace:
+  warn_bogus_irq_restore+0x2c/0x38
+   _raw_spin_unlock_irqrestore+0x68/0x88
+   __irq_put_desc_unlock+0x1c/0x48
+   irq_set_vcpu_affinity+0x74/0xc0
+   its_map_vlpi+0x44/0x88
+   kvm_vgic_v4_set_forwarding+0x148/0x230
+   kvm_arch_irq_bypass_add_producer+0x20/0x28
+   __connect+0x98/0xb8
+   irq_bypass_register_consumer+0x150/0x178
+   kvm_irqfd+0x6dc/0x744
+   kvm_vm_ioctl+0xe44/0x16b0
+
+Fixes: b97e8a2f7130 ("irqchip/gic-v3-its: Fix potential race condition in its_vlpi_prop_update()")
+Signed-off-by: Tomas Krcka <krckatom@amazon.de>
+---
+ drivers/irqchip/irq-gic-v3-its.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 92244cfa0464..8c3ec5734f1e 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -2045,7 +2045,7 @@ static int its_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu_info)
+ 	if (!is_v4(its_dev->its))
+ 		return -EINVAL;
+ 
+-	guard(raw_spinlock_irq)(&its_dev->event_map.vlpi_lock);
++	guard(raw_spinlock)(&its_dev->event_map.vlpi_lock);
+ 
+ 	/* Unmap request? */
+ 	if (!info)
 -- 
-With best wishes
-Dmitry
+2.40.1
+
 
