@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39579E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 09:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710FEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 09:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KCS148NFM6neePcbo7P2q7bn6Gnf3WOST+giN1oaVZ4=; b=aKwvRJpARJTeOBJHQJk13lBFvC
-	Mgpb3S+LGNj6DcWd8QcY8jVR0XJi2cWC7rnHGb2XSvJuzLygooNv8h/VN+1c5Ng/HxNp61pMJfXU4
-	/LJJuliCQFNRWirrnD7JmZ1lj+NZ8WK4O7JU2W28HoZjOe8K+6ednAKxxsILiLKJfyAPRBxlf/wTX
-	ClwgEzTGFOrAOumXuVYa5w2qBeZRwvOx2BMI0IxNRTA50AXq+j2Mxvmi2KOLYs6DDApj7DiZd/mP9
-	a6/r+YD5cuKTiHEwb/jrnA4usl3jeMOUXgPeO3KP895F2lmkfkDyXQMvRHI3dOk/2CaLa8kVCJcqk
-	qCQC2ozw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SyzxI6H4ZAISLyWZ1lhQ49SW3wSD1SDR6GIh5AHA3wQ=; b=Kr1JwplmdnMSxNOW3zEGb7BqL3
+	lXwSnTEF7IiTpuJNU+O6hvkeTdcPuRbYf7nW1Kwc7TCnqxPzuKSdicpCz5dv/EZ2Hicg3u4MTCu9U
+	20ZooeUwOL0pJr4BkM1owof0UF+rUWnjNc3Op60StAjfxN3oG8UE8gCwieELhzRkpENp9FxpDwHPH
+	cC/mcQcahT9I+i43xKyapA5aABTnr8fOeHETniYcO7OYzcuMz+oUQ+9/VqljKYXAaf+Mrn8dx23Q5
+	Bu3phQJobx35yUhyj/fOZ1mVZmHdlNXU46MnAGDnAxLSWApSWGuVyvbq0rS93YCueL+mjuCxHOljE
+	CAy7UzTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSBmf-00000004sI7-2BOZ;
-	Mon, 30 Dec 2024 09:09:57 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tSBnq-00000004t15-1etr;
+	Mon, 30 Dec 2024 09:11:10 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSBlR-00000004rba-2ykx
+	id 1tSBld-00000004rgk-1LG7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 09:08:44 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2166f1e589cso140198825ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 01:08:40 -0800 (PST)
+	Mon, 30 Dec 2024 09:08:54 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2162c0f6a39so123632205ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 01:08:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1735549720; x=1736154520; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KCS148NFM6neePcbo7P2q7bn6Gnf3WOST+giN1oaVZ4=;
-        b=TFgd3L8dQ1qDeAkc38YN+6HROh2rZXc3y3j2NB2CMzBS+hepIs2/vMk3YEmUeXS9L8
-         iqAbqxDWDNaWxoQEAJpr3nAFpinxMAyLPqMinc+IbikFPEDCqU3BcLx5xLVfA7yFrYLY
-         FHxQm6IWDnMyDU1Gx5WrNs+n5I5XoEK3nDKCqrZhStoKzoy1VcjhW38ryrLbPgBNbEzw
-         gBCRM1xm3DI5xubR9EpY0ulRU0uiWAGPYWPkyHFnXribIHSJ1Fe2YuPnEPkbdQemY0ro
-         qoF4/ZMUe7mBBghRIBlCbxa0NKBT402D5hSTllhszWKZSBT9kQJ1eZNr8OaEDoNq+QWx
-         c9eQ==
+        d=bytedance.com; s=google; t=1735549732; x=1736154532; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SyzxI6H4ZAISLyWZ1lhQ49SW3wSD1SDR6GIh5AHA3wQ=;
+        b=PUb5qIK/wdPrie/U48LFpnX0LQnFQGBSyr3iHQ5plEYuqQ6tOPoV5EONARmRhbkJH8
+         msQhIciUBTTb1bbTxD7br7pRN7Qw2E53zs8+P/L+LBPB8K9Kn7DbZSrudku8t/eyRjU+
+         7yMAy8IwYTxdFl5QL+YqOYOgndQU9occAI9LP2USlLkCu+gqNZWv1TN8p4OrN0BsPqBt
+         kcfUk5j1bq7g6lOmZubwoRzUSP+x2wUD5h2qe0nN2gXNWUfW/X2l8ZZ0K6xOFMo3OeAE
+         7WBRMIJndiP++0CMwuGxi+DD9YeGbdKsi5cPaLB86UqK+ZscwfG4wyNuEGkXKfvfoJFu
+         P7JQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735549720; x=1736154520;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KCS148NFM6neePcbo7P2q7bn6Gnf3WOST+giN1oaVZ4=;
-        b=uR1TUF//VEJyBHQBxMaHG+tE5d+hga3ykdFAD2P1IinZU2A63eCrKv9Ks4AcY4hRec
-         0lrsGIib58aeqeXq8XYmnQ5FDukSufse2clF5nFJa3fCOyCngIiVPB5Y1DjCFYOjPv0c
-         of2xMksdG8+pSIJZFCoGJJnsrsDx9FvnHsbb1NxUfTezyZVSs4dMJZ8S9trN/BG6PB+1
-         yQbFVFRcKxQbJaW9XqVv/qRtu0LfU4gU/Ejt3LDBy1062c8ricvKStp22wkj+lZVgk0c
-         P/PfgYXAOqeRKPv0QjetCFMPuqv/CiGUNvSOVwmmZ15TcUSZn63kxC00tp1MfNp8hJja
-         r7yA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxq8S8/m4ET+eTLE+nWLkn0HOA9WVb4anyItdRlBSUuAMhPMtHw+4UZhjCQm4lAsDpS1g+2d99IuY2MUIu1yoy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9JsZOlzAj8yLYM3j3A1KhVWxEirVb96DmqFKIW515Dw87ilLO
-	XdvUNvcNubgF3iFVRpbuT7Ye468qaVDShEWRH7s8XINKIyhsHEGJCBsgfhc82h8=
-X-Gm-Gg: ASbGncs5a3OiWVhgOtF5D35IPm3WMtpKU6WQHcMXNvR4zo6q+7VFlg/dS09db9uxpHH
-	YO2W3PC7kz6o+TZFzR/A8bVHX2UvNAZEfGN/IOTk1+6js232Kzfb3zs/rUV8flbvAavEkWyIStO
-	seerQsp1V+u4Lm542+F02s8nhuMqqrCOt68oFYPUXwbG5wUnpHj6R8q42zL5ZErmQPI1w2tE7xT
-	A9zZpN0dS4m0ahl60DFjzI4tsSes4CREf1vdnjc0t+MkBu1/1nvHYlQ4IlGbMq64JfPz68KU8MC
-	2zcdJK0vb45gMADCaxsuXQ==
-X-Google-Smtp-Source: AGHT+IHgLmMaWHwHgL0oRHIhYJ2vWpvY6ebuDt6AqrGAyIjEWzK95W7/7i/VdRxGUDUWQcC+IVrQ/g==
-X-Received: by 2002:a05:6a00:e06:b0:725:9dc7:4f8b with SMTP id d2e1a72fcca58-72abde30cc7mr45836853b3a.15.1735549719834;
-        Mon, 30 Dec 2024 01:08:39 -0800 (PST)
+        d=1e100.net; s=20230601; t=1735549732; x=1736154532;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SyzxI6H4ZAISLyWZ1lhQ49SW3wSD1SDR6GIh5AHA3wQ=;
+        b=jrfl3qmTAwWQRviarDJUfTj9fJsF2KLcsPh6wNeUfv+PZLnp6lkc0Po4PtTRFC8hus
+         t1jiOk9Y+5CoMJ8aUUBCaYsdTL94h5BrJ7TrQKR6gF5RWNF990+9bluu8cdqvPBfCS7+
+         GL/U4LRjpfCojmVgl7D0iu4kvw+Kbqj4ZVkUpUooNWL43t7eYvwST1CCqkgoIUL645Wl
+         RsYqVUs7PrcwP/H8GI15+dt4dVNVzdugMT+Hijo3aKgWyULxeUgGBjM68D3KIKgxNirj
+         kFRfNoPJa0oizQXGB1Yns4xADFTPBzANb3H5sWM9emsst2C7i1qsIJ/g1BvyliEH5+N9
+         cqwA==
+X-Forwarded-Encrypted: i=1; AJvYcCXTcwjT+O+YzFlITdlBSjSVVo/yW/wY/V25tPftHVZr0hSdn8yttVEbLKxKPYHGL4ZfXVS6SekQylpBxOtXIdd6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkEsnECdf83ggwXmWtrWKjVUx51BrauFrphGM3RbfwebiefQ6+
+	iG4WSNAfud5Iv+cxDR7TtK0l/9qzW0Vh7qoEl69HGB/rdWhuXwNEU5O21kui0hs=
+X-Gm-Gg: ASbGncuxBmn9rxik8AdcMPhXuLO4sUwucaZHkhshlhZ93C5qM49Hn1mihfzYZc8/kep
+	O3SxbBrQI5hD3qRaxuS4LqZuzGBq5djUABTs8xOiiVO2v2E+6Zy7IGj8RtXQEcrparpTfsEztpa
+	UAkHamNidv/pM/xWD+tAGl3IyYPazuYUVWRdEfm3xKgS9besx1Jy7SRGFchUq0eDYbmqyXL66qD
+	XhUDsT++iIt6Nf4gWYxIIqRjzkpP2AuL4kS3949yRLdF1piX2ILlwc4wdPvsin1dc806Dtjg/ym
+	5Om8QHSnuFfITFCPuc1tuA==
+X-Google-Smtp-Source: AGHT+IEXAwBIqSClrkb4EYoc2OhmhpgilmCz/IsEh6Chc/FsWIzsRB3p/FpLbUSGkXAy0ZMKjVVExg==
+X-Received: by 2002:a05:6a20:4320:b0:1e6:50a0:f982 with SMTP id adf61e73a8af0-1e650a0fa30mr7283235637.20.1735549732420;
+        Mon, 30 Dec 2024 01:08:52 -0800 (PST)
 Received: from C02DW0BEMD6R.bytedance.net ([203.208.167.150])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842aba72f7csm17057841a12.4.2024.12.30.01.08.27
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842aba72f7csm17057841a12.4.2024.12.30.01.08.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Dec 2024 01:08:39 -0800 (PST)
+        Mon, 30 Dec 2024 01:08:51 -0800 (PST)
 From: Qi Zheng <zhengqi.arch@bytedance.com>
 To: peterz@infradead.org,
 	agordeev@linux.ibm.com,
@@ -109,15 +110,17 @@ Cc: linux-mm@kvack.org,
 	linux-sh@vger.kernel.org,
 	linux-um@lists.infradead.org,
 	Qi Zheng <zhengqi.arch@bytedance.com>
-Subject: [PATCH v4 00/15] move pagetable_*_dtor() to __tlb_remove_table()
-Date: Mon, 30 Dec 2024 17:07:35 +0800
-Message-Id: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+Subject: [PATCH v4 01/15] Revert "mm: pgtable: make ptlock be freed by RCU"
+Date: Mon, 30 Dec 2024 17:07:36 +0800
+Message-Id: <b59adb960b2075822a6e57efc7a52e7eb7780068.1735549103.git.zhengqi.arch@bytedance.com>
 X-Mailer: git-send-email 2.24.3 (Apple Git-128)
+In-Reply-To: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_010842_075218_CD13E85C 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20241230_010853_358330_1046135D 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,131 +135,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v4:
- - remove [PATCH v3 15/17] and [PATCH v3 16/17] (Mike Rapoport)
-   (the tlb_remove_page_ptdesc() and tlb_remove_ptdesc() are intermediate
-    products of the project: https://kernelnewbies.org/MatthewWilcox/Memdescs,
-    so keep them)
- - collect Acked-by
+This reverts commit 2f3443770437e49abc39af26962d293851cbab6d.
 
-Changes in v3:
- - take patch #5 and #6 from Kevin Brodsky's patch series below.
-   Link: https://lore.kernel.org/lkml/20241219164425.2277022-1-kevin.brodsky@arm.com/
- - separate the statistics part from [PATCH v2 02/15] as [PATCH v3 04/17], and
-   replace the rest part with Kevin Brodsky's patch #6
-   (Alexander Gordeev and Kevin Brodsky)
- - change the commit message of [PATCH v2 10/15] and [PATCH v2 11/15]
-   (Alexander Gordeev)
- - fix the bug introduced by [PATCH v2 11/15]
-   (Peter Zijlstra)
- - rebase onto the next-20241220
+Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+---
+ include/linux/mm.h       |  2 +-
+ include/linux/mm_types.h |  9 +--------
+ mm/memory.c              | 22 ++++++----------------
+ 3 files changed, 8 insertions(+), 25 deletions(-)
 
-Changes in v2:
- - add [PATCH v2 13|14|15/15] (suggested by Peter Zijlstra)
- - add Originally-bys and Suggested-bys
- - rebase onto the next-20241218
-
-Hi all,
-
-As proposed [1] by Peter Zijlstra below, this patch series aims to move
-pagetable_*_dtor() into __tlb_remove_table(). This will cleanup pagetable_*_dtor()
-a bit and more gracefully fix the UAF issue [2] reported by syzbot.
-
-```
-Notably:
-
- - s390 pud isn't calling the existing pagetable_pud_[cd]tor()
- - none of the p4d things have pagetable_p4d_[cd]tor() (x86,arm64,s390,riscv)
-   and they have inconsistent accounting
- - while much of the _ctor calls are in generic code, many of the _dtor
-   calls are in arch code for hysterial raisins, this could easily be
-   fixed
- - if we fix ptlock_free() to handle NULL, then all the _dtor()
-   functions can use it, and we can observe they're all identical
-   and can be folded
-
-after all that cleanup, you can move the _dtor from *_free_tlb() into
-tlb_remove_table() -- which for the above case, would then have it
-called from __tlb_remove_table_free().
-```
-
-And hi Andrew, I developed the code based on the latest linux-next, so I reverted
-the "mm: pgtable: make ptlock be freed by RCU" first. Once the review of this
-patch series is completed, the "mm: pgtable: make ptlock be freed by RCU" can be
-dropped directly from mm tree, and this revert patch will not be needed.
-
-This series is based on next-20241220. And I tested this patch series on x86 and
-only cross-compiled it on arm, arm64, powerpc, riscv, s390 and sparc.
-
-Comments and suggestions are welcome!
-
-Thanks,
-Qi
-
-[1]. https://lore.kernel.org/all/20241211133433.GC12500@noisy.programming.kicks-ass.net/
-[2]. https://lore.kernel.org/all/67548279.050a0220.a30f1.015b.GAE@google.com/
-
-Kevin Brodsky (2):
-  riscv: mm: Skip pgtable level check in {pud,p4d}_alloc_one
-  asm-generic: pgalloc: Provide generic p4d_{alloc_one,free}
-
-Qi Zheng (13):
-  Revert "mm: pgtable: make ptlock be freed by RCU"
-  mm: pgtable: add statistics for P4D level page table
-  arm64: pgtable: use mmu gather to free p4d level page table
-  s390: pgtable: add statistics for PUD and P4D level page table
-  mm: pgtable: introduce pagetable_dtor()
-  arm: pgtable: move pagetable_dtor() to __tlb_remove_table()
-  arm64: pgtable: move pagetable_dtor() to __tlb_remove_table()
-  riscv: pgtable: move pagetable_dtor() to __tlb_remove_table()
-  x86: pgtable: move pagetable_dtor() to __tlb_remove_table()
-  s390: pgtable: also move pagetable_dtor() of PxD to
-    __tlb_remove_table()
-  mm: pgtable: introduce generic __tlb_remove_table()
-  mm: pgtable: move __tlb_remove_table_one() in x86 to generic file
-  mm: pgtable: introduce generic pagetable_dtor_free()
-
- Documentation/mm/split_page_table_lock.rst |  4 +-
- arch/arm/include/asm/tlb.h                 | 10 ----
- arch/arm64/include/asm/pgalloc.h           | 18 ------
- arch/arm64/include/asm/tlb.h               | 21 ++++---
- arch/csky/include/asm/pgalloc.h            |  2 +-
- arch/hexagon/include/asm/pgalloc.h         |  2 +-
- arch/loongarch/include/asm/pgalloc.h       |  2 +-
- arch/m68k/include/asm/mcf_pgalloc.h        |  4 +-
- arch/m68k/include/asm/sun3_pgalloc.h       |  2 +-
- arch/m68k/mm/motorola.c                    |  2 +-
- arch/mips/include/asm/pgalloc.h            |  2 +-
- arch/nios2/include/asm/pgalloc.h           |  2 +-
- arch/openrisc/include/asm/pgalloc.h        |  2 +-
- arch/powerpc/include/asm/tlb.h             |  1 +
- arch/powerpc/mm/book3s64/mmu_context.c     |  2 +-
- arch/powerpc/mm/book3s64/pgtable.c         |  2 +-
- arch/powerpc/mm/pgtable-frag.c             |  4 +-
- arch/riscv/include/asm/pgalloc.h           | 69 +++++-----------------
- arch/riscv/include/asm/tlb.h               | 18 ------
- arch/riscv/mm/init.c                       |  4 +-
- arch/s390/include/asm/pgalloc.h            | 31 +++++++---
- arch/s390/include/asm/tlb.h                | 43 +++++++-------
- arch/s390/mm/pgalloc.c                     | 23 +-------
- arch/sh/include/asm/pgalloc.h              |  2 +-
- arch/sparc/include/asm/tlb_32.h            |  1 +
- arch/sparc/include/asm/tlb_64.h            |  1 +
- arch/sparc/mm/init_64.c                    |  2 +-
- arch/sparc/mm/srmmu.c                      |  2 +-
- arch/um/include/asm/pgalloc.h              |  6 +-
- arch/x86/include/asm/pgalloc.h             | 18 ------
- arch/x86/include/asm/tlb.h                 | 33 -----------
- arch/x86/kernel/paravirt.c                 |  1 +
- arch/x86/mm/pgtable.c                      | 13 ++--
- include/asm-generic/pgalloc.h              | 55 +++++++++++++++--
- include/asm-generic/tlb.h                  | 14 ++++-
- include/linux/mm.h                         | 50 ++++++----------
- include/linux/mm_types.h                   |  9 +--
- mm/memory.c                                | 23 +++-----
- mm/mmu_gather.c                            | 20 ++++++-
- 39 files changed, 211 insertions(+), 309 deletions(-)
-
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index d61b9c7a3a7b0..c49bc7b764535 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -2925,7 +2925,7 @@ void ptlock_free(struct ptdesc *ptdesc);
+ 
+ static inline spinlock_t *ptlock_ptr(struct ptdesc *ptdesc)
+ {
+-	return &(ptdesc->ptl->ptl);
++	return ptdesc->ptl;
+ }
+ #else /* ALLOC_SPLIT_PTLOCKS */
+ static inline void ptlock_cache_init(void)
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 90ab8293d714a..6b27db7f94963 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -434,13 +434,6 @@ FOLIO_MATCH(flags, _flags_2a);
+ FOLIO_MATCH(compound_head, _head_2a);
+ #undef FOLIO_MATCH
+ 
+-#if ALLOC_SPLIT_PTLOCKS
+-struct pt_lock {
+-	spinlock_t ptl;
+-	struct rcu_head rcu;
+-};
+-#endif
+-
+ /**
+  * struct ptdesc -    Memory descriptor for page tables.
+  * @__page_flags:     Same as page flags. Powerpc only.
+@@ -489,7 +482,7 @@ struct ptdesc {
+ 	union {
+ 		unsigned long _pt_pad_2;
+ #if ALLOC_SPLIT_PTLOCKS
+-		struct pt_lock *ptl;
++		spinlock_t *ptl;
+ #else
+ 		spinlock_t ptl;
+ #endif
+diff --git a/mm/memory.c b/mm/memory.c
+index b9b05c3f93f11..9423967b24180 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -7034,34 +7034,24 @@ static struct kmem_cache *page_ptl_cachep;
+ 
+ void __init ptlock_cache_init(void)
+ {
+-	page_ptl_cachep = kmem_cache_create("page->ptl", sizeof(struct pt_lock), 0,
++	page_ptl_cachep = kmem_cache_create("page->ptl", sizeof(spinlock_t), 0,
+ 			SLAB_PANIC, NULL);
+ }
+ 
+ bool ptlock_alloc(struct ptdesc *ptdesc)
+ {
+-	struct pt_lock *pt_lock;
++	spinlock_t *ptl;
+ 
+-	pt_lock = kmem_cache_alloc(page_ptl_cachep, GFP_KERNEL);
+-	if (!pt_lock)
++	ptl = kmem_cache_alloc(page_ptl_cachep, GFP_KERNEL);
++	if (!ptl)
+ 		return false;
+-	ptdesc->ptl = pt_lock;
++	ptdesc->ptl = ptl;
+ 	return true;
+ }
+ 
+-static void ptlock_free_rcu(struct rcu_head *head)
+-{
+-	struct pt_lock *pt_lock;
+-
+-	pt_lock = container_of(head, struct pt_lock, rcu);
+-	kmem_cache_free(page_ptl_cachep, pt_lock);
+-}
+-
+ void ptlock_free(struct ptdesc *ptdesc)
+ {
+-	struct pt_lock *pt_lock = ptdesc->ptl;
+-
+-	call_rcu(&pt_lock->rcu, ptlock_free_rcu);
++	kmem_cache_free(page_ptl_cachep, ptdesc->ptl);
+ }
+ #endif
+ 
 -- 
 2.20.1
 
