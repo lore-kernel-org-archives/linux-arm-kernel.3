@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3108E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 10:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316B8E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 10:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wg3rOrpJ/V4ITpzMYa7ur6drZTaKRgCmtn4RTKqUP6U=; b=VmELoBxRqolyKq5bJwTTni4Wj6
-	6gkZsLnWWUC80xP9nsqKUE9BKzPLJGfk9nsGxUUjcIXAfVZE9rsdr0QQKXWEa3nUqFGzYn+ognAv2
-	1mL+s//oFHEijOZidmX9tvRGSodKGa0RWnCaeWFSx0h+e5kYfItYlyuhacpnP7jr5YlZ4wLO9erCP
-	fbnC5O5d1ptIJvHCHLPfQoPdvjuwAUZAO3BjxSw/Qt13j8/0Eszi4qDJp+v1k9z0kXqEwjUUkIClp
-	0G4w6AxmK9bmywWnoOjr68aPwf75m3SS5oFYZBFYVmOW+RpYwTws3DJx0tY6Q+vObaJ1I5PDTvhh4
-	WTOgkWMw==;
+	bh=ORCqMwl+SAp/HgeyDZWrdJX6WYlSwrJwZn4hxNWVVck=; b=SGVJBNSfioFXZF4EHxV4sbf+Yx
+	YvbwGjjLfxPI/BLQJMNVjzAliuRmu5za8Z+sR4WjiqLfSvxLp7467+mp+Vw71ezHdUEL2S4K8R3+S
+	VHmvzo1y7RXh1wd9I/QUpj2E5QwYgunqMtQ7G19n9qyKnt36rdtkC7as1lDWcbhmKGePx9amgHXv0
+	pmdd18nzgassO8av6E/Kp6HblCVP9/5WV/5wjXnuMkrGR1sBXEi9pvnXSgYtuxq43UfW/5Kw9idFq
+	/Ve2dK26rWYwJBKthAErLAvX2T/9k1N7yOVefolODQO0YIKOzEeWOULQgYkjdMX0y/3Qsuv2gh2C0
+	SCyWAS4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSCZS-00000004zXB-2qz0;
-	Mon, 30 Dec 2024 10:00:22 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tSCac-00000004ziB-04rH;
+	Mon, 30 Dec 2024 10:01:34 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSCYE-00000004zLh-3YwB
+	id 1tSCYe-00000004zRB-0zSH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 09:59:09 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43622267b2eso95807375e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 01:59:06 -0800 (PST)
+	Mon, 30 Dec 2024 09:59:33 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38634c35129so6889980f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 01:59:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735552745; x=1736157545; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735552770; x=1736157570; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wg3rOrpJ/V4ITpzMYa7ur6drZTaKRgCmtn4RTKqUP6U=;
-        b=RA95xLOUH8BiWJ6dKqNKd7nJP970DgDAiOS4NS6OFPAUWjIhEGfRmKCo8WGj7AuU31
-         lHs1m8IBFMksJ6YMfiVA+6Ku+RzcWMy6sX6l4Cp6tTSAhVAvEX7KzItSXKmuop1dwb/Z
-         w6a53M5Skpcba6GKtrGyYeQ5LeiMgNpKeoxbmQG/PVONmh7ohvKbDLxCOjHHs98WBMzx
-         b7pqxiw+GqUIUbuZk5vdURrLUuF4XFILDUiChfSFcxUsjMTukS0jd0RxXNNb456RNklK
-         lg1DlRW5UO1/XLxuc69+C7QOVwnT2xhzY+1102ladIvq4nYH02AtTUEKllsBc+fXGxfO
-         AblQ==
+        bh=ORCqMwl+SAp/HgeyDZWrdJX6WYlSwrJwZn4hxNWVVck=;
+        b=WeVf49BP9WG3Q/wiuY81KDK5doX1wGEEvdBJO4jaXOJmg3c816feV/8d+GCr8XdqEa
+         SqK6jt43GntvjsUESuGzZghLclYtga5dLCPkGpy1+OyxqlkC7YaFZPSnzQn8UZ2HNbb0
+         MkkUkS7vaRN9tXTniZATB01dIwNyeC58voHAZ4vCY+xDzdlbRH7G7C35RlPsIT2t6VnG
+         sDUs3oNN+oqs0g+ACqAsoI/mAdiFyin1P7J1/Yn4OP/lz1HEuO0eNeweDds3Zxqk6MHw
+         1FvmZGOX7/DgKy4EFQt4RzX9urK0wz7bBufM+tPxVDBE1gliIboN6fk/JGpAmalvz9mP
+         4cVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735552745; x=1736157545;
+        d=1e100.net; s=20230601; t=1735552770; x=1736157570;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wg3rOrpJ/V4ITpzMYa7ur6drZTaKRgCmtn4RTKqUP6U=;
-        b=dfaN/irxhJqwR4piszRfyid9V+mfgpKrzF89Tw/S/YkLA9s5+JtsN17N6oXBElUEJP
-         7NB2povXmh+Esui+ygu8eDRYAxUcfQVkojtbsFHtBhqJjnhkJv6MQe9hIUIwMD7d6VZR
-         75Q5tTu0cIpTTaYJDD2r0X5zm3JpOcrjE9yKGLffKqMnVCu4OAy3oLazXS2jy/da3/Zm
-         RqRm3Xj5YLqVNsaHeyAa0C7Fuz/YEuAd/zDZMZKWWlJWxduWH8+zP4dXeqMuHj6N9fYP
-         QktWRUWwUyi4YQuS2piNzUYDGSkDfG8dBe9yCxvWcTCwckThwGOUP3KRymquZYm7fGLr
-         Nctg==
-X-Gm-Message-State: AOJu0Yz0kk4+DqJ55EmOaWsmZIJSzkmPHTTEjk3ClT+GVrX3xOj2r2Uu
-	sQ/yPwIsnW2z0qjccpZzaacYxvu/pv0obkDKTK8XhzVRJV+bsLmhQ4aEHVG+KqM=
-X-Gm-Gg: ASbGnctgIUH7CdDy6Gp5mkJ79HPHkxEPUvutMFx8jAsoefRD3OEeBG6gp2aq3bGH+Vy
-	WMsbWO3Q+zBHHGLrzZAO/qL+agxKbIIpb+B6FSjcSXU5rDdS4kBmy4pK9jUvJgv1V60X+5fkouH
-	OrZFmNzrIOyygd5tcvlH2BkLq6ICo215t7oXz3AMZ6KDPHSmPopxfOOKh9t96/1zywknTHu7yW8
-	E6hLopmYXoj2rS6o3nIHWubr6BRfBgX3SDKGvIJvvsKcgfxLx/9s7TWsvZcMdWwHTfap2ECqm3T
-	gQ==
-X-Google-Smtp-Source: AGHT+IHr0EeJk2baaepc6dGYNclRyZGkhsRUfmQUaioxZkb4SLPwgkjT+Y6PbldALk9VG7k/0s1IDg==
-X-Received: by 2002:a05:600c:294c:b0:436:51bb:7a53 with SMTP id 5b1f17b1804b1-43668643ba9mr312560605e9.12.1735552745215;
-        Mon, 30 Dec 2024 01:59:05 -0800 (PST)
+        bh=ORCqMwl+SAp/HgeyDZWrdJX6WYlSwrJwZn4hxNWVVck=;
+        b=nraxH9IR6G1U7kxmBaJ/t/aIuFX0XxMn7lo/bn+sD7M5e7Nz6ulWMSTsTWtD4JxfoI
+         4I3d7RoIRSiVEn+FmHHtImlFDYWelV1uypBKbkOGuCH429UjEVde8XjkidnOCIqX+9Pu
+         jBJEEIOaMcRdQHe798ujrMmj+oWPPBdpuFxoi9bNcnJVRyyFiLxqvTHJIvpy2n6kHU91
+         RqLS4CZAXLGimXdSUvJG4xOiX0np1ZgqUhP20jO9km/01EkOedTbmST/ZYhTZoy8WWSU
+         0AMaownY7t0f4MS7JMVlGtSwBPHJbCtogQYwsKOtmzt9tX+lO7e4MjyNO1p3eRkwnAui
+         53hQ==
+X-Gm-Message-State: AOJu0YyRjcpItSab4OHPIdCuq5wcBzW79JOf/A5l5i78TKkQHGNfaS2C
+	vUcsN9l68DS50fKR/W09Ar8ejSpzCp5h66N1Q1If1D/FgU/xFHzwRne2c15/Ye4=
+X-Gm-Gg: ASbGncsO1VixiFTVdBX+U31ua+Fb6WUpK1EkYwswnx7JL+RKemjlrk0FlSt/4YBygvX
+	Ull3doSaBu9s/VtVI9HKGVCV3WkQGY5e5Tq/YgX9GFnittbnaJEW/3fiyjk91ek2llowoOD8p9U
+	FtM+gQrrGf835MwGPbKKq1oVAEtrqSXZ59/f3cW+J/9oA6dlRhqy4Xh+wEs0ElMZJe5jPeoWgkP
+	A/te47nXg65/nNGKBvrWZAoIzRcg1OptFz38vP7Bod/rT7tEkQ1zgM/hdLXO8anJ0ZuYQ8JzkP+
+	uA==
+X-Google-Smtp-Source: AGHT+IEtZftynNsczV2vu95ZXDwj5mXq7bMZgAVBOfkVYRXoJZgIO+SXbYok4rrRMwDseSXqu17tkQ==
+X-Received: by 2002:adf:ab0c:0:b0:386:37f5:99f6 with SMTP id ffacd0b85a97d-38a223ff225mr24971091f8f.53.1735552770588;
+        Mon, 30 Dec 2024 01:59:30 -0800 (PST)
 Received: from arrakeen.starnux.net ([2a01:e0a:982:cbb0:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c832c45sm29382108f8f.32.2024.12.30.01.59.04
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c493sm347650735e9.28.2024.12.30.01.59.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Dec 2024 01:59:04 -0800 (PST)
+        Mon, 30 Dec 2024 01:59:30 -0800 (PST)
 From: Neil Armstrong <neil.armstrong@linaro.org>
 To: linux-amlogic@lists.infradead.org, 
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>
@@ -76,15 +76,15 @@ In-Reply-To: <20241227212514.1376682-1-martin.blumenstingl@googlemail.com>
 References: <20241227212514.1376682-1-martin.blumenstingl@googlemail.com>
 Subject: Re: (subset) [PATCH 0/5] dts: amlogic: switch to the new PWM
  controller binding
-Message-Id: <173555274448.2075376.17109271239824246199.b4-ty@linaro.org>
-Date: Mon, 30 Dec 2024 10:59:04 +0100
+Message-Id: <173555276981.2075882.719017533990914280.b4-ty@linaro.org>
+Date: Mon, 30 Dec 2024 10:59:29 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_015906_895959_55A8E801 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20241230_015932_276172_6634D8BA 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,16 +114,18 @@ On Fri, 27 Dec 2024 22:25:09 +0100, Martin Blumenstingl wrote:
 > 
 > [...]
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.15/arm-dt)
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.15/arm64-dt)
 
-[1/5] ARM: dts: amlogic: meson8: switch to the new PWM controller binding
-      https://git.kernel.org/amlogic/c/d352e8fc91526bdbb70468e8dea13581b905891f
-[2/5] ARM: dts: amlogic: meson8b: switch to the new PWM controller binding
-      https://git.kernel.org/amlogic/c/39786592bfdd92b64a68283fa896e108ca9822de
+[3/5] arm64: dts: amlogic: gx: switch to the new PWM controller binding
+      https://git.kernel.org/amlogic/c/12abaac5a70994490e565249dcffbb5c329b30bd
+[4/5] arm64: dts: amlogic: axg: switch to the new PWM controller binding
+      https://git.kernel.org/amlogic/c/77747dbb11466d5ac2ee11a260e8de0b65f3fd1c
+[5/5] arm64: dts: amlogic: g12: switch to the new PWM controller binding
+      https://git.kernel.org/amlogic/c/06c993691a2fdcabc43053a8fdd813cdeef516c4
 
 These changes has been applied on the intermediate git tree [1].
 
-The v6.15/arm-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+The v6.15/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
 for inclusion in their intermediate git branches in order to be sent to Linus during
 the next merge window, or sooner if it's a set of fixes.
 
