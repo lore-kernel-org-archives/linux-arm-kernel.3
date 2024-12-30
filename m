@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FC2E77194
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 08:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE37E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 08:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qCsLO7/DPq0fAwnmdxvog17EUVkdcDvufsuKKDDU44=; b=YCxXUoAa7pRrgDa/024bmQ81C/
-	wg4qqceD6qo4cNuTTZ/czmcS9UCyZYeJKhD7/S2Cvnuf/YXB/VQBqsV1oVYXbTu8ivm6BancpwWhv
-	srpt7pcZTKk+SElSLXuo+lknrj5oyTos4L/x4CkTcjNd+TpEOgQ1EhPJM89PyS4OzPxkFihzkBYIr
-	1M1eAfOKFFQRdmvkDFtHopgBfr9pYtLgRPGSH7X1x9a/sgceKncY3sk1RJgDrqCApNjKod6ETftCN
-	JOJf8GeugI/u9zgZL19WGMpfQq/OtzKUespmksmGfjjNJk/WTkUUwoq0haAUFT1ETrske21dBxqzk
-	umMWYYqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IjhTyIk85EtpNPozN27xxdVmdA+yXi+gjfkzcQ6a74c=; b=0ZuIe/hhWrXB6rfhUmUZEsnx3Z
+	37daCo80aC767gCMFa4YpaV9oM92sXFnzF+MwkPRSL8AMhh4rTYyASTaFI3AodvTYL4abeEy9x23g
+	AW8pQ7sWLAbA8HGFFHoW+ch8HXw2jon9PFZiOwZkCMb80ebyHScsqMOK5AQOy+ux+t5SGRSH4PeWg
+	yruSR/yfa5wbaGnfRPTQdrI7Kr3+xayrG+jqTvTxpWwaYDzxkyRjwSulIThSdwmVtPAg/v2Y8/pvP
+	gYF4dASdZaWHBPAHIUhAv2meGRt09ozmcF73cvrsrWUnQJ3t4e4ZTIPAChBzIwPJuFbDxiLu8zqPk
+	UP3hQePA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSBRb-00000004pu3-3Nky;
-	Mon, 30 Dec 2024 08:48:11 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSBQO-00000004piI-1oAS;
-	Mon, 30 Dec 2024 08:46:57 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1E2C11C0006;
-	Mon, 30 Dec 2024 08:46:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1735548414;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5qCsLO7/DPq0fAwnmdxvog17EUVkdcDvufsuKKDDU44=;
-	b=V2WVMabCR3tv3DYkj8ceVupPJhyavl3qhgOPs/I9FnR1jKneit/XiPGS4Oc3CUJ4NxgIDa
-	pLsgJlKUNCJfA515f2cbXKr4alkKR+evB+Nhem5PI6cI4VnnEOcC/HAK8JCJ1JdAfzJmTe
-	6dgsWTL9OpD5zUqe/8e95WW3QQ4Tp+4lMXZeQE2S90e4/GkcOWocy7y7wQ5JbxsZYJxu3k
-	9l1OiSjR1bbhRB8hcCLOCEgC5RZ0vKiojIFwD8vKUgqnyFwFYK6QTPAFa7ivLgOObUwIZw
-	2bJ9jpIfno95cevOBvtX5QOOsUSJQh9z8xuE9lsVYdYaV2AwFpnAnxqv/vl/Qg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Raphael Gallais-Pou <rgallaispou@gmail.com>
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,  Thinh Nguyen
- <Thinh.Nguyen@synopsys.com>,  Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,  Adrian Hunter <adrian.hunter@intel.com>,
-  Ulf Hansson <ulf.hansson@linaro.org>,  Richard Weinberger
- <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Damien Le Moal
- <dlemoal@kernel.org>,  Niklas Cassel <cassel@kernel.org>,  Alexandre
- Torgue <alexandre.torgue@foss.st.com>,  Jose Abreu <joabreu@synopsys.com>,
-  Andrew Lunn <andrew+netdev@lunn.ch>,  "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>,  Jakub
- Kicinski <kuba@kernel.org>,  Paolo Abeni <pabeni@redhat.com>,  Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,  Mark Brown <broonie@kernel.org>,
-  linux-arm-kernel@lists.infradead.org,  linux-usb@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-mmc@vger.kernel.org,
-  linux-mtd@lists.infradead.org,  linux-ide@vger.kernel.org,
-  netdev@vger.kernel.org,  linux-stm32@st-md-mailman.stormreply.com,
-  linux-spi@vger.kernel.org
-Subject: Re: [PATCH 3/6] mtd: st_spi_fsm: Switch from CONFIG_PM_SLEEP guards
- to pm_sleep_ptr()
-In-Reply-To: <20241229-update_pm_macro-v1-3-c7d4c4856336@gmail.com> (Raphael
-	Gallais-Pou's message of "Sun, 29 Dec 2024 00:32:42 +0100")
-References: <20241229-update_pm_macro-v1-0-c7d4c4856336@gmail.com>
-	<20241229-update_pm_macro-v1-3-c7d4c4856336@gmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 30 Dec 2024 09:46:52 +0100
-Message-ID: <877c7ha77n.fsf@bootlin.com>
+	id 1tSBa2-00000004qaS-2mBH;
+	Mon, 30 Dec 2024 08:56:54 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tSBYo-00000004qVs-34uf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Dec 2024 08:55:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=IjhTyIk85EtpNPozN27xxdVmdA+yXi+gjfkzcQ6a74c=;
+	b=iFBnYqMJqaikGPTd2JOQK6c5ctUwkZKCAj9vBwTj7blaP+TXHq1si3Lt8oSX62
+	u1dAG78ZNumNWkhOBONf17DX1t2B4h7YYo79Wgi4HUaFhHJlaixvaXWV2GFZ1bOs
+	39CqSucAA9NAh3KYuKSabIsbGQhma5fmHn3r5uG+6XiQc=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgC3WW33X3JnAhn5BQ--.60155S3;
+	Mon, 30 Dec 2024 16:55:21 +0800 (CST)
+Date: Mon, 30 Dec 2024 16:55:19 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: soc@kernel.org, arm@kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	kernel@pengutronix.de, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] i.MX fixes for 6.13
+Message-ID: <Z3Jf9zbv/xH3YzuB@dragon>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CM-TRANSID: M88vCgC3WW33X3JnAhn5BQ--.60155S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZFy8AF1ktrWDtw18uF1xKrg_yoW8XFWDpF
+	sxCwsrGr48WFy5JrZrAr1vv3y5JwsrJFn8XrW5GrW8tr98Zw1UJF13Gr1ru3yUXry2gw4F
+	yF1rXrnFyr1DXw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jazuAUUUUU=
+X-Originating-IP: [114.216.146.204]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBAfFZWdyVU0nLgAAsn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_004656_599152_F1A49D37 
-X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-CacheID: sfid-20241230_005539_148600_A4A37B56 
+X-CRM114-Status: UNSURE (   8.39  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,26 +72,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Raphael,
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-On 29/12/2024 at 00:32:42 +01, Raphael Gallais-Pou <rgallaispou@gmail.com> =
-wrote:
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-> Letting the compiler remove these functions when the kernel is built
-> without CONFIG_PM_SLEEP support is simpler and less error prone than the
-> use of #ifdef based kernel configuration guards.
+are available in the Git repository at:
 
-If that does not lead to any warning, I'm fine. However this kind of
-change is better received subsystem-wide than platform-wide, if you ever
-wish to go this route.
+  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.13
 
-> Link: https://lore.kernel.org/all/20240716180010.126987-1-rgallaispou@gma=
-il.com
+for you to fetch changes up to 5f122030061db3e5d2bddd9cf5c583deaa6c54ff:
 
-This link however seems irrelevant.
+  ARM: dts: imxrt1050: Fix clocks for mmc (2024-12-09 20:40:23 +0800)
 
-> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
+----------------------------------------------------------------
+i.MX fixes for 6.13:
 
-Thanks,
-Miqu=C3=A8l
+- Add fallback for i.MX8QM ESAI compatible to fix a dt-schema warning
+  caused by bindings update
+- Fix uSDHC1 clock for i.MX RT1050
+- Enable SND_SOC_SPDIF in imx_v6_v7_defconfig to fix a regression caused
+  by an i.MX6 SPDIF sound card change in DT
+- Fix address length of i.MX95 netcmix_blk_ctrl
+
+----------------------------------------------------------------
+Frank Li (1):
+      arm64: dts: imx8-ss-audio: add fallback compatible string fsl,imx6ull-esai for esai
+
+Jesse Taube (1):
+      ARM: dts: imxrt1050: Fix clocks for mmc
+
+Stefan Eichenberger (1):
+      ARM: imx_v6_v7_defconfig: enable SND_SOC_SPDIF
+
+Wei Fang (1):
+      arm64: dts: imx95: correct the address length of netcmix_blk_ctrl
+
+ arch/arm/boot/dts/nxp/imx/imxrt1050.dtsi           | 2 +-
+ arch/arm/configs/imx_v6_v7_defconfig               | 1 +
+ arch/arm64/boot/dts/freescale/imx8-ss-audio.dtsi   | 2 +-
+ arch/arm64/boot/dts/freescale/imx8qm-ss-audio.dtsi | 2 +-
+ arch/arm64/boot/dts/freescale/imx95.dtsi           | 2 +-
+ 5 files changed, 5 insertions(+), 4 deletions(-)
+
 
