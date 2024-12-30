@@ -4,79 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57C6E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 03:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DDBE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 03:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2G1TZRdT4gD3cGB/kL/5eNmAvnt6Cb54gZiIN6fvQs=; b=wWO8YUMf+OW+9Fj3ilSpFNrHBi
-	u45PrkylywYrnpupbGCY6QHnWzN7yuBBBmsk4cuIMZTMGAA/KbVo4Csz/s5lZfmJd6+dntrDc5e6x
-	m76giZrzPol+rm0XUDfnvwk3qtFC2EvGNx4yoOY0cFKUUrvkH5HZaR7tLtbtqL+WlEBeTJUnS7/Bk
-	osLwxOkDxtyCE6iU0a9aiHAtzV0OAFFnkhWT8BKr3m7z31c2nilU3ts258QhrmhpM6+rwgN64JzEb
-	boIhJipvH/oIdHwp6OI99cKJ3xo34vWOxfw8JnXSwRK6ScZxO1C24HzLp7BgDRF5Zg6AvPO+a8ktm
-	ojcUhsCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=00MV44O/wLuPQ/RpQp8S/rpHXiOskq9DnLB00pReqmw=; b=PimkM3LUNvyNP+lanCY2bvz6AQ
+	XQA6KpQkGfL8yhV4Jfyl3OKVPESTvZNxlglL/wBZjrcNXHQulYkP+yU6b1QCc7k7WOzgBaPqcSE/i
+	bE24O5HiX1vQxgf7i/3AA8KgVXpOwGLiV6248QREuWfWiJz24s8rbIOjTwZcBB9A+4RjghCOQbn9X
+	97xet2b/oeZYBTyRn0sPim58eorLokBN3HRo2DLt5yfN/HWpHR2qgVorM2jaRKC2eIBDUlpMuyE/G
+	5THmOSMS0ZdKyQxfF8xWnp0WRcp76LY2cRCpy1EU+FNA7RC0QxReuoUk422J2JUzHm6nOcL25zt8b
+	CcqRFdgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS66c-00000004PH0-47R2;
-	Mon, 30 Dec 2024 03:06:11 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1tS6Dt-00000004Q0h-1p8a;
+	Mon, 30 Dec 2024 03:13:41 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS65S-00000004PAM-3hB9;
-	Mon, 30 Dec 2024 03:05:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735527899; x=1767063899;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=M6nCHa9Ey66A5jxQHmJjtx5jpwPsgKxN28xApbDPEkI=;
-  b=EOHqbnO6t1M8kmV/gFi+GpkYo3ZOfUxdsH+Kh705UyFOGDaPp8fLjRxv
-   KnhcafKmtp3gMd7UANgJHqaO8o9HWOcZe3i5VWGUFcuo9Zp10hxME4RcR
-   NWIxWCx+gDLvwPtgTya5VLykh81IowXH/FGazUPD2rbxuVVNeKroYwvcq
-   OYFVb4fDrAifKx22EQbV+SM5R45qnDSwoocUdGgZl8adpkfy/mRphDyT3
-   WvlGPk++I81JAyXkMg6DBNsu7s0VAtBCfCCn7CbX+j61xmq1CihSaPKuO
-   BpZ4U7J/mvKSIYqitTq1sSyURdqWAglAXwQnVmaAts5k0KyP1ZuvIXCt5
-   A==;
-X-CSE-ConnectionGUID: s93TqeBrRziwU7BgV7AsEg==
-X-CSE-MsgGUID: 4i0Re0mrT5e2TuwkH4eEAw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11299"; a="35977020"
-X-IronPort-AV: E=Sophos;i="6.12,275,1728975600"; 
-   d="scan'208";a="35977020"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Dec 2024 19:04:51 -0800
-X-CSE-ConnectionGUID: /2SdGqVkSP6n5nJdtLySpg==
-X-CSE-MsgGUID: w+bSGEFJTHGSxxdiD4Jv/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="105663454"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 29 Dec 2024 19:04:49 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tS65G-0005Jc-20;
-	Mon, 30 Dec 2024 03:04:46 +0000
-Date: Mon, 30 Dec 2024 11:04:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jimmy Hon <honyuenkwun@gmail.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: oe-kbuild-all@lists.linux.dev, Ondrej Jirman <megi@xff.cz>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Jimmy Hon <honyuenkwun@gmail.com>
-Subject: Re: [PATCH 6/7] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
-Message-ID: <202412301002.E6G16osA-lkp@intel.com>
-References: <20241229184256.1870-11-honyuenkwun@gmail.com>
+	id 1tS6Cb-00000004Pli-2P6h
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Dec 2024 03:12:23 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2166f1e589cso136672215ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 19:12:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1735528335; x=1736133135; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=00MV44O/wLuPQ/RpQp8S/rpHXiOskq9DnLB00pReqmw=;
+        b=KdeJYZ85LnWSIN52afzyVDJMSMjXApoS7eupT5t0oXiPDQb6r8d/dvWcsGvGRndKpf
+         64353f8c49gWpoGkrTnP7U0Q3jLonUNcfYIjSpOLWuzyjVzUqvhTo0hKih3pGGgItgAT
+         QyJb+fTnOxIdFUpVOh8QKCCicfVlWgbE3DvB+/AwZUZpoRQO/3DK0iCdo0/fKhvEjo5E
+         8EISg5+4ae0WDnpGkgQ/B1ilWYGVFa9ITXoxYxg/ozhsMzsOyWsGp96ItvYwX6yOEuHn
+         FG8qLrk83uqVQZ9mNlfWO3rxRElozLH860qK2yidEwfD8OVRXh3JG+lqEkX67HQRgPuk
+         t8vQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735528335; x=1736133135;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=00MV44O/wLuPQ/RpQp8S/rpHXiOskq9DnLB00pReqmw=;
+        b=ogGJCMpiAlo5r6AnGhRuHZ1ztv+tUJAPrEpOwtflIPGGQH5QGSvWl+L6DZiZ2Uj6gu
+         n8T8z5NDNwvU57wtL2QvsPUBe5JwlltbkZTbE+uCFoukCUiSjfL3F/2J7SUU2nnH/8dm
+         a7m379t+yyXDIiHL4sGapuip2tgZZRtb6wg+AboNmwQmA7BM5KhKnyxF1exXcN3kprHO
+         WJMZ4weDDn3vWetzgPFbFm3g6t5OvAuCJSfYmRY6nH9vyEK6927VfFTxXyepcMfXvDIt
+         m3t8bjPv2tLdoWQ0O5cJnwVP28pTtvf/629kIVgJ1GbgNslUN3XK57hqEDCYpz9ujfe/
+         T36A==
+X-Forwarded-Encrypted: i=1; AJvYcCXivS85B+JmyRZaA0jSmxI+8IVbemO3ERE6WE+bvWoT7Tub26/zhCtPBEKNU4BDoOeLsfKwj6JMlPGJ4ml/8odP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3B0qdJ8S5xStyqfU84lktfK+l1OwX4+PXDbm3WQxJTuQ9JfdS
+	GoLEFbFHI304qSNch9ITDdkQZb817jeDgxBYwuTqraoLVxDhdBGH0W7XXbylmR4=
+X-Gm-Gg: ASbGncvv6urILW42mk6iDqL+mrpz3t/qBTs4dJdGSkX41ikBcjwNwzFUfq9sL0k/fAB
+	lcElbIDxsyKUKF4u4F0UhfLmwGTWaBdy0K1TkX1fq4Xf2dBkKMO8QJyRr7b0tW/MnkyIep3GD9i
+	/19Y76ptuPcEe+hDGBRsntud1brL0g14YD4oFph/iV6GQVv+IVSfsDbSalGedNXgsF3UK8NjvmJ
+	18Gi+vITYCPRmqLh/qN+9HmUq6gd7s/1AqZcZa3lI+rSvGS5DdbtQ3nfmm/jhJLFfQj8RE8fNwF
+	S47XPw==
+X-Google-Smtp-Source: AGHT+IHVtuGTDJKnXgo1JS5AtVrvj0I/cg1dyieo6seko5BYBtWvsXqnYPIAVAFKhaTndzKmWg8VgQ==
+X-Received: by 2002:a05:6a20:9185:b0:1e5:7db5:d6e7 with SMTP id adf61e73a8af0-1e5e083f019mr66304616637.46.1735528334820;
+        Sun, 29 Dec 2024 19:12:14 -0800 (PST)
+Received: from [10.84.148.23] ([203.208.167.148])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad84eb45sm18191842b3a.88.2024.12.29.19.12.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 29 Dec 2024 19:12:14 -0800 (PST)
+Message-ID: <9cac5690-c570-4d43-a6bc-2b59b85497ae@bytedance.com>
+Date: Mon, 30 Dec 2024 11:12:00 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241229184256.1870-11-honyuenkwun@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
+Content-Language: en-US
+To: Mike Rapoport <rppt@kernel.org>, akpm@linux-foundation.org,
+ kevin.brodsky@arm.com, peterz@infradead.org
+Cc: agordeev@linux.ibm.com, tglx@linutronix.de, david@redhat.com,
+ jannh@google.com, hughd@google.com, yuzhao@google.com, willy@infradead.org,
+ muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
+ rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
+ aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
+ ryan.roberts@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
+ linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
+ <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
+ <Z2_EPmOTUHhcBegW@kernel.org>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <Z2_EPmOTUHhcBegW@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_190459_019484_2C6A1EAB 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20241229_191221_631013_338C0517 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +114,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jimmy,
+Hi Mike,
 
-kernel test robot noticed the following build errors:
+On 2024/12/28 17:26, Mike Rapoport wrote:
+> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
+>> Here we are explicitly dealing with struct page, and the following logic
+>> semms strange:
+>>
+>> tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
+>>
+>> tlb_remove_page_ptdesc
+>> --> tlb_remove_page(tlb, ptdesc_page(pt));
+>>
+>> So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
+>> directly.
+> 
+> Please don't. The ptdesc wrappers are there as a part of reducing the size
+> of struct page project [1].
+> 
+> For now struct ptdesc overlaps struct page, but the goal is to have them
+> separate and always operate on struct ptdesc when working with page tables.
 
-[auto build test ERROR on rockchip/for-next]
-[also build test ERROR on robh/for-next linus/master v6.13-rc5 next-20241220]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+OK, so tlb_remove_page_ptdesc() and tlb_remove_ptdesc() are somewhat
+intermediate products of the project.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jimmy-Hon/arm64-dts-rockchip-refactor-common-rk3588-orangepi-5-dtsi/20241230-064740
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
-patch link:    https://lore.kernel.org/r/20241229184256.1870-11-honyuenkwun%40gmail.com
-patch subject: [PATCH 6/7] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
-config: arm64-randconfig-001-20241230 (https://download.01.org/0day-ci/archive/20241230/202412301002.E6G16osA-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241230/202412301002.E6G16osA-lkp@intel.com/reproduce)
+Hi Andrew, can you help remove [PATCH v3 15/17], [PATCH v3 16/17] and
+[PATCH v3 17/17] from the mm-unstable branch?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412301002.E6G16osA-lkp@intel.com/
+For [PATCH v3 17/17], I can send it separately later, or Kevin Brodsky
+can help do this in his patch series. ;)
 
-All errors (new ones prefixed by >>):
+Thanks,
+Qi
 
->> Error: arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts:53.1-7 Label or path hdmi1 not found
->> Error: arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts:60.1-10 Label or path hdmi1_in not found
->> Error: arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts:66.1-11 Label or path hdmi1_out not found
->> Error: arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts:76.1-11 Label or path hdptxphy1 not found
-   FATAL ERROR: Syntax error parsing input tree
+> 
+> [1] https://kernelnewbies.org/MatthewWilcox/Memdescs
+>   
 
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for FB_IOMEM_HELPERS
-   Depends on [n]: HAS_IOMEM [=y] && FB_CORE [=n]
-   Selected by [m]:
-   - DRM_XE_DISPLAY [=y] && HAS_IOMEM [=y] && DRM [=m] && DRM_XE [=m] && DRM_XE [=m]=m [=m] && HAS_IOPORT [=y]
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
