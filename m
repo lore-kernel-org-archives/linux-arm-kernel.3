@@ -4,90 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBA1E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 12:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C82E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 12:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vrhfBZO4d8LJrmbj06Hvndc6qxqFtL+h4PzU8edkkqM=; b=QS0LD2kG8qRunCbKhvhIdXRrak
-	W2FZW85gpbeC/cnn/y+1+1ONW8lXLABgSp5WoLl3oDtFhlLLjviXBN1o2CwCD18KJ8/1N77JCleDm
-	rqHIHsMdrn1lEjqW5wurgqlkqzCVt7D3RHv5Lum/2tQg9woXCknwSoLOjqWKJNo5AC1mAptuqrON3
-	tJvG82q4H+xBAG4ZPJzVF2QekNFcuLxuB0NRN7kUlQ9ZJyf4sK3NiClN+WvySXEi0WMX0SHvNEty5
-	sa+bCok/CmYnk7nfFbc8NtYr8ItAtwPLK6s2+Jtbt1XC9OkdC7vqP8k0H7995PhyafstfR2fy1C8s
-	b+Udd4oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vwalPoVfhXMCQGFYr9ryIpasntXwzfLlG4s9wl797Go=; b=A9jLQmUFGlQdpKQb89AsHZq1vw
+	eeBJNpzUOID3Jgp4nhls9zDZGYN89WG4tdQzH1NaqoTrYybVG49jSAvFgZDlavINBimJN2dLNEK44
+	QWdTS4Z6Cs/GMYoWCbqoI0vnZnOxdOZJ5Fh9wNFNCxBlmC6zEZX9vL1HzDgUsLzYMY+SWTVqejX5L
+	RCJFIGvdnbwZgAaL6qVNDrnqZxgmV9eqM7WmQQNotr5dXHYi3FTlI2/TnC73yLlaqhuEWLX4BsnD0
+	/9TIRQ+ocbiZ/MTT/LLvHEeUQiVHwGzi7euXG8kBtImJzoQhciMA2VFSW3FrrqKI4OF6ZSX1tRCBf
+	8MaD+OYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSEeg-000000059xL-3FL6;
-	Mon, 30 Dec 2024 12:13:54 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1tSEw9-00000005BBw-3eFx;
+	Mon, 30 Dec 2024 12:31:57 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSEdU-000000059rt-0kf3
+	id 1tSEuy-00000005B1r-1YcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 12:12:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1735560744; x=1736165544; i=markus.elfring@web.de;
-	bh=vrhfBZO4d8LJrmbj06Hvndc6qxqFtL+h4PzU8edkkqM=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ClHpQJzYkGepa/eD4+13QBstu4fHD3oNMtkE+b5mEc7CrZJEMCzrWeXOVmBeRMcv
-	 P855zHbyIz4qO5cbJTHVJQylQTXk1SfDZ9I63mdDqjcQmgmVB3c91obr8sT8CCmkv
-	 BSv/abWYDlEjGRlfqoPhg93pD+ngLzudgg7OuLAAhol7aFXZ06LNpJu9xnoe2111G
-	 +ZonV8G8ktsO1ElFfVU++0HA+qpJIJhDLlnLUEbAZm0QJDV+y+JVqmXumwoNlz6SN
-	 VbqglUbGBjrZ1uY6xjnTiu9/KA7ulxLDwiDTONvD6RNNxQM86cjWYti3DwbVH5ajq
-	 lBBZEBUcsVrCrnOL9g==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.93.2]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MOm0x-1t9Kjw44Yp-00NWXx; Mon, 30
- Dec 2024 13:12:24 +0100
-Message-ID: <4468a196-ad5c-420e-aad3-becbd64279d2@web.de>
-Date: Mon, 30 Dec 2024 13:12:17 +0100
+	Mon, 30 Dec 2024 12:30:45 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5401c68b89eso11363094e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 04:30:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735561842; x=1736166642; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vwalPoVfhXMCQGFYr9ryIpasntXwzfLlG4s9wl797Go=;
+        b=hdlwFv86vpVz3QunrnAqYjz+IVhffsobumw6HywR3d4i1vQPooewY1nDIuM2to5v9n
+         t63qFJFBykGzlajJKHZcuFTOBzYHIXNPiTzeZIpq15JCcc46b7jQvJqoDACgrJA9Y9WZ
+         MrcaLRX8uTYTFs0Sx5WjpPTjrdt3c13Y1OIr6ZqaCaLbvgu6tADNotD8aphViE5aS4VE
+         aepzO/rm0Upzq8HS7XWn+osiaUGgIp1SxiUyk+3Ba21yFpwmEE2FONobj8eNqL0zHUuS
+         qVIYATr96dH3z2pO4AA05ug0WvkLKK79QiCpyLoaBX0Gr5UOROzKLEA1AmeA4r9KYZl9
+         dZ5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735561842; x=1736166642;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vwalPoVfhXMCQGFYr9ryIpasntXwzfLlG4s9wl797Go=;
+        b=DJl7728joDLzLf6z8HxHV9/pYMe/AiZ6m+03XyeGhIOF72Z/2g1tvwqyqVBWtIkqVv
+         Cdh6SvJ+iAHU7vSo7nIOEWJGBEMUGYhN08rFOWv9IUcgGMsf8mqvx1W5hSkj8p8HUbXH
+         N5QfjKelFy9L9l4MIxYeIslrNHc0Mx6HkGI665zcVpWQSfdt1RGqT2z9JlrsZNuyoIMR
+         L0FV44G+mf7YczQxr8cQZIksfknWWJFABqv6ig3M++MXwv6B4HL6RwBAJur6bepe3Rr/
+         LU9Vng8DXegrPxfkHFozaI9nwaJPzrjmKzYExdhRvSmUkqyaiZSPeHongERifvV0+J/G
+         SkIw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGjTaZeCcUXj4NXGIo/HUujS6RGYtwrcBFxPWVle6zHN0t7V59j+rKx2XdCBdQdYYupbNdAq8pCxjcZ4FCkmLg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXnUs0EnpNAdTfIvSUfWD+nn9W8kCMHrx0zdaTFRTvH9+lT6wM
+	KRIbv4Tm3Q9stRthUYrqLRQ6AmTzZ1q0oPQbJj2G9mquwVXMc/pyWh1Zy2LjNBM=
+X-Gm-Gg: ASbGncsu6LG8ZUUUfOshagFO6JLFx46GtJL+VSe0r5TX6GT/I2OUBw4dHgpSSHItCKf
+	JKQsuCLlep1KwztaXlZ8FovFoxBKpAevTvukDKJTWK4mN4K1jB41HHYDdkXTyO5c8A4gMuYW7MH
+	wFRguRL6dpatzCq5seHswBxLIsszoUpreB/viebciWCnIa+I+1iB/7G6TK8naS92Xd7mkS3IAzl
+	bO9SbTudUOiNIukxy+xV0KdsanekBgJGUEDk45bGnsKBAzOAXcPjoPmTc7AB2BIHPfLpq+A2qGS
+	//n8lVTxpZ/Zy9I5vGaS3XSzWIiA0GFk73aU
+X-Google-Smtp-Source: AGHT+IGs664Z6a1VXnL1IU1qIYV7pMmpsbWRxTp2wEqrbi2vMMk6KM7ZX9fIIcaItp6yhkS4k5KJrg==
+X-Received: by 2002:a05:6512:10ce:b0:540:2fbb:22fe with SMTP id 2adb3069b0e04-54229474ebcmr9865558e87.26.1735561841796;
+        Mon, 30 Dec 2024 04:30:41 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542235f6073sm3157778e87.27.2024.12.30.04.30.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Dec 2024 04:30:40 -0800 (PST)
+Date: Mon, 30 Dec 2024 14:30:37 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, p.zabel@pengutronix.de, 
+	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de, vkoul@kernel.org, 
+	kishon@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org, 
+	u.kleine-koenig@baylibre.com, francesco@dolcini.it, frank.li@nxp.com
+Subject: Re: [PATCH v8 09/19] drm/imx: Add i.MX8qxp Display Controller
+ display engine
+Message-ID: <kwipz3wzydihroelii6enzxv63yyfuidmrua2fzhdvjdbjpqqp@s66fwhbbvcs5>
+References: <20241230021207.220144-1-victor.liu@nxp.com>
+ <20241230021207.220144-10-victor.liu@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2] cpufreq: apple-soc: Prevent null pointer dereference in
- apple_soc_cpufreq_get_rate()
-To: Charles Han <hanchunchao@inspur.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin <marcan@marcan.st>,
- Marc Zyngier <maz@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Sven Peter <sven@svenpeter.dev>, Viresh Kumar <viresh.kumar@linaro.org>
-References: <20241230091053.247719-1-hanchunchao@inspur.com>
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20241230091053.247719-1-hanchunchao@inspur.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:VfaTF5vQqPaErO66NQBR7gahShcY2SttGneHvGpX6GLNJj9KqIj
- T/VJYJ0rIMq25R31maw7Ce6PGFBwTbwkVMcGS2OI5dtlKavrUhYujctCV4kNJkab5pODW2D
- UDaxnr4XCjWox/u4O05vql73Z4iMrRaC/BmHvci5rAZJEiyQiHWArVhy33a1Ttor9X6YQ1T
- svDY+6iZvmrQBS7Z9fSDw==
-UI-OutboundReport: notjunk:1;M01:P0:nvOYYyCpOlc=;B12RUNw+2h3U7p0F0avz17+lx7O
- 8BV2jIjum8DVUi5FFUxsV6AClI1tLcMin+4eEEWmhuwGSR8UWNm85NLDt6Wn5LLir9DROKF4s
- okPH15NyP4DIRgVlPCGzuV5KLenQgU0/up4aEq9O4PfOB8x8nVR4niTsmPDLI59IecGjC9kiH
- N8kqwJp27f4Xees3ggfHAUc6O2aEwZNLpHzNfxZWldKpPSZbYKR0hP99KyqE3GT0J/+RrmyZZ
- JZUyXUyIxjvUiq9ygfgHlYaxW5mVd79v1vCnQlo2+r/G8xTIsvuujMiwMYcIQoY54SO1IVKT6
- qfgTIJ+/UvZBNBTN67JfLn3gZkLYFF9yOuJdIaD/YiHBDBJi9oUyq2q6/381L0q8mDmA1UlOf
- 0RbhdoP/qkYR78XvHsKu0qDl7QcqlrBw7x1TFVAwEe/M2ucKc3aotQKuNvEtRm1srRtBo0SD6
- Dwj9oJ9QEL5EX7VKnaXXIoGHEcW5MTsqQ20i2TsOKJHo40e1uxHr7vrTVGBZJvYU7lHjmZ4Zv
- FRLGeMDeuWeV5on+X+vWnCpNm4lWKsIxDr8EhZY+lNQ3PCQF/cjn+1OfRxkIWbAJZXsyj5yXq
- /y55lzbRktVlV6Yh9pdJTwsAyVlf4v2YCi9EgMoF5SfAfxVA5EO0lEK95HCB0uVfXc1182HZw
- 4tQU/Re3KHSB1Y2v4LxvRp+iWVyh1P54G26oRtlFEWUT+2YdVkohpPgPQv+xtQzsd8xuwatL1
- lQbD4f8ZPjGBp6Yja6yfGNtTRFLUzQh8Ga7PaWEbUEIGe0mRA7Y9k4lL16XIx3dA80uPrXPsb
- aTrNVSD/PzrCf4jFE09YtN/vQMzM6StGC+zKkwwyjYn2ZmbUK3vesPYfwx5vlegQkgotuRIFJ
- OZ0sUlUYheSUx4rZVGAwnuhXwcg/A4kDoFG0rGZoRvNl1JofyrWDr5hMCp84//ugYa+pTmj4K
- kzYfFT/2WfbYmnb1VflP7V5w1zZy5EiiE86xkm2qLmgtkKYpXx5U5k+xveelc85dauMHCtK8F
- JC7hGTMdEX0hLWSWORMquG+GXtPkjzZqo+J4+GKObDOyVOWWOx2iw7/Li/UydDhzIaInoYoBJ
- 50tDOuBCM=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241230021207.220144-10-victor.liu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_041240_594770_1F07EC33 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241230_043044_447121_EB0EE263 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,19 +105,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> cpufreq_cpu_get_raw() may return NULL if the cpu is not in
-> policy->cpus cpu mask and it will cause null pointer dereference.
-> Prevent null pointer dereference in apple_soc_cpufreq_get_rate().
-=E2=80=A6
+On Mon, Dec 30, 2024 at 10:11:57AM +0800, Liu Ying wrote:
+> i.MX8qxp Display Controller display engine consists of all processing
+> units that operate in a display clock domain.  Add minimal feature
+> support with FrameGen and TCon so that the engine can output display
+> timings.  The FrameGen driver, TCon driver and display engine driver
+> are components to be aggregated by a master registered in the upcoming
+> DRM driver.
+> 
+> Reviewed-by: Maxime Ripard <mripard@kernel.org>
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 > ---
->  drivers/cpufreq/apple-soc-cpufreq.c | 3 +++
->  1 file changed, 3 insertions(+)
-It can be helpful to provide a corresponding patch version description.
-https://lore.kernel.org/all/?q=3D%22This+looks+like+a+new+version+of+a+pre=
-viously+submitted+patch%22
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv6.13-rc5#n310
+> v8:
+> * Get DE/FG/TC device instance numbers through register start addresses of the
+>   devices, instead of compatible strings. (Dmitry)
+> * s/shdld/shdload/ for DE IRQs. (Dmitry)
+> * Drop id member from struct dc_de. (Dmitry)
+> * Add dc_de_post_bind(), to avoid dependency on the component helper's way of
+>   implementing component binding order. (Dmitry)
+> 
+> v7:
+> * Add kernel doc for struct dc_drm_device. (Dmitry)
+> * Fix regmap_config definitions by correcting name field, correcting read
+>   ranges and setting max_register field.
+> * Get instance numbers from device data(compatible strings) instead of OF
+>   aliases.
+> * Collect Maxime's R-b tag.
+> * Trivial tweaks.
+> 
+> v6:
+> * No change.
+> 
+> v5:
+> * Replace .remove_new with .remove in dc-{de,fg,tc}.c. (Uwe)
+> * Select REGMAP and REGMAP_MMIO Kconfig options.
+> * Fix commit message to state that display engine driver is a component driver
+>   instead of a master/aggregate driver.
+> 
+> v4:
+> * Use regmap to define register map for all registers. (Dmitry)
+> * Use regmap APIs to access registers. (Dmitry)
+> * Inline some small functions. (Dmitry)
+> * Move dc_fg_displaymode() and dc_fg_panic_displaymode() function calls from
+>   KMS routine to initialization stage. (Dmitry)
+> * Use devm_kzalloc() to drmm_kzalloc() to allocate dc_* data strutures.
+> * Drop unnecessary private struct dc_*_priv.
+> * Set suppress_bind_attrs driver flag to true to avoid unnecessary sys
+>   interfaces to bind/unbind the drivers.
+> 
+> v3:
+> * No change.
+> 
+> v2:
+> * Use OF alias id to get instance id.
+> * Add dev member to struct dc_tc.
+> 
+>  drivers/gpu/drm/imx/Kconfig     |   1 +
+>  drivers/gpu/drm/imx/Makefile    |   1 +
+>  drivers/gpu/drm/imx/dc/Kconfig  |   7 +
+>  drivers/gpu/drm/imx/dc/Makefile |   5 +
+>  drivers/gpu/drm/imx/dc/dc-de.c  | 177 +++++++++++++++
+>  drivers/gpu/drm/imx/dc/dc-de.h  |  56 +++++
+>  drivers/gpu/drm/imx/dc/dc-drv.c |  32 +++
+>  drivers/gpu/drm/imx/dc/dc-drv.h |  57 +++++
+>  drivers/gpu/drm/imx/dc/dc-fg.c  | 376 ++++++++++++++++++++++++++++++++
+>  drivers/gpu/drm/imx/dc/dc-tc.c  | 141 ++++++++++++
+>  10 files changed, 853 insertions(+)
+>  create mode 100644 drivers/gpu/drm/imx/dc/Kconfig
+>  create mode 100644 drivers/gpu/drm/imx/dc/Makefile
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.c
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-de.h
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.c
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-drv.h
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-fg.c
+>  create mode 100644 drivers/gpu/drm/imx/dc/dc-tc.c
+> 
 
-Regards,
-Markus
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+-- 
+With best wishes
+Dmitry
 
