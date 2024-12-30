@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4412CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 07:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C7CE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 07:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gy54HaJtZV3aXuq/5zN+MYA9MTDJ14jB3IIBVXkWUo4=; b=PKrOskumkKp0105xN8ESbXkpZ3
-	lxKSLyeLMFR/yqISyv2fiXc0KGYaz27/hOuaSrrJBNg2doinL6Qy5nypuTUxsZdJJiPoFnjyHrGK3
-	4zbQgSQYcros1AOl6Sau3OCfdrX6BslNGUUQE5Kkxgx/QcKHZUNwDu6g5oiif0lB5PUYtyMLdgNQQ
-	ARUiK7aIg8kwwnBmTa80mydJnyDAtcGNKKcukuXnBu6OYwPi15GgAMryjjZplpQGaVIY06JkQg52q
-	YY5usSu1zJgLsCFgSP6+LZRjm1ICyxBn+K8nivSjpRoYHMqq5k+l3IphpWA8qxayCPfK1/O1+K+cr
-	W6ee3YzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j0sXGxu75spkgf0LfbfFjvZVDDY4C4+gD8sqjl7c/C0=; b=YlCCN6PryjRwyITtcjPFArHo9T
+	Gb80BCieb5IbCMIq4U7tZaV8rUocY3y4qT2qsQOBftNHfoKRE1yurjY2Av6kQcuUeOqDSIDw/RKqT
+	WidsZRnuti8fW9czMocdq369sZvpyVDqqnusIrW4VeXaP8gHLz4m46EC9zwAkT5YezUH2n8u72VUu
+	RDuRxOUXV2NNKR2gpjwzSe54hBzzJgJq6i6bFvRW8/zRhe0QwZ64D3RKYJxsEPg6J6CyGzBuE4in9
+	CPWT8v4HiD4ozNNKzqw74dlkyk57kxPrgyPW6uewTPZLYGt/ZIc29yoHm7tmzWPbM3F2jWd0/yQEX
+	qCm8g6oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSAR6-00000004kZH-3u9a;
-	Mon, 30 Dec 2024 07:43:36 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSAPt-00000004kTT-0suR
+	id 1tSAX6-00000004lCL-05Ne;
+	Mon, 30 Dec 2024 07:49:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tSAVs-00000004l3U-1yBS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 07:42:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=gy54HaJtZV3aXuq/5zN+MYA9MTDJ14jB3IIBVXkWUo4=;
-	b=d92MefF67V5RbQfyJ1F0o4q0fhIqz2KU/9C5/xXRCXqz8SUysw7qjWUhYpOnek
-	/BkVWTuMhpPgMXEEyfdw8N6D1AGd9LpRUgJdDx22kHvCxWvfRjug0y00jQiGP/fR
-	QViJqf7Npi3LYg5/U/PPXDPCMkj26SwhGtXA3L+43633E=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgB3XBXKTnJn1T74BQ--.60267S3;
-	Mon, 30 Dec 2024 15:42:04 +0800 (CST)
-Date: Mon, 30 Dec 2024 15:42:02 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: Re: [PATCH] arm64: dts: s32g: add I2C support
-Message-ID: <Z3JOyuehpLSfT+RL@dragon>
-References: <20241206123119.1688712-1-ciprianmarian.costea@oss.nxp.com>
- <Z3IkYGFGb12LCVIO@dragon>
+	Mon, 30 Dec 2024 07:48:33 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BU7Fucp027215;
+	Mon, 30 Dec 2024 07:48:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	j0sXGxu75spkgf0LfbfFjvZVDDY4C4+gD8sqjl7c/C0=; b=g31heNQ8uYcd3L+T
+	17zRuZj82ozB7C4vLMyqZ4qDM9jJhsGG0sWmO3kb7glY62s3p7jacnFql2Jk7ACr
+	kGrdsX5jiJW6Og/FbXjrSEigTbk/ShHcy5bsXp2SXZ/tQWXFxwm9JSACw7lgwhJZ
+	UkYjy+mthQk3BBH01+gRYSLEBOCSWxeRSfQrKjurusNx5Tj2B2Nyhk4izftYdqgl
+	V3TXdyJU14CSmxQPOAx2N88kWD0odDbDq0xCSYjZb30btiMdeM4ao4DryhlSCScf
+	qhJDrhzBk9Y0Xv0LebiFD8+RC7iPhu6iVa74CcSJZ85Dmnav595Yinw/BWTHErXr
+	h1KyDw==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43upyr81t2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 30 Dec 2024 07:48:19 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BU7mJxb031488
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 30 Dec 2024 07:48:19 GMT
+Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 29 Dec
+ 2024 23:48:15 -0800
+Message-ID: <22fd3452-748c-4d4b-bd51-08e6faeaa867@quicinc.com>
+Date: Mon, 30 Dec 2024 15:48:05 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z3IkYGFGb12LCVIO@dragon>
-X-CM-TRANSID: M88vCgB3XBXKTnJn1T74BQ--.60267S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtF1fAFy3tF1fZFyUKFW8Crg_yoWfGFb_uF
-	WSyr1kCrs8JF1xKr1fXws8G342g3yUGr93Zr4fGa93X3Z3JrsxGFsIqr10van8X3y2vr9I
-	vr15JrWIkr9rXjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0IdgJUUUUU==
-X-Originating-IP: [114.216.146.204]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCRvFZWdyEULbFgAAs5
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
+ section aligned
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>,
+        Tingwei Zhang <quic_tingweiz@quicinc.com>
+References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
+ <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
+ <Z2W3qA7wbBTaq6DQ@arm.com> <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
+ <Z2rAr9APkgpkwOl8@arm.com> <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
+Content-Language: en-US
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+In-Reply-To: <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: Uoli5BeXGBPBAnKo4Ijafq6SjVjHcIXT
+X-Proofpoint-ORIG-GUID: Uoli5BeXGBPBAnKo4Ijafq6SjVjHcIXT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 malwarescore=0
+ bulkscore=0 lowpriorityscore=0 mlxlogscore=999 adultscore=0 clxscore=1015
+ impostorscore=0 priorityscore=1501 suspectscore=0 phishscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2412300065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_234221_668539_E42348AA 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20241229_234832_530995_7FDA39DF 
+X-CRM114-Status: GOOD (  45.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,27 +109,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 30, 2024 at 12:41:04PM +0800, Shawn Guo wrote:
-> On Fri, Dec 06, 2024 at 02:31:19PM +0200, Ciprian Costea wrote:
-> > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > 
-> > Add the I2C Devicetree nodes and pinmux for S32G2 and S32G3 SoCs.
-> > 
-> > With respect to S32G2/S32G3 SoC based boards, there are multiple RDB
-> > (rdb2 vs rdb3) and EVB (for G2 vs for G3) board revisions. These versions
-> > are quite similar. The common part for the EVB revisions will be
-> > centralized in 's32gxxa-evb.dtsi' file, while the RDB commonalities will
-> > be placed in 's32gxxa-rdb.dtsi' file.
-> > 
-> > This refactor will also serve for other modules in the future, such as
-> > FlexCAN, DSPI.
-> > 
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Hi Anshuman,
+
+On 2024/12/27 15:49, Anshuman Khandual wrote:
+> On 12/24/24 19:39, Catalin Marinas wrote:
+>> On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
+>>> Thanks Catalin for review!
+>>> Merry Christmas.
+>>
+>> Merry Christmas to you too!
+>>
+>>> On 2024/12/21 2:30, Catalin Marinas wrote:
+>>>> On Mon, Dec 09, 2024 at 05:42:26PM +0800, Zhenhua Huang wrote:
+>>>>> Fixes: c1cc1552616d ("arm64: MMU initialisation")
+>>>>
+>>>> I wouldn't add a fix for the first commit adding arm64 support, we did
+>>>> not even have memory hotplug at the time (added later in 5.7 by commit
+>>>> bbd6ec605c0f ("arm64/mm: Enable memory hot remove")). IIUC, this hasn't
+>>>> been a problem until commit ba72b4c8cf60 ("mm/sparsemem: support
+>>>> sub-section hotplug"). That commit broke some arm64 assumptions.
+>>>
+>>> Shall we add ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>>> because it broke arm64 assumptions ?
+>>
+>> Yes, I think that would be better. And a cc stable to 5.4 (the above
+>> commit appeared in 5.3).
 > 
-> Applied, thanks!
+> Agreed. This is a problem which needs fixing but not sure if proposed patch
+> here fixes that problem.
+> 
+>>
+>>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>>> index e2739b69e11b..fd59ee44960e 100644
+>>>>> --- a/arch/arm64/mm/mmu.c
+>>>>> +++ b/arch/arm64/mm/mmu.c
+>>>>> @@ -1177,7 +1177,9 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>>>>>    {
+>>>>>    	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>>>>> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>>>>> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+>>>>> +	!IS_ALIGNED(page_to_pfn((struct page *)start), PAGES_PER_SECTION) ||
+>>>>> +	!IS_ALIGNED(page_to_pfn((struct page *)end), PAGES_PER_SECTION))
+>>>>>    		return vmemmap_populate_basepages(start, end, node, altmap);
+>>>>>    	else
+>>>>>    		return vmemmap_populate_hugepages(start, end, node, altmap);
+>>>>
+>>>> An alternative would be to fix unmap_hotplug_pmd_range() etc. to avoid
+>>>> nuking the whole vmemmap pmd section if it's not empty. Not sure how
+>>>> easy that is, whether we have the necessary information (I haven't
+>>>> looked in detail).
+>>>>
+>>>> A potential issue - can we hotplug 128MB of RAM and only unplug 2MB? If
+>>>> that's possible, the problem isn't solved by this patch.
+> 
+> Believe this is possible after sub-section hotplug and hotremove support.
+> 
+>>>
+>>> Indeed, seems there is no guarantee that plug size must be equal to unplug
+>>> size...
+>>>
+>>> I have two ideas:
+>>> 1. Completely disable this PMD mapping optimization since there is no
+>>> guarantee we must align 128M memory for hotplug ..
+>>
+>> I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
+>> I think the only advantage here is that we don't allocate a full 2MB
+>> block for vmemmap when only plugging in a sub-section.
+> 
+> Agreed, that will be the right fix for the problem which can be back ported.
+> We will have to prevent PMD/PUD/CONT mappings for both linear and as well as
 
-Dropped.  Just noticed that review is still ongoing.
+Thanks Anshuman, yeah.. we must handle linear mapping as well.
 
-Shawn
+> vmemmap for all non-boot memory sections, that can be hot-unplugged.
+> 
+> Something like the following ? [untested]
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 216519663961..56b9c6891f46 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1171,9 +1171,15 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+>   int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>                  struct vmem_altmap *altmap)
+>   {
+> +       unsigned long start_pfn;
+> +       struct mem_section *ms;
+> +
+>          WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>   
+> -       if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+> +       start_pfn = page_to_pfn((struct page *)start);
+> +       ms = __pfn_to_section(start_pfn);
+> +
+> +       if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
+
+LGTM. I will follow your and Catalin's suggestion to prepare further 
+patches, Thanks!
+
+>                  return vmemmap_populate_basepages(start, end, node, altmap);
+>          else
+>                  return vmemmap_populate_hugepages(start, end, node, altmap);
+> @@ -1334,10 +1340,15 @@ struct range arch_get_mappable_range(void)
+>   int arch_add_memory(int nid, u64 start, u64 size,
+>                      struct mhp_params *params)
+>   {
+> +       unsigned long start_pfn = page_to_pfn((struct page *)start);
+> +       struct mem_section *ms = __pfn_to_section(start_pfn);
+>          int ret, flags = NO_EXEC_MAPPINGS;
+>   
+>          VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>   
+> +       if (!early_section(ms))
+> +               flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+
+However, here comes another doubt, given that the subsection size is 2M, 
+shouldn't we have ability to support PMD SECTION MAPPING if 
+CONFIG_ARM64_4K_PAGES? This might be the optimization we want to maintain?
+
+Should we remove NO_BLOCK_MAPPINGS and add more constraints to avoid 
+pud_set_huge if CONFIG_ARM64_4K_PAGES ?
+
+> +
+>          if (can_set_direct_map())
+>                  flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>   
+> 
+>>
+>>> 2. If we want to take this optimization.
+>>> I propose adding one argument to vmemmap_free to indicate if the entire
+>>> section is freed(based on subsection map). Vmemmap_free is a common function
+>>> and might affect other architectures... The process would be:
+>>> vmemmap_free
+>>> 	unmap_hotplug_range //In unmap_hotplug_pmd_range() as you mentioned：if
+>>> whole section is freed, proceed as usual. Otherwise, *just clear out struct
+>>> page content but do not free*.
+>>> 	free_empty_tables // will be called only if entire section is freed
+>>>
+>>> On the populate side,
+>>> else if (vmemmap_check_pmd(pmd, node, addr, next)) //implement this function
+>>> 	continue;	//Buffer still exists, just abort..
+>>>
+>>> Could you please comment further whether #2 is feasible ?
+>>
+>> vmemmap_free() already gets start/end, so it could at least check the
+>> alignment and avoid freeing if it's not unplugging a full section. It
+> 
+> unmap_hotplug_pmd_range()
+> {
+> 	do {
+> 		if (pmd_sect(pmd)) {
+> 			pmd_clear(pmdp);
+> 			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+>                          if (free_mapped)
+>                                  free_hotplug_page_range(pmd_page(pmd),
+>                                                          PMD_SIZE, altmap);
+> 		}
+> 	} while ()
+> }
+> 
+> Do you mean clearing the PMD entry but not freeing the mapped page for vmemmap ?
+> In that case should the hot-unplug fail or not ? If we free the pfns (successful
+> hot-unplug), then leaving behind entire PMD entry for covering the remaining sub
+> sections, is going to be problematic as it still maps the removed pfns as well !
+
+Could you please help me to understand in which scenarios this might 
+cause issue? I assume we won't touch these struct page further?
+
+> 
+>> does leave a 2MB vmemmap block in place when freeing the last subsection
+>> but it's safer than freeing valid struct page entries. In addition, it
+>> could query the memory hotplug state with something like
+>> find_memory_block() and figure out whether the section is empty.
+> 
+> I guess there are two potential solutions, if unmap_hotplug_pmd_range() were to
+> handle sub-section removal.
+> 
+> 1) Skip pmd_clear() when entire section is not covered
+> 
+> a. pmd_clear() only if all but the current subsection have been removed earlier
+>     via is_subsection_map_empty() or something similar.
+> 
+> b. Skip pmd_clear() if the entire section covering that PMD is not being removed
+>     but that might be problematic, as it still maps potentially unavailable pfns,
+>     which are now hot-unplugged out.
+> 
+> 2) Break PMD into base pages
+> 
+> a. pmd_clear() only if all but the current subsection have been removed earlier
+>     via is_subsection_map_empty() or something similar.
+> 
+> b. Break entire PMD into base page mappings and remove entries corresponding to
+>     the subsection being removed. Although the BBM sequence needs to be followed
+>     while making sure that no other part of the kernel is accessing subsections,
+>     that are mapped via the erstwhile PMD but currently not being removed.
+> 
+>>
+>> Anyway, I'll be off until the new year, maybe I get other ideas by then.
+>>
 
 
