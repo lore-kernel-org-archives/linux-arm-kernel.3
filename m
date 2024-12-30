@@ -4,62 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009B6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 18:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292CAE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 18:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkWXDd+ie9pgglrmVKx6USQaQrITRL2c9xN2fEQLh2o=; b=ASsDuMNn8fsHaOCq9UeeZ+AP4g
-	qUGVuHczi6ja77TfQ3zYUedAJPQsJXWOyOiIY4sKg8t5Ssjx80J31SK/40i0LAtUJafEHRzOM3dQ5
-	jKnp+ND+0WPEvhxkEpVvpxVlnpI38izEcZoiL31mHt3rh44B1zKYHcN36KL+sih88IyNf9GSX2INi
-	uMJIZkKP6OgM3YrJ0MiPTvw8YZu0VmAv2Zv5ax96swu/TTwAA7EXhu2Buj5IYqZRD0CyT1MWRE95j
-	pLEFvTJH2C2xyt1wKYReaNhCkjOkYWftKuqRYmOjHWxwmIKfQlF6kubrz4eUvWAlgmYXrDpQd1sue
-	uQUSWZXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ee3Rb70cUWxtsCKv/dSQ92mAHiIOAXlNrYtEzGv5wlg=; b=ObqfR5Ea/ACzRCsof6GFwXYJTq
+	4P1wqILD0U6gMvyHJ5yfQeq6H6aG3IHBDO1wb0/10Jz7s0Za9kTxC7k8xIJD7nZcXGVAsEWGKSToG
+	66RvoiH8p3No5h6W6gJy1lSgyWqcy0IfC0Lbto5NeCvRCgRGq32I00iNbiNw/dqygZj7dkwuKrq6h
+	e1o0TTdVf/GcKBpc3mpKRH+gEwqkHtxRl+k/3O72beZzg77go4egEE8UCrn667FQgx6fIDJTz/Dou
+	iOjt+Wr/qp5G+FjDr6YR8gmIU3smTOGbcn5FoNmF2k48BHQbK1CWZDXb1gBZteQXpmdJUMDESjatn
+	JTRyeKQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSKLV-00000005dxo-3dS9;
-	Mon, 30 Dec 2024 18:18:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tSKoj-00000005hMm-38LT;
+	Mon, 30 Dec 2024 18:48:41 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSKKK-00000005dlY-2Jpw;
-	Mon, 30 Dec 2024 18:17:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C1C59A40EB9;
-	Mon, 30 Dec 2024 18:15:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2DD2C4CED6;
-	Mon, 30 Dec 2024 18:17:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735582634;
-	bh=yO/bDAAjALbmdooiFvPDhcv3ctrG92wc4GGL6V+fiSk=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Zhffs2bbyXPE3L1zn5MNztjnOMSJAzkqiRxv2VHJnIX4tbQYGojgAgpYtH2DJu80o
-	 bctRSbqot6s7R73zULPZaN29ngPsiEtnxlqJYrT6rLAtnlUthxgyTj0DDfbxa7QUtP
-	 ydUwinjHQH6mCKXfOnB9ykYmqRlWKW+5BESYiq1YFMsK7CKqkAG9t721YaQLVuR2uZ
-	 V6LPodkOIUoqLTPwtfTlNTClcH1LH6+pIhFRwGnHNZLZrU5eNKWM/lz0ACdpvACh/e
-	 qIXkjyMwLUcDoPAGdvwnK1KRWG2n/EPGBF62o5tneVKLdtqzJPay2GGBWWkk7yrBv2
-	 B/H2x6UzisL+A==
-Date: Mon, 30 Dec 2024 12:17:13 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tSKnY-00000005hJ2-28eB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 30 Dec 2024 18:47:30 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2efe25558ddso9611556a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 30 Dec 2024 10:47:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1735584446; x=1736189246; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=ee3Rb70cUWxtsCKv/dSQ92mAHiIOAXlNrYtEzGv5wlg=;
+        b=f037tNtmG9vKwMjGCC2Xh48W83VUVcj8JP8Wanon6GQn1JM73WvVCryaE1mgRIQExj
+         YwKpIr5VSOkLlE756tDiPpHu8QPf42MVkMls8J+eXZ5AqP4N74PkZm06UeWMHR1cWTHd
+         mM2pZQ8vKf+0tYMAWFKwvdCRjOavH0YgczVtg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735584446; x=1736189246;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ee3Rb70cUWxtsCKv/dSQ92mAHiIOAXlNrYtEzGv5wlg=;
+        b=DF1r5CX/qbNzB77X6D23hX2JdYhBSeUOwEMwNxMJCvHE+yDN98wE9ab6jhQEBuLiKu
+         CloJ/Kv55ufgXo8vM1iHd9lQQuMvVVfE5f2V0Zufn+UNrB2We1UTengLPr6AHHSaMFJu
+         LnGd13Ox12IW6NbMRNQiXzCO5srceGUISu1t8Met4rriXXQnFh65YevLRA+CCI4zoplP
+         dLRsdDaWAt5EfKcfX1H6LbVdsTizcZxtJH70S21Qd/fR6hSoIrJIvJnr5ug+e9KuHXoM
+         3wi6eG5Zvcer0r6FCkLY/QrTAIxxMey2M60wtNThyrZTy7A7YNJI8V9Tr0oT3xWL9gwP
+         te5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWzgA+Q0SZEC2eMi8DijTrHtNxSyPkW1M5VT2Won+nR+2Ce2hZ3CrBnkwqc2QDtVKrwbFieLgGPmF9/MgVbUtoW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCnqUVSKACPskQ8AtjJobAJfDKdebyHaIOQNdeauvQwp9OXILB
+	JTpzpttU/4dd/K0zT0lN785/yaahmxh+zblPwdR5ZuiijkWmdMukwl2WTS7d9g==
+X-Gm-Gg: ASbGncto20Z0W5KkG2l0l/MjNxiRkmxISQCB0dGYN95p3srFSKK5CJgOYTrWgdiUmf5
+	0pI4dcW82MkYNXn3GXsMY/fCP/DoEBp66hmx8fQbEZ1W015tw4H70qbt8zXDpR5rWOYlzPedYEj
+	Q7tBoSxkPfM7wNMcH3B92BDrlBKx27Uq6IniS/vWM1fZz227qrevmWWmW/IuO5U6zA5k1Z9wYk3
+	01lzkP1fvXpRQmYQnOFPC0hTRgymXmX58XJK3M+Om+T48tr3AawKPntG7+2X7nZZmSVrA8bO4Qw
+	Sv+zwXZDvLHLFxWYC4ZH
+X-Google-Smtp-Source: AGHT+IGwZcEJWebKnTsfjANfHDTsU3aPlCWKRnf+QuXe52JFYpfCc+/oAz/puWn5ZTaE31E8Sx/poA==
+X-Received: by 2002:a17:90b:270d:b0:2ee:48bf:7dc3 with SMTP id 98e67ed59e1d1-2f452e1606amr58153377a91.15.1735584445856;
+        Mon, 30 Dec 2024 10:47:25 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed62e385sm23038413a91.22.2024.12.30.10.47.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 30 Dec 2024 10:47:25 -0800 (PST)
+Message-ID: <fc99b12d-b8b0-44d7-ac23-07454164fe79@broadcom.com>
+Date: Mon, 30 Dec 2024 10:47:23 -0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-rockchip@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org
-To: Ivan Sergeev <ivan8215145640@gmail.com>
-In-Reply-To: <20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com>
-References: <20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com>
-Message-Id: <173558214299.2262675.7745978856834508715.robh@kernel.org>
-Subject: Re: [PATCH v4 0/2] arm64: dts: rockchip: Add BigTreeTech CB2 and
- Pi2
+User-Agent: Mozilla Thunderbird
+Subject: Re: pcie-brcmstb: failed to enter low-power link state (L23)
+To: Stefan Wahren <wahrenst@gmx.net>, Jim Quinlan <jim2101024@gmail.com>,
+ Jonathan Bell <jonathan@raspberrypi.com>
+Cc: Stanimir Varbanov <svarbanov@suse.de>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, kernel-list@raspberrypi.com
+References: <ee21345c-6baa-45fb-8807-1c836ac36963@gmx.net>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <ee21345c-6baa-45fb-8807-1c836ac36963@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_101716_720648_7E4D32A4 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20241230_104728_687088_39D0A02E 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,102 +132,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Stefan,
 
-On Mon, 30 Dec 2024 17:58:17 +0300, Ivan Sergeev wrote:
-> BigTreeTech CB2 and Pi2 are Rockchip RK3566 SoM and SBC boards made by
-> BigTreeTech for the intent of using as a 3d printer control board.
-> It is a successor to the Allwinner H616-based BigTreeTech CB1 and Pi, so
-> the device trees for CB2 and Pi2 are also done in the same manner: the
-> common nodes and properties are put into a dtsi file that the
-> board-specific device trees include.
+On 12/27/24 04:44, Stefan Wahren wrote:
+> Hi,
+> I did some experiments with s2idle on Raspberry Pi 4 (8 GB RAM,
+> arm64/defconfig) and noticed that pcie-brcmstb fails to enter L23 state
+> during suspend. I don't have any clue about PCI or this specific IP.
 > 
-> Changes in v4:
-> - Removed invalid `i2c,ignore-nak` properties
-> - Set `#address-cells` and `size-cells` on `sdmmc1`
-> - Fixed `phy-supply` properties of usb host nodes
-> - Link to v3: https://lore.kernel.org/r/20241227-bigtreetech-cb2-v3-0-91c556adcffe@gmail.com
+> Here is my current working branch [1], because s2idle on BCM2711
+> currently requires some quirks.
 > 
-> Changes in v3:
-> - Proper formatting and patch series sending (using b4)
-> - Converted spaces to tab indentation in the dtsi file
-> - Fixed empty line where the license identifier should be
-> - Link to v2 1/2: https://lore.kernel.org/linux-rockchip/20241224135751.350379-2-ivan8215145640@gmail.com/
-> - Link to v2 2/2: https://lore.kernel.org/linux-rockchip/20241224140057.350667-2-ivan8215145640@gmail.com/
+> In order to help, I just added a simple dump of possible relevant
+> registers at the begin of brcm_pcie_enter_l23():
 > 
-> Changes in v2:
-> - Added bigtreetech cb2 and pi2 boards to the list of platforms
-> - Split BigTreeTech CB2 and Pi2 into two device trees using common dtsi
-> - Link to v1: https://lore.kernel.org/linux-rockchip/20241222203952.84217-2-ivan8215145640@gmail.com/
+> [   46.822440] PM: suspend entry (s2idle)
+> [   47.050887] Filesystems sync: 0.228 seconds
+> [   47.152159] Freezing user space processes
+> [   47.154443] Freezing user space processes completed (elapsed 0.002
+> seconds)
+> [   47.154472] OOM killer disabled.
+> [   47.154475] Freezing remaining freezable tasks
+> [   47.155742] Freezing remaining freezable tasks completed (elapsed
+> 0.001 seconds)
+> [   48.797565] PM: suspend of devices complete after 1641.374 msecs
+> [   48.797580] PM: start suspend of devices complete after 1641.829 msecs
+> [   48.798059] PM: late suspend of devices complete after 0.473 msecs
+> [   48.810510] brcm-pcie fd500000.pcie:
+> PCIE_RC_CFG_PRIV1_LINK_CAPABILITY: 00315e12
+> [   48.810519] brcm-pcie fd500000.pcie: PCIE_RC_CFG_PRIV1_ROOT_CAP: 
+> 0000000f
+> [   48.810523] brcm-pcie fd500000.pcie: PCIE_MISC_HARD_PCIE_HARD_DEBUG:
+> 00200000
+> [   48.810528] brcm-pcie fd500000.pcie: PCIE_MISC_MISC_CTRL: 88003480
+> [   48.810532] brcm-pcie fd500000.pcie: PCIE_MISC_PCIE_CTRL: 00000000
+> [   48.810535] brcm-pcie fd500000.pcie: PCIE_MISC_PCIE_STATUS: 000000b0
+> [   48.846632] brcm-pcie fd500000.pcie: failed to enter low-power link 
+> state
+> [   48.846640] xhci_hcd 0000:01:00.0: Possible wake-up device;
+> regulators will not be disabled
+> [   48.846725] PM: noirq suspend of devices complete after 48.628 msecs
+> [   48.846730] PM: suspend-to-idle
+> [   53.672017] PM: Triggering wakeup from IRQ 25
+> [   53.672032] PM: resume from suspend-to-idle
 > 
-> Signed-off-by: Ivan Sergeev <ivan8215145640@gmail.com>
-> ---
-> Ivan Sergeev (2):
->       dt-bindings: arm: rockchip: Add BigTreeTech CB2 and Pi2
->       arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2
-> 
->  .../devicetree/bindings/arm/rockchip.yaml          |  11 +
->  arch/arm64/boot/dts/rockchip/Makefile              |   2 +
->  .../dts/rockchip/rk3566-bigtreetech-cb2-manta.dts  |  10 +
->  .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  | 943 +++++++++++++++++++++
->  .../boot/dts/rockchip/rk3566-bigtreetech-pi2.dts   |  10 +
->  5 files changed, 976 insertions(+)
-> ---
-> base-commit: d6ef8b40d075c425f548002d2f35ae3f06e9cf96
-> change-id: 20241224-bigtreetech-cb2-18944b349916
-> 
-> Best regards,
-> --
-> Ivan Sergeev <ivan8215145640@gmail.com>
-> 
-> 
-> 
+> Does BCM2711 support L23 mode?
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y rockchip/rk3566-bigtreetech-cb2-manta.dtb rockchip/rk3566-bigtreetech-pi2.dtb' for 20241230-bigtreetech-cb2-v4-0-26d2d30e07ce@gmail.com:
-
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: /i2c@fe5c0000/ns2009@48: failed to match any schema with compatible: ['ti,tsc2007']
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: /i2c@fe5c0000/ns2009@48: failed to match any schema with compatible: ['ti,tsc2007']
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: host-port: phy-supply: 'oneOf' conditional failed, one must be fixed:
-	[[181, 182]] is not of type 'object'
-	[181, 182] is too long
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: host-port: phy-supply: 'oneOf' conditional failed, one must be fixed:
-	[[184, 185]] is not of type 'object'
-	[184, 185] is too long
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: host-port: phy-supply: 'oneOf' conditional failed, one must be fixed:
-	[[181, 182]] is not of type 'object'
-	[181, 182] is too long
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: host-port: phy-supply: 'oneOf' conditional failed, one must be fixed:
-	[[184, 185]] is not of type 'object'
-	[184, 185] is too long
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: wireless-bluetooth: uart1-gpios: {'rockchip,pins': [[2, 13, 0, 187]]} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-pi2.dtb: touch: touch-gpio: {'rockchip,pins': [[0, 13, 0, 189], [0, 14, 0, 187]]} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: wireless-bluetooth: uart1-gpios: {'rockchip,pins': [[2, 13, 0, 187]]} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2-manta.dtb: touch: touch-gpio: {'rockchip,pins': [[0, 13, 0, 189], [0, 14, 0, 187]]} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-
-
-
-
-
+AFAICT it does, but the end-point might not, and this is not considered 
+a fatal error, in fact we should probably demote this message. Would you 
+have the lspci -vvv of the XHCI controller, too?
+-- 
+Florian
 
