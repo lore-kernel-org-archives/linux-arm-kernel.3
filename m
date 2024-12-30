@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8584FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 03:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B20E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 04:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AVEOvp4QrbQb1+blys2k1JR6ZMKIFmrzgdGtuIgGcFQ=; b=ckEPz/94vUSjk7x7FLFbuqTQCn
-	9TcCvG9z/vvy1HVM2BDUjtD6CH6nGJrsw/N9hqVFUcU8DSENo9v0Cx72Zk1HfoHPnyhlIkdy38DKW
-	jyA3exfOHirrv5zP5p5v6ex83Ct6KtFUrkib9qL95x1Dmqk3O5L+5zDXCXvolDt0rcJFOLe5iZ6MI
-	mAsjtlhB4QRMvjnubi4LflBFCHeh5gk6o7/YpCKWlw27ZsNstYHyRcDqdi0BeKJvk5mP96n150T3x
-	X5wpa1j/gIRnb4j2BAS/mBrzdfdVQOJtay/GxmNo9gOqEV9bmN4dKvQdPUvkEo3TEU0VXvxGb5K9O
-	b/CVT40g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OX/rFN2ToZOmzEtAbDTU/7yu2ExFG98z9SCi/hu5y6s=; b=4N7pXEMxqyGX+mIatbarJbwDEN
+	KbG+gZV6WA8JBsC3s1mI7MFs637RfcCviNHUjYKqX/3SD1cBZYEsx6uLoR1JDKjuEbEwqsFYuP7M8
+	EhoiforvT5Vc4d37Y4i9RygXiSYjEU/nlFc9WQPmPUu9eIJL2NCRmdQDBJC61ME7GpH3s5mfQsH4a
+	+/nnAoxfYgtrHw+4Pl7MaLq/yPyl0yhmTH9H0Zv1UeIPUa4080LYgwVfy16BVQ6vV97RwY5Aq4d91
+	V1fWklpvGZpqDLtYKXj84dwUoiZ5wTy35I2rKcRBsfAviWMm84qmQIp/EB0fZyr1/kyECASwFSVji
+	dnQBSm9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS6vZ-00000004Tee-3eSF;
-	Mon, 30 Dec 2024 03:58:49 +0000
-Received: from ssh248.corpemail.net ([210.51.61.248])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS6uQ-00000004TYL-1AfN
+	id 1tS72Z-00000004U8o-464a;
+	Mon, 30 Dec 2024 04:06:03 +0000
+Received: from mail-m16.yeah.net ([220.197.32.17])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tS71Q-00000004U2i-1FJQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 03:57:40 +0000
-Received: from ssh248.corpemail.net
-        by ssh248.corpemail.net ((D)) with ASMTP (SSL) id AFJ00117;
-        Mon, 30 Dec 2024 11:57:17 +0800
-Received: from jtjnmail201607.home.langchao.com (10.100.2.7) by
- jtjnmail201619.home.langchao.com (10.100.2.19) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 30 Dec 2024 11:57:18 +0800
-Received: from localhost.localdomain (10.94.16.130) by
- jtjnmail201607.home.langchao.com (10.100.2.7) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Mon, 30 Dec 2024 11:57:17 +0800
-From: Charles Han <hanchunchao@inspur.com>
-To: <marcan@marcan.st>, <sven@svenpeter.dev>, <alyssa@rosenzweig.io>,
-	<rafael@kernel.org>, <viresh.kumar@linaro.org>, <maz@kernel.org>
-CC: <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Charles Han
-	<hanchunchao@inspur.com>
-Subject: [PATCH] cpufreq: apple-soc: Fix possible null-ptr-deref for cpufreq_cpu_get_raw()
-Date: Mon, 30 Dec 2024 11:57:14 +0800
-Message-ID: <20241230035714.72780-1-hanchunchao@inspur.com>
-X-Mailer: git-send-email 2.31.1
+	Mon, 30 Dec 2024 04:04:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=OX/rFN2ToZOmzEtAbDTU/7yu2ExFG98z9SCi/hu5y6s=;
+	b=clyx2ISeKZvpsx4/Q0hsEBdY8F0aZEnH0jhUk505EoZSMzEGx1CAhAftHIu8aq
+	x/hhy1Reucjb0w0OTlBbC1as1oFOFznbWOYvI3T/bR4e13vZyH5HCIeb5uD0EBRW
+	8qIWIRSjGSa9lSgN2PpXRaouQ5xvkp2xaf5BgYNqCo3o8=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgCH28jQG3JnIsD1BQ--.59947S3;
+	Mon, 30 Dec 2024 12:04:34 +0800 (CST)
+Date: Mon, 30 Dec 2024 12:04:32 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Stefan Kerkmann <s.kerkmann@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/3] ARM: dts: imx: add phy-3p0-supply for i.MX6 series
+Message-ID: <Z3Ib0FYfgMxQuePa@dragon>
+References: <20241126-v6-12-topic-imx-3p0-regulator-v1-0-c618ed111c75@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.94.16.130]
-X-ClientProxiedBy: Jtjnmail201615.home.langchao.com (10.100.2.15) To
- jtjnmail201607.home.langchao.com (10.100.2.7)
-tUid: 20241230115717440586d573f96243b0e71ad65467fa0e
-X-Abuse-Reports-To: service@corp-email.com
-Abuse-Reports-To: service@corp-email.com
-X-Complaints-To: service@corp-email.com
-X-Report-Abuse-To: service@corp-email.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241126-v6-12-topic-imx-3p0-regulator-v1-0-c618ed111c75@pengutronix.de>
+X-CM-TRANSID: M88vCgCH28jQG3JnIsD1BQ--.59947S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUea0PUUUUU
+X-Originating-IP: [114.216.146.204]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEgzFZWdyDiU6ZAAAse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_195738_624897_F0F49BE9 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20241229_200452_670313_FB3170CB 
+X-CRM114-Status: UNSURE (   6.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +73,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpufreq_cpu_get_raw() may return NULL if the cpu is not in
-policy->cpus cpu mask and it will cause null pointer dereference.
-But this returned value in apple_soc_cpufreq_get_rate() is not
-checked. Add NULL check in apple_soc_cpufreq_get_rate(), to handle
-kernel NULL pointer dereference error.
+On Tue, Nov 26, 2024 at 10:22:12AM +0100, Stefan Kerkmann wrote:
+> Stefan Kerkmann (3):
+>       ARM: dts: imx6qdl: add phy-3p0-supply to usb phys
+>       ARM: dts: imx6sl: add phy-3p0-supply to usb phys
+>       ARM: dts: imx6sx: add phy-3p0-supply to usb phys
 
-Fixes: 6286bbb40576 ("cpufreq: apple-soc: Add new driver to control Apple SoC CPU P-states")
-Signed-off-by: Charles Han <hanchunchao@inspur.com>
----
- drivers/cpufreq/apple-soc-cpufreq.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
-index 4dcacab9b4bf..1c6d81355b41 100644
---- a/drivers/cpufreq/apple-soc-cpufreq.c
-+++ b/drivers/cpufreq/apple-soc-cpufreq.c
-@@ -104,6 +104,9 @@ static const struct of_device_id apple_soc_cpufreq_of_match[] __maybe_unused = {
- static unsigned int apple_soc_cpufreq_get_rate(unsigned int cpu)
- {
- 	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
-+	if (unlikely(!policy))
-+		return 0;
-+
- 	struct apple_cpu_priv *priv = policy->driver_data;
- 	struct cpufreq_frequency_table *p;
- 	unsigned int pstate;
--- 
-2.31.1
+Applied all, thanks!
 
 
