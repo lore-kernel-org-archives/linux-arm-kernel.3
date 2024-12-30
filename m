@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DDBE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 03:13:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0E4E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 30 Dec 2024 03:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=00MV44O/wLuPQ/RpQp8S/rpHXiOskq9DnLB00pReqmw=; b=PimkM3LUNvyNP+lanCY2bvz6AQ
-	XQA6KpQkGfL8yhV4Jfyl3OKVPESTvZNxlglL/wBZjrcNXHQulYkP+yU6b1QCc7k7WOzgBaPqcSE/i
-	bE24O5HiX1vQxgf7i/3AA8KgVXpOwGLiV6248QREuWfWiJz24s8rbIOjTwZcBB9A+4RjghCOQbn9X
-	97xet2b/oeZYBTyRn0sPim58eorLokBN3HRo2DLt5yfN/HWpHR2qgVorM2jaRKC2eIBDUlpMuyE/G
-	5THmOSMS0ZdKyQxfF8xWnp0WRcp76LY2cRCpy1EU+FNA7RC0QxReuoUk422J2JUzHm6nOcL25zt8b
-	CcqRFdgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RbKh81WgtbyngPn+SsJDB5TvtHitA1PETtGCx7cSW5M=; b=rw9tVqumydxEHbQUyYb8LV9STv
+	8UZi8FQNReYnicYABOcSalJf+Fb/4DhAr7Ty/RiybV4gb3j0rRr8xf1DodKgZzecyXE+OScOdAbSH
+	EyyPW7jaLNYU3g3dLURpxsJ0Efke2ADLYucp7hVD0TTnMB/ktWFW50xZoaMUAxhCMxIlUEtfVCR6C
+	FhN+SLWH8g/JmC51l/ESNVkenR1vjynSsfg2FLeqpqVwNBQVEimh4NZqShsiVsZbyCXkh3sHqU5No
+	Td7JR31CRoK6NDHkOFL5psgJeJa4eg9AusZvoru6ZtLtmn4WU1o99B/J2RwOIqEoTTK8eqinZtDfy
+	etT+IxFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS6Dt-00000004Q0h-1p8a;
-	Mon, 30 Dec 2024 03:13:41 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tS6Cb-00000004Pli-2P6h
+	id 1tS6Iv-00000004QNr-1ssb;
+	Mon, 30 Dec 2024 03:18:53 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tS6Hj-00000004QIq-1sJp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 30 Dec 2024 03:12:23 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2166f1e589cso136672215ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 29 Dec 2024 19:12:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1735528335; x=1736133135; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=00MV44O/wLuPQ/RpQp8S/rpHXiOskq9DnLB00pReqmw=;
-        b=KdeJYZ85LnWSIN52afzyVDJMSMjXApoS7eupT5t0oXiPDQb6r8d/dvWcsGvGRndKpf
-         64353f8c49gWpoGkrTnP7U0Q3jLonUNcfYIjSpOLWuzyjVzUqvhTo0hKih3pGGgItgAT
-         QyJb+fTnOxIdFUpVOh8QKCCicfVlWgbE3DvB+/AwZUZpoRQO/3DK0iCdo0/fKhvEjo5E
-         8EISg5+4ae0WDnpGkgQ/B1ilWYGVFa9ITXoxYxg/ozhsMzsOyWsGp96ItvYwX6yOEuHn
-         FG8qLrk83uqVQZ9mNlfWO3rxRElozLH860qK2yidEwfD8OVRXh3JG+lqEkX67HQRgPuk
-         t8vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735528335; x=1736133135;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=00MV44O/wLuPQ/RpQp8S/rpHXiOskq9DnLB00pReqmw=;
-        b=ogGJCMpiAlo5r6AnGhRuHZ1ztv+tUJAPrEpOwtflIPGGQH5QGSvWl+L6DZiZ2Uj6gu
-         n8T8z5NDNwvU57wtL2QvsPUBe5JwlltbkZTbE+uCFoukCUiSjfL3F/2J7SUU2nnH/8dm
-         a7m379t+yyXDIiHL4sGapuip2tgZZRtb6wg+AboNmwQmA7BM5KhKnyxF1exXcN3kprHO
-         WJMZ4weDDn3vWetzgPFbFm3g6t5OvAuCJSfYmRY6nH9vyEK6927VfFTxXyepcMfXvDIt
-         m3t8bjPv2tLdoWQ0O5cJnwVP28pTtvf/629kIVgJ1GbgNslUN3XK57hqEDCYpz9ujfe/
-         T36A==
-X-Forwarded-Encrypted: i=1; AJvYcCXivS85B+JmyRZaA0jSmxI+8IVbemO3ERE6WE+bvWoT7Tub26/zhCtPBEKNU4BDoOeLsfKwj6JMlPGJ4ml/8odP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3B0qdJ8S5xStyqfU84lktfK+l1OwX4+PXDbm3WQxJTuQ9JfdS
-	GoLEFbFHI304qSNch9ITDdkQZb817jeDgxBYwuTqraoLVxDhdBGH0W7XXbylmR4=
-X-Gm-Gg: ASbGncvv6urILW42mk6iDqL+mrpz3t/qBTs4dJdGSkX41ikBcjwNwzFUfq9sL0k/fAB
-	lcElbIDxsyKUKF4u4F0UhfLmwGTWaBdy0K1TkX1fq4Xf2dBkKMO8QJyRr7b0tW/MnkyIep3GD9i
-	/19Y76ptuPcEe+hDGBRsntud1brL0g14YD4oFph/iV6GQVv+IVSfsDbSalGedNXgsF3UK8NjvmJ
-	18Gi+vITYCPRmqLh/qN+9HmUq6gd7s/1AqZcZa3lI+rSvGS5DdbtQ3nfmm/jhJLFfQj8RE8fNwF
-	S47XPw==
-X-Google-Smtp-Source: AGHT+IHVtuGTDJKnXgo1JS5AtVrvj0I/cg1dyieo6seko5BYBtWvsXqnYPIAVAFKhaTndzKmWg8VgQ==
-X-Received: by 2002:a05:6a20:9185:b0:1e5:7db5:d6e7 with SMTP id adf61e73a8af0-1e5e083f019mr66304616637.46.1735528334820;
-        Sun, 29 Dec 2024 19:12:14 -0800 (PST)
-Received: from [10.84.148.23] ([203.208.167.148])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad84eb45sm18191842b3a.88.2024.12.29.19.12.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 29 Dec 2024 19:12:14 -0800 (PST)
-Message-ID: <9cac5690-c570-4d43-a6bc-2b59b85497ae@bytedance.com>
-Date: Mon, 30 Dec 2024 11:12:00 +0800
+	Mon, 30 Dec 2024 03:17:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=RbKh81WgtbyngPn+SsJDB5TvtHitA1PETtGCx7cSW5M=;
+	b=eULHdMTyiAHyXRKyuZtEFCOaDPu+KsJ8oRxJ9irgKnhh0kFJ4qPzmulCLfcQj/
+	1i6w3OIoqM5Ewn745smuCbDZow6NkiLlXABGesulR4lFwT2XUQZFbN5fc3sjyQrb
+	0f1L9BeDf14rAhjjYTQzFMgQqSIjwdrOScGqcve9LV+xc=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDXXKWPEHJnMwscBg--.61926S3;
+	Mon, 30 Dec 2024 11:16:34 +0800 (CST)
+Date: Mon, 30 Dec 2024 11:16:31 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Pengfei Li <pengfei.li_1@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de,
+	catalin.marinas@arm.com, will@kernel.org, kernel@pengutronix.de,
+	festevam@gmail.com, joao.goncalves@toradex.com, marex@denx.de,
+	hvilleneuve@dimonoff.com, hiago.franco@toradex.com,
+	peng.fan@nxp.com, frieder.schrempf@kontron.de,
+	alexander.stein@ew.tq-group.com, m.othacehe@gmail.com,
+	mwalle@kernel.org, Max.Merchel@ew.tq-group.com,
+	quic_bjorande@quicinc.com, geert+renesas@glider.be,
+	dmitry.baryshkov@linaro.org, neil.armstrong@linaro.org,
+	arnd@arndb.de, nfraprado@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, ping.bai@nxp.com,
+	ye.li@nxp.com, aisheng.dong@nxp.com, frank.li@nxp.com,
+	carlos.song@nxp.com
+Subject: Re: [PATCH v3 2/4] arm64: dts: freescale: Add i.MX91 dtsi support
+Message-ID: <Z3IQjz9XAKYm/pCm@dragon>
+References: <20241120094945.3032663-1-pengfei.li_1@nxp.com>
+ <20241120094945.3032663-3-pengfei.li_1@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
-Content-Language: en-US
-To: Mike Rapoport <rppt@kernel.org>, akpm@linux-foundation.org,
- kevin.brodsky@arm.com, peterz@infradead.org
-Cc: agordeev@linux.ibm.com, tglx@linutronix.de, david@redhat.com,
- jannh@google.com, hughd@google.com, yuzhao@google.com, willy@infradead.org,
- muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
- rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
- <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
- <Z2_EPmOTUHhcBegW@kernel.org>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <Z2_EPmOTUHhcBegW@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241120094945.3032663-3-pengfei.li_1@nxp.com>
+X-CM-TRANSID: Ms8vCgDXXKWPEHJnMwscBg--.61926S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJFWxKr1DWry8CFyDXF1UZFb_yoW5uw1rpF
+	ykCFy3Wrs7Ka48u3sagFsYgrykJr9rXFW09F42vry0yws3Xr1xta45KF47XF48Xr4rWw4S
+	gr1aqr4ftr9xuaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U9Z23UUUUU=
+X-Originating-IP: [114.216.146.204]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCRjBZWdtNPG7vgABs+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_191221_631013_338C0517 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20241229_191740_037340_97A1441F 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,41 +86,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
-
-On 2024/12/28 17:26, Mike Rapoport wrote:
-> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
->> Here we are explicitly dealing with struct page, and the following logic
->> semms strange:
->>
->> tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
->>
->> tlb_remove_page_ptdesc
->> --> tlb_remove_page(tlb, ptdesc_page(pt));
->>
->> So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
->> directly.
+On Wed, Nov 20, 2024 at 05:49:43PM +0800, Pengfei Li wrote:
+> The i.MX 91 family features an Arm Cortex-A55 running at up to
+> 1.4GHz, support for modern LPDDR4 memory to enable platform longevity,
+> along with a rich set of peripherals targeting medical, industrial
+> and consumer IoT market segments.
 > 
-> Please don't. The ptdesc wrappers are there as a part of reducing the size
-> of struct page project [1].
+> The design of the i.MX91 platform is very similar to i.MX93.
+> The mainly difference between i.MX91 and i.MX93 is as follows:
+> - i.MX91 removed some clocks and modified the names of some clocks.
+> - i.MX91 only has one A core
+> - i.MX91 has different pinmux
 > 
-> For now struct ptdesc overlaps struct page, but the goal is to have them
-> separate and always operate on struct ptdesc when working with page tables.
+> Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx91-pinfunc.h | 770 ++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx91.dtsi      |  70 ++
+>  2 files changed, 840 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+...
+> diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> new file mode 100644
+> index 000000000000..be923e5076a4
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
+> @@ -0,0 +1,70 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright 2024 NXP
+> + */
+> +
+> +#include "imx91-pinfunc.h"
+> +#include "imx93.dtsi"
+> +
+> +/delete-node/ &A55_1;
+> +/delete-node/ &cm33;
+> +/delete-node/ &mlmix;
+> +/delete-node/ &mu1;
+> +/delete-node/ &mu2;
+> +
+> +&clk {
+> +	compatible = "fsl,imx91-ccm";
+> +};
+> +
+> +&eqos {
+> +	clocks = <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+> +			<&clk IMX91_CLK_ENET_TIMER>,
+> +			<&clk IMX91_CLK_ENET1_QOS_TSN>,
+> +			<&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
 
-OK, so tlb_remove_page_ptdesc() and tlb_remove_ptdesc() are somewhat
-intermediate products of the project.
+Can we align the lines at '<'?
 
-Hi Andrew, can you help remove [PATCH v3 15/17], [PATCH v3 16/17] and
-[PATCH v3 17/17] from the mm-unstable branch?
+	clocks = <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+		 <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>,
+		 <&clk IMX91_CLK_ENET_TIMER>,
+		 <&clk IMX91_CLK_ENET1_QOS_TSN>,
+		 <&clk IMX91_CLK_ENET1_QOS_TSN_GATE>;
 
-For [PATCH v3 17/17], I can send it separately later, or Kevin Brodsky
-can help do this in his patch series. ;)
+> +	assigned-clocks = <&clk IMX91_CLK_ENET_TIMER>,
+> +				<&clk IMX91_CLK_ENET1_QOS_TSN>;
+> +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> +};
+> +
+> +&fec {
+> +	clocks = <&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> +			<&clk IMX91_CLK_ENET2_REGULAR_GATE>,
+> +			<&clk IMX91_CLK_ENET_TIMER>,
+> +			<&clk IMX91_CLK_ENET2_REGULAR>,
+> +			<&clk IMX93_CLK_DUMMY>;
+> +	assigned-clocks = <&clk IMX91_CLK_ENET_TIMER>,
+> +				<&clk IMX91_CLK_ENET2_REGULAR>;
+> +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+> +					<&clk IMX93_CLK_SYS_PLL_PFD0_DIV2>;
+> +	assigned-clock-rates = <100000000>, <250000000>;
+> +};
+> +
+> +&i3c1 {
+> +	clocks = <&clk IMX93_CLK_BUS_AON>,
+> +			<&clk IMX93_CLK_I3C1_GATE>,
+> +			<&clk IMX93_CLK_DUMMY>;
+> +};
+> +
+> +&i3c2 {
+> +	clocks = <&clk IMX93_CLK_BUS_WAKEUP>,
+> +			<&clk IMX93_CLK_I3C2_GATE>,
+> +			<&clk IMX93_CLK_DUMMY>;
+> +};
+> +
+> +&iomuxc {
+> +	compatible = "fsl,imx91-iomuxc";
+> +};
+> +
+> +&tmu {
+> +	status = "disabled";
+> +};
+> +
+> +&{/soc@0/ddr-pmu@4e300dc0} {
+> +	compatible = "fsl,imx91-ddr-pmu", "fsl,imx93-ddr-pmu";
+> +};
+> +
+> +&{/thermal-zones/cpu-thermal/cooling-maps/map0} {
+> +	cooling-device = <&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
+> +};
 
-Thanks,
-Qi
+Could you add labels in imx93.dtsi to make the references a bit easier?
 
+Shawn
+
+> -- 
+> 2.34.1
 > 
-> [1] https://kernelnewbies.org/MatthewWilcox/Memdescs
->   
 
 
