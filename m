@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A2AE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF35E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pD4rYOtR+d4vlbX2pPWDBCcK4oO1gPjv+46RQN4HNss=; b=dPpsKjEBOHVuIjUWjh3XOcAaEe
-	QnW2sP8elz6Z1ut/6eAIRC+2enppJ36ahB1nonWAzbr8RsrqzdJO4n1CpM8f3QYODPBcl3HcvH1bw
-	LheTVYanK8N6Zy+CM4PBByKk/kAmZYrE7ojcfs22Z9qdsd3X402DrXDGFs7p8G8N4+1P/iVAt16yk
-	L51pHhV/Xnlyk+DXs6Q/tax02SQOYZatYSk0lt+xz0ZiS1nZyBFdG7nZ03U7fXoqLQkEGqCJ9uz0Y
-	blb9QPRAX+47dBQ7yFBlVluoQ15Jz09/eX4nLx5qCivOzxl30e0PrNZDLCH2Ob8zmI8t4ZIodq0eb
-	ULm9ICLA==;
+	bh=fs5VkMH+uDrzbWyL5fHlII0s3jbxXVUbwrDnm1aWdeo=; b=M2B6WM+WoNPfgkQi/jpPQUH904
+	iliqaDox36AmZ3kSVeCoZJCXgEpMLgD0jyeLlydamIi/+7OalexdAZ16x7nQ/wxRzcTSDWfGOr01O
+	y/bLvzvGrmD5pEbO0Jpx83sf1tTy1t8decqJ8N+WZ/LPHvATRyQx6wNUpuqs1szt8eWZ1Ah3RonUu
+	eXPnwy4ftKOe0WVci3sa02HfmIZnVyWRhsTQrOvf043Fs5z7m3iKawnrg3dv2HcEqCbmR9wDyIAJb
+	+gr8HZcaUC8PCHdaGQA6hEOG/wl2BCpuSg02QfqP/0TpuAPpfiG2qO7ftDRvsTie07WIcvYfPldJU
+	3foaFVUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYHK-00000006tnT-190c;
-	Tue, 31 Dec 2024 09:11:06 +0000
+	id 1tSYIX-00000006twm-0eNk;
+	Tue, 31 Dec 2024 09:12:21 +0000
 Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYEo-00000006t23-34Ia;
-	Tue, 31 Dec 2024 09:08:32 +0000
+	id 1tSYEo-00000006t2I-3QnW;
+	Tue, 31 Dec 2024 09:08:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=pD4rY
-	OtR+d4vlbX2pPWDBCcK4oO1gPjv+46RQN4HNss=; b=lYDCGZg/k3paIwcb+39e7
-	WkVvKh7dv7rqxEogn3VJK7O0qc22QkF+2rurAUvmCIXfV4HkjOg+Qkmr5adWhSEt
-	WOQvqXZpwcgE7aGOeuqLcOnsUFNQIM1+N+/0a7zG3erloNjJ2K/dsU0D3CvGtB5q
-	LZqLBDQx6EyxSxz4m7xWpc=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=fs5Vk
+	MH+uDrzbWyL5fHlII0s3jbxXVUbwrDnm1aWdeo=; b=p2T4W4FyQRArfSvKMAyhh
+	YY6s1t4gpjyWPviblHRtLGbdnb0ClXXNz/60OaOsAEyWEMpuHexVqzEW2f/FFLuZ
+	7cpBLGhTMMIDJWhHPZGa6jfxmrVgJOmtdZXGPhIKTq/ZMExsZXArNOPFfFZ1737E
+	oC8gPQjsZQ4vYDz8/L85eU=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBHEQp0tHNnooOKCw--.15748S10;
-	Tue, 31 Dec 2024 17:08:16 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBHEQp0tHNnooOKCw--.15748S7;
+	Tue, 31 Dec 2024 17:08:14 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -47,26 +47,26 @@ Cc: hjc@rock-chips.com,
 	derek.foreman@collabora.com,
 	detlev.casanova@collabora.com,
 	daniel@fooishbar.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v8 8/9] dt-bindings: display: vop2: Add rk3576 support
-Date: Tue, 31 Dec 2024 17:07:51 +0800
-Message-ID: <20241231090802.251787-9-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v8 5/9] drm/rockchip: vop2: Register the primary plane and overlay plane separately
+Date: Tue, 31 Dec 2024 17:07:48 +0800
+Message-ID: <20241231090802.251787-6-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241231090802.251787-1-andyshrk@163.com>
 References: <20241231090802.251787-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBHEQp0tHNnooOKCw--.15748S10
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWr1kWFyDJrW8ZFyrGFyxAFb_yoW5KFWxpa
-	93CFyDXrW8Gr1UXw4ktF1rCws5tFn0yw4Ykrn7ta17KrsxtF48Ww1agrn8Xr13Wry7ZayY
-	9FsYk347G3savrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UZFxUUUUUU=
+X-CM-TRANSID: _____wBHEQp0tHNnooOKCw--.15748S7
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFWxtw4kKr43Ww1xAw45Awb_yoWrZrW3pa
+	13ta90qr47WrsFgry8JF4jyFWYyan2kay7Crn8Jw1a934Sgr93ur4rKF1DAF15uFnrWFya
+	kFW3K39Y9FWj9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jFFALUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQDGXmdzq1zveAACsH
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gLGXmdzre2vOgAAsJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_010831_203934_BF004D91 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241231_010831_297445_DC61292F 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,163 +83,163 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-Add vop found on rk3576, the main difference between rk3576 and the
-previous vop is that each VP has its own interrupt line.
+In the upcoming VOP of rk3576, a Window cannot attach to all Video Ports,
+so make sure all VP find it's suitable primary plane, then register the
+remain windows as overlay plane will make code easier.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
 
 ---
 
-Changes in v8:
-- Fix dt_binding_check errors
-- ordered by soc name
-- Link to the previous version:
-  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
-
-Changes in v4:
-- describe constraint SOC by SOC, as interrupts of rk3576 is very
-  different from others
-- Drop Krzysztof's Reviewed-by, as this version changed a lot.
+(no changes since v3)
 
 Changes in v3:
-- ordered by soc name
-- Add description for newly added interrupt
+- Add comments for why we should treat rk3566 with special care.
 
-Changes in v2:
-- Add dt bindings
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 100 +++++++++++--------
+ 1 file changed, 61 insertions(+), 39 deletions(-)
 
- .../display/rockchip/rockchip-vop2.yaml       | 81 ++++++++++++++-----
- 1 file changed, 63 insertions(+), 18 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index 2531726af306..4cdd9cced10c 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-@@ -20,6 +20,7 @@ properties:
-     enum:
-       - rockchip,rk3566-vop
-       - rockchip,rk3568-vop
-+      - rockchip,rk3576-vop
-       - rockchip,rk3588-vop
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index e702a957d91c..1c7542f26291 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -2222,22 +2222,29 @@ static int vop2_plane_init(struct vop2 *vop2, struct vop2_win *win,
+ 	return 0;
+ }
  
-   reg:
-@@ -37,10 +38,21 @@ properties:
-       - const: gamma-lut
+-static struct vop2_video_port *find_vp_without_primary(struct vop2 *vop2)
++/*
++ * On RK3566 these windows don't have an independent
++ * framebuffer. They can only share/mirror the framebuffer
++ * with smart0, esmart0 and cluster0 respectively.
++ * And RK3566 share the same vop version with Rk3568, so we
++ * need to use soc_id for identification here.
++ */
++static bool vop2_is_mirror_win(struct vop2_win *win)
+ {
+-	int i;
+-
+-	for (i = 0; i < vop2->data->nr_vps; i++) {
+-		struct vop2_video_port *vp = &vop2->vps[i];
+-
+-		if (!vp->crtc.port)
+-			continue;
+-		if (vp->primary_plane)
+-			continue;
++	struct vop2 *vop2 = win->vop2;
  
-   interrupts:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 4
-     description:
--      The VOP interrupt is shared by several interrupt sources, such as
--      frame start (VSYNC), line flag and other status interrupts.
-+      For VOP version under rk3576, the interrupt is shared by several interrupt
-+      sources, such as frame start (VSYNC), line flag and other interrupt status.
-+      For VOP version from rk3576 there is a system interrupt for bus error, and
-+      every video port has it's independent interrupts for vsync and other video
-+      port related error interrupts.
+-		return vp;
++	if (vop2->data->soc_id == 3566) {
++		switch (win->data->phys_id) {
++		case ROCKCHIP_VOP2_SMART1:
++		case ROCKCHIP_VOP2_ESMART1:
++		case ROCKCHIP_VOP2_CLUSTER1:
++			return true;
++		default:
++			return false;
++		}
++	} else {
++		return false;
+ 	}
+-
+-	return NULL;
+ }
+ 
+ static int vop2_create_crtcs(struct vop2 *vop2)
+@@ -2248,7 +2255,9 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 	struct drm_plane *plane;
+ 	struct device_node *port;
+ 	struct vop2_video_port *vp;
+-	int i, nvp, nvps = 0;
++	struct vop2_win *win;
++	u32 possible_crtcs;
++	int i, j, nvp, nvps = 0;
+ 	int ret;
+ 
+ 	for (i = 0; i < vop2_data->nr_vps; i++) {
+@@ -2287,42 +2296,55 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 	}
+ 
+ 	nvp = 0;
+-	for (i = 0; i < vop2->registered_num_wins; i++) {
+-		struct vop2_win *win = &vop2->win[i];
+-		u32 possible_crtcs = 0;
+-
+-		if (vop2->data->soc_id == 3566) {
+-			/*
+-			 * On RK3566 these windows don't have an independent
+-			 * framebuffer. They share the framebuffer with smart0,
+-			 * esmart0 and cluster0 respectively.
+-			 */
+-			switch (win->data->phys_id) {
+-			case ROCKCHIP_VOP2_SMART1:
+-			case ROCKCHIP_VOP2_ESMART1:
+-			case ROCKCHIP_VOP2_CLUSTER1:
++	/* Register a primary plane for every crtc */
++	for (i = 0; i < vop2_data->nr_vps; i++) {
++		vp = &vop2->vps[i];
 +
-+  interrupt-names:
-+    items:
-+      - const: vop-sys
-+      - const: vop-vp0
-+      - const: vop-vp1
-+      - const: vop-vp2
++		if (!vp->crtc.port)
++			continue;
++
++		for (j = 0; j < vop2->registered_num_wins; j++) {
++			win = &vop2->win[j];
++
++			/* Aready registered as primary plane */
++			if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
++				continue;
++
++			if (vop2_is_mirror_win(win))
+ 				continue;
+-			}
+-		}
  
-   # See compatible-specific constraints below.
-   clocks:
-@@ -120,43 +132,76 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: rockchip,rk3588-vop
-+            enum:
-+              - rockchip,rk3566-vop
-+              - rockchip,rk3568-vop
-     then:
-       properties:
-         clocks:
--          minItems: 7
-+          minItems: 5
-         clock-names:
--          minItems: 7
--
-+          minItems: 5
-         ports:
-           required:
-             - port@0
-             - port@1
-             - port@2
--            - port@3
+-		if (win->type == DRM_PLANE_TYPE_PRIMARY) {
+-			vp = find_vp_without_primary(vop2);
+-			if (vp) {
++			if (win->type == DRM_PLANE_TYPE_PRIMARY) {
+ 				possible_crtcs = BIT(nvp);
+ 				vp->primary_plane = win;
++				ret = vop2_plane_init(vop2, win, possible_crtcs);
++				if (ret) {
++					drm_err(vop2->drm, "failed to init primary plane %s: %d\n",
++						win->data->name, ret);
++					return ret;
++				}
+ 				nvp++;
+-			} else {
+-				/* change the unused primary window to overlay window */
+-				win->type = DRM_PLANE_TYPE_OVERLAY;
++				break;
+ 			}
+ 		}
++	}
++
++	/* Register all unused window as overlay plane */
++	for (i = 0; i < vop2->registered_num_wins; i++) {
++		win = &vop2->win[i];
++
++		/* Aready registered as primary plane */
++		if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
++			continue;
++
++		if (vop2_is_mirror_win(win))
++			continue;
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3576-vop
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 5
-+        clock-names:
-+          minItems: 5
-+        ports:
-+          required:
-+            - port@0
-+            - port@1
-+            - port@2
-+        interrupts:
-+          items:
-+            - description: vop system interrupt, such as axi bus error
-+            - description: interrupts for video port0, such as vsync, dsp_hold.
-+            - description: interrupts for video port1, such as vsync, dsp_hold.
-+            - description: interrupts for video port2, such as vsync, dsp_hold.
-+        interrupt-names:
-+          items:
-+            - const: vop-sys
-+            - const: vop-vp0
-+            - const: vop-vp1
-+            - const: vop-vp2
-       required:
-         - rockchip,grf
--        - rockchip,vo1-grf
--        - rockchip,vop-grf
-         - rockchip,pmu
+-		if (win->type == DRM_PLANE_TYPE_OVERLAY)
+-			possible_crtcs = (1 << nvps) - 1;
++		win->type = DRM_PLANE_TYPE_OVERLAY;
  
--    else:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3588-vop
-+    then:
-       properties:
--        rockchip,vo1-grf: false
--        rockchip,vop-grf: false
--        rockchip,pmu: false
--
-         clocks:
--          maxItems: 5
-+          minItems: 7
-         clock-names:
--          maxItems: 5
--
-+          minItems: 7
-         ports:
-           required:
-             - port@0
-             - port@1
-             - port@2
-+            - port@3
-+      required:
-+        - rockchip,grf
-+        - rockchip,vo1-grf
-+        - rockchip,vop-grf
-+        - rockchip,pmu
- 
- additionalProperties: false
- 
++		possible_crtcs = (1 << nvps) - 1;
+ 		ret = vop2_plane_init(vop2, win, possible_crtcs);
+ 		if (ret) {
+-			drm_err(vop2->drm, "failed to init plane %s: %d\n",
++			drm_err(vop2->drm, "failed to init overlay plane %s: %d\n",
+ 				win->data->name, ret);
+ 			return ret;
+ 		}
 -- 
 2.34.1
 
