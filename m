@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB53E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 15:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F3CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 15:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TfpchHbExO0XW754q8DbjVQ1byQNlSKH4QhxgnPxvYU=; b=3tLqcP4P9EI+k1kyRfSWJIvyND
-	v4gZ1CUb4EL2SsOtpOyxQjVok3Hq0rxE5dPs7r06a0vldlFjk4JEZY3ed5KQvLLwVYnhE8WoLDEb8
-	nu8Bwp1RTwGJnQkqHy9OvAZS/NJp5g6W+VVKGmxVJnTWcGIzvL2b1hTedu0pAowt9NQpdeY3KDlbk
-	WosZ/0iZ8Bt9irSsFOl0If/AWwAhEDXHx3INwQrpJEHNH81DiHDBBC2uULQDJ9av4pAiR3s7AQyAY
-	C65kxWernSc/8OtW//T8zoGADHpkenoNX7PNO279aiFNbI6j4/LvTix88MfV7wql/CnnboNG1IilQ
-	k6Tc41IQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PSLeprPe5FTHWRveLENPgw9n1qZNAvdFfzbO7p/6mz8=; b=gItp7Oa5f2LwfnFWnL+8WP9Ae8
+	BEwIv2H9KPOGyKCjOSwIexHUDCwP+k9vh+MQ61u3XTFtKcxqhuZdY6NyGx/jSk1K4ogPLY2xZwbJe
+	N8nklsJHuqB+hoVE/RW7t7iC6qFmYBm6j4L2Ne4gWpsR4wH2Hgk/zW3jkoVED7KdEYmXNu4Oy4y3A
+	4xVsqed2TPAVENnevTVFMdL2iQ98VTlgra/elAFUO03+WDOSF4TwF8PG2z7Z0JCMyjELvZBgBrIC7
+	qEPh8WoTYVjDSHejrw1NSZT1BN8ll1wPTkqM4BZl9AF0ImXaFMQsxCDVBUMInMLACyfYMInJS2JeL
+	3wW6tQEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdlz-00000007LqX-2Qs1;
-	Tue, 31 Dec 2024 15:03:07 +0000
+	id 1tSdn9-00000007LxB-0qzS;
+	Tue, 31 Dec 2024 15:04:19 +0000
 Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdkk-00000007Lgd-1hNF
+	id 1tSdkl-00000007Lgy-42PH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 15:01:51 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aaee0b309adso1020904866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 07:01:49 -0800 (PST)
+	Tue, 31 Dec 2024 15:01:53 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aa6c0d1833eso2078914566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 07:01:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1735657308; x=1736262108; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TfpchHbExO0XW754q8DbjVQ1byQNlSKH4QhxgnPxvYU=;
-        b=VioJJXDVslutu9s42yklTZ4ty7xxOPr7Cqn13F1hbhpxX8IwFydsQol080YmC2XhpS
-         Qd2mauNn569/oNTZHyBJYPMBbsWsfJNGmanhsXKYzodEOijs2CAdkUdkcF/hdd6yLDfq
-         OptczpKH94B94JI7cGtKVnBK4m0IAYGhvjg1k=
+        d=amarulasolutions.com; s=google; t=1735657311; x=1736262111; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PSLeprPe5FTHWRveLENPgw9n1qZNAvdFfzbO7p/6mz8=;
+        b=Gcd/kViX1qYntsGvpOIk9WgyrSzDUQd7+La/ia/k5ApKB2EvaUK5Kfq2Iz+fXsHBzV
+         NBc629BPNPwyifKL0ZQE9bdGBZjkMQtB4Lxggski5I2ZR0smSq5e3BPDhoNs2QoyPpCR
+         Luy6kdGKpXXqdmV7y8SRa1CkwCpXAAKW2fy1I=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735657308; x=1736262108;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TfpchHbExO0XW754q8DbjVQ1byQNlSKH4QhxgnPxvYU=;
-        b=rg20g4knyxCr9TXySVAcGadiLB2MmfIheUbUkobu64sT3XWZhRhmzPt2aP4ti09XwJ
-         PN0sugQT5tV6hW8l6OczZVQPxO9lqOi4j6fYKgH52bi2rhi1Pjt3+27aRb7VbgcNjH1v
-         dIc+mizyMVVSh5EIhcVww/IGVN6pqdSQFjzf5UjKoxDLa5uoKQOSh/8sNxKE49snY9Ev
-         B4G8B/O3JUrVzwZDL2+5QLvBRTXad/zOFvTleRryvdkCBDEVwwk8o2lkolN7PBmsvXHC
-         dDbs4nzBYWfSrp5a3lzxl4jjo3r+HujlA/3Zo5o3GPSkT2kLbjm8q6aMQF2Eol0y+TSw
-         Vvkw==
-X-Forwarded-Encrypted: i=1; AJvYcCVh8nk9OE1avaOd3CcIQBzKkQ4B7yGjvYEBynrDHMbIa11NGrwmW4OiNSS6JsZCvwlIggssgur8CXbBBwZETQnU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+HpYVQxYd2jcZe4LMZ5AmZ2cdWvFd3VDehlxW+RMNBn//1nx/
-	NWJo5SU2jL/nyOpX1L6lGt84LObshA5Vgd/xyulsAmVCNU4fIOVnHlykZQeRnCI=
-X-Gm-Gg: ASbGncuH1LyHoxAr0Vv6rUnL//Wb1E9ZTY1fynzLXFqNeQbFE6mdjVzf0nyXYfjBuUE
-	ZDNxpYRa3izRlZT9Mrfg7v6S7KCKlZPoUG2QkKC7mmvKbqOtMkloXbcwGNVTp1vqnFBSGx7MBiu
-	SYNrKfxFxBm0fD1pc1T2QmGYCL3WgW8mZjTOWXpfRVgmydkHmJN1HErz9Ni2daOIu7V7Aegetx6
-	F5gQt6s8PKPyRZst6hPwAepNW+PZYwqCy/bA+b9Il2MkqM8H8Y+sHUnEVC9LhX+VVBVtMQQd7Dk
-	/152PhkiwxPm83CxyURLAg==
-X-Google-Smtp-Source: AGHT+IFTYNVf4PANRTY/pECtc8/bJhsdH1GsC3hZP7+Sn/hJKwsBL1qJz0Y+j7y+5zffKEeOjC6D9w==
-X-Received: by 2002:a17:907:2cc5:b0:aa6:8676:3b33 with SMTP id a640c23a62f3a-aac3464f929mr3338245566b.47.1735657307900;
-        Tue, 31 Dec 2024 07:01:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1735657311; x=1736262111;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PSLeprPe5FTHWRveLENPgw9n1qZNAvdFfzbO7p/6mz8=;
+        b=TrMs/ymQH9cf7Ut2bWUXxsUlvkmw3n6OXdYtBA8lIBw97aSoOwDOQapmqBBYQB0R3R
+         5VZftmwWJiRcGhSS1ectko5zcdoYHAxkf4FyIbZ0TkPAf5OKLTG63plTDeUCP0pN0s/y
+         JMFoa77W6NrPCTXz7TJqA+rrvQJwfgxL2BKDxMYJjUfKMT7UzNoQNAg6LK56t+yJkYGi
+         vuIb5RTVKaw2LnAN26rZDE0NZ7LhlkBAHuSL2RQj0QmI21DI6iRr3yysQ1JP+ca1dAzs
+         bGFFL9dz8/IOirm2tAWa8Q8XzynXo0Z1ki1priMWrYSIpG3eotPhvks1CL3LyukVWUMa
+         7CBg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2Se1CRwU2HM1nJMvzYR/ghrBBHaYHiq7doypB1DRpstSG8Ij2QKTOm3oDJorpS0oe08SNtud7GnQtKUI6sbk5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcSimparmcOd1B1thEpLLi+Rf1s3p7sb7WMqx3gNf548GHBBbg
+	9DCBUR3DlyMpy9QWqa55Mk2eFQSczj4gQe8Dc/G9s8woNHQwW0BZTOLgRNc8myE=
+X-Gm-Gg: ASbGncuQwWGZEfYW+pAx8xmp4WE0YfdvRSAncD1ss1R795DVgbkCdcKUK3LmaPT4Oe0
+	g+8RSu9TGl/JTgTj1h/x6oR8boI0VI+X68H3Vc8+XPt4S1p4TEB50odxA2CUlcBwTFTWEOBA52s
+	9Prr/RyHjPqYhP9y5ryrgH7ASZ9sMrolhhmU6LYGOmrFAHRMUhKN14A6zowyTImT2wsHJRAmWm2
+	+OJCYln7wXLoim+W6YOCs35GnWvlmaiL/D7jesiJ90joymc0IorBfy5nc09AFsxuUBUN+aepdh3
+	nzasf4v2TfNsXykjoomQAA==
+X-Google-Smtp-Source: AGHT+IGfEOn6eiAOcKUt+G4AdS/vhANNPsxMNquB07uGQCrXQb511fcC05DereMIXHKoyNQ8gZOavg==
+X-Received: by 2002:a17:907:3f0a:b0:aa6:96c4:ad62 with SMTP id a640c23a62f3a-aac34217fddmr2955209066b.58.1735657310070;
+        Tue, 31 Dec 2024 07:01:50 -0800 (PST)
 Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e89598csm1575905766b.56.2024.12.31.07.01.45
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e89598csm1575905766b.56.2024.12.31.07.01.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Dec 2024 07:01:47 -0800 (PST)
+        Tue, 31 Dec 2024 07:01:49 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
@@ -79,15 +80,17 @@ Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 1/2] dt-bindings: clock: st,stm32mp1-rcc: fix reference paths
-Date: Tue, 31 Dec 2024 16:01:40 +0100
-Message-ID: <20241231150144.4035938-1-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH 2/2] dt-bindings: clock: st,stm32mp1-rcc: complete the reference path
+Date: Tue, 31 Dec 2024 16:01:41 +0100
+Message-ID: <20241231150144.4035938-2-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241231150144.4035938-1-dario.binacchi@amarulasolutions.com>
+References: <20241231150144.4035938-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_070150_493444_79B8CBE9 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20241231_070152_000490_72F5D337 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +105,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The path of the two files was wrong even at the time they were added.
-Let's fix them so they can be correctly referenced.
+All other paths referenced in the file follow a scheme starting from the
+Linux root. The patch adjusts the single file that deviated from this
+scheme, making it consistent with the others.
 
-Fixes: 722dc8a1d5c8 ("dt-bindings: rcc: stm32: add new compatible for STM32MP13 SoC")
-Fixes: 20107d7328cc ("dt-bindings: rcc: Convert stm32mp1 rcc bindings to json-schema")
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-index 9b3aaae546cb..ca75b1972470 100644
+index ca75b1972470..e72f46e79b90 100644
 --- a/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
 +++ b/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-@@ -40,8 +40,8 @@ description: |
-           = 0x180 / 4 * 32 + 0 = 3072
+@@ -21,7 +21,7 @@ description: |
+   =================
  
-   The list of valid indices for STM32MP1 is available in:
--  include/dt-bindings/reset-controller/stm32mp1-resets.h
--  include/dt-bindings/reset-controller/stm32mp13-resets.h
-+  include/dt-bindings/reset/stm32mp1-resets.h
-+  include/dt-bindings/reset/stm32mp13-resets.h
+   All available clocks are defined as preprocessor macros in
+-  dt-bindings/clock/stm32mp1-clks.h header and can be used in device
++  include/dt-bindings/clock/stm32mp1-clks.h header and can be used in device
+   tree sources.
  
-   This file implements defines like:
-   #define LTDC_R	3072
+   Specifying softreset control of devices
 -- 
 2.43.0
 
