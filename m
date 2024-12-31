@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255A0E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 16:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F58E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 16:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gt5Dw4xDrEi3b2EABYrPiIWTk1iGh4iu7N4Ns/FgtDg=; b=mp4w/FZlsHJIl09RWmhnbAYrEb
-	8eTKgTHHRhoFJiBR7WAy3LZHysS8B0nKADuPa28EDO7ue5JV6Bxt1OAeSAeCcnIMEpXbNKbYzd60Q
-	0+TIWSDEneZvaLb0ASfVC+j8YsAI8xi+R4VD5qaKPqpW0TEEGqWZQVjTu/goPeNw84vfJ0pQyTqUS
-	g0crvxtIjmA4u88gpXDYE4CHlOY5OMx8IcVvW7+G/YTYMGKFo8KOo3wxasYKy8r7BsZ7VEtgX6o5S
-	4nPUI8xFVb9AJbg1oVeBo/ogak7w1c7doetf+GRj5BuLBOheeOmBkMriGsBTN+iQdZtNpeAZpYFgx
-	Bof6wCWA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=naNnh988TWrcGX1uN/TQIgbtiiszj8Z/oKn/tkyG3dI=; b=ZOb3PyVo28inld8xXFk9c/NlCa
+	QHiPiWOq5rUcadeTjp1YqPl4X9cbid26BUd3IoAwRVUSc70n71P9pZ2zn/Pr2UDgWBB6Sb7bB3DOF
+	xQJpfOY/myPVMDeJ80+NAft0Zz8pq0RqDXJOtlP/gdQE7orw5YPobiMBCn/jHTtx0v+96BIox9ZyK
+	hZheDg7FbWu8BLOafbflutu6XBgBsGG2wSIlemDfwHicq4wIEtU3PwK7Hd6KQuDdJMj0DetCSB2F6
+	r8ROyQkz4Q6qZAxYuuctEKx78MZOCfZL1bSIp5lwaUbRZMt2QPUs6rAiG4P9u6kvsO0cxRaueqW5E
+	yBFuSkzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSet4-00000007RwD-3hgR;
-	Tue, 31 Dec 2024 16:14:30 +0000
-Received: from smtp-28.smtpout.orange.fr ([80.12.242.28] helo=smtp.smtpout.orange.fr)
+	id 1tSfBt-00000007Tpu-1sfI;
+	Tue, 31 Dec 2024 16:33:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSert-00000007Rom-29qU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 16:13:19 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id SerbtsZWjnl6tSeretLw5U; Tue, 31 Dec 2024 17:13:07 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1735661587;
-	bh=Gt5Dw4xDrEi3b2EABYrPiIWTk1iGh4iu7N4Ns/FgtDg=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=k9YtF6MMuJKuWprW3mYB6GrQPD8cIMcGr0g9eBQMhGPWTTLWgJgsHoLG3ogeFg3aw
-	 H2kdl2KsonchiYdETtMPHkTP1yVmuuoXlEgOwzXEdcRd+d5jMBKxDbWLYa9K11CLQ5
-	 8vAvAYRnWYWj9nk1hAUdwds4TrtoXOf9o7Bdh9/qw10iFXk8raEtVqHZOkDAsqbClQ
-	 WIlecDRecgYVjJT2v9vQOvO5lbaR7ExDe2tHSBk2bcnokl/3kx3b7OiyreAPgWoKee
-	 8OHyeZ7YSoyOXmpbzAAgAXRZbqE+m6DlwY5s3KntYn624d7H4zfheL+BDEIbOqQcqO
-	 hpdao8YiEnLWA==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Tue, 31 Dec 2024 17:13:07 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <352592c2-e1a4-4d42-b1d2-f4b87ede2974@wanadoo.fr>
-Date: Tue, 31 Dec 2024 17:12:57 +0100
+	id 1tSfAk-00000007Tgo-3CkQ;
+	Tue, 31 Dec 2024 16:32:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 823A7A40A91;
+	Tue, 31 Dec 2024 16:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16F8C4CED2;
+	Tue, 31 Dec 2024 16:32:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735662765;
+	bh=OjfLAGmHkWtgKweoyUxQQFG2s2A/m0vcSE7kkcaRedo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FAoc79KjudMbrLRJmA/ELEDNWqQoOumJ90lc00KwGoOhj0tV4HX+5saWXCoOLjiBf
+	 ROapW+3/q1Rbj59ZbcWDx4IO1Sjg+YVcFHcOuA/t06lMnMYndlDRnuxl0LPWN74x2p
+	 wRKxQ/0dEJHXu0IFYR4JeSHHBf9WMsEjM6691PMpDPKD99LCDU35Ob1QWOWpqyVlsj
+	 TZ1ZNDkfMJvC3KERmj7bmY27zeNcfiwsvK852febDqH45D3DbYuk5IUQ7gXzRSxhvN
+	 fU99cMGEGGFSIt1IJ/FXQpjFe6q7HD1FMCxG8s2SCk7nQSZrDpG+MJOjz/JoRoZmDE
+	 Aq7OCwYUPFV+Q==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] phy: Use (of|device)_property_present() for non-boolean properties
+Date: Tue, 31 Dec 2024 10:31:20 -0600
+Message-ID: <20241231163121.241543-1-robh@kernel.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] soc: ti: PRUSS OCP configuration
-To: Basharath Hussain Khaja <basharath@couthit.com>, nm@ti.com,
- ssantosh@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- pratheesh@ti.com, prajith@ti.com, vigneshr@ti.com, danishanwar@ti.com,
- praneeth@ti.com, srk@ti.com, rogerq@ti.com, afd@ti.com, krishna@couthit.com,
- pmohan@couthit.com, mohan@couthit.com, parvathi@couthit.com
-References: <20241223135550.6898-1-basharath@couthit.com>
- <20241223135550.6898-2-basharath@couthit.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20241223135550.6898-2-basharath@couthit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_081317_981823_51EB319F 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20241231_083246_926920_C3793F02 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 23/12/2024 à 14:55, Basharath Hussain Khaja a écrit :
-> From: Roger Quadros <rogerq@ti.com>
-> 
-> Updates OCP master port configuration to enable memory access outside
-> of the PRU-ICSS subsystem.
-> 
-> This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
-> to enable or disable the OCP master ports (applicable only on SoCs
-> using OCP interconnect like the OMAP family).
-> 
-> Signed-off-by: Roger Quadros <rogerq@ti.com>
-> Signed-off-by: Andrew F. Davis <afd@ti.com>
-> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-> ---
->   drivers/soc/ti/pruss.c       | 77 +++++++++++++++++++++++++++++++++++-
->   include/linux/pruss_driver.h |  6 +++
->   2 files changed, 82 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
-> index d7634bf5413a..a0e233da052c 100644
-> --- a/drivers/soc/ti/pruss.c
-> +++ b/drivers/soc/ti/pruss.c
-> @@ -25,14 +25,19 @@
->   #include <linux/slab.h>
->   #include "pruss.h"
->   
-> +#define SYSCFG_STANDBY_INIT	BIT(4)
-> +#define SYSCFG_SUB_MWAIT_READY	BIT(5)
+The use of (of|device)_property_read_bool() for non-boolean properties
+is deprecated in favor of (of|device)_property_present() when testing
+for property presence.
 
-Hi,
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ drivers/phy/mediatek/phy-mtk-tphy.c           | 4 ++--
+ drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-Nitpick: #include <linux/bits.h>?
-
-CJ
-
+diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
+index 3f7095ec5978..d36f68dd622e 100644
+--- a/drivers/phy/mediatek/phy-mtk-tphy.c
++++ b/drivers/phy/mediatek/phy-mtk-tphy.c
+@@ -1215,7 +1215,7 @@ static int phy_type_syscon_get(struct mtk_phy_instance *instance,
+ 	int ret;
+ 
+ 	/* type switch function is optional */
+-	if (!of_property_read_bool(dn, "mediatek,syscon-type"))
++	if (!of_property_present(dn, "mediatek,syscon-type"))
+ 		return 0;
+ 
+ 	ret = of_parse_phandle_with_fixed_args(dn, "mediatek,syscon-type",
+@@ -1278,7 +1278,7 @@ static int phy_efuse_get(struct mtk_tphy *tphy, struct mtk_phy_instance *instanc
+ 	}
+ 
+ 	/* software efuse is optional */
+-	instance->efuse_sw_en = device_property_read_bool(dev, "nvmem-cells");
++	instance->efuse_sw_en = device_property_present(dev, "nvmem-cells");
+ 	if (!instance->efuse_sw_en)
+ 		return 0;
+ 
+diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+index 96f3d868a526..b5e6a864deeb 100644
+--- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
++++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+@@ -440,7 +440,7 @@ static int rockchip_usb2phy_extcon_register(struct rockchip_usb2phy *rphy)
+ 	struct extcon_dev *edev;
+ 	int ret;
+ 
+-	if (of_property_read_bool(node, "extcon")) {
++	if (of_property_present(node, "extcon")) {
+ 		edev = extcon_get_edev_by_phandle(rphy->dev, 0);
+ 		if (IS_ERR(edev))
+ 			return dev_err_probe(rphy->dev, PTR_ERR(edev),
+@@ -1323,7 +1323,7 @@ static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
+ 			goto out;
+ 		}
+ 
+-		if (!of_property_read_bool(rphy->dev->of_node, "extcon")) {
++		if (!of_property_present(rphy->dev->of_node, "extcon")) {
+ 			/* do initial sync of usb state */
+ 			id = property_enabled(rphy->grf, &rport->port_cfg->utmi_id);
+ 			extcon_set_state_sync(rphy->edev, EXTCON_USB_HOST, !id);
+-- 
+2.45.2
 
 
