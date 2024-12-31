@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46145E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5614BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UuZ9mO8I8zJLKMG5IcAoKZ/E8Oap8yaB/NS6xusX9ds=; b=byXzvmijp6b15I1bFusWVaFC8E
-	uj1zEIgoRYGWZLZ2lyPeu0dc2ecHTj8MhjJJQAYQDPlpSsnrpCFMMw4bQgwyd8zJnCeWomMNMVKWH
-	WJI6vgnbd1S+yy+dVDJIv/vmwA+NmtHKlsYLY8Khrg0a7Cyco4ShphmtCQUwP4D4gfK801ZjYE01c
-	flZZvxJsGaz4l2km41kKmyWf9iRwO6c9sXJfiP1v/CEJ6I9LNSXx2sZE3xg5ZhFWF99j2lR4mPNxh
-	hVIVBgwd84nqR4YHxkvBj8m+aR1U9DUJV6SGu6Xy9NVWWB+E64LH0bZhaEasnOMM1la4OGlj+yXRa
-	JLfkSD7g==;
+	bh=4qJnuH7S6MpM5tkzDRoo6IcHRYj+OA+R2V2tduOh7J4=; b=eZ+Sz2a1ThFo2PrQasTwpfXpzd
+	v8fW7vd2gklhPATt4i7WLCPgs1DF6toQIWhfPUyHNOKO1uNJ7LaZedGN0SUQREnA/opDXO9TK+SFq
+	PYQFuBlrwtAbR69TWcst1S6QVzrn/8PmaKkrE8IGe45auYoyXXvIrZSyKA+I1UkPVhdd1IxZL1v1l
+	yC3RSwf+463J3Ye5x/ui+Wzj12DaMPeu0xonpY7g6O1gIY+xszqwVbYwKt/ktaBBYQYgbzR0GHB4W
+	ZohNBl1dbM6SfcCf71ZlzvuFySBJnvI5zGEsRJ4nZk3qPiPLlGIJoA9tXUQfSe/spHTQWgdub/rJ7
+	ItXQQnQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYPe-00000006v1S-2dXi;
-	Tue, 31 Dec 2024 09:19:42 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1tSYQr-00000006vDQ-1JzE;
+	Tue, 31 Dec 2024 09:20:57 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYEu-00000006t5o-2mm2;
-	Tue, 31 Dec 2024 09:08:39 +0000
+	id 1tSYEy-00000006t7n-01fx;
+	Tue, 31 Dec 2024 09:08:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=UuZ9m
-	O8I8zJLKMG5IcAoKZ/E8Oap8yaB/NS6xusX9ds=; b=AaKvZt3GFI3UcpFXLL0G2
-	ny7MGvPpk901ZHO/jJUjHfmx2v1pvI49cQNg9e35XzVVtDxNYXXzrYKWudJiR0NS
-	YPKUZi5JJ5UVQrYr5yIaE6IVK3IOrmjk1pF+TxVsR1sp/P16vYBnecsl+wSNzX8a
-	o++D6oCqwaRkN7bXR2lmTY=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=4qJnu
+	H7S6MpM5tkzDRoo6IcHRYj+OA+R2V2tduOh7J4=; b=ebqwf5PVQOKH8O5DxmWE1
+	1lr/DCe7ujBvI2/TpZo13xqYkMw9WosijqpbQg7PewpN+rveHjH1My/U9OsKgtg+
+	M0f6lu+mN7HF09MnasXVRWtgxkBHewQOjHMepNv086CMy/Y5nnvEN9nYuM90nk9F
+	qen1I1gA1z+aqMVKFvT/yM=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBHEQp0tHNnooOKCw--.15748S11;
-	Tue, 31 Dec 2024 17:08:17 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBHEQp0tHNnooOKCw--.15748S4;
+	Tue, 31 Dec 2024 17:08:11 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -49,24 +49,24 @@ Cc: hjc@rock-chips.com,
 	daniel@fooishbar.org,
 	Andy Yan <andy.yan@rock-chips.com>,
 	Michael Riesch <michael.riesch@wolfvision.net>
-Subject: [PATCH v8 9/9] drm/rockchip: vop2: Add support for rk3576
-Date: Tue, 31 Dec 2024 17:07:52 +0800
-Message-ID: <20241231090802.251787-10-andyshrk@163.com>
+Subject: [PATCH v8 2/9] drm/rockchip: vop2: Add platform specific callback
+Date: Tue, 31 Dec 2024 17:07:45 +0800
+Message-ID: <20241231090802.251787-3-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241231090802.251787-1-andyshrk@163.com>
 References: <20241231090802.251787-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBHEQp0tHNnooOKCw--.15748S11
-X-Coremail-Antispam: 1Uf129KBjvAXoWDCFW3Jry5CFyDCryDur13CFg_yoW7ZrWkuo
-	W7CFnIvryxt34Sk395GrnrXryxWF4vkw4kur4IyFy2k3y3X3y5Cr18t3ZFqF42y3y3CFWr
-	A34vq3WrZFWrZw1xn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU4sjjDUUUU
+X-CM-TRANSID: _____wBHEQp0tHNnooOKCw--.15748S4
+X-Coremail-Antispam: 1Uf129KBjvAXoWDtFWDJF4kJw4UJw1kXw4fKrg_yoWfZw4kZo
+	W7uFnYqr4Iqw1rKrZrWr17XFy7W348Can7Cr17XFnxZ39xX3yjkr92q3ZrtF17Jr15Cay5
+	Aws5t3WrZa1fXFs7n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUIco2UUUUU
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBDGXmdzr9Z-pQAAsX
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqAvGXmdzr9Z++wAAsT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_010837_258711_C1D23F7F 
-X-CRM114-Status: GOOD (  24.34  )
+X-CRM114-CacheID: sfid-20241231_010840_709575_0BE20A6F 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,20 +83,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-VOP2 on rk3576:
-Three video ports:
-VP0 Max 4096x2160
-VP1 Max 2560x1600
-VP2 Max 1920x1080
-
-2 4K Cluster windows with AFBC/RFBC, line RGB and YUV
-4 Esmart windows with line RGB/YUV support:
-Esmart0/1: 4K
-Esmart2/3: 2k, or worked together as a single 4K plane at shared
-line buffer mode.
-
-Compared to the previous VOP, another difference is that each VP
-has its own independent vsync interrupt number.
+The VOP interface mux, overlay, background delay cycle configuration
+of different SOC are much different. Add platform specific callback
+ops to let the core driver look cleaner and more refined.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
@@ -104,521 +93,1567 @@ Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
 
 ---
 
-(no changes since v6)
+Changes in v8:
+- Remove redundant blank line before drm_bus_format_enum_list
+- Add a blank line before DRM_ENUM_NAME_FN
 
-Changes in v6:
--  More specific explanation about the AXI_BUS_ID register bit of
-   cluster window.
-
-Changes in v5:
-- Add axi id configuration
-- Remove the non-existent CBCR scale register.
-
-Changes in v3:
-- Share the alpha setup function with rk3568
-- recoder the code block by soc
+Changes in v7:
+- Fix rk3588 dp+dsi maxclk verification
 
 Changes in v2:
 - Add platform specific callback
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 144 ++-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  87 ++
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 950 +++++++++++++++++--
- 3 files changed, 1056 insertions(+), 125 deletions(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 1145 +-----------------
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  168 +++
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c |  992 +++++++++++++++
+ 3 files changed, 1180 insertions(+), 1125 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 56590708407e..784d2ddc04bc 100644
+index 8e065199acfc..3d3500904e91 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1276,6 +1276,9 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 		vop2_win_write(win, VOP2_WIN_AXI_UV_R_ID, win->data->axi_uv_r_id);
- 	}
+@@ -33,7 +33,6 @@
+ #include <drm/drm_vblank.h>
  
-+	if (vop2->version >= VOP_VERSION_RK3576)
-+		vop2_win_write(win, VOP2_WIN_VP_SEL, vp->id);
-+
- 	if (vop2_cluster_window(win))
- 		vop2_win_write(win, VOP2_WIN_AFBC_HALF_BLOCK_EN, half_block_en);
+ #include <uapi/linux/videodev2.h>
+-#include <dt-bindings/soc/rockchip,vop2.h>
  
-@@ -1340,6 +1343,11 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 		else
- 			vop2_win_write(win, VOP2_WIN_AFBC_BLOCK_SPLIT_EN, 0);
- 
-+		if (vop2->version >= VOP_VERSION_RK3576) {
-+			vop2_win_write(win, VOP2_WIN_AFBC_PLD_OFFSET_EN, 1);
-+			vop2_win_write(win, VOP2_WIN_AFBC_PLD_OFFSET, yrgb_mst);
-+		}
-+
- 		transform_offset = vop2_afbc_transform_offset(pstate, half_block_en);
- 		vop2_win_write(win, VOP2_WIN_AFBC_HDR_PTR, yrgb_mst);
- 		vop2_win_write(win, VOP2_WIN_AFBC_PIC_SIZE, act_info);
-@@ -2117,6 +2125,56 @@ static const struct drm_crtc_funcs vop2_crtc_funcs = {
- 	.late_register = vop2_crtc_late_register,
+ #include "rockchip_drm_gem.h"
+ #include "rockchip_drm_vop2.h"
+@@ -102,143 +101,6 @@ enum vop2_afbc_format {
+ 	VOP2_AFBC_FMT_INVALID = -1,
  };
  
-+static irqreturn_t rk3576_vp_isr(int irq, void *data)
-+{
-+	struct vop2_video_port *vp = data;
-+	struct vop2 *vop2 = vp->vop2;
-+	struct drm_crtc *crtc = &vp->crtc;
-+	uint32_t irqs;
-+	int ret = IRQ_NONE;
-+
-+	/*
-+	 * The irq is shared with the iommu. If the runtime-pm state of the
-+	 * vop2-device is disabled the irq has to be targeted at the iommu.
-+	 */
-+	if (!pm_runtime_get_if_in_use(vop2->dev))
-+		return IRQ_NONE;
-+
-+	irqs = vop2_readl(vop2, RK3568_VP_INT_STATUS(vp->id));
-+	vop2_writel(vop2, RK3568_VP_INT_CLR(vp->id), irqs << 16 | irqs);
-+
-+	if (irqs & VP_INT_DSP_HOLD_VALID) {
-+		complete(&vp->dsp_hold_completion);
-+		ret = IRQ_HANDLED;
-+	}
-+
-+	if (irqs & VP_INT_FS_FIELD) {
-+		drm_crtc_handle_vblank(crtc);
-+		spin_lock(&crtc->dev->event_lock);
-+		if (vp->event) {
-+			u32 val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
-+
-+			if (!(val & BIT(vp->id))) {
-+				drm_crtc_send_vblank_event(crtc, vp->event);
-+				vp->event = NULL;
-+				drm_crtc_vblank_put(crtc);
-+			}
-+		}
-+		spin_unlock(&crtc->dev->event_lock);
-+
-+		ret = IRQ_HANDLED;
-+	}
-+
-+	if (irqs & VP_INT_POST_BUF_EMPTY) {
-+		drm_err_ratelimited(vop2->drm, "POST_BUF_EMPTY irq err at vp%d\n", vp->id);
-+		ret = IRQ_HANDLED;
-+	}
-+
-+	pm_runtime_put(vop2->dev);
-+
-+	return ret;
-+}
-+
- static irqreturn_t vop2_isr(int irq, void *data)
+-union vop2_alpha_ctrl {
+-	u32 val;
+-	struct {
+-		/* [0:1] */
+-		u32 color_mode:1;
+-		u32 alpha_mode:1;
+-		/* [2:3] */
+-		u32 blend_mode:2;
+-		u32 alpha_cal_mode:1;
+-		/* [5:7] */
+-		u32 factor_mode:3;
+-		/* [8:9] */
+-		u32 alpha_en:1;
+-		u32 src_dst_swap:1;
+-		u32 reserved:6;
+-		/* [16:23] */
+-		u32 glb_alpha:8;
+-	} bits;
+-};
+-
+-struct vop2_alpha {
+-	union vop2_alpha_ctrl src_color_ctrl;
+-	union vop2_alpha_ctrl dst_color_ctrl;
+-	union vop2_alpha_ctrl src_alpha_ctrl;
+-	union vop2_alpha_ctrl dst_alpha_ctrl;
+-};
+-
+-struct vop2_alpha_config {
+-	bool src_premulti_en;
+-	bool dst_premulti_en;
+-	bool src_pixel_alpha_en;
+-	bool dst_pixel_alpha_en;
+-	u16 src_glb_alpha_value;
+-	u16 dst_glb_alpha_value;
+-};
+-
+-struct vop2_win {
+-	struct vop2 *vop2;
+-	struct drm_plane base;
+-	const struct vop2_win_data *data;
+-	struct regmap_field *reg[VOP2_WIN_MAX_REG];
+-
+-	/**
+-	 * @win_id: graphic window id, a cluster may be split into two
+-	 * graphics windows.
+-	 */
+-	u8 win_id;
+-	u8 delay;
+-	u32 offset;
+-
+-	enum drm_plane_type type;
+-};
+-
+-struct vop2_video_port {
+-	struct drm_crtc crtc;
+-	struct vop2 *vop2;
+-	struct clk *dclk;
+-	unsigned int id;
+-	const struct vop2_video_port_data *data;
+-
+-	struct completion dsp_hold_completion;
+-
+-	/**
+-	 * @win_mask: Bitmask of windows attached to the video port;
+-	 */
+-	u32 win_mask;
+-
+-	struct vop2_win *primary_plane;
+-	struct drm_pending_vblank_event *event;
+-
+-	unsigned int nlayers;
+-};
+-
+-struct vop2 {
+-	struct device *dev;
+-	struct drm_device *drm;
+-	struct vop2_video_port vps[ROCKCHIP_MAX_CRTC];
+-
+-	const struct vop2_data *data;
+-	/*
+-	 * Number of windows that are registered as plane, may be less than the
+-	 * total number of hardware windows.
+-	 */
+-	u32 registered_num_wins;
+-
+-	struct resource *res;
+-	void __iomem *regs;
+-	struct regmap *map;
+-
+-	struct regmap *sys_grf;
+-	struct regmap *vop_grf;
+-	struct regmap *vo1_grf;
+-	struct regmap *sys_pmu;
+-
+-	/* physical map length of vop2 register */
+-	u32 len;
+-
+-	void __iomem *lut_regs;
+-
+-	/* protects crtc enable/disable */
+-	struct mutex vop2_lock;
+-
+-	int irq;
+-
+-	/*
+-	 * Some global resources are shared between all video ports(crtcs), so
+-	 * we need a ref counter here.
+-	 */
+-	unsigned int enable_count;
+-	struct clk *hclk;
+-	struct clk *aclk;
+-	struct clk *pclk;
+-
+-	/* optional internal rgb encoder */
+-	struct rockchip_rgb *rgb;
+-
+-	/* must be put at the end of the struct */
+-	struct vop2_win win[];
+-};
+-
+-#define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
+-					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
+-
+-#define vop2_output_if_is_dp(x)		((x) == ROCKCHIP_VOP2_EP_DP0 || \
+-					 (x) == ROCKCHIP_VOP2_EP_DP1)
+-
+-#define vop2_output_if_is_edp(x)	((x) == ROCKCHIP_VOP2_EP_EDP0 || \
+-					 (x) == ROCKCHIP_VOP2_EP_EDP1)
+-
+-#define vop2_output_if_is_mipi(x)	((x) == ROCKCHIP_VOP2_EP_MIPI0 || \
+-					 (x) == ROCKCHIP_VOP2_EP_MIPI1)
+-
+-#define vop2_output_if_is_lvds(x)	((x) == ROCKCHIP_VOP2_EP_LVDS0 || \
+-					 (x) == ROCKCHIP_VOP2_EP_LVDS1)
+-
+-#define vop2_output_if_is_dpi(x)	((x) == ROCKCHIP_VOP2_EP_RGB0)
+-
+ /*
+  * bus-format types.
+  */
+@@ -272,15 +134,6 @@ static DRM_ENUM_NAME_FN(drm_get_bus_format_name, drm_bus_format_enum_list)
+ 
+ static const struct regmap_config vop2_regmap_config;
+ 
+-static struct vop2_video_port *to_vop2_video_port(struct drm_crtc *crtc)
+-{
+-	return container_of(crtc, struct vop2_video_port, crtc);
+-}
+-
+-static struct vop2_win *to_vop2_win(struct drm_plane *p)
+-{
+-	return container_of(p, struct vop2_win, base);
+-}
+ 
+ static void vop2_lock(struct vop2 *vop2)
  {
- 	struct vop2 *vop2 = data;
-@@ -2132,41 +2190,43 @@ static irqreturn_t vop2_isr(int irq, void *data)
- 	if (!pm_runtime_get_if_in_use(vop2->dev))
- 		return IRQ_NONE;
+@@ -292,44 +145,6 @@ static void vop2_unlock(struct vop2 *vop2)
+ 	mutex_unlock(&vop2->vop2_lock);
+ }
  
--	for (i = 0; i < vop2_data->nr_vps; i++) {
--		struct vop2_video_port *vp = &vop2->vps[i];
--		struct drm_crtc *crtc = &vp->crtc;
--		u32 irqs;
-+	if (vop2->version < VOP_VERSION_RK3576) {
-+		for (i = 0; i < vop2_data->nr_vps; i++) {
-+			struct vop2_video_port *vp = &vop2->vps[i];
-+			struct drm_crtc *crtc = &vp->crtc;
-+			u32 irqs;
+-static void vop2_writel(struct vop2 *vop2, u32 offset, u32 v)
+-{
+-	regmap_write(vop2->map, offset, v);
+-}
+-
+-static void vop2_vp_write(struct vop2_video_port *vp, u32 offset, u32 v)
+-{
+-	regmap_write(vp->vop2->map, vp->data->offset + offset, v);
+-}
+-
+-static u32 vop2_readl(struct vop2 *vop2, u32 offset)
+-{
+-	u32 val;
+-
+-	regmap_read(vop2->map, offset, &val);
+-
+-	return val;
+-}
+-
+-static u32 vop2_vp_read(struct vop2_video_port *vp, u32 offset)
+-{
+-	u32 val;
+-
+-	regmap_read(vp->vop2->map, vp->data->offset + offset, &val);
+-
+-	return val;
+-}
+-
+-static void vop2_win_write(const struct vop2_win *win, unsigned int reg, u32 v)
+-{
+-	regmap_field_write(win->reg[reg], v);
+-}
+-
+-static bool vop2_cluster_window(const struct vop2_win *win)
+-{
+-	return win->data->feature & WIN_FEATURE_CLUSTER;
+-}
+-
+ /*
+  * Note:
+  * The write mask function is documented but missing on rk3566/8, writes
+@@ -1724,6 +1539,7 @@ static void vop2_dither_setup(struct drm_crtc *crtc, u32 *dsp_ctrl)
+ static void vop2_post_config(struct drm_crtc *crtc)
+ {
+ 	struct vop2_video_port *vp = to_vop2_video_port(crtc);
++	struct vop2 *vop2 = vp->vop2;
+ 	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
+ 	u16 vtotal = mode->crtc_vtotal;
+ 	u16 hdisplay = mode->crtc_hdisplay;
+@@ -1734,18 +1550,10 @@ static void vop2_post_config(struct drm_crtc *crtc)
+ 	u32 top_margin = 100, bottom_margin = 100;
+ 	u16 hsize = hdisplay * (left_margin + right_margin) / 200;
+ 	u16 vsize = vdisplay * (top_margin + bottom_margin) / 200;
+-	u16 hsync_len = mode->crtc_hsync_end - mode->crtc_hsync_start;
+ 	u16 hact_end, vact_end;
+ 	u32 val;
+-	u32 bg_dly;
+-	u32 pre_scan_dly;
+-
+-	bg_dly = vp->data->pre_scan_max_dly[3];
+-	vop2_writel(vp->vop2, RK3568_VP_BG_MIX_CTRL(vp->id),
+-		    FIELD_PREP(RK3568_VP_BG_MIX_CTRL__BG_DLY, bg_dly));
  
--		irqs = vop2_readl(vop2, RK3568_VP_INT_STATUS(vp->id));
--		vop2_writel(vop2, RK3568_VP_INT_CLR(vp->id), irqs << 16 | irqs);
-+			irqs = vop2_readl(vop2, RK3568_VP_INT_STATUS(vp->id));
-+			vop2_writel(vop2, RK3568_VP_INT_CLR(vp->id), irqs << 16 | irqs);
+-	pre_scan_dly = ((bg_dly + (hdisplay >> 1) - 1) << 16) | hsync_len;
+-	vop2_vp_write(vp, RK3568_VP_PRE_SCAN_HTIMING, pre_scan_dly);
++	vop2->ops->setup_bg_dly(vp);
  
--		if (irqs & VP_INT_DSP_HOLD_VALID) {
--			complete(&vp->dsp_hold_completion);
--			ret = IRQ_HANDLED;
+ 	vsize = rounddown(vsize, 2);
+ 	hsize = rounddown(hsize, 2);
+@@ -1781,347 +1589,6 @@ static void vop2_post_config(struct drm_crtc *crtc)
+ 	vop2_vp_write(vp, RK3568_VP_DSP_BG, 0);
+ }
+ 
+-static unsigned long rk3568_set_intf_mux(struct vop2_video_port *vp, int id, u32 polflags)
+-{
+-	struct vop2 *vop2 = vp->vop2;
+-	struct drm_crtc *crtc = &vp->crtc;
+-	u32 die, dip;
+-
+-	die = vop2_readl(vop2, RK3568_DSP_IF_EN);
+-	dip = vop2_readl(vop2, RK3568_DSP_IF_POL);
+-
+-	switch (id) {
+-	case ROCKCHIP_VOP2_EP_RGB0:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_RGB_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_RGB |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_RGB_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL, polflags);
+-		if (polflags & POLFLAG_DCLK_INV)
+-			regmap_write(vop2->sys_grf, RK3568_GRF_VO_CON1, BIT(3 + 16) | BIT(3));
+-		else
+-			regmap_write(vop2->sys_grf, RK3568_GRF_VO_CON1, BIT(3 + 16));
+-		break;
+-	case ROCKCHIP_VOP2_EP_HDMI0:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_HDMI_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_HDMI |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_HDMI_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__HDMI_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__HDMI_PIN_POL, polflags);
+-		break;
+-	case ROCKCHIP_VOP2_EP_EDP0:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_EDP_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_EDP |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_EDP_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__EDP_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__EDP_PIN_POL, polflags);
+-		break;
+-	case ROCKCHIP_VOP2_EP_MIPI0:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_MIPI0_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_MIPI0 |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_MIPI0_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__MIPI_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__MIPI_PIN_POL, polflags);
+-		break;
+-	case ROCKCHIP_VOP2_EP_MIPI1:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_MIPI1_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_MIPI1 |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_MIPI1_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__MIPI_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__MIPI_PIN_POL, polflags);
+-		break;
+-	case ROCKCHIP_VOP2_EP_LVDS0:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_LVDS0_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_LVDS0 |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_LVDS0_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL, polflags);
+-		break;
+-	case ROCKCHIP_VOP2_EP_LVDS1:
+-		die &= ~RK3568_SYS_DSP_INFACE_EN_LVDS1_MUX;
+-		die |= RK3568_SYS_DSP_INFACE_EN_LVDS1 |
+-			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_LVDS1_MUX, vp->id);
+-		dip &= ~RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL;
+-		dip |= FIELD_PREP(RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL, polflags);
+-		break;
+-	default:
+-		drm_err(vop2->drm, "Invalid interface id %d on vp%d\n", id, vp->id);
+-		return 0;
+-	}
+-
+-	dip |= RK3568_DSP_IF_POL__CFG_DONE_IMD;
+-
+-	vop2_writel(vop2, RK3568_DSP_IF_EN, die);
+-	vop2_writel(vop2, RK3568_DSP_IF_POL, dip);
+-
+-	return crtc->state->adjusted_mode.crtc_clock  * 1000LL;
+-}
+-
+-/*
+- * calc the dclk on rk3588
+- * the available div of dclk is 1, 2, 4
+- */
+-static unsigned long rk3588_calc_dclk(unsigned long child_clk, unsigned long max_dclk)
+-{
+-	if (child_clk * 4 <= max_dclk)
+-		return child_clk * 4;
+-	else if (child_clk * 2 <= max_dclk)
+-		return child_clk * 2;
+-	else if (child_clk <= max_dclk)
+-		return child_clk;
+-	else
+-		return 0;
+-}
+-
+-/*
+- * 4 pixclk/cycle on rk3588
+- * RGB/eDP/HDMI: if_pixclk >= dclk_core
+- * DP: dp_pixclk = dclk_out <= dclk_core
+- * DSI: mipi_pixclk <= dclk_out <= dclk_core
+- */
+-static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+-					 int *dclk_core_div, int *dclk_out_div,
+-					 int *if_pixclk_div, int *if_dclk_div)
+-{
+-	struct vop2 *vop2 = vp->vop2;
+-	struct drm_crtc *crtc = &vp->crtc;
+-	struct drm_display_mode *adjusted_mode = &crtc->state->adjusted_mode;
+-	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(crtc->state);
+-	int output_mode = vcstate->output_mode;
+-	unsigned long v_pixclk = adjusted_mode->crtc_clock * 1000LL; /* video timing pixclk */
+-	unsigned long dclk_core_rate = v_pixclk >> 2;
+-	unsigned long dclk_rate = v_pixclk;
+-	unsigned long dclk_out_rate;
+-	unsigned long if_pixclk_rate;
+-	int K = 1;
+-
+-	if (vop2_output_if_is_hdmi(id)) {
+-		/*
+-		 * K = 2: dclk_core = if_pixclk_rate > if_dclk_rate
+-		 * K = 1: dclk_core = hdmie_edp_dclk > if_pixclk_rate
+-		 */
+-		if (output_mode == ROCKCHIP_OUT_MODE_YUV420) {
+-			dclk_rate = dclk_rate >> 1;
+-			K = 2;
 -		}
 -
--		if (irqs & VP_INT_FS_FIELD) {
--			drm_crtc_handle_vblank(crtc);
--			spin_lock(&crtc->dev->event_lock);
--			if (vp->event) {
--				u32 val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
-+			if (irqs & VP_INT_DSP_HOLD_VALID) {
-+				complete(&vp->dsp_hold_completion);
-+				ret = IRQ_HANDLED;
-+			}
- 
--				if (!(val & BIT(vp->id))) {
--					drm_crtc_send_vblank_event(crtc, vp->event);
--					vp->event = NULL;
--					drm_crtc_vblank_put(crtc);
-+			if (irqs & VP_INT_FS_FIELD) {
-+				drm_crtc_handle_vblank(crtc);
-+				spin_lock(&crtc->dev->event_lock);
-+				if (vp->event) {
-+					u32 val = vop2_readl(vop2, RK3568_REG_CFG_DONE);
-+
-+					if (!(val & BIT(vp->id))) {
-+						drm_crtc_send_vblank_event(crtc, vp->event);
-+						vp->event = NULL;
-+						drm_crtc_vblank_put(crtc);
-+					}
- 				}
--			}
--			spin_unlock(&crtc->dev->event_lock);
-+				spin_unlock(&crtc->dev->event_lock);
- 
--			ret = IRQ_HANDLED;
+-		if_pixclk_rate = (dclk_core_rate << 1) / K;
+-		/*
+-		 * if_dclk_rate = dclk_core_rate / K;
+-		 * *if_pixclk_div = dclk_rate / if_pixclk_rate;
+-		 * *if_dclk_div = dclk_rate / if_dclk_rate;
+-		 */
+-		*if_pixclk_div = 2;
+-		*if_dclk_div = 4;
+-	} else if (vop2_output_if_is_edp(id)) {
+-		/*
+-		 * edp_pixclk = edp_dclk > dclk_core
+-		 */
+-		if_pixclk_rate = v_pixclk / K;
+-		dclk_rate = if_pixclk_rate * K;
+-		/*
+-		 * *if_pixclk_div = dclk_rate / if_pixclk_rate;
+-		 * *if_dclk_div = *if_pixclk_div;
+-		 */
+-		*if_pixclk_div = K;
+-		*if_dclk_div = K;
+-	} else if (vop2_output_if_is_dp(id)) {
+-		if (output_mode == ROCKCHIP_OUT_MODE_YUV420)
+-			dclk_out_rate = v_pixclk >> 3;
+-		else
+-			dclk_out_rate = v_pixclk >> 2;
+-
+-		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
+-		if (!dclk_rate) {
+-			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld Hz\n",
+-				dclk_out_rate);
+-			return 0;
 -		}
-+				ret = IRQ_HANDLED;
-+			}
- 
--		if (irqs & VP_INT_POST_BUF_EMPTY) {
--			drm_err_ratelimited(vop2->drm,
--					    "POST_BUF_EMPTY irq err at vp%d\n",
--					    vp->id);
--			ret = IRQ_HANDLED;
-+			if (irqs & VP_INT_POST_BUF_EMPTY) {
-+				drm_err_ratelimited(vop2->drm,
-+						    "POST_BUF_EMPTY irq err at vp%d\n",
-+						    vp->id);
-+				ret = IRQ_HANDLED;
-+			}
- 		}
+-		*dclk_out_div = dclk_rate / dclk_out_rate;
+-	} else if (vop2_output_if_is_mipi(id)) {
+-		if_pixclk_rate = dclk_core_rate / K;
+-		/*
+-		 * dclk_core = dclk_out * K = if_pixclk * K = v_pixclk / 4
+-		 */
+-		dclk_out_rate = if_pixclk_rate;
+-		/*
+-		 * dclk_rate = N * dclk_core_rate N = (1,2,4 ),
+-		 * we get a little factor here
+-		 */
+-		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
+-		if (!dclk_rate) {
+-			drm_err(vop2->drm, "MIPI dclk out of range, dclk_out_rate: %ld Hz\n",
+-				dclk_out_rate);
+-			return 0;
+-		}
+-		*dclk_out_div = dclk_rate / dclk_out_rate;
+-		/*
+-		 * mipi pixclk == dclk_out
+-		 */
+-		*if_pixclk_div = 1;
+-	} else if (vop2_output_if_is_dpi(id)) {
+-		dclk_rate = v_pixclk;
+-	}
+-
+-	*dclk_core_div = dclk_rate / dclk_core_rate;
+-	*if_pixclk_div = ilog2(*if_pixclk_div);
+-	*if_dclk_div = ilog2(*if_dclk_div);
+-	*dclk_core_div = ilog2(*dclk_core_div);
+-	*dclk_out_div = ilog2(*dclk_out_div);
+-
+-	drm_dbg(vop2->drm, "dclk: %ld, pixclk_div: %d, dclk_div: %d\n",
+-		dclk_rate, *if_pixclk_div, *if_dclk_div);
+-
+-	return dclk_rate;
+-}
+-
+-/*
+- * MIPI port mux on rk3588:
+- * 0: Video Port2
+- * 1: Video Port3
+- * 3: Video Port 1(MIPI1 only)
+- */
+-static u32 rk3588_get_mipi_port_mux(int vp_id)
+-{
+-	if (vp_id == 1)
+-		return 3;
+-	else if (vp_id == 3)
+-		return 1;
+-	else
+-		return 0;
+-}
+-
+-static u32 rk3588_get_hdmi_pol(u32 flags)
+-{
+-	u32 val;
+-
+-	val = (flags & DRM_MODE_FLAG_NHSYNC) ? BIT(HSYNC_POSITIVE) : 0;
+-	val |= (flags & DRM_MODE_FLAG_NVSYNC) ? BIT(VSYNC_POSITIVE) : 0;
+-
+-	return val;
+-}
+-
+-static unsigned long rk3588_set_intf_mux(struct vop2_video_port *vp, int id, u32 polflags)
+-{
+-	struct vop2 *vop2 = vp->vop2;
+-	int dclk_core_div, dclk_out_div, if_pixclk_div, if_dclk_div;
+-	unsigned long clock;
+-	u32 die, dip, div, vp_clk_div, val;
+-
+-	clock = rk3588_calc_cru_cfg(vp, id, &dclk_core_div, &dclk_out_div,
+-				    &if_pixclk_div, &if_dclk_div);
+-	if (!clock)
+-		return 0;
+-
+-	vp_clk_div = FIELD_PREP(RK3588_VP_CLK_CTRL__DCLK_CORE_DIV, dclk_core_div);
+-	vp_clk_div |= FIELD_PREP(RK3588_VP_CLK_CTRL__DCLK_OUT_DIV, dclk_out_div);
+-
+-	die = vop2_readl(vop2, RK3568_DSP_IF_EN);
+-	dip = vop2_readl(vop2, RK3568_DSP_IF_POL);
+-	div = vop2_readl(vop2, RK3568_DSP_IF_CTRL);
+-
+-	switch (id) {
+-	case ROCKCHIP_VOP2_EP_HDMI0:
+-		div &= ~RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV;
+-		div &= ~RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV;
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV, if_dclk_div);
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV, if_pixclk_div);
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX;
+-		die |= RK3588_SYS_DSP_INFACE_EN_HDMI0 |
+-			    FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX, vp->id);
+-		val = rk3588_get_hdmi_pol(polflags);
+-		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 1, 1));
+-		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0, HIWORD_UPDATE(val, 6, 5));
+-		break;
+-	case ROCKCHIP_VOP2_EP_HDMI1:
+-		div &= ~RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV;
+-		div &= ~RK3588_DSP_IF_EDP_HDMI1_PCLK_DIV;
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV, if_dclk_div);
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI1_PCLK_DIV, if_pixclk_div);
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX;
+-		die |= RK3588_SYS_DSP_INFACE_EN_HDMI1 |
+-			    FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX, vp->id);
+-		val = rk3588_get_hdmi_pol(polflags);
+-		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 4, 4));
+-		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0, HIWORD_UPDATE(val, 8, 7));
+-		break;
+-	case ROCKCHIP_VOP2_EP_EDP0:
+-		div &= ~RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV;
+-		div &= ~RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV;
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV, if_dclk_div);
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV, if_pixclk_div);
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX;
+-		die |= RK3588_SYS_DSP_INFACE_EN_EDP0 |
+-			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX, vp->id);
+-		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 0, 0));
+-		break;
+-	case ROCKCHIP_VOP2_EP_EDP1:
+-		div &= ~RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV;
+-		div &= ~RK3588_DSP_IF_EDP_HDMI1_PCLK_DIV;
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV, if_dclk_div);
+-		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV, if_pixclk_div);
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX;
+-		die |= RK3588_SYS_DSP_INFACE_EN_EDP1 |
+-			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX, vp->id);
+-		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 3, 3));
+-		break;
+-	case ROCKCHIP_VOP2_EP_MIPI0:
+-		div &= ~RK3588_DSP_IF_MIPI0_PCLK_DIV;
+-		div |= FIELD_PREP(RK3588_DSP_IF_MIPI0_PCLK_DIV, if_pixclk_div);
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_MIPI0_MUX;
+-		val = rk3588_get_mipi_port_mux(vp->id);
+-		die |= RK3588_SYS_DSP_INFACE_EN_MIPI0 |
+-			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_MIPI0_MUX, !!val);
+-		break;
+-	case ROCKCHIP_VOP2_EP_MIPI1:
+-		div &= ~RK3588_DSP_IF_MIPI1_PCLK_DIV;
+-		div |= FIELD_PREP(RK3588_DSP_IF_MIPI1_PCLK_DIV, if_pixclk_div);
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX;
+-		val = rk3588_get_mipi_port_mux(vp->id);
+-		die |= RK3588_SYS_DSP_INFACE_EN_MIPI1 |
+-			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX, val);
+-		break;
+-	case ROCKCHIP_VOP2_EP_DP0:
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_DP0_MUX;
+-		die |= RK3588_SYS_DSP_INFACE_EN_DP0 |
+-			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_DP0_MUX, vp->id);
+-		dip &= ~RK3588_DSP_IF_POL__DP0_PIN_POL;
+-		dip |= FIELD_PREP(RK3588_DSP_IF_POL__DP0_PIN_POL, polflags);
+-		break;
+-	case ROCKCHIP_VOP2_EP_DP1:
+-		die &= ~RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX;
+-		die |= RK3588_SYS_DSP_INFACE_EN_MIPI1 |
+-			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX, vp->id);
+-		dip &= ~RK3588_DSP_IF_POL__DP1_PIN_POL;
+-		dip |= FIELD_PREP(RK3588_DSP_IF_POL__DP1_PIN_POL, polflags);
+-		break;
+-	default:
+-		drm_err(vop2->drm, "Invalid interface id %d on vp%d\n", id, vp->id);
+-		return 0;
+-	}
+-
+-	dip |= RK3568_DSP_IF_POL__CFG_DONE_IMD;
+-
+-	vop2_vp_write(vp, RK3588_VP_CLK_CTRL, vp_clk_div);
+-	vop2_writel(vop2, RK3568_DSP_IF_EN, die);
+-	vop2_writel(vop2, RK3568_DSP_IF_CTRL, div);
+-	vop2_writel(vop2, RK3568_DSP_IF_POL, dip);
+-
+-	return clock;
+-}
+-
+-static unsigned long vop2_set_intf_mux(struct vop2_video_port *vp, int ep_id, u32 polflags)
+-{
+-	struct vop2 *vop2 = vp->vop2;
+-
+-	if (vop2->data->soc_id == 3566 || vop2->data->soc_id == 3568)
+-		return rk3568_set_intf_mux(vp, ep_id, polflags);
+-	else if (vop2->data->soc_id == 3588)
+-		return rk3588_set_intf_mux(vp, ep_id, polflags);
+-	else
+-		return 0;
+-}
+-
+ static int us_to_vertical_line(struct drm_display_mode *mode, int us)
+ {
+ 	return us * mode->clock / mode->htotal / 1000;
+@@ -2194,7 +1661,7 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 		 * process multi(1/2/4/8) pixels per cycle, so the dclk feed by the
+ 		 * system cru may be the 1/2 or 1/4 of mode->clock.
+ 		 */
+-		clock = vop2_set_intf_mux(vp, rkencoder->crtc_endpoint_id, polflags);
++		clock = vop2->ops->setup_intf_mux(vp, rkencoder->crtc_endpoint_id, polflags);
  	}
  
-@@ -2658,6 +2718,32 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
- 	if (ret)
- 		return ret;
+ 	if (!clock) {
+@@ -2323,454 +1790,13 @@ static int vop2_crtc_atomic_check(struct drm_crtc *crtc,
+ 	return 0;
+ }
  
-+	if (vop2->version >= VOP_VERSION_RK3576) {
-+		struct drm_crtc *crtc;
-+
-+		drm_for_each_crtc(crtc, drm) {
-+			struct vop2_video_port *vp = to_vop2_video_port(crtc);
-+			int vp_irq;
-+			const char *irq_name = devm_kasprintf(dev, GFP_KERNEL, "vop-vp%d", vp->id);
-+
-+			if (!irq_name)
-+				return -ENOMEM;
-+
-+			vp_irq = platform_get_irq_byname(pdev, irq_name);
-+			if (vp_irq < 0) {
-+				DRM_DEV_ERROR(dev, "cannot find irq for vop2 vp%d\n", vp->id);
-+				return vp_irq;
-+			}
-+
-+			ret = devm_request_irq(dev, vp_irq, rk3576_vp_isr, IRQF_SHARED, irq_name,
-+					       vp);
-+			if (ret) {
-+				DRM_DEV_ERROR(dev, "request irq for vop2 vp%d failed\n", vp->id);
-+				return ret;
-+			}
-+		}
-+	}
-+
- 	ret = vop2_find_rgb_encoder(vop2);
- 	if (ret >= 0) {
- 		vop2->rgb = rockchip_rgb_init(dev, &vop2->vps[ret].crtc,
+-static bool is_opaque(u16 alpha)
+-{
+-	return (alpha >> 8) == 0xff;
+-}
+-
+-static void vop2_parse_alpha(struct vop2_alpha_config *alpha_config,
+-			     struct vop2_alpha *alpha)
+-{
+-	int src_glb_alpha_en = is_opaque(alpha_config->src_glb_alpha_value) ? 0 : 1;
+-	int dst_glb_alpha_en = is_opaque(alpha_config->dst_glb_alpha_value) ? 0 : 1;
+-	int src_color_mode = alpha_config->src_premulti_en ?
+-				ALPHA_SRC_PRE_MUL : ALPHA_SRC_NO_PRE_MUL;
+-	int dst_color_mode = alpha_config->dst_premulti_en ?
+-				ALPHA_SRC_PRE_MUL : ALPHA_SRC_NO_PRE_MUL;
+-
+-	alpha->src_color_ctrl.val = 0;
+-	alpha->dst_color_ctrl.val = 0;
+-	alpha->src_alpha_ctrl.val = 0;
+-	alpha->dst_alpha_ctrl.val = 0;
+-
+-	if (!alpha_config->src_pixel_alpha_en)
+-		alpha->src_color_ctrl.bits.blend_mode = ALPHA_GLOBAL;
+-	else if (alpha_config->src_pixel_alpha_en && !src_glb_alpha_en)
+-		alpha->src_color_ctrl.bits.blend_mode = ALPHA_PER_PIX;
+-	else
+-		alpha->src_color_ctrl.bits.blend_mode = ALPHA_PER_PIX_GLOBAL;
+-
+-	alpha->src_color_ctrl.bits.alpha_en = 1;
+-
+-	if (alpha->src_color_ctrl.bits.blend_mode == ALPHA_GLOBAL) {
+-		alpha->src_color_ctrl.bits.color_mode = src_color_mode;
+-		alpha->src_color_ctrl.bits.factor_mode = SRC_FAC_ALPHA_SRC_GLOBAL;
+-	} else if (alpha->src_color_ctrl.bits.blend_mode == ALPHA_PER_PIX) {
+-		alpha->src_color_ctrl.bits.color_mode = src_color_mode;
+-		alpha->src_color_ctrl.bits.factor_mode = SRC_FAC_ALPHA_ONE;
+-	} else {
+-		alpha->src_color_ctrl.bits.color_mode = ALPHA_SRC_PRE_MUL;
+-		alpha->src_color_ctrl.bits.factor_mode = SRC_FAC_ALPHA_SRC_GLOBAL;
+-	}
+-	alpha->src_color_ctrl.bits.glb_alpha = alpha_config->src_glb_alpha_value >> 8;
+-	alpha->src_color_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
+-	alpha->src_color_ctrl.bits.alpha_cal_mode = ALPHA_SATURATION;
+-
+-	alpha->dst_color_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
+-	alpha->dst_color_ctrl.bits.alpha_cal_mode = ALPHA_SATURATION;
+-	alpha->dst_color_ctrl.bits.blend_mode = ALPHA_GLOBAL;
+-	alpha->dst_color_ctrl.bits.glb_alpha = alpha_config->dst_glb_alpha_value >> 8;
+-	alpha->dst_color_ctrl.bits.color_mode = dst_color_mode;
+-	alpha->dst_color_ctrl.bits.factor_mode = ALPHA_SRC_INVERSE;
+-
+-	alpha->src_alpha_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
+-	alpha->src_alpha_ctrl.bits.blend_mode = alpha->src_color_ctrl.bits.blend_mode;
+-	alpha->src_alpha_ctrl.bits.alpha_cal_mode = ALPHA_SATURATION;
+-	alpha->src_alpha_ctrl.bits.factor_mode = ALPHA_ONE;
+-
+-	alpha->dst_alpha_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
+-	if (alpha_config->dst_pixel_alpha_en && !dst_glb_alpha_en)
+-		alpha->dst_alpha_ctrl.bits.blend_mode = ALPHA_PER_PIX;
+-	else
+-		alpha->dst_alpha_ctrl.bits.blend_mode = ALPHA_PER_PIX_GLOBAL;
+-	alpha->dst_alpha_ctrl.bits.alpha_cal_mode = ALPHA_NO_SATURATION;
+-	alpha->dst_alpha_ctrl.bits.factor_mode = ALPHA_SRC_INVERSE;
+-}
+-
+-static int vop2_find_start_mixer_id_for_vp(struct vop2 *vop2, u8 port_id)
+-{
+-	struct vop2_video_port *vp;
+-	int used_layer = 0;
+-	int i;
+-
+-	for (i = 0; i < port_id; i++) {
+-		vp = &vop2->vps[i];
+-		used_layer += hweight32(vp->win_mask);
+-	}
+-
+-	return used_layer;
+-}
+-
+-static void vop2_setup_cluster_alpha(struct vop2 *vop2, struct vop2_win *main_win)
+-{
+-	struct vop2_alpha_config alpha_config;
+-	struct vop2_alpha alpha;
+-	struct drm_plane_state *bottom_win_pstate;
+-	bool src_pixel_alpha_en = false;
+-	u16 src_glb_alpha_val, dst_glb_alpha_val;
+-	bool premulti_en = false;
+-	bool swap = false;
+-	u32 offset = 0;
+-
+-	/* At one win mode, win0 is dst/bottom win, and win1 is a all zero src/top win */
+-	bottom_win_pstate = main_win->base.state;
+-	src_glb_alpha_val = 0;
+-	dst_glb_alpha_val = main_win->base.state->alpha;
+-
+-	if (!bottom_win_pstate->fb)
+-		return;
+-
+-	alpha_config.src_premulti_en = premulti_en;
+-	alpha_config.dst_premulti_en = false;
+-	alpha_config.src_pixel_alpha_en = src_pixel_alpha_en;
+-	alpha_config.dst_pixel_alpha_en = true; /* alpha value need transfer to next mix */
+-	alpha_config.src_glb_alpha_value = src_glb_alpha_val;
+-	alpha_config.dst_glb_alpha_value = dst_glb_alpha_val;
+-	vop2_parse_alpha(&alpha_config, &alpha);
+-
+-	alpha.src_color_ctrl.bits.src_dst_swap = swap;
+-
+-	switch (main_win->data->phys_id) {
+-	case ROCKCHIP_VOP2_CLUSTER0:
+-		offset = 0x0;
+-		break;
+-	case ROCKCHIP_VOP2_CLUSTER1:
+-		offset = 0x10;
+-		break;
+-	case ROCKCHIP_VOP2_CLUSTER2:
+-		offset = 0x20;
+-		break;
+-	case ROCKCHIP_VOP2_CLUSTER3:
+-		offset = 0x30;
+-		break;
+-	}
+-
+-	vop2_writel(vop2, RK3568_CLUSTER0_MIX_SRC_COLOR_CTRL + offset,
+-		    alpha.src_color_ctrl.val);
+-	vop2_writel(vop2, RK3568_CLUSTER0_MIX_DST_COLOR_CTRL + offset,
+-		    alpha.dst_color_ctrl.val);
+-	vop2_writel(vop2, RK3568_CLUSTER0_MIX_SRC_ALPHA_CTRL + offset,
+-		    alpha.src_alpha_ctrl.val);
+-	vop2_writel(vop2, RK3568_CLUSTER0_MIX_DST_ALPHA_CTRL + offset,
+-		    alpha.dst_alpha_ctrl.val);
+-}
+-
+-static void vop2_setup_alpha(struct vop2_video_port *vp)
+-{
+-	struct vop2 *vop2 = vp->vop2;
+-	struct drm_framebuffer *fb;
+-	struct vop2_alpha_config alpha_config;
+-	struct vop2_alpha alpha;
+-	struct drm_plane *plane;
+-	int pixel_alpha_en;
+-	int premulti_en, gpremulti_en = 0;
+-	int mixer_id;
+-	u32 offset;
+-	bool bottom_layer_alpha_en = false;
+-	u32 dst_global_alpha = DRM_BLEND_ALPHA_OPAQUE;
+-
+-	mixer_id = vop2_find_start_mixer_id_for_vp(vop2, vp->id);
+-	alpha_config.dst_pixel_alpha_en = true; /* alpha value need transfer to next mix */
+-
+-	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
+-		struct vop2_win *win = to_vop2_win(plane);
+-
+-		if (plane->state->normalized_zpos == 0 &&
+-		    !is_opaque(plane->state->alpha) &&
+-		    !vop2_cluster_window(win)) {
+-			/*
+-			 * If bottom layer have global alpha effect [except cluster layer,
+-			 * because cluster have deal with bottom layer global alpha value
+-			 * at cluster mix], bottom layer mix need deal with global alpha.
+-			 */
+-			bottom_layer_alpha_en = true;
+-			dst_global_alpha = plane->state->alpha;
+-		}
+-	}
+-
+-	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
+-		struct vop2_win *win = to_vop2_win(plane);
+-		int zpos = plane->state->normalized_zpos;
+-
+-		/*
+-		 * Need to configure alpha from second layer.
+-		 */
+-		if (zpos == 0)
+-			continue;
+-
+-		if (plane->state->pixel_blend_mode == DRM_MODE_BLEND_PREMULTI)
+-			premulti_en = 1;
+-		else
+-			premulti_en = 0;
+-
+-		plane = &win->base;
+-		fb = plane->state->fb;
+-
+-		pixel_alpha_en = fb->format->has_alpha;
+-
+-		alpha_config.src_premulti_en = premulti_en;
+-
+-		if (bottom_layer_alpha_en && zpos == 1) {
+-			gpremulti_en = premulti_en;
+-			/* Cd = Cs + (1 - As) * Cd * Agd */
+-			alpha_config.dst_premulti_en = false;
+-			alpha_config.src_pixel_alpha_en = pixel_alpha_en;
+-			alpha_config.src_glb_alpha_value = plane->state->alpha;
+-			alpha_config.dst_glb_alpha_value = dst_global_alpha;
+-		} else if (vop2_cluster_window(win)) {
+-			/* Mix output data only have pixel alpha */
+-			alpha_config.dst_premulti_en = true;
+-			alpha_config.src_pixel_alpha_en = true;
+-			alpha_config.src_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
+-			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
+-		} else {
+-			/* Cd = Cs + (1 - As) * Cd */
+-			alpha_config.dst_premulti_en = true;
+-			alpha_config.src_pixel_alpha_en = pixel_alpha_en;
+-			alpha_config.src_glb_alpha_value = plane->state->alpha;
+-			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
+-		}
+-
+-		vop2_parse_alpha(&alpha_config, &alpha);
+-
+-		offset = (mixer_id + zpos - 1) * 0x10;
+-		vop2_writel(vop2, RK3568_MIX0_SRC_COLOR_CTRL + offset,
+-			    alpha.src_color_ctrl.val);
+-		vop2_writel(vop2, RK3568_MIX0_DST_COLOR_CTRL + offset,
+-			    alpha.dst_color_ctrl.val);
+-		vop2_writel(vop2, RK3568_MIX0_SRC_ALPHA_CTRL + offset,
+-			    alpha.src_alpha_ctrl.val);
+-		vop2_writel(vop2, RK3568_MIX0_DST_ALPHA_CTRL + offset,
+-			    alpha.dst_alpha_ctrl.val);
+-	}
+-
+-	if (vp->id == 0) {
+-		if (bottom_layer_alpha_en) {
+-			/* Transfer pixel alpha to hdr mix */
+-			alpha_config.src_premulti_en = gpremulti_en;
+-			alpha_config.dst_premulti_en = true;
+-			alpha_config.src_pixel_alpha_en = true;
+-			alpha_config.src_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
+-			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
+-			vop2_parse_alpha(&alpha_config, &alpha);
+-
+-			vop2_writel(vop2, RK3568_HDR0_SRC_COLOR_CTRL,
+-				    alpha.src_color_ctrl.val);
+-			vop2_writel(vop2, RK3568_HDR0_DST_COLOR_CTRL,
+-				    alpha.dst_color_ctrl.val);
+-			vop2_writel(vop2, RK3568_HDR0_SRC_ALPHA_CTRL,
+-				    alpha.src_alpha_ctrl.val);
+-			vop2_writel(vop2, RK3568_HDR0_DST_ALPHA_CTRL,
+-				    alpha.dst_alpha_ctrl.val);
+-		} else {
+-			vop2_writel(vop2, RK3568_HDR0_SRC_COLOR_CTRL, 0);
+-		}
+-	}
+-}
+-
+-static void vop2_setup_layer_mixer(struct vop2_video_port *vp)
+-{
+-	struct vop2 *vop2 = vp->vop2;
+-	struct drm_plane *plane;
+-	u32 layer_sel = 0;
+-	u32 port_sel;
+-	u8 layer_id;
+-	u8 old_layer_id;
+-	u8 layer_sel_id;
+-	unsigned int ofs;
+-	u32 ovl_ctrl;
+-	int i;
+-	struct vop2_video_port *vp0 = &vop2->vps[0];
+-	struct vop2_video_port *vp1 = &vop2->vps[1];
+-	struct vop2_video_port *vp2 = &vop2->vps[2];
+-	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(vp->crtc.state);
+-
+-	ovl_ctrl = vop2_readl(vop2, RK3568_OVL_CTRL);
+-	ovl_ctrl |= RK3568_OVL_CTRL__LAYERSEL_REGDONE_IMD;
+-	if (vcstate->yuv_overlay)
+-		ovl_ctrl |= RK3568_OVL_CTRL__YUV_MODE(vp->id);
+-	else
+-		ovl_ctrl &= ~RK3568_OVL_CTRL__YUV_MODE(vp->id);
+-
+-	vop2_writel(vop2, RK3568_OVL_CTRL, ovl_ctrl);
+-
+-	port_sel = vop2_readl(vop2, RK3568_OVL_PORT_SEL);
+-	port_sel &= RK3568_OVL_PORT_SEL__SEL_PORT;
+-
+-	if (vp0->nlayers)
+-		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT0_MUX,
+-				     vp0->nlayers - 1);
+-	else
+-		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT0_MUX, 8);
+-
+-	if (vp1->nlayers)
+-		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT1_MUX,
+-				     (vp0->nlayers + vp1->nlayers - 1));
+-	else
+-		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT1_MUX, 8);
+-
+-	if (vp2->nlayers)
+-		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT2_MUX,
+-			(vp2->nlayers + vp1->nlayers + vp0->nlayers - 1));
+-	else
+-		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT2_MUX, 8);
+-
+-	layer_sel = vop2_readl(vop2, RK3568_OVL_LAYER_SEL);
+-
+-	ofs = 0;
+-	for (i = 0; i < vp->id; i++)
+-		ofs += vop2->vps[i].nlayers;
+-
+-	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
+-		struct vop2_win *win = to_vop2_win(plane);
+-		struct vop2_win *old_win;
+-
+-		layer_id = (u8)(plane->state->normalized_zpos + ofs);
+-
+-		/*
+-		 * Find the layer this win bind in old state.
+-		 */
+-		for (old_layer_id = 0; old_layer_id < vop2->data->win_size; old_layer_id++) {
+-			layer_sel_id = (layer_sel >> (4 * old_layer_id)) & 0xf;
+-			if (layer_sel_id == win->data->layer_sel_id)
+-				break;
+-		}
+-
+-		/*
+-		 * Find the win bind to this layer in old state
+-		 */
+-		for (i = 0; i < vop2->data->win_size; i++) {
+-			old_win = &vop2->win[i];
+-			layer_sel_id = (layer_sel >> (4 * layer_id)) & 0xf;
+-			if (layer_sel_id == old_win->data->layer_sel_id)
+-				break;
+-		}
+-
+-		switch (win->data->phys_id) {
+-		case ROCKCHIP_VOP2_CLUSTER0:
+-			port_sel &= ~RK3568_OVL_PORT_SEL__CLUSTER0;
+-			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__CLUSTER0, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_CLUSTER1:
+-			port_sel &= ~RK3568_OVL_PORT_SEL__CLUSTER1;
+-			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__CLUSTER1, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_CLUSTER2:
+-			port_sel &= ~RK3588_OVL_PORT_SEL__CLUSTER2;
+-			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__CLUSTER2, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_CLUSTER3:
+-			port_sel &= ~RK3588_OVL_PORT_SEL__CLUSTER3;
+-			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__CLUSTER3, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_ESMART0:
+-			port_sel &= ~RK3568_OVL_PORT_SEL__ESMART0;
+-			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__ESMART0, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_ESMART1:
+-			port_sel &= ~RK3568_OVL_PORT_SEL__ESMART1;
+-			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__ESMART1, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_ESMART2:
+-			port_sel &= ~RK3588_OVL_PORT_SEL__ESMART2;
+-			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__ESMART2, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_ESMART3:
+-			port_sel &= ~RK3588_OVL_PORT_SEL__ESMART3;
+-			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__ESMART3, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_SMART0:
+-			port_sel &= ~RK3568_OVL_PORT_SEL__SMART0;
+-			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__SMART0, vp->id);
+-			break;
+-		case ROCKCHIP_VOP2_SMART1:
+-			port_sel &= ~RK3568_OVL_PORT_SEL__SMART1;
+-			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__SMART1, vp->id);
+-			break;
+-		}
+-
+-		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(layer_id, 0x7);
+-		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(layer_id, win->data->layer_sel_id);
+-		/*
+-		 * When we bind a window from layerM to layerN, we also need to move the old
+-		 * window on layerN to layerM to avoid one window selected by two or more layers.
+-		 */
+-		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(old_layer_id, 0x7);
+-		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(old_layer_id, old_win->data->layer_sel_id);
+-	}
+-
+-	vop2_writel(vop2, RK3568_OVL_LAYER_SEL, layer_sel);
+-	vop2_writel(vop2, RK3568_OVL_PORT_SEL, port_sel);
+-}
+-
+-static void vop2_setup_dly_for_windows(struct vop2 *vop2)
+-{
+-	struct vop2_win *win;
+-	int i = 0;
+-	u32 cdly = 0, sdly = 0;
+-
+-	for (i = 0; i < vop2->data->win_size; i++) {
+-		u32 dly;
+-
+-		win = &vop2->win[i];
+-		dly = win->delay;
+-
+-		switch (win->data->phys_id) {
+-		case ROCKCHIP_VOP2_CLUSTER0:
+-			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER0_0, dly);
+-			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER0_1, dly);
+-			break;
+-		case ROCKCHIP_VOP2_CLUSTER1:
+-			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER1_0, dly);
+-			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER1_1, dly);
+-			break;
+-		case ROCKCHIP_VOP2_ESMART0:
+-			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__ESMART0, dly);
+-			break;
+-		case ROCKCHIP_VOP2_ESMART1:
+-			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__ESMART1, dly);
+-			break;
+-		case ROCKCHIP_VOP2_SMART0:
+-		case ROCKCHIP_VOP2_ESMART2:
+-			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__SMART0, dly);
+-			break;
+-		case ROCKCHIP_VOP2_SMART1:
+-		case ROCKCHIP_VOP2_ESMART3:
+-			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__SMART1, dly);
+-			break;
+-		}
+-	}
+-
+-	vop2_writel(vop2, RK3568_CLUSTER_DLY_NUM, cdly);
+-	vop2_writel(vop2, RK3568_SMART_DLY_NUM, sdly);
+-}
+-
+ static void vop2_crtc_atomic_begin(struct drm_crtc *crtc,
+ 				   struct drm_atomic_state *state)
+ {
+ 	struct vop2_video_port *vp = to_vop2_video_port(crtc);
+ 	struct vop2 *vop2 = vp->vop2;
+-	struct drm_plane *plane;
+-
+-	vp->win_mask = 0;
+-
+-	drm_atomic_crtc_for_each_plane(plane, crtc) {
+-		struct vop2_win *win = to_vop2_win(plane);
+-
+-		win->delay = win->data->dly[VOP2_DLY_MODE_DEFAULT];
+-
+-		vp->win_mask |= BIT(win->data->phys_id);
+ 
+-		if (vop2_cluster_window(win))
+-			vop2_setup_cluster_alpha(vop2, win);
+-	}
+-
+-	if (!vp->win_mask)
+-		return;
+-
+-	vop2_setup_layer_mixer(vp);
+-	vop2_setup_alpha(vp);
+-	vop2_setup_dly_for_windows(vop2);
++	vop2->ops->setup_overlay(vp);
+ }
+ 
+ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
+@@ -3372,182 +2398,50 @@ static int vop2_find_rgb_encoder(struct vop2 *vop2)
+ 	return -ENOENT;
+ }
+ 
+-static struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
+-	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 0, 0),
+-	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 1, 5),
+-	[VOP2_WIN_RB_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 14, 14),
+-	[VOP2_WIN_DITHER_UP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 18, 18),
+-	[VOP2_WIN_ACT_INFO] = REG_FIELD(RK3568_CLUSTER_WIN_ACT_INFO, 0, 31),
+-	[VOP2_WIN_DSP_INFO] = REG_FIELD(RK3568_CLUSTER_WIN_DSP_INFO, 0, 31),
+-	[VOP2_WIN_DSP_ST] = REG_FIELD(RK3568_CLUSTER_WIN_DSP_ST, 0, 31),
+-	[VOP2_WIN_YRGB_MST] = REG_FIELD(RK3568_CLUSTER_WIN_YRGB_MST, 0, 31),
+-	[VOP2_WIN_UV_MST] = REG_FIELD(RK3568_CLUSTER_WIN_CBR_MST, 0, 31),
+-	[VOP2_WIN_YUV_CLIP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 19, 19),
+-	[VOP2_WIN_YRGB_VIR] = REG_FIELD(RK3568_CLUSTER_WIN_VIR, 0, 15),
+-	[VOP2_WIN_UV_VIR] = REG_FIELD(RK3568_CLUSTER_WIN_VIR, 16, 31),
+-	[VOP2_WIN_Y2R_EN] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 8, 8),
+-	[VOP2_WIN_R2Y_EN] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 9, 9),
+-	[VOP2_WIN_CSC_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 10, 11),
+-	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 0, 3),
+-	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 5, 8),
+-	/* RK3588 only, reserved bit on rk3568*/
+-	[VOP2_WIN_AXI_BUS_ID] = REG_FIELD(RK3568_CLUSTER_CTRL, 13, 13),
+-
+-	/* Scale */
+-	[VOP2_WIN_SCALE_YRGB_X] = REG_FIELD(RK3568_CLUSTER_WIN_SCL_FACTOR_YRGB, 0, 15),
+-	[VOP2_WIN_SCALE_YRGB_Y] = REG_FIELD(RK3568_CLUSTER_WIN_SCL_FACTOR_YRGB, 16, 31),
+-	[VOP2_WIN_YRGB_VER_SCL_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 14, 15),
+-	[VOP2_WIN_YRGB_HOR_SCL_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 12, 13),
+-	[VOP2_WIN_BIC_COE_SEL] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 2, 3),
+-	[VOP2_WIN_VSD_YRGB_GT2] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 28, 28),
+-	[VOP2_WIN_VSD_YRGB_GT4] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 29, 29),
+-
+-	/* cluster regs */
+-	[VOP2_WIN_AFBC_ENABLE] = REG_FIELD(RK3568_CLUSTER_CTRL, 1, 1),
+-	[VOP2_WIN_CLUSTER_ENABLE] = REG_FIELD(RK3568_CLUSTER_CTRL, 0, 0),
+-	[VOP2_WIN_CLUSTER_LB_MODE] = REG_FIELD(RK3568_CLUSTER_CTRL, 4, 7),
+-
+-	/* afbc regs */
+-	[VOP2_WIN_AFBC_FORMAT] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 2, 6),
+-	[VOP2_WIN_AFBC_RB_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 9, 9),
+-	[VOP2_WIN_AFBC_UV_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 10, 10),
+-	[VOP2_WIN_AFBC_AUTO_GATING_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_OUTPUT_CTRL, 4, 4),
+-	[VOP2_WIN_AFBC_HALF_BLOCK_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 7, 7),
+-	[VOP2_WIN_AFBC_BLOCK_SPLIT_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 8, 8),
+-	[VOP2_WIN_AFBC_HDR_PTR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_HDR_PTR, 0, 31),
+-	[VOP2_WIN_AFBC_PIC_SIZE] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_SIZE, 0, 31),
+-	[VOP2_WIN_AFBC_PIC_VIR_WIDTH] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 0, 15),
+-	[VOP2_WIN_AFBC_TILE_NUM] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 16, 31),
+-	[VOP2_WIN_AFBC_PIC_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_OFFSET, 0, 31),
+-	[VOP2_WIN_AFBC_DSP_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_DSP_OFFSET, 0, 31),
+-	[VOP2_WIN_AFBC_TRANSFORM_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_TRANSFORM_OFFSET, 0, 31),
+-	[VOP2_WIN_AFBC_ROTATE_90] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 0, 0),
+-	[VOP2_WIN_AFBC_ROTATE_270] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 1, 1),
+-	[VOP2_WIN_XMIRROR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 2, 2),
+-	[VOP2_WIN_YMIRROR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 3, 3),
+-	[VOP2_WIN_UV_SWAP] = { .reg = 0xffffffff },
+-	[VOP2_WIN_COLOR_KEY] = { .reg = 0xffffffff },
+-	[VOP2_WIN_COLOR_KEY_EN] = { .reg = 0xffffffff },
+-	[VOP2_WIN_SCALE_CBCR_X] = { .reg = 0xffffffff },
+-	[VOP2_WIN_SCALE_CBCR_Y] = { .reg = 0xffffffff },
+-	[VOP2_WIN_YRGB_HSCL_FILTER_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_YRGB_VSCL_FILTER_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_CBCR_VER_SCL_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_CBCR_HSCL_FILTER_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_CBCR_HOR_SCL_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_CBCR_VSCL_FILTER_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_VSD_CBCR_GT2] = { .reg = 0xffffffff },
+-	[VOP2_WIN_VSD_CBCR_GT4] = { .reg = 0xffffffff },
+-};
+-
+ static int vop2_cluster_init(struct vop2_win *win)
+ {
+ 	struct vop2 *vop2 = win->vop2;
+ 	struct reg_field *cluster_regs;
+ 	int ret, i;
+ 
+-	cluster_regs = kmemdup(vop2_cluster_regs, sizeof(vop2_cluster_regs),
++	cluster_regs = kmemdup(vop2->data->cluster_reg,
++			       sizeof(struct reg_field) * vop2->data->nr_cluster_regs,
+ 			       GFP_KERNEL);
+ 	if (!cluster_regs)
+ 		return -ENOMEM;
+ 
+-	for (i = 0; i < ARRAY_SIZE(vop2_cluster_regs); i++)
++	for (i = 0; i < vop2->data->nr_cluster_regs; i++)
+ 		if (cluster_regs[i].reg != 0xffffffff)
+ 			cluster_regs[i].reg += win->offset;
+ 
+ 	ret = devm_regmap_field_bulk_alloc(vop2->dev, vop2->map, win->reg,
+ 					   cluster_regs,
+-					   ARRAY_SIZE(vop2_cluster_regs));
+-
++					   vop2->data->nr_cluster_regs);
+ 	kfree(cluster_regs);
+ 
+ 	return ret;
+ };
+ 
+-static struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
+-	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 0, 0),
+-	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 1, 5),
+-	[VOP2_WIN_DITHER_UP] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 12, 12),
+-	[VOP2_WIN_RB_SWAP] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 14, 14),
+-	[VOP2_WIN_UV_SWAP] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 16, 16),
+-	[VOP2_WIN_ACT_INFO] = REG_FIELD(RK3568_SMART_REGION0_ACT_INFO, 0, 31),
+-	[VOP2_WIN_DSP_INFO] = REG_FIELD(RK3568_SMART_REGION0_DSP_INFO, 0, 31),
+-	[VOP2_WIN_DSP_ST] = REG_FIELD(RK3568_SMART_REGION0_DSP_ST, 0, 28),
+-	[VOP2_WIN_YRGB_MST] = REG_FIELD(RK3568_SMART_REGION0_YRGB_MST, 0, 31),
+-	[VOP2_WIN_UV_MST] = REG_FIELD(RK3568_SMART_REGION0_CBR_MST, 0, 31),
+-	[VOP2_WIN_YUV_CLIP] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 17, 17),
+-	[VOP2_WIN_YRGB_VIR] = REG_FIELD(RK3568_SMART_REGION0_VIR, 0, 15),
+-	[VOP2_WIN_UV_VIR] = REG_FIELD(RK3568_SMART_REGION0_VIR, 16, 31),
+-	[VOP2_WIN_Y2R_EN] = REG_FIELD(RK3568_SMART_CTRL0, 0, 0),
+-	[VOP2_WIN_R2Y_EN] = REG_FIELD(RK3568_SMART_CTRL0, 1, 1),
+-	[VOP2_WIN_CSC_MODE] = REG_FIELD(RK3568_SMART_CTRL0, 2, 3),
+-	[VOP2_WIN_YMIRROR] = REG_FIELD(RK3568_SMART_CTRL1, 31, 31),
+-	[VOP2_WIN_COLOR_KEY] = REG_FIELD(RK3568_SMART_COLOR_KEY_CTRL, 0, 29),
+-	[VOP2_WIN_COLOR_KEY_EN] = REG_FIELD(RK3568_SMART_COLOR_KEY_CTRL, 31, 31),
+-	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_SMART_CTRL1, 4, 8),
+-	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_SMART_CTRL1, 12, 16),
+-	/* RK3588 only, reserved register on rk3568 */
+-	[VOP2_WIN_AXI_BUS_ID] = REG_FIELD(RK3588_SMART_AXI_CTRL, 1, 1),
+-
+-	/* Scale */
+-	[VOP2_WIN_SCALE_YRGB_X] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_YRGB, 0, 15),
+-	[VOP2_WIN_SCALE_YRGB_Y] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_YRGB, 16, 31),
+-	[VOP2_WIN_SCALE_CBCR_X] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_CBR, 0, 15),
+-	[VOP2_WIN_SCALE_CBCR_Y] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_CBR, 16, 31),
+-	[VOP2_WIN_YRGB_HOR_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 0, 1),
+-	[VOP2_WIN_YRGB_HSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 2, 3),
+-	[VOP2_WIN_YRGB_VER_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 4, 5),
+-	[VOP2_WIN_YRGB_VSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 6, 7),
+-	[VOP2_WIN_CBCR_HOR_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 8, 9),
+-	[VOP2_WIN_CBCR_HSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 10, 11),
+-	[VOP2_WIN_CBCR_VER_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 12, 13),
+-	[VOP2_WIN_CBCR_VSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 14, 15),
+-	[VOP2_WIN_BIC_COE_SEL] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 16, 17),
+-	[VOP2_WIN_VSD_YRGB_GT2] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 8, 8),
+-	[VOP2_WIN_VSD_YRGB_GT4] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 9, 9),
+-	[VOP2_WIN_VSD_CBCR_GT2] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 10, 10),
+-	[VOP2_WIN_VSD_CBCR_GT4] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 11, 11),
+-	[VOP2_WIN_XMIRROR] = { .reg = 0xffffffff },
+-	[VOP2_WIN_CLUSTER_ENABLE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_ENABLE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_CLUSTER_LB_MODE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_FORMAT] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_RB_SWAP] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_UV_SWAP] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_AUTO_GATING_EN] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_BLOCK_SPLIT_EN] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_PIC_VIR_WIDTH] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_TILE_NUM] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_PIC_OFFSET] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_PIC_SIZE] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_DSP_OFFSET] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_TRANSFORM_OFFSET] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_HDR_PTR] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_HALF_BLOCK_EN] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_ROTATE_270] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_ROTATE_90] = { .reg = 0xffffffff },
+-};
+-
+ static int vop2_esmart_init(struct vop2_win *win)
+ {
+ 	struct vop2 *vop2 = win->vop2;
+-	struct reg_field *esmart_regs;
++	struct reg_field *smart_regs;
+ 	int ret, i;
+ 
+-	esmart_regs = kmemdup(vop2_esmart_regs, sizeof(vop2_esmart_regs),
+-			      GFP_KERNEL);
+-	if (!esmart_regs)
++	smart_regs = kmemdup(vop2->data->smart_reg,
++			     sizeof(struct reg_field) * vop2->data->nr_smart_regs,
++			     GFP_KERNEL);
++	if (!smart_regs)
+ 		return -ENOMEM;
+ 
+-	for (i = 0; i < ARRAY_SIZE(vop2_esmart_regs); i++)
+-		if (esmart_regs[i].reg != 0xffffffff)
+-			esmart_regs[i].reg += win->offset;
++	for (i = 0; i < vop2->data->nr_smart_regs; i++)
++		if (smart_regs[i].reg != 0xffffffff)
++			smart_regs[i].reg += win->offset;
+ 
+ 	ret = devm_regmap_field_bulk_alloc(vop2->dev, vop2->map, win->reg,
+-					   esmart_regs,
+-					   ARRAY_SIZE(vop2_esmart_regs));
+-
+-	kfree(esmart_regs);
++					   smart_regs,
++					   vop2->data->nr_smart_regs);
++	kfree(smart_regs);
+ 
+ 	return ret;
+ };
+@@ -3627,6 +2521,7 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	vop2->dev = dev;
+ 	vop2->data = vop2_data;
++	vop2->ops = vop2_data->ops;
+ 	vop2->drm = drm;
+ 
+ 	dev_set_drvdata(dev, vop2);
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index 3c9caf13749d..ca3f1613d51c 100644
+index 29cc7fb8f6d8..265bb5bfa27d 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -44,6 +44,13 @@ enum win_dly_mode {
- 	VOP2_DLY_MODE_MAX,
+@@ -9,6 +9,7 @@
+ 
+ #include <linux/regmap.h>
+ #include <drm/drm_modes.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
+ #include "rockchip_drm_drv.h"
+ #include "rockchip_drm_vop.h"
+ 
+@@ -58,6 +59,23 @@ enum vop2_scale_down_mode {
+ #define VOP2_PD_DSC_4K		BIT(6)
+ #define VOP2_PD_ESMART		BIT(7)
+ 
++#define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
++					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
++
++#define vop2_output_if_is_dp(x)		((x) == ROCKCHIP_VOP2_EP_DP0 || \
++					 (x) == ROCKCHIP_VOP2_EP_DP1)
++
++#define vop2_output_if_is_edp(x)	((x) == ROCKCHIP_VOP2_EP_EDP0 || \
++					 (x) == ROCKCHIP_VOP2_EP_EDP1)
++
++#define vop2_output_if_is_mipi(x)	((x) == ROCKCHIP_VOP2_EP_MIPI0 || \
++					 (x) == ROCKCHIP_VOP2_EP_MIPI1)
++
++#define vop2_output_if_is_lvds(x)	((x) == ROCKCHIP_VOP2_EP_LVDS0 || \
++					 (x) == ROCKCHIP_VOP2_EP_LVDS1)
++
++#define vop2_output_if_is_dpi(x)	((x) == ROCKCHIP_VOP2_EP_RGB0)
++
+ enum vop2_win_regs {
+ 	VOP2_WIN_ENABLE,
+ 	VOP2_WIN_FORMAT,
+@@ -162,6 +180,23 @@ struct vop2_win_data {
+ 	const u8 dly[VOP2_DLY_MODE_MAX];
  };
  
-+enum vop2_dly_module {
-+	VOP2_DLY_WIN,           /** Win delay cycle for this VP */
-+	VOP2_DLY_LAYER_MIX,     /** Layer Mix delay cycle for this VP */
-+	VOP2_DLY_HDR_MIX,       /** HDR delay cycle for this VP */
-+	VOP2_DLY_MAX,
++struct vop2_win {
++	struct vop2 *vop2;
++	struct drm_plane base;
++	const struct vop2_win_data *data;
++	struct regmap_field *reg[VOP2_WIN_MAX_REG];
++
++	/**
++	 * @win_id: graphic window id, a cluster may be split into two
++	 * graphics windows.
++	 */
++	u8 win_id;
++	u8 delay;
++	u32 offset;
++
++	enum drm_plane_type type;
 +};
 +
- enum vop2_scale_up_mode {
- 	VOP2_SCALE_UP_NRST_NBOR,
- 	VOP2_SCALE_UP_BIL,
-@@ -140,16 +147,22 @@ enum vop2_win_regs {
- 	VOP2_WIN_AFBC_UV_SWAP,
- 	VOP2_WIN_AFBC_AUTO_GATING_EN,
- 	VOP2_WIN_AFBC_BLOCK_SPLIT_EN,
-+	VOP2_WIN_AFBC_PLD_OFFSET_EN,
- 	VOP2_WIN_AFBC_PIC_VIR_WIDTH,
- 	VOP2_WIN_AFBC_TILE_NUM,
- 	VOP2_WIN_AFBC_PIC_OFFSET,
- 	VOP2_WIN_AFBC_PIC_SIZE,
- 	VOP2_WIN_AFBC_DSP_OFFSET,
-+	VOP2_WIN_AFBC_PLD_OFFSET,
- 	VOP2_WIN_AFBC_TRANSFORM_OFFSET,
- 	VOP2_WIN_AFBC_HDR_PTR,
- 	VOP2_WIN_AFBC_HALF_BLOCK_EN,
- 	VOP2_WIN_AFBC_ROTATE_270,
- 	VOP2_WIN_AFBC_ROTATE_90,
-+
-+	VOP2_WIN_VP_SEL,
-+	VOP2_WIN_DLY_NUM,
-+
- 	VOP2_WIN_MAX_REG,
- };
- 
-@@ -215,6 +228,10 @@ struct vop2_video_port_data {
- 	struct vop_rect max_output;
- 	const u8 pre_scan_max_dly[4];
+ struct vop2_video_port_data {
+ 	unsigned int id;
+ 	u32 feature;
+@@ -172,20 +207,105 @@ struct vop2_video_port_data {
  	unsigned int offset;
-+	/**
-+	 * @pixel_rate: pixel per cycle
-+	 */
-+	u8 pixel_rate;
  };
  
- struct vop2_video_port {
-@@ -372,10 +389,13 @@ enum dst_factor_mode {
- #define RK3568_REG_CFG_DONE			0x000
- #define RK3568_VERSION_INFO			0x004
- #define RK3568_SYS_AUTO_GATING_CTRL		0x008
-+#define RK3576_SYS_MMU_CTRL_IMD			0x020
- #define RK3568_SYS_AXI_LUT_CTRL			0x024
- #define RK3568_DSP_IF_EN			0x028
-+#define RK3576_SYS_PORT_CTRL_IMD		0x028
- #define RK3568_DSP_IF_CTRL			0x02c
- #define RK3568_DSP_IF_POL			0x030
-+#define RK3576_SYS_CLUSTER_PD_CTRL_IMD		0x030
- #define RK3588_SYS_PD_CTRL			0x034
- #define RK3568_WB_CTRL				0x40
- #define RK3568_WB_XSCAL_FACTOR			0x44
-@@ -395,6 +415,55 @@ enum dst_factor_mode {
- #define RK3568_VP_INT_CLR(vp)			(0xA4 + (vp) * 0x10)
- #define RK3568_VP_INT_STATUS(vp)		(0xA8 + (vp) * 0x10)
- #define RK3568_VP_INT_RAW_STATUS(vp)		(0xAC + (vp) * 0x10)
-+#define RK3576_WB_CTRL				0x100
-+#define RK3576_WB_XSCAL_FACTOR			0x104
-+#define RK3576_WB_YRGB_MST			0x108
-+#define RK3576_WB_CBR_MST			0x10C
-+#define RK3576_WB_VIR_STRIDE			0x110
-+#define RK3576_WB_TIMEOUT_CTRL			0x114
-+#define RK3576_MIPI0_IF_CTRL			0x180
-+#define RK3576_HDMI0_IF_CTRL			0x184
-+#define RK3576_EDP0_IF_CTRL			0x188
-+#define RK3576_DP0_IF_CTRL			0x18C
-+#define RK3576_RGB_IF_CTRL			0x194
-+#define RK3576_DP1_IF_CTRL			0x1A4
-+#define RK3576_DP2_IF_CTRL			0x1B0
++struct vop2_video_port {
++	struct drm_crtc crtc;
++	struct vop2 *vop2;
++	struct clk *dclk;
++	unsigned int id;
++	const struct vop2_video_port_data *data;
 +
-+/* Extra OVL register definition */
-+#define RK3576_SYS_EXTRA_ALPHA_CTRL		0x500
-+#define RK3576_CLUSTER0_MIX_SRC_COLOR_CTRL	0x530
-+#define RK3576_CLUSTER0_MIX_DST_COLOR_CTRL	0x534
-+#define RK3576_CLUSTER0_MIX_SRC_ALPHA_CTRL	0x538
-+#define RK3576_CLUSTER0_MIX_DST_ALPHA_CTRL	0x53c
-+#define RK3576_CLUSTER1_MIX_SRC_COLOR_CTRL	0x540
-+#define RK3576_CLUSTER1_MIX_DST_COLOR_CTRL	0x544
-+#define RK3576_CLUSTER1_MIX_SRC_ALPHA_CTRL	0x548
-+#define RK3576_CLUSTER1_MIX_DST_ALPHA_CTRL	0x54c
++	struct completion dsp_hold_completion;
 +
-+/* OVL registers for Video Port definition */
-+#define RK3576_OVL_CTRL(vp)			(0x600 + (vp) * 0x100)
-+#define RK3576_OVL_LAYER_SEL(vp)		(0x604 + (vp) * 0x100)
-+#define RK3576_OVL_MIX0_SRC_COLOR_CTRL(vp)	(0x620 + (vp) * 0x100)
-+#define RK3576_OVL_MIX0_DST_COLOR_CTRL(vp)	(0x624 + (vp) * 0x100)
-+#define RK3576_OVL_MIX0_SRC_ALPHA_CTRL(vp)	(0x628 + (vp) * 0x100)
-+#define RK3576_OVL_MIX0_DST_ALPHA_CTRL(vp)	(0x62C + (vp) * 0x100)
-+#define RK3576_OVL_MIX1_SRC_COLOR_CTRL(vp)	(0x630 + (vp) * 0x100)
-+#define RK3576_OVL_MIX1_DST_COLOR_CTRL(vp)	(0x634 + (vp) * 0x100)
-+#define RK3576_OVL_MIX1_SRC_ALPHA_CTRL(vp)	(0x638 + (vp) * 0x100)
-+#define RK3576_OVL_MIX1_DST_ALPHA_CTRL(vp)	(0x63C + (vp) * 0x100)
-+#define RK3576_OVL_MIX2_SRC_COLOR_CTRL(vp)	(0x640 + (vp) * 0x100)
-+#define RK3576_OVL_MIX2_DST_COLOR_CTRL(vp)	(0x644 + (vp) * 0x100)
-+#define RK3576_OVL_MIX2_SRC_ALPHA_CTRL(vp)	(0x648 + (vp) * 0x100)
-+#define RK3576_OVL_MIX2_DST_ALPHA_CTRL(vp)	(0x64C + (vp) * 0x100)
-+#define RK3576_EXTRA_OVL_SRC_COLOR_CTRL(vp)	(0x650 + (vp) * 0x100)
-+#define RK3576_EXTRA_OVL_DST_COLOR_CTRL(vp)	(0x654 + (vp) * 0x100)
-+#define RK3576_EXTRA_OVL_SRC_ALPHA_CTRL(vp)	(0x658 + (vp) * 0x100)
-+#define RK3576_EXTRA_OVL_DST_ALPHA_CTRL(vp)	(0x65C + (vp) * 0x100)
-+#define RK3576_OVL_HDR_SRC_COLOR_CTRL(vp)	(0x660 + (vp) * 0x100)
-+#define RK3576_OVL_HDR_DST_COLOR_CTRL(vp)	(0x664 + (vp) * 0x100)
-+#define RK3576_OVL_HDR_SRC_ALPHA_CTRL(vp)	(0x668 + (vp) * 0x100)
-+#define RK3576_OVL_HDR_DST_ALPHA_CTRL(vp)	(0x66C + (vp) * 0x100)
-+#define RK3576_OVL_BG_MIX_CTRL(vp)		(0x670 + (vp) * 0x100)
- 
- /* Video Port registers definition */
- #define RK3568_VP0_CTRL_BASE			0x0C00
-@@ -477,7 +546,11 @@ enum dst_factor_mode {
- #define RK3568_CLUSTER_WIN_AFBCD_DSP_OFFSET	0x68
- #define RK3568_CLUSTER_WIN_AFBCD_CTRL		0x6C
- 
-+#define RK3576_CLUSTER_WIN_AFBCD_PLD_PTR_OFFSET	0x78
++	/**
++	 * @win_mask: Bitmask of windows attached to the video port;
++	 */
++	u32 win_mask;
 +
- #define RK3568_CLUSTER_CTRL			0x100
-+#define RK3576_CLUSTER_PORT_SEL_IMD		0x1F4
-+#define RK3576_CLUSTER_DLY_NUM			0x1F8
- 
- /* (E)smart register definition, offset relative to window base */
- #define RK3568_SMART_CTRL0			0x00
-@@ -528,6 +601,9 @@ enum dst_factor_mode {
- #define RK3568_SMART_REGION3_SCL_FACTOR_CBR	0xC8
- #define RK3568_SMART_REGION3_SCL_OFFSET		0xCC
- #define RK3568_SMART_COLOR_KEY_CTRL		0xD0
-+#define RK3576_SMART_ALPHA_MAP			0xD8
-+#define RK3576_SMART_PORT_SEL_IMD		0xF4
-+#define RK3576_SMART_DLY_NUM			0xF8
- 
- /* HDR register definition */
- #define RK3568_HDR_LUT_CTRL			0x2000
-@@ -676,6 +752,17 @@ enum dst_factor_mode {
- 
- #define POLFLAG_DCLK_INV	BIT(3)
- 
-+#define RK3576_OVL_CTRL__YUV_MODE			BIT(0)
-+#define RK3576_OVL_BG_MIX_CTRL__BG_DLY			GENMASK(31, 24)
++	struct vop2_win *primary_plane;
++	struct drm_pending_vblank_event *event;
 +
-+#define RK3576_DSP_IF_CFG_DONE_IMD			BIT(31)
-+#define RK3576_DSP_IF_DCLK_SEL_OUT			BIT(21)
-+#define RK3576_DSP_IF_PCLK_DIV				BIT(20)
-+#define RK3576_DSP_IF_PIN_POL				GENMASK(5, 4)
-+#define RK3576_DSP_IF_MUX				GENMASK(3, 2)
-+#define RK3576_DSP_IF_CLK_OUT_EN			BIT(1)
-+#define RK3576_DSP_IF_EN				BIT(0)
++	unsigned int nlayers;
++};
 +
- enum vop2_layer_phy_id {
- 	ROCKCHIP_VOP2_CLUSTER0 = 0,
- 	ROCKCHIP_VOP2_CLUSTER1,
++/**
++ * struct vop2_ops - helper operations for vop2 hardware
++ *
++ * These hooks are used by the common part of the vop2 driver to
++ * implement the proper behaviour of different variants.
++ */
++struct vop2_ops {
++	unsigned long (*setup_intf_mux)(struct vop2_video_port *vp, int ep_id, u32 polflags);
++	void (*setup_bg_dly)(struct vop2_video_port *vp);
++	void (*setup_overlay)(struct vop2_video_port *vp);
++};
++
+ struct vop2_data {
+ 	u8 nr_vps;
+ 	u64 feature;
++	const struct vop2_ops *ops;
+ 	const struct vop2_win_data *win;
+ 	const struct vop2_video_port_data *vp;
++	const struct reg_field *cluster_reg;
++	const struct reg_field *smart_reg;
+ 	const struct vop2_regs_dump *regs_dump;
+ 	struct vop_rect max_input;
+ 	struct vop_rect max_output;
+ 
++	unsigned int nr_cluster_regs;
++	unsigned int nr_smart_regs;
+ 	unsigned int win_size;
+ 	unsigned int regs_dump_size;
+ 	unsigned int soc_id;
+ };
+ 
++struct vop2 {
++	struct device *dev;
++	struct drm_device *drm;
++	struct vop2_video_port vps[ROCKCHIP_MAX_CRTC];
++
++	const struct vop2_data *data;
++	const struct vop2_ops *ops;
++	/*
++	 * Number of windows that are registered as plane, may be less than the
++	 * total number of hardware windows.
++	 */
++	u32 registered_num_wins;
++
++	struct resource *res;
++	void __iomem *regs;
++	struct regmap *map;
++
++	struct regmap *sys_grf;
++	struct regmap *vop_grf;
++	struct regmap *vo1_grf;
++	struct regmap *sys_pmu;
++
++	/* physical map length of vop2 register */
++	u32 len;
++
++	void __iomem *lut_regs;
++
++	/* protects crtc enable/disable */
++	struct mutex vop2_lock;
++
++	int irq;
++
++	/*
++	 * Some global resources are shared between all video ports(crtcs), so
++	 * we need a ref counter here.
++	 */
++	unsigned int enable_count;
++	struct clk *hclk;
++	struct clk *aclk;
++	struct clk *pclk;
++
++	/* optional internal rgb encoder */
++	struct rockchip_rgb *rgb;
++
++	/* must be put at the end of the struct */
++	struct vop2_win win[];
++};
++
+ /* interrupt define */
+ #define FS_NEW_INTR			BIT(4)
+ #define ADDR_SAME_INTR			BIT(5)
+@@ -560,4 +680,52 @@ enum vop2_layer_phy_id {
+ 
+ extern const struct component_ops vop2_component_ops;
+ 
++static inline void vop2_writel(struct vop2 *vop2, u32 offset, u32 v)
++{
++	regmap_write(vop2->map, offset, v);
++}
++
++static inline void vop2_vp_write(struct vop2_video_port *vp, u32 offset, u32 v)
++{
++	regmap_write(vp->vop2->map, vp->data->offset + offset, v);
++}
++
++static inline u32 vop2_readl(struct vop2 *vop2, u32 offset)
++{
++	u32 val;
++
++	regmap_read(vop2->map, offset, &val);
++
++	return val;
++}
++
++static inline u32 vop2_vp_read(struct vop2_video_port *vp, u32 offset)
++{
++	u32 val;
++
++	regmap_read(vp->vop2->map, vp->data->offset + offset, &val);
++
++	return val;
++}
++
++static inline void vop2_win_write(const struct vop2_win *win, unsigned int reg, u32 v)
++{
++	regmap_field_write(win->reg[reg], v);
++}
++
++static inline bool vop2_cluster_window(const struct vop2_win *win)
++{
++	return win->data->feature & WIN_FEATURE_CLUSTER;
++}
++
++static inline struct vop2_video_port *to_vop2_video_port(struct drm_crtc *crtc)
++{
++	return container_of(crtc, struct vop2_video_port, crtc);
++}
++
++static inline struct vop2_win *to_vop2_win(struct drm_plane *p)
++{
++	return container_of(p, struct vop2_win, base);
++}
++
+ #endif /* _ROCKCHIP_DRM_VOP2_H */
 diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index f0b0608fe1be..9c1fefdb9b5a 100644
+index 65a88f489693..32d2f240261f 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -70,6 +70,37 @@ static const uint32_t formats_cluster[] = {
- 	DRM_FORMAT_Y210, /* yuv422_10bit non-Linear mode only */
- };
+@@ -9,12 +9,50 @@
+ #include <linux/mod_devicetable.h>
+ #include <linux/platform_device.h>
+ #include <linux/of.h>
++#include <drm/drm_blend.h>
+ #include <drm/drm_fourcc.h>
++#include <drm/drm_framebuffer.h>
+ #include <drm/drm_plane.h>
+ #include <drm/drm_print.h>
  
-+/*
-+ * The cluster windows on rk3576 support:
-+ * RGB: linear mode and afbc
-+ * YUV: linear mode and rfbc
-+ * rfbc is a rockchip defined non-linear mode, produced by
-+ * Video decoder
-+ */
-+static const uint32_t formats_rk3576_cluster[] = {
-+	DRM_FORMAT_XRGB2101010,
-+	DRM_FORMAT_XBGR2101010,
-+	DRM_FORMAT_ARGB2101010,
-+	DRM_FORMAT_ABGR2101010,
-+	DRM_FORMAT_XRGB8888,
-+	DRM_FORMAT_ARGB8888,
-+	DRM_FORMAT_XBGR8888,
-+	DRM_FORMAT_ABGR8888,
-+	DRM_FORMAT_RGB888,
-+	DRM_FORMAT_BGR888,
-+	DRM_FORMAT_RGB565,
-+	DRM_FORMAT_BGR565,
-+	DRM_FORMAT_NV12, /* yuv420_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV21, /* yvu420_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV16, /* yuv422_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV61, /* yvu422_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV24, /* yuv444_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV42, /* yvu444_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV15, /* yuv420_10bit linear mode, 2 plane, no padding */
-+	DRM_FORMAT_NV20, /* yuv422_10bit linear mode, 2 plane, no padding */
-+	DRM_FORMAT_NV30, /* yuv444_10bit linear mode, 2 plane, no padding */
+ #include "rockchip_drm_vop2.h"
+ 
++union vop2_alpha_ctrl {
++	u32 val;
++	struct {
++		/* [0:1] */
++		u32 color_mode:1;
++		u32 alpha_mode:1;
++		/* [2:3] */
++		u32 blend_mode:2;
++		u32 alpha_cal_mode:1;
++		/* [5:7] */
++		u32 factor_mode:3;
++		/* [8:9] */
++		u32 alpha_en:1;
++		u32 src_dst_swap:1;
++		u32 reserved:6;
++		/* [16:23] */
++		u32 glb_alpha:8;
++	} bits;
 +};
 +
- static const uint32_t formats_esmart[] = {
- 	DRM_FORMAT_XRGB8888,
- 	DRM_FORMAT_ARGB8888,
-@@ -116,6 +147,41 @@ static const uint32_t formats_rk356x_esmart[] = {
- 	DRM_FORMAT_VYUY, /* yuv422_8bit[VYUY] linear mode */
- };
- 
-+/*
-+ * Add XRGB2101010/ARGB2101010ARGB1555/XRGB1555
-+ */
-+static const uint32_t formats_rk3576_esmart[] = {
-+	DRM_FORMAT_XRGB2101010,
-+	DRM_FORMAT_XBGR2101010,
-+	DRM_FORMAT_ARGB2101010,
-+	DRM_FORMAT_ABGR2101010,
-+	DRM_FORMAT_XRGB8888,
-+	DRM_FORMAT_ARGB8888,
-+	DRM_FORMAT_XBGR8888,
-+	DRM_FORMAT_ABGR8888,
-+	DRM_FORMAT_RGB888,
-+	DRM_FORMAT_BGR888,
-+	DRM_FORMAT_RGB565,
-+	DRM_FORMAT_BGR565,
-+	DRM_FORMAT_ARGB1555,
-+	DRM_FORMAT_ABGR1555,
-+	DRM_FORMAT_XRGB1555,
-+	DRM_FORMAT_XBGR1555,
-+	DRM_FORMAT_NV12, /* yuv420_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV21, /* yvu420_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV16, /* yuv422_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV61, /* yvu422_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV20, /* yuv422_10bit linear mode, 2 plane, no padding */
-+	DRM_FORMAT_NV24, /* yuv444_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV42, /* yvu444_8bit linear mode, 2 plane */
-+	DRM_FORMAT_NV30, /* yuv444_10bit linear mode, 2 plane, no padding */
-+	DRM_FORMAT_NV15, /* yuv420_10bit linear mode, 2 plane, no padding */
-+	DRM_FORMAT_YVYU, /* yuv422_8bit[YVYU] linear mode */
-+	DRM_FORMAT_VYUY, /* yuv422_8bit[VYUY] linear mode */
-+	DRM_FORMAT_YUYV, /* yuv422_8bit[YUYV] linear mode */
-+	DRM_FORMAT_UYVY, /* yuv422_8bit[UYVY] linear mode */
++struct vop2_alpha {
++	union vop2_alpha_ctrl src_color_ctrl;
++	union vop2_alpha_ctrl dst_color_ctrl;
++	union vop2_alpha_ctrl src_alpha_ctrl;
++	union vop2_alpha_ctrl dst_alpha_ctrl;
 +};
 +
- static const uint32_t formats_smart[] = {
- 	DRM_FORMAT_XRGB8888,
- 	DRM_FORMAT_ARGB8888,
-@@ -169,6 +235,48 @@ static const uint64_t format_modifiers_afbc[] = {
++struct vop2_alpha_config {
++	bool src_premulti_en;
++	bool dst_premulti_en;
++	bool src_pixel_alpha_en;
++	bool dst_pixel_alpha_en;
++	u16 src_glb_alpha_value;
++	u16 dst_glb_alpha_value;
++};
++
+ static const uint32_t formats_cluster[] = {
+ 	DRM_FORMAT_XRGB2101010,
+ 	DRM_FORMAT_XBGR2101010,
+@@ -131,6 +169,138 @@ static const uint64_t format_modifiers_afbc[] = {
  	DRM_FORMAT_MOD_INVALID,
  };
  
-+/* used from rk3576, afbc 32*8 half mode */
-+static const uint64_t format_modifiers_rk3576_afbc[] = {
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_SPARSE |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_YTR |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_CBR |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_CBR |
-+				AFBC_FORMAT_MOD_SPARSE |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_YTR |
-+				AFBC_FORMAT_MOD_CBR |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_YTR |
-+				AFBC_FORMAT_MOD_CBR |
-+				AFBC_FORMAT_MOD_SPARSE |
-+				AFBC_FORMAT_MOD_SPLIT),
-+
-+	/* SPLIT mandates SPARSE, RGB modes mandates YTR */
-+	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
-+				AFBC_FORMAT_MOD_YTR |
-+				AFBC_FORMAT_MOD_SPARSE |
-+				AFBC_FORMAT_MOD_SPLIT),
-+	DRM_FORMAT_MOD_LINEAR,
-+	DRM_FORMAT_MOD_INVALID,
-+};
-+
- static const struct reg_field rk3568_vop_cluster_regs[VOP2_WIN_MAX_REG] = {
- 	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 0, 0),
- 	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 1, 5),
-@@ -301,6 +409,146 @@ static const struct reg_field rk3568_vop_smart_regs[VOP2_WIN_MAX_REG] = {
- 	[VOP2_WIN_AFBC_ROTATE_90] = { .reg = 0xffffffff },
- };
- 
-+static const struct reg_field rk3576_vop_cluster_regs[VOP2_WIN_MAX_REG] = {
++static const struct reg_field rk3568_vop_cluster_regs[VOP2_WIN_MAX_REG] = {
 +	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 0, 0),
 +	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 1, 5),
 +	[VOP2_WIN_RB_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 14, 14),
-+	[VOP2_WIN_UV_SWAP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 17, 17),
 +	[VOP2_WIN_DITHER_UP] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 18, 18),
 +	[VOP2_WIN_ACT_INFO] = REG_FIELD(RK3568_CLUSTER_WIN_ACT_INFO, 0, 31),
 +	[VOP2_WIN_DSP_INFO] = REG_FIELD(RK3568_CLUSTER_WIN_DSP_INFO, 0, 31),
@@ -631,20 +1666,17 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
 +	[VOP2_WIN_Y2R_EN] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 8, 8),
 +	[VOP2_WIN_R2Y_EN] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 9, 9),
 +	[VOP2_WIN_CSC_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL0, 10, 11),
-+	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 0, 4),
-+	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 5, 9),
-+	/* Read only bit on rk3576, writing on this bit have no effect.*/
++	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 0, 3),
++	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL2, 5, 8),
++	/* RK3588 only, reserved bit on rk3568*/
 +	[VOP2_WIN_AXI_BUS_ID] = REG_FIELD(RK3568_CLUSTER_CTRL, 13, 13),
-+
-+	[VOP2_WIN_VP_SEL] = REG_FIELD(RK3576_CLUSTER_PORT_SEL_IMD, 0, 1),
-+	[VOP2_WIN_DLY_NUM] = REG_FIELD(RK3576_CLUSTER_DLY_NUM, 0, 7),
 +
 +	/* Scale */
 +	[VOP2_WIN_SCALE_YRGB_X] = REG_FIELD(RK3568_CLUSTER_WIN_SCL_FACTOR_YRGB, 0, 15),
 +	[VOP2_WIN_SCALE_YRGB_Y] = REG_FIELD(RK3568_CLUSTER_WIN_SCL_FACTOR_YRGB, 16, 31),
-+	[VOP2_WIN_BIC_COE_SEL] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 2, 3),
 +	[VOP2_WIN_YRGB_VER_SCL_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 14, 15),
-+	[VOP2_WIN_YRGB_HOR_SCL_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 22, 23),
++	[VOP2_WIN_YRGB_HOR_SCL_MODE] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 12, 13),
++	[VOP2_WIN_BIC_COE_SEL] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 2, 3),
 +	[VOP2_WIN_VSD_YRGB_GT2] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 28, 28),
 +	[VOP2_WIN_VSD_YRGB_GT4] = REG_FIELD(RK3568_CLUSTER_WIN_CTRL1, 29, 29),
 +
@@ -660,19 +1692,18 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
 +	[VOP2_WIN_AFBC_AUTO_GATING_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_OUTPUT_CTRL, 4, 4),
 +	[VOP2_WIN_AFBC_HALF_BLOCK_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 7, 7),
 +	[VOP2_WIN_AFBC_BLOCK_SPLIT_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 8, 8),
-+	[VOP2_WIN_AFBC_PLD_OFFSET_EN] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_CTRL, 16, 16),
 +	[VOP2_WIN_AFBC_HDR_PTR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_HDR_PTR, 0, 31),
 +	[VOP2_WIN_AFBC_PIC_SIZE] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_SIZE, 0, 31),
 +	[VOP2_WIN_AFBC_PIC_VIR_WIDTH] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 0, 15),
 +	[VOP2_WIN_AFBC_TILE_NUM] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 16, 31),
 +	[VOP2_WIN_AFBC_PIC_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_OFFSET, 0, 31),
 +	[VOP2_WIN_AFBC_DSP_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_DSP_OFFSET, 0, 31),
-+	[VOP2_WIN_AFBC_PLD_OFFSET] = REG_FIELD(RK3576_CLUSTER_WIN_AFBCD_PLD_PTR_OFFSET, 0, 31),
 +	[VOP2_WIN_AFBC_TRANSFORM_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_TRANSFORM_OFFSET, 0, 31),
 +	[VOP2_WIN_AFBC_ROTATE_90] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 0, 0),
 +	[VOP2_WIN_AFBC_ROTATE_270] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 1, 1),
 +	[VOP2_WIN_XMIRROR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 2, 2),
 +	[VOP2_WIN_YMIRROR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 3, 3),
++	[VOP2_WIN_UV_SWAP] = { .reg = 0xffffffff },
 +	[VOP2_WIN_COLOR_KEY] = { .reg = 0xffffffff },
 +	[VOP2_WIN_COLOR_KEY_EN] = { .reg = 0xffffffff },
 +	[VOP2_WIN_SCALE_CBCR_X] = { .reg = 0xffffffff },
@@ -687,7 +1718,7 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
 +	[VOP2_WIN_VSD_CBCR_GT4] = { .reg = 0xffffffff },
 +};
 +
-+static const struct reg_field rk3576_vop_smart_regs[VOP2_WIN_MAX_REG] = {
++static const struct reg_field rk3568_vop_smart_regs[VOP2_WIN_MAX_REG] = {
 +	[VOP2_WIN_ENABLE] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 0, 0),
 +	[VOP2_WIN_FORMAT] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 1, 5),
 +	[VOP2_WIN_DITHER_UP] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 12, 12),
@@ -707,33 +1738,30 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
 +	[VOP2_WIN_YMIRROR] = REG_FIELD(RK3568_SMART_CTRL1, 31, 31),
 +	[VOP2_WIN_COLOR_KEY] = REG_FIELD(RK3568_SMART_COLOR_KEY_CTRL, 0, 29),
 +	[VOP2_WIN_COLOR_KEY_EN] = REG_FIELD(RK3568_SMART_COLOR_KEY_CTRL, 31, 31),
-+	[VOP2_WIN_VP_SEL] = REG_FIELD(RK3576_SMART_PORT_SEL_IMD, 0, 1),
-+	[VOP2_WIN_DLY_NUM] = REG_FIELD(RK3576_SMART_DLY_NUM, 0, 7),
 +	[VOP2_WIN_AXI_YRGB_R_ID] = REG_FIELD(RK3568_SMART_CTRL1, 4, 8),
 +	[VOP2_WIN_AXI_UV_R_ID] = REG_FIELD(RK3568_SMART_CTRL1, 12, 16),
++	/* RK3588 only, reserved register on rk3568 */
 +	[VOP2_WIN_AXI_BUS_ID] = REG_FIELD(RK3588_SMART_AXI_CTRL, 1, 1),
 +
 +	/* Scale */
 +	[VOP2_WIN_SCALE_YRGB_X] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_YRGB, 0, 15),
 +	[VOP2_WIN_SCALE_YRGB_Y] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_YRGB, 16, 31),
++	[VOP2_WIN_SCALE_CBCR_X] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_CBR, 0, 15),
++	[VOP2_WIN_SCALE_CBCR_Y] = REG_FIELD(RK3568_SMART_REGION0_SCL_FACTOR_CBR, 16, 31),
 +	[VOP2_WIN_YRGB_HOR_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 0, 1),
 +	[VOP2_WIN_YRGB_HSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 2, 3),
 +	[VOP2_WIN_YRGB_VER_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 4, 5),
 +	[VOP2_WIN_YRGB_VSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 6, 7),
++	[VOP2_WIN_CBCR_HOR_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 8, 9),
++	[VOP2_WIN_CBCR_HSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 10, 11),
++	[VOP2_WIN_CBCR_VER_SCL_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 12, 13),
++	[VOP2_WIN_CBCR_VSCL_FILTER_MODE] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 14, 15),
 +	[VOP2_WIN_BIC_COE_SEL] = REG_FIELD(RK3568_SMART_REGION0_SCL_CTRL, 16, 17),
 +	[VOP2_WIN_VSD_YRGB_GT2] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 8, 8),
 +	[VOP2_WIN_VSD_YRGB_GT4] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 9, 9),
 +	[VOP2_WIN_VSD_CBCR_GT2] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 10, 10),
 +	[VOP2_WIN_VSD_CBCR_GT4] = REG_FIELD(RK3568_SMART_REGION0_CTRL, 11, 11),
 +	[VOP2_WIN_XMIRROR] = { .reg = 0xffffffff },
-+
-+	[VOP2_WIN_SCALE_CBCR_X] = { .reg = 0xffffffff }, /* CBCR share the same scale factor as YRGB */
-+	[VOP2_WIN_SCALE_CBCR_Y] = { .reg = 0xffffffff },
-+	[VOP2_WIN_CBCR_HOR_SCL_MODE] = { .reg = 0xffffffff },
-+	[VOP2_WIN_CBCR_HSCL_FILTER_MODE] = { .reg = 0xffffffff},
-+	[VOP2_WIN_CBCR_VER_SCL_MODE] = { .reg = 0xffffffff},
-+	[VOP2_WIN_CBCR_VSCL_FILTER_MODE] = { .reg = 0xffffffff},
-+
 +	[VOP2_WIN_CLUSTER_ENABLE] = { .reg = 0xffffffff },
 +	[VOP2_WIN_AFBC_ENABLE] = { .reg = 0xffffffff },
 +	[VOP2_WIN_CLUSTER_LB_MODE] = { .reg = 0xffffffff },
@@ -757,761 +1785,762 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
  static const struct vop2_video_port_data rk3568_vop_video_ports[] = {
  	{
  		.id = 0,
-@@ -355,98 +603,385 @@ static const struct vop2_win_data rk3568_vop_win_data[] = {
- 		.layer_sel_id = { 3, 3, 3, 0xf },
- 		.supported_rotations = DRM_MODE_REFLECT_Y,
- 		.type = DRM_PLANE_TYPE_PRIMARY,
--		.max_upscale_factor = 8,
--		.max_downscale_factor = 8,
--		.dly = { 20, 47, 41 },
-+		.max_upscale_factor = 8,
-+		.max_downscale_factor = 8,
-+		.dly = { 20, 47, 41 },
-+	}, {
-+		.name = "Smart1-win0",
-+		.phys_id = ROCKCHIP_VOP2_SMART1,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
-+		.formats = formats_smart,
-+		.nformats = ARRAY_SIZE(formats_smart),
-+		.format_modifiers = format_modifiers,
-+		.base = 0x1e00,
-+		.layer_sel_id = { 7, 7, 7, 0xf },
-+		.supported_rotations = DRM_MODE_REFLECT_Y,
-+		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.max_upscale_factor = 8,
-+		.max_downscale_factor = 8,
-+		.dly = { 20, 47, 41 },
-+	}, {
-+		.name = "Esmart1-win0",
-+		.phys_id = ROCKCHIP_VOP2_ESMART1,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
-+		.formats = formats_rk356x_esmart,
-+		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
-+		.format_modifiers = format_modifiers,
-+		.base = 0x1a00,
-+		.layer_sel_id = { 6, 6, 6, 0xf },
-+		.supported_rotations = DRM_MODE_REFLECT_Y,
-+		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.max_upscale_factor = 8,
-+		.max_downscale_factor = 8,
-+		.dly = { 20, 47, 41 },
-+	}, {
-+		.name = "Esmart0-win0",
-+		.phys_id = ROCKCHIP_VOP2_ESMART0,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
-+		.formats = formats_rk356x_esmart,
-+		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
-+		.format_modifiers = format_modifiers,
-+		.base = 0x1800,
-+		.layer_sel_id = { 2, 2, 2, 0xf },
-+		.supported_rotations = DRM_MODE_REFLECT_Y,
-+		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.max_upscale_factor = 8,
-+		.max_downscale_factor = 8,
-+		.dly = { 20, 47, 41 },
-+	}, {
-+		.name = "Cluster0-win0",
-+		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
-+		.base = 0x1000,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
-+		.formats = formats_cluster,
-+		.nformats = ARRAY_SIZE(formats_cluster),
-+		.format_modifiers = format_modifiers_afbc,
-+		.layer_sel_id = { 0, 0, 0, 0xf },
-+		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
-+					DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
-+		.max_upscale_factor = 4,
-+		.max_downscale_factor = 4,
-+		.dly = { 0, 27, 21 },
-+		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.feature = WIN_FEATURE_AFBDC | WIN_FEATURE_CLUSTER,
-+	}, {
-+		.name = "Cluster1-win0",
-+		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
-+		.base = 0x1200,
-+		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
-+		.formats = formats_cluster,
-+		.nformats = ARRAY_SIZE(formats_cluster),
-+		.format_modifiers = format_modifiers_afbc,
-+		.layer_sel_id = { 1, 1, 1, 0xf },
-+		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
-+					DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
-+		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.max_upscale_factor = 4,
-+		.max_downscale_factor = 4,
-+		.dly = { 0, 27, 21 },
-+		.feature = WIN_FEATURE_AFBDC | WIN_FEATURE_CLUSTER,
-+	},
-+};
-+
-+static const struct vop2_regs_dump rk3568_regs_dump[] = {
-+	{
-+		.name = "SYS",
-+		.base = RK3568_REG_CFG_DONE,
-+		.size = 0x100,
-+		.en_reg  = 0,
-+		.en_val = 0,
-+		.en_mask = 0
-+	}, {
-+		.name = "OVL",
-+		.base = RK3568_OVL_CTRL,
-+		.size = 0x100,
-+		.en_reg = 0,
-+		.en_val = 0,
-+		.en_mask = 0,
-+	}, {
-+		.name = "VP0",
-+		.base = RK3568_VP0_CTRL_BASE,
-+		.size = 0x100,
-+		.en_reg = RK3568_VP_DSP_CTRL,
-+		.en_val = 0,
-+		.en_mask = RK3568_VP_DSP_CTRL__STANDBY,
-+	}, {
-+		.name = "VP1",
-+		.base = RK3568_VP1_CTRL_BASE,
-+		.size = 0x100,
-+		.en_reg = RK3568_VP_DSP_CTRL,
-+		.en_val = 0,
-+		.en_mask = RK3568_VP_DSP_CTRL__STANDBY,
-+	}, {
-+		.name = "VP2",
-+		.base = RK3568_VP2_CTRL_BASE,
-+		.size = 0x100,
-+		.en_reg = RK3568_VP_DSP_CTRL,
-+		.en_val = 0,
-+		.en_mask = RK3568_VP_DSP_CTRL__STANDBY,
-+
-+	}, {
-+		.name = "Cluster0",
-+		.base = RK3568_CLUSTER0_CTRL_BASE,
-+		.size = 0x110,
-+		.en_reg = RK3568_CLUSTER_WIN_CTRL0,
-+		.en_val = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
-+		.en_mask = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
-+	}, {
-+		.name = "Cluster1",
-+		.base = RK3568_CLUSTER1_CTRL_BASE,
-+		.size = 0x110,
-+		.en_reg = RK3568_CLUSTER_WIN_CTRL0,
-+		.en_val = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
-+		.en_mask = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
-+	}, {
-+		.name = "Esmart0",
-+		.base = RK3568_ESMART0_CTRL_BASE,
-+		.size = 0xf0,
-+		.en_reg = RK3568_SMART_REGION0_CTRL,
-+		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+		.en_mask = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+	}, {
-+		.name = "Esmart1",
-+		.base = RK3568_ESMART1_CTRL_BASE,
-+		.size = 0xf0,
-+		.en_reg = RK3568_SMART_REGION0_CTRL,
-+		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+		.en_mask = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+	}, {
-+		.name = "Smart0",
-+		.base = RK3568_SMART0_CTRL_BASE,
-+		.size = 0xf0,
-+		.en_reg = RK3568_SMART_REGION0_CTRL,
-+		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+		.en_mask = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+	}, {
-+		.name = "Smart1",
-+		.base = RK3568_SMART1_CTRL_BASE,
-+		.size = 0xf0,
-+		.en_reg = RK3568_SMART_REGION0_CTRL,
-+		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+		.en_mask = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-+	},
-+};
-+
-+static const struct vop2_video_port_data rk3576_vop_video_ports[] = {
-+	{
-+		.id = 0,
-+		.feature = VOP2_VP_FEATURE_OUTPUT_10BIT,
-+		.gamma_lut_len = 1024,
-+		.cubic_lut_len = 9 * 9 * 9, /* 9x9x9 */
-+		.max_output = { 4096, 2304 },
-+		/* win layer_mix hdr  */
-+		.pre_scan_max_dly = { 10, 8, 2, 0 },
-+		.offset = 0xc00,
-+		.pixel_rate = 2,
-+	}, {
-+		.id = 1,
-+		.feature = VOP2_VP_FEATURE_OUTPUT_10BIT,
-+		.gamma_lut_len = 1024,
-+		.cubic_lut_len = 729, /* 9x9x9 */
-+		.max_output = { 2560, 1600 },
-+		/* win layer_mix hdr  */
-+		.pre_scan_max_dly = { 10, 6, 0, 0 },
-+		.offset = 0xd00,
-+		.pixel_rate = 1,
-+	}, {
-+		.id = 2,
-+		.gamma_lut_len = 1024,
-+		.max_output = { 1920, 1080 },
-+		/* win layer_mix hdr  */
-+		.pre_scan_max_dly = { 10, 6, 0, 0 },
-+		.offset = 0xe00,
-+		.pixel_rate = 1,
-+	},
-+};
-+
-+/*
-+ * rk3576 vop with 2 cluster, 4 esmart win.
-+ * Every cluster can work as 4K win or split into two 2K win.
-+ * All win in cluster support AFBCD.
-+ *
-+ * Every esmart win support 4 Multi-region.
-+ *
-+ * VP0 can use Cluster0/1 and Esmart0/2
-+ * VP1 can use Cluster0/1 and Esmart1/3
-+ * VP2 can use Esmart0/1/2/3
-+ *
-+ * Scale filter mode:
-+ *
-+ * * Cluster:
-+ * * Support prescale down:
-+ * * H/V: gt2/avg2 or gt4/avg4
-+ * * After prescale down:
-+ *	* nearest-neighbor/bilinear/multi-phase filter for scale up
-+ *	* nearest-neighbor/bilinear/multi-phase filter for scale down
-+ *
-+ * * Esmart:
-+ * * Support prescale down:
-+ * * H: gt2/avg2 or gt4/avg4
-+ * * V: gt2 or gt4
-+ * * After prescale down:
-+ *	* nearest-neighbor/bilinear/bicubic for scale up
-+ *	* nearest-neighbor/bilinear for scale down
-+ *
-+ * AXI config::
-+ *
-+ * * Cluster0 win0: 0xa,  0xb       [AXI0]
-+ * * Cluster0 win1: 0xc,  0xd       [AXI0]
-+ * * Cluster1 win0: 0x6,  0x7       [AXI0]
-+ * * Cluster1 win1: 0x8,  0x9       [AXI0]
-+ * * Esmart0:       0x10, 0x11      [AXI0]
-+ * * Esmart1:       0x12, 0x13      [AXI0]
-+ * * Esmart2:       0xa,  0xb       [AXI1]
-+ * * Esmart3:       0xc,  0xd       [AXI1]
-+ * * Lut dma rid:   0x1,  0x2,  0x3 [AXI0]
-+ * * DCI dma rid:   0x4             [AXI0]
-+ * * Metadata rid:  0x5             [AXI0]
-+ *
-+ * * Limit:
-+ * * (1) Cluster0/1 are fixed on AXI0 by IC design
-+ * * (2) 0x0 and 0xf can't be used;
-+ * * (3) 5 Bits ID for eache axi bus
-+ * * (3) cluster and lut/dci/metadata rid must smaller than 0xf,
-+ * *     if Cluster rid is bigger than 0xf, VOP will dead at the
-+ * *     system bandwidth very terrible scene.
-+ */
-+static const struct vop2_win_data rk3576_vop_win_data[] = {
-+	{
-+		.name = "Cluster0-win0",
-+		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
-+		.base = 0x1000,
-+		.possible_vp_mask = BIT(0) | BIT(1),
-+		.formats = formats_rk3576_cluster,
-+		.nformats = ARRAY_SIZE(formats_rk3576_cluster),
-+		.format_modifiers = format_modifiers_rk3576_afbc,
-+		.layer_sel_id = { 0, 0, 0xf, 0xf },
-+		.supported_rotations =  DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
-+		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 0xa,
-+		.axi_uv_r_id = 0xb,
-+		.max_upscale_factor = 4,
-+		.max_downscale_factor = 4,
-+		.feature = WIN_FEATURE_AFBDC | WIN_FEATURE_CLUSTER,
- 	}, {
--		.name = "Smart1-win0",
--		.phys_id = ROCKCHIP_VOP2_SMART1,
--		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
--		.formats = formats_smart,
--		.nformats = ARRAY_SIZE(formats_smart),
-+		.name = "Cluster1-win0",
-+		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
-+		.base = 0x1200,
-+		.possible_vp_mask = BIT(0) | BIT(1),
-+		.formats = formats_rk3576_cluster,
-+		.nformats = ARRAY_SIZE(formats_rk3576_cluster),
-+		.format_modifiers = format_modifiers_rk3576_afbc,
-+		.layer_sel_id = { 1, 1, 0xf, 0xf },
-+		.supported_rotations =  DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
-+		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 6,
-+		.axi_uv_r_id = 7,
-+		.max_upscale_factor = 4,
-+		.max_downscale_factor = 4,
-+		.feature = WIN_FEATURE_AFBDC | WIN_FEATURE_CLUSTER,
-+	}, {
-+		.name = "Esmart0-win0",
-+		.phys_id = ROCKCHIP_VOP2_ESMART0,
-+		.base = 0x1800,
-+		.possible_vp_mask = BIT(0) | BIT(2),
-+		.formats = formats_rk3576_esmart,
-+		.nformats = ARRAY_SIZE(formats_rk3576_esmart),
- 		.format_modifiers = format_modifiers,
--		.base = 0x1e00,
--		.layer_sel_id = { 7, 7, 7, 0xf },
-+		.layer_sel_id = { 2, 0xf, 0, 0xf },
- 		.supported_rotations = DRM_MODE_REFLECT_Y,
--		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 0x10,
-+		.axi_uv_r_id = 0x11,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
--		.dly = { 20, 47, 41 },
- 	}, {
- 		.name = "Esmart1-win0",
- 		.phys_id = ROCKCHIP_VOP2_ESMART1,
--		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
--		.formats = formats_rk356x_esmart,
--		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
--		.format_modifiers = format_modifiers,
- 		.base = 0x1a00,
--		.layer_sel_id = { 6, 6, 6, 0xf },
-+		.possible_vp_mask = BIT(1) | BIT(2),
-+		.formats = formats_rk3576_esmart,
-+		.nformats = ARRAY_SIZE(formats_rk3576_esmart),
-+		.format_modifiers = format_modifiers,
-+		.layer_sel_id = { 0xf, 2, 1, 0xf },
- 		.supported_rotations = DRM_MODE_REFLECT_Y,
--		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 0,
-+		.axi_yrgb_r_id = 0x12,
-+		.axi_uv_r_id = 0x13,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
--		.dly = { 20, 47, 41 },
- 	}, {
--		.name = "Esmart0-win0",
--		.phys_id = ROCKCHIP_VOP2_ESMART0,
--		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
--		.formats = formats_rk356x_esmart,
--		.nformats = ARRAY_SIZE(formats_rk356x_esmart),
-+		.name = "Esmart2-win0",
-+		.phys_id = ROCKCHIP_VOP2_ESMART2,
-+		.base = 0x1c00,
-+		.possible_vp_mask = BIT(0) | BIT(2),
-+		.formats = formats_rk3576_esmart,
-+		.nformats = ARRAY_SIZE(formats_rk3576_esmart),
- 		.format_modifiers = format_modifiers,
--		.base = 0x1800,
--		.layer_sel_id = { 2, 2, 2, 0xf },
-+		.layer_sel_id = { 3, 0xf, 2, 0xf },
- 		.supported_rotations = DRM_MODE_REFLECT_Y,
--		.type = DRM_PLANE_TYPE_PRIMARY,
-+		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.axi_bus_id = 1,
-+		.axi_yrgb_r_id = 0x0a,
-+		.axi_uv_r_id = 0x0b,
- 		.max_upscale_factor = 8,
- 		.max_downscale_factor = 8,
--		.dly = { 20, 47, 41 },
--	}, {
--		.name = "Cluster0-win0",
--		.phys_id = ROCKCHIP_VOP2_CLUSTER0,
--		.base = 0x1000,
--		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
--		.formats = formats_cluster,
--		.nformats = ARRAY_SIZE(formats_cluster),
--		.format_modifiers = format_modifiers_afbc,
--		.layer_sel_id = { 0, 0, 0, 0xf },
--		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
--					DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
--		.max_upscale_factor = 4,
--		.max_downscale_factor = 4,
--		.dly = { 0, 27, 21 },
--		.type = DRM_PLANE_TYPE_OVERLAY,
--		.feature = WIN_FEATURE_AFBDC | WIN_FEATURE_CLUSTER,
- 	}, {
--		.name = "Cluster1-win0",
--		.phys_id = ROCKCHIP_VOP2_CLUSTER1,
--		.base = 0x1200,
--		.possible_vp_mask = BIT(0) | BIT(1) | BIT(2),
--		.formats = formats_cluster,
--		.nformats = ARRAY_SIZE(formats_cluster),
--		.format_modifiers = format_modifiers_afbc,
--		.layer_sel_id = { 1, 1, 1, 0xf },
--		.supported_rotations = DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270 |
--					DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y,
-+		.name = "Esmart3-win0",
-+		.phys_id = ROCKCHIP_VOP2_ESMART3,
-+		.base = 0x1e00,
-+		.possible_vp_mask = BIT(1) | BIT(2),
-+		.formats = formats_rk3576_esmart,
-+		.nformats = ARRAY_SIZE(formats_rk3576_esmart),
-+		.format_modifiers = format_modifiers,
-+		.layer_sel_id = { 0xf, 3, 3, 0xf },
-+		.supported_rotations = DRM_MODE_REFLECT_Y,
- 		.type = DRM_PLANE_TYPE_OVERLAY,
--		.max_upscale_factor = 4,
--		.max_downscale_factor = 4,
--		.dly = { 0, 27, 21 },
--		.feature = WIN_FEATURE_AFBDC | WIN_FEATURE_CLUSTER,
-+		.axi_bus_id = 1,
-+		.axi_yrgb_r_id = 0x0c,
-+		.axi_uv_r_id = 0x0d,
-+		.max_upscale_factor = 8,
-+		.max_downscale_factor = 8,
+@@ -647,6 +817,813 @@ static const struct vop2_regs_dump rk3588_regs_dump[] = {
  	},
  };
  
--static const struct vop2_regs_dump rk3568_regs_dump[] = {
-+static const struct vop2_regs_dump rk3576_regs_dump[] = {
- 	{
- 		.name = "SYS",
- 		.base = RK3568_REG_CFG_DONE,
--		.size = 0x100,
-+		.size = 0x200,
- 		.en_reg  = 0,
- 		.en_val = 0,
- 		.en_mask = 0
- 	}, {
--		.name = "OVL",
--		.base = RK3568_OVL_CTRL,
--		.size = 0x100,
-+		.name = "OVL_SYS",
-+		.base = RK3576_SYS_EXTRA_ALPHA_CTRL,
-+		.size = 0x50,
-+		.en_reg = 0,
-+		.en_val = 0,
-+		.en_mask = 0,
-+	}, {
-+		.name = "OVL_VP0",
-+		.base = RK3576_OVL_CTRL(0),
-+		.size = 0x80,
-+		.en_reg = 0,
-+		.en_val = 0,
-+		.en_mask = 0,
-+	}, {
-+		.name = "OVL_VP1",
-+		.base = RK3576_OVL_CTRL(1),
-+		.size = 0x80,
-+		.en_reg = 0,
-+		.en_val = 0,
-+		.en_mask = 0,
-+	}, {
-+		.name = "OVL_VP2",
-+		.base = RK3576_OVL_CTRL(2),
-+		.size = 0x80,
- 		.en_reg = 0,
- 		.en_val = 0,
- 		.en_mask = 0,
-@@ -471,18 +1006,17 @@ static const struct vop2_regs_dump rk3568_regs_dump[] = {
- 		.en_reg = RK3568_VP_DSP_CTRL,
- 		.en_val = 0,
- 		.en_mask = RK3568_VP_DSP_CTRL__STANDBY,
--
- 	}, {
- 		.name = "Cluster0",
- 		.base = RK3568_CLUSTER0_CTRL_BASE,
--		.size = 0x110,
-+		.size = 0x200,
- 		.en_reg = RK3568_CLUSTER_WIN_CTRL0,
- 		.en_val = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
- 		.en_mask = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
- 	}, {
- 		.name = "Cluster1",
- 		.base = RK3568_CLUSTER1_CTRL_BASE,
--		.size = 0x110,
-+		.size = 0x200,
- 		.en_reg = RK3568_CLUSTER_WIN_CTRL0,
- 		.en_val = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
- 		.en_mask = RK3568_CLUSTER_WIN_CTRL0__WIN0_EN,
-@@ -501,15 +1035,15 @@ static const struct vop2_regs_dump rk3568_regs_dump[] = {
- 		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
- 		.en_mask = RK3568_SMART_REGION0_CTRL__WIN0_EN,
- 	}, {
--		.name = "Smart0",
--		.base = RK3568_SMART0_CTRL_BASE,
-+		.name = "Esmart2",
-+		.base = RK3588_ESMART2_CTRL_BASE,
- 		.size = 0xf0,
- 		.en_reg = RK3568_SMART_REGION0_CTRL,
- 		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
- 		.en_mask = RK3568_SMART_REGION0_CTRL__WIN0_EN,
- 	}, {
--		.name = "Smart1",
--		.base = RK3568_SMART1_CTRL_BASE,
-+		.name = "Esmart3",
-+		.base = RK3588_ESMART3_CTRL_BASE,
- 		.size = 0xf0,
- 		.en_reg = RK3568_SMART_REGION0_CTRL,
- 		.en_val = RK3568_SMART_REGION0_CTRL__WIN0_EN,
-@@ -908,6 +1442,84 @@ static unsigned long rk3568_set_intf_mux(struct vop2_video_port *vp, int id, u32
- 	return crtc->state->adjusted_mode.crtc_clock  * 1000LL;
- }
- 
-+static unsigned long rk3576_set_intf_mux(struct vop2_video_port *vp, int id, u32 polflags)
++static unsigned long rk3568_set_intf_mux(struct vop2_video_port *vp, int id, u32 polflags)
 +{
 +	struct vop2 *vop2 = vp->vop2;
 +	struct drm_crtc *crtc = &vp->crtc;
-+	struct drm_display_mode *adjusted_mode = &crtc->state->adjusted_mode;
-+	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(crtc->state);
-+	u8 port_pix_rate = vp->data->pixel_rate;
-+	int dclk_core_div, dclk_out_div, if_pixclk_div, if_dclk_sel;
-+	u32 ctrl, vp_clk_div, reg, dclk_div;
-+	unsigned long dclk_in_rate, dclk_core_rate;
++	u32 die, dip;
 +
-+	if (vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV420 || adjusted_mode->crtc_clock > 600000)
-+		dclk_div = 2;
-+	else
-+		dclk_div = 1;
-+
-+	if (adjusted_mode->flags & DRM_MODE_FLAG_DBLCLK)
-+		dclk_core_rate = adjusted_mode->crtc_clock / 2;
-+	else
-+		dclk_core_rate = adjusted_mode->crtc_clock / port_pix_rate;
-+
-+	dclk_in_rate = adjusted_mode->crtc_clock / dclk_div;
-+
-+	dclk_core_div = dclk_in_rate > dclk_core_rate ? 1 : 0;
-+
-+	if (vop2_output_if_is_edp(id))
-+		if_pixclk_div = port_pix_rate == 2 ? RK3576_DSP_IF_PCLK_DIV : 0;
-+	else
-+		if_pixclk_div = port_pix_rate == 1 ? RK3576_DSP_IF_PCLK_DIV : 0;
-+
-+	if (vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV420) {
-+		if_dclk_sel = RK3576_DSP_IF_DCLK_SEL_OUT;
-+		dclk_out_div = 1;
-+	} else {
-+		if_dclk_sel = 0;
-+		dclk_out_div = 0;
-+	}
++	die = vop2_readl(vop2, RK3568_DSP_IF_EN);
++	dip = vop2_readl(vop2, RK3568_DSP_IF_POL);
 +
 +	switch (id) {
++	case ROCKCHIP_VOP2_EP_RGB0:
++		die &= ~RK3568_SYS_DSP_INFACE_EN_RGB_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_RGB |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_RGB_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL, polflags);
++		if (polflags & POLFLAG_DCLK_INV)
++			regmap_write(vop2->sys_grf, RK3568_GRF_VO_CON1, BIT(3 + 16) | BIT(3));
++		else
++			regmap_write(vop2->sys_grf, RK3568_GRF_VO_CON1, BIT(3 + 16));
++		break;
 +	case ROCKCHIP_VOP2_EP_HDMI0:
-+		reg = RK3576_HDMI0_IF_CTRL;
++		die &= ~RK3568_SYS_DSP_INFACE_EN_HDMI_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_HDMI |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_HDMI_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__HDMI_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__HDMI_PIN_POL, polflags);
 +		break;
 +	case ROCKCHIP_VOP2_EP_EDP0:
-+		reg = RK3576_EDP0_IF_CTRL;
++		die &= ~RK3568_SYS_DSP_INFACE_EN_EDP_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_EDP |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_EDP_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__EDP_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__EDP_PIN_POL, polflags);
 +		break;
 +	case ROCKCHIP_VOP2_EP_MIPI0:
-+		reg = RK3576_MIPI0_IF_CTRL;
++		die &= ~RK3568_SYS_DSP_INFACE_EN_MIPI0_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_MIPI0 |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_MIPI0_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__MIPI_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__MIPI_PIN_POL, polflags);
 +		break;
-+	case ROCKCHIP_VOP2_EP_DP0:
-+		reg = RK3576_DP0_IF_CTRL;
++	case ROCKCHIP_VOP2_EP_MIPI1:
++		die &= ~RK3568_SYS_DSP_INFACE_EN_MIPI1_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_MIPI1 |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_MIPI1_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__MIPI_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__MIPI_PIN_POL, polflags);
 +		break;
-+	case ROCKCHIP_VOP2_EP_DP1:
-+		reg = RK3576_DP1_IF_CTRL;
++	case ROCKCHIP_VOP2_EP_LVDS0:
++		die &= ~RK3568_SYS_DSP_INFACE_EN_LVDS0_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_LVDS0 |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_LVDS0_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL, polflags);
++		break;
++	case ROCKCHIP_VOP2_EP_LVDS1:
++		die &= ~RK3568_SYS_DSP_INFACE_EN_LVDS1_MUX;
++		die |= RK3568_SYS_DSP_INFACE_EN_LVDS1 |
++			   FIELD_PREP(RK3568_SYS_DSP_INFACE_EN_LVDS1_MUX, vp->id);
++		dip &= ~RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL;
++		dip |= FIELD_PREP(RK3568_DSP_IF_POL__RGB_LVDS_PIN_POL, polflags);
 +		break;
 +	default:
 +		drm_err(vop2->drm, "Invalid interface id %d on vp%d\n", id, vp->id);
 +		return 0;
 +	}
 +
-+	ctrl = vop2_readl(vop2, reg);
-+	ctrl &= ~RK3576_DSP_IF_DCLK_SEL_OUT;
-+	ctrl &= ~RK3576_DSP_IF_PCLK_DIV;
-+	ctrl &= ~RK3576_DSP_IF_MUX;
-+	ctrl |= RK3576_DSP_IF_CFG_DONE_IMD;
-+	ctrl |= if_dclk_sel | if_pixclk_div;
-+	ctrl |= RK3576_DSP_IF_CLK_OUT_EN | RK3576_DSP_IF_EN;
-+	ctrl |= FIELD_PREP(RK3576_DSP_IF_MUX, vp->id);
-+	ctrl |= FIELD_PREP(RK3576_DSP_IF_PIN_POL, polflags);
-+	vop2_writel(vop2, reg, ctrl);
++	dip |= RK3568_DSP_IF_POL__CFG_DONE_IMD;
++
++	vop2_writel(vop2, RK3568_DSP_IF_EN, die);
++	vop2_writel(vop2, RK3568_DSP_IF_POL, dip);
++
++	return crtc->state->adjusted_mode.crtc_clock  * 1000LL;
++}
++
++/*
++ * calc the dclk on rk3588
++ * the available div of dclk is 1, 2, 4
++ */
++static unsigned long rk3588_calc_dclk(unsigned long child_clk, unsigned long max_dclk)
++{
++	if (child_clk * 4 <= max_dclk)
++		return child_clk * 4;
++	else if (child_clk * 2 <= max_dclk)
++		return child_clk * 2;
++	else if (child_clk <= max_dclk)
++		return child_clk;
++	else
++		return 0;
++}
++
++/*
++ * 4 pixclk/cycle on rk3588
++ * RGB/eDP/HDMI: if_pixclk >= dclk_core
++ * DP: dp_pixclk = dclk_out <= dclk_core
++ * DSI: mipi_pixclk <= dclk_out <= dclk_core
++ */
++static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
++					 int *dclk_core_div, int *dclk_out_div,
++					 int *if_pixclk_div, int *if_dclk_div)
++{
++	struct vop2 *vop2 = vp->vop2;
++	struct drm_crtc *crtc = &vp->crtc;
++	struct drm_display_mode *adjusted_mode = &crtc->state->adjusted_mode;
++	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(crtc->state);
++	int output_mode = vcstate->output_mode;
++	unsigned long v_pixclk = adjusted_mode->crtc_clock * 1000LL; /* video timing pixclk */
++	unsigned long dclk_core_rate = v_pixclk >> 2;
++	unsigned long dclk_rate = v_pixclk;
++	unsigned long dclk_out_rate;
++	unsigned long if_pixclk_rate;
++	int K = 1;
++
++	if (vop2_output_if_is_hdmi(id)) {
++		/*
++		 * K = 2: dclk_core = if_pixclk_rate > if_dclk_rate
++		 * K = 1: dclk_core = hdmie_edp_dclk > if_pixclk_rate
++		 */
++		if (output_mode == ROCKCHIP_OUT_MODE_YUV420) {
++			dclk_rate = dclk_rate >> 1;
++			K = 2;
++		}
++
++		if_pixclk_rate = (dclk_core_rate << 1) / K;
++		/*
++		 * if_dclk_rate = dclk_core_rate / K;
++		 * *if_pixclk_div = dclk_rate / if_pixclk_rate;
++		 * *if_dclk_div = dclk_rate / if_dclk_rate;
++		 */
++		*if_pixclk_div = 2;
++		*if_dclk_div = 4;
++	} else if (vop2_output_if_is_edp(id)) {
++		/*
++		 * edp_pixclk = edp_dclk > dclk_core
++		 */
++		if_pixclk_rate = v_pixclk / K;
++		dclk_rate = if_pixclk_rate * K;
++		/*
++		 * *if_pixclk_div = dclk_rate / if_pixclk_rate;
++		 * *if_dclk_div = *if_pixclk_div;
++		 */
++		*if_pixclk_div = K;
++		*if_dclk_div = K;
++	} else if (vop2_output_if_is_dp(id)) {
++		if (output_mode == ROCKCHIP_OUT_MODE_YUV420)
++			dclk_out_rate = v_pixclk >> 3;
++		else
++			dclk_out_rate = v_pixclk >> 2;
++
++		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
++		if (!dclk_rate) {
++			drm_err(vop2->drm, "DP dclk_out_rate out of range, dclk_out_rate: %ld Hz\n",
++				dclk_out_rate);
++			return 0;
++		}
++		*dclk_out_div = dclk_rate / dclk_out_rate;
++	} else if (vop2_output_if_is_mipi(id)) {
++		if_pixclk_rate = dclk_core_rate / K;
++		/*
++		 * dclk_core = dclk_out * K = if_pixclk * K = v_pixclk / 4
++		 */
++		dclk_out_rate = if_pixclk_rate;
++		/*
++		 * dclk_rate = N * dclk_core_rate N = (1,2,4 ),
++		 * we get a little factor here
++		 */
++		dclk_rate = rk3588_calc_dclk(dclk_out_rate, 600000000);
++		if (!dclk_rate) {
++			drm_err(vop2->drm, "MIPI dclk out of range, dclk_out_rate: %ld Hz\n",
++				dclk_out_rate);
++			return 0;
++		}
++		*dclk_out_div = dclk_rate / dclk_out_rate;
++		/*
++		 * mipi pixclk == dclk_out
++		 */
++		*if_pixclk_div = 1;
++	} else if (vop2_output_if_is_dpi(id)) {
++		dclk_rate = v_pixclk;
++	}
++
++	*dclk_core_div = dclk_rate / dclk_core_rate;
++	*if_pixclk_div = ilog2(*if_pixclk_div);
++	*if_dclk_div = ilog2(*if_dclk_div);
++	*dclk_core_div = ilog2(*dclk_core_div);
++	*dclk_out_div = ilog2(*dclk_out_div);
++
++	drm_dbg(vop2->drm, "dclk: %ld, pixclk_div: %d, dclk_div: %d\n",
++		dclk_rate, *if_pixclk_div, *if_dclk_div);
++
++	return dclk_rate;
++}
++
++/*
++ * MIPI port mux on rk3588:
++ * 0: Video Port2
++ * 1: Video Port3
++ * 3: Video Port 1(MIPI1 only)
++ */
++static u32 rk3588_get_mipi_port_mux(int vp_id)
++{
++	if (vp_id == 1)
++		return 3;
++	else if (vp_id == 3)
++		return 1;
++	else
++		return 0;
++}
++
++static u32 rk3588_get_hdmi_pol(u32 flags)
++{
++	u32 val;
++
++	val = (flags & DRM_MODE_FLAG_NHSYNC) ? BIT(HSYNC_POSITIVE) : 0;
++	val |= (flags & DRM_MODE_FLAG_NVSYNC) ? BIT(VSYNC_POSITIVE) : 0;
++
++	return val;
++}
++
++static unsigned long rk3588_set_intf_mux(struct vop2_video_port *vp, int id, u32 polflags)
++{
++	struct vop2 *vop2 = vp->vop2;
++	int dclk_core_div, dclk_out_div, if_pixclk_div, if_dclk_div;
++	unsigned long clock;
++	u32 die, dip, div, vp_clk_div, val;
++
++	clock = rk3588_calc_cru_cfg(vp, id, &dclk_core_div, &dclk_out_div,
++				    &if_pixclk_div, &if_dclk_div);
++	if (!clock)
++		return 0;
 +
 +	vp_clk_div = FIELD_PREP(RK3588_VP_CLK_CTRL__DCLK_CORE_DIV, dclk_core_div);
 +	vp_clk_div |= FIELD_PREP(RK3588_VP_CLK_CTRL__DCLK_OUT_DIV, dclk_out_div);
 +
-+	vop2_vp_write(vp, RK3588_VP_CLK_CTRL, vp_clk_div);
++	die = vop2_readl(vop2, RK3568_DSP_IF_EN);
++	dip = vop2_readl(vop2, RK3568_DSP_IF_POL);
++	div = vop2_readl(vop2, RK3568_DSP_IF_CTRL);
 +
-+	return dclk_in_rate * 1000LL;
++	switch (id) {
++	case ROCKCHIP_VOP2_EP_HDMI0:
++		div &= ~RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV;
++		div &= ~RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV;
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV, if_dclk_div);
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV, if_pixclk_div);
++		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX;
++		die |= RK3588_SYS_DSP_INFACE_EN_HDMI0 |
++			    FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX, vp->id);
++		val = rk3588_get_hdmi_pol(polflags);
++		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 1, 1));
++		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0, HIWORD_UPDATE(val, 6, 5));
++		break;
++	case ROCKCHIP_VOP2_EP_HDMI1:
++		div &= ~RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV;
++		div &= ~RK3588_DSP_IF_EDP_HDMI1_PCLK_DIV;
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV, if_dclk_div);
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI1_PCLK_DIV, if_pixclk_div);
++		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX;
++		die |= RK3588_SYS_DSP_INFACE_EN_HDMI1 |
++			    FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX, vp->id);
++		val = rk3588_get_hdmi_pol(polflags);
++		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 4, 4));
++		regmap_write(vop2->vo1_grf, RK3588_GRF_VO1_CON0, HIWORD_UPDATE(val, 8, 7));
++		break;
++	case ROCKCHIP_VOP2_EP_EDP0:
++		div &= ~RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV;
++		div &= ~RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV;
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV, if_dclk_div);
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV, if_pixclk_div);
++		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX;
++		die |= RK3588_SYS_DSP_INFACE_EN_EDP0 |
++			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI0_MUX, vp->id);
++		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 0, 0));
++		break;
++	case ROCKCHIP_VOP2_EP_EDP1:
++		div &= ~RK3588_DSP_IF_EDP_HDMI1_DCLK_DIV;
++		div &= ~RK3588_DSP_IF_EDP_HDMI1_PCLK_DIV;
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_DCLK_DIV, if_dclk_div);
++		div |= FIELD_PREP(RK3588_DSP_IF_EDP_HDMI0_PCLK_DIV, if_pixclk_div);
++		die &= ~RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX;
++		die |= RK3588_SYS_DSP_INFACE_EN_EDP1 |
++			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_EDP_HDMI1_MUX, vp->id);
++		regmap_write(vop2->vop_grf, RK3588_GRF_VOP_CON2, HIWORD_UPDATE(1, 3, 3));
++		break;
++	case ROCKCHIP_VOP2_EP_MIPI0:
++		div &= ~RK3588_DSP_IF_MIPI0_PCLK_DIV;
++		div |= FIELD_PREP(RK3588_DSP_IF_MIPI0_PCLK_DIV, if_pixclk_div);
++		die &= ~RK3588_SYS_DSP_INFACE_EN_MIPI0_MUX;
++		val = rk3588_get_mipi_port_mux(vp->id);
++		die |= RK3588_SYS_DSP_INFACE_EN_MIPI0 |
++			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_MIPI0_MUX, !!val);
++		break;
++	case ROCKCHIP_VOP2_EP_MIPI1:
++		div &= ~RK3588_DSP_IF_MIPI1_PCLK_DIV;
++		div |= FIELD_PREP(RK3588_DSP_IF_MIPI1_PCLK_DIV, if_pixclk_div);
++		die &= ~RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX;
++		val = rk3588_get_mipi_port_mux(vp->id);
++		die |= RK3588_SYS_DSP_INFACE_EN_MIPI1 |
++			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX, val);
++		break;
++	case ROCKCHIP_VOP2_EP_DP0:
++		die &= ~RK3588_SYS_DSP_INFACE_EN_DP0_MUX;
++		die |= RK3588_SYS_DSP_INFACE_EN_DP0 |
++			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_DP0_MUX, vp->id);
++		dip &= ~RK3588_DSP_IF_POL__DP0_PIN_POL;
++		dip |= FIELD_PREP(RK3588_DSP_IF_POL__DP0_PIN_POL, polflags);
++		break;
++	case ROCKCHIP_VOP2_EP_DP1:
++		die &= ~RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX;
++		die |= RK3588_SYS_DSP_INFACE_EN_MIPI1 |
++			   FIELD_PREP(RK3588_SYS_DSP_INFACE_EN_MIPI1_MUX, vp->id);
++		dip &= ~RK3588_DSP_IF_POL__DP1_PIN_POL;
++		dip |= FIELD_PREP(RK3588_DSP_IF_POL__DP1_PIN_POL, polflags);
++		break;
++	default:
++		drm_err(vop2->drm, "Invalid interface id %d on vp%d\n", id, vp->id);
++		return 0;
++	}
++
++	dip |= RK3568_DSP_IF_POL__CFG_DONE_IMD;
++
++	vop2_vp_write(vp, RK3588_VP_CLK_CTRL, vp_clk_div);
++	vop2_writel(vop2, RK3568_DSP_IF_EN, die);
++	vop2_writel(vop2, RK3568_DSP_IF_CTRL, div);
++	vop2_writel(vop2, RK3568_DSP_IF_POL, dip);
++
++	return clock;
 +}
 +
- /*
-  * calc the dclk on rk3588
-  * the available div of dclk is 1, 2, 4
-@@ -1246,6 +1858,7 @@ static void vop2_setup_cluster_alpha(struct vop2 *vop2, struct vop2_win *main_wi
- 	struct drm_plane_state *bottom_win_pstate;
- 	bool src_pixel_alpha_en = false;
- 	u16 src_glb_alpha_val, dst_glb_alpha_val;
-+	u32 src_color_ctrl_reg, dst_color_ctrl_reg, src_alpha_ctrl_reg, dst_alpha_ctrl_reg;
- 	u32 offset = 0;
- 	bool premulti_en = false;
- 	bool swap = false;
-@@ -1283,14 +1896,22 @@ static void vop2_setup_cluster_alpha(struct vop2 *vop2, struct vop2_win *main_wi
- 		break;
- 	}
- 
--	vop2_writel(vop2, RK3568_CLUSTER0_MIX_SRC_COLOR_CTRL + offset,
--		    alpha.src_color_ctrl.val);
--	vop2_writel(vop2, RK3568_CLUSTER0_MIX_DST_COLOR_CTRL + offset,
--		    alpha.dst_color_ctrl.val);
--	vop2_writel(vop2, RK3568_CLUSTER0_MIX_SRC_ALPHA_CTRL + offset,
--		    alpha.src_alpha_ctrl.val);
--	vop2_writel(vop2, RK3568_CLUSTER0_MIX_DST_ALPHA_CTRL + offset,
--		    alpha.dst_alpha_ctrl.val);
-+	if (vop2->version <= VOP_VERSION_RK3588) {
-+		src_color_ctrl_reg = RK3568_CLUSTER0_MIX_SRC_COLOR_CTRL;
-+		dst_color_ctrl_reg = RK3568_CLUSTER0_MIX_DST_COLOR_CTRL;
-+		src_alpha_ctrl_reg = RK3568_CLUSTER0_MIX_SRC_ALPHA_CTRL;
-+		dst_alpha_ctrl_reg = RK3568_CLUSTER0_MIX_DST_ALPHA_CTRL;
-+	} else {
-+		src_color_ctrl_reg = RK3576_CLUSTER0_MIX_SRC_COLOR_CTRL;
-+		dst_color_ctrl_reg = RK3576_CLUSTER0_MIX_DST_COLOR_CTRL;
-+		src_alpha_ctrl_reg = RK3576_CLUSTER0_MIX_SRC_ALPHA_CTRL;
-+		dst_alpha_ctrl_reg = RK3576_CLUSTER0_MIX_DST_ALPHA_CTRL;
-+	}
-+
-+	vop2_writel(vop2, src_color_ctrl_reg + offset, alpha.src_color_ctrl.val);
-+	vop2_writel(vop2, dst_color_ctrl_reg + offset, alpha.dst_color_ctrl.val);
-+	vop2_writel(vop2, src_alpha_ctrl_reg + offset, alpha.src_alpha_ctrl.val);
-+	vop2_writel(vop2, dst_alpha_ctrl_reg + offset, alpha.dst_alpha_ctrl.val);
- }
- 
- static void vop2_setup_alpha(struct vop2_video_port *vp)
-@@ -1303,11 +1924,16 @@ static void vop2_setup_alpha(struct vop2_video_port *vp)
- 	int pixel_alpha_en;
- 	int premulti_en, gpremulti_en = 0;
- 	int mixer_id;
-+	u32 src_color_ctrl_reg, dst_color_ctrl_reg, src_alpha_ctrl_reg, dst_alpha_ctrl_reg;
- 	u32 offset;
- 	bool bottom_layer_alpha_en = false;
- 	u32 dst_global_alpha = DRM_BLEND_ALPHA_OPAQUE;
- 
--	mixer_id = vop2_find_start_mixer_id_for_vp(vop2, vp->id);
-+	if (vop2->version <= VOP_VERSION_RK3588)
-+		mixer_id = vop2_find_start_mixer_id_for_vp(vop2, vp->id);
-+	else
-+		mixer_id = 0;
-+
- 	alpha_config.dst_pixel_alpha_en = true; /* alpha value need transfer to next mix */
- 
- 	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
-@@ -1326,6 +1952,18 @@ static void vop2_setup_alpha(struct vop2_video_port *vp)
- 		}
- 	}
- 
-+	if (vop2->version <= VOP_VERSION_RK3588) {
-+		src_color_ctrl_reg = RK3568_MIX0_SRC_COLOR_CTRL;
-+		dst_color_ctrl_reg = RK3568_MIX0_DST_COLOR_CTRL;
-+		src_alpha_ctrl_reg = RK3568_MIX0_SRC_ALPHA_CTRL;
-+		dst_alpha_ctrl_reg = RK3568_MIX0_DST_ALPHA_CTRL;
-+	} else {
-+		src_color_ctrl_reg = RK3576_OVL_MIX0_SRC_COLOR_CTRL(vp->id);
-+		dst_color_ctrl_reg = RK3576_OVL_MIX0_DST_COLOR_CTRL(vp->id);
-+		src_alpha_ctrl_reg = RK3576_OVL_MIX0_SRC_ALPHA_CTRL(vp->id);
-+		dst_alpha_ctrl_reg = RK3576_OVL_MIX0_DST_ALPHA_CTRL(vp->id);
-+	}
-+
- 	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
- 		struct vop2_win *win = to_vop2_win(plane);
- 		int zpos = plane->state->normalized_zpos;
-@@ -1372,17 +2010,26 @@ static void vop2_setup_alpha(struct vop2_video_port *vp)
- 		vop2_parse_alpha(&alpha_config, &alpha);
- 
- 		offset = (mixer_id + zpos - 1) * 0x10;
--		vop2_writel(vop2, RK3568_MIX0_SRC_COLOR_CTRL + offset,
--			    alpha.src_color_ctrl.val);
--		vop2_writel(vop2, RK3568_MIX0_DST_COLOR_CTRL + offset,
--			    alpha.dst_color_ctrl.val);
--		vop2_writel(vop2, RK3568_MIX0_SRC_ALPHA_CTRL + offset,
--			    alpha.src_alpha_ctrl.val);
--		vop2_writel(vop2, RK3568_MIX0_DST_ALPHA_CTRL + offset,
--			    alpha.dst_alpha_ctrl.val);
-+
-+		vop2_writel(vop2, src_color_ctrl_reg + offset, alpha.src_color_ctrl.val);
-+		vop2_writel(vop2, dst_color_ctrl_reg + offset, alpha.dst_color_ctrl.val);
-+		vop2_writel(vop2, src_alpha_ctrl_reg + offset, alpha.src_alpha_ctrl.val);
-+		vop2_writel(vop2, dst_alpha_ctrl_reg + offset, alpha.dst_alpha_ctrl.val);
- 	}
- 
- 	if (vp->id == 0) {
-+		if (vop2->version <= VOP_VERSION_RK3588) {
-+			src_color_ctrl_reg = RK3568_HDR0_SRC_COLOR_CTRL;
-+			dst_color_ctrl_reg = RK3568_HDR0_DST_COLOR_CTRL;
-+			src_alpha_ctrl_reg = RK3568_HDR0_SRC_ALPHA_CTRL;
-+			dst_alpha_ctrl_reg = RK3568_HDR0_DST_ALPHA_CTRL;
-+		} else {
-+			src_color_ctrl_reg = RK3576_OVL_HDR_SRC_COLOR_CTRL(vp->id);
-+			dst_color_ctrl_reg = RK3576_OVL_HDR_DST_COLOR_CTRL(vp->id);
-+			src_alpha_ctrl_reg = RK3576_OVL_HDR_SRC_ALPHA_CTRL(vp->id);
-+			dst_alpha_ctrl_reg = RK3576_OVL_HDR_DST_ALPHA_CTRL(vp->id);
-+		}
-+
- 		if (bottom_layer_alpha_en) {
- 			/* Transfer pixel alpha to hdr mix */
- 			alpha_config.src_premulti_en = gpremulti_en;
-@@ -1390,18 +2037,15 @@ static void vop2_setup_alpha(struct vop2_video_port *vp)
- 			alpha_config.src_pixel_alpha_en = true;
- 			alpha_config.src_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
- 			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
-+
- 			vop2_parse_alpha(&alpha_config, &alpha);
- 
--			vop2_writel(vop2, RK3568_HDR0_SRC_COLOR_CTRL,
--				    alpha.src_color_ctrl.val);
--			vop2_writel(vop2, RK3568_HDR0_DST_COLOR_CTRL,
--				    alpha.dst_color_ctrl.val);
--			vop2_writel(vop2, RK3568_HDR0_SRC_ALPHA_CTRL,
--				    alpha.src_alpha_ctrl.val);
--			vop2_writel(vop2, RK3568_HDR0_DST_ALPHA_CTRL,
--				    alpha.dst_alpha_ctrl.val);
-+			vop2_writel(vop2, src_color_ctrl_reg, alpha.src_color_ctrl.val);
-+			vop2_writel(vop2, dst_color_ctrl_reg, alpha.dst_color_ctrl.val);
-+			vop2_writel(vop2, src_alpha_ctrl_reg, alpha.src_alpha_ctrl.val);
-+			vop2_writel(vop2, dst_alpha_ctrl_reg, alpha.dst_alpha_ctrl.val);
- 		} else {
--			vop2_writel(vop2, RK3568_HDR0_SRC_COLOR_CTRL, 0);
-+			vop2_writel(vop2, src_color_ctrl_reg, 0);
- 		}
- 	}
- }
-@@ -1611,6 +2255,72 @@ static void rk3568_vop2_setup_overlay(struct vop2_video_port *vp)
- 	rk3568_vop2_setup_dly_for_windows(vp);
- }
- 
-+static void rk3576_vop2_setup_layer_mixer(struct vop2_video_port *vp)
++static bool is_opaque(u16 alpha)
 +{
-+	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(vp->crtc.state);
-+	struct vop2 *vop2 = vp->vop2;
-+	struct drm_plane *plane;
-+	u32 layer_sel = 0xffff; /* 0xf means this layer is disabled */
-+	u32 ovl_ctrl;
++	return (alpha >> 8) == 0xff;
++}
 +
-+	ovl_ctrl = vop2_readl(vop2, RK3576_OVL_CTRL(vp->id));
-+	if (vcstate->yuv_overlay)
-+		ovl_ctrl |= RK3576_OVL_CTRL__YUV_MODE;
++static void vop2_parse_alpha(struct vop2_alpha_config *alpha_config,
++			     struct vop2_alpha *alpha)
++{
++	int src_glb_alpha_en = is_opaque(alpha_config->src_glb_alpha_value) ? 0 : 1;
++	int dst_glb_alpha_en = is_opaque(alpha_config->dst_glb_alpha_value) ? 0 : 1;
++	int src_color_mode = alpha_config->src_premulti_en ?
++				ALPHA_SRC_PRE_MUL : ALPHA_SRC_NO_PRE_MUL;
++	int dst_color_mode = alpha_config->dst_premulti_en ?
++				ALPHA_SRC_PRE_MUL : ALPHA_SRC_NO_PRE_MUL;
++
++	alpha->src_color_ctrl.val = 0;
++	alpha->dst_color_ctrl.val = 0;
++	alpha->src_alpha_ctrl.val = 0;
++	alpha->dst_alpha_ctrl.val = 0;
++
++	if (!alpha_config->src_pixel_alpha_en)
++		alpha->src_color_ctrl.bits.blend_mode = ALPHA_GLOBAL;
++	else if (alpha_config->src_pixel_alpha_en && !src_glb_alpha_en)
++		alpha->src_color_ctrl.bits.blend_mode = ALPHA_PER_PIX;
 +	else
-+		ovl_ctrl &= ~RK3576_OVL_CTRL__YUV_MODE;
++		alpha->src_color_ctrl.bits.blend_mode = ALPHA_PER_PIX_GLOBAL;
 +
-+	vop2_writel(vop2, RK3576_OVL_CTRL(vp->id), ovl_ctrl);
++	alpha->src_color_ctrl.bits.alpha_en = 1;
++
++	if (alpha->src_color_ctrl.bits.blend_mode == ALPHA_GLOBAL) {
++		alpha->src_color_ctrl.bits.color_mode = src_color_mode;
++		alpha->src_color_ctrl.bits.factor_mode = SRC_FAC_ALPHA_SRC_GLOBAL;
++	} else if (alpha->src_color_ctrl.bits.blend_mode == ALPHA_PER_PIX) {
++		alpha->src_color_ctrl.bits.color_mode = src_color_mode;
++		alpha->src_color_ctrl.bits.factor_mode = SRC_FAC_ALPHA_ONE;
++	} else {
++		alpha->src_color_ctrl.bits.color_mode = ALPHA_SRC_PRE_MUL;
++		alpha->src_color_ctrl.bits.factor_mode = SRC_FAC_ALPHA_SRC_GLOBAL;
++	}
++	alpha->src_color_ctrl.bits.glb_alpha = alpha_config->src_glb_alpha_value >> 8;
++	alpha->src_color_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
++	alpha->src_color_ctrl.bits.alpha_cal_mode = ALPHA_SATURATION;
++
++	alpha->dst_color_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
++	alpha->dst_color_ctrl.bits.alpha_cal_mode = ALPHA_SATURATION;
++	alpha->dst_color_ctrl.bits.blend_mode = ALPHA_GLOBAL;
++	alpha->dst_color_ctrl.bits.glb_alpha = alpha_config->dst_glb_alpha_value >> 8;
++	alpha->dst_color_ctrl.bits.color_mode = dst_color_mode;
++	alpha->dst_color_ctrl.bits.factor_mode = ALPHA_SRC_INVERSE;
++
++	alpha->src_alpha_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
++	alpha->src_alpha_ctrl.bits.blend_mode = alpha->src_color_ctrl.bits.blend_mode;
++	alpha->src_alpha_ctrl.bits.alpha_cal_mode = ALPHA_SATURATION;
++	alpha->src_alpha_ctrl.bits.factor_mode = ALPHA_ONE;
++
++	alpha->dst_alpha_ctrl.bits.alpha_mode = ALPHA_STRAIGHT;
++	if (alpha_config->dst_pixel_alpha_en && !dst_glb_alpha_en)
++		alpha->dst_alpha_ctrl.bits.blend_mode = ALPHA_PER_PIX;
++	else
++		alpha->dst_alpha_ctrl.bits.blend_mode = ALPHA_PER_PIX_GLOBAL;
++	alpha->dst_alpha_ctrl.bits.alpha_cal_mode = ALPHA_NO_SATURATION;
++	alpha->dst_alpha_ctrl.bits.factor_mode = ALPHA_SRC_INVERSE;
++}
++
++static int vop2_find_start_mixer_id_for_vp(struct vop2 *vop2, u8 port_id)
++{
++	struct vop2_video_port *vp;
++	int used_layer = 0;
++	int i;
++
++	for (i = 0; i < port_id; i++) {
++		vp = &vop2->vps[i];
++		used_layer += hweight32(vp->win_mask);
++	}
++
++	return used_layer;
++}
++
++static void vop2_setup_cluster_alpha(struct vop2 *vop2, struct vop2_win *main_win)
++{
++	struct vop2_alpha_config alpha_config;
++	struct vop2_alpha alpha;
++	struct drm_plane_state *bottom_win_pstate;
++	bool src_pixel_alpha_en = false;
++	u16 src_glb_alpha_val, dst_glb_alpha_val;
++	u32 offset = 0;
++	bool premulti_en = false;
++	bool swap = false;
++
++	/* At one win mode, win0 is dst/bottom win, and win1 is a all zero src/top win */
++	bottom_win_pstate = main_win->base.state;
++	src_glb_alpha_val = 0;
++	dst_glb_alpha_val = main_win->base.state->alpha;
++
++	if (!bottom_win_pstate->fb)
++		return;
++
++	alpha_config.src_premulti_en = premulti_en;
++	alpha_config.dst_premulti_en = false;
++	alpha_config.src_pixel_alpha_en = src_pixel_alpha_en;
++	alpha_config.dst_pixel_alpha_en = true; /* alpha value need transfer to next mix */
++	alpha_config.src_glb_alpha_value = src_glb_alpha_val;
++	alpha_config.dst_glb_alpha_value = dst_glb_alpha_val;
++	vop2_parse_alpha(&alpha_config, &alpha);
++
++	alpha.src_color_ctrl.bits.src_dst_swap = swap;
++
++	switch (main_win->data->phys_id) {
++	case ROCKCHIP_VOP2_CLUSTER0:
++		offset = 0x0;
++		break;
++	case ROCKCHIP_VOP2_CLUSTER1:
++		offset = 0x10;
++		break;
++	case ROCKCHIP_VOP2_CLUSTER2:
++		offset = 0x20;
++		break;
++	case ROCKCHIP_VOP2_CLUSTER3:
++		offset = 0x30;
++		break;
++	}
++
++	vop2_writel(vop2, RK3568_CLUSTER0_MIX_SRC_COLOR_CTRL + offset,
++		    alpha.src_color_ctrl.val);
++	vop2_writel(vop2, RK3568_CLUSTER0_MIX_DST_COLOR_CTRL + offset,
++		    alpha.dst_color_ctrl.val);
++	vop2_writel(vop2, RK3568_CLUSTER0_MIX_SRC_ALPHA_CTRL + offset,
++		    alpha.src_alpha_ctrl.val);
++	vop2_writel(vop2, RK3568_CLUSTER0_MIX_DST_ALPHA_CTRL + offset,
++		    alpha.dst_alpha_ctrl.val);
++}
++
++static void vop2_setup_alpha(struct vop2_video_port *vp)
++{
++	struct vop2 *vop2 = vp->vop2;
++	struct drm_framebuffer *fb;
++	struct vop2_alpha_config alpha_config;
++	struct vop2_alpha alpha;
++	struct drm_plane *plane;
++	int pixel_alpha_en;
++	int premulti_en, gpremulti_en = 0;
++	int mixer_id;
++	u32 offset;
++	bool bottom_layer_alpha_en = false;
++	u32 dst_global_alpha = DRM_BLEND_ALPHA_OPAQUE;
++
++	mixer_id = vop2_find_start_mixer_id_for_vp(vop2, vp->id);
++	alpha_config.dst_pixel_alpha_en = true; /* alpha value need transfer to next mix */
 +
 +	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
 +		struct vop2_win *win = to_vop2_win(plane);
 +
-+		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(plane->state->normalized_zpos,
-+							  0xf);
-+		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(plane->state->normalized_zpos,
-+							 win->data->layer_sel_id[vp->id]);
++		if (plane->state->normalized_zpos == 0 &&
++		    !is_opaque(plane->state->alpha) &&
++		    !vop2_cluster_window(win)) {
++			/*
++			 * If bottom layer have global alpha effect [except cluster layer,
++			 * because cluster have deal with bottom layer global alpha value
++			 * at cluster mix], bottom layer mix need deal with global alpha.
++			 */
++			bottom_layer_alpha_en = true;
++			dst_global_alpha = plane->state->alpha;
++		}
 +	}
-+
-+	vop2_writel(vop2, RK3576_OVL_LAYER_SEL(vp->id), layer_sel);
-+}
-+
-+static void rk3576_vop2_setup_dly_for_windows(struct vop2_video_port *vp)
-+{
-+	struct drm_plane *plane;
-+	struct vop2_win *win;
 +
 +	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
-+		win = to_vop2_win(plane);
-+		vop2_win_write(win, VOP2_WIN_DLY_NUM, 0);
++		struct vop2_win *win = to_vop2_win(plane);
++		int zpos = plane->state->normalized_zpos;
++
++		/*
++		 * Need to configure alpha from second layer.
++		 */
++		if (zpos == 0)
++			continue;
++
++		if (plane->state->pixel_blend_mode == DRM_MODE_BLEND_PREMULTI)
++			premulti_en = 1;
++		else
++			premulti_en = 0;
++
++		plane = &win->base;
++		fb = plane->state->fb;
++
++		pixel_alpha_en = fb->format->has_alpha;
++
++		alpha_config.src_premulti_en = premulti_en;
++
++		if (bottom_layer_alpha_en && zpos == 1) {
++			gpremulti_en = premulti_en;
++			/* Cd = Cs + (1 - As) * Cd * Agd */
++			alpha_config.dst_premulti_en = false;
++			alpha_config.src_pixel_alpha_en = pixel_alpha_en;
++			alpha_config.src_glb_alpha_value = plane->state->alpha;
++			alpha_config.dst_glb_alpha_value = dst_global_alpha;
++		} else if (vop2_cluster_window(win)) {
++			/* Mix output data only have pixel alpha */
++			alpha_config.dst_premulti_en = true;
++			alpha_config.src_pixel_alpha_en = true;
++			alpha_config.src_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
++			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
++		} else {
++			/* Cd = Cs + (1 - As) * Cd */
++			alpha_config.dst_premulti_en = true;
++			alpha_config.src_pixel_alpha_en = pixel_alpha_en;
++			alpha_config.src_glb_alpha_value = plane->state->alpha;
++			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
++		}
++
++		vop2_parse_alpha(&alpha_config, &alpha);
++
++		offset = (mixer_id + zpos - 1) * 0x10;
++		vop2_writel(vop2, RK3568_MIX0_SRC_COLOR_CTRL + offset,
++			    alpha.src_color_ctrl.val);
++		vop2_writel(vop2, RK3568_MIX0_DST_COLOR_CTRL + offset,
++			    alpha.dst_color_ctrl.val);
++		vop2_writel(vop2, RK3568_MIX0_SRC_ALPHA_CTRL + offset,
++			    alpha.src_alpha_ctrl.val);
++		vop2_writel(vop2, RK3568_MIX0_DST_ALPHA_CTRL + offset,
++			    alpha.dst_alpha_ctrl.val);
++	}
++
++	if (vp->id == 0) {
++		if (bottom_layer_alpha_en) {
++			/* Transfer pixel alpha to hdr mix */
++			alpha_config.src_premulti_en = gpremulti_en;
++			alpha_config.dst_premulti_en = true;
++			alpha_config.src_pixel_alpha_en = true;
++			alpha_config.src_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
++			alpha_config.dst_glb_alpha_value = DRM_BLEND_ALPHA_OPAQUE;
++			vop2_parse_alpha(&alpha_config, &alpha);
++
++			vop2_writel(vop2, RK3568_HDR0_SRC_COLOR_CTRL,
++				    alpha.src_color_ctrl.val);
++			vop2_writel(vop2, RK3568_HDR0_DST_COLOR_CTRL,
++				    alpha.dst_color_ctrl.val);
++			vop2_writel(vop2, RK3568_HDR0_SRC_ALPHA_CTRL,
++				    alpha.src_alpha_ctrl.val);
++			vop2_writel(vop2, RK3568_HDR0_DST_ALPHA_CTRL,
++				    alpha.dst_alpha_ctrl.val);
++		} else {
++			vop2_writel(vop2, RK3568_HDR0_SRC_COLOR_CTRL, 0);
++		}
 +	}
 +}
 +
-+static void rk3576_vop2_setup_overlay(struct vop2_video_port *vp)
++static void rk3568_vop2_setup_layer_mixer(struct vop2_video_port *vp)
++{
++	struct vop2 *vop2 = vp->vop2;
++	struct drm_plane *plane;
++	u32 layer_sel = 0;
++	u32 port_sel;
++	u8 layer_id;
++	u8 old_layer_id;
++	u8 layer_sel_id;
++	unsigned int ofs;
++	u32 ovl_ctrl;
++	int i;
++	struct vop2_video_port *vp0 = &vop2->vps[0];
++	struct vop2_video_port *vp1 = &vop2->vps[1];
++	struct vop2_video_port *vp2 = &vop2->vps[2];
++	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(vp->crtc.state);
++
++	ovl_ctrl = vop2_readl(vop2, RK3568_OVL_CTRL);
++	ovl_ctrl |= RK3568_OVL_CTRL__LAYERSEL_REGDONE_IMD;
++	if (vcstate->yuv_overlay)
++		ovl_ctrl |= RK3568_OVL_CTRL__YUV_MODE(vp->id);
++	else
++		ovl_ctrl &= ~RK3568_OVL_CTRL__YUV_MODE(vp->id);
++
++	vop2_writel(vop2, RK3568_OVL_CTRL, ovl_ctrl);
++
++	port_sel = vop2_readl(vop2, RK3568_OVL_PORT_SEL);
++	port_sel &= RK3568_OVL_PORT_SEL__SEL_PORT;
++
++	if (vp0->nlayers)
++		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT0_MUX,
++				     vp0->nlayers - 1);
++	else
++		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT0_MUX, 8);
++
++	if (vp1->nlayers)
++		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT1_MUX,
++				     (vp0->nlayers + vp1->nlayers - 1));
++	else
++		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT1_MUX, 8);
++
++	if (vp2->nlayers)
++		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT2_MUX,
++			(vp2->nlayers + vp1->nlayers + vp0->nlayers - 1));
++	else
++		port_sel |= FIELD_PREP(RK3568_OVL_PORT_SET__PORT2_MUX, 8);
++
++	layer_sel = vop2_readl(vop2, RK3568_OVL_LAYER_SEL);
++
++	ofs = 0;
++	for (i = 0; i < vp->id; i++)
++		ofs += vop2->vps[i].nlayers;
++
++	drm_atomic_crtc_for_each_plane(plane, &vp->crtc) {
++		struct vop2_win *win = to_vop2_win(plane);
++		struct vop2_win *old_win;
++
++		layer_id = (u8)(plane->state->normalized_zpos + ofs);
++		/*
++		 * Find the layer this win bind in old state.
++		 */
++		for (old_layer_id = 0; old_layer_id < vop2->data->win_size; old_layer_id++) {
++			layer_sel_id = (layer_sel >> (4 * old_layer_id)) & 0xf;
++			if (layer_sel_id == win->data->layer_sel_id)
++				break;
++		}
++
++		/*
++		 * Find the win bind to this layer in old state
++		 */
++		for (i = 0; i < vop2->data->win_size; i++) {
++			old_win = &vop2->win[i];
++			layer_sel_id = (layer_sel >> (4 * layer_id)) & 0xf;
++			if (layer_sel_id == old_win->data->layer_sel_id)
++				break;
++		}
++
++		switch (win->data->phys_id) {
++		case ROCKCHIP_VOP2_CLUSTER0:
++			port_sel &= ~RK3568_OVL_PORT_SEL__CLUSTER0;
++			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__CLUSTER0, vp->id);
++			break;
++		case ROCKCHIP_VOP2_CLUSTER1:
++			port_sel &= ~RK3568_OVL_PORT_SEL__CLUSTER1;
++			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__CLUSTER1, vp->id);
++			break;
++		case ROCKCHIP_VOP2_CLUSTER2:
++			port_sel &= ~RK3588_OVL_PORT_SEL__CLUSTER2;
++			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__CLUSTER2, vp->id);
++			break;
++		case ROCKCHIP_VOP2_CLUSTER3:
++			port_sel &= ~RK3588_OVL_PORT_SEL__CLUSTER3;
++			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__CLUSTER3, vp->id);
++			break;
++		case ROCKCHIP_VOP2_ESMART0:
++			port_sel &= ~RK3568_OVL_PORT_SEL__ESMART0;
++			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__ESMART0, vp->id);
++			break;
++		case ROCKCHIP_VOP2_ESMART1:
++			port_sel &= ~RK3568_OVL_PORT_SEL__ESMART1;
++			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__ESMART1, vp->id);
++			break;
++		case ROCKCHIP_VOP2_ESMART2:
++			port_sel &= ~RK3588_OVL_PORT_SEL__ESMART2;
++			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__ESMART2, vp->id);
++			break;
++		case ROCKCHIP_VOP2_ESMART3:
++			port_sel &= ~RK3588_OVL_PORT_SEL__ESMART3;
++			port_sel |= FIELD_PREP(RK3588_OVL_PORT_SEL__ESMART3, vp->id);
++			break;
++		case ROCKCHIP_VOP2_SMART0:
++			port_sel &= ~RK3568_OVL_PORT_SEL__SMART0;
++			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__SMART0, vp->id);
++			break;
++		case ROCKCHIP_VOP2_SMART1:
++			port_sel &= ~RK3568_OVL_PORT_SEL__SMART1;
++			port_sel |= FIELD_PREP(RK3568_OVL_PORT_SEL__SMART1, vp->id);
++			break;
++		}
++
++		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(layer_id, 0x7);
++		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(layer_id, win->data->layer_sel_id);
++		/*
++		 * When we bind a window from layerM to layerN, we also need to move the old
++		 * window on layerN to layerM to avoid one window selected by two or more layers.
++		 */
++		layer_sel &= ~RK3568_OVL_LAYER_SEL__LAYER(old_layer_id, 0x7);
++		layer_sel |= RK3568_OVL_LAYER_SEL__LAYER(old_layer_id, old_win->data->layer_sel_id);
++	}
++
++	vop2_writel(vop2, RK3568_OVL_LAYER_SEL, layer_sel);
++	vop2_writel(vop2, RK3568_OVL_PORT_SEL, port_sel);
++}
++
++static void rk3568_vop2_setup_dly_for_windows(struct vop2_video_port *vp)
++{
++	struct vop2 *vop2 = vp->vop2;
++	struct vop2_win *win;
++	int i = 0;
++	u32 cdly = 0, sdly = 0;
++
++	for (i = 0; i < vop2->data->win_size; i++) {
++		u32 dly;
++
++		win = &vop2->win[i];
++		dly = win->delay;
++
++		switch (win->data->phys_id) {
++		case ROCKCHIP_VOP2_CLUSTER0:
++			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER0_0, dly);
++			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER0_1, dly);
++			break;
++		case ROCKCHIP_VOP2_CLUSTER1:
++			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER1_0, dly);
++			cdly |= FIELD_PREP(RK3568_CLUSTER_DLY_NUM__CLUSTER1_1, dly);
++			break;
++		case ROCKCHIP_VOP2_ESMART0:
++			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__ESMART0, dly);
++			break;
++		case ROCKCHIP_VOP2_ESMART1:
++			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__ESMART1, dly);
++			break;
++		case ROCKCHIP_VOP2_SMART0:
++		case ROCKCHIP_VOP2_ESMART2:
++			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__SMART0, dly);
++			break;
++		case ROCKCHIP_VOP2_SMART1:
++		case ROCKCHIP_VOP2_ESMART3:
++			sdly |= FIELD_PREP(RK3568_SMART_DLY_NUM__SMART1, dly);
++			break;
++		}
++	}
++
++	vop2_writel(vop2, RK3568_CLUSTER_DLY_NUM, cdly);
++	vop2_writel(vop2, RK3568_SMART_DLY_NUM, sdly);
++}
++
++static void rk3568_vop2_setup_overlay(struct vop2_video_port *vp)
 +{
 +	struct vop2 *vop2 = vp->vop2;
 +	struct drm_crtc *crtc = &vp->crtc;
@@ -1533,19 +2562,12 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
 +	if (!vp->win_mask)
 +		return;
 +
-+	rk3576_vop2_setup_layer_mixer(vp);
++	rk3568_vop2_setup_layer_mixer(vp);
 +	vop2_setup_alpha(vp);
-+	rk3576_vop2_setup_dly_for_windows(vp);
++	rk3568_vop2_setup_dly_for_windows(vp);
 +}
 +
- static void rk3568_vop2_setup_bg_dly(struct vop2_video_port *vp)
- {
- 	struct drm_crtc *crtc = &vp->crtc;
-@@ -1628,12 +2338,38 @@ static void rk3568_vop2_setup_bg_dly(struct vop2_video_port *vp)
- 	vop2_vp_write(vp, RK3568_VP_PRE_SCAN_HTIMING, pre_scan_dly);
- }
- 
-+static void rk3576_vop2_setup_bg_dly(struct vop2_video_port *vp)
++static void rk3568_vop2_setup_bg_dly(struct vop2_video_port *vp)
 +{
 +	struct drm_crtc *crtc = &vp->crtc;
 +	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
@@ -1554,68 +2576,71 @@ index f0b0608fe1be..9c1fefdb9b5a 100644
 +	u32 bg_dly;
 +	u32 pre_scan_dly;
 +
-+	bg_dly = vp->data->pre_scan_max_dly[VOP2_DLY_WIN] +
-+		 vp->data->pre_scan_max_dly[VOP2_DLY_LAYER_MIX] +
-+		 vp->data->pre_scan_max_dly[VOP2_DLY_HDR_MIX];
-+
-+	vop2_writel(vp->vop2, RK3576_OVL_BG_MIX_CTRL(vp->id),
-+		    FIELD_PREP(RK3576_OVL_BG_MIX_CTRL__BG_DLY, bg_dly));
++	bg_dly = vp->data->pre_scan_max_dly[3];
++	vop2_writel(vp->vop2, RK3568_VP_BG_MIX_CTRL(vp->id),
++		    FIELD_PREP(RK3568_VP_BG_MIX_CTRL__BG_DLY, bg_dly));
 +
 +	pre_scan_dly = ((bg_dly + (hdisplay >> 1) - 1) << 16) | hsync_len;
 +	vop2_vp_write(vp, RK3568_VP_PRE_SCAN_HTIMING, pre_scan_dly);
 +}
 +
- static const struct vop2_ops rk3568_vop_ops = {
- 	.setup_intf_mux = rk3568_set_intf_mux,
- 	.setup_bg_dly = rk3568_vop2_setup_bg_dly,
- 	.setup_overlay = rk3568_vop2_setup_overlay,
- };
- 
-+static const struct vop2_ops rk3576_vop_ops = {
-+	.setup_intf_mux = rk3576_set_intf_mux,
-+	.setup_bg_dly = rk3576_vop2_setup_bg_dly,
-+	.setup_overlay = rk3576_vop2_setup_overlay,
++static const struct vop2_ops rk3568_vop_ops = {
++	.setup_intf_mux = rk3568_set_intf_mux,
++	.setup_bg_dly = rk3568_vop2_setup_bg_dly,
++	.setup_overlay = rk3568_vop2_setup_overlay,
 +};
 +
- static const struct vop2_ops rk3588_vop_ops = {
- 	.setup_intf_mux = rk3588_set_intf_mux,
- 	.setup_bg_dly = rk3568_vop2_setup_bg_dly,
-@@ -1678,6 +2414,25 @@ static const struct vop2_data rk3568_vop = {
++static const struct vop2_ops rk3588_vop_ops = {
++	.setup_intf_mux = rk3588_set_intf_mux,
++	.setup_bg_dly = rk3568_vop2_setup_bg_dly,
++	.setup_overlay = rk3568_vop2_setup_overlay,
++};
++
+ static const struct vop2_data rk3566_vop = {
+ 	.feature = VOP2_FEATURE_HAS_SYS_GRF,
+ 	.nr_vps = 3,
+@@ -655,8 +1632,13 @@ static const struct vop2_data rk3566_vop = {
+ 	.vp = rk3568_vop_video_ports,
+ 	.win = rk3568_vop_win_data,
+ 	.win_size = ARRAY_SIZE(rk3568_vop_win_data),
++	.cluster_reg = rk3568_vop_cluster_regs,
++	.nr_cluster_regs = ARRAY_SIZE(rk3568_vop_cluster_regs),
++	.smart_reg = rk3568_vop_smart_regs,
++	.nr_smart_regs = ARRAY_SIZE(rk3568_vop_smart_regs),
+ 	.regs_dump = rk3568_regs_dump,
+ 	.regs_dump_size = ARRAY_SIZE(rk3568_regs_dump),
++	.ops = &rk3568_vop_ops,
+ 	.soc_id = 3566,
+ };
+ 
+@@ -668,8 +1650,13 @@ static const struct vop2_data rk3568_vop = {
+ 	.vp = rk3568_vop_video_ports,
+ 	.win = rk3568_vop_win_data,
+ 	.win_size = ARRAY_SIZE(rk3568_vop_win_data),
++	.cluster_reg = rk3568_vop_cluster_regs,
++	.nr_cluster_regs = ARRAY_SIZE(rk3568_vop_cluster_regs),
++	.smart_reg = rk3568_vop_smart_regs,
++	.nr_smart_regs = ARRAY_SIZE(rk3568_vop_smart_regs),
+ 	.regs_dump = rk3568_regs_dump,
+ 	.regs_dump_size = ARRAY_SIZE(rk3568_regs_dump),
++	.ops = &rk3568_vop_ops,
  	.soc_id = 3568,
  };
  
-+static const struct vop2_data rk3576_vop = {
-+	.version = VOP_VERSION_RK3576,
-+	.feature = VOP2_FEATURE_HAS_SYS_PMU,
-+	.nr_vps = 3,
-+	.max_input = { 4096, 4320 },
-+	.max_output = { 4096, 4320 },
-+	.vp = rk3576_vop_video_ports,
-+	.win = rk3576_vop_win_data,
-+	.win_size = ARRAY_SIZE(rk3576_vop_win_data),
-+	.cluster_reg = rk3576_vop_cluster_regs,
-+	.nr_cluster_regs = ARRAY_SIZE(rk3576_vop_cluster_regs),
-+	.smart_reg = rk3576_vop_smart_regs,
-+	.nr_smart_regs = ARRAY_SIZE(rk3576_vop_smart_regs),
-+	.regs_dump = rk3576_regs_dump,
-+	.regs_dump_size = ARRAY_SIZE(rk3576_regs_dump),
-+	.ops = &rk3576_vop_ops,
-+	.soc_id = 3576,
-+};
-+
- static const struct vop2_data rk3588_vop = {
- 	.version = VOP_VERSION_RK3588,
- 	.feature = VOP2_FEATURE_HAS_SYS_GRF | VOP2_FEATURE_HAS_VO1_GRF |
-@@ -1705,6 +2460,9 @@ static const struct of_device_id vop2_dt_match[] = {
- 	}, {
- 		.compatible = "rockchip,rk3568-vop",
- 		.data = &rk3568_vop,
-+	}, {
-+		.compatible = "rockchip,rk3576-vop",
-+		.data = &rk3576_vop,
- 	}, {
- 		.compatible = "rockchip,rk3588-vop",
- 		.data = &rk3588_vop
+@@ -682,8 +1669,13 @@ static const struct vop2_data rk3588_vop = {
+ 	.vp = rk3588_vop_video_ports,
+ 	.win = rk3588_vop_win_data,
+ 	.win_size = ARRAY_SIZE(rk3588_vop_win_data),
++	.cluster_reg = rk3568_vop_cluster_regs,
++	.nr_cluster_regs = ARRAY_SIZE(rk3568_vop_cluster_regs),
++	.smart_reg = rk3568_vop_smart_regs,
++	.nr_smart_regs = ARRAY_SIZE(rk3568_vop_smart_regs),
+ 	.regs_dump = rk3588_regs_dump,
+ 	.regs_dump_size = ARRAY_SIZE(rk3588_regs_dump),
++	.ops = &rk3588_vop_ops,
+ 	.soc_id = 3588,
+ };
+ 
 -- 
 2.34.1
 
