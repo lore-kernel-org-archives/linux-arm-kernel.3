@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F00CE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1FAE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 10:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8jlnvfGiFQXdHoaqnr4XhJM0I36scpxrnTGGq7IMPs=; b=ZW9+F6AfBF5y2aWj6nFDXkk+Qy
-	tg7+HO0pmTuJl1+CA/OXGF3qOSFBHgb2o2jNuECbAL2xC5nwYmp1V7E56Ta7/kgEOnvRoaErTZg5O
-	1Jnz/oftnw8U2w/kwtRt8mxlVDSdhKRlHTGui5rLJ653L6OqTR2x+bv0xj9APBINMqM4jAM7VAOph
-	LwvvYNcIQqXZ7H7aqRot+s24c5BifzETYry7Affnrd5VRWehVEp+hyR6EvqIhR5xNtqtlsMkJH8U5
-	FLHtTXYNOjdz537bD2ZWplkAcbj+dA3MnblBlwOf5I6F0bHOGlBwCmBSRqCcZdndXjQAdJiI/df3l
-	zugPQhNw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+GZ76Y3blfTqLHoRuuwSqk9FlkxSrFnwxSn1f2Uj200=; b=NmcrXkV+4hCHclP8PCT9kvrCJW
+	ubWbseosFC9wW1P2L7Tq1iGMHuw82DXILTPLrDcDhlYc/4bbA3QZ7rvVOiS/ATROKE5lAd5+nFKDl
+	xRYRQuM7iWmDTxx4bhFUvL/3bdDIHrOE8nJItZwfkFW34aypsVI5GX02uCgb/Aqc1NW8KHGUEHkvw
+	8yc5TVgKhqDgdwUxh+iFu8CJQ912Cb/ExQ3naI202qiLhahELXF8KaSKIgWbeOFnr7J6Az3pNHx8C
+	zn1j6Z48giAGjl3eA+r7oZFUEzbfcG/VlLZMKLjChUjgHQy4aRCTM92jS9VaQLhSCZ5CFjZaLD6Vs
+	jtl1635A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSZ1m-00000006zWA-10th;
-	Tue, 31 Dec 2024 09:59:06 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1tSZ2y-00000006zeu-18XY;
+	Tue, 31 Dec 2024 10:00:20 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSZ0Z-00000006zIL-2UiD;
-	Tue, 31 Dec 2024 09:57:53 +0000
+	id 1tSZ0a-00000006zIU-3EHY;
+	Tue, 31 Dec 2024 09:57:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=V8jln
-	vfGiFQXdHoaqnr4XhJM0I36scpxrnTGGq7IMPs=; b=cBf9DU9a3vIO2bMOB6t+X
-	nxoldOp3NQXyckWyaQD2sVlH8CfIZD9fgHBw2kAz5YXODMiNCJg+k9ZwqntMyigX
-	QKQZMRGFL/+N3MnU3/bK91rmKnwgyrWFaCOdtcdKjky6xyHRYE4Z1eDd2AIX1JFO
-	ktoHWzPSphzxiY0qjg6GXs=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=+GZ76
+	Y3blfTqLHoRuuwSqk9FlkxSrFnwxSn1f2Uj200=; b=nIwmylhpoevGs9ECSQTIK
+	XvZRJu81XztHHpQ7zjDYRQHPJNG7oAa4VWMzf8JP1lZXdYsWnd8MtF+Zfkkb3vUw
+	Mmqz40iOD6rLM6JCzMd7th0W2qnJoZRNr5q5/TIooaYQL9fyzc6bICdvg7ZMqCiQ
+	yDNf7Jrp1dnJ9rBtTno9pU=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3dxsKwHNnTaXlCw--.25571S5;
-	Tue, 31 Dec 2024 17:57:38 +0800 (CST)
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3dxsKwHNnTaXlCw--.25571S2;
+	Tue, 31 Dec 2024 17:57:33 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: detlev.casanova@collabora.com,
@@ -45,24 +45,22 @@ Cc: detlev.casanova@collabora.com,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v3 3/3] arm64: dts: rockchip: Enable hdmi display on sige5
-Date: Tue, 31 Dec 2024 17:57:20 +0800
-Message-ID: <20241231095728.253943-4-andyshrk@163.com>
+Subject: [PATCH v3 0/3] Add display subsystem dt node on rk3576
+Date: Tue, 31 Dec 2024 17:57:17 +0800
+Message-ID: <20241231095728.253943-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241231095728.253943-1-andyshrk@163.com>
-References: <20241231095728.253943-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3dxsKwHNnTaXlCw--.25571S5
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Ar4kKr4fJw13KF4rGr4rZrb_yoW8AryDp3
-	ZrurZ3GrZ5WFW7Xwn0yry0vFn8twsY9a9xGr43XFy7Kr42gas3Gw1rGr1S9r1DZFW7Za1a
-	vF1kJFyY9wsrXw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jBUDXUUUUU=
+X-CM-TRANSID: _____wD3dxsKwHNnTaXlCw--.25571S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWruFykGr4xAw47Cw48Kr15urg_yoW3trbEkw
+	n7urykJr4rAF1rGas3ta47X39xC3yUKF1rGa1jvFyDJFnrXF1xta1fJa4rAw1Uur1I9rn7
+	JFWUZr4kZanxWjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8aiiDUUUUU==
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hbGXmdzt4XXAgADss
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hbGXmdzt4XXAgAAsv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_015752_027776_13E860D8 
-X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-CacheID: sfid-20241231_015753_252021_97C0DA8F 
+X-CRM114-Status: UNSURE (   6.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,92 +78,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-Enable hdmi display on sige5 board.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
----
+As the VOP[0] and HDMI[1] driver have already been submitted for review.
+This series enable hdmi display on sige5 board.
 
-(no changes since v1)
+[0] https://lore.kernel.org/linux-rockchip/20241231090802.251787-1-andyshrk@163.com/T/#t
+[1] https://lore.kernel.org/linux-rockchip/20241231094425.253398-1-andyshrk@163.com/T/#t
 
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+Changes in v3:
+- Split from https://lore.kernel.org/linux-rockchip/3330586.aeNJFYEL58@diego/T/#t
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index 7c7331936a7f..78798b0722a3 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-@@ -10,6 +10,7 @@
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/pwm/pwm.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
- #include <dt-bindings/usb/pd.h>
- #include "rk3576.dtsi"
- 
-@@ -26,6 +27,17 @@ chosen {
- 		stdout-path = "serial0:1500000n8";
- 	};
- 
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
- 	leds: leds {
- 		compatible = "gpio-leds";
- 
-@@ -214,6 +226,26 @@ &gpu {
- 	status = "okay";
- };
- 
-+&hdmi {
-+	status = "okay";
-+};
-+
-+&hdmi_in {
-+	hdmi_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi>;
-+	};
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdptxphy {
-+	status = "okay";
-+};
-+
- &i2c1 {
- 	status = "okay";
- 
-@@ -656,3 +688,18 @@ &uart0 {
- 	pinctrl-0 = <&uart0m0_xfer>;
- 	status = "okay";
- };
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi_in_vp0>;
-+	};
-+};
+Andy Yan (3):
+  arm64: dts: rockchip: Add vop for rk3576
+  arm64: dts: rockchip: Add hdmi for rk3576
+  arm64: dts: rockchip: Enable hdmi display on sige5
+
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts |  47 +++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 126 ++++++++++++++++++
+ 2 files changed, 173 insertions(+)
+
 -- 
 2.34.1
 
