@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE97E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 13:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5E5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 13:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ztH4Cp+TWuFNo+T9DDOJEU6MuEj49P+cJhTlURsWNmM=; b=XhVo+Hf4WcqO2Ov3znZKHDTIcg
-	ofjD5kDAv/Kvptrc5N0fvUU+OFo3WdJDkxq55ba7Wi+a5uiHN/fMxEB/quXi3kV1cF+yW648eXCOv
-	Ir9qA5ecMDtZx/u4NmmYMtjGZJgLFTbfZBR+WV55Pj9/QW7SpkTMqSEylGHP8RMP28FRkLQmo6I32
-	K/td4v0BqVbSoUmwTZeZn5lKwav1DB4ItM0s1IkAl6XTiwkMAdcXB1VJ53+F/+V9hBvJHqMgoKjHT
-	kiaWiusznrjCp8CknDPGQGHWKb2zo6ZEFOAVOMRNdUndO+jLtfixGHXMlHLiZaYtr3eHHlHTL0VUS
-	T8tLfmhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zVYT592QTQQm6z73gDeCglxq4mZt2CC66LmWLyUt9V8=; b=vS2z+nB48tt6MccF31FTr/t7mi
+	uXql7Qm5zVR0m9ram+mQ6PsUDIPqa4I6G9rF6jia8yU+CN5Qkv+JHszh+5mgZZ5RSOqVMOnavULV+
+	C6RDfXklMUdVm7eJNNUUXCZlcEyKjUr7mEeT9165Ar4tSCfrDIwCILGA663FL834Zbdp39cuH8z1n
+	N+0rNbhFNhEUUiqKGl+5U/5r3efCYBFbdm1OvlGVghN06H1VTZ8ZVUi1dZ5kg5/9XlHU5qOU60lmM
+	HonduJi3XQ37YrVbAQcLApsOHrSUv2nun7jxfAaN02TPR1JfXCOFJPTkvewFVFa/NUphu6IFmEXbv
+	IPOKYg/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tScMK-00000007GXo-0d9m;
-	Tue, 31 Dec 2024 13:32:32 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tScSP-00000007H4J-11Ry;
+	Tue, 31 Dec 2024 13:38:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tScL1-00000007GNL-4AjR
+	id 1tScRE-00000007H00-1KOZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 13:31:13 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-436381876e2so14916605e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 05:31:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735651870; x=1736256670; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ztH4Cp+TWuFNo+T9DDOJEU6MuEj49P+cJhTlURsWNmM=;
-        b=C90u6YzmigdJ4g6mb/BT8CxLMTQ+gCRR1gjh/Mw3siRy9Pvy8k47Tl6zTFnn+mQgZo
-         IKvfqNa2y51KC/Kx3JQVtXqNOZcIWuTAKxH1yUhLsBBP+ziuZRJdUmcIcEn6cY4XRDaq
-         FWhhfCfjnBE24CPVVgsKVw5PYttqZZhRUtAlcmljeCBF4bwQNYC5pIkKKd/NUINh9v5X
-         qd/RS6P50FR0vKDKYGq/cjJ4DKqevlPxIlGBsKT7JSEcrcDGazy1EWHchPOywTLq04+B
-         VyfvzwrQIKKjjSBe+CC3Mo72M0GBO+IG76WAGXP5mKwDeaPnz9OtXqhB60yemg4MKJZB
-         k5MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735651870; x=1736256670;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ztH4Cp+TWuFNo+T9DDOJEU6MuEj49P+cJhTlURsWNmM=;
-        b=GfdLwKSTiRR+CccYVkdHxwmcILzp5zmqbM5WI5cC3KwWfrQZ6dPfryT9ECv+qfooR3
-         UOpysabevL6DcEG8KIExplzgR+9LrVTQN8tfENHI8Ks0jAhYIArhCGz1mI4mY2sVGbd/
-         C1d6AKpJ+n7uNKXyFhhIboNxAc8qqeWYvYaTWU7ZY6Ia+VV3yA2quuk+1j0HgvAmAb53
-         j27hSckCtnBRfaQhVL3V22ooW0Cemlvf9JJK2I/gZSDzQVOKAI3mIv9qmVDEwnWHI7co
-         EZzs+UvToZ6VyvwXT1im9EGm6x9w135QPc7TfOPbbAQrd3VIsHw8Tdh72klWWxvL3wrg
-         3zEw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfM+dQOKuKdxAO9lc9xEVZ+u39oPrANXp4a9vAN5bURje+vidzke+66FdohRPOXyonU2W5EkR3TzxbwVJC+Ps2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMRizhOpbeBppFAnK2ag4pfUMqMwCs5fMjMty+5gQ2N+Bno/VP
-	jACV9DfGG0SKGABQdFve/MlAd/cixlxA8dnJ5w28Tu9aU4PrOb5MEXHPuNoorrQ=
-X-Gm-Gg: ASbGncuAYjm+x01kUsi6+AGwx1N4Rsvfp2D7vGiA3VF9C19igJRIJsAVHf7mcCaoNex
-	66gEu9GHqwcClv0qdNmtfFYkZ+FyxK5DjSEiH3Z18bt68+imsr2FPqGlOf8WzVkWdJEVsPDLItb
-	6GDXFtN114kXlDI5iXiLUc/zqev6Za6Fs16B3Dw0WQsi+mKQpSXI/0vxemPhWoK+xCKe/TNjSww
-	XVajXtnNuShz3LNNxNV2855DsmPFK4GmZXSvNO//BKyH5A/13/p2ng7hWt/6k5TgeXfbP8=
-X-Google-Smtp-Source: AGHT+IHi7+HrBv4JJTi9gtZfiRBlA81Co2JS3S9Apnra+hVXLLciWPy9sGqyudamix3ncbI9k0mZwA==
-X-Received: by 2002:a05:600c:1d1f:b0:42c:c0d8:bf49 with SMTP id 5b1f17b1804b1-43667921f0fmr138879685e9.0.1735651870488;
-        Tue, 31 Dec 2024 05:31:10 -0800 (PST)
-Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4366127c515sm390740305e9.30.2024.12.31.05.31.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Dec 2024 05:31:10 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] pinctrl: samsung: drivers for v6.14
-Date: Tue, 31 Dec 2024 14:31:05 +0100
-Message-ID: <20241231133106.136237-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Tue, 31 Dec 2024 13:37:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00FC6A406DB;
+	Tue, 31 Dec 2024 13:35:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE259C4CED2;
+	Tue, 31 Dec 2024 13:37:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735652255;
+	bh=VlKLhUN+zDmr0U5+deIXHrgXfztAdQTHo3T3VjafnL0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vQnkiJbcSg0EI64smS1a4LcCoIU/L0WXtYnGipGgmpWIH2l991MQlg4Yctfk7RYnS
+	 lqG/0sdMv4Kp4uD5s1BwRxmPKSN08NtUzPItbu71bVaCUohaW5ok+3KTF/m3U08bV4
+	 vzrBjkJqbM3yt6fa0fmzZ1MPBzGz7KjBsTPKqT6RgYwDntZknUCREmaDlq4ySlji3s
+	 LhX5mq7G5P9KMdQxJl9sNtHGMv7/qbAxnEv8Uw0bMp1WoOPLxEtnMFIMfSdH5Qs79E
+	 eJ5ZMpN6bT4fKG+TLvWJgGdY36Up+ixdzqVqV8wtV9fsaTia10Vqp/lZJpH2bp6ojD
+	 0W5EY0hh9XY5Q==
+Date: Tue, 31 Dec 2024 07:37:32 -0600
+From: Rob Herring <robh@kernel.org>
+To: Chris Morgan <macroalpha82@gmail.com>
+Cc: Ryan Walklin <ryan@testtoast.com>, Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org, Chris Morgan <macromorgan@hotmail.com>
+Subject: Re: [PATCH 1/3] ASoC: dt-bindings: sun4i-a10-codec: add hp-det-gpios
+Message-ID: <20241231133732.GA76940-robh@kernel.org>
+References: <20241221094122.27325-1-ryan@testtoast.com>
+ <20241221094122.27325-2-ryan@testtoast.com>
+ <6768438d.4a0a0220.399c57.89b6@mx.google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6768438d.4a0a0220.399c57.89b6@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_053112_136641_E756704A 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241231_053736_518590_68624C6E 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sun, Dec 22, 2024 at 10:51:24AM -0600, Chris Morgan wrote:
+> On Sat, Dec 21, 2024 at 10:26:32PM +1300, Ryan Walklin wrote:
+> > From: Chris Morgan <macromorgan@hotmail.com>
+> > 
+> > Devices integrating Allwinner SoCs may use line-out or headphone jacks
+> > with jack detection circuits attached to a GPIO. Support defining these
+> > in DTs.
+> > 
+> > A number of Anbernic devices featuring the H700 SoC use this mechanism
+> > to switch between a headphone jack and an internal speaker, so add these
+> > to the allowed routing items.
+> > 
+> > Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+> > Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+> > ---
+> >  .../bindings/sound/allwinner,sun4i-a10-codec.yaml           | 6 ++++++
+> >  1 file changed, 6 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
+> > index ebc9097f936ad..b4b711e80b65a 100644
+> > --- a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
+> > +++ b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
+> > @@ -98,6 +98,10 @@ properties:
+> >      maxItems: 1
+> >      description: GPIO to enable the external amplifier
+> >  
+> > +  allwinner,hp-det-gpios:
+> > +    maxItems: 1
+> > +    description: GPIO for headphone/line-out detection
+> > +
+> 
+> If possible, I wonder if we can keep this without the vendor prefix?
+> It looks like for now Nvidia and some Rockchip codecs have the vendor
+> prefix, but audio-graph bindings and Freescale codec bindings have this
+> as a non-specific property (and it looks like simple-audio-card does it
+> either as "hp-det-gpios" or "simple-audio-card,hp-det-gpios" depending
+> upon the circumstances).
 
-Fixes for old issues, not critical, so not worth current RC.
+Yes, drop the vendor prefix.
 
-Best regards,
-Krzysztof
-
-
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
-
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git tags/samsung-pinctrl-6.14
-
-for you to fetch changes up to 0ebb1e9e1b12ddcb86105a14b59ccbed76b6ce00:
-
-  pinctrl: samsung: update child reference drop comment (2024-12-02 15:11:54 +0100)
-
-----------------------------------------------------------------
-Samsung pinctrl drivers changes for v6.14
-
-Two fixes for very old issues around error handling and also one
-cleanup.
-
-----------------------------------------------------------------
-Christophe JAILLET (1):
-      pinctrl: samsung: Fix irq handling if an error occurs in exynos_irq_demux_eint16_31()
-
-Javier Carrasco (2):
-      pinctrl: samsung: fix fwnode refcount cleanup if platform_get_irq_optional() fails
-      pinctrl: samsung: update child reference drop comment
-
- drivers/pinctrl/samsung/pinctrl-exynos.c  | 3 ++-
- drivers/pinctrl/samsung/pinctrl-samsung.c | 4 ++--
- 2 files changed, 4 insertions(+), 3 deletions(-)
+Rob
 
