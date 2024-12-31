@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3819FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AACE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pg0UfV4prOtW7FOVVRBO2lYE1N8dbmghRAassomDga4=; b=khxXaculTwz8pX+Tg3vyUPk9rB
-	csICVV30GkUcVj6bPzsBEZI6nG5/Kr/wZbmFCEuCaV53QqVkukH5gpEb++3segvItlcE3M20hyWwi
-	RmoA+/sw+VO/ZtJ/3kvXpypv/rFlCB0z/405kEiAgXJCideW0/pn4Qw+dRtdRvQ7AQK51ji8jLd/X
-	A/liJci59JUE6bZrGGworMgmMKe8o0EGkjTuJ7nytXYpJ6CtMqo3Y9m1Cy6WIHlletFzD6GclXopl
-	YENeBwsPK/9EVRFZGBvzFvqUyZZAO5qhlD31XOz9xlnSXLQaoM4mwBAWmsrOovIefYH+EAF0Ym+d6
-	f7nNWUXw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KgtALxJqBWoQB4v1+ibC8c5vtvvbQuSbp6eJ9TpCs4o=; b=eZBfaYX5byfsrpUXxdcz60b1rz
+	MYgpA7JbEtrbKfX1Gbd24Vo+uH6BiYt4dEMNyk+O6hMFX/B4Igb8zeS2LoqpS8gHFYC/c+j3yfAjk
+	aAjkC4SCUsiv2K1fqfDpRWgXbTBwqBrTgtiTtNYbYIoC1J+r0fUTFa9MwFpYqYE8EnAYqvRAaJulX
+	drIJ5TYUHe+Mo/NxW5E2t0MRHl1UeT62HRyBmK1VMmnwSZJ4GvJopnXEohwA9N95pO8irXHXQjmTh
+	fgc2dfaQfSKFwxRbAuIW2w/iUGcSbFJZyh28+qiempKoB2wofYKM6psLwk4bQfxxKUj++qiQK6gw0
+	acWl6P7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYpH-00000006y1T-0q6y;
-	Tue, 31 Dec 2024 09:46:11 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1tSYqS-00000006yHy-49YY;
+	Tue, 31 Dec 2024 09:47:24 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYo0-00000006xeJ-2oiZ;
+	id 1tSYo0-00000006xeC-35yj;
 	Tue, 31 Dec 2024 09:44:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=pg0Uf
-	V4prOtW7FOVVRBO2lYE1N8dbmghRAassomDga4=; b=CBl7s6Mx6gtwsmDOtiqAZ
-	2s0SKfQ8p9At50xZ+X7JTIA6D6uFFBZeT+59xcyptwKwR32TsTb4NFmJMPsjmvMt
-	abWdDyQYED3EvS5JNIviDVyhyylyghqAjeDjdayRYQkV5nfe84F3ZzpakPaI4g1R
-	CrSCh4gHXn4gwK1YUqLzU4=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version:
+	Content-Type; bh=KgtALxJqBWoQB4v1+ibC8c5vtvvbQuSbp6eJ9TpCs4o=;
+	b=p6SMH6CRyG46D1iaJalUPdckQsBULJUgmM857QpPXRSGSKbX6bCwGcmzq+wk0O
+	5yLGIphuAfDHIkWFQa7dJqWoikY2BFlY1zbsFd68bTU2CYMYfsOtxdfaSm/167HM
+	3pwy6+h/jNUahP74w7a/MlyqGvVU/DmaCrxN6PX+5RszM=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3v8P6vHNnCZWrCw--.29543S4;
-	Tue, 31 Dec 2024 17:44:31 +0800 (CST)
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3v8P6vHNnCZWrCw--.29543S2;
+	Tue, 31 Dec 2024 17:44:29 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: krzk+dt@kernel.org,
@@ -47,24 +47,23 @@ Cc: krzk+dt@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v2 2/3] dt-bindings: display: rockchip: Add rk3576 hdmi controller
-Date: Tue, 31 Dec 2024 17:44:18 +0800
-Message-ID: <20241231094425.253398-3-andyshrk@163.com>
+Subject: [PATCH v2 0/3] Add HDMI support for rk3576
+Date: Tue, 31 Dec 2024 17:44:16 +0800
+Message-ID: <20241231094425.253398-1-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241231094425.253398-1-andyshrk@163.com>
-References: <20241231094425.253398-1-andyshrk@163.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3v8P6vHNnCZWrCw--.29543S4
-X-Coremail-Antispam: 1Uf129KBjvdXoW7XFW3Kr4UZr1UWF4UKF1ftFb_yoWDXrbEqa
-	4xZ3Z8ZFs5Zr1Y9w1DJ397Wws8Ja17KF4kGa1UAF4DJa4kKrZYqr95G343KFykAF17uFyx
-	CFn5XrWUG3ZxJjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8OTmDUUUUU==
+X-CM-TRANSID: _____wD3v8P6vHNnCZWrCw--.29543S2
+X-Coremail-Antispam: 1Uf129KBjvdXoW7XFW3Kr4UZr1UWF4UKr13twb_yoW3Zrb_K3
+	4Sq3s8ur18uF1Yya47tw4xWa93tay2gFZ5GF48K3ZrJFWkJF48Xrn3JrWYqa4rZF1YkFnr
+	Gr4YqFy8CanIyjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbySotUUUUU==
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hnGXmdzt4WQFgABsy
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqR7GXmdztQzPNgAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_014453_059131_41AE395B 
-X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-CacheID: sfid-20241231_014453_163518_41D0C948 
+X-CRM114-Status: UNSURE (   7.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,30 +81,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-RK3576 HDMI TX Controller is very similar to that of RK3588, but
-with some control bits for IO and interrupts status scattered across
-different GRF.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
----
+RK3576 HDMI TX Controller is very similar to that of RK3588, but with
+some control bits for IO and interrupts status scattered across different
+GRF.
 
-(no changes since v1)
+PATCH 1/3 is add platform ctrl callback for IO setting and interrupts
+status handing.
+PATCH 2/3 ~ 3/3 are add support for rk3576
 
- .../bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml    | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- Fix compilation warning: unused variable ‘val’ [-Wunused-variable]
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-index d8e761865f27..b838b5ec2dca 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-@@ -29,6 +29,7 @@ allOf:
- properties:
-   compatible:
-     enum:
-+      - rockchip,rk3576-dw-hdmi-qp
-       - rockchip,rk3588-dw-hdmi-qp
- 
-   reg:
+Andy Yan (3):
+  drm/rockchip: dw_hdmi_qp: Add platform ctrl callback
+  dt-bindings: display: rockchip: Add rk3576 hdmi controller
+  drm/rockchip: Add basic RK3576 HDMI output support
+
+ .../rockchip/rockchip,rk3588-dw-hdmi-qp.yaml  |   1 +
+ .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 225 +++++++++++++++---
+ 2 files changed, 196 insertions(+), 30 deletions(-)
+
 -- 
 2.34.1
 
