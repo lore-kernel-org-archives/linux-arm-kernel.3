@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65B8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 07:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F051EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 07:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19+L5190pxl2tBFmgk8oJ5aQaE+jK2UdjbU5grM/bgo=; b=ruQ/zrC9UAT3PDhZp4MobEYOad
-	jqdUI7AyHO84DlD7f47ZwwL5wMuWFsBiCtRC92WtHVUdjEyhHIOW94JSfshIpaQb/H21MPtyJgsBj
-	nwat5mF7+BzhiNkkUN1spyoSU8BVHNqMPU6Ns+u2Gd9nz2sypoBn0fBT2AwRTU3lMLyLaC2PqNS2t
-	lZJ9Lhc+LFvsHOIaM4h526BSOwak28pu6QYLdtv3Mr4Pj4laOM5darledkZI3oS7sVuP7FdLPN3DF
-	I+I/UXtDlvv5IzV3VneYJmfqmy6ZIn+yy1EPCnAN7K1/lNVkGhdtdpMjZPoXnAWBzhi9Y1toozSVI
-	lKBR9h0g==;
+	bh=0Nmv77ItPgo7L18NxNCBR/oaXwakL9SL0tjPlaJAEZE=; b=jp8UM1/yeDkGCDfIz/vcrhS6FB
+	SxUXtsTO884d29Cqv9R/qDF38M/N9zjN99kko7hpqZ1ivpJevntikyKfXoAJGYbURvr9pV8ouuPqA
+	vJfrAZ8bimWm7G3WGf36IIAupX1XlHDQG49fOmdAPBg3eyBykbFIZt1zSWqXdGteysFaC0wfHVoXN
+	otPcpI5Zbeyp3EByUQ1GogeWPBCL2cWT7EcQK78P4mYUkNAo5RFWRe8ipg66IVtjIlfDWsAx5EYad
+	aaJ4HENxvmScj/aaxSbHBRBzVZQXquMJgI6G/lHhslnQ38m6z73X9w+dXZfpTX3m9CCEtBDGoFLPL
+	/cpr0I9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSWvW-00000006kJq-2uGr;
-	Tue, 31 Dec 2024 07:44:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tSWyD-00000006kec-47pI;
+	Tue, 31 Dec 2024 07:47:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSWuM-00000006kCz-28cF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 07:43:19 +0000
+	id 1tSWx4-00000006kVS-0bX8;
+	Tue, 31 Dec 2024 07:46:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2FFCA5C5964;
-	Tue, 31 Dec 2024 07:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A6DDC4CECD;
-	Tue, 31 Dec 2024 07:43:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 22CF15C5972;
+	Tue, 31 Dec 2024 07:45:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6596CC4CECD;
+	Tue, 31 Dec 2024 07:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735630997;
-	bh=uKdIP0esE6Nx0Tjz4BNM+SF6Vwp6oUbsp2rB0dH4fD4=;
+	s=k20201202; t=1735631165;
+	bh=SW9rpK37lEib3M03Jx173ZEf5QPoH/08B9TOrwbJm7w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XQuf+DUzylhr2hLyNIPg9UIM6EQvzj3GJRi41BEmOYm2brk+Mm1M8PmtYZkC4C7hn
-	 e2I3JqXl4+bdRCWWm/5iOXmoVtKA9XPF6j3NaL3FdeS+dH9nAmpuhu8Y0bjdEKvF+1
-	 RZlp85nt9JEYEaXCn0jCZVV8ScKKM4ST3abFEBHCT53mdT6tgyeWgvPTwU6DFoBaKN
-	 AoM131XAwtz1ABVJRYbeRmx2vOg1d5M/8cChW38XqVw1Hlki6lq5kP31/cE4d+tRT1
-	 TY5G5ZUsleuHJWtFUuMc7QP2s2mPiHpcezNZ8bCS9bKqF1y8JHMNad8Q0LVPn9RqpY
-	 OgHXi4LlDtXYQ==
-Message-ID: <743d9eb4-a7ee-4ce7-91a8-52ddcd353bb2@kernel.org>
-Date: Tue, 31 Dec 2024 08:43:11 +0100
+	b=Dw5PVEfrXoHeAmxE8B/D+rbSsM2MoaQymdDnaqYMo+ayqTr5e4tRsikvSFlagMAws
+	 FjoNWm2k0l5Ulq/ZJFf+/qm0/7YdK/M1JHeoV/2b01BAnACBMWVJfD2uGW9Co1wlz+
+	 MxzNbIJ5cBSpi3dRHwYJGa2UJHcVUWmTK2SN2cO/x18fJ8SxnTZs2VdnW6CJrbX+fe
+	 Pu2QHK2wPpQjH/81F6w7xH48I6eqZ4G3bF2zZH9Q99ki6cYxY/tul+O+ebALbaP7SG
+	 khm70RwAAbp4JfFk0NlOPLmj2Kt0wwCs0SJY1iwsteC5v0Uc1s6Vc+GgBqq1Unzhjc
+	 yi3HL1jsTTV+w==
+Message-ID: <3c58790f-b1eb-4183-aafd-063dc5472b52@kernel.org>
+Date: Tue, 31 Dec 2024 08:45:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: add cpu cache information to ExynosAuto-v920
-To: Devang Tailor <dev.tailor@samsung.com>, alim.akhtar@samsung.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <CGME20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc@epcas5p4.samsung.com>
- <20241231064350.523713-1-dev.tailor@samsung.com>
+Subject: Re: [PATCH v3 3/4] media: mediatek: add MT8188 AIE driver
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
+ <mchehab@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ =?UTF-8?B?Qm8gS29uZyAo5a2U5rOiKQ==?= <Bo.Kong@mediatek.com>
+Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+References: <20241225090113.17027-1-bo.kong@mediatek.com>
+ <20241225090113.17027-4-bo.kong@mediatek.com>
+ <351287f9e8a118babd225fb0e484976bef3db6c0.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241231064350.523713-1-dev.tailor@samsung.com>
+In-Reply-To: <351287f9e8a118babd225fb0e484976bef3db6c0.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_234318_677653_CB9B2941 
-X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-CacheID: sfid-20241230_234606_267738_FC560519 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,28 +130,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/12/2024 07:43, Devang Tailor wrote:
->  
->  		cpu9: cpu@20100 {
-> @@ -152,6 +215,22 @@ cpu9: cpu@20100 {
->  			compatible = "arm,cortex-a78ae";
->  			reg = <0x0 0x20100>;
->  			enable-method = "psci";
-> +			i-cache-size = <0x10000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			d-cache-size = <0x10000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <256>;
-> +			next-level-cache = <&cpu_l2>;
-> +		};
-> +
-> +		cpu_l2: l2-cache0 {
-
-Are there more l2-caches? '0' suggests that, so please add nodes for all
-of them.
-
-
+On 27/12/2024 07:05, CK Hu (胡俊光) wrote:
+> On Wed, 2024-12-25 at 17:00 +0800, bo.kong wrote:
+>> From: Bo Kong <Bo.Kong@mediatek.com>
+>>
+>> Add a V4L2 sub-device driver for MT8188 AIE.
+>>
+>> Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+>> ---
+> 
+> [snip]
+> 
+>> +static void aie_reset_output_buf(struct mtk_aie_dev *fd,
+>> +				 struct aie_enq_info *aie_cfg)
+>> +{
+> 
+> Why clear output buffer?
+> Could you point out which place in the output buffer that hardware does not write data into but software would read it?
+> 
+Please respond with one email doing review, not 10 per each comment.
 
 Best regards,
 Krzysztof
