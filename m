@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 304A3E77194
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 18:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB29EE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 18:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rx/BAtYz+YSmLVs6o5kW+gu0D5xRt+OIkNVnblY2Dys=; b=HHbFMLbElrebi89T9Nzz/QDWY1
-	K4xCC9sya6aIH8JhR6fViZjrTdLssbZ74kMmvdDDW8Shg/n4TcyZA2x5iwMB3ImTiX8iyiQ3m4/9k
-	l4LrXHZKm9BEHzN5tM0LcqlULugHau04wwWuukRv0Pl2dE3dFI+jA9OmGg7tQP6rozB3TxxR8whwH
-	NvMXXv2VcK8kVlZQ9WCUyS7aByRG3pUZf7a3bjrlRpaHLbF7o8vVRbk+gBf7D6+weVVe2knPKS4On
-	BlS9mSPnLqzKWqB46GEGkumOBMzFhxylWUTZwbDxSBPzZezUR2c7cQ9aGX9gifum8ZLod6ezyNQot
-	6yjLOqKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kltap3Pv1hlN9UPAmHZET72hjTYvMQFRlhAGev33Mns=; b=v9Cau2YaCyMcLN7yDxZsozbiKE
+	lmNCfLcOPkSPikom1DEumKQ1tphB4bkbnbCsfC265hs7Z9BUdHr9Mpmqls93Pwq/SZPKmJi9U615X
+	AxVDEshkG4MM7pnLW0iOMyVKYswZyYMQZWroveMSFB6SQAVZintvTkxuHcKjbfsf/2yg8ChoSU4yY
+	k+Npu6luLwsgbvlYNekH4YcHCEm4gfAYTyIbVrRx7z1qu0t0XQobq5gxkR4Y0Tl4/5n0Rl8aw4N+o
+	bI6EEHfQXx5qXgLlnkoerc7jl5vM0K06jiCBAYggEosPkhJy5UIkvfTHtXgJ/3YatlrPKRPhLWNcH
+	ESo0c6MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tShFT-00000007c4a-080R;
-	Tue, 31 Dec 2024 18:45:47 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tShKb-00000007cLi-0Ew5;
+	Tue, 31 Dec 2024 18:51:05 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tShEG-00000007bxI-2KkC;
-	Tue, 31 Dec 2024 18:44:33 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21649a7bcdcso133612465ad.1;
-        Tue, 31 Dec 2024 10:44:32 -0800 (PST)
+	id 1tShJQ-00000007cFc-2wei;
+	Tue, 31 Dec 2024 18:49:54 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2ee709715d9so10995946a91.3;
+        Tue, 31 Dec 2024 10:49:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1735670671; x=1736275471; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rx/BAtYz+YSmLVs6o5kW+gu0D5xRt+OIkNVnblY2Dys=;
-        b=iCpncPllezxmh9dfcaffwJdOSwHN2bgSBj10zQGTni7jhXsD0V2WSNfYPzzWcfFLHo
-         +BM8jcFBgzlHEfeUIaopuBqmHPod5IwDk41UhaVh+zZH7kEiIfDvbnH5sQtYb9j87Mjc
-         D9e6nSqXyxkfTuMUlpn58BonkKsev0zBbh7eTg/z8e3hJf9pz6QgakgG0wxv6BC2H0b9
-         0BSL5dmuud88SsEQBVFP+opruoR2u8ghVE+fnY7VgptrBO+QWX9pvv8FkoZl1x/+FU0t
-         kktwgEcBreOlF018sSRMxyBZLuBe49fkNcuiKH79Sii7iG6+soT2A3O6wR0mfbc9pNMy
-         Jb8g==
+        d=googlemail.com; s=20230601; t=1735670992; x=1736275792; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kltap3Pv1hlN9UPAmHZET72hjTYvMQFRlhAGev33Mns=;
+        b=VE9PT2h2eN9iy1SRjCA7ZnYMQs3Tfp30yOKD95uG8aGYPwA9lX2FeFRJdwHkSUgz4D
+         2tHG9iE54yNNn90KE9u6veDIy3DBdkCOk4Jz+xgoJzsh8FTNna563t7vbddTWNfyt4sY
+         +5s9mPU9dV3ZzqYrf96ct2NDpEM3StQy+3w0vt5nQJxNkF8JDuiCgbHjHuVlP9ACl0lW
+         DK2203gW7NHQX5ed0aAw2SRl4hIjvwEmddaE315LdvHN8qMohjPsE7supu4Sa8mPi3Zk
+         nETAxXJVWcqMo1qrJjfyKczyiuqLy2uL6CDKr9e5qpS/t0tzcoMZGqTod88+6AamKJ8Y
+         dbPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735670671; x=1736275471;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rx/BAtYz+YSmLVs6o5kW+gu0D5xRt+OIkNVnblY2Dys=;
-        b=LtqX1p+luWP9R+g64M1u80VlXVkTwNuShlT/CEw48O/2wz4UXn1NZCc09sYfICrGse
-         rX61iXU67/7jdLkVqd6+L+eQUNN7I1cXVGpIsGmPbsgtnvK5JFpwPgas0EHIg3nsoDZJ
-         /z6Ys9ynWEs+e6jGZ7tDqgRSJ0Kpi6WHLR9tKz+vw/lioLGNMx6ClvdFFz2NUvRb6dPZ
-         jzTOFCRVRj+Fbdjx9486aPlICo7kpIAkKpErnkLdTkDcY4v3x5i9vgSXDZ3Uo/tXJxLf
-         7wOWdoyJA8fEUAN+h7fZ6FLe30KAEDg8rj9mjyQhIAHQknEVxde4GxUCbNw5lh7DVymb
-         XzUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVsh2X6ZILYnvGtA5cHXP9gnVsJsSHSAEudC552ZpNy39TlLYd0noBMbDOxr4o9PiBizZBg6lxJiuTqssqJQbja@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9z+3QcxOcqr6RHmfkdcVn/j/wHLykM3D+vbnSS5WRmICo/FSb
-	5KHNtflMqrVcw0XiEFLzLbDRqazHJgzMf5EoUslp2BACaPtryYhsN+ac9TudcXkaINDLALu6xwI
-	CPzOAJTnFLYGWCgx4KWw/U6WG35eqFVhl
-X-Gm-Gg: ASbGnct/vsF0n0NdR6Irx0dlZfaxjYMoLe+IYqb2FSxonYVstZQA6uEkEf4BSkhvQI9
-	olmNb5zbyIYXAXL3YqemN5bAaTSaPVeD3ldJOALX4RRc2FlITdf+75QsmY1wqKOltm7GUv8w=
-X-Google-Smtp-Source: AGHT+IH0eYkv9jMWnNWk5clNdXDiJhTdGXywUxzL8uXyNgWAEqJCW8pgacoyM8OKkm7iaQpFDbJb+dG7SSGKuIkyu6Q=
-X-Received: by 2002:a17:903:32c5:b0:215:bb50:6a05 with SMTP id
- d9443c01a7336-219e6e894f4mr583339975ad.9.1735670671350; Tue, 31 Dec 2024
- 10:44:31 -0800 (PST)
+        d=1e100.net; s=20230601; t=1735670992; x=1736275792;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kltap3Pv1hlN9UPAmHZET72hjTYvMQFRlhAGev33Mns=;
+        b=IKjfqOLYNW+paO1W4/AT8c/4kiiz9lvsQcf+ZuEj08X/ZQ0eN5mW8MbQU28b1Z3pKo
+         Z8znkCCssecXdZM5u1l90nTlMpxcdk6hqJfQv3LIpeKbvTpOI1ek7CdtdG3X7z74Zfge
+         sHjEmYWk4Wdoxz7yslTJeUkmG6+pQIuIQx0T/RK2gc008D4oKrEYxU5F2qnJjagZm3Mh
+         L6I3UKSTX5oJ0MawT920eEZR89/zEkHGjipTMbKLwIOkR8YpscPHTMa/DoULBRl+ItPG
+         f5nn1sbS7VMcsr8Nx0yVPxHmMERBTZMVEjqk8p2Tute8uXk6+OQyxFWKpzmeGYmVswJY
+         zoaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVwZqHWp2y1uvo85RkRlv5fN3zz12RT0VCUJDEW36Qhrr+R+bOwylYb3dS6i3IFrbztghyvGGA18ZIAcl/Eg+g=@lists.infradead.org, AJvYcCWgFY73xoUx+SO0S9TXoFA2Xc1ovRpXWoAvpMiKMNUaHDoi6j5XYPIs2KVS3W2poSm/SYT++EfGSn1LP8/ZPiho@lists.infradead.org, AJvYcCWpQgnQapiopXhKiPq+m1e66z4ZStga+5MG+4DIkZuUiAC8qMhNav0W3tkMh6ENOTmoh3tF4/hChEmFVmcRtQ8=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywvo/q6+F7GYLm7XcZgjzi0Cv7cqSs7tjF8vUJ+oKgxQoUJKyvu
+	CKTu83zmr/loAoJlg8XqxYT1369Mv2N6IZgKLGD0AiNu78zAsZiMLKHV1YIpiKvAeK0TLAD0K9r
+	xyennLr9k2O3lhqGpvWXsRcwuApY=
+X-Gm-Gg: ASbGncv9EQhKFIwaNp/ao02RypOBDpc3oHZ+MgROjmqBMavEP2HpYNfBocgoyWIDWi0
+	fgowR5UMEWA7pmiL56IfFOvNDF2FzJNWssXvNKt8sUQgYfiyu1HzvcZvHDfLk1KVYWvq7vK0=
+X-Google-Smtp-Source: AGHT+IG5FmkROQoSQHWr4cIegxX2It9OOsT8OUh7KWPdH7VQgx2qIDviezjcsQv6GTMSR51Q0h0ZJEqmX+Qz4Kpzuw4=
+X-Received: by 2002:a17:90a:d645:b0:2ef:30ec:14c9 with SMTP id
+ 98e67ed59e1d1-2f452e4ad37mr57281196a91.18.1735670991720; Tue, 31 Dec 2024
+ 10:49:51 -0800 (PST)
 MIME-Version: 1.0
+References: <20241224-drm-bridge-hdmi-connector-v10-3-dc89577cd438@linaro.org>
+ <20241231004311.2574720-1-martin.blumenstingl@googlemail.com> <l3u3wtnxyhrwjynevkwfjwarisc4yt4xy2rbzf5kb7k5l5dw3n@lxqtimymyjg6>
+In-Reply-To: <l3u3wtnxyhrwjynevkwfjwarisc4yt4xy2rbzf5kb7k5l5dw3n@lxqtimymyjg6>
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 31 Dec 2024 19:44:20 +0100
-Message-ID: <CAFBinCDdiJ3UNVUcShjq=7U2=oUwT3ciYdKSuZ5TdcrikxFBpg@mail.gmail.com>
-Subject: meson-aiu: HDMI codec .prepare() callback not called
-To: linux-amlogic@lists.infradead.org, jbrunet@baylibre.com
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, dmitry.baryshkov@linaro.org
-Content-Type: multipart/mixed; boundary="000000000000d03d17062a955188"
+Date: Tue, 31 Dec 2024 19:49:40 +0100
+Message-ID: <CAFBinCAh8iazDNx6GtOOJyXh_V-NfUs6Uf=ywN9kvQGPEmjrKQ@mail.gmail.com>
+Subject: Re: [PATCH v10 03/10] drm/connector: implement generic HDMI audio helpers
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com, 
+	alain.volmat@foss.st.com, alim.akhtar@samsung.com, andrzej.hajda@intel.com, 
+	andy.yan@rock-chips.com, angelogioacchino.delregno@collabora.com, 
+	broonie@kernel.org, chunkuang.hu@kernel.org, dave.stevenson@raspberrypi.com, 
+	dri-devel@lists.freedesktop.org, heiko@sntech.de, hjc@rock-chips.com, 
+	inki.dae@samsung.com, jani.nikula@linux.intel.com, jernej.skrabec@gmail.com, 
+	jonas@kwiboo.se, kernel-list@raspberrypi.com, krzk@kernel.org, 
+	kyungmin.park@samsung.com, lgirdwood@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux@armlinux.org.uk, maarten.lankhorst@linux.intel.com, 
+	matthias.bgg@gmail.com, mcanal@igalia.com, mripard@kernel.org, 
+	neil.armstrong@linaro.org, p.zabel@pengutronix.de, perex@perex.cz, 
+	ple@baylibre.com, rfoss@kernel.org, rgallaispou@gmail.com, simona@ffwll.ch, 
+	sw0312.kim@samsung.com, tiwai@suse.com, tzimmermann@suse.de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_104432_635406_C7BADD00 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20241231_104952_745680_5D774895 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,135 +106,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---000000000000d03d17062a955188
-Content-Type: text/plain; charset="UTF-8"
+On Tue, Dec 31, 2024 at 3:34=E2=80=AFAM Dmitry Baryshkov
+<dmitry.baryshkov@linaro.org> wrote:
+[...]
+> > I checked all instances of struct hdmi_codec_ops in v6.13-rc3 and it
+> > seems that there is only a single driver which uses the .prepare
+> > callback (drivers/gpu/drm/vc4/vc4_hdmi.c). All other drivers seem to
+> > implement .hw_params instead.
+>
+> Yes. However .hw_params don't have access to the infoframe contents, so
+> I had to settle on implementing .prepare.
+While debugging I noticed something unrelated to my problem:
+hdmi_codec_spdif_dai_ops does not implement .prepare().
+FYI just in case someone wants to use your patches and feed the
+hdmi-codec with SPDIF instead of I2S.
 
-Hi Jerome,
-
-I am still working on a HDMI controller driver for Meson8/8b/8m2.
-HDMI output would be incomplete without audio.
-There's a great series from Dmitry [0] which simplifies the HDMI
-controller driver implementation by moving all the hdmi-codec related
-management to a generic framework.
-
-I tried integrating Dmitry's work [0] into my HDMI controller driver.
-While testing I found that hdmi-codec's .prepare() callback is not
-called at all and asked Dmitry for help [1]. All other callbacks
-(.hw_params, .startup, .shutdown, ...) however are called.
-On his board (Qualcomm SDM845, sdm845-db845c.dts) hdmi_codec_prepare()
-is called by snd_soc_pcm_dai_prepare() (core sound framework, not
-platform specific).
-However, on my Odroid-C1 this is not happening.
-
-Looking further snd_soc_pcm_dai_prepare() I can see that
-for_each_rtd_dais() has three entries:
-  snd_soc_pcm_dai_prepare(), dai name=I2S Encoder, id=2
-  snd_soc_pcm_dai_prepare(), dai name=CODEC CTRL HDMI I2S IN, id=0
-  snd_soc_pcm_dai_prepare(), dai name=I2S FIFO, id=0
-What I'm missing here is a dai name "i2s-hifi" (from
-sound/soc/codecs/hdmi-codec.c, see hdmi_i2s_dai)
-
-My hdmi_tx node looks like this (abbreviated):
-  hdmi_tx: hdmi-tx@42000 {
-      compatible = "amlogic,meson8b-hdmi-tx";
-      reg = <0x42000 0xc>;
-      #sound-dai-cells = <1>;
-       ...
-  };
-
-Then I have a "amlogic,gx-sound-card" instance with the following dai-links:
-  dai-link-0 {
-      sound-dai = <&aiu AIU_CPU CPU_I2S_FIFO>;
-  };
-  dai-link-1 {
-      sound-dai = <&aiu AIU_CPU CPU_I2S_ENCODER>;
-      dai-format = "i2s";
-      mclk-fs = <256>;
-
-      codec-0 {
-          sound-dai = <&aiu AIU_HDMI CTRL_I2S>;
-    };
-  };
-  dai-link-2 {
-      sound-dai = <&aiu AIU_HDMI CTRL_OUT>;
-
-      codec-0 {
-          sound-dai = <&hdmi_tx 0>;
-      };
-  };
-So apart from the additional cell in the sound-dai towards hdmi_tx
-(Meson8/8b/8m2's HDMI controller has two inputs: I2C and SPDIF. I2C is
-the first one, hence &hdmi_tx 0) this is identical to
-arch/arm64/boot/dts/amlogic/meson-gxbb-odroidc2.dts.
-
-I have further verified that the gx-card parsing does find the HDMi
-controller and links it correctly.
-To me it's odd that only the .prepare() callback is not called, all
-others (as mentioned above: .hw_params, .startup, ...) are working
-fine.
-
-I'm not familiar with the sound stack and I'm hoping that you have
-some ideas on how to either debug or fix it.
+> >
+> > The audio controller code for my platform is already upstream:
+> > - sound/soc/meson/aiu-codec-ctrl.c
+> > - sound/soc/meson/aiu-encoder-i2s.c
+> > - sound/soc/meson/aiu-fifo-i2s.c
+> >
+> > My understanding is that you have a platform with a lontium-lt9611
+> > HDMI controller available for testing. Can you please help me
+> > investigate and find out which piece of code is calling
+> > hdmi_codec_prepare() and therefore lt9611_hdmi_audio_prepare() on
+> > your board?
+>
+> Sure, this is the call trace on my platform (Qualcomm SDM845,
+> sdm845-db845c.dts):
+>
+> lt9611_hdmi_audio_prepare+0x1c/0xc0 (P)
+> drm_bridge_connector_audio_prepare+0x2c/0x40 (L)
+> drm_bridge_connector_audio_prepare+0x2c/0x40
+> drm_connector_hdmi_audio_prepare+0x24/0x30
+> hdmi_codec_prepare+0xec/0x144
+> snd_soc_pcm_dai_prepare+0x78/0x10c
+Thank you, this helps! snd_soc_pcm_dai_prepare() is where it breaks for me.
+I suspect that it's an sound card issue on our platform, so I'm hoping
+that Jerome (author of the Amlogic ASoC drivers) will help me debug
+it: [0]
 
 
-Thanks in advance and best regards,
+Best regards,
 Martin
 
 
-[0] https://lore.kernel.org/dri-devel/20241224-drm-bridge-hdmi-connector-v10-0-dc89577cd438@linaro.org/
-[1] https://lore.kernel.org/dri-devel/20241231004311.2574720-1-martin.blumenstingl@googlemail.com/
-[2] https://lore.kernel.org/dri-devel/l3u3wtnxyhrwjynevkwfjwarisc4yt4xy2rbzf5kb7k5l5dw3n@lxqtimymyjg6/
-
---000000000000d03d17062a955188
-Content-Type: text/x-patch; charset="US-ASCII"; 
-	name="sound-soc-soc-dai-snd_soc_pcm_dai_prepare-info.diff"
-Content-Disposition: attachment; 
-	filename="sound-soc-soc-dai-snd_soc_pcm_dai_prepare-info.diff"
-Content-Transfer-Encoding: base64
-Content-ID: <f_m5ctggrg0>
-X-Attachment-Id: f_m5ctggrg0
-
-ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9kaXNwbGF5L2RybV9oZG1pX2F1ZGlvX2hlbHBl
-ci5jIGIvZHJpdmVycy9ncHUvZHJtL2Rpc3BsYXkvZHJtX2hkbWlfYXVkaW9faGVscGVyLmMKaW5k
-ZXggYWEzYTVkMDMyOWRjLi4wNWFmYzlmMGJkZDYgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvZ3B1L2Ry
-bS9kaXNwbGF5L2RybV9oZG1pX2F1ZGlvX2hlbHBlci5jCisrKyBiL2RyaXZlcnMvZ3B1L2RybS9k
-aXNwbGF5L2RybV9oZG1pX2F1ZGlvX2hlbHBlci5jCkBAIC0xMjksNyArMTI5LDYgQEAgRVhQT1JU
-X1NZTUJPTChkcm1fY29ubmVjdG9yX2hkbWlfYXVkaW9fcGx1Z2dlZF9ub3RpZnkpOwogc3RhdGlj
-IGNvbnN0IHN0cnVjdCBoZG1pX2NvZGVjX29wcyBkcm1fY29ubmVjdG9yX2hkbWlfYXVkaW9fb3Bz
-ID0gewogCS5hdWRpb19zdGFydHVwID0gZHJtX2Nvbm5lY3Rvcl9oZG1pX2F1ZGlvX3N0YXJ0dXAs
-CiAJLnByZXBhcmUgPSBkcm1fY29ubmVjdG9yX2hkbWlfYXVkaW9fcHJlcGFyZSwKLQkuaHdfcGFy
-YW1zID0gZHJtX2Nvbm5lY3Rvcl9oZG1pX2F1ZGlvX3ByZXBhcmUsCiAJLmF1ZGlvX3NodXRkb3du
-ID0gZHJtX2Nvbm5lY3Rvcl9oZG1pX2F1ZGlvX3NodXRkb3duLAogCS5tdXRlX3N0cmVhbSA9IGRy
-bV9jb25uZWN0b3JfaGRtaV9hdWRpb19tdXRlX3N0cmVhbSwKIAkuZ2V0X2VsZCA9IGRybV9jb25u
-ZWN0b3JfaGRtaV9hdWRpb19nZXRfZWxkLApkaWZmIC0tZ2l0IGEvc291bmQvc29jL2NvZGVjcy9o
-ZG1pLWNvZGVjLmMgYi9zb3VuZC9zb2MvY29kZWNzL2hkbWktY29kZWMuYwppbmRleCA2OWY5ODk3
-NWUxNGEuLmE5MzFkMDViYTg5ZSAxMDA2NDQKLS0tIGEvc291bmQvc29jL2NvZGVjcy9oZG1pLWNv
-ZGVjLmMKKysrIGIvc291bmQvc29jL2NvZGVjcy9oZG1pLWNvZGVjLmMKQEAgLTU3MCwxMyArNTcw
-LDEzIEBAIHN0YXRpYyBpbnQgaGRtaV9jb2RlY19od19wYXJhbXMoc3RydWN0IHNuZF9wY21fc3Vi
-c3RyZWFtICpzdWJzdHJlYW0sCiAJfTsKIAlpbnQgcmV0OwogCi0JaWYgKCFoY3AtPmhjZC5vcHMt
-Pmh3X3BhcmFtcykKLQkJcmV0dXJuIDA7Ci0KLQlkZXZfZGJnKGRhaS0+ZGV2LCAiJXMoKSB3aWR0
-aCAlZCByYXRlICVkIGNoYW5uZWxzICVkXG4iLCBfX2Z1bmNfXywKKwlkZXZfaW5mbyhkYWktPmRl
-diwgIiVzKCkgd2lkdGggJWQgcmF0ZSAlZCBjaGFubmVscyAlZFxuIiwgX19mdW5jX18sCiAJCXBh
-cmFtc193aWR0aChwYXJhbXMpLCBwYXJhbXNfcmF0ZShwYXJhbXMpLAogCQlwYXJhbXNfY2hhbm5l
-bHMocGFyYW1zKSk7CiAKKwlpZiAoIWhjcC0+aGNkLm9wcy0+aHdfcGFyYW1zKQorCQlyZXR1cm4g
-MDsKKwogCXJldCA9IGhkbWlfY29kZWNfZmlsbF9jb2RlY19wYXJhbXMoZGFpLAogCQkJCQkgICBw
-YXJhbXNfd2lkdGgocGFyYW1zKSwKIAkJCQkJICAgcGFyYW1zX3JhdGUocGFyYW1zKSwKQEAgLTYx
-MSwxMiArNjExLDEyIEBAIHN0YXRpYyBpbnQgaGRtaV9jb2RlY19wcmVwYXJlKHN0cnVjdCBzbmRf
-cGNtX3N1YnN0cmVhbSAqc3Vic3RyZWFtLAogCXN0cnVjdCBoZG1pX2NvZGVjX3BhcmFtcyBocDsK
-IAlpbnQgcmV0OwogCisJZGV2X2luZm8oZGFpLT5kZXYsICIlcygpIHdpZHRoICVkIHJhdGUgJWQg
-Y2hhbm5lbHMgJWRcbiIsIF9fZnVuY19fLAorCQl3aWR0aCwgcmF0ZSwgY2hhbm5lbHMpOworCiAJ
-aWYgKCFoY3AtPmhjZC5vcHMtPnByZXBhcmUpCiAJCXJldHVybiAwOwogCi0JZGV2X2RiZyhkYWkt
-PmRldiwgIiVzKCkgd2lkdGggJWQgcmF0ZSAlZCBjaGFubmVscyAlZFxuIiwgX19mdW5jX18sCi0J
-CXdpZHRoLCByYXRlLCBjaGFubmVscyk7Ci0KIAlyZXQgPSBoZG1pX2NvZGVjX2ZpbGxfY29kZWNf
-cGFyYW1zKGRhaSwgd2lkdGgsIHJhdGUsIGNoYW5uZWxzLCAmaHApOwogCWlmIChyZXQgPCAwKQog
-CQlyZXR1cm4gcmV0OwpkaWZmIC0tZ2l0IGEvc291bmQvc29jL3NvYy1kYWkuYyBiL3NvdW5kL3Nv
-Yy9zb2MtZGFpLmMKaW5kZXggMzRiYTFhOTNhNGM5Li4wMzBjNTczNzUzY2MgMTAwNjQ0Ci0tLSBh
-L3NvdW5kL3NvYy9zb2MtZGFpLmMKKysrIGIvc291bmQvc29jL3NvYy1kYWkuYwpAQCAtNTc3LDYg
-KzU3Nyw3IEBAIGludCBzbmRfc29jX3BjbV9kYWlfcHJlcGFyZShzdHJ1Y3Qgc25kX3BjbV9zdWJz
-dHJlYW0gKnN1YnN0cmVhbSkKIAlpbnQgaSwgcmV0OwogCiAJZm9yX2VhY2hfcnRkX2RhaXMocnRk
-LCBpLCBkYWkpIHsKKwkJcHJfaW5mbygiJXMoKSwgZGFpIG5hbWU9JXMsIGlkPSVkXG4iLCBfX2Z1
-bmNfXywgZGFpLT5uYW1lLCBkYWktPmlkKTsKIAkJaWYgKCFzbmRfc29jX2RhaV9zdHJlYW1fdmFs
-aWQoZGFpLCBzdWJzdHJlYW0tPnN0cmVhbSkpCiAJCQljb250aW51ZTsKIAkJaWYgKGRhaS0+ZHJp
-dmVyLT5vcHMgJiYK
---000000000000d03d17062a955188--
+[0] https://lore.kernel.org/linux-amlogic/CAFBinCDdiJ3UNVUcShjq=3D7U2=3DoUw=
+T3ciYdKSuZ5TdcrikxFBpg@mail.gmail.com/
 
