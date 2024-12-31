@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26AA4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 00:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33A8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 00:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ro/DoIxPTQaYjz+4yPa+Cz8iLKFVM57HWDgrlLw5WE0=; b=2so1x7EeFF9D12KRg57K2a/Ker
-	OzGA056B0J3NRb/q+sm+L0tzcNC/LAUp6zLte9SZWtwMQlZ6N99QtabcDh/QAVeEzxbU8YyB/NsKr
-	h1y0m8lATVNwpK0m2Tv9spV1abMyLe/UhUqaPbMJZQNItZVSutYGgY88osjystXM6iHjSu7mCtLCI
-	HRrtHhyisQ5QDsHIFo5dZtC0pB+u3QXi/Q9sNtoX++WqlQFbi4WLfO6dnPn5FhZSYLY35rh5VtZuP
-	sg35rC/i0mWaY/1impEtldI2+RH7z6q0xMjLQSI8T3AdZsxtf4QdDF+TxHLSMsEYglm/D3dfN6V4R
-	ylw/pzfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iSQxDb3E2iSNxsPxvVgpGLxXiKkf50d4xkctBp6LudY=; b=SPoiz57ElStXamw+TCGy31qXtP
+	LO0fgLch7SHWIXSsMGtdQOLAI/5FCVj2F8QuroEapOrmI6NmM9/BAIR8AMCWbZtW4wXg+MOfJCwHz
+	rw15cTLKlzkXXMJqpqKVwIK2AmsF7gDU16990Di7xO4t5W+vBpa/19XDsYxt8uWAcnsCmVJ/A5kwH
+	yXbwTpwODi7hPWUt1XrulEag3Ely9O9IEZgwQ4GU249vqPnJdfZI1F5Xqc2NDOWFtI9q2PfZ0WgGw
+	MHnj8+je5D4/eXwBKWPTHdFwRh+GsMIOVpJ0Fsk7w3wNgpJmh7rzJUg/x0xnHvy88vDQDuwqVfRL5
+	06ofE9Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSQ7g-00000006Cdr-04sr;
-	Tue, 31 Dec 2024 00:28:36 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tSQFq-00000006DKz-3430;
+	Tue, 31 Dec 2024 00:37:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSQ6T-00000006CTx-1Ddu;
-	Tue, 31 Dec 2024 00:27:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Ro/DoIxPTQaYjz+4yPa+Cz8iLKFVM57HWDgrlLw5WE0=; b=FnfkFP4CRjvtQmqmAc40YkcvxP
-	J8TmBraLy4RSaMLdgd9Ymgkc2MRaxCzf8WVnEle64Hw92iP/focrKILAqTl4U/HiVLlZCRn06Ov48
-	zY1s7UUz/64bEYGbsBuVx3e5aREOZmiVmoEPhuvS8U1c5/YqO2g64YP4Y188oiaq6G4OLwliW6UKS
-	AZNO7PH7NnzHlMHTBoK7bjrB/ybL1iB4HaCTJyrjKBIBGpVgROb3+PD6/9p8jhk4S5dBSvBuv5Pf8
-	8suOo/QjBw8LEDNr93phakpOWEECZYzTbAb9ToaLY2xy3p/4+BAsuA1m5FavvoN2fLbVqW3iCjgLU
-	f5SussYg==;
-Received: from i5e860d12.versanet.de ([94.134.13.18] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tSQ6E-000300-DH; Tue, 31 Dec 2024 01:27:06 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Ondrej Jirman <megi@xff.cz>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/7] arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi
-Date: Tue, 31 Dec 2024 01:27:05 +0100
-Message-ID: <868000342.0ifERbkFSE@phil>
-In-Reply-To: <CALWfF7Kg9HQoqyEYaj9FGPYu3+vAzZNLMVhSr_90SFDg5Syc9w@mail.gmail.com>
-References: <20241229184256.1870-2-honyuenkwun@gmail.com>
- <20241229184256.1870-3-honyuenkwun@gmail.com>
- <CALWfF7Kg9HQoqyEYaj9FGPYu3+vAzZNLMVhSr_90SFDg5Syc9w@mail.gmail.com>
+	id 1tSQEf-00000006DDQ-2OBQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 31 Dec 2024 00:35:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AB131A40C17;
+	Tue, 31 Dec 2024 00:33:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6CC7C4CED0;
+	Tue, 31 Dec 2024 00:35:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735605347;
+	bh=EAQNHH/6r9U3uJVYIBbTF70SQX0U3RKDpaltiKDSXLs=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=s0z+/oGLrxRQV1Lbs5E2lP0zN3PnLPfA1RJsYuEXpUk/irHqwoUgQs4U3I6OeGTNt
+	 IKcxEBZPeC8vAqWXN6SQqmy+owQt7+O7ttLfh8p0N8DLdgLPJlZvSZelOWf6jDCe4O
+	 9OKXZXvu2Os0XLDofWL/9Is2W/eC/0GN67MpDLXRZcqs8Loxy0Qk2+YTEr4KiSxW4Y
+	 2TbBZpItYFiwvL2rJ0KvifZY05DwY2sklZzfaqcgfevKf1G1D7kksYEgC62Hx/zjUK
+	 Zy25n1t+xsfqQKiOOyL0lxox1KU+JL9oq1JWC+TSPqCq8avQpNDcht7gv5dk+VBQt9
+	 5DRHNpCvIfuLA==
+Message-ID: <6fcf5358bbace7400d35d3fac06254e6.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20241226122023.3439559-3-rohit.visavalia@amd.com>
+References: <20241226122023.3439559-1-rohit.visavalia@amd.com> <20241226122023.3439559-3-rohit.visavalia@amd.com>
+Subject: Re: [PATCH 2/3] clk: xilinx: vcu: don't set pll_ref as parent of VCU(enc/dec) clocks
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: javier.carrasco.cruz@gmail.com, geert+renesas@glider.be, u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Rohit Visavalia <rohit.visavalia@amd.com>
+To: Rohit Visavalia <rohit.visavalia@amd.com>, michal.simek@amd.com, mturquette@baylibre.com, vishal.sagar@amd.com
+Date: Mon, 30 Dec 2024 16:35:45 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_162721_346183_BF9C01C0 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20241230_163549_707768_683DFB9C 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +71,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jimmy,
-
-Am Sonntag, 29. Dezember 2024, 20:20:59 CET schrieb Jimmy Hon:
-> On Sun, Dec 29, 2024 at 12:44=E2=80=AFPM Jimmy Hon <honyuenkwun@gmail.com=
-> wrote:
-> >
-> > for Orange Pi 5 Plus/Max/Ultra and AI Max
-> > ---
-> >  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 833 ++----------------
-> >  ...gepi-5-plus.dts =3D> rk3588-orangepi-5.dtsi} | 195 +---
-> >  2 files changed, 77 insertions(+), 951 deletions(-)
-> >  copy arch/arm64/boot/dts/rockchip/{rk3588-orangepi-5-plus.dts =3D> rk3=
-588-orangepi-5.dtsi} (80%)
+Quoting Rohit Visavalia (2024-12-26 04:20:22)
+> CCF will try to adjust parent clock to set desire clock frequency of
+> child clock. So if pll_ref is not a fixed-clock then while setting rate
+> of enc/dec clocks pll_ref may get change, which may make VCU malfunction.
 >=20
-> Heiko,
+> Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
+> ---
+>  drivers/clk/xilinx/xlnx_vcu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >=20
-> Should I go ahead and make a v5 including the following in my baseline
-> before the refactor?
-> - GPU power doman dependency [1]
-> - USB 3.0 on 5 Plus [2]
-> Do those series look like they'll go in as is?
+> diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
+> index f294a2398cb4..c3a4df7e325a 100644
+> --- a/drivers/clk/xilinx/xlnx_vcu.c
+> +++ b/drivers/clk/xilinx/xlnx_vcu.c
+> @@ -550,7 +550,7 @@ static int xvcu_register_clock_provider(struct xvcu_d=
+evice *xvcu)
+>                 return PTR_ERR(hw);
+>         xvcu->pll_post =3D hw;
+> =20
+> -       parent_data[0].fw_name =3D "pll_ref";
+> +       parent_data[0].fw_name =3D "dummy_name";
 
-If you want to do a v5, you _could_ include te USB thing, because that
-is DTS only, so on my turf ;-) .
+"dummy_name" isn't part of the binding. It sounds like you want to not
+set CLK_SET_RATE_PARENT flag sometimes?
 
-You could also drop the RFC + UNTESTED parts for now and resubmit them
-later.
-
-=46or the GPU power domain I cannot say when this will go in, so better
-not depend on it. Especially as we don't know when people will return
-from xmas/new-year vacations.
-
-So ideally for the power-domain thing, create a follow-up patch.
-
-Heiko
-
-
+>         parent_data[1].hw =3D xvcu->pll_post;
+> =20
+>         hws[CLK_XVCU_ENC_CORE] =3D
 
