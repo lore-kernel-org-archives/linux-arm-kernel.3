@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC8D7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 14:27:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96737E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 14:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xXXm7jXSyAHpmGAH3x9taDLedDu+p3wnULbeaYvIinw=; b=g32Mwt0jeSFiD45Iet5HylLuls
-	5PL6OWd2PqnmPRzcR5VsZsypkSC+UfktssZUngy443KDJhb5R7yDyRkrNwIvgxjgCVtfaQO+DQBIl
-	UkvtlbdOCjWv8zpx7HFjwOO9kWxahJl+4t/MIJH/Fsdm0FZ62+qD5yT0ymjuWQkH9ZGBhmn0pb4q7
-	cQgmpQAJnL7AAbYi5SyjvWiocoN+b6QqLLEkHTVvpqNA0cAG91ZduM3JQx0vy8b4FouWag2CQ/d6a
-	qNeBMpIDD/3xe62Dslq1ZG1VO0SkD2hBl0C7Bg276MXTc4c55Xl+GEiRGS0lVtTqKwZNoPl8w2Ygq
-	Rb+GIxpw==;
+	bh=2keqdGtBRvpVebH43QHNSuuEe5A3dgL5p1ReoLkPxb0=; b=sNDJ6gRp30vUxEYBVt9jCXKWGR
+	3w4+DOH+qpKtqi1iR5OLhY8my0ncNTV+EZt8xfHOUcN9lDmEMFyGIQtpgtZUDlDZFRzM0pmm0bZ37
+	ifrZYcr05fekb7bjaO1sGW1hjYFPIxwntbR3fZhzgY+gZm+RBxVYV1rXq6N317TWLfrXTrABAGQ2E
+	a6yT9dnIC3pPTZTt53uaV0gwQmIPMs57dHQmtIEzK6ZkfqE2ep8JlCmhw574NTf7t8r7apRRRQ9jQ
+	ZZafccpbtc8B2y4m94PfxarvdppzqHubGfSt92yBZZyISgYssHHS9CpF65m2d5QJxA7UurZVlOAe7
+	G+wRVfcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdDY-00000007JsV-2v2A;
-	Tue, 31 Dec 2024 14:27:32 +0000
-Received: from mail-vs1-f43.google.com ([209.85.217.43])
+	id 1tSdJG-00000007KEO-30sK;
+	Tue, 31 Dec 2024 14:33:26 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdCP-00000007JoL-1ce9
+	id 1tSdI6-00000007K91-1MbR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 14:26:22 +0000
-Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-4afd56903b7so2446348137.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 06:26:20 -0800 (PST)
+	Tue, 31 Dec 2024 14:32:16 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d3f65844deso16348975a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 06:32:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735655532; x=1736260332; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2keqdGtBRvpVebH43QHNSuuEe5A3dgL5p1ReoLkPxb0=;
+        b=F439iAEBGrFno9avl74yhY/TCh/1SFRsFC2We1RHagqtjuM7BpmzxDDIO5snnkS9q7
+         0qbUtyLfKk6OrBu4ITFwjcwamY2PEAeSa5qgm6iizUmKmQbOWnyG3uU1LEJVi0+4oHqd
+         gEZboLTz0sAG4z74cSlmaLsAc/ZoUXA3YzSvWC2jwGZisaYSZdBKMuysNQZdB4JjIEl6
+         nDwm+AfLsIQqUevDnN6JJmLo6n22Od9myn7+eM+B5vC2U4XCPyd2sqG9aGYGo0svGuXI
+         +zT0l763nrC4Z9EUNfZQ1qRwiWJdFvJHTtNz1hgMkrx4mRmY8Ig68tzYu0/0bWJgUUSJ
+         Roag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735655179; x=1736259979;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xXXm7jXSyAHpmGAH3x9taDLedDu+p3wnULbeaYvIinw=;
-        b=mjc6UpeCwhQklcI1RHOe3GBb+iz0nDtOcHTw2gWjwM1n6zQwSqFFnmqf5f5GZO2v0z
-         MNXyULCwr+Dksf5UQ9JkpK+zFtwcZllU+kPNPqtsNVzZbSCCptBywMEo700BrxfoPf4o
-         4vcsOgvv3k4P79dnNOq24s7lElqEGSpNmabH2Ey8HodM7GwCcjLWImjWd77wAnYJFtIt
-         j9l+ql02wh8NbjdFnTkcTQ2/5JDYG7qW08MlkEeNjIDIV5+GFcH9SNl+eP1baSuDfa9S
-         zPMAJDwvyhK5bOeO0tYIlOLbnFMGL6NaVBtTEjHKp+UiUA+qt49Llat0tw5zBRhsUTpi
-         6UTg==
-X-Forwarded-Encrypted: i=1; AJvYcCUjbStlx1aPDvEAisti4sDJyY3s93urBuehdVKIVOq7WHTm5Shz2aZ68r5M5iC4FC/8mmZqkz6XeFy7bC21uJxJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpH4VDUao8eOgwwJA2g4SYnHLKPdDke/+DBv4K9QVoFRWFpwnC
-	i2GnKS2GTmYKDUDmKonHWQgyAEaLjecpEMl31k9zBTdZ9/44rAZhq5rM0wAt
-X-Gm-Gg: ASbGncsPX9OdGUQTZaO/+T6R4kgF70p7yWhT9lR8fvD3a4W3AVmHINOv0WF4wqCr/4r
-	1OC4jeclQsQX4DVvR8CJ0PSk0Yi8AAnYhzdxvqyY0laeS4ARfKpVisv/cAmg9REG0XYsXshRQKs
-	uY7aT+jwTMV0enXkdYJmC458RDIeO0nrN4vi5DrAVqsl9ifVtbk4wPvXftv7H1fiYcVto6neJOi
-	hQssqj+h2CMduKH53OmtfcPeSu8W/5zroBq1zOq5WC3RDYsDOjTpaj/kcJzp/g+uoz4nITsINSo
-	1NSc1o8GclvtPZ+BjRM=
-X-Google-Smtp-Source: AGHT+IFvH8LzICNWVkVLG2rzCHRO/i2lomikTk1Kz4Ju5ghJ5YFzVEwkLeaKN2uOGXay+LeQrc2Zjw==
-X-Received: by 2002:a05:6102:dd1:b0:4af:3973:6b22 with SMTP id ada2fe7eead31-4b2cc4684dcmr32242728137.22.1735655179540;
-        Tue, 31 Dec 2024 06:26:19 -0800 (PST)
-Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4b2fff0cf92sm2966271137.10.2024.12.31.06.26.19
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1735655532; x=1736260332;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2keqdGtBRvpVebH43QHNSuuEe5A3dgL5p1ReoLkPxb0=;
+        b=r4VA+IPd5xpoJig6NahSQUJSR4NVs/zZWjQUQxwGixIBvad5XZdal7A26wfxVGCVXK
+         cYEN9xBD0neqNjVUBwUzQP6+9KWcz0Tz5m7oMhbDfZT6ky/MNX89N8fi9dGl6JfyLKaz
+         ssH7Ip7g6UvavkbTwlsHI6TqL21Hd4c/eUz9kxUn0F6s0UTh13+MyYKxHVWDTt6ecPJX
+         wH9VHJdV3rUy44XRq3V0j0jrVz/u9pw/iCf4l60ilA79lcxDqB6Vgyw0mCTP15Fyfqtc
+         ueZ3fgR6gYImtlGWrrazsF+Wf2FN40N5QeJvQtuHAdmO8mAqrJAHEVqOKBne5KwjlZwW
+         ogww==
+X-Forwarded-Encrypted: i=1; AJvYcCXnVWXxreaPSE5c/QnniOiD8G5qywJ+GvOE+4OybqfYYum90zvLQhWaqv+qAY3AIJO3n95KwXezmNqQ0MdTXOcQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2k3SPZzU/Z7Zq3wtbc8ehQabHA/zwpjeOqtXMbmeeTuYj4Rw1
+	WZzsu7zLi3utYWHYdsgsFcQqgg/f+ZtEUTUdi9oOzojVoPraNCm2vyM83K1cXio=
+X-Gm-Gg: ASbGncsanOGwPCP+jYkpbjttAvtjcRHaZS7ZW1Ou9SS1Zngvt3aSUaEJEkBiu/gtxPo
+	Bl4y0Cmg6eNDoHwdX23gOeqHAkY8izglsbfxsLjZkFlT7Cu0RaliWqmQ51smwJYPvPB0YUGw5an
+	eKzDuplQbT/3UxDSJMIu3BoiLUPv/NV2roxOFBALRNwxM5a5kiMCRkEdiqrOswQvddPCopVrf80
+	cxbGih/ue4Gg9t4o1fkb2wTEwUx485OQD3dwuvjzK6KaXYocCooywE7trJa/3Hb
+X-Google-Smtp-Source: AGHT+IFdM/rs1qwaLZz3vPXVfk8xrxGEKWKPLqcfpEpGLpnfhCO1W7Bz3i7q11r+aJ1B33Zjl6yyLQ==
+X-Received: by 2002:a05:6402:5006:b0:5d0:e615:39fe with SMTP id 4fb4d7f45d1cf-5d81dde87dfmr37824739a12.18.1735655531576;
+        Tue, 31 Dec 2024 06:32:11 -0800 (PST)
+Received: from [192.168.0.14] ([188.26.61.92])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80679eeb1sm16016417a12.48.2024.12.31.06.32.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 31 Dec 2024 06:26:19 -0800 (PST)
-Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-4afeb79b52fso2743455137.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 06:26:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXI2z0F/ud7GXwp1prDoB4YPwAXkNAMPW3bGDUWCkU9wTdUclfoh7pZJi/W234zzKzFqFMI9z1sqFib7eAEV7N+@lists.infradead.org
-X-Received: by 2002:a05:6102:38ce:b0:4af:f6e5:2b46 with SMTP id
- ada2fe7eead31-4b2cc359cebmr27414041137.9.1735655179221; Tue, 31 Dec 2024
- 06:26:19 -0800 (PST)
+        Tue, 31 Dec 2024 06:32:10 -0800 (PST)
+Message-ID: <060c7a96-c1ed-4c97-8a3f-f510102466f9@linaro.org>
+Date: Tue, 31 Dec 2024 14:32:06 +0000
 MIME-Version: 1.0
-References: <20241226122023.3439559-1-rohit.visavalia@amd.com>
- <20241226122023.3439559-2-rohit.visavalia@amd.com> <5227cdd506bcb0239657216bd36de12f.sboyd@kernel.org>
- <CH2PR12MB48751A8B003E9E30A9A4CDE8E50A2@CH2PR12MB4875.namprd12.prod.outlook.com>
-In-Reply-To: <CH2PR12MB48751A8B003E9E30A9A4CDE8E50A2@CH2PR12MB4875.namprd12.prod.outlook.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 31 Dec 2024 15:26:07 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX57SvuVsRhisF1RDtP+TgQsa2i+hBg334yQUxTMsqDPw@mail.gmail.com>
-Message-ID: <CAMuHMdX57SvuVsRhisF1RDtP+TgQsa2i+hBg334yQUxTMsqDPw@mail.gmail.com>
-Subject: Re: [PATCH 1/3] clk: xilinx: vcu: Update vcu init/reset sequence
-To: "Visavalia, Rohit" <rohit.visavalia@amd.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, 
-	"mturquette@baylibre.com" <mturquette@baylibre.com>, "Sagar, Vishal" <vishal.sagar@amd.com>, 
-	"javier.carrasco.cruz@gmail.com" <javier.carrasco.cruz@gmail.com>, 
-	"geert+renesas@glider.be" <geert+renesas@glider.be>, 
-	"u.kleine-koenig@baylibre.com" <u.kleine-koenig@baylibre.com>, 
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: Re: [PATCH v5 2/3] firmware: add Exynos ACPM protocol driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ andre.draszik@linaro.org, kernel-team@android.com, willmcvicker@google.com,
+ peter.griffin@linaro.org, daniel.lezcano@linaro.org,
+ vincent.guittot@linaro.org, ulf.hansson@linaro.org, arnd@arndb.de
+References: <20241220-gs101-acpm-v5-0-4f26b7fb3f5f@linaro.org>
+ <20241220-gs101-acpm-v5-2-4f26b7fb3f5f@linaro.org>
+ <8e6bade0-5184-4bf7-b1f0-103a77d0f98b@kernel.org>
+Content-Language: en-US
+In-Reply-To: <8e6bade0-5184-4bf7-b1f0-103a77d0f98b@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_062621_425372_A9F2FEC1 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20241231_063215_228328_AEBB9364 
+X-CRM114-Status: GOOD (  41.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,75 +106,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohit,
+Hi, Krzysztof,
 
-On Tue, Dec 31, 2024 at 3:16=E2=80=AFPM Visavalia, Rohit
-<rohit.visavalia@amd.com> wrote:
-> >Subject: Re: [PATCH 1/3] clk: xilinx: vcu: Update vcu init/reset sequenc=
-e
-> >Quoting Rohit Visavalia (2024-12-26 04:20:21)
-> >> diff --git a/drivers/clk/xilinx/xlnx_vcu.c
-> >> b/drivers/clk/xilinx/xlnx_vcu.c index 81501b48412e..f294a2398cb4
-> >> 100644
-> >> --- a/drivers/clk/xilinx/xlnx_vcu.c
-> >> +++ b/drivers/clk/xilinx/xlnx_vcu.c
-> >> @@ -676,6 +679,24 @@ static int xvcu_probe(struct platform_device *pde=
-v)
-> >>          * Bit 0 : Gasket isolation
-> >>          * Bit 1 : put VCU out of reset
-> >>          */
-> >> +       xvcu->reset_gpio =3D devm_gpiod_get_optional(&pdev->dev, "rese=
-t",
-> >> +                                                  GPIOD_OUT_LOW);
-> >> +       if (IS_ERR(xvcu->reset_gpio)) {
-> >> +               ret =3D PTR_ERR(xvcu->reset_gpio);
-> >> +               dev_err(&pdev->dev, "failed to get reset gpio for
-> >> + vcu.\n");
-> >
-> >Use dev_err_probe() and friends.
-> I will take care in v2 patch series.
->
-> >
-> >> +               goto error_get_gpio;
-> >> +       }
-> >> +
-> >> +       if (xvcu->reset_gpio) {
-> >> +               gpiod_set_value(xvcu->reset_gpio, 0);
-> >> +               /* min 2 clock cycle of vcu pll_ref, slowest freq is 3=
-3.33KHz */
-> >> +               usleep_range(60, 120);
-> >> +               gpiod_set_value(xvcu->reset_gpio, 1);
-> >> +               usleep_range(60, 120);
-> >> +       } else {
-> >> +               dev_warn(&pdev->dev, "No reset gpio info from dts for
-> >> + vcu. This may lead to incorrect functionality if VCU isolation is
-> >> + removed post initialization.\n");
-> >
-> >Is it 'vcu' or 'VCU'? Pick one please. Also, this is going to be an unfi=
-xable warning
-> >message if the reset isn't there. Why have this warning at all?
-> I will use 'VCU' in next(v2) patch series.
-> Added warning just to inform user that if design has the reset gpio and i=
-t is missing in dt node then it could lead to issue.
+Thanks for the review!
 
-If it could lead to issues, shouldn't the reset GPIO be required instead of
-optional?
+On 12/24/24 2:14 PM, Krzysztof Kozlowski wrote:
+> On 20/12/2024 15:32, Tudor Ambarus wrote:
+>> diff --git a/drivers/firmware/samsung/Kconfig b/drivers/firmware/samsung/Kconfig
+>> new file mode 100644
+>> index 000000000000..750b41342174
+>> --- /dev/null
+>> +++ b/drivers/firmware/samsung/Kconfig
+>> @@ -0,0 +1,14 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only
+>> +
+>> +config EXYNOS_ACPM_PROTOCOL
+>> +	tristate "Exynos Alive Clock and Power Manager (ACPM) Message Protocol"
+>> +	depends on ARCH_EXYNOS || COMPILE_TEST
+>> +	depends on EXYNOS_MBOX
+> 
+> Is it build time dependency? No || COMPILE_TEST?
 
-Regardless, the reset GPIO should be documented in the DT bindings.
-And perhaps marked required, so "make dtbs_check" will flag it when
-it's missing?
+There's no build time dependency, I'll drop this line.
+> 
+> Is it fine when EXYNOS_MBOX is a module?
 
-Gr{oetje,eeting}s,
+Yes. When the EXYNOS_MBOX module is not loaded, and one tries to load
+EXYNOS_ACPM_PROTOCOL module, the later will defer probe when requesting
+the mailbox channels, but that's fine.
 
-                        Geert
+cut
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+>> diff --git a/drivers/firmware/samsung/exynos-acpm-pmic.c b/drivers/firmware/samsung/exynos-acpm-pmic.c
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+cut
+
+>> +static void acpm_pmic_init_bulk_write_cmd(u32 *cmd, u8 type, u8 reg, u8 chan,
+>> +					  u8 count, u8 *buf)
+> 
+> u32 cmd[4] - I think newer GCC could use of that. At least reader will know.
+> 
+> const u8 *buf
+> 
+> Same in all other places, where applicable
+> 
+Indeed, will update.
+
+cut
+>> +int acpm_pmic_update_reg(const struct acpm_handle *handle, int acpm_chan_id,
+>> +			 u8 type, u8 reg, u8 chan, u8 value, u8 mask)
+>> +{
+>> +	struct acpm_xfer xfer;
+>> +	u32 cmd[4] = {0};
+>> +	int ret;
+>> +
+>> +	acpm_pmic_init_update_cmd(cmd, type, reg, chan, value, mask);
+>> +	acpm_dvfs_set_xfer(&xfer, cmd, acpm_chan_id);
+>> +
+>> +	ret = acpm_do_xfer(handle, &xfer);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return FIELD_GET(ACPM_PMIC_RETURN, xfer.rx.cmd[1]);
+>> +}
+> 
+> I have troubles understanding the split. I would assume PMIC uses the
+> ACPM to talk with PMIC... or somehow the opposite, but here this is all
+> mixed. You have acpm_pmic_update_reg() which uses  ACPM code
+> (acpm_do_xfer()), but ACPM code also references acpm_pmic_update_reg()
+> and others. This is a circular dependency between objects, which
+> compiles and works fine but is confusing.
+> 
+This is related to the public header comment, I'll respond there on the
+overall driver architecture.
+
+>> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+
+cut
+
+>> +#include <linux/of_address.h>
+> 
+> This looks unused
+
+it's necessary for of_address_to_resource()
+
+cut
+
+>> +static inline void acpm_memcpy_fromio32(void *to, const void __iomem *from,
+>> +					size_t count)
+>> +{
+>> +	WARN_ON(!IS_ALIGNED((unsigned long)from, 4) ||
+>> +		!IS_ALIGNED((unsigned long)to, 4) ||
+>> +		count % 4);
+> 
+> These should be build time checks if this is necessary.
+> 
+
+The method is called at runtime. Right now unaligned accesses can not
+happen because the only protocol implemented (PMIC), uses on stack u32
+buffers. The checks are just to avoid potential issues if future
+protocols will implement things in an unaligned fashion. I can drop the
+checks if you feel I was over cautious.
+
+>> +
+>> +	__ioread32_copy(to, from, count / 4);
+>> +}
+
+cut
+
+>> +int acpm_do_xfer(const struct acpm_handle *handle, struct acpm_xfer *xfer)
+> 
+> const xfer, so it is clear that caller keeps ownership and must ensure
+> it is valid memory through entire xfer time.
+
+will fix.
+
+> 
+>> +{
+>> +	struct acpm_info *acpm = handle_to_acpm_info(handle);
+>> +	struct acpm_chan *achan = &acpm->chans[xfer->acpm_chan_id];
+>> +	struct acpm_msg *tx = &xfer->tx;
+> 
+> Looks like const, same for function argument xfer
+
+yes, will fix.
+
+> 
+>> +	u32 idx, tx_front;
+>> +	int ret;
+>> +
+>> +	if (!tx->cmd || tx->len > achan->mlen || xfer->rx.len > achan->mlen)
+>> +		return -EINVAL;
+>> +
+>> +	if (!achan->poll_completion) {
+>> +		dev_err(achan->acpm->dev, "Interrupt mode not supported\n");
+>> +		return -EOPNOTSUPP;
+>> +	}
+>> +
+>> +	mutex_lock(&achan->tx_lock);
+>> +
+>> +	tx_front = readl(achan->tx.front);
+>> +	idx = (tx_front + 1) % achan->qlen;
+>> +
+>> +	ret = acpm_wait_for_queue_slots(achan, idx);
+>> +	if (ret) {
+>> +		mutex_unlock(&achan->tx_lock);
+>> +		return ret;
+>> +	}
+>> +
+>> +	acpm_prepare_xfer(achan, xfer);
+>> +
+>> +	/* Write TX command. */
+>> +	acpm_memcpy_toio32(achan->tx.base + achan->mlen * tx_front, tx->cmd,
+>> +			   tx->len);
+>> +
+>> +	/* Advance TX front. */
+>> +	writel(idx, achan->tx.front);
+>> +
+>> +	mutex_unlock(&achan->tx_lock);
+> 
+> Just to be sure I understand correctly:
+> If concurrent transfer happened exactly now, it would use incremented
+> tx_front, thus it would not overwrite data written here, right?
+
+right
+
+cut
+>> +static int acpm_put_handle(const struct acpm_handle *handle)
+>> +{
+>> +	struct acpm_info *acpm;
+>> +
+>> +	if (IS_ERR(handle))
+>> +		return PTR_ERR(handle);
+>> +	if (!handle)
+>> +		return -EINVAL;
+> 
+> I think this cannot happen and you should rather choose: either NULL is
+> allowed or PTR_ERR, but not both. Although in few cases both ERR and
+> NULL are desired, so write a comment why here.
+
+both checks are unnecessary, I'll get rid of them altogether. The method
+is called just by devm_acpm_release, and at that point the pointer to
+handle is valid.
+> 
+>> +
+>> +	acpm = handle_to_acpm_info(handle);
+>> +	mutex_lock(&acpm_list_mutex);
+>> +	if (!WARN_ON(!acpm->users))
+>> +		acpm->users--;
+> 
+> Use refcnt
+> 
+okay
+
+cut
+
+>> + */
+>> +static const struct acpm_handle *acpm_get_by_phandle(struct device_node *np,
+>> +						     const char *property)
+>> +{
+>> +	struct acpm_handle *handle = NULL;
+>> +	struct device_node *acpm_np;
+>> +	struct acpm_info *info;
+>> +
+>> +	if (!np) {
+>> +		pr_err("I need a device pointer\n");
+>> +		return ERR_PTR(-EINVAL);
+>> +	}
+>> +
+>> +	acpm_np = of_parse_phandle(np, property, 0);
+>> +	if (!acpm_np)
+>> +		return ERR_PTR(-ENODEV);
+>> +
+>> +	mutex_lock(&acpm_list_mutex);
+>> +	list_for_each_entry(info, &acpm_list, node) {
+>> +		if (acpm_np == info->dev->of_node) {
+>> +			handle = &info->handle;
+>> +			info->users++;
+>> +			break;
+>> +		}
+>> +	}
+>> +	mutex_unlock(&acpm_list_mutex);
+>> +	of_node_put(acpm_np);
+>> +
+> 
+> You also need device links and probably try_module_get. See clk.c
+> clk_hw_create_clk() or of_qcom_ice_get(). Interestingly, none of them
+> perform both operations, which I think is necessary.
+> 
+> I think you could also avoid entire list and mutex by using
+> platform_get_drvdata(), see of_qcom_ice_get().
+> 
+
+I'll take a look, thanks for the pointers!
+
+cut
+
+>> +#endif /* __EXYNOS_ACPM_H__ */
+>> diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+>> new file mode 100644
+>> index 000000000000..f834af20cef8
+>> --- /dev/null
+>> +++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+>> @@ -0,0 +1,55 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright 2020 Samsung Electronics Co., Ltd.
+>> + * Copyright 2020 Google LLC.
+>> + * Copyright 2024 Linaro Ltd.
+>> + */
+>> +
+>> +#ifndef __EXYNOS_ACPM_PROTOCOL_H
+>> +#define __EXYNOS_ACPM_PROTOCOL_H
+>> +
+>> +#include <linux/types.h>
+>> +
+>> +struct acpm_msg {
+>> +	u32 *cmd;
+> 
+> const most likely, although then you have different message for tx and
+> tx. Not sure if there is a benefit of having it as structure.
+
+tx shall be const indeed. I guess I can get rid of the struct and have
+const u32 *tx, and u32 *rx, while referencing the same memory.
+
+> 
+>> +	size_t len;
+>> +};
+>> +
+>> +struct acpm_xfer {
+>> +	struct acpm_msg tx;
+>> +	struct acpm_msg rx;
+>> +	int acpm_chan_id;
+>> +};
+>> +
+>> +struct acpm_handle;
+>> +
+>> +struct acpm_pmic_ops {
+>> +	int (*read_reg)(const struct acpm_handle *handle, int acpm_chan_id,
+>> +			u8 type, u8 reg, u8 chan, u8 *dest);
+>> +	int (*bulk_read)(const struct acpm_handle *handle, int acpm_chan_id,
+>> +			 u8 type, u8 reg, u8 chan, u8 count, u8 *buf);
+>> +	int (*write_reg)(const struct acpm_handle *handle, int acpm_chan_id,
+>> +			 u8 type, u8 reg, u8 chan, u8 value);
+>> +	int (*bulk_write)(const struct acpm_handle *handle, int acpm_chan_id,
+>> +			  u8 type, u8 reg, u8 chan, u8 count, u8 *buf);
+>> +	int (*update_reg)(const struct acpm_handle *handle, int acpm_chan_id,
+>> +			  u8 type, u8 reg, u8 chan, u8 value, u8 mask);
+>> +};
+>> +
+>> +struct acpm_ops {
+>> +	struct acpm_pmic_ops pmic_ops;
+>> +};
+>> +
+>> +/**
+>> + * struct acpm_handle - Reference to an initialized protocol instance
+>> + * @ops:
+>> + */
+>> +struct acpm_handle {
+>> +	struct acpm_ops ops;
+>> +};
+> 
+> All above should not be in public header but private to the driver. In
+> public header you expose things available to consumers.... which there
+> are no? So entire header can be next to the driver.
+
+This can be trimmed a little bit, acpm_xfer shall be private indeed.
+
+The acpm_handle and the ops will be public. The consumers use
+devm_acpm_get_by_phandle() to get a pointer to the acpm_handle, and then
+use the ops (PMIC, DVFS, etc.) exposed by the handle.
+
+We have:
+1/	drivers/firmware/samsung/exynos-acpm-{pmic,dvfs,etc.}.c
+These are the protocols exposed by the ACPM interface. The operations
+for a protocol are declared in:
+	drivers/firmware/samsung/exynos-acpm-{pmic, dvfs, etc}.h
+
+The protocol op methods construct a message in the ACPM format using the
+args received from the consumers and then call acpm_do_xfer() to
+transfer a message.
+
+2/	drivers/firmware/samsung/exynos-acpm.c
+
+This is the ACPM interface driver. It manages the xfers. It saves all
+the protocols operations in struct acpm_handle and provides the means
+for the consumers to get a pointer to it.
+
+3/ consumer drivers - these will obtain a pointer to the acpm_handle and
+use the ops exposed there. Here's an example of such a consumer using
+similar infrastructure. The consumer gets a pointer to the interface handle:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/reset/reset-ti-sci.c?h=v6.13-rc5#n221
+then uses the ops exposed there:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/reset/reset-ti-sci.c?h=v6.13-rc5#n78
+
+
+Cheers, and Happy New Year! :)
+ta
 
