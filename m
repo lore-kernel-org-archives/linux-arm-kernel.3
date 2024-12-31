@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A5DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 00:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9302BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 00:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fkcYLVrfyzrDnXAcqc0mS88NGdiWubRSGkl2hXOaqEI=; b=tKAoXDEr5h2QFxUtg9vxf2rRUV
-	QNweZw5IzO8Y3gAW2d+nao1dtYJpfFRG0Y3moExijAFCGyPBmtNxGiysSXxkeOdn8D6GC/VxgtBCI
-	HuoCB9gtmaV+ceXgVmUINVtJ/S1PIb75by/Q0jf/IiEuuT6+v7U5sOGMjufd/RyPkwKRwiYaCdtXH
-	AFO9Rj6+Ptz4N0/FEdHehY2Vl7xJgPBCGmMCFK2dS8sWiFuEWHvzqClnlRCvpWotQGAjd5dT4LgIr
-	jlImm5bbgnupd07+xloHEVPIi7Dswp8mgMnzhCAkavUxqMumQtwj9mNeVNBHdyLcv18EuTgKMJpHk
-	uV2UZQrQ==;
+	bh=v2Iu3SQtZT0pgrBbmaX2ODvL22y0VCuuqoLeFUJLbI0=; b=rZFYrWlyVkNQwfh7hua39+WgdV
+	Nkxt+Wbf3o28Tltv18GL7xhA5NcfHnOet/6cJlbHmDTtUA48zOHCI7wXc86eHOvn2TYjNY/PJn25y
+	WTCOctreDTjJh1kOJeHEYdwJKXn7vZGMW/JhMUAYkukULkiU3Oy8kwjiBURaPNfXnd3pQCN5pZm54
+	9MzJWcqI1qtpPHYdoMHLf2RpuTXX1FFaBx3JLFPoiOX1ELbBglyaQ5wIq0M3QOt7uVYcvjfTXCglU
+	jvHykKFR0sXpc6glSWv3GnMFWw9p50OTpnr2vZ1D7Wczbt9HsfOCPoax7GbMEPTWUua83QZC7eO5l
+	/yNb/Wrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSQH4-00000006DUm-1aw8;
-	Tue, 31 Dec 2024 00:38:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tSQJM-00000006Dfh-0RiE;
+	Tue, 31 Dec 2024 00:40:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSQFr-00000006DL3-3Nxu
+	id 1tSQIB-00000006Daz-00rK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 00:37:04 +0000
+	Tue, 31 Dec 2024 00:39:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BCE4B5C02CB;
-	Tue, 31 Dec 2024 00:36:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4C96C4CED0;
-	Tue, 31 Dec 2024 00:37:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D436B5C3FAC;
+	Tue, 31 Dec 2024 00:38:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA1AEC4CED0;
+	Tue, 31 Dec 2024 00:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735605422;
-	bh=dHiL+92MLY20VArQrBRRfiByebHH5+eZfSKhYTwTQbI=;
+	s=k20201202; t=1735605566;
+	bh=DebDtKWVcH8ESuuP0gUMAP0mpjt23oiaM+dD/NQMrrw=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=j+M8vcOEnLRGnRWknp3w+Leo1dOAhWrF/NLcX/E4geoX4bOOsy+5qiP9xO3+yMT6T
-	 +XCbaP4d57ZZNL2aRnRpVE2cwKVisQ+RUoBqJ+bixeoKHOzWQaExjab1M+umE/OwKo
-	 qP06QW+5lFyK2PfTZYgYZZ56OcC7uHcrALox/T7vJI02ZMIwWi1VEYEFtnuTQLkk8M
-	 dkjePgJRLSHrzwM87MoVvJJoWIt36usddXmU+MHaigyzPGAYED9APlLF/Dh19hhfqN
-	 SFqwUwdz3AlQlsqpmu/ncbxEQVyF7dAjRtTW26BV8Yc7OA3xjw+t7Fuf39olkW27+b
-	 cJdmLC4y6o0QQ==
-Message-ID: <c110a740502cda3fafa55828292ce34c.sboyd@kernel.org>
+	b=h3bWGKFJblMbN7mV4PEaDApqhHXlIHioiHhM57nEeRpZjKsdmENT08ASeaO84EkMv
+	 AzfmI1kqVBSq2/+3np+FbroYnkxlj4IVzgLFlHPYOI7fneCoQTL3jlvudgrEFdD9lN
+	 sBjppnIwEdKNe+7ILjL03aAcSKjBgjtPGqfjc3ZD4taKGFGDEg5o+ZjlV0m6qPEsCE
+	 TGn3UIjSYFD3p5G75zeJs9rjFGr1i/8TsWPn0ejmzHSz1L0RdTQRufo9TeKPyvzFpw
+	 MeMbUq13pdNku8a8OamO/QZKaYsxujW3VZ9YM3V8opwXq9fEMZ+0J6lCpHl/VTN0wg
+	 djFBe5neV0FYw==
+Message-ID: <5227cdd506bcb0239657216bd36de12f.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241226122023.3439559-4-rohit.visavalia@amd.com>
-References: <20241226122023.3439559-1-rohit.visavalia@amd.com> <20241226122023.3439559-4-rohit.visavalia@amd.com>
-Subject: Re: [PATCH 3/3] clk: xilinx: vcu: unregister pll_post only if registered correctly
+In-Reply-To: <20241226122023.3439559-2-rohit.visavalia@amd.com>
+References: <20241226122023.3439559-1-rohit.visavalia@amd.com> <20241226122023.3439559-2-rohit.visavalia@amd.com>
+Subject: Re: [PATCH 1/3] clk: xilinx: vcu: Update vcu init/reset sequence
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: javier.carrasco.cruz@gmail.com, geert+renesas@glider.be, u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Rohit Visavalia <rohit.visavalia@amd.com>
 To: Rohit Visavalia <rohit.visavalia@amd.com>, michal.simek@amd.com, mturquette@baylibre.com, vishal.sagar@amd.com
-Date: Mon, 30 Dec 2024 16:37:00 -0800
+Date: Mon, 30 Dec 2024 16:39:23 -0800
 User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_163703_886147_FECC3D5C 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241230_163927_100882_CFC80101 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,23 +71,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Rohit Visavalia (2024-12-26 04:20:23)
-> If registration of pll_post is failed, it will be set to NULL or ERR,
-> unregistering same will fail with following call trace:
->=20
-> Unable to handle kernel NULL pointer dereference at virtual address 008
-> pc : clk_hw_unregister+0xc/0x20
-> lr : clk_hw_unregister_fixed_factor+0x18/0x30
-> sp : ffff800011923850
-> ...
-> Call trace:
->  clk_hw_unregister+0xc/0x20
->  clk_hw_unregister_fixed_factor+0x18/0x30
->  xvcu_unregister_clock_provider+0xcc/0xf4 [xlnx_vcu]
->  xvcu_probe+0x2bc/0x53c [xlnx_vcu]
->=20
-> Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
+Quoting Rohit Visavalia (2024-12-26 04:20:21)
+> diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
+> index 81501b48412e..f294a2398cb4 100644
+> --- a/drivers/clk/xilinx/xlnx_vcu.c
+> +++ b/drivers/clk/xilinx/xlnx_vcu.c
+> @@ -676,6 +679,24 @@ static int xvcu_probe(struct platform_device *pdev)
+>          * Bit 0 : Gasket isolation
+>          * Bit 1 : put VCU out of reset
+>          */
+> +       xvcu->reset_gpio =3D devm_gpiod_get_optional(&pdev->dev, "reset",
+> +                                                  GPIOD_OUT_LOW);
+> +       if (IS_ERR(xvcu->reset_gpio)) {
+> +               ret =3D PTR_ERR(xvcu->reset_gpio);
+> +               dev_err(&pdev->dev, "failed to get reset gpio for vcu.\n"=
+);
 
-Please add a Fixes tag, and put fixes earlier in the series so they can
-be applied while other patches go through review.
+Use dev_err_probe() and friends.
+
+> +               goto error_get_gpio;
+> +       }
+> +
+> +       if (xvcu->reset_gpio) {
+> +               gpiod_set_value(xvcu->reset_gpio, 0);
+> +               /* min 2 clock cycle of vcu pll_ref, slowest freq is 33.3=
+3KHz */
+> +               usleep_range(60, 120);
+> +               gpiod_set_value(xvcu->reset_gpio, 1);
+> +               usleep_range(60, 120);
+> +       } else {
+> +               dev_warn(&pdev->dev, "No reset gpio info from dts for vcu=
+. This may lead to incorrect functionality if VCU isolation is removed post=
+ initialization.\n");
+
+Is it 'vcu' or 'VCU'? Pick one please. Also, this is going to be an
+unfixable warning message if the reset isn't there. Why have this
+warning at all?
 
