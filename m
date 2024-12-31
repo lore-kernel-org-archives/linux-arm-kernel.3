@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F3CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 15:04:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255A0E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 16:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PSLeprPe5FTHWRveLENPgw9n1qZNAvdFfzbO7p/6mz8=; b=gItp7Oa5f2LwfnFWnL+8WP9Ae8
-	BEwIv2H9KPOGyKCjOSwIexHUDCwP+k9vh+MQ61u3XTFtKcxqhuZdY6NyGx/jSk1K4ogPLY2xZwbJe
-	N8nklsJHuqB+hoVE/RW7t7iC6qFmYBm6j4L2Ne4gWpsR4wH2Hgk/zW3jkoVED7KdEYmXNu4Oy4y3A
-	4xVsqed2TPAVENnevTVFMdL2iQ98VTlgra/elAFUO03+WDOSF4TwF8PG2z7Z0JCMyjELvZBgBrIC7
-	qEPh8WoTYVjDSHejrw1NSZT1BN8ll1wPTkqM4BZl9AF0ImXaFMQsxCDVBUMInMLACyfYMInJS2JeL
-	3wW6tQEw==;
+	bh=Gt5Dw4xDrEi3b2EABYrPiIWTk1iGh4iu7N4Ns/FgtDg=; b=mp4w/FZlsHJIl09RWmhnbAYrEb
+	8eTKgTHHRhoFJiBR7WAy3LZHysS8B0nKADuPa28EDO7ue5JV6Bxt1OAeSAeCcnIMEpXbNKbYzd60Q
+	0+TIWSDEneZvaLb0ASfVC+j8YsAI8xi+R4VD5qaKPqpW0TEEGqWZQVjTu/goPeNw84vfJ0pQyTqUS
+	g0crvxtIjmA4u88gpXDYE4CHlOY5OMx8IcVvW7+G/YTYMGKFo8KOo3wxasYKy8r7BsZ7VEtgX6o5S
+	4nPUI8xFVb9AJbg1oVeBo/ogak7w1c7doetf+GRj5BuLBOheeOmBkMriGsBTN+iQdZtNpeAZpYFgx
+	Bof6wCWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdn9-00000007LxB-0qzS;
-	Tue, 31 Dec 2024 15:04:19 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tSet4-00000007RwD-3hgR;
+	Tue, 31 Dec 2024 16:14:30 +0000
+Received: from smtp-28.smtpout.orange.fr ([80.12.242.28] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdkl-00000007Lgy-42PH
+	id 1tSert-00000007Rom-29qU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 15:01:53 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-aa6c0d1833eso2078914566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 07:01:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1735657311; x=1736262111; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PSLeprPe5FTHWRveLENPgw9n1qZNAvdFfzbO7p/6mz8=;
-        b=Gcd/kViX1qYntsGvpOIk9WgyrSzDUQd7+La/ia/k5ApKB2EvaUK5Kfq2Iz+fXsHBzV
-         NBc629BPNPwyifKL0ZQE9bdGBZjkMQtB4Lxggski5I2ZR0smSq5e3BPDhoNs2QoyPpCR
-         Luy6kdGKpXXqdmV7y8SRa1CkwCpXAAKW2fy1I=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735657311; x=1736262111;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PSLeprPe5FTHWRveLENPgw9n1qZNAvdFfzbO7p/6mz8=;
-        b=TrMs/ymQH9cf7Ut2bWUXxsUlvkmw3n6OXdYtBA8lIBw97aSoOwDOQapmqBBYQB0R3R
-         5VZftmwWJiRcGhSS1ectko5zcdoYHAxkf4FyIbZ0TkPAf5OKLTG63plTDeUCP0pN0s/y
-         JMFoa77W6NrPCTXz7TJqA+rrvQJwfgxL2BKDxMYJjUfKMT7UzNoQNAg6LK56t+yJkYGi
-         vuIb5RTVKaw2LnAN26rZDE0NZ7LhlkBAHuSL2RQj0QmI21DI6iRr3yysQ1JP+ca1dAzs
-         bGFFL9dz8/IOirm2tAWa8Q8XzynXo0Z1ki1priMWrYSIpG3eotPhvks1CL3LyukVWUMa
-         7CBg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2Se1CRwU2HM1nJMvzYR/ghrBBHaYHiq7doypB1DRpstSG8Ij2QKTOm3oDJorpS0oe08SNtud7GnQtKUI6sbk5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcSimparmcOd1B1thEpLLi+Rf1s3p7sb7WMqx3gNf548GHBBbg
-	9DCBUR3DlyMpy9QWqa55Mk2eFQSczj4gQe8Dc/G9s8woNHQwW0BZTOLgRNc8myE=
-X-Gm-Gg: ASbGncuQwWGZEfYW+pAx8xmp4WE0YfdvRSAncD1ss1R795DVgbkCdcKUK3LmaPT4Oe0
-	g+8RSu9TGl/JTgTj1h/x6oR8boI0VI+X68H3Vc8+XPt4S1p4TEB50odxA2CUlcBwTFTWEOBA52s
-	9Prr/RyHjPqYhP9y5ryrgH7ASZ9sMrolhhmU6LYGOmrFAHRMUhKN14A6zowyTImT2wsHJRAmWm2
-	+OJCYln7wXLoim+W6YOCs35GnWvlmaiL/D7jesiJ90joymc0IorBfy5nc09AFsxuUBUN+aepdh3
-	nzasf4v2TfNsXykjoomQAA==
-X-Google-Smtp-Source: AGHT+IGfEOn6eiAOcKUt+G4AdS/vhANNPsxMNquB07uGQCrXQb511fcC05DereMIXHKoyNQ8gZOavg==
-X-Received: by 2002:a17:907:3f0a:b0:aa6:96c4:ad62 with SMTP id a640c23a62f3a-aac34217fddmr2955209066b.58.1735657310070;
-        Tue, 31 Dec 2024 07:01:50 -0800 (PST)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.43.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e89598csm1575905766b.56.2024.12.31.07.01.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Dec 2024 07:01:49 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 2/2] dt-bindings: clock: st,stm32mp1-rcc: complete the reference path
-Date: Tue, 31 Dec 2024 16:01:41 +0100
-Message-ID: <20241231150144.4035938-2-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241231150144.4035938-1-dario.binacchi@amarulasolutions.com>
-References: <20241231150144.4035938-1-dario.binacchi@amarulasolutions.com>
+	Tue, 31 Dec 2024 16:13:19 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id SerbtsZWjnl6tSeretLw5U; Tue, 31 Dec 2024 17:13:07 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1735661587;
+	bh=Gt5Dw4xDrEi3b2EABYrPiIWTk1iGh4iu7N4Ns/FgtDg=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=k9YtF6MMuJKuWprW3mYB6GrQPD8cIMcGr0g9eBQMhGPWTTLWgJgsHoLG3ogeFg3aw
+	 H2kdl2KsonchiYdETtMPHkTP1yVmuuoXlEgOwzXEdcRd+d5jMBKxDbWLYa9K11CLQ5
+	 8vAvAYRnWYWj9nk1hAUdwds4TrtoXOf9o7Bdh9/qw10iFXk8raEtVqHZOkDAsqbClQ
+	 WIlecDRecgYVjJT2v9vQOvO5lbaR7ExDe2tHSBk2bcnokl/3kx3b7OiyreAPgWoKee
+	 8OHyeZ7YSoyOXmpbzAAgAXRZbqE+m6DlwY5s3KntYn624d7H4zfheL+BDEIbOqQcqO
+	 hpdao8YiEnLWA==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Tue, 31 Dec 2024 17:13:07 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <352592c2-e1a4-4d42-b1d2-f4b87ede2974@wanadoo.fr>
+Date: Tue, 31 Dec 2024 17:12:57 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] soc: ti: PRUSS OCP configuration
+To: Basharath Hussain Khaja <basharath@couthit.com>, nm@ti.com,
+ ssantosh@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ pratheesh@ti.com, prajith@ti.com, vigneshr@ti.com, danishanwar@ti.com,
+ praneeth@ti.com, srk@ti.com, rogerq@ti.com, afd@ti.com, krishna@couthit.com,
+ pmohan@couthit.com, mohan@couthit.com, parvathi@couthit.com
+References: <20241223135550.6898-1-basharath@couthit.com>
+ <20241223135550.6898-2-basharath@couthit.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20241223135550.6898-2-basharath@couthit.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_070152_000490_72F5D337 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20241231_081317_981823_51EB319F 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All other paths referenced in the file follow a scheme starting from the
-Linux root. The patch adjusts the single file that deviated from this
-scheme, making it consistent with the others.
+Le 23/12/2024 à 14:55, Basharath Hussain Khaja a écrit :
+> From: Roger Quadros <rogerq@ti.com>
+> 
+> Updates OCP master port configuration to enable memory access outside
+> of the PRU-ICSS subsystem.
+> 
+> This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
+> to enable or disable the OCP master ports (applicable only on SoCs
+> using OCP interconnect like the OMAP family).
+> 
+> Signed-off-by: Roger Quadros <rogerq@ti.com>
+> Signed-off-by: Andrew F. Davis <afd@ti.com>
+> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+> ---
+>   drivers/soc/ti/pruss.c       | 77 +++++++++++++++++++++++++++++++++++-
+>   include/linux/pruss_driver.h |  6 +++
+>   2 files changed, 82 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
+> index d7634bf5413a..a0e233da052c 100644
+> --- a/drivers/soc/ti/pruss.c
+> +++ b/drivers/soc/ti/pruss.c
+> @@ -25,14 +25,19 @@
+>   #include <linux/slab.h>
+>   #include "pruss.h"
+>   
+> +#define SYSCFG_STANDBY_INIT	BIT(4)
+> +#define SYSCFG_SUB_MWAIT_READY	BIT(5)
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
+Hi,
 
- Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Nitpick: #include <linux/bits.h>?
 
-diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-index ca75b1972470..e72f46e79b90 100644
---- a/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-@@ -21,7 +21,7 @@ description: |
-   =================
- 
-   All available clocks are defined as preprocessor macros in
--  dt-bindings/clock/stm32mp1-clks.h header and can be used in device
-+  include/dt-bindings/clock/stm32mp1-clks.h header and can be used in device
-   tree sources.
- 
-   Specifying softreset control of devices
--- 
-2.43.0
+CJ
+
 
 
