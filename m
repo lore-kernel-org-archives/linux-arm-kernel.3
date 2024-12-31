@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FFD8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 07:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC246E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 07:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6XJql5m47BXAvrRdSryIG8UjgiG29oVpHXZwXoQr+w=; b=sar3NNyZab2aYZ5qEyUWi9o62m
-	mGf8D5LeAmD6vf/f4koX+vDi8TVbyZq5CKp96Jh8bancROlX1FBfAnjy3NfY793BWfs9q3N6jeZwV
-	L2dD75uuLSAbrrQi+DEKw2RaDoKmWlskZhgMxuPvIT85iRjRUyQgvQcdbHc5zkvLZ27cwqLRwCw6+
-	jttEHNZaCsdT3aMyJYcWGxJga15f29nVhSdDzsfl3mIODDAf3XHh29YnbvAGqmKooC/Aq8Uz0EinU
-	q909ttGe/DLkjAumeDYcs9rjiYXbeWCT9v3vkLNa80OJJoZiHpXIR9nMBhXqDdeIKF0Ba87O6p9Vx
-	Mv1Ow6mQ==;
+	bh=Wcei/jjicgVQNialufWSNCo6fuHs9KyY0+NSZYlZuBo=; b=I27cH14eTo4x8FAC/tSt4VNXgP
+	/B0Co7SCME3Yn+t8Cj8G9yUkS+alX0b7GMvB4kLpDRzKxukC1FZiulzsLffcE3U1hRbVFQZeekwq9
+	edIYp2YqVzpxqkQqoHqTvBDP4sHVmoVbXEoaljRpzwUBcgXmB4EBUnThf6OB98hbZ/gne/oIDPYTX
+	63+ANUlE73GHFh8Ozc6qqxWaJSzKI7rIE0iXc34FaErP4HIRzhXqb6bzVyChGbFeyL4+sqm95idqu
+	VHIFT76kvCaGdvrWJvvZV+RJHmbjOJX75Jw7XGeSqzL23WuwGS5sImOJRIAhfeR/EtXG6sJ1mAfRC
+	XnB/Dh7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSWXo-00000006hzj-0G72;
-	Tue, 31 Dec 2024 07:20:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tSWnD-00000006jfr-1N1x;
+	Tue, 31 Dec 2024 07:35:55 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSWWc-00000006hlJ-0zOW
+	id 1tSWm2-00000006jal-2Zei
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 07:18:47 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4BV5n5uZ010219;
-	Tue, 31 Dec 2024 07:18:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	K6XJql5m47BXAvrRdSryIG8UjgiG29oVpHXZwXoQr+w=; b=pR3psg0wQx6hwUQv
-	XHenV54hPaE4gIyM1Ed8G2RjRZzVcKHxHsZnk5XoOguQDqpRXa/Xwutt5EkMjdIp
-	ovJpOtcWD4+7WTj879BVTG1LAG+qCC5zorOmzOzIz1cD/nB5X6FEdIkg8qWTcOJ8
-	7hNa8lp0KtiqhNqxK0zAGeZRxOQf1ravaO1vxNKZXDAHrBUZB4ZjkMUfSvIN4syP
-	V9zIEoNmm5y2bmFqrDuJRR5Mzy8kQJn7bYDuhVUKMRMwV5Cf48ft4tqpJUT0PHW1
-	RB+H8ZhxxaD2BDJLwELI+DmngsUvteTaNIoK/QnNbOF8WyVQ5wJiYSd4/CdkXmjr
-	WribxA==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43vasy861v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 31 Dec 2024 07:18:33 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4BV7IWsm004491
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 31 Dec 2024 07:18:32 GMT
-Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 30 Dec
- 2024 23:18:29 -0800
-Message-ID: <19c42e9f-8f61-45d2-9df2-c7f667495b12@quicinc.com>
-Date: Tue, 31 Dec 2024 15:18:26 +0800
+	Tue, 31 Dec 2024 07:34:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Wcei/jjicgVQNialufWSNCo6fuHs9KyY0+NSZYlZuBo=; b=VgIqJ8o32PpjO0vBjSWxN1B62s
+	N5fj/Yq13iQy4mMUNz+KjGEdiKkgPouC8BB2Cu3TOcm/EHLlKpJ/g+OqTUgGTmNTLm1kT2eEayQ7d
+	lsJvasH3gU2sgVWk0j0Lb8DLA/aigKQj9UHIZtFjlV9eIEzTrI/jelK2k9/yshIcZcPVztUAsnbko
+	dPilFZmk19V9s4gGeFqjLyao85IqOTmE2DHQcv1BNFMdVY1wM63uvr2JqaGyXlCwtBf7g6shPa7+0
+	nVind6eELLK/L68C4/rthi1ZdTYvvuxI38BuGvzWw5A+R2jBQ2hfdTcEfKPXuJD2AjAHy91OudepP
+	Nqcr8h5w==;
+Received: from 77-38-14-103.dynamic.telemach.net ([77.38.14.103]:53894 helo=[192.168.0.15])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tSWlx-004GS5-2G;
+	Tue, 31 Dec 2024 08:34:37 +0100
+Message-ID: <221c8216-ce71-4ba2-9981-8612ff33ec2a@norik.com>
+Date: Tue, 31 Dec 2024 08:34:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: mm: implement vmemmap_check_pmd for arm64
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>
-CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
-        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
- <20241209094227.1529977-3-quic_zhenhuah@quicinc.com>
- <Z2W5Bs0bZANI6NKv@arm.com> <39a85800-47c5-4529-906d-5a40e58ce136@arm.com>
- <8685ca94-1382-45c0-a3c3-4b5ccf244057@quicinc.com>
- <ff65fb4e-4a7c-443b-b855-e5c3cd22889f@arm.com>
-Content-Language: en-US
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-In-Reply-To: <ff65fb4e-4a7c-443b-b855-e5c3cd22889f@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v2 13/15] arm64: dts: imx8mm-phycore-som: Add overlay for
+ rproc
+To: Shawn Guo <shawnguo2@yeah.net>
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20241202072052.2195283-1-andrej.picej@norik.com>
+ <20241202072052.2195283-14-andrej.picej@norik.com> <Z3Ie8GO/GtoSkIr3@dragon>
+Content-Language: en-GB
+From: Andrej Picej <andrej.picej@norik.com>
+In-Reply-To: <Z3Ie8GO/GtoSkIr3@dragon>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: feLxOR_f25bomt_Qth2sIC3sdKgj4HuZ
-X-Proofpoint-GUID: feLxOR_f25bomt_Qth2sIC3sdKgj4HuZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 clxscore=1015
- phishscore=0 spamscore=0 malwarescore=0 priorityscore=1501 mlxlogscore=445
- impostorscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2412310060
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_231846_386049_99F03804 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20241230_233443_206603_C6BF6A4E 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +91,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Shawn,
 
-
-On 2024/12/31 14:59, Anshuman Khandual wrote:
-> A very small nit regarding the subject line. The callback
-> vmemmap_check_pmd() is already present on arm64 platform
-> which is rather incomplete. Something like this might be
-> better.
-> 
-> arm64/mm: Test for pmd_sect() in vmemmap_check_pmd()
-> 
-> On 12/30/24 13:18, Zhenhua Huang wrote:
+On 30. 12. 24 05:17, Shawn Guo wrote:
+> On Mon, Dec 02, 2024 at 08:20:50AM +0100, Andrej Picej wrote:
+>> From: Dominik Haller <d.haller@phytec.de>
 >>
+>> Adds a devicetree overlay containing reserved memory regions used
+>> for intercore communication between A53 and M4 cores.
 >>
->> On 2024/12/27 10:57, Anshuman Khandual wrote:
->>> However it does not really check the entry to be a section mapping which it should.
->>> Returning pmd_sect(READ_ONCE(*pmdp)) is the right thing, which should have been the
->>> case from the beginning when vmemmap_check_pmd() was added. I guess because arm64's
->>> original vmemmap_populate() checked only for vmemmap_verify() as well. So probably
->>> this does not need a "Fixes: " tag.
+>> Signed-off-by: Dominik Haller <d.haller@phytec.de>
+>> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+>> ---
+>> Changes in v2:
+>>   - no change.
+>> ---
+>>   arch/arm64/boot/dts/freescale/Makefile        |  2 +
+>>   .../dts/freescale/imx8mm-phycore-rpmsg.dtso   | 55 +++++++++++++++++++
+>>   2 files changed, 57 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
 >>
->> Hi Anshuman,
+>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+>> index 99be36a04db9..5bc083a7b778 100644
+>> --- a/arch/arm64/boot/dts/freescale/Makefile
+>> +++ b/arch/arm64/boot/dts/freescale/Makefile
+>> @@ -125,9 +125,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-rdk.dtb
+>>   
+>>   imx8mm-phyboard-polis-peb-av-10-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phyboard-polis-peb-av-10.dtbo
+>>   imx8mm-phyboard-polis-peb-eval-01-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phyboard-polis-peb-eval-01.dtbo
+>> +imx8mm-phycore-rpmsg-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phycore-rpmsg.dtbo
+>>   
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-peb-av-10.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-peb-eval-01.dtb
+>> +dtb-$(CONFIG_ARCH_MXC) += imx8mm-phycore-rpmsg.dtb
+>>   
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-phygate-tauri-l.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mm-prt8mm.dtb
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
+>> new file mode 100644
+>> index 000000000000..0c61946f0cf8
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
+>> @@ -0,0 +1,55 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (C) 2024 PHYTEC Messtechnik GmbH
+>> + * Author: Dominik Haller <d.haller@phytec.de>
+>> + */
+>> +
+>> +/dts-v1/;
+>> +/plugin/;
+>> +
+>> +#include <dt-bindings/clock/imx8mm-clock.h>
+>> +
+>> +&{/} {
+>> +	reserved-memory {
+>> +		#address-cells = <2>;
+>> +		#size-cells = <2>;
+>> +		ranges;
+> 
+> I'm getting this:
+> 
+> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso:16.3-10: Warning (ranges_format): /fragment@0/__overlay__/reserved-memory:ranges: empty "ranges" property but its #size-cells (2) differs from /fragment@0/__overlay__ (1)
+> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso:13.18-43.4: Warning (avoid_default_addr_size): /fragment@0/__overlay__/reserved-memory: Relying on default #address-cells value
+> arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso:13.18-43.4: Warning (avoid_default_addr_size): /fragment@0/__overlay__/reserved-memory: Relying on default #size-cells value
+> 
+
+I see, missed this before, sorry. But I have some problems fixing it.
+I think the problem is that this is overlay, the same node put in the 
+imx8mm-phycore-som.dtsi doesn't trigger a warning.
+The only solution that I found is that I specify the default 
+address-cells and size-cells in root node:
+
+
+&{/} {
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+	...
+	};
+};
+
+The same values are used in imx8mm.dtsi, but the checker fails to find 
+these default values.
+Not sure if this is the right solution, though. Your input would be 
+helpful, thanks.
+
+Best regards,
+Andrej
+
+
+> Shawn
+> 
+>> +
+>> +		m4_reserved: m4@80000000 {
+>> +			reg = <0 0x80000000 0 0x1000000>;
+>> +			no-map;
+>> +		};
+>> +
+>> +		vdev0vring0: vdev0vring0@b8000000 {
+>> +			reg = <0 0xb8000000 0 0x8000>;
+>> +			no-map;
+>> +		};
+>> +
+>> +		vdev0vring1: vdev0vring1@b8008000 {
+>> +			reg = <0 0xb8008000 0 0x8000>;
+>> +			no-map;
+>> +		};
+>> +
+>> +		rsc_table: rsc_table@b80ff000 {
+>> +			reg = <0 0xb80ff000 0 0x1000>;
+>> +			no-map;
+>> +		};
+>> +
+>> +		vdevbuffer: vdevbuffer@b8400000 {
+>> +			compatible = "shared-dma-pool";
+>> +			reg = <0 0xb8400000 0 0x100000>;
+>> +			no-map;
+>> +		};
+>> +	};
+>> +
+>> +	core-m4 {
+>> +		compatible = "fsl,imx8mm-cm4";
+>> +		clocks = <&clk IMX8MM_CLK_M4_DIV>;
+>> +		mboxes = <&mu 0 1
+>> +			&mu 1 1
+>> +			&mu 3 1>;
+>> +		mbox-names = "tx", "rx", "rxdb";
+>> +		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>, <&rsc_table>;
+>> +		syscon = <&src>;
+>> +	};
+>> +};
+>> -- 
+>> 2.34.1
 >>
->> I agree, will remove "Fixes: " tag in next patchset
 > 
-> Could you please send a V3 of this patch separately instead
-> and not part of this series as they are not really related.
-
-Sure, Thanks Anshuman. Will gather information and update after coming 
-back from Holiday!
-
-> 
-> But after implementing the following changes
-> 
-> 1) Use READ_ONCE() as indicated earlier
-> 2) Drop the "Fixes: " tag
-> 3) Update the commit message explaining why pmd_sect() is
->     required here and how the originally commit missed that
-> 4) Update the subject line
-
 
