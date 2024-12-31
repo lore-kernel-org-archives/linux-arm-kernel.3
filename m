@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33A8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 00:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A5DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 00:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
 	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSQxDb3E2iSNxsPxvVgpGLxXiKkf50d4xkctBp6LudY=; b=SPoiz57ElStXamw+TCGy31qXtP
-	LO0fgLch7SHWIXSsMGtdQOLAI/5FCVj2F8QuroEapOrmI6NmM9/BAIR8AMCWbZtW4wXg+MOfJCwHz
-	rw15cTLKlzkXXMJqpqKVwIK2AmsF7gDU16990Di7xO4t5W+vBpa/19XDsYxt8uWAcnsCmVJ/A5kwH
-	yXbwTpwODi7hPWUt1XrulEag3Ely9O9IEZgwQ4GU249vqPnJdfZI1F5Xqc2NDOWFtI9q2PfZ0WgGw
-	MHnj8+je5D4/eXwBKWPTHdFwRh+GsMIOVpJ0Fsk7w3wNgpJmh7rzJUg/x0xnHvy88vDQDuwqVfRL5
-	06ofE9Ug==;
+	bh=fkcYLVrfyzrDnXAcqc0mS88NGdiWubRSGkl2hXOaqEI=; b=tKAoXDEr5h2QFxUtg9vxf2rRUV
+	QNweZw5IzO8Y3gAW2d+nao1dtYJpfFRG0Y3moExijAFCGyPBmtNxGiysSXxkeOdn8D6GC/VxgtBCI
+	HuoCB9gtmaV+ceXgVmUINVtJ/S1PIb75by/Q0jf/IiEuuT6+v7U5sOGMjufd/RyPkwKRwiYaCdtXH
+	AFO9Rj6+Ptz4N0/FEdHehY2Vl7xJgPBCGmMCFK2dS8sWiFuEWHvzqClnlRCvpWotQGAjd5dT4LgIr
+	jlImm5bbgnupd07+xloHEVPIi7Dswp8mgMnzhCAkavUxqMumQtwj9mNeVNBHdyLcv18EuTgKMJpHk
+	uV2UZQrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSQFq-00000006DKz-3430;
-	Tue, 31 Dec 2024 00:37:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tSQH4-00000006DUm-1aw8;
+	Tue, 31 Dec 2024 00:38:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSQEf-00000006DDQ-2OBQ
+	id 1tSQFr-00000006DL3-3Nxu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 00:35:50 +0000
+	Tue, 31 Dec 2024 00:37:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AB131A40C17;
-	Tue, 31 Dec 2024 00:33:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6CC7C4CED0;
-	Tue, 31 Dec 2024 00:35:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BCE4B5C02CB;
+	Tue, 31 Dec 2024 00:36:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4C96C4CED0;
+	Tue, 31 Dec 2024 00:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735605347;
-	bh=EAQNHH/6r9U3uJVYIBbTF70SQX0U3RKDpaltiKDSXLs=;
+	s=k20201202; t=1735605422;
+	bh=dHiL+92MLY20VArQrBRRfiByebHH5+eZfSKhYTwTQbI=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=s0z+/oGLrxRQV1Lbs5E2lP0zN3PnLPfA1RJsYuEXpUk/irHqwoUgQs4U3I6OeGTNt
-	 IKcxEBZPeC8vAqWXN6SQqmy+owQt7+O7ttLfh8p0N8DLdgLPJlZvSZelOWf6jDCe4O
-	 9OKXZXvu2Os0XLDofWL/9Is2W/eC/0GN67MpDLXRZcqs8Loxy0Qk2+YTEr4KiSxW4Y
-	 2TbBZpItYFiwvL2rJ0KvifZY05DwY2sklZzfaqcgfevKf1G1D7kksYEgC62Hx/zjUK
-	 Zy25n1t+xsfqQKiOOyL0lxox1KU+JL9oq1JWC+TSPqCq8avQpNDcht7gv5dk+VBQt9
-	 5DRHNpCvIfuLA==
-Message-ID: <6fcf5358bbace7400d35d3fac06254e6.sboyd@kernel.org>
+	b=j+M8vcOEnLRGnRWknp3w+Leo1dOAhWrF/NLcX/E4geoX4bOOsy+5qiP9xO3+yMT6T
+	 +XCbaP4d57ZZNL2aRnRpVE2cwKVisQ+RUoBqJ+bixeoKHOzWQaExjab1M+umE/OwKo
+	 qP06QW+5lFyK2PfTZYgYZZ56OcC7uHcrALox/T7vJI02ZMIwWi1VEYEFtnuTQLkk8M
+	 dkjePgJRLSHrzwM87MoVvJJoWIt36usddXmU+MHaigyzPGAYED9APlLF/Dh19hhfqN
+	 SFqwUwdz3AlQlsqpmu/ncbxEQVyF7dAjRtTW26BV8Yc7OA3xjw+t7Fuf39olkW27+b
+	 cJdmLC4y6o0QQ==
+Message-ID: <c110a740502cda3fafa55828292ce34c.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20241226122023.3439559-3-rohit.visavalia@amd.com>
-References: <20241226122023.3439559-1-rohit.visavalia@amd.com> <20241226122023.3439559-3-rohit.visavalia@amd.com>
-Subject: Re: [PATCH 2/3] clk: xilinx: vcu: don't set pll_ref as parent of VCU(enc/dec) clocks
+In-Reply-To: <20241226122023.3439559-4-rohit.visavalia@amd.com>
+References: <20241226122023.3439559-1-rohit.visavalia@amd.com> <20241226122023.3439559-4-rohit.visavalia@amd.com>
+Subject: Re: [PATCH 3/3] clk: xilinx: vcu: unregister pll_post only if registered correctly
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: javier.carrasco.cruz@gmail.com, geert+renesas@glider.be, u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Rohit Visavalia <rohit.visavalia@amd.com>
 To: Rohit Visavalia <rohit.visavalia@amd.com>, michal.simek@amd.com, mturquette@baylibre.com, vishal.sagar@amd.com
-Date: Mon, 30 Dec 2024 16:35:45 -0800
+Date: Mon, 30 Dec 2024 16:37:00 -0800
 User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_163549_707768_683DFB9C 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20241230_163703_886147_FECC3D5C 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,32 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Rohit Visavalia (2024-12-26 04:20:22)
-> CCF will try to adjust parent clock to set desire clock frequency of
-> child clock. So if pll_ref is not a fixed-clock then while setting rate
-> of enc/dec clocks pll_ref may get change, which may make VCU malfunction.
+Quoting Rohit Visavalia (2024-12-26 04:20:23)
+> If registration of pll_post is failed, it will be set to NULL or ERR,
+> unregistering same will fail with following call trace:
+>=20
+> Unable to handle kernel NULL pointer dereference at virtual address 008
+> pc : clk_hw_unregister+0xc/0x20
+> lr : clk_hw_unregister_fixed_factor+0x18/0x30
+> sp : ffff800011923850
+> ...
+> Call trace:
+>  clk_hw_unregister+0xc/0x20
+>  clk_hw_unregister_fixed_factor+0x18/0x30
+>  xvcu_unregister_clock_provider+0xcc/0xf4 [xlnx_vcu]
+>  xvcu_probe+0x2bc/0x53c [xlnx_vcu]
 >=20
 > Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
-> ---
->  drivers/clk/xilinx/xlnx_vcu.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
-> index f294a2398cb4..c3a4df7e325a 100644
-> --- a/drivers/clk/xilinx/xlnx_vcu.c
-> +++ b/drivers/clk/xilinx/xlnx_vcu.c
-> @@ -550,7 +550,7 @@ static int xvcu_register_clock_provider(struct xvcu_d=
-evice *xvcu)
->                 return PTR_ERR(hw);
->         xvcu->pll_post =3D hw;
-> =20
-> -       parent_data[0].fw_name =3D "pll_ref";
-> +       parent_data[0].fw_name =3D "dummy_name";
 
-"dummy_name" isn't part of the binding. It sounds like you want to not
-set CLK_SET_RATE_PARENT flag sometimes?
-
->         parent_data[1].hw =3D xvcu->pll_post;
-> =20
->         hws[CLK_XVCU_ENC_CORE] =3D
+Please add a Fixes tag, and put fixes earlier in the series so they can
+be applied while other patches go through review.
 
