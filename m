@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9887E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 14:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE34E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 14:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ORCdTPwBjwWs6g5ugJyqxoJ+/mBzp4HVWjIHqATcpDQ=; b=e90N4xS5jNduJPEM+y6etXkhuo
-	fKJQY+50ezOYBOVUD+xETX6ZnJBrlM2iGA0lxCva07qqEdsk3+0TcP5t8LR4OnmsjWtiZkMnp1NN+
-	2sRELj7nZu3sgl7XZod63x8GD2q60B3xTaePYW+as/I/Kz8iHbmyoYoE87lPDmJlFvko0o65ndeTh
-	inxHYqxsIFgpPc2VfwGs/YXcquxnIide2CCVcXjocf2x9UKZGyJ1hG5tEQlmEtRpjClCXVVTX/cRX
-	2c6ux9c1S+e/561Uvll+YK+oW8ZaAFvyps4xBgqFJcqI5xEL7uotrqH5lSPfGvDA2fiuh91+LS5Wf
-	Yzxb9aoA==;
+	bh=F9owk1GTOVHbcavCZzpfvsFGXnjvvIvFjxQQaht9r80=; b=az9TkSATBk3oXSouf80d5bVAqI
+	gYOsGkTqu9eXOJ0K6GnDvOS9FK90OITIITdW+wKddWH8oTpuCvrOjv3YGQji23gZ1sYn38LndhDKB
+	rRjmUeO9CtpMBaNQMiC5N0BkiMGMyH1hPSJvkOwm4AwejEZIMRESjZFxdDHYYoea1VfRib9QR1Ai9
+	H256WTXPRL3o30M04STsE9l62hRDEZcCU/t5+L0+R9Zqz5qMw0l7X57LhpOgJxTpneOBAe0Q+rvK+
+	vM+of5N25nniBJ/vx18ITaivW3FbxnQaH57WzChUrYm4MFIMa6spN+rje2tqGWCPBIZrGiRivAgWO
+	6GNG0zJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdPI-00000007KXE-3ckc;
-	Tue, 31 Dec 2024 14:39:40 +0000
-Received: from mail-vi1eur02on20608.outbound.protection.outlook.com ([2a01:111:f403:2607::608] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tSdRB-00000007Kgn-2T28;
+	Tue, 31 Dec 2024 14:41:37 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSdO8-00000007KT5-4Bmf
+	id 1tSdPw-00000007Kc2-4BwJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 14:38:30 +0000
+	Tue, 31 Dec 2024 14:40:22 +0000
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=PlclR8ox0nu32jYb6SfUlD/LoMIf4V1PPFw4fJMdkLNAOViGVCET7veV/CZjeoHI+ZuZSXN5Wfnd5DIS2FrRy9zMQjJyWyQuBsliGYv/Kt2fsK3twbksrovQEhmbLlt5RPp6q8DDbURHZ5GakIE2zzS9OYo56SNnA4qt+StZ88YnqWWjFIRSWQmw0IAVAenTEzbb7uZQb5g0UJtijLwK0WMDhsQq0a/f5MCqEBKBLctxjIMfRUHLiUYLfFzuf5QlxKYIb/RilNeQJPFfsl65gS0DH3Rzaj+NQrD9g89mUDRkE5tNvnXycNyb64QoXOjg1unN/vJVGQFJc/0yweF39g==
+ b=pYVYQfu3jdRvanQW1wevK2AIUWLqjiTB2Bw6FILEDZ+nppL+nfIQpDI4t2F7VUsGnT92mu8uv6m60VJngy55lqbNaQ2KI0AFbNSUIN6oUnlodjJLsdgRTUQSAA+pqNUBvmUmiQkr8vp6ZZGXS+V/N62lyWsP0z9fHPV6cHwXZncQ5oSKtsDO927JAcKcB9JJeX4gRQp8R/9Ga27ehtroY76WN7wuXL7pPdJwyyUwFwcfgp/EK9iMdU6rYsDLNnnaP9CSC+sG1/BHz8d4ExRwt+GVCWSS/BsE58MBuFr52GgmoTQQ8YGHLIgrGixZ1zP4PU+n0Ne32X5t2AWFvAMSlQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ORCdTPwBjwWs6g5ugJyqxoJ+/mBzp4HVWjIHqATcpDQ=;
- b=rD3Rnbfb79SNqR9WJ0x9Qv7Y9GwLPGQY/bRhe21w4lUqonfua13zV7K2xxMqRLL1Y77hP645uhz/klaF3LFA2N82g9niZepUfts4ZWHmA0qYSiibnWGK+a7C7Ezw32oGs6IWD/sFAVe71IZvivih3/iXiWp0NnOtwYMSu4JvUSeXYTZ06yxy+sZ12inRA/NQdQJ0UMRYLFF3lPZmBt6MPyrxoSTkkvGTwOvqPg6oan9OiHAUXl4Pz+JxJER07lKi4pFFqOGufRN9pTMdhqIhZC/kAcf0HDwt+TxRAp/xvE+s/Q2scBxTd7gJitdgbhEw8JVFgKtbcTO/wkoZD4HxiQ==
+ bh=F9owk1GTOVHbcavCZzpfvsFGXnjvvIvFjxQQaht9r80=;
+ b=I6ZEighgDLeVITP6aY0hx7XV3cyXHVmYwXk103WA/6fL3NxkU7geBte28fTqCR9p/SeYj799r/q3+9wuXUZRQK9RQUQUwLMPjO+bN2RYT7K0ykoEHSpL+4vojK53Zy3SNaVcyQlMm313tfqWElIBUDZ9LlPKvQbsez/tin6FHeckRXhGJahWtR0Oz6I+kIMASbvdyRrjkaWIcC4iK/vQ+lcyBfi+hOFyHsR6f/1wXeCt0pAO5d71J7VMmfmlb7Rhj4qGUenvUJZXEVBRLnTtO6XaJ6smhlMOKNRdAHqSe1Mn54RYgS13cbx+kIZY/Zs4UkGfCIJHyqpu6aTRufVxKQ==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  63.35.35.123) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
@@ -42,18 +42,18 @@ ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  dmarc=[1,1,header.from=arm.com])
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ORCdTPwBjwWs6g5ugJyqxoJ+/mBzp4HVWjIHqATcpDQ=;
- b=HNPRf1zdd0DE7VFTK9AFVBpBmzlgx/3l0qTFvefPc+b2kQwQujwagVVScFXyPa8yL09dUB1mHz+FThfofsM09ByqPkmjlu0H8a/txVXTi/zr1J4lm5WEx+7M8Z4iEyJQECO0d2IcZQDv7hk62CxlGZccui6tG7x07Bs5k+wlCsc=
-Received: from AM4PR05CA0024.eurprd05.prod.outlook.com (2603:10a6:205::37) by
- AS2PR08MB8829.eurprd08.prod.outlook.com (2603:10a6:20b:5f2::12) with
+ bh=F9owk1GTOVHbcavCZzpfvsFGXnjvvIvFjxQQaht9r80=;
+ b=Td1mYKTPrZ262NZiZIxVNQxXI4o1aPwUeyO+xAVr2EuMMKLd5MMSiKN/yRrAsX9O0nzA4C/ZyJLP9U06t4rWQhTimm+z3QYuFwshuSu52v82zWx4ftyv8lEDpJ/evKPwIc9Wr4tqnYGd/hgTmyPrJgOd2CqdcfhkEJqgH5htdR0=
+Received: from AM8P191CA0020.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:21a::25)
+ by GV2PR08MB8194.eurprd08.prod.outlook.com (2603:10a6:150:74::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.11; Tue, 31 Dec
- 2024 14:38:15 +0000
-Received: from AM4PEPF00025F98.EURPRD83.prod.outlook.com
- (2603:10a6:205:0:cafe::4c) by AM4PR05CA0024.outlook.office365.com
- (2603:10a6:205::37) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.11 via Frontend Transport; Tue,
- 31 Dec 2024 14:38:15 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.18; Tue, 31 Dec
+ 2024 14:40:09 +0000
+Received: from AM2PEPF0001C709.eurprd05.prod.outlook.com
+ (2603:10a6:20b:21a:cafe::bb) by AM8P191CA0020.outlook.office365.com
+ (2603:10a6:20b:21a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8293.19 via Frontend Transport; Tue,
+ 31 Dec 2024 14:40:09 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
  smtp.mailfrom=arm.com; dkim=pass (signature was verified)
  header.d=arm.com;dmarc=pass action=none header.from=arm.com;
@@ -62,44 +62,44 @@ Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
  client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
  pr=C
 Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- AM4PEPF00025F98.mail.protection.outlook.com (10.167.16.7) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.0 via
- Frontend Transport; Tue, 31 Dec 2024 14:38:15 +0000
-Received: ("Tessian outbound b519d6c64997:v528"); Tue, 31 Dec 2024 14:38:14 +0000
+ AM2PEPF0001C709.mail.protection.outlook.com (10.167.16.197) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.11
+ via Frontend Transport; Tue, 31 Dec 2024 14:40:08 +0000
+Received: ("Tessian outbound 42d62cca2da1:v528"); Tue, 31 Dec 2024 14:40:08 +0000
 X-CheckRecipientChecked: true
-X-CR-MTA-CID: c9a62181e3d1aeb9
-X-TessianGatewayMetadata: oUiG7GK7McsyLRpZL75Dv0K09LqAXX7rZBEdXDjFXA6c6hrUTL4a7GY5sBb7miqoTF20sMmDSI6IaY5hv8Kn40WW6VhfoNXm3D7+aNK3kh1FAPgveVY7sMFYf2CWUb+XvQI1eqtaBJmvfZMcyYGju0h5/e46ohZSR71G6Yw7jWEdLs5T3l5LhW0o14nX9yOf+bcr3BhiLSgyoek4jMwIIw==
+X-CR-MTA-CID: a63c728752f544ca
+X-TessianGatewayMetadata: +HKjFDxIKQxLRUNYfZMgBhy2oCxwCuwfUxRRqO57fVF1K4UhJPLsBbhmym2fWd/alkufs42k+GiuNE2DmDLDP8tGgIAblIkfuhdLfDy1o1hu5peOLNCQbDPZosGaceYwYwqXFvr6jAU2fspCGGtvYdu2RsJ18NIqZ6Ho6cEWfYfwIke/UCJqqDmqc5MivRV1niYS6Dw8Yv03VGgEZUIbeA==
 X-CR-MTA-TID: 64aa7808
-Received: from Lf0e7cef2f761.1
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 8C4D274C-FD3C-44CD-82AD-591885E6D7F3.1;
-	Tue, 31 Dec 2024 14:38:07 +0000
-Received: from EUR05-AM6-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id Lf0e7cef2f761.1
+Received: from L7bf24f2bee72.1
+	by 64aa7808-outbound-1.mta.getcheckrecipient.com id AEACD962-FDC1-4AC1-959F-BE2F337DC31A.1;
+	Tue, 31 Dec 2024 14:40:01 +0000
+Received: from EUR05-VI1-obe.outbound.protection.outlook.com
+    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id L7bf24f2bee72.1
     (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-    Tue, 31 Dec 2024 14:38:06 +0000
+    Tue, 31 Dec 2024 14:40:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nyI4al2J+FmsVpyKWTwmh60MG9FnxxNd91geXFKXy/cgI4jDrJVJjmadCBDfnSC4CGaIXtL0zOrXhUvRjlrf0+9JMieAjT3PNqj+6QsbMGbtAsiQOF0ejH/layqANQrSSOl715/5ykIzGeE9sBGSCG2bEtuOnmY0hKrNm4KGAeI9iQ1wZmcJnhmOI58NAq99Mtwa07r/O2hAe3LPYiHwSvovbGwPjfergNKZ/GTPOgql5sp0lkRR7/j4qSUTpOH/t6fcgKvmmHeFjXrj3I20B3HeYaUzK3anJVnzdC9jrk1KnLqBI3u6AgIl3fwzot8olS39ALSMvrl/mQm7JGy1Hw==
+ b=l5RjIeqkTTsbuVEgepb8sS3fwg42VXslDbX9l+aMDFMEtKUORde8d8noegpyN4TxvyQgzYCigKZQV4H49d3UsEJZaUXqTq0vzBmntdCDXZPa7O/ai+XZ4LwpfMuUg7j7bIT0eq1pjNgGUUZHsYYVApFqBYvj5A918WA9diAQO+8gfdvd9wPcEE+x1yQ/ughyY2R0EzYlOCJa0egp/REV54aglUlCQx38o7dmveubbfmrXA3EYkLDL57DLQV5CQj/h2Vxbj2/SJz2aLcIELbKGbIjkeSs7H4CHPVyIf6+4FdtG8XK5lXAVkqcuRBdI36YZZAeRM5oOt8Ky18dRgjyuQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ORCdTPwBjwWs6g5ugJyqxoJ+/mBzp4HVWjIHqATcpDQ=;
- b=GtPVL3b1K4FBfXk9NijjRcUD6JNWVUh384C0WQw4ucKbV4iIMzrsQRa/EtfBIrBytMjbdgHYDF/V2pE5tKnX2f3UnMQf6kEishwbiEFZgBecL5BP0DDmNWdtHxL0mzAEN1AUA0o5Gjj7ZrFfRlMPRJcVa7bCAHqsUDHSY8GKJoswI6qznxop6YVzJoKclp//kikkGDF/iNqhASjk2uQNQvuZIsas4biMyX1tXRavh/ntM3/XF3lyTGK4EYo5HVVJgT/qnsmXzVdkEQSDD6yiZEamjdd77uw7nOISnO5qXri93Zf4AlubKwBFybujV5Bgbwb+bUkJ70NowDwtnMkNKw==
+ bh=F9owk1GTOVHbcavCZzpfvsFGXnjvvIvFjxQQaht9r80=;
+ b=pikDOMMopw0Kt4DP1o9O7EwP2hrLuN+etNmMX0M8J7dHLvD8SQ3S4IxHs/BQBBI7KTY2ToP0DyeO3QxfXgC4I+TgZRcancRh+eGtBEgxrfnn6m0h4FUZzg7AaJ7T4LZYtYOYT99VCSWAo7JN9m5HmLDtbdKSs3Z8Uw5vXKRm/+/iuTQ/MlRe/k3bjizw/WzqLipERynG8o/3XkFV5T18sH3RaGM0mB7ZHBsxx00sAg6AqsvoQnseK7UvIyJGqknLA5MhoCLC6xFq082hSEqlFxiLwUHM+oXBfqUssa1ZQ6PIJjoPJHE/gW3J4ZUxz6bhcmDf1ZYxZ/HluoqxJ8Xotg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
  header.d=arm.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ORCdTPwBjwWs6g5ugJyqxoJ+/mBzp4HVWjIHqATcpDQ=;
- b=HNPRf1zdd0DE7VFTK9AFVBpBmzlgx/3l0qTFvefPc+b2kQwQujwagVVScFXyPa8yL09dUB1mHz+FThfofsM09ByqPkmjlu0H8a/txVXTi/zr1J4lm5WEx+7M8Z4iEyJQECO0d2IcZQDv7hk62CxlGZccui6tG7x07Bs5k+wlCsc=
+ bh=F9owk1GTOVHbcavCZzpfvsFGXnjvvIvFjxQQaht9r80=;
+ b=Td1mYKTPrZ262NZiZIxVNQxXI4o1aPwUeyO+xAVr2EuMMKLd5MMSiKN/yRrAsX9O0nzA4C/ZyJLP9U06t4rWQhTimm+z3QYuFwshuSu52v82zWx4ftyv8lEDpJ/evKPwIc9Wr4tqnYGd/hgTmyPrJgOd2CqdcfhkEJqgH5htdR0=
 Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS8PR08MB6552.eurprd08.prod.outlook.com
- (2603:10a6:20b:31c::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.20; Tue, 31 Dec
- 2024 14:38:00 +0000
+ (2603:10a6:150:163::20) by AM8PR08MB5714.eurprd08.prod.outlook.com
+ (2603:10a6:20b:1dd::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.11; Tue, 31 Dec
+ 2024 14:39:55 +0000
 Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
  ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
  ([fe80::d430:4ef9:b30b:c739%5]) with mapi id 15.20.8293.000; Tue, 31 Dec 2024
- 14:38:00 +0000
+ 14:39:55 +0000
 From: Yeo Reum Yun <YeoReum.Yun@arm.com>
 To: Suzuki Poulose <Suzuki.Poulose@arm.com>, "mike.leach@linaro.org"
 	<mike.leach@linaro.org>, "james.clark@linaro.org" <james.clark@linaro.org>,
@@ -107,16 +107,14 @@ To: Suzuki Poulose <Suzuki.Poulose@arm.com>, "mike.leach@linaro.org"
 CC: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
 	"linux-arm-kernel@lists.infradead.org"
 	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, nd <nd@arm.com>
-Subject: Re: [PATCH 1/1] coresight: prevent deactivate active config while
- enable the config
-Thread-Topic: [PATCH 1/1] coresight: prevent deactivate active config while
- enable the config
-Thread-Index: AQHbUSmiuaIWKMETf02zB1rXCXf0ALMAgM4a
-Date: Tue, 31 Dec 2024 14:37:59 +0000
-Message-ID: <GV1PR08MB1052128A5BBEC4E0A9090387FFB0A2@GV1PR08MB10521.eurprd08.prod.outlook.com>
-References: <20241218084833.609876-1-yeoreum.yun@arm.com>
-In-Reply-To: <20241218084833.609876-1-yeoreum.yun@arm.com>
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/4] small fix for configuaring etm csdev via sysfs
+Thread-Topic: [PATCH 0/4] small fix for configuaring etm csdev via sysfs
+Thread-Index: AQHbU8m6d/N7q+bVvUW17lC0asndWbMAfBag
+Date: Tue, 31 Dec 2024 14:39:55 +0000
+Message-ID: <GV1PR08MB10521628365D8506D95AEAF3DFB0A2@GV1PR08MB10521.eurprd08.prod.outlook.com>
+References: <20241221165934.1161856-1-yeoreum.yun@arm.com>
+In-Reply-To: <20241221165934.1161856-1-yeoreum.yun@arm.com>
 Accept-Language: en-GB, en-US
 Content-Language: en-GB
 X-MS-Has-Attach: 
@@ -124,94 +122,94 @@ X-MS-TNEF-Correlator:
 msip_labels: 
 Authentication-Results-Original: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: GV1PR08MB10521:EE_|AS8PR08MB6552:EE_|AM4PEPF00025F98:EE_|AS2PR08MB8829:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8248bbd-d8b2-4f31-1149-08dd29a8c29d
+x-ms-traffictypediagnostic: GV1PR08MB10521:EE_|AM8PR08MB5714:EE_|AM2PEPF0001C709:EE_|GV2PR08MB8194:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9350044f-7cf5-4bb6-3180-08dd29a9062d
 x-ld-processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr
 x-checkrecipientrouted: true
 nodisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007|38070700018;
-X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?ygVgDwdJoSCy5bHLCeWjQVGX850nWeNXD11F0o3gNtDNuVJNqY2wpf3mW8?=
- =?iso-8859-1?Q?Ruf/86EQcpZnYPFCf6xFERDaa/k1hY705E4zS7944nfjDTtlktTKZY5NYq?=
- =?iso-8859-1?Q?5Q90HwO1e2jom69k5n12CI/ClRyQRkDp2VubN5eP9ypcllDIMVfpY+Vl+a?=
- =?iso-8859-1?Q?00LYJDwK3Hb0ancRxaaCbknyt5wG1jt8zUFNKsg3Hj8I4JPlurMm/S9ZSS?=
- =?iso-8859-1?Q?wFGhcPTtKtfqS3fKyiv5+OWEkCfZcUR7ij2vyZhPEfKt/OT3xY/V/yYd5S?=
- =?iso-8859-1?Q?RnOr+3dotLaCAqw5k8OQis8TO5hznJFmhT/F5sEna2Fxi5nyoqPYrFMwfC?=
- =?iso-8859-1?Q?YgeZs2VWTj0L069IAqSqQEsK09vo0i+TBR+2q9ypRc+W0UC2+9S4EoBnvZ?=
- =?iso-8859-1?Q?OFXyjW0eZfSJ2b+cGen+0LTewmHxcjzFPBs2v+KMBm2KlJVZGM5KoI+no6?=
- =?iso-8859-1?Q?5ZlRzfmgaJGW5QoNmNRWu5iHP0yMy0pZLmw+NhDBQ//2gl0j0crdnoDoaZ?=
- =?iso-8859-1?Q?eWh7TvQFMJgk8gFy4DzYknlGuObngrNQKuVHmUY4xfqkAxKOFNtabPAz4A?=
- =?iso-8859-1?Q?aKo1mbBEXXagFyzczXRSwOEJISWSh2tKGKJmTTYbsnXuzIxxhuaAre+LoT?=
- =?iso-8859-1?Q?/kafgzx6lu0WbUNXWekJhWzumi7R4Y/+T34sdPgMU3GU7+7jV7D+ayBSkV?=
- =?iso-8859-1?Q?KsDR1/Q1gleyf7phAbvK//w9nrPstp+GjF4psPAWftMahUcd3KIT1HvcMh?=
- =?iso-8859-1?Q?YGRkYg5x46jcGFRr5ZEXDxyK/tEM8NmWcSShhw9vh6mUHi7QI7EQbmdUAV?=
- =?iso-8859-1?Q?/kIEQIc+wzv/uO6+GJ7U+4tp5i+fRtw+P8PUikSsA/uN838//4O2ULZgcI?=
- =?iso-8859-1?Q?WWOI2JWCCOsOcE7N1amu4DNfbxRHbVykqR4l2TLr8Xu+JkqrzYkTvoB+2q?=
- =?iso-8859-1?Q?Z8QMCqNGx2yh8ziP9L7rQ33asiG9FCZXg7qXbN484QG1EHqhwmuO7XP+5K?=
- =?iso-8859-1?Q?BmqVNE3oh6r2D6E5hx/LCskJN2V+Tct+vdQ9LUsyYiToToloLaYJthlj6S?=
- =?iso-8859-1?Q?BEtTt9CEfLbk/5EfEGSbNjmJtvzSmW8dSojcO6Stu1u3kQX52sGECrC6e8?=
- =?iso-8859-1?Q?TX86HYdIlKF7JTe7Dlhh8cIcazYFkAuZutdyFbfXVYjOKFgABu238rTtuv?=
- =?iso-8859-1?Q?9Cub4ih5cm7RR9ntjk6i9dC0l4cpfpqEcZZ7VBQUCHU2bzm68O43BEkUQt?=
- =?iso-8859-1?Q?ADfapK3g37kIg7VSAvDmk7z6r2NZyunlmZiR2C8cEZNdMTJNnQtUyCYi1q?=
- =?iso-8859-1?Q?qHf+m9X47knEwRfRp62LD+A+4oSMU++e3wZYW937UMIS8Ziccq+cr7ERsU?=
- =?iso-8859-1?Q?LxAaHe8IBxMcrXgmL4+XK6lMU+wzb8zYL1V2pRmOhtJCLYCHvnqgkxAEJZ?=
- =?iso-8859-1?Q?jM4jpMLY0MntansXvo55bFNzdc3hFNHatQkv/47Jmfxm1+iLcpALOHgJdn?=
- =?iso-8859-1?Q?8fZKyXijzenDeU33nBzjzb?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007|38070700018;
+X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?9LuXGQu5w9vqg6ufcs/21c9X7ocIozgrCbz4swhJbXAVTD0hwtAfZPIC/8?=
+ =?iso-8859-1?Q?Jw6mFHFT6c5zZRO8O/lreIzfvw+IlehXwiC4SzAgmMPES+3h6HmiOXOVtG?=
+ =?iso-8859-1?Q?ckk5sniq3CSH2VkXLeBGAu4Zam3JR+r/NtGDoyKbYAA7bJZQI08tudxnxj?=
+ =?iso-8859-1?Q?ArIN64WtVSm1YHMROFIt3CUhQ7Y6LJA1MSy67y9e9TnvsE14Lr3Asge2e0?=
+ =?iso-8859-1?Q?sYj45/MvkrfOdiZsh5L/fzqDTe9TG5M0UWvyDLMWAkQjLJW2TgkNaT3MDz?=
+ =?iso-8859-1?Q?2I3FDR9U06+Rkeri/we36duLmAwKnIwicofybHg9xjhpupRZTdMeNjNHNV?=
+ =?iso-8859-1?Q?ncFpWjXUgt1tDLuvNygKsdDkSusm9L6GhyeAak9fSMDBibIEa83hYA9bRl?=
+ =?iso-8859-1?Q?IFnojAskRY/ymdf/f9+6o+LsSMvb+s6zPW7IIkYz2QOPDXGqJ05SfwNYYk?=
+ =?iso-8859-1?Q?Q8vPKbDLyphZsLskK8E6VqCT9FzDTUdh4sVNJfblmMu2PPcM9RI0FGL5PY?=
+ =?iso-8859-1?Q?lmlo8oV8qHysvlPgyAF+BZ8YaBWM2IuCfdjSpkVWXLYXDz5RPt0pDKVvav?=
+ =?iso-8859-1?Q?oaHgQZ1/vLi39z2X2CC2CjAy6RxG6LZHzlhXsxqt2LKwJmHOhFMGfXPj9L?=
+ =?iso-8859-1?Q?twB7w3wyrqIqQvNLpOlo44j2CgYiWyMr8NjR7EuRcpFzdELQBRgPhKATwc?=
+ =?iso-8859-1?Q?0zictpvRv+opn/8ncrAftMS45/Fr6dLyMFDhrfguYzl022Is24zCpkVgHJ?=
+ =?iso-8859-1?Q?fJAF/eDXX0RaFL+bb6cldQbd6cKYmL8AjRqC9JWZ5X8iQgf8ETvKQYBbXg?=
+ =?iso-8859-1?Q?7sYtsb2hdS6DZbcHWIrHSm5rpw1Sol5iPqtj+Mm9QGSNk8DWlrZ5q7xor7?=
+ =?iso-8859-1?Q?GA6mUtIKhg49TbQ4wBYsTben3ZH2442PNPvNfpIB8DhENI6w8tJybGJO1g?=
+ =?iso-8859-1?Q?yZKRnj3QxnsU/OnS5JpbRgeEjgfWyNbFKAqB3pNKPKt9EfhGEdnXm2RlxP?=
+ =?iso-8859-1?Q?7l+FvYQso8HkRzxM+m1u2YfIYxfvWkS2OD66Hi09/euQbeG32A6Y+pSOAj?=
+ =?iso-8859-1?Q?cQ8kfD39RCeS1TqRRhMqbXL/nsVPSwgOZQSQBDiumGctPq3JkdGknpTpbN?=
+ =?iso-8859-1?Q?b/4hXoc2RdWfmwrcP+YT1c+Ythfoq1D7DF2xil27cfE60atzOQNyDdpZTz?=
+ =?iso-8859-1?Q?0F7DkZ59hsfEknup1UINoZyB+Nfp9rzRj4HhwSxBUWFMFxYB4puNyZNeFa?=
+ =?iso-8859-1?Q?IK4c4jlt8E1qWzDEBVRV0tR53aJ70qJXXOoDLWr9Xm8SnMGpSQS5aenWpR?=
+ =?iso-8859-1?Q?Fh0ghyRbQTN0TuPOHls9aGEeFx7VVX6nvM4tVi/+eb3QbHrrmtRx5KZHYb?=
+ =?iso-8859-1?Q?SCjljPqeN04YuHnPe9VIIdGNfEf4mARJlFjVI//DFCx3GSwmU5DsaaQ98j?=
+ =?iso-8859-1?Q?KPii2HfYxOcr0FrLP0IN193/MbfiRJB6+81DyCeGAMcHsjFvLxb3SOashb?=
+ =?iso-8859-1?Q?S4mcWng8Paqw950h16h/Tu?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007)(38070700018);DIR:OUT;SFP:1101;
 Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6552
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB5714
 Original-Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=arm.com;
 X-EOPAttributedMessage: 0
 X-MS-Exchange-SkipListedInternetSender: ip=[2603:10a6:150:163::20];domain=GV1PR08MB10521.eurprd08.prod.outlook.com
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F98.EURPRD83.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C709.eurprd05.prod.outlook.com
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 8f5b6521-c938-481b-312e-08dd29a8b97c
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|14060799003|36860700013|35042699022|82310400026|7053199007;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?8E2S3F3JM4071XT1t3GYvGbhpmB70C5chY+tVC3HHCJ5hKeQcmYeO2OhKC?=
- =?iso-8859-1?Q?KrqxmD25cz1j+WhyPRMJE/P3lk7bNzV3tKYyz21Ahxw2+WRrowd/ayb4A/?=
- =?iso-8859-1?Q?OPQEYbXgbOb3UKVJKqhEa4JT7q1dtxgO1jb5Xk8utt+R/TVTpqNBfOxEqM?=
- =?iso-8859-1?Q?Iuz7YPuqqNlbhQo8rQiSDxOtMdh0lk2yP4I5SzKuowzET8odaqRp7VcRb9?=
- =?iso-8859-1?Q?isWKeFuXamesqoRoy7BTDW380OHGwhXeHSyAhUytBsOqaW5tOfm8P1yZDP?=
- =?iso-8859-1?Q?PJz5s5LoJKFBYpikeZ2ibJFsbtAikJ0cWgK3scdMCZHo4QHuuQBJTp1TpT?=
- =?iso-8859-1?Q?Ko7lzVIMu2iOMpDQVMIeGf3MsEhLJ0uhj53HkEt2laZZhb6OEEErVeE+is?=
- =?iso-8859-1?Q?UTRIqhBh8UoPA69VzrR6C9855o+4QGzZpkfF6Lo6bCJq/jAsb1wMJHDZ+5?=
- =?iso-8859-1?Q?h3WbcVgZxWz47Q3czxlZMFUEcWHC/3XWqhIS02+gEPMACtQFLtMdDnUV5f?=
- =?iso-8859-1?Q?RP0Z80C/uQXsnjgvZPjAlyTgELMaG87+woX7MTjG3HhyDDLRj6U9fvzwUH?=
- =?iso-8859-1?Q?tjDc6yspbNbaInlDPSuP5AGEKBTLzEsoFUEqa06RnMjyEMBYLU8WsJn9Ae?=
- =?iso-8859-1?Q?jIQcQ6mv53mh+9hYifK1vsNSvtInSZVusHlkzQWMFaRSgBSu/C/Tcp2/ts?=
- =?iso-8859-1?Q?q4RfgXg0KOxbpJqm5bMqzLDeWFg1EIObCq5HRXrIysVflhEJcqKQ0ow0B+?=
- =?iso-8859-1?Q?QlPvMLoL0SjxAIH4WXInKPemjH1k+3uJPg6VsxMboC9+YLiqAcpOImFHWI?=
- =?iso-8859-1?Q?GKyvYIna6UJopQoD1kJ9WH5vzMRvR+iXPu11lXfuSb7lYWJQH8YfhAm5ht?=
- =?iso-8859-1?Q?ljE9iYT3IUeOiW3ZtHTHEtHJBA7ifF/jVmHh0Fw1YPfIf74TXwv2Ht2VIK?=
- =?iso-8859-1?Q?kqcCeDix4CMjVWx3iDdYtNaIfdox11ed+s1revS7QzBLGN00BJ2l7S9k7U?=
- =?iso-8859-1?Q?u4ODMN8oozVNqq+5RI7zFDGKUf1EXFyPVaG/eC4TD0txfvptOMRoc3ADtF?=
- =?iso-8859-1?Q?opgD+lL9LRhbzFvU0YQ+clCOBHFYfh2taypkoOgHofSzWoEqBg66wXeifT?=
- =?iso-8859-1?Q?7HLXlbrHVHvXsPqKj2ti4P4+tF853Aulw4yOl/ADA9IOjjd9dlDfqQXGD8?=
- =?iso-8859-1?Q?9GjEyvIv0IFnVCI+t5c5uk5HOyDu6OVmzcIKX/oPm1VqVPG2LLYntBMiWl?=
- =?iso-8859-1?Q?XQYpNhPPgbCnRoscFzQWh461ZQKTBTq1LcxoCWuTbuJLo/WCLZ7+zKzJiP?=
- =?iso-8859-1?Q?BuUrug1LNty6tptAyViSEy7JywGkm21cfczqEaX7MEx3GiBrhYJmDwTqF7?=
- =?iso-8859-1?Q?hj5uZzdkNQhEYBSRz+5Dai3YCkX+t9A3mYsUl6/C7p2Q20Ia3xjQjyrSuq?=
- =?iso-8859-1?Q?X/oSgWFdKjM5DRSWKj/ajdLZdlI34+Nkzvp1s9TgAsQUxwyxe9IBbEwRxA?=
- =?iso-8859-1?Q?gAOfO7+D7bHP4sFSuTgD9Up+/uBxdWb8vbAeOdnauSP4Z/OVNpxlBJ7/ik?=
- =?iso-8859-1?Q?YSfl7X8=3D?=
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:64aa7808-outbound-1.mta.getcheckrecipient.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(14060799003)(36860700013)(35042699022)(82310400026)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 411fe5e6-121e-4125-4ec3-08dd29a8fe1e
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|14060799003|1800799024|36860700013|82310400026|35042699022|7053199007;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?vEWlkI7XHezHN9lyxsue7npDmZoUZvK8Ynz749mQwnt1LR6f1XS9fL4VPn?=
+ =?iso-8859-1?Q?lFvw8FY2uaLcroOdwq4EhEp+MxUsPE+HGYs/vQY9Lbprclw30YIlTImNZA?=
+ =?iso-8859-1?Q?p3ubQLiwCZOOKLNVB5pEiIcjeiXKa7dgztcNqTF+rWFvQXvd8jaRFIXyhp?=
+ =?iso-8859-1?Q?EbjzGx6QIPSmfOp/r0fEksUxIGTzuWt27aNgAEDuz9PvqadBj+T0Cd1FYq?=
+ =?iso-8859-1?Q?kVuHqbda14C54uAVnvknNVj+2rV3ruIf1R7rtYr5sQSJAZ+hr94cVCdLSX?=
+ =?iso-8859-1?Q?JjAXpLdpgDISqXtyFZxExnFf6Xcs4jqjCkfEBY/ykwW/XUn9N35vPJU+K3?=
+ =?iso-8859-1?Q?vyDraPkBK3H3LjSDK7EuUDk8RbYATgVDd6YjxdmTORCRPSNfxK+Ak/kFET?=
+ =?iso-8859-1?Q?Bak+/kqLhBflXC3OfS12Fa5pxZwoYJ+lAs25/DGBvEgbJanPd2v4ERw9Bm?=
+ =?iso-8859-1?Q?q5etEL4jppQkDwLuJKwYukn8hBRcBVuNnYS4prhxuy//lk+7x2PRMQmog0?=
+ =?iso-8859-1?Q?zGp6zPdDJpl9fvqjckK/hkOCcQOlU3WU9qdF2B2Qbgq77CyZ/9XhWThJQk?=
+ =?iso-8859-1?Q?5xE8zKN+WWqGkWwqMeqo2sq3wcTqp9XKgMSlAT8XB3K9jKUXSLNsKU0WO5?=
+ =?iso-8859-1?Q?EHXhyIzslV/t+EzjA+w3PLkFxa5MJriQYOmuDdXTBd5Rwxjh84ogptBhYQ?=
+ =?iso-8859-1?Q?jb5wcZXfZ+A/X5NKeHL7q+sD5xX0aKW9ALtlnKwBmALV7j3lyV36G6Ae4L?=
+ =?iso-8859-1?Q?TuPslyGG0Th3nYFt+wNzjC+vZggrHtfer7fcArHxB0ipdfSK85t37ex+SE?=
+ =?iso-8859-1?Q?bFQvQ6tqaMuf8/qENbyJl79M8MlH2fckzzGS1irVTWYnQGME3WLoJKlbDR?=
+ =?iso-8859-1?Q?hO91fGx+/QtvFKOPU11/Ub1Y0Z++sNMY9aXTPZ3lWSzzO05BEBuZ5iJs4c?=
+ =?iso-8859-1?Q?tjryOJeUnGJ4creU3TyKqMdg/iwTxA1Au6iNOntuSaJJaZMHsnZzkdqyDk?=
+ =?iso-8859-1?Q?zphXqHMzUnjSK2nR7Ern6Yn4reLfB2QHzQLvE18WLRInmt6AudRz+mYjlG?=
+ =?iso-8859-1?Q?OFiqHPyDi60/ExrNN6TvWBCWz5VhtCYErMhYe8E1d2H1SIP1woJrakitLO?=
+ =?iso-8859-1?Q?bC1Lt7kRzvQVJ1k+WXEMon51l+1xNTb5vBpKVUFHp2oFcrVr8aaHcSEgg8?=
+ =?iso-8859-1?Q?EE2u0EoOCbM8So482uPElBZ36sC4hPUw24RTTEyAkoTj2iUmnxpOFflhRz?=
+ =?iso-8859-1?Q?/4YvPjiw9PxvCsAlVEESFJrn7NmTYs9YKR/C0ail/SrGiw8bfOjDKVGA9F?=
+ =?iso-8859-1?Q?A7+F4KV6NdpklcuItFGdZSzmNfpTFt+1IMSqpHV8Jv81CgEhGP2zHtWP5q?=
+ =?iso-8859-1?Q?HSVLIOBiLBTL9UhbHNh0L8iCTUXqHozMvyjliugm2LGUC+rP9VM4LxhXdV?=
+ =?iso-8859-1?Q?MIJPGtey4gEQABgtiiwM2Hwx9U6Gpsx6hFAUm245tzgpjR/3gPvuL/0Bw1?=
+ =?iso-8859-1?Q?dIEjjIgcB/7rGRO66dtiHmbVpG45f1wqMc8HB6JwDoRRL10CZPzq7d5TSp?=
+ =?iso-8859-1?Q?eCc89RR8SUxbK20sa4oGM/nTyjO2?=
+X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:64aa7808-outbound-1.mta.getcheckrecipient.com;CAT:NONE;SFS:(13230040)(376014)(14060799003)(1800799024)(36860700013)(82310400026)(35042699022)(7053199007);DIR:OUT;SFP:1101;
 X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Dec 2024 14:38:15.2171
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Dec 2024 14:40:08.5690
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8248bbd-d8b2-4f31-1149-08dd29a8c29d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9350044f-7cf5-4bb6-3180-08dd29a9062d
 X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F98.EURPRD83.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C709.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8829
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_063829_496206_3DC79EF4 
-X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-CacheID: sfid-20241231_064021_219032_9D5330D3 
+X-CRM114-Status: UNSURE (   7.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -231,159 +229,39 @@ Gentle ping in case of forgotten.=0A=
 =0A=
 ________________________________________=0A=
 From: Yeoreum Yun <yeoreum.yun@arm.com>=0A=
-Sent: 18 December 2024 08:48=0A=
+Sent: 21 December 2024 16:59=0A=
 To: Suzuki Poulose; mike.leach@linaro.org; james.clark@linaro.org; alexande=
 r.shishkin@linux.intel.com=0A=
 Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org; linux=
--kernel@vger.kernel.org; nd; Yeo Reum Yun=0A=
-Subject: [PATCH 1/1] coresight: prevent deactivate active config while enab=
-le the config=0A=
+-kernel@vger.kernel.org; Yeo Reum Yun=0A=
+Subject: [PATCH 0/4] small fix for configuaring etm csdev via sysfs=0A=
 =0A=
-While enable active config via cscfg_csdev_enable_active_config(),=0A=
-active config could be deactivated via configfs' sysfs interface.=0A=
-This could make UAF issue in below scenario:=0A=
+when etm csdev's configuration is modified via sysfs while etm is being=0A=
+enabled via perf, enabled etm could run with different configuration=0A=
+from perf_event.=0A=
 =0A=
-CPU0                                          CPU1=0A=
-(perf or sysfs enable)                        load module=0A=
-                                              cscfg_load_config_sets()=0A=
-                                              activate config. // sysfs=0A=
-                                              (sys_active_cnt =3D=3D 1)=0A=
-...=0A=
-cscfg_csdev_enable_active_config()=0A=
-  lock(csdev->cscfg_csdev_lock)=0A=
-  // here load config activate by CPU1=0A=
-  unlock(csdev->cscfg_csdev_lock)=0A=
+Also, there are some redeundant usage of drvdata->spinlock in=0A=
+etm_starting/dying_cpu() with enable/disable etm device.=0A=
 =0A=
-                                              deactivate config // sysfs=0A=
-                                              (sys_activec_cnt =3D=3D 0)=0A=
-                                              cscfg_unload_config_sets()=0A=
-                                              unload module=0A=
+This patchset fixes above small problems.=0A=
 =0A=
-  // access to config_desc which freed=0A=
-  // while unloading module.=0A=
-  cfs_csdev_enable_config=0A=
+NOTE:=0A=
+   This patchset based on:=0A=
+     - https://lore.kernel.org/linux-arm-kernel/20241220104521.809071-1-yeo=
+reum.yun@arm.com/=0A=
 =0A=
-To address this, introduce sys_enable_cnt in cscfg_mgr to prevent=0A=
-deactivate while there is enabled configuration.=0A=
+Yeoreum Yun (4):=0A=
+  coresight/etm4x: disallow altering config via sysfs while enabled=0A=
+  coresight/etm4x: remove redundant usage of drvdata->spinlock=0A=
+  coresight/etm3x: disallow altering config via sysfs while enabled=0A=
+  coresight/etm3x: remove redundant usage of drvdata->spinlock=0A=
 =0A=
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>=0A=
----=0A=
- .../hwtracing/coresight/coresight-etm4x-core.c |  3 +++=0A=
- drivers/hwtracing/coresight/coresight-syscfg.c | 18 ++++++++++++++++--=0A=
- drivers/hwtracing/coresight/coresight-syscfg.h |  2 ++=0A=
- 3 files changed, 21 insertions(+), 2 deletions(-)=0A=
+ .../coresight/coresight-etm3x-core.c          |  33 ++---=0A=
+ .../coresight/coresight-etm3x-sysfs.c         | 120 ++++++++++++++++=0A=
+ .../coresight/coresight-etm4x-core.c          |  20 +--=0A=
+ .../coresight/coresight-etm4x-sysfs.c         | 132 +++++++++++++++++-=0A=
+ 4 files changed, 272 insertions(+), 33 deletions(-)=0A=
 =0A=
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/h=
-wtracing/coresight/coresight-etm4x-core.c=0A=
-index 86893115df17..6218ef40acbc 100644=0A=
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c=0A=
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c=0A=
-@@ -986,6 +986,9 @@ static void etm4_disable_sysfs(struct coresight_device =
-*csdev)=0A=
-        smp_call_function_single(drvdata->cpu, etm4_disable_hw, drvdata, 1)=
-;=0A=
-=0A=
-        raw_spin_unlock(&drvdata->spinlock);=0A=
-+=0A=
-+       cscfg_csdev_disable_active_config(csdev);=0A=
-+=0A=
-        cpus_read_unlock();=0A=
-=0A=
-        /*=0A=
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtra=
-cing/coresight/coresight-syscfg.c=0A=
-index a70c1454b410..dfa7dcbaf25d 100644=0A=
---- a/drivers/hwtracing/coresight/coresight-syscfg.c=0A=
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c=0A=
-@@ -953,7 +953,8 @@ int cscfg_config_sysfs_activate(struct cscfg_config_des=
-c *config_desc, bool acti=0A=
-                        cscfg_mgr->sysfs_active_config =3D cfg_hash;=0A=
-        } else {=0A=
-                /* disable if matching current value */=0A=
--               if (cscfg_mgr->sysfs_active_config =3D=3D cfg_hash) {=0A=
-+               if (cscfg_mgr->sysfs_active_config =3D=3D cfg_hash &&=0A=
-+                   !atomic_read(&cscfg_mgr->sys_enable_cnt)) {=0A=
-                        _cscfg_deactivate_config(cfg_hash);=0A=
-                        cscfg_mgr->sysfs_active_config =3D 0;=0A=
-                } else=0A=
-@@ -1055,6 +1056,12 @@ int cscfg_csdev_enable_active_config(struct coresigh=
-t_device *csdev,=0A=
-        if (!atomic_read(&cscfg_mgr->sys_active_cnt))=0A=
-                return 0;=0A=
-=0A=
-+       /*=0A=
-+        * increment sys_enable_cnt first to prevent deactivate the config=
-=0A=
-+        * while enable active config.=0A=
-+        */=0A=
-+       atomic_inc(&cscfg_mgr->sys_enable_cnt);=0A=
-+=0A=
-        /*=0A=
-         * Look for matching configuration - set the active configuration=
-=0A=
-         * context if found.=0A=
-@@ -1098,6 +1105,10 @@ int cscfg_csdev_enable_active_config(struct coresigh=
-t_device *csdev,=0A=
-                        raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock=
-, flags);=0A=
-                }=0A=
-        }=0A=
-+=0A=
-+       if (!config_csdev_active || err)=0A=
-+               atomic_dec(&cscfg_mgr->sys_enable_cnt);=0A=
-+=0A=
-        return err;=0A=
- }=0A=
- EXPORT_SYMBOL_GPL(cscfg_csdev_enable_active_config);=0A=
-@@ -1129,8 +1140,10 @@ void cscfg_csdev_disable_active_config(struct coresi=
-ght_device *csdev)=0A=
-        if (config_csdev) {=0A=
-                if (!config_csdev->enabled)=0A=
-                        config_csdev =3D NULL;=0A=
--               else=0A=
-+               else {=0A=
-                        config_csdev->enabled =3D false;=0A=
-+                       atomic_dec(&cscfg_mgr->sys_enable_cnt);=0A=
-+               }=0A=
-        }=0A=
-        csdev->active_cscfg_ctxt =3D NULL;=0A=
-        raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);=0A=
-@@ -1179,6 +1192,7 @@ static int cscfg_create_device(void)=0A=
-        INIT_LIST_HEAD(&cscfg_mgr->config_desc_list);=0A=
-        INIT_LIST_HEAD(&cscfg_mgr->load_order_list);=0A=
-        atomic_set(&cscfg_mgr->sys_active_cnt, 0);=0A=
-+       atomic_set(&cscfg_mgr->sys_enable_cnt, 0);=0A=
-        cscfg_mgr->load_state =3D CSCFG_NONE;=0A=
-=0A=
-        /* setup the device */=0A=
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.h b/drivers/hwtra=
-cing/coresight/coresight-syscfg.h=0A=
-index 66e2db890d82..2fc397919985 100644=0A=
---- a/drivers/hwtracing/coresight/coresight-syscfg.h=0A=
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.h=0A=
-@@ -38,6 +38,7 @@ enum cscfg_load_ops {=0A=
-  * @config_desc_list:  List of system configuration descriptors to load in=
-to registered devices.=0A=
-  * @load_order_list:    Ordered list of owners for dynamically loaded conf=
-igurations.=0A=
-  * @sys_active_cnt:    Total number of active config descriptor references=
-.=0A=
-+ * @sys_enable_cnt:    Total number of enable of active config descriptor =
-references.=0A=
-  * @cfgfs_subsys:      configfs subsystem used to manage configurations.=
-=0A=
-  * @sysfs_active_config:Active config hash used if CoreSight controlled fr=
-om sysfs.=0A=
-  * @sysfs_active_preset:Active preset index used if CoreSight controlled f=
-rom sysfs.=0A=
-@@ -50,6 +51,7 @@ struct cscfg_manager {=0A=
-        struct list_head config_desc_list;=0A=
-        struct list_head load_order_list;=0A=
-        atomic_t sys_active_cnt;=0A=
-+       atomic_t sys_enable_cnt;=0A=
-        struct configfs_subsystem cfgfs_subsys;=0A=
-        u32 sysfs_active_config;=0A=
-        int sysfs_active_preset;=0A=
 --=0A=
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}=0A=
 =0A=
