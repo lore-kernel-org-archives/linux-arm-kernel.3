@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 808B6E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 13:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A56AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 13:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Cegx4jkWYm3KNBPZL9uCiDiWoGmBVTmnbwZR3twevM=; b=s1V7LjIDrWRQ6JOgf1TNupehNv
-	fZjv1Or0BcPpQPc5swxPIGfMvM1JAigqdmVw8LxlcmZiYGL56uU21d3960GN4oJBb9qItDv9h6pum
-	UI3ohqyx03t5qbVMUsg/ogVd50OInFakIYbHSuxGpTmC/eV3nYWkPC/MVjb2eAHmDzI5bVeldopB7
-	iB/mJQ1CzF/ipeZk6Xq1xf1TWgdkZtNtXeY1v8TyoGVzDzsXhiMninYQyRCQkdaQ+h9IDClKd3bP8
-	dO//P43mHil7eJDv7KGHMaJ67M+zOWKXtcCrwIiYCPACr8hqOm6HNtJvG8NmWoSdnShfXpCHUhYa1
-	9SnXCzMA==;
+	bh=QiIndNH9dEzlzGL7CyrOUWiq2FGP174uSAo7Crt9eYw=; b=DmZIzTkArb6jAs1Qw73PNLMzaj
+	iWTDN7V0A3HpVehYzCFmxtolDDe7KcCNBFZd+WCKRBy6XPQlqSHAXF9GpKGvMowlAuC1JGGRH2/zK
+	PPMBuHULfyvnP0jnZQaJTji7GxyJsuTneyn5HMER+1OIoSkwjQuV6mm+AtTeiVSo6osJLSflp33U3
+	7uA/zJJjE29tD0hbHlquF1ZkqUT/thz+ZlTCzghnh7QVusVZ+hYhorksCMnpJ6TNWYRg3q7IwWiBx
+	jcqscA3cNgJf4Hmm25M6loMm5t0wNV/2MkwnoChVK3MpAFF746M+A4Y9cbbAYIBns/4UOSg9rBkg2
+	0NPU3diQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tScBl-00000007FTV-3KiB;
-	Tue, 31 Dec 2024 13:21:37 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tScCx-00000007Fac-2aVY;
+	Tue, 31 Dec 2024 13:22:51 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSc8E-00000007Eqm-2QxB
+	id 1tSc8F-00000007Er3-2wMC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 13:17:59 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361f09be37so15116495e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 05:17:58 -0800 (PST)
+	Tue, 31 Dec 2024 13:18:01 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43620a5f81bso9653165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 05:17:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735651077; x=1736255877; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735651078; x=1736255878; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+Cegx4jkWYm3KNBPZL9uCiDiWoGmBVTmnbwZR3twevM=;
-        b=jkNwEOXTo99RzWJC8THLoJwgjYtEbmHenJNfHfuVNsz6cmhzW1C07/SixVq0+e2xL2
-         pIvu4QmnQHdVO/FOnVTHQrhiNC1e0/oONfto5e/ZAUrDHVrD4IVL6BvZVpgihMKkl4b1
-         2Wcw9giCit7i9OgVFqfAI74yXs3s0TofblL7SNvJHjDyWPN1bZJ+QVm4BgCUxwMy0TQQ
-         QRzEMhkp+zgvqoc45ITlJt8fST+Kec1Sug7iG0ygSQdXafUIZ7Nii82GkWP23zfBqNRz
-         Mnbffr5Y6CpE67LMeGMOfVCSllPDPe2HQsOZ9fBRLt+otDsep8oQjhUIHkMn1vhscHV8
-         o8+w==
+        bh=QiIndNH9dEzlzGL7CyrOUWiq2FGP174uSAo7Crt9eYw=;
+        b=QJ/E92kKdDEYPi0f7Qsfd1J/s+voJUz5ejOn8gV2DV0izXwR6fweuzXMVXYw4/uZeI
+         pqgMVFe0wEwdAMM9cE9wCxpKHhbB04Gmz7qhyi00KDs/nfvOVN9S8xOoDdD+9UTstn4W
+         r7pj6sxViyuXw/xTMwbEKmq0TeDenTwPkicCdAN/77pOF0D7/IAd1W8ANDGqnaCLiVXY
+         4wt/LW1S5VcDnEn7NekXdlHYxvoyFYFKCzAo1ydB4dwI4lFKVmDH+7Nu42G8qofSvRvy
+         58MfWtRa1o28GPd9wmTx1jFtZrVdt35EzMnZktQx9y3EzOazPddyMJf8IDKdGWJtNava
+         UhWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735651077; x=1736255877;
+        d=1e100.net; s=20230601; t=1735651078; x=1736255878;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+Cegx4jkWYm3KNBPZL9uCiDiWoGmBVTmnbwZR3twevM=;
-        b=kUN8jwrwSRzxn9eU4aXWoP8MNuFlO/vCjz5n9X9S261aN0AgMIpeM4qtEtAO6YuGFA
-         Efj59WGAeZMof6CBuvNPAJfA6W2l2Fh5X1qDXXAfFRG8uQY/XLusDqIDYGex75GfG5xx
-         gK5bjfV1bFmy8ZFINFp44Lc7Yu/Nf24UArbK7BwlojCdx63Emhb31aPEuLzmE6ovr9cX
-         4fagZNBkdDyua1IIfq9IVvSr7JFpC3lb3zTf3nUO5WOCPuPTuM0jBIMb0XHyeLlDaV8H
-         zBq/1yKyMqFvZ2tNhXdnDOvUbsoSMZYsUujCLbGN1t3EXAiqOVDhxc2jYoejyWWFAPah
-         MWCA==
-X-Forwarded-Encrypted: i=1; AJvYcCUEJy9ldgVy0DqsZDRwcuJ0Y//KYzgYF6tXPCYz/xEPYO8PziHqq7dmoz5/C9LesiOmLV5bYBgUrxCFXI9pEVMh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZFaZ5ufGRKU4k0gLjgShTO/7ITOH0p6MY3Zuk3Mklm8dzf2fh
-	RNcd3kJFomqGyUSc2qv98rT5xvJ3/VxHXGdWvwTrPLzM8FYHq/D4NNRKLO6KX9Y=
-X-Gm-Gg: ASbGncuu3GlkYer2sVsl5/8SWmAsTLY39PGQB+45p9Bbu/GeWcBRp+rAx0X7zNbFgak
-	RPTO7shrrKzs02IAGoTR/I3gc/+ewAPg7vN778rRoONyjY8io8dCbelE9LdKs1NNyCdwwWjjGiG
-	qJQOHUo2iZMDerhv0oiKrMRQCBbHMKxzCMnGKwN5vAEgsATeGSYChVVR/wA7gJKII8nTPRMqzP2
-	XkLQ8SaWXcrExEMJbLb6TlB5C9cY0yPLa5rGawlFa6TNr5D59EuSoC+cP0YxZ9rIVHYM14=
-X-Google-Smtp-Source: AGHT+IHw804talOfXWk2gKgWu9RUYC1DfOft+MhnzFGHwJeLypmOC4OiQ+wNsLYlowqo/W1PfUYEHA==
-X-Received: by 2002:a05:600c:1d1f:b0:436:17f4:9b3d with SMTP id 5b1f17b1804b1-43668b602c1mr129738655e9.4.1735651076746;
-        Tue, 31 Dec 2024 05:17:56 -0800 (PST)
+        bh=QiIndNH9dEzlzGL7CyrOUWiq2FGP174uSAo7Crt9eYw=;
+        b=fihS1/VjPkrf+gRQoCyKZofD6GH2uu4aUVt+e0gLKKVLZ70vIqHAGlmlJutZl+9gNC
+         +yzZwh2/RiLxPFfpgesCH4qAsd5YAmy/ckuy374qmjS7j2IXfxNlIcm0SOwrxhdiPgYY
+         KlmUrqLhgyljlhxNQ4ioekGRetV5twBD3M1dFD7msgJ75/RlyqW57NYy9w0M6NeQZ2/o
+         fgSvrqHzhosf/s0XPY+EUuKgDV+xh8IRCavngOOe7cqeQvBgOdCBry/bA/QTDqqrh8eJ
+         ams+HqdHxE/6E0hHMxq5Se8c3LF7yc0QMmIV4nK9OkKBeiyymWFlVjCh/pOcIz5oLXN8
+         rWqw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIg9Cv7PFeCLhl8Yu/+Kwdg3W3W3u+I6oRt/YsRFnRIiV2qIb54VOCQztYJ35aOqfXq5JuwRdp86wcUpz7ZHgV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTb6BMPfmKwIjCycIa3vtYqSbQRriCw4NEdscG/h4bmNP1RpQi
+	QdRkDp22PdAuf/I8PVWavVyj16wCWqDk+gdXBGKIybbSVOZJmfQSOjGFm80Bpfg=
+X-Gm-Gg: ASbGncsnWBk67JOyrSfNHAhh8aKlcBQZTK06NLsY+EBrHf0BtpjuxtIU5Za62izkSKr
+	rbbM5VsoxT3iw1O1VbVesSpJZsG//Aj5J6t8HU/AhiMeWZFv+uGzLtrC7aS3LRscL0DmNxfRAwR
+	cOygLVAPP30h47X/yPsu1i9rzGF2Ub52iUuqUnSwF2JLrus/GGPUCFlWsb8qO7mnneUEK07FQ+d
+	Un6kNxm9KMxpbLQmQY+kRsqNkcKX1genhwnAnTtDi+Ps4vySzzq5qQnTu273s3msq1vZGk=
+X-Google-Smtp-Source: AGHT+IFVEtvYE67HJ7VdU/l5KrgWkC3CkvWsWK1hbjrDA7cq4LCs/IzDCew94Z0tCX56MEGV7xGI9w==
+X-Received: by 2002:a05:600c:45c6:b0:434:fecf:cb2f with SMTP id 5b1f17b1804b1-43668b5e06bmr127243005e9.5.1735651078219;
+        Tue, 31 Dec 2024 05:17:58 -0800 (PST)
 Received: from krzk-bin.. ([178.197.223.165])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b441bbsm420068305e9.40.2024.12.31.05.17.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b441bbsm420068305e9.40.2024.12.31.05.17.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Dec 2024 05:17:56 -0800 (PST)
+        Tue, 31 Dec 2024 05:17:57 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Olof Johansson <olof@lixom.net>,
 	Arnd Bergmann <arnd@arndb.de>,
@@ -78,18 +78,18 @@ Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 3/4] ARM: dts: samsung: DTS for v6.14
-Date: Tue, 31 Dec 2024 14:17:40 +0100
-Message-ID: <20241231131742.134329-3-krzysztof.kozlowski@linaro.org>
+Subject: [GIT PULL 4/4] arm64: dts: samsung: DTS for v6.14
+Date: Tue, 31 Dec 2024 14:17:41 +0100
+Message-ID: <20241231131742.134329-4-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241231131742.134329-1-krzysztof.kozlowski@linaro.org>
 References: <20241231131742.134329-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_051758_704171_066C91CD 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241231_051759_746055_3154D926 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,23 +110,101 @@ The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt-6.14
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.14
 
-for you to fetch changes up to acd33b48ce663c7e293b11cd77df7ea702ca34f6:
+for you to fetch changes up to f424523b1b516b3f0984feeb1d8218e904d17a97:
 
-  ARM: dts: samsung: exynos4212-tab3: Drop interrupt from WM1811 codec (2024-12-29 11:05:46 +0100)
-
-----------------------------------------------------------------
-Samsung DTS ARM changes for v6.14
-
-Few fixes and improvements for sound on Galaxy Tab3 (Exynos4212).
+  arm64: dts: exynos8895: Add camera hsi2c nodes (2024-12-30 08:30:36 +0100)
 
 ----------------------------------------------------------------
-Artur Weber (3):
-      ARM: dts: samsung: exynos4212-tab3: Fix headset mic, add jack detection
-      ARM: dts: samsung: exynos4212-tab3: Add MCLK2 clock to WM1811 codec config
-      ARM: dts: samsung: exynos4212-tab3: Drop interrupt from WM1811 codec
+Samsung DTS ARM64 changes for v6.14
 
- arch/arm/boot/dts/samsung/exynos4212-tab3.dtsi | 31 ++++++++++++++++++++++----
- 1 file changed, 27 insertions(+), 4 deletions(-)
+1. Exynos8895: Add UART nodes, PMU (performance) for the M2 cluster and
+   I2C controllers in the camera block (HSI2C in CAM0-3).
+2. Exynos990: Add Power Management Unit (Samsung block), PMU
+   (performance) for M5 cluster and two clock controllers.
+3. ExynosAutov920: Add watchdog and DMA controllers.
+4. Google GS101: Minor fixes for phy and USB. Add USB Type-C.
+5. Exynos850-e850-96 board: Drop gap in memory layout.
+6. New SoC: Exynos9810.
+7. New boards, all mobile phones:
+    - Exynos9810:
+      Samsung Galaxy S9 (SM-G960F)
+    - Exynos990:
+      Samsung Galaxy S20 FE (SM-G780F)
+      Samsung Galaxy S20 5G  (SM-G980F)
+
+----------------------------------------------------------------
+André Draszik (5):
+      MAINTAINERS: add myself and Tudor as reviewers for Google Tensor SoC
+      arm64: dts: exynos: gs101: phy region for exynos5-usbdrd is larger
+      arm64: dts: exynos: gs101: allow stable USB phy Vbus detection
+      arm64: dts: exynos: gs101-oriole: enable Maxim max77759 TCPCi
+      arm64: dts: exynos: gs101-oriole: add pd-disable and typec-power-opmode
+
+Byoungtae Cho (1):
+      arm64: dts: exynosautov920: add watchdog DT node
+
+Denzeel Oliva (2):
+      dt-bindings: arm: samsung: Add compatible for Samsung Galaxy S20 FE (SM-G780F)
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S20 FE (r8s)
+
+Faraz Ata (1):
+      arm64: dts: exynosautov920: Add DMA nodes
+
+Igor Belwon (3):
+      arm64: dts: exynos990: Add pmu and syscon-reboot nodes
+      dt-bindings: clock: samsung: Add Exynos990 SoC CMU bindings
+      arm64: dts: exynos990: Add clock management unit nodes
+
+Ivaylo Ivanov (3):
+      arm64: dts: exynos8895: Add serial_0/1 nodes
+      arm64: dts: exynos8895: Add a PMU node for the second cluster
+      arm64: dts: exynos8895: Add camera hsi2c nodes
+
+Krzysztof Kozlowski (1):
+      Merge branch 'for-v6.14/dt-bindings-clk-samsung' into next/dt64
+
+Markuss Broks (2):
+      arm64: dts: exynos: Add Exynos9810 SoC support
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S9 (SM-G960F)
+
+Sam Protsenko (1):
+      arm64: dts: exynos850-e850-96: Specify reserved secure memory explicitly
+
+Umer Uddin (5):
+      dt-bindings: arm: samsung: samsung-boards: Add bindings for SM-G981B and SM-G980F board
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S20 Series boards (x1s-common)
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S20 5G (x1s)
+      arm64: dts: exynos: Add initial support for Samsung Galaxy S20 (x1slte)
+      arm64: dts: exynos990: Add a PMU node for the third cluster
+
+ .../bindings/arm/samsung/samsung-boards.yaml       |   3 +
+ .../bindings/clock/samsung,exynos990-clock.yaml    | 121 +++++
+ MAINTAINERS                                        |   3 +
+ arch/arm64/boot/dts/exynos/Makefile                |   4 +
+ arch/arm64/boot/dts/exynos/exynos850-e850-96.dts   |  15 +-
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi         |  82 +++-
+ arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi | 503 +++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos9810-starlte.dts  | 119 +++++
+ arch/arm64/boot/dts/exynos/exynos9810.dtsi         | 273 +++++++++++
+ arch/arm64/boot/dts/exynos/exynos990-r8s.dts       | 115 +++++
+ .../boot/dts/exynos/exynos990-x1s-common.dtsi      |  98 ++++
+ arch/arm64/boot/dts/exynos/exynos990-x1s.dts       |  28 ++
+ arch/arm64/boot/dts/exynos/exynos990-x1slte.dts    |  28 ++
+ arch/arm64/boot/dts/exynos/exynos990.dtsi          |  50 +-
+ arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |  83 ++++
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 104 +++++
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |   5 +-
+ include/dt-bindings/clock/samsung,exynos990.h      | 236 ++++++++++
+ 18 files changed, 1858 insertions(+), 12 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos9810-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos9810-starlte.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos9810.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos990-r8s.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1s.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos990-x1slte.dts
+ create mode 100644 include/dt-bindings/clock/samsung,exynos990.h
 
