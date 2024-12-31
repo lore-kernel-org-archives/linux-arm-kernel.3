@@ -4,113 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1302DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 06:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03670E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 06:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/u73Um15xmTGtKDdrsLX74+vHUKU4mr/x9iAVeor0mo=; b=i9e3S1hlcs9H8AkWFmxZIMHcvM
-	tjO3saZmjRuqYZy+GfULc/qCA3GJNFzB4vNJIjCx4kTJ7U0p+SVNBnWLAhzC3t5uEFlnh+rLXeyJ5
-	7CjJ9bVVJ/umPJcAx5e3/U+k6ZBcOrR8CCRehg502yNsV1R9NQbgkZwbWQDReg9vK3j4F4+eTOG2K
-	+lEBfhyAQJQrww6Hg9we2+j4qmE86j5ok0sfsWsNahFZwOGsIO6g1Whp0Oo15bgAZdaI2W4JGjHjy
-	JjASJK9OOCGYAY9eX7CQEd+g+FrrSVPvT7HxI7ODogJeHsGKp6R/RtTx1QV/vLsGXZGBZLt1Jg+rC
-	IYvNU4BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=QmEegIRzUN94auc1xTuuf1HhdMTYdSCFzKxkBFIAO38=; b=HIh9wbnb8Z2g6HY/JNTQQcBtJ/
+	Kqt7GTpSCVejhDK5VFnThA8l8CDzyYFyBYtFzm0qprTFo2YDbvdS11dOtQOdTQFhgMebzULEul7xp
+	9kqG1FIxundWEOfosETz5kRS9btzTOL13hVObwdbyAVFn5mqBvL/xF3ovkP9W7XhLle9ThgYkuT/F
+	ASEz4ze++3EyzUAJwcfxsqKQ0V6QrPd4Yca0q7ymtnNtBlGS9OQzgXf8yGGj7Y+/DhCMr3nxU0ATg
+	5HwIcFWIQX2cF/7URHVj2TuJ946QVD9j+uREWCO0yRQY+xGqOxBISjFi9e4Uz4utAIpqvKplYsaP6
+	w+lX014w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSW8P-00000006fRW-3UMX;
-	Tue, 31 Dec 2024 06:53:45 +0000
-Received: from omta38.uswest2.a.cloudfilter.net ([35.89.44.37])
+	id 1tSW9d-00000006fco-38rs;
+	Tue, 31 Dec 2024 06:55:01 +0000
+Received: from [203.254.224.25] (helo=mailout2.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSW7F-00000006fIE-00ld
+	id 1tSW8R-00000006fRV-3C2m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 06:52:34 +0000
-Received: from eig-obgw-6009a.ext.cloudfilter.net ([10.0.30.184])
-	by cmsmtp with ESMTPS
-	id SVGptZuUXoboFSW6xtgbTC; Tue, 31 Dec 2024 06:52:15 +0000
-Received: from md-in-79.webhostbox.net ([43.225.55.182])
-	by cmsmtp with ESMTPS
-	id SW6utmMolbs9MSW6vtc2Ab; Tue, 31 Dec 2024 06:52:14 +0000
-X-Authority-Analysis: v=2.4 cv=FY0xxo+6 c=1 sm=1 tr=0 ts=6773949e
- a=LfuyaZh/8e9VOkaVZk0aRw==:117 a=kofhyyBXuK/oEhdxNjf66Q==:17
- a=IkcTkHD0fZMA:10 a=RZcAm9yDv7YA:10 a=-pn6D5nKLtMA:10 a=VwQbUJbxAAAA:8
- a=vU9dKmh3AAAA:8 a=pbaDQQ2OCVbHVibE1FAA:9 a=QEXdDO2ut3YA:10
- a=rsP06fVo5MYu2ilr0aT5:22 a=ZCPYImcxYIQFgLOT52_G:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=linumiz.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:Cc:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/u73Um15xmTGtKDdrsLX74+vHUKU4mr/x9iAVeor0mo=; b=K3lPR81xDLiKvK3ySdyCvcwLbY
-	hPfzer/gndUsOPPobdlGPFwW425FqTxM1LbXmmEdd39ZH7tVpB1cDqKsS/BeFmvFPIy8bPJYO7cod
-	Ggj276JFjTL68ubplbMrlYhAkk9QSTy967BtN9XxMYA/8UNgqPT4/lHNlxwELxN1loiXcV9tzomCm
-	I2m544HjvFsPY7NqbcCHWyrdDscHmZSUFZ0BqZW274jujFlDaqhVb48sFlz3dV6hwmO3zhCMTX+uT
-	TEOAJ33uXMMAjYm3pd8wxCsjGfXsOgw6siJdRFdT2f2C7tB3xXRTk1++0jOX/M4181lxnJGD/CqCc
-	fkZFU3ww==;
-Received: from [122.165.245.213] (port=60114 helo=[192.168.1.5])
-	by md-in-79.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parthiban@linumiz.com>)
-	id 1tSW6h-003DJk-0W;
-	Tue, 31 Dec 2024 12:21:59 +0530
-Message-ID: <ed2ed7da-8c01-41c5-8215-d07892da3596@linumiz.com>
-Date: Tue, 31 Dec 2024 12:21:50 +0530
+	Tue, 31 Dec 2024 06:53:50 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20241231065343epoutp02a54c5e1ae7525869e32a7312cccdccd7~WMH3o1kMm2806228062epoutp020
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 31 Dec 2024 06:53:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20241231065343epoutp02a54c5e1ae7525869e32a7312cccdccd7~WMH3o1kMm2806228062epoutp020
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1735628023;
+	bh=QmEegIRzUN94auc1xTuuf1HhdMTYdSCFzKxkBFIAO38=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=T6MUoXY+022KQsNRLrLrQVL5bZZwYPpoxcfnssqplhEjKLQmBYc94FVaKv108o/td
+	 nLqpg9rNkFPwV/BgUTaKcGA/VWxEdDl0/cyEj7hCOGuFZzzcpBHxNH4jnddsxasxFi
+	 Sw4JHpmH6HvNTirFE10EjmG7ZNQ9uYMDF+CPwUfo=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20241231065343epcas5p2d7ee2f7d2d04ee1ea7412b2e712e1ca8~WMH3V395Z0763307633epcas5p2a;
+	Tue, 31 Dec 2024 06:53:43 +0000 (GMT)
+Received: from epsmges5p3new.samsung.com (unknown [182.195.38.175]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4YMkFx3TNhz4x9Q5; Tue, 31 Dec
+	2024 06:53:41 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	C2.51.19956.5F493776; Tue, 31 Dec 2024 15:53:41 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc~WL5s6LuDy3145231452epcas5p4S;
+	Tue, 31 Dec 2024 06:37:30 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20241231063730epsmtrp28d4dbc4b0ee97a8cb35e1a4a09d7b555~WL5s5J9rb0347203472epsmtrp2O;
+	Tue, 31 Dec 2024 06:37:30 +0000 (GMT)
+X-AuditID: b6c32a4b-fd1f170000004df4-c7-677394f565bd
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	6D.80.33707.92193776; Tue, 31 Dec 2024 15:37:29 +0900 (KST)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20241231063728epsmtip240598124c1c8ba626663101efdbad2fc~WL5rjpilp2312923129epsmtip2i;
+	Tue, 31 Dec 2024 06:37:28 +0000 (GMT)
+From: Devang Tailor <dev.tailor@samsung.com>
+To: alim.akhtar@samsung.com, dev.tailor@samsung.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: add cpu cache information to ExynosAuto-v920
+Date: Tue, 31 Dec 2024 12:13:50 +0530
+Message-Id: <20241231064350.523713-1-dev.tailor@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: parthiban@linumiz.com, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH RESEND 00/22] Add support for A100/A133 display
-To: Andre Przywara <andre.przywara@arm.com>
-References: <20241227-a133-display-support-v1-0-abad35b3579c@linumiz.com>
- <314b6bbe-613e-41a6-955e-50db6e11ef8e@linumiz.com>
- <20241230141150.3d0c3ae6@donnerap.manchester.arm.com>
-Content-Language: en-US
-From: Parthiban <parthiban@linumiz.com>
-Organization: Linumiz
-In-Reply-To: <20241230141150.3d0c3ae6@donnerap.manchester.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - md-in-79.webhostbox.net
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - linumiz.com
-X-BWhitelist: no
-X-Source-IP: 122.165.245.213
-X-Source-L: No
-X-Exim-ID: 1tSW6h-003DJk-0W
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.1.5]) [122.165.245.213]:60114
-X-Source-Auth: parthiban@linumiz.com
-X-Email-Count: 7
-X-Org: HG=dishared_whb_net_legacy;ORG=directi;
-X-Source-Cap: bGludW1jbWM7aG9zdGdhdG9yO21kLWluLTc5LndlYmhvc3Rib3gubmV0
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfOI6pwgvCz6YsL5T8IinCPOaA2NaPkpLQucNRWeehPyJ4wqWbGFpGTaTPvih2C6uG/bCsl9Ix9kXTzHtAnCmoz3hMhWClg5xyDvtvwizM0JSO1PHGhMu
- KnLyW5aPd1booIxrB6JW6PrGBYsnescYJg9jQS7nVeof6zVCHTYr8FvA1MwmuoW5EoiMWEtHjCEFGMWyubZETq51hDIrEonf2G61b5sS+qUpHi2DhmRlsSP2
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpnk+LIzCtJLcpLzFFi42LZdlhTU/frlOJ0g/enxS0ezNvGZrFm7zkm
+	i3s7lrFbzD9yjtXi5ax7bBabHl9jtbi8aw6bxYzz+5gs/u/Zwe7A6bFpVSebx+Yl9R59W1Yx
+	enzeJBfAEpVtk5GamJJapJCal5yfkpmXbqvkHRzvHG9qZmCoa2hpYa6kkJeYm2qr5OIToOuW
+	mQN0ipJCWWJOKVAoILG4WEnfzqYov7QkVSEjv7jEVim1ICWnwKRArzgxt7g0L10vL7XEytDA
+	wMgUqDAhO2PW88lsBbuVK86u2MDWwPhOqouRk0NCwETi8vOrrF2MXBxCArsZJfauf8MG4Xxi
+	lDh/ewoLnPPw/EcWmJa3374zg9hCAjsZJQ6uToUoes8ocXnjFUaQBJuAjsSzo7eZQGwRgXyJ
+	6yd2gU1iFmhnlDg15wY7SEJYwFNi2u51bCA2i4CqxNqzb8DivAI2Es8P32KH2CYvsf/gWWaI
+	uKDEyZlPwK5gBoo3b53NDDJUQuASu8T/vs9QDS4Sp16chbKFJV4d3wJlS0l8freXDcLOl/hy
+	aBczhJ0jsf7VDKgae4nVC84AQ4MDaIGmxPpd+hBhWYmpp9YxQezlk+j9/YQJIs4rsWMeiM0B
+	ZKtIvP9uCbPpxb09UCUeEosfz2SCBFasxOqWZcwTGOVnIflmFpJvZiEsXsDIvIpRMrWgODc9
+	tdi0wDgvtRwescn5uZsYwSlSy3sH46MHH/QOMTJxMB5ilOBgVhLhPZdUkC7Em5JYWZValB9f
+	VJqTWnyI0RQYxBOZpUST84FJOq8k3tDE0sDEzMzMxNLYzFBJnPd169wUIYH0xJLU7NTUgtQi
+	mD4mDk6pBqY5i87d/t2Q9tfDWl+3m4+/d+kT98/bzPmdbGbZe87Pua6a7yRx5Y61wUENd4GD
+	T5OYbkScCFzo9fTD83337U+tZzhS17KPYTpr55Fay4Jv6UcErlww2JcRI3K/JdivxHPx0oW/
+	vX6ImXf1vfWtKu7pFNskvX1pTFOoU0eBW9jJafoGa4LS7BWybu6Mvx4jMjdqt8HWT0WrdjeG
+	znmQGcy2aUqGX20837twq/9V2nGh7Yf0BM7NNv9XPWPr4YXz5r/3eV0XfC7J5m/Qof0Jd49O
+	1Am5w2fHGLom5/ua5d9VV1+KuTZhi/5diXnhG+52flB5vFnrYvgNwbnZ279vC/Ti/7vu86a7
+	9UETlsY9UpurxFKckWioxVxUnAgAOdJWixoEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrHLMWRmVeSWpSXmKPExsWy7bCSvK7WxOJ0g822Fg/mbWOzWLP3HJPF
+	vR3L2C3mHznHavFy1j02i02Pr7FaXN41h81ixvl9TBb/9+xgd+D02LSqk81j85J6j74tqxg9
+	Pm+SC2CJ4rJJSc3JLEst0rdL4MqY9XwyW8Fu5YqzKzawNTC+k+pi5OSQEDCRePvtO3MXIxeH
+	kMB2Ron7xzuYIBJSEh0tG6BsYYmV/56zQxS9ZZTYs/8jM0iCTUBH4tnR20BFHBwiAqUS5x8m
+	gtQwC3QzSkzv2sMGUiMs4Ckxbfc6MJtFQFVi7dk37CA2r4CNxPPDt9ghFshL7D94lhkiLihx
+	cuYTFhCbGSjevHU28wRGvllIUrOQpBYwMq1iFE0tKM5Nz00uMNQrTswtLs1L10vOz93ECA5S
+	raAdjMvW/9U7xMjEwXiIUYKDWUmE91xSQboQb0piZVVqUX58UWlOavEhRmkOFiVxXuWczhQh
+	gfTEktTs1NSC1CKYLBMHp1QDEy+j+RIPbudbdY5rvKUOS6802ftfp3XL2TfOq3m+7/5gy7vd
+	UePAbnmj5hX3jxme0+KI/PT00g6/7e2Hu4OYpQrl9j9NSZ39gOd/S/TS7XvscmM29ual9CRy
+	7tPj2it85+FcriNdnQt+HjTwr1z8Rjz8l8PtKxJcAgUXTyowpPWEHhPoP3332pIdGrXWy65f
+	Djp5+eHlTLvgz1+Nkq8IZ/Q/mr01oPN2ota/jUv3fDK+I7Ml7Oehr+oC4mUzYza/XR00ef32
+	aPMbU031trXJvzD9sfhTxhKdL4ZOs1eHSer8TL3wYl/L5LNvDisxxe5cq38jxOf1nYVWq1XZ
+	l2Q1/fNuvZ3RUXz50lnLGUz3pPcpsRRnJBpqMRcVJwIANZx0S8ECAAA=
+X-CMS-MailID: 20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc
+References: <CGME20241231063730epcas5p4137cc2e3d805cb08e1675b056ef186dc@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241230_225233_057234_2A435732 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20241230_225348_269999_B4ADCB55 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,78 +132,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/30/24 7:41 PM, Andre Przywara wrote:
-> On Fri, 27 Dec 2024 20:06:30 +0530
-> Parthiban <parthiban@linumiz.com> wrote:
-> 
->> On 12/27/24 6:30 PM, Parthiban Nallathambi wrote:
->>> This series depends on [1] for the eMMC/MMC controller to work and
->>> [2] (lined up for 6.14) which adds support for the sram nodes and
->>> display engine extends it's usage. Idea of this series to get initial
->>> feedback and adjust, which will be rebased for 6.14 once [2] is merged.
->>>
->>> This patch series adds support for A133 display pipeline based on
->>> LVDS. dt-bindigs are organized in the start and later with code
->>> changes.
->>>
->>> PHY is shared between DSI and LVDS, so to control the PHY specific
->>> to DSI/LVDS, phy_ops set_mode is introduced. To enable the DSI
->>> using set_mode, analog control register MIPI Enable is used, which
->>> may not be available for A31 (shares the same driver).
->>>
->>> Otherwise, A133 also got hidden independent display engine i.e
->>> mixer + tcon top to handle parallel display. But this patch series
->>> adds only support for the 1 mixer which is documented.
->>>
->>> [1]: https://lore.kernel.org/linux-sunxi/20241109003739.3440904-1-masterr3c0rd@epochal.quest/
->>> [2]: https://lore.kernel.org/linux-sunxi/20241218-a100-syscon-v2-0-dae60b9ce192@epochal.quest/
->>>
->>> Signed-off-by: Parthiban Nallathambi <parthiban@linumiz.com>  
->> Apologize for polluting with resend again. My internal mail server got blocked due to
->> volume count, which resulted in incomplete series again.
-> 
-> I guess an incomplete send was the reason for the original resend? Please
-> note this at the top of the cover letter then, otherwise it's not easy
-> to see why you send something again. Something like:
-> 
-> *** Re-sent due to mail server not sending out the complete series. ***
-Yes I did add that using b4 as below, but "b4 send --resend" didn't pick the
-updated cover letter though. I will check with "--reflect" next time.
+Add CPU caches information to its dt nodes so that the same is
+available to userspace via sysfs. This SoC has 64/64 KB I/D cache
+for each cores and 256KB of L2 cache.
 
-EDIT:
-Due to internal mail server issue, [3] missed few patches in series.
-So am resending to hope that it will get through this time. Sorry
-to pollute.
+Signed-off-by: Devang Tailor <dev.tailor@samsung.com>
+---
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi | 79 +++++++++++++++++++
+ 1 file changed, 79 insertions(+)
 
-[3]: https://lore.kernel.org/linux-sunxi/20241227-a133-display-support-v1-0-13b52f71fb14@linumiz.com
-> 
-> It also helps to split up the recipients, so that everyone gets the cover
-> letter, but only the respective subsystem maintainers get the patches
-> touching their subsystem. I would CC: the DT maintainers on every patch,
-> though.
-> It's a bit more complicated to set up, but keeps the noise down for those
-> large-ish series, for instance for the IOMMU people, who presumably have
-> little interest in DT or graphics code.
-The whole series based on b4 and the list is auto prepared using
-"b4 prep --auto-to-cc".
-
-Sure, I will add the dt list in all the patches. Also many thanks for your
-review and feedback.
-
-Thanks,
-Parthiban
-
-> 
-> Cheers,
-> Andre
-> 
->> I will fix the mail server issue before resending the series. Sorry.
->>
->> Thanks,
->> Parthiban
->>
->>
-> 
-> 
+diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+index eb446cdc4ab6..3ca4c8902aa1 100644
+--- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+@@ -89,6 +89,13 @@ cpu0: cpu@0 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x0>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu1: cpu@100 {
+@@ -96,6 +103,13 @@ cpu1: cpu@100 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x100>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu2: cpu@200 {
+@@ -103,6 +117,13 @@ cpu2: cpu@200 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x200>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu3: cpu@300 {
+@@ -110,6 +131,13 @@ cpu3: cpu@300 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x300>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu4: cpu@10000 {
+@@ -117,6 +145,13 @@ cpu4: cpu@10000 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x10000>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu5: cpu@10100 {
+@@ -124,6 +159,13 @@ cpu5: cpu@10100 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x10100>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu6: cpu@10200 {
+@@ -131,6 +173,13 @@ cpu6: cpu@10200 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x10200>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu7: cpu@10300 {
+@@ -138,6 +187,13 @@ cpu7: cpu@10300 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x10300>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu8: cpu@20000 {
+@@ -145,6 +201,13 @@ cpu8: cpu@20000 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x20000>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
+ 		};
+ 
+ 		cpu9: cpu@20100 {
+@@ -152,6 +215,22 @@ cpu9: cpu@20100 {
+ 			compatible = "arm,cortex-a78ae";
+ 			reg = <0x0 0x20100>;
+ 			enable-method = "psci";
++			i-cache-size = <0x10000>;
++			i-cache-line-size = <64>;
++			i-cache-sets = <256>;
++			d-cache-size = <0x10000>;
++			d-cache-line-size = <64>;
++			d-cache-sets = <256>;
++			next-level-cache = <&cpu_l2>;
++		};
++
++		cpu_l2: l2-cache0 {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-unified;
++			cache-size = <0x40000>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
+ 		};
+ 	};
+ 
+-- 
+2.34.1
 
 
