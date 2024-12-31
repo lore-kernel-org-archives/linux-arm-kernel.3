@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C8AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBB5E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 09:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g2qZD0/P/vJ/HRqF257T3srRsmW4oyMvUfvnaCfKbhc=; b=3QqoY3jXRiHlnGq/99Zzv57RlZ
-	O+nw2Y2E8P4Gv/tncLRuwZkhA0xqR8GNAZrfnqRi7bvfnvCMyGGMT3mTunH58rp9vXP8f7A2kbro9
-	72wZTJG2Ig4//OTfyCR1uZDLDm3M2FUDWm1yOm6an9Wi5U4b1+MJ1qBLo0++/G6+YquwZXx30JiD5
-	S5OSAl/yEpXjcZC5lsQg3oiLDTZGvLqEUtAXGOFkcpjZdBjix01lIDyYI/qF0p74bdsixcuouX7dH
-	fxV0OBl9SvT84O0W58HsuMo6cIpcTXpbGEOg0n4Zhqeeot7ngWoqxBTdYE8NHGZ4TsZ3SE30Jeq3x
-	JsnLgaIg==;
+	bh=JpEWkVoO4RXba/rgKMxL/Z8ArtALwq7ono1kXj0OSeQ=; b=K8AWz4RutXi/Gs7ZoWb8P+hpE2
+	luMxmLyfh7h5u8WSgSVP8y4h26GdugWnbHmLu4P8zd74WTq7yhUmrlsFsR74ZP/H8ceU86t7+l+oU
+	5gPgoAs6zuYpI8VWJ+ndfjsIjM2Ap7mfSUhzaswBzZp/iQDmVu2DXEHvUE+XbKKHgyjpUK9eAh3Ey
+	TFrMZvknYEqCG9m17dyZJOCj3B4jNYl7LsMTj/kpHBqCjSIGg+ItIIAYPN8JGsdwQu9angiyY8aJ+
+	XRL9e1l1II/zSWtybXltnqRq4FVV89eW1mMLEYNKfxczb1R9rGJVy81H0kXGkTwLzi71j6c/YRdUa
+	XcACYhig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYTb-00000006vWU-2se0;
-	Tue, 31 Dec 2024 09:23:47 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSYKo-00000006uGm-052d
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 09:14:43 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 4BV9EOS51611659
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 31 Dec 2024 03:14:24 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735636464;
-	bh=g2qZD0/P/vJ/HRqF257T3srRsmW4oyMvUfvnaCfKbhc=;
-	h=From:To:CC:Subject:Date;
-	b=b9Gl8hB+hJQ7DW8QtOCx0jcnbPdXghIi2kOIipIvafGp+6ZItH93QAOqUemfJeTie
-	 9rKGYta7NvMqbSg62ujvN2AYyYmKkZQWVQ8NWZ107H+q776LpTysaLpy3FnVDN3Aho
-	 TlHkKEJd1JIqqK6bgYmFp9dOLm2VaI7dRSdkZ2i4=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 4BV9EOd0026986
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 31 Dec 2024 03:14:24 -0600
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 31
- Dec 2024 03:14:23 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 31 Dec 2024 03:14:23 -0600
-Received: from lcpd911.dhcp.ti.com (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 4BV9EJgF074779;
-	Tue, 31 Dec 2024 03:14:20 -0600
-From: Dhruva Gole <d-gole@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: Tony Lindgren <tony@atomide.com>,
-        Markus Schneider-Pargmann
-	<msp@baylibre.com>,
-        Kevin Hilman <khilman@baylibre.com>, Dhruva Gole
-	<d-gole@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH] arm64: dts: ti: k3-am62a-wakeup: Configure ti-sysc for wkup_uart0
-Date: Tue, 31 Dec 2024 14:44:19 +0530
-Message-ID: <20241231-am62a-dt-ti-sysc-wkup-v1-1-a9b0d18a2649@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tSYYc-00000006w2Y-2qq6;
+	Tue, 31 Dec 2024 09:28:58 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tSYXO-00000006vuU-3Dn9;
+	Tue, 31 Dec 2024 09:27:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=JpEWk
+	VoO4RXba/rgKMxL/Z8ArtALwq7ono1kXj0OSeQ=; b=i8omjwaxlWT2Oz9zaiLmD
+	VnbO8teQ00uYmsd6GdQu4l+hlL8fVQBpK6S0Kfw56yiQ5aN2ZShHm5VWKT0vZ7z7
+	KveXChDJcXRGSU4yxFNKO4PXFrqlkjjzlx6+Q+Xl4tUMoA4k0GpulN6GCRXxPiLr
+	ebZ6r3bjhMgxS0xBunthEc=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3q9H6uHNn4DFGCw--.46410S2;
+	Tue, 31 Dec 2024 17:27:26 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: vkoul@kernel.org
+Cc: cristian.ciocaltea@collabora.com,
+	heiko@sntech.de,
+	kishon@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v3] dt-bindings: phy: Add rk3576 hdptx phy
+Date: Tue, 31 Dec 2024 17:27:11 +0800
+Message-ID: <20241231092721.252405-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20241231-am62a-dt-ti-sysc-wkup-d3539d0627d2
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735631796; l=4031; i=d-gole@ti.com; s=20240919; h=from:subject:message-id; bh=PpIld9gnQEkQi1xw/86ZrvnKG5NUQ76+TjgiaHmgAhg=; b=EZhfIJFX6vJEZSxrlYZVlji5QHBhHV7onPynlsOv/edJbsxS9vVOrmlBJ9UXMW99YZNpsHhK5 5jIA5S5OBSaDzpRxC0te4wlAfiQ/4pVDnJzqiQ5JXL/w97rTvHUruC2
-X-Developer-Key: i=d-gole@ti.com; a=ed25519; pk=k8NnY4RbxVqeqGsYfTHeVn4hPOHkjg7Mii0Ixs4rghM=
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CM-TRANSID: _____wD3q9H6uHNn4DFGCw--.46410S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCF4fJFy5ur1rCF1UXr48Xrb_yoW5GrWxpa
+	9xCFykJF1xGw13ZayDtwn5CF93tFsayr4ayrnagr13Wws3KrWavr4a9F15ZryYvr48tay5
+	Krsrury3ZF4avrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UmjgsUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQ-GXmdztQxoqAAAsT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_011442_208870_18CFA7B7 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20241231_012743_192980_F6D21609 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,115 +79,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vibhore Vardhan <vibhore@ti.com>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Similar to the TI K3-AM62x SoC commit ce27f7f9e328c8582a169f97f1466976561f1
-("arm64: dts: ti: k3-am62-wakeup: Configure ti-sysc for wkup_uart0"),
-The devices in the wkup domain are capable of waking up the system from
-suspend. We can configure the wkup domain devices in a generic way using
-the ti-sysc interconnect target module driver like we have done with the
-earlier TI SoCs.
+Add compatible for the HDPTX PHY on rk3576, which is compatible with
+rk3588, but without rst_phy/rst_ropll/rst_lcpll.
 
-As ti-sysc manages the SYSCONFIG related registers independent of the
-child hardware device, the wake-up configuration is also set even if
-wkup_uart0 is reserved by sysfw.
+In fact, these three reset lines are also optional on the rk3588,
+they just used for debug, then they were removed on the rk3576 IC
+design.
 
-The wkup_uart0 device has interconnect target module register mapping like
-dra7 wkup uart. There is a 1 MB interconnect target range with one uart IP
-block in the target module. The power domain and clock affects the whole
-interconnect target module.
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-Note we change the functional clock name to follow the ti-sysc binding
-and use "fck" instead of "fclk".
-
-Also note that we need to disable the target module reset as noted by
-Markus. Otherwise the sysfw using wkup_uart0 can get confused on some
-devices leading to boot time issues such as mbox timeouts.
-
-Signed-off-by: Vibhore Vardhan <vibhore@ti.com>
-Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
-[d-gole@ti.com: Reworded the entire commit message]
-Signed-off-by: Dhruva Gole <d-gole@ti.com>
 ---
-Similar patch was sent for AM62x by Tony,
-https://lore.kernel.org/all/20231219072503.12427-1-tony@atomide.com/
 
-Original patch for AM62A existed in the TI Vendor tree, with Vibhore's
-authorship:
-https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/commit/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi?h=ti-linux-6.6.y-cicd&id=197bf739444100c13edaddd1f7061fa94ccfad2d
+Changes in v3:
+- Split from:
+  https://lore.kernel.org/linux-rockchip/3330586.aeNJFYEL58@diego/T/#m02151cd8591d7fe92cf30ab69701ed57c1944c06
 
-Just reworded the commit message without changing any code content.
+Changes in v2:
+- Wrap commit message according to Linux coding style
+- Make "rockchip,rk3588-hdptx-phy" const for "rockchip,rk3576-hdptx-phy"
+- Make declare phy/ropll/lcpll reset line are not exit on rk3576
 
-Happy New Year to everyone! :)
----
- arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi | 36 +++++++++++++++++++++++------
- 1 file changed, 29 insertions(+), 7 deletions(-)
+ .../phy/rockchip,rk3588-hdptx-phy.yaml        | 62 +++++++++++++------
+ 1 file changed, 44 insertions(+), 18 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-index 0b1dd5390cd3f42b0ec56bab042388722b4c22a1..b2c8f5351743857a54385178cce5c82a961917e3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-wakeup.dtsi
-@@ -2,9 +2,11 @@
- /*
-  * Device Tree Source for AM62A SoC Family Wakeup Domain peripherals
-  *
-- * Copyright (C) 2022-2024 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C) 2022-2025 Texas Instruments Incorporated - https://www.ti.com/
-  */
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-hdptx-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-hdptx-phy.yaml
+index 84fe59dbcf48..7a307f45cdec 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip,rk3588-hdptx-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-hdptx-phy.yaml
+@@ -11,8 +11,13 @@ maintainers:
  
-+#include <dt-bindings/bus/ti-sysc.h>
+ properties:
+   compatible:
+-    enum:
+-      - rockchip,rk3588-hdptx-phy
++    oneOf:
++      - enum:
++          - rockchip,rk3588-hdptx-phy
++      - items:
++          - enum:
++              - rockchip,rk3576-hdptx-phy
++          - const: rockchip,rk3588-hdptx-phy
+ 
+   reg:
+     maxItems: 1
+@@ -34,24 +39,12 @@ properties:
+     const: 0
+ 
+   resets:
+-    items:
+-      - description: PHY reset line
+-      - description: APB reset line
+-      - description: INIT reset line
+-      - description: CMN reset line
+-      - description: LANE reset line
+-      - description: ROPLL reset line
+-      - description: LCPLL reset line
++    minItems: 4
++    maxItems: 7
+ 
+   reset-names:
+-    items:
+-      - const: phy
+-      - const: apb
+-      - const: init
+-      - const: cmn
+-      - const: lane
+-      - const: ropll
+-      - const: lcpll
++    minItems: 4
++    maxItems: 7
+ 
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+@@ -67,6 +60,39 @@ required:
+   - reset-names
+   - rockchip,grf
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,rk3576-hdptx-phy
++    then:
++      properties:
++        resets:
++          minItems: 4
++          maxItems: 4
++        reset-names:
++          items:
++            - const: apb
++            - const: init
++            - const: cmn
++            - const: lane
++    else:
++      properties:
++        resets:
++          minItems: 7
++          maxItems: 7
++        reset-names:
++          items:
++            - const: phy
++            - const: apb
++            - const: init
++            - const: cmn
++            - const: lane
++            - const: ropll
++            - const: lcpll
 +
- &cbass_wakeup {
- 	wkup_conf: bus@43000000 {
- 		compatible = "simple-bus";
-@@ -38,14 +40,34 @@ usb1_phy_ctrl: syscon@4018 {
- 		};
- 	};
+ additionalProperties: false
  
--	wkup_uart0: serial@2b300000 {
--		compatible = "ti,am64-uart", "ti,am654-uart";
--		reg = <0x00 0x2b300000 0x00 0x100>;
--		interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
-+	target-module@2b300050 {
-+		compatible = "ti,sysc-omap2", "ti,sysc";
-+		reg = <0 0x2b300050 0 0x4>,
-+		      <0 0x2b300054 0 0x4>,
-+		      <0 0x2b300058 0 0x4>;
-+		reg-names = "rev", "sysc", "syss";
-+		ti,sysc-mask = <(SYSC_OMAP2_ENAWAKEUP |
-+				 SYSC_OMAP2_SOFTRESET |
-+				 SYSC_OMAP2_AUTOIDLE)>;
-+		ti,sysc-sidle = <SYSC_IDLE_FORCE>,
-+				<SYSC_IDLE_NO>,
-+				<SYSC_IDLE_SMART>,
-+				<SYSC_IDLE_SMART_WKUP>;
-+		ti,syss-mask = <1>;
-+		ti,no-reset-on-init;
- 		power-domains = <&k3_pds 114 TI_SCI_PD_EXCLUSIVE>;
- 		clocks = <&k3_clks 114 0>;
--		clock-names = "fclk";
--		status = "disabled";
-+		clock-names = "fck";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0 0 0x2b300000 0x100000>;
-+
-+		wkup_uart0: serial@0 {
-+			compatible = "ti,am64-uart", "ti,am654-uart";
-+			reg = <0 0x100>;
-+			interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+	       };
- 	};
- 
- 	wkup_i2c0: i2c@2b200000 {
-
----
-base-commit: 8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2
-change-id: 20241231-am62a-dt-ti-sysc-wkup-d3539d0627d2
-
-Best regards,
+ examples:
 -- 
-Dhruva Gole <d-gole@ti.com>
+2.34.1
 
 
