@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8440E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 31 Dec 2024 21:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E11E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 07:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtVgKXIRkiie7ek16GqaWrkdviMLh6QRY/N1cq81sP0=; b=NDbhP+y3shkO35Mj6Nify/otnh
-	A38iIJ3RyYUnnHdQsB4Gu+8COrlyyFTONSBE2S/ulRSKP0Igetawc3VBYKG+O3BQ+/5kpE5j4lNbi
-	++ZOc9nKA2yT98zIU/PK9countB3cgWGOiErLlB5ZSYcI7f7xZbsL5wO+9f7q6aABJKmbSSbpJ8ep
-	wOYSt4lJsu5C9zwo0inm0/DPUEtC11wa2JqEFEgbs3irOZT95fxvpOhkSFTB80MuL7l4UITXr4GT9
-	Qg448VYJGshOphg7b1OCWzs5ISQusguskqjPtNWugaUDgDF0MqSEeHKYMmTd3GWIaI3ce8eF1z7gS
-	vk2Z0wpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fYojANO0jZk2dkL6S2xLZf75tzTY4jMo+7ufgg/5CgQ=; b=3mqrFl7+hA0/ztvx1CLCF8GC7S
+	5GF0merJ6O4guK6VF5S47OPNih77c9SQxfbqD6BQZrbT5nJqQaiCG38JdAMZ8azN4rqr6+rDMUXyF
+	phHsQNA03Jk+2hxOnQlhgAhpbXfqB6IH/Pjo0/6RcwkeSHv3qh6NqCPKEBk/fj2wDFM/0355sFo+3
+	U0BdZfW2baizuvPwSaQONeJ6cLuNEvxLVf7MVJ/fzmkQAURMmVMsg81C4u9zfUjSV2iyzSnumGPWg
+	T+O3GbQswL0DOe6TeI7u2BLo+fLQyNftt7TZTCox5CElDOsyTL1teei5xFhpmsZ1Rzvbv43FqaG6x
+	B6VHAelQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSjcs-00000007nNU-2K26;
-	Tue, 31 Dec 2024 21:18:06 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tSskd-00000008INg-3vM8;
+	Wed, 01 Jan 2025 07:02:43 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSjbf-00000007n7y-1NbM
+	id 1tSsjP-00000008IJO-1zok
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 31 Dec 2024 21:16:52 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2EDFD104811D7;
-	Tue, 31 Dec 2024 22:16:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1735679808;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dtVgKXIRkiie7ek16GqaWrkdviMLh6QRY/N1cq81sP0=;
-	b=FB1uSwTMLCVnCsjpsRmRcGHlw30WLImCnUiOSbbtvPovQ32k18SGWw25Lj9FoI6O5W5NjR
-	jhbkk1XyAMkHhDjxciNhQTen/ATKa4s5G82ziTVMUq9Uah4pWDGjD0ejFTYCRxVdvbDIJc
-	wByT+ecB7c8w61Jjy89SR/7/C7uJMoZsrQQWBLPMXlx7YEGPp87+AoaTUKfkvFXym+bPDD
-	8wT73Nec1STeCOYmh4pZbKtJ6pQY11S3LK2QDIgMD2mmacvxATm8oLbdgy5X1MVyIwi1eD
-	8pYFLZVm2jyPXoB+9+sORaOo22diS7nTmV8OjDkOJDbfc2aDkBxlzukHaI9oiA==
-Message-ID: <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
-Date: Tue, 31 Dec 2024 22:10:51 +0100
+	Wed, 01 Jan 2025 07:01:30 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Wed, 1 Jan
+ 2025 15:01:16 +0800
+Received: from aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
+ Transport; Wed, 1 Jan 2025 15:01:16 +0800
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+To: <patrick@stwcx.xyz>, <andrew@codeconstruct.com.au>, <linux@roeck-us.net>,
+	<wim@linux-watchdog.org>, <joel@jms.id.au>, <linux-watchdog@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <Peter.Yin@quantatw.com>, <Patrick_NC_Lin@wiwynn.com>,
+	<BMC-SW@aspeedtech.com>, <chnguyen@amperecomputing.com>,
+	<aaron_lee@aspeedtech.com>
+Subject: [PATCH v5 0/1] Update ASPEED WDT bootstatus
+Date: Wed, 1 Jan 2025 15:01:15 +0800
+Message-ID: <20250101070116.2287171-1-chin-ting_kuo@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Liu Ying <victor.liu@nxp.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241231192925.97614-1-marex@denx.de>
- <20241231203136.GD31768@pendragon.ideasonboard.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20241231203136.GD31768@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241231_131651_563527_2740432A 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20241231_230127_547483_47BC4D59 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +67,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/31/24 9:31 PM, Laurent Pinchart wrote:
-> Hi Marek,
+This patch series inherits the patch submitted by Peter.
+https://patchwork.kernel.org/project/linux-watchdog/patch/20240430143114.1323686-2-peteryin.openbmc@gmail.com/
+Bootstatus mechanism is reconstructed to the latest
+architecture and for all existing ASPEED BMC platforms.
 
-Hi,
+Changes in v2:
+  - Support SW restart on AST2600 by default without
+    adding any dts property.
 
-> Thank you for the patch.
-> 
-> On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
->> Add a flag meant purely to work around broken i.MX8MP DTs which enable
->> HDMI but do not contain the HDMI connector node. This flag allows such
->> DTs to work by creating the connector in the HDMI bridge driver. Do not
->> use this flag, do not proliferate this flag, please fix your DTs.
-> 
-> What's the rationale for this, what prevents fixing DT instead of using
-> this flag ? Adding such a flag will most likely open the door to
-> proliferation.
+Changes in v3:
+  - Get watchdog controller index by dividing register
+    base offset by register size.
 
-See the V2 series discussion, there are a few in-tree DTs which do not 
-have the HDMI connector node. The rationale is there might be more and 
-they might come from vendors, so this flag is necessary to work around 
-those DTs.
+Changes in v4:
+  - Update the commit message for updating bootstatus
+    handling patch.
+  - Rename aspeed_wdt_config struct to aspeed_wdt_data.
+  - Create restart callback function.
 
-> If you can't fix the DT on particular boards, patching it could be an
-> option. We had a similar problem on Renesas boards, which we fixed with
-> a DT overlay, see commit 81c0e3dd82927064 ("drm: rcar-du: Fix legacy DT
-> to create LVDS encoder nodes"). This made the workaround self-contained,
-> and allowed dropping it several kernel versions later (in commit
-> 841281fe52a769fe, "drm: rcar-du: Drop LVDS device tree backward
-> compatibility").
-Frankly, I would much rather fix the few in-tree DTs and mandate the 
-HDMI connector node in DT, which would keep the code simple, rather than 
-maintain a backward compatibility workaround for problem which might not 
-even exist.
+Changes in v5:
+  - Remove SW reset mechanism since there is no consensus
+    about bootstatus for SW reset currently.
+  - Correct the method for clearing reset event flag on
+    AST2400 and AST2500 legacy platforms.
+
+Chin-Ting Kuo (1):
+  watchdog: aspeed: Update bootstatus handling
+
+ drivers/watchdog/aspeed_wdt.c | 85 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 83 insertions(+), 2 deletions(-)
+
+-- 
+2.34.1
+
 
