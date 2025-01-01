@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B383AE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 22:38:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F44E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 23:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWtGsC6VD7JbMPGWl8EVOk9EyjRNOLRXagxmqa1Awn4=; b=slTpbTEweOtRCXedAcanYRZYYu
-	bDKNxPqF96D4/NOVA9t6f/BCyPWZwQph4kehllz24z33qPy/2mzHmBBYIwfKJY8vIFgGjjuJf2ONn
-	mgQwnnULrjodVvtjJ6WrZI0HmTfFaphtuKAd9a5NEyJEYNxGbhiQBCkpAGwgH95p7gG4WRhjNGwux
-	+4brJIGh2qTptn+A+AnfL5ZLh438ymEcr9+Z8VOqHNs4JQJ4yDxpTHuRfvwArWyRSsog/FApyVrGv
-	vy0zY6f2I6HCsHkXT6ma6XGwMZgI6KQgnY6ln9WUIsUD7gc5QMZU5Gd/fh4ov3keKJGOeMYfS5dPB
-	R1jS7NnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bEhShWXuSCGAVS8Dtls+t48Vj18yU72qdGfahBF5ank=; b=DEOTQs6wN6Palp+zFBmP0vqb3/
+	fQw9eDWLf928Z4upKYOCfrCgOnK57ROhGNaDNXxs5RLsXuIM3pMakBVH9ln22QVxWGH3Y7FALuVRe
+	cf/GWe5r4P9C2+9ILIj5jaUporRs6Gnd3IbpfA0c4XCn92Y0OhhHWISWnc6+0lef36Yzn2WuVJc0e
+	khnStI3eg3VbczlzhksP2/DVYfQm+GfjpSRvd1nuqSDATkMpAs7epPjn9tc/NKT/5Y9+3ERIxuXod
+	yP0sca6jmvqTkII7e+a4rKSL5OIGxIkmLPsWKku8qWJP3JZjsfe5b1XctC2fqfwLulISWwkXUvC1q
+	1CM/yscg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tT7LQ-00000009RA6-0ejQ;
-	Wed, 01 Jan 2025 22:37:40 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tT7KC-00000009R4M-0KQp
+	id 1tT8B7-00000009TNo-014r;
+	Wed, 01 Jan 2025 23:31:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tT89w-00000009THV-0Zff
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jan 2025 22:36:25 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BC886778;
-	Wed,  1 Jan 2025 23:35:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1735770931;
-	bh=iNsUYUiEGnb6iomJgG7ri6tQFUsvekg+LieM8mXv0LI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HN25fJ9Uo0EujdCHA2A8+alerR+ls8x0zaHaJVziAbh8RG+Rt/T84/+weZt7P/Jch
-	 ci58r2q2MApprmFn93DRlQVXV9bmfhe5Kri4mklEOTuvRBPB5XX+ULQHbbST48fZAG
-	 wZUN+NucQCH+YLdg4jz/+Y5SMxmOTFDmHV0z+ff8=
-Date: Thu, 2 Jan 2025 00:36:20 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Marek Vasut <marex@denx.de>
-Cc: dri-devel@lists.freedesktop.org,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Robert Foss <rfoss@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-Message-ID: <20250101223620.GA7206@pendragon.ideasonboard.com>
-References: <20241231192925.97614-1-marex@denx.de>
- <20241231203136.GD31768@pendragon.ideasonboard.com>
- <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
+	Wed, 01 Jan 2025 23:29:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6435B11FB;
+	Wed,  1 Jan 2025 15:30:16 -0800 (PST)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF6643F6A8;
+	Wed,  1 Jan 2025 15:29:46 -0800 (PST)
+Date: Wed, 1 Jan 2025 23:28:36 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: Stefan Gloor <code@stefan-gloor.ch>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, jernej.skrabec@gmail.com,
+ samuel@sholland.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: sunxi: Add MMC alias for consistent
+ enumeration
+Message-ID: <20250101232836.76c7fd0e@minigeek.lan>
+In-Reply-To: <CAGb2v67dBhL3-AhLeHg3xOgbNZ3qu0aj9+kA+MoOMRYfr_Z_zQ@mail.gmail.com>
+References: <20241219105622.13691-2-code@stefan-gloor.ch>
+	<CAGb2v67dBhL3-AhLeHg3xOgbNZ3qu0aj9+kA+MoOMRYfr_Z_zQ@mail.gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_143624_255124_E2BC0253 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20250101_152952_253076_C4BAAC33 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +69,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 10:10:51PM +0100, Marek Vasut wrote:
-> On 12/31/24 9:31 PM, Laurent Pinchart wrote:
-> > Hi Marek,
-> 
-> Hi,
-> 
-> > Thank you for the patch.
-> > 
-> > On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
-> >> Add a flag meant purely to work around broken i.MX8MP DTs which enable
-> >> HDMI but do not contain the HDMI connector node. This flag allows such
-> >> DTs to work by creating the connector in the HDMI bridge driver. Do not
-> >> use this flag, do not proliferate this flag, please fix your DTs.
-> > 
-> > What's the rationale for this, what prevents fixing DT instead of using
-> > this flag ? Adding such a flag will most likely open the door to
-> > proliferation.
-> 
-> See the V2 series discussion, there are a few in-tree DTs which do not 
-> have the HDMI connector node. The rationale is there might be more and 
-> they might come from vendors, so this flag is necessary to work around 
-> those DTs.
->
-> > If you can't fix the DT on particular boards, patching it could be an
-> > option. We had a similar problem on Renesas boards, which we fixed with
-> > a DT overlay, see commit 81c0e3dd82927064 ("drm: rcar-du: Fix legacy DT
-> > to create LVDS encoder nodes"). This made the workaround self-contained,
-> > and allowed dropping it several kernel versions later (in commit
-> > 841281fe52a769fe, "drm: rcar-du: Drop LVDS device tree backward
-> > compatibility").
->
-> Frankly, I would much rather fix the few in-tree DTs and mandate the 
-> HDMI connector node in DT, which would keep the code simple, rather than 
-> maintain a backward compatibility workaround for problem which might not 
-> even exist.
+On Wed, 1 Jan 2025 16:58:28 +0800
+Chen-Yu Tsai <wens@csie.org> wrote:
 
-The in-tree device tree sources should be converted as part of the
-series, I don't see a point trying to maintain backward compatibility
-for in-tree DT sources.
+Hi,
 
-For out-of-tree sources it depends on how likely the problem is. There's
-no regression if nobody is affected. I personally like restricting
-backward compatibility to the strict minimum, to ensure that all new DTs
-will use proper bindings. Making the backward compatibility code
-self-contained helps there, and we could also print a loud warning
-(WARN_ON() seems appropriate) and set a date for the removal of the
-workaround.
+> On Thu, Dec 19, 2024 at 6:58=E2=80=AFPM Stefan Gloor <code@stefan-gloor.c=
+h> wrote:
+> >
+> > Add explicit alias for MMC devices, so that (e)MMC and micro SD cards
+> > are enumerated consistently. This should fix spurious boot failures when
+> > specifying a hard-coded root partition, e.g., mmcblk0p2. =20
+>=20
+> IIRC we have chosen against adding explicit MMC aliases for the sunxi
+> platforms. Please try using UUID=3D or PARTUUID=3D for root partition
+> references.
 
--- 
-Regards,
+Yes, and LABEL=3D would be another way.
 
-Laurent Pinchart
+Alternatively you could use U-Boot's DT when booting the board. U-Boot
+will add those aliases during build time (because it needs them for its
+own purposes), and by using $fdtcontroladdr (instead of $fdt_addr_r,
+on the bootz command line) you get this for free, and even save yourself
+from loading some DT.
+We sync the DTs regularly from the kernel to U-Boot now, and at the
+moment they are identical between the kernel and U-Boot, so you don't
+lose anything.
+
+Cheers,
+Andre
+
+> > Link: https://github.com/linux-sunxi/meta-sunxi/pull/431
+> > Signed-off-by: Stefan Gloor <code@stefan-gloor.ch>
+> > ---
+> >  arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts =
+b/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts
+> > index a1b89b2a2999..9cd1eb690134 100644
+> > --- a/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts
+> > +++ b/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts
+> > @@ -60,6 +60,8 @@ aliases {
+> >                 serial2 =3D &uart7;
+> >                 spi0 =3D &spi1;
+> >                 spi1 =3D &spi2;
+> > +               mmc0 =3D &mmc0;
+> > +               mmc1 =3D &mmc3;
+> >         };
+> >
+> >         chosen {
+> > --
+> > 2.45.2
+> >
+> > =20
+>=20
+
 
