@@ -4,86 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C4B2E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 08:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53252E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 09:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jIrh5/xF9foHE2ZtaHkAInkCtUR6yzl9To1EWrJQ0MA=; b=48tqTTY+3e327t
-	11H+HPtFX+Dsap2bhfcjqlKfVwCbTrVMjDwIk2J23/0/GDwuph9Uvsl7Sm0WeMC5nN8In1bMiV4ft
-	WrPclopJjS4QTcE4NJAZ3KyAFqKDSKPJtJ09zsw0za1ltudrTJfIWm7f6xYjs5/G1qbx3dcP54+zp
-	plVFYSzWkpEJUCQ5Cp2EArOTmtadLJ4dJS1oSYENxm1bgbkZxSRhneA4BaGwsWbhAlysg07Xn3iJq
-	TgRnHIDyAgF6tCamqRdlJRyGmMOY4tWwOnAV1JAJ3XN20zHbZLi7FKbWR/Ayvqdp41vHKAgsl9Sis
-	iyX2zHR5zuoSnhiIoMXw==;
+	List-Owner; bh=03r1MUnoANbps6OakqIBWa8kGI5iV3U0tsXfTI9VdjQ=; b=f+Fe7kudYWYwo5
+	aKrMftDuSO0KM04Qfhp03IYtDp4iJ84bZi8L+vtTF9uJC3ujKcLkVJ5hs3r6ntss3IYxNpkvH6YSg
+	yz+LledJYoKOP7G5iXTNVimm3933OgBlgA6CHLHqVOieFnPaUrruPPGrr65JP1QltrbRslTPaP16O
+	8H5q82RUIQoufaocReR5NEn9eXrMD1kVHkXfkuiAWCqTfWIGCOuq5PZjaYYI18gCplU+FdPEGWQk7
+	lmOgh6pslHJursw149DzjPsinF987OtdPlW9SP5LjvvERg+75ROPAMhevGEdPVZPWxquvaSSfSo56
+	4Tt6t+/3FLFwHUsA4FiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSuXn-00000008S4V-2Us8;
-	Wed, 01 Jan 2025 08:57:35 +0000
-Received: from mail-lj1-f174.google.com ([209.85.208.174])
+	id 1tSua6-00000008SL9-1IfB;
+	Wed, 01 Jan 2025 08:59:58 +0000
+Received: from mail-lf1-f47.google.com ([209.85.167.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSuWY-00000008RsD-0Jqh
+	id 1tSuYt-00000008SDx-3FZR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jan 2025 08:56:19 +0000
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-30227ccf803so124475191fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 00:56:16 -0800 (PST)
+	Wed, 01 Jan 2025 08:58:44 +0000
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5401e6efffcso12933973e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 00:58:43 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735721774; x=1736326574;
+        d=1e100.net; s=20230601; t=1735721921; x=1736326721;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=jIrh5/xF9foHE2ZtaHkAInkCtUR6yzl9To1EWrJQ0MA=;
-        b=WpsZb8fEdAGB1Xa7WZH1/Akm6ddk2LkPg+sS8BCQmt6/deOWczfc/tl/35twPS7TYL
-         fbpJ9wsh9FlQX+dxLo2v44ak7fM2YlmTDsfFMKczj7RrjNq1aK1hUdNn3nUIonxBntNr
-         fU5qjR+VdSZfxCpmqmY2tcj1QtpGV5MFzpBzDq6lhvGWAFZvS3nRUiuanMXxbXbIeov4
-         s/TT2zV6kFrs3nltg/XuQGcYRs5nJkvLAD8kTzNDue2xY/jIA8XV04Dp1Y4ntSg9jNNK
-         lhRYt644GVF4Us2VQIA01tkvlFKdeGJ+6sNp9tEXVIOfPM6KQJwOChlZm0BU0H2T0Hd7
-         a8KQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUdgvfK6oHcde5Ly4Ea4kIQGRa11Yq1FxwxUSEusMf500OnmaP+fS+pzTsmn0ef/V1CkpQioZumJIHc+3lmVeTU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8f+rXGY+xW7Qk5r4R7/8RuXOmfN/gskHUmdptT3g612V9/1Tt
-	xKuhQCzF2hiQF9JeaMYGHcpTY9v5rLl+7yhka7lqJvfS54gg8c6O4s1z3XhP
-X-Gm-Gg: ASbGncu7YtlViEuaLNYOHyopUnTxocS3zkHyezQ1Qo5+4eVgrkeNpIOqftM9Pe+qxgM
-	2F4MNeY5e3ndMhWWVQ7fT4N5U0TMlRZN4al8AgXNT0Q41nQUxFMHkIzenLTYmimN408aWIbNI1p
-	DiSGNkkbhQ32hINKCKEf3QuptyeHTTfXKWF279fhD6Xoj7fy/79qm4dkEkS6qWORJrsoe8LVsiP
-	IlgJX1uIG/F0UfzN3wLBo8jT0oxXgcVr3cZ/cozP0v8YMa3Uh2uHGhfJSvoMgomrQeGd1bnByVU
-	8RvKJ+YF1aaL4g==
-X-Google-Smtp-Source: AGHT+IHmh6lQY4hGL8wEsdepj+Pee+b86fndlUA9qTWcHytPJC2OYmoeBhIOEmyyDY+h7ytB6UWKew==
-X-Received: by 2002:a2e:be1a:0:b0:302:244a:da2c with SMTP id 38308e7fff4ca-304685f71b6mr120151921fa.31.1735721773738;
-        Wed, 01 Jan 2025 00:56:13 -0800 (PST)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045b082d64sm39318561fa.109.2025.01.01.00.56.13
+        bh=03r1MUnoANbps6OakqIBWa8kGI5iV3U0tsXfTI9VdjQ=;
+        b=B9QjLvTdnqx9ftDgDMjpCLXdAfxg22xvSIlfAt6aOHc4+QhSNhTnF0VVrYcS+XPbE6
+         M5yim3SuozB9X3BgctdrWfSMgIv4s1GPBNfvI/SH7+XXbt5pdCSNOa/CIOWfaj1INAkN
+         MOqlXqM3llwxagqgkrQNnZsmf6SMO27PJfeWHTBUScsX1S4y9B5RShc75UFGNl2zsmjG
+         WlNIpsHkKARUscb4jAwcYdoG2FZ78JBnrt9XL9+8VKHYxxjTHkGNqTOS58X/+9T8MHOF
+         2n58O8Or6Io2+e33rPrGjngpBgYDFMBlXr1pq2zvnRDYkLRcmtlqw6qhaVQ3chY9c3qt
+         w1Iw==
+X-Forwarded-Encrypted: i=1; AJvYcCW4a2bsA/M54YkH4YHuaxJ8xhi2Z8Da7MDFTyP6edGq4kUCtE58x2DUl6cKPnyjGDMLkcfRp1Zf0PXXhk8MgYGO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6rTdRY1JiZLCS4ylYGYr+MyeIyDJqvWO7LiVU4XnN64a4puw9
+	NK0n8t3yy7m5v2hEILZGjRrjcImJM6sXoIL4yHfH7AZsGafxzQeOIdggBpRH
+X-Gm-Gg: ASbGncvQowlxydIMAWEjXSmqDgKU8CCO7RvYXw6wVEWnzjt3j1u42zlVJ0wV3h4n/7d
+	lGWriO+XbBJkcvwNnyKLwvCk+IfkDioy3jwCU61HucjkYBIduz1D5+ZPEKUUbSYa1LFWP4LuOeW
+	GAzGciTlc78dqqw1vuPT3n+nbW0fAjqMUa7LCJHTUgMBJgSsOM7136jHs+XMsRYo6wwoKlwt6Ar
+	cmPlwECv4V0AUSMVEg8ZncVIful1TYqvtyNF2240xyeXGkbODX0oPR4dt0WwNUNyOsMtDRxwO6j
+	CXs6vaZLl85WTA==
+X-Google-Smtp-Source: AGHT+IFpsj7wH+BJDKJVwB/YGw8fOVrUm+GOqEdpiRNnhSKZJKYGXyAaqT2Hj4PDM4u5o2jVCN02cg==
+X-Received: by 2002:a05:6512:12c4:b0:540:2f1e:90ea with SMTP id 2adb3069b0e04-542295a9ec7mr12044432e87.56.1735721920613;
+        Wed, 01 Jan 2025 00:58:40 -0800 (PST)
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com. [209.85.208.176])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54223813700sm3631842e87.135.2025.01.01.00.58.40
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Jan 2025 00:56:13 -0800 (PST)
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-30227ccf803so124475001fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 00:56:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUl7ESCTiiyg+UJPXjZ9rJaXUN2Eq4yIMgSIsDjLiVANFA0h2lanoDbM6COx/XATiI9bhwAh6nLTszDnYPCnFWz@lists.infradead.org
-X-Received: by 2002:a2e:a54a:0:b0:300:34b2:f8a3 with SMTP id
- 38308e7fff4ca-304685482c3mr137981211fa.13.1735721773198; Wed, 01 Jan 2025
- 00:56:13 -0800 (PST)
+        Wed, 01 Jan 2025 00:58:40 -0800 (PST)
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3035046d4bfso98176181fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 00:58:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV29ob9uvjtwhqkJxoHQyTH2ttPngy3bbOVXehrmXPfDJ5ON++bgiQVX3h9lP9bDvCu91vMahuUWAba8oT32HH3@lists.infradead.org
+X-Received: by 2002:a2e:a58c:0:b0:300:1aa5:4967 with SMTP id
+ 38308e7fff4ca-304685c1985mr174943451fa.25.1735721920308; Wed, 01 Jan 2025
+ 00:58:40 -0800 (PST)
 MIME-Version: 1.0
-References: <20241221094122.27325-1-ryan@testtoast.com> <20241221094122.27325-3-ryan@testtoast.com>
- <CAGb2v64qf0jNv72uHUK+aSj0Xt-bf+DW0NCnsZmLf-6xHZF_ew@mail.gmail.com> <982a7d32-ab58-434e-a125-4f7143928caf@app.fastmail.com>
-In-Reply-To: <982a7d32-ab58-434e-a125-4f7143928caf@app.fastmail.com>
+References: <20241219105622.13691-2-code@stefan-gloor.ch>
+In-Reply-To: <20241219105622.13691-2-code@stefan-gloor.ch>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Wed, 1 Jan 2025 16:56:00 +0800
-X-Gmail-Original-Message-ID: <CAGb2v661eZPh8+ScJNUTXwm_y_RtrL7yo7EE4i_zg-=LrBhBhg@mail.gmail.com>
-Message-ID: <CAGb2v661eZPh8+ScJNUTXwm_y_RtrL7yo7EE4i_zg-=LrBhBhg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] ASoC: sun4i-codec: support hp-det-gpios property
-To: Ryan Walklin <ryan@testtoast.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
-	Chris Morgan <macromorgan@hotmail.com>
+Date: Wed, 1 Jan 2025 16:58:28 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67dBhL3-AhLeHg3xOgbNZ3qu0aj9+kA+MoOMRYfr_Z_zQ@mail.gmail.com>
+Message-ID: <CAGb2v67dBhL3-AhLeHg3xOgbNZ3qu0aj9+kA+MoOMRYfr_Z_zQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: sunxi: Add MMC alias for consistent enumeration
+To: Stefan Gloor <code@stefan-gloor.ch>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	jernej.skrabec@gmail.com, samuel@sholland.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_005618_164746_474A7642 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20250101_005843_827194_E5F33EDD 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,83 +96,41 @@ Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 23, 2024 at 5:20=E2=80=AFAM Ryan Walklin <ryan@testtoast.com> w=
-rote:
+On Thu, Dec 19, 2024 at 6:58=E2=80=AFPM Stefan Gloor <code@stefan-gloor.ch>=
+ wrote:
 >
-> Hi Chen-Yu,
->
-> Thanks for the review!
->
-> On Mon, 23 Dec 2024, at 6:15 AM, Chen-Yu Tsai wrote:
-> > On Sat, Dec 21, 2024 at 5:41=E2=80=AFPM Ryan Walklin <ryan@testtoast.co=
-m> wrote:
->
-> >> @@ -1635,10 +1681,11 @@ static const struct snd_soc_component_driver s=
-un50i_h616_codec_codec =3D {
-> >>  };
-> >>
-> >>  static const struct snd_kcontrol_new sun50i_h616_card_controls[] =3D =
-{
-> >> -       SOC_DAPM_PIN_SWITCH("LINEOUT"),
-> >> +       SOC_DAPM_PIN_SWITCH("Speaker"),
-> >
-> > Why?
->
-> The speaker amp is controlled by a GPIO, this needs a specific card contr=
-ol to toggle on and off, discrete from the line-out volume. Muting the outp=
-ut entirely is not what is required, hence the separate control. I also und=
-erstand (although it is IMO not well documented on the user-space side) tha=
-t "Speaker" has a specific meaning to the user-space routing. Can add this =
-to the merge message.
+> Add explicit alias for MMC devices, so that (e)MMC and micro SD cards
+> are enumerated consistently. This should fix spurious boot failures when
+> specifying a hard-coded root partition, e.g., mmcblk0p2.
 
-It should be documented, and probably a separate patch. This patch is
-for the headphone. Also, "Speaker" is a DAPM widget name and that widget
-is what toggles the GPIO. So it's actually the kernel side routing.
-
-And also, you can't remove the "LINEOUT" pin because it is referenced from
-existing device trees.
-
-
-> >> @@ -1684,7 +1731,7 @@ static struct snd_soc_card *sun50i_h616_codec_cr=
-eate_card(struct device *dev)
-> >>
-> >>         card->dev               =3D dev;
-> >>         card->owner             =3D THIS_MODULE;
-> >> -       card->name              =3D "H616 Audio Codec";
-> >> +       card->name              =3D "h616-audio-codec";
-> >
-> > Why?
->
-> As mentioned in the cover letter, ALSA UCM in user space uses the card na=
-me to detect and apply the relevant configuration, by loading /usr/share/al=
-sa/ucm2/conf.d/<driver_name>/<card_name>.conf. Spaces are therefore removed=
- in the card name to make this easier to manage. Happy to add this to the c=
-ommit message too, and this could be changed to card->long_name if it is de=
-sired to maintain a human-readable card->name.
-
-This should also be a separate patch. And yes please add `long_name` to
-keep the human friendly name.
+IIRC we have chosen against adding explicit MMC aliases for the sunxi
+platforms. Please try using UUID=3D or PARTUUID=3D for root partition
+references.
 
 ChenYu
 
-> See https://github.com/alsa-project/alsa-ucm-conf/pull/491/files for the =
-UCM patch.
+> Link: https://github.com/linux-sunxi/meta-sunxi/pull/431
+> Signed-off-by: Stefan Gloor <code@stefan-gloor.ch>
+> ---
+>  arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> >> @@ -1940,6 +1987,14 @@ static int sun4i_codec_probe(struct platform_de=
-vice *pdev)
-> >>                 return ret;
-> >>         }
-> >>
-> >> +       scodec->gpio_hp =3D devm_gpiod_get_optional(&pdev->dev, "allwi=
-nner,hp-det",
-> >> +                                                 GPIOD_IN);
-> >
-> > Just put it on the same line. Lines can go up to 100 characters.
+> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts b/=
+arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts
+> index a1b89b2a2999..9cd1eb690134 100644
+> --- a/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts
+> +++ b/arch/arm/boot/dts/allwinner/sun7i-a20-olinuxino-micro.dts
+> @@ -60,6 +60,8 @@ aliases {
+>                 serial2 =3D &uart7;
+>                 spi0 =3D &spi1;
+>                 spi1 =3D &spi2;
+> +               mmc0 =3D &mmc0;
+> +               mmc1 =3D &mmc3;
+>         };
 >
-> Thanks, will do.
+>         chosen {
+> --
+> 2.45.2
 >
-> Regards,
->
-> Ryan
 >
 
