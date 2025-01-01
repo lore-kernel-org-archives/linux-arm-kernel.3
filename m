@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0EDEE7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 17:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B383AE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jan 2025 22:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mWEXo+4LhXx4wQX4yQ+sbTtleHpG3OF3AWBJ7Fe13hE=; b=YO/t+Rg63mzT0Tz+8JuOLDeaKn
-	1dIb7I7keLCi8YKbcEQ+Nu3As1Xb8P+WNBsZJM9827wOKpLZdd/mU6i4479Q8jRNEe5UHERANMMVS
-	Qz4V9Zwc7sAlKm/vpar57SkxGs62x+VDa+XVCSNBa+gp13+oWclgX7/FivLPx4OyiIckkkDvCTGj7
-	Uww3049kSIhdRSyxBlUh4F6U8RAfO1OTPGFkfJ/HX0nzWgq7pkpSRMeAgouf6kGKKLBIllnvUp2St
-	phPjI3IwQUKqvcyMO5b8GK9f3TjVrPGpveRIwG6Gbg2dgOMS4edDvpERo+Fz7xFp3NJQhWtSxw9ka
-	zBRwpFeA==;
+	bh=pWtGsC6VD7JbMPGWl8EVOk9EyjRNOLRXagxmqa1Awn4=; b=slTpbTEweOtRCXedAcanYRZYYu
+	bDKNxPqF96D4/NOVA9t6f/BCyPWZwQph4kehllz24z33qPy/2mzHmBBYIwfKJY8vIFgGjjuJf2ONn
+	mgQwnnULrjodVvtjJ6WrZI0HmTfFaphtuKAd9a5NEyJEYNxGbhiQBCkpAGwgH95p7gG4WRhjNGwux
+	+4brJIGh2qTptn+A+AnfL5ZLh438ymEcr9+Z8VOqHNs4JQJ4yDxpTHuRfvwArWyRSsog/FApyVrGv
+	vy0zY6f2I6HCsHkXT6ma6XGwMZgI6KQgnY6ln9WUIsUD7gc5QMZU5Gd/fh4ov3keKJGOeMYfS5dPB
+	R1jS7NnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tT2Ff-00000009DPU-0PpD;
-	Wed, 01 Jan 2025 17:11:23 +0000
-Received: from [192.198.163.13] (helo=mgamail.intel.com)
+	id 1tT7LQ-00000009RA6-0ejQ;
+	Wed, 01 Jan 2025 22:37:40 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tT2EQ-00000009DHk-3UcC;
-	Wed, 01 Jan 2025 17:10:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735751407; x=1767287407;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=w4806pHttcq14fcDsE1TCQs1bNJyXM6xixxGIsaUg00=;
-  b=R9qvFud+jcfMkthSHNDaSAdwrVI3Z6h/VfeY4kS2OQK9NR+6ES8zNXN7
-   uPQ7CxazMpmyEIBT9C6vPCgx4DftDQOx/tnIDTyqrm/69a9M80vrS8QGH
-   beS09eMIKElnd9waqldO8HtQT9iJQmEd4z6cXrL3Hjk4TDQKhA2VLC/Nn
-   RSWJv3stSxNRqJbRu1Cr1GaNL7tlktFp8pxKc+PRG3Qx/w9sJ0YBMiTFq
-   2iMN3fZanbkbEtPkewLHTqPK1BK6tUL+i9m9xk/fHjPnqXUEi7BVAv3+E
-   US61dfz73O2lo2wttea4iHGjUCcEn+wBp/r3ivgKN7DyI9+RfXLds5o03
-   w==;
-X-CSE-ConnectionGUID: VtOjt3aGRWCeB09s5nWcPQ==
-X-CSE-MsgGUID: HpEoNWwKRp+1IjhJyLJLAg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11302"; a="38830085"
-X-IronPort-AV: E=Sophos;i="6.12,282,1728975600"; 
-   d="scan'208";a="38830085"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jan 2025 09:09:59 -0800
-X-CSE-ConnectionGUID: skjhXKsiSWyP1f8EVfehDQ==
-X-CSE-MsgGUID: 1u7BJ6rmS0+nb2yF7WxL+g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="132237852"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 01 Jan 2025 09:09:55 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tT2EC-0007xz-1b;
-	Wed, 01 Jan 2025 17:09:52 +0000
-Date: Thu, 2 Jan 2025 01:09:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jian Hu <jian.hu@amlogic.com>, Jerome Brunet <jbrunet@baylibre.com>,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>,
-	Chuan Liu <chuan.liu@amlogic.com>,
+	id 1tT7KC-00000009R4M-0KQp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jan 2025 22:36:25 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BC886778;
+	Wed,  1 Jan 2025 23:35:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1735770931;
+	bh=iNsUYUiEGnb6iomJgG7ri6tQFUsvekg+LieM8mXv0LI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HN25fJ9Uo0EujdCHA2A8+alerR+ls8x0zaHaJVziAbh8RG+Rt/T84/+weZt7P/Jch
+	 ci58r2q2MApprmFn93DRlQVXV9bmfhe5Kri4mklEOTuvRBPB5XX+ULQHbbST48fZAG
+	 wZUN+NucQCH+YLdg4jz/+Y5SMxmOTFDmHV0z+ff8=
+Date: Thu, 2 Jan 2025 00:36:20 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Marek Vasut <marex@denx.de>
+Cc: dri-devel@lists.freedesktop.org,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	David Airlie <airlied@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Dmitry Rokosov <ddrokosov@sberdevices.ru>,
-	robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Jian Hu <jian.hu@amlogic.com>,
-	devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>,
-	linux-amlogic <linux-amlogic@lists.infradead.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 5/5] clk: meson: t7: add t7 clock peripherals controller
- driver
-Message-ID: <202501020007.bve7QkV9-lkp@intel.com>
-References: <20241231060047.2298871-6-jian.hu@amlogic.com>
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Robert Foss <rfoss@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+	Stefan Agner <stefan@agner.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
+ port is optional
+Message-ID: <20250101223620.GA7206@pendragon.ideasonboard.com>
+References: <20241231192925.97614-1-marex@denx.de>
+ <20241231203136.GD31768@pendragon.ideasonboard.com>
+ <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20241231060047.2298871-6-jian.hu@amlogic.com>
+In-Reply-To: <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_091006_915964_F5B13EF9 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250101_143624_255124_E2BC0253 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,45 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jian,
+On Tue, Dec 31, 2024 at 10:10:51PM +0100, Marek Vasut wrote:
+> On 12/31/24 9:31 PM, Laurent Pinchart wrote:
+> > Hi Marek,
+> 
+> Hi,
+> 
+> > Thank you for the patch.
+> > 
+> > On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
+> >> Add a flag meant purely to work around broken i.MX8MP DTs which enable
+> >> HDMI but do not contain the HDMI connector node. This flag allows such
+> >> DTs to work by creating the connector in the HDMI bridge driver. Do not
+> >> use this flag, do not proliferate this flag, please fix your DTs.
+> > 
+> > What's the rationale for this, what prevents fixing DT instead of using
+> > this flag ? Adding such a flag will most likely open the door to
+> > proliferation.
+> 
+> See the V2 series discussion, there are a few in-tree DTs which do not 
+> have the HDMI connector node. The rationale is there might be more and 
+> they might come from vendors, so this flag is necessary to work around 
+> those DTs.
+>
+> > If you can't fix the DT on particular boards, patching it could be an
+> > option. We had a similar problem on Renesas boards, which we fixed with
+> > a DT overlay, see commit 81c0e3dd82927064 ("drm: rcar-du: Fix legacy DT
+> > to create LVDS encoder nodes"). This made the workaround self-contained,
+> > and allowed dropping it several kernel versions later (in commit
+> > 841281fe52a769fe, "drm: rcar-du: Drop LVDS device tree backward
+> > compatibility").
+>
+> Frankly, I would much rather fix the few in-tree DTs and mandate the 
+> HDMI connector node in DT, which would keep the code simple, rather than 
+> maintain a backward compatibility workaround for problem which might not 
+> even exist.
 
-kernel test robot noticed the following build warnings:
+The in-tree device tree sources should be converted as part of the
+series, I don't see a point trying to maintain backward compatibility
+for in-tree DT sources.
 
-[auto build test WARNING on clk/clk-next]
-[also build test WARNING on linus/master v6.13-rc5]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jian-Hu/dt-bindings-clock-add-Amlogic-T7-PLL-clock-controller/20241231-141835
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
-patch link:    https://lore.kernel.org/r/20241231060047.2298871-6-jian.hu%40amlogic.com
-patch subject: [PATCH 5/5] clk: meson: t7: add t7 clock peripherals controller driver
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20250102/202501020007.bve7QkV9-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250102/202501020007.bve7QkV9-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501020007.bve7QkV9-lkp@intel.com/
-
-All warnings (new ones prefixed by >>, old ones prefixed by <<):
-
-WARNING: modpost: module t7-pll uses symbol meson_clk_hw_get from namespace CLK_MESON, but does not import it.
-WARNING: modpost: module t7-pll uses symbol meson_clk_pll_ops from namespace CLK_MESON, but does not import it.
-WARNING: modpost: module t7-pll uses symbol clk_regmap_divider_ops from namespace CLK_MESON, but does not import it.
-WARNING: modpost: module t7-pll uses symbol meson_clk_pcie_pll_ops from namespace CLK_MESON, but does not import it.
-WARNING: modpost: module t7-pll uses symbol meson_clk_mpll_ops from namespace CLK_MESON, but does not import it.
-WARNING: modpost: module t7-pll uses symbol clk_regmap_gate_ops from namespace CLK_MESON, but does not import it.
-WARNING: modpost: module t7-pll uses symbol clk_regmap_mux_ops from namespace CLK_MESON, but does not import it.
->> WARNING: modpost: module t7-peripherals uses symbol meson_clk_hw_get from namespace CLK_MESON, but does not import it.
->> WARNING: modpost: module t7-peripherals uses symbol clk_regmap_gate_ops from namespace CLK_MESON, but does not import it.
->> WARNING: modpost: module t7-peripherals uses symbol meson_clk_dualdiv_ops from namespace CLK_MESON, but does not import it.
->> WARNING: modpost: module t7-peripherals uses symbol clk_regmap_mux_ops from namespace CLK_MESON, but does not import it.
->> WARNING: modpost: module t7-peripherals uses symbol clk_regmap_divider_ops from namespace CLK_MESON, but does not import it.
+For out-of-tree sources it depends on how likely the problem is. There's
+no regression if nobody is affected. I personally like restricting
+backward compatibility to the strict minimum, to ensure that all new DTs
+will use proper bindings. Making the backward compatibility code
+self-contained helps there, and we could also print a loud warning
+(WARN_ON() seems appropriate) and set a date for the removal of the
+workaround.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+
+Laurent Pinchart
 
