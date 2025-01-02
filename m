@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B76E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 18:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EF5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 18:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZmBLyMaEsdOn4Q5STQE+mhdoJd5pHTPZlhfFO4wWcQY=; b=HFeWS7zEYg97Pl1gpKO+WCYG4y
-	h0Sd9rxxcvOkFvQph3MV01ZpNuncXSVAhtX3cBgC/Z9kc4FtibzG5nTizzyRYDZbRGutOrMXuYlDY
-	S4iKbcAx+6AZe0haBNPh5rtHjAHVvNhSJkuiZZAYdpHDqnF2H/5X+iI5t7ksOsXNGeX32eIrvjvBg
-	Ns5YEGII+xJLH/rLRrTp7IgqmrFFH9tF8rvXsIjLHnAFeASZnURhDle6IVWqHtsGQVy54JAJ8riPI
-	DmFiP24NjkELjN8Cfq9ALFPAAs2U3yjd3XPJxxghbSDWHvY5Vbbss5F3EEQtqnANkA0pSimtr1Vsw
-	8uSw/fhQ==;
+	Date:References:In-Reply-To:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hpqHInndrX0iGC8mDRVxX2kXaaLKhzvItMvT43SHJpY=; b=3Tfn4+D0jnwxH8KV9+YmXKRQRy
+	mahfGa7HCCkq/RSFjfnzFY9z94qi+UkN/zha+5CvS8CejMXczipAhQyoqWlkcKp1Tp6VauelmCj5a
+	Kx3ChzRunQy7/PoAPMs3GLjTgpjhS441jokgm09VjkAVnctmtPkiVvFgoF6e+wKbUgQfAgZTf46LP
+	9ZtuOJtS0q1UoTXYeVsj+teh8KviZ6AIaiDrQnUfDlcIp2daYVYxjRaP1RxsGen6AyKf6kMMtUCFQ
+	VPknMfxMTisPdz+ST2ALUZyr0F2PZTOWngYyxUvi/eZV4jZ5ubTRfYC3+J8NRNXUxTd9ZoerLV/7d
+	UckM5ozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQ1K-0000000B951-2cLp;
-	Thu, 02 Jan 2025 18:34:10 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tTQCn-0000000BBQg-1oeB;
+	Thu, 02 Jan 2025 18:46:01 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTPzp-0000000B8Sq-3EHq
+	id 1tTQBY-0000000BB9Q-0Ovb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 18:32:39 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2163bd70069so60483365ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 10:32:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735842756; x=1736447556; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZmBLyMaEsdOn4Q5STQE+mhdoJd5pHTPZlhfFO4wWcQY=;
-        b=eSdz7bi783T2jFzNSJJl7orlCJvPbFgzYVrXrMFn8CCLLVx1p0pvDSJkVkDIdNBSpA
-         MR2HhB/CIK58LjSpxs6wuHNGAHzjs9tUZzmvjY1daedaPEOn74YDWGltHrnz1KJkcW8Y
-         sy0T4RmUGQEQM7nFZGXO690CPNcIcnZ7KVmgbZUZXLO48cgh5mKf3KmUz+826FWWiLfK
-         53BbOQnH+8nHeUUYv3DYkJMisIuHwPaTPmXqGZb/YYVS4ON8qCSX3yghvglngAxom8FO
-         EVxrR5U7iMAzjv/7qee0qUA0YP06AZj4zIMJZawGJMjpV0wDSE99hs1aP2Sq8mopII4z
-         BMCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735842756; x=1736447556;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZmBLyMaEsdOn4Q5STQE+mhdoJd5pHTPZlhfFO4wWcQY=;
-        b=aKBa45SglS5ywx0jIsKxwtFFpN85bAXptv2YNB63ZHf/3ED7NJpcBKoBCZIzV9CoH0
-         2ySm2J1oOChceDUpSisEbGmoUcNevHSHNYMxnK71Qafvf8yEPEJj/bIRdfkCZzVpaR3w
-         zPRQ9d/4t/y4jNhV53ZVEcrVnBpaQa62TR32w8voxz5HMqfheY13Tflz1AHa8LVGZ+3S
-         AelnUdb8DRjE3RQnuVLU/0pF9VXfTNMGArHU3ALW4RhTKHj6/CSwnGe9KLPgzTGdFOPs
-         bz7Y2tjKbLBM7d/AIXkTXSuYNDU23VVlUDILgjHK2kpheG4UMq1sjy/8Hjv/Ecc6ojyy
-         9RjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWz2YMDYz6GL9Q8SdgGI7bx74O98U4VqelgBRzkd++qYYchSqVX19IdgwqCKULEajszLHoSNrv6w1N9omNbhLRL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwchPe/v+Wx2G7r3wEDClIeSYfw6G+QSPDpZVrtnV031plkChOq
-	ti9rOKNZ8DLPOtBTdGpb8iS+4wqOGzuN+q7723qQ8zOyfAPsNlrO
-X-Gm-Gg: ASbGncsGRBkxBzQTZYG1ofEN0jErY8LCYKh0XcqheRQEnaZhUlQY5xIAgHm9M48v0pm
-	xjxvRDJ1vYrkzNCYWl27e4rxNuvEzjB/lQaRli/biSNxg+KTV/CB2MSsbEevl79w4NfPhfpWBz7
-	Js+off4RST5tXtVwUaGMJd7RBjKipi7ZPwPTZTqnhc8ey6xFaWANwOut0fDknuL6krdfZ8TVhrX
-	rNQL3vMv5BWb+j2UYrVdf7Qs5clYyirDr2QVOYtBXkJQSO7R9G6OgBJf282Ftd+q2wq661d+sdv
-	qPHLzzA3VOfRcsVP7t30Eg5Lx9Gohnw=
-X-Google-Smtp-Source: AGHT+IHpGOLVThnWV3UDWPVggKt9JZyqBWGCDD4mG3rXl7oRcepmQ9fGjP9tbJJ2H/XG2/M6m4kRPA==
-X-Received: by 2002:a05:6a00:3406:b0:725:eacf:cfdb with SMTP id d2e1a72fcca58-72abdeeed6emr71219209b3a.24.1735842756061;
-        Thu, 02 Jan 2025 10:32:36 -0800 (PST)
-Received: from localhost ([2a00:79e1:2e00:1301:12e9:d196:a1e9:ab67])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8dbbabsm25601698b3a.101.2025.01.02.10.32.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 10:32:35 -0800 (PST)
-From: Rob Clark <robdclark@gmail.com>
-To: iommu@lists.linux.dev
-Cc: linux-arm-msm@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Rob Clark <robdclark@chromium.org>,
-	Rob Clark <robdclark@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v2] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
-Date: Thu,  2 Jan 2025 10:32:31 -0800
-Message-ID: <20250102183232.115279-1-robdclark@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	Thu, 02 Jan 2025 18:44:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1735843472; x=1736448272; i=frank-w@public-files.de;
+	bh=hpqHInndrX0iGC8mDRVxX2kXaaLKhzvItMvT43SHJpY=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:In-Reply-To:References:Date:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=czAnAfJvyfCPY7k+3SedOX+5j22KgAuZEKbaogkJxYEYfQA/xjJqscTgdVpSho5y
+	 yr8sFi26elQBD+v/y1QIZakF8LS5+2pKYpqfXCLPFTfontfOc6IhCF+0AIEcti08K
+	 wgqiEfWU5kf4QENHTAXMkRIfR7js1Hv2ey9UgSS9pLy28kTOkGt5f/pONkTY3TeS6
+	 N93hpSdS7o9Nn8/EMLXhYVLPzrGO9oYi4sw42saGpzYvUbFvPlSrToBnpmOgIZQWo
+	 pP6ps1EI01YgbsWjGbm2ZXe7I6htsBSNAifY9bpS6CRPGlBC806XD7tIuAyYDh2Fk
+	 UiXebI6pDnzfq8gfAw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [217.61.146.33] ([217.61.146.33]) by
+ trinity-msg-rest-gmx-gmx-live-548599f845-gxsb9 (via HTTP); Thu, 2 Jan 2025
+ 18:44:32 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <trinity-a84b41b3-79c5-49b5-9786-eb89f85578cc-1735843472332@trinity-msg-rest-gmx-gmx-live-548599f845-gxsb9>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: frank-w@public-files.de, robh@kernel.org, linux@fw-web.de
+Cc: dlemoal@kernel.org, cassel@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew@lunn.ch, gregory.clement@bootlin.com,
+ sebastian.hesselbarth@gmail.com, linux@armlinux.org.uk,
+ hdegoede@redhat.com, axboe@kernel.dk, linux-ide@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Aw: Aw: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf
+ conditional failed
+Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <trinity-796b046d-1857-413e-bb82-78e700d6b5ac-1733138371404@msvc-mesg-gmx005>
+Importance: normal
+References: <20241109094623.37518-1-linux@fw-web.de>
+ <20241109094623.37518-2-linux@fw-web.de>
+ <20241111203611.GB1887580-robh@kernel.org>
+ <trinity-796b046d-1857-413e-bb82-78e700d6b5ac-1733138371404@msvc-mesg-gmx005>
+Date: Thu, 2 Jan 2025 18:44:32 +0000
+Sensitivity: Normal
+X-Priority: 3
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:LKNy9zKfnIlsz7NUTXXOtEKLalixuZlk+xPaKuoJSdmQlGlsQx4AHf7aFI2bc2+IWYKZR
+ dP6v5jF8yrLsEik2VIZBAoJI6iXtONPhog/afX5jes7stZx8sYst5CG4v8dE6nR909gcT81UTMGP
+ muBoR2ei0nmBt/xWhWjMlcwn/HFd/0XygDl8os6f2mJ+U8hr+Uq3KK9yHgsbN9NoI1yGxbSw5kda
+ sFn2HAuqTFnvNa2a5pUQHLSxJ6NRCPpOeen1zr4OWmz3aKe/c0d7w19hXa2MBLWS176NVRrAaMKd
+ NZB9O25GEgJfAcmTlXF0JxZN/NaXL0DQzRsig9JsqPBe7JDIGVinhzRCzn+WZYFvas=
+UI-OutboundReport: notjunk:1;M01:P0:NLFJFR0ukHI=;pAc3xJgcxNOAej0dcvwuoRTuUqw
+ 1pXdfaPiyFRb177kwNNvFaXNQis5vPl70fEA1hQxWxxzxV3eMDgyTaiJT/zpPuW63KNfwHD/2
+ 4vh4TZyQeQEfH9kYItPXqtshaHji+C8cCb26+rEpDQ4o/0SirJYUyiG8A2vdiq9ckmbjlWwYt
+ o9KgKf3fLjLf9TaA23GtlUeAJRvg6DSVVE643BMiz+gULt+XbPBKcOFW9F+nPmOl6Ajy83LYY
+ ocqQJhCGV8v5xPvqZ5nTTlAxFTZsUdmbMfPB9Jk4qVsd6Lg7GU4EAUea7ETU1i1J1u15jHMgk
+ FiDFMWdQqvCMgAngn/kjzbBs0cCj33F28HpFkQbPPwfCs1kIJ9pbjUlRU1TSl9sWgeN2d1vMl
+ nd1fK3Jp5zfux3kI3KVZBbwVkn/VWI7gqhTPv6F9mj0Yf3R88+NkyqViwJmNpTKgCPDqR3FLW
+ KX1jxaAuYRsGNAUUesZCz8bCFeI7zXcTpZDlczZ8vuqa4wrBG2ds48eUNJvoyLTk3GgQeifK7
+ l6rto32iHMAuSctbrivr7zbk/UXJ+kAKuFodVNdlLwmqPhZPOJV1/xw0JFlFcj5KrpXBgGX9G
+ E3Uvxkwpv6FNkiizlFTUvv8ZIRy7LADHWT4Ik1j4jY79c+oocjQzQT9TuUPzW8C0qlJVUSE3M
+ I2y5m7+CAB2gCldHije/vJwNeV39E2Ko6SrqpOgrFPC/sqagG2foKayKXlCkn4AZzCkBruwvt
+ 1qRylPM+VIcKIEI0uamK38nYa+jvBgQC4EiuKuXh/cN8meNTjFyyvfos2brJNcCaTKHXfCn/q
+ imFVU24Ihh1XUGykyxR/L4bcIqVcfustZTwqXOOKe3FHolpPvNZbrhb8fdFg+q8j6ZrmEkUGA
+ e9mpJv9S85uXfH43HxZLA+U9KolV7hXelIiM=
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_103237_867081_96516B53 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250102_104444_505533_2231A13F 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,74 +106,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rob Clark <robdclark@chromium.org>
+is there any new state here? got no answer for my last 2 Messages
 
-On mmu-500, stall-on-fault seems to stall all context banks, causing the
-GMU to misbehave.  So limit this feature to smmu-v2 for now.
+https://patchwork.kernel.org/project/linux-arm-kernel/patch/20241109094623=
+.37518-2-linux@fw-web.de/
 
-This fixes an issue with an older mesa bug taking outo the system
-because of GMU going off into the weeds.
+sorry for the html-entities...they came from my gmx webmailer, it is repor=
+ted multiple times, but i cannot do more here :(
 
-What we _think_ is happening is that, if the GPU generates 1000's of
-faults at ~once (which is something that GPUs can be good at), it can
-result in a sufficient number of stalled translations preventing other
-transactions from entering the same TBU.
+regards Frank
 
-Signed-off-by: Rob Clark <robdclark@chromium.org>
----
-v2: Adds a modparam to override the default behavior, for debugging
-    GPU faults in cases which do not (or might not) cause lockup.
-    Also, rebased to not depend on Bibek's PRR support.
 
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 19 +++++++++++++++++--
- 1 file changed, 17 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 6372f3e25c4b..3239bbf18514 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -16,6 +16,10 @@
- 
- #define QCOM_DUMMY_VAL	-1
- 
-+static int enable_stall = -1;
-+MODULE_PARM_DESC(enable_stall, "Enable stall on iova fault (1=on , 0=disable, -1=auto (default))");
-+module_param(enable_stall, int, 0600);
-+
- static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
- {
- 	return container_of(smmu, struct qcom_smmu, smmu);
-@@ -210,7 +214,9 @@ static bool qcom_adreno_can_do_ttbr1(struct arm_smmu_device *smmu)
- static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 		struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
- {
-+	const struct device_node *np = smmu_domain->smmu->dev->of_node;
- 	struct adreno_smmu_priv *priv;
-+	bool stall_enabled;
- 
- 	smmu_domain->cfg.flush_walk_prefer_tlbiasid = true;
- 
-@@ -237,8 +243,17 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
- 	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
- 	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
--	priv->set_stall = qcom_adreno_smmu_set_stall;
--	priv->resume_translation = qcom_adreno_smmu_resume_translation;
-+
-+	if (enable_stall < 0) {
-+		stall_enabled = of_device_is_compatible(np, "qcom,smmu-v2");
-+	} else {
-+		stall_enabled = !!enable_stall;
-+	}
-+
-+	if (stall_enabled) {
-+		priv->set_stall = qcom_adreno_smmu_set_stall;
-+		priv->resume_translation = qcom_adreno_smmu_resume_translation;
-+	}
- 
- 	return 0;
- }
--- 
-2.47.1
-
+> Gesendet: Montag, 2. Dezember 2024 um 12:19
+> Betreff: Aw: Re: [PATCH v1 1/3] arm64: dts: marvell: Fix anyOf condition=
+al failed
+>
+> Hi,
+>
+> just a gentle ping to have it finally merged
+>
+> regards Frank
 
