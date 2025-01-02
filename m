@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 430F0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376E6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFIpwGB23LANAByW/n2mcZ10YJezzuFXcnQMI/Wk7QU=; b=AAhnge9PGHpZxvU+sdXRW9EJQQ
-	hO8etOTEANKxbr8msd0DPFtCRnCREXCzAypCi28WC6Rl6gNGJvQBFarRPy2KvN+lgkDDxUXfC4hC9
-	b8zyrRO1SRpf9Pn1SU33nUxXCZGDqT13VlSECm46vTWJBRCBOhm6yqpgWkxEAo/nwtaCpNJOxIFSk
-	iyQV9O/qXd3/LQs67xFCOlEzyRLNjFX6Z8qK/+GXWit638zyTS66Xo6niu+26t7UCDuHtrFVT91q8
-	bW8JSySrxwuL6vOmCJmb/1CoL+YM4L38Tp2D7BwL7NdHctkIcv7I95Ko0tXGNSDVJji6khg64GqsC
-	SpNfZRdg==;
+	bh=ze9LqpjCGSWa0yPDrI54f/7UaaRjSHcJ6CR6aCivtOE=; b=PvMjMAZnCbf2XBakLBtPWuow3k
+	psck/eIj5gGGLKTFVtBnZ0f1wEJ1Jk8CZa8Su9M2Sg+/0p4k+3FrDuglCqTHe772v4uPr4cP89+ft
+	TIgSq6D2O9a28W0lY8YA5HZBalilDb2Qedwc2/rrkGKrRKg3oLYGae5MmVm95udogSzBl5ofWeUqO
+	XwmW8t1rbb/oo/Sv02mfalcDZxN0rKb9l4w/aAyeJLi98pCKOyoWOCWO8UGTwrJka/2tCnQ4kHG3v
+	4ZR/A1qQ1jkNZGVfCn7EAjPy/MQF7vd7s06nfmt/xwuuhk9cssN5Mjo+EsQbt6yZdwXopuaULO7b0
+	wp8eYOMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTImm-0000000ACXB-1Iyu;
-	Thu, 02 Jan 2025 10:50:40 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tTIpY-0000000ACsp-1eJE;
+	Thu, 02 Jan 2025 10:53:32 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIkg-0000000ACFw-0F7S
+	id 1tTIoO-0000000ACja-3kzc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 10:48:31 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3862a921123so7630007f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 02:48:29 -0800 (PST)
+	Thu, 02 Jan 2025 10:52:21 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so5676600f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 02:52:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1735814908; x=1736419708; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1735815139; x=1736419939; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=GFIpwGB23LANAByW/n2mcZ10YJezzuFXcnQMI/Wk7QU=;
-        b=l9lKnli2WOM1V8iy61zNO/mczkaGyWvRJRJWJ64N7RK7AjQfzVwJKKBW0sjt1kNURA
-         6ye0svITdz0YaRQALemxrkUE3/6FswZx1VrLnSWGxNFrSndLIyp2xQDUfdcx05SHo1wh
-         a0hSrz6gwzYSiO2PR0BeoqD9yfRtXrB13ZWlFkC/Mo44zkj6Cjy/p/rFUJELUKf+Cjck
-         6E60Cf5+712ZXwKCHhluBZnr/yEn1Eq+4tyW6HWHhQTnvQcXHLaESmLVhpR8Pz+veWlM
-         PXnGDlW2mGx7rz5YGyyHYcbfs8rjam3DlEIR7xilem6V3BSg9Bh0YV41Ga4jb7m30ZOh
-         o/Gg==
+        bh=ze9LqpjCGSWa0yPDrI54f/7UaaRjSHcJ6CR6aCivtOE=;
+        b=TtMCVYHrOl4vMtz/hVUpt5xVqmS/YQa+AAqGADfggI8IxLj49HslpEqFB/uS919oxo
+         8tJ7MrrcYspWkihg6mitAuuTMfzAUd73g88op6AWY/O7+0R4FsRGpfQ3nN7v8+2190YQ
+         /4tWY0Jt3FZIprDdAcFJ1Y0kw/zgVTW4kkHY5QLTFk38/7eigvgEz4RBtTHQgfbfSO2U
+         G+maL+ZonS09CK18r2fqoLO2/3TMXnrmGh4n+1Y62vtwk/l2MbbZObHeHUopTkC/9Pnq
+         kV4idj6vWctItURFt2OXL55u+Sea/WD1U3TgHr01DxzmlRK1Kvn2i8jl3ysXeQtDBLWu
+         ZR/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735814908; x=1736419708;
+        d=1e100.net; s=20230601; t=1735815139; x=1736419939;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GFIpwGB23LANAByW/n2mcZ10YJezzuFXcnQMI/Wk7QU=;
-        b=nYNiUqRidy489toF8+YAAvfFj6O0towZmzXgN4P7Q7DIq8beHn1eXPBOso0Nwj6LMD
-         JvUXdIo3xgpvqCmMjys8IC+ueJbiCxnk2VE3bFy+ieDWqW0UA2U2DxafAuT6sSMUqrQt
-         t8SiUimAPe1Ciz0jaTODJA66suy3jGTVDIORJ4Mp/k7zClhkGM/UAMnWNkaQfEBxLPjJ
-         hcrJviRVrPU8dunZ9kSm3WwXDnPP6xxq9eWnCoJVUDWZeYW9+I7n8Ofzx5aIygYU3I/9
-         VCo24Ej3VcPsiy8+bxvyaw10q1LFC3UU++LwQ/dpASVR9SGSIHAOw3OnE/QwP7I3peVy
-         G3SA==
-X-Forwarded-Encrypted: i=1; AJvYcCWhEtqQNXd5611hfSz56osc1i6pc9kfsMkm7FvNhzvxEjWT7TJTRBkceTDwMZx6iz+XlzfhiF0tmfwj3A3s/nFM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx223EMqb4O6ZqFIS60VVDIyLKxo8YoCBJueMS3oKh4rkGMX2+O
-	zzPyKxXVKa+li/ZETDnD5yNyxfj9Y92SHINmMrxympiZ9xE9TvS2JtnsVK5rGFo=
-X-Gm-Gg: ASbGncvJtnA1+WddwqQWnhsRgS1gFYjlh8uKA3u0Yku87ehzpFljEMloNf0ZqWo9820
-	c3/wbvfHF9kxRt8nCYEZUMQ1ArNJeC0NRQXxzuunKfHI5sPm1TBAp9bsysEKSNh3eVNfv8LZCTN
-	qzXbXj+5JWNY0KchCi5MayRDkMAfZiljQaZqJhwbjMkVej2fPdvqDpEpGvmcY545sAw8bbzCIFS
-	YVlwJG253+aDHzc8RalkqoIOWJO4GNURTW7fn8lBb7UVcUNyjnRaDKn77YHhJpzfQ==
-X-Google-Smtp-Source: AGHT+IENVLtDm//0s4zoP3FVOCZty2tw9Mx4m7bERvCUo2OJSxiEnc/IIpjbgKoYlXyGt/2cKq0SdQ==
-X-Received: by 2002:adf:9b8a:0:b0:38a:4de1:ac6 with SMTP id ffacd0b85a97d-38a4de10f03mr11955498f8f.6.1735814907658;
-        Thu, 02 Jan 2025 02:48:27 -0800 (PST)
+        bh=ze9LqpjCGSWa0yPDrI54f/7UaaRjSHcJ6CR6aCivtOE=;
+        b=gFUNdr6MOQy798kHagUgdvPK4KBd4rEJXDvdm2nugzNmA1KChFqJeb/EyouMihzJVY
+         ReuB0M8XZ/RGPdNpMs62VJXjmrp5hv/vaaiJ8p8KEDzasELRSSq1vslBcJHNvQAwcNgO
+         YQP6reOWoktZrAT645od49QTuISDI+bG3AmIrhruiMa3dgbbJVXHShemXO9/ANH/tptH
+         iIV0CfTkaj4/MjeMD2Eq6Rlb8HXZL/DO8fT4XDOEiTPc9IMWr9mFz/Fv8+ZptuXKcx7U
+         kWKTiNC0MEpMd6527+gzES2h+b2uG2Du2tABN6J3Ao55rVDBTzm+iEyj/nf+O7s89PCD
+         /Ijw==
+X-Forwarded-Encrypted: i=1; AJvYcCWCYnaF9tMzunR5WQr7TZKn9LMRNAWusyM6I0fsIBEMoF0T+LVMjm6M56cJsD+aOfJPXOejY3V3KwBsAGsJUuwG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9N5uvJ+kridIbbtudqjBFS7mOgouXSpkaCmmVW1MxjlsT37oE
+	pZ/+30RvUDtv8mP031yDkzpczwB381CWAfE84REcVusVbr62Hm+xM9RYwdArJgE=
+X-Gm-Gg: ASbGncvz7586WRG9RQZqZtrRqH4Ykom/VxTczdHfCiWvr2FMCjdTddy+m6TjM7R3uRD
+	31ZxJ3sno8GaUj3yycy6RNkPAIucA/peLiijKPGqcG3gdyJI8tSuk094w7XROd0Q0L7btHDIqlL
+	J23QfvkAq1zpRa9P4zqeeWaf13d4DOyVFU8vgMe06oSdTGgkAonS++4x6UNBONSmp2FZmqav0bB
+	RJ3mkbl1Drfa09ppzAylb7DC4U1/SBBTJp1AMfuSbiBrQbReB29Qpp2F7bccRvgFQ==
+X-Google-Smtp-Source: AGHT+IEAXmh4Jm/fooPniPUd+cP6NsbK2SR6lviu3UydjCwVbdG5V5GA3GQCHI+v0JTIHRvlmZHUzQ==
+X-Received: by 2002:adf:ab0a:0:b0:38a:50fa:d582 with SMTP id ffacd0b85a97d-38a50faf3cemr11500112f8f.59.1735815139109;
+        Thu, 02 Jan 2025 02:52:19 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c89e140sm38648430f8f.79.2025.01.02.02.48.25
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b3b295sm490098515e9.33.2025.01.02.02.52.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Jan 2025 02:48:27 -0800 (PST)
-Message-ID: <8361a42d-0c70-4a8c-b0a0-7056ba21b508@tuxon.dev>
-Date: Thu, 2 Jan 2025 12:48:25 +0200
+        Thu, 02 Jan 2025 02:52:18 -0800 (PST)
+Message-ID: <70aab1bc-1427-44ed-b516-843429d0bdfa@tuxon.dev>
+Date: Thu, 2 Jan 2025 12:52:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/13] clk: at91: sama7d65: add sama7d65 pmc driver
+Subject: Re: [PATCH v4 09/13] ARM: dts: microchip: add sama7d65 SoC DT
 To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, nicolas.ferre@microchip.com,
  alexandre.belloni@bootlin.com, mturquette@baylibre.com, sboyd@kernel.org,
@@ -83,15 +83,16 @@ Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
  linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-spi@vger.kernel.org, linux-serial@vger.kernel.org
 References: <cover.1734723585.git.Ryan.Wanner@microchip.com>
- <549fa8590fe9b4380e413f8eed87392f28754395.1734723585.git.Ryan.Wanner@microchip.com>
+ <3f63aebc4b31da1b631ce7e6d76aa0046deeda6a.1734723585.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <549fa8590fe9b4380e413f8eed87392f28754395.1734723585.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <3f63aebc4b31da1b631ce7e6d76aa0046deeda6a.1734723585.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_024830_323729_4F62B748 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20250102_025220_951872_8C953E11 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,202 +110,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi, Ryan,
 
 On 20.12.2024 23:07, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> 
-> Add clock support for SAMA7D65 SoC.
-> 
-> Increase maximum number of valid master clocks. The PMC for the SAMA7D65
-> requires 9 master clocks.
-> 
-> Increase maximum amount of PLLs to 9 to support SAMA7D65 SoC PLL
-> requirements.
-> 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> ---
->  drivers/clk/at91/Makefile          |    1 +
->  drivers/clk/at91/clk-master.c      |    2 +-
->  drivers/clk/at91/clk-sam9x60-pll.c |    2 +-
->  drivers/clk/at91/pmc.c             |    1 +
->  drivers/clk/at91/sama7d65.c        | 1375 ++++++++++++++++++++++++++++
->  5 files changed, 1379 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/clk/at91/sama7d65.c
-> 
+> +		pioa: pinctrl@e0014000 {
+> +			compatible = "microchip,sama7d65-pinctrl", "microchip,sama7g5-pinctrl";
 
-[ ... ]
+Please also update the documentation with the fallback.
 
+> +			reg = <0xe0014000 0x800>;
+> +			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 10>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +		};
 > +
-> +	parent_hws[0] = md_slck_hw;
-> +	parent_hws[1] = td_slck_hw;
-> +	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
-> +	for (i = PCK_PARENT_HW_MCK1; i < ARRAY_SIZE(sama7d65_mckx); i++) {
-> +		u8 num_parents = 3 + sama7d65_mckx[i].ep_count;
-> +		struct clk_hw *tmp_parent_hws[8];
-> +		u32 *mux_table;
-> +
-> +		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
-> +					  GFP_KERNEL);
-> +		if (!mux_table)
-> +			goto err_free;
-> +
-> +		PMC_INIT_TABLE(mux_table, 3);
-> +		PMC_FILL_TABLE(&mux_table[3], sama7d65_mckx[i].ep_mux_table,
-> +			       sama7d65_mckx[i].ep_count);
-> +		for (j = 0; j < sama7d65_mckx[i].ep_count; j++) {
-> +			u8 pll_id = sama7d65_mckx[i].ep[j].pll_id;
-> +			u8 pll_compid = sama7d65_mckx[i].ep[j].pll_compid;
-> +
-> +			tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
-> +		}
-> +		PMC_FILL_TABLE(&parent_hws[3], tmp_parent_hws,
-> +			       sama7d65_mckx[i].ep_count);
-> +
-> +		hw = at91_clk_sama7g5_register_master(regmap, sama7d65_mckx[i].n,
-> +						      num_parents, NULL, parent_hws,
-> +						      mux_table, &pmc_mckX_lock,
-> +						      sama7d65_mckx[i].id,
-> +						      sama7d65_mckx[i].c,
-> +						      sama7d65_mckx[i].ep_chg_id);
-> +		alloc_mem[alloc_mem_size++] = mux_table;
-> +
-> +		if (IS_ERR(hw)) {
-> +			kfree(mux_table);
-
-Now mux_table is freed twice, once here, once in err_free section. Having
-mux_table added to alloc_mem[] is enough. I'll do the propoer adjustment
-while applying.
-
-> +			goto err_free;
-> +		}
-> +
-> +		sama7d65_mckx[i].hw = hw;
-> +		if (sama7d65_mckx[i].eid)
-> +			sama7d65_pmc->chws[sama7d65_mckx[i].eid] = hw;
-> +	}
-> +
-> +	parent_names[0] = "syspll_divpmcck";
-> +	parent_names[1] = "usbpll_divpmcck";
-> +	parent_names[2] = "main_osc";
-> +	hw = sam9x60_clk_register_usb(regmap, "usbck", parent_names, 3);
-> +	if (IS_ERR(hw))
-> +		goto err_free;
-> +
-> +	parent_hws[0] = md_slck_hw;
-> +	parent_hws[1] = td_slck_hw;
-> +	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
-> +	parent_hws[3] = sama7d65_plls[PLL_ID_SYS][PLL_COMPID_DIV0].hw;
-> +	parent_hws[4] = sama7d65_plls[PLL_ID_DDR][PLL_COMPID_DIV0].hw;
-> +	parent_hws[5] = sama7d65_plls[PLL_ID_GPU][PLL_COMPID_DIV0].hw;
-> +	parent_hws[6] = sama7d65_plls[PLL_ID_BAUD][PLL_COMPID_DIV0].hw;
-> +	parent_hws[7] = sama7d65_plls[PLL_ID_AUDIO][PLL_COMPID_DIV0].hw;
-> +	parent_hws[8] = sama7d65_plls[PLL_ID_ETH][PLL_COMPID_DIV0].hw;
-> +
-> +	for (i = 0; i < 8; i++) {
-> +		char name[6];
-> +
-> +		snprintf(name, sizeof(name), "prog%d", i);
-> +
-> +		hw = at91_clk_register_programmable(regmap, name, NULL, parent_hws,
-> +						    9, i,
-> +						    &programmable_layout,
-> +						    sama7d65_prog_mux_table);
-> +		if (IS_ERR(hw))
-> +			goto err_free;
-> +
-> +		sama7d65_pmc->pchws[i] = hw;
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
-> +		hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
-> +					      sama7d65_systemck[i].p, NULL,
-> +					      sama7d65_systemck[i].id, 0);
-> +		if (IS_ERR(hw))
-> +			goto err_free;
-> +
-> +		sama7d65_pmc->shws[sama7d65_systemck[i].id] = hw;
-> +	}
-> +
-> +	for (i = 0; i < ARRAY_SIZE(sama7d65_periphck); i++) {
-> +		hw = at91_clk_register_sam9x5_peripheral(regmap, &pmc_pcr_lock,
-> +							 &sama7d65_pcr_layout,
-> +							 sama7d65_periphck[i].n,
-> +							 NULL,
-> +							 sama7d65_mckx[sama7d65_periphck[i].p].hw,
-> +							 sama7d65_periphck[i].id,
-> +							 &sama7d65_periphck[i].r,
-> +							 sama7d65_periphck[i].chgp ? 0 :
-> +							 INT_MIN, 0);
-> +		if (IS_ERR(hw))
-> +			goto err_free;
-> +
-> +		sama7d65_pmc->phws[sama7d65_periphck[i].id] = hw;
-> +	}
-> +
-> +	parent_hws[0] = md_slck_hw;
-> +	parent_hws[1] = td_slck_hw;
-> +	parent_hws[2] = sama7d65_pmc->chws[PMC_MAIN];
-> +	parent_hws[3] = sama7d65_pmc->chws[PMC_MCK1];
-> +	for (i = 0; i < ARRAY_SIZE(sama7d65_gck); i++) {
-> +		u8 num_parents = 4 + sama7d65_gck[i].pp_count;
-> +		struct clk_hw *tmp_parent_hws[8];
-> +		u32 *mux_table;
-> +
-> +		mux_table = kmalloc_array(num_parents, sizeof(*mux_table),
-> +					  GFP_KERNEL);
-> +		if (!mux_table)
-> +			goto err_free;
-> +
-> +		PMC_INIT_TABLE(mux_table, 4);
-> +		PMC_FILL_TABLE(&mux_table[4], sama7d65_gck[i].pp_mux_table,
-> +			       sama7d65_gck[i].pp_count);
-> +		for (j = 0; j < sama7d65_gck[i].pp_count; j++) {
-> +			u8 pll_id = sama7d65_gck[i].pp[j].pll_id;
-> +			u8 pll_compid = sama7d65_gck[i].pp[j].pll_compid;
-> +
-> +			tmp_parent_hws[j] = sama7d65_plls[pll_id][pll_compid].hw;
-> +		}
-> +		PMC_FILL_TABLE(&parent_hws[4], tmp_parent_hws,
-> +			       sama7d65_gck[i].pp_count);
-> +
-> +		hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
-> +						 &sama7d65_pcr_layout,
-> +						 sama7d65_gck[i].n, NULL,
-> +						 parent_hws, mux_table,
-> +						 num_parents,
-> +						 sama7d65_gck[i].id,
-> +						 &sama7d65_gck[i].r,
-> +						 sama7d65_gck[i].pp_chg_id);
-> +		if (IS_ERR(hw))
-> +			goto err_free;
-> +
-> +		sama7d65_pmc->ghws[sama7d65_gck[i].id] = hw;
-> +		alloc_mem[alloc_mem_size++] = mux_table;
-
-This should have been added just after:
-
-		if (!mux_table)
-			goto err_free;
-
-I'll adjust it while applying.
-
-> +	}
-> +
-> +	of_clk_add_hw_provider(np, of_clk_hw_pmc_get, sama7d65_pmc);
-> +	kfree(alloc_mem);
-> +
-> +	return;
-> +
-> +err_free:
-> +	if (alloc_mem) {
-> +		for (i = 0; i < alloc_mem_size; i++)
-> +			kfree(alloc_mem[i]);
-> +		kfree(alloc_mem);
-> +	}
-> +
-> +	kfree(sama7d65_pmc);
-> +}
-> +
-> +/* Some clks are used for a clocksource */
-> +CLK_OF_DECLARE(sama7d65_pmc, "microchip,sama7d65-pmc", sama7d65_pmc_setup);
 
 
