@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DEEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD725E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7flQnKV8vSbD7ZZK4PcmtpGM/BtiMyoaCeu4zS9bfRI=; b=4i8KdxEJ4jjx+gdQSA70nbGeJb
-	1jTy1J2+zRWwEGy8C/GQPT9qf4RAqgK782lKIqW9dKBEAzDqZTP1iod5D/a5Cvfvcm92wnkw5lcZ5
-	A7fKFEJRipb/z5ME6PvscEsn0Tm0WrvEwEEUvkoC1ctDcykBYhFA1hLe7e8lWXTVlYSYpGS2PMa9K
-	tZ49CzIija/rUTDQZMfgZnN9d7HLYf02hDFGgSdyi2uNBYIfvn0+E9JnzMBKhkLoY/vFFwmOYHYyD
-	hEUvBn8kKkwNUMhloVZHM6yvFKnqWHP0ZeNZCmDOB7LBoCPYzKRXffbC4Yx3locFZkOuamdXNtQmV
-	y4XBeUWg==;
+	bh=YEX07eVl8poJMk/2HTnl4uVgkRJpOJDNGu4gkKdNDK8=; b=EYNZXc3Zq/mSYVHBqYA31ucVmm
+	hD6uBeSYdZPg6Byf0Req4p+F9/yLa1/y5muHqOefseDhSHeF7s5vEv1xfGmcTmIrHCXfFLL4v0MTR
+	NOrQVGSBpwXxvyMZ+V9k3cjNtV9uKjZYPTp4ZDWb5nSHbGolKkcrPa8m4lGdkO75yl9yvCofCLUiz
+	3haAEfWwjUoBUWAwwm+AvEIkvdqXVdnCa6MFul1SHzs2mOIFHiNiLh9vOPYzi0pO5IL5DgK5ay53V
+	zAhs1Ow0KUpExAT9x9jZqv06KsFnh0UeIuNZZ91FJeo4VhxtTqrT0DixyBeDSoU7N+nR+DUFq3TMd
+	7yuxnmcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNdM-0000000AlxC-1f4l;
-	Thu, 02 Jan 2025 16:01:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNWz-0000000AkuI-26nJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 15:54:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EA4E11FB;
-	Thu,  2 Jan 2025 07:55:09 -0800 (PST)
-Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1469A3F673;
-	Thu,  2 Jan 2025 07:54:38 -0800 (PST)
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH v3 4/4] MAINTAINERS: Add Vincenzo Frascino as Arm Morello Maintainer
-Date: Thu,  2 Jan 2025 15:54:16 +0000
-Message-ID: <20250102155416.13159-5-vincenzo.frascino@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250102155416.13159-1-vincenzo.frascino@arm.com>
-References: <20250102155416.13159-1-vincenzo.frascino@arm.com>
+	id 1tTNeZ-0000000Am7g-0Jv9;
+	Thu, 02 Jan 2025 16:02:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTNZZ-0000000AlL2-0C1F;
+	Thu, 02 Jan 2025 15:57:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 87CEE5C6113;
+	Thu,  2 Jan 2025 15:56:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9958C4CED0;
+	Thu,  2 Jan 2025 15:57:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735833439;
+	bh=l9krntIFJFgGFkmtKhs3ubXfoLYdo1dGd3fujb63qS0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GWQA/5ifHfAmW52ebrzWPjPHWHUb8Loa0cT4PsfsmvUVhRjgfv/ZpWcPVVV44iIHC
+	 bKsRoUCZPiDbMC83ImLbuFqmKm6mstitNOepgNr5aA+HsdQQ5C/tA6NY4h6OXMmJ+q
+	 6IBkszDnPvup/cfBcTL0bFgCGnvypTjtSYHpBaz56PotKjtai449QiPJG7IsNBAzQA
+	 20e2CC1lJfbpujiBtIWZ89nDEcmL5mhMym77NPlIVjh1KL9i/L1jZH2JVeIw2IVZrS
+	 BUwMKBBJaezhcfg3jXKBCIaQleuhDPZmtL04RUNxi9PR43T3d18hHd98xRuG9UMC8O
+	 wiAdixR9p92dQ==
+Message-ID: <dfd37ca0-14c6-4cc1-8fae-f1aa2d23e148@kernel.org>
+Date: Thu, 2 Jan 2025 08:57:17 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ipv6: socket SO_BINDTODEVICE lookup routing fail without
+ IPv6 rule.
+Content-Language: en-US
+To: shiming cheng <shiming.cheng@mediatek.com>,
+ willemdebruijn.kernel@gmail.com, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: netdev@vger.kernel.org, lena.wang@mediatek.com
+References: <20250102095114.25860-1-shiming.cheng@mediatek.com>
+From: David Ahern <dsahern@kernel.org>
+In-Reply-To: <20250102095114.25860-1-shiming.cheng@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_075441_590370_81A781FC 
-X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-CacheID: sfid-20250102_075721_198734_B0F0A380 
+X-CRM114-Status: UNSURE (   9.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,32 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Vincenzo Frascino <vincenzo.frascino@arm.com> as Arm Morello Software
-Development Platform Maintainer.
+On 1/2/25 2:51 AM, shiming cheng wrote:
+>      When using socket IPv6 with SO_BINDTODEVICE, if IPv6 rule is not
+>         matched, it will return ENETUNREACH. In fact, IPv4 does not behave
+>         this way. IPv4 prioritizes looking up IP rules for routing and
+>         forwarding, if not matched it will use socket-bound out interface
+>         to send packets. The modification here is to make IPv6 behave the
+>         same as IPv4. If IP rule is not found, it will also use
+>         socket-bound out interface to send packts.
+> 
 
-Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
----
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+Please create test cases for IPv4 and IPv6 showing the problem - what
+you are configuring and the expected result.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 910305c11e8a..8b2d20fc8cdb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2711,6 +2711,12 @@ F:	arch/arm/boot/dts/socionext/milbeaut*
- F:	arch/arm/mach-milbeaut/
- N:	milbeaut
- 
-+ARM/MORELLO PLATFORM
-+M:	Vincenzo Frascino <vincenzo.frascino@arm.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+F:	arch/arm64/boot/dts/arm/morello*
-+
- ARM/MOXA ART SOC
- M:	Krzysztof Kozlowski <krzk@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
--- 
-2.43.0
+Also, commit messages should align with first column unless there is a
+reason for an indentation.
 
 
