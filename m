@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2E7E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE5EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z3nrX1F7FlWjBFkebZXd9/O5oWSFgRIqJmb52FLtFTU=; b=hW2zYGSIor0SwLGomfnocd3NWS
-	iFao9grlfYhBttYaWbbjWo4z/PwI/HyC8wZ8HSBzB+/DVRHlv2msv14CW3wEB7axhUwaJiN4U/oHM
-	f/keNczYjdD4odjL0A3OJJe/Qe4fSNJQAzoVJe/JRekSeHgNPRm8N+q/Xxt1tGUI45TLNunA5ZBJg
-	McH4uv7PJu0Mco4McHae1KRjN1c0R8Cw9dHNONbOMtGkQMsziOCqRtop7P3/JfmK6vMhVKybGOovB
-	Rfg3FlN+Sjpcm/fUOt6hzlbv7Inixc0zBCIOYOjYDgT29QJ88BTAzia+KBWZBno/RVkVgvzptaJ4r
-	gm9+JBCQ==;
+	bh=JmaTD/Jckx/cv6eB5OjO9YLAVZkasrIkzAuDIUAig9Y=; b=wz0CHAIDpEx0fFzSh19uLk96Do
+	Kp+4Ymgjw+th01RTCc87HzQcS8fyUcrPrQeSgRc7xdYIwKMpte9WJNdqJi/JVM07e/YKB7Njrm24b
+	gfxP5H5aw/OaIcEgH7/BMdL5yRzNVM2Mq/xtOCHRzrYGCDV0+IrCrI1KaDTds9doV8vHSgFlhKA2E
+	kIiQb8mwgNCqPlFIHgJ6vq6LE1qa9E3DE7/9yOmiN+T/BjEBhZfwB5rKj2CNlfjCTfyJw18BL/N0C
+	g3iH42Sy1CuaL6EyYaA+4ClgSMdvdo2hlv6six9muVjxET71DJY74XWYs4IDqq16+Cgkgb6ayahtc
+	pQq+8LLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKMi-0000000ALxF-1nFK;
-	Thu, 02 Jan 2025 12:31:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tTKOb-0000000AMAs-1E2G;
+	Thu, 02 Jan 2025 12:33:49 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKLX-0000000ALrV-3Elm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 12:30:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F0313A41059;
-	Thu,  2 Jan 2025 12:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBE4BC4CED7;
-	Thu,  2 Jan 2025 12:30:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735821037;
-	bh=5Y53HP2kEwTqZJxhsBAZ3UIGAtplC1vps/WlfAM1w9w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BT+NulpXbRBMoekFmZhX+SBJ+x9krUVQYwp7v87ECmwZd5FMVyfvJeuQDoBP2zX9z
-	 mRowweN388f0rC+iFNpRiMrvOnKU+gqnZAEcQRED+0HwVI8xRZB8z45buVtDy7f4KF
-	 uRqsN9t56Ak3cTPiTGgSJTa+oj9sxnS/q0zYLwsqiYwFJ6kz4wQbe+wP0Hxk5gy6qZ
-	 SjVRMHOoN+SQ3u/67qqp1LnEl6Tntp85lekpEsZlmWKuZ2o3mvecJrqJ1jIEziN5Li
-	 d5QTZ10B1u/XQDRS7fv7m7QUeHSChGXnVzgWhEHIi694hQ0sMIyulWoT89HZSoLnrn
-	 Ki93Ijyzns/4Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tTKLT-008PkE-9O;
-	Thu, 02 Jan 2025 12:30:35 +0000
-Date: Thu, 02 Jan 2025 12:30:34 +0000
-Message-ID: <86ed1lpfdh.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Will Deacon <will@kernel.org>,	Ryan Roberts <ryan.roberts@arm.com>,
-	=?UTF-8?B?TWlrb8WCYWo=?= Lenczewski
- <miko.lenczewski@arm.com>,<catalin.marinas@arm.com>,<corbet@lwn.net>,
- <oliver.upton@linux.dev>,<joey.gouly@arm.com>,<suzuki.poulose@arm.com>,
- <yuzenghui@huawei.com>,<linux-arm-kernel@lists.infradead.org>,
- <linux-doc@vger.kernel.org>,<linux-kernel@vger.kernel.org>,
- <kvmarm@lists.linux.dev>,<yangyicong@huawei.com>,<guohanjun@huawei.com>,
- <wangkefeng.wang@huawei.com>,<liaochang1@huawei.com>,
- <sunnanyong@huawei.com>,<linuxarm@huawei.com>
-Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
-In-Reply-To: <20250102120704.00002984@huawei.com>
-References: <20241211160218.41404-1-miko.lenczewski@arm.com>
-	<20241211160218.41404-3-miko.lenczewski@arm.com>
-	<87cyhxs3xq.wl-maz@kernel.org>
-	<084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
-	<86ikrprn7w.wl-maz@kernel.org>
-	<2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
-	<86h678sy00.wl-maz@kernel.org>
-	<5c551e43-78e9-4336-ab16-b55c0d6c7f92@arm.com>
-	<20241219164528.GH24724@willie-the-truck>
-	<20250102120704.00002984@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Jonathan.Cameron@huawei.com, will@kernel.org, ryan.roberts@arm.com, miko.lenczewski@arm.com, catalin.marinas@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, yangyicong@huawei.com, guohanjun@huawei.com, wangkefeng.wang@huawei.com, liaochang1@huawei.com, sunnanyong@huawei.com, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1tTKNP-0000000AM62-1Yyt;
+	Thu, 02 Jan 2025 12:32:36 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1tTKNI-000000007GL-0FWk;
+	Thu, 02 Jan 2025 12:32:28 +0000
+Date: Thu, 2 Jan 2025 12:32:17 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexander Couzens <lynxis@fe80.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 2/3] net: pcs: pcs-mtk-lynxi: implement
+ pcs_inband_caps() method
+Message-ID: <Z3aHUYOxCEGf9S_H@pidgin.makrotopia.org>
+References: <Z1F1b8eh8s8T627j@shell.armlinux.org.uk>
+ <E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk>
+ <e1e271e3-b684-46d2-879d-e3481d25a712@gmail.com>
+ <Z3ZVYeT0vD85Srsd@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z3ZVYeT0vD85Srsd@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_043039_952430_20420028 
-X-CRM114-Status: GOOD (  37.00  )
+X-CRM114-CacheID: sfid-20250102_043235_420849_F1496692 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
-
-On Thu, 02 Jan 2025 12:07:04 +0000,
-Jonathan Cameron <Jonathan.Cameron@huawei.com> wrote:
-> 
-> On Thu, 19 Dec 2024 16:45:28 +0000
-> Will Deacon <will@kernel.org> wrote:
-> 
-> > On Thu, Dec 12, 2024 at 04:03:52PM +0000, Ryan Roberts wrote:
-> > > >>> If anything, this should absolutely check for FAR_EL1 and assert that
-> > > >>> this is indeed caused by such change.  
-> > > >>
-> > > >> I'm not really sure how we would check this reliably? Without patch 5, the
-> > > >> problem is somewhat constrained; we could have as many changes in flight as
-> > > >> there are CPUs so we could keep a list of all the {mm_struct, VA-range} that are
-> > > >> being modified. But if patch 5 is confirmed to be architecturally sound, then
-> > > >> there is no "terminating tlbi" so there is no bound on the set of {mm_struct,
-> > > >> VA-range}'s that could legitimately cause a conflict abort.  
-> > > > 
-> > > > I didn't mean to imply that we should identify the exact cause of the
-> > > > abort. I was hoping to simply check that FAR_EL1 reports a userspace
-> > > > VA. Why wouldn't that work?  
+On Thu, Jan 02, 2025 at 08:59:13AM +0000, Russell King (Oracle) wrote:
+> On Tue, Dec 17, 2024 at 08:49:58AM +0100, Eric Woudstra wrote:
+> > On 12/5/24 10:42 AM, Russell King (Oracle) wrote:
+> > > Report the PCS in-band capabilities to phylink for the LynxI PCS.
 > > > 
-> > > Ahh gottya! Yes agreed, this sounds like the right approach.  
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > > Reviewed-by: Daniel Golle <daniel@makrotopia.org>
+> > > ---
+> > >  drivers/net/pcs/pcs-mtk-lynxi.c | 16 ++++++++++++++++
+> > >  1 file changed, 16 insertions(+)
+> > > 
+> > > diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
+> > > index 4f63abe638c4..7de804535229 100644
+> > > --- a/drivers/net/pcs/pcs-mtk-lynxi.c
+> > > +++ b/drivers/net/pcs/pcs-mtk-lynxi.c
+> > > @@ -88,6 +88,21 @@ static struct mtk_pcs_lynxi *pcs_to_mtk_pcs_lynxi(struct phylink_pcs *pcs)
+> > >  	return container_of(pcs, struct mtk_pcs_lynxi, pcs);
+> > >  }
+> > >  
+> > > +static unsigned int mtk_pcs_lynxi_inband_caps(struct phylink_pcs *pcs,
+> > > +					      phy_interface_t interface)
+> > > +{
+> > > +	switch (interface) {
+> > > +	case PHY_INTERFACE_MODE_1000BASEX:
+> > > +	case PHY_INTERFACE_MODE_2500BASEX:
 > > 
-> > Please, can we just not bother handling conflict aborts at all outside of
-> > KVM? This is all dead code, it's complicated and it doesn't scale to the
-> > in-kernel use-cases that others want. There's also not been any attempt
-> > to add the pKVM support for handling host-side conflict aborts from what
-> > I can tell.
-> > 
-> > For now, I would suggest limiting this series just to the KVM support
-> > for handling a broken/malicious guest. If the contpte performance
-> > improvements are worthwhile (I've asked for data), then let's add support
-> > for the CPUs that handle the conflict in hardware (I believe this is far
-> > more common than reporting the abort) so that the in-kernel users can
-> > benefit whilst keeping the code manageable at the same time.
-> > 
+> > Isn't this the place now where to report to phylink, that this PCS does
+> > not support in-band at 2500base-x?
 > 
-> Hi All,
+> No - look at the arguments to this function. What arguments would this
+> function make a decision whether in-band is supported in any interface
+> mode?
 > 
-> Given direction the discussion is going in time to raise a hand.
-> 
-> Huawei has implementations that support BBML2, and might report TLB conflict
-> abort after changing block size directly until an appropriate TLB invalidation
-> instruction completes and this Implementation Choice is architecturally compliant.
+> The correct place is the .pcs_inband_caps(), which from reading the
+> code, I understood that in-band can be used at 2500base-X with this
+> PCS. See
+> https://patch.msgid.link/E1tJ8NR-006L5P-E3@rmk-PC.armlinux.org.uk
+> which was merged at the beginning of December, and if you are correct,
+> the patch was wrong.
 
-Compliant, absolutely. That's the letter of the spec. The usefulness
-aspect is, however, more debatable, and this is what Will is pointing
-out.
+Yes, that patch was wrong. Neither is QSGMII supported at all by the
+LynxI hardware, nor can in-band-status be used in 2500Base-X mode.
+I will send a patch to fix that.
 
-Dealing with TLB Conflict aborts is an absolute pain if you need
-to handle it within the same Translation Regime and using the same
-TTBR as the one that has generated the fault. So at least for the time
-being, it might be preferable to only worry about the implementations
-that will promise to never generate such an abort and quietly perform
-an invalidation behind the kernel's back.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
