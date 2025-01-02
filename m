@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B89E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 04:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B5FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 05:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qASnP2cY4XrN23QHAx7oo1qyNnemaNPNaz8WLNECAxw=; b=m7WUHewPfsn96gjasP6EHoKK7e
-	UW0349//MW9jfh/Yy3eLpyvcFmseupKtFnca/DLG/43ASYeNW6UEC4uVYtEb5kCp8kDOHrZS8kxCp
-	iGRuutGz/ExWsqamkv8VPM/uH2sHn8ixtCsFBGE0mMqemjLzevuMOSQNz+juZCv0AgfuntHpUuh9L
-	PMULkdtYwNDI3LI+qxvd3kwOfaNsX14IU5tdO4DaAI08GZIlUTbrx4paT3umWQV7wGhjClUiHOV8t
-	/dV2YgmPsX26XvMmXKlg4tAQE/4p4RNL3E+QFtPNlPPypzcK4niJiIXdmNT9hBPXYGW8HR/LI6VFZ
-	UW+p5yUQ==;
+	bh=A/1bp2PcKf40TQFroshO2jGmCGJEJGNa02FuKdy+K6Y=; b=rGc8g7vq4rCRvOpxL6Dp+lhZtF
+	M8MjQ2rtbQlc9wNRHYZdSPJa3jBTznAwtu2OvyK2whovNX7U1iGySnA7yftLXSuYNbzL2g+rvsLEt
+	pdeCVh/XtT3Je421Vsh+EB4v4nfvkzt78PAfWHP8LZyXdRPvLTyx0u4QeOME0rDkMpADJ/aF7yGXm
+	XokQMBjPKdIBkl9W038f1U4co/HMcumKgkOG0J+fpxCNzOap6B3GJA1+KxHbbXRfdDg4nWCiWpxMN
+	175MabZPDwil24sjqa5GAg4COi++rRCiiPNeldvJKa2W38gmmVucVmp3/BcCOdYwpZz0x34t+wjTj
+	6YK54CsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTDGA-00000009jaJ-2OYJ;
-	Thu, 02 Jan 2025 04:56:38 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1tTDKp-00000009jp9-2DWU;
+	Thu, 02 Jan 2025 05:01:27 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTDF1-00000009jWd-1LXn
+	id 1tTDJf-00000009jkI-0DB6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 04:55:28 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3003e203acaso115531081fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 20:55:26 -0800 (PST)
+	Thu, 02 Jan 2025 05:00:16 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21628b3fe7dso144737315ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 21:00:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735793725; x=1736398525; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735794013; x=1736398813; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qASnP2cY4XrN23QHAx7oo1qyNnemaNPNaz8WLNECAxw=;
-        b=ZxGpiczt0kWg4fA8DgU+F25zSoClzLNiObQ2GuOXdkYkVfXpqBwXX+aY/3zliKwmXA
-         kel7/UF6d7obyaB5O45CezHtyHWotV4xWqtFmePLsXxNwDpi2rdfu3XMhYX+mEZ705Nw
-         thefytZZVeZo4ee2hGb6ICIFXrCr8nUDDXmbwmz8U0+rvxdkBqiifTbu3m9oh5k/UZSv
-         SzE9bCkMEd8Egbd2peUlL+ISWFMRhct6NZj/Mp+kZd027Ahe1G+e0B0I2qUeB/dTKk2d
-         OeRo5q0kvHsW0fOQHkLHCCbk9Pq3lj+dVxRZFf8fwIH2Vd3xVaU0DWI5JvYdRNln19S+
-         2pEA==
+        bh=A/1bp2PcKf40TQFroshO2jGmCGJEJGNa02FuKdy+K6Y=;
+        b=kPHeVBKGor3HTwf8sCbvzAtbDHbyFJWSgknkXJNxOigfsOpOd+4+Fh7nPyYRe4a034
+         Biqy6gEJnR8cubb0kaGqtHPe6BBbKoY4tNgOxDBP34gN2gAtSOCP/Gt0Kuz3JTNd4Jxy
+         J1X2oW5yB7VubhYiMIvuFw35TQF+06pM5jbfdgZd6jzycEcmIpOnGQ/SVk5JdVmWWLGk
+         0EWeW3yovrJBUYv7R5ZHcu5vA5iUWRtZPqR45kRLRpMNN+C6egKcIZD/Ia8/j1jJjAv5
+         vno7lp4oTbrUX20OfRWETFQwsItHoSqQdpqEQhpHEOUqBioTuWJD9Ndxw/LU6opWyWUQ
+         muhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735793725; x=1736398525;
+        d=1e100.net; s=20230601; t=1735794013; x=1736398813;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qASnP2cY4XrN23QHAx7oo1qyNnemaNPNaz8WLNECAxw=;
-        b=sZLS10XaPmbC57qIruEdj5gXiMf48PoxSYdxLmn0aMGKGsyHSscCwZ0s28B1HZpUzH
-         r5nvvrGv8RqgXILfAwLO34H3c6+rtH2s651Py23V6C48y7AS+KES/CrRkhTpQlK3Kp1z
-         5tcUAcBIt+ednZRAcPGB2PWO8dRjAjn3+mvPmrHhVGT5MVN3Hmu/K6n/C9Skcq9eHDU6
-         Et2eNC1T36x3RH+kiOT0UzzOJFS5JODIINmeqWLNblYT8odhx/mkrBQyKFByJK6ITj1y
-         J2rOCuOL5G24UUszA4iXK/RN7hxcc7HCeegHBwLdzVr2K8ojAioo1nHfxp4BkxvdZPK1
-         7z5g==
-X-Forwarded-Encrypted: i=1; AJvYcCUdqMmRMtIcDBBZqiYcJWrizqcHtsHGEuobdl2s+z6ZZKx6nBLAB2SoimrEzn+0Mo+Z2YrQ2Lel+ip/W4orZx4/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE8hgVlXswKfABZTIpNyR8bR9jiBlDj3aHvRJ+AIHoXkjHSLYV
-	CsnRotuJ9WoRvp9ZrQXHT5JJU9i814xVD2Toapi1WAYatKxyeoakwXcgALMDqG0=
-X-Gm-Gg: ASbGncsHeNU9LIAH8nSIHe8bcNzvaGPTPDRsHRudRfrfHlgbsD1Qs7JldcYwTXSsIDi
-	OM9uB4lGtS2u1mpBk6P22EFD+46BhYtHQw0x1N8Ne7RZ7YIF7unvgm1vFEm+zKM8N4BU7JG+3ly
-	qAzOYo4mhQXi0a283Cu9zlWkuNnvF2fTnSPv1zg5XUmNMkRdlEPiuUWveuU8Bp0Cbv+dGevrfxY
-	5nCT3g9URe+5Ozo/GyAytIRsWDI/gxcuIkudZ0d0zt1fhsXYJDmTgv0ka+qYwDxFtPu18ibT1wg
-	ml/4uMQuqU2RFKIDw9C8d4DNiasP8LSS0UYY
-X-Google-Smtp-Source: AGHT+IGG3mukVpNeyVH5K54Lp9BzgauZG9/9OolikaWA8gUQhWcUH40nRVYnybuB5sK96BFCwAUJaQ==
-X-Received: by 2002:a2e:b8c6:0:b0:300:7f87:a4f with SMTP id 38308e7fff4ca-30468557147mr160123631fa.19.1735793725424;
-        Wed, 01 Jan 2025 20:55:25 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad9bbe9sm41388161fa.43.2025.01.01.20.55.23
+        bh=A/1bp2PcKf40TQFroshO2jGmCGJEJGNa02FuKdy+K6Y=;
+        b=V/xHoBzkmH9b/2dgcnVW78cG9G8u2mpyS2OuUDe5G4TPf1u3L9ElnzYXlWMNL7F5kf
+         DmWQnCdCSmDHRhg0bJtMpJK2/PsXh1xrWh98OCzvWtKEpGtjAz6+ECy+boRvBGYE2cH0
+         Pg5v4WTeLVOdzhk0kY3LaYi9bBBnll1qO+egltkASB9eYcfcAo8xhdPgpYuvIY2w4woO
+         TsOeOx2If5xNhIJMuvk6j6iUSYqjrJk5Omuw8TxooFr65+QwkqdUeqRT8RMMThgls4QN
+         gJUr94knhR3bNNrpxiJT18RNvworFmX0ov7rKx1LYiSGEevFmF1nbt6djkmknUqY9hSB
+         Zq7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW9iDw/OvQFqhL4zILhZqpmw9hNk8dv38xoK6kVjnZQfLkKyi4a/ZbCHEAiTLirzoMo3hpkODX4pRFzQ88p8CvM@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywl7lJfg6JaGtkh1aADGhauNO5zwQnXGtNkrWDrOvaY/04ViP7F
+	l90boG37wdqozKbaqq3bZMB8KUmJij582w7Bh7DhRsIIoX52Hgfd5cwHC1nShGA=
+X-Gm-Gg: ASbGnctRQ/UxHDbL0WZIuCXU1Qv6llG93IpEE6VmXlm3Rfp4Ab1svZgX1Sbl9ldy1uk
+	RJ8zbdcNw1F5Afh+v4qZG4utOVaHHTJO/49yhr6D14ybCrq5tXNGrGRe+pVuFBbij+PukKDsVmz
+	31PvusUq+hj2E6UaZ4rRy+Zkiu/KKgfcpWN1+3nNMA63AAoNSVFKYzGcS3W1c/NksKxhNCp7hg0
+	j1c7Fh7GqVZgoZTrqbuhRd2ZfMZkM/7Xgq0d1deZq4h9TOcMDLCTW1xRx4=
+X-Google-Smtp-Source: AGHT+IGwZt2JFNHPzwT3nkSeMpu8p2mdONKKDTn9PLQBRw9qGtDV66wcfRl5C8C59VP/9aAWObVl+g==
+X-Received: by 2002:a05:6a20:7f8a:b0:1e3:e6f3:6372 with SMTP id adf61e73a8af0-1e5e07bc390mr63987273637.27.1735794013408;
+        Wed, 01 Jan 2025 21:00:13 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842b821da93sm17980901a12.38.2025.01.01.21.00.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jan 2025 20:55:25 -0800 (PST)
-Date: Thu, 2 Jan 2025 06:55:22 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Marek Vasut <marex@denx.de>
-Cc: dri-devel@lists.freedesktop.org, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
-	Fabio Estevam <festevam@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Liu Ying <victor.liu@nxp.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] drm/bridge: imx8mp-hdmi-tx: switch to bridge
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-Message-ID: <sjyw3afx5qyrupf5tixgtubevmklgmstjvj3hjt5xukzmgluuv@47j6afzl5dp6>
-References: <20241231192925.97614-1-marex@denx.de>
- <20241231192925.97614-2-marex@denx.de>
+        Wed, 01 Jan 2025 21:00:12 -0800 (PST)
+Date: Thu, 2 Jan 2025 10:30:10 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Charles Han <hanchunchao@inspur.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com, rafael@kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cpufreq: scpi: Prevent null pointer dereference in
+ scpi_cpufreq_get_rate()
+Message-ID: <20250102050010.gnvf42r3v2ey7mww@vireshk-i7>
+References: <20241230093159.258813-1-hanchunchao@inspur.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241231192925.97614-2-marex@denx.de>
+In-Reply-To: <20241230093159.258813-1-hanchunchao@inspur.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_205527_398723_8CD46EFE 
-X-CRM114-Status: GOOD (  30.27  )
+X-CRM114-CacheID: sfid-20250101_210015_107534_6BF5DEDE 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,99 +97,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 08:28:49PM +0100, Marek Vasut wrote:
-> The dw-hdmi output_port is set to 1 in order to look for a connector
-> next bridge in order to get DRM_BRIDGE_ATTACH_NO_CONNECTOR working.
-> The output_port set to 1 makes the DW HDMI driver core look up the
-> next bridge in DT, where the next bridge is often the hdmi-connector .
+On 30-12-24, 17:31, Charles Han wrote:
+> cpufreq_cpu_get_raw() may return NULL if the cpu is not in
+> policy->cpus cpu mask and it will cause null pointer dereference.
+> Prevent null pointer dereference in scpi_cpufreq_get_rate().
 > 
-> Similar to 0af5e0b41110 ("drm/meson: encoder_hdmi: switch to bridge DRM_BRIDGE_ATTACH_NO_CONNECTOR")
-> 
-> Note that looking at the upstream arch/arm64/boot/dts/freescale/imx8mp*dts ,
-> the oldest commit which adds HDMI support is commit:
-> 
-> 3e67a1ddd56d ("arm64: dts: imx8mp: Enable HDMI on TQMa8MPxL/MBa8MPxL")
-> 
-> That already contains the HDMI connector node. Most follow up additions
-> of HDMI support to another devices has been a variation of the same commit,
-> including connector node, which is the proper way of eanbling HDMI on the
-> i.MX8MP.
-> 
-> The rest should be covered by output_port_optional which should make systems
-> with DTs without HDMI connector node work, but such DTs should be updated and
-> the HDMI connector node should be added.
-> 
-> Signed-off-by: Marek Vasut <marex@denx.de>
+> Fixes: 343a8d17fa8d ("cpufreq: scpi: remove arm_big_little dependency")
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
 > ---
-> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Cc: Jonas Karlman <jonas@kwiboo.se>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Robert Foss <rfoss@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Stefan Agner <stefan@agner.ch>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
-> V2: No change
-> V3: - Update commit message
->     - Move select DRM_DISPLAY_CONNECTOR to DRM_IMX8MP_DW_HDMI_BRIDGE
->     - Enable output_port_optional
-> ---
->  drivers/gpu/drm/bridge/imx/Kconfig          | 1 +
->  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c | 2 ++
->  2 files changed, 3 insertions(+)
+>  drivers/cpufreq/scpi-cpufreq.c | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
-> index 9a480c6abb856..db5c8a76193ac 100644
-> --- a/drivers/gpu/drm/bridge/imx/Kconfig
-> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
-> @@ -17,6 +17,7 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
->  	tristate "Freescale i.MX8MP HDMI-TX bridge support"
->  	depends on OF
->  	depends on COMMON_CLK
-> +	select DRM_DISPLAY_CONNECTOR
+> diff --git a/drivers/cpufreq/scpi-cpufreq.c b/drivers/cpufreq/scpi-cpufreq.c
+> index cd89c1b9832c..c888ed3a0de9 100644
+> --- a/drivers/cpufreq/scpi-cpufreq.c
+> +++ b/drivers/cpufreq/scpi-cpufreq.c
+> @@ -30,6 +30,9 @@ static struct scpi_ops *scpi_ops;
+>  static unsigned int scpi_cpufreq_get_rate(unsigned int cpu)
+>  {
+>  	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
+> +	if (unlikely(!policy))
+> +		return 0;
+> +
+>  	struct scpi_data *priv = policy->driver_data;
+>  	unsigned long rate = clk_get_rate(priv->clk);
 
-I was going to write that it is not to be selected by anybody, but then
-I stumbled upon meson driver, which also selects the symbol.
-
-I still think that it is not to be selected by your driver as there is
-no direct dependency (and there can be other bridges inbetween or the
-bridge chain can end up with some other bridge). Such decisions belong
-to defconfig or distribution's kernel config file.
-
->  	select DRM_DW_HDMI
->  	imply DRM_IMX8MP_HDMI_PVI
->  	imply PHY_FSL_SAMSUNG_HDMI_PHY
-> diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> index 1e7a789ec2890..3d63200e468bf 100644
-> --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> @@ -101,6 +101,8 @@ static int imx8mp_dw_hdmi_probe(struct platform_device *pdev)
->  	plat_data->phy_name = "SAMSUNG HDMI TX PHY";
->  	plat_data->priv_data = hdmi;
->  	plat_data->phy_force_vendor = true;
-> +	plat_data->output_port = 1;
-> +	plat_data->output_port_optional = true;
->  
->  	hdmi->dw_hdmi = dw_hdmi_probe(pdev, plat_data);
->  	if (IS_ERR(hdmi->dw_hdmi))
-> -- 
-> 2.45.2
-> 
+The check needs to be made after all the variable definitions.
 
 -- 
-With best wishes
-Dmitry
+viresh
 
