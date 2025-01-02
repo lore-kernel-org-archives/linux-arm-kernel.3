@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F72E77194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95206E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G96SmpEt54IB9Df3wvkKqTgeWYSbIG+wUCdWuEyobIo=; b=4XOYkp492dnBWH+oQxSqKj6+SO
-	fPD/bVUE7Toj/Aq745LrqjJ8shlsDRTWa0+EnW1p0X2Fv1yL//o2Lycfw7Wqwk5ny1GvY45+yg89O
-	sSGfdekmkeHTsaJLod8tBFfgpnLrGT8+/bSLCuP3gZlYSVbA/TCkALbL/v3z4tZQg4oUj/+5his9R
-	+86DpXhQIqv1wx60oZy+aFhkOXivyVxFP7H2WXl/90a+TdDDi1CvBNY3mw9u5ZlQo7REwSS10mXKJ
-	vMXY8UiQT7+aBVWkoVBqMDv024ExSFs5petGP21AE/woQUhO/uEo8dQOykWAa5Tz+bTaepzWcsGCS
-	5Y0Ey67A==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+z3ZqXTG6gutAZkM8V1b82qk6gPqLx4pgCJHY/2hvN0=; b=dVmxs8Gch97ukeRgA+UvYCDktV
+	jDi4idcZ4b8HaXiKu7dwELVy5HIsZehNaIhek2k5wZMrdbcYU1xv3FGX+zmwIQoeGq1TopaLUypjU
+	uDaA4As3Vmh00UfNduAAgRg5EK5q9ZaVWCiH/s1CpDXtrtcHIb0aN7S+23yRaKSFy5GVKY7sfdyu8
+	d6G3qbnDgzpSr+fstodSMkpEK10Id8nW8lcFw6h4podf4ujKYm7hnh1ZBqTrAYYKqqRFDnADI9LwE
+	47oj83frjLOOs5UXAjpRwUks/H5lNcJfkj2h5paW6seOFO0Jy4VE4irRD5599738mtMLue2xsCUxt
+	MyoBLLXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOdY-0000000Avpc-0hCx;
-	Thu, 02 Jan 2025 17:05:32 +0000
-Received: from mail-mw2nam04on20628.outbound.protection.outlook.com ([2a01:111:f403:240a::628] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1tTOei-0000000Aw1k-3pwg;
+	Thu, 02 Jan 2025 17:06:44 +0000
+Received: from mail-mw2nam12on2062d.outbound.protection.outlook.com ([2a01:111:f403:200a::62d] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOcO-0000000AvSj-0krg
+	id 1tTOcN-0000000AvSg-45xU
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 02 Jan 2025 17:04:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RKtQg46EoIMQ62mQQ2iXF6eW7m1kFvb4/l+EQ5mYUetwQoJ56UaEAy4O3fja6sHijPU+lTGDk9DSH/gVbzpTUIpGVr/Bjwb/oE/p63OEXxAg8hke1hQIXXJvQhbH6GQajdmE21Cw6FBW6rzIPY7u4CU0pBUpch6a02yyNSGN/OspAyjuZ+w0jmFs6ztkoTSoPAOO/gs7T42+O+m8IpjNzIzQsr3eIAq1RlyXIs5t7WAh9Cdmn3sJ5hIc1drEbPOR6F9WwHL+2dHOXceq+qh2o20/mL5uAfA0GW2Vooc7JYdo468egEs/0obC25ZhYa0Zll7oZVW8Ud6uUljahkjpdw==
+ b=k2be2DgoS67ToVdtrZUkeypygiPa1hGEYArF5WwS4BV2NEPB3g4qwzDfffYuV8pU0hM25QKVh4yV6DZIGEbRO7u4HqQlzygUB1VAdA4l/VPQqVFzb3uk982I3LKrlSDdy5G1YbmZQhiNdpL8zHTyX96B07Koc87qiBP9YJktDFdyuKGEkhUr05wDx6lVC1xS6smpGTn9kOSDDPuuutG7U3dSm9mLKRLprpAO4f0NlwAmSrwBrTl/D+9q+5kxTc70d9FF14TaLE1Kw66gpyneifhCYPLg22A1oJsHcYUtvurgHcnOqGiLVZzzDl4Uyq6n8ye7ZZhEfS4rkPZXeXwBVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G96SmpEt54IB9Df3wvkKqTgeWYSbIG+wUCdWuEyobIo=;
- b=TvSBuSRLqvgH/MhztFq58Dr5ghwch9CwUdGnmscgqjgUGhLhCeM5HG3grRe66XHZMliifliBN6enk0R/Ie4EZYHt9B5x9LfEI+L93NxPvewJrEy/IQFuC67tnfNYO8yUGpLnEUtjez7JyKKsDD7isHi7zMqgy4SX4gNFmLTfJRwSAH2i72+ouqje6il3uMCVCwf1I2uRUFU1YevYDtRfwDWN8PxIN1DB3cNcYWXGBlxZCIBT5Ibzn9fr1KMbb880fkdUtqE/9XkKY+cpD/qhBzytEYJsqqqgJWDLVmqCpPfeAStjbGQAecbexQ5ZtRaHlte+koSotB8AM82XlK+PsQ==
+ bh=+z3ZqXTG6gutAZkM8V1b82qk6gPqLx4pgCJHY/2hvN0=;
+ b=Ka+Xqa+PK0u8wt5cWnRtjHmyAQe+WYd5PY1rxkouRiMajoYRObtjMXo24dLQBvpZ7UPAF4EWBUjdEIf4AocJ2w4IOTwJJj4xmK+cIIBQMjUJlIKZlDyRo5/3UqKBepSIxpZS1N1Fsm9qKwpAOHEt7PqTi1CgregkfKOIVAsJZPrWhIRbuynhA6fLehLNUEgsWQFQD/+OYGZDLvbPabY9vCglzqG85urXigkiPkoUlJEssTJh065r3Ae2Q5OIJxOUFdE8a1lqDFDUKUnrq1QFPge9qxSkMgqRGjNoRFfnJh6EIHAkY/0q+Lg6ZDDJm3BZISvnGEfp9G97Z5j5i2kxoQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G96SmpEt54IB9Df3wvkKqTgeWYSbIG+wUCdWuEyobIo=;
- b=NvR3jonaByKP2+FVzfk65t6m0MzXxFKwdrselWwsCpqFAOIyomprVqjiwBNLvU0G8aAmPL8TfChbLOBikzuYKxQ5JjAZVPX1A3wT+NOBNT/B/M3saiHFNfqnpqfq7WAvnj8VQP+rmGpfJGHs/sd82/5Use8EOhWRq6QSczXh/fg=
-Received: from DM6PR07CA0122.namprd07.prod.outlook.com (2603:10b6:5:330::18)
- by IA0PR12MB9012.namprd12.prod.outlook.com (2603:10b6:208:485::22) with
+ bh=+z3ZqXTG6gutAZkM8V1b82qk6gPqLx4pgCJHY/2hvN0=;
+ b=4oVxrmKTlC8jsRX2fAPLYzO/c9gQtEfZcAYwVS1cXRj/7QvR0iTh2B/FsnYwhiQvqIvkIWaKwrsOMNLwqkcFeddppkn5iRSvobMuUe60e0pzaduw19Cw9/3nJDtYkCzZuvAx5k7J30DZx9UhKNLmCRF9TUxkQciYzdHr+zENt/s=
+Received: from BYAPR06CA0070.namprd06.prod.outlook.com (2603:10b6:a03:14b::47)
+ by DM4PR12MB6255.namprd12.prod.outlook.com (2603:10b6:8:a4::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.13; Thu, 2 Jan
- 2025 17:04:10 +0000
-Received: from DS1PEPF00017090.namprd03.prod.outlook.com
- (2603:10b6:5:330:cafe::d1) by DM6PR07CA0122.outlook.office365.com
- (2603:10b6:5:330::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.13 via Frontend Transport; Thu,
- 2 Jan 2025 17:04:10 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.11; Thu, 2 Jan
+ 2025 17:04:09 +0000
+Received: from MWH0EPF000989E6.namprd02.prod.outlook.com
+ (2603:10b6:a03:14b:cafe::e4) by BYAPR06CA0070.outlook.office365.com
+ (2603:10b6:a03:14b::47) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8314.12 via Frontend Transport; Thu,
+ 2 Jan 2025 17:04:09 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- DS1PEPF00017090.mail.protection.outlook.com (10.167.17.132) with Microsoft
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ MWH0EPF000989E6.mail.protection.outlook.com (10.167.241.133) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8314.11 via Frontend Transport; Thu, 2 Jan 2025 17:04:10 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.8314.11 via Frontend Transport; Thu, 2 Jan 2025 17:04:09 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 2 Jan
- 2025 11:04:09 -0600
+ 2025 11:04:08 -0600
 Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
  (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 2 Jan
  2025 11:04:08 -0600
 Received: from xsjssw-mmedia4.xilinx.com (10.180.168.240) by
  SATLEXMB03.amd.com (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39
- via Frontend Transport; Thu, 2 Jan 2025 11:04:08 -0600
+ via Frontend Transport; Thu, 2 Jan 2025 11:04:07 -0600
 From: Rohit Visavalia <rohit.visavalia@amd.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <michal.simek@amd.com>,
 	<vishal.sagar@amd.com>
@@ -80,62 +80,61 @@ CC: <javier.carrasco.cruz@gmail.com>, <geert+renesas@glider.be>,
 	<u.kleine-koenig@baylibre.com>, <linux-clk@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Rohit
  Visavalia <rohit.visavalia@amd.com>
-Subject: [PATCH v2 1/3] clk: xilinx: vcu: unregister pll_post only if registered correctly
-Date: Thu, 2 Jan 2025 09:03:57 -0800
-Message-ID: <20250102170359.761670-2-rohit.visavalia@amd.com>
+Subject: [PATCH v2 0/3] clk: xilinx: vcu: Sequence update and couple of fixes
+Date: Thu, 2 Jan 2025 09:03:56 -0800
+Message-ID: <20250102170359.761670-1-rohit.visavalia@amd.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250102170359.761670-1-rohit.visavalia@amd.com>
-References: <20250102170359.761670-1-rohit.visavalia@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017090:EE_|IA0PR12MB9012:EE_
-X-MS-Office365-Filtering-Correlation-Id: debe44c5-6c67-4865-9cd1-08dd2b4f79e2
+X-MS-TrafficTypeDiagnostic: MWH0EPF000989E6:EE_|DM4PR12MB6255:EE_
+X-MS-Office365-Filtering-Correlation-Id: 370084d1-a3b5-4123-80af-08dd2b4f792b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dnJzX/U6miWZZ7vSaoaxl6F3h6sANd7IGpIOVqOrBq7Pd3xmurZOwM+060h3?=
- =?us-ascii?Q?u6MiBt5Q3iT2CoFKk2EMFWy4pCUvvIseVuW6ZjKfQBx6P29zB3m73zonWnBx?=
- =?us-ascii?Q?l0R20kDL2oPdbsRdvnUYJfZvL02PKwO+tHUJ6tAlnLVJEt0frIBTmybRXd79?=
- =?us-ascii?Q?VG1jRKPHgX7pvDjYHmCRtuv+ro+kM5WuFQrjrWCQOUJFsaUCT9ecLDcGxR/u?=
- =?us-ascii?Q?IQ/u3LpPAAPrSH+YcuJ6X8jJSp990MHaBM/V86NlJ79OHmrXu3ZVKPCLSr7s?=
- =?us-ascii?Q?fFQZwNK8NwX7SxRWeNgUgEw81778NCo3Rwpob0B60RDy5kxLhLM8SVPBd4+y?=
- =?us-ascii?Q?sr4SGf4n2FJB65LiTOz26LJTY6fLN68PRfd63ksEMCArdSeMIZ9sncmmv439?=
- =?us-ascii?Q?mhx+0fMHRgw8tzrbTiIIZgbIwVeW65wKkhvXNKdqBViZ7bH2AnKg+APT3cjR?=
- =?us-ascii?Q?Azrk1YxitgScb27kFAiOfP3zbyFmiwuaYUmpT3B83Cpemp0BktzU5UCflnQx?=
- =?us-ascii?Q?DDxIcHWHfjnXskiLsemzALCreQHNQCJyaLXPUI1JR2ERHBIlPnkBSKZEbHdV?=
- =?us-ascii?Q?peWowTGwSeevUJnR/Jgfvo1UENoeCAqbKqocuzByaeitozZz/46T1kMEvhHy?=
- =?us-ascii?Q?Ul/1dD5XPpIyCBnnZ1vFyqRrjXtrqHFKDfAbMgxtQ6SN1tjNmFKYPiARWzJt?=
- =?us-ascii?Q?7JDXk4jpo9OfPZs6ePQw8oGEpKBC2Leg9AE/fU5Tbz0+UWXZb9lYJQ+3zoHW?=
- =?us-ascii?Q?nFrUcqDJpum4gaa3P7RP5zT+w6vfPcGTICri7Ez03TnCRV24euCAagwIIKxC?=
- =?us-ascii?Q?V3vtecShjyZKMZ0ufO5GmTrG6neFZ3iYeAzowHEFumoP/l4EHwlRlb1N6XFQ?=
- =?us-ascii?Q?6haJaFLtfKtyGvF7pPH6UivbCGanm3OD1WWSjfXte60pj7WsW3VqKjRa/G8R?=
- =?us-ascii?Q?tcbweErsP3gMMiX3VjrkvWmyQjGgtoA2UzjLJrfgkE33yUzmtFk8ooXpoEYM?=
- =?us-ascii?Q?Sq14ANuPe8rOS5BNV/zI21ttZ/20jl56dIkXkmFFK7caUkN4ymZGiNVE0OMu?=
- =?us-ascii?Q?2cQyGkIYrvQev7miSNSF7FMDxOpdFtkiNr5vaWkfGF5V7SDJ/dLZUrf+4HoG?=
- =?us-ascii?Q?aOiKCV2F98XcdlrU0dA4KkhzGsVHz1KRczcCiBzgW6rOI3f8QnKH1Or0o9dB?=
- =?us-ascii?Q?kFbSknEs+phJV2WLb50g5MZoOgPB5tw5tG/aqJoje5JSJ7uP0ZynSdQxbZEu?=
- =?us-ascii?Q?RB9JE9H4y2YdS43jZvImDWAYJ0/KUC78x57g9JfAyBOrl2JggKmcACM3XgTU?=
- =?us-ascii?Q?O9a4V9jV8QfB6BPEaVB5BvqABAkf/xMg2oTCPqDndstjPGbdgv/9ABUsxsqu?=
- =?us-ascii?Q?OOxn6ELDjhlNLuxky/LQkZLYmGKPvw8LbqyNSbbALHWvPq+2cbQVa0R1CKvN?=
- =?us-ascii?Q?QyH2ybTHSHlhwBKmppd7SO9LRTE5fesOCK36ErVTAJf5I0wsvEMP2GzIKgBS?=
- =?us-ascii?Q?oEITXG+TVql2BWw=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wj0NboPhmRc9HEBlXw4rJgf2LgU7GFe50A54rtMxDyV8Brqhb9Eo4Su0wv7b?=
+ =?us-ascii?Q?9NJoyR58BTey6nRAP0cQrz12QHTBK4phnLJNHgYsqScuM4Misg9Py5L9Hea3?=
+ =?us-ascii?Q?P8yc14gQxMxLeddkOGpngjo/AB769P2o4NJgTzze7CxHdkxi6eRir31HXydu?=
+ =?us-ascii?Q?5bnYfMRBiUJxuhmzabmSvlBxXbTCCcOZbz7NHXxcKBT3hOJiFIpHxCDHRNI2?=
+ =?us-ascii?Q?RRgNhAkQDZuwRdGEf1ZWd1MeR95udGZcc3a8BRQ+U0Dr95dquvmCEjVi6DVU?=
+ =?us-ascii?Q?yKv1Ja+p1DVPdM4MVyp/DUSvXwhH6HSdXIhbRMxzwCiRwfIFW+zN5nWujqWV?=
+ =?us-ascii?Q?DdjnzBZGl8wpLlZFDuz089U8wcFsGa7GzqSzrfgBr/2FmbdvXKUos5CN/eBr?=
+ =?us-ascii?Q?1vKwUQ2RbkFUvxNIAoEADwt0er6xJPe2CeafFbaIjb9ekuDs272cdPhmAh5y?=
+ =?us-ascii?Q?tKqJAUAWJd54IE+8Q00j4K9H4c5wZ967e5qbmuu/Mubx7OnabLVbzQhxYh1J?=
+ =?us-ascii?Q?/j/S3XNUo2qO75okTWM3rED1Sbv+B9qaXsDCF4kK08h5Wq/neVPrylWHaMaY?=
+ =?us-ascii?Q?QHl6QMiW2ysffuutP8NJZftrRV0jtpSEVvYvA36O63SYp9BS1iiUXZ3f4yxl?=
+ =?us-ascii?Q?/M/04p5sPX1lSsHipsS+H2Sh/yFnwFdzBbpn0ht2SX7VWsvBeAVXrioMI3IX?=
+ =?us-ascii?Q?A/mfUCGqAtqNTaCfsBZ4Dr03F971sHYVHOuSMZ1DoJjONsJJZMRRiVTp7HAW?=
+ =?us-ascii?Q?rznKVMUCZMsi9IoamYJvZ1FqlNow/ELU0fa6hu/CKzkM0/56gthaRNyTegt4?=
+ =?us-ascii?Q?4D9kTPkSEjvddTMjG3VBKOptEh39RLpDDTrgCBT4RR8z5+mu4OVgFSBqwu6R?=
+ =?us-ascii?Q?KUtjwIZd/qscMRvqS2E7NBe+QQUeiY7eAe5DEHnxMoMbLsDiq4vSGf2B8CH0?=
+ =?us-ascii?Q?GbYueQzIJY/zrA6fIxSE5UjMGsTNRJs1suun9fg42Jfm9AtVP1Dzl/MJLHzU?=
+ =?us-ascii?Q?1bFo5lPFIo6CXeTUuP6u7p+GzkiD7Vl3e/nOXJHW0lYwVILynZGQykppZOWv?=
+ =?us-ascii?Q?+eNNZ9aPFcZOzsT/tLCwfVB6BnXTEs2G/ln3pBtaGjUnvn+TIbumpttDkAKS?=
+ =?us-ascii?Q?zmk1Otk1oxbWhPf6kv8mrnHwH2kKZtAQSheYjXoXGsiJRovJvbOpkYARankQ?=
+ =?us-ascii?Q?n+3t2ph7O08hJ7pwZSMNZA0v25W7OhyKkB4bCQb7AdocvsRMyvNHwMnbljqb?=
+ =?us-ascii?Q?ETdHXniZrjn0iaYMYN4HYQ143SLiHfQVKpWL78clJRImIP5EZeJHE+9Qap++?=
+ =?us-ascii?Q?ubBY1eI5MJDttlwsk9QN7CT7u/4v0GUSJFjxnZ3y1MZuglOMq6BETz04C5tD?=
+ =?us-ascii?Q?/exMXZrZqu3zCG/9lnkuN9FdxyrPFJYmk//hdq2mhYVum5q0kFPYhLvVtwfy?=
+ =?us-ascii?Q?hpCvBGky1wlyY5upD4vnsJ/pJc+HNmprqF/NHi1j0L9YCwVkEsAelORqbxuG?=
+ =?us-ascii?Q?nvtSRoTjc1kvguU=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2025 17:04:10.2846
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2025 17:04:09.0220
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: debe44c5-6c67-4865-9cd1-08dd2b4f79e2
+X-MS-Exchange-CrossTenant-Network-Message-Id: 370084d1-a3b5-4123-80af-08dd2b4f792b
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017090.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E6.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB9012
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6255
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_090420_215614_11957AC1 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250102_090420_012556_71484282 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,47 +149,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If registration of pll_post is failed, it will be set to NULL or ERR,
-unregistering same will fail with following call trace:
+This patch series updates VCU init/reset sequence and does 2 driver fixes.
+patch1 fixes call trace related to pll_post clk.
+Patch2 fixes VCU parent clock issue by preventing pll_ref to be changed.
+Patch3 adds optional reset-gpio support.
 
-Unable to handle kernel NULL pointer dereference at virtual address 008
-pc : clk_hw_unregister+0xc/0x20
-lr : clk_hw_unregister_fixed_factor+0x18/0x30
-sp : ffff800011923850
-...
-Call trace:
- clk_hw_unregister+0xc/0x20
- clk_hw_unregister_fixed_factor+0x18/0x30
- xvcu_unregister_clock_provider+0xcc/0xf4 [xlnx_vcu]
- xvcu_probe+0x2bc/0x53c [xlnx_vcu]
-
-Fixes: 4472e1849db7 ("soc: xilinx: vcu: make pll post divider explicit")
-Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
 ---
 Changes in v2:
   - Changed patches sequence to have patches with "Fixes" as preceding in order
-  - Added Fixes tag
-  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-4-rohit.visavalia@amd.com 
+  - Used dev_err_probe()
+  - Moved warning to dev_dbg() and updated print with more detail
+  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-1-rohit.visavalia@amd.com
 
----
- drivers/clk/xilinx/xlnx_vcu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Rohit Visavalia (3):
+  clk: xilinx: vcu: unregister pll_post only if registered correctly
+  clk: xilinx: vcu: don't set pll_ref as parent of VCU(enc/dec) clocks
+  clk: xilinx: vcu: Update vcu init/reset sequence
 
-diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
-index 81501b48412e..88b3fd8250c2 100644
---- a/drivers/clk/xilinx/xlnx_vcu.c
-+++ b/drivers/clk/xilinx/xlnx_vcu.c
-@@ -587,8 +587,8 @@ static void xvcu_unregister_clock_provider(struct xvcu_device *xvcu)
- 		xvcu_clk_hw_unregister_leaf(hws[CLK_XVCU_ENC_MCU]);
- 	if (!IS_ERR_OR_NULL(hws[CLK_XVCU_ENC_CORE]))
- 		xvcu_clk_hw_unregister_leaf(hws[CLK_XVCU_ENC_CORE]);
--
--	clk_hw_unregister_fixed_factor(xvcu->pll_post);
-+	if (!IS_ERR_OR_NULL(xvcu->pll_post))
-+		clk_hw_unregister_fixed_factor(xvcu->pll_post);
- }
- 
- /**
+ drivers/clk/xilinx/xlnx_vcu.c | 35 ++++++++++++++++++++++++++++++++---
+ 1 file changed, 32 insertions(+), 3 deletions(-)
+
 -- 
 2.25.1
 
