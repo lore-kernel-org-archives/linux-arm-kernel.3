@@ -4,147 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47EAE77198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 22:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525D9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 23:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shwH6aBj6wibVdLZoo0K7B2rHMZbMFS2kL7akYRi74E=; b=YdW4Mw0/FNca3tF5aFVsk2qqVD
-	AT0zXwtnOy7mLlILwbENod7/nyO3w2pX5+T+D2Kfk+iCgsJWiewT2CpC2ghNIhWPwH0oTlEG9Z19z
-	LcY7xd4XF+Xn2iTlBzkhKraWjfIl0wtOtiAkprPopHmb56Mxu/XdualsH0TEBJfzLEbyZuph1wf/b
-	mmbdlk7N2KaZweJoVLiVxD5HFOI3izhCtYcjtmwuOECe2TRBHSEQgw7trtcsbo7GwJC6YPvYSOPq5
-	pus6jgesBKL42GAhTyS4e3nwMnd8ERWLVsjD12oY5ZnI+b5MPdcMAxcceUBP5sD5oiluKk5b/lGoN
-	sV/oLU8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbVTKj22DdIODp/G/2Y0eA7B9M37L5pcHT1rwZZk/Z8=; b=UVJDqF8OWFEBvuLl4PNA78pYfk
+	EFTbmiIX4WTv0uS3dMDJa6tzYWQg9UxfK2zyH4e1OZZTy1fJlj5H9e6KccyjKzngcCjGCXsYoCWpF
+	PjtzVYoCMe2Zu3+8O9xpG6uuYQWPb+8iyVpUOQRkA98yec+8fpwPaMlBllklvPy3GlV/ewSHGPSMz
+	d4Ku21Kl51Sqm6q/HgZ4jzfQc0hpOLbC++LyIg8Cw5BxZAl9bdvDWMbLJB9iaxlshfg+1nTwyBa4a
+	cl8Oua29cjBahWOmYmFYb5DT7DXyBee3o1wdq8VKTIi8IoBcEZ7WcxJL2RignuJJiJ7EHwO938ZvG
+	Tr/snVeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTTkI-0000000Bc7k-2Jrj;
-	Thu, 02 Jan 2025 22:32:50 +0000
-Received: from mail-dm6nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2413::600] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tTUYn-0000000BfvG-2fTv;
+	Thu, 02 Jan 2025 23:25:01 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTTj3-0000000BbyT-1oXc
+	id 1tTUXe-0000000Bfmu-1wNS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 22:31:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nsZELCejGPfq1MGIM9t5fjHi1rq/uVMdasczidD4iLUdHJGXyMADdL4xYeO32aFtuqrP4Zp8cwTiFMAipcXFNfoNIy5q9CLVbySi/m5MqUE3lAjrguwhEf4JD3P/OVcdRFPfJZIauYqX+DPwZaVo+L91tTkYlMaxBWGXLPMjXB+qtRf0NYEN6Jx18WZFnNwkBKBzKi5qYB8I6E1lwslijdSHF3ITVHiDZ0rt8qOJUwFpeZINWkM9q9ZlyGfQ1bMllU7Mv2M8YY3S4qlDgx1v/mk4B8kp5Cby/SnlzTiAlQd97kdULRsDc4jzHrxpH/eId8tHUgVm46APYniuzhQn3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=shwH6aBj6wibVdLZoo0K7B2rHMZbMFS2kL7akYRi74E=;
- b=naydfNi0CuzaDLi5dyCayZT2mnV/zsBIOQv2NSrQhUwKdL9+TL3ML7g3m1oGA4q8PKgrQCUYYpV/bBziuMp9MjO7azD3nHAT3lD45uWP9rcDC7Vezp86m3Tw/iO2Yp3GNZm1ms7YmhelJ2oprgOTz4FT45zWmzezKbNseYxZ1J82m/92o0014hdJ2XRlCew5mMWoCmTX0z1pcOyTrdIIFKtKfYLiPyXKneemNrElAMhUphZ9hfKTayB/W+5JKs1dJhkN4iQO8J0XT0LdielXFx0wluLKvtlfavmzyXTSMYnltZh+oARhQPVxdCKuGAWX1wD7d5XSAJ4Q6WFWrVVCrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=shwH6aBj6wibVdLZoo0K7B2rHMZbMFS2kL7akYRi74E=;
- b=YP+F3I9HWOcdj+lWP6RB1+LWCxupYIj3b6Fz/jWRVZblh3sLAr6kj/8NZBhYF7GXYqQLlRV8aGjFCFounDGD9kaG5wJgOwIgWZkF0JYibcRLCn7ILuvJnlLFmp7/BlLGHoy/XOwgC8UAy8iny7gRAW0owOgRffcoCaqWwNAnwymi+k8jQYts9nbeBstYetzT25udd+i1veQX2ih1Q/9x30e0ked6gLsl2Z6TJ+kv8Ou2bDG8t18Zj1xBwiey/syROPvQrc0x4EkuXpBjokNH5uNvtlxUdc3v6TUoxa1o8IOp3rLmsRLMhiHEIS7TibcI4fWmb6ldJikYnTjFvyc0Mg==
-Received: from BN9PR03CA0285.namprd03.prod.outlook.com (2603:10b6:408:f5::20)
- by DS7PR12MB6309.namprd12.prod.outlook.com (2603:10b6:8:96::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.12; Thu, 2 Jan
- 2025 22:31:17 +0000
-Received: from BN3PEPF0000B06A.namprd21.prod.outlook.com
- (2603:10b6:408:f5:cafe::96) by BN9PR03CA0285.outlook.office365.com
- (2603:10b6:408:f5::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8182.15 via Frontend Transport; Thu,
- 2 Jan 2025 22:31:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF0000B06A.mail.protection.outlook.com (10.167.243.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.0 via Frontend Transport; Thu, 2 Jan 2025 22:31:16 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 2 Jan 2025
- 14:30:59 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 2 Jan 2025
- 14:30:59 -0800
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4 via Frontend
- Transport; Thu, 2 Jan 2025 14:30:56 -0800
-Date: Thu, 2 Jan 2025 14:30:55 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <will@kernel.org>, <corbet@lwn.net>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v3 06/14] iommufd: Add IOMMUFD_OBJ_VIRQ and
- IOMMUFD_CMD_VIRQ_ALLOC
-Message-ID: <Z3cTn9nXAh+kKtZd@Asurada-Nvidia>
-References: <cover.1734477608.git.nicolinc@nvidia.com>
- <dc1252de7ff06c944cb7d91c91b4f61c25182f91.1734477608.git.nicolinc@nvidia.com>
- <20250102204507.GF5556@nvidia.com>
+	Thu, 02 Jan 2025 23:23:51 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 629A4104811D0;
+	Fri,  3 Jan 2025 00:23:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1735860227;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PbVTKj22DdIODp/G/2Y0eA7B9M37L5pcHT1rwZZk/Z8=;
+	b=Kqbeg/XqeuBhAlmLvyOM2Sizn2nbZv+MyR/M+3ljCa1k8+hadZA1KHSq1QhDmXt4aA/XEV
+	wISkaeVHQP820WAs87CtyBZsX6bNVLr5xZcFi3TQJ1EojlrmXjEoJlPoo92MNK7QJWHzV1
+	hlb6abGRd6cNSlTk3tDgNBJnqvklvZYl4+qYmqkPhMusO6Mnq2e6lR2GIUaMwdjoV8S1ul
+	6m2/xwTy1pxswXg+5Fw5GhllyWtTUd5cT8GwIfkw0tW43b3G0El3x6egyGbEtMFxDZrjwL
+	+AGD2jHyzmBhFaRMTATqc326P525I7PngwACEuFXwGHI4RB38xVWkoxcee6h2A==
+Message-ID: <2f2bdcb1-6d83-4939-9dd0-3fb206202273@denx.de>
+Date: Fri, 3 Jan 2025 00:20:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250102204507.GF5556@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06A:EE_|DS7PR12MB6309:EE_
-X-MS-Office365-Filtering-Correlation-Id: de690a27-de28-411a-c213-08dd2b7d2c14
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RZlJJweWizOE+KVkpVB0cftBAkArHYpdt5fK4lsfGKRy8myjMR/6TXH4HcR5?=
- =?us-ascii?Q?4tVNf5zVM0hI8EoCZma2Qr2YWHT30Jk8/i7n4JY9O8Nyn1X2RGwfw/uzOB9b?=
- =?us-ascii?Q?xBS2DlbCauDWBAfyleQQTfjZFEBHNF4DTUM2WNxsgFxssYwxWCcNXv+XV1cx?=
- =?us-ascii?Q?/NuxalUIfkt4J7RxV2dKNcrp80FwLsX09zRzX05kDJTIlqu/nNua4ZZnrZk+?=
- =?us-ascii?Q?q/69ulLjXID14K83ZGsMl0fqC6808ZLBBGjiKzP19ZZvMLU9+biSByy9bIrL?=
- =?us-ascii?Q?F9Odk6utivsIcwY1yYN8ZFxwNR296adGyzz4zsa+luighCudTlkbs+0T/pc8?=
- =?us-ascii?Q?0fC1zGRrb9+AwAdZU4pIw+rxXcPEkC6Sci5EQyGuWOq612JANWGqijlbKj6e?=
- =?us-ascii?Q?T+0fzXdYxSG81yL7I3gB6ixAntrLk/1NQV7dXfZP/HxF9ToqtKA0wYAIxvVk?=
- =?us-ascii?Q?8H+Q1KmaLxWvKiYz9rZhZ/EswTN0nLd+npXmf1asQtWFxXxryf+flyyl/xF0?=
- =?us-ascii?Q?O8WnIpoFTdL87oom+Uyu8B6uZcdqbyEWb/rcc3uCKbh/jswJJINylqqKhkls?=
- =?us-ascii?Q?Hok14OkgPVg0k9RY72Vd5MgvQWDPGOjmVGrs5KEreFq+svGAoL1SfWQEWiv1?=
- =?us-ascii?Q?2M7apCG801rvIbXhRlhXDeKzg/T4vI9KkUdh6564pWXFDBlnK6YXVEmvIbU9?=
- =?us-ascii?Q?Ezsn/cVDRm3TG6aM0QMyYyXpid0av3KYRve8w0Fwgm9lU77OMw+inKAAzKxj?=
- =?us-ascii?Q?PytxZnvNQvPJrdulOHjfDQR151t/0uquFSxhpYsogvcMLPYhmEzR3bk/NAIN?=
- =?us-ascii?Q?mqiW99+HkuniYeI64VZJeeWcrqfsmbZrCecqz4tnxlycfR8RkTnO3pW9yzhZ?=
- =?us-ascii?Q?V0eI9YyixeposzKOJ/2pYO1yQjOLgXsJOFKvKwfLCInXpDfTludlUzWJCah8?=
- =?us-ascii?Q?Xjoilb63+c8/m/sWse1kRfipJfQXWJEfOFCL3+f0BiRnaGc6EyOUv/4JbNZa?=
- =?us-ascii?Q?3tFD7uBkr0FTx7HhWLGOJr8JCaNCHzEvBBvTjYY20H/2D16dwziiM+3Ks8oP?=
- =?us-ascii?Q?2yBQqNTvk85hu5fckYVRAtnWWu6iLDYo6IC/AYgT0pXUHXfZtkJaq4n6M6y4?=
- =?us-ascii?Q?WRB3JwgF8WDkaQX+JIjN/F/N4aWEMCEx4MJmCW1BFcyjOl+x9sRXUVgOoRmq?=
- =?us-ascii?Q?jqYtrrDYiXegGLR9E835R1J2RzxnGkhrPsT0v9gfjZGf9Lhkv6lVz6LBodsA?=
- =?us-ascii?Q?vw3mGNkk4X5VQ0n2US9Qpt7+BOJcnCjqANRVf6qoobsCVq7Rgt0ryfxI4mAj?=
- =?us-ascii?Q?jnZItzpEsK59vE9l+8qf7f0Z2IKlbw4C9QsDgP8vMosn2WenftHX5GJ/wViJ?=
- =?us-ascii?Q?M2KYEUBzSIR3oQHNgf7Alzaegxq5oC5KQN3J+ov4b2jYpX9QrDmxgZAn79Ld?=
- =?us-ascii?Q?yZX1Gx2C7j87gqCDTUjOm/L+PH25JXjuzmuZgkXKIR0ih5wdpt0SSgXTA2LC?=
- =?us-ascii?Q?zTG0W+Ct395CYZQ=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2025 22:31:16.4911
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: de690a27-de28-411a-c213-08dd2b7d2c14
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06A.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6309
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] drm/lcdif: add DRM_BRIDGE_ATTACH_NO_CONNECTOR flag
+ to drm_bridge_attach
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
+ David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Liu Ying <victor.liu@nxp.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20241231192925.97614-1-marex@denx.de>
+ <20241231192925.97614-3-marex@denx.de>
+ <u4hjoteybchte2fdmxle5rsu5jbohm7hjjoejrxiqa6lszqm56@6facok3v55kg>
+Content-Language: en-US
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <u4hjoteybchte2fdmxle5rsu5jbohm7hjjoejrxiqa6lszqm56@6facok3v55kg>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_143133_475558_053FF0E8 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250102_152350_654795_A99147B3 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,25 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 04:45:07PM -0400, Jason Gunthorpe wrote:
-> On Tue, Dec 17, 2024 at 09:00:19PM -0800, Nicolin Chen wrote:
-> > Allow a vIOMMU object to allocate vIRQ Event Queues, with a condition that
-> > each vIOMMU can only have one single vIRQ event queue per type.
-> 
-> I suggest you should tend to use the eventq as the primary naming not
-> vIRQ, I think that will be a bit clearer.
-> 
-> The virq in the VM is edge triggered by an event queue FD becoming
-> readable, but the event queue is the file descriptor that reports a
-> batch of events on read().
-> 
-> The virq name evokes similarities to the virq in vfio which is purely
-> about conveying if an IRQ edge has happened through an eventfd and has
-> no event queue associated with it.
+On 1/2/25 6:58 PM, Dmitry Baryshkov wrote:
 
-Ack. By doing the "Part-3: vEVENTQ" specifying one type of queue,
-I think the Part-4 then should be "vCMDQ" likewise v.s. "vQUEUE".
+[...]
 
-Thanks
-Nicolin
+>> @@ -97,13 +100,36 @@ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
+>>   			return ret;
+>>   		}
+>>   
+>> -		ret = drm_bridge_attach(encoder, bridge, NULL, 0);
+>> +		ret = drm_bridge_attach(encoder, bridge, NULL,
+>> +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+>>   		if (ret) {
+>>   			of_node_put(ep);
+>>   			return dev_err_probe(dev, ret,
+>>   					     "Failed to attach bridge for endpoint%u\n",
+>>   					     of_ep.id);
+>>   		}
+>> +
+>> +		nextbridge = drm_bridge_get_next_bridge(bridge);
+>> +		nextbridge = drm_bridge_get_next_bridge(nextbridge);
+>> +		/* Test if connector node in DT, if not, it was created already */
+> 
+> By whom? And why?
+
+By the HDMI bridge driver, see 1/4.
+
+> There is no display-connector bridge, but there is a
+> normal bridge chain, you have passed DRM_BRIDGE_ATTACH_NO_CONNECTOR, so
+> now it's a proper time to create drm_bridge_connector. You have added
+> the next_bridge_optional flag, but it should just prevent the dw driver
+> from returning the error if there is no next_bridge.
+So what exactly should I do here ?
+
+If dw_hdmi_parse_dt() only exits with 0 if there is no connector node in 
+DT, I don't get any output on the HDMI. I have to create a connector in 
+the HDMI bridge driver instead and not here, right ?
 
