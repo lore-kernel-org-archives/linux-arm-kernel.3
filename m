@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BFEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004F5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MFmIHhCk/rAx3hqXJ4Qkb9WRuDjk3r2C1qHxrU2TeY=; b=c5REPUb1qnEs6BqxD/pj5Akfk6
-	WzJaoEvvjzveDRW0hVGTYk9Fe/ZjW+3MDiJlH5aFyJm9L5aBOvc8n5K3bTycHtbe0aL2ALH/RwFur
-	ptftskk5nvfUxha0J94V/xw9foBHwglbBQb9yQ51M0gn9VQLr5KGT9/9wP4zCU5g4rB26scgVjxov
-	tFVzM0NjNJmu4KMC11IBpDmcwMnJLGV+A6sOIlURU+mO3YDLJoKU3vfK+NndHHRoUvjHUsxZfrJ5V
-	LffyyYdWM5IRibx7HIR27aYt+GZfFQyW396btU1C4GSOXhZSOCS3e2VyHDxWMPt9kbYKBBOkWCfur
-	LehUCbgA==;
+	bh=kagO0k/oqGBpNLaSabOH+1r0G13QU3LhaSmnXl3qhrA=; b=SG7Bv67q2xNCX9snxB4TUfxxv1
+	rI8H90EFe8B4SzTIOgQLh6cYkyB2GkVXuViQXryQfsmDI9Y0/pR8lNAHwuoB4X5gsjLA02GUN0hOl
+	hwgclEaZci8I8a6yaeJikZ3nJ9/GCYLoZC0nKBAcX3tlkCH/j9diyuc6+SyP7L2JroEaD9i4QFvXD
+	hBE4ZP2BXUJ6MeA3GOMSaEt/LXMD5ljR2fgI7PZUKr8mGnWZAl6iqkOkNOafHfWbhq2IcMZdoZR9M
+	5CnlT5UyfCPyrjglKGYDi5JXtOFyoi0vXzEGaWgGXzgZgoDmsbgzDt1PrES+BsjjR90ilSZkI5JTE
+	iI9Ivckw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTO6N-0000000Apt4-48G7;
-	Thu, 02 Jan 2025 16:31:15 +0000
+	id 1tTO7Z-0000000Aq4V-2f0m;
+	Thu, 02 Jan 2025 16:32:29 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTO56-0000000Ape9-3ONf
+	id 1tTO6A-0000000Appd-1hrd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:29:58 +0000
+	Thu, 02 Jan 2025 16:31:03 +0000
 Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502GTlXK2198793
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502GUvOT2199253
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Jan 2025 10:29:47 -0600
+	Thu, 2 Jan 2025 10:30:58 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735835387;
-	bh=+MFmIHhCk/rAx3hqXJ4Qkb9WRuDjk3r2C1qHxrU2TeY=;
+	s=ti-com-17Q1; t=1735835458;
+	bh=kagO0k/oqGBpNLaSabOH+1r0G13QU3LhaSmnXl3qhrA=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=nRMgclD7PBB+xyVgqdRY3ac9KIOTZML6G7orvdXDTrbI9/R0Nb6hpPYJWXlT4UQ4o
-	 QCZQXa7KoEYBgUD8BuOPUGgSbh/5KvcGt9Rb0TlfsOQAAp17ToAQjoj0Kv+Y/d+oCl
-	 P9mBVvRnX0cogDJNzhRsk1Web7ATnP3j6xaKAm48=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502GTlMr021924
+	b=HG1SBr02p8m7F74CkIiV6lKQ+T/LXm4M12/JgHYLcp1Vju5zpGhXeAPKY+T/IOoCn
+	 1NIurZ6X4a2B88/cV1UVpRvGuc24x21VYjlEWmIyart879B5jqXKshv605nE3zufrB
+	 l5JBgDHcacbaF3cg0TF22kXDtrWMhSS7sMIVtGxs=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502GUv1L023615
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 10:29:47 -0600
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 2 Jan 2025 10:30:57 -0600
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 10:29:46 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ Jan 2025 10:30:57 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 10:29:47 -0600
+ Frontend Transport; Thu, 2 Jan 2025 10:30:57 -0600
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502GTkgx055171;
-	Thu, 2 Jan 2025 10:29:46 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502GUv9i075516;
+	Thu, 2 Jan 2025 10:30:57 -0600
 From: Nishanth Menon <nm@ti.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Bhavya
- Kapoor <b-kapoor@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <u-kumar1@ti.com>,
-        <s-sinha@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-j722s-evm: Enable support for mcu_i2c0
-Date: Thu, 2 Jan 2025 10:29:45 -0600
-Message-ID: <173583532350.267426.8424602830328689601.b4-ty@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am625-sk: Remove M4 mailbox node redefinition
+Date: Thu, 2 Jan 2025 10:30:56 -0600
+Message-ID: <173583539528.267639.11532686969673222752.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241105091224.23453-1-b-kapoor@ti.com>
-References: <20241105091224.23453-1-b-kapoor@ti.com>
+In-Reply-To: <20241203164031.20211-1-afd@ti.com>
+References: <20241203164031.20211-1-afd@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_082956_939024_62B50BE9 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250102_083102_539477_56C5C0A0 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,22 +88,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bhavya Kapoor,
+Hi Andrew Davis,
 
-On Tue, 05 Nov 2024 14:42:24 +0530, Bhavya Kapoor wrote:
-> Enable support for mcu_i2c0 and add pinmux required to bring out the
-> mcu_i2c0 signals on 40-pin RPi expansion header on the J722S EVM.
+On Tue, 03 Dec 2024 10:40:31 -0600, Andrew Davis wrote:
+> This node is already defined in the included k3-am62x-sk-common.dtsi.
+> Remove this redefinition.
 > 
 > 
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-Side note: It would have been useful to state in the diff stat that
-gpio_ranges handles the standard GPIO configuration.
+I have assumed the fixup is trivial (since there is no functional diff in the
+final dtb) that "fixes" tag is not important to backport.
 
-[1/1] arm64: dts: ti: k3-j722s-evm: Enable support for mcu_i2c0
-      commit: 9442f963098f1eb9d1565fdd694e506d0c2c6f45
+[1/1] arm64: dts: ti: k3-am625-sk: Remove M4 mailbox node redefinition
+      commit: 17d0723c6cf841ebaf510eaf9bb1ebf4991d6e9d
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
