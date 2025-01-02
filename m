@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82809E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 07:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 613FFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 07:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EK54y8CHU5sNfi7hM3+XjOQepNeNKL+xAEwrzp2ynPQ=; b=uFzXFOeigKAUCg4Ej9AuWeQnC9
-	mVDb2JRjZdAC3+LYT/xUNlO5hTOOJQA9vMOXAGAxStvQZ/XP8xRCOBncNbg+OY0M5rXFfUD/uFjPV
-	Kkg9pKko01ygovGFTqAlWpRR+KOVXfSCqFac04M7Mf1vz3l5lY+ZpJ4hxkx2gDtODh1WHJgeU43Dh
-	Rvkgy8VB9cvNmDQBX1vKhMgJWzrV6Ba7lg8wnSrefnvqdjSyVEfwPMIYM3s2ceajdCI6qXrPvQWzy
-	KssC82s5PDSiZfN8fPt5JyxcQDJVX1pC7ngDzPo/4H0wBzSPuC/AilA0/QWX4u5Ist4ka3qSLh+Hr
-	RgBjQoHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JOtiG3oC4aFYkEGHbZl9KMZ8JAWNFtc9T7OFFkVY14U=; b=OfwWmHtBoK0xDfGNJJkuUvv7Kg
+	nfG9tM8qOyuo2d969D+TY50ZqlkbPIb0KcIJTpk4VytJ7GZKjFVkVH1eGCmIkmgKjrF9fG2vr3Mls
+	O5IQf7LAgW86ruGzGj+8WAR/lX+0q4mxmWjopdbzt1Kzl5QYYh79VpwdKNBjt0CXuQyhsnKljR0Kv
+	rgOC6KrFOwpPojfjnfH6bGd2X0ZY6rTKuQS+6WbqYyQuYYPap/hU+MylkYXCnSLw/mPd4ojyjcXm0
+	JIpFL6GN/56o0+ICVR+Fkwk5nUoHy81hkmtmPHDWXXHATnNCDEAUgK+EJRfcVts6zPjDntMyIVO4f
+	od1WFLVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTFr0-00000009sfu-0hHy;
-	Thu, 02 Jan 2025 07:42:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tTG75-00000009tku-45F5;
+	Thu, 02 Jan 2025 07:59:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTFpp-00000009saX-0KnL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 07:41:39 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5020NAnD007852;
-	Thu, 2 Jan 2025 07:41:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=EK54y8CHU5sNfi7hM3+XjO
-	QepNeNKL+xAEwrzp2ynPQ=; b=DO3jzXliYb9ipc+HEeE9I3ElqmQmeQVWBEYO+q
-	qehVoXrbkJTCOvn9gZHYc8hpZX0xpITUvHG1O0i4uKArO5pSkTpb40Q/zWCv4ixv
-	9MOaClHVFCTg7et7Zyy60rq0mi14YwNcc0aptXkIVCUJIxiRXvEalX8paXoLrEr8
-	DqZeTtVUUbw8tP4ai92rqISHHY9H7iipUDadvnPMUIo/4TeOoEbdfAtRdCRM5HS8
-	/xk4ZqcvRwj9VFMxcoNW+V4DDUUldddnZ6Qed94OZdC5qZ6qCKnupA5ro+RkQzEF
-	/w/j5Jo3PXAgl+RmAmckoZqjxdT4TCCHW3HPPFwA///4bFJg==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43wba18yc3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Jan 2025 07:41:07 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5027f6J0012349
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 2 Jan 2025 07:41:06 GMT
-Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 1 Jan 2025 23:41:02 -0800
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-To: <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
-        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
-        Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Subject: [PATCH v3] arm64: mm: Test for pmd_sect() in vmemmap_check_pmd()
-Date: Thu, 2 Jan 2025 15:40:47 +0800
-Message-ID: <20250102074047.674156-1-quic_zhenhuah@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tTG5w-00000009tdr-0yuO;
+	Thu, 02 Jan 2025 07:58:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 90075A40100;
+	Thu,  2 Jan 2025 07:56:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 588C4C4CED0;
+	Thu,  2 Jan 2025 07:58:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735804694;
+	bh=gnlg1iwRA44t0Q9m776Cc0idy3V/9d7L0QBK8wPFtfY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lL4vnxZ/baQURW31Bb0YBJziu0sFojruCSFEM/FqDDifOw8IHAvPPWs+Zs20M87uk
+	 /ECz7UP4LZd7TSLaqPLNc8yYG3QfJXFLOQTHSWimMC6rUsyklQRXW5KoWABMtVJl97
+	 tspPWDjaqE9peupnQdAPpIdMcScVEqx6R//8AMRPtF/qvk2U+1mf4u4w3vzVrQkYaC
+	 /pGclTGyDhwm8iqxMyNmLNxr5iLayZzwBAPtgLBShUyfuZY4XwLrtN+xB8XspUtv7M
+	 kEv96pw4/O3h9jo6Dd4GV+RLxRnhJph0y9Cu5XR6FP70l/uGx3ORHcsTzrplky5YI/
+	 Rve/tqri1/Xyg==
+Date: Thu, 2 Jan 2025 08:58:10 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, cristian.ciocaltea@collabora.com, krzk+dt@kernel.org, 
+	mripard@kernel.org, hjc@rock-chips.com, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH 2/3] dt-bindings: display: rockchip: Add support for
+ RK3576 HDMI TX Controller
+Message-ID: <zz5exgmftibayrh7vjfoq6z32xf2bm3ibejb6rc5xpqslejaab@ex4tj5am4hhk>
+References: <20241225103741.364597-1-andyshrk@163.com>
+ <20241225103741.364597-3-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: Lhnmhoqz3CUaDTaNRgp3XVbPTfOmZ51M
-X-Proofpoint-ORIG-GUID: Lhnmhoqz3CUaDTaNRgp3XVbPTfOmZ51M
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 mlxlogscore=475 malwarescore=0 bulkscore=0
- suspectscore=0 clxscore=1015 spamscore=0 phishscore=0 mlxscore=0
- lowpriorityscore=0 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2411120000 definitions=main-2501020064
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241225103741.364597-3-andyshrk@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_234137_256056_B03FB786 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250101_235816_337076_2CA5DFDC 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 2045a3b8911b ("mm/sparse-vmemmap: generalise vmemmap_populate_hugepages()")
-introduces the vmemmap_check_pmd() while does not verify if the entry is a
-section mapping, as is already done for Loongarch & X86.
-The update includes a check for pmd_sect(). Only if pmd_sect() returns true,
-further vmemmap population for the addr is skipped.
+On Wed, Dec 25, 2024 at 06:37:30PM +0800, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> RK3576 HDMI TX Controller is very similar to that of RK3588, but with some
+> control bits for IO and interrupts status scattered across different GRF.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> ---
 
-Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
----
-Separate the patch out based on the discussion:
-https://lore.kernel.org/linux-arm-kernel/20241209094227.1529977-3-quic_zhenhuah@quicinc.com/T/#m41d49cd91b348ecfe2c37c4b3c0911180426934e
- 
- arch/arm64/mm/mmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Acked-by: Krzysztof Kozlowski <krzk@kernel.org>
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 9afeb35673a3..50a22c63f450 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1172,7 +1172,8 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
- 				unsigned long addr, unsigned long next)
- {
- 	vmemmap_verify((pte_t *)pmdp, node, addr, next);
--	return 1;
-+
-+	return pmd_sect(READ_ONCE(*pmdp));
- }
- 
- int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
--- 
-2.25.1
+Best regards,
+Krzysztof
 
 
