@@ -4,53 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B63E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9FCE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uupjr0/9mFbBsrtpmivI5ZIiA/CnPrqa+nnzxXyyRO4=; b=YVj3ub1JP4e6in2Nvh6eyVmgiR
-	V/UmBVwBXZttN9zKANstu0abBNoHAPDrYVcujdMyFHAmgUIvBizJPCIw1QOJsr9X+rKMw5uWYZcdu
-	eORHRGizTNX8S/ypC8S349sjtSeIIQIoGz6ZEOzUu3aVimKqBOjFeBla3xX/fLktNnzrcpAc+FcR/
-	fb6klHwn6qFgufSehcWSwv+Gv5u3tWvzJl+FIYB/nVJdp0qYpYn23smr24ttsRFJbFvnJIm+ZoWIz
-	Pa2BLFwdDLtsyr5x4wLelbibHV/hZwQDMXY2JSxqCdsVkMqn/iiPPJ8TsxFQaUtu5z/54BVkOwOLE
-	OsEh9tuw==;
+	bh=qtcAKxx6Ly5V1Oo8xEaWBmIlFq/016gQnTtwHX0Q+H8=; b=GB4c8m2su8jVvWEikSMkOKYl3I
+	VwOqOQrd2Nx4UmPIe7K+6j0/uTff6sXooDXVnoYtSEtQnnhYUcJjBTF7vHRCl5Gf7g5YUo5TpkbRt
+	yOGJ0wzsL3pUAElylMkEROvYmOlM2xCZpK9APJAeoKMGsosAusfs63t+WpSObUn1/5UOejaI+/qsz
+	R5wFmuEw92umsY7hRcxCxy9DAvKmHo8JVgIo9qQMQnPBBVInrRa+Lks1FLlx+osad3dBJkwbZgQPe
+	hkdh1SDPQjTLT8k5lkLfHAD4xw5VghX5QHaWoaLTjNPSd2YoN9Y9Sk4Tdnjm1OmAG2chsnhCSuW+T
+	KUhlsLAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNig-0000000AnIu-32p8;
-	Thu, 02 Jan 2025 16:06:46 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tTNlu-0000000AnZy-2rKA;
+	Thu, 02 Jan 2025 16:10:06 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNhR-0000000AnAD-2e48
+	id 1tTNkk-0000000AnUA-3aYO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:05:30 +0000
+	Thu, 02 Jan 2025 16:08:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E3EEA41202;
-	Thu,  2 Jan 2025 16:03:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3856AC4CED0;
-	Thu,  2 Jan 2025 16:05:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DD824A41202;
+	Thu,  2 Jan 2025 16:07:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42B1C4CED0;
+	Thu,  2 Jan 2025 16:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735833928;
-	bh=1yPPJNnZfTgiAmAaK96RZ+gz6VV4PK6ZpY5SkFN2/3E=;
+	s=k20201202; t=1735834133;
+	bh=fPdVI1gKA98B9DL5GTPFJtMtQgy1EEcVi9fc75yKwz4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rd6jHgIDR5Jsx6RrMojgclLZN4n57bVrdOAkVZdjUV+Wd/gDQQSuwWBWAVcjz4dbr
-	 x8+hR7gs8foXgojibXboOPH/TPDjNZMHgQtzFwWNf/EEa2bir7AchcWBX6q+eyyOH7
-	 bVJcxLjOAzM9Zupf+wPQxAybV9eOKclTZRxjlcKXR3SMKU0ZZMRCyrrCrK2EA0O9TQ
-	 6DWpNeI+F+7gsLkHfWhg7n+rPe0rCQ7q9zlVlIiLpUZwWGWnEYdOxf3ThQI56cNFQ/
-	 6xZjsiEZHBEbjbu9fhP57WXQjtGOTtGw0ySovqNCqljW+axJb3/SlWcKpOgxtVs8ew
-	 tfz802I98pbqg==
-Message-ID: <4cb46289-9f27-468f-a07a-13cbc28abc83@kernel.org>
-Date: Thu, 2 Jan 2025 17:05:23 +0100
+	b=hhIlHCQrSiYwrEXQxFj2gTMQVRLu4JC6PEMVA7aVMV4mibvU0EIdNQhrSIU+YPS/1
+	 Uf5hsi6AAOakmYTmFubdf83bqVNWDAxo/wu7I3g414FVlG5z+MGN0/8PpRXbIGDt92
+	 TBJ5OMB6KNwoewdoVNW1PzNf8DHAba+MZpBorDRJxqj6DJOaks2z0zRpXXnrBJbglG
+	 MTCe+P4VOM/20/Q1JWtF5neoSeE7oY7JPRi4MwV6dx+5tObZ/P1xbiOEtc+GCbvHWU
+	 SSyQUopVKzgcxq6SmtIMa08kRMhUiuMf8GTgQqFx6qDMlremWkUP/gHJgZM+Vl0CLs
+	 ACutG4Puyyc/w==
+Message-ID: <cf75f897-1c00-4a37-bce3-f1eb9855a3cd@kernel.org>
+Date: Thu, 2 Jan 2025 17:08:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable SPI NAND flashes
-To: Santhosh Kumar K <s-k6@ti.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- vigneshr@ti.com, p-mantena@ti.com
-References: <20250102120043.1404843-1-s-k6@ti.com>
+Subject: Re: [PATCH v2 2/4] dt-bindings: power: supply: add max77759-fg flavor
+To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
+ <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -96,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250102120043.1404843-1-s-k6@ti.com>
+In-Reply-To: <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_080529_809703_FFE75425 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_080855_035105_0A2F9CB9 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,18 +124,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/01/2025 13:00, Santhosh Kumar K wrote:
-> Add support for SPI NAND flashes on ARM64 boards/EVMs such as:
+On 02/01/2025 12:15, Thomas Antoine via B4 Relay wrote:
+> From: Thomas Antoine <t.antoine@uclouvain.be>
 > 
-> 1. W35N01JW on AM62x LP SK, AM62Ax SK, J721S2 EVM, J784S4 EVM,
->    J722S EVM, J742S2 EVM
-> 2. W25N01JW on AM62Lx EVM
-> 
-Please use recognizable names. git grep -i on some of above gave me zero
-results, so no models, no compatibles, no makefile entries use above
-names. Also really not sure where to look for - which vendor. This is
-defconfig for all users of arm64, not your private one.
+> The max77759 is an IC used to manage the power supply of the battery and
 
+Still not the name I asked to use.
+
+> the USB-C. Based on drivers from google, it contains at least a PMIC, a
+> fuel gauge, a TCPCI and a charger.
+> 
+> Use max77759-fg compatible to avoid conflict with drivers for other
+> functions.
+> 
+> The max77759 has no non-volatile memory so it doesn't require an address
+> and instead requires a value for the current sensing resistor.
+> 
+> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+> ---
+>  .../bindings/power/supply/maxim,max17201.yaml      | 56 +++++++++++++++++-----
+>  1 file changed, 43 insertions(+), 13 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
+> index fe3dd9bd5585618e45220c51023391a5b21acfd2..7e95314508c27d0d90ea92f61bca6b4a2fe0e88e 100644
+> --- a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
+> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
+> @@ -9,31 +9,61 @@ title: Maxim MAX17201 fuel gauge
+>  maintainers:
+>    - Dimitri Fedrau <dima.fedrau@gmail.com>
+>  
+> -allOf:
+> -  - $ref: power-supply.yaml#
+> -
+>  properties:
+>    compatible:
+>      oneOf:
+>        - const: maxim,max17201
+> +      - const: maxim,max77759-fg
+>        - items:
+>            - enum:
+>                - maxim,max17205
+>            - const: maxim,max17201
+>  
+> -  reg:
+> -    items:
+> -      - description: ModelGauge m5 registers
+> -      - description: Nonvolatile registers
+
+Widest constraints always stay here.
+
+See:
+https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
+
+I did not say to remove it. I asked you to add allOf section restricting it.
+
+> -
+> -  reg-names:
+> -    items:
+> -      - const: m5
+> -      - const: nvmem
+> -
+>    interrupts:
+>      maxItems: 1
+>  
+> +allOf:
+
+This goes after required: block. See example-schema.
+
+> +  - $ref: power-supply.yaml#
+> +  - if:
 Best regards,
 Krzysztof
 
