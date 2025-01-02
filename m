@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DE6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045C3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ifrsZS6VTC65RgZqrSr3SMUWgTLKO2G/Lh7qiZeZxM=; b=zBsFeRZ9W0qz4y/hgonhuail2U
-	o3RxmMQwkeHi60Y1aQCTdxED4rHdERjtI+5IPyyYPdjJ4MqvsmQ5Q0PRQMLMaeaLrmRH3sYVVAPCT
-	j8LYDGw7GXEkC/FUIu9AGpENa4Kh75CE2SyldRwCaCm2nQk+ccVUsRZemCPu+3VRAG/pkHnzmqclB
-	N9jhmoMu5Kqw7DqA7iZgLTzOLfhcOwhk7nZo97ICzcyc8+u6k0PA8bkkZMoQmuSnNyuT3Iey/zbBR
-	l1CuKdISbaApEtZ/v/puJ9Ya53DIhmcqWNJzEwgN8u4fjwgMA2Pe+Tk/an9xRQZ30ZFdfHysG2dVo
-	rJV/EgVA==;
+	bh=9wkxnVLKaPcVLV18GVfwTwoCPcbkICHgEPGRzwsz0BQ=; b=E9uAIRJuRfS1Cvzm7/+KnixJiQ
+	0ZpvnjTUIlWR3S3iadphDUbvanhk9YBSGYTg5E3gnxBaREve7/kaTIvaFFTNQFq9XEr9BWDlTikhq
+	amW35zBJ4/bNHu185uS1ISWFbnBHqw97dS2iJ3OcNBSVott0ENWwy8ECYURo6n0xCoK2rx50Qk4F9
+	q5tSfc14+lHEkbMXDoDJarOenIxuu8B1kx5nodkHufWQUfRuMu+3zs4vdhFxev1tSWVAxUlw5S+dw
+	ptKE2COCQqtITrAlIMQMS1APWL7XMiOxB7T8B3RsfjflopdaaxvYUASCLqZv7/uDOE6TEOluvuRbQ
+	4GysKhAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQsz-0000000BHK8-1ecc;
-	Thu, 02 Jan 2025 19:29:37 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1tTQvG-0000000BHcA-0YIi;
+	Thu, 02 Jan 2025 19:31:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQro-0000000BHAB-49V7
+	id 1tTQu2-0000000BHRa-2Ttp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 19:28:26 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5187cd9b8e5so3564261e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 11:28:24 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735846102; x=1736450902;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+ifrsZS6VTC65RgZqrSr3SMUWgTLKO2G/Lh7qiZeZxM=;
-        b=cHn1R2EbUr2ohGIfCPKVJBSGx1BFRYlQbknt7TPLgU9CkbOuCWru0/aFcs4bQDZX0S
-         9yNLId1eHxG7Ka5t+OfPUJ2NhCu92eeVkvyIGk4NalsJImJaxKGMKjZHwHvL7GQqFPqG
-         dLOindKM9bq3PuZ0z9XNMAZhId5BA3ZkqxOE1V37nr7/R30ZX5CkqgSiZKRxe42tgx6v
-         vdaVMNVhIJpHZ96motyEvdNXTgienZmaImJlizSKxb0AK4Ute+HNOQYdKM5vMBbnhM9O
-         WLIQpabXHbkhRm5ZwE1AYWz60rjtCwj5JcXYJpg22/Jkxa2ODUokp9WLH+wB5lKvIai1
-         fl9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWsGOV23laKggqBulYs4bNfAVE9pfR4gjjWZYYRI4UWP8utMUDT0uTk1kbOuUZ5TxQLqd7AQunTCzKTRs7SLe6v@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDZVArGebjEwiySRzDXC5dAZXl8XnBbR3NybAzTIydTx+gVyNI
-	3I7/QTdLkpqNCc9SaiXSs1po2n7+no554GvjPVfoELyaKB2lk5Fi3CidjUZu
-X-Gm-Gg: ASbGncs5BB0dOtxYixR0EiDoTkAK6nx3xbpg789krSviF4WxYmO17+yi7Zhxl5xSrvx
-	DuAW2bjTuVs2CAMjw9wKVnwtwkjQZNMEYmMrwmw2J+9zM+aaJ5/gdDWSWWgbjIAIIbFldWXBxIs
-	Z6G74SapM3aDDCeWgXgTiMq3eoruEyLzAoCSCVwyaXPuJn59TZEcLyVeS7IuIpInBqLBLWqRnSf
-	2jG3sU9aqci2X9xvbui/dLSbFyPHDf8/D85bVbqBkq8mSYF869q+nUr1/FQ70HjbVqR4S/BRUQC
-	42F2fhu8PZKo8C1sbG8=
-X-Google-Smtp-Source: AGHT+IFdfkQBlAIoUiOpDNkR7sjrXdiL+9kmROi4+VxO2e8Nez8tjukbptky387Krwtw2oxyQfn8Uw==
-X-Received: by 2002:a05:6122:1816:b0:517:4fb0:74bc with SMTP id 71dfb90a1353d-51b75c3fe42mr37423664e0c.3.1735846102212;
-        Thu, 02 Jan 2025 11:28:22 -0800 (PST)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-51b68bfad6dsm3059648e0c.31.2025.01.02.11.28.21
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Jan 2025 11:28:21 -0800 (PST)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-4afe7429d37so2926556137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 11:28:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVGAjwC+hmKBUibjCJa6bLNIn0D3iYoCXrD89FQNbZROwX/4XFk96VIBdzr0xykjnYx0p6tHH63DDE+yXZXDGPq@lists.infradead.org
-X-Received: by 2002:a05:6102:549f:b0:4b2:7996:6ba4 with SMTP id
- ada2fe7eead31-4b2cc48a41cmr36642516137.25.1735846101400; Thu, 02 Jan 2025
- 11:28:21 -0800 (PST)
+	Thu, 02 Jan 2025 19:30:44 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 502GvWfW006509;
+	Thu, 2 Jan 2025 19:30:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	9wkxnVLKaPcVLV18GVfwTwoCPcbkICHgEPGRzwsz0BQ=; b=RwR5Xqo2B2kVnS2P
+	FDJAaSmVY4Fl8Uyn+xoAM5IDde5EyveBCg+GoMoeuqNm9wjqT5LmKa/JtTyL8DYo
+	wJDYpIET+8LfFA/Akrg7C0yqobi+i6ZF029c6XEG/scUMwDvV4Vo0btYmIzZDG7F
+	o7ypL7kEoRBkJCuYK3qvVsHEy16I47mUqK9IhI73l1M9afkq0TBJoPlDofgJEyqu
+	5/DkIlBzBQT6/DI+809jYtH9rfg889x02rE33P2iPDIfhnOqQB5MNUxPrHFXSGeC
+	sALNJQITJhM0Zu73W/Agc5rlAAnasyNlsIEZ54qcAf5drw3J3nOkXew6ZHzsR6Cf
+	9HvUpA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43wxse8akc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Jan 2025 19:30:28 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 502JURRu016768
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 2 Jan 2025 19:30:27 GMT
+Received: from [10.216.23.18] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 2 Jan 2025
+ 11:30:23 -0800
+Message-ID: <76b822f0-c4c5-4d47-8e0b-c1eee513e228@quicinc.com>
+Date: Fri, 3 Jan 2025 01:00:21 +0530
 MIME-Version: 1.0
-References: <20250102170359.761670-1-rohit.visavalia@amd.com> <20250102170359.761670-3-rohit.visavalia@amd.com>
-In-Reply-To: <20250102170359.761670-3-rohit.visavalia@amd.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 2 Jan 2025 20:28:09 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdV9iZK3FOXhSmvvxK=HqBe3hUnNcZZ2aL1G--XHFgN07A@mail.gmail.com>
-Message-ID: <CAMuHMdV9iZK3FOXhSmvvxK=HqBe3hUnNcZZ2aL1G--XHFgN07A@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] clk: xilinx: vcu: don't set pll_ref as parent of
- VCU(enc/dec) clocks
-To: Rohit Visavalia <rohit.visavalia@amd.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, michal.simek@amd.com, 
-	vishal.sagar@amd.com, javier.carrasco.cruz@gmail.com, geert+renesas@glider.be, 
-	u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Only enable stall on smmu-v2
+To: Rob Clark <robdclark@gmail.com>, <iommu@lists.linux.dev>
+CC: <linux-arm-msm@vger.kernel.org>, <freedreno@lists.freedesktop.org>,
+        Robin
+ Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+        Rob Clark
+	<robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>,
+        "moderated list:ARM
+ SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+        open list
+	<linux-kernel@vger.kernel.org>
+References: <20250102183232.115279-1-robdclark@gmail.com>
+Content-Language: en-US
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+In-Reply-To: <20250102183232.115279-1-robdclark@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: YDh91vVfSSkMzPYw5IPqAqzAjDs1CRvS
+X-Proofpoint-GUID: YDh91vVfSSkMzPYw5IPqAqzAjDs1CRvS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 phishscore=0
+ lowpriorityscore=0 mlxscore=0 adultscore=0 malwarescore=0 spamscore=0
+ bulkscore=0 clxscore=1015 mlxlogscore=999 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501020171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_112825_035163_E4C3C441 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20250102_113042_764151_C2DF11F9 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,54 +105,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohit,
+On 1/3/2025 12:02 AM, Rob Clark wrote:
+> From: Rob Clark <robdclark@chromium.org>
+> 
+> On mmu-500, stall-on-fault seems to stall all context banks, causing the
+> GMU to misbehave.  So limit this feature to smmu-v2 for now.
+> 
+> This fixes an issue with an older mesa bug taking outo the system
+> because of GMU going off into the weeds.
+> 
+> What we _think_ is happening is that, if the GPU generates 1000's of
+> faults at ~once (which is something that GPUs can be good at), it can
+> result in a sufficient number of stalled translations preventing other
+> transactions from entering the same TBU.
+> 
+> Signed-off-by: Rob Clark <robdclark@chromium.org>
 
-On Thu, Jan 2, 2025 at 6:04=E2=80=AFPM Rohit Visavalia <rohit.visavalia@amd=
-.com> wrote:
-> CCF will try to adjust parent clock to set desire clock frequency of
-> child clock. So if pll_ref is not a fixed-clock then while setting rate
-> of enc/dec clocks pll_ref may get change, which may make VCU malfunction.
->
-> Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
+Reviewed-by: Akhil P Oommen <quic_akhilpo@quicinc.com>
+
+-Akhil
+
 > ---
-> Changes in v2:
->   - none
->   - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-=
-3-rohit.visavalia@amd.com
-> ---
->  drivers/clk/xilinx/xlnx_vcu.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.=
-c
-> index 88b3fd8250c2..c520ae1ba65e 100644
-> --- a/drivers/clk/xilinx/xlnx_vcu.c
-> +++ b/drivers/clk/xilinx/xlnx_vcu.c
-> @@ -547,7 +547,7 @@ static int xvcu_register_clock_provider(struct xvcu_d=
-evice *xvcu)
->                 return PTR_ERR(hw);
->         xvcu->pll_post =3D hw;
->
-> -       parent_data[0].fw_name =3D "pll_ref";
-> +       parent_data[0].fw_name =3D "dummy_name";
->         parent_data[1].hw =3D xvcu->pll_post;
->
->         hws[CLK_XVCU_ENC_CORE] =3D
+> v2: Adds a modparam to override the default behavior, for debugging
+>     GPU faults in cases which do not (or might not) cause lockup.
+>     Also, rebased to not depend on Bibek's PRR support.
+> 
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 19 +++++++++++++++++--
+>  1 file changed, 17 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 6372f3e25c4b..3239bbf18514 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -16,6 +16,10 @@
+>  
+>  #define QCOM_DUMMY_VAL	-1
+>  
+> +static int enable_stall = -1;
+> +MODULE_PARM_DESC(enable_stall, "Enable stall on iova fault (1=on , 0=disable, -1=auto (default))");
+> +module_param(enable_stall, int, 0600);
+> +
+>  static struct qcom_smmu *to_qcom_smmu(struct arm_smmu_device *smmu)
+>  {
+>  	return container_of(smmu, struct qcom_smmu, smmu);
+> @@ -210,7 +214,9 @@ static bool qcom_adreno_can_do_ttbr1(struct arm_smmu_device *smmu)
+>  static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+>  		struct io_pgtable_cfg *pgtbl_cfg, struct device *dev)
+>  {
+> +	const struct device_node *np = smmu_domain->smmu->dev->of_node;
+>  	struct adreno_smmu_priv *priv;
+> +	bool stall_enabled;
+>  
+>  	smmu_domain->cfg.flush_walk_prefer_tlbiasid = true;
+>  
+> @@ -237,8 +243,17 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+>  	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
+>  	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
+>  	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
+> -	priv->set_stall = qcom_adreno_smmu_set_stall;
+> -	priv->resume_translation = qcom_adreno_smmu_resume_translation;
+> +
+> +	if (enable_stall < 0) {
+> +		stall_enabled = of_device_is_compatible(np, "qcom,smmu-v2");
+> +	} else {
+> +		stall_enabled = !!enable_stall;
+> +	}
+> +
+> +	if (stall_enabled) {
+> +		priv->set_stall = qcom_adreno_smmu_set_stall;
+> +		priv->resume_translation = qcom_adreno_smmu_resume_translation;
+> +	}
+>  
+>  	return 0;
+>  }
 
-You completely ignored Stephen's comment, which suggests to not pas
-CLK_SET_RATE_PARENT instead (see xvcu_clk_hw_register_leaf()).
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
