@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE89E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF41AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=87IKF3c9HbECtsPTMeRuQc+tjYDzspetfXzHHwU8By8=; b=rUtFuim19qbN3nnlCwPom3M+IT
-	dt7oUdlPcaEmsvVxlhixo/9kC92PSi5jH7RWh7INPQlT8pppjyjYPZQCC58oHjk67zsgpPvn7/ViT
-	hH2xwgaG2iPPbEvvXvyGlmJqkyXC0z96jZmZhOIeEI0IFFPEIeRVesMnZ6ISh+D7Enq6IkdiOeTE1
-	g8TDqrtSpbLm9rIIHEUqzcjC/z8pgECYSrHsJGdr0mllBqqjOFN5EBchZ79oC41lRfiT/GnKVmGyl
-	+OcTzzOfbrbfHCvftaDbXA1cpgO4+AZ0k6iMrq7qQRVJGgT275vR7lvnkyxmwvUp8n8KcbDinXD36
-	xIy8VcxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yIOD8QrsWxqeqXYea09cjJQmEWGSbOI4WIbuvRZ3TRs=; b=phBye5P4BHefEK3OjE6lAY+PZl
+	UKaF9lqeP7lZLgXlio/Nlat3m4oGviH480VxoY/l9LvyNTg/vtW/JPuPmp+K9mE1t//aA8nJdxDc2
+	K0iXxpuEgSN5CVLiCf4FNl+KbxVqZRyp5N80ABRUxli0WhDqkAGdGD4qZhJKYeAntIRcnxz36WxO8
+	MPgcA7LQWMliTjlCOcseyHam1K3+cB66B5LMYPsJ3V8hKLOe/eW/zsoK/o2/6+Ne0JRP17Pi8KeJc
+	B/120wvgs5bIvUr3qy8p+KROooScxFleF1woe47Vkjmk8rapzFVCGwc36MZow04EPykS8B55KsEwx
+	IjzvW/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKg0-0000000AOqk-33fH;
-	Thu, 02 Jan 2025 12:51:48 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tTKiE-0000000APZa-2vXX;
+	Thu, 02 Jan 2025 12:54:06 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKcH-0000000AO0z-2uCf
+	id 1tTKgz-0000000APAE-33JQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 12:47:59 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so12373246e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 04:47:56 -0800 (PST)
+	Thu, 02 Jan 2025 12:52:51 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e455bf1f4d3so11842163276.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 04:52:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735822075; x=1736426875; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=87IKF3c9HbECtsPTMeRuQc+tjYDzspetfXzHHwU8By8=;
-        b=hTEH3WvyRs2nGMY+PCHxgyebFEZfxVaQi71Vh4l5WPfx8DrTtLMEcYQpKMIqE+IoI8
-         htvGKzERnQhyMjr0mSh0vbg9uiS7g9p/QY/vvXiqSXDkUBCjbbo4/Tca+9f+IapQtdqX
-         FLwzG15lylnc7fBLVt3Xq0LuIWNM8jDaNz6LGl9/znDZUjqT14A7wgKnCHZ3GDjzQbxb
-         c+cHoWPa1L9AahbkYYMf7t9oOsyEJ8f3otMTDn31odCSkTMCNvF8PY2hnDysPt2mM/kL
-         C9L5jVCHPnAv1lniUENgk/PBLJZG8ebpntrZmC3R4w5S18my9Oo5Wm0Hzf/eKTp/PBfe
-         RQRA==
+        d=raspberrypi.com; s=google; t=1735822368; x=1736427168; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=yIOD8QrsWxqeqXYea09cjJQmEWGSbOI4WIbuvRZ3TRs=;
+        b=pMuuD0H8pg5hGmPiuCJ3rHgAm0SPC+nzSaEuKRXCht6erZvX9xC+Hgwb76fO5e2M5K
+         xarXYHfJHRp+8fIfhR5kPKVzU1ffkJkreMpiDvIITY0fysh/3sBsLytBQn/h12nzjQDx
+         DXFM93o5a2weHDCkebN0fZKjR2hWN+yKCckAlr5tHCDC0SFyMjkONrzAZ5zdyUWYGqay
+         oppN+nTH0WyF+wJYbgVFMoyEdfEF1DIDOy+5FnOMWMtfY5Egq7Lm50wR05KXmIup5rSV
+         05GH92YLZWsymlcJ/8z2q4AQIlaIZLE6NJC4A4oyFPgR111SCdzkgPz5HcD9DixMXH9M
+         oYSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735822075; x=1736426875;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1735822368; x=1736427168;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=87IKF3c9HbECtsPTMeRuQc+tjYDzspetfXzHHwU8By8=;
-        b=Xo55277IKdryZpxA4TMDJiTpXjrUa8btK+OGGjVBhwApvTAiXjqPw6X0d+tJ8WCMqj
-         grjUkaXaTxs+5GuQtlBG/j5nvDFwbUC7RVwi7kFXkq3jJljbBFY8nrOgpVsZNbdkzKwp
-         1sxTi3xVPdjOteN88c8tCJlNzUHoGpyuM1eROALGejJz4uV3aQMFpM9gEYh6YmYQtLIu
-         40WuYW+gpac0Z02uT1dQXLTR4dNqkEkGlJ8Oo1NZ1ILeBvtd8ph+OQK04KYkMNph4Bzn
-         bXJDypqYRUjkxhjc+edgbJLX/JUFxpeyJRop4b6V0o76v3JiGpMoYMy6nXUgHLSr/wsl
-         4rXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWtZnpNPSqsZ3vK9ebg6wzEd/dNou3Pc8MPMjY93nhv30Pm5TQU8zVZnq5/6GidBrCopJf4FfhTeqXLfr2FrHh4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYYyx0FupU53T12I/Mh5zrHjWO2HYWhKMANIjVYIh84C2XxUtx
-	WjvYWM4d10rwNcAsijg7q0JKxxXzwWZ306y/a7zsO12oDfDUCnHUPvPoCQdsaPg=
-X-Gm-Gg: ASbGncsFZ9yIXEYAvMx0uZk4UX3f3CfCtkVkQVekQTQD6d//sCHWC7PW/6fsePOlXWv
-	0qQW8byCVe1iMR6dyWC/HoElIGeo/nlMG0BjeMrkD6IGZqxd2TW30zuyRc0f2RpFn0s7VSgKxMs
-	gcRJ6W58xkqlsy2I2QbLT+RMfCyzU3GwUmnZZgmtALtD/L+A+N3XrSfYd/KkYZazeraEPLdUy6P
-	tF4kA46cFdosq04WIQ0PHRvdcbzqo1tIk1tnu+/CLeDEzX4DpWg5RNDzq2Kk83eV6hmfQVneUGV
-	QCG1oxrMZRt8ueD3VWEXy/Tox4050rc=
-X-Google-Smtp-Source: AGHT+IHSR/Xqw+zKVilPbS18SxVhML7NXuysuSNJyvDEen1lNQEfTHRrM46D8RL3KMyIttSdLTLqLA==
-X-Received: by 2002:a05:6512:e8c:b0:53a:1a81:f006 with SMTP id 2adb3069b0e04-5422953fedcmr15859594e87.31.1735822075431;
-        Thu, 02 Jan 2025 04:47:55 -0800 (PST)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238217f9sm3817314e87.211.2025.01.02.04.47.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 04:47:54 -0800 (PST)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain fixes for v6.13-rc6
-Date: Thu,  2 Jan 2025 13:47:53 +0100
-Message-ID: <20250102124753.50440-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+        bh=yIOD8QrsWxqeqXYea09cjJQmEWGSbOI4WIbuvRZ3TRs=;
+        b=jObrXSNFF5wG9UaQhbpdyKLvGjbJSmBwUwfrTgXd0vucinrG0leNCt3FBKoqPkdydj
+         DTiN5sNCLqrk9ll2wwq7b1REtUElm9tZKqMK+0W64/F6Lf8Vh49Ni7oIFF3jgeoGYlU4
+         6v+okNp8xQMNjVJcqJim0WqVAXFzpF072AaIf6Fko2ZvsSXtt4rPihRdmPMnqV4mOjX0
+         NpXNdsEWt211xR+ygPnDFPqNU58xSKDAd3o2KJJBzEDsYVV5JM2Nhk+TnNVlL1wAMsdT
+         OLBVnZvzhDANXJx0xuCf8Szu9/F2J3/tXZj/Necj+jYMr28CsUvXqYe+u0jBd6hOPo7T
+         1HVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXiWTGKDXVe4s1dB2PnlCkcQ5bZx1UWE164jxk1HTrfCsrj5jiGvalUYhnduqj8UFRtloOB47YHX+G/xK5A9BPN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXU4hR7cNPmt2XT3/Gjnhka/QR6kDG8Yom6IBc2dUH5yTaawQA
+	uOC9FpwDR0w1VaFWHPt/robGFdxBB0hW5RFN3QYTtox0UGYgP+co22WJiXM15BVwEij9rDAyQJD
+	hbOMDR/i7V3XWWaZcV4OQxdUm9/JXRNBKSMShuw==
+X-Gm-Gg: ASbGncvQeCIE/ysj3eJj/VaoDh6TdBaHcNJ8SFZSMOT4q1Sh6weUdB7DzXAkBAVQHN5
+	PEyoNuZTcdnUXf9eA4cwANSsUxjYCMbZNxEjZ6Q==
+X-Google-Smtp-Source: AGHT+IESytUCNtmsOTMh1dyl2/5YIAsxOS0II0sunaBnTCp+AEb+yDJmx9j2bpg20kNupv4++Vdkh4sAQQwJZ1gRz6w=
+X-Received: by 2002:a05:690c:6605:b0:6ef:57f9:ec4 with SMTP id
+ 00721157ae682-6f3f80de947mr307485967b3.5.1735822368150; Thu, 02 Jan 2025
+ 04:52:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241220-media-rpi-hevc-dec-v1-0-0ebcc04ed42e@raspberrypi.com>
+ <20241220-media-rpi-hevc-dec-v1-3-0ebcc04ed42e@raspberrypi.com> <d2f047cd-5c50-454f-95be-601edb79466d@collabora.com>
+In-Reply-To: <d2f047cd-5c50-454f-95be-601edb79466d@collabora.com>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Thu, 2 Jan 2025 12:52:32 +0000
+Message-ID: <CAPY8ntBNse4Dq9E49QO3ipDbb+uMipe+MuLxW_Jpszu9gQgpww@mail.gmail.com>
+Subject: Re: [PATCH 3/7] media: ioctl: Add pixel formats NV12MT_COL128 and NV12MT_10_COL128
+To: Robert Mader <robert.mader@collabora.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, John Cox <john.cox@raspberrypi.com>, 
+	Dom Cobley <dom@raspberrypi.com>, review list <kernel-list@raspberrypi.com>, 
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, John Cox <jc@kynesim.co.uk>, 
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_044757_787037_C41596F7 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250102_045249_900787_0106C35B 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,44 +100,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Hi Robert
 
-Here's a PR with a couple of pmdomain fixes intended for v6.13-rc6. Details
-about the highlights are as usual found in the signed tag.
+Resending this reply as replying from my phone before the Christmas
+break sent it as HTML :-(
 
-Please pull this in!
+On Sat, 21 Dec 2024 at 17:38, Robert Mader <robert.mader@collabora.com> wrote:
+>
+> Hi, thanks for the patch.
+>
+> On 20.12.24 17:21, Dave Stevenson wrote:
+>
+> Add V4L2_PIXFMT_NV12MT_COL128 and V4L2_PIXFMT_NV12MT_10_COL128
+> to describe the Raspberry Pi HEVC decoder NV12 multiplanar formats.
+>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-ioctl.c | 2 ++
+>  include/uapi/linux/videodev2.h       | 5 +++++
+>  2 files changed, 7 insertions(+)
+>
+> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+> index 0304daa8471d..e510e375a871 100644
+> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> @@ -1377,7 +1377,9 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+>   case V4L2_PIX_FMT_NV16M: descr = "Y/UV 4:2:2 (N-C)"; break;
+>   case V4L2_PIX_FMT_NV61M: descr = "Y/VU 4:2:2 (N-C)"; break;
+>   case V4L2_PIX_FMT_NV12MT: descr = "Y/UV 4:2:0 (64x32 MB, N-C)"; break;
+> + case V4L2_PIX_FMT_NV12MT_COL128: descr = "Y/CbCr 4:2:0 (128b cols)"; break;
+>   case V4L2_PIX_FMT_NV12MT_16X16: descr = "Y/UV 4:2:0 (16x16 MB, N-C)"; break;
+> + case V4L2_PIX_FMT_NV12MT_10_COL128: descr = "10-bit Y/CbCr 4:2:0 (128b cols)"; break;
+>   case V4L2_PIX_FMT_P012M: descr = "12-bit Y/UV 4:2:0 (N-C)"; break;
+>   case V4L2_PIX_FMT_YUV420M: descr = "Planar YUV 4:2:0 (N-C)"; break;
+>   case V4L2_PIX_FMT_YVU420M: descr = "Planar YVU 4:2:0 (N-C)"; break;
+> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+> index e7c4dce39007..f8f97aa6a616 100644
+> --- a/include/uapi/linux/videodev2.h
+> +++ b/include/uapi/linux/videodev2.h
+> @@ -687,6 +687,11 @@ struct v4l2_pix_format {
+>  #define V4L2_PIX_FMT_NV12MT_16X16 v4l2_fourcc('V', 'M', '1', '2') /* 12  Y/CbCr 4:2:0 16x16 tiles */
+>  #define V4L2_PIX_FMT_NV12M_8L128      v4l2_fourcc('N', 'A', '1', '2') /* Y/CbCr 4:2:0 8x128 tiles */
+>  #define V4L2_PIX_FMT_NV12M_10BE_8L128 v4l2_fourcc_be('N', 'T', '1', '2') /* Y/CbCr 4:2:0 10-bit 8x128 tiles */
+> +#define V4L2_PIX_FMT_NV12MT_COL128 v4l2_fourcc('N', 'c', '1', '2') /* 12  Y/CbCr 4:2:0 128 pixel wide column */
+> +#define V4L2_PIX_FMT_NV12MT_10_COL128 v4l2_fourcc('N', 'c', '3', '0')
+>
+> Should these be upper-case Cs instead? So they compatible with the previously used downstream values?
 
-Kind regards
-Ulf Hansson
+No, this is deliberate.
 
+Downstream was using a single planar format, with extra complexity for
+determining the chroma offset per column, and weird handling required
+on bytesperline.
+Having had discussions, switching to a multiplanar format (hence MT in
+the name) removes those complexities and means we don't need to do
+anything weird in the v4l2 format definitions.
 
-The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
+Reusing NC12 and NC30 fourccs will give us grief over backwards
+compatibility, hence lower case for the new version.
 
-  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
+I have a patch on [1] that adds back in NC12 and NC30 for downstream
+just so we don't break existing users, but see no point in upstreaming
+that.
 
-are available in the Git repository at:
+> P.S.: Coincidentally Gstreamer just landed support for NC12 in https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/7355 and there is also a link to experimental NC30 patches. So happy to see this series appear upstream :)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.13-rc2
+Ooh, nice. I'll give it a test when I'm back in the office.
 
-for you to fetch changes up to f64f610ec6ab59dd0391b03842cea3a4cd8ee34f:
+Dave
 
-  pmdomain: core: add dummy release function to genpd device (2024-12-19 15:47:02 +0100)
+[1] https://github.com/6by9/linux/commits/rpi-6.12.y-hevc_dec/
 
-----------------------------------------------------------------
-pmdomain core:
- - Silence warning by adding a dummy release function
-
-pmdomain providers:
- - imx: Fix an OF node reference leak in imx_gpcv2_probe()
-
-----------------------------------------------------------------
-Joe Hattori (1):
-      pmdomain: imx: gpcv2: fix an OF node reference leak in imx_gpcv2_probe()
-
-Lucas Stach (1):
-      pmdomain: core: add dummy release function to genpd device
-
- drivers/pmdomain/core.c      | 6 ++++++
- drivers/pmdomain/imx/gpcv2.c | 4 ++--
- 2 files changed, 8 insertions(+), 2 deletions(-)
+> + /* Y/CbCr 4:2:0 10bpc, 3x10 packed as 4 bytes in
+> + * a 128 bytes / 96 pixel wide column */
+> +
+>
+>  /* Bayer formats - see http://www.siliconimaging.com/RGB%20Bayer.htm */
+>  #define V4L2_PIX_FMT_SBGGR8  v4l2_fourcc('B', 'A', '8', '1') /*  8  BGBG.. GRGR.. */
+>
 
