@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BE9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F0CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEQ5i3xkGqGyq6ACkg5oz6na5qgwwv2naf7/EJyMul0=; b=fHrTn+ejav0ObkxmAJF8p1Walb
-	wmEVaWnRBY9UWaVyRQYK93Yp/E3OwsIBwYlTREWYXHxvM2k1OqHCUR49sfCvE4SBOEtiZjkKKM1Hy
-	8/wmD+lbJrlZob0cq1yhrRAJN1JEeTJeSJcf3cAiNCZKMAIy2njjE+s5wZCOqRI80hbYXAA+LvSoh
-	zRZNP4LmsR8zoWiaD41cYCvh+itVaNdGAd15DbMy1LiUP3+viFB5aeWytT0WCGPLTF8uFZloMhYdR
-	5GXuahZmCX4zzdOdMcrOrMp6he18hRLOX9x6TKLmH5Xe5AXidNEGHFgz5Igplkjxaa55OE6Iw8g7z
-	hLrSNG5Q==;
+	bh=ZKhJLqhiY4BgfFZaSnPfgvPlSceMNAzM9xufB5Fw2XA=; b=boNZn4X6OAItahPQ6ZGu4rfYiS
+	GGZLhhFMo53zE8Y+XjDyALfuwTe6Rs1Hak1FfoIQn9BxuuJ5iddjGGHHoZbdscZPWmii5oemS6Uud
+	CPYnR0uwA8K4wOztK9loR+08YSTs2N//adRLgHIj4FdaK3JzUvCkArtLSolQ58ZIjuK8QJgJaae8T
+	p4Q2Xd6wsOnjeVhSZWiPv0tcWfbgRkmnzcHRaBzMQvWdp/wLnksvCUm6mlUwMnUkjrJ3EyB2qU//R
+	H6ZTsk0EQT2FSbUbrjc3jppM5hyHgczGUQclQwusoaKuIjCCajlPGP7xcHfijMsRTjOuUOhiZAmQ3
+	0ChTdbUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOBB-0000000Aqu4-3iOJ;
-	Thu, 02 Jan 2025 16:36:13 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tTOCN-0000000Ar8f-2FSM;
+	Thu, 02 Jan 2025 16:37:27 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTO8e-0000000AqDi-1Vts
+	id 1tTO8w-0000000AqJK-0Gkb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:33:37 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502GXXee1965847
+	Thu, 02 Jan 2025 16:33:55 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502GXml12199349
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Jan 2025 10:33:33 -0600
+	Thu, 2 Jan 2025 10:33:48 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735835613;
-	bh=XEQ5i3xkGqGyq6ACkg5oz6na5qgwwv2naf7/EJyMul0=;
+	s=ti-com-17Q1; t=1735835628;
+	bh=ZKhJLqhiY4BgfFZaSnPfgvPlSceMNAzM9xufB5Fw2XA=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Psc0KKT6TZE80MF6TXBPVnW5mGlwEk2YitAVHLhnRxBqrVXStp/wLBQMcZASe1ReB
-	 T+XGRXIsSwjmf7W4ChaacTME1cQmBVWKGbp7HxfKOX79Bm9XVCVqIHCifYEpfeeLPa
-	 ipKfBZtwl3DoYQa0/540SZ/woJ6ySW2S20u5axQA=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502GXXGo007606
+	b=Blt9QAcTLzOwGohu8BxNU1qxLuwxP5iOkZXszB+nuqa02Rr4HQ4xzT43eqzNw2gfa
+	 xB4T2XRPZLxmShEgHQsvNTFBUksj0h78ZhrS6xIl+m5ffUYm0Eij0edLCDHnswrN9n
+	 47s9ll8hhqG8v80VYlz0tIpWOikcU1gASQstmsyo=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502GXmN9036461
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 10:33:33 -0600
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 2 Jan 2025 10:33:48 -0600
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 10:33:33 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ Jan 2025 10:33:48 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 10:33:33 -0600
+ Frontend Transport; Thu, 2 Jan 2025 10:33:48 -0600
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502GXX3d077842;
-	Thu, 2 Jan 2025 10:33:33 -0600
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502GXmkv060747;
+	Thu, 2 Jan 2025 10:33:48 -0600
 From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rogerq@kernel.org>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62p-j722s-common-main: enable USB0 for DFU boot
-Date: Thu, 2 Jan 2025 10:33:31 -0600
-Message-ID: <173583559332.269231.11915800165749884190.b4-ty@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Thomas Richard
+	<thomas.richard@bootlin.com>
+CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <gregory.clement@bootlin.com>, <thomas.petazzoni@bootlin.com>,
+        <richard.genoud@bootlin.com>, <u-kumar1@ti.com>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-j784s4: use ti,j7200-padconf compatible
+Date: Thu, 2 Jan 2025 10:33:45 -0600
+Message-ID: <173583562065.269347.5876221700425554154.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241220054550.153360-1-s-vadapalli@ti.com>
-References: <20241220054550.153360-1-s-vadapalli@ti.com>
+In-Reply-To: <20241230-j784s4-s2r-pinctrl-v2-1-35039fafe2ca@bootlin.com>
+References: <20241230-j784s4-s2r-pinctrl-v2-1-35039fafe2ca@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_083336_492912_BB971553 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250102_083354_196074_8FE47BC4 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,20 +91,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth Vadapalli,
+Hi Thomas Richard,
 
-On Fri, 20 Dec 2024 11:15:16 +0530, Siddharth Vadapalli wrote:
-> Add the "bootph-all" property to the "usb0" device-tree node. This is
-> required for the USB0 instance of USB to be functional at all stages of
-> USB DFU boot.
+On Mon, 30 Dec 2024 10:49:00 +0100, Thomas Richard wrote:
+> Like on j7200, pinctrl contexts shall be saved and restored during
+> suspend-to-ram.
+> 
+> So use ti,j7200-padconf compatible.
 > 
 > 
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am62p-j722s-common-main: enable USB0 for DFU boot
-      commit: 3cc7633cab8b55a77c86aae3349d83ab1e13a5bb
+[1/1] arm64: dts: ti: k3-j784s4: use ti,j7200-padconf compatible
+      commit: b48888c9c4af15fcaa57076aeff6c48c90809bc5
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
