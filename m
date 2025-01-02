@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C26A8E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 01:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34545E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 01:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IiIpR9DfcQjayuPZyMADd99s6bWfl3m1k54kgdyFao=; b=EdJgY3RWlQSHLzpEBNw78zUC3B
-	wk10DIT95kEPHqsirS+issq9tda0pCRB1tXHKucFyPHXgjDjLUbINxBQ8O/mTHTM29L8WjNndT0A/
-	0lz8YH40zE8bdKjrZ369hlUNkGsUmfh+pTPKIsWFNB0XI+59yaUuZQMKdNcU3737lTPdWxNdOq7xE
-	yLn/N+Y43Xr2VRM/CaJOkKefVYxqTTn7jtK1v4bqvr+z05VyZziiSgbFmB0jomq8cCqjPx9JSDFbW
-	BhJqL/OiaQSpWT//la0nPkMGrFq5Q4IHqlr2QuDZ72uJic00NRIgW1/Bk12GEfk8VUyxHWw5DdF/Y
-	YkS1FErg==;
+	bh=j5A+fNOs2v+iDXy9gnfB/Cm/s+5oEu/VzCUjXzL1flU=; b=0T/X2rQITXthkctwl7OxMb4G1X
+	TUhrYN8kNjTIN9nGhDkFh27dMdg3mQXmL9cZuZiFoDl5DWf1Ip9R1DEMM6OaFlq11oK86I+V50rX0
+	9/Zkn4Ly3SQ3K4yblkeFNl/iyXyyK1m7EwKvPFg0yaku33VXAx0QlNXRLd6RWgg3uoOBC1Wru7nMJ
+	ZWlpJHvwsjagv+USFbgQ/cVP1ZSp81FwAoamdgFucWbLDT9rW3cTS4VSvOvNU/bYC6Md8/IrvaBDa
+	fkX6Z1FPq5zSrwMaSbnyvWWDQRCRixnTJ3/Ku3u+HkijV6WLe5CXtrAH6xY2xRcLcG9hAPG0iAzD5
+	dVTUsYyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tT9qc-00000009YC1-3X0Z;
-	Thu, 02 Jan 2025 01:18:02 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tTA1a-00000009Yg1-0uJL;
+	Thu, 02 Jan 2025 01:29:22 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tT9pU-00000009Y6q-184j
+	id 1tTA0Q-00000009Ybg-3c97
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 01:16:53 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF8B7101EC109;
-	Thu,  2 Jan 2025 02:16:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1735780605;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8IiIpR9DfcQjayuPZyMADd99s6bWfl3m1k54kgdyFao=;
-	b=fvERMY/lW31isDSn3fgXjpZ2G1otuqVdUQAorL/Gp5da1mASvfyWDkilYEQmLAoHm64Klw
-	0YIog945ZpeZgRA6zKi3NX1LEklFle9pYcUqe9xxgDVl7uSCht35n6hThkydRlbaB5cn18
-	I4HoSMC9PyQllLYK1c8kS1BnydELXKYs1vstEkTP3r2TV/37EgW/Y5hxXNJOW9/iFQRirW
-	udbJB0NAqxDFZd2F0pbR8talHv+n1busI0IJSh3o7tTRkSSHHyPwviuhxbeCyO+4h6HqAR
-	Hg8e/c2WFQ4hMyq/Dln4mspdpKlwqXhqe4mZUY2LyRp8nVfqyLkivHgt0HZ6zg==
-Message-ID: <4e9aed87-b3fd-456d-b39a-caf3c7e729fa@denx.de>
-Date: Thu, 2 Jan 2025 02:15:58 +0100
+	Thu, 02 Jan 2025 01:28:12 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54263b52b5aso647716e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 17:28:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735781288; x=1736386088; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=j5A+fNOs2v+iDXy9gnfB/Cm/s+5oEu/VzCUjXzL1flU=;
+        b=R79TqYLm2Gui0CNqYHVssO4lguJw6N2wmsHft5vjDcn+lEFkIuVwbEeogOqqxqGH/6
+         X6SXhMBGCF+qzRZSgW03mvj+O/IENCykaaulMMx/IjTrR4ZDwG4ZOx8jdldKhQc3NYZb
+         EN1hPXAERmicULALz1q0h0SLdMdAItjT6KLe93Pgr9WgphrFwAAMXT/oUZUK8R4UKqpP
+         wn9MTNI9rTpN6iMwTRg0cOPxPUJ1JF2au4b/+a9mE9sPD6hvx8peMc+3/W0USdYn5zy4
+         5B/BaD7pooWDS5Dn1fK1EkFl54Cqn7GHUg/ebdg8oxHmTMUJKnepk/3Zh4N/X0sgO7sj
+         aDQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735781288; x=1736386088;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=j5A+fNOs2v+iDXy9gnfB/Cm/s+5oEu/VzCUjXzL1flU=;
+        b=J5wVKyhDV+/XteTxB/LbFp1qOfjXzlifM5Aca+jN6z8XMPVZ7GcwDbX4b9Dd/XFPth
+         BqLxvtBZAND74XrmgxRa0MHCHoRBjRxbbyU8ah3t3lOJezEI0yLfSICG3itS1pUri/mA
+         Va141tklXbKniGo2fy95Q4wcUiR90NmO8QuA2yxDwXfexfNQieP5Gg+f8lfEe1hGXafX
+         Dqcl6LlmsxfG325h5ejQXz9AgQsXJg4eR7plx3vC8nxr+HzffzOPFEvGuckOZg4GHv+Y
+         AQWyo/rpBFDDu3m7y5dYaYPySk2sd62/Xf+h6dO4kWGrZyaLuJuo8DGI1Ch0EOAdtL4o
+         JILQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWeCq3faS9nVGKxGZ6PFOLa/nnVBeHyTWyBHxjNfYAt8IxWdiEVod532FEWCfxI4QEG9jupyjWNtPYSYIMpTshF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7yq5oDbD/fxOMejvuCv/DrbpM2NYdnPKykI7Dv9bTbSJu+oW8
+	cZSYxdWqObl0iXVEdloYxf7/Heofe5VtaBkRe/wBymew3JrqbvM8tmCTpnUduyF+yp35HPN8HrU
+	wThEOTd54q7mE2mDWNhFqdQ785Z7kKpWnUAJ2nQ==
+X-Gm-Gg: ASbGncvHnzKFhDt54zz3qpGKy3vr9PJAp6vtrEuTqtwgBQOAipB28edzsOyB/Q7vI+6
+	9nRVsaZIecLQZMLtqjvSH5re5BlGG8m9T2iVh
+X-Google-Smtp-Source: AGHT+IG/UDsEg+0XNkiO7o/fl6fn+k5MfWwRaGYodEMlM7U/ikDReDME0rwrPQXTrVNcfbKoL7bMCXkw0iHb9fPnuCU=
+X-Received: by 2002:a05:6512:318e:b0:540:2fd2:6c87 with SMTP id
+ 2adb3069b0e04-54229533e65mr13622135e87.16.1735781288248; Wed, 01 Jan 2025
+ 17:28:08 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Liu Ying <victor.liu@nxp.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241231192925.97614-1-marex@denx.de>
- <20241231203136.GD31768@pendragon.ideasonboard.com>
- <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
- <20250101223620.GA7206@pendragon.ideasonboard.com>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <20250101223620.GA7206@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <Z3UxH_fOzuftjnuX@darkstar.musicnaut.iki.fi>
+In-Reply-To: <Z3UxH_fOzuftjnuX@darkstar.musicnaut.iki.fi>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 2 Jan 2025 02:27:57 +0100
+Message-ID: <CACRpkda4uVYGZYZEWxyS_Tw9ZC9EfiZZ1D3oshZg3fh+N7zL1w@mail.gmail.com>
+Subject: Re: [PATCH] ARM: omap1: Fix up the Retu IRQ on Nokia 770
+To: Aaro Koskinen <aaro.koskinen@iki.fi>
+Cc: linux-omap@vger.kernel.org, Janusz Krzysztofik <jmkrzyszt@gmail.com>, 
+	Tony Lindgren <tony@atomide.com>, Kevin Hilman <khilman@baylibre.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_171652_470205_69001319 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20250101_172810_932340_D21A9FB1 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +93,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/1/25 11:36 PM, Laurent Pinchart wrote:
-> On Tue, Dec 31, 2024 at 10:10:51PM +0100, Marek Vasut wrote:
->> On 12/31/24 9:31 PM, Laurent Pinchart wrote:
->>> Hi Marek,
->>
->> Hi,
->>
->>> Thank you for the patch.
->>>
->>> On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
->>>> Add a flag meant purely to work around broken i.MX8MP DTs which enable
->>>> HDMI but do not contain the HDMI connector node. This flag allows such
->>>> DTs to work by creating the connector in the HDMI bridge driver. Do not
->>>> use this flag, do not proliferate this flag, please fix your DTs.
->>>
->>> What's the rationale for this, what prevents fixing DT instead of using
->>> this flag ? Adding such a flag will most likely open the door to
->>> proliferation.
->>
->> See the V2 series discussion, there are a few in-tree DTs which do not
->> have the HDMI connector node. The rationale is there might be more and
->> they might come from vendors, so this flag is necessary to work around
->> those DTs.
->>
->>> If you can't fix the DT on particular boards, patching it could be an
->>> option. We had a similar problem on Renesas boards, which we fixed with
->>> a DT overlay, see commit 81c0e3dd82927064 ("drm: rcar-du: Fix legacy DT
->>> to create LVDS encoder nodes"). This made the workaround self-contained,
->>> and allowed dropping it several kernel versions later (in commit
->>> 841281fe52a769fe, "drm: rcar-du: Drop LVDS device tree backward
->>> compatibility").
->>
->> Frankly, I would much rather fix the few in-tree DTs and mandate the
->> HDMI connector node in DT, which would keep the code simple, rather than
->> maintain a backward compatibility workaround for problem which might not
->> even exist.
-> 
-> The in-tree device tree sources should be converted as part of the
-> series, I don't see a point trying to maintain backward compatibility
-> for in-tree DT sources.
+On Wed, Jan 1, 2025 at 1:12=E2=80=AFPM Aaro Koskinen <aaro.koskinen@iki.fi>=
+ wrote:
 
-That's fine, that I can do.
+> The Retu IRQ is off by one, as a result the power button does not work.
+> Fix it.
+>
+> Fixes: 084b6f216778 ("ARM: omap1: Fix up the Nokia 770 board device IRQs"=
+)
+> Signed-off-by: Aaro Koskinen <aaro.koskinen@iki.fi>
 
-> For out-of-tree sources it depends on how likely the problem is. There's
-> no regression if nobody is affected. I personally like restricting
-> backward compatibility to the strict minimum, to ensure that all new DTs
-> will use proper bindings. Making the backward compatibility code
-> self-contained helps there, and we could also print a loud warning
-> (WARN_ON() seems appropriate) and set a date for the removal of the
-> workaround.
-The other alternative would be to not add the workaround at all, and 
-wait if someone is going to complain about broken downstream DT. If so, 
-then it can be added. I would much rather prefer this simple option, 
-because I have this feeling there are not going to be (m)any broken 
-downstream DTs, but I might be wrong about that.
+Sorry for all my mistakes :(
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+
+Yours,
+Linus Walleij
 
