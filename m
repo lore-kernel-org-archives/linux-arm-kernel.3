@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E09E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FE4E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLfdSiRgA4Ta9pe/RS5bp9KE5GKqwNgchupcDRcc39M=; b=1efXcOYDUf6JhmMiE5WVGMsYS0
-	bD9YN5mvXZ2Crgj90pkB1PCoTx7KFRZZB97xvYJj+xpYluL/5jvH4uB+7EDJ4+6bMaP/L8DL6nB7B
-	gJlk3INL4fVxyceCMu1DoDAAOTqFj4NzBpjYVvO7IB1M7H5ucU2yVjji3M6vw971WbKIyLyl9pbMz
-	0Z85oc3T6SFhVhflB4qpJf2Q23kCtM+ezkV7I3XgnhUuj8verTTxsGveDgmCt1ncDkz05CT5yMcjD
-	xgtvNwawvdqryfKZ67yGo2V2xf3QT7KRxZ+8HZAWy5AGUJlVnk7GJnaBm2rJhnPNt6FsxiP+sCkNz
-	JJuZIQGg==;
+	bh=pR6l0IgSQKpgqspgqenfj0DHHr0b7LplB9nDO+CNAtA=; b=wiYt9R8ySgsEfqeF6W4qK/tcoi
+	HhAFKGuPz0gVdB0tzNrtoKQ3DtVBoJmNfVrA1HOgy9VCMfmFZrR08mT7blHD6MomNceN+hxzM+gFX
+	lE17H0Ta4VPW8oIbbtK4vSedbpL3cBJfJZGhFIKJsjISd92YBFuWLitS/5RJqvLmzXSl8ECxTVUw4
+	dP3DlTiCoKG0UJlNJPd49FF/RfsKlMI00gvz9T5sI84uJ0M1kDgrzzA5gcmdGAOgigrION2AlgrDa
+	266bP8cGTumSH7VMW6yYa1hioAB2KdvN8W9w7uhZaLBQpus68BO5/kYdhW1aAqaUCY/FsM2J5DXyK
+	/e1Bv0vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOiN-0000000Awlk-0crR;
-	Thu, 02 Jan 2025 17:10:31 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOcU-0000000AvUO-0E5c
+	id 1tTOjb-0000000Awwr-1UZw;
+	Thu, 02 Jan 2025 17:11:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTOfC-0000000Aw84-0nft
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 17:04:28 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tTOby-0003jY-Ce; Thu, 02 Jan 2025 18:03:54 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tTObv-006X4d-1G;
-	Thu, 02 Jan 2025 18:03:52 +0100
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1tTObw-0008kv-09;
-	Thu, 02 Jan 2025 18:03:52 +0100
-Date: Thu, 2 Jan 2025 18:03:52 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?utf-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
- representation
-Message-ID: <Z3bG-B0E2l47znkE@pengutronix.de>
-References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
- <Z2g3b_t3KwMFozR8@pengutronix.de>
- <Z2hgbdeTXjqWKa14@pengutronix.de>
- <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+	Thu, 02 Jan 2025 17:07:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16B8411FB;
+	Thu,  2 Jan 2025 09:07:40 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FE8E3F673;
+	Thu,  2 Jan 2025 09:07:08 -0800 (PST)
+Date: Thu, 2 Jan 2025 17:06:57 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <Z3bHsUMvajaOOhgO@pluto>
+References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
+ <20241225-scmi-fwdevlink-v1-1-e9a3a5341362@nxp.com>
+ <20241227151306.jh2oabc64xd54dms@bogus>
+ <Z3Qy-br-wVCLpo7Q@pluto>
+ <PAXPR04MB8459AB05EEC7107D500A826688142@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <PAXPR04MB8459AB05EEC7107D500A826688142@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_090426_260368_E3FF81C7 
-X-CRM114-Status: GOOD (  31.54  )
+X-CRM114-CacheID: sfid-20250102_090714_334189_389C571B 
+X-CRM114-Status: GOOD (  46.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,193 +81,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:
-> On Sun, Dec 22, 2024 at 07:54:37PM +0100, Oleksij Rempel wrote:
-> > Here is updated version:
-> >=20
-> > ports {
-> >     /* 1000BaseT Port with Ethernet and simple PoE */
-> >     port0: ethernet-port@0 {
-> >         reg =3D <0>; /* Port index */
-> >         label =3D "ETH0"; /* Physical label on the device */
-> >         connector =3D "RJ45"; /* Connector type */
-> >         supported-modes =3D <10BaseT 100BaseTX 1000BaseT>; /* Supported=
- modes */
-> >=20
-> >         transformer {
-> >             model =3D "ABC123"; /* Transformer model number */
-> >             manufacturer =3D "TransformerCo"; /* Manufacturer name */
-> >=20
-> >             pairs {
-> >                 pair@0 {
-> >                     name =3D "A"; /* Pair A */
-> >                     pins =3D <1 2>; /* Connector pins */
-> >                     phy-mapping =3D <PHY_TX0_P PHY_TX0_N>; /* PHY pin m=
-apping */
-> >                     center-tap =3D "CT0"; /* Central tap identifier */
-> >                     pse-negative =3D <PSE_GND>; /* CT0 connected to GND=
- */
-> >                 };
-> >                 pair@1 {
-> >                     name =3D "B"; /* Pair B */
-> >                     pins =3D <3 6>; /* Connector pins */
-> >                     phy-mapping =3D <PHY_RX0_P PHY_RX0_N>;
-> >                     center-tap =3D "CT1"; /* Central tap identifier */
-> >                     pse-positive =3D <PSE_OUT0>; /* CT1 connected to PS=
-E_OUT0 */
-> >                 };
-> >                 pair@2 {
-> >                     name =3D "C"; /* Pair C */
-> >                     pins =3D <4 5>; /* Connector pins */
-> >                     phy-mapping =3D <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY c=
-onnection only */
-> >                     center-tap =3D "CT2"; /* Central tap identifier */
-> >                     /* No power connection to CT2 */
-> >                 };
-> >                 pair@3 {
-> >                     name =3D "D"; /* Pair D */
-> >                     pins =3D <7 8>; /* Connector pins */
-> >                     phy-mapping =3D <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY c=
-onnection only */
-> >                     center-tap =3D "CT3"; /* Central tap identifier */
-> >                     /* No power connection to CT3 */
-> >                 };
-> >             };
-> >         };
->=20
-> I'm sorry, but... what is the point of giving this much detail in the DT
-> description. How much of this actually would get used by *any* code?
->=20
-> Why does it matter what transformer is used - surely 802.3 defines the
-> characteristics of the signal at the RJ45 connector and it's up to the
-> hardware designer to ensure that those characteristics are met. That
-> will depend on the transformer, connector and board layout.
->=20
-> What does it matter what connector pins are used? This is standardised.
->=20
-> You also at one point had a description for a SFP cage (I'm sorry, I
-> can't be bothered to find it in the 3000+ emails that I've missed over
-> the Christmas period), using pin numbers 1, 2, 3, and 4. That's
-> nonsense, those aren't the pin numbers for the data pairs. You also
-> are effectively redefining what already exists for SFP cages - we
-> already have a DT description for that, and it's based around the
-> standardised connector. Why do we need a new description for SFP
-> cages?
->=20
-> Are we going to start converting schematics into DT representations,
-> including any resistors and capacitors that may be present in the
-> data path?
+On Thu, Jan 02, 2025 at 07:38:06AM +0000, Peng Fan wrote:
+> > Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting
+> > fwnode for scmi cpufreq
+> > 
+> > On Fri, Dec 27, 2024 at 03:13:06PM +0000, Sudeep Holla wrote:
+> > > On Wed, Dec 25, 2024 at 04:20:44PM +0800, Peng Fan (OSS) wrote:
+> > > > From: Peng Fan <peng.fan@nxp.com>
+> > > >
+> > > > Two drivers scmi_cpufreq.c and scmi_perf_domain.c both use
+> > > > SCMI_PROTCOL_PERF protocol, but with different name, so two
+> > scmi
+> > > > devices will be created. But the fwnode->dev could only point to
+> > one device.
+> > > >
+> > > > If scmi cpufreq device created earlier, the fwnode->dev will point
+> > > > to the scmi cpufreq device. Then the fw_devlink will link
+> > > > performance domain user device(consumer) to the scmi cpufreq
+> > device(supplier).
+> > > > But actually the performance domain user device, such as GPU,
+> > should
+> > > > use the scmi perf device as supplier. Also if 'cpufreq.off=1' in
+> > > > bootargs, the GPU driver will defer probe always, because of the
+> > > > scmi cpufreq device not ready.
+> > > >
+> > > > Because for cpufreq, no need use fw_devlink. So bypass setting
+> > > > fwnode for scmi cpufreq device.
+> > > >
+> > 
+> > Hi,
+> > 
+> > > > Fixes: 96da4a99ce50 ("firmware: arm_scmi: Set fwnode for the
+> > > > scmi_device")
+> > > > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > > > ---
+> > > >  drivers/firmware/arm_scmi/bus.c | 15 ++++++++++++++-
+> > > >  1 file changed, 14 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/firmware/arm_scmi/bus.c
+> > > > b/drivers/firmware/arm_scmi/bus.c index
+> > > >
+> > 157172a5f2b577ce4f04425f967f548230c1ebed..12190d4dabb654845
+> > 43044b442
+> > > > 4fbe3b67245466 100644
+> > > > --- a/drivers/firmware/arm_scmi/bus.c
+> > > > +++ b/drivers/firmware/arm_scmi/bus.c
+> > > > @@ -345,6 +345,19 @@ static void __scmi_device_destroy(struct
+> > scmi_device *scmi_dev)
+> > > >  	device_unregister(&scmi_dev->dev);
+> > > >  }
+> > > >
+> > > > +static int
+> > > > +__scmi_device_set_node(struct scmi_device *scmi_dev, struct
+> > device_node *np,
+> > > > +		       int protocol, const char *name) {
+> > > > +	/* cpufreq device does not need to be supplier from devlink
+> > perspective */
+> > > > +	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name,
+> > "cpufreq"))
+> > > > +		return 0;
+> > > >
+> > >
+> > > This is just a assumption based on current implementation. What
+> > > happens if this is needed. Infact, it is used in the current
+> > > implementation to create a dummy clock provider, so for sure with
+> > this
+> > > change that will break IMO.
+> > 
+> > I agree with Sudeep on this: if you want to exclude some SCMI device
+> > from the fw_devlink handling to address the issues with multiple SCMI
+> > devices created on the same protocol nodes, cant we just flag this
+> > requirement here and avoid to call device_link_add in
+> > driver:scmi_set_handle(), instead of killing completely any possibility of
+> > referencing phandles (and having device_link_add failing as a
+> > consequence of having a NULL supplier)
+> > 
+> > i.e. something like:
+> > 
+> > @bus.c
+> > ------
+> > static int
+> > __scmi_device_set_node(struct scmi_device *scmi_dev, struct
+> > device_node *np,
+> > 		       int protocol, const char *name) {
+> > 	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name,
+> > "cpufreq"))
+> > 		scmi_dev->avoid_devlink = true;
+> > 
+> > 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+> > 	....
+> > 
+> > 
+> > and @driver.c
+> > -------------
+> > 
+> > static void scmi_set_handle(struct scmi_device *scmi_dev) {
+> > 	scmi_dev->handle = scmi_handle_get(&scmi_dev->dev);
+> > 	if (scmi_dev->handle && !scmi_dev->avoid_devlink)
+> > 		scmi_device_link_add(&scmi_dev->dev, scmi_dev-
+> > >handle->dev); }
+> > 
+> > .... so that you can avoid fw_devlink BUT keep the device_node NON-
+> > null for the device.
+> > 
+> > This would mean also restoring the pre-existing explicit blacklisting in
+> > pinctrl-imx to avoid issues when pinctrl subsystem searches by
+> > device_node...
+> > 
+> > ..or I am missing something ?
+> 
+> link_ret = device_links_check_suppliers(dev); to check fw_devlink
+> is before "ret = driver_sysfs_add(dev);" which
+> issue bus notify.
+> 
+> The link is fw_devlink, the devlink is created in 'device_add'
+>         if (dev->fwnode && !dev->fwnode->dev) {                                                     
+>                 dev->fwnode->dev = dev;                                                             
+>                 fw_devlink_link_device(dev);                                                        
+>         }
+> The check condition is fwnode.
+> 
+> I think scmi_dev->avoid_devlink not help here.
+> 
 
-First of all, Happy New Year! :)
+Ah right...my bad, the issue comes from the device_links created by
+fw_devlink indirectly while walking the phandles backrefs...still...
+...cant we keep the device_node reference while keep on dropping the
+fw_node as you did:
 
-I also apologize for the SFP example provided earlier - it was vague, uncle=
-ar,
-and wasted your time. The purpose was not to redefine existing standards bu=
-t to
-demonstrate that even SFP might require separate consideration if we ever m=
-ove
-towards more detailed descriptions. My current focus, however, is on twisted
-pair-based Ethernet**, and I=E2=80=99d like to discuss that further if you=
-=E2=80=99re open to
-it.
+ 	if ((protocol == SCMI_PROTOCOL_PERF) && !strcmp(name, "cpufreq")) {
+		scmi_dev->dev.of_node = np;
+ 		return 0;
+	}
+ 
+ 	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
+ 	....
 
-### Why Describe Pair Layouts?
+...so that the fw_devlink machinery is disabled but still we create a
+device with an underlying related device_node that can be referred in a
+phandle.
 
-While Ethernet ports often work seamlessly even with misaligned pair layouts
-due to PHY auto-correction mechanisms like **MDI-X** or **CD pair swap
-correction**, these misalignments can affect diagnostics. =20
+I wonder also if it was not even more clean to DO initialize fw_devlink
+instead, BUT add some of the existent fw_devlink/devlink flags to inhibit
+all the checks...but I am not familiar with fw_devlink so much and I
+have not experimented in these regards...so I may have just said
+something unfeasible.
 
-If pairs are misaligned but still functional in automatic mode, the diagnos=
-tic
-interface may fail to provide meaningful or accurate data. For example: =20
-- MDI/MDI-X Detection: Misaligned pairs can lead to unexpected results,
-such as both sides reporting the same status when using a non-crossover cab=
-le. =20
-- Debugging Pair Issues: Without proper correction data in the DT, it
-becomes challenging to identify and validate pair swaps (e.g., A<>B or C<>D)
-during diagnostics. =20
+Thanks,
+Cristian
 
-Including pair layout information in the DT ensures that the diagnostic
-interface can apply necessary corrections, making diagnostics usable.
-
-### Why Address Polarity? =20
-
-Polarity detection and correction are mandatory, and all modern PHYs handle=
- it
-seamlessly. However, Open Alliance standards require polarity indication
-and the ability for manual correction, particularly for automotive-grade
-PHYs (e.g., 1000BaseT1, 100BaseT1). =20
-(See: 6.4 Polarity Detection and Correction (POL))
-https://opensig.org/wp-content/uploads/2024/01/Advanced_PHY_features_for_au=
-tomotive_Ethernet_V1.0.pdf
-(Example of non-automotive PHYs supporting polarity indication and disablin=
-g of
-auto correction)
-https://ww1.microchip.com/downloads/en/DeviceDoc/VMDS-10242.pdf
-
-When polarity within the pair becomes relevant for diagnostics, proper PCB
-layout becomes crucial. It=E2=80=99s not uncommon for the PCB connection to=
- differ from
-the expected polarity at the physical port. Including polarity details in t=
-he
-DT allows for better alignment between hardware and software diagnostics,
-ensuring issues can be detected and corrected efficiently. =20
-
-### Why Mention Shielding?
-
-Shielding impacts EMI performance and compatibility, and knowing the shield=
-ing
-type (e.g., grounded, floating, capacitive) helps in: =20
-
-- Cable Selection: Ensures compatibility between shielded/unshielded cables
-  and port design. =20
-- EMI Troubleshooting: Identifies issues in noisy environments or mismatched
-  configurations. =20
-- System Design: Prevents ground loops and ensures compliance with EMC
-  standards. =20
-
-Even though this information should ideally be part of the product
-documentation, having it accessible through the interface makes
-software-supported diagnostics much more convenient. For example, software
-could guide users by stating:  "This controller has floating shielding. Ens=
-ure
-the cable is unshielded, or if shielded, it must be properly terminated at
-least on one side." =20
-
-### Why Mention Magnetics (Transformers)? =20
-
-We have to deal with different types of connections: with or without magnet=
-ics.
-Magnetics themselves come in various types and can be classified by their
-common-mode rejection elements, number of cores, and other
-characteristics. =20
-
-=46rom a software or user perspective, knowing the type and model of the
-magnetics is useful for several reasons. For example: =20
-
-- The transformer model do affect Time Domain Reflectometry offsets, someti=
-mes
-  resulting in discrepancies of several meters.
-  (See: TDR Offset Calibration)
-  https://www.analog.com/en/resources/app-notes/an-2553.html
-  https://ww1.microchip.com/downloads/en/Appnotes/VPPD-01740.pdf
-
-- Transformers influence insertion loss and exhibit varying noise
-  characteristics, both of which impact the analog properties of signals. =
-=20
-
-- Some PHYs support tuning their analog characteristics (e.g., VoD swing,
-  impedance matching) based on the attached magnetics. Advanced PHYs with s=
-uch
-  capabilities are often found in industrial-grade PHYs.
-  (See: How to Tune DP83825 VoD Swing)
-  https://www.ti.com/lit/an/snla266a/snla266a.pdf
- =20
-Best regards, =20
-Oleksij
---=20
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
