@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5B3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DE6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cq+uaLGWgexks9tP1wkTCPycv3w44z7GlNgs15ivN60=; b=CMg9peR0tA5N82lE6r6+vk+eG5
-	qdgfofyoVu0PqZct6Y+cu/NPl08xprtsFvsfHU6UMn5YTYgbkV79VqqQcosNpm4n+JnlhE0JEEM07
-	aAqYg32n6uWMhY7DkuljVXN9qb38JcechxyrtqDhWftQ+6RcJl18u/mSsB6zSYScbltisNibkF7L4
-	59rbWuStYafvGK3nktNKHfMi1Cb/RVjTpUiuBlg02wG3vZ5ttPj6y+8NSIoQkvwE4rFQArTBKtulq
-	iBLyj8fD7Hy+k5qOgoC2y5HBlQjRlr7vqrezjZdCC7KstBPlC2HHNbjYL7JLUrEzoZnxQjNFW0QA/
-	FECVkL6w==;
+	bh=+ifrsZS6VTC65RgZqrSr3SMUWgTLKO2G/Lh7qiZeZxM=; b=zBsFeRZ9W0qz4y/hgonhuail2U
+	o3RxmMQwkeHi60Y1aQCTdxED4rHdERjtI+5IPyyYPdjJ4MqvsmQ5Q0PRQMLMaeaLrmRH3sYVVAPCT
+	j8LYDGw7GXEkC/FUIu9AGpENa4Kh75CE2SyldRwCaCm2nQk+ccVUsRZemCPu+3VRAG/pkHnzmqclB
+	N9jhmoMu5Kqw7DqA7iZgLTzOLfhcOwhk7nZo97ICzcyc8+u6k0PA8bkkZMoQmuSnNyuT3Iey/zbBR
+	l1CuKdISbaApEtZ/v/puJ9Ya53DIhmcqWNJzEwgN8u4fjwgMA2Pe+Tk/an9xRQZ30ZFdfHysG2dVo
+	rJV/EgVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQq6-0000000BH22-2rJF;
-	Thu, 02 Jan 2025 19:26:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tTQsz-0000000BHK8-1ecc;
+	Thu, 02 Jan 2025 19:29:37 +0000
+Received: from mail-vk1-f177.google.com ([209.85.221.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQou-0000000BGul-12Ii
+	id 1tTQro-0000000BHAB-49V7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 19:25:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 47AFC5C61C0;
-	Thu,  2 Jan 2025 19:24:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 444CDC4CED0;
-	Thu,  2 Jan 2025 19:25:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735845923;
-	bh=KUMIyjQ4nZZlXB09ywwBTfalUhusJhQ+ekMU5Ns2Kms=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nOco+yHXIBJL9y5HUEX/ZV5LCUhWE92rAY/QEoemcZFS9byEy1MQnvYZ1OQm7zdmk
-	 9XypXaN0gbl5+Ek+tNOjv56jY5a7mrkGiXJsMfZWryTFEx9W8V2FrJfOlZXCgEU+RX
-	 XvGbTxMaHtwEteHzi/55fLNQ0zbC0aGm4Ys2fKkrURMgEYBszwKPmtjjQacaT+wk3t
-	 smKvkl2qhk18iS1KDnaxQi0q2B4srGhNVogsNl4eQc0cc5kB+wK4+V4Kmx3Y2jwlBf
-	 bizg9b71KVa4Qnr5udHOcA+UeWOInx75yn+2GyKL+RuPmbbMhWILse5dp8amxzBfIa
-	 0WbfNBJ+5VmvA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tTQor-008Vst-2S;
-	Thu, 02 Jan 2025 19:25:21 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Chase Conklin <chase.conklin@arm.com>,
-	Eric Auger <eauger@redhat.com>
-Subject: Re: [PATCH v2 00/12] KVM: arm64: Add NV timer support
-Date: Thu,  2 Jan 2025 19:25:17 +0000
-Message-Id: <173584591101.1567893.2047112696934752500.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241217142321.763801-1-maz@kernel.org>
-References: <20241217142321.763801-1-maz@kernel.org>
+	Thu, 02 Jan 2025 19:28:26 +0000
+Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5187cd9b8e5so3564261e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 11:28:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735846102; x=1736450902;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+ifrsZS6VTC65RgZqrSr3SMUWgTLKO2G/Lh7qiZeZxM=;
+        b=cHn1R2EbUr2ohGIfCPKVJBSGx1BFRYlQbknt7TPLgU9CkbOuCWru0/aFcs4bQDZX0S
+         9yNLId1eHxG7Ka5t+OfPUJ2NhCu92eeVkvyIGk4NalsJImJaxKGMKjZHwHvL7GQqFPqG
+         dLOindKM9bq3PuZ0z9XNMAZhId5BA3ZkqxOE1V37nr7/R30ZX5CkqgSiZKRxe42tgx6v
+         vdaVMNVhIJpHZ96motyEvdNXTgienZmaImJlizSKxb0AK4Ute+HNOQYdKM5vMBbnhM9O
+         WLIQpabXHbkhRm5ZwE1AYWz60rjtCwj5JcXYJpg22/Jkxa2ODUokp9WLH+wB5lKvIai1
+         fl9w==
+X-Forwarded-Encrypted: i=1; AJvYcCWsGOV23laKggqBulYs4bNfAVE9pfR4gjjWZYYRI4UWP8utMUDT0uTk1kbOuUZ5TxQLqd7AQunTCzKTRs7SLe6v@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDZVArGebjEwiySRzDXC5dAZXl8XnBbR3NybAzTIydTx+gVyNI
+	3I7/QTdLkpqNCc9SaiXSs1po2n7+no554GvjPVfoELyaKB2lk5Fi3CidjUZu
+X-Gm-Gg: ASbGncs5BB0dOtxYixR0EiDoTkAK6nx3xbpg789krSviF4WxYmO17+yi7Zhxl5xSrvx
+	DuAW2bjTuVs2CAMjw9wKVnwtwkjQZNMEYmMrwmw2J+9zM+aaJ5/gdDWSWWgbjIAIIbFldWXBxIs
+	Z6G74SapM3aDDCeWgXgTiMq3eoruEyLzAoCSCVwyaXPuJn59TZEcLyVeS7IuIpInBqLBLWqRnSf
+	2jG3sU9aqci2X9xvbui/dLSbFyPHDf8/D85bVbqBkq8mSYF869q+nUr1/FQ70HjbVqR4S/BRUQC
+	42F2fhu8PZKo8C1sbG8=
+X-Google-Smtp-Source: AGHT+IFdfkQBlAIoUiOpDNkR7sjrXdiL+9kmROi4+VxO2e8Nez8tjukbptky387Krwtw2oxyQfn8Uw==
+X-Received: by 2002:a05:6122:1816:b0:517:4fb0:74bc with SMTP id 71dfb90a1353d-51b75c3fe42mr37423664e0c.3.1735846102212;
+        Thu, 02 Jan 2025 11:28:22 -0800 (PST)
+Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-51b68bfad6dsm3059648e0c.31.2025.01.02.11.28.21
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Jan 2025 11:28:21 -0800 (PST)
+Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-4afe7429d37so2926556137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 11:28:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVGAjwC+hmKBUibjCJa6bLNIn0D3iYoCXrD89FQNbZROwX/4XFk96VIBdzr0xykjnYx0p6tHH63DDE+yXZXDGPq@lists.infradead.org
+X-Received: by 2002:a05:6102:549f:b0:4b2:7996:6ba4 with SMTP id
+ ada2fe7eead31-4b2cc48a41cmr36642516137.25.1735846101400; Thu, 02 Jan 2025
+ 11:28:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, andersson@kernel.org, christoffer.dall@arm.com, gankulkarni@os.amperecomputing.com, chase.conklin@arm.com, eauger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+References: <20250102170359.761670-1-rohit.visavalia@amd.com> <20250102170359.761670-3-rohit.visavalia@amd.com>
+In-Reply-To: <20250102170359.761670-3-rohit.visavalia@amd.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 2 Jan 2025 20:28:09 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV9iZK3FOXhSmvvxK=HqBe3hUnNcZZ2aL1G--XHFgN07A@mail.gmail.com>
+Message-ID: <CAMuHMdV9iZK3FOXhSmvvxK=HqBe3hUnNcZZ2aL1G--XHFgN07A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] clk: xilinx: vcu: don't set pll_ref as parent of
+ VCU(enc/dec) clocks
+To: Rohit Visavalia <rohit.visavalia@amd.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, michal.simek@amd.com, 
+	vishal.sagar@amd.com, javier.carrasco.cruz@gmail.com, geert+renesas@glider.be, 
+	u.kleine-koenig@baylibre.com, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_112524_374088_2676A4A0 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250102_112825_035163_E4C3C441 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +96,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 17 Dec 2024 14:23:08 +0000, Marc Zyngier wrote:
-> Here's another version of the series initially posted at [1], which
-> implements support for timers in NV context.
-> 
-> From v1:
-> 
-> - Repainted EL0->EL1 when rambling about the timers
-> 
-> [...]
+Hi Rohit,
 
-Applied to next, thanks!
+On Thu, Jan 2, 2025 at 6:04=E2=80=AFPM Rohit Visavalia <rohit.visavalia@amd=
+.com> wrote:
+> CCF will try to adjust parent clock to set desire clock frequency of
+> child clock. So if pll_ref is not a fixed-clock then while setting rate
+> of enc/dec clocks pll_ref may get change, which may make VCU malfunction.
+>
+> Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
+> ---
+> Changes in v2:
+>   - none
+>   - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-=
+3-rohit.visavalia@amd.com
+> ---
+>  drivers/clk/xilinx/xlnx_vcu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.=
+c
+> index 88b3fd8250c2..c520ae1ba65e 100644
+> --- a/drivers/clk/xilinx/xlnx_vcu.c
+> +++ b/drivers/clk/xilinx/xlnx_vcu.c
+> @@ -547,7 +547,7 @@ static int xvcu_register_clock_provider(struct xvcu_d=
+evice *xvcu)
+>                 return PTR_ERR(hw);
+>         xvcu->pll_post =3D hw;
+>
+> -       parent_data[0].fw_name =3D "pll_ref";
+> +       parent_data[0].fw_name =3D "dummy_name";
+>         parent_data[1].hw =3D xvcu->pll_post;
+>
+>         hws[CLK_XVCU_ENC_CORE] =3D
 
-[01/12] KVM: arm64: nv: Add handling of EL2-specific timer registers
-        commit: b59dbb91f7636a89b54ab8fff756afe320ba6549
-[02/12] KVM: arm64: nv: Sync nested timer state with FEAT_NV2
-        commit: 4bad3068cfa9fc38dd767441871e0edab821105b
-[03/12] KVM: arm64: nv: Publish emulated timer interrupt state in the in-memory state
-        commit: cc45963cbf6334d2b9078f06efef9864639cddd0
-[04/12] KVM: arm64: nv: Use FEAT_ECV to trap access to EL0 timers
-        commit: 2cd2a77f9c32f1eaf599fb72cbcd0394938a8b58
-[05/12] KVM: arm64: nv: Accelerate EL0 timer read accesses when FEAT_ECV in use
-        commit: 338f8ea51944d02ea29eadb3d5fa9196e74a100d
-[06/12] KVM: arm64: nv: Accelerate EL0 counter accesses from hypervisor context
-        commit: 9b3b2f00291e1abd54bff345761a7fadd8df4daa
-[07/12] KVM: arm64: Handle counter access early in non-HYP context
-        commit: b86fc215dc26d8e1bb274f0a7990b5deab740ac8
-[08/12] KVM: arm64: nv: Add trap routing for CNTHCTL_EL2.EL1{NVPCT,NVVCT,TVT,TVCT}
-        commit: c271269e3570766724820bcb76a144125dead272
-[09/12] KVM: arm64: nv: Propagate CNTHCTL_EL2.EL1NV{P,V}CT bits
-        commit: 479428cc3dc99bbe28954b62b053b22accbfd1fd
-[10/12] KVM: arm64: nv: Sanitise CNTHCTL_EL2
-        commit: d1e37a50e1d781201768c89314532f6ab87e5a42
-[11/12] KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity
-        commit: 0bc9a9e85fcf4ffb69846b961273fde4eb0d03ab
-[12/12] KVM: arm64: nv: Document EL2 timer API
-        commit: affd1c83e090133a3d1750916c7911b20f8911c0
+You completely ignored Stephen's comment, which suggests to not pas
+CLK_SET_RATE_PARENT instead (see xvcu_clk_hw_register_leaf()).
 
-Cheers,
+Gr{oetje,eeting}s,
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
