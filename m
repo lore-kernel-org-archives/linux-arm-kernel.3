@@ -4,55 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDCEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BE4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRjUmAmsVwSoZuI0Y5frhrSdRRS8CBbJC21EQ46LsSM=; b=hF7ZTo9szla9gTMUWrtwOmm+JC
-	B/85hc1/7ejaAxtl5LKQXancKEWXUabKGiyh7O2wNg2oHxEyaXJE1232v8v1tJmMTuCjKBkhaC5uI
-	oHQHyVNkQz1Yt2ZsxNpktnA5axqzeaIqrglUH7WJ2k+XiZgN1hTWNDQ+yxjnfJqi5r31KyBLGO8hm
-	lc6vPOQNa/Pr9Xs1JwufENROQjk/PJ3oblx4zeGWtZJ8FHHcG6EJCae+77PSHKF51MlsQrqeCF5ql
-	xLZUv2pFxhFZ+JtDrrpB6RAAcWh1C2akUyWzrLAyVm6djGeZ1/bezrrLWaLs9+YxygttMIrMksMpx
-	4uQO0fDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NYQgkqxrXpJ6N/qzY++2Wbbl66Z+PP1IZp1JNe03cCQ=; b=Km7Pl7xrWNyLTJYu/h1ZbJvWgb
+	2SRcS5f9TAlhSR/LYPp2HTB+RWN1FEa9rHNx5mIdzJB/g9PiZ5qChJ7dVdXtb6PpEZFsEq/brnm3p
+	CamaW0if4DYM7jGm5OwLRsJJeT+Qu9jY8u7ZsnsFy+omTyfRtiCAEn+fvYUgWPNb7/IBKk2YmKo2P
+	EyFhd5T8ChjFJjny9UGuauolXV/N3ukLKk9heKC4/z+tDNVvKSUkTidnkRrkCy5ZXHfS6WU94e7Hw
+	5AfHVNx8OMkIa3u6YF/DF6IoCyCI/qIo9tKto/cfq3UQphgb+TdXnL2VKaB8cuc0WY2NpNGsRSGKs
+	GWIDDbNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNr8-0000000AoDD-1SeW;
-	Thu, 02 Jan 2025 16:15:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNpt-0000000Ao74-2lz1
+	id 1tTNsi-0000000AoQ8-0Lye;
+	Thu, 02 Jan 2025 16:17:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTNrT-0000000AoG7-2f6Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:14:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5832111FB;
-	Thu,  2 Jan 2025 08:14:39 -0800 (PST)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A9BF3F673;
-	Thu,  2 Jan 2025 08:14:10 -0800 (PST)
-Date: Thu, 2 Jan 2025 16:14:07 +0000
-From: Dave Martin <Dave.Martin@arm.com>
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Zeng Heng <zengheng4@huawei.com>, James Morse <james.morse@arm.com>
-Subject: Re: [RFC PATCH 4/6] arm_mpam: Introduce flexible CLOSID/RMID
- translation
-Message-ID: <Z3a7T8L6NpFprbcy@e133380.arm.com>
-References: <20241212154000.330467-1-Dave.Martin@arm.com>
- <20241212154000.330467-5-Dave.Martin@arm.com>
- <OSZPR01MB8798833576F5FD4868E804FE8B072@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+	Thu, 02 Jan 2025 16:15:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 42C555C6129;
+	Thu,  2 Jan 2025 16:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77A59C4CED1;
+	Thu,  2 Jan 2025 16:15:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735834549;
+	bh=vtpyPVyNY0DOcPtGHrHjwqgeSbCkMC+oBE3qnCPhoVY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qBnTQf7rOXNQnRpXrbxFWrusPCG965Zal16IFeOMe67Q1tF/xiicCxuiKFnGMtj1O
+	 FuZuxM5tdtNmD5yITsPxny8/392nUONXQCvKE+zlFmB3q5oLiOTo3sE2gtiBPh1Zs5
+	 bHByByNr6v1UqfpkLgJTCMN3L2tAdxHSr09mtJ9kwrmysfcZwECFyglboKPetp8wbF
+	 NEKLTwQ5ahb6CTAVN0pLzksqKfdVPB53FbcxMJds9P+KSYI6sRl6gYrkWTPxdsg9pj
+	 vj+zg/nODSKyJp7NoZlotold4ZqpIZjEa7IuWChdo9ls5xVAohq6mc3cE/G9rYPL/3
+	 PsrL2mk5UMfMw==
+Message-ID: <32b5c286-9457-4b93-a93f-c8aff356ec10@kernel.org>
+Date: Thu, 2 Jan 2025 17:15:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <OSZPR01MB8798833576F5FD4868E804FE8B072@OSZPR01MB8798.jpnprd01.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] ARM: dts: sunxi: add support for NetCube Systems
+ Kumquat
+To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250102150508.3581-1-lukas.schmid@netcube.li>
+ <20250102150508.3581-3-lukas.schmid@netcube.li>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250102150508.3581-3-lukas.schmid@netcube.li>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_081413_861693_36EBA497 
-X-CRM114-Status: GOOD (  47.83  )
+X-CRM114-CacheID: sfid-20250102_081551_780078_A40E82F6 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,168 +122,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Fri, Dec 20, 2024 at 05:01:30AM +0000, Shaopeng Tan (Fujitsu) wrote:
-> Hello Dave,
-
-[...]
-
-> > diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c
-> > b/drivers/platform/arm64/mpam/mpam_resctrl.c
-> > index 30f2caec11d7..0473286ec65a 100644
-> > --- a/drivers/platform/arm64/mpam/mpam_resctrl.c
-> > +++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-
-[...]
-
-> > @@ -163,35 +175,71 @@ static bool mpam_resctrl_hide_cdp(enum
-> > resctrl_res_level rid)
-> >   */
-> >  u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)  {
-> > -	return mpam_partid_max + 1;
-> > +	u32 res = (mpam_partid_max + 1) / partid_per_closid;
+On 02/01/2025 16:05, Lukas Schmid wrote:
+> NetCube Systems Kumquat is a board based on the Allwinner V3s SoC,
+> including:
 > 
-> If there is a remainder, are you going to ignore the remainder PARTIDs?
-> It might be better to notify the user with a warning message.
-
-You are right: the remainder is just thrown away, because the remaining
-PARTIDs would not be sufficient for a whole resctrl control group.
-
-It would be a good idea to print a warning somewhere though; I will try
-to add that.
-
-[...]
-
-> I think it is better to check whether PARTID narrowing feature is
-> supported or not before using this function. 
-> If it is checked here, since this function is called multiple times,
-> the message should be printed only once by WARN_ON_ONCE(). 
+> - 64MB DDR2 included in SoC
+> - 10/100 Mbps Ethernet
+> - USB-C DRD
+> - Audio Codec
+> - Isolated CAN-FD
+> - ESP32 over SDIO
+> - 8MB SPI-NOR Flash for bootloader
+> - I2C EEPROM for MAC addresses
+> - SDIO Connector for eMMC or SD-Card
+> - 8x 12/24V IOs, 4x normally open relays
+> - DS3232 RTC
+> - QWIIC connectors for external I2C devices
 > 
-> Also, if the partid_per_closid is greater than (mpam_partid_max + 1),
-> returning "0" will not work properly.
-> To switch to default behavior (PARTID narrowing disabled), should it
-> return mapm_patid_max+ 1)?
-
-The idea is that partid_per_closid is set by some configuration logic
-that is not implemented yet.  This will be a bit more complicated than
-just exposing this variable directly as a kernel parameter.
-
-Currently I just implemented a basic range check to prevent the kernel
-parameter being set to stupid values, but I didn't try to make it
-completely robust.
-
-
-In any case, since partid_per_closid defaults to 1, the behavior of
-this function should just match the non-PARTID-Narrowing behaviour
-unless the user requested a different value.
-
-Bearing that in mind, I think that a "bad" value of partid_per_closid
-should not be seen here, when the rest of the implementation is
-complete.
-
-Does this sound sensible?
-
-It could make sense to have a WARN_ON_ONCE() here anyway, though,
-since this code is not on a fast path.
-
-
-> > -u32 resctrl_arch_system_num_rmid_idx(void)
-> > +static void mpam_resctrl_partid_range(u32 closid, enum resctrl_conf_type
-> > type,
-> > +				      const struct rdt_resource *r,
-> > +				      u16 *min_partid, u16 *max_partid)
-> >  {
-> > -	u8 closid_shift = fls(mpam_pmg_max);
-> > -	u32 num_partid = resctrl_arch_get_num_closid(NULL);
-> > +	u16 base_partid = closid;
-> > +	u16 span = 1;
-> > +
-> > +	if (cdp_enabled) {
-> > +		base_partid *= 2;
-> > +		if (mpam_resctrl_hide_cdp(r->rid) ||
-> > +		    type == CDP_NONE)
-> > +			span *= 2;
-> > +	}
-> > 
-> > -	return num_partid << closid_shift;
-> > +	*min_partid = base_partid * partid_per_closid;
-> > +	if (max_partid)
-> > +		*max_partid = *min_partid + (span * partid_per_closid - 1);
-> >  }
+> Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
+> ---
+>  arch/arm/boot/dts/allwinner/Makefile          |   2 +
+>  .../allwinner/sun8i-v3s-netcube-kumquat.dts   | 237 ++++++++++++++++++
+>  arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi    |   6 +
+>  3 files changed, 245 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
 > 
-> I think the min_partid/max_partid is different depending on the type
-> (CDP_DATA or CDP_CODE).
+> diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
+> index 48666f73e638..d799ad153b37 100644
+> --- a/arch/arm/boot/dts/allwinner/Makefile
+> +++ b/arch/arm/boot/dts/allwinner/Makefile
+> @@ -199,6 +199,7 @@ DTC_FLAGS_sun8i-h3-nanopi-r1 := -@
+>  DTC_FLAGS_sun8i-h3-orangepi-pc := -@
+>  DTC_FLAGS_sun8i-h3-bananapi-m2-plus-v1.2 := -@
+>  DTC_FLAGS_sun8i-h3-orangepi-pc-plus := -@
+> +DTC_FLAGS_sun8i-v3s-netcube-kumquat := -@
+>  dtb-$(CONFIG_MACH_SUN8I) += \
+>  	sun8i-a23-evb.dtb \
+>  	sun8i-a23-gt90h-v4.dtb \
+> @@ -261,6 +262,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
+>  	sun8i-v3s-anbernic-rg-nano.dtb \
+>  	sun8i-v3s-licheepi-zero.dtb \
+>  	sun8i-v3s-licheepi-zero-dock.dtb \
+> +	sun8i-v3s-netcube-kumquat.dtb \
+>  	sun8i-v40-bananapi-m2-berry.dtb
+>  dtb-$(CONFIG_MACH_SUN9I) += \
+>  	sun9i-a80-optimus.dtb \
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> new file mode 100644
+> index 000000000000..7fe83d91adee
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> @@ -0,0 +1,237 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2025 Lukas Schmid <lukas.schmid@netcube.li>
+> + */
+> +
+> +/dts-v1/;
+> +#include "sun8i-v3s.dtsi"
+> +
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +/{
+> +	model = "NetCube Systems Kumquat";
+> +	compatible = "netcube,kumquat", "allwinner,sun8i-v3s";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +		ethernet0 = &emac;
+> +		rtc0 = &ds3232;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		heartbeat_led {
 
-You're right!  Looking at my fixup patches from the end of December,
-it looks like I already encountered this problem and wrote a
-workaround, but I didn't post it at the time.
+Please follow DTS coding style.
 
-[...]
+> +			gpios = <&pio 4 4 GPIO_ACTIVE_HIGH>; /* PE4 */
+> +			linux,default-trigger = "heartbeat";
+> +			function = LED_FUNCTION_HEARTBEAT;
+> +			color = <LED_COLOR_ID_GREEN>;
+> +		};
+> +
+> +		mmc0_act_led {
 
-> > @@ -1190,22 +1219,13 @@ int resctrl_arch_update_one(struct rdt_resource *r,
-> > struct rdt_ctrl_domain *d,
-> >  		return -EINVAL;
-> >  	}
-> > 
-> > -	/*
-> > -	 * When CDP is enabled, but the resource doesn't support it, we need
-> > to
-> > -	 * apply the same configuration to the other partid.
-> > -	 */
-> > -	if (mpam_resctrl_hide_cdp(r->rid)) {
-> > -		partid = resctrl_get_config_index(closid, CDP_CODE);
-> > +	for (partid = min_partid; partid <= max_partid; partid++) {
-> >  		err = mpam_apply_config(dom->comp, partid, &cfg);
-> >  		if (err)
-> > -			return err;
-> > -
-> > -		partid = resctrl_get_config_index(closid, CDP_DATA);
-> > -		return mpam_apply_config(dom->comp, partid, &cfg);
-> > -
-> > -	} else {
-> > -		return mpam_apply_config(dom->comp, partid, &cfg);
-> > +			break;
-> >  	}
-> > +
-> > +	return err;
-> >  }
-> 
-> For a mixture of MSCs system, MSCs that do not support PARTID
-> narrowing and support Maximum Partition feature may not work
-> properly.
+Ditto
 
-This is true.
+> +			gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
+> +			linux,default-trigger = "mmc0";
+> +			function = LED_FUNCTION_DISK;
+> +			color = <LED_COLOR_ID_GREEN>;
+> +		};
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		autorepeat;
+> +
+> +		key-user {
+> +			label = "GPIO Key User";
+> +			linux,code = <KEY_PROG1>;
+> +			gpios = <&pio 1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PB2 */
+> +		};
+> +	};
+> +
+> +	/* K7805-1000R3 Switching Regulator supplied from main 12/24V terminal block */
+> +	reg_vcc5v0: vcc5v0 {
 
-For this series, we just trust that the user understands what they are
-doing, but the complete implementation will need additional checks.
+Please use name for all fixed regulators which matches current format
+recommendation: 'regulator-[0-9]v[0-9]'
 
-My plan was to do the appropriate checks when the driver starts up,
-to decide whether it is safe to set partid_per_closid to a value
-different from 1.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
 
-Once we get to this code, the decision has already been taken and so
-the value of partid_per_closid (and the resulting mapping of resctrl
-groups onto PARTIDs) can be trusted as being appropriate for the
-hardware.
+(or at least regulator prefix)
 
-Can you see any problems with this approach?
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +	};
+> +
+> +	/* EA3036C Switching 3 Channel Regulator - Channel 2 */
+> +	reg_vcc3v3: vcc3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc3v3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&reg_vcc5v0>;
+> +	};
+> +
+> +	/* XC6206-3.0 Linear Regualtor */
+> +	reg_vcc3v0: vcc3v0 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc3v0";
+> +		regulator-min-microvolt = <3000000>;
+> +		regulator-max-microvolt = <3000000>;
+> +		vin-supply = <&reg_vcc3v3>;
+> +	};
+> +
+> +	/* 40 MHz Crystal Oscillator on PCB */
+> +	can0_osc: can0_osc {
+
+DTS coding style.
 
 
-[...]
+...
 
-> I know this is not a complete implementation.
-> Mapping relationship between intPARTIDs and reqPARTIDs need to be
-> written to register MPAMCFG_INTPARTID/MPAMCFG_PART_SEL.
-> 
-> Best regards,
-> Shaopeng TAN
+> +
+> +	eeprom0: eeprom@50 {
+> +		compatible = "atmel,24c02";		/* actually it's a 24AA02E48 */
+> +		pagesize = <16>;
+> +		read-only;
+> +		reg = <0x50>;
+> +		vcc-supply = <&reg_vcc3v3>;
+> +
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +
+> +		eth0_macaddress: eth0_macaddress@FA {
 
-Agreed.  I have some prototype code for that, but I need to split up
-the patches and clean it up before posting it.
 
-Thanks for the review.
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-Cheers
----Dave
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
+
+
+> +			reg = <0xFA 0x06>;
+
+Here and in multiple other places - it is always lowercase hex.
+
+Again: please follow DTS coding style.
+
+
+> +		};
+> +	};
+> +
+> +	tusb320: tusb320@60 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+> +		compatible = "ti,tusb320";
+> +		reg = <0x60>;
+> +		interrupt-parent = <&pio>;
+> +		interrupts = <1 5 IRQ_TYPE_EDGE_FALLING>;
+> +	};
+> +
+> +	ds3232: rtc@68 {
+> +		compatible = "dallas,ds3232";
+> +		reg = <0x68>;
+> +	};
+> +};
+> +
+> +&emac {
+> +	allwinner,leds-active-low;
+> +	nvmem-cells = <&eth0_macaddress>;		/* custom nvmem reference */
+> +	nvmem-cell-names = "mac-address";		/* see ethernet-controller.yaml */
+> +	status = "okay";
+> +};
+> +
+> +&spi0 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&spi0_pins>;
+> +	cs-gpios = <0>, <&pio 1 0 GPIO_ACTIVE_LOW>; /* PB0 */
+> +	status = "okay";
+> +
+> +	flash@0 {
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		reg = <0>;
+> +		compatible = "jedec,spi-nor";
+
+Odd ordering of properties.
+
+> +		label = "firmware";
+> +		spi-max-frequency = <40000000>;
+> +	};
+> +
+> +	can@1 {
+> +		compatible = "microchip,mcp2518fd";
+> +		reg = <1>;
+
+And here totally different. DTS coding style defines one (this is correct).
+
+> +		clocks = <&can0_osc>;
+> +		spi-max-frequency = <20000000>;
+> +		interrupt-parent = <&pio>;
+> +		interrupts = <1 1 IRQ_TYPE_LEVEL_LOW>;  /* PB1 */
+> +		vdd-supply = <&reg_vcc3v3>;
+> +		xceiver-supply = <&reg_vcc3v3>;
+> +	};
+> +};
+> +
+> +&pio {
+> +	vcc-pb-supply = <&reg_vcc3v3>;
+> +	vcc-pc-supply = <&reg_vcc3v3>;
+> +	vcc-pe-supply = <&reg_vcc3v3>;
+> +	vcc-pf-supply = <&reg_vcc3v3>;
+> +	vcc-pg-supply = <&reg_vcc3v3>;
+> +
+> +	gpio-reserved-ranges = <0 32>, <42 22>, <68 28>, <96 32>, <153 7>, <167 25>, <198 26>;
+> +	gpio-line-names = "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", //PA
+> +						"CAN_nCS", "CAN_nINT", "USER_SW", "PB3", "USB_ID", "USBC_nINT", "I2C0_SCL", "I2C0_SDA", "UART0_TX", "UART0_RX", "", "", "", "", "", "", "", "", "", 
+
+Totally messed wrapping and alignment/indentation.
+
+...
+
+>  
+> +			/omit-if-no-ref/
+> +			uart1_pe_pins: uart1_pe_pins {
+
+look here...
+
+> +				pins = "PE21", "PE22";
+> +				function = "uart1";
+> +			};
+> +
+>  			uart2_pins: uart2-pins {
+
+and here and the difference in style should trigger your review before
+submitting it. Align your code with upstream, not downstream coding style.
+
+Best regards,
+Krzysztof
 
