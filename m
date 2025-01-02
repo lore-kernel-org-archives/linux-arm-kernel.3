@@ -4,89 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BADE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008A2E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 20:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KcV3QFI2ZE9ECVzD528IkAqVHoxTiKTsGIDJy3xVsvM=; b=3TsH+IW08HHK9G
-	JMksA2vTuOkfs9shX8PC412lJ08rCeuePqJstGOkcmnR0NGHcDpI4QxGeQS92SawQuQTmfpQEUASj
-	5X4z/gzBtr+GEu8XVKl1c6+YleXwa1SaxEGgxqXRSR8QfATa7CFIwdpGG9DA0gDQ80E15+5wftaIr
-	C28zpR+vAdZto7Z106CM+mfygwjWf52lRoxZEQ3Wv5s58vlqhixxkogXb7Zf1VgHXQoPa0nXG/dkt
-	QpS/Neo4E89cG3KnEV3xHsj2ON45MV3yDy/6gL39SU0DqQG5UvX+09YrNHoka15jaNUr0BcGXevel
-	OwMgTeAMW6JuOFteHUuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e2a4dqMVLYy1RoN4xN8k6L4FT1iFqHXekN0TayfuDGM=; b=p6Ii2ZMnYWPJ4CqARFagMWzCCp
+	lBVG/jXMTagdmKvCVz4ekVnyo6N4MW9HaNHcXM7+0m5/NCxWF1OOvzxaz2vBmyrsy95sRHIxnNehG
+	euyxFIKinAfDRSRnBbdzNd3ykLr4eX5yX+l9l6Qk3V5BX30dtr3God+4Qp3PUvhIz5js6eMb9OM6i
+	V3xk/hlojJFhULbA4jVVOZMWxWtqm7cEajIW6/KCMPuOyfKAMjt7rMVwAF+J8b3PERrcqfoBcdiLW
+	3kH4I99v2vNL/1NKdGm5AR/6auBSfxu+YxTBCRhn2kCv3YOAwOTgu2S7j7ofZZdZWQ/envwPBrW8F
+	2ZiPWC9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTRJ5-0000000BKvs-0FQE;
-	Thu, 02 Jan 2025 19:56:35 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1tTRdN-0000000BN3K-0YDE;
+	Thu, 02 Jan 2025 20:17:33 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTRHu-0000000BKiy-2zGd
+	id 1tTRc9-0000000BMsK-40cV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 19:55:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1735847712; x=1736452512; i=frank-w@public-files.de;
-	bh=KcV3QFI2ZE9ECVzD528IkAqVHoxTiKTsGIDJy3xVsvM=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=h6oRgOk6ZNkYDhRNkoG2zeNZ2Lmgz3oWfomuONVuXw22Mr/zQNG+xUv8/spOn38J
-	 YSGTcjA1gom7pV0jlZMUyfVmEXUYylwXQuc3jlRWrsy0Au8Qo+w0gqL4Y7OFNs7go
-	 9dw64H9s6f+pNAucoxWaH/ekyU1COyTbY21fmqoDccTt6K7+c71eAeMA76CM+Gt1E
-	 eOv7D/9B3fICOF7OnMB6PKqnim++vgD9TG9qtdvpANcQcsuyk4jQY4TzWf8r/kmK3
-	 VRW/GEz/HRe5J+UYOYqpZ4OCCWiSIeoRRz0q7z6SIUJZ1kxCXJtgoOpr7tK7jNzao
-	 b5lXMQ9pp1XD9OZIng==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([217.61.146.33]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mq2nA-1tojPG2a4w-00ZFua; Thu, 02
- Jan 2025 20:55:12 +0100
-Date: Thu, 02 Jan 2025 20:55:11 +0100
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Rob Herring <robh@kernel.org>
-CC: linux@fw-web.de, dlemoal@kernel.org, cassel@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrew@lunn.ch, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, linux@armlinux.org.uk, hdegoede@redhat.com,
- axboe@kernel.dk, linux-ide@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_Aw=3A_Re=3A_=5BPATCH_v1_1/3=5D_arm64=3A_dts=3A?=
- =?US-ASCII?Q?_marvell=3A_Fix_anyOf_conditional_failed?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAL_Jsq+PEdH1b-aoN2nFJMRz--abXPqZ=sftPnhYKWpj0VjroQ@mail.gmail.com>
-References: <20241109094623.37518-1-linux@fw-web.de> <20241109094623.37518-2-linux@fw-web.de> <20241111203611.GB1887580-robh@kernel.org> <trinity-796b046d-1857-413e-bb82-78e700d6b5ac-1733138371404@msvc-mesg-gmx005> <trinity-a84b41b3-79c5-49b5-9786-eb89f85578cc-1735843472332@trinity-msg-rest-gmx-gmx-live-548599f845-gxsb9> <CAL_Jsq+PEdH1b-aoN2nFJMRz--abXPqZ=sftPnhYKWpj0VjroQ@mail.gmail.com>
-Message-ID: <F92E6B5E-CB0A-429E-821F-FC87C3C69C29@public-files.de>
+	Thu, 02 Jan 2025 20:16:19 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6dd420f82e2so64306786d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 12:16:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1735848976; x=1736453776; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=e2a4dqMVLYy1RoN4xN8k6L4FT1iFqHXekN0TayfuDGM=;
+        b=nojD15YbLVQ4ZrDfWIO+YzU7J7CumKW803E/w/oO5bblj/wiTc3IoCfQTlmih1NbD8
+         Y/lvx8AuZ4DMCphX70aUuS38GhwViBU1TaycUrIpiPpPDnKRlEF0UCrslarE5uNVGMMI
+         rAr9cRda4+8B1LrrpZEzZFkA4JOlcrjD+nXLiKRypXGC60oGOt0pELaljzOgb1jiiTta
+         m2M/aDtcfc9MiwOK/wvGRUfJbvZHI6Kwv7dEPEwB3cjbaaBPvSTgrdAEXyyq6lQ2PFgB
+         AX0tjr1EsXpEfQo24SAUqnui+QwvCNs0i4P5zOadxz+FMP64/OLscQG9aWs5WQCu+E3h
+         pZog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735848976; x=1736453776;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e2a4dqMVLYy1RoN4xN8k6L4FT1iFqHXekN0TayfuDGM=;
+        b=EXY795t2zZ4Dtku03IYXDKn6ysIT41MaDtOxuDSu5vGVxfFIYHL0lQGiU3TYUtBVA8
+         Gctpxf2d851KV0Ybawm/IwzD7YvNp6FZiX08Hgl2sgDz+u5ZDvPNOkIYAfiNkDQs0RwC
+         shUapQbB9OfqLVn3Pn2kH0y7mBEbyWAmFfiGCcmLtxoy26ftjYg/tZhDu05ugmhmEaq4
+         zKVM2gDZBWtVWSRUCOUeGnfhIYwpD2xmPOSb0KsAkQ19nK06DB4+UyjRXTVUEZTlW/ZZ
+         +nGYLU/0fvl24glfOZKArast37RWzetI4Hqdf536F5vGLWj6bSVv5Nk03VTGA4d+9Slr
+         T5Pw==
+X-Forwarded-Encrypted: i=1; AJvYcCWf9AxfnPSgPzD0YqG1/DOplD7cDxrxQD27JBRTpTYxbxOo7a3n2zxAvkefR9Q+S/GzvnGkjcFr2r3YNFDABQxD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZFv9+WMlYEjR4yw3W8IpHbfVJkQJVE8q+GlPhmU/ZzoK6cC5C
+	7qlpTVkTAE08mtN4siuk8BuQ+fVS6JLnY5LCL6CONRQ5a+9V7sSAFP4dub3wSYk=
+X-Gm-Gg: ASbGncu56LRo8u/cz95oiKyvqIsdGeBQgeX99zxs6m2hX4JutaL3FmnfRtJvG2SnTxb
+	Ba4KJ0t3Z3YdDGi00S9hH/kjBaKqeTaEdtKX8X2wugLZFyAnterl7hRxioZrymbHyha76t2w1ld
+	23uBBd69W8diZwNjckPG6WlPvvQ2Q3NT9irMjVXUiKYZpAYalX7AIr3vSBjFHnqwWfNYtMwBHO0
+	9M1WKTT8vafAUr+y0nhvzhUMXo6TNDdfs5WDgsWnPk/sw9Wo2RmfVMfYNFuMkmJ0JoPq4Q0pQO8
+	MeIx0KUbp5a1PNqQxa0stH4QufS8Fg==
+X-Google-Smtp-Source: AGHT+IG1lsiTAkszVzWv4dKENAN1XpNcbgLjo9B5AvUmLgMSUNBzBN1F+M1fOLMzRfxQBJioY5NWAg==
+X-Received: by 2002:a05:6214:27e8:b0:6d4:1662:348c with SMTP id 6a1803df08f44-6dd233383f0mr669824266d6.17.1735848976076;
+        Thu, 02 Jan 2025 12:16:16 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6ddc5a56c40sm1904426d6.32.2025.01.02.12.16.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jan 2025 12:16:15 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tTRc6-00000000MEA-1FCS;
+	Thu, 02 Jan 2025 16:16:14 -0400
+Date: Thu, 2 Jan 2025 16:16:14 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
+	robin.murphy@arm.com, jean-philippe@linaro.org, nicolinc@nvidia.com,
+	vdonnefort@google.com, qperret@google.com, tabba@google.com,
+	danielmentz@google.com, tzukui@google.com
+Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
+Message-ID: <20250102201614.GA26854@ziepe.ca>
+References: <20241212180423.1578358-1-smostafa@google.com>
+ <20241212194119.GA4679@ziepe.ca>
+ <Z1yNWI9lBNIZg6Le@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:WaaUNduwprSo8Rw2SnSLhhl/4G//xG/JBxkJqQG5R9Yowcif2OF
- MkDtmqWs25NQE2Veorx1VPAni9E5ksLAwPtTAE5faFFVb1wBN5PLx2P43TXr0lCs7XFGLfC
- AsynmZgsxuLpHOGZg99SZJO0zTxoiOvXE7qQH7wZ1S9A8BmpeyzaYrwTrvgdRFYU9opIGcZ
- 9MXrlSGD+vTfo8FE+ju0g==
-UI-OutboundReport: notjunk:1;M01:P0:lig0t4PBHRA=;FoPrt7xYqPzS5KqeMUqAQD+3Dct
- GQsK3oPzFoo2Hq5JM/C9rWIqOR3ye2OxHK74lF7ZFvi8Xdwhz3wQfTqi/6mwJNwPrnMqK9v6q
- IIJTYUhjCOzE3Hs1QJDoZwiTwRskuf1Yzpz4zspl6hRxCavWVwfd5SQzUyT1ZoHuXDSuroUbW
- pqURl3nfNQTy9snvTHAsqg7uA2vu/RMnua33Qfz2xPsBnJS1WwZf3HUe9u1w+N1Qqv6myHMHa
- Ym1yY2GDMhoyAsg+Iy1Q+6J/feZUPHhQ+arnWExSsgwwDRFodnlDM6DXWG3gBQuWTQlALWmvS
- v01LDYZABcXDjmv2iRup8TYjNAm/gHjcvtCwAekUfcmvW8JsRL14HvMJLcTqwnZ+jxt0v6Ukn
- b6ess/UOH34Dyzi54lhKCfxNIF2fzuY7QVUxTkuqwRsoOts6bOqIyNJlb6qX6wbnoJa2HBJxJ
- zM5sAaLIGHqQT18rTsp3Ebc1tQQn4gmpuxfoO9NYhfLQuBBp5ZBM6F2WVfbajfcPvmXmypCLu
- r4Vo4mJb6S65S6t8Gnpp5YwbL9YSrWnxJn5iCd00GaN6jufZEmwY4rGsiq3r7VnDCwHx/oa+J
- Us86+hG0N4AmDZEOluO1V2vdsaBfEIYMzgW2dNI/NbGM7bl4tmGF9h0ZBRG3uBe1dUXeNroPY
- zxeIm7G9ew7SIVr0pyd58QP959Cci0RK/Pc1a8S1ikXYkHB7JJ1B6ftyItRCvxnMYuoeGNiON
- NeBGWr0vp1PIB+31PjZ6KG70RVw4dpcfNBwow79XmU/s3VigblwXk9fD47VViZNwiO+iofxwQ
- PxSEOM8DJTu84UyPpRddsrhAFWbA+sfuVYu3xs5i1MIGpS0lrNkU7x6i5N26ZywzJoP6p5yPv
- HuR1wbW32LjBpdDcfZAzHQ1H3QtcErQZlyQAJgpaVv4dqDh5c986jkiR5Yu1Fdp3N8vHlWztH
- t1iDBvB4WRC5B+P5V9m8z7trJ3mT0WX/f1VJZtBvQ/JLyzpQrJDE+PLDw7Nk3k6tzy+0cyfLN
- zM/Fc1N9GWLjWY5nCK3iay33mAhTl3xUAFzDWfYPnIcCBDLoXhcrsrLlQ22IwQ02yN8++qNFO
- THZfG8FsskEYg7JskHeHRkWqBvxLSv
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z1yNWI9lBNIZg6Le@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_115523_045361_1532C9FA 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250102_121618_104394_CF52C63A 
+X-CRM114-Status: GOOD (  55.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +107,131 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 2=2E Januar 2025 20:46:05 MEZ schrieb Rob Herring <robh@kernel=2Eorg>:
->On Thu, Jan 2, 2025 at 12:44=E2=80=AFPM Frank Wunderlich
-><frank-w@public-files=2Ede> wrote:
->>
->> is there any new state here? got no answer for my last 2 Messages
->>
->> https://patchwork=2Ekernel=2Eorg/project/linux-arm-kernel/patch/2024110=
-9094623=2E37518-2-linux@fw-web=2Ede/
->>
->> sorry for the html-entities=2E=2E=2Ethey came from my gmx webmailer, it=
- is reported multiple times, but i cannot do more here :(
->
->As a maintainer, when I see any discussion or comments, I drop the
->patch from my queue=2E That may have happened here=2E It is best to resen=
-d
->if it's been more than 2 weeks=2E Though Marvell maintainer response
->times are often longer than that sadly=2E
->
->You haven't addressed my comment either=2E The subject needs work=2E If
->you don't like my suggestion, then come up with your own=2E
+On Fri, Dec 13, 2024 at 07:39:04PM +0000, Mostafa Saleh wrote:
+> Thanks a lot for taking the time to review this, I tried to reply to all
+> points. However I think a main source of confusion was that this is only
+> for the host kernel not guests, with this series guests still have no
+> access to DMA under pKVM. I hope that clarifies some of the points.
 
-I have addressed your comment:
+I think I just used different words, I ment the direct guest of pvkm,
+including what you are calling the host kernel.
 
->> Here and the subject, "fixing anyOf" isn't very specific and is just an
->> implementation detail of the schema=2E "Add missing required 'phys'
->> property" would be more exact=2E
-> imho it does not match what patch does=2E=2E=2Ei do not add required phy=
-s=2E=2E=2Ei just disable the nodes and enable them only where phys is set=
-=2E
+> > The cover letter doesn't explain why someone needs page tables in the
+> > guest at all?
+> 
+> This is not for guests but for the host, the hypervisor needs to
+> establish DMA isolation between the host and the hypervisor/guests.
 
-But maybe i can name it better=2E
+Why isn't this done directly in pkvm by setting up IOMMU tables that
+identity map the host/guest's CPU mapping? Why does the host kernel or
+guest kernel need to have page tables?
 
-Maybe something like this:
+> However, guest DMA support is optional and only needed for device
+> passthrough, 
 
-"Fix binding error caused by incomplete nodes=2E"
+Why? The CC cases are having the pkvm layer control the translation,
+so when the host spawns a guest the pkvm will setup a contained IOMMU
+translation for that guest as well.
 
->Rob
+Don't you also want to protect the guests from the host in this model?
 
+> We can do that for the host also, which is discussed in the v1 cover
+> letter. However, we try to keep feature parity with the normal (VHE)
+> KVM arm64 support, so constraining KVM support to not have IOVA spaces
+> for devices seems too much and impractical on modern systems (phones for
+> example).
 
-regards Frank
+But why? Do you have current use cases on phone where you need to have
+device-specific iommu_domains? What are they? Answering this goes a
+long way to understanding the real performance of a para virt approach.
+
+> There is no hacking for the arm-smmu-v3 driver, but mostly splitting
+> the driver so it can be re-used + introduction for a separate
+> hypervisor
+
+I understood splitting some of it so you could share code with the
+pkvm side, but I don't see that it should be connected to the
+host/guest driver. Surely that should be a generic pkvm-iommu driver
+that is arch neutral, like virtio-iommu.
+
+> With pKVM, the host kernel is not trusted, and if compromised it can
+> instrument such attacks to corrupt hypervisor memory, so the hypervisor
+> would lock io-pgtable-arm operations in EL2 to avoid that.
+
+io-pgtable-arm has a particular set of locking assumptions, the caller
+has to follow it. When pkvm converts the hypercalls for the
+para-virtualization into io-pgtable-arm calls it has to also ensure it
+follows io-pgtable-arm's locking model if it is going to use that as
+its code base. This has nothing to do with the guest or trust, it is
+just implementing concurrency correctly in pkvm..
+
+> Yeah, SVA is tricky, I guess for that we would have to use nesting,
+> but tbh, I don’t think it’s a deal breaker for now.
+
+Again, it depends what your actual use case for translation is inside
+the host/guest environments. It would be good to clearly spell this out..
+There are few drivers that directly manpulate the iommu_domains of a
+device. a few gpus, ath1x wireless, some tegra stuff, "venus". Which
+of those are you targetting?
+
+> > Lots of people have now done this, it is not really so bad. In
+> > exchange you get a full architected feature set, better performance,
+> > and are ready for HW optimizations.
+> 
+> It’s not impossible, it’s just more complicated doing it in the
+> hypervisor which has limited features compared to the kernel + I haven’t
+> seen any open source implementation for that except for Qemu which is in
+> userspace.
+
+People are doing it in their CC stuff, which is about the same as
+pkvm. I'm not sure if it will be open source, I hope so since it needs
+security auditing..
+
+> > > - Add IDENTITY_DOMAIN support, I already have some patches for that, but
+> > >   didn’t want to complicate this series, I can send them separately.
+> > 
+> > This seems kind of pointless to me. If you can tolerate identity (ie
+> > pin all memory) then do nested, and maybe don't even bother with a
+> > guest iommu.
+> 
+> As mentioned, the choice for para-virt was not only to avoid pinning,
+> as this is the host, for IDENTITY_DOMAIN we either share the page table,
+> then we have to deal with lazy mapping (SMMU features, BBM...) or mirror
+> the table in a shadow SMMU only identity page table.
+
+AFAIK you always have to mirror unless you significantly change how
+the KVM S1 page table stuff is working. The CC people have made those
+changes and won't mirror, so it is doable..
+
+> > My advice for merging would be to start with the pkvm side setting up
+> > a fully pinned S2 and do not have a guest driver. Nesting without
+> > emulating smmuv3. Basically you get protected identity DMA support. I
+> > think that would be a much less sprawling patch series. From there it
+> > would be well positioned to add both smmuv3 emulation and a paravirt
+> > iommu flow.
+> 
+> I am open to any suggestions, but I believe any solution considered for
+> merge, should have enough features to be usable on actual systems (translating
+> IOMMU can be used for example) so either para-virt as this series or full
+> nesting as the PoC above (or maybe both?), which IMO comes down to the
+> trade-off mentioned above.
+
+IMHO no, you can have a completely usable solution without host/guest
+controlled translation. This is equivilant to a bare metal system with
+no IOMMU HW. This exists and is still broadly useful. The majority of
+cloud VMs out there are in this configuration.
+
+That is the simplest/smallest thing to start with. Adding host/guest
+controlled translation is a build-on-top excercise that seems to have
+a lot of options and people may end up wanting to do all of them.
+
+I don't think you need to show that host/guest controlled translation
+is possible to make progress, of course it is possible. Just getting
+to the point where pkvm can own the SMMU HW and provide DMA isolation
+between all of it's direct host/guest is a good step.
+
+Jason
 
