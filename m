@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0C9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 04:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B89E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 04:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MRbuq/vJhOHDwWZyIZVQ1UR8FeorGGJoKh1JNDZST1k=; b=C5hycogHqULW7f31TCgcUyFU8+
-	BsGspqcyWbYDbpnsUAXhQk/cG/z25TKwbw7yhpdoLJfVSEoPym7PhBhiVo9ZwKR0gSywH47JsGYGL
-	Pv6IRVgp5e8M4Af63SufZzjAr7rVpK7iPiXPou+vAV4I707xE84ndgjBu5Ge2FD7KyBci/3lsOhP+
-	/Wfx0mmHjZdet/CLlC0kmwlly7ujQN5aTDdtgblywnRVQLynPdNw8ekXfQA3tY4xhkUBjLcdtQ/vL
-	khrpdQTOwNbV5jsOpmGBQCxgaQxatzpzdpUs2jjVm2em5PW1UDpdi6aeopiol4vH5A7EF0xjc4e8K
-	HZChV0ug==;
+	bh=qASnP2cY4XrN23QHAx7oo1qyNnemaNPNaz8WLNECAxw=; b=m7WUHewPfsn96gjasP6EHoKK7e
+	UW0349//MW9jfh/Yy3eLpyvcFmseupKtFnca/DLG/43ASYeNW6UEC4uVYtEb5kCp8kDOHrZS8kxCp
+	iGRuutGz/ExWsqamkv8VPM/uH2sHn8ixtCsFBGE0mMqemjLzevuMOSQNz+juZCv0AgfuntHpUuh9L
+	PMULkdtYwNDI3LI+qxvd3kwOfaNsX14IU5tdO4DaAI08GZIlUTbrx4paT3umWQV7wGhjClUiHOV8t
+	/dV2YgmPsX26XvMmXKlg4tAQE/4p4RNL3E+QFtPNlPPypzcK4niJiIXdmNT9hBPXYGW8HR/LI6VFZ
+	UW+p5yUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTDCg-00000009jO6-3M4t;
-	Thu, 02 Jan 2025 04:53:02 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1tTDGA-00000009jaJ-2OYJ;
+	Thu, 02 Jan 2025 04:56:38 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTDBY-00000009jL4-1Ibe
+	id 1tTDF1-00000009jWd-1LXn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 04:51:53 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-303489e8775so126677591fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 20:51:51 -0800 (PST)
+	Thu, 02 Jan 2025 04:55:28 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3003e203acaso115531081fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 20:55:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735793510; x=1736398310; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735793725; x=1736398525; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MRbuq/vJhOHDwWZyIZVQ1UR8FeorGGJoKh1JNDZST1k=;
-        b=BmGAkc8z0xmQDN04P8eolpfLp/h5WWlgOR0eVn87b6uVZfXI5Mo7djcqzTqGeNoJwz
-         P/rHnycPWBirEtk/oCw3fa451RGwydvokMLfU00VVtqM1FZsjnCPUc/M8VliZXMtv/1f
-         8E7WWKq0aNCRX0nlcoeSoo+38MMXY7swfiaK6/K2wKW7KVxWwz9MFtvjGD5GONUYAw2c
-         gPsJXMq2QMFT9707WkFJF5ycArJxIVDOKRU+/DChT1piXNTq74l754200pYrlCx1+LYg
-         h4KSkZASDve6+fAkoPHWv0a4sQWh2eKkfOJ0h9zMCjJOMzLy6tG8SWGhXRoF3s7pQAIp
-         /w5A==
+        bh=qASnP2cY4XrN23QHAx7oo1qyNnemaNPNaz8WLNECAxw=;
+        b=ZxGpiczt0kWg4fA8DgU+F25zSoClzLNiObQ2GuOXdkYkVfXpqBwXX+aY/3zliKwmXA
+         kel7/UF6d7obyaB5O45CezHtyHWotV4xWqtFmePLsXxNwDpi2rdfu3XMhYX+mEZ705Nw
+         thefytZZVeZo4ee2hGb6ICIFXrCr8nUDDXmbwmz8U0+rvxdkBqiifTbu3m9oh5k/UZSv
+         SzE9bCkMEd8Egbd2peUlL+ISWFMRhct6NZj/Mp+kZd027Ahe1G+e0B0I2qUeB/dTKk2d
+         OeRo5q0kvHsW0fOQHkLHCCbk9Pq3lj+dVxRZFf8fwIH2Vd3xVaU0DWI5JvYdRNln19S+
+         2pEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735793510; x=1736398310;
+        d=1e100.net; s=20230601; t=1735793725; x=1736398525;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MRbuq/vJhOHDwWZyIZVQ1UR8FeorGGJoKh1JNDZST1k=;
-        b=nPMu8NF+lX4l3GfTwUCOzccRlBB/9SGQPkbEV6oLcTfeBbORLNptjdBrZ5z1+NPQQg
-         NAftdV9LyxO6+S0yV9EIW77gsjptyx//25lotcfJuCEkzHeiTIEd87+7zJibf8Dfw4zt
-         Pg/0CBcoeOVwsQQIWf9cJ6fJ3/4CJJC6Nivlh181T18CU+9GPOAZRlysPkh7vl6Vi9PF
-         Q+4cmfUwUNc3H33nh34hKqw7N8A8Pbs/yQdue0eap3q23O/hBI3wqXZEPhiPRU0BTuGW
-         LWN2U7m2gvhkMbNG/IcrRS1nrTW8wWiHPABfcB07vr3CPyprKNbcwsDuiqmd6KMrj131
-         HAsw==
-X-Forwarded-Encrypted: i=1; AJvYcCXLjSaq/6c5r0u1aRS1XcvPd/da9hyt+udoSlN5LHjKe1oES9IX5I9vr+m8bcM+qY65nX882DPhwdBkMrWla/27@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKBdwykr72H/cRwFvCTihiSrcAavRriqciMnD0EA430TOE6HB0
-	Ir/XTRpybLDI7T4aiPv+H3lQrGCJwsnQltXIoWAkuUNvs8hGoOUF9VgAaOA2aoQ=
-X-Gm-Gg: ASbGncuFGzBdqzpgjglPyCjlenbdRd+3wiFMDKSWCVSyThMF3TlnmDI+zjHA8s1CVc3
-	Aw/1urdyNDWQtle9/5s+pehjGEq+r5WKSMcELSr6fNpw0kg28/XMcvLIn6mjpbF3cg3w6+0r1jm
-	0On8uP2n10Lv+wbyxqrxo48HbJEZ0Bgg8WwMtLoIY4+OyDRbqQjuQuMnW+Y1dNgH9TVT2QrdjrQ
-	1gbbPDM1wrruyg1WlD5ihDJ6jMpGQaUuZMm5XSic75yy+V3RCtzq8e5k0Z0GPAXj8AjN0nOnQLn
-	PpFFu9Yh0UJcpKA5Sh/nWR7mLi1VvDllbriz
-X-Google-Smtp-Source: AGHT+IGE2Szq9qm9GN+rsyVm5RLYM6Bq9PLVSw4z6os4ljvKgQu4XGWjU61plLVc+yzsVHeip+HlRw==
-X-Received: by 2002:a2e:a588:0:b0:2ff:c349:8d08 with SMTP id 38308e7fff4ca-3046851e529mr158851661fa.8.1735793510280;
-        Wed, 01 Jan 2025 20:51:50 -0800 (PST)
+        bh=qASnP2cY4XrN23QHAx7oo1qyNnemaNPNaz8WLNECAxw=;
+        b=sZLS10XaPmbC57qIruEdj5gXiMf48PoxSYdxLmn0aMGKGsyHSscCwZ0s28B1HZpUzH
+         r5nvvrGv8RqgXILfAwLO34H3c6+rtH2s651Py23V6C48y7AS+KES/CrRkhTpQlK3Kp1z
+         5tcUAcBIt+ednZRAcPGB2PWO8dRjAjn3+mvPmrHhVGT5MVN3Hmu/K6n/C9Skcq9eHDU6
+         Et2eNC1T36x3RH+kiOT0UzzOJFS5JODIINmeqWLNblYT8odhx/mkrBQyKFByJK6ITj1y
+         J2rOCuOL5G24UUszA4iXK/RN7hxcc7HCeegHBwLdzVr2K8ojAioo1nHfxp4BkxvdZPK1
+         7z5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUdqMmRMtIcDBBZqiYcJWrizqcHtsHGEuobdl2s+z6ZZKx6nBLAB2SoimrEzn+0Mo+Z2YrQ2Lel+ip/W4orZx4/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE8hgVlXswKfABZTIpNyR8bR9jiBlDj3aHvRJ+AIHoXkjHSLYV
+	CsnRotuJ9WoRvp9ZrQXHT5JJU9i814xVD2Toapi1WAYatKxyeoakwXcgALMDqG0=
+X-Gm-Gg: ASbGncsHeNU9LIAH8nSIHe8bcNzvaGPTPDRsHRudRfrfHlgbsD1Qs7JldcYwTXSsIDi
+	OM9uB4lGtS2u1mpBk6P22EFD+46BhYtHQw0x1N8Ne7RZ7YIF7unvgm1vFEm+zKM8N4BU7JG+3ly
+	qAzOYo4mhQXi0a283Cu9zlWkuNnvF2fTnSPv1zg5XUmNMkRdlEPiuUWveuU8Bp0Cbv+dGevrfxY
+	5nCT3g9URe+5Ozo/GyAytIRsWDI/gxcuIkudZ0d0zt1fhsXYJDmTgv0ka+qYwDxFtPu18ibT1wg
+	ml/4uMQuqU2RFKIDw9C8d4DNiasP8LSS0UYY
+X-Google-Smtp-Source: AGHT+IGG3mukVpNeyVH5K54Lp9BzgauZG9/9OolikaWA8gUQhWcUH40nRVYnybuB5sK96BFCwAUJaQ==
+X-Received: by 2002:a2e:b8c6:0:b0:300:7f87:a4f with SMTP id 38308e7fff4ca-30468557147mr160123631fa.19.1735793725424;
+        Wed, 01 Jan 2025 20:55:25 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad6c632sm42017411fa.21.2025.01.01.20.51.48
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad9bbe9sm41388161fa.43.2025.01.01.20.55.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jan 2025 20:51:49 -0800 (PST)
-Date: Thu, 2 Jan 2025 06:51:47 +0200
+        Wed, 01 Jan 2025 20:55:25 -0800 (PST)
+Date: Thu, 2 Jan 2025 06:55:22 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Marek Vasut <marex@denx.de>
 Cc: dri-devel@lists.freedesktop.org, 
@@ -80,17 +80,18 @@ Cc: dri-devel@lists.freedesktop.org,
 	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
 	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-Message-ID: <xqu2zjrefp2rgp2hyjqhi3nxypcxa7zpypct553upbxdsx64jr@wfn3dzzk3jxe>
+Subject: Re: [PATCH v3 2/4] drm/bridge: imx8mp-hdmi-tx: switch to bridge
+ DRM_BRIDGE_ATTACH_NO_CONNECTOR
+Message-ID: <sjyw3afx5qyrupf5tixgtubevmklgmstjvj3hjt5xukzmgluuv@47j6afzl5dp6>
 References: <20241231192925.97614-1-marex@denx.de>
+ <20241231192925.97614-2-marex@denx.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241231192925.97614-1-marex@denx.de>
+In-Reply-To: <20241231192925.97614-2-marex@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_205152_453550_E0E04BA9 
-X-CRM114-Status: GOOD (  26.03  )
+X-CRM114-CacheID: sfid-20250101_205527_398723_8CD46EFE 
+X-CRM114-Status: GOOD (  30.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,22 +106,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
-> Add a flag meant purely to work around broken i.MX8MP DTs which enable
-> HDMI but do not contain the HDMI connector node. This flag allows such
-> DTs to work by creating the connector in the HDMI bridge driver. Do not
-> use this flag, do not proliferate this flag, please fix your DTs.
+On Tue, Dec 31, 2024 at 08:28:49PM +0100, Marek Vasut wrote:
+> The dw-hdmi output_port is set to 1 in order to look for a connector
+> next bridge in order to get DRM_BRIDGE_ATTACH_NO_CONNECTOR working.
+> The output_port set to 1 makes the DW HDMI driver core look up the
+> next bridge in DT, where the next bridge is often the hdmi-connector .
+> 
+> Similar to 0af5e0b41110 ("drm/meson: encoder_hdmi: switch to bridge DRM_BRIDGE_ATTACH_NO_CONNECTOR")
+> 
+> Note that looking at the upstream arch/arm64/boot/dts/freescale/imx8mp*dts ,
+> the oldest commit which adds HDMI support is commit:
+> 
+> 3e67a1ddd56d ("arm64: dts: imx8mp: Enable HDMI on TQMa8MPxL/MBa8MPxL")
+> 
+> That already contains the HDMI connector node. Most follow up additions
+> of HDMI support to another devices has been a variation of the same commit,
+> including connector node, which is the proper way of eanbling HDMI on the
+> i.MX8MP.
+> 
+> The rest should be covered by output_port_optional which should make systems
+> with DTs without HDMI connector node work, but such DTs should be updated and
+> the HDMI connector node should be added.
 > 
 > Signed-off-by: Marek Vasut <marex@denx.de>
-
-Please describe that it is required for backwards compatibility with the
-existing DTs. I think it is a good idea unless Shawn, Sascha or Fabio
-tell that we should ignore backwards compatibility.
-
-With that in mind:
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-
 > ---
 > Cc: Andrzej Hajda <andrzej.hajda@intel.com>
 > Cc: David Airlie <airlied@gmail.com>
@@ -143,55 +151,49 @@ Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > Cc: imx@lists.linux.dev
 > Cc: linux-arm-kernel@lists.infradead.org
 > ---
-> V3: New patch
+> V2: No change
+> V3: - Update commit message
+>     - Move select DRM_DISPLAY_CONNECTOR to DRM_IMX8MP_DW_HDMI_BRIDGE
+>     - Enable output_port_optional
 > ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 12 ++++++++----
->  include/drm/bridge/dw_hdmi.h              |  2 ++
->  2 files changed, 10 insertions(+), 4 deletions(-)
+>  drivers/gpu/drm/bridge/imx/Kconfig          | 1 +
+>  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c | 2 ++
+>  2 files changed, 3 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> index 996733ed2c004..852e73c0f686f 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> @@ -2893,9 +2893,13 @@ static int dw_hdmi_bridge_attach(struct drm_bridge *bridge,
->  {
->  	struct dw_hdmi *hdmi = bridge->driver_private;
+> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
+> index 9a480c6abb856..db5c8a76193ac 100644
+> --- a/drivers/gpu/drm/bridge/imx/Kconfig
+> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
+> @@ -17,6 +17,7 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
+>  	tristate "Freescale i.MX8MP HDMI-TX bridge support"
+>  	depends on OF
+>  	depends on COMMON_CLK
+> +	select DRM_DISPLAY_CONNECTOR
+
+I was going to write that it is not to be selected by anybody, but then
+I stumbled upon meson driver, which also selects the symbol.
+
+I still think that it is not to be selected by your driver as there is
+no direct dependency (and there can be other bridges inbetween or the
+bridge chain can end up with some other bridge). Such decisions belong
+to defconfig or distribution's kernel config file.
+
+>  	select DRM_DW_HDMI
+>  	imply DRM_IMX8MP_HDMI_PVI
+>  	imply PHY_FSL_SAMSUNG_HDMI_PHY
+> diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
+> index 1e7a789ec2890..3d63200e468bf 100644
+> --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
+> +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
+> @@ -101,6 +101,8 @@ static int imx8mp_dw_hdmi_probe(struct platform_device *pdev)
+>  	plat_data->phy_name = "SAMSUNG HDMI TX PHY";
+>  	plat_data->priv_data = hdmi;
+>  	plat_data->phy_force_vendor = true;
+> +	plat_data->output_port = 1;
+> +	plat_data->output_port_optional = true;
 >  
-> -	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
-> -		return drm_bridge_attach(bridge->encoder, hdmi->next_bridge,
-> -					 bridge, flags);
-> +	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR) {
-> +		if (hdmi->plat_data->output_port_optional && !hdmi->next_bridge)
-> +			return dw_hdmi_connector_create(hdmi);
-> +		else
-> +			return drm_bridge_attach(bridge->encoder, hdmi->next_bridge,
-> +						 bridge, flags);
-> +	}
->  
->  	return dw_hdmi_connector_create(hdmi);
->  }
-> @@ -3298,7 +3302,7 @@ static int dw_hdmi_parse_dt(struct dw_hdmi *hdmi)
->  					  hdmi->plat_data->output_port,
->  					  -1);
->  	if (!remote)
-> -		return -ENODEV;
-> +		return hdmi->plat_data->output_port_optional ? 0 : -ENODEV;
->  
->  	hdmi->next_bridge = of_drm_find_bridge(remote);
->  	of_node_put(remote);
-> diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
-> index 6a46baa0737cd..3bb6e633424a8 100644
-> --- a/include/drm/bridge/dw_hdmi.h
-> +++ b/include/drm/bridge/dw_hdmi.h
-> @@ -127,6 +127,8 @@ struct dw_hdmi_plat_data {
->  	struct regmap *regm;
->  
->  	unsigned int output_port;
-> +	/* Used purely by MX8MP HDMI to work around broken DTs without HDMI connector node. */
-> +	bool output_port_optional;
->  
->  	unsigned long input_bus_encoding;
->  	bool use_drm_infoframe;
+>  	hdmi->dw_hdmi = dw_hdmi_probe(pdev, plat_data);
+>  	if (IS_ERR(hdmi->dw_hdmi))
 > -- 
 > 2.45.2
 > 
