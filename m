@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AF8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB127E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E00Qza5CkvXW5/CnbnU2/WLzw/Wp+QPWyLFHz/ijnEk=; b=ZaECn+HXI8YB2W7qYqJVUD+bsb
-	TUb8tD0Mu7S5G+qKF1uGb/DLvODw8pWgityt5REpG+Cgqr0463gbie/SSpGgg63q+Hl/I7/mfYpmo
-	znfAUH3IA3TMD7X6gG76VUO+Oq2cjlZtHLyyDxFStwq6kypqSMHTBYkegs0ouSN0x5OFeJeCGt1fe
-	Zvh0RCsCSjYuy69iyvZf/FSYmi8dttfhaJarubPpfx9o+ImiH0q2U8G51gffG5xSa+ZJql7/4/It4
-	TW14mhaydmKkFihf16XaWiQE/Xy51hGoFYHCxGnfD2qA/hQmUq/JHBUOQMkEVAi0o4nRJl21qz6ey
-	Vcm6zIcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x0sHIhJSSf+4UpazjkVw6pWh1O3ktUbcSsQjruMDpEc=; b=rtK+PXKQhbkbskrrsXsupZo8VX
+	rXo35eHFyi9gK/GT3/g0rvrHtWV/cCb7h3aczjU8MRiDB9i3A1ys14+QWDDNyyINyv54yJWzxiboI
+	aJq7cEAiICHlqDzmPwEnPBIzzqqKLHkqbPUv6LaY4ngeJzt1IOikTcepr4QMc4iFeSogZCCd4XJZz
+	8YIDEKCVnNRXPKnVJ+wiFqVvNE+DBds4QkvL+oeMS988XHtnTyubDCGVTVqNO4uUgmmgH06Y1fzy4
+	NiOIjy3dcBMs7Lgq0w0w412PFiYpddpPgt0FeTCSbCilqGnzhd/lgyddksrcSXH/zKfr4F6s8qhzn
+	XvrsJUpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOHM-0000000AsT5-3hWb;
-	Thu, 02 Jan 2025 16:42:36 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOG7-0000000AsIa-02Fn
+	id 1tTOLt-0000000AsvE-3hAR;
+	Thu, 02 Jan 2025 16:47:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTOKg-0000000AsmK-2wVK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:41:20 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502Gf85m2272880
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Jan 2025 10:41:08 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735836068;
-	bh=E00Qza5CkvXW5/CnbnU2/WLzw/Wp+QPWyLFHz/ijnEk=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=rqbRlcPCYUCtxf3vUBZ0sVdF7pvTzwvCmuemSf3K1A6rkQFc2cAIQV5l7LfForUAo
-	 8K/iRDBSwUCs73iOcHxnPcQBmkqTKcCt9GgvCXVMh9dda5ekwT9doPKtkNUSJxl29d
-	 JWhQHhjPCOHL00zaInHY/utqAQoFRlQ0ACJvq/og=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502Gf8on011657
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 10:41:08 -0600
-Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 10:41:08 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 10:41:08 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502Gf8nr085583;
-	Thu, 2 Jan 2025 10:41:08 -0600
-From: Nishanth Menon <nm@ti.com>
-To: <tony@atomide.com>, <s-anna@ti.com>, <horms@kernel.org>,
-        <ssantosh@kernel.org>, MD Danish Anwar <danishanwar@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>
-Subject: Re: [PATCH v2 0/2] Fix compilation errors with pruss APIs
-Date: Thu, 2 Jan 2025 10:41:06 -0600
-Message-ID: <173583593915.271394.6644650788389470248.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241220100508.1554309-1-danishanwar@ti.com>
-References: <20241220100508.1554309-1-danishanwar@ti.com>
+	Thu, 02 Jan 2025 16:46:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23E1F11FB;
+	Thu,  2 Jan 2025 08:46:30 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C91E43F673;
+	Thu,  2 Jan 2025 08:46:00 -0800 (PST)
+Date: Thu, 2 Jan 2025 16:45:58 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: james.morse@arm.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathan.cameron@huawei.com,
+	xiexiuqi@huawei.com,
+	"Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 0/5] arm_mpam:
+ Introduce the Narrow-PARTID feature for MPAM driver
+Message-ID: <Z3bCxn4L0SsxIMw8@e133380.arm.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <Z1sMtF9bvw5NZOC6@e133380.arm.com>
+ <acf5c82f-1d33-4cd4-ff50-5f7c37f49a1e@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <acf5c82f-1d33-4cd4-ff50-5f7c37f49a1e@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_084119_144441_3BC43CB5 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250102_084602_858756_17CDD9D1 
+X-CRM114-Status: GOOD (  44.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +67,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi MD Danish Anwar,
-
-On Fri, 20 Dec 2024 15:35:06 +0530, MD Danish Anwar wrote:
-> The APIs in 'include/linux/pruss_driver.h' produce compilation errors and
-> warnings when config symbol CONFIG_TI_PRUSS is not enabled.
+On Fri, Dec 20, 2024 at 06:59:31PM +0800, Zeng Heng wrote:
 > 
-> This series fixes those errors / warnings.
 > 
-> Also the header file 'include/linux/pruss_driver.h' is orphan and has no
-> entry in MAINTAINERS file.
+> On 2024/12/13 0:17, Dave Martin wrote:
+> > Hi,
+> > 
+> > On Sat, Dec 07, 2024 at 05:21:31PM +0800, Zeng Heng wrote:
+
+[...]
+
+> > > For a mixture of MSCs system, for MSCs that do not support narrow-partid,
+> > > we use the PARTIDs exceeding the number of closids as reqPARTIDs for
+> > > expanding the monitoring groups.
+> > 
+> > Mixed systems still seem not to be handled completely by this series?
+> > 
+> > You do cope with the scenario where some MSCs support Narrowing and
+> > some do not, but there is still the problem of incompatible controls.
+> > 
+> > If a non-Narrowing MSC has controls that are not of the "partition
+> > bitmap" type, then splitting a resctrl control group across multiple
+> > PARTIDs is going to change the hardware regulation behaviour.  There
+> > does not seem to be any way to work around this be programming
+> > different control values (for example).  So, there may be over- or
+> > under-allocation of resources compared with what the user requests in
+> > resctrlfs.
+> > 
+> > So, I think there is still a need to check which controls are present,
+> > and either disable the use of non-identity intPARTID<->reqPARTID
+> > mappings if incompatible controls are present (or don't expose those
+> > controls to resctrl).
+> > 
+> > (If you were not trying to address this issue yet then that is not a
+> > problem for an RFC, but it is best to be clear about the
+> > limitations...)
+> > 
 > 
-> [...]
+> In the v3, the limitation you mentioned has not yet been handled.
+> V3 has not yet determined how to define this limitation well. Additionally,
+> for v3, I was still uncertain whether a large-scale
+> refactoring was still necessary at that time.
+> 
+> In fact, I take this limitation very seriously, and I will try to define
+> the limitation in next version, explaining it separately as a distinct
+> patch.
 
-I have applied the following to branch ti-drivers-soc-next on [1].
+Fair enough.  I just wanted to make sure that this issue is not missed
+(since this is where a lot of the complexity comes from!)
 
-[1/2] soc: ti: pruss: Fix pruss APIs
-      commit: 202580b60229345dc2637099f10c8a8857c1fdc2
 
-I have applied the following to branch ti-k3-maintainer-next on [1].
+[...]
 
-[2/2] MAINTAINERS: Add entry for linux/pruss_driver.h
-      commit: 31bd1f4517b651e132fae7cbb5f63b190015da94
+> > This approach looks reasonable overall, and in this version the changes
+> > do seem to be better localised in the mpam_resctrl.c glue code now.
+> > 
+> > I had also been working on a similar approach, so I have posted it for
+> > comparison [1] -- though the two approaches are doing pretty much the
+> > same thing, some details differ.
+> > 
+> > (Note, I have not addressed PARTID Narrowing at all yet; however,
+> > I think more thought is needed for that.)
+> > 
+> 
+> Yes, localize the narrow-partid feature within mpam_resctrl.c file is
+> the biggest restructuring improvement in this version. Of course, thanks
+> for your meticulous review and insightful comments.
+> 
+> In the meanwhile, I have roughly read through the patch set you sent
+> out, especially patch 4 (arm_mpam: Introduce flexible CLOSID/RMID
+> translation). If I have any comments worth discussing, I will try to
+> share them.
 
-Thank you!
+I would appreciate that, thanks!
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> 
+> > 
+> > Note: Are there bisection issues with some of the patches in the
+> > series?  It looks like not all of the ID conversions are applied in the
+> > same patch, so I'm wondering whether strange behaviour may be seen at
+> > the intermediate commits.
+> > 
+> 
+> The original intention of splitting the patch set was to facilitate review.
+> I will merge the part of patch 5 into patch 2 and consider
+> making the patch set be friendly for bisection issues.
+> 
+> 
+> Best regards,
+> Zeng Heng
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Understood.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+James may have a view on how important bisectability is, since this is
+not upstream code -- but it is probably a good idea to maintain full
+bisectability if at all possible.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-
+Cheers
+---Dave
 
