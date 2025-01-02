@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB1BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 21:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C0EE77197
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 21:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/WQ04/lBU6Mc0wZxEBiumkFigXqz4f8XwwSO2JV8CRw=; b=uqZS2vxM2JzwZpPOJQpHmL0gMT
-	AslmlM2DZTTf5Zi+riJeD5KPnNX78n5KTWNcVmVXed0Vb4I7I8g3gHHy6kUmCVRvvkAjQfoazdCQ3
-	k9D1Nk1iCXlmvEnsXrbPgu0Mjp2Vtw6yKD6NiCwLW3NxI4WaR5sBSUxuqk2dZUYPbA822eWzaSCdc
-	PKWTgJOTwjB55xPbPkr07bLBhp+lWHjKojS08Fr+IIKHQnVw9s8HDDjvVLkqJJQmDUtASXo2B7Jt8
-	Bnbkh3qYYoo7LpVeXtzPoJ9gSfvwelMlv3BRzESLDFwPnGLfLcLoDdguF3oARCQKmb/R3drZFbefa
-	qkHEQeqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y9zQ6BfG3c9Wlj7b/dVFQJvkgkqVpLbCApoy2Cv2VU4=; b=aRPNguye3lk+SXmPBfVVf45xps
+	LNEeZmyo/uqE1tkQv0xCRPbDYbiHReLb+n71oaB/FhlJNRTjlh7KwSJenx51Q/4dhilbtggRAzL2S
+	e4V9NZn/Ok3fU3cO176/l9y6XWOc6/i5zg9UwPDnvxlRQRUP6aK/Q8NfjRZDQiJnVFCdrjrs/43mn
+	FCapRysd9ZNRI3Ov2EmJcHBSAzlilkIhXVX7JgbOVTtsK0Hu79dteOw5kBU6Dio0vMsJhxp6jr5uh
+	W6aF6RV3BXSupaRzyf73Kz4fijPWV31TOupVOzmWhh+6NBNv/hLYE/dG85IC/ck0MhlUYdQR6LBO0
+	Q0krIZRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTSjl-0000000BVNY-0iVB;
-	Thu, 02 Jan 2025 21:28:13 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tTSmr-0000000BVsU-0jfe;
+	Thu, 02 Jan 2025 21:31:25 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTShx-0000000BV7n-3g3D
+	id 1tTSlb-0000000BVgf-3OTU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 21:26:23 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D588321C;
-	Thu,  2 Jan 2025 22:25:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1735853129;
-	bh=K93LL1KmOIlA4jas/WC7Bu+cYqLNmACJtVRlkCpxZE0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dkCXTj4EUM6kUgGibGiSvXeijIbdREwnQGW0OxVSBUMXFMqEA9cmlLZvbrcXKJ0nE
-	 Pjrp6wghabwPEOSD8wzFw0zou01OsWeD7UQ6RFX02D1S073Wz8z4vPE7gH1gFFxx3X
-	 01A0OA8UHDTcxjxsylbOFweLAPH/9wVhhrVmqJ9M=
-Date: Thu, 2 Jan 2025 23:26:18 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v12 7/8] documentation: media: add documentation for
- Toshiba Visconti Video Input Interface driver
-Message-ID: <20250102212618.GI554@pendragon.ideasonboard.com>
-References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
- <20241125092146.1561901-8-yuji2.ishikawa@toshiba.co.jp>
+	Thu, 02 Jan 2025 21:30:08 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54252789365so4968655e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 13:30:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735853405; x=1736458205; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Y9zQ6BfG3c9Wlj7b/dVFQJvkgkqVpLbCApoy2Cv2VU4=;
+        b=BcMan4cCukHskC63jYuRxx8+25x2nM55V778yxxkKAaKYvBcOSqCO2FpbD8jGk82i3
+         Qi9rC2PX3csGxnnAY+Dyewxbve9GxBfkHbNODdHCcWzc0q/6JalPcF7sUOVP6xzMk8vv
+         gTtLcMvE9C4hbjx+W1yFiQHIPPbZirvxOkxWV32CKHr8zNwTiikhuCgyumJ49pUJ1KBv
+         6WASSQCaS+bTgtvOsuUHkRTpxcDR0G146Ccqup5lJnRBlLZVbgIZ7/JRAhuMUML0+4P+
+         ULhgn08/wEsQsMvpJCfGw9SZCrzXunaLgVM8uOuG+69MoFceV6wIlJcBghl8QBNR4EvI
+         cQvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735853405; x=1736458205;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y9zQ6BfG3c9Wlj7b/dVFQJvkgkqVpLbCApoy2Cv2VU4=;
+        b=nukt11Tlq3B4YoUQb0H6/Yxh/QtHlY2PukWkwFNN90oyaRNRr+gp2qbmPkscwNhASI
+         FkWf36h8ZxvMBsT4xElYmzl8qqeZjRufZsI8DGAQx8AqIh/MiT2xO4WOIXLxPPGAwItG
+         OxOnDDe8d2G7xmru5cps6d6t1aFFe67pFJKEcNFwH+6E7tZgD9FT1GFn3NQghDXbvkrn
+         Tcsbm4+FcqGUxTXqy8jq92VjTURKfImDqBiD/q2MIHMYlxCymC0tkjDpRUeWkY+PQ+3A
+         2DgZ5XIvlAX9JDc/IFuUOC7vNzndIgJmY9WjHk+toTM1rxfcXtpHwfEPbJD0e2BUcG9/
+         03ag==
+X-Forwarded-Encrypted: i=1; AJvYcCVO76m5L/sx+tNiUmmpSIX81xnMbKYXPPIFMRKi2q7+ZES92KuKitbz+fQvM74iSxKeUaYI+XO/aiikAhZpGLGl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZwAfdKjzFMsILOI+d6YiEQa88bSIv4G4eYtkbawlOY3vcDWSq
+	5XywRd6xxBG9EQNLy2l5mVX34ilCLVvhoPiPCB+cxw3u7Ux7RI17
+X-Gm-Gg: ASbGncujHrPIEX7/W/fk3Nq+mJbwiqScfxBAmVWiAiVwRrzLSAJwQJx8l0B3Kz5W8Ab
+	TN1SB25emo++qAB4dkcI5JwUM5x8hxp8k/blu7Hn8WEANRQAHNU73ggvPlt3P/YviqWCEQhzAz7
+	3MDcRrJPCccUxJCJiVip9z9Hfh9Ig0SiZoTv9c0uheVrypcPzuRKqYVvTYG01N+hURbfx2TuZDY
+	Zo53nc1RkguxtP5XsmYx3th0luNRspLfZNQvB7Lwplxmbbg9sXGIT8AMAw=
+X-Google-Smtp-Source: AGHT+IES1THUTYBi5UphHsm2PEf2/oPPiDWnuTb10lOxgKrUggS6Mf74jKiF5I5s+fQbGGOmg3NojA==
+X-Received: by 2002:a05:6512:1241:b0:53f:f074:801c with SMTP id 2adb3069b0e04-5422958eaaemr15433404e87.41.1735853404760;
+        Thu, 02 Jan 2025 13:30:04 -0800 (PST)
+Received: from [10.8.0.2] ([130.61.158.70])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542236001e1sm4007494e87.88.2025.01.02.13.30.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Jan 2025 13:30:04 -0800 (PST)
+Message-ID: <1fcfc835-64aa-48d0-87db-8de14913f3a4@gmail.com>
+Date: Thu, 2 Jan 2025 23:30:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20241125092146.1561901-8-yuji2.ishikawa@toshiba.co.jp>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 5/5] arm64: dts: exynos: exynos8895-dreamlte: enable
+ support for microSD storage
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Jaehoon Chung <jh80.chung@samsung.com>
+Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250102205846.223955-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250102205846.223955-6-ivo.ivanov.ivanov1@gmail.com>
+Content-Language: en-US
+From: Markuss Broks <markuss.broks@gmail.com>
+In-Reply-To: <20250102205846.223955-6-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_132622_221975_9FD5A772 
-X-CRM114-Status: GOOD (  36.15  )
+X-CRM114-CacheID: sfid-20250102_133007_872453_DFE3887C 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,800 +104,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ishikawa-san,
+Hi Ivaylo,
 
-Thank you for the patch.
-
-Overall the documentation looks quite good, it has significantly
-improved compared to early versions.
-
-On Mon, Nov 25, 2024 at 06:21:45PM +0900, Yuji Ishikawa wrote:
-> Added description of Video Input Interface driver of
-
-s/Added/Add/
-
-> Toshiba Visconti architecture.
-> It includes hardware organization, structure of the driver
-> and metadata format for embedded image signal processor.
-> 
-> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+On 1/2/25 10:58 PM, Ivaylo Ivanov wrote:
+> Enable MMC for the Samsung Galaxy S8, used as external microSD card
+> storage. Since the main PMIC is currently not supported, assume the
+> required regulators are enabled by the previous bootloader.
+>
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
-> Changelog v3:
-> - Newly add documentation to describe SW and HW
-> 
-> Changelog v4:
-> - no change
-> 
-> Changelog v5:
-> - no change
-> 
-> Changelog v6:
-> - add description of CSI2RX subdevice
-> - add ordering of ioctl(S_FMT) and ioctl(S_EXT_CTRLS)
-> 
-> Changelog v7:
-> - no change
-> 
-> Changelog v8:
-> - add usage of V4L2_CTRL_TYPE_VISCONTI_ISP
-> 
-> Changelog v9:
-> - fix warning: set reference target for keyword V4L2_CTRL_TYPE_VISCONTI_ISP
-> 
-> Changelog v10:
-> - use parameter buffers instead of compound control
->   - removed description of vendor specific compound control
->   - add description of parameter buffers for ISP control
-> - update directory structure
->   - remove documents under driver-api
->   - add documents to admin-guide, userspace-api
-> 
-> Changelog v11:
-> - update usage of the driver
-> 
-> Changelog v12:
-> - add description of CSI2RX driver
-> - description of resizer subdevice
-> - add block diagrams of VIIF and ISP
-> - update usage of the driver
-> 
->  .../admin-guide/media/v4l-drivers.rst         |   1 +
->  .../admin-guide/media/visconti-viif.dot       |  22 +
->  .../admin-guide/media/visconti-viif.rst       | 435 ++++++++++++++++++
->  .../userspace-api/media/v4l/meta-formats.rst  |   1 +
->  .../media/v4l/metafmt-visconti-viif.rst       |  48 ++
->  5 files changed, 507 insertions(+)
->  create mode 100644 Documentation/admin-guide/media/visconti-viif.dot
->  create mode 100644 Documentation/admin-guide/media/visconti-viif.rst
->  create mode 100644 Documentation/userspace-api/media/v4l/metafmt-visconti-viif.rst
-> 
-> diff --git a/Documentation/admin-guide/media/v4l-drivers.rst b/Documentation/admin-guide/media/v4l-drivers.rst
-> index b6af448b9fe9..81054512e768 100644
-> --- a/Documentation/admin-guide/media/v4l-drivers.rst
-> +++ b/Documentation/admin-guide/media/v4l-drivers.rst
-> @@ -32,5 +32,6 @@ Video4Linux (V4L) driver-specific documentation
->  	si476x
->  	starfive_camss
->  	vimc
-> +	visconti-viif
->  	visl
->  	vivid
-> diff --git a/Documentation/admin-guide/media/visconti-viif.dot b/Documentation/admin-guide/media/visconti-viif.dot
-> new file mode 100644
-> index 000000000000..cc75c73336fb
-> --- /dev/null
-> +++ b/Documentation/admin-guide/media/visconti-viif.dot
-> @@ -0,0 +1,22 @@
-> +digraph board {
-> +        rankdir=TB
-> +        n00000001 [label="{{<port0> 0 | <port4> 4} | visconti-viif:isp\n/dev/v4l-subdev0 | {<port1> 1 | <port2> 2 | <port3> 3 | <port5> 5}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000001:port1 -> n00000008:port0
-> +        n00000001:port2 -> n0000000b:port0
-> +        n00000001:port3 -> n00000016
-> +        n00000001:port5 -> n0000001e
-> +        n00000008 [label="{{<port0> 0} | visconti-viif:resizer0\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000008:port1 -> n0000000e
-> +        n0000000b [label="{{<port0> 0} | visconti-viif:resizer1\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n0000000b:port1 -> n00000012
-> +        n0000000e [label="viif_capture_post0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
-> +        n00000012 [label="viif_capture_post1\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
-> +        n00000016 [label="viif_capture_sub\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
-> +        n0000001a [label="viif_params\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
-> +        n0000001a -> n00000001:port4
-> +        n0000001e [label="viif_stats\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
-> +        n00000030 [label="{{<port0> 0} | visconti_csi2rx 1c008000.csi2rx\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000030:port1 -> n00000001:port0
-> +        n00000035 [label="{{} | imx219 1-0010\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-> +        n00000035:port0 -> n00000030:port0
-> +}
-> diff --git a/Documentation/admin-guide/media/visconti-viif.rst b/Documentation/admin-guide/media/visconti-viif.rst
-> new file mode 100644
-> index 000000000000..c2e85fb6f8c1
-> --- /dev/null
-> +++ b/Documentation/admin-guide/media/visconti-viif.rst
-> @@ -0,0 +1,435 @@
-> +.. SPDX-License-Identifier: GPL-2.0
+>   .../boot/dts/exynos/exynos8895-dreamlte.dts   | 39 +++++++++++++++++++
+>   1 file changed, 39 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts b/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+> index 3a376ab2b..11aed89a3 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+> +++ b/arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts
+> @@ -16,6 +16,10 @@ / {
+>   	compatible = "samsung,dreamlte", "samsung,exynos8895";
+>   	chassis-type = "handset";
+>   
+> +	aliases {
+> +		mmc0 = &mmc;
+> +	};
 > +
-> +======================================================
-> +Visconti Video Input Interface Driver (visconti-viif)
-> +======================================================
+>   	chosen {
+>   		#address-cells = <2>;
+>   		#size-cells = <1>;
+> @@ -89,12 +93,47 @@ wink-key {
+>   			wakeup-source;
+>   		};
+>   	};
 > +
-> +Introduction
-> +============
-> +
-> +This file documents the driver for the Video Input Interface (VIIF) that is
-> +part of Toshiba Visconti SoCs.
-> +The driver is located under drivers/media/platform/toshiba/visconti and uses
-> +the Media-Controller API.
+> +	reg_sd_vmmc: regulator-1 {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpb1 1 GPIO_ACTIVE_HIGH>;
+> +		regulator-name = "sdcard-vmmc";
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		regulator-boot-on;
+> +		enable-active-high;
+> +	};
 
-If you intend to make this two paragraphs, you should have a blank line
-in-between:
+This regulator was described in downstream, but it doesn't look like it 
+exists on schematics. It could be different revisions having different 
+hardware, of course, but for me it looks like it's redundant. (on 
+schematics VMMC (Vdd for the card) is powered by S2MPS17 LDO29, and 
+VQMMC (logic level) is powered by S2MPS17 LDO2).
 
---------
-This file documents the driver for the Video Input Interface (VIIF) that is
-part of Toshiba Visconti SoCs.
+I believe we should check if this hw exists by perhaps checking if 
+manually changing GPIO output value changes the card behavior, and if it 
+doesn't, it should be safe to drop it.
 
-The driver is located under drivers/media/platform/toshiba/visconti and uses
-the Media-Controller API.
---------
+>   };
+>   
+>   &oscclk {
+>   	clock-frequency = <26000000>;
+>   };
+>   
+> +&mmc {
+> +	assigned-clocks = <&cmu_top CLK_MOUT_CMU_FSYS1_MMC_CARD>;
+> +	assigned-clock-parents = <&cmu_top CLK_FOUT_SHARED4_PLL>;
+To clarify, as proven by testing, this exists because with default (on 
+reset) mux MOUT_CMU_FSYS1_MMC_CARD configuration, the card doesn't show 
+up, so the parent is manually set to SHARED4 PLL. With this in mind, 
+maybe it makes more sense to put this into SoC dtsi, since it can't 
+possibly be board-specific?
+> +
+> +	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_bus1 &sd2_bus4>;
+> +	pinctrl-names = "default";
+> +
+> +	bus-width = <4>;
+> +	card-detect-delay = <200>;
+> +	cd-gpios = <&gpa1 5 GPIO_ACTIVE_LOW>;
+Missing pinctrl for card detect pin?
+> +	clock-frequency = <50000000>;
+> +	disable-wp;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +
+> +	/* TODO: Update once PMIC is implemented */
+> +	vmmc-supply = <&reg_sd_vmmc>;
+> +
+> +	samsung,dw-mshc-ciu-div = <3>;
+> +	samsung,dw-mshc-ddr-timing = <1 2>;
+> +	samsung,dw-mshc-sdr-timing = <0 3>;
+> +
+> +	status = "okay";
+> +};
+> +
+>   &pinctrl_alive {
+>   	key_power: key-power-pins {
+>   		samsung,pins = "gpa2-4";
 
-If you intend to make this a single paragraph, there should be no line
-break after the first sentence:
 
---------
-This file documents the driver for the Video Input Interface (VIIF) that is
-part of Toshiba Visconti SoCs. The driver is located under
-drivers/media/platform/toshiba/visconti and uses the Media-Controller API.
---------
+- Markuss
 
-> +
-> +The driver module is named visconti-viif,
-> +and is enabled through the CONFIG_VIDEO_VISCONTI_VIIF config option.
-> +The CSI-2 receiver part is controlled by another module named visconti-csi2rx,
-> +which is enabled through the CONFIG_VIDEO_VISCONTI_CSI2RX config option.
-
-Please reflow text to reach as close to 80 columns:
-
---------
-The driver module is named visconti-viif, and is enabled through the
-CONFIG_VIDEO_VISCONTI_VIIF config option. The CSI-2 receiver part is controlled
-by another module named visconti-csi2rx, which is enabled through the
-CONFIG_VIDEO_VISCONTI_CSI2RX config option.
---------
-
-Same comment below where applicable.
-
-> +
-> +The Visconti VIIF Hardware
-> +==========================
-> +
-> +The Visconti VIIF hardware is an internally developed video capture device.
-> +Following function modules are integrated:
-> +
-> +* MIPI CSI-2 receiver (CSI2RX)
-> +* L1 Image Signal Processor (L1ISP)
-> +
-> +  * Correction, enhancement, adjustment on bayer images.
-> +
-> +* L2 Image Signal Processor (L2ISP)
-> +
-> +  * Lens distortion correction
-> +  * Scaling & Cropping with up to 2 parameter sets
-> +  * Formatting picture (RGB, YUV, Grayscale, ...)
-> +  * Integrated DMAC: Writing picture into main memory
-> +
-> +* Video DMAC
-> +
-> +  * Writing picture into main memory
-> +
-> +Visconti5 SoC has two VIIF hardware instances.
-> +
-> +
-> +The hardware block diagram is shown below.::
-> +
-> +  The VIIF hardware
-> +                                                              "POST0"
-> +                                                              "RGB with scale 0"
-> +  +--------+    +----------+    +-----+    +-----+    +-----+    +--------+
-> +  | Sensor |--->|  CSI2RX  |--->|     |    |     |    |     |--->| memory |
-> +  +--------+    +----------+    |     |    |     |    |     |    +--------+
-> +                                |     |    | L1  |    | L2  | "POST1"
-> +                                |     |--->| ISP |--->| ISP | "RGB with scale 1"
-> +                                |     |    |     |    |     |    +--------+
-> +                                | MUX |    |     |    |     |--->| memory |
-> +                                |     |    +-----+    +-----+    +--------+
-> +                                |     |                       "SUB"
-> +                                |     |                       "RAW w/o scale"
-> +                                |     |        +------------+    +--------+
-> +                                |     |------> | Video DMAC |--->| memory |
-> +                                +-----+        +------------+    +--------+
-> +
-> +Topology
-> +========
-> +
-> +Graph
-> +-----
-> +
-> +.. _visconti_viif_topology_graph:
-> +
-> +.. kernel-figure:: visconti-viif.dot
-> +	:alt: Diagram of the default media pipeline topology
-> +	:align: center
-> +
-> +The driver has 3 video devices for capturing images:
-> +
-> +- viif_capture_post0: capture device for image.
-> +    - corresponds to L2ISP.
-> +- viif_capture_post1: capture device for image.
-> +    - corresponds to L2ISP.
-> +- viif_capture_sub: capture device for bayer image.
-> +    - corresponds to Video DMAC.
-> +
-> +The driver has 2 video devices for controlling ISP.
-> +
-> +- viif_params: a metadata output device that receives ISP parameters.
-> +    - corresponds to L1ISP and L2ISP.
-> +- viif_stats: a metadata capture device that sends statistics.
-> +    - corresponds to L1ISP and L2ISP.
-> +
-> +The driver has 2 subdevices:
-
-I count three subdevs in the list below (and there are actually two
-resizer instances, so that would be 4 subdevs).
-
-> +
-> +- visconti_csi2rx: CSI-2 receiver operation.
-> +    - corresponds to CSI2RX.
-> +- visconti-viif:isp: Image Signal Processor operation.
-> +    - corresponds to L1ISP and L2ISP.
-> +- visconti-viif:resizer: Scaling operation of Image Signal Processor.
-> +    - corresponds to L2ISP.
-> +
-> +visconti_csi2rx - CSI2 Receiver Subdevice Node
-> +---------------------------------------------------
-
-The title underline should have the same length as the title.
-
-> +
-> +This subdevice node corresponds to a MIPI CSI2 receiver.
-> +It resides between an image sensor subdevice and the ISP subdevice.
-> +It controls CSI2 link configuration and training process.
-> +
-> +visconti-viif:isp - ISP Subdevice Node
-> +--------------------------------------
-> +
-> +This subdevice node corresponds to L1/L2 ISPs.
-> +It receives pictures from an sensor (via CSI2RX),
-
-s/an sensor/a sensor/
-
-> +applies multiple operations on pictures, then passes resulting images to capture nodes.
-> +
-> +ISP configurations/parameters are passed from userland via viif_params node.
-> +The status of ISP operations are passed to userland via viif_stats node.
-
-"stats" stands for "statistics", so I would write "The statistics
-computed by the ISP are passed to ...".
-
-And after reading more of this document, I realize that the viif_stats
-node captures both statistics and status information. You could write
-"The statistics computed by the ISP and the frame processing status are
-passed to ...".
-
-> +
-> +L1 ISP provides following operations:
-> +
-> +- Input: accepts 8, 10, 12, 14bit bayer format
-> +    - Operation selector; :c:type:`viif_l1_input_mode_config`
-> +        - HDR image / PWL (Piecewse Linear Compression) image
-> +        - with preprocessing / without preprocessing
-> +    - HDRE: HDR expansion (only for PWL image);
-> +      see :c:type:`viif_l1_hdre_config`
-> +- Preprocessing: generate intermediate data (24bit RAW)
-> +    - SLIC: Bit slicing (x3 12bit planes for preprocessing);
-> +      see :c:type:`viif_l1_img_extraction_config`
-> +    - ABPC/DPC: Blemish/Defect pixel correction :c:type:`viif_l1_dpc_config`
-> +    - PWHB: Preset white balance; see :c:type:`viif_l1_preset_white_balance_config`
-> +    - RCNR: RAW color noise reduction; see :c:type:`viif_l1_raw_color_noise_reduction_config`
-> +    - HDRS: HDR synthesis; see :c:type:`viif_l1_hdrs_config`
-> +- Processing on RAW image: Main Process (MPRO)
-> +    - BLVC: black level correction and normalization;
-> +      see :c:type:`viif_l1_black_level_correction_config`
-> +    - LSSC: Lens shading correction; see :c:type:`viif_l1_lsc_config`
-> +    - MPRO: digital amplifier; see :c:type:`viif_l1_main_process_config`
-> +    - MPRO: bayer demosaicing; see :c:type:`viif_l1_main_process_config`
-> +    - MPRO: color matrix correction; see :c:type:`viif_l1_main_process_config`
-> +    - HDRC: HDR compression;
-
-If my understanding is correct, this implements global and local tone
-mapping. I would mention it explicitly here, those terms are more common
-than "HDR compression". You could write for instance
-
-   - HDRC: HDR compression (global and local tone mapping);
-
-> +      see :c:type:`viif_l1_hdrc_config`, :c:type:`viif_l1_hdrc_ltm_config`,
-> +      :c:type:`viif_l1_rgb_to_y_coef_config`
-> +- Processing on RGB/YUV image: Video Process (VPRO)
-> +    - VPRO: gamma correction; see :c:type:`viif_l1_gamma_config`
-> +    - VPRO: RGB2YUV;
-> +      see :c:type:`viif_l1_rgb_to_y_coef_config`,
-> +      :c:type:`viif_l1_img_quality_adjustment_config`
-> +    - VPRO: image quality adjustment; see :c:type:`viif_l1_img_quality_adjustment_config`
-> +- Output: 16bit YUV
-> +- Feedback loop
-> +    - AWHB: auto white balance; see :c:type:`viif_l1_awb_config`,
-> +      :c:type:`viif_isp_capture_status`
-
-Does this mean that the ISP can compute white balance gains
-automatically, implementing AWB in hardware ? That's interesting, it's a
-feature I haven't seen before.
-
-> +    - AEXP: auto exposure (average luminance calculation);
-> +      see :c:type:`viif_l1_avg_lum_generation_config`,
-> +      :c:type:`viif_l1_rgb_to_y_coef_config`, :c:type:`viif_isp_capture_status`
-> +    - AG: analog gain calculation;
-> +      see :c:type:`viif_l1_ag_mode_config`, :c:type:`viif_l1_ag_config`
-> +
-> +Below is the block diagram::
-> +
-> +  L1ISP::INPUT
-> +
-> +  +--------+                +-----+                      +-----+
-> +  | Input  |--------------->|     |--------------------->|     |
-> +  | 24bHDR |                |     |                      |     |
-> +  +--------+                | 24b |                      | 24b |
-> +                            | RAW |                      | RAW |
-> +  +--------+    +------+    | (0) |                      | (1) |
-> +  | Input  |--->| HDRE |--->|     |    +------------+    |     |
-> +  | 24bPWL |    |      |    |     |--->| preprocess |--->|     |
-> +  +--------+    +------+    +-----+    +------------+    +-----+
-
-I'm not entirely sure to understand this correctly, could you please
-correct me where I'm mistaken ?
-
-I understand that the PWL input is HDR contents merged/stitched on the
-sensor side, and compressed to a smaller than 24bpp width to reduce bus
-bandwidth using a PWL function. The HDRE block applies the inverse
-function to recover linear 24 bit data. In that case, the "preprocess"
-pipeline operates on a single channel (using one of the param_h, param_m
-and param_l set of parameters - which one ?). The HDRS blocks should be
-disabled (how ?).
-
-The HDR input, on the other hand, provides 2 or 3 channels with
-different sensitivities (high, middle and low, from sensors that
-implement DOL or DCG HDR). The preprocess pipeline operates on those
-channels with different sets of parameters, and the HDRS combines the
-channels into a single 24 bit image.
-
-I'm not entirely sure how the two or three channels are provided to the
-ISP, with DOL sensors there's a delay before the sensor starts
-outputting the short (and very short) lines, so line buffers are needed
-to realign the lines. I don't see this in the block diagram.
-
-It would be nice to expand the documentation a bit with such information
-about HDR processing, as I assume other developers may face similar
-questions.
-
-> +
-> +  L1ISP::INPUT::preprocess
-> +
-> +  +-----+                                                                +-----+
-> +  | 24b |    +------+    +------+    +------+    +------+    +------+    | 24b |
-> +  | RAW |--->| SLIC |--->| ABPC |--->| PWHB |--->| RCNR |--->| HDRS |--->| RAW |
-> +  | (0) |    +------+    +------+    +------+    +------+    +------+    | (1) |
-> +  +-----+                                                                +-----+
-> +
-> +  L1ISP::MainProcess(MPRO)
-> +
-> +  +-----+
-> +  | 24b |    +------+    +------+
-> +  | RAW |--->| BLVC |--->| LSSC |---+
-> +  | (1) |    +------+    +------+   |
-> +  +-----+                           |
-> +                                    |
-> +     +------------------------------+
-> +     |
-> +     |    +-----------+    +-------------+    +--------+                +-----+
-> +     +--->|   MPRO    |    |    MPRO     |    |  MPRO  |    +------+    | 16b |
-> +          |  Digital  |--->| Demosaicing |----| Color  |--->| HDRC |--->| RGB |
-> +     +--->| Amplifier |    |             |    | Matrix |    +------+    |     |
-> +     |    +-----------+    +-------------+    +--------+                +-----+
-> +     |                         |    |
-> +     |    +--------------+     |    |    +------+
-> +     +----| Auto         |<----+    +--->| AEXP |---> Auto-Exposure statistics
-> +          | Whitebalance |               +------+
-> +          +--------------+
-> +                 |
-> +                 +------------------------------> Auto-Whitebalance statistics
-> +
-> +  L1ISP::VideoProcess(VPRO)
-> +
-> +  +-----+    +------------+    +------------+    +---------------+    +--------+
-> +  | 16b |--->| Gamma      |--->| RGB2YUV    |--->| Image Quality |--->| Output |
-> +  | RGB |    | Correction |    | Conversion |    | Adjustment    |    |  16b   |
-> +  |     |    +------------+    +------------+    +---------------+    |  YUV   |
-> +  +-----+                                                             +--------+
-> +
-> +  L1ISP::AnalogGain
-> +
-> +  statistics                     +-------------+    +------------------+
-> +  information ---> (user SW) --->| Analog Gain |--->| ABPC, RCNR, LSSC |
-> +                                 +-------------+    |       MPRO, VPRO |
-> +                                                    +------------------+
-
-I'm a bit puzzled by "analog gain" here, as the ISP operates on digital
-data only. Does the ISP need to be informed of the analog gain values
-computed by the AEGC software algorithm and applied to the camera
-sensor, for instance to estimate the noise level based on the analog
-gain and adapt noise filtering accordingly ? Or is it something else ?
-
-Edit: the text below answers this question :-)
-
-> +
-> +L2 ISP provides following operations:
-> +
-> +- Input: accepts 16bit YUV / RGB
-> +- Operations:
-> +    - Lens undistortion; see :c:type:`viif_l2_undist`
-
-The structure is named viif_l2_undist_config. Please make sure to
-compile the documentation, you should then get warnings for C types that
-are not found.
-
-> +    - Scaling; see :c:type:`viif_l2_roi`
-
-viif_l2_roi_config
-
-> +    - Cropping; see :c:type:`viif_l2_roi`
-
-Looking at the implementation of the resizer subdevs, I see that the
-crop and compose rectangles can be set, but they don't seem to ne used
-to configure the resizer. Instead, the viif_l2_roi_config parameters are used
-to configure cropping on the resizer input and scaling. This discrepancy
-isn't good. I see two options to fix it:
-
-- Keep configuring the resizer through viif_l2_roi_config and drop the resizer
-  subdevs. This will simplify the driver. The main drawback is that it
-  won't be possible to implement digital zoom (by changing the resizer
-  configuration) asynchronously from the ISP parameters buffers, which
-  can be useful to lower the latency of digital zoom.
-
-- Drop viif_l2_roi_config, and configure the resizer from the formats,
-  crop and selection rectangles on the resizer subdev pads. This makes
-  the driver more complex. The main advantage is that digital zoom will
-  be configurable with a smaller latency, but the drawback is that it
-  won't be possible (or it will be more difficult) to configure it
-  synchronously with other ISP parameters.
-
-There are drivers in mainline that implement either of those options, so
-you can pick the one you think is best.
-
-An additional issue is that the hardware seems to implement cropping on
-the output of the resizer only, not on the input. Given that the size of
-the images output by the ISP pipeline must stay constant during video
-capture (otherwise there would be a risk of buffer overflow), modifying
-the crop rectangle on the output of the resizer is usually not allowed
-during streaming. I think this could be worked around by allowing
-modification only of the left and top coordinates during streaming, but
-configuring everything through viif_l2_roi_config would likely be
-easier. In that case, you should probably extend viif_l2_roi_config with
-the crop offsets.
-
-All of this reflects my current understanding of the ISP architecture,
-based on this document and on the driver code, so please correct me if
-there's anything I misunderstood. We can discuss the different options
-further before you modify the driver and send a new version.
-
-> +    - Gamma correction; see :c:type:`viif_l2_gamma_config`
-> +    - YUV2RGB
-> +- Output: RGB, YUV422, YUV444
-> +
-> +Below is the block diagram::
-> +
-> +  L2ISP
-> +
-> +  +-------+    +------------+    +--------------+    +---------+
-> +  | Input |--->| YUV2RGB    |--->| Lens         |--->| Scaling |---> |
-> +  | Image |    | Conversion |    | Undistortion |    |         |---> |
-> +  +-------+    +------------+    +--------------+    +---------+     |
-
-Is the scaling configuration for the two outputs independent ? If so I
-would move the scaling block just before gamma correction, in each of
-the branches below.
-
-> +                                                                     |
-> +          +----------------------------------------------------------+
-> +          |
-> +          |    +----------+    +------------+    +--------+    +--------+
-> +          +--->|Gamma     |--->| Colorspace |--->| Data   |--->| Output |
-> +          |    |Correction|    | Conversion |    | Packer |    | Image  |
-> +          |    +----------+    +------------+    +--------+    +--------+
-> +          |
-> +          |    +----------+    +------------+    +--------+    +--------+
-> +          +--->|Gamma     |--->| Colorspace |--->| Data   |--->| Output |
-> +               |Correction|    | Conversion |    | Packer |    | Image  |
-> +               +----------+    +------------+    +--------+    +--------+
-> +
-> +visconti-viif:resizer - Resizer Subdevice Node
-> +----------------------------------------------
-> +
-> +The resizer subdevice resides between ISP subdevice and Capture device
-> +on a capture path for post0 and post1.
-> +It receives resize and crop parameters for the specific capture path
-> +and controls L2ISP HW.
-> +
-> +following selection rectangles can be passed at VIDIOC_S_SELECTION ioctl.
-
-s/following/The following/
-
-> +
-> +- sink pads's compose rectangle (V4L2_SEL_TGT_COMPOSE) for scaling
-> +- source pad's crop rectangle (V4L2_SEL_TGT_CROP) for cropping
-> +
-> +
-> +viif_capture_post0, viif_capture_post1 - Processed Image Capture Video Node
-> +---------------------------------------------------------------------------
-> +
-> +These video nodes are used for capturing images processed at ISPs.
-> +Supported capture formats are as follows:
-> +
-> +- V4L2_PIX_FMT_RGB24
-> +- V4L2_PIX_FMT_ABGR32
-> +- V4L2_PIX_FMT_YUV422M
-> +- V4L2_PIX_FMT_YUV444M
-
-The hardware doesn't support semi-planar formats (NV12 or NV16) or
-packed formats (YUYV) ?
-
-> +- V4L2_PIX_FMT_Y16
-> +
-> +Bayer format is not supported. Use viif_capture_sub instead.
-> +
-> +POST0 and POST1 can output images from the same input image
-> +using different cropping and scaling settings.
-> +
-> +viif_capture_sub - Raw Image Capture Video Node
-> +-----------------------------------------------
-> +
-> +This video node is used for capturing bayer image from the sensor.
-> +The output picture has exactly the same resolution and format as the sensor input.
-> +The pipeline does not edit pixel values.
-> +However, when writing pixel values to memory, they are shifted to the MSB
-> +to match either 8bit or 16bit.
-> +
-> +Therefore, resulting capture formats are as follows:
-> +
-> +- for 8bit RAW input:
-> +    - V4L2_PIX_FMT_SRGGB8
-> +    - V4L2_PIX_FMT_SGRBG8
-> +    - V4L2_PIX_FMT_SGBRG8
-> +    - V4L2_PIX_FMT_SBGGR8
-> +- for 10, 12, 14bit RAW input:
-> +    - V4L2_PIX_FMT_SRGGB16
-> +    - V4L2_PIX_FMT_SGRBG16
-> +    - V4L2_PIX_FMT_SGBRG16
-> +    - V4L2_PIX_FMT_SBGGR16
-> +
-> +.. _viif_params:
-> +
-> +viif_params - ISP Parameters Video Node
-> +---------------------------------------
-> +
-> +The viif_params video node receives a set of ISP parameters from userspace
-> +to be applied to the hardware during a video stream.
-> +
-> +The buffer format is defined by struct :c:type:`visconti_viif_isp_config`, and userspace should set
-> +:ref:`V4L2_META_FMT_VISCONTI_VIIF_PARAMS <v4l2-meta-fmt-visconti-viif-params>` as the data format.
-> +
-> +.. _viif_stats:
-> +
-> +viif_stats - Statistics Video Node
-> +----------------------------------
-> +
-> +The viif_stats video node provides current status of ISP.
-
-The viif_stats video node provides statistics computed by the ISP and
-frame processing status.
-
-> +
-> +Following information is included:
-> +
-> +* statistics of auto white balance
-> +* average luminance information which can be used by auto exposure software impl.
-
-s/impl/implementation/
-
-I would also add
-
- * CSI-2 receiver calibration and error status
- * ISP error status
-
-It's quite uncommon to provide this kind of status through ISP stats
-buffers, but it sounds like an interesting idea. Other drivers usually
-keep error counters in the kernel and expose them through debugfs.
-
-> +
-> +The buffer format is defined by struct :c:type:`visconti_viif_isp_stat`, and userspace should set
-> +:ref:`V4L2_META_FMT_VISCONTI_VIIF_STATS <v4l2-meta-fmt-visconti-viif-stats>` as the data format.
-> +
-> +Feedback Operations
-> +===================
-> +
-> +Among the so-called 3A functions, VIIF provides only auto-whitebalance and auto-exposure.
-> +Auto-whitebalance is a standalone hardware feature.
-> +Some status information is available through the ISP statistics interface.
-> +
-> +Auto-exposure is realized through a combination of hardware and userland software.
-> +VIIF provides weighted average luminance information through the ISP statistics interface.
-> +The userland application calculates the sensor gain, sensor exposure and ISP digital gain.
-> +The calculated parameters are then passed to sensor's controls and the ISP parameter interface.
-> +
-> +Among ISP parameters, there are parameters called AG (analog gain).
-> +Actually, AG parameters have nothing to do with auto-exposure.
-> +It controls "strength" in several signal correction algorithms.
-> +Below is the list of the functions which may be affected by AG parameters:
-> +
-> +- ABPC/DPC
-> +- RCNR
-> +- LSSC
-> +- MPRO: color matrix correction
-> +- VPRO
-> +
-> +Capturing Video Frames Example
-> +==============================
-> +
-> +In the following example,
-> +imx219 camera is connected to pad 0 of 'visconti_csi2rx' subdevice.
-> +
-> +The following commands yield three pictures with different zoom ratio:
-> +- main path 0: 1.5x zoom, crop 1920x1080, RGB picture
-> +- main path 1: 0.67x zoom, crop 640x480, RGB picture
-> +- sub path: 1920x1080 RAW picture
-> +
-> +.. code-block:: bash
-> +
-> +	# set the links
-> +	media-ctl -d platform:visconti-viif-0 -r
-> +	media-ctl -d platform:visconti-viif-0 -l '"imx219 1-0010":0 -> "visconti_csi2rx 1c008000.csi2rx":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti_csi2rx 1c008000.csi2rx":1 -> "visconti-viif:isp":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti-viif:isp":1 -> "visconti-viif:resizer0":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti-viif:isp":2 -> "visconti-viif:resizer1":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti-viif:isp":3 -> "viif_capture_sub":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti-viif:resizer0":1 -> "viif_capture_post0":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti-viif:resizer1":1 -> "viif_capture_post1":0 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"viif_params":0 -> "visconti-viif:isp":4 [1]'
-> +	media-ctl -d platform:visconti-viif-0 -l '"visconti-viif:isp":5 -> "viif_stats":0 [1]'
-> +
-> +	# set format for imx219
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"imx219 1-0010":0 [fmt:SRGGB10_1X10/1920x1080]'
-> +
-> +	# set format for csi2rx
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti_csi2rx 1c008000.csi2rx":0 [fmt:SRGGB10_1X10/1920x1080  field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range]'
-> +
-> +	# set format for isp sink pad
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti-viif:isp":0 [fmt:SRGGB10_1X10/1920x1080]'
-> +
-> +	# set format for resizer pads
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti-viif:resizer0":0 '"[fmt:YUV8_1X24/1920x1080 compose:(0,0)/2880x1620]"
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti-viif:resizer0":1 '"[crop:(480,16)/1920x1080]"
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti-viif:resizer1":0 '"[fmt:YUV8_1X24/1920x1080 compose:(0,0)/1280x720]"
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti-viif:resizer1":1 '"[crop:(320,32)/640x480]"
-> +
-> +	media-ctl -d platform:visconti-viif-0 --set-v4l2 '"visconti-viif:isp":1 [fmt:YUV8_1X24/1024 crop:(640,0)/1024x1024]'
-> +
-> +	# set format for main path0
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_post0 -v "width=1920,height=1080"
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_post0 -v "pixelformat=RGB3"
-> +
-> +	# set format for main path1
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_post0 -v "width=640,height=480"
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_post0 -v "pixelformat=RGB3"
-> +
-> +	# start streaming
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_post0 --stream-mmap --stream-count 1000 &
-> +
-> +	# start streaming with other devices while viif_capture_post0 is running
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_post1 --stream-mmap --stream-count 10
-> +	v4l2-ctl -z platform:visconti-viif-0 -d viif_capture_sub --stream-mmap --stream-count 10
-> +
-> +Use of coherent memory
-> +======================
-> +
-> +Visconti5 SoC has two independent DDR SDRAM controllers.
-> +Each controller is mapped to 36bit address space.
-> +
-> +Accelerator bus masters have two paths to access memory;
-> +one is directly connected to SDRAM controller,
-> +the another is connected via a cache coherency bus
-> +which keeps coherency among CPUs.
-> +
-> +From accelerators and CPUs, the address map is following:
-> +
-> +* 0x0_8000_0000 DDR0 direct access
-> +* 0x4_8000_0000 DDR0 coherency bus
-> +* 0x8_8000_0000 DDR1 direct access
-> +* 0xC_8000_0000 DDR1 coherency bus
-> +
-> +The base address can be specified with "memory" and "reserved-memory" elements
-> +in a device tree description.
-> +It's not recommended to mix direct address and coherent address.
-> +
-> +The Visconti5 VIIF driver always use only direct address to configure Video DMACs of the hardware.
-> +This design is to avoid great performance loss at coherency bus caused by massive memory access.
-> +You should not put the dma_coherent attribute to viif element in device tree.
-> +Cache operations are done automatically by videobuf2 driver.
-> diff --git a/Documentation/userspace-api/media/v4l/meta-formats.rst b/Documentation/userspace-api/media/v4l/meta-formats.rst
-> index 86ffb3bc8ade..2336842f0c26 100644
-> --- a/Documentation/userspace-api/media/v4l/meta-formats.rst
-> +++ b/Documentation/userspace-api/media/v4l/meta-formats.rst
-> @@ -19,6 +19,7 @@ These formats are used for the :ref:`metadata` interface only.
->      metafmt-pisp-fe
->      metafmt-rkisp1
->      metafmt-uvc
-> +    metafmt-visconti-viif
->      metafmt-vivid
->      metafmt-vsp1-hgo
->      metafmt-vsp1-hgt
-> diff --git a/Documentation/userspace-api/media/v4l/metafmt-visconti-viif.rst b/Documentation/userspace-api/media/v4l/metafmt-visconti-viif.rst
-> new file mode 100644
-> index 000000000000..dc4b31627fe1
-> --- /dev/null
-> +++ b/Documentation/userspace-api/media/v4l/metafmt-visconti-viif.rst
-> @@ -0,0 +1,48 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +.. _v4l2-meta-fmt-visconti-viif-params:
-> +
-> +.. _v4l2-meta-fmt-visconti-viif-stats:
-> +
-> +***************************************************************************************
-> +V4L2_META_FMT_VISCONTI_VIIF_PARAMS ('vifp'), V4L2_META_FMT_VISCONTI_VIIF_STATS ('vifs')
-> +***************************************************************************************
-> +
-> +Configuration parameters
-> +========================
-> +
-> +The configuration parameters are passed to the
-> +:ref:`viif_params <viif_params>` metadata output video node, using
-> +the :c:type:`v4l2_meta_format` interface. The buffer contains
-> +a single instance of the C structure :c:type:`visconti_viif_isp_config` defined in
-> +``visconti_viif.h``. So the structure can be obtained from the buffer by:
-> +
-> +.. code-block:: c
-> +
-> +	struct visconti_viif_isp_config *params = (struct visconti_viif_isp_config*) buffer;
-> +
-> +VIIF statistics
-> +===============
-> +
-> +The VIIF device collects different statistics over an input Bayer frame.
-> +Those statistics are obtained from the :ref:`viif_stats <viif_stats>`
-> +metadata capture video node,
-> +using the :c:type:`v4l2_meta_format` interface. The buffer contains a single
-> +instance of the C structure :c:type:`visconti_viif_isp_stat` defined in
-> +``visconti_viif.h``. So the structure can be obtained from the buffer by:
-> +
-> +.. code-block:: c
-> +
-> +	struct visconti_viif_isp_stat *stats = (struct visconti_viif_isp_stat*) buffer;
-> +
-> +The statistics collected are Exposure, AWB (auto white balance) and errors.
-> +See :c:type:`visconti_viif_isp_stat` for details of the statistics.
-> +
-> +The statistics and configuration parameters described here are usually
-> +consumed and produced by dedicated user space libraries that comprise the
-> +tuning tools using software control loop.
-> +
-> +visconti viif uAPI data types
-> +=============================
-> +
-> +.. kernel-doc:: include/uapi/linux/visconti_viif.h
-
-Assuming the documentation in the header file is adequate, the level of
-detail here is fine.
-
--- 
-Regards,
-
-Laurent Pinchart
 
