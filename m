@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C0DE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9817CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2s64r079MyrIrC0f+m5bOvWgz/OL6n79J3l2X0UEdDg=; b=T7SQQ8CO7bpmaAZ9ekDQ9atUrM
-	2gj+IxQjWt0D5zxl1iIXLhnujhoIO7NiuJksO+D17+QeFJ/xU5bsdnCC5TZRvVpluTyjENy737a8I
-	sfseeouUk2GFkGUKqurwgyQz14MJqfXDwBwyjgIaIYMyvPM/GZe2z2HC2Od9i27yJaPTbJwr6ZwAi
-	/vw/n2LvDFVzhNDZgA8tRKpYOMbXXODBhpHEQWRN9rFbqckKY/H5QA6CBXEPW4/tN9Vi0Uu5BmeB8
-	NfyuPNJO3eeIOfGUXrIrH8JM+3Ykq0eGtAurKDueFRLINB5NN1gjOnKJLvvqgN9/GOkEybReK99r8
-	ZWfeMchA==;
+	bh=MzgbTqu7Pf81K3n6FEo2ouQUk70oFTIjTNadvia5KQk=; b=RXwWl3HA9Z46OrzKIwUZU4fK5B
+	BMFu8i2LXMbNKBFG/DJVjy7sIZ/CcscSLN3P62znqhf26OYL3JX6HnU6YKaFLOaPD5sO+zfVsTGR9
+	vF98eJ7KeLRL5Yx7Bc8bfk3pI4APQjiiCAaDUR6LkdFGQ58gGb0itrV+VyRbg8O3kyZLw5YOQcycq
+	KHEjC0lzmwjSMnhNVfaQHNKv+WvNcgmTKyQAwP7mAw3pfQR20agR6eySwZ/EKM/NPK+nAWKsSA+2T
+	ClyjpysRFgx74KOB9pS9zmtzugKxn19wUrFle9eLP3cRQJs2ErbpRMKj3knaDn4bd0+4Wn+U29nSh
+	VibbIIJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNtv-0000000Aobk-3CCD;
-	Thu, 02 Jan 2025 16:18:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tTNv8-0000000Aoj7-1i6u;
+	Thu, 02 Jan 2025 16:19:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNsh-0000000AoPq-2uL1
+	id 1tTNsn-0000000AoRG-0AWy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:17:09 +0000
+	Thu, 02 Jan 2025 16:17:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C19865C611B;
-	Thu,  2 Jan 2025 16:16:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B3A8C4CED0;
-	Thu,  2 Jan 2025 16:17:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 369265C591B;
+	Thu,  2 Jan 2025 16:16:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F00C4CED1;
+	Thu,  2 Jan 2025 16:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735834626;
-	bh=RS6P+FD/9IkvZodA5LhnKpsNjDG9dNRLDW/Rws2bP+c=;
+	s=k20201202; t=1735834632;
+	bh=n9ud37TQxIKMF/EXGcL7J6tlOfeIz6jxwv2/jx+03p4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jeSSOuNSkMJnZ8enL+buxBQeLRJBCYpvdKQZ7GMmza3F6Auiu+aq4IY7tHIh3iMwn
-	 WyGpb88w2SMbd6MmUOuukbAqvtQ6iXsOFlXwF7bdvVoYqHc4YfZJ+w9kNxCYOb5QRX
-	 1+pQBj33hPJ2ee9e1egpWeoBU1iY6CrhyYV3wNiIXw0jA8B1+zv+q9y14xVQlWK7qB
-	 M73P/LqZw4qY4829WpYMhhL1fHtpT1cPNdZ7GD8Zf1SVyv7Q8s0ePThlQjbRZk9PhK
-	 d8J1WbsXX3O0qLoetvbHaoVJZ3ML4eC39uqiyFM5liMhj1b4Hww5uUqxumcDeXtg4A
-	 3+XCsA5O7p5JA==
-Message-ID: <8f129ecd-ea7f-4380-bc64-125b7c13b006@kernel.org>
-Date: Thu, 2 Jan 2025 17:17:00 +0100
+	b=QymLf4I1YEOJ6Z8hGeRwsTM1/Wo2/dJ/8G7MVDFcJXxEmDM7GrXc81hHZ//gx3Sl1
+	 uKyl4+QuJ85tK++pZrz2hFvkZCgtBsgwjFaphV2knG/aG5dBi8wgYCuywkT3WOORW9
+	 0RL86k3dVmUJ+/UPE4rnDjM5D45kw1qYNISYH2vSldpRkx0JsoSs4HTngYlGBdySjw
+	 swsAdhWfjEfXQ2m8PLdG8HcxYxEb1x+LDbGZxZTNokDoBute5HQ2yNh+3KHZmRHPiw
+	 3PSVwzvOa7FSrHnxlO4/tlS6hvSFJlWZGgrN6Kh+bWfas3a1rzcMyPnrNWsOBj6wBT
+	 gXrVAa8ITHClg==
+Message-ID: <7f390e8c-244b-48cf-9b48-62f9b91da49d@kernel.org>
+Date: Thu, 2 Jan 2025 17:17:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: vendor-prefixes: Add NetCube Systems
- Austria name
+Subject: Re: [PATCH 2/3] dt-bindings: arm: sunxi: Add NetCube Systems Kumquat
+ board
 To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
@@ -56,6 +56,7 @@ To: Lukas Schmid <lukas.schmid@netcube.li>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 References: <20250102150508.3581-1-lukas.schmid@netcube.li>
+ <20250102150508.3581-2-lukas.schmid@netcube.li>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250102150508.3581-1-lukas.schmid@netcube.li>
+In-Reply-To: <20250102150508.3581-2-lukas.schmid@netcube.li>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_081707_859536_4F4FFAFE 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250102_081713_175273_129FBAE4 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,33 +124,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/01/2025 16:05, Lukas Schmid wrote:
-> NetCube Systems Austria is a company that produces embedded systems
+> The NetCube Systems Kumquat is a board based on the Allwinner V3s SoC.
 > 
 > Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
 > ---
 
+
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-
----
-
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here. However, there's no need to repost
-patches *only* to add the tags. The upstream maintainer will do that for
-tags received on the version they apply.
-
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
 
 Best regards,
 Krzysztof
