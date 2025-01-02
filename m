@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD8BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE89E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6hEI7kx07brNGco3zUyQa7aElptoApNRUtcNC4rTTU=; b=btJIc50s+DCBQVQJopscfliQ90
-	SoykyckqLE2PRW+xahCGhoPvwxpxStqX8sERsWz85fGr+zm+Fs+4u/fG54/PFbtVDV5nklqQYCUeK
-	B31cISbbavb4Eobq0hMd8GXRm9jR98Yv1w3dYpExNPQN18NYPjMeufukQBz0xE8uQmK1DHJ2FdU0t
-	8hAaPElMUox8LYNWIlfgEUugTHlBFKFN/gPLSBfWaEoNyNqrriuU8ngwrWWT3rObfgdrQyulwY9hb
-	hNeNamBOxjCIlSWh7irkSZMNwXyC6Xvp/ZBhETdRDw66gpyNiRaf/PjBxDK1co/+5G+gElQ1Oq7Ku
-	DhOg/HQQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=87IKF3c9HbECtsPTMeRuQc+tjYDzspetfXzHHwU8By8=; b=rUtFuim19qbN3nnlCwPom3M+IT
+	dt7oUdlPcaEmsvVxlhixo/9kC92PSi5jH7RWh7INPQlT8pppjyjYPZQCC58oHjk67zsgpPvn7/ViT
+	hH2xwgaG2iPPbEvvXvyGlmJqkyXC0z96jZmZhOIeEI0IFFPEIeRVesMnZ6ISh+D7Enq6IkdiOeTE1
+	g8TDqrtSpbLm9rIIHEUqzcjC/z8pgECYSrHsJGdr0mllBqqjOFN5EBchZ79oC41lRfiT/GnKVmGyl
+	+OcTzzOfbrbfHCvftaDbXA1cpgO4+AZ0k6iMrq7qQRVJGgT275vR7lvnkyxmwvUp8n8KcbDinXD36
+	xIy8VcxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKen-0000000AOeJ-3Oly;
-	Thu, 02 Jan 2025 12:50:33 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tTKg0-0000000AOqk-33fH;
+	Thu, 02 Jan 2025 12:51:48 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKas-0000000ANcr-20AZ;
-	Thu, 02 Jan 2025 12:46:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1735821988;
-	bh=sNS3yO4duFHIJRGQLLIdmw3fGnjbVp3Puh6hUmcVeLk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Pomt4eUa/WHnuD2B2I+BFseG7nzSeZyxrXCk+zoGdYWDHFfQ22aCQCJj5O0MDuXvF
-	 f3cWCSkIGrZ6Zrw9/6EoQFA8Oab/gKk+z3aqX4T30VeVRnpORu0l+b2kwHlQQVRH8E
-	 jtN+RfccmX7et3iRNxM4a5SFYbrD/D7lt2RjypmK/OBSMUTF77aUOrck/om3Yl+Gjc
-	 zWvTcCgvnbMP3TyMfKOE50OTBcswYSTsKoPHBE6AO5UKdWMY8M1mgZqTrwlMxAG2vx
-	 TWDsjbauB9RgHos/O4DQZOSeeBwtTSQdOwttQT9gaco8qk2RrorYRRaZfZhDMI1193
-	 AyW4/SSusDiew==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5F47317E1570;
-	Thu,  2 Jan 2025 13:46:28 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Frank Wunderlich <linux@fw-web.de>
-Cc: Frank Wunderlich <frank-w@public-files.de>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20241220163838.114786-1-linux@fw-web.de>
-References: <20241220163838.114786-1-linux@fw-web.de>
-Subject: Re: [PATCH v8 0/2] Add Pmic to Bpi-R4
-Message-Id: <173582198832.163596.11661703686589074708.b4-ty@collabora.com>
-Date: Thu, 02 Jan 2025 13:46:28 +0100
+	id 1tTKcH-0000000AO0z-2uCf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jan 2025 12:47:59 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-53e389d8dc7so12373246e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 04:47:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735822075; x=1736426875; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=87IKF3c9HbECtsPTMeRuQc+tjYDzspetfXzHHwU8By8=;
+        b=hTEH3WvyRs2nGMY+PCHxgyebFEZfxVaQi71Vh4l5WPfx8DrTtLMEcYQpKMIqE+IoI8
+         htvGKzERnQhyMjr0mSh0vbg9uiS7g9p/QY/vvXiqSXDkUBCjbbo4/Tca+9f+IapQtdqX
+         FLwzG15lylnc7fBLVt3Xq0LuIWNM8jDaNz6LGl9/znDZUjqT14A7wgKnCHZ3GDjzQbxb
+         c+cHoWPa1L9AahbkYYMf7t9oOsyEJ8f3otMTDn31odCSkTMCNvF8PY2hnDysPt2mM/kL
+         C9L5jVCHPnAv1lniUENgk/PBLJZG8ebpntrZmC3R4w5S18my9Oo5Wm0Hzf/eKTp/PBfe
+         RQRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735822075; x=1736426875;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=87IKF3c9HbECtsPTMeRuQc+tjYDzspetfXzHHwU8By8=;
+        b=Xo55277IKdryZpxA4TMDJiTpXjrUa8btK+OGGjVBhwApvTAiXjqPw6X0d+tJ8WCMqj
+         grjUkaXaTxs+5GuQtlBG/j5nvDFwbUC7RVwi7kFXkq3jJljbBFY8nrOgpVsZNbdkzKwp
+         1sxTi3xVPdjOteN88c8tCJlNzUHoGpyuM1eROALGejJz4uV3aQMFpM9gEYh6YmYQtLIu
+         40WuYW+gpac0Z02uT1dQXLTR4dNqkEkGlJ8Oo1NZ1ILeBvtd8ph+OQK04KYkMNph4Bzn
+         bXJDypqYRUjkxhjc+edgbJLX/JUFxpeyJRop4b6V0o76v3JiGpMoYMy6nXUgHLSr/wsl
+         4rXw==
+X-Forwarded-Encrypted: i=1; AJvYcCWtZnpNPSqsZ3vK9ebg6wzEd/dNou3Pc8MPMjY93nhv30Pm5TQU8zVZnq5/6GidBrCopJf4FfhTeqXLfr2FrHh4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYYyx0FupU53T12I/Mh5zrHjWO2HYWhKMANIjVYIh84C2XxUtx
+	WjvYWM4d10rwNcAsijg7q0JKxxXzwWZ306y/a7zsO12oDfDUCnHUPvPoCQdsaPg=
+X-Gm-Gg: ASbGncsFZ9yIXEYAvMx0uZk4UX3f3CfCtkVkQVekQTQD6d//sCHWC7PW/6fsePOlXWv
+	0qQW8byCVe1iMR6dyWC/HoElIGeo/nlMG0BjeMrkD6IGZqxd2TW30zuyRc0f2RpFn0s7VSgKxMs
+	gcRJ6W58xkqlsy2I2QbLT+RMfCyzU3GwUmnZZgmtALtD/L+A+N3XrSfYd/KkYZazeraEPLdUy6P
+	tF4kA46cFdosq04WIQ0PHRvdcbzqo1tIk1tnu+/CLeDEzX4DpWg5RNDzq2Kk83eV6hmfQVneUGV
+	QCG1oxrMZRt8ueD3VWEXy/Tox4050rc=
+X-Google-Smtp-Source: AGHT+IHSR/Xqw+zKVilPbS18SxVhML7NXuysuSNJyvDEen1lNQEfTHRrM46D8RL3KMyIttSdLTLqLA==
+X-Received: by 2002:a05:6512:e8c:b0:53a:1a81:f006 with SMTP id 2adb3069b0e04-5422953fedcmr15859594e87.31.1735822075431;
+        Thu, 02 Jan 2025 04:47:55 -0800 (PST)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238217f9sm3817314e87.211.2025.01.02.04.47.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jan 2025 04:47:54 -0800 (PST)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Linus <torvalds@linux-foundation.org>,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] pmdomain fixes for v6.13-rc6
+Date: Thu,  2 Jan 2025 13:47:53 +0100
+Message-ID: <20250102124753.50440-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_044630_703226_58270F4C 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_044757_787037_C41596F7 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +96,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 20 Dec 2024 17:38:34 +0100, Frank Wunderlich wrote:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> After these 2 Patches are dropped from my dts-series [1] i verified these
-> with mtk and changed based on this.
-> 
-> The problem was that voltages from BUCK4 and LDO were not matching the
-> voltages from schematic.
-> 
-> [...]
+Hi Linus,
 
-Applied to v6.13-next/dts64, thanks!
+Here's a PR with a couple of pmdomain fixes intended for v6.13-rc6. Details
+about the highlights are as usual found in the signed tag.
 
-[1/2] arm64: dts: mediatek: mt7988a-bpi-r4: Add MediaTek MT6682A/RT5190A PMIC
-      commit: 32dfd25b2f7b8073d016aea12e9c1b7612aa3daa
-[2/2] arm64: dts: mediatek: mt7988a-bpi-r4: Add proc-supply for cpus
-      commit: 2798f51df86eefd8584557c9b9ee10f92c674849
+Please pull this in!
 
-Cheers,
-Angelo
+Kind regards
+Ulf Hansson
 
 
+The following changes since commit fac04efc5c793dccbd07e2d59af9f90b7fc0dca4:
+
+  Linux 6.13-rc2 (2024-12-08 14:03:39 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.13-rc2
+
+for you to fetch changes up to f64f610ec6ab59dd0391b03842cea3a4cd8ee34f:
+
+  pmdomain: core: add dummy release function to genpd device (2024-12-19 15:47:02 +0100)
+
+----------------------------------------------------------------
+pmdomain core:
+ - Silence warning by adding a dummy release function
+
+pmdomain providers:
+ - imx: Fix an OF node reference leak in imx_gpcv2_probe()
+
+----------------------------------------------------------------
+Joe Hattori (1):
+      pmdomain: imx: gpcv2: fix an OF node reference leak in imx_gpcv2_probe()
+
+Lucas Stach (1):
+      pmdomain: core: add dummy release function to genpd device
+
+ drivers/pmdomain/core.c      | 6 ++++++
+ drivers/pmdomain/imx/gpcv2.c | 4 ++--
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
