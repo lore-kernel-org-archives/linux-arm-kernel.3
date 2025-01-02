@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89890E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081B6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWWdQI5YGXL9JjfkAaD/HifjsZDxm5MvpsRItIGecwY=; b=bTC9np2cHxiowmckx7FsPLsFYy
-	7FqQmYlI8oruH12STXgrFPXclOGAASfo23fkGhq4sFeMJVGbQJqHyS5tJd8GoM1QWwdCEnfBVY5rU
-	j2yk3Ap8EVjaouGqvxgVAC9fOpyNxnGAw6+wPoXAXTaRbiqZEJcWgPyEDTIVjgBdhgN3/ZyEJ6T0/
-	w/As5DLIBQA+y0UqiNs139Sz33aMf3MHIGBiUUEVeFYxVHMyOvYm0FDVBF7oQfQNEweIIXAIG/pk1
-	myRj2Wq6bi+oXSeF/fhLCS+ALzjuLPxRH+CPWDv4Zwe2jW3cf/XLa49R/N6upS5x0YfuWXh0GMqhg
-	gWTrNZKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJABaTnDleYX/TgtIWX2SB42SRqJm2UoZZwqxNnCbz0=; b=fVucqT/0JCfhX/698knS+NRJRB
+	T938oL54sOgT3maGivQxqghXTmspD1MG4jHYIXL8awZb8W3ySJOxKTnqIgGGnlZpDKQvT0xa0jwrc
+	OtqS5pSAJQpFa6GWGVphzo0TC8re/sYMWBWT7zZ9xBcePgTRo8TAsbNVmNOrVrjVosEbng4R6dVH/
+	Aqp0z//130fXi2LrBzJxXWh73GjTMYI5WY42CYTryzCPpL9D9yb1IuZf1UWz7n/cgr2ERi7JUPJfE
+	7TCB3eyEnHzRC5GEPzcfVJr+t5iOyoWvAHUscwjyGz3ngulqvklt5zcQjZ6LVe06OunM7lZKhSz0H
+	YgghG3Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJMu-0000000AFhl-0d8P;
-	Thu, 02 Jan 2025 11:28:00 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1tTJPP-0000000AFxx-09Xx;
+	Thu, 02 Jan 2025 11:30:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJLk-0000000AFcD-3j9k
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 11:26:50 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4YP4B014z9zrS7M;
-	Thu,  2 Jan 2025 19:24:56 +0800 (CST)
-Received: from kwepemd500014.china.huawei.com (unknown [7.221.188.63])
-	by mail.maildlp.com (Postfix) with ESMTPS id D73471800D1;
-	Thu,  2 Jan 2025 19:26:38 +0800 (CST)
-Received: from [10.67.121.2] (10.67.121.2) by kwepemd500014.china.huawei.com
- (7.221.188.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Thu, 2 Jan
- 2025 19:26:38 +0800
-Message-ID: <677677ED.7060902@hisilicon.com>
-Date: Thu, 2 Jan 2025 19:26:37 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	id 1tTJOD-0000000AFri-291N;
+	Thu, 02 Jan 2025 11:29:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 17417A4104C;
+	Thu,  2 Jan 2025 11:27:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B557C4CED0;
+	Thu,  2 Jan 2025 11:29:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735817360;
+	bh=BsVLFIudwmLHKq9cvrX81yCcvG7hbmBcBnWpo5dVIeg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y2ePCEQBPzD3S5N1O65KL4gEe1CJVZTgG1HFFy0f0TO44O+gA5C6BkhshJdnfcCeZ
+	 gzwTM0K/PmRf3Y4WxcbR0ynXEZImUqn49SZGGuDA9vYGP6jcfQqXaRaJOaM3hKjmuX
+	 5Ah+//iGBjGv2QaN3dHdj/QUpB9Yide4n3tD+WLWl2sN04bo0cOwUSPFo4Xf8ry7gO
+	 ukg3fcFozaBglJN7x9o0SsQuC2+ZLv0oJZz4qayha+n3ZkG1aup7R/+x+wUaDIqse7
+	 PyoPeSBXr/FieykEYc+jJUQL8dDQlQ/3RXtiiCu8XdfY8Kl6Z6Hp8idWEwm/R2SE2s
+	 lzIV5iYOzjxAw==
+Date: Thu, 2 Jan 2025 12:29:17 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+	Hui Ma <hui.ma@airoha.com>
+Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
+ PCIE_RSTB for Airoha EN7581 SoC
+Message-ID: <Z3Z4jcwtgcXk9Zo6@lore-desk>
+References: <20241113-pcie-en7581-rst-fix-v3-1-23c5082335f7@kernel.org>
+ <20241230185810.GA3960934@bhelgaas>
 MIME-Version: 1.0
-To: "Rob Herring (Arm)" <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <xuwei5@hisilicon.com>
-Subject: Re: [PATCH] arm64: dts: hisilicon: Remove unused and undocumented
- "enable-dma" property
-References: <20241115193454.3619297-1-robh@kernel.org>
-In-Reply-To: <20241115193454.3619297-1-robh@kernel.org>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.2]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemd500014.china.huawei.com (7.221.188.63)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PirDLZErFthZy50t"
+Content-Disposition: inline
+In-Reply-To: <20241230185810.GA3960934@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_032649_116437_F1D40EBE 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250102_032921_714172_24DB12BF 
+X-CRM114-Status: GOOD (  39.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +83,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
 
-On 2024/11/16 3:34, Rob Herring (Arm) wrote:
-> Remove "enable-dma" property which is both unused in the kernel and
-> undocumented. Most likely they are leftovers from downstream.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  arch/arm64/boot/dts/hisilicon/hi6220.dtsi | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/hisilicon/hi6220.dtsi b/arch/arm64/boot/dts/hisilicon/hi6220.dtsi
-> index a589954c29e2..12f621cedf89 100644
-> --- a/arch/arm64/boot/dts/hisilicon/hi6220.dtsi
-> +++ b/arch/arm64/boot/dts/hisilicon/hi6220.dtsi
-> @@ -728,7 +728,6 @@ spi0: spi@f7106000 {
->  			reg = <0x0 0xf7106000 0x0 0x1000>;
->  			interrupts = <0 50 4>;
->  			bus-id = <0>;
-> -			enable-dma = <0>;
->  			clocks = <&sys_ctrl HI6220_SPI_CLK>, <&sys_ctrl HI6220_SPI_CLK>;
->  			clock-names = "sspclk", "apb_pclk";
->  			pinctrl-names = "default";
-> 
+--PirDLZErFthZy50t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks!
-Since the "enable-dma" and "bus-id" both are not used by the pl022 driver,
-when applying this patch, I have removed the "bus-id" and changed the 
-commit message as well.
+> On Wed, Nov 13, 2024 at 02:58:08PM +0100, Lorenzo Bianconi wrote:
+> > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > causing occasional PCIe link down issues. In order to overcome the
+> > problem, PCIE_RSTB signals are not asserted/released during device prob=
+e or
+> > suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+> > (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
+> > module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+> >=20
+> > Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+> > specify per-SoC capabilities.
 
-The detail is as following:
-https://github.com/hisilicon/linux-hisi/commit/4a45f8c502a8b8a836c3c932a18d538856097ac7
+Hi Bjorn,
 
-Best Regards,
-Wei
+similar to the other series, this patch is already in Krzysztof's branch.
+Do you prefer to resend it or just incremental changes?
+
+>=20
+> Is there a URL or some other way to cite erratum documentation for
+> this?
+>=20
+> > Tested-by: Hui Ma <hui.ma@airoha.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> > Changes in v3:
+> > - cosmetics
+> > - Link to v2: https://lore.kernel.org/r/20241104-pcie-en7581-rst-fix-v2=
+-1-ffe5839c76d8@kernel.org
+> >=20
+> > Changes in v2:
+> > - introduce flags field in mtk_gen3_pcie_flags struct instead of adding
+> >   reset callback
+> > - fix the leftover case in mtk_pcie_suspend_noirq routine
+> > - add more comments
+> > - Link to v1: https://lore.kernel.org/r/20240920-pcie-en7581-rst-fix-v1=
+-1-1043fb63ffc9@kernel.org
+> > ---
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 60 ++++++++++++++++++++-=
+--------
+> >  1 file changed, 42 insertions(+), 18 deletions(-)
+> >=20
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
+controller/pcie-mediatek-gen3.c
+> > index 16a55711a7f3bdc8d6620029e3d2cfdd40b537b7..443072adb9b52a6934a5d1e=
+38eb6fca5f86a1e13 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -128,10 +128,18 @@
+> > =20
+> >  struct mtk_gen3_pcie;
+> > =20
+> > +enum mtk_gen3_pcie_flags {
+> > +	SKIP_PCIE_RSTB	=3D BIT(0), /* skip PCIE_RSTB signals configuration
+> > +				   * during device probing or suspend/resume
+> > +				   * phase in order to avoid hw bugs/issues.
+>=20
+> Maybe "Skip PERST# assertion"?
+>=20
+> s/in order to/to/
+
+ack, I will fix it.
+
+>=20
+> > +				   */
+> > +};
+> > +
+> >  /**
+> >   * struct mtk_gen3_pcie_pdata - differentiate between host generations
+> >   * @power_up: pcie power_up callback
+> >   * @phy_resets: phy reset lines SoC data.
+> > + * @flags: pcie device flags.
+> >   */
+> >  struct mtk_gen3_pcie_pdata {
+> >  	int (*power_up)(struct mtk_gen3_pcie *pcie);
+> > @@ -139,6 +147,7 @@ struct mtk_gen3_pcie_pdata {
+> >  		const char *id[MAX_NUM_PHY_RESETS];
+> >  		int num_resets;
+> >  	} phy_resets;
+> > +	u32 flags;
+> >  };
+> > =20
+> >  /**
+> > @@ -405,22 +414,34 @@ static int mtk_pcie_startup_port(struct mtk_gen3_=
+pcie *pcie)
+> >  	val |=3D PCIE_DISABLE_DVFSRC_VLT_REQ;
+> >  	writel_relaxed(val, pcie->base + PCIE_MISC_CTRL_REG);
+> > =20
+> > -	/* Assert all reset signals */
+> > -	val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > -	val |=3D PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RSTB;
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > -
+> >  	/*
+> > -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> > -	 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > -	 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > -	 * for the power and clock to become stable.
+> > +	 * Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > +	 * causing occasional PCIe link down. In order to overcome the issue,
+> > +	 * PCIE_RSTB signals are not asserted/released at this stage and the
+> > +	 * PCIe block is reset configuting REG_PCI_CONTROL (0x88) and
+>=20
+> s/configuting/configuring/
+>=20
+> "... is reset configuring ..." doesn't read smoothly.  Maybe "reset
+> *using*" or similar?  (I guess "reset using" is what you wrote in the
+> commit log.)
+>=20
+> I think if you mention the name of the en7581 clk function, that would
+> be enough, and we wouldn't need the register names, offsets, and
+> "available in the clock module".
+
+ack, I will fix it.
+
+>=20
+> > +	 * REG_RESET_CONTROL (0x834) registers available in the clock module
+> > +	 * running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+>=20
+> Mention the en7581 clk function, not the generic
+> clk_bulk_prepare_enable().  It's hard to get from generic to specific.
+
+ack, I will fix it.
+
+>=20
+> > -	msleep(100);
+> > -
+> > -	/* De-assert reset signals */
+> > -	val &=3D ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB | PCIE_PE_RS=
+TB);
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Assert all reset signals */
+> > +		val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > +		val |=3D PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> > +		       PCIE_PE_RSTB;
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +
+> > +		/*
+> > +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal)
+> > +		 * and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > +		 * for the power and clock to become stable.
+>=20
+> Add PCIe CEM spec revision, since section numbers may change between
+> revisions.  I know you're just moving it, but this is a good chance to
+> fix this.
+
+ack, I will fix it.
+>=20
+> Add blank lines between paragraphs.
+
+ack, I will fix it.
+>=20
+> > +		msleep(PCIE_T_PVPERL_MS);
+> > +
+> > +		/* De-assert reset signals */
+> > +		val &=3D ~(PCIE_MAC_RSTB | PCIE_PHY_RSTB | PCIE_BRG_RSTB |
+> > +			 PCIE_PE_RSTB);
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	}
+> > =20
+> >  	/* Check if the link is up or not */
+> >  	err =3D readl_poll_timeout(pcie->base + PCIE_LINK_STATUS_REG, val,
+> > @@ -1179,10 +1200,12 @@ static int mtk_pcie_suspend_noirq(struct device=
+ *dev)
+> >  		return err;
+> >  	}
+> > =20
+> > -	/* Pull down the PERST# pin */
+> > -	val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > -	val |=3D PCIE_PE_RSTB;
+> > -	writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	if (!(pcie->soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Pull down the PERST# pin */
+>=20
+> s/Pull down .../Assert PERST#/ to match other comments above
+
+ack, I will fix it.
+
+Regards,
+Lorenzo
+
+>=20
+> > +		val =3D readl_relaxed(pcie->base + PCIE_RST_CTRL_REG);
+> > +		val |=3D PCIE_PE_RSTB;
+> > +		writel_relaxed(val, pcie->base + PCIE_RST_CTRL_REG);
+> > +	}
+> > =20
+> >  	dev_dbg(pcie->dev, "entered L2 states successfully");
+> > =20
+> > @@ -1233,6 +1256,7 @@ static const struct mtk_gen3_pcie_pdata mtk_pcie_=
+soc_en7581 =3D {
+> >  		.id[2] =3D "phy-lane2",
+> >  		.num_resets =3D 3,
+> >  	},
+> > +	.flags =3D SKIP_PCIE_RSTB,
+> >  };
+> > =20
+> >  static const struct of_device_id mtk_pcie_of_match[] =3D {
+> >=20
+> > ---
+> > base-commit: ff80d707f3cb5e8d9ec0739e0e5ed42dea179125
+> > change-id: 20240920-pcie-en7581-rst-fix-8161658c13c4
+> >=20
+> > Best regards,
+> > --=20
+> > Lorenzo Bianconi <lorenzo@kernel.org>
+> >=20
+
+--PirDLZErFthZy50t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ3Z4jQAKCRA6cBh0uS2t
+rCBXAQD3SD0oUw2ZZBP3AmWa2bTIzKpw1gIB/7KUaZnNoTJLhQEAmhqyCsWcYPH+
+Nwes+DolAqE6JtE58jfEYgzTTYMM7ww=
+=qzLh
+-----END PGP SIGNATURE-----
+
+--PirDLZErFthZy50t--
 
