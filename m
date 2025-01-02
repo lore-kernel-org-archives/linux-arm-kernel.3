@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7311CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF2CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/sHbyVVVphEP21Gb1FWUwdcoubWd7dsPOQRT2FxUz/g=; b=OGIQ7cADHuuul/AZcsg1MvJDRu
-	1k8mjKwefo0W7cIX2GzLy466j5qXiQj8siiAU+cZBx7+dHVrW3RX6hM5dC8N1mCrZ5neex2++hxKB
-	KZwZrT/2DJwwLYr3LPOyztNGlbYShuBAJytvfxQYY6xWUMfbkS9RDfWv+IHv+iWkf+heJ9vREYQVd
-	JvfTCKvLx0UR5sKwPtgkR9iWFF22T5BQt0WsDZL4jMiXlfeciX2HeNzdFbIntnb5Yw8cBPR88EXD/
-	3Rf0UGGqxOP1LLr2xgKAKV5biMYKUhekgxHFAovNp8e0VMDZRsFSPk6vSWQMmLMwCt5PJ0+0MC8RM
-	p1/axzpA==;
+	bh=XsTz3yxj73PvMooWjsRyjQL/jl+71VcPQ1lJJyc5WyE=; b=nLpCiX1yBzbk8WQ9cQTkuNtusg
+	KXsqU6U3v3JuRM2Qs9CjsV+hX1HP67owQXI27qmjqABdiD5trw5LLMbYLeI82kw7176sAwpeFq2gy
+	HFBgVAFHtKFu3mXD4kdN8gwFsrE9rFG28RPxCmds3aWlIo9M++F9U5ONu0vEwntzklRlB5gn49P8H
+	u7LC+nxdcMnrfsNXTuXA6mTJhgLw5EHHZVKzH748lIVDFLtSKTs3AS4XfHu3L3QRMagm+AO52Ey1V
+	pm/2ly6g5+D64MoSFmMYfm4O7TWJYvd7EtYWzWFaAOXLEItyaBvkL/ySiY4wxppTusklno5C0bEVi
+	8cSGKK/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJEp-0000000AEaF-3jO1;
-	Thu, 02 Jan 2025 11:19:39 +0000
+	id 1tTJG0-0000000AEiJ-2JTr;
+	Thu, 02 Jan 2025 11:20:52 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJBN-0000000AE4e-2d5i
+	id 1tTJBN-0000000AE4g-3344
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 02 Jan 2025 11:16:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 236435C5B86;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6FC1C5C5B12;
 	Thu,  2 Jan 2025 11:15:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D035AC4CEE0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EC3B4C4CEE4;
 	Thu,  2 Jan 2025 11:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735816563;
-	bh=YR3aOQfQRpjZeAPGaopQcbBOCXaW1wkvfZuiJhh9ZRs=;
+	s=k20201202; t=1735816564;
+	bh=cEnF3ovwUU25dT0wsQm5L10I978yEVeevFbc61/RQ9w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nwB82J1Pv2iNNTb2Af7IuogSNLkCde2a3t0qaAzS97CdDpXBqitQiDKZ1AV1o2hZ7
-	 mbyzLeyQeB2TWP/VrsCWotg84pwCHlfJt2PpMlXIbfQhFrm0fsu9mf5gDe2jFG9Gef
-	 LF34GIxYDDxKGA+R+zsuHU8omuWo/piJT/j/rLeQapr0KgUDOmNl1l0eHYMqF9rd2A
-	 4/VtzP9Uq/4PQ64doNWVk4mWeB5CM8UxTVBhSEzGkZiAApGDInZ6W4dXf6Cjq+6JXx
-	 87zvrIWvHHgMaOtyPWkHg09EOqFbouIdB2oef/i1gdt2uUc1pkp/iUBN11gapKvdtr
-	 xiIJuV6M+pkaA==
+	b=pC7/Iq/hYbOMU0dmtsCyG38BVc069b6zrNQ+D4jl5WSlJN1A3z7hpRDea6DtcMl3A
+	 h82NEKQ9VBXwbPH5sjh82PqtjKGzocubCEjlaojhVDzJT1F/7KBPVhbiAWMarGvE5G
+	 Buw/+qvSMLSbxmQngFePpvp7q0HVK7JEZnI4ZyQCgTQYPt550RP3nbLaN3QCqUmDqR
+	 2Hjdl3Qq2pq+M8q7vVOOyOfHAIS/8t+sWFqwsHBM20jW+LI/uz1TRZo76jOrjigCvM
+	 jCbfgIht/5UilrbzjAadxVFrDmNf+SJRxFLEJQlBnSMmdpsgFpBZgyr7GLx7TQ99Hl
+	 9SS197wW5uZ3w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD23FE77197;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E29EDE77194;
 	Thu,  2 Jan 2025 11:16:03 +0000 (UTC)
 From: Thomas Antoine via B4 Relay <devnull+t.antoine.uclouvain.be@kernel.org>
-Date: Thu, 02 Jan 2025 12:15:04 +0100
-Subject: [PATCH v2 2/4] dt-bindings: power: supply: add max77759-fg flavor
+Date: Thu, 02 Jan 2025 12:15:06 +0100
+Subject: [PATCH v2 4/4] arm64: dts: exynos: gs101-oriole: enable Maxim
+ max77759 fuel gauge
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
+Message-Id: <20250102-b4-gs101_max77759_fg-v2-4-87959abeb7ff@uclouvain.be>
 References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
 In-Reply-To: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -65,19 +66,19 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, Thomas Antoine <t.antoine@uclouvain.be>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735816515; l=2599;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735816515; l=1485;
  i=t.antoine@uclouvain.be; s=20241202; h=from:subject:message-id;
- bh=NQEfG+SwFTGG+va2nEDX792ufRBYG0gtt35ac3EAHLY=;
- b=jM9VyggQ6eUW1RT5Sw+s3vgG3v7+G7XxjmfVHL2taeQU21fLP17pnVRrLZpT7NYIGIpDtxYrk
- OMqxPoSo6FqBEGjo0OnJe41tXf4Ii/jZK6JPj76xV1c1Vmui0kl7rNh
+ bh=GN3EniKaEOYE0aMNRzhLT0R4oirK05MCY9w8a0rDXYc=;
+ b=eMvTZq9F+2RWFQ1BgK4RRLys8hBQwJ8vxzR3brqK5tBh//epZY74AciI9nsB10bwtDs1X2cbA
+ YbKhbU97pEDDbvI3SWyzXLCMXp5vg1Z6AoNRMAQDFPtFUDxrpzy1Z+z
 X-Developer-Key: i=t.antoine@uclouvain.be; a=ed25519;
  pk=sw7UYl31W1LTpgWRiX4xIF5x6ok7YWZ6XZnHqy/d3dY=
 X-Endpoint-Received: by B4 Relay for t.antoine@uclouvain.be/20241202 with
  auth_id=289
 X-Original-From: Thomas Antoine <t.antoine@uclouvain.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_031605_915583_1D41152F 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250102_031605_923712_C87D76E9 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,100 +96,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thomas Antoine <t.antoine@uclouvain.be>
 
-The max77759 is an IC used to manage the power supply of the battery and
-the USB-C. Based on drivers from google, it contains at least a PMIC, a
-fuel gauge, a TCPCI and a charger.
+Add the node for the max77759 fuel gauge as a slave of the i2c.
 
-Use max77759-fg compatible to avoid conflict with drivers for other
-functions.
+The todo is still applicable given there are other slaves on the
+bus (pca9468, other max77759 functions and the max20339 OVP).
 
-The max77759 has no non-volatile memory so it doesn't require an address
-and instead requires a value for the current sensing resistor.
+The fuel gauge has been tested and seems to give coherent results.
+Manual activation of the charger via i2cset shows that the sign of
+the current does indicate charging/discharging status.
 
 Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
 ---
- .../bindings/power/supply/maxim,max17201.yaml      | 56 +++++++++++++++++-----
- 1 file changed, 43 insertions(+), 13 deletions(-)
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-index fe3dd9bd5585618e45220c51023391a5b21acfd2..7e95314508c27d0d90ea92f61bca6b4a2fe0e88e 100644
---- a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-+++ b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-@@ -9,31 +9,61 @@ title: Maxim MAX17201 fuel gauge
- maintainers:
-   - Dimitri Fedrau <dima.fedrau@gmail.com>
+diff --git a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+index 387fb779bd29ea3812331a7951f03b181c5fe659..6c83ee6f8a6b0327c576573d03a8d2bcc93f9e16 100644
+--- a/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
++++ b/arch/arm64/boot/dts/exynos/google/gs101-oriole.dts
+@@ -10,6 +10,7 @@
  
--allOf:
--  - $ref: power-supply.yaml#
--
- properties:
-   compatible:
-     oneOf:
-       - const: maxim,max17201
-+      - const: maxim,max77759-fg
-       - items:
-           - enum:
-               - maxim,max17205
-           - const: maxim,max17201
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/input/input.h>
++#include <dt-bindings/interrupt-controller/irq.h>
+ #include "gs101-pinctrl.h"
+ #include "gs101.dtsi"
  
--  reg:
--    items:
--      - description: ModelGauge m5 registers
--      - description: Nonvolatile registers
--
--  reg-names:
--    items:
--      - const: m5
--      - const: nvmem
--
-   interrupts:
-     maxItems: 1
+@@ -90,6 +91,15 @@ eeprom: eeprom@50 {
+ &hsi2c_12 {
+ 	status = "okay";
+ 	/* TODO: add the devices once drivers exist */
++
++	fuel-gauge@36 {
++		compatible = "maxim,max77759-fg";
++		reg = <0x36>;
++		reg-names = "m5";
++		shunt-resistor-micro-ohms = <5000>;
++		interrupt-parent = <&gpa9>;
++		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
++	};
+ };
  
-+allOf:
-+  - $ref: power-supply.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - maxim,max17201
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: ModelGauge m5 registers
-+            - description: Nonvolatile registers
-+          minItems: 1
-+
-+        reg-names:
-+          items:
-+            - const: m5
-+            - const: nvmem
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - maxim,max77759-fg
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: ModelGauge m5 registers
-+
-+        reg-names:
-+          items:
-+            - const: m5
-+
-+        shunt-resistor-micro-ohms:
-+          description: The value of current sense resistor.
-+
-+      required:
-+        - shunt-resistor-micro-ohms
-+
- required:
-   - compatible
-   - reg
+ &pinctrl_far_alive {
 
 -- 
 2.47.1
