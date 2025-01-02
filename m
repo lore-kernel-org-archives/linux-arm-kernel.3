@@ -4,61 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE116E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 03:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0C9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 04:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/PgJP4At7maMkgEr5XksIBOUd9G8YNnzJaI2ze6h/E=; b=e7DA0pGK7TnbSG8ynk9ISy5Vc2
-	WOfMGnL52Uqztcc+1NPcp3oP0UKZNknXeYdQL6MdHCKvuYHxewrHfehJZtV41eOyto8ZevvNPcHQb
-	zyegzQQBPzdF5Fg2UBD2AcCn0AhQXVZc07wZs2tYTUHie5CTwCSXTdQQo/1/XwtU2iaDESrm8+eox
-	LP+ekms56dKhmiw2JPODaR0EoQIEX0dRWE3Hwx3zrdUBz37cAfN3ybyiDJl98GMyfnLtXrMxeLBfL
-	kzEkath6e1gAS2aryWJA7UZqW3mD0fbHJTxx9rqc2oNoLcnhmOS8/FcMFxEEPzuQ3fV9kpcwSgE/i
-	uR9QngoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MRbuq/vJhOHDwWZyIZVQ1UR8FeorGGJoKh1JNDZST1k=; b=C5hycogHqULW7f31TCgcUyFU8+
+	BsGspqcyWbYDbpnsUAXhQk/cG/z25TKwbw7yhpdoLJfVSEoPym7PhBhiVo9ZwKR0gSywH47JsGYGL
+	Pv6IRVgp5e8M4Af63SufZzjAr7rVpK7iPiXPou+vAV4I707xE84ndgjBu5Ge2FD7KyBci/3lsOhP+
+	/Wfx0mmHjZdet/CLlC0kmwlly7ujQN5aTDdtgblywnRVQLynPdNw8ekXfQA3tY4xhkUBjLcdtQ/vL
+	khrpdQTOwNbV5jsOpmGBQCxgaQxatzpzdpUs2jjVm2em5PW1UDpdi6aeopiol4vH5A7EF0xjc4e8K
+	HZChV0ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTCGj-00000009gHh-2RbB;
-	Thu, 02 Jan 2025 03:53:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTCFb-00000009gCx-0VsD
+	id 1tTDCg-00000009jO6-3M4t;
+	Thu, 02 Jan 2025 04:53:02 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTDBY-00000009jL4-1Ibe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 03:52:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51A2C11FB;
-	Wed,  1 Jan 2025 19:52:25 -0800 (PST)
-Received: from [10.162.16.95] (a077893.blr.arm.com [10.162.16.95])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E1523F59E;
-	Wed,  1 Jan 2025 19:51:53 -0800 (PST)
-Message-ID: <88dc8823-1439-40ed-80a3-becb4a51aff7@arm.com>
-Date: Thu, 2 Jan 2025 09:21:50 +0530
+	Thu, 02 Jan 2025 04:51:53 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-303489e8775so126677591fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jan 2025 20:51:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735793510; x=1736398310; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MRbuq/vJhOHDwWZyIZVQ1UR8FeorGGJoKh1JNDZST1k=;
+        b=BmGAkc8z0xmQDN04P8eolpfLp/h5WWlgOR0eVn87b6uVZfXI5Mo7djcqzTqGeNoJwz
+         P/rHnycPWBirEtk/oCw3fa451RGwydvokMLfU00VVtqM1FZsjnCPUc/M8VliZXMtv/1f
+         8E7WWKq0aNCRX0nlcoeSoo+38MMXY7swfiaK6/K2wKW7KVxWwz9MFtvjGD5GONUYAw2c
+         gPsJXMq2QMFT9707WkFJF5ycArJxIVDOKRU+/DChT1piXNTq74l754200pYrlCx1+LYg
+         h4KSkZASDve6+fAkoPHWv0a4sQWh2eKkfOJ0h9zMCjJOMzLy6tG8SWGhXRoF3s7pQAIp
+         /w5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735793510; x=1736398310;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MRbuq/vJhOHDwWZyIZVQ1UR8FeorGGJoKh1JNDZST1k=;
+        b=nPMu8NF+lX4l3GfTwUCOzccRlBB/9SGQPkbEV6oLcTfeBbORLNptjdBrZ5z1+NPQQg
+         NAftdV9LyxO6+S0yV9EIW77gsjptyx//25lotcfJuCEkzHeiTIEd87+7zJibf8Dfw4zt
+         Pg/0CBcoeOVwsQQIWf9cJ6fJ3/4CJJC6Nivlh181T18CU+9GPOAZRlysPkh7vl6Vi9PF
+         Q+4cmfUwUNc3H33nh34hKqw7N8A8Pbs/yQdue0eap3q23O/hBI3wqXZEPhiPRU0BTuGW
+         LWN2U7m2gvhkMbNG/IcrRS1nrTW8wWiHPABfcB07vr3CPyprKNbcwsDuiqmd6KMrj131
+         HAsw==
+X-Forwarded-Encrypted: i=1; AJvYcCXLjSaq/6c5r0u1aRS1XcvPd/da9hyt+udoSlN5LHjKe1oES9IX5I9vr+m8bcM+qY65nX882DPhwdBkMrWla/27@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKBdwykr72H/cRwFvCTihiSrcAavRriqciMnD0EA430TOE6HB0
+	Ir/XTRpybLDI7T4aiPv+H3lQrGCJwsnQltXIoWAkuUNvs8hGoOUF9VgAaOA2aoQ=
+X-Gm-Gg: ASbGncuFGzBdqzpgjglPyCjlenbdRd+3wiFMDKSWCVSyThMF3TlnmDI+zjHA8s1CVc3
+	Aw/1urdyNDWQtle9/5s+pehjGEq+r5WKSMcELSr6fNpw0kg28/XMcvLIn6mjpbF3cg3w6+0r1jm
+	0On8uP2n10Lv+wbyxqrxo48HbJEZ0Bgg8WwMtLoIY4+OyDRbqQjuQuMnW+Y1dNgH9TVT2QrdjrQ
+	1gbbPDM1wrruyg1WlD5ihDJ6jMpGQaUuZMm5XSic75yy+V3RCtzq8e5k0Z0GPAXj8AjN0nOnQLn
+	PpFFu9Yh0UJcpKA5Sh/nWR7mLi1VvDllbriz
+X-Google-Smtp-Source: AGHT+IGE2Szq9qm9GN+rsyVm5RLYM6Bq9PLVSw4z6os4ljvKgQu4XGWjU61plLVc+yzsVHeip+HlRw==
+X-Received: by 2002:a2e:a588:0:b0:2ff:c349:8d08 with SMTP id 38308e7fff4ca-3046851e529mr158851661fa.8.1735793510280;
+        Wed, 01 Jan 2025 20:51:50 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--b8c.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::b8c])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad6c632sm42017411fa.21.2025.01.01.20.51.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jan 2025 20:51:49 -0800 (PST)
+Date: Thu, 2 Jan 2025 06:51:47 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Marek Vasut <marex@denx.de>
+Cc: dri-devel@lists.freedesktop.org, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Liu Ying <victor.liu@nxp.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
+ port is optional
+Message-ID: <xqu2zjrefp2rgp2hyjqhi3nxypcxa7zpypct553upbxdsx64jr@wfn3dzzk3jxe>
+References: <20241231192925.97614-1-marex@denx.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
- section aligned
-To: Zhenhua Huang <quic_zhenhuah@quicinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
- mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
- akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Tingwei Zhang <quic_tingweiz@quicinc.com>
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
- <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
- <Z2W3qA7wbBTaq6DQ@arm.com> <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
- <Z2rAr9APkgpkwOl8@arm.com> <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
- <22fd3452-748c-4d4b-bd51-08e6faeaa867@quicinc.com>
-Content-Language: en-US
-In-Reply-To: <22fd3452-748c-4d4b-bd51-08e6faeaa867@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241231192925.97614-1-marex@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250101_195159_251722_ACB9DA13 
-X-CRM114-Status: GOOD (  35.85  )
+X-CRM114-CacheID: sfid-20250101_205152_453550_E0E04BA9 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,202 +105,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/30/24 13:18, Zhenhua Huang wrote:
-> Hi Anshuman,
+On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
+> Add a flag meant purely to work around broken i.MX8MP DTs which enable
+> HDMI but do not contain the HDMI connector node. This flag allows such
+> DTs to work by creating the connector in the HDMI bridge driver. Do not
+> use this flag, do not proliferate this flag, please fix your DTs.
 > 
-> On 2024/12/27 15:49, Anshuman Khandual wrote:
->> On 12/24/24 19:39, Catalin Marinas wrote:
->>> On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
->>>> Thanks Catalin for review!
->>>> Merry Christmas.
->>>
->>> Merry Christmas to you too!
->>>
->>>> On 2024/12/21 2:30, Catalin Marinas wrote:
->>>>> On Mon, Dec 09, 2024 at 05:42:26PM +0800, Zhenhua Huang wrote:
->>>>>> Fixes: c1cc1552616d ("arm64: MMU initialisation")
->>>>>
->>>>> I wouldn't add a fix for the first commit adding arm64 support, we did
->>>>> not even have memory hotplug at the time (added later in 5.7 by commit
->>>>> bbd6ec605c0f ("arm64/mm: Enable memory hot remove")). IIUC, this hasn't
->>>>> been a problem until commit ba72b4c8cf60 ("mm/sparsemem: support
->>>>> sub-section hotplug"). That commit broke some arm64 assumptions.
->>>>
->>>> Shall we add ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
->>>> because it broke arm64 assumptions ?
->>>
->>> Yes, I think that would be better. And a cc stable to 5.4 (the above
->>> commit appeared in 5.3).
->>
->> Agreed. This is a problem which needs fixing but not sure if proposed patch
->> here fixes that problem.
->>
->>>
->>>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>>>> index e2739b69e11b..fd59ee44960e 100644
->>>>>> --- a/arch/arm64/mm/mmu.c
->>>>>> +++ b/arch/arm64/mm/mmu.c
->>>>>> @@ -1177,7 +1177,9 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>>>>>    {
->>>>>>        WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
->>>>>> -    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->>>>>> +    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
->>>>>> +    !IS_ALIGNED(page_to_pfn((struct page *)start), PAGES_PER_SECTION) ||
->>>>>> +    !IS_ALIGNED(page_to_pfn((struct page *)end), PAGES_PER_SECTION))
->>>>>>            return vmemmap_populate_basepages(start, end, node, altmap);
->>>>>>        else
->>>>>>            return vmemmap_populate_hugepages(start, end, node, altmap);
->>>>>
->>>>> An alternative would be to fix unmap_hotplug_pmd_range() etc. to avoid
->>>>> nuking the whole vmemmap pmd section if it's not empty. Not sure how
->>>>> easy that is, whether we have the necessary information (I haven't
->>>>> looked in detail).
->>>>>
->>>>> A potential issue - can we hotplug 128MB of RAM and only unplug 2MB? If
->>>>> that's possible, the problem isn't solved by this patch.
->>
->> Believe this is possible after sub-section hotplug and hotremove support.
->>
->>>>
->>>> Indeed, seems there is no guarantee that plug size must be equal to unplug
->>>> size...
->>>>
->>>> I have two ideas:
->>>> 1. Completely disable this PMD mapping optimization since there is no
->>>> guarantee we must align 128M memory for hotplug ..
->>>
->>> I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
->>> I think the only advantage here is that we don't allocate a full 2MB
->>> block for vmemmap when only plugging in a sub-section.
->>
->> Agreed, that will be the right fix for the problem which can be back ported.
->> We will have to prevent PMD/PUD/CONT mappings for both linear and as well as
-> 
-> Thanks Anshuman, yeah.. we must handle linear mapping as well.
-> 
->> vmemmap for all non-boot memory sections, that can be hot-unplugged.
->>
->> Something like the following ? [untested]
->>
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 216519663961..56b9c6891f46 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -1171,9 +1171,15 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
->>   int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>                  struct vmem_altmap *altmap)
->>   {
->> +       unsigned long start_pfn;
->> +       struct mem_section *ms;
->> +
->>          WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
->>   -       if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
->> +       start_pfn = page_to_pfn((struct page *)start);
->> +       ms = __pfn_to_section(start_pfn);
->> +
->> +       if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) || !early_section(ms))
-> 
-> LGTM. I will follow your and Catalin's suggestion to prepare further patches, Thanks!
-> 
->>                  return vmemmap_populate_basepages(start, end, node, altmap);
->>          else
->>                  return vmemmap_populate_hugepages(start, end, node, altmap);
->> @@ -1334,10 +1340,15 @@ struct range arch_get_mappable_range(void)
->>   int arch_add_memory(int nid, u64 start, u64 size,
->>                      struct mhp_params *params)
->>   {
->> +       unsigned long start_pfn = page_to_pfn((struct page *)start);
->> +       struct mem_section *ms = __pfn_to_section(start_pfn);
->>          int ret, flags = NO_EXEC_MAPPINGS;
->>            VM_BUG_ON(!mhp_range_allowed(start, size, true));
->>   +       if (!early_section(ms))
->> +               flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> 
-> However, here comes another doubt, given that the subsection size is 2M, shouldn't we have ability to support PMD SECTION MAPPING if CONFIG_ARM64_4K_PAGES? This might be the optimization we want to maintain?> 
-> Should we remove NO_BLOCK_MAPPINGS and add more constraints to avoid pud_set_huge if CONFIG_ARM64_4K_PAGES ?
+> Signed-off-by: Marek Vasut <marex@denx.de>
 
-I guess this has been covered on the thread.
+Please describe that it is required for backwards compatibility with the
+existing DTs. I think it is a good idea unless Shawn, Sascha or Fabio
+tell that we should ignore backwards compatibility.
 
-> 
->> +
->>          if (can_set_direct_map())
->>                  flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->>  
->>>
->>>> 2. If we want to take this optimization.
->>>> I propose adding one argument to vmemmap_free to indicate if the entire
->>>> section is freed(based on subsection map). Vmemmap_free is a common function
->>>> and might affect other architectures... The process would be:
->>>> vmemmap_free
->>>>     unmap_hotplug_range //In unmap_hotplug_pmd_range() as you mentioned：if
->>>> whole section is freed, proceed as usual. Otherwise, *just clear out struct
->>>> page content but do not free*.
->>>>     free_empty_tables // will be called only if entire section is freed
->>>>
->>>> On the populate side,
->>>> else if (vmemmap_check_pmd(pmd, node, addr, next)) //implement this function
->>>>     continue;    //Buffer still exists, just abort..
->>>>
->>>> Could you please comment further whether #2 is feasible ?
->>>
->>> vmemmap_free() already gets start/end, so it could at least check the
->>> alignment and avoid freeing if it's not unplugging a full section. It
->>
->> unmap_hotplug_pmd_range()
->> {
->>     do {
->>         if (pmd_sect(pmd)) {
->>             pmd_clear(pmdp);
->>             flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->>                          if (free_mapped)
->>                                  free_hotplug_page_range(pmd_page(pmd),
->>                                                          PMD_SIZE, altmap);
->>         }
->>     } while ()
->> }
->>
->> Do you mean clearing the PMD entry but not freeing the mapped page for vmemmap ?
->> In that case should the hot-unplug fail or not ? If we free the pfns (successful
->> hot-unplug), then leaving behind entire PMD entry for covering the remaining sub
->> sections, is going to be problematic as it still maps the removed pfns as well !
-> 
-> Could you please help me to understand in which scenarios this might cause issue? I assume we won't touch these struct page further?
+With that in mind:
 
-Regardless of whether the non-present pfns are accessed or not from the cpu, having
-page table mappings covering them might probably create corresponding TLB entries ?
-IIUC from an arch perspective, this seems undesirable and possibly some what risky.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
+> ---
+> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
+> Cc: Jonas Karlman <jonas@kwiboo.se>
+> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> Cc: Liu Ying <victor.liu@nxp.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Robert Foss <rfoss@kernel.org>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Stefan Agner <stefan@agner.ch>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+> V3: New patch
+> ---
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 12 ++++++++----
+>  include/drm/bridge/dw_hdmi.h              |  2 ++
+>  2 files changed, 10 insertions(+), 4 deletions(-)
 > 
->>
->>> does leave a 2MB vmemmap block in place when freeing the last subsection
->>> but it's safer than freeing valid struct page entries. In addition, it
->>> could query the memory hotplug state with something like
->>> find_memory_block() and figure out whether the section is empty.
->>
->> I guess there are two potential solutions, if unmap_hotplug_pmd_range() were to
->> handle sub-section removal.
->>
->> 1) Skip pmd_clear() when entire section is not covered
->>
->> a. pmd_clear() only if all but the current subsection have been removed earlier
->>     via is_subsection_map_empty() or something similar.
->>
->> b. Skip pmd_clear() if the entire section covering that PMD is not being removed
->>     but that might be problematic, as it still maps potentially unavailable pfns,
->>     which are now hot-unplugged out.
->>
->> 2) Break PMD into base pages
->>
->> a. pmd_clear() only if all but the current subsection have been removed earlier
->>     via is_subsection_map_empty() or something similar.
->>
->> b. Break entire PMD into base page mappings and remove entries corresponding to
->>     the subsection being removed. Although the BBM sequence needs to be followed
->>     while making sure that no other part of the kernel is accessing subsections,
->>     that are mapped via the erstwhile PMD but currently not being removed.
->>
->>>
->>> Anyway, I'll be off until the new year, maybe I get other ideas by then.
->>>
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> index 996733ed2c004..852e73c0f686f 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> @@ -2893,9 +2893,13 @@ static int dw_hdmi_bridge_attach(struct drm_bridge *bridge,
+>  {
+>  	struct dw_hdmi *hdmi = bridge->driver_private;
+>  
+> -	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
+> -		return drm_bridge_attach(bridge->encoder, hdmi->next_bridge,
+> -					 bridge, flags);
+> +	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR) {
+> +		if (hdmi->plat_data->output_port_optional && !hdmi->next_bridge)
+> +			return dw_hdmi_connector_create(hdmi);
+> +		else
+> +			return drm_bridge_attach(bridge->encoder, hdmi->next_bridge,
+> +						 bridge, flags);
+> +	}
+>  
+>  	return dw_hdmi_connector_create(hdmi);
+>  }
+> @@ -3298,7 +3302,7 @@ static int dw_hdmi_parse_dt(struct dw_hdmi *hdmi)
+>  					  hdmi->plat_data->output_port,
+>  					  -1);
+>  	if (!remote)
+> -		return -ENODEV;
+> +		return hdmi->plat_data->output_port_optional ? 0 : -ENODEV;
+>  
+>  	hdmi->next_bridge = of_drm_find_bridge(remote);
+>  	of_node_put(remote);
+> diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
+> index 6a46baa0737cd..3bb6e633424a8 100644
+> --- a/include/drm/bridge/dw_hdmi.h
+> +++ b/include/drm/bridge/dw_hdmi.h
+> @@ -127,6 +127,8 @@ struct dw_hdmi_plat_data {
+>  	struct regmap *regm;
+>  
+>  	unsigned int output_port;
+> +	/* Used purely by MX8MP HDMI to work around broken DTs without HDMI connector node. */
+> +	bool output_port_optional;
+>  
+>  	unsigned long input_bus_encoding;
+>  	bool use_drm_infoframe;
+> -- 
+> 2.45.2
 > 
+
+-- 
+With best wishes
+Dmitry
 
