@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A14BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 23:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B46E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 23:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//EZX9tB291dgvxJPupqEO2OxNoDgoYJ0gAp7zGGuXU=; b=ll5GSykRpqJVJqnBR4AJz6oOXY
-	2Mh6eax5DgYyJknHWVLponaEirNTxyYHTZNrdwUckURDdqO/E0EHAtCpo83k914EGpaN8AMimv6Xk
-	6/eYK00WVhhmTijpy4wAg1izSZfsb7hexjeuhn+WrAv+xrkKCnBEKKQKO+3eWNk0AQABS8mV4Er8L
-	GYxMibQetnZyFU+bVB+6uv9U0qWEEWw/Lt/obBQTNC1c1TWgI+TeLZRhTfTub5nlb7abOGJm74d1a
-	6q5af6LXscxTr9gF0rw+CGXNVaWP3v4djck1QOUHEe0RcZK3oJYijpqlEqEvqj/uqOfJfmSAvtcJ9
-	0Vncf5/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NO3iKQzFyP5XYivKNlt2p7JsAu2xVzI2cDrFzD/Dd2o=; b=iUW7acthwaEKmG
+	irr1r37rH2khpznAJlUmZ1gBOYvpT3/pgwCLjn4jsHlKvNyuwSJE7DgyZhLxLk5CsEdf5TtTrdLfT
+	shRfiZRVH6oSq9PWHbETvLtgErjBnAHbHPcR8mb64A+FDC6KEdqkWOjiFyyI1QrIzh+yANlZ+IpGd
+	vjbK6GyNbHpTFTuOf5DWJfq0Rl9Zxlac0hZW7cnyjNnAoxwQexWtUsFdzAVH2uxyU03CqfVLdVpA7
+	wmwHbM3e4zHdTYROQFhEb4f8qkz/JdIaHL/kKmuqrZIG5K5UZICqhTj6BJSuJY0Je58vhs9ken0EH
+	064lusacgzfyFuyKQGoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTUa2-0000000BgHF-17jQ;
-	Thu, 02 Jan 2025 23:26:18 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tTUdD-0000000Bh2V-0eYz;
+	Thu, 02 Jan 2025 23:29:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTUXg-0000000BfnL-1N3v
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 23:23:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B96E4101C7E2A;
-	Fri,  3 Jan 2025 00:23:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1735860230;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=//EZX9tB291dgvxJPupqEO2OxNoDgoYJ0gAp7zGGuXU=;
-	b=MObaNnWw1Cm105VIEgb8mGHlBXm1+eDOkX4Vd1+8q4N0Oualhspq96FPVwL8VhAjCPPgGj
-	oCpKxfj2m19J3epaMh0Fsv/BCYAL3HkowwdQdEPSpK+3ltJOjD95K3+9ae2m2k29jh7++X
-	qX6zwOLs9Z/B+zWr6ifJbv2FtleOSMJwbLHPedsrz4xU+yO2B67x/G93Nul0dLbzBgvvfr
-	kM+quR891CTAjH++1E8kYZtARZuLJAID7fxIfT4J9qYYSwLfyBT7t++sipHVAZQpxxxmtz
-	IDvpTMa1L+SSXdARShnmCxo5O1QfF3lB0KAF+fzf4ZaWC8qmYMwetfya/Z2BOQ==
-Message-ID: <549d96ee-a675-47fd-9af0-0dc05744591c@denx.de>
-Date: Fri, 3 Jan 2025 00:22:34 +0100
+	id 1tTUc2-0000000Bgmf-0CQH;
+	Thu, 02 Jan 2025 23:28:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AEE055C32B5;
+	Thu,  2 Jan 2025 23:27:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8304DC4CED7;
+	Thu,  2 Jan 2025 23:28:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735860500;
+	bh=o8Evq/Jq7VTHs84rjitCUFOTChZzkwzLSgAyMnDD4CA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Zh5XVJyAyIKPbBdYNw8zG8iHqib2Doua4b1soxpN4u91DBRCvDqe0t+ef1BcRPmoa
+	 y6EXojfQCmXuS6sJ0Jp4/SWvy/+nnpNDQTxc9GoSMW30T9rqTu5/MKdHVnKOH7sXPY
+	 6yCXakKSOntzIKxnFtwGhH4raj67Ond3HtwPRpbeJsY3C4WoyRzLLbbi+TlaEGgkEL
+	 Q4WvYR//5ibRXe07gWFZ5y6kX53IGw0t9sx9NybbjYZFQhZ7zHMCHSpCNKX5nMIrpX
+	 2IBg+mCPOecgO1WYHOB+0VIJhn5HVgBdSjcKUXa2Nf1C+hXlS+xdMI2f+tC3XbogwU
+	 DAZ208w3zAc0g==
+Date: Thu, 2 Jan 2025 17:28:17 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Christian Marangi <ansuelsmth@gmail.com>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com,
+	Hui Ma <hui.ma@airoha.com>
+Subject: Re: [PATCH v3] PCI: mediatek-gen3: Avoid PCIe resetting via
+ PCIE_RSTB for Airoha EN7581 SoC
+Message-ID: <20250102232817.GA4147111@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] drm/bridge: imx8mp-hdmi-tx: switch to bridge
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Liu Ying <victor.liu@nxp.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20241231192925.97614-1-marex@denx.de>
- <20241231192925.97614-2-marex@denx.de>
- <sjyw3afx5qyrupf5tixgtubevmklgmstjvj3hjt5xukzmgluuv@47j6afzl5dp6>
-Content-Language: en-US
-From: Marek Vasut <marex@denx.de>
-In-Reply-To: <sjyw3afx5qyrupf5tixgtubevmklgmstjvj3hjt5xukzmgluuv@47j6afzl5dp6>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z3Z4jcwtgcXk9Zo6@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_152352_652016_A9C1184E 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20250102_152822_134540_51ACB4F4 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/2/25 5:55 AM, Dmitry Baryshkov wrote:
-> On Tue, Dec 31, 2024 at 08:28:49PM +0100, Marek Vasut wrote:
->> The dw-hdmi output_port is set to 1 in order to look for a connector
->> next bridge in order to get DRM_BRIDGE_ATTACH_NO_CONNECTOR working.
->> The output_port set to 1 makes the DW HDMI driver core look up the
->> next bridge in DT, where the next bridge is often the hdmi-connector .
->>
->> Similar to 0af5e0b41110 ("drm/meson: encoder_hdmi: switch to bridge DRM_BRIDGE_ATTACH_NO_CONNECTOR")
->>
->> Note that looking at the upstream arch/arm64/boot/dts/freescale/imx8mp*dts ,
->> the oldest commit which adds HDMI support is commit:
->>
->> 3e67a1ddd56d ("arm64: dts: imx8mp: Enable HDMI on TQMa8MPxL/MBa8MPxL")
->>
->> That already contains the HDMI connector node. Most follow up additions
->> of HDMI support to another devices has been a variation of the same commit,
->> including connector node, which is the proper way of eanbling HDMI on the
->> i.MX8MP.
->>
->> The rest should be covered by output_port_optional which should make systems
->> with DTs without HDMI connector node work, but such DTs should be updated and
->> the HDMI connector node should be added.
->>
->> Signed-off-by: Marek Vasut <marex@denx.de>
->> ---
->> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
->> Cc: David Airlie <airlied@gmail.com>
->> Cc: Fabio Estevam <festevam@gmail.com>
->> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
->> Cc: Jonas Karlman <jonas@kwiboo.se>
->> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
->> Cc: Liu Ying <victor.liu@nxp.com>
->> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
->> Cc: Maxime Ripard <mripard@kernel.org>
->> Cc: Neil Armstrong <neil.armstrong@linaro.org>
->> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
->> Cc: Robert Foss <rfoss@kernel.org>
->> Cc: Sascha Hauer <s.hauer@pengutronix.de>
->> Cc: Shawn Guo <shawnguo@kernel.org>
->> Cc: Simona Vetter <simona@ffwll.ch>
->> Cc: Stefan Agner <stefan@agner.ch>
->> Cc: Thomas Zimmermann <tzimmermann@suse.de>
->> Cc: dri-devel@lists.freedesktop.org
->> Cc: imx@lists.linux.dev
->> Cc: linux-arm-kernel@lists.infradead.org
->> ---
->> V2: No change
->> V3: - Update commit message
->>      - Move select DRM_DISPLAY_CONNECTOR to DRM_IMX8MP_DW_HDMI_BRIDGE
->>      - Enable output_port_optional
->> ---
->>   drivers/gpu/drm/bridge/imx/Kconfig          | 1 +
->>   drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c | 2 ++
->>   2 files changed, 3 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
->> index 9a480c6abb856..db5c8a76193ac 100644
->> --- a/drivers/gpu/drm/bridge/imx/Kconfig
->> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
->> @@ -17,6 +17,7 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
->>   	tristate "Freescale i.MX8MP HDMI-TX bridge support"
->>   	depends on OF
->>   	depends on COMMON_CLK
->> +	select DRM_DISPLAY_CONNECTOR
+On Thu, Jan 02, 2025 at 12:29:17PM +0100, Lorenzo Bianconi wrote:
+> > On Wed, Nov 13, 2024 at 02:58:08PM +0100, Lorenzo Bianconi wrote:
+> > > Airoha EN7581 has a hw bug asserting/releasing PCIE_PE_RSTB signal
+> > > causing occasional PCIe link down issues. In order to overcome the
+> > > problem, PCIE_RSTB signals are not asserted/released during device probe or
+> > > suspend/resume phase and the PCIe block is reset using REG_PCI_CONTROL
+> > > (0x88) and REG_RESET_CONTROL (0x834) registers available in the clock
+> > > module running clk_bulk_prepare_enable in mtk_pcie_en7581_power_up().
+> > > 
+> > > Introduce flags field in the mtk_gen3_pcie_pdata struct in order to
+> > > specify per-SoC capabilities.
 > 
-> I was going to write that it is not to be selected by anybody, but then
-> I stumbled upon meson driver, which also selects the symbol.
+> Hi Bjorn,
 > 
-> I still think that it is not to be selected by your driver as there is
-> no direct dependency (and there can be other bridges inbetween or the
-> bridge chain can end up with some other bridge). Such decisions belong
-> to defconfig or distribution's kernel config file.
-Wouldn't that only lead to unnecessary surprises on user side ?
+> similar to the other series, this patch is already in Krzysztof's branch.
+> Do you prefer to resend it or just incremental changes?
+
+If it's not too much trouble, I think a new v4 would be simplest so
+the Link: in the lore archives is more correct.
 
