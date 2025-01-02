@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38138E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739CFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z22F15rGZHFba0Gpf/PxN4PXeDcKdofUUQQVfwRVmYk=; b=Kj+jTHDT9zYNxC36kHwC2jxXL+
-	2lt2y/zpLwDzBryosw5OLmKnhGeBnuGs1X5XjoKgnuqAxMgjdzE84Rp4mjJiNjUMhhPF7ZQ/+yKOt
-	bAyZBx0tAtDJwhUf4HnC1U2kLy/oS47C4+3EoVoJapcZ4aPpbC7RhZt/xjzi5nRI17bsRLqNoQwDL
-	/VnEO8BTzGn3ge0eQnfZQt9kLOaUJYEs2VDgXI6QDfH97qRf7cWQu18RApEJwLNLcp1oObtn+3o0Q
-	0+gye5OJymq5QtU6t0ZOZEIVMStCdnRX0iy2NBXgGC7/q6ob2K80qpyZSH2aBCGTWZINfp19zJrp2
-	LhN6jBbA==;
+	bh=lH2b+Yw84xb8+PrnQXwbNTY4bmGa+nOWnxNHSaT1oMg=; b=UPnOJHyk+g3/3Gk66SJuQVHa88
+	wrFavtXxl1yacxuvxXbH6r+fYXNiy63ZEBf4qQiYkYkrrZP7CYwfT3PsUAOtc95AyMKC5prqwgQs5
+	ie0eTBtwORbmJpYmYeTlk4A7CK2zDVcAts9uP6+WefM8U1l4PFXwxHA9b24mv0XWnRbhDhuWFjC+O
+	defATI5VATmQJcN/Ws/G1QjKq4GH7my2t0DDrOcQePxEVsFsnSrxH8lofjli6MraeYCuBhx1PYMUP
+	fwYQ6coRY0xULiEpR0pItWM2iftqJ9UsKAZOwwxuHK6uk6IaFF5dUKgOJ64RLe9AqlIvt4a4F2feX
+	Pk7LMovw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOfv-0000000AwKK-2WVi;
-	Thu, 02 Jan 2025 17:07:59 +0000
-Received: from mail-mw2nam04on20612.outbound.protection.outlook.com ([2a01:111:f403:240a::612] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1tTOhA-0000000AwZo-1gTa;
+	Thu, 02 Jan 2025 17:09:16 +0000
+Received: from mail-mw2nam12on2060a.outbound.protection.outlook.com ([2a01:111:f403:200a::60a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOcQ-0000000AvUB-2YlJ
+	id 1tTOcR-0000000AvUt-3K7n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 17:04:24 +0000
+	Thu, 02 Jan 2025 17:04:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A7Bti8BEPgy9mxWb/ZLIpFUFVqry4oZZFQ7FeDTQI164T4sM6U5mieF9wdhQEq/3XXTPJ85nMN3QA1BvC2SonWSHhWwLQi+AxOPCrA0Srf3IybNtrBfU32P3r9Sz674KnVGj64Y0Up91DEmcPSJwSKVtiIw7nOYxdoBw/HghK6AlC9iJZkVep0Ybb7kG/0LW6H5pSKAMRukP5fCDrkGMVOlFNUsIqNpRmw94sFcVUfl5xSpUJ5uv9rIAAk88NaSbCRKBMR7XE7+qKifBJMy5YjZi4LJBsr2D9PqiN7q2KLkJq3uQDeFp2MT2FF7ugJ7WRT3k5G8vVVnTQTErvDEMwA==
+ b=EOnpJvUUpnvMBL1SMia6BJhGEIWMaT/hal/ty0SkJW6mH/oWlWQRMBUQoOfA43V+f+pcJzy7M9m3v/UHow/p8izA8sxq1VlpD/7M/RtLPVsGZIombLJUM9BiXdBgUfkAeppXjubK3O33tnYR5A7c+2wpl07n8g9McCIXjOOtporOuqB7F0+0eotXXEfV5Ltj6Q7QDLyUE4tbNiWei93PaX/DmRSluKcG11+C4/TFDR0/LmU1NwsTeECm1ha4jbUGCykD+Gthy6W+e/nY2ucNDct+xY+WyCaNQhYHhsNO4Hp+Hufy0u590fIVdnV+JFjRQz5p5b8LLrrCS2TLhak6/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z22F15rGZHFba0Gpf/PxN4PXeDcKdofUUQQVfwRVmYk=;
- b=sThoNNtVqpaJlac54pUxn2xDC8IjwLIhPJ04ryRqjd2X6dDISuml/SypWccdacI2Z9QBQY7/x29gEpOchclq1oS7WYpMBUyEEk6Lx5aLl1Jy+B/jxBQQp2pkGsODdZOs1CQPtxiwj76Y+igNwBd7pMTWQ8qpkB8maqg2zJUq9eJmtIVVf62pYKEUahNd/HIRuTvXzuRSNyEwdJCpt3VLmX5GqRW8ny1VLyHtSMAFDCkI/Spzs2374c30MfuVA4FTw6U0d24kvMXekkuSrNfPb9MH4HsMOqRdJhE7YNCMblnU5wYs5cVmo+hrZjhiv6Q6znGI2AiUIIyjy64hJsfHmg==
+ bh=lH2b+Yw84xb8+PrnQXwbNTY4bmGa+nOWnxNHSaT1oMg=;
+ b=RRBJk1R+gFuHuikqhn+wklDkqNHDx1noKTjGqDEHAGnk/L6ePmEH40o+B/gRhTT3JVXmHQT6rY8tCG2Xtxeyc6RzOLKIuX2tALwkJqwxk9qvT57dywCfEoK+FgpofuThCwWk3NfTsen52kNpKH8TE4DPli3HI25Xtl1zB6nPYILq2bMA863RbMHWiYeM8e8x7oSlV8yayi4T+uO64mmcf6LhQbhZUPHxOzx6VSILtQ25gw7PBwhGfAcTOc+4LACSGbwLr2b6Y9PsPONfEWZJA3ZZnclvJ2wxmYpH+hypT0G3DOoomyAesg1FlN5bZFCyvYjgrLrs3LxgeFauIx3amg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z22F15rGZHFba0Gpf/PxN4PXeDcKdofUUQQVfwRVmYk=;
- b=F8yyiwLNf9WEWSNzmL78msAni58m9TWldcUQvI/K7ln/JTU9oNikMwey0fYCM1z5+i1LuTtjPPykpSNjgCUUrQvdZGbvdDhLBMgw85dcgFV2VjVyFYNogUAAs2HlqlSSzZ/h8nqj3DIRDhFadQNX1YenB0v03EfsuWrzEcxc5Tk=
-Received: from BYAPR05CA0019.namprd05.prod.outlook.com (2603:10b6:a03:c0::32)
- by DM4PR12MB8451.namprd12.prod.outlook.com (2603:10b6:8:182::7) with
+ bh=lH2b+Yw84xb8+PrnQXwbNTY4bmGa+nOWnxNHSaT1oMg=;
+ b=Rt1+yES51lQF8qY6Qg4UMlOUmRZWNuf7X3PN2o4jzK6yL1PSTg9oAY4Xs0QBi3tbGiiZOpxHyYBqSRZa6Z5V/dNl99Eu2vC4FFRNKrPZj5wxCsQA0hDd/sDZqipZU8LG3/vNo3ih+JGYUBYWaOH8ZpmYBcIYIqjvivvEs4zGsqk=
+Received: from BYAPR05CA0021.namprd05.prod.outlook.com (2603:10b6:a03:c0::34)
+ by LV2PR12MB5919.namprd12.prod.outlook.com (2603:10b6:408:173::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8293.15; Thu, 2 Jan
- 2025 17:04:11 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.12; Thu, 2 Jan
+ 2025 17:04:13 +0000
 Received: from MWH0EPF000989E8.namprd02.prod.outlook.com
- (2603:10b6:a03:c0:cafe::b3) by BYAPR05CA0019.outlook.office365.com
- (2603:10b6:a03:c0::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8293.14 via Frontend Transport; Thu,
- 2 Jan 2025 17:04:11 +0000
+ (2603:10b6:a03:c0:cafe::a8) by BYAPR05CA0021.outlook.office365.com
+ (2603:10b6:a03:c0::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.6 via Frontend Transport; Thu, 2
+ Jan 2025 17:04:12 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,18 +61,18 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from SATLEXMB03.amd.com (165.204.84.17) by
  MWH0EPF000989E8.mail.protection.outlook.com (10.167.241.135) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8314.11 via Frontend Transport; Thu, 2 Jan 2025 17:04:10 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
+ 15.20.8314.11 via Frontend Transport; Thu, 2 Jan 2025 17:04:12 +0000
+Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
  (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 2 Jan
- 2025 11:04:10 -0600
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 11:04:11 -0600
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB05.amd.com
+ (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 2 Jan
- 2025 11:04:09 -0600
+ 2025 11:04:10 -0600
 Received: from xsjssw-mmedia4.xilinx.com (10.180.168.240) by
  SATLEXMB03.amd.com (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39
- via Frontend Transport; Thu, 2 Jan 2025 11:04:09 -0600
+ via Frontend Transport; Thu, 2 Jan 2025 11:04:10 -0600
 From: Rohit Visavalia <rohit.visavalia@amd.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <michal.simek@amd.com>,
 	<vishal.sagar@amd.com>
@@ -80,62 +80,64 @@ CC: <javier.carrasco.cruz@gmail.com>, <geert+renesas@glider.be>,
 	<u.kleine-koenig@baylibre.com>, <linux-clk@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Rohit
  Visavalia <rohit.visavalia@amd.com>
-Subject: [PATCH v2 2/3] clk: xilinx: vcu: don't set pll_ref as parent of VCU(enc/dec) clocks
-Date: Thu, 2 Jan 2025 09:03:58 -0800
-Message-ID: <20250102170359.761670-3-rohit.visavalia@amd.com>
+Subject: [PATCH v2 3/3] clk: xilinx: vcu: Update vcu init/reset sequence
+Date: Thu, 2 Jan 2025 09:03:59 -0800
+Message-ID: <20250102170359.761670-4-rohit.visavalia@amd.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250102170359.761670-1-rohit.visavalia@amd.com>
 References: <20250102170359.761670-1-rohit.visavalia@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+Received-SPF: None (SATLEXMB05.amd.com: rohit.visavalia@amd.com does not
+ designate permitted sender hosts)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E8:EE_|DM4PR12MB8451:EE_
-X-MS-Office365-Filtering-Correlation-Id: 123e6475-e369-4ecd-5388-08dd2b4f7a46
+X-MS-TrafficTypeDiagnostic: MWH0EPF000989E8:EE_|LV2PR12MB5919:EE_
+X-MS-Office365-Filtering-Correlation-Id: c483f838-ccc7-4029-d4e0-08dd2b4f7b09
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Z9MMT7Ke5f3dzCGaZNxWt8dcmILMC4Zta4A3YOiAhgJQQM7nA4EFJRubt+HF?=
- =?us-ascii?Q?iTD4FS//D30cQZCUVmLW/845r/8VnrylwVvVX9CtR4z40wHeF79ZotO3PBpP?=
- =?us-ascii?Q?Oz/0piO/OYiuMY1yFnS7AxoTozHgWO3Ix/RDPwFnNV9+CoUDqKwm3MDj8ZIp?=
- =?us-ascii?Q?cEzTNer5Q0qMyLVQx89jG8Ye4piPKyi76jz5vAPQSaVma7gCjxXrLyMW5ADL?=
- =?us-ascii?Q?wovINLcM91EEyWKbR8OB4h68Onrg1gzJl/wxlcceDWVk8oVLcIO9OaU5hMRd?=
- =?us-ascii?Q?lD9lL2mZOqYzY8W0CUu8W8oIT9yo7tdu3gLe/Kn/0r0mUG7mCoZW2LJ7j8F6?=
- =?us-ascii?Q?E8uTZHzheE8OMMh3NkybSS9D8+I7uGqSWla1wuj8imI3MBipBtbGSZ+tl+bu?=
- =?us-ascii?Q?ZluS50wKQu0p37X7hkA/P+/+PA4ExAYibWOJn5yBmbQFIGdT+vZp9fRlyhFc?=
- =?us-ascii?Q?qi95KSmtP2l4xv/OHt2IyYAHPqH/RuCZGyGEwz40e52Ifs3P1XPFU3Qf1jYB?=
- =?us-ascii?Q?0EdgghgWuvkVR8M0LKMuwa/HM/ETaV+36XxdEruegwCx+38rGOUlV3jMSDZD?=
- =?us-ascii?Q?Z/b6Nh4dZf8AmDZI9tx7upeeu7lwfkwA1ZDh93uYL8D4xG+G5aI0hoDdePjy?=
- =?us-ascii?Q?ePwd+qz0MkD3ax4IZAf8CVZTzEp3M13dNeARknJf0BW7cyUYsDsaHXiuFLVr?=
- =?us-ascii?Q?GDabWj6CWPbCm5v8WFPOaJu3+As1Zis9pdyUDch3MlNtpyj14mAimd2x3ty/?=
- =?us-ascii?Q?Q7lVx+5UDq9oRHjNV10jvwqbrw4aUeapT8dsWUR4blMNdQUOMvL3wghV4Rhu?=
- =?us-ascii?Q?fqAmwBqMQnSRfd+Pd062UpU+OI0ANmJNHGIVQoX4ojasnKwcOxOCNf66da7a?=
- =?us-ascii?Q?ZcgEPVyR8khe5e82cFhNAea89xBdSnqpiDH4XD8/ppBSE7FnEe+stP2Y74kY?=
- =?us-ascii?Q?boGfUUOH2KDDPxTS+AEtbD8ENA239IUbaJORXFlgVuBucC2NRIVEnxdZ2TJ/?=
- =?us-ascii?Q?lsfulDLTvP1X/H8aDfIVykN7t/cjZr3dXy/cUqhcw47Mk2Y05yZIAIHxAa9O?=
- =?us-ascii?Q?eQcqMMlOdTkvdfW8cbjU10pUNn9s7XeVOF+pfPYdsaU8eUA9SJkvHAlw2JyA?=
- =?us-ascii?Q?XIpxx7yYY8kWwXKXgUitIPlCJ7ylA0L56KfrBRAQGS0UALcIcSU1tPgdHOPT?=
- =?us-ascii?Q?m/NWV+Z5lWiuJDj3ICY00V6DvJxeKEl/2MLRSlSIHyjpXIyDL8OJVSk5e7d8?=
- =?us-ascii?Q?+G00zksCW2yKJLwRsQL0x5VZnTjqPEjiscHLYHNCFiFU6PTT7GFuCKB2MOpw?=
- =?us-ascii?Q?SZdHHdls55nDI6Ias5bf3PaSjgI0qgrm/yJwMQv0VPCbPM3ezfn7OIK5dk8N?=
- =?us-ascii?Q?wPhXDdzisWy96vMh9vfJYbfAEIEwuSH+wNdHC7zAPhy0FluAakwczscLbDas?=
- =?us-ascii?Q?UpW0dwa2EPAL+7F7UAO1YyaVDbrPVavdGCIPORoE0IjhkmN/KYM8b3LRshZc?=
- =?us-ascii?Q?bc8JTq3FELj2Abc=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pHCqKjg0bwdll0R6fnCK1Yu2m6PaBV6wpfo6sDyknnbvYxsp9clYsoXz8KMI?=
+ =?us-ascii?Q?3QLFwuPxPP8e+vcMwdCvmyKwMQ3nZQUlglXYOZA4TYL0qWuZ+nodW5n/Od9+?=
+ =?us-ascii?Q?Gk/WFSIdcpaIU7Hz20AIGPysXXDN5oXTW6mxq5aDw1AulAFq78/+1Buaxo0s?=
+ =?us-ascii?Q?zwExs3JxG8wcDrPR9ERvqOeX1N0k4c9gBzTOOtUsFRM5Qh7qfT5sF3Xhxnt7?=
+ =?us-ascii?Q?zX4riHMGmwskmD/KIqL1LbeArjOEnE+1b7Uby8qaRMY/nzTEIbkQqC/ZQqRa?=
+ =?us-ascii?Q?/Q8ypYKVqx0lPTzOByOU/ibMRN8i/Ufr7iuZQ9xtShwGmRq0FG4tpvpKuH1E?=
+ =?us-ascii?Q?6ziKCsGczeZZ3aenkmHYNYj3XPCLSS39CpQJJuNaHIm7NJHR/dOE28YB4NVg?=
+ =?us-ascii?Q?wntsVnI1pte65vUbE212s70WLWKxtV1yN0UlNHZ6AC1o+h+kvNG/lOWBndX8?=
+ =?us-ascii?Q?JRw7EdlYjyAO3LRYOPWo+qmB686+QGitLtHMVdsedM3k0RwUJFrASSVnWnY1?=
+ =?us-ascii?Q?sBPhEPMrFaOFT7ZUsmVe2LGpjtiMr1OXir++Io7kSrCbdK2/GqO15h7mErk+?=
+ =?us-ascii?Q?0GnsckQ0VgYqsYmvfpalhlZFUAOqTNnzRTITk+b/bX/GRzD8SR9QrccGFNbI?=
+ =?us-ascii?Q?n9/UaO1ZGg9pwaU8ANAuE9Y+O1QQpiRslde1yQvAMoIBJsVaKYUMAibWv/EP?=
+ =?us-ascii?Q?r1+6ju1tMd2tzNhrzx17DhGv6L3EAVAPIiPKI7nETbNLaPpjLH5Ac9tkg6+5?=
+ =?us-ascii?Q?QPrC6RFqxLhDz2e2Fmmo0dT/8nkFhsQpryRT+qOww6dvBThc2wb72xhM1JQW?=
+ =?us-ascii?Q?z2CQc7PLC1IhZ4hDoG5FL0yKwUUK1bks2oU3gsqzS8U/Y3N9c3KYVbU5Ga4r?=
+ =?us-ascii?Q?HeaYxtn+TkDb2XtXsVS0n04Obkb6/qM8ZkFITi6XHGmnn2gzsfCx9oaYcZvn?=
+ =?us-ascii?Q?l1QhLknqZ5zsbxw4fCU2OJHqqQ4L8DUfp6yIVbe9XOKKZyNCQt3CKWJ3SKGa?=
+ =?us-ascii?Q?AubzFp3VCNpIr1TPxliNz3m0712YBikLE3Ho57+oF4PWO3K86jUeiXq2LIlD?=
+ =?us-ascii?Q?QJVoRvr8zySF7UN2W7G82St8mgLQfmZQiskMTzD3RzS1KogHw9c7bqWuSWcN?=
+ =?us-ascii?Q?r3yVkBfOBmQ2kWcQw074SIUp9kVgxINGZfq0gllCEIzFBTUK5mA17LcwdEx/?=
+ =?us-ascii?Q?y29w52cjxdCkR/QdRPikG9NnyGpg2uw1eWgHohXjsV9BCgIP963dacn1dj1q?=
+ =?us-ascii?Q?SIYqAc7wAW4HE1N46kBKRQDYk6XzrtCgHu5I61E7fShhHEtLVuYDtRu3PHBJ?=
+ =?us-ascii?Q?A1kXARCwliY3e3yinHsA35WE1CHeXnqX2exDXhCHDNPT+OCP+Guki0g935ux?=
+ =?us-ascii?Q?NP2LHONP4Pu2lZeZZ+WLDmelJH3Pwx84OQsFRiTFw5yDAMLzJq6a3mn5iBTB?=
+ =?us-ascii?Q?nCtKl5fwZKeMf4pdqPeEGXxCSOzwKIJKqwiwtviKOxBmsMiwvBdorelUDv4v?=
+ =?us-ascii?Q?yAgdFk3gGPIwgJc=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2025 17:04:10.8755
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2025 17:04:12.1568
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 123e6475-e369-4ecd-5388-08dd2b4f7a46
+X-MS-Exchange-CrossTenant-Network-Message-Id: c483f838-ccc7-4029-d4e0-08dd2b4f7b09
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E8.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB8451
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5919
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_090422_648947_5D6A2312 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250102_090423_833145_719A8C36 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,32 +152,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CCF will try to adjust parent clock to set desire clock frequency of
-child clock. So if pll_ref is not a fixed-clock then while setting rate
-of enc/dec clocks pll_ref may get change, which may make VCU malfunction.
+Updated vcu init/reset sequence as per design changes.
+If VCU reset GPIO is available then do assert and de-assert it before
+enabling/disabling gasket isolation.
+This GPIO is added because gasket isolation will be removed during startup
+that requires access to SLCR register space. Post startup, the ownership of
+the register interface lies with logiCORE IP.
 
 Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
 ---
 Changes in v2:
-  - none
-  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-3-rohit.visavalia@amd.com
+  - Changed patches sequence to have patches with "Fixes" as preceding in order
+  - Used dev_err_probe()
+  - Moved warning to dev_dbg() and updated print with more detail
+  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-2-rohit.visavalia@amd.com/ 
 ---
- drivers/clk/xilinx/xlnx_vcu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clk/xilinx/xlnx_vcu.c | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
-index 88b3fd8250c2..c520ae1ba65e 100644
+index c520ae1ba65e..50f7c3ecb07c 100644
 --- a/drivers/clk/xilinx/xlnx_vcu.c
 +++ b/drivers/clk/xilinx/xlnx_vcu.c
-@@ -547,7 +547,7 @@ static int xvcu_register_clock_provider(struct xvcu_device *xvcu)
- 		return PTR_ERR(hw);
- 	xvcu->pll_post = hw;
+@@ -11,6 +11,7 @@
+ #include <linux/clk-provider.h>
+ #include <linux/device.h>
+ #include <linux/errno.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/io.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/mfd/syscon/xlnx-vcu.h>
+@@ -51,6 +52,7 @@
+  * @dev: Platform device
+  * @pll_ref: pll ref clock source
+  * @aclk: axi clock source
++ * @reset_gpio: vcu reset gpio
+  * @logicore_reg_ba: logicore reg base address
+  * @vcu_slcr_ba: vcu_slcr Register base address
+  * @pll: handle for the VCU PLL
+@@ -61,6 +63,7 @@ struct xvcu_device {
+ 	struct device *dev;
+ 	struct clk *pll_ref;
+ 	struct clk *aclk;
++	struct gpio_desc *reset_gpio;
+ 	struct regmap *logicore_reg_ba;
+ 	void __iomem *vcu_slcr_ba;
+ 	struct clk_hw *pll;
+@@ -676,6 +679,24 @@ static int xvcu_probe(struct platform_device *pdev)
+ 	 * Bit 0 : Gasket isolation
+ 	 * Bit 1 : put VCU out of reset
+ 	 */
++	xvcu->reset_gpio = devm_gpiod_get_optional(&pdev->dev, "reset",
++						   GPIOD_OUT_LOW);
++	if (IS_ERR(xvcu->reset_gpio)) {
++		ret = PTR_ERR(xvcu->reset_gpio);
++		dev_err_probe(&pdev->dev, ret, "failed to get reset gpio for vcu.\n");
++		goto error_get_gpio;
++	}
++
++	if (xvcu->reset_gpio) {
++		gpiod_set_value(xvcu->reset_gpio, 0);
++		/* min 2 clock cycle of vcu pll_ref, slowest freq is 33.33KHz */
++		usleep_range(60, 120);
++		gpiod_set_value(xvcu->reset_gpio, 1);
++		usleep_range(60, 120);
++	} else {
++		dev_dbg(&pdev->dev, "No reset gpio info found in dts for VCU. This may result in incorrect functionality if VCU isolation is removed after initialization in designs where the VCU reset is driven by gpio.\n");
++	}
++
+ 	regmap_write(xvcu->logicore_reg_ba, VCU_GASKET_INIT, VCU_GASKET_VALUE);
  
--	parent_data[0].fw_name = "pll_ref";
-+	parent_data[0].fw_name = "dummy_name";
- 	parent_data[1].hw = xvcu->pll_post;
+ 	ret = xvcu_register_clock_provider(xvcu);
+@@ -690,6 +711,7 @@ static int xvcu_probe(struct platform_device *pdev)
  
- 	hws[CLK_XVCU_ENC_CORE] =
+ error_clk_provider:
+ 	xvcu_unregister_clock_provider(xvcu);
++error_get_gpio:
+ 	clk_disable_unprepare(xvcu->aclk);
+ 	return ret;
+ }
+@@ -711,6 +733,13 @@ static void xvcu_remove(struct platform_device *pdev)
+ 	xvcu_unregister_clock_provider(xvcu);
+ 
+ 	/* Add the Gasket isolation and put the VCU in reset. */
++	if (xvcu->reset_gpio) {
++		gpiod_set_value(xvcu->reset_gpio, 0);
++		/* min 2 clock cycle of vcu pll_ref, slowest freq is 33.33KHz */
++		usleep_range(60, 120);
++		gpiod_set_value(xvcu->reset_gpio, 1);
++		usleep_range(60, 120);
++	}
+ 	regmap_write(xvcu->logicore_reg_ba, VCU_GASKET_INIT, 0);
+ 
+ 	clk_disable_unprepare(xvcu->aclk);
 -- 
 2.25.1
 
