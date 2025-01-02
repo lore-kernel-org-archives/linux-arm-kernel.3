@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C08E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC78DE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TMbd4103KGbYZ4OHdNb2las4Z6Ny5rvc4d9/Q2ilIwQ=; b=ndNM3dhXa7IiryZSiqVtYduGb0
-	03q18tJgnjZbB+q6v2HrtJYS5xZeJ0oift5U3pkwWii2759N9a9gJ6gS4fY1lYDFVcthVftLceCNT
-	ZziihKivCpyt0nBqR8vN/SIWGlUNGWfDzP7/xt8FTcZO+vB5Pzq4uq9KZ70hZA6KMR5a9feaPXL9q
-	jJpU5MC6EFLAAIBi4OyUEzFxlrFCMG6bG0yw4ByxUhZvZ6e4u/XxV9FV235b411rsXFJOZLczAohR
-	Vz3HztFUN7651oHwkNpSejtgGMMMF/mm4biSztR93TMKF+ft0D7BJdSuPmJ3vaJzMxIGUZBxmTS6C
-	rx/o9OYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OXTAfC+Euk2ZqORptfnn4DhQu7bG9q9vO1UaX0EloG4=; b=DsZ5K44uyAdqTmhuRrsFLtI/RK
+	XEuM2Ag5AuUrnBgy2w+a9vNP4yyCvWCVcQt7wawEfuk2I/vNlTSB3qR7yotRSNN5Gn/0cSvSvnnio
+	3DmDdyRRWbeybQ583UFb9oSHoWRycuvhBAsNZsHzNSab8kYP5vZAgosEO9CzR6xQw6FwSnQQtaTFO
+	1F3aVzNgx9gE2Tr5ox+weUNI5dSQ8Yd+jY6BJjAbHiIizwxGj8cty1wyKKL1LUIe/i81gfcMOl4yk
+	1NXO3bW9J/4AbCO8SWwxey1y1iMXc8I10H/vQrEM+F1jFAuGsQeAZtp2AlcmjZ9On6e3yROFe2S4y
+	Dq/KSsuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKXU-0000000AN88-1jXu;
-	Thu, 02 Jan 2025 12:43:00 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1tTKa0-0000000ANTs-125i;
+	Thu, 02 Jan 2025 12:45:36 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKWH-0000000AMva-0z9Y;
-	Thu, 02 Jan 2025 12:41:46 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1tTKWE-000000007Jn-1li5;
-	Thu, 02 Jan 2025 12:41:42 +0000
-Date: Thu, 2 Jan 2025 12:41:21 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: netdev@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>, Daniel Golle <daniel@makrotopia.org>,
-	Alexander Couzens <lynxis@fe80.eu>
-Cc: Russell King <rmk+kernel@armlinux.org.uk>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	John Crispin <john@phrozen.org>
-Subject: [PATCH net-next] net: pcs: pcs-mtk-lynxi: correctly report in-band
- status capabilities
-Message-ID: <Z3aJccb1vW14aukg@pidgin.makrotopia.org>
+	id 1tTKYq-0000000ANJp-1zIr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jan 2025 12:44:25 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30037784fceso122829551fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 04:44:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1735821862; x=1736426662; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OXTAfC+Euk2ZqORptfnn4DhQu7bG9q9vO1UaX0EloG4=;
+        b=os9xrMP4ApjeNhac0t70f4pcH6Yy2Rfs4VU+otgWZzWIss6I3G6hX4EutlawAoHVeu
+         IB71684Z9X4NAPXgvlzSWcStSn7T1hS0hQayTK9sE4O/rgWNXuFiV4vFrenrTgKLJkZx
+         o2WbnE/iyWkpbeaTl656KRhxscsDeHjot5E3p8GGSZ+NdkHxUI/XNZY4ZZYU0INPvX9z
+         1+/gsRjQ4qI4SSBvd2UJExYEbBffozIBrBKr/1n2rAeYPy9qVUuf2MDm/07Yp2zdSMmU
+         9JdAm2DLGNCkwzZVNpouwH4Z5XUcZ5V0CMlvqkkwpC+5l9LnvO8c4Gu0L1W4INk5GMcQ
+         8gqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735821862; x=1736426662;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OXTAfC+Euk2ZqORptfnn4DhQu7bG9q9vO1UaX0EloG4=;
+        b=CAo7tIhNMl6WCfL6TLoYEsr91NH8YUOhMNEMlcfBl2DYv0U/bqUN+1d5KV5aV6k6no
+         E6P6QZxt+nQX8pnZo/KhMPti3AlJgh9CAxvj260j0ZrcWMMh6GQhbPxxT258ykaJvyFR
+         kteh0/tLp7UOKvKc17Cw/JUHSGHuvscuRK27/C4iGXlgadf9By687XepFxaPMOvgcVrt
+         p17MMlA4Hm7RlnXX3Itoc/pU3iC6rFtNuAZMLK/TGT/9rNtIb3kzRa3a8n8vh9L/MrYo
+         NWzfoIhmxXrq8Bo6iiSWmV6Ud/xnHk547xYLn7L4X1ff60iaLM9YveJhhH/DAo1i51A8
+         WCUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXQFfRsDD5WlRBVkl2NYxNkNB7RPzGbiqlv5eBP4x7yXPy4hcTkFsla4XlazXf9TMpI8TiQJ0fpSIzGImmRCr06@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaSVIaTw7lDsEOm4u1A56aVh1z3z/KgWKQwxdjtknxi586pgee
+	9Btn9xDyTtTnKqYG9k0+tgZuCZV1d39+ZuFGEx2u5Z+mlEdV5Wi/kPO8xDyY8PwpPyNdT+vwqzd
+	atIKYFbsCVJ1/UoKP4xyWbtaRIRB8EU4JmoUfKQ==
+X-Gm-Gg: ASbGnctnGCzzvIGy4HqHy1Ru/RjYltAhwGxkxgwYvlXxOtz/cGR76LYRhH7ieic9EOl
+	SBbNj3e8JW2zsP0VbZ5MaIhZvSKQQjtaBupoDVSlsoEFLY4JzAWVQsTvh/osfY1R3PyBZng==
+X-Google-Smtp-Source: AGHT+IFN+1+CuipJvqCLG4Vw4U/YbFqzg/NPb7q0hphJvRrX/+TBcZVtRLbOtGXDIiwzUKteo04vTtva7evlHbUMD1E=
+X-Received: by 2002:a05:6512:15a2:b0:542:2929:63ea with SMTP id
+ 2adb3069b0e04-5422953998dmr15195603e87.24.1735821861896; Thu, 02 Jan 2025
+ 04:44:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20241211102337.37956-1-brgl@bgdev.pl> <awney7utrl5n63xsgzxnnlpqajuqtjnrjsbpzloic5iqt4pv2u@ktkhejuihbde>
+In-Reply-To: <awney7utrl5n63xsgzxnnlpqajuqtjnrjsbpzloic5iqt4pv2u@ktkhejuihbde>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 2 Jan 2025 13:44:10 +0100
+Message-ID: <CAMRc=Mci6bPCirruk90hnjBvJW0=HKhqCq+9p4t2k9B=Oy8Ocw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] i2c: davinci: kill platform data
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Wolfram Sang <wsa@the-dreams.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_044145_301436_37DA19FD 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250102_044424_539432_7A6FF8F3 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,35 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Neither does the LynxI PCS support QSGMII, nor is in-band-status supported
-in 2500Base-X mode. Fix the pcs_inband_caps() method accordingly.
+On Fri, Dec 27, 2024 at 12:41=E2=80=AFAM Andi Shyti <andi.shyti@kernel.org>=
+ wrote:
+>
+> Hi Bartosz,
+>
+> ...
+>
+> >  struct davinci_i2c_dev {
+> >       struct device           *dev;
+> >       void __iomem            *base;
+> > @@ -132,13 +133,10 @@ struct davinci_i2c_dev {
+> >  #ifdef CONFIG_CPU_FREQ
+> >       struct notifier_block   freq_transition;
+> >  #endif
+> > -     struct davinci_i2c_platform_data *pdata;
+> > -};
+> > -
+> > -/* default platform data to use if not supplied in the platform_device=
+ */
+> > -static struct davinci_i2c_platform_data davinci_i2c_platform_data_defa=
+ult =3D {
+> > -     .bus_freq       =3D 100,
+> > -     .bus_delay      =3D 0,
+>
+> what happened to bus_delay?
+>
 
-Fixes: 520d29bdda86 ("net: pcs: pcs-mtk-lynxi: implement pcs_inband_caps() method")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-drivers/net/pcs/pcs-mtk-lynxi.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+bus_delay is not set by means other than platform data and it defaults
+to 0 so it's safe to just remove it.
 
-diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
-index 7de804535229..ed91cd7a406a 100644
---- a/drivers/net/pcs/pcs-mtk-lynxi.c
-+++ b/drivers/net/pcs/pcs-mtk-lynxi.c
-@@ -93,11 +93,12 @@ static unsigned int mtk_pcs_lynxi_inband_caps(struct phylink_pcs *pcs,
+> ...
+>
+> > +     /* standard bus frequency (kHz) */
+> > +     unsigned int            bus_freq;
+> > +     /* Chip has a ICPFUNC register */
+> > +     bool                    has_pfunc;
+> >  };
+>
+> > -static struct i2c_bus_recovery_info davinci_i2c_gpio_recovery_info =3D=
  {
- 	switch (interface) {
- 	case PHY_INTERFACE_MODE_1000BASEX:
--	case PHY_INTERFACE_MODE_2500BASEX:
- 	case PHY_INTERFACE_MODE_SGMII:
--	case PHY_INTERFACE_MODE_QSGMII:
- 		return LINK_INBAND_DISABLE | LINK_INBAND_ENABLE;
- 
-+	case PHY_INTERFACE_MODE_2500BASEX:
-+		return LINK_INBAND_DISABLE;
-+
- 	default:
- 		return 0;
- 	}
--- 
-2.47.1
+> > -     .recover_bus =3D i2c_generic_scl_recovery,
+> > -     .prepare_recovery =3D davinci_i2c_prepare_recovery,
+> > -     .unprepare_recovery =3D davinci_i2c_unprepare_recovery,
+> > -};
+> > -
+>
+> what happened to the gpio_recovery_info?
+>
 
+Similar story: it's only ever used if there's a pdata-provided
+recovery GPIO line set but nobody does it anymore.
+
+Bartosz
 
