@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0FFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 09:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1382E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 09:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=odDHdEKVo1ECoBHd6qSHP5bCx3nKUQG5008PYymM31w=; b=rfP851HwI/tdRFXJ839ArtKwE3
-	1hcsKQPQ3CIzLgPuHFoPgYNhyPrijgn9yk6EFd7Lc9SzEaPmfXaJWHtiL6jj5rb1L4qZ9Xu99kAOJ
-	6VHIdVYDOGd/PRLfoQM0tZzCNhQ9dzTVLNyBcIuwHUgUFIl4YZ1xNaPDNtwqiWrN8STfMvNrUIU/H
-	5B2KG0M1/bwCQW9TB/uHLd/U9qp60Ds+oKCMHPOp2SGSjmOC215gNGUeLJyrirCEqW4ANdunOishu
-	504/utdZrNjIaQhfrqffnZUdpHpH2xlI4r/jCmP3vZP1WY5v5MTaFIqXM5miLSrw3D/lY3wLP6azp
-	591sz09Q==;
+	bh=NzcQumSoCseEGrz+93Y9a1/D8UYoKB6NTZZLPsLskTM=; b=VoshJscgeV/cej10sjxt9O1x+z
+	oUHT+jWOgignIfbksh81qOhEs+Z7U/d3L6tbS4v7v1x8FCN7rk8XnAUGAFHLBCAZjJGlRq8eUS7yi
+	xl/xCqZZ64gsOf2ly779oqS6nM5wjm81qvL7WGujGDgytxOKoJJGTj2KpguxSXZ5i4a4Z+r7FC4Cy
+	BxV8TuyfPahWU8Kdnfs4pI0xqrgaMvvvcEBT2bdp8Igz//O9QmMJhWIqKrHGmtynjHGoYPk6c+QXp
+	jOdmXBd6UKUt2VuP0QjEtmEdznvznlWihxVkMfL4Df9B3vtm5ckBndngZ8oRfZuQlz5ZXMuQhA9Bj
+	ikLvynsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTHjR-0000000A4e1-0d5J;
-	Thu, 02 Jan 2025 09:43:09 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tTHkc-0000000A4qT-3Rm7;
+	Thu, 02 Jan 2025 09:44:22 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTHhN-0000000A4HA-2Xll
+	id 1tTHhT-0000000A4IN-3pIG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 09:41:03 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso73336115e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 01:41:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735810860; x=1736415660; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=odDHdEKVo1ECoBHd6qSHP5bCx3nKUQG5008PYymM31w=;
-        b=hrL7ymEkhDNjo/hVmSNM4YJe6EE5eulG6921+pzuqMFjs/EIPMdHgP8lfeNqD7Rzsq
-         PsLok0NOKzIq8/bI4X9j2d3hivAUL47+d1/vUakbn7pN+tX65BiKaZqO2i+tLlejC5OH
-         csSoMFyiwBZ4cTTjGY0ujNWnd8+pe4NfVxoJn8E5gVWc45KL6eTjTEqHQHDeffbgURp/
-         bZck5kUzz44bNBBDUK7pm4EFwSHTJJQoLtLh0pU8VcjjBPnKolUBBlTByVdIQjlR5bZl
-         iH7SlnA0FfyV0eykqaUuozulm7BgaXaWAP4jyrE72E0PGjMwp5arcX+VXXO7L57RHq4J
-         YlCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735810860; x=1736415660;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=odDHdEKVo1ECoBHd6qSHP5bCx3nKUQG5008PYymM31w=;
-        b=VIzCpLf8If7Sm2TTjMDgrrCQzR8GjFwI2dpH40FGi4KqBAV041PSVP6NMR2ngmO5m1
-         KSBrscSqYAlvqHuk/7fRX09CihfwXSaaJzVkQSUFyJjr22Icf8+prv6iL+i4Pb9JrgcA
-         +QeV5+hMlJ47PzyMbjOzsKO03xPyKwDF1ttKMkVZt9Eh0pCvyGItmvZzQDfrtRZaMf2R
-         PldWjz2AakhHtosgWgECLh+KQ0cOIKWdoA0qmoyFM9QbOhQrsyITZCdnEW+AuPSvDmRI
-         3i7NO9mgAkdquc7DF3lM5igBQT/O99XqjfjKXtbYn5IhrjchLxcPHGjtK/NIQbtER4we
-         S88g==
-X-Gm-Message-State: AOJu0YxDVmbLOPYA2oVR98f6BmZb9GGvI1vR3+ZQXeIUI8gvaUTPgMVV
-	vDIbu6cFiymj0dxmNfRd4iU6GA3+AwQ8sskiwzOW1CgAGeZNvKMcMgh2NG1mchA=
-X-Gm-Gg: ASbGnctoHEJVvNEPblhqCtCvFKGP+LCfH1V5CjT7c4XqzHdtDJ+fdxos3iahvzSbZmv
-	I+l7a42RegoL5pucqHl5F3ShQWjItzwZiTDCZn5LL/md88Q2cOxub5gSPXmxXPymUY8YPDD0KDD
-	AwbRnRzklvkWh1jM+6jLNLIVB7yQA5r+iT75Q/T/GRbe9QDAAI85tFehCWG+ZsImWrcEEQZ4ere
-	LtrR/QN6NpG0jf9n3oJMoqdnKgYnla8/6qezb6MPY6dpM1ky/uxUgeHJbm8khAWPKwe99V/fjo+
-	snSwHt8aAjPS7EuR3FVoVJ/uTl10Glnipg==
-X-Google-Smtp-Source: AGHT+IFYDkDox7plguF5rgyeIEMg1cp8DLocgikphY1yErZzrrY6xhBUr9jUMcggCFeUOsushSH/Dg==
-X-Received: by 2002:a05:600c:4f92:b0:436:488f:50a with SMTP id 5b1f17b1804b1-43668646896mr407348285e9.17.1735810859938;
-        Thu, 02 Jan 2025 01:40:59 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:1cfa:329a:aa2e:f0be? ([2a01:e0a:982:cbb0:1cfa:329a:aa2e:f0be])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a1c8332absm37183733f8f.38.2025.01.02.01.40.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Jan 2025 01:40:59 -0800 (PST)
-Message-ID: <e211b522-83ed-46f9-a114-9cae30f44977@linaro.org>
-Date: Thu, 2 Jan 2025 10:40:59 +0100
+	Thu, 02 Jan 2025 09:41:09 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AC76275A;
+	Thu,  2 Jan 2025 10:40:16 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1735810816;
+	bh=fFwEobIvrp9LyWBkORtJ/uRW7oOSs64PJjo+Ffia/Po=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O3Es2wxpDcrkmTnCTZSFuVAHRGUvGh8Mi1f7KVhkFUiegmVT7Bqf+wqVsGTXV42zM
+	 Z6LtfFcI1sib2E92aLcnTFRrRjZ+6ER9cAZZp0oK63oUHfZJ3rmTL96nZDnm+/YdD1
+	 x6vNPytQPUNbAjINh8Iu58KZxp3CNaPlI1UwU1P8=
+Date: Thu, 2 Jan 2025 11:41:05 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: yuji2.ishikawa@toshiba.co.jp, mchehab@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	sakari.ailus@linux.intel.com, hverkuil-cisco@xs4all.nl,
+	nobuhiro1.iwamatsu@toshiba.co.jp, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v12 2/8] dt-bindings: media: platform: visconti: Add
+ Toshiba Visconti Video Input Interface
+Message-ID: <20250102094105.GD554@pendragon.ideasonboard.com>
+References: <20241125092146.1561901-1-yuji2.ishikawa@toshiba.co.jp>
+ <20241125092146.1561901-3-yuji2.ishikawa@toshiba.co.jp>
+ <04a7ebf7-2924-4894-bc53-ba77e2f64fae@kernel.org>
+ <TY3PR01MB99822E6161ED319B4DE855B492042@TY3PR01MB9982.jpnprd01.prod.outlook.com>
+ <d5294015-4790-490e-8136-615039a5c733@kernel.org>
+ <20241217094508.GD11445@pendragon.ideasonboard.com>
+ <7e50e257-9e13-4d32-8de9-8deb53fd30e4@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 1/2] phy: amlogic: meson8b-usb2: Use FIELD_PREP instead of
- _SHIFT macros
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-phy@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- vkoul@kernel.org, kishon@kernel.org
-References: <20241231191718.2764065-1-martin.blumenstingl@googlemail.com>
- <20241231191718.2764065-2-martin.blumenstingl@googlemail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20241231191718.2764065-2-martin.blumenstingl@googlemail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7e50e257-9e13-4d32-8de9-8deb53fd30e4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_014101_711743_EA5FD914 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250102_014108_096659_984C6510 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,54 +75,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/12/2024 20:17, Martin Blumenstingl wrote:
-> This simplifies the code by re-using the FIELD_PREP helper. No
-> functional changes inteded.
+On Tue, Dec 17, 2024 at 01:51:54PM +0100, Krzysztof Kozlowski wrote:
+> On 17/12/2024 10:45, Laurent Pinchart wrote:
+> > On Tue, Dec 17, 2024 at 06:43:22AM +0100, Krzysztof Kozlowski wrote:
+> >> On 17/12/2024 01:00, yuji2.ishikawa@toshiba.co.jp wrote:
+> >>> Hello Krzysztof
+> >>>
+> >>> Thank you for your review
+> >>>
+> >>>> -----Original Message-----
+> >>>> From: Krzysztof Kozlowski <krzk@kernel.org>
+> >>>> Sent: Monday, November 25, 2024 7:08 PM
+> >>>> To: ishikawa yuji(石川 悠司 ○ＲＤＣ□ＡＩＴＣ○ＥＡ開)
+> >>>> <yuji2.ishikawa@toshiba.co.jp>; Laurent Pinchart
+> >>>> <laurent.pinchart@ideasonboard.com>; Mauro Carvalho Chehab
+> >>>> <mchehab@kernel.org>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+> >>>> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Sakari Ailus
+> >>>> <sakari.ailus@linux.intel.com>; Hans Verkuil <hverkuil-cisco@xs4all.nl>;
+> >>>> iwamatsu nobuhiro(岩松 信洋 ○ＤＩＴＣ□ＤＩＴ○ＯＳＴ)
+> >>>> <nobuhiro1.iwamatsu@toshiba.co.jp>
+> >>>> Cc: linux-media@vger.kernel.org; linux-kernel@vger.kernel.org;
+> >>>> linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org
+> >>>> Subject: Re: [PATCH v12 2/8] dt-bindings: media: platform: visconti: Add
+> >>>> Toshiba Visconti Video Input Interface
+> >>>>
+> >>>> On 25/11/2024 10:21, Yuji Ishikawa wrote:
+> >>>>> Adds the Device Tree binding documentation that allows to describe the
+> >>>>> Video Input Interface found in Toshiba Visconti SoCs.
+> >>>>>
+> >>>>> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+> >>>>> Reviewed-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+> >>>>
+> >>>> Why this tag stayed and other was removed? What was the reason of tag
+> >>>> removal?
+> >>>>
+> >>>
+> >>> The stayed tag is due to internal review.
+> >>
+> >> Did the internal review really happened? How is it that immediately new
+> >> version has internal review without any traces?
+> >>
+> >> I have doubts this review happened in the context of reviewer's
+> >> statement of oversight.
+> >>
+> >>> The removed tag is due to code's change (split of csi2rx part) after the last review.
+> >>> If the code is largely changed following the instruction of another reviewer
+> >>> after obtaining the tags, how should the tags be handled?
+> >>
+> >> Drop all reviews and perform reviews on the list.
+> >>
+> >> Such internal review appearing afterwards is rather a proof it you are
+> >> adding just the tags to satisfy your process. I have no way to even
+> >> verify whether that person performed any reasonable review or maybe just
+> >> acked your patch.
+> > 
+> > How do you verify that for public reviews ?
 > 
-> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-> ---
->   drivers/phy/amlogic/phy-meson8b-usb2.c | 7 +++----
->   1 file changed, 3 insertions(+), 4 deletions(-)
+> By quality or amount of comments. Or timing. Or reviewing cover letter
+> without any feedback on individual patches.
 > 
-> diff --git a/drivers/phy/amlogic/phy-meson8b-usb2.c b/drivers/phy/amlogic/phy-meson8b-usb2.c
-> index d63147c41b8c..d9c761b7c15c 100644
-> --- a/drivers/phy/amlogic/phy-meson8b-usb2.c
-> +++ b/drivers/phy/amlogic/phy-meson8b-usb2.c
-> @@ -5,6 +5,7 @@
->    * Copyright (C) 2016 Martin Blumenstingl <martin.blumenstingl@googlemail.com>
->    */
->   
-> +#include <linux/bitfield.h>
->   #include <linux/clk.h>
->   #include <linux/delay.h>
->   #include <linux/io.h>
-> @@ -39,9 +40,7 @@
->   	#define REG_CTRL_TX_BITSTUFF_ENN		BIT(18)
->   	#define REG_CTRL_COMMON_ON			BIT(19)
->   	#define REG_CTRL_REF_CLK_SEL_MASK		GENMASK(21, 20)
-> -	#define REG_CTRL_REF_CLK_SEL_SHIFT		20
->   	#define REG_CTRL_FSEL_MASK			GENMASK(24, 22)
-> -	#define REG_CTRL_FSEL_SHIFT			22
->   	#define REG_CTRL_PORT_RESET			BIT(25)
->   	#define REG_CTRL_THREAD_ID_MASK			GENMASK(31, 26)
->   
-> @@ -170,10 +169,10 @@ static int phy_meson8b_usb2_power_on(struct phy *phy)
->   			   REG_CONFIG_CLK_32k_ALTSEL);
->   
->   	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_REF_CLK_SEL_MASK,
-> -			   0x2 << REG_CTRL_REF_CLK_SEL_SHIFT);
-> +			   FIELD_PREP(REG_CTRL_REF_CLK_SEL_MASK, 0x2));
->   
->   	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_FSEL_MASK,
-> -			   0x5 << REG_CTRL_FSEL_SHIFT);
-> +			   FIELD_PREP(REG_CTRL_FSEL_MASK, 0x5));
->   
->   	/* reset the PHY */
->   	regmap_update_bits(priv->regmap, REG_CTRL, REG_CTRL_POWER_ON_RESET,
+> There are many, many ways. Considering how many companies were adding
+> fake manager-review-tags in the past (or fake SoBs), I am pretty picky
+> on that.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+On the other hand I've heard numerous complains about patches being sent
+by new developers from large companies to upstream lists without first
+being reviewed internally by more experienced developers. You can't ask
+people to review patches internally before submitting them upstream and
+at the same time complain about R-b tags coming from internal reviews.
+
+The value of a R-b tag, regardless of whether or not it comes from an
+internal review, ultimately depends on the trust you have on the
+reviewer. You can take that into account to decide when you consider a
+patch to be ready to be merged, or to skip reviewing it if enough
+reviewers you trust have looked at it first.
+
+-- 
+Regards,
+
+Laurent Pinchart
 
