@@ -4,73 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7CFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C24AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0iSidzEjR686c/vyQi1Lc8/oYdHsXDCCjNpZCNq3ASM=; b=XyLq758Id+4Icb82xa7LsCnaoe
-	yNNPgDb+b+ghp6vwbhBikfeefOPvrRDPQTajcAdHKIsKdL/rm4Gl1j79IS/K6Bc2JR7Ep69aO6xxz
-	ecexQyYWArne9erpO2x/vceQhCRRMfDbU5YfAPrBo2+TBAqEwMafQESaBH5GgR0bJuAoWKGZ+lQ7b
-	MZcTCXJB5+5m8hWigr67Pq2KbwZAjjOzX6S6SujRIVBe5X21ZJ1kJZ6DzUsZGwLGg7/nTYgFQp7tN
-	/8m5nWO/eZOq2jOqCNVTUq4InlcTsTHCKCscjwd0sxHxV8JR/8Ob3A6O+4QuIK6/X8/FQuWe3qLHi
-	UqmVT+8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rcRUFlTpm8Zh2F0emtR0r0UVSpkNddkhpcAlUKtjSko=; b=dN2mNVHqSzPE51zcMx3G0Aelxg
+	WRGxZl4tq8RifhmYvl99+MoG4z1tekhV0xjAuOs/gThvLVaEKKD5Qak+aH19PUXDv8Kh/7pTiKtjq
+	pq/VErzDHaTE2MvVPa4YqHRt+wu9kXFiKLUQOHBeb29UlNW4Je9Pcfa6B6d3LwVTc7VWnJwFP5Gdw
+	y1PNmip8eRvWCF34WZ8UVS7zxVNrGKCwtxH0SAZ8YBk0iaKMNz5yo0+DDiu1oWF+GLJJmTQJALtOq
+	mq63SMXEFVid3YrZRARHALv/qDPERgicCA+HPUD/8PyrxkhZgRFcW5gH9MWR0Dz2+30FUA1pObi+/
+	MPrfml8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIcX-0000000AB0Y-1vY0;
-	Thu, 02 Jan 2025 10:40:05 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tTIle-0000000ACNd-2yfi;
+	Thu, 02 Jan 2025 10:49:30 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIbI-0000000AAox-0Nra
+	id 1tTIkV-0000000ACEa-1cE1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 10:38:49 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502AcSiH1876284
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Jan 2025 04:38:29 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735814309;
-	bh=0iSidzEjR686c/vyQi1Lc8/oYdHsXDCCjNpZCNq3ASM=;
-	h=From:To:CC:Subject:Date;
-	b=w+/f+EQTua8qiy1Z/gqMF8wqQgCIURitqPmQG14j3KHOkkIHz3gSIscIMRHUaY6S9
-	 h9zMsFuWKtVKzvUxk9xjYuctPmjZBNKKtgubBXdqcv3OXvi5UkwImUPMv1VScijcuA
-	 XUmpcyxhFlMuTa8hc6gdMrTct8lsqggRn4Uvzwbs=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502AcSUQ089480
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 04:38:28 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 04:38:28 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 04:38:28 -0600
-Received: from udit-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (udit-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.6])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502AcPZK093067;
-	Thu, 2 Jan 2025 04:38:25 -0600
-From: Udit Kumar <u-kumar1@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Udit Kumar
-	<u-kumar1@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-j722s-evm: Enable PMIC
-Date: Thu, 2 Jan 2025 16:08:14 +0530
-Message-ID: <20250102103814.102499-1-u-kumar1@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 02 Jan 2025 10:48:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rcRUFlTpm8Zh2F0emtR0r0UVSpkNddkhpcAlUKtjSko=; b=PVWZLdhNQm0ngzeRCuyoqKxsgP
+	f3gQSl+IyaZvM2gs5B7vdKrr6G/M8lsgHwgxLJMZtDdgvl0f70wPBxEbYtbLeMjwuEdthMvOYCGC4
+	QYIiMdID1Iq3wIuVH6xP/Ibm38M7XhqZbsSVs8UBwfsv6KuzBewWVNG/DxpHzyrHq7a7OGubuASdA
+	1S9zdy6kyq9nb9SbXb9guy1oEUB4gdotsVG3761+um1LHl5ZVI9Zd3bhTo3iGcS7d2o1HvebnzS4u
+	7+RnvDjZfFjGXxBhmXsnCSouMOw6P7+StQiVjfpFGi8Ph43Yi+MIR1mScQB9JLYyDcMaiaJkL6m1y
+	nzaqr32Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39980)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tTIkK-0001tV-1o;
+	Thu, 02 Jan 2025 10:48:08 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tTIkH-0000DB-1o;
+	Thu, 02 Jan 2025 10:48:05 +0000
+Date: Thu, 2 Jan 2025 10:48:05 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+ <Z2g3b_t3KwMFozR8@pengutronix.de>
+ <Z2hgbdeTXjqWKa14@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z2hgbdeTXjqWKa14@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_023848_395602_CCE8DDF6 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250102_024819_422126_2F11CFDA 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,125 +95,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for TPS6522x PMIC family on wakeup I2C0 bus.
-This device provides regulators (bucks and LDOs), along with
-GPIOs, and monitors SOC's MCU error signal.
+On Sun, Dec 22, 2024 at 07:54:37PM +0100, Oleksij Rempel wrote:
+> Here is updated version:
+> 
+> ports {
+>     /* 1000BaseT Port with Ethernet and simple PoE */
+>     port0: ethernet-port@0 {
+>         reg = <0>; /* Port index */
+>         label = "ETH0"; /* Physical label on the device */
+>         connector = "RJ45"; /* Connector type */
+>         supported-modes = <10BaseT 100BaseTX 1000BaseT>; /* Supported modes */
+> 
+>         transformer {
+>             model = "ABC123"; /* Transformer model number */
+>             manufacturer = "TransformerCo"; /* Manufacturer name */
+> 
+>             pairs {
+>                 pair@0 {
+>                     name = "A"; /* Pair A */
+>                     pins = <1 2>; /* Connector pins */
+>                     phy-mapping = <PHY_TX0_P PHY_TX0_N>; /* PHY pin mapping */
+>                     center-tap = "CT0"; /* Central tap identifier */
+>                     pse-negative = <PSE_GND>; /* CT0 connected to GND */
+>                 };
+>                 pair@1 {
+>                     name = "B"; /* Pair B */
+>                     pins = <3 6>; /* Connector pins */
+>                     phy-mapping = <PHY_RX0_P PHY_RX0_N>;
+>                     center-tap = "CT1"; /* Central tap identifier */
+>                     pse-positive = <PSE_OUT0>; /* CT1 connected to PSE_OUT0 */
+>                 };
+>                 pair@2 {
+>                     name = "C"; /* Pair C */
+>                     pins = <4 5>; /* Connector pins */
+>                     phy-mapping = <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY connection only */
+>                     center-tap = "CT2"; /* Central tap identifier */
+>                     /* No power connection to CT2 */
+>                 };
+>                 pair@3 {
+>                     name = "D"; /* Pair D */
+>                     pins = <7 8>; /* Connector pins */
+>                     phy-mapping = <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY connection only */
+>                     center-tap = "CT3"; /* Central tap identifier */
+>                     /* No power connection to CT3 */
+>                 };
+>             };
+>         };
 
-Signed-off-by: Udit Kumar <u-kumar1@ti.com>
----
-Bootlogs
-https://gist.github.com/uditkumarti/961cdece09f176e1e1806efef7799cf2
+I'm sorry, but... what is the point of giving this much detail in the DT
+description. How much of this actually would get used by *any* code?
 
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts | 88 +++++++++++++++++++++++++
- 1 file changed, 88 insertions(+)
+Why does it matter what transformer is used - surely 802.3 defines the
+characteristics of the signal at the RJ45 connector and it's up to the
+hardware designer to ensure that those characteristics are met. That
+will depend on the transformer, connector and board layout.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-index a00f4a7d20d9..691c6560ec04 100644
---- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-@@ -359,6 +359,13 @@ audio_ext_refclk1_pins_default: audio-ext-refclk1-default-pins {
- 			J722S_IOPAD(0x00a0, PIN_OUTPUT, 1) /* (N24) GPMC0_WPn.AUDIO_EXT_REFCLK1 */
- 		>;
- 	};
-+
-+	pmic_irq_pins_default: pmic-irq-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x030, PIN_INPUT, 7) /* (K23) GPIO0_12 */
-+		>;
-+	};
-+
- };
- 
- &cpsw3g {
-@@ -459,6 +466,87 @@ &wkup_i2c0 {
- 	clock-frequency = <400000>;
- 	status = "okay";
- 	bootph-all;
-+
-+	tps65224: pmic@48 {
-+		compatible = "ti,tps65224-q1";
-+		reg = <0x48>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq_pins_default>;
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
-+		ti,primary-pmic;
-+
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		buck12-supply = <&vsys_io_3v3>;
-+		buck3-supply = <&vsys_io_3v3>;
-+		buck4-supply = <&vsys_io_3v3>;
-+
-+		ldo1-supply = <&vsys_io_3v3>;
-+		ldo2-supply = <&vsys_io_3v3>;
-+		ldo3-supply = <&vsys_io_3v3>;
-+
-+		regulators {
-+
-+			buck1: buck1 {
-+				regulator-name = "vcc1v8_io_buck1";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				bootph-all;
-+			};
-+
-+			buck2: buck2 {
-+				regulator-name = "vcc1v1_ddr_buck2";
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck3: buck3 {
-+				regulator-name = "vcc0v85_ram_buck3";
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck4: buck4 {
-+				regulator-name = "vcc0v75_ioret_buck4";
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo1: ldo1 {
-+				regulator-name = "vdda1v8_pll_ldo1";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo2: ldo2 {
-+				regulator-name = "dvdd3v3_ldo2";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo3: ldo3 {
-+				regulator-name = "vdd1v85_phy_ldo3";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+	       };
-+	};
- };
- 
- &k3_clks {
+What does it matter what connector pins are used? This is standardised.
+
+You also at one point had a description for a SFP cage (I'm sorry, I
+can't be bothered to find it in the 3000+ emails that I've missed over
+the Christmas period), using pin numbers 1, 2, 3, and 4. That's
+nonsense, those aren't the pin numbers for the data pairs. You also
+are effectively redefining what already exists for SFP cages - we
+already have a DT description for that, and it's based around the
+standardised connector. Why do we need a new description for SFP
+cages?
+
+Are we going to start converting schematics into DT representations,
+including any resistors and capacitors that may be present in the
+data path?
+
 -- 
-2.34.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
