@@ -4,140 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739CFE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E09E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 17:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lH2b+Yw84xb8+PrnQXwbNTY4bmGa+nOWnxNHSaT1oMg=; b=UPnOJHyk+g3/3Gk66SJuQVHa88
-	wrFavtXxl1yacxuvxXbH6r+fYXNiy63ZEBf4qQiYkYkrrZP7CYwfT3PsUAOtc95AyMKC5prqwgQs5
-	ie0eTBtwORbmJpYmYeTlk4A7CK2zDVcAts9uP6+WefM8U1l4PFXwxHA9b24mv0XWnRbhDhuWFjC+O
-	defATI5VATmQJcN/Ws/G1QjKq4GH7my2t0DDrOcQePxEVsFsnSrxH8lofjli6MraeYCuBhx1PYMUP
-	fwYQ6coRY0xULiEpR0pItWM2iftqJ9UsKAZOwwxuHK6uk6IaFF5dUKgOJ64RLe9AqlIvt4a4F2feX
-	Pk7LMovw==;
+	bh=tLfdSiRgA4Ta9pe/RS5bp9KE5GKqwNgchupcDRcc39M=; b=1efXcOYDUf6JhmMiE5WVGMsYS0
+	bD9YN5mvXZ2Crgj90pkB1PCoTx7KFRZZB97xvYJj+xpYluL/5jvH4uB+7EDJ4+6bMaP/L8DL6nB7B
+	gJlk3INL4fVxyceCMu1DoDAAOTqFj4NzBpjYVvO7IB1M7H5ucU2yVjji3M6vw971WbKIyLyl9pbMz
+	0Z85oc3T6SFhVhflB4qpJf2Q23kCtM+ezkV7I3XgnhUuj8verTTxsGveDgmCt1ncDkz05CT5yMcjD
+	xgtvNwawvdqryfKZ67yGo2V2xf3QT7KRxZ+8HZAWy5AGUJlVnk7GJnaBm2rJhnPNt6FsxiP+sCkNz
+	JJuZIQGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOhA-0000000AwZo-1gTa;
-	Thu, 02 Jan 2025 17:09:16 +0000
-Received: from mail-mw2nam12on2060a.outbound.protection.outlook.com ([2a01:111:f403:200a::60a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tTOiN-0000000Awlk-0crR;
+	Thu, 02 Jan 2025 17:10:31 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTOcR-0000000AvUt-3K7n
+	id 1tTOcU-0000000AvUO-0E5c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 17:04:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EOnpJvUUpnvMBL1SMia6BJhGEIWMaT/hal/ty0SkJW6mH/oWlWQRMBUQoOfA43V+f+pcJzy7M9m3v/UHow/p8izA8sxq1VlpD/7M/RtLPVsGZIombLJUM9BiXdBgUfkAeppXjubK3O33tnYR5A7c+2wpl07n8g9McCIXjOOtporOuqB7F0+0eotXXEfV5Ltj6Q7QDLyUE4tbNiWei93PaX/DmRSluKcG11+C4/TFDR0/LmU1NwsTeECm1ha4jbUGCykD+Gthy6W+e/nY2ucNDct+xY+WyCaNQhYHhsNO4Hp+Hufy0u590fIVdnV+JFjRQz5p5b8LLrrCS2TLhak6/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lH2b+Yw84xb8+PrnQXwbNTY4bmGa+nOWnxNHSaT1oMg=;
- b=RRBJk1R+gFuHuikqhn+wklDkqNHDx1noKTjGqDEHAGnk/L6ePmEH40o+B/gRhTT3JVXmHQT6rY8tCG2Xtxeyc6RzOLKIuX2tALwkJqwxk9qvT57dywCfEoK+FgpofuThCwWk3NfTsen52kNpKH8TE4DPli3HI25Xtl1zB6nPYILq2bMA863RbMHWiYeM8e8x7oSlV8yayi4T+uO64mmcf6LhQbhZUPHxOzx6VSILtQ25gw7PBwhGfAcTOc+4LACSGbwLr2b6Y9PsPONfEWZJA3ZZnclvJ2wxmYpH+hypT0G3DOoomyAesg1FlN5bZFCyvYjgrLrs3LxgeFauIx3amg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lH2b+Yw84xb8+PrnQXwbNTY4bmGa+nOWnxNHSaT1oMg=;
- b=Rt1+yES51lQF8qY6Qg4UMlOUmRZWNuf7X3PN2o4jzK6yL1PSTg9oAY4Xs0QBi3tbGiiZOpxHyYBqSRZa6Z5V/dNl99Eu2vC4FFRNKrPZj5wxCsQA0hDd/sDZqipZU8LG3/vNo3ih+JGYUBYWaOH8ZpmYBcIYIqjvivvEs4zGsqk=
-Received: from BYAPR05CA0021.namprd05.prod.outlook.com (2603:10b6:a03:c0::34)
- by LV2PR12MB5919.namprd12.prod.outlook.com (2603:10b6:408:173::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.12; Thu, 2 Jan
- 2025 17:04:13 +0000
-Received: from MWH0EPF000989E8.namprd02.prod.outlook.com
- (2603:10b6:a03:c0:cafe::a8) by BYAPR05CA0021.outlook.office365.com
- (2603:10b6:a03:c0::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8335.6 via Frontend Transport; Thu, 2
- Jan 2025 17:04:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- MWH0EPF000989E8.mail.protection.outlook.com (10.167.241.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8314.11 via Frontend Transport; Thu, 2 Jan 2025 17:04:12 +0000
-Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 2 Jan
- 2025 11:04:11 -0600
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB05.amd.com
- (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 2 Jan
- 2025 11:04:10 -0600
-Received: from xsjssw-mmedia4.xilinx.com (10.180.168.240) by
- SATLEXMB03.amd.com (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39
- via Frontend Transport; Thu, 2 Jan 2025 11:04:10 -0600
-From: Rohit Visavalia <rohit.visavalia@amd.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <michal.simek@amd.com>,
-	<vishal.sagar@amd.com>
-CC: <javier.carrasco.cruz@gmail.com>, <geert+renesas@glider.be>,
-	<u.kleine-koenig@baylibre.com>, <linux-clk@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Rohit
- Visavalia <rohit.visavalia@amd.com>
-Subject: [PATCH v2 3/3] clk: xilinx: vcu: Update vcu init/reset sequence
-Date: Thu, 2 Jan 2025 09:03:59 -0800
-Message-ID: <20250102170359.761670-4-rohit.visavalia@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250102170359.761670-1-rohit.visavalia@amd.com>
-References: <20250102170359.761670-1-rohit.visavalia@amd.com>
+	Thu, 02 Jan 2025 17:04:28 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tTOby-0003jY-Ce; Thu, 02 Jan 2025 18:03:54 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tTObv-006X4d-1G;
+	Thu, 02 Jan 2025 18:03:52 +0100
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1tTObw-0008kv-09;
+	Thu, 02 Jan 2025 18:03:52 +0100
+Date: Thu, 2 Jan 2025 18:03:52 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?utf-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
+	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>
+Subject: Re: [PATCH net-next RFC 0/5] net: phy: Introduce a port
+ representation
+Message-ID: <Z3bG-B0E2l47znkE@pengutronix.de>
+References: <20241220201506.2791940-1-maxime.chevallier@bootlin.com>
+ <Z2g3b_t3KwMFozR8@pengutronix.de>
+ <Z2hgbdeTXjqWKa14@pengutronix.de>
+ <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB05.amd.com: rohit.visavalia@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E8:EE_|LV2PR12MB5919:EE_
-X-MS-Office365-Filtering-Correlation-Id: c483f838-ccc7-4029-d4e0-08dd2b4f7b09
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pHCqKjg0bwdll0R6fnCK1Yu2m6PaBV6wpfo6sDyknnbvYxsp9clYsoXz8KMI?=
- =?us-ascii?Q?3QLFwuPxPP8e+vcMwdCvmyKwMQ3nZQUlglXYOZA4TYL0qWuZ+nodW5n/Od9+?=
- =?us-ascii?Q?Gk/WFSIdcpaIU7Hz20AIGPysXXDN5oXTW6mxq5aDw1AulAFq78/+1Buaxo0s?=
- =?us-ascii?Q?zwExs3JxG8wcDrPR9ERvqOeX1N0k4c9gBzTOOtUsFRM5Qh7qfT5sF3Xhxnt7?=
- =?us-ascii?Q?zX4riHMGmwskmD/KIqL1LbeArjOEnE+1b7Uby8qaRMY/nzTEIbkQqC/ZQqRa?=
- =?us-ascii?Q?/Q8ypYKVqx0lPTzOByOU/ibMRN8i/Ufr7iuZQ9xtShwGmRq0FG4tpvpKuH1E?=
- =?us-ascii?Q?6ziKCsGczeZZ3aenkmHYNYj3XPCLSS39CpQJJuNaHIm7NJHR/dOE28YB4NVg?=
- =?us-ascii?Q?wntsVnI1pte65vUbE212s70WLWKxtV1yN0UlNHZ6AC1o+h+kvNG/lOWBndX8?=
- =?us-ascii?Q?JRw7EdlYjyAO3LRYOPWo+qmB686+QGitLtHMVdsedM3k0RwUJFrASSVnWnY1?=
- =?us-ascii?Q?sBPhEPMrFaOFT7ZUsmVe2LGpjtiMr1OXir++Io7kSrCbdK2/GqO15h7mErk+?=
- =?us-ascii?Q?0GnsckQ0VgYqsYmvfpalhlZFUAOqTNnzRTITk+b/bX/GRzD8SR9QrccGFNbI?=
- =?us-ascii?Q?n9/UaO1ZGg9pwaU8ANAuE9Y+O1QQpiRslde1yQvAMoIBJsVaKYUMAibWv/EP?=
- =?us-ascii?Q?r1+6ju1tMd2tzNhrzx17DhGv6L3EAVAPIiPKI7nETbNLaPpjLH5Ac9tkg6+5?=
- =?us-ascii?Q?QPrC6RFqxLhDz2e2Fmmo0dT/8nkFhsQpryRT+qOww6dvBThc2wb72xhM1JQW?=
- =?us-ascii?Q?z2CQc7PLC1IhZ4hDoG5FL0yKwUUK1bks2oU3gsqzS8U/Y3N9c3KYVbU5Ga4r?=
- =?us-ascii?Q?HeaYxtn+TkDb2XtXsVS0n04Obkb6/qM8ZkFITi6XHGmnn2gzsfCx9oaYcZvn?=
- =?us-ascii?Q?l1QhLknqZ5zsbxw4fCU2OJHqqQ4L8DUfp6yIVbe9XOKKZyNCQt3CKWJ3SKGa?=
- =?us-ascii?Q?AubzFp3VCNpIr1TPxliNz3m0712YBikLE3Ho57+oF4PWO3K86jUeiXq2LIlD?=
- =?us-ascii?Q?QJVoRvr8zySF7UN2W7G82St8mgLQfmZQiskMTzD3RzS1KogHw9c7bqWuSWcN?=
- =?us-ascii?Q?r3yVkBfOBmQ2kWcQw074SIUp9kVgxINGZfq0gllCEIzFBTUK5mA17LcwdEx/?=
- =?us-ascii?Q?y29w52cjxdCkR/QdRPikG9NnyGpg2uw1eWgHohXjsV9BCgIP963dacn1dj1q?=
- =?us-ascii?Q?SIYqAc7wAW4HE1N46kBKRQDYk6XzrtCgHu5I61E7fShhHEtLVuYDtRu3PHBJ?=
- =?us-ascii?Q?A1kXARCwliY3e3yinHsA35WE1CHeXnqX2exDXhCHDNPT+OCP+Guki0g935ux?=
- =?us-ascii?Q?NP2LHONP4Pu2lZeZZ+WLDmelJH3Pwx84OQsFRiTFw5yDAMLzJq6a3mn5iBTB?=
- =?us-ascii?Q?nCtKl5fwZKeMf4pdqPeEGXxCSOzwKIJKqwiwtviKOxBmsMiwvBdorelUDv4v?=
- =?us-ascii?Q?yAgdFk3gGPIwgJc=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2025 17:04:12.1568
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c483f838-ccc7-4029-d4e0-08dd2b4f7b09
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E8.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5919
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <Z3Zu5ZofHqy4vGoG@shell.armlinux.org.uk>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_090423_833145_719A8C36 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250102_090426_260368_E3FF81C7 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,100 +98,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Updated vcu init/reset sequence as per design changes.
-If VCU reset GPIO is available then do assert and de-assert it before
-enabling/disabling gasket isolation.
-This GPIO is added because gasket isolation will be removed during startup
-that requires access to SLCR register space. Post startup, the ownership of
-the register interface lies with logiCORE IP.
+On Thu, Jan 02, 2025 at 10:48:05AM +0000, Russell King (Oracle) wrote:
+> On Sun, Dec 22, 2024 at 07:54:37PM +0100, Oleksij Rempel wrote:
+> > Here is updated version:
+> >=20
+> > ports {
+> >     /* 1000BaseT Port with Ethernet and simple PoE */
+> >     port0: ethernet-port@0 {
+> >         reg =3D <0>; /* Port index */
+> >         label =3D "ETH0"; /* Physical label on the device */
+> >         connector =3D "RJ45"; /* Connector type */
+> >         supported-modes =3D <10BaseT 100BaseTX 1000BaseT>; /* Supported=
+ modes */
+> >=20
+> >         transformer {
+> >             model =3D "ABC123"; /* Transformer model number */
+> >             manufacturer =3D "TransformerCo"; /* Manufacturer name */
+> >=20
+> >             pairs {
+> >                 pair@0 {
+> >                     name =3D "A"; /* Pair A */
+> >                     pins =3D <1 2>; /* Connector pins */
+> >                     phy-mapping =3D <PHY_TX0_P PHY_TX0_N>; /* PHY pin m=
+apping */
+> >                     center-tap =3D "CT0"; /* Central tap identifier */
+> >                     pse-negative =3D <PSE_GND>; /* CT0 connected to GND=
+ */
+> >                 };
+> >                 pair@1 {
+> >                     name =3D "B"; /* Pair B */
+> >                     pins =3D <3 6>; /* Connector pins */
+> >                     phy-mapping =3D <PHY_RX0_P PHY_RX0_N>;
+> >                     center-tap =3D "CT1"; /* Central tap identifier */
+> >                     pse-positive =3D <PSE_OUT0>; /* CT1 connected to PS=
+E_OUT0 */
+> >                 };
+> >                 pair@2 {
+> >                     name =3D "C"; /* Pair C */
+> >                     pins =3D <4 5>; /* Connector pins */
+> >                     phy-mapping =3D <PHY_TXRX1_P PHY_TXRX1_N>; /* PHY c=
+onnection only */
+> >                     center-tap =3D "CT2"; /* Central tap identifier */
+> >                     /* No power connection to CT2 */
+> >                 };
+> >                 pair@3 {
+> >                     name =3D "D"; /* Pair D */
+> >                     pins =3D <7 8>; /* Connector pins */
+> >                     phy-mapping =3D <PHY_TXRX2_P PHY_TXRX2_N>; /* PHY c=
+onnection only */
+> >                     center-tap =3D "CT3"; /* Central tap identifier */
+> >                     /* No power connection to CT3 */
+> >                 };
+> >             };
+> >         };
+>=20
+> I'm sorry, but... what is the point of giving this much detail in the DT
+> description. How much of this actually would get used by *any* code?
+>=20
+> Why does it matter what transformer is used - surely 802.3 defines the
+> characteristics of the signal at the RJ45 connector and it's up to the
+> hardware designer to ensure that those characteristics are met. That
+> will depend on the transformer, connector and board layout.
+>=20
+> What does it matter what connector pins are used? This is standardised.
+>=20
+> You also at one point had a description for a SFP cage (I'm sorry, I
+> can't be bothered to find it in the 3000+ emails that I've missed over
+> the Christmas period), using pin numbers 1, 2, 3, and 4. That's
+> nonsense, those aren't the pin numbers for the data pairs. You also
+> are effectively redefining what already exists for SFP cages - we
+> already have a DT description for that, and it's based around the
+> standardised connector. Why do we need a new description for SFP
+> cages?
+>=20
+> Are we going to start converting schematics into DT representations,
+> including any resistors and capacitors that may be present in the
+> data path?
 
-Signed-off-by: Rohit Visavalia <rohit.visavalia@amd.com>
----
-Changes in v2:
-  - Changed patches sequence to have patches with "Fixes" as preceding in order
-  - Used dev_err_probe()
-  - Moved warning to dev_dbg() and updated print with more detail
-  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-2-rohit.visavalia@amd.com/ 
----
- drivers/clk/xilinx/xlnx_vcu.c | 29 +++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+First of all, Happy New Year! :)
 
-diff --git a/drivers/clk/xilinx/xlnx_vcu.c b/drivers/clk/xilinx/xlnx_vcu.c
-index c520ae1ba65e..50f7c3ecb07c 100644
---- a/drivers/clk/xilinx/xlnx_vcu.c
-+++ b/drivers/clk/xilinx/xlnx_vcu.c
-@@ -11,6 +11,7 @@
- #include <linux/clk-provider.h>
- #include <linux/device.h>
- #include <linux/errno.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/io.h>
- #include <linux/mfd/syscon.h>
- #include <linux/mfd/syscon/xlnx-vcu.h>
-@@ -51,6 +52,7 @@
-  * @dev: Platform device
-  * @pll_ref: pll ref clock source
-  * @aclk: axi clock source
-+ * @reset_gpio: vcu reset gpio
-  * @logicore_reg_ba: logicore reg base address
-  * @vcu_slcr_ba: vcu_slcr Register base address
-  * @pll: handle for the VCU PLL
-@@ -61,6 +63,7 @@ struct xvcu_device {
- 	struct device *dev;
- 	struct clk *pll_ref;
- 	struct clk *aclk;
-+	struct gpio_desc *reset_gpio;
- 	struct regmap *logicore_reg_ba;
- 	void __iomem *vcu_slcr_ba;
- 	struct clk_hw *pll;
-@@ -676,6 +679,24 @@ static int xvcu_probe(struct platform_device *pdev)
- 	 * Bit 0 : Gasket isolation
- 	 * Bit 1 : put VCU out of reset
- 	 */
-+	xvcu->reset_gpio = devm_gpiod_get_optional(&pdev->dev, "reset",
-+						   GPIOD_OUT_LOW);
-+	if (IS_ERR(xvcu->reset_gpio)) {
-+		ret = PTR_ERR(xvcu->reset_gpio);
-+		dev_err_probe(&pdev->dev, ret, "failed to get reset gpio for vcu.\n");
-+		goto error_get_gpio;
-+	}
-+
-+	if (xvcu->reset_gpio) {
-+		gpiod_set_value(xvcu->reset_gpio, 0);
-+		/* min 2 clock cycle of vcu pll_ref, slowest freq is 33.33KHz */
-+		usleep_range(60, 120);
-+		gpiod_set_value(xvcu->reset_gpio, 1);
-+		usleep_range(60, 120);
-+	} else {
-+		dev_dbg(&pdev->dev, "No reset gpio info found in dts for VCU. This may result in incorrect functionality if VCU isolation is removed after initialization in designs where the VCU reset is driven by gpio.\n");
-+	}
-+
- 	regmap_write(xvcu->logicore_reg_ba, VCU_GASKET_INIT, VCU_GASKET_VALUE);
- 
- 	ret = xvcu_register_clock_provider(xvcu);
-@@ -690,6 +711,7 @@ static int xvcu_probe(struct platform_device *pdev)
- 
- error_clk_provider:
- 	xvcu_unregister_clock_provider(xvcu);
-+error_get_gpio:
- 	clk_disable_unprepare(xvcu->aclk);
- 	return ret;
- }
-@@ -711,6 +733,13 @@ static void xvcu_remove(struct platform_device *pdev)
- 	xvcu_unregister_clock_provider(xvcu);
- 
- 	/* Add the Gasket isolation and put the VCU in reset. */
-+	if (xvcu->reset_gpio) {
-+		gpiod_set_value(xvcu->reset_gpio, 0);
-+		/* min 2 clock cycle of vcu pll_ref, slowest freq is 33.33KHz */
-+		usleep_range(60, 120);
-+		gpiod_set_value(xvcu->reset_gpio, 1);
-+		usleep_range(60, 120);
-+	}
- 	regmap_write(xvcu->logicore_reg_ba, VCU_GASKET_INIT, 0);
- 
- 	clk_disable_unprepare(xvcu->aclk);
--- 
-2.25.1
+I also apologize for the SFP example provided earlier - it was vague, uncle=
+ar,
+and wasted your time. The purpose was not to redefine existing standards bu=
+t to
+demonstrate that even SFP might require separate consideration if we ever m=
+ove
+towards more detailed descriptions. My current focus, however, is on twisted
+pair-based Ethernet**, and I=E2=80=99d like to discuss that further if you=
+=E2=80=99re open to
+it.
 
+### Why Describe Pair Layouts?
+
+While Ethernet ports often work seamlessly even with misaligned pair layouts
+due to PHY auto-correction mechanisms like **MDI-X** or **CD pair swap
+correction**, these misalignments can affect diagnostics. =20
+
+If pairs are misaligned but still functional in automatic mode, the diagnos=
+tic
+interface may fail to provide meaningful or accurate data. For example: =20
+- MDI/MDI-X Detection: Misaligned pairs can lead to unexpected results,
+such as both sides reporting the same status when using a non-crossover cab=
+le. =20
+- Debugging Pair Issues: Without proper correction data in the DT, it
+becomes challenging to identify and validate pair swaps (e.g., A<>B or C<>D)
+during diagnostics. =20
+
+Including pair layout information in the DT ensures that the diagnostic
+interface can apply necessary corrections, making diagnostics usable.
+
+### Why Address Polarity? =20
+
+Polarity detection and correction are mandatory, and all modern PHYs handle=
+ it
+seamlessly. However, Open Alliance standards require polarity indication
+and the ability for manual correction, particularly for automotive-grade
+PHYs (e.g., 1000BaseT1, 100BaseT1). =20
+(See: 6.4 Polarity Detection and Correction (POL))
+https://opensig.org/wp-content/uploads/2024/01/Advanced_PHY_features_for_au=
+tomotive_Ethernet_V1.0.pdf
+(Example of non-automotive PHYs supporting polarity indication and disablin=
+g of
+auto correction)
+https://ww1.microchip.com/downloads/en/DeviceDoc/VMDS-10242.pdf
+
+When polarity within the pair becomes relevant for diagnostics, proper PCB
+layout becomes crucial. It=E2=80=99s not uncommon for the PCB connection to=
+ differ from
+the expected polarity at the physical port. Including polarity details in t=
+he
+DT allows for better alignment between hardware and software diagnostics,
+ensuring issues can be detected and corrected efficiently. =20
+
+### Why Mention Shielding?
+
+Shielding impacts EMI performance and compatibility, and knowing the shield=
+ing
+type (e.g., grounded, floating, capacitive) helps in: =20
+
+- Cable Selection: Ensures compatibility between shielded/unshielded cables
+  and port design. =20
+- EMI Troubleshooting: Identifies issues in noisy environments or mismatched
+  configurations. =20
+- System Design: Prevents ground loops and ensures compliance with EMC
+  standards. =20
+
+Even though this information should ideally be part of the product
+documentation, having it accessible through the interface makes
+software-supported diagnostics much more convenient. For example, software
+could guide users by stating:  "This controller has floating shielding. Ens=
+ure
+the cable is unshielded, or if shielded, it must be properly terminated at
+least on one side." =20
+
+### Why Mention Magnetics (Transformers)? =20
+
+We have to deal with different types of connections: with or without magnet=
+ics.
+Magnetics themselves come in various types and can be classified by their
+common-mode rejection elements, number of cores, and other
+characteristics. =20
+
+=46rom a software or user perspective, knowing the type and model of the
+magnetics is useful for several reasons. For example: =20
+
+- The transformer model do affect Time Domain Reflectometry offsets, someti=
+mes
+  resulting in discrepancies of several meters.
+  (See: TDR Offset Calibration)
+  https://www.analog.com/en/resources/app-notes/an-2553.html
+  https://ww1.microchip.com/downloads/en/Appnotes/VPPD-01740.pdf
+
+- Transformers influence insertion loss and exhibit varying noise
+  characteristics, both of which impact the analog properties of signals. =
+=20
+
+- Some PHYs support tuning their analog characteristics (e.g., VoD swing,
+  impedance matching) based on the attached magnetics. Advanced PHYs with s=
+uch
+  capabilities are often found in industrial-grade PHYs.
+  (See: How to Tune DP83825 VoD Swing)
+  https://www.ti.com/lit/an/snla266a/snla266a.pdf
+ =20
+Best regards, =20
+Oleksij
+--=20
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
