@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008A2E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 20:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A466E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 20:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e2a4dqMVLYy1RoN4xN8k6L4FT1iFqHXekN0TayfuDGM=; b=p6Ii2ZMnYWPJ4CqARFagMWzCCp
-	lBVG/jXMTagdmKvCVz4ekVnyo6N4MW9HaNHcXM7+0m5/NCxWF1OOvzxaz2vBmyrsy95sRHIxnNehG
-	euyxFIKinAfDRSRnBbdzNd3ykLr4eX5yX+l9l6Qk3V5BX30dtr3God+4Qp3PUvhIz5js6eMb9OM6i
-	V3xk/hlojJFhULbA4jVVOZMWxWtqm7cEajIW6/KCMPuOyfKAMjt7rMVwAF+J8b3PERrcqfoBcdiLW
-	3kH4I99v2vNL/1NKdGm5AR/6auBSfxu+YxTBCRhn2kCv3YOAwOTgu2S7j7ofZZdZWQ/envwPBrW8F
-	2ZiPWC9w==;
+	bh=4e1IdUvGapScSUpgK7R6llp+8eAfEdh0yOfh5Obu5/E=; b=BCYKHmLDM6mHLxf7yh2fpsLPiI
+	5Lqq6tRs3s706M6dlEhWeEByAJQulQ3cNNBoE3+JuiNAaoVaOz/zH4w2PjfkQtc6BHXgAb8LvjPRp
+	tPIZZxwh8dAVp57Z9mQSb/zdurRQ+UogoGd33FfGxRUOp504Xn59C7oZcL20Emq17uDJaOC6gz8cn
+	JRAGLAf+sFodn9Ov41wdnRuTvo+ewkyzwRtIKRx0q9qb3odNZ9jUN3rfcoIwXY3ccUlb5nZ3TSfkZ
+	n4CFNs2YgW5YZKBjHkGtZakvP0K/RKZX532nQEfjoDJ+pBP6R3YJR6sGl0yVbIxCkj6pZPS9d8qX5
+	kt4H5iTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTRdN-0000000BN3K-0YDE;
-	Thu, 02 Jan 2025 20:17:33 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1tTRfV-0000000BNOb-3fzm;
+	Thu, 02 Jan 2025 20:19:45 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTRc9-0000000BMsK-40cV
+	id 1tTReM-0000000BNBR-019x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 20:16:19 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6dd420f82e2so64306786d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 12:16:17 -0800 (PST)
+	Thu, 02 Jan 2025 20:18:35 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4678664e22fso103763711cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 12:18:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1735848976; x=1736453776; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1735849112; x=1736453912; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=e2a4dqMVLYy1RoN4xN8k6L4FT1iFqHXekN0TayfuDGM=;
-        b=nojD15YbLVQ4ZrDfWIO+YzU7J7CumKW803E/w/oO5bblj/wiTc3IoCfQTlmih1NbD8
-         Y/lvx8AuZ4DMCphX70aUuS38GhwViBU1TaycUrIpiPpPDnKRlEF0UCrslarE5uNVGMMI
-         rAr9cRda4+8B1LrrpZEzZFkA4JOlcrjD+nXLiKRypXGC60oGOt0pELaljzOgb1jiiTta
-         m2M/aDtcfc9MiwOK/wvGRUfJbvZHI6Kwv7dEPEwB3cjbaaBPvSTgrdAEXyyq6lQ2PFgB
-         AX0tjr1EsXpEfQo24SAUqnui+QwvCNs0i4P5zOadxz+FMP64/OLscQG9aWs5WQCu+E3h
-         pZog==
+        bh=4e1IdUvGapScSUpgK7R6llp+8eAfEdh0yOfh5Obu5/E=;
+        b=lVYxdtg/a5iCr7X6KopxKIMIEoZLa7Wtd5jcrS/W3Wz8p4F4ONhUGymhpxxh3e2Vhl
+         PPUn/i+JmJ47Pcf2Jr4MwqQ969F4sAhkgePR91gPRTP3D2SZuexR5ObJcnHm7o4ksEuo
+         BWPiTpqhovP6JDy8jq5F4u9CSzlJsD9hjk7biMZXY+kXrPYWLlgELTExv0KIKyJWvg1W
+         Y4w+ao7rE74yqLR/KDn9yePh1m7Nw3NntV3/VGetTi0CjSxbbuByG3ueuvFxQepwZaMU
+         U9slN+ueIm7jDX9SeV+aCSdNPhga1fCBLv4NssakER55t/8Se5sozXz48nNA+SeYFlWI
+         QQuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735848976; x=1736453776;
+        d=1e100.net; s=20230601; t=1735849112; x=1736453912;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=e2a4dqMVLYy1RoN4xN8k6L4FT1iFqHXekN0TayfuDGM=;
-        b=EXY795t2zZ4Dtku03IYXDKn6ysIT41MaDtOxuDSu5vGVxfFIYHL0lQGiU3TYUtBVA8
-         Gctpxf2d851KV0Ybawm/IwzD7YvNp6FZiX08Hgl2sgDz+u5ZDvPNOkIYAfiNkDQs0RwC
-         shUapQbB9OfqLVn3Pn2kH0y7mBEbyWAmFfiGCcmLtxoy26ftjYg/tZhDu05ugmhmEaq4
-         zKVM2gDZBWtVWSRUCOUeGnfhIYwpD2xmPOSb0KsAkQ19nK06DB4+UyjRXTVUEZTlW/ZZ
-         +nGYLU/0fvl24glfOZKArast37RWzetI4Hqdf536F5vGLWj6bSVv5Nk03VTGA4d+9Slr
-         T5Pw==
-X-Forwarded-Encrypted: i=1; AJvYcCWf9AxfnPSgPzD0YqG1/DOplD7cDxrxQD27JBRTpTYxbxOo7a3n2zxAvkefR9Q+S/GzvnGkjcFr2r3YNFDABQxD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZFv9+WMlYEjR4yw3W8IpHbfVJkQJVE8q+GlPhmU/ZzoK6cC5C
-	7qlpTVkTAE08mtN4siuk8BuQ+fVS6JLnY5LCL6CONRQ5a+9V7sSAFP4dub3wSYk=
-X-Gm-Gg: ASbGncu56LRo8u/cz95oiKyvqIsdGeBQgeX99zxs6m2hX4JutaL3FmnfRtJvG2SnTxb
-	Ba4KJ0t3Z3YdDGi00S9hH/kjBaKqeTaEdtKX8X2wugLZFyAnterl7hRxioZrymbHyha76t2w1ld
-	23uBBd69W8diZwNjckPG6WlPvvQ2Q3NT9irMjVXUiKYZpAYalX7AIr3vSBjFHnqwWfNYtMwBHO0
-	9M1WKTT8vafAUr+y0nhvzhUMXo6TNDdfs5WDgsWnPk/sw9Wo2RmfVMfYNFuMkmJ0JoPq4Q0pQO8
-	MeIx0KUbp5a1PNqQxa0stH4QufS8Fg==
-X-Google-Smtp-Source: AGHT+IG1lsiTAkszVzWv4dKENAN1XpNcbgLjo9B5AvUmLgMSUNBzBN1F+M1fOLMzRfxQBJioY5NWAg==
-X-Received: by 2002:a05:6214:27e8:b0:6d4:1662:348c with SMTP id 6a1803df08f44-6dd233383f0mr669824266d6.17.1735848976076;
-        Thu, 02 Jan 2025 12:16:16 -0800 (PST)
+        bh=4e1IdUvGapScSUpgK7R6llp+8eAfEdh0yOfh5Obu5/E=;
+        b=hs59Se3OcQOUSrzjIFdp8cRQyRnX1GCdDhU/ukW+gBVEIaumCHSLHWEDJ12gwua3aS
+         OdAJnId+JvXJMXghy4WDJ4+EIvVV4qH3vwDQRJt7u6bVLq0lk4tW3IQHjCf3kjbXITRE
+         srOJoJOdav2RYSnC0UnSRjdN03W3YKhEu1FPb476OXq8XZjCvcf4KnfDGgjB68v43mtg
+         yNVjeGRihaAh7D1yqTHcyUT450/M4sy+eh26gLlxzT8o9ZGLuazK36dN0n/93T9iPopK
+         6xgx+D8Z9yoUC2hr4bzHeLxOxpI7XQtlEza5k6vI08SCBJ5Fyx+clrGkODbr5ioBovPZ
+         nifA==
+X-Forwarded-Encrypted: i=1; AJvYcCURGYHFEpLQdhsYVL3Yc1mSA/N7Fro8Vr6rk4blVd6U3CwoR1+jj1yXH0zNYvSQrw9E/ygLI+6Lp4gBdvPkzH0a@lists.infradead.org
+X-Gm-Message-State: AOJu0YymVWRCeCQJcssJX3sPJHkBHuKQ7JqwoLBorh4uMcCRLdJ5UOcT
+	Z4NdrczAd9Y2pvuTuLN0OiPoANbOXh7pN2W+cl4SsOXbOzEF8vBTcVUz292BlZk=
+X-Gm-Gg: ASbGncsWzV0K9ZK9Csszb2OodBpiNK7wmoG0T32ShkEXiBWqarjxO6nH/z/3nuX3OpT
+	P1OTa5CBlvQEUWaiKovoQSs7Gf3uvZ5Go2b6R6QUeB7NWInKZYu88tCLUT9LYAka2tdFK1GRfZe
+	62w+0+V/s11RCpv0IJJ5onAsp3nAxNvVrUMbQ7FqmvDUIKvJ/TUrHsp3dmyE1FXD9+j/+LVcBQr
+	0n3yWDtNmwmr5itTN5BTsHUCceo6H651bEv7ezxvk+rhiKkS5HgbHoz2mFVulcd3NrCI6DRmG8F
+	+secfuVLnTH/oantYajobsrqKG9+yA==
+X-Google-Smtp-Source: AGHT+IEubZlgbIa9gMEMKah3ttFKamsGoFQpk1RjIrpqZNlNGIW4EdOxYKL1s14UXV0ZPoQHIA67hQ==
+X-Received: by 2002:ac8:5d02:0:b0:467:6461:e143 with SMTP id d75a77b69052e-46a4a8efe3bmr794078931cf.33.1735849112516;
+        Thu, 02 Jan 2025 12:18:32 -0800 (PST)
 Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6ddc5a56c40sm1904426d6.32.2025.01.02.12.16.14
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46afc4597d3sm21460311cf.50.2025.01.02.12.18.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 12:16:15 -0800 (PST)
+        Thu, 02 Jan 2025 12:18:31 -0800 (PST)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1tTRc6-00000000MEA-1FCS;
-	Thu, 02 Jan 2025 16:16:14 -0400
-Date: Thu, 2 Jan 2025 16:16:14 -0400
+	id 1tTReJ-00000000MFl-10vf;
+	Thu, 02 Jan 2025 16:18:31 -0400
+Date: Thu, 2 Jan 2025 16:18:31 -0400
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, robdclark@gmail.com, joro@8bytes.org,
-	robin.murphy@arm.com, jean-philippe@linaro.org, nicolinc@nvidia.com,
-	vdonnefort@google.com, qperret@google.com, tabba@google.com,
-	danielmentz@google.com, tzukui@google.com
-Subject: Re: [RFC PATCH v2 00/58] KVM: Arm SMMUv3 driver for pKVM
-Message-ID: <20250102201614.GA26854@ziepe.ca>
+Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	robdclark@gmail.com, joro@8bytes.org, jean-philippe@linaro.org,
+	nicolinc@nvidia.com, vdonnefort@google.com, qperret@google.com,
+	tabba@google.com, danielmentz@google.com, tzukui@google.com
+Subject: Re: [RFC PATCH v2 55/58] drivers/iommu: Add deferred map_sg
+ operations
+Message-ID: <20250102201831.GB26854@ziepe.ca>
 References: <20241212180423.1578358-1-smostafa@google.com>
- <20241212194119.GA4679@ziepe.ca>
- <Z1yNWI9lBNIZg6Le@google.com>
+ <20241212180423.1578358-56-smostafa@google.com>
+ <ce4c8db4-4895-426b-8d9d-97dc5d74fbc4@arm.com>
+ <Z2Qshft8lQjI-x7c@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z1yNWI9lBNIZg6Le@google.com>
+In-Reply-To: <Z2Qshft8lQjI-x7c@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_121618_104394_CF52C63A 
-X-CRM114-Status: GOOD (  55.20  )
+X-CRM114-CacheID: sfid-20250102_121834_040715_325E1A8B 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,128 +112,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 13, 2024 at 07:39:04PM +0000, Mostafa Saleh wrote:
-> Thanks a lot for taking the time to review this, I tried to reply to all
-> points. However I think a main source of confusion was that this is only
-> for the host kernel not guests, with this series guests still have no
-> access to DMA under pKVM. I hope that clarifies some of the points.
+On Thu, Dec 19, 2024 at 02:24:05PM +0000, Mostafa Saleh wrote:
+> I had a quick look now at s390, and it seems a bit different as they only
+> notify the hypervisor about the iova range being changed, and don’t need
+> to provide iova->paddr mapping which pKVM does.
 
-I think I just used different words, I ment the direct guest of pvkm,
-including what you are calling the host kernel.
-
-> > The cover letter doesn't explain why someone needs page tables in the
-> > guest at all?
-> 
-> This is not for guests but for the host, the hypervisor needs to
-> establish DMA isolation between the host and the hypervisor/guests.
-
-Why isn't this done directly in pkvm by setting up IOMMU tables that
-identity map the host/guest's CPU mapping? Why does the host kernel or
-guest kernel need to have page tables?
-
-> However, guest DMA support is optional and only needed for device
-> passthrough, 
-
-Why? The CC cases are having the pkvm layer control the translation,
-so when the host spawns a guest the pkvm will setup a contained IOMMU
-translation for that guest as well.
-
-Don't you also want to protect the guests from the host in this model?
-
-> We can do that for the host also, which is discussed in the v1 cover
-> letter. However, we try to keep feature parity with the normal (VHE)
-> KVM arm64 support, so constraining KVM support to not have IOVA spaces
-> for devices seems too much and impractical on modern systems (phones for
-> example).
-
-But why? Do you have current use cases on phone where you need to have
-device-specific iommu_domains? What are they? Answering this goes a
-long way to understanding the real performance of a para virt approach.
-
-> There is no hacking for the arm-smmu-v3 driver, but mostly splitting
-> the driver so it can be re-used + introduction for a separate
-> hypervisor
-
-I understood splitting some of it so you could share code with the
-pkvm side, but I don't see that it should be connected to the
-host/guest driver. Surely that should be a generic pkvm-iommu driver
-that is arch neutral, like virtio-iommu.
-
-> With pKVM, the host kernel is not trusted, and if compromised it can
-> instrument such attacks to corrupt hypervisor memory, so the hypervisor
-> would lock io-pgtable-arm operations in EL2 to avoid that.
-
-io-pgtable-arm has a particular set of locking assumptions, the caller
-has to follow it. When pkvm converts the hypercalls for the
-para-virtualization into io-pgtable-arm calls it has to also ensure it
-follows io-pgtable-arm's locking model if it is going to use that as
-its code base. This has nothing to do with the guest or trust, it is
-just implementing concurrency correctly in pkvm..
-
-> Yeah, SVA is tricky, I guess for that we would have to use nesting,
-> but tbh, I don’t think it’s a deal breaker for now.
-
-Again, it depends what your actual use case for translation is inside
-the host/guest environments. It would be good to clearly spell this out..
-There are few drivers that directly manpulate the iommu_domains of a
-device. a few gpus, ath1x wireless, some tegra stuff, "venus". Which
-of those are you targetting?
-
-> > Lots of people have now done this, it is not really so bad. In
-> > exchange you get a full architected feature set, better performance,
-> > and are ready for HW optimizations.
-> 
-> It’s not impossible, it’s just more complicated doing it in the
-> hypervisor which has limited features compared to the kernel + I haven’t
-> seen any open source implementation for that except for Qemu which is in
-> userspace.
-
-People are doing it in their CC stuff, which is about the same as
-pkvm. I'm not sure if it will be open source, I hope so since it needs
-security auditing..
-
-> > > - Add IDENTITY_DOMAIN support, I already have some patches for that, but
-> > >   didn’t want to complicate this series, I can send them separately.
-> > 
-> > This seems kind of pointless to me. If you can tolerate identity (ie
-> > pin all memory) then do nested, and maybe don't even bother with a
-> > guest iommu.
-> 
-> As mentioned, the choice for para-virt was not only to avoid pinning,
-> as this is the host, for IDENTITY_DOMAIN we either share the page table,
-> then we have to deal with lazy mapping (SMMU features, BBM...) or mirror
-> the table in a shadow SMMU only identity page table.
-
-AFAIK you always have to mirror unless you significantly change how
-the KVM S1 page table stuff is working. The CC people have made those
-changes and won't mirror, so it is doable..
-
-> > My advice for merging would be to start with the pkvm side setting up
-> > a fully pinned S2 and do not have a guest driver. Nesting without
-> > emulating smmuv3. Basically you get protected identity DMA support. I
-> > think that would be a much less sprawling patch series. From there it
-> > would be well positioned to add both smmuv3 emulation and a paravirt
-> > iommu flow.
-> 
-> I am open to any suggestions, but I believe any solution considered for
-> merge, should have enough features to be usable on actual systems (translating
-> IOMMU can be used for example) so either para-virt as this series or full
-> nesting as the PoC above (or maybe both?), which IMO comes down to the
-> trade-off mentioned above.
-
-IMHO no, you can have a completely usable solution without host/guest
-controlled translation. This is equivilant to a bare metal system with
-no IOMMU HW. This exists and is still broadly useful. The majority of
-cloud VMs out there are in this configuration.
-
-That is the simplest/smallest thing to start with. Adding host/guest
-controlled translation is a build-on-top excercise that seems to have
-a lot of options and people may end up wanting to do all of them.
-
-I don't think you need to show that host/guest controlled translation
-is possible to make progress, of course it is possible. Just getting
-to the point where pkvm can own the SMMU HW and provide DMA isolation
-between all of it's direct host/guest is a good step.
+Can you explain this statement some more. It seems strange to me, why
+would the pkvm side, which has it's own page table, need to be be told
+about the iova->paddr during range unmapping requests - and why would
+the host/guest side have to unnecessarily store this information?
 
 Jason
 
