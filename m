@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1E5E7718B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDB1E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuMGISeQsW1yu6rAdminJ1s+x+bJL1Y5hp20J/s6/+c=; b=NvhkjfExmInYAuZQPSkm05tXh/
-	kPTrAo81ctJzZRUecE7QzTzSCHOblBib5pIOw6ZUnykXjaY+MrDM8OJ0ZKUvnAEEvvCuDMnLW9XIx
-	pTFHq54Sn10qiJqC0UxPCc19oYVSalaeZJutrOdz+FKoK6ZiIRpYrCmI2P6PfB0ErHOPlzI5Xy/8z
-	dexUMIpiWQwhbHyF4d//ZsNnN9O1GjQeC57ae9Ku1mb6k2eK3mB7WhcW+FaS5zIl1Fl/eY/cKpFuS
-	tLQm/kIRF+Y0gA0hEogIYRD8ofdYu3wYxSx4YnDNWOQyDHN6T3SxQZoLBZ6iiVbGMwy0caaFjm61y
-	tUZfh2Xw==;
+	bh=ExvOa/A06b3pj7qPi57FwVToE4MwmM1rQecSaAO2J5M=; b=uEmyY0AwPs7CEwxEo2MN3UrTF0
+	e1pP5KBYv120+/MZCGUZwA9DjmBHujT/HDBq48iEGOxCm2F+AmgX9j4FTr63PHzt7a7d3jGhdQtGB
+	Zd/MrOQ7eEFJXd1mQJ/1HPvMLYkQfKtZ1F4wmt3rLWMmCFpw6t/Vy+3QBdEunua3163h+oWgaKs5+
+	8fNtIBq9TTTQhkPOvKbXVfIJPCKYRIBbYhSsVR0eJfFDgpslWCweRhP8LA6QCMKf3SJXwAapDTTN8
+	wSyEpcLdngXeovvV3MG3k6ND3kxeKochmuJAgzLdjnT1KSydGzfbcrEQuJON6shIY2ujIi/790tXe
+	tL+HWI4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIZT-0000000AAUv-3axZ;
-	Thu, 02 Jan 2025 10:36:55 +0000
+	id 1tTIac-0000000AAfE-12oe;
+	Thu, 02 Jan 2025 10:38:06 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIP7-0000000A8cb-3Yra;
-	Thu, 02 Jan 2025 10:26:15 +0000
+	id 1tTISB-0000000A95H-3xJn;
+	Thu, 02 Jan 2025 10:29:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1735813572;
-	bh=wJuYZa1Z2y++bkR6W+53NDWLih/Ax8RRNEbL+4eSPig=;
+	s=mail; t=1735813762;
+	bh=Ui5Ax6l8RhcBEr+KDx7Y4gphne3ZIzmcVAcKme4QbaQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H3c7D7gvvYK0mpbJ13WKxi8g65Gr/jhoTPMC2LUcllLJLGJn3Hq9Fei1upWjqjzlH
-	 rRH75WC8Vb0X7qvJGLKpyShTz71K1iJMGG579cAJyMk9gMcN1KjRJpvekRbR2g6odz
-	 FpIxhD54WBpRGRJp3kmlmBQA8sCmy1N0KgCzyKEWN+SnFpUy5/X1DL55nO49b7Uybe
-	 MIgMU5L185MWQ2dbkJqny8BHNRmZbSnGdSSh3lil6sPiDT5EEcZMH++k7vigq6ey0Y
-	 Syl+gfJv5ElVuuh7jt2uD3GOvP9z+e3+Hf8chjVSrPx/jnIU8fVtq5kuo4BgosYD8R
-	 IA+prRUCimduw==
+	b=lnDjH4e49m8sL1pxJma4tV+WV36PeaCESERSgKFzZ3vdQMEN9zzML5rdbDRyg/eST
+	 9ct3oa0EUyVQDfdp/Q1IG7Q+gngQiatZsaNQAsMuFgoRUwXZzpmvVjEC6g4h0UJ7Mx
+	 hNlu7cbv9eNvpih8yHi1beLLwFKTpLdCcTx4sJ3j8zrqS0qnKvQxkk/B4CfGFf3dEA
+	 mft19HRNPjMgfjG/bx8NYctNzd9hv5poQEcZ10r1Hu3xBYcy9TaWhrDCwcBWzo1Jfr
+	 fIaiQqKA5HJn5O+FNi9pivNFs75XYXnB6kQBwAwhffXZvNNIjWcKioR0uMAtpdmLXS
+	 y+mBUYcmX+j5Q==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0049417E155B;
-	Thu,  2 Jan 2025 11:26:10 +0100 (CET)
-Message-ID: <7dae1442-c6e8-4610-a23e-8f8d4658bad7@collabora.com>
-Date: Thu, 2 Jan 2025 11:26:10 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A4B8317E1554;
+	Thu,  2 Jan 2025 11:29:21 +0100 (CET)
+Message-ID: <5a4db8a5-82fa-4feb-bc2e-c78d9e1c88e2@collabora.com>
+Date: Thu, 2 Jan 2025 11:29:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/9] dt-bindings: input: mtk-pmic-keys: add MT6392 binding
- definition
+Subject: Re: [PATCH 0/3] mt6779-keypad: fix compatibles and add to mt8516
 To: Val Packett <val@packett.cool>
-Cc: Fabien Parent <parent.f@gmail.com>, Rob Herring <robh@kernel.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+Cc: Mattijs Korpershoek <mkorpershoek@baylibre.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Eddie Huang <eddie.huang@mediatek.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>,
- Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Fabien Parent <fparent@baylibre.com>,
+ Alexandre Mergnat <amergnat@baylibre.com>,
+ Amjad Ouled-Ameur <aouledameur@baylibre.com>, linux-input@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org
-References: <20241226050205.30241-1-val@packett.cool>
- <20241226050205.30241-4-val@packett.cool>
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20241225192631.25017-1-val@packett.cool>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20241226050205.30241-4-val@packett.cool>
+In-Reply-To: <20241225192631.25017-1-val@packett.cool>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_022614_065400_C7560A59 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_022924_138842_FFDA64C6 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,14 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 26/12/24 05:58, Val Packett ha scritto:
-> From: Fabien Parent <parent.f@gmail.com>
+Il 25/12/24 20:26, Val Packett ha scritto:
+> The mt8516 patch was previously sent in another series but rejected due
+> to not using an mt8516 specific compatible - which the other usages
+> of this driver (mt8183 and mt8365) weren't doing either.
 > 
-> Add the binding documentation of the mtk-pmic-keys for the MT6392 PMICs.
+> It's only fair to add the SoC-specific compatibles to all of them then :)
 > 
-> Signed-off-by: Fabien Parent <parent.f@gmail.com>
-> Reviewed-by: Rob Herring <robh@kernel.org>
+
+Nice!!
+
+Whole series is
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> Val Packett (3):
+>    dt-bindings: mediatek,mt6779-keypad: add more compatibles
+>    arm64: dts: mediatek: add per-SoC compatibles for keypad nodes
+>    arm64: dts: mediatek: mt8516: add keypad node
+> 
+>   .../bindings/input/mediatek,mt6779-keypad.yaml        |  3 +++
+>   arch/arm64/boot/dts/mediatek/mt8183.dtsi              |  3 ++-
+>   arch/arm64/boot/dts/mediatek/mt8365.dtsi              |  3 ++-
+>   arch/arm64/boot/dts/mediatek/mt8516.dtsi              | 11 +++++++++++
+>   4 files changed, 18 insertions(+), 2 deletions(-)
+> 
 
 
