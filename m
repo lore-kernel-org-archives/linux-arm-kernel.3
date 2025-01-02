@@ -4,112 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9FCE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDCEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qtcAKxx6Ly5V1Oo8xEaWBmIlFq/016gQnTtwHX0Q+H8=; b=GB4c8m2su8jVvWEikSMkOKYl3I
-	VwOqOQrd2Nx4UmPIe7K+6j0/uTff6sXooDXVnoYtSEtQnnhYUcJjBTF7vHRCl5Gf7g5YUo5TpkbRt
-	yOGJ0wzsL3pUAElylMkEROvYmOlM2xCZpK9APJAeoKMGsosAusfs63t+WpSObUn1/5UOejaI+/qsz
-	R5wFmuEw92umsY7hRcxCxy9DAvKmHo8JVgIo9qQMQnPBBVInrRa+Lks1FLlx+osad3dBJkwbZgQPe
-	hkdh1SDPQjTLT8k5lkLfHAD4xw5VghX5QHaWoaLTjNPSd2YoN9Y9Sk4Tdnjm1OmAG2chsnhCSuW+T
-	KUhlsLAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FRjUmAmsVwSoZuI0Y5frhrSdRRS8CBbJC21EQ46LsSM=; b=hF7ZTo9szla9gTMUWrtwOmm+JC
+	B/85hc1/7ejaAxtl5LKQXancKEWXUabKGiyh7O2wNg2oHxEyaXJE1232v8v1tJmMTuCjKBkhaC5uI
+	oHQHyVNkQz1Yt2ZsxNpktnA5axqzeaIqrglUH7WJ2k+XiZgN1hTWNDQ+yxjnfJqi5r31KyBLGO8hm
+	lc6vPOQNa/Pr9Xs1JwufENROQjk/PJ3oblx4zeGWtZJ8FHHcG6EJCae+77PSHKF51MlsQrqeCF5ql
+	xLZUv2pFxhFZ+JtDrrpB6RAAcWh1C2akUyWzrLAyVm6djGeZ1/bezrrLWaLs9+YxygttMIrMksMpx
+	4uQO0fDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNlu-0000000AnZy-2rKA;
-	Thu, 02 Jan 2025 16:10:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNkk-0000000AnUA-3aYO
+	id 1tTNr8-0000000AoDD-1SeW;
+	Thu, 02 Jan 2025 16:15:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTNpt-0000000Ao74-2lz1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:08:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DD824A41202;
-	Thu,  2 Jan 2025 16:07:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42B1C4CED0;
-	Thu,  2 Jan 2025 16:08:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735834133;
-	bh=fPdVI1gKA98B9DL5GTPFJtMtQgy1EEcVi9fc75yKwz4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hhIlHCQrSiYwrEXQxFj2gTMQVRLu4JC6PEMVA7aVMV4mibvU0EIdNQhrSIU+YPS/1
-	 Uf5hsi6AAOakmYTmFubdf83bqVNWDAxo/wu7I3g414FVlG5z+MGN0/8PpRXbIGDt92
-	 TBJ5OMB6KNwoewdoVNW1PzNf8DHAba+MZpBorDRJxqj6DJOaks2z0zRpXXnrBJbglG
-	 MTCe+P4VOM/20/Q1JWtF5neoSeE7oY7JPRi4MwV6dx+5tObZ/P1xbiOEtc+GCbvHWU
-	 SSyQUopVKzgcxq6SmtIMa08kRMhUiuMf8GTgQqFx6qDMlremWkUP/gHJgZM+Vl0CLs
-	 ACutG4Puyyc/w==
-Message-ID: <cf75f897-1c00-4a37-bce3-f1eb9855a3cd@kernel.org>
-Date: Thu, 2 Jan 2025 17:08:46 +0100
+	Thu, 02 Jan 2025 16:14:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5832111FB;
+	Thu,  2 Jan 2025 08:14:39 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A9BF3F673;
+	Thu,  2 Jan 2025 08:14:10 -0800 (PST)
+Date: Thu, 2 Jan 2025 16:14:07 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Zeng Heng <zengheng4@huawei.com>, James Morse <james.morse@arm.com>
+Subject: Re: [RFC PATCH 4/6] arm_mpam: Introduce flexible CLOSID/RMID
+ translation
+Message-ID: <Z3a7T8L6NpFprbcy@e133380.arm.com>
+References: <20241212154000.330467-1-Dave.Martin@arm.com>
+ <20241212154000.330467-5-Dave.Martin@arm.com>
+ <OSZPR01MB8798833576F5FD4868E804FE8B072@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] dt-bindings: power: supply: add max77759-fg flavor
-To: t.antoine@uclouvain.be, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be>
- <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250102-b4-gs101_max77759_fg-v2-2-87959abeb7ff@uclouvain.be>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <OSZPR01MB8798833576F5FD4868E804FE8B072@OSZPR01MB8798.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_080855_035105_0A2F9CB9 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20250102_081413_861693_36EBA497 
+X-CRM114-Status: GOOD (  47.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,75 +67,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/01/2025 12:15, Thomas Antoine via B4 Relay wrote:
-> From: Thomas Antoine <t.antoine@uclouvain.be>
+Hi,
+
+On Fri, Dec 20, 2024 at 05:01:30AM +0000, Shaopeng Tan (Fujitsu) wrote:
+> Hello Dave,
+
+[...]
+
+> > diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c
+> > b/drivers/platform/arm64/mpam/mpam_resctrl.c
+> > index 30f2caec11d7..0473286ec65a 100644
+> > --- a/drivers/platform/arm64/mpam/mpam_resctrl.c
+> > +++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
+
+[...]
+
+> > @@ -163,35 +175,71 @@ static bool mpam_resctrl_hide_cdp(enum
+> > resctrl_res_level rid)
+> >   */
+> >  u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)  {
+> > -	return mpam_partid_max + 1;
+> > +	u32 res = (mpam_partid_max + 1) / partid_per_closid;
 > 
-> The max77759 is an IC used to manage the power supply of the battery and
+> If there is a remainder, are you going to ignore the remainder PARTIDs?
+> It might be better to notify the user with a warning message.
 
-Still not the name I asked to use.
+You are right: the remainder is just thrown away, because the remaining
+PARTIDs would not be sufficient for a whole resctrl control group.
 
-> the USB-C. Based on drivers from google, it contains at least a PMIC, a
-> fuel gauge, a TCPCI and a charger.
+It would be a good idea to print a warning somewhere though; I will try
+to add that.
+
+[...]
+
+> I think it is better to check whether PARTID narrowing feature is
+> supported or not before using this function. 
+> If it is checked here, since this function is called multiple times,
+> the message should be printed only once by WARN_ON_ONCE(). 
 > 
-> Use max77759-fg compatible to avoid conflict with drivers for other
-> functions.
+> Also, if the partid_per_closid is greater than (mpam_partid_max + 1),
+> returning "0" will not work properly.
+> To switch to default behavior (PARTID narrowing disabled), should it
+> return mapm_patid_max+ 1)?
+
+The idea is that partid_per_closid is set by some configuration logic
+that is not implemented yet.  This will be a bit more complicated than
+just exposing this variable directly as a kernel parameter.
+
+Currently I just implemented a basic range check to prevent the kernel
+parameter being set to stupid values, but I didn't try to make it
+completely robust.
+
+
+In any case, since partid_per_closid defaults to 1, the behavior of
+this function should just match the non-PARTID-Narrowing behaviour
+unless the user requested a different value.
+
+Bearing that in mind, I think that a "bad" value of partid_per_closid
+should not be seen here, when the rest of the implementation is
+complete.
+
+Does this sound sensible?
+
+It could make sense to have a WARN_ON_ONCE() here anyway, though,
+since this code is not on a fast path.
+
+
+> > -u32 resctrl_arch_system_num_rmid_idx(void)
+> > +static void mpam_resctrl_partid_range(u32 closid, enum resctrl_conf_type
+> > type,
+> > +				      const struct rdt_resource *r,
+> > +				      u16 *min_partid, u16 *max_partid)
+> >  {
+> > -	u8 closid_shift = fls(mpam_pmg_max);
+> > -	u32 num_partid = resctrl_arch_get_num_closid(NULL);
+> > +	u16 base_partid = closid;
+> > +	u16 span = 1;
+> > +
+> > +	if (cdp_enabled) {
+> > +		base_partid *= 2;
+> > +		if (mpam_resctrl_hide_cdp(r->rid) ||
+> > +		    type == CDP_NONE)
+> > +			span *= 2;
+> > +	}
+> > 
+> > -	return num_partid << closid_shift;
+> > +	*min_partid = base_partid * partid_per_closid;
+> > +	if (max_partid)
+> > +		*max_partid = *min_partid + (span * partid_per_closid - 1);
+> >  }
 > 
-> The max77759 has no non-volatile memory so it doesn't require an address
-> and instead requires a value for the current sensing resistor.
+> I think the min_partid/max_partid is different depending on the type
+> (CDP_DATA or CDP_CODE).
+
+You're right!  Looking at my fixup patches from the end of December,
+it looks like I already encountered this problem and wrote a
+workaround, but I didn't post it at the time.
+
+[...]
+
+> > @@ -1190,22 +1219,13 @@ int resctrl_arch_update_one(struct rdt_resource *r,
+> > struct rdt_ctrl_domain *d,
+> >  		return -EINVAL;
+> >  	}
+> > 
+> > -	/*
+> > -	 * When CDP is enabled, but the resource doesn't support it, we need
+> > to
+> > -	 * apply the same configuration to the other partid.
+> > -	 */
+> > -	if (mpam_resctrl_hide_cdp(r->rid)) {
+> > -		partid = resctrl_get_config_index(closid, CDP_CODE);
+> > +	for (partid = min_partid; partid <= max_partid; partid++) {
+> >  		err = mpam_apply_config(dom->comp, partid, &cfg);
+> >  		if (err)
+> > -			return err;
+> > -
+> > -		partid = resctrl_get_config_index(closid, CDP_DATA);
+> > -		return mpam_apply_config(dom->comp, partid, &cfg);
+> > -
+> > -	} else {
+> > -		return mpam_apply_config(dom->comp, partid, &cfg);
+> > +			break;
+> >  	}
+> > +
+> > +	return err;
+> >  }
 > 
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
-> ---
->  .../bindings/power/supply/maxim,max17201.yaml      | 56 +++++++++++++++++-----
->  1 file changed, 43 insertions(+), 13 deletions(-)
+> For a mixture of MSCs system, MSCs that do not support PARTID
+> narrowing and support Maximum Partition feature may not work
+> properly.
+
+This is true.
+
+For this series, we just trust that the user understands what they are
+doing, but the complete implementation will need additional checks.
+
+My plan was to do the appropriate checks when the driver starts up,
+to decide whether it is safe to set partid_per_closid to a value
+different from 1.
+
+Once we get to this code, the decision has already been taken and so
+the value of partid_per_closid (and the resulting mapping of resctrl
+groups onto PARTIDs) can be trusted as being appropriate for the
+hardware.
+
+Can you see any problems with this approach?
+
+
+[...]
+
+> I know this is not a complete implementation.
+> Mapping relationship between intPARTIDs and reqPARTIDs need to be
+> written to register MPAMCFG_INTPARTID/MPAMCFG_PART_SEL.
 > 
-> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-> index fe3dd9bd5585618e45220c51023391a5b21acfd2..7e95314508c27d0d90ea92f61bca6b4a2fe0e88e 100644
-> --- a/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml
-> @@ -9,31 +9,61 @@ title: Maxim MAX17201 fuel gauge
->  maintainers:
->    - Dimitri Fedrau <dima.fedrau@gmail.com>
->  
-> -allOf:
-> -  - $ref: power-supply.yaml#
-> -
->  properties:
->    compatible:
->      oneOf:
->        - const: maxim,max17201
-> +      - const: maxim,max77759-fg
->        - items:
->            - enum:
->                - maxim,max17205
->            - const: maxim,max17201
->  
-> -  reg:
-> -    items:
-> -      - description: ModelGauge m5 registers
-> -      - description: Nonvolatile registers
+> Best regards,
+> Shaopeng TAN
 
-Widest constraints always stay here.
+Agreed.  I have some prototype code for that, but I need to split up
+the patches and clean it up before posting it.
 
-See:
-https://elixir.bootlin.com/linux/v6.11-rc6/source/Documentation/devicetree/bindings/ufs/qcom,ufs.yaml#L127
+Thanks for the review.
 
-I did not say to remove it. I asked you to add allOf section restricting it.
-
-> -
-> -  reg-names:
-> -    items:
-> -      - const: m5
-> -      - const: nvmem
-> -
->    interrupts:
->      maxItems: 1
->  
-> +allOf:
-
-This goes after required: block. See example-schema.
-
-> +  - $ref: power-supply.yaml#
-> +  - if:
-Best regards,
-Krzysztof
+Cheers
+---Dave
 
