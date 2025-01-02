@@ -4,75 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55822E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1810E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQWl9L8CcgSposYnH56+tEXk08+8VfZVZgvipoYZwrE=; b=IMcibqu7xR0sBEXx4SaDbTdMPB
-	Qgt354darPSrYACEHBHrbWbxVZ0yqG+L1fBOdDyKk0jNa7cC09JCG0K2UANMiAROECluoSSeqMIz6
-	GcTqI1jbRcYfTJSnp/eb+oYBvfZWkp9jXb5J6QWx18BXJTENQD6/8t3S+ZRmhwKF6Fimwysojsbb0
-	+eqsrVTLO1OYWp0eTWhypmvVaYGXMZ57+2D18pKAWna+Emdka0j9t/A+YPV/sdTg1COKkxn7GuOk8
-	VeyCBgX4j7jPAWgZmaHT6JNpSuj5EM+OA+9tRil6Ryg/RVO7hsOJzsfssXxVtUZfGW44Cgqh5gdpa
-	oYEYVQqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YfI/scOYdyVDz39soqDWExKfJ6jU6ay7KKVl5Qql66A=; b=t08UvfQVE41wkLh0oSODTFRZHi
+	wuY14r5IjtSrHcJtzpKeLYnP+YJ9bL9WgaK9PgHUxo6IOprDJBLgc/2LvUJ60Hd6A3nsHz9INjmDH
+	IM3FyHisKe/3CoEXcEU4HJdOgun/svVC1zR/zFvkz6G3qf2AtgMJFRJrIKSF5LwHhBkJcgyiP3376
+	9ZHEzvgUafsuHLn92ybpU9hCqeX97ivhZ+ofSGxqMoN2+gCjQOv8WmQm1T61RcioOr7fp9ymdZYGO
+	oCzc52Iffq8nILCGRB6ZAZpMO0/qqIlx+KtywVePAxgWJ3+6GYid6dhZQfGoowpgr9riEZvaYASGW
+	pUHha3yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTODZ-0000000ArFm-18nX;
-	Thu, 02 Jan 2025 16:38:41 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTO9A-0000000AqMq-2POP
+	id 1tTOEm-0000000ArsU-0CRn;
+	Thu, 02 Jan 2025 16:39:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTOA2-0000000Aqdi-2QUx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 16:34:10 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502GY5DZ2272314
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Jan 2025 10:34:05 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735835645;
-	bh=hQWl9L8CcgSposYnH56+tEXk08+8VfZVZgvipoYZwrE=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=K8XepUVBYPIGdoYnPR4bO8iko+IYTW707iQHBC8pZyWRgUB9vbYsazg8CRXvMAYFL
-	 OB/cSeXozbBmBe44Nfpo/JGtZ22tTbnmXXyHpLZidoZO4qPt4dmKU4HFF0EACvETVk
-	 /d22BYzAz7focxJ/ZL92q2RJ94FHlGxckO/kELeI=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502GY5n1007873
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 10:34:05 -0600
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 10:34:05 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 10:34:05 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502GY56A061055;
-	Thu, 2 Jan 2025 10:34:05 -0600
-From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        Anurag Dutta <a-dutta@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>, <vaishnav.a@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-j7200: Add node to disable loopback connection
-Date: Thu, 2 Jan 2025 10:34:03 -0600
-Message-ID: <173583563568.269479.10047461594837475356.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241127075644.210759-1-a-dutta@ti.com>
-References: <20241127075644.210759-1-a-dutta@ti.com>
+	Thu, 02 Jan 2025 16:35:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4486911FB;
+	Thu,  2 Jan 2025 08:35:30 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.41])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC5FB3F673;
+	Thu,  2 Jan 2025 08:35:00 -0800 (PST)
+Date: Thu, 2 Jan 2025 16:34:58 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: james.morse@arm.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathan.cameron@huawei.com,
+	xiexiuqi@huawei.com,
+	"Wangshaobo (bobo)" <bobo.shaobowang@huawei.com>
+Subject: Re: [RFC PATCH mpam mpam/snapshot/v6.12-rc1 v3 4/5] arm_mpam:
+ Automatically synchronize the configuration of all sub-monitoring groups
+Message-ID: <Z3bAMmIFKBYSG0Ix@e133380.arm.com>
+References: <20241207092136.2488426-1-zengheng4@huawei.com>
+ <20241207092136.2488426-5-zengheng4@huawei.com>
+ <Z1sM7TMK+BHQEwgI@e133380.arm.com>
+ <65e556b6-61e1-7d84-ab8a-becaf55dbb18@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <65e556b6-61e1-7d84-ab8a-becaf55dbb18@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_083408_712263_64F84815 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250102_083502_677867_0F2D8874 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +68,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Anurag Dutta,
+Hi,
 
-On Wed, 27 Nov 2024 13:26:44 +0530, Anurag Dutta wrote:
-> CTRLMMR_MCU_SPI1_CTRL register controls if MCU_SPI1 is directly
-> connected to SPI3 in the MAIN Domain (default) or if MCU_SPI1
-> and SPI3 are independently pinned out. By default, the field
-> SPI1_LINKDIS (Bit 0) is set to 0h. In order to disable the direct
-> connection, the SPI1_LINKDIS (Bit 0) needs to be set to 1h. Model
-> this functionality as a "reg-mux" device and based on the idle-state
-> property, enable/disable the connection bewtween MCU_SPI1 and MAIN_SPI3.
+On Fri, Dec 20, 2024 at 05:36:23PM +0800, Zeng Heng wrote:
 > 
-> [...]
+> 
+> On 2024/12/13 0:18, Dave Martin wrote:
+> > Hi,
+> > 
+> > > @@ -3072,9 +3080,20 @@ struct mpam_write_config_arg {
+> > >   static int __write_config(void *arg)
+> > >   {
+> > > +	int closid_num = resctrl_arch_get_num_closid(NULL);
+> > >   	struct mpam_write_config_arg *c = arg;
+> > > +	u32 reqpartid, req_idx;
+> > > +
+> > > +	WARN_ON(c->partid >= closid_num);
+> > > -	mpam_reprogram_ris_partid(c->ris, c->partid, &c->comp->cfg[c->partid]);
+> > > +	/* Synchronize the configuration to each sub-monitoring group. */
+> > > +	for (req_idx = 0; req_idx < get_num_reqpartid_per_closid();
+> > > +	     req_idx++) {
+> > > +		reqpartid = req_idx * closid_num + c->partid;
+> > > +
+> > > +		mpam_reprogram_ris_partid(c->ris, reqpartid,
+> > > +					 &c->comp->cfg[c->partid]);
+> > > +	}
+> > >   	return 0;
+> > >   }
+> > 
+> > I haven't decided whether this iteration belongs here or in
+> > mpam_resctrl.c.
+> > 
+> > Your approach looks like it should work; I do it in
+> > resctrl_arch_update_one() instead [1], but I think the approaches are
+> > pretty much equivalent -- but let me know if you have any thoughts on
+> > it.
+> > 
+> 
+> Yes, the actual functions of these two locations are essentially the
+> same. However, at the __write_config position, we can reduce the
+> repeated judgments of cfg[partid] in mpam_update_config() and also
+> decrease the times of smp_call remote invocations.
+> 
+> What about your option towards it?
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+I think either can be done.  I was aiming to keep things as simple as
+possible for now, and contain all the mapping logic in mpam_resctrl.c.
 
-[1/1] arm64: dts: ti: k3-j7200: Add node to disable loopback connection
-      commit: 6b51892b31fe83fe7cc8cf69e4bf7721cf08951b
+I think that with my version of the code, changing the
+mpam_apply_config() interface to accept a PARTID range instead of a
+single PARTID might be a natural way to do this.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+This probably does make sense, in order to avoid excessive SMP cross-
+calling; I will have a go and see whether this works.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+(Note, there is likely to be redundant cross-calling already, which is
+one reason why I did not pay close attention to this issue.  If we
+could batch updates separately per group of CPUs then we could reduce
+the number of cross-calls, though care would be needed if CPUs can be
+hotplugged while processing a batch of updates.  I think that a change
+to the resctrl core interface might be necessary if we want the arch
+code to be able to queue and schedule updates in this way; resctrl
+currently assumes that each update is applied immediately.)
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-
+Cheers
+---Dave
 
