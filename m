@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376E6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211F4E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 10:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ze9LqpjCGSWa0yPDrI54f/7UaaRjSHcJ6CR6aCivtOE=; b=PvMjMAZnCbf2XBakLBtPWuow3k
-	psck/eIj5gGGLKTFVtBnZ0f1wEJ1Jk8CZa8Su9M2Sg+/0p4k+3FrDuglCqTHe772v4uPr4cP89+ft
-	TIgSq6D2O9a28W0lY8YA5HZBalilDb2Qedwc2/rrkGKrRKg3oLYGae5MmVm95udogSzBl5ofWeUqO
-	XwmW8t1rbb/oo/Sv02mfalcDZxN0rKb9l4w/aAyeJLi98pCKOyoWOCWO8UGTwrJka/2tCnQ4kHG3v
-	4ZR/A1qQ1jkNZGVfCn7EAjPy/MQF7vd7s06nfmt/xwuuhk9cssN5Mjo+EsQbt6yZdwXopuaULO7b0
-	wp8eYOMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qocm7lZy1PSubNMeLekwbSHczdGmHwJjp8Gc0zSDJMs=; b=NAOuClMrohVuXrxZy3JSIvhfPv
+	Oz4QbBtfIeJtG0q9OBTI6Bjxpyjpl7m6N9Mn1DWy2qYfhBkxtSTtYIHskJelB5JjxeHo2CnlijNBZ
+	OlDyBuyEke2AeVTO4vpyKqUf/5WXQQCv47SE34fmk+6Ab7HgEugvxAFiUqJoEdPP/wIIw3y0WMz3e
+	9WF+gRPvZP+evOpj/x8MUhqWXHJ1VOD2p469qoW7XKJdnPZ9p9n2+DJlnS6w2F8MmVaU4r4Tn8g92
+	rm6+aNb6yPujfwgzJNE5VrGp0IGunL9cgV904/hw6h6ahObVhbhlP55WeIcRTA4yeRkQBZaVuNUGG
+	IKvthTHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIpY-0000000ACsp-1eJE;
-	Thu, 02 Jan 2025 10:53:32 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tTIsl-0000000AD9G-2O3B;
+	Thu, 02 Jan 2025 10:56:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTIoO-0000000ACja-3kzc
+	id 1tTIrc-0000000AD5G-45Ig
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 10:52:21 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so5676600f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 02:52:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1735815139; x=1736419939; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ze9LqpjCGSWa0yPDrI54f/7UaaRjSHcJ6CR6aCivtOE=;
-        b=TtMCVYHrOl4vMtz/hVUpt5xVqmS/YQa+AAqGADfggI8IxLj49HslpEqFB/uS919oxo
-         8tJ7MrrcYspWkihg6mitAuuTMfzAUd73g88op6AWY/O7+0R4FsRGpfQ3nN7v8+2190YQ
-         /4tWY0Jt3FZIprDdAcFJ1Y0kw/zgVTW4kkHY5QLTFk38/7eigvgEz4RBtTHQgfbfSO2U
-         G+maL+ZonS09CK18r2fqoLO2/3TMXnrmGh4n+1Y62vtwk/l2MbbZObHeHUopTkC/9Pnq
-         kV4idj6vWctItURFt2OXL55u+Sea/WD1U3TgHr01DxzmlRK1Kvn2i8jl3ysXeQtDBLWu
-         ZR/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735815139; x=1736419939;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ze9LqpjCGSWa0yPDrI54f/7UaaRjSHcJ6CR6aCivtOE=;
-        b=gFUNdr6MOQy798kHagUgdvPK4KBd4rEJXDvdm2nugzNmA1KChFqJeb/EyouMihzJVY
-         ReuB0M8XZ/RGPdNpMs62VJXjmrp5hv/vaaiJ8p8KEDzasELRSSq1vslBcJHNvQAwcNgO
-         YQP6reOWoktZrAT645od49QTuISDI+bG3AmIrhruiMa3dgbbJVXHShemXO9/ANH/tptH
-         iIV0CfTkaj4/MjeMD2Eq6Rlb8HXZL/DO8fT4XDOEiTPc9IMWr9mFz/Fv8+ZptuXKcx7U
-         kWKTiNC0MEpMd6527+gzES2h+b2uG2Du2tABN6J3Ao55rVDBTzm+iEyj/nf+O7s89PCD
-         /Ijw==
-X-Forwarded-Encrypted: i=1; AJvYcCWCYnaF9tMzunR5WQr7TZKn9LMRNAWusyM6I0fsIBEMoF0T+LVMjm6M56cJsD+aOfJPXOejY3V3KwBsAGsJUuwG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9N5uvJ+kridIbbtudqjBFS7mOgouXSpkaCmmVW1MxjlsT37oE
-	pZ/+30RvUDtv8mP031yDkzpczwB381CWAfE84REcVusVbr62Hm+xM9RYwdArJgE=
-X-Gm-Gg: ASbGncvz7586WRG9RQZqZtrRqH4Ykom/VxTczdHfCiWvr2FMCjdTddy+m6TjM7R3uRD
-	31ZxJ3sno8GaUj3yycy6RNkPAIucA/peLiijKPGqcG3gdyJI8tSuk094w7XROd0Q0L7btHDIqlL
-	J23QfvkAq1zpRa9P4zqeeWaf13d4DOyVFU8vgMe06oSdTGgkAonS++4x6UNBONSmp2FZmqav0bB
-	RJ3mkbl1Drfa09ppzAylb7DC4U1/SBBTJp1AMfuSbiBrQbReB29Qpp2F7bccRvgFQ==
-X-Google-Smtp-Source: AGHT+IEAXmh4Jm/fooPniPUd+cP6NsbK2SR6lviu3UydjCwVbdG5V5GA3GQCHI+v0JTIHRvlmZHUzQ==
-X-Received: by 2002:adf:ab0a:0:b0:38a:50fa:d582 with SMTP id ffacd0b85a97d-38a50faf3cemr11500112f8f.59.1735815139109;
-        Thu, 02 Jan 2025 02:52:19 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b3b295sm490098515e9.33.2025.01.02.02.52.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Jan 2025 02:52:18 -0800 (PST)
-Message-ID: <70aab1bc-1427-44ed-b516-843429d0bdfa@tuxon.dev>
-Date: Thu, 2 Jan 2025 12:52:16 +0200
+	Thu, 02 Jan 2025 10:55:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qocm7lZy1PSubNMeLekwbSHczdGmHwJjp8Gc0zSDJMs=; b=j08KvFWTUqnSbOzuXjrus5sVw9
+	sYxo8ugivLM/3n0+gpPKK2otzZ44XF5ChvMMfAG1MrBwA3Hf8r42bMqindyS89y8K0J3qsl3ZniPZ
+	FSPzDNoRlUXtAcRGHzJvSe5Lj0WNnQBIsDnO5DNIA9sXsL/W5S/AK5ETc3alRkNmQf+oKf3sPX8dj
+	yNVnVWML9U5ASqffKqFsWvt5gzZ5LzWALyYnNCFAlpdyS4DT+/+Yb42Fsi2XwbEZzXCIFauVeQEpF
+	XaPh0zqsu8nYV4sjIvVey3MyDyo0BF4U2iFecOAG7AM+2iAyHhCPYr0cnIwEcGzGN9RnK/Es2anNs
+	9gLH1SmQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51178)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tTIra-0001ul-0L;
+	Thu, 02 Jan 2025 10:55:38 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tTIrX-0000DT-2P;
+	Thu, 02 Jan 2025 10:55:35 +0000
+Date: Thu, 2 Jan 2025 10:55:35 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: orion/gpio: Use str_hi_lo() and str_lo_hi() helpers
+Message-ID: <Z3Zwp5r13NowxNwP@shell.armlinux.org.uk>
+References: <20241226231052.566363-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/13] ARM: dts: microchip: add sama7d65 SoC DT
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, mturquette@baylibre.com, sboyd@kernel.org,
- arnd@arndb.de
-Cc: dharma.b@microchip.com, mihai.sain@microchip.com,
- romain.sioen@microchip.com, varshini.rajendran@microchip.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-serial@vger.kernel.org
-References: <cover.1734723585.git.Ryan.Wanner@microchip.com>
- <3f63aebc4b31da1b631ce7e6d76aa0046deeda6a.1734723585.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <3f63aebc4b31da1b631ce7e6d76aa0046deeda6a.1734723585.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241226231052.566363-2-thorsten.blum@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_025220_951872_8C953E11 
-X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-CacheID: sfid-20250102_025541_063204_D46FD881 
+X-CRM114-Status: UNSURE (   7.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,26 +81,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
+On Fri, Dec 27, 2024 at 12:10:52AM +0100, Thorsten Blum wrote:
+> Remove hard-coded strings by using the str_hi_lo() and str_lo_hi()
+> helper functions.
 
-On 20.12.2024 23:07, Ryan.Wanner@microchip.com wrote:
-> +		pioa: pinctrl@e0014000 {
-> +			compatible = "microchip,sama7d65-pinctrl", "microchip,sama7g5-pinctrl";
+This description is missing the reason why its desirable to make this
+change.
 
-Please also update the documentation with the fallback.
-
-> +			reg = <0xe0014000 0x800>;
-> +			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 10>;
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +		};
-> +
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
