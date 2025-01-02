@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 276EDE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FEDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 12:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRWDlOKxLVuwJVGYAuhv6OinjNOexfNpidHLnXMBJ38=; b=1e3d6WJbTCLhbYxh+q+AzXXC/O
-	7Nr5ihkI33YP3ZFRUZLTTqC8ua9UymOtltCaz6tLpRCb37RcTRLrz7f+dBu7yLDDLQhBMaMXqXyOu
-	K0Nijpn4OabHwjFmAbLJBSp7SkQzGFf5bK9pCWNpz5pOEVf8qzHeg/yIhn5Sv3qXKjpCfT7ulXBEe
-	t4Ua2utcQB2i23I6qQy3WV5tRkd0d9amhHak6in2XlgIkKa3Ztwld8RkpfHvRD3N5FmNWHpXMcYR6
-	fCANHm6VjmSAnxOXQA2M9SDU2doX5nsuZVyPBZf3rLO1AevBnF284H87saDKaWllNETNWC9KwvyZt
-	si4wL+3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mA151M2qQJbuVYNevwkmHnHCTqTmgewVpxXxQowzE3Q=; b=uAIcei9uZD6IUhqO+FFEbmkIaE
+	kQgiYggTkL0FxpDEU/mha0vAe6BAXbOHRZuvFbDk25aznZ0HWCtph0SwFDyknm2z8Hf4PA3/zPCkI
+	Uon7xAfGilrfrG/lSy23QUFZ/7uYtfqNI1PLTS9pqfdHXfM2ZwGDVBiI+pPOOn5HCA4LrfBMLgaWE
+	1sX45r048CpAZ7kPTNQgh+R3rRMR7i3tPP8hyif0pUqo45e4YI7wj7UMCjKuDU92wswNPrcrKum5A
+	JDxfEg/q1mVghl7sZuRbdeXk4jspdJ1fLart/p/GFZ3mXNtOniz+B3QHmWPJw+RG74ZdGZDxAXx2D
+	FhRI5Z0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKbB-0000000ANj4-3dm4;
-	Thu, 02 Jan 2025 12:46:49 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tTKcN-0000000AO1h-28mg;
+	Thu, 02 Jan 2025 12:48:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTKZ7-0000000ANNl-3O7H
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 12:44:43 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 502CiELj1942282
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 2 Jan 2025 06:44:14 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735821854;
-	bh=RRWDlOKxLVuwJVGYAuhv6OinjNOexfNpidHLnXMBJ38=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=hRCAt15MiakTwmCEdJCB4d0sabE5p+gGpsYVXou5a1s3b1IRBXOgTQWnhg660drSk
-	 Ru/PTQrEt8DxaNueoKagayv9f/C4BBTkygdqjsg+WkIcuIko6W7xeVuVbvAobPUq8u
-	 3agJ1ChEQDmviYClrvLScq9zNkoJsZrTQroIpswU=
-Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502CiETn031291
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 06:44:14 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 06:44:13 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 06:44:13 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502CiDK9064135;
-	Thu, 2 Jan 2025 06:44:13 -0600
-Date: Thu, 2 Jan 2025 06:44:13 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Guillaume La Roque <glaroque@baylibre.com>, Marc Zyngier <maz@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Thomas Gleixner <tglx@linutronix.de>, Tero Kristo <kristo@kernel.org>,
-        Santosh Shilimkar <ssantosh@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <vishalm@ti.com>, Mattijs Korpershoek <mkorpershoek@baylibre.com>,
-        Kevin
- Hilman <khilman@baylibre.com>,
-        Nicolas Frayer <nfrayer@baylibre.com>
-Subject: Re: [PATCH v4 0/2] irqchip: Kconfig: Add module support for TI
- inta/intr
-Message-ID: <20250102124413.wwbfzomjzedbqges@thinness>
-References: <20241224-timodules-v4-0-c5e010f58e2c@baylibre.com>
+	id 1tTKar-0000000ANcR-0C1X;
+	Thu, 02 Jan 2025 12:46:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1735821987;
+	bh=rPO//rEZigCKZoPA2paAhefsIjAROiOVo9/njcMMDyA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Ilhao3Ge3nqqAM5e0osgKqmIa1ciLQWuDU01ki117UmipDGQLJIJi/UIPISWToIYs
+	 QKrDKIuEYwpF+OxbNlNaO0+KqyKqljNZdXlyqLZIeoyzoCT1k7yPBPJAqsCCd7xITU
+	 PBCnOie3otlpOTYOVFKDFo7uEm7fy7C7S+EZLURkqzAglbFsWzIiSlhycNi+fWGQBF
+	 S7miQjwpoLSukrroioioG7hMq4Ad1zMXbIH1nRQ91QqkCty47LQpck0PB4NQgUM1lt
+	 IPHu+Ll+FFELMGuFBheAu3QH68RuKskt73j7qLoBm2vNcdVoYV3q9bBnCkxDeFZcys
+	 Qq1bSM7LpsETA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C7FA017E156D;
+	Thu,  2 Jan 2025 13:46:26 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Sean Wang <sean.wang@kernel.org>, 
+ Frank Wunderlich <linux@fw-web.de>
+Cc: Frank Wunderlich <frank-w@public-files.de>, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20241217085435.9586-1-linux@fw-web.de>
+References: <20241217085435.9586-1-linux@fw-web.de>
+Subject: Re: (subset) [PATCH v7 0/5] Add pinctrl support for mt7988
+Message-Id: <173582198673.163596.6578000235046486411.b4-ty@collabora.com>
+Date: Thu, 02 Jan 2025 13:46:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20241224-timodules-v4-0-c5e010f58e2c@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_044441_946023_F0F3CA33 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250102_044629_246621_2D0DED9D 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20:36-20241224, Guillaume La Roque wrote:
-> Added module support for TI interrupt aggregator and interrupt router
-> drivers. Default value for both drivers is ARCH_K3 and the interrupt
-> aggregator depends on ARCH_K3 as it contains 64 bit only ops.
-> Tested allmodconfig builds with ARCH=arm and ARCH=arm64.
+On Tue, 17 Dec 2024 09:54:25 +0100, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Changes in v4:
-> - Rework commit message and title
-> - Add depends on in Kconfig frivers
-> - Link to v3: https://lore.kernel.org/r/20241016-timodules-v3-0-fa71091ade98@baylibre.com
+> This series adds pinctrl driver, dt-bindings and dts node for pinctrl
+> on mediatek mt7988 SoC.
 > 
-> Changes in v3:
-> - Add MODULE_LICENSE in drivers
+> changes in v7:
+> - add const for pins and mtk_pin_soc as suggested by Christophe JAILLET in v5
+> - left angelos RB because of minor change (hope this is right)
 > 
-> Changes in v2:
-> - Added depends on ARCH_K3 for the interrupt aggregator driver as it
->   uses
-> 64 bit ops
-> 
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> ---
-> Nicolas Frayer (2):
->       irqchip/ti-sci-intr: add module build support
->       irqchip/ti-sci-inta : Add module build support
-> 
->  arch/arm64/Kconfig.platforms      | 2 --
->  drivers/irqchip/Kconfig           | 6 ++++--
->  drivers/irqchip/irq-ti-sci-inta.c | 1 +
->  drivers/irqchip/irq-ti-sci-intr.c | 1 +
->  4 files changed, 6 insertions(+), 4 deletions(-)
-> ---
-> base-commit: 8faabc041a001140564f718dabe37753e88b37fa
-> change-id: 20241016-timodules-174770215dd8
-> 
-> Best regards,
-> -- 
-> Guillaume La Roque <glaroque@baylibre.com>
-> 
+> [...]
 
-Reviewed-by: Nishanth Menon <nm@ti.com>
+Applied to v6.13-next/dts64, thanks!
 
-Marc, Can this go via your tree?
+[4/5] arm64: dts: mediatek: mt7988: Add pinctrl support
+      commit: e2e02b57f5689b37640263b152edf1997f26b081
+[5/5] arm64: dts: mediatek: mt7988a-bpi-r4: Add pinctrl subnodes for bpi-r4
+      commit: 6aecde28d98b66c7d526caf4e8a3be046776b727
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Cheers,
+Angelo
+
+
 
