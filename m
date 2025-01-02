@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD725E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EBDE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 16:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YEX07eVl8poJMk/2HTnl4uVgkRJpOJDNGu4gkKdNDK8=; b=EYNZXc3Zq/mSYVHBqYA31ucVmm
-	hD6uBeSYdZPg6Byf0Req4p+F9/yLa1/y5muHqOefseDhSHeF7s5vEv1xfGmcTmIrHCXfFLL4v0MTR
-	NOrQVGSBpwXxvyMZ+V9k3cjNtV9uKjZYPTp4ZDWb5nSHbGolKkcrPa8m4lGdkO75yl9yvCofCLUiz
-	3haAEfWwjUoBUWAwwm+AvEIkvdqXVdnCa6MFul1SHzs2mOIFHiNiLh9vOPYzi0pO5IL5DgK5ay53V
-	zAhs1Ow0KUpExAT9x9jZqv06KsFnh0UeIuNZZ91FJeo4VhxtTqrT0DixyBeDSoU7N+nR+DUFq3TMd
-	7yuxnmcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e342ehhETuK9et0s7bi7E/FOWtAVLdIj1k/Jyp5/OhI=; b=VoRj2f8OG0bgyLtkyHMrwezNuR
+	TPiDwVKeWNp5X9Jqyhcj46/LpZsg3ya7rOfWxZUjjs3NwHy0eKIYc5pJw4wWk89pdlSncDHGq/2NO
+	9lRD4s5isCGrybsTG9lIdvec4iTdpjjnN58MbTKQDv46Y3Qx8pC3H7z+pt1JO41BYOh5WOKikT6HC
+	Hnj9HogEFdjla+2peSy7xQqi/dcG/NKVwBJFnSXavzzs7Aee0TvMPKX/q4TCEDkA+u00r4XnHzD+I
+	BNwtmmg2BsYLyuHGAjR2U2y1k0B+d+/jgYiBs+K8UjWlGgmT4R553p/oydSCuCsyT7MQjkwgaZIXv
+	W3XV5kzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNeZ-0000000Am7g-0Jv9;
-	Thu, 02 Jan 2025 16:02:31 +0000
+	id 1tTNfm-0000000AmV1-0AZk;
+	Thu, 02 Jan 2025 16:03:46 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTNZZ-0000000AlL2-0C1F;
-	Thu, 02 Jan 2025 15:57:22 +0000
+	id 1tTNaC-0000000AlUK-0sQW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jan 2025 15:58:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 87CEE5C6113;
-	Thu,  2 Jan 2025 15:56:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9958C4CED0;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 204FC5C611B;
 	Thu,  2 Jan 2025 15:57:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2CA1C4CED0;
+	Thu,  2 Jan 2025 15:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735833439;
-	bh=l9krntIFJFgGFkmtKhs3ubXfoLYdo1dGd3fujb63qS0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GWQA/5ifHfAmW52ebrzWPjPHWHUb8Loa0cT4PsfsmvUVhRjgfv/ZpWcPVVV44iIHC
-	 bKsRoUCZPiDbMC83ImLbuFqmKm6mstitNOepgNr5aA+HsdQQ5C/tA6NY4h6OXMmJ+q
-	 6IBkszDnPvup/cfBcTL0bFgCGnvypTjtSYHpBaz56PotKjtai449QiPJG7IsNBAzQA
-	 20e2CC1lJfbpujiBtIWZ89nDEcmL5mhMym77NPlIVjh1KL9i/L1jZH2JVeIw2IVZrS
-	 BUwMKBBJaezhcfg3jXKBCIaQleuhDPZmtL04RUNxi9PR43T3d18hHd98xRuG9UMC8O
-	 wiAdixR9p92dQ==
-Message-ID: <dfd37ca0-14c6-4cc1-8fae-f1aa2d23e148@kernel.org>
-Date: Thu, 2 Jan 2025 08:57:17 -0700
+	s=k20201202; t=1735833479;
+	bh=B30R5SQxntFNwn4kc/nsN10P1pyoNqOIX5a/V2t/rZ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=M7t9WfYMlZoULmdlPdsFuOCpI0tSONfMmQJ/b9UZeW4Mk3wxQC5zLJZKOnKbUF2Kn
+	 NzLKkK79r0p4HDWLy+Lkty8tEI8sdHTIdqflBNkPx8pQENmcKFSFtcqQKSfvvv+Ibu
+	 /eOijlyST9sR2bSdgIZDsGuvUsIB8OnM4E4MuHEjxo6JTBf7V3V2o1CasME3NQUGGS
+	 pHxeN4F/rmwkowJdE1jRvX5MZAEZWovLTVrMoetBAt8CqmFZMhsbnfmzSj+VYeVZtK
+	 kiYFX0hDJ1FAyFYXufvzl1IXC0qR/uq5CoHKBS9y2+15yoNWg9ckkIlx0UfN5Dx9Yj
+	 mwpnzUdprdKAQ==
+Date: Thu, 2 Jan 2025 09:57:56 -0600
+From: Rob Herring <robh@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 7/7] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+Message-ID: <20250102155756.GA3990035-robh@kernel.org>
+References: <20241220072240.1003352-1-anshuman.khandual@arm.com>
+ <20241220072240.1003352-8-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ipv6: socket SO_BINDTODEVICE lookup routing fail without
- IPv6 rule.
-Content-Language: en-US
-To: shiming cheng <shiming.cheng@mediatek.com>,
- willemdebruijn.kernel@gmail.com, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: netdev@vger.kernel.org, lena.wang@mediatek.com
-References: <20250102095114.25860-1-shiming.cheng@mediatek.com>
-From: David Ahern <dsahern@kernel.org>
-In-Reply-To: <20250102095114.25860-1-shiming.cheng@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241220072240.1003352-8-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_075721_198734_B0F0A380 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_075800_291477_181E61AA 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +79,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/2/25 2:51 AM, shiming cheng wrote:
->      When using socket IPv6 with SO_BINDTODEVICE, if IPv6 rule is not
->         matched, it will return ENETUNREACH. In fact, IPv4 does not behave
->         this way. IPv4 prioritizes looking up IP rules for routing and
->         forwarding, if not matched it will use socket-bound out interface
->         to send packets. The modification here is to make IPv6 behave the
->         same as IPv4. If IP rule is not found, it will also use
->         socket-bound out interface to send packts.
+On Fri, Dec 20, 2024 at 12:52:40PM +0530, Anshuman Khandual wrote:
+> FEAT_PMUv3p9 registers such as PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1
+> access from EL1 requires appropriate EL2 fine grained trap configuration
+> via FEAT_FGT2 based trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2.
+> Otherwise such register accesses will result in traps into EL2.
 > 
+> Add a new helper __init_el2_fgt2() which initializes FEAT_FGT2 based fine
+> grained trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2 (setting the
+> bits nPMICNTR_EL0, nPMICFILTR_EL0 and nPMUACR_EL1) to enable access into
+> PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 registers.
+> 
+> Also update booting.rst with SCR_EL3.FGTEn2 requirement for all FEAT_FGT2
+> based registers to be accessible in EL2.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: kvmarm@lists.linux.dev
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  Documentation/arch/arm64/booting.rst | 18 ++++++++++++++++++
+>  arch/arm64/include/asm/el2_setup.h   | 25 +++++++++++++++++++++++++
+>  2 files changed, 43 insertions(+)
 
-Please create test cases for IPv4 and IPv6 showing the problem - what
-you are configuring and the expected result.
-
-Also, commit messages should align with first column unless there is a
-reason for an indentation.
-
+Tested-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
