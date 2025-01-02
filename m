@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7533BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E50B5E7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:54:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:CC:To:MIME-Version:From:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MuuWstJ4Esx1hbK9in4HoM1qbP3k3NKDOLWFTb/PPuU=; b=NWMmLgoHm1kkIQAilLUDmofB0B
-	jYMg9xk86MjRR1B5yO1tDWkPWTlFHAXyL3ZtETMWGgq+YC4VK5QmLinqk894OntGPMPZdi0D+uIab
-	VVb4lifoIMfxAT80XNNdu9X3kldzx0knulObWRa7NaQjDTwPoEnS+AyHlcEd4q4Odp4lUwvBltMzV
-	gkh3PeQWK0QxiRzog7IYq2S5Ml/0fLMAkyXv6wXKZdEJZ7bBlaamY63/VaKm5DVv2coJ4ZnAHKzzF
-	TBQoQaDk2ThPh/EQlvQDKchfO0u8+hEuGuRhp2wit56KB4rSEC5sk6/opO2oSMC6JyQP4diPF0da0
-	6igzc1lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zAkXzjPt8X/XOE0CbwOaMJf4t29lQ3cTGBGCsqKltRU=; b=M3M6f/dPbkFTjIXnf8+vjwzEWc
+	EfPdx7JCIzWTdFlzBBroIWLBDd0nHYisKIbiNWt6aaO38S4s18tVirzhrdLsH8cRoeDpS2BTpozCr
+	YyxkVicLKuIHPliTDuqZ0gnoDhiQhM5MQ6XSnHfR/eVzvlENR1277WcrmeQC0Ijax1NYcUyZnds+L
+	/TpXD5np+IWN6I4+j1B9gNMAuyt0plSVhZLVJ1SurvQ1Iq7BUDucmyig3nAy1ohlQPvYktaNCQfcY
+	gtgU5X6aEvvQotNqwvZ2KRkMO2gT3sX6+9QEonB+h+OurBBCRGOSo1AlZg9/8W4fSry26Mr+cmTEK
+	uLNVHBzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJlD-0000000AILa-3sic;
-	Thu, 02 Jan 2025 11:53:07 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1tTJmM-0000000AIU7-2a2R;
+	Thu, 02 Jan 2025 11:54:18 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJjx-0000000AHwv-0mi9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 11:51:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YP4jV3cQnz2Djrp;
-	Thu,  2 Jan 2025 19:48:46 +0800 (CST)
-Received: from kwepemd500014.china.huawei.com (unknown [7.221.188.63])
-	by mail.maildlp.com (Postfix) with ESMTPS id 53AFE180042;
-	Thu,  2 Jan 2025 19:51:40 +0800 (CST)
-Received: from [10.67.121.2] (10.67.121.2) by kwepemd500014.china.huawei.com
- (7.221.188.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.34; Thu, 2 Jan
- 2025 19:51:39 +0800
-Message-ID: <67767DCA.8060902@hisilicon.com>
-Date: Thu, 2 Jan 2025 19:51:38 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	id 1tTJkf-0000000AIFu-3BoP;
+	Thu, 02 Jan 2025 11:52:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=zAkXzjPt8X/XOE0CbwOaMJf4t29lQ3cTGBGCsqKltRU=; b=19pNoYzq8aMvqfvQhqk6BfloHt
+	FGPBL1odDg6I8xokNeEptw/nvH7VUF4Ny+Z2/wUaSHGd4nK2rRJ85bxIFsTd18VBE7OxAoY6kanDD
+	J6wWfBrx7VhniAVwUjKPR68Dm46azJCXSu7c131ek39CbZXHE5XkpCX7ZynR1utgd1Ez21HK9D0iN
+	deTngyouwkrlo+Lmq+3UXh30wY4FQW90Utg3v3q5qvqQEDd4cNT07wnQC/giq52dsSl8tFU4f/2kp
+	+Lmq6RQA2YOIm+3W16yCe+/kTePjBtMm8LgzSIazNu61tIV9xmsgWkDeoOn0T3yXFalFxKmllvnEe
+	4K3ofz1w==;
+Received: from i5e860d14.versanet.de ([94.134.13.20] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tTJk7-0007gM-LR; Thu, 02 Jan 2025 12:51:59 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: cristian.ciocaltea@collabora.com, krzk+dt@kernel.org, mripard@kernel.org,
+ hjc@rock-chips.com, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH 1/3] drm/rockchip: dw_hdmi_qp: Add platform ctrl callback
+Date: Thu, 02 Jan 2025 12:51:58 +0100
+Message-ID: <2175680.OBFZWjSADL@diego>
+In-Reply-To: <20241225103741.364597-2-andyshrk@163.com>
+References: <20241225103741.364597-1-andyshrk@163.com>
+ <20241225103741.364597-2-andyshrk@163.com>
 MIME-Version: 1.0
-To: <soc@kernel.org>, <arm@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, Olof Johansson <olof@lixom.net>,
-	Arnd Bergmann <arnd@arndb.de>, <xuwei5@hisilicon.com>, Rob Herring
-	<robh@kernel.org>, <zhangyi.ac@huawei.com>, <daniel.shen@huawei.com>,
-	<huangdaode@huawei.com>, <liguozhu@hisilicon.com>, Jonathan Cameron
-	<Jonathan.Cameron@Huawei.com>, <shameerali.kolothum.thodi@huawei.com>,
-	<shiju.jose@huawei.com>, <salil.mehta@huawei.com>, <wuliebao@huawei.com>,
-	<tangkunshan@huawei.com>, "Zengtao (B)" <prime.zeng@hisilicon.com>
-Subject: [GIT,PULL] arm64: dts: hisilicon dts updates for v6.14
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.2]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemd500014.china.huawei.com (7.221.188.63)
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_035149_404492_D87457D0 
-X-CRM114-Status: UNSURE (   5.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_035233_846276_89E9AA12 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +76,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+Hi Andy,
 
-Please consider to pull the following changes.
-Thanks!
+Am Mittwoch, 25. Dezember 2024, 11:37:29 CET schrieb Andy Yan:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> There are some control bits for IO and interrupts status scattered
+> across different GRF on differt SOC.
+> Add platform callback for this IO setting and interrupts status
+> handling.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> 
+> ---
+> 
+>  .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 81 ++++++++++++-------
+>  1 file changed, 54 insertions(+), 27 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index c36fc130b734..b21e868e7c16 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -62,6 +62,12 @@ struct rockchip_hdmi_qp {
+>  	int port_id;
+>  };
+>  
+> +struct rockchip_hdmi_qp_ctrl_ops {
+> +	void (*io_init)(struct rockchip_hdmi_qp *hdmi);
+> +	irqreturn_t (*irq_callback)(int irq, void *dev_id);
+> +	irqreturn_t (*hardirq_callback)(int irq, void *dev_id);
+> +};
+> +
+>  static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
+>  {
+>  	struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+> @@ -226,9 +232,47 @@ static irqreturn_t dw_hdmi_qp_rk3588_irq(int irq, void *dev_id)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+> +{
+> +	u32 val;
+> +
+> +	val = HIWORD_UPDATE(RK3588_SCLIN_MASK, RK3588_SCLIN_MASK) |
+> +	      HIWORD_UPDATE(RK3588_SDAIN_MASK, RK3588_SDAIN_MASK) |
+> +	      HIWORD_UPDATE(RK3588_MODE_MASK, RK3588_MODE_MASK) |
+> +	      HIWORD_UPDATE(RK3588_I2S_SEL_MASK, RK3588_I2S_SEL_MASK);
+> +
 
-Best Regards,
-Wei
+nit: below val = ... and regmap_write don't have a blank line between them
+which makes sense to show that they belong together. So the blank above
+can probably also go away.
 
----
+> +	regmap_write(hdmi->vo_regmap,
+> +		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
+> +		     val);
+> +
+> +	val = HIWORD_UPDATE(RK3588_SET_HPD_PATH_MASK, RK3588_SET_HPD_PATH_MASK);
+> +	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON7, val);
+> +
+> +	if (hdmi->port_id)
+> +		val = HIWORD_UPDATE(RK3588_HDMI1_GRANT_SEL,
+> +				RK3588_HDMI1_GRANT_SEL);
+> +	else
+> +		val = HIWORD_UPDATE(RK3588_HDMI0_GRANT_SEL,
+> +				RK3588_HDMI0_GRANT_SEL);
+> +	regmap_write(hdmi->vo_regmap, RK3588_GRF_VO1_CON9, val);
+> +
+> +	if (hdmi->port_id)
+> +		val = HIWORD_UPDATE(RK3588_HDMI1_HPD_INT_MSK, RK3588_HDMI1_HPD_INT_MSK);
+> +	else
+> +		val = HIWORD_UPDATE(RK3588_HDMI0_HPD_INT_MSK, RK3588_HDMI0_HPD_INT_MSK);
+> +	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
+> +}
+> +
+> +static const struct rockchip_hdmi_qp_ctrl_ops rk3588_hdmi_ctrl_ops = {
+> +	.io_init		= dw_hdmi_qp_rk3588_io_init,
+> +	.irq_callback	        = dw_hdmi_qp_rk3588_irq,
+> +	.hardirq_callback	= dw_hdmi_qp_rk3588_hardirq,
+> +};
+> +
+>  struct rockchip_hdmi_qp_cfg {
+>  	unsigned int num_ports;
+>  	unsigned int port_ids[MAX_HDMI_PORT_NUM];
+> +	const struct rockchip_hdmi_qp_ctrl_ops *ctrl_ops;
+>  	const struct dw_hdmi_qp_phy_ops *phy_ops;
+>  };
+>  
+> @@ -238,6 +282,7 @@ static const struct rockchip_hdmi_qp_cfg rk3588_hdmi_cfg = {
+>  		0xfde80000,
+>  		0xfdea0000,
+>  	},
+> +	.ctrl_ops = &rk3588_hdmi_ctrl_ops,
+>  	.phy_ops = &rk3588_hdmi_phy_ops,
+>  };
+>  
+> @@ -282,6 +327,12 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  	if (!cfg)
+>  		return -ENODEV;
+>  
+> +	if (!cfg->ctrl_ops || !cfg->ctrl_ops->io_init ||
+> +	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->irq_callback) {
 
-The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+cfg->ctrl_ops->irq_callback is checked twice, I guess one of them
+should've been ctrl_ops->hardirq_callback?
 
-  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+Patch looks good otherwise.
 
-are available in the Git repository at:
+Thanks
+Heiko
 
-  https://github.com/hisilicon/linux-hisi.git tags/hisi-arm64-dt-for-6.14
 
-for you to fetch changes up to 4a45f8c502a8b8a836c3c932a18d538856097ac7:
 
-  arm64: dts: hisilicon: Remove unused and undocumented "enable-dma" and "bus-id" properties (2024-12-17 12:03:08 +0000)
-
-----------------------------------------------------------------
-ARM64: DT: HiSilicon ARM64 DT updates for v6.14
-
-- Remove "enable-dma" and "bus-id" properties from the spi node on hi6220
-
-----------------------------------------------------------------
-Rob Herring (Arm) (1):
-      arm64: dts: hisilicon: Remove unused and undocumented "enable-dma" and "bus-id" properties
-
- arch/arm64/boot/dts/hisilicon/hi6220.dtsi | 2 --
- 1 file changed, 2 deletions(-)
 
