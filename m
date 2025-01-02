@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB8AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13368E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 19:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZh0cnkfVSu+/JRcP5joLQksiefUKpoHbG7GgK9CBM0=; b=sNW4ugi5u68MMiQjlBVKu03zkR
-	bEcUvs4EQ4NJzKAHnYiTXUyH/kqvnv8oGk47iG2XFbOJDoJCN57/O1nIEa8aK6jQ8GgkdaJ9vnAFN
-	Tdb7L5XVrzvBh9OKCzohNNMVf5eT4bKtwbLYMlqj/4nQl2kT1SLaFba0vAtQdCWd6zv2STt0uQFLu
-	9dSCKr0twMUGkRCnj90rpblNNLAVnLhFDAKQw+U749uNrpEmSshVx3ASv48Ajm7mmgKR2mgixFTk2
-	MVXgkQBXQvNgbIVaZyCjculPfa5npEDuEEPhn/+eWzMOJnQHT1xVq1g/HfhNjETXAkhdY4Ly2sLqG
-	IRjt1pDg==;
+	bh=MUdOeCCuXTYBJa2Y14aYbmR7lqycVvovev0PA0FkkeM=; b=ZujAA018MsCoT5jNrRxf4otNAR
+	NN0DeQfDbm291YcwQLlHVUagdbu1d1mOVZ6hDQaxCsWMYlZfY9dSBoSSXOFwt0gIoRsHOz9e5B3b1
+	QIb570m1UJ7Sk/Z7faGvAbVk2JmPIJ/+HUaNoYHEsLEzgnTjliYUKFEYwxU9Vxo+1/Y34TlUKQPBL
+	htNM6sTFnB0kBfswpYpeyLTtVNxu4HdfuncEQ3bzd9LaU21tTful8ij6tc603Aysa2/L7zBd/2+S5
+	NRTe3sgYn8m/RIVzwKgv3geSo/OzYYJvhC4n93jghwRdJpZ9H9PG6mO9UQHMeakSQdy/7duHyC9m7
+	1E5/7eiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQQt-0000000BDhf-2vMV;
-	Thu, 02 Jan 2025 19:00:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tTQgM-0000000BFkj-1gKy;
+	Thu, 02 Jan 2025 19:16:34 +0000
+Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTQPM-0000000BDIe-2nmr
+	id 1tTQfB-0000000BFbq-2w9R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 18:59:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BBDEE5C60F4;
-	Thu,  2 Jan 2025 18:58:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B2FAC4CED0;
-	Thu,  2 Jan 2025 18:58:57 +0000 (UTC)
-Date: Thu, 2 Jan 2025 18:58:55 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Zhenhua Huang <quic_zhenhuah@quicinc.com>, will@kernel.org,
-	ardb@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com,
-	joey.gouly@arm.com, dave.hansen@linux.intel.com,
-	akpm@linux-foundation.org, chenfeiyang@loongson.cn,
-	chenhuacai@kernel.org, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64: mm: vmemmap populate to page level if not
- section aligned
-Message-ID: <Z3bh74I1YhGWLU4M@arm.com>
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
- <20241209094227.1529977-2-quic_zhenhuah@quicinc.com>
- <Z2W3qA7wbBTaq6DQ@arm.com>
- <a720aaa5-a75e-481e-b396-a5f2b50ed362@quicinc.com>
- <Z2rAr9APkgpkwOl8@arm.com>
- <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
+	Thu, 02 Jan 2025 19:15:23 +0000
+Date: Thu, 2 Jan 2025 11:15:08 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1735845314;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MUdOeCCuXTYBJa2Y14aYbmR7lqycVvovev0PA0FkkeM=;
+	b=PRLFCIVZNJ2TOKznSd93zqgxpqnVt9wA3U7ums0392W1LkplKZ4eJ2vjkNvPK2mrhcQ0Zo
+	dsqhqrcpHM36uCRoKEZmwO7hwRb4MGvbdBqU9E/Ho6HvqOL/Eh+3T2FBrvVS9YK6Xaq3Cp
+	8BvA1LJ6AZiCVmuvDB2/g5/8Y/9r7Io=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Chase Conklin <chase.conklin@arm.com>,
+	Eric Auger <eauger@redhat.com>
+Subject: Re: [PATCH v2 00/12] KVM: arm64: Add NV timer support
+Message-ID: <Z3blvPxzCxVeCA40@linux.dev>
+References: <20241217142321.763801-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <971b9a05-4ae0-4e6c-8e48-e9e529896ecf@arm.com>
+In-Reply-To: <20241217142321.763801-1-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_105900_748089_2C567BEA 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250102_111522_017519_7304FA2B 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,25 +74,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 27, 2024 at 01:19:30PM +0530, Anshuman Khandual wrote:
-> On 12/24/24 19:39, Catalin Marinas wrote:
-> > On Tue, Dec 24, 2024 at 05:32:06PM +0800, Zhenhua Huang wrote:
-> >> I have two ideas:
-> >> 1. Completely disable this PMD mapping optimization since there is no
-> >> guarantee we must align 128M memory for hotplug ..
-> > 
-> > I'd be in favour of this, at least if CONFIG_MEMORY_HOTPLUG is enabled.
-> > I think the only advantage here is that we don't allocate a full 2MB
-> > block for vmemmap when only plugging in a sub-section.
+On Tue, Dec 17, 2024 at 02:23:08PM +0000, Marc Zyngier wrote:
+> Here's another version of the series initially posted at [1], which
+> implements support for timers in NV context.
 > 
-> Agreed, that will be the right fix for the problem which can be back ported.
-> We will have to prevent PMD/PUD/CONT mappings for both linear and as well as
-> vmemmap for all non-boot memory sections, that can be hot-unplugged.
+> From v1:
+> 
+> - Repainted EL0->EL1 when rambling about the timers
+> 
+> - Simplified access to EL1 counters from HYP context
+> 
+> - Update the status register when handled as an early trap
+> 
+> - Added some documentation about the default PPI numbers
+> 
+> The whole thing has been tested with 6.13-rc3 as part of the my NV
+> integration branch [2], and is functional enough to run an L3 guest
+> with kvmtool as the VMM and EDK2 as the firmware. YMMV.
+> 
+> [1] https://lore.kernel.org/r/20241202172134.384923-1-maz@kernel.org
+> [2] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=kvm-arm64/nv-next
 
-I haven't read your diffs below yet but why not allow PMD mappings of
-the hotplugged memory (not vmemmap)? SUBSECTION_SHIFT is 21, so we can
-have 2MB blocks in a 4KB page configuration.
+Time to let it rip!
+
+Acked-by: Oliver Upton <oliver.upton@linux.dev>
 
 -- 
-Catalin
+Thanks,
+Oliver
 
