@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881D3E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 13:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C901EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 13:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jr9h36oY869ZaVN1opg3awIyzL1sLfK+U4JefczpWKg=; b=oUtBb1c4IGUMJU9KhOXs207nBm
-	WdW+bVGni+t9uTNFybkEtOM/fRnQwlFMAbAiwpzfBeGI9RcIMTtJqytqkhfxW8KOlF53WEhPVZLCV
-	HDyO5F/zpHuR6jnKWt90wCoJG1ixdHsi0xT8c6werTVf2G2J3O9DUQMqknxCEsZiBwLp9ibWcYWyH
-	uX9R3qzCIsuEof5bwt3v6l0yYZy5Q1QNhyja9PPD/rhl942MbLtZdj9S6Forq0Gd9xJCm6DWojx+B
-	vzgVIIkVykEIAPDthsrqh9vPqpUoQi+1NjlkqZKWv0CGBz15S4hM2eCxac1RsF2pWwDFd+ED3ez3I
-	xFHd4sCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=77oRktQDXcPSa7iNhydGjuL43chSPN49aqtkglietE8=; b=d8lEaCPt265wf0YBqDiyYzhL/X
+	cvxIqNlK/16kzUYar44YDCeeKA0DDKVP7Jj0G4BnCege7vzLmzzps9u+Xw9rza0AxCu1lH5mEkjia
+	q3AdzfJpezGUXEszEOwJp5YlIvLhvxiLLUH8bzpyUGc2syVp3z9jZ7NKSn3prF6ZLPDPLRVwM/e7f
+	hDl0bui4QEiQwtivWJ8YvuqYiratg2YJjN7S0WvoyGl1Ete4t8yB4mbogbDGaosJrf3h2kJgGVNv/
+	5l06rtJuseFbZyNGvuCDEV3z7jQlgl15pRxwv3Hn7JhT1EQIoL1GrscSvO07ysIr+3jMXmSIGw+RF
+	Oz5n+w1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTLF7-0000000AUCO-1cfa;
-	Thu, 02 Jan 2025 13:28:05 +0000
-Received: from lelv0142.ext.ti.com ([198.47.23.249])
+	id 1tTLV7-0000000AW1Y-3ks3;
+	Thu, 02 Jan 2025 13:44:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTLDs-0000000AU3W-31pO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 13:26:50 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 502DQT0K055293;
-	Thu, 2 Jan 2025 07:26:29 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735824390;
-	bh=Jr9h36oY869ZaVN1opg3awIyzL1sLfK+U4JefczpWKg=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=f5vpED8j6HiHdugP0bDrgMPPHixbIpCcuPXT+FjhcyyPM4GoaVTnU2qNxzadxxgLm
-	 Nx7yrzunCENC6hCruvLuJr6s+pPkwBSNNygBXJcaT1mgZ4NTUX4BWS/zjYzssyJG0B
-	 42+PQ0DWouY/hQ7puHmlmUr2A0YI3b3b3brRKd08=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 502DQTxd046151
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 2 Jan 2025 07:26:29 -0600
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 2
- Jan 2025 07:26:29 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 2 Jan 2025 07:26:29 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 502DQTKJ125284;
-	Thu, 2 Jan 2025 07:26:29 -0600
-Date: Thu, 2 Jan 2025 07:26:29 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: Guillaume La Roque <glaroque@baylibre.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Thomas Gleixner
-	<tglx@linutronix.de>,
-        Tero Kristo <kristo@kernel.org>,
-        Santosh Shilimkar
-	<ssantosh@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <vishalm@ti.com>, Mattijs Korpershoek
-	<mkorpershoek@baylibre.com>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Nicolas
- Frayer <nfrayer@baylibre.com>
-Subject: Re: [PATCH v4 0/2] irqchip: Kconfig: Add module support for TI
- inta/intr
-Message-ID: <20250102132629.qluai4vzvwotrn43@fernlike>
-References: <20241224-timodules-v4-0-c5e010f58e2c@baylibre.com>
- <20250102124413.wwbfzomjzedbqges@thinness>
- <86cyh5pdk6.wl-maz@kernel.org>
+	id 1tTLTt-0000000AVrh-25Qn;
+	Thu, 02 Jan 2025 13:43:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E21DBA41096;
+	Thu,  2 Jan 2025 13:41:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B05C4CEDF;
+	Thu,  2 Jan 2025 13:43:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735825399;
+	bh=Lf0HL/WDMxh9e4xI2VHJmK8Uk1/y9zM9fP+Yqjx5kXw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kPmq1f3vTzrv81fg7oblXEuyFGi12fV6K/sxZW/qxfXSUiRj2/Ngv3xGqQmFtb9EB
+	 0ORTrqSHMm0AjPwpVpqxb3CRwqUeVCWiAQ4TMAK+J8IeaMzWJTUsj1E/dCs2PT/gRD
+	 5uo1bACyeVioXSvSCRuM6S40Hz1qK6cfJIziO5MSe4MoLVXfpsgK1bEi2QKqRIGRUZ
+	 +CZki6/tTUs/9ZE8zWx5v+0a3HhvAPwA/g86zqfapPb3YojmPYGfzK2xMTlQZ/YM+j
+	 JHVxPUSadwS2LJpYAPYd0aJGneo/cBwyZsFIX4WYf9MuVRdc9jq90Ydon0dw7Jcg/k
+	 3lK5sLTAkX6Zw==
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-2ee50ffcf14so14036287a91.0;
+        Thu, 02 Jan 2025 05:43:19 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVrGQXzjd5ixQ2SPLBGY3kEnaWdQtv9moGTPidfJQVgZPARdvUui9m609KCjJ16QIlIFZWMPcIUFAz9S1AV5Cs=@lists.infradead.org, AJvYcCWHiUkUPLCN98wSXYTFJVysHE/WJd4KOzQzrc80bxKuHb+vLfPPu3q6fz51V7/4KXeTTuGqxEWOWDXExen4zKw+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfkUKSWNrJ0I/lf6smOCY20qtkqwkRVdVkpIJpDpq2iH8IEP+n
+	ZF/4ixQeE2szMJi1fUBOh/KIWAab/Wth1w67XNrZrVPly13fJ5Ee53I/g90R9vC9AOnrZNDsog/
+	clnk/HQNne+JJN9nPPZYPRkuk/Q==
+X-Google-Smtp-Source: AGHT+IHCxTQkblgIukaSC0qoCzRgvJzZht4dI4RJs3qplCpdoTIBV1OD+tbt8prOFp1oNASqkY/F9sDtdJoiqhDkTzo=
+X-Received: by 2002:a17:90b:54c4:b0:2ee:e2f6:8abc with SMTP id
+ 98e67ed59e1d1-2f44360816cmr69363501a91.10.1735825398962; Thu, 02 Jan 2025
+ 05:43:18 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <86cyh5pdk6.wl-maz@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20241204142626.158395-1-fshao@chromium.org>
+In-Reply-To: <20241204142626.158395-1-fshao@chromium.org>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Thu, 2 Jan 2025 21:43:53 +0800
+X-Gmail-Original-Message-ID: <CAAOTY__Wiva0V52ZTY7-vdrNKWeCGWb5KTBp+CHWoNxHxi0Kyw@mail.gmail.com>
+Message-ID: <CAAOTY__Wiva0V52ZTY7-vdrNKWeCGWb5KTBp+CHWoNxHxi0Kyw@mail.gmail.com>
+Subject: Re: [PATCH v2] drm/mediatek: dp: Support flexible length of DP
+ calibration data
+To: Fei Shao <fshao@chromium.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_052649_050066_A10A0AE4 
-X-CRM114-Status: GOOD (  23.91  )
+X-CRM114-CacheID: sfid-20250102_054321_671306_49E9F71B 
+X-CRM114-Status: GOOD (  25.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +85,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:09-20250102, Marc Zyngier wrote:
-> On Thu, 02 Jan 2025 12:44:13 +0000,
-> Nishanth Menon <nm@ti.com> wrote:
-> > 
-> > On 20:36-20241224, Guillaume La Roque wrote:
-> > > Added module support for TI interrupt aggregator and interrupt router
-> > > drivers. Default value for both drivers is ARCH_K3 and the interrupt
-> > > aggregator depends on ARCH_K3 as it contains 64 bit only ops.
-> > > Tested allmodconfig builds with ARCH=arm and ARCH=arm64.
-> > > 
-> > > Changes in v4:
-> > > - Rework commit message and title
-> > > - Add depends on in Kconfig frivers
-> > > - Link to v3: https://lore.kernel.org/r/20241016-timodules-v3-0-fa71091ade98@baylibre.com
-> > > 
-> > > Changes in v3:
-> > > - Add MODULE_LICENSE in drivers
-> > > 
-> > > Changes in v2:
-> > > - Added depends on ARCH_K3 for the interrupt aggregator driver as it
-> > >   uses
-> > > 64 bit ops
-> > > 
-> > > Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> > > ---
-> > > Nicolas Frayer (2):
-> > >       irqchip/ti-sci-intr: add module build support
-> > >       irqchip/ti-sci-inta : Add module build support
-> > > 
-> > >  arch/arm64/Kconfig.platforms      | 2 --
-> > >  drivers/irqchip/Kconfig           | 6 ++++--
-> > >  drivers/irqchip/irq-ti-sci-inta.c | 1 +
-> > >  drivers/irqchip/irq-ti-sci-intr.c | 1 +
-> > >  4 files changed, 6 insertions(+), 4 deletions(-)
-> > > ---
-> > > base-commit: 8faabc041a001140564f718dabe37753e88b37fa
-> > > change-id: 20241016-timodules-174770215dd8
-> > > 
-> > > Best regards,
-> > > -- 
-> > > Guillaume La Roque <glaroque@baylibre.com>
-> > > 
-> > 
-> > Reviewed-by: Nishanth Menon <nm@ti.com>
-> > 
-> > Marc, Can this go via your tree?
-> 
-> I'm only looking after the ARM GICs these days, and not anything else.
-> Hopefully Thomas will look into it.
+Hi, Fei:
 
-Thanks Marc.
+Fei Shao <fshao@chromium.org> =E6=96=BC 2024=E5=B9=B412=E6=9C=884=E6=97=A5 =
+=E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=8810:26=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> The DP calibration data is stored in nvmem cells, and the data layout is
+> described in the `mtk_dp_efuse_fmt` arrays for each platform.
+>
+> There is no guarantee that the data is always a 4-length u32 cell array.
+> For example, MT8188 has a data length of 3, preventing it from passing
+> the preliminary check and undergoing calibration.
+>
+> Update the logic to support flexible data lengths. Specifically, we
+> validate the length returned from `nvmem_cell_read()` against the
+> platform-specific efuse format. If out-of-bound access is detected, fall
+> back to the default calibration values. This likely indicates an error
+> in either the efuse data length described in DT or the efuse format
+> within the driver.
 
-Thomas, would like to know if you'd pick this up, else, I can take
-this series via my tree and send via SoC maintainers, since I am
-marked as the maintainer for the files.
+Applied to mediatek-drm-next [1], thanks.
 
--- 
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-next
+
 Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Chun-Kuang.
+
+>
+> Signed-off-by: Fei Shao <fshao@chromium.org>
+> ---
+>
+> Changes in v2:
+> - use %zu identifier for size_t in dev_warn()
+>
+>  drivers/gpu/drm/mediatek/mtk_dp.c | 18 +++++++++++++-----
+>  1 file changed, 13 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek=
+/mtk_dp.c
+> index 36713c176cfc..55671701459a 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dp.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+> @@ -1165,17 +1165,25 @@ static void mtk_dp_get_calibration_data(struct mt=
+k_dp *mtk_dp)
+>         buf =3D (u32 *)nvmem_cell_read(cell, &len);
+>         nvmem_cell_put(cell);
+>
+> -       if (IS_ERR(buf) || ((len / sizeof(u32)) !=3D 4)) {
+> +       if (IS_ERR(buf)) {
+>                 dev_warn(dev, "Failed to read nvmem_cell_read\n");
+> -
+> -               if (!IS_ERR(buf))
+> -                       kfree(buf);
+> -
+>                 goto use_default_val;
+>         }
+>
+> +       /* The cell length is in bytes. Convert it to be compatible with =
+u32 buffer. */
+> +       len /=3D sizeof(u32);
+> +
+>         for (i =3D 0; i < MTK_DP_CAL_MAX; i++) {
+>                 fmt =3D &mtk_dp->data->efuse_fmt[i];
+> +
+> +               if (fmt->idx >=3D len) {
+> +                       dev_warn(mtk_dp->dev,
+> +                                "Out-of-bound efuse data access, fmt idx=
+ =3D %d, buf len =3D %zu\n",
+> +                                fmt->idx, len);
+> +                       kfree(buf);
+> +                       goto use_default_val;
+> +               }
+> +
+>                 cal_data[i] =3D (buf[fmt->idx] >> fmt->shift) & fmt->mask=
+;
+>
+>                 if (cal_data[i] < fmt->min_val || cal_data[i] > fmt->max_=
+val) {
+> --
+> 2.47.0.338.g60cca15819-goog
+>
 
