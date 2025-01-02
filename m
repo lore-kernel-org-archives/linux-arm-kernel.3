@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177A4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A3EE7718B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jan 2025 11:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xItSIxShYGLizEiPeNAw2E0IXnl6XenbDcDTP5neiw=; b=dEQXyvlFhn0wl62K0BQi58VdP8
-	889ygs2X7bSdzYHA/Ymw1r6l3/Y9K1s7hr8fegKGG44OxM6PioL0rGdpIykK1D7Z5QlnBoUjuXPVu
-	+89gEGMJ6HtvEahX1Vewwl6TSsyLESn1fXisxPe8kZiO9AGIThUbDFZ/ZuVWLLz3+nrUIM+DisvGn
-	GR7lxM7b+SENhkwkyiiVqHDoEevMuk1oA/KWiBZ+LFHHzaWmnSTINmA5yTGV6xhyrD1cogedRUQUa
-	5LidxT5NaK3NJe6O6oK6VeWhrw1VHJfUr2tViVTpkQy0Z9gFr6lguVj4nsgH66RzV8CYOMCNpZ8aB
-	x4RGKPZw==;
+	bh=FHJmAXoM/mw0zc7WUW0C0TOM9FpAO9F2F11lm4GuV6w=; b=UZLY52Z6bPkxQ8kj5Hgv4p4jv6
+	Lt20Yyn76K58MIPOfi5UJYLujnfMNR+1Icb3B5NHAxw95Ca0Rl4yM6lxsbDy9FmZtHi3QBt3BPQDl
+	GmHBYxiYj+Sj0QqvZ+yh0M68JuXMH/PhOJGgQgRsp2fvud1x7990Y5Jz5f7xDB34Xas2CHjiSZrra
+	uQE3PsghEj6KBrvZJQ7qwfrptZz8tHEZlvsRHhX3/H9mGKmPUybYJwPO1+vVYglFqRqD24hKd3pdc
+	FItLRq0orcP3bseodRCn7hDNG8MgU6vmd5se/d+n933x6f8A4ZIEFnVQqT85IaK6s7QaJRHg9zNc1
+	kdJ8I3Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJIF-0000000AF44-0hkI;
-	Thu, 02 Jan 2025 11:23:11 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tTJJN-0000000AFKC-3bZ1;
+	Thu, 02 Jan 2025 11:24:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTJCh-0000000AELM-1drd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jan 2025 11:17:28 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 502A1PJ6028659;
-	Thu, 2 Jan 2025 12:17:18 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	0xItSIxShYGLizEiPeNAw2E0IXnl6XenbDcDTP5neiw=; b=qAgP656flRQouaIy
-	0guIhoP9E0Yyyue5L0iYG8n4UuLuxjanolFg/wSdO26j4SsjxLTMlK9ogzVvvcmv
-	83n7ThZ02ljMPZUA4PgDL9axSQJN0ZYt4u6iJAhh/I2IrnEa4QB8zp34yzZEEzWb
-	Bp5NggKq2nUNSPwRIEwbUomKdhI1WWe6l5qVAw/6nuvXPRIrj6sO8etAI9nqagI7
-	IoUiKbTX5QJZKKQnr4dUL+xzM7A68ldBT34As8vH9366pjOd+v5UOCZVktj88Zhh
-	iAYJt5yJbio0PrXb2y020wSITZhhk2E6bLUZN+AQHGtT7T7eyA9ur0YTtzCoeHr6
-	n1M8PA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 43vuwmbx6b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 02 Jan 2025 12:17:18 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4DCB540048;
-	Thu,  2 Jan 2025 12:16:04 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7FA0627607A;
-	Thu,  2 Jan 2025 12:15:18 +0100 (CET)
-Received: from [192.168.8.15] (10.252.9.169) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.37; Thu, 2 Jan
- 2025 12:15:17 +0100
-Message-ID: <01c0ce6be637669ed07cfaf0aa6ef27fed7b8b16.camel@foss.st.com>
-Subject: Re: [PATCH v5] pinctrl: stm32: Add check for clk_enable()
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Marek Vasut <marex@denx.de>, Mingwei Zheng <zmw12306@gmail.com>
-CC: <linus.walleij@linaro.org>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <make24@iscas.ac.cn>,
-        <peng.fan@nxp.com>, <fabien.dessenne@foss.st.com>,
-        <linux-gpio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Date: Thu, 2 Jan 2025 12:15:15 +0100
-In-Reply-To: <9745b3ee-ae89-4edb-8ff7-b20096dbe1de@denx.de>
-References: <20241215204014.4076659-1-zmw12306@gmail.com>
-	 <9745b3ee-ae89-4edb-8ff7-b20096dbe1de@denx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.48.4 
+	id 1tTJGf-0000000AEnc-00x7;
+	Thu, 02 Jan 2025 11:21:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8748C5C5B8B;
+	Thu,  2 Jan 2025 11:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D572C4CEDC;
+	Thu,  2 Jan 2025 11:21:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735816891;
+	bh=W65URpuT66zpoom/bKkmJ99ASzFyUtgK5KkXVL/Tpws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lyF0xLqAH9UBeqQHJKzMr9dUKJT9Yy+Rfxt9CgZ/VrhfDqUXJuM7O0Eegw6kJi2dQ
+	 132j5jGXlln0l+MZMGwwJh6OR1Z462jmAeXhCE3t2VQTJi0ug5ae3fgJ7zgnfx8qem
+	 tsQbMnEC+ZaJGbYm8LZcC/pg2Ab7+sWtt9p3XR8D9ZTySwXgPZHdJaivFpFiY9Rdp7
+	 pTP8fA8FqBQtbCs7NKlmV/6ZHIZuhXc9HtpoO18bZbPhXKfGySl5OnQaIsz7HOEyUQ
+	 WeXwdo0Sg5FV5pp7JOn67Vr5Sh/DpAhNw+pdJsfUz8ZQsCYfrbg6t0b1Af6pMlZ7mb
+	 2qIXSImj7uGxA==
+Date: Thu, 2 Jan 2025 12:21:28 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 1/6] PCI: mediatek-gen3: Add missing
+ reset_control_deassert() for mac_rst in mtk_pcie_en7581_power_up()
+Message-ID: <Z3Z2uOCUGX7uAaae@lore-desk>
+References: <20241130-pcie-en7581-fixes-v5-1-dbffe41566b3@kernel.org>
+ <20241230175754.GA3958277@bhelgaas>
 MIME-Version: 1.0
-X-Originating-IP: [10.252.9.169]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KseZ4mXYs1K8AxEo"
+Content-Disposition: inline
+In-Reply-To: <20241230175754.GA3958277@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_031727_714758_FF4205EE 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250102_032133_129325_7596A132 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +84,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI0LTEyLTE2IGF0IDAwOjQxICswMTAwLCBNYXJlayBWYXN1dCB3cm90ZToKPiBP
-biAxMi8xNS8yNCA5OjQwIFBNLCBNaW5nd2VpIFpoZW5nIHdyb3RlOgo+IAo+IFsuLi5dCj4gCj4g
-PiBAQCAtMTYxNywxMCArMTYwMiwxOCBAQCBpbnQgc3RtMzJfcGN0bF9wcm9iZShzdHJ1Y3QgcGxh
-dGZvcm1fZGV2aWNlICpwZGV2KQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBy
-ZXR1cm4gLUVJTlZBTDsKPiA+IMKgwqDCoMKgwqDCoMKgwqB9Cj4gPiDCoMKgwqDCoMKgwqDCoMKg
-cGN0bC0+YmFua3MgPSBkZXZtX2tjYWxsb2MoZGV2LCBiYW5rcywgc2l6ZW9mKCpwY3RsLT5iYW5r
-cyksCj4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoEdG
-UF9LRVJORUwpOwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBHRlBfS0VSTkVMKTsKPiAKPiBQbGVhc2UgZHJvcCB0
-aGlzIG9uZSBjaGFuZ2UuCj4gCj4gPiDCoMKgwqDCoMKgwqDCoMKgaWYgKCFwY3RsLT5iYW5rcykK
-PiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuIC1FTk9NRU07Cj4gPiDC
-oCAKPiA+ICvCoMKgwqDCoMKgwqDCoHBjdGwtPmNsa3MgPSBkZXZtX2tjYWxsb2MoZGV2LCBiYW5r
-cywgc2l6ZW9mKCpwY3RsLT5jbGtzKSwKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEdGUF9LRVJORUwpOwo+ID4gK8Kg
-wqDCoMKgwqDCoMKgaWYgKCFwY3RsLT5jbGtzKQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoHJldHVybiAtRU5PTUVNOwo+ID4gKwo+ID4gK8KgwqDCoMKgwqDCoMKgZm9yIChpID0g
-MDsgaSA8IGJhbmtzOyArK2kpCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcGN0
-bC0+Y2xrc1tpXS5pZCA9ICIiOwo+IAo+IElzIHRoaXMgXiBhc3NpZ25tZW50IG5lY2Vzc2FyeSA/
-IElmIHNvLCB3aHkgPwoKVGhlIGV4aXN0aW5nIERUcyBkb24ndCBoYXZlIHRoZSAnY2xvY2stbmFt
-ZXMnIHByb3BlcnR5LCB3aG9zZSB2YWx1ZSBpcyB1c2VkIHRvIHNldCB0aGlzIHN0cnVjdCBjbGtf
-YnVsa19kYXRhOjppZC4KV2l0aCB0aGlzIGZpZWxkIGtlcHQgYXQgTlVMTCwgdGhlIGVycm9yIG1l
-c3NhZ2VzIGluIGNsa19idWxrX2VuYWJsZSgpIGFuZCBzaW1pbGFyIHNob3VsZCBwcmludCAnKG51
-bGwpJy4KVGhpcyBsaW5lIHNldHMgaXQgdG8gZW1wdHkgc3RyaW5nLgpJIHdvdWxkIHNheSBpdCdz
-IG5vdCBuZWNlc3NhcnksIGJ1dCBJIGRvbid0IGtub3cgaWYgaXQncyBiZXR0ZXIgdG8gaGF2ZToK
-IkZhaWxlZCB0byBlbmFibGUgY2xrICcnOiAlZCIKb3IKIkZhaWxlZCB0byBlbmFibGUgY2xrICco
-bnVsbCknOiAlZCIKCkFudG9uaW8K
 
+--KseZ4mXYs1K8AxEo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> On Sat, Nov 30, 2024 at 12:20:10AM +0100, Lorenzo Bianconi wrote:
+> > Even if this is not a real issue since Airoha EN7581 SoC does not requi=
+re
+> > the mac reset line, add missing reset_control_deassert() for mac reset
+> > line in mtk_pcie_en7581_power_up() callback.
+
+Hi Bjorn,
+
+since this patch is already in Krzysztof's controller/mediatek branch, do y=
+ou
+want to repost the full series or just incremental changes?
+
+>=20
+> s/mac/MAC/ in English text since "mac" is an acronym, not a real word
+
+ack, I will fix it.
+
+>=20
+> This doesn't really say why we need this patch.
+>=20
+> This adds both assert and deassert, so it doesn't really look like
+> adding a *missing* deassert.
+>=20
+> On EN7581, is mac_reset optional or always absent?
+
+AFAIK mac_reset is never used on EN7581. We added it since we were discussi=
+ng in
+[0] to move the reset asssert/deassert callbacks in the same routine (in the
+original codeabse we have reset_control_assert(pcie->mac_reset) in mtk_pcie=
+_setup()
+and reset_control_deassert(pcie->mac_reset) in mtk_pcie_power_up()).
+I think we can remove mac_reset support at all for EN7581.  What do you pre=
+fer?
+
+Regards,
+Lorenzo
+
+[0] https://lore.kernel.org/linux-pci/20241106233123.GA1580663@bhelgaas/
+
+>=20
+> If mac_reset is always absent for EN7581, why add this patch at all?
+> If it's optional, say so.
+>=20
+> > Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >=20
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
+controller/pcie-mediatek-gen3.c
+> > index 64ef8ff71b0357b9bf9ad8484095b7aa60c22271..4d1c797a32c236faf79428e=
+b8a83708e9c4f21d8 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -942,6 +942,9 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3=
+_pcie *pcie)
+> >  	 */
+> >  	mdelay(PCIE_EN7581_RESET_TIME_MS);
+> > =20
+> > +	/* MAC power on and enable transaction layer clocks */
+> > +	reset_control_deassert(pcie->mac_reset);
+> > +
+> >  	pm_runtime_enable(dev);
+> >  	pm_runtime_get_sync(dev);
+> > =20
+> > @@ -976,6 +979,7 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3=
+_pcie *pcie)
+> >  err_clk_prepare:
+> >  	pm_runtime_put_sync(dev);
+> >  	pm_runtime_disable(dev);
+> > +	reset_control_assert(pcie->mac_reset);
+> >  	reset_control_bulk_assert(pcie->soc->phy_resets.num_resets, pcie->phy=
+_resets);
+> >  err_phy_deassert:
+> >  	phy_power_off(pcie->phy);
+> >=20
+> > --=20
+> > 2.47.0
+> >=20
+
+--KseZ4mXYs1K8AxEo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ3Z2uAAKCRA6cBh0uS2t
+rNLuAP9aIvgBoSTUsdbM74sz/9xj2EI/jesibuEXgdwRznaErwD+OH6Lbxg9oaqN
+0C1Pv2EwtriUpAMpokB0n1IJ9tcZhQw=
+=9erM
+-----END PGP SIGNATURE-----
+
+--KseZ4mXYs1K8AxEo--
 
