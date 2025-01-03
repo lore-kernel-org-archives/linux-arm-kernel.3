@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6022E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033C9E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vn5PAch7XdWTWHNIRarY/0lUl5EQINJyEEFjNVV3NLk=; b=WnX61KBXPVEmGGEERMlScad7mR
-	lCecTYiI19q+AZsqeGhLmSI3Kfl3eifoD+XwpqM3aEN8XPi9SeqCpbwXG7QjJKAToSfJhDkIGj+09
-	mI305Y0Cst7u8CEHGPjiEV6gibPxGkGPcR1jOn1N//VptsvwEmnsk6BwUtvc4giOhosHIPHPFxt/A
-	tFRosJa0IHgWohjtjCYJDjeumXYIgGiCg/vgOLZoYSnDcGKkr0ITJGX/6EFlAYszL+WWht03foYso
-	qgf0Lr8JGuj/Ni3BnFTy7hoME0SJ8Ap3l0IMSb7eoYsaJpIoN1fOsvR1jPr5+Ci2TobvNtW6s6w7V
-	yqh9k7Nw==;
+	bh=qAbcQhqRNOjAopCtYhHtT/zqyq1ofjlR0720BgGp/lY=; b=lFSX1tUnf6p1L2lHWKT0MbAiG4
+	Ju6PGiUPX5m4/6i5BUd5URqDhJKJDKRJG+XIqXRcihqxJ3nGYWYIIK1/4I5hksTcZ+20U1GPok+38
+	LoukfE8n3zfWcTEcFCgT2yhn1eF3X/QojkL7swRZ+HhxcjOrSj/NPjj+u61SPnZj18iJAEA5WRNsD
+	dv9KFZa7bWWRYYZ/zbIcyqD93HAbfi1XxdSQAT/DC/OKEPq1NfhTkFGkmySclNsc1/BRGbixYKIRP
+	kELMoP052DyHLUnQKneNa9eEeLsdKuLArOgisE+Oqyb8I511XKl9ccjGp+qtLkDiOldYttkmw0UCl
+	wj40y1DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmL8-0000000DhRa-0wZg;
-	Fri, 03 Jan 2025 18:24:06 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1tTmMH-0000000Dhba-3aCL;
+	Fri, 03 Jan 2025 18:25:17 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmED-0000000DgAf-0bRN
+	id 1tTmG2-0000000DgbF-0i8v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 18:16:58 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3a7d7db4d89so40014575ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 10:16:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735928216; x=1736533016; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vn5PAch7XdWTWHNIRarY/0lUl5EQINJyEEFjNVV3NLk=;
-        b=eDtaqMehIu6AzDdtWSVjD8cOMbJuNCJ2DqJb4WRm0CH1mC2iuglJGhQaVntLj9JvyQ
-         k+3cUyu+/x/nQYNgsGSdfOFxr9MXjnNnKGKOjSGkQ1A4R7W2eg+75vifsloSCnLROG1W
-         H6kXPyqhBYdJrmKBGTn0hZ1oqixiF4FIINDkZ/dYdSutvEDQgb7r6Ij3Cxv3/PjE2GYe
-         3pAkxz8+MryXo6v4Aw0NT4q68qleR4fetAtcWa2TQ7uhBVPdtD/eUfYmMt0GrU9asNa1
-         1kD1CKvQ5GV6+Ao2XcZiJo/yR9GG1vQX9t2xVQOSKIagR5k+WG8iz80K6W6bezbjHs0Q
-         M3Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735928216; x=1736533016;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vn5PAch7XdWTWHNIRarY/0lUl5EQINJyEEFjNVV3NLk=;
-        b=WnwM6yczIaCOu0+fVp4J0akEdpEnzr3gro3zwL6LwxvmXDOqKrPquDQvSy1gj1CWjE
-         hGJmmJAXXcHulx4mT9S+6LpBFvIpRd4BctcVnfmj+dJYWAmgTWCrynru5exvAyhWLmRq
-         nT07UAjDv3rvW9IaybUgO4dLG8XnGyHrciPOIPK2BsUlBCEeJ3lODVap9lR5FxpWwCYV
-         x9xFnq897av/h6sIBedIcX2zJnpcNZcpmmuBucH3lLKqqRkCmlBFO2NWP3dA/Xq3U/uO
-         7wLx/G4ZkUFk+mOA21TtRjImVB9psGBIyg0zBsYExVsmumZnKudtbJb4cMCzacNn7122
-         2Oaw==
-X-Forwarded-Encrypted: i=1; AJvYcCXXIlVvDNutUBox5QN5krWggXboo23Y9BrNBqVOHDHqtxEihE+DLQv0J8qzM21oZ3A3RQuts6+aFWBjr2CtAC0s@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgtmZaP55pXzT6DLlf9fvsWXVQ8T81Zczd3vSjmxLCBKZerIgz
-	Mq8e6SMbsu5haiBbsPQr6t6cYeUAhVEPUtvHm1rAVP0e0GcthRm8wBwKcIEomcLUiITVKFa16nw
-	o17BZdjWeikHtRou57BHQsG2RAbA=
-X-Gm-Gg: ASbGncvS/sqi+Gh6M83x9BYmMg5MovLddIUsebUVOxGEZIdVtPlHamNGvnaeD1GX+IE
-	kdTEkgIAHtDushx5fHR5UHI/Jtw9qOh7MvaYQoyuDItGK0w6OHUqautYxuAgwe33uT7SJ
-X-Google-Smtp-Source: AGHT+IFkvWah3qxhzEMeR0lXa3avHR/olEfCKY9qWp0cniyQbDoTluhhzT5PfOFVB94chXa1QUUdUshg5EOLFdZeUdA=
-X-Received: by 2002:a05:6e02:194a:b0:3a7:7124:bd2b with SMTP id
- e9e14a558f8ab-3c2d514f8e4mr434511105ab.15.1735928215590; Fri, 03 Jan 2025
- 10:16:55 -0800 (PST)
+	Fri, 03 Jan 2025 18:18:52 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YPsHt0PHNz6K6G1;
+	Sat,  4 Jan 2025 02:17:46 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id AD2E71404C4;
+	Sat,  4 Jan 2025 02:18:38 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 3 Jan
+ 2025 19:18:37 +0100
+Date: Fri, 3 Jan 2025 18:18:36 +0000
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+CC: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ =?UTF-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	<catalin.marinas@arm.com>, <corbet@lwn.net>, <oliver.upton@linux.dev>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+	<yangyicong@huawei.com>, <guohanjun@huawei.com>,
+	<wangkefeng.wang@huawei.com>, <liaochang1@huawei.com>,
+	<sunnanyong@huawei.com>, <linuxarm@huawei.com>
+Subject: Re: [RESEND RFC PATCH v1 2/5] arm64: Add BBM Level 2 cpu feature
+Message-ID: <20250103181836.000045b1@huawei.com>
+In-Reply-To: <2a6448f5-a48b-42fd-9589-acdb434f0a8a@arm.com>
+References: <20241211160218.41404-3-miko.lenczewski@arm.com>
+	<87cyhxs3xq.wl-maz@kernel.org>
+	<084c5ada-51af-4c1a-b50a-4401e62ddbd6@arm.com>
+	<86ikrprn7w.wl-maz@kernel.org>
+	<2b1cc228-a8d5-4383-ab25-abbbcccd2e2c@arm.com>
+	<86h678sy00.wl-maz@kernel.org>
+	<5c551e43-78e9-4336-ab16-b55c0d6c7f92@arm.com>
+	<20241219164528.GH24724@willie-the-truck>
+	<20250102120704.00002984@huawei.com>
+	<86ed1lpfdh.wl-maz@kernel.org>
+	<20250103153512.GD3816@willie-the-truck>
+	<2a6448f5-a48b-42fd-9589-acdb434f0a8a@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
- <28bd756a-e0bc-49e7-9415-4c05d38c5e28@quicinc.com> <20250103153716.GE3816@willie-the-truck>
-In-Reply-To: <20250103153716.GE3816@willie-the-truck>
-From: Rob Clark <robdclark@gmail.com>
-Date: Fri, 3 Jan 2025 10:16:43 -0800
-Message-ID: <CAF6AEGua_WfLd2PQv42NK3R1oOgJ8wNf6yt6We4tH0GFkHPnoA@mail.gmail.com>
-Subject: Re: [PATCH v18 0/5] iommu/arm-smmu: introduction of ACTLR
- implementation for Qualcomm SoCs
-To: Will Deacon <will@kernel.org>
-Cc: Bibek Kumar Patro <quic_bibekkum@quicinc.com>, robin.murphy@arm.com, joro@8bytes.org, 
-	jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org, 
-	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com, 
-	dmitry.baryshkov@linaro.org, iommu@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_101657_179723_CA491ADF 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20250103_101850_507829_811D1EC4 
+X-CRM114-Status: GOOD (  47.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,49 +88,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 7:37=E2=80=AFAM Will Deacon <will@kernel.org> wrote:
->
-> (please don't top-post...)
->
-> On Mon, Dec 30, 2024 at 06:45:29PM +0530, Bibek Kumar Patro wrote:
-> > On 12/12/2024 8:43 PM, Bibek Kumar Patro wrote:
-> > > This patch series consist of six parts and covers the following:
-> > >
-> > > 1. Provide option to re-enable context caching to retain prefetcher
-> > >     settings during reset and runtime suspend.
-> > >
-> > > 2. Remove cfg inside qcom_smmu structure and replace it with single
-> > >     pointer to qcom_smmu_match_data avoiding replication of multiple
-> > >     members from same.
-> > >
-> > > 3. Add support for ACTLR PRR bit setup via adreno-smmu-priv interface=
-.
-> > >
-> > > 4. Introduce intital set of driver changes to implement ACTLR registe=
-r
-> > >     for custom prefetcher settings in Qualcomm SoCs.
-> > >
-> > > 5. Add ACTLR data and support for qcom_smmu_500.
-> > >
-> > > Changes in v18 from v17_RESEND:
-> > >   - 1/5 : No changes
-> > >   - 2/5 : No changes - reviewed-by tags collected
-> > >   - 3/5 : Addition of
-> > >     pm_runtime_resume_and_get()/pm_runtime_put_autosuspend()
-> > >     around register access of PRR related private interfaces
-> > >     as discussed in v17_RESEND.
-> > >   - 4/5, 5/5 : No changes - reviewed-by tags collected
-> > >   Link to v17_RESEND:
-> > >   https://lore.kernel.org/all/20241114160721.1527934-1-quic_bibekkum@=
-quicinc.com/
-> >
-> > Thought to follow up on this thread to highlight the latest version (v1=
-8) of
-> > this series, in case it was missed during the vacation period.
->
->
-> I'm waiting for Rob (Clark) to ack the last patch, as he had comments on
-> the previous version.
+On Fri, 3 Jan 2025 16:00:59 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-You mean 3/5?  The latest (v18) lgtm, a-b
+> On 03/01/2025 15:35, Will Deacon wrote:
+> > On Thu, Jan 02, 2025 at 12:30:34PM +0000, Marc Zyngier wrote:  
+> >> On Thu, 02 Jan 2025 12:07:04 +0000,
+> >> Jonathan Cameron <Jonathan.Cameron@huawei.com> wrote:  
+> >>> On Thu, 19 Dec 2024 16:45:28 +0000
+> >>> Will Deacon <will@kernel.org> wrote:  
+> >>>> On Thu, Dec 12, 2024 at 04:03:52PM +0000, Ryan Roberts wrote:  
+> >>>>>>>> If anything, this should absolutely check for FAR_EL1 and assert that
+> >>>>>>>> this is indeed caused by such change.    
+> >>>>>>>
+> >>>>>>> I'm not really sure how we would check this reliably? Without patch 5, the
+> >>>>>>> problem is somewhat constrained; we could have as many changes in flight as
+> >>>>>>> there are CPUs so we could keep a list of all the {mm_struct, VA-range} that are
+> >>>>>>> being modified. But if patch 5 is confirmed to be architecturally sound, then
+> >>>>>>> there is no "terminating tlbi" so there is no bound on the set of {mm_struct,
+> >>>>>>> VA-range}'s that could legitimately cause a conflict abort.    
+> >>>>>>
+> >>>>>> I didn't mean to imply that we should identify the exact cause of the
+> >>>>>> abort. I was hoping to simply check that FAR_EL1 reports a userspace
+> >>>>>> VA. Why wouldn't that work?    
+> >>>>>
+> >>>>> Ahh gottya! Yes agreed, this sounds like the right approach.    
+> >>>>
+> >>>> Please, can we just not bother handling conflict aborts at all outside of
+> >>>> KVM? This is all dead code, it's complicated and it doesn't scale to the
+> >>>> in-kernel use-cases that others want. There's also not been any attempt
+> >>>> to add the pKVM support for handling host-side conflict aborts from what
+> >>>> I can tell.
+> >>>>
+> >>>> For now, I would suggest limiting this series just to the KVM support
+> >>>> for handling a broken/malicious guest. If the contpte performance
+> >>>> improvements are worthwhile (I've asked for data), then let's add support
+> >>>> for the CPUs that handle the conflict in hardware (I believe this is far
+> >>>> more common than reporting the abort) so that the in-kernel users can
+> >>>> benefit whilst keeping the code manageable at the same time.
+> >>>>  
+> >>>
+> >>> Given direction the discussion is going in time to raise a hand.
+> >>>
+> >>> Huawei has implementations that support BBML2, and might report TLB conflict
+> >>> abort after changing block size directly until an appropriate TLB invalidation
+> >>> instruction completes and this Implementation Choice is architecturally compliant.  
+> >>
+> >> Compliant, absolutely. That's the letter of the spec. The usefulness
+> >> aspect is, however, more debatable, and this is what Will is pointing
+> >> out.
+> >>
+> >> Dealing with TLB Conflict aborts is an absolute pain if you need
+> >> to handle it within the same Translation Regime and using the same
+> >> TTBR as the one that has generated the fault. So at least for the time
+> >> being, it might be preferable to only worry about the implementations
+> >> that will promise to never generate such an abort and quietly perform
+> >> an invalidation behind the kernel's back.  
+> > 
+> > Agreed. We're not dropping support for CPUs that don't give us what we'd
+> > like here, we're just not bending over to port and maintain new
+> > optimisations for them. I think that's a reasonable compromise?
+
+Subject to usual maintainability vs performance questions sure.
+Given we are the ones with the implementation, it's perhaps up to us
+to prove the added complexity for a given optimization is worth the hassle
+(maybe leaning on Arm to help out ;)  We have some activity going on
+around this, but are unfortunately not ready to share.
+
+> > 
+> > That said, thanks for raising this, Jonathan. It's a useful data point
+> > to know that TLB conflict aborts exist in the wild!  
+
+My work here is done ;)
+
+> 
+> Indeed. Just to make it explicit; if we were to support all architecturally
+> compliant BBML2 implementations, we would need to drop the final patch in this
+> series. But since it sounds like we will be taking the approach of only allowing
+> these optimizations for implementations that never raise conflict abort and
+> handle it all in HW, it should be safe to keep the optimization in that final
+> patch. I'll work with Miko to get this bashed into shape and reposted.
+
+Obviously I'd want perf numbers to justify it (working on that) but I'd like
+to keep on the table the option of patch 5 being the only part that is dependent
+on being non conflict aborting hardware. I think even that is a performance
+question rather than a correctness one - it simply widens the window in which
+we might see a fault and have to dump the TLB. (I may well have missed something
+though).
+
+As a side note on that last patch, it is easy to conceive of a BBML2
+solution that doesn't do conflict aborts, but for which it is still a performance
+nightmare to not flush. As a fictional implementation, where our CPUs get a conflict
+abort, we could instead have stalled the core and pushed the abort info to a management
+controller, and flushed the whole TLB to resolve (plus probably the CPU pipeline).
+If sufficiently rare that's not a totally stupid implementation (subject to some
+optimizations). It is basically offloading what we are going to do in software on
+a conflict abort with somewhat similar performance cost making widening the window
+a very bad idea.
+
+So the proposed allow list might need to be rather more nuanced than "can we get
+a fault?"  We all love per uarch performance related opt ins.
+
+Jonathan
+
+> 
+> Thanks,
+> Ryan
+> 
+> > 
+> > Will  
+> 
+> 
+
 
