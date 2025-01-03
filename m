@@ -4,84 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4331FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB60E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 15:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhapTHXOL6nnyzfeibqtjCKKJ3noEWy6OsULxomBlLw=; b=s4J6YqJdcdczXdLPe6eabQRd75
-	BCidENc0pDqBLRs9Vh5emzThHAT9uFyne3GSD5DJYjSsHSuPjiwEaJ/lWvzG317fv2xbdEMR5c1cA
-	dOp4AwGKov4eeW+xqdBW9UFgHDRmgpe3eB+OkIYi6Wx1h1JWjakcd5tmWLPWtAyVuMv7N/HPw+ZwQ
-	byvehV+IARCRj0amniGAo1F+tmmI/TU8DE1LDz+SGY0OsYWlLohZ4lwuHVCz37desLlLGoqDfouQI
-	DUdrzggVVkmTE29m8eiVfhR8f0HkQjip/mqtUKzmUkHJ7t3gwBpn6eZ29gGcgTz+xLaQ/JicQ2K3I
-	n1LY+/fg==;
+	bh=D60Ftu5VBzliLnIw07FUp/1rXqz3roypjCdT2twz3RI=; b=VhxxeA4jy/9OI2dEUr3utdfUgZ
+	dlzSnxfsFzg+DuBfW9mOBq/tDEyxUcRmKK9jA3SQYs3cjtPIIVm7rduyKqWJ6uWcPLM4dQ/99VYQJ
+	UxNSUNID+UEglY1fCpHtgTZaB01gNluxXToqDubqw3YC+cTcW8AxBtRNHg1IRKKCiiJp8DyyHdSx+
+	2/CvX8n/ng0bf0JHcqkjkixsPzreB3I+ie9h80XO0tgFMffnJv7kANFj+pJkgUWtFaAR0c8XvpxIh
+	QSXemDGo4vkICoQZuIM6lPhnN+nS38D2oehlNwIstQj0LqBzAEy5i4KWzzR9wKFu4ON/vJGRs2PLN
+	IvpU/rCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTj7D-0000000DBYu-3mP1;
-	Fri, 03 Jan 2025 14:57:31 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1tTjGv-0000000DDTd-2BKu;
+	Fri, 03 Jan 2025 15:07:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTj5z-0000000DBMl-3aJX
+	id 1tTjFh-0000000DDFX-0uJW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 14:56:17 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e46ebe19489so15125277276.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 06:56:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735916174; x=1736520974; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zhapTHXOL6nnyzfeibqtjCKKJ3noEWy6OsULxomBlLw=;
-        b=cNAovuD6+qv8rdfA2j5TK9Nm2O+DMyvdQUJudljspaUtqRGvDN2UgJTwQiWoeice6q
-         iAKQH1oYgKGNj/o3wjNp/PzaBn8f6uL700uEO7keyI2olFyXwow0AYwH3UEI4Q8UTvoz
-         YkhPdCmkSqTeXVWFVKJ4RSxKXkPUqm8lXDC9Dlo5XBIhVSFnlNJQN+GVKohAPHA6VqIl
-         7ZsbBzvgUcLS5OjDBwqqeBk5wKpHNPd+ikBntdIiFKhpoMKYWdCt6Qge5DnySgoh/vRL
-         FoySADHeDIRkwUFM9+AooMghETVWR78x/xClRpdZj/JH4rLcVmZA99MD4laU8OnWhpFE
-         7tRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735916174; x=1736520974;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zhapTHXOL6nnyzfeibqtjCKKJ3noEWy6OsULxomBlLw=;
-        b=CQan7sWmaIX1iuJeRQ6WMMR0xhyd95/K3wfGzUbx3iZVUNNoJiOZ3kJRS1Xw/M2YP5
-         ifSEOeDI+xp8CqUw8JwvDJtQE9MkmWaSUTR/Wu2Fm4ThDCBH+zBbn6aEtuLcqS8wQVq6
-         850ZYzeX7xPDUd5KxABsNG4G1hDIlU9BuS63sXOpGZ4RoYTtHyvNqhekacIn/jz7D9jA
-         ej+LTgD1WiH0usoS0jsz8gS1NqnIgdWJlOx8eRQIKt81NiKG4wYD09Uutrrqvy6KER3F
-         fsfNQ+aTPQz82EFkgpMo0xWbUSTU/vVCPUSr6xgfJHkWFWwUa+hF2o1LdRyOqtWvyE7E
-         H6fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV40QMR5/zGL+5hUsS/z1ppBI3mx0dtIrvvZwah+DRdXLGJxzfAkpNFqSaelDuHFwH/U/WkljCJrIDQ+WtgEfxv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7D9GPNOHxDf+vE1X8+zD+E+bq9GWKmA1palnistKXLTjSD1Ma
-	n2g09JAscKb9vW8ZqIor9DFO7W/kAafC9oqf9chBEcMaw5PA8iRpfHDgZI61cox6yeRpwOd5j8c
-	ylQEFP03m++WXTptVX2p1N8sK3JOpEiRXfsMYdA==
-X-Gm-Gg: ASbGnct65Nq2ElYw8M7iJWRqUXiI+qcQW2qy7SvtDdgAPy2Ea3oBFiCoq1O19sQY3OM
-	bKRJ6M4jl7/j3dfx+96uZcuzak2kKZC3+KtYgqWkB2htz2LyRwnNeru7W0qxR7HFmokdgt87Z
-X-Google-Smtp-Source: AGHT+IF8PgxghS0Yr8Fk32/LsnBMib2ycn/MjDyFQwGcJ2L9c+3xpdMG7fYH2+JRjVmj3XvaZJC4FTktLg/66x4obwQ=
-X-Received: by 2002:a05:6902:1589:b0:e4b:3d71:346a with SMTP id
- 3f1490d57ef6-e538c20774dmr30599997276.11.1735916173951; Fri, 03 Jan 2025
- 06:56:13 -0800 (PST)
+	Fri, 03 Jan 2025 15:06:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5A3A5A40DB4;
+	Fri,  3 Jan 2025 15:04:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A3AC4CECE;
+	Fri,  3 Jan 2025 15:06:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735916776;
+	bh=qbAbc0MoLLEuAGEzqYzzCyIRwQMYWigNUX22Aiq6baE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iEBGsHhPHyQrSftP4aGzQVWfFDDF3rOdfc1SPfGvDl2Y9YLbTcs40ysXE+rx4j/5Z
+	 ezAipHZ3POeAgzBm8g7dEC+D3IoffzCLUNV8FPCIP8U49N1aXTS1RzDYJ2w/M1wFyP
+	 YENpWCQElweD7/Oy1pKclbIfpgtjh0wROuhUcYpoQPXZzBeVhtsU8CJAyVLYSB463e
+	 6lIEyb8Ny+2h5xH/gUlEBRUo4VlR2PQu1u6+J/VrW9fn8+eZV8Tb7RVl7Zevbyw6mi
+	 QwoPYgwDVJratQWEnx1dy2CYtQX+7hmG+e36l3HQ40heUArx+UdOI9c8lhtr1rVHoh
+	 SpJGXhFAciSeg==
+Message-ID: <a915e51c-8f58-4744-a172-67fd0e7f6020@kernel.org>
+Date: Fri, 3 Jan 2025 16:06:07 +0100
 MIME-Version: 1.0
-References: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 3 Jan 2025 08:56:03 -0600
-Message-ID: <CAPLW+4ncvOxj7nmypsw-+Tvj_gk5AHoWVeE9YKL=W=8y_MTjUg@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: samsung: exynos-usi: Restrict possible
- samsung,mode values
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/5] dt-bindings: clock: qcom: Add CMN PLL clock
+ controller for IPQ SoC
+To: Luo Jie <quic_luoj@quicinc.com>, Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, quic_kkumarcs@quicinc.com,
+ quic_suruchia@quicinc.com, quic_pavir@quicinc.com, quic_linchen@quicinc.com,
+ quic_leiwei@quicinc.com, bartosz.golaszewski@linaro.org,
+ srinivas.kandagatla@linaro.org
+References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
+ <20250103-qcom_ipq_cmnpll-v8-1-c89fb4d4849d@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-1-c89fb4d4849d@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_065615_902037_7041BD10 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250103_070617_389829_C1616FD8 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +128,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 2:25=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> "samsung,mode" property defines the desired mode of the serial engine
-> (e.g. I2C or SPI) and only few values are allowed/used by Linux driver.
->
-> Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On 03/01/2025 08:31, Luo Jie wrote:
+> The CMN PLL controller provides clocks to networking hardware blocks
+> and to GCC on Qualcomm IPQ9574 SoC. It receives input clock from the
+> on-chip Wi-Fi, and produces output clocks at fixed rates. These output
+> rates are predetermined, and are unrelated to the input clock rate.
+> The primary purpose of CMN PLL is to supply clocks to the networking
+> hardware such as PPE (packet process engine), PCS and the externally
+> connected switch or PHY device. The CMN PLL block also outputs fixed
+> rate clocks to GCC, such as 24 MHZ as XO clock and 32 KHZ as sleep
+> clock supplied to GCC.
+> 
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 > ---
 
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
->  Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yam=
-l b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-> index f80fcbc3128b..5b046932fbc3 100644
-> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
-> @@ -64,6 +64,7 @@ properties:
->
->    samsung,mode:
->      $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1, 2, 3]
->      description:
->        Selects USI function (which serial protocol to use). Refer to
->        <include/dt-bindings/soc/samsung,exynos-usi.h> for valid USI mode =
-values.
-> --
-> 2.43.0
->
+Best regards,
+Krzysztof
 
