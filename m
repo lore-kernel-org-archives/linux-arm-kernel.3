@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C91EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 01:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D26E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 01:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/h10ZSLIxempPcuw17CJeiysphVEiKKjLfNuclU3dOU=; b=TSeYHSmCmJAOg6V40PoAro7WCZ
-	Q0CmPZ1TuyUCvfVcXgWS9eSNDKkFgEmGa45wQRjE8ShzcA70vgjFApqK1p74/ZpaCyrZXha/K0GIC
-	N5Mjo9ss4uHmQruNwM4U7RPei9xKiK18LU6SKsvrxGDc9IW1H/j7VJn00EusU3UR8tq2Wj1e66tA0
-	QgfKokVQ2H7tk7ZAwzzrdXUtYqLnjq7Krt1zu2JABy7i5Ez9RPKoQe0Sxijh/mcy4BpJVeFAYyTnJ
-	X3DlT98QSGjFumxEUo6azX6jYRXxCnQ/n2HHbeHd9cPYM9uMFhrKd9YBBb+5eR23L+QZe8jat9d7s
-	DA7kM3Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k2Cl0qLA6Zse6X1mOHGAIPpGxF7+VgglAz9fd0zm31c=; b=oZhb2OXGNJy2x9HLIf4F1voqbf
+	OYns9HIpaK6q4xfNvqmJe6f515SLaPq7aOu0W6Y4Mx6LwjtYqdaGIAG2o8/gSmei+ClSk9UjvZxbe
+	S91QB5NjgDTY1b0w/hgmTyn43VhNSeOaaCIOzyExCP9QL9vteYZzNOk4kmqZHcgpMTf2eB/djh+/8
+	o+PKIlxhY1mMryVBkxJi9LqXPodBGyhpuVm33lN7eN9ncSa4WpbP2dR29yEMjN9HU95hR0sJoOFXl
+	Ne9E8sQq0gfrAjSuC1zfborCEzMstzz7xkRsjqX0glPTXBAEAbHRWu3u+IqmmYIs8KPDZZFfd31NY
+	OPhidExw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTWPt-0000000Bpma-0lAm;
-	Fri, 03 Jan 2025 01:23:57 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1tTWlI-0000000BrEg-2eDF;
+	Fri, 03 Jan 2025 01:46:04 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTWNq-0000000BpSL-3vru
+	id 1tTWk6-0000000Br6H-0Uig
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 01:21:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735867310; x=1767403310;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=oERkHMNpZAO8boq4patQNzNmzLxeyP9280etk+NkYxI=;
-  b=QfItnxyL0jcdK987f4WHJcp8sLEDuhLbc5yo/84ERtNWFdAsVEE4ALIm
-   BmnIyY+v/QAwlLhB2RWgL9NOoGYhV4dHREe/P0m6H387bXZ4KNgKxZasj
-   sqsP9vhgwPtYKUzBqYpn35UvkJcqeOoWFmqPSRb+LBAheFCklSjK4/xbh
-   5TPvz/aX3p+ejNmHfenhFJDzUUjMkDDNvl1eohF3WB+/Ia+b2eVBxw6sS
-   s3AMl9N79WHoCynrwECVIJvyR/4Zh72iozn/IkZA91Yq79087fs/sKjb/
-   CBqV7glglbPzQKVnFfw3irl3ZWGGkzJj6THd4fW9wK1FFPlj7xtPtgJb0
-   w==;
-X-CSE-ConnectionGUID: 2dPcvyfOSiKTlw0dlqL+iA==
-X-CSE-MsgGUID: Yqafc0J5TcWRJcA5Dh5HcQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11303"; a="36277858"
-X-IronPort-AV: E=Sophos;i="6.12,286,1728975600"; 
-   d="scan'208";a="36277858"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jan 2025 17:21:46 -0800
-X-CSE-ConnectionGUID: l7d9TjMyT3+vsV64Qnxyyw==
-X-CSE-MsgGUID: haCY/+8GQc64Sj1azNOVCA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="106695561"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jan 2025 17:21:40 -0800
-Message-ID: <33d397ce-c324-4594-9f83-8f7e513e86e7@linux.intel.com>
-Date: Fri, 3 Jan 2025 09:19:23 +0800
+	Fri, 03 Jan 2025 01:44:51 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2eec9b3a1bbso12914486a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 17:44:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735868688; x=1736473488; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=k2Cl0qLA6Zse6X1mOHGAIPpGxF7+VgglAz9fd0zm31c=;
+        b=Zt8cFfpegGSU4HN9SlHGlU5rEqOrNBa3mj2mpSNqhHwSq0v4Tdzbdg0qalU6DwIVgy
+         hWmBbGeqMPS6hjqPHqY/o7GddKkTlnXjdWD4IbZ30N0zY9asLHqUODi7uDwHsiO3iMMQ
+         VQ4F76fWH8C2lSR0WvFVr5sjnbdvKRAziGkr0Ye3n8CPr2Rw7fW9m57u+bcoC5hhdFDq
+         fabkfM/FbHQeVi2L0rQMLuYlDCZ10+dw72HylCSy2S5lvPv+ba9DvuB+eAMJx4YfvX2y
+         glhji52wikwrQEg7aI9d55iirZ6zUXyeJQWTjX46QMG2ObPeqbU/BCCgT/fK4KgkIgh8
+         fMyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735868688; x=1736473488;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k2Cl0qLA6Zse6X1mOHGAIPpGxF7+VgglAz9fd0zm31c=;
+        b=LD+fUhqTvR979C58oE1Ewlegp09he/ZHsFONmJ+iJv4ZtyjHoxIS8qbCFoqztcwSCj
+         rDhl6RScXBk6rIEbfNx49e5p6z2hvAgvI2fYu9BCsnmqX3NSLuNoTLk5hUCCHr+CDJDU
+         9cQMhQ8oHiEVVv4mGp2UC9yMFd8xSoG+2awWbY/ug2bGxzH0+WrPIo1jK9g5+JRW76Ij
+         z6TSiGUR7fItonMVQ8XAzCgqcox9lYBbY54a15Kdz1ioAxpudGikS4xinITq5VuLolsm
+         nxPfnhp9i92/q1XOQQs8jTB/BBGbYuSq5eGd/VJIjs0q9IMrKC1a7jxiVaZAbQQSGbCb
+         KLsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXf0C6fGWV8bTqny30dxB5CVZfZJJnyE6ox0naUFBYtpNG/SYngJUpc5M/e22ZzbcREjDQPf6+5Dh6mmp8zvawB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMKaLSNDs1DDXFNDxmeHs/8L6NqNTLcmEGz6PjHT/jrCpJneb3
+	nwgmnUyHA/lSNZXIcj69QoTG6jqruNV5vCG7bN55pOHXZyyLyvUM
+X-Gm-Gg: ASbGncuR038G1U539s+U+Plvk+ckS5ZQhQJ78gbvgSqdSpYeIQXn83sNfFmbProPMaF
+	tewHmYPyujNxSpqCNimDdp4Qn9WEXwTclpdOmHoiy+kIcgJQ+nBdUeFl98Qz3PpdFjUvlqmh2na
+	z/YY4Un4feOheBDJpIrDcIjwRRmfeYRp1dmjgXIT9uOfEI9pGc7KyYOm6ierpp3EOGhi1XGIqwn
+	SqC/OYr2WvQ9q5pvVyVFa8ZjqHYnquXHosHWF5dttCBNxnrmfFis+00SZgy6qo1TyRsC/7DcrWF
+	VfKuYKFNmcVVw2rOE6Ur835nC7/wKUhLGQ==
+X-Google-Smtp-Source: AGHT+IE+4fM40xvU28AzvOJIq0548U2gC/Q8aDCSFhqHoK9P+D4GoUQlU1aKGPee55+jqzqjHIgWuQ==
+X-Received: by 2002:a17:90b:5244:b0:2ee:f440:53ed with SMTP id 98e67ed59e1d1-2f452ed6a0dmr61484494a91.31.1735868688516;
+        Thu, 02 Jan 2025 17:44:48 -0800 (PST)
+Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca02f8asm234551495ad.279.2025.01.02.17.44.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jan 2025 17:44:48 -0800 (PST)
+From: Potin Lai <potin.lai.pt@gmail.com>
+Date: Fri, 03 Jan 2025 09:42:31 +0800
+Subject: [PATCH] ARM: dts: aspeed: catalina: update catalina dts file
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/14] iommufd/viommu: Add iommufd_viommu_get_vdev_id
- helper
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
- will@kernel.org, corbet@lwn.net, joro@8bytes.org,
- suravee.suthikulpanit@amd.com, robin.murphy@arm.com, dwmw2@infradead.org,
- shuah@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-doc@vger.kernel.org, eric.auger@redhat.com, jean-philippe@linaro.org,
- mdf@kernel.org, mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
- smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
- patches@lists.linux.dev
-References: <cover.1734477608.git.nicolinc@nvidia.com>
- <21d7e63b97d81d0acf9127418a67efe386787261.1734477608.git.nicolinc@nvidia.com>
- <56c65e50-5890-42af-85b7-85f8a1bf5cf5@linux.intel.com>
- <Z2OpylDlhLXoo3dt@Asurada-Nvidia>
- <74bc9dbe-3420-4f0c-9e32-db49327a723d@linux.intel.com>
- <20250102202955.GE5556@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20250102202955.GE5556@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250103-potin-catalina-dts-update-20250102-v1-1-b0b7a523c968@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAIZAd2cC/z2NQQrDIBAAvxL23AUVW0i+EnJY47ZZCCpqQyH49
+ 0oOOQ4MMycUzsIFpuGEzIcUiaGDfgywbhQ+jOI7g1HmqbQymGKVgCtV2iUQ+lrwmzxVxlsZtXX
+ qRdZ5R9BDKfNbftdkXlr7A1Frn790AAAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Potin Lai <potin.lai.pt@gmail.com>
+X-Mailer: b4 0.12.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735868686; l=5772;
+ i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
+ bh=EWxIpZVzkObHrj3L3XnSjp1bXarY9ieZwL9MOGdfNcQ=;
+ b=xLRs8zCBojbAOqgKdmTqa8vcJFMyCMitfwkdSmBkpFbK3jD0OBzbcb/9meKzqok8jfEm2f9Wa
+ ILsB5P38XJWAMc9AP5VGhAC2QxyTvQ5tYWHwFeC/7JfPlT0FD4DTMHG
+X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
+ pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_172151_037854_EA739302 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_174450_166615_56633F97 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,23 +110,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/3/25 04:29, Jason Gunthorpe wrote:
-> On Mon, Dec 23, 2024 at 10:28:32AM +0800, Baolu Lu wrote:
-> 
->> However, considering page fault scenarios, which are self-contained but
->> linked to a hardware page table (hwpt), introduces ambiguity. Hwpt can
->> be created with or without a vIOMMU. This raises the question: should
->> the page fault message always report the iommufd device ID, or should
->> the reporting depend on whether the hwpt was created from a vIOMMU?
-> I think every single event record read from the FD needs to clearly
-> specify what its fields are.
+Update device nodes list below for driver binding.
 
-That would work.
+- Add IOB NIC thermal nodes (TMP421)
+  - 24-001f, 26-001f, 36-001f, 38-001f
+- Add FIO Remote thermal node (TMP75)
+  - 23-001f
+- Add Power sensor node (MP5990)
+  - 16-0022
+- Add main source fan controllers (MAX31790)
+  - 18-0021, 18-0027
+- Add 2nd source fan controllers (NCT7363)
+  - 18-0001, 18-0002
+- Add 2nd source HSC nodes (XDP710)
+  - 20-0013, 20-001c
+- Remove all ina238 nodes, move to userspace
+  - 16-0041, 16-0042, 16-0044, 17-0041, 17-0043
 
-> Page fault need to clearly say it's field is a device ID.
+Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+---
+Updating the catalina system device nodes in dts file.
+---
+ .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    | 149 +++++++++++++++++----
+ 1 file changed, 126 insertions(+), 23 deletions(-)
 
-Each field of fault message has been specified in uapi/linux/iommufd.h.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+index 3822bb3c9243..23583665ba12 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
+@@ -190,6 +190,12 @@ i2c0mux0ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB0 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -200,6 +206,12 @@ i2c0mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB0 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -361,6 +373,12 @@ i2c0mux3ch0: i2c@0 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0>;
++
++			// IOB1 NIC0 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch1: i2c@1 {
+ 			#address-cells = <1>;
+@@ -371,6 +389,12 @@ i2c0mux3ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <2>;
++
++			// IOB1 NIC1 TEMP
++			temperature-sensor@1f {
++				compatible = "ti,tmp421";
++				reg = <0x1f>;
++			};
+ 		};
+ 		i2c0mux3ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -464,40 +488,105 @@ i2c1mux0ch0: i2c@0 {
+ 			#size-cells = <0>;
+ 			reg = <0x0>;
+ 
+-			power-sensor@41 {
+-				compatible = "ti,ina238";
+-				reg = <0x41>;
+-				shunt-resistor = <500>;
+-			};
+-			power-sensor@42 {
+-				compatible = "ti,ina238";
+-				reg = <0x42>;
+-				shunt-resistor = <500>;
+-			};
+-			power-sensor@44 {
+-				compatible = "ti,ina238";
+-				reg = <0x44>;
+-				shunt-resistor = <500>;
++			power-sensor@22 {
++				compatible = "mps,mp5990";
++				reg = <0x22>;
+ 			};
+ 		};
+ 		i2c1mux0ch1: i2c@1 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x1>;
+-
+-			power-sensor@41 {
+-				compatible = "ti,ina238";
+-				reg = <0x41>;
+-			};
+-			power-sensor@43 {
+-				compatible = "ti,ina238";
+-				reg = <0x43>;
+-			};
+ 		};
+ 		i2c1mux0ch2: i2c@2 {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x2>;
++
++			hwmon0: hwmon@1 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x01>;
++				#pwm-cells = <2>;
++
++				fan-9 {
++					pwms = <&hwmon0 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-11 {
++					pwms = <&hwmon0 0 40000>;
++					tach-ch = /bits/ 8 <0x0b>;
++				};
++				fan-10 {
++					pwms = <&hwmon0 4 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-13 {
++					pwms = <&hwmon0 4 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&hwmon0 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-1 {
++					pwms = <&hwmon0 6 40000>;
++					tach-ch = /bits/ 8 <0x01>;
++				};
++				fan-0 {
++					pwms = <&hwmon0 10 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-3 {
++					pwms = <&hwmon0 10 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++			};
++			hwmon1: hwmon@2 {
++				compatible = "nuvoton,nct7363";
++				reg = <0x02>;
++				#pwm-cells = <2>;
++
++				fan-9 {
++					pwms = <&hwmon1 0 40000>;
++					tach-ch = /bits/ 8 <0x09>;
++				};
++				fan-11 {
++					pwms = <&hwmon1 0 40000>;
++					tach-ch = /bits/ 8 <0x0b>;
++				};
++				fan-10 {
++					pwms = <&hwmon1 4 40000>;
++					tach-ch = /bits/ 8 <0x0a>;
++				};
++				fan-13 {
++					pwms = <&hwmon1 4 40000>;
++					tach-ch = /bits/ 8 <0x0d>;
++				};
++				fan-15 {
++					pwms = <&hwmon1 6 40000>;
++					tach-ch = /bits/ 8 <0x0f>;
++				};
++				fan-1 {
++					pwms = <&hwmon1 6 40000>;
++					tach-ch = /bits/ 8 <0x01>;
++				};
++				fan-0 {
++					pwms = <&hwmon1 10 40000>;
++					tach-ch = /bits/ 8 <0x00>;
++				};
++				fan-3 {
++					pwms = <&hwmon1 10 40000>;
++					tach-ch = /bits/ 8 <0x03>;
++				};
++			};
++			pwm@21{
++				compatible = "maxim,max31790";
++				reg = <0x21>;
++			};
++			pwm@27{
++				compatible = "maxim,max31790";
++				reg = <0x27>;
++			};
+ 		};
+ 		i2c1mux0ch3: i2c@3 {
+ 			#address-cells = <1>;
+@@ -509,6 +598,14 @@ i2c1mux0ch4: i2c@4 {
+ 			#size-cells = <0>;
+ 			reg = <0x4>;
+ 
++			power-monitor@13 {
++				compatible = "infineon,xdp710";
++				reg = <0x13>;
++			};
++			power-monitor@1c {
++				compatible = "infineon,xdp710";
++				reg = <0x1c>;
++			};
+ 			power-monitor@42 {
+ 				compatible = "lltc,ltc4287";
+ 				reg = <0x42>;
+@@ -580,6 +677,12 @@ temperature-sensor@4b {
+ 				compatible = "ti,tmp75";
+ 				reg = <0x4b>;
+ 			};
++
++			// FIO REMOTE TEMP SENSOR
++			temperature-sensor@4f {
++				compatible = "ti,tmp75";
++				reg = <0x4f>;
++			};
+ 		};
+ 	};
+ };
 
 ---
-baolu
+base-commit: becaccc292bfbd12df81148746043c5221e49da8
+change-id: 20250102-potin-catalina-dts-update-20250102-914b06a4bdba
+
+Best regards,
+-- 
+Potin Lai <potin.lai.pt@gmail.com>
+
 
