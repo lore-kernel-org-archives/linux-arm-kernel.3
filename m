@@ -4,102 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27C4E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 12:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF277E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 13:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAuQK+/F0O4L5JCDNjDjHjZFUYnk5eRkhwBS+4Hmv8o=; b=1M/CUxoeJxPPo3g61QjLsNprsY
-	6Qj1kaE42CbicMI7Lyeohb584XxBqkQrligjtMIaRRq28Enu7AbblWnpSDQv13Yvx0GvMwuNlg4nS
-	qXIWTfE/ir2XnDy38qG9laBImUy6Xm6JNSDGaABw1U5O2nn+QkShiCDswOJW3aJRlRVFv7oCVbbVa
-	nhLtM0OqGb/GrNtRn6UXX5RUBeL8q+8FomfZhitYANRKRJiYDyLnmscMPim0n9bihQsBfYZrrTsdw
-	/MHNc157jPCHtc4mHklKDiK/pCUg2UMuJYzCbEqSNnPu6BJFCQe8sx7KqvAtnsDrbL/CjlMFaPRQX
-	SNu7AXrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+8G2mn5XjC+6BvOgDwIaLzTXtQekFe6X8F8stkKVxBA=; b=lig9SgwrPuM/PUtbvr2kApCFKX
+	SOTdS/DXbhxROx4GukUALP0gfgbilC5JzU56dcqQr+VaEInigqD3X4EK3og1WG+E9DUSTb/IqQp+4
+	W1TYf1Aen/ooWLg6j2QcvKPyStytlvTQ6NJCJ7pz1wIfZYQ3kPMq3KaJHiJmYG8zLkwf4djt4fWVg
+	eMd6upe6mkTkImZYWpvTu9CQt3LX15z3dkAAyxWFlON1jdlIwWitu83meJzqIbVuTMhCzFsA5nexn
+	6+PjaszF8CZs6f/J+g0J/TCaZLw1TaOliH/qFiIjMT/YLc+fSjc9HpsnyMcADYIrwbb92g0+b+vBr
+	LvpRSkDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTgwb-0000000CvQA-3xO8;
-	Fri, 03 Jan 2025 12:38:25 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTgvN-0000000CvFJ-3AQh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 12:37:11 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30167f4c1deso119241061fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 04:37:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735907827; x=1736512627; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=lAuQK+/F0O4L5JCDNjDjHjZFUYnk5eRkhwBS+4Hmv8o=;
-        b=fdjFU3TfAwawLXxFYYzXOkIJ4FwOpnd1cm/kpcaljU7vYNh7M/o2bol3uRfh0MLiWq
-         khSGDt/f0KwV3o8qA1OFjF83H17KIL/dHhf/bde067I6hYrvsC6oF7k/LSm/2IRgz5oz
-         9HW+awCI7ac441J7C6rkTJFN0yatcBrpzV52Va5hICYGZYiLG/4aBR1G4NopmIXNhElk
-         5RB5dqy18939bNJiYQk7dC6+G+bY2ORdU5euJsaoDZv+8ciB7ALa3rmXtioAeEnvSNws
-         2r40zk+YTip0UktMo3Uu98ekdsaZb5ZWbC1YHFChOdUU948dRCfbjgcElvs5BSxvo+NR
-         Kijg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735907827; x=1736512627;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lAuQK+/F0O4L5JCDNjDjHjZFUYnk5eRkhwBS+4Hmv8o=;
-        b=PxZdZ0+IPykLuNiH6tkI8dT7fy7ADVwXo4Opp9eKd2rDS0tL0P2e7he5R8PMnoJFNH
-         FjJ8DMpFRZZP6IadkMkIxsOkWgJOxz4t/jxkJJsXJSqvm7QaJkAIZPfQwtygTNxTxNQ6
-         aywlvCgFB+WfVWPF+0ThDo/05F+7f83N/LngzzRN1vQSDAhoK5txOJryhnSX82Sy4A9A
-         1qUpVKQWbxEOJ64ix7syqqC58uDvqKLiXYVQVMu/g+6BthBPb1zTBhyrWW8+DSis8oaJ
-         AY2WrI0gR8HAvKkjyBV0nhoOzEZgzhNmoASv3447XxHKWzJRo0L+YqSEix092OtnxEBH
-         phgw==
-X-Forwarded-Encrypted: i=1; AJvYcCXJYOAA9X4AYgnkcd7Fx4aDK7cULy7uMcAwSbTjNFrgftD7++KEfY79Z+5l+yp5qBbXiAVS7wWRR4M5gzDDy6tX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpJBPMo63fNynkkFqaT+SVQ4BnnpaSPPteFOIYULre3DVBbdtP
-	z2uX+y2IPR2WnlR6iHdKjlnr3LJ4tP8pOWlLpsP7BpwZn7KP31kw0QHHCy/gckg=
-X-Gm-Gg: ASbGncvNtxWLfcSV04S3+fllVzYoelMkf1/fAf8hPSPJn68ootA1+TB9Mgq71c12vxb
-	1h3A/IbP0ZmLF8ACpriAToMKXTP2Ze0SVi2jmx4XHbkgLWA50ldjsT4URsbv/udqCQPwTVmqL9v
-	M57JWb5tP8M3b8HBM2lxruMHoajD0AMI/cI6uuXnFKmRm2+GaB8X/4UWd1+2fyA9lXhao1XOKDP
-	czu/FepZWoSiRI6FpDSIBhUDrMoROTkqRcbhLl4nCKaGwWTVecMqf9Iu+0TbxrTT4oDcG7dZGs/
-	I5Gaw7q1G8joZqIKK2wopjOAKNHld67O259x
-X-Google-Smtp-Source: AGHT+IHkmAApyLZ21XYWu+WDHiH0q3Z12bKU9S9jrrq+R629xN6ISaSia7sHBryhTxvay+8ug/2ilQ==
-X-Received: by 2002:a2e:743:0:b0:300:4107:6294 with SMTP id 38308e7fff4ca-30468627b2fmr117244791fa.35.1735907827089;
-        Fri, 03 Jan 2025 04:37:07 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045b082e47sm45659141fa.111.2025.01.03.04.37.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 04:37:05 -0800 (PST)
-Date: Fri, 3 Jan 2025 14:37:03 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com, 
-	alain.volmat@foss.st.com, alim.akhtar@samsung.com, andrzej.hajda@intel.com, 
-	andy.yan@rock-chips.com, angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
-	chunkuang.hu@kernel.org, dave.stevenson@raspberrypi.com, dri-devel@lists.freedesktop.org, 
-	heiko@sntech.de, hjc@rock-chips.com, inki.dae@samsung.com, 
-	jani.nikula@linux.intel.com, jernej.skrabec@gmail.com, jonas@kwiboo.se, 
-	kernel-list@raspberrypi.com, krzk@kernel.org, kyungmin.park@samsung.com, lgirdwood@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux@armlinux.org.uk, maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com, 
-	mcanal@igalia.com, mripard@kernel.org, neil.armstrong@linaro.org, 
-	p.zabel@pengutronix.de, perex@perex.cz, ple@baylibre.com, rfoss@kernel.org, 
-	rgallaispou@gmail.com, simona@ffwll.ch, sw0312.kim@samsung.com, tiwai@suse.com, 
-	tzimmermann@suse.de
-Subject: Re: [PATCH v10 03/10] drm/connector: implement generic HDMI audio
- helpers
-Message-ID: <x73a2utr5sp4iffk5626zqfth4ayu3x4jkxd7xwjti7ehrgnzi@ploxx4i5db5h>
-References: <20241224-drm-bridge-hdmi-connector-v10-3-dc89577cd438@linaro.org>
- <20241231004311.2574720-1-martin.blumenstingl@googlemail.com>
- <l3u3wtnxyhrwjynevkwfjwarisc4yt4xy2rbzf5kb7k5l5dw3n@lxqtimymyjg6>
- <CAFBinCAh8iazDNx6GtOOJyXh_V-NfUs6Uf=ywN9kvQGPEmjrKQ@mail.gmail.com>
+	id 1tThj3-0000000D0HY-0InO;
+	Fri, 03 Jan 2025 13:28:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tThhp-0000000D055-0T7N;
+	Fri, 03 Jan 2025 13:27:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 330911480;
+	Fri,  3 Jan 2025 05:27:39 -0800 (PST)
+Received: from [10.44.160.93] (e126510-lin.lund.arm.com [10.44.160.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB2C23F673;
+	Fri,  3 Jan 2025 05:27:02 -0800 (PST)
+Message-ID: <d9a14211-4bbd-4fb6-ba87-a555a40bb67a@arm.com>
+Date: Fri, 3 Jan 2025 14:27:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
+ __tlb_remove_table()
+To: Qi Zheng <zhengqi.arch@bytedance.com>, peterz@infradead.org
+Cc: agordeev@linux.ibm.com, palmer@dabbelt.com, tglx@linutronix.de,
+ david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
+ willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
+ lorenzo.stoakes@oracle.com, akpm@linux-foundation.org, rientjes@google.com,
+ vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
+ aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
+ rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
+ linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
+ <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
+ <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
+ <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
+ <e9fe97d4-99d5-443e-b722-43903655a76e@bytedance.com>
+ <31e1a033-00a7-4953-81e7-0caedd0227a9@bytedance.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <31e1a033-00a7-4953-81e7-0caedd0227a9@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFBinCAh8iazDNx6GtOOJyXh_V-NfUs6Uf=ywN9kvQGPEmjrKQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_043709_784793_4A04BAB1 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20250103_052713_243707_AF58B286 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +83,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 07:49:40PM +0100, Martin Blumenstingl wrote:
-> On Tue, Dec 31, 2024 at 3:34 AM Dmitry Baryshkov
-> <dmitry.baryshkov@linaro.org> wrote:
-> [...]
-> > > I checked all instances of struct hdmi_codec_ops in v6.13-rc3 and it
-> > > seems that there is only a single driver which uses the .prepare
-> > > callback (drivers/gpu/drm/vc4/vc4_hdmi.c). All other drivers seem to
-> > > implement .hw_params instead.
-> >
-> > Yes. However .hw_params don't have access to the infoframe contents, so
-> > I had to settle on implementing .prepare.
-> While debugging I noticed something unrelated to my problem:
-> hdmi_codec_spdif_dai_ops does not implement .prepare().
-> FYI just in case someone wants to use your patches and feed the
-> hdmi-codec with SPDIF instead of I2S.
+On 03/01/2025 10:35, Qi Zheng wrote:
+> On 2025/1/3 17:13, Qi Zheng wrote:
+>> On 2025/1/3 16:02, Kevin Brodsky wrote:
+>>> On 03/01/2025 04:48, Qi Zheng wrote:
+>>>> [...]
+>>>>
+>>>> In __tlb_batch_free_encoded_pages(), we can indeed detect PageTable()
+>>>> and call pagetable_dtor() to dtor the page table pages.
+>>>> But __tlb_batch_free_encoded_pages() is also used to free normal pages
+>>>> (not page table pages), so I don't want to add overhead there.
+>>>
+>>> Interesting, can a tlb batch refer to pages than are not PTPs then?
+>>
+>> Yes, you can see the caller of __tlb_remove_folio_pages() or
+>> tlb_remove_page_size().
 
-Could you please send submit a patch to the hdmi-codec driver?
+I had a brief look but clearly not a good enough one! I hadn't realised
+that "table" in tlb_remove_table() means PTP, while "page" in
+tlb_remove_page() can mean any page, and it's making more sense now.
 
--- 
-With best wishes
-Dmitry
+[...]
+
+>>
+>> For arm, the call to pagetable_dtor() is indeed missed in the
+>> non-MMU_GATHER_RCU_TABLE_FREE case. This needs to be fixed. But we
+>> can't fix this by adding pagetable_dtor() to tlb_remove_table(),
+>> because some architectures call tlb_remove_table() but don't support
+>> page table statistics, like sparc.
+
+When I investigated this for my own series, I found that the only case
+where ctor/dtor are not called for page-sized page tables is 32-bit
+sparc (see table at the end of [1]). However only 64-bit sparc makes use
+of tlb_remove_table() (at PTE level, where ctor/dtor are already called).
+
+So really calling pagetable_dtor() from tlb_remove_table() in the
+non-MMU_GATHER_TABLE_FREE case seems to be the obvious thing to do.
+
+Once this is done, we should be able to replace all those confusing
+calls to tlb_remove_page() on PTPs with tlb_remove_table() and remove
+the explicit call to pagetable_dtor(). AIUI this is essentially what
+Peter suggested on v3 [2].
+
+[1]
+https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
+[2]
+https://lore.kernel.org/linux-mm/20250103111457.GC22934@noisy.programming.kicks-ass.net/
+
+[...]
+
+> Or can we just not let tlb_remove_table() fall back to
+> tlb_remove_page()? Like the following:
+>
+> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
+> index a59205863f431..354ffaa4bd120 100644
+> --- a/include/asm-generic/tlb.h
+> +++ b/include/asm-generic/tlb.h
+> @@ -195,8 +195,6 @@
+>   *  various ptep_get_and_clear() functions.
+>   */
+>
+> -#ifdef CONFIG_MMU_GATHER_TABLE_FREE
+> -
+>  struct mmu_table_batch {
+>  #ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE
+>         struct rcu_head         rcu;
+> @@ -219,16 +217,6 @@ static inline void __tlb_remove_table(void *table)
+>
+>  extern void tlb_remove_table(struct mmu_gather *tlb, void *table);
+>
+> -#else /* !CONFIG_MMU_GATHER_HAVE_TABLE_FREE */
+> -
+> -/*
+> - * Without MMU_GATHER_TABLE_FREE the architecture is assumed to have
+> page based
+> - * page directories and we can use the normal page batching to free
+> them.
+> - */
+> -#define tlb_remove_table(tlb, page) tlb_remove_page((tlb), (page))
+
+We still need a different implementation of tlb_remove_table() in this
+case. We could define it inline here:
+
+static inline void tlb_remove_table(struct mmu_gather *tlb, void *table)
+{
+    struct page *page = table;
+
+    pagetable_dtor(page_ptdesc(page));
+    tlb_remove_page(page);
+}
+
+- Kevin
 
