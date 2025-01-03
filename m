@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13479E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 09:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49FC9E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 09:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBhfzVNPoQY702/fU5BRMtzSyvCNkOs9LmubC0XHVK4=; b=QMU8yJvUV9HuESYXU4eoOekTCt
-	KxJbAAMTTnBWIv8uIR8FxTCIFVXE/mQ79VeY9LY+1vnVD9S09bMYbud1hC7/cOBU/Vq4++rLxW1x4
-	QF/vyJ2I2xKd4dy24I8mijbhKkXyxAdZJe6qj0U8+DrAUxq7fcRgE1LDeoHtReBl4AVqB5pfSgLaV
-	SkfUQI1bQxm1A3hrUgmNyeal8UZliOUWzxVDdKQfx8wvTgZ58LQL/PspwzwbCO2ulkLgD+eAgMjWo
-	hK7nYyZB3DtnLNG0BoFSZnYjVlOsiDlBXJ9LV5+6IlRhLiQ2pqsth9Yj4IVl+gxRrVSFeXDFUzibI
-	jnapVt5w==;
+	bh=FbTjT2NNOwkQMhz7Ipb77T30eRPf1dFFVqsg6qo9X40=; b=EKLxLTgnQF0ILPMv+mAMnvvZ00
+	gK7A3e2fbbovqZT4bsnJJ1GtAX5a3va0YJ+JOj+u7mE23X5vRa8e/9eSv65wIJrm70i4Lsgi6LVI/
+	m8LHtRejuly2RWiLoy3w2DUBpUD2pXpAJkfHCLNMOSfVB1t3MV6zFRp6kys8X5OhATdu7spDFmIWh
+	HQ2ENVu56pGiEARR4ZVYISMow+lcXG/+9xRtVHGB0yAFOrmFQd6R/pRhIOxGZgMSOcrWBWr+RMoEx
+	pSz91N6X6VomHycslxpr0Yla8P/8M31XAB0bjvqJaUohOwa0muSGDBDTS9rkNRp9XEXPHKwSnRrqX
+	gf7/a1UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTdsh-0000000Capm-0jYe;
-	Fri, 03 Jan 2025 09:22:11 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tTdv0-0000000CbFT-0niS;
+	Fri, 03 Jan 2025 09:24:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTdrV-0000000CaYu-0Vjx
+	id 1tTdre-0000000Caap-2JWX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Jan 2025 09:21:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=FbTjT2NNOwkQMhz7Ipb77T30eRPf1dFFVqsg6qo9X40=; b=n2JL9b/fRPHluwS4ULkbgctEPo
+	rw73mF3xtbhMdbxHOweGjlZbmxLwQWpUhvQ/OPsgFNs7CwPUsu3yuTW/arL9SQHmbE1MPtWGc/LN1
+	ZxBT+igzB/m0og5enXo/OiRCsiH+OgndiAsLw1sg/hNSLakCy4XtqNh/Vrp6zc+FtudDS2jylWPs1
+	5U1PPIhE2VOl1n0Z2s5cvOR1aawLjnwjkwBZMvCWcjX3B3ulbLyGjY3Da8ms/xS9AZAfMcAt1ROeE
+	vORaEi5Dg5CXx0tpSZrGDossvmGxktpZfmRVjMwk9cWPxxvU1XgbYBegK2x+aSDzvs7E/HGQSgX5O
+	mfgcQ+Sw==;
+Received: from [198.47.19.246] (helo=fllvem-ot04.ext.ti.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTdra-00000008LTL-36Kv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 09:20:58 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5039KeUG2377018
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 3 Jan 2025 03:20:40 -0600
+	Fri, 03 Jan 2025 09:21:05 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5039KjIY2301485
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 3 Jan 2025 03:20:45 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1735896040;
-	bh=dBhfzVNPoQY702/fU5BRMtzSyvCNkOs9LmubC0XHVK4=;
+	s=ti-com-17Q1; t=1735896045;
+	bh=FbTjT2NNOwkQMhz7Ipb77T30eRPf1dFFVqsg6qo9X40=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=KRPe9Up6qUjoXYQ8DN1QDFRBmuO7JOoGuybChUghGLZ9827FEe9zc/0y5rL38984Z
-	 l+C128AbwFmGKJNaVlca3Y9wxt/2NKcJjifLlCewECXHDV4vJxbYea5GxBWCj6S2Mk
-	 c91Hgo+lqXUuDuMlMvm+kf/tg9GaJBIjCMGGret4=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5039Kep9003472;
-	Fri, 3 Jan 2025 03:20:40 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+	b=hV1JXRa95NhWByvRPVu91dy79yap8GjBrJlg1eo5PN18KWcrPZd6WmC4q2Q2iXfEl
+	 /PPZPvrdgHPEtjir6BV0dekDiwFw71S+Erk9T17pOnF3gRAEegY/pwIerjhYdk4D2B
+	 6CxBNW90M0/L6Si82YvrAjS8NhUZwkd1YqTuurEE=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5039Kj1a074824
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 3 Jan 2025 03:20:45 -0600
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 3
- Jan 2025 03:20:40 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ Jan 2025 03:20:44 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 3 Jan 2025 03:20:40 -0600
+ Frontend Transport; Fri, 3 Jan 2025 03:20:44 -0600
 Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5039Keb6055118;
-	Fri, 3 Jan 2025 03:20:40 -0600
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5039KiVI055159;
+	Fri, 3 Jan 2025 03:20:44 -0600
 Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 5039KdY1016895;
-	Fri, 3 Jan 2025 03:20:39 -0600
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 5039KhhJ016906;
+	Fri, 3 Jan 2025 03:20:43 -0600
 From: MD Danish Anwar <danishanwar@ti.com>
 To: Jeongjun Park <aha310510@gmail.com>,
         Alexander Lobakin
@@ -79,9 +95,9 @@ CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
 	<michal.swiatkowski@linux.intel.com>,
         Larysa Zaremba
 	<larysa.zaremba@intel.com>
-Subject: [PATCH net-next v3 1/3] net: ti: icssg-prueth: Add VLAN support in EMAC mode
-Date: Fri, 3 Jan 2025 14:50:31 +0530
-Message-ID: <20250103092033.1533374-2-danishanwar@ti.com>
+Subject: [PATCH net-next v3 3/3] net: ti: icssg-prueth: Add Support for Multicast filtering with VLAN in HSR mode
+Date: Fri, 3 Jan 2025 14:50:33 +0530
+Message-ID: <20250103092033.1533374-4-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250103092033.1533374-1-danishanwar@ti.com>
 References: <20250103092033.1533374-1-danishanwar@ti.com>
@@ -90,8 +106,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_012057_285382_FE718858 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250103_092103_500241_E98400AC 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +122,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for vlan filtering in dual EMAC mode.
+Add multicast filtering support for VLAN interfaces in HSR offload mode
+for ICSSG driver.
+
+The driver calls vlan_for_each() API on the hsr device's ndev to get the
+list of available vlans for the hsr device. The driver then sync mc addr of
+vlan interface with a locally mainatined list emac->vlan_mcast_list[vid]
+using __hw_addr_sync_multiple() API.
+
+The driver then calls the sync / unsync callbacks.
+
+In the sync / unsync call back, driver checks if the vdev's real dev is
+hsr device or not. If the real dev is hsr device, driver gets the per
+port device using hsr_get_port_ndev() and then driver passes appropriate
+vid to FDB helper functions.
+
+This commit makes below changes in the hsr files.
+- Move enum hsr_port_type from net/hsr/hsr_main.h to include/linux/if_hsr.h
+  so that the enum can be accessed by drivers using hsr.
+- Create hsr_get_port_ndev() API that can be used to get the ndev
+  pointer to the slave port from ndev pointer to the hsr net device.
+- Export hsr_get_port_ndev() API so that the API can be accessed by
+  drivers using hsr.
 
 Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 29 +++++++++-----------
- 1 file changed, 13 insertions(+), 16 deletions(-)
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 83 +++++++++++++++-----
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |  2 +
+ include/linux/if_hsr.h                       | 18 +++++
+ net/hsr/hsr_device.c                         | 13 +++
+ net/hsr/hsr_main.h                           |  9 ---
+ 5 files changed, 97 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index c568c84a032b..1663941e59e3 100644
+index ed8b5a3184d6..29e0e7a86a7f 100644
 --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
 +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -822,19 +822,18 @@ static int emac_ndo_vlan_rx_add_vid(struct net_device *ndev,
+@@ -515,32 +515,66 @@ static int icssg_prueth_del_mcast(struct net_device *ndev, const u8 *addr)
+ 	return 0;
+ }
+ 
+-static int icssg_prueth_hsr_add_mcast(struct net_device *ndev, const u8 *addr)
++static void icssg_prueth_hsr_fdb_add_del(struct prueth_emac *emac,
++					 const u8 *addr, u8 vid, bool add)
  {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct prueth *prueth = emac->prueth;
-+	int port_mask = BIT(emac->port_id);
- 	int untag_mask = 0;
--	int port_mask;
- 
--	if (prueth->is_hsr_offload_mode) {
--		port_mask = BIT(PRUETH_PORT_HOST) | BIT(emac->port_id);
--		untag_mask = 0;
-+	if (prueth->is_hsr_offload_mode)
-+		port_mask |= BIT(PRUETH_PORT_HOST);
- 
--		netdev_dbg(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
--			   vid, port_mask, untag_mask);
-+	netdev_dbg(emac->ndev, "VID add vid:%u port_mask:%X untag_mask %X\n",
-+		   vid, port_mask, untag_mask);
+-	struct prueth_emac *emac = netdev_priv(ndev);
+-	struct prueth *prueth = emac->prueth;
+-
+-	icssg_fdb_add_del(emac, addr, prueth->default_vlan,
++	icssg_fdb_add_del(emac, addr, vid,
+ 			  ICSSG_FDB_ENTRY_P0_MEMBERSHIP |
+ 			  ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
+ 			  ICSSG_FDB_ENTRY_P2_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_BLOCK, true);
++			  ICSSG_FDB_ENTRY_BLOCK, add);
 +
-+	icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
-+	icssg_set_pvid(emac->prueth, vid, emac->port_id);
++	if (add)
++		icssg_vtbl_modify(emac, vid, BIT(emac->port_id),
++				  BIT(emac->port_id), add);
++}
++
++static int icssg_prueth_hsr_add_mcast(struct net_device *ndev, const u8 *addr)
++{
++	struct net_device *real_dev;
++	struct prueth_emac *emac;
++	u8 vlan_id, i;
++
++	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_HSR;
++	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
++
++	if (is_hsr_master(real_dev)) {
++		for (i = HSR_PT_SLAVE_A; i < HSR_PT_INTERLINK; i++) {
++			emac = netdev_priv(hsr_get_port_ndev(real_dev, i));
++			if (!emac)
++				return -EINVAL;
++			icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id,
++						     true);
++		}
++	} else {
++		emac = netdev_priv(real_dev);
++		icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id, true);
++	}
  
--		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, true);
--		icssg_set_pvid(emac->prueth, vid, emac->port_id);
--	}
+-	icssg_vtbl_modify(emac, emac->port_vlan, BIT(emac->port_id),
+-			  BIT(emac->port_id), true);
  	return 0;
  }
  
-@@ -843,18 +842,16 @@ static int emac_ndo_vlan_rx_del_vid(struct net_device *ndev,
+ static int icssg_prueth_hsr_del_mcast(struct net_device *ndev, const u8 *addr)
  {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct prueth *prueth = emac->prueth;
-+	int port_mask = BIT(emac->port_id);
- 	int untag_mask = 0;
--	int port_mask;
+-	struct prueth_emac *emac = netdev_priv(ndev);
+-	struct prueth *prueth = emac->prueth;
++	struct net_device *real_dev;
++	struct prueth_emac *emac;
++	u8 vlan_id, i;
  
--	if (prueth->is_hsr_offload_mode) {
-+	if (prueth->is_hsr_offload_mode)
- 		port_mask = BIT(PRUETH_PORT_HOST);
--		untag_mask = 0;
+-	icssg_fdb_add_del(emac, addr, prueth->default_vlan,
+-			  ICSSG_FDB_ENTRY_P0_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_P2_MEMBERSHIP |
+-			  ICSSG_FDB_ENTRY_BLOCK, false);
++	vlan_id = is_vlan_dev(ndev) ? vlan_dev_vlan_id(ndev) : PRUETH_DFLT_VLAN_HSR;
++	real_dev = is_vlan_dev(ndev) ? vlan_dev_real_dev(ndev) : ndev;
++
++	if (is_hsr_master(real_dev)) {
++		for (i = HSR_PT_SLAVE_A; i < HSR_PT_INTERLINK; i++) {
++			emac = netdev_priv(hsr_get_port_ndev(real_dev, i));
++			if (!emac)
++				return -EINVAL;
++			icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id,
++						     false);
++		}
++	} else {
++		emac = netdev_priv(real_dev);
++		icssg_prueth_hsr_fdb_add_del(emac, addr, vlan_id, false);
++	}
  
--		netdev_dbg(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
--			   vid, port_mask, untag_mask);
-+	netdev_dbg(emac->ndev, "VID del vid:%u port_mask:%X untag_mask  %X\n",
-+		   vid, port_mask, untag_mask);
-+	icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
- 
--		icssg_vtbl_modify(emac, vid, port_mask, untag_mask, false);
--	}
  	return 0;
  }
+@@ -558,8 +592,14 @@ static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+ 				vdev->addr_len);
+ 	netif_addr_unlock_bh(vdev);
  
+-	__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
+-			   icssg_prueth_add_mcast, icssg_prueth_del_mcast);
++	if (emac->prueth->is_hsr_offload_mode)
++		__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
++				   icssg_prueth_hsr_add_mcast,
++				   icssg_prueth_hsr_del_mcast);
++	else
++		__hw_addr_sync_dev(&emac->vlan_mcast_list[vid], vdev,
++				   icssg_prueth_add_mcast,
++				   icssg_prueth_del_mcast);
+ 
+ 	return 0;
+ }
+@@ -808,6 +848,11 @@ static void emac_ndo_set_rx_mode_work(struct work_struct *work)
+ 	if (emac->prueth->is_hsr_offload_mode) {
+ 		__dev_mc_sync(ndev, icssg_prueth_hsr_add_mcast,
+ 			      icssg_prueth_hsr_del_mcast);
++		if (rtnl_trylock()) {
++			vlan_for_each(emac->prueth->hsr_dev,
++				      icssg_update_vlan_mcast, emac);
++			rtnl_unlock();
++		}
+ 	} else {
+ 		__dev_mc_sync(ndev, icssg_prueth_add_mcast,
+ 			      icssg_prueth_del_mcast);
+@@ -1194,7 +1239,7 @@ static int prueth_netdevice_port_link(struct net_device *ndev,
+ 		if (prueth->br_members & BIT(PRUETH_PORT_MII0) &&
+ 		    prueth->br_members & BIT(PRUETH_PORT_MII1)) {
+ 			prueth->is_switch_mode = true;
+-			prueth->default_vlan = 1;
++			prueth->default_vlan = PRUETH_DFLT_VLAN_SW;
+ 			emac->port_vlan = prueth->default_vlan;
+ 			icssg_change_mode(prueth);
+ 		}
+@@ -1247,7 +1292,7 @@ static int prueth_hsr_port_link(struct net_device *ndev)
+ 			      NETIF_PRUETH_HSR_OFFLOAD_FEATURES))
+ 				return -EOPNOTSUPP;
+ 			prueth->is_hsr_offload_mode = true;
+-			prueth->default_vlan = 1;
++			prueth->default_vlan = PRUETH_DFLT_VLAN_HSR;
+ 			emac0->port_vlan = prueth->default_vlan;
+ 			emac1->port_vlan = prueth->default_vlan;
+ 			icssg_change_mode(prueth);
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index 4da8b87408b5..956cb59d98b2 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -84,6 +84,8 @@
+ #define ICSS_CMD_ADD_MAC 0x8
+ 
+ /* VLAN Filtering Related MACROs */
++#define PRUETH_DFLT_VLAN_HSR	1
++#define PRUETH_DFLT_VLAN_SW	1
+ #define PRUETH_DFLT_VLAN_MAC	0
+ #define MAX_VLAN_ID		256
+ 
+diff --git a/include/linux/if_hsr.h b/include/linux/if_hsr.h
+index 0404f5bf4f30..0e0bbd6ed082 100644
+--- a/include/linux/if_hsr.h
++++ b/include/linux/if_hsr.h
+@@ -13,6 +13,15 @@ enum hsr_version {
+ 	PRP_V1,
+ };
+ 
++enum hsr_port_type {
++	HSR_PT_NONE = 0,	/* Must be 0, used by framereg */
++	HSR_PT_SLAVE_A,
++	HSR_PT_SLAVE_B,
++	HSR_PT_INTERLINK,
++	HSR_PT_MASTER,
++	HSR_PT_PORTS,	/* This must be the last item in the enum */
++};
++
+ /* HSR Tag.
+  * As defined in IEC-62439-3:2010, the HSR tag is really { ethertype = 0x88FB,
+  * path, LSDU_size, sequence Nr }. But we let eth_header() create { h_dest,
+@@ -32,6 +41,8 @@ struct hsr_tag {
+ #if IS_ENABLED(CONFIG_HSR)
+ extern bool is_hsr_master(struct net_device *dev);
+ extern int hsr_get_version(struct net_device *dev, enum hsr_version *ver);
++struct net_device *hsr_get_port_ndev(struct net_device *ndev,
++				     enum hsr_port_type pt);
+ #else
+ static inline bool is_hsr_master(struct net_device *dev)
+ {
+@@ -42,6 +53,13 @@ static inline int hsr_get_version(struct net_device *dev,
+ {
+ 	return -EINVAL;
+ }
++
++static inline struct net_device *hsr_get_port_ndev(struct net_device *ndev,
++						   enum hsr_port_type pt)
++{
++	return ERR_PTR(-EINVAL);
++}
++
+ #endif /* CONFIG_HSR */
+ 
+ #endif /*_LINUX_IF_HSR_H_*/
+diff --git a/net/hsr/hsr_device.c b/net/hsr/hsr_device.c
+index 03eadd6c51fd..b6fb18469439 100644
+--- a/net/hsr/hsr_device.c
++++ b/net/hsr/hsr_device.c
+@@ -663,6 +663,19 @@ bool is_hsr_master(struct net_device *dev)
+ }
+ EXPORT_SYMBOL(is_hsr_master);
+ 
++struct net_device *hsr_get_port_ndev(struct net_device *ndev,
++				     enum hsr_port_type pt)
++{
++	struct hsr_priv *hsr = netdev_priv(ndev);
++	struct hsr_port *port;
++
++	hsr_for_each_port(hsr, port)
++		if (port->type == pt)
++			return port->dev;
++	return NULL;
++}
++EXPORT_SYMBOL(hsr_get_port_ndev);
++
+ /* Default multicast address for HSR Supervision frames */
+ static const unsigned char def_multicast_addr[ETH_ALEN] __aligned(2) = {
+ 	0x01, 0x15, 0x4e, 0x00, 0x01, 0x00
+diff --git a/net/hsr/hsr_main.h b/net/hsr/hsr_main.h
+index fcfeb79bb040..db7d88c05b7f 100644
+--- a/net/hsr/hsr_main.h
++++ b/net/hsr/hsr_main.h
+@@ -121,15 +121,6 @@ struct hsrv1_ethhdr_sp {
+ 	struct hsr_sup_tag	hsr_sup;
+ } __packed;
+ 
+-enum hsr_port_type {
+-	HSR_PT_NONE = 0,	/* Must be 0, used by framereg */
+-	HSR_PT_SLAVE_A,
+-	HSR_PT_SLAVE_B,
+-	HSR_PT_INTERLINK,
+-	HSR_PT_MASTER,
+-	HSR_PT_PORTS,	/* This must be the last item in the enum */
+-};
+-
+ /* PRP Redunancy Control Trailor (RCT).
+  * As defined in IEC-62439-4:2012, the PRP RCT is really { sequence Nr,
+  * Lan indentifier (LanId), LSDU_size and PRP_suffix = 0x88FB }.
 -- 
 2.34.1
 
