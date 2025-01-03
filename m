@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEC8E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E790E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDYv+lD8IINsE762iomZ4bq5tahQltx5gkKZxMzCtrk=; b=RYmJ2zSC+Que0ATiFd5H4YPAeO
-	Sdc8lm58bngBk+r5Jw0B5UsaMNhyuE6TzH+cVbek29/VkRXr7bt3rQvDTpAGDr3LNS6tOenbjzPLN
-	FUL2qILJ7Z5GWEn/FeEhidVBk84+k4RP7U5AHPNmWhRCkwoLVXHDyqTkNGrzCReOVMQ0Mz4YJdpfq
-	yNM3MqzKFdBDkVusiWUJ6x9wbUxkIsEok59QU8qytLh1LyT1xgkawks+UMFFmlrByRvRqy6p1uVhc
-	wpLdDz3eZ62azTiVBG028Yi2a2PHLMrbPVHkTbVfqKNshUm+ofvakliWfJW93iiRH5FolXPcSUPKG
-	QQi7Q/jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7srEfXembLsJDlvqziB2FZZb04cijabnMbBnvOpgzMQ=; b=OFcIIru8jYV4gZ/2RixukI578X
+	aZjH1ZwA0kJJq/eS4rN+xQdIqZpqHmkoN8xY09gkoUWTSqikKEYgfvSHTCKpAJ5JYYmn40Nry6DVE
+	YiBmFhK/ZNoQniYybUKr8lbd4LXNkUQu7cwspV1Hi7mhI6mJwotC7FKQNjZexxG/zFKEz+GgmjZC0
+	IXYLkLVWsAlOkfonJUdesrScapWQIK3MCVe1aiseqJX7Y0PLGlpd0f0qWqma4+B8G+VmDiEg/SmTh
+	MMnRFx9ZD+WRrw7/qPFutuG+GUWQ9DDQGgcmYrTV0CAeZo7LKLghQBdaAMuWq60kKgcGuwolt8m7p
+	wD1VofBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmn8-0000000Dlsc-1RG3;
-	Fri, 03 Jan 2025 18:53:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmfH-0000000Djbt-3Tif;
-	Fri, 03 Jan 2025 18:44:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 575781C14;
-	Fri,  3 Jan 2025 10:45:23 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2191A3F673;
-	Fri,  3 Jan 2025 10:44:51 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Mike Rapoport (IBM)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	x86@kernel.org
-Subject: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
-Date: Fri,  3 Jan 2025 18:44:15 +0000
-Message-ID: <20250103184415.2744423-7-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250103184415.2744423-1-kevin.brodsky@arm.com>
-References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+	id 1tTmqq-0000000DmM7-3WPL;
+	Fri, 03 Jan 2025 18:56:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTmpd-0000000DmAE-3R79;
+	Fri, 03 Jan 2025 18:55:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E6B025C632D;
+	Fri,  3 Jan 2025 18:54:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA394C4CED2;
+	Fri,  3 Jan 2025 18:55:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735930536;
+	bh=XQxYutNgrITYpUa9i4dLX5UIo7Vh+etoJ94keWJktx0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FD2Xt62SwcGD/iot4UTktOgDx0pupKu3+l2s1JX8e+wyFnyFG4eKajMWrLRfnGKEy
+	 SO7gh/SkLthepU5wfB2xqMDQdJwa8tyBZDN0jD8ynydKUf6qCTIAiII3ekKlUXOLU1
+	 6fQU8sTIowPnBEX8zRJGclu+0TKYkJVP0eKXPSYJjYYbtC8iBztPV2dF7y8yJu5yzz
+	 wTISr3FZMLFBcIO6N7M1JR4vnk9+kPhUe/D3A9uwaAGFzJ50UotZS5FVFjdb++5tAI
+	 CCmPQ8EemmpyQ5T8d/mGxpRV6bcBUw5eJUGFpv6bZ/pjbEGIs1tvJBFbvD8ocUL/Y5
+	 mkU+YKTSf1z0A==
+Date: Fri, 3 Jan 2025 12:55:35 -0600
+From: Rob Herring <robh@kernel.org>
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Chuan Liu <chuan.liu@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Dmitry Rokosov <ddrokosov@sberdevices.ru>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>,
+	linux-amlogic <linux-amlogic@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 1/5] dt-bindings: clock: add Amlogic T7 PLL clock
+ controller
+Message-ID: <20250103185535.GA2552898-robh@kernel.org>
+References: <20241231060047.2298871-1-jian.hu@amlogic.com>
+ <20241231060047.2298871-2-jian.hu@amlogic.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241231060047.2298871-2-jian.hu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_104455_955623_232B8B04 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250103_105537_942508_47412CCC 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,133 +83,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following on from the introduction of P4D-level ctor/dtor, let's
-finish the job and introduce ctor/dtor at PGD level. The incurred
-improvement in page accounting is minimal - the main motivation is
-to create a single, generic place where construction/destruction
-hooks can be added for all page table pages.
+On Tue, Dec 31, 2024 at 02:00:43PM +0800, Jian Hu wrote:
+> Add DT bindings for the PLL clock controller of the Amlogic T7 SoC family.
+> 
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+> ---
+>  .../bindings/clock/amlogic,t7-pll-clkc.yaml   | 115 ++++++++++++++++++
+>  .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |  57 +++++++++
+>  2 files changed, 172 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+>  create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+> new file mode 100644
+> index 000000000000..f90e6021d298
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+> @@ -0,0 +1,115 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +# Copyright (C) 2024 Amlogic, Inc. All rights reserved
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/amlogic,t7-pll-clkc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Amlogic T7 PLL Clock Control Controller
+> +
+> +maintainers:
+> +  - Neil Armstrong <neil.armstrong@linaro.org>
+> +  - Jerome Brunet <jbrunet@baylibre.com>
+> +  - Jian Hu <jian.hu@amlogic.com>
+> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - amlogic,t7-pll-gp0
+> +      - amlogic,t7-pll-gp1
+> +      - amlogic,t7-pll-hifi
+> +      - amlogic,t7-pll-pcie
+> +      - amlogic,t7-mpll
+> +      - amlogic,t7-pll-hdmi
+> +      - amlogic,t7-pll-mclk
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +required:
+> +  - compatible
+> +  - '#clock-cells'
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - amlogic,t7-pll-gp0
+> +              - amlogic,t7-pll-gp1
+> +              - amlogic,t7-pll-hifi
+> +              - amlogic,t7-pll-pcie
+> +              - amlogic,t7-mpll
+> +              - amlogic,t7-pll-hdmi
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: pll input oscillator gate
+> +
+> +        clock-names:
+> +          items:
+> +            - const: input
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - amlogic,t7-pll-mclk
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: mclk pll input oscillator gate
+> +            - description: 24M oscillator input clock source for mclk_sel_0
+> +            - description: fix 50Mhz input clock source for mclk_sel_0
+> +
+> +        clock-names:
+> +          items:
+> +            - const: input
+> +            - const: mclk_in0
+> +            - const: mclk_in1
 
-This patch should cover all architectures and all configurations
-where PGDs are one or more regular pages. This excludes any
-configuration where PGDs are allocated from a kmem_cache object.
+Define the names and descriptions at the top level. Then here just say 
+'minItems: 3'
 
-Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/m68k/include/asm/mcf_pgalloc.h | 3 ++-
- arch/m68k/mm/motorola.c             | 6 ++++--
- arch/s390/include/asm/pgalloc.h     | 9 ++++++++-
- include/asm-generic/pgalloc.h       | 3 ++-
- include/linux/mm.h                  | 5 +++++
- 5 files changed, 21 insertions(+), 5 deletions(-)
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    apb {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        gp0:clock-controller@8080 {
 
-diff --git a/arch/m68k/include/asm/mcf_pgalloc.h b/arch/m68k/include/asm/mcf_pgalloc.h
-index 22d6c1fcabfb..4c648b51e7fd 100644
---- a/arch/m68k/include/asm/mcf_pgalloc.h
-+++ b/arch/m68k/include/asm/mcf_pgalloc.h
-@@ -73,7 +73,7 @@ static inline void pte_free(struct mm_struct *mm, pgtable_t pgtable)
- 
- static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
--	pagetable_free(virt_to_ptdesc(pgd));
-+	pagetable_dtor_free(virt_to_ptdesc(pgd));
- }
- 
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
-@@ -84,6 +84,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- 
- 	if (!ptdesc)
- 		return NULL;
-+	pagetable_pgd_ctor(ptdesc);
- 	new_pgd = ptdesc_address(ptdesc);
- 
- 	memcpy(new_pgd, swapper_pg_dir, PTRS_PER_PGD * sizeof(pgd_t));
-diff --git a/arch/m68k/mm/motorola.c b/arch/m68k/mm/motorola.c
-index 6c09ccb72e8b..73651e093c4d 100644
---- a/arch/m68k/mm/motorola.c
-+++ b/arch/m68k/mm/motorola.c
-@@ -169,6 +169,9 @@ void *get_pointer_table(int type)
- 		case TABLE_PMD:
- 			pagetable_pmd_ctor(virt_to_ptdesc(page));
- 			break;
-+		case TABLE_PGD:
-+			pagetable_pgd_ctor(virt_to_ptdesc(page));
-+			break;
- 		}
- 
- 		mmu_page_ctor(page);
-@@ -207,8 +210,7 @@ int free_pointer_table(void *table, int type)
- 		/* all tables in page are free, free page */
- 		list_del(dp);
- 		mmu_page_dtor((void *)page);
--		if (type == TABLE_PTE || type == TABLE_PMD)
--			pagetable_dtor(virt_to_ptdesc((void *)page));
-+		pagetable_dtor(virt_to_ptdesc((void *)page));
- 		free_page (page);
- 		return 1;
- 	} else if (ptable_list[type].next != dp) {
-diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
-index 5fced6d3c36b..b19b6ed2ab53 100644
---- a/arch/s390/include/asm/pgalloc.h
-+++ b/arch/s390/include/asm/pgalloc.h
-@@ -130,11 +130,18 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
- 
- static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- {
--	return (pgd_t *) crst_table_alloc(mm);
-+	unsigned long *table = crst_table_alloc(mm);
-+
-+	if (!table)
-+		return NULL;
-+	pagetable_pgd_ctor(virt_to_ptdesc(table));
-+
-+	return (pgd_t *) table;
- }
- 
- static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
- {
-+	pagetable_dtor(virt_to_ptdesc(pgd));
- 	crst_table_free(mm, (unsigned long *) pgd);
- }
- 
-diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
-index de4df14158e6..892ece4558a2 100644
---- a/include/asm-generic/pgalloc.h
-+++ b/include/asm-generic/pgalloc.h
-@@ -271,6 +271,7 @@ static inline pgd_t *__pgd_alloc_noprof(struct mm_struct *mm, unsigned int order
- 	if (!ptdesc)
- 		return NULL;
- 
-+	pagetable_pgd_ctor(ptdesc);
- 	return ptdesc_address(ptdesc);
- }
- #define __pgd_alloc(...)	alloc_hooks(__pgd_alloc_noprof(__VA_ARGS__))
-@@ -280,7 +281,7 @@ static inline void __pgd_free(struct mm_struct *mm, pgd_t *pgd)
- 	struct ptdesc *ptdesc = virt_to_ptdesc(pgd);
- 
- 	BUG_ON((unsigned long)pgd & (PAGE_SIZE-1));
--	pagetable_free(ptdesc);
-+	pagetable_dtor_free(ptdesc);
- }
- 
- #ifndef __HAVE_ARCH_PGD_FREE
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 065fa9449d03..486638d22fc6 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3243,6 +3243,11 @@ static inline void pagetable_p4d_ctor(struct ptdesc *ptdesc)
- 	__pagetable_ctor(ptdesc);
- }
- 
-+static inline void pagetable_pgd_ctor(struct ptdesc *ptdesc)
-+{
-+	__pagetable_ctor(ptdesc);
-+}
-+
- extern void __init pagecache_init(void);
- extern void free_initmem(void);
- 
--- 
-2.47.0
+Drop unused labels.
 
+> +            compatible = "amlogic,t7-pll-gp0";
+> +            reg = <0 0x8080 0 0x20>;
+> +            clocks = <&scmi_clk 2>;
+> +            clock-names = "input";
+> +            #clock-cells = <1>;
+> +        };
+> +
+> +        mclk:clock-controller@8300 {
+> +            compatible = "amlogic,t7-pll-mclk";
+> +            reg = <0 0x8300 0 0x18>;
+> +            clocks = <&scmi_clk 2>,
+> +                     <&xtal>,
+> +                     <&scmi_clk 31>;
+> +            clock-names = "input", "mclk_in0", "mclk_in1";
+> +            #clock-cells = <1>;
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/clock/amlogic,t7-pll-clkc.h b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+> new file mode 100644
+> index 000000000000..e88c342028db
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+> @@ -0,0 +1,57 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
+> + * Author: Jian Hu <jian.hu@amlogic.com>
+> + */
+> +
+> +#ifndef __T7_PLL_CLKC_H
+> +#define __T7_PLL_CLKC_H
+> +
+> +/* GP0 */
+> +#define CLKID_GP0_PLL_DCO	0
+> +#define CLKID_GP0_PLL		1
+> +
+> +/* GP1 */
+> +#define CLKID_GP1_PLL_DCO	0
+> +#define CLKID_GP1_PLL		1
+> +
+> +/* HIFI */
+> +#define CLKID_HIFI_PLL_DCO	0
+> +#define CLKID_HIFI_PLL		1
+> +
+> +/* PCIE */
+> +#define CLKID_PCIE_PLL_DCO	0
+> +#define CLKID_PCIE_PLL_DCO_DIV2	1
+> +#define CLKID_PCIE_PLL_OD	2
+> +#define CLKID_PCIE_PLL		3
+> +
+> +/* MPLL */
+> +#define CLKID_MPLL_PREDIV	0
+> +#define CLKID_MPLL0_DIV		1
+> +#define CLKID_MPLL0		2
+> +#define CLKID_MPLL1_DIV		3
+> +#define CLKID_MPLL1		4
+> +#define CLKID_MPLL2_DIV		5
+> +#define CLKID_MPLL2		6
+> +#define CLKID_MPLL3_DIV		7
+> +#define CLKID_MPLL3		8
+> +
+> +/* HDMI */
+> +#define CLKID_HDMI_PLL_DCO	0
+> +#define CLKID_HDMI_PLL_OD	1
+> +#define CLKID_HDMI_PLL		2
+> +
+> +/* MCLK */
+> +#define CLKID_MCLK_PLL_DCO	0
+> +#define CLKID_MCLK_PRE		1
+> +#define CLKID_MCLK_PLL		2
+> +#define CLKID_MCLK_0_SEL	3
+> +#define CLKID_MCLK_0_DIV2	4
+> +#define CLKID_MCLK_0_PRE	5
+> +#define CLKID_MCLK_0		6
+> +#define CLKID_MCLK_1_SEL	7
+> +#define CLKID_MCLK_1_DIV2	8
+> +#define CLKID_MCLK_1_PRE	9
+> +#define CLKID_MCLK_1		10
+> +
+> +#endif /* __T7_PLL_CLKC_H */
+> -- 
+> 2.47.1
+> 
 
