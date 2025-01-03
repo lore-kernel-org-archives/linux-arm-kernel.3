@@ -4,65 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0CAE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 12:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB4BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 12:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5jxg2X/4iUX/WNAUOlVmQRPj6VrAzsh1nv/UtpZsig=; b=Q4yufFkXNr2SWSeKRrn4mmv61X
-	OT8hfg2o37dqUOTTWrcHWXU6+nUMeApJpfkD+bx5+ZFDGaKZhDOTyN4iXNoivK+2xvJIP3qE6G+K+
-	uxgTw4td5cXjAwf/IjYoi2Qqx4G30lSdMydv2Gs/AHjZ56phogMg+n/yTfpL50q4TdIGujBVYd7Z+
-	KTZOxCibEVv2pOFBU3Kf/yQN2Qf+pOGramoUbV9SOEHNWupuxVi/b5OMfn142PyS3KWNZVj6ZEAcK
-	kyEaecPEHiDmQhOcT9x10SKCkc2gCHKDxch2qVmkyY8SWLQT+9s2Ukfi8OT7pAccCWH1C2X/l6qjt
-	0Zq+rNjA==;
+	bh=QdbJ1dOWvgh+OgR4NwZE+j5YlKJamHg+xsDrOvj8Qik=; b=KHAX6N6h2Bol+xpPQcD3JLdzn5
+	iFSWARpVOdKcnTSL43oWjkMu009CYoSP5SqrcX7uYjI+/YC6EH+T64jpbZu+uSNllfrOfvSaOzOzD
+	/oSfTIDJRD6IcC8vnH4okse4dNZCekKHtioshWP/6TeLwAqllpkzh9fgvs2C+UmtiGCnIePi5Iopk
+	2HxRDKSoPtF6lTEKwBjQKDokeB08C3lLNJ3iMFcFCIUOWshbb51brZt29QtrHoCV+0uvHl8QP3qrB
+	eIe+CEVJghuKHN684IrDcaD+mAEwxZ6B3COH+6T1/2qdVgcE6QVaJbacsUnfprMSbxnBTTuUPi2qW
+	ilj66umw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTgiI-0000000CuI0-06e0;
-	Fri, 03 Jan 2025 12:23:38 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tTgne-0000000CueM-20jL;
+	Fri, 03 Jan 2025 12:29:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTgcY-0000000CtdC-3FqI;
-	Fri, 03 Jan 2025 12:17:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BC273A40B04;
-	Fri,  3 Jan 2025 12:15:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1898AC4CECE;
-	Fri,  3 Jan 2025 12:17:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735906661;
-	bh=BREf+AuvwXGyuxndCIojls+R4cWTgkuRgtwXcPueSEU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=q6iUBxA5cIYqe3mgi/2ApaTu3I7higBtyYSHVQJghe1M3OswcYaezdXGcpW3a4sy1
-	 +JxYTJSrPVAT9j0nWIRgdtB3sr+jLVsVabkEo4Fxs006kNbH/ro5tX/nHI4s83/PLz
-	 YS0YZXEThjIGO83mOMWiKOnv8RyE6ejj8h5od5yLdzFR8xOusyY/6CFXimIEyZVx32
-	 dVVTu0jJ04/CaR/V58z2HSAVydvgtfM5xQvdbeZode0peLS4ZtbNvJT9sqgbHtFmsk
-	 ZTmCSZmXfODFv3ip5T8sC8YtsyOQ0Nw0UKBozoQj+ESewuNduswZ+kO6EckbAC7WZH
-	 DWTwbsgKLyORw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 03 Jan 2025 13:17:05 +0100
-Subject: [PATCH net-next 4/4] net: airoha: Add sched HTB offload support
+	id 1tTgmR-0000000CuXh-29g6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 12:27:56 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5036YWO3010123
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jan 2025 12:27:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QdbJ1dOWvgh+OgR4NwZE+j5YlKJamHg+xsDrOvj8Qik=; b=N3bKE+H/u8PRNQb7
+	C88AV19SPgf8adrEUgxVI0CN4QPjJXgH2zwKEINlA6GrU/WpuFleQyD+YMHgKGEt
+	kBkuXz36JyDyvscC2WeVjZ5TJIfqerz5v4EifdhermbvhdJE6N0mSbmrvyUBcfmc
+	OPu2dAb6vtAprnjO5aiE93jtBNdNHoVz/9vUrZsYkLZQ5s805ezeU71fBUCKsPmA
+	+lfTsurWNJshXatDRTAkex16q0Odj+V2j7Nb9vU3G7VXYZkYqV2HwhY9/fyHukq2
+	FCAGWqNwt+b+tSAo3cNEvLuP5CaKRxkwI9LP4aEB+mpxsBAfQ/sihfFTOOe/Iw/U
+	azGUlg==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43xardgr6v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 12:27:54 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7b6ee03d7d9so83230285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 04:27:54 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735907273; x=1736512073;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QdbJ1dOWvgh+OgR4NwZE+j5YlKJamHg+xsDrOvj8Qik=;
+        b=CSQjMoliacD1NV1LvaWB/zyFT7QLdcqLcGoo7I//B9c3HfqpROgpe9A4qhone5vASG
+         vcFtiEF58baoWxry53m8mmRMEsmMcitSIKorRwv1EzMV8t+2DMWFSHEx1ZJB7sVbZjeK
+         6A1ITkae35O+giqQnPEtIDm2MeqRNr94r/NYPtMj4reQJpqZeNaDZYQdhcauklA1pBuA
+         ZiVboVpNwF+9p1zkyVP4fqyQOkQOh0kkhyw1LdWihK8oa7cnzK12EQsjuvtq0M8me1jg
+         oVwniAgoP2F1TNapLrg9IE89SpmxcT63BM+sSFgfH3pPv3iceuB0E6mbYOJxsBJeLK5M
+         PAgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVV3xm1kg7Mjji2VxA6AS6uQX1LDBMC+IT7dAoa2vJSE6oRkllMSxJh2I2/QazzyQjeSCtrHVWDF0z5ETFouCg/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYh50PzMBbJJQJBprkb3AIc/G6bYRYgvSWFeXh6KfpMvz0dtAP
+	WS+JlNxRzsmft02lEMs97RYz/vmOjpnVjUEsyRkCt6tdcTUkDMS1I9or6P81zNKcy5/PkM0273R
+	CuqhlVkR5jZdvS0YSy/B26NJNJQ9x+qiNMw2oH5Q4DLxehsfPxRXVHBQKQ1lqnblgvYX6+az2kw
+	==
+X-Gm-Gg: ASbGncu/cSdWjDT0LDJQerTel5/sm1V20qbpjeyORAUKukdp7fGxoBQcp4RQDavn1r+
+	VVYVIUZY97v4yFHuFOKy6amyD4kbWqIfxIpWGh/s4lHYxu3uBi0hP8ahn6GAPUX2SZlwcVH3KZP
+	045lLIMTckzLfQ17giAYWD767gBC+6Nrn3OYG08vMe3U2FLUuM9qOrN1VvhSIuFZZeYKDY0xytj
+	1mJiHRLFWA1TyfoLEeD4PZmNtkcUjf5lQVgaw/rCVXXP26ph33TqejIkP23NStZUzxScR+GTFl2
+	8qh3O+G5Q4UT2Yh6aFnf2hV/JBtlur4Q1b8=
+X-Received: by 2002:a05:6214:4007:b0:6da:dbf0:9645 with SMTP id 6a1803df08f44-6dd23317478mr274820766d6.3.1735907273052;
+        Fri, 03 Jan 2025 04:27:53 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH15Wpx7u9V/hOQ08GkSp0Y5O0301pekMRgSHOKCQeCdUs50MNnQM9AG6NcnIA0Lbk63M/OqQ==
+X-Received: by 2002:a05:6214:4007:b0:6da:dbf0:9645 with SMTP id 6a1803df08f44-6dd23317478mr274820606d6.3.1735907272677;
+        Fri, 03 Jan 2025 04:27:52 -0800 (PST)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e898689sm1875427466b.78.2025.01.03.04.27.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 03 Jan 2025 04:27:52 -0800 (PST)
+Message-ID: <c94ce3c4-5b8f-4d7c-8acd-afab63306018@oss.qualcomm.com>
+Date: Fri, 3 Jan 2025 13:27:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 4/5] arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
+To: Luo Jie <quic_luoj@quicinc.com>, Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, quic_kkumarcs@quicinc.com,
+        quic_suruchia@quicinc.com, quic_pavir@quicinc.com,
+        quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
+        bartosz.golaszewski@linaro.org, srinivas.kandagatla@linaro.org
+References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
+ <20250103-qcom_ipq_cmnpll-v8-4-c89fb4d4849d@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-4-c89fb4d4849d@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250103-airoha-en7581-qdisc-offload-v1-4-608a23fa65d5@kernel.org>
-References: <20250103-airoha-en7581-qdisc-offload-v1-0-608a23fa65d5@kernel.org>
-In-Reply-To: <20250103-airoha-en7581-qdisc-offload-v1-0-608a23fa65d5@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Mark Lee <Mark-MC.Lee@mediatek.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- upstream@airoha.com, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+X-Proofpoint-GUID: BLKFTjA07-8JZOs5veJfo5t5-uZ94_Y7
+X-Proofpoint-ORIG-GUID: BLKFTjA07-8JZOs5veJfo5t5-uZ94_Y7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
+ suspectscore=0 clxscore=1015 mlxlogscore=999 impostorscore=0 phishscore=0
+ spamscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
+ definitions=main-2501030110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_041742_951913_FD1C1B09 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20250103_042755_565397_3C04CB20 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,375 +131,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for HTB Qdisc offload available in the Airoha EN7581
-ethernet controller. EN7581 can offload only one level of HTB leafs.
-Each HTB leaf represents a QoS channel supported by EN7581 SoC.
-The typical use-case is creating a HTB leaf for QoS channel to rate
-limit the egress traffic and attach an ETS Qdisc to each HTB leaf in
-order to enforce traffic prioritization.
+On 3.01.2025 8:31 AM, Luo Jie wrote:
+> The CMN PLL clock controller allows selection of an input clock rate
+> from a defined set of input clock rates. It in-turn supplies fixed
+> rate output clocks to the hardware blocks that provide the ethernet
+> functions such as PPE (Packet Process Engine) and connected switch or
+> PHY, and to GCC.
+> 
+> The reference clock of CMN PLL is routed from XO to the CMN PLL through
+> the internal WiFi block.
+> .XO (48 MHZ or 96 MHZ)-->WiFi (multiplier/divider)-->48 MHZ to CMN PLL.
+> 
+> The reference input clock from WiFi to CMN PLL is fully controlled by
+> the bootstrap pins which select the XO frequency (48 MHZ or 96 MHZ).
+> Based on this frequency, the divider in the internal Wi-Fi block is
+> automatically configured by hardware (1 for 48 MHZ, 2 for 96 MHZ), to
+> ensure output clock to CMN PLL is 48 MHZ.
+> 
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+> ---
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/mediatek/airoha_eth.c | 288 ++++++++++++++++++++++++++++-
- 1 file changed, 287 insertions(+), 1 deletion(-)
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/mediatek/airoha_eth.c
-index 76cdab2499043adc96e058f8f562676455b6d36d..b9f1c42f0a40ca268506b4595dfa1902a15be26c 100644
---- a/drivers/net/ethernet/mediatek/airoha_eth.c
-+++ b/drivers/net/ethernet/mediatek/airoha_eth.c
-@@ -28,6 +28,8 @@
- #define AIROHA_NUM_QOS_QUEUES		8
- #define AIROHA_NUM_TX_RING		32
- #define AIROHA_NUM_RX_RING		32
-+#define AIROHA_NUM_NETDEV_TX_RINGS	(AIROHA_NUM_TX_RING + \
-+					 AIROHA_NUM_QOS_CHANNELS)
- #define AIROHA_FE_MC_MAX_VLAN_TABLE	64
- #define AIROHA_FE_MC_MAX_VLAN_PORT	16
- #define AIROHA_NUM_TX_IRQ		2
-@@ -43,6 +45,9 @@
- #define PSE_RSV_PAGES			128
- #define PSE_QUEUE_RSV_PAGES		64
- 
-+#define QDMA_METER_IDX(_n)		((_n) & 0xff)
-+#define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
-+
- /* FE */
- #define PSE_BASE			0x0100
- #define CSR_IFC_BASE			0x0200
-@@ -583,6 +588,17 @@
- #define EGRESS_SLOW_TICK_RATIO_MASK	GENMASK(29, 16)
- #define EGRESS_FAST_TICK_MASK		GENMASK(15, 0)
- 
-+#define TRTCM_PARAM_RW_MASK		BIT(31)
-+#define TRTCM_PARAM_RW_DONE_MASK	BIT(30)
-+#define TRTCM_PARAM_TYPE_MASK		GENMASK(29, 28)
-+#define TRTCM_METER_GROUP_MASK		GENMASK(27, 26)
-+#define TRTCM_PARAM_INDEX_MASK		GENMASK(23, 17)
-+#define TRTCM_PARAM_RATE_TYPE_MASK	BIT(16)
-+
-+#define REG_TRTCM_CFG_PARAM(_n)		((_n) + 0x4)
-+#define REG_TRTCM_DATA_LOW(_n)		((_n) + 0x8)
-+#define REG_TRTCM_DATA_HIGH(_n)		((_n) + 0xc)
-+
- #define REG_TXWRR_MODE_CFG		0x1020
- #define TWRR_WEIGHT_SCALE_MASK		BIT(31)
- #define TWRR_WEIGHT_BASE_MASK		BIT(3)
-@@ -759,6 +775,29 @@ enum tx_sched_mode {
- 	TC_SCH_WRR2,
- };
- 
-+enum trtcm_param_type {
-+	TRTCM_MISC_MODE, /* meter_en, pps_mode, tick_sel */
-+	TRTCM_TOKEN_RATE_MODE,
-+	TRTCM_BUCKETSIZE_SHIFT_MODE,
-+	TRTCM_BUCKET_COUNTER_MODE,
-+};
-+
-+enum trtcm_mode_type {
-+	TRTCM_COMMIT_MODE,
-+	TRTCM_PEAK_MODE,
-+};
-+
-+enum trtcm_param {
-+	TRTCM_TICK_SEL = BIT(0),
-+	TRTCM_PKT_MODE = BIT(1),
-+	TRTCM_METER_MODE = BIT(2),
-+};
-+
-+#define MIN_TOKEN_SIZE				4096
-+#define MAX_TOKEN_SIZE_OFFSET			17
-+#define TRTCM_TOKEN_RATE_MASK			GENMASK(23, 6)
-+#define TRTCM_TOKEN_RATE_FRACTION_MASK		GENMASK(5, 0)
-+
- struct airoha_queue_entry {
- 	union {
- 		void *buf;
-@@ -850,6 +889,8 @@ struct airoha_gdm_port {
- 
- 	struct airoha_hw_stats stats;
- 
-+	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-+
- 	/* qos stats counters */
- 	u64 cpu_tx_packets;
- 	u64 fwd_tx_packets;
-@@ -2817,6 +2858,243 @@ static int airoha_tc_setup_qdisc_ets(struct airoha_gdm_port *port,
- 	}
- }
- 
-+static int airoha_qdma_get_trtcm_param(struct airoha_qdma *qdma, int channel,
-+				       u32 addr, enum trtcm_param_type param,
-+				       enum trtcm_mode_type mode,
-+				       u32 *val_low, u32 *val_high)
-+{
-+	u32 idx = QDMA_METER_IDX(channel), group = QDMA_METER_GROUP(channel);
-+	u32 val, config = FIELD_PREP(TRTCM_PARAM_TYPE_MASK, param) |
-+			  FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
-+			  FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
-+			  FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
-+
-+	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+	if (read_poll_timeout(airoha_qdma_rr, val,
-+			      val & TRTCM_PARAM_RW_DONE_MASK,
-+			      USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
-+			      qdma, REG_TRTCM_CFG_PARAM(addr)))
-+		return -ETIMEDOUT;
-+
-+	*val_low = airoha_qdma_rr(qdma, REG_TRTCM_DATA_LOW(addr));
-+	if (val_high)
-+		*val_high = airoha_qdma_rr(qdma, REG_TRTCM_DATA_HIGH(addr));
-+
-+	return 0;
-+}
-+
-+static int airoha_qdma_set_trtcm_param(struct airoha_qdma *qdma, int channel,
-+				       u32 addr, enum trtcm_param_type param,
-+				       enum trtcm_mode_type mode, u32 val)
-+{
-+	u32 idx = QDMA_METER_IDX(channel), group = QDMA_METER_GROUP(channel);
-+	u32 config = TRTCM_PARAM_RW_MASK |
-+		     FIELD_PREP(TRTCM_PARAM_TYPE_MASK, param) |
-+		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
-+		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
-+		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
-+
-+	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-+	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+
-+	return read_poll_timeout(airoha_qdma_rr, val,
-+				 val & TRTCM_PARAM_RW_DONE_MASK,
-+				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
-+				 qdma, REG_TRTCM_CFG_PARAM(addr));
-+}
-+
-+static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int channel,
-+					u32 addr, enum trtcm_mode_type mode,
-+					bool enable, u32 enable_mask)
-+{
-+	u32 val;
-+
-+	if (airoha_qdma_get_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
-+					mode, &val, NULL))
-+		return -EINVAL;
-+
-+	val = enable ? val | enable_mask : val & ~enable_mask;
-+
-+	return airoha_qdma_set_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
-+					   mode, val);
-+}
-+
-+static int airoha_qdma_set_trtcm_token_bucket(struct airoha_qdma *qdma,
-+					      int channel, u32 addr,
-+					      enum trtcm_mode_type mode,
-+					      u32 rate_val, u32 bucket_size)
-+{
-+	u32 val, config, tick, unit, rate, rate_frac;
-+	int err;
-+
-+	if (airoha_qdma_get_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
-+					mode, &config, NULL))
-+		return -EINVAL;
-+
-+	val = airoha_qdma_rr(qdma, addr);
-+	tick = FIELD_GET(INGRESS_FAST_TICK_MASK, val);
-+	if (config & TRTCM_TICK_SEL)
-+		tick *= FIELD_GET(INGRESS_SLOW_TICK_RATIO_MASK, val);
-+	if (!tick)
-+		return -EINVAL;
-+
-+	unit = (config & TRTCM_PKT_MODE) ? 1000000 / tick : 8000 / tick;
-+	if (!unit)
-+		return -EINVAL;
-+
-+	rate = rate_val / unit;
-+	rate_frac = rate_val % unit;
-+	rate_frac = FIELD_PREP(TRTCM_TOKEN_RATE_MASK, rate_frac) / unit;
-+	rate = FIELD_PREP(TRTCM_TOKEN_RATE_MASK, rate) |
-+	       FIELD_PREP(TRTCM_TOKEN_RATE_FRACTION_MASK, rate_frac);
-+
-+	err = airoha_qdma_set_trtcm_param(qdma, channel, addr,
-+					  TRTCM_TOKEN_RATE_MODE, mode, rate);
-+	if (err)
-+		return err;
-+
-+	val = max_t(u32, bucket_size, MIN_TOKEN_SIZE);
-+	val = min_t(u32, __fls(val), MAX_TOKEN_SIZE_OFFSET);
-+
-+	return airoha_qdma_set_trtcm_param(qdma, channel, addr,
-+					   TRTCM_BUCKETSIZE_SHIFT_MODE,
-+					   mode, val);
-+}
-+
-+static int airoha_qdma_set_tx_rate_limit(struct airoha_gdm_port *port,
-+					 int channel, u32 rate,
-+					 u32 bucket_size)
-+{
-+	int i, err;
-+
-+	for (i = 0; i <= TRTCM_PEAK_MODE; i++) {
-+		err = airoha_qdma_set_trtcm_config(port->qdma, channel,
-+						   REG_EGRESS_TRTCM_CFG, i,
-+						   !!rate, TRTCM_METER_MODE);
-+		if (err)
-+			return err;
-+
-+		err = airoha_qdma_set_trtcm_token_bucket(port->qdma, channel,
-+							 REG_EGRESS_TRTCM_CFG,
-+							 i, rate, bucket_size);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_tc_htb_alloc_leaf_queue(struct airoha_gdm_port *port,
-+					  struct tc_htb_qopt_offload *opt)
-+{
-+	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
-+	u32 rate = div_u64(opt->rate, 1000) << 3; /* kbps */
-+	struct net_device *dev = port->dev;
-+	int num_tx_queues = dev->real_num_tx_queues;
-+	int err;
-+
-+	if (opt->parent_classid != TC_HTB_CLASSID_ROOT) {
-+		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
-+		return -EINVAL;
-+	}
-+
-+	err = airoha_qdma_set_tx_rate_limit(port, channel, rate, opt->quantum);
-+	if (err) {
-+		NL_SET_ERR_MSG_MOD(opt->extack,
-+				   "failed configuring htb offload");
-+		return err;
-+	}
-+
-+	if (opt->command == TC_HTB_NODE_MODIFY)
-+		return 0;
-+
-+	err = netif_set_real_num_tx_queues(dev, num_tx_queues + 1);
-+	if (err) {
-+		airoha_qdma_set_tx_rate_limit(port, channel, 0, opt->quantum);
-+		NL_SET_ERR_MSG_MOD(opt->extack,
-+				   "failed setting real_num_tx_queues");
-+		return err;
-+	}
-+
-+	set_bit(channel, port->qos_sq_bmap);
-+	opt->qid = AIROHA_NUM_TX_RING + channel;
-+
-+	return 0;
-+}
-+
-+static void airoha_tc_remove_htb_queue(struct airoha_gdm_port *port, int queue)
-+{
-+	struct net_device *dev = port->dev;
-+
-+	netif_set_real_num_tx_queues(dev, dev->real_num_tx_queues - 1);
-+	airoha_qdma_set_tx_rate_limit(port, queue + 1, 0, 0);
-+	clear_bit(queue, port->qos_sq_bmap);
-+}
-+
-+static int airoha_tc_htb_delete_leaf_queue(struct airoha_gdm_port *port,
-+					   struct tc_htb_qopt_offload *opt)
-+{
-+	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
-+
-+	if (!test_bit(channel, port->qos_sq_bmap)) {
-+		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
-+		return -EINVAL;
-+	}
-+
-+	airoha_tc_remove_htb_queue(port, channel);
-+
-+	return 0;
-+}
-+
-+static int airoha_tc_htb_destroy(struct airoha_gdm_port *port)
-+{
-+	int q;
-+
-+	for_each_set_bit(q, port->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
-+		airoha_tc_remove_htb_queue(port, q);
-+
-+	return 0;
-+}
-+
-+static int airoha_tc_get_htb_get_leaf_queue(struct airoha_gdm_port *port,
-+					    struct tc_htb_qopt_offload *opt)
-+{
-+	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
-+
-+	if (!test_bit(channel, port->qos_sq_bmap)) {
-+		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
-+		return -EINVAL;
-+	}
-+
-+	opt->qid = channel;
-+
-+	return 0;
-+}
-+
-+static int airoha_tc_setup_qdisc_htb(struct airoha_gdm_port *port,
-+				     struct tc_htb_qopt_offload *opt)
-+{
-+	switch (opt->command) {
-+	case TC_HTB_CREATE:
-+		break;
-+	case TC_HTB_DESTROY:
-+		return airoha_tc_htb_destroy(port);
-+	case TC_HTB_NODE_MODIFY:
-+	case TC_HTB_LEAF_ALLOC_QUEUE:
-+		return airoha_tc_htb_alloc_leaf_queue(port, opt);
-+	case TC_HTB_LEAF_DEL:
-+	case TC_HTB_LEAF_DEL_LAST:
-+	case TC_HTB_LEAF_DEL_LAST_FORCE:
-+		return airoha_tc_htb_delete_leaf_queue(port, opt);
-+	case TC_HTB_LEAF_QUERY_QUEUE:
-+		return airoha_tc_get_htb_get_leaf_queue(port, opt);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
- static int airoha_dev_tc_setup(struct net_device *dev, enum tc_setup_type type,
- 			       void *type_data)
- {
-@@ -2825,6 +3103,8 @@ static int airoha_dev_tc_setup(struct net_device *dev, enum tc_setup_type type,
- 	switch (type) {
- 	case TC_SETUP_QDISC_ETS:
- 		return airoha_tc_setup_qdisc_ets(port, type_data);
-+	case TC_SETUP_QDISC_HTB:
-+		return airoha_tc_setup_qdisc_htb(port, type_data);
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -2875,7 +3155,8 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- 	}
- 
- 	dev = devm_alloc_etherdev_mqs(eth->dev, sizeof(*port),
--				      AIROHA_NUM_TX_RING, AIROHA_NUM_RX_RING);
-+				      AIROHA_NUM_NETDEV_TX_RINGS,
-+				      AIROHA_NUM_RX_RING);
- 	if (!dev) {
- 		dev_err(eth->dev, "alloc_etherdev failed\n");
- 		return -ENOMEM;
-@@ -2895,6 +3176,11 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- 	dev->irq = qdma->irq;
- 	SET_NETDEV_DEV(dev, eth->dev);
- 
-+	/* reserve hw queues for HTB offloading */
-+	err = netif_set_real_num_tx_queues(dev, AIROHA_NUM_TX_RING);
-+	if (err)
-+		return err;
-+
- 	err = of_get_ethdev_address(np, dev);
- 	if (err) {
- 		if (err == -EPROBE_DEFER)
-
--- 
-2.47.1
-
+Konrad
 
