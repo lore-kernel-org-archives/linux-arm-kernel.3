@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58FBE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C758E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPGOdr/jsXJNO5Wu3fEBGF99GP73lSQF/IKxQW4k0R4=; b=XhAv+hBsRl3PtmRto36HS5MYbk
-	Qn+96ymSZ73GIrSR/xmqnZTyX9FiyuKrFNYCXSIaO/s3nS2ZYhfIOvxq7H8qNXbJkcXa+mbaD2D/p
-	LWAmrT0d1WD6FCbHwght9SZ/f8yzG6fXzNcpXgnzrAm9jlponHuRaCDFLVdS2e5MCGR95O5g2gBTC
-	OJuXz4zX/90vj2u3f6t78PvwKSWMD9LY5SY/zTz0ef9vYtDMuDKp9iqcsYGrfMsSevM7a1nmRJz3D
-	ZTp/jK8w6za2mWZ2dOfN2QnlHqWcgjrE2U3aKnCPz1spgs8Ik33Vg4yHkdhy11CpCILytk+9uD6MP
-	A0PVPTTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KnnKr1tOZVG12cK+LLFuxnU9SlvnnOfbe1CXtqwo2co=; b=CLbwJmWrkODj07ksDjb5/GComd
+	U1BzQ+kLhIOnsyPeTvmuhzpqaKLHBfmMvjYDANGWKa8k0aRKFiAGmJgfAwFry7QJZs82zSpU9oiym
+	P6ZZVKqTvk3CMnRnpcnVOz8GEqRNcutqRWonKNKcPRa53dT5wjqqCcGhY7OEPJB/tt9PCcpRB1aLR
+	IXMhlTLBprKhNwvsS3QYqTcUr/xy48g9c3iFrxuxc13qGcXqqfNwcT0kACRVyj8UW0GfLJ+SaYdy5
+	TsxDw72bQ+8D/KsUm8J1JJEXdWHwUh5e3XURyz5MpVvzkBoPPLUMt26dQMCxgkDdW7FLzVLp9ArOe
+	xQBwHxPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTff8-0000000Cny1-2NN9;
-	Fri, 03 Jan 2025 11:16:18 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tTfgX-0000000CoMu-12oK;
+	Fri, 03 Jan 2025 11:17:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfdw-0000000CnoI-1ZoD;
-	Fri, 03 Jan 2025 11:15:04 +0000
+	id 1tTffJ-0000000Co0s-3z3z;
+	Fri, 03 Jan 2025 11:16:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CPGOdr/jsXJNO5Wu3fEBGF99GP73lSQF/IKxQW4k0R4=; b=Tf96QP1nI5zee8m+i5u3CA94h9
-	3PVNNoLdvhSBk2t6LZQP6KHn1+Y/Ig9kK3lwT2hFjHWgZiqq3VK4SzqQBmD6A0e29acKD8NJDsAzp
-	PBklhel75TRoOCf5VTzc00lXza1eWj1sW19Tjleo1fc/L5i9P5juDXyKQY9kHKExje/1wAmmZkrHj
-	FdESUWBGwWEamk3EA3c0+gwV4EPoveBGXJo3r+051uO72Cz+2Bir5nMUbKQ2FfpEvF0r1gyVxRelx
-	Ro4i1hRHlfJmHnjxqwmbD1SaYDgPeAH7HhcAneWE1IcOwP7nCEbEkp2xJxpa8O/6L3gNZJN11KFqb
-	fYAj5NUQ==;
-Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfdp-00000005j4l-1npS;
-	Fri, 03 Jan 2025 11:14:57 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 3EDFC3003AF; Fri,  3 Jan 2025 12:14:57 +0100 (CET)
-Date: Fri, 3 Jan 2025 12:14:57 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Qi Zheng <zhengqi.arch@bytedance.com>, agordeev@linux.ibm.com,
-	kevin.brodsky@arm.com, tglx@linutronix.de, david@redhat.com,
-	jannh@google.com, hughd@google.com, yuzhao@google.com,
-	willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
-	lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
-	rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de,
-	will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
-	dave.hansen@linux.intel.com, ryan.roberts@arm.com,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-um@lists.infradead.org
-Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
-Message-ID: <20250103111457.GC22934@noisy.programming.kicks-ass.net>
-References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
- <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
- <Z2_EPmOTUHhcBegW@kernel.org>
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=KnnKr1tOZVG12cK+LLFuxnU9SlvnnOfbe1CXtqwo2co=; b=omu4oSb2n/Rx3anVtN7y8fsq6W
+	ILbT06ESY8/18a0G6Ad4YiG8uXgbgd8tbeEuBBkTzg9YBJD6H/UkK/6vmh9BhGmWeWg5pDxeBoO+r
+	EmcLWybCYb+EcQCxZKg0O/KOhAklMJgpzc7kc6eMm2yDrHmsLA6dWTJrQnmjhYFs0J7a3xkTp3v0b
+	7ZwaxxwEJFfvNiD6ifORIUJnEUixetrKN8hGBATpO4Kk5ajHUf8lerm1RZMzyQ4y6Qs7v/u485vsS
+	2phrRtLXhA8QRs9kPW4ke7a1I5gNa6M+icLSRRmZwdPF8Vh8d4vzqgXUrXJBK+ZglEUaE4H5ua5XA
+	qmVOteUw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38220)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tTff2-0002zj-35;
+	Fri, 03 Jan 2025 11:16:13 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tTfew-0001H9-1H;
+	Fri, 03 Jan 2025 11:16:06 +0000
+Date: Fri, 3 Jan 2025 11:16:06 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexander Couzens <lynxis@fe80.eu>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/6] net: pcs: add supported_interfaces bitmap for
+ PCS
+Message-ID: <Z3fG9oTY9F9fCYHv@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z2_EPmOTUHhcBegW@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250103_031629_986739_2D6E6B91 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,39 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 28, 2024 at 11:26:22AM +0200, Mike Rapoport wrote:
-> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
-> > Here we are explicitly dealing with struct page, and the following logic
-> > semms strange:
-> > 
-> > tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
-> > 
-> > tlb_remove_page_ptdesc
-> > --> tlb_remove_page(tlb, ptdesc_page(pt));
-> > 
-> > So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
-> > directly.
-> 
-> Please don't. The ptdesc wrappers are there as a part of reducing the size
-> of struct page project [1]. 
-> 
-> For now struct ptdesc overlaps struct page, but the goal is to have them
-> separate and always operate on struct ptdesc when working with page tables.
+Hi,
 
-I don't see how the current idiotic code helps with that at all.
+This series adds supported_interfaces for PCS, which gives MAC code a
+way to determine the interface modes that the PCS supports without
+having to implement functions such as xpcs_get_interfaces(), or
+workarounds such as in
 
-Fundamentally tlb_remove_page() is about removing *pages* as from a PTE,
-there should not be a page-table anywhere near here *ever*.
+https://lore.kernel.org/r/20241213090526.71516-3-maxime.chevallier@bootlin.com
 
-Yes, some architectures use tlb_remove_page() for page-tables too, but
-that is more or less an implementation detail that can be fixed.
+Patch 1 adds the new bitmask to struct phylink_pcs, and code within
+phylink to validate that the PCS returned by the MAC driver supports
+the interface mode - but only if this bitmask is non-empty.
 
-So no, please keep these patches and kill this utterly idiotic code.
+Patch 2 through 4 fills in the interface modes for XPCS, Mediatek LynxI
+and Lynx PCS.
 
-The only thing that should eventually care about page-tables is
-tlb_remove_table(), and that takes a 'void *' and is expected to match
-whatever __tlb_remove_table() does.
+Patch 5 adds support to stmmac to make use of this bitmask when filling
+in phylink_config.supported_interfaces, eliminating the call to
+xpcs_get_interfaces.
 
-Flipping those to pgdesc, once its actually a thing, should be fairly
-straight forward.
+As xpcs_get_interfaces() is now unused outside of pcs-xpcs.c, patch 6
+makes this function static and removes it from the header file.
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++++--
+ drivers/net/pcs/pcs-lynx.c                        | 13 +++++++++++++
+ drivers/net/pcs/pcs-mtk-lynxi.c                   |  4 ++++
+ drivers/net/pcs/pcs-xpcs.c                        |  5 +++--
+ drivers/net/phy/phylink.c                         | 11 +++++++++++
+ include/linux/pcs/pcs-xpcs.h                      |  1 -
+ include/linux/phylink.h                           |  3 +++
+ 7 files changed, 43 insertions(+), 5 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
