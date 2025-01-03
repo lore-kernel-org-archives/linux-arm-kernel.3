@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C86E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 07:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED36FE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 07:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CqCHo4dglbNRmr0c18Pd+sgctlfIIyEMIkjc2OSHyY4=; b=hOa+5BO77TW0D8s6nta/egviZC
-	S6X6z+rv2IP+wjEtOh8lsEpp5jQ/rTSIF3xveRbhTsqc1f6JJa2I5/BHNZ1fASzIExkbNASCztW0I
-	TX6B1AKgcj0ci+QnVD1MW7ZSszqqxwCOzoKr01Wjq85QIbAckSJpwlab2RxhA+3VCehgT/X8e52r1
-	RzEnDyVmRT9/vzqN5EYfWwMwQEquaV/5pXiro/9IYKACJXE9z2LlfzGjuOtgyQDu7VArFBOH0cAlk
-	hCFdE9U2kK6/ft6+hiDOiuCQn0Z8DDWCakpVcwMPOuagZHzJK6rCKabYgnbtPZLYyQHQkqmAk3GbV
-	JtjqsMGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mzXoocIGNPwPKsYdLFaXMb11ojm1vKIwEO1w66c7Yo8=; b=uuemQLmcrHACbrbBQgtAhMk4Ga
+	28C7D3waUztAw73nLnR3fXyty5NKJFjMd7m1cO/4NqDQw4ZomJNBfTGv+SVQF4tVpMdlyjac/Oh7A
+	llj5fwG+IYXdLsYdvncyE7/IyDkj9YpoDLi3rWXJKjOH5fn/znaYMEaYtfPbSb3noL7G2rVvMPlax
+	uOtochumo5nSgYwiasloAq9mM5wImPRgYNJ5AwbpBIijE6Rjqt7QYP4KhN7+ylHk7uchsDU/nrxN7
+	ojjSmcG/DNBQEnbb+Kki9sxJZyb98/FmsOkZFE25xUjMZwxexLr9KTBy2c+m6boq+UcUWoaK3TSSp
+	d8e40Buw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcPL-0000000COmj-2Zdc;
-	Fri, 03 Jan 2025 07:47:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcO9-0000000COW6-0kpO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 07:46:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 416D7A40488;
-	Fri,  3 Jan 2025 07:44:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 336EBC4CECE;
-	Fri,  3 Jan 2025 07:46:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735890392;
-	bh=Sr2A/0SiN78NSfZrU+RvRd5qX0csLyf8fws67QBeq4g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gWodhkeEc01Ri1x7WY2Jq2fcUKhaK7UOvjtktmb/H3HGPmuMOESqhkgoxC0gK9V+t
-	 2EfzGA8ERSqKFhufFAduFvWyTL73lgWUzluog4sqcG8LsFkYslWJi+aoqj9/bGc7pH
-	 i7/6z+R7jiBokFhWzz2RQbxZbl4VqHGgRcBui9eWNjrRejPheqtiWrSek4AowQ7Ei0
-	 zVTqqE1+wh9EzHo4HZ81Tt1MMdL1yPNjWOl193ioKMOOdcJsqqpE3YViGFWsLrTaMH
-	 FW2/dJJ3QkS1Q++fBCAC4Q6AwOWQ5bbeAa3jDAM0UgZgAL+0pMIXJmuPzVsd+e+qK5
-	 7FIjkHk8yjMLA==
-Date: Fri, 3 Jan 2025 08:46:28 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH v3 1/4] dt-bindings: arm: Add Morello compatibility
-Message-ID: <wmvrwd2roy2ttbyyzdt2fbr4f7dg6pprrkdhuy6ygab3fl2kll@gnpf2v6zgd4d>
-References: <20250102155416.13159-1-vincenzo.frascino@arm.com>
- <20250102155416.13159-2-vincenzo.frascino@arm.com>
+	id 1tTcQU-0000000COsF-0rUG;
+	Fri, 03 Jan 2025 07:48:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTcOD-0000000COXF-47UT;
+	Fri, 03 Jan 2025 07:46:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21C9D1516;
+	Thu,  2 Jan 2025 23:47:05 -0800 (PST)
+Received: from [10.57.92.237] (unknown [10.57.92.237])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E1313F6A8;
+	Thu,  2 Jan 2025 23:46:28 -0800 (PST)
+Message-ID: <d7f079ea-6530-4f92-9cab-bee90b84e2c3@arm.com>
+Date: Fri, 3 Jan 2025 08:46:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250102155416.13159-2-vincenzo.frascino@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 04/15] mm: pgtable: add statistics for P4D level page
+ table
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, agordeev@linux.ibm.com, palmer@dabbelt.com,
+ tglx@linutronix.de, david@redhat.com, jannh@google.com, hughd@google.com,
+ yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
+ vbabka@kernel.org, lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
+ rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
+ aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
+ rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
+ linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <2fa644e37ab917292f5c342e40fa805aa91afbbd.1735549103.git.zhengqi.arch@bytedance.com>
+ <237a3bf6-c24f-4feb-8d3d-bb3beb2fd18e@arm.com>
+ <77c202bf-e0a3-45e7-bf8d-eef7903e3c64@bytedance.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <77c202bf-e0a3-45e7-bf8d-eef7903e3c64@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_234633_281667_C92BCB22 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20250102_234638_056905_43BB219C 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 03:54:13PM +0000, Vincenzo Frascino wrote:
-> Add compatibility to Arm Morello System Development Platform.
-> 
-> Note: Morello is at the same time the name of an Architecture [1], an SoC
-> [2] and a Board [2].
-> To distinguish in between Architecture/SoC and Board we refer to the first
-> as arm,morello and to the second as arm,morello-sdp.
-> 
-> [1] https://developer.arm.com/Architectures/Morello
-> [2] https://www.morello-project.org/
-> 
-> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> ---
+On 03/01/2025 04:53, Qi Zheng wrote:
+> On 2025/1/3 00:53, Kevin Brodsky wrote:
+>> On 30/12/2024 10:07, Qi Zheng wrote:
+>>> diff --git a/arch/riscv/include/asm/pgalloc.h
+>>> b/arch/riscv/include/asm/pgalloc.h
+>>> index 551d614d3369c..3466fbe2e508d 100644
+>>> --- a/arch/riscv/include/asm/pgalloc.h
+>>> +++ b/arch/riscv/include/asm/pgalloc.h
+>>> @@ -108,8 +108,12 @@ static inline void __pud_free_tlb(struct
+>>> mmu_gather *tlb, pud_t *pud,
+>>>   static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+>>>                     unsigned long addr)
+>>>   {
+>>> -    if (pgtable_l5_enabled)
+>>> +    if (pgtable_l5_enabled) {
+>>> +        struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
+>>> +
+>>> +        pagetable_p4d_dtor(ptdesc);
+>>>           riscv_tlb_remove_ptdesc(tlb, virt_to_ptdesc(p4d));
+>>
+>> Nit: could use the new ptdesc variable here instead of calling
+>> virt_to_ptdesc().
+>
+> Right, but we will remove pagetable_p4d_dtor() in patch #10, so this
+> may not matter.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+You're right, I missed that. Makes sense not to create a diff that's
+reverted later then :)
 
-Best regards,
-Krzysztof
-
+- Kevin
 
