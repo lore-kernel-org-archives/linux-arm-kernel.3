@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3583FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D61E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewbHrVJb9Ycv+srj59tL5L59NUV9UYUz2yYmi944kq8=; b=2TKoe42S7eb2pDzCGj1YjBJcZ9
-	Y65AihH5vrRs0I0JYLYA52U4rNv9aa2DV89Qw6Lz5bhAqUOLAk1ssCJ4eMtONo6CEEwXzaHo6otRl
-	eBjF54oPeVk/CWjBVV3lP6Np2UCYbfuRqefel3Exagv2rMw1wmUdm+WbgfU59COtW3tTuNrwbNFWK
-	Nk3mwHF6fmyWp9Eu/IWHvUYskKDjwbSnnQO/v8L2oRB41umq+u1qbQQZ2F+zre++TQTd3zVgr8q3+
-	Q9E5N0Z8M2/iVFeIvnfy25XZwsO98dl6RnWQX6f+RGLMn0uFqTLLPJr8Af2gsRNdkMhgxag03RdL9
-	/BAO3PIw==;
+	bh=AP4om3HCUGPZiAgSFK/mDowrAQLBhJ1lEYaLjFS047A=; b=JrxtJmIZ7litl4wgzHJbdMPa3e
+	tPK6lJeLCVWaU1IPjzBLycgWi9UnVMALOEaL82XsWmIRCzHgt9bsbEbIY2rxucfrMel7EBRtewGRO
+	NS4HGczP7Cg2VocP8F3A2V5SySlcXG3DNoT+mnZy9Qu5/LLMWvIL62qUWd6bo95plaVM1v6G2HafO
+	KqC0Ulw2iZTMcjQH//UbpfJSu2y1pcnIk+TozGJ8w8vDJuEOb7E+RAqoA2stZfqQgB8hGgEIAVG+u
+	VTl7hFkC9Z7+XirXkCW3QiLEEFQ/tt1+b64HJjnbLddNw068gi1G+kf8wVbfES9n3xJj8RM2zBY83
+	6s3I68Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTXct-0000000Bwo7-0goD;
-	Fri, 03 Jan 2025 02:41:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tTXge-0000000Bx8W-1d6O;
+	Fri, 03 Jan 2025 02:45:20 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTXbj-0000000Bwgh-1PD0
+	id 1tTXfU-0000000Bx17-2bsR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 02:40:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4E0CC5C542B;
-	Fri,  3 Jan 2025 02:39:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53661C4CEDD;
-	Fri,  3 Jan 2025 02:40:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735872013;
-	bh=1AsWfbNlCFqQvnlvtsPVgikvB2lUrOXRFL1YevhcMMU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=VfqpTpl52QaJnDjBIN5um7S7uyLHmJb5+j7M1m8QAzcoxZXmswSSq84GKmN0cBaP+
-	 60J6UjSOP+NvkxqzihFtakqs/RT5wNtzoIJ+nOeH0/HjEOaa1K+uPXNdjtl+AJxz7S
-	 7LIeCiJr8ovcowX7pDwi+GASl+R7tcSggKZ9GmxzUVb3zcJ3OPt+xZwq+L6Noa/CwM
-	 86KYotsciFyBGuE2YofuGrU2C4BtV61I43zjO+EBXgXVIx7uReLGhZ1SJHLHkXXGUt
-	 anlOvqUbIzaPHcpFAqg7optk2U2zzT8rKaJvlOsT1P+HDIVqNkcOeIaLYJ0S7LSuKD
-	 7/VRy+Ld5uEfA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADF6380A964;
-	Fri,  3 Jan 2025 02:40:34 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 03 Jan 2025 02:44:10 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 502G1G7g023410;
+	Fri, 3 Jan 2025 02:43:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	AP4om3HCUGPZiAgSFK/mDowrAQLBhJ1lEYaLjFS047A=; b=FjYFTgdzObI/HD/U
+	DZ5eBX6ScnB0onG6AAEchyS67TpKiwtdrAsspIIbrbWMrY0lsHcBkxCGKO0eJn4e
+	Fr6iz9xbvg3MWr4giz0qL6CFaWsJLnP1Y9hTku/QEDpl4nk4VOIIiURjpvTGnn6h
+	o/ICd2EX0ltNqoxbAQ8enZL3mqk0v+XlHwanHrqEeMF0u8xjSiRf6+mu2/r4/JDz
+	RuQ8eVpjuMvBasEdmLGZ8WVGi26zTWvUTqTqGnITtnOE6VROYQmLxK6dli+u9tXH
+	TFwxSaufxuDv6qAiK1FYLQuTLVSj1WVVvBKuNnYaUDrRmxXp3xRqVPRbw2HLyxXM
+	ayrwvQ==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43wt3c9nb7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 03 Jan 2025 02:43:58 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5032hu6T026446
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 3 Jan 2025 02:43:56 GMT
+Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 2 Jan 2025
+ 18:43:53 -0800
+Message-ID: <abb6612b-8845-411b-bfc2-751538cb06b7@quicinc.com>
+Date: Fri, 3 Jan 2025 10:43:51 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2] net: dwmac-imx: add imx93 clock input support in RMII mode
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173587203350.2088679.877800854993230996.git-patchwork-notify@kernel.org>
-Date: Fri, 03 Jan 2025 02:40:33 +0000
-References: <20241227095923.4414-1-othacehe@gnu.org>
-In-Reply-To: <20241227095923.4414-1-othacehe@gnu.org>
-To: Mathieu Othacehe <othacehe@gnu.org>
-Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: mm: implement vmemmap_check_pmd for arm64
+To: Catalin Marinas <catalin.marinas@arm.com>,
+        Anshuman Khandual
+	<anshuman.khandual@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
+ <20241209094227.1529977-3-quic_zhenhuah@quicinc.com>
+ <Z2W5Bs0bZANI6NKv@arm.com> <39a85800-47c5-4529-906d-5a40e58ce136@arm.com>
+ <Z3bXIjJjEaoOaxbH@arm.com>
+Content-Language: en-US
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+In-Reply-To: <Z3bXIjJjEaoOaxbH@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: HJ5FfEEDirT1_7c4V-vDR19wRnLVmHII
+X-Proofpoint-ORIG-GUID: HJ5FfEEDirT1_7c4V-vDR19wRnLVmHII
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 impostorscore=0
+ clxscore=1015 mlxscore=0 phishscore=0 bulkscore=0 priorityscore=1501
+ suspectscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ mlxlogscore=710 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501030021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_184015_428199_5F78F571 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_184408_657795_46A059CE 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +107,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Fri, 27 Dec 2024 10:59:22 +0100 you wrote:
-> If the rmii_refclk_ext boolean is set, configure the ENET QOS TX_CLK pin
-> direction to input. Otherwise, it defaults to output.
+On 2025/1/3 2:12, Catalin Marinas wrote:
+> On Fri, Dec 27, 2024 at 08:27:18AM +0530, Anshuman Khandual wrote:
+>> On 12/21/24 00:05, Catalin Marinas wrote:
+>>> On Mon, Dec 09, 2024 at 05:42:27PM +0800, Zhenhua Huang wrote:
+>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>> index fd59ee44960e..41c7978a92be 100644
+>>>> --- a/arch/arm64/mm/mmu.c
+>>>> +++ b/arch/arm64/mm/mmu.c
+>>>> @@ -1169,7 +1169,8 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+>>>>   				unsigned long addr, unsigned long next)
+>>>>   {
+>>>>   	vmemmap_verify((pte_t *)pmdp, node, addr, next);
+>>>> -	return 1;
+>>>> +
+>>>> +	return pmd_sect(*pmdp);
+>>
+>> Please change this as pmd_sect(READ_ONCE(*pmdp)) instead.
+>>
+>>>>   }
+>>>>   
+>>>>   int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>>>
+>>> Don't we need this patch only if we implement the first one? Please fold
+>>> it into the other patch.
+>>
+>> Seems like these patches might not be related.
+>>
+>> While creating huge page based vmemmap mapping during vmemmap_populate_hugepages(),
+>> vmemmap_check_pmd() validates if a populated (i.e pmd_none) PMD already represents
+>> a huge mapping and can be skipped there after.
+>>
+>> Current implementation for vmemmap_check_pmd() on arm64, unconditionally returns 1
+>> thus asserting that the given populated PMD entry is a huge one indeed, which will
+>> be the case unless something is wrong. vmemmap_verify() only ensures that the node
+>> where the pfn is allocated from is local.
+>>
+>> int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+>>                                  unsigned long addr, unsigned long next)
+>> {
+>>          vmemmap_verify((pte_t *)pmdp, node, addr, next);
+>>          return 1;
+>> }
+>>
+>> However it does not really check the entry to be a section mapping which it should.
+>> Returning pmd_sect(READ_ONCE(*pmdp)) is the right thing, which should have been the
+>> case from the beginning when vmemmap_check_pmd() was added. I guess because arm64's
+>> original vmemmap_populate() checked only for vmemmap_verify() as well. So probably
+>> this does not need a "Fixes: " tag.
 > 
-> That mirrors what is already happening for the imx8mp in the
-> imx8mp_set_intf_mode function.
+> I did not say the patch is wrong, only that it wouldn't be needed unless
+> we have the other patch in this series. However, if we do apply the
+> other patch, we definitely need this change, so keeping them together
+> would make it easier to backport.
+
+Hi Catalin,
+
+Based on our current discussion on patchset #1, we will prohibit 
+hugepages(vmemmap mapping) for all hotplugging sections...The flow:
+vmemmap_populate
+	vmemmap_populate_hugepages
+		vmemmap_check_pmd
+
+will *only* be called for non-early sections. Therefore, with patchset 
+#1, I don't see the patch as essential.. Would it be acceptable if we do 
+not backport this patch?  Anshuman's suggestion seems reasonable to me 
+and I separated the patch out:
+https://lore.kernel.org/lkml/20250102074047.674156-1-quic_zhenhuah@quicinc.com/
+
+Please share your comments and correct me if I'm mistaken :)
+
+
 > 
-> Signed-off-by: Mathieu Othacehe <othacehe@gnu.org>
-> 
-> [...]
-
-Here is the summary with links:
-  - [v2] net: dwmac-imx: add imx93 clock input support in RMII mode
-    https://git.kernel.org/netdev/net-next/c/94c16fd4df90
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
 
 
