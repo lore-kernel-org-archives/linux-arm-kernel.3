@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857FEE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 19:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE75E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 19:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cB6HoB7xsc1uLjUkqsiqXQE+6Ay1EOlGdKzJA17qg3g=; b=znVOr+mkIjVejlz0JbowB9fekY
-	qpoMYLRnR2NlnChMNOGmB1YbQ8K7wAudZk4QfpqRNkW4g/PqRCpQO3WU1oHSlspjwHjFBP7RhQ6u7
-	8t6VGRbP9JkxZ1TFKE/liSI8+G484SKNt+qXsbwbzbeOhhok1Np/Y8Pf6jbuw7VlV+YiWDvdG3IcY
-	rUYsiiJXly1LqcCdTrL+TUdj2bjb/DhHeszI4KcrI/vKFn0s6OsNLbXU9g/k7MepKMTzGQMWtYEEq
-	Fs29G0dtqd0njn5sbl0z+vzL4PxTjovTp8rzhOeKuaheD3AYmNIjxbmjcJbCdzchyoaGNEyZXJhFG
-	9RK5f1Nw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=i/xa5vKa6paMVJDaBt1qHkF9/8yb0Y6DDqw5rXWWb3s=; b=0DR6tRg1Gwpzk7
+	RMx3XQZ94cx0BfUsfmLyYZPP2xJzxE6HxAcZGddCE9ytTOGyIyoHN0S/pRhY4xhw2ovHRCQRhHrhH
+	McHZBzPre4HAKLbkaEVpQxBEaB2DnptVAO0WMZwrl5T+EWkanQAE81nTk1OBGuTsnEzX4cThYu93u
+	+pmqpmMRZPhjuxAdInh6DqRDXDacxMpDIfjUJEAqjduRvaXOgRPPLE1Xz00E1RU5ootj79RyXsy1K
+	Guevk22EyokcGBqNpp404ljrHrp9BbCINiqqG5P6oqq23yfFzRa6AlWPXVAXyLGJ+YfWsipvXO3Gx
+	Gx70w/26v+5PbVZA2evg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmxe-0000000Dn5x-18RG;
-	Fri, 03 Jan 2025 19:03:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tTmyo-0000000DnHf-3gR8;
+	Fri, 03 Jan 2025 19:05:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmwR-0000000DmsB-3apK;
-	Fri, 03 Jan 2025 19:02:40 +0000
+	id 1tTmwb-0000000Dmum-0UCz;
+	Fri, 03 Jan 2025 19:02:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CCFACA410AF;
-	Fri,  3 Jan 2025 19:00:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A6BDC4CECE;
-	Fri,  3 Jan 2025 19:02:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 33BFEA40B02;
+	Fri,  3 Jan 2025 19:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2241C4CECE;
+	Fri,  3 Jan 2025 19:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735930958;
-	bh=ROKm26zYjtVGso2D9k6xdXLPr8Xlhh6uzj4BFB9Dvxc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OmiqMEyipWsfK1pr6JNIIjBnTYXBG6JPlyZRxwEJJS3Hw0An40h7OVgybzdz81d38
-	 k8ELYW88QGmKm5Itw9NC9dqeZ4tuQNY+GTsnnZnJPxQV/tuL4Ko20rBpdumfCp7guV
-	 ILGU49EsKAdtdAINHROIGwZ9vHiyBfNusplgI7edMKzrQHfWxmiUhfhtLqWvFBPBl8
-	 BNlDCDXdjuZoFwOPoEpokiYwET61I+K2cjTrwLkvKJaYOduhIgMfOst+zDcs0Ab3vo
-	 Zfc2wxVvIx3jG6rjGVGrnxteMeCONnUPTBBMxCkOlvwIWF99odej6DOwNdeNo03TeQ
-	 +qgCoVYfaqjrA==
-Date: Fri, 3 Jan 2025 13:02:36 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>,
-	Chuan Liu <chuan.liu@amlogic.com>, robh+dt <robh+dt@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	Dmitry Rokosov <ddrokosov@sberdevices.ru>,
-	Michael Turquette <mturquette@baylibre.com>,
-	linux-clk <linux-clk@vger.kernel.org>,
-	linux-amlogic <linux-amlogic@lists.infradead.org>,
-	devicetree <devicetree@vger.kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Kevin Hilman <khilman@baylibre.com>
-Subject: Re: [PATCH 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock
- controller
-Message-ID: <173593095558.2568839.4677596962650586768.robh@kernel.org>
-References: <20241231060047.2298871-1-jian.hu@amlogic.com>
- <20241231060047.2298871-3-jian.hu@amlogic.com>
+	s=k20201202; t=1735930968;
+	bh=Gl8y8BFlpRrWQhT3zEKHFDQmjYssrJwQ6kgjlUqJeBY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=FP/2iUAUQJAkEPy4at/mC0I0yGQE0HwhCEVHA3IY2KvDFvb3r0rkiH9+WtqWJv7FT
+	 8dY9Sx5WKgbb5FQvdB/9ht1/K+u3qMUzX5ZbF+21NmN0DWpflt2qVNMIpXkEkHbPvz
+	 FRTFPfZ+/heqSC4nT51U9YgXN3sv1t1B3ifZJbQejyrwQhtTSr8B23iJT5BkZ+6oeC
+	 E2H7rx1S2XYvqTQWhVbtPl9vd7bpTxASP9J0UVQCFQj38A9Nlzi2KpjImDyBQ3dkyC
+	 koSIfCZx7NiHs5Zgs4K2mT2Hmk251mzjqcKR1iCJhYtxJFcfSDbDPvj3oWts31SdBs
+	 07mgyjtawzQgg==
+Date: Fri, 3 Jan 2025 13:02:45 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jianjun Wang <jianjun.wang@mediatek.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <ryder.lee@mediatek.com>, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Xavier Chang <Xavier.Chang@mediatek.com>
+Subject: Re: [PATCH 2/5] PCI: mediatek-gen3: Add MT8196 support
+Message-ID: <20250103190245.GA4190015@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241231060047.2298871-3-jian.hu@amlogic.com>
+In-Reply-To: <20250103060035.30688-3-jianjun.wang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_110239_960764_A2F326BA 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_110249_215943_E77B46CD 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,17 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 03, 2025 at 02:00:12PM +0800, Jianjun Wang wrote:
+> The MT8196 is an ARM platform SoC that has the same PCIe IP as the
+> MT8195.
+> However, it requires additional settings in the pextpcfg registers.
+> Introduce pextpcfg in PCIe driver for these settings.
 
-On Tue, 31 Dec 2024 14:00:44 +0800, Jian Hu wrote:
-> Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
-> 
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
-> ---
->  include/dt-bindings/clock/amlogic,t7-scmi.h | 48 +++++++++++++++++++++
->  1 file changed, 48 insertions(+)
->  create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
-> 
+Add blank lines between paragraphs.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> +	 * The values of some registers are different in RC and EP mode. Therefore,
+> +	 * call soc->pre_init after the mode change in case it depends on these registers.
 
+Wrap this to fit in 80 columns like the rest of the file.
+
+> +	/* Adjust SYS_CLK_RDY_TIME ot 10us to avoid glitch */
+
+s/ot/to/
+
+Is this an erratum?  Is there any spec or erratum citation you can
+include in the comment?
+
+> +	val = readl_relaxed(pcie->base + PCIE_RESOURCE_CTRL_REG);
+> +	val &= ~PCIE_SYS_CLK_RDY_TIME_MASK;
+> +	val |= PCIE_SYS_CLK_RDY_TIME_TO_10US;
+> +	writel_relaxed(val, pcie->base + PCIE_RESOURCE_CTRL_REG);
 
