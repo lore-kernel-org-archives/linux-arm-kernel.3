@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F729E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 09:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0BBE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 09:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqHwiMnjtBXaTnPPiHapkhzS+5DI8VRKfH/MexUMjA0=; b=zX3DkqNxSglo1KctcQpZYY61tv
-	JzsnWThzdgq7R0el+4nIK+q0mVv8m10folICK5uyccrSVbCyzttJqTTvUhfcgOXhuURTx/Gpi+3xy
-	cGjhRXQbwQ8tB2ieT++J5uBzCYDhlIOwOu1HlFvkTA98y1pWILdBrlKklEyGOEqkU1LLlqyy7KWKU
-	+S8I15/mqBdbVb5PtJurevHq8elX6nT4RWGpROwEHgDwJSi0AtfhLrYoJrClSFEQmwB1denYoEFXz
-	P280heppirISplfAZk1h3KQ9xMJ9eptvu/VKvmOi2rVPAx+r1gi0jX6biFde/ZmYE1AkvwXdKp6wE
-	nSNTr1dg==;
+	bh=eZBnUmnMMAMfNBHLGsg9fMapjUleNoQ++cZwxgWCfWQ=; b=12EEXgEN0ZlV8c+ErOKqVKb6fR
+	X6nIFzI94WL9oUSuEJsxu2cpnaxvG8pZXJYRsJErSoP5CKjXA8Y2XTRLMmBNY/D0vbYPln4+EeLi7
+	ySyBTfn8WtB5ieCwg60Ei93qqIZNWqzdlP13hzKnR67ASUDOx3tAVHSKzmIe1tOqJuEpfPYeURApM
+	8O/gOgDgLDV9OsAN1vDirq+u8NuIU9Bw1HEK77cZSC9XARCS5xCaAsGl+blrBHd6+WwQCFfrNoExA
+	uvjtez+y763kmaJ6MevEa7eyH6VDHGXijSYjgBD8s1qMFqHXmhvHF+qnz1RxUMBk2+Sw2H77p8Se0
+	LGM7+/lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTe0l-0000000CcKw-1oLA;
-	Fri, 03 Jan 2025 09:30:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTdz3-0000000CbzE-0XWf;
-	Fri, 03 Jan 2025 09:28:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C0AF1480;
-	Fri,  3 Jan 2025 01:29:12 -0800 (PST)
-Received: from [10.57.92.237] (unknown [10.57.92.237])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8B153F673;
-	Fri,  3 Jan 2025 01:28:35 -0800 (PST)
-Message-ID: <80cf6cae-11f6-4db2-816b-b1dcca3cee3e@arm.com>
-Date: Fri, 3 Jan 2025 10:28:32 +0100
+	id 1tTe1v-0000000CcVx-1B9A;
+	Fri, 03 Jan 2025 09:31:43 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTdzV-0000000Cc5N-2A7x;
+	Fri, 03 Jan 2025 09:29:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1735896551;
+	bh=1EkZCsAiRqfDtZ/Tc5fh3hJ4LLDdivzPZL9UBgudwok=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E+7p/7rMe4PAa4LM0kSw8xzFdN+zGRyjxWOn0lMCpc6E2VjQmqMlsSsOc7ZPoq9p7
+	 QUcSdel8jDfuhfVtd44c9joi+Wq+hISPPU9BC3DaukPhTW74UzwDaLgfAUfBhgxkfn
+	 Vv+Vi3todqQ+24cPdz8kCtZyMH5zJHqkxycW3vD/lTRzAV+QL398IA3lGEUW/ABchI
+	 XWuakUiYXp8JUy58jU2HjH+gCDtRrTlfGAtdL7o88vJ0ed86/sbpeLsuNsbY4mguOr
+	 XbsLLfU04ChKG2u56OUE7A09nqHbPuqhs0zn0dZeM0xinU1kdbiamAT7d6HY9qcnQq
+	 FDX9X3i/53UEg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A6ED217E153E;
+	Fri,  3 Jan 2025 10:29:10 +0100 (CET)
+Message-ID: <9a874a5b-c698-4185-bb7f-f17245381af1@collabora.com>
+Date: Fri, 3 Jan 2025 10:29:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Account page tables at all levels
-To: Dave Hansen <dave.hansen@intel.com>, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org,
- Joerg Roedel <jroedel@suse.de>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <a7398426-56d1-40b4-a1c9-40ae8c8a4b4b@intel.com>
- <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
- <989b55cf-1f9e-4b73-b3dd-d8b6a62be3f2@intel.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <989b55cf-1f9e-4b73-b3dd-d8b6a62be3f2@intel.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 4/5] PCI: mediatek-gen3: Don't reply AXI slave error
+To: Jianjun Wang <jianjun.wang@mediatek.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>, linux-pci@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Xavier Chang <Xavier.Chang@mediatek.com>
+References: <20250103060035.30688-1-jianjun.wang@mediatek.com>
+ <20250103060035.30688-5-jianjun.wang@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250103060035.30688-5-jianjun.wang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_012845_280706_8E95504E 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250103_012913_729770_3D288935 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +83,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2024 20:31, Dave Hansen wrote:
-> On 12/20/24 02:58, Kevin Brodsky wrote:
->>> One super tiny nit is that the PAE pgd _can_ be allocated using
->>> __get_free_pages(). It was originally there for Xen, but I think it's
->>> being used for PTI only at this point and the comments are wrong-ish.
->>>
->>> I kinda think we should just get rid of the 32-bit kmem_cache entirely.
->> That would certainly simplify things on the x86 side! I'm not at all
->> familiar with that code though, would you be happy with providing a
->> patch? I could add it to this series if that's convenient.
-> I hacked this together yesterday:
->
->> https://git.kernel.org/pub/scm/linux/kernel/git/daveh/devel.git/log/?h=simplify-pae-20241220
-> It definitely needs some more work. I'm particularly still puzzling
-> about why SHARED_KERNEL_PMD is used both as a trigger for 32b vs.
-> PAGE_SIZE PAE pgd allocations _and_ for the actual PMD sharing.
->
-> Xen definitely needed the whole page behavior but I'm not sure why PTI did.
->
-> Either way, that series should make the PAE PGDs a _bit_ less weird at
-> the cost of an extra ~2 pages per process for folks who are running
-> 32-bit PAE kernels with PTI disabled.
->
-> But I think the diffstat is worth it:
->
->  5 files changed, 16 insertions(+), 96 deletions(-)
+Il 03/01/25 07:00, Jianjun Wang ha scritto:
+> There are some circumstances where the EP device will not respond to
+> non-posted access from the root port (e.g., MMIO read). In such cases,
+> the root port will reply with an AXI slave error, which will be treated
+> as a System Error (SError), causing a kernel panic and preventing us
+> from obtaining any useful information for further debugging.
+> 
+> We have added a new bit in the PCIE_AXI_IF_CTRL_REG register to prevent
+> PCIe AXI0 from replying with a slave error. Setting this bit on an older
+> platform that does not support this feature will have no effect.
+> 
+> By preventing AXI0 from replying with a slave error, we can keep the
+> kernel alive and debug using the information from AER.
+> 
+> Signed-off-by: Jianjun Wang <jianjun.wang@mediatek.com>
+> ---
+>   drivers/pci/controller/pcie-mediatek-gen3.c | 12 ++++++++++++
+>   1 file changed, 12 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+> index 4bd3b39eebe2..48f83c2d91f7 100644
+> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> @@ -87,6 +87,9 @@
+>   #define PCIE_LOW_POWER_CTRL_REG		0x194
+>   #define PCIE_FORCE_DIS_L0S		BIT(8)
+>   
+> +#define PCIE_AXI_IF_CTRL_REG		0x1a8
+> +#define PCIE_AXI0_SLV_RESP_MASK		BIT(12)
+> +
+>   #define PCIE_PIPE4_PIE8_REG		0x338
+>   #define PCIE_K_FINETUNE_MAX		GENMASK(5, 0)
+>   #define PCIE_K_FINETUNE_ERR		GENMASK(7, 6)
+> @@ -469,6 +472,15 @@ static int mtk_pcie_startup_port(struct mtk_gen3_pcie *pcie)
+>   	val |= PCIE_FORCE_DIS_L0S;
+>   	writel_relaxed(val, pcie->base + PCIE_LOW_POWER_CTRL_REG);
+>   
+> +	/*
+> +	 * Prevent PCIe AXI0 from replying a slave error, as it will cause kernel panic
+> +	 * and prevent us from getting useful information.
+> +	 * Keep the kernel alive and debug using the information from AER.
+> +	 */
 
-That does look like a nice simplification! After the first patch, with
-my series, we could get rid of _pgd_alloc() and _pgd_free() in
-arch/x86/mm/pgtable.c and just call __pgd_alloc() and __pgd_free() directly.
+Isn't it safer if we set this bit at the beginning of mtk_pcie_startup_port()
+instead?
 
-Considering that these changes are not trivial and may need more work,
-should I let you post those patches as a separate series? If it gets
-merged soon, I'll adapt my series, otherwise I can post a follow-up
-patch later if needed.
+Cheers,
+Angelo
 
-- Kevin
+> +	val = readl_relaxed(pcie->base + PCIE_AXI_IF_CTRL_REG);
+> +	val |= PCIE_AXI0_SLV_RESP_MASK;
+> +	writel_relaxed(val, pcie->base + PCIE_AXI_IF_CTRL_REG);
+> +
+>   	/* Disable DVFSRC voltage request */
+>   	val = readl_relaxed(pcie->base + PCIE_MISC_CTRL_REG);
+>   	val |= PCIE_DISABLE_DVFSRC_VLT_REQ;
+
+
+
 
