@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB4BE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 12:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBCFE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 12:30:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QdbJ1dOWvgh+OgR4NwZE+j5YlKJamHg+xsDrOvj8Qik=; b=KHAX6N6h2Bol+xpPQcD3JLdzn5
-	iFSWARpVOdKcnTSL43oWjkMu009CYoSP5SqrcX7uYjI+/YC6EH+T64jpbZu+uSNllfrOfvSaOzOzD
-	/oSfTIDJRD6IcC8vnH4okse4dNZCekKHtioshWP/6TeLwAqllpkzh9fgvs2C+UmtiGCnIePi5Iopk
-	2HxRDKSoPtF6lTEKwBjQKDokeB08C3lLNJ3iMFcFCIUOWshbb51brZt29QtrHoCV+0uvHl8QP3qrB
-	eIe+CEVJghuKHN684IrDcaD+mAEwxZ6B3COH+6T1/2qdVgcE6QVaJbacsUnfprMSbxnBTTuUPi2qW
-	ilj66umw==;
+	bh=M8P5uG6PJun8R28epOEw5Y3NzJYkBGc9o295jGAaImU=; b=1MXxWmSrGUT17qmDo+fpdKz1Sb
+	LKGJ/4sET8MRsGBtkeosvETwdrts4lOgtCLydMz9Lgg2PspHEKlCZqOIlp79/V9C64+/fQ7iA4EQ9
+	/QGPrEblyw3retWCuym5zu8Zu43hf/Vr1e/5ZF7BDqzy7f99VtfWSI4hJteme0Xi0irr2dv8EZa9T
+	y+vU+wm651OEQTijyZB7aHzoVDXP0Pw9csvPz9WqaVtcIiedNkY3sdzNcUBKLcs/qZBRmUBOXInRQ
+	XGlTunW5+vxJKSmuGVnUuVOlh72M1uE6UJpHxBkEwyQUdQIhjUVDR1UreKCtxDHWpw7dKHaGqjYH9
+	X9mZSUsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTgne-0000000CueM-20jL;
-	Fri, 03 Jan 2025 12:29:10 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tTgp9-0000000Cupo-0VLZ;
+	Fri, 03 Jan 2025 12:30:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTgmR-0000000CuXh-29g6
+	id 1tTgnv-0000000CugR-3WLH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 12:27:56 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5036YWO3010123
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jan 2025 12:27:54 GMT
+	Fri, 03 Jan 2025 12:29:29 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 503C4gPD022737
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jan 2025 12:29:26 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QdbJ1dOWvgh+OgR4NwZE+j5YlKJamHg+xsDrOvj8Qik=; b=N3bKE+H/u8PRNQb7
-	C88AV19SPgf8adrEUgxVI0CN4QPjJXgH2zwKEINlA6GrU/WpuFleQyD+YMHgKGEt
-	kBkuXz36JyDyvscC2WeVjZ5TJIfqerz5v4EifdhermbvhdJE6N0mSbmrvyUBcfmc
-	OPu2dAb6vtAprnjO5aiE93jtBNdNHoVz/9vUrZsYkLZQ5s805ezeU71fBUCKsPmA
-	+lfTsurWNJshXatDRTAkex16q0Odj+V2j7Nb9vU3G7VXYZkYqV2HwhY9/fyHukq2
-	FCAGWqNwt+b+tSAo3cNEvLuP5CaKRxkwI9LP4aEB+mpxsBAfQ/sihfFTOOe/Iw/U
-	azGUlg==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43xardgr6v-1
+	M8P5uG6PJun8R28epOEw5Y3NzJYkBGc9o295jGAaImU=; b=cxKKxmQgFR1yBhai
+	rRpv8IdII+TYkdgoCRUDyn01N/i4cndolm08quge1CqXUASsHlrMxuBr7U3dJqVm
+	YB9gaeNGlUlA1sYkKmDud6tZ9kNbTetV2a+h1gdujhU2fh21mzkHhHP/fv7aqX9Z
+	i3JSQY7ZNlrqTRnHVIEbRmifAmntLBknVKFuGTaZM9iR3NPrdXDhK3JLGdivkF4u
+	X74lW81Nui7Nmp3l6HI9y7Yly2vxDaWlInFzVusG4YUAEx28TrNKokpFcdxbbzcK
+	rCmKForCrZ0Cyguv2JvM7BfxJQbXWsLXTFV2f9ZCIav8aXnozPDp+i7PFmIVLwMd
+	/KpR0w==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43xfk3g1fc-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 12:27:54 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7b6ee03d7d9so83230285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 04:27:54 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 12:29:26 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4679d6f9587so34415581cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 04:29:26 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735907273; x=1736512073;
+        d=1e100.net; s=20230601; t=1735907366; x=1736512166;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QdbJ1dOWvgh+OgR4NwZE+j5YlKJamHg+xsDrOvj8Qik=;
-        b=CSQjMoliacD1NV1LvaWB/zyFT7QLdcqLcGoo7I//B9c3HfqpROgpe9A4qhone5vASG
-         vcFtiEF58baoWxry53m8mmRMEsmMcitSIKorRwv1EzMV8t+2DMWFSHEx1ZJB7sVbZjeK
-         6A1ITkae35O+giqQnPEtIDm2MeqRNr94r/NYPtMj4reQJpqZeNaDZYQdhcauklA1pBuA
-         ZiVboVpNwF+9p1zkyVP4fqyQOkQOh0kkhyw1LdWihK8oa7cnzK12EQsjuvtq0M8me1jg
-         oVwniAgoP2F1TNapLrg9IE89SpmxcT63BM+sSFgfH3pPv3iceuB0E6mbYOJxsBJeLK5M
-         PAgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVV3xm1kg7Mjji2VxA6AS6uQX1LDBMC+IT7dAoa2vJSE6oRkllMSxJh2I2/QazzyQjeSCtrHVWDF0z5ETFouCg/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYh50PzMBbJJQJBprkb3AIc/G6bYRYgvSWFeXh6KfpMvz0dtAP
-	WS+JlNxRzsmft02lEMs97RYz/vmOjpnVjUEsyRkCt6tdcTUkDMS1I9or6P81zNKcy5/PkM0273R
-	CuqhlVkR5jZdvS0YSy/B26NJNJQ9x+qiNMw2oH5Q4DLxehsfPxRXVHBQKQ1lqnblgvYX6+az2kw
+        bh=M8P5uG6PJun8R28epOEw5Y3NzJYkBGc9o295jGAaImU=;
+        b=JVXD6gmA5j+KWxWS8ZyGNEf/tfdQXyQVLZhVa/h1NBsRxc4dhISDbuyq2a9vHfOIYm
+         nPBSDjwmVk5WhvT+0/3BSRsQNWYt+qmvORsFrAzjAF02fiLPuzfqURfqxVpdIBJptjhZ
+         nZmuj4pdmrb0ZK93bvGpXK3epOU5/ZOzM524j10NptovRSoygm7UguZC4nKc204L7kWp
+         DbaBNq64ngCEvXpBkYwQoCuCAk5PR3rqM/ZQ6kNq6619IBIQi7QZbd1vUeTrJ99Uj7u2
+         7yMlCQCWzZCbc/eArw9zW2cMH3Au747yL8bPwbfWk02Hi5kpp2ooVR0DNy6mC898dBIp
+         3ipQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3MZDuWew7/sOd5mlbt1DmKYWxHt8k54doySk1Iz0QFnv9B2jFcCw8RTYS2iI0M+dqrvS4I/Sit+l5XsxlqYEF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg5rbaYkpCJ3O9bif/r5KxokLZ0fMlmCOiJoW+3l5yW1ta6Sg5
+	E9OeqBNrL6OolScinSfvKJVKT4egAbgV+fH+Jkr0vvXwd6aNfjg32OqJgk6LP2RFgZ8Jj1tJ4Mt
+	cRcQMzg8dDkwDVuoai9f71TheLct81Z/Cyyrb/FrsCMIyJgL1Oe7Uhpq+D/vJGxGdNdwQSsH0aw
 	==
-X-Gm-Gg: ASbGncu/cSdWjDT0LDJQerTel5/sm1V20qbpjeyORAUKukdp7fGxoBQcp4RQDavn1r+
-	VVYVIUZY97v4yFHuFOKy6amyD4kbWqIfxIpWGh/s4lHYxu3uBi0hP8ahn6GAPUX2SZlwcVH3KZP
-	045lLIMTckzLfQ17giAYWD767gBC+6Nrn3OYG08vMe3U2FLUuM9qOrN1VvhSIuFZZeYKDY0xytj
-	1mJiHRLFWA1TyfoLEeD4PZmNtkcUjf5lQVgaw/rCVXXP26ph33TqejIkP23NStZUzxScR+GTFl2
-	8qh3O+G5Q4UT2Yh6aFnf2hV/JBtlur4Q1b8=
-X-Received: by 2002:a05:6214:4007:b0:6da:dbf0:9645 with SMTP id 6a1803df08f44-6dd23317478mr274820766d6.3.1735907273052;
-        Fri, 03 Jan 2025 04:27:53 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH15Wpx7u9V/hOQ08GkSp0Y5O0301pekMRgSHOKCQeCdUs50MNnQM9AG6NcnIA0Lbk63M/OqQ==
-X-Received: by 2002:a05:6214:4007:b0:6da:dbf0:9645 with SMTP id 6a1803df08f44-6dd23317478mr274820606d6.3.1735907272677;
-        Fri, 03 Jan 2025 04:27:52 -0800 (PST)
+X-Gm-Gg: ASbGnctxAlzlhL87qbYw/7g3E3nhzrOrhtmcaMmiRTUpyz15i9c0NVd/4qAOey6Z+sh
+	aosVaGwYnOkdgshxeYEs94ByappHv5xcND+NhB4BfBUm6O6MTkXpiOSz0NQ7Ludcf/E3IH8Ttkf
+	8mD2gD347xWO60Y5luY0sj+MTrBK3AH8iG0cmc2BDP5tDBaHIWJEbVWL4g5i/kb8SrQURAbKq6J
+	tMkE/w3lcLH4MYAUEnF94cChF98RH5+KEaOWjkQVZ6JHPoFvW84x8K0vmG5buvrIXm5/B4R6LuU
+	as2Da2zRHCFPjPGPQtJi46n7PDtXi9WAb1c=
+X-Received: by 2002:ac8:5f4b:0:b0:464:9faf:664b with SMTP id d75a77b69052e-46a4a8b7f74mr283345281cf.2.1735907365710;
+        Fri, 03 Jan 2025 04:29:25 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHBd+GaPxhspkqPCI+ugt43bRmXkPYvV99w0sa5IQCFi9Om8iHkk3NOJSw1+HKaMtuKdDJdUA==
+X-Received: by 2002:ac8:5f4b:0:b0:464:9faf:664b with SMTP id d75a77b69052e-46a4a8b7f74mr283344581cf.2.1735907363816;
+        Fri, 03 Jan 2025 04:29:23 -0800 (PST)
 Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e898689sm1875427466b.78.2025.01.03.04.27.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e894b60sm1919353666b.68.2025.01.03.04.29.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jan 2025 04:27:52 -0800 (PST)
-Message-ID: <c94ce3c4-5b8f-4d7c-8acd-afab63306018@oss.qualcomm.com>
-Date: Fri, 3 Jan 2025 13:27:48 +0100
+        Fri, 03 Jan 2025 04:29:23 -0800 (PST)
+Message-ID: <a40f05c1-6897-46e0-a9e6-8f898e97b5e1@oss.qualcomm.com>
+Date: Fri, 3 Jan 2025 13:29:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 4/5] arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
+Subject: Re: [PATCH v8 2/5] clk: qcom: Add CMN PLL clock controller driver for
+ IPQ SoC
 To: Luo Jie <quic_luoj@quicinc.com>, Bjorn Andersson <andersson@kernel.org>,
         Michael Turquette <mturquette@baylibre.com>,
         Stephen Boyd
@@ -98,25 +99,25 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
         quic_linchen@quicinc.com, quic_leiwei@quicinc.com,
         bartosz.golaszewski@linaro.org, srinivas.kandagatla@linaro.org
 References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
- <20250103-qcom_ipq_cmnpll-v8-4-c89fb4d4849d@quicinc.com>
+ <20250103-qcom_ipq_cmnpll-v8-2-c89fb4d4849d@quicinc.com>
 Content-Language: en-US
 From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-4-c89fb4d4849d@quicinc.com>
+In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-2-c89fb4d4849d@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: BLKFTjA07-8JZOs5veJfo5t5-uZ94_Y7
-X-Proofpoint-ORIG-GUID: BLKFTjA07-8JZOs5veJfo5t5-uZ94_Y7
+X-Proofpoint-GUID: LsFJU5zKMnPHam9bPpVs3a5gRQoC3hLb
+X-Proofpoint-ORIG-GUID: LsFJU5zKMnPHam9bPpVs3a5gRQoC3hLb
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501 mlxscore=0
- suspectscore=0 clxscore=1015 mlxlogscore=999 impostorscore=0 phishscore=0
- spamscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501030110
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 phishscore=0
+ adultscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ suspectscore=0 malwarescore=0 mlxscore=0 clxscore=1015 bulkscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501030110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_042755_565397_3C04CB20 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20250103_042927_998716_FDE43C6D 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,26 +133,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 3.01.2025 8:31 AM, Luo Jie wrote:
-> The CMN PLL clock controller allows selection of an input clock rate
-> from a defined set of input clock rates. It in-turn supplies fixed
-> rate output clocks to the hardware blocks that provide the ethernet
-> functions such as PPE (Packet Process Engine) and connected switch or
-> PHY, and to GCC.
+> The CMN PLL clock controller supplies clocks to the hardware
+> blocks that together make up the Ethernet function on Qualcomm
+> IPQ SoCs and to GCC. The driver is initially supported for
+> IPQ9574 SoC.
 > 
-> The reference clock of CMN PLL is routed from XO to the CMN PLL through
-> the internal WiFi block.
-> .XO (48 MHZ or 96 MHZ)-->WiFi (multiplier/divider)-->48 MHZ to CMN PLL.
+> The CMN PLL clock controller expects a reference input clock
+> from the on-board Wi-Fi block acting as clock source. The input
+> reference clock needs to be configured to one of the supported
+> clock rates.
 > 
-> The reference input clock from WiFi to CMN PLL is fully controlled by
-> the bootstrap pins which select the XO frequency (48 MHZ or 96 MHZ).
-> Based on this frequency, the divider in the internal Wi-Fi block is
-> automatically configured by hardware (1 for 48 MHZ, 2 for 96 MHZ), to
-> ensure output clock to CMN PLL is 48 MHZ.
+> The controller supplies a number of fixed-rate output clocks.
+> For the IPQ9574, there is one output clock of 353 MHZ to PPE
+> (Packet Process Engine) hardware block, three 50 MHZ output
+> clocks and an additional 25 MHZ output clock supplied to the
+> connected Ethernet devices. The PLL also supplies a 24 MHZ
+> clock as XO and a 32 KHZ sleep clock to GCC, and one 31.25
+> MHZ clock to PCS.
 > 
 > Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 > ---
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Acked-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
 Konrad
 
