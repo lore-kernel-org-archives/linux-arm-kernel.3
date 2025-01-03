@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A8ACE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 05:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FFEE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 05:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUrhr336s+60zt23QDWZqcGTF0DZKHiNks6mhysqyVM=; b=zPNdUSKFW/yvevXkB2Zji4KXVx
-	wm/9brbncCrt4T4CNBs/+ZA3mFlO6d4YYqxkDBZyHsfP+hAy3JXb7pkKaGPtCBUakA4SqhVUFzd+T
-	i/tLDrrxBN2s0COJuI2OqTFkclR5ZXr7isLZdqITZXJP9Xv/hfJwBdrrHeGyWHqnT5Jq4IhYj1gsG
-	5Df8W0M3XPxiW7GZkBIE+6S/Gh7hUimJ0HnJmqTBNHovcu4WTgbbqw+TWWT3TPfhCe36jBnjB5OH/
-	pqwZDdMuLiM50sQImaURe2Ln5TfcGTxSBPt9X6PAYwaTAvQGIVZByzcUag0nwgNl/SSqlRKCkDUeP
-	fwhxGaMA==;
+	bh=MmN8unikKCAbDTYmOgv4w7VHd2QHTqvHtpUA+yq5Q+w=; b=rhIYKjyuQS6jc7BtmYvaK+m0sx
+	XGKU+v92xLPoMz8HL/keptLOK8v0+lwz7WtW5oThlrdZlX4mzXF8/4d/DXrUuqlAxvaWgn9P11JvL
+	792H5Uf5tutiKg40DUwJr2aN/1TqwatoggdcPkYlShQeEyb5JS1L9mRXdvhays/+1swC7u/B4s04j
+	iE0R3y7dtjXu9ayGNPDxGKww3q2XmSBwpH8DYcw2feq4mV+A+PH80q+tJfziIfQT2Ud9soTnKXySU
+	p1hoNpYvuZQm6uMfHHnCkjX/MD4MAloy+tjmm0m/GlePf8zg9evhEG+iuZOf3hm9qogxXZfySqTTj
+	hb2yxdvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTaKn-0000000C7VT-0qty;
-	Fri, 03 Jan 2025 05:34:57 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tTaNR-0000000C7qq-03gf;
+	Fri, 03 Jan 2025 05:37:41 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTaJd-0000000C7TC-0NSH
+	id 1tTaMB-0000000C7bn-42zI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 05:33:47 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5401bd6cdb7so12591331e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 21:33:43 -0800 (PST)
+	Fri, 03 Jan 2025 05:36:25 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-3022484d4e4so148911721fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 21:36:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735882422; x=1736487222; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1735882582; x=1736487382; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HUrhr336s+60zt23QDWZqcGTF0DZKHiNks6mhysqyVM=;
-        b=QIa+/P921eWGi1Dq+7khJhFrwCUrJcaXu8bbguqrER20iXCLcWIeJ2JTz5VT/1vsyA
-         tVzYNaVzy23LUWas1DZIwE56FBU3ekFeWnt8hrF8oJoLcd4TsCbps8T8YDN8nsqnd59/
-         emjPyGld80HyxvCNrS+lmvJJ1Bv0S8zPvVPBh4toZMnJkB+MTd79F06D7ziRFQhHajNN
-         VFXmO51JKYmvY4H8Rw6QHyjfPEiWPi6Y81w9LMhN881jwpGZaeeiOw8AudrfetJjNM/A
-         jorXZJJKBpzDeMf2YYN7394B1BU5JowCJqgxG+IDEDUMSP/KyYS/gm0+KTBxGtRPZM/f
-         TKpQ==
+        bh=MmN8unikKCAbDTYmOgv4w7VHd2QHTqvHtpUA+yq5Q+w=;
+        b=o+TmFju5mgkSwEGzNs/d+FqGhsdOvX5x0Dk4lk2ouxtF5hIH19z6up12jCE8p1KiE4
+         yLUJXwTTkAmE961hKKLRXPpzqhSTYYQ6g0TRvkHrwXt8QENIovRdwO+uB1ZW4PuEMUuh
+         ouiSuSCVUEoVhqopG54OwkxusDugn77VtX2BsmDb5Lpfl/8zikBCoO2eVa0jyBc+ATKf
+         LJ7g9AF6dzRxl9Q7JvROeTHoisiOILO4IbRlWMCf4bSz0kfmMrEq9BlyLPO3/2ODGi5M
+         CL/wAuMVzan2bUzbXrlyMq1HfIhD/VrrOUgXnBpnZ3F+5uDWvD66Lr9ITTU3E0Yig5gF
+         Aj7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735882422; x=1736487222;
+        d=1e100.net; s=20230601; t=1735882582; x=1736487382;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HUrhr336s+60zt23QDWZqcGTF0DZKHiNks6mhysqyVM=;
-        b=iWzyUIEmdkdB/cDnYXgtMx3vO697lQfbZspeDA6ncCfAZd7FxFk9JXDk7juNf/h0gr
-         TIEyw/4dvXYkrRYJucLes5GLJ+ZKFUXiCUFWpd8eyX+NR8dkNEf3LZdplJ6bNXruS+AU
-         tXPale6uG3GbuWx6gUDnLnZbHshIKRGasupsJrj7wnB2cVRfMq6pdGCSep/83XJVOGrs
-         zdKkZEVdL6UEFRUbrK7Xm4qWSiDr7L7pwYHmZA618xD4TwJiwuqrGMvNN2J4fY1qFJ+V
-         ZcsNQ8kxaPpCoGSaZbb1sf1skTOWtM2BUBYsCIOHr+DFMzEZZhdvTU9Ja4+sb4liu0Td
-         cfUw==
-X-Forwarded-Encrypted: i=1; AJvYcCUn7VQ5sCFjuOdv4XA3Y3xVrVhc0Fz39RvmuI481Vc8b60WcvYkeueLKTgc+2WRP7msHpQ7z60RHyukzVM0DQsf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkFYNcAPfihvjR38KCJecS6gmvdKEpps8WTQVyKsIThBbQ6fYP
-	MqBoRTCDJFJ7xxr98ZDf+F0jCq7xDhkZ6j1xI8xD3vjRIoMXzhai2iC7ju79c1M=
-X-Gm-Gg: ASbGnct3R7blwCxNNPa0dG3oUAmOCfADZ14st2zHLDiyeQk4SnIk8TQ6GQ6BNOXzULf
-	MRYhw+OUugKwb3lh7cqBk0Sr17MWl0zgKO5wxUzifUioadrni+et4WOX+RkZ1FXYvhGPt+b6+fF
-	5ddKuX3UHNO1HfzJI9ouK4n5/kz6xyKV08vIs5uG/I7Xdg9OqLm6oae1xKbynbiUBDXVX/XVEbn
-	1rIeRhp6rGcVf9e1FtRBxJ5tzFa93Pe9lHEUBTp5/qQM7Ap6fYQqumHB7Sf6Bv5ow4crlmJ77gn
-	OdogRUvvx8yCcutcWgb60PMFLkfnbDvi/5Oc
-X-Google-Smtp-Source: AGHT+IEsLjhbu2jSaiZPN8bLQCUM6NVU655VzJ0kcFZvInsNgvUMyCwvCcQ0/H8BekM4Tf47nmpS8w==
-X-Received: by 2002:a05:6512:118e:b0:540:22e0:1f80 with SMTP id 2adb3069b0e04-54229530295mr13502516e87.20.1735882422120;
-        Thu, 02 Jan 2025 21:33:42 -0800 (PST)
+        bh=MmN8unikKCAbDTYmOgv4w7VHd2QHTqvHtpUA+yq5Q+w=;
+        b=L4OsSfiTpJOU/gY9OLLOopTtjeBX8pIryx1Xf9vYxW3QeR9W5J3Y/id5jKA0z1k91k
+         lJPFeumHCl6JY96qw/sF4nGUlcj5PR7kqIuyIb8wnilLPqsL1ZhxP8cYTjUFzsKSAVX5
+         Qz+xtAG0VP1lfFG42XwQmFBrtrtWI+0UIVzCBjpZ98s4dzPskm0VktI0zS3K8qGk6Ml/
+         46naH/b7uC3WY+8tdtzD7655CWaFPjlWDguiGjp16gMOCy5L4aIPjgBO/bKmN9r60Onl
+         Naws8yAI63xIPhg3unVMicuaNhx/ZDZVAvIoaaKuu/AqdWqdTRMEDnSPGAO30vObw4jd
+         CHLw==
+X-Forwarded-Encrypted: i=1; AJvYcCWsklKhr+/ZCovL8iprLF3Yo3TiRWUOcOZKdHBSJNB8NoqlKB2enNrwqCZhM+nLjF6XntWq033nX83aLiEhSldc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKLKV3P/yRif4ZIcBkmsKrzmfHbQD81cf7bYGjpwoKhYsbyHsR
+	b4mz63Q59raAPQzoKCy2MzrwDXFT+k1++JpJOcjLFCeEASTTeviphe70QaejfQg=
+X-Gm-Gg: ASbGncuyWdZBt6F3EkDLszpCmX69H5lDYuZle2RsQecYnujTFbvjsLOnDvHaV7sVkq3
+	bw1r0IizPo0miDETo/2HFUapPsTTn9kfEav8/fjQOwrqKUnDK9AnAbIaEVvtB4efJWt+8hJNwch
+	9nE2MGiWv/CIk/l2n3cUPDN6aob7LLPsqBME/+uzncp7XuYYsyeTd2yrPCS8KEE2urD8lrX0x5p
+	ErYNF8iGINx5FGoY0khTbX2WHKuHJO+KIubRsCqr7l76mgbyi+YGzvNYXyyrGx8YRVxJHsHprlo
+	gZl0n7etYelSc+J2QeWd7PO5j3oczosYbP8F
+X-Google-Smtp-Source: AGHT+IE6OID3IdhzMP3XEYNXHpLMaRxF1DCc2ymnBRQhO5cl+gFLOI6zrATEO677AB0hiGN2d3yNug==
+X-Received: by 2002:a05:651c:2114:b0:300:38ff:f8cd with SMTP id 38308e7fff4ca-30468543d63mr161870081fa.9.1735882582025;
+        Thu, 02 Jan 2025 21:36:22 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54223813595sm4103333e87.136.2025.01.02.21.33.40
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3045ad99d6dsm47284711fa.28.2025.01.02.21.36.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 21:33:41 -0800 (PST)
-Date: Fri, 3 Jan 2025 07:33:38 +0200
+        Thu, 02 Jan 2025 21:36:20 -0800 (PST)
+Date: Fri, 3 Jan 2025 07:36:18 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>, 
-	dri-devel@lists.freedesktop.org, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Robert Foss <rfoss@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, Stefan Agner <stefan@agner.ch>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] drm: bridge: dw_hdmi: Add flag to indicate output
- port is optional
-Message-ID: <zijtpn55edeeepzfqiv6d5xv3vyaircloeaa2pbauwlxow7h3a@a5v6p37o3ppq>
+To: Marek Vasut <marex@denx.de>
+Cc: dri-devel@lists.freedesktop.org, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
+	Fabio Estevam <festevam@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Liu Ying <victor.liu@nxp.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 3/4] drm/lcdif: add DRM_BRIDGE_ATTACH_NO_CONNECTOR
+ flag to drm_bridge_attach
+Message-ID: <a62utyd6bjhx33ru2aaxwiesexcltbgdcvhgd57c5uyl3htuoa@2kdgodqrqabu>
 References: <20241231192925.97614-1-marex@denx.de>
- <20241231203136.GD31768@pendragon.ideasonboard.com>
- <88778e2b-8c43-46a1-bb79-0d9c968a5233@denx.de>
- <20250101223620.GA7206@pendragon.ideasonboard.com>
- <ac4kkjv2nmziu6pd6vkuxbllhkqaueu32snfetpemtu2l5s6ud@cvystps3734o>
- <20250102083038.GB14307@pendragon.ideasonboard.com>
+ <20241231192925.97614-3-marex@denx.de>
+ <u4hjoteybchte2fdmxle5rsu5jbohm7hjjoejrxiqa6lszqm56@6facok3v55kg>
+ <2f2bdcb1-6d83-4939-9dd0-3fb206202273@denx.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250102083038.GB14307@pendragon.ideasonboard.com>
+In-Reply-To: <2f2bdcb1-6d83-4939-9dd0-3fb206202273@denx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_213345_954774_5D63D686 
-X-CRM114-Status: GOOD (  44.02  )
+X-CRM114-CacheID: sfid-20250102_213624_020576_606981FF 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +108,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 10:30:38AM +0200, Laurent Pinchart wrote:
-> On Thu, Jan 02, 2025 at 05:26:50AM +0200, Dmitry Baryshkov wrote:
-> > On Thu, Jan 02, 2025 at 12:36:20AM +0200, Laurent Pinchart wrote:
-> > > On Tue, Dec 31, 2024 at 10:10:51PM +0100, Marek Vasut wrote:
-> > > > On 12/31/24 9:31 PM, Laurent Pinchart wrote:
-> > > > > Hi Marek,
-> > > > 
-> > > > Hi,
-> > > > 
-> > > > > Thank you for the patch.
-> > > > > 
-> > > > > On Tue, Dec 31, 2024 at 08:28:48PM +0100, Marek Vasut wrote:
-> > > > >> Add a flag meant purely to work around broken i.MX8MP DTs which enable
-> > > > >> HDMI but do not contain the HDMI connector node. This flag allows such
-> > > > >> DTs to work by creating the connector in the HDMI bridge driver. Do not
-> > > > >> use this flag, do not proliferate this flag, please fix your DTs.
-> > > > > 
-> > > > > What's the rationale for this, what prevents fixing DT instead of using
-> > > > > this flag ? Adding such a flag will most likely open the door to
-> > > > > proliferation.
-> > > > 
-> > > > See the V2 series discussion, there are a few in-tree DTs which do not 
-> > > > have the HDMI connector node. The rationale is there might be more and 
-> > > > they might come from vendors, so this flag is necessary to work around 
-> > > > those DTs.
-> > > >
-> > > > > If you can't fix the DT on particular boards, patching it could be an
-> > > > > option. We had a similar problem on Renesas boards, which we fixed with
-> > > > > a DT overlay, see commit 81c0e3dd82927064 ("drm: rcar-du: Fix legacy DT
-> > > > > to create LVDS encoder nodes"). This made the workaround self-contained,
-> > > > > and allowed dropping it several kernel versions later (in commit
-> > > > > 841281fe52a769fe, "drm: rcar-du: Drop LVDS device tree backward
-> > > > > compatibility").
-> > > >
-> > > > Frankly, I would much rather fix the few in-tree DTs and mandate the 
-> > > > HDMI connector node in DT, which would keep the code simple, rather than 
-> > > > maintain a backward compatibility workaround for problem which might not 
-> > > > even exist.
-> > > 
-> > > The in-tree device tree sources should be converted as part of the
-> > > series, I don't see a point trying to maintain backward compatibility
-> > > for in-tree DT sources.
+On Fri, Jan 03, 2025 at 12:20:19AM +0100, Marek Vasut wrote:
+> On 1/2/25 6:58 PM, Dmitry Baryshkov wrote:
+> 
+> [...]
+> 
+> > > @@ -97,13 +100,36 @@ static int lcdif_attach_bridge(struct lcdif_drm_private *lcdif)
+> > >   			return ret;
+> > >   		}
+> > > -		ret = drm_bridge_attach(encoder, bridge, NULL, 0);
+> > > +		ret = drm_bridge_attach(encoder, bridge, NULL,
+> > > +					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> > >   		if (ret) {
+> > >   			of_node_put(ep);
+> > >   			return dev_err_probe(dev, ret,
+> > >   					     "Failed to attach bridge for endpoint%u\n",
+> > >   					     of_ep.id);
+> > >   		}
+> > > +
+> > > +		nextbridge = drm_bridge_get_next_bridge(bridge);
+> > > +		nextbridge = drm_bridge_get_next_bridge(nextbridge);
+> > > +		/* Test if connector node in DT, if not, it was created already */
 > > 
-> > DT is an ABI. We are supposed to keep backwards compatibility with
-> > existing device trees (at least for a while). I'm adding DT list and
-> > maintainers to be able to provide comments on this topic.
+> > By whom? And why?
 > 
-> Backward compatibility is about supporting old DT binaries with a newer
-> kernel. There's no need to support old DT bindings in in-kernel DT
-> sources. By definition, if someone compiles a DT from a newer kernel and
-> installs it along with the newer kernel, there's no "backward"
-> direction.
+> By the HDMI bridge driver, see 1/4.
+> 
+> > There is no display-connector bridge, but there is a
+> > normal bridge chain, you have passed DRM_BRIDGE_ATTACH_NO_CONNECTOR, so
+> > now it's a proper time to create drm_bridge_connector. You have added
+> > the next_bridge_optional flag, but it should just prevent the dw driver
+> > from returning the error if there is no next_bridge.
+> So what exactly should I do here ?
+> 
+> If dw_hdmi_parse_dt() only exits with 0 if there is no connector node in DT,
+> I don't get any output on the HDMI. I have to create a connector in the HDMI
+> bridge driver instead and not here, right ?
 
-Hmm, nobody is asking to provide compatibility with old DT bindings.
-However supporting DTs with no extra "display-connector" bridge after
-the DW bridge is exactly "supporting old DT binaries" in my opinion.
+No. Please make dw_hdmi_parse_dt() return 0 if there is no connector and
+the flag is set. Then create drm_bridge_connector here.
 
-> The backward compatibility requirements aim at ensuring no breakage when
-> upgrading the kernel without upgrading the device tree. As I mentioned,
-> there is no regression if nobody is affected in the first place. Proving
-> there is no affected DT in the wild is difficult though.
-> 
-> > > For out-of-tree sources it depends on how likely the problem is. There's
-> > > no regression if nobody is affected. I personally like restricting
-> > > backward compatibility to the strict minimum, to ensure that all new DTs
-> > > will use proper bindings. Making the backward compatibility code
-> > > self-contained helps there, and we could also print a loud warning
-> > > (WARN_ON() seems appropriate) and set a date for the removal of the
-> > > workaround.
-> 
-> -- 
-> Regards,
-> 
-> Laurent Pinchart
 
 -- 
 With best wishes
