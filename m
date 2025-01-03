@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C2EE77197
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3583FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UjZolz5E/NeRAD/hPdz8QuR6mdLUg8da+IaKtziAes=; b=LcCnjs2ZipbONalW8RgS8ufrNq
-	nEv4vxMZvZ2w/GwNwknpBnxPtTmgQKcuqW+g6ydaYNgOJ8DnLCAjgMy5RUogVOTxgAaZZawTgfsjR
-	VCVgpSYFFjFXe8qUIV/9FM8iLJ6obKLvVlIrjYpDRZIhF454qoPK8bcPEDjWYiyQ4LP8jYjOFZMVU
-	QL6C6T4mB4iQyO8hss3hR1o4rHEndgy/x3No/6IEV24JE0L1pZT2Pxqb8pgE13tTT/KLHk89GzBaj
-	2NG7TINDYQ2VRQTr/WKEzMBD+vmYFDtOtDZEypt8y2pY9DQMz4Edguo6KIUsFyBQ3I9RoMUZLxPU5
-	mdgqAHEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ewbHrVJb9Ycv+srj59tL5L59NUV9UYUz2yYmi944kq8=; b=2TKoe42S7eb2pDzCGj1YjBJcZ9
+	Y65AihH5vrRs0I0JYLYA52U4rNv9aa2DV89Qw6Lz5bhAqUOLAk1ssCJ4eMtONo6CEEwXzaHo6otRl
+	eBjF54oPeVk/CWjBVV3lP6Np2UCYbfuRqefel3Exagv2rMw1wmUdm+WbgfU59COtW3tTuNrwbNFWK
+	Nk3mwHF6fmyWp9Eu/IWHvUYskKDjwbSnnQO/v8L2oRB41umq+u1qbQQZ2F+zre++TQTd3zVgr8q3+
+	Q9E5N0Z8M2/iVFeIvnfy25XZwsO98dl6RnWQX6f+RGLMn0uFqTLLPJr8Af2gsRNdkMhgxag03RdL9
+	/BAO3PIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTX5h-0000000BtHJ-0hj8;
-	Fri, 03 Jan 2025 02:07:09 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tTXct-0000000Bwo7-0goD;
+	Fri, 03 Jan 2025 02:41:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTX3Q-0000000Bssd-3pzl
+	id 1tTXbj-0000000Bwgh-1PD0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 02:04:50 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-21631cbf87dso143788735ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 18:04:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1735869887; x=1736474687; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4UjZolz5E/NeRAD/hPdz8QuR6mdLUg8da+IaKtziAes=;
-        b=muyLex0FEF3J44w5Voh0f4xO237bjkHPOU7bToNo38cN9LeAwJdD+0XiBctc0pFkxR
-         1+JlNYxXd0o8V0XB/SLwTK4gTGHcFaRSrK+cSBTTkanoR8EpvYdS01usZYrz1lUZ/pUx
-         lxJ1I5Tfen7YtxcZS6HV/OyZETFshEC5ukEvWHAf3vTWaM8Ts/rbANUFutugrOZ1lkIn
-         YZQ8eiJpdpc2IvKjGFwnAvlWiLd9uII+V2KF4KVi9ZtpoYcRaNDTt/P9tAz/BhNGNf3P
-         zHkBvbwcKozMxsiLPIqYyjggrZ5n1GjB1pDrlt8OKZ30G7AMUY/Cjekri92z76bbE6NU
-         Y2Cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735869887; x=1736474687;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4UjZolz5E/NeRAD/hPdz8QuR6mdLUg8da+IaKtziAes=;
-        b=tNSYGJ+PhEI5x57iBNemecggfMlgajnppobBLF1OOJcztJQTp1HQY4Ca1lrXPvEEc4
-         ne/0O75MD3suLlFbvUL7pwb9rS0RBK+KaA8aDYxXg4mCJU1s6XynO8n+mOnzv/V2MCpx
-         6RXbhYwY7PxtPyL8buJ8K5vuAVONq3EDHAjA+RRQmTzGjcM/LLU2cNpfLdrwyojK8+W2
-         tp/KizqUbJqBqOtX8q7XleRPwT37okT9TmFv7GZckWoX+k27DbH1xA8ZUkBigokqDHLW
-         8dwqPf42wXN25HoxCXoqKjd3h+Yl0jl6mbzMHq4eF/6vQTk8l2XgHRX9gArRrlpNv4el
-         KiHw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1KDDDMciQD0oPaPdsbYIjxnJ/8k1V04+VLn8oivG3PidNLKt/VSX+enZrzyEQ2Cnvw+FuGMsPcdgEuzBRCh7I@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOYIlLtbsvwGFF2ibyXbXebkLysThTzF9x594aQM5gKg3kiGLV
-	TBDcJI+0ZzjaGknjlqAtqf7i8cox9FBk/Houaq4ur4v3iKmTMUphBZE/oRt0cqkki7obtBQBT3b
-	3FJdjK/0nlQ==
-X-Google-Smtp-Source: AGHT+IFn9sa16Ybx9bMnT3j8/6v7ZyNcSwDP48OOodsufyBW3mKo0tvoS5jljQA1jigXnWx+/SHMhWvEv0+uPw==
-X-Received: from pfbc2.prod.google.com ([2002:a05:6a00:ad02:b0:725:eeaa:65e2])
- (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a21:7896:b0:1e0:d9a0:4ff7 with SMTP id adf61e73a8af0-1e5e08011d6mr82625682637.32.1735869887482;
- Thu, 02 Jan 2025 18:04:47 -0800 (PST)
-Date: Fri,  3 Jan 2025 02:04:18 +0000
-In-Reply-To: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-Mime-Version: 1.0
-References: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <9ad3034a62361d91a99af24efa03f48c4c9e13ea.1735868489.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v2 3/3] bpf, arm64: Emit A64_{ADD,SUB}_I when
- possible in emit_{lse,ll_sc}_atomic()
-From: Peilin Ye <yepeilin@google.com>
-To: bpf@vger.kernel.org
-Cc: Peilin Ye <yepeilin@google.com>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Josh Don <joshdon@google.com>, 
-	Barret Rhoden <brho@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 03 Jan 2025 02:40:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E0CC5C542B;
+	Fri,  3 Jan 2025 02:39:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53661C4CEDD;
+	Fri,  3 Jan 2025 02:40:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735872013;
+	bh=1AsWfbNlCFqQvnlvtsPVgikvB2lUrOXRFL1YevhcMMU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=VfqpTpl52QaJnDjBIN5um7S7uyLHmJb5+j7M1m8QAzcoxZXmswSSq84GKmN0cBaP+
+	 60J6UjSOP+NvkxqzihFtakqs/RT5wNtzoIJ+nOeH0/HjEOaa1K+uPXNdjtl+AJxz7S
+	 7LIeCiJr8ovcowX7pDwi+GASl+R7tcSggKZ9GmxzUVb3zcJ3OPt+xZwq+L6Noa/CwM
+	 86KYotsciFyBGuE2YofuGrU2C4BtV61I43zjO+EBXgXVIx7uReLGhZ1SJHLHkXXGUt
+	 anlOvqUbIzaPHcpFAqg7optk2U2zzT8rKaJvlOsT1P+HDIVqNkcOeIaLYJ0S7LSuKD
+	 7/VRy+Ld5uEfA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADF6380A964;
+	Fri,  3 Jan 2025 02:40:34 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2] net: dwmac-imx: add imx93 clock input support in RMII mode
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173587203350.2088679.877800854993230996.git-patchwork-notify@kernel.org>
+Date: Fri, 03 Jan 2025 02:40:33 +0000
+References: <20241227095923.4414-1-othacehe@gnu.org>
+In-Reply-To: <20241227095923.4414-1-othacehe@gnu.org>
+To: Mathieu Othacehe <othacehe@gnu.org>
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_180448_965680_5DA5356B 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250102_184015_428199_5F78F571 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,67 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently in emit_{lse,ll_sc}_atomic(), if there is an offset, we add it
-to the base address by doing e.g.:
+Hello:
 
-  if (off) {
-          emit_a64_mov_i(1, tmp, off, ctx);
-          emit(A64_ADD(1, tmp, tmp, dst), ctx);
-  ...
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-As pointed out by Xu, we can use emit_a64_add_i() (added in the previous
-patch) instead, which tries to combine the above into a single A64_ADD_I
-or A64_SUB_I when possible.
+On Fri, 27 Dec 2024 10:59:22 +0100 you wrote:
+> If the rmii_refclk_ext boolean is set, configure the ENET QOS TX_CLK pin
+> direction to input. Otherwise, it defaults to output.
+> 
+> That mirrors what is already happening for the imx8mp in the
+> imx8mp_set_intf_mode function.
+> 
+> Signed-off-by: Mathieu Othacehe <othacehe@gnu.org>
+> 
+> [...]
 
-Suggested-by: Xu Kuohai <xukuohai@huaweicloud.com>
-Signed-off-by: Peilin Ye <yepeilin@google.com>
----
-change in v2:
-  * move the logic into a helper (added in v2 2/3) and use it (Xu)
+Here is the summary with links:
+  - [v2] net: dwmac-imx: add imx93 clock input support in RMII mode
+    https://git.kernel.org/netdev/net-next/c/94c16fd4df90
 
-v1: https://lore.kernel.org/bpf/953c7241e82496cb7a8b5a8724028ad646cd0896.1735342016.git.yepeilin@google.com/
-
- arch/arm64/net/bpf_jit_comp.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 8ee9528d8795..8446848edddb 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -662,8 +662,7 @@ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	u8 reg = dst;
- 
- 	if (off) {
--		emit_a64_mov_i(1, tmp, off, ctx);
--		emit(A64_ADD(1, tmp, tmp, dst), ctx);
-+		emit_a64_add_i(1, tmp, reg, tmp, off, ctx);
- 		reg = tmp;
- 	}
- 	if (arena) {
-@@ -734,7 +733,7 @@ static int emit_ll_sc_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	const s32 imm = insn->imm;
- 	const s16 off = insn->off;
- 	const bool isdw = BPF_SIZE(code) == BPF_DW;
--	u8 reg;
-+	u8 reg = dst;
- 	s32 jmp_offset;
- 
- 	if (BPF_MODE(code) == BPF_PROBE_ATOMIC) {
-@@ -743,11 +742,8 @@ static int emit_ll_sc_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 		return -EINVAL;
- 	}
- 
--	if (!off) {
--		reg = dst;
--	} else {
--		emit_a64_mov_i(1, tmp, off, ctx);
--		emit(A64_ADD(1, tmp, tmp, dst), ctx);
-+	if (off) {
-+		emit_a64_add_i(1, tmp, reg, tmp, off, ctx);
- 		reg = tmp;
- 	}
- 
+You are awesome, thank you!
 -- 
-2.47.1.613.gc27f4b7a9f-goog
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
