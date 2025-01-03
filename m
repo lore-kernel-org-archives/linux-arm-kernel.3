@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583C9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25D5E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 18:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSoOMdn+/GfqJnDjyLF0mh7cPRiC2LKGG844rQUUfqE=; b=MCffHmtIN2QZMN5ZASQo0kFvbV
-	snjdQmPGn5QPYxFGwtwWne0W/KBUUVGGpEvNY19DhjXS9XdZre12mzXnLHhKRKUW7T8bexMyJjNhG
-	Hc7YZmGN/+36NSHy1E2XazoHXYS4TP/n7n/thFEUzLdN/D65ZwaKxWP470mep2CmwT6Kf/z+8dr9P
-	4K14pLfTwMM8aTAA2Bulkdx3OLWpKUHQlaVZMer3/ImjrhwAhTWfmwbN3vVladtaGarFygQDQo7o8
-	RVaPVOJwG+1+Dn1sgXc4J5VUWZkH3x875b1yannjvPRi9uPUV+qJ2GGx6e61bXZOklMltWlJ7SmgM
-	6LtusIPw==;
+	bh=/ZOoCqxUOeXyIAoNGnuNc/b+IIwNReB87jcTC0KeBzY=; b=YIvwwFnYZrXAR0mqMFEIKFdTnm
+	zWrQHdkXuq8M9KpEOQmmSCp5Sy2hZzIAx1E3c1k4CA4h5ufMWZHAhss060ljqGjyHOXhPO/vCrow6
+	Pihw8F9q5LhHeNeq6QDXr6PfV9G8oUs03D3IZDTv0Mvm4lZI+bBMiSu+qx1/wbu+VPGDacCnXHVHE
+	HodAFliEiTlKAmf0OwqkzVN5m0hqRgggJzU1iLuMl8a/hTYh2kRhgurizC4HYlDWj2e1lJElpuXup
+	ITXyAb5ezsIB7+pIL8fUKvyMwwmPd+Ly323IbsPj6grpPhYGNnprrqrhZhmBYLok9TLRRiX7BnWiE
+	4LsWl3mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmhH-0000000DkGW-10wK;
-	Fri, 03 Jan 2025 18:46:59 +0000
+	id 1tTmiR-0000000DkY0-0580;
+	Fri, 03 Jan 2025 18:48:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmew-0000000DjJ1-00LC;
-	Fri, 03 Jan 2025 18:44:36 +0000
+	id 1tTmf0-0000000DjNb-1jzB;
+	Fri, 03 Jan 2025 18:44:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A16E7150C;
-	Fri,  3 Jan 2025 10:45:01 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED50C1C14;
+	Fri,  3 Jan 2025 10:45:05 -0800 (PST)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B3F53F673;
-	Fri,  3 Jan 2025 10:44:29 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7C5C3F673;
+	Fri,  3 Jan 2025 10:44:33 -0800 (PST)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
@@ -63,18 +63,17 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
 	linux-um@lists.infradead.org,
 	loongarch@lists.linux.dev,
 	x86@kernel.org
-Subject: [PATCH v2 1/6] mm: Move common part of pagetable_*_ctor to helper
-Date: Fri,  3 Jan 2025 18:44:10 +0000
-Message-ID: <20250103184415.2744423-2-kevin.brodsky@arm.com>
+Subject: [PATCH v2 2/6] parisc: mm: Ensure pagetable_pmd_[cd]tor are called
+Date: Fri,  3 Jan 2025 18:44:11 +0000
+Message-ID: <20250103184415.2744423-3-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250103184415.2744423-1-kevin.brodsky@arm.com>
 References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_104434_141861_CD456650 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_104438_493326_D4B5A914 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +88,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pagetable_*_ctor all have the same basic implementation. Move the
-common part to a helper to reduce duplication.
+The implementation of pmd_{alloc_one,free} on parisc requires a
+non-zero allocation order, but is completely standard aside from
+that. Let's reuse the generic implementation of pmd_alloc_one().
+Explicit zeroing is not needed as GFP_PGTABLE_KERNEL includes
+__GFP_ZERO. The generic pmd_free() can handle higher allocation
+orders so we don't need to define our own.
+
+These changes ensure that pagetable_pmd_[cd]tor are called,
+improving the accounting of page table pages.
 
 Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/mm.h | 28 ++++++++++++----------------
- 1 file changed, 12 insertions(+), 16 deletions(-)
+ arch/parisc/include/asm/pgalloc.h | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 1a11f9df5c2d..065fa9449d03 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3076,6 +3076,14 @@ static inline bool ptlock_init(struct ptdesc *ptdesc) { return true; }
- static inline void ptlock_free(struct ptdesc *ptdesc) {}
- #endif /* defined(CONFIG_SPLIT_PTE_PTLOCKS) */
+diff --git a/arch/parisc/include/asm/pgalloc.h b/arch/parisc/include/asm/pgalloc.h
+index e3e142b1c5c5..3e8dbd79670b 100644
+--- a/arch/parisc/include/asm/pgalloc.h
++++ b/arch/parisc/include/asm/pgalloc.h
+@@ -11,7 +11,6 @@
+ #include <asm/cache.h>
  
-+static inline void __pagetable_ctor(struct ptdesc *ptdesc)
-+{
-+	struct folio *folio = ptdesc_folio(ptdesc);
-+
-+	__folio_set_pgtable(folio);
-+	lruvec_stat_add_folio(folio, NR_PAGETABLE);
-+}
-+
- static inline void pagetable_dtor(struct ptdesc *ptdesc)
- {
- 	struct folio *folio = ptdesc_folio(ptdesc);
-@@ -3093,12 +3101,9 @@ static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+ #define __HAVE_ARCH_PMD_ALLOC_ONE
+-#define __HAVE_ARCH_PMD_FREE
+ #define __HAVE_ARCH_PGD_FREE
+ #include <asm-generic/pgalloc.h>
  
- static inline bool pagetable_pte_ctor(struct ptdesc *ptdesc)
+@@ -46,17 +45,19 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
+ 
+ static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long address)
  {
--	struct folio *folio = ptdesc_folio(ptdesc);
+-	pmd_t *pmd;
++	struct ptdesc *ptdesc;
++	gfp_t gfp = GFP_PGTABLE_USER;
+ 
+-	pmd = (pmd_t *)__get_free_pages(GFP_PGTABLE_KERNEL, PMD_TABLE_ORDER);
+-	if (likely(pmd))
+-		memset ((void *)pmd, 0, PAGE_SIZE << PMD_TABLE_ORDER);
+-	return pmd;
+-}
 -
- 	if (!ptlock_init(ptdesc))
- 		return false;
--	__folio_set_pgtable(folio);
--	lruvec_stat_add_folio(folio, NR_PAGETABLE);
-+	__pagetable_ctor(ptdesc);
- 	return true;
+-static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
+-{
+-	free_pages((unsigned long)pmd, PMD_TABLE_ORDER);
++	if (mm == &init_mm)
++		gfp = GFP_PGTABLE_KERNEL;
++	ptdesc = pagetable_alloc(gfp, PMD_TABLE_ORDER);
++	if (!ptdesc)
++		return NULL;
++	if (!pagetable_pmd_ctor(ptdesc)) {
++		pagetable_free(ptdesc);
++		return NULL;
++	}
++	return ptdesc_address(ptdesc);
  }
+ #endif
  
-@@ -3202,13 +3207,10 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
- 
- static inline bool pagetable_pmd_ctor(struct ptdesc *ptdesc)
- {
--	struct folio *folio = ptdesc_folio(ptdesc);
--
- 	if (!pmd_ptlock_init(ptdesc))
- 		return false;
--	__folio_set_pgtable(folio);
- 	ptdesc_pmd_pts_init(ptdesc);
--	lruvec_stat_add_folio(folio, NR_PAGETABLE);
-+	__pagetable_ctor(ptdesc);
- 	return true;
- }
- 
-@@ -3233,18 +3235,12 @@ static inline spinlock_t *pud_lock(struct mm_struct *mm, pud_t *pud)
- 
- static inline void pagetable_pud_ctor(struct ptdesc *ptdesc)
- {
--	struct folio *folio = ptdesc_folio(ptdesc);
--
--	__folio_set_pgtable(folio);
--	lruvec_stat_add_folio(folio, NR_PAGETABLE);
-+	__pagetable_ctor(ptdesc);
- }
- 
- static inline void pagetable_p4d_ctor(struct ptdesc *ptdesc)
- {
--	struct folio *folio = ptdesc_folio(ptdesc);
--
--	__folio_set_pgtable(folio);
--	lruvec_stat_add_folio(folio, NR_PAGETABLE);
-+	__pagetable_ctor(ptdesc);
- }
- 
- extern void __init pagecache_init(void);
 -- 
 2.47.0
 
