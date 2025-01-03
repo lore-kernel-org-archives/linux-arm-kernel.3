@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961A8E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 08:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E1AE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 08:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OeHPFYsSusQTMTpEoomDP6spK4mL3gkKfUc71lXwpM=; b=qWmgJk5Yesjn+cI0FjkAB9qBLJ
-	ctON/cch1rZJmCESs7jEanQLfRTOZGYbAmGX3t5kKNclBlkJ39SEDGXJJdZcHkzBsTo4woek+IzAE
-	qApqqvZajrxFle445vJ7MtdrxAvsEf7Kfjeqwg9mIHLOXLb7NVQKbeAgG6ef8NKHskM+rSrDlOYs5
-	gMTQX7y21s2m9cehQQRUMR2oS0ZX8gdwqUP8TBs1GRGBN3SIsi8nfoR02YLQ2PUY0x6qc9HIxqnmr
-	Pmlzc/ocxtnhu9QLsmiomLrUvPqTR5JdzSGX+uhTv5VbvgbVTabvxsy71gLxh5rCX8OdrKSZ0+AwH
-	87/CFvBQ==;
+	bh=nulp+DBrGyhcYAOoB4gw65w2RJN5mI1WuV63ugFekQw=; b=ONMZ1tMKzU0ywl50PMNeQ9leaW
+	0XLSBoIOPp9vpMFPB4Mi3vAw3WORC8nUxk/jLuNUZ6bTuUBdC+ocImte88a8UHulKx+PLpyw7qTig
+	/VHbYqy/QuHUtJ+Q6G+VzkDQrOuZSKKadzF3XtsfoIWlP7caw3ZQnO3mcnblKHe1UI1Y1SnaPVrfP
+	zv+lAJCNmJs046C+nA7JDjDOJ/Py78uvbbILA7NZotqqL9+NydjvMSK1Afu4fZAyluPURmY/Tuk8b
+	AUC3NezUXJKDlG25UWL/oIrX6fTFucS91NHgP+LTFC+SYBdAfejc5NYldU8myTt9p4L/OVt/t8P4O
+	BQdBw2wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcgJ-0000000CQCg-1vZA;
-	Fri, 03 Jan 2025 08:05:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTceE-0000000CPvS-2Ucx;
-	Fri, 03 Jan 2025 08:03:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D277D150C;
-	Fri,  3 Jan 2025 00:03:37 -0800 (PST)
-Received: from [10.57.92.237] (unknown [10.57.92.237])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9CED73F673;
-	Fri,  3 Jan 2025 00:03:01 -0800 (PST)
-Message-ID: <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
-Date: Fri, 3 Jan 2025 09:02:59 +0100
+	id 1tTckS-0000000CQd9-3Grb;
+	Fri, 03 Jan 2025 08:09:36 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTcjH-0000000CQXt-0yzp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 08:08:24 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 50386Fhd2293043
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 3 Jan 2025 02:06:15 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1735891575;
+	bh=nulp+DBrGyhcYAOoB4gw65w2RJN5mI1WuV63ugFekQw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=wCg07UYXwyuXUgaRXweHyAq90HSLSsLDPjkAVsCabyku2KLqJuhbMKeqKJvx4vlQu
+	 /cZSB+aegiqi7uJNs73kEdH2HcVn3m6VZ2Q4Y0GlH7vhwd90dzwshgX39gSZxrvJN2
+	 iqpI0usFsv4UFRw67zoM7S+sDjZbei+G39wKoz8Y=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 50386FdI032013
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 3 Jan 2025 02:06:15 -0600
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 3
+ Jan 2025 02:06:13 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 3 Jan 2025 02:06:14 -0600
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 503869ik104815;
+	Fri, 3 Jan 2025 02:06:10 -0600
+Message-ID: <03805f22-b20a-40a8-8d76-f4001c262c5a@ti.com>
+Date: Fri, 3 Jan 2025 13:36:09 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
- __tlb_remove_table()
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, agordeev@linux.ibm.com, palmer@dabbelt.com,
- tglx@linutronix.de, david@redhat.com, jannh@google.com, hughd@google.com,
- yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
- vbabka@kernel.org, lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
- rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
- <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
- <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 1/1] soc: ti: PRUSS OCP configuration
+To: Basharath Hussain Khaja <basharath@couthit.com>, <nm@ti.com>,
+        <ssantosh@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <pratheesh@ti.com>, <prajith@ti.com>, <vigneshr@ti.com>,
+        <praneeth@ti.com>, <srk@ti.com>, <rogerq@ti.com>, <afd@ti.com>,
+        <krishna@couthit.com>, <pmohan@couthit.com>, <mohan@couthit.com>,
+        <parvathi@couthit.com>
+References: <20241223135550.6898-1-basharath@couthit.com>
+ <20241223135550.6898-2-basharath@couthit.com>
+Content-Language: en-US
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20241223135550.6898-2-basharath@couthit.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_000310_727700_4FCFD5B3 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20250103_000823_446218_41628F79 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/01/2025 04:48, Qi Zheng wrote:
-> Hi Kevin,
->
-> On 2025/1/3 00:53, Kevin Brodsky wrote:
->> On 30/12/2024 10:07, Qi Zheng wrote:
->>>   static inline void riscv_tlb_remove_ptdesc(struct mmu_gather *tlb,
->>> void *pt)
->>>   {
->>> -    if (riscv_use_sbi_for_rfence())
->>> +    if (riscv_use_sbi_for_rfence()) {
->>>           tlb_remove_ptdesc(tlb, pt);
->>> -    else
->>> +    } else {
->>> +        pagetable_dtor(pt);
->>>           tlb_remove_page_ptdesc(tlb, pt);
->>
->> I find the imbalance pretty confusing: pagetable_dtor() is called
->> explicitly before using tlb_remove_page() but not tlb_remove_ptdesc().
->> Doesn't that assume that CONFIG_MMU_GATHER_HAVE_TABLE_FREE is selected?
->> Could we not call pagetable_dtor() from __tlb_batch_free_encoded_pages()
->> to ensure that the dtor is always called just before freeing, and remove
->
-> In __tlb_batch_free_encoded_pages(), we can indeed detect PageTable()
-> and call pagetable_dtor() to dtor the page table pages.
-> But __tlb_batch_free_encoded_pages() is also used to free normal pages
-> (not page table pages), so I don't want to add overhead there.
 
-Interesting, can a tlb batch refer to pages than are not PTPs then?
 
->
-> But now I think maybe we can do this in tlb_remove_page_ptdesc(), like
-> this:
->
-> diff --git a/arch/csky/include/asm/pgalloc.h
-> b/arch/csky/include/asm/pgalloc.h
-> index f1ce5b7b28f22..e45c7e91dcbf9 100644
-> --- a/arch/csky/include/asm/pgalloc.h
-> +++ b/arch/csky/include/asm/pgalloc.h
-> @@ -63,7 +63,6 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
->
->  #define __pte_free_tlb(tlb, pte, address)              \
->  do {                                                   \
-> -       pagetable_dtor(page_ptdesc(pte));               \
->         tlb_remove_page_ptdesc(tlb, page_ptdesc(pte));  \
->  } while (0)
->
-> [...]
->
-> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
-> index a96d4b440f3da..a59205863f431 100644
-> --- a/include/asm-generic/tlb.h
-> +++ b/include/asm-generic/tlb.h
-> @@ -506,6 +506,7 @@ static inline void tlb_remove_ptdesc(struct
-> mmu_gather *tlb, void *pt)
->  /* Like tlb_remove_ptdesc, but for page-like page directories. */
->  static inline void tlb_remove_page_ptdesc(struct mmu_gather *tlb,
-> struct ptdesc *pt)
->  {
-> +       pagetable_dtor(pt);
->         tlb_remove_page(tlb, ptdesc_page(pt));
->  }
+On 23/12/24 7:25 pm, Basharath Hussain Khaja wrote:
+> From: Roger Quadros <rogerq@ti.com>
+> 
+> Updates OCP master port configuration to enable memory access outside
+> of the PRU-ICSS subsystem.
+> 
+> This set of changes configures PRUSS_SYSCFG.STANDBY_INIT bit either
+> to enable or disable the OCP master ports (applicable only on SoCs
+> using OCP interconnect like the OMAP family).
+> 
+> Signed-off-by: Roger Quadros <rogerq@ti.com>
+> Signed-off-by: Andrew F. Davis <afd@ti.com>
+> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
 
-I think this is an interesting idea, it does make arch code easier to
-follow. OTOH it would have been more natural to me to call
-pagetable_dtor() from tlb_remove_page(). I can however see that this
-doesn't work, because tlb_remove_table() is defined as tlb_remove_page()
-if CONFIG_MMU_GATHER_HAVE_TABLE_FREE isn't selected. Which brings me
-back to my earlier question: in that case, aren't we missing a call to
-pagetable_dtor() when using tlb_remove_table() (or tlb_remove_ptdesc())?
+The patch LGTM however it doesn't apply cleanly on branch
+ti-drivers-soc-next on [1]
 
-- Kevin
+This applies cleanly on latest linux-next but not on [1] where Nishant
+will eventually apply the patches.
+
+Applying: soc: ti: PRUSS OCP configuration
+Patch failed at 0001 soc: ti: PRUSS OCP configuration
+When you have resolved this problem, run "git am --continue".
+If you prefer to skip this patch, run "git am --skip" instead.
+To restore the original branch and stop patching, run "git am --abort".
+error: patch failed: include/linux/pruss_driver.h:172
+error: include/linux/pruss_driver.h: patch does not apply
+hint: Use 'git am --show-current-patch=diff' to see the failed patch
+
+Please re-base the patch on [1] and re-send.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+
+-- 
+Thanks and Regards,
+Danish
 
