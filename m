@@ -4,95 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81188E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 17:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76836E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 17:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O3sGG96edDYBm065eZeyOamcNy6jLfsRwq/zrFHXSQ0=; b=drJHoGXk/r3mBd5FOqiqSQGDQs
-	dTNirBpshqIjikaNsyldL0mlzWRlendtXyuqLOnqdyRRrR0Iwz46W1yPactmW9NVlx4/avzb9eY9r
-	nvj/x3CHYOKT16/V4MQO2etfv0wKd5hSIop8Pro5HjZF1ZDXMIeRm8s3tDlRtLoWTVsWE+NqWQB0P
-	l0pZN9yvRfL/FHKQNtTDRwBfNxgNF3iHd3t8tU87TVbc+2TbVQnSbwUrA19jJsUz4dEzVK0XjEz6M
-	EovmyoUnU0jmJpWWsGZ7JwDUtvPv1JznkHQWO3YWWy7LeKEMrnv0L/A3a9GCcQHCZIsAymgFTqtLR
-	SapauWoQ==;
+	bh=fU8Vb2pOnJet80GxKBDv5IEW+Ve/apD1i0jxT0RkWXw=; b=EAFYa63cI1cvoDIHTKJ5aspm1R
+	akVcjp0TTilvg38o1rVXo7ZDqooyEpX603n18xGEaRkZIlT5tDJJAWg2ldkqyH6Mj11LEYSVwV3KD
+	7rZmkaQh5oXBGA8kRNtxxnGB23GglfNdJqfxiR95nOdvSXx4uhVoWKzBt7WkUUA63NSXWesu67oYP
+	B5hS1SEAEVVcYnuNLcNdFWVP56RaiKIZDS3oBT+yQLqZ1L5MEo8qdTSWwNNnYLmN8bIUBxWAbqfE4
+	fp9eZeFoc8JzYifbxlqe11Zf04KGL3wUo4hgIFqXjv88jzYeQgMHf7laPDs1zXYcfdIQRTCfzUDov
+	67Jr2fiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTlDs-0000000DWqb-2j1x;
-	Fri, 03 Jan 2025 17:12:32 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tTlH0-0000000DXAa-086u;
+	Fri, 03 Jan 2025 17:15:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTlCf-0000000DWjr-0TsA;
-	Fri, 03 Jan 2025 17:11:18 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-21634417587so18993745ad.3;
-        Fri, 03 Jan 2025 09:11:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1735924275; x=1736529075; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O3sGG96edDYBm065eZeyOamcNy6jLfsRwq/zrFHXSQ0=;
-        b=S2kXURJKe9RUeqW83yFQ9AClaFAluExWACBdZ9w9NPa0SOU/0uuV33NNH3+Goy2BXj
-         ESmIq/ogSCPv4WfxBDqL+twD+Mas0EkBw9NAx9k8mwn8RO5tbobWWaSq207BjkVUifLR
-         udp2tEY8NYU0afUxbHeBdLyk9BGCFQcFS/f/cm+mREouJmSt3Bv/XU43hfJoB9zaBX9f
-         3uDy4ckx00nPAFwxJaNZ8XxLaMmCMb//xgrE4oQUkR5gHDRQ2YF5HLR1zxYlRbk9ZZMP
-         KqkSMcHbQcOvO3302rTH2JTsMSVnamJbQJm013sLMxaIvuGv4SzWNBdEdD19EwvvQpxM
-         AjPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735924275; x=1736529075;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=O3sGG96edDYBm065eZeyOamcNy6jLfsRwq/zrFHXSQ0=;
-        b=PFi5YzZ9p6UQ1Xk+IjjwNsStF5HwUxr9yYs+EoTbVguvzjQrmKm5xDGlbvcRI/ATi9
-         N1Bg91PvCHUnYecTH/ConEo9FN/dAx+Pw68hHqDWbBB6peJpLElDvG3S455xhkekVa3w
-         ev6Nb1d3OyefOoE+7w2kJP61B8HxNDQ2zkpXw1IJB1HK8ill8JAlGSO+1zEotjvMw3tZ
-         JKMuvOaqupcvRJ0z9o7DSleatiCLY3V+WhBOPsuabui52CdSl8RYuTHiy4fh7peO+ANo
-         2sxls4U2A1XLvxCnxkicEDVsWw6K7lCExX7WIZI2Y8/wym2xZCgwpqe6WHtzbD67XPvG
-         ZKOA==
-X-Forwarded-Encrypted: i=1; AJvYcCU3Ny+ECn2rYI//m73MxWPp3TmuIBv7PmaqLW5OfMp9H2ewihevRTwxcWlIT8JLFcSHOfUZeipORqLsIpUKZjg=@lists.infradead.org, AJvYcCWQsvJgV6PTfFlSmvnoIxiCWfxSUw1xqfq0SjOS8TzIzOFJzPm21r4mg3bH/iukQeQGLlrPiJSlcsdhIv7dnVkC@lists.infradead.org, AJvYcCWVZG2oAYki1FFmj1bDozifG3gIfXgNPomrELNQQ0Fe7blyo+KTBwoKB0qZr3/HaYH2j4IcZQx4lbL2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5R0qpQOJyXE2DsjeKzTk+5piJ5Uer6jML6Sr/0asurqAkH4Wf
-	2HJoaL6LHRPs8sivwfxXLOdG6noJtuSzSeoE/TMGMq2BkoHBlOBoOfj9rhTY
-X-Gm-Gg: ASbGncvXQGw3ohalzqpVW17Vwke0GUhUyikUUSNzhyUH+mHEjAK1mWap/W0dwXiyEfd
-	p2ixSblnhsbgA7yBOXGznZ/+iOboMgv+KUhU0O0pWiYdRQtnD2rEJS3ViwFPy+fLXxLoYKJoJbn
-	Cs+SkhVztbhkYC5XU4/5MNnIAUi8MNHA8LtOoD4EMtLyCPmPw+wPA7pQs6vlLMAThwRV7uJfsmb
-	ruqJycBFdCih5SBGj1j8VpaUZ0NmWAKmZlmoSUKnKWUiAKCehbhHNt7yUrIAw==
-X-Google-Smtp-Source: AGHT+IHaGe/LjiNSdE/jVrq+uumD7Y1EPcnlnPCnn5kWuhTZJ0mjsAtVuPrcS+bRilEu9IblZCkZog==
-X-Received: by 2002:a17:902:d4c9:b0:215:8d29:af0b with SMTP id d9443c01a7336-219e6f2706fmr263642905ad.14.1735924275469;
-        Fri, 03 Jan 2025 09:11:15 -0800 (PST)
-Received: from rock-5b.. ([221.220.131.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9cde50sm245783305ad.154.2025.01.03.09.11.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 09:11:14 -0800 (PST)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: amadeus@jmu.edu.cn
-Cc: conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	jonas@kwiboo.se,
-	kishon@kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	liujianfeng1994@gmail.com,
-	p.zabel@pengutronix.de,
-	robh@kernel.org,
-	vkoul@kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: rk3568: add reset-names for combphy
-Date: Sat,  4 Jan 2025 01:11:09 +0800
-Message-ID: <20250103171109.2726312-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250103033016.79544-1-amadeus@jmu.edu.cn>
-References: <20250103033016.79544-1-amadeus@jmu.edu.cn>
+	id 1tTlFn-0000000DX3V-268k
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 17:14:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A99B5C5CFE;
+	Fri,  3 Jan 2025 17:13:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EE3C4CECE;
+	Fri,  3 Jan 2025 17:14:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735924470;
+	bh=c4k6wqELijNCXeRz5BTT6d9/N4pmdVhomg3n3APz0UU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WcioWhqGydRwVZ46t8BYyhZERC03kXe8w8drsurPboEDsN/U3531M2xzcwMq2Ph7G
+	 syNylx+/E6301du9UN9ffvOHkcOxJqYfhrnfP7fQqzh84ZiX7siCRxkZYUY5EDBeCl
+	 +QL+T63mkO6ZrT07vQDzRGGe9LYj9IdSvfDnrUjP8COFQOpn2oSrGjkWVlWHmbJ9Wz
+	 lrVEHuZVcXwUl5wLV1Oo7FjMxQE09tLI0qRmBqeEcnB1UwZxDmes/3InIq6fkLjZMK
+	 ExttMQLelyEaiy9BrjAHQIS6deI7S/++/fCUEqcqghsHNpnbgvmq5lyt8pCvDHWPOF
+	 LQmoRVdPnsClQ==
+Message-ID: <ce9408aa-96a4-498d-8603-01534d9632a2@kernel.org>
+Date: Fri, 3 Jan 2025 18:14:23 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] dt-bindings: mfd: syscon: allow two reg regions for
+ gs101-pmu
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com,
+ kernel-team@android.com
+References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
+ <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
+ <1408dcd1-9a46-4cb9-8443-5aa51d61ed56@kernel.org>
+ <CADrjBPre_zjh+i=_YKYiptiMWT74eWC6LDCveA=dJaQQVwkS0g@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CADrjBPre_zjh+i=_YKYiptiMWT74eWC6LDCveA=dJaQQVwkS0g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_091117_154853_E38A5737 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_091431_635553_F743E48F 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +125,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Fri,  3 Jan 2025 11:30:16 +0800, Chukun Pan wrote:
->Maybe the merge window is different. Can you test the following patch?
->
->```
->--- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
->+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
->@@ -325,6 +325,10 @@ static int rockchip_combphy_parse_dt(struct device *dev, struct rockchip_combphy
-> 	priv->ext_refclk = device_property_present(dev, "rockchip,ext-refclk");
+On 30/12/2024 10:10, Peter Griffin wrote:
 > 
-> 	priv->phy_rst = devm_reset_control_get(dev, "phy");
->+	/* fallback to old behaviour */
->+	if (IS_ERR_OR_NULL(priv->phy_rst))
->+		priv->phy_rst = devm_reset_control_array_get_exclusive(dev);
->+
-> 	if (IS_ERR(priv->phy_rst))
-> 		return dev_err_probe(dev, PTR_ERR(priv->phy_rst), "failed to get phy reset\n");
+>>
+>> Maybe you have here two devices, maybe only one. If it is only one, then
+>> it is not a syscon anymore, IMO.
 > 
->```
+> I was going to suggest modelling PMU_INTR_GEN as its own sycon node,
+> and then either: -
+> 
+> 1) Updating exynos-pmu driver to additionally take a phandle to
+> pmu-intr-gen syscon, and register the hotplug callbacks.
+> 
+> or
+> 
+> 2) Create a new driver named something like exynos-pm or exynos-cpupm
+> which obtains the PMU regmap and also a phandle to PMU_INTR_GEN
+> syscon, and register the call backs.
+> 
+> Is there any preference from your side over approach 1 or 2, or maybe
+> something else entirely?
 
-Tested with rock-3a. This patch will fix dtb without reset-names property.
+No preference, choose whatever results in simpler or more readable code.
+
+Option 1 assumes that exynos-pmu on GS101 will drop the "syscon"
+compatible, although it still might expose syscon through drivers. Just
+the standard binding syscon does not feel fit here.
+
+I don't have the hardware/user manual, so I don't know what PMU_INTR_GEN
+really is. GS downstream code has something like PMUCAL, which looks
+like separate device.
 
 Best regards,
-Jianfeng
+Krzysztof
 
