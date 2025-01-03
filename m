@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08994E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 20:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D28E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 21:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pce2DdCTncrOdzX7qPApVYKMrquNOHsZcFa01GvWLtc=; b=NLtELKY3xA0LhltAjLFG/oafws
-	92Jero3oC9v+EiQ+VHmskGR1J57eC1T0HcRayKSiINkLUSpOwzU13ugnN8aoPQb1dfWb3ETF7mtB+
-	tI1z0w9so5IV/xynZUuu34AppWeIHePcQkesGbHu0xeVIsoOn5QIRXr0qDPau1DI4vhN6PQclGEPA
-	xvnFBPaMFOjmD2oF4buaPxEXOr6LmLQmRTnJ9S0LXXT3iNk4dXZSXXTNavQRnjeN2w2kagF3ampwh
-	qLCLO6iTHRFJkEWEbbGDc59K1MNRd2xaDCd5sZD0+/44O7HANeZzHq9RGKCDXmHRLo9lO115af6i+
-	pexBCDtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=V+sHQ7mY3MwIf/VsiMl4gaK88d9UqEmLFOQfH59gXv8=; b=xzSnlqSO7beRfDyaIqSVhRBqd9
+	HxnHK42vV+wgcMatOAIMR46X3miimRwRRpnInsSmDF/pIv1jbYk72U4yfYJsqXeS8zlOYHOBAHj5+
+	eP9pWbMZ4N9llsi7fgOMLc9YZ2X/MIpmzCRPZYdPB7hNmFMOcFae7qDlV4DuI0hRPTnn5/ZAIT2yW
+	UQTgefjQImhXCR+Le3jrMZTzVhAtqrmGfJxmaWB+Rz/BkFyW34SDPY7KRB4RFix6klDfPrDA0clSt
+	I2HbvFltZ2dc8saxB2DL+ugb6pPv9nfpeYOfvIAxolisQ1RO97zCU9cxhelBSbdh3VvwIQXJUIJxt
+	7bo5r2dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tToi4-0000000Dycc-0Yw9;
-	Fri, 03 Jan 2025 20:55:56 +0000
-Received: from mail.netcube.li ([173.249.15.149])
+	id 1tTp1d-0000000E0D8-13JE;
+	Fri, 03 Jan 2025 21:16:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTocI-0000000DxwO-2b47
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 20:49:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=netcube.li; s=s1;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding:In-Reply-To:References;
-	bh=Pce2DdCTncrOdzX7qPApVYKMrquNOHsZcFa01GvWLtc=;
-	b=CXT/fWHX1iFmomf4uvxMoDoueEw+QFWlyShNaENdxUfc2Di2ylmRfBNGnn1cUBlbR6uxk03Sbhtm+P0HtWwvT3vel+KfwzKkZD6XOu7RJ2AWXVixQxGhEw97QzW1PQaPmaA3gCMyI0PDh5jW20fAFyd8bbySO1tlwayqfHes+Xo=
-Received: from 854af3ed5e24.lan.sk100508.local (cm70-231.liwest.at [212.241.70.231])
-	by mail.netcube.li with ESMTPA
-	; Fri, 3 Jan 2025 21:49:36 +0100
-From: Lukas Schmid <lukas.schmid@netcube.li>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Lukas Schmid <lukas.schmid@netcube.li>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH v3 3/4] dt-bindings: pinctrl: sunxi: Add gpio-reserved-ranges property
-Date: Fri,  3 Jan 2025 20:45:19 +0000
-Message-Id: <20250103204523.3779-4-lukas.schmid@netcube.li>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250103204523.3779-1-lukas.schmid@netcube.li>
-References: <20250103204523.3779-1-lukas.schmid@netcube.li>
+	id 1tTp0L-0000000Dzro-3NkL;
+	Fri, 03 Jan 2025 21:14:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B6BE0A4107C;
+	Fri,  3 Jan 2025 21:12:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E1CC4CED2;
+	Fri,  3 Jan 2025 21:14:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735938888;
+	bh=sFO4OH9CVkKVkoP3ZaKlYjcbwVR1mQy5pmUDUDk+dxk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=BsB7G6j3mXf7S+4Or7YmadtifMWp4gWAqz/jVXG3Cba2mG0jI9jSDe2FVrTapZ+ZL
+	 7WBNfkKJW6CkYWMvqMefbyAPXboKV/QNqHRge9ZkE6b2M1UcLO73RCTsx3EIQzxpLN
+	 VOn45m+Hr2nJJo0EbSd3pEQxf6PRNbUKfC3nWj+LpJ6mqYAe0JoClW1aw/nwpoUA2q
+	 yD4VoTB8tMqr/Kt9ClyJafBkXP5hxWyd0B2cgbnDUkTnOtog4ieGFHcgxaPCwYb34F
+	 h3QGz49mTd7DsgSNy2G0swP6tQwc3d/kT/MrGFj0PUBbVKzMN9pYXWVhAvB0wOW9Kf
+	 GoxTAYk9K9YUQ==
+Date: Fri, 3 Jan 2025 15:14:46 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	kernel@collabora.com, Chen-Yu Tsai <wenst@chromium.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v4 14/19] arm64: dts: mediatek: asurada: Enable PCIe and
+ add WiFi
+Message-ID: <20250103211446.GA4063@bhelgaas>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20220629155956.1138955-15-nfraprado@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_124958_964449_3CFB8A65 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_131449_910551_089F1031 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Lukas Schmid <lukas.schmid@netcube.li>
----
- .../bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml        | 5 +++++
- 1 file changed, 5 insertions(+)
+On Wed, Jun 29, 2022 at 11:59:51AM -0400, Nícolas F. R. A. Prado wrote:
+> Enable MT8192's PCIe controller and add support for the MT7921e WiFi
+> card that is present on that bus for the Asurada platform.
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-index 450240570314..24b90a5538d6 100644
---- a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml
-@@ -83,6 +83,11 @@ properties:
- 
-   gpio-controller: true
-   interrupt-controller: true
-+
-+  gpio-reserved-ranges:
-+    minItems: 1
-+    maxItems: 90
-+
-   gpio-line-names: true
- 
-   input-debounce:
--- 
-2.47.1
+> +&pcie {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie_pins>;
+> +
+> +	pcie0: pcie@0,0 {
+> +		device_type = "pci";
+> +		reg = <0x0000 0 0 0 0>;
+> +		num-lanes = <1>;
+> +		bus-range = <0x1 0x1>;
 
+Hi Nícolas, what's the purpose of this bus-range?  IIUC this describes
+a Root Port, where we can read and configure the secondary/subordinate
+bus numbers from the RP config space, so it seems like we don't need
+to describe them here.
 
+> +
+> +		#address-cells = <3>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		wifi: wifi@0,0 {
+> +			reg = <0x10000 0 0 0 0x100000>,
+> +			      <0x10000 0 0x100000 0 0x100000>;
+> +			memory-region = <&wifi_restricted_dma_region>;
+> +		};
+> +	};
+> +};
 
