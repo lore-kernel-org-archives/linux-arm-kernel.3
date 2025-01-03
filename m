@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F0FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 10:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E54FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 10:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HSbQfVIcx6ukNQY9vN5gyk/LMc86CfAZUQgC0YBG6V0=; b=zO5K/ayDOEJPTfHwlfaq3kNCS6
-	JD3M0C5kZFLBMzx0BjmUbYPfz/TEjR0JSYltJjqpLrWXSq+hau0iWEK4RWl8PX1XjkR4BdB3H7CCj
-	rme40h94XuwLs9ZJwq9MXjraZe01MTbugZP6UmKEySxKQfOE5rNmKrlkNNuxRErIIiKkgyM3bIYse
-	GeOhJI028yrFy083mko9iGhzN0OHZBWhyGdbujBMfI6vw1+j3RdsGeZ5ciZ2ypFDVDReNJVf8Vl7t
-	kEo/rApG1gdE+VYDLMks4H471W0zs1QHd6tNtxh/Rjo6Ruh+2kAxMAyGdzzhG1k+K+SqZszrwc2TU
-	fAH5GZHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gA61Qgd412YVnbWRnsA8Xz+iZMRyWVXVVtbVH2xqtkA=; b=IKdwCEOkL+odWlQvB8fPZO4eYo
+	1hcn6wOVB79Uhlyytp007AHe7o1AKztL6zbTFucsyGKZAVQnt28hiZNh+LIks00XyePzfnxImMmEw
+	QP6bgB9eqD7GNxxkyR3BGLWyJJZxxNXS9UX/Dp58eknJrNAtComzIBPLavUMkccL3glFf9bqGIjw7
+	kCikBu5o2HVbGICvbYGSnVypNxstTW7WIzkEpiPI/fN0nRp6rjIOX/130+MPErAHpvbu8fnHaIUJW
+	N07aiwQ5ZfVYZr3imBM0/G5wkUIb+W86w68uQpfonNiUprh1Xbj3tZxey7AvSEVrDeJLzAXjLbeiA
+	azRCgFYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTefd-0000000ChAG-08vw;
-	Fri, 03 Jan 2025 10:12:45 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tTesw-0000000CiyM-2VpV;
+	Fri, 03 Jan 2025 10:26:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTeeO-0000000Cgu2-1a5Q
+	id 1tTdre-0000000Caaq-2Pf5
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Jan 2025 09:21:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=gA61Qgd412YVnbWRnsA8Xz+iZMRyWVXVVtbVH2xqtkA=; b=G+sLvKH99lAubR7nOW3P/RkUiP
+	ZceEqU9XTHLgbbOkZ2ILliHoQ9a4AQedn5pjRL//EeUp6jo83dSjJeeQlxwI/jUP6yMebwCyg0+HO
+	GqPXb1qzrNZeDm5LRSDxmT/ovXEtsWFQaZ9v2H/XIksefK3V8CmEqhZ5faVpNGIC42hvJUWRgyN4E
+	RedhgMknRGkCxaj2nGUM8hzsPdOhon5eVqV7UWCDUYmewy6AcBBjLeI0aogtqfHDChyX9TYhNHZHJ
+	X+hyDdFvmZIEJ8RU8Qj1It/rSQJflbATe1fpScnuwGslwrCtpKYLcXpsDGkwFA3IoHZkZKYSwFoe8
+	Y24gS95A==;
+Received: from [198.47.19.246] (helo=fllvem-ot04.ext.ti.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTdra-00000008LTO-3A4r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 10:11:30 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5cecbddb574so21151120a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 02:11:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1735899086; x=1736503886; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HSbQfVIcx6ukNQY9vN5gyk/LMc86CfAZUQgC0YBG6V0=;
-        b=TSLRe2ygR1NaPpZ9+H5CieAJ4d33G1qnkMbsvOjQv20MZl1Hy4XfhSZ1uCGZebor2P
-         YnjDVf8swsfX56CGTBzE3t7vcTiVzQLqOFQDR130Sdxld+roey9M0c8lwUdxQvWRiHst
-         M5+GfHjJOYlWA13Gv1vAV5zKrlpIh4kdmnd70aqEJse1VITEKVO2fzSea4ZVbdEY0bLR
-         tsyZVUEKaSIKXFCEOIITG8K1MzJF8rMjpGimqNDNrKUX9UVLtCmTU4LQl+RZd9k+ps8U
-         6cJRO9yN/1f36GJ532uauOD9evFSYkWp8NPL54FmtnJlUvqbXjAE9wZv8LOwoKosVV2U
-         OjIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735899086; x=1736503886;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HSbQfVIcx6ukNQY9vN5gyk/LMc86CfAZUQgC0YBG6V0=;
-        b=bPdRt8V4H1Y+yYAaFN3wr3AHjKsouMEni/l59O6jwihP+zdtPVxkneQ4nQon3PaqmQ
-         QRrPn6LIDxrpya8ykJHcrj7liwBVQwUQ0706DmlcWQHpj/zBQY9H0JB4JwrIMh978EZy
-         nSX2YL/4MZ0OQXbVff3oTHIADJACXHk76HrW5Km00tjGpqvt1pZTq+IzfNJDIGSHF38y
-         uJQzrWiF8XE69iL0TJEFrilqQ6HoYx6/Tq0RUuSRsCvsfBOYM8to8qstz2yMJN/5xXg/
-         QEkW3xBVioNGHb54wWAj4NEEugjU+bZVOy7i7EODw4sX+151LcQnpm6rn5N/MDupAEsD
-         4I9w==
-X-Forwarded-Encrypted: i=1; AJvYcCW3suU2rMkmEKlSTx0TgpN3bi9wA/jGzcW+zDpfTAL+U+fmRSwmvYKOnNhS8c2Q+ijmRWdCm9yXriXRCblvtkMV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTeJUB2ejdX5eoXoIMQvg0R40AQxD47FuQizFkc9gFw26FYa1G
-	vcJreAmfTyy5xlQCrttT+tkoxSM3pBmqxnPtFm+SPx8SvBQG1lM9GcvBG/ivin8=
-X-Gm-Gg: ASbGncvfHARwPFmhkmImVOe28ikshy/y/yLX8U/XCP31sEA9fzH4A//JBnt+bHqjUEg
-	L+tYSW7OCAwVLCHjD9ZD0j+QyJ//8xKRERM5zmtGp53oh1zMUrCpqbVFtHiXXYT7CP555VuxDkB
-	6bN3j3+0HbgzQkXHvxxmpzmKVXol15aTWcYgWtMEVrsG8kzbaaCfSaqF+SnYL9Kx7j1lFlCug2r
-	K1ExqgBKQBMbq2EJa1itKcrYUuyvElZ/ZXnhpR6W+xX52LGkJg7
-X-Google-Smtp-Source: AGHT+IGVhK8RxUfOgN5/AP02t7KJ1IsWpVINw+ADRYIKZE5PdYvzjFxNJilJ3zjN0WbNezateHeIPw==
-X-Received: by 2002:a05:6402:3510:b0:5d0:e2c8:dc8d with SMTP id 4fb4d7f45d1cf-5d81ddfe37cmr45262786a12.20.1735899086217;
-        Fri, 03 Jan 2025 02:11:26 -0800 (PST)
-Received: from localhost ([2001:4090:a245:80cb:3b5a:db2d:b2b7:c8b4])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d80679f128sm19178394a12.44.2025.01.03.02.11.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 02:11:25 -0800 (PST)
-Date: Fri, 3 Jan 2025 11:11:23 +0100
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Anand Gadiyar <gadiyar@ti.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>
-Subject: Re: [PATCH v4 2/4] firmware: ti_sci: Partial-IO support
-Message-ID: <24h2xx6plhjtdsuntyygghalo4cqxdoh6ncexzrxk4kpj5coy2@5jwdqxixdwto>
-References: <20241219-topic-am62-partialio-v6-12-b4-v4-0-1cb8eabd407e@baylibre.com>
- <20241219-topic-am62-partialio-v6-12-b4-v4-2-1cb8eabd407e@baylibre.com>
- <20241220115043.qhjroeqc4gl3pwtz@lcpd911>
+	Fri, 03 Jan 2025 09:21:05 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5039Kc6H2301473
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 3 Jan 2025 03:20:38 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1735896038;
+	bh=gA61Qgd412YVnbWRnsA8Xz+iZMRyWVXVVtbVH2xqtkA=;
+	h=From:To:CC:Subject:Date;
+	b=KlcVJOAaKpfdGiGRYON3Cgv1SSVJLX/XGLJodR2ax+zpccgD2cIm6DJ4Mxxhhgpk/
+	 BIA+Td8iZAVcOryDUQFSfpNN+Q6Zpa4dd9rrnW+eKLmvttCUKDqGx/GlIoIUOmZ684
+	 GCaCO8J9RyKa77W3eJYUoYZKBbj7vK9mjaT+9aig=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5039KcwK004083
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 3 Jan 2025 03:20:38 -0600
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 3
+ Jan 2025 03:20:38 -0600
+Received: from fllvsmtp7.itg.ti.com (10.64.40.31) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 3 Jan 2025 03:20:37 -0600
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvsmtp7.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5039KcAL069359;
+	Fri, 3 Jan 2025 03:20:38 -0600
+Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 5039Kard016890;
+	Fri, 3 Jan 2025 03:20:37 -0600
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Jeongjun Park <aha310510@gmail.com>,
+        Alexander Lobakin
+	<aleksander.lobakin@intel.com>,
+        Lukasz Majewski <lukma@denx.de>, Meghana
+ Malladi <m-malladi@ti.com>,
+        Diogo Ivo <diogo.ivo@siemens.com>, Simon Horman
+	<horms@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Eric Dumazet <edumazet@google.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        Roger Quadros
+	<rogerq@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>, <danishanwar@ti.com>,
+        Michal Swiatkowski
+	<michal.swiatkowski@linux.intel.com>,
+        Larysa Zaremba
+	<larysa.zaremba@intel.com>
+Subject: [PATCH net-next v3 0/3] Add Multicast Filtering support for VLAN interface
+Date: Fri, 3 Jan 2025 14:50:30 +0530
+Message-ID: <20250103092033.1533374-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iknrznhvbakof7yi"
-Content-Disposition: inline
-In-Reply-To: <20241220115043.qhjroeqc4gl3pwtz@lcpd911>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_021128_626816_3A860066 
-X-CRM114-Status: GOOD (  44.89  )
+X-CRM114-CacheID: sfid-20250103_092103_502559_1B752CED 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,167 +120,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds Multicast filtering support for VLAN interfaces in dual
+EMAC and HSR offload mode for ICSSG driver.
 
---iknrznhvbakof7yi
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 2/4] firmware: ti_sci: Partial-IO support
-MIME-Version: 1.0
+Patch 1/3 - Adds support for VLAN in dual EMAC mode
+Patch 2/3 - Adds MC filtering support for VLAN in dual EMAC mode
+Patch 3/3 - Adds MC filtering support for VLAN in HSR mode
 
-Hi Dhruva,
+Changes from v2 to v3:
+*) Rebased on latest net-next and re-spun the series as net-next is now open.
+*) No functional change.
 
-On Fri, Dec 20, 2024 at 05:20:43PM +0530, Dhruva Gole wrote:
-> Hi Markus,
->=20
-> On Dec 19, 2024 at 21:02:13 +0100, Markus Schneider-Pargmann wrote:
-> > Add support for Partial-IO poweroff. In Partial-IO pins of a few
->=20
-> Maybe add a comma after the In partial-IO, a few pins in this SOC can gen=
-erate....
->=20
-> > hardware units can generate system wakeups while DDR memory is not
-> > powered resulting in a fresh boot of the system. These hardware units in
-> > the SoC are always powered so that some logic can detect pin activity.
-> >=20
-> > If the system supports Partial-IO as described in the fw capabilities, a
-> > sys_off handler is added. This sys_off handler decides if the poweroff
-> > is executed by entering normal poweroff or Partial-IO instead. The
-> > decision is made by checking if wakeup is enabled on all devices that
-> > may wake up the SoC from Partial-IO.
-> >=20
-> > The possible wakeup devices are found by checking which devices have the
-> > "poweroff" in the list of wakeup-source power states. Only devices that
-> > are actually enabled by the user will be considered as an active wakeup
-> > source. If none of the wakeup sources is enabled the system will do a
-> > normal poweroff. If at least one wakeup source is enabled it will
-> > instead send a TI_SCI_MSG_PREPARE_SLEEP message from the sys_off
-> > handler. Sending this message will result in an immediate shutdown of
-> > the system. No execution is expected after this point. The code will
-> > wait for 5s and do an emergency_restart afterwards if Partial-IO wasn't
-> > entered at that point.
-> >=20
-> > A short documentation about Partial-IO can be found in section 6.2.4.5
-> > of the TRM at
-> >   https://www.ti.com/lit/pdf/spruiv7
-> >=20
-> > Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
-> > ---
-> >  drivers/firmware/ti_sci.c | 115 ++++++++++++++++++++++++++++++++++++++=
-+++++++-
-> >  drivers/firmware/ti_sci.h |   5 ++
-> >  2 files changed, 119 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> > index ec0c54935ac0d667323d98b86ac9d288b73be6aa..693ac816f8ba3941a9156bd=
-39524099ca476d712 100644
-> > --- a/drivers/firmware/ti_sci.c
-> > +++ b/drivers/firmware/ti_sci.c
-> > @@ -3746,6 +3746,100 @@ static const struct dev_pm_ops ti_sci_pm_ops =
-=3D {
-> >  #endif
-> >  };
-> > =20
-> > +/*
-> > + * Enter Partial-IO, which disables everything including DDR with only=
- a small
-> > + * logic being active for wakeup.
-> > + */
-> > +static int tisci_enter_partial_io(struct ti_sci_info *info)
->=20
-> Isn't the function naming style in the driver ti_sci_XXX ? You're
-> missing one `_` I guess
->=20
-> > +{
-> > +	struct ti_sci_msg_req_prepare_sleep *req;
-> > +	struct ti_sci_xfer *xfer;
-> > +	struct device *dev =3D info->dev;
-> > +	int ret =3D 0;
-> > +
-> > +	xfer =3D ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
-> > +				   TI_SCI_FLAG_REQ_GENERIC_NORESPONSE,
-> > +				   sizeof(*req), sizeof(struct ti_sci_msg_hdr));
-> > +	if (IS_ERR(xfer)) {
-> > +		ret =3D PTR_ERR(xfer);
-> > +		dev_err(dev, "Message alloc failed(%d)\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	req =3D (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
-> > +	req->mode =3D TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO;
-> > +	req->ctx_lo =3D 0;
-> > +	req->ctx_hi =3D 0;
-> > +	req->debug_flags =3D 0;
-> > +
-> > +	dev_info(dev, "Entering Partial-IO because a powered wakeup-enabled d=
-evice was found.\n");
-> > +
-> > +	ret =3D ti_sci_do_xfer(info, xfer);
-> > +	if (ret) {
-> > +		dev_err(dev, "Mbox send fail %d\n", ret);
-> > +		goto fail;
-> > +	}
-> > +
-> > +fail:
-> > +	ti_sci_put_one_xfer(&info->minfo, xfer);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static bool tisci_canuart_wakeup_enabled(struct ti_sci_info *info)
->=20
-> Add some documentation around this please.
->=20
-> > +{
-> > +	struct device_node *wakeup_node =3D NULL;
-> > +
-> > +	for (wakeup_node =3D of_find_node_with_property(NULL, "wakeup-source"=
-);
-> > +	     wakeup_node;
-> > +	     wakeup_node =3D of_find_node_with_property(wakeup_node, "wakeup-=
-source")) {
-> > +		struct platform_device *pdev;
-> > +		int index;
-> > +
-> > +		index =3D of_property_match_string(wakeup_node, "wakeup-source", "po=
-weroff");
-> > +		if (index < 0)
-> > +			continue;
->=20
-> Doesn't the fact that we're inside the for loop already ensure this is > =
-0?
+Changes from v1 to v2:
+*) Changed netdev_err to netdev_dbg in emac_ndo_vlan_rx_del_vid() in patch 1/3
+as suggested by Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+*) Dropped patch [1] from previous version as the patch created issue [2].
+Will send out a separate patch to set HSR=m in arch/arm64/configs/defconfig.
+Once the defconfig patch gets merged, I will add `depends on HSR` in Kconfig
+for TI_ICSSG_PRUETH as suggested by Larysa Zaremba <larysa.zaremba@intel.com>
 
-No, this can return several error codes if the property doesn't have a
-value or the string is not found in the property array.
+[1] https://lore.kernel.org/all/20241216100044.577489-2-danishanwar@ti.com/
+[2] https://lore.kernel.org/all/202412210336.BmgcX3Td-lkp@intel.com/#t
+v1 https://lore.kernel.org/all/20241216100044.577489-1-danishanwar@ti.com/
+v2 https://lore.kernel.org/all/20241223092557.2077526-1-danishanwar@ti.com/
 
->=20
-> > +
-> > +		pdev =3D of_find_device_by_node(wakeup_node);
-> > +		if (!pdev)
-> > +			break;
->=20
-> Same here? Would we otherwise be in the loop?
-> Just having a quick look here, I could be wrong, please just check once.
+MD Danish Anwar (3):
+  net: ti: icssg-prueth: Add VLAN support in EMAC mode
+  net: ti: icssg-prueth: Add Multicast Filtering support for VLAN in MAC
+    mode
+  net: ti: icssg-prueth: Add Support for Multicast filtering with VLAN
+    in HSR mode
 
-The devicetree node doesn't necessarily have a device associated with
-it. So I need to check if there is a device for this devicetree node.
-
-I fixed the rest of your comments. Thanks for your review.
-
-Best
-Markus
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 175 ++++++++++++++-----
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |   8 +
+ include/linux/if_hsr.h                       |  18 ++
+ include/linux/netdevice.h                    |   3 +
+ net/core/dev_addr_lists.c                    |   7 +-
+ net/hsr/hsr_device.c                         |  13 ++
+ net/hsr/hsr_main.h                           |   9 -
+ 7 files changed, 174 insertions(+), 59 deletions(-)
 
 
---iknrznhvbakof7yi
-Content-Type: application/pgp-signature; name="signature.asc"
+base-commit: 94c16fd4df9089931f674fb9aaec41ea20b0fd7a
+-- 
+2.34.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTd8KHufh7XoFiu4kEkjLTi1BWuPwUCZ3e3yAAKCRAkjLTi1BWu
-PweyAP0eCCMETueAY2472nnJ1JUeNan/zvJZezmSWXmypz2RhAD/QAzMZDwM2l7t
-7rD3gE58a3JET3KjZt288qTZzRLdyA8=
-=UV6S
------END PGP SIGNATURE-----
-
---iknrznhvbakof7yi--
 
