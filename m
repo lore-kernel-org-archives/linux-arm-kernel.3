@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D61E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818E8E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AP4om3HCUGPZiAgSFK/mDowrAQLBhJ1lEYaLjFS047A=; b=JrxtJmIZ7litl4wgzHJbdMPa3e
-	tPK6lJeLCVWaU1IPjzBLycgWi9UnVMALOEaL82XsWmIRCzHgt9bsbEbIY2rxucfrMel7EBRtewGRO
-	NS4HGczP7Cg2VocP8F3A2V5SySlcXG3DNoT+mnZy9Qu5/LLMWvIL62qUWd6bo95plaVM1v6G2HafO
-	KqC0Ulw2iZTMcjQH//UbpfJSu2y1pcnIk+TozGJ8w8vDJuEOb7E+RAqoA2stZfqQgB8hGgEIAVG+u
-	VTl7hFkC9Z7+XirXkCW3QiLEEFQ/tt1+b64HJjnbLddNw068gi1G+kf8wVbfES9n3xJj8RM2zBY83
-	6s3I68Pg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8hnr3P1w6tJpgUo3b5IOw2wa90vqGlEyqREv5vyiagM=; b=IDnc+vhk3XnWdkmKelfZN6BiTO
+	zvkg6Jr21JNh5pHQ68j6kg/lGDUvAgHrzagkz50Hi7b27aC5ht87ohKQhiFBQQgf/6/FV2YIlobTC
+	YIwp3aNGNKQPFaQVJmnAVsUac2b4swHuYIb39xoEO4g9kUZLyBmmA0eNRGGr5Q/ldjqYckRzHY5qv
+	2LfjxfWqeo0NYF0hQRwdPW3VKffO1k2yyf4mX9GoKEbBorFYqZS6NwVoakhLX8jtHQqw/whXCQJZB
+	4zqhZ94BSKIDh0r+LEqCMrvPTIe9FsNGvX+MstEMNeBu2laujpsm82WW6FAWZJ/6BidO7nEpXYNAE
+	FmkOR3EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTXge-0000000Bx8W-1d6O;
-	Fri, 03 Jan 2025 02:45:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tTXmA-0000000BxkA-45Uo;
+	Fri, 03 Jan 2025 02:51:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTXfU-0000000Bx17-2bsR
+	id 1tTXkz-0000000BxXL-3zra
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 02:44:10 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 502G1G7g023410;
-	Fri, 3 Jan 2025 02:43:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AP4om3HCUGPZiAgSFK/mDowrAQLBhJ1lEYaLjFS047A=; b=FjYFTgdzObI/HD/U
-	DZ5eBX6ScnB0onG6AAEchyS67TpKiwtdrAsspIIbrbWMrY0lsHcBkxCGKO0eJn4e
-	Fr6iz9xbvg3MWr4giz0qL6CFaWsJLnP1Y9hTku/QEDpl4nk4VOIIiURjpvTGnn6h
-	o/ICd2EX0ltNqoxbAQ8enZL3mqk0v+XlHwanHrqEeMF0u8xjSiRf6+mu2/r4/JDz
-	RuQ8eVpjuMvBasEdmLGZ8WVGi26zTWvUTqTqGnITtnOE6VROYQmLxK6dli+u9tXH
-	TFwxSaufxuDv6qAiK1FYLQuTLVSj1WVVvBKuNnYaUDrRmxXp3xRqVPRbw2HLyxXM
-	ayrwvQ==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43wt3c9nb7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jan 2025 02:43:58 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5032hu6T026446
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 3 Jan 2025 02:43:56 GMT
-Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 2 Jan 2025
- 18:43:53 -0800
-Message-ID: <abb6612b-8845-411b-bfc2-751538cb06b7@quicinc.com>
-Date: Fri, 3 Jan 2025 10:43:51 +0800
+	Fri, 03 Jan 2025 02:49:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A8CD5A40144;
+	Fri,  3 Jan 2025 02:47:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09FD5C4CED0;
+	Fri,  3 Jan 2025 02:49:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735872588;
+	bh=Ka1T8Z+8lX/trH3ErYbgl/v6NF3bsDw/cx4eBxax2oU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=scbIK8eTminIMtmXYnHqG7NFNMBX5oc7gyzYwhzoq++7XIc5VgtaPjnwXxMQtmeUT
+	 Tl8Pvyv5UmmcEKcLRTi/Dj4UFHwqVgLg5+frHoNTS0mrKZu74rYl4VHxietpZja7sG
+	 9L3oxVMkRRASC3a1HRyqEntF4vEcKqGwwe/12X0H56QZSuVG2W1MLDd/hwW/RYWh22
+	 MJbc9EZ1agBpYjtmhpDD84MV4WUgKJSXNVP1bpPsyoJqsdh3Hr3iauNZTCm0U7ebFr
+	 Nxl7M8sVbwUCapYlrcA7O8P/FGlHZK2vQVH4Cuax6qTCPX9INcjiOA5lxoKMFFe2n1
+	 sOpjIj6VisUlw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Olof Johansson <olof@lixom.net>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Jie Gan <quic_jiegan@quicinc.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Qiang Yu <quic_qianyu@quicinc.com>
+Subject: [GIT PULL] Qualcomm Arm64 DeviceTree fixes for v6.13
+Date: Thu,  2 Jan 2025 20:49:44 -0600
+Message-ID: <20250103024945.4649-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: mm: implement vmemmap_check_pmd for arm64
-To: Catalin Marinas <catalin.marinas@arm.com>,
-        Anshuman Khandual
-	<anshuman.khandual@arm.com>
-CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
-        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20241209094227.1529977-1-quic_zhenhuah@quicinc.com>
- <20241209094227.1529977-3-quic_zhenhuah@quicinc.com>
- <Z2W5Bs0bZANI6NKv@arm.com> <39a85800-47c5-4529-906d-5a40e58ce136@arm.com>
- <Z3bXIjJjEaoOaxbH@arm.com>
-Content-Language: en-US
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-In-Reply-To: <Z3bXIjJjEaoOaxbH@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: HJ5FfEEDirT1_7c4V-vDR19wRnLVmHII
-X-Proofpoint-ORIG-GUID: HJ5FfEEDirT1_7c4V-vDR19wRnLVmHII
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 impostorscore=0
- clxscore=1015 mlxscore=0 phishscore=0 bulkscore=0 priorityscore=1501
- suspectscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- mlxlogscore=710 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501030021
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_184408_657795_46A059CE 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20250102_184950_064085_FCA3A766 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,78 +79,48 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
 
-On 2025/1/3 2:12, Catalin Marinas wrote:
-> On Fri, Dec 27, 2024 at 08:27:18AM +0530, Anshuman Khandual wrote:
->> On 12/21/24 00:05, Catalin Marinas wrote:
->>> On Mon, Dec 09, 2024 at 05:42:27PM +0800, Zhenhua Huang wrote:
->>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>> index fd59ee44960e..41c7978a92be 100644
->>>> --- a/arch/arm64/mm/mmu.c
->>>> +++ b/arch/arm64/mm/mmu.c
->>>> @@ -1169,7 +1169,8 @@ int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
->>>>   				unsigned long addr, unsigned long next)
->>>>   {
->>>>   	vmemmap_verify((pte_t *)pmdp, node, addr, next);
->>>> -	return 1;
->>>> +
->>>> +	return pmd_sect(*pmdp);
->>
->> Please change this as pmd_sect(READ_ONCE(*pmdp)) instead.
->>
->>>>   }
->>>>   
->>>>   int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->>>
->>> Don't we need this patch only if we implement the first one? Please fold
->>> it into the other patch.
->>
->> Seems like these patches might not be related.
->>
->> While creating huge page based vmemmap mapping during vmemmap_populate_hugepages(),
->> vmemmap_check_pmd() validates if a populated (i.e pmd_none) PMD already represents
->> a huge mapping and can be skipped there after.
->>
->> Current implementation for vmemmap_check_pmd() on arm64, unconditionally returns 1
->> thus asserting that the given populated PMD entry is a huge one indeed, which will
->> be the case unless something is wrong. vmemmap_verify() only ensures that the node
->> where the pfn is allocated from is local.
->>
->> int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
->>                                  unsigned long addr, unsigned long next)
->> {
->>          vmemmap_verify((pte_t *)pmdp, node, addr, next);
->>          return 1;
->> }
->>
->> However it does not really check the entry to be a section mapping which it should.
->> Returning pmd_sect(READ_ONCE(*pmdp)) is the right thing, which should have been the
->> case from the beginning when vmemmap_check_pmd() was added. I guess because arm64's
->> original vmemmap_populate() checked only for vmemmap_verify() as well. So probably
->> this does not need a "Fixes: " tag.
-> 
-> I did not say the patch is wrong, only that it wouldn't be needed unless
-> we have the other patch in this series. However, if we do apply the
-> other patch, we definitely need this change, so keeping them together
-> would make it easier to backport.
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
 
-Hi Catalin,
+are available in the Git repository at:
 
-Based on our current discussion on patchset #1, we will prohibit 
-hugepages(vmemmap mapping) for all hotplugging sections...The flow:
-vmemmap_populate
-	vmemmap_populate_hugepages
-		vmemmap_check_pmd
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-fixes-for-6.13
 
-will *only* be called for non-early sections. Therefore, with patchset 
-#1, I don't see the patch as essential.. Would it be acceptable if we do 
-not backport this patch?  Anshuman's suggestion seems reasonable to me 
-and I separated the patch out:
-https://lore.kernel.org/lkml/20250102074047.674156-1-quic_zhenhuah@quicinc.com/
+for you to fetch changes up to 8a6442ec3437083348f32a6159b9a67bf66417bc:
 
-Please share your comments and correct me if I'm mistaken :)
+  arm64: dts: qcom: sa8775p: fix the secure device bootup issue (2024-12-25 22:05:40 -0600)
 
+----------------------------------------------------------------
+Qualcomm Arm64 DeviceTree fixes for v6.13
 
-> 
+Revert the enablement of OTG support on primary and secondary USB Type-C
+controllers of X1 Elite, for now, as this broke support for USB hotplug.
 
+Disable the TPDM DCC device on SA8775P, as this is inaccessible per
+current firmware configuration. Also correct the PCIe "addr_space"
+region to enable larger BAR sizes.
+
+Also fix the address space of PCIe6a found in X1 Elite.
+
+----------------------------------------------------------------
+Jie Gan (1):
+      arm64: dts: qcom: sa8775p: fix the secure device bootup issue
+
+Johan Hovold (3):
+      Revert "arm64: dts: qcom: x1e78100-t14s: enable otg on usb-c ports"
+      Revert "arm64: dts: qcom: x1e80100-crd: enable otg on usb ports"
+      Revert "arm64: dts: qcom: x1e80100: enable OTG on USB-C controllers"
+
+Manivannan Sadhasivam (1):
+      arm64: dts: qcom: sa8775p: Fix the size of 'addr_space' regions
+
+Qiang Yu (1):
+      arm64: dts: qcom: x1e80100: Fix up BAR space size for PCIe6a
+
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi                      |  5 +++--
+ arch/arm64/boot/dts/qcom/x1e78100-lenovo-thinkpad-t14s.dts |  8 ++++++++
+ arch/arm64/boot/dts/qcom/x1e80100-crd.dts                  | 12 ++++++++++++
+ arch/arm64/boot/dts/qcom/x1e80100.dtsi                     |  8 +-------
+ 4 files changed, 24 insertions(+), 9 deletions(-)
 
