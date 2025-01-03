@@ -4,113 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76836E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 17:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E15CE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 17:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fU8Vb2pOnJet80GxKBDv5IEW+Ve/apD1i0jxT0RkWXw=; b=EAFYa63cI1cvoDIHTKJ5aspm1R
-	akVcjp0TTilvg38o1rVXo7ZDqooyEpX603n18xGEaRkZIlT5tDJJAWg2ldkqyH6Mj11LEYSVwV3KD
-	7rZmkaQh5oXBGA8kRNtxxnGB23GglfNdJqfxiR95nOdvSXx4uhVoWKzBt7WkUUA63NSXWesu67oYP
-	B5hS1SEAEVVcYnuNLcNdFWVP56RaiKIZDS3oBT+yQLqZ1L5MEo8qdTSWwNNnYLmN8bIUBxWAbqfE4
-	fp9eZeFoc8JzYifbxlqe11Zf04KGL3wUo4hgIFqXjv88jzYeQgMHf7laPDs1zXYcfdIQRTCfzUDov
-	67Jr2fiw==;
+	bh=F8z1hIrfql/MeJ75sBUdJrOBe8QhHBYpolO3BjFm3nc=; b=DcPEsIpPNnrGEz8uGJFi+PQrlT
+	MZx3xyI2NVZXbeizskAwE9SbzQlNkj7gqRsS3SBZ2Se5vBZ3qzSWxKmihKpXZTbLR6CBRBmjK1ypQ
+	6mOmv+RaeppRBpTiAP4Gnos3Ply4DIF+FKeNvw2aRkg5Us5my1SMvEMe+PNYN6Wde12ySD+mFA+Cf
+	EXg7UXnqGgWdzUjV7o+2mEn2IvDliSi1MUKCerCTeiObwi+4sDZNg7blOKJp41/wjgNyqXMNKwm2e
+	fo/D9aBjjdqMIW85Jee6+GZ3NS2YrAvcZ4pO17maW7fzbY6hrY8PbpprVvqxVI0w2EwYwUGLgfEsL
+	dQ6xnJHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTlH0-0000000DXAa-086u;
-	Fri, 03 Jan 2025 17:15:46 +0000
+	id 1tTlKI-0000000DXhJ-3r9X;
+	Fri, 03 Jan 2025 17:19:10 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTlFn-0000000DX3V-268k
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 17:14:32 +0000
+	id 1tTlJ5-0000000DXOs-1G4U;
+	Fri, 03 Jan 2025 17:17:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A99B5C5CFE;
-	Fri,  3 Jan 2025 17:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EE3C4CECE;
-	Fri,  3 Jan 2025 17:14:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A09D5C64D9;
+	Fri,  3 Jan 2025 17:17:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ECFDC4CEDC;
+	Fri,  3 Jan 2025 17:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735924470;
-	bh=c4k6wqELijNCXeRz5BTT6d9/N4pmdVhomg3n3APz0UU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WcioWhqGydRwVZ46t8BYyhZERC03kXe8w8drsurPboEDsN/U3531M2xzcwMq2Ph7G
-	 syNylx+/E6301du9UN9ffvOHkcOxJqYfhrnfP7fQqzh84ZiX7siCRxkZYUY5EDBeCl
-	 +QL+T63mkO6ZrT07vQDzRGGe9LYj9IdSvfDnrUjP8COFQOpn2oSrGjkWVlWHmbJ9Wz
-	 lrVEHuZVcXwUl5wLV1Oo7FjMxQE09tLI0qRmBqeEcnB1UwZxDmes/3InIq6fkLjZMK
-	 ExttMQLelyEaiy9BrjAHQIS6deI7S/++/fCUEqcqghsHNpnbgvmq5lyt8pCvDHWPOF
-	 LQmoRVdPnsClQ==
-Message-ID: <ce9408aa-96a4-498d-8603-01534d9632a2@kernel.org>
-Date: Fri, 3 Jan 2025 18:14:23 +0100
+	s=k20201202; t=1735924674;
+	bh=VDDipCe1eU5YrCpfBLKv8jlO5RpjTReS3SYLZ3rektE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=g2HJx3/olg9t6ycM+t38B1NWJxec72QunBPP4DHy97JjSHMU+jFViOHvaKAIHi+xQ
+	 xkEAy5zTN8fR8+6y2tllm8gcP7tnpquveP0j9Yj68KamX22uAu+tNMx/BMB9IzfX51
+	 lvVLfkm4vx/KoZC0q3hoSPP5taJpKg5B1DFTdBvs1Xuxring1aa2/FTH7Barv/qgDB
+	 b/sf531J6T2gjIbIauOdRnU7z9OwtSf0/bGoFbD8/RPEkE0Cwp1iv9pwcYuE+Salbm
+	 Ks5I/yxVDTxodNj7OCp2tfCTUBrkkBLg3J7mkzVXv1v+53iAtA8YQy8MiPFji0JS7p
+	 MAfujuRGSjfkw==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mark Brown <broonie@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	matthias.bgg@gmail.com,
+	amergnat@baylibre.com,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 3/4] ASoC: mediatek: disable buffer pre-allocation
+Date: Fri,  3 Jan 2025 12:17:44 -0500
+Message-Id: <20250103171746.492127-3-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250103171746.492127-1-sashal@kernel.org>
+References: <20250103171746.492127-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] dt-bindings: mfd: syscon: allow two reg regions for
- gs101-pmu
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com,
- kernel-team@android.com
-References: <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-0-c72978f63713@linaro.org>
- <20241213-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v1-2-c72978f63713@linaro.org>
- <1408dcd1-9a46-4cb9-8443-5aa51d61ed56@kernel.org>
- <CADrjBPre_zjh+i=_YKYiptiMWT74eWC6LDCveA=dJaQQVwkS0g@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <CADrjBPre_zjh+i=_YKYiptiMWT74eWC6LDCveA=dJaQQVwkS0g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.12.8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_091431_635553_F743E48F 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250103_091755_420569_97D1D25C 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,37 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/12/2024 10:10, Peter Griffin wrote:
-> 
->>
->> Maybe you have here two devices, maybe only one. If it is only one, then
->> it is not a syscon anymore, IMO.
-> 
-> I was going to suggest modelling PMU_INTR_GEN as its own sycon node,
-> and then either: -
-> 
-> 1) Updating exynos-pmu driver to additionally take a phandle to
-> pmu-intr-gen syscon, and register the hotplug callbacks.
-> 
-> or
-> 
-> 2) Create a new driver named something like exynos-pm or exynos-cpupm
-> which obtains the PMU regmap and also a phandle to PMU_INTR_GEN
-> syscon, and register the call backs.
-> 
-> Is there any preference from your side over approach 1 or 2, or maybe
-> something else entirely?
+From: Chen-Yu Tsai <wenst@chromium.org>
 
-No preference, choose whatever results in simpler or more readable code.
+[ Upstream commit 32c9c06adb5b157ef259233775a063a43746d699 ]
 
-Option 1 assumes that exynos-pmu on GS101 will drop the "syscon"
-compatible, although it still might expose syscon through drivers. Just
-the standard binding syscon does not feel fit here.
+On Chromebooks based on Mediatek MT8195 or MT8188, the audio frontend
+(AFE) is limited to accessing a very small window (1 MiB) of memory,
+which is described as a reserved memory region in the device tree.
 
-I don't have the hardware/user manual, so I don't know what PMU_INTR_GEN
-really is. GS downstream code has something like PMUCAL, which looks
-like separate device.
+On these two platforms, the maximum buffer size is given as 512 KiB.
+The MediaTek common code uses the same value for preallocations. This
+means that only the first two PCM substreams get preallocations, and
+then the whole space is exhausted, barring any other substreams from
+working. Since the substreams used are not always the first two, this
+means audio won't work correctly.
 
-Best regards,
-Krzysztof
+This is observed on the MT8188 Geralt Chromebooks, on which the
+"mediatek,dai-link" property was dropped when it was upstreamed. That
+property causes the driver to only register the PCM substreams listed
+in the property, and in the order given.
+
+Instead of trying to compute an optimal value and figuring out which
+streams are used, simply disable preallocation. The PCM buffers are
+managed by the core and are allocated and released on the fly. There
+should be no impact to any of the other MediaTek platforms.
+
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Link: https://patch.msgid.link/20241219105303.548437-1-wenst@chromium.org
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+index 9b72b2a7ae91..6b6330583941 100644
+--- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
++++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+@@ -120,8 +120,8 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
+ 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+ 
+ 	size = afe->mtk_afe_hardware->buffer_bytes_max;
+-	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
+-				       afe->dev, size, size);
++	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(mtk_afe_pcm_new);
+-- 
+2.39.5
+
 
