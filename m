@@ -4,156 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF4CE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 06:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6897E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 06:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awuFpiNnGnu8PB/g+d5F5dMPKyhjVA8lFpOWRmvZ6yU=; b=4afKSXkYVwSorT2L2D+W6RGvzz
-	A/+yIAF9QGAnIY9C95qtLC8Q/QF/nVVlmM4CtRzJZWWuApXGKAcryTm17H+8OpKXA9gDKUsuRrTbJ
-	rk8H1HqnjNqlGmNNsOJCAWg5Ln8lr09QuwW7R48bcJqL64XMzq0w+ksvSUHrTPKv8Q4ihKW+H2Ql/
-	nHg/wqSJV7X3oe/sMcp49SNj7cnlqKgi+U54WSMAKFQ7PiU5BFvShzSn0RF+/vqfDFpjGN21vBC0F
-	j/pZWsXyhhLTO+oQgOhc8DE6l7iqmsYJtHpa0bLe0sunSntfRkzHaqh+b4fdbb7xWwGm6pgfNgl5/
-	3K3J7c6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9JYhGYLehzzVS4jEYnaJXjDH6Mz/6G3WSbJlmci9/3A=; b=HQdxWzu9tMyd4xwL1bDhJgCnnN
+	EbCEgbbUjWraC6kXPpx8Yn/sXfetTWdViSJ5h28RPfOpIrV8OgVoICypGV3j+TeEUey+VMZPxMRxe
+	jn59gh7IbsJpW+8Gvg5+nzlmqNAa6pyEYfClkeRcBJKfuZUcMGd+WNMzWTaJTX5gHhCucn+Yhgts3
+	Jd2xw0jcLmc7bNWIT1ubnVhc9PFB4PUxbQCA2F5qxVxcg6R2ssL/lZhEFzxv1M90YCD6dX6NEIuSs
+	BHEfOUMz/wSI/CJUdJ5BFL4n+N8DAdgTAjkEeVxua1twOVH98pu/yeduRWsGvZLhlMLf/ELt4j7bZ
+	WZEiF5KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTbMC-0000000CF0g-05un;
-	Fri, 03 Jan 2025 06:40:28 +0000
-Received: from mail-dbaeur03on20619.outbound.protection.outlook.com ([2a01:111:f403:260d::619] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tTbNO-0000000CF8a-2lst;
+	Fri, 03 Jan 2025 06:41:42 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTb6J-0000000CCZG-18m2
+	id 1tTbF7-0000000CE5A-0M3P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 06:24:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yX7JlO6rDZ8BgPtDS9n+yLOnIYa09EDU8DQT08t72P4oyahITtMpMnbZKfEQGlaBlEgMkK3led1sK2nvpSu4T42E5nIgDfgwt61KF6IFVaUbIHC3y3Ah3luS8A3XD1q+PfxKhHMwD6ubQXvnGPIMa9qFMnJbtdeVNUakjYJ19PAjG2oVeRS6Nqwe74Gf6Ouhjz4qxuMAr6PBUiNavjJW2Ek+62V1b9GM1SnmKq9gjkzDmIBSuYxc85RMAInEfz/svV3woeahPv9XSARSLHtzkKCjWq69MdEjSX+iy2eqBjBnhi+dhTUIBXqRR1dEukaOdqksT0bsvDGTP+NcMMuEmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=awuFpiNnGnu8PB/g+d5F5dMPKyhjVA8lFpOWRmvZ6yU=;
- b=xwzwF2MD7Cd6tJp0O6fotOV3mU1f3hcAFpJM0aWnA/vVLjCHlCKUxVnN19BGguB6n9khLBx7GlIw0qqNndubHNuPSunyQoa1tRGsSc0zawLZ+pu/EXgWFuk3pTo3DRJ9OReTwmA6mhjf6GGmxrkJyhNje81Rm/9WAVfOunK2rL0fWblWVCF6DDB+13E/apPCP9ZJZ+Ug4eKw44Ha8UczYw+oNh3dJRlCRvg3+YXTU3NFfDy7LZ/gipQKxaPQHHY9ijP8dT3bz0A0Sok9AUItiFsdV2Rv6xaSOUYP7WjZvIntev936XvQKhqmza4XNX4UGaljAgukTydM9fLaymzsnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=awuFpiNnGnu8PB/g+d5F5dMPKyhjVA8lFpOWRmvZ6yU=;
- b=bmIqEecyf2i5PFWidAGWMT5e5gFi3tJeDCMhKvXXT21B5MmQyGOE4ijz8QUPny1+IS+dEoWKOzHVPYTE+e91T0XZ2dyFsI7kVNFnyXkWfVq63Q+B5EwTfPC+jJTpZCpX+s2KuB6Kniti9VHbnVyLHZNVFD89pR6AYhDXcZ1FjFvSwIvv+Y0SWd0xTJCcSRrJj+bNkXnxxcERAYv09giOlbnYzi4Tg0oP/OpLa5/fQ05Jug3KRnutW5zmHHi+M47tFf26eFFz/jtrVHINuQkssr6teZz+MspnMHeMr8ivFniKiMoBuSAZPsXw0auVQxVtb/yQNFLIF4CT+JHBOmHs5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by DB9PR04MB9331.eurprd04.prod.outlook.com (2603:10a6:10:36d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.12; Fri, 3 Jan
- 2025 06:23:56 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%6]) with mapi id 15.20.8314.013; Fri, 3 Jan 2025
- 06:23:56 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
+	Fri, 03 Jan 2025 06:33:10 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2ee786b3277so12361024a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 22:33:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1735885988; x=1736490788; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9JYhGYLehzzVS4jEYnaJXjDH6Mz/6G3WSbJlmci9/3A=;
+        b=hBPVrpAbtX1ZegohHLdR1Gm5JFFMqx/vjEnEZR5W3U6B9Ue6IOIDlt+QPVaId/Bwux
+         w2/VWfVfwMwzGFcisbAb8Zlnevx6L7TOomM2EIkj8lC74hCmqu0kdCxkomjLrNFkg4+0
+         VWGxLmACsFu7arcM7rIwRA4g3kQqRgEU9H4+sg+yMl7YpaqCnzSaiAZa+LeGbqSPNcAp
+         +YLhUHtJ6xyMhSQZlClEH4k14JTO634Okokg9Gsa4FEZiX/nmXMhdxUR0UDfN5rCxM6i
+         89Aeyn9LB8XJVktPVnxCxwqBw0y1gPWWRRE/XmOl80vP/2o1VfPeFgU9mWLta55XGT3C
+         FNKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735885988; x=1736490788;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9JYhGYLehzzVS4jEYnaJXjDH6Mz/6G3WSbJlmci9/3A=;
+        b=f0PS/sbjM85EYrOXWPACNSTXWhHgCAHRtBAP/jITf6wCyaC0f2YseDrSvT16WjAi2k
+         d+zihKmq1hhcrwedCmDTNY71F2sIkLziF9k2uK1zROCtJWE7lF+Gl1lcYFq4sbDFwK9h
+         dfbYCqUEVHcfNqMvZZiOFN2vNLahrZ93X36xtv8MKd3t/rF9NyzzIvaN0v8IpospQZOJ
+         vF2zLHckjfF0Wdl1UdnLxPaAzumJ0i+BSyLSgjdd3uIxgPmfF8uLbb/eDbtPFIZV0Gjc
+         49eGnguVKU5h4DqTUIXuHbvmb2cIdZbB3f5W5MnIVC7RwDiZVfzIQDM0JsTPC5twKS4Q
+         jK8g==
+X-Forwarded-Encrypted: i=1; AJvYcCXIhzHROshvWPaBJ0o3vnb302JWHYHuE38hj0t7mG8IKq47CixspNNwdkJ8gLWjV7CpdDKW246np2A11PmNC1gz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzElElL25W5oz6WuqjiR2j/PdxlBcLmRzWbDtsXoQ5zZUpbg9QO
+	XdLf39EfyfDk/N2c58Hsbe4xXa4k3+fYJBbsXS6vlpDdG3CNw2lR
+X-Gm-Gg: ASbGnctrBB0fofKx7ukdozUOiYHX0+eH5d7FJcwTUHj7mF0xI2Xfq3qtZ2ui2kaQTqC
+	UMplaGzpp1+OLNdmgZPmP3FHecmGC4boKOQYynSaRb8QLytlyQranXu3zR4iicUmOzWE5+z9Xim
+	Uodyijlc4Yua3Zb1vXf/21Qkech+Mut9c2GZlP8Jjvu/wWLTxCXjRjtIaUyyYr2w1aFivgj/1z8
+	5+BuqoGAArBZrAylX6VvO2W7t12zNqMenbJtrlOa5MLQtxG9Y6kb0oRSiOUgI1iI3oSbM3hJ+nn
+	dXZeiuZRqt+Ib7E6ub99LQ==
+X-Google-Smtp-Source: AGHT+IEg9FrZ5YUufYh0MJJtCtJUyPbNJMmGsbwn8DtZhoDwMHr36/JHl3HeB9+5mO4uV2/PACAAPA==
+X-Received: by 2002:a17:90b:2e10:b0:2ea:8fee:508d with SMTP id 98e67ed59e1d1-2f452ec2e82mr73280088a91.30.1735885987768;
+        Thu, 02 Jan 2025 22:33:07 -0800 (PST)
+Received: from yclu-ubuntu.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ee26d89asm29427805a91.46.2025.01.02.22.33.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jan 2025 22:33:07 -0800 (PST)
+From: Joey Lu <a0987203069@gmail.com>
+To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
 	edumazet@google.com,
 	kuba@kernel.org,
 	pabeni@redhat.com,
-	christophe.leroy@csgroup.eu
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	peppe.cavallaro@st.com,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH net-next 13/13] MAINTAINERS: add new file ntmp.h to ENETC driver
-Date: Fri,  3 Jan 2025 14:06:09 +0800
-Message-Id: <20250103060610.2233908-14-wei.fang@nxp.com>
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH net-next v6 0/3] Add support for Nuvoton MA35D1 GMAC
+Date: Fri,  3 Jan 2025 14:32:38 +0800
+Message-Id: <20250103063241.2306312-1-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250103060610.2233908-1-wei.fang@nxp.com>
-References: <20250103060610.2233908-1-wei.fang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR03CA0127.apcprd03.prod.outlook.com
- (2603:1096:4:91::31) To PAXPR04MB8510.eurprd04.prod.outlook.com
- (2603:10a6:102:211::7)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|DB9PR04MB9331:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7eceb04-a176-4565-faf1-08dd2bbf33b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MHGPrw6IGJyF2MGNTAyQi7c+1Jt24cp8K6+JjF6S0MNR2KKBeP6W6oAphCzq?=
- =?us-ascii?Q?62Ob+Gc6g8kC9nzqW2BZnK96g4kEhSiTUpIk4sDaxgr725deavsY/L7M3yHA?=
- =?us-ascii?Q?tS6J6gFYtVIDM9e7HmLtS8foLnz9bdXaKtVy5Fv5epgGIZGCVW3tG20NmbkC?=
- =?us-ascii?Q?C+LAryl4E9WH5DQ7vnSJzh8t8kcUGBHM+KBnzazem0IdaXnFAXlF5iN8O9IK?=
- =?us-ascii?Q?jJgUImlvIy8BvxA+DPO5moNwK293Lgh/ZmzTXOFkAQ5f7HB4OFcAN4R+SwLm?=
- =?us-ascii?Q?yxaY07XnPJQZP6telJOhgSzJFmls3z+b3rIFEuZuxTpWqchsBHbOuWMEqlZh?=
- =?us-ascii?Q?GeUD3WHl0lKqLU18D+Uq7kJh61ypi8nHGsO1aqZE6GB2/0/wntTJNP5rcRKw?=
- =?us-ascii?Q?R/3N/VonmSOneFnoppJ+cWYO0I3YZ8tB22VKNRRs1NiwWinc4uFxYL6cf1/a?=
- =?us-ascii?Q?IRhO6FmWx4ofIfPQuPidtQm0TKdPZ1+D7rTIn7yqtjw8JhtH9PGO3pS/q/od?=
- =?us-ascii?Q?xdlX2FuBx6FOYOBY7V71mCA8mJOGgXuqvVqyCF8GXmm9uDrvTEaFKMuGMc1s?=
- =?us-ascii?Q?25Sp0IkgtMrYNAE41cj++IwhHCzL5+Kn3ckHMRqJrIc/pWwKDkGc59KSgE76?=
- =?us-ascii?Q?W6h7jvf/HxFnr6tWTSY4rLR9BJEm3dwC6lRZFG8hMPa5WL7UsasasNpvQva2?=
- =?us-ascii?Q?yooIjRe/dlV+fRS8D0Pt9G1DGFzqcwUbkduSQ6laTplN5aIR110scLqNyp9k?=
- =?us-ascii?Q?UnTlFrwF67mgcg/Kh83LTJph094FHOXHrUkhaQ3IR5moNrj28c316/0UPima?=
- =?us-ascii?Q?b/ojNxeyDEkesfdb1IBDkZKUtfSDsCbw9MD35Ba5l4OOYMEa6ycbnDGGPL84?=
- =?us-ascii?Q?ZfIbQHI/BeRwLBKOw2wi0QMmtbJ3My6nM0XA6sbQnCbjkP/lNYrnVUwDUvGY?=
- =?us-ascii?Q?g5BSspt735mQMwDblMXtBjkntVvOw0a7iqX5ExVj686k4hgtRCAE0uHqclpj?=
- =?us-ascii?Q?QpikulLXtqafmBWcPTq9n/Kka4PqIYmRNI1PmFQg8KVzg8O5I2kfoMqv6AOp?=
- =?us-ascii?Q?aOOwUG5m/BeS0sQ2+hywcpnDDBZoneDEmm3jzyjBxwtlIzwi0bhwZ/+B61F2?=
- =?us-ascii?Q?SbOHJfYxJxuFo/6DsGaLgc3nJFXvxahmOWTIrBOCvk36jYaVvaJosyyw2v1l?=
- =?us-ascii?Q?f73wObp3Es2ETWl+pCGuV3hcxbBVj/4vxiCzC0jdmCTgPJL/QXaQ/N5xh06F?=
- =?us-ascii?Q?nF9xomWqePkPp2T9der2JztopeHBZ/l3LSGkUNRAxNafg+oieD/cfOvvcEbN?=
- =?us-ascii?Q?O13PZX+ccmWApvw670v9lvjQ/UAtKLpIGPJL3/JPUxhwqRuRfjTGq++SNGbB?=
- =?us-ascii?Q?t+SHG7tqFcAPiU7ppVdF8fX0VFDriuWXkPD+LzdDaVjMcaOEBRLpFrOI9Zq9?=
- =?us-ascii?Q?Db8pvEB7FJJVAruQno+k/l3g76s4/irT?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1BA1dQyZjLNcOAMV4dByXH2H6E00ULUr/UtPfe9XqyfthS1vL0nHjvEoOxPp?=
- =?us-ascii?Q?cbHXVFMZ1ReUr+gzo/RIcw/OYcLXO30p+vKypGowiWfDPaeQvatmfLPKIWYk?=
- =?us-ascii?Q?xSL2nnX+I/kEdq/sRVHEk+pLzJku81GcODtLd5MEvk7PdncPlGmuAhGLb4KD?=
- =?us-ascii?Q?N5VOmTCied91dMv08DyKoPfCqeBGUZEZPdQi9MZnbkSztMX23L9Dj6rUHk9Z?=
- =?us-ascii?Q?q3674qr9eJyCD1ot5vbfd9cODqM7MYZd80BQPCbojSSbY9LAxu8Yq6USw1VQ?=
- =?us-ascii?Q?MX8r27BMrTqy9GWArZrv1YdEYBLk/Ou/rUiWaBtCUPHP82709A8cF/5/HJX4?=
- =?us-ascii?Q?e2mJ3vjPrxz1srbEC36TKaEvZNbuRy4CrR+TLEcpqTn+G6QV5+l0x+AjcKkl?=
- =?us-ascii?Q?miM1c7ABcdGF5e5dhmjUmeyU/JRPYBcuin/Lv4pYpSyf4a2UCR6T8XDn821T?=
- =?us-ascii?Q?grZTHyVsbPFm28hBit1rnCck/LjiSkYpT+38Esty3+J5sSnTJ+nc/fliZw8b?=
- =?us-ascii?Q?PfnUqPl/nyTIHH8ItaxaObgFtbya5/OO3V09RxY6uxp3B/eBY1wO84JWU8gR?=
- =?us-ascii?Q?SYIs/S5484R/ATVnZyph4qb66G6/SuqWZ/3Zxhcuy/9/DcE1yUqNip8tVFjM?=
- =?us-ascii?Q?GJgvStgnO69XfLaWIwJlOEhlg1TgWGigFTjuEreJXRW9f4Tl6FAZlUEpWLBc?=
- =?us-ascii?Q?0eDvgphrpHtkmskPi4ooJBaJqPIFlYm5+UHEe1qzP39PspXnuJI9tlDBjYjR?=
- =?us-ascii?Q?UKx9IpSfjd5Zp7IDJ0Xin0exgrH2s5ZtZpH2iHrB4Jq4Ubx+vhN3rbjPl+WQ?=
- =?us-ascii?Q?SGL99AikC9hXGE8pd8xTIv6sceI25giaGwUqKPG0UZ1KiSsfkIB9458UyBiK?=
- =?us-ascii?Q?Sr+IbDyylgsRyGA3eBvsfZVjku0UE37iCj242Srj5j1V1kzjllfOLyF1PF76?=
- =?us-ascii?Q?yB0jxbBfK7BK2rbxydBYOMhOx234xpgv5G1Bj9YnIUzzfEEJsqBPkj+jlE5e?=
- =?us-ascii?Q?/bdrqhwRv7O7m2IIIilxxvZxcYsZ5ip0/WNERAlL6iXtqKYYwm6h1Q9BM8gE?=
- =?us-ascii?Q?hPzcc+5OSbTUF6Oldui43aqyUVyLdUFYPVOF4ttH5pQ0aXGQvyZk2uJrTjK8?=
- =?us-ascii?Q?NhbuxYPVNxLwlGTC/rVLXVVpn0zyhPVlow+RYGK5gMPMJpziADkMVAu4gqxG?=
- =?us-ascii?Q?jq/7gzopwdP0EQ7mSXY5qAp9H+MH7GAcBRmYGa/b9ulFVlrpTZsr6k6uL9Ig?=
- =?us-ascii?Q?bX9kbdiVaVNC0ukA7+zLA/sFxUBVBMZxk7ZbfxFzZJRpbLKBLiSI7xs6pWOh?=
- =?us-ascii?Q?/vusm45Mz0cGPF+3n1JjyDg4QvN375hATg59Z3wxHbN+nIgnshKgsu6X/O8e?=
- =?us-ascii?Q?/kBtlRdCIx7o6z1fPhQzLio8ntqSxR3lk/PSUMkg6eqGVe9apcWagk2CZwFe?=
- =?us-ascii?Q?npzBCMW+QNtmr6SJ9YcVEai0vqyQfGP1+XqvOlDVn4vG27vH36UJpR34Wt34?=
- =?us-ascii?Q?iJOFUAJAfkzazn6hEsaMH/PXfSoKRcTv2by0ypQvcp27LI8g6XOk8+F/tZze?=
- =?us-ascii?Q?6OeOZSC7y2BNFcceVZOeHJwt1txaH4s5hXIqwNNq?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7eceb04-a176-4565-faf1-08dd2bbf33b8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jan 2025 06:23:56.5958
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: B5VnC3AFJptb+l/OTt+5PnO3Bu86IJvsflKUY/4VvY4yyISpbwGv9+RTer5Rj9ixW60IWRkIrnL05tVw4hi0FA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9331
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_222403_314014_B0C53FF1 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_223309_131046_B4E2A394 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,25 +114,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new file ntmp.h. to ENETC driver.
+This patch series is submitted to add GMAC support for Nuvoton MA35D1
+SoC platform. This work involves implementing a GMAC driver glue layer
+based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+interface capabilities.
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+Overview:
+  1. Added a GMAC driver glue layer for MA35D1 SoC, providing support for
+  the platform's two GMAC interfaces.
+  2. Added device tree settings, with specific configurations for our
+  development boards:
+    a. SOM board: Configured for two RGMII interfaces.
+    b. IoT board: Configured with one RGMII and one RMII interface.
+  3. Added dt-bindings for the GMAC interfaces.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1579124ef426..ac28154f7eb5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9099,6 +9099,7 @@ F:	Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
- F:	drivers/net/ethernet/freescale/enetc/
- F:	include/linux/fsl/enetc_mdio.h
- F:	include/linux/fsl/netc_global.h
-+F:	include/linux/fsl/ntmp.h
- 
- FREESCALE eTSEC ETHERNET DRIVER (GIANFAR)
- M:	Claudiu Manoil <claudiu.manoil@nxp.com>
+v6:
+  - Update dwmac-nuvoton driver
+    - Use NVT as the previx for all functions, structs, and defines.
+    - Remove unnecessary comments.
+
+v5:
+  - Update yaml
+    - Remove the properties already defined in snps dwmac.
+  - Update dwmac-nuvoton driver
+    - Add a comment to explain the override of PMT flag.
+
+v4:
+  - Update yaml
+    - Remove unnecessary property 'select'.
+    - Remove unnecessary compatible entries and fix items.
+    - Specify number of entries for 'reg'.
+    - Remove already defined property 'phy-handle'.
+    - Update example.
+    - Modify the property internal path delay to match the driver.
+  - Update dtsi
+    - Move 'status' to be the last property.
+  - Update dwmac-nuvoton driver
+    - Use remove instead of remove_new.
+    - Use dev_err_probe instead.
+
+v3:
+  - Update yaml
+    - Fix for dt_binding_check warnings & errors.
+    - Add compatible in snps dwmac.
+  - Update dtsi
+    - Update dtsi to follow examples in yaml.
+  - Update dwmac-nuvoton driver
+    - Fix for auto build test warnings.
+    - Invalid path delay arguments will be returned.
+
+v2:
+  - Update yaml
+    - Rename file to align with the compatible property.
+    - Add an argument to syscon to replace mac-id,
+      with corresponding descriptions.
+    - Use tx-internal-delay-ps and rx-internal-delay-ps properties for
+      configurable path delay with corresponding descriptions,
+      allowing selection between GMAC internal and PHY.
+    - Add all supported phy-mode options.
+    - Remove unused properties.
+  - Update dtsi
+    - Modify syscon configuration to include an argument for
+      GMAC interface selection.
+  - Update dwmac-nuvoton driver
+    - Remove redundant device information print statements.
+    - Remove non-global parameters.
+    - Retrieve GMAC interface selection from the syscon argument.
+    - Parse Tx and Rx path delays by correct properties.
+    - Update configurations to support Wake-on-LAN.
+
+
+Joey Lu (3):
+  dt-bindings: net: nuvoton: Add schema for Nuvoton MA35 family GMAC
+  arm64: dts: nuvoton: Add Ethernet nodes
+  net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton MA35 family
+
+ .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 126 ++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  12 ++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  10 +
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  54 ++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 179 ++++++++++++++++++
+ 8 files changed, 394 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+
 -- 
 2.34.1
 
