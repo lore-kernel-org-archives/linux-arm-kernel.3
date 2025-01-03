@@ -4,112 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4ED5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24CBE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lk+b0GAyTAyjvVqEmbixaWIdaDchT/a46QfgfkvYDFg=; b=I6DqnSndZ0xOGw5ZjInPox0PSM
-	OqcXBpSdyv1FOK2V7H+E0bSM7/64dEP1k0wxjaB8nbN2N1BfF4vEn7RKWia/Ku2x0VN863HwNWL8J
-	+YN52xMMDmhGfXNJw2WMdbFReF2SvSS2Ljbf8DqMbjZCAHGG69gar6b2UpLwcm1te+ZLTiNbXxjux
-	E5hpMJaQs9kCYYXX3ZDJSBo5JsF73SeI0aYjG3bxJ5WrrJfY0DHt4oXdchZYcNvBpPGE77U47RXzG
-	2Ief1RTk63R2pwYy2f5smR9MCpU1alkwTeqIvLGzt8GKrSvIkji27Yu/DGlgdBl+J7I8t6roqJv6E
-	/Q2WXnHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=euKQv8+qLLAglA2nxjWTRO4cSqgxw8gfNLiNQS7D87I=; b=oG3ephghXECJsqiPRu/kylRAok
+	z5s96Vydv5OLxTmdpgKqLqhihDgVSGkRSKdjD4gNg5tQSTY2AOq5FzjDxW6m3Sh142JWmuz/E8fWy
+	06NPzplBxqPt+0XMpmk+cpSv8o5v8UaAbxsetO2gTRhd+4erRAJWCSd3Sh+b7XNxoagFChmRQmE9V
+	3zPEePJ9bslNBa+Q2rCsXCtoHtFPgOseGgozilPw6ERaXXo1afg33Ha1Xbc/q6hy79zIuModP+RlJ
+	GFnXipRJms7adaDvJGvEtGgPUas/4h8FKq4k0AuP67MhJLCQyb+pt7OX92EyFpcmUd71bQUcVBgHh
+	8Gk8VUag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTk9V-0000000DNSQ-3qiU;
-	Fri, 03 Jan 2025 16:03:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tTkBr-0000000DNs5-36MB;
+	Fri, 03 Jan 2025 16:06:23 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTk8I-0000000DNCp-0UuQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 16:02:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4155C5C63AE;
-	Fri,  3 Jan 2025 16:02:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63426C4CECE;
-	Fri,  3 Jan 2025 16:02:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735920161;
-	bh=oOlndqDTpZfd3oYtGruqQmYoDbrgT5BLd6opKFCwjMw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A7aBJmMrp+BBwhLVxJOKxLuO8SOC4J4kPt/BL5xwoLXe6KAYHJz04F3bi/KlSMRPe
-	 tqzwdYXFiUdhslbnJjQ55A/OR3QXm3Q5Ps9OKvrlDDoTkFs3zgMELw+8YYtx6NdK5J
-	 Mb90blxOnMqzTPkBmwvZv3MoZE2VyhAGPTItInVy20d9XDXd7yVbiOb4J9tm4O7wHf
-	 0Z06W7SpXIBt8vq5htwpaFoxhP2G+FNhX/F5Pc1TtPXM3JpmRh6zO4Q84WodiBf3rH
-	 ZOHp6YlznIYRaBcZk90PaRCrkgtdJLlYQM/OuLwKT822diN1FdrCRkLx+Rx+TPQC9d
-	 wnxkBL9aAaHMQ==
-Message-ID: <e0a1f9f2-cd3d-401d-97b8-edb8f5d7ed5f@kernel.org>
-Date: Fri, 3 Jan 2025 17:02:34 +0100
+	id 1tTkAd-0000000DNgu-1oK9;
+	Fri, 03 Jan 2025 16:05:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=euKQv8+qLLAglA2nxjWTRO4cSqgxw8gfNLiNQS7D87I=; b=G/rXWzC1EPtUX9suhRFYwTZz43
+	DQgHcKa0CHDONit0ayHI6R7vHtpUHqndnWo/VMxvl6sSzrOmfknUDAbyRP02WnSK3eRWTy4H8V+K/
+	ABR2aF01Zd9a2CAIGQOGeBs6E0IcQufO/lwgI7nMuzKgZI5jHwKfwwDt56UTmC2buEls=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tTkAR-00154Q-Ao; Fri, 03 Jan 2025 17:04:55 +0100
+Date: Fri, 3 Jan 2025 17:04:55 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Niklas Cassel <cassel@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: dw-rockchip: Enable async probe by default
+Message-ID: <5a3e8fda-f9e4-4c2f-847b-93f521b8313b@lunn.ch>
+References: <20240809073610.2517-1-linux.amoon@gmail.com>
+ <Z3fKkTSFFcU9gQLg@ryzen>
+ <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] MAINTAINERS: Add Vincenzo Frascino as Arm Morello
- Maintainer
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Russell King <linux@armlinux.org.uk>
-References: <20250102155416.13159-1-vincenzo.frascino@arm.com>
- <20250102155416.13159-5-vincenzo.frascino@arm.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250102155416.13159-5-vincenzo.frascino@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CANAwSgS5ZWGTP+A11r_qFSrjWZH_DqsM89MLiP+1VAxhz+e+2A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_080242_244193_E9A9F1ED 
-X-CRM114-Status: UNSURE (   5.50  )
+X-CRM114-CacheID: sfid-20250103_080507_472449_ADB66A92 
+X-CRM114-Status: UNSURE (   5.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,14 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/01/2025 16:54, Vincenzo Frascino wrote:
-> Add Vincenzo Frascino <vincenzo.frascino@arm.com> as Arm Morello Software
-> Development Platform Maintainer.
-> 
-> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+> +&gmac1 {
+> +       clock_in_out = "output";
+> +       phy-handle = <&rgmii_phy1>;
+> +       phy-mode = "rgmii";
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+rgmii is wrong. Please search the archives about this topic, it comes
+up every month. You need to remove the tx_delay and rx_delay
+properties, and use rgmii-id.
 
-Best regards,
-Krzysztof
+	Andrew
 
