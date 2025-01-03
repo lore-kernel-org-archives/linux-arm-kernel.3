@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5180AE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 09:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F45EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 09:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FvjXC1OjFutvGYgxD2wHa2wTk86a/9lW5eStlVFSRNE=; b=LZVJa00mErXSsa9sWmi3SvvZNY
-	j/0Q/6GJwed6nzvjszKVo+gv2tizPmnCKDiGCbaTycgDesp8nOgjCUMJB5a18X9Els20v2ALDDtP9
-	Cq3IF52z8CsYjas92tNveWP6Xd2umlPnp0KPgy/AtdZLfZRHSknOxJELN71+RfoXTsjeAQFc09nbk
-	N/qwujVSqR1LcVW9HEZo9BMePEXhRikELowPUCwQZRositTwINvRChp+aNEumWzVheP2PA5jgg5+h
-	xNfzMxV6dr5i9R44pn9+ys+pmP/zlgNr9OZJUb1nVKlo/AZo4fNC/fm0R2CMb08UL59LHd/3THdRl
-	rVmsfwpg==;
+	bh=UrLGdyCrYcyWnlhdUubAx74PyGYpBtAE+f94qB8hv+8=; b=4l30xP6BOMW8baSBGkNzGzN4fa
+	AH9IBwZZwug7fAM+BxCoTg4dQReC5d0tnLOYkO9/vL/tUWc1sLeFCBLT9NXvzU7Y+cL1WRLTCgCr2
+	W2XaXwFIJmaPK4mC8/RhYt2n2LrNU4GgzCXLWCrsm6tVsdYnq6myhN20Ifv4Q8Bpj+pBf69d9NCGh
+	eZ/Fh0ysMqM2xhqaGtRsaMgxme/OzyG0djZDD8s4LV8Osk8BZrIAf5Rbk+Tydu7TDzPDa8iFemwc/
+	Ij4Q7nSQT9cpQLToQALWDUV4o0oyMyVzaatV3C5ktEnEB2QjmsI/MimvCo1nB4FrGQDQ24lFp0Z2P
+	HRlAbucw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTdlW-0000000CZSb-0Uyd;
-	Fri, 03 Jan 2025 09:14:46 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tTdmm-0000000CZlf-2KDO;
+	Fri, 03 Jan 2025 09:16:10 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTdkJ-0000000CZI6-1PVK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 09:13:33 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2161eb95317so171558225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 01:13:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1735895609; x=1736500409; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FvjXC1OjFutvGYgxD2wHa2wTk86a/9lW5eStlVFSRNE=;
-        b=YaRCkHDqDpY8yb4dktxA6vn4U6QJCDSlOjJ+/dCx8JZC40KbzAyhAmmxALdBV+sYk2
-         AnySEVz2WxzFNS+gbuhtMdzZFeqGJO/5T3iTar0lgU9O4VpGc/Egm4NzNeH3uqte3AmE
-         uSrdo1ZOvYwlywWzqa5KVIa7ifKq1m/NUq5cF52GZb/BtsGMQQZ3N3HILs69Z3GkLtwe
-         I9csdAWmU5Ml94Itv0EpKVoayON8/LN2uw2U8fIW/klIhHaN5jQNruX5kvLOqRTy8dzY
-         EWTN/QLU4DDBNLBweAstFL84MSPs7moAkdZFlhzq3hgkryhrzO+3t5OI2dU2eUE6XvSi
-         4KZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735895609; x=1736500409;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FvjXC1OjFutvGYgxD2wHa2wTk86a/9lW5eStlVFSRNE=;
-        b=vZnrfy77L/YOWnHO29AiHdjZQwrekuosUoL6V3rgHDg5Eg+A3gXdVkyAur9zdAT77T
-         NUjjD+9lSVkEoXlWNKIgOtUY8zQbt+X7lrPaGhsIIB42ZiK8DenNUw6/FrWs9TI/zCzO
-         zr6pE101TnXrrcGd87z6a73m4yHC93l/gzEgcburMxGo6RTvgGtENWufzlFv4ik1ydla
-         cq1KW5eul8KeQs6fumcIfhdB3MJ05HlUiYgLCI/RVoxcd/g59A8MtR1TTI86V+Xe52eh
-         bhGpkCw8wHHTpmG3D3enXsftkFcB+ziasgsm1GuZTecSLrRq11yfXFnwdseM6hS00h/Z
-         26fw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIuhe5DmlSvTQhQBMxXmlHiRXzkNg/taN43NZfC5INBDCCOOD1vNfBJ5uGuM7vGC5BFZMgG4EWBYJ8Gg8U8AV1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyA2mKGp/d9dJCYSiE0yTcGAklneCaqkVVLzLWy4DW20kHaTzM
-	NDGUrRsP5bPJ/320YjpM64kFgZux5HVVZNzI6b0OLlcvTA81Jh/ASXQOhP+jzso=
-X-Gm-Gg: ASbGncsjQCk41Q4BhSSRAQYm0mAAkMYZJBskSyTQkjwUFQImI8V+NDHDufUZFvXsIYP
-	2G/Gg5RiJUY2XMWEpkk/5sGEpxywtG6uoYWStqm75UVgouO/mhWhOkFwBOazQNXs8UcHHNhoK9z
-	RyVcqTImN9uUD0NCsZYD8iRUeM3R3SPigaDS9ftkvmvOR/tkf2+TYcqSIguQwF10kDy0jGn/ZgA
-	Hy3wX7FsmEZoBFoFBoqYo5lkyGhAqnXc/UwYiM2wrA9su3bo4Z2wmLRBjL7zaCw+EyS6tg/WqlN
-	+KU1Og==
-X-Google-Smtp-Source: AGHT+IEXJPN8gGhA2HYYDOMJlHA0eNtjpiDq/sKLXwKwTWFhE1ZE5FTpP/Am20/VMhak6uDuJsOrhQ==
-X-Received: by 2002:a17:903:11d2:b0:215:a60d:bcc9 with SMTP id d9443c01a7336-219e6e89536mr708942765ad.2.1735895609241;
-        Fri, 03 Jan 2025 01:13:29 -0800 (PST)
-Received: from [10.84.148.23] ([203.208.167.148])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9cde19sm241412365ad.167.2025.01.03.01.13.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jan 2025 01:13:27 -0800 (PST)
-Message-ID: <e9fe97d4-99d5-443e-b722-43903655a76e@bytedance.com>
-Date: Fri, 3 Jan 2025 17:13:12 +0800
+	id 1tTdlY-0000000CZT9-3hdR;
+	Fri, 03 Jan 2025 09:14:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1735895686;
+	bh=87NFexTc1MyhVTnaxRXYUPIPkVUDQPmZsOB6r5tc5go=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bHPeFGJ1NwUKWS7llEBq/Mc+Y1g3AeSjTi25nxdmeV/TJIGpm4plKhafik7Q4Hr4v
+	 vbhyuBCf/TGK+j1n7KDXVhW+xHqfJG/kXf5ytfToN2sJyn5CVhOHq9G89UFdJZ+mdy
+	 zRJ4dfxWtPuLh0wDU1BSjUNsRZiUk86hBE7/QtxD0IZFs/Ljb2FH1GUQoEjXZepEBe
+	 PccH/eZBIJe5gC/7zEpQ5vlZ/Whd+/O0ojxbSkB541h9qQwaqSoGqihF7KH4QB0Wsw
+	 P2pEK9QBdJ3tRsdE36AZeYZvMzprKipyxFacwTe88F9k6OMY9La/i7//9cySbgFhgb
+	 vZ6zvtmXYD61A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 266C817E153E;
+	Fri,  3 Jan 2025 10:14:46 +0100 (CET)
+Message-ID: <f23dd67e-d3a5-47b5-af14-bf0120348ec8@collabora.com>
+Date: Fri, 3 Jan 2025 10:14:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/15] riscv: pgtable: move pagetable_dtor() to
- __tlb_remove_table()
+Subject: Re: [PATCH 5/5] PCI: mediatek-gen3: Keep PCIe power and clocks if
+ suspend-to-idle
+To: Jianjun Wang <jianjun.wang@mediatek.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>, linux-pci@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Xavier Chang <Xavier.Chang@mediatek.com>
+References: <20250103060035.30688-1-jianjun.wang@mediatek.com>
+ <20250103060035.30688-6-jianjun.wang@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: peterz@infradead.org, agordeev@linux.ibm.com, palmer@dabbelt.com,
- tglx@linutronix.de, david@redhat.com, jannh@google.com, hughd@google.com,
- yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
- vbabka@kernel.org, lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
- rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <0e8f0b3835c15e99145e0006ac1020ae45a2b166.1735549103.git.zhengqi.arch@bytedance.com>
- <1b09335c-f0b6-4ccb-9800-5fb22f7e8083@arm.com>
- <ebce5e05-5e46-4c6e-94a0-bcf3655a862b@bytedance.com>
- <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <7e2c26c8-f5df-4833-a93f-3409b00b58fd@arm.com>
+In-Reply-To: <20250103060035.30688-6-jianjun.wang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_011331_936534_B4E6D6B1 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20250103_011449_095514_602D5528 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,152 +84,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/1/3 16:02, Kevin Brodsky wrote:
-> On 03/01/2025 04:48, Qi Zheng wrote:
->> Hi Kevin,
->>
->> On 2025/1/3 00:53, Kevin Brodsky wrote:
->>> On 30/12/2024 10:07, Qi Zheng wrote:
->>>>    static inline void riscv_tlb_remove_ptdesc(struct mmu_gather *tlb,
->>>> void *pt)
->>>>    {
->>>> -    if (riscv_use_sbi_for_rfence())
->>>> +    if (riscv_use_sbi_for_rfence()) {
->>>>            tlb_remove_ptdesc(tlb, pt);
->>>> -    else
->>>> +    } else {
->>>> +        pagetable_dtor(pt);
->>>>            tlb_remove_page_ptdesc(tlb, pt);
->>>
->>> I find the imbalance pretty confusing: pagetable_dtor() is called
->>> explicitly before using tlb_remove_page() but not tlb_remove_ptdesc().
->>> Doesn't that assume that CONFIG_MMU_GATHER_HAVE_TABLE_FREE is selected?
->>> Could we not call pagetable_dtor() from __tlb_batch_free_encoded_pages()
->>> to ensure that the dtor is always called just before freeing, and remove
->>
->> In __tlb_batch_free_encoded_pages(), we can indeed detect PageTable()
->> and call pagetable_dtor() to dtor the page table pages.
->> But __tlb_batch_free_encoded_pages() is also used to free normal pages
->> (not page table pages), so I don't want to add overhead there.
+Il 03/01/25 07:00, Jianjun Wang ha scritto:
+> If the target system sleep state is suspend-to-idle, the bridge is
+> supposed to stay in D0, and the framework will not help to restore its
+> configuration space, so keep its power and clocks during suspend.
 > 
-> Interesting, can a tlb batch refer to pages than are not PTPs then?
-
-Yes, you can see the caller of __tlb_remove_folio_pages() or 
-tlb_remove_page_size().
-
+> It's recommended to enable L1ss support, so the link can be changed to
+> L1.2 state during suspend.
 > 
->>
->> But now I think maybe we can do this in tlb_remove_page_ptdesc(), like
->> this:
->>
->> diff --git a/arch/csky/include/asm/pgalloc.h
->> b/arch/csky/include/asm/pgalloc.h
->> index f1ce5b7b28f22..e45c7e91dcbf9 100644
->> --- a/arch/csky/include/asm/pgalloc.h
->> +++ b/arch/csky/include/asm/pgalloc.h
->> @@ -63,7 +63,6 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
->>
->>   #define __pte_free_tlb(tlb, pte, address)              \
->>   do {                                                   \
->> -       pagetable_dtor(page_ptdesc(pte));               \
->>          tlb_remove_page_ptdesc(tlb, page_ptdesc(pte));  \
->>   } while (0)
->>
->> [...]
->>
->> diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
->> index a96d4b440f3da..a59205863f431 100644
->> --- a/include/asm-generic/tlb.h
->> +++ b/include/asm-generic/tlb.h
->> @@ -506,6 +506,7 @@ static inline void tlb_remove_ptdesc(struct
->> mmu_gather *tlb, void *pt)
->>   /* Like tlb_remove_ptdesc, but for page-like page directories. */
->>   static inline void tlb_remove_page_ptdesc(struct mmu_gather *tlb,
->> struct ptdesc *pt)
->>   {
->> +       pagetable_dtor(pt);
->>          tlb_remove_page(tlb, ptdesc_page(pt));
->>   }
+> Signed-off-by: Jianjun Wang <jianjun.wang@mediatek.com>
+> ---
+>   drivers/pci/controller/pcie-mediatek-gen3.c | 18 ++++++++++++++++++
+>   1 file changed, 18 insertions(+)
 > 
-> I think this is an interesting idea, it does make arch code easier to
-> follow. OTOH it would have been more natural to me to call
-> pagetable_dtor() from tlb_remove_page(). I can however see that this
-> doesn't work, because tlb_remove_table() is defined as tlb_remove_page()
-> if CONFIG_MMU_GATHER_HAVE_TABLE_FREE isn't selected. Which brings me
-> back to my earlier question: in that case, aren't we missing a call to
-> pagetable_dtor() when using tlb_remove_table() (or tlb_remove_ptdesc())?
+> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+> index 48f83c2d91f7..11da68910502 100644
+> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> @@ -1291,6 +1291,19 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
+>   	int err;
+>   	u32 val;
+>   
+> +	/*
+> +	 * If the target system sleep state is suspend-to-idle, the bridge is supposed to stay in
+> +	 * D0, and the framework will not help to restore its configuration space, so keep it's
+> +	 * power and clocks during suspend.
+> +	 *
+> +	 * It's recommended to enable L1ss support, so the link can be changed to L1.2 state during
+> +	 * suspend.
+> +	 */
+> +	if (pm_suspend_default_s2idle()) {
 
-Thank you for pointing this out!
+AFAIK, this works only if s2idle is the default system sleep state.
 
-Now, there are the following architectures selected 
-CONFIG_MMU_GATHER_RCU_TABLE_FREE:
+...and besides, for good measure (especially in the event that in the future we
+get hotplug support) you should also check if there is any active PCI-Express
+device on the controller instance before deciding to leave the controller and
+link UP, as PCI-Express controllers may be enabled even if there's no actually
+connected device on a PCIe slot (full PCIe, or mPCIe, or M.2).
 
-1. arm: select MMU_GATHER_RCU_TABLE_FREE if SMP && ARM_LPAE
-2. arm64: select MMU_GATHER_RCU_TABLE_FREE
-3. powerpc: select MMU_GATHER_RCU_TABLE_FREE
-4. riscv: select MMU_GATHER_RCU_TABLE_FREE if SMP && MMU
-5. s390: select MMU_GATHER_RCU_TABLE_FREE
-6. sparc: select MMU_GATHER_RCU_TABLE_FREE if SMP
-7. x86: select MMU_GATHER_RCU_TABLE_FREE	if PARAVIRT
+So, I suggest to:
 
-If CONFIG_MMU_GATHER_TABLE_FREE is selected, an architecture is expected
-to provide __tlb_remove_table(). This patch series modifies the
-__tlb_remove_table() in arm, arm64, riscv, s390 and x86. Among them,
-arm64 and s390 unconditionally select MMU_GATHER_RCU_TABLE_FREE, so we
-only need to double-check arm, riscv and x86.
+- Add a `bool suspended` member to `struct mtk_gen3_pcie`, then
 
-For x86, it was called tlb_remove_page() in the non-PARAVIRT case, and I
-added pagetable_dtor() for it explicitly (see patch #11), so this should
-be no problem.
+static int mtk_pcie_suspend_noirq(struct device *dev)
+{
+	struct mtk_gen3_pcie *pcie = dev_get_drvdata(dev);
+	int err;
+	u32 val;
 
-For riscv, it will only call tlb_remove_ptdesc() in the case of
-SMP && MMU, so this should be no problem.
+	val = readl(pcie->base + PCIE_LINK_STATUS_REG);
+	val &= PCIE_PORT_LINKUP;
 
-For arm, the call to pagetable_dtor() is indeed missed in the
-non-MMU_GATHER_RCU_TABLE_FREE case. This needs to be fixed. But we
-can't fix this by adding pagetable_dtor() to tlb_remove_table(),
-because some architectures call tlb_remove_table() but don't support
-page table statistics, like sparc.
+	if (val && pm_suspend_target_state == PM_SUSPEND_TO_IDLE) {
+		dev_dbg(....)
+		return 0;
+	}
 
-So a more direct fix might be:
+	/* Trigger link to L2 state */
+	err = mtk_pcie_turn_off_link(pcie);
+	if (err) {
+		dev_err(pcie->dev, "cannot enter L2 state\n");
+		return err;
+	}
 
-diff --git a/include/asm-generic/tlb.h b/include/asm-generic/tlb.h
-index a59205863f431..0a131444a18ca 100644
---- a/include/asm-generic/tlb.h
-+++ b/include/asm-generic/tlb.h
-@@ -500,6 +500,9 @@ static inline void tlb_remove_page(struct mmu_gather 
-*tlb, struct page *page)
+	pcie->suspended = true;
 
-  static inline void tlb_remove_ptdesc(struct mmu_gather *tlb, void *pt)
-  {
-+#ifndef CONFIG_MMU_GATHER_TABLE_FREE
-+       pagetable_dtor(pt);
-+#endif
-         tlb_remove_table(tlb, pt);
-  }
+	/* Pull down the PERST# pin */
+	.... etc etc
 
-Or fix it directly in arm? Like the following:
 
-diff --git a/arch/arm/include/asm/tlb.h b/arch/arm/include/asm/tlb.h
-index ea4fbe7b17f6f..cf5d0ca021440 100644
---- a/arch/arm/include/asm/tlb.h
-+++ b/arch/arm/include/asm/tlb.h
-@@ -43,6 +43,9 @@ __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte, 
-unsigned long addr)
-         __tlb_adjust_range(tlb, addr - PAGE_SIZE, 2 * PAGE_SIZE);
-  #endif
+and
 
-+#ifndef CONFIG_MMU_GATHER_TABLE_FREE
-+       pagetable_dtor(ptdesc);
-+#endif
-         tlb_remove_ptdesc(tlb, ptdesc);
-  }
+static int mtk_pcie_resume_noirq(struct device *dev)
+{
+	struct mtk_gen3_pcie *pcie = dev_get_drvdata(dev);
+	int err;
 
-Thanks,
-Qi
+	if (!pcie->suspended)
+		return 0;
 
-> 
-> - Kevin
+	err = pcie->soc->power_up .... etc etc
+
+
+... so you only check if we're going in s2idle in the suspend handler, as
+that dictates the value of pcie->suspended :-)
+
+Cheers,
+Angelo
+
+> +		dev_info(dev, "System enter s2idle state, keep PCIe power and clocks\n");
+> +		return 0;
+> +	}
+> +
+>   	/* Trigger link to L2 state */
+>   	err = mtk_pcie_turn_off_link(pcie);
+>   	if (err) {
+> @@ -1316,6 +1329,11 @@ static int mtk_pcie_resume_noirq(struct device *dev)
+>   	struct mtk_gen3_pcie *pcie = dev_get_drvdata(dev);
+>   	int err;
+>   
+> +	if (pm_suspend_default_s2idle()) {
+> +		dev_info(dev, "System enter s2idle state, no need to reinitialization\n");
+> +		return 0;
+> +	}
+> +
+>   	err = pcie->soc->power_up(pcie);
+>   	if (err)
+>   		return err;
+
+
+
 
