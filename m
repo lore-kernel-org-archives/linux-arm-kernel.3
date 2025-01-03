@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67244E7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A9BE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uRfd2J8GP5C8knwZHf/66JpMVkPptrjLbcLPhoT3Dxw=; b=JqQuYP1nJsSrKG7wfBie2Ybu8c
-	bG+Cv3hRGIHGph/z+zQP1lLG0q/nyHyJpn8VlSH08EYHi2GV3nBG2K2rt69M3QAFDznhn35mt65wr
-	qJTHZ+3jJO1eng2Xflhbx3dggJMlPNsYk7+TWpqFHAvy0N7hA7Xk/zWYRLOR8lLh8TNk1SYeMTQZF
-	DyT9Y3O24YSk7xjbHYz5XEEwDj8DyjViDJBoRaZ4r3cIzNZd7JqMWiIF2DTJxaHKcCSmyWLl55mXW
-	njBH/hXQ0D/wnUlcEeWGtoq3T0X0qlU8pPUxvQI/rZFL+70orJgWtFdmTNU3aO2WfI/eiCEvPFR3H
-	3C8H2pJA==;
+	bh=MKO092aqGvuaWEK1ec47bOLS5kCK+a7HRvUCASG+XdU=; b=N5h/q0X6RgIZFnsOrQjyDLap5r
+	m8oDXFy5LKDdL4c4jcxkQSR0cJcbcOEyqZ5suOWUAY0KgekxEE8yg+tHRxDhDnMpxh3VZWHWRK0I0
+	JyDQDriBfp8D35GfajZnfyV6/x0aTGKKZEstRviauTEteCMmDhBz8Xk9P7W06KgigPtRvAC4fc66x
+	cFx8yrcYZqR3zK2gj6ZA2DCjoKJFrSpIjMT87mfsOTR2CjVE/0UILgWpCDvHIgpw6peo8zCKFjBJz
+	iZaoNtgjxDBimVDlMDzZa4423KxRKdR9aiHBtRq/r2z7Vz+ONk4RsbqnSKn0woEuahwhsHmy88usL
+	TCD28QCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkjK-0000000DSPm-16w6;
-	Fri, 03 Jan 2025 16:40:58 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tTkkU-0000000DSW9-46Kd;
+	Fri, 03 Jan 2025 16:42:10 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkgy-0000000DRrd-0gJ0
+	id 1tTkh0-0000000DRsl-0dkH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 16:38:33 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa6a92f863cso2137821266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 08:38:31 -0800 (PST)
+	Fri, 03 Jan 2025 16:38:35 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-aa692211331so2356361766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 08:38:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1735922310; x=1736527110; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1735922312; x=1736527112; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uRfd2J8GP5C8knwZHf/66JpMVkPptrjLbcLPhoT3Dxw=;
-        b=ClPdiGAZXIjA238oGOB3omPwKNOM/oGw90kKOiUpDQb+KQmFdPHqVxEhLjbQu45EgQ
-         3wqcqZ0EypnGzGWk4IQSc+bDvYrePueHQRRbicEMe/KlTyZwxmZMYR6Ejwo/Shum3ICJ
-         7K6b5/BHBBWoL65DaiCcjnmWDCwmMRvhyAdxtWmqMWfJPKwM620Pd9COvR1FlQs+JELP
-         y1vhGxuR7JuHqf2PgUyXG1IheXv2Vq/q2BBO0J2ogpa2oah6L3HaAy+Ebh5AHQ+LpdaY
-         ULn2dnqXokrXPiSxSetfwrtnHPEAXACafZ0eLLEgFV260xZIJO6Ixh4ob9Xg29iUAGXq
-         0eQw==
+        bh=MKO092aqGvuaWEK1ec47bOLS5kCK+a7HRvUCASG+XdU=;
+        b=RPyatjGlduynQuaEtfcWtGSNDOF5f9hHbo6BZ6DVj+rjJsYZtGamlL84zzNKzCEuog
+         tP0ZPGBkrcVb+2+5IHShGEoYpU2zNLQWDBkRBWFwn5OlCSA/gNT3LAm7HA64+wA/cO48
+         TNd5V/RqD2hLkwW4655x/1s8yTOkCkp7j1VeqgVulFs9rb+Jb+XztQivmG4yHTacUEMT
+         gtUhF+yLoCygaJ7VqITtkF4YLFcoV9MLjsq8G+KHEsmV5ggH1rzyEn/K0Ddi4MSxvidS
+         Q7+6W9QLnJ2jCYI2+f6K0LzobV3EIm9RLzET9++ksqGUbXqTrL7dnu2aM29es0rpEtPr
+         /8TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735922310; x=1736527110;
+        d=1e100.net; s=20230601; t=1735922312; x=1736527112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uRfd2J8GP5C8knwZHf/66JpMVkPptrjLbcLPhoT3Dxw=;
-        b=TYxFXjqHe64CU7LxmO2VXBUbsETyUQvx0TL5PVQCtQDSOd+IukecZu3eFhw50ZC+18
-         XFpK2JXbEr1Y+EKEy5Db2pObPPsh6lJkzwPiEdpJWK5P85CQ3mizPYMiHnkObNfeJ4Se
-         5yo8pf/6JrUOdrc8BiLE0RAO5ryAnGcsazyDw1jIgDvyi4CGFWZvLHFwQZ7RsVGBHJsC
-         AKku6eWgUq6igZveXtgJZ/nIbTM+IF9cGdzIGaXEHQaDiU0zRplThfPHNlbh2G9s7KfN
-         9v9/gcZ0r5VS+5ODlPURB2RyvxmCXDJ9HQ+gVT/YlrF2OmWdt/xJl5xZGNSMOSOaMdkl
-         hJfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXnp4u6jZhrey8p8SPHw0DLbGo3CzO6D6XM2wgF49gNbK6TVA4xN6NMaYPKKI/wmOLjuSSGWgYiiFdXCwL3WQ+h@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzJsV5krk0YYrlCWrLqUCJ8blxnM900uFytaHZoOr0jLu8ELxX
-	rFZcOI2UY/tJkykEpXml4co4K/WNBp9LWWyfvzv5jipV74VB4gQvORzg9GW/Uyo=
-X-Gm-Gg: ASbGnctyxsauKYH1vjc+OBuHRLM/Q2P7XXxu9787ha2BQ8G8FgP6qx1qLLe9eqMxe4c
-	nb/vGtPBYjTKSzQOOsA4hz0VX7i1WexlziHFSxOVLRbmH12tt2jAsCnvc7aH8RfhmPdXjmHeXe5
-	wE8LhWbEMErq/KU1VnmWZIbM2E8Ehts9lSmS1EySRYsA1BSPjRAbcpZvca/n/h35E9iufFdEIt9
-	YLswn9zXH6LR9UKmCkgvQ58vD9jWhkcacuaLbjdTkk1L1LBSCMfQLpZjHGlpZJcAITG1oiiaqI/
-	PuENi5vCNhU=
-X-Google-Smtp-Source: AGHT+IEDncREyuqiaeFdEZrch8doNfoioGsr8GniNw17HEMgfl8Mb5jP1IALi9TIgf4Be+b+F0vcRQ==
-X-Received: by 2002:a17:907:944f:b0:aac:439:10ce with SMTP id a640c23a62f3a-aac2ba3c11amr5503329166b.27.1735922310189;
-        Fri, 03 Jan 2025 08:38:30 -0800 (PST)
+        bh=MKO092aqGvuaWEK1ec47bOLS5kCK+a7HRvUCASG+XdU=;
+        b=qAeW1fJZEYbftDIF1jIk2HW5x/ewphAped6Xp77EFqG4en44ZlhAf65ltt+SBNMtao
+         z2P0K+6l3+K5v4iKz+1tzA1ffo58CRs9m2AgQRqVUJuARFseDQepmkiVEFq0q7g2Od6R
+         1WXPCf7u0kfGSRL/zSd+tjtjz7brvJZ6auWVB35ODJMaaqVjB1O0NQzvE34XwnDWmd1C
+         0XETvRpSHuD0d4SR6SaHmJ54jSrkczf4XCaielUSFfkcTxFIALQC+UkgKABYCH8+7bKA
+         iSvGuXy7MwlSLGq9jRdf6edvPyQGvNI3W1GQuCqCsfev8gzVC0uvWM+wbI5LS7VlFnpI
+         0slQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW6c/02LM9z4FIQyGu6eRWP8ijDHZ4zCj0Mb9BSj186t9YHeUSHaRvj6loHt1R7Lm4Nz9vvPMz6o1ldRRad3ULU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yye4DrMLHXb/4zOTYqOL83FzOhqg3v8rzMVKEE4IpZ8+GOn+D1l
+	OU9A1QYJLtymT3vH7iaBDJxIAn4d5N0z6PXUvl0tT/400PHvwNJGwy/CiMQPIfQ=
+X-Gm-Gg: ASbGnct955M2qlsexZ/Zns9XzB+HjtWSi/Rhy+225Rn9GErOcfg36TsxErTZqwN1+7g
+	xDbl2UoxLUgRdmgyHLuVGImIS2OPuRsPqM4ZZnpBy+N7hF5daInkco8GX0zpoha6u4GUIUeNJfb
+	KU6w3gQpFfGxE4MytAvElEub4VxRV0HtQrsybe4TW+/o6lfx465YG4yR3mx3MwrTzoIpHg2oBbm
+	Pum4QPznhH1BLiRYeFNku1qE/kDALbcpMJ5KmrpmS/kgh74Ua9H96mesiCUw92/9ZjhaLuLjjYm
+	dsZLYTfnr/k=
+X-Google-Smtp-Source: AGHT+IHotX0t/tDNEmrDmtZY7hNyawr8SL8uDODoko36MDXxVpeudAHOQDSv7TvNphEb+Zb8F3tSTg==
+X-Received: by 2002:a17:906:4fcb:b0:aa6:7ff9:d248 with SMTP id a640c23a62f3a-aac0812631emr4709225166b.8.1735922312040;
+        Fri, 03 Jan 2025 08:38:32 -0800 (PST)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e8953b6sm1932984066b.65.2025.01.03.08.38.28
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e8953b6sm1932984066b.65.2025.01.03.08.38.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 08:38:29 -0800 (PST)
+        Fri, 03 Jan 2025 08:38:31 -0800 (PST)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: rafael@kernel.org,
@@ -91,18 +91,17 @@ Cc: claudiu.beznea@tuxon.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 1/6] clk: renesas: r9a08g045: Add clocks, resets and power domain support for the TSU IP
-Date: Fri,  3 Jan 2025 18:38:00 +0200
-Message-ID: <20250103163805.1775705-2-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 2/6] thermal: of: Export non-devres helper to register/unregister thermal zone
+Date: Fri,  3 Jan 2025 18:38:01 +0200
+Message-ID: <20250103163805.1775705-3-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_083832_200684_5089527D 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_083834_196521_D598C01C 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,43 +118,138 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Add clocks, resets and power domains for the TSU IP available on the
-Renesas RZ/G3S SoC.
+On the Renesas RZ/G3S (and other Renesas SoCs, e.g., RZ/G2{L, LC, UL}),
+clocks are managed through PM domains. These PM domains, registered on
+behalf of the clock controller driver, are configured with
+GENPD_FLAG_PM_CLK. In most of the Renesas drivers used by RZ SoCs, the
+clocks are enabled/disabled using runtime PM APIs.
+
+During probe, devices are attached to the PM domain controlling their
+clocks. Similarly, during removal, devices are detached from the PM domain.
+
+The detachment call stack is as follows:
+
+device_driver_detach() ->
+  device_release_driver_internal() ->
+    __device_release_driver() ->
+      device_remove() ->
+        platform_remove() ->
+	  dev_pm_domain_detach()
+
+In the upcoming Renesas RZ/G3S thermal driver, the
+struct thermal_zone_device_ops::change_mode API is implemented to
+start/stop the thermal sensor unit. Register settings are updated within
+the change_mode API.
+
+In case devres helpers are used for thermal zone register/unregister the
+struct thermal_zone_device_ops::change_mode API is invoked when the
+driver is unbound. The identified call stack is as follows:
+
+device_driver_detach() ->
+  device_release_driver_internal() ->
+    device_unbind_cleanup() ->
+      devres_release_all() ->
+        devm_thermal_of_zone_release() ->
+	  thermal_zone_device_disable() ->
+	    thermal_zone_device_set_mode() ->
+	      rzg3s_thermal_change_mode()
+
+The device_unbind_cleanup() function is called after the thermal device is
+detached from the PM domain (via dev_pm_domain_detach()).
+
+The rzg3s_thermal_change_mode() implementation calls
+pm_runtime_resume_and_get()/pm_runtime_put_autosuspend() before/after
+accessing the registers. However, during the unbind scenario, the
+devm_thermal_of_zone_release() is invoked after dev_pm_domain_detach().
+Consequently, the clocks are not enabled, as the device is removed from
+the PM domain at this time, leading to an Asynchronous SError Interrupt.
+The system cannot be used after this.
+
+Add thermal_of_zone_register()/thermal_of_zone_unregister(). These will
+be used in the upcomming RZ/G3S thermal driver.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
- drivers/clk/renesas/r9a08g045-cpg.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/thermal/thermal_of.c |  8 +++++---
+ include/linux/thermal.h      | 14 ++++++++++++++
+ 2 files changed, 19 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/clk/renesas/r9a08g045-cpg.c b/drivers/clk/renesas/r9a08g045-cpg.c
-index 0e7e3bf05b52..bc44e08e7eb9 100644
---- a/drivers/clk/renesas/r9a08g045-cpg.c
-+++ b/drivers/clk/renesas/r9a08g045-cpg.c
-@@ -241,6 +241,7 @@ static const struct rzg2l_mod_clk r9a08g045_mod_clks[] = {
- 	DEF_MOD("gpio_hclk",		R9A08G045_GPIO_HCLK, R9A08G045_OSCCLK, 0x598, 0),
- 	DEF_MOD("adc_adclk",		R9A08G045_ADC_ADCLK, R9A08G045_CLK_TSU, 0x5a8, 0),
- 	DEF_MOD("adc_pclk",		R9A08G045_ADC_PCLK, R9A08G045_CLK_TSU, 0x5a8, 1),
-+	DEF_MOD("tsu_pclk",		R9A08G045_TSU_PCLK, R9A08G045_CLK_TSU, 0x5ac, 0),
- 	DEF_MOD("vbat_bclk",		R9A08G045_VBAT_BCLK, R9A08G045_OSCCLK, 0x614, 0),
- };
+diff --git a/drivers/thermal/thermal_of.c b/drivers/thermal/thermal_of.c
+index fab11b98ca49..8fc35d20db60 100644
+--- a/drivers/thermal/thermal_of.c
++++ b/drivers/thermal/thermal_of.c
+@@ -329,11 +329,12 @@ static bool thermal_of_should_bind(struct thermal_zone_device *tz,
+  *
+  * @tz: a pointer to the thermal zone structure
+  */
+-static void thermal_of_zone_unregister(struct thermal_zone_device *tz)
++void thermal_of_zone_unregister(struct thermal_zone_device *tz)
+ {
+ 	thermal_zone_device_disable(tz);
+ 	thermal_zone_device_unregister(tz);
+ }
++EXPORT_SYMBOL_GPL(thermal_of_zone_unregister);
  
-@@ -279,6 +280,7 @@ static const struct rzg2l_reset r9a08g045_resets[] = {
- 	DEF_RST(R9A08G045_GPIO_SPARE_RESETN, 0x898, 2),
- 	DEF_RST(R9A08G045_ADC_PRESETN, 0x8a8, 0),
- 	DEF_RST(R9A08G045_ADC_ADRST_N, 0x8a8, 1),
-+	DEF_RST(R9A08G045_TSU_PRESETN, 0x8ac, 0),
- 	DEF_RST(R9A08G045_VBAT_BRESETN, 0x914, 0),
- };
+ /**
+  * thermal_of_zone_register - Register a thermal zone with device node
+@@ -355,8 +356,8 @@ static void thermal_of_zone_unregister(struct thermal_zone_device *tz)
+  *	- ENOMEM: if one structure can not be allocated
+  *	- Other negative errors are returned by the underlying called functions
+  */
+-static struct thermal_zone_device *thermal_of_zone_register(struct device_node *sensor, int id, void *data,
+-							    const struct thermal_zone_device_ops *ops)
++struct thermal_zone_device *thermal_of_zone_register(struct device_node *sensor, int id, void *data,
++						     const struct thermal_zone_device_ops *ops)
+ {
+ 	struct thermal_zone_device_ops of_ops = *ops;
+ 	struct thermal_zone_device *tz;
+@@ -429,6 +430,7 @@ static struct thermal_zone_device *thermal_of_zone_register(struct device_node *
  
-@@ -353,6 +355,8 @@ static const struct rzg2l_cpg_pm_domain_init_data r9a08g045_pm_domains[] = {
- 				DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(4)), 0),
- 	DEF_PD("adc",		R9A08G045_PD_ADC,
- 				DEF_REG_CONF(CPG_BUS_MCPU2_MSTOP, BIT(14)), 0),
-+	DEF_PD("tsu",		R9A08G045_PD_TSU,
-+				DEF_REG_CONF(CPG_BUS_MCPU2_MSTOP, BIT(15)), 0),
- 	DEF_PD("vbat",		R9A08G045_PD_VBAT,
- 				DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(8)),
- 				GENPD_FLAG_ALWAYS_ON),
+ 	return ERR_PTR(ret);
+ }
++EXPORT_SYMBOL_GPL(thermal_of_zone_register);
+ 
+ static void devm_thermal_of_zone_release(struct device *dev, void *res)
+ {
+diff --git a/include/linux/thermal.h b/include/linux/thermal.h
+index 69f9bedd0ee8..adbb4092a064 100644
+--- a/include/linux/thermal.h
++++ b/include/linux/thermal.h
+@@ -195,13 +195,23 @@ struct thermal_zone_params {
+ 
+ /* Function declarations */
+ #ifdef CONFIG_THERMAL_OF
++struct thermal_zone_device *thermal_of_zone_register(struct device_node *sensor, int id, void *data,
++						     const struct thermal_zone_device_ops *ops);
+ struct thermal_zone_device *devm_thermal_of_zone_register(struct device *dev, int id, void *data,
+ 							  const struct thermal_zone_device_ops *ops);
+ 
++void thermal_of_zone_unregister(struct thermal_zone_device *tz);
+ void devm_thermal_of_zone_unregister(struct device *dev, struct thermal_zone_device *tz);
+ 
+ #else
+ 
++static inline
++struct thermal_zone_device *thermal_of_zone_register(struct device_node *sensor, int id, void *data,
++						     const struct thermal_zone_device_ops *ops)
++{
++	return ERR_PTR(-ENOTSUPP);
++}
++
+ static inline
+ struct thermal_zone_device *devm_thermal_of_zone_register(struct device *dev, int id, void *data,
+ 							  const struct thermal_zone_device_ops *ops)
+@@ -209,6 +219,10 @@ struct thermal_zone_device *devm_thermal_of_zone_register(struct device *dev, in
+ 	return ERR_PTR(-ENOTSUPP);
+ }
+ 
++static inline void thermal_of_zone_unregister(struct thermal_zone_device *tz)
++{
++}
++
+ static inline void devm_thermal_of_zone_unregister(struct device *dev,
+ 						   struct thermal_zone_device *tz)
+ {
 -- 
 2.43.0
 
