@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63932E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 05:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E8FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 05:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KOcDqtGRXf/UHLTIfgwSITvMK0QtY2PkEv0bG0mXGH8=; b=hzx+S8MLTxXKYw+qVCP/WfERuX
-	JWW9QZfcb3HNp0zLEJYgvu2APAGdMFsy+SutkTJuzyGjSMUTag493eGtra4YquVeRf7tjzyK8uFag
-	bBVeSHJF7xCmLv+z78ejYuUgZWYKtWQ7o3fCJeWedAIMmsw7pjeoc0BmTbJ+yj4xJWR4w20NvIQQB
-	pCgAnTsv3Jm7zySo+GoxFIT37YVk0+X90LZ2DQqVWuMUd/ETGo9vqkeaQo6i9OQNJ6r7hqrX+kls1
-	gT7wgmPf3qemsG70/TDm0BQ6ady9O4oU2A5h+28dW3AW5vun/jlNE6gq2AlxLZmMjrfHiglu/t1rF
-	yvbHrwew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Eg4Oi75Mp1rTvatlYQI4XUjpgg0k+tOQGw3eIL+gTkE=; b=HzaKilzOAOG6/zehfhFzrmgfcY
+	jXqjdr+GA4HHM2Ah/yESJTM7ReAz0bHEH2hrcm1mkY5dhuP2PdmXw034Nx49JhpsTvL45AVE6pZ+V
+	uZ20lSmAvenTCFzxc9UeaV/nStSEguEvLySDOlxtkK4LlkmtQnm2SAT6E0HOELw5YsdpIs6Z/8X4Y
+	BC/+U90voTGvxY14gcvVvSd/WonYMaRKC9h5aaskxXVktEyUGQkxnXCyBjygq5oEXtHevZxEb4mgq
+	2l1Z9fcqNOc1m2GjRjx5GdCCRoyI4rAYkHV79s4qpCIZoIwmdvr328QfUP4fun1+PthpqOV5EuCeT
+	yCx7n3LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTaVl-0000000C8qn-0yXK;
-	Fri, 03 Jan 2025 05:46:17 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1tTaWx-0000000C8yb-0lXW;
+	Fri, 03 Jan 2025 05:47:31 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTaMz-0000000C7ik-2Pso
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 05:37:14 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-53e3778bffdso13611695e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 21:37:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735882632; x=1736487432; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KOcDqtGRXf/UHLTIfgwSITvMK0QtY2PkEv0bG0mXGH8=;
-        b=RTnOzUYnIpvSA5keRYXzvfADnf3EVBIIaAhVBwwSJicXG8HG54AwdYzNzuC4G3xiJj
-         Ev4PmLrmbWUypUqlajZbuLaY4h2Sl8xYZ4Ls/Pnx691SawO8nlQWCtxi014FX/T5SKH6
-         E5TUi6909i6hKTeyik8a4mAfxe5TvSQ0Ek4chEAEaLObN9EIitkySWiwuwsP2R3Kpy9j
-         e+ZM7A5GEbOZ5VMKYWkp3CQazTOQ67C0Wne452Yq/g5C72acK67jx9xsvKVYN0Zmy7+Y
-         66JBF+zdny4Uv4285kDIRKgSkE0oCg6YvJSWTMiyL3E5wyYc/aIwmpXQUSf9tk8hbDn8
-         M7jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735882632; x=1736487432;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KOcDqtGRXf/UHLTIfgwSITvMK0QtY2PkEv0bG0mXGH8=;
-        b=tvXq+J6k0Ldo1rTdsW+h4lSv+7zM+v57UYbd825VEoLd5m3xF0BtWB7gWX7fwlHvGj
-         IsAKXFz+jzTOgwwPCCs3vLFCetPvZdF6KqIPhA8QJ3+zQ7F+JW7+wG4EXyZc3PzTiEQl
-         0+snoHydJYUkr3L0QR9dL6nfjDkdadU+O9ZcCU/sNJrYYSqWV4GU1gII2/Q2vavh60JL
-         ufGVpk1h/8P2NVc/6G90dAhyL57ueqe7wOS82iVGf/H1WVGOSFC3hpw56UXfTHtwLFx6
-         rEdYvS9pO3MEFlt1sFMmPyj62oe5b0onFN4MlPTYUWj0dKxs4GF9dEH06FloqpIKx5Gu
-         7ruw==
-X-Forwarded-Encrypted: i=1; AJvYcCV2QIsom0yQmuAuJesUzjhiHpLLkDBID8QDsTvNRwdMOJ5N4bMAsWOBcOkTZXYe469Kczhkrq23A4L0wmctJ6zk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/hn5sL9xePiVeXmKNQwVNBdw81D54JV2G+QFj3d7BdvPhyXwC
-	T0mBlNmbZAnsg1dZ1jQ21n2xNXGAktYGKNY2t5QGQ3/dfOR18oDhFkKkVJZenIM=
-X-Gm-Gg: ASbGncvvr0clyC1IQYx916V3V8j391eik+btn9Vuz/2mUVwJknNSudLFMhAsa+AXmfc
-	izFtkW2dO/FfIUYZuKQb1oiXM/TJFBbdcEj3G83Lt/WLJqO6nMxnLFtjudsDiCm4sU4IcO4rCbI
-	mnEWDL+HCpzcUlhvLW5kTv2txNtCeF6tsysDiDxhseA3lXgKmNlUDVnrKGSi82fqpUcz9MDK1KS
-	tbxLj9HY/MzpHd66wj2UHAe7hjHkGHvL5ktB4rH0Wcv+x5fsPgC7Yf3PrOclvNEF+cSv7dKexlZ
-	KO/wNE/G42xMRtaGw59VIb606/t0B47Dfy7B
-X-Google-Smtp-Source: AGHT+IGHQO4fKXV4A6UUeSv9pwYWeECIbpOiy9USqHzKJoO5upSfChVq4x5/CdajiSuV1O+v4t+BjQ==
-X-Received: by 2002:a05:6512:334e:b0:542:218a:343 with SMTP id 2adb3069b0e04-542295989femr10755627e87.52.1735882631424;
-        Thu, 02 Jan 2025 21:37:11 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-542238215c1sm3942084e87.206.2025.01.02.21.37.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 21:37:10 -0800 (PST)
-Date: Fri, 3 Jan 2025 07:37:08 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Marek Vasut <marex@denx.de>
-Cc: dri-devel@lists.freedesktop.org, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, 
-	Fabio Estevam <festevam@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Liu Ying <victor.liu@nxp.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Stefan Agner <stefan@agner.ch>, Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] drm/bridge: imx8mp-hdmi-tx: switch to bridge
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-Message-ID: <elhtblbv265iorfwagrdenkujrbufakqakgajkdmldcen3xrar@plu5h3jrfqmh>
-References: <20241231192925.97614-1-marex@denx.de>
- <20241231192925.97614-2-marex@denx.de>
- <sjyw3afx5qyrupf5tixgtubevmklgmstjvj3hjt5xukzmgluuv@47j6afzl5dp6>
- <549d96ee-a675-47fd-9af0-0dc05744591c@denx.de>
+	id 1tTaQt-0000000C8Kb-31v9;
+	Fri, 03 Jan 2025 05:41:16 +0000
+X-UUID: 571382f4c99511ef9048ed6ed365623b-20250102
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Eg4Oi75Mp1rTvatlYQI4XUjpgg0k+tOQGw3eIL+gTkE=;
+	b=KdgoD3eFnnRyhud7vYZxYUy1SqJIxLwgU1XhlcKKyjMtMncPS4k3DQi+Xz7395yZsc9WSQqDjyUU/HIRDWO5rKYbRT1BRqkqcxiN9/DVpwn12Y50lmZSslUtcE+Felu6a8yCf58BeLjampe/xaRfbDCdAf/qKfWk1oZHtICNv90=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:66bcb037-040a-4523-b78e-4e846e66de5c,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:60aa074,CLOUDID:db904b37-e11c-4c1a-89f7-e7a032832c40,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 571382f4c99511ef9048ed6ed365623b-20250102
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <shiming.cheng@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1131111858; Thu, 02 Jan 2025 22:41:11 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.26; Fri, 3 Jan 2025 13:41:09 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 3 Jan 2025 13:41:08 +0800
+From: Shiming Cheng <shiming.cheng@mediatek.com>
+To: <willemdebruijn.kernel@gmail.com>, <davem@davemloft.net>,
+	<dsahern@kernel.org>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <netdev@vger.kernel.org>, <lena.wang@mediatek.com>, Shiming Cheng
+	<shiming.cheng@mediatek.com>
+Subject: [PATCH net v2] ipv6: socket SO_BINDTODEVICE lookup routing fail without IPv6 rule.
+Date: Fri, 3 Jan 2025 13:43:49 +0800
+Message-ID: <20250103054413.31581-1-shiming.cheng@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <549d96ee-a675-47fd-9af0-0dc05744591c@denx.de>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_213713_625559_13EF897C 
-X-CRM114-Status: GOOD (  33.83  )
+X-CRM114-CacheID: sfid-20250102_214115_775571_5F8D6BD8 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,86 +86,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 03, 2025 at 12:22:34AM +0100, Marek Vasut wrote:
-> On 1/2/25 5:55 AM, Dmitry Baryshkov wrote:
-> > On Tue, Dec 31, 2024 at 08:28:49PM +0100, Marek Vasut wrote:
-> > > The dw-hdmi output_port is set to 1 in order to look for a connector
-> > > next bridge in order to get DRM_BRIDGE_ATTACH_NO_CONNECTOR working.
-> > > The output_port set to 1 makes the DW HDMI driver core look up the
-> > > next bridge in DT, where the next bridge is often the hdmi-connector .
-> > > 
-> > > Similar to 0af5e0b41110 ("drm/meson: encoder_hdmi: switch to bridge DRM_BRIDGE_ATTACH_NO_CONNECTOR")
-> > > 
-> > > Note that looking at the upstream arch/arm64/boot/dts/freescale/imx8mp*dts ,
-> > > the oldest commit which adds HDMI support is commit:
-> > > 
-> > > 3e67a1ddd56d ("arm64: dts: imx8mp: Enable HDMI on TQMa8MPxL/MBa8MPxL")
-> > > 
-> > > That already contains the HDMI connector node. Most follow up additions
-> > > of HDMI support to another devices has been a variation of the same commit,
-> > > including connector node, which is the proper way of eanbling HDMI on the
-> > > i.MX8MP.
-> > > 
-> > > The rest should be covered by output_port_optional which should make systems
-> > > with DTs without HDMI connector node work, but such DTs should be updated and
-> > > the HDMI connector node should be added.
-> > > 
-> > > Signed-off-by: Marek Vasut <marex@denx.de>
-> > > ---
-> > > Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> > > Cc: David Airlie <airlied@gmail.com>
-> > > Cc: Fabio Estevam <festevam@gmail.com>
-> > > Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > > Cc: Jonas Karlman <jonas@kwiboo.se>
-> > > Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> > > Cc: Liu Ying <victor.liu@nxp.com>
-> > > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > > Cc: Maxime Ripard <mripard@kernel.org>
-> > > Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> > > Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> > > Cc: Robert Foss <rfoss@kernel.org>
-> > > Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> > > Cc: Shawn Guo <shawnguo@kernel.org>
-> > > Cc: Simona Vetter <simona@ffwll.ch>
-> > > Cc: Stefan Agner <stefan@agner.ch>
-> > > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > > Cc: dri-devel@lists.freedesktop.org
-> > > Cc: imx@lists.linux.dev
-> > > Cc: linux-arm-kernel@lists.infradead.org
-> > > ---
-> > > V2: No change
-> > > V3: - Update commit message
-> > >      - Move select DRM_DISPLAY_CONNECTOR to DRM_IMX8MP_DW_HDMI_BRIDGE
-> > >      - Enable output_port_optional
-> > > ---
-> > >   drivers/gpu/drm/bridge/imx/Kconfig          | 1 +
-> > >   drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c | 2 ++
-> > >   2 files changed, 3 insertions(+)
-> > > 
-> > > diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
-> > > index 9a480c6abb856..db5c8a76193ac 100644
-> > > --- a/drivers/gpu/drm/bridge/imx/Kconfig
-> > > +++ b/drivers/gpu/drm/bridge/imx/Kconfig
-> > > @@ -17,6 +17,7 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
-> > >   	tristate "Freescale i.MX8MP HDMI-TX bridge support"
-> > >   	depends on OF
-> > >   	depends on COMMON_CLK
-> > > +	select DRM_DISPLAY_CONNECTOR
-> > 
-> > I was going to write that it is not to be selected by anybody, but then
-> > I stumbled upon meson driver, which also selects the symbol.
-> > 
-> > I still think that it is not to be selected by your driver as there is
-> > no direct dependency (and there can be other bridges inbetween or the
-> > bridge chain can end up with some other bridge). Such decisions belong
-> > to defconfig or distribution's kernel config file.
-> Wouldn't that only lead to unnecessary surprises on user side ?
+When using socket IPv6 with SO_BINDTODEVICE, if IPv6 rule is not
+matched, it will return ENETUNREACH. In fact, IPv4 does not behave
+this way. IPv4 prioritizes looking up IP rules for routing and
+forwarding, if not matched it will use socket-bound out interface
+to send packets. The modification here is to make IPv6 behave the
+same as IPv4. If IP rule is not found, it will also use socket-bound
+out interface to send packts.
 
-This is of no concerns to Kconfig. You can't select all drivers that can
-possibly be used with your platform / driver. `git grep
-DRM_DISPLAY_CONNECTOR`.
+Fixes: 6f21c96a78b8 ("ipv6: enforce flowi6_oif usage in ip6_dst_lookup_tail()")
+Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
+---
+ include/net/ip6_route.h |  2 ++
+ net/ipv6/ip6_output.c   |  7 ++++++-
+ net/ipv6/route.c        | 34 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 42 insertions(+), 1 deletion(-)
 
+diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
+index 6dbdf60b342f..0625597def6f 100644
+--- a/include/net/ip6_route.h
++++ b/include/net/ip6_route.h
+@@ -214,6 +214,8 @@ void rt6_multipath_rebalance(struct fib6_info *f6i);
+ 
+ void rt6_uncached_list_add(struct rt6_info *rt);
+ void rt6_uncached_list_del(struct rt6_info *rt);
++struct rt6_info *ip6_create_rt_oif_rcu(struct net *net, const struct sock *sk,
++		struct flowi6 *fl6, int flags);
+ 
+ static inline const struct rt6_info *skb_rt6_info(const struct sk_buff *skb)
+ {
+diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
+index f7b4608bb316..95728c8921cb 100644
+--- a/net/ipv6/ip6_output.c
++++ b/net/ipv6/ip6_output.c
+@@ -1156,8 +1156,13 @@ static int ip6_dst_lookup_tail(struct net *net, const struct sock *sk,
+ 		*dst = ip6_route_output_flags(net, sk, fl6, flags);
+ 
+ 	err = (*dst)->error;
+-	if (err)
++	if (err && (flags & RT6_LOOKUP_F_IFACE)) {
++		*dst = (struct dst_entry *)ip6_create_rt_oif_rcu(net, sk, fl6, flags);
++		if (!*dst)
++			goto out_err_release;
++	} else if (err) {
+ 		goto out_err_release;
++	}
+ 
+ #ifdef CONFIG_IPV6_OPTIMISTIC_DAD
+ 	/*
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 67ff16c04718..7d7450fab44f 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -1214,6 +1214,40 @@ static struct rt6_info *ip6_create_rt_rcu(const struct fib6_result *res)
+ 	return nrt;
+ }
+ 
++struct rt6_info *ip6_create_rt_oif_rcu(struct net *net, const struct sock *sk,
++				       struct flowi6 *fl6, int flags)
++{
++	struct rt6_info *rt;
++	unsigned int prefs;
++	int err;
++	struct net_device *dev = dev_get_by_index_rcu(net, fl6->flowi6_oif);
++
++	if (!dev)
++		return NULL;
++	rt = ip6_dst_alloc(dev_net(dev), dev, flags);
++
++	if (!rt)
++		return NULL;
++	rt->dst.error = 0;
++	rt->dst.output = ip6_output;
++	rt->dst.lastuse = jiffies;
++	prefs = sk ? inet6_sk(sk)->srcprefs : 0;
++	err = ipv6_dev_get_saddr(net, dev, &fl6->daddr, prefs, &fl6->saddr);
++
++	if (err) {
++		dst_release(&rt->dst);
++		return NULL;
++	}
++	rt->rt6i_dst.addr = fl6->daddr;
++	rt->rt6i_dst.plen = 128;
++	rt->rt6i_src.addr = fl6->saddr;
++	rt->rt6i_dst.plen = 128;
++	rt->rt6i_idev = in6_dev_get(dev);
++	rt->rt6i_flags = flags;
++	return rt;
++}
++EXPORT_SYMBOL_GPL(ip6_create_rt_oif_rcu);
++
+ INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
+ 					     struct fib6_table *table,
+ 					     struct flowi6 *fl6,
 -- 
-With best wishes
-Dmitry
+2.45.2
+
 
