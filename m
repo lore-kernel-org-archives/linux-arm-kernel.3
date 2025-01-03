@@ -4,98 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0236E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4331FE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 14:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yoqiwu0ZPISAmlNURS49rP/IFDhT/w9s1QlaAD1nD1w=; b=WmJMM+gx23BK5/dHwHoA6GC/FZ
-	EYaoDgxGHwDsfNhysU/EMNp7526Pmp9LzbgBOu+3vHB2gkGXUjPE9l23q9/QI46iJRGGUKxZbQGzb
-	qsN8v00vY71hmhyTcUfowbkWclkEukBOW9cWyGytPqYoib5xEkS4QL92eBC2WYdkmOdYYpknwJWOt
-	5lO2f2yu2cpyRy/s1jgnlL1mMY5Iuz9Gs3KGqwO2pMy3L3fIPzdj9uqqWrp+89ZDJHNxAltWS0Yu1
-	IXpkf7YCD7HayA1pK5f/Ti/HJGczEK94+bmb1dNJCLOFclLuJorjbCYAG/Uy7gQukQ57K7RlNkCX9
-	9V4ajf3g==;
+	bh=zhapTHXOL6nnyzfeibqtjCKKJ3noEWy6OsULxomBlLw=; b=s4J6YqJdcdczXdLPe6eabQRd75
+	BCidENc0pDqBLRs9Vh5emzThHAT9uFyne3GSD5DJYjSsHSuPjiwEaJ/lWvzG317fv2xbdEMR5c1cA
+	dOp4AwGKov4eeW+xqdBW9UFgHDRmgpe3eB+OkIYi6Wx1h1JWjakcd5tmWLPWtAyVuMv7N/HPw+ZwQ
+	byvehV+IARCRj0amniGAo1F+tmmI/TU8DE1LDz+SGY0OsYWlLohZ4lwuHVCz37desLlLGoqDfouQI
+	DUdrzggVVkmTE29m8eiVfhR8f0HkQjip/mqtUKzmUkHJ7t3gwBpn6eZ29gGcgTz+xLaQ/JicQ2K3I
+	n1LY+/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTizg-0000000DAWZ-0ryI;
-	Fri, 03 Jan 2025 14:49:44 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tTj7D-0000000DBYu-3mP1;
+	Fri, 03 Jan 2025 14:57:31 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTiyR-0000000DAJH-1R7l
+	id 1tTj5z-0000000DBMl-3aJX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 14:48:28 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-436345cc17bso89708895e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 06:48:26 -0800 (PST)
+	Fri, 03 Jan 2025 14:56:17 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e46ebe19489so15125277276.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 06:56:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1735915705; x=1736520505; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Yoqiwu0ZPISAmlNURS49rP/IFDhT/w9s1QlaAD1nD1w=;
-        b=x2dylvaiPUvRSLtqogaBn60IOvnOSS8+6g3qmgn/PNZoJGoSM4sZ47OF+b7jYSkqk8
-         rlgJZX+GhZmJewhygmpd8e9gBfpv/QXK33/ol2uHuUSSjOvJ4pBnlM0gzqL2eUftBmB3
-         wDuHmHB6v+752MpI8vLZi9FaDo4OGBgrylLEmE7Qr5B78n+ij4OmKCsEbCtN3M47W0Tw
-         87zvjpoZ4laNefIw2esFLRhv14TWPTuMTvO0OWrAPYM9iAZKyV1DanOXo0XnnJF/2r7y
-         7d/6c4Hkfu0xjfUoJCOBuxqJNYpZwR8ZOUtFtvjwIza/O7kiicy5kVNG4BD+FwDMgGOX
-         8mrg==
+        d=linaro.org; s=google; t=1735916174; x=1736520974; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zhapTHXOL6nnyzfeibqtjCKKJ3noEWy6OsULxomBlLw=;
+        b=cNAovuD6+qv8rdfA2j5TK9Nm2O+DMyvdQUJudljspaUtqRGvDN2UgJTwQiWoeice6q
+         iAKQH1oYgKGNj/o3wjNp/PzaBn8f6uL700uEO7keyI2olFyXwow0AYwH3UEI4Q8UTvoz
+         YkhPdCmkSqTeXVWFVKJ4RSxKXkPUqm8lXDC9Dlo5XBIhVSFnlNJQN+GVKohAPHA6VqIl
+         7ZsbBzvgUcLS5OjDBwqqeBk5wKpHNPd+ikBntdIiFKhpoMKYWdCt6Qge5DnySgoh/vRL
+         FoySADHeDIRkwUFM9+AooMghETVWR78x/xClRpdZj/JH4rLcVmZA99MD4laU8OnWhpFE
+         7tRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735915705; x=1736520505;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yoqiwu0ZPISAmlNURS49rP/IFDhT/w9s1QlaAD1nD1w=;
-        b=SFZyaJTCh1FaTEzSQ540EHhjSnaxasVtESP7SW+lDMRCQMxj9K9tZx8pLqxDBaRfak
-         hBNG/LFic7CF4hycSzTNc+og6Io1QUz1ukL1V5THy2Q4rmvYNHLC0HMZG4MD6/2tLGJX
-         R+0BHVLOtmKALO9s/mz0LPcLKnDazOgn4mPiYQAR1UOshMvTfgAx1wVEvtKFJaLNp9om
-         cLAhCvf0becuiEtX/O4/qFtbf1QIP/wo0mvmmnhXCPv1BzXlAqGxGE+Qz+qsuG/JqBAO
-         m4HbhLeeNjUN2noNSaX0TFVZ39HI47FCLfojr4bi333aBebiHtMRdUYr7Z3IRNc5GXkR
-         itUQ==
-X-Gm-Message-State: AOJu0YyhxH+WbAQxP3jxm0fM/0mHOatkOeUmxR3MbnhpGC2JBFNCysT/
-	jwGGv5lZjfpe0Lq5Te+uSLAtkx/wDiBeg549gYvqKHunNacvSqKLF0n7Hj7CKR0=
-X-Gm-Gg: ASbGncuv8PB1sqpjbwoMu5UngaalbzlsbwZWNC5vyj95JsN9Lo6ZsoQRhW4Y15jL+5l
-	pSMsqheQSNRk6nZ7ErBa+zmlPkP2F1C2soEYJBzs9zkjafrlyjlgOFT3IO+ynqppJpLWgiVlOsC
-	9Onq9nqfK+eurMmMiXchjsrtxN6sBPE5JaNjX2Fnp5adMrsFFxsM+JvG7F4RSFd5+24g1cCAvms
-	zzTUCruaPY0ZkR6o0UlKLa9uD1bFbG6Jq/ZLZsTTBChLZ3enIkI29O+JrtWjd4DD99PLQ==
-X-Google-Smtp-Source: AGHT+IGfednntDvu6ZXrObE1Cj/rDH9xIbJPG+EOjHXzT3RtNhQEXlwqANJ26bIHkmmk2a7qppbxug==
-X-Received: by 2002:a05:600c:3b02:b0:434:f609:1af7 with SMTP id 5b1f17b1804b1-43668547462mr416110305e9.4.1735915704896;
-        Fri, 03 Jan 2025 06:48:24 -0800 (PST)
-Received: from [192.168.0.40] ([176.61.106.227])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43656b119b6sm523254265e9.22.2025.01.03.06.48.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jan 2025 06:48:24 -0800 (PST)
-Message-ID: <3e3136e5-cb59-45a8-8bd3-43bf401c14cb@linaro.org>
-Date: Fri, 3 Jan 2025 14:48:23 +0000
+        d=1e100.net; s=20230601; t=1735916174; x=1736520974;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zhapTHXOL6nnyzfeibqtjCKKJ3noEWy6OsULxomBlLw=;
+        b=CQan7sWmaIX1iuJeRQ6WMMR0xhyd95/K3wfGzUbx3iZVUNNoJiOZ3kJRS1Xw/M2YP5
+         ifSEOeDI+xp8CqUw8JwvDJtQE9MkmWaSUTR/Wu2Fm4ThDCBH+zBbn6aEtuLcqS8wQVq6
+         850ZYzeX7xPDUd5KxABsNG4G1hDIlU9BuS63sXOpGZ4RoYTtHyvNqhekacIn/jz7D9jA
+         ej+LTgD1WiH0usoS0jsz8gS1NqnIgdWJlOx8eRQIKt81NiKG4wYD09Uutrrqvy6KER3F
+         fsfNQ+aTPQz82EFkgpMo0xWbUSTU/vVCPUSr6xgfJHkWFWwUa+hF2o1LdRyOqtWvyE7E
+         H6fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV40QMR5/zGL+5hUsS/z1ppBI3mx0dtIrvvZwah+DRdXLGJxzfAkpNFqSaelDuHFwH/U/WkljCJrIDQ+WtgEfxv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7D9GPNOHxDf+vE1X8+zD+E+bq9GWKmA1palnistKXLTjSD1Ma
+	n2g09JAscKb9vW8ZqIor9DFO7W/kAafC9oqf9chBEcMaw5PA8iRpfHDgZI61cox6yeRpwOd5j8c
+	ylQEFP03m++WXTptVX2p1N8sK3JOpEiRXfsMYdA==
+X-Gm-Gg: ASbGnct65Nq2ElYw8M7iJWRqUXiI+qcQW2qy7SvtDdgAPy2Ea3oBFiCoq1O19sQY3OM
+	bKRJ6M4jl7/j3dfx+96uZcuzak2kKZC3+KtYgqWkB2htz2LyRwnNeru7W0qxR7HFmokdgt87Z
+X-Google-Smtp-Source: AGHT+IF8PgxghS0Yr8Fk32/LsnBMib2ycn/MjDyFQwGcJ2L9c+3xpdMG7fYH2+JRjVmj3XvaZJC4FTktLg/66x4obwQ=
+X-Received: by 2002:a05:6902:1589:b0:e4b:3d71:346a with SMTP id
+ 3f1490d57ef6-e538c20774dmr30599997276.11.1735916173951; Fri, 03 Jan 2025
+ 06:56:13 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 4/4] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, akapatra@quicinc.com,
- hariramp@quicinc.com, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@quicinc.com
-References: <20241217140656.965235-1-quic_vikramsa@quicinc.com>
- <20241217140656.965235-5-quic_vikramsa@quicinc.com>
- <22479c27-9265-4994-8974-9739ecbae5ee@linaro.org>
- <99cf5f7e-43f6-4ac4-a4a2-dc731b695572@oss.qualcomm.com>
- <c7253f5f-eb4a-4636-b0f9-7d284a2f5a8d@linaro.org>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <c7253f5f-eb4a-4636-b0f9-7d284a2f5a8d@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250103082549.19419-1-krzysztof.kozlowski@linaro.org>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Fri, 3 Jan 2025 08:56:03 -0600
+Message-ID: <CAPLW+4ncvOxj7nmypsw-+Tvj_gk5AHoWVeE9YKL=W=8y_MTjUg@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: samsung: exynos-usi: Restrict possible
+ samsung,mode values
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_064827_408200_2DDC6594 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250103_065615_902037_7041BD10 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,62 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/12/2024 19:32, Vladimir Zapolskiy wrote:
->>>> +        rst-pins {
->>>> +            pins = "gpio78";
->>>> +            function = "gpio";
->>>> +            drive-strength = <2>;
->>>> +            bias-pull-down;
->>>> +            output-low;
->>>> +        };
->>>
->>> I have doubts that it's proper to embed a reset gpio into driver's
->>> pinctrl suspend/resume power management.
->>>
->>> Konrad, can you please confirm that it's really accepted?
->>>
->>> I'd rather ask to remove this reset pin control.
->>
->> There's certainly some appearances of this in the tree.
->>
->> You could make the argument that it makes sense to prevent 
->> misconfiguration
->> (i.e. the bootloader may set the pin in input mode), but then the counter
->> argument is that the (Linux) gpiod APIs request OUT_LOW/HIGH, and we 
->> would
->> expect that the driver uses that if the GPIO is requested through
->> e.g. reset-gpios.
->>
->> I'm not particularly sure what to recommend here. Krzysztof?
->>
-> 
-> I'm worried by a possibility that a device reset/shutdown control GPIO 
-> could
-> be turned off by entering the "sleep" pinctrl setup. If a particular 
-> GPIO/pin
-> is off, is it still continuously functional as a control GPIO of some 
-> device?
-> I believe it is not anymore in general, this is my concern here.
+On Fri, Jan 3, 2025 at 2:25=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> "samsung,mode" property defines the desired mode of the serial engine
+> (e.g. I2C or SPI) and only few values are allowed/used by Linux driver.
+>
+> Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
 
-I agree for this particular case that rst-pin should be excised.
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
-- RST is an active low signal, which is typically _pulsed_ for a period
-   when the sensor is powered to trigger a reset in the state machine of
-   the sensor
-
-- What is the use-case of pulling RST down the GPIO in suspend ?
-   I'd remove the output-low though it should make no difference as
-   the sensor regulators will be off.
-
-- MCLK I think should have a suspend state specified or at least
-   I can't think of a good reason right now why what I see here is wrong.
-
-For the default state this patch disables the GPIO pull down bias, which 
-to me seems logical and correct.
-
-TBH I don't have a big concern about the RST pin in reset because the 
-regulators will be off.
-
----
-bod
+>  Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yam=
+l b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+> index f80fcbc3128b..5b046932fbc3 100644
+> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+> @@ -64,6 +64,7 @@ properties:
+>
+>    samsung,mode:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [0, 1, 2, 3]
+>      description:
+>        Selects USI function (which serial protocol to use). Refer to
+>        <include/dt-bindings/soc/samsung,exynos-usi.h> for valid USI mode =
+values.
+> --
+> 2.43.0
+>
 
