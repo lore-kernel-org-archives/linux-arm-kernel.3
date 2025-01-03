@@ -4,80 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DE5E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 06:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B2AE7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 06:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5fd/q59gvByZH+NptJiVBXQPQ56n4yqQJajHMESFfjw=; b=xiPvzefNpWSWEbafUJ6PKL3Z7t
-	xjC5RuRyGJuwPeHN1KeOpPc/Y2qkTyfEVAZccKcN99j9Ds2FOiOnXaRemkUMnamh0j8RP/vKaUbHj
-	rH2mnqMnMFi75n2md69ce3t98xa8wnM/wTmMmDfvR7fRcMjlnKAccud4fe7f/66xKOgf28QbLtQun
-	nAvHDBlCnhHUMM3B7AoAD/aRmzP/lsKnmozHWA4602wwEmCSom2YcOY4yj2ZzyJCejizAQ2t2BbAf
-	q93Y+wSlk0CiXzd7lB216bEqy1M7khrEFR6AOzhsLpZ8Gbc6JVM3G8A4aScmqoEYVcDxRsYbd3lL7
-	NiF/7yRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qIXDhH5SgQR3bxvFEYH62B32Nky0LwiVnCao6GRTEMI=; b=C/K3mZmWPBH/LsN2MdTCC6X27S
+	tF1EnnTi+9K/g14BkzT58Q/NFclOwfCi9pfFytFIhqxU51JI6CqNAUoc9cq18liGpj/pEJexhuVZP
+	EcYOXNP7NdsKQTBvKgxB3LavSm3v4pPLRY1SJ0shlHs6JxOT358qOtIjgl7j0OWpQMSde8kaE1Oa0
+	IQPBjhEGSUdwh8JmstLvpXufycOe8pk8jj//8fnmPjT2y5sqoSVtJqO1vmpZpwD+dJN/4Mq7qiLR+
+	xE9RCzaleKhpUBvZFK/2AwWwSuMVavqYe1aytYMpkmDioZvXP8O2rkXQMfYEG45R7B1zyWLt3FKVo
+	gtQpJKLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTar6-0000000CBLl-4AE5;
-	Fri, 03 Jan 2025 06:08:20 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tTb6j-0000000CCim-0amH;
+	Fri, 03 Jan 2025 06:24:29 +0000
+Received: from mail-am7eur03on20618.outbound.protection.outlook.com ([2a01:111:f403:260e::618] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTajw-0000000CA1x-1ahA;
-	Fri, 03 Jan 2025 06:00:57 +0000
-X-UUID: 15b2669cc99811ef82ff63e91e7eb18c-20250102
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5fd/q59gvByZH+NptJiVBXQPQ56n4yqQJajHMESFfjw=;
-	b=V7g8Q3CznUgwxThh1EL3yMgF3UjCr0UUsKLHLoQ/0uhJPBG+lMUdfS+IHWPiyZmVzIy0j1yEg+PPkcM84+n3iYUkGy5K5igomns9dWaJbj0TF/A+2HhY/Xc1HegdApnU9IReoo+UnWwRzNEd/mH7fOAUVKxPapbW4NLXLH6zIRI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:9fc907d8-3102-40eb-9963-c6ef77e317b3,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:6ec34419-ec44-4348-86ee-ebcff634972b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 15b2669cc99811ef82ff63e91e7eb18c-20250102
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <jianjun.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 6181237; Thu, 02 Jan 2025 23:00:50 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Fri, 3 Jan 2025 14:00:49 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Fri, 3 Jan 2025 14:00:48 +0800
-From: Jianjun Wang <jianjun.wang@mediatek.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
-	<kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang
-	<jianjun.wang@mediatek.com>, <linux-pci@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Xavier Chang <Xavier.Chang@mediatek.com>
-Subject: [PATCH 5/5] PCI: mediatek-gen3: Keep PCIe power and clocks if suspend-to-idle
-Date: Fri, 3 Jan 2025 14:00:15 +0800
-Message-ID: <20250103060035.30688-6-jianjun.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250103060035.30688-1-jianjun.wang@mediatek.com>
-References: <20250103060035.30688-1-jianjun.wang@mediatek.com>
-MIME-Version: 1.0
+	id 1tTb5U-0000000CCGy-2gGF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 06:23:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dp+OPRqB0MvAJiI/i3RoOuVukd5ZG+QeHCcpwkt3GGIyt6gUcjW8VE1WjQOQGJPHsVEcVS65QcR55VAiYx9RlSPeqFDLvw6lmHm3ddp9cZbe0+CxQhJi0Tp01IuykdMmW8Nmry6l7fFs3CPpb33uvffDTgPgcryR0qM5NanZRKZnaf/XJFu0DgxkgTXBIyrGcDXkQb4nOz3ihVuQFxcWVVw8ypQhuqZbFdFbWA7ebLwPcWQ1Z3YkuM10+zgBwr4ElxhjQGRilsQaccFihsQ9IKUk3Fd8s7Lb1fereOLjRNWACqCIeM6fDAlTgo8B3L8rQpToIBaVW6RxjxPrWO6NCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qIXDhH5SgQR3bxvFEYH62B32Nky0LwiVnCao6GRTEMI=;
+ b=NPku/dLGhjCkBraj3FIKVnt15lOYOxgvomDQXM3WZ6kYdd7o9c+9XyYstX0dcwZqqbccM4hXCOuIdIO6gnEVuQ7aq4XEIGnQzPXfMshhhR/9B2HeP76jyqYnLI4rIxJ6tKJzIF7j8LaYm9IEypx+XC6lEp5M6tsKGD2lJiAFq0wx4Q+GSEb1kyQ371w2uGUBC+I3TlmalhqbIjhLGbCU0V/Fjvfml3RLmLpEZF5Mzfjd5dE9sTk8bml/Irh+5O+0vhqMVZMV/TccEoj8hlRrYhD1fqJud9mjJ63KTdGIAikCO36kggxnlNiHF37krjYMnY1HBobEOA/YF0Vr1Dxn+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qIXDhH5SgQR3bxvFEYH62B32Nky0LwiVnCao6GRTEMI=;
+ b=LVsjgVKvL4/jQ1yduhggph+LWemjymzaL+ioi4cw8E+5PFffqMGTJAm3H7xHUrdV2k1inUFfylQiUzv+sJjFy07Xbx+/PddOJX6xYmUYX4nN6n9Qx+AAK5N87aq3VyXloSOiXoIJeAvxGGMSosx8YnY0r80+CHXCCAUeE+bCOqW7YSBglrfygFocuaX5iKfLIYprFHNJe/yLh/KqNsEgkXPhV5V7nii3C3OEhYUO9GVhpoRePdmp0xl+oJ+QeqI8P2ngnCFYiy2+DoeYxW2PxA5ZiU7sqhxyvTEuwi9FdRBGsjZRL688UbBG6jGq2PRMWzfxk8o4vT0fyuucNWfucA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by DB9PR04MB9331.eurprd04.prod.outlook.com (2603:10a6:10:36d::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8314.12; Fri, 3 Jan
+ 2025 06:22:57 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%6]) with mapi id 15.20.8314.013; Fri, 3 Jan 2025
+ 06:22:57 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	christophe.leroy@csgroup.eu
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH net-next 00/13] Add more feautues for ENETC v4 - round 2
+Date: Fri,  3 Jan 2025 14:05:56 +0800
+Message-Id: <20250103060610.2233908-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-MTK: N
+X-ClientProxiedBy: SG2PR03CA0127.apcprd03.prod.outlook.com
+ (2603:1096:4:91::31) To PAXPR04MB8510.eurprd04.prod.outlook.com
+ (2603:10a6:102:211::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|DB9PR04MB9331:EE_
+X-MS-Office365-Filtering-Correlation-Id: a60118d2-8afc-40c7-6c0b-08dd2bbf10b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VdMZLXJAzwv9iOLTYQiIiiIsT8umYpydoeZVnWGnCavdsf4PETQhnpmzP6Z5?=
+ =?us-ascii?Q?VSgFY2DWTdvKagVlVkjKmX5he9++mpNfKtVJq0QKkc7sal7rwdkh3wpFAkYm?=
+ =?us-ascii?Q?UHZOevrzFkgvdTuASZcLE4Yre5UAgon+y6bhg+buFTuV6x8ElSiOIm2lDg/Y?=
+ =?us-ascii?Q?7RXyy5+0FO9oblTyEqr4++HgzOlPmi3/lUEtGvvtyECSFepINqY+K8dkf069?=
+ =?us-ascii?Q?CECA12qlN/1d+WYGAdHvcoogtjbfg4uslIsYKMEQOeMVrZDsCizrHRkzCC5t?=
+ =?us-ascii?Q?MNOBrMXBnzp9mGWruFJFIgDjgn6XrZYqjJ3gst0UmBFCOA3t7piT/AGU1/AO?=
+ =?us-ascii?Q?xe3kwLW/oI9Ku+bLdTk18jeZ4kSApTZLbW4NnqERhFRvIyUybKQB55Hif+8f?=
+ =?us-ascii?Q?osHWxmRc2rTMhxc/DJVxPI6fE8Dc8r7TT5Rs9Fl8krCqsekKz87UANUFUoia?=
+ =?us-ascii?Q?/nuYf08tqTITSp+K9EbDRqzM68fTUlO/7KGmvW+Wu3FrJ3EELECGX84hFaO9?=
+ =?us-ascii?Q?qkUqGJvbdk6Zr2qyKGuimwPed0J5W2pPpK9Uj7vXzrk+Pv89R2VrVY4iBhEa?=
+ =?us-ascii?Q?N73l/TBbHvim1+UwmYOoJ8rflgFvuBNRUtpHd9jTyRcSt2X2Q5OqNp/CO2bZ?=
+ =?us-ascii?Q?gTVaNK09mfLXayX35ILGi2wllaNui0zu0IQuYv45DVlnjFtfvxueDsVjNTzV?=
+ =?us-ascii?Q?lown4cxZNgO5BaDvwdfKdsepZ4BLi9DcRWA5DGPCbtlfSt6NHR+IIO7PwsIL?=
+ =?us-ascii?Q?4V0SsOE5Oi9bPFJ0SrIJDaTr62nf71HWzR6TtBCrxkmpRgOktJw895poSv6p?=
+ =?us-ascii?Q?FVj+9JBzUeg/cp2xySNM8UMO057KhvHchdSDBDwITeisX5XrDJIwyEHrlNqL?=
+ =?us-ascii?Q?pHe/XXD//Y3oblAbxwy0eo4XKNz2FeOlYqFYGGmAfZDODkN/DlqX0WL1c5ar?=
+ =?us-ascii?Q?6dKETSwBUDxJwJtY8DZz5N4m3RVE8dEsDm1YRDy/xyhl7EbwP19gu2JSBWKQ?=
+ =?us-ascii?Q?pnTRKvSwlmsY04YdXgJ+s1/X72t95yGNmoGYRToCXTbenyeWrVeVvDltf2IY?=
+ =?us-ascii?Q?hrkXgIiEUIdwRluVIkPRRVKieQFPjctONJWbiB3e8VnC0f8N1NPGY7p/a32q?=
+ =?us-ascii?Q?X66Ygy4qoxKl0tgxHHaFhQC0wBQVBqURgczsdw3eXLuUfmBp+ECz3UDHlbhw?=
+ =?us-ascii?Q?6tN7x3ek490ovxVUnFX5RZmRinhLFDOd77Ys2Q/A1JgNPE8rOEE5ODePm2av?=
+ =?us-ascii?Q?pO1tiqkhTYfE5StWBJgbizKKIM9ybp3J90l1Ny/I9rqmgZOTeZHOJUIwg5p1?=
+ =?us-ascii?Q?bG7iP0pFNbitPMFWzOVAR7OjgTQsoUht74nC5Y+wYSqU5+wWr/l3ThuALcGC?=
+ =?us-ascii?Q?614VlyzzCbDDzc9AOI0PcMMX33CEfcEjY6wmDyTuSRzDHrXGzG0U4YsJz622?=
+ =?us-ascii?Q?XG63vys6Xq0Ecknlizfi6r521GdGsUsa?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8OyO59vwc879NwVkPYOvWZlAf5feaRDxjttZEyHyTc7v47FrHSlqcj4fH+z/?=
+ =?us-ascii?Q?K0ZQqrgXZgorEZjDD8cbTezVLXxnc/fxxYFf2khsI3WCXcJn+lP3aMdpUOow?=
+ =?us-ascii?Q?ZslV8Je2n3st7/TyQZZHH81vpdiiJLR7K5NN89aPv0KOOz9ODApbSIfM9iAp?=
+ =?us-ascii?Q?Z8i67zGZt+hM9zWT+/to8K2a6SVK+q8meY2/r7pdkBa5BU333cib9TxLW8xN?=
+ =?us-ascii?Q?2XikZtDO9jfkG1PTFZ/71/70VdHD5phxthr3c4wrsqk8M3mrnegR+mBokafD?=
+ =?us-ascii?Q?uD9zsFm6MREGVsBMpbekLy5cgRVT4TwzCzDIXYM9oyhetCovmHDnrZPB8Me6?=
+ =?us-ascii?Q?RM7TpasUzA88M5oKQykwpaxoM5ueDOcU+wWic+UB065gGktPLiqhxDsVTfc8?=
+ =?us-ascii?Q?Zam6NoFUtfICzsEmzCSQ/Bd8UUDanrHWdm9CaI4RzMwv7mkgyekSHsq4iybS?=
+ =?us-ascii?Q?nHVLndA4pJUN8t3dt8kYkd2gjuZ6AuRDN4EjKrgIiXvDtyy5SmYHLH4ReIct?=
+ =?us-ascii?Q?TVxZoQ+Foo6aOPMFcj1VD/b917/Y1x2Kt1Rmnb12hmLsYsJDwgKlNOZO/vmA?=
+ =?us-ascii?Q?7voZPg8jhPdaP9uO4Q3J14L+BZPZM5C5cFtgLQoFPp2N8gZKN2wGFDUpH/WP?=
+ =?us-ascii?Q?A6fEQph5PVmqaIHLV4ywHhUg/M9n+cBpN/1V/esG4hD0dnX6sDXkCuHMBqhP?=
+ =?us-ascii?Q?k/qL1p/K51CsISpowNmuNo4kcZyZFidofbtbicpvyR7rL+f4zr8u2jbmPnvL?=
+ =?us-ascii?Q?uph1DSolBodBYyHekQ9U35hUHgyYmWTfU4TH6bpDKIO7M1fZNLt5n2wRQRxh?=
+ =?us-ascii?Q?atiknBxCClKC7uNJG2fhGS4+xvG+TPCZKcbNQJt0Lsg9fVdsVyTEh9dr7vML?=
+ =?us-ascii?Q?W2nmVJ3PkJNa7dcXFIxQBS2G0WhB4VsRwwrzR5psSAxHmxJhZNbjoHHsVFYJ?=
+ =?us-ascii?Q?MTqCLknLhqrejKD1Nbu8qAQedt3MzP71VRCqXGqPSabwXlrM6MxUDg6TS3vF?=
+ =?us-ascii?Q?D8/+cdEA6Hpc70DKMT6ZPeIoBxrr4Y1WWrIxnntIOpAeL8GfIn9PaRAGOqOi?=
+ =?us-ascii?Q?/igPgSO0DTTO6Phb5nxjbjPc+rMb+CQYC8cXS5+Af+9yOpHptsK+MnYSVKVB?=
+ =?us-ascii?Q?Nr+By3IvPOSzkNGXRaxuAcgnJ6PgYKXdbdHmPofjaR9MQfGs78NYsPM1lHbv?=
+ =?us-ascii?Q?6UQwFVf9XDk5/MsBhClnesIR5dxOuRk51NZXC5u+IYEp8p29WZjHyWCUN6t5?=
+ =?us-ascii?Q?bPzpjIg6pJjpcyQ+b/dW0oLZ2z+ey0pV/T1yqOqRdyNBIZ2INYxwrOILvAmZ?=
+ =?us-ascii?Q?wpvSWZTQGlqnZD+XEO1DcacFeNHBTddnPJjIvk6gfbUHyawMCGATfa7CUPQB?=
+ =?us-ascii?Q?SYBqevmaL0r+lS23IPi9/alwyhGlOishlAFbDz3NICVXuvd4aZ95LcAgMV3Y?=
+ =?us-ascii?Q?gYjsPmnSAtD5eqKlGjck+KoKPz9NM3TpJajkaFM2F3c3V3IJ8TMXI2U5ZylL?=
+ =?us-ascii?Q?+3g9KT7o4BsKw1YFtL0gsm+tZPc5pOP+DyugcNdYr367JejgcMRVks/ZSoPf?=
+ =?us-ascii?Q?AfzlGnrqwGFLhySt1vrUtZsKChJSzXrVsfHNNRju?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a60118d2-8afc-40c7-6c0b-08dd2bbf10b1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jan 2025 06:22:57.7640
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wrqH6E6Oi6+Psjl99cEbglC3Fd+CmmwW7jtYh/qPwvCUmVfRHQAOs3EqpQaMwaF0wqeIJa2ptaggebuHJgk8gA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_220056_442978_6F36BEC8 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20250102_222312_721394_81AB4C27 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +165,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the target system sleep state is suspend-to-idle, the bridge is
-supposed to stay in D0, and the framework will not help to restore its
-configuration space, so keep its power and clocks during suspend.
+This patch set adds the following features.
+1. Compared with ENETC v1, the formats of tables and command BD of ENETC
+v4 have changed significantly, and the two are not compatible. Therefore,
+in order to support the NETC Table Management Protocol (NTMP) v2.0, we
+introduced the netc-lib driver and added support for MAC address filter
+table and RSS table.
+2. Add MAC filter and VLAN filter support for i.MX95 ENETC PF.
+3. Add RSS support for i.MX95 ENETC PF.
+4. Add loopback support for i.MX95 ENETC PF.
 
-It's recommended to enable L1ss support, so the link can be changed to
-L1.2 state during suspend.
+Wei Fang (13):
+  net: enetc: add initial netc-lib driver to support NTMP
+  net: enetc: add command BD ring support for i.MX95 ENETC
+  net: enetc: move generic MAC filterng interfaces to enetc-core
+  net: enetc: add MAC filter for i.MX95 ENETC PF
+  net: enetc: add debugfs interface to dump MAC filter
+  net: enetc: make enetc_set_rxfh() and enetc_get_rxfh() reusable
+  net: enetc: add RSS support for i.MX95 ENETC PF
+  net: enetc: enable RSS feature by default
+  net: enetc: move generic VLAN filter interfaces to enetc-core
+  net: enetc: move generic VLAN hash filter functions to
+    enetc_pf_common.c
+  net: enetc: add VLAN filtering support for i.MX95 ENETC PF
+  net: enetc: add loopback support for i.MX95 ENETC PF
+  MAINTAINERS: add new file ntmp.h to ENETC driver
 
-Signed-off-by: Jianjun Wang <jianjun.wang@mediatek.com>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ MAINTAINERS                                   |   1 +
+ drivers/net/ethernet/freescale/enetc/Kconfig  |  11 +
+ drivers/net/ethernet/freescale/enetc/Makefile |   4 +
+ drivers/net/ethernet/freescale/enetc/enetc.c  | 103 +++-
+ drivers/net/ethernet/freescale/enetc/enetc.h  |  58 +-
+ .../ethernet/freescale/enetc/enetc4_debugfs.c |  93 +++
+ .../ethernet/freescale/enetc/enetc4_debugfs.h |  20 +
+ .../net/ethernet/freescale/enetc/enetc4_hw.h  |  12 +
+ .../net/ethernet/freescale/enetc/enetc4_pf.c  | 537 +++++++++++++++++-
+ .../net/ethernet/freescale/enetc/enetc_cbdr.c |  65 ++-
+ .../ethernet/freescale/enetc/enetc_ethtool.c  |  71 ++-
+ .../net/ethernet/freescale/enetc/enetc_hw.h   |   6 +
+ .../net/ethernet/freescale/enetc/enetc_pf.c   | 140 ++---
+ .../net/ethernet/freescale/enetc/enetc_pf.h   |  32 +-
+ .../freescale/enetc/enetc_pf_common.c         |  46 +-
+ .../freescale/enetc/enetc_pf_common.h         |   2 +
+ .../net/ethernet/freescale/enetc/enetc_vf.c   |  19 +-
+ drivers/net/ethernet/freescale/enetc/ntmp.c   | 468 +++++++++++++++
+ .../ethernet/freescale/enetc/ntmp_formats.h   |  61 ++
+ include/linux/fsl/ntmp.h                      | 178 ++++++
+ 20 files changed, 1731 insertions(+), 196 deletions(-)
+ create mode 100644 drivers/net/ethernet/freescale/enetc/enetc4_debugfs.c
+ create mode 100644 drivers/net/ethernet/freescale/enetc/enetc4_debugfs.h
+ create mode 100644 drivers/net/ethernet/freescale/enetc/ntmp.c
+ create mode 100644 drivers/net/ethernet/freescale/enetc/ntmp_formats.h
+ create mode 100644 include/linux/fsl/ntmp.h
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 48f83c2d91f7..11da68910502 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -1291,6 +1291,19 @@ static int mtk_pcie_suspend_noirq(struct device *dev)
- 	int err;
- 	u32 val;
- 
-+	/*
-+	 * If the target system sleep state is suspend-to-idle, the bridge is supposed to stay in
-+	 * D0, and the framework will not help to restore its configuration space, so keep it's
-+	 * power and clocks during suspend.
-+	 *
-+	 * It's recommended to enable L1ss support, so the link can be changed to L1.2 state during
-+	 * suspend.
-+	 */
-+	if (pm_suspend_default_s2idle()) {
-+		dev_info(dev, "System enter s2idle state, keep PCIe power and clocks\n");
-+		return 0;
-+	}
-+
- 	/* Trigger link to L2 state */
- 	err = mtk_pcie_turn_off_link(pcie);
- 	if (err) {
-@@ -1316,6 +1329,11 @@ static int mtk_pcie_resume_noirq(struct device *dev)
- 	struct mtk_gen3_pcie *pcie = dev_get_drvdata(dev);
- 	int err;
- 
-+	if (pm_suspend_default_s2idle()) {
-+		dev_info(dev, "System enter s2idle state, no need to reinitialization\n");
-+		return 0;
-+	}
-+
- 	err = pcie->soc->power_up(pcie);
- 	if (err)
- 		return err;
 -- 
-2.46.0
+2.34.1
 
 
