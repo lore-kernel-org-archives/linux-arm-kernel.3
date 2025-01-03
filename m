@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1301E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 22:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E62E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 22:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AaCoas+Vc+1c7Es7FH+h6zL6DEJ/j6QeAWFTM53KwqI=; b=Ttbfhrbu93i7efxhko+rm10eOA
-	Pk6ewKFiV6K1VPGRHJILN+IjT48FFC8O1b0QWfVXTyP0zTIjAs9EEdArIdMS+hv3tCdIbMIUuawFI
-	H8Hi4eRA+NpI5KhGNm8KLxGgbxmYO956NEPIxFjmnuIiH0XG7h01ZLTUaZ/OuLj7pPN1jUV/lpaDv
-	ehLuWkJ3QGoA/mKwBou7DcNGNfpC05fb5TZjXwPPJliifJvaXYbcATiyNVAj35/qxOHLvfnjzHl/y
-	b2tUjqxTV9aPAGXg1PgTfzjOzfhONpKrXZylYA+oKeD7aiYZCsi50l+Vdk77RUaXo0Ilq+zdGKbSu
-	+gE44nDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TYb4EVw66eFgqXF6Tn680xcobIKnl8hXMw/P0sf476w=; b=dExYQe7HjbJEEaaNU/9XyagVeX
+	S4Doe8XUD1BeDNY4dDi1539rKgpiw29yuxfCECZX/YhSwIRZtB8O90Fmlwxz5OcLRj2WEouUqtX59
+	6PRqRlU6NroX7DoxHB/mWSP/EGU0B3rXKA+FZZEWn+8KR9ogXHmmKVzTtVtE8O38Iup8nh2sStMBf
+	J2WHvWrBkkFhyd8qmPPEwhxLN1QnMdLPvc2YrACJF9tcuHdQMKWGXAQgs3d5OS9cZUCENgEAq/D5O
+	uTidgGw78G5X25gIIBIGfi30N/qrYK4vCal9zummhYgQ+NNqLfauONkA0JX/r5X1qzBa8pwwQGK3E
+	k6cqIuHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTq8p-0000000E7mB-0x1l;
-	Fri, 03 Jan 2025 22:27:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tTqQS-0000000E8kb-1iGG;
+	Fri, 03 Jan 2025 22:45:52 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTq7Z-0000000E7gn-0zLA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 22:26:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 548675C5F65
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jan 2025 22:25:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F21EC4CEDD
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jan 2025 22:26:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735943180;
-	bh=IrLd8zArhralW9vTI3bFh+RNkr+IYx1dMXqSqZpYVIE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RPCszWpOIcopr9Cu41ZYLMlo3hiNUKGdfCzWeXT9doLu7fxlDBuKCT1rt06RaYSKX
-	 fZQosyqeugBHiLKeE8nAZDJ/tknLW78aTTv1QI4z3s81sWW9YuHo34TF+lHvzfspDJ
-	 +c4kMjCYRmbcNYNsrhIdr0i59QAru2zD0rajCzxPPln2Z2klXoQ/EZRjkhIM9n0a7I
-	 AjRmSbmwDoZsQrY8F/MN1FBPN2lrAtY2r9tbrVycOtPJsn6F2GLY0jRf2UKqV7p/nH
-	 KuSu+vdMbygJrTCk1804DNZK2tHFjElDFmmmzlQ9Wf+ahxEprEhA5fq3eVsWDfB/ma
-	 q/RbSboPu8ezQ==
-Received: by mail-yb1-f169.google.com with SMTP id 3f1490d57ef6-e3983f8ff40so14219855276.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 14:26:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWjmVnBoXQZHI5nMVvbH3J27CoegRFrjVvmSEH9vm6s3wetscuI+K94SXGkqt6Mn7bsfofzx9MPDZ3g7DMT2djz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4xnZekqG6TXvto0x0eIC/RSSlR1oanP5a3X8QbC4fKVlwEs1Q
-	iNdYr2E/nbNwINHTxxk+nCvdTw4sQzvuVN5dvU3eZgs7wvPj5ipTv/BG3b29ue4HvVufL9fNl6k
-	1mO0kIqkQouIKm+FjUtIoI2bp/Q==
-X-Google-Smtp-Source: AGHT+IG4bhFPDx0r1HgPvYRnqehBcgPYDey2wR5zN/peYPDzxcv0TZ2Hgm79zPa+tud+5BHpvQIwwtwisuOjI4duhx8=
-X-Received: by 2002:a05:690c:6c08:b0:6ef:4a57:fc7c with SMTP id
- 00721157ae682-6f3f8115430mr380359427b3.16.1735943179575; Fri, 03 Jan 2025
- 14:26:19 -0800 (PST)
+	id 1tTqPD-0000000E8dV-3uGp;
+	Fri, 03 Jan 2025 22:44:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=TYb4EVw66eFgqXF6Tn680xcobIKnl8hXMw/P0sf476w=; b=HgTT/mlkcWu/bQBF4yf7rsUfoK
+	IX+2MRAxuIKjglLa4YemYOixyNP0wDA+AuG5/tM1LkOOWNFJYB4AZYWDcG45px3K2SQe/8Ozo1/I7
+	CXw1JXfrK/sbJZxVjXRYAmaGia4iuUXKzqWy2IhOsqEaLUIC2E50Q6q4aQAUMnQ8r/2o=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tTqOn-001AB3-BZ; Fri, 03 Jan 2025 23:44:09 +0100
+Date: Fri, 3 Jan 2025 23:44:09 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexander Couzens <lynxis@fe80.eu>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 3/6] net: pcs: mtk-lynxi: fill in PCS
+ supported_interfaces
+Message-ID: <86d264c5-73fb-45ee-ad11-4a2517a12cfa@lunn.ch>
+References: <Z3fG9oTY9F9fCYHv@shell.armlinux.org.uk>
+ <E1tTffV-007RoP-8D@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20250103181623.1980433-1-vincenzo.frascino@arm.com> <20250103181623.1980433-3-vincenzo.frascino@arm.com>
-In-Reply-To: <20250103181623.1980433-3-vincenzo.frascino@arm.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 3 Jan 2025 16:26:08 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJ9y92aHUYhD9_YX8GKvZC-GioWbMr+gjcQiMA_XQ0RaQ@mail.gmail.com>
-Message-ID: <CAL_JsqJ9y92aHUYhD9_YX8GKvZC-GioWbMr+gjcQiMA_XQ0RaQ@mail.gmail.com>
-Subject: Re: [PATCH v4 2/4] arm64: dts: morello: Add support for common functionalities
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Linus Walleij <linus.walleij@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1tTffV-007RoP-8D@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_142621_363155_C6D2FB97 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250103_144435_974093_01899AF6 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +85,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 3, 2025 at 12:16=E2=80=AFPM Vincenzo Frascino
-<vincenzo.frascino@arm.com> wrote:
->
-> The Morello architecture is an experimental extension to Armv8.2-A,
-> which extends the AArch64 state with the principles proposed in
-> version 7 of the Capability Hardware Enhanced RISC Instructions
-> (CHERI) ISA.
->
-> The Morello Platform (soc) and the Fixed Virtual Platfom (fvp) share
-> some functionalities that have conveniently been included in
-> morello.dtsi to avoid duplication.
+On Fri, Jan 03, 2025 at 11:16:41AM +0000, Russell King (Oracle) wrote:
+> Fill in the new PCS supported_interfaces member with the interfaces
+> that the Mediatek LynxI supports.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-One more thing...
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-> +               i2c0: i2c@1c0f0000 {
-> +                       compatible =3D "cdns,i2c-r1p14";
-> +                       reg =3D <0x0 0x1c0f0000 0x0 0x1000>;
-> +                       interrupts =3D <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks =3D <&dpu_aclk>;
-> +
-> +                       #address-cells =3D <1>;
-> +                       #size-cells =3D <0>;
-> +
-> +                       status =3D "disabled";
-> +
-> +                       hdmi_tx: hdmi-transmitter@70 {
-> +                               compatible =3D "nxp,tda998x";
-
-It is odd that you add this node here, but don't enable i2c. If this
-is shared with fvp, then enable i2c here. If it isn't, then move this
-to the soc/sdb .dts.
-
-I'd rather see the FVP dts now rather than later so we can review how
-you split things. It's a little odd not being soc.dtsi and board.dts,
-but that's fine I think.
-
-> +                               reg =3D <0x70>;
-> +                               video-ports =3D <0x234501>;
-> +                               port {
-> +                                       tda998x_0_input: endpoint {
-> +                                               remote-endpoint =3D <&dp_=
-pl0_out0>;
-> +                                       };
-> +                               };
-> +                       };
-> +               };
+    Andrew
 
