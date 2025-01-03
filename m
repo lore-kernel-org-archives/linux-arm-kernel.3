@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C7EE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7F5E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GImteROnqULHiFchXLQTzhpJttZLzgZN6ofwaQa8E98=; b=wGiFmEMMDmv9f3FOC+rl6lbmdq
-	1lk5sYcJDef5+UkdnN6/ZdWxbOrB/87puF4hLewyZmh6R+ZjbzL32eG06jIFZK6MjwDFjxzdKJxVy
-	G2PC3IURsq5S3MOUKcvC5Glc1ZBFoXr0KISOqry8waSY5rS0Ec+ciNTkc0UncrwFjcLdZXJnV2EX0
-	NeHh+txaDXU5tiysNSRI84filtdIwRrx8OJ69Hy3AVjwDftdSeAQERH06f+1/K+6B7L3GFjbGac7T
-	MMSZ2rwntPbdfPCzS6zsYJLaRpJBfkuB/doxhpUEzRCjDAZA5DeSU7My75AneNQE2KFvNzXabNfjP
-	TE3A6dWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAIsOpyJqFScR1GaN+xQvUeegAu3JvhgIGeQSy35CLo=; b=3djV+n31eGrOqlIp46CdXBzj2l
+	8YxAaJt5zdbJRNJnRt+/ws0wT9FvNfMTQSmkVcAFxTp3Aa8ngN1HkfF/4SDwSqIIVUdkIvofVPTg8
+	RJ+8X+NPDrgWqtor8tkATe6xaL+25kSXn8Pr1IKhYVT0V6p//wm0oztGYGzG7XZJFBO0XmVPKbpCt
+	TfQ05cdca3J4FupoCHXJGTDarnSuVN+WozONaXOfpnJNWvYC47aqnaivUuFaY5yU4vOwTx85C/80P
+	Uvb0ndVAN/BLuKVWKRQraCRvPUTUe7iqYR+7U0hTGLtcUTxP9+6caceJvYbHNMf1wJLUZAyD2Qtzt
+	uyBi7YFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkqM-0000000DTne-1BOt;
-	Fri, 03 Jan 2025 16:48:14 +0000
-Received: from smtp-24.smtpout.orange.fr ([80.12.242.24] helo=smtp.smtpout.orange.fr)
+	id 1tTkz0-0000000DVK7-0Xud;
+	Fri, 03 Jan 2025 16:57:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkhT-0000000DRyu-0PYi
+	id 1tTkxm-0000000DV6o-1iKB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 16:39:06 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id Tkh7thvQlgiluTkhAtJugY; Fri, 03 Jan 2025 17:38:52 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1735922332;
-	bh=GImteROnqULHiFchXLQTzhpJttZLzgZN6ofwaQa8E98=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=SIjH7vjbbSJIaxUKmhBM3ov4wfqI0MWG9M5HncSgPDIZwGkA8cuMe9jaoJ9kCQJcN
-	 l6X1mLcu0p0afX4EQLWzCU1tk6JHQWsSoYCNxxRvqKDryVgbJoAa+NZ3FUVY5VDmBk
-	 fGsQSUs6nLeRW8VFjrtGtXikEuPUUg/+vmABh2SAFy4UdH+Bv7FAcUYRM5vo3gDaeT
-	 xnd4f8akpir9p8Gv1eJx7n0gUxch0qZdDB7LqeBcWT/+Sg8X4rvQIQa3/SxeBMjoDt
-	 KMaLhw3/Ym00PLFzdpfP8SK6jcCqcSXHwkHqVlBcg1raOiko71QEvISzZZgboc2Kek
-	 bmSEmk7QzeXQQ==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Fri, 03 Jan 2025 17:38:52 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <2736ccd3-680d-4f5d-a31a-156dec056f22@wanadoo.fr>
-Date: Fri, 3 Jan 2025 17:38:40 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
- glue for Nuvoton MA35 family
-To: Joey Lu <a0987203069@gmail.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mcoquelin.stm32@gmail.com, richardcochran@gmail.com
-Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
- schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+	Fri, 03 Jan 2025 16:55:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 481DAA40FB5;
+	Fri,  3 Jan 2025 16:54:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A21A3C4CED6;
+	Fri,  3 Jan 2025 16:55:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735923352;
+	bh=UATO23qcVHHPiRn6kDJDY1d+aEUGAULwRtnzqvBFyqU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rPEHieJGdOEaNX3/Kp2mxHAlEEktfnj+x+ZdjGzUex7p4YLkQ8xbNklRG8FapebDT
+	 m9Fo3FfoXXE7hcWKwedvwVLxRh3jrHSO2jdPalbLsXnrJKBWDVwQAACQF1YIMWJGmw
+	 k7UcOatr9Nj9OAxJLm9+EK1QPYQ0X8PDPj3QvGxVi5yO5ZZTqscr9xmUwVaescqHqc
+	 6LEIwV/Nzo9DjyAHtNad/w4Flvtp2FOzdJFzVwLbf7gE+KnFGVEsAk2tA6qiyratCc
+	 ax4Di4ycV3nrsNgNnpS/7RBAX9NS9jWvooEBTO9aWve7B9a/Wver/FjhbzSR9zueuW
+	 8bhIOkDVA3G9g==
+Date: Fri, 3 Jan 2025 10:55:50 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: edumazet@google.com, peppe.cavallaro@st.com, andrew+netdev@lunn.ch,
+	joabreu@synopsys.com, netdev@vger.kernel.org, schung@nuvoton.com,
+	linux-stm32@st-md-mailman.stormreply.com, kuba@kernel.org,
+	openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
+	mcoquelin.stm32@gmail.com, linux-arm-kernel@lists.infradead.org,
+	richardcochran@gmail.com, ychuang3@nuvoton.com, krzk+dt@kernel.org,
+	pabeni@redhat.com, linux-kernel@vger.kernel.org, yclu4@nuvoton.com,
+	conor+dt@kernel.org, alexandre.torgue@foss.st.com,
+	davem@davemloft.net
+Subject: Re: [PATCH net-next v6 1/3] dt-bindings: net: nuvoton: Add schema
+ for Nuvoton MA35 family GMAC
+Message-ID: <173592330334.2414402.4730979254460270593.robh@kernel.org>
 References: <20250103063241.2306312-1-a0987203069@gmail.com>
- <20250103063241.2306312-4-a0987203069@gmail.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20250103063241.2306312-4-a0987203069@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ <20250103063241.2306312-2-a0987203069@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103063241.2306312-2-a0987203069@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_083904_476185_1A4FA3BC 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250103_085554_512657_D4F9034C 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 03/01/2025 à 07:32, Joey Lu a écrit :
-> Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac driver.
+
+On Fri, 03 Jan 2025 14:32:39 +0800, Joey Lu wrote:
+> Create initial schema for Nuvoton MA35 family Gigabit MAC.
 > 
 > Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> ---
+>  .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 126 ++++++++++++++++++
+>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+>  2 files changed, 127 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+> 
 
-...
 
-> +	/* Nuvoton DWMAC configs */
-> +	plat_dat->has_gmac = 1;
-> +	plat_dat->tx_fifo_size = 2048;
-> +	plat_dat->rx_fifo_size = 4096;
-> +	plat_dat->multicast_filter_bins = 0;
-> +	plat_dat->unicast_filter_entries = 8;
-> +	plat_dat->flags &= ~STMMAC_FLAG_USE_PHY_WOL;
-> +
-> +	priv_data = nvt_gmac_setup(pdev, plat_dat);
-> +	if (IS_ERR(priv_data))
-> +		return PTR_ERR(priv_data);
-> +
-> +	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+Please add Acked-by/Reviewed-by tags when posting new versions. However,
+there's no need to repost patches *only* to add the tags. The upstream
+maintainer will do that for acks received on the version they apply.
 
-stmmac_pltfr_remove() is called by the .remove function.
-Is it correct to call stmmac_dvr_probe() here, and not stmmac_pltfr_probe()?
+If a tag was not added on purpose, please state why and what changed.
 
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* The PMT flag is determined by the RWK property.
-> +	 * However, our hardware is configured to support only MGK.
-> +	 * This is an override on PMT to enable WoL capability.
-> +	 */
-> +	plat_dat->pmt = 1;
-> +	device_set_wakeup_capable(&pdev->dev, 1);
-> +
-> +	return 0;
-> +}
+Missing tags:
 
-...
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +static struct platform_driver nvt_dwmac_driver = {
-> +	.probe  = nvt_gmac_probe,
-> +	.remove = stmmac_pltfr_remove,
-> +	.driver = {
-> +		.name           = "nuvoton-dwmac",
-> +		.pm		= &stmmac_pltfr_pm_ops,
-> +		.of_match_table = nvt_dwmac_match,
-> +	},
-> +};
 
-...
 
-CJ
 
