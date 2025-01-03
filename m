@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F41E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C7EE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8obrWVZsJoXmrid0pqmVf5t2hFsLjtOlv8BcTL5IH0U=; b=THw064LKwujxfksVywh592rlcH
-	W2OStCvDUbw7H8fQJd8hMe64Y9/FUwPfG7yXBW4IdbwYEhWG7AT2Vj7nLangKyE64UOdVxtI8K5/3
-	LVzTlS62iFViyYtIQ7IELJpoo+q57nx1e61L8AFEVVR9rO4qgiRI5z/TKDSjwdsSdKuo9MXOb452Q
-	phiB8AKW7nJN0N4VxXSmHZiYa8LBbsteX8upZcJLDC0iB8YVTCVyncjlhGiaDOUvwfxYZGSUtfxRu
-	Auq1IWNZzIIeHdW3RUCS1kqvKFaacq//gw4DL+GOgyPaSAXBhClsKwfefd7m3hd+MNgdoAsIO9db/
-	z1r+//6w==;
+	bh=GImteROnqULHiFchXLQTzhpJttZLzgZN6ofwaQa8E98=; b=wGiFmEMMDmv9f3FOC+rl6lbmdq
+	1lk5sYcJDef5+UkdnN6/ZdWxbOrB/87puF4hLewyZmh6R+ZjbzL32eG06jIFZK6MjwDFjxzdKJxVy
+	G2PC3IURsq5S3MOUKcvC5Glc1ZBFoXr0KISOqry8waSY5rS0Ec+ciNTkc0UncrwFjcLdZXJnV2EX0
+	NeHh+txaDXU5tiysNSRI84filtdIwRrx8OJ69Hy3AVjwDftdSeAQERH06f+1/K+6B7L3GFjbGac7T
+	MMSZ2rwntPbdfPCzS6zsYJLaRpJBfkuB/doxhpUEzRCjDAZA5DeSU7My75AneNQE2KFvNzXabNfjP
+	TE3A6dWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkpB-0000000DTQX-2Rr2;
-	Fri, 03 Jan 2025 16:47:01 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tTkqM-0000000DTne-1BOt;
+	Fri, 03 Jan 2025 16:48:14 +0000
+Received: from smtp-24.smtpout.orange.fr ([80.12.242.24] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkh7-0000000DRvo-3EJQ
+	id 1tTkhT-0000000DRyu-0PYi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 16:38:43 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaeec07b705so1262409466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 08:38:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1735922320; x=1736527120; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8obrWVZsJoXmrid0pqmVf5t2hFsLjtOlv8BcTL5IH0U=;
-        b=TZUi57quApHK+FLWFDNFz2Q+6bm9cKRPDQ2oIu4VbP0IxpVdgH+SQ9RFWg061WZWz2
-         rDBlG82VNdGoSkp8DDz7shhqCACHB7r57DAd9qqNyh67ffaUJOuBUq5x31SjeAGspk6m
-         KwzeGIFn7w4mGj1TE6NoT8gYWknozhnqQWbqFWp/1B0iPrVMknUBUy0ejL5Ea6+/u78k
-         l3xLmRfOuDZH3X4SAfzg2wr8cQ8jlM13BvXvdRE9PxNBm/H+GOut3pmGYwVSIypIj+fC
-         1VhMCdi+pKBD4yJGVQ2bCcGSEwEIdQFNbcA/KMukGrgPeYm9osMTSj//pD5aNzVlFRRP
-         l9HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735922320; x=1736527120;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8obrWVZsJoXmrid0pqmVf5t2hFsLjtOlv8BcTL5IH0U=;
-        b=hb6B4lElcuCrkoa1f3nfIPwd2lJOf8K0fz8NEPg+lP0HVHKfOh/k+4/GNTdCYCDENk
-         eJv8elGIKDlwEGD/wf3dMlVwSuPXz4XVXOHr0IE0JPwN4VaZc5FoSeWEF2011DLj5BeY
-         gNFK54yEEcfmw8ZkhU07be1xGRIpJJUQR/iGgXpZcF2Rjcx4U4QZNlTjsbogg22d6St8
-         LejLlohTj0pmmH2Zrhwg8769OLXj2g2YpSYi3mszHxZiU+9nagmH5weaVa/9uyTdvtWC
-         byzzFtnI4D7+NVSE+xYqCDAUOl+oQkG9//znNHTeV7zQ3zfoIrtVd76hueO7neBMEHbi
-         uARQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWkeupnyvL407oIkvrY7h576dN+abgn0hcAEg6HS9KN6D/rwm1ZQCOMiUsLi/vekZQw9AObt/t/mENcvJH5zEyQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMf/o2inn4Dsg2KuP4r/z1lbzS5rfvML+AunWqnNHR/HdH3ctt
-	q/Pn0qOyl12vDIlILE9G4BVkW5q+91EK0dfkod012xpFFm6kYcJ7q8pDYidG6yw=
-X-Gm-Gg: ASbGncscxiABh7/NSDnO4jN15uNpWOoK+EPqd1XNYa2fo9mkKYcq0E8kI90zbCIDGBq
-	M78dJVShDay9eXA00LbIVV47fuId9pI062J242E3v6kczEokM38V06Norh6PRW+A05RV6cpeaaX
-	m58Md2RMZoTiZAtgJWEBXm88th27ZE4U9S3FWxsrsgEKF/L1dQKLJLImQNQw1vJxGfNKPW8OFpA
-	EPVEHM9M8ikeGvEP7sku6o6ew8yIXNUqMyqPu/hqucNpKxzOaDiJQkbCCWm1w2L+4TzzKTmuLM3
-	tisQTnOt0hA=
-X-Google-Smtp-Source: AGHT+IH+DUY6nprcntI+5aClJEE8pz4wAhTYG8dCJD+t8yU/xxOBpHwSJqf9myK1PfsCCnfBeBYRqg==
-X-Received: by 2002:a17:907:1b96:b0:aae:83c6:c67e with SMTP id a640c23a62f3a-aae83c6c8f5mr3028524366b.55.1735922320359;
-        Fri, 03 Jan 2025 08:38:40 -0800 (PST)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e8953b6sm1932984066b.65.2025.01.03.08.38.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 08:38:39 -0800 (PST)
-From: Claudiu <claudiu.beznea@tuxon.dev>
-X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
-To: rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	geert+renesas@glider.be,
-	magnus.damm@gmail.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	p.zabel@pengutronix.de,
-	ulf.hansson@linaro.org
-Cc: claudiu.beznea@tuxon.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 6/6] arm64: defconfig: Enable RZ/G3S thermal
-Date: Fri,  3 Jan 2025 18:38:05 +0200
-Message-ID: <20250103163805.1775705-7-claudiu.beznea.uj@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
-References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+	Fri, 03 Jan 2025 16:39:06 +0000
+Received: from [192.168.1.37] ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id Tkh7thvQlgiluTkhAtJugY; Fri, 03 Jan 2025 17:38:52 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1735922332;
+	bh=GImteROnqULHiFchXLQTzhpJttZLzgZN6ofwaQa8E98=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=SIjH7vjbbSJIaxUKmhBM3ov4wfqI0MWG9M5HncSgPDIZwGkA8cuMe9jaoJ9kCQJcN
+	 l6X1mLcu0p0afX4EQLWzCU1tk6JHQWsSoYCNxxRvqKDryVgbJoAa+NZ3FUVY5VDmBk
+	 fGsQSUs6nLeRW8VFjrtGtXikEuPUUg/+vmABh2SAFy4UdH+Bv7FAcUYRM5vo3gDaeT
+	 xnd4f8akpir9p8Gv1eJx7n0gUxch0qZdDB7LqeBcWT/+Sg8X4rvQIQa3/SxeBMjoDt
+	 KMaLhw3/Ym00PLFzdpfP8SK6jcCqcSXHwkHqVlBcg1raOiko71QEvISzZZgboc2Kek
+	 bmSEmk7QzeXQQ==
+X-ME-Helo: [192.168.1.37]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Fri, 03 Jan 2025 17:38:52 +0100
+X-ME-IP: 90.11.132.44
+Message-ID: <2736ccd3-680d-4f5d-a31a-156dec056f22@wanadoo.fr>
+Date: Fri, 3 Jan 2025 17:38:40 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 3/3] net: stmmac: dwmac-nuvoton: Add dwmac
+ glue for Nuvoton MA35 family
+To: Joey Lu <a0987203069@gmail.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ mcoquelin.stm32@gmail.com, richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20250103063241.2306312-1-a0987203069@gmail.com>
+ <20250103063241.2306312-4-a0987203069@gmail.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20250103063241.2306312-4-a0987203069@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_083841_806267_B4956887 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_083904_476185_1A4FA3BC 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,28 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Le 03/01/2025 à 07:32, Joey Lu a écrit :
+> Add support for Gigabit Ethernet on Nuvoton MA35 series using dwmac driver.
+> 
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
 
-Enable the CONFIG_RZG3S_THERMAL flag for the RZ/G3S SoC.
+...
 
-Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+> +	/* Nuvoton DWMAC configs */
+> +	plat_dat->has_gmac = 1;
+> +	plat_dat->tx_fifo_size = 2048;
+> +	plat_dat->rx_fifo_size = 4096;
+> +	plat_dat->multicast_filter_bins = 0;
+> +	plat_dat->unicast_filter_entries = 8;
+> +	plat_dat->flags &= ~STMMAC_FLAG_USE_PHY_WOL;
+> +
+> +	priv_data = nvt_gmac_setup(pdev, plat_dat);
+> +	if (IS_ERR(priv_data))
+> +		return PTR_ERR(priv_data);
+> +
+> +	ret = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index dfa5c8d5b658..576a544b8c79 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -706,6 +706,7 @@ CONFIG_ROCKCHIP_THERMAL=m
- CONFIG_RCAR_THERMAL=y
- CONFIG_RCAR_GEN3_THERMAL=y
- CONFIG_RZG2L_THERMAL=y
-+CONFIG_RZG3S_THERMAL=m
- CONFIG_ARMADA_THERMAL=y
- CONFIG_MTK_THERMAL=m
- CONFIG_MTK_LVTS_THERMAL=m
--- 
-2.43.0
+stmmac_pltfr_remove() is called by the .remove function.
+Is it correct to call stmmac_dvr_probe() here, and not stmmac_pltfr_probe()?
 
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* The PMT flag is determined by the RWK property.
+> +	 * However, our hardware is configured to support only MGK.
+> +	 * This is an override on PMT to enable WoL capability.
+> +	 */
+> +	plat_dat->pmt = 1;
+> +	device_set_wakeup_capable(&pdev->dev, 1);
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static struct platform_driver nvt_dwmac_driver = {
+> +	.probe  = nvt_gmac_probe,
+> +	.remove = stmmac_pltfr_remove,
+> +	.driver = {
+> +		.name           = "nuvoton-dwmac",
+> +		.pm		= &stmmac_pltfr_pm_ops,
+> +		.of_match_table = nvt_dwmac_match,
+> +	},
+> +};
+
+...
+
+CJ
 
