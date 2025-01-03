@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DD0E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 07:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB48E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 07:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xh9LJ1/62I3KjNoGwGJYgqOZ4tA4XB2xFtEinHscPW8=; b=TkMyN6gUl3zjir4cfQ/3WAnQRi
-	qKq3M9MhOkFqK+vXjEOiuR8cOXS7A/k2ByRkq9lAgupaBo/tjdnxbMD4LTHZILq5Cm29EaBIq/wVf
-	EVBbJpT2tTZEbyJsovHhFRBtFHoYTQRH1eCO3pWKOGze9q4yP5iCc8/0Yye3n0V25XtM+INltVKV3
-	ML4wmHaFyGsOqsOr0UIhnMirGcyN9/d+PL3blr79S5JqrdeibbX9XBlBy4iBX3YlLSZOW+u9OniMU
-	mX2PH2lP5JV2Jg5sQltkAUzwwwT0bbg8cqWMNeEVMyxt73c/7sG9Btrc2u1CXqy5KNYkKpjZCM6z/
-	+//rwlMQ==;
+	bh=8aydGhIo9XxOke5I+yIVto0Os8osvsq6hM83XEMMBBE=; b=m1RXw4NaQRGPVsxaEYVAK6UTXd
+	EZAfh7bNrt2NpxkqSdAp9mnSz8iGkSoai3YlgCrdUvGbJp8/p6i3YnLYAoDetxzc0RFUG8gj7K8DE
+	WNQAKNx+DcZu71RaAfbAP0/bWoTvxEywA3vac98gQti63hP+xEx0o0oORv9eLmjbLjOaq2wx3Avwt
+	dEMyKA22uSafDXdFaYptBQlo0qhhhY2mgknDed6G6JwVFDUTXvH18Tcv0fCxJc4y/hyhDvi7Y9peL
+	Xe+cRAdjwpy8Rna8xSARbfJM9aqh6j4irVLSOJBLC5kmczuHubSZHvfdMDE36Fpcr0nv0Zry86EGa
+	LRYZZB5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcFs-0000000CMlr-3ZU1;
-	Fri, 03 Jan 2025 07:38:00 +0000
+	id 1tTcH2-0000000CMws-2Qqy;
+	Fri, 03 Jan 2025 07:39:12 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcAH-0000000CLch-2IRN
+	id 1tTcAL-0000000CLe4-0DZD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 07:32:15 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5036jxtN004605;
-	Fri, 3 Jan 2025 07:32:06 GMT
+	Fri, 03 Jan 2025 07:32:18 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5033qS86015576;
+	Fri, 3 Jan 2025 07:32:11 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xh9LJ1/62I3KjNoGwGJYgqOZ4tA4XB2xFtEinHscPW8=; b=NILiVqknuyWFheUJ
-	fsVHd7u39oVyBHL+dh2fGfdik0dqxdA8uWII7hiA8rs7fTFFcEioYm9g9Yb8mb/Y
-	J0T5KVJM62CNa/lc3CNhGkXi/WhfuKBp94C/t2N/1BhA1SQNh4KM6lQsexL11+Ic
-	e9yS8ugibPiE/aei1egCzytpGutSksBQRju3BsHV82dbTO4+xFOOCrQtTutvUgd9
-	0488F28tBxGh8qpoL3/+jdT2U0GnX6pW8BX8PrnOCzMzYiF+FduRGotFOGK58z9G
-	6+KaLB8xgWFmK6vlUn/dKyRH0hdoL3SyngaaLyD3gz0V0AgG4PFzrBONMHiRbob1
-	43GTFw==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43xawj83fn-1
+	8aydGhIo9XxOke5I+yIVto0Os8osvsq6hM83XEMMBBE=; b=QMnBo3abPCSdpVvG
+	rxuN287v34HcbpUJY3r7RrzyHzrHSTOyuoW9WPifbsuYZCVm0vaf0iNHoXMh5zJR
+	ZX5SvBOjQb2+8l0Ued9Qfcexms01yMMN9eN3+7KKMr89Jn9xF41hievXn2BC0ouh
+	upO+UriYPoRYJwpA+a06iQ9U3N5yAzHSDth8eZRi2q35USdWwmy9mSpfXfCLgYhd
+	Wmk0KpX2MsjtX5R3V7GL1XEB0fL8JRUGIE7mADManpj7vVW6nLE4Fv/sr01CtIuF
+	bSp379AJyoakxmMn5/aQzFGcngSpWfdC39u1UQH0LMzIsFMmxCipc05tf0eeBCs6
+	9fYnEA==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43x8c0ge24-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jan 2025 07:32:05 +0000 (GMT)
+	Fri, 03 Jan 2025 07:32:11 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5037W5Ze004421
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5037WAi8018491
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 3 Jan 2025 07:32:05 GMT
+	Fri, 3 Jan 2025 07:32:10 GMT
 Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 2 Jan 2025 23:32:00 -0800
+ 15.2.1544.9; Thu, 2 Jan 2025 23:32:05 -0800
 From: Luo Jie <quic_luoj@quicinc.com>
-Date: Fri, 3 Jan 2025 15:31:37 +0800
-Subject: [PATCH v8 4/5] arm64: dts: qcom: Add CMN PLL node for IPQ9574 SoC
+Date: Fri, 3 Jan 2025 15:31:38 +0800
+Subject: [PATCH v8 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
+ use fixed factor clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250103-qcom_ipq_cmnpll-v8-4-c89fb4d4849d@quicinc.com>
+Message-ID: <20250103-qcom_ipq_cmnpll-v8-5-c89fb4d4849d@quicinc.com>
 References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
 In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -79,13 +80,14 @@ CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
         <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
         <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>,
         Luo Jie
-	<quic_luoj@quicinc.com>
+	<quic_luoj@quicinc.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735889498; l=4053;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1735889498; l=1501;
  i=quic_luoj@quicinc.com; s=20240808; h=from:subject:message-id;
- bh=kfkmxESePeJMWhHckatKMznX+z5wp0K40Jf+cstqYRU=;
- b=1LwhopgbTWmEhUx8vFj1JCSgIZSj41aW3mExaMX5gxk7Ft3wn4ogvP/4lr8hbTxHkTdoZOgGB
- pzgEsBIVzumAmTbGpV6ToiSrimcNWahLrVc6audQ5odHe/gduX+WdWK
+ bh=VyC3W8O7pEMyWv06ZRGk03/Ezl+Iu9sbnPsh4K208us=;
+ b=hObJL1Fhjy9dndqFaZisgc37tkYCYXa6Vu3HbWc9oM1eOwi8k4n/fB42US5yVu5vkcw2pEV2p
+ kCB4r1TO4tyCdsEEsoKFXUsFdA8mrDaqQLlDTcDmMQE49vcfg0OUBlF
 X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
  pk=P81jeEL23FcOkZtXZXeDDiPwIwgAHVZFASJV12w3U6w=
 X-Originating-IP: [10.80.80.8]
@@ -93,19 +95,19 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: DCXNXLhMHKzuVgYqqXEqRf86wLyFtc62
-X-Proofpoint-ORIG-GUID: DCXNXLhMHKzuVgYqqXEqRf86wLyFtc62
+X-Proofpoint-GUID: 27loeI9p-u2DVvq4xVnY3CrjjuD737pN
+X-Proofpoint-ORIG-GUID: 27loeI9p-u2DVvq4xVnY3CrjjuD737pN
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
  definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 malwarescore=0
- adultscore=0 priorityscore=1501 bulkscore=0 spamscore=0 suspectscore=0
- mlxlogscore=999 phishscore=0 lowpriorityscore=0 impostorscore=0 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2411120000
- definitions=main-2501030064
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ malwarescore=0 bulkscore=0 clxscore=1015 phishscore=0 impostorscore=0
+ adultscore=0 mlxlogscore=999 priorityscore=1501 mlxscore=0 spamscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501030064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_233213_605870_5090551D 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20250102_233217_097892_E3CB7817 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,124 +122,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CMN PLL clock controller allows selection of an input clock rate
-from a defined set of input clock rates. It in-turn supplies fixed
-rate output clocks to the hardware blocks that provide the ethernet
-functions such as PPE (Packet Process Engine) and connected switch or
-PHY, and to GCC.
+xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
+48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
+block routing channel.
 
-The reference clock of CMN PLL is routed from XO to the CMN PLL through
-the internal WiFi block.
-.XO (48 MHZ or 96 MHZ)-->WiFi (multiplier/divider)-->48 MHZ to CMN PLL.
-
-The reference input clock from WiFi to CMN PLL is fully controlled by
-the bootstrap pins which select the XO frequency (48 MHZ or 96 MHZ).
-Based on this frequency, the divider in the internal Wi-Fi block is
-automatically configured by hardware (1 for 48 MHZ, 2 for 96 MHZ), to
-ensure output clock to CMN PLL is 48 MHZ.
-
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 17 +++++++++++++++-
- arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 26 +++++++++++++++++++++++-
- 2 files changed, 41 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
+ arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-index 91e104b0f865..bb1ff79360d3 100644
+index bb1ff79360d3..ae12f069f26f 100644
 --- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-@@ -3,7 +3,7 @@
-  * IPQ9574 RDP board common device tree source
-  *
-  * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-- * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
-  */
- 
- /dts-v1/;
-@@ -164,6 +164,21 @@ &usb3 {
- 	status = "okay";
+@@ -175,8 +175,13 @@ &ref_48mhz_clk {
+ 	clock-mult = <1>;
  };
  
 +/*
-+ * The bootstrap pins for the board select the XO clock frequency
-+ * (48 MHZ or 96 MHZ used for different RDP type board). This setting
-+ * automatically enables the right dividers, to ensure the reference
-+ * clock output from WiFi to the CMN PLL is 48 MHZ.
++ * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
++ * from WiFi output clock 48 MHZ divided by 2.
 + */
-+&ref_48mhz_clk {
-+	clock-div = <1>;
-+	clock-mult = <1>;
-+};
-+
  &xo_board_clk {
- 	clock-frequency = <24000000>;
+-	clock-frequency = <24000000>;
++	clock-div = <2>;
++	clock-mult = <1>;
  };
-+
-+&xo_clk {
-+	clock-frequency = <48000000>;
-+};
+ 
+ &xo_clk {
 diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-index d1fd35ebc4a2..475868a241cc 100644
+index 475868a241cc..b5c8d2ab2ab5 100644
 --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-@@ -3,10 +3,11 @@
-  * IPQ9574 SoC device tree source
-  *
-  * Copyright (c) 2020-2021 The Linux Foundation. All rights reserved.
-- * Copyright (c) 2023, Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) 2023-2024, Qualcomm Innovation Center, Inc. All rights reserved.
-  */
+@@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
+ 		};
  
- #include <dt-bindings/clock/qcom,apss-ipq.h>
-+#include <dt-bindings/clock/qcom,ipq-cmn-pll.h>
- #include <dt-bindings/clock/qcom,ipq9574-gcc.h>
- #include <dt-bindings/interconnect/qcom,ipq9574.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-@@ -19,6 +20,12 @@ / {
- 	#size-cells = <2>;
- 
- 	clocks {
-+		ref_48mhz_clk: ref-48mhz-clk {
+ 		xo_board_clk: xo-board-clk {
+-			compatible = "fixed-clock";
 +			compatible = "fixed-factor-clock";
-+			clocks = <&xo_clk>;
-+			#clock-cells = <0>;
-+		};
-+
- 		sleep_clk: sleep-clk {
- 			compatible = "fixed-clock";
- 			#clock-cells = <0>;
-@@ -28,6 +35,11 @@ xo_board_clk: xo-board-clk {
- 			compatible = "fixed-clock";
++			clocks = <&ref_48mhz_clk>;
  			#clock-cells = <0>;
  		};
-+
-+		xo_clk: xo-clk {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+		};
- 	};
  
- 	cpus {
-@@ -243,6 +255,18 @@ mdio: mdio@90000 {
- 			status = "disabled";
- 		};
- 
-+		cmn_pll: clock-controller@9b000 {
-+			compatible = "qcom,ipq9574-cmn-pll";
-+			reg = <0x0009b000 0x800>;
-+			clocks = <&ref_48mhz_clk>,
-+				 <&gcc GCC_CMN_12GPLL_AHB_CLK>,
-+				 <&gcc GCC_CMN_12GPLL_SYS_CLK>;
-+			clock-names = "ref", "ahb", "sys";
-+			#clock-cells = <1>;
-+			assigned-clocks = <&cmn_pll CMN_PLL_CLK>;
-+			assigned-clock-rates-u64 = /bits/ 64 <12000000000>;
-+		};
-+
- 		qfprom: efuse@a4000 {
- 			compatible = "qcom,ipq9574-qfprom", "qcom,qfprom";
- 			reg = <0x000a4000 0x5a1>;
 
 -- 
 2.34.1
