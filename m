@@ -4,110 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB48E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 07:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B2CE77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 07:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8aydGhIo9XxOke5I+yIVto0Os8osvsq6hM83XEMMBBE=; b=m1RXw4NaQRGPVsxaEYVAK6UTXd
-	EZAfh7bNrt2NpxkqSdAp9mnSz8iGkSoai3YlgCrdUvGbJp8/p6i3YnLYAoDetxzc0RFUG8gj7K8DE
-	WNQAKNx+DcZu71RaAfbAP0/bWoTvxEywA3vac98gQti63hP+xEx0o0oORv9eLmjbLjOaq2wx3Avwt
-	dEMyKA22uSafDXdFaYptBQlo0qhhhY2mgknDed6G6JwVFDUTXvH18Tcv0fCxJc4y/hyhDvi7Y9peL
-	Xe+cRAdjwpy8Rna8xSARbfJM9aqh6j4irVLSOJBLC5kmczuHubSZHvfdMDE36Fpcr0nv0Zry86EGa
-	LRYZZB5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cMDSCtGjZWJsWp0VLSuytv75YuoxhvMH+zr0NBthYg4=; b=iJvcLOHvBdOR61TloPug+mE4dU
+	1OWWqMvvWJgqbykkmzsFHc+KsjDDgb7OYlPjqJtSxbdPRR0NstyzZBVdmApTcQZKi0kuGFXVuhUTT
+	o8wyRIL/Nl36nsuCKfqJMbdNwyO4mRFtnfYqfRFVPgSaTK/5KI/0imCTpYgfazLwENK4+nFiWiQT0
+	2msIwDjuuKhiQcYlhA7pvhHeC9ZRkSFxBsOaPs235kk20Eys+vs+I7NSDo2WjeZlUWYQfxXUUUBJy
+	c8spUux6O4RFt1HRGE1fropICjC31xpxex/f1TsR5C9b8YfOzOrA7ubZeWRW9Qw8ZB/Dg9d/3BUtX
+	5xheXDKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcH2-0000000CMws-2Qqy;
-	Fri, 03 Jan 2025 07:39:12 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tTcIB-0000000CNHM-2nvg;
+	Fri, 03 Jan 2025 07:40:23 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTcAL-0000000CLe4-0DZD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 07:32:18 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5033qS86015576;
-	Fri, 3 Jan 2025 07:32:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8aydGhIo9XxOke5I+yIVto0Os8osvsq6hM83XEMMBBE=; b=QMnBo3abPCSdpVvG
-	rxuN287v34HcbpUJY3r7RrzyHzrHSTOyuoW9WPifbsuYZCVm0vaf0iNHoXMh5zJR
-	ZX5SvBOjQb2+8l0Ued9Qfcexms01yMMN9eN3+7KKMr89Jn9xF41hievXn2BC0ouh
-	upO+UriYPoRYJwpA+a06iQ9U3N5yAzHSDth8eZRi2q35USdWwmy9mSpfXfCLgYhd
-	Wmk0KpX2MsjtX5R3V7GL1XEB0fL8JRUGIE7mADManpj7vVW6nLE4Fv/sr01CtIuF
-	bSp379AJyoakxmMn5/aQzFGcngSpWfdC39u1UQH0LMzIsFMmxCipc05tf0eeBCs6
-	9fYnEA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 43x8c0ge24-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Jan 2025 07:32:11 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5037WAi8018491
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 3 Jan 2025 07:32:10 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+	id 1tTcCa-0000000CMAQ-2dNI;
+	Fri, 03 Jan 2025 07:34:37 +0000
+X-UUID: 2bac252ac9a511ef82ff63e91e7eb18c-20250103
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=cMDSCtGjZWJsWp0VLSuytv75YuoxhvMH+zr0NBthYg4=;
+	b=KP1iPlWqnO5mgSAAyfLGAG8Xi3QjSIpMirvZuj4k4POPhoy3gstCpR/oYVeHq7XXKgDUEo2pSeHmRCuDRz6m4q2xE14dw/DIomQUPJOt0Puq/SQdhw2NcgnfmZRppQLvp8lpsi0zLBJtrwu0qo2VDUuXIvUAH+D/hlL4ZUPz1+E=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:71045bdc-2f01-460a-8946-408503db37c8,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:dccc9925-8650-4337-bf57-045b64170f0c,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 2bac252ac9a511ef82ff63e91e7eb18c-20250103
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <liankun.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1796259730; Fri, 03 Jan 2025 00:34:31 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 2 Jan 2025 23:32:05 -0800
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Fri, 3 Jan 2025 15:31:38 +0800
-Subject: [PATCH v8 5/5] arm64: dts: qcom: Update IPQ9574 xo_board_clk to
- use fixed factor clock
+ 15.2.1118.26; Fri, 3 Jan 2025 15:34:28 +0800
+Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.26 via Frontend Transport; Fri, 3 Jan 2025 15:34:27 +0800
+From: Liankun Yang <liankun.yang@mediatek.com>
+To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <ck.hu@mediatek.com>,
+	<msp@baylibre.com>, <granquet@baylibre.com>, <dmitry.osipenko@collabora.com>,
+	<rex-bc.chen@mediatek.com>, <jitao.shi@mediatek.com>,
+	<mac.shen@mediatek.com>, <peng.liu@mediatek.com>,
+	<liankun.yang@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v4 1/1] drm/mediatek: Add return value check when reading DPCD
+Date: Fri, 3 Jan 2025 15:33:22 +0800
+Message-ID: <20250103073425.28615-1-liankun.yang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250103-qcom_ipq_cmnpll-v8-5-c89fb4d4849d@quicinc.com>
-References: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
-In-Reply-To: <20250103-qcom_ipq_cmnpll-v8-0-c89fb4d4849d@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <quic_kkumarcs@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <bartosz.golaszewski@linaro.org>, <srinivas.kandagatla@linaro.org>,
-        Luo Jie
-	<quic_luoj@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1735889498; l=1501;
- i=quic_luoj@quicinc.com; s=20240808; h=from:subject:message-id;
- bh=VyC3W8O7pEMyWv06ZRGk03/Ezl+Iu9sbnPsh4K208us=;
- b=hObJL1Fhjy9dndqFaZisgc37tkYCYXa6Vu3HbWc9oM1eOwi8k4n/fB42US5yVu5vkcw2pEV2p
- kCB4r1TO4tyCdsEEsoKFXUsFdA8mrDaqQLlDTcDmMQE49vcfg0OUBlF
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=P81jeEL23FcOkZtXZXeDDiPwIwgAHVZFASJV12w3U6w=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 27loeI9p-u2DVvq4xVnY3CrjjuD737pN
-X-Proofpoint-ORIG-GUID: 27loeI9p-u2DVvq4xVnY3CrjjuD737pN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
- definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- malwarescore=0 bulkscore=0 clxscore=1015 phishscore=0 impostorscore=0
- adultscore=0 mlxlogscore=999 priorityscore=1501 mlxscore=0 spamscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501030064
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_233217_097892_E3CB7817 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250102_233436_672056_31E625E7 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,52 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xo_board_clk is fixed to 24 MHZ, which is routed from WiFi output clock
-48 MHZ (also being the reference clock of CMN PLL) divided 2 by analog
-block routing channel.
+Returns the number of bytes transferred (1) on success.
+Check the return value to confirm that AUX communication is successful.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
+
+Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
 ---
- arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi | 7 ++++++-
- arch/arm64/boot/dts/qcom/ipq9574.dtsi            | 3 ++-
- 2 files changed, 8 insertions(+), 2 deletions(-)
+Changes in V4:
+- Fix IF judgement condition.
+Per suggestion from the previous thread:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20241218113448.2992-1-liankun.yang@mediatek.com/
 
-diff --git a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-index bb1ff79360d3..ae12f069f26f 100644
---- a/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/ipq9574-rdp-common.dtsi
-@@ -175,8 +175,13 @@ &ref_48mhz_clk {
- 	clock-mult = <1>;
- };
- 
-+/*
-+ * The frequency of xo_board_clk is fixed to 24 MHZ, which is routed
-+ * from WiFi output clock 48 MHZ divided by 2.
-+ */
- &xo_board_clk {
--	clock-frequency = <24000000>;
-+	clock-div = <2>;
-+	clock-mult = <1>;
- };
- 
- &xo_clk {
-diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-index 475868a241cc..b5c8d2ab2ab5 100644
---- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-+++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
-@@ -32,7 +32,8 @@ sleep_clk: sleep-clk {
- 		};
- 
- 		xo_board_clk: xo-board-clk {
--			compatible = "fixed-clock";
-+			compatible = "fixed-factor-clock";
-+			clocks = <&ref_48mhz_clk>;
- 			#clock-cells = <0>;
- 		};
- 
+Changes in V3:
+- Using drm_dp_read_sink_count() to improve patch.
+Per suggestion from the previous thread:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20241128030940.25657-1-liankun.yang@mediatek.com/
 
+Changes in V2:
+- Modify Fixes in Commit Message.
+Per suggestion from the previous thread:
+https://patchwork.kernel.org/project/linux-mediatek/patch/20240930092000.5385-1-liankun.yang@mediatek.com/
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index 36713c176cfc..b8e4e9a6eb78 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -2100,7 +2100,6 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
+ 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
+ 	enum drm_connector_status ret = connector_status_disconnected;
+ 	bool enabled = mtk_dp->enabled;
+-	u8 sink_count = 0;
+ 
+ 	if (!mtk_dp->train_info.cable_plugged_in)
+ 		return ret;
+@@ -2115,8 +2114,8 @@ static enum drm_connector_status mtk_dp_bdg_detect(struct drm_bridge *bridge)
+ 	 * function, we just need to check the HPD connection to check
+ 	 * whether we connect to a sink device.
+ 	 */
+-	drm_dp_dpcd_readb(&mtk_dp->aux, DP_SINK_COUNT, &sink_count);
+-	if (DP_GET_SINK_COUNT(sink_count))
++
++	if (drm_dp_read_sink_count(&mtk_dp->aux) > 0)
+ 		ret = connector_status_connected;
+ 
+ 	if (!enabled)
 -- 
-2.34.1
+2.45.2
 
 
