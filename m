@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC80FE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51E8E77197
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 02:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ig6glpfwApy1o7Mm7Uu+S1mQRfa0XZ6/LLKszoVVhZ4=; b=fLf1J3QXq++CEtdB6XF2RbTuQo
-	IyY+bY3xdgqC3wA0yJsmVVKmgNiqH9kLYItBdnsJoyouLGJvYp3rBrdVM7FsDtZdPXld2V6+ILwMd
-	eZ3LLh8ElZENVZWifyoJQqQ8x2IjnumO+VMh8LAEmcD+h7hLi2pI3IKoqWaYvvkrXQv11vqDhQUX7
-	CcbCDU6Aua0BH/YB9FLNlP/uEdnFwJPPQYfXlQBGVqccnax3BmUSDpEWIUYuy5iW1qMByOLhPIoK7
-	+y77NoJ2ygOqZ7PE/ScX0jhPfL6jdKdJlEGZIdhEs7I+b0bWkyc1YtweLa6NyBoCCL2FxNcY4BFry
-	o+52smAg==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRJO5sUVsBrx9NfUdY8awEzhAYM8yo71RmYXdt5ov18=; b=boL3Zk1tQmDFeSaEJujhBsPloC
+	uE1/oq9dhOkFEiBiqH480xKzFw7QE02YpEZVTyKkL4IoSNh18AYYzvjXewLuFqUsR/o8O7HygczoX
+	Fm603szPkQ9Q1F+oEpXZpDUn/41+5quJAz04WIFMnR/TU9OxozycvApRWdsex/P1EePpzpChkkgDY
+	bkKI3ydnkaREnDvy74wRp/ZQyP2OGuHpOsc37ik/fjwsR4j53j1bnGefS/XLrdjnVuDYPD1nNPvcd
+	XwuFTE/IXuQgHFrT31PyZFlt4IqqvrdeJpubXWLZ30Fa10qAAMNJMbZkONyX3E/ox51vyqpx/8acy
+	vYxNtCsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTX3F-0000000BspY-2GOc;
-	Fri, 03 Jan 2025 02:04:37 +0000
+	id 1tTX4S-0000000Bt2u-0ubL;
+	Fri, 03 Jan 2025 02:05:52 +0000
 Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTX23-0000000BscH-3vBC
+	id 1tTX2t-0000000Bskn-1bus
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 02:03:25 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef79403c5eso24564193a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 18:03:23 -0800 (PST)
+	Fri, 03 Jan 2025 02:04:16 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef909597d9so24544865a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jan 2025 18:04:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1735869802; x=1736474602; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Ig6glpfwApy1o7Mm7Uu+S1mQRfa0XZ6/LLKszoVVhZ4=;
-        b=qUHF3zgZZp4At99cbLw9TmI4HCwyWQYTewKdBoldGA3MEwc/TCSokINCHlkpNb/LFi
-         VMtlGkMXMaCYt7fjKJLPNc0J/jkWGrSPNTQVQ94u9vT27F6iXAutpY2jfSuB1lY8cQ9D
-         GCP/gatVYpGJ08osHeRjclnFzi4BDVh2GI+8+MqjoCNDlfwXe4UiKblP8d0roIWbkLry
-         WNHXzMCvH3INtcTwxcnEYxINHh66/BE/lmj/JYrYf26FSLSszcvDoMkt9t77ip+Z7aqY
-         fKeKIPC7nHw15qvn22yfJcERzEXtwDatSwj2SKBp67ewl0pCDheAOqM+s1sxUInToG5y
-         vm3g==
+        d=google.com; s=20230601; t=1735869854; x=1736474654; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CRJO5sUVsBrx9NfUdY8awEzhAYM8yo71RmYXdt5ov18=;
+        b=YCCZyKcnifMGsIM1WDTmpMSz+oaWz52hSl5M5iSDc6DOpfOL3gpKoqhTV12P/qPruu
+         PkJScagFFY8Pf3/UQ2tbBDZniDYJaCR1ZhqBZvgkmvaJn0XokAuKaE8ZTyRirH4264bw
+         lEwX9FQSsQNwLDeFBiBLYwF00p1cdxAqVJYhJVdt4iFY/ftpIWXKLbAz0kJtUpM3Dv95
+         y9qZG/4fkIRyuw5MXHsbXdj7gbHI5LJ42XI/5/qc2j9LQ+9duow4ZTEQRIgApVcLmbs/
+         wgUh59bewtDgKTfZ326g93uo71UmLFaQQ95TVhu9bvEkRIQl7yZ2WcNKC0/kh1uXBXhi
+         pONA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735869802; x=1736474602;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ig6glpfwApy1o7Mm7Uu+S1mQRfa0XZ6/LLKszoVVhZ4=;
-        b=LzxhUhYNaMs6pYj0uCDkWou6RxDXxgk4mOnML5Njx9s50J36OavzA/HsqhfgaoO2jZ
-         lHubnBNAcCakGGPbHEIaypU3hdNTXnxsqZIghzOZKBMmbS+iuxbEdtcRzRbW9YACOCaF
-         0XwzujPSd2mYwWBjS7UaQEFzPfvQGV10QemKqLrKUAUG+ONfJFZQr9BNDvmlL2IP5pHT
-         PMJ/qW4ec4LhUNjG2kBhrjKTcIrRfuvdYE7eWPnVw2aMIc6pxNXlLhMKdeEZrb5bSIKd
-         sLh5PW46lUvHZTk8/hAdBJWC4RctaAfUZFDcnrBuujs+tskEK0sRs5gDka3Y+kHprYuu
-         Dggw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxb+InZS46BXv90gnJE4X32Qc4du0zriiw0aQM5Xjr21eVnIra6R1zPdc0r0e/CSKo5JxAmmNPNwa0HesuTL6V@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIYgxR4YLer2GDbfKEEBIFxrnQGIOeMjAaNDrFmB2XpRydBn/f
-	ObzqHuEUeazBs6XtTcCIObyBiF0UL8/5RyN13H4lESdjo0q1jHVOZggEcNlP/vZHeU9u93OdNul
-	7K6+wNYWwlA==
-X-Google-Smtp-Source: AGHT+IEL5evFIYGE70thXWV9wnfSiMcphGKAQ6COYmizEZzma8el/TiuwM5NuPGwXcKyaiMPRwLa0I52lt/X5Q==
-X-Received: from pfbct13.prod.google.com ([2002:a05:6a00:f8d:b0:729:69d:93b6])
+        d=1e100.net; s=20230601; t=1735869854; x=1736474654;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CRJO5sUVsBrx9NfUdY8awEzhAYM8yo71RmYXdt5ov18=;
+        b=d/nG2neYXaiFtYM/Z7M67TaT8wIordzEgGvXxOnnGj0v0d0qYyiP4zBSi9fm+4hdHr
+         pTI4k3bzwI45bzWy7WLtDd7Su1aAVMOsbQ2rlDA7HdGhQDzf19+RvEHtnZhG2ocNIrr+
+         quFYTrx9U+kCYPNu+K0eWS6gqSygttf51ZHNfshhpURvMkoSKiFE2P1rOHpSW4hP3iyc
+         vA7ShvA0nRhyYxvLaQQ7XRkH8BH59JqwpRtkMtdkpuBp7SegjOmedgL5fzLlgUaWVnyG
+         xB9GI41dhz6yzd1ouXTfjlQcwzGNuSHGxZj9hNSsGOfMOBTjZBpLbi43pHz7aiYobTT3
+         GCYg==
+X-Forwarded-Encrypted: i=1; AJvYcCVeVIf+oLve+KzO/OIFnD2sfI4y8IMYL7dUE9CRHWBH1BUpLsx/j25w/7olU3IQGECAIYUTzFea6E8iD8JiPzea@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGWkUt51rQjACvFAQgcz+h9wmKjITL8aDc0MA9jHj4DQfhnYdY
+	3MJpSVliks5OC6NSjkRGcJytKBmkcFxZRDQa74dUYE/9WtPXblAK8pTCwpj14E+9XBNnoxp3nw6
+	IylxelNFqZg==
+X-Google-Smtp-Source: AGHT+IHZadCFsRAvM/8s8XCvSBmeC0l850mBUK5zckCFiZPbJN2N7ovFIIHdSAEoiRRH/qyjjHZNBrMLvPsyVA==
+X-Received: from pjbsm15.prod.google.com ([2002:a17:90b:2e4f:b0:2ea:9d23:79a0])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:1944:b0:71d:f4ef:6b3a with SMTP id d2e1a72fcca58-72abdeb6e80mr69465699b3a.21.1735869802431;
- Thu, 02 Jan 2025 18:03:22 -0800 (PST)
-Date: Fri,  3 Jan 2025 02:02:53 +0000
+ 2002:a17:90b:50c7:b0:2ee:d96a:5831 with SMTP id 98e67ed59e1d1-2f452ec713fmr73098024a91.30.1735869854278;
+ Thu, 02 Jan 2025 18:04:14 -0800 (PST)
+Date: Fri,  3 Jan 2025 02:03:42 +0000
+In-Reply-To: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
 Mime-Version: 1.0
+References: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <e8520e5503a489e2dea8526077976ae5a0ab1849.1735868489.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v2 1/3] bpf, arm64: Simplify if logic in emit_lse_atomic()
+Message-ID: <fedbaca80e6d8bd5bcba1ac5320dfbbdab14472e.1735868489.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v2 2/3] bpf, arm64: Factor out emit_a64_add_i()
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org
 Cc: Peilin Ye <yepeilin@google.com>, Xu Kuohai <xukuohai@huaweicloud.com>, 
@@ -79,8 +81,8 @@ Cc: Peilin Ye <yepeilin@google.com>, Xu Kuohai <xukuohai@huaweicloud.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_180323_989852_9300FEDB 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20250102_180415_420222_632FB4AF 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +97,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Delete that unnecessary outer if clause.  No functional change.
+As suggested by Xu, factor out emit_a64_add_i() for later use.  No
+functional change.
 
+Suggested-by: Xu Kuohai <xukuohai@huaweicloud.com>
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- arch/arm64/net/bpf_jit_comp.c | 18 ++++++++----------
- 1 file changed, 8 insertions(+), 10 deletions(-)
+ arch/arm64/net/bpf_jit_comp.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
 diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 66708b95493a..9040033eb1ea 100644
+index 9040033eb1ea..8ee9528d8795 100644
 --- a/arch/arm64/net/bpf_jit_comp.c
 +++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -648,16 +648,14 @@ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
- 	const s16 off = insn->off;
- 	u8 reg = dst;
+@@ -267,6 +267,19 @@ static bool is_addsub_imm(u32 imm)
+ 	return !(imm & ~0xfff) || !(imm & ~0xfff000);
+ }
  
--	if (off || arena) {
--		if (off) {
--			emit_a64_mov_i(1, tmp, off, ctx);
--			emit(A64_ADD(1, tmp, tmp, dst), ctx);
--			reg = tmp;
--		}
--		if (arena) {
--			emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
--			reg = tmp;
--		}
-+	if (off) {
-+		emit_a64_mov_i(1, tmp, off, ctx);
-+		emit(A64_ADD(1, tmp, tmp, dst), ctx);
-+		reg = tmp;
++static inline void emit_a64_add_i(const bool is64, const int dst, const int src,
++				  const int tmp, const s32 imm, struct jit_ctx *ctx)
++{
++	if (is_addsub_imm(imm)) {
++		emit(A64_ADD_I(is64, dst, src, imm), ctx);
++	} else if (is_addsub_imm(-imm)) {
++		emit(A64_SUB_I(is64, dst, src, -imm), ctx);
++	} else {
++		emit_a64_mov_i(is64, tmp, imm, ctx);
++		emit(A64_ADD(is64, dst, src, tmp), ctx);
 +	}
-+	if (arena) {
-+		emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
-+		reg = tmp;
- 	}
- 
- 	switch (insn->imm) {
++}
++
+ /*
+  * There are 3 types of AArch64 LDR/STR (immediate) instruction:
+  * Post-index, Pre-index, Unsigned offset.
+@@ -1144,14 +1157,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 	/* dst = dst OP imm */
+ 	case BPF_ALU | BPF_ADD | BPF_K:
+ 	case BPF_ALU64 | BPF_ADD | BPF_K:
+-		if (is_addsub_imm(imm)) {
+-			emit(A64_ADD_I(is64, dst, dst, imm), ctx);
+-		} else if (is_addsub_imm(-imm)) {
+-			emit(A64_SUB_I(is64, dst, dst, -imm), ctx);
+-		} else {
+-			emit_a64_mov_i(is64, tmp, imm, ctx);
+-			emit(A64_ADD(is64, dst, dst, tmp), ctx);
+-		}
++		emit_a64_add_i(is64, dst, dst, tmp, imm, ctx);
+ 		break;
+ 	case BPF_ALU | BPF_SUB | BPF_K:
+ 	case BPF_ALU64 | BPF_SUB | BPF_K:
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
