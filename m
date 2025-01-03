@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136C9E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BF6E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GTMF9p28b0/KPV25ZqYQ8bHAuqem7ZHsRw4YpIWwMVE=; b=SnKTn+DvikmMeHLJMifuclGiNt
-	lkI32XoK/T0UM8HJNDMj8awjel+G6omcYZM5kuOMtSu8Ppku3VA67olt6ZyixYH6CXCTd6960qPix
-	IMaMqw0pb+bTpqYBWomgTaNrey0EzO2MlW0n3JCTlhKUVCsOy7lG28ADXQwrgNtbltdns/lWx/VKh
-	aUSl6/uwsisOQAgpYX57TShjNQWDI2xfStIxtgG+uSeEyxST3Kt5O+gNcAo5If7BtT/3N6/1/HuEV
-	jzIwEXz5+Gs1osv7f8b4YanzelR+QWrB+O0MXSmoBUzjaThjUXb4v7PcjXMCabr6kJW6QPrk5OaL9
-	Dkz078Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z12n6pwBuO+Lp/RU6Y/RGTOaXGSjqsnsbDrc/bXr6NI=; b=ZOYR7XtWxE3Hc8s+y1qpyeXxKS
+	G1ffOF/iY/yPnkxddHmD/cL62sPC00/sHl6yt0PRMnAVsgTmqp5LHn+hh5WJSbqTeSYEw8yrKKOsv
+	hYrsfj2asziZqc+9M79oJ+F+aw5aOiVtc0rhLKmQPf7wQypv/Zbjzr1lJ592eALodBOSK8tYw7QTU
+	TdBfchA/aYyCrCDHZW46avN2Z4nn+WcJhdO/huSH2kYjvzRia2gXIIXka9STv5kfdI/vXCJ/cxoIJ
+	Aj1EM2CmiyFRG+CuvuxQYjXlTs9/6vSuayu+bI7wPWNDeF0csGQmqn8kG4UfPT+0KX/5HfEWlHEJo
+	cO3qFYXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkee-0000000DRWP-2EE3;
-	Fri, 03 Jan 2025 16:36:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tTki9-0000000DS8n-2mHB;
+	Fri, 03 Jan 2025 16:39:45 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkdQ-0000000DRPz-3qqK;
-	Fri, 03 Jan 2025 16:34:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4576AA404DC;
-	Fri,  3 Jan 2025 16:33:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB947C4CECE;
-	Fri,  3 Jan 2025 16:34:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735922091;
-	bh=83DIF3mFLGw5ydl0IM2PKCB3azWLkypjNn+5xAAuKf0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pEB0OThNpNMl8LgLujdnkXrUmKE5Wb85k8l+FG7RzmbH3Ubi+tomlN4HOJ3oAbCpb
-	 8NNNougV5UcWMlVTsJZprC0S/f1eyedEj0eKguSag9pqfsxFzGQalgR5RUsZM95YHz
-	 2oHkaFSH0s5QbcO+tV5tDk2yAmpxedA7yzNISkqPiqDNFsWfIq8AWgV7VsPN01j9DJ
-	 gTQtLVStdEAtSLBzLwqf1bB+ca971cz0ocekt35XEnKNB305Px2OPchhGksj6xBCLv
-	 BeruJQPpAOvK7QQmuSKCMueJvkDj2mCrC7oEYbMXOJ7kJlq7Mh31BZEdmVl1LOT1Zx
-	 U0O1fBazmP2Bg==
-Date: Fri, 3 Jan 2025 10:34:49 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
-	detlev.casanova@collabora.com, daniel@fooishbar.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v8 8/9] dt-bindings: display: vop2: Add rk3576 support
-Message-ID: <20250103163449.GA2382623-robh@kernel.org>
-References: <20241231090802.251787-1-andyshrk@163.com>
- <20241231090802.251787-9-andyshrk@163.com>
+	id 1tTkgw-0000000DRrP-3UiU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 16:38:32 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aab925654d9so2160246166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 08:38:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1735922308; x=1736527108; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=z12n6pwBuO+Lp/RU6Y/RGTOaXGSjqsnsbDrc/bXr6NI=;
+        b=biKstf2Nffeo6Az6f7ckWmaJegwXsH8lzmQ86xKnzTRMM9stY6kr5ELBQmJGrNP4iB
+         IFu5YtVIRJuDZdZe8kP8a8zR3Xmwy2gKTWL49lN8PeWcEhfknmLOxvuVTJGYhZeZn+mk
+         j4gTgnXWTTRoDYn+cUf/r/oiNw8zEFSyVPTnLtFyKimKLEFuhA7YSBy4bQXVeHRhLf//
+         Z8BNEaTjsBQ6oDtilePCAwKLy/SOB8gkCB/2yqkSs4W6zEpy38y5eB7s5gemXjgo7+xn
+         j0N8r9BTOIt/jd2P5YrLwNcL2AIo3neZ3gATFEEQippUJpWscSqy7RDG7QbjAYbyV13Q
+         8bEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735922308; x=1736527108;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z12n6pwBuO+Lp/RU6Y/RGTOaXGSjqsnsbDrc/bXr6NI=;
+        b=Aw6sy0Y/6kxsiSNfRcNUYd595fX+PwTuSts1bs0srjrNSJb1kjiWuln8F5mqyJjobf
+         sIOIno7RB2P4SuE0eQYlPQO3bCV0nWxA5vbZT0ugdKH/iYHJjzpUVaFLiXHyiz+BocJh
+         W0jdG7H3ABPXtgOuT4lU5q6l8hjJDsvtUMntUn5JYGNip6xSFFtrog6EZw7XbkjThVwL
+         4djvkXNBYCbGwTqANLNWuNrWLN/aPHcejEUlNCvEFmKfSgnv6lP9k3EvDPo7JjyQMUWM
+         Qp2hGIJVnH/B5Fd2fW3NZ1p7OmCYjrG3ysXDv7o63Clsz+QGzLpPU8YnLYXxGGplZ8eJ
+         iixA==
+X-Forwarded-Encrypted: i=1; AJvYcCWpDpg1nGvpWeOZB1C3jBxxpyGZa+S7SYUXXsCFuu+ErHBrfvEK0s5LoODrGGtSSbT/lGSQLJkpYgd5GyA4c12m@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1e4YG67vTZq1xig2TUjf0KuClk5rvjXnm5era1rlZnkMWtt2W
+	pfs1l3ceE7odEZDK995I2kpYp8V26NROknNbeXM0rv3EGB2REfqSys4quTZVzJE=
+X-Gm-Gg: ASbGncvt9dItNHyi9GtZwpzLt8sG5i3XWQKpwk7gcV2m8C8o+Ye9aRjFaGPeL2HqNGT
+	yORCN83M+EwkoOxLqPSfFDsAgtWhGRnGACKl5UyJNKIByajZ9jf7toPnttN0ZlFRBWhP9hmLHdE
+	kE7IY7ZWW47dzR8qILh8RQH7Rq2XvYG80byOoWdh4YMM7fMYo900jcYynUHz/E3scf+TduY1Bk3
+	cMSYgJIAPmQUY/pqjXQMFUHr9VWxUqOQ7ByrynPpa38nC6v5WWouX7RJqdHHvvGVwtH7vLgyMUJ
+	TG2nx4m2NYE=
+X-Google-Smtp-Source: AGHT+IHvB3jSYSwVEdM8kpizh++WgojhHChTKlXDXhzjvg/G2jGnSPtOR2X4YibeMuE1jT2+Wk3xTg==
+X-Received: by 2002:a17:907:7dab:b0:aa6:98c9:aadc with SMTP id a640c23a62f3a-aac2d45fb01mr4593376466b.31.1735922308221;
+        Fri, 03 Jan 2025 08:38:28 -0800 (PST)
+Received: from claudiu-X670E-Pro-RS.. ([82.78.167.102])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e8953b6sm1932984066b.65.2025.01.03.08.38.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jan 2025 08:38:27 -0800 (PST)
+From: Claudiu <claudiu.beznea@tuxon.dev>
+X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
+To: rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	geert+renesas@glider.be,
+	magnus.damm@gmail.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	p.zabel@pengutronix.de,
+	ulf.hansson@linaro.org
+Cc: claudiu.beznea@tuxon.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 0/6] thermal: renesas: Add support for RZ/G3S
+Date: Fri,  3 Jan 2025 18:37:59 +0200
+Message-ID: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241231090802.251787-9-andyshrk@163.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_083453_085079_7C061B31 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20250103_083831_169192_1B17E960 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,190 +113,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 31, 2024 at 05:07:51PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> Add vop found on rk3576, the main difference between rk3576 and the
-> previous vop is that each VP has its own interrupt line.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
-> Changes in v8:
-> - Fix dt_binding_check errors
-> - ordered by soc name
-> - Link to the previous version:
->   https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
-> 
-> Changes in v4:
-> - describe constraint SOC by SOC, as interrupts of rk3576 is very
->   different from others
-> - Drop Krzysztof's Reviewed-by, as this version changed a lot.
-> 
-> Changes in v3:
-> - ordered by soc name
-> - Add description for newly added interrupt
-> 
-> Changes in v2:
-> - Add dt bindings
-> 
->  .../display/rockchip/rockchip-vop2.yaml       | 81 ++++++++++++++-----
->  1 file changed, 63 insertions(+), 18 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-> index 2531726af306..4cdd9cced10c 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-> @@ -20,6 +20,7 @@ properties:
->      enum:
->        - rockchip,rk3566-vop
->        - rockchip,rk3568-vop
-> +      - rockchip,rk3576-vop
->        - rockchip,rk3588-vop
->  
->    reg:
-> @@ -37,10 +38,21 @@ properties:
->        - const: gamma-lut
->  
->    interrupts:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 4
->      description:
-> -      The VOP interrupt is shared by several interrupt sources, such as
-> -      frame start (VSYNC), line flag and other status interrupts.
-> +      For VOP version under rk3576, the interrupt is shared by several interrupt
-> +      sources, such as frame start (VSYNC), line flag and other interrupt status.
-> +      For VOP version from rk3576 there is a system interrupt for bus error, and
-> +      every video port has it's independent interrupts for vsync and other video
-> +      port related error interrupts.
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: vop-sys
-> +      - const: vop-vp0
-> +      - const: vop-vp1
-> +      - const: vop-vp2
+From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Drop 'vop-' as it is redundant.
+Hi,
 
->  
->    # See compatible-specific constraints below.
->    clocks:
-> @@ -120,43 +132,76 @@ allOf:
->        properties:
->          compatible:
->            contains:
-> -            const: rockchip,rk3588-vop
-> +            enum:
-> +              - rockchip,rk3566-vop
-> +              - rockchip,rk3568-vop
->      then:
->        properties:
->          clocks:
-> -          minItems: 7
-> +          minItems: 5
->          clock-names:
-> -          minItems: 7
-> -
+This series adds thermal support for the Renesas RZ/G3S SoC.
 
-Keep the blank line between DT properties
+Series is organized as follows:
+- patch 1/6:		adds clock, resets and power domain support for
+			the thermal sensor unit (TSU)
+- patch 2/6:		adds support for non-devres thermal zone
+			register/unregister 
+- patches 3-4/6:	add thermal support for RZ/G3S
+- patches 5-6/6:	add device tree support
 
-> +          minItems: 5
->          ports:
->            required:
->              - port@0
->              - port@1
->              - port@2
-> -            - port@3
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3576-vop
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 5
+Merge strategy, if any:
+- patch 1/6 can go through the Renesas tree
+- patches 2-4/6 can go through the thermal tree
+- patches 5-6/6 can go through the Renesas tree
 
-blank line
+Ulf,
 
-> +        clock-names:
-> +          minItems: 5
+I've added you to this thread as well due to patch 2/6 that has a similar
+root cause as [1].
 
-blank line, and so on.
+Thank you,
+Claudiu Beznea
 
-> +        ports:
-> +          required:
-> +            - port@0
-> +            - port@1
-> +            - port@2
-> +        interrupts:
-> +          items:
-> +            - description: vop system interrupt, such as axi bus error
-> +            - description: interrupts for video port0, such as vsync, dsp_hold.
-> +            - description: interrupts for video port1, such as vsync, dsp_hold.
-> +            - description: interrupts for video port2, such as vsync, dsp_hold.
+[1] https://lore.kernel.org/all/20250103140042.1619703-2-claudiu.beznea.uj@bp.renesas.com/
 
-These descriptions belong at the top level.
+Claudiu Beznea (6):
+  clk: renesas: r9a08g045: Add clocks, resets and power domain support
+    for the TSU IP
+  thermal: of: Export non-devres helper to register/unregister thermal
+    zone
+  dt-bindings: thermal: r9a08g045-tsu: Document the TSU unit
+  thermal: renesas: rzg3s: Add thermal driver for the Renesas RZ/G3S SoC
+  arm64: dts: renesas: r9a08g045: Add TSU node
+  arm64: defconfig: Enable RZ/G3S thermal
 
-> +        interrupt-names:
-> +          items:
-> +            - const: vop-sys
-> +            - const: vop-vp0
-> +            - const: vop-vp1
-> +            - const: vop-vp2
+ .../thermal/renesas,r9a08g045-tsu.yaml        |  93 ++++++
+ MAINTAINERS                                   |   7 +
+ arch/arm64/boot/dts/renesas/r9a08g045.dtsi    |  43 ++-
+ .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |   4 -
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/clk/renesas/r9a08g045-cpg.c           |   4 +
+ drivers/thermal/renesas/Kconfig               |   8 +
+ drivers/thermal/renesas/Makefile              |   1 +
+ drivers/thermal/renesas/rzg3s_thermal.c       | 301 ++++++++++++++++++
+ drivers/thermal/thermal_of.c                  |   8 +-
+ include/linux/thermal.h                       |  14 +
+ 11 files changed, 476 insertions(+), 8 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a08g045-tsu.yaml
+ create mode 100644 drivers/thermal/renesas/rzg3s_thermal.c
 
-Why are these names defined twice?
+-- 
+2.43.0
 
-You just need 'minItems: 4' in both of these.
-
->        required:
->          - rockchip,grf
-> -        - rockchip,vo1-grf
-> -        - rockchip,vop-grf
->          - rockchip,pmu
->  
-> -    else:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: rockchip,rk3588-vop
-> +    then:
->        properties:
-> -        rockchip,vo1-grf: false
-> -        rockchip,vop-grf: false
-> -        rockchip,pmu: false
-
-How is there no long a case without these properties?
-
-> -
->          clocks:
-> -          maxItems: 5
-> +          minItems: 7
->          clock-names:
-> -          maxItems: 5
-> -
-> +          minItems: 7
->          ports:
->            required:
->              - port@0
->              - port@1
->              - port@2
-> +            - port@3
-> +      required:
-> +        - rockchip,grf
-> +        - rockchip,vo1-grf
-> +        - rockchip,vop-grf
-> +        - rockchip,pmu
->  
->  additionalProperties: false
->  
-> -- 
-> 2.34.1
-> 
 
