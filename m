@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F90AE77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BB2E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 11:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/MH/1XbuHmmzMIpU0/jitxqDYSfeHmJOlhMeOQiQWSQ=; b=zhZ1QJjTIdiPx29XqXeaF1MVfg
-	WjU7sgVDreN1IysvymL8mDTQVak2flbOxnLvyzgoBNFPRBIcOIlG2NuLlTw09JfrYmJldfY4gob6o
-	wUmPqgI+TG9APGvcDiMrPGk2afHs8m4TJ8EVBUS2J2H+PLgADLW0yY6bJStwXnJq7RwqN3+J25k4s
-	JN2sVto8m020MljgCSKITxix5IcxVcQMKWMpS9/I17bwWaM3DktqpI0BLCnsMF65SABjfQv7IFoFi
-	Pixy0cISvHKn4DdSp++h2iU+tw2WpEFRThWQZmoIYenEQTuqQnZ3jaRALt2fzC07aKpHqrZ9+C0U1
-	QGrmnxMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8rzjtBuAgsjfEiu6NQ3mIp5ZqWk3WnDSaX6HX0P2HP0=; b=0gBF5WYnCQv/2NzjiRrWEbByxM
+	AUdJGoUfd8hK7NPnNiz3rJ8X4qgrZnIAf8WAl1y/oWQ0dXu2GqfLnd7VN2gdbdrVAmpsJFcYcr8xB
+	XkxOTBLQT3dYTi9bosQR10TwhVcfgpzOZdbpS+y8JXnM6Ga42vWygYdodKfWMmO9JmQbMxR8XiF2z
+	s3XR1huJ33SrFRfospXU7KoyN0zLX14/K4cdbatV3ROV2flhCIwwDSXxzLqNBjl8tGLuM6SxdOXgD
+	HdTc9TJlpVwX9iTUNZVZ+UK2icnYbUm988Japxho/hCVYkMV8s7U7WkjhvZNS4Vy/2Y4Ff/nCRii+
+	cTwgRoGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfnb-0000000CpQZ-36cX;
-	Fri, 03 Jan 2025 11:25:03 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tTfon-0000000CpZG-3smv;
+	Fri, 03 Jan 2025 11:26:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfg0-0000000CoCR-0IBf;
-	Fri, 03 Jan 2025 11:17:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/MH/1XbuHmmzMIpU0/jitxqDYSfeHmJOlhMeOQiQWSQ=; b=kyq2ffionUdzxezwxw1n7SSUNJ
-	QOwJve95yZcDFYj/8AbI4Cd7R27VoBHYCihpPknn1P/j1BxO3KEhCfgxJqhvq0TnDSeEOzj3Ps0uh
-	zHmXaY0gXRIM9i/eJtzcnExq8UkRkzCESa+xUsBtpWvg7x7gJALYXj1t8eHTgWxUdlMPzinWZeX7G
-	cJARELl9wB4lXw1v7OAaH+hyFepu73JhFPIMuxmjWQ39FAw/ZJHwPRBEuZHOvrPH9XijDcPAm+QBz
-	sr8R3d8+C0vbT6YLCbMOodxu7X5mr9qbkCvtWOcMjJ4r8iBbqV0myf5LRi4BWRNrGhHc466Pv5EPn
-	IAOHlwDA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39002 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tTffn-00031h-2c;
-	Fri, 03 Jan 2025 11:16:59 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tTffk-007Roi-JM; Fri, 03 Jan 2025 11:16:56 +0000
-In-Reply-To: <Z3fG9oTY9F9fCYHv@shell.armlinux.org.uk>
-References: <Z3fG9oTY9F9fCYHv@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexander Couzens <lynxis@fe80.eu>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 6/6] net: pcs: xpcs: make xpcs_get_interfaces()
- static
+	id 1tTfjP-0000000CosR-2SiJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 11:20:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C3875C6300;
+	Fri,  3 Jan 2025 11:20:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7C336C4CECE;
+	Fri,  3 Jan 2025 11:20:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735903242;
+	bh=uyrlwtQE4rMHn9I5GAmKy1khgpbtrM6HHWX2r3idiWo=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=Rz5rGoTUUIqZ5wPBXjA5r5mG8d+j9sK8RKMUabtBOHXlDUpL6dzaUo0Od9KSyF3dL
+	 nG8KZrUTPySd/ef4wrD0fwGZz2RDAj/T+PWQTbwyxAQjPuqpefSgkEpTOwC/Gk5QuO
+	 75IYhzAXie2UxYKtQEbafKMHN49LKT+Gutgt70HIE9WqtMQ/CKi1Oo3L6umxRPf0UC
+	 kBbhpX8bBNvhorqs6n5cx4JI4n2Wt0oHejIjEZzUwj1dTicWN8/azjw2BmGNBTsoMB
+	 l2R70IGcKj4q5v3jQ/gXLmUOAhcxBd77A38cORiN4WOeH6tcjPXIsBvUkep062DOnR
+	 3c8Gsd1LvHeKQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 662ADE77188;
+	Fri,  3 Jan 2025 11:20:42 +0000 (UTC)
+From: Nayab Sayed via B4 Relay <devnull+nayabbasha.sayed.microchip.com@kernel.org>
+Date: Fri, 03 Jan 2025 16:50:40 +0530
+Subject: [PATCH] iio: adc: at91-sama5d2_adc: fix sama7g5 realbits value
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tTffk-007Roi-JM@rmk-PC.armlinux.org.uk>
-Date: Fri, 03 Jan 2025 11:16:56 +0000
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250103-fix-sama7g5-adc-realbits-v1-1-1732d265c36a@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAAfId2cC/x2MQQqDMBAAvyJ77kISSaN+pfSwmo0uaJRsKQXx7
+ 4YeB2bmBOUirDA0JxT+isqeK9hHA9NCeWaUWBmccd5Y02KSHyptFGaPFCcsTOsoH8U2pKdLXe9
+ 8DFDzo3B1/+vX+7puS12KlmoAAAA=
+To: Eugen Hristev <eugen.hristev@linaro.org>, 
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Nayab Sayed <nayabbasha.sayed@microchip.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4982;
+ i=nayabbasha.sayed@microchip.com; h=from:subject:message-id;
+ bh=Za46OdRtTJEi9yRlw0XaUeuB5ttTzM/pmijAikNetGo=;
+ b=owGbwMvMwCEmfMj/xNz7ei8ZT6slMaSXn+BIC/gt+P2Y6tTyP2WJ29d7aRSpWzVubtHgv3msc
+ eNklUMtHaUsDGIcDLJiiizdm+fPNiz605n5k3MFzBxWJpAhDFycAjARw8UM/3OvJDdr7fi0+UnW
+ ux0repqMJm/g5Ha9nsjNX7jxS5e2xBGG/2Vmf8N3/kj4q+227CqX+Yk1Z0oL5pyznaFgyOK57uZ
+ BH04A
+X-Developer-Key: i=nayabbasha.sayed@microchip.com; a=openpgp;
+ fpr=E108A58C09FB2280B0AB41DAE24318EF3B3861A3
+X-Endpoint-Received: by B4 Relay for nayabbasha.sayed@microchip.com/default
+ with auth_id=304
+X-Original-From: Nayab Sayed <nayabbasha.sayed@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_031712_110254_6AAB3ED0 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20250103_032043_725098_E47D6A54 
+X-CRM114-Status: UNSURE (   9.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,51 +90,142 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: nayabbasha.sayed@microchip.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xpcs_get_interfaces() should no longer be used outside of the XPCS
-code, so make it static.
+From: Nayab Sayed <nayabbasha.sayed@microchip.com>
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+The number of valid bits in SAMA7G5 ADC channel data register are 16.
+Hence changing the realbits value to 16
+
+Signed-off-by: Nayab Sayed <nayabbasha.sayed@microchip.com>
 ---
- drivers/net/pcs/pcs-xpcs.c   | 3 +--
- include/linux/pcs/pcs-xpcs.h | 1 -
- 2 files changed, 1 insertion(+), 3 deletions(-)
+ drivers/iio/adc/at91-sama5d2_adc.c | 68 ++++++++++++++++++++++----------------
+ 1 file changed, 40 insertions(+), 28 deletions(-)
 
-diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-index cf41dc5e74e8..c06b66f40022 100644
---- a/drivers/net/pcs/pcs-xpcs.c
-+++ b/drivers/net/pcs/pcs-xpcs.c
-@@ -594,14 +594,13 @@ static unsigned int xpcs_inband_caps(struct phylink_pcs *pcs,
+diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+index 8e5aaf15a921..c3a1dea2aa82 100644
+--- a/drivers/iio/adc/at91-sama5d2_adc.c
++++ b/drivers/iio/adc/at91-sama5d2_adc.c
+@@ -329,7 +329,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ #define AT91_HWFIFO_MAX_SIZE_STR	"128"
+ #define AT91_HWFIFO_MAX_SIZE		128
+ 
+-#define AT91_SAMA5D2_CHAN_SINGLE(index, num, addr)			\
++#define AT91_SAMA_CHAN_SINGLE(index, num, addr, rbits)			\
+ 	{								\
+ 		.type = IIO_VOLTAGE,					\
+ 		.channel = num,						\
+@@ -337,7 +337,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.scan_index = index,					\
+ 		.scan_type = {						\
+ 			.sign = 'u',					\
+-			.realbits = 14,					\
++			.realbits = rbits,				\
+ 			.storagebits = 16,				\
+ 		},							\
+ 		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
+@@ -350,7 +350,13 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.indexed = 1,						\
  	}
- }
  
--void xpcs_get_interfaces(struct dw_xpcs *xpcs, unsigned long *interfaces)
-+static void xpcs_get_interfaces(struct dw_xpcs *xpcs, unsigned long *interfaces)
- {
- 	const struct dw_xpcs_compat *compat;
+-#define AT91_SAMA5D2_CHAN_DIFF(index, num, num2, addr)			\
++#define AT91_SAMA5D2_CHAN_SINGLE(index, num, addr)			\
++	AT91_SAMA_CHAN_SINGLE(index, num, addr, 14)
++
++#define AT91_SAMA7G5_CHAN_SINGLE(index, num, addr)			\
++	AT91_SAMA_CHAN_SINGLE(index, num, addr, 16)
++
++#define AT91_SAMA_CHAN_DIFF(index, num, num2, addr, rbits)		\
+ 	{								\
+ 		.type = IIO_VOLTAGE,					\
+ 		.differential = 1,					\
+@@ -360,7 +366,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.scan_index = index,					\
+ 		.scan_type = {						\
+ 			.sign = 's',					\
+-			.realbits = 14,					\
++			.realbits = rbits,				\
+ 			.storagebits = 16,				\
+ 		},							\
+ 		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),		\
+@@ -373,6 +379,12 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ 		.indexed = 1,						\
+ 	}
  
- 	for (compat = xpcs->desc->compat; compat->supported; compat++)
- 		__set_bit(compat->interface, interfaces);
- }
--EXPORT_SYMBOL_GPL(xpcs_get_interfaces);
++#define AT91_SAMA5D2_CHAN_DIFF(index, num, num2, addr)			\
++	AT91_SAMA_CHAN_DIFF(index, num, num2, addr, 14)
++
++#define AT91_SAMA7G5_CHAN_DIFF(index, num, num2, addr)			\
++	AT91_SAMA_CHAN_DIFF(index, num, num2, addr, 16)
++
+ #define AT91_SAMA5D2_CHAN_TOUCH(num, name, mod)				\
+ 	{								\
+ 		.type = IIO_POSITIONRELATIVE,				\
+@@ -666,30 +678,30 @@ static const struct iio_chan_spec at91_sama5d2_adc_channels[] = {
+ };
  
- int xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns, int enable)
- {
-diff --git a/include/linux/pcs/pcs-xpcs.h b/include/linux/pcs/pcs-xpcs.h
-index b5b5d17998b8..733f4ddd2ef1 100644
---- a/include/linux/pcs/pcs-xpcs.h
-+++ b/include/linux/pcs/pcs-xpcs.h
-@@ -50,7 +50,6 @@ struct dw_xpcs;
- 
- struct phylink_pcs *xpcs_to_phylink_pcs(struct dw_xpcs *xpcs);
- int xpcs_get_an_mode(struct dw_xpcs *xpcs, phy_interface_t interface);
--void xpcs_get_interfaces(struct dw_xpcs *xpcs, unsigned long *interfaces);
- int xpcs_config_eee(struct dw_xpcs *xpcs, int mult_fact_100ns,
- 		    int enable);
- struct dw_xpcs *xpcs_create_mdiodev(struct mii_bus *bus, int addr);
+ static const struct iio_chan_spec at91_sama7g5_adc_channels[] = {
+-	AT91_SAMA5D2_CHAN_SINGLE(0, 0, 0x60),
+-	AT91_SAMA5D2_CHAN_SINGLE(1, 1, 0x64),
+-	AT91_SAMA5D2_CHAN_SINGLE(2, 2, 0x68),
+-	AT91_SAMA5D2_CHAN_SINGLE(3, 3, 0x6c),
+-	AT91_SAMA5D2_CHAN_SINGLE(4, 4, 0x70),
+-	AT91_SAMA5D2_CHAN_SINGLE(5, 5, 0x74),
+-	AT91_SAMA5D2_CHAN_SINGLE(6, 6, 0x78),
+-	AT91_SAMA5D2_CHAN_SINGLE(7, 7, 0x7c),
+-	AT91_SAMA5D2_CHAN_SINGLE(8, 8, 0x80),
+-	AT91_SAMA5D2_CHAN_SINGLE(9, 9, 0x84),
+-	AT91_SAMA5D2_CHAN_SINGLE(10, 10, 0x88),
+-	AT91_SAMA5D2_CHAN_SINGLE(11, 11, 0x8c),
+-	AT91_SAMA5D2_CHAN_SINGLE(12, 12, 0x90),
+-	AT91_SAMA5D2_CHAN_SINGLE(13, 13, 0x94),
+-	AT91_SAMA5D2_CHAN_SINGLE(14, 14, 0x98),
+-	AT91_SAMA5D2_CHAN_SINGLE(15, 15, 0x9c),
+-	AT91_SAMA5D2_CHAN_DIFF(16, 0, 1, 0x60),
+-	AT91_SAMA5D2_CHAN_DIFF(17, 2, 3, 0x68),
+-	AT91_SAMA5D2_CHAN_DIFF(18, 4, 5, 0x70),
+-	AT91_SAMA5D2_CHAN_DIFF(19, 6, 7, 0x78),
+-	AT91_SAMA5D2_CHAN_DIFF(20, 8, 9, 0x80),
+-	AT91_SAMA5D2_CHAN_DIFF(21, 10, 11, 0x88),
+-	AT91_SAMA5D2_CHAN_DIFF(22, 12, 13, 0x90),
+-	AT91_SAMA5D2_CHAN_DIFF(23, 14, 15, 0x98),
++	AT91_SAMA7G5_CHAN_SINGLE(0, 0, 0x60),
++	AT91_SAMA7G5_CHAN_SINGLE(1, 1, 0x64),
++	AT91_SAMA7G5_CHAN_SINGLE(2, 2, 0x68),
++	AT91_SAMA7G5_CHAN_SINGLE(3, 3, 0x6c),
++	AT91_SAMA7G5_CHAN_SINGLE(4, 4, 0x70),
++	AT91_SAMA7G5_CHAN_SINGLE(5, 5, 0x74),
++	AT91_SAMA7G5_CHAN_SINGLE(6, 6, 0x78),
++	AT91_SAMA7G5_CHAN_SINGLE(7, 7, 0x7c),
++	AT91_SAMA7G5_CHAN_SINGLE(8, 8, 0x80),
++	AT91_SAMA7G5_CHAN_SINGLE(9, 9, 0x84),
++	AT91_SAMA7G5_CHAN_SINGLE(10, 10, 0x88),
++	AT91_SAMA7G5_CHAN_SINGLE(11, 11, 0x8c),
++	AT91_SAMA7G5_CHAN_SINGLE(12, 12, 0x90),
++	AT91_SAMA7G5_CHAN_SINGLE(13, 13, 0x94),
++	AT91_SAMA7G5_CHAN_SINGLE(14, 14, 0x98),
++	AT91_SAMA7G5_CHAN_SINGLE(15, 15, 0x9c),
++	AT91_SAMA7G5_CHAN_DIFF(16, 0, 1, 0x60),
++	AT91_SAMA7G5_CHAN_DIFF(17, 2, 3, 0x68),
++	AT91_SAMA7G5_CHAN_DIFF(18, 4, 5, 0x70),
++	AT91_SAMA7G5_CHAN_DIFF(19, 6, 7, 0x78),
++	AT91_SAMA7G5_CHAN_DIFF(20, 8, 9, 0x80),
++	AT91_SAMA7G5_CHAN_DIFF(21, 10, 11, 0x88),
++	AT91_SAMA7G5_CHAN_DIFF(22, 12, 13, 0x90),
++	AT91_SAMA7G5_CHAN_DIFF(23, 14, 15, 0x98),
+ 	IIO_CHAN_SOFT_TIMESTAMP(24),
+ 	AT91_SAMA5D2_CHAN_TEMP(AT91_SAMA7G5_ADC_TEMP_CHANNEL, "temp", 0xdc),
+ };
+
+---
+base-commit: 0bc21e701a6ffacfdde7f04f87d664d82e8a13bf
+change-id: 20250103-fix-sama7g5-adc-realbits-37f62f8925d7
+
+Best regards,
 -- 
-2.30.2
+Nayab Sayed <nayabbasha.sayed@microchip.com>
+
 
 
