@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F551E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 19:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD66E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 19:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=myPGJtQShLdWQVyusT0R+YbAKIhDS9JqUOg0Y0FiQuw=; b=rhOvljVTORU8JVBl/Bv6JD0tec
-	BJu6xSu7TGZbelnDzvDTw3jccgClwE8+apCnvOkDH6LmLYL+XikBlZX5tfpOo0TCQdJFmTAggPqJs
-	6rQfYcr3WcqZaY/sxG+nv0kDYmm4LHmMQy2/C3xJN2n7I/DWolIRRw4kjpJDVZHnKtYdvEd9GqgTU
-	Ogd5g6FgM+MlA5fWE3YISAbYsrCbkL+E2f4HxO+fo6eLTUUNIwlIXH4nmmz7y9ZAqrzidSROvgZLR
-	MqS4MONYoqydNQ2rCxkDaAJS3y4MWQSf4KRjVIp3+sPYYGURlY5xlmTWUVfIT+n578nDY5xgMryU7
-	iih7/y2A==;
+	bh=jwydjmJT2YL2H6h0BlrDdpncfhiYCc095veUxdLYW/8=; b=SL/QpQ5WaMg3dgIleXZiQFcest
+	rzfNy0DfWZjwMmTnIyj5TZBgUfDm8s0RFlSLHhyUsCltXGEymXOyqHjjpzI1SgwUDaD1S3F9bUNE2
+	dKJBZlEs/T1UmDY3Pq1TiJc1lH1rkEbQaNzdv/5EmYePyv1deaC5v2WFCH6AfaZBQ4OR+esQxE7gk
+	cL7KQNw8705Qs3KvOSF5hS92HR/jqT0mjUe0UDqkXVYcdGKXhN9S3r8FtYm5yGAIfuZoueh+uCfps
+	ah+8KgK0B2kh12ZoaHLcPXkp6C22lkFInn43dvfQy+cD5DfVYr7utaT+aGSBfxBsaRIzWRz7ymrjd
+	9uvu26qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTn18-0000000Dnbq-3JNV;
-	Fri, 03 Jan 2025 19:07:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tTn2I-0000000Dnje-3RPp;
+	Fri, 03 Jan 2025 19:08:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTmy5-0000000DnBT-3YAa;
-	Fri, 03 Jan 2025 19:04:23 +0000
+	id 1tTmzf-0000000DnOq-3O9r;
+	Fri, 03 Jan 2025 19:06:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05FBBA4106D;
-	Fri,  3 Jan 2025 19:02:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 958EAC4CECE;
-	Fri,  3 Jan 2025 19:04:20 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E5954A4109D;
+	Fri,  3 Jan 2025 19:04:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50F0DC4CECE;
+	Fri,  3 Jan 2025 19:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735931060;
-	bh=DafI9g1XNuT7MPMDVqmKvgRQVNguGNF9YtDmgVH8Iow=;
+	s=k20201202; t=1735931158;
+	bh=wEfIxLmMivcYpaOCV9CS4L1pAWpwkcsxKCp/ORxJUpo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hHn2/J0sJx6vjiRvnr3BjTE74srVelov907d8VsnVm0ANis/x9aebgim/iDefjDuh
-	 WbL9RMwudR/ejSBUlulYqopxODhLwySitf+m0o7p+q/VmjMwp2muKB8n67wjfi7Fnb
-	 TYeLymDrlKfoj5l+6GaGf7tFA7V1CRU7bwkkS0qWX/2c15hlrpgQHTejk0KMsfhmJ1
-	 Q2vaUlyUHEECVj5vuwWQK6hum8IqxZzYtlWUKhOFJ+qJXPqkiYqZMFZZ7jo9NC1OoM
-	 FyXxFG83is1AvXAwbsWgRrLCZvmUh7ZXQ2Tsw/cAuMvs6Npkfw8fhRRrAj02W2BZVu
-	 xyoO0FY4hRQzQ==
-Date: Fri, 3 Jan 2025 13:04:18 -0600
+	b=dSnaBOVLKv1sXfkbNkU702SW2cppnacEk1kLbvxHoRbk+m7v2N29TqmwyugVXEjTa
+	 aRhMbOl4tah0iLu1HKXuXNVXtIoVQ6ZlTRa8ZTpKrsj9poA+h3sqU0/zI/3IYtoygJ
+	 Hf5PM3JUY3azLrosAoBWyjnwOWUOk5iB3/hRyFu7r9o3PtodZV6vZkj2p//X0P7wmU
+	 KkNHDI4nIkmlPAIb61mEubM3zViMFMjsqU6F6FTg7L1CNo2vsmb3b38SQlwLT0wQdG
+	 Cvloga74Bm2AAG/0eHyF4xTHfccwBNHveLK8VFRqg+VHpsT8Oj8mLgRIi93F7PPjv0
+	 8MXlzB9wYQpmQ==
+Date: Fri, 3 Jan 2025 13:05:56 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Andy Yan <andyshrk@163.com>
-Cc: cristian.ciocaltea@collabora.com, Andy Yan <andy.yan@rock-chips.com>,
-	krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	detlev.casanova@collabora.com, sebastian.reichel@collabora.com,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	heiko@sntech.de, linux-arm-kernel@lists.infradead.org
-Subject: Re: [RESEND PATCH v1] dt-bindings: soc: rockchip: add rk3576
- hdptxphy grf syscon
-Message-ID: <173593105799.2574254.3863097129830130474.robh@kernel.org>
-References: <20241231091841.252103-1-andyshrk@163.com>
+Cc: kishon@kernel.org, vkoul@kernel.org, heiko@sntech.de,
+	linux-rockchip@lists.infradead.org, krzk+dt@kernel.org,
+	Andy Yan <andy.yan@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, cristian.ciocaltea@collabora.com,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3] dt-bindings: phy: Add rk3576 hdptx phy
+Message-ID: <173593115586.2590023.9486538940303908638.robh@kernel.org>
+References: <20241231092721.252405-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241231091841.252103-1-andyshrk@163.com>
+In-Reply-To: <20241231092721.252405-1-andyshrk@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_110422_073223_C6104BF5 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_110559_911639_6DFF8BE0 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +75,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 31 Dec 2024 17:18:41 +0800, Andy Yan wrote:
+On Tue, 31 Dec 2024 17:27:11 +0800, Andy Yan wrote:
 > From: Andy Yan <andy.yan@rock-chips.com>
 > 
-> Add hdptxphy grf syscon compatibles for rk3576.
+> Add compatible for the HDPTX PHY on rk3576, which is compatible with
+> rk3588, but without rst_phy/rst_ropll/rst_lcpll.
+> 
+> In fact, these three reset lines are also optional on the rk3588,
+> they just used for debug, then they were removed on the rk3576 IC
+> design.
 > 
 > Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 > 
 > ---
 > 
-> (no changes since v1)
+> Changes in v3:
+> - Split from:
+>   https://lore.kernel.org/linux-rockchip/3330586.aeNJFYEL58@diego/T/#m02151cd8591d7fe92cf30ab69701ed57c1944c06
 > 
->  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> Changes in v2:
+> - Wrap commit message according to Linux coding style
+> - Make "rockchip,rk3588-hdptx-phy" const for "rockchip,rk3576-hdptx-phy"
+> - Make declare phy/ropll/lcpll reset line are not exit on rk3576
+> 
+>  .../phy/rockchip,rk3588-hdptx-phy.yaml        | 62 +++++++++++++------
+>  1 file changed, 44 insertions(+), 18 deletions(-)
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
