@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BF6E77188
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67244E7718F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 16:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z12n6pwBuO+Lp/RU6Y/RGTOaXGSjqsnsbDrc/bXr6NI=; b=ZOYR7XtWxE3Hc8s+y1qpyeXxKS
-	G1ffOF/iY/yPnkxddHmD/cL62sPC00/sHl6yt0PRMnAVsgTmqp5LHn+hh5WJSbqTeSYEw8yrKKOsv
-	hYrsfj2asziZqc+9M79oJ+F+aw5aOiVtc0rhLKmQPf7wQypv/Zbjzr1lJ592eALodBOSK8tYw7QTU
-	TdBfchA/aYyCrCDHZW46avN2Z4nn+WcJhdO/huSH2kYjvzRia2gXIIXka9STv5kfdI/vXCJ/cxoIJ
-	Aj1EM2CmiyFRG+CuvuxQYjXlTs9/6vSuayu+bI7wPWNDeF0csGQmqn8kG4UfPT+0KX/5HfEWlHEJo
-	cO3qFYXQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uRfd2J8GP5C8knwZHf/66JpMVkPptrjLbcLPhoT3Dxw=; b=JqQuYP1nJsSrKG7wfBie2Ybu8c
+	bG+Cv3hRGIHGph/z+zQP1lLG0q/nyHyJpn8VlSH08EYHi2GV3nBG2K2rt69M3QAFDznhn35mt65wr
+	qJTHZ+3jJO1eng2Xflhbx3dggJMlPNsYk7+TWpqFHAvy0N7hA7Xk/zWYRLOR8lLh8TNk1SYeMTQZF
+	DyT9Y3O24YSk7xjbHYz5XEEwDj8DyjViDJBoRaZ4r3cIzNZd7JqMWiIF2DTJxaHKcCSmyWLl55mXW
+	njBH/hXQ0D/wnUlcEeWGtoq3T0X0qlU8pPUxvQI/rZFL+70orJgWtFdmTNU3aO2WfI/eiCEvPFR3H
+	3C8H2pJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTki9-0000000DS8n-2mHB;
-	Fri, 03 Jan 2025 16:39:45 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tTkjK-0000000DSPm-16w6;
+	Fri, 03 Jan 2025 16:40:58 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTkgw-0000000DRrP-3UiU
+	id 1tTkgy-0000000DRrd-0gJ0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jan 2025 16:38:32 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aab925654d9so2160246166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 08:38:29 -0800 (PST)
+	Fri, 03 Jan 2025 16:38:33 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aa6a92f863cso2137821266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jan 2025 08:38:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1735922308; x=1736527108; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=z12n6pwBuO+Lp/RU6Y/RGTOaXGSjqsnsbDrc/bXr6NI=;
-        b=biKstf2Nffeo6Az6f7ckWmaJegwXsH8lzmQ86xKnzTRMM9stY6kr5ELBQmJGrNP4iB
-         IFu5YtVIRJuDZdZe8kP8a8zR3Xmwy2gKTWL49lN8PeWcEhfknmLOxvuVTJGYhZeZn+mk
-         j4gTgnXWTTRoDYn+cUf/r/oiNw8zEFSyVPTnLtFyKimKLEFuhA7YSBy4bQXVeHRhLf//
-         Z8BNEaTjsBQ6oDtilePCAwKLy/SOB8gkCB/2yqkSs4W6zEpy38y5eB7s5gemXjgo7+xn
-         j0N8r9BTOIt/jd2P5YrLwNcL2AIo3neZ3gATFEEQippUJpWscSqy7RDG7QbjAYbyV13Q
-         8bEQ==
+        d=tuxon.dev; s=google; t=1735922310; x=1736527110; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uRfd2J8GP5C8knwZHf/66JpMVkPptrjLbcLPhoT3Dxw=;
+        b=ClPdiGAZXIjA238oGOB3omPwKNOM/oGw90kKOiUpDQb+KQmFdPHqVxEhLjbQu45EgQ
+         3wqcqZ0EypnGzGWk4IQSc+bDvYrePueHQRRbicEMe/KlTyZwxmZMYR6Ejwo/Shum3ICJ
+         7K6b5/BHBBWoL65DaiCcjnmWDCwmMRvhyAdxtWmqMWfJPKwM620Pd9COvR1FlQs+JELP
+         y1vhGxuR7JuHqf2PgUyXG1IheXv2Vq/q2BBO0J2ogpa2oah6L3HaAy+Ebh5AHQ+LpdaY
+         ULn2dnqXokrXPiSxSetfwrtnHPEAXACafZ0eLLEgFV260xZIJO6Ixh4ob9Xg29iUAGXq
+         0eQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735922308; x=1736527108;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z12n6pwBuO+Lp/RU6Y/RGTOaXGSjqsnsbDrc/bXr6NI=;
-        b=Aw6sy0Y/6kxsiSNfRcNUYd595fX+PwTuSts1bs0srjrNSJb1kjiWuln8F5mqyJjobf
-         sIOIno7RB2P4SuE0eQYlPQO3bCV0nWxA5vbZT0ugdKH/iYHJjzpUVaFLiXHyiz+BocJh
-         W0jdG7H3ABPXtgOuT4lU5q6l8hjJDsvtUMntUn5JYGNip6xSFFtrog6EZw7XbkjThVwL
-         4djvkXNBYCbGwTqANLNWuNrWLN/aPHcejEUlNCvEFmKfSgnv6lP9k3EvDPo7JjyQMUWM
-         Qp2hGIJVnH/B5Fd2fW3NZ1p7OmCYjrG3ysXDv7o63Clsz+QGzLpPU8YnLYXxGGplZ8eJ
-         iixA==
-X-Forwarded-Encrypted: i=1; AJvYcCWpDpg1nGvpWeOZB1C3jBxxpyGZa+S7SYUXXsCFuu+ErHBrfvEK0s5LoODrGGtSSbT/lGSQLJkpYgd5GyA4c12m@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1e4YG67vTZq1xig2TUjf0KuClk5rvjXnm5era1rlZnkMWtt2W
-	pfs1l3ceE7odEZDK995I2kpYp8V26NROknNbeXM0rv3EGB2REfqSys4quTZVzJE=
-X-Gm-Gg: ASbGncvt9dItNHyi9GtZwpzLt8sG5i3XWQKpwk7gcV2m8C8o+Ye9aRjFaGPeL2HqNGT
-	yORCN83M+EwkoOxLqPSfFDsAgtWhGRnGACKl5UyJNKIByajZ9jf7toPnttN0ZlFRBWhP9hmLHdE
-	kE7IY7ZWW47dzR8qILh8RQH7Rq2XvYG80byOoWdh4YMM7fMYo900jcYynUHz/E3scf+TduY1Bk3
-	cMSYgJIAPmQUY/pqjXQMFUHr9VWxUqOQ7ByrynPpa38nC6v5WWouX7RJqdHHvvGVwtH7vLgyMUJ
-	TG2nx4m2NYE=
-X-Google-Smtp-Source: AGHT+IHvB3jSYSwVEdM8kpizh++WgojhHChTKlXDXhzjvg/G2jGnSPtOR2X4YibeMuE1jT2+Wk3xTg==
-X-Received: by 2002:a17:907:7dab:b0:aa6:98c9:aadc with SMTP id a640c23a62f3a-aac2d45fb01mr4593376466b.31.1735922308221;
-        Fri, 03 Jan 2025 08:38:28 -0800 (PST)
+        d=1e100.net; s=20230601; t=1735922310; x=1736527110;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uRfd2J8GP5C8knwZHf/66JpMVkPptrjLbcLPhoT3Dxw=;
+        b=TYxFXjqHe64CU7LxmO2VXBUbsETyUQvx0TL5PVQCtQDSOd+IukecZu3eFhw50ZC+18
+         XFpK2JXbEr1Y+EKEy5Db2pObPPsh6lJkzwPiEdpJWK5P85CQ3mizPYMiHnkObNfeJ4Se
+         5yo8pf/6JrUOdrc8BiLE0RAO5ryAnGcsazyDw1jIgDvyi4CGFWZvLHFwQZ7RsVGBHJsC
+         AKku6eWgUq6igZveXtgJZ/nIbTM+IF9cGdzIGaXEHQaDiU0zRplThfPHNlbh2G9s7KfN
+         9v9/gcZ0r5VS+5ODlPURB2RyvxmCXDJ9HQ+gVT/YlrF2OmWdt/xJl5xZGNSMOSOaMdkl
+         hJfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXnp4u6jZhrey8p8SPHw0DLbGo3CzO6D6XM2wgF49gNbK6TVA4xN6NMaYPKKI/wmOLjuSSGWgYiiFdXCwL3WQ+h@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzJsV5krk0YYrlCWrLqUCJ8blxnM900uFytaHZoOr0jLu8ELxX
+	rFZcOI2UY/tJkykEpXml4co4K/WNBp9LWWyfvzv5jipV74VB4gQvORzg9GW/Uyo=
+X-Gm-Gg: ASbGnctyxsauKYH1vjc+OBuHRLM/Q2P7XXxu9787ha2BQ8G8FgP6qx1qLLe9eqMxe4c
+	nb/vGtPBYjTKSzQOOsA4hz0VX7i1WexlziHFSxOVLRbmH12tt2jAsCnvc7aH8RfhmPdXjmHeXe5
+	wE8LhWbEMErq/KU1VnmWZIbM2E8Ehts9lSmS1EySRYsA1BSPjRAbcpZvca/n/h35E9iufFdEIt9
+	YLswn9zXH6LR9UKmCkgvQ58vD9jWhkcacuaLbjdTkk1L1LBSCMfQLpZjHGlpZJcAITG1oiiaqI/
+	PuENi5vCNhU=
+X-Google-Smtp-Source: AGHT+IEDncREyuqiaeFdEZrch8doNfoioGsr8GniNw17HEMgfl8Mb5jP1IALi9TIgf4Be+b+F0vcRQ==
+X-Received: by 2002:a17:907:944f:b0:aac:439:10ce with SMTP id a640c23a62f3a-aac2ba3c11amr5503329166b.27.1735922310189;
+        Fri, 03 Jan 2025 08:38:30 -0800 (PST)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.102])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e8953b6sm1932984066b.65.2025.01.03.08.38.26
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aac0e8953b6sm1932984066b.65.2025.01.03.08.38.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jan 2025 08:38:27 -0800 (PST)
+        Fri, 03 Jan 2025 08:38:29 -0800 (PST)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: rafael@kernel.org,
@@ -90,15 +91,18 @@ Cc: claudiu.beznea@tuxon.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 0/6] thermal: renesas: Add support for RZ/G3S
-Date: Fri,  3 Jan 2025 18:37:59 +0200
-Message-ID: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 1/6] clk: renesas: r9a08g045: Add clocks, resets and power domain support for the TSU IP
+Date: Fri,  3 Jan 2025 18:38:00 +0200
+Message-ID: <20250103163805.1775705-2-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
+References: <20250103163805.1775705-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_083831_169192_1B17E960 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20250103_083832_200684_5089527D 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,58 +119,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Hi,
+Add clocks, resets and power domains for the TSU IP available on the
+Renesas RZ/G3S SoC.
 
-This series adds thermal support for the Renesas RZ/G3S SoC.
+Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+---
+ drivers/clk/renesas/r9a08g045-cpg.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Series is organized as follows:
-- patch 1/6:		adds clock, resets and power domain support for
-			the thermal sensor unit (TSU)
-- patch 2/6:		adds support for non-devres thermal zone
-			register/unregister 
-- patches 3-4/6:	add thermal support for RZ/G3S
-- patches 5-6/6:	add device tree support
-
-Merge strategy, if any:
-- patch 1/6 can go through the Renesas tree
-- patches 2-4/6 can go through the thermal tree
-- patches 5-6/6 can go through the Renesas tree
-
-Ulf,
-
-I've added you to this thread as well due to patch 2/6 that has a similar
-root cause as [1].
-
-Thank you,
-Claudiu Beznea
-
-[1] https://lore.kernel.org/all/20250103140042.1619703-2-claudiu.beznea.uj@bp.renesas.com/
-
-Claudiu Beznea (6):
-  clk: renesas: r9a08g045: Add clocks, resets and power domain support
-    for the TSU IP
-  thermal: of: Export non-devres helper to register/unregister thermal
-    zone
-  dt-bindings: thermal: r9a08g045-tsu: Document the TSU unit
-  thermal: renesas: rzg3s: Add thermal driver for the Renesas RZ/G3S SoC
-  arm64: dts: renesas: r9a08g045: Add TSU node
-  arm64: defconfig: Enable RZ/G3S thermal
-
- .../thermal/renesas,r9a08g045-tsu.yaml        |  93 ++++++
- MAINTAINERS                                   |   7 +
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi    |  43 ++-
- .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |   4 -
- arch/arm64/configs/defconfig                  |   1 +
- drivers/clk/renesas/r9a08g045-cpg.c           |   4 +
- drivers/thermal/renesas/Kconfig               |   8 +
- drivers/thermal/renesas/Makefile              |   1 +
- drivers/thermal/renesas/rzg3s_thermal.c       | 301 ++++++++++++++++++
- drivers/thermal/thermal_of.c                  |   8 +-
- include/linux/thermal.h                       |  14 +
- 11 files changed, 476 insertions(+), 8 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a08g045-tsu.yaml
- create mode 100644 drivers/thermal/renesas/rzg3s_thermal.c
-
+diff --git a/drivers/clk/renesas/r9a08g045-cpg.c b/drivers/clk/renesas/r9a08g045-cpg.c
+index 0e7e3bf05b52..bc44e08e7eb9 100644
+--- a/drivers/clk/renesas/r9a08g045-cpg.c
++++ b/drivers/clk/renesas/r9a08g045-cpg.c
+@@ -241,6 +241,7 @@ static const struct rzg2l_mod_clk r9a08g045_mod_clks[] = {
+ 	DEF_MOD("gpio_hclk",		R9A08G045_GPIO_HCLK, R9A08G045_OSCCLK, 0x598, 0),
+ 	DEF_MOD("adc_adclk",		R9A08G045_ADC_ADCLK, R9A08G045_CLK_TSU, 0x5a8, 0),
+ 	DEF_MOD("adc_pclk",		R9A08G045_ADC_PCLK, R9A08G045_CLK_TSU, 0x5a8, 1),
++	DEF_MOD("tsu_pclk",		R9A08G045_TSU_PCLK, R9A08G045_CLK_TSU, 0x5ac, 0),
+ 	DEF_MOD("vbat_bclk",		R9A08G045_VBAT_BCLK, R9A08G045_OSCCLK, 0x614, 0),
+ };
+ 
+@@ -279,6 +280,7 @@ static const struct rzg2l_reset r9a08g045_resets[] = {
+ 	DEF_RST(R9A08G045_GPIO_SPARE_RESETN, 0x898, 2),
+ 	DEF_RST(R9A08G045_ADC_PRESETN, 0x8a8, 0),
+ 	DEF_RST(R9A08G045_ADC_ADRST_N, 0x8a8, 1),
++	DEF_RST(R9A08G045_TSU_PRESETN, 0x8ac, 0),
+ 	DEF_RST(R9A08G045_VBAT_BRESETN, 0x914, 0),
+ };
+ 
+@@ -353,6 +355,8 @@ static const struct rzg2l_cpg_pm_domain_init_data r9a08g045_pm_domains[] = {
+ 				DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(4)), 0),
+ 	DEF_PD("adc",		R9A08G045_PD_ADC,
+ 				DEF_REG_CONF(CPG_BUS_MCPU2_MSTOP, BIT(14)), 0),
++	DEF_PD("tsu",		R9A08G045_PD_TSU,
++				DEF_REG_CONF(CPG_BUS_MCPU2_MSTOP, BIT(15)), 0),
+ 	DEF_PD("vbat",		R9A08G045_PD_VBAT,
+ 				DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(8)),
+ 				GENPD_FLAG_ALWAYS_ON),
 -- 
 2.43.0
 
