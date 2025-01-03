@@ -4,70 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CBAE7718F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 17:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CFF3E77188
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jan 2025 17:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2HkPHEaYDxxWN9cDMPjqP7amTe8qkvQdYBq1KfQGxjY=; b=zRuQAzG8/xAL1nkcKsy0g5Eb+F
-	Ail4CYYFAEEOhMYBRr/Es4UviMHtB1VkI5NRNIl/JzVCOc+o8soM6O6pkgt5Tr4ls0Z1bEXzddcGP
-	MR4+4ulGChffq55177HvtH7OUB42ME5sfj7xkBVQadaonzMHgQ35w5Kf4eBowUp58eDUCrOETxhoE
-	5I9u1qfOkMzFTpGwDW8H24HYsn5TYrBnM7lMItQyF8LendhSDpn2tvY9SxLHHr8WhdZnCslokBPis
-	CiIUIFJQGOzY9OGwiEUVdHXSiUZ0ISEhT3/974mLkg0EFtFeSZuy5IFfYfiouVFjfwFY8QXcC+6w3
-	M3qlRp/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FOM/e6XevjRG3dPMRbzkqNGbkCx1yG3QmcD8rMKrLkg=; b=zDWDZMiRr0qHirmaj4AlJ7kv59
+	CHVvZ1qD5Oyckf/N8dN6+hd46kMGSPzYywE6dk6GVmNJKh1G5XEN7xGDVIYvyDrtINcnvR/EHWjs2
+	NzZQe8K6kzurTS7HCos+VxoGA3biLlrSwzH5q2oe+tylJg5WODoU3yNKqXA3jk1OC5fiHIZHH86SJ
+	tZl1RBr8UbkxRRa8Ovo9oOndsBJZHAvTsIYdt4D7c7A94VxddDeHn9zlJkaAo8gb+DejXRfySA+Iu
+	jGKEPzyUZLQlwFoLRQmOryhZW9NMBZ4OFFfIglHlY5e887UO9kXeY42T29i9juc9nXHzLu7FsUkpQ
+	2PvFvFcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTlP3-0000000DYQN-46nd;
-	Fri, 03 Jan 2025 17:24:05 +0000
+	id 1tTlQD-0000000DYf4-44mc;
+	Fri, 03 Jan 2025 17:25:19 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTlJU-0000000DXW7-0jAj;
-	Fri, 03 Jan 2025 17:18:21 +0000
+	id 1tTlLF-0000000DXxA-0uMC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jan 2025 17:20:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5D8A65C64DF;
-	Fri,  3 Jan 2025 17:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D54C1C4CECE;
-	Fri,  3 Jan 2025 17:18:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735924699;
-	bh=mw44W+PYGrqjZ0HN6yoFwgQwsPYabuNnIEX0ZTqK9F8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=cMAR0ZAyltx92fHcJl+CuEUdF7vTGwfO7VxDU5fbqwUiRgdAqtywiRCL2nKFwWtPM
-	 rlnlUo4gG6Veq3cPW8zmhHykJMhClyT83isamsdMHkEG6OPexLKefpxmjUozXzqm82
-	 /rAL6/0Y4K7ccuupHRU2q5A8AqVS9qlJ0IH4ix28I8kkzF1LlJEyLHc1ck5lJyP53S
-	 2bqIjd3hRz6yC1ZpcR1w172gr5xg1fSF1ysW2sTawC+N3dhFnMkhEQBYXcmmXn7dq2
-	 KGTRv9CQspR2aU0mmHAdlCfgVAAlyb1zK1hzh/idIyC0tdqoMph6OuMcLxnYSWn8RR
-	 9xmtO+OO+gbsQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Mark Brown <broonie@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	matthias.bgg@gmail.com,
-	amergnat@baylibre.com,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10] ASoC: mediatek: disable buffer pre-allocation
-Date: Fri,  3 Jan 2025 12:18:14 -0500
-Message-Id: <20250103171816.492299-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	by dfw.source.kernel.org (Postfix) with ESMTP id 72ECC5C63FD;
+	Fri,  3 Jan 2025 17:19:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A9BC4CECE;
+	Fri,  3 Jan 2025 17:20:07 +0000 (UTC)
+Date: Fri, 3 Jan 2025 17:20:05 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: Filter out SVE hwcaps when FEAT_SVE isn't
+ implemented
+Message-ID: <Z3gcRczN67LsMVST@arm.com>
+References: <20250103142635.1759674-1-maz@kernel.org>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.232
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250103142635.1759674-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_091820_250306_B290094C 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250103_092009_295718_22A1A923 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,56 +63,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wenst@chromium.org>
+On Fri, Jan 03, 2025 at 02:26:35PM +0000, Marc Zyngier wrote:
+> The hwcaps code that exposes SVE features to userspace only
+> considers ID_AA64ZFR0_EL1, while this is only valid when
+> ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
+> 
+> The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
+> ID_AA64ZFR0_EL1 register is also 0. So far, so good.
+> 
+> Things become a bit more interesting if the HW implements SME.
+> In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
+> features. And these fields overlap with their SVE interpretations.
+> But the architecture says that the SME and SVE feature sets must
+> match, so we're still hunky-dory.
+> 
+> This goes wrong if the HW implements SME, but not SVE. In this
+> case, we end-up advertising some SVE features to userspace, even
+> if the HW has none. That's because we never consider whether SVE
+> is actually implemented. Oh well.
+> 
+> Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
+> being non-zero.
+> 
+> Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: stable@vger.kernel.org
 
-[ Upstream commit 32c9c06adb5b157ef259233775a063a43746d699 ]
+I'd add:
 
-On Chromebooks based on Mediatek MT8195 or MT8188, the audio frontend
-(AFE) is limited to accessing a very small window (1 MiB) of memory,
-which is described as a reserved memory region in the device tree.
+Fixes: 06a916feca2b ("arm64: Expose SVE2 features for userspace")
 
-On these two platforms, the maximum buffer size is given as 512 KiB.
-The MediaTek common code uses the same value for preallocations. This
-means that only the first two PCM substreams get preallocations, and
-then the whole space is exhausted, barring any other substreams from
-working. Since the substreams used are not always the first two, this
-means audio won't work correctly.
+While at the time the code was correct, the architecture messed up our
+assumptions with the introduction of SME.
 
-This is observed on the MT8188 Geralt Chromebooks, on which the
-"mediatek,dai-link" property was dropped when it was upstreamed. That
-property causes the driver to only register the PCM substreams listed
-in the property, and in the order given.
+> @@ -3022,6 +3027,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>  		.matches = match,						\
+>  	}
+>  
+> +#define HWCAP_CAP_MATCH_ID(match, reg, field, min_value, cap_type, cap)		\
+> +	{									\
+> +		__HWCAP_CAP(#cap, cap_type, cap)				\
+> +		HWCAP_CPUID_MATCH(reg, field, min_value) 			\
+> +		.matches = match,						\
+> +	}
 
-Instead of trying to compute an optimal value and figuring out which
-streams are used, simply disable preallocation. The PCM buffers are
-managed by the core and are allocated and released on the fly. There
-should be no impact to any of the other MediaTek platforms.
+Do we actually need this macro?
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Link: https://patch.msgid.link/20241219105303.548437-1-wenst@chromium.org
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- sound/soc/mediatek/common/mtk-afe-platform-driver.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> +
+>  #ifdef CONFIG_ARM64_PTR_AUTH
+>  static const struct arm64_cpu_capabilities ptr_auth_hwcap_addr_matches[] = {
+>  	{
+> @@ -3050,6 +3062,18 @@ static const struct arm64_cpu_capabilities ptr_auth_hwcap_gen_matches[] = {
+>  };
+>  #endif
+>  
+> +#ifdef CONFIG_ARM64_SVE
+> +static bool has_sve(const struct arm64_cpu_capabilities *cap, int scope)
+> +{
+> +	u64 aa64pfr0 = __read_scoped_sysreg(SYS_ID_AA64PFR0_EL1, scope);
+> +
+> +	if (FIELD_GET(ID_AA64PFR0_EL1_SVE, aa64pfr0) < ID_AA64PFR0_EL1_SVE_IMP)
+> +		return false;
+> +
+> +	return has_user_cpuid_feature(cap, scope);
+> +}
+> +#endif
 
-diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-index 01501d5747a7..52495c930ca3 100644
---- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-+++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-@@ -120,8 +120,8 @@ int mtk_afe_pcm_new(struct snd_soc_component *component,
- 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
- 
- 	size = afe->mtk_afe_hardware->buffer_bytes_max;
--	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV,
--				       afe->dev, size, size);
-+	snd_pcm_set_managed_buffer_all(pcm, SNDRV_DMA_TYPE_DEV, afe->dev, 0, size);
-+
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(mtk_afe_pcm_new);
+We can name this has_sve_feature() and use it with the existing
+HWCAP_CAP_MATCH() macro. I think it would look identical.
+
+We might even be able to use system_supports_sve() directly and avoid
+changing read_scoped_sysreg(). setup_user_features() is called in
+smp_cpus_done() after setup_system_features(), so using
+system_supports_sve() directly should be fine here.
+
 -- 
-2.39.5
-
+Catalin
 
